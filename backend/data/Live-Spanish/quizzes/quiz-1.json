@@ -1,0 +1,661 @@
+{
+  "id": "quiz-1",
+  "title": "Quiz 1",
+  "subtitle": "Spanish vocabulary activation through realistic contexts",
+  "level": "A2-B2",
+  "description": "A 20-question seed quiz focused on active recall, natural chunks, collocations, formal register, and realistic production.",
+  "questions": [
+    {
+      "id": 1,
+      "icon": "✉️",
+      "category": "Formal Email",
+      "typeBadge": "fill-in-blank",
+      "situation": "You are writing an email to a Spanish university to ask about scholarships for the upcoming academic year. Choose the most appropriate verb.",
+      "sentence": "Me pongo en contacto con usted para {0} información sobre las becas disponibles para el próximo curso académico.",
+      "valid": [
+        [
+          "solicitar",
+          "pedir",
+          "obtener",
+          "recabar",
+          "conseguir"
+        ]
+      ],
+      "best": [
+        "solicitar"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Solicitar\"</strong> belongs squarely to the formal register that institutional correspondence demands. It signals that you understand the appropriate level of distance and professionalism when writing to a university or official body.",
+        "alternatives": "<strong>\"Pedir\"</strong> is correct but too conversational for a formal email — you'd say it to a friend. <strong>\"Obtener\"</strong> and <strong>\"conseguir\"</strong> imply you already have a result, not that you're merely asking. <strong>\"Recabar información\"</strong> is formal but archaic and rare in everyday written Spanish.",
+        "chunk": "<em>\"Me pongo en contacto con usted para solicitar...\"</em> — a complete, reusable opening formula for any formal email or letter. You can swap in: <em>para informarle de / para comunicarle / para expresar mi disconformidad con...</em>"
+      },
+      "hints": [
+        [
+          "solicitar",
+          "pedir",
+          "reclamar",
+          "buscar"
+        ]
+      ],
+      "takeaway": {
+        "title": "Formal request, formal verbs",
+        "body": "\"Me pongo en contacto con usted para solicitar...\". \n\nIt gives distance, purpose, and professionalism without sounding cold."
+      },
+      "audio_path": "/audio/quiz-1/q1-f00c4931ed61.mp3",
+      "audio_voice": "es-ES-AlvaroNeural",
+      "audio_text": "Me pongo en contacto con usted para solicitar información sobre las becas disponibles para el próximo curso académico.",
+      "audio_hash": "f00c4931ed61",
+      "audio_language": "es",
+      "audio_cache": {
+        "es-ES-AlvaroNeural": {
+          "audio_path": "/audio/quiz-1/q1-f00c4931ed61.mp3",
+          "audio_voice": "es-ES-AlvaroNeural",
+          "audio_text": "Me pongo en contacto con usted para solicitar información sobre las becas disponibles para el próximo curso académico.",
+          "audio_hash": "f00c4931ed61",
+          "audio_language": "es",
+          "audio_gender": "male"
+        }
+      },
+      "audio_gender": "male"
+    },
+    {
+      "id": 2,
+      "icon": "📅",
+      "category": "Workplace · Meetings",
+      "typeBadge": "collocation",
+      "situation": "A colleague tells you a meeting has been officially scheduled. Which verb collocates most naturally with \"reunión\"?",
+      "sentence": "La reunión ha sido {0} para el próximo martes a las diez de la mañana.",
+      "valid": [
+        [
+          "convocada",
+          "fijada",
+          "programada",
+          "establecida",
+          "cancelada"
+        ]
+      ],
+      "best": [
+        "convocada",
+        "fijada"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Convocada\"</strong> (formally called/summoned) and <strong>\"fijada\"</strong> (set at a fixed time) are the most natural collocations with <em>reunión</em> in professional Spanish. <em>\"Convocar una reunión\"</em> especially implies that participants have been officially notified.",
+        "alternatives": "<strong>\"Organizada\"</strong> focuses on logistics, not the scheduling. <strong>\"Hecha\"</strong> is far too vague. <strong>\"Programada\"</strong> works but is slightly less idiomatic in this exact passive structure — it's more common with <em>programa</em> or <em>vuelo</em>.",
+        "chunk": "Key collocations: <em>convocar una reunión</em> (to call a meeting), <em>fijar una fecha</em> (to set a date), <em>posponer / aplazar una reunión</em> (to postpone), <em>asistir a una reunión</em> (to attend). Never say <em>\"hacer una reunión\"</em> in formal contexts."
+      },
+      "hints": [
+        [
+          "convocada",
+          "hecha",
+          "quedada",
+          "llamada"
+        ]
+      ],
+      "takeaway": {
+        "title": "Meetings are convocadas or fijadas",
+        "body": "\"Convocar una reunión\" means officially call a meeting; \"fijar una fecha\" means set the date. Avoid \"hacer una reunión\" in professional Spanish."
+      },
+      "audio_path": "/audio/quiz-1/q2-c07e02eb5912.mp3",
+      "audio_voice": "es-ES-AlvaroNeural",
+      "audio_text": "La reunión ha sido convocada para el próximo martes a las diez de la mañana.",
+      "audio_hash": "c07e02eb5912",
+      "audio_language": "es"
+    },
+    {
+      "id": 5,
+      "icon": "🏨",
+      "category": "Travel · Hotel",
+      "typeBadge": "multi-blank",
+      "situation": "You check in at a hotel and your room isn't what you booked. Fill in BOTH blanks to make a natural complaint.",
+      "sentence": "Perdone, creo que hay un {0} con mi reserva. Pedí una habitación con {1} al mar, pero me han asignado una interior.",
+      "valid": [
+        [
+          "error",
+          "problema",
+          "malentendido",
+          "fallo",
+          "confusión",
+          "incidencia"
+        ],
+        [
+          "vistas",
+          "vista"
+        ]
+      ],
+      "best": [
+        "malentendido / error",
+        "vistas"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Malentendido\"</strong> or <strong>\"error\"</strong> is diplomatic and non-confrontational for blank 1. For blank 2, <strong>\"vistas\"</strong> (plural) is the fixed phrase — <em>\"con vistas al mar\"</em> is an idiom, and Spanish always uses the plural here. Using singular \"vista\" sounds like a direct translation from English.",
+        "alternatives": "Blank 1: <strong>\"Conflicto\"</strong> sounds too adversarial. <strong>\"Incidencia\"</strong> is formal and correct but slightly bureaucratic — better in a written complaint than face-to-face. Blank 2: <strong>\"Vista\"</strong> (singular) is a common anglicism; native speakers always say <em>vistas</em>.",
+        "chunk": "<em>\"con vistas al mar / a la montaña / a la ciudad\"</em> — always plural. Hotel complaint openers: <em>\"Creo que hay un error con mi reserva\" / \"Me habían confirmado una habitación diferente\" / \"¿Podría hablar con el responsable?\"</em>"
+      },
+      "hints": [
+        [
+          "malentendido",
+          "conflicto",
+          "retraso",
+          "mensaje"
+        ],
+        [
+          "vistas",
+          "vista",
+          "mirada",
+          "ventana"
+        ]
+      ],
+      "takeaway": {
+        "title": "Hotel complaints: error + vistas",
+        "body": "Say \"hay un error/malentendido con mi reserva\" and remember the fixed plural phrase \"con vistas al mar\"."
+      },
+      "audio_path": "/audio/quiz-1/q5-9f7d7551d9c0.mp3",
+      "audio_voice": "es-ES-AlvaroNeural",
+      "audio_text": "Perdone, creo que hay un malentendido con mi reserva. Pedí una habitación con vistas al mar, pero me han asignado una interior.",
+      "audio_hash": "9f7d7551d9c0",
+      "audio_cache": {
+        "es-ES-AlvaroNeural": {
+          "audio_path": "/audio/quiz-1/q5-9f7d7551d9c0.mp3",
+          "audio_voice": "es-ES-AlvaroNeural",
+          "audio_text": "Perdone, creo que hay un malentendido con mi reserva. Pedí una habitación con vistas al mar, pero me han asignado una interior.",
+          "audio_hash": "9f7d7551d9c0",
+          "audio_language": "es",
+          "audio_gender": "male"
+        }
+      },
+      "audio_language": "es",
+      "audio_gender": "male"
+    },
+    {
+      "id": 6,
+      "icon": "🗓️",
+      "category": "Daily Conversation · Scheduling",
+      "typeBadge": "natural expression",
+      "situation": "A friend suggests meeting on Tuesday but that day doesn't work for you. Use the most natural idiomatic phrase.",
+      "sentence": "Lo siento, ese día no me {0} bien. ¿Podríamos quedar otro día?",
+      "valid": [
+        [
+          "viene",
+          "va",
+          "viene bien"
+        ]
+      ],
+      "best": [
+        "viene"
+      ],
+      "feedback": {
+        "natural": "<strong>\"No me viene bien\"</strong> is the go-to phrase for saying a time or day doesn't suit you. <em>Venirle bien a alguien</em> means \"to work for / suit someone\" — it's concise, conversational, and sounds completely native without over-explaining.",
+        "alternatives": "<strong>\"No puedo\"</strong> is fine but gives no reason and can sound abrupt. <strong>\"No estoy libre\"</strong> is too literal. <strong>\"No es conveniente\"</strong> sounds stiff and translated. <strong>\"No me va bien\"</strong> is acceptable in some regions but <em>\"viene\"</em> is more universally standard.",
+        "chunk": "Essential scheduling phrases: <em>\"¿Te viene bien el...?\" / \"No me viene bien ese día\" / \"¿Qué día te va mejor?\" / \"Me vendría mejor por la tarde\" / \"¿Podemos quedar para otro día?\"</em>"
+      },
+      "hints": [
+        [
+          "viene",
+          "queda",
+          "sale",
+          "pasa"
+        ]
+      ],
+      "takeaway": {
+        "title": "Scheduling chunk",
+        "body": "\"No me viene bien\" is the natural way to say a time does not work for you. It is warmer and more idiomatic than a blunt \"no puedo\"."
+      }
+    },
+    {
+      "id": 7,
+      "icon": "⚙️",
+      "category": "Grammar in Context · Verb + Preposition",
+      "typeBadge": "verb + preposition",
+      "situation": "A business deal fell through because the client refused to sign. Supply the missing preposition.",
+      "sentence": "El cliente se negó {0} firmar el contrato sin revisarlo primero con su abogado.",
+      "valid": [
+        [
+          "a"
+        ]
+      ],
+      "best": [
+        "a"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Negarse a + infinitive\"</strong> is the fixed structure for refusing to do something — the preposition <em>a</em> is obligatory and non-negotiable. Getting this right signals grammatical fluency.",
+        "alternatives": "<strong>\"Negarse de\"</strong> and <strong>\"negarse en\"</strong> simply don't exist. The confusion often comes from English (\"to refuse to\") or French. Compare: <em>negarse a</em> (refuse), <em>oponerse a</em> (oppose), <em>resistirse a</em> (resist), <em>renunciar a</em> (give up) — all take <em>a</em>.",
+        "chunk": "Key verbs + <em>a</em> + infinitive: <em>negarse a, atreverse a, resistirse a, oponerse a, ayudar a, aprender a, invitar a, obligar a, acostumbrarse a.</em> All express resistance, attitude, or relationship toward an action."
+      },
+      "hints": [
+        [
+          "a",
+          "de",
+          "en",
+          "con"
+        ]
+      ],
+      "takeaway": {
+        "title": "Negarse a",
+        "body": "\"Negarse a + infinitive\" is fixed. Learn it as one chunk, along with \"oponerse a\", \"resistirse a\" and \"renunciar a\"."
+      }
+    },
+    {
+      "id": 8,
+      "icon": "💼",
+      "category": "Workplace · Delegation",
+      "typeBadge": "collocation",
+      "situation": "A stressed colleague mentions a task that needs handling. You step up and offer to deal with it.",
+      "sentence": "No te preocupes, yo me {0} de eso. Tú céntrate en el informe.",
+      "valid": [
+        [
+          "encargo",
+          "ocupo",
+          "encargaré",
+          "ocuparé"
+        ]
+      ],
+      "best": [
+        "encargo"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Me encargo de eso\"</strong> is exactly how a competent native speaker offers to handle something. Using the present tense (\"me encargo\", not \"me voy a encargar\") gives it confidence and immediacy — it's a firm, unhesitating offer.",
+        "alternatives": "<strong>\"Me ocupo\"</strong> also works but sounds slightly less assertive. <strong>\"Lo hago yo\"</strong> is correct but vague. <strong>\"Voy a hacerlo yo\"</strong> is fine but wordier. The future <em>\"me encargaré\"</em> is natural too but the present tense version is bolder and more direct.",
+        "chunk": "<em>\"Encargarse de algo\"</em> = to handle / take charge of something. Extend it: <em>\"¿De qué te encargas tú?\" / \"Déjame encargarlo\" / \"Ella se encarga del departamento de ventas\" / \"Ya me encargo yo.\"</em>"
+      },
+      "hints": [
+        [
+          "encargo",
+          "cargo",
+          "cuido",
+          "tomo"
+        ]
+      ],
+      "takeaway": {
+        "title": "Taking responsibility",
+        "body": "\"Yo me encargo de eso\" is the native-sounding way to take charge of a task. Present tense makes it confident and immediate."
+      }
+    },
+    {
+      "id": 10,
+      "icon": "📨",
+      "category": "Formal Register · Requests",
+      "typeBadge": "formal vs informal",
+      "situation": "You need a file from your supervisor. Transform this informal request into a formal written version: \"¿Me mandas el archivo cuando puedas?\"",
+      "sentence": "¿Podría {0} el archivo cuando lo tenga disponible? Se lo agradecería mucho.",
+      "valid": [
+        [
+          "enviarme",
+          "remitirme",
+          "hacerme llegar",
+          "mandarme",
+          "pasarme"
+        ]
+      ],
+      "best": [
+        "enviarme",
+        "remitirme"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Enviarme\"</strong> is the standard formal verb for sending. <strong>\"Remitirme\"</strong> is even more elevated and appears in professional correspondence. The conditional <em>\"¿Podría...?\"</em> is what shifts the whole request from a demand to a polite, deferential ask.",
+        "alternatives": "<strong>\"Mandarme\"</strong> is correct but informal. <strong>\"Pasarme\"</strong> is very casual — office chat, not a written email. <strong>\"Hacerme llegar\"</strong> is elegant and formal but slightly indirect. The formula <em>\"¿Podría usted + infinitive?\"</em> is the gold standard for formal email requests.",
+        "chunk": "Register ladder for \"send\": <em>pasame (very casual) → mándame (informal) → envíame (neutral) → ¿podría enviarme? (formal) → ¿tendría la amabilidad de remitirme? (very formal).</em> The conditional always elevates the register."
+      },
+      "hints": [
+        [
+          "enviarme",
+          "pasarme",
+          "decirme",
+          "subirme"
+        ]
+      ],
+      "takeaway": {
+        "title": "Formal request formula",
+        "body": "\"¿Podría enviarme...?\" plus \"Se lo agradecería\" raises the register immediately. Avoid casual verbs like \"pasar\" in formal email."
+      }
+    },
+    {
+      "id": 11,
+      "icon": "🎓",
+      "category": "University · Academic Life",
+      "typeBadge": "collocation",
+      "situation": "A student is panicking — they have a deadline on Friday. Fill in the natural academic collocation.",
+      "sentence": "Si no {0} el trabajo antes del viernes, el profesor no te pondrá nota y tendrás que repetir la asignatura.",
+      "valid": [
+        [
+          "entregas",
+          "presentas",
+          "entregás"
+        ]
+      ],
+      "best": [
+        "entregas"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Entregar un trabajo\"</strong> is the standard academic collocation for handing in / submitting coursework. Native Spanish students always say <em>entregar</em>, never <em>dar</em> in this context. The verb precisely captures the act of formally submitting something.",
+        "alternatives": "<strong>\"Presentas\"</strong> is acceptable especially for oral presentations or more formal submissions but is less common for written work. <strong>\"Das\"</strong> is too informal and sounds odd — you give gifts, not coursework. <strong>\"Mandas\"</strong> only works colloquially for digital/email submissions.",
+        "chunk": "Academic life vocabulary: <em>entregar un trabajo / un informe (submit), aprobar / suspender un examen (pass / fail), matricularse en una asignatura (enroll in a subject), pedir una prórroga (request an extension), hacer una tutoría (attend a tutorial).</em>"
+      },
+      "hints": [
+        [
+          "entregas",
+          "das",
+          "haces",
+          "lanzas"
+        ]
+      ],
+      "takeaway": {
+        "title": "Academic submission",
+        "body": "For coursework, Spanish uses \"entregar un trabajo\". \"Dar\" sounds too generic; \"presentar\" works better for oral or formal presentations."
+      }
+    },
+    {
+      "id": 12,
+      "icon": "☕",
+      "category": "Daily Conversation · Making Plans",
+      "typeBadge": "multi-blank",
+      "situation": "You're trying to arrange coffee with a friend. Fill in BOTH blanks to sound completely natural in a casual Spanish conversation.",
+      "sentence": "¿Te {0} bien el sábado por la tarde? Si no, podemos {1} para la semana siguiente.",
+      "valid": [
+        [
+          "viene",
+          "va",
+          "viene bien"
+        ],
+        [
+          "dejarlo",
+          "posponerlo",
+          "aplazarlo",
+          "quedarlo",
+          "dejarlo para otro día",
+          "dejarlo para otro dia"
+        ]
+      ],
+      "best": [
+        "viene",
+        "dejarlo / posponerlo"
+      ],
+      "feedback": {
+        "natural": "<strong>\"¿Te viene bien?\"</strong> and <strong>\"dejarlo para...\"</strong> form a perfectly natural conversational pairing. These two phrases together capture exactly how Spaniards arrange — and rearrange — their plans without any awkwardness.",
+        "alternatives": "<strong>\"¿Estás libre?\"</strong> works but is less specific to scheduling. <strong>\"Cancelarlo\"</strong> means to cancel permanently — not what you want! <strong>\"Posponerlo\"</strong> is natural but slightly more formal than \"dejarlo para\". <strong>\"Aplazarlo\"</strong> is correct in formal contexts like business meetings.",
+        "chunk": "Planning and rescheduling: <em>\"¿Te viene bien el...?\" / \"Lo dejamos para otro día\" / \"¿Qué día te va mejor?\" / \"Quedamos el lunes a las...\" / \"Me viene mejor por la tarde\" / \"¿Lo dejamos para la semana que viene?\"</em>"
+      },
+      "hints": [
+        [
+          "viene",
+          "toca",
+          "cae",
+          "sienta"
+        ],
+        [
+          "dejarlo",
+          "cancelarlo",
+          "olvidarlo",
+          "cortarlo"
+        ]
+      ],
+      "takeaway": {
+        "title": "Plans and rescheduling",
+        "body": "\"¿Te viene bien...?\" pairs naturally with \"lo dejamos para...\". This is a high-frequency planning pattern for daily conversation."
+      }
+    },
+    {
+      "id": 13,
+      "icon": "📧",
+      "category": "Written Expression · Cause Connectors",
+      "typeBadge": "connector insertion",
+      "situation": "You're writing a professional email to your boss explaining why you missed yesterday's meeting. Choose the most appropriate cause connector.",
+      "sentence": "No pude asistir a la reunión de ayer {0} tenía una cita médica urgente que no podía cancelar.",
+      "valid": [
+        [
+          "porque",
+          "ya que",
+          "puesto que",
+          "dado que",
+          "pues",
+          "debido a que"
+        ]
+      ],
+      "best": [
+        "ya que",
+        "puesto que"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Ya que\"</strong> and <strong>\"puesto que\"</strong> are more formal than <em>porque</em> and carry the sense of explaining an acknowledged circumstance. In a professional email to a superior, this slight elevation in register reads as more polished and respectful.",
+        "alternatives": "<strong>\"Porque\"</strong> is always correct and the most natural in speech, but can sound slightly blunt in formal writing. <strong>\"Pues\"</strong> is very spoken/colloquial — avoid it in written emails. <strong>\"Como\"</strong> also expresses cause but goes at the beginning: <em>\"Como tenía una cita, no pude asistir.\"</em>",
+        "chunk": "Cause connectors by register: <em>pues (very spoken) → porque (neutral) → ya que / puesto que (semi-formal) → dado que / en vista de que / habida cuenta de que (formal/official).</em> In emails, <em>ya que</em> is often the perfect balance."
+      },
+      "hints": [
+        [
+          "ya que",
+          "pues",
+          "como",
+          "por"
+        ]
+      ],
+      "takeaway": {
+        "title": "Cause connector by register",
+        "body": "\"Ya que\" and \"puesto que\" are polished choices for explaining a reason in email. \"Porque\" is correct, but more direct and neutral."
+      }
+    },
+    {
+      "id": 14,
+      "icon": "📮",
+      "category": "Formal Email · Closing Formulas",
+      "typeBadge": "fill-in-blank",
+      "situation": "You're finishing a formal business email to a client. Complete this standard professional closing.",
+      "sentence": "Quedo a su {0} para cualquier duda o consulta adicional que pueda surgir. En espera de su respuesta, le saludo atentamente.",
+      "valid": [
+        [
+          "disposición",
+          "disposicion"
+        ]
+      ],
+      "best": [
+        "disposición"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Quedar a su disposición\"</strong> is a cornerstone closing formula in Spanish professional communication. It means \"I remain at your disposal\" — the formal equivalent of \"please don't hesitate to contact me.\" Omitting or replacing it with something casual would undermine the whole email's register.",
+        "alternatives": "<strong>\"Quedo a su servicio\"</strong> is also correct and formal, more common in hospitality contexts. <strong>\"Estoy aquí para cualquier cosa\"</strong> is far too casual for a business email. <strong>\"Me pongo a su disposición\"</strong> is a valid alternative phrase for the opening rather than the closing.",
+        "chunk": "Complete formal closing toolkit: <em>\"Quedo a su disposición para cualquier consulta.\" / \"Sin otro particular, reciba un cordial saludo.\" / \"En espera de su respuesta, le saludo atentamente.\" / \"Aprovecho la ocasión para saludarle cordialmente.\"</em>"
+      },
+      "hints": [
+        [
+          "disposición",
+          "servicio",
+          "atención",
+          "mano"
+        ]
+      ],
+      "takeaway": {
+        "title": "Professional closing",
+        "body": "\"Quedo a su disposición\" is a standard closing chunk. It means you remain available for questions without using informal wording."
+      }
+    },
+    {
+      "id": 15,
+      "icon": "🍽️",
+      "category": "Customer Service · Restaurant",
+      "typeBadge": "natural expression",
+      "situation": "You've been ignored at a restaurant for over 20 minutes. You want to complain politely but directly. Fill in the most natural phrase.",
+      "sentence": "Perdone, llevamos más de veinte minutos esperando y todavía no nos han {0}.",
+      "valid": [
+        [
+          "atendido",
+          "traído nada",
+          "servido",
+          "tomado nota",
+          "tomado el pedido"
+        ]
+      ],
+      "best": [
+        "atendido",
+        "tomado nota / el pedido"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Atendido\"</strong> is the broadest and most versatile option. <strong>\"Tomado nota\"</strong> or <strong>\"tomado el pedido\"</strong> are even more specific and realistic — they pinpoint exactly what hasn't happened and sound completely native in a restaurant setting.",
+        "alternatives": "<strong>\"Ayudado\"</strong> sounds odd in a restaurant context — you help people with tasks, not serve them food. <strong>\"Servido\"</strong> is understandable but more commonly used when the food physically arrives. The most natural full complaint would be: <em>\"Llevamos veinte minutos y nadie ha venido a tomarnos nota.\"</em>",
+        "chunk": "Restaurant vocabulary: <em>tomar nota / tomar el pedido (take the order), traer la cuenta (bring the bill), atender a un cliente (serve), pedir de primero / segundo (order as starter / main), ¿Nos puede atender? / ¿Podemos pedir? (Can we order?)</em>"
+      },
+      "hints": [
+        [
+          "atendido",
+          "ayudado",
+          "visto",
+          "cobrado"
+        ]
+      ],
+      "takeaway": {
+        "title": "Restaurant service verbs",
+        "body": "\"Nos han atendido\" is broad; \"tomarnos nota\" is specific to ordering. Both sound more natural than direct translations with \"ayudar\"."
+      }
+    },
+    {
+      "id": 17,
+      "icon": "🤔",
+      "category": "Daily Conversation · Misunderstandings",
+      "typeBadge": "fill-in-blank",
+      "situation": "You and a colleague scheduled a meeting for different days. You want to point this out diplomatically, without blaming anyone.",
+      "sentence": "Creo que ha habido un {0}. Yo entendí que quedábamos el martes, no el miércoles.",
+      "valid": [
+        [
+          "malentendido",
+          "error",
+          "confusión",
+          "problema",
+          "lío",
+          "fallo",
+          "equívoco"
+        ]
+      ],
+      "best": [
+        "malentendido"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Malentendido\"</strong> is the most precise and diplomatically neutral word for a communication failure. It spreads no blame — it simply names what happened. This is exactly the tone you want in a professional context.",
+        "alternatives": "<strong>\"Confusión\"</strong> is also natural and slightly softer. <strong>\"Error\"</strong> is fine but implies someone made a concrete mistake. <strong>\"Lío\"</strong> is informal and slightly chaotic in tone. <strong>\"Equívoco\"</strong> is correct but rare in everyday speech — it sounds slightly literary.",
+        "chunk": "<em>\"Ha habido un malentendido\"</em> — diplomatic and direct. Also useful: <em>\"Creo que nos hemos malentendido\" / \"Quizá no me expliqué bien\" / \"A lo mejor me expresé mal\" / \"¿Podemos aclarar esto?\"</em>"
+      },
+      "hints": [
+        [
+          "malentendido",
+          "accidente",
+          "debate",
+          "choque"
+        ]
+      ],
+      "takeaway": {
+        "title": "Diplomatic misunderstanding",
+        "body": "\"Ha habido un malentendido\" names the problem without blaming anyone. Useful in work, scheduling, and relationship conversations."
+      }
+    },
+    {
+      "id": 18,
+      "icon": "📋",
+      "category": "Formal Register · Written Complaints",
+      "typeBadge": "formal vs informal",
+      "situation": "You're writing a formal complaint letter to a company after being incorrectly charged. Raise the register of: \"Estoy muy enfadado porque me cobraron de más.\"",
+      "sentence": "Me dirijo a ustedes para {0} mi disconformidad con el cargo incorrecto que aparece en mi última factura.",
+      "valid": [
+        [
+          "expresar",
+          "manifestar",
+          "comunicar",
+          "hacer constar",
+          "trasladar",
+          "poner de manifiesto"
+        ]
+      ],
+      "best": [
+        "manifestar",
+        "expresar"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Manifestar mi disconformidad\"</strong> is a fixed formal chunk meaning \"to express my dissatisfaction.\" It's the kind of phrase that appears in official complaint letters and immediately signals that you know how to navigate formal written Spanish.",
+        "alternatives": "<strong>\"Decir\"</strong> is far too informal. <strong>\"Mostrar\"</strong> works but is more visual/physical. <strong>\"Comunicar\"</strong> is formal but more neutral. <strong>\"Hacer constar\"</strong> is very formal, meaning \"to put on record\" — used in legal or quasi-legal contexts. <strong>\"Trasladar\"</strong> is common in Spanish bureaucratic language.",
+        "chunk": "Formal complaint vocabulary: <em>manifestar / expresar mi disconformidad (express dissatisfaction), solicitar una compensación (request compensation), exigir una solución (demand a resolution), interponer una reclamación formal (lodge a formal complaint), en espera de su pronta resolución (awaiting your prompt resolution).</em>"
+      },
+      "hints": [
+        [
+          "manifestar",
+          "decir",
+          "mostrar",
+          "contar"
+        ]
+      ],
+      "takeaway": {
+        "title": "Formal complaint register",
+        "body": "\"Manifestar mi disconformidad\" is a powerful written complaint chunk. It sounds official without becoming aggressive."
+      }
+    },
+    {
+      "id": 19,
+      "icon": "📚",
+      "category": "Daily Conversation · Study Pressure",
+      "typeBadge": "natural expression",
+      "situation": "A student is panicking about an exam that's coming up very soon and they haven't started studying. Fill in the most vivid, natural verb.",
+      "sentence": "El examen final se me {0} encima y todavía no he empezado a estudiar.",
+      "valid": [
+        [
+          "echa",
+          "viene",
+          "cae",
+          "está"
+        ]
+      ],
+      "best": [
+        "echa",
+        "viene"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Se me echa encima\"</strong> and <strong>\"se me viene encima\"</strong> are both extremely vivid and native. They use the reflexive + indirect object pronoun <em>(se me)</em> to convey that something is rushing toward you — you feel the pressure and urgency physically. This is expressive, spontaneous Spanish.",
+        "alternatives": "<strong>\"El examen está cerca\"</strong> is grammatically correct but flat and lifeless — it lacks the expressive urgency that <em>\"se me echa encima\"</em> carries. This is the exact difference between grammatically correct and genuinely native-sounding Spanish.",
+        "chunk": "<em>\"Se me echa encima\"</em> / <em>\"se me viene encima\"</em> — use whenever a deadline or obligation feels dangerously close. Also: <em>\"El plazo se agota\" (the deadline is running out) / \"me queda poco tiempo\" / \"no me llega el tiempo\" / \"voy muy justo de tiempo.\"</em>"
+      },
+      "hints": [
+        [
+          "echa",
+          "tira",
+          "pone",
+          "sube"
+        ]
+      ],
+      "takeaway": {
+        "title": "Deadline pressure",
+        "body": "\"Se me echa encima\" makes an approaching deadline feel urgent and personal. The \"se me\" pattern gives the phrase its native force."
+      }
+    },
+    {
+      "id": 20,
+      "icon": "🤝",
+      "category": "Formal Register · Customer Apology",
+      "typeBadge": "fill-in-blank",
+      "situation": "You work in customer service and are writing a response to a complaint about a delayed delivery. Complete the standard apology formula.",
+      "sentence": "Lamentamos profundamente los {0} causados y le aseguramos que estamos tomando las medidas necesarias para que esta situación no vuelva a repetirse.",
+      "valid": [
+        [
+          "inconvenientes",
+          "problemas",
+          "trastornos",
+          "perjuicios",
+          "molestias"
+        ]
+      ],
+      "best": [
+        "inconvenientes",
+        "molestias"
+      ],
+      "feedback": {
+        "natural": "<strong>\"Lamentamos los inconvenientes causados\"</strong> is practically a set phrase in customer service Spanish. It's diplomatic, measured, and universally recognized as the appropriate formal apology. <strong>\"Molestias\"</strong> is equally common and slightly warmer in tone.",
+        "alternatives": "<strong>\"Problemas\"</strong> is too blunt and direct for a corporate apology — it sounds like an admission of failure rather than a diplomatic acknowledgment. <strong>\"Trastornos\"</strong> is valid but slightly dramatic. <strong>\"Perjuicios\"</strong> implies legal or financial harm and would escalate the tone unnecessarily.",
+        "chunk": "Corporate apology toolkit: <em>\"Lamentamos los inconvenientes causados.\" / \"Disculpe las molestias ocasionadas.\" / \"Sentimos profundamente lo ocurrido.\" / \"Le pedimos disculpas por el retraso.\" / \"Lamentamos no haber estado a la altura de sus expectativas.\"</em>"
+      },
+      "hints": [
+        [
+          "inconvenientes",
+          "errores",
+          "fallos",
+          "desastres"
+        ]
+      ],
+      "takeaway": {
+        "title": "Customer-service apology",
+        "body": "\"Lamentamos los inconvenientes causados\" is the standard corporate apology formula. \"Molestias\" is also common and slightly warmer."
+      }
+    }
+  ]
+}

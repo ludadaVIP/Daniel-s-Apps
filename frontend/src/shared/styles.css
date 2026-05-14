@@ -1,0 +1,280 @@
+/* ============================================================
+ * Daniel's Apps — Shared shell + hub styles.
+ *
+ * Per-app stylesheets are still imported from their own folders;
+ * this file only owns variables, the hub page, the AppShell bar,
+ * and the loading state used by every sub-app.
+ * ============================================================ */
+
+:root {
+  --bg-base: #f5f5f7;
+  --bg-surface: #ffffff;
+  --bg-elevated: #fafbff;
+  --border-soft: rgba(15, 23, 42, 0.08);
+  --border-strong: rgba(15, 23, 42, 0.16);
+  --text-primary: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent: #6366f1;
+  --shadow-soft: 0 6px 20px rgba(15, 23, 42, 0.06);
+  --shadow-medium: 0 16px 40px rgba(15, 23, 42, 0.12);
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --font-sans:
+    "Inter", "Segoe UI", "PingFang SC", "Microsoft YaHei", system-ui,
+    -apple-system, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: var(--bg-base);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* -------------------------------------------------- Hub layout */
+.hub-root {
+  min-height: 100vh;
+  padding: clamp(32px, 6vw, 80px) clamp(24px, 6vw, 96px) 80px;
+  background:
+    radial-gradient(ellipse at top left, rgba(124, 58, 237, 0.08), transparent 55%),
+    radial-gradient(ellipse at top right, rgba(14, 165, 233, 0.08), transparent 55%),
+    var(--bg-base);
+  display: flex;
+  flex-direction: column;
+  gap: 48px;
+}
+
+.hub-header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-width: 720px;
+}
+
+.hub-eyebrow {
+  margin: 0;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.hub-title {
+  margin: 0;
+  font-size: clamp(28px, 4vw, 44px);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.hub-subtitle {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 16px;
+}
+
+.hub-grid {
+  display: grid;
+  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+}
+
+.hub-card {
+  --card-accent: var(--accent);
+  position: relative;
+  background: var(--bg-surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-soft);
+  padding: 24px 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 220px;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.hub-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  pointer-events: none;
+  background: linear-gradient(135deg, var(--card-accent) 0%, transparent 65%);
+  opacity: 0;
+  transition: opacity 0.2s ease;
+  z-index: 0;
+}
+
+.hub-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.hub-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-medium);
+  border-color: color-mix(in srgb, var(--card-accent) 40%, transparent);
+}
+
+.hub-card:hover::before {
+  opacity: 0.08;
+}
+
+.hub-card-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  color: var(--card-accent);
+  background: color-mix(in srgb, var(--card-accent) 12%, transparent);
+}
+
+.hub-card-body {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.hub-card-body h2 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+}
+
+.hub-card-subtitle {
+  margin: 0;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.hub-card-description {
+  margin: 6px 0 0;
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+}
+
+.hub-card-cta {
+  margin-top: auto;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--card-accent);
+}
+
+.hub-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--text-muted);
+  font-size: 12px;
+  align-items: center;
+}
+
+.hub-footer code {
+  background: var(--bg-surface);
+  padding: 4px 8px;
+  border-radius: 8px;
+  border: 1px solid var(--border-soft);
+}
+
+/* -------------------------------------------------- AppShell */
+.dh-shell{
+  --shell-accent: var(--accent);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.dh-shell-bar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 18px;
+  background: var(--bg-surface);
+  border-bottom: 1px solid var(--border-soft);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  backdrop-filter: blur(10px);
+}
+
+.dh-shell-home {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--shell-accent) 10%, transparent);
+  color: var(--shell-accent);
+  font-size: 13px;
+  font-weight: 600;
+  transition: background 0.15s ease;
+}
+
+.dh-shell-home:hover {
+  background: color-mix(in srgb, var(--shell-accent) 18%, transparent);
+}
+
+.dh-shell-divider {
+  color: var(--text-muted);
+}
+
+.dh-shell-label {
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+.dh-shell-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+/* -------------------------------------------------- Loading */
+.hub-loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  min-height: 60vh;
+  color: var(--text-secondary);
+  font-size: 14px;
+}
+
+.hub-loading-spinner {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 3px solid rgba(99, 102, 241, 0.2);
+  border-top-color: var(--accent);
+  animation: hub-spin 0.8s linear infinite;
+}
+
+@keyframes hub-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

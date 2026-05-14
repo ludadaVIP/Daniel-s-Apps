@@ -1,0 +1,454 @@
+import json
+
+questions_data = [
+    {
+      "question": "You are drafting a formal email to a client. Which is the most natural, professional way to say 'I am writing to inform you that...'?",
+      "options": [
+        {"text": "Te escribo para decirte que...", "rationale": "This is perfectly correct for a friend, but far too informal for a client.", "isCorrect": False},
+        {"text": "Me dirijo a usted para informarle que...", "rationale": "This is the standard, highly natural formula for formal business correspondence.", "isCorrect": True},
+        {"text": "Estoy escribiendo para informar que...", "rationale": "This sounds like a literal translation from English and lacks the expected formal phrasing.", "isCorrect": False},
+        {"text": "Le aviso de que...", "rationale": "While grammatically acceptable, 'avisar' can sound a bit abrupt or casual for an opening statement.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "During a meeting, you want to suggest finding a compromise. 'We need to reach an agreement.'",
+      "options": [
+        {"text": "Necesitamos hacer un acuerdo.", "rationale": "In Spanish, we do not use 'hacer' (make) with agreements in this context.", "isCorrect": False},
+        {"text": "Tenemos que llegar a un acuerdo.", "rationale": "The exact natural collocation for 'reaching an agreement' is 'llegar a un acuerdo'.", "isCorrect": True},
+        {"text": "Hay que tomar un acuerdo.", "rationale": "You can 'tomar una decisión' (make a decision), but you don't 'tomar un acuerdo'.", "isCorrect": False},
+        {"text": "Debemos coger un acuerdo.", "rationale": "'Coger' is never used for abstract concepts like agreements.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You are apologizing for a delayed response to an email. 'I apologize for the delay.'",
+      "options": [
+        {"text": "Perdón por llegar tarde.", "rationale": "This means 'sorry for arriving late' physically, not for a delayed response.", "isCorrect": False},
+        {"text": "Disculpe la tardanza.", "rationale": "While acceptable, 'demora' or 'retraso' is much more common in written correspondence.", "isCorrect": False},
+        {"text": "Lamento la demora.", "rationale": "'Demora' or 'retraso' are the perfect, professional nouns for a delay in processes or responses.", "isCorrect": True},
+        {"text": "Siento el tiempo perdido.", "rationale": "This translates to 'I'm sorry for the lost time', which changes the meaning completely.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You are in an academic debate and want to say, 'As far as I am concerned, the data is flawed.'",
+      "options": [
+        {"text": "Por lo que a mí respecta...", "rationale": "This is the exact, high-frequency equivalent of 'as far as I'm concerned'.", "isCorrect": True},
+        {"text": "Tan lejos como estoy preocupado...", "rationale": "This is a literal, completely incorrect translation from English.", "isCorrect": False},
+        {"text": "Para mi mente...", "rationale": "Not a natural phrase in Spanish; you would use 'En mi opinión' instead.", "isCorrect": False},
+        {"text": "Según mi mismo...", "rationale": "Incorrect grammar; it should be 'Según yo' or 'A mi juicio'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You are advising a friend about a tricky situation at work. 'If I were you, I would talk to the boss.'",
+      "options": [
+        {"text": "Si fuera tú...", "rationale": "This is grammatically correct and used, but there is a more idiomatic chunk.", "isCorrect": False},
+        {"text": "Yo que tú...", "rationale": "This is the most natural, highly frequent colloquial expression for 'If I were you'.", "isCorrect": True},
+        {"text": "Si yo soy tú...", "rationale": "Incorrect mood; conditional statements require the imperfect subjunctive.", "isCorrect": False},
+        {"text": "Para ser tú...", "rationale": "This translates to 'In order to be you', which makes no sense here.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "A colleague admits they made an error on a report. 'Everyone makes mistakes.'",
+      "options": [
+        {"text": "Todo el mundo hace errores.", "rationale": "Direct translation from English; 'hacer' is not used with 'errores'.", "isCorrect": False},
+        {"text": "Todos construyen errores.", "rationale": "'Construir' means to build, which is incorrect.", "isCorrect": False},
+        {"text": "Todo el mundo comete errores.", "rationale": "The precise verb collocation is 'cometer un error'.", "isCorrect": True},
+        {"text": "Todos tienen errores.", "rationale": "While understandable, it means 'everyone has errors', not the action of making them.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You are telling a story: 'Even though it was pouring rain, we went to the concert.'",
+      "options": [
+        {"text": "A pesar de que llovía a cántaros...", "rationale": "'A pesar de que' is perfect for 'even though', and takes the indicative here as it's a declared past fact.", "isCorrect": True},
+        {"text": "Aunque llueva a cántaros...", "rationale": "The present subjunctive here would mean 'even if it rains', changing the meaning to hypothetical.", "isCorrect": False},
+        {"text": "Por mucho que llover...", "rationale": "Incorrect grammar; 'por mucho que' needs a conjugated verb, not an infinitive.", "isCorrect": False},
+        {"text": "Sin embargo llovía...", "rationale": "'Sin embargo' means 'however', not 'even though'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "In a project brief, you want to emphasize: 'We must bear in mind that the budget is tight.'",
+      "options": [
+        {"text": "Debemos llevar en mente...", "rationale": "Direct translation from English; not a natural Spanish phrase.", "isCorrect": False},
+        {"text": "Hay que tener en cuenta...", "rationale": "This is the exact, indispensable phrase for 'to bear/keep in mind'.", "isCorrect": True},
+        {"text": "Tenemos que soportar en mente...", "rationale": "Literal translation of 'bear' (soportar), which means to endure physically or emotionally.", "isCorrect": False},
+        {"text": "Debemos guardar en la cabeza...", "rationale": "Sounds like physically storing something in your skull.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You need to postpone a meeting until next Friday. 'Can we push back the meeting?'",
+      "options": [
+        {"text": "¿Podemos empujar atrás la reunión?", "rationale": "Literal translation of the English phrasal verb 'push back'.", "isCorrect": False},
+        {"text": "¿Podemos retrasar la reunión?", "rationale": "'Retrasar' or 'aplazar' are the correct verbs for postponing an event.", "isCorrect": True},
+        {"text": "¿Podemos tardar la reunión?", "rationale": "'Tardar' means to take time, not to postpone.", "isCorrect": False},
+        {"text": "¿Podemos esperar la reunión?", "rationale": "This means 'Can we wait for the meeting?'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You are calling an office and want to speak to the manager. 'Could you put me through to Mr. López?'",
+      "options": [
+        {"text": "¿Me podría pasar con el señor López?", "rationale": "'Pasar con' is the standard, natural way to say 'put me through to' on the phone.", "isCorrect": True},
+        {"text": "¿Podría ponerme a través de...", "rationale": "Literal translation of 'put through'.", "isCorrect": False},
+        {"text": "¿Me puede conectar al señor...", "rationale": "Understood, but 'pasar con' or 'poner con' is much more natural.", "isCorrect": False},
+        {"text": "¿Puede transferir mi voz a...", "rationale": "Highly unnatural and overly mechanical.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You are ending a chat with a friend you haven't seen in a while. 'I'm really looking forward to seeing you.'",
+      "options": [
+        {"text": "Estoy mirando adelante a verte.", "rationale": "Literal translation of the English idiom.", "isCorrect": False},
+        {"text": "Tengo muchas ganas de verte.", "rationale": "'Tener ganas de' is the most natural way to express looking forward to something.", "isCorrect": True},
+        {"text": "Espero mucho por verte.", "rationale": "Not natural; 'espero con ansias' would be okay, but 'ganas' is best here.", "isCorrect": False},
+        {"text": "Anticipo verte pronto.", "rationale": "Sounds very formal and slightly robotic for a chat with a friend.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Gossiping about mutual friends: 'Did you hear? Ana and Juan broke up.'",
+      "options": [
+        {"text": "Rompieron / Lo dejaron.", "rationale": "Both 'romper' and 'dejarlo' are the standard ways to say a couple broke up.", "isCorrect": True},
+        {"text": "Se quebraron.", "rationale": "'Quebrar' is used for breaking bones or going bankrupt, not relationships.", "isCorrect": False},
+        {"text": "Se separaron a sí mismos.", "rationale": "Redundant and unnatural phrasing.", "isCorrect": False},
+        {"text": "Cortaron el cable.", "rationale": "Literally 'they cut the cable'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "You're explaining why you missed a call: 'I didn't realize my phone was on silent.'",
+      "options": [
+        {"text": "No me realicé...", "rationale": "'Realizar' means to carry out or make real, it is a false friend here.", "isCorrect": False},
+        {"text": "No me di cuenta de que...", "rationale": "'Darse cuenta de' is the correct verb for realizing or noticing something.", "isCorrect": True},
+        {"text": "No lo noté que...", "rationale": "Grammatically incorrect due to the extra 'lo'.", "isCorrect": False},
+        {"text": "No supe que...", "rationale": "Means 'I didn't know', which is similar but misses the nuance of 'realizing' in the moment.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Clarifying a misunderstanding with a friend: 'It's not that I don't want to go, it's that I'm exhausted.'",
+      "options": [
+        {"text": "No es que no quiero ir, es que estoy agotado.", "rationale": "After 'No es que', the verb must be in the subjunctive.", "isCorrect": False},
+        {"text": "No es que no quiera ir, es que estoy agotado.", "rationale": "'No es que' (denied cause) triggers the subjunctive (quiera), followed by the indicative for the actual reason.", "isCorrect": True},
+        {"text": "No porque no quiero ir, sino porque...", "rationale": "Missing the subjunctive after a denied reason in this specific structure.", "isCorrect": False},
+        {"text": "No es de no querer, es de estar cansado.", "rationale": "Unnatural phrasing.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Travel issue: 'I got stuck in traffic and missed my flight.'",
+      "options": [
+        {"text": "Extrañé mi vuelo.", "rationale": "'Extrañar' means to miss emotionally (like missing a person).", "isCorrect": False},
+        {"text": "Perdí el vuelo.", "rationale": "'Perder' is the correct verb for missing a mode of transportation.", "isCorrect": True},
+        {"text": "Falté al vuelo.", "rationale": "'Faltar' is used for missing an event, class, or appointment, not a flight.", "isCorrect": False},
+        {"text": "Pasé mi vuelo.", "rationale": "Means 'I passed my flight'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Looking for a hotel: 'We tried to book a room, but they were fully booked.'",
+      "options": [
+        {"text": "Estaban totalmente llenos.", "rationale": "Understood, but 'completo' is the specific industry standard word.", "isCorrect": False},
+        {"text": "Estaba completo.", "rationale": "'Completo' is the perfect word to describe a hotel or flight that is fully booked.", "isCorrect": True},
+        {"text": "Estaban sin libros.", "rationale": "Literal translation of 'booked' to 'books' (libros).", "isCorrect": False},
+        {"text": "No tenían reservas.", "rationale": "This means 'they had no reservations', which is the opposite of the problem.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Giving directions: 'Don't worry, the pharmacy is just around the corner.'",
+      "options": [
+        {"text": "Está alrededor de la esquina.", "rationale": "A literal translation of 'around the corner' that sounds unnatural.", "isCorrect": False},
+        {"text": "Está a la vuelta de la esquina.", "rationale": "This is the precise and natural phrase for 'around the corner'.", "isCorrect": True},
+        {"text": "Está cerca de la esquina.", "rationale": "Means 'near the corner', but misses the idiomatic feel.", "isCorrect": False},
+        {"text": "Está girando la esquina.", "rationale": "Grammatically okay ('turning the corner'), but not the standard idiom.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "At a restaurant: 'I can't eat this, it's too spicy.'",
+      "options": [
+        {"text": "Es muy especiado.", "rationale": "'Especiado' means it has lots of spices (like nutmeg or cumin), not necessarily that it burns your mouth.", "isCorrect": False},
+        {"text": "Está muy picante.", "rationale": "'Picante' is the exact word for hot/spicy food, and we use 'estar' for the condition of this specific dish.", "isCorrect": True},
+        {"text": "Es muy caliente.", "rationale": "Refers to physical temperature, not the spice level.", "isCorrect": False},
+        {"text": "Tiene mucho calor.", "rationale": "Used for people or weather feeling hot, not food.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Trying on clothes: 'I like this shirt, but it doesn't fit me.'",
+      "options": [
+        {"text": "No me cabe.", "rationale": "'Caber' means physically fitting into a space, usually used for objects, not clothes on a body.", "isCorrect": False},
+        {"text": "No me queda bien.", "rationale": "'Quedar bien/mal' is the natural way to talk about how clothes fit.", "isCorrect": True},
+        {"text": "No me encaja.", "rationale": "'Encajar' means to slot together like puzzle pieces.", "isCorrect": False},
+        {"text": "No me sienta.", "rationale": "'Sentar bien/mal' is used for whether a style suits you, but needs the adverb 'bien/mal'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Academic writing context: 'Due to the lack of evidence, the theory was dismissed.'",
+      "options": [
+        {"text": "Por culpa de la falta de...", "rationale": "'Por culpa de' is too informal and implies blame, inappropriate for an academic text.", "isCorrect": False},
+        {"text": "Debido a la falta de...", "rationale": "'Debido a' is the perfect formal connector for 'due to'.", "isCorrect": True},
+        {"text": "A causa que la falta de...", "rationale": "Grammatically incorrect; it should be 'A causa de'.", "isCorrect": False},
+        {"text": "Ya que la falta de...", "rationale": "'Ya que' (since) must be followed by a conjugated verb, not a noun phrase.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Academic presentation: 'Provided that the results are positive, we will proceed.'",
+      "options": [
+        {"text": "Siempre que los resultados son positivos...", "rationale": "Requires the subjunctive mood because it introduces a condition for a future action.", "isCorrect": False},
+        {"text": "Siempre y cuando los resultados sean positivos...", "rationale": "'Siempre y cuando' strongly expresses 'provided that' and correctly triggers the subjunctive.", "isCorrect": True},
+        {"text": "Si acaso los resultados son...", "rationale": "Means 'if by chance', which alters the meaning.", "isCorrect": False},
+        {"text": "A condición de los resultados sean...", "rationale": "Grammatically incorrect; it should be 'A condición de que...'", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Organizing ideas: 'On the one hand, it's expensive; on the other hand, it's high quality.'",
+      "options": [
+        {"text": "En una mano... en otra mano...", "rationale": "A literal translation of the English idiom that is never used in Spanish.", "isCorrect": False},
+        {"text": "Por un lado... por otro lado...", "rationale": "This is the correct and most natural way to contrast two points.", "isCorrect": True},
+        {"text": "De una parte... de segunda parte...", "rationale": "Slightly garbled; 'Por una parte... por otra parte' is valid, but not this mix.", "isCorrect": False},
+        {"text": "A un lado... a otro lado...", "rationale": "Refers to physical directions ('to one side').", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Discussing future plans: 'By the time we arrive, the movie will have started.'",
+      "options": [
+        {"text": "Para cuando llegamos...", "rationale": "Using the present indicative implies a routine ('By the time we usually arrive').", "isCorrect": False},
+        {"text": "Para cuando lleguemos...", "rationale": "Time clauses referencing the future require the subjunctive ('lleguemos').", "isCorrect": True},
+        {"text": "Para cuando llegaremos...", "rationale": "The future tense is never used immediately after time conjunctions like 'cuando' or 'para cuando'.", "isCorrect": False},
+        {"text": "Hasta que lleguemos...", "rationale": "This means 'until we arrive', changing the meaning entirely.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "At the doctor's office: 'I feel dizzy and nauseous.'",
+      "options": [
+        {"text": "Me siento confuso.", "rationale": "Means confused mentally, not physically dizzy.", "isCorrect": False},
+        {"text": "Me siento mareado.", "rationale": "'Mareado' is the exact word for feeling dizzy or motion sick.", "isCorrect": True},
+        {"text": "Tengo vértigo.", "rationale": "Vértigo is a specific medical condition of spinning, 'mareado' is the general term for dizzy.", "isCorrect": False},
+        {"text": "Estoy dando vueltas.", "rationale": "Means 'I am spinning around' physically.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Doctor's instructions: 'I am going to prescribe you some antibiotics.'",
+      "options": [
+        {"text": "Te voy a prescribir...", "rationale": "Understood, but 'recetar' is vastly more common in everyday spoken Spanish.", "isCorrect": False},
+        {"text": "Te voy a recetar...", "rationale": "Doctors 'recetar' (prescribe) medicine, producing a 'receta' (prescription).", "isCorrect": True},
+        {"text": "Te voy a formular...", "rationale": "Used in some Latin American countries, but 'recetar' is universally understood.", "isCorrect": False},
+        {"text": "Te voy a mandar medicina...", "rationale": "Common in Spain, but 'recetar' is the precise technical term for prescribing.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Daily chores: 'I can't meet you right now, I have to run some errands.'",
+      "options": [
+        {"text": "Tengo que correr recados.", "rationale": "Literal translation of 'run'; in Spanish we 'do' errands.", "isCorrect": False},
+        {"text": "Tengo que hacer recados.", "rationale": "'Hacer recados' (or hacer mandados/diligencias) is the natural way to express running errands.", "isCorrect": True},
+        {"text": "Debo hacer mis tareas.", "rationale": "Usually refers to homework or specific work duties.", "isCorrect": False},
+        {"text": "Tengo que pasear.", "rationale": "Means 'to go for a walk'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Talking about the weather: 'We can't go out, it's pouring!'",
+      "options": [
+        {"text": "¡Está lloviendo gatos y perros!", "rationale": "Direct translation of the English idiom, meaningless in Spanish.", "isCorrect": False},
+        {"text": "¡Está lloviendo a cántaros!", "rationale": "This is the classic, highly natural expression for pouring rain.", "isCorrect": True},
+        {"text": "¡Está lloviendo muy duro!", "rationale": "Understandable, but 'fuerte' is better than 'duro', and 'a cántaros' is the idiomatic standard.", "isCorrect": False},
+        {"text": "¡Cae mucha agua!", "rationale": "A bit too simplistic for a B2 level description of heavy rain.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Discussing finances casually: 'I'd love to go to the concert, but I'm completely broke.'",
+      "options": [
+        {"text": "Estoy roto.", "rationale": "Means physically broken, or very tired.", "isCorrect": False},
+        {"text": "Estoy sin blanca.", "rationale": "An excellent, natural idiom meaning 'penniless' or 'broke'. ('Estar pelado' also works).", "isCorrect": True},
+        {"text": "No tengo finanzas.", "rationale": "Sounds like a corporate entity lacking funding.", "isCorrect": False},
+        {"text": "Estoy pobre.", "rationale": "Refers to a permanent state of poverty, not temporarily being out of cash.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Job interview: 'One of my main strengths is my ability to work in a team.'",
+      "options": [
+        {"text": "Mis fuerzas principales...", "rationale": "'Fuerzas' refers to physical strength or military forces.", "isCorrect": False},
+        {"text": "Mis puntos fuertes...", "rationale": "This is the exact HR terminology for 'strengths' (the opposite is 'puntos débiles').", "isCorrect": True},
+        {"text": "Mis virtudes...", "rationale": "Acceptable, but 'puntos fuertes' is much more targeted for an interview context.", "isCorrect": False},
+        {"text": "Mis habilidades fuertes...", "rationale": "A clunky mix of concepts.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Classroom instruction: 'Please pay attention to the next slide.'",
+      "options": [
+        {"text": "Paguen atención a...", "rationale": "A literal translation of the English 'pay attention'.", "isCorrect": False},
+        {"text": "Presten atención a...", "rationale": "The only correct collocation is 'prestar atención' (to lend attention).", "isCorrect": True},
+        {"text": "Den atención a...", "rationale": "Understandable, but not the standard collocation.", "isCorrect": False},
+        {"text": "Pongan atención en...", "rationale": "Also used, but 'prestar atención' is slightly more standard and formal.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Work habits: 'I read the news every morning to keep up to date.'",
+      "options": [
+        {"text": "Para mantenerme al día.", "rationale": "This is the perfect, high-frequency expression for 'staying up to date'.", "isCorrect": True},
+        {"text": "Para estar en la fecha.", "rationale": "Means 'to be on the date', makes no sense.", "isCorrect": False},
+        {"text": "Para guardarme moderno.", "rationale": "Means 'to keep myself modern', very unnatural.", "isCorrect": False},
+        {"text": "Para continuar actualizado.", "rationale": "A bit clunky; 'estar actualizado' is okay, but 'mantenerse al día' is better.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "IT problem: 'I can't click anything, the screen froze.'",
+      "options": [
+        {"text": "La pantalla se enfrió.", "rationale": "Means the screen literally got cold.", "isCorrect": False},
+        {"text": "La pantalla se quedó congelada.", "rationale": "Both 'se quedó congelada' and 'se bloqueó' are the natural ways to describe a crashed computer.", "isCorrect": True},
+        {"text": "La pantalla se paró.", "rationale": "Means it stopped moving, more appropriate for a machine or video.", "isCorrect": False},
+        {"text": "La pantalla se rompió.", "rationale": "Means it physically broke.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Email sign-off: How do you naturally write 'Yours sincerely' or 'Best regards' in a formal business email?",
+      "options": [
+        {"text": "Sinceramente tuyo,", "rationale": "Literal translation of 'yours sincerely', not used in Spanish correspondence.", "isCorrect": False},
+        {"text": "Atentamente,", "rationale": "The gold standard sign-off for formal and professional emails in Spanish.", "isCorrect": True},
+        {"text": "Con mucho amor,", "rationale": "Far too intimate for a business email.", "isCorrect": False},
+        {"text": "Mejores saludos,", "rationale": "A direct translation of 'best regards', we say 'Un cordial saludo'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Expressing doubt: 'I doubt that the project will be finished on time.'",
+      "options": [
+        {"text": "Dudo que el proyecto terminará a tiempo.", "rationale": "The future tense is indicative; doubt requires the subjunctive.", "isCorrect": False},
+        {"text": "Dudo que el proyecto termine a tiempo.", "rationale": "Correct! 'Dudar que' triggers the present subjunctive.", "isCorrect": True},
+        {"text": "Dudo que el proyecto termina a tiempo.", "rationale": "Present indicative is incorrect here.", "isCorrect": False},
+        {"text": "Dudando el proyecto termine...", "rationale": "Grammatically disjointed structure.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Expressing certainty: 'It's obvious that they made a mistake.'",
+      "options": [
+        {"text": "Es obvio que cometieran un error.", "rationale": "Imperfect subjunctive is incorrect; certainty triggers the indicative.", "isCorrect": False},
+        {"text": "Es obvio que hayan cometido un error.", "rationale": "Present perfect subjunctive is incorrect here.", "isCorrect": False},
+        {"text": "Es obvio que cometieron un error.", "rationale": "Phrases of certainty ('es obvio que', 'es verdad que') are followed by the indicative.", "isCorrect": True},
+        {"text": "Obviamente que cometan un error.", "rationale": "Unnatural phrasing and incorrect mood.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Valuation/Opinion: 'It's a pity that she can't come to the party.'",
+      "options": [
+        {"text": "Es una lástima que no puede venir.", "rationale": "Indicative is incorrect after a value judgment.", "isCorrect": False},
+        {"text": "Es una lástima que no pueda venir.", "rationale": "Value judgments require the subjunctive mood.", "isCorrect": True},
+        {"text": "Qué pena que no viene.", "rationale": "Even with 'Qué pena que', you must use the subjunctive ('venga').", "isCorrect": False},
+        {"text": "Es triste que no podrá venir.", "rationale": "Future indicative is incorrect.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Relative clauses: 'The client whose account was hacked is calling.'",
+      "options": [
+        {"text": "El cliente quien su cuenta...", "rationale": "Incorrect grammar.", "isCorrect": False},
+        {"text": "El cliente cuyo cuenta...", "rationale": "Almost! But 'cuyo' must agree in gender and number with the noun it possesses (la cuenta).", "isCorrect": False},
+        {"text": "El cliente cuya cuenta fue hackeada...", "rationale": "'Cuya' correctly agrees with the feminine singular noun 'cuenta'.", "isCorrect": True},
+        {"text": "El cliente de que la cuenta...", "rationale": "Unnatural and grammatically incorrect.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Impersonal statements: 'People say that the company is going bankrupt.'",
+      "options": [
+        {"text": "La gente dicen que...", "rationale": "'La gente' is singular, so it should be 'la gente dice'.", "isCorrect": False},
+        {"text": "Se dice que la empresa...", "rationale": "The impersonal 'se' is the most natural way to express 'it is said' or 'people say'.", "isCorrect": True},
+        {"text": "Ellos dicen que...", "rationale": "Refers to a specific group of 'they', not a general rumor.", "isCorrect": False},
+        {"text": "Es dicho que...", "rationale": "A literal translation of the English passive, rarely used in spoken Spanish.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Verbs of change: 'After winning the lottery, he became very rich.'",
+      "options": [
+        {"text": "Se puso muy rico.", "rationale": "'Ponerse' is for temporary physical or emotional states (e.g., ponerse rojo).", "isCorrect": False},
+        {"text": "Se hizo muy rico.", "rationale": "'Hacerse' is used for changes in ideology, profession, or wealth (often implying a process).", "isCorrect": True},
+        {"text": "Se volvió muy rico.", "rationale": "'Volverse' is usually for sudden, profound changes in personality (e.g., volverse loco).", "isCorrect": False},
+        {"text": "Llegó a ser muy rico.", "rationale": "Acceptable, but implies a long, drawn-out process of climbing, whereas 'se hizo' is more direct for wealth.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Verbs of change: 'When he saw the bill, he went crazy.'",
+      "options": [
+        {"text": "Se hizo loco.", "rationale": "'Hacerse' implies a deliberate or progressive change (like a profession).", "isCorrect": False},
+        {"text": "Se puso loco.", "rationale": "Sometimes used colloquially, but 'volverse' is the standard verb for going crazy.", "isCorrect": False},
+        {"text": "Se volvió loco.", "rationale": "This is the precise verb of change for a sudden, radical shift like going crazy.", "isCorrect": True},
+        {"text": "Se quedó loco.", "rationale": "Means he was left in a state of shock, which is close, but 'volverse loco' is the direct translation of 'went crazy'.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Social plans: 'Let's take a walk around the park.'",
+      "options": [
+        {"text": "Vamos a tomar un paseo.", "rationale": "Literal translation of English.", "isCorrect": False},
+        {"text": "Vamos a dar un paseo.", "rationale": "The standard collocation is 'dar un paseo' or 'dar una vuelta'.", "isCorrect": True},
+        {"text": "Vamos a hacer un paseo.", "rationale": "Not the natural verb choice.", "isCorrect": False},
+        {"text": "Vamos a caminar un paseo.", "rationale": "Redundant and incorrect.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "False friends: 'I thought he was angry, but actually, he was just tired.'",
+      "options": [
+        {"text": "...pero actualmente, solo estaba cansado.", "rationale": "False friend! 'Actualmente' means nowadays or currently.", "isCorrect": False},
+        {"text": "...pero en realidad, solo estaba cansado.", "rationale": "Correct. 'En realidad' or 'de hecho' means 'actually' in the sense of 'in truth'.", "isCorrect": True},
+        {"text": "...pero verdaderamente, solo estaba...", "rationale": "A bit overly dramatic; 'en realidad' is much more natural.", "isCorrect": False},
+        {"text": "...pero de verdad, solo estaba...", "rationale": "Acceptable, but 'en realidad' captures the contrast of 'actually' perfectly.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "False friends: 'I was so embarrassed when I tripped on stage.'",
+      "options": [
+        {"text": "Estaba tan embarazada...", "rationale": "This means 'I was so pregnant!'", "isCorrect": False},
+        {"text": "Me dio mucha vergüenza...", "rationale": "Correct! You can say 'estaba avergonzado/a' or the highly natural 'me dio mucha vergüenza' (it gave me a lot of shame).", "isCorrect": True},
+        {"text": "Estaba muy vergonzosa...", "rationale": "'Vergonzoso' usually describes a shy person or a shameful situation, not the feeling itself.", "isCorrect": False},
+        {"text": "Tenía mucho embarazoso...", "rationale": "Grammatically incorrect.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Logic connectors: 'The budget was cut; therefore, we must reduce the scope.'",
+      "options": [
+        {"text": "...para eso, debemos reducir...", "rationale": "Means 'for that purpose', not 'as a consequence'.", "isCorrect": False},
+        {"text": "...por lo tanto, debemos reducir...", "rationale": "'Por lo tanto' is the essential B2 connector for 'therefore'.", "isCorrect": True},
+        {"text": "...porque de eso, debemos...", "rationale": "Clunky translation of 'because of that'.", "isCorrect": False},
+        {"text": "...entonces que, debemos...", "rationale": "Incorrect grammar.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Hypothetical situations: 'What would you do if you lost your passport?'",
+      "options": [
+        {"text": "¿Qué harás si pierdes tu pasaporte?", "rationale": "This is a Type 1 conditional (What will you do if you lose it?), not hypothetical enough.", "isCorrect": False},
+        {"text": "¿Qué harías si perdieras tu pasaporte?", "rationale": "Perfect application of conditional + imperfect subjunctive for a hypothetical scenario.", "isCorrect": True},
+        {"text": "¿Qué harías si perderías tu pasaporte?", "rationale": "You cannot put the conditional tense directly after 'si'.", "isCorrect": False},
+        {"text": "¿Qué hubieras hecho si...", "rationale": "This is past hypothetical (What would you have done...).", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Future deadlines: 'By next year, I will have finished my master\\'s degree.'",
+      "options": [
+        {"text": "Para el año que viene, terminaré...", "rationale": "Simple future means 'I will finish', not 'I will have finished'.", "isCorrect": False},
+        {"text": "Para el año que viene, habré terminado...", "rationale": "The future perfect (habré + participle) perfectly captures 'will have finished'.", "isCorrect": True},
+        {"text": "Para el año que viene, habría terminado...", "rationale": "This is the conditional perfect ('I would have finished').", "isCorrect": False},
+        {"text": "Hasta el año que viene, he terminado...", "rationale": "Incorrect use of the present perfect.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Describing results: 'Be careful, the window is broken.'",
+      "options": [
+        {"text": "La ventana es rota.", "rationale": "Using 'ser' creates a passive voice event ('The window is being broken by someone').", "isCorrect": False},
+        {"text": "La ventana está rota.", "rationale": "Using 'estar' + participle correctly describes the resulting state or condition of the object.", "isCorrect": True},
+        {"text": "La ventana tiene roto.", "rationale": "Incorrect grammar.", "isCorrect": False},
+        {"text": "La ventana se rompió.", "rationale": "Means 'the window broke' (the event), not 'is broken' (the state).", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Idioms: 'Don\\'t listen to him, he\\'s just pulling your leg.'",
+      "options": [
+        {"text": "Te está tirando la pierna.", "rationale": "Literal translation of the English idiom.", "isCorrect": False},
+        {"text": "Te está tomando el pelo.", "rationale": "'Tomar el pelo a alguien' is the exact equivalent of pulling someone's leg.", "isCorrect": True},
+        {"text": "Te está bromeando fuerte.", "rationale": "Understandable, but not an idiomatic phrase.", "isCorrect": False},
+        {"text": "Te está haciendo un chiste.", "rationale": "A bit too literal and less colorful.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Collocations: 'We need to make a decision by tomorrow.'",
+      "options": [
+        {"text": "Necesitamos hacer una decisión...", "rationale": "Direct translation from English.", "isCorrect": False},
+        {"text": "Necesitamos tomar una decisión...", "rationale": "The only correct verbal collocation is 'tomar una decisión'.", "isCorrect": True},
+        {"text": "Necesitamos crear una decisión...", "rationale": "Unnatural verb choice.", "isCorrect": False},
+        {"text": "Necesitamos pensar una decisión...", "rationale": "Grammatically awkward.", "isCorrect": False}
+      ]
+    },
+    {
+      "question": "Expressing necessity: 'It is necessary that we sign the contract today.'",
+      "options": [
+        {"text": "Hace falta que firmamos el contrato...", "rationale": "Indicative is incorrect after expressions of necessity.", "isCorrect": False},
+        {"text": "Es necesario que firmemos el contrato...", "rationale": "'Es necesario que' + subjunctive is the precise grammatical structure for this requirement.", "isCorrect": True},
+        {"text": "Necesitamos que firmar el contrato...", "rationale": "You cannot follow 'que' directly with an infinitive in this structure.", "isCorrect": False},
+        {"text": "Hay que firmemos el contrato...", "rationale": "'Hay que' must be followed by an infinitive, not the subjunctive.", "isCorrect": False}
+      ]
+    }
+]

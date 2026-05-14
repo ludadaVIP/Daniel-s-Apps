@@ -1,0 +1,1863 @@
+{
+  "id": "en-b1-choice-50",
+  "kind": "choice",
+  "language": "en",
+  "languageName": "English",
+  "title": "English B1 Choice Quiz",
+  "subtitle": "50 B1 English choice questions",
+  "level": "B1",
+  "description": "English B1 practice generated from a custom prompt.",
+  "status": "ready",
+  "questions": [
+    {
+      "id": 1,
+      "kind": "choice",
+      "icon": "🔗",
+      "category": "Connectors",
+      "typeBadge": "multiple-choice",
+      "situation": "You want to contrast two ideas: the weather was bad, but you still enjoyed the trip.",
+      "feedback": {
+        "natural": "<strong>\"Although\"</strong> is natural here because it introduces a contrast between two clauses joined in one sentence.",
+        "alternatives": "\"Because\" gives a reason, \"so\" and \"therefore\" show a result — none of these express contrast.",
+        "chunk": "<em>\"Although + clause, clause\"</em> is a common contrast connector for B1 writing and speaking."
+      },
+      "takeaway": {
+        "title": "Contrast connector: although",
+        "body": "\"Although + clause, clause\" contrasts two ideas in one sentence."
+      },
+      "prompt": "___ the weather was terrible, we had a great time.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Although"
+        },
+        {
+          "id": "B",
+          "text": "Because"
+        },
+        {
+          "id": "C",
+          "text": "So"
+        },
+        {
+          "id": "D",
+          "text": "Therefore"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 2,
+      "kind": "choice",
+      "icon": "💼",
+      "category": "Collocations",
+      "typeBadge": "multiple-choice",
+      "situation": "Your manager asks you to prepare something before tomorrow's meeting.",
+      "feedback": {
+        "natural": "<strong>\"make\"</strong> is natural because \"make notes\" is a fixed collocation in English.",
+        "alternatives": "\"Do notes\" is incorrect. \"Take notes\" means writing while listening, which does not fit here. \"Have notes\" is not used this way.",
+        "chunk": "<em>\"make notes\"</em> is the standard collocation; \"take notes\" is for during a lecture or meeting."
+      },
+      "takeaway": {
+        "title": "Collocation: make notes",
+        "body": "\"Make notes\" (prepare) vs \"take notes\" (write while listening)."
+      },
+      "prompt": "Could you ___ some notes about the project for the meeting?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "do"
+        },
+        {
+          "id": "B",
+          "text": "make"
+        },
+        {
+          "id": "C",
+          "text": "take"
+        },
+        {
+          "id": "D",
+          "text": "have"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 3,
+      "kind": "choice",
+      "icon": "🩺",
+      "category": "Modal Verbs",
+      "typeBadge": "multiple-choice",
+      "situation": "A friend is stressed and not sleeping well. You want to give them advice.",
+      "feedback": {
+        "natural": "<strong>\"should\"</strong> is natural for giving friendly advice — it is softer and less forceful than \"must\".",
+        "alternatives": "\"Must\" sounds too strong or like an order. \"Can\" expresses ability, not advice. \"Might\" expresses possibility, not a recommendation.",
+        "chunk": "<em>\"You should...\"</em> is the standard way to give advice at B1 level."
+      },
+      "takeaway": {
+        "title": "Giving advice: should",
+        "body": "\"You should...\" gives friendly advice without sounding forceful."
+      },
+      "prompt": "You look exhausted. You really ___ try to get more sleep.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "must"
+        },
+        {
+          "id": "B",
+          "text": "should"
+        },
+        {
+          "id": "C",
+          "text": "can"
+        },
+        {
+          "id": "D",
+          "text": "might"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 4,
+      "kind": "choice",
+      "icon": "📅",
+      "category": "Prepositions",
+      "typeBadge": "multiple-choice",
+      "situation": "You are talking about when your flight departs.",
+      "feedback": {
+        "natural": "<strong>\"at\"</strong> is correct because we use \"at\" with specific times of the day.",
+        "alternatives": "\"In\" is used for months, years, and parts of the day (in the morning). \"On\" is for days and dates. \"By\" means no later than, which changes the meaning.",
+        "chunk": "<em>\"at + specific time\"</em> is the rule: at 6:30, at noon, at midnight."
+      },
+      "takeaway": {
+        "title": "Preposition of time: at",
+        "body": "\"At + specific time\" — at 6:30, at noon, at midnight."
+      },
+      "prompt": "The flight leaves ___ 6:30 in the morning.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "in"
+        },
+        {
+          "id": "B",
+          "text": "on"
+        },
+        {
+          "id": "C",
+          "text": "at"
+        },
+        {
+          "id": "D",
+          "text": "by"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 5,
+      "kind": "choice",
+      "icon": "🏋️",
+      "category": "Phrasal Verbs",
+      "typeBadge": "multiple-choice",
+      "situation": "A colleague asks how you stay in shape. You explain your daily routine.",
+      "feedback": {
+        "natural": "<strong>\"work out\"</strong> means to exercise regularly, which fits the context perfectly.",
+        "alternatives": "\"Work up\" means to develop gradually. \"Work off\" means to burn off calories. \"Work over\" means to examine or to beat someone — not to exercise.",
+        "chunk": "<em>\"work out\"</em> = to exercise: I work out every day / I went to the gym to work out."
+      },
+      "takeaway": {
+        "title": "Phrasal verb: work out",
+        "body": "\"Work out\" = to exercise: \"I work out three times a week.\""
+      },
+      "prompt": "I ___ every morning — I do a 30-minute run before breakfast.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "work out"
+        },
+        {
+          "id": "B",
+          "text": "work up"
+        },
+        {
+          "id": "C",
+          "text": "work off"
+        },
+        {
+          "id": "D",
+          "text": "work over"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 6,
+      "kind": "choice",
+      "icon": "💬",
+      "category": "Reported Speech",
+      "typeBadge": "multiple-choice",
+      "situation": "Your friend said: \"I am tired.\" Now you are telling someone else what they said.",
+      "feedback": {
+        "natural": "<strong>\"was\"</strong> is correct because in reported speech, the present simple \"is\" shifts back to the past simple \"was\".",
+        "alternatives": "\"Is\" would be used for direct speech. \"Were\" is plural or subjunctive. \"Had been\" is the past perfect, used for past continuous or past perfect — not needed here.",
+        "chunk": "<em>\"She said (that) she was...\"</em> is the standard reported speech structure with tense back-shift."
+      },
+      "takeaway": {
+        "title": "Reported speech: tense shift",
+        "body": "\"She said she was...\" — present \"is\" shifts to past \"was\" in reported speech."
+      },
+      "prompt": "She said that she ___ tired.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "is"
+        },
+        {
+          "id": "B",
+          "text": "was"
+        },
+        {
+          "id": "C",
+          "text": "were"
+        },
+        {
+          "id": "D",
+          "text": "had been"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 7,
+      "kind": "choice",
+      "icon": "🤔",
+      "category": "Conditionals",
+      "typeBadge": "multiple-choice",
+      "situation": "You are imagining an unlikely situation: winning the lottery.",
+      "feedback": {
+        "natural": "<strong>\"would\"</strong> is correct for the second conditional, which describes an imaginary or unlikely situation in the present or future.",
+        "alternatives": "\"Will\" is for the first conditional (real future possibility). \"Should\" expresses advice or expectation. \"Could have\" belongs to the third conditional (past).",
+        "chunk": "<em>\"If + past simple, would + infinitive\"</em> is the second conditional formula."
+      },
+      "takeaway": {
+        "title": "Second conditional",
+        "body": "\"If + past simple, would + infinitive\" — for imaginary situations."
+      },
+      "prompt": "If I won the lottery, I ___ travel around the world.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "will"
+        },
+        {
+          "id": "B",
+          "text": "would"
+        },
+        {
+          "id": "C",
+          "text": "should"
+        },
+        {
+          "id": "D",
+          "text": "could have"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 8,
+      "kind": "choice",
+      "icon": "⏳",
+      "category": "Tense Contrast",
+      "typeBadge": "multiple-choice",
+      "situation": "You are talking about your life experience. You have visited Japan and want to introduce that fact.",
+      "feedback": {
+        "natural": "<strong>\"have been\"</strong> introduces a life experience with a present connection. The second sentence specifies when, so past simple is used there.",
+        "alternatives": "\"Went\" repeats past simple — fine for the second sentence but not for introducing a life experience. \"Had been\" is past perfect. \"Was\" does not work with \"to Japan\" in this context.",
+        "chunk": "<em>\"I have been to...\"</em> introduces a life experience; switch to past simple once a specific time is given."
+      },
+      "takeaway": {
+        "title": "Present perfect for experience",
+        "body": "\"I have been to...\" for life experience; switch to past simple when a specific time is given."
+      },
+      "prompt": "I ___ to Japan. I went there last year.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "have been"
+        },
+        {
+          "id": "B",
+          "text": "went"
+        },
+        {
+          "id": "C",
+          "text": "had been"
+        },
+        {
+          "id": "D",
+          "text": "was"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 9,
+      "kind": "choice",
+      "icon": "📚",
+      "category": "Gerund vs Infinitive",
+      "typeBadge": "multiple-choice",
+      "situation": "You are telling a friend what you like to do when you get home.",
+      "feedback": {
+        "natural": "<strong>\"listening\"</strong> is correct because \"enjoy\" is always followed by a gerund (-ing form).",
+        "alternatives": "\"To listen\" (infinitive) is not used after \"enjoy\". \"Listen\" (bare infinitive) cannot follow \"enjoy\". \"Listened\" is past tense and does not fit.",
+        "chunk": "<em>\"enjoy + -ing\"</em> — enjoy listening, enjoy cooking, enjoy reading."
+      },
+      "takeaway": {
+        "title": "enjoy + gerund",
+        "body": "\"Enjoy + -ing\" — I enjoy listening, I enjoy travelling."
+      },
+      "prompt": "I really enjoy ___ to music when I get home from work.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "to listen"
+        },
+        {
+          "id": "B",
+          "text": "listening"
+        },
+        {
+          "id": "C",
+          "text": "listen"
+        },
+        {
+          "id": "D",
+          "text": "listened"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 10,
+      "kind": "choice",
+      "icon": "💰",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "A friend needs money temporarily and asks you for help.",
+      "feedback": {
+        "natural": "<strong>\"lend\"</strong> is correct because your friend is asking you to give them money temporarily — the direction goes from you to them.",
+        "alternatives": "\"Borrow\" means to receive (I borrow from you). \"Rent\" is for property or equipment with payment. \"Owe\" means to have an existing debt.",
+        "chunk": "<em>\"lend someone something\"</em> = give temporarily. \"Borrow something from someone\" = receive temporarily."
+      },
+      "takeaway": {
+        "title": "lend vs borrow",
+        "body": "\"Lend\" = give temporarily. \"Borrow\" = receive temporarily. Can you lend me...?"
+      },
+      "prompt": "Can you ___ me some money until Friday? I'll pay you back.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "borrow"
+        },
+        {
+          "id": "B",
+          "text": "lend"
+        },
+        {
+          "id": "C",
+          "text": "rent"
+        },
+        {
+          "id": "D",
+          "text": "owe"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 11,
+      "kind": "choice",
+      "icon": "✉️",
+      "category": "Register",
+      "typeBadge": "multiple-choice",
+      "situation": "You are writing a formal email to a company asking for information about their services.",
+      "feedback": {
+        "natural": "<strong>\"enquire\"</strong> is the most formal and appropriate word for a business email requesting information.",
+        "alternatives": "\"Ask\" is correct but informal for a business email. \"Check out\" is casual/colloquial. \"Find out\" is neutral-informal and not typical in formal correspondence.",
+        "chunk": "<em>\"I am writing to enquire about...\"</em> is a standard formal email opener."
+      },
+      "takeaway": {
+        "title": "Formal email opener",
+        "body": "\"I am writing to enquire about...\" is the standard formal opening for information requests."
+      },
+      "prompt": "I am writing to ___ about the services you offer.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "ask"
+        },
+        {
+          "id": "B",
+          "text": "enquire"
+        },
+        {
+          "id": "C",
+          "text": "check out"
+        },
+        {
+          "id": "D",
+          "text": "find out"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 12,
+      "kind": "choice",
+      "icon": "📊",
+      "category": "Connectors",
+      "typeBadge": "multiple-choice",
+      "situation": "You are explaining the result of something in a report.",
+      "feedback": {
+        "natural": "<strong>\"As a result\"</strong> correctly shows that the project being on time was a consequence of the hard work.",
+        "alternatives": "\"Although\" and \"however\" show contrast, which contradicts the meaning here. \"Despite\" is a preposition needing a noun phrase, not a full sentence.",
+        "chunk": "<em>\"As a result,...\"</em> introduces a consequence or result in formal writing."
+      },
+      "takeaway": {
+        "title": "Result connector: as a result",
+        "body": "\"As a result,...\" introduces a consequence: (cause). As a result, (effect)."
+      },
+      "prompt": "The team worked very hard. ___, the project was delivered on time.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Although"
+        },
+        {
+          "id": "B",
+          "text": "However"
+        },
+        {
+          "id": "C",
+          "text": "As a result"
+        },
+        {
+          "id": "D",
+          "text": "Despite"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 13,
+      "kind": "choice",
+      "icon": "☕",
+      "category": "Collocations",
+      "typeBadge": "multiple-choice",
+      "situation": "You and a colleague have been working for three hours without stopping.",
+      "feedback": {
+        "natural": "<strong>\"take\"</strong> is the correct collocation — \"take a break\" is a fixed phrase in English.",
+        "alternatives": "\"Do a break\" and \"make a break\" are not standard English collocations. \"Have got a break\" is grammatically odd in this context.",
+        "chunk": "<em>\"take a break\"</em> is the natural fixed expression for pausing from work or study."
+      },
+      "takeaway": {
+        "title": "Collocation: take a break",
+        "body": "\"Take a break\" — not \"do\" or \"make\" a break."
+      },
+      "prompt": "We've been working for hours. Let's ___ a break.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "do"
+        },
+        {
+          "id": "B",
+          "text": "take"
+        },
+        {
+          "id": "C",
+          "text": "make"
+        },
+        {
+          "id": "D",
+          "text": "have got"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 14,
+      "kind": "choice",
+      "icon": "🏗️",
+      "category": "Passive Voice",
+      "typeBadge": "multiple-choice",
+      "situation": "You are describing when a new building was constructed.",
+      "feedback": {
+        "natural": "<strong>\"was built\"</strong> is the correct past simple passive — the library is the subject that receives the action.",
+        "alternatives": "\"Built\" alone is missing the auxiliary \"was\". \"Has built\" is present perfect active with the wrong subject. \"Was building\" is past continuous active and does not fit the meaning.",
+        "chunk": "<em>\"was/were + past participle\"</em> is the past simple passive structure."
+      },
+      "takeaway": {
+        "title": "Past simple passive",
+        "body": "\"Was/were + past participle\" — The library was built last year."
+      },
+      "prompt": "The new library ___ last year by a local construction company.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "built"
+        },
+        {
+          "id": "B",
+          "text": "was built"
+        },
+        {
+          "id": "C",
+          "text": "has built"
+        },
+        {
+          "id": "D",
+          "text": "was building"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 15,
+      "kind": "choice",
+      "icon": "🌍",
+      "category": "Grammar",
+      "typeBadge": "multiple-choice",
+      "situation": "You are comparing cities and saying one has more pollution than any other in the country.",
+      "feedback": {
+        "natural": "<strong>\"the most\"</strong> is correct because we need a superlative with \"the\" when comparing across a group (the whole country).",
+        "alternatives": "\"More\" is comparative (comparing two things). \"Most\" without \"the\" is used adverbially in informal speech. \"The more\" is used in parallel structures like \"the more... the more...\"",
+        "chunk": "<em>\"the most + noun/adjective\"</em> is the superlative structure for the highest degree."
+      },
+      "takeaway": {
+        "title": "Superlative: the most",
+        "body": "\"The most + noun\" for the highest degree in a group."
+      },
+      "prompt": "This city has ___ air pollution in the whole country.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "the most"
+        },
+        {
+          "id": "B",
+          "text": "more"
+        },
+        {
+          "id": "C",
+          "text": "most"
+        },
+        {
+          "id": "D",
+          "text": "the more"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 16,
+      "kind": "choice",
+      "icon": "🎵",
+      "category": "Prepositions",
+      "typeBadge": "multiple-choice",
+      "situation": "You are telling a friend about your hobbies.",
+      "feedback": {
+        "natural": "<strong>\"in\"</strong> is the correct preposition with \"interested\" — \"interested in\" is a fixed collocation.",
+        "alternatives": "\"Interested about\", \"interested for\", and \"interested of\" are all incorrect — \"interested in\" is the only standard form.",
+        "chunk": "<em>\"interested in + noun/gerund\"</em> — I'm interested in music / in learning guitar."
+      },
+      "takeaway": {
+        "title": "Preposition: interested in",
+        "body": "\"Interested in\" — always \"in\", never \"about\", \"for\", or \"of\"."
+      },
+      "prompt": "I'm really interested ___ jazz music. I listen to it every day.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "about"
+        },
+        {
+          "id": "B",
+          "text": "in"
+        },
+        {
+          "id": "C",
+          "text": "for"
+        },
+        {
+          "id": "D",
+          "text": "of"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 17,
+      "kind": "choice",
+      "icon": "🎯",
+      "category": "Phrasal Verbs",
+      "typeBadge": "multiple-choice",
+      "situation": "A friend started learning guitar two months ago but has stopped practising.",
+      "feedback": {
+        "natural": "<strong>\"gave up\"</strong> means to stop doing something, which is exactly the meaning needed here.",
+        "alternatives": "\"Gave back\" means to return something. \"Gave in\" means to surrender to pressure. \"Gave off\" means to emit a smell or light. None of these mean to stop an activity.",
+        "chunk": "<em>\"give up + gerund\"</em> = to stop doing something: give up smoking, give up trying."
+      },
+      "takeaway": {
+        "title": "Phrasal verb: give up",
+        "body": "\"Give up + -ing\" = to stop doing: He gave up playing the guitar."
+      },
+      "prompt": "He ___ playing the guitar after just two months.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "gave up"
+        },
+        {
+          "id": "B",
+          "text": "gave back"
+        },
+        {
+          "id": "C",
+          "text": "gave in"
+        },
+        {
+          "id": "D",
+          "text": "gave off"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 18,
+      "kind": "choice",
+      "icon": "🧒",
+      "category": "Grammar",
+      "typeBadge": "multiple-choice",
+      "situation": "You are describing a habit you had as a child, but you no longer do it.",
+      "feedback": {
+        "natural": "<strong>\"used to\"</strong> describes a past habit or state that no longer exists — perfect for this context.",
+        "alternatives": "\"Am used to\" means you are accustomed to something now. \"Get used to\" means to become accustomed. \"Use to\" is incorrect — the correct form in positive sentences is \"used to\".",
+        "chunk": "<em>\"used to + infinitive\"</em> describes past habits that no longer happen."
+      },
+      "takeaway": {
+        "title": "Past habit: used to",
+        "body": "\"Used to + infinitive\" — I used to collect stamps (but I don't anymore)."
+      },
+      "prompt": "When I was young, I ___ collect stamps. I had hundreds of them.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "used to"
+        },
+        {
+          "id": "B",
+          "text": "am used to"
+        },
+        {
+          "id": "C",
+          "text": "get used to"
+        },
+        {
+          "id": "D",
+          "text": "use to"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 19,
+      "kind": "choice",
+      "icon": "⌛",
+      "category": "Tense Contrast",
+      "typeBadge": "multiple-choice",
+      "situation": "Someone asks why you look so tired. You explain what you have been doing all morning.",
+      "feedback": {
+        "natural": "<strong>\"have been studying\"</strong> is the present perfect continuous, which emphasises the duration of an activity that started in the past and has only just stopped.",
+        "alternatives": "\"Have studied\" focuses on the result, not the duration. \"Am studying\" is present continuous (right now). \"Studied\" is simple past with no connection to the present.",
+        "chunk": "<em>\"have been + -ing\"</em> stresses the duration of an activity connecting the past to now."
+      },
+      "takeaway": {
+        "title": "Present perfect continuous: duration",
+        "body": "\"Have been + -ing\" — I have been studying all morning emphasises duration."
+      },
+      "prompt": "I'm exhausted. I ___ all morning without a rest.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "have been studying"
+        },
+        {
+          "id": "B",
+          "text": "have studied"
+        },
+        {
+          "id": "C",
+          "text": "am studying"
+        },
+        {
+          "id": "D",
+          "text": "studied"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 20,
+      "kind": "choice",
+      "icon": "🚉",
+      "category": "Articles",
+      "typeBadge": "multiple-choice",
+      "situation": "You are telling a story about how you arrived in the city centre.",
+      "feedback": {
+        "natural": "<strong>\"the\"</strong> is correct because \"the train\" refers to a shared transport system that both speaker and listener understand in context.",
+        "alternatives": "\"A\" would be used if the train is one of many unspecified options. \"An\" is for vowel sounds. \"—\" (no article) is used with uncountable or plural general nouns.",
+        "chunk": "<em>\"take the train/bus/tube\"</em> — use \"the\" with shared public transport systems."
+      },
+      "takeaway": {
+        "title": "Article: the + transport",
+        "body": "\"Take the train/bus/tube\" — use \"the\" with shared transport systems."
+      },
+      "prompt": "We took ___ train to the city centre. It was really fast.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "a"
+        },
+        {
+          "id": "B",
+          "text": "an"
+        },
+        {
+          "id": "C",
+          "text": "the"
+        },
+        {
+          "id": "D",
+          "text": "—"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 21,
+      "kind": "choice",
+      "icon": "✈️",
+      "category": "Travel Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "You arrived at the airport late and the plane had already left.",
+      "feedback": {
+        "natural": "<strong>\"missed\"</strong> is the correct collocation — \"miss a flight\" means to fail to catch it in time.",
+        "alternatives": "\"Lost\" is not used with \"flight\" this way. \"Left\" would need a different subject (the plane left). \"Forgot\" means you didn't remember, which doesn't fit.",
+        "chunk": "<em>\"miss a flight/train/bus\"</em> = to fail to catch transport in time."
+      },
+      "takeaway": {
+        "title": "Collocation: miss a flight",
+        "body": "\"Miss a flight/train/bus\" — to arrive too late to board."
+      },
+      "prompt": "I arrived too late and ___ my flight.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "lost"
+        },
+        {
+          "id": "B",
+          "text": "missed"
+        },
+        {
+          "id": "C",
+          "text": "left"
+        },
+        {
+          "id": "D",
+          "text": "forgot"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 22,
+      "kind": "choice",
+      "icon": "🌤️",
+      "category": "Modal Verbs",
+      "typeBadge": "multiple-choice",
+      "situation": "You are not sure if it will rain later, but you think it is possible.",
+      "feedback": {
+        "natural": "<strong>\"might\"</strong> expresses weak possibility — you are not certain, just suggesting it is possible.",
+        "alternatives": "\"Will\" is a confident prediction. \"Must\" is for logical deduction (near certainty). \"Should\" expresses expectation or advice.",
+        "chunk": "<em>\"might + infinitive\"</em> expresses weak or uncertain possibility."
+      },
+      "takeaway": {
+        "title": "Possibility: might",
+        "body": "\"Might + infinitive\" — weak possibility: It might rain later."
+      },
+      "prompt": "Take an umbrella — it ___ rain this afternoon.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "will"
+        },
+        {
+          "id": "B",
+          "text": "must"
+        },
+        {
+          "id": "C",
+          "text": "might"
+        },
+        {
+          "id": "D",
+          "text": "should"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 23,
+      "kind": "choice",
+      "icon": "🔗",
+      "category": "Connectors",
+      "typeBadge": "multiple-choice",
+      "situation": "You want to express contrast using a preposition followed by a noun phrase, not a conjunction.",
+      "feedback": {
+        "natural": "<strong>\"Despite\"</strong> is a preposition, so it is followed by a noun phrase (\"the heavy traffic\"), not a clause.",
+        "alternatives": "\"Although\" and \"even though\" are conjunctions — they must be followed by a subject and verb. \"However\" is an adverb used at the start of a new sentence.",
+        "chunk": "<em>\"Despite + noun phrase\"</em> vs <em>\"Although + clause\"</em> — both show contrast in different grammatical forms."
+      },
+      "takeaway": {
+        "title": "Contrast: despite vs although",
+        "body": "\"Despite + noun phrase\" — Despite the rain. \"Although + clause\" — Although it rained."
+      },
+      "prompt": "___ the heavy traffic, we arrived on time.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "Although"
+        },
+        {
+          "id": "B",
+          "text": "Even though"
+        },
+        {
+          "id": "C",
+          "text": "Despite"
+        },
+        {
+          "id": "D",
+          "text": "However"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 24,
+      "kind": "choice",
+      "icon": "🏠",
+      "category": "Relative Clauses",
+      "typeBadge": "multiple-choice",
+      "situation": "You are describing a flat you recently stayed in.",
+      "feedback": {
+        "natural": "<strong>\"where\"</strong> is the correct relative pronoun because it refers to a place (the flat) in which something happened.",
+        "alternatives": "\"Which\" refers to a thing but takes an object role (e.g., the flat which I rented). \"Who\" is for people. \"Whose\" shows possession.",
+        "chunk": "<em>\"where\"</em> is used as a relative pronoun to refer to a place: the flat where I stayed."
+      },
+      "takeaway": {
+        "title": "Relative pronoun: where",
+        "body": "\"Where\" refers to places in a relative clause: the flat where I stayed."
+      },
+      "prompt": "The flat ___ I stayed last month had a beautiful view.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "which"
+        },
+        {
+          "id": "B",
+          "text": "who"
+        },
+        {
+          "id": "C",
+          "text": "where"
+        },
+        {
+          "id": "D",
+          "text": "whose"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 25,
+      "kind": "choice",
+      "icon": "🗣️",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "You want to report that a lecturer gave information to the whole group.",
+      "feedback": {
+        "natural": "<strong>\"told\"</strong> is correct because \"tell\" takes a personal object — \"told us\" (someone is told something).",
+        "alternatives": "\"Said\" does not take a direct personal object — we say \"said that...\" not \"said us\". \"Spoke\" and \"talked\" are intransitive and cannot be followed by a personal object directly.",
+        "chunk": "<em>\"tell + person + that...\"</em> vs <em>\"say + (that)...\"</em> — tell someone, say something."
+      },
+      "takeaway": {
+        "title": "say vs tell",
+        "body": "\"Tell + person\" — He told us. \"Say + (that)\" — He said (that) it was postponed."
+      },
+      "prompt": "The professor ___ us that the exam would be postponed.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "said"
+        },
+        {
+          "id": "B",
+          "text": "told"
+        },
+        {
+          "id": "C",
+          "text": "spoke"
+        },
+        {
+          "id": "D",
+          "text": "talked"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 26,
+      "kind": "choice",
+      "icon": "❓",
+      "category": "Grammar",
+      "typeBadge": "multiple-choice",
+      "situation": "You expect your colleague to agree that the meeting was very long.",
+      "feedback": {
+        "natural": "<strong>\"wasn't\"</strong> is correct because question tags use the opposite auxiliary verb in the same tense. The main clause is positive past (\"was\"), so the tag is negative past (\"wasn't\").",
+        "alternatives": "\"Isn't\" uses the wrong tense. \"Was\" would create a positive tag after a positive clause, which sounds unusual. \"Didn't\" uses the wrong auxiliary.",
+        "chunk": "<em>\"positive clause + negative tag\"</em> — It was long, wasn't it?"
+      },
+      "takeaway": {
+        "title": "Question tags",
+        "body": "\"Positive clause + negative tag\" — It was long, wasn't it?"
+      },
+      "prompt": "That meeting was very long, ___ it?",
+      "choices": [
+        {
+          "id": "A",
+          "text": "wasn't"
+        },
+        {
+          "id": "B",
+          "text": "isn't"
+        },
+        {
+          "id": "C",
+          "text": "was"
+        },
+        {
+          "id": "D",
+          "text": "didn't"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 27,
+      "kind": "choice",
+      "icon": "🧩",
+      "category": "Prepositions",
+      "typeBadge": "multiple-choice",
+      "situation": "You are explaining that a decision is not fixed and relies on other factors.",
+      "feedback": {
+        "natural": "<strong>\"depend on\"</strong> is the correct fixed phrase — \"depend\" always takes the preposition \"on\".",
+        "alternatives": "\"Depend of\", \"depend from\", and \"depend with\" are all incorrect — only \"depend on\" is used in English.",
+        "chunk": "<em>\"depend on\"</em> — It depends on the weather. It will depend on what they decide."
+      },
+      "takeaway": {
+        "title": "Preposition: depend on",
+        "body": "\"Depend on\" — always \"on\": It depends on many factors."
+      },
+      "prompt": "The final answer will ___ whether the manager approves.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "depend on"
+        },
+        {
+          "id": "B",
+          "text": "depend of"
+        },
+        {
+          "id": "C",
+          "text": "depend from"
+        },
+        {
+          "id": "D",
+          "text": "depend with"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 28,
+      "kind": "choice",
+      "icon": "💪",
+      "category": "Collocations",
+      "typeBadge": "multiple-choice",
+      "situation": "You are describing someone who works in a very demanding environment.",
+      "feedback": {
+        "natural": "<strong>\"heavy\"</strong> is the natural collocation — \"heavy pressure\" (or \"a lot of pressure\") is standard English.",
+        "alternatives": "\"Strong\" collocates with opinions and feelings. \"High\" goes with pressure in technical contexts (high blood pressure). \"Big\" does not collocate with \"pressure\".",
+        "chunk": "<em>\"heavy pressure\"</em> — under heavy pressure, heavy traffic, a heavy workload."
+      },
+      "takeaway": {
+        "title": "Collocation: heavy pressure",
+        "body": "\"Heavy\" collocates with pressure, traffic, workload — not big or strong."
+      },
+      "prompt": "She is under ___ pressure at work right now.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "big"
+        },
+        {
+          "id": "B",
+          "text": "heavy"
+        },
+        {
+          "id": "C",
+          "text": "strong"
+        },
+        {
+          "id": "D",
+          "text": "high"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 29,
+      "kind": "choice",
+      "icon": "🔒",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "You are reporting a crime where someone took items from a shop without paying.",
+      "feedback": {
+        "natural": "<strong>\"stole\"</strong> is correct — \"steal + object\" means to take something (items) without permission.",
+        "alternatives": "\"Robbed\" takes a person or place as object (robbed the bank / robbed him). \"Burgled\" means to break into a home. \"Mugged\" means to attack and rob someone in public.",
+        "chunk": "<em>\"steal + object\"</em> — steal items; <em>\"rob + person/place\"</em> — rob a shop."
+      },
+      "takeaway": {
+        "title": "steal vs rob",
+        "body": "\"Steal + object\" (stole items). \"Rob + person/place\" (robbed the bank)."
+      },
+      "prompt": "A man was arrested after he ___ several items from the supermarket.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "robbed"
+        },
+        {
+          "id": "B",
+          "text": "burgled"
+        },
+        {
+          "id": "C",
+          "text": "stole"
+        },
+        {
+          "id": "D",
+          "text": "mugged"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 30,
+      "kind": "choice",
+      "icon": "🤝",
+      "category": "Natural Phrasing",
+      "typeBadge": "multiple-choice",
+      "situation": "A colleague asks if you are free for a meeting later this afternoon.",
+      "feedback": {
+        "natural": "<strong>\"That suits me\"</strong> is the natural expression in English to say that a time or arrangement is convenient for you.",
+        "alternatives": "\"That fits me\", \"that matches me\", and \"that meets me\" are literal translations that sound unnatural in English for scheduling.",
+        "chunk": "<em>\"That suits me\"</em> or <em>\"That works for me\"</em> — both are natural for confirming a time."
+      },
+      "takeaway": {
+        "title": "Natural scheduling phrase",
+        "body": "\"That suits me\" or \"That works for me\" — natural ways to confirm a time."
+      },
+      "prompt": "A: Are you free at 3 pm? B: ___ — I'll move my other call.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "That suits me"
+        },
+        {
+          "id": "B",
+          "text": "That fits me"
+        },
+        {
+          "id": "C",
+          "text": "That matches me"
+        },
+        {
+          "id": "D",
+          "text": "That meets me"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 31,
+      "kind": "choice",
+      "icon": "🛡️",
+      "category": "Connectors",
+      "typeBadge": "multiple-choice",
+      "situation": "You bring an umbrella as a precaution before it starts raining.",
+      "feedback": {
+        "natural": "<strong>\"in case\"</strong> expresses a precautionary action — you take the umbrella as preparation for a possible future event.",
+        "alternatives": "\"If\" implies you would take the umbrella only once it starts raining — too late. \"Unless\" means except if. \"So that\" expresses purpose followed by a result.",
+        "chunk": "<em>\"in case + clause\"</em> = as a precaution: Take your keys in case I leave early."
+      },
+      "takeaway": {
+        "title": "Precaution: in case",
+        "body": "\"In case\" = precaution before something happens. \"If\" = condition when it happens."
+      },
+      "prompt": "Take your umbrella ___ it rains.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "if"
+        },
+        {
+          "id": "B",
+          "text": "in case"
+        },
+        {
+          "id": "C",
+          "text": "unless"
+        },
+        {
+          "id": "D",
+          "text": "so that"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 32,
+      "kind": "choice",
+      "icon": "👔",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "You are talking about someone's long-term professional development over many years.",
+      "feedback": {
+        "natural": "<strong>\"career\"</strong> refers to a person's long-term professional path, including progress and development over many years.",
+        "alternatives": "\"Job\" is a specific role or position. \"Work\" is the general activity. \"Occupation\" is very formal and refers to a type of work, not a progression.",
+        "chunk": "<em>\"career\"</em> = a long-term professional path; \"job\" = a specific position."
+      },
+      "takeaway": {
+        "title": "career vs job vs work",
+        "body": "\"Career\" = long-term path. \"Job\" = specific role. \"Work\" = general activity."
+      },
+      "prompt": "She has had a very successful ___ in marketing, starting as an intern and becoming a director.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "job"
+        },
+        {
+          "id": "B",
+          "text": "work"
+        },
+        {
+          "id": "C",
+          "text": "career"
+        },
+        {
+          "id": "D",
+          "text": "occupation"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 33,
+      "kind": "choice",
+      "icon": "😲",
+      "category": "Grammar",
+      "typeBadge": "multiple-choice",
+      "situation": "You want to emphasise how surprising the film was and explain why you watched it twice.",
+      "feedback": {
+        "natural": "<strong>\"such\"</strong> is correct before a noun phrase (\"a good film\") — the structure is \"such + a/an + adjective + noun\".",
+        "alternatives": "\"So\" is used before adjectives or adverbs without a noun: \"It was so good\". \"Very\" does not link to a result clause. \"Too\" means more than desired.",
+        "chunk": "<em>\"such + a/an + adjective + noun + that\"</em> — It was such a good film that we stayed."
+      },
+      "takeaway": {
+        "title": "so vs such",
+        "body": "\"Such + a/an + adj + noun\" (such a good film) vs \"so + adj\" (so good)."
+      },
+      "prompt": "It was ___ a good film that we watched it twice.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "so"
+        },
+        {
+          "id": "B",
+          "text": "such"
+        },
+        {
+          "id": "C",
+          "text": "very"
+        },
+        {
+          "id": "D",
+          "text": "too"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 34,
+      "kind": "choice",
+      "icon": "🎉",
+      "category": "Phrasal Verbs",
+      "typeBadge": "multiple-choice",
+      "situation": "You have been planning a holiday for months and are very excited about going.",
+      "feedback": {
+        "natural": "<strong>\"looking forward to\"</strong> means to feel excited about something in the future — it perfectly matches the context.",
+        "alternatives": "\"Looking after\" means taking care of someone or something. \"Looking into\" means investigating. \"Looking for\" means searching.",
+        "chunk": "<em>\"look forward to + noun/gerund\"</em> — I'm looking forward to the holiday / to going."
+      },
+      "takeaway": {
+        "title": "Phrasal verb: look forward to",
+        "body": "\"Look forward to + noun/-ing\" — excited about something in the future."
+      },
+      "prompt": "I'm really ___ the holiday next week. I can't wait!",
+      "choices": [
+        {
+          "id": "A",
+          "text": "looking forward to"
+        },
+        {
+          "id": "B",
+          "text": "looking after"
+        },
+        {
+          "id": "C",
+          "text": "looking into"
+        },
+        {
+          "id": "D",
+          "text": "looking for"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 35,
+      "kind": "choice",
+      "icon": "😤",
+      "category": "Register",
+      "typeBadge": "multiple-choice",
+      "situation": "You received a damaged product and are writing a polite formal complaint to the company.",
+      "feedback": {
+        "natural": "<strong>\"complain\"</strong> is the neutral, formal verb appropriate for written complaints to a company.",
+        "alternatives": "\"Moan\", \"whine\", and \"grumble\" are all informal or negative-sounding words that would seem unprofessional in a formal email.",
+        "chunk": "<em>\"I am writing to complain about...\"</em> is the standard formal complaint opener."
+      },
+      "takeaway": {
+        "title": "Formal complaint: complain",
+        "body": "\"I am writing to complain about...\" — use \"complain\" in formal written complaints."
+      },
+      "prompt": "I am writing to ___ about the condition of the item I received.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "complain"
+        },
+        {
+          "id": "B",
+          "text": "moan"
+        },
+        {
+          "id": "C",
+          "text": "whine"
+        },
+        {
+          "id": "D",
+          "text": "grumble"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 36,
+      "kind": "choice",
+      "icon": "🛋️",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "You stayed at a hotel and are telling a friend how good it was.",
+      "feedback": {
+        "natural": "<strong>\"helpful\"</strong> is the correct adjective to describe the staff after the linking verb \"were\".",
+        "alternatives": "\"Helpfully\" is an adverb (modifies a verb, not a noun). \"Helping\" is a participle or gerund and does not work as a predicate adjective. \"Help\" is a verb or noun.",
+        "chunk": "<em>\"helpful\"</em> is the adjective form; <em>\"helpfully\"</em> is the adverb form."
+      },
+      "takeaway": {
+        "title": "Word form: helpful",
+        "body": "\"The staff were helpful\" — adjective after \"be\"; not \"helpfully\" (adverb)."
+      },
+      "prompt": "The hotel was excellent. The staff were very ___ and helped us with everything.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "helpful"
+        },
+        {
+          "id": "B",
+          "text": "helpfully"
+        },
+        {
+          "id": "C",
+          "text": "helping"
+        },
+        {
+          "id": "D",
+          "text": "help"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 37,
+      "kind": "choice",
+      "icon": "🎫",
+      "category": "Connectors",
+      "typeBadge": "multiple-choice",
+      "situation": "Museum entry is free only on one condition — you must be a student.",
+      "feedback": {
+        "natural": "<strong>\"as long as\"</strong> introduces a condition that must be true for the main clause to apply — free, but only if you are a student.",
+        "alternatives": "\"Unless\" means except if — \"free unless you are a student\" would mean free for non-students, which is the opposite. \"If only\" is for expressing regret. \"Even if\" means regardless of the condition.",
+        "chunk": "<em>\"as long as\"</em> = on the condition that: It's free as long as you book in advance."
+      },
+      "takeaway": {
+        "title": "Condition: as long as",
+        "body": "\"As long as\" = on the condition that: It's free as long as you're a student."
+      },
+      "prompt": "Entry is free ___ you are a student. Otherwise, it costs £10.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "unless"
+        },
+        {
+          "id": "B",
+          "text": "if only"
+        },
+        {
+          "id": "C",
+          "text": "as long as"
+        },
+        {
+          "id": "D",
+          "text": "even if"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 38,
+      "kind": "choice",
+      "icon": "📈",
+      "category": "Collocations",
+      "typeBadge": "multiple-choice",
+      "situation": "You are reporting on how well the team has been developing a long-term project.",
+      "feedback": {
+        "natural": "<strong>\"made\"</strong> is the correct collocation — \"make progress\" is a fixed expression in English.",
+        "alternatives": "\"Done progress\" is incorrect — \"do\" does not collocate with progress. \"Achieved progress\" is unusual. \"Gotten progress\" is not a standard expression.",
+        "chunk": "<em>\"make progress\"</em> — We made a lot of progress. How much progress have you made?"
+      },
+      "takeaway": {
+        "title": "Collocation: make progress",
+        "body": "\"Make progress\" — not \"do\" or \"achieve\" progress."
+      },
+      "prompt": "The team has ___ a lot of progress on the new software.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "done"
+        },
+        {
+          "id": "B",
+          "text": "made"
+        },
+        {
+          "id": "C",
+          "text": "achieved"
+        },
+        {
+          "id": "D",
+          "text": "gotten"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 39,
+      "kind": "choice",
+      "icon": "🚗",
+      "category": "Modal Verbs",
+      "typeBadge": "multiple-choice",
+      "situation": "You are explaining a law about driving — it is illegal not to wear a seatbelt.",
+      "feedback": {
+        "natural": "<strong>\"must\"</strong> expresses strong obligation or legal requirement — ideal for talking about laws or rules.",
+        "alternatives": "\"Should\" is for advice, not legal obligation. \"Might\" expresses possibility. \"Can\" expresses ability or permission, not obligation.",
+        "chunk": "<em>\"must + infinitive\"</em> = strong obligation or legal requirement."
+      },
+      "takeaway": {
+        "title": "Obligation: must",
+        "body": "\"Must + infinitive\" = strong obligation/law: You must wear a seatbelt."
+      },
+      "prompt": "In this country, all passengers ___ wear a seatbelt. It's the law.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "should"
+        },
+        {
+          "id": "B",
+          "text": "might"
+        },
+        {
+          "id": "C",
+          "text": "must"
+        },
+        {
+          "id": "D",
+          "text": "can"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 40,
+      "kind": "choice",
+      "icon": "🧠",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "You are writing a report about how pollution changes health outcomes.",
+      "feedback": {
+        "natural": "<strong>\"affect\"</strong> is the verb meaning to have an impact on something. It is followed directly by the object.",
+        "alternatives": "\"Effect\" is usually a noun (the effect). \"Impact on\" and \"influence on\" need \"have\" before them (have an impact on / have an influence on).",
+        "chunk": "<em>\"affect + object\"</em> (verb) vs <em>\"effect\"</em> (noun): Pollution affects health. The effect is serious."
+      },
+      "takeaway": {
+        "title": "affect vs effect",
+        "body": "\"Affect\" = verb (to affect something). \"Effect\" = noun (the effect of something)."
+      },
+      "prompt": "Poor air quality can ___ your health, causing breathing problems.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "effect"
+        },
+        {
+          "id": "B",
+          "text": "affect"
+        },
+        {
+          "id": "C",
+          "text": "impact on"
+        },
+        {
+          "id": "D",
+          "text": "influence on"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 41,
+      "kind": "choice",
+      "icon": "⏰",
+      "category": "Grammar",
+      "typeBadge": "multiple-choice",
+      "situation": "You feel it is the right moment for your friend to look for a new job.",
+      "feedback": {
+        "natural": "<strong>\"looked\"</strong> is correct because \"it's time + subject + past simple\" is a fixed structure — the past form is used even though the meaning is present.",
+        "alternatives": "\"Look\" (present simple) is incorrect after this structure. \"To look\" uses the infinitive, which is only used when there is no subject (\"It's time to go\"). \"Will look\" is future and does not fit the structure.",
+        "chunk": "<em>\"It's time + subject + past simple\"</em> — It's time you looked for a job / It's time we left."
+      },
+      "takeaway": {
+        "title": "Grammar: it's time + past simple",
+        "body": "\"It's time + subject + past simple\" — It's time you looked for a new job."
+      },
+      "prompt": "It's time you ___ for a new job. You've been unhappy here for too long.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "look"
+        },
+        {
+          "id": "B",
+          "text": "looked"
+        },
+        {
+          "id": "C",
+          "text": "to look"
+        },
+        {
+          "id": "D",
+          "text": "will look"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 42,
+      "kind": "choice",
+      "icon": "📖",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "A friend gives you practical suggestions about what to do in a difficult situation.",
+      "feedback": {
+        "natural": "<strong>\"advice\"</strong> is an uncountable noun in English — it has no plural form and does not take \"an\".",
+        "alternatives": "\"Advise\" is the verb (to advise someone). \"Advices\" is not a word in standard English. \"An advice\" is incorrect because advice is uncountable.",
+        "chunk": "<em>\"advice\"</em> is uncountable: some advice, a piece of advice — never \"an advice\" or \"advices\"."
+      },
+      "takeaway": {
+        "title": "Uncountable noun: advice",
+        "body": "\"Advice\" is uncountable — some advice, a piece of advice (not \"an advice\")."
+      },
+      "prompt": "He gave me some really useful ___ about how to deal with the problem.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "advise"
+        },
+        {
+          "id": "B",
+          "text": "advices"
+        },
+        {
+          "id": "C",
+          "text": "advice"
+        },
+        {
+          "id": "D",
+          "text": "an advice"
+        }
+      ],
+      "correctChoiceId": "C"
+    },
+    {
+      "id": 43,
+      "kind": "choice",
+      "icon": "⚖️",
+      "category": "Connectors",
+      "typeBadge": "multiple-choice",
+      "situation": "You are discussing pros and cons and want to introduce a contrasting point.",
+      "feedback": {
+        "natural": "<strong>\"On the other hand\"</strong> introduces a contrasting point — ideal for balanced arguments.",
+        "alternatives": "\"In addition\" adds a further point, not a contrast. \"As a result\" shows cause and effect. \"For example\" introduces an illustration.",
+        "chunk": "<em>\"On the other hand,...\"</em> introduces a contrasting idea in a balanced argument."
+      },
+      "takeaway": {
+        "title": "Contrast: on the other hand",
+        "body": "\"On the other hand,...\" — introduces a contrasting point in balanced discussion."
+      },
+      "prompt": "Working from home saves time on commuting. ___, it can feel lonely.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "In addition"
+        },
+        {
+          "id": "B",
+          "text": "On the other hand"
+        },
+        {
+          "id": "C",
+          "text": "As a result"
+        },
+        {
+          "id": "D",
+          "text": "For example"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 44,
+      "kind": "choice",
+      "icon": "📵",
+      "category": "Phrasal Verbs",
+      "typeBadge": "multiple-choice",
+      "situation": "You were offered a higher salary by another company but decided not to accept it.",
+      "feedback": {
+        "natural": "<strong>\"turned down\"</strong> means to reject or refuse an offer, which fits the context exactly.",
+        "alternatives": "\"Turned off\" means to switch off or lose interest. \"Turned up\" means to arrive or increase volume. \"Turned out\" means to result in a certain way.",
+        "chunk": "<em>\"turn down + offer/request\"</em> = to refuse or reject: I turned down the job offer."
+      },
+      "takeaway": {
+        "title": "Phrasal verb: turn down",
+        "body": "\"Turn down\" = to refuse/reject: I turned down the offer."
+      },
+      "prompt": "I was offered a better salary, but I ___ the offer because I prefer my current team.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "turned down"
+        },
+        {
+          "id": "B",
+          "text": "turned off"
+        },
+        {
+          "id": "C",
+          "text": "turned up"
+        },
+        {
+          "id": "D",
+          "text": "turned out"
+        }
+      ],
+      "correctChoiceId": "A"
+    },
+    {
+      "id": 45,
+      "kind": "choice",
+      "icon": "❓",
+      "category": "Reported Speech",
+      "typeBadge": "multiple-choice",
+      "situation": "Your manager asked: \"Can you finish the report by Friday?\" You are telling a colleague.",
+      "feedback": {
+        "natural": "<strong>\"if I could\"</strong> is the correct reported question structure — \"can\" shifts to \"could\" and the word order becomes statement order (subject + verb).",
+        "alternatives": "\"Can I\" uses direct speech word order and the wrong tense. \"Whether can I\" and \"if could I\" invert the subject and verb incorrectly — reported questions do not invert.",
+        "chunk": "<em>\"asked if/whether + subject + could\"</em> — She asked if I could help. He asked whether I was ready."
+      },
+      "takeaway": {
+        "title": "Reported question: if/whether",
+        "body": "\"Asked if + subject + could\" — no inversion, tense back-shift."
+      },
+      "prompt": "My manager asked me ___ finish the report by Friday.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "can I"
+        },
+        {
+          "id": "B",
+          "text": "if I could"
+        },
+        {
+          "id": "C",
+          "text": "whether can I"
+        },
+        {
+          "id": "D",
+          "text": "if could I"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 46,
+      "kind": "choice",
+      "icon": "🧑‍💼",
+      "category": "Prepositions",
+      "typeBadge": "multiple-choice",
+      "situation": "You are describing who is in charge of organising the team events.",
+      "feedback": {
+        "natural": "<strong>\"for\"</strong> is the correct preposition — \"responsible for\" is a fixed collocation.",
+        "alternatives": "\"Of\" is used in \"in charge of\", not \"responsible of\". \"About\" and \"to\" are not used with \"responsible\" in this context.",
+        "chunk": "<em>\"responsible for + noun/gerund\"</em> — She is responsible for the team / for organising events."
+      },
+      "takeaway": {
+        "title": "Preposition: responsible for",
+        "body": "\"Responsible for\" — always \"for\": She is responsible for the project."
+      },
+      "prompt": "Maria is responsible ___ organising the team events this year.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "of"
+        },
+        {
+          "id": "B",
+          "text": "for"
+        },
+        {
+          "id": "C",
+          "text": "about"
+        },
+        {
+          "id": "D",
+          "text": "to"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 47,
+      "kind": "choice",
+      "icon": "🌦️",
+      "category": "Vocabulary",
+      "typeBadge": "multiple-choice",
+      "situation": "You think there is a good chance of rain tomorrow based on the weather forecast.",
+      "feedback": {
+        "natural": "<strong>\"likely\"</strong> is the correct adjective here — \"it is likely to + infinitive\" is a natural, common structure.",
+        "alternatives": "\"Probable\" works in meaning but the structure \"it is probable to rain\" is unusual; we prefer \"it is probable that it will rain\". \"Possible\" works similarly but is weaker. \"Maybe\" is an adverb and cannot follow \"it is\".",
+        "chunk": "<em>\"It is likely to + infinitive\"</em> — It is likely to rain / She is likely to be late."
+      },
+      "takeaway": {
+        "title": "Probability: likely to",
+        "body": "\"It is likely to + infinitive\" — natural structure for strong probability."
+      },
+      "prompt": "It is ___ to rain tomorrow — the forecast shows clouds all day.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "probable"
+        },
+        {
+          "id": "B",
+          "text": "likely"
+        },
+        {
+          "id": "C",
+          "text": "possible"
+        },
+        {
+          "id": "D",
+          "text": "maybe"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 48,
+      "kind": "choice",
+      "icon": "🔬",
+      "category": "Collocations",
+      "typeBadge": "multiple-choice",
+      "situation": "You are describing the work a scientist does in their daily routine.",
+      "feedback": {
+        "natural": "<strong>\"do\"</strong> is the correct verb — \"do research\" is a standard collocation in academic and professional English.",
+        "alternatives": "\"Make research\" is a common error. \"Have research\" and \"take research\" are not standard English expressions.",
+        "chunk": "<em>\"do research\"</em> — I'm doing research into climate change. She does research at a university."
+      },
+      "takeaway": {
+        "title": "Collocation: do research",
+        "body": "\"Do research\" — not \"make research\". I'm doing research into this topic."
+      },
+      "prompt": "Scientists ___ research to understand climate change.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "make"
+        },
+        {
+          "id": "B",
+          "text": "do"
+        },
+        {
+          "id": "C",
+          "text": "have"
+        },
+        {
+          "id": "D",
+          "text": "take"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 49,
+      "kind": "choice",
+      "icon": "🌠",
+      "category": "Grammar",
+      "typeBadge": "multiple-choice",
+      "situation": "You are not happy about your current situation and wish things were different.",
+      "feedback": {
+        "natural": "<strong>\"had\"</strong> is correct because \"wish + past simple\" expresses a wish about a present situation that is different from reality.",
+        "alternatives": "\"Have\" (present simple) is incorrect after \"wish\" for present situations. \"Would have\" is for wishes about future behaviour or expressing annoyance. \"Have had\" is present perfect and is not used after \"wish\" for current situations.",
+        "chunk": "<em>\"wish + past simple\"</em> = wish about present reality: I wish I had a car. I wish I lived somewhere nicer."
+      },
+      "takeaway": {
+        "title": "Wish: past simple for present",
+        "body": "\"Wish + past simple\" — I wish I had a bigger flat (current reality is different)."
+      },
+      "prompt": "I hate living in this small flat. I wish I ___ a bigger place.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "have"
+        },
+        {
+          "id": "B",
+          "text": "had"
+        },
+        {
+          "id": "C",
+          "text": "would have"
+        },
+        {
+          "id": "D",
+          "text": "have had"
+        }
+      ],
+      "correctChoiceId": "B"
+    },
+    {
+      "id": 50,
+      "kind": "choice",
+      "icon": "🍽️",
+      "category": "Natural Phrasing",
+      "typeBadge": "multiple-choice",
+      "situation": "You are at a restaurant and want to order your meal from the server.",
+      "feedback": {
+        "natural": "<strong>\"have\"</strong> is the most natural and polite way to order food in a restaurant: \"I'll have the pasta, please.\"",
+        "alternatives": "\"I'll want\" sounds unnatural — \"want\" is not typically used with \"I'll\" for ordering. \"I'll take\" is acceptable but more common in American English. \"I'll need\" sounds too formal or urgent.",
+        "chunk": "<em>\"I'll have the...\"</em> is the standard phrase for ordering in a British English restaurant."
+      },
+      "takeaway": {
+        "title": "Ordering food: I'll have",
+        "body": "\"I'll have the...\" — the natural phrase for ordering food at a restaurant."
+      },
+      "prompt": "You: I'll ___ the pasta, please.",
+      "choices": [
+        {
+          "id": "A",
+          "text": "want"
+        },
+        {
+          "id": "B",
+          "text": "take"
+        },
+        {
+          "id": "C",
+          "text": "have"
+        },
+        {
+          "id": "D",
+          "text": "need"
+        }
+      ],
+      "correctChoiceId": "C"
+    }
+  ]
+}

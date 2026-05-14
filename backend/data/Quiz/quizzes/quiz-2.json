@@ -1,0 +1,806 @@
+{
+  "id": "quiz-2",
+  "title": "Quiz 2",
+  "subtitle": "Super Star B1 Mix",
+  "level": "B1",
+  "audience": "11-year-old English learner",
+  "estimatedMinutes": 35,
+  "source": "Converted from Claude Daniel 4.27 super_star_quiz B1.html",
+  "createdAt": "2026-04-27",
+  "questions": [
+    {
+      "id": 1,
+      "category": "Animals",
+      "skill": "Animals",
+      "icon": "🐾",
+      "type": "mc",
+      "question": "Which animal can fly?",
+      "explanation": "An eagle is a big bird with strong wings, so it can fly. Penguins are birds too, but they cannot fly!",
+      "options": [
+        "Penguin",
+        "Eagle",
+        "Shark",
+        "Snake"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 2,
+      "category": "Grammar: Present Simple",
+      "skill": "Grammar: Present Simple",
+      "icon": "📘",
+      "type": "mc",
+      "question": "She _____ to school every day.",
+      "explanation": "With he / she / it, we add -s in the present simple. So: She goes.",
+      "options": [
+        "go",
+        "goes",
+        "going",
+        "gone"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 3,
+      "category": "Vocabulary: Family",
+      "skill": "Vocabulary: Family",
+      "icon": "🔤",
+      "type": "fill",
+      "question": "My father's sister is my _____.",
+      "explanation": "Your father's (or mother's) sister is your aunt.",
+      "answer": "aunt",
+      "acceptable": [
+        "aunt",
+        "auntie",
+        "aunty"
+      ]
+    },
+    {
+      "id": 4,
+      "category": "Word Order",
+      "skill": "Word Order",
+      "icon": "🧩",
+      "type": "wordorder",
+      "question": "Put the words in the correct order:",
+      "explanation": "Word order in English: subject + verb + object + time → She plays the piano every day.",
+      "words": [
+        "She",
+        "plays",
+        "the",
+        "piano",
+        "every",
+        "day"
+      ],
+      "correctSentence": "She plays the piano every day"
+    },
+    {
+      "id": 5,
+      "category": "Prepositions: Time",
+      "skill": "Prepositions: Time",
+      "icon": "📍",
+      "type": "mc",
+      "question": "We start school _____ 8 o'clock.",
+      "explanation": "We use 'at' with clock times: at 8 o'clock, at noon, at midnight.",
+      "options": [
+        "in",
+        "on",
+        "at",
+        "by"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 6,
+      "category": "Grammar: Past Simple",
+      "skill": "Grammar: Past Simple",
+      "icon": "📘",
+      "type": "fill",
+      "question": "Yesterday, I _____ a film. (watch)",
+      "explanation": "For regular verbs in the past simple, add -ed. watch → watched.",
+      "answer": "watched",
+      "acceptable": [
+        "watched"
+      ]
+    },
+    {
+      "id": 7,
+      "category": "Question Words",
+      "skill": "Question Words",
+      "icon": "❓",
+      "type": "mc",
+      "question": "_____ do you live? — In London.",
+      "explanation": "'Where' asks about a place. The answer 'In London' is a place.",
+      "options": [
+        "What",
+        "Where",
+        "When",
+        "Who"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 8,
+      "category": "Hobbies",
+      "skill": "Hobbies",
+      "icon": "🎨",
+      "type": "mc",
+      "question": "I love _____ books in my free time.",
+      "explanation": "After 'love', 'like', 'enjoy' and 'hate', we usually use the -ing form: love reading.",
+      "options": [
+        "read",
+        "reading",
+        "to reading",
+        "reads"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 9,
+      "category": "Connectors",
+      "skill": "Connectors",
+      "icon": "🔗",
+      "type": "mc",
+      "question": "I was hungry, _____ I made a sandwich.",
+      "explanation": "'So' shows a result. I was hungry → result: I made a sandwich.",
+      "options": [
+        "but",
+        "so",
+        "because",
+        "although"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 10,
+      "category": "Error Correction",
+      "skill": "Error Correction",
+      "icon": "✨",
+      "type": "mc",
+      "question": "Which sentence is correct?",
+      "explanation": "With he / she / it, the negative is 'doesn't' + base verb: She doesn't like vegetables.",
+      "options": [
+        "She don't like vegetables.",
+        "She doesn't likes vegetables.",
+        "She doesn't like vegetables.",
+        "She not like vegetables."
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 11,
+      "category": "Food",
+      "skill": "Food",
+      "icon": "🍎",
+      "type": "mc",
+      "question": "Which one is a fruit?",
+      "explanation": "A banana is a sweet, yellow fruit. The others are vegetables.",
+      "options": [
+        "Carrot",
+        "Banana",
+        "Potato",
+        "Onion"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 12,
+      "category": "Weather",
+      "skill": "Weather",
+      "icon": "☀️",
+      "type": "mc",
+      "question": "It's very cold and there is white on the ground. It is _____.",
+      "explanation": "When white snow covers the ground, we say it is snowy.",
+      "options": [
+        "sunny",
+        "windy",
+        "snowy",
+        "hot"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 13,
+      "category": "Grammar: Present Continuous",
+      "skill": "Grammar: Present Continuous",
+      "icon": "📘",
+      "type": "fill",
+      "question": "Look! The dog _____ in the garden. (run)",
+      "explanation": "For something happening right now, use the present continuous: is/are + verb-ing. Run → running (double the n).",
+      "answer": "is running",
+      "acceptable": [
+        "is running",
+        "'s running"
+      ]
+    },
+    {
+      "id": 14,
+      "category": "Grammar: Past Simple (Irregular)",
+      "skill": "Grammar: Past Simple (Irregular)",
+      "icon": "📘",
+      "type": "mc",
+      "question": "Last summer we _____ to Spain.",
+      "explanation": "'Go' is irregular. The past simple of 'go' is 'went'.",
+      "options": [
+        "goed",
+        "go",
+        "went",
+        "gone"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 15,
+      "category": "Prepositions: Place",
+      "skill": "Prepositions: Place",
+      "icon": "📍",
+      "type": "mc",
+      "question": "The cat is sleeping _____ the chair.",
+      "explanation": "We use 'on' for surfaces (top of something). The cat is on the chair.",
+      "options": [
+        "on",
+        "in",
+        "at",
+        "of"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 16,
+      "category": "Sentence Completion",
+      "skill": "Sentence Completion",
+      "icon": "✨",
+      "type": "mc",
+      "question": "If it rains tomorrow, I _____ at home.",
+      "explanation": "First conditional: if + present simple, ... will + verb. → If it rains, I will stay.",
+      "options": [
+        "stay",
+        "will stay",
+        "stayed",
+        "staying"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 17,
+      "category": "School",
+      "skill": "School",
+      "icon": "🎒",
+      "type": "mc",
+      "question": "We learn about numbers and shapes in _____ class.",
+      "explanation": "Maths (mathematics) is the subject about numbers, shapes and counting.",
+      "options": [
+        "art",
+        "maths",
+        "history",
+        "PE"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 18,
+      "category": "Word Order",
+      "skill": "Word Order",
+      "icon": "🧩",
+      "type": "wordorder",
+      "question": "Put the words in the correct order:",
+      "explanation": "Subject + verb + place + time → We went to the park yesterday.",
+      "words": [
+        "We",
+        "went",
+        "to",
+        "the",
+        "park",
+        "yesterday"
+      ],
+      "correctSentence": "We went to the park yesterday"
+    },
+    {
+      "id": 19,
+      "category": "Polite Conversation",
+      "skill": "Polite Conversation",
+      "icon": "💬",
+      "type": "mc",
+      "question": "Excuse me, _____ you tell me the time, please?",
+      "explanation": "'Can you ...?' is a polite, friendly way to ask someone for help.",
+      "options": [
+        "can",
+        "do",
+        "are",
+        "is"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 20,
+      "category": "Vocabulary: Synonyms",
+      "skill": "Vocabulary: Synonyms",
+      "icon": "🔤",
+      "type": "mc",
+      "question": "Which word means almost the same as 'big'?",
+      "explanation": "'Big' and 'large' have very similar meanings. A big house = a large house.",
+      "options": [
+        "small",
+        "tall",
+        "large",
+        "heavy"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 21,
+      "category": "Reading: A Boy and His Dog",
+      "skill": "Reading: A Boy and His Dog",
+      "icon": "📖",
+      "type": "mc",
+      "question": "How old is Tom?",
+      "explanation": "The text says: 'Tom is 11 years old.'",
+      "reading": "Tom is 11 years old. He has a brown dog called Max. Every day after school, Tom and Max play in the park together. They run, jump and have lots of fun. Tom is very happy because Max is his best friend.",
+      "options": [
+        "10",
+        "11",
+        "12",
+        "9"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 22,
+      "category": "Reading: A Boy and His Dog",
+      "skill": "Reading: A Boy and His Dog",
+      "icon": "📖",
+      "type": "mc",
+      "question": "Where do Tom and Max play?",
+      "explanation": "The text says: 'Tom and Max play in the park together.'",
+      "reading": "Tom is 11 years old. He has a brown dog called Max. Every day after school, Tom and Max play in the park together. They run, jump and have lots of fun. Tom is very happy because Max is his best friend.",
+      "options": [
+        "At home",
+        "At school",
+        "In the park",
+        "In the garden"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 23,
+      "category": "Reading: A Boy and His Dog",
+      "skill": "Reading: A Boy and His Dog",
+      "icon": "📖",
+      "type": "mc",
+      "question": "What colour is Max?",
+      "explanation": "The text says Max is 'a brown dog'.",
+      "reading": "Tom is 11 years old. He has a brown dog called Max. Every day after school, Tom and Max play in the park together. They run, jump and have lots of fun. Tom is very happy because Max is his best friend.",
+      "options": [
+        "Black",
+        "White",
+        "Brown",
+        "Yellow"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 24,
+      "category": "Connectors",
+      "skill": "Connectors",
+      "icon": "🔗",
+      "type": "mc",
+      "question": "I want to play outside, _____ it is raining.",
+      "explanation": "'But' shows a contrast: I want to play outside (good idea) BUT it is raining (problem).",
+      "options": [
+        "so",
+        "because",
+        "but",
+        "and"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 25,
+      "category": "Sports",
+      "skill": "Sports",
+      "icon": "🎾",
+      "type": "mc",
+      "question": "You need a ball and a net to play _____.",
+      "explanation": "Tennis is played with a ball and a net between two players.",
+      "options": [
+        "chess",
+        "tennis",
+        "running",
+        "swimming"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 26,
+      "category": "Grammar: Comparatives",
+      "skill": "Grammar: Comparatives",
+      "icon": "📘",
+      "type": "fill",
+      "question": "An elephant is _____ than a mouse. (big)",
+      "explanation": "Short adjectives: add -er. 'Big' doubles the g → bigger.",
+      "answer": "bigger",
+      "acceptable": [
+        "bigger"
+      ]
+    },
+    {
+      "id": 27,
+      "category": "Daily Routines",
+      "skill": "Daily Routines",
+      "icon": "🪥",
+      "type": "mc",
+      "question": "I _____ my teeth every morning and evening.",
+      "explanation": "In English, we say 'brush your teeth', not 'wash' or 'clean' your teeth.",
+      "options": [
+        "wash",
+        "brush",
+        "clean",
+        "make"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 28,
+      "category": "Question Words",
+      "skill": "Question Words",
+      "icon": "❓",
+      "type": "mc",
+      "question": "_____ is your birthday? — In June.",
+      "explanation": "'When' asks about time. The answer 'In June' is a time.",
+      "options": [
+        "Where",
+        "When",
+        "Why",
+        "How"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 29,
+      "category": "Modal Verbs",
+      "skill": "Modal Verbs",
+      "icon": "⚠️",
+      "type": "mc",
+      "question": "You _____ swim in this lake. It's dangerous!",
+      "explanation": "'Mustn't' = it is not allowed / not safe to do something.",
+      "options": [
+        "must",
+        "mustn't",
+        "can",
+        "may"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 30,
+      "category": "Holidays",
+      "skill": "Holidays",
+      "icon": "🎁",
+      "type": "mc",
+      "question": "At Christmas, we send these to friends and family with nice messages.",
+      "explanation": "At Christmas (and birthdays) we send greeting cards with kind messages.",
+      "options": [
+        "cars",
+        "cards",
+        "chairs",
+        "clocks"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 31,
+      "category": "Grammar: Past Continuous",
+      "skill": "Grammar: Past Continuous",
+      "icon": "📘",
+      "type": "fill",
+      "question": "While I _____ a book, my brother was playing. (read)",
+      "explanation": "Past continuous = was/were + verb-ing. We use it for actions in progress in the past.",
+      "answer": "was reading",
+      "acceptable": [
+        "was reading"
+      ]
+    },
+    {
+      "id": 32,
+      "category": "Articles",
+      "skill": "Articles",
+      "icon": "📝",
+      "type": "mc",
+      "question": "I have _____ apple and _____ banana.",
+      "explanation": "'An' goes before vowel sounds (an apple). 'A' goes before consonant sounds (a banana).",
+      "options": [
+        "a, a",
+        "an, an",
+        "an, a",
+        "a, an"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 33,
+      "category": "Error Correction",
+      "skill": "Error Correction",
+      "icon": "✨",
+      "type": "mc",
+      "question": "Choose the correct sentence:",
+      "explanation": "With 'he / she / it' we use 'is'. → He is my best friend.",
+      "options": [
+        "He are my best friend.",
+        "He am my best friend.",
+        "He is my best friend.",
+        "He be my best friend."
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 34,
+      "category": "Friends",
+      "skill": "Friends",
+      "icon": "🤝",
+      "type": "mc",
+      "question": "A person you know well and like is a _____.",
+      "explanation": "A friend is someone you know well, like and trust.",
+      "options": [
+        "enemy",
+        "stranger",
+        "friend",
+        "teacher"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 35,
+      "category": "Grammar: Future (going to)",
+      "skill": "Grammar: Future (going to)",
+      "icon": "📘",
+      "type": "fill",
+      "question": "Tomorrow, I _____ my grandparents. (visit)  — use 'going to'",
+      "explanation": "For plans we use 'be going to' + base verb. With 'I' → I am going to visit.",
+      "answer": "am going to visit",
+      "acceptable": [
+        "am going to visit",
+        "'m going to visit"
+      ]
+    },
+    {
+      "id": 36,
+      "category": "Word Order: Questions",
+      "skill": "Word Order: Questions",
+      "icon": "🧩",
+      "type": "wordorder",
+      "question": "Make a question:",
+      "explanation": "Yes/No questions in present simple: Do/Does + subject + base verb. → Do you speak English?",
+      "words": [
+        "Do",
+        "you",
+        "speak",
+        "English",
+        "?"
+      ],
+      "correctSentence": "Do you speak English ?"
+    },
+    {
+      "id": 37,
+      "category": "Animals",
+      "skill": "Animals",
+      "icon": "🐾",
+      "type": "fill",
+      "question": "A baby dog is called a _____.",
+      "explanation": "A baby dog is a puppy. (A baby cat is a kitten.)",
+      "answer": "puppy",
+      "acceptable": [
+        "puppy",
+        "a puppy"
+      ]
+    },
+    {
+      "id": 38,
+      "category": "Some / Any",
+      "skill": "Some / Any",
+      "icon": "✨",
+      "type": "mc",
+      "question": "Are there _____ apples in the kitchen?",
+      "explanation": "In questions and negatives, we usually use 'any'. In positive sentences, we use 'some'.",
+      "options": [
+        "some",
+        "any",
+        "a",
+        "an"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 39,
+      "category": "Connectors",
+      "skill": "Connectors",
+      "icon": "🔗",
+      "type": "mc",
+      "question": "I like apples _____ oranges. They are both delicious.",
+      "explanation": "'And' joins two similar ideas: I like apples AND oranges.",
+      "options": [
+        "but",
+        "so",
+        "and",
+        "because"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 40,
+      "category": "Adverbs of Frequency",
+      "skill": "Adverbs of Frequency",
+      "icon": "✨",
+      "type": "mc",
+      "question": "She _____ goes to bed at 9 pm. It is her routine every night.",
+      "explanation": "'Always' = 100% of the time. If it's her routine every night, she ALWAYS goes to bed at 9.",
+      "options": [
+        "never",
+        "sometimes",
+        "always",
+        "hardly"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 41,
+      "category": "Food",
+      "skill": "Food",
+      "icon": "🍎",
+      "type": "mc",
+      "question": "Which of these is a drink?",
+      "explanation": "Milk is a drink. The others are foods we eat.",
+      "options": [
+        "Bread",
+        "Cheese",
+        "Milk",
+        "Rice"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 42,
+      "category": "Past Simple: Questions",
+      "skill": "Past Simple: Questions",
+      "icon": "❓",
+      "type": "mc",
+      "question": "_____ you go to school yesterday?",
+      "explanation": "Past simple questions: Did + subject + base verb. → Did you go ...?",
+      "options": [
+        "Do",
+        "Did",
+        "Are",
+        "Were"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 43,
+      "category": "Weather",
+      "skill": "Weather",
+      "icon": "☀️",
+      "type": "mc",
+      "question": "When the sun is shining and the sky is blue, it is _____.",
+      "explanation": "Sunny = the sun is shining and the sky is bright.",
+      "options": [
+        "cloudy",
+        "rainy",
+        "sunny",
+        "snowy"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 44,
+      "category": "Grammar: Possessives",
+      "skill": "Grammar: Possessives",
+      "icon": "📘",
+      "type": "mc",
+      "question": "This is _____ book. It belongs to Sarah.",
+      "explanation": "To show that something belongs to a person, we add 's (apostrophe + s). → Sarah's book.",
+      "options": [
+        "Sarahs",
+        "Sarah's",
+        "Sarahes",
+        "Sarah"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 45,
+      "category": "Sentence Completion",
+      "skill": "Sentence Completion",
+      "icon": "✨",
+      "type": "mc",
+      "question": "I'm thirsty. I want _____.",
+      "explanation": "'Thirsty' means you need a drink. Water is a drink.",
+      "options": [
+        "a sandwich",
+        "some water",
+        "a book",
+        "my shoes"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 46,
+      "category": "Grammar: There is / There are",
+      "skill": "Grammar: There is / There are",
+      "icon": "📘",
+      "type": "mc",
+      "question": "_____ many books on the table.",
+      "explanation": "With plural countable nouns (books), we use 'There are'. 'Many books' is plural.",
+      "options": [
+        "There is",
+        "There are",
+        "It is",
+        "They are"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 47,
+      "category": "Reading: Anna and Animals",
+      "skill": "Reading: Anna and Animals",
+      "icon": "📖",
+      "type": "mc",
+      "question": "What does Anna want to be when she grows up?",
+      "explanation": "The text says: 'She wants to be a vet'. A vet is an animal doctor.",
+      "reading": "Anna loves animals. She has two cats and a rabbit at home. Every weekend, she helps at the animal shelter, where she feeds the dogs and cleans their cages. She wants to be a vet when she grows up because she wants to help sick animals.",
+      "options": [
+        "A teacher",
+        "A vet",
+        "A singer",
+        "A doctor for people"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 48,
+      "category": "Reading: Anna and Animals",
+      "skill": "Reading: Anna and Animals",
+      "icon": "📖",
+      "type": "mc",
+      "question": "How many pets does Anna have at home?",
+      "explanation": "Two cats + one rabbit = three pets in total.",
+      "reading": "Anna loves animals. She has two cats and a rabbit at home. Every weekend, she helps at the animal shelter, where she feeds the dogs and cleans their cages. She wants to be a vet when she grows up because she wants to help sick animals.",
+      "options": [
+        "Two",
+        "Three",
+        "Four",
+        "One"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 49,
+      "category": "Polite Conversation",
+      "skill": "Polite Conversation",
+      "icon": "💬",
+      "type": "mc",
+      "question": "_____ you very much for your help!",
+      "explanation": "'Thank you very much' is a kind, polite way to say thanks.",
+      "options": [
+        "Please",
+        "Sorry",
+        "Thank",
+        "Excuse"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 50,
+      "category": "Polite Conversation",
+      "skill": "Polite Conversation",
+      "icon": "💬",
+      "type": "mc",
+      "question": "\"Have a nice weekend!\" — \"_____ too!\"",
+      "explanation": "We say 'You too!' to wish the same nice thing back to the other person.",
+      "options": [
+        "You",
+        "Me",
+        "Yes",
+        "Thanks"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}
