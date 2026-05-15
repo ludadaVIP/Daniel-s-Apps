@@ -1,0 +1,97 @@
+{
+  "id": "stress-accents",
+  "title": "L02 · Stress & Written Accents",
+  "phase": "Phase 1 — Sounds & Spelling",
+  "level": "A0",
+  "estimatedMinutes": 15,
+  "objective": "Spanish stress is 100% predictable from spelling. Learn the two-rule system, and you can pronounce any new word correctly on first sight.",
+  "strategy": "There are only TWO rules — Rule A (where stress falls by default) and Rule B (when the accent mark ´ overrides it). Drill section 1 and section 2 until they're automatic. Section 3 covers the special accents that distinguish word PAIRS (sí vs si, tú vs tu) — high-value.",
+  "sections": [
+    {
+      "id": "default-stress",
+      "title": "Rule A — Default stress",
+      "note": "If a word has NO written accent (´), stress falls in ONE of two predictable places.",
+      "blocks": [
+        {"id": "rule-default-1", "type": "rule", "text": "Words ending in a vowel, -n, or -s → stress on the SECOND-TO-LAST syllable", "audioText": "casa, libro, hablan, comen, gracias, dificil", "rule": "Most Spanish words follow this. 'CA-sa', 'LI-bro', 'HA-blan'. Memorise the trigger: VOWEL / N / S = penultimate stress.", "examples": [
+          {"text": "casa (CA-sa)", "audioText": "casa", "translation": "house / maison — stress on CA"},
+          {"text": "libro (LI-bro)", "audioText": "libro", "translation": "book / livre"},
+          {"text": "hablan (HA-blan)", "audioText": "hablan", "translation": "they speak / ils parlent"},
+          {"text": "comen (CO-men)", "audioText": "comen", "translation": "they eat / ils mangent"},
+          {"text": "gracias (GRA-cias)", "audioText": "gracias", "translation": "thanks / merci"}
+        ]},
+        {"id": "rule-default-2", "type": "rule", "text": "Words ending in any OTHER consonant → stress on the LAST syllable", "audioText": "hablar, comer, vivir, hotel, papel, ciudad", "rule": "If the word ends in anything except a vowel, -n, or -s, then stress goes to the final syllable. Infinitives (always end -r) and many one-off nouns fall here.", "examples": [
+          {"text": "hablar (ha-BLAR)", "audioText": "hablar", "translation": "to speak / parler"},
+          {"text": "comer (co-MER)", "audioText": "comer", "translation": "to eat / manger"},
+          {"text": "vivir (vi-VIR)", "audioText": "vivir", "translation": "to live / vivre"},
+          {"text": "hotel (ho-TEL)", "audioText": "hotel", "translation": "hotel / hôtel"},
+          {"text": "ciudad (ciu-DAD)", "audioText": "ciudad", "translation": "city / ville"}
+        ]}
+      ]
+    },
+    {
+      "id": "accent-mark-override",
+      "title": "Rule B — When you SEE an accent mark (´), it overrides Rule A",
+      "note": "If a word breaks Rule A, the writer signals it with a written accent on the stressed vowel. The accent ALWAYS points to where stress goes.",
+      "blocks": [
+        {"id": "rule-override", "type": "rule", "text": "Any word with ´ → stress on the marked vowel, regardless of the ending", "audioText": "café, también, después, lápiz, fácil, médico", "rule": "Without the accent, 'cafe' would be stressed CA-fe (Rule A — ends in vowel). The accent on 'é' moves stress to the last syllable: ca-FÉ. The accent is NEVER decorative — it's a stress marker.", "examples": [
+          {"text": "café (ca-FÉ)", "audioText": "café", "translation": "coffee, café / café — accent forces stress on é"},
+          {"text": "también (tam-BIÉN)", "audioText": "también", "translation": "also / aussi"},
+          {"text": "después (des-PUÉS)", "audioText": "después", "translation": "after / après"},
+          {"text": "lápiz (LÁ-piz)", "audioText": "lápiz", "translation": "pencil / crayon — without accent would be la-PIZ"},
+          {"text": "fácil (FÁ-cil)", "audioText": "fácil", "translation": "easy / facile"},
+          {"text": "médico (MÉ-di-co)", "audioText": "médico", "translation": "doctor / médecin — stress on first syllable"}
+        ]},
+        {"id": "rule-three-marks", "type": "rule", "text": "Three things to NOT confuse: ´ (stress), ñ (different letter), ü (diaeresis)", "audioText": "sí, año, vergüenza, pingüino", "rule": "(1) ´ on a vowel = stress mark. (2) ~ on n = different letter (ñ). (3) ¨ on u (only after g, before e/i) = the u is pronounced (otherwise silent).", "examples": [
+          {"text": "vergüenza (ver-GÜEN-za)", "audioText": "vergüenza", "translation": "shame, embarrassment / honte — ¨ keeps the u sounded"},
+          {"text": "pingüino", "audioText": "pingüino", "translation": "penguin / pingouin"},
+          {"text": "guerra (GE-rra)", "audioText": "guerra", "translation": "war / guerre — no ¨, so u is silent (just /g/)"}
+        ]}
+      ]
+    },
+    {
+      "id": "accent-pairs",
+      "title": "Accent marks that distinguish word PAIRS",
+      "note": "Spanish has ~12 word pairs where the SAME spelling is used for two meanings — distinguished only by an accent. Memorise these; they appear constantly.",
+      "blocks": [
+        {"id": "pair-si", "type": "rule", "text": "sí (yes) vs si (if)", "audioText": "Sí, hablo español. Si tengo tiempo, voy.", "rule": "Both pronounced the same. 'sí' (with accent) = yes. 'si' (no accent) = if.", "examples": [
+          {"text": "Sí, hablo español.", "audioText": "Sí, hablo español.", "translation": "Yes, I speak Spanish. / Oui, je parle espagnol."},
+          {"text": "Si tengo tiempo, voy.", "audioText": "Si tengo tiempo, voy.", "translation": "If I have time, I'll go. / Si j'ai le temps, j'y vais."}
+        ]},
+        {"id": "pair-tu", "type": "rule", "text": "tú (you) vs tu (your)", "audioText": "Tú eres mi amigo. Tu casa es bonita.", "rule": "'tú' (accent) = the pronoun 'you'. 'tu' (no accent) = the possessive 'your'.", "examples": [
+          {"text": "Tú eres mi amigo.", "audioText": "Tú eres mi amigo.", "translation": "You are my friend. / Tu es mon ami."},
+          {"text": "Tu casa es bonita.", "audioText": "Tu casa es bonita.", "translation": "Your house is pretty. / Ta maison est jolie."}
+        ]},
+        {"id": "pair-el", "type": "rule", "text": "él (he) vs el (the, masc.)", "audioText": "Él come pan. El pan es bueno.", "rule": "'él' (accent) = the pronoun 'he'. 'el' (no accent) = the masculine 'the'.", "examples": [
+          {"text": "Él come pan.", "audioText": "Él come pan.", "translation": "He eats bread. / Il mange du pain."},
+          {"text": "El pan es bueno.", "audioText": "El pan es bueno.", "translation": "The bread is good. / Le pain est bon."}
+        ]},
+        {"id": "pair-mas", "type": "rule", "text": "más (more) vs mas (but, literary)", "audioText": "Quiero más café. Lo intenté, mas no pude.", "rule": "'más' (accent) = more — VERY common. 'mas' (no accent) = old-fashioned 'but' (you'll see it in literature, rarely speech).", "examples": [
+          {"text": "Quiero más café.", "audioText": "Quiero más café.", "translation": "I want more coffee. / Je veux plus de café."},
+          {"text": "más o menos", "audioText": "más o menos", "translation": "more or less / plus ou moins — useful daily phrase"}
+        ]},
+        {"id": "pair-question-words", "type": "rule", "text": "Question/exclamation words ALWAYS get accents: qué, quién, cómo, cuándo, dónde, cuál, cuánto, por qué", "audioText": "¿Qué haces? ¿Cómo estás? ¿Dónde vives? ¿Por qué?", "rule": "When used in a question (direct or indirect) or exclamation, these words take an accent. The SAME words without an accent are conjunctions or relatives.", "examples": [
+          {"text": "¿Qué quieres?", "audioText": "Qué quieres?", "translation": "What do you want? / Qu'est-ce que tu veux?"},
+          {"text": "Lo que quiero es café.", "audioText": "Lo que quiero es café.", "translation": "What I want is coffee. (relative, no accent) / Ce que je veux, c'est du café."},
+          {"text": "¿Cómo te llamas?", "audioText": "Cómo te llamas?", "translation": "What's your name? / Comment t'appelles-tu?"},
+          {"text": "Como tú quieras.", "audioText": "Como tú quieras.", "translation": "As you wish. (no accent, 'as') / Comme tu veux."},
+          {"text": "¿Dónde está el baño?", "audioText": "Dónde está el baño?", "translation": "Where is the bathroom? / Où sont les toilettes?"},
+          {"text": "¿Por qué estudias español?", "audioText": "Por qué estudias español?", "translation": "Why are you studying Spanish? / Pourquoi étudies-tu l'espagnol?"},
+          {"text": "Porque me gusta.", "audioText": "Porque me gusta.", "translation": "Because I like it. (one word, no accent) / Parce que ça me plaît."}
+        ]}
+      ]
+    },
+    {
+      "id": "punctuation",
+      "title": "Spanish punctuation quirks",
+      "note": "Two surprises for English/French speakers: opening question and exclamation marks.",
+      "blocks": [
+        {"id": "rule-punctuation", "type": "rule", "text": "Questions: ¿...?  Exclamations: ¡...!", "audioText": "¿Cómo estás? ¡Qué bueno!", "rule": "Spanish marks the START of a question with ¿ and the start of an exclamation with ¡. The opening mark goes EXACTLY where the question/exclamation portion begins — sometimes mid-sentence.", "examples": [
+          {"text": "¿Cómo estás?", "audioText": "Cómo estás?", "translation": "How are you? / Comment ça va?"},
+          {"text": "¡Hola! ¿Qué tal?", "audioText": "Hola! Qué tal?", "translation": "Hi! How's it going? / Salut ! Ça va ?"},
+          {"text": "Si no te importa, ¿puedes ayudarme?", "audioText": "Si no te importa, puedes ayudarme?", "translation": "If you don't mind, can you help me? / Si ça ne te dérange pas, peux-tu m'aider ?", "ipa": "Notice ¿ starts mid-sentence, exactly where the question begins."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

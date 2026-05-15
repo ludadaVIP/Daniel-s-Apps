@@ -1,0 +1,116 @@
+{
+  "id": "articles-gender",
+  "title": "L04 · Articles, Gender, Plural",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 25,
+  "objective": "Learn the article system (el/la/los/las, un/una/unos/unas), the gender patterns that get you to 90% accuracy, and the gender TRAPS that catch French speakers (where Spanish and French disagree).",
+  "strategy": "Spanish gender is easier than French because most words follow predictable -o/-a endings. The pain comes from (1) the -ma/-ema words that LOOK feminine but are masculine, and (2) words where Spanish and French disagree. Section 4 is the French-speaker survival guide.",
+  "sections": [
+    {
+      "id": "article-table",
+      "title": "The article system",
+      "note": "Four forms each: singular/plural × masculine/feminine. Compare to French — Spanish has -s plurals (like English), and definite/indefinite parallel French exactly.",
+      "blocks": [
+        {"id": "rule-definite", "type": "rule", "text": "Definite article (the): el / la / los / las", "audioText": "el libro, la casa, los libros, las casas", "rule": "Compare French: le/la/les. Spanish adds masculine plural 'los' that French doesn't distinguish.", "examples": [
+          {"text": "el libro / los libros", "audioText": "el libro, los libros", "translation": "the book / the books — masc. / le livre / les livres"},
+          {"text": "la casa / las casas", "audioText": "la casa, las casas", "translation": "the house / the houses — fem. / la maison / les maisons"},
+          {"text": "el agua / las aguas", "audioText": "el agua, las aguas", "translation": "the water / the waters — TRAP: 'agua' is FEMININE but takes 'el' to avoid two a-sounds. Plural is 'las aguas'."}
+        ]},
+        {"id": "rule-indefinite", "type": "rule", "text": "Indefinite article (a/an, some): un / una / unos / unas", "audioText": "un libro, una casa, unos libros, unas casas", "rule": "Spanish has plural indefinites (unos/unas = 'some') that French DOES NOT have (French would use 'des'). This is a Spanish-only feature.", "examples": [
+          {"text": "un libro / unos libros", "audioText": "un libro, unos libros", "translation": "a book / some books / un livre / des livres"},
+          {"text": "una casa / unas casas", "audioText": "una casa, unas casas", "translation": "a house / some houses / une maison / des maisons"},
+          {"text": "unos amigos", "audioText": "unos amigos", "translation": "some friends / des amis — French speakers: 'unos' = 'des' in plural"}
+        ]},
+        {"id": "rule-contractions", "type": "rule", "text": "Mandatory contractions: a + el → al, de + el → del", "audioText": "Voy al cine. Vengo del trabajo.", "rule": "Like French (à + le → au, de + le → du), Spanish contracts these two combos. NEVER write 'a el' or 'de el' — always 'al' and 'del'. Exception: when 'El' is part of a proper name ('Voy a El Salvador').", "examples": [
+          {"text": "Voy al cine.", "audioText": "Voy al cine.", "translation": "I'm going to the cinema. / Je vais au cinéma."},
+          {"text": "Vengo del trabajo.", "audioText": "Vengo del trabajo.", "translation": "I'm coming from work. / Je viens du travail."}
+        ]}
+      ]
+    },
+    {
+      "id": "gender-rules",
+      "title": "Gender — the 90% patterns",
+      "note": "Follow these endings and you'll guess right most of the time.",
+      "blocks": [
+        {"id": "rule-o-a", "type": "rule", "text": "-o → masculine, -a → feminine (the main rule)", "audioText": "el libro, el carro, la casa, la mesa", "rule": "About 80% of Spanish nouns follow this. -o ending = masculine. -a ending = feminine.", "examples": [
+          {"text": "el libro, el museo, el barrio, el coche", "audioText": "el libro, el museo, el barrio, el coche", "translation": "book, museum, neighbourhood, car (oddly el coche — see below)"},
+          {"text": "la casa, la mesa, la silla, la cama", "audioText": "la casa, la mesa, la silla, la cama", "translation": "house, table, chair, bed"}
+        ]},
+        {"id": "rule-other-fem", "type": "rule", "text": "Feminine endings: -ción, -sión, -dad, -tad, -tud, -ez, -umbre", "audioText": "la nación, la decisión, la ciudad, la libertad, la actitud", "rule": "Words with these endings are ALWAYS feminine. Easy because they're cognates with French (-tion, -sion, -té, -tude).", "examples": [
+          {"text": "la nación", "audioText": "la nación", "translation": "nation / la nation"},
+          {"text": "la decisión", "audioText": "la decisión", "translation": "decision / la décision"},
+          {"text": "la ciudad", "audioText": "la ciudad", "translation": "city / la cité, la ville"},
+          {"text": "la libertad", "audioText": "la libertad", "translation": "freedom / la liberté"},
+          {"text": "la actitud", "audioText": "la actitud", "translation": "attitude / l'attitude"}
+        ]},
+        {"id": "rule-other-masc", "type": "rule", "text": "Masculine endings: -or, -aje, -ón (often), -ma/-ta (Greek origin)", "audioText": "el doctor, el viaje, el corazón, el problema, el planeta", "rule": "Watch out for -ma and -ta words from Greek — they LOOK feminine but are MASCULINE. These trip up everyone.", "examples": [
+          {"text": "el doctor", "audioText": "el doctor", "translation": "doctor / le docteur"},
+          {"text": "el viaje", "audioText": "el viaje", "translation": "trip / le voyage"},
+          {"text": "el corazón", "audioText": "el corazón", "translation": "heart / le cœur"},
+          {"text": "el problema", "audioText": "el problema", "translation": "problem / le problème — TRAP: ends in -ma but masculine"},
+          {"text": "el sistema", "audioText": "el sistema", "translation": "system / le système"},
+          {"text": "el tema", "audioText": "el tema", "translation": "topic / le thème"},
+          {"text": "el clima", "audioText": "el clima", "translation": "climate / le climat"},
+          {"text": "el planeta", "audioText": "el planeta", "translation": "planet / la planète — TRAP: -ta but masculine"},
+          {"text": "el día", "audioText": "el día", "translation": "day / le jour — TRAP: ends in -a but masculine!"}
+        ]}
+      ]
+    },
+    {
+      "id": "plural-rules",
+      "title": "Plural patterns",
+      "note": "Plurals are mostly +s or +es. Much simpler than French.",
+      "blocks": [
+        {"id": "rule-plural-s", "type": "rule", "text": "Word ends in vowel → +s", "audioText": "casa → casas, libro → libros, café → cafés", "rule": "Just add -s like English (and unlike French, where the final -s is silent — in Spanish it's PRONOUNCED).", "examples": [
+          {"text": "casa → casas", "audioText": "casa, casas", "translation": "house → houses"},
+          {"text": "libro → libros", "audioText": "libro, libros", "translation": "book → books"},
+          {"text": "café → cafés", "audioText": "café, cafés", "translation": "coffee → coffees"}
+        ]},
+        {"id": "rule-plural-es", "type": "rule", "text": "Word ends in consonant → +es", "audioText": "papel → papeles, ciudad → ciudades, mes → meses", "rule": "Including words ending in -y (rey → reyes).", "examples": [
+          {"text": "papel → papeles", "audioText": "papel, papeles", "translation": "paper → papers"},
+          {"text": "ciudad → ciudades", "audioText": "ciudad, ciudades", "translation": "city → cities"},
+          {"text": "mes → meses", "audioText": "mes, meses", "translation": "month → months"},
+          {"text": "rey → reyes", "audioText": "rey, reyes", "translation": "king → kings"}
+        ]},
+        {"id": "rule-plural-z", "type": "rule", "text": "Word ends in -z → -ces", "audioText": "luz → luces, pez → peces, vez → veces", "rule": "The -z changes to -c before -es. Same spelling rule as English changing 'wife' to 'wives'.", "examples": [
+          {"text": "luz → luces", "audioText": "luz, luces", "translation": "light → lights"},
+          {"text": "pez → peces", "audioText": "pez, peces", "translation": "fish → fishes"},
+          {"text": "vez → veces", "audioText": "vez, veces", "translation": "time (occasion) → times"}
+        ]}
+      ]
+    },
+    {
+      "id": "french-speaker-traps",
+      "title": "Gender TRAPS for French speakers — where Spanish and French disagree",
+      "note": "These are real word-by-word mismatches. If you transfer the French gender, you'll be wrong. Memorise these high-frequency ones.",
+      "blocks": [
+        {"id": "trap-leche", "type": "rule", "text": "la leche (fem) ↔ le lait (masc)", "audioText": "la leche, el lait", "rule": "Milk is feminine in Spanish, masculine in French. Same idea, different gender.", "examples": [
+          {"text": "Quiero la leche fría.", "audioText": "Quiero la leche fría.", "translation": "I want the milk cold. / Je veux le lait froid."}
+        ]},
+        {"id": "trap-sal", "type": "rule", "text": "la sal (fem) ↔ le sel (masc)", "audioText": "la sal", "rule": "Salt is feminine in Spanish, masculine in French.", "examples": [
+          {"text": "Pásame la sal, por favor.", "audioText": "Pásame la sal, por favor.", "translation": "Pass me the salt, please. / Passe-moi le sel, s'il te plaît."}
+        ]},
+        {"id": "trap-sangre", "type": "rule", "text": "la sangre (fem) ↔ le sang (masc)", "audioText": "la sangre", "rule": "Blood is feminine in Spanish, masculine in French.", "examples": [
+          {"text": "La sangre es roja.", "audioText": "La sangre es roja.", "translation": "Blood is red. / Le sang est rouge."}
+        ]},
+        {"id": "trap-mar", "type": "rule", "text": "el mar (masc, default) ↔ la mer (fem)", "audioText": "el mar Mediterráneo", "rule": "The sea is masculine in Spanish, feminine in French. Note: in poetic or specific contexts you may see 'la mar' but the default is 'el mar'.", "examples": [
+          {"text": "El mar Mediterráneo es azul.", "audioText": "El mar Mediterráneo es azul.", "translation": "The Mediterranean Sea is blue. / La Méditerranée est bleue."}
+        ]},
+        {"id": "trap-color-flor", "type": "rule", "text": "el color (masc) ↔ la couleur (fem); la flor (fem) ↔ la fleur (fem — same)", "audioText": "el color, la flor", "rule": "Color is masculine in Spanish, feminine in French. Flower is feminine in both. No safe shortcut — verify each new noun.", "examples": [
+          {"text": "el color rojo", "audioText": "el color rojo", "translation": "the red colour / la couleur rouge"},
+          {"text": "la flor amarilla", "audioText": "la flor amarilla", "translation": "the yellow flower / la fleur jaune"}
+        ]},
+        {"id": "trap-arbol", "type": "rule", "text": "el árbol (masc) ↔ l'arbre (masc — same)", "audioText": "el árbol", "rule": "Same gender — but note the written accent on 'á' (irregular stress)."},
+        {"id": "trap-puente", "type": "rule", "text": "el puente (masc) ↔ le pont (masc — same)", "audioText": "el puente", "rule": "Bridge is masculine in both."},
+        {"id": "trap-coche", "type": "rule", "text": "el coche (masc, Spain) / el carro (LatAm) ↔ la voiture (fem)", "audioText": "el coche, el carro", "rule": "Car is masculine in Spanish, feminine in French. Spain says 'el coche', most of Latin America says 'el carro'. Both are masculine."},
+        {"id": "trap-summary", "type": "rule", "text": "When in doubt, LOOK IT UP — don't transfer French gender", "audioText": "el día, el mapa, la mano, el problema, la radio", "rule": "Five high-frequency words to memorise: el día (day, masc despite -a), el mapa (map, masc despite -a), la mano (hand, fem despite -o!), el problema (masc despite -ma), la radio (fem despite -o).", "examples": [
+          {"text": "el día / la mano", "audioText": "el día, la mano", "translation": "day, hand — both break the -o/-a rule"},
+          {"text": "el mapa / el problema", "audioText": "el mapa, el problema", "translation": "map, problem — Greek origin, masculine"},
+          {"text": "la radio / la foto / la moto", "audioText": "la radio, la foto, la moto", "translation": "radio, photo, motorcycle — feminine despite ending in -o (shortened from radiografía, fotografía, motocicleta)"}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

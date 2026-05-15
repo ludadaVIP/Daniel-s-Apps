@@ -1,0 +1,123 @@
+{
+  "id": "present-irregular",
+  "title": "L06 · Stem-Changers & Common Irregulars",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "objective": "Master the three stem-change patterns (e→ie, o→ue, e→i) and the 10 most useful fully irregular verbs. After this lesson, you'll cover 95% of present-tense verbs you'll meet.",
+  "strategy": "Stem-changers follow a SHAPE: change happens in yo/tú/él/ellos forms only — NEVER in nosotros and vosotros. Picture a 'boot' or 'shoe' around the 4 forms that change, with the 2 plural-but-not-they-all forms outside. Section 5 covers the irregulars to memorise.",
+  "sections": [
+    {
+      "id": "stem-shoe",
+      "title": "The 'boot' pattern",
+      "note": "Critical visual: only 4 forms stem-change. The 'we' and 'you all' forms (nosotros, vosotros) keep the original stem.",
+      "blocks": [
+        {"id": "rule-boot", "type": "rule", "text": "Stem change in: yo, tú, él/ella/usted, ellos. NOT in: nosotros, vosotros.", "audioText": "pienso, piensas, piensa, pensamos, pensáis, piensan", "rule": "Think of a boot/shoe shape on the conjugation table. If you write the 6 forms in 2 columns, the changed forms make a 'boot' around the corners + middle.", "examples": [
+          {"text": "Pattern: pienso (✓) — pensamos (×) — piensan (✓)", "audioText": "pienso, pensamos, piensan", "translation": "I think, we think, they think — note 'pensamos' keeps the e"}
+        ]}
+      ]
+    },
+    {
+      "id": "e-ie",
+      "title": "e → ie stem change",
+      "note": "The most common pattern. The 'e' in the stem becomes 'ie' in the 4 boot forms.",
+      "blocks": [
+        {"id": "v-pensar", "type": "verb", "text": "pensar — to think", "audioText": "pensar, pienso", "translation": "to think / penser", "rule": "e → ie in yo/tú/él/ellos. Notice: nosotros stays 'pensamos' (no change).", "conjugation": {"yo": "pienso", "tu": "piensas", "el": "piensa", "nosotros": "pensamos", "vosotros": "pensáis", "ellos": "piensan"}, "examples": [
+          {"text": "Pienso que tienes razón.", "audioText": "Pienso que tienes razón.", "translation": "I think you're right. / Je pense que tu as raison."},
+          {"text": "¿Qué piensas?", "audioText": "Qué piensas?", "translation": "What do you think? / Qu'en penses-tu?"}
+        ]},
+        {"id": "v-querer", "type": "verb", "text": "querer — to want, to love", "audioText": "querer, quiero", "translation": "to want, to love / vouloir, aimer", "rule": "e → ie. Crucial verb. 'Querer + person' = to love (a person). 'Querer + thing' = to want.", "conjugation": {"yo": "quiero", "tu": "quieres", "el": "quiere", "nosotros": "queremos", "vosotros": "queréis", "ellos": "quieren"}, "examples": [
+          {"text": "Quiero un café.", "audioText": "Quiero un café.", "translation": "I want a coffee. / Je veux un café."},
+          {"text": "Te quiero.", "audioText": "Te quiero.", "translation": "I love you. (used between family, partners, close friends) / Je t'aime."},
+          {"text": "¿Qué quieres comer?", "audioText": "Qué quieres comer?", "translation": "What do you want to eat? / Qu'est-ce que tu veux manger?"}
+        ]},
+        {"id": "v-empezar", "type": "verb", "text": "empezar — to start, to begin", "audioText": "empezar, empiezo", "translation": "to start / commencer", "rule": "e → ie. Often followed by 'a + infinitive': 'empiezo a estudiar' = I start to study.", "conjugation": {"yo": "empiezo", "tu": "empiezas", "el": "empieza", "nosotros": "empezamos", "vosotros": "empezáis", "ellos": "empiezan"}, "examples": [
+          {"text": "Empiezo a las nueve.", "audioText": "Empiezo a las nueve.", "translation": "I start at 9. / Je commence à 9h."},
+          {"text": "El concierto empieza a las ocho.", "audioText": "El concierto empieza a las ocho.", "translation": "The concert starts at 8. / Le concert commence à 8h."}
+        ]},
+        {"id": "v-entender", "type": "verb", "text": "entender — to understand", "audioText": "entender, entiendo", "translation": "to understand / comprendre", "conjugation": {"yo": "entiendo", "tu": "entiendes", "el": "entiende", "nosotros": "entendemos", "vosotros": "entendéis", "ellos": "entienden"}, "examples": [
+          {"text": "No entiendo.", "audioText": "No entiendo.", "translation": "I don't understand. / Je ne comprends pas. — your survival sentence!"}
+        ]}
+      ]
+    },
+    {
+      "id": "o-ue",
+      "title": "o → ue stem change",
+      "note": "Second most common. The 'o' in the stem becomes 'ue' in the boot forms.",
+      "blocks": [
+        {"id": "v-poder", "type": "verb", "text": "poder — to be able to, can", "audioText": "poder, puedo", "translation": "can / pouvoir", "rule": "o → ue. The most-used modal verb in Spanish. Followed by an infinitive.", "conjugation": {"yo": "puedo", "tu": "puedes", "el": "puede", "nosotros": "podemos", "vosotros": "podéis", "ellos": "pueden"}, "examples": [
+          {"text": "¿Puedes ayudarme?", "audioText": "Puedes ayudarme?", "translation": "Can you help me? / Peux-tu m'aider?"},
+          {"text": "No puedo ir mañana.", "audioText": "No puedo ir mañana.", "translation": "I can't go tomorrow. / Je ne peux pas y aller demain."}
+        ]},
+        {"id": "v-dormir", "type": "verb", "text": "dormir — to sleep", "audioText": "dormir, duermo", "translation": "to sleep / dormir", "conjugation": {"yo": "duermo", "tu": "duermes", "el": "duerme", "nosotros": "dormimos", "vosotros": "dormís", "ellos": "duermen"}, "examples": [
+          {"text": "Duermo ocho horas.", "audioText": "Duermo ocho horas.", "translation": "I sleep eight hours. / Je dors huit heures."},
+          {"text": "El bebé duerme.", "audioText": "El bebé duerme.", "translation": "The baby is sleeping. / Le bébé dort."}
+        ]},
+        {"id": "v-volver", "type": "verb", "text": "volver — to return, to come back", "audioText": "volver, vuelvo", "translation": "to come back / revenir, retourner", "conjugation": {"yo": "vuelvo", "tu": "vuelves", "el": "vuelve", "nosotros": "volvemos", "vosotros": "volvéis", "ellos": "vuelven"}, "examples": [
+          {"text": "Vuelvo a casa a las seis.", "audioText": "Vuelvo a casa a las seis.", "translation": "I come home at 6. / Je rentre à la maison à 6h."}
+        ]},
+        {"id": "v-encontrar", "type": "verb", "text": "encontrar — to find", "audioText": "encontrar, encuentro", "translation": "to find / trouver", "conjugation": {"yo": "encuentro", "tu": "encuentras", "el": "encuentra", "nosotros": "encontramos", "vosotros": "encontráis", "ellos": "encuentran"}, "examples": [
+          {"text": "No encuentro las llaves.", "audioText": "No encuentro las llaves.", "translation": "I can't find my keys. / Je ne trouve pas mes clés."}
+        ]}
+      ]
+    },
+    {
+      "id": "e-i",
+      "title": "e → i stem change (-IR verbs only)",
+      "note": "Less common — only for some -ir verbs. The 'e' becomes 'i' (not 'ie').",
+      "blocks": [
+        {"id": "v-pedir", "type": "verb", "text": "pedir — to ask for, to order", "audioText": "pedir, pido", "translation": "to ask for, to order / demander, commander", "rule": "e → i. Used when ASKING FOR something or ORDERING at a restaurant. 'Pedir' = ask for a thing. 'Preguntar' = ask a question. These are different verbs!", "conjugation": {"yo": "pido", "tu": "pides", "el": "pide", "nosotros": "pedimos", "vosotros": "pedís", "ellos": "piden"}, "examples": [
+          {"text": "Pido un café, por favor.", "audioText": "Pido un café, por favor.", "translation": "I'll order a coffee, please. / Je commande un café, s'il vous plaît."},
+          {"text": "Le pido un favor.", "audioText": "Le pido un favor.", "translation": "I'm asking him a favour. / Je lui demande un service."}
+        ]},
+        {"id": "v-servir", "type": "verb", "text": "servir — to serve", "audioText": "servir, sirvo", "translation": "to serve / servir", "conjugation": {"yo": "sirvo", "tu": "sirves", "el": "sirve", "nosotros": "servimos", "vosotros": "servís", "ellos": "sirven"}},
+        {"id": "v-repetir", "type": "verb", "text": "repetir — to repeat", "audioText": "repetir, repito", "translation": "to repeat / répéter", "conjugation": {"yo": "repito", "tu": "repites", "el": "repite", "nosotros": "repetimos", "vosotros": "repetís", "ellos": "repiten"}, "examples": [
+          {"text": "¿Puedes repetir, por favor?", "audioText": "Puedes repetir, por favor?", "translation": "Can you repeat, please? / Peux-tu répéter, s'il te plaît?"}
+        ]}
+      ]
+    },
+    {
+      "id": "fully-irregular",
+      "title": "The 10 fully irregular verbs you'll use daily",
+      "note": "These don't follow a pattern. Memorise them as units.",
+      "blocks": [
+        {"id": "v-ir", "type": "verb", "text": "ir — to go", "audioText": "ir, voy", "translation": "to go / aller", "rule": "Completely irregular. Crucial because of the 'ir + a + infinitive' = 'going to do X' future construction.", "conjugation": {"yo": "voy", "tu": "vas", "el": "va", "nosotros": "vamos", "vosotros": "vais", "ellos": "van"}, "examples": [
+          {"text": "Voy a Madrid.", "audioText": "Voy a Madrid.", "translation": "I go / I'm going to Madrid. / Je vais à Madrid."},
+          {"text": "Voy a estudiar esta noche.", "audioText": "Voy a estudiar esta noche.", "translation": "I'm going to study tonight. / Je vais étudier ce soir. — same structure as French aller + inf"},
+          {"text": "¡Vamos!", "audioText": "Vamos!", "translation": "Let's go! / Allons-y!"}
+        ]},
+        {"id": "v-hacer", "type": "verb", "text": "hacer — to do, to make", "audioText": "hacer, hago", "translation": "to do, to make / faire", "rule": "Yo form irregular: 'hago'. Rest is regular -er.", "conjugation": {"yo": "hago", "tu": "haces", "el": "hace", "nosotros": "hacemos", "vosotros": "hacéis", "ellos": "hacen"}, "examples": [
+          {"text": "¿Qué haces?", "audioText": "Qué haces?", "translation": "What are you doing? / Qu'est-ce que tu fais?"},
+          {"text": "Hago la cena.", "audioText": "Hago la cena.", "translation": "I'm making dinner. / Je prépare le dîner."}
+        ]},
+        {"id": "v-decir", "type": "verb", "text": "decir — to say, to tell", "audioText": "decir, digo", "translation": "to say / dire", "rule": "Yo irregular (digo) + e→i pattern. Two irregularities at once.", "conjugation": {"yo": "digo", "tu": "dices", "el": "dice", "nosotros": "decimos", "vosotros": "decís", "ellos": "dicen"}, "examples": [
+          {"text": "Digo la verdad.", "audioText": "Digo la verdad.", "translation": "I'm telling the truth. / Je dis la vérité."}
+        ]},
+        {"id": "v-saber", "type": "verb", "text": "saber — to know (facts, how to)", "audioText": "saber, sé", "translation": "to know (facts) / savoir", "rule": "Yo form: 'sé' (one letter, with accent). For knowing FACTS or HOW TO do something. 'Sé nadar' = I know how to swim.", "conjugation": {"yo": "sé", "tu": "sabes", "el": "sabe", "nosotros": "sabemos", "vosotros": "sabéis", "ellos": "saben"}, "examples": [
+          {"text": "Sé hablar inglés.", "audioText": "Sé hablar inglés.", "translation": "I know how to speak English. / Je sais parler anglais."},
+          {"text": "No sé.", "audioText": "No sé.", "translation": "I don't know. / Je ne sais pas."}
+        ]},
+        {"id": "v-conocer", "type": "verb", "text": "conocer — to know (people, places)", "audioText": "conocer, conozco", "translation": "to know (be familiar with) / connaître", "rule": "Yo form: 'conozco' (with extra z). For knowing PEOPLE or PLACES (being familiar with them). The distinction saber/conocer mirrors French savoir/connaître.", "conjugation": {"yo": "conozco", "tu": "conoces", "el": "conoce", "nosotros": "conocemos", "vosotros": "conocéis", "ellos": "conocen"}, "examples": [
+          {"text": "Conozco a Maria.", "audioText": "Conozco a Maria.", "translation": "I know Maria. / Je connais Maria."},
+          {"text": "Conocemos Barcelona.", "audioText": "Conocemos Barcelona.", "translation": "We know Barcelona. (= we've been there) / Nous connaissons Barcelone."}
+        ]},
+        {"id": "v-ver", "type": "verb", "text": "ver — to see", "audioText": "ver, veo", "translation": "to see / voir", "rule": "Yo form: 'veo'. Otherwise regular -er.", "conjugation": {"yo": "veo", "tu": "ves", "el": "ve", "nosotros": "vemos", "vosotros": "veis", "ellos": "ven"}, "examples": [
+          {"text": "Veo una película.", "audioText": "Veo una película.", "translation": "I'm watching a film. / Je regarde un film."}
+        ]},
+        {"id": "v-dar", "type": "verb", "text": "dar — to give", "audioText": "dar, doy", "translation": "to give / donner", "rule": "Yo form: 'doy' (parallel to 'voy' and 'estoy'). Rest is like -ar.", "conjugation": {"yo": "doy", "tu": "das", "el": "da", "nosotros": "damos", "vosotros": "dais", "ellos": "dan"}, "examples": [
+          {"text": "Te doy un regalo.", "audioText": "Te doy un regalo.", "translation": "I'm giving you a gift. / Je te donne un cadeau."}
+        ]},
+        {"id": "v-poner", "type": "verb", "text": "poner — to put, to place", "audioText": "poner, pongo", "translation": "to put / mettre", "rule": "Yo: 'pongo'. Rest regular -er.", "conjugation": {"yo": "pongo", "tu": "pones", "el": "pone", "nosotros": "ponemos", "vosotros": "ponéis", "ellos": "ponen"}, "examples": [
+          {"text": "Pongo la mesa.", "audioText": "Pongo la mesa.", "translation": "I'm setting the table. / Je mets la table."}
+        ]},
+        {"id": "v-salir", "type": "verb", "text": "salir — to leave, to go out", "audioText": "salir, salgo", "translation": "to leave / sortir", "rule": "Yo: 'salgo'. Rest regular -ir.", "conjugation": {"yo": "salgo", "tu": "sales", "el": "sale", "nosotros": "salimos", "vosotros": "salís", "ellos": "salen"}, "examples": [
+          {"text": "Salgo con mis amigos esta noche.", "audioText": "Salgo con mis amigos esta noche.", "translation": "I'm going out with friends tonight. / Je sors avec mes amis ce soir."}
+        ]},
+        {"id": "v-venir", "type": "verb", "text": "venir — to come", "audioText": "venir, vengo", "translation": "to come / venir", "rule": "Yo: 'vengo' + e→ie pattern in tú/él/ellos.", "conjugation": {"yo": "vengo", "tu": "vienes", "el": "viene", "nosotros": "venimos", "vosotros": "venís", "ellos": "vienen"}, "examples": [
+          {"text": "¿Vienes conmigo?", "audioText": "Vienes conmigo?", "translation": "Are you coming with me? / Tu viens avec moi?"}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "present-regular",
+  "title": "L05 · Present Tense — Regular Verbs",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 25,
+  "objective": "Conjugate any regular Spanish verb across the six personal forms. Master the three families (-ar, -er, -ir) and the personal pronouns. Spanish drops pronouns most of the time — learn when to use them.",
+  "strategy": "Three steps: (1) memorise the pronouns. (2) drill the three endings tables — they're highly predictable. (3) section 4 teaches when to DROP the pronoun (almost always) and when to keep it (for contrast/emphasis).",
+  "sections": [
+    {
+      "id": "pronouns",
+      "title": "The six personal pronouns",
+      "note": "Spanish has more 'you' distinctions than English/French. Plus the regional split: 'vosotros' is used only in Spain, 'ustedes' covers everyone in Latin America.",
+      "blocks": [
+        {"id": "pn-yo", "type": "word", "text": "yo", "audioText": "yo", "translation": "I / je"},
+        {"id": "pn-tu", "type": "word", "text": "tú", "audioText": "tú", "translation": "you (singular informal) / tu — note the accent (vs 'tu' = your)"},
+        {"id": "pn-el-ella-usted", "type": "word", "text": "él / ella / usted", "audioText": "él, ella, usted", "translation": "he / she / you (formal) / il, elle, vous (formel)", "hint": "'usted' is the formal singular 'you' — for strangers, customers, elders. Conjugates like él/ella (3rd person)."},
+        {"id": "pn-nosotros", "type": "word", "text": "nosotros / nosotras", "audioText": "nosotros, nosotras", "translation": "we (masc / fem) / nous", "hint": "Use 'nosotras' if the group is ALL female. Mixed group = nosotros (masculine wins, sorry)."},
+        {"id": "pn-vosotros", "type": "word", "text": "vosotros / vosotras", "audioText": "vosotros, vosotras", "translation": "you all (informal, Spain only) / vous (informel pluriel)", "hint": "Used in Spain for plural informal 'you'. Latin America uses 'ustedes' for ALL plural 'you' (informal + formal)."},
+        {"id": "pn-ellos-ustedes", "type": "word", "text": "ellos / ellas / ustedes", "audioText": "ellos, ellas, ustedes", "translation": "they (masc / fem) / you all (formal) / ils, elles, vous (pluriel)", "hint": "'ustedes' is plural formal in Spain, plural ANY (formal + informal) in Latin America. Same conjugation as ellos/ellas."}
+      ]
+    },
+    {
+      "id": "ar-verbs",
+      "title": "-AR verbs: the biggest family",
+      "note": "Drop -AR, add: -o, -as, -a, -amos, -áis, -an. About 90% of Spanish verbs end in -ar, including most new/invented ones.",
+      "blocks": [
+        {"id": "rule-ar", "type": "rule", "text": "-AR endings: -o / -as / -a / -amos / -áis / -an", "audioText": "hablo, hablas, habla, hablamos, habláis, hablan", "rule": "Note the written accent on the vosotros form (-áis). Watch the pattern: yo always -o, tú always -s ending."},
+        {"id": "v-hablar", "type": "verb", "text": "hablar — to speak", "audioText": "hablar, hablo, hablas, habla", "translation": "to speak / parler", "conjugation": {"yo": "hablo", "tu": "hablas", "el": "habla", "nosotros": "hablamos", "vosotros": "habláis", "ellos": "hablan"}, "examples": [
+          {"text": "Hablo español y francés.", "audioText": "Hablo español y francés.", "translation": "I speak Spanish and French. / Je parle espagnol et français."},
+          {"text": "¿Hablas inglés?", "audioText": "Hablas inglés?", "translation": "Do you speak English? / Parles-tu anglais?"},
+          {"text": "Ellos hablan muy rápido.", "audioText": "Ellos hablan muy rápido.", "translation": "They speak very fast. / Ils parlent très vite."}
+        ]},
+        {"id": "v-trabajar", "type": "verb", "text": "trabajar — to work", "audioText": "trabajar", "translation": "to work / travailler", "conjugation": {"yo": "trabajo", "tu": "trabajas", "el": "trabaja", "nosotros": "trabajamos", "vosotros": "trabajáis", "ellos": "trabajan"}, "examples": [
+          {"text": "Trabajo en un hospital.", "audioText": "Trabajo en un hospital.", "translation": "I work in a hospital. / Je travaille dans un hôpital."},
+          {"text": "Trabajamos juntos.", "audioText": "Trabajamos juntos.", "translation": "We work together. / Nous travaillons ensemble."}
+        ]},
+        {"id": "v-estudiar", "type": "verb", "text": "estudiar — to study", "audioText": "estudiar", "translation": "to study / étudier", "conjugation": {"yo": "estudio", "tu": "estudias", "el": "estudia", "nosotros": "estudiamos", "vosotros": "estudiáis", "ellos": "estudian"}, "examples": [
+          {"text": "Estudio medicina.", "audioText": "Estudio medicina.", "translation": "I study medicine. / J'étudie la médecine."},
+          {"text": "¿Qué estudias?", "audioText": "Qué estudias?", "translation": "What do you study? / Qu'est-ce que tu étudies?"}
+        ]}
+      ]
+    },
+    {
+      "id": "er-verbs",
+      "title": "-ER verbs",
+      "note": "Drop -ER, add: -o, -es, -e, -emos, -éis, -en. Pattern is mostly e-flavored versions of -ar endings.",
+      "blocks": [
+        {"id": "rule-er", "type": "rule", "text": "-ER endings: -o / -es / -e / -emos / -éis / -en", "audioText": "como, comes, come, comemos, coméis, comen", "rule": "Yo form is always -o (same as -ar). Other endings replace -a with -e."},
+        {"id": "v-comer", "type": "verb", "text": "comer — to eat", "audioText": "comer", "translation": "to eat / manger", "conjugation": {"yo": "como", "tu": "comes", "el": "come", "nosotros": "comemos", "vosotros": "coméis", "ellos": "comen"}, "examples": [
+          {"text": "Como pan con queso.", "audioText": "Como pan con queso.", "translation": "I eat bread with cheese. / Je mange du pain avec du fromage."},
+          {"text": "¿Qué comes hoy?", "audioText": "Qué comes hoy?", "translation": "What are you eating today? / Qu'est-ce que tu manges aujourd'hui?"}
+        ]},
+        {"id": "v-aprender", "type": "verb", "text": "aprender — to learn", "audioText": "aprender", "translation": "to learn / apprendre", "conjugation": {"yo": "aprendo", "tu": "aprendes", "el": "aprende", "nosotros": "aprendemos", "vosotros": "aprendéis", "ellos": "aprenden"}, "examples": [
+          {"text": "Aprendo español.", "audioText": "Aprendo español.", "translation": "I'm learning Spanish. / J'apprends l'espagnol."},
+          {"text": "Aprendemos juntos.", "audioText": "Aprendemos juntos.", "translation": "We learn together. / Nous apprenons ensemble."}
+        ]},
+        {"id": "v-leer", "type": "verb", "text": "leer — to read", "audioText": "leer", "translation": "to read / lire", "conjugation": {"yo": "leo", "tu": "lees", "el": "lee", "nosotros": "leemos", "vosotros": "leéis", "ellos": "leen"}, "examples": [
+          {"text": "Leo el periódico cada día.", "audioText": "Leo el periódico cada día.", "translation": "I read the newspaper every day. / Je lis le journal chaque jour."}
+        ]}
+      ]
+    },
+    {
+      "id": "ir-verbs",
+      "title": "-IR verbs",
+      "note": "Drop -IR, add: -o, -es, -e, -imos, -ís, -en. Almost identical to -er, except the nosotros (-imos) and vosotros (-ís) forms.",
+      "blocks": [
+        {"id": "rule-ir", "type": "rule", "text": "-IR endings: -o / -es / -e / -imos / -ís / -en", "audioText": "vivo, vives, vive, vivimos, vivís, viven", "rule": "Yo, tú, él, ellos forms are identical to -er. Only nosotros/vosotros differ."},
+        {"id": "v-vivir", "type": "verb", "text": "vivir — to live", "audioText": "vivir", "translation": "to live / vivre", "conjugation": {"yo": "vivo", "tu": "vives", "el": "vive", "nosotros": "vivimos", "vosotros": "vivís", "ellos": "viven"}, "examples": [
+          {"text": "Vivo en Madrid.", "audioText": "Vivo en Madrid.", "translation": "I live in Madrid. / Je vis à Madrid."},
+          {"text": "¿Dónde vives?", "audioText": "Dónde vives?", "translation": "Where do you live? / Où vis-tu?"},
+          {"text": "Vivimos en España desde hace 5 años.", "audioText": "Vivimos en España desde hace 5 años.", "translation": "We've been living in Spain for 5 years. / Nous vivons en Espagne depuis 5 ans."}
+        ]},
+        {"id": "v-escribir", "type": "verb", "text": "escribir — to write", "audioText": "escribir", "translation": "to write / écrire", "conjugation": {"yo": "escribo", "tu": "escribes", "el": "escribe", "nosotros": "escribimos", "vosotros": "escribís", "ellos": "escriben"}, "examples": [
+          {"text": "Escribo un libro.", "audioText": "Escribo un libro.", "translation": "I'm writing a book. / J'écris un livre."},
+          {"text": "Le escribimos a nuestra abuela.", "audioText": "Le escribimos a nuestra abuela.", "translation": "We write to our grandmother. / Nous écrivons à notre grand-mère."}
+        ]},
+        {"id": "v-abrir", "type": "verb", "text": "abrir — to open", "audioText": "abrir", "translation": "to open / ouvrir", "conjugation": {"yo": "abro", "tu": "abres", "el": "abre", "nosotros": "abrimos", "vosotros": "abrís", "ellos": "abren"}}
+      ]
+    },
+    {
+      "id": "pronoun-drop",
+      "title": "Drop the pronoun (most of the time)",
+      "note": "This is what makes Spanish sound natural. Because each verb form is UNIQUE (yo hablo, tú hablas, etc.), Spanish doesn't need to say 'yo' or 'tú' — the verb ending already tells you who.",
+      "blocks": [
+        {"id": "rule-drop", "type": "rule", "text": "Default: drop the subject pronoun unless you need it for emphasis or contrast", "audioText": "Hablo español. Comemos a las ocho. Vive en Madrid.", "rule": "Spanish is a 'pro-drop' language — the verb ending tells you the subject, so the pronoun is redundant. Always-drop is more natural than always-keep. Italian and Portuguese work the same way; French does NOT (you must say 'je parle', not just 'parle').", "examples": [
+          {"text": "Hablo español.", "audioText": "Hablo español.", "translation": "I speak Spanish. / Je parle espagnol. — no 'yo' needed"},
+          {"text": "Comemos a las ocho.", "audioText": "Comemos a las ocho.", "translation": "We eat at 8. / Nous mangeons à 8h."},
+          {"text": "Vive en Madrid.", "audioText": "Vive en Madrid.", "translation": "He/she lives in Madrid. / Il/elle vit à Madrid. — context tells you who 'vive' refers to"}
+        ]},
+        {"id": "rule-keep", "type": "rule", "text": "KEEP the pronoun for: contrast, emphasis, ambiguity", "audioText": "Yo hablo español, pero ella habla francés. Él es médico.", "rule": "(1) Contrast between two subjects: 'Yo hablo X, ella habla Y'. (2) Emphasis: 'TÚ eres mi mejor amigo'. (3) When the verb form alone is ambiguous (e.g. él/ella/usted all share one ending) and context doesn't make it clear.", "examples": [
+          {"text": "Yo hablo español, pero ella habla francés.", "audioText": "Yo hablo español, pero ella habla francés.", "translation": "I speak Spanish, but she speaks French. / Je parle espagnol, mais elle parle français."},
+          {"text": "Él es médico, ella es profesora.", "audioText": "Él es médico, ella es profesora.", "translation": "He's a doctor, she's a teacher. / Il est médecin, elle est professeur."},
+          {"text": "Tú decides.", "audioText": "Tú decides.", "translation": "YOU decide. (emphasis) / C'est toi qui décides."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

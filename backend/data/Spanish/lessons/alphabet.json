@@ -1,0 +1,105 @@
+{
+  "id": "alphabet",
+  "title": "L01 · Alphabet & Tricky Sounds",
+  "phase": "Phase 1 — Sounds & Spelling",
+  "level": "A0",
+  "estimatedMinutes": 15,
+  "objective": "Hear every Spanish letter name once. Lock the sounds that surprise English/French speakers: j, g (before e/i), ñ, ll, rr, c/z (Spain), and the silent h.",
+  "strategy": "Spanish spelling is exceptionally regular — once you know the letter rules, you can READ any word correctly. Tap each letter, then drill the 6 'trap' sounds in section 2. Section 3 is short trap-busting sentences.",
+  "sections": [
+    {
+      "id": "alphabet-core",
+      "title": "The 27 letters",
+      "note": "Standard Spanish alphabet. The letter ñ is its own letter (between n and o). Sounds: identical to English/French except where noted.",
+      "blocks": [
+        {"id": "letter-a", "type": "letter", "text": "A a", "audioText": "a", "ipa": "/a/", "hint": "Always pure 'ah'. NEVER reduces like English 'a' in 'about'. French speakers: identical to French 'a' in 'patte'.", "example": {"text": "agua", "audioText": "agua", "translation": "water / eau"}},
+        {"id": "letter-b", "type": "letter", "text": "B b", "audioText": "be", "ipa": "/be/", "hint": "Letter name 'beh'. B and V sound IDENTICAL in Spanish (both /b/ or /β/). French speakers: not like French 'b' in being a distinct sound from v.", "example": {"text": "bueno", "audioText": "bueno", "translation": "good / bon"}},
+        {"id": "letter-c", "type": "letter", "text": "C c", "audioText": "ce", "ipa": "/θe/ (Spain), /se/ (LatAm)", "hint": "Letter name 'theh' (Spain) or 'seh' (Latin America). Before E/I: /θ/ in Spain like English 'th' in 'thin'. Before A/O/U: hard /k/.", "example": {"text": "casa", "audioText": "casa", "translation": "house / maison"}},
+        {"id": "letter-d", "type": "letter", "text": "D d", "audioText": "de", "ipa": "/de/", "hint": "Like English/French 'd' at start. BETWEEN vowels softens to a 'th'-like /ð/ (e.g. 'nada' sounds almost like 'natha').", "example": {"text": "día", "audioText": "día", "translation": "day / jour"}},
+        {"id": "letter-e", "type": "letter", "text": "E e", "audioText": "e", "ipa": "/e/", "hint": "Pure 'eh'. Like French 'é' in 'café' (NOT like English 'ee'). Always SHORT — Spanish has no long vowels.", "example": {"text": "este", "audioText": "este", "translation": "this / ce"}},
+        {"id": "letter-f", "type": "letter", "text": "F f", "audioText": "efe", "ipa": "/ˈefe/", "hint": "Letter name 'eh-feh'. Sound identical to English/French 'f'.", "example": {"text": "fácil", "audioText": "fácil", "translation": "easy / facile"}},
+        {"id": "letter-g", "type": "letter", "text": "G g", "audioText": "ge", "ipa": "/xe/", "hint": "Letter name 'kheh' (with the 'j' sound). Before E/I: same as Spanish J = /x/ (like Scottish 'loch'). Before A/O/U: hard /g/.", "example": {"text": "gato", "audioText": "gato", "translation": "cat / chat (hard g)"}},
+        {"id": "letter-h", "type": "letter", "text": "H h", "audioText": "hache", "ipa": "/ˈatʃe/", "hint": "Letter name 'AH-cheh'. The letter is ALWAYS SILENT. 'hola' is pronounced 'oh-la'. English/French: don't aspirate it.", "example": {"text": "hola", "audioText": "hola", "translation": "hi / salut (h is silent)"}},
+        {"id": "letter-i", "type": "letter", "text": "I i", "audioText": "i", "ipa": "/i/", "hint": "Pure 'ee'. Like French 'i' in 'vite'.", "example": {"text": "isla", "audioText": "isla", "translation": "island / île"}},
+        {"id": "letter-j", "type": "letter", "text": "J j", "audioText": "jota", "ipa": "/ˈxota/", "hint": "Letter name 'KHO-tah'. The sound is /x/ — like German 'ch' in 'Bach' or Scottish 'loch'. NOT like English 'j' or French 'j'.", "example": {"text": "jamón", "audioText": "jamón", "translation": "ham / jambon"}},
+        {"id": "letter-k", "type": "letter", "text": "K k", "audioText": "ka", "ipa": "/ka/", "hint": "Rare — only in loanwords (kilo, kayak). Sound is /k/.", "example": {"text": "kilo", "audioText": "kilo", "translation": "kilo / kilo"}},
+        {"id": "letter-l", "type": "letter", "text": "L l", "audioText": "ele", "ipa": "/ˈele/", "hint": "Clear, light 'l' — like French 'l' in 'aller'. Never the 'dark l' of English 'feel'.", "example": {"text": "luna", "audioText": "luna", "translation": "moon / lune"}},
+        {"id": "letter-m", "type": "letter", "text": "M m", "audioText": "eme", "ipa": "/ˈeme/", "hint": "Identical to English/French 'm'.", "example": {"text": "madre", "audioText": "madre", "translation": "mother / mère"}},
+        {"id": "letter-n", "type": "letter", "text": "N n", "audioText": "ene", "ipa": "/ˈene/", "hint": "Identical to English/French 'n'.", "example": {"text": "no", "audioText": "no", "translation": "no / non"}},
+        {"id": "letter-enye", "type": "letter", "text": "Ñ ñ", "audioText": "eñe", "ipa": "/ˈeɲe/", "hint": "Letter name 'EH-nyeh'. Sound is /ɲ/ — like 'ny' in canyon, or French 'gn' in 'agneau' (lamb). This is its OWN letter, not a decorated n.", "example": {"text": "España", "audioText": "España", "translation": "Spain / Espagne"}},
+        {"id": "letter-o", "type": "letter", "text": "O o", "audioText": "o", "ipa": "/o/", "hint": "Pure 'oh' — short, never glided like English 'go'. Like French 'o' in 'mot'.", "example": {"text": "oso", "audioText": "oso", "translation": "bear / ours"}},
+        {"id": "letter-p", "type": "letter", "text": "P p", "audioText": "pe", "ipa": "/pe/", "hint": "Unaspirated /p/ — like French/Spanish, NOT the breathy English 'p' in 'pen'.", "example": {"text": "pan", "audioText": "pan", "translation": "bread / pain"}},
+        {"id": "letter-q", "type": "letter", "text": "Q q", "audioText": "cu", "ipa": "/ku/", "hint": "Always written as 'qu' + e/i and pronounced /k/. The 'u' is SILENT (unlike French 'qui' where 'u' is silent too — match here).", "example": {"text": "queso", "audioText": "queso", "translation": "cheese / fromage (kè-soh)"}},
+        {"id": "letter-r", "type": "letter", "text": "R r", "audioText": "erre", "ipa": "/ˈere/", "hint": "Letter name 'EH-rreh' (rolled rr). A SINGLE r between vowels is a tap (like English 'tt' in 'butter' in American accent). At the START of a word, or RR, it's a strong trill.", "example": {"text": "cara", "audioText": "cara", "translation": "face / visage (single tap r)"}},
+        {"id": "letter-s", "type": "letter", "text": "S s", "audioText": "ese", "ipa": "/ˈese/", "hint": "Always /s/ as in 'see'. NEVER buzzes to /z/ like English 'rose'. Even between vowels: 'casa' = /KAH-sah/.", "example": {"text": "sí", "audioText": "sí", "translation": "yes / oui"}},
+        {"id": "letter-t", "type": "letter", "text": "T t", "audioText": "te", "ipa": "/te/", "hint": "Unaspirated /t/, tongue on the teeth (more dental than English). Like French 't'.", "example": {"text": "tres", "audioText": "tres", "translation": "three / trois"}},
+        {"id": "letter-u", "type": "letter", "text": "U u", "audioText": "u", "ipa": "/u/", "hint": "Pure 'oo' — like French 'ou' in 'tout' (NOT French 'u' in 'tu', which is the more rounded sound). SILENT after Q always, and after G when followed by E/I unless written ü.", "example": {"text": "uno", "audioText": "uno", "translation": "one / un"}},
+        {"id": "letter-v", "type": "letter", "text": "V v", "audioText": "uve", "ipa": "/ˈuβe/", "hint": "Letter name 'OO-veh'. Pronounced EXACTLY like B in Spanish — there is NO /v/ vs /b/ distinction. Native speakers might write down 'b' or 'v' for the same sound.", "example": {"text": "vino", "audioText": "vino", "translation": "wine / vin (sounds like 'bino')"}},
+        {"id": "letter-w", "type": "letter", "text": "W w", "audioText": "uve doble", "ipa": "/ˈuβe ˈdoβle/", "hint": "Letter name 'OO-veh DOH-bleh'. Very rare. Mostly loanwords (web, whisky).", "example": {"text": "web", "audioText": "web", "translation": "web / web"}},
+        {"id": "letter-x", "type": "letter", "text": "X x", "audioText": "equis", "ipa": "/ˈekis/", "hint": "Letter name 'EH-kees'. Sound is /ks/ (taxi). In Mexican words like 'México' it's the /x/ sound = like Spanish J.", "example": {"text": "taxi", "audioText": "taxi", "translation": "taxi / taxi"}},
+        {"id": "letter-y", "type": "letter", "text": "Y y", "audioText": "ye / i griega", "ipa": "/ʝe/", "hint": "Modern letter name is 'yeh'; older 'ee-griega' (= Greek i). As a consonant: like English 'y' in 'yes'. As 'y' (the word for 'and'): pronounced /i/.", "example": {"text": "yo", "audioText": "yo", "translation": "I / je"}},
+        {"id": "letter-z", "type": "letter", "text": "Z z", "audioText": "zeta", "ipa": "/ˈθeta/", "hint": "Letter name 'THEH-tah' (Spain) or 'SEH-tah' (LatAm). Sound = /θ/ in Spain ('th' in 'thin'), /s/ in Latin America. NEVER /z/ like English 'zoo'.", "example": {"text": "zapato", "audioText": "zapato", "translation": "shoe / chaussure"}}
+      ]
+    },
+    {
+      "id": "tricky-sounds",
+      "title": "The 6 traps for English/French speakers",
+      "note": "These are the sounds that everyone gets wrong at first. Drill each one until your mouth memorises it.",
+      "blocks": [
+        {"id": "trap-j-g", "type": "rule", "text": "J and G (before e/i) = /x/, like the 'ch' in Scottish 'loch'", "audioText": "jamón, jefe, gente, gigante, México", "rule": "NOT like English 'j' or French 'j'. Made at the back of the throat. Same sound for J (always) and G (only before E/I).", "examples": [
+          {"text": "jamón", "audioText": "jamón", "ipa": "/xaˈmon/", "translation": "ham / jambon — NOT 'zhamón'"},
+          {"text": "jefe", "audioText": "jefe", "translation": "boss / chef"},
+          {"text": "gente", "audioText": "gente", "translation": "people / gens — note: g before e = /x/"},
+          {"text": "gigante", "audioText": "gigante", "translation": "giant / géant — both g's = /x/"},
+          {"text": "México", "audioText": "México", "translation": "Mexico / Mexique — x here = /x/, archaic spelling"}
+        ]},
+        {"id": "trap-ñ", "type": "rule", "text": "Ñ = /ɲ/ — like French 'gn' in 'agneau'", "audioText": "año, niño, mañana, España, señor", "rule": "Tongue presses against the roof of the mouth (the palate). French speakers already know this sound — it's identical to 'gn'. English speakers: try saying 'canyon' fast and freeze the 'ny' sound.", "examples": [
+          {"text": "año", "audioText": "año", "translation": "year / an, année — NOT 'ano' which means anus!"},
+          {"text": "niño", "audioText": "niño", "translation": "boy, child / enfant"},
+          {"text": "mañana", "audioText": "mañana", "translation": "morning, tomorrow / matin, demain"},
+          {"text": "España", "audioText": "España", "translation": "Spain / Espagne"},
+          {"text": "señor", "audioText": "señor", "translation": "sir, gentleman / monsieur"}
+        ]},
+        {"id": "trap-r-rr", "type": "rule", "text": "R vs RR: tap vs trill", "audioText": "pero, perro, caro, carro, rosa, ahora", "rule": "Single R between vowels = a single TAP (briefly touch the tongue to the roof, almost like American English 'tt' in 'better'). RR or word-initial R = a strong TRILL (multiple taps in a row). The difference matters — 'pero' (but) vs 'perro' (dog) are different words.", "examples": [
+          {"text": "pero", "audioText": "pero", "translation": "but / mais (single tap)"},
+          {"text": "perro", "audioText": "perro", "translation": "dog / chien (trilled)"},
+          {"text": "caro", "audioText": "caro", "translation": "expensive / cher (tap)"},
+          {"text": "carro", "audioText": "carro", "translation": "car / voiture (trilled)"},
+          {"text": "rosa", "audioText": "rosa", "translation": "rose / rose — initial R is always trilled"}
+        ]},
+        {"id": "trap-c-z", "type": "rule", "text": "C (before e/i) and Z = /θ/ in Spain, /s/ in Latin America", "audioText": "cinco, cien, gracias, zapato, plaza, corazón", "rule": "In Spain (Castilian): 'ce', 'ci', and 'z' are pronounced like 'th' in 'thin'. In Latin America: they sound like /s/. Either is correct — pick Spain or LatAm and stay consistent. This app uses Castilian.", "examples": [
+          {"text": "cinco", "audioText": "cinco", "translation": "five / cinq"},
+          {"text": "gracias", "audioText": "gracias", "translation": "thanks / merci"},
+          {"text": "zapato", "audioText": "zapato", "translation": "shoe / chaussure"},
+          {"text": "plaza", "audioText": "plaza", "translation": "square / place"},
+          {"text": "corazón", "audioText": "corazón", "translation": "heart / cœur"}
+        ]},
+        {"id": "trap-ll", "type": "rule", "text": "LL = /ʝ/ — like English 'y' in 'yes' (or 'j' in 'jam' in some accents)", "audioText": "llamar, llave, calle, lluvia, pollo", "rule": "Two L's together make one sound. Standard pronunciation = like English 'y'. In Argentina it's a 'sh' sound (sheísmo) but for general Spanish stick with /ʝ/.", "examples": [
+          {"text": "llamar", "audioText": "llamar", "translation": "to call / appeler — like 'yamar'"},
+          {"text": "calle", "audioText": "calle", "translation": "street / rue"},
+          {"text": "lluvia", "audioText": "lluvia", "translation": "rain / pluie"},
+          {"text": "pollo", "audioText": "pollo", "translation": "chicken / poulet"}
+        ]},
+        {"id": "trap-silent-h", "type": "rule", "text": "H is ALWAYS silent", "audioText": "hola, hora, hombre, hijo, hablar, hospital", "rule": "Pretend the H isn't there. 'hola' = 'OH-la'. The H is a relic from Latin and Arabic. Even in foreign loanwords, Spanish speakers often drop the H.", "examples": [
+          {"text": "hola", "audioText": "hola", "translation": "hello / bonjour"},
+          {"text": "hora", "audioText": "hora", "translation": "hour / heure"},
+          {"text": "hombre", "audioText": "hombre", "translation": "man / homme"},
+          {"text": "hijo", "audioText": "hijo", "translation": "son / fils (note: j sound after silent h)"},
+          {"text": "hablar", "audioText": "hablar", "translation": "to speak / parler"}
+        ]}
+      ]
+    },
+    {
+      "id": "trap-busters",
+      "title": "Trap-buster sentences",
+      "note": "Each sentence drills 2–3 traps at once. Listen, repeat, watch the spelling.",
+      "blocks": [
+        {"id": "ts-1", "type": "sentence", "text": "El niño juega en la playa.", "audioText": "El niño juega en la playa.", "ipa": "/el ˈniɲo ˈxweɣa en la ˈplaʝa/", "translation": "The boy plays on the beach. / Le garçon joue à la plage.", "hint": "Drills: ñ + j + ll."},
+        {"id": "ts-2", "type": "sentence", "text": "Hace frío en mi ciudad.", "audioText": "Hace frío en mi ciudad.", "ipa": "/ˈaθe ˈfɾio en mi θjuˈðað/", "translation": "It's cold in my city. / Il fait froid dans ma ville.", "hint": "Drills: silent h + /θ/ for c twice."},
+        {"id": "ts-3", "type": "sentence", "text": "El perro corre por la calle.", "audioText": "El perro corre por la calle.", "ipa": "/el ˈpero ˈkore poɾ la ˈkaʝe/", "translation": "The dog runs through the street. / Le chien court dans la rue.", "hint": "Drills: rr (twice) + ll."},
+        {"id": "ts-4", "type": "sentence", "text": "Hablo español con mi jefe.", "audioText": "Hablo español con mi jefe.", "ipa": "/ˈaβlo espaˈɲol kon mi ˈxefe/", "translation": "I speak Spanish with my boss. / Je parle espagnol avec mon chef.", "hint": "Drills: silent h + ñ + two /x/ sounds."}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

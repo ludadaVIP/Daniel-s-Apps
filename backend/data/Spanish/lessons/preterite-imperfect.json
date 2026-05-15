@@ -1,0 +1,120 @@
+{
+  "id": "preterite-imperfect",
+  "title": "L09 · Preterite vs Imperfect — Two Past Tenses",
+  "phase": "Phase 3 — A2 Expansion",
+  "level": "A2",
+  "estimatedMinutes": 40,
+  "objective": "Spanish has TWO simple past tenses where English has one. The PRETERITE = a finished event with a clear boundary. The IMPERFECT = an ongoing past situation, habit, or background. Knowing which to use is the single biggest A2 challenge.",
+  "strategy": "Three parts: (1) learn the preterite forms. (2) learn the imperfect forms (easier — only 3 irregulars). (3) drill the CONTRAST in section 4 — these example pairs make the distinction click. French speakers have a HUGE advantage: it's the same distinction as passé composé vs imparfait.",
+  "sections": [
+    {
+      "id": "preterite-forms",
+      "title": "Preterite (pretérito indefinido) — completed events",
+      "note": "Used for actions that HAPPENED and FINISHED. 'I ate', 'we went', 'she said'. The corresponding French tense is the passé composé.",
+      "blocks": [
+        {"id": "v-hablar-pret", "type": "verb", "text": "hablar — preterite", "audioText": "hablé, hablaste, habló", "translation": "to speak (preterite) / parler (passé simple/composé)", "rule": "-AR endings: -é, -aste, -ó, -amos, -asteis, -aron. Note accents on yo and él forms.", "conjugation": {"yo": "hablé", "tu": "hablaste", "el": "habló", "nosotros": "hablamos", "vosotros": "hablasteis", "ellos": "hablaron"}, "examples": [
+          {"text": "Ayer hablé con mi madre.", "audioText": "Ayer hablé con mi madre.", "translation": "Yesterday I spoke with my mother. / Hier, j'ai parlé avec ma mère."},
+          {"text": "¿Hablaste con él?", "audioText": "Hablaste con él?", "translation": "Did you speak with him? / Lui as-tu parlé?"}
+        ]},
+        {"id": "v-comer-pret", "type": "verb", "text": "comer — preterite", "audioText": "comí, comiste, comió", "translation": "to eat (preterite) / manger (passé composé)", "rule": "-ER and -IR share the same preterite endings: -í, -iste, -ió, -imos, -isteis, -ieron. Accents on yo and él.", "conjugation": {"yo": "comí", "tu": "comiste", "el": "comió", "nosotros": "comimos", "vosotros": "comisteis", "ellos": "comieron"}, "examples": [
+          {"text": "Comí pescado anoche.", "audioText": "Comí pescado anoche.", "translation": "I ate fish last night. / J'ai mangé du poisson hier soir."}
+        ]},
+        {"id": "v-vivir-pret", "type": "verb", "text": "vivir — preterite", "audioText": "viví, viviste, vivió", "translation": "to live (preterite) / vivre", "conjugation": {"yo": "viví", "tu": "viviste", "el": "vivió", "nosotros": "vivimos", "vosotros": "vivisteis", "ellos": "vivieron"}, "examples": [
+          {"text": "Viví en Madrid dos años.", "audioText": "Viví en Madrid dos años.", "translation": "I lived in Madrid for two years. / J'ai vécu à Madrid pendant deux ans."}
+        ]},
+        {"id": "v-ser-ir-pret", "type": "verb", "text": "ser / ir — preterite (IDENTICAL forms!)", "audioText": "fui, fuiste, fue, fuimos, fuisteis, fueron", "translation": "to be / to go (preterite) / être / aller", "rule": "TRAP: SER and IR share the SAME preterite. Context tells you which. 'Fui a Madrid' = I went. 'Fui feliz' = I was happy.", "conjugation": {"yo": "fui", "tu": "fuiste", "el": "fue", "nosotros": "fuimos", "vosotros": "fuisteis", "ellos": "fueron"}, "examples": [
+          {"text": "Fui a Madrid en julio.", "audioText": "Fui a Madrid en julio.", "translation": "I went to Madrid in July. (ir) / Je suis allé à Madrid en juillet."},
+          {"text": "Fue una buena fiesta.", "audioText": "Fue una buena fiesta.", "translation": "It was a good party. (ser) / Ce fut / C'était une bonne fête."}
+        ]},
+        {"id": "v-tener-pret", "type": "verb", "text": "tener — preterite (irregular stem 'tuv-')", "audioText": "tuve, tuviste, tuvo", "translation": "to have (preterite) / avoir", "rule": "Irregular stem changes to 'tuv-' for all forms. Endings: -e, -iste, -o, -imos, -isteis, -ieron (note no accents!).", "conjugation": {"yo": "tuve", "tu": "tuviste", "el": "tuvo", "nosotros": "tuvimos", "vosotros": "tuvisteis", "ellos": "tuvieron"}, "examples": [
+          {"text": "Tuve un problema ayer.", "audioText": "Tuve un problema ayer.", "translation": "I had a problem yesterday. / J'ai eu un problème hier."}
+        ]},
+        {"id": "v-hacer-pret", "type": "verb", "text": "hacer — preterite (stem 'hic-', also 'hizo')", "audioText": "hice, hiciste, hizo", "translation": "to do (preterite) / faire", "rule": "Stem 'hic-' but the él form is 'hizo' (z, not c — to keep the /θ/ sound before 'o').", "conjugation": {"yo": "hice", "tu": "hiciste", "el": "hizo", "nosotros": "hicimos", "vosotros": "hicisteis", "ellos": "hicieron"}, "examples": [
+          {"text": "¿Qué hiciste ayer?", "audioText": "Qué hiciste ayer?", "translation": "What did you do yesterday? / Qu'as-tu fait hier?"}
+        ]},
+        {"id": "v-decir-pret", "type": "verb", "text": "decir — preterite (stem 'dij-')", "audioText": "dije, dijiste, dijo", "translation": "to say (preterite) / dire", "rule": "Verbs with stem ending in 'j' (dij-, traj-, conduj-) DROP the i in the ellos form: 'dijeron' NOT 'dijieron'.", "conjugation": {"yo": "dije", "tu": "dijiste", "el": "dijo", "nosotros": "dijimos", "vosotros": "dijisteis", "ellos": "dijeron"}, "examples": [
+          {"text": "Me dijo la verdad.", "audioText": "Me dijo la verdad.", "translation": "He told me the truth. / Il m'a dit la vérité."}
+        ]}
+      ]
+    },
+    {
+      "id": "imperfect-forms",
+      "title": "Imperfect (pretérito imperfecto) — ongoing past",
+      "note": "Used for past habits, descriptions, ongoing actions. 'I used to live', 'she was reading', 'it was cold'. French equivalent: imparfait.",
+      "blocks": [
+        {"id": "v-hablar-imp", "type": "verb", "text": "hablar — imperfect", "audioText": "hablaba, hablabas, hablaba", "translation": "I used to speak / was speaking — je parlais", "rule": "-AR endings: -aba, -abas, -aba, -ábamos, -abais, -aban. The 'b' in the stem is characteristic. yo and él forms are IDENTICAL — context tells you which.", "conjugation": {"yo": "hablaba", "tu": "hablabas", "el": "hablaba", "nosotros": "hablábamos", "vosotros": "hablabais", "ellos": "hablaban"}, "examples": [
+          {"text": "De niño, hablaba mucho con mi abuela.", "audioText": "De niño, hablaba mucho con mi abuela.", "translation": "As a child, I used to talk a lot with my grandma. / Enfant, je parlais beaucoup avec ma grand-mère."}
+        ]},
+        {"id": "v-comer-imp", "type": "verb", "text": "comer / vivir — imperfect", "audioText": "comía, comías, comía; vivía, vivías, vivía", "translation": "I used to eat / live — je mangeais / je vivais", "rule": "-ER and -IR share the same imperfect endings: -ía, -ías, -ía, -íamos, -íais, -ían. The í always carries an accent.", "conjugation": {"yo": "comía", "tu": "comías", "el": "comía", "nosotros": "comíamos", "vosotros": "comíais", "ellos": "comían"}, "examples": [
+          {"text": "Vivíamos en el campo.", "audioText": "Vivíamos en el campo.", "translation": "We used to live in the countryside. / Nous vivions à la campagne."}
+        ]},
+        {"id": "v-ser-imp", "type": "verb", "text": "ser — imperfect (IRREGULAR)", "audioText": "era, eras, era, éramos, erais, eran", "translation": "I was, used to be — j'étais", "rule": "ONE of only three irregular imperfects. Memorise this — used for past descriptions all the time.", "conjugation": {"yo": "era", "tu": "eras", "el": "era", "nosotros": "éramos", "vosotros": "erais", "ellos": "eran"}, "examples": [
+          {"text": "Era un día soleado.", "audioText": "Era un día soleado.", "translation": "It was a sunny day. / C'était une journée ensoleillée. — description in past"}
+        ]},
+        {"id": "v-ir-imp", "type": "verb", "text": "ir — imperfect (IRREGULAR)", "audioText": "iba, ibas, iba, íbamos, ibais, iban", "translation": "I used to go / was going — j'allais", "rule": "Second of three irregular imperfects.", "conjugation": {"yo": "iba", "tu": "ibas", "el": "iba", "nosotros": "íbamos", "vosotros": "ibais", "ellos": "iban"}, "examples": [
+          {"text": "Iba al parque todos los domingos.", "audioText": "Iba al parque todos los domingos.", "translation": "I used to go to the park every Sunday. / J'allais au parc tous les dimanches."}
+        ]},
+        {"id": "v-ver-imp", "type": "verb", "text": "ver — imperfect (slightly irregular)", "audioText": "veía, veías, veía, veíamos, veíais, veían", "translation": "I used to see / was seeing — je voyais", "rule": "Third irregular: keeps the full 've-' stem. Otherwise normal -ía endings.", "conjugation": {"yo": "veía", "tu": "veías", "el": "veía", "nosotros": "veíamos", "vosotros": "veíais", "ellos": "veían"}, "examples": [
+          {"text": "Veíamos películas los sábados.", "audioText": "Veíamos películas los sábados.", "translation": "We used to watch films on Saturdays. / Nous regardions des films le samedi."}
+        ]}
+      ]
+    },
+    {
+      "id": "when-to-use",
+      "title": "When to use which — the rules",
+      "note": "Don't try to translate from English ('I lived' vs 'I was living'). Think about whether the action is BOUNDED (finished) or UNBOUNDED (ongoing/habit). For French speakers: same rules as passé composé vs imparfait.",
+      "blocks": [
+        {"id": "rule-pret-1", "type": "rule", "text": "Preterite: a finished event with a CLEAR endpoint or duration", "audioText": "Comí a las dos. Viví en Madrid tres años. Ayer fui al cine.", "rule": "Use preterite when the action is over and you know when/for how long. Trigger words: ayer (yesterday), anoche (last night), la semana pasada (last week), en 2020, una vez (once), de repente (suddenly).", "examples": [
+          {"text": "Ayer fui al cine.", "audioText": "Ayer fui al cine.", "translation": "Yesterday I went to the cinema. (one finished event) / Hier, je suis allé au cinéma."},
+          {"text": "Estudié español dos años.", "audioText": "Estudié español dos años.", "translation": "I studied Spanish for two years. (defined duration, finished) / J'ai étudié l'espagnol pendant deux ans."},
+          {"text": "En 2020 me mudé a España.", "audioText": "En 2020 me mudé a España.", "translation": "In 2020 I moved to Spain. / En 2020, j'ai déménagé en Espagne."}
+        ]},
+        {"id": "rule-imp-1", "type": "rule", "text": "Imperfect: ongoing past, habits, descriptions, age in the past", "audioText": "Tenía cinco años. Vivía en el campo. Llovía mucho.", "rule": "Use imperfect for: (1) habits ('I used to'). (2) descriptions in the past ('It was sunny'). (3) telling AGE in the past ('I was 5'). (4) background actions while something else happened. Trigger words: siempre (always), a menudo (often), todos los días (every day), de niño (as a child), mientras (while).", "examples": [
+          {"text": "Cuando era niño, tenía un perro.", "audioText": "Cuando era niño, tenía un perro.", "translation": "When I was a child, I had a dog. / Quand j'étais enfant, j'avais un chien."},
+          {"text": "Siempre íbamos a la playa en verano.", "audioText": "Siempre íbamos a la playa en verano.", "translation": "We always used to go to the beach in summer. / Nous allions toujours à la plage en été."},
+          {"text": "Hacía frío y llovía.", "audioText": "Hacía frío y llovía.", "translation": "It was cold and it was raining. (description) / Il faisait froid et il pleuvait."}
+        ]}
+      ]
+    },
+    {
+      "id": "contrast-pairs",
+      "title": "The crucial contrast — same situation, different choice",
+      "note": "These pairs make the distinction click. Notice how the SAME English verb maps to different Spanish tenses depending on bounded vs unbounded.",
+      "blocks": [
+        {"id": "contrast-1", "type": "rule", "text": "Ongoing background vs single interrupting event", "audioText": "Caminaba por la calle cuando vi a María.", "rule": "Set the scene with imperfect, drop in the event with preterite. Classic 'I was X-ing when Y happened' structure.", "examples": [
+          {"text": "Caminaba por la calle cuando vi a María.", "audioText": "Caminaba por la calle cuando vi a María.", "translation": "I was walking down the street when I saw Maria. / Je marchais dans la rue quand j'ai vu Maria.", "ipa": "Walking = ongoing (imperfect). Seeing Maria = single moment (preterite)."},
+          {"text": "Comía cuando sonó el teléfono.", "audioText": "Comía cuando sonó el teléfono.", "translation": "I was eating when the phone rang. / Je mangeais quand le téléphone a sonné."}
+        ]},
+        {"id": "contrast-2", "type": "rule", "text": "Repeated/habitual (imperf) vs one specific time (pret)", "audioText": "Iba al parque cada domingo. Fui al parque el domingo pasado.", "rule": "If it was habitual, use imperfect. If it was a specific instance, use preterite. The word 'cada/siempre/todos los X' signals imperfect; 'el X pasado/ayer/anoche' signals preterite.", "examples": [
+          {"text": "De pequeño, iba al parque cada domingo.", "audioText": "De pequeño, iba al parque cada domingo.", "translation": "As a kid, I'd go to the park every Sunday. (habit) / Petit, j'allais au parc tous les dimanches."},
+          {"text": "El domingo pasado, fui al parque.", "audioText": "El domingo pasado, fui al parque.", "translation": "Last Sunday, I went to the park. (one time) / Dimanche dernier, je suis allé au parc."}
+        ]},
+        {"id": "contrast-3", "type": "rule", "text": "Description vs change of state", "audioText": "Era feliz. De repente me puse triste.", "rule": "'Era feliz' = I WAS happy (state, description). 'Me puse triste' = I BECAME sad (event, transition). State = imperfect. Change = preterite.", "examples": [
+          {"text": "Era feliz hasta que me enteré.", "audioText": "Era feliz hasta que me enteré.", "translation": "I was happy until I found out. / J'étais heureux jusqu'à ce que je l'apprenne."},
+          {"text": "Hacía sol pero de repente empezó a llover.", "audioText": "Hacía sol pero de repente empezó a llover.", "translation": "It was sunny but suddenly it started to rain. / Il faisait soleil mais soudain il s'est mis à pleuvoir."}
+        ]},
+        {"id": "contrast-4", "type": "rule", "text": "Knew (had the knowledge — imp) vs found out (acquired it — pret)", "audioText": "Sabía la respuesta. Supe la verdad ayer.", "rule": "Some verbs change meaning between the two tenses. CRITICAL ONES: saber, conocer, querer, poder.", "examples": [
+          {"text": "Sabía la respuesta.", "audioText": "Sabía la respuesta.", "translation": "I knew the answer. (had the knowledge) / Je savais la réponse."},
+          {"text": "Supe la verdad ayer.", "audioText": "Supe la verdad ayer.", "translation": "I found out the truth yesterday. (acquired knowledge — single moment) / J'ai appris la vérité hier."},
+          {"text": "Conocía a Juan desde hace años.", "audioText": "Conocía a Juan desde hace años.", "translation": "I had known Juan for years. (ongoing acquaintance)"},
+          {"text": "Conocí a Juan en una fiesta.", "audioText": "Conocí a Juan en una fiesta.", "translation": "I met Juan at a party. (first encounter — single event) / J'ai rencontré Juan à une fête."},
+          {"text": "No quería ir.", "audioText": "No quería ir.", "translation": "I didn't want to go. (didn't feel like) / Je ne voulais pas y aller."},
+          {"text": "No quise ir.", "audioText": "No quise ir.", "translation": "I refused to go. (actively declined) / J'ai refusé d'y aller."}
+        ]}
+      ]
+    },
+    {
+      "id": "story-example",
+      "title": "A short story — both tenses in action",
+      "note": "Watch how the imperfect sets the scene and the preterite advances the plot.",
+      "blocks": [
+        {"id": "story-1", "type": "sentence", "text": "Era una noche fría de diciembre.", "audioText": "Era una noche fría de diciembre.", "translation": "It was a cold December night. / C'était une nuit froide de décembre. — description, imp"},
+        {"id": "story-2", "type": "sentence", "text": "Yo estaba en casa y leía un libro.", "audioText": "Yo estaba en casa y leía un libro.", "translation": "I was at home and I was reading a book. / J'étais à la maison et je lisais un livre. — ongoing, imp"},
+        {"id": "story-3", "type": "sentence", "text": "De repente, alguien tocó la puerta.", "audioText": "De repente, alguien tocó la puerta.", "translation": "Suddenly, someone knocked at the door. / Soudain, quelqu'un a frappé à la porte. — event, pret"},
+        {"id": "story-4", "type": "sentence", "text": "Me levanté y abrí.", "audioText": "Me levanté y abrí.", "translation": "I got up and opened it. / Je me suis levé et j'ai ouvert. — sequential events, pret"},
+        {"id": "story-5", "type": "sentence", "text": "Era mi viejo amigo Pablo, a quien no veía desde hace años.", "audioText": "Era mi viejo amigo Pablo, a quien no veía desde hace años.", "translation": "It was my old friend Pablo, whom I hadn't seen in years. / C'était mon vieil ami Pablo, que je n'avais pas vu depuis des années. — both imp (description + state of not seeing)"}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

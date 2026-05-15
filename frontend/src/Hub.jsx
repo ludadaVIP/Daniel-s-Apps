@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, Flag, GraduationCap, Languages, MessageSquare, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Flag, GraduationCap, Languages, MessageSquare, Music, ScrollText, Sparkles } from "lucide-react";
 
 const APPS = [
   {
@@ -74,6 +74,15 @@ const APPS = [
     Icon: Flag,
     to: "/german",
   },
+  {
+    id: "spanish",
+    title: "Español Sprint",
+    subtitle: "Español de 0 a B2 — alfabeto, ser/estar, pretérito, subjuntivo",
+    description: "A 0→B2 Spanish roadmap built for English + French speakers. Targets the real pain points: ser vs estar, por vs para, preterite vs imperfect, and the subjunctive. Edge TTS audio on every block.",
+    accent: "#be185d",
+    Icon: Music,
+    to: "/spanish",
+  },
 ];
 
 export default function Hub() {
@@ -81,7 +90,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">八合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">九合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。每个应用独立运行，互不抢端口。
         </p>

@@ -1,0 +1,172 @@
+{
+  "id": "numbers-time-vocab",
+  "title": "L08 · Numbers, Time, Everyday Vocab",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "objective": "The survival kit: numbers 0–1000, time, days, months, family, food, body parts. Reference-style content — come back when you need a refresh.",
+  "strategy": "Not meant top-to-bottom. Pick whichever section you need (numbers, time, family, food, body, days+months). Use 'Play section' to drill all items in one shot.",
+  "sections": [
+    {
+      "id": "numbers-0-20",
+      "title": "Numbers 0–20",
+      "note": "Memorise these — building blocks for everything bigger. 16–19 are written as one word, NOT three.",
+      "blocks": [
+        {"id": "n-0", "type": "word", "text": "cero", "audioText": "cero", "translation": "0 / zéro"},
+        {"id": "n-1", "type": "word", "text": "uno", "audioText": "uno", "translation": "1 / un — drops the o before masc nouns (un libro)"},
+        {"id": "n-2", "type": "word", "text": "dos", "audioText": "dos", "translation": "2 / deux"},
+        {"id": "n-3", "type": "word", "text": "tres", "audioText": "tres", "translation": "3 / trois"},
+        {"id": "n-4", "type": "word", "text": "cuatro", "audioText": "cuatro", "translation": "4 / quatre"},
+        {"id": "n-5", "type": "word", "text": "cinco", "audioText": "cinco", "translation": "5 / cinq"},
+        {"id": "n-6", "type": "word", "text": "seis", "audioText": "seis", "translation": "6 / six"},
+        {"id": "n-7", "type": "word", "text": "siete", "audioText": "siete", "translation": "7 / sept"},
+        {"id": "n-8", "type": "word", "text": "ocho", "audioText": "ocho", "translation": "8 / huit"},
+        {"id": "n-9", "type": "word", "text": "nueve", "audioText": "nueve", "translation": "9 / neuf"},
+        {"id": "n-10", "type": "word", "text": "diez", "audioText": "diez", "translation": "10 / dix"},
+        {"id": "n-11", "type": "word", "text": "once", "audioText": "once", "translation": "11 / onze"},
+        {"id": "n-12", "type": "word", "text": "doce", "audioText": "doce", "translation": "12 / douze"},
+        {"id": "n-13", "type": "word", "text": "trece", "audioText": "trece", "translation": "13 / treize"},
+        {"id": "n-14", "type": "word", "text": "catorce", "audioText": "catorce", "translation": "14 / quatorze"},
+        {"id": "n-15", "type": "word", "text": "quince", "audioText": "quince", "translation": "15 / quinze"},
+        {"id": "n-16", "type": "word", "text": "dieciséis", "audioText": "dieciséis", "translation": "16 / seize — note accent"},
+        {"id": "n-17", "type": "word", "text": "diecisiete", "audioText": "diecisiete", "translation": "17 / dix-sept"},
+        {"id": "n-18", "type": "word", "text": "dieciocho", "audioText": "dieciocho", "translation": "18 / dix-huit"},
+        {"id": "n-19", "type": "word", "text": "diecinueve", "audioText": "diecinueve", "translation": "19 / dix-neuf"},
+        {"id": "n-20", "type": "word", "text": "veinte", "audioText": "veinte", "translation": "20 / vingt"}
+      ]
+    },
+    {
+      "id": "numbers-bigger",
+      "title": "Numbers 21+ and beyond",
+      "note": "Different pattern from French (no 'four-twenties' for 80!). Spanish is purely decimal.",
+      "blocks": [
+        {"id": "rule-21-29", "type": "rule", "text": "21–29: 'veinti-' + units (single word)", "audioText": "veintiuno, veintidós, veintitrés, veinticuatro, veinticinco", "rule": "Numbers 21–29 contract into one word. Note the accents: veintidós, veintitrés, veintiséis.", "examples": [
+          {"text": "21 = veintiuno", "audioText": "veintiuno", "translation": "twenty-one / vingt et un"},
+          {"text": "22 = veintidós", "audioText": "veintidós", "translation": "twenty-two / vingt-deux"},
+          {"text": "25 = veinticinco", "audioText": "veinticinco", "translation": "twenty-five"},
+          {"text": "29 = veintinueve", "audioText": "veintinueve", "translation": "twenty-nine"}
+        ]},
+        {"id": "rule-30-99", "type": "rule", "text": "30+: tens + 'y' + units (three words)", "audioText": "treinta y uno, cuarenta y dos, ochenta y siete", "rule": "From 31 onward, write 'treinta y uno' (NOT 'treintaiuno'). The 'y' = 'and'.", "examples": [
+          {"text": "31 = treinta y uno", "audioText": "treinta y uno", "translation": "thirty-one"},
+          {"text": "42 = cuarenta y dos", "audioText": "cuarenta y dos", "translation": "forty-two"},
+          {"text": "87 = ochenta y siete", "audioText": "ochenta y siete", "translation": "eighty-seven — French: quatre-vingt-sept; Spanish stays decimal"},
+          {"text": "99 = noventa y nueve", "audioText": "noventa y nueve", "translation": "ninety-nine"}
+        ]},
+        {"id": "rule-tens", "type": "rule", "text": "Tens: 30, 40, 50, 60, 70, 80, 90", "audioText": "treinta, cuarenta, cincuenta, sesenta, setenta, ochenta, noventa", "examples": [
+          {"text": "30 = treinta, 40 = cuarenta, 50 = cincuenta", "audioText": "treinta, cuarenta, cincuenta", "translation": "thirty, forty, fifty"},
+          {"text": "60 = sesenta, 70 = setenta", "audioText": "sesenta, setenta", "translation": "sixty, seventy"},
+          {"text": "80 = ochenta, 90 = noventa", "audioText": "ochenta, noventa", "translation": "eighty, ninety"}
+        ]},
+        {"id": "rule-100-1000", "type": "rule", "text": "Hundreds & thousands: cien / ciento / mil", "audioText": "cien, ciento uno, doscientos, mil, dos mil", "rule": "'cien' = exactly 100. 'ciento' is used when followed by more (ciento uno = 101). 200–900 use a special form ending in -cientos (doscientos, trescientos...).", "examples": [
+          {"text": "100 = cien", "audioText": "cien", "translation": "one hundred"},
+          {"text": "101 = ciento uno", "audioText": "ciento uno", "translation": "101 — note 'ciento' here"},
+          {"text": "200 = doscientos", "audioText": "doscientos", "translation": "two hundred (agrees with gender: doscientas casas)"},
+          {"text": "500 = quinientos (IRREGULAR — not 'cincocientos')", "audioText": "quinientos", "translation": "five hundred"},
+          {"text": "700 = setecientos (IRREGULAR)", "audioText": "setecientos", "translation": "seven hundred"},
+          {"text": "900 = novecientos (IRREGULAR)", "audioText": "novecientos", "translation": "nine hundred"},
+          {"text": "1000 = mil", "audioText": "mil", "translation": "one thousand — never 'un mil'"},
+          {"text": "2025 = dos mil veinticinco", "audioText": "dos mil veinticinco", "translation": "two thousand twenty-five"}
+        ]}
+      ]
+    },
+    {
+      "id": "time",
+      "title": "Telling the time",
+      "note": "Spanish uses ser (NOT estar) for time. Use 'es' for 1 o'clock only — 'son' for all others.",
+      "blocks": [
+        {"id": "rule-time-question", "type": "rule", "text": "¿Qué hora es? = What time is it?", "audioText": "Qué hora es? Es la una. Son las tres.", "rule": "Two forms: 'es la una' (it's one — singular), 'son las dos, las tres...' (plural for everything else). Time always uses SER.", "examples": [
+          {"text": "Es la una.", "audioText": "Es la una.", "translation": "It's 1 o'clock. / Il est une heure."},
+          {"text": "Son las tres.", "audioText": "Son las tres.", "translation": "It's 3 o'clock. / Il est 3 heures."},
+          {"text": "Son las ocho y media.", "audioText": "Son las ocho y media.", "translation": "It's 8:30. / Il est 8 heures et demie."},
+          {"text": "Son las nueve y cuarto.", "audioText": "Son las nueve y cuarto.", "translation": "It's 9:15. / Il est 9 heures et quart."},
+          {"text": "Son las diez menos cuarto.", "audioText": "Son las diez menos cuarto.", "translation": "It's 9:45. (lit. 10 minus a quarter) / Il est 10 heures moins le quart."},
+          {"text": "A las cinco de la tarde.", "audioText": "A las cinco de la tarde.", "translation": "At 5 PM. / À 5 heures de l'après-midi."}
+        ]},
+        {"id": "rule-times-of-day", "type": "rule", "text": "Times of day: de la mañana / de la tarde / de la noche", "audioText": "de la mañana, de la tarde, de la noche", "rule": "Spanish uses 'de la' instead of AM/PM. 'de la mañana' (6 AM – noon), 'de la tarde' (noon – 8 PM), 'de la noche' (8 PM – 6 AM).", "examples": [
+          {"text": "Son las siete de la mañana.", "audioText": "Son las siete de la mañana.", "translation": "It's 7 AM. / Il est 7 heures du matin."},
+          {"text": "Son las once de la noche.", "audioText": "Son las once de la noche.", "translation": "It's 11 PM. / Il est 23 heures."}
+        ]}
+      ]
+    },
+    {
+      "id": "days-months",
+      "title": "Days of the week, months, seasons",
+      "note": "Days and months in Spanish are NOT capitalised (unlike English, like French).",
+      "blocks": [
+        {"id": "d-lunes", "type": "word", "text": "el lunes", "audioText": "el lunes", "translation": "Monday / lundi"},
+        {"id": "d-martes", "type": "word", "text": "el martes", "audioText": "el martes", "translation": "Tuesday / mardi"},
+        {"id": "d-miercoles", "type": "word", "text": "el miércoles", "audioText": "el miércoles", "translation": "Wednesday / mercredi — note accent"},
+        {"id": "d-jueves", "type": "word", "text": "el jueves", "audioText": "el jueves", "translation": "Thursday / jeudi"},
+        {"id": "d-viernes", "type": "word", "text": "el viernes", "audioText": "el viernes", "translation": "Friday / vendredi"},
+        {"id": "d-sabado", "type": "word", "text": "el sábado", "audioText": "el sábado", "translation": "Saturday / samedi"},
+        {"id": "d-domingo", "type": "word", "text": "el domingo", "audioText": "el domingo", "translation": "Sunday / dimanche"},
+        {"id": "m-jan", "type": "word", "text": "enero, febrero, marzo", "audioText": "enero, febrero, marzo", "translation": "January, February, March / janvier, février, mars"},
+        {"id": "m-apr", "type": "word", "text": "abril, mayo, junio", "audioText": "abril, mayo, junio", "translation": "April, May, June / avril, mai, juin"},
+        {"id": "m-jul", "type": "word", "text": "julio, agosto, septiembre", "audioText": "julio, agosto, septiembre", "translation": "July, August, September"},
+        {"id": "m-oct", "type": "word", "text": "octubre, noviembre, diciembre", "audioText": "octubre, noviembre, diciembre", "translation": "October, November, December"},
+        {"id": "s-primavera", "type": "word", "text": "la primavera", "audioText": "la primavera", "translation": "spring / le printemps"},
+        {"id": "s-verano", "type": "word", "text": "el verano", "audioText": "el verano", "translation": "summer / l'été"},
+        {"id": "s-otono", "type": "word", "text": "el otoño", "audioText": "el otoño", "translation": "autumn / l'automne"},
+        {"id": "s-invierno", "type": "word", "text": "el invierno", "audioText": "el invierno", "translation": "winter / l'hiver"}
+      ]
+    },
+    {
+      "id": "family",
+      "title": "Family — la familia",
+      "note": "Spanish, like French, uses masculine plural for mixed groups (los padres = the parents OR fathers).",
+      "blocks": [
+        {"id": "f-padre", "type": "word", "text": "el padre", "audioText": "el padre", "translation": "father / père"},
+        {"id": "f-madre", "type": "word", "text": "la madre", "audioText": "la madre", "translation": "mother / mère"},
+        {"id": "f-padres", "type": "word", "text": "los padres", "audioText": "los padres", "translation": "parents (or fathers) / les parents"},
+        {"id": "f-hermano", "type": "word", "text": "el hermano", "audioText": "el hermano", "translation": "brother / frère"},
+        {"id": "f-hermana", "type": "word", "text": "la hermana", "audioText": "la hermana", "translation": "sister / sœur"},
+        {"id": "f-hijo", "type": "word", "text": "el hijo / la hija", "audioText": "el hijo, la hija", "translation": "son / daughter / fils, fille"},
+        {"id": "f-abuelo", "type": "word", "text": "el abuelo / la abuela", "audioText": "el abuelo, la abuela", "translation": "grandfather / grandmother / grand-père, grand-mère"},
+        {"id": "f-tio", "type": "word", "text": "el tío / la tía", "audioText": "el tío, la tía", "translation": "uncle / aunt / oncle, tante"},
+        {"id": "f-primo", "type": "word", "text": "el primo / la prima", "audioText": "el primo, la prima", "translation": "cousin (masc / fem) / cousin, cousine"},
+        {"id": "f-marido", "type": "word", "text": "el marido / la mujer", "audioText": "el marido, la mujer", "translation": "husband / wife / mari, femme — note 'la mujer' = wife OR woman, context decides"}
+      ]
+    },
+    {
+      "id": "food",
+      "title": "Food & drink — la comida y la bebida",
+      "note": "Common items you'll need in a restaurant or supermarket.",
+      "blocks": [
+        {"id": "fd-pan", "type": "word", "text": "el pan", "audioText": "el pan", "translation": "bread / pain"},
+        {"id": "fd-queso", "type": "word", "text": "el queso", "audioText": "el queso", "translation": "cheese / fromage"},
+        {"id": "fd-leche", "type": "word", "text": "la leche", "audioText": "la leche", "translation": "milk / lait — fem in Spanish (vs masc in French)"},
+        {"id": "fd-mantequilla", "type": "word", "text": "la mantequilla", "audioText": "la mantequilla", "translation": "butter / beurre"},
+        {"id": "fd-huevo", "type": "word", "text": "el huevo", "audioText": "el huevo", "translation": "egg / œuf"},
+        {"id": "fd-carne", "type": "word", "text": "la carne", "audioText": "la carne", "translation": "meat / viande"},
+        {"id": "fd-pescado", "type": "word", "text": "el pescado", "audioText": "el pescado", "translation": "fish (food) / poisson"},
+        {"id": "fd-pollo", "type": "word", "text": "el pollo", "audioText": "el pollo", "translation": "chicken / poulet"},
+        {"id": "fd-arroz", "type": "word", "text": "el arroz", "audioText": "el arroz", "translation": "rice / riz"},
+        {"id": "fd-manzana", "type": "word", "text": "la manzana", "audioText": "la manzana", "translation": "apple / pomme"},
+        {"id": "fd-naranja", "type": "word", "text": "la naranja", "audioText": "la naranja", "translation": "orange / orange"},
+        {"id": "fd-agua", "type": "word", "text": "el agua (la agua)", "audioText": "el agua", "translation": "water / eau — fem noun that takes 'el' for euphony"},
+        {"id": "fd-cafe", "type": "word", "text": "el café", "audioText": "el café", "translation": "coffee / café"},
+        {"id": "fd-te", "type": "word", "text": "el té", "audioText": "el té", "translation": "tea / thé"},
+        {"id": "fd-cerveza", "type": "word", "text": "la cerveza", "audioText": "la cerveza", "translation": "beer / bière"},
+        {"id": "fd-vino", "type": "word", "text": "el vino", "audioText": "el vino", "translation": "wine / vin"}
+      ]
+    },
+    {
+      "id": "body",
+      "title": "Body — el cuerpo",
+      "note": "Spanish uses DEFINITE article (el/la) instead of possessive for body parts: 'Me duele LA cabeza' (not 'mi cabeza').",
+      "blocks": [
+        {"id": "b-cabeza", "type": "word", "text": "la cabeza", "audioText": "la cabeza", "translation": "head / tête"},
+        {"id": "b-ojo", "type": "word", "text": "el ojo (pl: los ojos)", "audioText": "el ojo, los ojos", "translation": "eye / œil"},
+        {"id": "b-oreja", "type": "word", "text": "la oreja (pl: las orejas)", "audioText": "la oreja, las orejas", "translation": "ear / oreille"},
+        {"id": "b-nariz", "type": "word", "text": "la nariz", "audioText": "la nariz", "translation": "nose / nez"},
+        {"id": "b-boca", "type": "word", "text": "la boca", "audioText": "la boca", "translation": "mouth / bouche"},
+        {"id": "b-mano", "type": "word", "text": "la mano (pl: las manos)", "audioText": "la mano, las manos", "translation": "hand / main — TRAP: feminine despite ending in -o!"},
+        {"id": "b-pie", "type": "word", "text": "el pie (pl: los pies)", "audioText": "el pie, los pies", "translation": "foot / pied"},
+        {"id": "b-pierna", "type": "word", "text": "la pierna (pl: las piernas)", "audioText": "la pierna, las piernas", "translation": "leg / jambe"},
+        {"id": "b-brazo", "type": "word", "text": "el brazo (pl: los brazos)", "audioText": "el brazo, los brazos", "translation": "arm / bras"},
+        {"id": "b-corazon", "type": "word", "text": "el corazón", "audioText": "el corazón", "translation": "heart / cœur"}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

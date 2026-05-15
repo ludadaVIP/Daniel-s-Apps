@@ -1,0 +1,141 @@
+{
+  "id": "greetings",
+  "title": "L03 · Greetings + ser / estar / tener / haber",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 35,
+  "objective": "Introduce yourself and survive a Spanish conversation. Master the FOUR most important verbs — including ser-vs-estar, the single biggest grammar pain point of Spanish.",
+  "strategy": "Spanish splits 'to be' into TWO verbs (ser, estar) and uses 'tener' (to have) where English/French would use 'to be' (age, hunger, fear). Section 3-4 contrasts ser/estar with crisp examples. Section 5 covers the 'tener' idioms that surprise everyone.",
+  "sections": [
+    {
+      "id": "greetings-pack",
+      "title": "Greetings & courtesy",
+      "note": "Spanish uses different greetings throughout the day. Memorise the formal vs informal split.",
+      "blocks": [
+        {"id": "g-hola", "type": "phrase", "text": "Hola", "audioText": "Hola", "ipa": "/ˈola/", "translation": "Hi / Salut — universal, any time of day"},
+        {"id": "g-buenos-dias", "type": "phrase", "text": "Buenos días", "audioText": "Buenos días", "translation": "Good morning / Bonjour — until ~midday"},
+        {"id": "g-buenas-tardes", "type": "phrase", "text": "Buenas tardes", "audioText": "Buenas tardes", "translation": "Good afternoon / Bon après-midi — from midday to evening"},
+        {"id": "g-buenas-noches", "type": "phrase", "text": "Buenas noches", "audioText": "Buenas noches", "translation": "Good evening / good night / Bonsoir, bonne nuit"},
+        {"id": "g-como-estas", "type": "phrase", "text": "¿Cómo estás?", "audioText": "Cómo estás?", "translation": "How are you? (informal) / Comment vas-tu?", "hint": "Estás = from 'estar' (a temporary state). Not 'eres' here."},
+        {"id": "g-como-esta-usted", "type": "phrase", "text": "¿Cómo está usted?", "audioText": "Cómo está usted?", "translation": "How are you? (formal) / Comment allez-vous?"},
+        {"id": "g-bien", "type": "phrase", "text": "Bien, gracias. ¿Y tú?", "audioText": "Bien, gracias. Y tú?", "translation": "Fine, thanks. And you? / Bien, merci. Et toi?"},
+        {"id": "g-adios", "type": "phrase", "text": "Adiós", "audioText": "Adiós", "translation": "Goodbye / Au revoir"},
+        {"id": "g-hasta-luego", "type": "phrase", "text": "Hasta luego", "audioText": "Hasta luego", "translation": "See you later / À plus tard"},
+        {"id": "g-hasta-mañana", "type": "phrase", "text": "Hasta mañana", "audioText": "Hasta mañana", "translation": "See you tomorrow / À demain"},
+        {"id": "g-por-favor", "type": "phrase", "text": "Por favor", "audioText": "Por favor", "translation": "Please / S'il te plaît"},
+        {"id": "g-gracias", "type": "phrase", "text": "Gracias / De nada", "audioText": "Gracias. De nada.", "translation": "Thanks / You're welcome — Merci / De rien"},
+        {"id": "g-perdon", "type": "phrase", "text": "Perdón / Lo siento", "audioText": "Perdón. Lo siento.", "translation": "Sorry / Pardon, Je suis désolé"},
+        {"id": "g-mucho-gusto", "type": "phrase", "text": "Mucho gusto", "audioText": "Mucho gusto", "translation": "Nice to meet you / Enchanté"}
+      ]
+    },
+    {
+      "id": "verb-ser",
+      "title": "ser — to be (essence, identity, origin)",
+      "note": "SER tells you WHAT or WHO something IS — permanent identity, origin, profession, characteristic. Memorise this table; it's irregular and you'll use it daily.",
+      "blocks": [
+        {"id": "v-ser", "type": "verb", "text": "ser", "audioText": "ser", "ipa": "/seɾ/", "translation": "to be (essence) / être", "rule": "Highly irregular. Use SER for: (1) identity — 'Soy Daniel'. (2) origin — 'Soy de España'. (3) profession — 'Es médico'. (4) inherent characteristic — 'Ella es alta'. (5) time/date — 'Son las tres'.", "conjugation": {"yo": "soy", "tu": "eres", "el": "es", "nosotros": "somos", "vosotros": "sois", "ellos": "son"}, "examples": [
+          {"text": "Yo soy Ana.", "audioText": "Yo soy Ana.", "translation": "I am Ana. / Je suis Ana. — identity"},
+          {"text": "Soy de México.", "audioText": "Soy de México.", "translation": "I'm from Mexico. / Je suis du Mexique. — origin"},
+          {"text": "Ella es médica.", "audioText": "Ella es médica.", "translation": "She is a doctor. / Elle est médecin. — profession (NO 'una' before profession)"},
+          {"text": "Mi hermano es alto.", "audioText": "Mi hermano es alto.", "translation": "My brother is tall. / Mon frère est grand. — inherent trait"},
+          {"text": "Son las tres.", "audioText": "Son las tres.", "translation": "It's 3 o'clock. / Il est 3 heures. — time always uses SER"}
+        ]}
+      ]
+    },
+    {
+      "id": "verb-estar",
+      "title": "estar — to be (state, location, temporary condition)",
+      "note": "ESTAR tells you HOW something IS RIGHT NOW or WHERE it is. State, mood, location, ongoing actions.",
+      "blocks": [
+        {"id": "v-estar", "type": "verb", "text": "estar", "audioText": "estar", "ipa": "/esˈtaɾ/", "translation": "to be (state, location) / être", "rule": "Use ESTAR for: (1) location — 'Estoy en casa'. (2) temporary state/mood — 'Estoy cansado'. (3) ongoing action with gerund — 'Estoy comiendo'. (4) result of a change — 'La puerta está cerrada'. Notice: 'estar' has a written accent on tú/él/ellos forms.", "conjugation": {"yo": "estoy", "tu": "estás", "el": "está", "nosotros": "estamos", "vosotros": "estáis", "ellos": "están"}, "examples": [
+          {"text": "Estoy en casa.", "audioText": "Estoy en casa.", "translation": "I'm at home. / Je suis à la maison. — location ALWAYS uses ESTAR"},
+          {"text": "Estoy cansado.", "audioText": "Estoy cansado.", "translation": "I'm tired. / Je suis fatigué. — temporary mood"},
+          {"text": "Estoy comiendo.", "audioText": "Estoy comiendo.", "translation": "I'm eating (right now). / Je suis en train de manger. — present continuous"},
+          {"text": "La puerta está cerrada.", "audioText": "La puerta está cerrada.", "translation": "The door is closed. / La porte est fermée. — result/state"},
+          {"text": "¿Dónde está el baño?", "audioText": "Dónde está el baño?", "translation": "Where is the bathroom? / Où sont les toilettes? — location"}
+        ]}
+      ]
+    },
+    {
+      "id": "ser-vs-estar",
+      "title": "ser vs estar — the contrast",
+      "note": "THIS is the famous one. Same English word 'to be', two Spanish verbs. The choice CHANGES meaning. Drill these contrast pairs.",
+      "blocks": [
+        {"id": "contrast-bueno", "type": "rule", "text": "ser bueno (a good person) vs estar bueno (tastes good / hot)", "audioText": "Él es bueno. La sopa está buena.", "rule": "'ser + adjective' = inherent trait. 'estar + adjective' = current state. With 'bueno' the difference flips moral vs sensory.", "examples": [
+          {"text": "Él es bueno.", "audioText": "Él es bueno.", "translation": "He is a good person. / C'est quelqu'un de bon."},
+          {"text": "La sopa está buena.", "audioText": "La sopa está buena.", "translation": "The soup tastes good. (right now) / La soupe est bonne (au goût)."}
+        ]},
+        {"id": "contrast-aburrido", "type": "rule", "text": "ser aburrido (boring) vs estar aburrido (bored)", "audioText": "El libro es aburrido. Estoy aburrido.", "rule": "Classic trap. SER aburrido = the thing IS boring (inherent). ESTAR aburrido = someone IS bored (state).", "examples": [
+          {"text": "El libro es aburrido.", "audioText": "El libro es aburrido.", "translation": "The book is boring. / Le livre est ennuyeux."},
+          {"text": "Estoy aburrido.", "audioText": "Estoy aburrido.", "translation": "I'm bored. / Je m'ennuie."}
+        ]},
+        {"id": "contrast-listo", "type": "rule", "text": "ser listo (clever) vs estar listo (ready)", "audioText": "Ella es lista. Estoy listo.", "rule": "Same adjective, totally different meaning depending on the verb.", "examples": [
+          {"text": "Ella es muy lista.", "audioText": "Ella es muy lista.", "translation": "She is very clever. / Elle est très intelligente."},
+          {"text": "Estoy listo para salir.", "audioText": "Estoy listo para salir.", "translation": "I'm ready to leave. / Je suis prêt à partir."}
+        ]},
+        {"id": "contrast-where", "type": "rule", "text": "LOCATION = always ESTAR. EVENT location = SER.", "audioText": "Madrid está en España. La fiesta es en mi casa.", "rule": "A physical thing's location → ESTAR. An EVENT's location (where it takes place) → SER. Counterintuitive but consistent.", "examples": [
+          {"text": "Madrid está en España.", "audioText": "Madrid está en España.", "translation": "Madrid is in Spain. (location) / Madrid est en Espagne."},
+          {"text": "La fiesta es en mi casa.", "audioText": "La fiesta es en mi casa.", "translation": "The party is at my house. (event) / La fête est chez moi."},
+          {"text": "El concierto es a las ocho.", "audioText": "El concierto es a las ocho.", "translation": "The concert is at 8 (= takes place). / Le concert est à 8 heures."}
+        ]},
+        {"id": "rule-summary", "type": "rule", "text": "Memory hook: DOCTOR / PLACE", "audioText": "ser: Description, Occupation, Characteristic, Time, Origin, Relation. estar: Position, Location, Action, Condition, Emotion.", "rule": "SER → DOCTOR: Description (tall, pretty), Occupation, Characteristic (kind, smart), Time/Date, Origin, Relation. ESTAR → PLACE: Position, Location, Action (-ing), Condition (sick, tired), Emotion (happy, sad).", "examples": [
+          {"text": "Soy alto y soy de Madrid.", "audioText": "Soy alto y soy de Madrid.", "translation": "I'm tall and I'm from Madrid. — both DOCTOR (description, origin)"},
+          {"text": "Estoy en Madrid y estoy feliz.", "audioText": "Estoy en Madrid y estoy feliz.", "translation": "I'm in Madrid and I'm happy. — both PLACE (location, emotion)"}
+        ]}
+      ]
+    },
+    {
+      "id": "verb-tener",
+      "title": "tener — to have (and many surprising idioms)",
+      "note": "Stem-changing verb (e → ie). The shocker: Spanish uses TENER (to have) where English uses 'to be' for age, hunger, fear, heat, cold, sleep, thirst.",
+      "blocks": [
+        {"id": "v-tener", "type": "verb", "text": "tener", "audioText": "tener", "ipa": "/teˈneɾ/", "translation": "to have / avoir", "rule": "Stem changes e→ie in singular and 3rd plural. 'yo' is irregular (tengo).", "conjugation": {"yo": "tengo", "tu": "tienes", "el": "tiene", "nosotros": "tenemos", "vosotros": "tenéis", "ellos": "tienen"}, "examples": [
+          {"text": "Tengo un perro.", "audioText": "Tengo un perro.", "translation": "I have a dog. / J'ai un chien."},
+          {"text": "¿Tienes hermanos?", "audioText": "Tienes hermanos?", "translation": "Do you have siblings? / As-tu des frères et sœurs?"}
+        ]},
+        {"id": "rule-tener-idioms", "type": "rule", "text": "TENER + noun = state expressed with 'to be' in English/French", "audioText": "Tengo 25 años. Tengo hambre. Tengo frío. Tengo miedo.", "rule": "Spanish HAS hunger/fear/cold instead of BEING hungry/afraid/cold. French speakers: identical to French 'avoir faim, avoir peur, avoir froid, avoir x ans'. English speakers: this is the structure you need to UNLEARN.", "examples": [
+          {"text": "Tengo 25 años.", "audioText": "Tengo veinticinco años.", "translation": "I am 25 years old. / J'ai 25 ans. — French speakers: same as French!"},
+          {"text": "Tengo hambre.", "audioText": "Tengo hambre.", "translation": "I'm hungry. (lit. I have hunger.) / J'ai faim."},
+          {"text": "Tengo sed.", "audioText": "Tengo sed.", "translation": "I'm thirsty. / J'ai soif."},
+          {"text": "Tengo frío.", "audioText": "Tengo frío.", "translation": "I'm cold. / J'ai froid."},
+          {"text": "Tengo calor.", "audioText": "Tengo calor.", "translation": "I'm hot. / J'ai chaud."},
+          {"text": "Tengo sueño.", "audioText": "Tengo sueño.", "translation": "I'm sleepy. / J'ai sommeil."},
+          {"text": "Tengo miedo.", "audioText": "Tengo miedo.", "translation": "I'm afraid. / J'ai peur."},
+          {"text": "Tengo prisa.", "audioText": "Tengo prisa.", "translation": "I'm in a hurry. / Je suis pressé."},
+          {"text": "Tengo razón.", "audioText": "Tengo razón.", "translation": "I'm right. / J'ai raison."}
+        ]}
+      ]
+    },
+    {
+      "id": "verb-haber",
+      "title": "haber — auxiliary 'to have' + the magic word 'hay'",
+      "note": "HABER is mostly an auxiliary verb (used to form perfect tenses later). For now you only need ONE form: HAY = there is / there are.",
+      "blocks": [
+        {"id": "rule-hay", "type": "rule", "text": "hay = there is / there are (INVARIABLE — same for sing & plur)", "audioText": "Hay un libro. Hay tres libros. ¿Hay un baño aquí?", "rule": "'hay' (from haber) is invariable: 'hay un libro' (there is a book), 'hay tres libros' (there are three books). Used for EXISTENCE. Unlike 'estar' (location of a SPECIFIC thing), 'hay' introduces something new or asks if something exists.", "examples": [
+          {"text": "Hay un libro en la mesa.", "audioText": "Hay un libro en la mesa.", "translation": "There is a book on the table. / Il y a un livre sur la table."},
+          {"text": "Hay tres libros aquí.", "audioText": "Hay tres libros aquí.", "translation": "There are three books here. / Il y a trois livres ici."},
+          {"text": "¿Hay un baño cerca?", "audioText": "Hay un baño cerca?", "translation": "Is there a bathroom nearby? / Y a-t-il des toilettes près d'ici?"},
+          {"text": "En España hay 47 millones de personas.", "audioText": "En España hay cuarenta y siete millones de personas.", "translation": "There are 47 million people in Spain. / Il y a 47 millions de personnes en Espagne."}
+        ]},
+        {"id": "rule-hay-vs-esta", "type": "rule", "text": "hay vs está/están — existence vs specific location", "audioText": "Hay un libro en la mesa. El libro está en la mesa.", "rule": "'hay' introduces a NEW or UNSPECIFIED thing ('there's a book somewhere'). 'está/están' locates a SPECIFIC, known thing ('the book is on...'). Trigger: 'un/una/dos/tres + noun' = hay. 'el/la/mi + noun' = está.", "examples": [
+          {"text": "Hay un perro en la calle.", "audioText": "Hay un perro en la calle.", "translation": "There is a (some) dog in the street. (new) / Il y a un chien dans la rue."},
+          {"text": "El perro está en la calle.", "audioText": "El perro está en la calle.", "translation": "The dog is in the street. (specific, known) / Le chien est dans la rue."}
+        ]}
+      ]
+    },
+    {
+      "id": "intro-dialogue",
+      "title": "A real introduction",
+      "note": "Listen to the whole dialogue using 'Play section', then work through it line by line.",
+      "blocks": [
+        {"id": "d-1", "type": "sentence", "text": "Hola, me llamo Marta. ¿Cómo te llamas?", "audioText": "Hola, me llamo Marta. Cómo te llamas?", "translation": "Hi, my name is Marta. What's your name? / Salut, je m'appelle Marta. Comment t'appelles-tu?"},
+        {"id": "d-2", "type": "sentence", "text": "Me llamo Daniel. Mucho gusto.", "audioText": "Me llamo Daniel. Mucho gusto.", "translation": "I'm Daniel. Nice to meet you. / Je m'appelle Daniel. Enchanté."},
+        {"id": "d-3", "type": "sentence", "text": "¿De dónde eres?", "audioText": "De dónde eres?", "translation": "Where are you from? / D'où viens-tu? — note: SER for origin"},
+        {"id": "d-4", "type": "sentence", "text": "Soy de Francia, pero vivo en Madrid.", "audioText": "Soy de Francia, pero vivo en Madrid.", "translation": "I'm from France, but I live in Madrid. / Je suis de France, mais je vis à Madrid."},
+        {"id": "d-5", "type": "sentence", "text": "¿Cuántos años tienes?", "audioText": "Cuántos años tienes?", "translation": "How old are you? / Quel âge as-tu? — TENER for age"},
+        {"id": "d-6", "type": "sentence", "text": "Tengo 28 años. ¿Y tú?", "audioText": "Tengo veintiocho años. Y tú?", "translation": "I'm 28. And you? / J'ai 28 ans. Et toi?"}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

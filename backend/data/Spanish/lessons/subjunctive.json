@@ -1,0 +1,125 @@
+{
+  "id": "subjunctive",
+  "title": "L12 · Subjunctive (presente + imperfecto)",
+  "phase": "Phase 4 — B1/B2 Milestones",
+  "level": "B1-B2",
+  "estimatedMinutes": 45,
+  "objective": "The B1/B2 watershed: the subjunctive mood. Spanish uses it MUCH more than French — every time there's doubt, emotion, wish, judgement, or unknown future. Once you can produce it, you sound competent.",
+  "strategy": "Three parts: (1) FORM the present subjunctive. (2) recognise the TRIGGERS — verbs and phrases that demand subjunctive in the next clause. (3) imperfect subjunctive for hypotheticals. Memory hook: WEIRDO — Wishes, Emotions, Impersonal expressions, Recommendations, Doubt/Denial, Ojalá. If the main clause expresses one of these, the next clause goes subjunctive.",
+  "sections": [
+    {
+      "id": "present-subj-form",
+      "title": "Present subjunctive — how to form it",
+      "note": "Simple rule: take the 'yo' form of the present indicative, drop the -o, add OPPOSITE-vowel endings. -ar verbs use 'e' endings; -er/-ir verbs use 'a' endings.",
+      "blocks": [
+        {"id": "rule-form", "type": "rule", "text": "Step 1: yo form of present. Step 2: drop -o. Step 3: add the 'opposite' endings.", "audioText": "hablar → hablo → habl- → hable, hables, hable, hablemos, habléis, hablen", "rule": "AR endings flip to E (hable, hables, hable, hablemos, habléis, hablen). ER/IR endings flip to A (coma, comas, coma, comamos, comáis, coman / viva, vivas, viva, vivamos, viváis, vivan)."},
+        {"id": "v-hablar-subj", "type": "verb", "text": "hablar — present subjunctive", "audioText": "hable, hables, hable", "translation": "(that) I speak — (que) je parle", "conjugation": {"yo": "hable", "tu": "hables", "el": "hable", "nosotros": "hablemos", "vosotros": "habléis", "ellos": "hablen"}, "examples": [
+          {"text": "Quiero que hables conmigo.", "audioText": "Quiero que hables conmigo.", "translation": "I want you to talk with me. / Je veux que tu parles avec moi."}
+        ]},
+        {"id": "v-comer-subj", "type": "verb", "text": "comer — present subjunctive", "audioText": "coma, comas, coma", "translation": "(that) I eat — (que) je mange", "conjugation": {"yo": "coma", "tu": "comas", "el": "coma", "nosotros": "comamos", "vosotros": "comáis", "ellos": "coman"}, "examples": [
+          {"text": "Es importante que comas verduras.", "audioText": "Es importante que comas verduras.", "translation": "It's important that you eat vegetables. / Il est important que tu manges des légumes."}
+        ]},
+        {"id": "v-vivir-subj", "type": "verb", "text": "vivir — present subjunctive", "audioText": "viva, vivas, viva", "translation": "(that) I live — (que) je vive", "conjugation": {"yo": "viva", "tu": "vivas", "el": "viva", "nosotros": "vivamos", "vosotros": "viváis", "ellos": "vivan"}},
+        {"id": "rule-irregular-yo", "type": "rule", "text": "If the 'yo' form is irregular, the subjunctive carries that irregularity through ALL forms", "audioText": "tener (tengo) → tenga, tengas, tenga; hacer (hago) → haga; salir (salgo) → salga; conocer (conozco) → conozca", "rule": "This is the magic trick: many 'irregular' subjunctives are completely regular IF you start from the yo form. tengo → teng- → tenga. hago → hag- → haga. conozco → conozc- → conozca."},
+        {"id": "rule-fully-irregular", "type": "rule", "text": "6 truly irregular subjunctives — memorise these", "audioText": "ser → sea; ir → vaya; haber → haya; saber → sepa; dar → dé; estar → esté", "rule": "These don't follow the yo-form trick. Their subjunctive stems are unique. ALL six are high-frequency.", "examples": [
+          {"text": "ser → sea, seas, sea, seamos, seáis, sean", "audioText": "sea, seas, sea", "translation": "(that) I be / sois — note 'sea' has no accent (different from 'sé' = 'I know')"},
+          {"text": "ir → vaya, vayas, vaya, vayamos, vayáis, vayan", "audioText": "vaya, vayas, vaya", "translation": "(that) I go / aille"},
+          {"text": "haber → haya, hayas, haya, hayamos, hayáis, hayan", "audioText": "haya, hayas, haya", "translation": "(that) there be / aie (auxiliary)"},
+          {"text": "saber → sepa, sepas, sepa, sepamos, sepáis, sepan", "audioText": "sepa, sepas, sepa", "translation": "(that) I know / sache"},
+          {"text": "dar → dé, des, dé, demos, deis, den", "audioText": "dé, des, dé", "translation": "(that) I give / donne — note accent on 'dé' (distinguishes from 'de'='of')"},
+          {"text": "estar → esté, estés, esté, estemos, estéis, estén", "audioText": "esté, estés, esté", "translation": "(that) I be (state) / sois"}
+        ]}
+      ]
+    },
+    {
+      "id": "weirdo-triggers",
+      "title": "WEIRDO — when to use the subjunctive",
+      "note": "Memorise the WEIRDO acronym: Wishes, Emotions, Impersonal expressions, Recommendations, Doubt/Denial, Ojalá. If the main clause does one of these AND has 'que', the next clause goes subjunctive.",
+      "blocks": [
+        {"id": "rule-w", "type": "rule", "text": "W — Wishes / Wanting (querer que, esperar que, preferir que, desear que)", "audioText": "Quiero que vengas. Espero que estés bien. Prefiero que hables despacio.", "rule": "Whenever the wish is for SOMEONE ELSE to do something, you need 'que + subjunctive'. If you wish for YOURSELF, use infinitive (Quiero ir = I want to go).", "examples": [
+          {"text": "Quiero que vengas a mi fiesta.", "audioText": "Quiero que vengas a mi fiesta.", "translation": "I want you to come to my party. / Je veux que tu viennes à ma fête."},
+          {"text": "Espero que estés bien.", "audioText": "Espero que estés bien.", "translation": "I hope you're well. / J'espère que tu vas bien.", "ipa": "Spanish 'esperar que' takes subjunctive; French 'espérer que' takes indicative. Trap for French speakers!"},
+          {"text": "Prefiero que hables más despacio.", "audioText": "Prefiero que hables más despacio.", "translation": "I'd prefer you to speak more slowly."}
+        ]},
+        {"id": "rule-e", "type": "rule", "text": "E — Emotions (alegrarse de que, sentir que, temer que, estar contento de que)", "audioText": "Me alegro de que estés aquí. Siento que estés triste.", "rule": "Any emotional reaction to a fact triggers subjunctive. Even if the fact is true and known.", "examples": [
+          {"text": "Me alegro de que estés aquí.", "audioText": "Me alegro de que estés aquí.", "translation": "I'm glad (that) you're here. / Je suis content que tu sois là."},
+          {"text": "Siento que estés enfermo.", "audioText": "Siento que estés enfermo.", "translation": "I'm sorry you're sick. / Je suis désolé que tu sois malade."},
+          {"text": "Me sorprende que no lo sepas.", "audioText": "Me sorprende que no lo sepas.", "translation": "It surprises me that you don't know. / Cela me surprend que tu ne le saches pas."}
+        ]},
+        {"id": "rule-i", "type": "rule", "text": "I — Impersonal expressions (es necesario que, es importante que, es bueno que, es posible que)", "audioText": "Es necesario que estudies. Es importante que vengas.", "rule": "ANY 'es + adjective + que' expression triggers subjunctive. Exception: 'es verdad que' and 'es seguro que' (= certainty) take INDICATIVE.", "examples": [
+          {"text": "Es importante que estudies.", "audioText": "Es importante que estudies.", "translation": "It's important that you study. / Il est important que tu étudies."},
+          {"text": "Es posible que llueva mañana.", "audioText": "Es posible que llueva mañana.", "translation": "It might rain tomorrow. / Il se peut qu'il pleuve demain."},
+          {"text": "Es necesario que vengas.", "audioText": "Es necesario que vengas.", "translation": "You need to come. / Il faut que tu viennes."},
+          {"text": "Es verdad que viene. (INDICATIVE — certainty)", "audioText": "Es verdad que viene.", "translation": "It's true that he's coming. / Il est vrai qu'il vient."}
+        ]},
+        {"id": "rule-r", "type": "rule", "text": "R — Recommendations / Requests (recomendar que, sugerir que, pedir que, decir que, aconsejar que)", "audioText": "Te recomiendo que vayas. Le pido que me ayude.", "rule": "Asking, ordering, recommending — anything where you want someone to act — triggers subjunctive.", "examples": [
+          {"text": "Te recomiendo que veas esa película.", "audioText": "Te recomiendo que veas esa película.", "translation": "I recommend you watch that film. / Je te recommande de voir ce film."},
+          {"text": "El médico me dice que coma menos.", "audioText": "El médico me dice que coma menos.", "translation": "The doctor tells me to eat less. / Le médecin me dit de manger moins. — note: 'decir que' = command takes subjunctive; 'decir que' = reporting fact takes indicative"}
+        ]},
+        {"id": "rule-d", "type": "rule", "text": "D — Doubt / Denial (dudar que, no creer que, no pensar que, negar que)", "audioText": "Dudo que venga. No creo que sea verdad.", "rule": "Whenever you express DOUBT or NEGATION about a claim, the next clause goes subjunctive. The affirmative versions (creer que, pensar que) take INDICATIVE — that's the trick.", "examples": [
+          {"text": "Dudo que venga.", "audioText": "Dudo que venga.", "translation": "I doubt he'll come. / Je doute qu'il vienne."},
+          {"text": "No creo que sea verdad.", "audioText": "No creo que sea verdad.", "translation": "I don't think it's true. / Je ne crois pas que ce soit vrai."},
+          {"text": "Creo que es verdad. (AFFIRMATIVE → indicative)", "audioText": "Creo que es verdad.", "translation": "I believe it's true. / Je crois que c'est vrai."}
+        ]},
+        {"id": "rule-o", "type": "rule", "text": "O — Ojalá! (= 'I hope', 'if only')", "audioText": "Ojalá que venga. Ojalá llueva mañana.", "rule": "'Ojalá' (from Arabic 'inshallah') is a fixed expression meaning 'I hope' or 'if only'. ALWAYS triggers subjunctive. The 'que' is optional. Different tenses of subjunctive = different time/likelihood: ojalá + present subj (hopefully X happens), ojalá + imperfect subj (if only X were happening / I wish).", "examples": [
+          {"text": "Ojalá venga mañana.", "audioText": "Ojalá venga mañana.", "translation": "I hope he comes tomorrow. / J'espère qu'il viendra demain."},
+          {"text": "Ojalá lloviera.", "audioText": "Ojalá lloviera.", "translation": "If only it would rain. / Si seulement il pleuvait. — imperfect subj for unlikely wishes"}
+        ]}
+      ]
+    },
+    {
+      "id": "future-uncertainty",
+      "title": "Subjunctive with 'cuando', 'hasta que', 'en cuanto' for FUTURE events",
+      "note": "Spanish marks future uncertainty with subjunctive after time conjunctions. Trips up French/English speakers — both languages use indicative here.",
+      "blocks": [
+        {"id": "rule-cuando", "type": "rule", "text": "Past time → indicative. Future time → subjunctive.", "audioText": "Cuando llego a casa, ceno. (habit, indicative) — Cuando llegue a casa, cenaré. (future, subjunctive)", "rule": "When the 'cuando' refers to a HABIT or PAST, use indicative. When it refers to FUTURE (uncertain), use subjunctive.", "examples": [
+          {"text": "Cuando llego a casa, ceno. (habit)", "audioText": "Cuando llego a casa, ceno.", "translation": "When I get home, I have dinner. (every day) / Quand je rentre, je dîne."},
+          {"text": "Cuando llegue a casa, cenaré. (future)", "audioText": "Cuando llegue a casa, cenaré.", "translation": "When I get home (later today), I'll have dinner. / Quand je rentrerai, je dînerai.", "ipa": "Future uncertainty triggers subjunctive 'llegue'."},
+          {"text": "Cuando llegué, cené. (preterite)", "audioText": "Cuando llegué, cené.", "translation": "When I got home, I had dinner. (past) / Quand je suis rentré, j'ai dîné. — pure indicative"}
+        ]},
+        {"id": "rule-hasta-que", "type": "rule", "text": "hasta que / en cuanto / antes de que — same future-subjunctive rule", "audioText": "Esperaré hasta que vengas. En cuanto llegues, llámame.", "rule": "All time conjunctions that point to future trigger subjunctive on the future side. 'antes de que' (before) ALWAYS triggers subjunctive, even in past.", "examples": [
+          {"text": "Esperaré hasta que vengas.", "audioText": "Esperaré hasta que vengas.", "translation": "I'll wait until you come. / J'attendrai jusqu'à ce que tu viennes."},
+          {"text": "En cuanto llegues, llámame.", "audioText": "En cuanto llegues, llámame.", "translation": "As soon as you arrive, call me. / Dès que tu arriveras, appelle-moi."},
+          {"text": "Hablamos antes de que se vaya.", "audioText": "Hablamos antes de que se vaya.", "translation": "We talk before he leaves. / Nous parlons avant qu'il s'en aille. — antes de que ALWAYS subj"}
+        ]}
+      ]
+    },
+    {
+      "id": "imperfect-subjunctive",
+      "title": "Imperfect subjunctive — for hypotheticals and past triggers",
+      "note": "Used in 'if I were...' constructions and any subjunctive trigger in past context. Has two valid forms (-ra and -se) — both correct, -ra is more common in speech.",
+      "blocks": [
+        {"id": "rule-imp-subj-form", "type": "rule", "text": "Take the 'ellos' form of preterite, drop -ron, add -ra / -ras / -ra / -´ramos / -rais / -ran", "audioText": "hablaron → habla- → hablara, hablaras, hablara, habláramos, hablarais, hablaran", "rule": "Stem = ellos preterite minus -ron. Endings: -ra / -ras / -ra / -ramos / -rais / -ran. Nosotros has a written accent: habláramos."},
+        {"id": "v-hablar-imp-subj", "type": "verb", "text": "hablar — imperfect subjunctive", "audioText": "hablara, hablaras, hablara", "translation": "(that) I spoke — (que) je parlasse / parlais", "conjugation": {"yo": "hablara", "tu": "hablaras", "el": "hablara", "nosotros": "habláramos", "vosotros": "hablarais", "ellos": "hablaran"}},
+        {"id": "v-tener-imp-subj", "type": "verb", "text": "tener — imperfect subjunctive (from tuvieron)", "audioText": "tuviera, tuvieras, tuviera", "translation": "(that) I had — (que) j'eusse / j'avais", "conjugation": {"yo": "tuviera", "tu": "tuvieras", "el": "tuviera", "nosotros": "tuviéramos", "vosotros": "tuvierais", "ellos": "tuvieran"}, "examples": [
+          {"text": "Si tuviera dinero, viajaría.", "audioText": "Si tuviera dinero, viajaría.", "translation": "If I had money, I would travel. / Si j'avais de l'argent, je voyagerais."}
+        ]},
+        {"id": "v-ser-imp-subj", "type": "verb", "text": "ser/ir — imperfect subjunctive (from fueron)", "audioText": "fuera, fueras, fuera", "translation": "(that) I were / went — (que) je fusse, allasse", "conjugation": {"yo": "fuera", "tu": "fueras", "el": "fuera", "nosotros": "fuéramos", "vosotros": "fuerais", "ellos": "fueran"}, "examples": [
+          {"text": "Si yo fuera tú, lo haría.", "audioText": "Si yo fuera tú, lo haría.", "translation": "If I were you, I'd do it. / Si j'étais toi, je le ferais."}
+        ]},
+        {"id": "rule-hypothetical-si", "type": "rule", "text": "Hypothetical 'if' sentences: si + imperf. subj, + conditional", "audioText": "Si tuviera tiempo, iría. Si fuera rico, compraría una casa.", "rule": "The unreal/unlikely 'if' construction. Always: imperfect subjunctive in the 'si' clause, conditional in the result clause. Same pattern as French 'si + imparfait, + conditionnel'.", "examples": [
+          {"text": "Si tuviera tiempo, iría al cine.", "audioText": "Si tuviera tiempo, iría al cine.", "translation": "If I had time, I'd go to the cinema. / Si j'avais le temps, j'irais au cinéma."},
+          {"text": "Si fuera rico, viajaría por el mundo.", "audioText": "Si fuera rico, viajaría por el mundo.", "translation": "If I were rich, I'd travel the world. / Si j'étais riche, je voyagerais à travers le monde."},
+          {"text": "Si pudieras elegir, ¿qué harías?", "audioText": "Si pudieras elegir, qué harías?", "translation": "If you could choose, what would you do? / Si tu pouvais choisir, que ferais-tu?"}
+        ]},
+        {"id": "rule-past-trigger", "type": "rule", "text": "Past WEIRDO triggers also take imperfect subjunctive", "audioText": "Quería que vinieras. Esperaba que estuvieras bien.", "rule": "If the main clause is in past tense (quería, esperaba, era importante que...), the subordinate goes to IMPERFECT subjunctive. Tense agreement.", "examples": [
+          {"text": "Quería que vinieras a mi cumpleaños.", "audioText": "Quería que vinieras a mi cumpleaños.", "translation": "I wanted you to come to my birthday. / Je voulais que tu viennes à mon anniversaire."},
+          {"text": "Era importante que llegáramos a tiempo.", "audioText": "Era importante que llegáramos a tiempo.", "translation": "It was important that we arrived on time. / Il était important que nous arrivions à l'heure."}
+        ]}
+      ]
+    },
+    {
+      "id": "next-steps",
+      "title": "What comes after B2",
+      "note": "Quick map of what's left so you know where you're going.",
+      "blocks": [
+        {"id": "next-1", "type": "rule", "text": "Present perfect (he hablado) and pluperfect (había hablado)", "audioText": "He comido. Había estudiado.", "rule": "Compound tenses with 'haber' + participle. Used a lot in Spain for recent past ('he comido' = I've eaten). LatAm prefers the preterite. Easy once you know how it works in French (j'ai mangé)."},
+        {"id": "next-2", "type": "rule", "text": "Pluperfect subjunctive + conditional perfect for past hypotheticals", "audioText": "Si hubiera sabido, no habría venido.", "rule": "'If I had known, I wouldn't have come'. Pattern: si + hubiera + participle, + habría + participle. Same structure as French (si j'avais su, je ne serais pas venu)."},
+        {"id": "next-3", "type": "rule", "text": "Commands (imperativo) — affirmative and negative", "audioText": "¡Habla! ¡No hables! ¡Vengan!", "rule": "Negative commands use the subjunctive (no hables, no comas). Positive informal commands use the él form (habla, come). Positive nosotros/vosotros/usted have their own forms."},
+        {"id": "next-4", "type": "rule", "text": "Connectors / Conectores discursivos for B2+", "audioText": "sin embargo, por lo tanto, además, mientras que, en cambio", "rule": "'sin embargo' (however), 'por lo tanto' (therefore), 'además' (moreover), 'mientras que' (whereas), 'en cambio' (on the other hand). Native-sounding discourse glue."},
+        {"id": "next-5", "type": "rule", "text": "Object pronoun stacking + reflexive verb mastery", "audioText": "Se me cayó. Se nos olvidaron las llaves.", "rule": "The 'se' impersonal + the 'se' accidental ('se me cayó' = it fell on me / I dropped it). This is the kind of native expressiveness that distinguishes B2 from B1."}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

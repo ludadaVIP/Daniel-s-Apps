@@ -1,0 +1,107 @@
+{
+  "id": "object-pronouns-gustar",
+  "title": "L07 · Object Pronouns & Gustar-type Verbs",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "objective": "Master the small but mighty Spanish object-pronoun system: me, te, lo/la, le, nos, os, los/las, les, se. Then the famous 'gustar' construction that flips the subject and object compared to English/French.",
+  "strategy": "Two parts: (1) the pronoun tables — direct (the thing being acted on) vs indirect (to whom). (2) the GUSTAR construction — Spanish doesn't say 'I like X'; it says 'X is pleasing TO me' (Me gusta X). This is HUGE; many learners stumble here for months. French speakers: it's identical to 'plaire' (Cela me plaît).",
+  "sections": [
+    {
+      "id": "direct-objects",
+      "title": "Direct object pronouns (DO) — me, te, lo, la, nos, os, los, las",
+      "note": "Replaces the noun receiving the action ('I see HIM', 'I read IT'). Goes BEFORE the verb.",
+      "blocks": [
+        {"id": "rule-do", "type": "rule", "text": "Direct objects: me / te / lo / la / nos / os / los / las", "audioText": "me ve, te veo, lo veo, la veo, nos ven, os ven, los veo, las veo", "rule": "Position: BEFORE the conjugated verb. 'Lo veo' = I see him/it. 'Te quiero' = I love you. With infinitives/gerunds you can attach the pronoun to the end ('Quiero verte' = I want to see you).", "examples": [
+          {"text": "¿Ves el libro? — Sí, lo veo.", "audioText": "Ves el libro? Sí, lo veo.", "translation": "Do you see the book? — Yes, I see it. / Tu vois le livre? — Oui, je le vois."},
+          {"text": "¿Conoces a María? — Sí, la conozco.", "audioText": "Conoces a María? Sí, la conozco.", "translation": "Do you know Maria? — Yes, I know her. / Tu connais Maria? — Oui, je la connais."},
+          {"text": "Te quiero.", "audioText": "Te quiero.", "translation": "I love you. / Je t'aime."},
+          {"text": "Nos invitan a la fiesta.", "audioText": "Nos invitan a la fiesta.", "translation": "They invite us to the party. / Ils nous invitent à la fête."}
+        ]},
+        {"id": "rule-do-attach", "type": "rule", "text": "With infinitive or gerund: pronoun BEFORE the conjugated verb OR attached to the END", "audioText": "Quiero verlo. Lo quiero ver. Estoy haciéndolo. Lo estoy haciendo.", "rule": "Both placements are correct. 'Quiero verlo' = 'Lo quiero ver' (I want to see him). Note: when you attach to the end of a longer word, you may need to ADD an accent to keep stress in place ('haciendo' → 'haciéndolo').", "examples": [
+          {"text": "Quiero verte mañana.", "audioText": "Quiero verte mañana.", "translation": "I want to see you tomorrow. / Je veux te voir demain."},
+          {"text": "Te quiero ver mañana.", "audioText": "Te quiero ver mañana.", "translation": "(Same meaning, different placement.)"}
+        ]}
+      ]
+    },
+    {
+      "id": "indirect-objects",
+      "title": "Indirect object pronouns (IO) — me, te, le, nos, os, les",
+      "note": "Replaces the person TO WHOM something is done. 'I give the book TO HIM' → 'Le doy el libro'.",
+      "blocks": [
+        {"id": "rule-io", "type": "rule", "text": "Indirect objects: me / te / le / nos / os / les", "audioText": "me das, te doy, le doy, nos das, os doy, les doy", "rule": "Same as direct objects EXCEPT 3rd person: le (sing.) and les (plur.). Use IO when there's an implicit 'to/for someone'. 'Le digo la verdad' = I tell HIM/HER the truth (literally: to him/her).", "examples": [
+          {"text": "Le doy el regalo a María.", "audioText": "Le doy el regalo a María.", "translation": "I give the gift to Maria. / Je donne le cadeau à Maria.", "ipa": "'le' refers to 'a María'. The 'a María' part is optional clarification — 'Le doy el regalo' is enough."},
+          {"text": "Te escribo un email.", "audioText": "Te escribo un email.", "translation": "I'll write you an email. / Je t'écris un e-mail."},
+          {"text": "Les digo la verdad a mis padres.", "audioText": "Les digo la verdad a mis padres.", "translation": "I tell my parents the truth. / Je dis la vérité à mes parents."}
+        ]}
+      ]
+    },
+    {
+      "id": "do-io-together",
+      "title": "When both DO and IO appear together",
+      "note": "Two pronouns in a row — the order is INDIRECT first, DIRECT second. And: 'le/les' magically becomes 'se' before lo/la/los/las.",
+      "blocks": [
+        {"id": "rule-order", "type": "rule", "text": "Order: IO before DO. Both go before the verb.", "audioText": "Me lo das. Te lo digo. Nos lo dan.", "rule": "Pattern: [indirect][direct][verb]. Reverse of English where the order is flexible.", "examples": [
+          {"text": "Me lo das.", "audioText": "Me lo das.", "translation": "You give it to me. / Tu me le donnes.", "ipa": "'me' (to me, IO) + 'lo' (it, DO) + 'das'"},
+          {"text": "Te lo digo.", "audioText": "Te lo digo.", "translation": "I'll tell it to you. / Je te le dis."},
+          {"text": "Nos las traen.", "audioText": "Nos las traen.", "translation": "They bring them (fem) to us. / Ils nous les apportent."}
+        ]},
+        {"id": "rule-se", "type": "rule", "text": "'le/les + lo/la/los/las' → 'se + lo/la/los/las' (the 'le-le rule')", "audioText": "Le lo doy → Se lo doy.", "rule": "Spanish doesn't allow two L-sound pronouns next to each other. So 'le lo' becomes 'se lo', and 'les lo' becomes 'se lo'. The 'se' here means 'to him/her/them' — context tells you which.", "examples": [
+          {"text": "Se lo doy a María.", "audioText": "Se lo doy a María.", "translation": "I give it to Maria. / Je le donne à Maria.", "ipa": "Would have been 'le lo doy' but that's forbidden — becomes 'se lo'."},
+          {"text": "Se lo digo mañana.", "audioText": "Se lo digo mañana.", "translation": "I'll tell him/her it tomorrow. / Je le lui dis demain."}
+        ]}
+      ]
+    },
+    {
+      "id": "gustar-construction",
+      "title": "Gustar — 'I like X' = 'X is pleasing TO me'",
+      "note": "THE classic Spanish construction. The thing you like is the SUBJECT; you are the indirect object. French speakers: identical to 'plaire' — Cela me plaît. English speakers: this needs to be UNLEARNED.",
+      "blocks": [
+        {"id": "rule-gustar", "type": "rule", "text": "Pattern: [me/te/le/nos/os/les] + gusta (singular thing) / gustan (plural things)", "audioText": "Me gusta el café. Me gustan los libros.", "rule": "Step by step: (1) WHO likes it → indirect object pronoun (me, te, le, nos, os, les). (2) WHAT they like → subject of gustar. (3) Verb is 'gusta' if subject is singular, 'gustan' if plural. (4) Yes, the subject typically comes AFTER the verb.", "examples": [
+          {"text": "Me gusta el café.", "audioText": "Me gusta el café.", "translation": "I like coffee. (lit. coffee is pleasing to me) / J'aime le café. (Le café me plaît.)"},
+          {"text": "Me gustan los libros.", "audioText": "Me gustan los libros.", "translation": "I like books. / J'aime les livres. — note 'gustan' because 'libros' is plural"},
+          {"text": "¿Te gusta el chocolate?", "audioText": "Te gusta el chocolate?", "translation": "Do you like chocolate? / Tu aimes le chocolat?"},
+          {"text": "A ella le gusta bailar.", "audioText": "A ella le gusta bailar.", "translation": "She likes to dance. / Elle aime danser.", "ipa": "'A ella' clarifies who 'le' refers to. The subject is 'bailar' (infinitive = singular subject)."},
+          {"text": "Nos gusta la música.", "audioText": "Nos gusta la música.", "translation": "We like music. / Nous aimons la musique."}
+        ]},
+        {"id": "rule-gustar-emphasis", "type": "rule", "text": "Optional 'A + person' clarifier for emphasis or contrast", "audioText": "A mí me gusta. A ti te gusta. A él le gusta.", "rule": "Spanish often adds 'a + pronoun/name' to clarify or emphasise who likes. 'A mí me gusta' = 'I (emphasised) like'. Always KEEP the regular IO pronoun — the 'a + ...' is just extra.", "examples": [
+          {"text": "A mí me gusta el café.", "audioText": "A mí me gusta el café.", "translation": "I like coffee. (emphasised) / Moi, j'aime le café."},
+          {"text": "A María le gustan los gatos.", "audioText": "A María le gustan los gatos.", "translation": "Maria likes cats. / Maria aime les chats."},
+          {"text": "A nosotros nos gusta el cine.", "audioText": "A nosotros nos gusta el cine.", "translation": "We like cinema. / Nous, nous aimons le cinéma."}
+        ]},
+        {"id": "rule-encantar-mucho", "type": "rule", "text": "Strength levels: encantar > gustar mucho > gustar > no gustar mucho > no gustar > odiar", "audioText": "Me encanta el café. Me gusta mucho el café. Me gusta el café. No me gusta el café. Odio el café.", "rule": "ENCANTAR works like gustar but means 'to love' (as in 'I really like'). NEVER use 'mucho' with 'encantar' — it's already at maximum. 'odiar' (to hate) is a normal verb, NOT a gustar-type.", "examples": [
+          {"text": "Me encanta el chocolate.", "audioText": "Me encanta el chocolate.", "translation": "I love chocolate. / J'adore le chocolat."},
+          {"text": "Me gusta mucho el chocolate.", "audioText": "Me gusta mucho el chocolate.", "translation": "I like chocolate a lot. / J'aime beaucoup le chocolat."},
+          {"text": "Odio las espinacas.", "audioText": "Odio las espinacas.", "translation": "I hate spinach. / Je déteste les épinards. — note: 'yo' as subject, not the gustar pattern"}
+        ]}
+      ]
+    },
+    {
+      "id": "other-gustar-verbs",
+      "title": "Other verbs that work LIKE gustar",
+      "note": "About 20 high-frequency Spanish verbs follow the gustar pattern. Memorise the family.",
+      "blocks": [
+        {"id": "v-doler", "type": "rule", "text": "doler — to hurt (something hurts X)", "audioText": "Me duele la cabeza. Me duelen los pies.", "rule": "Spanish doesn't say 'I hurt my head' — it says 'my head hurts to me' (Me duele la cabeza). The body part is the subject.", "examples": [
+          {"text": "Me duele la cabeza.", "audioText": "Me duele la cabeza.", "translation": "I have a headache. (lit. my head hurts me) / J'ai mal à la tête."},
+          {"text": "Me duelen los pies.", "audioText": "Me duelen los pies.", "translation": "My feet hurt. / J'ai mal aux pieds. — plural 'duelen'"}
+        ]},
+        {"id": "v-faltar", "type": "rule", "text": "faltar — to be missing / lacking", "audioText": "Me falta dinero. Me faltan dos euros.", "rule": "'Me falta X' = 'I lack X' or 'I'm missing X'. Same backwards structure as gustar.", "examples": [
+          {"text": "Me falta tiempo.", "audioText": "Me falta tiempo.", "translation": "I don't have enough time. (lit. time is lacking to me) / Le temps me manque."},
+          {"text": "Te faltan dos euros.", "audioText": "Te faltan dos euros.", "translation": "You're 2 euros short. / Il te manque 2 euros."}
+        ]},
+        {"id": "v-interesar", "type": "rule", "text": "interesar — to interest", "audioText": "Me interesa la historia. Me interesan los idiomas.", "examples": [
+          {"text": "Me interesa la política.", "audioText": "Me interesa la política.", "translation": "Politics interests me. / La politique m'intéresse."}
+        ]},
+        {"id": "v-parecer", "type": "rule", "text": "parecer — to seem (to someone)", "audioText": "Me parece bien. ¿Qué te parece?", "rule": "'Me parece X' = 'It seems X to me' / 'I think X'.", "examples": [
+          {"text": "Me parece una buena idea.", "audioText": "Me parece una buena idea.", "translation": "It seems like a good idea to me. / Cela me semble une bonne idée."},
+          {"text": "¿Qué te parece?", "audioText": "Qué te parece?", "translation": "What do you think? / Qu'en penses-tu?"}
+        ]},
+        {"id": "v-quedar", "type": "rule", "text": "quedar — to suit / fit (clothes), to be left", "audioText": "Te queda bien. Me quedan tres minutos.", "examples": [
+          {"text": "Te queda muy bien ese vestido.", "audioText": "Te queda muy bien ese vestido.", "translation": "That dress suits you very well. / Cette robe te va très bien."},
+          {"text": "Me quedan cinco euros.", "audioText": "Me quedan cinco euros.", "translation": "I have 5 euros left. / Il me reste 5 euros."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "future-conditional",
+  "title": "L11 · Future, Conditional & Subordinate Clauses",
+  "phase": "Phase 3 — A2 Expansion",
+  "level": "A2-B1",
+  "estimatedMinutes": 35,
+  "objective": "Talk about what WILL happen (future), what WOULD happen (conditional), and chain clauses with porque, que, cuando, si. Three tenses + subordinate clauses unlock about 90% of A2 conversation.",
+  "strategy": "The good news: Spanish future and conditional are FORMED THE SAME WAY (add endings to the full infinitive). The same 12 irregular stems work for BOTH tenses. Drill those once. Then section 4 covers the connector words — they make sentences sound natural.",
+  "sections": [
+    {
+      "id": "ir-a-future",
+      "title": "Quick-and-easy future: 'ir + a + infinitive'",
+      "note": "Before formal future, learn this — it's how Spanish speakers talk about the near future in everyday speech. Same structure as French 'aller + infinitif'.",
+      "blocks": [
+        {"id": "rule-ir-a", "type": "rule", "text": "Conjugate 'ir' in present + 'a' + infinitive of main verb", "audioText": "Voy a estudiar. Vas a comer. Va a llover.", "rule": "Identical to French 'futur proche' (je vais étudier). Used for plans and predictions in the near future. The main verb stays in infinitive form.", "examples": [
+          {"text": "Voy a estudiar esta noche.", "audioText": "Voy a estudiar esta noche.", "translation": "I'm going to study tonight. / Je vais étudier ce soir."},
+          {"text": "¿Qué vas a hacer mañana?", "audioText": "Qué vas a hacer mañana?", "translation": "What are you going to do tomorrow? / Qu'est-ce que tu vas faire demain?"},
+          {"text": "Vamos a viajar el verano que viene.", "audioText": "Vamos a viajar el verano que viene.", "translation": "We're going to travel next summer. / Nous allons voyager l'été prochain."},
+          {"text": "Va a llover.", "audioText": "Va a llover.", "translation": "It's going to rain. / Il va pleuvoir."}
+        ]}
+      ]
+    },
+    {
+      "id": "formal-future",
+      "title": "Formal future (futuro simple)",
+      "note": "Add endings to the FULL infinitive (don't drop -ar/-er/-ir!). Same endings for all three families. Used for promises, predictions, or hypotheses about the present.",
+      "blocks": [
+        {"id": "rule-future-endings", "type": "rule", "text": "Endings (all infinitive types): -é, -ás, -á, -emos, -éis, -án", "audioText": "hablaré, hablarás, hablará, hablaremos, hablaréis, hablarán", "rule": "ALL forms have written accents EXCEPT nosotros (-emos). Add directly to the infinitive — no stem change."},
+        {"id": "v-hablar-fut", "type": "verb", "text": "hablar — future", "audioText": "hablaré, hablarás, hablará", "translation": "I will speak — je parlerai", "conjugation": {"yo": "hablaré", "tu": "hablarás", "el": "hablará", "nosotros": "hablaremos", "vosotros": "hablaréis", "ellos": "hablarán"}, "examples": [
+          {"text": "Hablaré con él mañana.", "audioText": "Hablaré con él mañana.", "translation": "I will speak with him tomorrow. / Je lui parlerai demain."},
+          {"text": "¿Cuándo llegarán?", "audioText": "Cuándo llegarán?", "translation": "When will they arrive? / Quand arriveront-ils?"}
+        ]},
+        {"id": "rule-irregular-stems", "type": "rule", "text": "12 IRREGULAR stems (same for future AND conditional)", "audioText": "tener → tendré; salir → saldré; venir → vendré; poner → pondré; saber → sabré; haber → habré; poder → podré; querer → querré; hacer → haré; decir → diré", "rule": "Memorise these 12 stems — they're identical for future and conditional, just different endings. Three patterns: (1) drop the 'e' (saber→sabré, haber→habré, poder→podré, querer→querré, caber→cabré). (2) replace -e/-i with d (tener→tendré, salir→saldré, venir→vendré, poner→pondré, valer→valdré). (3) special: hacer→haré, decir→diré, satisfacer→satisfaré."},
+        {"id": "v-tener-fut", "type": "verb", "text": "tener — future (stem: tendr-)", "audioText": "tendré, tendrás, tendrá", "translation": "I will have / j'aurai", "conjugation": {"yo": "tendré", "tu": "tendrás", "el": "tendrá", "nosotros": "tendremos", "vosotros": "tendréis", "ellos": "tendrán"}, "examples": [
+          {"text": "Mañana tendré tiempo.", "audioText": "Mañana tendré tiempo.", "translation": "Tomorrow I'll have time. / Demain j'aurai du temps."}
+        ]},
+        {"id": "v-hacer-fut", "type": "verb", "text": "hacer — future (stem: har-)", "audioText": "haré, harás, hará", "translation": "I will do / je ferai", "conjugation": {"yo": "haré", "tu": "harás", "el": "hará", "nosotros": "haremos", "vosotros": "haréis", "ellos": "harán"}, "examples": [
+          {"text": "Lo haré esta noche.", "audioText": "Lo haré esta noche.", "translation": "I'll do it tonight. / Je le ferai ce soir."}
+        ]},
+        {"id": "rule-future-guess", "type": "rule", "text": "Bonus use: 'guessing' about the present", "audioText": "Serán las cinco. ¿Quién será?", "rule": "Future tense in Spanish is ALSO used to express probability/conjecture about the present — 'it's probably X'. Doesn't translate literally to English.", "examples": [
+          {"text": "Serán las cinco.", "audioText": "Serán las cinco.", "translation": "It's probably 5 o'clock. (guessing) / Il doit être 5 heures."},
+          {"text": "¿Quién será?", "audioText": "Quién será?", "translation": "Who could it be? (uncertainty) / Qui ça peut être?"}
+        ]}
+      ]
+    },
+    {
+      "id": "conditional",
+      "title": "Conditional (condicional) — 'would'",
+      "note": "Used for: politeness, hypotheticals, advice. Same stem as future + imperfect-style endings.",
+      "blocks": [
+        {"id": "rule-cond-endings", "type": "rule", "text": "Endings: -ía, -ías, -ía, -íamos, -íais, -ían (same as -er/-ir imperfect)", "audioText": "hablaría, hablarías, hablaría, hablaríamos, hablaríais, hablarían", "rule": "Add to the FULL infinitive (or the irregular stem if there is one). All forms have accents — note the í always has an accent."},
+        {"id": "v-hablar-cond", "type": "verb", "text": "hablar — conditional", "audioText": "hablaría, hablarías, hablaría", "translation": "I would speak / je parlerais", "conjugation": {"yo": "hablaría", "tu": "hablarías", "el": "hablaría", "nosotros": "hablaríamos", "vosotros": "hablaríais", "ellos": "hablarían"}, "examples": [
+          {"text": "Hablaría más despacio, por favor.", "audioText": "Hablaría más despacio, por favor.", "translation": "Would you speak more slowly, please. / Voudriez-vous parler plus lentement, s'il vous plaît."},
+          {"text": "Me gustaría un café.", "audioText": "Me gustaría un café.", "translation": "I'd like a coffee. / J'aimerais un café. — the polite form of 'me gusta'"}
+        ]},
+        {"id": "v-tener-cond", "type": "verb", "text": "tener — conditional (stem: tendr-)", "audioText": "tendría, tendrías, tendría", "translation": "I would have / j'aurais", "conjugation": {"yo": "tendría", "tu": "tendrías", "el": "tendría", "nosotros": "tendríamos", "vosotros": "tendríais", "ellos": "tendrían"}, "examples": [
+          {"text": "Tendría más tiempo si trabajara menos.", "audioText": "Tendría más tiempo si trabajara menos.", "translation": "I'd have more time if I worked less. / J'aurais plus de temps si je travaillais moins."}
+        ]},
+        {"id": "rule-cond-uses", "type": "rule", "text": "Three high-frequency uses", "audioText": "Me gustaría... ¿Podrías...? Si tuviera dinero, viajaría.", "rule": "(1) POLITE requests: ¿Podrías ayudarme? / Could you help me? (2) HYPOTHETICAL: Yo en tu lugar, no iría / If I were you, I wouldn't go. (3) ADVICE: Deberías estudiar más / You should study more.", "examples": [
+          {"text": "¿Podrías ayudarme?", "audioText": "Podrías ayudarme?", "translation": "Could you help me? / Pourrais-tu m'aider? — polite"},
+          {"text": "Yo en tu lugar, no iría.", "audioText": "Yo en tu lugar, no iría.", "translation": "If I were you, I wouldn't go. / À ta place, je n'irais pas."},
+          {"text": "Deberías estudiar más.", "audioText": "Deberías estudiar más.", "translation": "You should study more. / Tu devrais étudier plus. — debería = polite 'should'"}
+        ]}
+      ]
+    },
+    {
+      "id": "connectors",
+      "title": "Connectors — chaining ideas",
+      "note": "These words make sentences flow. Each one has its own quirk.",
+      "blocks": [
+        {"id": "c-y-pero-o", "type": "rule", "text": "y (and), pero (but), o (or), porque (because)", "audioText": "Hablo español y francés. Soy alto pero no muy alto. Café o té. Estudio porque me gusta.", "rule": "(1) 'y' becomes 'e' before a word starting with 'i' or 'hi' (Pedro e Iván). (2) 'o' becomes 'u' before 'o' or 'ho' (uno u otro). (3) 'porque' (one word) = because. 'por qué' (two words + accent) = why.", "examples": [
+          {"text": "Hablo español y francés.", "audioText": "Hablo español y francés.", "translation": "I speak Spanish and French."},
+          {"text": "Pedro e Iván son amigos.", "audioText": "Pedro e Iván son amigos.", "translation": "Pedro and Iván are friends. — 'y' → 'e' before /i/"},
+          {"text": "Estudio español porque me gusta.", "audioText": "Estudio español porque me gusta.", "translation": "I study Spanish because I like it. / J'étudie l'espagnol parce que ça me plaît."},
+          {"text": "¿Por qué estudias español?", "audioText": "Por qué estudias español?", "translation": "Why are you studying Spanish? — note the accent"}
+        ]},
+        {"id": "c-que", "type": "rule", "text": "que = 'that' (introduces a subordinate clause)", "audioText": "Creo que tienes razón. Dice que viene mañana.", "rule": "Spanish 'que' is NEVER optional (unlike English 'I think (that) you're right'). Always include it.", "examples": [
+          {"text": "Creo que tienes razón.", "audioText": "Creo que tienes razón.", "translation": "I think (that) you're right. / Je crois que tu as raison."},
+          {"text": "Dice que viene mañana.", "audioText": "Dice que viene mañana.", "translation": "He says he's coming tomorrow. / Il dit qu'il vient demain."},
+          {"text": "Es importante que estudies.", "audioText": "Es importante que estudies.", "translation": "It's important that you study. / Il est important que tu étudies. — note: triggers subjunctive (next lesson!)"}
+        ]},
+        {"id": "c-cuando", "type": "rule", "text": "cuando = 'when' — same word for past and future", "audioText": "Cuando era pequeño, vivía en Madrid. Te llamo cuando llegue.", "rule": "Past time: 'cuando' + indicative (cuando era pequeño). FUTURE time: 'cuando' + SUBJUNCTIVE (cuando llegue, not cuando llego). Critical rule.", "examples": [
+          {"text": "Cuando era niño, vivía en Madrid.", "audioText": "Cuando era niño, vivía en Madrid.", "translation": "When I was a child, I lived in Madrid. (past — indicative)"},
+          {"text": "Te llamo cuando llegue.", "audioText": "Te llamo cuando llegue.", "translation": "I'll call you when I arrive. / Je t'appellerai quand j'arriverai. — Spanish requires SUBJUNCTIVE ('llegue', not 'llego') here. Reason: future uncertainty. You'll master this in L12."}
+        ]},
+        {"id": "c-si", "type": "rule", "text": "si = 'if' — the conditional clause", "audioText": "Si tengo tiempo, voy. Si tuviera tiempo, iría.", "rule": "Three types: (1) REAL: 'si + present, + present/future' = if X happens, Y happens. (2) HYPOTHETICAL (present): 'si + imperfect subj, + conditional' = if X happened, Y would happen. (3) PAST: 'si + pluperfect subj, + cond. perfect'. You'll see (1) and (3) here; (2) needs subjunctive (L12).", "examples": [
+          {"text": "Si tengo tiempo, voy al cine.", "audioText": "Si tengo tiempo, voy al cine.", "translation": "If I have time, I'll go to the cinema. (real / likely) / Si j'ai le temps, je vais au cinéma."},
+          {"text": "Si llueve, no salimos.", "audioText": "Si llueve, no salimos.", "translation": "If it rains, we don't go out. / S'il pleut, nous ne sortons pas."}
+        ]},
+        {"id": "c-mientras", "type": "rule", "text": "mientras = 'while'", "audioText": "Mientras hablaba por teléfono, comía.", "rule": "'mientras' + ongoing action. Often paired with imperfect.", "examples": [
+          {"text": "Mientras hablaba por teléfono, comía.", "audioText": "Mientras hablaba por teléfono, comía.", "translation": "While I was talking on the phone, I was eating. / Pendant que je parlais au téléphone, je mangeais."}
+        ]},
+        {"id": "c-aunque", "type": "rule", "text": "aunque = 'although' / 'even though'", "audioText": "Aunque llueve, salimos.", "rule": "Concession — contrast with the main clause. Like English 'even though'.", "examples": [
+          {"text": "Aunque llueve, salimos.", "audioText": "Aunque llueve, salimos.", "translation": "Even though it's raining, we're going out. / Bien qu'il pleuve, nous sortons."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}
