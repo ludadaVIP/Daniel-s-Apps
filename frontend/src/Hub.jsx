@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, MessageSquare, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Languages, MessageSquare, ScrollText, Sparkles } from "lucide-react";
 
 const APPS = [
   {
@@ -47,6 +47,15 @@ const APPS = [
     Icon: ScrollText,
     to: "/bible",
   },
+  {
+    id: "translator",
+    title: "Translator Trio",
+    subtitle: "中文 → 英语 + 西语：翻译练习 + Edge TTS",
+    description: "AI-generated sentence decks for Chinese → English + Spanish translation practice with read-aloud and prompt generator.",
+    accent: "#5662f6",
+    Icon: Languages,
+    to: "/translator",
+  },
 ];
 
 export default function Hub() {
@@ -54,7 +63,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">五合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">六合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。每个应用独立运行，互不抢端口。
         </p>

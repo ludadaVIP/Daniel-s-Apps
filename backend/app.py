@@ -33,6 +33,7 @@ from apps.quiz.routes import bp as quiz_bp
 from apps.live_spanish.routes import bp as live_spanish_bp, AUDIO_DIR as LIVE_SPANISH_AUDIO_DIR
 from apps.language_lab.routes import bp as language_lab_bp, AUDIO_DIR as LANGUAGE_LAB_AUDIO_DIR
 from apps.bible.routes import bp as bible_bp
+from apps.translator.routes import bp as translator_bp
 
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
@@ -54,10 +55,11 @@ def create_app() -> Flask:
     app.register_blueprint(live_spanish_bp, url_prefix="/api/live-spanish")
     app.register_blueprint(language_lab_bp, url_prefix="/api/lab")
     app.register_blueprint(bible_bp, url_prefix="/api/bible")
+    app.register_blueprint(translator_bp, url_prefix="/api/translator")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible"]})
+        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")
