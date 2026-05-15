@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, GraduationCap, Languages, MessageSquare, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Flag, GraduationCap, Languages, MessageSquare, ScrollText, Sparkles } from "lucide-react";
 
 const APPS = [
   {
@@ -65,6 +65,15 @@ const APPS = [
     Icon: GraduationCap,
     to: "/ai-practice",
   },
+  {
+    id: "german",
+    title: "German Sprint",
+    subtitle: "Deutsch von 0 bis B2 — alphabet, grammar, real sentences",
+    description: "A 0→B2 German roadmap: pronunciation, articles, cases, modal verbs, perfect tense, Konjunktiv. Every block has Edge TTS audio. Explanations in English + Spanish, no Chinese.",
+    accent: "#854d0e",
+    Icon: Flag,
+    to: "/german",
+  },
 ];
 
 export default function Hub() {
@@ -72,7 +81,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">七合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">八合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。每个应用独立运行，互不抢端口。
         </p>

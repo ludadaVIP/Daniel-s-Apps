@@ -1,0 +1,88 @@
+{
+  "id": "subordinate-clauses",
+  "title": "L11 · Subordinate Clauses",
+  "phase": "Phase 3 — A2 Expansion",
+  "level": "A2-B1",
+  "estimatedMinutes": 30,
+  "objective": "Combine simple sentences into complex ones using 'because', 'that', 'when', 'if', etc. The big rule: in a subordinate clause, the conjugated verb goes to the END.",
+  "strategy": "Learn the 5 most useful conjunctions: WEIL, DASS, WENN, ALS, OB. For each, drill the word-order pattern. Section 4 covers the comma rules and how a subordinate clause changes the main clause's word order.",
+  "sections": [
+    {
+      "id": "intro-verb-final",
+      "title": "The big rule: verb at the end",
+      "note": "Subordinate clauses are always introduced by a subordinating conjunction (weil, dass, wenn, etc.) and END with the conjugated verb. A comma separates them from the main clause.",
+      "blocks": [
+        {"id": "rule-final-verb", "type": "rule", "text": "Subordinate-clause word order: conjunction + subject + ... + VERB", "audioText": "Ich lerne Deutsch, weil ich in Berlin arbeite.", "rule": "After the conjunction (weil, dass, wenn, etc.) the conjugated verb ALWAYS goes to the very end of that clause.", "examples": [
+          {"text": "Ich lerne Deutsch, weil ich in Berlin arbeite.", "audioText": "Ich lerne Deutsch, weil ich in Berlin arbeite.", "translation": "I'm learning German because I work in Berlin. / Aprendo alemán porque trabajo en Berlín.", "ipa": "Main clause: 'Ich lerne Deutsch'. Subordinate: 'weil ich in Berlin ARBEITE' — verb 'arbeite' moves to the end."},
+          {"text": "Sie sagt, dass sie heute kommt.", "audioText": "Sie sagt, dass sie heute kommt.", "translation": "She says (that) she's coming today. / Dice que viene hoy."},
+          {"text": "Wenn es regnet, bleibe ich zu Hause.", "audioText": "Wenn es regnet, bleibe ich zu Hause.", "translation": "If/when it rains, I stay home. / Cuando llueve, me quedo en casa.", "ipa": "Subordinate first → main clause starts with the verb (still V2 — counting the whole subordinate clause as 'slot 1')."}
+        ]}
+      ]
+    },
+    {
+      "id": "weil",
+      "title": "weil — 'because'",
+      "note": "The most common subordinator. Use it to give reasons. Compare with 'denn' (= because too, but DOESN'T trigger verb-final — denn keeps main-clause word order).",
+      "blocks": [
+        {"id": "c-weil-1", "type": "sentence", "text": "Ich kann nicht kommen, weil ich krank bin.", "audioText": "Ich kann nicht kommen, weil ich krank bin.", "translation": "I can't come because I'm sick. / No puedo venir porque estoy enfermo."},
+        {"id": "c-weil-2", "type": "sentence", "text": "Er ist müde, weil er bis spät gearbeitet hat.", "audioText": "Er ist müde, weil er bis spät gearbeitet hat.", "translation": "He's tired because he worked late. / Está cansado porque trabajó hasta tarde.", "hint": "In Perfekt subordinate: helper 'hat' goes to the very end, AFTER the participle."},
+        {"id": "c-weil-3", "type": "sentence", "text": "Wir bleiben zu Hause, weil das Wetter schlecht ist.", "audioText": "Wir bleiben zu Hause, weil das Wetter schlecht ist.", "translation": "We're staying home because the weather is bad. / Nos quedamos en casa porque el tiempo está mal."},
+        {"id": "c-denn-vs-weil", "type": "rule", "text": "Compare: denn = because, but keeps main-clause word order", "audioText": "Ich bleibe zu Hause, denn das Wetter ist schlecht.", "rule": "'denn' is a COORDINATING conjunction. Same meaning as 'weil' but doesn't move the verb. Used a lot in formal writing.", "examples": [
+          {"text": "Ich bleibe zu Hause, denn das Wetter ist schlecht.", "audioText": "Ich bleibe zu Hause, denn das Wetter ist schlecht.", "translation": "I'm staying home because the weather is bad. (verb stays in position 2)"},
+          {"text": "Ich bleibe zu Hause, weil das Wetter schlecht ist.", "audioText": "Ich bleibe zu Hause, weil das Wetter schlecht ist.", "translation": "Same meaning, but verb 'ist' moves to the end."}
+        ]}
+      ]
+    },
+    {
+      "id": "dass",
+      "title": "dass — 'that'",
+      "note": "Reports thoughts, says, knows, hopes. Often droppable in English but NEVER droppable in German.",
+      "blocks": [
+        {"id": "c-dass-1", "type": "sentence", "text": "Ich glaube, dass er recht hat.", "audioText": "Ich glaube, dass er recht hat.", "translation": "I think (that) he's right. / Creo que tiene razón."},
+        {"id": "c-dass-2", "type": "sentence", "text": "Sie sagt, dass sie morgen kommt.", "audioText": "Sie sagt, dass sie morgen kommt.", "translation": "She says (that) she's coming tomorrow. / Dice que viene mañana."},
+        {"id": "c-dass-3", "type": "sentence", "text": "Ich weiß, dass du müde bist.", "audioText": "Ich weiß, dass du müde bist.", "translation": "I know that you're tired. / Sé que estás cansado."},
+        {"id": "c-dass-4", "type": "sentence", "text": "Es ist wichtig, dass wir pünktlich sind.", "audioText": "Es ist wichtig, dass wir pünktlich sind.", "translation": "It's important that we're punctual. / Es importante que seamos puntuales."},
+        {"id": "c-dass-5", "type": "sentence", "text": "Er hofft, dass das Wetter besser wird.", "audioText": "Er hofft, dass das Wetter besser wird.", "translation": "He hopes the weather gets better. / Espera que el tiempo mejore."}
+      ]
+    },
+    {
+      "id": "wenn-als",
+      "title": "wenn vs als — 'when/if' in different contexts",
+      "note": "Both translate as 'when' — but they aren't interchangeable. WENN = repeated past, present, or future, or conditional 'if'. ALS = a single past event.",
+      "blocks": [
+        {"id": "rule-wenn-als", "type": "rule", "text": "wenn = whenever / if / when (present/future). als = when (single past event).", "audioText": "Wenn ich Zeit habe, lese ich. Als ich Kind war, wohnte ich in Madrid.", "rule": "ALS goes only with single one-time past events. WENN covers everything else, including 'if' for conditionals.", "examples": [
+          {"text": "Wenn ich Zeit habe, lese ich gerne.", "audioText": "Wenn ich Zeit habe, lese ich gerne.", "translation": "When/whenever I have time, I like to read. / Cuando tengo tiempo, me gusta leer."},
+          {"text": "Wenn es regnet, nehme ich einen Regenschirm.", "audioText": "Wenn es regnet, nehme ich einen Regenschirm.", "translation": "If/when it rains, I take an umbrella. / Cuando llueve, llevo paraguas."},
+          {"text": "Wenn ich morgen Zeit habe, rufe ich dich an.", "audioText": "Wenn ich morgen Zeit habe, rufe ich dich an.", "translation": "If I have time tomorrow I'll call you. / Si tengo tiempo mañana te llamo."},
+          {"text": "Als ich Kind war, wohnte ich in Madrid.", "audioText": "Als ich Kind war, wohnte ich in Madrid.", "translation": "When I was a child, I lived in Madrid. (single past period) / Cuando era niño, vivía en Madrid."},
+          {"text": "Als ich gestern aufstand, regnete es.", "audioText": "Als ich gestern aufstand, regnete es.", "translation": "When I got up yesterday, it was raining. / Cuando me levanté ayer, llovía."}
+        ]}
+      ]
+    },
+    {
+      "id": "ob",
+      "title": "ob — 'whether / if (in indirect questions)'",
+      "note": "Use 'ob' for indirect yes/no questions. Use 'wenn' for conditionals ('if it rains'). These are NOT interchangeable.",
+      "blocks": [
+        {"id": "rule-ob", "type": "rule", "text": "ob = whether (yes/no uncertainty). wenn = if (condition).", "audioText": "Ich weiß nicht, ob er kommt. Wenn er kommt, freue ich mich.", "rule": "If you could replace English 'if' with 'whether', use OB. If you're stating a condition, use WENN.", "examples": [
+          {"text": "Ich weiß nicht, ob er kommt.", "audioText": "Ich weiß nicht, ob er kommt.", "translation": "I don't know whether/if he's coming. / No sé si viene."},
+          {"text": "Ich frage mich, ob das richtig ist.", "audioText": "Ich frage mich, ob das richtig ist.", "translation": "I wonder whether/if this is right. / Me pregunto si esto es correcto."},
+          {"text": "Wenn er kommt, freue ich mich.", "audioText": "Wenn er kommt, freue ich mich.", "translation": "If he comes, I'll be happy. (condition) / Si viene, me alegro."}
+        ]}
+      ]
+    },
+    {
+      "id": "word-order-flip",
+      "title": "When the subordinate clause comes FIRST",
+      "note": "If you start the sentence with the subordinate clause, the whole clause takes 'slot 1' — so the main clause begins with its conjugated verb (V2 rule still holds).",
+      "blocks": [
+        {"id": "rule-flip", "type": "rule", "text": "[Subordinate clause], + VERB + subject + ...", "audioText": "Weil ich krank bin, kann ich nicht kommen. Wenn es regnet, bleibe ich zu Hause.", "rule": "The subordinate clause counts as one big unit in slot 1. Then comes the main verb in slot 2. The subject of the main clause follows it.", "examples": [
+          {"text": "Weil ich krank bin, kann ich nicht kommen.", "audioText": "Weil ich krank bin, kann ich nicht kommen.", "translation": "Because I'm sick, I can't come. / Porque estoy enfermo, no puedo venir.", "ipa": "Main clause starts with the verb 'kann'."},
+          {"text": "Wenn es regnet, bleibe ich zu Hause.", "audioText": "Wenn es regnet, bleibe ich zu Hause.", "translation": "If it rains, I stay home. / Si llueve, me quedo en casa."},
+          {"text": "Als ich klein war, hatte ich Angst vor Hunden.", "audioText": "Als ich klein war, hatte ich Angst vor Hunden.", "translation": "When I was little, I was afraid of dogs. / Cuando era pequeño, le tenía miedo a los perros."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

@@ -1,0 +1,159 @@
+{
+  "id": "numbers-time-vocab",
+  "title": "L08 · Numbers, Time, Everyday Vocab",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 35,
+  "objective": "The 'survival kit' — numbers, telling time, dates, family, food, body parts, common verbs. This is vocabulary work: tap and listen, then come back when you want to refresh.",
+  "strategy": "This lesson is reference-style — not meant to be done top-to-bottom. Pick whichever section you need (numbers, time, family, food, body, weather, days+months). Use 'Play section' to drill all items in one shot.",
+  "sections": [
+    {
+      "id": "numbers-1-20",
+      "title": "Numbers 0-20",
+      "note": "Memorise these — they're the building blocks for everything bigger.",
+      "blocks": [
+        {"id": "n-0", "type": "word", "text": "null", "audioText": "null", "translation": "0 / cero"},
+        {"id": "n-1", "type": "word", "text": "eins", "audioText": "eins", "translation": "1 / uno"},
+        {"id": "n-2", "type": "word", "text": "zwei", "audioText": "zwei", "translation": "2 / dos"},
+        {"id": "n-3", "type": "word", "text": "drei", "audioText": "drei", "translation": "3 / tres"},
+        {"id": "n-4", "type": "word", "text": "vier", "audioText": "vier", "translation": "4 / cuatro"},
+        {"id": "n-5", "type": "word", "text": "fünf", "audioText": "fünf", "translation": "5 / cinco"},
+        {"id": "n-6", "type": "word", "text": "sechs", "audioText": "sechs", "translation": "6 / seis"},
+        {"id": "n-7", "type": "word", "text": "sieben", "audioText": "sieben", "translation": "7 / siete"},
+        {"id": "n-8", "type": "word", "text": "acht", "audioText": "acht", "translation": "8 / ocho"},
+        {"id": "n-9", "type": "word", "text": "neun", "audioText": "neun", "translation": "9 / nueve"},
+        {"id": "n-10", "type": "word", "text": "zehn", "audioText": "zehn", "translation": "10 / diez"},
+        {"id": "n-11", "type": "word", "text": "elf", "audioText": "elf", "translation": "11 / once"},
+        {"id": "n-12", "type": "word", "text": "zwölf", "audioText": "zwölf", "translation": "12 / doce"},
+        {"id": "n-13", "type": "word", "text": "dreizehn", "audioText": "dreizehn", "translation": "13 / trece"},
+        {"id": "n-14", "type": "word", "text": "vierzehn", "audioText": "vierzehn", "translation": "14 / catorce"},
+        {"id": "n-15", "type": "word", "text": "fünfzehn", "audioText": "fünfzehn", "translation": "15 / quince"},
+        {"id": "n-16", "type": "word", "text": "sechzehn", "audioText": "sechzehn", "translation": "16 / dieciséis (note: 'sech-', not 'sechs-')"},
+        {"id": "n-17", "type": "word", "text": "siebzehn", "audioText": "siebzehn", "translation": "17 / diecisiete (note: 'sieb-', not 'sieben-')"},
+        {"id": "n-18", "type": "word", "text": "achtzehn", "audioText": "achtzehn", "translation": "18 / dieciocho"},
+        {"id": "n-19", "type": "word", "text": "neunzehn", "audioText": "neunzehn", "translation": "19 / diecinueve"},
+        {"id": "n-20", "type": "word", "text": "zwanzig", "audioText": "zwanzig", "translation": "20 / veinte"}
+      ]
+    },
+    {
+      "id": "numbers-rule",
+      "title": "Numbers 21+ — the inversion rule",
+      "note": "German says 'one-and-twenty' instead of 'twenty-one'. Sounds weird at first; you'll get used to it.",
+      "blocks": [
+        {"id": "rule-inversion", "type": "rule", "text": "Pattern: units + UND + tens. Written as ONE word.", "audioText": "einundzwanzig, zweiundzwanzig, dreiunddreißig, fünfundvierzig, neunundneunzig", "rule": "Always: unit number + 'und' + tens, no spaces. So 25 = 'fünf-und-zwanzig' = fünfundzwanzig.", "examples": [
+          {"text": "21 = einundzwanzig", "audioText": "einundzwanzig", "translation": "twenty-one / veintiuno"},
+          {"text": "22 = zweiundzwanzig", "audioText": "zweiundzwanzig", "translation": "twenty-two / veintidós"},
+          {"text": "33 = dreiunddreißig", "audioText": "dreiunddreißig", "translation": "thirty-three / treinta y tres"},
+          {"text": "47 = siebenundvierzig", "audioText": "siebenundvierzig", "translation": "forty-seven / cuarenta y siete"},
+          {"text": "99 = neunundneunzig", "audioText": "neunundneunzig", "translation": "ninety-nine / noventa y nueve"}
+        ]},
+        {"id": "rule-tens", "type": "rule", "text": "Tens: 30, 40, 50, 60, 70, 80, 90", "audioText": "dreißig, vierzig, fünfzig, sechzig, siebzig, achtzig, neunzig", "rule": "Most tens follow '-zig'. Exception: 30 is 'dreißig' (with ß, not -zig).", "examples": [
+          {"text": "30 = dreißig", "audioText": "dreißig", "translation": "thirty"},
+          {"text": "40 = vierzig", "audioText": "vierzig", "translation": "forty"},
+          {"text": "50 = fünfzig", "audioText": "fünfzig", "translation": "fifty"},
+          {"text": "60 = sechzig", "audioText": "sechzig", "translation": "sixty"},
+          {"text": "70 = siebzig", "audioText": "siebzig", "translation": "seventy"},
+          {"text": "80 = achtzig", "audioText": "achtzig", "translation": "eighty"},
+          {"text": "90 = neunzig", "audioText": "neunzig", "translation": "ninety"}
+        ]},
+        {"id": "rule-100-1000", "type": "rule", "text": "Hundred = hundert. Thousand = tausend.", "audioText": "hundert, zweihundert, tausend, zweitausend, hunderttausend", "rule": "Like English: hundert and tausend follow the digit. You don't say 'ein hundert' — just 'hundert' for 100.", "examples": [
+          {"text": "100 = (ein)hundert", "audioText": "hundert", "translation": "one hundred / cien"},
+          {"text": "200 = zweihundert", "audioText": "zweihundert", "translation": "two hundred / doscientos"},
+          {"text": "1000 = (ein)tausend", "audioText": "tausend", "translation": "one thousand / mil"},
+          {"text": "2025 = zweitausendfünfundzwanzig", "audioText": "zweitausendfünfundzwanzig", "translation": "two thousand twenty-five / dos mil veinticinco"}
+        ]}
+      ]
+    },
+    {
+      "id": "time-of-day",
+      "title": "Telling the time",
+      "note": "Two ways: the 'colloquial' way (used in everyday speech) and the 24-hour clock (TV, schedules, formal).",
+      "blocks": [
+        {"id": "rule-time-question", "type": "rule", "text": "Wie spät ist es? / Wie viel Uhr ist es? — 'What time is it?'", "audioText": "Wie spät ist es? Es ist drei Uhr.", "rule": "Both 'Wie spät ist es?' (literally 'how late is it?') and 'Wie viel Uhr ist es?' work."},
+        {"id": "t-3", "type": "sentence", "text": "Es ist drei Uhr.", "audioText": "Es ist drei Uhr.", "translation": "It's 3 o'clock. / Son las tres."},
+        {"id": "t-quarter-past", "type": "sentence", "text": "Es ist Viertel nach acht.", "audioText": "Es ist Viertel nach acht.", "translation": "It's a quarter past eight. / Son las ocho y cuarto."},
+        {"id": "t-half", "type": "sentence", "text": "Es ist halb neun.", "audioText": "Es ist halb neun.", "translation": "It's 8:30. / Son las ocho y media.", "hint": "WATCH OUT: 'halb neun' means HALF an hour BEFORE 9, i.e. 8:30. Spanish/English speakers say 'half PAST 8' — German says 'half TO 9'."},
+        {"id": "t-quarter-to", "type": "sentence", "text": "Es ist Viertel vor zehn.", "audioText": "Es ist Viertel vor zehn.", "translation": "It's a quarter to ten. / Son las diez menos cuarto."},
+        {"id": "t-24h", "type": "sentence", "text": "Der Zug fährt um 14:25 Uhr.", "audioText": "Der Zug fährt um vierzehn Uhr fünfundzwanzig.", "translation": "The train leaves at 14:25. / El tren sale a las 14:25.", "hint": "24-hour clock spoken: hour + 'Uhr' + minutes."}
+      ]
+    },
+    {
+      "id": "days-months",
+      "title": "Days of the week, months, seasons",
+      "note": "All days and months are MASCULINE (der). All start with a capital letter.",
+      "blocks": [
+        {"id": "d-mo", "type": "word", "text": "der Montag", "audioText": "der Montag", "translation": "Monday / lunes"},
+        {"id": "d-di", "type": "word", "text": "der Dienstag", "audioText": "der Dienstag", "translation": "Tuesday / martes"},
+        {"id": "d-mi", "type": "word", "text": "der Mittwoch", "audioText": "der Mittwoch", "translation": "Wednesday / miércoles"},
+        {"id": "d-do", "type": "word", "text": "der Donnerstag", "audioText": "der Donnerstag", "translation": "Thursday / jueves"},
+        {"id": "d-fr", "type": "word", "text": "der Freitag", "audioText": "der Freitag", "translation": "Friday / viernes"},
+        {"id": "d-sa", "type": "word", "text": "der Samstag", "audioText": "der Samstag", "translation": "Saturday / sábado", "hint": "Also 'der Sonnabend' in north Germany."},
+        {"id": "d-so", "type": "word", "text": "der Sonntag", "audioText": "der Sonntag", "translation": "Sunday / domingo"},
+        {"id": "m-jan", "type": "word", "text": "Januar, Februar, März", "audioText": "Januar, Februar, März", "translation": "January, February, March / enero, febrero, marzo"},
+        {"id": "m-apr", "type": "word", "text": "April, Mai, Juni", "audioText": "April, Mai, Juni", "translation": "April, May, June / abril, mayo, junio"},
+        {"id": "m-jul", "type": "word", "text": "Juli, August, September", "audioText": "Juli, August, September", "translation": "July, August, September"},
+        {"id": "m-okt", "type": "word", "text": "Oktober, November, Dezember", "audioText": "Oktober, November, Dezember", "translation": "October, November, December"},
+        {"id": "s-frühling", "type": "word", "text": "der Frühling", "audioText": "der Frühling", "translation": "spring / primavera"},
+        {"id": "s-sommer", "type": "word", "text": "der Sommer", "audioText": "der Sommer", "translation": "summer / verano"},
+        {"id": "s-herbst", "type": "word", "text": "der Herbst", "audioText": "der Herbst", "translation": "autumn, fall / otoño"},
+        {"id": "s-winter", "type": "word", "text": "der Winter", "audioText": "der Winter", "translation": "winter / invierno"}
+      ]
+    },
+    {
+      "id": "family",
+      "title": "Family — die Familie",
+      "note": "Learn each with its article. 'die Eltern' (parents) is plural-only.",
+      "blocks": [
+        {"id": "f-vater", "type": "word", "text": "der Vater", "audioText": "der Vater", "translation": "father / padre"},
+        {"id": "f-mutter", "type": "word", "text": "die Mutter", "audioText": "die Mutter", "translation": "mother / madre"},
+        {"id": "f-eltern", "type": "word", "text": "die Eltern", "audioText": "die Eltern", "translation": "parents / padres (plural-only)"},
+        {"id": "f-bruder", "type": "word", "text": "der Bruder", "audioText": "der Bruder", "translation": "brother / hermano"},
+        {"id": "f-schwester", "type": "word", "text": "die Schwester", "audioText": "die Schwester", "translation": "sister / hermana"},
+        {"id": "f-geschwister", "type": "word", "text": "die Geschwister", "audioText": "die Geschwister", "translation": "siblings / hermanos (plural)"},
+        {"id": "f-sohn", "type": "word", "text": "der Sohn", "audioText": "der Sohn", "translation": "son / hijo"},
+        {"id": "f-tochter", "type": "word", "text": "die Tochter", "audioText": "die Tochter", "translation": "daughter / hija"},
+        {"id": "f-kind", "type": "word", "text": "das Kind", "audioText": "das Kind", "translation": "child / niño/a"},
+        {"id": "f-oma", "type": "word", "text": "die Oma / die Großmutter", "audioText": "die Oma, die Großmutter", "translation": "grandma / abuela"},
+        {"id": "f-opa", "type": "word", "text": "der Opa / der Großvater", "audioText": "der Opa, der Großvater", "translation": "grandpa / abuelo"}
+      ]
+    },
+    {
+      "id": "food-drink",
+      "title": "Food & drink — Essen und Trinken",
+      "note": "Most foods you'll encounter daily. Listen to articles — they matter for ordering.",
+      "blocks": [
+        {"id": "fd-brot", "type": "word", "text": "das Brot", "audioText": "das Brot", "translation": "bread / pan"},
+        {"id": "fd-brötchen", "type": "word", "text": "das Brötchen", "audioText": "das Brötchen", "translation": "bread roll / panecillo"},
+        {"id": "fd-käse", "type": "word", "text": "der Käse", "audioText": "der Käse", "translation": "cheese / queso"},
+        {"id": "fd-butter", "type": "word", "text": "die Butter", "audioText": "die Butter", "translation": "butter / mantequilla"},
+        {"id": "fd-ei", "type": "word", "text": "das Ei (pl: die Eier)", "audioText": "das Ei, die Eier", "translation": "egg / huevo"},
+        {"id": "fd-fleisch", "type": "word", "text": "das Fleisch", "audioText": "das Fleisch", "translation": "meat / carne"},
+        {"id": "fd-fisch", "type": "word", "text": "der Fisch", "audioText": "der Fisch", "translation": "fish / pescado"},
+        {"id": "fd-apfel", "type": "word", "text": "der Apfel (pl: die Äpfel)", "audioText": "der Apfel, die Äpfel", "translation": "apple / manzana"},
+        {"id": "fd-wasser", "type": "word", "text": "das Wasser", "audioText": "das Wasser", "translation": "water / agua"},
+        {"id": "fd-kaffee", "type": "word", "text": "der Kaffee", "audioText": "der Kaffee", "translation": "coffee / café"},
+        {"id": "fd-tee", "type": "word", "text": "der Tee", "audioText": "der Tee", "translation": "tea / té"},
+        {"id": "fd-bier", "type": "word", "text": "das Bier", "audioText": "das Bier", "translation": "beer / cerveza"},
+        {"id": "fd-wein", "type": "word", "text": "der Wein", "audioText": "der Wein", "translation": "wine / vino"}
+      ]
+    },
+    {
+      "id": "body-parts",
+      "title": "Body — der Körper",
+      "note": "Useful at the doctor or describing pain ('Ich habe Kopfschmerzen' — I have a headache).",
+      "blocks": [
+        {"id": "b-kopf", "type": "word", "text": "der Kopf", "audioText": "der Kopf", "translation": "head / cabeza"},
+        {"id": "b-auge", "type": "word", "text": "das Auge (pl: die Augen)", "audioText": "das Auge, die Augen", "translation": "eye / ojo"},
+        {"id": "b-ohr", "type": "word", "text": "das Ohr (pl: die Ohren)", "audioText": "das Ohr, die Ohren", "translation": "ear / oreja"},
+        {"id": "b-nase", "type": "word", "text": "die Nase", "audioText": "die Nase", "translation": "nose / nariz"},
+        {"id": "b-mund", "type": "word", "text": "der Mund", "audioText": "der Mund", "translation": "mouth / boca"},
+        {"id": "b-hand", "type": "word", "text": "die Hand (pl: die Hände)", "audioText": "die Hand, die Hände", "translation": "hand / mano"},
+        {"id": "b-fuss", "type": "word", "text": "der Fuß (pl: die Füße)", "audioText": "der Fuß, die Füße", "translation": "foot / pie"},
+        {"id": "b-bein", "type": "word", "text": "das Bein (pl: die Beine)", "audioText": "das Bein, die Beine", "translation": "leg / pierna"},
+        {"id": "b-arm", "type": "word", "text": "der Arm (pl: die Arme)", "audioText": "der Arm, die Arme", "translation": "arm / brazo"},
+        {"id": "b-bauch", "type": "word", "text": "der Bauch", "audioText": "der Bauch", "translation": "belly / vientre"}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

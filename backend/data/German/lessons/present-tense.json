@@ -1,0 +1,97 @@
+{
+  "id": "present-tense",
+  "title": "L05 · Present Tense & Word Order",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "objective": "Conjugate any regular German verb in the present tense across all six pronoun forms. Learn the V2 word-order rule that governs every main clause in German.",
+  "strategy": "First memorise the six pronoun forms (ich, du, er/sie/es, wir, ihr, sie/Sie). Then drill one verb conjugation per minute by tapping each row. Section 4 covers V2 — the most important grammar rule in German.",
+  "sections": [
+    {
+      "id": "pronouns",
+      "title": "The six personal pronouns",
+      "note": "German has more pronoun distinctions than English. 'You' splits into 'du' (singular informal), 'ihr' (plural informal), and 'Sie' (formal, always capitalised).",
+      "blocks": [
+        {"id": "pn-ich", "type": "word", "text": "ich", "audioText": "ich", "translation": "I / yo", "hint": "Always lowercase (unless it starts a sentence)."},
+        {"id": "pn-du", "type": "word", "text": "du", "audioText": "du", "translation": "you (singular, informal) / tú", "hint": "Use with one friend, family member, child, peer."},
+        {"id": "pn-er-sie-es", "type": "word", "text": "er / sie / es", "audioText": "er, sie, es", "translation": "he / she / it / él, ella, ello", "hint": "Used by grammatical gender, not natural gender. 'das Mädchen' → 'es' (because Mädchen is neuter)."},
+        {"id": "pn-wir", "type": "word", "text": "wir", "audioText": "wir", "translation": "we / nosotros"},
+        {"id": "pn-ihr", "type": "word", "text": "ihr", "audioText": "ihr", "translation": "you all (plural, informal) / vosotros / ustedes informal", "hint": "Used when speaking to several friends/peers. Spanish: 'vosotros' (en España)."},
+        {"id": "pn-sie-formal", "type": "word", "text": "sie / Sie", "audioText": "sie, Sie", "translation": "they / you (formal, sing. or plur.) / ellos, ellas, usted, ustedes", "hint": "'sie' (lowercase) = they. 'Sie' (CAPITAL) = formal 'you' — used with strangers, in business, with elders you don't know. Same conjugation as 'they'."}
+      ]
+    },
+    {
+      "id": "regular-conjugation",
+      "title": "Regular verb conjugation: the pattern",
+      "note": "Take the infinitive, drop -en (or -n), add personal endings. Drill the four sample verbs.",
+      "blocks": [
+        {"id": "rule-endings", "type": "rule", "text": "Endings: ich -e, du -st, er -t, wir -en, ihr -t, sie -en", "audioText": "machen: ich mache, du machst, er macht, wir machen, ihr macht, sie machen", "rule": "Take the stem (infinitive minus -en). Add: -e, -st, -t, -en, -t, -en. This pattern works for ~85% of German verbs."},
+        {"id": "v-machen", "type": "verb", "text": "machen", "audioText": "machen", "translation": "to make, to do / hacer", "conjugation": {"ich": "mache", "du": "machst", "er": "macht", "wir": "machen", "ihr": "macht", "sie": "machen"}, "examples": [
+          {"text": "Ich mache das Essen.", "audioText": "Ich mache das Essen.", "translation": "I make the food. / Hago la comida."},
+          {"text": "Was machst du?", "audioText": "Was machst du?", "translation": "What are you doing? / ¿Qué haces?"}
+        ]},
+        {"id": "v-wohnen", "type": "verb", "text": "wohnen", "audioText": "wohnen", "translation": "to live (reside) / vivir, habitar", "conjugation": {"ich": "wohne", "du": "wohnst", "er": "wohnt", "wir": "wohnen", "ihr": "wohnt", "sie": "wohnen"}, "examples": [
+          {"text": "Ich wohne in Berlin.", "audioText": "Ich wohne in Berlin.", "translation": "I live in Berlin. / Vivo en Berlín."},
+          {"text": "Wo wohnst du?", "audioText": "Wo wohnst du?", "translation": "Where do you live? / ¿Dónde vives?"}
+        ]},
+        {"id": "v-lernen", "type": "verb", "text": "lernen", "audioText": "lernen", "translation": "to learn / aprender", "conjugation": {"ich": "lerne", "du": "lernst", "er": "lernt", "wir": "lernen", "ihr": "lernt", "sie": "lernen"}, "examples": [
+          {"text": "Ich lerne Deutsch.", "audioText": "Ich lerne Deutsch.", "translation": "I'm learning German. / Aprendo alemán."},
+          {"text": "Wir lernen zusammen.", "audioText": "Wir lernen zusammen.", "translation": "We're learning together. / Aprendemos juntos."}
+        ]},
+        {"id": "v-spielen", "type": "verb", "text": "spielen", "audioText": "spielen", "translation": "to play / jugar, tocar (instrumento)", "conjugation": {"ich": "spiele", "du": "spielst", "er": "spielt", "wir": "spielen", "ihr": "spielt", "sie": "spielen"}, "examples": [
+          {"text": "Sie spielt Klavier.", "audioText": "Sie spielt Klavier.", "translation": "She plays piano. / Ella toca el piano."},
+          {"text": "Wir spielen Fußball.", "audioText": "Wir spielen Fußball.", "translation": "We play football. / Jugamos al fútbol."}
+        ]}
+      ]
+    },
+    {
+      "id": "stem-changes",
+      "title": "Stem-changing verbs (the most common exceptions)",
+      "note": "Some verbs change their stem vowel in 'du' and 'er/sie/es' forms only. Wir, ihr, sie stay regular. These are HIGH-FREQUENCY verbs — memorise them.",
+      "blocks": [
+        {"id": "v-sprechen", "type": "verb", "text": "sprechen (e → i)", "audioText": "sprechen, ich spreche, du sprichst, er spricht", "translation": "to speak / hablar", "rule": "e → i in du and er/sie/es forms. Pattern shared with: helfen → hilfst/hilft, geben → gibst/gibt, essen → isst/isst.", "conjugation": {"ich": "spreche", "du": "sprichst", "er": "spricht", "wir": "sprechen", "ihr": "sprecht", "sie": "sprechen"}, "examples": [
+          {"text": "Ich spreche Englisch und Spanisch.", "audioText": "Ich spreche Englisch und Spanisch.", "translation": "I speak English and Spanish. / Hablo inglés y español."},
+          {"text": "Du sprichst sehr gut Deutsch.", "audioText": "Du sprichst sehr gut Deutsch.", "translation": "You speak German very well. / Hablas alemán muy bien."}
+        ]},
+        {"id": "v-fahren", "type": "verb", "text": "fahren (a → ä)", "audioText": "fahren, ich fahre, du fährst, er fährt", "translation": "to drive, to go (by vehicle) / ir (en vehículo), conducir", "rule": "a → ä in du and er/sie/es. Same group: schlafen → schläfst/schläft, tragen → trägst/trägt, laufen → läufst/läuft.", "conjugation": {"ich": "fahre", "du": "fährst", "er": "fährt", "wir": "fahren", "ihr": "fahrt", "sie": "fahren"}, "examples": [
+          {"text": "Ich fahre nach Hamburg.", "audioText": "Ich fahre nach Hamburg.", "translation": "I'm going to Hamburg. / Voy a Hamburgo."},
+          {"text": "Er fährt Auto.", "audioText": "Er fährt Auto.", "translation": "He drives a car. / Él conduce."}
+        ]},
+        {"id": "v-lesen", "type": "verb", "text": "lesen (e → ie)", "audioText": "lesen, ich lese, du liest, er liest", "translation": "to read / leer", "rule": "e → ie. Note: 'du liest' (not 'du liesst' — the s + st collapses). Same group: sehen → siehst/sieht.", "conjugation": {"ich": "lese", "du": "liest", "er": "liest", "wir": "lesen", "ihr": "lest", "sie": "lesen"}, "examples": [
+          {"text": "Ich lese ein Buch.", "audioText": "Ich lese ein Buch.", "translation": "I'm reading a book. / Leo un libro."},
+          {"text": "Was liest du?", "audioText": "Was liest du?", "translation": "What are you reading? / ¿Qué lees?"}
+        ]}
+      ]
+    },
+    {
+      "id": "v2-word-order",
+      "title": "The V2 rule — the spine of German sentences",
+      "note": "In any main clause, the CONJUGATED VERB is the SECOND ELEMENT. The first element can be anything (subject, time, place, object) — but the verb must come in slot 2.",
+      "blocks": [
+        {"id": "rule-v2", "type": "rule", "text": "V2: conjugated verb sits in position 2", "audioText": "Ich trinke jetzt Kaffee. Jetzt trinke ich Kaffee. Kaffee trinke ich jetzt.", "rule": "Whatever you put first (subject, time word, place, even the object), the verb HAS to be next. Everything else fits afterwards. This is the most important word-order rule in German.", "examples": [
+          {"text": "Ich trinke jetzt Kaffee.", "audioText": "Ich trinke jetzt Kaffee.", "translation": "I drink coffee now. (Subject first) / Tomo café ahora."},
+          {"text": "Jetzt trinke ich Kaffee.", "audioText": "Jetzt trinke ich Kaffee.", "translation": "Now I drink coffee. (Time first → subject AFTER verb) / Ahora tomo café."},
+          {"text": "Kaffee trinke ich jetzt.", "audioText": "Kaffee trinke ich jetzt.", "translation": "Coffee is what I drink now. (Object first for emphasis) / Café es lo que tomo ahora."},
+          {"text": "Heute lerne ich Deutsch.", "audioText": "Heute lerne ich Deutsch.", "translation": "Today I'm learning German. / Hoy aprendo alemán."},
+          {"text": "In Berlin wohnen viele Studenten.", "audioText": "In Berlin wohnen viele Studenten.", "translation": "In Berlin many students live. / En Berlín viven muchos estudiantes."}
+        ]},
+        {"id": "rule-question-yn", "type": "rule", "text": "Yes/no questions: VERB FIRST, subject second", "audioText": "Wohnst du in Berlin? Sprichst du Deutsch? Hast du Zeit?", "rule": "For yes/no questions, just invert: put the verb in position 1 and the subject in position 2.", "examples": [
+          {"text": "Wohnst du in Berlin?", "audioText": "Wohnst du in Berlin?", "translation": "Do you live in Berlin? / ¿Vives en Berlín?"},
+          {"text": "Sprichst du Deutsch?", "audioText": "Sprichst du Deutsch?", "translation": "Do you speak German? / ¿Hablas alemán?"},
+          {"text": "Hat er ein Auto?", "audioText": "Hat er ein Auto?", "translation": "Does he have a car? / ¿Tiene un coche?"}
+        ]},
+        {"id": "rule-question-w", "type": "rule", "text": "W-questions: question word first, verb second, subject third", "audioText": "Wer bist du? Was machst du? Wo wohnst du? Wann kommst du? Warum lernst du Deutsch?", "rule": "Question words: WER (who), WAS (what), WO (where), WOHIN (where to), WOHER (where from), WANN (when), WARUM (why), WIE (how). They take slot 1, verb in slot 2.", "examples": [
+          {"text": "Wer bist du?", "audioText": "Wer bist du?", "translation": "Who are you? / ¿Quién eres?"},
+          {"text": "Was machst du heute?", "audioText": "Was machst du heute?", "translation": "What are you doing today? / ¿Qué haces hoy?"},
+          {"text": "Wo wohnst du?", "audioText": "Wo wohnst du?", "translation": "Where do you live? / ¿Dónde vives?"},
+          {"text": "Woher kommst du?", "audioText": "Woher kommst du?", "translation": "Where are you from? / ¿De dónde eres?"},
+          {"text": "Wohin gehst du?", "audioText": "Wohin gehst du?", "translation": "Where are you going? / ¿A dónde vas?"},
+          {"text": "Wann beginnt der Film?", "audioText": "Wann beginnt der Film?", "translation": "When does the film start? / ¿Cuándo empieza la película?"},
+          {"text": "Warum lernst du Deutsch?", "audioText": "Warum lernst du Deutsch?", "translation": "Why are you learning German? / ¿Por qué aprendes alemán?"},
+          {"text": "Wie heißt du?", "audioText": "Wie heißt du?", "translation": "What's your name? (lit. How are you called?) / ¿Cómo te llamas?"}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

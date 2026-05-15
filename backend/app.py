@@ -35,6 +35,7 @@ from apps.language_lab.routes import bp as language_lab_bp, AUDIO_DIR as LANGUAG
 from apps.bible.routes import bp as bible_bp
 from apps.translator.routes import bp as translator_bp
 from apps.ai_practice.routes import bp as ai_practice_bp
+from apps.german.routes import bp as german_bp, AUDIO_DIR as GERMAN_AUDIO_DIR
 
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
@@ -58,10 +59,11 @@ def create_app() -> Flask:
     app.register_blueprint(bible_bp, url_prefix="/api/bible")
     app.register_blueprint(translator_bp, url_prefix="/api/translator")
     app.register_blueprint(ai_practice_bp, url_prefix="/api/ai-practice")
+    app.register_blueprint(german_bp, url_prefix="/api/german")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice"]})
+        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")
@@ -75,6 +77,10 @@ def create_app() -> Flask:
     @app.get("/audio/lab/<path:filename>")
     def serve_lab_audio(filename: str):
         return send_from_directory(LANGUAGE_LAB_AUDIO_DIR, filename, max_age=31536000)
+
+    @app.get("/audio/german/<path:filename>")
+    def serve_german_audio(filename: str):
+        return send_from_directory(GERMAN_AUDIO_DIR, filename, max_age=31536000)
 
     # Fallback: serve the built Vite SPA if it exists (single-port deployment).
     @app.get("/", defaults={"path": ""})

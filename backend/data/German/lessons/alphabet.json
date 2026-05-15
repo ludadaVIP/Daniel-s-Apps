@@ -1,0 +1,74 @@
+{
+  "id": "alphabet",
+  "title": "L01 · Alphabet & Umlauts",
+  "phase": "Phase 1 — Sounds & Alphabet",
+  "level": "A0",
+  "estimatedMinutes": 15,
+  "objective": "Recognise every German letter by name, plus the four extras ä ö ü ß. You don't need to memorise — just hear each one once and notice which look familiar.",
+  "strategy": "Tap the speaker icon. Listen, repeat aloud once, move on. The system tracks which letters you've heard. Use 'Play section' to run a whole group hands-free.",
+  "sections": [
+    {
+      "id": "alphabet-core",
+      "title": "The 26 standard letters",
+      "note": "German uses the same Latin letters as English and Spanish. The letter NAMES differ — that's what you're learning here.",
+      "blocks": [
+        {"id": "letter-a", "type": "letter", "text": "A a", "audioText": "a", "ipa": "/aː/", "hint": "Long, open 'ah'. Like the 'a' in 'father'. Spanish: como la 'a' en 'padre'.", "example": {"text": "Apfel", "audioText": "Apfel", "translation": "apple / manzana"}},
+        {"id": "letter-b", "type": "letter", "text": "B b", "audioText": "be", "ipa": "/beː/", "hint": "Same as English/Spanish 'b' at start of words. At END of a word it sounds like /p/.", "example": {"text": "Buch", "audioText": "Buch", "translation": "book / libro"}},
+        {"id": "letter-c", "type": "letter", "text": "C c", "audioText": "ce", "ipa": "/t͡seː/", "hint": "Letter name is 'tseh'. The letter C alone is rare — usually appears in 'ch' or 'ck'.", "example": {"text": "Café", "audioText": "Café", "translation": "café / cafetería"}},
+        {"id": "letter-d", "type": "letter", "text": "D d", "audioText": "de", "ipa": "/deː/", "hint": "Like English 'd'. At END of a word it sounds like /t/.", "example": {"text": "Danke", "audioText": "Danke", "translation": "thanks / gracias"}},
+        {"id": "letter-e", "type": "letter", "text": "E e", "audioText": "e", "ipa": "/eː/", "hint": "Long 'eh'. Like Spanish 'e' but slightly tenser. Don't say English 'ee'.", "example": {"text": "Esel", "audioText": "Esel", "translation": "donkey / burro"}},
+        {"id": "letter-f", "type": "letter", "text": "F f", "audioText": "ef", "ipa": "/ɛf/", "hint": "Letter name is 'eff'. Identical sound to English/Spanish 'f'.", "example": {"text": "Frau", "audioText": "Frau", "translation": "woman / mujer"}},
+        {"id": "letter-g", "type": "letter", "text": "G g", "audioText": "ge", "ipa": "/ɡeː/", "hint": "Letter name is 'geh'. Always hard /g/, never soft like English 'gym'.", "example": {"text": "gut", "audioText": "gut", "translation": "good / bueno"}},
+        {"id": "letter-h", "type": "letter", "text": "H h", "audioText": "ha", "ipa": "/haː/", "hint": "Letter name is 'hah'. Pronounced like English 'h' at the start of words; SILENT after a vowel where it just lengthens it.", "example": {"text": "Haus", "audioText": "Haus", "translation": "house / casa"}},
+        {"id": "letter-i", "type": "letter", "text": "I i", "audioText": "i", "ipa": "/iː/", "hint": "Long 'ee'. Same as Spanish 'i'.", "example": {"text": "Igel", "audioText": "Igel", "translation": "hedgehog / erizo"}},
+        {"id": "letter-j", "type": "letter", "text": "J j", "audioText": "jot", "ipa": "/jɔt/", "hint": "Letter name is 'yot'. Pronounced like English 'y' in 'yes' — NOT like English 'j'.", "example": {"text": "ja", "audioText": "ja", "translation": "yes / sí"}},
+        {"id": "letter-k", "type": "letter", "text": "K k", "audioText": "ka", "ipa": "/kaː/", "hint": "Identical to English/Spanish 'k'.", "example": {"text": "Kind", "audioText": "Kind", "translation": "child / niño"}},
+        {"id": "letter-l", "type": "letter", "text": "L l", "audioText": "el", "ipa": "/ɛl/", "hint": "Lighter and clearer than English 'l' — closer to Spanish 'l'.", "example": {"text": "Liebe", "audioText": "Liebe", "translation": "love / amor"}},
+        {"id": "letter-m", "type": "letter", "text": "M m", "audioText": "em", "ipa": "/ɛm/", "hint": "Identical to English/Spanish 'm'.", "example": {"text": "Mutter", "audioText": "Mutter", "translation": "mother / madre"}},
+        {"id": "letter-n", "type": "letter", "text": "N n", "audioText": "en", "ipa": "/ɛn/", "hint": "Identical to English/Spanish 'n'.", "example": {"text": "nein", "audioText": "nein", "translation": "no / no"}},
+        {"id": "letter-o", "type": "letter", "text": "O o", "audioText": "o", "ipa": "/oː/", "hint": "Long, rounded 'oh'. Like Spanish 'o' but lips slightly more rounded.", "example": {"text": "Oma", "audioText": "Oma", "translation": "grandma / abuela"}},
+        {"id": "letter-p", "type": "letter", "text": "P p", "audioText": "pe", "ipa": "/peː/", "hint": "Like English/Spanish 'p' with a bit more breath at the start (aspirated).", "example": {"text": "Park", "audioText": "Park", "translation": "park / parque"}},
+        {"id": "letter-q", "type": "letter", "text": "Q q", "audioText": "ku", "ipa": "/kuː/", "hint": "Always followed by 'u' and pronounced /kv/ as a combo. The letter name alone is 'koo'.", "example": {"text": "Quelle", "audioText": "Quelle", "translation": "source / fuente"}},
+        {"id": "letter-r", "type": "letter", "text": "R r", "audioText": "er", "ipa": "/ɛʁ/", "hint": "German 'r' is in the THROAT (uvular), not rolled like Spanish. At the end of a word, it often softens to a vowel-like sound.", "example": {"text": "rot", "audioText": "rot", "translation": "red / rojo"}},
+        {"id": "letter-s", "type": "letter", "text": "S s", "audioText": "es", "ipa": "/ɛs/", "hint": "BEFORE a vowel: voiced like English 'z'. ELSEWHERE: like English 's'.", "example": {"text": "Sonne", "audioText": "Sonne", "translation": "sun / sol"}},
+        {"id": "letter-t", "type": "letter", "text": "T t", "audioText": "te", "ipa": "/teː/", "hint": "Like English 't', a bit more breath at the start.", "example": {"text": "Tag", "audioText": "Tag", "translation": "day / día"}},
+        {"id": "letter-u", "type": "letter", "text": "U u", "audioText": "u", "ipa": "/uː/", "hint": "Long, deep 'oo'. Like Spanish 'u'.", "example": {"text": "Uhr", "audioText": "Uhr", "translation": "clock / reloj"}},
+        {"id": "letter-v", "type": "letter", "text": "V v", "audioText": "vau", "ipa": "/faʊ/", "hint": "Letter name is 'fau'. In German words, V is pronounced /f/ — like English 'f', NOT 'v'.", "example": {"text": "Vater", "audioText": "Vater", "translation": "father / padre"}},
+        {"id": "letter-w", "type": "letter", "text": "W w", "audioText": "we", "ipa": "/veː/", "hint": "This is the letter that sounds like English 'v'. Letter name is 'veh'.", "example": {"text": "Wasser", "audioText": "Wasser", "translation": "water / agua"}},
+        {"id": "letter-x", "type": "letter", "text": "X x", "audioText": "ix", "ipa": "/ɪks/", "hint": "Rare. Pronounced /ks/ like English/Spanish.", "example": {"text": "Taxi", "audioText": "Taxi", "translation": "taxi / taxi"}},
+        {"id": "letter-y", "type": "letter", "text": "Y y", "audioText": "üpsilon", "ipa": "/ˈʏpsilɔn/", "hint": "Letter name is 'üpsilon'. In loanwords mostly behaves like 'i' or 'ü'.", "example": {"text": "System", "audioText": "System", "translation": "system / sistema"}},
+        {"id": "letter-z", "type": "letter", "text": "Z z", "audioText": "tset", "ipa": "/t͡sɛt/", "hint": "Letter name is 'tset'. Z always sounds like /ts/ — never /z/!", "example": {"text": "Zeit", "audioText": "Zeit", "translation": "time / tiempo"}}
+      ]
+    },
+    {
+      "id": "umlauts",
+      "title": "The three Umlauts: ä ö ü",
+      "note": "Umlauts are vowels with two dots that change the sound. They are SEPARATE letters, not decorations. If you can't type them, write 'ae', 'oe', 'ue' as a fallback (but learn the real form).",
+      "blocks": [
+        {"id": "letter-ae", "type": "letter", "text": "Ä ä", "audioText": "ä", "ipa": "/ɛː/", "hint": "Sounds like the 'e' in English 'bed' but held longer. Spanish: parecido a la 'e' en 'café'.", "example": {"text": "Mädchen", "audioText": "Mädchen", "translation": "girl / chica"}},
+        {"id": "letter-oe", "type": "letter", "text": "Ö ö", "audioText": "ö", "ipa": "/øː/", "hint": "Round your lips like you're saying 'o', but try to say 'e' instead. No exact English or Spanish equivalent — practice this.", "example": {"text": "schön", "audioText": "schön", "translation": "beautiful / bonito"}},
+        {"id": "letter-ue", "type": "letter", "text": "Ü ü", "audioText": "ü", "ipa": "/yː/", "hint": "Round your lips for 'oo', but say 'ee'. Like French 'u'. Spanish: NO equivalente directo — practica con los labios fruncidos.", "example": {"text": "über", "audioText": "über", "translation": "over, above / encima"}}
+      ]
+    },
+    {
+      "id": "eszett",
+      "title": "The Eszett: ß",
+      "note": "The ß (called 'Eszett' or 'scharfes S') is a single letter that sounds like 'ss'. It appears AFTER long vowels or diphthongs. You may also see 'ss' instead in Swiss German.",
+      "blocks": [
+        {"id": "letter-eszett", "type": "letter", "text": "ß", "audioText": "Eszett", "ipa": "/ɛsˈt͡sɛt/", "hint": "Always pronounced like a sharp 's'. Never starts a word — only mid or end. If unavailable, write 'ss' (e.g. 'Strasse' for 'Straße').", "example": {"text": "Straße", "audioText": "Straße", "translation": "street / calle"}}
+      ]
+    },
+    {
+      "id": "micro-sentences",
+      "title": "Hear the letters in real words",
+      "note": "Short sentences that use the trickier letters. Listen to the rhythm — notice how 'sp' and 'st' at the start become 'shp' and 'sht'.",
+      "blocks": [
+        {"id": "sent-w-vs-v", "type": "sentence", "text": "Wir wohnen in Wien.", "audioText": "Wir wohnen in Wien.", "ipa": "/viːɐ̯ ˈvoːnən ɪn viːn/", "translation": "We live in Vienna. / Vivimos en Viena.", "hint": "Three W's in a row — all sound like English 'v'."},
+        {"id": "sent-z", "type": "sentence", "text": "Zehn Züge fahren zur Zeit.", "audioText": "Zehn Züge fahren zur Zeit.", "ipa": "/t͡seːn ˈt͡syːɡə ˈfaːʁən t͡suːɐ̯ t͡saɪ̯t/", "translation": "Ten trains are running at the moment. / Diez trenes circulan ahora.", "hint": "Every Z is /ts/. Don't confuse with English Z."},
+        {"id": "sent-umlauts", "type": "sentence", "text": "Mädchen mögen süße Brötchen.", "audioText": "Mädchen mögen süße Brötchen.", "ipa": "/ˈmɛːt.çən ˈmøːɡən ˈzyːsə ˈbʁøːt.çən/", "translation": "Girls like sweet bread rolls. / A las niñas les gustan los panecillos dulces.", "hint": "All three Umlauts plus an ß in one sentence."},
+        {"id": "sent-j", "type": "sentence", "text": "Ja, ich heiße Jonas.", "audioText": "Ja, ich heiße Jonas.", "ipa": "/jaː ɪç ˈhaɪ̯sə ˈjoːnas/", "translation": "Yes, I'm called Jonas. / Sí, me llamo Jonas.", "hint": "J = English 'y' sound. Two of them here."}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}
