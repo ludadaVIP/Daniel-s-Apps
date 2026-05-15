@@ -1,0 +1,119 @@
+{
+  "id": "dative-prepositions",
+  "title": "L10 · Dative Case & Prepositions",
+  "phase": "Phase 3 — A2 Expansion",
+  "level": "A2",
+  "estimatedMinutes": 35,
+  "objective": "Master the dative case (used for indirect objects, after specific prepositions, and with certain verbs). Learn the dative-only and two-way prepositions — the trickiest gateway to B1.",
+  "strategy": "Three blocks: (1) what dative is — the 'to whom' case. (2) which prepositions ALWAYS take dative. (3) two-way prepositions where the case depends on motion (acc.) vs location (dat.). Drill section 3 most — it's where everyone makes mistakes.",
+  "sections": [
+    {
+      "id": "dative-articles",
+      "title": "The dative article table",
+      "note": "All three genders + plural change. This is the case where you MUST know the gender of the noun. Memorise: dem/der/dem/den.",
+      "blocks": [
+        {"id": "rule-dat-def", "type": "rule", "text": "Definite article in dative: dem (m./n.), der (f.), den (plural + -n on noun)", "audioText": "dem Mann, der Frau, dem Kind, den Männern", "rule": "Masculine and neuter share 'dem'. Feminine becomes 'der'. Plural becomes 'den' AND the noun gets an extra '-n' (unless it already ends in -n or -s).", "examples": [
+          {"text": "Ich helfe dem Mann.", "audioText": "Ich helfe dem Mann.", "translation": "I help the man. / Ayudo al hombre."},
+          {"text": "Ich helfe der Frau.", "audioText": "Ich helfe der Frau.", "translation": "I help the woman. / Ayudo a la mujer."},
+          {"text": "Ich helfe dem Kind.", "audioText": "Ich helfe dem Kind.", "translation": "I help the child. / Ayudo al niño."},
+          {"text": "Ich helfe den Kindern.", "audioText": "Ich helfe den Kindern.", "translation": "I help the children. (NB: 'Kindern', not 'Kinder') / Ayudo a los niños."}
+        ]},
+        {"id": "rule-dat-indef", "type": "rule", "text": "Indefinite article in dative: einem (m./n.), einer (f.)", "audioText": "einem Mann, einer Frau, einem Kind", "rule": "Same pattern: einem / einer / einem.", "examples": [
+          {"text": "Ich gebe einem Freund ein Buch.", "audioText": "Ich gebe einem Freund ein Buch.", "translation": "I give a friend a book. / Le doy un libro a un amigo."},
+          {"text": "Ich gebe einer Freundin ein Buch.", "audioText": "Ich gebe einer Freundin ein Buch.", "translation": "I give a (female) friend a book. / Le doy un libro a una amiga."}
+        ]},
+        {"id": "rule-dat-pronouns", "type": "rule", "text": "Dative personal pronouns: mir, dir, ihm, ihr, ihm, uns, euch, ihnen, Ihnen", "audioText": "Gib mir das. Ich gebe dir das. Sag ihm das.", "rule": "Subject → dative: ich→mir, du→dir, er→ihm, sie→ihr, es→ihm, wir→uns, ihr→euch, sie→ihnen, Sie→Ihnen.", "examples": [
+          {"text": "Gib mir das Buch.", "audioText": "Gib mir das Buch.", "translation": "Give me the book. / Dame el libro."},
+          {"text": "Ich helfe dir.", "audioText": "Ich helfe dir.", "translation": "I'll help you. / Te ayudo."},
+          {"text": "Sag ihm die Wahrheit.", "audioText": "Sag ihm die Wahrheit.", "translation": "Tell him the truth. / Dile la verdad."}
+        ]}
+      ]
+    },
+    {
+      "id": "dative-verbs",
+      "title": "Verbs that take dative",
+      "note": "These verbs put their object in dative even though English/Spanish would use a direct object. Memorise the most common.",
+      "blocks": [
+        {"id": "v-helfen", "type": "verb", "text": "helfen + dative", "audioText": "Ich helfe dir. Wir helfen den Kindern.", "translation": "to help / ayudar", "rule": "Don't say 'Ich helfe DICH'. Always dative.", "examples": [
+          {"text": "Ich helfe dir gerne.", "audioText": "Ich helfe dir gerne.", "translation": "I'd be glad to help you. / Te ayudo con gusto."},
+          {"text": "Wir helfen den Kindern.", "audioText": "Wir helfen den Kindern.", "translation": "We help the children. / Ayudamos a los niños."}
+        ]},
+        {"id": "v-danken", "type": "verb", "text": "danken + dative", "audioText": "Ich danke dir. Wir danken Ihnen.", "translation": "to thank / agradecer", "examples": [
+          {"text": "Ich danke dir für das Geschenk.", "audioText": "Ich danke dir für das Geschenk.", "translation": "Thank you for the gift. / Te agradezco el regalo."},
+          {"text": "Wir danken Ihnen herzlich.", "audioText": "Wir danken Ihnen herzlich.", "translation": "We thank you sincerely (formal). / Le agradecemos sinceramente."}
+        ]},
+        {"id": "v-gefallen", "type": "verb", "text": "gefallen + dative (= to like, used backwards)", "audioText": "Das gefällt mir. Berlin gefällt mir.", "translation": "to be pleasing to / gustar (estructura igual al español)", "rule": "Just like Spanish 'gustar': what is liked is the subject, the person who likes is the dative. 'Berlin gefällt mir' = 'Berlin pleases me' = 'I like Berlin'.", "examples": [
+          {"text": "Das gefällt mir.", "audioText": "Das gefällt mir.", "translation": "I like that. / Me gusta eso."},
+          {"text": "Berlin gefällt mir sehr.", "audioText": "Berlin gefällt mir sehr.", "translation": "I really like Berlin. / Me gusta mucho Berlín."}
+        ]},
+        {"id": "v-gehoren", "type": "verb", "text": "gehören + dative (= to belong to)", "audioText": "Das gehört mir. Wem gehört das?", "translation": "to belong to / pertenecer", "examples": [
+          {"text": "Das Buch gehört mir.", "audioText": "Das Buch gehört mir.", "translation": "The book is mine. / El libro es mío."},
+          {"text": "Wem gehört das?", "audioText": "Wem gehört das?", "translation": "Whose is this? / ¿De quién es esto?", "ipa": "'wem' = dative of 'wer' = to whom"}
+        ]},
+        {"id": "v-geben", "type": "verb", "text": "geben — takes BOTH a dative (to whom) and an accusative (what)", "audioText": "Ich gebe dem Mann das Buch. Ich gebe ihm es.", "translation": "to give / dar", "rule": "Standard 'give X to Y' verb. The PERSON is dative, the THING is accusative. Word order: dative usually before accusative — unless both are pronouns, then accusative first.", "examples": [
+          {"text": "Ich gebe dem Mann das Buch.", "audioText": "Ich gebe dem Mann das Buch.", "translation": "I give the man the book. / Le doy el libro al hombre."},
+          {"text": "Sie schenkt ihrer Mutter Blumen.", "audioText": "Sie schenkt ihrer Mutter Blumen.", "translation": "She gives her mother flowers. / Le regala flores a su madre."}
+        ]}
+      ]
+    },
+    {
+      "id": "dative-prepositions",
+      "title": "Prepositions that ALWAYS take dative",
+      "note": "Memorise the list: aus, bei, mit, nach, seit, von, zu (plus gegenüber). Mnemonic: 'aus-bei-mit-nach-seit-von-zu'.",
+      "blocks": [
+        {"id": "p-aus", "type": "rule", "text": "aus — from (origin) / out of", "audioText": "Ich komme aus Spanien. Sie kommt aus dem Haus.", "rule": "'aus' is for origin (a country/city) or motion out of an enclosed space.", "examples": [
+          {"text": "Ich komme aus Spanien.", "audioText": "Ich komme aus Spanien.", "translation": "I'm from Spain. / Soy de España."},
+          {"text": "Sie kommt aus dem Haus.", "audioText": "Sie kommt aus dem Haus.", "translation": "She comes out of the house. / Ella sale de la casa."}
+        ]},
+        {"id": "p-bei", "type": "rule", "text": "bei — at (someone's place) / near / with", "audioText": "Ich wohne bei meinen Eltern. Bei der Arbeit. Bei mir.", "rule": "Use for being AT a person's home/workplace, or vague proximity.", "examples": [
+          {"text": "Ich wohne bei meinen Eltern.", "audioText": "Ich wohne bei meinen Eltern.", "translation": "I live with my parents. / Vivo con mis padres (en su casa)."},
+          {"text": "Er ist bei der Arbeit.", "audioText": "Er ist bei der Arbeit.", "translation": "He's at work. / Está en el trabajo."}
+        ]},
+        {"id": "p-mit", "type": "rule", "text": "mit — with / by (means of transport)", "audioText": "Ich fahre mit dem Bus. Ich gehe mit meiner Freundin.", "rule": "Companion or transport tool.", "examples": [
+          {"text": "Ich gehe mit meiner Freundin ins Kino.", "audioText": "Ich gehe mit meiner Freundin ins Kino.", "translation": "I'm going to the cinema with my girlfriend. / Voy al cine con mi novia."},
+          {"text": "Ich fahre mit dem Bus.", "audioText": "Ich fahre mit dem Bus.", "translation": "I'm going by bus. / Voy en autobús."}
+        ]},
+        {"id": "p-nach", "type": "rule", "text": "nach — to (cities/countries without article) / after", "audioText": "Ich fahre nach Berlin. Nach der Arbeit gehe ich nach Hause.", "rule": "Use 'nach' with city names, neuter country names (Deutschland, Spanien, Italien — no article), and as 'after' (time).", "examples": [
+          {"text": "Ich fahre nach Berlin.", "audioText": "Ich fahre nach Berlin.", "translation": "I'm going to Berlin. / Voy a Berlín."},
+          {"text": "Nach der Arbeit gehe ich nach Hause.", "audioText": "Nach der Arbeit gehe ich nach Hause.", "translation": "After work I go home. / Después del trabajo voy a casa."}
+        ]},
+        {"id": "p-seit", "type": "rule", "text": "seit — since / for (a duration that started in the past and continues)", "audioText": "Ich wohne seit drei Jahren in Berlin. Seit gestern.", "rule": "Use 'seit' for ONGOING actions. Often paired with present tense in German (where English uses present perfect).", "examples": [
+          {"text": "Ich wohne seit drei Jahren in Berlin.", "audioText": "Ich wohne seit drei Jahren in Berlin.", "translation": "I've been living in Berlin for three years. / Vivo en Berlín desde hace tres años.", "ipa": "Note: German uses PRESENT tense with 'seit'."},
+          {"text": "Seit gestern bin ich krank.", "audioText": "Seit gestern bin ich krank.", "translation": "I've been sick since yesterday. / Estoy enfermo desde ayer."}
+        ]},
+        {"id": "p-von", "type": "rule", "text": "von — from / of", "audioText": "Das ist ein Geschenk von meiner Mutter. Von Berlin nach München.", "rule": "Source (a person, a place we left). Also the 'of' for possession (an alternative to genitive in spoken German).", "examples": [
+          {"text": "Das ist ein Geschenk von meiner Mutter.", "audioText": "Das ist ein Geschenk von meiner Mutter.", "translation": "It's a gift from my mother. / Es un regalo de mi madre."},
+          {"text": "Das Auto von meinem Vater ist neu.", "audioText": "Das Auto von meinem Vater ist neu.", "translation": "My father's car is new. / El coche de mi padre es nuevo."}
+        ]},
+        {"id": "p-zu", "type": "rule", "text": "zu — to (a person, a place with article)", "audioText": "Ich gehe zum Arzt. Wir fahren zu meinen Eltern.", "rule": "Use 'zu' when going TO a person (zum Arzt) or to places that take an article. 'zum' = zu+dem, 'zur' = zu+der.", "examples": [
+          {"text": "Ich gehe zum Arzt.", "audioText": "Ich gehe zum Arzt.", "translation": "I'm going to the doctor. / Voy al médico."},
+          {"text": "Wir fahren zu meinen Eltern.", "audioText": "Wir fahren zu meinen Eltern.", "translation": "We're going to my parents'. / Vamos a casa de mis padres."},
+          {"text": "Ich gehe zur Schule.", "audioText": "Ich gehe zur Schule.", "translation": "I'm going to school. / Voy a la escuela."}
+        ]}
+      ]
+    },
+    {
+      "id": "wechselpräpositionen",
+      "title": "Wechselpräpositionen — the two-way prepositions",
+      "note": "Nine prepositions take EITHER accusative or dative — depending on whether the verb expresses MOTION (acc.) or LOCATION (dat.). This is the most important grammar distinction at A2.",
+      "blocks": [
+        {"id": "rule-2way-list", "type": "rule", "text": "The nine: an, auf, hinter, in, neben, über, unter, vor, zwischen", "audioText": "an, auf, hinter, in, neben, über, unter, vor, zwischen", "rule": "Mnemonic order works: 'an-auf-hinter-in-neben-über-unter-vor-zwischen'. ALL nine behave the same way regarding case."},
+        {"id": "rule-2way-distinction", "type": "rule", "text": "Wohin? → accusative. Wo? → dative.", "audioText": "Ich gehe in die Küche. Ich bin in der Küche.", "rule": "If the question is WOHIN? (where to / motion) → ACCUSATIVE. If the question is WO? (where / location/static) → DATIVE. The verb often signals it: gehen, fahren, stellen, legen → motion → acc; sein, sitzen, liegen, stehen → location → dat.", "examples": [
+          {"text": "Ich gehe in die Küche. (motion → acc.)", "audioText": "Ich gehe in die Küche.", "translation": "I'm going into the kitchen. / Voy a la cocina."},
+          {"text": "Ich bin in der Küche. (location → dat.)", "audioText": "Ich bin in der Küche.", "translation": "I'm in the kitchen. / Estoy en la cocina."},
+          {"text": "Stell das Buch auf den Tisch. (acc.)", "audioText": "Stell das Buch auf den Tisch.", "translation": "Put the book on the table. / Pon el libro sobre la mesa."},
+          {"text": "Das Buch liegt auf dem Tisch. (dat.)", "audioText": "Das Buch liegt auf dem Tisch.", "translation": "The book is on the table. / El libro está sobre la mesa."}
+        ]},
+        {"id": "s-an", "type": "sentence", "text": "Das Bild hängt an der Wand. Ich hänge das Bild an die Wand.", "audioText": "Das Bild hängt an der Wand. Ich hänge das Bild an die Wand.", "translation": "The picture hangs on the wall. I hang the picture on the wall. / El cuadro está colgado en la pared. Cuelgo el cuadro en la pared."},
+        {"id": "s-hinter", "type": "sentence", "text": "Die Katze sitzt hinter dem Sofa. Die Katze läuft hinter das Sofa.", "audioText": "Die Katze sitzt hinter dem Sofa. Die Katze läuft hinter das Sofa.", "translation": "The cat sits behind the sofa (location, dat). The cat runs behind the sofa (motion, acc). / El gato está sentado detrás del sofá. El gato corre detrás del sofá."},
+        {"id": "s-zwischen", "type": "sentence", "text": "Das Kind sitzt zwischen den Eltern.", "audioText": "Das Kind sitzt zwischen den Eltern.", "translation": "The child sits between the parents. (location → dative plural 'den' Eltern) / El niño está sentado entre los padres."},
+        {"id": "s-contractions", "type": "rule", "text": "Common contractions: in+dem = im, in+das = ins, an+dem = am, an+das = ans, zu+dem = zum, zu+der = zur", "audioText": "im Park, ins Kino, am Bahnhof, ans Meer, zum Arzt, zur Schule", "rule": "These contractions are MANDATORY in everyday German — don't say 'in dem' if 'im' is possible.", "examples": [
+          {"text": "Ich bin im Park.", "audioText": "Ich bin im Park.", "translation": "I'm in the park. (in + dem) / Estoy en el parque."},
+          {"text": "Wir gehen ins Kino.", "audioText": "Wir gehen ins Kino.", "translation": "We're going to the cinema. (in + das) / Vamos al cine."},
+          {"text": "Er steht am Fenster.", "audioText": "Er steht am Fenster.", "translation": "He's standing at the window. (an + dem) / Él está parado en la ventana."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

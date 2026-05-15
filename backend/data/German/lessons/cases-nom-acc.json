@@ -1,0 +1,107 @@
+{
+  "id": "cases-nom-acc",
+  "title": "L06 · Nominative & Accusative",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "objective": "German has four 'cases' that mark a noun's role in the sentence. This lesson covers the two you'll meet first: the Nominative (subject) and the Accusative (direct object). Master these and 60% of sentences will make sense.",
+  "strategy": "The big idea: articles CHANGE shape depending on the role of the noun. Only the masculine article actually changes between nom. and acc. (der → den, ein → einen). Feminine, neuter, and plural stay the same. So the practical thing to learn: 'der → den, ein → einen' for masculine direct objects.",
+  "sections": [
+    {
+      "id": "what-is-a-case",
+      "title": "What is a 'case'?",
+      "note": "In English we figure out who-does-what by word order: 'The dog bites the man' vs 'The man bites the dog'. In German, ARTICLES (and pronouns) carry that information — so word order can be flexible.",
+      "blocks": [
+        {"id": "rule-roles", "type": "rule", "text": "Nominative = subject (who is doing). Accusative = direct object (who is being affected).", "audioText": "Der Mann sieht den Hund.", "rule": "Nominative answers 'who/what does the action'. Accusative answers 'whom/what is being affected'.", "examples": [
+          {"text": "Der Mann sieht den Hund.", "audioText": "Der Mann sieht den Hund.", "translation": "The man sees the dog. / El hombre ve al perro.", "ipa": "Mann = subject (nom.), Hund = object (acc.)"},
+          {"text": "Den Hund sieht der Mann.", "audioText": "Den Hund sieht der Mann.", "translation": "It's the dog that the man sees. (Object first for emphasis — meaning unchanged.) / Al perro lo ve el hombre.", "ipa": "Even with reversed order, 'den' marks Hund as object and 'der' marks Mann as subject."}
+        ]}
+      ]
+    },
+    {
+      "id": "nom-acc-table",
+      "title": "The article table — nominative vs accusative",
+      "note": "ONLY MASCULINE CHANGES. Fem/neut/plur articles look identical in both cases.",
+      "blocks": [
+        {"id": "rule-def", "type": "rule", "text": "Definite article: der → DEN (masc. only), die/das/die unchanged", "audioText": "der Mann → den Mann, die Frau → die Frau, das Kind → das Kind, die Leute → die Leute", "rule": "If you remember ONE thing: 'der' becomes 'den' when it's a direct object. Everything else stays the same.", "examples": [
+          {"text": "Nom: der Mann | Acc: den Mann", "audioText": "der Mann, den Mann", "translation": "the man — masc. (changes) / el hombre"},
+          {"text": "Nom: die Frau | Acc: die Frau", "audioText": "die Frau, die Frau", "translation": "the woman — fem. (no change) / la mujer"},
+          {"text": "Nom: das Kind | Acc: das Kind", "audioText": "das Kind, das Kind", "translation": "the child — neut. (no change) / el niño"},
+          {"text": "Nom: die Häuser | Acc: die Häuser", "audioText": "die Häuser, die Häuser", "translation": "the houses — plur. (no change) / las casas"}
+        ]},
+        {"id": "rule-indef", "type": "rule", "text": "Indefinite article: ein → EINEN (masc.), eine/ein/— unchanged", "audioText": "ein Mann → einen Mann, eine Frau → eine Frau, ein Kind → ein Kind", "rule": "Same idea: 'ein' becomes 'einen' for a masculine direct object. Fem 'eine', neut 'ein' stay put. Plural has no indefinite article (just drop it).", "examples": [
+          {"text": "Nom: ein Mann | Acc: einen Mann", "audioText": "ein Mann, einen Mann", "translation": "a man (changes)"},
+          {"text": "Nom: eine Frau | Acc: eine Frau", "audioText": "eine Frau, eine Frau", "translation": "a woman (no change)"},
+          {"text": "Nom: ein Kind | Acc: ein Kind", "audioText": "ein Kind, ein Kind", "translation": "a child (no change)"}
+        ]},
+        {"id": "rule-possessives", "type": "rule", "text": "Possessives (mein, dein, sein, ihr, unser, euer, ihr/Ihr) follow the 'ein' pattern", "audioText": "mein Vater → meinen Vater, meine Mutter → meine Mutter", "rule": "Possessive adjectives use the SAME endings as 'ein/eine'. So 'mein' → 'meinen' for masculine direct objects.", "examples": [
+          {"text": "Ich sehe meinen Vater.", "audioText": "Ich sehe meinen Vater.", "translation": "I see my father. / Veo a mi padre."},
+          {"text": "Ich sehe meine Mutter.", "audioText": "Ich sehe meine Mutter.", "translation": "I see my mother. (no change for fem.)"},
+          {"text": "Ich sehe mein Kind.", "audioText": "Ich sehe mein Kind.", "translation": "I see my child."},
+          {"text": "Ich sehe meine Kinder.", "audioText": "Ich sehe meine Kinder.", "translation": "I see my children."}
+        ]}
+      ]
+    },
+    {
+      "id": "personal-pronouns-acc",
+      "title": "Pronouns also change",
+      "note": "When 'me/you/him/her' is the object, the pronoun changes form. Memorise these — they're high-frequency.",
+      "blocks": [
+        {"id": "rule-pron", "type": "rule", "text": "Object pronouns: mich, dich, ihn / sie / es, uns, euch, sie / Sie", "audioText": "Ich sehe dich. Du siehst mich. Er sieht sie.", "rule": "Subject form → object form: ich→mich, du→dich, er→ihn, sie→sie, es→es, wir→uns, ihr→euch, sie/Sie→sie/Sie. (Note: 'sie' and 'es' and the plural 'sie/Sie' don't change.)", "examples": [
+          {"text": "Ich sehe dich.", "audioText": "Ich sehe dich.", "translation": "I see you. / Te veo."},
+          {"text": "Du siehst mich.", "audioText": "Du siehst mich.", "translation": "You see me. / Me ves."},
+          {"text": "Er sieht ihn.", "audioText": "Er sieht ihn.", "translation": "He sees him. / Lo ve."},
+          {"text": "Sie sieht uns.", "audioText": "Sie sieht uns.", "translation": "She sees us. / Nos ve."},
+          {"text": "Wir sehen euch.", "audioText": "Wir sehen euch.", "translation": "We see you all. / Os vemos."}
+        ]}
+      ]
+    },
+    {
+      "id": "common-acc-verbs",
+      "title": "Verbs that always take accusative",
+      "note": "Most verbs that have a direct object trigger accusative. These are the most common.",
+      "blocks": [
+        {"id": "v-haben-acc", "type": "verb", "text": "haben + accusative", "audioText": "Ich habe einen Hund. Ich habe eine Katze. Ich habe ein Auto.", "translation": "to have / tener", "rule": "Whatever you HAVE is in the accusative.", "examples": [
+          {"text": "Ich habe einen Hund.", "audioText": "Ich habe einen Hund.", "translation": "I have a dog. / Tengo un perro."},
+          {"text": "Ich habe eine Katze.", "audioText": "Ich habe eine Katze.", "translation": "I have a cat. / Tengo un gato."},
+          {"text": "Ich habe ein Auto.", "audioText": "Ich habe ein Auto.", "translation": "I have a car. / Tengo un coche."},
+          {"text": "Hast du einen Bruder?", "audioText": "Hast du einen Bruder?", "translation": "Do you have a brother? / ¿Tienes un hermano?"}
+        ]},
+        {"id": "v-sehen", "type": "verb", "text": "sehen — to see", "audioText": "Ich sehe den Mann. Ich sehe die Frau. Ich sehe das Kind.", "translation": "to see / ver", "examples": [
+          {"text": "Ich sehe den Mann.", "audioText": "Ich sehe den Mann.", "translation": "I see the man. / Veo al hombre."},
+          {"text": "Wir sehen den Film.", "audioText": "Wir sehen den Film.", "translation": "We are watching the film. / Vemos la película."}
+        ]},
+        {"id": "v-kaufen", "type": "verb", "text": "kaufen — to buy", "audioText": "Ich kaufe einen Apfel.", "translation": "to buy / comprar", "examples": [
+          {"text": "Ich kaufe einen Apfel.", "audioText": "Ich kaufe einen Apfel.", "translation": "I'm buying an apple. / Compro una manzana."},
+          {"text": "Sie kauft ein Buch.", "audioText": "Sie kauft ein Buch.", "translation": "She buys a book. / Ella compra un libro."}
+        ]},
+        {"id": "v-essen", "type": "verb", "text": "essen — to eat (e → i)", "audioText": "Ich esse ein Brötchen.", "translation": "to eat / comer", "rule": "Stem-changes in du/er: du isst, er isst. Note 'isst' (one s) because the stem 'ess-' already ends in -ss and the ending -t replaces the final s.", "examples": [
+          {"text": "Ich esse ein Brötchen.", "audioText": "Ich esse ein Brötchen.", "translation": "I'm eating a bread roll. / Como un panecillo."},
+          {"text": "Er isst einen Apfel.", "audioText": "Er isst einen Apfel.", "translation": "He's eating an apple. / Él come una manzana."}
+        ]},
+        {"id": "v-trinken", "type": "verb", "text": "trinken — to drink", "audioText": "Ich trinke einen Kaffee.", "translation": "to drink / beber", "examples": [
+          {"text": "Ich trinke einen Kaffee.", "audioText": "Ich trinke einen Kaffee.", "translation": "I'm drinking a coffee. / Tomo un café."},
+          {"text": "Trinkst du Wasser?", "audioText": "Trinkst du Wasser?", "translation": "Are you drinking water? / ¿Bebes agua?"}
+        ]},
+        {"id": "v-suchen", "type": "verb", "text": "suchen — to look for", "audioText": "Ich suche meinen Schlüssel.", "translation": "to look for, to search / buscar", "examples": [
+          {"text": "Ich suche meinen Schlüssel.", "audioText": "Ich suche meinen Schlüssel.", "translation": "I'm looking for my key. / Busco mi llave."},
+          {"text": "Wir suchen ein Hotel.", "audioText": "Wir suchen ein Hotel.", "translation": "We're looking for a hotel. / Buscamos un hotel."}
+        ]}
+      ]
+    },
+    {
+      "id": "es-gibt",
+      "title": "'es gibt' — 'there is / there are'",
+      "note": "An idiom that ALWAYS takes accusative. Used constantly.",
+      "blocks": [
+        {"id": "rule-es-gibt", "type": "rule", "text": "es gibt + ACCUSATIVE = there is / there are", "audioText": "Es gibt einen Park. Es gibt eine Bäckerei. Es gibt ein Problem.", "rule": "Literally 'it gives' — but means 'there exists'. Whatever exists is in the accusative.", "examples": [
+          {"text": "Es gibt einen Park.", "audioText": "Es gibt einen Park.", "translation": "There is a park. / Hay un parque."},
+          {"text": "Es gibt eine Bäckerei in der Nähe.", "audioText": "Es gibt eine Bäckerei in der Nähe.", "translation": "There is a bakery nearby. / Hay una panadería cerca."},
+          {"text": "Es gibt ein Problem.", "audioText": "Es gibt ein Problem.", "translation": "There is a problem. / Hay un problema."},
+          {"text": "Es gibt viele Studenten in Berlin.", "audioText": "Es gibt viele Studenten in Berlin.", "translation": "There are many students in Berlin. / Hay muchos estudiantes en Berlín."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

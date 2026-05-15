@@ -1,0 +1,109 @@
+{
+  "id": "articles-gender",
+  "title": "L04 · Articles, Gender, Plural",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 30,
+  "objective": "German nouns have three genders (masculine, feminine, neuter). You MUST learn each noun together with its article. This lesson gives you patterns + the most common 30 nouns.",
+  "strategy": "Don't try to memorise the gender of every noun by rule — there are too many exceptions. Instead, learn each new noun WITH its article (say 'der Tisch', not just 'Tisch'). The patterns in section 2 help you guess about 70% of the time.",
+  "sections": [
+    {
+      "id": "articles-overview",
+      "title": "The article system",
+      "note": "Two types of articles: DEFINITE (the) and INDEFINITE (a/an). Each has three gender forms in the nominative.",
+      "blocks": [
+        {"id": "rule-definite", "type": "rule", "text": "Definite articles: der (m.) / die (f.) / das (n.)", "audioText": "der Mann, die Frau, das Kind", "rule": "Three forms for 'the'. The form depends on the noun's grammatical gender, which has only a loose connection to natural gender. Plural is always 'die' regardless of gender.", "examples": [
+          {"text": "der Mann", "audioText": "der Mann", "translation": "the man (masc.) / el hombre"},
+          {"text": "die Frau", "audioText": "die Frau", "translation": "the woman (fem.) / la mujer"},
+          {"text": "das Kind", "audioText": "das Kind", "translation": "the child (neut.) / el niño / la niña"},
+          {"text": "die Männer", "audioText": "die Männer", "translation": "the men (plural — always 'die') / los hombres"},
+          {"text": "die Kinder", "audioText": "die Kinder", "translation": "the children / los niños"}
+        ]},
+        {"id": "rule-indefinite", "type": "rule", "text": "Indefinite articles: ein (m./n.) / eine (f.)", "audioText": "ein Mann, eine Frau, ein Kind", "rule": "Two forms for 'a/an': 'ein' for masculine and neuter, 'eine' for feminine. There is NO indefinite plural — drop the article (English 'cars', not 'a cars').", "examples": [
+          {"text": "ein Mann", "audioText": "ein Mann", "translation": "a man / un hombre"},
+          {"text": "eine Frau", "audioText": "eine Frau", "translation": "a woman / una mujer"},
+          {"text": "ein Kind", "audioText": "ein Kind", "translation": "a child / un niño"},
+          {"text": "Männer arbeiten.", "audioText": "Männer arbeiten.", "translation": "Men work. (no article for plural indefinite) / Los hombres trabajan."}
+        ]}
+      ]
+    },
+    {
+      "id": "gender-patterns",
+      "title": "Patterns that help you GUESS the gender",
+      "note": "Not 100% reliable but get you to ~70%. Memorise the suffixes — they're worth their weight in gold.",
+      "blocks": [
+        {"id": "p-masc-endings", "type": "rule", "text": "Masculine endings: -er (jobs, doers), -ant, -ist, -or, -ling, days/months/seasons", "audioText": "der Lehrer, der Student, der Doktor, der Montag", "rule": "Most nouns ending -er describing a doer are masculine. Days, months, seasons, points of the compass: also masculine.", "examples": [
+          {"text": "der Lehrer", "audioText": "der Lehrer", "translation": "teacher / profesor"},
+          {"text": "der Student", "audioText": "der Student", "translation": "student / estudiante (m)"},
+          {"text": "der Doktor", "audioText": "der Doktor", "translation": "doctor / doctor"},
+          {"text": "der Montag", "audioText": "der Montag", "translation": "Monday / lunes"},
+          {"text": "der Januar", "audioText": "der Januar", "translation": "January / enero"},
+          {"text": "der Sommer", "audioText": "der Sommer", "translation": "summer / verano"}
+        ]},
+        {"id": "p-fem-endings", "type": "rule", "text": "Feminine endings: -e (most), -ung, -heit, -keit, -schaft, -ion, -ie, -ik", "audioText": "die Lampe, die Wohnung, die Freiheit, die Nation, die Musik", "rule": "These suffixes are nearly ALWAYS feminine. Memorise them as a set — they cover thousands of nouns.", "examples": [
+          {"text": "die Lampe", "audioText": "die Lampe", "translation": "lamp / lámpara (-e)"},
+          {"text": "die Wohnung", "audioText": "die Wohnung", "translation": "apartment / vivienda (-ung)"},
+          {"text": "die Freiheit", "audioText": "die Freiheit", "translation": "freedom / libertad (-heit)"},
+          {"text": "die Möglichkeit", "audioText": "die Möglichkeit", "translation": "possibility / posibilidad (-keit)"},
+          {"text": "die Freundschaft", "audioText": "die Freundschaft", "translation": "friendship / amistad (-schaft)"},
+          {"text": "die Nation", "audioText": "die Nation", "translation": "nation / nación (-ion)"},
+          {"text": "die Musik", "audioText": "die Musik", "translation": "music / música (-ik)"}
+        ]},
+        {"id": "p-neut-endings", "type": "rule", "text": "Neuter endings: -chen, -lein (diminutives), -ment, -um, -o, infinitives used as nouns", "audioText": "das Mädchen, das Dokument, das Zentrum, das Auto, das Essen", "rule": "Anything with -chen or -lein is automatically neuter — even das MÄDCHEN (girl), because '-chen' wins over natural gender. Verbs used as nouns are always neuter.", "examples": [
+          {"text": "das Mädchen", "audioText": "das Mädchen", "translation": "girl / chica (-chen → neuter!)"},
+          {"text": "das Häuschen", "audioText": "das Häuschen", "translation": "little house / casita"},
+          {"text": "das Dokument", "audioText": "das Dokument", "translation": "document / documento"},
+          {"text": "das Zentrum", "audioText": "das Zentrum", "translation": "centre / centro"},
+          {"text": "das Auto", "audioText": "das Auto", "translation": "car / coche"},
+          {"text": "das Essen", "audioText": "das Essen", "translation": "the eating, the food / la comida (verb 'essen' as noun)"}
+        ]}
+      ]
+    },
+    {
+      "id": "plural-patterns",
+      "title": "Plural patterns",
+      "note": "German plurals are not one-size-fits-all like English '-s'. There are FIVE main patterns. You'll learn each plural with its noun — but knowing the patterns helps you GUESS.",
+      "blocks": [
+        {"id": "pl-er-umlaut", "type": "rule", "text": "Plural pattern: + -er (often with Umlaut). Common for short neuter nouns.", "audioText": "das Kind → die Kinder, das Haus → die Häuser, das Buch → die Bücher", "rule": "If the noun is one syllable + neuter, the plural often adds -er and umlauts the vowel.", "examples": [
+          {"text": "das Kind → die Kinder", "audioText": "das Kind, die Kinder", "translation": "child → children / niño → niños"},
+          {"text": "das Haus → die Häuser", "audioText": "das Haus, die Häuser", "translation": "house → houses / casa → casas"},
+          {"text": "das Buch → die Bücher", "audioText": "das Buch, die Bücher", "translation": "book → books / libro → libros"}
+        ]},
+        {"id": "pl-en", "type": "rule", "text": "Plural pattern: + -(e)n. Most feminine nouns, plus many weak masculines.", "audioText": "die Frau → die Frauen, die Lampe → die Lampen, der Student → die Studenten", "rule": "If a noun ends in -e or -ung, -heit, -keit (all feminine), plural is almost always -n or -en.", "examples": [
+          {"text": "die Frau → die Frauen", "audioText": "die Frau, die Frauen", "translation": "woman → women / mujer → mujeres"},
+          {"text": "die Lampe → die Lampen", "audioText": "die Lampe, die Lampen", "translation": "lamp → lamps / lámpara → lámparas"},
+          {"text": "die Wohnung → die Wohnungen", "audioText": "die Wohnung, die Wohnungen", "translation": "apartment → apartments / vivienda → viviendas"},
+          {"text": "der Student → die Studenten", "audioText": "der Student, die Studenten", "translation": "student → students / estudiante → estudiantes"}
+        ]},
+        {"id": "pl-e-umlaut", "type": "rule", "text": "Plural pattern: + -e (often with Umlaut). Common for many masculine nouns.", "audioText": "der Hund → die Hunde, der Stuhl → die Stühle, der Tag → die Tage", "rule": "Most one-syllable masculine nouns add -e in plural; if they have a vowel that CAN umlaut (a/o/u/au), it usually does.", "examples": [
+          {"text": "der Hund → die Hunde", "audioText": "der Hund, die Hunde", "translation": "dog → dogs / perro → perros"},
+          {"text": "der Stuhl → die Stühle", "audioText": "der Stuhl, die Stühle", "translation": "chair → chairs / silla → sillas"},
+          {"text": "der Tag → die Tage", "audioText": "der Tag, die Tage", "translation": "day → days / día → días"}
+        ]},
+        {"id": "pl-s", "type": "rule", "text": "Plural pattern: + -s. Mostly loanwords from English and French.", "audioText": "das Auto → die Autos, das Hotel → die Hotels, das Foto → die Fotos", "rule": "Recognisable foreign words usually take -s in plural.", "examples": [
+          {"text": "das Auto → die Autos", "audioText": "das Auto, die Autos", "translation": "car → cars / coche → coches"},
+          {"text": "das Hotel → die Hotels", "audioText": "das Hotel, die Hotels", "translation": "hotel → hotels"},
+          {"text": "das Foto → die Fotos", "audioText": "das Foto, die Fotos", "translation": "photo → photos"}
+        ]},
+        {"id": "pl-no-change", "type": "rule", "text": "Plural pattern: no change (or just Umlaut). Many nouns ending in -er, -el, -en.", "audioText": "der Lehrer → die Lehrer, der Apfel → die Äpfel", "rule": "Nouns ending in -er, -el, -en often have the SAME form in plural — only the article changes (der → die). Some umlaut.", "examples": [
+          {"text": "der Lehrer → die Lehrer", "audioText": "der Lehrer, die Lehrer", "translation": "teacher → teachers (same word, article changes)"},
+          {"text": "der Apfel → die Äpfel", "audioText": "der Apfel, die Äpfel", "translation": "apple → apples / manzana → manzanas (only umlaut)"},
+          {"text": "der Vater → die Väter", "audioText": "der Vater, die Väter", "translation": "father → fathers / padre → padres"}
+        ]}
+      ]
+    },
+    {
+      "id": "sentence-practice",
+      "title": "Articles in real sentences",
+      "note": "Listen and notice how articles signal who is doing what.",
+      "blocks": [
+        {"id": "s-1", "type": "sentence", "text": "Der Mann liest ein Buch.", "audioText": "Der Mann liest ein Buch.", "translation": "The man is reading a book. / El hombre lee un libro."},
+        {"id": "s-2", "type": "sentence", "text": "Die Frau trinkt einen Kaffee.", "audioText": "Die Frau trinkt einen Kaffee.", "translation": "The woman drinks a coffee. / La mujer toma un café.", "hint": "'einen' (not 'ein') — because 'Kaffee' is the object (accusative). You'll learn this in L06."},
+        {"id": "s-3", "type": "sentence", "text": "Das Kind spielt im Garten.", "audioText": "Das Kind spielt im Garten.", "translation": "The child plays in the garden. / El niño juega en el jardín."},
+        {"id": "s-4", "type": "sentence", "text": "Die Lehrer sind nett.", "audioText": "Die Lehrer sind nett.", "translation": "The teachers are nice. / Los profesores son simpáticos.", "hint": "'die Lehrer' is plural here — same word as singular, but article 'die' and plural verb 'sind' make it clear."},
+        {"id": "s-5", "type": "sentence", "text": "Eine Frau und ein Mann gehen ins Café.", "audioText": "Eine Frau und ein Mann gehen ins Café.", "translation": "A woman and a man go to the café. / Una mujer y un hombre van al café."}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

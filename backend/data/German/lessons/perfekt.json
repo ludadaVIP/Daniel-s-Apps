@@ -1,0 +1,98 @@
+{
+  "id": "perfekt",
+  "title": "L09 · Perfect Tense (Perfekt)",
+  "phase": "Phase 3 — A2 Expansion",
+  "level": "A2",
+  "estimatedMinutes": 30,
+  "objective": "Talk about what you did. German uses the PERFEKT (haben/sein + past participle) for almost all spoken past, even where English would use a simple past. Master the structure and the irregular participles for 30 high-frequency verbs.",
+  "strategy": "Three pieces to learn: (1) Which helper verb to use — haben (most verbs) or sein (motion/state-change verbs). (2) How to build the past participle (ge-stem-t for regular, ge-stem-en for irregular). (3) Word order: helper at slot 2, participle at the END.",
+  "sections": [
+    {
+      "id": "perfekt-structure",
+      "title": "The structure",
+      "note": "Always two parts: a helper verb (haben/sein) + a past participle. Helper at position 2, participle at the very end.",
+      "blocks": [
+        {"id": "rule-shape", "type": "rule", "text": "Subject + haben/sein (slot 2) + ... + Partizip II (end)", "audioText": "Ich habe Deutsch gelernt. Wir sind nach Berlin gefahren.", "rule": "The 'Klammer' (bracket) construction: helper at slot 2, main verb's participle at the END.", "examples": [
+          {"text": "Ich habe gestern Deutsch gelernt.", "audioText": "Ich habe gestern Deutsch gelernt.", "translation": "I learned German yesterday. / Aprendí alemán ayer."},
+          {"text": "Wir sind nach Berlin gefahren.", "audioText": "Wir sind nach Berlin gefahren.", "translation": "We went to Berlin. / Fuimos a Berlín."},
+          {"text": "Was hast du am Wochenende gemacht?", "audioText": "Was hast du am Wochenende gemacht?", "translation": "What did you do on the weekend? / ¿Qué hiciste el fin de semana?"}
+        ]}
+      ]
+    },
+    {
+      "id": "haben-or-sein",
+      "title": "haben or sein? — the helper choice",
+      "note": "Most verbs use HABEN. Use SEIN with verbs of MOTION (gehen, fahren, kommen, fliegen) or STATE CHANGE (aufstehen, einschlafen, sterben, werden, bleiben).",
+      "blocks": [
+        {"id": "rule-haben", "type": "rule", "text": "Default: haben", "audioText": "Ich habe gegessen. Du hast gelernt. Er hat gearbeitet.", "rule": "About 90% of verbs take 'haben'. If you're unsure, guess haben.", "examples": [
+          {"text": "Ich habe gegessen.", "audioText": "Ich habe gegessen.", "translation": "I have eaten. / He comido."},
+          {"text": "Du hast Deutsch gelernt.", "audioText": "Du hast Deutsch gelernt.", "translation": "You learned German. / Aprendiste alemán."},
+          {"text": "Er hat gearbeitet.", "audioText": "Er hat gearbeitet.", "translation": "He has worked. / Ha trabajado."}
+        ]},
+        {"id": "rule-sein-motion", "type": "rule", "text": "sein: verbs of motion (you move from A to B)", "audioText": "Ich bin gegangen. Wir sind gefahren. Sie ist geflogen.", "rule": "If the verb describes movement from one place to another, use SEIN.", "examples": [
+          {"text": "Ich bin gegangen.", "audioText": "Ich bin gegangen.", "translation": "I went / I walked. / Fui, caminé."},
+          {"text": "Wir sind nach Italien gefahren.", "audioText": "Wir sind nach Italien gefahren.", "translation": "We drove to Italy. / Condujimos a Italia."},
+          {"text": "Sie ist nach Madrid geflogen.", "audioText": "Sie ist nach Madrid geflogen.", "translation": "She flew to Madrid. / Ella voló a Madrid."},
+          {"text": "Ich bin um sieben Uhr aufgestanden.", "audioText": "Ich bin um sieben Uhr aufgestanden.", "translation": "I got up at seven. / Me levanté a las siete."}
+        ]},
+        {"id": "rule-sein-state", "type": "rule", "text": "sein: a few special verbs", "audioText": "Ich bin geblieben. Ich bin gewesen. Er ist geworden.", "rule": "Always-sein outliers to memorise: BLEIBEN (to stay), SEIN itself (gewesen — to have been), WERDEN (to become), PASSIEREN (to happen).", "examples": [
+          {"text": "Ich bin zu Hause geblieben.", "audioText": "Ich bin zu Hause geblieben.", "translation": "I stayed at home. / Me quedé en casa."},
+          {"text": "Ich bin in Berlin gewesen.", "audioText": "Ich bin in Berlin gewesen.", "translation": "I have been in Berlin. / He estado en Berlín."},
+          {"text": "Er ist Lehrer geworden.", "audioText": "Er ist Lehrer geworden.", "translation": "He became a teacher. / Se convirtió en profesor."},
+          {"text": "Was ist passiert?", "audioText": "Was ist passiert?", "translation": "What happened? / ¿Qué pasó?"}
+        ]}
+      ]
+    },
+    {
+      "id": "regular-participles",
+      "title": "Regular past participles: ge-_stem_-t",
+      "note": "Take the stem (infinitive minus -en), add 'ge-' at the front and '-t' at the end. Works for ~70% of verbs.",
+      "blocks": [
+        {"id": "rule-regular", "type": "rule", "text": "Pattern: ge + stem + t", "audioText": "machen → gemacht, spielen → gespielt, lernen → gelernt, kaufen → gekauft", "rule": "machen → gemacht. spielen → gespielt. arbeiten → gearbeitet (insert 'e' if stem ends in -t/-d for pronounceability)."},
+        {"id": "pp-machen", "type": "verb", "text": "machen → gemacht", "audioText": "Ich habe das gemacht.", "translation": "to do, to make / hacer", "example": {"text": "Was hast du gestern gemacht?", "audioText": "Was hast du gestern gemacht?", "translation": "What did you do yesterday? / ¿Qué hiciste ayer?"}},
+        {"id": "pp-spielen", "type": "verb", "text": "spielen → gespielt", "audioText": "Wir haben Fußball gespielt.", "translation": "to play / jugar", "example": {"text": "Wir haben Fußball gespielt.", "audioText": "Wir haben Fußball gespielt.", "translation": "We played football. / Jugamos al fútbol."}},
+        {"id": "pp-lernen", "type": "verb", "text": "lernen → gelernt", "audioText": "Ich habe Deutsch gelernt.", "translation": "to learn / aprender", "example": {"text": "Ich habe drei Jahre Deutsch gelernt.", "audioText": "Ich habe drei Jahre Deutsch gelernt.", "translation": "I studied German for three years. / Aprendí alemán durante tres años."}},
+        {"id": "pp-kaufen", "type": "verb", "text": "kaufen → gekauft", "audioText": "Er hat ein Auto gekauft.", "translation": "to buy / comprar", "example": {"text": "Er hat ein Auto gekauft.", "audioText": "Er hat ein Auto gekauft.", "translation": "He bought a car. / Compró un coche."}},
+        {"id": "pp-arbeiten", "type": "verb", "text": "arbeiten → gearbeitet", "audioText": "Sie hat viel gearbeitet.", "translation": "to work / trabajar", "rule": "Stem 'arbeit-' ends in -t, so insert 'e' before the -t: gearbeitET.", "example": {"text": "Sie hat heute viel gearbeitet.", "audioText": "Sie hat heute viel gearbeitet.", "translation": "She worked a lot today. / Ella trabajó mucho hoy."}}
+      ]
+    },
+    {
+      "id": "irregular-participles",
+      "title": "Irregular past participles: ge-_stem_-en (with vowel changes)",
+      "note": "These you MUST memorise. ~200 verbs in German are irregular; here are the 12 most common.",
+      "blocks": [
+        {"id": "ip-sein", "type": "verb", "text": "sein → gewesen", "audioText": "Ich bin in Berlin gewesen.", "translation": "to be / ser, estar", "example": {"text": "Ich bin schon mal in Berlin gewesen.", "audioText": "Ich bin schon mal in Berlin gewesen.", "translation": "I've been to Berlin before. / Ya he estado en Berlín antes."}},
+        {"id": "ip-haben", "type": "verb", "text": "haben → gehabt", "audioText": "Ich habe Glück gehabt.", "translation": "to have / tener", "example": {"text": "Ich habe Glück gehabt.", "audioText": "Ich habe Glück gehabt.", "translation": "I was lucky. (lit. I had luck.) / Tuve suerte."}},
+        {"id": "ip-essen", "type": "verb", "text": "essen → gegessen", "audioText": "Ich habe Pizza gegessen.", "translation": "to eat / comer", "rule": "Watch the double-g: 'gegessen' (not 'geesst').", "example": {"text": "Ich habe Pizza gegessen.", "audioText": "Ich habe Pizza gegessen.", "translation": "I ate pizza. / Comí pizza."}},
+        {"id": "ip-trinken", "type": "verb", "text": "trinken → getrunken", "audioText": "Wir haben Wasser getrunken.", "translation": "to drink / beber", "example": {"text": "Wir haben viel Wasser getrunken.", "audioText": "Wir haben viel Wasser getrunken.", "translation": "We drank a lot of water. / Bebimos mucha agua."}},
+        {"id": "ip-gehen", "type": "verb", "text": "gehen → gegangen (SEIN)", "audioText": "Ich bin nach Hause gegangen.", "translation": "to go / ir, caminar", "example": {"text": "Ich bin nach Hause gegangen.", "audioText": "Ich bin nach Hause gegangen.", "translation": "I went home. / Fui a casa."}},
+        {"id": "ip-fahren", "type": "verb", "text": "fahren → gefahren (SEIN)", "audioText": "Sie ist nach München gefahren.", "translation": "to drive, to go (by vehicle) / ir en vehículo", "example": {"text": "Sie ist mit dem Zug gefahren.", "audioText": "Sie ist mit dem Zug gefahren.", "translation": "She went by train. / Ella fue en tren."}},
+        {"id": "ip-kommen", "type": "verb", "text": "kommen → gekommen (SEIN)", "audioText": "Du bist spät gekommen.", "translation": "to come / venir", "example": {"text": "Du bist heute spät gekommen.", "audioText": "Du bist heute spät gekommen.", "translation": "You came late today. / Llegaste tarde hoy."}},
+        {"id": "ip-sehen", "type": "verb", "text": "sehen → gesehen", "audioText": "Ich habe einen Film gesehen.", "translation": "to see / ver", "example": {"text": "Ich habe einen tollen Film gesehen.", "audioText": "Ich habe einen tollen Film gesehen.", "translation": "I saw a great film. / Vi una película genial."}},
+        {"id": "ip-sprechen", "type": "verb", "text": "sprechen → gesprochen", "audioText": "Wir haben Deutsch gesprochen.", "translation": "to speak / hablar", "example": {"text": "Wir haben den ganzen Tag Deutsch gesprochen.", "audioText": "Wir haben den ganzen Tag Deutsch gesprochen.", "translation": "We spoke German all day. / Hablamos alemán todo el día."}},
+        {"id": "ip-lesen", "type": "verb", "text": "lesen → gelesen", "audioText": "Ich habe das Buch gelesen.", "translation": "to read / leer", "example": {"text": "Ich habe das Buch zu Ende gelesen.", "audioText": "Ich habe das Buch zu Ende gelesen.", "translation": "I finished the book. / Terminé el libro."}},
+        {"id": "ip-schreiben", "type": "verb", "text": "schreiben → geschrieben", "audioText": "Er hat eine E-Mail geschrieben.", "translation": "to write / escribir", "example": {"text": "Er hat eine E-Mail an seine Mutter geschrieben.", "audioText": "Er hat eine E-Mail an seine Mutter geschrieben.", "translation": "He wrote an email to his mother. / Le escribió un correo a su madre."}},
+        {"id": "ip-finden", "type": "verb", "text": "finden → gefunden", "audioText": "Hast du den Schlüssel gefunden?", "translation": "to find / encontrar", "example": {"text": "Hast du den Schlüssel gefunden?", "audioText": "Hast du den Schlüssel gefunden?", "translation": "Did you find the key? / ¿Encontraste la llave?"}}
+      ]
+    },
+    {
+      "id": "separable-perfekt",
+      "title": "Separable verbs in Perfekt: 'ge' goes IN THE MIDDLE",
+      "note": "For verbs like aufstehen, anrufen, einkaufen — the 'ge' is sandwiched between the prefix and the participle stem.",
+      "blocks": [
+        {"id": "rule-sep", "type": "rule", "text": "Separable: prefix + GE + stem + t/en", "audioText": "aufstehen → aufgestanden; anrufen → angerufen; einkaufen → eingekauft", "rule": "Insert 'ge' between the separable prefix (auf-, an-, ein-, mit-) and the rest of the participle.", "examples": [
+          {"text": "Ich bin um sechs aufgestanden.", "audioText": "Ich bin um sechs aufgestanden.", "translation": "I got up at six. / Me levanté a las seis."},
+          {"text": "Ich habe meine Mutter angerufen.", "audioText": "Ich habe meine Mutter angerufen.", "translation": "I called my mother. / Llamé a mi madre."},
+          {"text": "Wir haben im Supermarkt eingekauft.", "audioText": "Wir haben im Supermarkt eingekauft.", "translation": "We did the shopping at the supermarket. / Hicimos la compra en el supermercado."}
+        ]},
+        {"id": "rule-no-ge", "type": "rule", "text": "Verbs starting with be-, ver-, ent-, er-, ge-, zer- get NO 'ge' prefix", "audioText": "bekommen → bekommen; verstehen → verstanden; erzählen → erzählt", "rule": "These 'inseparable' prefixes mean the participle has NO extra 'ge'. Verbs ending in -ieren also skip 'ge': studieren → studiert, telefonieren → telefoniert.", "examples": [
+          {"text": "Ich habe ein Geschenk bekommen.", "audioText": "Ich habe ein Geschenk bekommen.", "translation": "I got a gift. / Recibí un regalo."},
+          {"text": "Hast du das verstanden?", "audioText": "Hast du das verstanden?", "translation": "Did you understand? / ¿Lo entendiste?"},
+          {"text": "Sie hat eine Geschichte erzählt.", "audioText": "Sie hat eine Geschichte erzählt.", "translation": "She told a story. / Ella contó una historia."},
+          {"text": "Ich habe in Berlin studiert.", "audioText": "Ich habe in Berlin studiert.", "translation": "I studied in Berlin. / Estudié en Berlín."}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

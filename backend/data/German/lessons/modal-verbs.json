@@ -1,0 +1,76 @@
+{
+  "id": "modal-verbs",
+  "title": "L07 · Modal Verbs",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 25,
+  "objective": "Master the six modal verbs (können, wollen, müssen, sollen, dürfen, mögen) and the unique word-order rule they trigger: the SECOND verb goes to the END of the sentence in infinitive form.",
+  "strategy": "Modal verbs are slightly irregular but follow a clean pattern: ich and er/sie/es have the SAME form. Learn that quirk first, then drill each verb's stem-vowel change. The word-order pattern (modal in slot 2, infinitive at end) is identical for all six.",
+  "sections": [
+    {
+      "id": "modal-pattern",
+      "title": "The shared pattern of all six modals",
+      "note": "Three things are true for every modal verb. Internalise these once and they apply to all six.",
+      "blocks": [
+        {"id": "rule-1-ich-er", "type": "rule", "text": "1. ich and er/sie/es have NO ending (and they're identical)", "audioText": "ich kann, er kann; ich muss, er muss; ich will, er will", "rule": "Unlike regular verbs (ich -e, er -t), modal verbs have ZERO ending in ich and er/sie/es — and the two forms are the same."},
+        {"id": "rule-2-stem-change", "type": "rule", "text": "2. The stem vowel often changes in singular forms (ich, du, er)", "audioText": "können → ich kann; wollen → ich will; müssen → ich muss", "rule": "können→kann, wollen→will, müssen→muss, dürfen→darf, mögen→mag. Only 'sollen' keeps its 'o' (ich soll). Plural forms (wir, ihr, sie) keep the infinitive stem."},
+        {"id": "rule-3-v2-infinitive", "type": "rule", "text": "3. Modal sits at position 2 (V2 rule), the OTHER verb goes to the END in infinitive form", "audioText": "Ich kann Deutsch sprechen. Wir müssen morgen arbeiten.", "rule": "Two-verb structure: modal (conjugated, position 2) ... main verb (infinitive, sentence-final). This is the 'Klammer' (bracket) — verbs at both ends, everything else in between.", "examples": [
+          {"text": "Ich kann Deutsch sprechen.", "audioText": "Ich kann Deutsch sprechen.", "translation": "I can speak German. / Puedo hablar alemán."},
+          {"text": "Wir müssen morgen arbeiten.", "audioText": "Wir müssen morgen arbeiten.", "translation": "We have to work tomorrow. / Tenemos que trabajar mañana."},
+          {"text": "Er will ein Buch lesen.", "audioText": "Er will ein Buch lesen.", "translation": "He wants to read a book. / Él quiere leer un libro."}
+        ]}
+      ]
+    },
+    {
+      "id": "the-six-modals",
+      "title": "The six modal verbs",
+      "note": "Drill each conjugation table. The examples show what kind of meaning each modal carries.",
+      "blocks": [
+        {"id": "m-konnen", "type": "verb", "text": "können — to be able to, can", "audioText": "können, ich kann, du kannst, er kann", "translation": "to be able to, can / poder, saber hacer algo", "rule": "Stem: kann- (singular), könn- (plural). Also expresses skills: 'Ich kann Deutsch' = I know German.", "conjugation": {"ich": "kann", "du": "kannst", "er": "kann", "wir": "können", "ihr": "könnt", "sie": "können"}, "examples": [
+          {"text": "Ich kann schwimmen.", "audioText": "Ich kann schwimmen.", "translation": "I can swim. / Sé nadar."},
+          {"text": "Kannst du mir helfen?", "audioText": "Kannst du mir helfen?", "translation": "Can you help me? / ¿Puedes ayudarme?"},
+          {"text": "Sie können kommen.", "audioText": "Sie können kommen.", "translation": "They/You(formal) can come. / Pueden venir."}
+        ]},
+        {"id": "m-wollen", "type": "verb", "text": "wollen — to want", "audioText": "wollen, ich will, du willst, er will", "translation": "to want / querer", "rule": "Stem: will- (singular!), woll- (plural). Note: 'ich will' = I WANT, NOT 'I will' (which is 'ich werde').", "conjugation": {"ich": "will", "du": "willst", "er": "will", "wir": "wollen", "ihr": "wollt", "sie": "wollen"}, "examples": [
+          {"text": "Ich will Deutsch lernen.", "audioText": "Ich will Deutsch lernen.", "translation": "I want to learn German. / Quiero aprender alemán."},
+          {"text": "Was willst du essen?", "audioText": "Was willst du essen?", "translation": "What do you want to eat? / ¿Qué quieres comer?"},
+          {"text": "Wir wollen nach Hause gehen.", "audioText": "Wir wollen nach Hause gehen.", "translation": "We want to go home. / Queremos ir a casa."}
+        ]},
+        {"id": "m-mussen", "type": "verb", "text": "müssen — to have to, must", "audioText": "müssen, ich muss, du musst, er muss", "translation": "to have to, must / tener que, deber", "rule": "Stem: muss- (singular), müss- (plural with Umlaut). Expresses obligation or strong necessity.", "conjugation": {"ich": "muss", "du": "musst", "er": "muss", "wir": "müssen", "ihr": "müsst", "sie": "müssen"}, "examples": [
+          {"text": "Ich muss jetzt gehen.", "audioText": "Ich muss jetzt gehen.", "translation": "I have to go now. / Tengo que irme ahora."},
+          {"text": "Du musst Wasser trinken.", "audioText": "Du musst Wasser trinken.", "translation": "You have to drink water. / Tienes que beber agua."},
+          {"text": "Wir müssen warten.", "audioText": "Wir müssen warten.", "translation": "We have to wait. / Tenemos que esperar."}
+        ]},
+        {"id": "m-sollen", "type": "verb", "text": "sollen — should, supposed to", "audioText": "sollen, ich soll, du sollst, er soll", "translation": "should, ought to / deber, se supone que", "rule": "The only modal that DOESN'T change its stem vowel. Conveys someone else's expectation or moral duty.", "conjugation": {"ich": "soll", "du": "sollst", "er": "soll", "wir": "sollen", "ihr": "sollt", "sie": "sollen"}, "examples": [
+          {"text": "Du sollst nicht rauchen.", "audioText": "Du sollst nicht rauchen.", "translation": "You shouldn't smoke. / No deberías fumar."},
+          {"text": "Was soll ich machen?", "audioText": "Was soll ich machen?", "translation": "What should I do? / ¿Qué debo hacer?"},
+          {"text": "Er soll krank sein.", "audioText": "Er soll krank sein.", "translation": "He is supposed to be ill. (someone said so) / Dicen que está enfermo."}
+        ]},
+        {"id": "m-durfen", "type": "verb", "text": "dürfen — to be allowed to, may", "audioText": "dürfen, ich darf, du darfst, er darf", "translation": "to be allowed to, may / poder (con permiso)", "rule": "Stem: darf- (singular), dürf- (plural). Use this when asking for or giving permission — NOT for ability.", "conjugation": {"ich": "darf", "du": "darfst", "er": "darf", "wir": "dürfen", "ihr": "dürft", "sie": "dürfen"}, "examples": [
+          {"text": "Darf ich hier sitzen?", "audioText": "Darf ich hier sitzen?", "translation": "May I sit here? / ¿Puedo sentarme aquí?"},
+          {"text": "Kinder dürfen nicht rauchen.", "audioText": "Kinder dürfen nicht rauchen.", "translation": "Children are not allowed to smoke. / Los niños no pueden fumar."},
+          {"text": "Du darfst gehen.", "audioText": "Du darfst gehen.", "translation": "You may go. / Puedes irte."}
+        ]},
+        {"id": "m-mogen", "type": "verb", "text": "mögen — to like (often used as 'möchten' for polite wishes)", "audioText": "mögen, ich mag, du magst, er mag; ich möchte, ich möchte einen Kaffee", "translation": "to like / gustar; möchten = would like / querer (cortés)", "rule": "Two uses: (1) 'mögen' = to like (usually with a noun, NO infinitive): 'Ich mag Schokolade'. (2) 'möchten' is a polite conditional form used as a verb in its own right: 'Ich möchte einen Kaffee' = I'd like a coffee. Memorise both — möchten is what you'll say constantly.", "conjugation": {"ich": "mag", "du": "magst", "er": "mag", "wir": "mögen", "ihr": "mögt", "sie": "mögen"}, "examples": [
+          {"text": "Ich mag Kaffee.", "audioText": "Ich mag Kaffee.", "translation": "I like coffee. / Me gusta el café."},
+          {"text": "Magst du Schokolade?", "audioText": "Magst du Schokolade?", "translation": "Do you like chocolate? / ¿Te gusta el chocolate?"},
+          {"text": "Ich möchte einen Kaffee, bitte.", "audioText": "Ich möchte einen Kaffee, bitte.", "translation": "I'd like a coffee, please. / Querría un café, por favor.", "ipa": "möchten table: ich möchte, du möchtest, er möchte, wir möchten, ihr möchtet, sie möchten"},
+          {"text": "Was möchten Sie trinken?", "audioText": "Was möchten Sie trinken?", "translation": "What would you like to drink? (formal) / ¿Qué desea beber?"}
+        ]}
+      ]
+    },
+    {
+      "id": "modal-questions",
+      "title": "Modal verbs in questions and negation",
+      "note": "Same V2 / verb-final pattern. For yes/no questions, the modal goes to position 1.",
+      "blocks": [
+        {"id": "s-q1", "type": "sentence", "text": "Kannst du Deutsch sprechen?", "audioText": "Kannst du Deutsch sprechen?", "translation": "Can you speak German? / ¿Puedes hablar alemán?", "hint": "Modal first, infinitive at end."},
+        {"id": "s-q2", "type": "sentence", "text": "Musst du heute arbeiten?", "audioText": "Musst du heute arbeiten?", "translation": "Do you have to work today? / ¿Tienes que trabajar hoy?"},
+        {"id": "s-q3", "type": "sentence", "text": "Wollen wir ins Kino gehen?", "audioText": "Wollen wir ins Kino gehen?", "translation": "Shall we go to the cinema? / ¿Vamos al cine?", "hint": "'Wollen wir...?' is the standard 'Shall we...?' suggestion."},
+        {"id": "s-neg1", "type": "sentence", "text": "Ich kann nicht kommen.", "audioText": "Ich kann nicht kommen.", "translation": "I can't come. / No puedo venir.", "hint": "'nicht' usually goes right before the final infinitive."},
+        {"id": "s-neg2", "type": "sentence", "text": "Du darfst hier nicht parken.", "audioText": "Du darfst hier nicht parken.", "translation": "You are not allowed to park here. / No puedes aparcar aquí."}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

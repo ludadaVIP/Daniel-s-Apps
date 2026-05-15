@@ -1,0 +1,82 @@
+{
+  "id": "greetings",
+  "title": "L03 · Greetings & Verbs sein/haben/heißen",
+  "phase": "Phase 2 — A1 Core",
+  "level": "A1",
+  "estimatedMinutes": 25,
+  "objective": "Greet someone, say where you're from, introduce yourself. Memorise the three highest-frequency verbs in German: sein (to be), haben (to have), heißen (to be called).",
+  "strategy": "These three verbs are irregular and appear in 80% of beginner sentences. Drill the conjugation table by tapping each row, then run 'Play section' for the example dialogues.",
+  "sections": [
+    {
+      "id": "greetings-pack",
+      "title": "Everyday greetings",
+      "note": "Memorise the formal vs informal split: 'Hallo' / 'Tschüss' are informal; 'Guten Tag' / 'Auf Wiedersehen' are neutral-formal.",
+      "blocks": [
+        {"id": "g-hallo", "type": "phrase", "text": "Hallo!", "audioText": "Hallo!", "ipa": "/haˈloː/", "translation": "Hi! / ¡Hola!", "hint": "Casual, any time of day."},
+        {"id": "g-guten-tag", "type": "phrase", "text": "Guten Tag!", "audioText": "Guten Tag!", "ipa": "/ˈɡuːtən ˈtaːk/", "translation": "Good day! / ¡Buenos días! (formal)", "hint": "Standard polite greeting, used from late morning to evening."},
+        {"id": "g-guten-morgen", "type": "phrase", "text": "Guten Morgen!", "audioText": "Guten Morgen!", "ipa": "/ˈɡuːtən ˈmɔʁɡən/", "translation": "Good morning! / ¡Buenos días!", "hint": "Before about 10 AM."},
+        {"id": "g-guten-abend", "type": "phrase", "text": "Guten Abend!", "audioText": "Guten Abend!", "ipa": "/ˈɡuːtən ˈaːbənt/", "translation": "Good evening! / ¡Buenas noches!"},
+        {"id": "g-gute-nacht", "type": "phrase", "text": "Gute Nacht!", "audioText": "Gute Nacht!", "ipa": "/ˈɡuːtə naxt/", "translation": "Good night! / ¡Buenas noches! (al irse a dormir)"},
+        {"id": "g-tschuss", "type": "phrase", "text": "Tschüss!", "audioText": "Tschüss!", "ipa": "/t͡ʃʏs/", "translation": "Bye! / ¡Chau! (informal)"},
+        {"id": "g-auf-wiedersehen", "type": "phrase", "text": "Auf Wiedersehen!", "audioText": "Auf Wiedersehen!", "ipa": "/aʊ̯f ˈviːdɐzeːən/", "translation": "Goodbye! / ¡Hasta la vista! (formal)"},
+        {"id": "g-bitte", "type": "phrase", "text": "Bitte.", "audioText": "Bitte.", "ipa": "/ˈbɪtə/", "translation": "Please. / Also: you're welcome. / Por favor. / De nada.", "hint": "Multipurpose: please, you're welcome, here you go, pardon?"},
+        {"id": "g-danke", "type": "phrase", "text": "Danke.", "audioText": "Danke.", "ipa": "/ˈdaŋkə/", "translation": "Thanks. / Gracias."},
+        {"id": "g-entschuldigung", "type": "phrase", "text": "Entschuldigung.", "audioText": "Entschuldigung.", "ipa": "/ɛntˈʃʊldɪɡʊŋ/", "translation": "Excuse me / Sorry. / Perdón."}
+      ]
+    },
+    {
+      "id": "verb-sein",
+      "title": "sein — 'to be' (the most important verb)",
+      "note": "Completely irregular. Memorise this table — you'll use it constantly.",
+      "blocks": [
+        {"id": "v-sein", "type": "verb", "text": "sein", "audioText": "sein", "ipa": "/zaɪ̯n/", "translation": "to be / ser, estar", "rule": "Irregular: ich BIN, du BIST, er IST, wir SIND, ihr SEID, sie SIND. There is no pattern — just memorise it.", "conjugation": {"ich": "bin", "du": "bist", "er": "ist", "wir": "sind", "ihr": "seid", "sie": "sind"}, "examples": [
+          {"text": "Ich bin Daniel.", "audioText": "Ich bin Daniel.", "translation": "I am Daniel. / Soy Daniel."},
+          {"text": "Du bist nett.", "audioText": "Du bist nett.", "translation": "You are nice. / Eres simpático."},
+          {"text": "Er ist Lehrer.", "audioText": "Er ist Lehrer.", "translation": "He is a teacher. / Él es profesor."},
+          {"text": "Wir sind Studenten.", "audioText": "Wir sind Studenten.", "translation": "We are students. / Somos estudiantes."},
+          {"text": "Sie sind aus Deutschland.", "audioText": "Sie sind aus Deutschland.", "translation": "They are from Germany. / Son de Alemania."}
+        ]}
+      ]
+    },
+    {
+      "id": "verb-haben",
+      "title": "haben — 'to have'",
+      "note": "Also irregular. After sein, this is the #2 verb you'll use.",
+      "blocks": [
+        {"id": "v-haben", "type": "verb", "text": "haben", "audioText": "haben", "ipa": "/ˈhaːbən/", "translation": "to have / tener", "rule": "Irregular for du/er forms: du HAST, er HAT (loses the 'b'). The rest is regular.", "conjugation": {"ich": "habe", "du": "hast", "er": "hat", "wir": "haben", "ihr": "habt", "sie": "haben"}, "examples": [
+          {"text": "Ich habe Zeit.", "audioText": "Ich habe Zeit.", "translation": "I have time. / Tengo tiempo."},
+          {"text": "Hast du Hunger?", "audioText": "Hast du Hunger?", "translation": "Are you hungry? (lit. Do you have hunger?) / ¿Tienes hambre?"},
+          {"text": "Er hat ein Auto.", "audioText": "Er hat ein Auto.", "translation": "He has a car. / Él tiene un coche."},
+          {"text": "Wir haben einen Hund.", "audioText": "Wir haben einen Hund.", "translation": "We have a dog. / Tenemos un perro."},
+          {"text": "Sie haben drei Kinder.", "audioText": "Sie haben drei Kinder.", "translation": "They have three children. / Tienen tres hijos."}
+        ]}
+      ]
+    },
+    {
+      "id": "verb-heissen",
+      "title": "heißen — 'to be called'",
+      "note": "Used in nearly every introduction. Notice the 'ß'.",
+      "blocks": [
+        {"id": "v-heissen", "type": "verb", "text": "heißen", "audioText": "heißen", "ipa": "/ˈhaɪ̯sən/", "translation": "to be called / llamarse", "rule": "Regular except: stem ends in -ß, so the du form is 'heißt' (NOT 'heißst' — the ß already implies an s-sound).", "conjugation": {"ich": "heiße", "du": "heißt", "er": "heißt", "wir": "heißen", "ihr": "heißt", "sie": "heißen"}, "examples": [
+          {"text": "Ich heiße Anna.", "audioText": "Ich heiße Anna.", "translation": "I'm called Anna. / Me llamo Anna."},
+          {"text": "Wie heißt du?", "audioText": "Wie heißt du?", "translation": "What's your name? / ¿Cómo te llamas?"},
+          {"text": "Er heißt Markus.", "audioText": "Er heißt Markus.", "translation": "His name is Markus. / Él se llama Markus."}
+        ]}
+      ]
+    },
+    {
+      "id": "intro-dialogue",
+      "title": "A full introduction",
+      "note": "Listen to the whole dialogue first ('Play section'), then read along.",
+      "blocks": [
+        {"id": "d-1", "type": "sentence", "text": "Hallo! Ich heiße Lukas. Wie heißt du?", "audioText": "Hallo! Ich heiße Lukas. Wie heißt du?", "translation": "Hi! I'm Lukas. What's your name? / ¡Hola! Me llamo Lukas. ¿Cómo te llamas?"},
+        {"id": "d-2", "type": "sentence", "text": "Ich heiße Maria. Woher kommst du?", "audioText": "Ich heiße Maria. Woher kommst du?", "translation": "I'm Maria. Where are you from? / Me llamo María. ¿De dónde eres?"},
+        {"id": "d-3", "type": "sentence", "text": "Ich komme aus Spanien. Ich wohne jetzt in Berlin.", "audioText": "Ich komme aus Spanien. Ich wohne jetzt in Berlin.", "translation": "I'm from Spain. I live in Berlin now. / Soy de España. Ahora vivo en Berlín."},
+        {"id": "d-4", "type": "sentence", "text": "Schön, dich kennenzulernen!", "audioText": "Schön, dich kennenzulernen!", "translation": "Nice to meet you! / ¡Encantado de conocerte!"},
+        {"id": "d-5", "type": "sentence", "text": "Wie alt bist du?", "audioText": "Wie alt bist du?", "translation": "How old are you? / ¿Cuántos años tienes?", "hint": "German uses sein (to be) for age, not haben — 'Ich bin 25 Jahre alt.'"},
+        {"id": "d-6", "type": "sentence", "text": "Ich bin dreißig Jahre alt.", "audioText": "Ich bin dreißig Jahre alt.", "translation": "I am thirty years old. / Tengo treinta años."}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}

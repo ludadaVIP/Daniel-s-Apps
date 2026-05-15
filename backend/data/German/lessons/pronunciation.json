@@ -1,0 +1,124 @@
+{
+  "id": "pronunciation",
+  "title": "L02 · Sound Combinations",
+  "phase": "Phase 1 — Sounds & Alphabet",
+  "level": "A0",
+  "estimatedMinutes": 20,
+  "objective": "Master the letter combinations that trip up English/Spanish speakers: ch, sch, sp-, st-, ie vs ei, eu vs äu, final -e, and word stress.",
+  "strategy": "Work top to bottom. For each rule, listen to the rule audio, then run 'Play section' on the examples. If you mix up 'ie' and 'ei', come back to that section — it's the #1 reading mistake.",
+  "sections": [
+    {
+      "id": "ch-sounds",
+      "title": "The two CH sounds",
+      "note": "CH is the most distinctive German sound. It has TWO variants depending on what comes before it.",
+      "blocks": [
+        {"id": "rule-ch-soft", "type": "rule", "text": "ch after i, e, ä, ö, ü, ei, eu, äu, or a consonant → soft /ç/", "audioText": "ich, mich, Bücher, Milch", "hint": "Like a 'hiss' you make trying to clear a feather from your tongue. Spanish: NO existe — practica suavemente como un susurro.", "rule": "Soft CH (Ich-Laut): place your tongue near the roof of your mouth and let air pass with friction.", "examples": [
+          {"text": "ich", "audioText": "ich", "ipa": "/ɪç/", "translation": "I / yo"},
+          {"text": "mich", "audioText": "mich", "ipa": "/mɪç/", "translation": "me (acc.) / me"},
+          {"text": "Bücher", "audioText": "Bücher", "ipa": "/ˈbyːçɐ/", "translation": "books / libros"},
+          {"text": "Milch", "audioText": "Milch", "ipa": "/mɪlç/", "translation": "milk / leche"},
+          {"text": "vielleicht", "audioText": "vielleicht", "ipa": "/fiˈlaɪ̯çt/", "translation": "maybe / quizás"}
+        ]},
+        {"id": "rule-ch-hard", "type": "rule", "text": "ch after a, o, u, au → hard /x/", "audioText": "Bach, Buch, Loch, auch", "hint": "Like Scottish 'loch' or Spanish 'jota' (j en 'jota'). Made at the back of the throat.", "rule": "Hard CH (Ach-Laut): identical to Spanish 'j' or the sound at the end of Scottish 'loch'.", "examples": [
+          {"text": "Bach", "audioText": "Bach", "ipa": "/bax/", "translation": "stream / arroyo"},
+          {"text": "Buch", "audioText": "Buch", "ipa": "/buːx/", "translation": "book / libro"},
+          {"text": "Loch", "audioText": "Loch", "ipa": "/lɔx/", "translation": "hole / agujero"},
+          {"text": "auch", "audioText": "auch", "ipa": "/aʊ̯x/", "translation": "also / también"},
+          {"text": "Nacht", "audioText": "Nacht", "ipa": "/naxt/", "translation": "night / noche"}
+        ]}
+      ]
+    },
+    {
+      "id": "sch-sp-st",
+      "title": "SCH, SP-, ST-",
+      "note": "Three combinations that all sound like English 'sh' (or sh+p, sh+t).",
+      "blocks": [
+        {"id": "rule-sch", "type": "rule", "text": "sch → /ʃ/, like English 'sh'", "audioText": "Schule, schön, Tasche", "rule": "SCH is the closest match to English 'sh' or Spanish 'sh' in 'show' (loanword).", "examples": [
+          {"text": "Schule", "audioText": "Schule", "ipa": "/ˈʃuːlə/", "translation": "school / escuela"},
+          {"text": "schön", "audioText": "schön", "ipa": "/ʃøːn/", "translation": "beautiful / bonito"},
+          {"text": "Tasche", "audioText": "Tasche", "ipa": "/ˈtaʃə/", "translation": "bag / bolso"},
+          {"text": "Fisch", "audioText": "Fisch", "ipa": "/fɪʃ/", "translation": "fish / pez"}
+        ]},
+        {"id": "rule-sp-st", "type": "rule", "text": "sp- and st- at the START of a word → /ʃp/ and /ʃt/", "audioText": "Sport, sprechen, Straße, Student", "rule": "Word-initial 'sp' is read 'shp', and 'st' is read 'sht'. INSIDE a word they stay as /sp/, /st/.", "examples": [
+          {"text": "Sport", "audioText": "Sport", "ipa": "/ʃpɔʁt/", "translation": "sport / deporte"},
+          {"text": "sprechen", "audioText": "sprechen", "ipa": "/ˈʃpʁɛçən/", "translation": "to speak / hablar"},
+          {"text": "Straße", "audioText": "Straße", "ipa": "/ˈʃtʁaːsə/", "translation": "street / calle"},
+          {"text": "Student", "audioText": "Student", "ipa": "/ʃtuˈdɛnt/", "translation": "student / estudiante"},
+          {"text": "Wespe", "audioText": "Wespe", "ipa": "/ˈvɛspə/", "translation": "wasp (NOT shp here — mid-word) / avispa"}
+        ]}
+      ]
+    },
+    {
+      "id": "ie-vs-ei",
+      "title": "ie vs ei — the #1 reading mistake",
+      "note": "Read the SECOND letter, not the first. 'ie' sounds like 'ee'. 'ei' sounds like 'eye'.",
+      "blocks": [
+        {"id": "rule-ie", "type": "rule", "text": "ie → long /iː/, the sound of English 'see'", "audioText": "Liebe, vier, sieben, hier", "rule": "Pronounce the SECOND letter (e). The 'i' just signals that the 'e' is long.", "examples": [
+          {"text": "Liebe", "audioText": "Liebe", "ipa": "/ˈliːbə/", "translation": "love / amor"},
+          {"text": "vier", "audioText": "vier", "ipa": "/fiːɐ̯/", "translation": "four / cuatro"},
+          {"text": "sieben", "audioText": "sieben", "ipa": "/ˈziːbən/", "translation": "seven / siete"},
+          {"text": "hier", "audioText": "hier", "ipa": "/hiːɐ̯/", "translation": "here / aquí"},
+          {"text": "Bier", "audioText": "Bier", "ipa": "/biːɐ̯/", "translation": "beer / cerveza"}
+        ]},
+        {"id": "rule-ei", "type": "rule", "text": "ei → /aɪ̯/, the sound of English 'eye' or 'I'", "audioText": "ein, mein, zwei, nein, Wein", "rule": "Pronounce the SECOND letter (i). Same diphthong as 'ai' or 'ay'.", "examples": [
+          {"text": "ein", "audioText": "ein", "ipa": "/aɪ̯n/", "translation": "a, one / un, una"},
+          {"text": "mein", "audioText": "mein", "ipa": "/maɪ̯n/", "translation": "my / mi"},
+          {"text": "zwei", "audioText": "zwei", "ipa": "/t͡svaɪ̯/", "translation": "two / dos"},
+          {"text": "nein", "audioText": "nein", "ipa": "/naɪ̯n/", "translation": "no / no"},
+          {"text": "Wein", "audioText": "Wein", "ipa": "/vaɪ̯n/", "translation": "wine / vino"}
+        ]},
+        {"id": "pair-test", "type": "sentence", "text": "Wir lieben drei kleine Lieder.", "audioText": "Wir lieben drei kleine Lieder.", "ipa": "/viːɐ̯ ˈliːbən dʁaɪ̯ ˈklaɪ̯nə ˈliːdɐ/", "translation": "We love three little songs. / Amamos tres pequeñas canciones.", "hint": "Mix of ie and ei. Read each pair carefully."}
+      ]
+    },
+    {
+      "id": "eu-au-äu",
+      "title": "eu, au, äu",
+      "note": "Three diphthongs (two vowels glued into one sound).",
+      "blocks": [
+        {"id": "rule-eu", "type": "rule", "text": "eu → /ɔʏ̯/, like English 'oy' in 'boy'", "audioText": "neu, heute, Europa, Freund", "rule": "Don't say 'e-u'. Say 'oy'.", "examples": [
+          {"text": "neu", "audioText": "neu", "ipa": "/nɔʏ̯/", "translation": "new / nuevo"},
+          {"text": "heute", "audioText": "heute", "ipa": "/ˈhɔʏ̯tə/", "translation": "today / hoy"},
+          {"text": "Europa", "audioText": "Europa", "ipa": "/ɔʏ̯ˈʁoːpa/", "translation": "Europe / Europa"},
+          {"text": "Freund", "audioText": "Freund", "ipa": "/fʁɔʏ̯nt/", "translation": "friend / amigo"}
+        ]},
+        {"id": "rule-au", "type": "rule", "text": "au → /aʊ̯/, like English 'ow' in 'how'", "audioText": "Haus, Frau, blau, kaufen", "rule": "Same diphthong as English 'ow' / 'ou'.", "examples": [
+          {"text": "Haus", "audioText": "Haus", "ipa": "/haʊ̯s/", "translation": "house / casa"},
+          {"text": "Frau", "audioText": "Frau", "ipa": "/fʁaʊ̯/", "translation": "woman / mujer"},
+          {"text": "blau", "audioText": "blau", "ipa": "/blaʊ̯/", "translation": "blue / azul"},
+          {"text": "kaufen", "audioText": "kaufen", "ipa": "/ˈkaʊ̯fən/", "translation": "to buy / comprar"}
+        ]},
+        {"id": "rule-äu", "type": "rule", "text": "äu → /ɔʏ̯/, identical to 'eu'", "audioText": "Häuser, läuft, Bäume", "rule": "Looks different but sounds exactly like 'eu' (the 'oy' sound). Often shows up in plurals.", "examples": [
+          {"text": "Häuser", "audioText": "Häuser", "ipa": "/ˈhɔʏ̯zɐ/", "translation": "houses / casas"},
+          {"text": "läuft", "audioText": "läuft", "ipa": "/lɔʏ̯ft/", "translation": "(he/she) runs / corre"},
+          {"text": "Bäume", "audioText": "Bäume", "ipa": "/ˈbɔʏ̯mə/", "translation": "trees / árboles"}
+        ]}
+      ]
+    },
+    {
+      "id": "endings-stress",
+      "title": "Final -e, final consonants, word stress",
+      "note": "Three small rules that make you sound natural.",
+      "blocks": [
+        {"id": "rule-final-e", "type": "rule", "text": "Final -e is pronounced /ə/ (schwa, short and weak)", "audioText": "Liebe, Tasche, Sonne, Klasse", "rule": "The -e at the end is NEVER silent (unlike French) but it's very weak, like the 'a' in English 'sofa'.", "examples": [
+          {"text": "Liebe", "audioText": "Liebe", "ipa": "/ˈliːbə/", "translation": "love / amor"},
+          {"text": "Tasche", "audioText": "Tasche", "ipa": "/ˈtaʃə/", "translation": "bag / bolso"},
+          {"text": "Sonne", "audioText": "Sonne", "ipa": "/ˈzɔnə/", "translation": "sun / sol"},
+          {"text": "Klasse", "audioText": "Klasse", "ipa": "/ˈklasə/", "translation": "class / clase"}
+        ]},
+        {"id": "rule-final-devoicing", "type": "rule", "text": "Final b, d, g become /p, t, k/", "audioText": "Tag, Hund, gelb, Berg", "rule": "Voiced consonants 'devoice' at the end of a word. 'Tag' sounds like 'tahk', 'Hund' like 'hunt'.", "examples": [
+          {"text": "Tag", "audioText": "Tag", "ipa": "/taːk/", "translation": "day / día (final g → k)"},
+          {"text": "Hund", "audioText": "Hund", "ipa": "/hʊnt/", "translation": "dog / perro (final d → t)"},
+          {"text": "gelb", "audioText": "gelb", "ipa": "/ɡɛlp/", "translation": "yellow / amarillo (final b → p)"},
+          {"text": "Berg", "audioText": "Berg", "ipa": "/bɛʁk/", "translation": "mountain / montaña"}
+        ]},
+        {"id": "rule-stress", "type": "rule", "text": "Word stress usually on the FIRST syllable", "audioText": "Lehrer, Apfel, Wasser, lernen, Computer", "rule": "Default stress is on the first syllable. Loanwords (Computer, Hotel, Musik) often keep their original stress.", "examples": [
+          {"text": "Lehrer", "audioText": "Lehrer", "ipa": "/ˈleːʁɐ/", "translation": "teacher / profesor (stress: LEH-rer)"},
+          {"text": "Apfel", "audioText": "Apfel", "ipa": "/ˈapfəl/", "translation": "apple / manzana (stress: APH-fel)"},
+          {"text": "Wasser", "audioText": "Wasser", "ipa": "/ˈvasɐ/", "translation": "water / agua (stress: WAS-ser)"},
+          {"text": "Computer", "audioText": "Computer", "ipa": "/kɔmˈpjuːtɐ/", "translation": "computer / computadora (loan, stress on 'pu')"}
+        ]}
+      ]
+    }
+  ],
+  "completionRule": "auto"
+}
