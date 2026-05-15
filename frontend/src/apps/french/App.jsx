@@ -12,10 +12,14 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
-
-// All API/audio calls are namespaced under /api/french and /audio/french in
-// the unified backend, so the original `/api/...` paths have been prefixed.
-const API_BASE = "/api/french";
+import {
+  fetchRoadmap,
+  fetchProgress,
+  fetchLesson,
+  saveProgress,
+  requestTts,
+} from "./services/api";
+import { useTts, isTtsCancelled } from "../../shared/useTts";
 
 const DEFAULT_LESSON_ID = "alphabet";
 
@@ -30,15 +34,6 @@ const TYPE_LABELS = {
   sentence: "句子",
   pattern: "句型",
 };
-
-function apiGet(path) {
-  return fetch(path).then((response) => {
-    if (!response.ok) {
-      throw new Error(`Request failed: ${path}`);
-    }
-    return response.json();
-  });
-}
 
 function unique(values) {
   return Array.from(new Set(values.filter(Boolean)));
@@ -417,12 +412,15 @@ export default function FrenchApp() {
   const [selectedLessonId, setSelectedLessonId] = useState(DEFAULT_LESSON_ID);
   const [isLeftOpen, setIsLeftOpen] = useState(true);
   const [isRightOpen, setIsRightOpen] = useState(true);
-  const [speakingKey, setSpeakingKey] = useState("");
-  const [loadingAudioKey, setLoadingAudioKey] = useState("");
-  const [audioError, setAudioError] = useState("");
   const [activeSectionId, setActiveSectionId] = useState("");
   const [error, setError] = useState("");
-  const currentAudioRef = useRef(null);
+  const {
+    play: playTts,
+    stop: stopTts,
+    speakingKey,
+    loadingKey: loadingAudioKey,
+    error: audioError,
+  } = useTts();
   const progressRef = useRef(null);
   const sectionPlayRunRef = useRef(0);
 
@@ -431,13 +429,7 @@ export default function FrenchApp() {
   }, [progress]);
 
   useEffect(() => {
-    return () => {
-      currentAudioRef.current?.pause();
-    };
-  }, []);
-
-  useEffect(() => {
-    Promise.all([apiGet(`${API_BASE}/roadmap`), apiGet(`${API_BASE}/progress`)])
+    Promise.all([fetchRoadmap(), fetchProgress()])
       .then(([roadmapData, progressData]) => {
         setRoadmap(roadmapData);
         setProgress(progressData);
@@ -455,7 +447,7 @@ export default function FrenchApp() {
     }
 
     setLesson(null);
-    apiGet(`${API_BASE}/lessons/${selectedLessonId}`)
+    fetchLesson(selectedLessonId)
       .then((lessonData) => {
         setLesson(lessonData);
         recordLessonVisit(lessonData.id);
@@ -525,12 +517,7 @@ export default function FrenchApp() {
     progressRef.current = nextProgress;
     setProgress(nextProgress);
 
-    fetch(`${API_BASE}/progress`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(nextProgress),
-    })
-      .then((response) => response.json())
+    saveProgress(nextProgress)
       .then((saved) => {
         progressRef.current = saved;
         setProgress(saved);
@@ -576,104 +563,57 @@ export default function FrenchApp() {
     });
   };
 
-  const stopCurrentAudio = () => {
-    currentAudioRef.current?.pause();
-    currentAudioRef.current = null;
-    setSpeakingKey("");
-    setLoadingAudioKey("");
-  };
-
-  const playEdgeTts = async (text, key, options = {}) => {
+  const playEdgeTts = async (text, key, { waitForEnd = false } = {}) => {
     const cleanText = String(text || "").trim();
-    if (!cleanText) {
-      return;
-    }
-
-    if (!options.keepQueue) {
-      sectionPlayRunRef.current += 1;
-      stopCurrentAudio();
-    }
-
-    setAudioError("");
-    setLoadingAudioKey(key);
-    setSpeakingKey(key);
+    if (!cleanText) return;
 
     try {
-      const response = await fetch(`${API_BASE}/tts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ key, lessonId: selectedLessonId, text: cleanText }),
+      await playTts({
+        key,
+        waitForEnd,
+        getUrl: async () => {
+          const data = await requestTts({ key, lessonId: selectedLessonId, text: cleanText });
+          recordAudioPlay(key, cleanText, {
+            audioPath: data.audio_path,
+            cached: data.cached,
+            engine: data.engine,
+            voice: data.voice,
+          });
+          return { url: data.audio_url || data.audio_path };
+        },
       });
-      const data = await response.json();
-      if (!response.ok) {
-        throw new Error(data.error || "法语音频生成失败。");
-      }
-      if (options.runId && sectionPlayRunRef.current !== options.runId) {
-        setLoadingAudioKey("");
-        setSpeakingKey("");
-        return;
-      }
-
-      const audio = new Audio(data.audio_url || data.audio_path);
-      currentAudioRef.current = audio;
-
-      const playback = new Promise((resolve, reject) => {
-        let settled = false;
-        const finish = () => {
-          if (settled) return;
-          settled = true;
-          if (currentAudioRef.current === audio) {
-            setSpeakingKey("");
-          }
-          resolve();
-        };
-        audio.onended = finish;
-        audio.onpause = finish;
-        audio.onerror = () => {
-          settled = true;
-          reject(new Error("音频播放失败。"));
-        };
-      });
-
-      await audio.play();
-      setLoadingAudioKey("");
-      recordAudioPlay(key, cleanText, {
-        audioPath: data.audio_path,
-        cached: data.cached,
-        engine: data.engine,
-        voice: data.voice,
-      });
-
-      if (options.waitForEnd) {
-        await playback;
-      } else {
-        playback.catch((err) => {
-          setAudioError(err.message || "音频播放失败。");
-          setLoadingAudioKey("");
-          setSpeakingKey("");
-        });
-      }
     } catch (err) {
-      setAudioError(err.message || "法语音频暂时不可用。");
-      setLoadingAudioKey("");
-      setSpeakingKey("");
+      if (!isTtsCancelled(err)) {
+        // Hook surfaces the error via `audioError`; nothing else to do.
+      }
+      throw err;
     }
   };
 
   const speakFrench = (text, key) => {
-    playEdgeTts(text, key);
+    playEdgeTts(text, key).catch((err) => {
+      if (!isTtsCancelled(err)) {
+        // Already reflected in audioError state.
+      }
+    });
   };
 
   const playSection = async (section) => {
     const runId = sectionPlayRunRef.current + 1;
     sectionPlayRunRef.current = runId;
-    stopCurrentAudio();
+    stopTts();
 
     for (const [index, block] of section.blocks.entries()) {
       if (sectionPlayRunRef.current !== runId) break;
       const text = block.audioText || block.text || block.pattern;
       const key = block.id || `section:${section.id}:${index}`;
-      await playEdgeTts(text, key, { keepQueue: true, runId, waitForEnd: true });
+      try {
+        await playEdgeTts(text, key, { waitForEnd: true });
+      } catch (err) {
+        if (isTtsCancelled(err)) return;
+        // Real playback error → stop the rest of the section.
+        return;
+      }
     }
   };
 

@@ -12,6 +12,7 @@ const LiveSpanishApp = lazy(() => import("./apps/live_spanish/App.jsx"));
 const LanguageLabApp = lazy(() => import("./apps/language_lab/App.jsx"));
 const BibleApp = lazy(() => import("./apps/bible/App.jsx"));
 const TranslatorApp = lazy(() => import("./apps/translator/App.jsx"));
+const AIPracticeApp = lazy(() => import("./apps/ai_practice/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -53,6 +54,10 @@ export default function App() {
       <Route
         path="/translator"
         element={withShell("Translator Trio", "#5662f6", TranslatorApp)}
+      />
+      <Route
+        path="/ai-practice"
+        element={withShell("AI Practice", "#2563eb", AIPracticeApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

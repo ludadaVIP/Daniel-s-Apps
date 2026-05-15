@@ -1,0 +1,559 @@
+{
+  "id": "b1-intermediate",
+  "title": "B1 Intermediate",
+  "subtitle": "B1 Level Grammar, Vocabulary, and Comprehensive Skills",
+  "level": "B1",
+  "audience": "high",
+  "estimatedMinutes": 30,
+  "source": "Imported via Prompt Generator",
+  "createdAt": "2026-05-14",
+  "questions": [
+    {
+      "id": 1,
+      "domain": "语法",
+      "category": "Present Perfect",
+      "skill": "Experience",
+      "icon": "⏳",
+      "type": "mc",
+      "question": "Have you ever _____ to London?",
+      "explanation": "We use the present perfect form 'have been' to ask about life experiences without mentioning a specific time.",
+      "explanationZh": "用现在完成时表示过去的经历对现在的影响，'have been to' 表示曾经去过某地并且已经回来。",
+      "coreTakeaway": "Use 'have been to' for visiting a place and returning. 去过某地并已返回用 'have been to'。",
+      "options": [
+        "go",
+        "went",
+        "been",
+        "gone"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 2,
+      "domain": "语法",
+      "category": "Past Continuous",
+      "skill": "Interrupted Action",
+      "icon": "📺",
+      "type": "mc",
+      "question": "I _____ TV when the phone rang.",
+      "explanation": "The past continuous describes an ongoing background action in the past that was interrupted by a shorter action in the simple past.",
+      "explanationZh": "过去进行时表示过去某时正在发生的动作，常被一个一般过去时的短暂动作打断。",
+      "coreTakeaway": "Past continuous (was/were + v-ing) shows an ongoing past action. 过去进行时表示过去正在进行的动作。",
+      "options": [
+        "watch",
+        "watched",
+        "was watching",
+        "am watching"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 3,
+      "domain": "语法",
+      "category": "Modals",
+      "skill": "Deduction",
+      "icon": "🕵️",
+      "type": "mc",
+      "question": "He _____ be tired. He has been working all day without a break.",
+      "explanation": "We use 'must' for strong logical deductions when we are almost certain something is true.",
+      "explanationZh": "当根据证据进行非常肯定的推测时，用 'must'，表示'一定'。",
+      "coreTakeaway": "Use 'must' for strong affirmative deductions. 'must' 用于肯定的逻辑推断（一定）。",
+      "options": [
+        "can",
+        "must",
+        "should",
+        "might"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 4,
+      "domain": "语法",
+      "category": "Conditionals",
+      "skill": "First Conditional",
+      "icon": "☔",
+      "type": "fill",
+      "question": "If it rains tomorrow, we _____ stay at home.",
+      "explanation": "The first conditional uses the present simple in the 'if' clause and 'will' + base verb in the main clause for realistic future situations.",
+      "explanationZh": "第一条件句（主将从现）用于表达未来可能发生的情况，主句用 will + 动词原形。",
+      "coreTakeaway": "First conditional: If + present, will + base verb. 主将从现原则表达真实条件。",
+      "answer": "will",
+      "acceptable": [
+        "will",
+        "shall"
+      ]
+    },
+    {
+      "id": 5,
+      "domain": "语法",
+      "category": "Conditionals",
+      "skill": "Second Conditional",
+      "icon": "💭",
+      "type": "mc",
+      "question": "If I won the lottery, I _____ travel the world.",
+      "explanation": "The second conditional talks about imaginary or unlikely present/future situations, using 'would' + base verb in the main clause.",
+      "explanationZh": "第二条件句用于表达与现在或将来事实相反的假设，主句用 would + 动词原形。",
+      "coreTakeaway": "Second conditional: If + past, would + base verb. 虚拟语气表达不真实的假设用 would。",
+      "options": [
+        "will",
+        "would",
+        "can",
+        "shall"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 6,
+      "domain": "语法",
+      "category": "Passive Voice",
+      "skill": "Past Simple Passive",
+      "icon": "📖",
+      "type": "mc",
+      "question": "The book _____ by a famous author in 1998.",
+      "explanation": "When the focus is on the object receiving the action in the past, use the past simple passive: was/were + past participle.",
+      "explanationZh": "句子主语是被动承受动作的，且时间状语是过去的具体时间(1998)，需要用一般过去时的被动语态。",
+      "coreTakeaway": "Past simple passive is 'was/were + past participle'. 一般过去时的被动语态表示过去被做某事。",
+      "options": [
+        "wrote",
+        "is written",
+        "was written",
+        "has written"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 7,
+      "domain": "语法",
+      "category": "Relative Clauses",
+      "skill": "Defining Relative Clauses",
+      "icon": "👨",
+      "type": "mc",
+      "question": "The man _____ lives next door is a doctor.",
+      "explanation": "We use the relative pronoun 'who' to refer to people in a defining relative clause.",
+      "explanationZh": "定语从句修饰先行词(The man)，且在从句中作主语，因此用关系代词 'who'。",
+      "coreTakeaway": "Use 'who' or 'that' for people in relative clauses. 引导修饰人的定语从句用 who。",
+      "options": [
+        "which",
+        "who",
+        "whose",
+        "where"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 8,
+      "domain": "语法",
+      "category": "Verb Patterns",
+      "skill": "Gerunds",
+      "icon": "📚",
+      "type": "fill",
+      "question": "She enjoys _____ books in her free time.",
+      "explanation": "The verb 'enjoy' is always followed by a verb ending in -ing (a gerund).",
+      "explanationZh": "动词 'enjoy' 后面必须跟动名词形式（v-ing）。",
+      "coreTakeaway": "Certain verbs like enjoy, mind, suggest take the -ing form. enjoy doing sth. 表示喜欢做某事。",
+      "answer": "reading",
+      "acceptable": [
+        "reading"
+      ]
+    },
+    {
+      "id": 9,
+      "domain": "语法",
+      "category": "Reported Speech",
+      "skill": "Tense Shift",
+      "icon": "🗣️",
+      "type": "mc",
+      "question": "He said that he _____ arrive late.",
+      "explanation": "When changing direct speech to reported speech after a past tense reporting verb, 'will' changes to 'would'.",
+      "explanationZh": "在间接引语中，主句动词是过去时(said)，从句的时态要相应地向后退一步，will 变成 would。",
+      "coreTakeaway": "Shift 'will' to 'would' in reported speech after a past tense verb. 间接引语中时态呼应将 will 改为 would。",
+      "options": [
+        "will",
+        "can",
+        "would",
+        "may"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 10,
+      "domain": "语法",
+      "category": "Adjectives",
+      "skill": "Superlative",
+      "icon": "⭐",
+      "type": "fill",
+      "question": "This is the _____ interesting movie I have ever seen.",
+      "explanation": "For long adjectives (three or more syllables), we form the superlative using 'the most'.",
+      "explanationZh": "对于多音节形容词，最高级前面需要加 'the most'。经常配合现在完成时的经历句型使用。",
+      "coreTakeaway": "Use 'the most + long adjective' for superlatives. 多音节形容词最高级用 the most。",
+      "answer": "most",
+      "acceptable": [
+        "most"
+      ]
+    },
+    {
+      "id": 11,
+      "domain": "词汇",
+      "category": "Phrasal Verbs",
+      "skill": "Daily Routines",
+      "icon": "👟",
+      "type": "mc",
+      "question": "Please _____ your shoes before entering the house.",
+      "explanation": "The phrasal verb 'take off' means to remove an item of clothing.",
+      "explanationZh": "短语动词 'take off' 有脱下（衣服、鞋子等）的意思，符合进屋前脱鞋的语境。",
+      "coreTakeaway": "'Take off' means to remove clothes/shoes. take off 意为脱下；起飞。",
+      "options": [
+        "take off",
+        "put on",
+        "turn off",
+        "give up"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 12,
+      "domain": "词汇",
+      "category": "Collocations",
+      "skill": "Make vs Do",
+      "icon": "⚖️",
+      "type": "mc",
+      "question": "You need to _____ a decision soon.",
+      "explanation": "The noun 'decision' strictly pairs with the verb 'make', forming a fixed collocation.",
+      "explanationZh": "名词 'decision' 与动词 'make' 固定搭配，'make a decision' 意为做决定。",
+      "coreTakeaway": "Always use 'make a decision', never 'do a decision'. 固定搭配：make a decision (做决定)。",
+      "options": [
+        "do",
+        "make",
+        "take",
+        "have"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 13,
+      "domain": "词汇",
+      "category": "Confusing Words",
+      "skill": "Accept vs Except",
+      "icon": "🎁",
+      "type": "fill",
+      "question": "I cannot _____ this gift; it is too expensive.",
+      "explanation": "The verb 'accept' means to receive something willingly.",
+      "explanationZh": "动词 'accept' 意思是接受；容易与 'except' (除了) 混淆。这里指不能接受这个昂贵的礼物。",
+      "coreTakeaway": "'Accept' means to receive willingly. accept 意为接受（礼物、邀请等）。",
+      "answer": "accept",
+      "acceptable": [
+        "accept"
+      ]
+    },
+    {
+      "id": 14,
+      "domain": "词汇",
+      "category": "Jobs",
+      "skill": "Professions",
+      "icon": "🏢",
+      "type": "mc",
+      "question": "A person who designs buildings is called an _____ .",
+      "explanation": "An architect is a professional trained to design and plan buildings.",
+      "explanationZh": "architect 指的是建筑师，即设计建筑物的人。",
+      "coreTakeaway": "An architect designs buildings. architect 意思是建筑师。",
+      "options": [
+        "engineer",
+        "architect",
+        "artist",
+        "mechanic"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 15,
+      "domain": "词汇",
+      "category": "Synonyms",
+      "skill": "Adjective Synonyms",
+      "icon": "🐘",
+      "type": "mc",
+      "question": "The word 'enormous' means very _____ .",
+      "explanation": "Enormous is an extreme adjective meaning extremely large in size or scale.",
+      "explanationZh": "'enormous' 意为巨大的、庞大的，是 big 的同义替换词（升级词汇）。",
+      "coreTakeaway": "Enormous = very big. enormous 表示极大的，巨大的。",
+      "options": [
+        "small",
+        "fast",
+        "big",
+        "smart"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 16,
+      "domain": "词汇",
+      "category": "Environment",
+      "skill": "Nature",
+      "icon": "🌍",
+      "type": "fill",
+      "question": "We must protect the _____ from pollution.",
+      "explanation": "The term used for the natural world around us that is affected by pollution is the environment.",
+      "explanationZh": "environment 指的是环境。保护环境免受污染是常见的高中英语核心话题。",
+      "coreTakeaway": "Environment means the natural world we live in. environment 意为环境。",
+      "answer": "environment",
+      "acceptable": [
+        "environment",
+        "earth",
+        "nature"
+      ]
+    },
+    {
+      "id": 17,
+      "domain": "词汇",
+      "category": "Education",
+      "skill": "Exam Vocabulary",
+      "icon": "📝",
+      "type": "mc",
+      "question": "If you fail the exam, you will have to _____ it.",
+      "explanation": "The prefix 're-' means again. To take an exam again after failing is to retake it.",
+      "explanationZh": "前缀 re- 表示重新，retake 意为重考。fail 意为不及格，因此需要重考。",
+      "coreTakeaway": "Retake means to take an exam again. retake a test 表示重考。",
+      "options": [
+        "pass",
+        "retake",
+        "review",
+        "revise"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 18,
+      "domain": "词汇",
+      "category": "Technology",
+      "skill": "Digital Actions",
+      "icon": "📱",
+      "type": "fill",
+      "question": "You can _____ the app from the official store.",
+      "explanation": "To transfer a file or application from the internet to your device is to download it.",
+      "explanationZh": "从应用商店获取应用到手机上，英文表达为 download (下载)。",
+      "coreTakeaway": "Download means getting data from the internet. download 意为下载。",
+      "answer": "download",
+      "acceptable": [
+        "download",
+        "install",
+        "get"
+      ]
+    },
+    {
+      "id": 19,
+      "domain": "综合",
+      "category": "Prepositions",
+      "skill": "Time",
+      "icon": "📅",
+      "type": "mc",
+      "question": "Our flight leaves _____ Monday morning.",
+      "explanation": "We use the preposition 'on' for days of the week and specific parts of a specific day.",
+      "explanationZh": "表示在具体的某一天或某一天的上午、下午、晚上，介词要用 'on'。",
+      "coreTakeaway": "Use 'on' before specific days (e.g., on Monday morning). 具体到某一天的上下午用 on。",
+      "options": [
+        "in",
+        "at",
+        "on",
+        "from"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 20,
+      "domain": "综合",
+      "category": "Prepositions",
+      "skill": "Place",
+      "icon": "🐈",
+      "type": "fill",
+      "question": "The cat is hiding _____ the bed.",
+      "explanation": "When something is below or covered by something else, we use the preposition 'under'.",
+      "explanationZh": "指在某物的正下方，隐藏在床下，用介词 under。",
+      "coreTakeaway": "Under indicates a position below something. under 意为在...的正下方。",
+      "answer": "under",
+      "acceptable": [
+        "under",
+        "beneath"
+      ]
+    },
+    {
+      "id": 21,
+      "domain": "综合",
+      "category": "Conjunctions",
+      "skill": "Contrast",
+      "icon": "☔",
+      "type": "mc",
+      "question": "_____ it was raining heavily, they still went for a walk.",
+      "explanation": "We use 'Although' to introduce a subordinate clause expressing a contrast.",
+      "explanationZh": "引导让步状语从句，表示'虽然，尽管'，句子中有对比转折的意思。",
+      "coreTakeaway": "Although introduces a contrasting idea. although 表示尽管，引导让步状语从句。",
+      "options": [
+        "Because",
+        "Although",
+        "However",
+        "Therefore"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 22,
+      "domain": "综合",
+      "category": "Conjunctions",
+      "skill": "Reason",
+      "icon": "🏠",
+      "type": "fill",
+      "question": "We stayed indoors _____ of the bad weather.",
+      "explanation": "The phrase 'because of' is used before a noun phrase to show reason.",
+      "explanationZh": "because of 是介词短语，后接名词或名词短语表示原因。",
+      "coreTakeaway": "Use 'because of' before nouns to show reason. because of + 名词，表示因为...。",
+      "answer": "because",
+      "acceptable": [
+        "because"
+      ]
+    },
+    {
+      "id": 23,
+      "domain": "综合",
+      "category": "Pronouns",
+      "skill": "Indefinite Pronouns",
+      "icon": "🔑",
+      "type": "mc",
+      "question": "I cannot find my keys _____ .",
+      "explanation": "In negative sentences, we use 'anywhere' instead of 'somewhere' to mean 'in any place'.",
+      "explanationZh": "在否定句中，表示'任何地方'需要用 anywhere，不能用 somewhere。",
+      "coreTakeaway": "Use 'anywhere' in negative sentences and questions. 否定句和疑问句中用 anywhere 表示任何地方。",
+      "options": [
+        "nowhere",
+        "somewhere",
+        "anywhere",
+        "everywhere"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 24,
+      "domain": "综合",
+      "category": "Quantifiers",
+      "skill": "Uncountable Nouns",
+      "icon": "🥛",
+      "type": "mc",
+      "question": "There is not _____ milk left in the fridge.",
+      "explanation": "Milk is an uncountable noun. In negative sentences, we use 'much' to talk about quantity.",
+      "explanationZh": "milk 是不可数名词，且句子为否定句，所以用 much 表示数量。",
+      "coreTakeaway": "Use 'much' with uncountable nouns in negative sentences. much 修饰不可数名词，多用于否定和疑问句。",
+      "options": [
+        "many",
+        "some",
+        "much",
+        "a few"
+      ],
+      "correctIndex": 2
+    },
+    {
+      "id": 25,
+      "domain": "写作",
+      "category": "Discourse Markers",
+      "skill": "Result",
+      "icon": "📈",
+      "type": "mc",
+      "question": "He studies hard. _____ , he always gets top grades.",
+      "explanation": "The phrase 'As a result' shows the consequence of the action mentioned in the previous sentence.",
+      "explanationZh": "上下文是因果关系：努力学习(因)，所以总得高分(果)。'As a result' 意为因此、结果是。",
+      "coreTakeaway": "'As a result' is used to link a cause to its effect. As a result 用于连接结果，意为因此。",
+      "options": [
+        "However",
+        "As a result",
+        "On the other hand",
+        "In contrast"
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 26,
+      "domain": "写作",
+      "category": "Sentence Structure",
+      "skill": "Inversion",
+      "icon": "🔄",
+      "type": "fill",
+      "question": "Not only _____ he play the piano, but he also sings well.",
+      "explanation": "When 'Not only' is placed at the beginning of a sentence for emphasis, the subject and auxiliary verb invert.",
+      "explanationZh": "Not only 放在句首时，后面的句子需要部分倒装，借助助动词 does 提到主语前。",
+      "coreTakeaway": "Invert subject and verb after 'Not only' at the start of a sentence. Not only 位于句首引起部分倒装。",
+      "answer": "does",
+      "acceptable": [
+        "does"
+      ]
+    },
+    {
+      "id": 27,
+      "domain": "写作",
+      "category": "Discourse Markers",
+      "skill": "Giving Examples",
+      "icon": "🍎",
+      "type": "mc",
+      "question": "I love sweet fruits, _____ apples and strawberries.",
+      "explanation": "The phrase 'such as' is used directly before a list of nouns to provide examples.",
+      "explanationZh": "'such as' 意为例如，通常放在被列举的事物前面，不能与 like as 混用。",
+      "coreTakeaway": "'Such as' is a formal way to introduce examples. such as 用来列举同类事物中的几个例子。",
+      "options": [
+        "such as",
+        "for example",
+        "like as",
+        "so as"
+      ],
+      "correctIndex": 0
+    },
+    {
+      "id": 28,
+      "domain": "口语",
+      "category": "Social English",
+      "skill": "Responding to Apologies",
+      "icon": "🤝",
+      "type": "mc",
+      "question": "A: 'I am so sorry for being late!' B: '_____ '",
+      "explanation": "'Never mind' is a polite and natural way to accept an apology and tell someone not to worry.",
+      "explanationZh": "当别人道歉时，地道的回应是 'Never mind' (没关系)，不要用 'You are welcome' (不客气，用于回应感谢)。",
+      "coreTakeaway": "Reply to 'sorry' with 'Never mind' or 'That is okay'. 别人道歉时用 Never mind 宽慰对方。",
+      "options": [
+        "You are welcome.",
+        "Never mind.",
+        "Here you are.",
+        "Good idea."
+      ],
+      "correctIndex": 1
+    },
+    {
+      "id": 29,
+      "domain": "口语",
+      "category": "Social English",
+      "skill": "Making Suggestions",
+      "icon": "🍿",
+      "type": "fill",
+      "question": "_____ about going to the cinema tonight?",
+      "explanation": "The structures 'How about + v-ing?' or 'What about + v-ing?' are common ways to make friendly suggestions.",
+      "explanationZh": "提出建议时的常用句型 'How/What about doing sth.?'，意为做某事怎么样？",
+      "coreTakeaway": "Use 'How/What about + v-ing' to suggest ideas. How about / What about doing sth 征求意见或建议。",
+      "answer": "How",
+      "acceptable": [
+        "How",
+        "What"
+      ]
+    },
+    {
+      "id": 30,
+      "domain": "口语",
+      "category": "Social English",
+      "skill": "Asking for Opinions",
+      "icon": "🤔",
+      "type": "mc",
+      "question": "What do you _____ of the new school rules?",
+      "explanation": "The phrase 'What do you think of/about...?' is the standard conversational way to ask for an opinion.",
+      "explanationZh": "'What do you think of...?' 是固定句型，用于询问对方对某人或某事的看法。",
+      "coreTakeaway": "Ask 'What do you think of/about X?' to get an opinion. 询问看法用 What do you think of...?",
+      "options": [
+        "think",
+        "believe",
+        "consider",
+        "guess"
+      ],
+      "correctIndex": 0
+    }
+  ]
+}

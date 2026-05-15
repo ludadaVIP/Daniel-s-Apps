@@ -25,10 +25,20 @@ import { TextStyle } from "@tiptap/extension-text-style";
 import { Color } from "@tiptap/extension-color";
 
 import "./styles.css";
-
-// All Live-Spanish endpoints live under /api/live-spanish/* in the unified
-// backend. The original app served them directly under /api/quizzes/*.
-const API_BASE = "/api/live-spanish";
+import {
+  fetchQuizzes,
+  fetchQuiz,
+  fetchQuizProgress,
+  gradeQuestion,
+  resetCurrentProgress,
+  requestQuestionAudio,
+  deleteQuestion,
+  deleteQuiz,
+  renameQuiz as apiRenameQuiz,
+  importQuiz as apiImportQuiz,
+  saveQuestionTakeaway,
+} from "./services/api";
+import { useTts, isTtsCancelled } from "../../shared/useTts";
 
 const progressKey = (quizId) => `spanish-activation-progress:${quizId}`;
 
@@ -48,22 +58,6 @@ const QUIZ_KIND_OPTIONS = [
 
 const languageByCode = (code) =>
   LANGUAGE_OPTIONS.find((language) => language.code === code) || LANGUAGE_OPTIONS[1];
-
-async function api(path, options = {}) {
-  const response = await fetch(path, {
-    headers: {
-      "Content-Type": "application/json",
-      ...(options.headers || {}),
-    },
-    ...options,
-  });
-
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(data.error || `Request failed: ${response.status}`);
-  }
-  return data;
-}
 
 function readLocalProgress(quizId) {
   try {
@@ -404,19 +398,22 @@ export default function LiveSpanishApp() {
   const [showHints, setShowHints] = useState(false);
   const [loading, setLoading] = useState(true);
   const [submitting, setSubmitting] = useState(false);
-  const [audioLoadingKey, setAudioLoadingKey] = useState("");
-  const [audioError, setAudioError] = useState("");
   const [error, setError] = useState("");
   const [leftCollapsed, setLeftCollapsed] = useState(false);
   const [rightCollapsed, setRightCollapsed] = useState(false);
-  const audioRef = useRef(null);
+  const {
+    play: playTts,
+    loadingKey: audioLoadingKey,
+    error: audioError,
+    setError: setAudioError,
+  } = useTts();
 
   const currentQuestion = quiz?.questions?.[questionIndex] || null;
 
   useEffect(() => {
     let mounted = true;
 
-    api(`${API_BASE}/quizzes`)
+    fetchQuizzes()
       .then((data) => {
         if (!mounted) return;
         setQuizzes(data.quizzes || []);
@@ -438,8 +435,8 @@ export default function LiveSpanishApp() {
     setError("");
 
     Promise.all([
-      api(`${API_BASE}/quizzes/${selectedQuizId}`),
-      api(`${API_BASE}/quizzes/${selectedQuizId}/progress`).catch(() => ({ current: {} })),
+      fetchQuiz(selectedQuizId),
+      fetchQuizProgress(selectedQuizId).catch(() => ({ current: {} })),
     ])
       .then(([data, savedProgress]) => {
         const serverProgress = savedProgress.current || {};
@@ -509,14 +506,12 @@ export default function LiveSpanishApp() {
     setError("");
 
     try {
-      const result = await api(`${API_BASE}/quizzes/${quiz.id}/grade`, {
-        method: "POST",
-        body: JSON.stringify(
-          isChoice
-            ? { questionId: currentQuestion.id, choiceId, record: true }
-            : { questionId: currentQuestion.id, answers: values, record: true }
-        ),
-      });
+      const result = await gradeQuestion(
+        quiz.id,
+        isChoice
+          ? { questionId: currentQuestion.id, choiceId, record: true }
+          : { questionId: currentQuestion.id, answers: values, record: true }
+      );
 
       const nextProgress = {
         ...progress,
@@ -556,7 +551,7 @@ export default function LiveSpanishApp() {
     );
     if (!ok) return;
     try {
-      await api(`${API_BASE}/quizzes/${quiz.id}/progress/current`, { method: "DELETE" });
+      await resetCurrentProgress(quiz.id);
       localStorage.removeItem(progressKey(quiz.id));
       setProgress({});
     } catch (err) {
@@ -586,49 +581,37 @@ export default function LiveSpanishApp() {
 
   async function playQuestionAudio(gender) {
     if (!quiz || !currentQuestion || !submitted || audioLoadingKey) return;
-
-    setAudioError("");
-    const loadingKey = `${currentQuestion.id}-${gender}`;
-    setAudioLoadingKey(loadingKey);
+    const playKey = `${currentQuestion.id}-${gender}`;
 
     try {
-      const cachedAudio = currentQuestion.audio_cache?.[gender];
-      let audioPath = cachedAudio?.audio_path;
-      let audioUrl = cachedAudio?.audio_url || cachedAudio?.audio_path;
-
-      if (!audioPath) {
-        const data = await api(`${API_BASE}/quizzes/${quiz.id}/questions/${currentQuestion.id}/audio`, {
-          method: "POST",
-          body: JSON.stringify({ gender }),
-        });
-        audioPath = data.audio_path;
-        audioUrl = data.audio_url || data.audio_path;
-        updateQuestion(currentQuestion.id, {
-          audio_cache: {
-            ...(currentQuestion.audio_cache || {}),
-            [gender]: {
-              audio_path: data.audio_path,
-              audio_url: data.audio_url || data.audio_path,
-              audio_text: data.audio_text,
-              audio_voice: data.voice,
-              audio_language: data.language,
-              cached: data.cached,
+      await playTts({
+        key: playKey,
+        getUrl: async () => {
+          const cachedAudio = currentQuestion.audio_cache?.[gender];
+          if (cachedAudio?.audio_path) {
+            return { url: cachedAudio.audio_url || cachedAudio.audio_path };
+          }
+          const data = await requestQuestionAudio(quiz.id, currentQuestion.id, { gender });
+          updateQuestion(currentQuestion.id, {
+            audio_cache: {
+              ...(currentQuestion.audio_cache || {}),
+              [gender]: {
+                audio_path: data.audio_path,
+                audio_url: data.audio_url || data.audio_path,
+                audio_text: data.audio_text,
+                audio_voice: data.voice,
+                audio_language: data.language,
+                cached: data.cached,
+              },
             },
-          },
-        });
-      }
-
-      if (audioRef.current) {
-        audioRef.current.pause();
-      }
-
-      const player = new Audio(audioUrl);
-      audioRef.current = player;
-      await player.play();
+          });
+          return { url: data.audio_url || data.audio_path };
+        },
+      });
     } catch (err) {
-      setAudioError(err.message);
-    } finally {
-      setAudioLoadingKey("");
+      if (!isTtsCancelled(err)) {
+        // Hook already populated `audioError`.
+      }
     }
   }
 
@@ -639,9 +622,7 @@ export default function LiveSpanishApp() {
 
     try {
       const deletedQuestionId = currentQuestion.id;
-      const data = await api(`${API_BASE}/quizzes/${quiz.id}/questions/${deletedQuestionId}`, {
-        method: "DELETE",
-      });
+      const data = await deleteQuestion(quiz.id, deletedQuestionId);
       const nextProgress = { ...progress };
       delete nextProgress[deletedQuestionId];
       writeLocalProgress(quiz.id, nextProgress);
@@ -664,7 +645,7 @@ export default function LiveSpanishApp() {
     if (!ok) return;
 
     try {
-      const data = await api(`${API_BASE}/quizzes/${quiz.id}`, { method: "DELETE" });
+      const data = await deleteQuiz(quiz.id);
       localStorage.removeItem(progressKey(quiz.id));
       setQuizzes(data.quizzes || []);
       const nextQuizId = data.quizzes?.[0]?.id || "";
@@ -686,10 +667,7 @@ export default function LiveSpanishApp() {
     if (!title || title === quizToRename.title) return;
 
     try {
-      const data = await api(`${API_BASE}/quizzes/${quizToRename.id}/rename`, {
-        method: "POST",
-        body: JSON.stringify({ title }),
-      });
+      const data = await apiRenameQuiz(quizToRename.id, title);
       const oldId = data.oldId || quizToRename.id;
       const renamedQuiz = data.quiz;
       const newId = renamedQuiz?.id || oldId;
@@ -1317,10 +1295,7 @@ function QuizImportPanel({ onQuizImported }) {
     setImporting(true);
     setMessage("");
     try {
-      const data = await api(`${API_BASE}/quizzes/import`, {
-        method: "POST",
-        body: JSON.stringify({ rawText }),
-      });
+      const data = await apiImportQuiz(rawText);
       onQuizImported(data);
       setRawText("");
       setMessage(`Imported ${data.quiz.title}`);
@@ -1530,10 +1505,7 @@ function TakeawayEditor({ quiz, question, onSaved }) {
     setSaving(true);
     setMessage("");
     try {
-      const data = await api(`${API_BASE}/quizzes/${quiz.id}/questions/${question.id}/takeaway`, {
-        method: "PATCH",
-        body: JSON.stringify(draft),
-      });
+      const data = await saveQuestionTakeaway(quiz.id, question.id, draft);
       onSaved(data.takeaway);
       setEditing(false);
       setMessage("Saved");

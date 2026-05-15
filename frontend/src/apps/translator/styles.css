@@ -3,7 +3,9 @@
  * Mounted inside AppShell (.dh-shell-content).
  * ============================================================ */
 
-:root {
+/* ---------- Root shell ---------- */
+
+.translator-app {
   --tr-paper: #fbf9f4;
   --tr-surface: #ffffff;
   --tr-surface-2: #f4f6fb;
@@ -28,11 +30,7 @@
   --tr-shadow-inset: inset 0 1px 0 rgba(255, 255, 255, 0.6);
   --tr-radius: 14px;
   --tr-radius-lg: 22px;
-}
 
-/* ---------- Root shell ---------- */
-
-.translator-app {
   display: grid;
   grid-template-columns: 286px minmax(0, 1fr);
   flex: 1;

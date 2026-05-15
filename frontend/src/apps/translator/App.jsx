@@ -23,7 +23,8 @@ import {
   Wand2,
   X
 } from 'lucide-react';
-import { deleteQuiz, fetchQuiz, fetchQuizzes, importQuiz, ttsUrl } from './api';
+import { deleteQuiz, fetchQuiz, fetchQuizzes, importQuiz, ttsUrl } from './services/api';
+import { useTts, isTtsCancelled } from '../../shared/useTts';
 import './styles.css';
 
 const DRAFT_KEY = 'translator-drafts-v1';
@@ -102,14 +103,11 @@ export default function App() {
 
   const toastTimer = useRef(null);
   const fileInputRef = useRef(null);
-  const audioRef = useRef(null);
-  const audioUrlRef = useRef('');
-  const queueRef = useRef([]);
-  const queueIdxRef = useRef(0);
   const playModeRef = useRef('');
   const internalNavRef = useRef(false);
   const [playMode, setPlayMode] = useState('');
   const [spokenLang, setSpokenLang] = useState('');
+  const { play: playTts, stop: stopTts } = useTts();
 
   const showToast = useCallback((message) => {
     setToast(message);
@@ -118,94 +116,18 @@ export default function App() {
   }, []);
 
   const stopPlayback = useCallback(() => {
-    if (audioRef.current) {
-      try {
-        audioRef.current.pause();
-        audioRef.current.src = '';
-      } catch {
-        /* ignore */
-      }
-      audioRef.current = null;
-    }
-    if (audioUrlRef.current) {
-      URL.revokeObjectURL(audioUrlRef.current);
-      audioUrlRef.current = '';
-    }
-    queueRef.current = [];
-    queueIdxRef.current = 0;
+    stopTts();
     playModeRef.current = '';
     setPlayMode('');
     setSpokenLang('');
-  }, []);
+  }, [stopTts]);
 
   useEffect(
     () => () => {
       if (toastTimer.current) window.clearTimeout(toastTimer.current);
-      stopPlayback();
     },
-    [stopPlayback]
+    []
   );
-
-  const playNextInQueue = useCallback(async () => {
-    const queue = queueRef.current;
-    const idx = queueIdxRef.current;
-    if (!playModeRef.current || idx >= queue.length) {
-      stopPlayback();
-      return;
-    }
-    const item = queue[idx];
-    if (item.index !== undefined && item.index !== null) {
-      internalNavRef.current = true;
-      setCurrentIndex(item.index);
-    }
-    setSpokenLang(item.lang);
-    try {
-      const response = await fetch(ttsUrl(item.text, item.lang));
-      if (!response.ok) {
-        let detail = '';
-        try {
-          const body = await response.json();
-          detail = body?.error || '';
-        } catch {
-          /* ignore */
-        }
-        throw new Error(detail || `TTS HTTP ${response.status}`);
-      }
-      const blob = await response.blob();
-      if (!playModeRef.current) return;
-      const objectUrl = URL.createObjectURL(blob);
-      audioUrlRef.current = objectUrl;
-      const audio = new Audio(objectUrl);
-      audio.preload = 'auto';
-      audio.onended = () => {
-        URL.revokeObjectURL(objectUrl);
-        if (audioUrlRef.current === objectUrl) audioUrlRef.current = '';
-        audioRef.current = null;
-        queueIdxRef.current += 1;
-        if (playModeRef.current) {
-          playNextInQueue();
-        } else {
-          stopPlayback();
-        }
-      };
-      audio.onerror = () => {
-        URL.revokeObjectURL(objectUrl);
-        if (audioUrlRef.current === objectUrl) audioUrlRef.current = '';
-        stopPlayback();
-        showToast('Read-aloud failed.');
-      };
-      audioRef.current = audio;
-      try {
-        await audio.play();
-      } catch (err) {
-        stopPlayback();
-        showToast(err?.message || 'Could not start playback.');
-      }
-    } catch (err) {
-      stopPlayback();
-      showToast(err?.message || 'Could not start playback.');
-    }
-  }, [showToast, stopPlayback]);
 
   const playQueue = useCallback(
     (items, mode) => {
@@ -215,13 +137,55 @@ export default function App() {
         return;
       }
       stopPlayback();
-      queueRef.current = items;
-      queueIdxRef.current = 0;
       playModeRef.current = mode;
       setPlayMode(mode);
-      playNextInQueue();
+
+      (async () => {
+        for (let i = 0; i < items.length; i++) {
+          if (playModeRef.current !== mode) return;
+          const item = items[i];
+          if (item.index !== undefined && item.index !== null) {
+            internalNavRef.current = true;
+            setCurrentIndex(item.index);
+          }
+          setSpokenLang(item.lang);
+          try {
+            await playTts({
+              key: `${mode}:${i}`,
+              waitForEnd: true,
+              getUrl: async () => {
+                const response = await fetch(ttsUrl(item.text, item.lang));
+                if (!response.ok) {
+                  let detail = '';
+                  try {
+                    const body = await response.json();
+                    detail = body?.error || '';
+                  } catch {
+                    /* ignore */
+                  }
+                  throw new Error(detail || `TTS HTTP ${response.status}`);
+                }
+                const blob = await response.blob();
+                return { url: URL.createObjectURL(blob), revokeOnEnd: true };
+              },
+            });
+          } catch (err) {
+            if (isTtsCancelled(err)) return;
+            if (playModeRef.current === mode) {
+              showToast(err?.message || 'Read-aloud failed.');
+              stopPlayback();
+            }
+            return;
+          }
+        }
+        if (playModeRef.current === mode) {
+          playModeRef.current = '';
+          setPlayMode('');
+          setSpokenLang('');
+        }
+      })();
     },
-    [playNextInQueue, stopPlayback]
+    [playTts, stopPlayback, showToast]
   );
 
   function speakCurrent(lang) {

@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, Languages, MessageSquare, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, GraduationCap, Languages, MessageSquare, ScrollText, Sparkles } from "lucide-react";
 
 const APPS = [
   {
@@ -56,6 +56,15 @@ const APPS = [
     Icon: Languages,
     to: "/translator",
   },
+  {
+    id: "ai-practice",
+    title: "AI Practice",
+    subtitle: "AI 定制英语练习：选择 / 填空 + 记笔记",
+    description: "Personalised English quizzes (A1–GRE) with skill map, per-question takeaways, and Edge TTS read-aloud. Import AI-generated JSON packs.",
+    accent: "#2563eb",
+    Icon: GraduationCap,
+    to: "/ai-practice",
+  },
 ];
 
 export default function Hub() {
@@ -63,7 +72,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">六合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">七合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。每个应用独立运行，互不抢端口。
         </p>

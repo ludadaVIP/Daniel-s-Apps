@@ -16,27 +16,13 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
-
-// All Bible endpoints are namespaced under /api/bible/* in the unified
-// backend. The standalone Flask + MySQL app used /get_verse and
-// /get_random_verse_content — we collapsed both into /random and let
-// the UI decide what to hide.
-const API_BASE = "/api/bible";
+import { fetchVersions, fetchBooks, fetchRandomVerse } from "./services/api";
 
 const HINT_STEP = 5;
 const MODES = [
   { id: "memorize", label: "Memorize", description: "See the reference, recall the text." },
   { id: "guess", label: "Guess Reference", description: "Read the text, recall the reference." },
 ];
-
-async function api(path) {
-  const response = await fetch(path);
-  const data = await response.json().catch(() => ({}));
-  if (!response.ok) {
-    throw new Error(data.error || `Request failed: ${response.status}`);
-  }
-  return data;
-}
 
 function charCount(text) {
   return (text || "").replace(/\s+/g, "").length;
@@ -61,7 +47,7 @@ export default function BibleApp() {
     let cancelled = false;
     (async () => {
       try {
-        const versionsPayload = await api(`${API_BASE}/versions`);
+        const versionsPayload = await fetchVersions();
         if (cancelled) return;
         setVersions(versionsPayload.versions || []);
         const defaultVersion = versionsPayload.defaultVersion || versionsPayload.versions?.[0]?.code || "";
@@ -80,7 +66,7 @@ export default function BibleApp() {
     (async () => {
       try {
         setError("");
-        const payload = await api(`${API_BASE}/books?version=${encodeURIComponent(version)}`);
+        const payload = await fetchBooks(version);
         if (cancelled) return;
         setAvailableBooks(payload.books || []);
         const initialDefault = payload.defaultBooks?.length ? payload.defaultBooks : payload.books || [];
@@ -124,11 +110,11 @@ export default function BibleApp() {
     setRevealedLength(0);
     setReferenceShown(false);
     try {
-      const params = new URLSearchParams({ version });
-      if (selectedBooks.length && selectedBooks.length !== availableBooks.length) {
-        params.set("books", selectedBooks.join(","));
-      }
-      const payload = await api(`${API_BASE}/random?${params.toString()}`);
+      const filterByBooks =
+        selectedBooks.length && selectedBooks.length !== availableBooks.length
+          ? selectedBooks
+          : null;
+      const payload = await fetchRandomVerse({ version, books: filterByBooks });
       setVerse(payload);
     } catch (err) {
       setError(err.message);

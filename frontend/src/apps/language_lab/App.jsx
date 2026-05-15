@@ -27,10 +27,15 @@ import {
 import { useEffect, useMemo, useRef, useState } from "react";
 
 import "./styles.css";
-
-// All Language Output Lab endpoints are mounted under /api/lab/* in the
-// unified backend (was /api/* in the standalone version).
-const API_BASE = "/api/lab";
+import {
+  fetchConfig,
+  fetchTopics,
+  requestTts,
+  importTopics,
+  deleteTopic,
+  saveCoreTakeaway,
+} from "./services/api";
+import { useTts, isTtsCancelled } from "../../shared/useTts";
 
 const DEFAULT_MODULE_ID = "es-writing";
 const PROMPT_LANGUAGES = [
@@ -137,8 +142,6 @@ export default function LanguageLabApp() {
   const [loading, setLoading] = useState(true);
   const [topicLoading, setTopicLoading] = useState(false);
   const [error, setError] = useState("");
-  const [audioError, setAudioError] = useState("");
-  const [busyAudio, setBusyAudio] = useState("");
   const [refreshKey, setRefreshKey] = useState(0);
   const [importText, setImportText] = useState("");
   const [importStatus, setImportStatus] = useState("");
@@ -150,7 +153,7 @@ export default function LanguageLabApp() {
     levelB: "B2",
     lengthTargets: { ...DEFAULT_LENGTH_TARGETS.writing }
   });
-  const currentAudioRef = useRef(null);
+  const { play: playTts, speakingKey: busyAudio, error: audioError, setError: setAudioError } = useTts();
 
   const activeModule = useMemo(
     () => modules.find((item) => item.id === activeModuleId) || modules[0],
@@ -180,9 +183,7 @@ export default function LanguageLabApp() {
     async function loadConfig() {
       try {
         setLoading(true);
-        const response = await fetch(`${API_BASE}/config`);
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Could not load config.");
+        const data = await fetchConfig();
         if (cancelled) return;
         setConfig(data);
         setModules(data.modules || []);
@@ -206,13 +207,10 @@ export default function LanguageLabApp() {
       try {
         setTopicLoading(true);
         setError("");
-        const params = new URLSearchParams({
+        const data = await fetchTopics({
           language: activeModule.language,
-          skill: activeModule.skill
+          skill: activeModule.skill,
         });
-        const response = await fetch(`${API_BASE}/topics?${params.toString()}`);
-        const data = await response.json();
-        if (!response.ok) throw new Error(data.error || "Could not load topics.");
         if (cancelled) return;
         setTopics(data.topics || []);
         setActiveTopicId((previous) => {
@@ -233,12 +231,6 @@ export default function LanguageLabApp() {
     loadTopics();
     return () => { cancelled = true; };
   }, [activeModule?.id, refreshKey]);
-
-  useEffect(() => {
-    return () => {
-      currentAudioRef.current?.pause();
-    };
-  }, []);
 
   const generatedPrompt = useMemo(() => {
     const language = PROMPT_LANGUAGES.find((item) => item.code === promptSettings.language) || PROMPT_LANGUAGES[1];
@@ -321,34 +313,24 @@ ${lengthLines}`;
 
   async function playText(text, key, gender = "female") {
     if (!text?.trim() || !activeModule) return;
-    setAudioError("");
-    setBusyAudio(key);
-    currentAudioRef.current?.pause();
     try {
-      const response = await fetch(`${API_BASE}/tts`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          text,
-          language: activeModule.language,
-          skill: activeModule.skill,
-          topicId: activeTopic?.id,
-          gender
-        })
+      await playTts({
+        key,
+        getUrl: async () => {
+          const data = await requestTts({
+            text,
+            language: activeModule.language,
+            skill: activeModule.skill,
+            topicId: activeTopic?.id,
+            gender,
+          });
+          return { url: data.audio_url };
+        },
       });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Could not create audio.");
-      const audio = new Audio(data.audio_url);
-      currentAudioRef.current = audio;
-      audio.onended = () => setBusyAudio("");
-      audio.onerror = () => {
-        setAudioError("Audio playback failed.");
-        setBusyAudio("");
-      };
-      await audio.play();
     } catch (err) {
-      setAudioError(err.message);
-      setBusyAudio("");
+      if (!isTtsCancelled(err)) {
+        // Hook already populated `audioError`; nothing extra to do here.
+      }
     }
   }
 
@@ -360,23 +342,11 @@ ${lengthLines}`;
     }
     setImportStatus("importing");
     try {
-      const params = new URLSearchParams({
+      const data = await importTopics({
         language: activeModule.language,
-        skill: activeModule.skill
+        skill: activeModule.skill,
+        rawText: importText,
       });
-      const response = await fetch(`${API_BASE}/topics/import?${params.toString()}`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: importText
-      });
-      const responseText = await response.text();
-      let data = {};
-      try {
-        data = responseText ? JSON.parse(responseText) : {};
-      } catch {
-        data = { error: responseText || "Import failed." };
-      }
-      if (!response.ok) throw new Error(data.error || "Import failed.");
       const importedCount = Array.isArray(data.imported) ? data.imported.length : 0;
       setImportText("");
       setImportStatus(`Imported ${importedCount} topic${importedCount === 1 ? "" : "s"}`);
@@ -408,11 +378,11 @@ ${lengthLines}`;
     if (!confirmed) return;
 
     try {
-      const response = await fetch(`${API_BASE}/topics/${activeModule.language}/${activeModule.skill}/${activeTopic.id}`, {
-        method: "DELETE"
+      const data = await deleteTopic({
+        language: activeModule.language,
+        skill: activeModule.skill,
+        topicId: activeTopic.id,
       });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Delete failed.");
 
       setModules(data.modules || modules);
       setTopics(data.topics || []);
@@ -789,13 +759,12 @@ function RightTools({
     try {
       const cleanHtml = sanitizeTakeawayHtml(editorRef.current.innerHTML);
       editorRef.current.innerHTML = cleanHtml;
-      const response = await fetch(`${API_BASE}/topics/${module.language}/${module.skill}/${topic.id}/core-takeaway`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ coreTakeaway: cleanHtml })
+      const data = await saveCoreTakeaway({
+        language: module.language,
+        skill: module.skill,
+        topicId: topic.id,
+        coreTakeaway: cleanHtml,
       });
-      const data = await response.json();
-      if (!response.ok) throw new Error(data.error || "Save failed.");
       onTopicUpdated(data.topic);
       setTakeawayStatus("Saved");
     } catch (err) {
