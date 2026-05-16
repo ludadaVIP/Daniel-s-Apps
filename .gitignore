@@ -83,9 +83,15 @@ $RECYCLE.BIN/
 .directory
 .Trash-*
 
-# ---------- Generated audio cache -------------------------------------
-# Edge-TTS rebuilds MP3 files on demand, so we don't ship them.
-# If you want to commit a specific clip, use `git add -f path/to/file.mp3`.
+# ---------- Local app state -------------------------------------------
+# Keep shared app code and curriculum JSON in Git, but keep per-device
+# learning state local. These files are generated while studying and will
+# differ between Mac/Windows machines.
+backend/data/**/audio/
+backend/data/**/progress/
+
+# Edge-TTS rebuilds audio on demand. If you ever need to commit a specific
+# clip deliberately, use `git add -f path/to/file.mp3`.
 *.mp3
 *.wav
 
@@ -93,11 +99,3 @@ $RECYCLE.BIN/
 *.bak
 *.tmp
 *.temp
-backend/data/German/audio/edge-tts/manifest.json
-backend/data/German/progress/progress.json
-backend/data/German/progress/progress.json
-backend/data/Spanish900/audio/edge-tts/manifest.json
-backend/data/English900/audio/edge-tts/manifest.json
-backend/data/French/progress/progress.json
-backend/data/English900/audio/edge-tts/manifest.json
-backend/data/Spanish900/audio/edge-tts/manifest.json
