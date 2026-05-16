@@ -89,10 +89,34 @@ a {
   font-size: 16px;
 }
 
+.hub-reset-order {
+  align-self: flex-start;
+  margin-top: 10px;
+  padding: 9px 13px;
+  border: 1px solid var(--border-soft);
+  border-radius: 10px;
+  color: var(--text-secondary);
+  background: rgba(255, 255, 255, 0.74);
+  box-shadow: 0 8px 22px rgba(15, 23, 42, 0.05);
+  font: inherit;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 0.18s ease, border-color 0.18s ease, color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.hub-reset-order:hover {
+  transform: translateY(-1px);
+  border-color: var(--border-strong);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-soft);
+}
+
 .hub-grid {
   display: grid;
   gap: 20px;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  touch-action: none;
 }
 
 .hub-card {
@@ -106,9 +130,12 @@ a {
   flex-direction: column;
   gap: 12px;
   min-height: 220px;
-  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease, opacity 0.2s ease;
   overflow: hidden;
-  cursor: pointer;
+  cursor: grab;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
 }
 
 .hub-card::before {
@@ -136,6 +163,29 @@ a {
 
 .hub-card:hover::before {
   opacity: 0.08;
+}
+
+.hub-grid.is-reordering .hub-card {
+  cursor: grabbing;
+}
+
+.hub-card.is-dragging {
+  z-index: 5;
+  opacity: 0.72;
+  transform: scale(0.98);
+  border-color: color-mix(in srgb, var(--card-accent) 54%, transparent);
+  box-shadow: 0 20px 44px rgba(15, 23, 42, 0.16);
+}
+
+.hub-card.is-dragging::before,
+.hub-card.is-drop-target::before {
+  opacity: 0.1;
+}
+
+.hub-card.is-drop-target {
+  transform: translateY(-3px) scale(1.015);
+  border-color: color-mix(in srgb, var(--card-accent) 48%, transparent);
+  box-shadow: var(--shadow-medium);
 }
 
 .hub-card-icon {

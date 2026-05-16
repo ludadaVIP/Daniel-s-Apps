@@ -1,5 +1,8 @@
+import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Music, ScrollText, Sparkles } from "lucide-react";
+
+const HUB_ORDER_KEY = "daniels-apps:hub-order";
 
 const APPS = [
   {
@@ -112,23 +115,139 @@ const APPS = [
   },
 ];
 
+function normalizeAppOrder(order) {
+  const appIds = new Set(APPS.map((app) => app.id));
+  const saved = Array.isArray(order) ? order.filter((id) => appIds.has(id)) : [];
+  const missing = APPS.map((app) => app.id).filter((id) => !saved.includes(id));
+  return [...saved, ...missing];
+}
+
+function readSavedOrder() {
+  try {
+    return normalizeAppOrder(JSON.parse(localStorage.getItem(HUB_ORDER_KEY) || "[]"));
+  } catch {
+    return normalizeAppOrder([]);
+  }
+}
+
+function saveOrder(order) {
+  try {
+    localStorage.setItem(HUB_ORDER_KEY, JSON.stringify(order));
+  } catch {
+    /* ignore */
+  }
+}
+
+function moveApp(order, draggedId, targetId) {
+  if (!draggedId || !targetId || draggedId === targetId) return order;
+  const next = [...order];
+  const from = next.indexOf(draggedId);
+  const to = next.indexOf(targetId);
+  if (from < 0 || to < 0) return order;
+  next.splice(from, 1);
+  next.splice(to, 0, draggedId);
+  return next;
+}
+
 export default function Hub() {
+  const [appOrder, setAppOrder] = useState(readSavedOrder);
+  const [draggingId, setDraggingId] = useState("");
+  const [targetId, setTargetId] = useState("");
+  const dragRef = useRef(null);
+  const suppressClickRef = useRef(false);
+
+  const orderedApps = useMemo(() => {
+    const appById = new Map(APPS.map((app) => [app.id, app]));
+    return normalizeAppOrder(appOrder).map((id) => appById.get(id)).filter(Boolean);
+  }, [appOrder]);
+
+  const startDrag = (event, appId) => {
+    if (event.button != null && event.button !== 0) return;
+    dragRef.current = {
+      appId,
+      pointerId: event.pointerId,
+      startX: event.clientX,
+      startY: event.clientY,
+      active: false,
+    };
+    event.currentTarget.setPointerCapture?.(event.pointerId);
+  };
+
+  const updateDrag = (event) => {
+    const drag = dragRef.current;
+    if (!drag) return;
+
+    const distance = Math.hypot(event.clientX - drag.startX, event.clientY - drag.startY);
+    if (!drag.active && distance < 8) return;
+
+    drag.active = true;
+    suppressClickRef.current = true;
+    setDraggingId(drag.appId);
+    event.preventDefault();
+
+    const card = document.elementFromPoint(event.clientX, event.clientY)?.closest("[data-hub-card-id]");
+    const nextTargetId = card?.getAttribute("data-hub-card-id") || "";
+    setTargetId(nextTargetId);
+
+    if (nextTargetId && nextTargetId !== drag.appId) {
+      setAppOrder((current) => {
+        const normalized = normalizeAppOrder(current);
+        const next = moveApp(normalized, drag.appId, nextTargetId);
+        if (next === normalized || next.join("|") === normalized.join("|")) return current;
+        saveOrder(next);
+        return next;
+      });
+    }
+  };
+
+  const endDrag = (event) => {
+    const drag = dragRef.current;
+    if (drag) {
+      event.currentTarget.releasePointerCapture?.(drag.pointerId);
+    }
+    dragRef.current = null;
+    setDraggingId("");
+    setTargetId("");
+    window.setTimeout(() => {
+      suppressClickRef.current = false;
+    }, 0);
+  };
+
+  const resetOrder = () => {
+    const next = normalizeAppOrder([]);
+    setAppOrder(next);
+    saveOrder(next);
+  };
+
   return (
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
         <h1 className="hub-title">十二合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
-          挑一个开始练吧。每个应用独立运行，互不抢端口。
+          挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>
+        <button className="hub-reset-order" type="button" onClick={resetOrder}>
+          恢复默认顺序
+        </button>
       </header>
-      <section className="hub-grid">
-        {APPS.map((app) => (
+      <section className={`hub-grid ${draggingId ? "is-reordering" : ""}`}>
+        {orderedApps.map((app) => (
           <Link
             key={app.id}
             to={app.to}
-            className="hub-card"
+            className={`hub-card ${draggingId === app.id ? "is-dragging" : ""} ${targetId === app.id && draggingId !== app.id ? "is-drop-target" : ""}`}
+            data-hub-card-id={app.id}
             style={{ "--card-accent": app.accent }}
+            onClick={(event) => {
+              if (!suppressClickRef.current) return;
+              event.preventDefault();
+              event.stopPropagation();
+            }}
+            onPointerCancel={endDrag}
+            onPointerDown={(event) => startDrag(event, app.id)}
+            onPointerMove={updateDrag}
+            onPointerUp={endDrag}
           >
             <div className="hub-card-icon">
               <app.Icon size={26} strokeWidth={1.8} />
