@@ -101,6 +101,15 @@ const APPS = [
     Icon: Headphones,
     to: "/english-900",
   },
+  {
+    id: "french-900",
+    title: "French 900",
+    subtitle: "900 phrases de français parlé · français-espagnol",
+    description: "Neuf groupes progressifs de cent phrases : survie, vie quotidienne, vie sociale, démarches, voyage, université, travail, débats, discussion académique. Edge TTS lit le français seul ou enchaîne le français puis la traduction espagnole.",
+    accent: "#2b3b8a",
+    Icon: Headphones,
+    to: "/french-900",
+  },
 ];
 
 export default function Hub() {
@@ -108,7 +117,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十一合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">十二合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。每个应用独立运行，互不抢端口。
         </p>
