@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, Flag, GraduationCap, Languages, MessageSquare, Music, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Music, ScrollText, Sparkles } from "lucide-react";
 
 const APPS = [
   {
@@ -83,6 +83,24 @@ const APPS = [
     Icon: Music,
     to: "/spanish",
   },
+  {
+    id: "spanish-900",
+    title: "Spanish 900",
+    subtitle: "900 Spanish speaking sentences with English translations",
+    description: "Nine progressive 100-sentence groups for survival, daily life, university, academic discussion, and study abroad. Edge TTS supports Spanish-only or bilingual playback.",
+    accent: "#0f766e",
+    Icon: Headphones,
+    to: "/spanish-900",
+  },
+  {
+    id: "english-900",
+    title: "English 900",
+    subtitle: "900 英语口语句子 · 英中对照 · 分组朗读",
+    description: "Nine progressive 100-sentence groups for daily life, services, social conversation, university, academic discussion, and study abroad. Edge TTS supports English-only or bilingual playback.",
+    accent: "#2563eb",
+    Icon: Headphones,
+    to: "/english-900",
+  },
 ];
 
 export default function Hub() {
@@ -90,7 +108,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">九合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">十一合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。每个应用独立运行，互不抢端口。
         </p>

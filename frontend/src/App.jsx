@@ -15,6 +15,8 @@ const TranslatorApp = lazy(() => import("./apps/translator/App.jsx"));
 const AIPracticeApp = lazy(() => import("./apps/ai_practice/App.jsx"));
 const GermanApp = lazy(() => import("./apps/german/App.jsx"));
 const SpanishApp = lazy(() => import("./apps/spanish/App.jsx"));
+const Spanish900App = lazy(() => import("./apps/spanish_900/App.jsx"));
+const English900App = lazy(() => import("./apps/english_900/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -68,6 +70,14 @@ export default function App() {
       <Route
         path="/spanish"
         element={withShell("Español Sprint", "#be185d", SpanishApp)}
+      />
+      <Route
+        path="/spanish-900"
+        element={withShell("Spanish 900", "#0f766e", Spanish900App)}
+      />
+      <Route
+        path="/english-900"
+        element={withShell("English 900", "#2563eb", English900App)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

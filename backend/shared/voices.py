@@ -25,6 +25,19 @@ SUPPORTED_LANGUAGES: dict[str, dict[str, Any]] = {
              "style": "Warm, steady, expressive"},
         ],
     },
+    "zh": {
+        "name": "Chinese",
+        "nameZh": "中文",
+        "promptName": "Chinese",
+        "voices": [
+            {"id": "zh-CN-XiaoxiaoNeural", "name": "Xiaoxiao", "gender": "Female",
+             "style": "Mandarin Chinese, warm, clear, general practice"},
+            {"id": "zh-CN-YunxiNeural", "name": "Yunxi", "gender": "Male",
+             "style": "Mandarin Chinese, clear, friendly"},
+            {"id": "zh-CN-XiaoyiNeural", "name": "Xiaoyi", "gender": "Female",
+             "style": "Mandarin Chinese, natural, expressive"},
+        ],
+    },
     "es": {
         "name": "Spanish",
         "nameZh": "西班牙语",
@@ -70,6 +83,8 @@ SUPPORTED_LANGUAGES: dict[str, dict[str, Any]] = {
 
 LANGUAGE_ALIASES = {
     "english": "en", "eng": "en", "en-us": "en", "en-gb": "en", "英语": "en",
+    "chinese": "zh", "mandarin": "zh", "zh-cn": "zh", "cn": "zh",
+    "中文": "zh", "汉语": "zh", "普通话": "zh",
     "spanish": "es", "espanol": "es", "español": "es", "spa": "es",
     "es-es": "es", "西语": "es", "西班牙语": "es",
     "french": "fr", "francais": "fr", "français": "fr", "fra": "fr",
@@ -85,7 +100,7 @@ ALLOWED_VOICES: set[str] = {
 
 
 def normalise_language(value: Any, default: str = "en") -> str:
-    """Map a free-form language string to one of: en, es, fr, de."""
+    """Map a free-form language string to one of: en, zh, es, fr, de."""
     text = str(value or "").strip().lower()
     if not text:
         return default
