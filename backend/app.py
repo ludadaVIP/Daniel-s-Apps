@@ -40,6 +40,7 @@ from apps.spanish.routes import bp as spanish_bp, AUDIO_DIR as SPANISH_AUDIO_DIR
 from apps.spanish_900.routes import bp as spanish_900_bp, AUDIO_DIR as SPANISH_900_AUDIO_DIR
 from apps.english_900.routes import bp as english_900_bp, AUDIO_DIR as ENGLISH_900_AUDIO_DIR
 from apps.french_900.routes import bp as french_900_bp, AUDIO_DIR as FRENCH_900_AUDIO_DIR
+from apps.german_900.routes import bp as german_900_bp, AUDIO_DIR as GERMAN_900_AUDIO_DIR
 
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
@@ -68,10 +69,11 @@ def create_app() -> Flask:
     app.register_blueprint(spanish_900_bp, url_prefix="/api/spanish-900")
     app.register_blueprint(english_900_bp, url_prefix="/api/english-900")
     app.register_blueprint(french_900_bp, url_prefix="/api/french-900")
+    app.register_blueprint(german_900_bp, url_prefix="/api/german-900")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900"]})
+        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")
@@ -105,6 +107,10 @@ def create_app() -> Flask:
     @app.get("/audio/french-900/<path:filename>")
     def serve_french_900_audio(filename: str):
         return send_from_directory(FRENCH_900_AUDIO_DIR, filename, max_age=31536000)
+
+    @app.get("/audio/german-900/<path:filename>")
+    def serve_german_900_audio(filename: str):
+        return send_from_directory(GERMAN_900_AUDIO_DIR, filename, max_age=31536000)
 
     # Fallback: serve the built Vite SPA if it exists (single-port deployment).
     @app.get("/", defaults={"path": ""})

@@ -113,6 +113,15 @@ const APPS = [
     Icon: Headphones,
     to: "/french-900",
   },
+  {
+    id: "german-900",
+    title: "German 900",
+    subtitle: "900 deutsche Sätze · Deutsch · Französisch · Spanisch",
+    description: "Neun progressive Gruppen mit je 100 Sätzen: Erste Schritte, Alltag, Sozialleben, Behörden, Reisen, Uni, Beruf, Diskussion, akademische Sprache. Edge TTS liest nur Deutsch oder nacheinander Deutsch, Französisch und Spanisch.",
+    accent: "#c08a2a",
+    Icon: Headphones,
+    to: "/german-900",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -223,7 +232,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十二合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">十三合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>
