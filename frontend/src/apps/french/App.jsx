@@ -1,13 +1,15 @@
-import { useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
   ChevronRight,
+  Headphones,
   Loader2,
   PanelLeftClose,
   PanelLeftOpen,
   PanelRightClose,
   PanelRightOpen,
   Play,
+  Square,
   Volume2,
 } from "lucide-react";
 
@@ -19,6 +21,13 @@ import {
   saveProgress,
   requestTts,
 } from "./services/api";
+import { useActiveItemScroll } from "../../shared/useActiveItemScroll";
+import {
+  buildBlockAudioItems,
+  buildSectionAudioItems,
+  getBlockMainAudioText,
+  wait,
+} from "../../shared/sprintAudio";
 import { useTts, isTtsCancelled } from "../../shared/useTts";
 
 const DEFAULT_LESSON_ID = "alphabet";
@@ -50,7 +59,7 @@ function getSectionAnchorId(sectionId) {
   return `lesson-section-${sectionId}`;
 }
 
-function AudioButton({ active, label = "播放法语发音", loading, onClick }) {
+function AudioButton({ active, icon = "speaker", label = "播放法语发音", loading, onClick }) {
   return (
     <button
       className={`icon-button audio-button ${active ? "is-speaking" : ""}`}
@@ -62,6 +71,8 @@ function AudioButton({ active, label = "播放法语发音", loading, onClick })
     >
       {loading ? (
         <Loader2 className="spin" size={18} strokeWidth={2.2} />
+      ) : icon === "card" ? (
+        <Headphones size={18} strokeWidth={2.2} />
       ) : (
         <Volume2 size={18} strokeWidth={2.2} />
       )}
@@ -83,12 +94,10 @@ function conjugationAudioText(pronoun, form) {
   return `${pronoun} ${form}`;
 }
 
-function ConjugationTable({ blockId, conjugation, loadingAudioKey, onSpeak, speakingKey }) {
-  if (!conjugation) {
-    return null;
-  }
+function getFrenchConjugationRows(conjugation) {
+  if (!conjugation) return [];
 
-  const rows = [
+  return [
     ["je", conjugation.je],
     ["tu", conjugation.tu],
     ["il / elle", conjugation.il],
@@ -96,6 +105,21 @@ function ConjugationTable({ blockId, conjugation, loadingAudioKey, onSpeak, spea
     ["vous", conjugation.vous],
     ["ils / elles", conjugation.ils],
   ].filter(([, form]) => Boolean(form));
+}
+
+function getFrenchConjugationItems(block) {
+  return getFrenchConjugationRows(block?.conjugation).map(([pronoun, form]) => ({
+    key: pronoun,
+    text: conjugationAudioText(pronoun, form),
+  }));
+}
+
+function ConjugationTable({ blockId, conjugation, loadingAudioKey, onSpeak, speakingKey }) {
+  if (!conjugation) {
+    return null;
+  }
+
+  const rows = getFrenchConjugationRows(conjugation);
 
   return (
     <div className="conjugation-table" aria-label="现在时变位">
@@ -115,6 +139,7 @@ function ConjugationTable({ blockId, conjugation, loadingAudioKey, onSpeak, spea
                 onSpeak(
                   conjugationAudioText(pronoun, form),
                   `${blockId}:conjugation:${pronoun}`,
+                  blockId,
                 )
               }
             />
@@ -125,16 +150,29 @@ function ConjugationTable({ blockId, conjugation, loadingAudioKey, onSpeak, spea
   );
 }
 
-function LessonBlock({ block, heard, loadingAudioKey, onSpeak, speakingKey }) {
+function LessonBlock({
+  active,
+  block,
+  heard,
+  loadingAudioKey,
+  onPlayCard,
+  onSpeak,
+  rowRef,
+  speakingKey,
+}) {
   const isSentence = block.type === "sentence" || block.type === "pattern";
   const isLetter = block.type === "letter";
   const displayText = block.text || block.pattern;
-  const audioText = block.audioText || displayText;
+  const audioText = getBlockMainAudioText(block);
   const examples = block.examples || (block.example ? [block.example] : []);
   const textClass = isLetter ? "letter-text" : isSentence ? "sentence-text" : "pattern-text";
+  const cardAudioActive = active && speakingKey !== block.id;
 
   return (
-    <article className={`learning-card ${heard ? "heard" : ""}`}>
+    <article
+      ref={rowRef}
+      className={`learning-card ${heard ? "heard" : ""} ${active ? "playing" : ""}`}
+    >
       <div className="card-topline">
         <span className="block-type">{TYPE_LABELS[block.type] || "内容"}</span>
         {heard && <span className="status-pill">已听</span>}
@@ -145,11 +183,21 @@ function LessonBlock({ block, heard, loadingAudioKey, onSpeak, speakingKey }) {
           <div className={textClass}>{displayText}</div>
           {block.ipa && <div className="ipa">{block.ipa}</div>}
         </div>
-        <AudioButton
-          active={speakingKey === block.id}
-          loading={loadingAudioKey === block.id}
-          onClick={() => onSpeak(audioText, block.id)}
-        />
+        <div className="main-audio-actions">
+          <AudioButton
+            active={speakingKey === block.id}
+            label="播放关键词"
+            loading={loadingAudioKey === block.id}
+            onClick={() => onSpeak(audioText, block.id, block.id)}
+          />
+          <AudioButton
+            active={cardAudioActive}
+            icon="card"
+            label="播放整张卡片"
+            loading={cardAudioActive && Boolean(loadingAudioKey)}
+            onClick={() => onPlayCard(block)}
+          />
+        </div>
       </div>
 
       {block.translation && <p className="translation">{block.translation}</p>}
@@ -174,7 +222,7 @@ function LessonBlock({ block, heard, loadingAudioKey, onSpeak, speakingKey }) {
                   active={speakingKey === exampleKey}
                   loading={loadingAudioKey === exampleKey}
                   label="播放例子发音"
-                  onClick={() => onSpeak(example.audioText || example.text, exampleKey)}
+                  onClick={() => onSpeak(example.audioText || example.text, exampleKey, block.id)}
                 />
                 <small>
                   {example.ipa && <span className="example-ipa">{example.ipa}</span>}
@@ -413,6 +461,9 @@ export default function FrenchApp() {
   const [isLeftOpen, setIsLeftOpen] = useState(true);
   const [isRightOpen, setIsRightOpen] = useState(true);
   const [activeSectionId, setActiveSectionId] = useState("");
+  const [activeBlockId, setActiveBlockId] = useState("");
+  const [activeSectionPlaybackId, setActiveSectionPlaybackId] = useState("");
+  const [isQueuePlaybackActive, setIsQueuePlaybackActive] = useState(false);
   const [error, setError] = useState("");
   const {
     play: playTts,
@@ -423,10 +474,17 @@ export default function FrenchApp() {
   } = useTts();
   const progressRef = useRef(null);
   const sectionPlayRunRef = useRef(0);
+  const setBlockRef = useActiveItemScroll(activeBlockId);
 
   useEffect(() => {
     progressRef.current = progress;
   }, [progress]);
+
+  useEffect(() => {
+    if (!speakingKey && !loadingAudioKey && !isQueuePlaybackActive) {
+      setActiveBlockId("");
+    }
+  }, [isQueuePlaybackActive, loadingAudioKey, speakingKey]);
 
   useEffect(() => {
     Promise.all([fetchRoadmap(), fetchProgress()])
@@ -563,9 +621,10 @@ export default function FrenchApp() {
     });
   };
 
-  const playEdgeTts = async (text, key, { waitForEnd = false } = {}) => {
+  const playEdgeTts = async (text, key, { blockId = "", waitForEnd = false } = {}) => {
     const cleanText = String(text || "").trim();
     if (!cleanText) return;
+    if (blockId) setActiveBlockId(blockId);
 
     try {
       await playTts({
@@ -590,34 +649,68 @@ export default function FrenchApp() {
     }
   };
 
-  const speakFrench = (text, key) => {
-    playEdgeTts(text, key).catch((err) => {
+  const stopPlayback = useCallback(() => {
+    sectionPlayRunRef.current += 1;
+    stopTts();
+    setIsQueuePlaybackActive(false);
+    setActiveSectionPlaybackId("");
+    setActiveBlockId("");
+  }, [stopTts]);
+
+  const speakFrench = (text, key, blockId = "") => {
+    sectionPlayRunRef.current += 1;
+    setIsQueuePlaybackActive(false);
+    setActiveSectionPlaybackId("");
+    playEdgeTts(text, key, { blockId }).catch((err) => {
       if (!isTtsCancelled(err)) {
         // Already reflected in audioError state.
       }
     });
   };
 
-  const playSection = async (section) => {
+  const playAudioItems = async (items, { sectionId = "" } = {}) => {
     const runId = sectionPlayRunRef.current + 1;
     sectionPlayRunRef.current = runId;
     stopTts();
+    setActiveSectionPlaybackId(sectionId);
+    setIsQueuePlaybackActive(true);
 
-    for (const [index, block] of section.blocks.entries()) {
-      if (sectionPlayRunRef.current !== runId) break;
-      const text = block.audioText || block.text || block.pattern;
-      const key = block.id || `section:${section.id}:${index}`;
-      try {
-        await playEdgeTts(text, key, { waitForEnd: true });
-      } catch (err) {
-        if (isTtsCancelled(err)) return;
-        // Real playback error → stop the rest of the section.
-        return;
+    try {
+      for (const item of items) {
+        if (sectionPlayRunRef.current !== runId) return;
+        try {
+          await playEdgeTts(item.text, item.key, {
+            blockId: item.blockId,
+            waitForEnd: true,
+          });
+          if (sectionPlayRunRef.current === runId) await wait();
+        } catch (err) {
+          if (isTtsCancelled(err)) return;
+          // Real playback error → stop the rest of the section.
+          return;
+        }
+      }
+    } finally {
+      if (sectionPlayRunRef.current === runId) {
+        setIsQueuePlaybackActive(false);
+        setActiveSectionPlaybackId("");
+        setActiveBlockId("");
       }
     }
   };
 
+  const playCard = (block) => {
+    playAudioItems(buildBlockAudioItems(block, getFrenchConjugationItems));
+  };
+
+  const playSection = async (section) => {
+    playAudioItems(buildSectionAudioItems(section, getFrenchConjugationItems), {
+      sectionId: section.id,
+    });
+  };
+
   const selectLesson = (lessonId) => {
+    stopPlayback();
     setError("");
     setSelectedLessonId(lessonId);
   };
@@ -684,14 +777,27 @@ export default function FrenchApp() {
                   <h2>{section.title}</h2>
                   <p>{section.note}</p>
                 </div>
-                <button
-                  className="section-play-button"
-                  type="button"
-                  onClick={() => playSection(section)}
-                >
-                  <Play size={16} />
-                  播放本节
-                </button>
+                <div className="section-audio-actions">
+                  <button
+                    className={`section-play-button ${
+                      activeSectionPlaybackId === section.id ? "is-playing" : ""
+                    }`}
+                    type="button"
+                    onClick={() => playSection(section)}
+                  >
+                    <Play size={16} />
+                    播放本节
+                  </button>
+                  <button
+                    className="section-stop-button"
+                    disabled={activeSectionPlaybackId !== section.id}
+                    type="button"
+                    onClick={stopPlayback}
+                  >
+                    <Square size={15} />
+                    停止
+                  </button>
+                </div>
               </div>
               <div
                 className={
@@ -707,8 +813,11 @@ export default function FrenchApp() {
                       block={block}
                       heard={heard}
                       key={block.id}
+                      active={activeBlockId === block.id}
                       loadingAudioKey={loadingAudioKey}
+                      onPlayCard={playCard}
                       onSpeak={speakFrench}
+                      rowRef={(node) => setBlockRef(block.id, node)}
                       speakingKey={speakingKey}
                     />
                   );

@@ -173,7 +173,8 @@
 
   .primary-button,
   .ghost-button,
-  .section-play-button {
+  .section-play-button,
+  .section-stop-button {
     display: inline-flex; align-items: center; justify-content: center;
     gap: 8px; min-height: 38px; padding: 0 16px; border-radius: 10px; cursor: pointer;
     font-weight: 600; font-size: 14px;
@@ -190,11 +191,30 @@
     border: 1px solid var(--line-strong); color: var(--ink);
     background: var(--surface);
   }
+  .section-play-button.is-playing {
+    border-color: var(--accent);
+    color: var(--accent-dark);
+    background: var(--accent-soft);
+  }
+  .section-stop-button {
+    border: 1px solid rgba(190, 24, 93, 0.32);
+    color: #9f1239;
+    background: #fff1f2;
+  }
+  .section-stop-button:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+  }
   .ghost-button:hover,
-  .section-play-button:hover {
+  .section-play-button:hover,
+  .section-stop-button:hover:not(:disabled) {
     border-color: var(--accent); color: var(--accent);
     transform: translateY(-1px);
   }
+.section-audio-actions {
+  display: inline-flex; align-items: center; justify-content: flex-end;
+  flex-wrap: wrap; gap: 8px;
+}
 
   /* ---------- Grids ---------- */
   .letter-grid,
@@ -220,6 +240,11 @@
     border-color: rgba(4, 120, 87, 0.35);
     background: linear-gradient(180deg, #ffffff 0%, #f5fbf7 100%);
   }
+  .learning-card.playing {
+    border-color: #9d174d;
+    background: #fff1f7;
+    box-shadow: 0 0 0 3px rgba(190, 24, 93, 0.18), 0 18px 42px rgba(190, 24, 93, 0.20);
+  }
 
   .card-topline {
     display: flex; justify-content: space-between; gap: 10px; min-height: 24px;
@@ -241,6 +266,9 @@
   }
   .letter-row > div,
   .sentence-row > div { min-width: 0; }
+  .main-audio-actions {
+    display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px;
+  }
 
   .letter-text {
     color: var(--ink); font-size: 60px; line-height: 1;
@@ -278,6 +306,12 @@
   .audio-button.is-speaking {
     background: linear-gradient(135deg, var(--saffron) 0%, #b45309 100%);
     box-shadow: 0 6px 14px rgba(217, 119, 6, 0.40);
+  }
+  .main-audio-actions .audio-button[aria-label="Play full card"] {
+    background: linear-gradient(135deg, var(--ink) 0%, #581c87 100%);
+  }
+  .main-audio-actions .audio-button[aria-label="Play full card"].is-speaking {
+    background: linear-gradient(135deg, var(--saffron) 0%, #b45309 100%);
   }
 
   /* ---------- Card text fields ---------- */

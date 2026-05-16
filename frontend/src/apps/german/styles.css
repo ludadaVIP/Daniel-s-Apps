@@ -110,7 +110,8 @@
 }
 .de-shell .primary-button,
 .de-shell .ghost-button,
-.de-shell .section-play-button {
+.de-shell .section-play-button,
+.de-shell .section-stop-button {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 7px; min-height: 38px; padding: 0 14px; border-radius: 8px; cursor: pointer;
 }
@@ -120,6 +121,15 @@
 .de-shell .ghost-button,
 .de-shell .section-play-button {
   border: 1px solid #d5e0de; color: #263330; background: #ffffff;
+}
+.de-shell .section-play-button.is-playing {
+  border-color: #a3650d; color: #78350f; background: #fbf3df;
+}
+.de-shell .section-stop-button {
+  border: 1px solid #f0c4bd; color: #9d2c25; background: #fff7f5;
+}
+.de-shell .section-stop-button:disabled {
+  cursor: not-allowed; opacity: 0.5;
 }
 
 .de-shell .right-panel {
@@ -223,6 +233,10 @@
 .de-shell .section-heading p {
   margin: 8px 0 0; color: #63726f; line-height: 1.65;
 }
+.de-shell .section-audio-actions {
+  display: inline-flex; align-items: center; justify-content: flex-end;
+  flex-wrap: wrap; gap: 8px;
+}
 
 .de-shell .letter-grid,
 .de-shell .content-grid { display: grid; gap: 14px; }
@@ -238,8 +252,14 @@
   padding: 16px; border: 1px solid #dce5e4; border-radius: 8px;
   background: #ffffff; overflow-wrap: anywhere;
   box-shadow: 0 10px 28px rgba(16, 24, 32, 0.05);
+  transition: border-color 0.16s, box-shadow 0.16s, background 0.16s;
 }
 .de-shell .learning-card.heard { border-color: #dbc685; background: #fefcf6; }
+.de-shell .learning-card.playing {
+  border-color: #9a5c0a;
+  background: #fff7e7;
+  box-shadow: 0 0 0 3px rgba(163, 101, 13, 0.18), 0 16px 38px rgba(120, 53, 15, 0.16);
+}
 .de-shell .card-topline {
   display: flex; justify-content: space-between; gap: 10px; min-height: 24px;
 }
@@ -254,6 +274,9 @@
 }
 .de-shell .letter-row > div,
 .de-shell .sentence-row > div { min-width: 0; }
+.de-shell .main-audio-actions {
+  display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px;
+}
 .de-shell .letter-text {
   color: #101820; font-size: 54px; line-height: 1; font-weight: 860;
 }
@@ -279,6 +302,12 @@
 }
 .de-shell .audio-button svg { width: 16px; height: 16px; }
 .de-shell .audio-button.is-speaking {
+  background: #e9564f; border-color: #e9564f;
+}
+.de-shell .main-audio-actions .audio-button[aria-label="Play full card"] {
+  background: #101820; border-color: #101820;
+}
+.de-shell .main-audio-actions .audio-button[aria-label="Play full card"].is-speaking {
   background: #e9564f; border-color: #e9564f;
 }
 

@@ -110,7 +110,8 @@
 }
 .french-shell .primary-button,
 .french-shell .ghost-button,
-.french-shell .section-play-button {
+.french-shell .section-play-button,
+.french-shell .section-stop-button {
   display: inline-flex; align-items: center; justify-content: center;
   gap: 7px; min-height: 38px; padding: 0 14px; border-radius: 8px; cursor: pointer;
 }
@@ -120,6 +121,15 @@
 .french-shell .ghost-button,
 .french-shell .section-play-button {
   border: 1px solid #d5e0de; color: #263330; background: #ffffff;
+}
+.french-shell .section-play-button.is-playing {
+  border-color: #0f9f8a; color: #064e43; background: #dcfbf5;
+}
+.french-shell .section-stop-button {
+  border: 1px solid #f0c4bd; color: #9d2c25; background: #fff7f5;
+}
+.french-shell .section-stop-button:disabled {
+  cursor: not-allowed; opacity: 0.5;
 }
 
 .french-shell .right-panel {
@@ -223,6 +233,10 @@
 .french-shell .section-heading p {
   margin: 8px 0 0; color: #63726f; line-height: 1.65;
 }
+.french-shell .section-audio-actions {
+  display: inline-flex; align-items: center; justify-content: flex-end;
+  flex-wrap: wrap; gap: 8px;
+}
 
 .french-shell .letter-grid,
 .french-shell .content-grid { display: grid; gap: 14px; }
@@ -238,8 +252,14 @@
   padding: 16px; border: 1px solid #dce5e4; border-radius: 8px;
   background: #ffffff; overflow-wrap: anywhere;
   box-shadow: 0 10px 28px rgba(16, 24, 32, 0.05);
+  transition: border-color 0.16s, box-shadow 0.16s, background 0.16s;
 }
 .french-shell .learning-card.heard { border-color: #a8e8dc; background: #fbfffd; }
+.french-shell .learning-card.playing {
+  border-color: #078171;
+  background: #e6fbf5;
+  box-shadow: 0 0 0 3px rgba(15, 159, 138, 0.18), 0 16px 38px rgba(15, 118, 110, 0.18);
+}
 .french-shell .card-topline {
   display: flex; justify-content: space-between; gap: 10px; min-height: 24px;
 }
@@ -254,6 +274,9 @@
 }
 .french-shell .letter-row > div,
 .french-shell .sentence-row > div { min-width: 0; }
+.french-shell .main-audio-actions {
+  display: inline-flex; flex: 0 0 auto; align-items: center; gap: 8px;
+}
 .french-shell .letter-text {
   color: #101820; font-size: 54px; line-height: 1; font-weight: 860;
 }
@@ -279,6 +302,12 @@
 }
 .french-shell .audio-button svg { width: 16px; height: 16px; }
 .french-shell .audio-button.is-speaking {
+  background: #e9564f; border-color: #e9564f;
+}
+.french-shell .main-audio-actions .audio-button[aria-label="播放整张卡片"] {
+  background: #101820; border-color: #101820;
+}
+.french-shell .main-audio-actions .audio-button[aria-label="播放整张卡片"].is-speaking {
   background: #e9564f; border-color: #e9564f;
 }
 
