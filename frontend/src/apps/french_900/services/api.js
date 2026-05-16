@@ -27,3 +27,13 @@ export async function requestTts({ text, language }) {
     })
   );
 }
+
+export async function importGroup(content) {
+  return parseResponse(
+    await fetch(`${BASE}/groups/import`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ content }),
+    })
+  );
+}

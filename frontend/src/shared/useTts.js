@@ -45,6 +45,7 @@ export function useTts() {
   const [speakingKey, setSpeakingKey] = useState("");
   const [loadingKey, setLoadingKey] = useState("");
   const [error, setError] = useState("");
+  const [paused, setPaused] = useState(false);
 
   const revokePendingObjectUrl = useCallback(() => {
     if (objectUrlRef.current) {
@@ -69,6 +70,7 @@ export function useTts() {
       }
       audioRef.current = null;
     }
+    setPaused(false);
     revokePendingObjectUrl();
   }, [revokePendingObjectUrl]);
 
@@ -80,7 +82,22 @@ export function useTts() {
     if (reject) reject(new TtsCancelled());
     setSpeakingKey("");
     setLoadingKey("");
+    setPaused(false);
   }, [detachAudio]);
+
+  const pause = useCallback(() => {
+    const audio = audioRef.current;
+    if (!audio || audio.paused) return;
+    audio.pause();
+    setPaused(true);
+  }, []);
+
+  const resume = useCallback(async () => {
+    const audio = audioRef.current;
+    if (!audio || !audio.paused) return;
+    await audio.play();
+    setPaused(false);
+  }, []);
 
   const play = useCallback(
     async ({ key = "", getUrl, waitForEnd = false, onResolved } = {}) => {
@@ -100,6 +117,7 @@ export function useTts() {
       setError("");
       setSpeakingKey(key);
       setLoadingKey(key);
+      setPaused(false);
 
       let resolved;
       try {
@@ -154,6 +172,7 @@ export function useTts() {
             audioRef.current = null;
             if (objectUrlRef.current === url) revokePendingObjectUrl();
             if (ownToken === cancelTokenRef.current) setSpeakingKey("");
+            if (ownToken === cancelTokenRef.current) setPaused(false);
           }
           if (err) reject(err);
           else resolve();
@@ -165,6 +184,7 @@ export function useTts() {
       try {
         await audio.play();
         if (ownToken === cancelTokenRef.current) setLoadingKey("");
+        if (ownToken === cancelTokenRef.current) setPaused(false);
       } catch (err) {
         if (ownToken === cancelTokenRef.current) {
           setError(err?.message || "Could not start playback.");
@@ -199,5 +219,5 @@ export function useTts() {
 
   useEffect(() => stop, [stop]);
 
-  return { play, stop, speakingKey, loadingKey, error, setError };
+  return { play, stop, pause, resume, paused, speakingKey, loadingKey, error, setError };
 }

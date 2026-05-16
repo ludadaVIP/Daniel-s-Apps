@@ -19,6 +19,7 @@ from typing import Any
 from flask import Blueprint, jsonify, request
 
 from shared.io import read_json, write_json
+from shared.nine_hundred import group_summary, import_900_group, load_900_course
 from shared.tts import audio_file_is_usable, generate_audio
 from shared.voices import default_voice_for_language, voices_for_language
 
@@ -62,38 +63,8 @@ def handle_error(error: German900Error):
     return jsonify({"error": str(error)}), error.status_code
 
 
-def _ensure_sentence_ids(course: dict[str, Any]) -> dict[str, Any]:
-    """Inject ``id``, ``number`` and ``groupNumber`` into every sentence
-    so the JSON source stays minimal but the API stays consistent."""
-    for group in course.get("groups", []) or []:
-        group_id = group.get("id") or ""
-        sentences = group.get("sentences") or []
-        for index, sentence in enumerate(sentences, start=1):
-            if not sentence.get("id"):
-                sentence["id"] = f"{group_id}-{index:03d}"
-            sentence.setdefault("number", index)
-            sentence.setdefault("groupNumber", index)
-        group["count"] = len(sentences)
-    return course
-
-
 def load_course() -> dict[str, Any]:
-    course = read_json(DATA_FILE)
-    if not course:
-        raise German900Error("German 900 data is missing.", 500)
-    return _ensure_sentence_ids(course)
-
-
-def group_summary(group: dict[str, Any]) -> dict[str, Any]:
-    sentences = group.get("sentences", [])
-    return {
-        "id": group.get("id"),
-        "title": group.get("title"),
-        "level": group.get("level"),
-        "focus": group.get("focus"),
-        "count": group.get("count", len(sentences)),
-        "firstSentence": sentences[0] if sentences else None,
-    }
+    return load_900_course(DATA_DIR, DATA_FILE, German900Error)
 
 
 def normalise_tts_language(value: Any) -> str:
@@ -167,6 +138,22 @@ def group_detail(group_id: str):
         if group.get("id") == group_id:
             return jsonify(group)
     raise German900Error("Group not found.", 404)
+
+
+@bp.route("/groups/import", methods=["POST", "OPTIONS"])
+def import_group():
+    if request.method == "OPTIONS":
+        return "", 204
+    course = load_course()
+    group = import_900_group(
+        DATA_DIR,
+        course,
+        request.get_json(silent=True) or {},
+        app_label="German 900",
+        required_fields=["german", "french", "spanish"],
+        error_cls=German900Error,
+    )
+    return jsonify({"group": group, "summary": group_summary(group)}), 201
 
 
 @bp.route("/tts/voices", methods=["GET", "OPTIONS"])

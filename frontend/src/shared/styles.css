@@ -47,6 +47,220 @@ a {
   text-decoration: none;
 }
 
+/* -------------------------------------------------- 900-series shared tools */
+.nh-tools {
+  display: inline-flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.nh-tool-button,
+.nh-primary-action,
+.nh-progress-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 12px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 8px;
+  color: #0f172a;
+  background: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 760;
+  cursor: pointer;
+}
+
+.nh-tool-button:hover,
+.nh-progress-actions button:hover {
+  border-color: rgba(15, 23, 42, 0.28);
+  transform: translateY(-1px);
+}
+
+.nh-tool-status {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.nh-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(15, 23, 42, 0.44);
+}
+
+.nh-modal {
+  width: min(760px, calc(100vw - 32px));
+  max-height: min(760px, calc(100vh - 48px));
+  overflow: auto;
+  padding: 18px;
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  border-radius: 10px;
+  background: #ffffff;
+  box-shadow: 0 28px 80px rgba(15, 23, 42, 0.28);
+}
+
+.nh-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.nh-modal-header h2 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.nh-modal-header button {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(15, 23, 42, 0.12);
+  border-radius: 8px;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.nh-field {
+  display: grid;
+  gap: 6px;
+  margin-bottom: 12px;
+  color: #334155;
+  font-size: 13px;
+  font-weight: 760;
+}
+
+.nh-field select,
+.nh-field textarea,
+.nh-prompt-box,
+.nh-import-box {
+  width: 100%;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 8px;
+  color: #0f172a;
+  background: #f8fafc;
+  font: inherit;
+}
+
+.nh-field select {
+  min-height: 38px;
+  padding: 0 10px;
+}
+
+.nh-field textarea {
+  min-height: 74px;
+  padding: 10px;
+  resize: vertical;
+}
+
+.nh-prompt-box,
+.nh-import-box {
+  min-height: 280px;
+  padding: 12px;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 12px;
+  line-height: 1.55;
+  resize: vertical;
+}
+
+.nh-import-box {
+  min-height: 340px;
+}
+
+.nh-modal-note {
+  margin: 0 0 10px;
+  color: #64748b;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.nh-primary-action {
+  margin-top: 12px;
+  border-color: #0f172a;
+  color: #ffffff;
+  background: #0f172a;
+}
+
+.nh-primary-action:disabled {
+  cursor: not-allowed;
+  opacity: 0.55;
+}
+
+.nh-progress-dock {
+  position: fixed;
+  right: 22px;
+  bottom: 22px;
+  z-index: 60;
+  width: min(560px, calc(100vw - 44px));
+  padding: 14px;
+  border: 1px solid rgba(15, 23, 42, 0.14);
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 18px 52px rgba(15, 23, 42, 0.22);
+  backdrop-filter: blur(14px);
+}
+
+.nh-progress-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+}
+
+.nh-progress-top > div:first-child {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+}
+
+.nh-progress-top strong {
+  overflow: hidden;
+  color: #0f172a;
+  font-size: 14px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.nh-progress-top span {
+  color: #64748b;
+  font-size: 12px;
+  font-weight: 720;
+}
+
+.nh-progress-actions {
+  display: inline-flex;
+  flex: 0 0 auto;
+  gap: 8px;
+}
+
+.nh-progress-dock input[type="range"] {
+  width: 100%;
+  margin-top: 12px;
+  accent-color: #0f172a;
+}
+
+@media (max-width: 680px) {
+  .nh-progress-top {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .nh-progress-actions button {
+    flex: 1;
+  }
+}
+
 /* -------------------------------------------------- Hub layout */
 .hub-root {
   min-height: 100vh;

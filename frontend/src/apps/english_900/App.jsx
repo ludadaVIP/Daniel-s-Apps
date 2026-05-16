@@ -14,12 +14,22 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
-import { fetchGroup, fetchGroups, requestTts } from "./services/api";
+import { fetchGroup, fetchGroups, importGroup, requestTts } from "./services/api";
+import { NineHundredDataTools } from "../../shared/NineHundredDataTools";
+import { NineHundredProgressDock } from "../../shared/NineHundredProgressDock";
 import { useActiveItemScroll } from "../../shared/useActiveItemScroll";
 import { isTtsCancelled, useTts } from "../../shared/useTts";
 
 const STORAGE_KEY = "english-900:last-group";
 const QUEUE_PAUSE_MS = 320;
+const DATA_TOOL_CONFIG = {
+  appName: "English 900",
+  fields: ["english", "chinese"],
+  example: {
+    english: "I was wondering whether I could join your study group.",
+    chinese: "我想问一下我能不能加入你们的学习小组。",
+  },
+};
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -44,7 +54,7 @@ function AudioButton({ active, disabled, loading, mode, onClick, title }) {
   );
 }
 
-function Sidebar({ activeGroupId, groups, loading, onSelect }) {
+function Sidebar({ activeGroupId, groups, loading, onSelect, totalSentences }) {
   return (
     <aside className="e900-sidebar">
       <div className="e900-brand">
@@ -57,11 +67,11 @@ function Sidebar({ activeGroupId, groups, loading, onSelect }) {
 
       <div className="e900-sidebar-panel">
         <div className="e900-stat">
-          <strong>900</strong>
+          <strong>{totalSentences || 900}</strong>
           <span>sentences</span>
         </div>
         <div className="e900-stat">
-          <strong>9</strong>
+          <strong>{groups.length || 9}</strong>
           <span>groups</span>
         </div>
       </div>
@@ -158,12 +168,27 @@ export default function English900App() {
   const [error, setError] = useState("");
   const [loadingCourse, setLoadingCourse] = useState(true);
   const [loadingGroup, setLoadingGroup] = useState(true);
-  const [queueState, setQueueState] = useState({ running: false, label: "" });
+  const [queueState, setQueueState] = useState({
+    running: false,
+    label: "",
+    mode: "",
+    sentences: [],
+    currentIndex: 0,
+  });
   const [activeSentenceId, setActiveSentenceId] = useState("");
   const queueRunRef = useRef(0);
   const setSentenceRef = useActiveItemScroll(activeSentenceId);
 
-  const { play, stop, speakingKey, loadingKey, error: ttsError } = useTts();
+  const {
+    play,
+    stop,
+    pause,
+    resume,
+    paused,
+    speakingKey,
+    loadingKey,
+    error: ttsError,
+  } = useTts();
 
   useEffect(() => {
     let alive = true;
@@ -187,7 +212,7 @@ export default function English900App() {
     let alive = true;
     queueRunRef.current += 1;
     stop();
-    setQueueState({ running: false, label: "" });
+    setQueueState({ running: false, label: "", mode: "", sentences: [], currentIndex: 0 });
     setActiveSentenceId("");
     setLoadingGroup(true);
     fetchGroup(activeGroupId)
@@ -223,9 +248,17 @@ export default function English900App() {
   const stopQueue = useCallback(() => {
     queueRunRef.current += 1;
     stop();
-    setQueueState({ running: false, label: "" });
+    setQueueState({ running: false, label: "", mode: "", sentences: [], currentIndex: 0 });
     setActiveSentenceId("");
   }, [stop]);
+
+  const handleImportGroup = useCallback(async (content) => {
+    const result = await importGroup(content);
+    const nextCourse = await fetchGroups();
+    setCourse(nextCourse);
+    setActiveGroupId(result.group.id);
+    return result;
+  }, []);
 
   const playClip = useCallback(
     async ({ key, language, sentenceId, text }) => {
@@ -243,15 +276,18 @@ export default function English900App() {
   );
 
   const runQueue = useCallback(
-    async ({ label, mode, sentences }) => {
+    async ({ label, mode, sentences, startIndex = 0 }) => {
       const runId = queueRunRef.current + 1;
       queueRunRef.current = runId;
+      stop();
       setError("");
-      setQueueState({ running: true, label });
+      setQueueState({ running: true, label, mode, sentences, currentIndex: startIndex });
 
       try {
-        for (const sentence of sentences) {
+        for (let index = startIndex; index < sentences.length; index += 1) {
+          const sentence = sentences[index];
           if (queueRunRef.current !== runId) throw new Error("cancelled");
+          setQueueState((current) => ({ ...current, currentIndex: index }));
 
           if (mode === "english") {
             await playClip({
@@ -286,12 +322,26 @@ export default function English900App() {
         }
       } finally {
         if (queueRunRef.current === runId) {
-          setQueueState({ running: false, label: "" });
+          setQueueState({ running: false, label: "", mode: "", sentences: [], currentIndex: 0 });
           setActiveSentenceId("");
         }
       }
     },
-    [playClip],
+    [playClip, stop],
+  );
+
+  const seekQueue = useCallback(
+    (index) => {
+      const sentences = queueState.sentences.length ? queueState.sentences : group?.sentences || [];
+      if (!sentences.length) return;
+      runQueue({
+        label: queueState.label || "Playing queue",
+        mode: queueState.mode || "english",
+        sentences,
+        startIndex: index,
+      });
+    },
+    [group, queueState, runQueue],
   );
 
   const playSentence = useCallback(
@@ -330,6 +380,7 @@ export default function English900App() {
         groups={course?.groups || []}
         loading={loadingCourse}
         onSelect={setActiveGroupId}
+        totalSentences={course?.totalSentences}
       />
 
       <main className="e900-content">
@@ -343,7 +394,7 @@ export default function English900App() {
             <p>{group?.focus || course?.description || "900 practical English sentences with Chinese translations."}</p>
             <div className="e900-meta-row">
               <span><BookOpen size={16} /> {group?.level || "A1-B2"}</span>
-              <span><Radio size={16} /> Group {currentGroupIndex + 1 || 1} of 9</span>
+              <span><Radio size={16} /> Group {currentGroupIndex + 1 || 1} of {course?.groups?.length || 9}</span>
               <span><Headphones size={16} /> {groupCount} sentences</span>
             </div>
           </div>
@@ -400,6 +451,7 @@ export default function English900App() {
               placeholder="Search English, Chinese, or tag"
             />
           </label>
+          <NineHundredDataTools config={DATA_TOOL_CONFIG} onImport={handleImportGroup} />
           <span>{visibleCount} shown</span>
         </section>
 
@@ -426,6 +478,17 @@ export default function English900App() {
           )}
         </section>
       </main>
+      <NineHundredProgressDock
+        currentIndex={queueState.currentIndex}
+        label={queueState.label}
+        onPause={pause}
+        onResume={resume}
+        onSeek={seekQueue}
+        onStop={stopQueue}
+        paused={paused}
+        total={queueState.sentences.length}
+        visible={queueState.running}
+      />
     </div>
   );
 }
