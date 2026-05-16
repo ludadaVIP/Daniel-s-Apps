@@ -408,6 +408,7 @@
   }
 
   .s900-sentence {
+    position: relative;
     display: grid;
     grid-template-columns: 92px minmax(0, 1fr) 104px;
     gap: 16px;
@@ -418,7 +419,16 @@
     border-radius: 8px;
     background: rgba(255, 255, 255, 0.92);
     box-shadow: 0 8px 22px rgba(24, 58, 50, 0.06);
-    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease, background 150ms ease;
+  }
+
+  .s900-sentence::before {
+    position: absolute;
+    inset: 12px auto 12px 0;
+    width: 4px;
+    border-radius: 999px;
+    background: transparent;
+    content: "";
   }
 
   .s900-sentence:hover {
@@ -428,9 +438,18 @@
   }
 
   .s900-sentence.is-current {
-    border-color: rgba(15, 118, 110, 0.55);
-    background: linear-gradient(90deg, rgba(217, 244, 239, 0.92) 0%, rgba(255, 255, 255, 0.96) 62%);
-    box-shadow: 0 12px 28px rgba(15, 118, 110, 0.15);
+    border-color: rgba(15, 118, 110, 0.88);
+    background: linear-gradient(90deg, rgba(153, 229, 216, 0.58) 0%, rgba(232, 248, 244, 0.98) 52%, rgba(255, 255, 255, 0.98) 100%);
+    box-shadow: 0 16px 34px rgba(15, 118, 110, 0.26);
+  }
+
+  .s900-sentence.is-current::before {
+    background: var(--teal);
+  }
+
+  .s900-sentence.is-current .s900-sentence-index span,
+  .s900-sentence.is-current .s900-spanish {
+    color: #064e48;
   }
 
   .s900-sentence-index {

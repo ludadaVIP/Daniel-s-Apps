@@ -454,6 +454,7 @@
   }
 
   .f900-sentence {
+    position: relative;
     display: grid;
     grid-template-columns: 92px minmax(0, 1fr) 104px;
     gap: 16px;
@@ -464,7 +465,16 @@
     border-radius: 12px;
     background: rgba(255, 255, 255, 0.94);
     box-shadow: 0 8px 22px rgba(17, 24, 58, 0.06);
-    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease;
+    transition: border-color 150ms ease, box-shadow 150ms ease, transform 150ms ease, background 150ms ease;
+  }
+
+  .f900-sentence::before {
+    position: absolute;
+    inset: 12px auto 12px 0;
+    width: 4px;
+    border-radius: 999px;
+    background: transparent;
+    content: "";
   }
 
   .f900-sentence:hover {
@@ -474,9 +484,18 @@
   }
 
   .f900-sentence.is-current {
-    border-color: rgba(43, 59, 138, 0.55);
-    background: linear-gradient(90deg, rgba(231, 234, 252, 0.92) 0%, rgba(255, 255, 255, 0.96) 62%);
-    box-shadow: 0 12px 28px rgba(43, 59, 138, 0.18);
+    border-color: rgba(43, 59, 138, 0.9);
+    background: linear-gradient(90deg, rgba(192, 201, 246, 0.6) 0%, rgba(239, 242, 255, 0.98) 52%, rgba(255, 255, 255, 0.98) 100%);
+    box-shadow: 0 16px 34px rgba(43, 59, 138, 0.28);
+  }
+
+  .f900-sentence.is-current::before {
+    background: var(--indigo);
+  }
+
+  .f900-sentence.is-current .f900-sentence-index span,
+  .f900-sentence.is-current .f900-french {
+    color: #172064;
   }
 
   .f900-sentence-index {

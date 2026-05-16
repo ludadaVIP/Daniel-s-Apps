@@ -15,6 +15,7 @@ import {
 
 import "./styles.css";
 import { fetchGroup, fetchGroups, requestTts } from "./services/api";
+import { useActiveItemScroll } from "../../shared/useActiveItemScroll";
 import { isTtsCancelled, useTts } from "../../shared/useTts";
 
 const STORAGE_KEY = "french-900:last-group";
@@ -102,6 +103,7 @@ function SentenceRow({
   loadingKey,
   onPlayAll,
   onPlayFrench,
+  rowRef,
   sentence,
   speakingKey,
 }) {
@@ -112,7 +114,10 @@ function SentenceRow({
   const isAllActive = speakingKey === allKey || speakingKey === spanishKey;
 
   return (
-    <article className={`f900-sentence ${active ? "is-current" : ""}`}>
+    <article
+      className={`f900-sentence ${active ? "is-current" : ""}`}
+      ref={rowRef}
+    >
       <div className="f900-sentence-index">
         <span>{String(sentence.number || sentence.groupNumber).padStart(3, "0")}</span>
         <small>{sentence.tag}</small>
@@ -160,6 +165,7 @@ export default function French900App() {
   const [queueState, setQueueState] = useState({ running: false, label: "" });
   const [activeSentenceId, setActiveSentenceId] = useState("");
   const queueRunRef = useRef(0);
+  const setSentenceRef = useActiveItemScroll(activeSentenceId);
 
   const { play, stop, speakingKey, loadingKey, error: ttsError } = useTts();
 
@@ -438,6 +444,7 @@ export default function French900App() {
                 loadingKey={loadingKey}
                 onPlayAll={(item) => playSentence(item, "all")}
                 onPlayFrench={(item) => playSentence(item, "french")}
+                rowRef={(node) => setSentenceRef(sentence.id, node)}
                 sentence={sentence}
                 speakingKey={speakingKey}
               />
