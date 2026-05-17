@@ -290,8 +290,9 @@
   .esv-player-status small { color: var(--muted); font-size: 12.5px; }
   .esv-player-actions {
     display: grid;
-    grid-template-columns: 0.85fr 1fr 1fr 40px;
-    gap: 8px;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) 44px;
+    grid-template-rows: repeat(2, minmax(42px, auto));
+    gap: 10px;
   }
   .esv-lemma-button, .esv-primary-button, .esv-secondary-button, .esv-stop-button {
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
@@ -308,22 +309,30 @@
     text-align: center;
   }
   .esv-lemma-button {
+    grid-column: 1;
+    grid-row: 1;
     border: 1px solid var(--line-strong);
     color: var(--sky-dark);
     background: #eef8ff;
   }
   .esv-primary-button {
+    grid-column: 2;
+    grid-row: 1;
     border: 1px solid transparent;
     color: #fff;
     background: linear-gradient(95deg, var(--terracotta) 0%, var(--terracotta-dark) 100%);
     box-shadow: 0 6px 14px rgba(152, 61, 30, 0.28);
   }
   .esv-secondary-button {
+    grid-column: 1 / span 2;
+    grid-row: 2;
     border: 1px solid var(--line-strong);
     color: var(--saffron-dark);
     background: #fff8e8;
   }
   .esv-stop-button {
+    grid-column: 3;
+    grid-row: 1 / span 2;
     border: 1px solid var(--line-strong);
     color: var(--ink);
     background: var(--surface);
