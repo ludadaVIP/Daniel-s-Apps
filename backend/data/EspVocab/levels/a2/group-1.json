@@ -3,27 +3,863 @@
   "title": "Día a día · Daily routines and feelings",
   "focus": "Common verbs for daily routines, weekend, basic feelings, body parts and simple opinions.",
   "words": [
-    {"lemma": "trabajo", "ipa": "tɾaˈβa.xo", "pos": "noun", "gender": "m", "translation_en": "work, job", "example": "Tengo un trabajo nuevo desde julio.", "example_en": "I have a new job since July.", "tag": "Work"},
-    {"lemma": "fin de semana", "ipa": "fin de seˈma.na", "pos": "phrase", "translation_en": "weekend", "example": "El fin de semana visito a mis padres.", "example_en": "On the weekend I visit my parents.", "tag": "Time"},
-    {"lemma": "mañana", "ipa": "maˈɲa.na", "pos": "noun", "gender": "f", "translation_en": "morning; tomorrow", "example": "La mañana es mi parte favorita del día.", "example_en": "The morning is my favourite part of the day.", "tag": "Time"},
-    {"lemma": "noche", "ipa": "ˈno.tʃe", "pos": "noun", "gender": "f", "translation_en": "night", "example": "Por la noche leo un poco.", "example_en": "At night I read a bit.", "tag": "Time"},
-    {"lemma": "viaje", "ipa": "ˈbja.xe", "pos": "noun", "gender": "m", "translation_en": "trip, journey", "example": "El viaje fue muy tranquilo.", "example_en": "The trip was very calm.", "tag": "Travel"},
-    {"lemma": "espalda", "ipa": "esˈpal.da", "pos": "noun", "gender": "f", "translation_en": "back (body part)", "example": "Me duele la espalda después de correr.", "example_en": "My back hurts after running.", "tag": "Body"},
-    {"lemma": "cabeza", "ipa": "kaˈβe.sa", "pos": "noun", "gender": "f", "translation_en": "head", "example": "Tengo dolor de cabeza desde la mañana.", "example_en": "I've had a headache since the morning.", "tag": "Body"},
-    {"lemma": "dormir", "ipa": "doɾˈmiɾ", "pos": "verb", "translation_en": "to sleep", "example": "Duermo ocho horas cada noche.", "example_en": "I sleep eight hours every night.", "tag": "Routines"},
-    {"lemma": "salir", "ipa": "saˈliɾ", "pos": "verb", "translation_en": "to go out, to leave", "example": "Salimos del cine a las once.", "example_en": "We left the cinema at eleven.", "tag": "Routines"},
-    {"lemma": "llegar", "ipa": "ʎeˈɣaɾ", "pos": "verb", "translation_en": "to arrive", "example": "Llego al trabajo a las nueve.", "example_en": "I arrive at work at nine.", "tag": "Routines"},
-    {"lemma": "preguntar", "ipa": "pɾeɣunˈtaɾ", "pos": "verb", "translation_en": "to ask (a question)", "example": "Pregunté la dirección a un vecino.", "example_en": "I asked a neighbour for the address.", "tag": "Communication"},
-    {"lemma": "responder", "ipa": "responˈdeɾ", "pos": "verb", "translation_en": "to answer, to reply", "example": "Responde siempre con mucha calma.", "example_en": "He always answers very calmly.", "tag": "Communication"},
-    {"lemma": "ayudar", "ipa": "a.juˈðaɾ", "pos": "verb", "translation_en": "to help", "example": "Mi hermano me ayuda con los deberes.", "example_en": "My brother helps me with my homework.", "tag": "Social"},
-    {"lemma": "gustar", "ipa": "ɡusˈtaɾ", "pos": "verb", "translation_en": "to please (to like)", "example": "Me gusta el chocolate negro.", "example_en": "I like dark chocolate.", "tag": "Opinions"},
-    {"lemma": "feliz", "ipa": "feˈlis", "pos": "adj", "translation_en": "happy", "example": "Estoy feliz con mi nueva casa.", "example_en": "I'm happy with my new home.", "tag": "Feelings"},
-    {"lemma": "triste", "ipa": "ˈtɾis.te", "pos": "adj", "translation_en": "sad", "example": "Se puso triste con la noticia.", "example_en": "He got sad with the news.", "tag": "Feelings"},
-    {"lemma": "ocupado", "ipa": "o.kuˈpa.ðo", "pos": "adj", "translation_en": "busy", "example": "Esta semana estoy muy ocupado.", "example_en": "This week I'm very busy.", "tag": "States"},
-    {"lemma": "barato", "ipa": "baˈɾa.to", "pos": "adj", "translation_en": "cheap", "example": "El menú del día es barato y rico.", "example_en": "The set lunch is cheap and tasty.", "tag": "Money"},
-    {"lemma": "caro", "ipa": "ˈka.ɾo", "pos": "adj", "translation_en": "expensive", "example": "Ese restaurante es muy caro.", "example_en": "That restaurant is very expensive.", "tag": "Money"},
-    {"lemma": "siempre", "ipa": "ˈsjem.pɾe", "pos": "adv", "translation_en": "always", "example": "Siempre desayuno con café.", "example_en": "I always have coffee for breakfast.", "tag": "Frequency"},
-    {"lemma": "nunca", "ipa": "ˈnuŋ.ka", "pos": "adv", "translation_en": "never", "example": "Nunca he probado el pulpo.", "example_en": "I've never tried octopus.", "tag": "Frequency"},
-    {"lemma": "a veces", "ipa": "a ˈβe.ses", "pos": "phrase", "translation_en": "sometimes", "example": "A veces voy en bici al trabajo.", "example_en": "Sometimes I cycle to work.", "tag": "Frequency"}
+    {
+      "lemma": "trabajo",
+      "ipa": "tɾaˈβa.xo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "work, job",
+      "example": "Tengo un trabajo nuevo desde julio.",
+      "example_en": "I have a new job since July.",
+      "tag": "Work"
+    },
+    {
+      "lemma": "fin de semana",
+      "ipa": "fin de seˈma.na",
+      "pos": "phrase",
+      "translation_en": "weekend",
+      "example": "El fin de semana visito a mis padres.",
+      "example_en": "On the weekend I visit my parents.",
+      "tag": "Time"
+    },
+    {
+      "lemma": "mañana",
+      "ipa": "maˈɲa.na",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "morning; tomorrow",
+      "example": "La mañana es mi parte favorita del día.",
+      "example_en": "The morning is my favourite part of the day.",
+      "tag": "Time"
+    },
+    {
+      "lemma": "noche",
+      "ipa": "ˈno.tʃe",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "night",
+      "example": "Por la noche leo un poco.",
+      "example_en": "At night I read a bit.",
+      "tag": "Time"
+    },
+    {
+      "lemma": "viaje",
+      "ipa": "ˈbja.xe",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "trip, journey",
+      "example": "El viaje fue muy tranquilo.",
+      "example_en": "The trip was very calm.",
+      "tag": "Travel"
+    },
+    {
+      "lemma": "espalda",
+      "ipa": "esˈpal.da",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "back (body part)",
+      "example": "Me duele la espalda después de correr.",
+      "example_en": "My back hurts after running.",
+      "tag": "Body"
+    },
+    {
+      "lemma": "cabeza",
+      "ipa": "kaˈβe.sa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "head",
+      "example": "Tengo dolor de cabeza desde la mañana.",
+      "example_en": "I've had a headache since the morning.",
+      "tag": "Body"
+    },
+    {
+      "lemma": "dormir",
+      "ipa": "doɾˈmiɾ",
+      "pos": "verb",
+      "translation_en": "to sleep",
+      "example": "Duermo ocho horas cada noche.",
+      "example_en": "I sleep eight hours every night.",
+      "tag": "Routines"
+    },
+    {
+      "lemma": "salir",
+      "ipa": "saˈliɾ",
+      "pos": "verb",
+      "translation_en": "to go out, to leave",
+      "example": "Salimos del cine a las once.",
+      "example_en": "We left the cinema at eleven.",
+      "tag": "Routines"
+    },
+    {
+      "lemma": "llegar",
+      "ipa": "ʎeˈɣaɾ",
+      "pos": "verb",
+      "translation_en": "to arrive",
+      "example": "Llego al trabajo a las nueve.",
+      "example_en": "I arrive at work at nine.",
+      "tag": "Routines"
+    },
+    {
+      "lemma": "preguntar",
+      "ipa": "pɾeɣunˈtaɾ",
+      "pos": "verb",
+      "translation_en": "to ask (a question)",
+      "example": "Pregunté la dirección a un vecino.",
+      "example_en": "I asked a neighbour for the address.",
+      "tag": "Communication"
+    },
+    {
+      "lemma": "responder",
+      "ipa": "responˈdeɾ",
+      "pos": "verb",
+      "translation_en": "to answer, to reply",
+      "example": "Responde siempre con mucha calma.",
+      "example_en": "He always answers very calmly.",
+      "tag": "Communication"
+    },
+    {
+      "lemma": "ayudar",
+      "ipa": "a.juˈðaɾ",
+      "pos": "verb",
+      "translation_en": "to help",
+      "example": "Mi hermano me ayuda con los deberes.",
+      "example_en": "My brother helps me with my homework.",
+      "tag": "Social"
+    },
+    {
+      "lemma": "gustar",
+      "ipa": "ɡusˈtaɾ",
+      "pos": "verb",
+      "translation_en": "to please (to like)",
+      "example": "Me gusta el chocolate negro.",
+      "example_en": "I like dark chocolate.",
+      "tag": "Opinions"
+    },
+    {
+      "lemma": "feliz",
+      "ipa": "feˈlis",
+      "pos": "adj",
+      "translation_en": "happy",
+      "example": "Estoy feliz con mi nueva casa.",
+      "example_en": "I'm happy with my new home.",
+      "tag": "Feelings"
+    },
+    {
+      "lemma": "triste",
+      "ipa": "ˈtɾis.te",
+      "pos": "adj",
+      "translation_en": "sad",
+      "example": "Se puso triste con la noticia.",
+      "example_en": "He got sad with the news.",
+      "tag": "Feelings"
+    },
+    {
+      "lemma": "ocupado",
+      "ipa": "o.kuˈpa.ðo",
+      "pos": "adj",
+      "translation_en": "busy",
+      "example": "Esta semana estoy muy ocupado.",
+      "example_en": "This week I'm very busy.",
+      "tag": "States"
+    },
+    {
+      "lemma": "barato",
+      "ipa": "baˈɾa.to",
+      "pos": "adj",
+      "translation_en": "cheap",
+      "example": "El menú del día es barato y rico.",
+      "example_en": "The set lunch is cheap and tasty.",
+      "tag": "Money"
+    },
+    {
+      "lemma": "caro",
+      "ipa": "ˈka.ɾo",
+      "pos": "adj",
+      "translation_en": "expensive",
+      "example": "Ese restaurante es muy caro.",
+      "example_en": "That restaurant is very expensive.",
+      "tag": "Money"
+    },
+    {
+      "lemma": "siempre",
+      "ipa": "ˈsjem.pɾe",
+      "pos": "adv",
+      "translation_en": "always",
+      "example": "Siempre desayuno con café.",
+      "example_en": "I always have coffee for breakfast.",
+      "tag": "Frequency"
+    },
+    {
+      "lemma": "nunca",
+      "ipa": "ˈnuŋ.ka",
+      "pos": "adv",
+      "translation_en": "never",
+      "example": "Nunca he probado el pulpo.",
+      "example_en": "I've never tried octopus.",
+      "tag": "Frequency"
+    },
+    {
+      "lemma": "a veces",
+      "ipa": "a ˈβe.ses",
+      "pos": "phrase",
+      "translation_en": "sometimes",
+      "example": "A veces voy en bici al trabajo.",
+      "example_en": "Sometimes I cycle to work.",
+      "tag": "Frequency"
+    },
+    {
+      "lemma": "oficina",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "office",
+      "tag": "Work",
+      "example": "La oficina es importante en este contexto.",
+      "example_en": "Office is important in this context."
+    },
+    {
+      "lemma": "jefe",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "boss",
+      "tag": "Work",
+      "example": "El jefe es importante en este contexto.",
+      "example_en": "Boss is important in this context."
+    },
+    {
+      "lemma": "compañero",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "colleague; classmate",
+      "tag": "Work",
+      "example": "El compañero es importante en este contexto.",
+      "example_en": "Colleague; classmate is important in this context."
+    },
+    {
+      "lemma": "correo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "email; mail",
+      "tag": "Communication",
+      "example": "El correo es importante en este contexto.",
+      "example_en": "Email; mail is important in this context."
+    },
+    {
+      "lemma": "mensaje",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "message",
+      "tag": "Communication",
+      "example": "El mensaje es importante en este contexto.",
+      "example_en": "Message is important in this context."
+    },
+    {
+      "lemma": "cita",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "appointment; date",
+      "tag": "Time",
+      "example": "La cita es importante en este contexto.",
+      "example_en": "Appointment; date is important in this context."
+    },
+    {
+      "lemma": "horario",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "schedule",
+      "tag": "Time",
+      "example": "El horario es importante en este contexto.",
+      "example_en": "Schedule is important in this context."
+    },
+    {
+      "lemma": "tarea",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "task; homework",
+      "tag": "School",
+      "example": "Busco una tarea para la clase.",
+      "example_en": "I am looking for task; homework for class."
+    },
+    {
+      "lemma": "examen",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "exam",
+      "tag": "School",
+      "example": "Tengo un examen en casa.",
+      "example_en": "I have exam at home."
+    },
+    {
+      "lemma": "curso",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "course",
+      "tag": "School",
+      "example": "Compré un curso esta mañana.",
+      "example_en": "I bought course this morning."
+    },
+    {
+      "lemma": "universidad",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "university",
+      "tag": "School",
+      "example": "Necesito una universidad para hoy.",
+      "example_en": "I need university for today."
+    },
+    {
+      "lemma": "gimnasio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "gym",
+      "tag": "Health",
+      "example": "Hay un gimnasio cerca de aquí.",
+      "example_en": "There is gym near here."
+    },
+    {
+      "lemma": "médico",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "doctor",
+      "tag": "Health",
+      "example": "Busco un médico para la clase.",
+      "example_en": "I am looking for doctor for class."
+    },
+    {
+      "lemma": "dolor",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "pain",
+      "tag": "Health",
+      "example": "Tengo un dolor en casa.",
+      "example_en": "I have pain at home."
+    },
+    {
+      "lemma": "fiebre",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "fever",
+      "tag": "Health",
+      "example": "Compré una fiebre esta mañana.",
+      "example_en": "I bought fever this morning."
+    },
+    {
+      "lemma": "tos",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "cough",
+      "tag": "Health",
+      "example": "Necesito una tos para hoy.",
+      "example_en": "I need cough for today."
+    },
+    {
+      "lemma": "medicina",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "medicine",
+      "tag": "Health",
+      "example": "Hay una medicina cerca de aquí.",
+      "example_en": "There is medicine near here."
+    },
+    {
+      "lemma": "clínica",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "clinic",
+      "tag": "Health",
+      "example": "Busco una clínica para la clase.",
+      "example_en": "I am looking for clinic for class."
+    },
+    {
+      "lemma": "dieta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "diet",
+      "tag": "Health",
+      "example": "Tengo una dieta en casa.",
+      "example_en": "I have diet at home."
+    },
+    {
+      "lemma": "sueño",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "sleep; dream",
+      "tag": "Health",
+      "example": "Compré un sueño esta mañana.",
+      "example_en": "I bought sleep; dream this morning."
+    },
+    {
+      "lemma": "costumbre",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "habit; custom",
+      "tag": "Routines",
+      "example": "La costumbre es importante en este contexto.",
+      "example_en": "Habit; custom is important in this context."
+    },
+    {
+      "lemma": "plan",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "plan",
+      "tag": "Routines",
+      "example": "El plan es importante en este contexto.",
+      "example_en": "Plan is important in this context."
+    },
+    {
+      "lemma": "invitación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "invitation",
+      "tag": "Social",
+      "example": "La invitación es importante en este contexto.",
+      "example_en": "Invitation is important in this context."
+    },
+    {
+      "lemma": "fiesta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "party",
+      "tag": "Social",
+      "example": "La fiesta es importante en este contexto.",
+      "example_en": "Party is important in this context."
+    },
+    {
+      "lemma": "regalo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "gift",
+      "tag": "Social",
+      "example": "El regalo es importante en este contexto.",
+      "example_en": "Gift is important in this context."
+    },
+    {
+      "lemma": "foto",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "photo",
+      "tag": "Leisure",
+      "example": "La foto es importante en este contexto.",
+      "example_en": "Photo is important in this context."
+    },
+    {
+      "lemma": "película",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "film; movie",
+      "tag": "Leisure",
+      "example": "La película es importante en este contexto.",
+      "example_en": "Film; movie is important in this context."
+    },
+    {
+      "lemma": "música",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "music",
+      "tag": "Leisure",
+      "example": "La música es importante en este contexto.",
+      "example_en": "Music is important in this context."
+    },
+    {
+      "lemma": "noticia",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "news item",
+      "tag": "Media",
+      "example": "La noticia es importante en este contexto.",
+      "example_en": "News item is important in this context."
+    },
+    {
+      "lemma": "problema",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "problem",
+      "tag": "Abstract",
+      "example": "El problema es importante en este contexto.",
+      "example_en": "Problem is important in this context."
+    },
+    {
+      "lemma": "levantarse",
+      "pos": "verb",
+      "translation_en": "get up",
+      "tag": "Routines",
+      "example": "Intento levantarse un poco cada día.",
+      "example_en": "I try to get up a little every day."
+    },
+    {
+      "lemma": "ducharse",
+      "pos": "verb",
+      "translation_en": "take a shower",
+      "tag": "Routines",
+      "example": "Tengo que ducharse antes de salir.",
+      "example_en": "I have to take a shower before leaving."
+    },
+    {
+      "lemma": "vestirse",
+      "pos": "verb",
+      "translation_en": "get dressed",
+      "tag": "Routines",
+      "example": "Quiero vestirse con más seguridad.",
+      "example_en": "I want to get dressed with more confidence."
+    },
+    {
+      "lemma": "arreglarse",
+      "pos": "verb",
+      "translation_en": "get ready",
+      "tag": "Routines",
+      "example": "Es importante arreglarse con calma.",
+      "example_en": "It is important to get ready calmly."
+    },
+    {
+      "lemma": "volver",
+      "pos": "verb",
+      "translation_en": "return",
+      "tag": "Routines",
+      "example": "Aprendo a volver en situaciones reales.",
+      "example_en": "I learn to return in real situations."
+    },
+    {
+      "lemma": "quedarse",
+      "pos": "verb",
+      "translation_en": "stay",
+      "tag": "Routines",
+      "example": "Intento quedarse un poco cada día.",
+      "example_en": "I try to stay a little every day."
+    },
+    {
+      "lemma": "empezar",
+      "pos": "verb",
+      "translation_en": "start",
+      "tag": "Action",
+      "example": "Tengo que empezar antes de salir.",
+      "example_en": "I have to start before leaving."
+    },
+    {
+      "lemma": "terminar",
+      "pos": "verb",
+      "translation_en": "finish",
+      "tag": "Action",
+      "example": "Quiero terminar con más seguridad.",
+      "example_en": "I want to finish with more confidence."
+    },
+    {
+      "lemma": "continuar",
+      "pos": "verb",
+      "translation_en": "continue",
+      "tag": "Action",
+      "example": "Es importante continuar con calma.",
+      "example_en": "It is important to continue calmly."
+    },
+    {
+      "lemma": "cambiar",
+      "pos": "verb",
+      "translation_en": "change",
+      "tag": "Action",
+      "example": "Aprendo a cambiar en situaciones reales.",
+      "example_en": "I learn to change in real situations."
+    },
+    {
+      "lemma": "elegir",
+      "pos": "verb",
+      "translation_en": "choose",
+      "tag": "Action",
+      "example": "Intento elegir un poco cada día.",
+      "example_en": "I try to choose a little every day."
+    },
+    {
+      "lemma": "pedir",
+      "pos": "verb",
+      "translation_en": "ask for; order",
+      "tag": "Communication",
+      "example": "Tengo que pedir antes de salir.",
+      "example_en": "I have to ask for; order before leaving."
+    },
+    {
+      "lemma": "reservar",
+      "pos": "verb",
+      "translation_en": "reserve; book",
+      "tag": "Travel",
+      "example": "Quiero reservar con más seguridad.",
+      "example_en": "I want to reserve; book with more confidence."
+    },
+    {
+      "lemma": "cancelar",
+      "pos": "verb",
+      "translation_en": "cancel",
+      "tag": "Services",
+      "example": "Es importante cancelar con calma.",
+      "example_en": "It is important to cancel calmly."
+    },
+    {
+      "lemma": "probar",
+      "pos": "verb",
+      "translation_en": "try; taste",
+      "tag": "Food & drink",
+      "example": "Aprendo a probar en situaciones reales.",
+      "example_en": "I learn to try; taste in real situations."
+    },
+    {
+      "lemma": "doler",
+      "pos": "verb",
+      "translation_en": "hurt",
+      "tag": "Health",
+      "example": "Intento doler un poco cada día.",
+      "example_en": "I try to hurt a little every day."
+    },
+    {
+      "lemma": "cuidar",
+      "pos": "verb",
+      "translation_en": "take care of",
+      "tag": "Health",
+      "example": "Tengo que cuidar antes de salir.",
+      "example_en": "I have to take care of before leaving."
+    },
+    {
+      "lemma": "enfermarse",
+      "pos": "verb",
+      "translation_en": "get sick",
+      "tag": "Health",
+      "example": "Quiero enfermarse con más seguridad.",
+      "example_en": "I want to get sick with more confidence."
+    },
+    {
+      "lemma": "mejorar",
+      "pos": "verb",
+      "translation_en": "improve",
+      "tag": "Health",
+      "example": "Es importante mejorar con calma.",
+      "example_en": "It is important to improve calmly."
+    },
+    {
+      "lemma": "descansar",
+      "pos": "verb",
+      "translation_en": "rest",
+      "tag": "Health",
+      "example": "Aprendo a descansar en situaciones reales.",
+      "example_en": "I learn to rest in real situations."
+    },
+    {
+      "lemma": "perder",
+      "pos": "verb",
+      "translation_en": "lose",
+      "tag": "Action",
+      "example": "Intento perder un poco cada día.",
+      "example_en": "I try to lose a little every day."
+    },
+    {
+      "lemma": "ganar",
+      "pos": "verb",
+      "translation_en": "win; earn",
+      "tag": "Action",
+      "example": "Tengo que ganar antes de salir.",
+      "example_en": "I have to win; earn before leaving."
+    },
+    {
+      "lemma": "enviar",
+      "pos": "verb",
+      "translation_en": "send",
+      "tag": "Communication",
+      "example": "Quiero enviar con más seguridad.",
+      "example_en": "I want to send with more confidence."
+    },
+    {
+      "lemma": "recibir",
+      "pos": "verb",
+      "translation_en": "receive",
+      "tag": "Communication",
+      "example": "Es importante recibir con calma.",
+      "example_en": "It is important to receive calmly."
+    },
+    {
+      "lemma": "enfermo",
+      "pos": "adj",
+      "translation_en": "sick",
+      "tag": "Health",
+      "example": "Este tema es enfermo.",
+      "example_en": "This topic is sick."
+    },
+    {
+      "lemma": "sano",
+      "pos": "adj",
+      "translation_en": "healthy",
+      "tag": "Health",
+      "example": "Me parece sano.",
+      "example_en": "It seems healthy to me."
+    },
+    {
+      "lemma": "libre",
+      "pos": "adj",
+      "translation_en": "free; available",
+      "tag": "States",
+      "example": "Hoy me siento libre.",
+      "example_en": "Today I feel free; available."
+    },
+    {
+      "lemma": "lleno",
+      "pos": "adj",
+      "translation_en": "full",
+      "tag": "States",
+      "example": "Hoy me siento lleno.",
+      "example_en": "Today I feel full."
+    },
+    {
+      "lemma": "vacío",
+      "pos": "adj",
+      "translation_en": "empty",
+      "tag": "States",
+      "example": "Hoy me siento vacío.",
+      "example_en": "Today I feel empty."
+    },
+    {
+      "lemma": "seguro",
+      "pos": "adj",
+      "translation_en": "safe; sure",
+      "tag": "States",
+      "example": "Hoy me siento seguro.",
+      "example_en": "Today I feel safe; sure."
+    },
+    {
+      "lemma": "peligroso",
+      "pos": "adj",
+      "translation_en": "dangerous",
+      "tag": "States",
+      "example": "Hoy me siento peligroso.",
+      "example_en": "Today I feel dangerous."
+    },
+    {
+      "lemma": "cómodo",
+      "pos": "adj",
+      "translation_en": "comfortable",
+      "tag": "Housing",
+      "example": "El piso es cómodo.",
+      "example_en": "The apartment is comfortable."
+    },
+    {
+      "lemma": "incómodo",
+      "pos": "adj",
+      "translation_en": "uncomfortable",
+      "tag": "Housing",
+      "example": "El piso es incómodo.",
+      "example_en": "The apartment is uncomfortable."
+    },
+    {
+      "lemma": "puntual",
+      "pos": "adj",
+      "translation_en": "punctual",
+      "tag": "Time",
+      "example": "Este tema es puntual.",
+      "example_en": "This topic is punctual."
+    },
+    {
+      "lemma": "simpático",
+      "pos": "adj",
+      "translation_en": "nice; friendly",
+      "tag": "Character",
+      "example": "Es una persona simpático.",
+      "example_en": "He or she is a nice; friendly person."
+    },
+    {
+      "lemma": "nervioso",
+      "pos": "adj",
+      "translation_en": "nervous",
+      "tag": "Feelings",
+      "example": "Hoy me siento nervioso.",
+      "example_en": "Today I feel nervous."
+    },
+    {
+      "lemma": "listo",
+      "pos": "adj",
+      "translation_en": "ready; clever",
+      "tag": "States",
+      "example": "Hoy me siento listo.",
+      "example_en": "Today I feel ready; clever."
+    },
+    {
+      "lemma": "normal",
+      "pos": "adj",
+      "translation_en": "normal",
+      "tag": "Evaluation",
+      "example": "Me parece normal.",
+      "example_en": "It seems normal to me."
+    },
+    {
+      "lemma": "pronto",
+      "pos": "adv",
+      "translation_en": "soon",
+      "tag": "Time",
+      "example": "La situación cambia pronto.",
+      "example_en": "The situation changes soon."
+    },
+    {
+      "lemma": "normalmente",
+      "pos": "adv",
+      "translation_en": "normally",
+      "tag": "Frequency",
+      "example": "Lo hago normalmente cuando puedo.",
+      "example_en": "I do it normally when I can."
+    },
+    {
+      "lemma": "quizá",
+      "pos": "adv",
+      "translation_en": "perhaps",
+      "tag": "Opinion",
+      "example": "Normalmente respondo quizá.",
+      "example_en": "Normally I answer perhaps."
+    },
+    {
+      "lemma": "juntos",
+      "pos": "adv",
+      "translation_en": "together",
+      "tag": "Social",
+      "example": "La situación cambia juntos.",
+      "example_en": "The situation changes together."
+    },
+    {
+      "lemma": "me duele",
+      "pos": "phrase",
+      "translation_en": "it hurts",
+      "tag": "Health",
+      "example": "Me duele la cabeza desde ayer.",
+      "example_en": "My head has hurt since yesterday."
+    },
+    {
+      "lemma": "tener prisa",
+      "pos": "phrase",
+      "translation_en": "to be in a hurry",
+      "tag": "Time",
+      "example": "No puedo hablar; tengo prisa.",
+      "example_en": "I cannot talk; I am in a hurry."
+    },
+    {
+      "lemma": "estar de acuerdo",
+      "pos": "phrase",
+      "translation_en": "to agree",
+      "tag": "Opinion",
+      "example": "Estoy de acuerdo con tu idea.",
+      "example_en": "I agree with your idea."
+    },
+    {
+      "lemma": "quedar con alguien",
+      "pos": "phrase",
+      "translation_en": "to meet up with someone",
+      "tag": "Social",
+      "example": "Voy a quedar con Ana esta tarde.",
+      "example_en": "I am going to meet up with Ana this afternoon."
+    },
+    {
+      "lemma": "hacer deporte",
+      "pos": "phrase",
+      "translation_en": "to do sport",
+      "tag": "Health",
+      "example": "Hago deporte tres veces por semana.",
+      "example_en": "I do sport three times a week."
+    },
+    {
+      "lemma": "ir de compras",
+      "pos": "phrase",
+      "translation_en": "to go shopping",
+      "tag": "Shopping",
+      "example": "El sábado voy de compras con mi hermana.",
+      "example_en": "On Saturday I am going shopping with my sister."
+    }
   ]
 }

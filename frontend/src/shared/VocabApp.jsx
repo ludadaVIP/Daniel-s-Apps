@@ -7,9 +7,11 @@ import {
   Loader2,
   Pause,
   Play,
+  RotateCcw,
   Search,
   Sparkles,
   Square,
+  Trash2,
   Volume2,
 } from "lucide-react";
 
@@ -32,6 +34,10 @@ const DEFAULT_TEXT = {
   stopTitle: "Stop playback",
   primarySentenceTitle: "Speak the word",
   allSentenceTitle: "Speak word + translation + example",
+  markLearnedTitle: "Mark as learned and skip in queues",
+  restoreWordTitle: "Restore to playback queues",
+  learnedBadge: "Learned",
+  learnedSkippedLabel: "learned skipped",
   playSectionTarget: "Play this section",
   playSectionAll: "Play this section with English",
   groupLabel: "Group",
@@ -82,6 +88,25 @@ function mergeText(...layers) {
 
 function classes(...parts) {
   return parts.filter(Boolean).join(" ");
+}
+
+function loadIdSet(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    const parsed = raw ? JSON.parse(raw) : [];
+    if (Array.isArray(parsed)) return new Set(parsed.filter(Boolean));
+  } catch {
+    /* ignore */
+  }
+  return new Set();
+}
+
+function saveIdSet(key, ids) {
+  try {
+    localStorage.setItem(key, JSON.stringify([...ids].sort()));
+  } catch {
+    /* ignore */
+  }
 }
 
 function AudioButton({ prefix, active, disabled, loading, mode, onClick, title, size = 38 }) {
@@ -201,6 +226,8 @@ function WordCard({
   speakingKey,
   onPlayPrimary,
   onPlayAll,
+  learned,
+  onToggleLearned,
   text,
   config,
 }) {
@@ -217,7 +244,11 @@ function WordCard({
 
   return (
     <article
-      className={classes(`${prefix}-word-card`, active && "is-current")}
+      className={classes(
+        `${prefix}-word-card`,
+        active && "is-current",
+        learned && "is-learned",
+      )}
       ref={rowRef}
     >
       <div className={`${prefix}-word-main`}>
@@ -225,6 +256,7 @@ function WordCard({
           <h3 className={`${prefix}-word-lemma`} lang={config.targetLang}>{word.lemma}</h3>
           {word.gender && <span className={`${prefix}-word-gender`}>{word.gender}</span>}
           {word.ipa && <span className={`${prefix}-word-ipa`}>/{word.ipa}/</span>}
+          {learned && <span className={`${prefix}-word-learned-badge`}>{text.learnedBadge}</span>}
           {word.tag && <span className={`${prefix}-word-tag`}>{word.tag}</span>}
         </div>
         <p className={`${prefix}-word-translation`} lang="en">{word.translation_en}</p>
@@ -259,6 +291,16 @@ function WordCard({
           onClick={() => onPlayAll(word)}
           title={text.allSentenceTitle}
         />
+        <button
+          className={classes(`${prefix}-learned-button`, learned && "is-learned")}
+          type="button"
+          onClick={() => onToggleLearned(word.id)}
+          aria-pressed={learned}
+          aria-label={learned ? text.restoreWordTitle : text.markLearnedTitle}
+          title={learned ? text.restoreWordTitle : text.markLearnedTitle}
+        >
+          {learned ? <RotateCcw size={17} /> : <Trash2 size={17} />}
+        </button>
       </div>
     </article>
   );
@@ -277,9 +319,12 @@ function Section({
   onPlayAll,
   onPlaySectionPrimary,
   onPlaySectionAll,
+  learnedIds,
+  onToggleLearned,
 }) {
   const label = text.posLabel[section.pos] || section.pos;
   const plural = text.posPlural[section.pos] || section.pos;
+  const playableCount = section.words.filter((word) => !learnedIds.has(word.id)).length;
   return (
     <section className={`${prefix}-section`} data-pos={section.pos}>
       <header className={`${prefix}-section-head`}>
@@ -293,6 +338,7 @@ function Section({
             type="button"
             className={`${prefix}-section-button is-mode-primary`}
             onClick={() => onPlaySectionPrimary(section)}
+            disabled={!playableCount}
           >
             <Play size={14} />
             <span>{text.playSectionTarget}</span>
@@ -301,6 +347,7 @@ function Section({
             type="button"
             className={`${prefix}-section-button is-mode-all`}
             onClick={() => onPlaySectionAll(section)}
+            disabled={!playableCount}
           >
             <Headphones size={14} />
             <span>{text.playSectionAll}</span>
@@ -320,6 +367,8 @@ function Section({
             speakingKey={speakingKey}
             onPlayPrimary={onPlayPrimary}
             onPlayAll={onPlayAll}
+            learned={learnedIds.has(word.id)}
+            onToggleLearned={onToggleLearned}
             text={text}
             config={config}
           />
@@ -333,6 +382,7 @@ export function VocabApp({ api, config }) {
   const prefix = config.prefix;
   const text = useMemo(() => mergeText(config.text), [config.text]);
   const storageKey = config.storageKey;
+  const learnedStorageKey = config.learnedStorageKey || `${storageKey}:learned`;
 
   const [course, setCourse] = useState(null);
   const [levelsError, setLevelsError] = useState("");
@@ -349,10 +399,22 @@ export function VocabApp({ api, config }) {
 
   const [queueState, setQueueState] = useState({ running: false, label: "" });
   const [activeWordId, setActiveWordId] = useState("");
+  const [learnedIds, setLearnedIds] = useState(() => loadIdSet(learnedStorageKey));
   const queueRunRef = useRef(0);
+  const learnedIdsRef = useRef(learnedIds);
 
   const setWordRef = useActiveItemScroll(activeWordId);
   const { play, stop, speakingKey, loadingKey, error: ttsError } = useTts();
+
+  useEffect(() => {
+    const ids = loadIdSet(learnedStorageKey);
+    setLearnedIds(ids);
+    learnedIdsRef.current = ids;
+  }, [learnedStorageKey]);
+
+  useEffect(() => {
+    learnedIdsRef.current = learnedIds;
+  }, [learnedIds]);
 
   // Restore last-visited level/group from localStorage.
   useEffect(() => {
@@ -448,6 +510,31 @@ export function VocabApp({ api, config }) {
     () => filteredSections.reduce((sum, s) => sum + s.words.length, 0),
     [filteredSections],
   );
+  const playableWordCount = useMemo(
+    () =>
+      filteredSections.reduce(
+        (sum, section) =>
+          sum + section.words.filter((word) => !learnedIds.has(word.id)).length,
+        0,
+      ),
+    [filteredSections, learnedIds],
+  );
+  const learnedVisibleCount = visibleWordCount - playableWordCount;
+
+  const toggleLearned = useCallback(
+    (wordId) => {
+      if (!wordId) return;
+      setLearnedIds((prev) => {
+        const next = new Set(prev);
+        if (next.has(wordId)) next.delete(wordId);
+        else next.add(wordId);
+        saveIdSet(learnedStorageKey, next);
+        learnedIdsRef.current = next;
+        return next;
+      });
+    },
+    [learnedStorageKey],
+  );
 
   const stopQueue = useCallback(() => {
     queueRunRef.current += 1;
@@ -473,7 +560,7 @@ export function VocabApp({ api, config }) {
   );
 
   const runQueue = useCallback(
-    async ({ label, mode, words }) => {
+    async ({ label, mode, words, skipLearned = false }) => {
       const runId = queueRunRef.current + 1;
       queueRunRef.current = runId;
       setGroupError("");
@@ -482,6 +569,7 @@ export function VocabApp({ api, config }) {
       try {
         for (const word of words) {
           if (queueRunRef.current !== runId) throw new Error("cancelled");
+          if (skipLearned && learnedIdsRef.current.has(word.id)) continue;
 
           if (mode === "primary") {
             await playClip({
@@ -561,6 +649,7 @@ export function VocabApp({ api, config }) {
         label: `${text.playSectionTarget} · ${text.posLabel[section.pos] || section.pos}`,
         mode: "primary",
         words: section.words,
+        skipLearned: true,
       }),
     [runQueue, text.playSectionTarget, text.posLabel],
   );
@@ -570,17 +659,22 @@ export function VocabApp({ api, config }) {
         label: `${text.playSectionAll} · ${text.posLabel[section.pos] || section.pos}`,
         mode: "all",
         words: section.words,
+        skipLearned: true,
       }),
     [runQueue, text.playSectionAll, text.posLabel],
   );
   const playGroupPrimary = useCallback(() => {
     const words = filteredSections.flatMap((s) => s.words);
-    if (words.length) runQueue({ label: text.primaryButton, mode: "primary", words });
-  }, [filteredSections, runQueue, text.primaryButton]);
+    if (playableWordCount) {
+      runQueue({ label: text.primaryButton, mode: "primary", words, skipLearned: true });
+    }
+  }, [filteredSections, playableWordCount, runQueue, text.primaryButton]);
   const playGroupAll = useCallback(() => {
     const words = filteredSections.flatMap((s) => s.words);
-    if (words.length) runQueue({ label: text.allButton, mode: "all", words });
-  }, [filteredSections, runQueue, text.allButton]);
+    if (playableWordCount) {
+      runQueue({ label: text.allButton, mode: "all", words, skipLearned: true });
+    }
+  }, [filteredSections, playableWordCount, runQueue, text.allButton]);
 
   const levels = course?.levels || [];
   const currentLevel = levels.find((l) => l.id === activeLevelId);
@@ -626,7 +720,7 @@ export function VocabApp({ api, config }) {
             <div className={`${prefix}-meta-row`}>
               <span><BookOpen size={14} /> {currentLevel?.title || "—"}</span>
               <span><Layers size={14} /> {text.groupLabel} {currentGroupIndex >= 0 ? currentGroupIndex + 1 : "—"} {text.groupOf} {totalGroupsInLevel || 0}</span>
-              <span><Headphones size={14} /> {visibleWordCount} {text.wordsUnit}</span>
+              <span><Headphones size={14} /> {playableWordCount} / {visibleWordCount} {text.wordsUnit}</span>
             </div>
           </div>
 
@@ -642,7 +736,7 @@ export function VocabApp({ api, config }) {
                 className={`${prefix}-primary-button`}
                 type="button"
                 onClick={playGroupPrimary}
-                disabled={loadingGroup || !visibleWordCount}
+                disabled={loadingGroup || !playableWordCount}
               >
                 <Play size={16} />
                 <span>{text.primaryButton}</span>
@@ -651,7 +745,7 @@ export function VocabApp({ api, config }) {
                 className={`${prefix}-secondary-button`}
                 type="button"
                 onClick={playGroupAll}
-                disabled={loadingGroup || !visibleWordCount}
+                disabled={loadingGroup || !playableWordCount}
               >
                 <Headphones size={16} />
                 <span>{text.allButton}</span>
@@ -684,7 +778,10 @@ export function VocabApp({ api, config }) {
               placeholder={text.searchPlaceholder}
             />
           </label>
-          <span>{visibleWordCount} {text.shownLabel}</span>
+          <span>
+            {visibleWordCount} {text.shownLabel}
+            {learnedVisibleCount > 0 ? ` · ${learnedVisibleCount} ${text.learnedSkippedLabel}` : ""}
+          </span>
         </section>
 
         <section className={`${prefix}-sections`}>
@@ -713,6 +810,8 @@ export function VocabApp({ api, config }) {
                 onPlayAll={playWordAll}
                 onPlaySectionPrimary={playSectionPrimary}
                 onPlaySectionAll={playSectionAll}
+                learnedIds={learnedIds}
+                onToggleLearned={toggleLearned}
               />
             ))
           )}

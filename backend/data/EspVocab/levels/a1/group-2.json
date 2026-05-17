@@ -3,27 +3,870 @@
   "title": "Vida cotidiana · Food, colours and places",
   "focus": "Common food items, colours, simple numbers / quantifiers, places, and very common verbs not yet in group 1.",
   "words": [
-    {"lemma": "pan", "ipa": "pan", "pos": "noun", "gender": "m", "translation_en": "bread", "example": "Compro pan fresco cada mañana.", "example_en": "I buy fresh bread every morning.", "tag": "Food"},
-    {"lemma": "leche", "ipa": "ˈle.tʃe", "pos": "noun", "gender": "f", "translation_en": "milk", "example": "La leche está en la nevera.", "example_en": "The milk is in the fridge.", "tag": "Food"},
-    {"lemma": "manzana", "ipa": "manˈsa.na", "pos": "noun", "gender": "f", "translation_en": "apple", "example": "Como una manzana en el recreo.", "example_en": "I eat an apple at break.", "tag": "Food"},
-    {"lemma": "queso", "ipa": "ˈke.so", "pos": "noun", "gender": "m", "translation_en": "cheese", "example": "Me encanta el queso manchego.", "example_en": "I love manchego cheese.", "tag": "Food"},
-    {"lemma": "ciudad", "ipa": "sjuˈðað", "pos": "noun", "gender": "f", "translation_en": "city", "example": "Madrid es una ciudad muy viva.", "example_en": "Madrid is a very lively city.", "tag": "Places"},
-    {"lemma": "calle", "ipa": "ˈka.ʎe", "pos": "noun", "gender": "f", "translation_en": "street", "example": "Mi calle es muy tranquila.", "example_en": "My street is very quiet.", "tag": "Places"},
-    {"lemma": "tienda", "ipa": "ˈtjen.da", "pos": "noun", "gender": "f", "translation_en": "shop", "example": "Hay una tienda nueva en la esquina.", "example_en": "There's a new shop on the corner.", "tag": "Places"},
-    {"lemma": "coche", "ipa": "ˈko.tʃe", "pos": "noun", "gender": "m", "translation_en": "car", "example": "Vamos en coche al parque.", "example_en": "We're going to the park by car.", "tag": "Transport"},
-    {"lemma": "comprar", "ipa": "komˈpɾaɾ", "pos": "verb", "translation_en": "to buy", "example": "Compro fruta los sábados.", "example_en": "I buy fruit on Saturdays.", "tag": "Action"},
-    {"lemma": "ver", "ipa": "beɾ", "pos": "verb", "translation_en": "to see, to watch", "example": "Veo una película cada viernes.", "example_en": "I watch a film every Friday.", "tag": "Senses"},
-    {"lemma": "oír", "ipa": "oˈiɾ", "pos": "verb", "translation_en": "to hear", "example": "No oigo bien con tanto ruido.", "example_en": "I can't hear well with so much noise.", "tag": "Senses"},
-    {"lemma": "leer", "ipa": "leˈeɾ", "pos": "verb", "translation_en": "to read", "example": "Leo en español todas las noches.", "example_en": "I read in Spanish every night.", "tag": "Action"},
-    {"lemma": "escribir", "ipa": "es.kɾiˈβiɾ", "pos": "verb", "translation_en": "to write", "example": "Escribo postales cuando viajo.", "example_en": "I write postcards when I travel.", "tag": "Action"},
-    {"lemma": "rojo", "ipa": "ˈro.xo", "pos": "adj", "translation_en": "red", "example": "El bolso rojo es nuevo.", "example_en": "The red bag is new.", "tag": "Colours"},
-    {"lemma": "azul", "ipa": "aˈsul", "pos": "adj", "translation_en": "blue", "example": "El cielo está azul hoy.", "example_en": "The sky is blue today.", "tag": "Colours"},
-    {"lemma": "verde", "ipa": "ˈbeɾ.ðe", "pos": "adj", "translation_en": "green", "example": "Compré una camisa verde.", "example_en": "I bought a green shirt.", "tag": "Colours"},
-    {"lemma": "negro", "ipa": "ˈne.ɣɾo", "pos": "adj", "translation_en": "black", "example": "Tengo un gato negro y blanco.", "example_en": "I have a black and white cat.", "tag": "Colours"},
-    {"lemma": "nuevo", "ipa": "ˈnwe.βo", "pos": "adj", "translation_en": "new", "example": "Mi teléfono es nuevo.", "example_en": "My phone is new.", "tag": "Descriptions"},
-    {"lemma": "viejo", "ipa": "ˈbje.xo", "pos": "adj", "translation_en": "old (object); old (person, informal)", "example": "Tengo un coche viejo pero fiable.", "example_en": "I have an old but reliable car.", "tag": "Descriptions"},
-    {"lemma": "aquí", "ipa": "aˈki", "pos": "adv", "translation_en": "here", "example": "Aquí hace fresco por la tarde.", "example_en": "It gets cool here in the afternoon.", "tag": "Place"},
-    {"lemma": "allí", "ipa": "aˈʎi", "pos": "adv", "translation_en": "there", "example": "Mi amigo trabaja allí.", "example_en": "My friend works there.", "tag": "Place"},
-    {"lemma": "buenos días", "ipa": "ˈbwe.nos ˈdi.as", "pos": "phrase", "translation_en": "good morning", "example": "Buenos días, ¿qué desea?", "example_en": "Good morning, what would you like?", "tag": "Greetings"}
+    {
+      "lemma": "pan",
+      "ipa": "pan",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "bread",
+      "example": "Compro pan fresco cada mañana.",
+      "example_en": "I buy fresh bread every morning.",
+      "tag": "Food"
+    },
+    {
+      "lemma": "leche",
+      "ipa": "ˈle.tʃe",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "milk",
+      "example": "La leche está en la nevera.",
+      "example_en": "The milk is in the fridge.",
+      "tag": "Food"
+    },
+    {
+      "lemma": "manzana",
+      "ipa": "manˈsa.na",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "apple",
+      "example": "Como una manzana en el recreo.",
+      "example_en": "I eat an apple at break.",
+      "tag": "Food"
+    },
+    {
+      "lemma": "queso",
+      "ipa": "ˈke.so",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "cheese",
+      "example": "Me encanta el queso manchego.",
+      "example_en": "I love manchego cheese.",
+      "tag": "Food"
+    },
+    {
+      "lemma": "ciudad",
+      "ipa": "sjuˈðað",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "city",
+      "example": "Madrid es una ciudad muy viva.",
+      "example_en": "Madrid is a very lively city.",
+      "tag": "Places"
+    },
+    {
+      "lemma": "calle",
+      "ipa": "ˈka.ʎe",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "street",
+      "example": "Mi calle es muy tranquila.",
+      "example_en": "My street is very quiet.",
+      "tag": "Places"
+    },
+    {
+      "lemma": "tienda",
+      "ipa": "ˈtjen.da",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "shop",
+      "example": "Hay una tienda nueva en la esquina.",
+      "example_en": "There's a new shop on the corner.",
+      "tag": "Places"
+    },
+    {
+      "lemma": "coche",
+      "ipa": "ˈko.tʃe",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "car",
+      "example": "Vamos en coche al parque.",
+      "example_en": "We're going to the park by car.",
+      "tag": "Transport"
+    },
+    {
+      "lemma": "comprar",
+      "ipa": "komˈpɾaɾ",
+      "pos": "verb",
+      "translation_en": "to buy",
+      "example": "Compro fruta los sábados.",
+      "example_en": "I buy fruit on Saturdays.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "ver",
+      "ipa": "beɾ",
+      "pos": "verb",
+      "translation_en": "to see, to watch",
+      "example": "Veo una película cada viernes.",
+      "example_en": "I watch a film every Friday.",
+      "tag": "Senses"
+    },
+    {
+      "lemma": "oír",
+      "ipa": "oˈiɾ",
+      "pos": "verb",
+      "translation_en": "to hear",
+      "example": "No oigo bien con tanto ruido.",
+      "example_en": "I can't hear well with so much noise.",
+      "tag": "Senses"
+    },
+    {
+      "lemma": "leer",
+      "ipa": "leˈeɾ",
+      "pos": "verb",
+      "translation_en": "to read",
+      "example": "Leo en español todas las noches.",
+      "example_en": "I read in Spanish every night.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "escribir",
+      "ipa": "es.kɾiˈβiɾ",
+      "pos": "verb",
+      "translation_en": "to write",
+      "example": "Escribo postales cuando viajo.",
+      "example_en": "I write postcards when I travel.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "rojo",
+      "ipa": "ˈro.xo",
+      "pos": "adj",
+      "translation_en": "red",
+      "example": "El bolso rojo es nuevo.",
+      "example_en": "The red bag is new.",
+      "tag": "Colours"
+    },
+    {
+      "lemma": "azul",
+      "ipa": "aˈsul",
+      "pos": "adj",
+      "translation_en": "blue",
+      "example": "El cielo está azul hoy.",
+      "example_en": "The sky is blue today.",
+      "tag": "Colours"
+    },
+    {
+      "lemma": "verde",
+      "ipa": "ˈbeɾ.ðe",
+      "pos": "adj",
+      "translation_en": "green",
+      "example": "Compré una camisa verde.",
+      "example_en": "I bought a green shirt.",
+      "tag": "Colours"
+    },
+    {
+      "lemma": "negro",
+      "ipa": "ˈne.ɣɾo",
+      "pos": "adj",
+      "translation_en": "black",
+      "example": "Tengo un gato negro y blanco.",
+      "example_en": "I have a black and white cat.",
+      "tag": "Colours"
+    },
+    {
+      "lemma": "nuevo",
+      "ipa": "ˈnwe.βo",
+      "pos": "adj",
+      "translation_en": "new",
+      "example": "Mi teléfono es nuevo.",
+      "example_en": "My phone is new.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "viejo",
+      "ipa": "ˈbje.xo",
+      "pos": "adj",
+      "translation_en": "old (object); old (person, informal)",
+      "example": "Tengo un coche viejo pero fiable.",
+      "example_en": "I have an old but reliable car.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "aquí",
+      "ipa": "aˈki",
+      "pos": "adv",
+      "translation_en": "here",
+      "example": "Aquí hace fresco por la tarde.",
+      "example_en": "It gets cool here in the afternoon.",
+      "tag": "Place"
+    },
+    {
+      "lemma": "allí",
+      "ipa": "aˈʎi",
+      "pos": "adv",
+      "translation_en": "there",
+      "example": "Mi amigo trabaja allí.",
+      "example_en": "My friend works there.",
+      "tag": "Place"
+    },
+    {
+      "lemma": "buenos días",
+      "ipa": "ˈbwe.nos ˈdi.as",
+      "pos": "phrase",
+      "translation_en": "good morning",
+      "example": "Buenos días, ¿qué desea?",
+      "example_en": "Good morning, what would you like?",
+      "tag": "Greetings"
+    },
+    {
+      "lemma": "arroz",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "rice",
+      "tag": "Food & drink",
+      "example": "Necesito un arroz para hoy.",
+      "example_en": "I need rice for today."
+    },
+    {
+      "lemma": "huevo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "egg",
+      "tag": "Food & drink",
+      "example": "Hay un huevo cerca de aquí.",
+      "example_en": "There is egg near here."
+    },
+    {
+      "lemma": "pollo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "chicken",
+      "tag": "Food & drink",
+      "example": "Busco un pollo para la clase.",
+      "example_en": "I am looking for chicken for class."
+    },
+    {
+      "lemma": "pescado",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "fish",
+      "tag": "Food & drink",
+      "example": "Tengo un pescado en casa.",
+      "example_en": "I have fish at home."
+    },
+    {
+      "lemma": "carne",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "meat",
+      "tag": "Food & drink",
+      "example": "Compré una carne esta mañana.",
+      "example_en": "I bought meat this morning."
+    },
+    {
+      "lemma": "fruta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "fruit",
+      "tag": "Food & drink",
+      "example": "Necesito una fruta para hoy.",
+      "example_en": "I need fruit for today."
+    },
+    {
+      "lemma": "verdura",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "vegetable",
+      "tag": "Food & drink",
+      "example": "Hay una verdura cerca de aquí.",
+      "example_en": "There is vegetable near here."
+    },
+    {
+      "lemma": "café",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "coffee",
+      "tag": "Food & drink",
+      "example": "Busco un café para la clase.",
+      "example_en": "I am looking for coffee for class."
+    },
+    {
+      "lemma": "té",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "tea",
+      "tag": "Food & drink",
+      "example": "Tengo un té en casa.",
+      "example_en": "I have tea at home."
+    },
+    {
+      "lemma": "azúcar",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "sugar",
+      "tag": "Food & drink",
+      "example": "Compré un azúcar esta mañana.",
+      "example_en": "I bought sugar this morning."
+    },
+    {
+      "lemma": "sal",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "salt",
+      "tag": "Food & drink",
+      "example": "Necesito una sal para hoy.",
+      "example_en": "I need salt for today."
+    },
+    {
+      "lemma": "sopa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "soup",
+      "tag": "Food & drink",
+      "example": "Hay una sopa cerca de aquí.",
+      "example_en": "There is soup near here."
+    },
+    {
+      "lemma": "plato",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "plate; dish",
+      "tag": "Food & drink",
+      "example": "Busco un plato para la clase.",
+      "example_en": "I am looking for plate; dish for class."
+    },
+    {
+      "lemma": "vaso",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "glass",
+      "tag": "Food & drink",
+      "example": "Tengo un vaso en casa.",
+      "example_en": "I have glass at home."
+    },
+    {
+      "lemma": "cuchillo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "knife",
+      "tag": "Food & drink",
+      "example": "Compré un cuchillo esta mañana.",
+      "example_en": "I bought knife this morning."
+    },
+    {
+      "lemma": "tenedor",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "fork",
+      "tag": "Food & drink",
+      "example": "Necesito un tenedor para hoy.",
+      "example_en": "I need fork for today."
+    },
+    {
+      "lemma": "cuchara",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "spoon",
+      "tag": "Food & drink",
+      "example": "Hay una cuchara cerca de aquí.",
+      "example_en": "There is spoon near here."
+    },
+    {
+      "lemma": "restaurante",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "restaurant",
+      "tag": "Places",
+      "example": "Busco un restaurante para la clase.",
+      "example_en": "I am looking for restaurant for class."
+    },
+    {
+      "lemma": "mercado",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "market",
+      "tag": "Places",
+      "example": "Tengo un mercado en casa.",
+      "example_en": "I have market at home."
+    },
+    {
+      "lemma": "parque",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "park",
+      "tag": "Places",
+      "example": "Compré un parque esta mañana.",
+      "example_en": "I bought park this morning."
+    },
+    {
+      "lemma": "banco",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "bank; bench",
+      "tag": "Places",
+      "example": "Necesito un banco para hoy.",
+      "example_en": "I need bank; bench for today."
+    },
+    {
+      "lemma": "hospital",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "hospital",
+      "tag": "Health",
+      "example": "Hay un hospital cerca de aquí.",
+      "example_en": "There is hospital near here."
+    },
+    {
+      "lemma": "farmacia",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "pharmacy",
+      "tag": "Health",
+      "example": "Busco una farmacia para la clase.",
+      "example_en": "I am looking for pharmacy for class."
+    },
+    {
+      "lemma": "estación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "station",
+      "tag": "Transport",
+      "example": "Tengo una estación en casa.",
+      "example_en": "I have station at home."
+    },
+    {
+      "lemma": "autobús",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "bus",
+      "tag": "Transport",
+      "example": "Compré un autobús esta mañana.",
+      "example_en": "I bought bus this morning."
+    },
+    {
+      "lemma": "tren",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "train",
+      "tag": "Transport",
+      "example": "Necesito un tren para hoy.",
+      "example_en": "I need train for today."
+    },
+    {
+      "lemma": "bicicleta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "bicycle",
+      "tag": "Transport",
+      "example": "Hay una bicicleta cerca de aquí.",
+      "example_en": "There is bicycle near here."
+    },
+    {
+      "lemma": "taxi",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "taxi",
+      "tag": "Transport",
+      "example": "Busco un taxi para la clase.",
+      "example_en": "I am looking for taxi for class."
+    },
+    {
+      "lemma": "aeropuerto",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "airport",
+      "tag": "Travel",
+      "example": "Tengo un aeropuerto en casa.",
+      "example_en": "I have airport at home."
+    },
+    {
+      "lemma": "mapa",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "map",
+      "tag": "Travel",
+      "example": "Compré un mapa esta mañana.",
+      "example_en": "I bought map this morning."
+    },
+    {
+      "lemma": "hotel",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "hotel",
+      "tag": "Travel",
+      "example": "Necesito un hotel para hoy.",
+      "example_en": "I need hotel for today."
+    },
+    {
+      "lemma": "maleta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "suitcase",
+      "tag": "Travel",
+      "example": "Hay una maleta cerca de aquí.",
+      "example_en": "There is suitcase near here."
+    },
+    {
+      "lemma": "llave",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "key",
+      "tag": "Home",
+      "example": "Busco una llave para la clase.",
+      "example_en": "I am looking for key for class."
+    },
+    {
+      "lemma": "camiseta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "T-shirt",
+      "tag": "Clothing",
+      "example": "Tengo una camiseta en casa.",
+      "example_en": "I have T-shirt at home."
+    },
+    {
+      "lemma": "pantalón",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "trousers; pants",
+      "tag": "Clothing",
+      "example": "Compré un pantalón esta mañana.",
+      "example_en": "I bought trousers; pants this morning."
+    },
+    {
+      "lemma": "desayunar",
+      "pos": "verb",
+      "translation_en": "have breakfast",
+      "tag": "Food & drink",
+      "example": "Intento desayunar un poco cada día.",
+      "example_en": "I try to have breakfast a little every day."
+    },
+    {
+      "lemma": "cenar",
+      "pos": "verb",
+      "translation_en": "have dinner",
+      "tag": "Food & drink",
+      "example": "Tengo que cenar antes de salir.",
+      "example_en": "I have to have dinner before leaving."
+    },
+    {
+      "lemma": "preparar",
+      "pos": "verb",
+      "translation_en": "prepare",
+      "tag": "Action",
+      "example": "Quiero preparar con más seguridad.",
+      "example_en": "I want to prepare with more confidence."
+    },
+    {
+      "lemma": "lavar",
+      "pos": "verb",
+      "translation_en": "wash",
+      "tag": "Home",
+      "example": "Es importante lavar con calma.",
+      "example_en": "It is important to wash calmly."
+    },
+    {
+      "lemma": "usar",
+      "pos": "verb",
+      "translation_en": "use",
+      "tag": "Action",
+      "example": "Aprendo a usar en situaciones reales.",
+      "example_en": "I learn to use in real situations."
+    },
+    {
+      "lemma": "buscar",
+      "pos": "verb",
+      "translation_en": "look for",
+      "tag": "Action",
+      "example": "Intento buscar un poco cada día.",
+      "example_en": "I try to look for a little every day."
+    },
+    {
+      "lemma": "encontrar",
+      "pos": "verb",
+      "translation_en": "find",
+      "tag": "Action",
+      "example": "Tengo que encontrar antes de salir.",
+      "example_en": "I have to find before leaving."
+    },
+    {
+      "lemma": "llevar",
+      "pos": "verb",
+      "translation_en": "carry; wear",
+      "tag": "Action",
+      "example": "Quiero llevar con más seguridad.",
+      "example_en": "I want to carry; wear with more confidence."
+    },
+    {
+      "lemma": "traer",
+      "pos": "verb",
+      "translation_en": "bring",
+      "tag": "Action",
+      "example": "Es importante traer con calma.",
+      "example_en": "It is important to bring calmly."
+    },
+    {
+      "lemma": "subir",
+      "pos": "verb",
+      "translation_en": "go up; upload",
+      "tag": "Transport",
+      "example": "Aprendo a subir en situaciones reales.",
+      "example_en": "I learn to go up; upload in real situations."
+    },
+    {
+      "lemma": "bajar",
+      "pos": "verb",
+      "translation_en": "go down; download",
+      "tag": "Transport",
+      "example": "Intento bajar un poco cada día.",
+      "example_en": "I try to go down; download a little every day."
+    },
+    {
+      "lemma": "viajar",
+      "pos": "verb",
+      "translation_en": "travel",
+      "tag": "Travel",
+      "example": "Tengo que viajar antes de salir.",
+      "example_en": "I have to travel before leaving."
+    },
+    {
+      "lemma": "visitar",
+      "pos": "verb",
+      "translation_en": "visit",
+      "tag": "Travel",
+      "example": "Quiero visitar con más seguridad.",
+      "example_en": "I want to visit with more confidence."
+    },
+    {
+      "lemma": "vender",
+      "pos": "verb",
+      "translation_en": "sell",
+      "tag": "Shopping",
+      "example": "Es importante vender con calma.",
+      "example_en": "It is important to sell calmly."
+    },
+    {
+      "lemma": "conocer",
+      "pos": "verb",
+      "translation_en": "meet; know",
+      "tag": "People",
+      "example": "Aprendo a conocer en situaciones reales.",
+      "example_en": "I learn to meet; know in real situations."
+    },
+    {
+      "lemma": "aprender",
+      "pos": "verb",
+      "translation_en": "learn",
+      "tag": "School",
+      "example": "Intento aprender un poco cada día.",
+      "example_en": "I try to learn a little every day."
+    },
+    {
+      "lemma": "enseñar",
+      "pos": "verb",
+      "translation_en": "teach",
+      "tag": "School",
+      "example": "Tengo que enseñar antes de salir.",
+      "example_en": "I have to teach before leaving."
+    },
+    {
+      "lemma": "jugar",
+      "pos": "verb",
+      "translation_en": "play",
+      "tag": "Leisure",
+      "example": "Quiero jugar con más seguridad.",
+      "example_en": "I want to play with more confidence."
+    },
+    {
+      "lemma": "blanco",
+      "pos": "adj",
+      "translation_en": "white",
+      "tag": "Colours",
+      "example": "Es un detalle blanco.",
+      "example_en": "It is a white detail."
+    },
+    {
+      "lemma": "amarillo",
+      "pos": "adj",
+      "translation_en": "yellow",
+      "tag": "Colours",
+      "example": "Este tema es amarillo.",
+      "example_en": "This topic is yellow."
+    },
+    {
+      "lemma": "naranja",
+      "pos": "adj",
+      "translation_en": "orange",
+      "tag": "Colours",
+      "example": "Me parece naranja.",
+      "example_en": "It seems orange to me."
+    },
+    {
+      "lemma": "gris",
+      "pos": "adj",
+      "translation_en": "grey",
+      "tag": "Colours",
+      "example": "Es un detalle gris.",
+      "example_en": "It is a grey detail."
+    },
+    {
+      "lemma": "marrón",
+      "pos": "adj",
+      "translation_en": "brown",
+      "tag": "Colours",
+      "example": "Este tema es marrón.",
+      "example_en": "This topic is brown."
+    },
+    {
+      "lemma": "claro",
+      "pos": "adj",
+      "translation_en": "light; clear",
+      "tag": "Descriptions",
+      "example": "Me parece claro.",
+      "example_en": "It seems light; clear to me."
+    },
+    {
+      "lemma": "oscuro",
+      "pos": "adj",
+      "translation_en": "dark",
+      "tag": "Descriptions",
+      "example": "Es un detalle oscuro.",
+      "example_en": "It is a dark detail."
+    },
+    {
+      "lemma": "dulce",
+      "pos": "adj",
+      "translation_en": "sweet",
+      "tag": "Food & drink",
+      "example": "Este tema es dulce.",
+      "example_en": "This topic is sweet."
+    },
+    {
+      "lemma": "salado",
+      "pos": "adj",
+      "translation_en": "salty",
+      "tag": "Food & drink",
+      "example": "Me parece salado.",
+      "example_en": "It seems salty to me."
+    },
+    {
+      "lemma": "rico",
+      "pos": "adj",
+      "translation_en": "tasty; rich",
+      "tag": "Food & drink",
+      "example": "Es un detalle rico.",
+      "example_en": "It is a tasty; rich detail."
+    },
+    {
+      "lemma": "malo",
+      "pos": "adj",
+      "translation_en": "bad",
+      "tag": "Descriptions",
+      "example": "Este tema es malo.",
+      "example_en": "This topic is bad."
+    },
+    {
+      "lemma": "joven",
+      "pos": "adj",
+      "translation_en": "young",
+      "tag": "People",
+      "example": "Me parece joven.",
+      "example_en": "It seems young to me."
+    },
+    {
+      "lemma": "diferente",
+      "pos": "adj",
+      "translation_en": "different",
+      "tag": "Descriptions",
+      "example": "Es un detalle diferente.",
+      "example_en": "It is a different detail."
+    },
+    {
+      "lemma": "importante",
+      "pos": "adj",
+      "translation_en": "important",
+      "tag": "Evaluation",
+      "example": "Este tema es importante.",
+      "example_en": "This topic is important."
+    },
+    {
+      "lemma": "lejos",
+      "pos": "adv",
+      "translation_en": "far away",
+      "tag": "Place",
+      "example": "Normalmente respondo lejos.",
+      "example_en": "Normally I answer far away."
+    },
+    {
+      "lemma": "dentro",
+      "pos": "adv",
+      "translation_en": "inside",
+      "tag": "Place",
+      "example": "La situación cambia dentro.",
+      "example_en": "The situation changes inside."
+    },
+    {
+      "lemma": "fuera",
+      "pos": "adv",
+      "translation_en": "outside",
+      "tag": "Place",
+      "example": "Lo hago fuera cuando puedo.",
+      "example_en": "I do it outside when I can."
+    },
+    {
+      "lemma": "encima",
+      "pos": "adv",
+      "translation_en": "on top",
+      "tag": "Place",
+      "example": "Normalmente respondo encima.",
+      "example_en": "Normally I answer on top."
+    },
+    {
+      "lemma": "abajo",
+      "pos": "adv",
+      "translation_en": "downstairs; below",
+      "tag": "Place",
+      "example": "La situación cambia abajo.",
+      "example_en": "The situation changes downstairs; below."
+    },
+    {
+      "lemma": "cuánto cuesta",
+      "pos": "phrase",
+      "translation_en": "how much does it cost?",
+      "tag": "Shopping",
+      "example": "¿Cuánto cuesta este billete?",
+      "example_en": "How much does this ticket cost?"
+    },
+    {
+      "lemma": "tengo hambre",
+      "pos": "phrase",
+      "translation_en": "I am hungry",
+      "tag": "Food & drink",
+      "example": "Tengo hambre después de la clase.",
+      "example_en": "I am hungry after class."
+    },
+    {
+      "lemma": "tengo sed",
+      "pos": "phrase",
+      "translation_en": "I am thirsty",
+      "tag": "Food & drink",
+      "example": "Tengo sed; necesito agua.",
+      "example_en": "I am thirsty; I need water."
+    },
+    {
+      "lemma": "me gusta",
+      "pos": "phrase",
+      "translation_en": "I like it",
+      "tag": "Opinions",
+      "example": "Me gusta este barrio.",
+      "example_en": "I like this neighbourhood."
+    },
+    {
+      "lemma": "no entiendo",
+      "pos": "phrase",
+      "translation_en": "I do not understand",
+      "tag": "Classroom",
+      "example": "No entiendo la última pregunta.",
+      "example_en": "I do not understand the last question."
+    },
+    {
+      "lemma": "otra vez",
+      "pos": "phrase",
+      "translation_en": "again",
+      "tag": "Classroom",
+      "example": "¿Puede decirlo otra vez?",
+      "example_en": "Can you say it again?"
+    }
   ]
 }

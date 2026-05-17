@@ -1,0 +1,847 @@
+{
+  "id": "group-2",
+  "title": "Moverse por la ciudad · Housing, travel and services",
+  "focus": "Practical A2 vocabulary for renting, transport, appointments, hotels, money and city life.",
+  "words": [
+    {
+      "lemma": "alquiler",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "rent",
+      "tag": "Housing",
+      "example": "Necesito un alquiler para hoy.",
+      "example_en": "I need rent for today."
+    },
+    {
+      "lemma": "piso",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "apartment; floor",
+      "tag": "Housing",
+      "example": "Hay un piso cerca de aquí.",
+      "example_en": "There is apartment; floor near here."
+    },
+    {
+      "lemma": "edificio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "building",
+      "tag": "Housing",
+      "example": "Busco un edificio para la clase.",
+      "example_en": "I am looking for building for class."
+    },
+    {
+      "lemma": "vecino",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "neighbour",
+      "tag": "Housing",
+      "example": "Tengo un vecino en casa.",
+      "example_en": "I have neighbour at home."
+    },
+    {
+      "lemma": "barrio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "neighbourhood",
+      "tag": "Housing",
+      "example": "Compré un barrio esta mañana.",
+      "example_en": "I bought neighbourhood this morning."
+    },
+    {
+      "lemma": "dirección",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "address; direction",
+      "tag": "Services",
+      "example": "Necesito una dirección para hoy.",
+      "example_en": "I need address; direction for today."
+    },
+    {
+      "lemma": "entrada",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "entrance; ticket",
+      "tag": "Travel",
+      "example": "Hay una entrada cerca de aquí.",
+      "example_en": "There is entrance; ticket near here."
+    },
+    {
+      "lemma": "salida",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "exit; departure",
+      "tag": "Travel",
+      "example": "Busco una salida para la clase.",
+      "example_en": "I am looking for exit; departure for class."
+    },
+    {
+      "lemma": "ascensor",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "lift; elevator",
+      "tag": "Housing",
+      "example": "Tengo un ascensor en casa.",
+      "example_en": "I have lift; elevator at home."
+    },
+    {
+      "lemma": "garaje",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "garage",
+      "tag": "Housing",
+      "example": "Compré un garaje esta mañana.",
+      "example_en": "I bought garage this morning."
+    },
+    {
+      "lemma": "jardín",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "garden",
+      "tag": "Housing",
+      "example": "Necesito un jardín para hoy.",
+      "example_en": "I need garden for today."
+    },
+    {
+      "lemma": "calefacción",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "heating",
+      "tag": "Housing",
+      "example": "Hay una calefacción cerca de aquí.",
+      "example_en": "There is heating near here."
+    },
+    {
+      "lemma": "aire acondicionado",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "air conditioning",
+      "tag": "Housing",
+      "example": "Busco un aire acondicionado para la clase.",
+      "example_en": "I am looking for air conditioning for class."
+    },
+    {
+      "lemma": "factura",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "bill; invoice",
+      "tag": "Shopping",
+      "example": "Tengo una factura en casa.",
+      "example_en": "I have bill; invoice at home."
+    },
+    {
+      "lemma": "precio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "price",
+      "tag": "Shopping",
+      "example": "Compré un precio esta mañana.",
+      "example_en": "I bought price this morning."
+    },
+    {
+      "lemma": "descuento",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "discount",
+      "tag": "Shopping",
+      "example": "Necesito un descuento para hoy.",
+      "example_en": "I need discount for today."
+    },
+    {
+      "lemma": "oferta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "offer; sale",
+      "tag": "Shopping",
+      "example": "Hay una oferta cerca de aquí.",
+      "example_en": "There is offer; sale near here."
+    },
+    {
+      "lemma": "tarjeta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "card",
+      "tag": "Shopping",
+      "example": "Busco una tarjeta para la clase.",
+      "example_en": "I am looking for card for class."
+    },
+    {
+      "lemma": "efectivo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "cash",
+      "tag": "Shopping",
+      "example": "Tengo un efectivo en casa.",
+      "example_en": "I have cash at home."
+    },
+    {
+      "lemma": "cuenta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "bill; account",
+      "tag": "Shopping",
+      "example": "Compré una cuenta esta mañana.",
+      "example_en": "I bought bill; account this morning."
+    },
+    {
+      "lemma": "billete",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "ticket; banknote",
+      "tag": "Travel",
+      "example": "Necesito un billete para hoy.",
+      "example_en": "I need ticket; banknote for today."
+    },
+    {
+      "lemma": "pasaporte",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "passport",
+      "tag": "Travel",
+      "example": "Hay un pasaporte cerca de aquí.",
+      "example_en": "There is passport near here."
+    },
+    {
+      "lemma": "frontera",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "border",
+      "tag": "Travel",
+      "example": "Busco una frontera para la clase.",
+      "example_en": "I am looking for border for class."
+    },
+    {
+      "lemma": "equipaje",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "luggage",
+      "tag": "Travel",
+      "example": "Tengo un equipaje en casa.",
+      "example_en": "I have luggage at home."
+    },
+    {
+      "lemma": "excursión",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "excursion; day trip",
+      "tag": "Travel",
+      "example": "Compré una excursión esta mañana.",
+      "example_en": "I bought excursion; day trip this morning."
+    },
+    {
+      "lemma": "reserva",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "reservation",
+      "tag": "Travel",
+      "example": "Necesito una reserva para hoy.",
+      "example_en": "I need reservation for today."
+    },
+    {
+      "lemma": "recepción",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "reception",
+      "tag": "Travel",
+      "example": "Hay una recepción cerca de aquí.",
+      "example_en": "There is reception near here."
+    },
+    {
+      "lemma": "guía",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "guide",
+      "tag": "Travel",
+      "example": "Busco un guía para la clase.",
+      "example_en": "I am looking for guide for class."
+    },
+    {
+      "lemma": "museo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "museum",
+      "tag": "Places",
+      "example": "Tengo un museo en casa.",
+      "example_en": "I have museum at home."
+    },
+    {
+      "lemma": "monumento",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "monument",
+      "tag": "Places",
+      "example": "Compré un monumento esta mañana.",
+      "example_en": "I bought monument this morning."
+    },
+    {
+      "lemma": "plaza",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "square",
+      "tag": "Places",
+      "example": "Necesito una plaza para hoy.",
+      "example_en": "I need square for today."
+    },
+    {
+      "lemma": "puente",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "bridge",
+      "tag": "Places",
+      "example": "Hay un puente cerca de aquí.",
+      "example_en": "There is bridge near here."
+    },
+    {
+      "lemma": "río",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "river",
+      "tag": "Nature",
+      "example": "Busco un río para la clase.",
+      "example_en": "I am looking for river for class."
+    },
+    {
+      "lemma": "montaña",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "mountain",
+      "tag": "Nature",
+      "example": "Tengo una montaña en casa.",
+      "example_en": "I have mountain at home."
+    },
+    {
+      "lemma": "bosque",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "forest",
+      "tag": "Nature",
+      "example": "Compré un bosque esta mañana.",
+      "example_en": "I bought forest this morning."
+    },
+    {
+      "lemma": "lago",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "lake",
+      "tag": "Nature",
+      "example": "Necesito un lago para hoy.",
+      "example_en": "I need lake for today."
+    },
+    {
+      "lemma": "campo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "countryside; field",
+      "tag": "Nature",
+      "example": "Hay un campo cerca de aquí.",
+      "example_en": "There is countryside; field near here."
+    },
+    {
+      "lemma": "costa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "coast",
+      "tag": "Nature",
+      "example": "Busco una costa para la clase.",
+      "example_en": "I am looking for coast for class."
+    },
+    {
+      "lemma": "isla",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "island",
+      "tag": "Nature",
+      "example": "Tengo una isla en casa.",
+      "example_en": "I have island at home."
+    },
+    {
+      "lemma": "pueblo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "town; village",
+      "tag": "Places",
+      "example": "Compré un pueblo esta mañana.",
+      "example_en": "I bought town; village this morning."
+    },
+    {
+      "lemma": "alquilar",
+      "pos": "verb",
+      "translation_en": "rent",
+      "tag": "Housing",
+      "example": "Intento alquilar un poco cada día.",
+      "example_en": "I try to rent a little every day."
+    },
+    {
+      "lemma": "mudarse",
+      "pos": "verb",
+      "translation_en": "move house",
+      "tag": "Housing",
+      "example": "Tengo que mudarse antes de salir.",
+      "example_en": "I have to move house before leaving."
+    },
+    {
+      "lemma": "arreglar",
+      "pos": "verb",
+      "translation_en": "fix; arrange",
+      "tag": "Housing",
+      "example": "Quiero arreglar con más seguridad.",
+      "example_en": "I want to fix; arrange with more confidence."
+    },
+    {
+      "lemma": "reparar",
+      "pos": "verb",
+      "translation_en": "repair",
+      "tag": "Housing",
+      "example": "Es importante reparar con calma.",
+      "example_en": "It is important to repair calmly."
+    },
+    {
+      "lemma": "encender",
+      "pos": "verb",
+      "translation_en": "turn on",
+      "tag": "Home",
+      "example": "Aprendo a encender en situaciones reales.",
+      "example_en": "I learn to turn on in real situations."
+    },
+    {
+      "lemma": "apagar",
+      "pos": "verb",
+      "translation_en": "turn off",
+      "tag": "Home",
+      "example": "Intento apagar un poco cada día.",
+      "example_en": "I try to turn off a little every day."
+    },
+    {
+      "lemma": "funcionar",
+      "pos": "verb",
+      "translation_en": "work; function",
+      "tag": "Services",
+      "example": "Tengo que funcionar antes de salir.",
+      "example_en": "I have to work; function before leaving."
+    },
+    {
+      "lemma": "costar",
+      "pos": "verb",
+      "translation_en": "cost",
+      "tag": "Shopping",
+      "example": "Quiero costar con más seguridad.",
+      "example_en": "I want to cost with more confidence."
+    },
+    {
+      "lemma": "ahorrar",
+      "pos": "verb",
+      "translation_en": "save money",
+      "tag": "Money",
+      "example": "Es importante ahorrar con calma.",
+      "example_en": "It is important to save money calmly."
+    },
+    {
+      "lemma": "gastar",
+      "pos": "verb",
+      "translation_en": "spend",
+      "tag": "Money",
+      "example": "Aprendo a gastar en situaciones reales.",
+      "example_en": "I learn to spend in real situations."
+    },
+    {
+      "lemma": "devolver",
+      "pos": "verb",
+      "translation_en": "return; give back",
+      "tag": "Shopping",
+      "example": "Intento devolver un poco cada día.",
+      "example_en": "I try to return; give back a little every day."
+    },
+    {
+      "lemma": "firmar",
+      "pos": "verb",
+      "translation_en": "sign",
+      "tag": "Services",
+      "example": "Tengo que firmar antes de salir.",
+      "example_en": "I have to sign before leaving."
+    },
+    {
+      "lemma": "llenar",
+      "pos": "verb",
+      "translation_en": "fill",
+      "tag": "Services",
+      "example": "Quiero llenar con más seguridad.",
+      "example_en": "I want to fill with more confidence."
+    },
+    {
+      "lemma": "cruzar",
+      "pos": "verb",
+      "translation_en": "cross",
+      "tag": "Travel",
+      "example": "Es importante cruzar con calma.",
+      "example_en": "It is important to cross calmly."
+    },
+    {
+      "lemma": "conducir",
+      "pos": "verb",
+      "translation_en": "drive",
+      "tag": "Transport",
+      "example": "Aprendo a conducir en situaciones reales.",
+      "example_en": "I learn to drive in real situations."
+    },
+    {
+      "lemma": "aparcar",
+      "pos": "verb",
+      "translation_en": "park",
+      "tag": "Transport",
+      "example": "Intento aparcar un poco cada día.",
+      "example_en": "I try to park a little every day."
+    },
+    {
+      "lemma": "despegar",
+      "pos": "verb",
+      "translation_en": "take off",
+      "tag": "Travel",
+      "example": "Tengo que despegar antes de salir.",
+      "example_en": "I have to take off before leaving."
+    },
+    {
+      "lemma": "aterrizar",
+      "pos": "verb",
+      "translation_en": "land",
+      "tag": "Travel",
+      "example": "Quiero aterrizar con más seguridad.",
+      "example_en": "I want to land with more confidence."
+    },
+    {
+      "lemma": "alojarse",
+      "pos": "verb",
+      "translation_en": "stay; lodge",
+      "tag": "Travel",
+      "example": "Es importante alojarse con calma.",
+      "example_en": "It is important to stay; lodge calmly."
+    },
+    {
+      "lemma": "facturar",
+      "pos": "verb",
+      "translation_en": "check in; invoice",
+      "tag": "Travel",
+      "example": "Aprendo a facturar en situaciones reales.",
+      "example_en": "I learn to check in; invoice in real situations."
+    },
+    {
+      "lemma": "descubrir",
+      "pos": "verb",
+      "translation_en": "discover",
+      "tag": "Travel",
+      "example": "Intento descubrir un poco cada día.",
+      "example_en": "I try to discover a little every day."
+    },
+    {
+      "lemma": "perderse",
+      "pos": "verb",
+      "translation_en": "get lost",
+      "tag": "Travel",
+      "example": "Tengo que perderse antes de salir.",
+      "example_en": "I have to get lost before leaving."
+    },
+    {
+      "lemma": "bañarse",
+      "pos": "verb",
+      "translation_en": "bathe; swim",
+      "tag": "Leisure",
+      "example": "Quiero bañarse con más seguridad.",
+      "example_en": "I want to bathe; swim with more confidence."
+    },
+    {
+      "lemma": "nadar",
+      "pos": "verb",
+      "translation_en": "swim",
+      "tag": "Leisure",
+      "example": "Es importante nadar con calma.",
+      "example_en": "It is important to swim calmly."
+    },
+    {
+      "lemma": "organizar",
+      "pos": "verb",
+      "translation_en": "organise",
+      "tag": "Action",
+      "example": "Aprendo a organizar en situaciones reales.",
+      "example_en": "I learn to organise in real situations."
+    },
+    {
+      "lemma": "participar",
+      "pos": "verb",
+      "translation_en": "participate",
+      "tag": "Social",
+      "example": "Intento participar un poco cada día.",
+      "example_en": "I try to participate a little every day."
+    },
+    {
+      "lemma": "compartir",
+      "pos": "verb",
+      "translation_en": "share",
+      "tag": "Social",
+      "example": "Tengo que compartir antes de salir.",
+      "example_en": "I have to share before leaving."
+    },
+    {
+      "lemma": "recoger",
+      "pos": "verb",
+      "translation_en": "pick up; collect",
+      "tag": "Services",
+      "example": "Quiero recoger con más seguridad.",
+      "example_en": "I want to pick up; collect with more confidence."
+    },
+    {
+      "lemma": "moderno",
+      "pos": "adj",
+      "translation_en": "modern",
+      "tag": "Housing",
+      "example": "El piso es moderno.",
+      "example_en": "The apartment is modern."
+    },
+    {
+      "lemma": "antiguo",
+      "pos": "adj",
+      "translation_en": "old; ancient",
+      "tag": "Housing",
+      "example": "El piso es antiguo.",
+      "example_en": "The apartment is old; ancient."
+    },
+    {
+      "lemma": "luminoso",
+      "pos": "adj",
+      "translation_en": "bright",
+      "tag": "Housing",
+      "example": "El piso es luminoso.",
+      "example_en": "The apartment is bright."
+    },
+    {
+      "lemma": "ruidoso",
+      "pos": "adj",
+      "translation_en": "noisy",
+      "tag": "Housing",
+      "example": "El piso es ruidoso.",
+      "example_en": "The apartment is noisy."
+    },
+    {
+      "lemma": "céntrico",
+      "pos": "adj",
+      "translation_en": "central",
+      "tag": "Housing",
+      "example": "El piso es céntrico.",
+      "example_en": "The apartment is central."
+    },
+    {
+      "lemma": "cercano",
+      "pos": "adj",
+      "translation_en": "nearby",
+      "tag": "Places",
+      "example": "Este lugar es cercano.",
+      "example_en": "This place is nearby."
+    },
+    {
+      "lemma": "lejano",
+      "pos": "adj",
+      "translation_en": "distant",
+      "tag": "Places",
+      "example": "Este lugar es lejano.",
+      "example_en": "This place is distant."
+    },
+    {
+      "lemma": "útil",
+      "pos": "adj",
+      "translation_en": "useful",
+      "tag": "Evaluation",
+      "example": "Este tema es útil.",
+      "example_en": "This topic is useful."
+    },
+    {
+      "lemma": "disponible",
+      "pos": "adj",
+      "translation_en": "available",
+      "tag": "Services",
+      "example": "Me parece disponible.",
+      "example_en": "It seems available to me."
+    },
+    {
+      "lemma": "privado",
+      "pos": "adj",
+      "translation_en": "private",
+      "tag": "Services",
+      "example": "Es un detalle privado.",
+      "example_en": "It is a private detail."
+    },
+    {
+      "lemma": "público",
+      "pos": "adj",
+      "translation_en": "public",
+      "tag": "Services",
+      "example": "Este tema es público.",
+      "example_en": "This topic is public."
+    },
+    {
+      "lemma": "local",
+      "pos": "adj",
+      "translation_en": "local",
+      "tag": "Places",
+      "example": "Este lugar es local.",
+      "example_en": "This place is local."
+    },
+    {
+      "lemma": "internacional",
+      "pos": "adj",
+      "translation_en": "international",
+      "tag": "Travel",
+      "example": "Es un detalle internacional.",
+      "example_en": "It is a international detail."
+    },
+    {
+      "lemma": "natural",
+      "pos": "adj",
+      "translation_en": "natural",
+      "tag": "Nature",
+      "example": "Este tema es natural.",
+      "example_en": "This topic is natural."
+    },
+    {
+      "lemma": "turístico",
+      "pos": "adj",
+      "translation_en": "touristic",
+      "tag": "Travel",
+      "example": "Me parece turístico.",
+      "example_en": "It seems touristic to me."
+    },
+    {
+      "lemma": "gratuito",
+      "pos": "adj",
+      "translation_en": "free of charge",
+      "tag": "Money",
+      "example": "Este producto es gratuito.",
+      "example_en": "This product is free of charge."
+    },
+    {
+      "lemma": "fácilmente",
+      "pos": "adv",
+      "translation_en": "easily",
+      "tag": "Manner",
+      "example": "Lo hago fácilmente cuando puedo.",
+      "example_en": "I do it easily when I can."
+    },
+    {
+      "lemma": "directamente",
+      "pos": "adv",
+      "translation_en": "directly",
+      "tag": "Manner",
+      "example": "Normalmente respondo directamente.",
+      "example_en": "Normally I answer directly."
+    },
+    {
+      "lemma": "probablemente",
+      "pos": "adv",
+      "translation_en": "probably",
+      "tag": "Opinion",
+      "example": "La situación cambia probablemente.",
+      "example_en": "The situation changes probably."
+    },
+    {
+      "lemma": "bastante",
+      "pos": "adv",
+      "translation_en": "quite; enough",
+      "tag": "Quantity",
+      "example": "Lo hago bastante cuando puedo.",
+      "example_en": "I do it quite; enough when I can."
+    },
+    {
+      "lemma": "demasiado",
+      "pos": "adv",
+      "translation_en": "too much",
+      "tag": "Quantity",
+      "example": "Normalmente respondo demasiado.",
+      "example_en": "Normally I answer too much."
+    },
+    {
+      "lemma": "menos",
+      "pos": "adv",
+      "translation_en": "less",
+      "tag": "Quantity",
+      "example": "La situación cambia menos.",
+      "example_en": "The situation changes less."
+    },
+    {
+      "lemma": "por la mañana",
+      "pos": "phrase",
+      "translation_en": "in the morning",
+      "tag": "Time",
+      "example": "Por la mañana estudio vocabulario.",
+      "example_en": "In the morning I study vocabulary."
+    },
+    {
+      "lemma": "por la tarde",
+      "pos": "phrase",
+      "translation_en": "in the afternoon",
+      "tag": "Time",
+      "example": "Por la tarde voy al gimnasio.",
+      "example_en": "In the afternoon I go to the gym."
+    },
+    {
+      "lemma": "por la noche",
+      "pos": "phrase",
+      "translation_en": "at night",
+      "tag": "Time",
+      "example": "Por la noche leo antes de dormir.",
+      "example_en": "At night I read before sleeping."
+    },
+    {
+      "lemma": "en seguida",
+      "pos": "phrase",
+      "translation_en": "right away",
+      "tag": "Time",
+      "example": "Voy en seguida, no te preocupes.",
+      "example_en": "I am coming right away, do not worry."
+    },
+    {
+      "lemma": "de repente",
+      "pos": "phrase",
+      "translation_en": "suddenly",
+      "tag": "Narration",
+      "example": "De repente empezó a llover.",
+      "example_en": "Suddenly it started to rain."
+    },
+    {
+      "lemma": "al final",
+      "pos": "phrase",
+      "translation_en": "in the end",
+      "tag": "Narration",
+      "example": "Al final encontramos el hotel.",
+      "example_en": "In the end we found the hotel."
+    },
+    {
+      "lemma": "al principio",
+      "pos": "phrase",
+      "translation_en": "at the beginning",
+      "tag": "Narration",
+      "example": "Al principio no entendía nada.",
+      "example_en": "At the beginning I did not understand anything."
+    },
+    {
+      "lemma": "tener ganas de",
+      "pos": "phrase",
+      "translation_en": "to feel like",
+      "tag": "Feelings",
+      "example": "Tengo ganas de visitar otra ciudad.",
+      "example_en": "I feel like visiting another city."
+    },
+    {
+      "lemma": "hacer cola",
+      "pos": "phrase",
+      "translation_en": "to queue",
+      "tag": "Services",
+      "example": "Tenemos que hacer cola en la oficina.",
+      "example_en": "We have to queue at the office."
+    },
+    {
+      "lemma": "pedir cita",
+      "pos": "phrase",
+      "translation_en": "to make an appointment",
+      "tag": "Services",
+      "example": "Necesito pedir cita con el médico.",
+      "example_en": "I need to make an appointment with the doctor."
+    }
+  ]
+}

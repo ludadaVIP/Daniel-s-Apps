@@ -3,27 +3,860 @@
   "title": "Conectar ideas · Connect ideas and feelings",
   "focus": "Discourse connectors, opinion verbs, more nuanced feelings.",
   "words": [
-    {"lemma": "reunión", "ipa": "reuˈnjon", "pos": "noun", "gender": "f", "translation_en": "meeting", "example": "La reunión empieza a las diez en punto.", "example_en": "The meeting starts at ten sharp.", "tag": "Work"},
-    {"lemma": "experiencia", "ipa": "ekspeˈɾjen.sja", "pos": "noun", "gender": "f", "translation_en": "experience", "example": "Tiene mucha experiencia en hostelería.", "example_en": "She has lots of experience in hospitality.", "tag": "Work"},
-    {"lemma": "decisión", "ipa": "de.siˈsjon", "pos": "noun", "gender": "f", "translation_en": "decision", "example": "Esa decisión cambió mi vida.", "example_en": "That decision changed my life.", "tag": "Abstract"},
-    {"lemma": "consejo", "ipa": "konˈse.xo", "pos": "noun", "gender": "m", "translation_en": "piece of advice", "example": "Necesito un consejo sobre mi viaje.", "example_en": "I need some advice about my trip.", "tag": "Social"},
-    {"lemma": "recuerdo", "ipa": "reˈkweɾ.ðo", "pos": "noun", "gender": "m", "translation_en": "memory; souvenir", "example": "Tengo un buen recuerdo de aquel verano.", "example_en": "I have a good memory of that summer.", "tag": "Feelings"},
-    {"lemma": "intentar", "ipa": "intenˈtaɾ", "pos": "verb", "translation_en": "to try, to attempt", "example": "Intento hablar español todos los días.", "example_en": "I try to speak Spanish every day.", "tag": "Action"},
-    {"lemma": "conseguir", "ipa": "konseˈɣiɾ", "pos": "verb", "translation_en": "to get, to manage to", "example": "Conseguí entradas para el concierto.", "example_en": "I managed to get tickets for the concert.", "tag": "Action"},
-    {"lemma": "olvidar", "ipa": "olβiˈðaɾ", "pos": "verb", "translation_en": "to forget", "example": "No olvides cerrar la puerta.", "example_en": "Don't forget to close the door.", "tag": "Memory"},
-    {"lemma": "recordar", "ipa": "rekoɾˈðaɾ", "pos": "verb", "translation_en": "to remember; to remind", "example": "Recuerdo perfectamente aquel día.", "example_en": "I remember that day perfectly.", "tag": "Memory"},
-    {"lemma": "explicar", "ipa": "eks.pliˈkaɾ", "pos": "verb", "translation_en": "to explain", "example": "El profesor lo explica con calma.", "example_en": "The teacher explains it patiently.", "tag": "Communication"},
-    {"lemma": "decidir", "ipa": "de.siˈðiɾ", "pos": "verb", "translation_en": "to decide", "example": "Decidimos no salir esta noche.", "example_en": "We decided not to go out tonight.", "tag": "Action"},
-    {"lemma": "tranquilo", "ipa": "tɾaŋˈki.lo", "pos": "adj", "translation_en": "calm, relaxed", "example": "Es un barrio tranquilo y agradable.", "example_en": "It's a calm and pleasant neighbourhood.", "tag": "Descriptions"},
-    {"lemma": "difícil", "ipa": "diˈfi.sil", "pos": "adj", "translation_en": "difficult", "example": "Es difícil aprender un idioma sin practicar.", "example_en": "It's difficult to learn a language without practising.", "tag": "Descriptions"},
-    {"lemma": "fácil", "ipa": "ˈfa.sil", "pos": "adj", "translation_en": "easy", "example": "El examen fue más fácil de lo esperado.", "example_en": "The exam was easier than expected.", "tag": "Descriptions"},
-    {"lemma": "interesante", "ipa": "inteɾeˈsan.te", "pos": "adj", "translation_en": "interesting", "example": "Es una idea interesante para el proyecto.", "example_en": "It's an interesting idea for the project.", "tag": "Opinions"},
-    {"lemma": "aburrido", "ipa": "a.βuˈri.ðo", "pos": "adj", "translation_en": "boring; bored", "example": "La película fue un poco aburrida.", "example_en": "The film was a bit boring.", "tag": "Opinions"},
-    {"lemma": "casi", "ipa": "ˈka.si", "pos": "adv", "translation_en": "almost", "example": "Casi llego tarde a la cita.", "example_en": "I almost arrived late to the appointment.", "tag": "Quantity"},
-    {"lemma": "todavía", "ipa": "to.ðaˈβi.a", "pos": "adv", "translation_en": "still, yet", "example": "Todavía no he comido nada.", "example_en": "I still haven't eaten anything.", "tag": "Time"},
-    {"lemma": "ya", "ipa": "ʝa", "pos": "adv", "translation_en": "already; now", "example": "Ya he terminado mis tareas.", "example_en": "I've already finished my tasks.", "tag": "Time"},
-    {"lemma": "sin embargo", "ipa": "sin emˈbaɾ.ɣo", "pos": "phrase", "translation_en": "however, nevertheless", "example": "Llovía mucho; sin embargo, salimos.", "example_en": "It was raining a lot; nevertheless, we went out.", "tag": "Connectors"},
-    {"lemma": "por eso", "ipa": "poɾ ˈe.so", "pos": "phrase", "translation_en": "that's why", "example": "Estaba cansado, por eso me fui pronto.", "example_en": "I was tired, that's why I left early.", "tag": "Connectors"},
-    {"lemma": "darse cuenta", "ipa": "ˈdaɾ.se ˈkwen.ta", "pos": "phrase", "translation_en": "to realise", "example": "Me di cuenta de mi error tarde.", "example_en": "I realised my mistake too late.", "tag": "Cognition"}
+    {
+      "lemma": "reunión",
+      "ipa": "reuˈnjon",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "meeting",
+      "example": "La reunión empieza a las diez en punto.",
+      "example_en": "The meeting starts at ten sharp.",
+      "tag": "Work"
+    },
+    {
+      "lemma": "experiencia",
+      "ipa": "ekspeˈɾjen.sja",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "experience",
+      "example": "Tiene mucha experiencia en hostelería.",
+      "example_en": "She has lots of experience in hospitality.",
+      "tag": "Work"
+    },
+    {
+      "lemma": "decisión",
+      "ipa": "de.siˈsjon",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "decision",
+      "example": "Esa decisión cambió mi vida.",
+      "example_en": "That decision changed my life.",
+      "tag": "Abstract"
+    },
+    {
+      "lemma": "consejo",
+      "ipa": "konˈse.xo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "piece of advice",
+      "example": "Necesito un consejo sobre mi viaje.",
+      "example_en": "I need some advice about my trip.",
+      "tag": "Social"
+    },
+    {
+      "lemma": "recuerdo",
+      "ipa": "reˈkweɾ.ðo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "memory; souvenir",
+      "example": "Tengo un buen recuerdo de aquel verano.",
+      "example_en": "I have a good memory of that summer.",
+      "tag": "Feelings"
+    },
+    {
+      "lemma": "intentar",
+      "ipa": "intenˈtaɾ",
+      "pos": "verb",
+      "translation_en": "to try, to attempt",
+      "example": "Intento hablar español todos los días.",
+      "example_en": "I try to speak Spanish every day.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "conseguir",
+      "ipa": "konseˈɣiɾ",
+      "pos": "verb",
+      "translation_en": "to get, to manage to",
+      "example": "Conseguí entradas para el concierto.",
+      "example_en": "I managed to get tickets for the concert.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "olvidar",
+      "ipa": "olβiˈðaɾ",
+      "pos": "verb",
+      "translation_en": "to forget",
+      "example": "No olvides cerrar la puerta.",
+      "example_en": "Don't forget to close the door.",
+      "tag": "Memory"
+    },
+    {
+      "lemma": "recordar",
+      "ipa": "rekoɾˈðaɾ",
+      "pos": "verb",
+      "translation_en": "to remember; to remind",
+      "example": "Recuerdo perfectamente aquel día.",
+      "example_en": "I remember that day perfectly.",
+      "tag": "Memory"
+    },
+    {
+      "lemma": "explicar",
+      "ipa": "eks.pliˈkaɾ",
+      "pos": "verb",
+      "translation_en": "to explain",
+      "example": "El profesor lo explica con calma.",
+      "example_en": "The teacher explains it patiently.",
+      "tag": "Communication"
+    },
+    {
+      "lemma": "decidir",
+      "ipa": "de.siˈðiɾ",
+      "pos": "verb",
+      "translation_en": "to decide",
+      "example": "Decidimos no salir esta noche.",
+      "example_en": "We decided not to go out tonight.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "tranquilo",
+      "ipa": "tɾaŋˈki.lo",
+      "pos": "adj",
+      "translation_en": "calm, relaxed",
+      "example": "Es un barrio tranquilo y agradable.",
+      "example_en": "It's a calm and pleasant neighbourhood.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "difícil",
+      "ipa": "diˈfi.sil",
+      "pos": "adj",
+      "translation_en": "difficult",
+      "example": "Es difícil aprender un idioma sin practicar.",
+      "example_en": "It's difficult to learn a language without practising.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "fácil",
+      "ipa": "ˈfa.sil",
+      "pos": "adj",
+      "translation_en": "easy",
+      "example": "El examen fue más fácil de lo esperado.",
+      "example_en": "The exam was easier than expected.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "interesante",
+      "ipa": "inteɾeˈsan.te",
+      "pos": "adj",
+      "translation_en": "interesting",
+      "example": "Es una idea interesante para el proyecto.",
+      "example_en": "It's an interesting idea for the project.",
+      "tag": "Opinions"
+    },
+    {
+      "lemma": "aburrido",
+      "ipa": "a.βuˈri.ðo",
+      "pos": "adj",
+      "translation_en": "boring; bored",
+      "example": "La película fue un poco aburrida.",
+      "example_en": "The film was a bit boring.",
+      "tag": "Opinions"
+    },
+    {
+      "lemma": "casi",
+      "ipa": "ˈka.si",
+      "pos": "adv",
+      "translation_en": "almost",
+      "example": "Casi llego tarde a la cita.",
+      "example_en": "I almost arrived late to the appointment.",
+      "tag": "Quantity"
+    },
+    {
+      "lemma": "todavía",
+      "ipa": "to.ðaˈβi.a",
+      "pos": "adv",
+      "translation_en": "still, yet",
+      "example": "Todavía no he comido nada.",
+      "example_en": "I still haven't eaten anything.",
+      "tag": "Time"
+    },
+    {
+      "lemma": "ya",
+      "ipa": "ʝa",
+      "pos": "adv",
+      "translation_en": "already; now",
+      "example": "Ya he terminado mis tareas.",
+      "example_en": "I've already finished my tasks.",
+      "tag": "Time"
+    },
+    {
+      "lemma": "sin embargo",
+      "ipa": "sin emˈbaɾ.ɣo",
+      "pos": "phrase",
+      "translation_en": "however, nevertheless",
+      "example": "Llovía mucho; sin embargo, salimos.",
+      "example_en": "It was raining a lot; nevertheless, we went out.",
+      "tag": "Connectors"
+    },
+    {
+      "lemma": "por eso",
+      "ipa": "poɾ ˈe.so",
+      "pos": "phrase",
+      "translation_en": "that's why",
+      "example": "Estaba cansado, por eso me fui pronto.",
+      "example_en": "I was tired, that's why I left early.",
+      "tag": "Connectors"
+    },
+    {
+      "lemma": "darse cuenta",
+      "ipa": "ˈdaɾ.se ˈkwen.ta",
+      "pos": "phrase",
+      "translation_en": "to realise",
+      "example": "Me di cuenta de mi error tarde.",
+      "example_en": "I realised my mistake too late.",
+      "tag": "Cognition"
+    },
+    {
+      "lemma": "oportunidad",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "opportunity",
+      "tag": "Abstract",
+      "example": "La oportunidad es importante en este contexto.",
+      "example_en": "Opportunity is important in this context."
+    },
+    {
+      "lemma": "cambio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "change",
+      "tag": "Abstract",
+      "example": "El cambio es importante en este contexto.",
+      "example_en": "Change is important in this context."
+    },
+    {
+      "lemma": "causa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "cause",
+      "tag": "Abstract",
+      "example": "La causa es importante en este contexto.",
+      "example_en": "Cause is important in this context."
+    },
+    {
+      "lemma": "consecuencia",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "consequence",
+      "tag": "Abstract",
+      "example": "La consecuencia es importante en este contexto.",
+      "example_en": "Consequence is important in this context."
+    },
+    {
+      "lemma": "motivo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "reason; motive",
+      "tag": "Abstract",
+      "example": "El motivo es importante en este contexto.",
+      "example_en": "Reason; motive is important in this context."
+    },
+    {
+      "lemma": "razón",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "reason",
+      "tag": "Abstract",
+      "example": "La razón es importante en este contexto.",
+      "example_en": "Reason is important in this context."
+    },
+    {
+      "lemma": "resultado",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "result",
+      "tag": "Abstract",
+      "example": "El resultado es importante en este contexto.",
+      "example_en": "Result is important in this context."
+    },
+    {
+      "lemma": "error",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "mistake; error",
+      "tag": "Abstract",
+      "example": "El error es importante en este contexto.",
+      "example_en": "Mistake; error is important in this context."
+    },
+    {
+      "lemma": "solución",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "solution",
+      "tag": "Abstract",
+      "example": "La solución es importante en este contexto.",
+      "example_en": "Solution is important in this context."
+    },
+    {
+      "lemma": "duda",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "doubt; question",
+      "tag": "Cognition",
+      "example": "La duda es importante en este contexto.",
+      "example_en": "Doubt; question is important in this context."
+    },
+    {
+      "lemma": "opinión",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "opinion",
+      "tag": "Opinion",
+      "example": "La opinión es importante en este contexto.",
+      "example_en": "Opinion is important in this context."
+    },
+    {
+      "lemma": "punto de vista",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "point of view",
+      "tag": "Opinion",
+      "example": "El punto de vista es importante en este contexto.",
+      "example_en": "Point of view is important in this context."
+    },
+    {
+      "lemma": "acuerdo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "agreement",
+      "tag": "Opinion",
+      "example": "El acuerdo es importante en este contexto.",
+      "example_en": "Agreement is important in this context."
+    },
+    {
+      "lemma": "desacuerdo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "disagreement",
+      "tag": "Opinion",
+      "example": "El desacuerdo es importante en este contexto.",
+      "example_en": "Disagreement is important in this context."
+    },
+    {
+      "lemma": "confianza",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "trust; confidence",
+      "tag": "Feelings",
+      "example": "La confianza es importante en este contexto.",
+      "example_en": "Trust; confidence is important in this context."
+    },
+    {
+      "lemma": "miedo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "fear",
+      "tag": "Feelings",
+      "example": "El miedo es importante en este contexto.",
+      "example_en": "Fear is important in this context."
+    },
+    {
+      "lemma": "alegría",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "joy",
+      "tag": "Feelings",
+      "example": "La alegría es importante en este contexto.",
+      "example_en": "Joy is important in this context."
+    },
+    {
+      "lemma": "tristeza",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "sadness",
+      "tag": "Feelings",
+      "example": "La tristeza es importante en este contexto.",
+      "example_en": "Sadness is important in this context."
+    },
+    {
+      "lemma": "enfado",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "anger",
+      "tag": "Feelings",
+      "example": "El enfado es importante en este contexto.",
+      "example_en": "Anger is important in this context."
+    },
+    {
+      "lemma": "vergüenza",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "embarrassment; shame",
+      "tag": "Feelings",
+      "example": "La vergüenza es importante en este contexto.",
+      "example_en": "Embarrassment; shame is important in this context."
+    },
+    {
+      "lemma": "paciencia",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "patience",
+      "tag": "Character",
+      "example": "La paciencia es importante en este contexto.",
+      "example_en": "Patience is important in this context."
+    },
+    {
+      "lemma": "éxito",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "success",
+      "tag": "Abstract",
+      "example": "El éxito es importante en este contexto.",
+      "example_en": "Success is important in this context."
+    },
+    {
+      "lemma": "fracaso",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "failure",
+      "tag": "Abstract",
+      "example": "El fracaso es importante en este contexto.",
+      "example_en": "Failure is important in this context."
+    },
+    {
+      "lemma": "riesgo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "risk",
+      "tag": "Abstract",
+      "example": "El riesgo es importante en este contexto.",
+      "example_en": "Risk is important in this context."
+    },
+    {
+      "lemma": "mejora",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "improvement",
+      "tag": "Abstract",
+      "example": "La mejora es importante en este contexto.",
+      "example_en": "Improvement is important in this context."
+    },
+    {
+      "lemma": "desarrollo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "development",
+      "tag": "Abstract",
+      "example": "El desarrollo es importante en este contexto.",
+      "example_en": "Development is important in this context."
+    },
+    {
+      "lemma": "relación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "relationship",
+      "tag": "Social",
+      "example": "La relación es importante en este contexto.",
+      "example_en": "Relationship is important in this context."
+    },
+    {
+      "lemma": "comportamiento",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "behaviour",
+      "tag": "Social",
+      "example": "El comportamiento es importante en este contexto.",
+      "example_en": "Behaviour is important in this context."
+    },
+    {
+      "lemma": "opinar",
+      "pos": "verb",
+      "translation_en": "give an opinion",
+      "tag": "Opinion",
+      "example": "Es importante opinar con calma.",
+      "example_en": "It is important to give an opinion calmly."
+    },
+    {
+      "lemma": "creer",
+      "pos": "verb",
+      "translation_en": "believe",
+      "tag": "Cognition",
+      "example": "Aprendo a creer en situaciones reales.",
+      "example_en": "I learn to believe in real situations."
+    },
+    {
+      "lemma": "pensar",
+      "pos": "verb",
+      "translation_en": "think",
+      "tag": "Cognition",
+      "example": "Intento pensar un poco cada día.",
+      "example_en": "I try to think a little every day."
+    },
+    {
+      "lemma": "sentir",
+      "pos": "verb",
+      "translation_en": "feel",
+      "tag": "Feelings",
+      "example": "Tengo que sentir antes de salir.",
+      "example_en": "I have to feel before leaving."
+    },
+    {
+      "lemma": "parecer",
+      "pos": "verb",
+      "translation_en": "seem",
+      "tag": "Opinion",
+      "example": "Quiero parecer con más seguridad.",
+      "example_en": "I want to seem with more confidence."
+    },
+    {
+      "lemma": "importar",
+      "pos": "verb",
+      "translation_en": "matter; be important",
+      "tag": "Opinion",
+      "example": "Es importante importar con calma.",
+      "example_en": "It is important to matter; be important calmly."
+    },
+    {
+      "lemma": "preocupar",
+      "pos": "verb",
+      "translation_en": "worry",
+      "tag": "Feelings",
+      "example": "Aprendo a preocupar en situaciones reales.",
+      "example_en": "I learn to worry in real situations."
+    },
+    {
+      "lemma": "sorprender",
+      "pos": "verb",
+      "translation_en": "surprise",
+      "tag": "Feelings",
+      "example": "Intento sorprender un poco cada día.",
+      "example_en": "I try to surprise a little every day."
+    },
+    {
+      "lemma": "molestar",
+      "pos": "verb",
+      "translation_en": "bother",
+      "tag": "Feelings",
+      "example": "Tengo que molestar antes de salir.",
+      "example_en": "I have to bother before leaving."
+    },
+    {
+      "lemma": "agradecer",
+      "pos": "verb",
+      "translation_en": "thank; appreciate",
+      "tag": "Social",
+      "example": "Quiero agradecer con más seguridad.",
+      "example_en": "I want to thank; appreciate with more confidence."
+    },
+    {
+      "lemma": "aceptar",
+      "pos": "verb",
+      "translation_en": "accept",
+      "tag": "Social",
+      "example": "Es importante aceptar con calma.",
+      "example_en": "It is important to accept calmly."
+    },
+    {
+      "lemma": "rechazar",
+      "pos": "verb",
+      "translation_en": "reject",
+      "tag": "Social",
+      "example": "Aprendo a rechazar en situaciones reales.",
+      "example_en": "I learn to reject in real situations."
+    },
+    {
+      "lemma": "proponer",
+      "pos": "verb",
+      "translation_en": "propose",
+      "tag": "Communication",
+      "example": "Intento proponer un poco cada día.",
+      "example_en": "I try to propose a little every day."
+    },
+    {
+      "lemma": "recomendar",
+      "pos": "verb",
+      "translation_en": "recommend",
+      "tag": "Communication",
+      "example": "Tengo que recomendar antes de salir.",
+      "example_en": "I have to recommend before leaving."
+    },
+    {
+      "lemma": "aconsejar",
+      "pos": "verb",
+      "translation_en": "advise",
+      "tag": "Communication",
+      "example": "Quiero aconsejar con más seguridad.",
+      "example_en": "I want to advise with more confidence."
+    },
+    {
+      "lemma": "permitir",
+      "pos": "verb",
+      "translation_en": "allow",
+      "tag": "Rules",
+      "example": "Es importante permitir con calma.",
+      "example_en": "It is important to allow calmly."
+    },
+    {
+      "lemma": "prohibir",
+      "pos": "verb",
+      "translation_en": "forbid",
+      "tag": "Rules",
+      "example": "Aprendo a prohibir en situaciones reales.",
+      "example_en": "I learn to forbid in real situations."
+    },
+    {
+      "lemma": "obligar",
+      "pos": "verb",
+      "translation_en": "force; oblige",
+      "tag": "Rules",
+      "example": "Intento obligar un poco cada día.",
+      "example_en": "I try to force; oblige a little every day."
+    },
+    {
+      "lemma": "prometer",
+      "pos": "verb",
+      "translation_en": "promise",
+      "tag": "Social",
+      "example": "Tengo que prometer antes de salir.",
+      "example_en": "I have to promise before leaving."
+    },
+    {
+      "lemma": "cumplir",
+      "pos": "verb",
+      "translation_en": "fulfil; keep",
+      "tag": "Action",
+      "example": "Quiero cumplir con más seguridad.",
+      "example_en": "I want to fulfil; keep with more confidence."
+    },
+    {
+      "lemma": "faltar",
+      "pos": "verb",
+      "translation_en": "be missing; lack",
+      "tag": "Quantity",
+      "example": "Es importante faltar con calma.",
+      "example_en": "It is important to be missing; lack calmly."
+    },
+    {
+      "lemma": "sobrar",
+      "pos": "verb",
+      "translation_en": "be left over",
+      "tag": "Quantity",
+      "example": "Aprendo a sobrar en situaciones reales.",
+      "example_en": "I learn to be left over in real situations."
+    },
+    {
+      "lemma": "empeorar",
+      "pos": "verb",
+      "translation_en": "get worse",
+      "tag": "Health",
+      "example": "Intento empeorar un poco cada día.",
+      "example_en": "I try to get worse a little every day."
+    },
+    {
+      "lemma": "resolver",
+      "pos": "verb",
+      "translation_en": "solve",
+      "tag": "Action",
+      "example": "Tengo que resolver antes de salir.",
+      "example_en": "I have to solve before leaving."
+    },
+    {
+      "lemma": "comparar",
+      "pos": "verb",
+      "translation_en": "compare",
+      "tag": "Cognition",
+      "example": "Quiero comparar con más seguridad.",
+      "example_en": "I want to compare with more confidence."
+    },
+    {
+      "lemma": "depender",
+      "pos": "verb",
+      "translation_en": "depend",
+      "tag": "Cognition",
+      "example": "Es importante depender con calma.",
+      "example_en": "It is important to depend calmly."
+    },
+    {
+      "lemma": "preocupado",
+      "pos": "adj",
+      "translation_en": "worried",
+      "tag": "Feelings",
+      "example": "Hoy me siento preocupado.",
+      "example_en": "Today I feel worried."
+    },
+    {
+      "lemma": "satisfecho",
+      "pos": "adj",
+      "translation_en": "satisfied",
+      "tag": "Feelings",
+      "example": "Hoy me siento satisfecho.",
+      "example_en": "Today I feel satisfied."
+    },
+    {
+      "lemma": "decepcionado",
+      "pos": "adj",
+      "translation_en": "disappointed",
+      "tag": "Feelings",
+      "example": "Hoy me siento decepcionado.",
+      "example_en": "Today I feel disappointed."
+    },
+    {
+      "lemma": "orgulloso",
+      "pos": "adj",
+      "translation_en": "proud",
+      "tag": "Feelings",
+      "example": "Hoy me siento orgulloso.",
+      "example_en": "Today I feel proud."
+    },
+    {
+      "lemma": "inseguro",
+      "pos": "adj",
+      "translation_en": "insecure; unsure",
+      "tag": "Feelings",
+      "example": "Hoy me siento inseguro.",
+      "example_en": "Today I feel insecure; unsure."
+    },
+    {
+      "lemma": "capaz",
+      "pos": "adj",
+      "translation_en": "capable",
+      "tag": "Evaluation",
+      "example": "Es un detalle capaz.",
+      "example_en": "It is a capable detail."
+    },
+    {
+      "lemma": "incapaz",
+      "pos": "adj",
+      "translation_en": "incapable",
+      "tag": "Evaluation",
+      "example": "Este tema es incapaz.",
+      "example_en": "This topic is incapable."
+    },
+    {
+      "lemma": "responsable",
+      "pos": "adj",
+      "translation_en": "responsible",
+      "tag": "Character",
+      "example": "Es una persona responsable.",
+      "example_en": "He or she is a responsible person."
+    },
+    {
+      "lemma": "irresponsable",
+      "pos": "adj",
+      "translation_en": "irresponsible",
+      "tag": "Character",
+      "example": "Es una persona irresponsable.",
+      "example_en": "He or she is a irresponsible person."
+    },
+    {
+      "lemma": "maduro",
+      "pos": "adj",
+      "translation_en": "mature",
+      "tag": "Character",
+      "example": "Es una persona maduro.",
+      "example_en": "He or she is a mature person."
+    },
+    {
+      "lemma": "común",
+      "pos": "adj",
+      "translation_en": "common",
+      "tag": "Evaluation",
+      "example": "Me parece común.",
+      "example_en": "It seems common to me."
+    },
+    {
+      "lemma": "raro",
+      "pos": "adj",
+      "translation_en": "strange; rare",
+      "tag": "Evaluation",
+      "example": "Es un detalle raro.",
+      "example_en": "It is a strange; rare detail."
+    },
+    {
+      "lemma": "probable",
+      "pos": "adj",
+      "translation_en": "likely",
+      "tag": "Opinion",
+      "example": "Este tema es probable.",
+      "example_en": "This topic is likely."
+    },
+    {
+      "lemma": "posible",
+      "pos": "adj",
+      "translation_en": "possible",
+      "tag": "Opinion",
+      "example": "Me parece posible.",
+      "example_en": "It seems possible to me."
+    },
+    {
+      "lemma": "incluso",
+      "pos": "adv",
+      "translation_en": "even",
+      "tag": "Connectors",
+      "example": "La situación cambia incluso.",
+      "example_en": "The situation changes even."
+    },
+    {
+      "lemma": "además",
+      "pos": "adv",
+      "translation_en": "besides; furthermore",
+      "tag": "Connectors",
+      "example": "Lo hago además cuando puedo.",
+      "example_en": "I do it besides; furthermore when I can."
+    },
+    {
+      "lemma": "tampoco",
+      "pos": "adv",
+      "translation_en": "neither; either",
+      "tag": "Connectors",
+      "example": "Normalmente respondo tampoco.",
+      "example_en": "Normally I answer neither; either."
+    },
+    {
+      "lemma": "apenas",
+      "pos": "adv",
+      "translation_en": "hardly",
+      "tag": "Quantity",
+      "example": "La situación cambia apenas.",
+      "example_en": "The situation changes hardly."
+    },
+    {
+      "lemma": "en mi opinión",
+      "pos": "phrase",
+      "translation_en": "in my opinion",
+      "tag": "Opinion",
+      "example": "En mi opinión, la solución es clara.",
+      "example_en": "In my opinion, the solution is clear."
+    },
+    {
+      "lemma": "desde mi punto de vista",
+      "pos": "phrase",
+      "translation_en": "from my point of view",
+      "tag": "Opinion",
+      "example": "Desde mi punto de vista, falta información.",
+      "example_en": "From my point of view, information is missing."
+    },
+    {
+      "lemma": "por un lado",
+      "pos": "phrase",
+      "translation_en": "on one hand",
+      "tag": "Connectors",
+      "example": "Por un lado, es barato; por otro, está lejos.",
+      "example_en": "On one hand, it is cheap; on the other, it is far."
+    },
+    {
+      "lemma": "por otro lado",
+      "pos": "phrase",
+      "translation_en": "on the other hand",
+      "tag": "Connectors",
+      "example": "Por otro lado, el barrio es muy tranquilo.",
+      "example_en": "On the other hand, the neighbourhood is very quiet."
+    },
+    {
+      "lemma": "tener miedo de",
+      "pos": "phrase",
+      "translation_en": "to be afraid of",
+      "tag": "Feelings",
+      "example": "Tengo miedo de cometer un error.",
+      "example_en": "I am afraid of making a mistake."
+    },
+    {
+      "lemma": "echar de menos",
+      "pos": "phrase",
+      "translation_en": "to miss",
+      "tag": "Feelings",
+      "example": "Echo de menos a mi familia.",
+      "example_en": "I miss my family."
+    }
   ]
 }

@@ -1,0 +1,865 @@
+{
+  "id": "group-3",
+  "title": "Familia y tiempo · People, body and calendar",
+  "focus": "Essential A1 vocabulary for family, people, body parts, calendar words and simple descriptions.",
+  "words": [
+    {
+      "lemma": "abuelo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "grandfather",
+      "tag": "Family",
+      "example": "Necesito un abuelo para hoy.",
+      "example_en": "I need grandfather for today."
+    },
+    {
+      "lemma": "abuela",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "grandmother",
+      "tag": "Family",
+      "example": "Hay una abuela cerca de aquí.",
+      "example_en": "There is grandmother near here."
+    },
+    {
+      "lemma": "tío",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "uncle",
+      "tag": "Family",
+      "example": "Busco un tío para la clase.",
+      "example_en": "I am looking for uncle for class."
+    },
+    {
+      "lemma": "tía",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "aunt",
+      "tag": "Family",
+      "example": "Compré una tía esta mañana.",
+      "example_en": "I bought aunt this morning."
+    },
+    {
+      "lemma": "primo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "cousin",
+      "tag": "Family",
+      "example": "Tengo un primo en casa.",
+      "example_en": "I have cousin at home."
+    },
+    {
+      "lemma": "prima",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "cousin",
+      "tag": "Family",
+      "example": "Necesito una prima para hoy.",
+      "example_en": "I need cousin for today."
+    },
+    {
+      "lemma": "bebé",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "baby",
+      "tag": "Family",
+      "example": "Hay un bebé cerca de aquí.",
+      "example_en": "There is baby near here."
+    },
+    {
+      "lemma": "hombre",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "man",
+      "tag": "People",
+      "example": "Busco un hombre para la clase.",
+      "example_en": "I am looking for man for class."
+    },
+    {
+      "lemma": "mujer",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "woman",
+      "tag": "People",
+      "example": "Compré una mujer esta mañana.",
+      "example_en": "I bought woman this morning."
+    },
+    {
+      "lemma": "chico",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "boy; guy",
+      "tag": "People",
+      "example": "Tengo un chico en casa.",
+      "example_en": "I have boy; guy at home."
+    },
+    {
+      "lemma": "chica",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "girl",
+      "tag": "People",
+      "example": "Necesito una chica para hoy.",
+      "example_en": "I need girl for today."
+    },
+    {
+      "lemma": "señor",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Mr.; gentleman",
+      "tag": "People",
+      "example": "Hay un señor cerca de aquí.",
+      "example_en": "There is Mr.; gentleman near here."
+    },
+    {
+      "lemma": "señora",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "Mrs.; lady",
+      "tag": "People",
+      "example": "Busco una señora para la clase.",
+      "example_en": "I am looking for Mrs.; lady for class."
+    },
+    {
+      "lemma": "gente",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "people",
+      "tag": "People",
+      "example": "Compré una gente esta mañana.",
+      "example_en": "I bought people this morning."
+    },
+    {
+      "lemma": "pareja",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "couple; partner",
+      "tag": "People",
+      "example": "Tengo una pareja en casa.",
+      "example_en": "I have couple; partner at home."
+    },
+    {
+      "lemma": "cuerpo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "body",
+      "tag": "Body",
+      "example": "Necesito un cuerpo para hoy.",
+      "example_en": "I need body for today."
+    },
+    {
+      "lemma": "ojo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "eye",
+      "tag": "Body",
+      "example": "Hay un ojo cerca de aquí.",
+      "example_en": "There is eye near here."
+    },
+    {
+      "lemma": "nariz",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "nose",
+      "tag": "Body",
+      "example": "Busco una nariz para la clase.",
+      "example_en": "I am looking for nose for class."
+    },
+    {
+      "lemma": "boca",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "mouth",
+      "tag": "Body",
+      "example": "Compré una boca esta mañana.",
+      "example_en": "I bought mouth this morning."
+    },
+    {
+      "lemma": "oreja",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "ear",
+      "tag": "Body",
+      "example": "Tengo una oreja en casa.",
+      "example_en": "I have ear at home."
+    },
+    {
+      "lemma": "pelo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "hair",
+      "tag": "Body",
+      "example": "Necesito un pelo para hoy.",
+      "example_en": "I need hair for today."
+    },
+    {
+      "lemma": "cara",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "face",
+      "tag": "Body",
+      "example": "Hay una cara cerca de aquí.",
+      "example_en": "There is face near here."
+    },
+    {
+      "lemma": "brazo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "arm",
+      "tag": "Body",
+      "example": "Busco un brazo para la clase.",
+      "example_en": "I am looking for arm for class."
+    },
+    {
+      "lemma": "pierna",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "leg",
+      "tag": "Body",
+      "example": "Compré una pierna esta mañana.",
+      "example_en": "I bought leg this morning."
+    },
+    {
+      "lemma": "pie",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "foot",
+      "tag": "Body",
+      "example": "Tengo un pie en casa.",
+      "example_en": "I have foot at home."
+    },
+    {
+      "lemma": "dedo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "finger; toe",
+      "tag": "Body",
+      "example": "Necesito un dedo para hoy.",
+      "example_en": "I need finger; toe for today."
+    },
+    {
+      "lemma": "estómago",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "stomach",
+      "tag": "Body",
+      "example": "Hay un estómago cerca de aquí.",
+      "example_en": "There is stomach near here."
+    },
+    {
+      "lemma": "corazón",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "heart",
+      "tag": "Body",
+      "example": "Busco un corazón para la clase.",
+      "example_en": "I am looking for heart for class."
+    },
+    {
+      "lemma": "minuto",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "minute",
+      "tag": "Time",
+      "example": "Compré un minuto esta mañana.",
+      "example_en": "I bought minute this morning."
+    },
+    {
+      "lemma": "segundo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "second",
+      "tag": "Time",
+      "example": "Tengo un segundo en casa.",
+      "example_en": "I have second at home."
+    },
+    {
+      "lemma": "cumpleaños",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "birthday",
+      "tag": "Time",
+      "example": "Necesito un cumpleaños para hoy.",
+      "example_en": "I need birthday for today."
+    },
+    {
+      "lemma": "edad",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "age",
+      "tag": "People",
+      "example": "Hay una edad cerca de aquí.",
+      "example_en": "There is age near here."
+    },
+    {
+      "lemma": "fecha",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "date",
+      "tag": "Time",
+      "example": "Busco una fecha para la clase.",
+      "example_en": "I am looking for date for class."
+    },
+    {
+      "lemma": "lunes",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Monday",
+      "tag": "Time",
+      "example": "Compré un lunes esta mañana.",
+      "example_en": "I bought Monday this morning."
+    },
+    {
+      "lemma": "martes",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Tuesday",
+      "tag": "Time",
+      "example": "Tengo un martes en casa.",
+      "example_en": "I have Tuesday at home."
+    },
+    {
+      "lemma": "miércoles",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Wednesday",
+      "tag": "Time",
+      "example": "Necesito un miércoles para hoy.",
+      "example_en": "I need Wednesday for today."
+    },
+    {
+      "lemma": "jueves",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Thursday",
+      "tag": "Time",
+      "example": "Hay un jueves cerca de aquí.",
+      "example_en": "There is Thursday near here."
+    },
+    {
+      "lemma": "viernes",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Friday",
+      "tag": "Time",
+      "example": "Busco un viernes para la clase.",
+      "example_en": "I am looking for Friday for class."
+    },
+    {
+      "lemma": "sábado",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Saturday",
+      "tag": "Time",
+      "example": "Compré un sábado esta mañana.",
+      "example_en": "I bought Saturday this morning."
+    },
+    {
+      "lemma": "domingo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "Sunday",
+      "tag": "Time",
+      "example": "Tengo un domingo en casa.",
+      "example_en": "I have Sunday at home."
+    },
+    {
+      "lemma": "enero",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "January",
+      "tag": "Time",
+      "example": "Necesito un enero para hoy.",
+      "example_en": "I need January for today."
+    },
+    {
+      "lemma": "febrero",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "February",
+      "tag": "Time",
+      "example": "Hay un febrero cerca de aquí.",
+      "example_en": "There is February near here."
+    },
+    {
+      "lemma": "marzo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "March",
+      "tag": "Time",
+      "example": "Busco un marzo para la clase.",
+      "example_en": "I am looking for March for class."
+    },
+    {
+      "lemma": "abril",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "April",
+      "tag": "Time",
+      "example": "Compré un abril esta mañana.",
+      "example_en": "I bought April this morning."
+    },
+    {
+      "lemma": "mayo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "May",
+      "tag": "Time",
+      "example": "Tengo un mayo en casa.",
+      "example_en": "I have May at home."
+    },
+    {
+      "lemma": "junio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "June",
+      "tag": "Time",
+      "example": "Necesito un junio para hoy.",
+      "example_en": "I need June for today."
+    },
+    {
+      "lemma": "julio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "July",
+      "tag": "Time",
+      "example": "Hay un julio cerca de aquí.",
+      "example_en": "There is July near here."
+    },
+    {
+      "lemma": "agosto",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "August",
+      "tag": "Time",
+      "example": "Busco un agosto para la clase.",
+      "example_en": "I am looking for August for class."
+    },
+    {
+      "lemma": "septiembre",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "September",
+      "tag": "Time",
+      "example": "Compré un septiembre esta mañana.",
+      "example_en": "I bought September this morning."
+    },
+    {
+      "lemma": "octubre",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "October",
+      "tag": "Time",
+      "example": "Tengo un octubre en casa.",
+      "example_en": "I have October at home."
+    },
+    {
+      "lemma": "noviembre",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "November",
+      "tag": "Time",
+      "example": "Necesito un noviembre para hoy.",
+      "example_en": "I need November for today."
+    },
+    {
+      "lemma": "diciembre",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "December",
+      "tag": "Time",
+      "example": "Hay un diciembre cerca de aquí.",
+      "example_en": "There is December near here."
+    },
+    {
+      "lemma": "perro",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "dog",
+      "tag": "Animals",
+      "example": "Busco un perro para la clase.",
+      "example_en": "I am looking for dog for class."
+    },
+    {
+      "lemma": "gato",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "cat",
+      "tag": "Animals",
+      "example": "Compré un gato esta mañana.",
+      "example_en": "I bought cat this morning."
+    },
+    {
+      "lemma": "pájaro",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "bird",
+      "tag": "Animals",
+      "example": "Tengo un pájaro en casa.",
+      "example_en": "I have bird at home."
+    },
+    {
+      "lemma": "caballo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "horse",
+      "tag": "Animals",
+      "example": "Necesito un caballo para hoy.",
+      "example_en": "I need horse for today."
+    },
+    {
+      "lemma": "pez",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "fish",
+      "tag": "Animals",
+      "example": "Hay un pez cerca de aquí.",
+      "example_en": "There is fish near here."
+    },
+    {
+      "lemma": "vaca",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "cow",
+      "tag": "Animals",
+      "example": "Busco una vaca para la clase.",
+      "example_en": "I am looking for cow for class."
+    },
+    {
+      "lemma": "correr",
+      "pos": "verb",
+      "translation_en": "run",
+      "tag": "Action",
+      "example": "Quiero correr mejor en situaciones reales.",
+      "example_en": "I want to run better in real situations."
+    },
+    {
+      "lemma": "bailar",
+      "pos": "verb",
+      "translation_en": "dance",
+      "tag": "Leisure",
+      "example": "Aprendí a bailar durante el curso.",
+      "example_en": "I learned to dance during the course."
+    },
+    {
+      "lemma": "cantar",
+      "pos": "verb",
+      "translation_en": "sing",
+      "tag": "Leisure",
+      "example": "Es importante cantar con calma.",
+      "example_en": "It is important to sing calmly."
+    },
+    {
+      "lemma": "pintar",
+      "pos": "verb",
+      "translation_en": "paint",
+      "tag": "Leisure",
+      "example": "Intento pintar un poco cada día.",
+      "example_en": "I try to paint a little every day."
+    },
+    {
+      "lemma": "tocar",
+      "pos": "verb",
+      "translation_en": "touch; play an instrument",
+      "tag": "Action",
+      "example": "Tenemos que tocar antes de decidir.",
+      "example_en": "We have to touch; play an instrument before deciding."
+    },
+    {
+      "lemma": "esperar",
+      "pos": "verb",
+      "translation_en": "wait; hope",
+      "tag": "Action",
+      "example": "Quiero esperar mejor en situaciones reales.",
+      "example_en": "I want to wait; hope better in real situations."
+    },
+    {
+      "lemma": "limpiar",
+      "pos": "verb",
+      "translation_en": "clean",
+      "tag": "Home",
+      "example": "Aprendí a limpiar durante el curso.",
+      "example_en": "I learned to clean during the course."
+    },
+    {
+      "lemma": "ordenar",
+      "pos": "verb",
+      "translation_en": "tidy; organise",
+      "tag": "Home",
+      "example": "Es importante ordenar con calma.",
+      "example_en": "It is important to tidy; organise calmly."
+    },
+    {
+      "lemma": "repetir",
+      "pos": "verb",
+      "translation_en": "repeat",
+      "tag": "Classroom",
+      "example": "Intento repetir un poco cada día.",
+      "example_en": "I try to repeat a little every day."
+    },
+    {
+      "lemma": "pronunciar",
+      "pos": "verb",
+      "translation_en": "pronounce",
+      "tag": "Classroom",
+      "example": "Tenemos que pronunciar antes de decidir.",
+      "example_en": "We have to pronounce before deciding."
+    },
+    {
+      "lemma": "deletrear",
+      "pos": "verb",
+      "translation_en": "spell out",
+      "tag": "Classroom",
+      "example": "Quiero deletrear mejor en situaciones reales.",
+      "example_en": "I want to spell out better in real situations."
+    },
+    {
+      "lemma": "entender",
+      "pos": "verb",
+      "translation_en": "understand",
+      "tag": "Classroom",
+      "example": "Aprendí a entender durante el curso.",
+      "example_en": "I learned to understand during the course."
+    },
+    {
+      "lemma": "pasar",
+      "pos": "verb",
+      "translation_en": "pass; happen",
+      "tag": "Action",
+      "example": "Es importante pasar con calma.",
+      "example_en": "It is important to pass; happen calmly."
+    },
+    {
+      "lemma": "nacer",
+      "pos": "verb",
+      "translation_en": "be born",
+      "tag": "People",
+      "example": "Intento nacer un poco cada día.",
+      "example_en": "I try to be born a little every day."
+    },
+    {
+      "lemma": "crecer",
+      "pos": "verb",
+      "translation_en": "grow",
+      "tag": "People",
+      "example": "Tenemos que crecer antes de decidir.",
+      "example_en": "We have to grow before deciding."
+    },
+    {
+      "lemma": "sonreír",
+      "pos": "verb",
+      "translation_en": "smile",
+      "tag": "People",
+      "example": "Quiero sonreír mejor en situaciones reales.",
+      "example_en": "I want to smile better in real situations."
+    },
+    {
+      "lemma": "llorar",
+      "pos": "verb",
+      "translation_en": "cry",
+      "tag": "Feelings",
+      "example": "Aprendí a llorar durante el curso.",
+      "example_en": "I learned to cry during the course."
+    },
+    {
+      "lemma": "reír",
+      "pos": "verb",
+      "translation_en": "laugh",
+      "tag": "Feelings",
+      "example": "Es importante reír con calma.",
+      "example_en": "It is important to laugh calmly."
+    },
+    {
+      "lemma": "gritar",
+      "pos": "verb",
+      "translation_en": "shout",
+      "tag": "Communication",
+      "example": "Intento gritar un poco cada día.",
+      "example_en": "I try to shout a little every day."
+    },
+    {
+      "lemma": "gustoso",
+      "pos": "adj",
+      "translation_en": "willing; pleased",
+      "tag": "Feelings",
+      "example": "Me parece una opción gustoso.",
+      "example_en": "It seems like a willing; pleased option to me."
+    },
+    {
+      "lemma": "guapo",
+      "pos": "adj",
+      "translation_en": "good-looking",
+      "tag": "People",
+      "example": "La situación es bastante guapo.",
+      "example_en": "The situation is quite good-looking."
+    },
+    {
+      "lemma": "alegre",
+      "pos": "adj",
+      "translation_en": "cheerful",
+      "tag": "Feelings",
+      "example": "Busco una respuesta alegre.",
+      "example_en": "I am looking for a cheerful answer."
+    },
+    {
+      "lemma": "moreno",
+      "pos": "adj",
+      "translation_en": "dark-haired; tanned",
+      "tag": "People",
+      "example": "Es un tema moreno para el examen.",
+      "example_en": "It is a dark-haired; tanned topic for the exam."
+    },
+    {
+      "lemma": "rubio",
+      "pos": "adj",
+      "translation_en": "blond",
+      "tag": "People",
+      "example": "Me parece una opción rubio.",
+      "example_en": "It seems like a blond option to me."
+    },
+    {
+      "lemma": "largo",
+      "pos": "adj",
+      "translation_en": "long",
+      "tag": "Descriptions",
+      "example": "La situación es bastante largo.",
+      "example_en": "The situation is quite long."
+    },
+    {
+      "lemma": "corto",
+      "pos": "adj",
+      "translation_en": "short",
+      "tag": "Descriptions",
+      "example": "Busco una respuesta corto.",
+      "example_en": "I am looking for a short answer."
+    },
+    {
+      "lemma": "fuerte",
+      "pos": "adj",
+      "translation_en": "strong",
+      "tag": "Descriptions",
+      "example": "Es un tema fuerte para el examen.",
+      "example_en": "It is a strong topic for the exam."
+    },
+    {
+      "lemma": "débil",
+      "pos": "adj",
+      "translation_en": "weak",
+      "tag": "Descriptions",
+      "example": "Me parece una opción débil.",
+      "example_en": "It seems like a weak option to me."
+    },
+    {
+      "lemma": "quieto",
+      "pos": "adj",
+      "translation_en": "still; quiet",
+      "tag": "States",
+      "example": "La situación es bastante quieto.",
+      "example_en": "The situation is quite still; quiet."
+    },
+    {
+      "lemma": "solo",
+      "pos": "adj",
+      "translation_en": "alone",
+      "tag": "States",
+      "example": "Busco una respuesta solo.",
+      "example_en": "I am looking for a alone answer."
+    },
+    {
+      "lemma": "casado",
+      "pos": "adj",
+      "translation_en": "married",
+      "tag": "People",
+      "example": "Es un tema casado para el examen.",
+      "example_en": "It is a married topic for the exam."
+    },
+    {
+      "lemma": "soltero",
+      "pos": "adj",
+      "translation_en": "single; unmarried",
+      "tag": "People",
+      "example": "Me parece una opción soltero.",
+      "example_en": "It seems like a single; unmarried option to me."
+    },
+    {
+      "lemma": "divertido",
+      "pos": "adj",
+      "translation_en": "fun; funny",
+      "tag": "Opinions",
+      "example": "La situación es bastante divertido.",
+      "example_en": "The situation is quite fun; funny."
+    },
+    {
+      "lemma": "fresco",
+      "pos": "adj",
+      "translation_en": "fresh; cool",
+      "tag": "Food & drink",
+      "example": "Busco una respuesta fresco.",
+      "example_en": "I am looking for a fresh; cool answer."
+    },
+    {
+      "lemma": "ayer",
+      "pos": "adv",
+      "translation_en": "yesterday",
+      "tag": "Time",
+      "example": "Responde ayer en la entrevista.",
+      "example_en": "He or she answers yesterday in the interview."
+    },
+    {
+      "lemma": "anteayer",
+      "pos": "adv",
+      "translation_en": "the day before yesterday",
+      "tag": "Time",
+      "example": "Lo uso anteayer cuando hablo.",
+      "example_en": "I use it the day before yesterday when I speak."
+    },
+    {
+      "lemma": "mañana temprano",
+      "pos": "phrase",
+      "translation_en": "tomorrow morning early",
+      "tag": "Time",
+      "example": "Mañana temprano es una expresión útil para organizar tus ideas.",
+      "example_en": "Tomorrow morning early is a useful expression for organising your ideas."
+    },
+    {
+      "lemma": "esta semana",
+      "pos": "phrase",
+      "translation_en": "this week",
+      "tag": "Time",
+      "example": "Esta semana es una expresión útil para organizar tus ideas.",
+      "example_en": "This week is a useful expression for organising your ideas."
+    },
+    {
+      "lemma": "el próximo mes",
+      "pos": "phrase",
+      "translation_en": "next month",
+      "tag": "Time",
+      "example": "El próximo mes es una expresión útil para organizar tus ideas.",
+      "example_en": "Next month is a useful expression for organising your ideas."
+    },
+    {
+      "lemma": "por favor repita",
+      "pos": "phrase",
+      "translation_en": "please repeat",
+      "tag": "Classroom",
+      "example": "Por favor repita es una expresión útil para organizar tus ideas.",
+      "example_en": "Please repeat is a useful expression for organising your ideas."
+    },
+    {
+      "lemma": "no pasa nada",
+      "pos": "phrase",
+      "translation_en": "no problem; it is okay",
+      "tag": "Social",
+      "example": "No pasa nada es una expresión útil para organizar tus ideas.",
+      "example_en": "No problem; it is okay is a useful expression for organising your ideas."
+    },
+    {
+      "lemma": "mucho gusto",
+      "pos": "phrase",
+      "translation_en": "nice to meet you",
+      "tag": "Greetings",
+      "example": "Mucho gusto es una expresión útil para organizar tus ideas.",
+      "example_en": "Nice to meet you is a useful expression for organising your ideas."
+    }
+  ]
+}

@@ -3,25 +3,865 @@
   "title": "Empezar · First survival words",
   "focus": "Greetings, family, very common verbs, everyday objects, basic feelings.",
   "words": [
-    {"lemma": "hola", "ipa": "ˈo.la", "pos": "phrase", "translation_en": "hello", "example": "¡Hola! ¿Cómo estás?", "example_en": "Hi! How are you?", "tag": "Greetings"},
-    {"lemma": "adiós", "ipa": "aˈðjos", "pos": "phrase", "translation_en": "goodbye", "example": "Adiós, hasta mañana.", "example_en": "Goodbye, see you tomorrow.", "tag": "Greetings"},
-    {"lemma": "por favor", "ipa": "poɾ faˈβoɾ", "pos": "phrase", "translation_en": "please", "example": "Un café, por favor.", "example_en": "A coffee, please.", "tag": "Politeness"},
-    {"lemma": "gracias", "ipa": "ˈɡɾa.sjas", "pos": "phrase", "translation_en": "thank you", "example": "Muchas gracias por tu ayuda.", "example_en": "Thank you very much for your help.", "tag": "Politeness"},
-    {"lemma": "casa", "ipa": "ˈka.sa", "pos": "noun", "gender": "f", "translation_en": "house, home", "example": "Mi casa está cerca del parque.", "example_en": "My house is near the park.", "tag": "Home"},
-    {"lemma": "familia", "ipa": "faˈmi.lja", "pos": "noun", "gender": "f", "translation_en": "family", "example": "Tengo una familia grande.", "example_en": "I have a big family.", "tag": "Family"},
-    {"lemma": "agua", "ipa": "ˈa.ɣwa", "pos": "noun", "gender": "f", "translation_en": "water", "example": "Necesito un vaso de agua.", "example_en": "I need a glass of water.", "tag": "Food & drink"},
-    {"lemma": "día", "ipa": "ˈdi.a", "pos": "noun", "gender": "m", "translation_en": "day", "example": "Hoy es un buen día.", "example_en": "Today is a good day.", "tag": "Time"},
-    {"lemma": "amigo", "ipa": "aˈmi.ɣo", "pos": "noun", "gender": "m", "translation_en": "friend (m)", "example": "Mi amigo vive en Madrid.", "example_en": "My friend lives in Madrid.", "tag": "People"},
-    {"lemma": "ser", "ipa": "seɾ", "pos": "verb", "translation_en": "to be (essence)", "example": "Yo soy estudiante.", "example_en": "I am a student.", "tag": "Core verbs"},
-    {"lemma": "estar", "ipa": "esˈtaɾ", "pos": "verb", "translation_en": "to be (state, location)", "example": "Estoy en casa.", "example_en": "I am at home.", "tag": "Core verbs"},
-    {"lemma": "tener", "ipa": "teˈneɾ", "pos": "verb", "translation_en": "to have", "example": "Tengo dos hermanos.", "example_en": "I have two siblings.", "tag": "Core verbs"},
-    {"lemma": "hacer", "ipa": "aˈseɾ", "pos": "verb", "translation_en": "to do, to make", "example": "Hago mi tarea por la noche.", "example_en": "I do my homework at night.", "tag": "Core verbs"},
-    {"lemma": "ir", "ipa": "iɾ", "pos": "verb", "translation_en": "to go", "example": "Voy al supermercado.", "example_en": "I'm going to the supermarket.", "tag": "Core verbs"},
-    {"lemma": "comer", "ipa": "koˈmeɾ", "pos": "verb", "translation_en": "to eat", "example": "Comemos a las dos.", "example_en": "We eat at two.", "tag": "Food & drink"},
-    {"lemma": "grande", "ipa": "ˈɡɾan.de", "pos": "adj", "translation_en": "big", "example": "Mi habitación es grande.", "example_en": "My room is big.", "tag": "Descriptions"},
-    {"lemma": "pequeño", "ipa": "peˈke.ɲo", "pos": "adj", "translation_en": "small", "example": "Tengo un perro pequeño.", "example_en": "I have a small dog.", "tag": "Descriptions"},
-    {"lemma": "bueno", "ipa": "ˈbwe.no", "pos": "adj", "translation_en": "good", "example": "Este libro es muy bueno.", "example_en": "This book is very good.", "tag": "Descriptions"},
-    {"lemma": "muy", "ipa": "mwi", "pos": "adv", "translation_en": "very", "example": "Estoy muy cansado.", "example_en": "I am very tired.", "tag": "Intensifiers"},
-    {"lemma": "hoy", "ipa": "oi", "pos": "adv", "translation_en": "today", "example": "Hoy es lunes.", "example_en": "Today is Monday.", "tag": "Time"}
+    {
+      "lemma": "hola",
+      "ipa": "ˈo.la",
+      "pos": "phrase",
+      "translation_en": "hello",
+      "example": "¡Hola! ¿Cómo estás?",
+      "example_en": "Hi! How are you?",
+      "tag": "Greetings"
+    },
+    {
+      "lemma": "adiós",
+      "ipa": "aˈðjos",
+      "pos": "phrase",
+      "translation_en": "goodbye",
+      "example": "Adiós, hasta mañana.",
+      "example_en": "Goodbye, see you tomorrow.",
+      "tag": "Greetings"
+    },
+    {
+      "lemma": "por favor",
+      "ipa": "poɾ faˈβoɾ",
+      "pos": "phrase",
+      "translation_en": "please",
+      "example": "Un café, por favor.",
+      "example_en": "A coffee, please.",
+      "tag": "Politeness"
+    },
+    {
+      "lemma": "gracias",
+      "ipa": "ˈɡɾa.sjas",
+      "pos": "phrase",
+      "translation_en": "thank you",
+      "example": "Muchas gracias por tu ayuda.",
+      "example_en": "Thank you very much for your help.",
+      "tag": "Politeness"
+    },
+    {
+      "lemma": "casa",
+      "ipa": "ˈka.sa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "house, home",
+      "example": "Mi casa está cerca del parque.",
+      "example_en": "My house is near the park.",
+      "tag": "Home"
+    },
+    {
+      "lemma": "familia",
+      "ipa": "faˈmi.lja",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "family",
+      "example": "Tengo una familia grande.",
+      "example_en": "I have a big family.",
+      "tag": "Family"
+    },
+    {
+      "lemma": "agua",
+      "ipa": "ˈa.ɣwa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "water",
+      "example": "Necesito un vaso de agua.",
+      "example_en": "I need a glass of water.",
+      "tag": "Food & drink"
+    },
+    {
+      "lemma": "día",
+      "ipa": "ˈdi.a",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "day",
+      "example": "Hoy es un buen día.",
+      "example_en": "Today is a good day.",
+      "tag": "Time"
+    },
+    {
+      "lemma": "amigo",
+      "ipa": "aˈmi.ɣo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "friend (m)",
+      "example": "Mi amigo vive en Madrid.",
+      "example_en": "My friend lives in Madrid.",
+      "tag": "People"
+    },
+    {
+      "lemma": "ser",
+      "ipa": "seɾ",
+      "pos": "verb",
+      "translation_en": "to be (essence)",
+      "example": "Yo soy estudiante.",
+      "example_en": "I am a student.",
+      "tag": "Core verbs"
+    },
+    {
+      "lemma": "estar",
+      "ipa": "esˈtaɾ",
+      "pos": "verb",
+      "translation_en": "to be (state, location)",
+      "example": "Estoy en casa.",
+      "example_en": "I am at home.",
+      "tag": "Core verbs"
+    },
+    {
+      "lemma": "tener",
+      "ipa": "teˈneɾ",
+      "pos": "verb",
+      "translation_en": "to have",
+      "example": "Tengo dos hermanos.",
+      "example_en": "I have two siblings.",
+      "tag": "Core verbs"
+    },
+    {
+      "lemma": "hacer",
+      "ipa": "aˈseɾ",
+      "pos": "verb",
+      "translation_en": "to do, to make",
+      "example": "Hago mi tarea por la noche.",
+      "example_en": "I do my homework at night.",
+      "tag": "Core verbs"
+    },
+    {
+      "lemma": "ir",
+      "ipa": "iɾ",
+      "pos": "verb",
+      "translation_en": "to go",
+      "example": "Voy al supermercado.",
+      "example_en": "I'm going to the supermarket.",
+      "tag": "Core verbs"
+    },
+    {
+      "lemma": "comer",
+      "ipa": "koˈmeɾ",
+      "pos": "verb",
+      "translation_en": "to eat",
+      "example": "Comemos a las dos.",
+      "example_en": "We eat at two.",
+      "tag": "Food & drink"
+    },
+    {
+      "lemma": "grande",
+      "ipa": "ˈɡɾan.de",
+      "pos": "adj",
+      "translation_en": "big",
+      "example": "Mi habitación es grande.",
+      "example_en": "My room is big.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "pequeño",
+      "ipa": "peˈke.ɲo",
+      "pos": "adj",
+      "translation_en": "small",
+      "example": "Tengo un perro pequeño.",
+      "example_en": "I have a small dog.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "bueno",
+      "ipa": "ˈbwe.no",
+      "pos": "adj",
+      "translation_en": "good",
+      "example": "Este libro es muy bueno.",
+      "example_en": "This book is very good.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "muy",
+      "ipa": "mwi",
+      "pos": "adv",
+      "translation_en": "very",
+      "example": "Estoy muy cansado.",
+      "example_en": "I am very tired.",
+      "tag": "Intensifiers"
+    },
+    {
+      "lemma": "hoy",
+      "ipa": "oi",
+      "pos": "adv",
+      "translation_en": "today",
+      "example": "Hoy es lunes.",
+      "example_en": "Today is Monday.",
+      "tag": "Time"
+    },
+    {
+      "lemma": "madre",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "mother",
+      "tag": "Family",
+      "example": "Necesito una madre para hoy.",
+      "example_en": "I need mother for today."
+    },
+    {
+      "lemma": "padre",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "father",
+      "tag": "Family",
+      "example": "Hay un padre cerca de aquí.",
+      "example_en": "There is father near here."
+    },
+    {
+      "lemma": "hermano",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "brother",
+      "tag": "Family",
+      "example": "Busco un hermano para la clase.",
+      "example_en": "I am looking for brother for class."
+    },
+    {
+      "lemma": "hermana",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "sister",
+      "tag": "Family",
+      "example": "Tengo una hermana en casa.",
+      "example_en": "I have sister at home."
+    },
+    {
+      "lemma": "hijo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "son",
+      "tag": "Family",
+      "example": "Compré un hijo esta mañana.",
+      "example_en": "I bought son this morning."
+    },
+    {
+      "lemma": "hija",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "daughter",
+      "tag": "Family",
+      "example": "Necesito una hija para hoy.",
+      "example_en": "I need daughter for today."
+    },
+    {
+      "lemma": "niño",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "boy; child",
+      "tag": "People",
+      "example": "Hay un niño cerca de aquí.",
+      "example_en": "There is boy; child near here."
+    },
+    {
+      "lemma": "niña",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "girl; child",
+      "tag": "People",
+      "example": "Busco una niña para la clase.",
+      "example_en": "I am looking for girl; child for class."
+    },
+    {
+      "lemma": "persona",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "person",
+      "tag": "People",
+      "example": "Tengo una persona en casa.",
+      "example_en": "I have person at home."
+    },
+    {
+      "lemma": "nombre",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "name",
+      "tag": "People",
+      "example": "Compré un nombre esta mañana.",
+      "example_en": "I bought name this morning."
+    },
+    {
+      "lemma": "país",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "country",
+      "tag": "Places",
+      "example": "Necesito un país para hoy.",
+      "example_en": "I need country for today."
+    },
+    {
+      "lemma": "escuela",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "school",
+      "tag": "School",
+      "example": "Hay una escuela cerca de aquí.",
+      "example_en": "There is school near here."
+    },
+    {
+      "lemma": "clase",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "class",
+      "tag": "School",
+      "example": "Busco una clase para la clase.",
+      "example_en": "I am looking for class for class."
+    },
+    {
+      "lemma": "profesor",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "teacher",
+      "tag": "School",
+      "example": "Tengo un profesor en casa.",
+      "example_en": "I have teacher at home."
+    },
+    {
+      "lemma": "estudiante",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "student",
+      "tag": "School",
+      "example": "Compré un estudiante esta mañana.",
+      "example_en": "I bought student this morning."
+    },
+    {
+      "lemma": "libro",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "book",
+      "tag": "Objects",
+      "example": "Necesito un libro para hoy.",
+      "example_en": "I need book for today."
+    },
+    {
+      "lemma": "cuaderno",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "notebook",
+      "tag": "Objects",
+      "example": "Hay un cuaderno cerca de aquí.",
+      "example_en": "There is notebook near here."
+    },
+    {
+      "lemma": "bolígrafo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "pen",
+      "tag": "Objects",
+      "example": "Busco un bolígrafo para la clase.",
+      "example_en": "I am looking for pen for class."
+    },
+    {
+      "lemma": "mesa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "table",
+      "tag": "Home",
+      "example": "Tengo una mesa en casa.",
+      "example_en": "I have table at home."
+    },
+    {
+      "lemma": "silla",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "chair",
+      "tag": "Home",
+      "example": "Compré una silla esta mañana.",
+      "example_en": "I bought chair this morning."
+    },
+    {
+      "lemma": "puerta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "door",
+      "tag": "Home",
+      "example": "Necesito una puerta para hoy.",
+      "example_en": "I need door for today."
+    },
+    {
+      "lemma": "ventana",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "window",
+      "tag": "Home",
+      "example": "Hay una ventana cerca de aquí.",
+      "example_en": "There is window near here."
+    },
+    {
+      "lemma": "habitación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "room; bedroom",
+      "tag": "Home",
+      "example": "Busco una habitación para la clase.",
+      "example_en": "I am looking for room; bedroom for class."
+    },
+    {
+      "lemma": "cocina",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "kitchen",
+      "tag": "Home",
+      "example": "Tengo una cocina en casa.",
+      "example_en": "I have kitchen at home."
+    },
+    {
+      "lemma": "baño",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "bathroom",
+      "tag": "Home",
+      "example": "Compré un baño esta mañana.",
+      "example_en": "I bought bathroom this morning."
+    },
+    {
+      "lemma": "cama",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "bed",
+      "tag": "Home",
+      "example": "Necesito una cama para hoy.",
+      "example_en": "I need bed for today."
+    },
+    {
+      "lemma": "ropa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "clothes",
+      "tag": "Clothing",
+      "example": "Hay una ropa cerca de aquí.",
+      "example_en": "There is clothes near here."
+    },
+    {
+      "lemma": "zapato",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "shoe",
+      "tag": "Clothing",
+      "example": "Busco un zapato para la clase.",
+      "example_en": "I am looking for shoe for class."
+    },
+    {
+      "lemma": "teléfono",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "phone",
+      "tag": "Technology",
+      "example": "Tengo un teléfono en casa.",
+      "example_en": "I have phone at home."
+    },
+    {
+      "lemma": "dinero",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "money",
+      "tag": "Shopping",
+      "example": "Compré un dinero esta mañana.",
+      "example_en": "I bought money this morning."
+    },
+    {
+      "lemma": "hora",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "hour; time",
+      "tag": "Time",
+      "example": "La hora es importante en este contexto.",
+      "example_en": "Hour; time is important in this context."
+    },
+    {
+      "lemma": "semana",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "week",
+      "tag": "Time",
+      "example": "La semana es importante en este contexto.",
+      "example_en": "Week is important in this context."
+    },
+    {
+      "lemma": "mes",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "month",
+      "tag": "Time",
+      "example": "El mes es importante en este contexto.",
+      "example_en": "Month is important in this context."
+    },
+    {
+      "lemma": "año",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "year",
+      "tag": "Time",
+      "example": "El año es importante en este contexto.",
+      "example_en": "Year is important in this context."
+    },
+    {
+      "lemma": "mano",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "hand",
+      "tag": "Body",
+      "example": "Compré una mano esta mañana.",
+      "example_en": "I bought hand this morning."
+    },
+    {
+      "lemma": "beber",
+      "pos": "verb",
+      "translation_en": "drink",
+      "tag": "Food & drink",
+      "example": "Intento beber un poco cada día.",
+      "example_en": "I try to drink a little every day."
+    },
+    {
+      "lemma": "hablar",
+      "pos": "verb",
+      "translation_en": "speak",
+      "tag": "Communication",
+      "example": "Tengo que hablar antes de salir.",
+      "example_en": "I have to speak before leaving."
+    },
+    {
+      "lemma": "escuchar",
+      "pos": "verb",
+      "translation_en": "listen",
+      "tag": "Communication",
+      "example": "Quiero escuchar con más seguridad.",
+      "example_en": "I want to listen with more confidence."
+    },
+    {
+      "lemma": "mirar",
+      "pos": "verb",
+      "translation_en": "look at",
+      "tag": "Action",
+      "example": "Es importante mirar con calma.",
+      "example_en": "It is important to look at calmly."
+    },
+    {
+      "lemma": "abrir",
+      "pos": "verb",
+      "translation_en": "open",
+      "tag": "Action",
+      "example": "Aprendo a abrir en situaciones reales.",
+      "example_en": "I learn to open in real situations."
+    },
+    {
+      "lemma": "cerrar",
+      "pos": "verb",
+      "translation_en": "close",
+      "tag": "Action",
+      "example": "Intento cerrar un poco cada día.",
+      "example_en": "I try to close a little every day."
+    },
+    {
+      "lemma": "entrar",
+      "pos": "verb",
+      "translation_en": "enter",
+      "tag": "Action",
+      "example": "Tengo que entrar antes de salir.",
+      "example_en": "I have to enter before leaving."
+    },
+    {
+      "lemma": "vivir",
+      "pos": "verb",
+      "translation_en": "live",
+      "tag": "Home",
+      "example": "Quiero vivir con más seguridad.",
+      "example_en": "I want to live with more confidence."
+    },
+    {
+      "lemma": "estudiar",
+      "pos": "verb",
+      "translation_en": "study",
+      "tag": "School",
+      "example": "Es importante estudiar con calma.",
+      "example_en": "It is important to study calmly."
+    },
+    {
+      "lemma": "trabajar",
+      "pos": "verb",
+      "translation_en": "work",
+      "tag": "Work",
+      "example": "Aprendo a trabajar en situaciones reales.",
+      "example_en": "I learn to work in real situations."
+    },
+    {
+      "lemma": "caminar",
+      "pos": "verb",
+      "translation_en": "walk",
+      "tag": "Transport",
+      "example": "Intento caminar un poco cada día.",
+      "example_en": "I try to walk a little every day."
+    },
+    {
+      "lemma": "llamar",
+      "pos": "verb",
+      "translation_en": "call",
+      "tag": "Communication",
+      "example": "Tengo que llamar antes de salir.",
+      "example_en": "I have to call before leaving."
+    },
+    {
+      "lemma": "necesitar",
+      "pos": "verb",
+      "translation_en": "need",
+      "tag": "Action",
+      "example": "Quiero necesitar con más seguridad.",
+      "example_en": "I want to need with more confidence."
+    },
+    {
+      "lemma": "querer",
+      "pos": "verb",
+      "translation_en": "want; love",
+      "tag": "Action",
+      "example": "Es importante querer con calma.",
+      "example_en": "It is important to want; love calmly."
+    },
+    {
+      "lemma": "poder",
+      "pos": "verb",
+      "translation_en": "be able to",
+      "tag": "Core verbs",
+      "example": "Aprendo a poder en situaciones reales.",
+      "example_en": "I learn to be able to in real situations."
+    },
+    {
+      "lemma": "saber",
+      "pos": "verb",
+      "translation_en": "know",
+      "tag": "Core verbs",
+      "example": "Intento saber un poco cada día.",
+      "example_en": "I try to know a little every day."
+    },
+    {
+      "lemma": "venir",
+      "pos": "verb",
+      "translation_en": "come",
+      "tag": "Transport",
+      "example": "Tengo que venir antes de salir.",
+      "example_en": "I have to come before leaving."
+    },
+    {
+      "lemma": "tomar",
+      "pos": "verb",
+      "translation_en": "take; drink",
+      "tag": "Food & drink",
+      "example": "Quiero tomar con más seguridad.",
+      "example_en": "I want to take; drink with more confidence."
+    },
+    {
+      "lemma": "pagar",
+      "pos": "verb",
+      "translation_en": "pay",
+      "tag": "Shopping",
+      "example": "Es importante pagar con calma.",
+      "example_en": "It is important to pay calmly."
+    },
+    {
+      "lemma": "cocinar",
+      "pos": "verb",
+      "translation_en": "cook",
+      "tag": "Food & drink",
+      "example": "Aprendo a cocinar en situaciones reales.",
+      "example_en": "I learn to cook in real situations."
+    },
+    {
+      "lemma": "alto",
+      "pos": "adj",
+      "translation_en": "tall; high",
+      "tag": "Descriptions",
+      "example": "Me parece alto.",
+      "example_en": "It seems tall; high to me."
+    },
+    {
+      "lemma": "bajo",
+      "pos": "adj",
+      "translation_en": "short; low",
+      "tag": "Descriptions",
+      "example": "Es un detalle bajo.",
+      "example_en": "It is a short; low detail."
+    },
+    {
+      "lemma": "bonito",
+      "pos": "adj",
+      "translation_en": "pretty",
+      "tag": "Descriptions",
+      "example": "Este tema es bonito.",
+      "example_en": "This topic is pretty."
+    },
+    {
+      "lemma": "feo",
+      "pos": "adj",
+      "translation_en": "ugly",
+      "tag": "Descriptions",
+      "example": "Me parece feo.",
+      "example_en": "It seems ugly to me."
+    },
+    {
+      "lemma": "frío",
+      "pos": "adj",
+      "translation_en": "cold",
+      "tag": "Descriptions",
+      "example": "Es un detalle frío.",
+      "example_en": "It is a cold detail."
+    },
+    {
+      "lemma": "caliente",
+      "pos": "adj",
+      "translation_en": "hot",
+      "tag": "Descriptions",
+      "example": "Este tema es caliente.",
+      "example_en": "This topic is hot."
+    },
+    {
+      "lemma": "limpio",
+      "pos": "adj",
+      "translation_en": "clean",
+      "tag": "Descriptions",
+      "example": "Me parece limpio.",
+      "example_en": "It seems clean to me."
+    },
+    {
+      "lemma": "sucio",
+      "pos": "adj",
+      "translation_en": "dirty",
+      "tag": "Descriptions",
+      "example": "Es un detalle sucio.",
+      "example_en": "It is a dirty detail."
+    },
+    {
+      "lemma": "rápido",
+      "pos": "adj",
+      "translation_en": "fast",
+      "tag": "Descriptions",
+      "example": "Este tema es rápido.",
+      "example_en": "This topic is fast."
+    },
+    {
+      "lemma": "lento",
+      "pos": "adj",
+      "translation_en": "slow",
+      "tag": "Descriptions",
+      "example": "Me parece lento.",
+      "example_en": "It seems slow to me."
+    },
+    {
+      "lemma": "cansado",
+      "pos": "adj",
+      "translation_en": "tired",
+      "tag": "Feelings",
+      "example": "Hoy me siento cansado.",
+      "example_en": "Today I feel tired."
+    },
+    {
+      "lemma": "amable",
+      "pos": "adj",
+      "translation_en": "kind",
+      "tag": "Character",
+      "example": "Es una persona amable.",
+      "example_en": "He or she is a kind person."
+    },
+    {
+      "lemma": "ahora",
+      "pos": "adv",
+      "translation_en": "now",
+      "tag": "Time",
+      "example": "Normalmente respondo ahora.",
+      "example_en": "Normally I answer now."
+    },
+    {
+      "lemma": "después",
+      "pos": "adv",
+      "translation_en": "afterwards",
+      "tag": "Time",
+      "example": "La situación cambia después.",
+      "example_en": "The situation changes afterwards."
+    },
+    {
+      "lemma": "temprano",
+      "pos": "adv",
+      "translation_en": "early",
+      "tag": "Time",
+      "example": "Lo hago temprano cuando puedo.",
+      "example_en": "I do it early when I can."
+    },
+    {
+      "lemma": "tarde",
+      "pos": "adv",
+      "translation_en": "late",
+      "tag": "Time",
+      "example": "Normalmente respondo tarde.",
+      "example_en": "Normally I answer late."
+    },
+    {
+      "lemma": "bien",
+      "pos": "adv",
+      "translation_en": "well",
+      "tag": "Evaluation",
+      "example": "La situación cambia bien.",
+      "example_en": "The situation changes well."
+    },
+    {
+      "lemma": "mal",
+      "pos": "adv",
+      "translation_en": "badly",
+      "tag": "Evaluation",
+      "example": "Lo hago mal cuando puedo.",
+      "example_en": "I do it badly when I can."
+    },
+    {
+      "lemma": "cerca",
+      "pos": "adv",
+      "translation_en": "nearby",
+      "tag": "Place",
+      "example": "Normalmente respondo cerca.",
+      "example_en": "Normally I answer nearby."
+    },
+    {
+      "lemma": "¿cómo estás?",
+      "pos": "phrase",
+      "translation_en": "how are you?",
+      "tag": "Greetings",
+      "example": "¿Cómo estás después del viaje?",
+      "example_en": "How are you after the trip?"
+    },
+    {
+      "lemma": "me llamo",
+      "pos": "phrase",
+      "translation_en": "my name is",
+      "tag": "Greetings",
+      "example": "Me llamo Daniel y soy estudiante.",
+      "example_en": "My name is Daniel and I am a student."
+    },
+    {
+      "lemma": "encantado",
+      "pos": "phrase",
+      "translation_en": "nice to meet you",
+      "tag": "Greetings",
+      "example": "Encantado de conocerte.",
+      "example_en": "Nice to meet you."
+    },
+    {
+      "lemma": "hasta luego",
+      "pos": "phrase",
+      "translation_en": "see you later",
+      "tag": "Greetings",
+      "example": "Hasta luego, nos vemos en clase.",
+      "example_en": "See you later, we will see each other in class."
+    },
+    {
+      "lemma": "de nada",
+      "pos": "phrase",
+      "translation_en": "you are welcome",
+      "tag": "Politeness",
+      "example": "Gracias por ayudarme. De nada.",
+      "example_en": "Thank you for helping me. You are welcome."
+    },
+    {
+      "lemma": "perdón",
+      "pos": "phrase",
+      "translation_en": "sorry; excuse me",
+      "tag": "Politeness",
+      "example": "Perdón, ¿puede repetir?",
+      "example_en": "Excuse me, can you repeat that?"
+    }
   ]
 }

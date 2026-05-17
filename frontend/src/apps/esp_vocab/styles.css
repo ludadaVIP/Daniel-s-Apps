@@ -424,6 +424,12 @@
     border-color: transparent;
     transform: translateY(-1px);
   }
+  .esv-section-button:disabled {
+    opacity: 0.48;
+    transform: none;
+    background: #fff;
+    color: var(--muted-2);
+  }
 
   .esv-section-cards {
     display: grid;
@@ -432,17 +438,39 @@
   }
   .esv-word-card {
     display: grid;
-    grid-template-columns: minmax(0, 1fr) 96px;
+    grid-template-columns: minmax(0, 1fr) 142px;
     gap: 14px;
     align-items: center;
     padding: 14px 18px;
     background: #fff;
-    transition: background 120ms ease;
+    transition: background 120ms ease, opacity 120ms ease, filter 120ms ease;
   }
   .esv-word-card:hover { background: var(--surface-soft); }
   .esv-word-card.is-current {
     background: linear-gradient(90deg, rgba(251, 238, 218, 0.92) 0%, #fff 70%);
     box-shadow: inset 3px 0 0 var(--terracotta);
+  }
+  .esv-word-card.is-learned {
+    background: #f2f0ec;
+    color: #8b8178;
+    filter: grayscale(0.45);
+  }
+  .esv-word-card.is-learned:hover {
+    background: #ece9e4;
+  }
+  .esv-word-card.is-learned.is-current {
+    background: linear-gradient(90deg, #e8e4dd 0%, #f6f4f0 72%);
+    box-shadow: inset 3px 0 0 #9b9288;
+  }
+  .esv-word-card.is-learned .esv-word-lemma,
+  .esv-word-card.is-learned .esv-word-translation,
+  .esv-word-card.is-learned .esv-word-example-target {
+    color: #82786f;
+  }
+  .esv-word-card.is-learned .esv-word-example,
+  .esv-word-card.is-learned .esv-word-example-en,
+  .esv-word-card.is-learned .esv-word-ipa {
+    color: #9b9288;
   }
 
   .esv-word-main { min-width: 0; }
@@ -485,6 +513,15 @@
     font-size: 11px;
     font-weight: 700;
   }
+  .esv-word-learned-badge {
+    color: #6f675f;
+    background: #e5e0d8;
+    border: 1px solid #d5cec4;
+    padding: 1px 8px;
+    border-radius: 999px;
+    font-size: 11px;
+    font-weight: 800;
+  }
   .esv-word-translation {
     margin: 2px 0 0;
     color: var(--ink);
@@ -509,7 +546,7 @@
   .esv-word-example-en { color: var(--muted-2); }
 
   .esv-word-actions { display: flex; justify-content: flex-end; gap: 8px; }
-  .esv-audio-button {
+  .esv-audio-button, .esv-learned-button {
     display: inline-grid;
     place-items: center;
     border: 1px solid var(--line-strong);
@@ -533,6 +570,25 @@
     transform: translateY(-1px);
   }
   .esv-audio-button:disabled { opacity: 0.55; transform: none; }
+  .esv-learned-button {
+    width: 38px;
+    height: 38px;
+    color: var(--terracotta-dark);
+    background: #fff7f2;
+  }
+  .esv-learned-button:hover {
+    background: #f3ded4;
+    border-color: rgba(192, 83, 43, 0.32);
+    transform: translateY(-1px);
+  }
+  .esv-learned-button.is-learned {
+    color: #5f5852;
+    background: #e4dfd7;
+    border-color: #cbc4ba;
+  }
+  .esv-learned-button.is-learned:hover {
+    background: #d8d1c7;
+  }
 
   .esv-loading-state {
     display: flex; align-items: center; justify-content: center; gap: 10px;

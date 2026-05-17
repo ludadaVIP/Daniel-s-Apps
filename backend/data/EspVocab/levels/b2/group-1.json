@@ -3,27 +3,862 @@
   "title": "Matices · Nuance and opinion",
   "focus": "Abstract nouns, opinion verbs, subjunctive triggers, and idiomatic phrases.",
   "words": [
-    {"lemma": "ventaja", "ipa": "benˈta.xa", "pos": "noun", "gender": "f", "translation_en": "advantage", "example": "La gran ventaja es la flexibilidad de horarios.", "example_en": "The big advantage is the flexible schedule.", "tag": "Discussion"},
-    {"lemma": "desventaja", "ipa": "des.benˈta.xa", "pos": "noun", "gender": "f", "translation_en": "disadvantage", "example": "La desventaja principal es el precio.", "example_en": "The main disadvantage is the price.", "tag": "Discussion"},
-    {"lemma": "objetivo", "ipa": "ob.xeˈti.βo", "pos": "noun", "gender": "m", "translation_en": "goal, objective", "example": "Mi objetivo es alcanzar un nivel C1.", "example_en": "My goal is to reach a C1 level.", "tag": "Abstract"},
-    {"lemma": "esfuerzo", "ipa": "esˈfweɾ.so", "pos": "noun", "gender": "m", "translation_en": "effort", "example": "Con esfuerzo se consigue todo.", "example_en": "With effort, you achieve anything.", "tag": "Abstract"},
-    {"lemma": "compromiso", "ipa": "kom.pɾoˈmi.so", "pos": "noun", "gender": "m", "translation_en": "commitment; compromise", "example": "Tenemos un compromiso firme con el cliente.", "example_en": "We have a firm commitment to the client.", "tag": "Work"},
-    {"lemma": "sugerir", "ipa": "su.xeˈɾiɾ", "pos": "verb", "translation_en": "to suggest", "example": "Sugiero que empecemos cuanto antes.", "example_en": "I suggest we start as soon as possible.", "tag": "Opinion"},
-    {"lemma": "exigir", "ipa": "ek.siˈxiɾ", "pos": "verb", "translation_en": "to demand", "example": "El cliente exige más transparencia.", "example_en": "The client demands more transparency.", "tag": "Work"},
-    {"lemma": "lograr", "ipa": "loˈɣɾaɾ", "pos": "verb", "translation_en": "to achieve, to manage", "example": "Logramos terminar el proyecto a tiempo.", "example_en": "We managed to finish the project on time.", "tag": "Action"},
-    {"lemma": "evitar", "ipa": "e.βiˈtaɾ", "pos": "verb", "translation_en": "to avoid", "example": "Conviene evitar las horas punta.", "example_en": "It's wise to avoid rush hour.", "tag": "Action"},
-    {"lemma": "suponer", "ipa": "su.poˈneɾ", "pos": "verb", "translation_en": "to suppose; to imply", "example": "Supongo que vendrán después de cenar.", "example_en": "I suppose they'll come after dinner.", "tag": "Cognition"},
-    {"lemma": "discutir", "ipa": "dis.kuˈtiɾ", "pos": "verb", "translation_en": "to discuss; to argue", "example": "Discutimos el tema en la reunión.", "example_en": "We discussed the topic in the meeting.", "tag": "Communication"},
-    {"lemma": "imprescindible", "ipa": "im.pɾes.sinˈdi.βle", "pos": "adj", "translation_en": "essential, indispensable", "example": "Su ayuda es imprescindible para nosotros.", "example_en": "Her help is essential for us.", "tag": "Descriptions"},
-    {"lemma": "cotidiano", "ipa": "ko.tiˈðja.no", "pos": "adj", "translation_en": "everyday, daily", "example": "Es una preocupación cotidiana de la mayoría.", "example_en": "It's an everyday concern for most people.", "tag": "Descriptions"},
-    {"lemma": "complejo", "ipa": "komˈple.xo", "pos": "adj", "translation_en": "complex", "example": "Es un problema complejo, no hay respuesta fácil.", "example_en": "It's a complex problem; there is no easy answer.", "tag": "Descriptions"},
-    {"lemma": "evidente", "ipa": "e.βiˈðen.te", "pos": "adj", "translation_en": "obvious, evident", "example": "Es evidente que necesitamos más recursos.", "example_en": "It's obvious that we need more resources.", "tag": "Opinion"},
-    {"lemma": "prácticamente", "ipa": "pɾak.ti.kaˈmen.te", "pos": "adv", "translation_en": "practically, almost", "example": "Prácticamente todo el mundo lo sabe ya.", "example_en": "Practically everyone already knows.", "tag": "Quantity"},
-    {"lemma": "francamente", "ipa": "fɾaŋ.kaˈmen.te", "pos": "adv", "translation_en": "frankly", "example": "Francamente, no estoy de acuerdo.", "example_en": "Frankly, I don't agree.", "tag": "Opinion"},
-    {"lemma": "a pesar de", "ipa": "a peˈsaɾ ðe", "pos": "phrase", "translation_en": "despite, in spite of", "example": "A pesar del frío, salimos a correr.", "example_en": "Despite the cold, we went out for a run.", "tag": "Connectors"},
-    {"lemma": "por lo tanto", "ipa": "poɾ lo ˈtan.to", "pos": "phrase", "translation_en": "therefore", "example": "Llueve mucho, por lo tanto suspendemos el evento.", "example_en": "It's raining a lot, therefore we cancel the event.", "tag": "Connectors"},
-    {"lemma": "en cambio", "ipa": "en ˈkam.bjo", "pos": "phrase", "translation_en": "on the other hand", "example": "Mi hermano es serio; yo, en cambio, soy bromista.", "example_en": "My brother is serious; I, on the other hand, am playful.", "tag": "Connectors"},
-    {"lemma": "tener en cuenta", "ipa": "teˈneɾ en ˈkwen.ta", "pos": "phrase", "translation_en": "to take into account", "example": "Hay que tener en cuenta el clima del verano.", "example_en": "We must take the summer climate into account.", "tag": "Cognition"},
-    {"lemma": "valer la pena", "ipa": "baˈleɾ la ˈpe.na", "pos": "phrase", "translation_en": "to be worth it", "example": "El viaje fue largo pero valió la pena.", "example_en": "The trip was long but it was worth it.", "tag": "Opinion"}
+    {
+      "lemma": "ventaja",
+      "ipa": "benˈta.xa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "advantage",
+      "example": "La gran ventaja es la flexibilidad de horarios.",
+      "example_en": "The big advantage is the flexible schedule.",
+      "tag": "Discussion"
+    },
+    {
+      "lemma": "desventaja",
+      "ipa": "des.benˈta.xa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "disadvantage",
+      "example": "La desventaja principal es el precio.",
+      "example_en": "The main disadvantage is the price.",
+      "tag": "Discussion"
+    },
+    {
+      "lemma": "objetivo",
+      "ipa": "ob.xeˈti.βo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "goal, objective",
+      "example": "Mi objetivo es alcanzar un nivel C1.",
+      "example_en": "My goal is to reach a C1 level.",
+      "tag": "Abstract"
+    },
+    {
+      "lemma": "esfuerzo",
+      "ipa": "esˈfweɾ.so",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "effort",
+      "example": "Con esfuerzo se consigue todo.",
+      "example_en": "With effort, you achieve anything.",
+      "tag": "Abstract"
+    },
+    {
+      "lemma": "compromiso",
+      "ipa": "kom.pɾoˈmi.so",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "commitment; compromise",
+      "example": "Tenemos un compromiso firme con el cliente.",
+      "example_en": "We have a firm commitment to the client.",
+      "tag": "Work"
+    },
+    {
+      "lemma": "sugerir",
+      "ipa": "su.xeˈɾiɾ",
+      "pos": "verb",
+      "translation_en": "to suggest",
+      "example": "Sugiero que empecemos cuanto antes.",
+      "example_en": "I suggest we start as soon as possible.",
+      "tag": "Opinion"
+    },
+    {
+      "lemma": "exigir",
+      "ipa": "ek.siˈxiɾ",
+      "pos": "verb",
+      "translation_en": "to demand",
+      "example": "El cliente exige más transparencia.",
+      "example_en": "The client demands more transparency.",
+      "tag": "Work"
+    },
+    {
+      "lemma": "lograr",
+      "ipa": "loˈɣɾaɾ",
+      "pos": "verb",
+      "translation_en": "to achieve, to manage",
+      "example": "Logramos terminar el proyecto a tiempo.",
+      "example_en": "We managed to finish the project on time.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "evitar",
+      "ipa": "e.βiˈtaɾ",
+      "pos": "verb",
+      "translation_en": "to avoid",
+      "example": "Conviene evitar las horas punta.",
+      "example_en": "It's wise to avoid rush hour.",
+      "tag": "Action"
+    },
+    {
+      "lemma": "suponer",
+      "ipa": "su.poˈneɾ",
+      "pos": "verb",
+      "translation_en": "to suppose; to imply",
+      "example": "Supongo que vendrán después de cenar.",
+      "example_en": "I suppose they'll come after dinner.",
+      "tag": "Cognition"
+    },
+    {
+      "lemma": "discutir",
+      "ipa": "dis.kuˈtiɾ",
+      "pos": "verb",
+      "translation_en": "to discuss; to argue",
+      "example": "Discutimos el tema en la reunión.",
+      "example_en": "We discussed the topic in the meeting.",
+      "tag": "Communication"
+    },
+    {
+      "lemma": "imprescindible",
+      "ipa": "im.pɾes.sinˈdi.βle",
+      "pos": "adj",
+      "translation_en": "essential, indispensable",
+      "example": "Su ayuda es imprescindible para nosotros.",
+      "example_en": "Her help is essential for us.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "cotidiano",
+      "ipa": "ko.tiˈðja.no",
+      "pos": "adj",
+      "translation_en": "everyday, daily",
+      "example": "Es una preocupación cotidiana de la mayoría.",
+      "example_en": "It's an everyday concern for most people.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "complejo",
+      "ipa": "komˈple.xo",
+      "pos": "adj",
+      "translation_en": "complex",
+      "example": "Es un problema complejo, no hay respuesta fácil.",
+      "example_en": "It's a complex problem; there is no easy answer.",
+      "tag": "Descriptions"
+    },
+    {
+      "lemma": "evidente",
+      "ipa": "e.βiˈðen.te",
+      "pos": "adj",
+      "translation_en": "obvious, evident",
+      "example": "Es evidente que necesitamos más recursos.",
+      "example_en": "It's obvious that we need more resources.",
+      "tag": "Opinion"
+    },
+    {
+      "lemma": "prácticamente",
+      "ipa": "pɾak.ti.kaˈmen.te",
+      "pos": "adv",
+      "translation_en": "practically, almost",
+      "example": "Prácticamente todo el mundo lo sabe ya.",
+      "example_en": "Practically everyone already knows.",
+      "tag": "Quantity"
+    },
+    {
+      "lemma": "francamente",
+      "ipa": "fɾaŋ.kaˈmen.te",
+      "pos": "adv",
+      "translation_en": "frankly",
+      "example": "Francamente, no estoy de acuerdo.",
+      "example_en": "Frankly, I don't agree.",
+      "tag": "Opinion"
+    },
+    {
+      "lemma": "a pesar de",
+      "ipa": "a peˈsaɾ ðe",
+      "pos": "phrase",
+      "translation_en": "despite, in spite of",
+      "example": "A pesar del frío, salimos a correr.",
+      "example_en": "Despite the cold, we went out for a run.",
+      "tag": "Connectors"
+    },
+    {
+      "lemma": "por lo tanto",
+      "ipa": "poɾ lo ˈtan.to",
+      "pos": "phrase",
+      "translation_en": "therefore",
+      "example": "Llueve mucho, por lo tanto suspendemos el evento.",
+      "example_en": "It's raining a lot, therefore we cancel the event.",
+      "tag": "Connectors"
+    },
+    {
+      "lemma": "en cambio",
+      "ipa": "en ˈkam.bjo",
+      "pos": "phrase",
+      "translation_en": "on the other hand",
+      "example": "Mi hermano es serio; yo, en cambio, soy bromista.",
+      "example_en": "My brother is serious; I, on the other hand, am playful.",
+      "tag": "Connectors"
+    },
+    {
+      "lemma": "tener en cuenta",
+      "ipa": "teˈneɾ en ˈkwen.ta",
+      "pos": "phrase",
+      "translation_en": "to take into account",
+      "example": "Hay que tener en cuenta el clima del verano.",
+      "example_en": "We must take the summer climate into account.",
+      "tag": "Cognition"
+    },
+    {
+      "lemma": "valer la pena",
+      "ipa": "baˈleɾ la ˈpe.na",
+      "pos": "phrase",
+      "translation_en": "to be worth it",
+      "example": "El viaje fue largo pero valió la pena.",
+      "example_en": "The trip was long but it was worth it.",
+      "tag": "Opinion"
+    },
+    {
+      "lemma": "impacto",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "impact",
+      "tag": "Discussion",
+      "example": "El impacto es importante en este contexto.",
+      "example_en": "Impact is important in this context."
+    },
+    {
+      "lemma": "reto",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "challenge",
+      "tag": "Discussion",
+      "example": "El reto es importante en este contexto.",
+      "example_en": "Challenge is important in this context."
+    },
+    {
+      "lemma": "desafío",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "challenge",
+      "tag": "Discussion",
+      "example": "El desafío es importante en este contexto.",
+      "example_en": "Challenge is important in this context."
+    },
+    {
+      "lemma": "tendencia",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "trend",
+      "tag": "Discussion",
+      "example": "La tendencia es importante en este contexto.",
+      "example_en": "Trend is important in this context."
+    },
+    {
+      "lemma": "fenómeno",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "phenomenon",
+      "tag": "Discussion",
+      "example": "El fenómeno es importante en este contexto.",
+      "example_en": "Phenomenon is important in this context."
+    },
+    {
+      "lemma": "factor",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "factor",
+      "tag": "Discussion",
+      "example": "El factor es importante en este contexto.",
+      "example_en": "Factor is important in this context."
+    },
+    {
+      "lemma": "aspecto",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "aspect",
+      "tag": "Discussion",
+      "example": "El aspecto es importante en este contexto.",
+      "example_en": "Aspect is important in this context."
+    },
+    {
+      "lemma": "enfoque",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "approach",
+      "tag": "Discussion",
+      "example": "El enfoque es importante en este contexto.",
+      "example_en": "Approach is important in this context."
+    },
+    {
+      "lemma": "medida",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "measure",
+      "tag": "Discussion",
+      "example": "La medida es importante en este contexto.",
+      "example_en": "Measure is important in this context."
+    },
+    {
+      "lemma": "recurso",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "resource",
+      "tag": "Discussion",
+      "example": "El recurso es importante en este contexto.",
+      "example_en": "Resource is important in this context."
+    },
+    {
+      "lemma": "herramienta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "tool",
+      "tag": "Discussion",
+      "example": "La herramienta es importante en este contexto.",
+      "example_en": "Tool is important in this context."
+    },
+    {
+      "lemma": "estrategia",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "strategy",
+      "tag": "Discussion",
+      "example": "La estrategia es importante en este contexto.",
+      "example_en": "Strategy is important in this context."
+    },
+    {
+      "lemma": "iniciativa",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "initiative",
+      "tag": "Discussion",
+      "example": "La iniciativa es importante en este contexto.",
+      "example_en": "Initiative is important in this context."
+    },
+    {
+      "lemma": "propuesta",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "proposal",
+      "tag": "Discussion",
+      "example": "La propuesta es importante en este contexto.",
+      "example_en": "Proposal is important in this context."
+    },
+    {
+      "lemma": "inversión",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "investment",
+      "tag": "Economy",
+      "example": "La inversión es importante en este contexto.",
+      "example_en": "Investment is important in this context."
+    },
+    {
+      "lemma": "beneficio",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "benefit; profit",
+      "tag": "Economy",
+      "example": "El beneficio es importante en este contexto.",
+      "example_en": "Benefit; profit is important in this context."
+    },
+    {
+      "lemma": "coste",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "cost",
+      "tag": "Economy",
+      "example": "El coste es importante en este contexto.",
+      "example_en": "Cost is important in this context."
+    },
+    {
+      "lemma": "consumo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "consumption",
+      "tag": "Economy",
+      "example": "El consumo es importante en este contexto.",
+      "example_en": "Consumption is important in this context."
+    },
+    {
+      "lemma": "producción",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "production",
+      "tag": "Economy",
+      "example": "La producción es importante en este contexto.",
+      "example_en": "Production is important in this context."
+    },
+    {
+      "lemma": "empleo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "employment; job",
+      "tag": "Work",
+      "example": "El empleo es importante en este contexto.",
+      "example_en": "Employment; job is important in this context."
+    },
+    {
+      "lemma": "desempleo",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "unemployment",
+      "tag": "Work",
+      "example": "El desempleo es importante en este contexto.",
+      "example_en": "Unemployment is important in this context."
+    },
+    {
+      "lemma": "desigualdad",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "inequality",
+      "tag": "Society",
+      "example": "La desigualdad es importante en este contexto.",
+      "example_en": "Inequality is important in this context."
+    },
+    {
+      "lemma": "pobreza",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "poverty",
+      "tag": "Society",
+      "example": "La pobreza es importante en este contexto.",
+      "example_en": "Poverty is important in this context."
+    },
+    {
+      "lemma": "riqueza",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "wealth",
+      "tag": "Society",
+      "example": "La riqueza es importante en este contexto.",
+      "example_en": "Wealth is important in this context."
+    },
+    {
+      "lemma": "bienestar",
+      "pos": "noun",
+      "gender": "m",
+      "translation_en": "well-being",
+      "tag": "Society",
+      "example": "El bienestar es importante en este contexto.",
+      "example_en": "Well-being is important in this context."
+    },
+    {
+      "lemma": "educación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "education",
+      "tag": "Education",
+      "example": "La educación es importante en este contexto.",
+      "example_en": "Education is important in this context."
+    },
+    {
+      "lemma": "formación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "training; education",
+      "tag": "Education",
+      "example": "La formación es importante en este contexto.",
+      "example_en": "Training; education is important in this context."
+    },
+    {
+      "lemma": "investigación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "research",
+      "tag": "Education",
+      "example": "La investigación es importante en este contexto.",
+      "example_en": "Research is important in this context."
+    },
+    {
+      "lemma": "tecnología",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "technology",
+      "tag": "Technology",
+      "example": "Tengo una tecnología en casa.",
+      "example_en": "I have technology at home."
+    },
+    {
+      "lemma": "innovación",
+      "pos": "noun",
+      "gender": "f",
+      "translation_en": "innovation",
+      "tag": "Technology",
+      "example": "Compré una innovación esta mañana.",
+      "example_en": "I bought innovation this morning."
+    },
+    {
+      "lemma": "fomentar",
+      "pos": "verb",
+      "translation_en": "encourage; promote",
+      "tag": "Discussion",
+      "example": "Intento fomentar un poco cada día.",
+      "example_en": "I try to encourage; promote a little every day."
+    },
+    {
+      "lemma": "promover",
+      "pos": "verb",
+      "translation_en": "promote",
+      "tag": "Discussion",
+      "example": "Tengo que promover antes de salir.",
+      "example_en": "I have to promote before leaving."
+    },
+    {
+      "lemma": "impulsar",
+      "pos": "verb",
+      "translation_en": "drive; boost",
+      "tag": "Discussion",
+      "example": "Quiero impulsar con más seguridad.",
+      "example_en": "I want to drive; boost with more confidence."
+    },
+    {
+      "lemma": "reducir",
+      "pos": "verb",
+      "translation_en": "reduce",
+      "tag": "Discussion",
+      "example": "Es importante reducir con calma.",
+      "example_en": "It is important to reduce calmly."
+    },
+    {
+      "lemma": "aumentar",
+      "pos": "verb",
+      "translation_en": "increase",
+      "tag": "Discussion",
+      "example": "Aprendo a aumentar en situaciones reales.",
+      "example_en": "I learn to increase in real situations."
+    },
+    {
+      "lemma": "disminuir",
+      "pos": "verb",
+      "translation_en": "decrease",
+      "tag": "Discussion",
+      "example": "Intento disminuir un poco cada día.",
+      "example_en": "I try to decrease a little every day."
+    },
+    {
+      "lemma": "prevenir",
+      "pos": "verb",
+      "translation_en": "prevent",
+      "tag": "Health",
+      "example": "Tengo que prevenir antes de salir.",
+      "example_en": "I have to prevent before leaving."
+    },
+    {
+      "lemma": "proteger",
+      "pos": "verb",
+      "translation_en": "protect",
+      "tag": "Society",
+      "example": "Quiero proteger con más seguridad.",
+      "example_en": "I want to protect with more confidence."
+    },
+    {
+      "lemma": "garantizar",
+      "pos": "verb",
+      "translation_en": "guarantee",
+      "tag": "Society",
+      "example": "Es importante garantizar con calma.",
+      "example_en": "It is important to guarantee calmly."
+    },
+    {
+      "lemma": "financiar",
+      "pos": "verb",
+      "translation_en": "finance",
+      "tag": "Economy",
+      "example": "Aprendo a financiar en situaciones reales.",
+      "example_en": "I learn to finance in real situations."
+    },
+    {
+      "lemma": "invertir",
+      "pos": "verb",
+      "translation_en": "invest",
+      "tag": "Economy",
+      "example": "Intento invertir un poco cada día.",
+      "example_en": "I try to invest a little every day."
+    },
+    {
+      "lemma": "regular",
+      "pos": "verb",
+      "translation_en": "regulate",
+      "tag": "Society",
+      "example": "Tengo que regular antes de salir.",
+      "example_en": "I have to regulate before leaving."
+    },
+    {
+      "lemma": "evaluar",
+      "pos": "verb",
+      "translation_en": "evaluate",
+      "tag": "Education",
+      "example": "Quiero evaluar con más seguridad.",
+      "example_en": "I want to evaluate with more confidence."
+    },
+    {
+      "lemma": "analizar",
+      "pos": "verb",
+      "translation_en": "analyse",
+      "tag": "Education",
+      "example": "Es importante analizar con calma.",
+      "example_en": "It is important to analyse calmly."
+    },
+    {
+      "lemma": "investigar",
+      "pos": "verb",
+      "translation_en": "research; investigate",
+      "tag": "Education",
+      "example": "Aprendo a investigar en situaciones reales.",
+      "example_en": "I learn to research; investigate in real situations."
+    },
+    {
+      "lemma": "demostrar",
+      "pos": "verb",
+      "translation_en": "demonstrate; show",
+      "tag": "Discussion",
+      "example": "Intento demostrar un poco cada día.",
+      "example_en": "I try to demonstrate; show a little every day."
+    },
+    {
+      "lemma": "justificar",
+      "pos": "verb",
+      "translation_en": "justify",
+      "tag": "Discussion",
+      "example": "Tengo que justificar antes de salir.",
+      "example_en": "I have to justify before leaving."
+    },
+    {
+      "lemma": "cuestionar",
+      "pos": "verb",
+      "translation_en": "question; challenge",
+      "tag": "Discussion",
+      "example": "Quiero cuestionar con más seguridad.",
+      "example_en": "I want to question; challenge with more confidence."
+    },
+    {
+      "lemma": "afectar",
+      "pos": "verb",
+      "translation_en": "affect",
+      "tag": "Discussion",
+      "example": "Es importante afectar con calma.",
+      "example_en": "It is important to affect calmly."
+    },
+    {
+      "lemma": "influir",
+      "pos": "verb",
+      "translation_en": "influence",
+      "tag": "Discussion",
+      "example": "Aprendo a influir en situaciones reales.",
+      "example_en": "I learn to influence in real situations."
+    },
+    {
+      "lemma": "contribuir",
+      "pos": "verb",
+      "translation_en": "contribute",
+      "tag": "Society",
+      "example": "Intento contribuir un poco cada día.",
+      "example_en": "I try to contribute a little every day."
+    },
+    {
+      "lemma": "beneficiar",
+      "pos": "verb",
+      "translation_en": "benefit",
+      "tag": "Society",
+      "example": "Tengo que beneficiar antes de salir.",
+      "example_en": "I have to benefit before leaving."
+    },
+    {
+      "lemma": "perjudicar",
+      "pos": "verb",
+      "translation_en": "harm",
+      "tag": "Society",
+      "example": "Quiero perjudicar con más seguridad.",
+      "example_en": "I want to harm with more confidence."
+    },
+    {
+      "lemma": "adaptar",
+      "pos": "verb",
+      "translation_en": "adapt",
+      "tag": "Action",
+      "example": "Es importante adaptar con calma.",
+      "example_en": "It is important to adapt calmly."
+    },
+    {
+      "lemma": "sostenible",
+      "pos": "adj",
+      "translation_en": "sustainable",
+      "tag": "Environment",
+      "example": "Este tema es sostenible.",
+      "example_en": "This topic is sustainable."
+    },
+    {
+      "lemma": "eficaz",
+      "pos": "adj",
+      "translation_en": "effective",
+      "tag": "Evaluation",
+      "example": "Me parece eficaz.",
+      "example_en": "It seems effective to me."
+    },
+    {
+      "lemma": "eficiente",
+      "pos": "adj",
+      "translation_en": "efficient",
+      "tag": "Evaluation",
+      "example": "Es un detalle eficiente.",
+      "example_en": "It is a efficient detail."
+    },
+    {
+      "lemma": "escaso",
+      "pos": "adj",
+      "translation_en": "scarce",
+      "tag": "Quantity",
+      "example": "Este tema es escaso.",
+      "example_en": "This topic is scarce."
+    },
+    {
+      "lemma": "abundante",
+      "pos": "adj",
+      "translation_en": "abundant",
+      "tag": "Quantity",
+      "example": "Me parece abundante.",
+      "example_en": "It seems abundant to me."
+    },
+    {
+      "lemma": "relevante",
+      "pos": "adj",
+      "translation_en": "relevant",
+      "tag": "Evaluation",
+      "example": "Es un detalle relevante.",
+      "example_en": "It is a relevant detail."
+    },
+    {
+      "lemma": "significativo",
+      "pos": "adj",
+      "translation_en": "significant",
+      "tag": "Evaluation",
+      "example": "Este tema es significativo.",
+      "example_en": "This topic is significant."
+    },
+    {
+      "lemma": "limitado",
+      "pos": "adj",
+      "translation_en": "limited",
+      "tag": "Evaluation",
+      "example": "Me parece limitado.",
+      "example_en": "It seems limited to me."
+    },
+    {
+      "lemma": "amplio",
+      "pos": "adj",
+      "translation_en": "broad; wide",
+      "tag": "Evaluation",
+      "example": "Es un detalle amplio.",
+      "example_en": "It is a broad; wide detail."
+    },
+    {
+      "lemma": "global",
+      "pos": "adj",
+      "translation_en": "global",
+      "tag": "Society",
+      "example": "Este tema es global.",
+      "example_en": "This topic is global."
+    },
+    {
+      "lemma": "social",
+      "pos": "adj",
+      "translation_en": "social",
+      "tag": "Society",
+      "example": "Me parece social.",
+      "example_en": "It seems social to me."
+    },
+    {
+      "lemma": "económico",
+      "pos": "adj",
+      "translation_en": "economic",
+      "tag": "Economy",
+      "example": "Es un detalle económico.",
+      "example_en": "It is a economic detail."
+    },
+    {
+      "lemma": "político",
+      "pos": "adj",
+      "translation_en": "political",
+      "tag": "Politics",
+      "example": "Este tema es político.",
+      "example_en": "This topic is political."
+    },
+    {
+      "lemma": "cultural",
+      "pos": "adj",
+      "translation_en": "cultural",
+      "tag": "Culture",
+      "example": "Me parece cultural.",
+      "example_en": "It seems cultural to me."
+    },
+    {
+      "lemma": "ambiental",
+      "pos": "adj",
+      "translation_en": "environmental",
+      "tag": "Environment",
+      "example": "Es un detalle ambiental.",
+      "example_en": "It is a environmental detail."
+    },
+    {
+      "lemma": "tecnológico",
+      "pos": "adj",
+      "translation_en": "technological",
+      "tag": "Technology",
+      "example": "Este tema es tecnológico.",
+      "example_en": "This topic is technological."
+    },
+    {
+      "lemma": "principalmente",
+      "pos": "adv",
+      "translation_en": "mainly",
+      "tag": "Discussion",
+      "example": "Normalmente respondo principalmente.",
+      "example_en": "Normally I answer mainly."
+    },
+    {
+      "lemma": "aproximadamente",
+      "pos": "adv",
+      "translation_en": "approximately",
+      "tag": "Quantity",
+      "example": "La situación cambia aproximadamente.",
+      "example_en": "The situation changes approximately."
+    },
+    {
+      "lemma": "relativamente",
+      "pos": "adv",
+      "translation_en": "relatively",
+      "tag": "Quantity",
+      "example": "Lo hago relativamente cuando puedo.",
+      "example_en": "I do it relatively when I can."
+    },
+    {
+      "lemma": "considerablemente",
+      "pos": "adv",
+      "translation_en": "considerably",
+      "tag": "Quantity",
+      "example": "Normalmente respondo considerablemente.",
+      "example_en": "Normally I answer considerably."
+    },
+    {
+      "lemma": "en cuanto a",
+      "pos": "phrase",
+      "translation_en": "regarding; as for",
+      "tag": "Connectors",
+      "example": "En cuanto a la educación, falta inversión.",
+      "example_en": "Regarding education, investment is lacking."
+    },
+    {
+      "lemma": "con respecto a",
+      "pos": "phrase",
+      "translation_en": "with regard to",
+      "tag": "Connectors",
+      "example": "Con respecto a ese tema, tengo otra opinión.",
+      "example_en": "With regard to that topic, I have another opinion."
+    },
+    {
+      "lemma": "a largo plazo",
+      "pos": "phrase",
+      "translation_en": "in the long term",
+      "tag": "Connectors",
+      "example": "A largo plazo, la medida puede funcionar.",
+      "example_en": "In the long term, the measure may work."
+    },
+    {
+      "lemma": "a corto plazo",
+      "pos": "phrase",
+      "translation_en": "in the short term",
+      "tag": "Connectors",
+      "example": "A corto plazo, el coste será alto.",
+      "example_en": "In the short term, the cost will be high."
+    }
   ]
 }
