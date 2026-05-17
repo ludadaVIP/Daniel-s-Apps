@@ -43,6 +43,7 @@ from apps.french_900.routes import bp as french_900_bp, AUDIO_DIR as FRENCH_900_
 from apps.german_900.routes import bp as german_900_bp, AUDIO_DIR as GERMAN_900_AUDIO_DIR
 from apps.curiosity.routes import bp as curiosity_bp, AUDIO_DIR as CURIOSITY_AUDIO_DIR
 from apps.esp_vocab.routes import bp as esp_vocab_bp, AUDIO_DIR as ESP_VOCAB_AUDIO_DIR
+from apps.record_meditation.routes import bp as record_meditation_bp
 
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
@@ -74,10 +75,11 @@ def create_app() -> Flask:
     app.register_blueprint(german_900_bp, url_prefix="/api/german-900")
     app.register_blueprint(curiosity_bp, url_prefix="/api/curiosity")
     app.register_blueprint(esp_vocab_bp, url_prefix="/api/esp-vocab")
+    app.register_blueprint(record_meditation_bp, url_prefix="/api/record-meditation")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab"]})
+        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "record-meditation"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")
