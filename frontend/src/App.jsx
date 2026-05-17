@@ -19,6 +19,7 @@ const Spanish900App = lazy(() => import("./apps/spanish_900/App.jsx"));
 const English900App = lazy(() => import("./apps/english_900/App.jsx"));
 const French900App = lazy(() => import("./apps/french_900/App.jsx"));
 const German900App = lazy(() => import("./apps/german_900/App.jsx"));
+const EspVocabApp = lazy(() => import("./apps/esp_vocab/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -88,6 +89,10 @@ export default function App() {
       <Route
         path="/german-900"
         element={withShell("German 900", "#c08a2a", German900App)}
+      />
+      <Route
+        path="/esp-vocab"
+        element={withShell("Esp Vocab", "#c0532b", EspVocabApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

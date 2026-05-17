@@ -122,6 +122,15 @@ const APPS = [
     Icon: Headphones,
     to: "/german-900",
   },
+  {
+    id: "esp-vocab",
+    title: "Esp Vocab",
+    subtitle: "西语词汇 · CEFR A1 → C2 · 按词性分组",
+    description: "西班牙语单词背诵：按 CEFR 级别（A1-C2）和 100 词一组管理，每组内再按词性（名词 / 动词 / 形容词 / 副词 / 短语）分区。支持单词、整段词性、整组的多层 Edge TTS 朗读，自动滚动到当前单词。底层是可复用的 VocabApp + shared/vocab，后续英 / 法 / 德背单词 App 沿用同一套。",
+    accent: "#c0532b",
+    Icon: BookOpen,
+    to: "/esp-vocab",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -232,7 +241,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十三合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">十四合一语言 + 圣经练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>
