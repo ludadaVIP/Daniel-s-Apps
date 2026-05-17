@@ -19,6 +19,7 @@ import { useActiveItemScroll } from "./useActiveItemScroll";
 import { isTtsCancelled, useTts } from "./useTts";
 
 const QUEUE_PAUSE_MS = 260;
+const LEMMA_QUEUE_PAUSE_MS = 1000;
 
 const DEFAULT_TEXT = {
   brandSubtitle: "Vocabulary trainer",
@@ -29,6 +30,7 @@ const DEFAULT_TEXT = {
   audioPlaying: "Audio playing…",
   searchPlaceholder: "Search lemma, translation, tag…",
   shownLabel: "shown",
+  lemmaButton: "Play group (words only)",
   primaryButton: "Play group (target only)",
   allButton: "Play group (target + English)",
   stopTitle: "Stop playback",
@@ -38,6 +40,7 @@ const DEFAULT_TEXT = {
   restoreWordTitle: "Restore to playback queues",
   learnedBadge: "Learned",
   learnedSkippedLabel: "learned skipped",
+  playSectionLemma: "Play words only",
   playSectionTarget: "Play this section",
   playSectionAll: "Play this section with English",
   groupLabel: "Group",
@@ -317,6 +320,7 @@ function Section({
   setWordRef,
   onPlayPrimary,
   onPlayAll,
+  onPlaySectionLemma,
   onPlaySectionPrimary,
   onPlaySectionAll,
   learnedIds,
@@ -334,6 +338,15 @@ function Section({
           <span>{section.count} {plural}</span>
         </div>
         <div className={`${prefix}-section-actions`}>
+          <button
+            type="button"
+            className={`${prefix}-section-button is-mode-lemma`}
+            onClick={() => onPlaySectionLemma(section)}
+            disabled={!playableCount}
+          >
+            <Volume2 size={14} />
+            <span>{text.playSectionLemma}</span>
+          </button>
           <button
             type="button"
             className={`${prefix}-section-button is-mode-primary`}
@@ -571,7 +584,14 @@ export function VocabApp({ api, config }) {
           if (queueRunRef.current !== runId) throw new Error("cancelled");
           if (skipLearned && learnedIdsRef.current.has(word.id)) continue;
 
-          if (mode === "primary") {
+          if (mode === "lemma") {
+            await playClip({
+              key: `${word.id}:lemma`,
+              language: config.targetLang,
+              sentenceId: word.id,
+              text: word.lemma,
+            });
+          } else if (mode === "primary") {
             await playClip({
               key: `${word.id}:primary`,
               language: config.targetLang,
@@ -619,7 +639,7 @@ export function VocabApp({ api, config }) {
           }
 
           if (queueRunRef.current !== runId) throw new Error("cancelled");
-          await sleep(QUEUE_PAUSE_MS);
+          await sleep(mode === "lemma" ? LEMMA_QUEUE_PAUSE_MS : QUEUE_PAUSE_MS);
         }
       } catch (err) {
         if (!isTtsCancelled(err) && err.message !== "cancelled") {
@@ -642,6 +662,16 @@ export function VocabApp({ api, config }) {
   const playWordAll = useCallback(
     (word) => runQueue({ label: text.allButton, mode: "all", words: [word] }),
     [runQueue, text.allButton],
+  );
+  const playSectionLemma = useCallback(
+    (section) =>
+      runQueue({
+        label: `${text.playSectionLemma} · ${text.posLabel[section.pos] || section.pos}`,
+        mode: "lemma",
+        words: section.words,
+        skipLearned: true,
+      }),
+    [runQueue, text.playSectionLemma, text.posLabel],
   );
   const playSectionPrimary = useCallback(
     (section) =>
@@ -669,6 +699,12 @@ export function VocabApp({ api, config }) {
       runQueue({ label: text.primaryButton, mode: "primary", words, skipLearned: true });
     }
   }, [filteredSections, playableWordCount, runQueue, text.primaryButton]);
+  const playGroupLemma = useCallback(() => {
+    const words = filteredSections.flatMap((s) => s.words);
+    if (playableWordCount) {
+      runQueue({ label: text.lemmaButton, mode: "lemma", words, skipLearned: true });
+    }
+  }, [filteredSections, playableWordCount, runQueue, text.lemmaButton]);
   const playGroupAll = useCallback(() => {
     const words = filteredSections.flatMap((s) => s.words);
     if (playableWordCount) {
@@ -732,6 +768,15 @@ export function VocabApp({ api, config }) {
               )}
             </div>
             <div className={`${prefix}-player-actions`}>
+              <button
+                className={`${prefix}-lemma-button`}
+                type="button"
+                onClick={playGroupLemma}
+                disabled={loadingGroup || !playableWordCount}
+              >
+                <Volume2 size={16} />
+                <span>{text.lemmaButton}</span>
+              </button>
               <button
                 className={`${prefix}-primary-button`}
                 type="button"
@@ -808,6 +853,7 @@ export function VocabApp({ api, config }) {
                 setWordRef={setWordRef}
                 onPlayPrimary={playWordPrimary}
                 onPlayAll={playWordAll}
+                onPlaySectionLemma={playSectionLemma}
                 onPlaySectionPrimary={playSectionPrimary}
                 onPlaySectionAll={playSectionAll}
                 learnedIds={learnedIds}

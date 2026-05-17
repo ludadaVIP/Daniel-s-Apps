@@ -16,6 +16,8 @@
     --terracotta-dark: #983d1e;
     --saffron: #d99a17;
     --saffron-dark: #a87209;
+    --sky: #3c78a8;
+    --sky-dark: #265b83;
     --moss: #5a6b2a;
     --noun: #c0532b;     /* terracotta — Sustantivos */
     --verb: #2f7d6b;     /* deep teal — Verbos */
@@ -288,16 +290,27 @@
   .esv-player-status small { color: var(--muted); font-size: 12.5px; }
   .esv-player-actions {
     display: grid;
-    grid-template-columns: 1fr 1fr 40px;
+    grid-template-columns: 0.85fr 1fr 1fr 40px;
     gap: 8px;
   }
-  .esv-primary-button, .esv-secondary-button, .esv-stop-button {
+  .esv-lemma-button, .esv-primary-button, .esv-secondary-button, .esv-stop-button {
     display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+    min-width: 0;
     min-height: 40px;
     border-radius: 9px;
     font-size: 13px;
     font-weight: 800;
     transition: transform 150ms ease, background 150ms ease, color 150ms ease;
+  }
+  .esv-lemma-button span, .esv-primary-button span, .esv-secondary-button span {
+    min-width: 0;
+    line-height: 1.15;
+    text-align: center;
+  }
+  .esv-lemma-button {
+    border: 1px solid var(--line-strong);
+    color: var(--sky-dark);
+    background: #eef8ff;
   }
   .esv-primary-button {
     border: 1px solid transparent;
@@ -315,10 +328,10 @@
     color: var(--ink);
     background: var(--surface);
   }
-  .esv-primary-button:hover, .esv-secondary-button:hover, .esv-stop-button:hover {
+  .esv-lemma-button:hover, .esv-primary-button:hover, .esv-secondary-button:hover, .esv-stop-button:hover {
     transform: translateY(-1px);
   }
-  .esv-primary-button:disabled, .esv-secondary-button:disabled, .esv-stop-button:disabled {
+  .esv-lemma-button:disabled, .esv-primary-button:disabled, .esv-secondary-button:disabled, .esv-stop-button:disabled {
     opacity: 0.5; transform: none; box-shadow: none;
   }
 
@@ -399,7 +412,7 @@
     color: var(--muted-2);
     font-weight: 700;
   }
-  .esv-section-actions { display: flex; gap: 6px; }
+  .esv-section-actions { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 6px; }
   .esv-section-button {
     display: inline-flex; align-items: center; gap: 6px;
     height: 30px;
@@ -411,6 +424,12 @@
     background: #fff;
     color: var(--ink);
     transition: background 150ms ease, transform 150ms ease;
+  }
+  .esv-section-button.is-mode-lemma:hover {
+    background: var(--sky);
+    color: #fff;
+    border-color: transparent;
+    transform: translateY(-1px);
   }
   .esv-section-button.is-mode-primary:hover {
     background: var(--terracotta);

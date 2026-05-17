@@ -14,6 +14,7 @@ const config = {
   targetLang: "es",
   text: {
     brandSubtitle: "Vocabulario español · A1 → C2",
+    lemmaButton: "Solo palabras",
     primaryButton: "Reproducir solo en español",
     allButton: "Reproducir español + inglés",
     primarySentenceTitle: "Escuchar la palabra",
@@ -22,6 +23,7 @@ const config = {
     restoreWordTitle: "Restaurar a la reproducción",
     learnedBadge: "Aprendida",
     learnedSkippedLabel: "aprendidas omitidas",
+    playSectionLemma: "Leer solo palabras",
     playSectionTarget: "Leer toda la sección",
     playSectionAll: "Leer sección con traducción",
     stopTitle: "Detener la lectura",
