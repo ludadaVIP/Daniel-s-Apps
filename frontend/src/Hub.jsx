@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Music, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, ScrollText, Sparkles } from "lucide-react";
 
 const HUB_ORDER_KEY = "daniels-apps:hub-order";
 
@@ -122,6 +122,15 @@ const APPS = [
     Icon: Headphones,
     to: "/german-900",
   },
+  {
+    id: "curiosity",
+    title: "好奇心科学",
+    subtitle: "给 10 岁孩子的生活科学 · 中英对照 · 可朗读",
+    description: "A kid-friendly science library about real questions from the body, kitchen, home physics, sky, Earth, animals, plants, chemistry, machines, and daily life.",
+    accent: "#0f9f75",
+    Icon: Microscope,
+    to: "/curiosity",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -232,7 +241,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十三合一语言 + 圣经练习中心</h1>
+        <h1 className="hub-title">十四合一语言 + 圣经 + 科学练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>
