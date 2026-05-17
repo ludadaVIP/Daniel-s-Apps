@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, NotebookPen, ScrollText, Sparkles } from "lucide-react";
 
 const HUB_ORDER_KEY = "daniels-apps:hub-order";
 
@@ -142,6 +142,15 @@ const APPS = [
     to: "/curiosity",
 
   },
+  {
+    id: "record-meditation",
+    title: "Record & Meditation",
+    subtitle: "日记 · 读书笔记 · AI 对话感想 · 讲座回顾",
+    description: "按年 / 月 / 日组织的轻量日志：富文本编辑、自动摘要、标签 / 心情筛选、关键词搜索。后端按月份分文件，写入时同步生成 entries-index.csv，可以直接用 Excel 浏览历史；支持按月 JSON、按年 ZIP、整库 ZIP 多种导出。",
+    accent: "#6a3f86",
+    Icon: NotebookPen,
+    to: "/record-meditation",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -252,7 +261,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十四合一语言 + 圣经 + 科学练习中心</h1>
+        <h1 className="hub-title">十五合一语言 + 圣经 + 科学 + 日志练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>
