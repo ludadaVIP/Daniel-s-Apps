@@ -1,0 +1,479 @@
+{
+  "id": "curiosity",
+  "title": "好奇心科学",
+  "subtitle": "给十岁孩子的生活科学小故事",
+  "description": "约五百个关于身体、厨房、家、天空、大地、动植物、化学和机器的真实小故事。每个故事都有中英文对照，可以朗读。",
+  "version": 1,
+  "categories": [
+    {
+      "id": "body",
+      "title": "身体的秘密",
+      "emoji": "🧒",
+      "subtitle": "从头到脚都是有趣的小机器",
+      "subcategories": [
+        {
+          "id": "senses",
+          "title": "我的五感",
+          "emoji": "👀",
+          "stories": [
+            {
+              "title_zh": "眼睛是怎么看见东西的？",
+              "title_en": "How do our eyes see things?",
+              "answer_zh": "光从外面射进眼睛，先穿过透明的角膜和晶状体，被聚焦到眼球后面的一层叫视网膜的薄膜上。视网膜上有非常多的小细胞，它们把光变成电信号，沿着视神经送到大脑，大脑再把信号拼起来，告诉你看到的是猫还是苹果。",
+              "answer_en": "Light comes from outside, passes through your clear cornea and lens, and lands on a thin layer at the back of your eye called the retina. Tiny cells there turn the light into electric signals, send them through the optic nerve to your brain, and your brain pieces them together so you know it's a cat or an apple.",
+              "fun": "闭上一只眼睛，再用一根手指伸到面前——你会发现判断距离变难了，因为我们靠两只眼睛的小差别来判断远近。"
+            },
+            {
+              "title_zh": "为什么我们有两只眼睛？",
+              "title_en": "Why do we have two eyes?",
+              "answer_zh": "两只眼睛之间有一点距离，所以它们看到的画面会有一点点不一样。大脑把两幅画面合并起来，就能判断东西离我们有多远，这叫立体视觉。一只眼睛也能看，但判断远近就没那么准了。",
+              "answer_en": "Your two eyes sit a little apart, so each one sees a slightly different picture. Your brain combines the two pictures and that's how you judge how far away things are. It's called stereo vision. With only one eye you can still see, but judging distance is much harder.",
+              "fun": "球类运动员的两只眼睛配合特别好，所以他们能在球飞过来时迅速判断要跑几步。"
+            },
+            {
+              "title_zh": "耳朵里面是什么样子的？",
+              "title_en": "What's inside your ear?",
+              "answer_zh": "耳朵外面的那块叫耳廓，像一个小漏斗，把声音收进耳道。声音让耳膜像鼓面一样振动，再带动里面三块小骨头，最后传到一个像蜗牛的器官，叫耳蜗，里面有许多小细胞，把振动变成信号送到大脑。",
+              "answer_en": "The outer part of your ear works like a funnel that catches sound. The sound makes your eardrum vibrate, which moves three tiny bones, and finally reaches a snail-shaped part called the cochlea. Hair cells inside the cochlea turn the vibrations into signals that travel to your brain.",
+              "fun": "人体里最小的骨头就藏在耳朵里，最小的那块叫镫骨，比米粒还小。"
+            },
+            {
+              "title_zh": "我们是怎么闻到味道的？",
+              "title_en": "How do we smell things?",
+              "answer_zh": "鲜花、面包、水果会向空气里释放非常小的气味分子。这些分子飘进鼻子，落在鼻腔顶部的一小片区域上，那里有专门感受气味的细胞，把信息送到大脑。大脑会把这些信号和你记忆中的味道对上，告诉你这是花香还是烤面包的味道。",
+              "answer_en": "Flowers, bread and fruit release very tiny smell particles into the air. They drift into your nose and land on a small patch high inside your nostrils where smell cells live. Those cells send signals to your brain, which matches them with smells you've met before — that's how you recognise flowers or fresh bread.",
+              "fun": "感冒鼻子塞住时，吃饭觉得没味道，是因为气味分子飘不上去，舌头其实只能尝出五种基本味道。"
+            },
+            {
+              "title_zh": "舌头能尝到几种味道？",
+              "title_en": "How many tastes can your tongue feel?",
+              "answer_zh": "科学家发现，舌头上的味蕾主要能分辨五种味道：甜、咸、酸、苦，还有一种叫鲜味，比如鸡汤和西红柿的那种深沉味道。其他复杂的味道，比如薄荷的清凉、辣椒的辣，其实是触觉和温度感觉，不是真正的味道。",
+              "answer_en": "Scientists have found that taste buds on your tongue can pick out five basic tastes: sweet, salty, sour, bitter, and a savoury one called umami, like the rich taste of chicken soup or tomatoes. Mint's cool feel and chilli's burn are actually touch and temperature, not real tastes.",
+              "fun": "辣并不是味道，而是辣椒里的辣椒素让舌头上的温度神经误以为很烫。"
+            },
+            {
+              "title_zh": "皮肤为什么能感觉到冷和热？",
+              "title_en": "Why can our skin feel cold and hot?",
+              "answer_zh": "皮肤里藏着很多种小小的感受器，有的专门感觉触碰，有的感觉冷，有的感觉热，有的感觉痛。你摸一杯热水，皮肤里的热感受器就向大脑发信号说\"烫\"。这套系统能保护我们，提醒我们赶快把手挪开。",
+              "answer_en": "Your skin holds many tiny sensors. Some feel touch, some feel cold, some feel heat, and some feel pain. When you touch a hot cup, the heat sensors quickly send a 'hot!' signal to your brain. That warning system protects you by telling you to pull your hand back fast.",
+              "fun": "嘴唇和指尖的感受器最密集，所以小宝宝喜欢用嘴巴探索世界。"
+            },
+            {
+              "title_zh": "为什么我们晕车？",
+              "title_en": "Why do we get carsick?",
+              "answer_zh": "你的眼睛告诉大脑\"我没动\"，但耳朵里负责平衡的小器官却感觉到车在摇晃。大脑收到不一致的信号就糊涂了，于是用恶心和头晕来抗议。看远处的山或路面通常能缓解，因为眼睛和耳朵的信号又对上了。",
+              "answer_en": "Your eyes tell your brain 'I'm not moving', but the balance organs in your ears feel the car rocking. The brain gets two messages that don't match and complains by making you feel dizzy or sick. Looking far ahead at the road or hills usually helps, because then your eyes and ears agree again.",
+              "fun": "宇航员一开始进太空也会晕，因为身体的平衡感完全乱了。"
+            },
+            {
+              "title_zh": "为什么有的人对花粉过敏？",
+              "title_en": "Why are some people allergic to pollen?",
+              "answer_zh": "我们身体有一支保护我们不被坏东西伤害的军队，叫免疫系统。它会去对付细菌和病毒。可是有些人的免疫系统太敏感了，把花粉这种没害的东西也当成敌人来打仗，结果让人打喷嚏、流眼泪、鼻子痒。",
+              "answer_en": "Your body has a defence team called the immune system that fights germs. In some people the team is a bit too alert and treats harmless things like pollen as enemies. The fight then shows up as sneezing, itchy noses and watery eyes.",
+              "fun": "蜜蜂帮花传粉时，身上沾满了花粉，所以它们其实在帮过敏的人传播\"敌人\"。"
+            },
+            {
+              "title_zh": "为什么吃冰淇淋会让头疼？",
+              "title_en": "Why does ice cream sometimes give us a headache?",
+              "answer_zh": "上颚被冰冷的东西碰到时，那里的血管会突然收缩、然后又张开。大脑误以为是头部出了问题，就用一阵短短的头痛来提醒你。这种痛通常只持续几秒到十几秒就过去了。",
+              "answer_en": "When the roof of your mouth is hit by something very cold, the blood vessels there suddenly tighten and then open up again. Your brain misreads the signal as a problem near your head and gives you a short headache as a warning. It usually fades in just a few seconds.",
+              "fun": "下次再被\"冰激凌头痛\"袭击时，把舌头贴在上颚帮它暖一暖，往往会好得快一些。"
+            },
+            {
+              "title_zh": "为什么洋葱让人哭？",
+              "title_en": "Why does cutting onions make us cry?",
+              "answer_zh": "切洋葱时，洋葱里面的两种物质混合起来，会变成一种带刺激性的气体跑到空气里。它碰到眼睛里的水，就形成一点点像稀稀的硫酸的东西。眼睛感觉刺痛，赶紧分泌眼泪把它冲走。",
+              "answer_en": "When you cut an onion, two chemicals inside it mix and float into the air as a stinging gas. The gas meets the water on your eyes and turns into something a bit like very weak acid. Your eyes feel the sting and quickly make tears to wash it away.",
+              "fun": "把洋葱先在冰箱里冷藏一会，气体跑出来就慢得多，切起来眼泪就少了。"
+            },
+            {
+              "title_zh": "为什么我们看见食物会流口水？",
+              "title_en": "Why do we drool when we see food?",
+              "answer_zh": "我们的身体非常聪明：看到食物时，大脑就提前发命令，让嘴里的口水腺多分泌一些口水。口水里有湿润食物的水分，也有一点点消化淀粉的酶，让我们一咬下去就能开始消化。",
+              "answer_en": "Your body is clever: just seeing food tells your brain to get the saliva glands ready. They make more spit to moisten the food and a little enzyme that begins breaking down starches the moment you take a bite.",
+              "fun": "巴甫洛夫的小狗听到喂食的铃声就会流口水，这种学习叫\"条件反射\"。"
+            },
+            {
+              "title_zh": "为什么挠胳肢窝那么痒？",
+              "title_en": "Why is it so ticklish under our arms?",
+              "answer_zh": "胳肢窝、脚底这些地方平时被身体保护起来，皮肤更薄，神经也比较密集。别人挠你的时候，大脑因为不知道下一秒会发生什么，就用笑和\"痒\"来反应。自己挠自己反而不痒，因为大脑早就预料到了。",
+              "answer_en": "Soft places like your armpits and the soles of your feet are usually tucked away. Their skin is thinner and packed with nerves. When someone else tickles you, your brain can't predict what's next, so it reacts with laughter. When you tickle yourself, your brain already knows it's coming, so it doesn't tickle as much.",
+              "fun": "猩猩被挠胳肢窝也会发出类似笑的声音，所以这是哺乳动物共有的反应。"
+            }
+          ]
+        },
+        {
+          "id": "eating",
+          "title": "吃喝拉撒睡",
+          "emoji": "🍚",
+          "stories": [
+            {
+              "title_zh": "为什么刚出生的宝宝只能喝奶？",
+              "title_en": "Why can newborn babies only drink milk?",
+              "answer_zh": "宝宝刚出生时，牙齿还没长出来，胃肠道也很娇嫩，没办法消化米饭、肉这些固体食物。母乳和配方奶很温和，里面有蛋白质、脂肪和糖，正好够宝宝长身体。等几个月后，胃肠强壮一些了，才能开始加米糊和蔬菜泥。",
+              "answer_en": "Newborn babies don't have teeth yet and their stomachs are very delicate, so they can't break down rice or meat. Breast milk and formula are gentle and packed with the right protein, fat and sugar for growing. After a few months, when their guts are stronger, they can start trying rice cereal and mashed vegetables.",
+              "fun": "母乳的味道会随着妈妈吃的东西略有变化，宝宝其实在妈妈肚子里就在\"提前试菜\"。"
+            },
+            {
+              "title_zh": "食物在身体里要走多远？",
+              "title_en": "How far does food travel inside us?",
+              "answer_zh": "你咽下去的一口饭，先经过大约二十五厘米长的食管到达胃。然后进入小肠，弯弯曲曲大约六米长，养分在这里被吸收。最后进入大肠，里面还有大约一米半。整段旅程加起来比你身高的好几倍还长。",
+              "answer_en": "A single bite of rice first slides about twenty-five centimetres down your food pipe to the stomach. Then it enters the small intestine, which is six metres of coils that suck up nutrients. Finally it reaches the large intestine, another metre and a half. The whole trip is many times longer than you are tall.",
+              "fun": "把成人的小肠拉直，差不多和一辆校车一样长。"
+            },
+            {
+              "title_zh": "为什么饿了肚子会咕咕叫？",
+              "title_en": "Why does your tummy growl when you're hungry?",
+              "answer_zh": "胃和肠子总是会做小小的肌肉运动，把里面的食物往前推。当胃里空了，里面只剩下空气和液体，这些运动就把空气挤来挤去，发出咕咕的声音。其实饱饱的时候肚子也在动，只不过有食物在，声音被挡住了。",
+              "answer_en": "Your stomach and intestines are always doing little muscle squeezes to push food along. When the stomach is empty there's only air and juice inside, and the squeezing makes the air gurgle around. Your tummy keeps moving when it's full too — the food just muffles the sound.",
+              "fun": "这种规律的肠胃蠕动有个好听的名字，叫\"蠕动波\"。"
+            },
+            {
+              "title_zh": "为什么会打嗝？",
+              "title_en": "Why do we hiccup?",
+              "answer_zh": "胸腔和肚子中间有一片大肌肉叫横膈膜，它帮助我们呼吸。吃得太急、喝汽水、突然大笑都可能让它突然收缩一下，让气体快速吸进喉咙，再被声带挡住，就发出\"嗝\"的一声。",
+              "answer_en": "Between your chest and your belly sits a big muscle called the diaphragm that helps you breathe. Eating too fast, drinking fizzy drinks or laughing hard can make it suddenly jerk. Air rushes into your throat and gets stopped by your vocal cords, making the 'hic' sound.",
+              "fun": "宝宝在妈妈肚子里就会打嗝，妈妈能从外面感觉到一阵一阵的小跳动。"
+            },
+            {
+              "title_zh": "为什么我们必须喝水？",
+              "title_en": "Why do we have to drink water?",
+              "answer_zh": "我们身体大约百分之六十是水。血液靠水流动，关节靠水润滑，脑子里也有水。每天通过汗水、呼吸和上厕所，我们会失去大约两升水，所以必须喝水补回来，不然就会感到口干、头晕、没力气。",
+              "answer_en": "About sixty percent of your body is water. Your blood flows with water, your joints slide on water and even your brain is mostly water. Every day you lose about two litres through sweat, breathing and the toilet, so you need to drink to top it up — otherwise you feel dry, dizzy and tired.",
+              "fun": "西瓜里九成都是水，所以夏天吃西瓜也能帮你补水。"
+            },
+            {
+              "title_zh": "为什么我们要拉便便？",
+              "title_en": "Why do we have to poop?",
+              "answer_zh": "食物在肠子里走完一圈后，营养已经被身体吸收掉了，剩下的是吸收不了的纤维、死掉的细菌、脱落的细胞等。身体把这些攒到一起送出去，才不会在肚子里腐烂。所以便便其实是身体的\"清理工作\"。",
+              "answer_en": "After food finishes its trip through your intestines, the nutrients have been absorbed. What's left is fibre your body can't use, dead bacteria and worn-out cells. Your body packs them together and sends them out so they don't rot inside. Pooping is really just the body's cleaning shift.",
+              "fun": "健康的便便差不多七成是水，剩下的才是固体。"
+            },
+            {
+              "title_zh": "尿是从哪里来的？",
+              "title_en": "Where does pee come from?",
+              "answer_zh": "我们后腰两侧各有一个像蚕豆形状的肾。肾每天像净水器一样过滤掉血液里的废物和多余的水，攒成尿，再通过两根细管送到膀胱里储存起来。膀胱满了，大脑就告诉你：该上厕所啦。",
+              "answer_en": "On each side of your lower back sits a bean-shaped organ called a kidney. Your kidneys filter your blood like a water purifier, taking out waste and extra water and turning them into urine. Two thin tubes carry the urine to your bladder, and when the bladder is full your brain says: time for the toilet.",
+              "fun": "如果不喝水，肾就要把尿浓缩得很黄；多喝水尿就变浅，颜色其实是健康的小信号。"
+            },
+            {
+              "title_zh": "为什么晚上需要睡觉？",
+              "title_en": "Why do we need to sleep at night?",
+              "answer_zh": "白天大脑努力工作，存了一天的信息，身体也用了很多能量。睡觉时，大脑会整理记忆，把重要的东西保存下来；身体会修复肌肉、长高个子、补充能量。所以睡得好的小朋友学得快、长得快、心情也好。",
+              "answer_en": "During the day your brain works hard and stores tons of information, and your body burns lots of energy. While you sleep, your brain sorts memories and saves the important ones, and your body repairs muscles, grows taller and refills its energy. That's why kids who sleep well learn faster and feel happier.",
+              "fun": "十岁左右的小朋友每晚最好睡九到十一个小时。"
+            },
+            {
+              "title_zh": "我们为什么会做梦？",
+              "title_en": "Why do we dream?",
+              "answer_zh": "睡觉时大脑分成几个阶段，其中有一段叫\"快速眼动睡眠\"，眼睛在闭着的眼皮下快速转动，大脑非常活跃。科学家认为，做梦可能是大脑在整理白天的经历、练习处理情绪、检查记忆。所以做梦是大脑的小练习。",
+              "answer_en": "Sleep moves through several stages, and one of them is called REM, when your eyes flick about under closed lids and your brain becomes very active. Scientists think dreams help the brain sort through the day, practise handling feelings and tidy up memories. Dreaming is the brain's little workout.",
+              "fun": "差不多每九十分钟就有一次做梦的高峰，所以一晚上其实做了好几次梦。"
+            },
+            {
+              "title_zh": "为什么会打哈欠？",
+              "title_en": "Why do we yawn?",
+              "answer_zh": "我们困了、无聊、刚起床时常常会打哈欠。哈欠时嘴巴张得大大的，吸进大量空气，可能有助于让大脑稍微凉快一些，也能让我们更清醒一点。最神奇的是，看见别人打哈欠，自己也忍不住跟着打，可能是因为我们对别人的表情很敏感。",
+              "answer_en": "We often yawn when we're sleepy, bored or just waking up. A big yawn pulls in a lot of air, which may cool the brain a little and help us feel more awake. The funny thing is, watching someone else yawn often makes you yawn too — maybe because humans are very tuned in to each other's faces.",
+              "fun": "连狗、猫，甚至鱼都会打哈欠，并不只是人类的习惯。"
+            },
+            {
+              "title_zh": "饿了为什么会没力气？",
+              "title_en": "Why do we feel weak when hungry?",
+              "answer_zh": "身体的肌肉和大脑都靠血糖来工作。吃完饭血糖升高，过几个小时血糖慢慢降下来，大脑就觉得需要补充能量了。如果你忍着不吃，肌肉和脑子缺燃料，就会觉得手抖、头晕、注意力差。",
+              "answer_en": "Your muscles and brain run on sugar carried in your blood. After a meal your blood sugar is high; a few hours later it drops, and your brain knows it needs more fuel. If you skip eating, your muscles and brain run low and you start to feel shaky, dizzy and unable to focus.",
+              "fun": "大脑虽然小，但它一天消耗的能量大约占整个身体的五分之一。"
+            },
+            {
+              "title_zh": "为什么吃太多会想睡觉？",
+              "title_en": "Why does a big meal make us sleepy?",
+              "answer_zh": "吃饱后，身体要把很多血液送到胃和肠子帮忙消化，其他地方分到的血就少了一些。吃含碳水化合物多的食物时，身体还会让一种叫\"血清素\"的小信号增多，让人感到放松、想休息。",
+              "answer_en": "After a big meal your body sends extra blood to your stomach and intestines to help with digestion, so other parts get a little less for a while. A meal with lots of carbs also bumps up a brain messenger called serotonin that makes you feel calm and ready to rest.",
+              "fun": "这就是为什么吃完午饭再上数学课，总觉得眼皮特别重。"
+            },
+            {
+              "title_zh": "为什么我们一年要长高几厘米？",
+              "title_en": "Why do we grow several centimetres taller every year?",
+              "answer_zh": "小朋友的骨头两端有一段软软的部分，叫生长板。大脑里的脑垂体会分泌一种叫生长激素的信号，让生长板上的细胞不停制造新的骨头，骨头就慢慢变长了。等到十几岁以后，生长板会渐渐变硬，人就停止长高了。",
+              "answer_en": "Children's bones have soft zones near the ends called growth plates. The pituitary gland in your brain sends out growth hormone, which tells the cells in those zones to keep making new bone. After your teen years the plates harden and growing tall stops.",
+              "fun": "生长激素大部分是在你深度睡觉时分泌的，所以早睡真的能帮你长高。"
+            }
+          ]
+        },
+        {
+          "id": "heart",
+          "title": "心跳与呼吸",
+          "emoji": "❤️",
+          "stories": [
+            {
+              "title_zh": "心脏为什么一直跳？",
+              "title_en": "Why does the heart never stop beating?",
+              "answer_zh": "心脏是一块特别厉害的肌肉，它有自己的小指挥官——一群叫窦房结的细胞，会按节奏发出电信号，让心脏一收一缩。每跳一下，就把血液送到身体各个角落。它不需要我们提醒，从我们出生前就开始工作，一直工作一辈子。",
+              "answer_en": "Your heart is a very special muscle with its own little conductor — a group of cells called the sinoatrial node — that sends out steady electric signals telling the heart to squeeze. Every beat pushes blood to every corner of your body. It started working before you were born and doesn't need you to remind it.",
+              "fun": "一个十岁孩子的心脏一天大约要跳十万次，一年差不多三千八百万次。"
+            },
+            {
+              "title_zh": "血液为什么是红色的？",
+              "title_en": "Why is blood red?",
+              "answer_zh": "血液里有很多红细胞，每个红细胞里都装着一种叫血红蛋白的分子，里面有铁。铁碰到氧气后会变成亮亮的红色，这就是动脉血看起来红润的原因。当血液把氧气送出去后，颜色会变成暗红，但还是红色。",
+              "answer_en": "Your blood is full of red cells, and each one carries a molecule called haemoglobin that contains iron. When iron meets oxygen it turns a bright red, which is why blood from arteries looks so vivid. After the blood drops off the oxygen it turns darker red, but still red.",
+              "fun": "螃蟹、章鱼的血却是淡蓝色的，因为它们用铜来运氧。"
+            },
+            {
+              "title_zh": "为什么我们要呼吸？",
+              "title_en": "Why do we have to breathe?",
+              "answer_zh": "我们的身体每时每刻都在用氧气把吃下去的食物\"烧\"成能量。氧气从肺进入血液，血液把氧气送到每一个细胞。同时，细胞会产生废气二氧化碳，跟着血液回到肺，再被呼出去。所以呼吸是给身体加油，也是排废气。",
+              "answer_en": "Your cells use oxygen non-stop to 'burn' food into energy. Oxygen enters the blood through your lungs and travels everywhere. The leftover gas, carbon dioxide, hitchhikes back in the blood and leaves through your lungs. Breathing in is fuel; breathing out is the rubbish truck.",
+              "fun": "成年人一天大约要吸入两万次空气，大约一万一千升。"
+            },
+            {
+              "title_zh": "运动时为什么心跳变快？",
+              "title_en": "Why does your heart pound faster when you run?",
+              "answer_zh": "跑步、踢球时，肌肉用力工作，需要更多的氧气和能量。大脑给心脏发命令：跳快一点，把血液和氧气更多更快地送出去。所以心跳变快是身体在告诉自己\"现在很努力\"。",
+              "answer_en": "When you run or kick a ball, your muscles need extra oxygen and fuel. Your brain orders your heart to beat faster so it can deliver more blood — and oxygen — quickly. A pounding heart is your body's way of saying 'we're working hard now'.",
+              "fun": "经常运动的人，心脏更强，平时不动时心跳反而会比较慢，这是健康的表现。"
+            },
+            {
+              "title_zh": "为什么憋气憋不了太久？",
+              "title_en": "Why can't we hold our breath for very long?",
+              "answer_zh": "身体里二氧化碳越积越多时，大脑里有一个监测器就会很紧张，逼你赶快换气。所以憋气难受的不是缺氧，而是二氧化碳太多。专业潜水员经过训练可以暂时忽视这个信号，但普通人很快就受不了。",
+              "answer_en": "When carbon dioxide builds up in your body, a sensor in your brain gets very nervous and forces you to take a breath. The hard part of holding your breath isn't lack of oxygen — it's too much carbon dioxide. Trained divers can ignore the signal for a while, but most of us can't.",
+              "fun": "海豚和鲸鱼能屏住呼吸潜水好几分钟，因为它们的血液里能多储存很多氧气。"
+            },
+            {
+              "title_zh": "为什么我们会打喷嚏？",
+              "title_en": "Why do we sneeze?",
+              "answer_zh": "鼻子里有非常敏感的小毛和神经，当灰尘、花粉、辣椒、太亮的光等刺激到它们时，大脑就启动一个超快速的反射：把一大口气在很短时间内从鼻子和嘴喷出来，把刺激物冲走。喷嚏的风速能达到每小时一百多公里。",
+              "answer_en": "Your nose is packed with sensitive hairs and nerves. When dust, pollen, chilli or even bright light tickles them, your brain triggers a lightning-fast reflex that fires a big puff of air out of your nose and mouth to clear the irritant. The wind in a sneeze can travel over a hundred kilometres an hour.",
+              "fun": "打喷嚏时几乎不可能睁着眼睛，因为大脑会自动关上眼皮。"
+            },
+            {
+              "title_zh": "感冒为什么会咳嗽？",
+              "title_en": "Why do we cough when we have a cold?",
+              "answer_zh": "感冒病毒在喉咙和气管里引起炎症，让那里黏黏的液体（黏液）增多，还会刺激神经。咳嗽是身体的清理机制：用一阵强劲的气流把黏液和病毒一起冲出来，保护气管和肺。",
+              "answer_en": "A cold virus inflames your throat and airways, making them produce extra sticky mucus and irritating the nerves. Coughing is the body's cleaning trick — a burst of air that shoots the mucus and germs out, protecting your airways and lungs.",
+              "fun": "咳嗽时空气流速比正常呼吸快好几倍，差不多有列车进站时的风。"
+            },
+            {
+              "title_zh": "高山上为什么会喘不过气？",
+              "title_en": "Why is it hard to breathe high in the mountains?",
+              "answer_zh": "海拔越高，空气越稀薄，同样吸一口气，里面的氧气就少了。身体一时不适应，就会觉得呼吸急促、心跳加快、有点头晕。住上几天后，身体会多造一些红细胞来运氧，就能慢慢适应。",
+              "answer_en": "The higher you climb, the thinner the air. Each breath carries less oxygen, so your body has to work harder. You may feel short of breath, your heart races, and you may get dizzy. After a few days your body makes more red blood cells to carry oxygen and you adapt.",
+              "fun": "高原上的运动员训练几周后回到平地，会觉得跑步轻松很多。"
+            },
+            {
+              "title_zh": "感冒和流感有什么不同？",
+              "title_en": "What's the difference between a cold and the flu?",
+              "answer_zh": "感冒和流感都是病毒引起的，但流感的病毒更厉害，所以症状更重：高烧、全身酸痛、特别累。普通感冒可能只是流鼻涕、嗓子痒，几天就好了。流感严重时需要看医生，每年还可以打疫苗预防。",
+              "answer_en": "Colds and flu are both caused by viruses, but flu viruses hit much harder. Flu often means a high fever, body aches and feeling wiped out. A regular cold might just be a runny nose and scratchy throat that clears in a few days. Bad flu needs a doctor, and many people get a flu shot each year.",
+              "fun": "流感病毒每年都会稍微变样，所以疫苗也每年更新一次。"
+            },
+            {
+              "title_zh": "为什么受伤了血会自己止住？",
+              "title_en": "Why does a cut stop bleeding on its own?",
+              "answer_zh": "血液里有一种小细胞叫血小板。一旦伤口出血，血小板会迅速聚集到那里，互相粘成网，再加上一种叫纤维蛋白的丝把网织得更结实，慢慢地形成血块，把伤口堵上。等皮肤长好了，血块会变成痂掉下来。",
+              "answer_en": "Your blood carries tiny cells called platelets. The moment you bleed, they race to the wound, clump together and form a sticky net. Threads called fibrin make the net stronger, and a clot seals the cut. When new skin grows underneath, the clot dries into a scab and falls off.",
+              "fun": "血友病的人体内缺少帮助形成血块的物质，所以小伤口也很难止血。"
+            },
+            {
+              "title_zh": "为什么妈妈摸额头能知道我发烧？",
+              "title_en": "Why can mum tell I have a fever by touching my forehead?",
+              "answer_zh": "正常体温大约三十六到三十七度，跟手掌摸起来差不多温热。如果发烧到三十八九度，皮肤温度明显比平时高，妈妈用手或嘴唇贴一贴就能感觉出来。当然，要确定多少度还得用体温计。",
+              "answer_en": "Normal body temperature sits around 36-37°C, which feels just slightly warm to the hand. With a fever of 38-39°C the skin is noticeably hotter than usual, so mum can feel it with her palm or lips. To know the exact number, though, you still need a thermometer.",
+              "fun": "嘴唇比手掌更敏感，所以妈妈有时候会用嘴唇试温。"
+            },
+            {
+              "title_zh": "感冒为什么要多喝水？",
+              "title_en": "Why should we drink lots of water with a cold?",
+              "answer_zh": "感冒时身体需要造大量黏液去对抗病毒，鼻涕、痰都需要水。发烧时身体出汗、呼吸快，也会流失水分。多喝水能让黏液稀一点容易排出，也能帮身体快点恢复。",
+              "answer_en": "When you're sick, your body makes lots of mucus to fight germs, and that mucus is mostly water. Fever, sweating and fast breathing all lose water too. Drinking plenty thins the mucus so you can clear it more easily and helps your body bounce back faster.",
+              "fun": "热汤、柠檬蜂蜜水之所以让人觉得舒服，不仅暖喉咙，也是在补水。"
+            }
+          ]
+        },
+        {
+          "id": "skin",
+          "title": "皮肤、头发和指甲",
+          "emoji": "💅",
+          "stories": [
+            {
+              "title_zh": "皮肤为什么会出汗？",
+              "title_en": "Why do we sweat?",
+              "answer_zh": "我们运动或天气热时，身体温度会升高。皮肤里有数百万个汗腺，会把水分送到皮肤表面变成汗。汗在风里蒸发时会带走热量，于是身体就凉快下来。所以出汗其实是身体自己装的\"空调\"。",
+              "answer_en": "When you exercise or it's hot, your body warms up. Skin contains millions of tiny sweat glands that send water to the surface. As that sweat evaporates in the breeze, it carries heat away and cools you down. Sweating is your body's built-in air conditioning.",
+              "fun": "狗几乎不出汗，所以它们靠张嘴吐舌头喘气来降温。"
+            },
+            {
+              "title_zh": "晒太阳为什么皮肤会变黑？",
+              "title_en": "Why does our skin turn darker in the sun?",
+              "answer_zh": "皮肤里有一种叫黑色素的色素，它能挡住一部分会伤害皮肤的紫外线。晒太阳时，皮肤为了保护自己，就让黑色素细胞多干活，颜色就变深了。所以\"变黑\"其实是皮肤在自我防晒。",
+              "answer_en": "Your skin contains a pigment called melanin that blocks some of the sun's damaging ultraviolet rays. When you sit in the sun, your skin tells its melanin cells to work harder, and the colour darkens. The tan is really your skin's own sunscreen.",
+              "fun": "防晒霜能直接挡掉一部分紫外线，让黑色素细胞不那么辛苦。"
+            },
+            {
+              "title_zh": "为什么有些人有雀斑？",
+              "title_en": "Why do some people have freckles?",
+              "answer_zh": "雀斑是皮肤里的黑色素分布不太均匀造成的小斑点。有这种情况的人通常皮肤比较白，黑色素细胞被太阳一刺激，会集中在某些地方多产黑色素。冬天阳光少了，雀斑往往会变淡。",
+              "answer_en": "Freckles are little patches where melanin clumps unevenly in the skin. People who freckle tend to have lighter skin, and their melanin cells respond to sunlight by piling up in spots. In winter, with less sun, freckles often fade.",
+              "fun": "雀斑很多时候是家族里一代代传下来的，所以兄弟姐妹常常都有。"
+            },
+            {
+              "title_zh": "为什么伤口结痂会很痒？",
+              "title_en": "Why does a healing scab itch?",
+              "answer_zh": "伤口好起来的时候，皮肤底下在拼命修复，新长出来的神经一开始非常敏感。痂边缘也会拉扯到附近的神经。这些都让大脑收到\"痒\"的信号，提醒你别去抓，让伤口继续长好。",
+              "answer_en": "While a cut heals, new skin and nerves grow underneath, and the fresh nerves are extra sensitive. The edges of the scab also tug on tiny nerves nearby. Your brain reads all this as 'itch', a hint to stop scratching so the wound can finish healing.",
+              "fun": "抓掉痂会让伤口愈合变慢，还容易留疤。"
+            },
+            {
+              "title_zh": "为什么手指泡水久了会起皱？",
+              "title_en": "Why do our fingers wrinkle in water?",
+              "answer_zh": "手指和脚趾的皮肤有一种特殊的反应：在水里泡久了，神经会让皮下小血管轻微收缩，使皮肤起皱。这种皱可能是进化来的，能让我们抓湿的东西时不打滑，就像汽车轮胎的花纹。",
+              "answer_en": "Skin on your fingers and toes does something special after a long soak: nerves make tiny vessels under the skin shrink, which causes the wrinkles. Some scientists think we evolved this so we could grip wet things better — a bit like the tread on a tyre.",
+              "fun": "脚底也会起皱，但因为我们看不到，常常被忽略。"
+            },
+            {
+              "title_zh": "头发为什么会长？",
+              "title_en": "Why does hair grow?",
+              "answer_zh": "每根头发都是从皮肤里一个叫毛囊的小袋子里长出来的。毛囊底部的细胞不停地分裂，把新细胞往上推，旧细胞死后变硬，就成了头发。我们看到的头发其实都是已经\"死掉\"的，所以剪它不疼。",
+              "answer_en": "Each hair grows out of a little pocket in the skin called a follicle. Cells at the bottom of the follicle keep dividing and pushing new cells upward. Older cells die and harden, and that's what becomes the hair you see. Hair is already dead by the time it shows, which is why cutting it doesn't hurt.",
+              "fun": "头发一年大约能长十几厘米，全身的毛发大概有十万根头发那么多。"
+            },
+            {
+              "title_zh": "指甲为什么会一直长？",
+              "title_en": "Why do nails keep growing?",
+              "answer_zh": "指甲根部有一片叫\"甲母质\"的小区域，细胞不停制造新组织，把指甲一点一点往前推。指甲长得慢，平均一周大约一两毫米。有意思的是，常用的手指指甲，比如食指中指，会比小指长得稍微快一点。",
+              "answer_en": "At the base of your nail there's an area called the matrix where cells keep making new nail and pushing it forward. Nails grow slowly — about one or two millimetres a week. Interestingly, the nails on fingers you use most, like your index and middle fingers, grow a bit faster than your pinkie.",
+              "fun": "脚指甲长得比手指甲慢得多，所以剪脚指甲不必那么勤。"
+            },
+            {
+              "title_zh": "鸡皮疙瘩是怎么回事？",
+              "title_en": "What are goose bumps?",
+              "answer_zh": "皮肤上每根细毛的根部都连着一块小小的肌肉。受冷或受惊时，这些小肌肉一起收缩，让细毛立起来，皮肤就鼓出小颗粒，这就是鸡皮疙瘩。对长着浓密毛发的动物来说，毛立起来可以保暖或显得更大；对我们来说，只剩下这个小小的反应。",
+              "answer_en": "Each tiny hair on your skin has a little muscle at its root. When you're cold or startled, the muscles squeeze and the hairs stand up, leaving small bumps — goose bumps. For furry animals, raised fur traps heat or makes them look bigger. We humans are left with just the bumps.",
+              "fun": "听到震撼人心的音乐时，很多人也会起鸡皮疙瘩，这是大脑情绪的反应。"
+            },
+            {
+              "title_zh": "为什么有的人皮肤白，有的人皮肤黑？",
+              "title_en": "Why do people have different skin colours?",
+              "answer_zh": "肤色主要由黑色素决定。祖祖辈辈生活在阳光强烈的地方的人，皮肤里有更多黑色素，可以抵抗紫外线；生活在阳光弱的地方的人，黑色素少，更容易吸收阳光来制造维生素D。所以肤色是人类在不同地方适应环境的结果。",
+              "answer_en": "Skin colour mostly depends on melanin. People whose ancestors lived under strong sun developed more melanin to block ultraviolet light. People from places with weaker sun made less melanin so their skin could soak up sunlight to make vitamin D. Skin colour is how humans adapted to different parts of the world.",
+              "fun": "同一个家族里，兄弟姐妹的肤色有时候也会有细微差别。"
+            },
+            {
+              "title_zh": "为什么有的小朋友头发是卷的？",
+              "title_en": "Why is some kids' hair curly?",
+              "answer_zh": "毛发的形状由毛囊的形状决定。如果毛囊是圆的，头发就长得直；如果毛囊是椭圆甚至扁的，头发就会卷起来。这通常是父母遗传给你的，所以你看一家人，头发常常很像。",
+              "answer_en": "The shape of a hair depends on the shape of its follicle. Round follicles grow straight hair; oval or flatter follicles make hair curl. The shape is usually passed down from parents, which is why families often have similar hair.",
+              "fun": "一根头发能承受大约一百克的重量，所以一整头头发理论上能拉起几辆小汽车。"
+            },
+            {
+              "title_zh": "晒伤之后皮肤为什么会脱皮？",
+              "title_en": "Why does sunburnt skin peel?",
+              "answer_zh": "晒伤是阳光中的紫外线把皮肤细胞晒坏了。身体觉得这些细胞已经不能用了，就把它们丢掉，让下面健康的新细胞顶上来。所以脱皮其实是皮肤在\"换新\"。",
+              "answer_en": "Sunburn happens when strong UV light damages skin cells. Your body decides those cells are no longer useful and lets them fall away while fresh, healthy cells take their place. The peeling is really your skin renewing itself.",
+              "fun": "晒伤次数太多会增加成年后患皮肤病的风险，所以小朋友要好好涂防晒霜。"
+            },
+            {
+              "title_zh": "为什么洗完澡身体感觉冷？",
+              "title_en": "Why do we feel cold right after a bath?",
+              "answer_zh": "刚出浴时，皮肤上还有一层水。水蒸发时要带走皮肤上的热量，所以你会觉得冷。赶紧用毛巾擦干，水变少了，蒸发也少了，就不那么冷了。",
+              "answer_en": "Just after stepping out of the bath, your skin is still wet. As the water evaporates, it carries heat away from your body, which makes you feel chilly. Drying off quickly with a towel reduces the water and stops the cooling.",
+              "fun": "夏天出汗后吹电风扇会觉得凉快，也是同样的原理。"
+            }
+          ]
+        },
+        {
+          "id": "brain",
+          "title": "大脑和情绪",
+          "emoji": "🧠",
+          "stories": [
+            {
+              "title_zh": "大脑到底是怎么思考的？",
+              "title_en": "How does the brain actually think?",
+              "answer_zh": "大脑里有差不多八百到一千亿个叫\"神经元\"的小细胞，它们之间用很短的电信号互相说话。你看到、听到、记住的每一件事，都对应着无数神经元一起放电、组成的小网络。思考就是这些网络在不停变化、重新连接。",
+              "answer_en": "Your brain holds roughly eighty to a hundred billion cells called neurons that talk to each other with quick electric signals. Every sight, sound or memory matches a network of neurons firing together. Thinking is those networks shifting and rewiring all the time.",
+              "fun": "如果把一个大脑的所有神经连接拉成一条线，足够绕地球好几圈。"
+            },
+            {
+              "title_zh": "为什么我们会忘事？",
+              "title_en": "Why do we forget things?",
+              "answer_zh": "大脑每天接收的信息太多了，没法全部留下来。它会自动判断哪些是重要的，反复用的，就保留得久；不重要、很少用的就慢慢淡掉。所以复习背过的单词，是在告诉大脑\"这个真的有用\"。",
+              "answer_en": "Your brain takes in so much information each day that it can't keep all of it. It quietly decides what matters — usually the things you use often — and lets less important stuff fade. Reviewing words you've learned tells the brain 'this really matters, please keep it'.",
+              "fun": "睡觉时大脑会重新整理记忆，所以学完新东西好好睡一觉特别重要。"
+            },
+            {
+              "title_zh": "情绪是从哪里来的？",
+              "title_en": "Where do feelings come from?",
+              "answer_zh": "大脑里有一块叫\"杏仁核\"的小区域，专门处理害怕、生气等强烈情绪。其他几个区域则负责高兴、惊讶、悲伤。这些区域综合判断当前发生的事，再决定让你的心跳变快、皮肤变红，或者眼泪掉下来。",
+              "answer_en": "Deep in your brain a small area called the amygdala handles strong feelings like fear and anger. Other parts deal with joy, surprise and sadness. Together they read what's happening around you and decide whether your heart should race, your face turn red, or tears slide out.",
+              "fun": "深呼吸能让杏仁核冷静一些，所以发脾气时数十下呼吸真的有效。"
+            },
+            {
+              "title_zh": "为什么我们害怕黑？",
+              "title_en": "Why are we afraid of the dark?",
+              "answer_zh": "黑暗中我们看不清周围有什么，大脑没办法确定有没有危险，就会保持警惕。古代人晚上面对很多危险动物，会害怕的人活得更久，所以这种警觉就被一代一代传了下来。等灯亮起来，大脑确认安全，害怕就消失了。",
+              "answer_en": "In the dark, you can't see what's around you, so your brain can't be sure if anything is dangerous. It stays alert. Long ago, our ancestors who were a bit nervous at night survived more often, so the wiring was passed down. Once the light comes on and the brain checks the room, the fear melts away.",
+              "fun": "其实在黑暗中，大脑反而会让听觉更灵敏一些。"
+            },
+            {
+              "title_zh": "为什么我们会笑？",
+              "title_en": "Why do we laugh?",
+              "answer_zh": "听到好笑的话或者被挠痒，大脑会释放一种让人开心的化学物质叫\"内啡肽\"，并启动一连串的肌肉反应：横膈膜跳一跳，让你发出哈哈声。笑还能拉近人与人的距离，是一种社交信号。",
+              "answer_en": "A joke or a tickle tells your brain to release a feel-good chemical called endorphin and triggers muscle bursts — your diaphragm jumps and out come the 'ha-ha' sounds. Laughter also brings people closer; it's a kind of social glue.",
+              "fun": "婴儿大概三四个月就会笑出声音，比说话早多了。"
+            },
+            {
+              "title_zh": "为什么哭完会感觉好一些？",
+              "title_en": "Why do we feel better after a good cry?",
+              "answer_zh": "哭出来时，身体会释放一些缓解疼痛和压力的小化学物质。眼泪里也带走了一些和压力有关的物质。再加上哭出来可以让别人注意到你的难过，得到安慰，所以哭完心情常常会平静很多。",
+              "answer_en": "Crying releases small chemicals that ease pain and stress. Tears even carry away some stress-related substances. Crying also lets people around you know you need comfort, and once you get it your mood usually settles down.",
+              "fun": "有研究发现，难过流出的眼泪和切洋葱时的眼泪化学成分还略有不同。"
+            },
+            {
+              "title_zh": "脑袋是怎么记住电话号码的？",
+              "title_en": "How does our brain remember a phone number?",
+              "answer_zh": "听到一个新号码时，先进入\"短期记忆\"，只能保存几十秒。如果你重复几次，或者把数字分成有意义的小段（比如把六位数字分成三组两位），大脑就会把它送进长期记忆，存得更久。",
+              "answer_en": "A new phone number first lands in short-term memory, which lasts only seconds. If you say it a few times or break it into chunks (like splitting six digits into three pairs), your brain pushes it into long-term memory where it can stay much longer.",
+              "fun": "魔术师能背圆周率几千位，靠的就是把数字编成有故事的小段。"
+            },
+            {
+              "title_zh": "为什么我们一紧张就会脸红？",
+              "title_en": "Why do we blush when nervous?",
+              "answer_zh": "情绪紧张或不好意思时，大脑会让一种叫肾上腺素的信号增多，让脸部的小血管放大，血流多了，脸就变红了。脸红其实是一种\"诚实的信号\"：身边的人能看出来你紧张，反而容易包容你。",
+              "answer_en": "When you're nervous or embarrassed, your brain releases adrenaline that widens the tiny blood vessels in your face. More blood flows and your cheeks turn red. Blushing is an 'honest signal' — people around you can see you're feeling shy, which often makes them go easier on you.",
+              "fun": "其实只有人类才会因为情绪而脸红。"
+            },
+            {
+              "title_zh": "为什么记忆有时候会突然涌出来？",
+              "title_en": "Why do memories sometimes pop up suddenly?",
+              "answer_zh": "一种气味、一段旋律、甚至一阵风，都可能成为\"钥匙\"，打开一段藏在大脑里的记忆。这是因为这些感觉和当时的画面、情绪一起被存下来了。所以闻到外婆家的味道，会突然想起小时候。",
+              "answer_en": "A smell, a tune or even a breeze can act like a key, unlocking a memory tucked away in your brain. That's because those senses were stored together with the original scene and feelings. So a whiff of grandma's kitchen can pull you straight back to childhood.",
+              "fun": "气味比图像更容易勾起情绪记忆，这叫\"普鲁斯特效应\"。"
+            },
+            {
+              "title_zh": "为什么我们做错事会脸红心跳？",
+              "title_en": "Why does doing something wrong make our heart pound?",
+              "answer_zh": "做错事时，大脑会发出\"危险\"信号，肾上腺素增多，心跳变快、手心冒汗、脸红。这种身体反应在远古时是为了让我们准备逃跑或道歉。现在虽然没人追，但身体还是按老办法反应。",
+              "answer_en": "When you do something wrong, your brain sounds an internal 'danger' alarm. Adrenaline rises, your heart speeds up, your palms sweat and your face flushes. Long ago, this prepared us to run away or say sorry quickly. Even though no one's chasing us now, the body still uses the old trick.",
+              "fun": "测谎仪其实就是在测心跳、出汗这些紧张反应。"
+            },
+            {
+              "title_zh": "为什么我们玩游戏停不下来？",
+              "title_en": "Why is it so hard to stop playing a game?",
+              "answer_zh": "游戏不断给你奖励：升级、得分、解锁新皮肤。每次得到奖励，大脑会分泌一种叫多巴胺的物质，让你觉得开心，还想继续。如果不主动设个时间限制，多巴胺就让你一关接一关地玩下去。",
+              "answer_en": "Games keep handing out rewards: levels, points, new skins. Each reward triggers a chemical called dopamine in your brain that makes you feel good and want more. Without setting your own time limit, the dopamine keeps you going round after round.",
+              "fun": "看短视频也是同样的机制，所以容易越刷越久。"
+            },
+            {
+              "title_zh": "为什么有时候话到嘴边却想不起来？",
+              "title_en": "Why do words sometimes get stuck on the tip of our tongue?",
+              "answer_zh": "大脑找词时，要在巨大的\"词库\"里搜索。如果某个词的连接暂时找不到，明明知道意思却说不出来。专家叫这种现象\"舌尖现象\"。通常停下来想一想，或者听到一两个提示，词就会突然蹦出来。",
+              "answer_en": "When your brain looks for a word, it searches through a huge inner dictionary. Sometimes the connection to a specific word is briefly hard to find, even though you know what it means. Experts call this 'tip of the tongue'. Pausing or hearing a small clue often lets the word jump back.",
+              "fun": "这种现象在多种语言之间切换的人身上特别常见。"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
