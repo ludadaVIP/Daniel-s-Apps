@@ -6,7 +6,7 @@ import json
 import re
 from datetime import datetime, timezone
 from pathlib import Path
-from typing import Any, Callable
+from typing import Any
 
 from shared.io import read_json, write_json
 
@@ -107,6 +107,72 @@ def write_900_index(data_dir: Path, course: dict[str, Any]) -> None:
     ]
     index["totalSentences"] = sum(item["count"] for item in index["groups"])
     write_json(groups_dir / INDEX_FILE_NAME, index)
+
+
+def delete_900_group(
+    data_dir: Path,
+    course: dict[str, Any],
+    group_id: str,
+    error_cls: type[ValueError],
+) -> dict[str, Any]:
+    groups = course.get("groups", [])
+    group = next((item for item in groups if item.get("id") == group_id), None)
+    if not group:
+        raise error_cls("Group not found.", 404)
+
+    remaining = [item for item in groups if item.get("id") != group_id]
+    if not remaining:
+        raise error_cls("You cannot delete the last remaining group.", 400)
+
+    course["groups"] = remaining
+    course["totalSentences"] = sum(len(item.get("sentences", [])) for item in remaining)
+    (_groups_dir(data_dir) / f"{group_id}.json").unlink(missing_ok=True)
+    write_900_index(data_dir, course)
+    return group
+
+
+def cleanup_900_audio_cache(
+    group: dict[str, Any],
+    field_languages: dict[str, str],
+    *,
+    audio_dir: Path,
+    manifest_file: Path,
+    language_config: dict[str, dict[str, Any]],
+) -> dict[str, int]:
+    manifest = read_json(manifest_file, {"items": {}})
+    items = manifest.get("items", {})
+    if not isinstance(items, dict):
+        return {"audioFilesDeleted": 0, "manifestItemsDeleted": 0}
+
+    previews: set[tuple[str, str]] = set()
+    for sentence in group.get("sentences", []) or []:
+        for field, language in field_languages.items():
+            text = " ".join(str(sentence.get(field) or "").split())
+            if text:
+                previews.add((language_config[language]["language"], text[:240]))
+
+    deleted_files = 0
+    deleted_manifest_items = 0
+    for key, item in list(items.items()):
+        signature = (item.get("language"), item.get("textPreview"))
+        if signature not in previews:
+            continue
+        relative_path = item.get("path")
+        if relative_path:
+            path = audio_dir / relative_path
+            if path.exists():
+                path.unlink()
+                deleted_files += 1
+        items.pop(key, None)
+        deleted_manifest_items += 1
+
+    if deleted_manifest_items:
+        write_json(manifest_file, manifest)
+
+    return {
+        "audioFilesDeleted": deleted_files,
+        "manifestItemsDeleted": deleted_manifest_items,
+    }
 
 
 def _strip_json_fence(text: str) -> str:

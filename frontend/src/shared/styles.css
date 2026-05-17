@@ -80,6 +80,18 @@ a {
   transform: translateY(-1px);
 }
 
+.nh-tool-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+  transform: none;
+}
+
+.nh-delete-button {
+  border-color: rgba(220, 38, 38, 0.22);
+  color: #991b1b;
+  background: #fff7f7;
+}
+
 .nh-tool-status {
   color: #64748b;
   font-size: 12px;
@@ -105,6 +117,10 @@ a {
   border-radius: 10px;
   background: #ffffff;
   box-shadow: 0 28px 80px rgba(15, 23, 42, 0.28);
+}
+
+.nh-confirm-modal {
+  width: min(520px, calc(100vw - 32px));
 }
 
 .nh-modal-header {
@@ -190,6 +206,17 @@ a {
   border-color: #0f172a;
   color: #ffffff;
   background: #0f172a;
+}
+
+.nh-danger-action {
+  border-color: #b91c1c;
+  background: #b91c1c;
+}
+
+.nh-confirm-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
 }
 
 .nh-primary-action:disabled {

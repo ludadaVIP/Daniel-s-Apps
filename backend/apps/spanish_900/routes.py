@@ -15,7 +15,13 @@ from typing import Any
 from flask import Blueprint, jsonify, request
 
 from shared.io import read_json, write_json
-from shared.nine_hundred import group_summary, import_900_group, load_900_course
+from shared.nine_hundred import (
+    cleanup_900_audio_cache,
+    delete_900_group,
+    group_summary,
+    import_900_group,
+    load_900_course,
+)
 from shared.tts import audio_file_is_usable, generate_audio
 from shared.voices import default_voice_for_language, voices_for_language
 
@@ -127,6 +133,22 @@ def group_detail(group_id: str):
         if group.get("id") == group_id:
             return jsonify(group)
     raise Spanish900Error("Group not found.", 404)
+
+
+@bp.route("/groups/<group_id>", methods=["DELETE", "OPTIONS"])
+def delete_group(group_id: str):
+    if request.method == "OPTIONS":
+        return "", 204
+    course = load_course()
+    group = delete_900_group(DATA_DIR, course, group_id, Spanish900Error)
+    cleanup = cleanup_900_audio_cache(
+        group,
+        {"spanish": "es", "english": "en"},
+        audio_dir=AUDIO_DIR,
+        manifest_file=AUDIO_MANIFEST_FILE,
+        language_config=LANGUAGE_CONFIG,
+    )
+    return jsonify({"deletedGroupId": group_id, **cleanup})
 
 
 @bp.route("/groups/import", methods=["POST", "OPTIONS"])

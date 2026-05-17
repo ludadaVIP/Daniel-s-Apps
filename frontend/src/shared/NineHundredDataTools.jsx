@@ -1,5 +1,5 @@
 import { useMemo, useState } from "react";
-import { Clipboard, FileJson, Plus, X } from "lucide-react";
+import { Clipboard, FileJson, Plus, Trash2, X } from "lucide-react";
 
 const DIFFICULTIES = ["A1-A2", "B1", "B2", "C1", "Mixed A2-B2"];
 
@@ -44,9 +44,16 @@ Hard requirements:
 - Do not include extra fields unless they are useful and still valid JSON.`;
 }
 
-export function NineHundredDataTools({ config, onImport }) {
+export function NineHundredDataTools({
+  config,
+  currentGroupTitle,
+  deleteDisabled,
+  onDelete,
+  onImport,
+}) {
   const [promptOpen, setPromptOpen] = useState(false);
   const [importOpen, setImportOpen] = useState(false);
+  const [deleteOpen, setDeleteOpen] = useState(false);
   const [difficulty, setDifficulty] = useState("B1");
   const [focus, setFocus] = useState("");
   const [importText, setImportText] = useState("");
@@ -78,6 +85,23 @@ export function NineHundredDataTools({ config, onImport }) {
     }
   };
 
+  const submitDelete = async () => {
+    if (!onDelete) return;
+    setBusy(true);
+    setStatus("");
+    try {
+      const result = await onDelete();
+      const deleted = result?.deletedGroupId ? `Deleted ${result.deletedGroupId}.` : "Group deleted.";
+      const audio = result?.audioFilesDeleted ? ` Removed ${result.audioFilesDeleted} audio files.` : "";
+      setStatus(`${deleted}${audio}`);
+      setDeleteOpen(false);
+    } catch (err) {
+      setStatus(err.message || "Delete failed.");
+    } finally {
+      setBusy(false);
+    }
+  };
+
   return (
     <div className="nh-tools">
       <button className="nh-tool-button" type="button" onClick={() => setPromptOpen(true)}>
@@ -87,6 +111,15 @@ export function NineHundredDataTools({ config, onImport }) {
       <button className="nh-tool-button" type="button" onClick={() => setImportOpen(true)}>
         <FileJson size={16} />
         Import
+      </button>
+      <button
+        className="nh-tool-button nh-delete-button"
+        type="button"
+        onClick={() => setDeleteOpen(true)}
+        disabled={deleteDisabled}
+      >
+        <Trash2 size={16} />
+        Delete
       </button>
       {status && <span className="nh-tool-status">{status}</span>}
 
@@ -151,6 +184,36 @@ export function NineHundredDataTools({ config, onImport }) {
               <FileJson size={17} />
               {busy ? "Importing..." : "Import group"}
             </button>
+          </section>
+        </div>
+      )}
+
+      {deleteOpen && (
+        <div className="nh-modal-backdrop" role="presentation">
+          <section className="nh-modal nh-confirm-modal" role="dialog" aria-modal="true" aria-label="Delete group">
+            <div className="nh-modal-header">
+              <h2>Delete current 100-sentence group?</h2>
+              <button type="button" onClick={() => setDeleteOpen(false)} aria-label="Close">
+                <X size={18} />
+              </button>
+            </div>
+            <p className="nh-modal-note">
+              This will delete "{currentGroupTitle || "the current group"}", remove its JSON file, and clean up matching cached audio. This cannot be undone.
+            </p>
+            <div className="nh-confirm-actions">
+              <button className="nh-tool-button" type="button" onClick={() => setDeleteOpen(false)}>
+                Cancel
+              </button>
+              <button
+                className="nh-primary-action nh-danger-action"
+                type="button"
+                onClick={submitDelete}
+                disabled={busy}
+              >
+                <Trash2 size={17} />
+                {busy ? "Deleting..." : "Delete group"}
+              </button>
+            </div>
           </section>
         </div>
       )}
