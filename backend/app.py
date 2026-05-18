@@ -44,6 +44,7 @@ from apps.german_900.routes import bp as german_900_bp, AUDIO_DIR as GERMAN_900_
 from apps.curiosity.routes import bp as curiosity_bp, AUDIO_DIR as CURIOSITY_AUDIO_DIR
 from apps.esp_vocab.routes import bp as esp_vocab_bp, AUDIO_DIR as ESP_VOCAB_AUDIO_DIR
 from apps.eng_vocab.routes import bp as eng_vocab_bp, AUDIO_DIR as ENG_VOCAB_AUDIO_DIR
+from apps.french_vocab.routes import bp as french_vocab_bp, AUDIO_DIR as FRENCH_VOCAB_AUDIO_DIR
 from apps.record_meditation.routes import bp as record_meditation_bp
 
 
@@ -77,11 +78,12 @@ def create_app() -> Flask:
     app.register_blueprint(curiosity_bp, url_prefix="/api/curiosity")
     app.register_blueprint(esp_vocab_bp, url_prefix="/api/esp-vocab")
     app.register_blueprint(eng_vocab_bp, url_prefix="/api/eng-vocab")
+    app.register_blueprint(french_vocab_bp, url_prefix="/api/french-vocab")
     app.register_blueprint(record_meditation_bp, url_prefix="/api/record-meditation")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "record-meditation"]})
+        return jsonify({"ok": True, "apps": ["french", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "french-vocab", "record-meditation"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")
@@ -131,6 +133,10 @@ def create_app() -> Flask:
     @app.get("/audio/eng-vocab/<path:filename>")
     def serve_eng_vocab_audio(filename: str):
         return send_from_directory(ENG_VOCAB_AUDIO_DIR, filename, max_age=31536000)
+
+    @app.get("/audio/french-vocab/<path:filename>")
+    def serve_french_vocab_audio(filename: str):
+        return send_from_directory(FRENCH_VOCAB_AUDIO_DIR, filename, max_age=31536000)
 
     # Fallback: serve the built Vite SPA if it exists (single-port deployment).
     @app.get("/", defaults={"path": ""})

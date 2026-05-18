@@ -160,6 +160,15 @@ const APPS = [
     Icon: BookOpen,
     to: "/eng-vocab",
   },
+  {
+    id: "french-vocab",
+    title: "French Vocab",
+    subtitle: "法语单词 · CEFR A1 → C2 · 法英对照 · 按词性分组",
+    description: "法语单词背诵 App：和 Esp / Eng Vocab 共用同一套 shared/VocabApp + shared/vocab + Edge TTS 框架，只换了目标语言（法语 fr-FR）、配色（bleu / rouge / cream）和数据目录（backend/data/FrenchVocab/）。目前 A1-C2 各 1 组、每组 100 条占位词，作为骨架先跑通整套流程，真实词表按 group 慢慢补齐。",
+    accent: "#1e3a8a",
+    Icon: BookOpen,
+    to: "/french-vocab",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -270,7 +279,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十六合一语言 + 圣经 + 科学 + 日志练习中心</h1>
+        <h1 className="hub-title">十七合一语言 + 圣经 + 科学 + 日志练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>

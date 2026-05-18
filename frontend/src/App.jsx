@@ -23,6 +23,7 @@ const EspVocabApp = lazy(() => import("./apps/esp_vocab/App.jsx"));
 const CuriosityApp = lazy(() => import("./apps/curiosity/App.jsx"));
 const RecordMeditationApp = lazy(() => import("./apps/record_meditation/App.jsx"));
 const EngVocabApp = lazy(() => import("./apps/eng_vocab/App.jsx"));
+const FrenchVocabApp = lazy(() => import("./apps/french_vocab/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -108,6 +109,10 @@ export default function App() {
       <Route
         path="/eng-vocab"
         element={withShell("Eng Vocab", "#1d4ed8", EngVocabApp)}
+      />
+      <Route
+        path="/french-vocab"
+        element={withShell("French Vocab", "#1e3a8a", FrenchVocabApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
