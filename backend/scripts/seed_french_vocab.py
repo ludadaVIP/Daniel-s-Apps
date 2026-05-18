@@ -9,10 +9,13 @@ adjusts each level's index.json title/focus to match.
 
 from __future__ import annotations
 
+import csv
 import json
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parents[1] / "data" / "FrenchVocab" / "levels"
+DATA_DIR = Path(__file__).resolve().parents[1] / "data" / "FrenchVocab"
+BASE = DATA_DIR / "levels"
+MASTER_CSV = DATA_DIR / "vocab-master.csv"
 PH = "placeholder"
 
 DATA = {
@@ -209,6 +212,36 @@ def main() -> None:
             f.write("\n")
 
     print("wrote 6 group-1.json + refreshed 6 index.json")
+
+    # --- Rebuild vocab-master.csv from the JSON files (single source of truth).
+    # The CSV lets us grep for duplicates before adding any new lemma:
+    #   grep ',nouveau_lemme$' backend/data/FrenchVocab/vocab-master.csv
+    rows: list[tuple[str, str, str]] = []
+    for level_dir in sorted(BASE.iterdir()):
+        if not level_dir.is_dir():
+            continue
+        for group_path in sorted(level_dir.glob("group-*.json")):
+            group = json.loads(group_path.read_text(encoding="utf-8"))
+            for word in group.get("words") or []:
+                rows.append((level_dir.name, group["id"], word["lemma"]))
+
+    # Master-CSV uniqueness guard — final safety net independent of DATA dict.
+    seen_csv: dict[str, tuple[str, str]] = {}
+    for level, group, lemma in rows:
+        if lemma in seen_csv:
+            prev_lvl, prev_grp = seen_csv[lemma]
+            raise SystemExit(
+                f"DUPLICATE lemma in vocab-master.csv: '{lemma}' in "
+                f"{level}/{group} AND {prev_lvl}/{prev_grp}"
+            )
+        seen_csv[lemma] = (level, group)
+
+    # newline="" + utf-8 (no BOM) matches the EspVocab master CSV format.
+    with MASTER_CSV.open("w", encoding="utf-8", newline="") as f:
+        writer = csv.writer(f, lineterminator="\n")
+        writer.writerow(["level", "group", "lemma"])
+        writer.writerows(rows)
+    print(f"wrote vocab-master.csv with {len(rows)} unique lemmas")
 
 
 if __name__ == "__main__":
