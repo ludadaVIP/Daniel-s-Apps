@@ -1,864 +1,852 @@
 {
   "id": "group-1",
-  "title": "Matices · Nuance and opinion",
-  "focus": "Abstract nouns, opinion verbs, subjunctive triggers, and idiomatic phrases.",
+  "title": "Argumentación y matices · Nuanced debate",
+  "focus": "B2 words for building an argument, qualifying claims, weighing evidence and sounding precise.",
   "words": [
     {
-      "lemma": "ventaja",
-      "ipa": "benˈta.xa",
+      "lemma": "matiz",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "advantage",
-      "example": "Una ventaja de estudiar en una ciudad mediana es que todo queda más cerca.",
-      "example_en": "One advantage of studying in a medium-sized city is that everything is closer.",
-      "tag": "Discussion"
+      "translation_en": "nuance",
+      "example": "El debate gira en torno al matiz, no solo a los datos.",
+      "example_en": "The debate revolves around the nuance, not only the data.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "desventaja",
-      "ipa": "des.benˈta.xa",
+      "lemma": "premisa",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "disadvantage",
-      "example": "La desventaja de vivir lejos del campus es perder mucho tiempo en transporte.",
-      "example_en": "The disadvantage of living far from campus is wasting a lot of time on transport.",
-      "tag": "Discussion"
+      "translation_en": "premise",
+      "example": "El ensayo menciona la premisa para matizar la conclusión.",
+      "example_en": "The essay mentions the premise to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "objetivo",
-      "ipa": "ob.xeˈti.βo",
+      "lemma": "objeción",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "goal, objective",
-      "example": "Mi objetivo este semestre es hablar con más fluidez en las tutorías.",
-      "example_en": "My goal this semester is to speak more fluently in tutorials.",
-      "tag": "Abstract"
+      "translation_en": "objection",
+      "example": "Ese ejemplo ayuda a entender mejor la objeción.",
+      "example_en": "That example helps to understand the objection better.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "esfuerzo",
-      "ipa": "esˈfweɾ.so",
+      "lemma": "tesis",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "effort",
-      "example": "El esfuerzo diario se nota más que una semana de estudio intensivo antes del examen.",
-      "example_en": "Daily effort shows more than one week of intensive study before the exam.",
-      "tag": "Abstract"
+      "translation_en": "thesis, main claim",
+      "example": "El debate gira en torno a la tesis, no solo a los datos.",
+      "example_en": "The debate revolves around the thesis, main claim, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "compromiso",
-      "ipa": "kom.pɾoˈmi.so",
+      "lemma": "contraargumento",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "commitment; compromise",
-      "example": "La universidad pide compromiso, pero también ofrece apoyo si lo solicitas a tiempo.",
-      "example_en": "The university asks for commitment, but it also offers support if you request it in time.",
-      "tag": "Work"
+      "translation_en": "counterargument",
+      "example": "El ensayo menciona el contraargumento para matizar la conclusión.",
+      "example_en": "The essay mentions the counterargument to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "sugerir",
-      "ipa": "su.xeˈɾiɾ",
-      "pos": "verb",
-      "translation_en": "to suggest",
-      "example": "La profesora sugirió que comparáramos dos fuentes antes de escribir el ensayo.",
-      "example_en": "The teacher suggested that we compare two sources before writing the essay.",
-      "tag": "Opinion"
-    },
-    {
-      "lemma": "exigir",
-      "ipa": "ek.siˈxiɾ",
-      "pos": "verb",
-      "translation_en": "to demand",
-      "example": "Vivir en otro país exige paciencia, sobre todo al hacer trámites.",
-      "example_en": "Living in another country requires patience, especially when dealing with paperwork.",
-      "tag": "Work"
-    },
-    {
-      "lemma": "lograr",
-      "ipa": "loˈɣɾaɾ",
-      "pos": "verb",
-      "translation_en": "to achieve, to manage",
-      "example": "Después de varias prácticas, logré defender mi opinión sin leer las notas.",
-      "example_en": "After several practice sessions, I managed to defend my opinion without reading my notes.",
-      "tag": "Action"
-    },
-    {
-      "lemma": "evitar",
-      "ipa": "e.βiˈtaɾ",
-      "pos": "verb",
-      "translation_en": "to avoid",
-      "example": "Para evitar malentendidos, confirma por correo cualquier cambio de horario.",
-      "example_en": "To avoid misunderstandings, confirm any schedule change by email.",
-      "tag": "Action"
-    },
-    {
-      "lemma": "suponer",
-      "ipa": "su.poˈneɾ",
-      "pos": "verb",
-      "translation_en": "to suppose; to imply",
-      "example": "Aceptar esa beca supone mudarme y organizar de nuevo mi presupuesto.",
-      "example_en": "Accepting that grant means moving and organising my budget again.",
-      "tag": "Cognition"
-    },
-    {
-      "lemma": "discutir",
-      "ipa": "dis.kuˈtiɾ",
-      "pos": "verb",
-      "translation_en": "to discuss; to argue",
-      "example": "En clase discutimos si el teletrabajo mejora realmente la conciliación.",
-      "example_en": "In class we discussed whether remote work really improves work-life balance.",
-      "tag": "Communication"
-    },
-    {
-      "lemma": "imprescindible",
-      "ipa": "im.pɾes.sinˈdi.βle",
-      "pos": "adj",
-      "translation_en": "essential, indispensable",
-      "example": "Es imprescindible guardar una copia de todos los documentos enviados.",
-      "example_en": "It is essential to keep a copy of all submitted documents.",
-      "tag": "Descriptions"
-    },
-    {
-      "lemma": "cotidiano",
-      "ipa": "ko.tiˈðja.no",
-      "pos": "adj",
-      "translation_en": "everyday, daily",
-      "example": "El transporte público es un tema cotidiano para cualquier estudiante extranjero.",
-      "example_en": "Public transport is an everyday topic for any international student.",
-      "tag": "Descriptions"
-    },
-    {
-      "lemma": "complejo",
-      "ipa": "komˈple.xo",
-      "pos": "adj",
-      "translation_en": "complex",
-      "example": "El problema de la vivienda es complejo porque mezcla precios, salarios y turismo.",
-      "example_en": "The housing problem is complex because it mixes prices, wages and tourism.",
-      "tag": "Descriptions"
-    },
-    {
-      "lemma": "evidente",
-      "ipa": "e.βiˈðen.te",
-      "pos": "adj",
-      "translation_en": "obvious, evident",
-      "example": "Es evidente que una buena conexión a internet ya forma parte de la vida académica.",
-      "example_en": "It is obvious that a good internet connection is now part of academic life.",
-      "tag": "Opinion"
-    },
-    {
-      "lemma": "prácticamente",
-      "ipa": "pɾak.ti.kaˈmen.te",
-      "pos": "adv",
-      "translation_en": "practically, almost",
-      "example": "Prácticamente todos los trámites de la universidad se hacen en línea.",
-      "example_en": "Practically all university procedures are done online.",
-      "tag": "Quantity"
-    },
-    {
-      "lemma": "francamente",
-      "ipa": "fɾaŋ.kaˈmen.te",
-      "pos": "adv",
-      "translation_en": "frankly",
-      "example": "Francamente, me preocupa más el alquiler que el coste de la matrícula.",
-      "example_en": "Frankly, I am more worried about rent than the cost of tuition.",
-      "tag": "Opinion"
-    },
-    {
-      "lemma": "a pesar de",
-      "ipa": "a peˈsaɾ ðe",
-      "pos": "phrase",
-      "translation_en": "despite, in spite of",
-      "example": "A pesar de tener poco tiempo, preparé la presentación con calma.",
-      "example_en": "Despite having little time, I prepared the presentation calmly.",
-      "tag": "Connectors"
-    },
-    {
-      "lemma": "por lo tanto",
-      "ipa": "poɾ lo ˈtan.to",
-      "pos": "phrase",
-      "translation_en": "therefore",
-      "example": "El plazo termina mañana; por lo tanto, conviene enviar la solicitud hoy.",
-      "example_en": "The deadline ends tomorrow; therefore, it is useful to submit the application today.",
-      "tag": "Connectors"
-    },
-    {
-      "lemma": "en cambio",
-      "ipa": "en ˈkam.bjo",
-      "pos": "phrase",
-      "translation_en": "on the other hand",
-      "example": "Yo prefiero vivir cerca del campus; mi compañero, en cambio, busca un barrio más tranquilo.",
-      "example_en": "I prefer living near campus; my roommate, on the other hand, is looking for a quieter neighbourhood.",
-      "tag": "Connectors"
-    },
-    {
-      "lemma": "tener en cuenta",
-      "ipa": "teˈneɾ en ˈkwen.ta",
-      "pos": "phrase",
-      "translation_en": "to take into account",
-      "example": "Hay que tener en cuenta el coste del transporte antes de elegir piso.",
-      "example_en": "You have to take transport costs into account before choosing a flat.",
-      "tag": "Cognition"
-    },
-    {
-      "lemma": "valer la pena",
-      "ipa": "baˈleɾ la ˈpe.na",
-      "pos": "phrase",
-      "translation_en": "to be worth it",
-      "example": "Aunque el curso es exigente, vale la pena por la práctica oral que ofrece.",
-      "example_en": "Although the course is demanding, it is worth it because of the speaking practice it offers.",
-      "tag": "Opinion"
-    },
-    {
-      "lemma": "impacto",
+      "lemma": "razonamiento",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "impact",
-      "tag": "Discussion",
-      "example": "La subida del alquiler tiene un impacto directo en los estudiantes con menos recursos.",
-      "example_en": "The rise in rent has a direct impact on students with fewer resources."
+      "translation_en": "reasoning",
+      "example": "Ese ejemplo ayuda a entender mejor el razonamiento.",
+      "example_en": "That example helps to understand the reasoning better.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "reto",
+      "lemma": "sesgo",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "challenge",
-      "tag": "Discussion",
-      "example": "Adaptarse a otro sistema educativo es un reto, pero también una oportunidad.",
-      "example_en": "Adapting to another education system is a challenge, but also an opportunity."
+      "translation_en": "bias",
+      "example": "El debate gira en torno al sesgo, no solo a los datos.",
+      "example_en": "The debate revolves around the bias, not only the data.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "desafío",
+      "lemma": "encuadre",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "challenge",
-      "tag": "Discussion",
-      "example": "El mayor desafío no fue el idioma, sino entender las normas no escritas.",
-      "example_en": "The biggest challenge was not the language, but understanding the unwritten rules."
+      "translation_en": "framing",
+      "example": "Ese ejemplo ayuda a entender mejor el encuadre.",
+      "example_en": "That example helps to understand the framing better.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "tendencia",
+      "lemma": "criterio",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "trend",
-      "tag": "Discussion",
-      "example": "Una tendencia clara es combinar clases presenciales con materiales en línea.",
-      "example_en": "A clear trend is combining in-person classes with online materials."
+      "translation_en": "criterion",
+      "example": "Ese ejemplo ayuda a entender mejor el criterio.",
+      "example_en": "That example helps to understand the criterion better.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "fenómeno",
+      "lemma": "implicación",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "phenomenon",
-      "tag": "Discussion",
-      "example": "El fenómeno de los pisos compartidos refleja la presión del mercado de alquiler.",
-      "example_en": "The phenomenon of shared flats reflects the pressure of the rental market."
+      "translation_en": "implication",
+      "example": "El ensayo menciona la implicación para matizar la conclusión.",
+      "example_en": "The essay mentions the implication to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "factor",
+      "lemma": "repercusión",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "factor",
-      "tag": "Discussion",
-      "example": "El precio del transporte fue un factor decisivo al elegir residencia.",
-      "example_en": "The price of transport was a decisive factor when choosing accommodation."
+      "translation_en": "repercussion",
+      "example": "El ensayo menciona la repercusión para matizar la conclusión.",
+      "example_en": "The essay mentions the repercussion to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "aspecto",
+      "lemma": "ambigüedad",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "aspect",
-      "tag": "Discussion",
-      "example": "Un aspecto que se suele olvidar es la salud mental durante el primer año.",
-      "example_en": "One aspect that is often forgotten is mental health during the first year."
+      "translation_en": "ambiguity",
+      "example": "Para defender una postura, conviene aclarar la ambigüedad.",
+      "example_en": "To defend a position, it is best to clarify the ambiguity.",
+      "tag": "Argumentation",
+      "gender": "f"
+    },
+    {
+      "lemma": "supuesto",
+      "pos": "noun",
+      "translation_en": "assumption",
+      "example": "Ese ejemplo ayuda a entender mejor el supuesto.",
+      "example_en": "That example helps to understand the assumption better.",
+      "tag": "Argumentation",
+      "gender": "m"
+    },
+    {
+      "lemma": "sondeo",
+      "pos": "noun",
+      "translation_en": "poll",
+      "example": "Para defender una postura, conviene aclarar el sondeo.",
+      "example_en": "To defend a position, it is best to clarify the poll.",
+      "tag": "Argumentation",
+      "gender": "m"
+    },
+    {
+      "lemma": "pauta",
+      "pos": "noun",
+      "translation_en": "pattern",
+      "example": "El debate gira en torno a la pauta, no solo a los datos.",
+      "example_en": "The debate revolves around the pattern, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
+    },
+    {
+      "lemma": "indicio",
+      "pos": "noun",
+      "translation_en": "sign, clue",
+      "example": "El ensayo menciona el indicio para matizar la conclusión.",
+      "example_en": "The essay mentions the sign, clue to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "m"
+    },
+    {
+      "lemma": "precedente",
+      "pos": "noun",
+      "translation_en": "precedent",
+      "example": "Para defender una postura, conviene aclarar el precedente.",
+      "example_en": "To defend a position, it is best to clarify the precedent.",
+      "tag": "Argumentation",
+      "gender": "m"
+    },
+    {
+      "lemma": "paradoja",
+      "pos": "noun",
+      "translation_en": "paradox",
+      "example": "Ese ejemplo ayuda a entender mejor la paradoja.",
+      "example_en": "That example helps to understand the paradox better.",
+      "tag": "Argumentation",
+      "gender": "f"
+    },
+    {
+      "lemma": "coherencia",
+      "pos": "noun",
+      "translation_en": "coherence",
+      "example": "Para defender una postura, conviene aclarar la coherencia.",
+      "example_en": "To defend a position, it is best to clarify the coherence.",
+      "tag": "Argumentation",
+      "gender": "f"
+    },
+    {
+      "lemma": "contradicción",
+      "pos": "noun",
+      "translation_en": "contradiction",
+      "example": "El debate gira en torno a la contradicción, no solo a los datos.",
+      "example_en": "The debate revolves around the contradiction, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
+    },
+    {
+      "lemma": "argumentario",
+      "pos": "noun",
+      "translation_en": "set of arguments",
+      "example": "Ese ejemplo ayuda a entender mejor el argumentario.",
+      "example_en": "That example helps to understand the set of arguments better.",
+      "tag": "Argumentation",
+      "gender": "m"
+    },
+    {
+      "lemma": "razonabilidad",
+      "pos": "noun",
+      "translation_en": "reasonableness",
+      "example": "El debate gira en torno a la razonabilidad, no solo a los datos.",
+      "example_en": "The debate revolves around the reasonableness, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
+    },
+    {
+      "lemma": "veracidad",
+      "pos": "noun",
+      "translation_en": "truthfulness",
+      "example": "El debate gira en torno a la veracidad, no solo a los datos.",
+      "example_en": "The debate revolves around the truthfulness, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
+    },
+    {
+      "lemma": "falsedad",
+      "pos": "noun",
+      "translation_en": "falsehood",
+      "example": "Ese ejemplo ayuda a entender mejor la falsedad.",
+      "example_en": "That example helps to understand the falsehood better.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
       "lemma": "enfoque",
       "pos": "noun",
-      "gender": "m",
       "translation_en": "approach",
-      "tag": "Discussion",
-      "example": "Un enfoque práctico es aprender vocabulario dentro de situaciones reales.",
-      "example_en": "A practical approach is to learn vocabulary within real situations."
+      "example": "El ensayo menciona el enfoque para matizar la conclusión.",
+      "example_en": "The essay mentions the approach to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "medida",
+      "lemma": "alcance",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "measure",
-      "tag": "Discussion",
-      "example": "La nueva medida busca reducir las colas en la oficina de extranjería.",
-      "example_en": "The new measure aims to reduce queues at the immigration office."
+      "translation_en": "scope",
+      "example": "El ensayo menciona el alcance para matizar la conclusión.",
+      "example_en": "The essay mentions the scope to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "recurso",
+      "lemma": "trasfondo",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "resource",
-      "tag": "Discussion",
-      "example": "La biblioteca ofrece recursos gratuitos para preparar presentaciones académicas.",
-      "example_en": "The library offers free resources for preparing academic presentations."
+      "translation_en": "background",
+      "example": "El debate gira en torno al trasfondo, no solo a los datos.",
+      "example_en": "The debate revolves around the background, not only the data.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "herramienta",
+      "lemma": "planteamiento",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "tool",
-      "tag": "Discussion",
-      "example": "Un calendario compartido puede ser una herramienta útil para trabajos en grupo.",
-      "example_en": "A shared calendar can be a useful tool for group projects."
+      "translation_en": "approach",
+      "example": "El debate gira en torno al planteamiento, no solo a los datos.",
+      "example_en": "The debate revolves around the approach, not only the data.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "estrategia",
+      "lemma": "concesión",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "strategy",
-      "tag": "Discussion",
-      "example": "Mi estrategia para mejorar la fluidez es grabarme y corregir una idea cada vez.",
-      "example_en": "My strategy for improving fluency is to record myself and correct one idea at a time."
+      "translation_en": "concession",
+      "example": "El debate gira en torno a la concesión, no solo a los datos.",
+      "example_en": "The debate revolves around the concession, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "iniciativa",
+      "lemma": "réplica",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "initiative",
-      "tag": "Discussion",
-      "example": "La iniciativa de tutorías entre estudiantes ayuda mucho a quienes llegan de fuera.",
-      "example_en": "The peer tutoring initiative helps students who arrive from abroad a lot."
+      "translation_en": "reply, rebuttal",
+      "example": "El ensayo menciona la réplica para matizar la conclusión.",
+      "example_en": "The essay mentions the reply, rebuttal to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "propuesta",
+      "lemma": "refutación",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "proposal",
-      "tag": "Discussion",
-      "example": "La propuesta de ampliar las becas recibió apoyo de varios departamentos.",
-      "example_en": "The proposal to expand grants received support from several departments."
+      "translation_en": "refutation",
+      "example": "Para defender una postura, conviene aclarar la refutación.",
+      "example_en": "To defend a position, it is best to clarify the refutation.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "inversión",
+      "lemma": "valoración",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "investment",
-      "tag": "Economy",
-      "example": "La inversión en residencias universitarias aliviaría parte del problema de vivienda.",
-      "example_en": "Investment in university residences would ease part of the housing problem."
+      "translation_en": "assessment",
+      "example": "Para defender una postura, conviene aclarar la valoración.",
+      "example_en": "To defend a position, it is best to clarify the assessment.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "beneficio",
+      "lemma": "excepción",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "benefit; profit",
-      "tag": "Economy",
-      "example": "El principal beneficio de vivir con locales es escuchar español todos los días.",
-      "example_en": "The main benefit of living with locals is hearing Spanish every day."
+      "translation_en": "exception",
+      "example": "El debate gira en torno a la excepción, no solo a los datos.",
+      "example_en": "The debate revolves around the exception, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "coste",
+      "lemma": "omisión",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "cost",
-      "tag": "Economy",
-      "example": "El coste de no practicar oralmente es llegar al examen con poca seguridad.",
-      "example_en": "The cost of not practising speaking is reaching the exam with little confidence."
+      "translation_en": "omission",
+      "example": "El ensayo menciona la omisión para matizar la conclusión.",
+      "example_en": "The essay mentions the omission to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "consumo",
+      "lemma": "gradación",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "consumption",
-      "tag": "Economy",
-      "example": "El consumo de energía baja cuando el edificio tiene buen aislamiento.",
-      "example_en": "Energy consumption falls when the building has good insulation."
+      "translation_en": "gradation",
+      "example": "El debate gira en torno a la gradación, no solo a los datos.",
+      "example_en": "The debate revolves around the gradation, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "producción",
+      "lemma": "pertinencia",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "production",
-      "tag": "Economy",
-      "example": "La producción local puede reducir la dependencia de productos importados.",
-      "example_en": "Local production can reduce dependence on imported products."
+      "translation_en": "relevance",
+      "example": "El ensayo menciona la pertinencia para matizar la conclusión.",
+      "example_en": "The essay mentions the relevance to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "empleo",
+      "lemma": "solidez",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "employment; job",
-      "tag": "Work",
-      "example": "El empleo juvenil sigue siendo una preocupación en muchas ciudades.",
-      "example_en": "Youth employment remains a concern in many cities."
+      "translation_en": "strength, solidity",
+      "example": "El ensayo menciona la solidez para matizar la conclusión.",
+      "example_en": "The essay mentions the strength, solidity to qualify the conclusion.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "desempleo",
+      "lemma": "credibilidad",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "unemployment",
-      "tag": "Work",
-      "example": "El desempleo afecta especialmente a quienes no tienen experiencia previa.",
-      "example_en": "Unemployment especially affects those who do not have previous experience."
+      "translation_en": "credibility",
+      "example": "Ese ejemplo ayuda a entender mejor la credibilidad.",
+      "example_en": "That example helps to understand the credibility better.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "desigualdad",
+      "lemma": "fiabilidad",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "inequality",
-      "tag": "Society",
-      "example": "La desigualdad se nota cuando algunos estudiantes no pueden pagar material básico.",
-      "example_en": "Inequality is visible when some students cannot afford basic materials."
+      "translation_en": "reliability",
+      "example": "Para defender una postura, conviene aclarar la fiabilidad.",
+      "example_en": "To defend a position, it is best to clarify the reliability.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "pobreza",
+      "lemma": "laguna",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "poverty",
-      "tag": "Society",
-      "example": "La pobreza no siempre se ve, pero condiciona decisiones como estudiar o trabajar.",
-      "example_en": "Poverty is not always visible, but it shapes decisions such as studying or working."
+      "translation_en": "gap",
+      "example": "Para defender una postura, conviene aclarar la laguna.",
+      "example_en": "To defend a position, it is best to clarify the gap.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "riqueza",
+      "lemma": "salvedad",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "wealth",
-      "tag": "Society",
-      "example": "La riqueza de una ciudad también está en sus bibliotecas, parques y vida cultural.",
-      "example_en": "A city’s wealth also lies in its libraries, parks and cultural life."
+      "translation_en": "reservation, caveat",
+      "example": "Ese ejemplo ayuda a entender mejor la salvedad.",
+      "example_en": "That example helps to understand the reservation, caveat better.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "bienestar",
+      "lemma": "consenso",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "well-being",
-      "tag": "Society",
-      "example": "El bienestar de los estudiantes depende de algo más que las notas.",
-      "example_en": "Student wellbeing depends on more than grades."
+      "translation_en": "consensus",
+      "example": "Ese ejemplo ayuda a entender mejor el consenso.",
+      "example_en": "That example helps to understand the consensus better.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "educación",
+      "lemma": "controversia",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "education",
-      "tag": "Education",
-      "example": "La educación pública permite que el origen familiar no determine todo el futuro.",
-      "example_en": "Public education allows family background not to determine the whole future."
+      "translation_en": "controversy",
+      "example": "Ese ejemplo ayuda a entender mejor la controversia.",
+      "example_en": "That example helps to understand the controversy better.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "formación",
+      "lemma": "conjetura",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "training; education",
-      "tag": "Education",
-      "example": "La formación práctica facilita encontrar empleo después de graduarse.",
-      "example_en": "Practical training makes it easier to find a job after graduation."
+      "translation_en": "conjecture",
+      "example": "El debate gira en torno a la conjetura, no solo a los datos.",
+      "example_en": "The debate revolves around the conjecture, not only the data.",
+      "tag": "Argumentation",
+      "gender": "f"
     },
     {
-      "lemma": "investigación",
+      "lemma": "veredicto",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "research",
-      "tag": "Education",
-      "example": "La investigación universitaria puede responder a problemas reales de la comunidad.",
-      "example_en": "University research can respond to real problems in the community."
+      "translation_en": "verdict",
+      "example": "El debate gira en torno al veredicto, no solo a los datos.",
+      "example_en": "The debate revolves around the verdict, not only the data.",
+      "tag": "Argumentation",
+      "gender": "m"
     },
     {
-      "lemma": "tecnología",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "technology",
-      "tag": "Technology",
-      "example": "La tecnología ayuda, pero no sustituye una conversación cara a cara.",
-      "example_en": "Technology helps, but it does not replace a face-to-face conversation."
-    },
-    {
-      "lemma": "innovación",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "innovation",
-      "tag": "Technology",
-      "example": "La innovación educativa no consiste solo en usar más pantallas.",
-      "example_en": "Educational innovation is not just about using more screens."
-    },
-    {
-      "lemma": "fomentar",
+      "lemma": "matizar",
       "pos": "verb",
-      "translation_en": "encourage; promote",
-      "tag": "Discussion",
-      "example": "La universidad intenta fomentar la participación en debates y actividades culturales.",
-      "example_en": "The university tries to encourage participation in debates and cultural activities."
+      "translation_en": "to qualify, nuance",
+      "example": "La comisión decidió matizar la propuesta antes de votarla.",
+      "example_en": "The committee decided to qualify, nuance the proposal before voting on it.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "promover",
+      "lemma": "rebatir",
       "pos": "verb",
-      "translation_en": "promote",
-      "tag": "Discussion",
-      "example": "El ayuntamiento quiere promover el uso de la bicicleta entre los jóvenes.",
-      "example_en": "The city council wants to promote bicycle use among young people."
-    },
-    {
-      "lemma": "impulsar",
-      "pos": "verb",
-      "translation_en": "drive; boost",
-      "tag": "Discussion",
-      "example": "Un buen programa de becas puede impulsar la movilidad social.",
-      "example_en": "A good grant programme can boost social mobility."
-    },
-    {
-      "lemma": "reducir",
-      "pos": "verb",
-      "translation_en": "reduce",
-      "tag": "Discussion",
-      "example": "Para reducir el estrés, empecé a preparar los exámenes con más antelación.",
-      "example_en": "To reduce stress, I began preparing for exams earlier."
-    },
-    {
-      "lemma": "aumentar",
-      "pos": "verb",
-      "translation_en": "increase",
-      "tag": "Discussion",
-      "example": "El nuevo horario puede aumentar la asistencia a las tutorías.",
-      "example_en": "The new schedule may increase attendance at tutorials."
-    },
-    {
-      "lemma": "disminuir",
-      "pos": "verb",
-      "translation_en": "decrease",
-      "tag": "Discussion",
-      "example": "Compartir apuntes fiables ayuda a disminuir la ansiedad antes del examen.",
-      "example_en": "Sharing reliable notes helps reduce anxiety before the exam."
-    },
-    {
-      "lemma": "prevenir",
-      "pos": "verb",
-      "translation_en": "prevent",
-      "tag": "Health",
-      "example": "Informarse bien permite prevenir errores en la solicitud de visado.",
-      "example_en": "Getting well informed helps prevent mistakes in the visa application."
-    },
-    {
-      "lemma": "proteger",
-      "pos": "verb",
-      "translation_en": "protect",
-      "tag": "Society",
-      "example": "Las normas de privacidad deben proteger los datos de los estudiantes.",
-      "example_en": "Privacy rules must protect students’ data."
-    },
-    {
-      "lemma": "garantizar",
-      "pos": "verb",
-      "translation_en": "guarantee",
-      "tag": "Society",
-      "example": "La universidad debe garantizar acceso a información clara y actualizada.",
-      "example_en": "The university must guarantee access to clear and updated information."
-    },
-    {
-      "lemma": "financiar",
-      "pos": "verb",
-      "translation_en": "finance",
-      "tag": "Economy",
-      "example": "No todas las familias pueden financiar un año de estudios en el extranjero.",
-      "example_en": "Not all families can finance a year of study abroad."
-    },
-    {
-      "lemma": "invertir",
-      "pos": "verb",
-      "translation_en": "invest",
-      "tag": "Economy",
-      "example": "Invertir en idiomas abre puertas, pero exige constancia.",
-      "example_en": "Investing in languages opens doors, but it requires consistency."
-    },
-    {
-      "lemma": "regular",
-      "pos": "verb",
-      "translation_en": "regulate",
-      "tag": "Society",
-      "example": "Regular los alquileres turísticos podría liberar vivienda para residentes.",
-      "example_en": "Regulating tourist rentals could free up housing for residents."
-    },
-    {
-      "lemma": "evaluar",
-      "pos": "verb",
-      "translation_en": "evaluate",
-      "tag": "Education",
-      "example": "Antes de cambiar de carrera, conviene evaluar las opciones con alguien de confianza.",
-      "example_en": "Before changing degree programmes, it is useful to evaluate the options with someone you trust."
-    },
-    {
-      "lemma": "analizar",
-      "pos": "verb",
-      "translation_en": "analyse",
-      "tag": "Education",
-      "example": "Para escribir un buen ensayo, hay que analizar las causas y no solo describirlas.",
-      "example_en": "To write a good essay, you have to analyse the causes and not just describe them."
-    },
-    {
-      "lemma": "investigar",
-      "pos": "verb",
-      "translation_en": "research; investigate",
-      "tag": "Education",
-      "example": "Investigar fuentes fiables evita repetir datos falsos en una presentación.",
-      "example_en": "Researching reliable sources prevents repeating false data in a presentation."
-    },
-    {
-      "lemma": "demostrar",
-      "pos": "verb",
-      "translation_en": "demonstrate; show",
-      "tag": "Discussion",
-      "example": "En el oral, no basta con afirmar algo; hay que demostrarlo con ejemplos.",
-      "example_en": "In the oral exam, it is not enough to state something; you have to demonstrate it with examples."
-    },
-    {
-      "lemma": "justificar",
-      "pos": "verb",
-      "translation_en": "justify",
-      "tag": "Discussion",
-      "example": "Debes justificar tu opinión si quieres que suene convincente.",
-      "example_en": "You must justify your opinion if you want it to sound convincing."
+      "translation_en": "to refute",
+      "example": "La comisión decidió rebatir la propuesta antes de votarla.",
+      "example_en": "The committee decided to refute the proposal before voting on it.",
+      "tag": "Argumentation"
     },
     {
       "lemma": "cuestionar",
       "pos": "verb",
-      "translation_en": "question; challenge",
-      "tag": "Discussion",
-      "example": "Cuestionar una medida no significa rechazarla por completo.",
-      "example_en": "Questioning a measure does not mean rejecting it completely."
+      "translation_en": "to question",
+      "example": "Para avanzar, hace falta cuestionar los datos con rigor.",
+      "example_en": "To move forward, it is necessary to question the data rigorously.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "afectar",
+      "lemma": "deducir",
       "pos": "verb",
-      "translation_en": "affect",
-      "tag": "Discussion",
-      "example": "La falta de sueño afecta a la concentración y al estado de ánimo.",
-      "example_en": "Lack of sleep affects concentration and mood."
+      "translation_en": "to deduce",
+      "example": "La comisión decidió deducir la propuesta antes de votarla.",
+      "example_en": "The committee decided to deduce the proposal before voting on it.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "influir",
+      "lemma": "inferir",
       "pos": "verb",
-      "translation_en": "influence",
-      "tag": "Discussion",
-      "example": "El ambiente de clase influye mucho en las ganas de participar.",
-      "example_en": "The classroom atmosphere greatly influences the desire to participate."
+      "translation_en": "to infer",
+      "example": "La comisión decidió inferir la propuesta antes de votarla.",
+      "example_en": "The committee decided to infer the proposal before voting on it.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "contribuir",
+      "lemma": "alegar",
       "pos": "verb",
-      "translation_en": "contribute",
-      "tag": "Society",
-      "example": "Participar en grupos de estudio contribuye a crear una red de apoyo.",
-      "example_en": "Taking part in study groups contributes to creating a support network."
+      "translation_en": "to allege",
+      "example": "Para avanzar, hace falta alegar los datos con rigor.",
+      "example_en": "To move forward, it is necessary to allege the data rigorously.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "beneficiar",
+      "lemma": "argumentar",
       "pos": "verb",
-      "translation_en": "benefit",
-      "tag": "Society",
-      "example": "Una matrícula más flexible beneficiaría a estudiantes que trabajan.",
-      "example_en": "More flexible enrolment would benefit students who work."
+      "translation_en": "to argue",
+      "example": "Para avanzar, hace falta argumentar los datos con rigor.",
+      "example_en": "To move forward, it is necessary to argue the data rigorously.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "perjudicar",
+      "lemma": "fundamentar",
       "pos": "verb",
-      "translation_en": "harm",
-      "tag": "Society",
-      "example": "La información confusa puede perjudicar a quienes llegan tarde al proceso.",
-      "example_en": "Confusing information can harm those who arrive late in the process."
+      "translation_en": "to substantiate",
+      "example": "La comisión decidió fundamentar la propuesta antes de votarla.",
+      "example_en": "The committee decided to substantiate the proposal before voting on it.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "adaptar",
+      "lemma": "constatar",
       "pos": "verb",
-      "translation_en": "adapt",
-      "tag": "Action",
-      "example": "Es necesario adaptar los materiales a estudiantes con distintos niveles.",
-      "example_en": "It is necessary to adapt materials to students with different levels."
+      "translation_en": "to verify",
+      "example": "La medida puede constatar la situación si no se aplica con cuidado.",
+      "example_en": "The measure may verify the situation if it is not applied carefully.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "sostenible",
+      "lemma": "corroborar",
+      "pos": "verb",
+      "translation_en": "to corroborate",
+      "example": "Para avanzar, hace falta corroborar los datos con rigor.",
+      "example_en": "To move forward, it is necessary to corroborate the data rigorously.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "recalcar",
+      "pos": "verb",
+      "translation_en": "to stress",
+      "example": "El gobierno intenta recalcar el problema sin crear nuevas tensiones.",
+      "example_en": "The government is trying to stress the problem without creating new tensions.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "sopesar",
+      "pos": "verb",
+      "translation_en": "to weigh up",
+      "example": "La comisión decidió sopesar la propuesta antes de votarla.",
+      "example_en": "The committee decided to weigh up the proposal before voting on it.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "ponderar",
+      "pos": "verb",
+      "translation_en": "to weigh, consider",
+      "example": "El gobierno intenta ponderar el problema sin crear nuevas tensiones.",
+      "example_en": "The government is trying to weigh, consider the problem without creating new tensions.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "desestimar",
+      "pos": "verb",
+      "translation_en": "to dismiss",
+      "example": "Para avanzar, hace falta desestimar los datos con rigor.",
+      "example_en": "To move forward, it is necessary to dismiss the data rigorously.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "respaldar",
+      "pos": "verb",
+      "translation_en": "to back up",
+      "example": "La medida puede respaldar la situación si no se aplica con cuidado.",
+      "example_en": "The measure may back up the situation if it is not applied carefully.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "omitir",
+      "pos": "verb",
+      "translation_en": "to omit",
+      "example": "Para avanzar, hace falta omitir los datos con rigor.",
+      "example_en": "To move forward, it is necessary to omit the data rigorously.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "tergiversar",
+      "pos": "verb",
+      "translation_en": "to distort",
+      "example": "La comisión decidió tergiversar la propuesta antes de votarla.",
+      "example_en": "The committee decided to distort the proposal before voting on it.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "generalizar",
+      "pos": "verb",
+      "translation_en": "to generalise",
+      "example": "La comisión decidió generalizar la propuesta antes de votarla.",
+      "example_en": "The committee decided to generalise the proposal before voting on it.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "relativizar",
+      "pos": "verb",
+      "translation_en": "to put into perspective",
+      "example": "La comisión decidió relativizar la propuesta antes de votarla.",
+      "example_en": "The committee decided to put into perspective the proposal before voting on it.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "concluir",
+      "pos": "verb",
+      "translation_en": "to conclude",
+      "example": "El gobierno intenta concluir el problema sin crear nuevas tensiones.",
+      "example_en": "The government is trying to conclude the problem without creating new tensions.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "enfocar",
+      "pos": "verb",
+      "translation_en": "to frame",
+      "example": "La comisión decidió enfocar la propuesta antes de votarla.",
+      "example_en": "The committee decided to frame the proposal before voting on it.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "aclarar",
+      "pos": "verb",
+      "translation_en": "to clarify",
+      "example": "La comisión decidió aclarar la propuesta antes de votarla.",
+      "example_en": "The committee decided to clarify the proposal before voting on it.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "formular",
+      "pos": "verb",
+      "translation_en": "to formulate",
+      "example": "El gobierno intenta formular el problema sin crear nuevas tensiones.",
+      "example_en": "The government is trying to formulate the problem without creating new tensions.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "sustentar",
+      "pos": "verb",
+      "translation_en": "to support with evidence",
+      "example": "La medida puede sustentar la situación si no se aplica con cuidado.",
+      "example_en": "The measure may support with evidence the situation if it is not applied carefully.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "precisar",
+      "pos": "verb",
+      "translation_en": "to specify precisely",
+      "example": "El gobierno intenta precisar el problema sin crear nuevas tensiones.",
+      "example_en": "The government is trying to specify precisely the problem without creating new tensions.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "discrepar",
+      "pos": "verb",
+      "translation_en": "to disagree",
+      "example": "La medida puede discrepar la situación si no se aplica con cuidado.",
+      "example_en": "The measure may disagree the situation if it is not applied carefully.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "invalidar",
+      "pos": "verb",
+      "translation_en": "to invalidate",
+      "example": "La medida puede invalidar la situación si no se aplica con cuidado.",
+      "example_en": "The measure may invalidate the situation if it is not applied carefully.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "reformular",
+      "pos": "verb",
+      "translation_en": "to rephrase",
+      "example": "Para avanzar, hace falta reformular los datos con rigor.",
+      "example_en": "To move forward, it is necessary to rephrase the data rigorously.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "ambiguo",
       "pos": "adj",
-      "translation_en": "sustainable",
-      "tag": "Environment",
-      "example": "Un campus sostenible reduce residuos y ahorra energía sin perder comodidad.",
-      "example_en": "A sustainable campus reduces waste and saves energy without losing comfort."
+      "translation_en": "ambiguous",
+      "example": "Un análisis ambiguo permite evitar conclusiones rápidas.",
+      "example_en": "A ambiguous analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "eficaz",
+      "lemma": "coherente",
       "pos": "adj",
-      "translation_en": "effective",
-      "tag": "Evaluation",
-      "example": "Una técnica eficaz es resumir cada clase con tus propias palabras.",
-      "example_en": "An effective technique is to summarise each class in your own words."
+      "translation_en": "coherent",
+      "example": "Es un enfoque coherente, pero necesita más pruebas.",
+      "example_en": "It is a coherent approach, but it needs more evidence.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "eficiente",
+      "lemma": "contradictorio",
       "pos": "adj",
-      "translation_en": "efficient",
-      "tag": "Evaluation",
-      "example": "Un sistema eficiente evita repetir el mismo trámite en varias oficinas.",
-      "example_en": "An efficient system avoids repeating the same procedure in several offices."
+      "translation_en": "contradictory",
+      "example": "La respuesta fue contradictorio para una situación tan compleja.",
+      "example_en": "The response was contradictory for such a complex situation.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "escaso",
+      "lemma": "fundado",
       "pos": "adj",
-      "translation_en": "scarce",
-      "tag": "Quantity",
-      "example": "El tiempo es escaso cuando trabajas y estudias a la vez.",
-      "example_en": "Time is scarce when you work and study at the same time."
+      "translation_en": "well founded",
+      "example": "Un análisis fundado permite evitar conclusiones rápidas.",
+      "example_en": "A well founded analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "abundante",
+      "lemma": "infundado",
       "pos": "adj",
-      "translation_en": "abundant",
-      "tag": "Quantity",
-      "example": "Hay información abundante, pero no siempre es fiable.",
-      "example_en": "There is abundant information, but it is not always reliable."
+      "translation_en": "unfounded",
+      "example": "Es un enfoque infundado, pero necesita más pruebas.",
+      "example_en": "It is a unfounded approach, but it needs more evidence.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "relevante",
+      "lemma": "verosímil",
+      "pos": "adj",
+      "translation_en": "plausible",
+      "example": "Es un enfoque verosímil, pero necesita más pruebas.",
+      "example_en": "It is a plausible approach, but it needs more evidence.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "sesgado",
+      "pos": "adj",
+      "translation_en": "biased",
+      "example": "Un análisis sesgado permite evitar conclusiones rápidas.",
+      "example_en": "A biased analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "matizado",
+      "pos": "adj",
+      "translation_en": "nuanced",
+      "example": "El debate se volvió más matizado después de escuchar a los afectados.",
+      "example_en": "The debate became more nuanced after listening to those affected.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "contundente",
+      "pos": "adj",
+      "translation_en": "forceful",
+      "example": "Un análisis contundente permite evitar conclusiones rápidas.",
+      "example_en": "A forceful analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "pertinente",
       "pos": "adj",
       "translation_en": "relevant",
-      "tag": "Evaluation",
-      "example": "Incluye solo información relevante para no perder el hilo del argumento.",
-      "example_en": "Include only relevant information so you do not lose the thread of the argument."
+      "example": "La respuesta fue pertinente para una situación tan compleja.",
+      "example_en": "The response was relevant for such a complex situation.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "significativo",
+      "lemma": "irrelevante",
       "pos": "adj",
-      "translation_en": "significant",
-      "tag": "Evaluation",
-      "example": "Un cambio significativo fue empezar a hablar con nativos cada semana.",
-      "example_en": "A significant change was starting to speak with native speakers every week."
+      "translation_en": "irrelevant",
+      "example": "Un análisis irrelevante permite evitar conclusiones rápidas.",
+      "example_en": "A irrelevant analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "limitado",
+      "lemma": "convincente",
       "pos": "adj",
-      "translation_en": "limited",
-      "tag": "Evaluation",
-      "example": "Con un presupuesto limitado, hay que priorizar vivienda y comida.",
-      "example_en": "With a limited budget, you have to prioritise housing and food."
+      "translation_en": "convincing",
+      "example": "Un análisis convincente permite evitar conclusiones rápidas.",
+      "example_en": "A convincing analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "amplio",
+      "lemma": "falaz",
       "pos": "adj",
-      "translation_en": "broad; wide",
-      "tag": "Evaluation",
-      "example": "Un vocabulario amplio permite matizar mejor las opiniones.",
-      "example_en": "A broad vocabulary allows you to qualify opinions better."
+      "translation_en": "fallacious",
+      "example": "Es un enfoque falaz, pero necesita más pruebas.",
+      "example_en": "It is a fallacious approach, but it needs more evidence.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "global",
+      "lemma": "rotundo",
       "pos": "adj",
-      "translation_en": "global",
-      "tag": "Society",
-      "example": "El problema es global, pero cada ciudad lo vive de forma distinta.",
-      "example_en": "The problem is global, but each city experiences it differently."
+      "translation_en": "categorical",
+      "example": "Un análisis rotundo permite evitar conclusiones rápidas.",
+      "example_en": "A categorical analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "social",
+      "lemma": "parcial",
       "pos": "adj",
-      "translation_en": "social",
-      "tag": "Society",
-      "example": "La vivienda no es solo un problema económico, sino también social.",
-      "example_en": "Housing is not only an economic problem, but also a social one."
+      "translation_en": "partial",
+      "example": "Un análisis parcial permite evitar conclusiones rápidas.",
+      "example_en": "A partial analysis helps avoid quick conclusions.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "económico",
-      "pos": "adj",
-      "translation_en": "economic",
-      "tag": "Economy",
-      "example": "El apoyo económico puede decidir si alguien sigue estudiando o abandona.",
-      "example_en": "Financial support can determine whether someone continues studying or drops out."
-    },
-    {
-      "lemma": "político",
-      "pos": "adj",
-      "translation_en": "political",
-      "tag": "Politics",
-      "example": "El debate político influye en la financiación de la educación pública.",
-      "example_en": "Political debate influences the funding of public education."
-    },
-    {
-      "lemma": "cultural",
-      "pos": "adj",
-      "translation_en": "cultural",
-      "tag": "Culture",
-      "example": "La adaptación cultural requiere observar, preguntar y escuchar mucho.",
-      "example_en": "Cultural adaptation requires observing, asking and listening a lot."
-    },
-    {
-      "lemma": "ambiental",
-      "pos": "adj",
-      "translation_en": "environmental",
-      "tag": "Environment",
-      "example": "El impacto ambiental del transporte depende de cómo nos movemos cada día.",
-      "example_en": "The environmental impact of transport depends on how we move every day."
-    },
-    {
-      "lemma": "tecnológico",
-      "pos": "adj",
-      "translation_en": "technological",
-      "tag": "Technology",
-      "example": "El cambio tecnológico exige aprender de forma continua.",
-      "example_en": "Technological change requires continuous learning."
-    },
-    {
-      "lemma": "principalmente",
+      "lemma": "presuntamente",
       "pos": "adv",
-      "translation_en": "mainly",
-      "tag": "Discussion",
-      "example": "Elegí esa residencia principalmente porque estaba cerca de la facultad.",
-      "example_en": "I chose that residence mainly because it was close to the faculty."
+      "translation_en": "allegedly",
+      "example": "La situación cambió presuntamente tras la nueva normativa.",
+      "example_en": "The situation changed allegedly after the new regulation.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "aproximadamente",
+      "lemma": "parcialmente",
       "pos": "adv",
-      "translation_en": "approximately",
-      "tag": "Quantity",
-      "example": "El trámite dura aproximadamente dos semanas si no falta ningún documento.",
-      "example_en": "The procedure takes approximately two weeks if no document is missing."
+      "translation_en": "partly",
+      "example": "El informe explica parcialmente por qué la medida no funciona.",
+      "example_en": "The report explains partly why the measure does not work.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "relativamente",
+      "lemma": "matizadamente",
       "pos": "adv",
-      "translation_en": "relatively",
-      "tag": "Quantity",
-      "example": "La ciudad es relativamente cara, pero ofrece muchas actividades gratuitas.",
-      "example_en": "The city is relatively expensive, but it offers many free activities."
+      "translation_en": "with nuance",
+      "example": "La situación cambió matizadamente tras la nueva normativa.",
+      "example_en": "The situation changed with nuance after the new regulation.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "considerablemente",
+      "lemma": "rotundamente",
       "pos": "adv",
-      "translation_en": "considerably",
-      "tag": "Quantity",
-      "example": "Mi confianza mejoró considerablemente después de practicar con temas reales.",
-      "example_en": "My confidence improved considerably after practising with real topics."
+      "translation_en": "categorically",
+      "example": "El informe explica rotundamente por qué la medida no funciona.",
+      "example_en": "The report explains categorically why the measure does not work.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "en cuanto a",
-      "pos": "phrase",
-      "translation_en": "regarding; as for",
-      "tag": "Connectors",
-      "example": "En cuanto a la vivienda, me preocupa más la estabilidad que el tamaño.",
-      "example_en": "As for housing, I am more concerned about stability than size."
+      "lemma": "razonadamente",
+      "pos": "adv",
+      "translation_en": "with reasoning",
+      "example": "La situación cambió razonadamente tras la nueva normativa.",
+      "example_en": "The situation changed with reasoning after the new regulation.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "con respecto a",
+      "lemma": "poner en duda",
       "pos": "phrase",
-      "translation_en": "with regard to",
-      "tag": "Connectors",
-      "example": "Con respecto a las becas, falta información clara sobre los plazos.",
-      "example_en": "With regard to grants, clear information about deadlines is lacking."
+      "translation_en": "to call into question",
+      "example": "El informe pone en duda la eficacia de la medida.",
+      "example_en": "The report calls the effectiveness of the measure into question.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "a largo plazo",
+      "lemma": "no cabe duda de que",
       "pos": "phrase",
-      "translation_en": "in the long term",
-      "tag": "Connectors",
-      "example": "A largo plazo, invertir en formación reduce la desigualdad.",
-      "example_en": "In the long term, investing in training reduces inequality."
+      "translation_en": "there is no doubt that",
+      "example": "No cabe duda de que la vivienda se ha convertido en un reto social.",
+      "example_en": "There is no doubt that housing has become a social challenge.",
+      "tag": "Argumentation"
     },
     {
-      "lemma": "a corto plazo",
+      "lemma": "desde mi punto de vista",
       "pos": "phrase",
-      "translation_en": "in the short term",
-      "tag": "Connectors",
-      "example": "A corto plazo, compartir piso es la opción más realista para muchos estudiantes.",
-      "example_en": "In the short term, sharing a flat is the most realistic option for many students."
+      "translation_en": "from my point of view",
+      "example": "Desde mi punto de vista, el dato necesita más contexto.",
+      "example_en": "From my point of view, the data point needs more context.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "en cierta medida",
+      "pos": "phrase",
+      "translation_en": "to some extent",
+      "example": "En cierta medida, la tecnología facilita el acceso a la información.",
+      "example_en": "To some extent, technology makes access to information easier.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "por consiguiente",
+      "pos": "phrase",
+      "translation_en": "therefore",
+      "example": "Los costes han aumentado; por consiguiente, habrá que revisar el presupuesto.",
+      "example_en": "Costs have increased; therefore, the budget will have to be reviewed.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "dicho de otro modo",
+      "pos": "phrase",
+      "translation_en": "in other words",
+      "example": "Dicho de otro modo, no basta con aprobar una norma.",
+      "example_en": "In other words, approving a rule is not enough.",
+      "tag": "Argumentation"
+    },
+    {
+      "lemma": "conviene señalar que",
+      "pos": "phrase",
+      "translation_en": "it is worth pointing out that",
+      "example": "Conviene señalar que la muestra era pequeña y los resultados son provisionales.",
+      "example_en": "It is worth pointing out that the sample was small and the results are provisional.",
+      "tag": "Argumentation"
     }
   ]
 }
