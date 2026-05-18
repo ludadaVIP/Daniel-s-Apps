@@ -1,847 +1,852 @@
 {
   "id": "group-2",
-  "title": "Moverse por la ciudad · Housing, travel and services",
-  "focus": "Practical A2 vocabulary for renting, transport, appointments, hotels, money and city life.",
+  "title": "Ciudad y transporte · Getting around without panic",
+  "focus": "Useful city, housing, transport and service vocabulary for moving through real places.",
   "words": [
     {
-      "lemma": "alquiler",
+      "lemma": "acera",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "rent",
-      "tag": "Housing",
-      "example": "Necesito un alquiler para hoy.",
-      "example_en": "I need rent for today."
+      "translation_en": "pavement",
+      "example": "El conductor nos dejó cerca de la acera.",
+      "example_en": "The driver left us near the pavement.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "piso",
+      "lemma": "calzada",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "apartment; floor",
-      "tag": "Housing",
-      "example": "Hay un piso cerca de aquí.",
-      "example_en": "There is apartment; floor near here."
+      "translation_en": "roadway",
+      "example": "Pregunté por la calzada para no perderme en el barrio.",
+      "example_en": "I asked about the roadway so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "edificio",
+      "lemma": "rotonda",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "building",
-      "tag": "Housing",
-      "example": "Busco un edificio para la clase.",
-      "example_en": "I am looking for building for class."
+      "translation_en": "roundabout",
+      "example": "En esta zona, la rotonda es útil para orientarse.",
+      "example_en": "In this area, the roundabout is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "vecino",
+      "lemma": "carril",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "neighbour",
-      "tag": "Housing",
-      "example": "Tengo un vecino en casa.",
-      "example_en": "I have neighbour at home."
+      "translation_en": "lane",
+      "example": "Antes de firmar, revisamos el carril con cuidado.",
+      "example_en": "Before signing, we checked the lane carefully.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "barrio",
+      "lemma": "túnel",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "neighbourhood",
-      "tag": "Housing",
-      "example": "Compré un barrio esta mañana.",
-      "example_en": "I bought neighbourhood this morning."
-    },
-    {
-      "lemma": "dirección",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "address; direction",
-      "tag": "Services",
-      "example": "Necesito una dirección para hoy.",
-      "example_en": "I need address; direction for today."
-    },
-    {
-      "lemma": "entrada",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "entrance; ticket",
-      "tag": "Travel",
-      "example": "Hay una entrada cerca de aquí.",
-      "example_en": "There is entrance; ticket near here."
-    },
-    {
-      "lemma": "salida",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "exit; departure",
-      "tag": "Travel",
-      "example": "Busco una salida para la clase.",
-      "example_en": "I am looking for exit; departure for class."
-    },
-    {
-      "lemma": "ascensor",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "lift; elevator",
-      "tag": "Housing",
-      "example": "Tengo un ascensor en casa.",
-      "example_en": "I have lift; elevator at home."
-    },
-    {
-      "lemma": "garaje",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "garage",
-      "tag": "Housing",
-      "example": "Compré un garaje esta mañana.",
-      "example_en": "I bought garage this morning."
-    },
-    {
-      "lemma": "jardín",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "garden",
-      "tag": "Housing",
-      "example": "Necesito un jardín para hoy.",
-      "example_en": "I need garden for today."
-    },
-    {
-      "lemma": "calefacción",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "heating",
-      "tag": "Housing",
-      "example": "Hay una calefacción cerca de aquí.",
-      "example_en": "There is heating near here."
-    },
-    {
-      "lemma": "aire acondicionado",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "air conditioning",
-      "tag": "Housing",
-      "example": "Busco un aire acondicionado para la clase.",
-      "example_en": "I am looking for air conditioning for class."
-    },
-    {
-      "lemma": "factura",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "bill; invoice",
-      "tag": "Shopping",
-      "example": "Tengo una factura en casa.",
-      "example_en": "I have bill; invoice at home."
-    },
-    {
-      "lemma": "precio",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "price",
-      "tag": "Shopping",
-      "example": "Compré un precio esta mañana.",
-      "example_en": "I bought price this morning."
-    },
-    {
-      "lemma": "descuento",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "discount",
-      "tag": "Shopping",
-      "example": "Necesito un descuento para hoy.",
-      "example_en": "I need discount for today."
-    },
-    {
-      "lemma": "oferta",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "offer; sale",
-      "tag": "Shopping",
-      "example": "Hay una oferta cerca de aquí.",
-      "example_en": "There is offer; sale near here."
-    },
-    {
-      "lemma": "tarjeta",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "card",
-      "tag": "Shopping",
-      "example": "Busco una tarjeta para la clase.",
-      "example_en": "I am looking for card for class."
-    },
-    {
-      "lemma": "efectivo",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "cash",
-      "tag": "Shopping",
-      "example": "Tengo un efectivo en casa.",
-      "example_en": "I have cash at home."
-    },
-    {
-      "lemma": "cuenta",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "bill; account",
-      "tag": "Shopping",
-      "example": "Compré una cuenta esta mañana.",
-      "example_en": "I bought bill; account this morning."
-    },
-    {
-      "lemma": "billete",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "ticket; banknote",
-      "tag": "Travel",
-      "example": "Necesito un billete para hoy.",
-      "example_en": "I need ticket; banknote for today."
-    },
-    {
-      "lemma": "pasaporte",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "passport",
-      "tag": "Travel",
-      "example": "Hay un pasaporte cerca de aquí.",
-      "example_en": "There is passport near here."
-    },
-    {
-      "lemma": "frontera",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "border",
-      "tag": "Travel",
-      "example": "Busco una frontera para la clase.",
-      "example_en": "I am looking for border for class."
-    },
-    {
-      "lemma": "equipaje",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "luggage",
-      "tag": "Travel",
-      "example": "Tengo un equipaje en casa.",
-      "example_en": "I have luggage at home."
-    },
-    {
-      "lemma": "excursión",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "excursion; day trip",
-      "tag": "Travel",
-      "example": "Compré una excursión esta mañana.",
-      "example_en": "I bought excursion; day trip this morning."
-    },
-    {
-      "lemma": "reserva",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "reservation",
-      "tag": "Travel",
-      "example": "Necesito una reserva para hoy.",
-      "example_en": "I need reservation for today."
-    },
-    {
-      "lemma": "recepción",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "reception",
-      "tag": "Travel",
-      "example": "Hay una recepción cerca de aquí.",
-      "example_en": "There is reception near here."
-    },
-    {
-      "lemma": "guía",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "guide",
-      "tag": "Travel",
-      "example": "Busco un guía para la clase.",
-      "example_en": "I am looking for guide for class."
-    },
-    {
-      "lemma": "museo",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "museum",
-      "tag": "Places",
-      "example": "Tengo un museo en casa.",
-      "example_en": "I have museum at home."
-    },
-    {
-      "lemma": "monumento",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "monument",
-      "tag": "Places",
-      "example": "Compré un monumento esta mañana.",
-      "example_en": "I bought monument this morning."
-    },
-    {
-      "lemma": "plaza",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "square",
-      "tag": "Places",
-      "example": "Necesito una plaza para hoy.",
-      "example_en": "I need square for today."
+      "translation_en": "tunnel",
+      "example": "El conductor nos dejó cerca de el túnel.",
+      "example_en": "The driver left us near the tunnel.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
       "lemma": "puente",
       "pos": "noun",
-      "gender": "m",
       "translation_en": "bridge",
-      "tag": "Places",
-      "example": "Hay un puente cerca de aquí.",
-      "example_en": "There is bridge near here."
+      "example": "Pregunté por el puente para no perderme en el barrio.",
+      "example_en": "I asked about the bridge so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "río",
+      "lemma": "taquilla",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "river",
-      "tag": "Nature",
-      "example": "Busco un río para la clase.",
-      "example_en": "I am looking for river for class."
+      "translation_en": "ticket window",
+      "example": "En esta zona, la taquilla es útil para orientarse.",
+      "example_en": "In this area, the ticket window is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "montaña",
+      "lemma": "transbordo",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "mountain",
-      "tag": "Nature",
-      "example": "Tengo una montaña en casa.",
-      "example_en": "I have mountain at home."
+      "translation_en": "transfer",
+      "example": "Antes de firmar, revisamos el transbordo con cuidado.",
+      "example_en": "Before signing, we checked the transfer carefully.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "bosque",
+      "lemma": "trayecto",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "forest",
-      "tag": "Nature",
-      "example": "Compré un bosque esta mañana.",
-      "example_en": "I bought forest this morning."
+      "translation_en": "journey",
+      "example": "El conductor nos dejó cerca de el trayecto.",
+      "example_en": "The driver left us near the journey.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "lago",
+      "lemma": "maletero",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "lake",
-      "tag": "Nature",
-      "example": "Necesito un lago para hoy.",
-      "example_en": "I need lake for today."
+      "translation_en": "trunk",
+      "example": "Pregunté por el maletero para no perderme en el barrio.",
+      "example_en": "I asked about the trunk so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "campo",
+      "lemma": "volante",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "countryside; field",
-      "tag": "Nature",
-      "example": "Hay un campo cerca de aquí.",
-      "example_en": "There is countryside; field near here."
+      "translation_en": "steering wheel",
+      "example": "En esta zona, el volante es útil para orientarse.",
+      "example_en": "In this area, the steering wheel is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "costa",
+      "lemma": "peatón",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "coast",
-      "tag": "Nature",
-      "example": "Busco una costa para la clase.",
-      "example_en": "I am looking for coast for class."
+      "translation_en": "pedestrian",
+      "example": "Antes de firmar, revisamos el peatón con cuidado.",
+      "example_en": "Before signing, we checked the pedestrian carefully.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "isla",
+      "lemma": "ciclista",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "island",
-      "tag": "Nature",
-      "example": "Tengo una isla en casa.",
-      "example_en": "I have island at home."
+      "translation_en": "cyclist",
+      "example": "El conductor nos dejó cerca de el ciclista.",
+      "example_en": "The driver left us near the cyclist.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "pueblo",
+      "lemma": "conductor",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "town; village",
-      "tag": "Places",
-      "example": "Compré un pueblo esta mañana.",
-      "example_en": "I bought town; village this morning."
+      "translation_en": "driver",
+      "example": "Pregunté por el conductor para no perderme en el barrio.",
+      "example_en": "I asked about the driver so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "alquilar",
-      "pos": "verb",
+      "lemma": "pasajero",
+      "pos": "noun",
+      "translation_en": "passenger",
+      "example": "En esta zona, el pasajero es útil para orientarse.",
+      "example_en": "In this area, the passenger is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "desvío",
+      "pos": "noun",
+      "translation_en": "detour",
+      "example": "Antes de firmar, revisamos el desvío con cuidado.",
+      "example_en": "Before signing, we checked the detour carefully.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "gasolinera",
+      "pos": "noun",
+      "translation_en": "petrol station",
+      "example": "El conductor nos dejó cerca de la gasolinera.",
+      "example_en": "The driver left us near the petrol station.",
+      "tag": "City & transport",
+      "gender": "f"
+    },
+    {
+      "lemma": "peaje",
+      "pos": "noun",
+      "translation_en": "toll",
+      "example": "Pregunté por el peaje para no perderme en el barrio.",
+      "example_en": "I asked about the toll so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "garaje",
+      "pos": "noun",
+      "translation_en": "garage",
+      "example": "En esta zona, el garaje es útil para orientarse.",
+      "example_en": "In this area, the garage is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "recorrido",
+      "pos": "noun",
+      "translation_en": "route",
+      "example": "Antes de firmar, revisamos el recorrido con cuidado.",
+      "example_en": "Before signing, we checked the route carefully.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "destino",
+      "pos": "noun",
+      "translation_en": "destination",
+      "example": "El conductor nos dejó cerca de el destino.",
+      "example_en": "The driver left us near the destination.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "orilla",
+      "pos": "noun",
+      "translation_en": "riverbank",
+      "example": "Pregunté por la orilla para no perderme en el barrio.",
+      "example_en": "I asked about the riverbank so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "f"
+    },
+    {
+      "lemma": "avenida",
+      "pos": "noun",
+      "translation_en": "avenue",
+      "example": "En esta zona, la avenida es útil para orientarse.",
+      "example_en": "In this area, the avenue is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
+    },
+    {
+      "lemma": "callejón",
+      "pos": "noun",
+      "translation_en": "alley",
+      "example": "Antes de firmar, revisamos el callejón con cuidado.",
+      "example_en": "Before signing, we checked the alley carefully.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "buzón",
+      "pos": "noun",
+      "translation_en": "mailbox",
+      "example": "El conductor nos dejó cerca de el buzón.",
+      "example_en": "The driver left us near the mailbox.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "portón",
+      "pos": "noun",
+      "translation_en": "large gate",
+      "example": "Pregunté por el portón para no perderme en el barrio.",
+      "example_en": "I asked about the large gate so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "fachada",
+      "pos": "noun",
+      "translation_en": "facade",
+      "example": "En esta zona, la fachada es útil para orientarse.",
+      "example_en": "In this area, the facade is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
+    },
+    {
+      "lemma": "azotea",
+      "pos": "noun",
+      "translation_en": "rooftop",
+      "example": "Antes de firmar, revisamos la azotea con cuidado.",
+      "example_en": "Before signing, we checked the rooftop carefully.",
+      "tag": "City & transport",
+      "gender": "f"
+    },
+    {
+      "lemma": "sótano",
+      "pos": "noun",
+      "translation_en": "basement",
+      "example": "El conductor nos dejó cerca de el sótano.",
+      "example_en": "The driver left us near the basement.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "inquilino",
+      "pos": "noun",
+      "translation_en": "tenant",
+      "example": "Pregunté por el inquilino para no perderme en el barrio.",
+      "example_en": "I asked about the tenant so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
+    },
+    {
+      "lemma": "fianza",
+      "pos": "noun",
+      "translation_en": "deposit",
+      "example": "En esta zona, la fianza es útil para orientarse.",
+      "example_en": "In this area, the deposit is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
+    },
+    {
+      "lemma": "mudanza",
+      "pos": "noun",
+      "translation_en": "move",
+      "example": "Antes de firmar, revisamos la mudanza con cuidado.",
+      "example_en": "Before signing, we checked the move carefully.",
+      "tag": "City & transport",
+      "gender": "f"
+    },
+    {
+      "lemma": "alquiler",
+      "pos": "noun",
       "translation_en": "rent",
-      "tag": "Housing",
-      "example": "Intento alquilar un poco cada día.",
-      "example_en": "I try to rent a little every day."
+      "example": "El conductor nos dejó cerca de el alquiler.",
+      "example_en": "The driver left us near the rent.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "mudarse",
-      "pos": "verb",
-      "translation_en": "move house",
-      "tag": "Housing",
-      "example": "Tengo que mudarse antes de salir.",
-      "example_en": "I have to move house before leaving."
+      "lemma": "reforma",
+      "pos": "noun",
+      "translation_en": "renovation",
+      "example": "Pregunté por la reforma para no perderme en el barrio.",
+      "example_en": "I asked about the renovation so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "arreglar",
-      "pos": "verb",
-      "translation_en": "fix; arrange",
-      "tag": "Housing",
-      "example": "Quiero arreglar con más seguridad.",
-      "example_en": "I want to fix; arrange with more confidence."
+      "lemma": "humedad",
+      "pos": "noun",
+      "translation_en": "dampness",
+      "example": "En esta zona, la humedad es útil para orientarse.",
+      "example_en": "In this area, the dampness is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "reparar",
-      "pos": "verb",
-      "translation_en": "repair",
-      "tag": "Housing",
-      "example": "Es importante reparar con calma.",
-      "example_en": "It is important to repair calmly."
+      "lemma": "grieta",
+      "pos": "noun",
+      "translation_en": "crack",
+      "example": "Antes de firmar, revisamos la grieta con cuidado.",
+      "example_en": "Before signing, we checked the crack carefully.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "encender",
-      "pos": "verb",
-      "translation_en": "turn on",
-      "tag": "Home",
-      "example": "Aprendo a encender en situaciones reales.",
-      "example_en": "I learn to turn on in real situations."
+      "lemma": "ascensor",
+      "pos": "noun",
+      "translation_en": "lift",
+      "example": "El conductor nos dejó cerca de el ascensor.",
+      "example_en": "The driver left us near the lift.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "apagar",
-      "pos": "verb",
-      "translation_en": "turn off",
-      "tag": "Home",
-      "example": "Intento apagar un poco cada día.",
-      "example_en": "I try to turn off a little every day."
+      "lemma": "timbre",
+      "pos": "noun",
+      "translation_en": "doorbell",
+      "example": "Pregunté por el timbre para no perderme en el barrio.",
+      "example_en": "I asked about the doorbell so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "funcionar",
-      "pos": "verb",
-      "translation_en": "work; function",
-      "tag": "Services",
-      "example": "Tengo que funcionar antes de salir.",
-      "example_en": "I have to work; function before leaving."
+      "lemma": "portería",
+      "pos": "noun",
+      "translation_en": "entrance hall",
+      "example": "En esta zona, la portería es útil para orientarse.",
+      "example_en": "In this area, the entrance hall is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "costar",
-      "pos": "verb",
-      "translation_en": "cost",
-      "tag": "Shopping",
-      "example": "Quiero costar con más seguridad.",
-      "example_en": "I want to cost with more confidence."
+      "lemma": "consigna",
+      "pos": "noun",
+      "translation_en": "locker room",
+      "example": "Antes de firmar, revisamos la consigna con cuidado.",
+      "example_en": "Before signing, we checked the locker room carefully.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "ahorrar",
-      "pos": "verb",
-      "translation_en": "save money",
-      "tag": "Money",
-      "example": "Es importante ahorrar con calma.",
-      "example_en": "It is important to save money calmly."
+      "lemma": "caminata",
+      "pos": "noun",
+      "translation_en": "long walk",
+      "example": "El conductor nos dejó cerca de la caminata.",
+      "example_en": "The driver left us near the long walk.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "gastar",
-      "pos": "verb",
-      "translation_en": "spend",
-      "tag": "Money",
-      "example": "Aprendo a gastar en situaciones reales.",
-      "example_en": "I learn to spend in real situations."
+      "lemma": "campamento",
+      "pos": "noun",
+      "translation_en": "camp",
+      "example": "Pregunté por el campamento para no perderme en el barrio.",
+      "example_en": "I asked about the camp so I would not get lost in the neighbourhood.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "devolver",
-      "pos": "verb",
-      "translation_en": "return; give back",
-      "tag": "Shopping",
-      "example": "Intento devolver un poco cada día.",
-      "example_en": "I try to return; give back a little every day."
+      "lemma": "caravana",
+      "pos": "noun",
+      "translation_en": "caravan",
+      "example": "En esta zona, la caravana es útil para orientarse.",
+      "example_en": "In this area, the caravan is useful for finding your way.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "firmar",
-      "pos": "verb",
-      "translation_en": "sign",
-      "tag": "Services",
-      "example": "Tengo que firmar antes de salir.",
-      "example_en": "I have to sign before leaving."
+      "lemma": "carpintero",
+      "pos": "noun",
+      "translation_en": "carpenter",
+      "example": "Antes de firmar, revisamos el carpintero con cuidado.",
+      "example_en": "Before signing, we checked the carpenter carefully.",
+      "tag": "City & transport",
+      "gender": "m"
     },
     {
-      "lemma": "llenar",
-      "pos": "verb",
-      "translation_en": "fill",
-      "tag": "Services",
-      "example": "Quiero llenar con más seguridad.",
-      "example_en": "I want to fill with more confidence."
+      "lemma": "cartera",
+      "pos": "noun",
+      "translation_en": "wallet, schoolbag",
+      "example": "El conductor nos dejó cerca de la cartera.",
+      "example_en": "The driver left us near the wallet, schoolbag.",
+      "tag": "City & transport",
+      "gender": "f"
     },
     {
-      "lemma": "cruzar",
+      "lemma": "girar",
       "pos": "verb",
-      "translation_en": "cross",
-      "tag": "Travel",
-      "example": "Es importante cruzar con calma.",
-      "example_en": "It is important to cross calmly."
+      "translation_en": "to turn",
+      "example": "Ayer intenté girar, pero me faltaba información.",
+      "example_en": "Yesterday I tried to turn, but I was missing information.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "conducir",
+      "lemma": "circular",
       "pos": "verb",
-      "translation_en": "drive",
-      "tag": "Transport",
-      "example": "Aprendo a conducir en situaciones reales.",
-      "example_en": "I learn to drive in real situations."
+      "translation_en": "to circulate",
+      "example": "Si quieres, podemos circular juntos después de clase.",
+      "example_en": "If you want, we can circulate together after class.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "aparcar",
+      "lemma": "frenar",
       "pos": "verb",
-      "translation_en": "park",
-      "tag": "Transport",
-      "example": "Intento aparcar un poco cada día.",
-      "example_en": "I try to park a little every day."
+      "translation_en": "to brake",
+      "example": "Es mejor frenar ahora que esperar hasta el último momento.",
+      "example_en": "It is better to brake now than to wait until the last moment.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "despegar",
+      "lemma": "chocar",
       "pos": "verb",
-      "translation_en": "take off",
-      "tag": "Travel",
-      "example": "Tengo que despegar antes de salir.",
-      "example_en": "I have to take off before leaving."
-    },
-    {
-      "lemma": "aterrizar",
-      "pos": "verb",
-      "translation_en": "land",
-      "tag": "Travel",
-      "example": "Quiero aterrizar con más seguridad.",
-      "example_en": "I want to land with more confidence."
-    },
-    {
-      "lemma": "alojarse",
-      "pos": "verb",
-      "translation_en": "stay; lodge",
-      "tag": "Travel",
-      "example": "Es importante alojarse con calma.",
-      "example_en": "It is important to stay; lodge calmly."
-    },
-    {
-      "lemma": "facturar",
-      "pos": "verb",
-      "translation_en": "check in; invoice",
-      "tag": "Travel",
-      "example": "Aprendo a facturar en situaciones reales.",
-      "example_en": "I learn to check in; invoice in real situations."
-    },
-    {
-      "lemma": "descubrir",
-      "pos": "verb",
-      "translation_en": "discover",
-      "tag": "Travel",
-      "example": "Intento descubrir un poco cada día.",
-      "example_en": "I try to discover a little every day."
+      "translation_en": "to crash",
+      "example": "Me cuesta chocar cuando tengo prisa.",
+      "example_en": "I find it hard to crash when I am in a hurry.",
+      "tag": "City & transport"
     },
     {
       "lemma": "perderse",
       "pos": "verb",
-      "translation_en": "get lost",
-      "tag": "Travel",
-      "example": "Tengo que perderse antes de salir.",
-      "example_en": "I have to get lost before leaving."
+      "translation_en": "to get lost",
+      "example": "Aprendí a perderse observando cómo lo hacía mi compañero.",
+      "example_en": "I learned to get lost by watching how my classmate did it.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "bañarse",
+      "lemma": "orientarse",
       "pos": "verb",
-      "translation_en": "bathe; swim",
-      "tag": "Leisure",
-      "example": "Quiero bañarse con más seguridad.",
-      "example_en": "I want to bathe; swim with more confidence."
+      "translation_en": "to find one's way",
+      "example": "No olvides orientarse antes de salir.",
+      "example_en": "Do not forget to find one's way before leaving.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "nadar",
+      "lemma": "desviarse",
       "pos": "verb",
-      "translation_en": "swim",
-      "tag": "Leisure",
-      "example": "Es importante nadar con calma.",
-      "example_en": "It is important to swim calmly."
+      "translation_en": "to take a detour",
+      "example": "Tengo que desviarse antes de confirmar el plan.",
+      "example_en": "I have to take a detour before confirming the plan.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "organizar",
+      "lemma": "mudarse",
       "pos": "verb",
-      "translation_en": "organise",
-      "tag": "Action",
-      "example": "Aprendo a organizar en situaciones reales.",
-      "example_en": "I learn to organise in real situations."
+      "translation_en": "to move house",
+      "example": "Voy a mudarse con más calma para no cometer errores.",
+      "example_en": "I am going to move house more calmly so I do not make mistakes.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "participar",
+      "lemma": "firmar",
       "pos": "verb",
-      "translation_en": "participate",
-      "tag": "Social",
-      "example": "Intento participar un poco cada día.",
-      "example_en": "I try to participate a little every day."
+      "translation_en": "to sign",
+      "example": "Ayer intenté firmar, pero me faltaba información.",
+      "example_en": "Yesterday I tried to sign, but I was missing information.",
+      "tag": "City & transport"
     },
     {
       "lemma": "compartir",
       "pos": "verb",
-      "translation_en": "share",
-      "tag": "Social",
-      "example": "Tengo que compartir antes de salir.",
-      "example_en": "I have to share before leaving."
+      "translation_en": "to share",
+      "example": "Si quieres, podemos compartir juntos después de clase.",
+      "example_en": "If you want, we can share together after class.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "recoger",
+      "lemma": "colocarse",
       "pos": "verb",
-      "translation_en": "pick up; collect",
-      "tag": "Services",
-      "example": "Quiero recoger con más seguridad.",
-      "example_en": "I want to pick up; collect with more confidence."
+      "translation_en": "to stand",
+      "example": "Es mejor colocarse ahora que esperar hasta el último momento.",
+      "example_en": "It is better to stand now than to wait until the last moment.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "moderno",
-      "pos": "adj",
-      "translation_en": "modern",
-      "tag": "Housing",
-      "example": "El piso es moderno.",
-      "example_en": "The apartment is modern."
+      "lemma": "cancelar",
+      "pos": "verb",
+      "translation_en": "to cancel",
+      "example": "Me cuesta cancelar cuando tengo prisa.",
+      "example_en": "I find it hard to cancel when I am in a hurry.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "antiguo",
-      "pos": "adj",
-      "translation_en": "old; ancient",
-      "tag": "Housing",
-      "example": "El piso es antiguo.",
-      "example_en": "The apartment is old; ancient."
+      "lemma": "reservar",
+      "pos": "verb",
+      "translation_en": "to reserve",
+      "example": "Aprendí a reservar observando cómo lo hacía mi compañero.",
+      "example_en": "I learned to reserve by watching how my classmate did it.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "luminoso",
-      "pos": "adj",
-      "translation_en": "bright",
-      "tag": "Housing",
-      "example": "El piso es luminoso.",
-      "example_en": "The apartment is bright."
+      "lemma": "facturar",
+      "pos": "verb",
+      "translation_en": "to check in luggage",
+      "example": "No olvides facturar antes de salir.",
+      "example_en": "Do not forget to check in luggage before leaving.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "ruidoso",
-      "pos": "adj",
-      "translation_en": "noisy",
-      "tag": "Housing",
-      "example": "El piso es ruidoso.",
-      "example_en": "The apartment is noisy."
+      "lemma": "embarcar",
+      "pos": "verb",
+      "translation_en": "to board",
+      "example": "Tengo que embarcar antes de confirmar el plan.",
+      "example_en": "I have to board before confirming the plan.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "arreglarse",
+      "pos": "verb",
+      "translation_en": "to get ready",
+      "example": "Voy a arreglarse con más calma para no cometer errores.",
+      "example_en": "I am going to get ready more calmly so I do not make mistakes.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "asustarse",
+      "pos": "verb",
+      "translation_en": "to get scared",
+      "example": "Ayer intenté asustarse, pero me faltaba información.",
+      "example_en": "Yesterday I tried to get scared, but I was missing information.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "aterrizar",
+      "pos": "verb",
+      "translation_en": "to land",
+      "example": "Si quieres, podemos aterrizar juntos después de clase.",
+      "example_en": "If you want, we can land together after class.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "bañarse",
+      "pos": "verb",
+      "translation_en": "to bathe",
+      "example": "Es mejor bañarse ahora que esperar hasta el último momento.",
+      "example_en": "It is better to bathe now than to wait until the last moment.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "calentar",
+      "pos": "verb",
+      "translation_en": "to heat up",
+      "example": "Me cuesta calentar cuando tengo prisa.",
+      "example_en": "I find it hard to heat up when I am in a hurry.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "cambiarse",
+      "pos": "verb",
+      "translation_en": "to change clothes",
+      "example": "Aprendí a cambiarse observando cómo lo hacía mi compañero.",
+      "example_en": "I learned to change clothes by watching how my classmate did it.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "comportarse",
+      "pos": "verb",
+      "translation_en": "to behave",
+      "example": "No olvides comportarse antes de salir.",
+      "example_en": "Do not forget to behave before leaving.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "conducir",
+      "pos": "verb",
+      "translation_en": "to drive",
+      "example": "Tengo que conducir antes de confirmar el plan.",
+      "example_en": "I have to drive before confirming the plan.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "congelar",
+      "pos": "verb",
+      "translation_en": "to freeze",
+      "example": "Voy a congelar con más calma para no cometer errores.",
+      "example_en": "I am going to freeze more calmly so I do not make mistakes.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "consultar",
+      "pos": "verb",
+      "translation_en": "to consult",
+      "example": "Ayer intenté consultar, pero me faltaba información.",
+      "example_en": "Yesterday I tried to consult, but I was missing information.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "contagiar",
+      "pos": "verb",
+      "translation_en": "to infect",
+      "example": "Si quieres, podemos contagiar juntos después de clase.",
+      "example_en": "If you want, we can infect together after class.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "cruzar",
+      "pos": "verb",
+      "translation_en": "to cross",
+      "example": "Es mejor cruzar ahora que esperar hasta el último momento.",
+      "example_en": "It is better to cross now than to wait until the last moment.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "despegar",
+      "pos": "verb",
+      "translation_en": "to take off",
+      "example": "Me cuesta despegar cuando tengo prisa.",
+      "example_en": "I find it hard to take off when I am in a hurry.",
+      "tag": "City & transport"
     },
     {
       "lemma": "céntrico",
       "pos": "adj",
       "translation_en": "central",
-      "tag": "Housing",
-      "example": "El piso es céntrico.",
-      "example_en": "The apartment is central."
+      "example": "Busco una opción céntrico que no sea demasiado cara.",
+      "example_en": "I am looking for a central option that is not too expensive.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "lejano",
+      "pos": "adj",
+      "translation_en": "far away",
+      "example": "El piso parecía lejano, pero queríamos verlo otra vez.",
+      "example_en": "The flat seemed far away, but we wanted to see it again.",
+      "tag": "City & transport"
     },
     {
       "lemma": "cercano",
       "pos": "adj",
       "translation_en": "nearby",
-      "tag": "Places",
-      "example": "Este lugar es cercano.",
-      "example_en": "This place is nearby."
+      "example": "Me gusta este plan porque es cercano y fácil de explicar.",
+      "example_en": "I like this plan because it is nearby and easy to explain.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "lejano",
+      "lemma": "peatonal",
       "pos": "adj",
-      "translation_en": "distant",
-      "tag": "Places",
-      "example": "Este lugar es lejano.",
-      "example_en": "This place is distant."
+      "translation_en": "pedestrian-only",
+      "example": "La respuesta fue peatonal, así que todos la entendieron.",
+      "example_en": "The answer was pedestrian-only, so everyone understood it.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "útil",
+      "lemma": "subterráneo",
       "pos": "adj",
-      "translation_en": "useful",
-      "tag": "Evaluation",
-      "example": "Este tema es útil.",
-      "example_en": "This topic is useful."
+      "translation_en": "underground",
+      "example": "Necesitamos un horario subterráneo para poder organizarnos.",
+      "example_en": "We need a underground schedule so we can organise ourselves.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "ruidoso",
+      "pos": "adj",
+      "translation_en": "noisy",
+      "example": "Aunque era una situación ruidoso, la resolvimos hablando.",
+      "example_en": "Although it was a noisy situation, we solved it by talking.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "luminoso",
+      "pos": "adj",
+      "translation_en": "bright",
+      "example": "Busco una opción luminoso que no sea demasiado cara.",
+      "example_en": "I am looking for a bright option that is not too expensive.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "compartido",
+      "pos": "adj",
+      "translation_en": "shared",
+      "example": "El piso parecía compartido, pero queríamos verlo otra vez.",
+      "example_en": "The flat seemed shared, but we wanted to see it again.",
+      "tag": "City & transport"
     },
     {
       "lemma": "disponible",
       "pos": "adj",
       "translation_en": "available",
-      "tag": "Services",
-      "example": "Me parece disponible.",
-      "example_en": "It seems available to me."
+      "example": "Me gusta este plan porque es disponible y fácil de explicar.",
+      "example_en": "I like this plan because it is available and easy to explain.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "privado",
+      "lemma": "puntual",
       "pos": "adj",
-      "translation_en": "private",
-      "tag": "Services",
-      "example": "Es un detalle privado.",
-      "example_en": "It is a private detail."
+      "translation_en": "punctual",
+      "example": "La respuesta fue puntual, así que todos la entendieron.",
+      "example_en": "The answer was punctual, so everyone understood it.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "público",
+      "lemma": "despistado",
       "pos": "adj",
-      "translation_en": "public",
-      "tag": "Services",
-      "example": "Este tema es público.",
-      "example_en": "This topic is public."
+      "translation_en": "absent-minded",
+      "example": "Necesitamos un horario despistado para poder organizarnos.",
+      "example_en": "We need a absent-minded schedule so we can organise ourselves.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "local",
+      "lemma": "eléctrico",
       "pos": "adj",
-      "translation_en": "local",
-      "tag": "Places",
-      "example": "Este lugar es local.",
-      "example_en": "This place is local."
+      "translation_en": "electric",
+      "example": "Aunque era una situación eléctrico, la resolvimos hablando.",
+      "example_en": "Although it was a electric situation, we solved it by talking.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "internacional",
+      "lemma": "húmedo",
       "pos": "adj",
-      "translation_en": "international",
-      "tag": "Travel",
-      "example": "Es un detalle internacional.",
-      "example_en": "It is a international detail."
+      "translation_en": "humid",
+      "example": "Busco una opción húmedo que no sea demasiado cara.",
+      "example_en": "I am looking for a humid option that is not too expensive.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "natural",
+      "lemma": "inalámbrico",
       "pos": "adj",
-      "translation_en": "natural",
-      "tag": "Nature",
-      "example": "Este tema es natural.",
-      "example_en": "This topic is natural."
+      "translation_en": "wireless",
+      "example": "El piso parecía inalámbrico, pero queríamos verlo otra vez.",
+      "example_en": "The flat seemed wireless, but we wanted to see it again.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "turístico",
+      "lemma": "manchado",
       "pos": "adj",
-      "translation_en": "touristic",
-      "tag": "Travel",
-      "example": "Me parece turístico.",
-      "example_en": "It seems touristic to me."
+      "translation_en": "stained",
+      "example": "Me gusta este plan porque es manchado y fácil de explicar.",
+      "example_en": "I like this plan because it is stained and easy to explain.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "gratuito",
-      "pos": "adj",
-      "translation_en": "free of charge",
-      "tag": "Money",
-      "example": "Este producto es gratuito.",
-      "example_en": "This product is free of charge."
-    },
-    {
-      "lemma": "fácilmente",
+      "lemma": "recto",
       "pos": "adv",
-      "translation_en": "easily",
-      "tag": "Manner",
-      "example": "Lo hago fácilmente cuando puedo.",
-      "example_en": "I do it easily when I can."
+      "translation_en": "straight ahead",
+      "example": "Lo expliqué recto para que nadie se perdiera.",
+      "example_en": "I explained it straight ahead so nobody would get lost.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "directamente",
+      "lemma": "enfrente",
       "pos": "adv",
-      "translation_en": "directly",
-      "tag": "Manner",
-      "example": "Normalmente respondo directamente.",
-      "example_en": "Normally I answer directly."
+      "translation_en": "opposite",
+      "example": "Normalmente respondo enfrente cuando recibo un aviso urgente.",
+      "example_en": "I usually reply opposite when I receive an urgent notice.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "probablemente",
+      "lemma": "debajo",
       "pos": "adv",
-      "translation_en": "probably",
-      "tag": "Opinion",
-      "example": "La situación cambia probablemente.",
-      "example_en": "The situation changes probably."
+      "translation_en": "below",
+      "example": "Esta vez lo hicimos debajo y salió mejor.",
+      "example_en": "This time we did it below, and it turned out better.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "bastante",
+      "lemma": "adonde",
       "pos": "adv",
-      "translation_en": "quite; enough",
-      "tag": "Quantity",
-      "example": "Lo hago bastante cuando puedo.",
-      "example_en": "I do it quite; enough when I can."
+      "translation_en": "where to",
+      "example": "Conviene revisar los datos adonde antes de enviarlos.",
+      "example_en": "It is best to check the data where to before sending them.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "demasiado",
+      "lemma": "tranquilamente",
       "pos": "adv",
-      "translation_en": "too much",
-      "tag": "Quantity",
-      "example": "Normalmente respondo demasiado.",
-      "example_en": "Normally I answer too much."
+      "translation_en": "calmly",
+      "example": "Llegamos tranquilamente, pero todavía había mucha gente esperando.",
+      "example_en": "We arrived calmly, but there were still many people waiting.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "menos",
-      "pos": "adv",
-      "translation_en": "less",
-      "tag": "Quantity",
-      "example": "La situación cambia menos.",
-      "example_en": "The situation changes less."
-    },
-    {
-      "lemma": "por la mañana",
+      "lemma": "dar una vuelta",
       "pos": "phrase",
-      "translation_en": "in the morning",
-      "tag": "Time",
-      "example": "Por la mañana estudio vocabulario.",
-      "example_en": "In the morning I study vocabulary."
-    },
-    {
-      "lemma": "por la tarde",
-      "pos": "phrase",
-      "translation_en": "in the afternoon",
-      "tag": "Time",
-      "example": "Por la tarde voy al gimnasio.",
-      "example_en": "In the afternoon I go to the gym."
-    },
-    {
-      "lemma": "por la noche",
-      "pos": "phrase",
-      "translation_en": "at night",
-      "tag": "Time",
-      "example": "Por la noche leo antes de dormir.",
-      "example_en": "At night I read before sleeping."
-    },
-    {
-      "lemma": "en seguida",
-      "pos": "phrase",
-      "translation_en": "right away",
-      "tag": "Time",
-      "example": "Voy en seguida, no te preocupes.",
-      "example_en": "I am coming right away, do not worry."
-    },
-    {
-      "lemma": "de repente",
-      "pos": "phrase",
-      "translation_en": "suddenly",
-      "tag": "Narration",
-      "example": "De repente empezó a llover.",
-      "example_en": "Suddenly it started to rain."
-    },
-    {
-      "lemma": "al final",
-      "pos": "phrase",
-      "translation_en": "in the end",
-      "tag": "Narration",
-      "example": "Al final encontramos el hotel.",
-      "example_en": "In the end we found the hotel."
-    },
-    {
-      "lemma": "al principio",
-      "pos": "phrase",
-      "translation_en": "at the beginning",
-      "tag": "Narration",
-      "example": "Al principio no entendía nada.",
-      "example_en": "At the beginning I did not understand anything."
-    },
-    {
-      "lemma": "tener ganas de",
-      "pos": "phrase",
-      "translation_en": "to feel like",
-      "tag": "Feelings",
-      "example": "Tengo ganas de visitar otra ciudad.",
-      "example_en": "I feel like visiting another city."
+      "translation_en": "to take a walk",
+      "example": "Después de cenar dimos una vuelta por el barrio para despejarnos.",
+      "example_en": "After dinner we took a walk around the neighbourhood to clear our heads.",
+      "tag": "City & transport"
     },
     {
       "lemma": "hacer cola",
       "pos": "phrase",
       "translation_en": "to queue",
-      "tag": "Services",
-      "example": "Tenemos que hacer cola en la oficina.",
-      "example_en": "We have to queue at the office."
+      "example": "Esta expresión se usa mucho: hacer cola.",
+      "example_en": "This expression is used often: to queue.",
+      "tag": "City & transport"
     },
     {
-      "lemma": "pedir cita",
+      "lemma": "perder el autobús",
       "pos": "phrase",
-      "translation_en": "to make an appointment",
-      "tag": "Services",
-      "example": "Necesito pedir cita con el médico.",
-      "example_en": "I need to make an appointment with the doctor."
+      "translation_en": "to miss the bus",
+      "example": "Si tardamos cinco minutos más, vamos a perder el autobús.",
+      "example_en": "If we take five more minutes, we are going to miss the bus.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "cambiar de línea",
+      "pos": "phrase",
+      "translation_en": "to change lines",
+      "example": "Tienes que cambiar de línea en la próxima estación.",
+      "example_en": "You have to change lines at the next station.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "estar de paso",
+      "pos": "phrase",
+      "translation_en": "to be passing through",
+      "example": "Solo estoy de paso en la ciudad, pero me gustaría conocer el centro.",
+      "example_en": "I am only passing through the city, but I would like to see the centre.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "quedarse tirado",
+      "pos": "phrase",
+      "translation_en": "to be stranded",
+      "example": "Nos quedamos tirados cuando el coche se paró en la autopista.",
+      "example_en": "We were stranded when the car stopped on the motorway.",
+      "tag": "City & transport"
+    },
+    {
+      "lemma": "hacer caso",
+      "pos": "phrase",
+      "translation_en": "to pay attention",
+      "example": "Esta expresión se usa mucho: hacer caso.",
+      "example_en": "This expression is used often: to pay attention.",
+      "tag": "City & transport"
     }
   ]
 }
