@@ -1,862 +1,852 @@
 {
   "id": "group-1",
-  "title": "Conectar ideas · Connect ideas and feelings",
-  "focus": "Discourse connectors, opinion verbs, more nuanced feelings.",
+  "title": "Ideas y estudio · Explaining and learning",
+  "focus": "B1 words for explaining opinions, learning from mistakes, and organising study.",
   "words": [
     {
-      "lemma": "reunión",
-      "ipa": "reuˈnjon",
+      "lemma": "aprendizaje",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "meeting",
-      "example": "La reunión empieza a las diez en punto.",
-      "example_en": "The meeting starts at ten sharp.",
-      "tag": "Work"
+      "translation_en": "learning",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Si menciono el aprendizaje, conviene explicar por qué es importante.",
+      "example_en": "If I mention the learning, it is best to explain why it matters."
     },
     {
-      "lemma": "experiencia",
-      "ipa": "ekspeˈɾjen.sja",
+      "lemma": "avance",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "experience",
-      "example": "Tiene mucha experiencia en hostelería.",
-      "example_en": "She has lots of experience in hospitality.",
-      "tag": "Work"
-    },
-    {
-      "lemma": "decisión",
-      "ipa": "de.siˈsjon",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "decision",
-      "example": "Esa decisión cambió mi vida.",
-      "example_en": "That decision changed my life.",
-      "tag": "Abstract"
+      "translation_en": "progress",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Si menciono el avance, conviene explicar por qué es importante.",
+      "example_en": "If I mention the progress, it is best to explain why it matters."
     },
     {
       "lemma": "consejo",
-      "ipa": "konˈse.xo",
       "pos": "noun",
+      "translation_en": "advice",
+      "tag": "Study & ideas",
       "gender": "m",
-      "translation_en": "piece of advice",
-      "example": "Necesito un consejo sobre mi viaje.",
-      "example_en": "I need some advice about my trip.",
-      "tag": "Social"
-    },
-    {
-      "lemma": "recuerdo",
-      "ipa": "reˈkweɾ.ðo",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "memory; souvenir",
-      "example": "Tengo un buen recuerdo de aquel verano.",
-      "example_en": "I have a good memory of that summer.",
-      "tag": "Feelings"
-    },
-    {
-      "lemma": "intentar",
-      "ipa": "intenˈtaɾ",
-      "pos": "verb",
-      "translation_en": "to try, to attempt",
-      "example": "Intento hablar español todos los días.",
-      "example_en": "I try to speak Spanish every day.",
-      "tag": "Action"
-    },
-    {
-      "lemma": "conseguir",
-      "ipa": "konseˈɣiɾ",
-      "pos": "verb",
-      "translation_en": "to get, to manage to",
-      "example": "Conseguí entradas para el concierto.",
-      "example_en": "I managed to get tickets for the concert.",
-      "tag": "Action"
-    },
-    {
-      "lemma": "olvidar",
-      "ipa": "olβiˈðaɾ",
-      "pos": "verb",
-      "translation_en": "to forget",
-      "example": "No olvides cerrar la puerta.",
-      "example_en": "Don't forget to close the door.",
-      "tag": "Memory"
-    },
-    {
-      "lemma": "recordar",
-      "ipa": "rekoɾˈðaɾ",
-      "pos": "verb",
-      "translation_en": "to remember; to remind",
-      "example": "Recuerdo perfectamente aquel día.",
-      "example_en": "I remember that day perfectly.",
-      "tag": "Memory"
-    },
-    {
-      "lemma": "explicar",
-      "ipa": "eks.pliˈkaɾ",
-      "pos": "verb",
-      "translation_en": "to explain",
-      "example": "El profesor lo explica con calma.",
-      "example_en": "The teacher explains it patiently.",
-      "tag": "Communication"
-    },
-    {
-      "lemma": "decidir",
-      "ipa": "de.siˈðiɾ",
-      "pos": "verb",
-      "translation_en": "to decide",
-      "example": "Decidimos no salir esta noche.",
-      "example_en": "We decided not to go out tonight.",
-      "tag": "Action"
-    },
-    {
-      "lemma": "tranquilo",
-      "ipa": "tɾaŋˈki.lo",
-      "pos": "adj",
-      "translation_en": "calm, relaxed",
-      "example": "Es un barrio tranquilo y agradable.",
-      "example_en": "It's a calm and pleasant neighbourhood.",
-      "tag": "Descriptions"
-    },
-    {
-      "lemma": "difícil",
-      "ipa": "diˈfi.sil",
-      "pos": "adj",
-      "translation_en": "difficult",
-      "example": "Es difícil aprender un idioma sin practicar.",
-      "example_en": "It's difficult to learn a language without practising.",
-      "tag": "Descriptions"
-    },
-    {
-      "lemma": "fácil",
-      "ipa": "ˈfa.sil",
-      "pos": "adj",
-      "translation_en": "easy",
-      "example": "El examen fue más fácil de lo esperado.",
-      "example_en": "The exam was easier than expected.",
-      "tag": "Descriptions"
-    },
-    {
-      "lemma": "interesante",
-      "ipa": "inteɾeˈsan.te",
-      "pos": "adj",
-      "translation_en": "interesting",
-      "example": "Es una idea interesante para el proyecto.",
-      "example_en": "It's an interesting idea for the project.",
-      "tag": "Opinions"
-    },
-    {
-      "lemma": "aburrido",
-      "ipa": "a.βuˈri.ðo",
-      "pos": "adj",
-      "translation_en": "boring; bored",
-      "example": "La película fue un poco aburrida.",
-      "example_en": "The film was a bit boring.",
-      "tag": "Opinions"
-    },
-    {
-      "lemma": "casi",
-      "ipa": "ˈka.si",
-      "pos": "adv",
-      "translation_en": "almost",
-      "example": "Casi llego tarde a la cita.",
-      "example_en": "I almost arrived late to the appointment.",
-      "tag": "Quantity"
-    },
-    {
-      "lemma": "todavía",
-      "ipa": "to.ðaˈβi.a",
-      "pos": "adv",
-      "translation_en": "still, yet",
-      "example": "Todavía no he comido nada.",
-      "example_en": "I still haven't eaten anything.",
-      "tag": "Time"
-    },
-    {
-      "lemma": "ya",
-      "ipa": "ʝa",
-      "pos": "adv",
-      "translation_en": "already; now",
-      "example": "Ya he terminado mis tareas.",
-      "example_en": "I've already finished my tasks.",
-      "tag": "Time"
-    },
-    {
-      "lemma": "sin embargo",
-      "ipa": "sin emˈbaɾ.ɣo",
-      "pos": "phrase",
-      "translation_en": "however, nevertheless",
-      "example": "Llovía mucho; sin embargo, salimos.",
-      "example_en": "It was raining a lot; nevertheless, we went out.",
-      "tag": "Connectors"
-    },
-    {
-      "lemma": "por eso",
-      "ipa": "poɾ ˈe.so",
-      "pos": "phrase",
-      "translation_en": "that's why",
-      "example": "Estaba cansado, por eso me fui pronto.",
-      "example_en": "I was tired, that's why I left early.",
-      "tag": "Connectors"
-    },
-    {
-      "lemma": "darse cuenta",
-      "ipa": "ˈdaɾ.se ˈkwen.ta",
-      "pos": "phrase",
-      "translation_en": "to realise",
-      "example": "Me di cuenta de mi error tarde.",
-      "example_en": "I realised my mistake too late.",
-      "tag": "Cognition"
-    },
-    {
-      "lemma": "oportunidad",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "opportunity",
-      "tag": "Abstract",
-      "example": "La oportunidad es importante en este contexto.",
-      "example_en": "Opportunity is important in this context."
-    },
-    {
-      "lemma": "cambio",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "change",
-      "tag": "Abstract",
-      "example": "El cambio es importante en este contexto.",
-      "example_en": "Change is important in this context."
-    },
-    {
-      "lemma": "causa",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "cause",
-      "tag": "Abstract",
-      "example": "La causa es importante en este contexto.",
-      "example_en": "Cause is important in this context."
-    },
-    {
-      "lemma": "consecuencia",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "consequence",
-      "tag": "Abstract",
-      "example": "La consecuencia es importante en este contexto.",
-      "example_en": "Consequence is important in this context."
-    },
-    {
-      "lemma": "motivo",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "reason; motive",
-      "tag": "Abstract",
-      "example": "El motivo es importante en este contexto.",
-      "example_en": "Reason; motive is important in this context."
-    },
-    {
-      "lemma": "razón",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "reason",
-      "tag": "Abstract",
-      "example": "La razón es importante en este contexto.",
-      "example_en": "Reason is important in this context."
-    },
-    {
-      "lemma": "resultado",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "result",
-      "tag": "Abstract",
-      "example": "El resultado es importante en este contexto.",
-      "example_en": "Result is important in this context."
-    },
-    {
-      "lemma": "error",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "mistake; error",
-      "tag": "Abstract",
-      "example": "El error es importante en este contexto.",
-      "example_en": "Mistake; error is important in this context."
-    },
-    {
-      "lemma": "solución",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "solution",
-      "tag": "Abstract",
-      "example": "La solución es importante en este contexto.",
-      "example_en": "Solution is important in this context."
+      "example": "Cuando hablo sobre el consejo, intento añadir un detalle concreto.",
+      "example_en": "When I talk about the advice, I try to add a concrete detail."
     },
     {
       "lemma": "duda",
       "pos": "noun",
+      "translation_en": "doubt",
+      "tag": "Study & ideas",
       "gender": "f",
-      "translation_en": "doubt; question",
-      "tag": "Cognition",
-      "example": "La duda es importante en este contexto.",
-      "example_en": "Doubt; question is important in this context."
+      "example": "Necesito un ejemplo claro para explicar la duda sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the doubt without translating word for word."
+    },
+    {
+      "lemma": "explicación",
+      "pos": "noun",
+      "translation_en": "explanation",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Aprendí una frase útil para usar la explicación con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the explanation more naturally."
+    },
+    {
+      "lemma": "ejemplo",
+      "pos": "noun",
+      "translation_en": "example",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Aprendí una frase útil para usar el ejemplo con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the example more naturally."
+    },
+    {
+      "lemma": "resumen",
+      "pos": "noun",
+      "translation_en": "summary",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Necesito un ejemplo claro para explicar el resumen sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the summary without translating word for word."
+    },
+    {
+      "lemma": "detalle",
+      "pos": "noun",
+      "translation_en": "detail",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "El detalle puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The detail can appear in an everyday conversation or in an oral exam."
+    },
+    {
+      "lemma": "tema",
+      "pos": "noun",
+      "translation_en": "topic",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Necesito un ejemplo claro para explicar el tema sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the topic without translating word for word."
+    },
+    {
+      "lemma": "asunto",
+      "pos": "noun",
+      "translation_en": "matter",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Aprendí una frase útil para usar el asunto con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the matter more naturally."
+    },
+    {
+      "lemma": "motivo",
+      "pos": "noun",
+      "translation_en": "reason",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Necesito un ejemplo claro para explicar el motivo sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the reason without translating word for word."
+    },
+    {
+      "lemma": "causa",
+      "pos": "noun",
+      "translation_en": "cause",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Si menciono la causa, conviene explicar por qué es importante.",
+      "example_en": "If I mention the cause, it is best to explain why it matters."
+    },
+    {
+      "lemma": "consecuencia",
+      "pos": "noun",
+      "translation_en": "consequence",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Aprendí una frase útil para usar la consecuencia con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the consequence more naturally."
+    },
+    {
+      "lemma": "razón",
+      "pos": "noun",
+      "translation_en": "reason",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Si menciono la razón, conviene explicar por qué es importante.",
+      "example_en": "If I mention the reason, it is best to explain why it matters."
     },
     {
       "lemma": "opinión",
       "pos": "noun",
+      "translation_en": "personal view",
+      "tag": "Study & ideas",
       "gender": "f",
-      "translation_en": "opinion",
-      "tag": "Opinion",
-      "example": "La opinión es importante en este contexto.",
-      "example_en": "Opinion is important in this context."
-    },
-    {
-      "lemma": "punto de vista",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "point of view",
-      "tag": "Opinion",
-      "example": "El punto de vista es importante en este contexto.",
-      "example_en": "Point of view is important in this context."
+      "example": "La opinión puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The personal view can appear in an everyday conversation or in an oral exam."
     },
     {
       "lemma": "acuerdo",
       "pos": "noun",
-      "gender": "m",
       "translation_en": "agreement",
-      "tag": "Opinion",
-      "example": "El acuerdo es importante en este contexto.",
-      "example_en": "Agreement is important in this context."
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Si menciono el acuerdo, conviene explicar por qué es importante.",
+      "example_en": "If I mention the agreement, it is best to explain why it matters."
     },
     {
       "lemma": "desacuerdo",
       "pos": "noun",
-      "gender": "m",
       "translation_en": "disagreement",
-      "tag": "Opinion",
-      "example": "El desacuerdo es importante en este contexto.",
-      "example_en": "Disagreement is important in this context."
-    },
-    {
-      "lemma": "confianza",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "trust; confidence",
-      "tag": "Feelings",
-      "example": "La confianza es importante en este contexto.",
-      "example_en": "Trust; confidence is important in this context."
-    },
-    {
-      "lemma": "miedo",
-      "pos": "noun",
+      "tag": "Study & ideas",
       "gender": "m",
-      "translation_en": "fear",
-      "tag": "Feelings",
-      "example": "El miedo es importante en este contexto.",
-      "example_en": "Fear is important in this context."
+      "example": "El desacuerdo puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The disagreement can appear in an everyday conversation or in an oral exam."
     },
     {
-      "lemma": "alegría",
+      "lemma": "debate",
       "pos": "noun",
-      "gender": "f",
-      "translation_en": "joy",
-      "tag": "Feelings",
-      "example": "La alegría es importante en este contexto.",
-      "example_en": "Joy is important in this context."
-    },
-    {
-      "lemma": "tristeza",
-      "pos": "noun",
-      "gender": "f",
-      "translation_en": "sadness",
-      "tag": "Feelings",
-      "example": "La tristeza es importante en este contexto.",
-      "example_en": "Sadness is important in this context."
-    },
-    {
-      "lemma": "enfado",
-      "pos": "noun",
+      "translation_en": "discussion",
+      "tag": "Study & ideas",
       "gender": "m",
-      "translation_en": "anger",
-      "tag": "Feelings",
-      "example": "El enfado es importante en este contexto.",
-      "example_en": "Anger is important in this context."
+      "example": "Necesito un ejemplo claro para explicar el debate sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the discussion without translating word for word."
     },
     {
-      "lemma": "vergüenza",
+      "lemma": "argumento",
       "pos": "noun",
+      "translation_en": "argument",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Aprendí una frase útil para usar el argumento con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the argument more naturally."
+    },
+    {
+      "lemma": "creencia",
+      "pos": "noun",
+      "translation_en": "belief",
+      "tag": "Study & ideas",
       "gender": "f",
-      "translation_en": "embarrassment; shame",
-      "tag": "Feelings",
-      "example": "La vergüenza es importante en este contexto.",
-      "example_en": "Embarrassment; shame is important in this context."
+      "example": "La creencia puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The belief can appear in an everyday conversation or in an oral exam."
     },
     {
-      "lemma": "paciencia",
+      "lemma": "recuerdo",
       "pos": "noun",
+      "translation_en": "memory",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Aprendí una frase útil para usar el recuerdo con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the memory more naturally."
+    },
+    {
+      "lemma": "experiencia",
+      "pos": "noun",
+      "translation_en": "experience",
+      "tag": "Study & ideas",
       "gender": "f",
-      "translation_en": "patience",
-      "tag": "Character",
-      "example": "La paciencia es importante en este contexto.",
-      "example_en": "Patience is important in this context."
+      "example": "Cuando hablo sobre la experiencia, intento añadir un detalle concreto.",
+      "example_en": "When I talk about the experience, I try to add a concrete detail."
     },
     {
-      "lemma": "éxito",
+      "lemma": "error",
       "pos": "noun",
+      "translation_en": "mistake",
+      "tag": "Study & ideas",
       "gender": "m",
-      "translation_en": "success",
-      "tag": "Abstract",
-      "example": "El éxito es importante en este contexto.",
-      "example_en": "Success is important in this context."
+      "example": "El error puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The mistake can appear in an everyday conversation or in an oral exam."
     },
     {
-      "lemma": "fracaso",
+      "lemma": "solución",
       "pos": "noun",
-      "gender": "m",
-      "translation_en": "failure",
-      "tag": "Abstract",
-      "example": "El fracaso es importante en este contexto.",
-      "example_en": "Failure is important in this context."
-    },
-    {
-      "lemma": "riesgo",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "risk",
-      "tag": "Abstract",
-      "example": "El riesgo es importante en este contexto.",
-      "example_en": "Risk is important in this context."
+      "translation_en": "solution",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La solución puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The solution can appear in an everyday conversation or in an oral exam."
     },
     {
       "lemma": "mejora",
       "pos": "noun",
-      "gender": "f",
       "translation_en": "improvement",
-      "tag": "Abstract",
-      "example": "La mejora es importante en este contexto.",
-      "example_en": "Improvement is important in this context."
-    },
-    {
-      "lemma": "desarrollo",
-      "pos": "noun",
-      "gender": "m",
-      "translation_en": "development",
-      "tag": "Abstract",
-      "example": "El desarrollo es importante en este contexto.",
-      "example_en": "Development is important in this context."
-    },
-    {
-      "lemma": "relación",
-      "pos": "noun",
+      "tag": "Study & ideas",
       "gender": "f",
-      "translation_en": "relationship",
-      "tag": "Social",
-      "example": "La relación es importante en este contexto.",
-      "example_en": "Relationship is important in this context."
+      "example": "Necesito un ejemplo claro para explicar la mejora sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the improvement without translating word for word."
     },
     {
-      "lemma": "comportamiento",
+      "lemma": "revisión",
       "pos": "noun",
+      "translation_en": "review",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Si menciono la revisión, conviene explicar por qué es importante.",
+      "example_en": "If I mention the review, it is best to explain why it matters."
+    },
+    {
+      "lemma": "práctica",
+      "pos": "noun",
+      "translation_en": "practice",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La práctica puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The practice can appear in an everyday conversation or in an oral exam."
+    },
+    {
+      "lemma": "atención",
+      "pos": "noun",
+      "translation_en": "attention",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La atención puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The attention can appear in an everyday conversation or in an oral exam."
+    },
+    {
+      "lemma": "memoria",
+      "pos": "noun",
+      "translation_en": "memory",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Aprendí una frase útil para usar la memoria con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the memory more naturally."
+    },
+    {
+      "lemma": "rutina",
+      "pos": "noun",
+      "translation_en": "routine",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La rutina puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The routine can appear in an everyday conversation or in an oral exam."
+    },
+    {
+      "lemma": "meta",
+      "pos": "noun",
+      "translation_en": "goal",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La meta puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The goal can appear in an everyday conversation or in an oral exam."
+    },
+    {
+      "lemma": "progreso",
+      "pos": "noun",
+      "translation_en": "progress",
+      "tag": "Study & ideas",
       "gender": "m",
-      "translation_en": "behaviour",
-      "tag": "Social",
-      "example": "El comportamiento es importante en este contexto.",
-      "example_en": "Behaviour is important in this context."
+      "example": "Cuando hablo sobre el progreso, intento añadir un detalle concreto.",
+      "example_en": "When I talk about the progress, I try to add a concrete detail."
     },
     {
-      "lemma": "opinar",
-      "pos": "verb",
-      "translation_en": "give an opinion",
-      "tag": "Opinion",
-      "example": "Es importante opinar con calma.",
-      "example_en": "It is important to give an opinion calmly."
+      "lemma": "capacidad",
+      "pos": "noun",
+      "translation_en": "ability",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La capacidad puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The ability can appear in an everyday conversation or in an oral exam."
     },
     {
-      "lemma": "creer",
-      "pos": "verb",
-      "translation_en": "believe",
-      "tag": "Cognition",
-      "example": "Aprendo a creer en situaciones reales.",
-      "example_en": "I learn to believe in real situations."
+      "lemma": "habilidad",
+      "pos": "noun",
+      "translation_en": "skill",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La habilidad puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The skill can appear in an everyday conversation or in an oral exam."
     },
     {
-      "lemma": "pensar",
-      "pos": "verb",
-      "translation_en": "think",
-      "tag": "Cognition",
-      "example": "Intento pensar un poco cada día.",
-      "example_en": "I try to think a little every day."
+      "lemma": "confianza",
+      "pos": "noun",
+      "translation_en": "confidence",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Cuando hablo sobre la confianza, intento añadir un detalle concreto.",
+      "example_en": "When I talk about the confidence, I try to add a concrete detail."
     },
     {
-      "lemma": "sentir",
-      "pos": "verb",
-      "translation_en": "feel",
-      "tag": "Feelings",
-      "example": "Tengo que sentir antes de salir.",
-      "example_en": "I have to feel before leaving."
+      "lemma": "paciencia",
+      "pos": "noun",
+      "translation_en": "patience",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Necesito un ejemplo claro para explicar la paciencia sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the patience without translating word for word."
     },
     {
-      "lemma": "parecer",
-      "pos": "verb",
-      "translation_en": "seem",
-      "tag": "Opinion",
-      "example": "Quiero parecer con más seguridad.",
-      "example_en": "I want to seem with more confidence."
+      "lemma": "curiosidad",
+      "pos": "noun",
+      "translation_en": "curiosity",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Aprendí una frase útil para usar la curiosidad con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the curiosity more naturally."
     },
     {
-      "lemma": "importar",
-      "pos": "verb",
-      "translation_en": "matter; be important",
-      "tag": "Opinion",
-      "example": "Es importante importar con calma.",
-      "example_en": "It is important to matter; be important calmly."
+      "lemma": "lectura",
+      "pos": "noun",
+      "translation_en": "reading",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "La lectura puede aparecer en una conversación cotidiana o en un examen oral.",
+      "example_en": "The reading can appear in an everyday conversation or in an oral exam."
     },
     {
-      "lemma": "preocupar",
-      "pos": "verb",
-      "translation_en": "worry",
-      "tag": "Feelings",
-      "example": "Aprendo a preocupar en situaciones reales.",
-      "example_en": "I learn to worry in real situations."
+      "lemma": "escritura",
+      "pos": "noun",
+      "translation_en": "writing",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Necesito un ejemplo claro para explicar la escritura sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the writing without translating word for word."
     },
     {
-      "lemma": "sorprender",
-      "pos": "verb",
-      "translation_en": "surprise",
-      "tag": "Feelings",
-      "example": "Intento sorprender un poco cada día.",
-      "example_en": "I try to surprise a little every day."
+      "lemma": "pronunciación",
+      "pos": "noun",
+      "translation_en": "pronunciation",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Necesito un ejemplo claro para explicar la pronunciación sin traducir palabra por palabra.",
+      "example_en": "I need a clear example to explain the pronunciation without translating word for word."
     },
     {
-      "lemma": "molestar",
+      "lemma": "recordar",
       "pos": "verb",
-      "translation_en": "bother",
-      "tag": "Feelings",
-      "example": "Tengo que molestar antes de salir.",
-      "example_en": "I have to bother before leaving."
+      "translation_en": "to remember",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber recordar ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to remember helps you answer with more confidence."
     },
     {
-      "lemma": "agradecer",
+      "lemma": "olvidar",
       "pos": "verb",
-      "translation_en": "thank; appreciate",
-      "tag": "Social",
-      "example": "Quiero agradecer con más seguridad.",
-      "example_en": "I want to thank; appreciate with more confidence."
+      "translation_en": "to forget",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a olvidar sin depender siempre del diccionario.",
+      "example_en": "I want to learn to forget without always depending on the dictionary."
     },
     {
-      "lemma": "aceptar",
+      "lemma": "explicar",
       "pos": "verb",
-      "translation_en": "accept",
-      "tag": "Social",
-      "example": "Es importante aceptar con calma.",
-      "example_en": "It is important to accept calmly."
+      "translation_en": "to explain",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber explicar ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to explain helps you answer with more confidence."
     },
     {
-      "lemma": "rechazar",
+      "lemma": "resumir",
       "pos": "verb",
-      "translation_en": "reject",
-      "tag": "Social",
-      "example": "Aprendo a rechazar en situaciones reales.",
-      "example_en": "I learn to reject in real situations."
-    },
-    {
-      "lemma": "proponer",
-      "pos": "verb",
-      "translation_en": "propose",
-      "tag": "Communication",
-      "example": "Intento proponer un poco cada día.",
-      "example_en": "I try to propose a little every day."
-    },
-    {
-      "lemma": "recomendar",
-      "pos": "verb",
-      "translation_en": "recommend",
-      "tag": "Communication",
-      "example": "Tengo que recomendar antes de salir.",
-      "example_en": "I have to recommend before leaving."
-    },
-    {
-      "lemma": "aconsejar",
-      "pos": "verb",
-      "translation_en": "advise",
-      "tag": "Communication",
-      "example": "Quiero aconsejar con más seguridad.",
-      "example_en": "I want to advise with more confidence."
-    },
-    {
-      "lemma": "permitir",
-      "pos": "verb",
-      "translation_en": "allow",
-      "tag": "Rules",
-      "example": "Es importante permitir con calma.",
-      "example_en": "It is important to allow calmly."
-    },
-    {
-      "lemma": "prohibir",
-      "pos": "verb",
-      "translation_en": "forbid",
-      "tag": "Rules",
-      "example": "Aprendo a prohibir en situaciones reales.",
-      "example_en": "I learn to forbid in real situations."
-    },
-    {
-      "lemma": "obligar",
-      "pos": "verb",
-      "translation_en": "force; oblige",
-      "tag": "Rules",
-      "example": "Intento obligar un poco cada día.",
-      "example_en": "I try to force; oblige a little every day."
-    },
-    {
-      "lemma": "prometer",
-      "pos": "verb",
-      "translation_en": "promise",
-      "tag": "Social",
-      "example": "Tengo que prometer antes de salir.",
-      "example_en": "I have to promise before leaving."
-    },
-    {
-      "lemma": "cumplir",
-      "pos": "verb",
-      "translation_en": "fulfil; keep",
-      "tag": "Action",
-      "example": "Quiero cumplir con más seguridad.",
-      "example_en": "I want to fulfil; keep with more confidence."
-    },
-    {
-      "lemma": "faltar",
-      "pos": "verb",
-      "translation_en": "be missing; lack",
-      "tag": "Quantity",
-      "example": "Es importante faltar con calma.",
-      "example_en": "It is important to be missing; lack calmly."
-    },
-    {
-      "lemma": "sobrar",
-      "pos": "verb",
-      "translation_en": "be left over",
-      "tag": "Quantity",
-      "example": "Aprendo a sobrar en situaciones reales.",
-      "example_en": "I learn to be left over in real situations."
-    },
-    {
-      "lemma": "empeorar",
-      "pos": "verb",
-      "translation_en": "get worse",
-      "tag": "Health",
-      "example": "Intento empeorar un poco cada día.",
-      "example_en": "I try to get worse a little every day."
-    },
-    {
-      "lemma": "resolver",
-      "pos": "verb",
-      "translation_en": "solve",
-      "tag": "Action",
-      "example": "Tengo que resolver antes de salir.",
-      "example_en": "I have to solve before leaving."
+      "translation_en": "to summarise",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a resumir sin depender siempre del diccionario.",
+      "example_en": "I want to learn to summarise without always depending on the dictionary."
     },
     {
       "lemma": "comparar",
       "pos": "verb",
-      "translation_en": "compare",
-      "tag": "Cognition",
-      "example": "Quiero comparar con más seguridad.",
-      "example_en": "I want to compare with more confidence."
+      "translation_en": "to compare",
+      "tag": "Study & ideas",
+      "example": "Para el examen oral, necesito practicar cómo comparar una idea sencilla.",
+      "example_en": "For the oral exam, I need to practise how to compare a simple idea."
     },
     {
-      "lemma": "depender",
+      "lemma": "fallar",
       "pos": "verb",
-      "translation_en": "depend",
-      "tag": "Cognition",
-      "example": "Es importante depender con calma.",
-      "example_en": "It is important to depend calmly."
+      "translation_en": "to fail",
+      "tag": "Study & ideas",
+      "example": "Es útil poder fallar cuando la situación cambia de repente.",
+      "example_en": "It is useful to be able to fail when the situation changes suddenly."
     },
     {
-      "lemma": "preocupado",
-      "pos": "adj",
-      "translation_en": "worried",
-      "tag": "Feelings",
-      "example": "Hoy me siento preocupado.",
-      "example_en": "Today I feel worried."
+      "lemma": "opinar",
+      "pos": "verb",
+      "translation_en": "to give an opinion",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber opinar ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to give an opinion helps you answer with more confidence."
     },
     {
-      "lemma": "satisfecho",
-      "pos": "adj",
-      "translation_en": "satisfied",
-      "tag": "Feelings",
-      "example": "Hoy me siento satisfecho.",
-      "example_en": "Today I feel satisfied."
+      "lemma": "debatir",
+      "pos": "verb",
+      "translation_en": "to debate",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber debatir ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to debate helps you answer with more confidence."
     },
     {
-      "lemma": "decepcionado",
-      "pos": "adj",
-      "translation_en": "disappointed",
-      "tag": "Feelings",
-      "example": "Hoy me siento decepcionado.",
-      "example_en": "Today I feel disappointed."
+      "lemma": "dudar",
+      "pos": "verb",
+      "translation_en": "to doubt",
+      "tag": "Study & ideas",
+      "example": "Es útil poder dudar cuando la situación cambia de repente.",
+      "example_en": "It is useful to be able to doubt when the situation changes suddenly."
     },
     {
-      "lemma": "orgulloso",
-      "pos": "adj",
-      "translation_en": "proud",
-      "tag": "Feelings",
-      "example": "Hoy me siento orgulloso.",
-      "example_en": "Today I feel proud."
+      "lemma": "creer",
+      "pos": "verb",
+      "translation_en": "to believe",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber creer ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to believe helps you answer with more confidence."
     },
     {
-      "lemma": "inseguro",
-      "pos": "adj",
-      "translation_en": "insecure; unsure",
-      "tag": "Feelings",
-      "example": "Hoy me siento inseguro.",
-      "example_en": "Today I feel insecure; unsure."
+      "lemma": "imaginar",
+      "pos": "verb",
+      "translation_en": "to imagine",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a imaginar sin depender siempre del diccionario.",
+      "example_en": "I want to learn to imagine without always depending on the dictionary."
     },
     {
-      "lemma": "capaz",
-      "pos": "adj",
-      "translation_en": "capable",
-      "tag": "Evaluation",
-      "example": "Es un detalle capaz.",
-      "example_en": "It is a capable detail."
+      "lemma": "comprobar",
+      "pos": "verb",
+      "translation_en": "to check",
+      "tag": "Study & ideas",
+      "example": "Para el examen oral, necesito practicar cómo comprobar una idea sencilla.",
+      "example_en": "For the oral exam, I need to practise how to check a simple idea."
     },
     {
-      "lemma": "incapaz",
-      "pos": "adj",
-      "translation_en": "incapable",
-      "tag": "Evaluation",
-      "example": "Este tema es incapaz.",
-      "example_en": "This topic is incapable."
+      "lemma": "pensar",
+      "pos": "verb",
+      "translation_en": "to think",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber pensar ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to think helps you answer with more confidence."
     },
     {
-      "lemma": "responsable",
-      "pos": "adj",
-      "translation_en": "responsible",
-      "tag": "Character",
-      "example": "Es una persona responsable.",
-      "example_en": "He or she is a responsible person."
+      "lemma": "avanzar",
+      "pos": "verb",
+      "translation_en": "to make progress",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a avanzar sin depender siempre del diccionario.",
+      "example_en": "I want to learn to make progress without always depending on the dictionary."
     },
     {
-      "lemma": "irresponsable",
+      "lemma": "confuso",
       "pos": "adj",
-      "translation_en": "irresponsible",
-      "tag": "Character",
-      "example": "Es una persona irresponsable.",
-      "example_en": "He or she is a irresponsible person."
+      "translation_en": "confusing",
+      "tag": "Study & ideas",
+      "example": "Buscamos un ejemplo confuso que se pueda usar en la vida diaria.",
+      "example_en": "We are looking for a confusing example that can be used in daily life."
     },
     {
-      "lemma": "maduro",
+      "lemma": "necesario",
       "pos": "adj",
-      "translation_en": "mature",
-      "tag": "Character",
-      "example": "Es una persona maduro.",
-      "example_en": "He or she is a mature person."
-    },
-    {
-      "lemma": "común",
-      "pos": "adj",
-      "translation_en": "common",
-      "tag": "Evaluation",
-      "example": "Me parece común.",
-      "example_en": "It seems common to me."
-    },
-    {
-      "lemma": "raro",
-      "pos": "adj",
-      "translation_en": "strange; rare",
-      "tag": "Evaluation",
-      "example": "Es un detalle raro.",
-      "example_en": "It is a strange; rare detail."
-    },
-    {
-      "lemma": "probable",
-      "pos": "adj",
-      "translation_en": "likely",
-      "tag": "Opinion",
-      "example": "Este tema es probable.",
-      "example_en": "This topic is likely."
+      "translation_en": "necessary",
+      "tag": "Study & ideas",
+      "example": "Me parece un enfoque necesario para resolver el problema.",
+      "example_en": "It seems like a necessary approach to solve the problem."
     },
     {
       "lemma": "posible",
       "pos": "adj",
       "translation_en": "possible",
-      "tag": "Opinion",
-      "example": "Me parece posible.",
-      "example_en": "It seems possible to me."
+      "tag": "Study & ideas",
+      "example": "Buscamos un ejemplo posible que se pueda usar en la vida diaria.",
+      "example_en": "We are looking for a possible example that can be used in daily life."
     },
     {
-      "lemma": "incluso",
-      "pos": "adv",
-      "translation_en": "even",
-      "tag": "Connectors",
-      "example": "La situación cambia incluso.",
-      "example_en": "The situation changes even."
+      "lemma": "probable",
+      "pos": "adj",
+      "translation_en": "likely",
+      "tag": "Study & ideas",
+      "example": "Me parece un enfoque probable para resolver el problema.",
+      "example_en": "It seems like a likely approach to solve the problem."
     },
     {
-      "lemma": "además",
-      "pos": "adv",
-      "translation_en": "besides; furthermore",
-      "tag": "Connectors",
-      "example": "Lo hago además cuando puedo.",
-      "example_en": "I do it besides; furthermore when I can."
+      "lemma": "correcto",
+      "pos": "adj",
+      "translation_en": "correct",
+      "tag": "Study & ideas",
+      "example": "Me parece un enfoque correcto para resolver el problema.",
+      "example_en": "It seems like a correct approach to solve the problem."
     },
     {
-      "lemma": "tampoco",
-      "pos": "adv",
-      "translation_en": "neither; either",
-      "tag": "Connectors",
-      "example": "Normalmente respondo tampoco.",
-      "example_en": "Normally I answer neither; either."
+      "lemma": "incorrecto",
+      "pos": "adj",
+      "translation_en": "incorrect",
+      "tag": "Study & ideas",
+      "example": "Ese comentario fue incorrecto, pero necesitaba más contexto.",
+      "example_en": "That comment was incorrect, but it needed more context."
     },
     {
-      "lemma": "apenas",
+      "lemma": "adecuado",
+      "pos": "adj",
+      "translation_en": "suitable",
+      "tag": "Study & ideas",
+      "example": "Me parece un enfoque adecuado para resolver el problema.",
+      "example_en": "It seems like a suitable approach to solve the problem."
+    },
+    {
+      "lemma": "suficiente",
+      "pos": "adj",
+      "translation_en": "sufficient",
+      "tag": "Study & ideas",
+      "example": "Ese comentario fue suficiente, pero necesitaba más contexto.",
+      "example_en": "That comment was sufficient, but it needed more context."
+    },
+    {
+      "lemma": "insuficiente",
+      "pos": "adj",
+      "translation_en": "insufficient",
+      "tag": "Study & ideas",
+      "example": "Ese comentario fue insuficiente, pero necesitaba más contexto.",
+      "example_en": "That comment was insufficient, but it needed more context."
+    },
+    {
+      "lemma": "completo",
+      "pos": "adj",
+      "translation_en": "complete",
+      "tag": "Study & ideas",
+      "example": "Ese comentario fue completo, pero necesitaba más contexto.",
+      "example_en": "That comment was complete, but it needed more context."
+    },
+    {
+      "lemma": "incompleto",
+      "pos": "adj",
+      "translation_en": "incomplete",
+      "tag": "Study & ideas",
+      "example": "Buscamos un ejemplo incompleto que se pueda usar en la vida diaria.",
+      "example_en": "We are looking for a incomplete example that can be used in daily life."
+    },
+    {
+      "lemma": "práctico",
+      "pos": "adj",
+      "translation_en": "practical",
+      "tag": "Study & ideas",
+      "example": "Ese comentario fue práctico, pero necesitaba más contexto.",
+      "example_en": "That comment was practical, but it needed more context."
+    },
+    {
+      "lemma": "teórico",
+      "pos": "adj",
+      "translation_en": "theoretical",
+      "tag": "Study & ideas",
+      "example": "Buscamos un ejemplo teórico que se pueda usar en la vida diaria.",
+      "example_en": "We are looking for a theoretical example that can be used in daily life."
+    },
+    {
+      "lemma": "claramente",
       "pos": "adv",
-      "translation_en": "hardly",
-      "tag": "Quantity",
-      "example": "La situación cambia apenas.",
-      "example_en": "The situation changes hardly."
+      "translation_en": "clearly",
+      "tag": "Study & ideas",
+      "example": "Intento responder claramente cuando la situación es complicada.",
+      "example_en": "I try to answer clearly when the situation is complicated."
+    },
+    {
+      "lemma": "especialmente",
+      "pos": "adv",
+      "translation_en": "especially",
+      "tag": "Study & ideas",
+      "example": "Especialmente reviso lo que escribo antes de enviarlo.",
+      "example_en": "Especially I review what I write before sending it."
+    },
+    {
+      "lemma": "darse cuenta de",
+      "pos": "phrase",
+      "translation_en": "to realise",
+      "tag": "Study & ideas",
+      "example": "Me di cuenta de que necesitaba practicar con frases completas.",
+      "example_en": "I realised that I needed to practise with complete sentences."
     },
     {
       "lemma": "en mi opinión",
       "pos": "phrase",
       "translation_en": "in my opinion",
-      "tag": "Opinion",
-      "example": "En mi opinión, la solución es clara.",
-      "example_en": "In my opinion, the solution is clear."
+      "tag": "Study & ideas",
+      "example": "En mi opinión, la mejor solución es hablar antes de decidir.",
+      "example_en": "In my opinion, the best solution is to talk before deciding."
     },
     {
-      "lemma": "desde mi punto de vista",
+      "lemma": "por ejemplo",
       "pos": "phrase",
-      "translation_en": "from my point of view",
-      "tag": "Opinion",
-      "example": "Desde mi punto de vista, falta información.",
-      "example_en": "From my point of view, information is missing."
+      "translation_en": "for example",
+      "tag": "Study & ideas",
+      "example": "Podemos ahorrar energía, por ejemplo, apagando las luces innecesarias.",
+      "example_en": "We can save energy, for example, by turning off unnecessary lights."
     },
     {
-      "lemma": "por un lado",
+      "lemma": "en resumen",
       "pos": "phrase",
-      "translation_en": "on one hand",
-      "tag": "Connectors",
-      "example": "Por un lado, es barato; por otro, está lejos.",
-      "example_en": "On one hand, it is cheap; on the other, it is far."
+      "translation_en": "in short",
+      "tag": "Study & ideas",
+      "example": "En resumen, el plan funciona si todos cumplen su parte.",
+      "example_en": "In short, the plan works if everyone does their part."
     },
     {
-      "lemma": "por otro lado",
+      "lemma": "no cabe duda",
       "pos": "phrase",
-      "translation_en": "on the other hand",
-      "tag": "Connectors",
-      "example": "Por otro lado, el barrio es muy tranquilo.",
-      "example_en": "On the other hand, the neighbourhood is very quiet."
+      "translation_en": "there is no doubt",
+      "tag": "Study & ideas",
+      "example": "No cabe duda de que practicar cada día mejora la confianza.",
+      "example_en": "There is no doubt that practising every day improves confidence."
     },
     {
-      "lemma": "tener miedo de",
-      "pos": "phrase",
-      "translation_en": "to be afraid of",
-      "tag": "Feelings",
-      "example": "Tengo miedo de cometer un error.",
-      "example_en": "I am afraid of making a mistake."
+      "lemma": "abandono",
+      "pos": "noun",
+      "translation_en": "abandonment",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Cuando hablo sobre el abandono, intento añadir un detalle concreto.",
+      "example_en": "When I talk about the abandonment, I try to add a concrete detail."
     },
     {
-      "lemma": "echar de menos",
-      "pos": "phrase",
-      "translation_en": "to miss",
-      "tag": "Feelings",
-      "example": "Echo de menos a mi familia.",
-      "example_en": "I miss my family."
+      "lemma": "abono",
+      "pos": "noun",
+      "translation_en": "subscription, pass",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Si menciono el abono, conviene explicar por qué es importante.",
+      "example_en": "If I mention the subscription, pass, it is best to explain why it matters."
+    },
+    {
+      "lemma": "abundancia",
+      "pos": "noun",
+      "translation_en": "abundance",
+      "tag": "Study & ideas",
+      "gender": "f",
+      "example": "Cuando hablo sobre la abundancia, intento añadir un detalle concreto.",
+      "example_en": "When I talk about the abundance, I try to add a concrete detail."
+    },
+    {
+      "lemma": "abuso",
+      "pos": "noun",
+      "translation_en": "abuse",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Aprendí una frase útil para usar el abuso con más naturalidad.",
+      "example_en": "I learned a useful sentence to use the abuse more naturally."
+    },
+    {
+      "lemma": "acento",
+      "pos": "noun",
+      "translation_en": "accent",
+      "tag": "Study & ideas",
+      "gender": "m",
+      "example": "Si menciono el acento, conviene explicar por qué es importante.",
+      "example_en": "If I mention the accent, it is best to explain why it matters."
+    },
+    {
+      "lemma": "abandonar",
+      "pos": "verb",
+      "translation_en": "to abandon",
+      "tag": "Study & ideas",
+      "example": "Para el examen oral, necesito practicar cómo abandonar una idea sencilla.",
+      "example_en": "For the oral exam, I need to practise how to abandon a simple idea."
+    },
+    {
+      "lemma": "absorber",
+      "pos": "verb",
+      "translation_en": "to absorb",
+      "tag": "Study & ideas",
+      "example": "Para el examen oral, necesito practicar cómo absorber una idea sencilla.",
+      "example_en": "For the oral exam, I need to practise how to absorb a simple idea."
+    },
+    {
+      "lemma": "acceder",
+      "pos": "verb",
+      "translation_en": "to access",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a acceder sin depender siempre del diccionario.",
+      "example_en": "I want to learn to access without always depending on the dictionary."
+    },
+    {
+      "lemma": "acelerar",
+      "pos": "verb",
+      "translation_en": "to speed up",
+      "tag": "Study & ideas",
+      "example": "Es útil poder acelerar cuando la situación cambia de repente.",
+      "example_en": "It is useful to be able to speed up when the situation changes suddenly."
+    },
+    {
+      "lemma": "aconsejar",
+      "pos": "verb",
+      "translation_en": "to advise",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber aconsejar ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to advise helps you answer with more confidence."
+    },
+    {
+      "lemma": "advertir",
+      "pos": "verb",
+      "translation_en": "to warn",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a advertir sin depender siempre del diccionario.",
+      "example_en": "I want to learn to warn without always depending on the dictionary."
+    },
+    {
+      "lemma": "agotar",
+      "pos": "verb",
+      "translation_en": "to exhaust",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a agotar sin depender siempre del diccionario.",
+      "example_en": "I want to learn to exhaust without always depending on the dictionary."
+    },
+    {
+      "lemma": "agradecer",
+      "pos": "verb",
+      "translation_en": "to thank",
+      "tag": "Study & ideas",
+      "example": "Es útil poder agradecer cuando la situación cambia de repente.",
+      "example_en": "It is useful to be able to thank when the situation changes suddenly."
+    },
+    {
+      "lemma": "aislar",
+      "pos": "verb",
+      "translation_en": "to isolate",
+      "tag": "Study & ideas",
+      "example": "Para el examen oral, necesito practicar cómo aislar una idea sencilla.",
+      "example_en": "For the oral exam, I need to practise how to isolate a simple idea."
+    },
+    {
+      "lemma": "alcanzar",
+      "pos": "verb",
+      "translation_en": "to reach",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber alcanzar ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to reach helps you answer with more confidence."
+    },
+    {
+      "lemma": "amenazar",
+      "pos": "verb",
+      "translation_en": "to threaten",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a amenazar sin depender siempre del diccionario.",
+      "example_en": "I want to learn to threaten without always depending on the dictionary."
+    },
+    {
+      "lemma": "animar",
+      "pos": "verb",
+      "translation_en": "to encourage",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a animar sin depender siempre del diccionario.",
+      "example_en": "I want to learn to encourage without always depending on the dictionary."
+    },
+    {
+      "lemma": "anotar",
+      "pos": "verb",
+      "translation_en": "to note down",
+      "tag": "Study & ideas",
+      "example": "Es útil poder anotar cuando la situación cambia de repente.",
+      "example_en": "It is useful to be able to note down when the situation changes suddenly."
+    },
+    {
+      "lemma": "aportar",
+      "pos": "verb",
+      "translation_en": "to contribute",
+      "tag": "Study & ideas",
+      "example": "Quiero aprender a aportar sin depender siempre del diccionario.",
+      "example_en": "I want to learn to contribute without always depending on the dictionary."
+    },
+    {
+      "lemma": "amistoso",
+      "pos": "adj",
+      "translation_en": "friendly",
+      "tag": "Study & ideas",
+      "example": "Ese comentario fue amistoso, pero necesitaba más contexto.",
+      "example_en": "That comment was friendly, but it needed more context."
+    },
+    {
+      "lemma": "abstracto",
+      "pos": "adj",
+      "translation_en": "abstract",
+      "tag": "Study & ideas",
+      "example": "Buscamos un ejemplo abstracto que se pueda usar en la vida diaria.",
+      "example_en": "We are looking for a abstract example that can be used in daily life."
+    },
+    {
+      "lemma": "actualmente",
+      "pos": "adv",
+      "translation_en": "currently",
+      "tag": "Study & ideas",
+      "example": "Intento responder actualmente cuando la situación es complicada.",
+      "example_en": "I try to answer currently when the situation is complicated."
+    },
+    {
+      "lemma": "adecuadamente",
+      "pos": "adv",
+      "translation_en": "properly",
+      "tag": "Study & ideas",
+      "example": "Intento responder adecuadamente cuando la situación es complicada.",
+      "example_en": "I try to answer properly when the situation is complicated."
+    },
+    {
+      "lemma": "afortunadamente",
+      "pos": "adv",
+      "translation_en": "fortunately",
+      "tag": "Study & ideas",
+      "example": "Afortunadamente reviso lo que escribo antes de enviarlo.",
+      "example_en": "Fortunately I review what I write before sending it."
+    },
+    {
+      "lemma": "apoyar",
+      "pos": "verb",
+      "translation_en": "to support",
+      "tag": "Study & ideas",
+      "example": "En una conversación real, saber apoyar ayuda a responder con más seguridad.",
+      "example_en": "In a real conversation, knowing how to support helps you answer with more confidence."
+    },
+    {
+      "lemma": "académico",
+      "pos": "adj",
+      "translation_en": "academic",
+      "tag": "Study & ideas",
+      "example": "Ese comentario fue académico, pero necesitaba más contexto.",
+      "example_en": "That comment was academic, but it needed more context."
     }
   ]
 }
