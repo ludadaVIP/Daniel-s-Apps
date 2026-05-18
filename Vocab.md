@@ -184,8 +184,16 @@ grep ',nuevo_lemma$' backend/data/EspVocab/vocab-master.csv
 - 新词写入 JSON 后，也要把 `level,group,lemma` 追加或重建到 `vocab-master.csv`。
 - `count` 要和 `words.length` 尽量一致，左栏显示会用到。
 - 每组最好词性均衡，不要 100 个全是名词。
+- 每组 `phrase` 建议控制在 15 个以内；如果写 `phrase`，优先写真正的常用表达或惯用语，例如 `tener en cuenta`、`darse cuenta de que`、`hacer la vista gorda`，不要把普通“动词 + 名词”排列组合当作 phrase。
+- 西语动词搭配要写在 lemma 或例句里，例如 `depender de`、`contar con`、`pensar en`、`insistir en`、`tratar de`，不要只给孤立动词。
 - 例句要短、自然、可朗读，避免硬翻译。
+- 禁止使用空泛模板例句，例如 `X es una expresión útil para organizar tus ideas.`；例句必须体现具体语境。
 - `translation_en` 和 `example_en` 不要写中文，Esp Vocab 当前是西英对照。
+- 新增或大批量修改后，运行质量审查：
+
+```bash
+node backend/scripts/audit_esp_vocab_quality.js
+```
 
 ## 如何做其他语言 Vocab App
 
