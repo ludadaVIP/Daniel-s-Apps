@@ -15,6 +15,7 @@ import {
   Volume2,
 } from "lucide-react";
 
+import { NineHundredProgressDock } from "./NineHundredProgressDock";
 import { useActiveItemScroll } from "./useActiveItemScroll";
 import { isTtsCancelled, useTts } from "./useTts";
 
@@ -40,6 +41,14 @@ const DEFAULT_TEXT = {
   restoreWordTitle: "Restore to playback queues",
   learnedBadge: "Learned",
   learnedSkippedLabel: "learned skipped",
+  progressItemLabel: "word",
+  progressJumpLabel: "Jump to word",
+  progressPauseLabel: "Pause",
+  progressResumeLabel: "Resume",
+  progressStopLabel: "Stop",
+  queueInterrupted: "Playback stopped at word",
+  collapseSectionTitle: "Collapse section",
+  expandSectionTitle: "Expand section",
   playSectionLemma: "Play words only",
   playSectionTarget: "Play this section",
   playSectionAll: "Play this section with English",
@@ -325,14 +334,26 @@ function Section({
   onPlaySectionAll,
   learnedIds,
   onToggleLearned,
+  collapsed,
+  onToggleCollapsed,
 }) {
   const label = text.posLabel[section.pos] || section.pos;
   const plural = text.posPlural[section.pos] || section.pos;
   const playableCount = section.words.filter((word) => !learnedIds.has(word.id)).length;
   return (
-    <section className={`${prefix}-section`} data-pos={section.pos}>
+    <section className={classes(`${prefix}-section`, collapsed && "is-collapsed")} data-pos={section.pos}>
       <header className={`${prefix}-section-head`}>
         <div className={`${prefix}-section-title`}>
+          <button
+            type="button"
+            className={`${prefix}-section-toggle`}
+            onClick={() => onToggleCollapsed(section.pos)}
+            aria-expanded={!collapsed}
+            aria-label={collapsed ? text.expandSectionTitle : text.collapseSectionTitle}
+            title={collapsed ? text.expandSectionTitle : text.collapseSectionTitle}
+          >
+            <ChevronRight size={16} />
+          </button>
           <Layers size={16} />
           <h2>{label}</h2>
           <span>{section.count} {plural}</span>
@@ -368,25 +389,27 @@ function Section({
         </div>
       </header>
 
-      <div className={`${prefix}-section-cards`}>
-        {section.words.map((word) => (
-          <WordCard
-            key={word.id}
-            prefix={prefix}
-            word={word}
-            active={activeWordId === word.id}
-            rowRef={(node) => setWordRef(word.id, node)}
-            loadingKey={loadingKey}
-            speakingKey={speakingKey}
-            onPlayPrimary={onPlayPrimary}
-            onPlayAll={onPlayAll}
-            learned={learnedIds.has(word.id)}
-            onToggleLearned={onToggleLearned}
-            text={text}
-            config={config}
-          />
-        ))}
-      </div>
+      {!collapsed && (
+        <div className={`${prefix}-section-cards`}>
+          {section.words.map((word) => (
+            <WordCard
+              key={word.id}
+              prefix={prefix}
+              word={word}
+              active={activeWordId === word.id}
+              rowRef={(node) => setWordRef(word.id, node)}
+              loadingKey={loadingKey}
+              speakingKey={speakingKey}
+              onPlayPrimary={onPlayPrimary}
+              onPlayAll={onPlayAll}
+              learned={learnedIds.has(word.id)}
+              onToggleLearned={onToggleLearned}
+              text={text}
+              config={config}
+            />
+          ))}
+        </div>
+      )}
     </section>
   );
 }
@@ -409,15 +432,32 @@ export function VocabApp({ api, config }) {
   const [loadingGroup, setLoadingGroup] = useState(false);
   const [groupError, setGroupError] = useState("");
   const [query, setQuery] = useState("");
+  const [collapsedSections, setCollapsedSections] = useState(() => new Set());
 
-  const [queueState, setQueueState] = useState({ running: false, label: "" });
+  const [queueState, setQueueState] = useState({
+    running: false,
+    label: "",
+    mode: "",
+    words: [],
+    currentIndex: 0,
+    failed: false,
+  });
   const [activeWordId, setActiveWordId] = useState("");
   const [learnedIds, setLearnedIds] = useState(() => loadIdSet(learnedStorageKey));
   const queueRunRef = useRef(0);
   const learnedIdsRef = useRef(learnedIds);
 
   const setWordRef = useActiveItemScroll(activeWordId);
-  const { play, stop, speakingKey, loadingKey, error: ttsError } = useTts();
+  const {
+    play,
+    stop,
+    pause,
+    resume,
+    paused,
+    speakingKey,
+    loadingKey,
+    error: ttsError,
+  } = useTts();
 
   useEffect(() => {
     const ids = loadIdSet(learnedStorageKey);
@@ -474,8 +514,9 @@ export function VocabApp({ api, config }) {
     let alive = true;
     queueRunRef.current += 1;
     stop();
-    setQueueState({ running: false, label: "" });
+    setQueueState({ running: false, label: "", mode: "", words: [], currentIndex: 0, failed: false });
     setActiveWordId("");
+    setCollapsedSections(new Set());
     setLoadingGroup(true);
     setGroupError("");
     api
@@ -534,6 +575,15 @@ export function VocabApp({ api, config }) {
   );
   const learnedVisibleCount = visibleWordCount - playableWordCount;
 
+  const toggleSectionCollapsed = useCallback((pos) => {
+    setCollapsedSections((prev) => {
+      const next = new Set(prev);
+      if (next.has(pos)) next.delete(pos);
+      else next.add(pos);
+      return next;
+    });
+  }, []);
+
   const toggleLearned = useCallback(
     (wordId) => {
       if (!wordId) return;
@@ -552,7 +602,7 @@ export function VocabApp({ api, config }) {
   const stopQueue = useCallback(() => {
     queueRunRef.current += 1;
     stop();
-    setQueueState({ running: false, label: "" });
+    setQueueState({ running: false, label: "", mode: "", words: [], currentIndex: 0, failed: false });
     setActiveWordId("");
   }, [stop]);
 
@@ -573,16 +623,34 @@ export function VocabApp({ api, config }) {
   );
 
   const runQueue = useCallback(
-    async ({ label, mode, words, skipLearned = false }) => {
+    async ({ label, mode, words, skipLearned = false, startIndex = 0 }) => {
+      const playableWords = skipLearned
+        ? words.filter((word) => !learnedIdsRef.current.has(word.id))
+        : words;
+      if (!playableWords.length) return;
+      const safeStartIndex = Math.min(Math.max(startIndex, 0), playableWords.length - 1);
       const runId = queueRunRef.current + 1;
       queueRunRef.current = runId;
+      stop();
       setGroupError("");
-      setQueueState({ running: true, label });
+      let failed = false;
+      let lastIndex = safeStartIndex;
+      setQueueState({
+        running: true,
+        label,
+        mode,
+        words: playableWords,
+        currentIndex: safeStartIndex,
+        failed: false,
+      });
 
       try {
-        for (const word of words) {
+        for (let index = safeStartIndex; index < playableWords.length; index += 1) {
+          const word = playableWords[index];
+          lastIndex = index;
           if (queueRunRef.current !== runId) throw new Error("cancelled");
           if (skipLearned && learnedIdsRef.current.has(word.id)) continue;
+          setQueueState((current) => ({ ...current, currentIndex: index }));
 
           if (mode === "lemma") {
             await playClip({
@@ -643,16 +711,39 @@ export function VocabApp({ api, config }) {
         }
       } catch (err) {
         if (!isTtsCancelled(err) && err.message !== "cancelled") {
-          setGroupError(err.message || text.playbackError);
+          failed = true;
+          setGroupError(
+            `${err.message || text.playbackError} ${text.queueInterrupted} ${lastIndex + 1}/${playableWords.length}.`,
+          );
+          setQueueState((current) => ({
+            ...current,
+            running: false,
+            failed: true,
+            currentIndex: lastIndex,
+          }));
         }
       } finally {
-        if (queueRunRef.current === runId) {
-          setQueueState({ running: false, label: "" });
+        if (queueRunRef.current === runId && !failed) {
+          setQueueState({ running: false, label: "", mode: "", words: [], currentIndex: 0, failed: false });
           setActiveWordId("");
         }
       }
     },
-    [playClip, config.targetLang, text.playbackError],
+    [playClip, config.targetLang, stop, text.playbackError, text.queueInterrupted],
+  );
+
+  const seekQueue = useCallback(
+    (index) => {
+      const words = queueState.words.length ? queueState.words : filteredSections.flatMap((s) => s.words);
+      if (!words.length) return;
+      runQueue({
+        label: queueState.label || text.ready,
+        mode: queueState.mode || "lemma",
+        words,
+        startIndex: index,
+      });
+    },
+    [filteredSections, queueState, runQueue, text.ready],
   );
 
   const playWordPrimary = useCallback(
@@ -718,6 +809,9 @@ export function VocabApp({ api, config }) {
   const totalGroupsInLevel = (currentLevel?.groups || []).length;
   const currentGroupIndex = (currentLevel?.groups || []).findIndex((g) => g.id === activeGroupId);
   const busy = queueState.running;
+  const resumeOrRestartQueue = queueState.failed
+    ? () => seekQueue(queueState.currentIndex)
+    : resume;
 
   return (
     <div className={`${prefix}-shell`}>
@@ -858,11 +952,29 @@ export function VocabApp({ api, config }) {
                 onPlaySectionAll={playSectionAll}
                 learnedIds={learnedIds}
                 onToggleLearned={toggleLearned}
+                collapsed={collapsedSections.has(section.pos)}
+                onToggleCollapsed={toggleSectionCollapsed}
               />
             ))
           )}
         </section>
       </main>
+      <NineHundredProgressDock
+        currentIndex={queueState.currentIndex}
+        itemLabel={text.progressItemLabel}
+        jumpLabel={text.progressJumpLabel}
+        label={queueState.label}
+        onPause={pause}
+        onResume={resumeOrRestartQueue}
+        onSeek={seekQueue}
+        onStop={stopQueue}
+        paused={paused || queueState.failed}
+        pauseLabel={text.progressPauseLabel}
+        resumeLabel={text.progressResumeLabel}
+        stopLabel={text.progressStopLabel}
+        total={queueState.words.length}
+        visible={queueState.running || queueState.failed}
+      />
     </div>
   );
 }

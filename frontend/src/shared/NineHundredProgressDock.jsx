@@ -2,12 +2,17 @@ import { Pause, Play, Square } from "lucide-react";
 
 export function NineHundredProgressDock({
   currentIndex,
+  itemLabel = "sentence",
+  jumpLabel,
   label,
   onPause,
   onResume,
   onSeek,
   onStop,
   paused,
+  pauseLabel = "Pause",
+  resumeLabel = "Resume",
+  stopLabel = "Stop",
   total,
   visible,
 }) {
@@ -26,11 +31,11 @@ export function NineHundredProgressDock({
         <div className="nh-progress-actions">
           <button type="button" onClick={paused ? onResume : onPause}>
             {paused ? <Play size={16} /> : <Pause size={16} />}
-            {paused ? "Resume" : "Pause"}
+            {paused ? resumeLabel : pauseLabel}
           </button>
           <button type="button" onClick={onStop}>
             <Square size={15} />
-            Stop
+            {stopLabel}
           </button>
         </div>
       </div>
@@ -40,7 +45,7 @@ export function NineHundredProgressDock({
         max={total}
         value={current}
         onChange={(event) => onSeek(Number(event.target.value) - 1)}
-        aria-label="Jump to sentence"
+        aria-label={jumpLabel || `Jump to ${itemLabel}`}
       />
     </aside>
   );

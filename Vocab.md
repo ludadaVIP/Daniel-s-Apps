@@ -118,6 +118,43 @@ backend/data/EspVocab/
 
 后端会在读取时自动补 `id` 和 `number`，所以新数据可以不手写 `id`。如果手写，也要保证唯一。
 
+## 数据硬规则
+
+这些规则是 Esp Vocab 以及后续 French/English/German Vocab 的硬标准。以后新增或精修任何 group，都必须先按这里检查。
+
+1. 这是背单词 App，不是短语堆叠 App。
+   数据按 `level` 区分，每个 `level` 下分多个 `group`，每个 `group` 用一个 JSON 文件保存。一个 group 内按词性展示，推荐词性为 `noun`、`verb`、`adj`、`adv`、`phrase`。
+
+2. 每个 group 的 `phrase` 比例必须低于 15%。
+   如果一组 100 条，`pos: "phrase"` 最多 14 条，建议 8-12 条。其余词性必须是真正的单个词。
+
+3. 除了 `phrase`，所有 `lemma` 都必须是单个词。
+   `noun`、`verb`、`adj`、`adv` 不能写成 `acceso a la educación`、`apoyo para...`、`cambio climático` 这类多词组合。动词搭配可以在例句里体现，例如用例句教 `depender de`、`contar con`、`pensar en`，但如果 `pos` 是 `verb`，`lemma` 仍然写单个动词，如 `depender`。
+
+4. `phrase` 只能放真实有用的表达。
+   `phrase` 应该是常用词组、固定搭配、idiomatic expressions、口语/写作中高频表达，例如 `tener en cuenta`、`darse cuenta de que`、`hacer la vista gorda`、`poner en duda`。不要把随机的“动词 + 名词”“名词 + 介词短语”当作 phrase。
+
+5. 每个 lemma 必须全库唯一。
+   新增任何词之前，都必须用 `backend/data/EspVocab/vocab-master.csv` 查重。不能重复，不能重复，不能重复。
+
+```bash
+grep ',nuevo_lemma$' backend/data/EspVocab/vocab-master.csv
+```
+
+如果 grep 有输出，说明已经收录过，不要再加入任何 group。对于带重音、大小写、复数或可能有正则字符的词，还要人工确认 CSV 第三列。
+
+6. 每个词条必须包含四个核心学习信息。
+   必须有 `lemma`、`translation_en`、`example`、`example_en`。`translation_en` 是单词翻译，不允许复制西语原词；`example` 必须是真实、自然、能体现这个词用法的西语句子；`example_en` 必须忠实翻译例句。
+
+7. 例句质量比数量更重要。
+   例句要适合真实口语、写作、考试表达和听力循环播放。不要使用模板句、假语境、空泛句，例如 `X es importante en este contexto.`、`Tengo una X en casa.`、`Este tema es X.`。每个例句都应该让学习者知道这个词在什么场景下怎么用。
+
+8. 西语搭配和介词要在例句中自然体现。
+   很多词的难点不是中文/英文意思，而是后面的介词和搭配。例句要主动覆盖 `depender de`、`contar con`、`insistir en`、`tratar de`、`influir en`、`carecer de` 这类 régimen 或常见搭配。
+
+9. 精修时以 group 为单位。
+   不要一次性批量生成很多组然后留下模板垃圾。每次精修一个 group：先查重，再写词条，再运行质量审查，再抽样朗读和人工检查。
+
 ## 朗读功能
 
 通用页面支持三层朗读：
@@ -184,8 +221,8 @@ grep ',nuevo_lemma$' backend/data/EspVocab/vocab-master.csv
 - 新词写入 JSON 后，也要把 `level,group,lemma` 追加或重建到 `vocab-master.csv`。
 - `count` 要和 `words.length` 尽量一致，左栏显示会用到。
 - 每组最好词性均衡，不要 100 个全是名词。
-- 每组 `phrase` 建议控制在 15 个以内；如果写 `phrase`，优先写真正的常用表达或惯用语，例如 `tener en cuenta`、`darse cuenta de que`、`hacer la vista gorda`，不要把普通“动词 + 名词”排列组合当作 phrase。
-- 西语动词搭配要写在 lemma 或例句里，例如 `depender de`、`contar con`、`pensar en`、`insistir en`、`tratar de`，不要只给孤立动词。
+- 每组 `phrase` 必须低于 15%，并优先写真正的常用表达或惯用语，例如 `tener en cuenta`、`darse cuenta de que`、`hacer la vista gorda`，不要把普通“动词 + 名词”排列组合当作 phrase。
+- 除了 `phrase`，所有 `lemma` 必须是单个词；西语动词搭配要写在例句里，例如 `depender de`、`contar con`、`pensar en`、`insistir en`、`tratar de`。
 - 例句要短、自然、可朗读，避免硬翻译。
 - 禁止使用空泛模板例句，例如 `X es una expresión útil para organizar tus ideas.`；例句必须体现具体语境。
 - `translation_en` 和 `example_en` 不要写中文，Esp Vocab 当前是西英对照。
@@ -297,6 +334,25 @@ LANGUAGE_CONFIG = {
 - 例句只有 “This is a word.” 这种空句。
 - 机器翻译味很重的英文释义。
 - 一组里全是同一类词。
+- `translation_en` 和 `lemma` 一样，或者只是把西语原词原样复制过去。
+- 非 `phrase` 类别里出现多词 lemma。
+- 把同一个动词套进一串不同名词，或者把同一个名词套进一串不同动词。
+
+## 精修检查清单
+
+每精修完一个 group，至少做这几步：
+
+1. 确认 `words.length` 和 `index.json` 里的 `count` 一致。
+2. 确认 `phrase` 数量低于 group 总数的 15%。
+3. 确认 `noun`、`verb`、`adj`、`adv` 的 `lemma` 都是单个词。
+4. 对新增 lemma 用 `vocab-master.csv` 查重。
+5. 确认每条都有 `lemma`、`translation_en`、`example`、`example_en`。
+6. 抽样检查例句：是否真实、可朗读、能体现词义和搭配。
+7. 运行审查脚本：
+
+```bash
+node backend/scripts/audit_esp_vocab_quality.js
+```
 
 ## Git 与本地缓存
 

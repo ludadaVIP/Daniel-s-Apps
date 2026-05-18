@@ -409,6 +409,32 @@
   .esv-section-title {
     display: flex; align-items: center; gap: 10px;
     color: var(--ink);
+    min-width: 0;
+  }
+  .esv-section-toggle {
+    display: inline-grid;
+    flex: 0 0 auto;
+    width: 30px;
+    height: 30px;
+    place-items: center;
+    border: 1px solid var(--line-strong);
+    border-radius: 8px;
+    color: var(--terracotta-dark);
+    background: #fff;
+    cursor: pointer;
+    transition: transform 150ms ease, background 150ms ease, color 150ms ease;
+  }
+  .esv-section-toggle svg {
+    transition: transform 150ms ease;
+  }
+  .esv-section:not(.is-collapsed) .esv-section-toggle svg {
+    transform: rotate(90deg);
+  }
+  .esv-section-toggle:hover {
+    color: #fff;
+    background: var(--terracotta);
+    border-color: transparent;
+    transform: translateY(-1px);
   }
   .esv-section-title h2 {
     margin: 0;

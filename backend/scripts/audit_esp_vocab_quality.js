@@ -6,21 +6,38 @@ const path = require("path");
 const DATA_DIR = path.resolve(__dirname, "../data/EspVocab");
 const LEVELS_DIR = path.join(DATA_DIR, "levels");
 const MAX_PHRASES_PER_GROUP = 15;
+const SINGLE_WORD_POS = new Set(["noun", "verb", "adj", "adv"]);
 const BAD_EXAMPLE_PATTERNS = [
   /es una expresión útil para organizar tus ideas/i,
+  /es importante en este contexto/i,
+  /is important in this context/i,
   /is a useful expression for organising your ideas/i,
   /is a useful expression for organizing your ideas/i,
+  /^tengo un[ao] .+ en casa\.?$/i,
+  /^compré un[ao] .+ esta mañana\.?$/i,
+  /^necesito un[ao] .+ para hoy\.?$/i,
+  /^busco un[ao] .+ para la clase\.?$/i,
+  /^intento .+ un poco cada día\.?$/i,
+  /^tengo que .+ antes de salir\.?$/i,
+  /^quiero .+ con más seguridad\.?$/i,
+  /^es importante .+ con calma\.?$/i,
+  /^aprendo a .+ en situaciones reales\.?$/i,
+  /^este tema es .+\.?$/i,
+  /^me parece .+\.?$/i,
+  /^es un detalle .+\.?$/i,
+  /^normalmente respondo .+\.?$/i,
+  /^la situación cambia .+\.?$/i,
+  /^lo hago .+ cuando puedo\.?$/i,
 ];
 
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
 
-function signature(text) {
+function normaliseExample(text) {
   return String(text || "")
     .normalize("NFC")
     .toLowerCase()
-    .replace(/[a-záéíóúüñ]+/gi, "_")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -33,23 +50,50 @@ function lemmaFamily(lemma) {
   return words[0] || "";
 }
 
+function comparableText(value) {
+  return String(value || "")
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, " ")
+    .trim();
+}
+
 function inspectGroup(levelId, group) {
   const file = path.join(LEVELS_DIR, levelId, `${group.id}.json`);
   const data = readJson(file);
   const posCounts = {};
   const families = new Map();
-  const exampleSigs = new Map();
+  const exactExamples = new Map();
   const badExamples = [];
+  const multiWordNonPhrases = [];
+  const suspiciousTranslations = [];
 
   for (const word of data.words || []) {
     const pos = word.pos || "other";
     posCounts[pos] = (posCounts[pos] || 0) + 1;
 
+    if (SINGLE_WORD_POS.has(pos) && /\s/.test(String(word.lemma || "").trim())) {
+      multiWordNonPhrases.push(word.lemma);
+    }
+
+    const lemmaComparable = comparableText(word.lemma);
+    const translationComparable = comparableText(word.translation_en);
+    if (
+      lemmaComparable &&
+      translationComparable &&
+      (lemmaComparable === translationComparable ||
+        translationComparable.startsWith(`${lemmaComparable} `) ||
+        translationComparable.endsWith(` ${lemmaComparable}`))
+    ) {
+      suspiciousTranslations.push(word.lemma);
+    }
+
     const family = lemmaFamily(word.lemma);
     if (family) families.set(family, (families.get(family) || 0) + 1);
 
-    const sig = signature(word.example);
-    if (sig) exampleSigs.set(sig, (exampleSigs.get(sig) || 0) + 1);
+    const exact = normaliseExample(word.example);
+    if (exact) exactExamples.set(exact, (exactExamples.get(exact) || 0) + 1);
 
     const combined = `${word.example || ""}\n${word.example_en || ""}`;
     if (BAD_EXAMPLE_PATTERNS.some((pattern) => pattern.test(combined))) {
@@ -57,8 +101,8 @@ function inspectGroup(levelId, group) {
     }
   }
 
-  const repeatedExamples = [...exampleSigs.entries()]
-    .filter(([, count]) => count >= 8)
+  const repeatedExamples = [...exactExamples.entries()]
+    .filter(([, count]) => count >= 2)
     .sort((a, b) => b[1] - a[1])
     .slice(0, 5);
   const repeatedFamilies = [...families.entries()]
@@ -72,6 +116,20 @@ function inspectGroup(levelId, group) {
   }
   if (badExamples.length) {
     issues.push(`${badExamples.length} filler examples`);
+  }
+  if (multiWordNonPhrases.length) {
+    issues.push(
+      `${multiWordNonPhrases.length} multi-word non-phrase lemmas: ${multiWordNonPhrases
+        .slice(0, 8)
+        .join(", ")}`
+    );
+  }
+  if (suspiciousTranslations.length) {
+    issues.push(
+      `${suspiciousTranslations.length} suspicious translations: ${suspiciousTranslations
+        .slice(0, 8)
+        .join(", ")}`
+    );
   }
   if (repeatedExamples.length) {
     issues.push(`repeated example templates: ${repeatedExamples.map(([sig, count]) => `${count}× ${sig}`).join("; ")}`);
