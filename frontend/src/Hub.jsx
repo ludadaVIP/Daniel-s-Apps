@@ -151,6 +151,15 @@ const APPS = [
     Icon: NotebookPen,
     to: "/record-meditation",
   },
+  {
+    id: "eng-vocab",
+    title: "Eng Vocab",
+    subtitle: "英语单词 · CEFR A1 → C2 · 英中对照 · 按词性分组",
+    description: "英语单词背诵 App：按 CEFR 级别（A1-C2）和 100 词一组管理，每组内再按词性（名词 / 动词 / 形容词 / 副词 / 短语）分区。每个词带 IPA、中文释义、英文例句和中文翻译，Edge TTS 用英语朗读单词和例句、用中文朗读释义。和 Esp Vocab 共用 shared/VocabApp 与 shared/vocab，新增词时用 vocab-master.csv 查重。",
+    accent: "#1d4ed8",
+    Icon: BookOpen,
+    to: "/eng-vocab",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -261,7 +270,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十五合一语言 + 圣经 + 科学 + 日志练习中心</h1>
+        <h1 className="hub-title">十六合一语言 + 圣经 + 科学 + 日志练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>

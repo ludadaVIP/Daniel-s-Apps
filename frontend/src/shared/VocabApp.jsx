@@ -271,13 +271,13 @@ function WordCard({
           {learned && <span className={`${prefix}-word-learned-badge`}>{text.learnedBadge}</span>}
           {word.tag && <span className={`${prefix}-word-tag`}>{word.tag}</span>}
         </div>
-        <p className={`${prefix}-word-translation`} lang="en">{word.translation_en}</p>
+        <p className={`${prefix}-word-translation`} lang={config.translationLang || "en"}>{word[config.translationField || "translation_en"]}</p>
         {word.example && (
           <p className={`${prefix}-word-example`}>
             <span className={`${prefix}-word-example-prefix`}>{text.examplePrefix}</span>
             <span className={`${prefix}-word-example-target`} lang={config.targetLang}>{word.example}</span>
-            {word.example_en && (
-              <span className={`${prefix}-word-example-en`} lang="en">— {word.example_en}</span>
+            {word[config.exampleTransField || "example_en"] && (
+              <span className={`${prefix}-word-example-en`} lang={config.translationLang || "en"}>— {word[config.exampleTransField || "example_en"]}</span>
             )}
           </p>
         )}
@@ -542,6 +542,7 @@ export function VocabApp({ api, config }) {
 
   const sections = useMemo(() => group?.sections || [], [group]);
 
+  const translationField = config.translationField || "translation_en";
   const filteredSections = useMemo(() => {
     const needle = query.trim().toLowerCase();
     if (!needle) return sections;
@@ -551,14 +552,14 @@ export function VocabApp({ api, config }) {
         words: section.words.filter((word) => {
           return (
             (word.lemma || "").toLowerCase().includes(needle) ||
-            (word.translation_en || "").toLowerCase().includes(needle) ||
+            (word[translationField] || "").toLowerCase().includes(needle) ||
             (word.tag || "").toLowerCase().includes(needle) ||
             (word.example || "").toLowerCase().includes(needle)
           );
         }),
       }))
       .filter((section) => section.words.length > 0);
-  }, [sections, query]);
+  }, [sections, query, translationField]);
 
   const visibleWordCount = useMemo(
     () => filteredSections.reduce((sum, s) => sum + s.words.length, 0),
@@ -684,14 +685,14 @@ export function VocabApp({ api, config }) {
               sentenceId: word.id,
               text: word.lemma,
             });
-            if (word.translation_en) {
+            if (word[config.translationField || "translation_en"]) {
               if (queueRunRef.current !== runId) throw new Error("cancelled");
               await sleep(QUEUE_PAUSE_MS);
               await playClip({
                 key: `${word.id}:translation`,
-                language: "en",
+                language: config.translationLang || "en",
                 sentenceId: word.id,
-                text: word.translation_en,
+                text: word[config.translationField || "translation_en"],
               });
             }
             if (word.example) {
