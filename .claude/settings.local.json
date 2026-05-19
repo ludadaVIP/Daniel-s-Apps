@@ -7,7 +7,15 @@
       "Bash(awk -F, 'NR>1 && $1==\"a1\" {print $3}' \"backend/data/FrenchVocab/vocab-master.csv\")",
       "Bash(awk -F, 'NR>1 {print $3}' \"backend/data/FrenchVocab/vocab-master.csv\")",
       "Bash(awk -F, 'NR>1 && $1==\"a1\"' \"backend/data/FrenchVocab/vocab-master.csv\")",
-      "Bash(awk 'NR>1' \"backend/data/FrenchVocab/vocab-master.csv\")"
+      "Bash(awk 'NR>1' \"backend/data/FrenchVocab/vocab-master.csv\")",
+      "Bash(awk -F',' '{print $1}' \"G:/Github/Daniel's Apps/backend/data/FrenchVocab/vocab-master.csv\")",
+      "Bash(awk -F',' '$1==\"a2\"' \"G:/Github/Daniel's Apps/backend/data/FrenchVocab/vocab-master.csv\")",
+      "Bash(awk -F',' '$1==\"a1\"' \"G:/Github/Daniel's Apps/backend/data/FrenchVocab/vocab-master.csv\")",
+      "Read(//tmp/**)",
+      "Bash(awk -F',' 'NR>1{print $3}' \"G:/Github/Daniel's Apps/backend/data/FrenchVocab/vocab-master.csv\" > /tmp/all_existing.txt && wc -l /tmp/all_existing.txt)",
+      "Bash(python backend/scripts/build_french_a2.py)",
+      "Bash(awk -F',' 'NR>1 {print $3}' \"G:/Github/Daniel's Apps/backend/data/FrenchVocab/vocab-master.csv\")",
+      "Bash(node -e ' *)"
     ]
   }
 }
