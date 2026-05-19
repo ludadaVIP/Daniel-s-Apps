@@ -7,6 +7,7 @@ import AppShell from "./shared/AppShell.jsx";
 // Lazy load each sub-app so the hub stays light and an error in one app
 // doesn't block the others.
 const FrenchApp = lazy(() => import("./apps/french/App.jsx"));
+const FreeFrenchApp = lazy(() => import("./apps/free_french/App.jsx"));
 const QuizApp = lazy(() => import("./apps/quiz/App.jsx"));
 const LiveSpanishApp = lazy(() => import("./apps/live_spanish/App.jsx"));
 const LanguageLabApp = lazy(() => import("./apps/language_lab/App.jsx"));
@@ -54,6 +55,7 @@ export default function App() {
     <Routes>
       <Route path="/" element={<Hub />} />
       <Route path="/french" element={withShell("French Sprint", "#7c3aed", FrenchApp)} />
+      <Route path="/free-french" element={withShell("Free French", "#1f8a63", FreeFrenchApp)} />
       <Route path="/quiz" element={withShell("English Adventure Quiz", "#f97316", QuizApp)} />
       <Route
         path="/live-spanish"

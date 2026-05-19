@@ -15,6 +15,15 @@ const APPS = [
     to: "/french",
   },
   {
+    id: "free-french",
+    title: "Free French",
+    subtitle: "想到哪学到哪 · French / English / Spanish · 万物皆可朗读",
+    description: "A flexible French notebook with editable two-level menus, compact beginner lessons, MD inbox, and Edge TTS for every useful line.",
+    accent: "#1f8a63",
+    Icon: Languages,
+    to: "/free-french",
+  },
+  {
     id: "quiz",
     title: "English Adventure Quiz",
     subtitle: "英语综合练习：选择 / 排序 / 填空",
