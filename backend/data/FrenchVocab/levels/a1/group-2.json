@@ -1,0 +1,907 @@
+{
+  "id": "group-2",
+  "title": "Group 2 · Corps et santé",
+  "focus": "Body parts, basic health and care. 40 nouns / 30 verbs / 15 adj / 5 adv / 10 phrases. Placeholder fields filled later.",
+  "words": [
+    {
+      "lemma": "ventre",
+      "ipa": "vɑ̃tʁ",
+      "pos": "noun",
+      "translation_en": "belly",
+      "example": "J'ai très mal au ventre aujourd'hui.",
+      "example_en": "My belly hurts a lot today.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "dos",
+      "ipa": "do",
+      "pos": "noun",
+      "translation_en": "back",
+      "example": "Il s'est fait mal au dos en portant ce meuble.",
+      "example_en": "He hurt his back carrying this piece of furniture.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "bras",
+      "ipa": "bʁa",
+      "pos": "noun",
+      "translation_en": "arm",
+      "example": "Elle a cassé son bras gauche en skiant.",
+      "example_en": "She broke her left arm while skiing.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "jambe",
+      "ipa": "ʒɑ̃b",
+      "pos": "noun",
+      "translation_en": "leg",
+      "example": "Mes jambes sont fatiguées après cette longue marche.",
+      "example_en": "My legs are tired after this long walk.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "doigt",
+      "ipa": "dwa",
+      "pos": "noun",
+      "translation_en": "finger",
+      "example": "Je me suis coupé le doigt en cuisinant.",
+      "example_en": "I cut my finger while cooking.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "oreille",
+      "ipa": "ɔ.ʁɛj",
+      "pos": "noun",
+      "translation_en": "ear",
+      "example": "Il a une infection à l'oreille droite.",
+      "example_en": "He has an infection in his right ear.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "nez",
+      "ipa": "ne",
+      "pos": "noun",
+      "translation_en": "nose",
+      "example": "Mon nez coule parce que j'ai un rhume.",
+      "example_en": "My nose is runny because I have a cold.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "visage",
+      "ipa": "vi.zaʒ",
+      "pos": "noun",
+      "translation_en": "face",
+      "example": "Lavez-vous le visage avec du savon doux.",
+      "example_en": "Wash your face with mild soap.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "cou",
+      "ipa": "ku",
+      "pos": "noun",
+      "translation_en": "neck",
+      "example": "J'ai des douleurs dans le cou depuis ce matin.",
+      "example_en": "I've had pain in my neck since this morning.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "épaule",
+      "ipa": "e.pol",
+      "pos": "noun",
+      "translation_en": "shoulder",
+      "example": "Il porte son sac sur l'épaule.",
+      "example_en": "He carries his bag on his shoulder.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "genou",
+      "ipa": "ʒə.nu",
+      "pos": "noun",
+      "translation_en": "knee",
+      "example": "Elle est tombée et s'est écorché le genou.",
+      "example_en": "She fell and scraped her knee.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "cœur",
+      "ipa": "kœʁ",
+      "pos": "noun",
+      "translation_en": "heart",
+      "example": "Le sport régulier est bon pour le cœur.",
+      "example_en": "Regular exercise is good for the heart.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "peau",
+      "ipa": "po",
+      "pos": "noun",
+      "translation_en": "skin",
+      "example": "Cette crème hydrate bien la peau sèche.",
+      "example_en": "This cream moisturizes dry skin well.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "ongle",
+      "ipa": "ɔ̃ɡl",
+      "pos": "noun",
+      "translation_en": "nail",
+      "example": "Arrête de te ronger les ongles !",
+      "example_en": "Stop biting your nails!",
+      "tag": "body part"
+    },
+    {
+      "lemma": "langue",
+      "ipa": "lɑ̃ɡ",
+      "pos": "noun",
+      "translation_en": "tongue",
+      "example": "Il a mordu sa langue en mangeant.",
+      "example_en": "He bit his tongue while eating.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "lèvre",
+      "ipa": "lɛvʁ",
+      "pos": "noun",
+      "translation_en": "lip",
+      "example": "Mes lèvres sont gercées à cause du froid.",
+      "example_en": "My lips are chapped because of the cold.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "joue",
+      "ipa": "ʒu",
+      "pos": "noun",
+      "translation_en": "cheek",
+      "example": "Il a fait un bisou sur ma joue.",
+      "example_en": "He gave me a kiss on my cheek.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "front",
+      "ipa": "fʁɔ̃",
+      "pos": "noun",
+      "translation_en": "forehead",
+      "example": "Elle a de la fièvre, son front est brûlant.",
+      "example_en": "She has a fever, her forehead is burning hot.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "gorge",
+      "ipa": "ɡɔʁʒ",
+      "pos": "noun",
+      "translation_en": "throat",
+      "example": "J'ai tellement soif que ma gorge est sèche.",
+      "example_en": "I'm so thirsty my throat is dry.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "sang",
+      "ipa": "sɑ̃",
+      "pos": "noun",
+      "translation_en": "blood",
+      "example": "Il a peur de voir du sang.",
+      "example_en": "He is afraid of seeing blood.",
+      "tag": "health"
+    },
+    {
+      "lemma": "os",
+      "ipa": "ɔs",
+      "pos": "noun",
+      "translation_en": "bone",
+      "example": "Les chiens aiment ronger des os.",
+      "example_en": "Dogs like to chew on bones.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "voix",
+      "ipa": "vwa",
+      "pos": "noun",
+      "translation_en": "voice",
+      "example": "Elle a une très belle voix pour chanter.",
+      "example_en": "She has a very beautiful voice for singing.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "sourire",
+      "ipa": "su.ʁiʁ",
+      "pos": "noun",
+      "translation_en": "smile",
+      "example": "Ton sourire me rend très heureux.",
+      "example_en": "Your smile makes me very happy.",
+      "tag": "expression"
+    },
+    {
+      "lemma": "larme",
+      "ipa": "laʁm",
+      "pos": "noun",
+      "translation_en": "tear",
+      "example": "J'ai vu une larme couler sur sa joue.",
+      "example_en": "I saw a tear roll down her cheek.",
+      "tag": "expression"
+    },
+    {
+      "lemma": "cerveau",
+      "ipa": "sɛʁ.vo",
+      "pos": "noun",
+      "translation_en": "brain",
+      "example": "Le cerveau humain est très complexe.",
+      "example_en": "The human brain is very complex.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "estomac",
+      "ipa": "ɛs.tɔ.ma",
+      "pos": "noun",
+      "translation_en": "stomach",
+      "example": "J'ai mangé trop vite et j'ai mal à l'estomac.",
+      "example_en": "I ate too fast and my stomach hurts.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "poumon",
+      "ipa": "pu.mɔ̃",
+      "pos": "noun",
+      "translation_en": "lung",
+      "example": "Fumer est mauvais pour les poumons.",
+      "example_en": "Smoking is bad for the lungs.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "cheville",
+      "ipa": "ʃə.vij",
+      "pos": "noun",
+      "translation_en": "ankle",
+      "example": "Je me suis foulé la cheville pendant le match.",
+      "example_en": "I sprained my ankle during the match.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "coude",
+      "ipa": "kud",
+      "pos": "noun",
+      "translation_en": "elbow",
+      "example": "Ne mets pas tes coudes sur la table.",
+      "example_en": "Don't put your elbows on the table.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "poitrine",
+      "ipa": "pwa.tʁin",
+      "pos": "noun",
+      "translation_en": "chest",
+      "example": "Il ressentait une forte douleur dans la poitrine.",
+      "example_en": "He felt a sharp pain in his chest.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "taille",
+      "ipa": "tɑj",
+      "pos": "noun",
+      "translation_en": "waist",
+      "example": "Quelle est votre taille pour ce pantalon ?",
+      "example_en": "What is your waist size for these pants?",
+      "tag": "measurement"
+    },
+    {
+      "lemma": "hanche",
+      "ipa": "ɑ̃ʃ",
+      "pos": "noun",
+      "translation_en": "hip",
+      "example": "Elle s'est cassé la hanche en tombant.",
+      "example_en": "She broke her hip falling down.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "talon",
+      "ipa": "ta.lɔ̃",
+      "pos": "noun",
+      "translation_en": "heel",
+      "example": "Ces chaussures à talons me font mal aux pieds.",
+      "example_en": "These high heels hurt my feet.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "mâchoire",
+      "ipa": "ma.ʃwaʁ",
+      "pos": "noun",
+      "translation_en": "jaw",
+      "example": "Sa mâchoire s'est crispée sous l'effet du stress.",
+      "example_en": "His jaw clenched from stress.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "menton",
+      "ipa": "mɑ̃.tɔ̃",
+      "pos": "noun",
+      "translation_en": "chin",
+      "example": "Il a une petite cicatrice sur le menton.",
+      "example_en": "He has a small scar on his chin.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "cil",
+      "ipa": "sil",
+      "pos": "noun",
+      "translation_en": "eyelash",
+      "example": "Elle a de longs cils noirs.",
+      "example_en": "She has long black eyelashes.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "paupière",
+      "ipa": "po.pjɛʁ",
+      "pos": "noun",
+      "translation_en": "eyelid",
+      "example": "Mes paupières sont lourdes, je dois dormir.",
+      "example_en": "My eyelids are heavy, I need to sleep.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "nuque",
+      "ipa": "nyk",
+      "pos": "noun",
+      "translation_en": "nape",
+      "example": "Le coiffeur lui a rasé la nuque.",
+      "example_en": "The hairdresser shaved the nape of his neck.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "moustache",
+      "ipa": "mus.taʃ",
+      "pos": "noun",
+      "translation_en": "mustache",
+      "example": "Mon grand-père porte toujours une moustache.",
+      "example_en": "My grandfather always wears a mustache.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "barbe",
+      "ipa": "baʁb",
+      "pos": "noun",
+      "translation_en": "beard",
+      "example": "Il a décidé de laisser pousser sa barbe.",
+      "example_en": "He decided to let his beard grow.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "respirer",
+      "ipa": "ʁɛs.pi.ʁe",
+      "pos": "verb",
+      "translation_en": "to breathe",
+      "example": "Respire profondément pour te calmer.",
+      "example_en": "Breathe deeply to calm down.",
+      "tag": "health"
+    },
+    {
+      "lemma": "sentir",
+      "ipa": "sɑ̃.tiʁ",
+      "pos": "verb",
+      "translation_en": "to smell / to feel",
+      "example": "Cette soupe sent très bon.",
+      "example_en": "This soup smells very good.",
+      "tag": "senses"
+    },
+    {
+      "lemma": "tousser",
+      "ipa": "tu.se",
+      "pos": "verb",
+      "translation_en": "to cough",
+      "example": "Il a toussé toute la nuit.",
+      "example_en": "He coughed all night.",
+      "tag": "health"
+    },
+    {
+      "lemma": "soigner",
+      "ipa": "swa.ɲe",
+      "pos": "verb",
+      "translation_en": "to treat / to care for",
+      "example": "Les infirmières soignent les patients à l'hôpital.",
+      "example_en": "Nurses treat patients in the hospital.",
+      "tag": "care"
+    },
+    {
+      "lemma": "guérir",
+      "ipa": "ɡe.ʁiʁ",
+      "pos": "verb",
+      "translation_en": "to cure / to heal",
+      "example": "Avec ces médicaments, tu vas guérir vite.",
+      "example_en": "With this medicine, you will heal quickly.",
+      "tag": "health"
+    },
+    {
+      "lemma": "blesser",
+      "ipa": "blɛ.se",
+      "pos": "verb",
+      "translation_en": "to injure / to hurt",
+      "example": "Fais attention à ne pas te blesser avec ce couteau.",
+      "example_en": "Be careful not to hurt yourself with this knife.",
+      "tag": "health"
+    },
+    {
+      "lemma": "saigner",
+      "ipa": "sɛ.ɲe",
+      "pos": "verb",
+      "translation_en": "to bleed",
+      "example": "Je saigne un peu du nez.",
+      "example_en": "My nose is bleeding a little.",
+      "tag": "health"
+    },
+    {
+      "lemma": "souffrir",
+      "ipa": "su.fʁiʁ",
+      "pos": "verb",
+      "translation_en": "to suffer",
+      "example": "Elle souffre de migraines terribles.",
+      "example_en": "She suffers from terrible migraines.",
+      "tag": "health"
+    },
+    {
+      "lemma": "mourir",
+      "ipa": "mu.ʁiʁ",
+      "pos": "verb",
+      "translation_en": "to die",
+      "example": "La plante va mourir si tu ne l'arroses pas.",
+      "example_en": "The plant will die if you don't water it.",
+      "tag": "life cycle"
+    },
+    {
+      "lemma": "naître",
+      "ipa": "nɛtʁ",
+      "pos": "verb",
+      "translation_en": "to be born",
+      "example": "Mon fils est né la semaine dernière.",
+      "example_en": "My son was born last week.",
+      "tag": "life cycle"
+    },
+    {
+      "lemma": "grandir",
+      "ipa": "ɡʁɑ̃.diʁ",
+      "pos": "verb",
+      "translation_en": "to grow",
+      "example": "Les enfants grandissent très vite.",
+      "example_en": "Children grow very fast.",
+      "tag": "life cycle"
+    },
+    {
+      "lemma": "vivre",
+      "ipa": "vivʁ",
+      "pos": "verb",
+      "translation_en": "to live",
+      "example": "Mon rêve est de vivre en France.",
+      "example_en": "My dream is to live in France.",
+      "tag": "life cycle"
+    },
+    {
+      "lemma": "peser",
+      "ipa": "pə.ze",
+      "pos": "verb",
+      "translation_en": "to weigh",
+      "example": "Pouvez-vous peser ce colis, s'il vous plaît ?",
+      "example_en": "Can you weigh this package, please?",
+      "tag": "measurement"
+    },
+    {
+      "lemma": "mesurer",
+      "ipa": "mə.zy.ʁe",
+      "pos": "verb",
+      "translation_en": "to measure",
+      "example": "Le médecin va mesurer votre tension.",
+      "example_en": "The doctor is going to measure your blood pressure.",
+      "tag": "measurement"
+    },
+    {
+      "lemma": "masser",
+      "ipa": "ma.se",
+      "pos": "verb",
+      "translation_en": "to massage",
+      "example": "Peux-tu me masser les épaules ?",
+      "example_en": "Can you massage my shoulders?",
+      "tag": "care"
+    },
+    {
+      "lemma": "brosser",
+      "ipa": "bʁɔ.se",
+      "pos": "verb",
+      "translation_en": "to brush",
+      "example": "Il faut se brosser les dents après chaque repas.",
+      "example_en": "You must brush your teeth after every meal.",
+      "tag": "care"
+    },
+    {
+      "lemma": "peigner",
+      "ipa": "pɛ.ɲe",
+      "pos": "verb",
+      "translation_en": "to comb",
+      "example": "Elle aide sa petite fille à se peigner.",
+      "example_en": "She helps her little girl comb her hair.",
+      "tag": "care"
+    },
+    {
+      "lemma": "câliner",
+      "ipa": "ka.li.ne",
+      "pos": "verb",
+      "translation_en": "to cuddle / to hug",
+      "example": "J'aime câliner mon chat sur le canapé.",
+      "example_en": "I like to cuddle my cat on the sofa.",
+      "tag": "care"
+    },
+    {
+      "lemma": "caresser",
+      "ipa": "ka.ʁɛ.se",
+      "pos": "verb",
+      "translation_en": "to stroke / to pet",
+      "example": "Tu peux caresser le chien, il est très gentil.",
+      "example_en": "You can pet the dog, he is very gentle.",
+      "tag": "care"
+    },
+    {
+      "lemma": "piquer",
+      "ipa": "pi.ke",
+      "pos": "verb",
+      "translation_en": "to sting / to prick",
+      "example": "Un moustique m'a piqué pendant la nuit.",
+      "example_en": "A mosquito bit me during the night.",
+      "tag": "health"
+    },
+    {
+      "lemma": "gratter",
+      "ipa": "ɡʁa.te",
+      "pos": "verb",
+      "translation_en": "to scratch",
+      "example": "Ne te gratte pas, ça va empirer l'irritation.",
+      "example_en": "Don't scratch yourself, it will make the irritation worse.",
+      "tag": "care"
+    },
+    {
+      "lemma": "cligner",
+      "ipa": "kli.ɲe",
+      "pos": "verb",
+      "translation_en": "to blink",
+      "example": "Il a dû cligner des yeux face à la lumière forte.",
+      "example_en": "He had to blink in the bright light.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "bâiller",
+      "ipa": "bɑ.je",
+      "pos": "verb",
+      "translation_en": "to yawn",
+      "example": "Il bâille parce qu'il n'a pas assez dormi.",
+      "example_en": "He is yawning because he hasn't slept enough.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "éternuer",
+      "ipa": "e.tɛʁ.nɥe",
+      "pos": "verb",
+      "translation_en": "to sneeze",
+      "example": "Le poivre me fait toujours éternuer.",
+      "example_en": "Pepper always makes me sneeze.",
+      "tag": "health"
+    },
+    {
+      "lemma": "transpirer",
+      "ipa": "tʁɑ̃s.pi.ʁe",
+      "pos": "verb",
+      "translation_en": "to sweat",
+      "example": "Il transpire beaucoup après avoir couru.",
+      "example_en": "He sweats a lot after running.",
+      "tag": "health"
+    },
+    {
+      "lemma": "avaler",
+      "ipa": "a.va.le",
+      "pos": "verb",
+      "translation_en": "to swallow",
+      "example": "Ce médicament est difficile à avaler.",
+      "example_en": "This medicine is hard to swallow.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "mâcher",
+      "ipa": "mɑ.ʃe",
+      "pos": "verb",
+      "translation_en": "to chew",
+      "example": "Il est important de bien mâcher sa nourriture.",
+      "example_en": "It is important to chew your food well.",
+      "tag": "body part"
+    },
+    {
+      "lemma": "nourrir",
+      "ipa": "nu.ʁiʁ",
+      "pos": "verb",
+      "translation_en": "to feed",
+      "example": "As-tu pensé à nourrir les poissons ce matin ?",
+      "example_en": "Did you remember to feed the fish this morning?",
+      "tag": "care"
+    },
+    {
+      "lemma": "examiner",
+      "ipa": "ɛɡ.za.mi.ne",
+      "pos": "verb",
+      "translation_en": "to examine",
+      "example": "Le docteur va examiner votre gorge.",
+      "example_en": "The doctor will examine your throat.",
+      "tag": "health"
+    },
+    {
+      "lemma": "soulager",
+      "ipa": "su.la.ʒe",
+      "pos": "verb",
+      "translation_en": "to relieve",
+      "example": "Cette crème devrait soulager la douleur.",
+      "example_en": "This cream should relieve the pain.",
+      "tag": "health"
+    },
+    {
+      "lemma": "sain",
+      "ipa": "sɛ̃",
+      "pos": "adj",
+      "translation_en": "healthy",
+      "example": "Manger des légumes est une habitude saine.",
+      "example_en": "Eating vegetables is a healthy habit.",
+      "tag": "health"
+    },
+    {
+      "lemma": "fragile",
+      "ipa": "fʁa.ʒil",
+      "pos": "adj",
+      "translation_en": "fragile",
+      "example": "Attention, les os des personnes âgées sont plus fragiles.",
+      "example_en": "Careful, the bones of elderly people are more fragile.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "robuste",
+      "ipa": "ʁɔ.byst",
+      "pos": "adj",
+      "translation_en": "sturdy / robust",
+      "example": "C'est un homme robuste qui tombe rarement malade.",
+      "example_en": "He is a robust man who rarely gets sick.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "doux",
+      "ipa": "du",
+      "pos": "adj",
+      "translation_en": "soft / gentle",
+      "example": "La peau de ce bébé est très douce.",
+      "example_en": "This baby's skin is very soft.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "dur",
+      "ipa": "dyʁ",
+      "pos": "adj",
+      "translation_en": "hard",
+      "example": "Le sol est trop dur pour dormir dessus.",
+      "example_en": "The floor is too hard to sleep on.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "mou",
+      "ipa": "mu",
+      "pos": "adj",
+      "translation_en": "soft / flabby",
+      "example": "Le matelas de ce lit est trop mou.",
+      "example_en": "The mattress on this bed is too soft.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "lourd",
+      "ipa": "luʁ",
+      "pos": "adj",
+      "translation_en": "heavy",
+      "example": "Cette valise est trop lourde pour moi.",
+      "example_en": "This suitcase is too heavy for me.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "léger",
+      "ipa": "le.ʒe",
+      "pos": "adj",
+      "translation_en": "light",
+      "example": "Je préfère un repas léger le soir.",
+      "example_en": "I prefer a light meal in the evening.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "long",
+      "ipa": "lɔ̃",
+      "pos": "adj",
+      "translation_en": "long",
+      "example": "Il a des cheveux longs et bouclés.",
+      "example_en": "He has long curly hair.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "court",
+      "ipa": "kuʁ",
+      "pos": "adj",
+      "translation_en": "short",
+      "example": "Mes ongles sont coupés très court.",
+      "example_en": "My nails are cut very short.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "étroit",
+      "ipa": "e.tʁwa",
+      "pos": "adj",
+      "translation_en": "narrow",
+      "example": "Ce pantalon est trop étroit pour moi.",
+      "example_en": "These pants are too narrow for me.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "large",
+      "ipa": "laʁʒ",
+      "pos": "adj",
+      "translation_en": "wide / broad",
+      "example": "Il a les épaules larges parce qu'il nage beaucoup.",
+      "example_en": "He has broad shoulders because he swims a lot.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "plein",
+      "ipa": "plɛ̃",
+      "pos": "adj",
+      "translation_en": "full",
+      "example": "L'hôpital est plein, il n'y a plus de lits disponibles.",
+      "example_en": "The hospital is full, there are no more beds available.",
+      "tag": "measurement"
+    },
+    {
+      "lemma": "vide",
+      "ipa": "vid",
+      "pos": "adj",
+      "translation_en": "empty",
+      "example": "Mon estomac est vide, je dois manger quelque chose.",
+      "example_en": "My stomach is empty, I need to eat something.",
+      "tag": "measurement"
+    },
+    {
+      "lemma": "mince",
+      "ipa": "mɛ̃s",
+      "pos": "adj",
+      "translation_en": "thin / slim",
+      "example": "Elle est restée très mince malgré les années.",
+      "example_en": "She has stayed very slim despite the years.",
+      "tag": "characteristics"
+    },
+    {
+      "lemma": "tôt",
+      "ipa": "to",
+      "pos": "adv",
+      "translation_en": "early",
+      "example": "Il faut se lever tôt pour aller à l'hôpital.",
+      "example_en": "We have to get up early to go to the hospital.",
+      "tag": "time"
+    },
+    {
+      "lemma": "tard",
+      "ipa": "taʁ",
+      "pos": "adv",
+      "translation_en": "late",
+      "example": "N'allez pas vous coucher trop tard.",
+      "example_en": "Don't go to bed too late.",
+      "tag": "time"
+    },
+    {
+      "lemma": "vite",
+      "ipa": "vit",
+      "pos": "adv",
+      "translation_en": "quickly / fast",
+      "example": "Mon cœur bat très vite.",
+      "example_en": "My heart is beating very fast.",
+      "tag": "speed"
+    },
+    {
+      "lemma": "lentement",
+      "ipa": "lɑ̃t.mɑ̃",
+      "pos": "adv",
+      "translation_en": "slowly",
+      "example": "Mange lentement pour bien digérer.",
+      "example_en": "Eat slowly to digest well.",
+      "tag": "speed"
+    },
+    {
+      "lemma": "ensemble",
+      "ipa": "ɑ̃.sɑ̃bl",
+      "pos": "adv",
+      "translation_en": "together",
+      "example": "Nous allons chez le médecin ensemble.",
+      "example_en": "We are going to the doctor together.",
+      "tag": "state"
+    },
+    {
+      "lemma": "avoir mal",
+      "ipa": "a.vwaʁ mal",
+      "pos": "phrase",
+      "translation_en": "to be in pain / to ache",
+      "example": "J'ai mal à la tête depuis ce matin.",
+      "example_en": "I have had a headache since this morning.",
+      "tag": "health phrase"
+    },
+    {
+      "lemma": "avoir chaud",
+      "ipa": "a.vwaʁ ʃo",
+      "pos": "phrase",
+      "translation_en": "to be hot",
+      "example": "Tu as chaud ? Je peux ouvrir la fenêtre.",
+      "example_en": "Are you hot? I can open the window.",
+      "tag": "health phrase"
+    },
+    {
+      "lemma": "avoir froid",
+      "ipa": "a.vwaʁ fʁwa",
+      "pos": "phrase",
+      "translation_en": "to be cold",
+      "example": "Mets un manteau, tu vas avoir froid dehors.",
+      "example_en": "Put on a coat, you'll be cold outside.",
+      "tag": "health phrase"
+    },
+    {
+      "lemma": "avoir sommeil",
+      "ipa": "a.vwaʁ sɔ.mɛj",
+      "pos": "phrase",
+      "translation_en": "to be sleepy",
+      "example": "J'ai vraiment sommeil, je vais me coucher.",
+      "example_en": "I'm really sleepy, I'm going to bed.",
+      "tag": "health phrase"
+    },
+    {
+      "lemma": "en forme",
+      "ipa": "ɑ̃ fɔʁm",
+      "pos": "phrase",
+      "translation_en": "in good shape",
+      "example": "Je fais du sport pour rester en forme.",
+      "example_en": "I exercise to stay in good shape.",
+      "tag": "health phrase"
+    },
+    {
+      "lemma": "en bonne santé",
+      "ipa": "ɑ̃ bɔn sɑ̃.te",
+      "pos": "phrase",
+      "translation_en": "in good health",
+      "example": "Le bébé est né hier, il est en bonne santé.",
+      "example_en": "The baby was born yesterday, he is in good health.",
+      "tag": "health phrase"
+    },
+    {
+      "lemma": "tomber malade",
+      "ipa": "tɔ̃.be ma.lad",
+      "pos": "phrase",
+      "translation_en": "to get sick",
+      "example": "Habille-toi bien, sinon tu vas tomber malade.",
+      "example_en": "Dress warmly, otherwise you'll get sick.",
+      "tag": "health phrase"
+    },
+    {
+      "lemma": "faire la sieste",
+      "ipa": "fɛʁ la sjɛst",
+      "pos": "phrase",
+      "translation_en": "to take a nap",
+      "example": "Mon grand-père aime faire la sieste après le déjeuner.",
+      "example_en": "My grandfather likes to take a nap after lunch.",
+      "tag": "care phrase"
+    },
+    {
+      "lemma": "prendre soin",
+      "ipa": "pʁɑ̃dʁ swɛ̃",
+      "pos": "phrase",
+      "translation_en": "to take care",
+      "example": "Il est important de prendre soin de soi.",
+      "example_en": "It is important to take care of oneself.",
+      "tag": "care phrase"
+    },
+    {
+      "lemma": "à tes souhaits",
+      "ipa": "a te swɛ",
+      "pos": "phrase",
+      "translation_en": "bless you",
+      "example": "À tes souhaits ! As-tu attrapé froid ?",
+      "example_en": "Bless you! Did you catch a cold?",
+      "tag": "expression"
+    }
+  ]
+}

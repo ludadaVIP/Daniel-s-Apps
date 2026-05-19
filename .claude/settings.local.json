@@ -2,7 +2,12 @@
   "permissions": {
     "allow": [
       "Bash(pip show *)",
-      "Bash(python -c \"from apps.record_meditation.routes import bp; print\\('OK', [str\\(r\\) for r in bp.deferred_functions[:2]]\\)\")"
+      "Bash(python -c \"from apps.record_meditation.routes import bp; print\\('OK', [str\\(r\\) for r in bp.deferred_functions[:2]]\\)\")",
+      "Bash(node \"backend/scripts/generate_french_a1_groups.js\")",
+      "Bash(awk -F, 'NR>1 && $1==\"a1\" {print $3}' \"backend/data/FrenchVocab/vocab-master.csv\")",
+      "Bash(awk -F, 'NR>1 {print $3}' \"backend/data/FrenchVocab/vocab-master.csv\")",
+      "Bash(awk -F, 'NR>1 && $1==\"a1\"' \"backend/data/FrenchVocab/vocab-master.csv\")",
+      "Bash(awk 'NR>1' \"backend/data/FrenchVocab/vocab-master.csv\")"
     ]
   }
 }

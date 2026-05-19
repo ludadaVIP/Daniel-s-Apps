@@ -9,7 +9,6 @@ import {
   Play,
   RotateCcw,
   Search,
-  Sparkles,
   Square,
   Trash2,
   Volume2,
@@ -837,22 +836,12 @@ export function VocabApp({ api, config }) {
       <main className={`${prefix}-content`}>
         <section className={`${prefix}-hero`}>
           <div className={`${prefix}-hero-main`}>
-            <div className={`${prefix}-kicker`}>
-              <Sparkles size={16} />
-              <span>{config.heroKicker || "Listen, repeat, internalise."}</span>
-            </div>
-            <h1>{group?.title || currentGroupSummary?.title || config.appName}</h1>
-            <p>
-              {group?.focus ||
-                currentGroupSummary?.focus ||
-                currentLevel?.subtitle ||
-                text.fallbackDescription}
-            </p>
             <div className={`${prefix}-meta-row`}>
               <span><BookOpen size={14} /> {currentLevel?.title || "—"}</span>
               <span><Layers size={14} /> {text.groupLabel} {currentGroupIndex >= 0 ? currentGroupIndex + 1 : "—"} {text.groupOf} {totalGroupsInLevel || 0}</span>
               <span><Headphones size={14} /> {playableWordCount} / {visibleWordCount} {text.wordsUnit}</span>
             </div>
+            <h1>{group?.title || currentGroupSummary?.title || config.appName}</h1>
           </div>
 
           <div className={`${prefix}-player`}>
