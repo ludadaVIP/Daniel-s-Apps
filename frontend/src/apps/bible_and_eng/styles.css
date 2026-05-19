@@ -1,0 +1,7 @@
+/* The Bible-and-<Language> family shares a single stylesheet at
+   frontend/src/shared/bibleLang.css. Each per-language app keeps its own
+   styles.css so the per-app `import "./styles.css"` convention from
+   ADDING_A_NEW_APP.md still holds — but we delegate the rules to the
+   shared file via @import. */
+
+@import url("../../shared/bibleLang.css");

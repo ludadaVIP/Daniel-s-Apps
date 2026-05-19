@@ -24,6 +24,10 @@ const CuriosityApp = lazy(() => import("./apps/curiosity/App.jsx"));
 const RecordMeditationApp = lazy(() => import("./apps/record_meditation/App.jsx"));
 const EngVocabApp = lazy(() => import("./apps/eng_vocab/App.jsx"));
 const FrenchVocabApp = lazy(() => import("./apps/french_vocab/App.jsx"));
+const BibleAndEngApp = lazy(() => import("./apps/bible_and_eng/App.jsx"));
+const BibleAndEspApp = lazy(() => import("./apps/bible_and_esp/App.jsx"));
+const BibleAndFrApp = lazy(() => import("./apps/bible_and_fr/App.jsx"));
+const BibleAndGeApp = lazy(() => import("./apps/bible_and_ge/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -113,6 +117,22 @@ export default function App() {
       <Route
         path="/french-vocab"
         element={withShell("French Vocab", "#1e3a8a", FrenchVocabApp)}
+      />
+      <Route
+        path="/bible-and-eng"
+        element={withShell("Bible and Eng", "#8a5a2b", BibleAndEngApp)}
+      />
+      <Route
+        path="/bible-and-esp"
+        element={withShell("Bible and Esp", "#8a5a2b", BibleAndEspApp)}
+      />
+      <Route
+        path="/bible-and-fr"
+        element={withShell("Bible and FR", "#8a5a2b", BibleAndFrApp)}
+      />
+      <Route
+        path="/bible-and-ge"
+        element={withShell("Bible and GE", "#8a5a2b", BibleAndGeApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

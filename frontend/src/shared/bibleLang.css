@@ -1,0 +1,500 @@
+/* Shared CSS for every Bible-and-<Language> sub-app (Eng/Esp/FR/GE).
+
+   Each per-language app folder has its own styles.css that simply
+   `@import`s this file — so the apps stay isolated at the folder level
+   (every app still owns the rules its component pulls in via `import
+   "./styles.css"`) while not duplicating ~300 lines of CSS four times. */
+
+@scope (.bae-shell) {
+  :scope {
+    /* Design tokens — kept on the scope root so they cannot reach :root. */
+    --bae-bg: #f6f3ec;
+    --bae-bg-soft: #fbf8f2;
+    --bae-surface: #ffffff;
+    --bae-ink: #2a241d;
+    --bae-ink-muted: #6b5e4d;
+    --bae-line: #e6dccb;
+    --bae-line-strong: #d4c5a8;
+    --bae-accent: #8a5a2b;
+    --bae-accent-soft: #f4ead8;
+    --bae-cuv: #6b5e4d;
+    --bae-vocab: #b76e2a;
+    --bae-grammar: #2b6b8a;
+    --bae-expression: #6b2b8a;
+
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 240px minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    background: var(--bae-bg);
+    color: var(--bae-ink);
+    /* Sturdier UI font — Yahei on Windows for CJK, Arial Black-flavoured
+       sans for Latin. Weight raised below to make the whole shell feel
+       less spindly. */
+    font-family: "Microsoft YaHei", "PingFang SC", "Helvetica Neue", Arial, sans-serif;
+    font-weight: 500;
+  }
+
+  :scope.sidebar-collapsed {
+    grid-template-columns: 48px minmax(0, 1fr);
+  }
+
+  /* ---------------------------------------------------- Sidebar ----- */
+
+  .bae-sidebar {
+    border-right: 1px solid var(--bae-line);
+    background: var(--bae-bg-soft);
+    overflow-y: auto;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bae-sidebar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 14px 10px;
+    border-bottom: 1px solid var(--bae-line);
+    background: var(--bae-bg-soft);
+    position: sticky;
+    top: 0;
+    z-index: 1;
+  }
+
+  .bae-sidebar-title {
+    margin: 0;
+    font-size: 15px;
+    font-weight: 800;
+    color: var(--bae-ink);
+    letter-spacing: 0.02em;
+  }
+
+  .bae-sidebar-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 30px;
+    height: 30px;
+    border-radius: 8px;
+    border: 1px solid var(--bae-line);
+    background: var(--bae-surface);
+    color: var(--bae-ink);
+    cursor: pointer;
+    padding: 0;
+  }
+  .bae-sidebar-toggle:hover { background: var(--bae-accent-soft); }
+
+  .bae-sidebar-body {
+    padding: 8px 6px 24px;
+    overflow-y: auto;
+  }
+
+  :scope.sidebar-collapsed .bae-sidebar-body,
+  :scope.sidebar-collapsed .bae-sidebar-title {
+    display: none;
+  }
+
+  .bae-book-section { margin: 4px 0; }
+
+  .bae-book-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    width: 100%;
+    padding: 7px 10px;
+    border: none;
+    background: transparent;
+    color: var(--bae-ink);
+    text-align: left;
+    font: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .bae-book-toggle:hover { background: var(--bae-accent-soft); }
+  .bae-book-toggle.active { background: var(--bae-accent-soft); color: var(--bae-accent); }
+  .bae-book-toggle.unavailable { color: #bcae97; cursor: not-allowed; }
+
+  .bae-book-toggle-name { display: flex; gap: 6px; align-items: baseline; }
+  .bae-book-toggle-meta { font-size: 11px; color: var(--bae-ink-muted); font-weight: 400; }
+
+  .bae-chapter-list {
+    list-style: none;
+    margin: 4px 0 6px 4px;
+    padding: 4px 0 4px 14px;
+    display: grid;
+    /* Auto-fill compact 28px squares. 28px × 6 ≈ fits 240-px sidebar with
+       padding. The buttons are themselves square below. */
+    grid-template-columns: repeat(auto-fill, 28px);
+    gap: 4px;
+    border-left: 1px dashed var(--bae-line-strong);
+  }
+
+  .bae-chapter-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    background: var(--bae-surface);
+    border: 1px solid var(--bae-line);
+    border-radius: 4px;
+    color: var(--bae-ink);
+    font: inherit;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1;
+    cursor: pointer;
+  }
+  .bae-chapter-button:hover { background: var(--bae-accent-soft); }
+  .bae-chapter-button.active {
+    background: var(--bae-accent);
+    color: #fffaf0;
+    border-color: var(--bae-accent);
+    font-weight: 800;
+  }
+
+  /* ---------------------------------------------------- Content ----- */
+
+  .bae-content {
+    overflow-y: auto;
+    min-width: 0;
+    /* Top padding is 0 — the sticky header carries its own padding so it
+       can sit flush against the top of the scroll container. */
+    padding: 0 28px 64px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .bae-content-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: nowrap;
+    padding: 18px 0 10px;
+    border-bottom: 1px solid var(--bae-line);
+    position: sticky;
+    top: 0;
+    background: var(--bae-bg);
+    z-index: 2;
+  }
+
+  .bae-content-titleline {
+    display: flex;
+    align-items: baseline;
+    gap: 10px;
+    min-width: 0;
+    flex: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+  .bae-content-title {
+    margin: 0;
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--bae-ink);
+  }
+  .bae-content-sub {
+    margin: 0;
+    font-size: 13px;
+    color: var(--bae-ink-muted);
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .bae-content-sub .bae-dot {
+    margin: 0 6px;
+    color: var(--bae-line-strong);
+  }
+
+  .bae-chapter-actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-shrink: 0;
+  }
+
+  .bae-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 9px 14px;
+    background: var(--bae-accent);
+    color: #fffaf0;
+    border: 1px solid var(--bae-accent);
+    border-radius: 999px;
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 120ms ease;
+  }
+  .bae-button:hover { background: #6f471f; }
+  .bae-button[disabled] { opacity: 0.6; cursor: not-allowed; }
+  .bae-button.ghost {
+    background: transparent;
+    color: var(--bae-accent);
+  }
+  .bae-button.ghost:hover { background: var(--bae-accent-soft); }
+
+  /* Verses table-like layout */
+
+  .bae-verses {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .bae-verse-row {
+    display: grid;
+    /* 30% verse text · 70% study notes. Verse text is short; notes carry
+       most of the value. */
+    grid-template-columns: minmax(0, 30fr) minmax(0, 70fr);
+    gap: 22px;
+    background: var(--bae-surface);
+    border: 1px solid var(--bae-line);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .bae-verse-row.playing {
+    border-color: var(--bae-accent);
+    box-shadow: 0 0 0 2px var(--bae-accent-soft);
+  }
+  .bae-verse-row.queued {
+    /* Verse is part of an active chapter playback queue but not the
+       currently-playing one. Gives a subtle "on deck" cue. */
+    background: #fdf9f0;
+  }
+
+  /* Chapter-playback progress strip — sits just below the sticky header. */
+  .bae-progress {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 14px;
+    background: var(--bae-surface);
+    border: 1px solid var(--bae-accent);
+    border-radius: 999px;
+    color: var(--bae-ink-muted);
+    font-size: 12px;
+    font-weight: 700;
+    position: sticky;
+    /* Sits just under the sticky content header, which is ~62px tall
+       (18px top padding + ~30px line height + 10px bottom padding +
+       1px border). Keep a small gap so it visually separates from the
+       header. */
+    top: 64px;
+    z-index: 1;
+    box-shadow: 0 4px 10px -6px rgba(138, 90, 43, 0.4);
+  }
+  .bae-progress-label {
+    white-space: nowrap;
+    color: var(--bae-accent);
+  }
+  .bae-progress-track {
+    flex: 1;
+    height: 6px;
+    background: var(--bae-bg);
+    border-radius: 999px;
+    overflow: hidden;
+    min-width: 0;
+  }
+  .bae-progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--bae-accent), #c08555);
+    border-radius: 999px;
+    transition: width 240ms ease;
+  }
+  .bae-progress-meta {
+    white-space: nowrap;
+    color: var(--bae-ink-muted);
+  }
+
+  .bae-verse-text-pane,
+  .bae-verse-notes-pane {
+    min-width: 0;
+  }
+
+  .bae-verse-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 6px;
+  }
+
+  .bae-verse-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 26px;
+    height: 26px;
+    padding: 0 8px;
+    background: var(--bae-accent-soft);
+    color: var(--bae-accent);
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .bae-verse-play {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--bae-surface);
+    border: 1px solid var(--bae-line);
+    color: var(--bae-accent);
+    cursor: pointer;
+  }
+  .bae-verse-play:hover { background: var(--bae-accent-soft); }
+  .bae-verse-play[disabled] { opacity: 0.5; cursor: not-allowed; }
+  .bae-verse-play.playing {
+    background: var(--bae-accent);
+    color: #fffaf0;
+    border-color: var(--bae-accent);
+  }
+
+  .bae-verse-primary {
+    font-size: 16px;
+    line-height: 1.7;
+    color: var(--bae-ink);
+    margin: 0;
+  }
+
+  .bae-verse-parallel {
+    margin: 8px 0 0;
+    padding-top: 8px;
+    border-top: 1px dashed var(--bae-line);
+    font-size: 13px;
+    line-height: 1.7;
+    color: var(--bae-cuv);
+  }
+  .bae-verse-parallel-label {
+    display: inline-block;
+    margin-right: 6px;
+    padding: 1px 6px;
+    background: var(--bae-bg);
+    border: 1px solid var(--bae-line);
+    border-radius: 999px;
+    font-size: 11px;
+    color: var(--bae-ink-muted);
+  }
+
+  /* Notes pane */
+
+  .bae-notes-block { margin-bottom: 10px; }
+  .bae-notes-block:last-child { margin-bottom: 0; }
+
+  .bae-notes-heading {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 0 0 6px;
+    padding: 2px 8px;
+    border-radius: 999px;
+    background: var(--bae-bg);
+    border: 1px solid var(--bae-line);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--bae-ink-muted);
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .bae-notes-block.vocab .bae-notes-heading { color: var(--bae-vocab); border-color: var(--bae-vocab); }
+  .bae-notes-block.grammar .bae-notes-heading { color: var(--bae-grammar); border-color: var(--bae-grammar); }
+  .bae-notes-block.expression .bae-notes-heading { color: var(--bae-expression); border-color: var(--bae-expression); }
+
+  .bae-vocab-list,
+  .bae-grammar-list,
+  .bae-expression-list {
+    font-size: 13.5px;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    color: var(--bae-ink);
+  }
+
+  .bae-vocab-item {
+    display: grid;
+    grid-template-columns: minmax(80px, max-content) minmax(80px, max-content) minmax(60px, max-content) 1fr;
+    column-gap: 10px;
+    padding: 3px 0;
+  }
+  .bae-vocab-word { font-weight: 700; color: var(--bae-vocab); }
+  .bae-vocab-ipa  { color: var(--bae-ink-muted); }
+  .bae-vocab-pos  { color: var(--bae-grammar); font-style: italic; }
+
+  .bae-grammar-item,
+  .bae-expression-item {
+    padding: 5px 0;
+  }
+  .bae-grammar-title,
+  .bae-expression-phrase {
+    display: block;
+    font-weight: 800;
+    color: var(--bae-ink);
+    margin-bottom: 2px;
+  }
+  .bae-expression-phrase {
+    color: var(--bae-expression);
+  }
+  .bae-grammar-detail,
+  .bae-expression-note {
+    display: block;
+    color: var(--bae-ink-muted);
+    line-height: 1.65;
+  }
+
+  .bae-translation {
+    font-style: italic;
+    color: var(--bae-cuv);
+    margin: 0;
+    font-size: 13.5px;
+    line-height: 1.6;
+  }
+
+  .bae-notes-empty {
+    color: var(--bae-ink-muted);
+    font-size: 13px;
+    font-style: italic;
+  }
+
+  /* Status messages */
+
+  .bae-loading,
+  .bae-empty,
+  .bae-error,
+  .bae-coming-soon {
+    margin: 24px 0;
+    padding: 18px 22px;
+    background: var(--bae-surface);
+    border: 1px dashed var(--bae-line-strong);
+    border-radius: 12px;
+    color: var(--bae-ink-muted);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+  .bae-error { color: #a23a3a; border-color: #e7b9b9; background: #fff4f4; }
+
+  .bae-coming-soon h2 { margin: 0 0 10px; color: var(--bae-ink); }
+
+  /* Loader spinner — utility */
+  .spin { animation: bae-spin 1.2s linear infinite; }
+  @keyframes bae-spin { to { transform: rotate(360deg); } }
+
+  /* Responsive: stack the two panes on narrow widths */
+  @media (max-width: 980px) {
+    .bae-verse-row { grid-template-columns: minmax(0, 1fr); }
+  }
+}

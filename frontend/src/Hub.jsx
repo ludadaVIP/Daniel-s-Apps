@@ -169,6 +169,42 @@ const APPS = [
     Icon: BookOpen,
     to: "/french-vocab",
   },
+  {
+    id: "bible-and-eng",
+    title: "Bible and Eng",
+    subtitle: "用圣经学英语 · ESV + CUV 中英对照 · 逐节朗读 + 词汇/语法/表达",
+    description: "新约逐节学英语：左栏 ESV + 中文 CUV 对照，右栏列出本节的重点词汇、语法/句型、表达与背景。每节单独朗读，章节顶部还有一个“通读本章”按钮。先做以弗所书 6 章 × 前 3 节作为骨架，剩余内容慢慢填充。",
+    accent: "#8a5a2b",
+    Icon: ScrollText,
+    to: "/bible-and-eng",
+  },
+  {
+    id: "bible-and-esp",
+    title: "Bible and Esp",
+    subtitle: "Learn Spanish with the Bible · NVI + ESV parallel · vocabulary + grammar + expression",
+    description: "Verse-by-verse Spanish for English speakers. Left column: Spanish NVI with the English ESV beneath. Right column: key vocabulary, grammar / sentence patterns, and expression notes — all in English. Seeded books: Efesios, Filipenses, Colosenses (6 / 4 / 4 chapters × verses 1–3).",
+    accent: "#8a5a2b",
+    Icon: ScrollText,
+    to: "/bible-and-esp",
+  },
+  {
+    id: "bible-and-fr",
+    title: "Bible and FR",
+    subtitle: "用圣经学法语 · 占位中 · 框架已就绪",
+    description: "和 Bible and Eng 共用同一套前后端骨架，只切换 lang=fr。当前点击进去会看到 Coming soon 提示。",
+    accent: "#8a5a2b",
+    Icon: ScrollText,
+    to: "/bible-and-fr",
+  },
+  {
+    id: "bible-and-ge",
+    title: "Bible and GE",
+    subtitle: "用圣经学德语 · 占位中 · 框架已就绪",
+    description: "和 Bible and Eng 共用同一套前后端骨架，只切换 lang=de。当前点击进去会看到 Coming soon 提示。",
+    accent: "#8a5a2b",
+    Icon: ScrollText,
+    to: "/bible-and-ge",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -279,7 +315,7 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">十七合一语言 + 圣经 + 科学 + 日志练习中心</h1>
+        <h1 className="hub-title">二十一合一语言 + 圣经 + 科学 + 日志练习中心</h1>
         <p className="hub-subtitle">
           挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
         </p>
