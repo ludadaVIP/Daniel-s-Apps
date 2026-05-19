@@ -453,7 +453,7 @@ export default function FreeFrenchApp() {
           key,
           waitForEnd: false,
           getUrl: async () => {
-            const data = await requestTts({ text, language });
+            const data = await requestTts({ lessonId: selectedLessonId, text, language });
             return { url: data.audio_url };
           },
         });
@@ -461,7 +461,7 @@ export default function FreeFrenchApp() {
         if (!isTtsCancelled(err)) setError(err.message);
       }
     },
-    [play],
+    [play, selectedLessonId],
   );
 
   async function refreshAfter(action) {

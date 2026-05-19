@@ -10,6 +10,7 @@ import hashlib
 import os
 import re
 import secrets
+import shutil
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any
@@ -23,6 +24,7 @@ from shared.voices import ALLOWED_VOICES, default_voice_for_language, normalise_
 DEFAULT_DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "FreeFrench"
 DATA_DIR = Path(os.environ.get("FREE_FRENCH_DATA_DIR", DEFAULT_DATA_DIR))
 LIBRARY_FILE = DATA_DIR / "library.json"
+LESSON_DIR = DATA_DIR / "lessons"
 MD_DIR = DATA_DIR / "MD"
 AUDIO_DIR = DATA_DIR / "audio"
 AUDIO_CACHE_DIR = AUDIO_DIR / "edge-tts"
@@ -54,6 +56,7 @@ def _safe_id(value: str, prefix: str) -> str:
 
 def _ensure_data_dirs() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
+    LESSON_DIR.mkdir(parents=True, exist_ok=True)
     MD_DIR.mkdir(parents=True, exist_ok=True)
 
 
@@ -64,11 +67,62 @@ def _load_library() -> dict[str, Any]:
         raise FreeFrenchError("Library data is invalid.", 500)
     data.setdefault("levels", [])
     data.setdefault("lessons", [])
+    if any(isinstance(lesson, dict) and "sections" in lesson for lesson in data.get("lessons", [])):
+        data = _migrate_embedded_lessons(data)
     return data
 
 
 def _save_library(data: dict[str, Any]) -> None:
     write_json(LIBRARY_FILE, data)
+
+
+def _lesson_path(lesson_id: str) -> Path:
+    safe_id = _safe_id(lesson_id, "lesson")
+    if safe_id != lesson_id:
+        raise FreeFrenchError("Invalid lesson id.")
+    return LESSON_DIR / f"{lesson_id}.json"
+
+
+def _full_lesson_summary(lesson: dict[str, Any]) -> dict[str, Any]:
+    return {
+        "id": lesson.get("id"),
+        "levelId": lesson.get("levelId"),
+        "title": lesson.get("title"),
+        "subtitle": lesson.get("subtitle", ""),
+        "tags": lesson.get("tags", []),
+        "createdAt": lesson.get("createdAt", ""),
+        "updatedAt": lesson.get("updatedAt", ""),
+    }
+
+
+def _write_lesson(lesson: dict[str, Any]) -> None:
+    lesson_id = str(lesson.get("id") or "").strip()
+    if not lesson_id:
+        raise FreeFrenchError("Lesson id is required.")
+    write_json(_lesson_path(lesson_id), lesson)
+
+
+def _read_lesson(lesson_id: str) -> dict[str, Any]:
+    lesson = read_json(_lesson_path(lesson_id))
+    if not isinstance(lesson, dict):
+        raise FreeFrenchError("Lesson file not found.", 404)
+    return lesson
+
+
+def _migrate_embedded_lessons(data: dict[str, Any]) -> dict[str, Any]:
+    migrated: list[dict[str, Any]] = []
+    for lesson in data.get("lessons", []):
+        if not isinstance(lesson, dict):
+            continue
+        lesson_id = str(lesson.get("id") or "").strip()
+        if not lesson_id:
+            continue
+        if "sections" in lesson:
+            _write_lesson(lesson)
+        migrated.append(_full_lesson_summary(lesson))
+    data["lessons"] = migrated
+    _save_library(data)
+    return data
 
 
 def _find_level(data: dict[str, Any], level_id: str) -> dict[str, Any]:
@@ -78,7 +132,7 @@ def _find_level(data: dict[str, Any], level_id: str) -> dict[str, Any]:
     raise FreeFrenchError("Level not found.", 404)
 
 
-def _find_lesson(data: dict[str, Any], lesson_id: str) -> dict[str, Any]:
+def _find_lesson_summary(data: dict[str, Any], lesson_id: str) -> dict[str, Any]:
     for lesson in data.get("lessons", []):
         if lesson.get("id") == lesson_id:
             return lesson
@@ -94,6 +148,22 @@ def _lesson_summary(lesson: dict[str, Any]) -> dict[str, Any]:
         "tags": lesson.get("tags", []),
         "updatedAt": lesson.get("updatedAt", ""),
     }
+
+
+def _sync_lesson_summary(data: dict[str, Any], lesson: dict[str, Any]) -> None:
+    lesson_id = lesson.get("id")
+    summary = _full_lesson_summary(lesson)
+    for index, item in enumerate(data.get("lessons", [])):
+        if item.get("id") == lesson_id:
+            data["lessons"][index] = summary
+            return
+    data.setdefault("lessons", []).append(summary)
+
+
+def _delete_lesson_audio_cache(lesson_id: str) -> None:
+    lesson_audio_dir = AUDIO_CACHE_DIR / "lessons" / lesson_id
+    if lesson_audio_dir.exists():
+        shutil.rmtree(lesson_audio_dir)
 
 
 def _library_payload(data: dict[str, Any]) -> dict[str, Any]:
@@ -149,16 +219,19 @@ def lesson(lesson_id: str):
         return "", 204
 
     data = _load_library()
-    current = _find_lesson(data, lesson_id)
+    _find_lesson_summary(data, lesson_id)
 
     if request.method == "GET":
-        return jsonify(current)
+        return jsonify(_read_lesson(lesson_id))
 
     if request.method == "DELETE":
         data["lessons"] = [item for item in data.get("lessons", []) if item.get("id") != lesson_id]
+        _lesson_path(lesson_id).unlink(missing_ok=True)
+        _delete_lesson_audio_cache(lesson_id)
         _save_library(data)
         return jsonify(_library_payload(data))
 
+    current = _read_lesson(lesson_id)
     payload = request.get_json(silent=True) or {}
     allowed = {"title", "subtitle", "tags", "overview", "duolingoBridge", "sections", "levelId"}
     for key in allowed:
@@ -167,6 +240,8 @@ def lesson(lesson_id: str):
     if "levelId" in payload:
         _find_level(data, str(payload["levelId"]))
     current["updatedAt"] = _now_iso()
+    _write_lesson(current)
+    _sync_lesson_summary(data, current)
     _save_library(data)
     return jsonify(current)
 
@@ -239,7 +314,7 @@ def create_lesson(level_id: str):
         lesson_id = f"{base}-{suffix}"
         suffix += 1
 
-    data["lessons"].append({
+    lesson = {
         "id": lesson_id,
         "levelId": level_id,
         "title": title,
@@ -250,7 +325,9 @@ def create_lesson(level_id: str):
         "sections": payload.get("sections") if isinstance(payload.get("sections"), list) else [],
         "createdAt": _now_iso(),
         "updatedAt": _now_iso(),
-    })
+    }
+    _write_lesson(lesson)
+    data["lessons"].append(_full_lesson_summary(lesson))
     _save_library(data)
     return jsonify(_library_payload(data)), 201
 
@@ -275,7 +352,8 @@ def create_tts_audio():
     requested_voice = str(payload.get("voice") or "").strip()
     voice = requested_voice if requested_voice in ALLOWED_VOICES else default_voice_for_language(language)
     cache_key = _tts_cache_key(text, voice)
-    output_path = AUDIO_CACHE_DIR / language / voice / f"{cache_key}.mp3"
+    lesson_id = _safe_id(str(payload.get("lessonId") or "shared"), "lesson")
+    output_path = AUDIO_CACHE_DIR / "lessons" / lesson_id / language / voice / f"{cache_key}.mp3"
     audio_path = f"/audio/free-french/{output_path.relative_to(AUDIO_DIR).as_posix()}"
 
     if not audio_file_is_usable(output_path):

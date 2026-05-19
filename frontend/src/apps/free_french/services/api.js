@@ -72,12 +72,12 @@ export async function deleteLesson(lessonId) {
   );
 }
 
-export async function requestTts({ text, language = "fr" }) {
+export async function requestTts({ lessonId, text, language = "fr" }) {
   return parseResponse(
     await fetch(`${BASE}/tts`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ text, language }),
+      body: JSON.stringify({ lessonId, text, language }),
     }),
   );
 }
