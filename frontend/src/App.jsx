@@ -28,6 +28,7 @@ const BibleAndEngApp = lazy(() => import("./apps/bible_and_eng/App.jsx"));
 const BibleAndEspApp = lazy(() => import("./apps/bible_and_esp/App.jsx"));
 const BibleAndFrApp = lazy(() => import("./apps/bible_and_fr/App.jsx"));
 const BibleAndGeApp = lazy(() => import("./apps/bible_and_ge/App.jsx"));
+const SaveMdApp = lazy(() => import("./apps/save_md/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -133,6 +134,10 @@ export default function App() {
       <Route
         path="/bible-and-ge"
         element={withShell("Bible and GE", "#8a5a2b", BibleAndGeApp)}
+      />
+      <Route
+        path="/save-md"
+        element={withShell("Save MD", "#178a58", SaveMdApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

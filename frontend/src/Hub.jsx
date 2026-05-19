@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, NotebookPen, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, FileText, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, NotebookPen, ScrollText, Sparkles } from "lucide-react";
 
 const HUB_ORDER_KEY = "daniels-apps:hub-order";
 
@@ -205,6 +205,15 @@ const APPS = [
     Icon: ScrollText,
     to: "/bible-and-ge",
   },
+  {
+    id: "save-md",
+    title: "Save MD",
+    subtitle: "保存 AI 回答 · Markdown 文件库 · 阅读/编辑/朗读",
+    description: "A Markdown knowledge shelf for saving strong AI answers as real .md files, with category navigation, rich reading view, editing, metadata, and Edge TTS playback.",
+    accent: "#178a58",
+    Icon: FileText,
+    to: "/save-md",
+  },
 ];
 
 function normalizeAppOrder(order) {
@@ -239,6 +248,17 @@ function moveApp(order, draggedId, targetId) {
   next.splice(from, 1);
   next.splice(to, 0, draggedId);
   return next;
+}
+
+function getAppKind(app) {
+  if (app.id.includes("vocab")) return "Vocab";
+  if (app.title.includes("900")) return "900";
+  if (app.title.includes("Sprint")) return "Sprint";
+  if (app.id.includes("bible")) return "Bible";
+  if (app.id === "save-md") return "MD";
+  if (app.id === "curiosity") return "Science";
+  if (app.id === "record-meditation") return "Journal";
+  return "Practice";
 }
 
 export default function Hub() {
@@ -314,16 +334,19 @@ export default function Hub() {
   return (
     <div className="hub-root">
       <header className="hub-header">
-        <p className="hub-eyebrow">Daniel's Apps</p>
-        <h1 className="hub-title">二十一合一语言 + 圣经 + 科学 + 日志练习中心</h1>
-        <p className="hub-subtitle">
-          挑一个开始练吧。按住卡片拖动，就能像手机图标一样调整顺序。
-        </p>
-        <button className="hub-reset-order" type="button" onClick={resetOrder}>
-          恢复默认顺序
-        </button>
+        <div className="hub-heading">
+          <p className="hub-eyebrow">Daniel's Apps</p>
+          <h1 className="hub-title">学习启动台</h1>
+          <p className="hub-subtitle">拖动图标调整顺序，点击直接进入练习。</p>
+        </div>
+        <div className="hub-actions" aria-label="Hub controls">
+          <span className="hub-count">{orderedApps.length} apps</span>
+          <button className="hub-reset-order" type="button" onClick={resetOrder}>
+            恢复默认顺序
+          </button>
+        </div>
       </header >
-      <section className={`hub-grid ${draggingId ? "is-reordering" : ""}`}>
+      <section className={`hub-grid ${draggingId ? "is-reordering" : ""}`} aria-label="Daniel's Apps launcher">
         {orderedApps.map((app) => (
           <Link
             key={app.id}
@@ -331,6 +354,7 @@ export default function Hub() {
             className={`hub-card ${draggingId === app.id ? "is-dragging" : ""} ${targetId === app.id && draggingId !== app.id ? "is-drop-target" : ""}`}
             data-hub-card-id={app.id}
             style={{ "--card-accent": app.accent }}
+            title={`${app.subtitle}\n${app.description}`}
             onClick={(event) => {
               if (!suppressClickRef.current) return;
               event.preventDefault();
@@ -341,15 +365,18 @@ export default function Hub() {
             onPointerMove={updateDrag}
             onPointerUp={endDrag}
           >
-            <div className="hub-card-icon">
-              <app.Icon size={26} strokeWidth={1.8} />
+            <div className="hub-card-top">
+              <div className="hub-card-icon">
+                <app.Icon size={20} strokeWidth={1.9} />
+              </div>
+              <span className="hub-card-kind">{getAppKind(app)}</span>
             </div>
             <div className="hub-card-body">
               <h2>{app.title}</h2>
               <p className="hub-card-subtitle">{app.subtitle}</p>
               <p className="hub-card-description">{app.description}</p>
             </div>
-            <span className="hub-card-cta">打开 →</span>
+            <span className="hub-card-cta" aria-hidden="true">↗</span>
           </Link>
         ))}
       </section>
