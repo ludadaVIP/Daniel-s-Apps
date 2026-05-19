@@ -63,3 +63,28 @@ export function exportCsvUrl() {
 export function exportAllUrl() {
   return `${BASE}/export/all.zip`;
 }
+
+export async function verifyPassword(password) {
+  const response = await fetch(`${BASE}/auth/verify`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (response.status === 401) return { ok: false, error: data.error || "密码错误" };
+  if (!response.ok) throw new Error(data.error || `Request failed: ${response.status}`);
+  return { ok: true };
+}
+
+export async function changePassword(currentPassword, newPassword) {
+  const response = await fetch(`${BASE}/auth/change-password`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ currentPassword, newPassword }),
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok) {
+    return { ok: false, error: data.error || `Request failed: ${response.status}` };
+  }
+  return { ok: true };
+}

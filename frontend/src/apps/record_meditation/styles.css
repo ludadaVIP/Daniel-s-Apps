@@ -705,3 +705,160 @@
     .rec-card-actions { grid-column: 1 / -1; justify-content: flex-end; padding-top: 4px; }
   }
 }
+
+/* ───────────── Password gate (outside .rec-shell scope) ───────────── */
+
+.rec-lock {
+  position: relative;
+  flex: 1;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  padding: 32px 18px;
+  color: #1d1f24;
+  background:
+    radial-gradient(900px 520px at 15% -10%, rgba(106, 63, 134, 0.18), transparent 56%),
+    radial-gradient(780px 460px at 95% 8%, rgba(181, 135, 38, 0.16), transparent 55%),
+    linear-gradient(180deg, #fbf8f0 0%, #ece6d5 100%);
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Noto Sans", sans-serif;
+}
+
+.rec-lock-card {
+  width: min(420px, 92vw);
+  background: #ffffff;
+  border: 1px solid #e5e2dc;
+  border-radius: 18px;
+  box-shadow: 0 24px 60px rgba(29, 31, 36, 0.14);
+  padding: 28px 26px 22px;
+}
+
+.rec-lock-icon {
+  width: 56px; height: 56px;
+  border-radius: 16px;
+  display: grid; place-items: center;
+  background: linear-gradient(160deg, #6a3f86, #4d2b62);
+  color: #f4efe3;
+  margin-bottom: 14px;
+  box-shadow: 0 10px 24px rgba(106, 63, 134, 0.32);
+}
+
+.rec-lock-card h2 {
+  margin: 0 0 6px;
+  font-size: 22px;
+  letter-spacing: 0.2px;
+}
+
+.rec-lock-card p.rec-lock-sub {
+  margin: 0 0 18px;
+  color: #586075;
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.rec-lock-field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.rec-lock-field span {
+  font-size: 12px;
+  color: #586075;
+}
+
+.rec-lock-field input {
+  height: 40px;
+  padding: 0 12px;
+  border: 1px solid #d2cdc2;
+  border-radius: 10px;
+  background: #f9f7f1;
+  outline: none;
+  font-size: 14px;
+}
+
+.rec-lock-field input:focus {
+  border-color: #6a3f86;
+  background: #fff;
+  box-shadow: 0 0 0 3px rgba(106, 63, 134, 0.15);
+}
+
+.rec-lock-error {
+  margin: 8px 0 4px;
+  padding: 8px 10px;
+  border-radius: 8px;
+  background: #fdecea;
+  color: #b14a3c;
+  font-size: 12.5px;
+}
+
+.rec-lock-hint {
+  font-size: 12px;
+  color: #7d8499;
+  margin: 4px 0 14px;
+}
+
+.rec-lock-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.rec-lock-actions button {
+  height: 40px;
+  padding: 0 16px;
+  border-radius: 10px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.rec-lock-actions .rec-lock-primary {
+  background: linear-gradient(160deg, #6a3f86, #4d2b62);
+  color: #f4efe3;
+  flex: 1;
+  justify-content: center;
+  border-color: transparent;
+}
+
+.rec-lock-actions .rec-lock-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.rec-lock-actions .rec-lock-secondary {
+  background: #f4efe3;
+  color: #4d2b62;
+  border-color: #d2cdc2;
+}
+
+.rec-lock-attempts {
+  margin-top: 14px;
+  font-size: 12px;
+  color: #7d8499;
+  text-align: center;
+}
+
+/* Change-password trigger inside the sidebar */
+.rec-shell .rec-lock-trigger {
+  margin-top: 8px;
+  background: rgba(244, 239, 227, 0.08);
+  color: #ebe6f4;
+  border: 1px solid rgba(244, 239, 227, 0.18);
+  border-radius: 10px;
+  padding: 8px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 12.5px;
+  cursor: pointer;
+}
+
+.rec-shell .rec-lock-trigger:hover {
+  background: rgba(244, 239, 227, 0.16);
+}
+

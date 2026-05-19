@@ -25,6 +25,8 @@ from shared.nine_hundred import (
     group_summary,
     import_900_group,
     load_900_course,
+    load_900_group,
+    load_900_index,
 )
 from shared.tts import audio_file_is_usable, generate_audio
 from shared.voices import default_voice_for_language, voices_for_language
@@ -123,7 +125,7 @@ def update_audio_manifest(
 def groups():
     if request.method == "OPTIONS":
         return "", 204
-    course = load_course()
+    course = load_900_index(DATA_DIR, DATA_FILE, German900Error)
     return jsonify({
         "id": course.get("id"),
         "title": course.get("title"),
@@ -131,7 +133,7 @@ def groups():
         "description": course.get("description"),
         "totalSentences": course.get("totalSentences"),
         "groupSize": course.get("groupSize"),
-        "groups": [group_summary(group) for group in course.get("groups", [])],
+        "groups": course.get("groups", []),
     })
 
 
@@ -139,11 +141,7 @@ def groups():
 def group_detail(group_id: str):
     if request.method == "OPTIONS":
         return "", 204
-    course = load_course()
-    for group in course.get("groups", []):
-        if group.get("id") == group_id:
-            return jsonify(group)
-    raise German900Error("Group not found.", 404)
+    return jsonify(load_900_group(DATA_DIR, DATA_FILE, group_id, German900Error))
 
 
 @bp.route("/groups/<group_id>", methods=["DELETE", "OPTIONS"])

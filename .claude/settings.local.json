@@ -1,0 +1,8 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip show *)",
+      "Bash(python -c \"from apps.record_meditation.routes import bp; print\\('OK', [str\\(r\\) for r in bp.deferred_functions[:2]]\\)\")"
+    ]
+  }
+}

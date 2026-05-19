@@ -132,12 +132,21 @@ export default function BibleLangApp({ lang = "en" }) {
         const payload = await fetchConfig(lang);
         if (cancelled) return;
         setConfig(payload);
-        // Auto-open the first book that has text, and pre-select chapter 1.
-        const firstReady = (payload.books || []).find((b) => b.hasText && b.chapters > 0);
-        if (firstReady) {
-          setOpenBook(firstReady.book);
-          setCurrentBook(firstReady.book);
-          setCurrentChapter(1);
+        // Auto-open the first book that has *study notes seeded* (so the
+        // right pane shows real content on first visit). If none have
+        // notes yet, fall back to the first book with verse text.
+        const books = payload.books || [];
+        const firstWithNotes = books.find(
+          (b) => b.hasText && b.chapters > 0 && b.hasNotes
+        );
+        const fallback = books.find((b) => b.hasText && b.chapters > 0);
+        const auto = firstWithNotes || fallback;
+        if (auto) {
+          setOpenBook(auto.book);
+          setCurrentBook(auto.book);
+          // Pick the first seeded chapter when available, else chapter 1.
+          const firstCh = auto.seededChapters?.[0] || 1;
+          setCurrentChapter(firstCh);
         }
       } catch (err) {
         if (!cancelled) setConfigError(err.message);
@@ -338,21 +347,31 @@ export default function BibleLangApp({ lang = "en" }) {
               const isOpen = openBook === entry.book;
               const isActiveBook = currentBook === entry.book;
               const hasContent = entry.hasText && entry.chapters > 0;
+              const seeded = new Set(entry.seededChapters || []);
               return (
                 <div key={entry.book} className="bae-book-section">
                   <button
                     type="button"
                     className={`bae-book-toggle${isActiveBook ? " active" : ""}${
                       !hasContent ? " unavailable" : ""
-                    }`}
+                    }${entry.hasNotes ? " has-notes" : ""}`}
                     onClick={() => {
                       if (!hasContent) return;
                       setOpenBook(isOpen ? "" : entry.book);
                     }}
                     disabled={!hasContent}
-                    title={hasContent ? entry.book : `${entry.book} (no text yet)`}
+                    title={
+                      hasContent
+                        ? entry.hasNotes
+                          ? `${entry.book} — study notes available`
+                          : `${entry.book} — verse text only, no notes yet`
+                        : `${entry.book} (no text yet)`
+                    }
                   >
                     <span className="bae-book-toggle-name">
+                      {entry.hasNotes ? (
+                        <span className="bae-book-dot" aria-hidden="true">●</span>
+                      ) : null}
                       <span>{entry.book}</span>
                       <span className="bae-book-toggle-meta">
                         {hasContent ? `${entry.chapters} ${ui.chapterAbbr}` : "—"}
@@ -365,34 +384,38 @@ export default function BibleLangApp({ lang = "en" }) {
 
                   {isOpen && hasContent ? (
                     <ul className="bae-chapter-list">
-                      {Array.from({ length: entry.chapters }, (_, i) => i + 1).map((ch) => (
-                        <li key={ch}>
-                          <button
-                            type="button"
-                            className={`bae-chapter-button${
-                              isActiveBook && currentChapter === ch ? " active" : ""
-                            }`}
-                            onClick={() => {
-                              setCurrentBook(entry.book);
-                              setCurrentChapter(ch);
-                            }}
-                          >
-                            {ch}
-                          </button>
-                        </li>
-                      ))}
+                      {Array.from({ length: entry.chapters }, (_, i) => i + 1).map((ch) => {
+                        const isSeeded = seeded.has(ch);
+                        return (
+                          <li key={ch}>
+                            <button
+                              type="button"
+                              className={`bae-chapter-button${
+                                isActiveBook && currentChapter === ch ? " active" : ""
+                              }${isSeeded ? " seeded" : ""}`}
+                              onClick={() => {
+                                setCurrentBook(entry.book);
+                                setCurrentChapter(ch);
+                              }}
+                              title={
+                                isSeeded
+                                  ? `Chapter ${ch} — notes available`
+                                  : `Chapter ${ch} — verse text only`
+                              }
+                            >
+                              {ch}
+                            </button>
+                          </li>
+                        );
+                      })}
                     </ul>
                   ) : null}
                 </div>
               );
             })}
 
-            {comingSoon ? (
-              <div className="bae-coming-soon" style={{ margin: "16px 8px 0" }}>
-                <h2>{copy.title}</h2>
-                <p>{copy.body}</p>
-              </div>
-            ) : null}
+            {/* Coming-soon panel is now shown only in the main content area
+                when there are no books to read — keeps the sidebar clean. */}
           </div>
         ) : null}
       </aside>
@@ -458,7 +481,9 @@ export default function BibleLangApp({ lang = "en" }) {
           </div>
         ) : null}
 
-        {comingSoon ? (
+        {/* Show Coming-soon ONLY when the language is genuinely empty — i.e.
+            no books have content yet. Otherwise verses render normally. */}
+        {comingSoon && !chapterReady && !chapterLoading && !currentBook ? (
           <div className="bae-coming-soon">
             <h2>{copy.title}</h2>
             <p>{copy.body}</p>

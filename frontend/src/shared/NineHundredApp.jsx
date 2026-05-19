@@ -8,7 +8,6 @@ import {
   Play,
   Radio,
   Search,
-  Sparkles,
   Square,
   Volume2,
 } from "lucide-react";
@@ -420,30 +419,58 @@ export function NineHundredApp({ api, config }) {
       />
 
       <main className={`${p}-content`}>
-        <section className={`${p}-hero`}>
-          <div className={`${p}-hero-main`}>
-            <div className={`${p}-kicker`}>
-              <Sparkles size={16} />
-              <span>{text.heroKicker}</span>
+        <section className={`${p}-hero is-compact`} style={{ marginBottom: "10px", gap: "12px" }}>
+          <div className={`${p}-hero-main`} style={{ padding: "10px 14px" }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "baseline",
+                gap: "10px",
+                flexWrap: "wrap",
+                rowGap: "4px",
+              }}
+            >
+              <h1 style={{ margin: 0, fontSize: "17px", fontWeight: 800, lineHeight: 1.2 }}>
+                {group?.title || config.appName}
+              </h1>
+              <div
+                className={`${p}-meta-row`}
+                style={{
+                  display: "inline-flex",
+                  flexWrap: "wrap",
+                  gap: "6px",
+                  margin: 0,
+                  fontSize: "11px",
+                }}
+              >
+                <span style={{ minHeight: 0, padding: "2px 8px", fontSize: "11px" }}>
+                  <BookOpen size={12} /> {text.levelPrefix || ""}
+                  {group?.level || config.defaultLevel}
+                </span>
+                <span style={{ minHeight: 0, padding: "2px 8px", fontSize: "11px" }}>
+                  <Radio size={12} /> {text.groupLabel} {currentGroupIndex + 1 || 1}{" "}
+                  {text.groupOf} {course?.groups?.length || 9}
+                </span>
+                <span style={{ minHeight: 0, padding: "2px 8px", fontSize: "11px" }}>
+                  <Headphones size={12} /> {groupCount} {text.sentenceUnitPlural}
+                </span>
+              </div>
             </div>
-            <h1>{group?.title || config.appName}</h1>
-            <p>{group?.focus || course?.description || text.fallbackDescription}</p>
-            <div className={`${p}-meta-row`}>
-              <span>
-                <BookOpen size={16} /> {text.levelPrefix || ""}
-                {group?.level || config.defaultLevel}
-              </span>
-              <span>
-                <Radio size={16} /> {text.groupLabel} {currentGroupIndex + 1 || 1} {text.groupOf}{" "}
-                {course?.groups?.length || 9}
-              </span>
-              <span>
-                <Headphones size={16} /> {groupCount} {text.sentenceUnitPlural}
-              </span>
-            </div>
+            {(group?.focus || course?.description) && (
+              <p
+                style={{
+                  margin: "4px 0 0",
+                  fontSize: "12px",
+                  lineHeight: 1.4,
+                  maxWidth: "100%",
+                }}
+              >
+                {group?.focus || course?.description}
+              </p>
+            )}
           </div>
 
-          <div className={`${p}-player`}>
+          <div className={`${p}-player`} style={{ padding: "10px 14px", gap: "8px" }}>
             <div className={`${p}-player-status`}>
               <span className={busy ? "is-live" : ""}>{busy ? queueState.label : text.ready}</span>
               {(loadingKey || speakingKey) && (

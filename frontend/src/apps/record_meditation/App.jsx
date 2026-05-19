@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Bold,
   Calendar,
@@ -8,10 +9,12 @@ import {
   FileSpreadsheet,
   Heading2,
   Italic,
+  KeyRound,
   Link2,
   List,
   ListOrdered,
   Loader2,
+  Lock,
   PenSquare,
   Plus,
   Quote,
@@ -24,6 +27,7 @@ import {
 
 import "./styles.css";
 import {
+  changePassword as changePasswordApi,
   createEntry,
   deleteEntry,
   exportAllUrl,
@@ -34,7 +38,10 @@ import {
   fetchMonth,
   search as searchApi,
   updateEntry,
+  verifyPassword,
 } from "./services/api";
+
+const MAX_PASSWORD_ATTEMPTS = 3;
 
 const MONTH_LABEL_EN = [
   "Jan", "Feb", "Mar", "Apr", "May", "Jun",
@@ -145,6 +152,7 @@ function Sidebar({
   tagFilter,
   onTagFilter,
   allTags,
+  onChangePassword,
 }) {
   // Group months into years (in order they came from the API: newest first)
   const years = useMemo(() => {
@@ -168,6 +176,10 @@ function Sidebar({
 
       <button type="button" className="rec-new-button" onClick={onNew}>
         <Plus size={16} /> 新建条目
+      </button>
+
+      <button type="button" className="rec-lock-trigger" onClick={onChangePassword}>
+        <KeyRound size={13} /> 修改密码
       </button>
 
       <label className="rec-search">
@@ -387,10 +399,187 @@ function EditorModal({ initial, onClose, onSave }) {
 }
 
 // ---------------------------------------------------------------------------
+// Password gate
+// ---------------------------------------------------------------------------
+
+function LockScreen({ onUnlock, onCancel, attemptsLeft }) {
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
+  const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current?.focus();
+  }, []);
+
+  const submit = useCallback(async (event) => {
+    event?.preventDefault?.();
+    if (busy || !password) return;
+    setBusy(true);
+    setError("");
+    try {
+      const result = await verifyPassword(password);
+      if (result.ok) {
+        onUnlock();
+        return;
+      }
+      setError(result.error || "密码错误");
+      setPassword("");
+      onCancel(); // count this as a failed attempt
+    } catch (err) {
+      setError(err.message || "验证失败");
+    } finally {
+      setBusy(false);
+    }
+  }, [password, busy, onUnlock, onCancel]);
+
+  return (
+    <div className="rec-lock">
+      <form className="rec-lock-card" onSubmit={submit}>
+        <div className="rec-lock-icon"><Lock size={26} /></div>
+        <h2>Record &amp; Meditation</h2>
+        <p className="rec-lock-sub">这是私人记录区，请输入密码进入。初始密码 123456，进入后可在左侧「修改密码」中更换。</p>
+        <label className="rec-lock-field">
+          <span>密码</span>
+          <input
+            ref={inputRef}
+            type="password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="••••••"
+            autoComplete="current-password"
+          />
+        </label>
+        {error && <div className="rec-lock-error">{error}</div>}
+        <p className="rec-lock-hint">密码以 bcrypt 加密保存在本地数据目录，无法被反向破解。</p>
+        <div className="rec-lock-actions">
+          <button type="submit" className="rec-lock-primary" disabled={busy || !password}>
+            {busy ? <Loader2 className="rec-spin" size={14} /> : <Lock size={14} />}
+            <span>{busy ? "验证中…" : "进入"}</span>
+          </button>
+        </div>
+        <p className="rec-lock-attempts">还剩 {attemptsLeft} 次机会，错误 3 次将返回主页。</p>
+      </form>
+    </div>
+  );
+}
+
+function ChangePasswordModal({ onClose }) {
+  const [current, setCurrent] = useState("");
+  const [next, setNext] = useState("");
+  const [confirm, setConfirm] = useState("");
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
+  const [busy, setBusy] = useState(false);
+
+  const submit = useCallback(async (event) => {
+    event?.preventDefault?.();
+    setError("");
+    setSuccess("");
+    if (!current || !next) {
+      setError("请填写当前密码和新密码。");
+      return;
+    }
+    if (next.length < 4) {
+      setError("新密码至少 4 个字符。");
+      return;
+    }
+    if (next !== confirm) {
+      setError("两次输入的新密码不一致。");
+      return;
+    }
+    setBusy(true);
+    try {
+      const result = await changePasswordApi(current, next);
+      if (result.ok) {
+        setSuccess("密码已更新。");
+        setCurrent("");
+        setNext("");
+        setConfirm("");
+      } else {
+        setError(result.error || "修改失败");
+      }
+    } catch (err) {
+      setError(err.message || "修改失败");
+    } finally {
+      setBusy(false);
+    }
+  }, [current, next, confirm]);
+
+  return (
+    <div className="rec-modal-backdrop" onClick={onClose}>
+      <div className="rec-modal" onClick={(event) => event.stopPropagation()}>
+        <header className="rec-modal-head">
+          <h2>修改密码</h2>
+          <button type="button" onClick={onClose} aria-label="close"><X size={18} /></button>
+        </header>
+        <form onSubmit={submit}>
+          <div className="rec-modal-row">
+            <label className="rec-flex-1">
+              <span>当前密码</span>
+              <input type="password" value={current} onChange={(event) => setCurrent(event.target.value)} autoComplete="current-password" />
+            </label>
+          </div>
+          <div className="rec-modal-row">
+            <label className="rec-flex-1">
+              <span>新密码</span>
+              <input type="password" value={next} onChange={(event) => setNext(event.target.value)} autoComplete="new-password" />
+            </label>
+            <label className="rec-flex-1">
+              <span>确认新密码</span>
+              <input type="password" value={confirm} onChange={(event) => setConfirm(event.target.value)} autoComplete="new-password" />
+            </label>
+          </div>
+          {error && <div className="rec-modal-error">{error}</div>}
+          {success && <div className="rec-lock-error" style={{ background: "#e7f5ec", color: "#2b7b73" }}>{success}</div>}
+          <footer className="rec-modal-foot">
+            <button type="button" className="rec-secondary" onClick={onClose}>关闭</button>
+            <button type="submit" className="rec-primary" disabled={busy}>
+              {busy ? <Loader2 className="rec-spin" size={14} /> : <Save size={14} />}
+              <span>{busy ? "保存中…" : "更新密码"}</span>
+            </button>
+          </footer>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+// ---------------------------------------------------------------------------
 // Main app
 // ---------------------------------------------------------------------------
 
 export default function RecordMeditationApp() {
+  const navigate = useNavigate();
+  const [unlocked, setUnlocked] = useState(false);
+  const [attempts, setAttempts] = useState(0);
+
+  const attemptsLeft = Math.max(0, MAX_PASSWORD_ATTEMPTS - attempts);
+
+  const handleFailedAttempt = useCallback(() => {
+    setAttempts((current) => {
+      const next = current + 1;
+      if (next >= MAX_PASSWORD_ATTEMPTS) {
+        navigate("/", { replace: true });
+      }
+      return next;
+    });
+  }, [navigate]);
+
+  if (!unlocked) {
+    return (
+      <LockScreen
+        onUnlock={() => setUnlocked(true)}
+        onCancel={handleFailedAttempt}
+        attemptsLeft={attemptsLeft}
+      />
+    );
+  }
+
+  return <RecordMeditationAppInner />;
+}
+
+function RecordMeditationAppInner() {
   const [calendar, setCalendar] = useState(null);
   const [loadingCalendar, setLoadingCalendar] = useState(true);
   const [year, setYear] = useState(null);
@@ -406,6 +595,7 @@ export default function RecordMeditationApp() {
   const [searchResults, setSearchResults] = useState(null);
   const [searching, setSearching] = useState(false);
   const [filterDay, setFilterDay] = useState(null);
+  const [changePwOpen, setChangePwOpen] = useState(false);
 
   const refreshCalendar = useCallback(async () => {
     setLoadingCalendar(true);
@@ -571,6 +761,7 @@ export default function RecordMeditationApp() {
         tagFilter={tagFilter}
         onTagFilter={setTagFilter}
         allTags={allTags}
+        onChangePassword={() => setChangePwOpen(true)}
       />
 
       <main className="rec-content">
@@ -666,6 +857,10 @@ export default function RecordMeditationApp() {
           onClose={() => setEditorOpen(false)}
           onSave={handleSave}
         />
+      )}
+
+      {changePwOpen && (
+        <ChangePasswordModal onClose={() => setChangePwOpen(false)} />
       )}
     </div>
   );

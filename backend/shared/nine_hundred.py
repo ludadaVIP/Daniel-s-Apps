@@ -86,6 +86,85 @@ def load_900_course(data_dir: Path, legacy_file: Path, error_cls: type[ValueErro
     return ensure_900_sentence_ids(course)
 
 
+def load_900_index(data_dir: Path, legacy_file: Path, error_cls: type[ValueError]) -> dict[str, Any]:
+    """Lazy variant of load_900_course: returns course metadata + group summaries only.
+
+    No per-group sentence files are read; the per-group counts come from index.json.
+    Used by the /groups endpoint so entering an app does not fault in all 900+ rows.
+    """
+    groups_dir = _groups_dir(data_dir)
+    index_file = groups_dir / INDEX_FILE_NAME
+
+    if index_file.exists():
+        course = read_json(index_file, {})
+        summaries = []
+        for item in course.get("groups") or []:
+            summaries.append({
+                "id": item.get("id"),
+                "title": item.get("title"),
+                "level": item.get("level"),
+                "focus": item.get("focus"),
+                "count": item.get("count", 0),
+                "firstSentence": None,
+            })
+        course["groups"] = summaries
+        if "totalSentences" not in course:
+            course["totalSentences"] = sum(item.get("count", 0) for item in summaries)
+        return course
+
+    # Legacy fallback: no split files yet, so we still have to load the whole thing.
+    return load_900_course(data_dir, legacy_file, error_cls)
+
+
+def load_900_group(
+    data_dir: Path,
+    legacy_file: Path,
+    group_id: str,
+    error_cls: type[ValueError],
+) -> dict[str, Any]:
+    """Load a single group's sentences without reading any sibling group files."""
+    groups_dir = _groups_dir(data_dir)
+    index_file = groups_dir / INDEX_FILE_NAME
+
+    if index_file.exists():
+        course_index = read_json(index_file, {})
+        group_meta = next(
+            (item for item in course_index.get("groups") or [] if item.get("id") == group_id),
+            None,
+        )
+        if not group_meta:
+            raise error_cls("Group not found.", 404)
+        filename = group_meta.get("file") or f"{group_id}.json"
+        group = read_json(groups_dir / filename)
+        if not group:
+            raise error_cls("Group not found.", 404)
+        group_size = int(course_index.get("groupSize") or 100)
+        group_index = next(
+            (i + 1 for i, item in enumerate(course_index.get("groups") or []) if item.get("id") == group_id),
+            1,
+        )
+        _ensure_group_sentence_ids(group, group_index=group_index, group_size=group_size)
+        return group
+
+    # Legacy fallback.
+    course = load_900_course(data_dir, legacy_file, error_cls)
+    for group in course.get("groups", []):
+        if group.get("id") == group_id:
+            return group
+    raise error_cls("Group not found.", 404)
+
+
+def _ensure_group_sentence_ids(group: dict[str, Any], *, group_index: int, group_size: int) -> None:
+    group_id = str(group.get("id") or f"group-{group_index}")
+    group["id"] = group_id
+    sentences = group.get("sentences") or []
+    for index, sentence in enumerate(sentences, start=1):
+        sentence.setdefault("id", f"{group_id}-{index:03d}")
+        sentence.setdefault("groupNumber", index)
+        sentence.setdefault("number", (group_index - 1) * group_size + index)
+    group["count"] = len(sentences)
+
+
 def write_900_index(data_dir: Path, course: dict[str, Any]) -> None:
     groups_dir = _groups_dir(data_dir)
     groups = course.get("groups", [])

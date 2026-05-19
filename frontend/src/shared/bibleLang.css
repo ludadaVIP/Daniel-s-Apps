@@ -119,9 +119,22 @@
   .bae-book-toggle:hover { background: var(--bae-accent-soft); }
   .bae-book-toggle.active { background: var(--bae-accent-soft); color: var(--bae-accent); }
   .bae-book-toggle.unavailable { color: #bcae97; cursor: not-allowed; }
+  .bae-book-toggle.has-notes { color: var(--bae-ink); }
+  .bae-book-toggle:not(.has-notes):not(.unavailable):not(.active) {
+    /* Verse text only, no study notes seeded yet. Slightly de-emphasised. */
+    color: #8a7e69;
+    font-weight: 500;
+  }
 
   .bae-book-toggle-name { display: flex; gap: 6px; align-items: baseline; }
   .bae-book-toggle-meta { font-size: 11px; color: var(--bae-ink-muted); font-weight: 400; }
+  .bae-book-dot {
+    color: var(--bae-accent);
+    font-size: 9px;
+    line-height: 1;
+    align-self: center;
+    margin-right: 2px;
+  }
 
   .bae-chapter-list {
     list-style: none;
@@ -153,6 +166,17 @@
     cursor: pointer;
   }
   .bae-chapter-button:hover { background: var(--bae-accent-soft); }
+  .bae-chapter-button.seeded {
+    /* Chapter has study notes — fully opaque, accent-tinted border. */
+    border-color: var(--bae-accent);
+    color: var(--bae-accent);
+  }
+  .bae-chapter-button:not(.seeded):not(.active) {
+    /* No notes yet — verse text will still load, but it's not the
+       "study-ready" path. Softer styling. */
+    color: #b09c80;
+    background: transparent;
+  }
   .bae-chapter-button.active {
     background: var(--bae-accent);
     color: #fffaf0;

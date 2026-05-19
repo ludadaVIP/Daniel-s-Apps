@@ -32,7 +32,9 @@ from __future__ import annotations
 
 import hashlib
 import os
+import re
 from datetime import datetime, timezone
+from functools import lru_cache
 from pathlib import Path
 from typing import Any
 
@@ -169,7 +171,46 @@ CANONICAL_BOOK = {
 }
 
 
+# Static chapter counts for every NT book — fixed canon data, identical
+# across every translation. Used by /config so we don't have to open and
+# parse every NT book file just to count chapters. Keys are the canonical
+# English book names; we map target-language names through CANONICAL_BOOK
+# (or fall back to the key itself for "en").
+NT_CHAPTER_COUNTS: dict[str, int] = {
+    "Matthew": 28, "Mark": 16, "Luke": 24, "John": 21,
+    "Acts": 28, "Romans": 16,
+    "1 Corinthians": 16, "2 Corinthians": 13,
+    "Galatians": 6, "Ephesians": 6, "Philippians": 4, "Colossians": 4,
+    "1 Thessalonians": 5, "2 Thessalonians": 3,
+    "1 Timothy": 6, "2 Timothy": 4, "Titus": 3, "Philemon": 1,
+    "Hebrews": 13, "James": 5,
+    "1 Peter": 5, "2 Peter": 3,
+    "1 John": 5, "2 John": 1, "3 John": 1,
+    "Jude": 1, "Revelation": 22,
+}
+
+
+def chapters_for(lang: str, book: str) -> int:
+    """Return the chapter count for *book* in language *lang*.
+
+    Pure dictionary lookup — no disk read. Falls back to 0 only if a book is
+    missing from the canon table (which would indicate a config bug)."""
+    canonical = CANONICAL_BOOK.get(lang, {}).get(book, book)
+    return NT_CHAPTER_COUNTS.get(canonical, 0)
+
+
 bp = Blueprint("bible_lang", __name__)
+
+
+def cached_json(payload: dict[str, Any], max_age: int):
+    """Return a JSON response with a public Cache-Control header.
+
+    Browser cache so navigating back to a chapter you just viewed doesn't
+    hit the network. Bible verses are immutable; study notes change only
+    when seeded, so a few minutes of caching is safe."""
+    response = jsonify(payload)
+    response.headers["Cache-Control"] = f"public, max-age={max_age}"
+    return response
 
 
 # ----------------------------------------------------------- Helpers ----
@@ -185,23 +226,87 @@ def verse_file(version: str, book: str) -> Path:
     return BIBLE_DIR / f"{version}_data" / f"{book}.json"
 
 
-def load_verses(version: str, book: str) -> list[dict[str, Any]]:
+# Cache up to 128 (version, book) pairs in memory. Each verse-list is small
+# (a typical NT book is 10–60 KB of JSON; even the longest OT books are
+# under 400 KB). At 128 entries that's well under 20 MB even for the worst
+# case — and in practice a session touches maybe 5–10 distinct books, so
+# real memory use stays in the single-digit-MB range.
+#
+# IMPORTANT: each cache entry is a list of dicts that get *returned by
+# reference* to multiple callers. Callers must NOT mutate them — this
+# module only reads from them (filter_chapter copies; clean_verse_text
+# returns new strings).
+@lru_cache(maxsize=128)
+def load_verses(version: str, book: str) -> tuple[dict[str, Any], ...]:
     path = verse_file(version, book)
     if not path.exists():
-        return []
+        return ()
     data = read_json(path, [])
-    return data if isinstance(data, list) else []
+    if not isinstance(data, list):
+        return ()
+    # Return as a tuple so the cached value is immutable-by-convention and
+    # cheap to hash if anyone tries to use it as a key elsewhere.
+    return tuple(data)
 
 
-def filter_chapter(verses: list[dict[str, Any]], chapter: int) -> list[dict[str, Any]]:
+# Footnote markers in the source corpora — these are visual artefacts of the
+# original publisher, not part of the inspired text. NVI uses HTML
+# (``<sup>[1]</sup>``); some versions leave bare ``[1]``/``(1)``. Strip them
+# all before the frontend ever sees the verse.
+_FOOTNOTE_RE = re.compile(
+    r"<sup>\s*\[?\s*[\w.,\-]+\s*\]?\s*</sup>"  # <sup>[1]</sup>, <sup>1</sup>
+    r"|\s*\[\s*[a-zA-Z]?\d+[a-zA-Z]?\s*\]"      # standalone [1], [a], [1a]
+    r"|<[^>]+>",                                 # any other stray HTML tag
+)
+
+# CUV stores verses with a space between every CJK char and even around CJK
+# punctuation, e.g. "奉 神 旨 意 ， 作 ...". Two passes handle this:
+#   1) collapse runs of CJK glyph + space + glyph;
+#   2) remove any remaining spaces that sit directly between CJK glyphs or
+#      between a CJK glyph and CJK punctuation (so "意 。" → "意。").
+# Latin spaces are untouched. The character class covers CJK Unified
+# Ideographs + the most common CJK/full-width punctuation marks.
+_CJK_CHAR = r"[㐀-鿿＀-￯　-〿]"
+_CJK_SPACED_RE = re.compile(rf"(?:{_CJK_CHAR}\s){{2,}}{_CJK_CHAR}")
+_CJK_PUNCT_SPACE_RE = re.compile(rf"({_CJK_CHAR})\s+({_CJK_CHAR})")
+
+
+def _collapse_cjk_spaces(match: re.Match) -> str:
+    return match.group(0).replace(" ", "")
+
+
+def clean_verse_text(text: str) -> str:
+    """Make a verse string safe and pretty for direct display:
+
+    - drop publisher footnote markers (``<sup>[1]</sup>`` etc.)
+    - strip any other stray HTML
+    - collapse the inter-character spaces the CUV uses between CJK glyphs
+    - normalise leading/trailing whitespace and the ASCII colon-space combo
+    """
+    if not text:
+        return ""
+    cleaned = _FOOTNOTE_RE.sub("", text)
+    cleaned = _CJK_SPACED_RE.sub(_collapse_cjk_spaces, cleaned)
+    # Sweep up any straggler spaces between adjacent CJK glyphs/punctuation
+    # — repeat until stable so chains like "意 。 ”" all collapse.
+    while True:
+        next_pass = _CJK_PUNCT_SPACE_RE.sub(r"\1\2", cleaned)
+        if next_pass == cleaned:
+            break
+        cleaned = next_pass
+    # Collapse any double spaces that the deletions left behind, then trim.
+    cleaned = re.sub(r"[ \t]{2,}", " ", cleaned)
+    return cleaned.strip()
+
+
+def filter_chapter(
+    verses: "tuple[dict[str, Any], ...] | list[dict[str, Any]]",
+    chapter: int,
+) -> list[dict[str, Any]]:
     return [
         v for v in verses
         if int(v.get("chapter") or 0) == chapter
     ]
-
-
-def chapter_count(verses: list[dict[str, Any]]) -> int:
-    return max((int(v.get("chapter") or 0) for v in verses), default=0)
 
 
 def notes_file(lang: str, book: str, chapter: int) -> Path:
@@ -259,16 +364,31 @@ def get_config():
     chapter counts, version labels, voice ids, and a ``ready`` flag."""
     cfg = lang_config(request.args.get("lang"))
 
+    # /config does ZERO Bible JSON disk reads. Chapter counts come from the
+    # static NT_CHAPTER_COUNTS table; "hasText" comes from a simple
+    # Path.exists() check (a stat call, not a file read). "seededChapters"
+    # comes from globbing the small per-book notes folder.
     book_summary: list[dict[str, Any]] = []
     for book in cfg["books"]:
-        verses = load_verses(cfg["primaryVersion"], book)
+        chapters = chapters_for(cfg["code"], book)
+        has_text = verse_file(cfg["primaryVersion"], book).exists()
+        notes_dir = DATA_DIR / cfg["code"] / book
+        seeded_chapters = sorted(
+            int(p.stem) for p in notes_dir.glob("*.json")
+            if p.stem.isdigit()
+        ) if notes_dir.exists() else []
         book_summary.append({
             "book": book,
-            "chapters": chapter_count(verses),
-            "hasText": bool(verses),
+            "chapters": chapters,
+            "hasText": has_text,
+            "hasNotes": bool(seeded_chapters),
+            "seededChapters": seeded_chapters,
         })
 
-    return jsonify({
+    # /config can change while you're seeding notes (the seededChapters
+    # list grows). 5 minutes is plenty to amortise rapid navigation but
+    # short enough that newly-seeded chapters appear soon after a reload.
+    return cached_json({
         "lang": cfg["code"],
         "label": cfg["label"],
         "subtitle": cfg["subtitle"],
@@ -281,7 +401,7 @@ def get_config():
         "ttsVoiceFallback": cfg["ttsVoiceFallback"],
         "books": book_summary,
         "ready": cfg["ready"],
-    })
+    }, max_age=300)
 
 
 @bp.get("/chapter")
@@ -309,8 +429,10 @@ def get_chapter():
     parallel_verses = filter_chapter(
         load_verses(cfg["parallelVersion"], canonical_book), chapter
     )
-    parallel_by_num = {int(v.get("verse") or 0): str(v.get("text") or "").strip()
-                       for v in parallel_verses}
+    parallel_by_num = {
+        int(v.get("verse") or 0): clean_verse_text(str(v.get("text") or ""))
+        for v in parallel_verses
+    }
 
     notes = load_notes(cfg["code"], book, chapter)
 
@@ -320,7 +442,7 @@ def get_chapter():
         note = notes.get(str(n)) or {}
         payload_verses.append({
             "verse": n,
-            "text": str(verse.get("text") or "").strip(),
+            "text": clean_verse_text(str(verse.get("text") or "")),
             "parallelText": parallel_by_num.get(n, ""),
             "vocab": note.get("vocab") or [],
             "grammar": note.get("grammar") or [],
@@ -328,7 +450,9 @@ def get_chapter():
             "translation": note.get("translation") or "",
         })
 
-    return jsonify({
+    # Bible text is immutable; cache aggressively in the browser so going
+    # back to a previously-viewed chapter never re-hits the server.
+    return cached_json({
         "lang": cfg["code"],
         "book": book,
         "chapter": chapter,
@@ -337,7 +461,7 @@ def get_chapter():
         "parallelVersion": cfg["parallelVersion"],
         "parallelVersionLabel": cfg["parallelVersionLabel"],
         "verses": payload_verses,
-    })
+    }, max_age=3600)
 
 
 @bp.route("/tts", methods=["POST", "OPTIONS"])

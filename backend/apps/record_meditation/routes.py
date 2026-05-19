@@ -42,6 +42,7 @@ from datetime import datetime, timezone
 from pathlib import Path
 from typing import Any, Iterable
 
+import bcrypt
 from flask import Blueprint, Response, jsonify, request, send_file
 
 from shared.io import read_json, write_json
@@ -50,6 +51,8 @@ DEFAULT_DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "RecordMeditat
 DATA_DIR = Path(os.environ.get("RECORD_MEDITATION_DATA_DIR", DEFAULT_DATA_DIR))
 ENTRIES_DIR = DATA_DIR / "entries"
 INDEX_CSV = DATA_DIR / "entries-index.csv"
+AUTH_FILE = DATA_DIR / "auth.json"
+DEFAULT_PASSWORD = "123456"
 
 SUMMARY_MAX = 160
 DATE_RX = re.compile(r"^(\d{4})-(\d{2})-(\d{2})$")
@@ -76,6 +79,60 @@ class RecordError(ValueError):
 @bp.errorhandler(RecordError)
 def handle_error(error: RecordError):
     return jsonify({"error": str(error)}), error.status_code
+
+
+# ---------------------------------------------------------------------------
+# Auth (bcrypt password gate)
+# ---------------------------------------------------------------------------
+
+
+def _hash_password(password: str) -> str:
+    return bcrypt.hashpw(password.encode("utf-8"), bcrypt.gensalt()).decode("utf-8")
+
+
+def _load_password_hash() -> str:
+    """Return the stored bcrypt hash; seed with DEFAULT_PASSWORD on first run."""
+    data = read_json(AUTH_FILE, None)
+    if isinstance(data, dict) and isinstance(data.get("hash"), str) and data["hash"]:
+        return data["hash"]
+    new_hash = _hash_password(DEFAULT_PASSWORD)
+    write_json(AUTH_FILE, {"hash": new_hash})
+    return new_hash
+
+
+def _check_password(password: str) -> bool:
+    if not isinstance(password, str) or not password:
+        return False
+    try:
+        return bcrypt.checkpw(password.encode("utf-8"), _load_password_hash().encode("utf-8"))
+    except ValueError:
+        return False
+
+
+@bp.route("/auth/verify", methods=["POST", "OPTIONS"])
+def auth_verify():
+    if request.method == "OPTIONS":
+        return "", 204
+    payload = request.get_json(silent=True) or {}
+    password = payload.get("password")
+    if not _check_password(password if isinstance(password, str) else ""):
+        return jsonify({"ok": False, "error": "密码错误"}), 401
+    return jsonify({"ok": True})
+
+
+@bp.route("/auth/change-password", methods=["POST", "OPTIONS"])
+def auth_change_password():
+    if request.method == "OPTIONS":
+        return "", 204
+    payload = request.get_json(silent=True) or {}
+    current = payload.get("currentPassword")
+    new_password = payload.get("newPassword")
+    if not _check_password(current if isinstance(current, str) else ""):
+        return jsonify({"ok": False, "error": "当前密码错误"}), 401
+    if not isinstance(new_password, str) or len(new_password) < 4:
+        return jsonify({"ok": False, "error": "新密码至少 4 个字符"}), 400
+    write_json(AUTH_FILE, {"hash": _hash_password(new_password)})
+    return jsonify({"ok": True})
 
 
 # ---------------------------------------------------------------------------
