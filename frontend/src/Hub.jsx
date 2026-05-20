@@ -24,6 +24,15 @@ const APPS = [
     to: "/free-french",
   },
   {
+    id: "free-spanish",
+    title: "Free Spanish",
+    subtitle: "Learn Spanish freely in English · small lessons · speak everything",
+    description: "A flexible Spanish course from zero upward: one or two ideas per lesson, English beside every Spanish sentence, editable levels, MD inbox, and Edge TTS for shadowing.",
+    accent: "#b45309",
+    Icon: Languages,
+    to: "/free-spanish",
+  },
+  {
     id: "quiz",
     title: "English Adventure Quiz",
     subtitle: "英语综合练习：选择 / 排序 / 填空",

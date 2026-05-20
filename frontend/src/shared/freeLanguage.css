@@ -1,0 +1,619 @@
+@scope (.fl-shell) {
+  :scope {
+    --fl-bg: #f8f7f2;
+    --fl-panel: #ffffff;
+    --fl-panel-soft: #fdfbf5;
+    --fl-ink: #201c17;
+    --fl-muted: #6f685e;
+    --fl-line: #e3ded2;
+    --fl-accent: #b45309;
+    --fl-red: #c84646;
+    --fl-blue: #2f6f9f;
+    --fl-soft: #f5efe3;
+    flex: 1;
+    min-height: 0;
+    overflow: hidden;
+    display: grid;
+    grid-template-columns: 318px minmax(0, 1fr);
+    grid-template-rows: 1fr;
+    background: var(--fl-bg);
+    color: var(--fl-ink);
+  }
+
+  :scope.is-collapsed {
+    grid-template-columns: 70px minmax(0, 1fr);
+  }
+
+  button {
+    font: inherit;
+  }
+
+  .fl-sidebar,
+  .fl-main {
+    min-width: 0;
+    min-height: 0;
+    overflow-y: auto;
+  }
+
+  .fl-sidebar {
+    background: #18140f;
+    color: #fff8ec;
+    border-right: 1px solid #3a2d1f;
+    padding: 12px;
+  }
+
+  .fl-sidebar-top,
+  .fl-level-row,
+  .fl-lesson-header,
+  .fl-section-header,
+  .fl-vocab-row,
+  .fl-verb-head,
+  .fl-header-actions {
+    display: flex;
+    align-items: center;
+  }
+
+  .fl-sidebar-top,
+  .fl-level-row,
+  .fl-lesson-header,
+  .fl-section-header {
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .fl-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    min-width: 0;
+  }
+
+  .fl-brand-mark {
+    width: 38px;
+    height: 38px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    background: #f4c95d;
+    color: #17120d;
+    font-weight: 900;
+    letter-spacing: 0;
+  }
+
+  .fl-brand strong,
+  .fl-brand span,
+  .fl-level-toggle strong,
+  .fl-level-toggle small,
+  .fl-lesson-link strong,
+  .fl-lesson-link small {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .fl-brand span,
+  .fl-level-toggle small,
+  .fl-lesson-link small {
+    color: #c8bbaa;
+    font-size: 11px;
+    margin-top: 1px;
+  }
+
+  .fl-icon-button,
+  .fl-row-actions button,
+  .fl-audio-button,
+  .fl-add-level,
+  .fl-primary-button,
+  .fl-form-chip {
+    border: 0;
+    cursor: pointer;
+  }
+
+  .fl-icon-button {
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: grid;
+    place-items: center;
+    color: #fff7ea;
+    background: #332719;
+  }
+
+  .fl-add-level {
+    width: 100%;
+    margin: 12px 0;
+    height: 34px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    color: #18120d;
+    background: #f4c95d;
+    font-weight: 800;
+  }
+
+  .fl-level-list {
+    display: grid;
+    gap: 8px;
+  }
+
+  .fl-level {
+    border: 1px solid #3a2d1f;
+    border-radius: 8px;
+    background: #211910;
+    overflow: hidden;
+  }
+
+  .fl-level-toggle {
+    min-width: 0;
+    flex: 1;
+    min-height: 42px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px;
+    border: 0;
+    color: inherit;
+    background: transparent;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .fl-level-toggle > svg {
+    flex: 0 0 15px;
+  }
+
+  .fl-level-toggle > span {
+    min-width: 0;
+  }
+
+  .fl-row-actions {
+    display: flex;
+    gap: 2px;
+    padding-right: 6px;
+  }
+
+  .fl-row-actions button {
+    width: 25px;
+    height: 25px;
+    border-radius: 7px;
+    display: grid;
+    place-items: center;
+    color: #f2dfc5;
+    background: transparent;
+  }
+
+  .fl-row-actions button:hover,
+  .fl-icon-button:hover {
+    background: #443321;
+  }
+
+  .fl-lesson-list {
+    display: grid;
+    gap: 4px;
+    padding: 0 8px 8px 24px;
+  }
+
+  .fl-lesson-link {
+    position: relative;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    min-height: 38px;
+    padding: 7px 8px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background: transparent;
+    color: #fff4e5;
+    cursor: pointer;
+    text-align: left;
+  }
+
+  .fl-lesson-number {
+    width: 28px;
+    height: 22px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255, 248, 236, 0.08);
+    color: #d0c0ad;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 850;
+  }
+
+  .fl-lesson-link.is-active {
+    background: #fff1d7;
+    color: #24180e;
+    border-color: #e6b45d;
+  }
+
+  .fl-lesson-link.is-active .fl-lesson-number {
+    background: #f6ddb0;
+    color: #8a4a08;
+  }
+
+  .fl-lesson-link.is-active small {
+    color: #66594a;
+  }
+
+  .fl-lesson-actions {
+    display: flex;
+    gap: 4px;
+    opacity: 0;
+  }
+
+  .fl-lesson-link:hover .fl-lesson-actions,
+  .fl-lesson-link.is-active .fl-lesson-actions {
+    opacity: 1;
+  }
+
+  .fl-lesson-actions span {
+    width: 21px;
+    height: 21px;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+  }
+
+  .fl-lesson-actions span:hover {
+    background: rgba(180, 83, 9, 0.15);
+  }
+
+  .fl-main {
+    padding: 18px 22px 30px;
+  }
+
+  .fl-lesson-header {
+    position: relative;
+    gap: 16px;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--fl-line);
+  }
+
+  .fl-kicker {
+    color: var(--fl-accent);
+    font-size: 12px;
+    font-weight: 800;
+    letter-spacing: 0;
+    margin: 0 0 4px;
+    text-transform: uppercase;
+  }
+
+  .fl-lesson-header h1 {
+    margin: 0;
+    font-size: 26px;
+    line-height: 1.15;
+    letter-spacing: 0;
+  }
+
+  .fl-lesson-header p {
+    margin: 5px 0 0;
+    color: var(--fl-muted);
+  }
+
+  .fl-header-actions {
+    gap: 8px;
+    flex-shrink: 0;
+  }
+
+  .fl-primary-button {
+    height: 36px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    padding: 0 12px;
+    color: #fff;
+    background: var(--fl-accent);
+    font-weight: 800;
+  }
+
+  .fl-md-pill {
+    height: 34px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 10px;
+    border: 1px solid var(--fl-line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--fl-muted);
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .fl-error {
+    margin: 10px 0;
+    padding: 9px 11px;
+    border: 1px solid #f0b1ae;
+    border-radius: 8px;
+    background: #fff4f3;
+    color: #8d2d2d;
+    font-size: 13px;
+  }
+
+  .fl-content {
+    display: grid;
+    gap: 14px;
+    padding-top: 14px;
+  }
+
+  .fl-brief,
+  .fl-section {
+    border: 1px solid var(--fl-line);
+    border-radius: 8px;
+    background: var(--fl-panel);
+  }
+
+  .fl-brief {
+    padding: 13px 15px;
+  }
+
+  .fl-brief h2,
+  .fl-section h2 {
+    margin: 0;
+    font-size: 15px;
+    letter-spacing: 0;
+  }
+
+  .fl-brief ul {
+    margin: 8px 0 0;
+    padding-left: 18px;
+    color: #413a32;
+    line-height: 1.45;
+  }
+
+  .fl-section {
+    overflow: hidden;
+  }
+
+  .fl-section-header {
+    padding: 12px 14px;
+    background: var(--fl-panel-soft);
+    border-bottom: 1px solid var(--fl-line);
+  }
+
+  .fl-audio-button {
+    width: 26px;
+    height: 26px;
+    border-radius: 7px;
+    display: inline-grid;
+    place-items: center;
+    color: var(--fl-blue);
+    background: #e9f2f8;
+    flex: 0 0 auto;
+  }
+
+  .fl-audio-button.is-active {
+    color: #fff;
+    background: var(--fl-red);
+  }
+
+  .fl-audio-button:disabled {
+    cursor: wait;
+    opacity: 0.8;
+  }
+
+  .fl-speak-cell {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-width: 0;
+    line-height: 1.35;
+  }
+
+  .fl-table-wrap {
+    overflow-x: auto;
+  }
+
+  .fl-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+
+  .fl-table th,
+  .fl-table td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--fl-line);
+    vertical-align: top;
+    text-align: left;
+  }
+
+  .fl-table th {
+    color: #685d50;
+    background: #f6f1e7;
+    font-size: 11px;
+    text-transform: uppercase;
+  }
+
+  .fl-table tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .fl-verb-list,
+  .fl-vocab-grid,
+  .fl-card-grid,
+  .fl-dialogue {
+    display: grid;
+  }
+
+  .fl-verb-list {
+    grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+    gap: 10px;
+    padding: 12px;
+    background: #f8f2e8;
+  }
+
+  .fl-verb-row {
+    display: grid;
+    gap: 9px;
+    padding: 12px;
+    border: 1px solid var(--fl-line);
+    border-radius: 8px;
+    background: #fff;
+  }
+
+  .fl-verb-head {
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .fl-verb-head > .fl-speak-cell {
+    font-size: 18px;
+    font-weight: 900;
+  }
+
+  .fl-verb-head small,
+  .fl-vocab-main small,
+  .fl-dialogue-line small,
+  .fl-triad small {
+    color: var(--fl-muted);
+    line-height: 1.35;
+  }
+
+  .fl-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .fl-form-chip {
+    min-height: 28px;
+    border-radius: 7px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 4px 6px;
+    color: #34291c;
+    background: var(--fl-soft);
+    font-size: 12px;
+    font-weight: 750;
+  }
+
+  .fl-form-chip.is-active {
+    color: #fff;
+    background: var(--fl-red);
+  }
+
+  .fl-example-line,
+  .fl-vocab-example {
+    display: grid;
+    gap: 4px;
+    color: #342c23;
+    font-size: 13px;
+  }
+
+  .fl-example-line small,
+  .fl-vocab-example small {
+    color: #74685b;
+    font-size: 12px;
+    line-height: 1.35;
+  }
+
+  .fl-vocab-grid {
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 0;
+  }
+
+  .fl-vocab-row {
+    justify-content: space-between;
+    gap: 18px;
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--fl-line);
+  }
+
+  .fl-vocab-main {
+    min-width: 150px;
+  }
+
+  .fl-vocab-main > .fl-speak-cell {
+    font-weight: 900;
+  }
+
+  .fl-card-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1px;
+    background: var(--fl-line);
+  }
+
+  .fl-triad {
+    display: grid;
+    gap: 5px;
+    padding: 12px;
+    background: #fff;
+  }
+
+  .fl-triad > .fl-speak-cell {
+    color: #211b14;
+    font-size: 17px;
+    font-weight: 850;
+  }
+
+  .fl-dialogue {
+    gap: 1px;
+    background: var(--fl-line);
+  }
+
+  .fl-dialogue-line {
+    display: grid;
+    grid-template-columns: 72px minmax(0, 1fr) minmax(180px, 0.7fr);
+    gap: 10px;
+    align-items: start;
+    padding: 10px 12px;
+    background: #fff;
+  }
+
+  .fl-dialogue-line b {
+    color: var(--fl-accent);
+  }
+
+  .fl-empty {
+    margin: 18px;
+    padding: 18px;
+    border: 1px solid var(--fl-line);
+    border-radius: 8px;
+    background: #fff;
+    color: var(--fl-muted);
+  }
+
+  .fl-spin {
+    animation: fl-spin 0.9s linear infinite;
+  }
+
+  @keyframes fl-spin {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @media (max-width: 860px) {
+    :scope,
+    :scope.is-collapsed {
+      grid-template-columns: 1fr;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+
+    .fl-sidebar {
+      max-height: 260px;
+      border-right: 0;
+      border-bottom: 1px solid #3a2d1f;
+    }
+
+    .fl-dialogue-line {
+      grid-template-columns: 1fr;
+    }
+
+    .fl-lesson-header {
+      align-items: flex-start;
+      flex-direction: column;
+    }
+  }
+}
