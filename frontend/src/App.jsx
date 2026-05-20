@@ -8,6 +8,7 @@ import AppShell from "./shared/AppShell.jsx";
 // doesn't block the others.
 const FrenchApp = lazy(() => import("./apps/french/App.jsx"));
 const FreeFrenchApp = lazy(() => import("./apps/free_french/App.jsx"));
+const FreeEnglishApp = lazy(() => import("./apps/free_english/App.jsx"));
 const FreeSpanishApp = lazy(() => import("./apps/free_spanish/App.jsx"));
 const QuizApp = lazy(() => import("./apps/quiz/App.jsx"));
 const LiveSpanishApp = lazy(() => import("./apps/live_spanish/App.jsx"));
@@ -57,6 +58,7 @@ export default function App() {
       <Route path="/" element={<Hub />} />
       <Route path="/french" element={withShell("French Sprint", "#7c3aed", FrenchApp)} />
       <Route path="/free-french" element={withShell("Free French", "#1f8a63", FreeFrenchApp)} />
+      <Route path="/free-english" element={withShell("Free English", "#1d4ed8", FreeEnglishApp)} />
       <Route path="/free-spanish" element={withShell("Free Spanish", "#b45309", FreeSpanishApp)} />
       <Route path="/quiz" element={withShell("English Adventure Quiz", "#f97316", QuizApp)} />
       <Route

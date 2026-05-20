@@ -24,6 +24,15 @@ const APPS = [
     to: "/free-french",
   },
   {
+    id: "free-english",
+    title: "Free English",
+    subtitle: "用中文自由学英语 · 小课慢练 · 句句可朗读",
+    description: "A flexible English course for Chinese speakers: one or two ideas per lesson, Chinese beside every English sentence, editable levels, MD inbox, and natural Edge TTS for shadowing.",
+    accent: "#1d4ed8",
+    Icon: Languages,
+    to: "/free-english",
+  },
+  {
     id: "free-spanish",
     title: "Free Spanish",
     subtitle: "Learn Spanish freely in English · small lessons · speak everything",
