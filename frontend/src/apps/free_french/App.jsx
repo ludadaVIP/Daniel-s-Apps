@@ -618,10 +618,6 @@ export default function FreeFrenchApp() {
                   ))}
                 </ul>
               </div>
-              <div>
-                <h2>Duolingo bridge</h2>
-                <p>{lesson.duolingoBridge}</p>
-              </div>
             </section>
 
             {(lesson.sections || []).map((section) => (

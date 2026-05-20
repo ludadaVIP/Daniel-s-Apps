@@ -162,6 +162,14 @@
     text-align: left;
   }
 
+  .ff-level-toggle > svg {
+    flex: 0 0 15px;
+  }
+
+  .ff-level-toggle > span {
+    min-width: 0;
+  }
+
   .ff-row-actions {
     display: flex;
     gap: 2px;
@@ -345,10 +353,7 @@
   }
 
   .ff-brief {
-    display: grid;
-    grid-template-columns: minmax(0, 1.15fr) minmax(260px, 0.85fr);
-    gap: 14px;
-    padding: 13px 14px;
+    padding: 13px 15px;
   }
 
   .ff-brief h2,
