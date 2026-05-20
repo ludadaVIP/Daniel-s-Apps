@@ -307,6 +307,11 @@ function VerbsSection({ loadingKey, onSpeak, section, speakingKey }) {
             >
               {verb.example}
             </SpeakCell>
+            {(verb.exampleEn || verb.exampleEs) && (
+              <small className="ff-example-translation">
+                {[verb.exampleEn, verb.exampleEs].filter(Boolean).join(" · ")}
+              </small>
+            )}
           </div>
         </article>
       ))}
@@ -331,15 +336,22 @@ function VocabularySection({ loadingKey, onSpeak, section, speakingKey }) {
             </SpeakCell>
             <small>{item.en} · {item.es}</small>
           </div>
-          <SpeakCell
-            itemKey={`${section.id}:word-example:${item.fr}`}
-            language="fr"
-            loadingKey={loadingKey}
-            onSpeak={onSpeak}
-            speakingKey={speakingKey}
-          >
-            {item.example}
-          </SpeakCell>
+          <div className="ff-vocab-example">
+            <SpeakCell
+              itemKey={`${section.id}:word-example:${item.fr}`}
+              language="fr"
+              loadingKey={loadingKey}
+              onSpeak={onSpeak}
+              speakingKey={speakingKey}
+            >
+              {item.example}
+            </SpeakCell>
+            {(item.exampleEn || item.exampleEs) && (
+              <small className="ff-example-translation">
+                {[item.exampleEn, item.exampleEs].filter(Boolean).join(" · ")}
+              </small>
+            )}
+          </div>
         </article>
       ))}
     </div>
