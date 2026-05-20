@@ -1,0 +1,73 @@
+{
+  "id": "fs-a1core-092-train-station",
+  "levelId": "a1-core",
+  "title": "Train station basics",
+  "subtitle": "Buy a ticket and ask about time.",
+  "tags": [
+    "a1-core",
+    "a1",
+    "speakable"
+  ],
+  "overview": [
+    "Use billete for ticket in Spain; boleto is common in Latin America.",
+    "A qué hora asks at what time."
+  ],
+  "sections": [
+    {
+      "id": "phrases",
+      "title": "Station phrases",
+      "kind": "cards",
+      "items": [
+        {
+          "es": "Quisiera un billete a Madrid.",
+          "en": "I would like a ticket to Madrid."
+        },
+        {
+          "es": "¿A qué hora sale el tren?",
+          "en": "What time does the train leave?"
+        },
+        {
+          "es": "¿De qué andén sale?",
+          "en": "Which platform does it leave from?"
+        },
+        {
+          "es": "El tren sale a las cinco.",
+          "en": "The train leaves at five."
+        },
+        {
+          "es": "Necesito un billete de ida.",
+          "en": "I need a one-way ticket."
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Buying a ticket",
+      "kind": "dialogue",
+      "lines": [
+        {
+          "speaker": "A",
+          "es": "Quisiera un billete a Madrid, por favor.",
+          "en": "I would like a ticket to Madrid, please."
+        },
+        {
+          "speaker": "B",
+          "es": "¿De ida o de ida y vuelta?",
+          "en": "One-way or round-trip?"
+        },
+        {
+          "speaker": "A",
+          "es": "De ida, por favor.",
+          "en": "One-way, please."
+        },
+        {
+          "speaker": "B",
+          "es": "Sale a las cinco.",
+          "en": "It leaves at five."
+        }
+      ]
+    }
+  ],
+  "createdAt": "2026-05-20T00:00:00+00:00",
+  "updatedAt": "2026-05-20T00:00:00+00:00"
+}

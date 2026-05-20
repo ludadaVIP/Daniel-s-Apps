@@ -1,0 +1,73 @@
+{
+  "id": "fs-a1core-090-hotel",
+  "levelId": "a1-core",
+  "title": "Hotel basics",
+  "subtitle": "Check in and ask for simple things.",
+  "tags": [
+    "a1-core",
+    "a1",
+    "speakable"
+  ],
+  "overview": [
+    "Hotel Spanish needs name, reservation, room, and request phrases.",
+    "Quisiera keeps the tone polite."
+  ],
+  "sections": [
+    {
+      "id": "phrases",
+      "title": "Hotel phrases",
+      "kind": "cards",
+      "items": [
+        {
+          "es": "Tengo una reserva.",
+          "en": "I have a reservation."
+        },
+        {
+          "es": "Quisiera una habitación tranquila.",
+          "en": "I would like a quiet room."
+        },
+        {
+          "es": "¿Dónde está el ascensor?",
+          "en": "Where is the elevator?"
+        },
+        {
+          "es": "La llave no funciona.",
+          "en": "The key does not work."
+        },
+        {
+          "es": "Necesito otra toalla.",
+          "en": "I need another towel."
+        }
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Checking in",
+      "kind": "dialogue",
+      "lines": [
+        {
+          "speaker": "A",
+          "es": "Buenas tardes. Tengo una reserva.",
+          "en": "Good afternoon. I have a reservation."
+        },
+        {
+          "speaker": "B",
+          "es": "¿A qué nombre?",
+          "en": "Under what name?"
+        },
+        {
+          "speaker": "A",
+          "es": "A nombre de Daniel.",
+          "en": "Under the name Daniel."
+        },
+        {
+          "speaker": "B",
+          "es": "Perfecto. Su habitación está en el segundo piso.",
+          "en": "Perfect. Your room is on the second floor."
+        }
+      ]
+    }
+  ],
+  "createdAt": "2026-05-20T00:00:00+00:00",
+  "updatedAt": "2026-05-20T00:00:00+00:00"
+}

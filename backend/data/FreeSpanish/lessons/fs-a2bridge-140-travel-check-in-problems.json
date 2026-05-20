@@ -1,0 +1,100 @@
+{
+  "id": "fs-a2bridge-140-travel-check-in-problems",
+  "levelId": "a2-bridge",
+  "title": "Travel check-in problems",
+  "subtitle": "Handle simple travel problems.",
+  "tags": [
+    "a2-bridge",
+    "a2",
+    "speakable"
+  ],
+  "overview": [
+    "A2 travel Spanish needs problem + request.",
+    "Use no funciona, he perdido, necesito."
+  ],
+  "sections": [
+    {
+      "id": "pattern",
+      "title": "Pattern",
+      "kind": "table",
+      "columns": [
+        "Spanish",
+        "English"
+      ],
+      "rows": [
+        [
+          "Mi reserva no aparece.",
+          "My reservation does not appear."
+        ],
+        [
+          "He perdido mi pasaporte.",
+          "I have lost my passport."
+        ],
+        [
+          "La llave no funciona.",
+          "The key does not work."
+        ],
+        [
+          "Necesito cambiar la habitación.",
+          "I need to change the room."
+        ]
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Practice sentences",
+      "kind": "cards",
+      "items": [
+        {
+          "es": "Mi reserva no aparece en el sistema.",
+          "en": "My reservation does not appear in the system."
+        },
+        {
+          "es": "He perdido mi maleta en el aeropuerto.",
+          "en": "I have lost my suitcase at the airport."
+        },
+        {
+          "es": "La llave de la habitación no funciona.",
+          "en": "The room key does not work."
+        },
+        {
+          "es": "Necesito hablar con la recepción.",
+          "en": "I need to speak with reception."
+        },
+        {
+          "es": "¿Puede ayudarme, por favor?",
+          "en": "Can you help me, please?"
+        }
+      ]
+    },
+    {
+      "id": "dialogue",
+      "title": "Mini dialogue",
+      "kind": "dialogue",
+      "lines": [
+        {
+          "speaker": "A",
+          "es": "Buenas tardes. Mi reserva no aparece.",
+          "en": "Good afternoon. My reservation does not appear."
+        },
+        {
+          "speaker": "B",
+          "es": "¿A qué nombre está?",
+          "en": "Under what name is it?"
+        },
+        {
+          "speaker": "A",
+          "es": "Está a nombre de Daniel.",
+          "en": "It is under the name Daniel."
+        },
+        {
+          "speaker": "B",
+          "es": "Un momento, por favor.",
+          "en": "One moment, please."
+        }
+      ]
+    }
+  ],
+  "createdAt": "2026-05-21T00:00:00+00:00",
+  "updatedAt": "2026-05-21T00:00:00+00:00"
+}

@@ -1,0 +1,100 @@
+{
+  "id": "fs-a2core-179-doctor-appointment-conversation",
+  "levelId": "a2-core",
+  "title": "Doctor appointment conversation",
+  "subtitle": "Explain symptoms and understand advice.",
+  "tags": [
+    "a2-core",
+    "a2",
+    "speakable"
+  ],
+  "overview": [
+    "Use desde hace for duration of symptoms.",
+    "Use me duele, tengo, and debería."
+  ],
+  "sections": [
+    {
+      "id": "pattern",
+      "title": "Pattern",
+      "kind": "table",
+      "columns": [
+        "Spanish",
+        "English"
+      ],
+      "rows": [
+        [
+          "Me duele la garganta.",
+          "My throat hurts."
+        ],
+        [
+          "Tengo fiebre desde ayer.",
+          "I have had a fever since yesterday."
+        ],
+        [
+          "Debe descansar.",
+          "You should rest."
+        ],
+        [
+          "Tome esto dos veces al día.",
+          "Take this twice a day."
+        ]
+      ]
+    },
+    {
+      "id": "practice",
+      "title": "Practice sentences",
+      "kind": "cards",
+      "items": [
+        {
+          "es": "Me duele la garganta desde hace dos días.",
+          "en": "My throat has hurt for two days."
+        },
+        {
+          "es": "Tengo tos, pero no tengo fiebre.",
+          "en": "I have a cough, but I do not have a fever."
+        },
+        {
+          "es": "Me siento cansado todo el día.",
+          "en": "I feel tired all day."
+        },
+        {
+          "es": "El médico dijo que debía descansar.",
+          "en": "The doctor said that I should rest."
+        },
+        {
+          "es": "Tengo que tomar este medicamento dos veces al día.",
+          "en": "I have to take this medicine twice a day."
+        }
+      ]
+    },
+    {
+      "id": "dialogue",
+      "title": "Mini dialogue",
+      "kind": "dialogue",
+      "lines": [
+        {
+          "speaker": "A",
+          "es": "¿Qué le pasa?",
+          "en": "What is wrong?"
+        },
+        {
+          "speaker": "B",
+          "es": "Me duele la garganta y tengo tos.",
+          "en": "My throat hurts and I have a cough."
+        },
+        {
+          "speaker": "A",
+          "es": "¿Desde cuándo?",
+          "en": "Since when?"
+        },
+        {
+          "speaker": "B",
+          "es": "Desde ayer por la noche.",
+          "en": "Since last night."
+        }
+      ]
+    }
+  ],
+  "createdAt": "2026-05-21T00:00:00+00:00",
+  "updatedAt": "2026-05-21T00:00:00+00:00"
+}
