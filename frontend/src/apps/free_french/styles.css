@@ -193,8 +193,8 @@
     position: relative;
     min-width: 0;
     display: grid;
-    grid-template-columns: 16px minmax(0, 1fr) auto;
-    gap: 7px;
+    grid-template-columns: 30px minmax(0, 1fr) auto;
+    gap: 8px;
     align-items: center;
     min-height: 38px;
     padding: 7px 8px;
@@ -206,10 +206,29 @@
     text-align: left;
   }
 
+  .ff-lesson-number {
+    width: 28px;
+    height: 22px;
+    border-radius: 7px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(234, 247, 238, 0.08);
+    color: #bbcbc2;
+    font-size: 11px;
+    font-variant-numeric: tabular-nums;
+    font-weight: 850;
+  }
+
   .ff-lesson-link.is-active {
     background: #eaf7ee;
     color: #102018;
     border-color: #9bd3ae;
+  }
+
+  .ff-lesson-link.is-active .ff-lesson-number {
+    background: #d8efdf;
+    color: #126545;
   }
 
   .ff-lesson-link.is-active small {

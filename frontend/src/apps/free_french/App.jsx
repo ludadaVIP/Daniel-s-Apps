@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
-  BookOpen,
   ChevronDown,
   ChevronRight,
   FileText,
@@ -106,6 +105,15 @@ function Sidebar({
   onToggle,
   onToggleLevel,
 }) {
+  const lessonNumberById = new Map();
+  let nextLessonNumber = 1;
+  for (const level of library?.levels || []) {
+    for (const lesson of level.lessons || []) {
+      lessonNumberById.set(lesson.id, nextLessonNumber);
+      nextLessonNumber += 1;
+    }
+  }
+
   return (
     <aside className="ff-sidebar">
       <div className="ff-sidebar-top">
@@ -168,13 +176,13 @@ function Sidebar({
               {isOpen && !collapsed && (
                 <div className="ff-lesson-list">
                   {(level.lessons || []).map((lesson) => (
-                    <button
+                  <button
                       className={`ff-lesson-link ${activeLessonId === lesson.id ? "is-active" : ""}`}
                       key={lesson.id}
                       onClick={() => onSelectLesson(lesson.id)}
                       type="button"
                     >
-                      <BookOpen size={14} />
+                      <span className="ff-lesson-number">{lessonNumberById.get(lesson.id)}</span>
                       <span>
                         <strong>{lesson.title}</strong>
                         <small>{lesson.subtitle}</small>
