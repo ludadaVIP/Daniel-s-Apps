@@ -6,15 +6,16 @@ Free Spanish is a flexible Spanish-learning app for English speakers. The teachi
 
 Recommended long-term course size:
 
-Current status: A1, A2, B1, and B2 are complete with 440 lessons: Foundation 1-60, A1 Core 61-100, A2 Bridge 101-150, A2 Core 151-200, B1 Bridge 201-260, B1 Core 261-320, B2 Bridge 321-380, and B2 Core 381-440.
+Current status: A1, A2, B1, B2, and C1 are complete with 560 lessons: Foundation 1-60, A1 Core 61-100, A2 Bridge 101-150, A2 Core 151-200, B1 Bridge 201-260, B1 Core 261-320, B2 Bridge 321-380, B2 Core 381-440, C1 Bridge 441-500, and C1 Core 501-560.
 
 - Foundation / A1 from zero: 60 lessons
 - A1 Core and A1 Output: 40 lessons
 - A2 Bridge and A2 Core: 100 lessons
 - B1 Bridge and B1 Core: 120 lessons
 - B2 Bridge and B2 Core: 120 lessons
+- C1 Bridge and C1 Core: 120 lessons
 
-That is about 440 lessons from zero to strong B2. It sounds large, but each lesson is intentionally small. The strength comes from steady speaking, listening, reading, and output practice rather than overloaded grammar pages.
+That is about 560 lessons from zero to strong C1. It sounds large, but each lesson is intentionally small. The strength comes from steady speaking, listening, reading, and output practice rather than overloaded grammar pages.
 
 ## Structure
 
