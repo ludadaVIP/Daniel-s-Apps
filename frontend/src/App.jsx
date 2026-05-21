@@ -10,6 +10,7 @@ const FrenchApp = lazy(() => import("./apps/french/App.jsx"));
 const FreeFrenchApp = lazy(() => import("./apps/free_french/App.jsx"));
 const FreeEnglishApp = lazy(() => import("./apps/free_english/App.jsx"));
 const FreeSpanishApp = lazy(() => import("./apps/free_spanish/App.jsx"));
+const FreeGermanApp = lazy(() => import("./apps/free_german/App.jsx"));
 const QuizApp = lazy(() => import("./apps/quiz/App.jsx"));
 const LiveSpanishApp = lazy(() => import("./apps/live_spanish/App.jsx"));
 const LanguageLabApp = lazy(() => import("./apps/language_lab/App.jsx"));
@@ -60,6 +61,7 @@ export default function App() {
       <Route path="/free-french" element={withShell("Free French", "#1f8a63", FreeFrenchApp)} />
       <Route path="/free-english" element={withShell("Free English", "#1d4ed8", FreeEnglishApp)} />
       <Route path="/free-spanish" element={withShell("Free Spanish", "#b45309", FreeSpanishApp)} />
+      <Route path="/free-german" element={withShell("Free German", "#7a4f16", FreeGermanApp)} />
       <Route path="/quiz" element={withShell("English Adventure Quiz", "#f97316", QuizApp)} />
       <Route
         path="/live-spanish"

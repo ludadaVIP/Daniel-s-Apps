@@ -42,6 +42,15 @@ const APPS = [
     to: "/free-spanish",
   },
   {
+    id: "free-german",
+    title: "Free German",
+    subtitle: "Deutsch frei lernen · Español / Français · todo se puede escuchar",
+    description: "A flexible German course from zero to C1: one or two ideas per lesson, Spanish and French beside every German sentence, editable levels, MD inbox, and Edge TTS for shadowing.",
+    accent: "#7a4f16",
+    Icon: Languages,
+    to: "/free-german",
+  },
+  {
     id: "quiz",
     title: "English Adventure Quiz",
     subtitle: "英语综合练习：选择 / 排序 / 填空",
