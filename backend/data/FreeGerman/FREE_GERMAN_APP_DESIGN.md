@@ -4,17 +4,17 @@ Free German is a flexible German-learning app for learners who want Spanish and 
 
 ## Path
 
-Current status: Foundation 30 is complete with lessons 1-30. The long-term path is from zero to C1, built gradually through A1, A2, B1, B2, and C1 levels.
+Current status: Foundation 30, A1 Core 90, A2 Bridge 70, A2 Core 100, B1 Bridge 70, B1 Core 120, and B2 Bridge 70 are complete with 550 lessons: Foundation 1-30, A1 Core 31-120, A2 Bridge 121-190, A2 Core 191-290, B1 Bridge 291-360, B1 Core 361-480, and B2 Bridge 481-550. The next natural expansion is B2 Core.
 
 Recommended long-term path:
 
 - Foundation: 30 lessons
-- A1 Core: 70-100 lessons
-- A2 Bridge: 60 lessons
-- A2 Core: 80-100 lessons
-- B1 Bridge: 60 lessons
-- B1 Core: 100-120 lessons
-- B2 Bridge: 60 lessons
+- A1 Core: 90 lessons
+- A2 Bridge: 70 lessons
+- A2 Core: 100 lessons
+- B1 Bridge: 70 lessons
+- B1 Core: 120 lessons
+- B2 Bridge: 70 lessons
 - B2 Core: 100-140 lessons
 - C1 Bridge: 60 lessons
 - C1 Core: 100-140 lessons
