@@ -4,7 +4,7 @@ Free German is a flexible German-learning app for learners who want Spanish and 
 
 ## Path
 
-Current status: Foundation 30, A1 Core 90, A2 Bridge 70, A2 Core 100, B1 Bridge 70, B1 Core 120, and B2 Bridge 70 are complete with 550 lessons: Foundation 1-30, A1 Core 31-120, A2 Bridge 121-190, A2 Core 191-290, B1 Bridge 291-360, B1 Core 361-480, and B2 Bridge 481-550. The next natural expansion is B2 Core.
+Current status: Foundation 30, A1 Core 90, A2 Bridge 70, A2 Core 100, B1 Bridge 70, B1 Core 120, B2 Bridge 70, B2 Med 100, B2 Hi 100, C1 Bridge 70, C1 Med 100, and C1 Hi 100 are complete with 1020 lessons: Foundation 1-30, A1 Core 31-120, A2 Bridge 121-190, A2 Core 191-290, B1 Bridge 291-360, B1 Core 361-480, B2 Bridge 481-550, B2 Med 551-650, B2 Hi 651-750, C1 Bridge 751-820, C1 Med 821-920, and C1 Hi 921-1020. The main zero-to-C1 Free German path is complete; future expansion can add C2, exam tracks, theme packs, or learner-created MD imports.
 
 Recommended long-term path:
 
@@ -15,9 +15,12 @@ Recommended long-term path:
 - B1 Bridge: 70 lessons
 - B1 Core: 120 lessons
 - B2 Bridge: 70 lessons
-- B2 Core: 100-140 lessons
-- C1 Bridge: 60 lessons
-- C1 Core: 100-140 lessons
+- B2 Med: 100 lessons
+- B2 Hi: 100 lessons
+- C1 Bridge: 70 lessons
+- C1 Med: 100 lessons
+- C1 Hi: 100 lessons
+- Optional C2 / specialty tracks: future expansion
 
 The goal is not to overload each lesson. The goal is steady pronunciation, grammar, listening, reading, speaking, and real output practice.
 
