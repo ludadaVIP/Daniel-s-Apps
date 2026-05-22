@@ -6,6 +6,8 @@ import {
   Layers,
   Loader2,
   Pause,
+  PanelLeftClose,
+  PanelLeftOpen,
   Play,
   RotateCcw,
   Search,
@@ -15,6 +17,7 @@ import {
 } from "lucide-react";
 
 import { NineHundredProgressDock } from "./NineHundredProgressDock";
+import "./VocabApp.css";
 import { useActiveItemScroll } from "./useActiveItemScroll";
 import { isTtsCancelled, useTts } from "./useTts";
 
@@ -48,6 +51,8 @@ const DEFAULT_TEXT = {
   queueInterrupted: "Playback stopped at word",
   collapseSectionTitle: "Collapse section",
   expandSectionTitle: "Expand section",
+  collapseSidebarTitle: "Collapse sidebar",
+  expandSidebarTitle: "Expand sidebar",
   playSectionLemma: "Play words only",
   playSectionTarget: "Play this section",
   playSectionAll: "Play this section with English",
@@ -120,6 +125,25 @@ function saveIdSet(key, ids) {
   }
 }
 
+function loadBoolean(key, fallback = false) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (raw === "true") return true;
+    if (raw === "false") return false;
+  } catch {
+    /* ignore */
+  }
+  return fallback;
+}
+
+function saveBoolean(key, value) {
+  try {
+    localStorage.setItem(key, value ? "true" : "false");
+  } catch {
+    /* ignore */
+  }
+}
+
 function AudioButton({ prefix, active, disabled, loading, mode, onClick, title, size = 38 }) {
   const Icon = mode === "all" ? Headphones : Volume2;
   return (
@@ -152,16 +176,28 @@ function Sidebar({
   expandedLevelId,
   onLevelToggle,
   onSelectGroup,
+  collapsed,
+  onToggleCollapsed,
   text,
 }) {
+  const ToggleIcon = collapsed ? PanelLeftOpen : PanelLeftClose;
   return (
-    <aside className={`${prefix}-sidebar`}>
-      <div className={`${prefix}-brand`}>
+    <aside className={`${prefix}-sidebar vocab-sidebar`} aria-label={brandTitle}>
+      <div className={classes(`${prefix}-brand`, "vocab-brand")}>
         <div className={`${prefix}-brand-mark`}>A→C</div>
-        <div>
+        <div className="vocab-sidebar-copy">
           <p>{brandTitle}</p>
           <span>{brandSubtitle}</span>
         </div>
+        <button
+          className="vocab-sidebar-toggle"
+          type="button"
+          onClick={onToggleCollapsed}
+          aria-label={collapsed ? text.expandSidebarTitle : text.collapseSidebarTitle}
+          title={collapsed ? text.expandSidebarTitle : text.collapseSidebarTitle}
+        >
+          <ToggleIcon size={18} />
+        </button>
       </div>
 
       <nav className={`${prefix}-level-nav`} aria-label={brandTitle}>
@@ -177,12 +213,13 @@ function Sidebar({
           return (
             <div key={level.id} className={`${prefix}-level-block ${isActiveLevel ? "is-active" : ""}`}>
               <button
-                className={`${prefix}-level-button`}
+                className={classes(`${prefix}-level-button`, "vocab-level-button")}
                 type="button"
                 onClick={() => onLevelToggle(level.id)}
+                title={collapsed ? level.title : undefined}
               >
                 <span className={`${prefix}-level-chip`}>{(level.id || "?").toUpperCase()}</span>
-                <span className={`${prefix}-level-copy`}>
+                <span className={`${prefix}-level-copy vocab-level-copy`}>
                   <strong>{level.title}</strong>
                   <small>
                     {level.groupCount || 0} {text.groupsUnit} · {level.wordCount || 0} {text.wordsUnit}
@@ -191,10 +228,10 @@ function Sidebar({
                 </span>
                 <ChevronRight
                   size={16}
-                  className={open ? "is-open" : ""}
+                  className={classes("vocab-level-chevron", open && "is-open")}
                 />
               </button>
-              {open && (
+              {open && !collapsed && (
                 <div className={`${prefix}-group-list`}>
                   {(level.groups || []).length === 0 && (
                     <div className={`${prefix}-group-empty`}>
@@ -418,6 +455,7 @@ export function VocabApp({ api, config }) {
   const text = useMemo(() => mergeText(config.text), [config.text]);
   const storageKey = config.storageKey;
   const learnedStorageKey = config.learnedStorageKey || `${storageKey}:learned`;
+  const sidebarStorageKey = config.sidebarStorageKey || `${storageKey}:sidebar-collapsed`;
 
   const [course, setCourse] = useState(null);
   const [levelsError, setLevelsError] = useState("");
@@ -426,6 +464,9 @@ export function VocabApp({ api, config }) {
   const [activeLevelId, setActiveLevelId] = useState("");
   const [activeGroupId, setActiveGroupId] = useState("");
   const [expandedLevelId, setExpandedLevelId] = useState("");
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() =>
+    loadBoolean(sidebarStorageKey),
+  );
 
   const [group, setGroup] = useState(null);
   const [loadingGroup, setLoadingGroup] = useState(false);
@@ -467,6 +508,14 @@ export function VocabApp({ api, config }) {
   useEffect(() => {
     learnedIdsRef.current = learnedIds;
   }, [learnedIds]);
+
+  useEffect(() => {
+    setSidebarCollapsed(loadBoolean(sidebarStorageKey));
+  }, [sidebarStorageKey]);
+
+  useEffect(() => {
+    saveBoolean(sidebarStorageKey, sidebarCollapsed);
+  }, [sidebarCollapsed, sidebarStorageKey]);
 
   // Restore last-visited level/group from localStorage.
   useEffect(() => {
@@ -812,9 +861,23 @@ export function VocabApp({ api, config }) {
   const resumeOrRestartQueue = queueState.failed
     ? () => seekQueue(queueState.currentIndex)
     : resume;
+  const handleLevelToggle = useCallback(
+    (id) => {
+      if (sidebarCollapsed) {
+        const level = levels.find((item) => item.id === id);
+        const firstGroup = (level?.groups || [])[0];
+        setExpandedLevelId(id);
+        setActiveLevelId(id);
+        if (firstGroup) setActiveGroupId(firstGroup.id);
+        return;
+      }
+      setExpandedLevelId((prev) => (prev === id ? "" : id));
+    },
+    [levels, sidebarCollapsed],
+  );
 
   return (
-    <div className={`${prefix}-shell`}>
+    <div className={classes(`${prefix}-shell`, "vocab-shell", sidebarCollapsed && "is-sidebar-collapsed")}>
       <Sidebar
         prefix={prefix}
         brandTitle={config.appName}
@@ -824,12 +887,14 @@ export function VocabApp({ api, config }) {
         activeLevelId={activeLevelId}
         activeGroupId={activeGroupId}
         expandedLevelId={expandedLevelId}
-        onLevelToggle={(id) => setExpandedLevelId((prev) => (prev === id ? "" : id))}
+        onLevelToggle={handleLevelToggle}
         onSelectGroup={(levelId, groupId) => {
           setActiveLevelId(levelId);
           setActiveGroupId(groupId);
           setExpandedLevelId(levelId);
         }}
+        collapsed={sidebarCollapsed}
+        onToggleCollapsed={() => setSidebarCollapsed((value) => !value)}
         text={text}
       />
 

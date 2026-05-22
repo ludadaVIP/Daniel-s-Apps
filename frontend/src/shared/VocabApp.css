@@ -1,0 +1,76 @@
+.vocab-shell {
+  transition: grid-template-columns 180ms ease;
+}
+
+.vocab-sidebar {
+  transition: padding 180ms ease, max-height 180ms ease;
+}
+
+.vocab-sidebar-toggle {
+  display: inline-grid;
+  place-items: center;
+  width: 36px;
+  height: 36px;
+  margin-left: auto;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
+  flex: 0 0 auto;
+  transition: background 150ms ease, border-color 150ms ease, transform 150ms ease;
+}
+
+.vocab-sidebar-toggle:hover {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.28);
+  transform: translateY(-1px);
+}
+
+.vocab-sidebar-toggle:focus-visible {
+  outline: 2px solid rgba(255, 255, 255, 0.7);
+  outline-offset: 2px;
+}
+
+.vocab-shell.is-sidebar-collapsed {
+  grid-template-columns: 76px minmax(0, 1fr) !important;
+}
+
+.vocab-shell.is-sidebar-collapsed .vocab-sidebar {
+  padding: 18px 10px;
+  overflow-x: hidden;
+}
+
+.vocab-shell.is-sidebar-collapsed .vocab-brand {
+  flex-direction: column;
+  justify-content: center;
+  gap: 8px;
+}
+
+.vocab-shell.is-sidebar-collapsed .vocab-sidebar-copy,
+.vocab-shell.is-sidebar-collapsed .vocab-level-copy,
+.vocab-shell.is-sidebar-collapsed .vocab-level-chevron {
+  display: none !important;
+}
+
+.vocab-shell.is-sidebar-collapsed .vocab-sidebar-toggle {
+  width: 42px;
+  margin: 4px auto 0;
+}
+
+.vocab-shell.is-sidebar-collapsed .vocab-level-button {
+  grid-template-columns: 1fr !important;
+  justify-items: center;
+  padding: 10px 8px;
+}
+
+@media (max-width: 980px) {
+  .vocab-shell.is-sidebar-collapsed {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto minmax(0, 1fr);
+  }
+
+  .vocab-shell.is-sidebar-collapsed .vocab-sidebar {
+    max-height: 78px;
+    overflow: hidden;
+  }
+}

@@ -28,6 +28,7 @@ const CuriosityApp = lazy(() => import("./apps/curiosity/App.jsx"));
 const RecordMeditationApp = lazy(() => import("./apps/record_meditation/App.jsx"));
 const EngVocabApp = lazy(() => import("./apps/eng_vocab/App.jsx"));
 const FrenchVocabApp = lazy(() => import("./apps/french_vocab/App.jsx"));
+const GermanVocabApp = lazy(() => import("./apps/german_vocab/App.jsx"));
 const BibleAndEngApp = lazy(() => import("./apps/bible_and_eng/App.jsx"));
 const BibleAndEspApp = lazy(() => import("./apps/bible_and_esp/App.jsx"));
 const BibleAndFrApp = lazy(() => import("./apps/bible_and_fr/App.jsx"));
@@ -126,6 +127,10 @@ export default function App() {
       <Route
         path="/french-vocab"
         element={withShell("French Vocab", "#1e3a8a", FrenchVocabApp)}
+      />
+      <Route
+        path="/german-vocab"
+        element={withShell("German Vocab", "#222222", GermanVocabApp)}
       />
       <Route
         path="/bible-and-eng"

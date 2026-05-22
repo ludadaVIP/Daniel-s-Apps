@@ -206,6 +206,15 @@ const APPS = [
     to: "/french-vocab",
   },
   {
+    id: "german-vocab",
+    title: "German Vocab",
+    subtitle: "德语单词 · CEFR A1 → C2 · 德西对照 · 按词性分组",
+    description: "德语单词背诵 App：复用 Esp / Eng / French Vocab 的 shared/VocabApp + shared/vocab + Edge TTS 框架，只换目标语言 de-DE、翻译语言 es-ES、配色和数据目录 backend/data/GermanVocab/。当前 A1-C2 各 1 组、每组 100 个 lemma，释义和例句先用 placeholder，后续按 vocab-master.csv 逐组扩充避免重复。",
+    accent: "#222222",
+    Icon: BookOpen,
+    to: "/german-vocab",
+  },
+  {
     id: "bible-and-eng",
     title: "Bible and Eng",
     subtitle: "用圣经学英语 · ESV + CUV 中英对照 · 逐节朗读 + 词汇/语法/表达",
