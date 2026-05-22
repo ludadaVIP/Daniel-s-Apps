@@ -57,7 +57,7 @@ DEFAULT_PASSWORD = "123456"
 SUMMARY_MAX = 160
 DATE_RX = re.compile(r"^(\d{4})-(\d{2})-(\d{2})$")
 ALLOWED_TAGS = {
-    "p", "br", "strong", "em", "u", "s", "blockquote", "code", "pre",
+    "p", "br", "div", "strong", "em", "u", "s", "blockquote", "code", "pre",
     "h1", "h2", "h3", "h4", "ul", "ol", "li", "a", "span", "hr",
 }
 ALLOWED_ATTRS = {"a": {"href", "title", "target", "rel"}}

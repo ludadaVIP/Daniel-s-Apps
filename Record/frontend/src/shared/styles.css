@@ -196,7 +196,10 @@ select {
 }
 
 .dh-shell {
-  min-height: 100vh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
   background: var(--bg-base);
 }
 
@@ -245,7 +248,10 @@ select {
 }
 
 .dh-shell-content {
-  min-height: calc(100vh - 48px);
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
 }
 
 .hub-loading {

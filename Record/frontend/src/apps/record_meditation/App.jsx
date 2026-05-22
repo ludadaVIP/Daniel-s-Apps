@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
   Bold,
   Calendar,
+  ChevronLeft,
   ChevronRight,
   Download,
   FileDown,
@@ -153,7 +154,24 @@ function Sidebar({
   onTagFilter,
   allTags,
   onChangePassword,
+  collapsed,
+  onToggleCollapse,
 }) {
+  if (collapsed) {
+    return (
+      <aside className="rec-sidebar is-collapsed">
+        <button
+          type="button"
+          className="rec-sidebar-toggle"
+          onClick={onToggleCollapse}
+          title="展开侧栏"
+          aria-label="展开侧栏"
+        >
+          <ChevronRight size={16} />
+        </button>
+      </aside>
+    );
+  }
   // Group months into years (in order they came from the API: newest first)
   const years = useMemo(() => {
     const map = new Map();
@@ -168,10 +186,19 @@ function Sidebar({
     <aside className="rec-sidebar">
       <div className="rec-brand">
         <div className="rec-brand-mark"><PenSquare size={18} /></div>
-        <div>
+        <div className="rec-brand-text">
           <p>Record &amp; Meditation</p>
           <span>记录 · 反思 · 复盘</span>
         </div>
+        <button
+          type="button"
+          className="rec-sidebar-toggle"
+          onClick={onToggleCollapse}
+          title="折叠侧栏"
+          aria-label="折叠侧栏"
+        >
+          <ChevronLeft size={14} />
+        </button>
       </div>
 
       <button type="button" className="rec-new-button" onClick={onNew}>
@@ -596,6 +623,7 @@ function RecordMeditationAppInner() {
   const [searching, setSearching] = useState(false);
   const [filterDay, setFilterDay] = useState(null);
   const [changePwOpen, setChangePwOpen] = useState(false);
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
 
   const refreshCalendar = useCallback(async () => {
     setLoadingCalendar(true);
@@ -746,7 +774,7 @@ function RecordMeditationAppInner() {
       : "选择一个月份开始";
 
   return (
-    <div className="rec-shell">
+    <div className={classes("rec-shell", sidebarCollapsed && "is-sidebar-collapsed")}>
       <Sidebar
         calendar={calendar}
         loading={loadingCalendar}
@@ -762,6 +790,8 @@ function RecordMeditationAppInner() {
         onTagFilter={setTagFilter}
         allTags={allTags}
         onChangePassword={() => setChangePwOpen(true)}
+        collapsed={sidebarCollapsed}
+        onToggleCollapse={() => setSidebarCollapsed((value) => !value)}
       />
 
       <main className="rec-content">
