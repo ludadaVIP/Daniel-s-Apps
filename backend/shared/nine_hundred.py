@@ -39,8 +39,8 @@ def ensure_900_sentence_ids(course: dict[str, Any]) -> dict[str, Any]:
       sentences = group.get("sentences") or []
       for index, sentence in enumerate(sentences, start=1):
           sentence.setdefault("id", f"{group_id}-{index:03d}")
-          sentence.setdefault("groupNumber", index)
-          sentence.setdefault("number", (group_index - 1) * group_size + index)
+          sentence["groupNumber"] = index
+          sentence["number"] = (group_index - 1) * group_size + index
       group["count"] = len(sentences)
     course["totalSentences"] = sum(group.get("count", 0) for group in course.get("groups", []))
     return course
@@ -160,8 +160,8 @@ def _ensure_group_sentence_ids(group: dict[str, Any], *, group_index: int, group
     sentences = group.get("sentences") or []
     for index, sentence in enumerate(sentences, start=1):
         sentence.setdefault("id", f"{group_id}-{index:03d}")
-        sentence.setdefault("groupNumber", index)
-        sentence.setdefault("number", (group_index - 1) * group_size + index)
+        sentence["groupNumber"] = index
+        sentence["number"] = (group_index - 1) * group_size + index
     group["count"] = len(sentences)
 
 

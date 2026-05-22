@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
+  ChevronLeft,
   ChevronRight,
   Headphones,
   Loader2,
@@ -58,18 +59,72 @@ function AudioButton({ active, config, disabled, loading, mode, onClick, title }
   );
 }
 
-function Sidebar({ activeGroupId, config, groups, loading, onSelect, totalSentences }) {
+const COLLAPSE_BUTTON_STYLE = {
+  display: "grid",
+  placeItems: "center",
+  width: "30px",
+  height: "30px",
+  border: "1px solid rgba(255, 255, 255, 0.18)",
+  borderRadius: "8px",
+  background: "rgba(255, 255, 255, 0.08)",
+  color: "inherit",
+  cursor: "pointer",
+  flexShrink: 0,
+};
+
+function Sidebar({ activeGroupId, collapsed, config, groups, loading, onSelect, onToggle, totalSentences }) {
   const p = config.prefix;
   const text = config.text;
+
+  if (collapsed) {
+    return (
+      <aside
+        className={`${p}-sidebar`}
+        style={{
+          padding: "14px 6px",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          gap: "12px",
+          overflow: "hidden",
+        }}
+      >
+        <button
+          type="button"
+          onClick={onToggle}
+          title="Expand sidebar"
+          aria-label="Expand sidebar"
+          style={COLLAPSE_BUTTON_STYLE}
+        >
+          <ChevronRight size={16} />
+        </button>
+        <div
+          className={`${p}-brand-mark`}
+          style={{ width: "32px", height: "32px", fontSize: "12px" }}
+        >
+          900
+        </div>
+      </aside>
+    );
+  }
 
   return (
     <aside className={`${p}-sidebar`}>
       <div className={`${p}-brand`}>
         <div className={`${p}-brand-mark`}>900</div>
-        <div>
+        <div style={{ flex: 1, minWidth: 0 }}>
           <p>{config.appName}</p>
           <span>{config.brandSubtitle}</span>
         </div>
+        <button
+          type="button"
+          onClick={onToggle}
+          title="Collapse sidebar"
+          aria-label="Collapse sidebar"
+          style={COLLAPSE_BUTTON_STYLE}
+        >
+          <ChevronLeft size={16} />
+        </button>
       </div>
 
       <div className={`${p}-sidebar-panel`}>
@@ -189,6 +244,25 @@ export function NineHundredApp({ api, config }) {
       return "group-1";
     }
   });
+  const sidebarStorageKey = `${config.prefix}:sidebar-collapsed`;
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(() => {
+    try {
+      return localStorage.getItem(sidebarStorageKey) === "1";
+    } catch {
+      return false;
+    }
+  });
+  const toggleSidebar = useCallback(() => {
+    setSidebarCollapsed((prev) => {
+      const next = !prev;
+      try {
+        localStorage.setItem(sidebarStorageKey, next ? "1" : "0");
+      } catch {
+        /* ignore */
+      }
+      return next;
+    });
+  }, [sidebarStorageKey]);
   const [group, setGroup] = useState(null);
   const [query, setQuery] = useState("");
   const [error, setError] = useState("");
@@ -408,13 +482,18 @@ export function NineHundredApp({ api, config }) {
   const busy = queueState.running;
 
   return (
-    <div className={`${p}-shell`}>
+    <div
+      className={`${p}-shell${sidebarCollapsed ? " is-sidebar-collapsed" : ""}`}
+      style={sidebarCollapsed ? { gridTemplateColumns: "44px minmax(0, 1fr)" } : undefined}
+    >
       <Sidebar
         activeGroupId={activeGroupId}
+        collapsed={sidebarCollapsed}
         config={config}
         groups={course?.groups || []}
         loading={loadingCourse}
         onSelect={setActiveGroupId}
+        onToggle={toggleSidebar}
         totalSentences={course?.totalSentences}
       />
 
