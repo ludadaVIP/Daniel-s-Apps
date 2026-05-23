@@ -32,6 +32,9 @@
   .fl-main {
     min-width: 0;
     min-height: 0;
+  }
+
+  .fl-main {
     overflow-y: auto;
   }
 
@@ -40,6 +43,23 @@
     color: #fff8ec;
     border-right: 1px solid #3a2d1f;
     padding: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+
+  .fl-sidebar-top {
+    flex-shrink: 0;
+  }
+
+  .fl-add-level {
+    flex-shrink: 0;
+  }
+
+  .fl-level-list {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
   }
 
   .fl-sidebar-top,
