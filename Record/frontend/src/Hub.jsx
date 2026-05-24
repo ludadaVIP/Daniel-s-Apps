@@ -1,4 +1,4 @@
-import { FileText, NotebookPen } from "lucide-react";
+import { BookOpen, FileText, NotebookPen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
@@ -21,6 +21,16 @@ const APPS = [
     Icon: FileText,
     to: "/save-md",
     kind: "MD",
+  },
+  {
+    id: "book-a-day",
+    title: "A Book a Day",
+    subtitle: "读书记录 · 书架管理 · AI 整理模板 · 整本朗读",
+    description: "每本书一个文件夹（PDF/音频/思维导图随手放），7 个 Tab 拼出 5 分钟搞懂一本书，一键复制 AI 整理 prompt，整本听完。",
+    accent: "#b25b00",
+    Icon: BookOpen,
+    to: "/book-a-day",
+    kind: "Books",
   },
 ];
 
