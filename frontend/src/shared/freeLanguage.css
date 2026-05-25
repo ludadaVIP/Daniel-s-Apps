@@ -155,7 +155,8 @@
   }
 
   .fl-level-list {
-    display: grid;
+    display: flex;
+    flex-direction: column;
     gap: 8px;
   }
 
@@ -164,6 +165,7 @@
     border-radius: 8px;
     background: #211910;
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   .fl-level-toggle {
