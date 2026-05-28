@@ -1,0 +1,774 @@
+import { useCallback, useEffect, useMemo, useState } from "react";
+import {
+  CalendarDays,
+  CheckCircle2,
+  ChevronDown,
+  ChevronLeft,
+  ChevronRight,
+  Circle,
+  ClipboardList,
+  Clock3,
+  Copy,
+  Edit3,
+  Flame,
+  FolderPlus,
+  LayoutList,
+  Loader2,
+  MoreHorizontal,
+  Plus,
+  Search,
+  Sparkles,
+  Star,
+  Trash2,
+  X,
+} from "lucide-react";
+
+import "./styles.css";
+import {
+  createDate,
+  createTodo,
+  deleteDate,
+  deleteTodo,
+  duplicateTodo,
+  fetchDate,
+  fetchPlanner,
+  updateDate,
+  updateTodo,
+} from "./services/api";
+
+const STATUS_OPTIONS = [
+  { value: "todo", label: "未开始" },
+  { value: "doing", label: "进行中" },
+  { value: "done", label: "已完成" },
+  { value: "skipped", label: "跳过" },
+];
+
+const PRIORITY_OPTIONS = [
+  { value: "urgent", label: "紧急" },
+  { value: "high", label: "高" },
+  { value: "normal", label: "普通" },
+  { value: "low", label: "低" },
+];
+
+const ENERGY_OPTIONS = [
+  { value: "high", label: "高能量" },
+  { value: "medium", label: "中等" },
+  { value: "low", label: "低能量" },
+];
+
+const MONTH_NAMES = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+
+function classes(...parts) {
+  return parts.filter(Boolean).join(" ");
+}
+
+function localDateIso(date = new Date()) {
+  const copy = new Date(date.getTime() - date.getTimezoneOffset() * 60_000);
+  return copy.toISOString().slice(0, 10);
+}
+
+function dateLabel(date) {
+  try {
+    return new Intl.DateTimeFormat("zh-CN", {
+      weekday: "short",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(new Date(`${date}T12:00:00`));
+  } catch {
+    return date;
+  }
+}
+
+function shiftDate(date, amount) {
+  const next = new Date(`${date}T12:00:00`);
+  next.setDate(next.getDate() + amount);
+  return localDateIso(next);
+}
+
+function progress(done, total) {
+  if (!total) return 0;
+  return Math.round((done / total) * 100);
+}
+
+function makeDate(year, month, day) {
+  return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function DateModal({ initialDate, onClose, onSave }) {
+  const [date, setDate] = useState(initialDate?.date || localDateIso());
+  const [title, setTitle] = useState(initialDate?.title || "");
+  const [notes, setNotes] = useState(initialDate?.notes || "");
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+
+  const submit = async (event) => {
+    event.preventDefault();
+    setSaving(true);
+    setError("");
+    try {
+      await onSave({ date, title: title.trim() || date, notes });
+      onClose();
+    } catch (err) {
+      setError(err.message || "保存失败");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="todo-modal-backdrop" onMouseDown={onClose}>
+      <form className="todo-date-modal" onSubmit={submit} onMouseDown={(event) => event.stopPropagation()}>
+        <header>
+          <h2>{initialDate ? "编辑日期" : "新增日期"}</h2>
+          <button type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button>
+        </header>
+        <label>
+          <span>日期</span>
+          <input type="date" value={date} onChange={(event) => setDate(event.target.value)} />
+        </label>
+        <label>
+          <span>标题</span>
+          <input value={title} onChange={(event) => setTitle(event.target.value)} placeholder="例如：周一深度工作日" />
+        </label>
+        <label>
+          <span>日计划备注</span>
+          <textarea value={notes} onChange={(event) => setNotes(event.target.value)} placeholder="今天最重要的原则、限制或提醒" />
+        </label>
+        {error && <div className="todo-form-error">{error}</div>}
+        <footer>
+          <button type="button" className="todo-secondary" onClick={onClose}>取消</button>
+          <button type="submit" className="todo-primary" disabled={saving}>
+            {saving ? <Loader2 className="todo-spin" size={15} /> : <CalendarDays size={15} />}
+            <span>{saving ? "保存中" : "保存日期"}</span>
+          </button>
+        </footer>
+      </form>
+    </div>
+  );
+}
+
+function TodoModal({ initial, date, sections, onClose, onSave }) {
+  const [form, setForm] = useState(() => ({
+    title: initial?.title || "",
+    status: initial?.status || "todo",
+    priority: initial?.priority || "normal",
+    section: initial?.section || sections[0] || "日常事务",
+    startTime: initial?.startTime || "",
+    dueTime: initial?.dueTime || "",
+    estimateMinutes: initial?.estimateMinutes || 25,
+    energy: initial?.energy || "medium",
+    tags: (initial?.tags || []).join(", "),
+    pinned: Boolean(initial?.pinned),
+    notes: initial?.notes || "",
+  }));
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+
+  const setField = (key, value) => setForm((current) => ({ ...current, [key]: value }));
+
+  const submit = async (event) => {
+    event.preventDefault();
+    setSaving(true);
+    setError("");
+    try {
+      await onSave({
+        ...form,
+        date: initial?.date || date,
+        estimateMinutes: Number(form.estimateMinutes) || 0,
+        tags: form.tags.split(",").map((tag) => tag.trim()).filter(Boolean),
+      });
+      onClose();
+    } catch (err) {
+      setError(err.message || "保存失败");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="todo-modal-backdrop" onMouseDown={onClose}>
+      <form className="todo-editor-modal" onSubmit={submit} onMouseDown={(event) => event.stopPropagation()}>
+        <header>
+          <h2>{initial ? "编辑 Todo" : "新建 Todo"}</h2>
+          <button type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button>
+        </header>
+        <label className="todo-wide">
+          <span>事项</span>
+          <input value={form.title} onChange={(event) => setField("title", event.target.value)} placeholder="写下一个可执行动作" autoFocus />
+        </label>
+        <div className="todo-form-grid">
+          <label>
+            <span>状态</span>
+            <select value={form.status} onChange={(event) => setField("status", event.target.value)}>
+              {STATUS_OPTIONS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>优先级</span>
+            <select value={form.priority} onChange={(event) => setField("priority", event.target.value)}>
+              {PRIORITY_OPTIONS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>分类</span>
+            <input list="todo-sections" value={form.section} onChange={(event) => setField("section", event.target.value)} />
+            <datalist id="todo-sections">
+              {sections.map((section) => <option key={section} value={section} />)}
+            </datalist>
+          </label>
+          <label>
+            <span>能量</span>
+            <select value={form.energy} onChange={(event) => setField("energy", event.target.value)}>
+              {ENERGY_OPTIONS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>开始</span>
+            <input type="time" value={form.startTime} onChange={(event) => setField("startTime", event.target.value)} />
+          </label>
+          <label>
+            <span>截止</span>
+            <input type="time" value={form.dueTime} onChange={(event) => setField("dueTime", event.target.value)} />
+          </label>
+          <label>
+            <span>预计分钟</span>
+            <input type="number" min="0" max="1440" value={form.estimateMinutes} onChange={(event) => setField("estimateMinutes", event.target.value)} />
+          </label>
+          <label className="todo-checkbox">
+            <input type="checkbox" checked={form.pinned} onChange={(event) => setField("pinned", event.target.checked)} />
+            <span>固定在顶部</span>
+          </label>
+        </div>
+        <label className="todo-wide">
+          <span>标签（逗号分隔）</span>
+          <input value={form.tags} onChange={(event) => setField("tags", event.target.value)} placeholder="工作, 家庭, 健康" />
+        </label>
+        <label className="todo-wide">
+          <span>备注</span>
+          <textarea value={form.notes} onChange={(event) => setField("notes", event.target.value)} placeholder="背景、检查标准、下一步" />
+        </label>
+        {error && <div className="todo-form-error">{error}</div>}
+        <footer>
+          <button type="button" className="todo-secondary" onClick={onClose}>取消</button>
+          <button type="submit" className="todo-primary" disabled={saving}>
+            {saving ? <Loader2 className="todo-spin" size={15} /> : <CheckCircle2 size={15} />}
+            <span>{saving ? "保存中" : "保存 Todo"}</span>
+          </button>
+        </footer>
+      </form>
+    </div>
+  );
+}
+
+function Sidebar({
+  planner,
+  activeDate,
+  collapsed,
+  openYears,
+  openMonths,
+  onToggleCollapsed,
+  onToggleYear,
+  onToggleMonth,
+  onSelectDate,
+  onNewDate,
+  onEditDay,
+  onDeleteDay,
+  onAddYear,
+  onMoveYear,
+  onDeleteYear,
+  onAddMonth,
+  onMoveMonth,
+  onDeleteMonth,
+}) {
+  if (collapsed) {
+    return (
+      <aside className="todo-sidebar is-collapsed">
+        <button type="button" className="todo-collapse-button" onClick={onToggleCollapsed} title="展开左栏">
+          <ChevronRight size={16} />
+        </button>
+      </aside>
+    );
+  }
+
+  return (
+    <aside className="todo-sidebar">
+      <div className="todo-brand">
+        <div className="todo-brand-mark"><ClipboardList size={20} /></div>
+        <div>
+          <p>Daily Todo</p>
+          <span>{planner.stats?.dates || 0} 天 · {planner.stats?.open || 0} 个未完成</span>
+        </div>
+        <button type="button" className="todo-collapse-button" onClick={onToggleCollapsed} title="折叠左栏">
+          <ChevronLeft size={16} />
+        </button>
+      </div>
+
+      <div className="todo-sidebar-actions">
+        <button type="button" onClick={onNewDate}><Plus size={15} /> 日期</button>
+        <button type="button" onClick={onAddYear}><FolderPlus size={15} /> 年</button>
+      </div>
+
+      <nav className="todo-tree" aria-label="每日计划日期">
+        {(planner.tree || []).map((year) => {
+          const yearOpen = openYears.has(year.year);
+          return (
+            <section key={year.year} className="todo-tree-year">
+              <div className="todo-tree-row todo-year-row">
+                <button type="button" onClick={() => onToggleYear(year.year)} className="todo-tree-main">
+                  {yearOpen ? <ChevronDown size={15} /> : <ChevronRight size={15} />}
+                  <span>{year.year}</span>
+                  <small>{year.done}/{year.total}</small>
+                </button>
+                <button type="button" onClick={() => onAddMonth(year.year)} title="新增月份"><Plus size={13} /></button>
+                <button type="button" onClick={() => onMoveYear(year)} title="修改年份"><Edit3 size={13} /></button>
+                <button type="button" onClick={() => onDeleteYear(year)} title="删除年份"><Trash2 size={13} /></button>
+              </div>
+              {yearOpen && year.months.map((month) => {
+                const monthKey = `${year.year}-${month.month}`;
+                const monthOpen = openMonths.has(monthKey);
+                return (
+                  <div key={monthKey} className="todo-tree-month">
+                    <div className="todo-tree-row todo-month-row">
+                      <button type="button" onClick={() => onToggleMonth(monthKey)} className="todo-tree-main">
+                        {monthOpen ? <ChevronDown size={14} /> : <ChevronRight size={14} />}
+                        <span>{String(month.month).padStart(2, "0")} · {MONTH_NAMES[month.month - 1]}</span>
+                        <small>{month.done}/{month.total}</small>
+                      </button>
+                      <button type="button" onClick={() => onNewDate(makeDate(year.year, month.month, 1))} title="新增日期"><Plus size={12} /></button>
+                      <button type="button" onClick={() => onMoveMonth(month)} title="修改月份"><Edit3 size={12} /></button>
+                      <button type="button" onClick={() => onDeleteMonth(month)} title="删除月份"><Trash2 size={12} /></button>
+                    </div>
+                    {monthOpen && (
+                      <div className="todo-day-list">
+                        {month.days.map((day) => (
+                          <div key={day.date} className={classes("todo-day-row", activeDate === day.date && "is-active")}>
+                            <button type="button" onClick={() => onSelectDate(day.date)} className="todo-day-main" title={day.title}>
+                              <span>{String(day.day).padStart(2, "0")}</span>
+                              <strong>{day.title}</strong>
+                              <small>{progress(day.done, day.total)}%</small>
+                            </button>
+                            <button type="button" onClick={() => onEditDay(day)} title="编辑日期"><Edit3 size={12} /></button>
+                            <button type="button" onClick={() => onDeleteDay(day.date)} title="删除日期"><Trash2 size={12} /></button>
+                          </div>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </section>
+          );
+        })}
+      </nav>
+    </aside>
+  );
+}
+
+function TodoCard({ todo, onEdit, onDelete, onDuplicate, onStatus, onPin }) {
+  const statusLabel = STATUS_OPTIONS.find((item) => item.value === todo.status)?.label || todo.status;
+  const priorityLabel = PRIORITY_OPTIONS.find((item) => item.value === todo.priority)?.label || todo.priority;
+  return (
+    <article className={classes("todo-card", `priority-${todo.priority}`, todo.status === "done" && "is-done", todo.pinned && "is-pinned")}>
+      <button type="button" className="todo-status-button" onClick={() => onStatus(todo.status === "done" ? "todo" : "done")} title="切换完成">
+        {todo.status === "done" ? <CheckCircle2 size={20} /> : <Circle size={20} />}
+      </button>
+      <div className="todo-card-body">
+        <div className="todo-card-title-line">
+          {todo.pinned && <Star size={14} />}
+          <h3>{todo.title}</h3>
+        </div>
+        <div className="todo-card-meta">
+          <span className={`todo-pill status-${todo.status}`}>{statusLabel}</span>
+          <span className={`todo-pill priority-${todo.priority}`}>{priorityLabel}</span>
+          <span>{todo.section}</span>
+          {(todo.startTime || todo.dueTime) && <span>{todo.startTime || "--:--"} - {todo.dueTime || "--:--"}</span>}
+          {todo.estimateMinutes > 0 && <span>{todo.estimateMinutes} 分钟</span>}
+          {todo.energy && <span>{ENERGY_OPTIONS.find((item) => item.value === todo.energy)?.label || todo.energy}</span>}
+        </div>
+        {(todo.tags || []).length > 0 && (
+          <div className="todo-card-tags">
+            {todo.tags.map((tag) => <span key={tag}>#{tag}</span>)}
+          </div>
+        )}
+        {todo.notes && <p className="todo-card-notes">{todo.notes}</p>}
+      </div>
+      <div className="todo-card-actions">
+        <button type="button" onClick={() => onPin(!todo.pinned)} title="固定"><Star size={14} /></button>
+        <button type="button" onClick={onDuplicate} title="复制到今天"><Copy size={14} /></button>
+        <button type="button" onClick={onEdit} title="编辑"><Edit3 size={14} /></button>
+        <button type="button" onClick={onDelete} title="删除" className="is-danger"><Trash2 size={14} /></button>
+      </div>
+    </article>
+  );
+}
+
+export default function DailyTodoApp() {
+  const [planner, setPlanner] = useState({ tree: [], sections: [], tags: [], stats: {} });
+  const [activeDate, setActiveDate] = useState(localDateIso());
+  const [dayData, setDayData] = useState(null);
+  const [loadingPlanner, setLoadingPlanner] = useState(true);
+  const [loadingDay, setLoadingDay] = useState(false);
+  const [error, setError] = useState("");
+  const [status, setStatus] = useState("");
+  const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [openYears, setOpenYears] = useState(() => new Set([Number(localDateIso().slice(0, 4))]));
+  const [openMonths, setOpenMonths] = useState(() => new Set([`${Number(localDateIso().slice(0, 4))}-${Number(localDateIso().slice(5, 7))}`]));
+  const [dateModal, setDateModal] = useState(null);
+  const [todoModal, setTodoModal] = useState(null);
+  const [quickTitle, setQuickTitle] = useState("");
+  const [query, setQuery] = useState("");
+  const [statusFilter, setStatusFilter] = useState("all");
+  const [sectionFilter, setSectionFilter] = useState("all");
+
+  const loadPlanner = useCallback(async () => {
+    setLoadingPlanner(true);
+    setError("");
+    try {
+      const data = await fetchPlanner();
+      setPlanner(data);
+      const hasActive = data.tree?.some((year) => year.months.some((month) => month.days.some((day) => day.date === activeDate)));
+      if (!hasActive) {
+        const firstDate = data.tree?.[0]?.months?.[0]?.days?.[0]?.date;
+        if (firstDate) setActiveDate(firstDate);
+      }
+      return data;
+    } catch (err) {
+      setError(err.message || "加载失败");
+      return null;
+    } finally {
+      setLoadingPlanner(false);
+    }
+  }, [activeDate]);
+
+  const loadDay = useCallback(async (date) => {
+    if (!date) return;
+    setLoadingDay(true);
+    setError("");
+    try {
+      const data = await fetchDate(date);
+      setDayData(data);
+    } catch (err) {
+      if (err.message?.includes("not found")) {
+        setDayData(null);
+      } else {
+        setError(err.message || "加载日期失败");
+      }
+    } finally {
+      setLoadingDay(false);
+    }
+  }, []);
+
+  useEffect(() => {
+    loadPlanner();
+  }, [loadPlanner]);
+
+  useEffect(() => {
+    loadDay(activeDate);
+    const year = Number(activeDate.slice(0, 4));
+    const month = Number(activeDate.slice(5, 7));
+    setOpenYears((current) => new Set([...current, year]));
+    setOpenMonths((current) => new Set([...current, `${year}-${month}`]));
+  }, [activeDate, loadDay]);
+
+  useEffect(() => {
+    if (!status) return undefined;
+    const timer = window.setTimeout(() => setStatus(""), 2200);
+    return () => window.clearTimeout(timer);
+  }, [status]);
+
+  const sections = useMemo(() => {
+    const fromTodos = new Set((dayData?.todos || []).map((todo) => todo.section).filter(Boolean));
+    return [...new Set([...(planner.sections || []), ...fromTodos])];
+  }, [dayData, planner]);
+
+  const visibleTodos = useMemo(() => {
+    const text = query.trim().toLowerCase();
+    return (dayData?.todos || [])
+      .filter((todo) => {
+        if (statusFilter !== "all" && todo.status !== statusFilter) return false;
+        if (sectionFilter !== "all" && todo.section !== sectionFilter) return false;
+        if (!text) return true;
+        return `${todo.title} ${todo.notes} ${(todo.tags || []).join(" ")}`.toLowerCase().includes(text);
+      })
+      .sort((a, b) => Number(b.pinned) - Number(a.pinned));
+  }, [dayData, query, sectionFilter, statusFilter]);
+
+  const dayStats = useMemo(() => {
+    const todos = dayData?.todos || [];
+    const done = todos.filter((todo) => todo.status === "done").length;
+    const doing = todos.filter((todo) => todo.status === "doing").length;
+    const minutes = todos.reduce((sum, todo) => sum + (Number(todo.estimateMinutes) || 0), 0);
+    return { total: todos.length, done, doing, open: todos.length - done, minutes, pct: progress(done, todos.length) };
+  }, [dayData]);
+
+  const saveDateModal = async (payload) => {
+    if (dateModal?.mode === "edit") {
+      const oldDate = dateModal.initial.date;
+      const updated = await updateDate(oldDate, payload);
+      setActiveDate(updated.date);
+      await loadPlanner();
+      await loadDay(updated.date);
+      setStatus("日期已更新");
+      return;
+    }
+    const created = await createDate(payload);
+    setActiveDate(created.date);
+    await loadPlanner();
+    await loadDay(created.date);
+    setStatus("日期已创建");
+  };
+
+  const saveTodoModal = async (payload) => {
+    if (todoModal?.initial) {
+      await updateTodo(todoModal.initial.id, payload);
+      setStatus("Todo 已更新");
+    } else {
+      await createTodo(payload);
+      setStatus("Todo 已创建");
+    }
+    await loadPlanner();
+    await loadDay(payload.date || activeDate);
+  };
+
+  const quickAdd = async (event) => {
+    event.preventDefault();
+    const title = quickTitle.trim();
+    if (!title) return;
+    await createTodo({
+      date: activeDate,
+      title,
+      section: sections[0] || "日常事务",
+      priority: "normal",
+      status: "todo",
+      estimateMinutes: 25,
+    });
+    setQuickTitle("");
+    await loadPlanner();
+    await loadDay(activeDate);
+  };
+
+  const handleDeleteDay = async (date) => {
+    if (!window.confirm(`删除 ${date} 以及这一天所有 todos？`)) return;
+    await deleteDate(date);
+    const data = await loadPlanner();
+    const nextDate = data?.tree?.[0]?.months?.[0]?.days?.[0]?.date || localDateIso();
+    setActiveDate(nextDate);
+    setStatus("日期已删除");
+  };
+
+  const batchMoveDates = async (days, makeTarget, label) => {
+    if (!days.length) return;
+    if (!window.confirm(`${label} 会移动 ${days.length} 个日期以及其中所有 todos，继续吗？`)) return;
+    for (const day of days) {
+      const target = makeTarget(day.date);
+      await updateDate(day.date, { date: target, title: day.title, notes: day.notes || "" });
+    }
+    await loadPlanner();
+    setActiveDate(makeTarget(days[0].date));
+    setStatus("日期结构已更新");
+  };
+
+  const handleAddYear = async () => {
+    const year = window.prompt("新增年份:", String(new Date().getFullYear()));
+    if (!year || !/^\d{4}$/.test(year)) return;
+    const date = `${year}-01-01`;
+    const created = await createDate({ date, title: `${year} 年计划起点` });
+    setActiveDate(created.date);
+    await loadPlanner();
+  };
+
+  const handleMoveYear = async (year) => {
+    const next = window.prompt("修改年份为:", String(year.year));
+    if (!next || !/^\d{4}$/.test(next) || Number(next) === year.year) return;
+    const days = year.months.flatMap((month) => month.days);
+    await batchMoveDates(days, (date) => `${next}${date.slice(4)}`, `把 ${year.year} 年改为 ${next} 年`);
+  };
+
+  const handleDeleteYear = async (year) => {
+    const days = year.months.flatMap((month) => month.days);
+    if (!window.confirm(`删除 ${year.year} 年下的 ${days.length} 天及 todos？`)) return;
+    for (const day of days) await deleteDate(day.date);
+    const data = await loadPlanner();
+    setActiveDate(data?.tree?.[0]?.months?.[0]?.days?.[0]?.date || localDateIso());
+  };
+
+  const handleAddMonth = async (year) => {
+    const month = window.prompt("新增月份 1-12:", String(new Date().getMonth() + 1));
+    const number = Number(month);
+    if (!Number.isInteger(number) || number < 1 || number > 12) return;
+    const date = makeDate(year, number, 1);
+    const created = await createDate({ date, title: `${year}-${String(number).padStart(2, "0")} 月计划` });
+    setActiveDate(created.date);
+    await loadPlanner();
+  };
+
+  const handleMoveMonth = async (month) => {
+    const next = window.prompt("修改月份为 1-12:", String(month.month));
+    const number = Number(next);
+    if (!Number.isInteger(number) || number < 1 || number > 12 || number === month.month) return;
+    await batchMoveDates(month.days, (date) => `${date.slice(0, 5)}${String(number).padStart(2, "0")}${date.slice(7)}`, `把 ${month.month} 月改为 ${number} 月`);
+  };
+
+  const handleDeleteMonth = async (month) => {
+    if (!window.confirm(`删除 ${month.year}-${String(month.month).padStart(2, "0")} 下的 ${month.days.length} 天及 todos？`)) return;
+    for (const day of month.days) await deleteDate(day.date);
+    const data = await loadPlanner();
+    setActiveDate(data?.tree?.[0]?.months?.[0]?.days?.[0]?.date || localDateIso());
+  };
+
+  const mutateTodo = async (todo, payload) => {
+    await updateTodo(todo.id, payload);
+    await loadPlanner();
+    await loadDay(activeDate);
+  };
+
+  return (
+    <div className={classes("todo-shell", sidebarCollapsed && "is-sidebar-collapsed")}>
+      <Sidebar
+        planner={planner}
+        activeDate={activeDate}
+        collapsed={sidebarCollapsed}
+        openYears={openYears}
+        openMonths={openMonths}
+        onToggleCollapsed={() => setSidebarCollapsed((value) => !value)}
+        onToggleYear={(year) => setOpenYears((current) => {
+          const next = new Set(current);
+          if (next.has(year)) next.delete(year);
+          else next.add(year);
+          return next;
+        })}
+        onToggleMonth={(month) => setOpenMonths((current) => {
+          const next = new Set(current);
+          if (next.has(month)) next.delete(month);
+          else next.add(month);
+          return next;
+        })}
+        onSelectDate={setActiveDate}
+        onNewDate={(date) => setDateModal({ mode: "new", initial: { date: date || activeDate } })}
+        onEditDay={(day) => setDateModal({ mode: "edit", initial: day })}
+        onDeleteDay={handleDeleteDay}
+        onAddYear={handleAddYear}
+        onMoveYear={handleMoveYear}
+        onDeleteYear={handleDeleteYear}
+        onAddMonth={handleAddMonth}
+        onMoveMonth={handleMoveMonth}
+        onDeleteMonth={handleDeleteMonth}
+      />
+
+      <main className="todo-main">
+        <header className="todo-topbar">
+          <div className="todo-date-switcher">
+            <button type="button" onClick={() => setActiveDate(shiftDate(activeDate, -1))} title="前一天"><ChevronLeft size={16} /></button>
+            <div>
+              <p>{dayData?.date?.title || activeDate}</p>
+              <span>{activeDate} · {dateLabel(activeDate)}</span>
+            </div>
+            <button type="button" onClick={() => setActiveDate(shiftDate(activeDate, 1))} title="后一天"><ChevronRight size={16} /></button>
+          </div>
+          <div className="todo-top-actions">
+            <button type="button" onClick={() => setDateModal({ mode: dayData ? "edit" : "new", initial: dayData?.date || { date: activeDate } })}>
+              <Edit3 size={15} /> 日期
+            </button>
+            <button type="button" className="todo-primary-action" onClick={() => setTodoModal({ initial: null })}>
+              <Plus size={15} /> Todo
+            </button>
+          </div>
+        </header>
+
+        {(error || status) && (
+          <div className={classes("todo-message", error && "is-error")}>
+            {error || status}
+            <button type="button" onClick={() => { setError(""); setStatus(""); }}>×</button>
+          </div>
+        )}
+
+        <section className="todo-overview">
+          <div className="todo-focus-panel">
+            <div className="todo-kicker"><Sparkles size={14} /> 今日计划</div>
+            <h1>{dayStats.open > 0 ? `还有 ${dayStats.open} 件事要推进` : "今天的清单干净了"}</h1>
+            <p>{dayData?.date?.notes || "把今天变成一个可执行的清单：先定最重要的动作，再安排时间和能量。"}</p>
+            <form className="todo-quick-add" onSubmit={quickAdd}>
+              <input value={quickTitle} onChange={(event) => setQuickTitle(event.target.value)} placeholder="快速添加一个待办" />
+              <button type="submit"><Plus size={15} /></button>
+            </form>
+          </div>
+          <div className="todo-stats-grid">
+            <div><CheckCircle2 size={18} /><strong>{dayStats.pct}%</strong><span>完成度</span></div>
+            <div><LayoutList size={18} /><strong>{dayStats.total}</strong><span>总事项</span></div>
+            <div><Flame size={18} /><strong>{dayStats.doing}</strong><span>进行中</span></div>
+            <div><Clock3 size={18} /><strong>{dayStats.minutes}</strong><span>预计分钟</span></div>
+          </div>
+        </section>
+
+        <section className="todo-controls">
+          <label className="todo-search">
+            <Search size={14} />
+            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索标题、标签、备注" />
+          </label>
+          <div className="todo-segment">
+            {["all", ...STATUS_OPTIONS.map((item) => item.value)].map((value) => (
+              <button type="button" key={value} className={statusFilter === value ? "is-active" : ""} onClick={() => setStatusFilter(value)}>
+                {value === "all" ? "全部" : STATUS_OPTIONS.find((item) => item.value === value)?.label}
+              </button>
+            ))}
+          </div>
+          <select value={sectionFilter} onChange={(event) => setSectionFilter(event.target.value)}>
+            <option value="all">全部分类</option>
+            {sections.map((section) => <option key={section} value={section}>{section}</option>)}
+          </select>
+        </section>
+
+        {(loadingPlanner || loadingDay) && (
+          <div className="todo-loading"><Loader2 className="todo-spin" size={18} /> 加载中...</div>
+        )}
+
+        <section className="todo-list" aria-label="每日 Todos">
+          {!loadingDay && visibleTodos.length === 0 && (
+            <div className="todo-empty">
+              <MoreHorizontal size={24} />
+              <p>{query || statusFilter !== "all" || sectionFilter !== "all" ? "没有匹配的待办。" : "这一天还没有 todo，先添加一个最小可执行动作。"}</p>
+            </div>
+          )}
+          {visibleTodos.map((todo) => (
+            <TodoCard
+              key={todo.id}
+              todo={todo}
+              onEdit={() => setTodoModal({ initial: todo })}
+              onDelete={async () => {
+                if (!window.confirm(`删除 “${todo.title}”？`)) return;
+                await deleteTodo(todo.id);
+                await loadPlanner();
+                await loadDay(activeDate);
+              }}
+              onDuplicate={async () => {
+                await duplicateTodo(todo.id, activeDate);
+                await loadPlanner();
+                await loadDay(activeDate);
+                setStatus("已复制到当前日期");
+              }}
+              onStatus={(nextStatus) => mutateTodo(todo, { status: nextStatus })}
+              onPin={(pinned) => mutateTodo(todo, { pinned })}
+            />
+          ))}
+        </section>
+      </main>
+
+      {dateModal && (
+        <DateModal
+          initialDate={dateModal.mode === "edit" ? dateModal.initial : dateModal.initial}
+          onClose={() => setDateModal(null)}
+          onSave={saveDateModal}
+        />
+      )}
+      {todoModal && (
+        <TodoModal
+          initial={todoModal.initial}
+          date={activeDate}
+          sections={sections}
+          onClose={() => setTodoModal(null)}
+          onSave={saveTodoModal}
+        />
+      )}
+    </div>
+  );
+}

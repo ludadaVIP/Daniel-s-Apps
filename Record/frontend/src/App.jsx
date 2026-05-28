@@ -7,6 +7,7 @@ import AppShell from "./shared/AppShell.jsx";
 const RecordMeditationApp = lazy(() => import("./apps/record_meditation/App.jsx"));
 const SaveMdApp = lazy(() => import("./apps/save_md/App.jsx"));
 const BookADayApp = lazy(() => import("./apps/book_a_day/App.jsx"));
+const DailyTodoApp = lazy(() => import("./apps/daily_todo/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -42,6 +43,10 @@ export default function App() {
       <Route
         path="/book-a-day"
         element={withShell("A Book a Day", "#b25b00", BookADayApp)}
+      />
+      <Route
+        path="/daily-todo"
+        element={withShell("Daily Todo", "#237489", DailyTodoApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

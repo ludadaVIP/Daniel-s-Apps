@@ -1,4 +1,4 @@
-import { BookOpen, FileText, NotebookPen } from "lucide-react";
+import { BookOpen, ClipboardList, FileText, NotebookPen } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
@@ -32,6 +32,16 @@ const APPS = [
     to: "/book-a-day",
     kind: "Books",
   },
+  {
+    id: "daily-todo",
+    title: "Daily Todo",
+    subtitle: "每日计划 · 年月日导航 · 优先级 · 时间块 · 复盘",
+    description: "左栏按年 / 月 / 日管理计划日期，右侧维护当天 todos，支持状态、优先级、分类、时间、标签、备注、复制和快速添加。",
+    accent: "#237489",
+    Icon: ClipboardList,
+    to: "/daily-todo",
+    kind: "Todo",
+  },
 ];
 
 export default function Hub() {
@@ -40,8 +50,8 @@ export default function Hub() {
       <header className="hub-header">
         <div className="hub-heading">
           <p className="hub-eyebrow">Sons Apps</p>
-          <h1 className="hub-title">Record & Meditation / Save MD</h1>
-          <p className="hub-subtitle">两个独立保留的工具，点击卡片进入。</p>
+          <h1 className="hub-title">Sons Apps Workspace</h1>
+          <p className="hub-subtitle">几个独立保留的本地工具，点击卡片进入。</p>
         </div>
         <span className="hub-count">{APPS.length} apps</span>
       </header>
@@ -74,7 +84,7 @@ export default function Hub() {
       <footer className="hub-footer">
         <code>Flask · React · Vite</code>
         <span>·</span>
-        <span>仅保留 Record & Meditation 和 Save MD</span>
+        <span>本地数据 · 多工具工作台</span>
       </footer>
     </div>
   );
