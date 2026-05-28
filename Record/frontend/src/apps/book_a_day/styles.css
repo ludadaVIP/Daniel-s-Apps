@@ -165,10 +165,32 @@
 
   .bad-tree {
     flex: 1;
-    overflow: auto;
+    min-height: 0;                 /* allow flex child to shrink so overflow can kick in */
+    overflow-y: auto;
+    overflow-x: hidden;
     display: flex;
     flex-direction: column;
     gap: 6px;
+    /* slim scrollbar so the user can always tell it's scrollable */
+    scrollbar-width: thin;
+    scrollbar-color: rgba(150, 110, 60, 0.35) transparent;
+  }
+
+  .bad-tree::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .bad-tree::-webkit-scrollbar-thumb {
+    background: rgba(150, 110, 60, 0.30);
+    border-radius: 4px;
+  }
+
+  .bad-tree::-webkit-scrollbar-thumb:hover {
+    background: rgba(150, 110, 60, 0.55);
+  }
+
+  .bad-tree::-webkit-scrollbar-track {
+    background: transparent;
   }
 
   .bad-shelf {
@@ -179,6 +201,7 @@
     border-radius: 4px 10px 10px 4px;
     overflow: hidden;
     background: var(--shelf-color-soft);
+    flex-shrink: 0;                 /* never compress — let .bad-tree scroll instead */
   }
 
   .bad-shelf-wantToRead {

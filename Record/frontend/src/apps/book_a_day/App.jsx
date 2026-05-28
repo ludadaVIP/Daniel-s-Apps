@@ -661,7 +661,7 @@ export default function BookADayApp() {
   const [activeTab, setActiveTab] = useState("oneLiner");
   const [tabDraft, setTabDraft] = useState("");
   const [mode, setMode] = useState("split");
-  const [openShelves, setOpenShelves] = useState(() => new Set(["wantToRead", "reading", "read", "collection"]));
+  const [openShelves, setOpenShelves] = useState(() => new Set(["reading"]));
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
