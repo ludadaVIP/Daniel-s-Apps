@@ -118,6 +118,22 @@ def _empty_store() -> dict[str, Any]:
     }
 
 
+def _drop_stale_recurring(store: dict[str, Any]) -> bool:
+    """One-time migration: remove pre-materialised future recurring todos that are still untouched."""
+    today = _today_iso()
+    stale = [
+        tid for tid, todo in store["todos"].items()
+        if todo.get("recurringRuleId")
+        and todo.get("status") == "todo"
+        and (todo.get("date") or "") >= today
+    ]
+    if not stale:
+        return False
+    for tid in stale:
+        del store["todos"][tid]
+    return True
+
+
 def _load_store() -> dict[str, Any]:
     store = read_json(DATA_FILE, None)
     if not isinstance(store, dict):
@@ -135,6 +151,8 @@ def _load_store() -> dict[str, Any]:
     if not isinstance(sections, list):
         sections = DEFAULT_SECTIONS
     store = {"dates": dates, "todos": todos, "recurring": recurring, "sections": sections}
+    if _drop_stale_recurring(store):
+        write_json(DATA_FILE, store)
     if not dates and not todos:
         today = _today_iso()
         now = _now_iso()
@@ -212,17 +230,26 @@ def _request_window() -> tuple[str, str]:
 
 def _date_stats(store: dict[str, Any], date: str) -> dict[str, int]:
     day_todos = [todo for todo in store["todos"].values() if todo.get("date") == date]
+    materialized_ids = {t["recurringRuleId"] for t in day_todos if t.get("recurringRuleId")}
+    virtual = [
+        r for r in store["recurring"]
+        if isinstance(r, dict) and r.get("id") not in materialized_ids and _rule_occurs_on(r, date)
+    ]
     done = sum(1 for todo in day_todos if todo.get("status") == "done")
     skipped = sum(1 for todo in day_todos if todo.get("status") == "skipped")
     doing = sum(1 for todo in day_todos if todo.get("status") == "doing")
-    total = len(day_todos)
+    total = len(day_todos) + len(virtual)
+    minutes = (
+        sum(_normalise_minutes(t.get("estimateMinutes")) for t in day_todos)
+        + sum(_normalise_minutes(r.get("estimateMinutes")) for r in virtual)
+    )
     return {
         "total": total,
         "done": done,
         "doing": doing,
         "skipped": skipped,
         "open": max(0, total - done - skipped),
-        "minutes": sum(_normalise_minutes(todo.get("estimateMinutes")) for todo in day_todos),
+        "minutes": minutes,
     }
 
 
@@ -346,6 +373,8 @@ def _materialise_recurring(store: dict[str, Any], start: str, end: str) -> bool:
         if todo.get("recurringRuleId") and todo.get("date")
     }
     for day_text in _date_range(start, end):
+        if day_text not in store["dates"]:
+            continue
         for rule in store["recurring"]:
             if not isinstance(rule, dict) or not rule.get("id"):
                 continue
@@ -371,7 +400,6 @@ def _materialise_recurring(store: dict[str, Any], start: str, end: str) -> bool:
             todo["recurringRuleId"] = rule["id"]
             todo["createdAt"] = now
             todo["updatedAt"] = now
-            _ensure_date(store, day_text, day_text)
             store["todos"][todo["id"]] = todo
             existing.add(key)
             changed = True
@@ -439,9 +467,6 @@ def planner():
     if request.method == "OPTIONS":
         return "", 204
     store = _load_store()
-    start, end = _request_window()
-    if _materialise_recurring(store, start, end):
-        _save_store(store)
     todos = list(store["todos"].values())
     total = len(todos)
     done = sum(1 for todo in todos if todo.get("status") == "done")
