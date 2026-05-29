@@ -1,4 +1,4 @@
-import { BookOpen, ClipboardList, FileText, NotebookPen } from "lucide-react";
+import { BookOpen, ClipboardList, FileText, NotebookPen, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
@@ -41,6 +41,16 @@ const APPS = [
     Icon: ClipboardList,
     to: "/daily-todo",
     kind: "Todo",
+  },
+  {
+    id: "investment",
+    title: "Investment",
+    subtitle: "投资学习 · 关注清单 · 决策日志 · 思维模型 · 案例库",
+    description: "把自己从普通人训练成投资人。三支柱（价值/前沿/认知）+ 静态知识库 + 动态市场简报 + 自维护工作台。AI 协作长期生长。",
+    accent: "#1e3a5f",
+    Icon: TrendingUp,
+    to: "/investment",
+    kind: "Invest",
   },
 ];
 
