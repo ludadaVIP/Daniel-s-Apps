@@ -118,22 +118,6 @@ def _empty_store() -> dict[str, Any]:
     }
 
 
-def _drop_stale_recurring(store: dict[str, Any]) -> bool:
-    """One-time migration: remove pre-materialised future recurring todos that are still untouched."""
-    today = _today_iso()
-    stale = [
-        tid for tid, todo in store["todos"].items()
-        if todo.get("recurringRuleId")
-        and todo.get("status") == "todo"
-        and (todo.get("date") or "") >= today
-    ]
-    if not stale:
-        return False
-    for tid in stale:
-        del store["todos"][tid]
-    return True
-
-
 def _load_store() -> dict[str, Any]:
     store = read_json(DATA_FILE, None)
     if not isinstance(store, dict):
@@ -151,8 +135,6 @@ def _load_store() -> dict[str, Any]:
     if not isinstance(sections, list):
         sections = DEFAULT_SECTIONS
     store = {"dates": dates, "todos": todos, "recurring": recurring, "sections": sections}
-    if _drop_stale_recurring(store):
-        write_json(DATA_FILE, store)
     if not dates and not todos:
         today = _today_iso()
         now = _now_iso()
