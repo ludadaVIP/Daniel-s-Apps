@@ -325,8 +325,7 @@
   .todo-top-actions button,
   .todo-quick-add button,
   .todo-controls button,
-  .todo-card-actions button,
-  .todo-status-button {
+  .todo-card-actions button {
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -884,9 +883,9 @@
   .todo-card {
     display: grid;
     grid-template-columns: 92px minmax(0, 1fr) auto;
-    align-items: start;
+    align-items: center;
     gap: 12px;
-    padding: 12px 14px;
+    padding: 10px 12px;
     border-left-width: 5px;
     box-shadow: 0 6px 18px rgba(23, 33, 47, 0.05);
   }
@@ -910,27 +909,41 @@
     background: linear-gradient(180deg, #ffffff, #fffaf0);
   }
 
-  .todo-status-button {
+  .todo-status-indicator {
     display: grid;
     grid-template-columns: 20px minmax(0, 1fr);
+    align-items: center;
     gap: 6px;
     width: 92px;
     min-height: 34px;
     padding: 0 8px;
+    border: 1px solid rgba(17, 92, 101, 0.22);
+    border-radius: 8px;
     color: var(--todo-teal);
+    background: rgba(17, 92, 101, 0.06);
     font-size: 12px;
     font-weight: 900;
   }
 
-  .todo-status-button.status-doing {
+  .todo-status-indicator.status-doing {
+    border-color: rgba(183, 121, 31, 0.26);
     color: var(--todo-amber);
+    background: rgba(183, 121, 31, 0.08);
   }
 
-  .todo-status-button.status-done {
+  .todo-status-indicator.status-done {
+    border-color: rgba(42, 127, 93, 0.24);
     color: var(--todo-green);
+    background: rgba(42, 127, 93, 0.08);
   }
 
-  .todo-status-button span {
+  .todo-status-indicator.status-skipped {
+    border-color: rgba(122, 135, 149, 0.26);
+    color: #66717d;
+    background: rgba(122, 135, 149, 0.08);
+  }
+
+  .todo-status-indicator span {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
@@ -940,8 +953,16 @@
     min-width: 0;
   }
 
+  .todo-card-mainline {
+    display: flex;
+    min-width: 0;
+    align-items: center;
+    gap: 10px;
+  }
+
   .todo-card-title-line {
     display: flex;
+    flex: 1 1 220px;
     align-items: center;
     gap: 7px;
     min-width: 0;
@@ -959,46 +980,40 @@
     font-size: 17px;
     line-height: 1.35;
     letter-spacing: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
     overflow-wrap: anywhere;
   }
 
-  .todo-card-meta,
-  .todo-card-tags {
+  .todo-card-meta {
     display: flex;
-    flex-wrap: wrap;
+    flex: 0 1 auto;
+    min-width: 0;
+    flex-wrap: nowrap;
     align-items: center;
     gap: 6px;
-    margin-top: 7px;
+    overflow: hidden;
     color: var(--todo-muted);
     font-size: 12px;
     font-weight: 720;
   }
 
-  .todo-status-stepper {
-    display: inline-flex;
-    width: fit-content;
-    gap: 3px;
-    margin-top: 8px;
-    padding: 3px;
-    border: 1px solid var(--todo-line);
-    border-radius: 8px;
-    background: var(--todo-soft);
+  .todo-card-meta span {
+    flex: 0 0 auto;
   }
 
-  .todo-status-stepper button {
-    height: 24px;
-    padding: 0 8px;
-    border: 0;
-    border-radius: 6px;
-    color: var(--todo-muted);
-    background: transparent;
-    font-size: 11.5px;
+  .todo-card-meta .todo-inline-tags {
+    color: var(--todo-teal);
     font-weight: 850;
   }
 
-  .todo-status-stepper button.is-active {
-    color: #ffffff;
-    background: var(--todo-ink);
+  .todo-card-meta .todo-note-preview {
+    flex: 1 1 140px;
+    min-width: 80px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .todo-pill {
@@ -1021,21 +1036,9 @@
   .todo-pill.priority-normal { background: var(--todo-teal); }
   .todo-pill.priority-low { background: var(--todo-blue); }
 
-  .todo-card-tags span {
-    color: var(--todo-teal);
-    font-weight: 800;
-  }
-
-  .todo-card-notes {
-    margin: 9px 0 0;
-    color: var(--todo-muted);
-    font-size: 13.5px;
-    line-height: 1.55;
-    white-space: pre-wrap;
-  }
-
   .todo-card-actions {
     display: flex;
+    align-items: center;
     gap: 4px;
   }
 
@@ -1043,6 +1046,17 @@
     width: 30px;
     height: 30px;
     color: var(--todo-muted);
+  }
+
+  .todo-card-actions .todo-status-action {
+    width: auto;
+    min-width: 52px;
+    padding: 0 12px;
+    color: #ffffff;
+    background: var(--todo-ink);
+    border-color: transparent;
+    font-size: 12px;
+    font-weight: 900;
   }
 
   .todo-card-actions button:hover {
@@ -1335,10 +1349,11 @@
       grid-template-columns: 1fr 1fr;
     }
     .todo-card {
-      grid-template-columns: 36px minmax(0, 1fr);
+      grid-template-columns: 92px minmax(0, 1fr);
+      align-items: start;
     }
     .todo-card-actions {
-      grid-column: 1 / -1;
+      grid-column: 2 / -1;
       justify-content: flex-end;
     }
     .todo-calendar-weekdays,

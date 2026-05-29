@@ -49,8 +49,8 @@ export default function Hub() {
     <div className="hub-root">
       <header className="hub-header">
         <div className="hub-heading">
-          <p className="hub-eyebrow">Sons Apps</p>
-          <h1 className="hub-title">Sons Apps Workspace</h1>
+          <p className="hub-eyebrow">Road2elite</p>
+          <h1 className="hub-title">Road2elite</h1>
           <p className="hub-subtitle">几个独立保留的本地工具，点击卡片进入。</p>
         </div>
         <span className="hub-count">{APPS.length} apps</span>

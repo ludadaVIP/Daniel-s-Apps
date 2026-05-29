@@ -115,10 +115,10 @@ function sidebarDayTitle(day) {
   return dateLabel(day.date).replace(/^\d{2}\/\d{2}/, "");
 }
 
-function nextTodoStatus(status) {
-  if (status === "todo") return "doing";
-  if (status === "doing") return "done";
-  return "todo";
+function nextTodoAction(status) {
+  if (status === "todo") return { label: "开始", next: "doing" };
+  if (status === "doing") return { label: "完成", next: "done" };
+  return { label: "重开", next: "todo" };
 }
 
 function monthWindow(monthText) {
@@ -126,9 +126,9 @@ function monthWindow(monthText) {
   const first = new Date(year, month - 1, 1, 12);
   const last = new Date(year, month, 0, 12);
   const start = new Date(first);
-  start.setDate(first.getDate() - 7);
+  start.setDate(first.getDate() - 31);
   const end = new Date(last);
-  end.setDate(last.getDate() + 14);
+  end.setDate(last.getDate() + 92);
   return { start: localDateIso(start), end: localDateIso(end) };
 }
 
@@ -558,7 +558,7 @@ function Sidebar({
                               <span className="todo-day-num">{String(day.day).padStart(2, "0")}</span>
                               <span className="todo-day-copy">
                                 <strong>{sidebarDayTitle(day)}</strong>
-                                <em>{day.open} open</em>
+                                <em>{day.open} 未完</em>
                               </span>
                               <small>{progress(day.done, day.total)}%</small>
                             </button>
@@ -584,47 +584,32 @@ function Sidebar({
 function TodoCard({ todo, onEdit, onDelete, onDuplicate, onStatus, onPin }) {
   const statusLabel = STATUS_OPTIONS.find((item) => item.value === todo.status)?.label || todo.status;
   const priorityLabel = PRIORITY_OPTIONS.find((item) => item.value === todo.priority)?.label || todo.priority;
-  const nextStatus = nextTodoStatus(todo.status);
-  const nextStatusLabel = STATUS_OPTIONS.find((item) => item.value === nextStatus)?.label || nextStatus;
+  const statusAction = nextTodoAction(todo.status);
   return (
     <article className={classes("todo-card", `priority-${todo.priority}`, todo.status === "done" && "is-done", todo.pinned && "is-pinned")}>
-      <button type="button" className={`todo-status-button status-${todo.status}`} onClick={() => onStatus(nextStatus)} title={`切换到${nextStatusLabel}`}>
+      <div className={`todo-status-indicator status-${todo.status}`} title={`当前状态：${statusLabel}`}>
         {todo.status === "done" ? <CheckCircle2 size={20} /> : todo.status === "doing" ? <Flame size={20} /> : <Circle size={20} />}
-        <span>{nextStatusLabel}</span>
-      </button>
+        <span>{statusLabel}</span>
+      </div>
       <div className="todo-card-body">
-        <div className="todo-card-title-line">
-          {todo.pinned && <Star size={14} />}
-          <h3>{todo.title}</h3>
-        </div>
-        <div className="todo-card-meta">
-          <span className={`todo-pill status-${todo.status}`}>{statusLabel}</span>
-          <span className={`todo-pill priority-${todo.priority}`}>{priorityLabel}</span>
-          <span>{todo.section}</span>
-          {(todo.startTime || todo.dueTime) && <span>{todo.startTime || "--:--"} - {todo.dueTime || "--:--"}</span>}
-          {todo.estimateMinutes > 0 && <span>{todo.estimateMinutes} 分钟</span>}
-          {todo.energy && <span>{ENERGY_OPTIONS.find((item) => item.value === todo.energy)?.label || todo.energy}</span>}
-        </div>
-        <div className="todo-status-stepper" aria-label="状态">
-          {STATUS_OPTIONS.slice(0, 3).map((item) => (
-            <button
-              type="button"
-              key={item.value}
-              className={todo.status === item.value ? "is-active" : ""}
-              onClick={() => onStatus(item.value)}
-            >
-              {item.label}
-            </button>
-          ))}
-        </div>
-        {(todo.tags || []).length > 0 && (
-          <div className="todo-card-tags">
-            {todo.tags.map((tag) => <span key={tag}>#{tag}</span>)}
+        <div className="todo-card-mainline">
+          <div className="todo-card-title-line">
+            {todo.pinned && <Star size={14} />}
+            <h3>{todo.title}</h3>
           </div>
-        )}
-        {todo.notes && <p className="todo-card-notes">{todo.notes}</p>}
+          <div className="todo-card-meta">
+            <span className={`todo-pill priority-${todo.priority}`}>{priorityLabel}</span>
+            <span>{todo.section}</span>
+            {(todo.startTime || todo.dueTime) && <span>{todo.startTime || "--:--"} - {todo.dueTime || "--:--"}</span>}
+            {todo.estimateMinutes > 0 && <span>{todo.estimateMinutes} 分钟</span>}
+            {todo.energy && <span>{ENERGY_OPTIONS.find((item) => item.value === todo.energy)?.label || todo.energy}</span>}
+            {(todo.tags || []).length > 0 && <span className="todo-inline-tags">{todo.tags.map((tag) => `#${tag}`).join(" ")}</span>}
+            {todo.notes && <span className="todo-note-preview">{todo.notes}</span>}
+          </div>
+        </div>
       </div>
       <div className="todo-card-actions">
+        <button type="button" className="todo-status-action" onClick={() => onStatus(statusAction.next)}>{statusAction.label}</button>
         <button type="button" onClick={() => onPin(!todo.pinned)} title="固定"><Star size={14} /></button>
         <button type="button" onClick={onDuplicate} title="复制到今天"><Copy size={14} /></button>
         <button type="button" onClick={onEdit} title="编辑"><Edit3 size={14} /></button>
