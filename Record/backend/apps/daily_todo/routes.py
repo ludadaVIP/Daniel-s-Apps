@@ -10,7 +10,8 @@ from __future__ import annotations
 import os
 import re
 import secrets
-from datetime import datetime, timezone
+from datetime import date as date_cls
+from datetime import datetime, timedelta, timezone
 from pathlib import Path
 from typing import Any
 
@@ -25,6 +26,7 @@ DATA_FILE = DATA_DIR / "planner.json"
 DATE_RX = re.compile(r"^(\d{4})-(\d{2})-(\d{2})$")
 STATUSES = {"todo", "doing", "done", "skipped"}
 PRIORITIES = {"low", "normal", "high", "urgent"}
+FREQUENCIES = {"daily", "weekdays", "weekly"}
 DEFAULT_SECTIONS = ["晨间启动", "深度工作", "日常事务", "生活健康", "晚间复盘"]
 
 bp = Blueprint("daily_todo", __name__)
@@ -111,6 +113,7 @@ def _empty_store() -> dict[str, Any]:
     return {
         "dates": {},
         "todos": {},
+        "recurring": [],
         "sections": DEFAULT_SECTIONS,
     }
 
@@ -121,14 +124,17 @@ def _load_store() -> dict[str, Any]:
         store = _empty_store()
     dates = store.get("dates")
     todos = store.get("todos")
+    recurring = store.get("recurring")
     sections = store.get("sections")
     if not isinstance(dates, dict):
         dates = {}
     if not isinstance(todos, dict):
         todos = {}
+    if not isinstance(recurring, list):
+        recurring = []
     if not isinstance(sections, list):
         sections = DEFAULT_SECTIONS
-    store = {"dates": dates, "todos": todos, "sections": sections}
+    store = {"dates": dates, "todos": todos, "recurring": recurring, "sections": sections}
     if not dates and not todos:
         today = _today_iso()
         now = _now_iso()
@@ -169,6 +175,38 @@ def _todo_sort_key(todo: dict[str, Any]) -> tuple[str, int, str, str]:
         status_rank.get(todo.get("status"), 4),
         priority_rank.get(todo.get("priority"), 4),
         str(todo.get("dueTime") or "99:99"),
+    )
+
+
+def _parse_date(value: str) -> date_cls:
+    return datetime.strptime(_validate_date(value), "%Y-%m-%d").date()
+
+
+def _date_range(start: str, end: str) -> list[str]:
+    start_day = _parse_date(start)
+    end_day = _parse_date(end)
+    if end_day < start_day:
+        start_day, end_day = end_day, start_day
+    if (end_day - start_day).days > 370:
+        end_day = start_day + timedelta(days=370)
+    out = []
+    current = start_day
+    while current <= end_day:
+        out.append(current.isoformat())
+        current += timedelta(days=1)
+    return out
+
+
+def _default_window() -> tuple[str, str]:
+    today = _parse_date(_today_iso())
+    return (today - timedelta(days=31)).isoformat(), (today + timedelta(days=92)).isoformat()
+
+
+def _request_window() -> tuple[str, str]:
+    default_start, default_end = _default_window()
+    return (
+        _validate_date(request.args.get("start") or default_start),
+        _validate_date(request.args.get("end") or default_end),
     )
 
 
@@ -230,6 +268,139 @@ def _find_todo(store: dict[str, Any], todo_id: str) -> dict[str, Any]:
     return todo
 
 
+def _normalise_weekdays(value: Any) -> list[int]:
+    pieces = value if isinstance(value, list) else []
+    out: list[int] = []
+    for piece in pieces:
+        try:
+            number = int(piece)
+        except (TypeError, ValueError):
+            continue
+        if 0 <= number <= 6 and number not in out:
+            out.append(number)
+    return sorted(out)
+
+
+def _recurring_from_payload(payload: dict[str, Any], existing: dict[str, Any] | None = None) -> dict[str, Any]:
+    base = dict(existing or {})
+    if "title" in payload or not base.get("title"):
+        base["title"] = _safe_text(payload.get("title"), "重复任务", 160)
+    if "frequency" in payload or not base.get("frequency"):
+        frequency = str(payload.get("frequency") or base.get("frequency") or "daily").strip()
+        base["frequency"] = frequency if frequency in FREQUENCIES else "daily"
+    if "weekdays" in payload or "weekdays" not in base:
+        base["weekdays"] = _normalise_weekdays(payload.get("weekdays"))
+    if "startDate" in payload or not base.get("startDate"):
+        base["startDate"] = _validate_date(payload.get("startDate") or base.get("startDate") or _today_iso())
+    if "endDate" in payload:
+        end_date = str(payload.get("endDate") or "").strip()
+        base["endDate"] = _validate_date(end_date) if end_date else ""
+    else:
+        base.setdefault("endDate", "")
+    if "active" in payload or "active" not in base:
+        base["active"] = bool(payload.get("active", base.get("active", True)))
+    todo_fields = _todo_from_payload({**base, **payload, "date": base["startDate"]}, base)
+    for key in (
+        "title", "notes", "priority", "section", "tags", "startTime",
+        "dueTime", "estimateMinutes", "energy", "pinned",
+    ):
+        base[key] = todo_fields.get(key)
+    base["status"] = "todo"
+    return base
+
+
+def _find_recurring(store: dict[str, Any], rule_id: str) -> dict[str, Any]:
+    for rule in store["recurring"]:
+        if isinstance(rule, dict) and rule.get("id") == rule_id:
+            return rule
+    raise DailyTodoError("Recurring rule not found.", 404)
+
+
+def _rule_occurs_on(rule: dict[str, Any], day_text: str) -> bool:
+    if not rule.get("active", True):
+        return False
+    day = _parse_date(day_text)
+    start = _parse_date(rule.get("startDate") or _today_iso())
+    if day < start:
+        return False
+    end_date = rule.get("endDate")
+    if end_date and day > _parse_date(end_date):
+        return False
+    frequency = rule.get("frequency") or "daily"
+    weekday = (day.weekday() + 1) % 7  # Sunday=0, Monday=1, ..., Saturday=6
+    if frequency == "daily":
+        return True
+    if frequency == "weekdays":
+        return 1 <= weekday <= 5
+    if frequency == "weekly":
+        weekdays = rule.get("weekdays") or [weekday]
+        return weekday in weekdays
+    return False
+
+
+def _materialise_recurring(store: dict[str, Any], start: str, end: str) -> bool:
+    changed = False
+    existing = {
+        (todo.get("recurringRuleId"), todo.get("date"))
+        for todo in store["todos"].values()
+        if todo.get("recurringRuleId") and todo.get("date")
+    }
+    for day_text in _date_range(start, end):
+        for rule in store["recurring"]:
+            if not isinstance(rule, dict) or not rule.get("id"):
+                continue
+            key = (rule["id"], day_text)
+            if key in existing or not _rule_occurs_on(rule, day_text):
+                continue
+            now = _now_iso()
+            todo = _todo_from_payload({
+                "date": day_text,
+                "title": rule.get("title"),
+                "notes": rule.get("notes"),
+                "priority": rule.get("priority"),
+                "section": rule.get("section"),
+                "tags": rule.get("tags"),
+                "startTime": rule.get("startTime"),
+                "dueTime": rule.get("dueTime"),
+                "estimateMinutes": rule.get("estimateMinutes"),
+                "energy": rule.get("energy"),
+                "pinned": rule.get("pinned"),
+                "status": "todo",
+            })
+            todo["id"] = _new_id(day_text)
+            todo["recurringRuleId"] = rule["id"]
+            todo["createdAt"] = now
+            todo["updatedAt"] = now
+            _ensure_date(store, day_text, day_text)
+            store["todos"][todo["id"]] = todo
+            existing.add(key)
+            changed = True
+    return changed
+
+
+def _sync_future_recurring_todos(store: dict[str, Any], rule: dict[str, Any]) -> None:
+    today = _today_iso()
+    remove_ids: list[str] = []
+    for todo_id, todo in store["todos"].items():
+        if (
+            todo.get("recurringRuleId") != rule.get("id")
+            or todo.get("date", "") < today
+            or todo.get("status") != "todo"
+        ):
+            continue
+        if not _rule_occurs_on(rule, todo.get("date") or today):
+            remove_ids.append(todo_id)
+            continue
+        for key in (
+            "title", "notes", "priority", "section", "tags", "startTime",
+            "dueTime", "estimateMinutes", "energy", "pinned",
+        ):
+            todo[key] = rule.get(key, todo.get(key))
+        todo["updatedAt"] = _now_iso()
+    for todo_id in remove_ids:
+        store["todos"].pop(todo_id, None)
+
+
 def _todo_from_payload(payload: dict[str, Any], existing: dict[str, Any] | None = None) -> dict[str, Any]:
     base = dict(existing or {})
     if "date" in payload or not base.get("date"):
@@ -268,6 +439,9 @@ def planner():
     if request.method == "OPTIONS":
         return "", 204
     store = _load_store()
+    start, end = _request_window()
+    if _materialise_recurring(store, start, end):
+        _save_store(store)
     todos = list(store["todos"].values())
     total = len(todos)
     done = sum(1 for todo in todos if todo.get("status") == "done")
@@ -275,6 +449,7 @@ def planner():
     return jsonify({
         "tree": _tree(store),
         "sections": store["sections"],
+        "recurring": store["recurring"],
         "tags": tags,
         "stats": {
             "dates": len(store["dates"]),
@@ -306,6 +481,8 @@ def date_detail(date: str):
         return "", 204
     current_date = _validate_date(date)
     store = _load_store()
+    if _materialise_recurring(store, current_date, current_date):
+        _save_store(store)
     if current_date not in store["dates"]:
         raise DailyTodoError("Date not found.", 404)
 
@@ -367,6 +544,59 @@ def create_todo():
     store["todos"][todo["id"]] = todo
     _save_store(store)
     return jsonify(todo), 201
+
+
+@bp.route("/recurring", methods=["POST", "OPTIONS"])
+def create_recurring():
+    if request.method == "OPTIONS":
+        return "", 204
+    store = _load_store()
+    payload = request.get_json(silent=True) or {}
+    now = _now_iso()
+    rule = _recurring_from_payload(payload)
+    rule["id"] = f"rule-{secrets.token_hex(4)}"
+    rule["createdAt"] = now
+    rule["updatedAt"] = now
+    store["recurring"].append(rule)
+    start, end = _request_window()
+    _materialise_recurring(store, start, end)
+    _save_store(store)
+    return jsonify(rule), 201
+
+
+@bp.route("/recurring/<rule_id>", methods=["PATCH", "DELETE", "OPTIONS"])
+def mutate_recurring(rule_id: str):
+    if request.method == "OPTIONS":
+        return "", 204
+    store = _load_store()
+    rule = _find_recurring(store, rule_id)
+    if request.method == "DELETE":
+        today = _today_iso()
+        store["recurring"] = [item for item in store["recurring"] if item.get("id") != rule_id]
+        store["todos"] = {
+            todo_id: todo for todo_id, todo in store["todos"].items()
+            if not (
+                todo.get("recurringRuleId") == rule_id
+                and todo.get("date", "") >= today
+                and todo.get("status") == "todo"
+            )
+        }
+        _save_store(store)
+        return jsonify({"deletedId": rule_id})
+    payload = request.get_json(silent=True) or {}
+    updated = _recurring_from_payload(payload, rule)
+    updated["id"] = rule_id
+    updated.setdefault("createdAt", _now_iso())
+    updated["updatedAt"] = _now_iso()
+    for index, item in enumerate(store["recurring"]):
+        if item.get("id") == rule_id:
+            store["recurring"][index] = updated
+            break
+    _sync_future_recurring_todos(store, updated)
+    start, end = _request_window()
+    _materialise_recurring(store, start, end)
+    _save_store(store)
+    return jsonify(updated)
 
 
 @bp.route("/todos/<todo_id>", methods=["PATCH", "DELETE", "OPTIONS"])

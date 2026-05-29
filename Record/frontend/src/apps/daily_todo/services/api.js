@@ -8,8 +8,12 @@ async function parse(response) {
   return data;
 }
 
-export async function fetchPlanner() {
-  return parse(await fetch(`${BASE}/planner`));
+export async function fetchPlanner(range = {}) {
+  const params = new URLSearchParams();
+  if (range.start) params.set("start", range.start);
+  if (range.end) params.set("end", range.end);
+  const suffix = params.toString() ? `?${params.toString()}` : "";
+  return parse(await fetch(`${BASE}/planner${suffix}`));
 }
 
 export async function fetchDate(date) {
@@ -78,6 +82,38 @@ export async function duplicateTodo(id, date) {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ date }),
+    }),
+  );
+}
+
+export async function createRecurring(payload, range = {}) {
+  const params = new URLSearchParams();
+  if (range.start) params.set("start", range.start);
+  if (range.end) params.set("end", range.end);
+  const suffix = params.toString() ? `?${params.toString()}` : "";
+  return parse(
+    await fetch(`${BASE}/recurring${suffix}`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }),
+  );
+}
+
+export async function updateRecurring(id, payload) {
+  return parse(
+    await fetch(`${BASE}/recurring/${encodeURIComponent(id)}`, {
+      method: "PATCH",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }),
+  );
+}
+
+export async function deleteRecurring(id) {
+  return parse(
+    await fetch(`${BASE}/recurring/${encodeURIComponent(id)}`, {
+      method: "DELETE",
     }),
   );
 }

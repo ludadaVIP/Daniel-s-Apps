@@ -92,7 +92,7 @@
 
   .todo-collapse-button,
   .todo-tree-row > button:not(.todo-tree-main),
-  .todo-day-row > button {
+  .todo-day-actions button {
     display: grid;
     place-items: center;
     width: 28px;
@@ -106,7 +106,7 @@
 
   .todo-collapse-button:hover,
   .todo-tree-row > button:not(.todo-tree-main):hover,
-  .todo-day-row > button:hover {
+  .todo-day-actions button:hover {
     color: #ffffff;
     background: rgba(255, 255, 255, 0.14);
   }
@@ -210,20 +210,19 @@
   }
 
   .todo-day-row {
-    display: grid;
-    grid-template-columns: minmax(0, 1fr) 28px 28px;
-    gap: 4px;
-    align-items: center;
+    position: relative;
+    min-width: 0;
   }
 
   .todo-day-main {
     min-width: 0;
     display: grid;
-    grid-template-columns: 28px minmax(0, 1fr) 38px;
+    grid-template-columns: 30px minmax(0, 1fr) 34px;
     align-items: center;
-    gap: 6px;
-    height: 32px;
-    padding: 0 7px;
+    gap: 7px;
+    width: 100%;
+    min-height: 34px;
+    padding: 4px 58px 4px 7px;
     border: 1px solid transparent;
     border-radius: 8px;
     color: rgba(238, 247, 245, 0.84);
@@ -237,24 +236,67 @@
     border-color: rgba(255, 255, 255, 0.14);
   }
 
-  .todo-day-main span {
-    color: rgba(238, 247, 245, 0.64);
+  .todo-day-num {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 24px;
+    border-radius: 7px;
+    color: rgba(238, 247, 245, 0.78);
+    background: rgba(255, 255, 255, 0.08);
     font-size: 12px;
     font-weight: 850;
     font-variant-numeric: tabular-nums;
   }
 
-  .todo-day-main strong {
+  .todo-day-copy {
+    display: grid;
+    gap: 1px;
+    min-width: 0;
+  }
+
+  .todo-day-copy strong,
+  .todo-day-copy em {
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-style: normal;
+  }
+
+  .todo-day-copy strong {
     font-size: 12.5px;
+  }
+
+  .todo-day-copy em {
+    color: rgba(238, 247, 245, 0.48);
+    font-size: 10.5px;
+    font-weight: 750;
   }
 
   .todo-day-main small {
     text-align: right;
     color: rgba(238, 247, 245, 0.58);
     font-size: 11px;
+  }
+
+  .todo-day-actions {
+    position: absolute;
+    top: 3px;
+    right: 3px;
+    display: flex;
+    gap: 3px;
+    opacity: 0;
+    transition: opacity 120ms ease;
+  }
+
+  .todo-day-row:hover .todo-day-actions,
+  .todo-day-row:focus-within .todo-day-actions {
+    opacity: 1;
+  }
+
+  .todo-day-actions button {
+    width: 24px;
+    height: 28px;
   }
 
   .todo-main {
@@ -320,6 +362,15 @@
     gap: 8px;
   }
 
+  .todo-view-switch {
+    display: flex;
+    gap: 4px;
+    padding: 3px;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    background: var(--todo-soft);
+  }
+
   .todo-top-actions button {
     gap: 6px;
     height: 34px;
@@ -332,6 +383,18 @@
     color: #ffffff;
     background: var(--todo-green);
     border-color: transparent;
+  }
+
+  .todo-view-switch button {
+    height: 28px;
+    border: 0;
+    background: transparent;
+    color: var(--todo-muted);
+  }
+
+  .todo-view-switch button.is-active {
+    color: #ffffff;
+    background: var(--todo-ink);
   }
 
   .todo-message {
@@ -564,6 +627,243 @@
     gap: 10px;
   }
 
+  .todo-recurring-panel {
+    margin-bottom: 0;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: var(--todo-shadow);
+    overflow: hidden;
+  }
+
+  .todo-recurring-panel header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--todo-line);
+  }
+
+  .todo-recurring-panel header p {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin: 0;
+    color: var(--todo-ink);
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .todo-recurring-panel header span,
+  .todo-recurring-empty {
+    color: var(--todo-muted);
+    font-size: 12px;
+    font-weight: 700;
+  }
+
+  .todo-recurring-panel header button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    color: #ffffff;
+    background: var(--todo-teal);
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  .todo-recurring-empty {
+    padding: 16px 14px;
+  }
+
+  .todo-recurring-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px;
+  }
+
+  .todo-recurring-card {
+    display: grid;
+    grid-template-columns: minmax(160px, 1fr) auto 28px 28px;
+    align-items: center;
+    gap: 8px;
+    flex: 1 1 310px;
+    padding: 8px 10px;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    background: var(--todo-soft);
+  }
+
+  .todo-recurring-card.is-paused {
+    opacity: 0.58;
+  }
+
+  .todo-recurring-card strong,
+  .todo-recurring-card span {
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .todo-recurring-card strong {
+    color: var(--todo-ink);
+    font-size: 13px;
+  }
+
+  .todo-recurring-card span,
+  .todo-recurring-card small {
+    color: var(--todo-muted);
+    font-size: 11.5px;
+    font-weight: 750;
+  }
+
+  .todo-recurring-card button {
+    display: grid;
+    place-items: center;
+    width: 28px;
+    height: 28px;
+    border: 1px solid var(--todo-line);
+    border-radius: 7px;
+    color: var(--todo-muted);
+    background: #ffffff;
+  }
+
+  .todo-calendar-view {
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.94);
+    box-shadow: var(--todo-shadow);
+    overflow: hidden;
+  }
+
+  .todo-calendar-head {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) 34px;
+    align-items: center;
+    gap: 10px;
+    padding: 16px;
+    border-bottom: 1px solid var(--todo-line);
+  }
+
+  .todo-calendar-head button {
+    display: grid;
+    place-items: center;
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    color: var(--todo-ink);
+    background: var(--todo-surface);
+  }
+
+  .todo-calendar-head h2 {
+    margin: 0;
+    font-size: 22px;
+    letter-spacing: 0;
+  }
+
+  .todo-calendar-head span {
+    display: block;
+    margin-top: 2px;
+    color: var(--todo-muted);
+    font-size: 12px;
+    font-weight: 720;
+  }
+
+  .todo-calendar-weekdays,
+  .todo-calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, minmax(0, 1fr));
+  }
+
+  .todo-calendar-weekdays {
+    border-bottom: 1px solid var(--todo-line);
+    background: var(--todo-soft);
+  }
+
+  .todo-calendar-weekdays span {
+    padding: 8px;
+    color: var(--todo-muted);
+    text-align: center;
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  .todo-calendar-cell {
+    position: relative;
+    min-height: 104px;
+    border-right: 1px solid var(--todo-line);
+    border-bottom: 1px solid var(--todo-line);
+    background: #ffffff;
+  }
+
+  .todo-calendar-cell.is-muted {
+    background: #f7f9fa;
+  }
+
+  .todo-calendar-cell.is-active {
+    box-shadow: inset 0 0 0 2px var(--todo-teal);
+  }
+
+  .todo-calendar-day-button {
+    display: grid;
+    align-content: start;
+    gap: 8px;
+    width: 100%;
+    min-height: 104px;
+    padding: 10px;
+    border: 0;
+    color: var(--todo-ink);
+    background: transparent;
+    text-align: left;
+  }
+
+  .todo-calendar-day-button > span {
+    font-size: 13px;
+    font-weight: 900;
+  }
+
+  .todo-calendar-day-button strong,
+  .todo-calendar-day-button small {
+    display: block;
+    font-size: 12px;
+  }
+
+  .todo-calendar-day-button strong {
+    color: var(--todo-teal);
+  }
+
+  .todo-calendar-day-button small {
+    margin-top: 2px;
+    color: var(--todo-muted);
+  }
+
+  .todo-calendar-add {
+    position: absolute;
+    right: 7px;
+    top: 7px;
+    display: grid;
+    place-items: center;
+    width: 26px;
+    height: 26px;
+    border: 1px solid var(--todo-line);
+    border-radius: 7px;
+    color: var(--todo-muted);
+    background: rgba(255, 255, 255, 0.88);
+  }
+
+  .todo-calendar-add:hover {
+    color: #ffffff;
+    background: var(--todo-teal);
+    border-color: transparent;
+  }
+
   .todo-empty {
     display: grid;
     place-items: center;
@@ -583,10 +883,10 @@
 
   .todo-card {
     display: grid;
-    grid-template-columns: 42px minmax(0, 1fr) auto;
+    grid-template-columns: 92px minmax(0, 1fr) auto;
     align-items: start;
     gap: 12px;
-    padding: 14px;
+    padding: 12px 14px;
     border-left-width: 5px;
     box-shadow: 0 6px 18px rgba(23, 33, 47, 0.05);
   }
@@ -611,9 +911,29 @@
   }
 
   .todo-status-button {
-    width: 34px;
-    height: 34px;
+    display: grid;
+    grid-template-columns: 20px minmax(0, 1fr);
+    gap: 6px;
+    width: 92px;
+    min-height: 34px;
+    padding: 0 8px;
     color: var(--todo-teal);
+    font-size: 12px;
+    font-weight: 900;
+  }
+
+  .todo-status-button.status-doing {
+    color: var(--todo-amber);
+  }
+
+  .todo-status-button.status-done {
+    color: var(--todo-green);
+  }
+
+  .todo-status-button span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .todo-card-body {
@@ -652,6 +972,33 @@
     color: var(--todo-muted);
     font-size: 12px;
     font-weight: 720;
+  }
+
+  .todo-status-stepper {
+    display: inline-flex;
+    width: fit-content;
+    gap: 3px;
+    margin-top: 8px;
+    padding: 3px;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    background: var(--todo-soft);
+  }
+
+  .todo-status-stepper button {
+    height: 24px;
+    padding: 0 8px;
+    border: 0;
+    border-radius: 6px;
+    color: var(--todo-muted);
+    background: transparent;
+    font-size: 11.5px;
+    font-weight: 850;
+  }
+
+  .todo-status-stepper button.is-active {
+    color: #ffffff;
+    background: var(--todo-ink);
   }
 
   .todo-pill {
@@ -717,6 +1064,54 @@
     padding: 20px;
     background: rgba(18, 32, 42, 0.48);
     backdrop-filter: blur(2px);
+  }
+
+  .todo-recurring-manager {
+    width: min(860px, 100%);
+    max-height: 86vh;
+    overflow-y: auto;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.28);
+  }
+
+  .todo-recurring-manager > header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--todo-line);
+  }
+
+  .todo-recurring-manager h2 {
+    margin: 0;
+    font-size: 17px;
+  }
+
+  .todo-recurring-manager > header span {
+    display: block;
+    margin-top: 2px;
+    color: var(--todo-muted);
+    font-size: 12px;
+    font-weight: 720;
+  }
+
+  .todo-recurring-manager > header button {
+    display: grid;
+    place-items: center;
+    width: 30px;
+    height: 30px;
+    border: 0;
+    color: var(--todo-muted);
+    background: transparent;
+  }
+
+  .todo-recurring-manager .todo-recurring-panel {
+    border: 0;
+    border-radius: 0;
+    box-shadow: none;
   }
 
   .todo-date-modal,
@@ -789,6 +1184,30 @@
     display: grid;
     grid-template-columns: repeat(4, minmax(0, 1fr));
     gap: 0;
+  }
+
+  .todo-weekday-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 12px 18px 0;
+  }
+
+  .todo-weekday-row button {
+    height: 30px;
+    padding: 0 10px;
+    border: 1px solid var(--todo-line);
+    border-radius: 8px;
+    color: var(--todo-muted);
+    background: var(--todo-soft);
+    font-size: 12px;
+    font-weight: 850;
+  }
+
+  .todo-weekday-row button.is-active {
+    color: #ffffff;
+    background: var(--todo-teal);
+    border-color: transparent;
   }
 
   .todo-form-grid label {
@@ -885,6 +1304,10 @@
     .todo-controls {
       grid-template-columns: 1fr;
     }
+    .todo-calendar-cell,
+    .todo-calendar-day-button {
+      min-height: 88px;
+    }
     .todo-segment {
       overflow-x: auto;
     }
@@ -917,6 +1340,13 @@
     .todo-card-actions {
       grid-column: 1 / -1;
       justify-content: flex-end;
+    }
+    .todo-calendar-weekdays,
+    .todo-calendar-grid {
+      min-width: 720px;
+    }
+    .todo-calendar-view {
+      overflow-x: auto;
     }
   }
 

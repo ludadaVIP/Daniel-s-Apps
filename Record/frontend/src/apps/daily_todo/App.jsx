@@ -1,6 +1,8 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
 import {
+  CalendarPlus,
   CalendarDays,
+  CalendarRange,
   CheckCircle2,
   ChevronDown,
   ChevronLeft,
@@ -16,6 +18,7 @@ import {
   Loader2,
   MoreHorizontal,
   Plus,
+  Repeat2,
   Search,
   Sparkles,
   Star,
@@ -26,13 +29,16 @@ import {
 import "./styles.css";
 import {
   createDate,
+  createRecurring,
   createTodo,
   deleteDate,
+  deleteRecurring,
   deleteTodo,
   duplicateTodo,
   fetchDate,
   fetchPlanner,
   updateDate,
+  updateRecurring,
   updateTodo,
 } from "./services/api";
 
@@ -57,6 +63,15 @@ const ENERGY_OPTIONS = [
 ];
 
 const MONTH_NAMES = ["一月", "二月", "三月", "四月", "五月", "六月", "七月", "八月", "九月", "十月", "十一月", "十二月"];
+const WEEKDAY_OPTIONS = [
+  { value: 1, label: "周一" },
+  { value: 2, label: "周二" },
+  { value: 3, label: "周三" },
+  { value: 4, label: "周四" },
+  { value: 5, label: "周五" },
+  { value: 6, label: "周六" },
+  { value: 0, label: "周日" },
+];
 
 function classes(...parts) {
   return parts.filter(Boolean).join(" ");
@@ -92,6 +107,60 @@ function progress(done, total) {
 
 function makeDate(year, month, day) {
   return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
+}
+
+function sidebarDayTitle(day) {
+  if (!day?.date) return "";
+  if (day.title && day.title !== day.date) return day.title;
+  return dateLabel(day.date).replace(/^\d{2}\/\d{2}/, "");
+}
+
+function nextTodoStatus(status) {
+  if (status === "todo") return "doing";
+  if (status === "doing") return "done";
+  return "todo";
+}
+
+function monthWindow(monthText) {
+  const [year, month] = monthText.split("-").map(Number);
+  const first = new Date(year, month - 1, 1, 12);
+  const last = new Date(year, month, 0, 12);
+  const start = new Date(first);
+  start.setDate(first.getDate() - 7);
+  const end = new Date(last);
+  end.setDate(last.getDate() + 14);
+  return { start: localDateIso(start), end: localDateIso(end) };
+}
+
+function monthCells(monthText) {
+  const [year, month] = monthText.split("-").map(Number);
+  const first = new Date(year, month - 1, 1, 12);
+  const last = new Date(year, month, 0, 12);
+  const start = new Date(first);
+  start.setDate(first.getDate() - first.getDay());
+  const cells = [];
+  const current = new Date(start);
+  while (cells.length < 42) {
+    cells.push({
+      date: localDateIso(current),
+      inMonth: current.getMonth() === month - 1,
+      day: current.getDate(),
+    });
+    current.setDate(current.getDate() + 1);
+  }
+  return cells;
+}
+
+function plannerDayMap(planner) {
+  const map = new Map();
+  for (const year of planner.tree || []) {
+    for (const month of year.months || []) {
+      for (const day of month.days || []) {
+        map.set(day.date, day);
+      }
+    }
+  }
+  return map;
 }
 
 function DateModal({ initialDate, onClose, onSave }) {
@@ -149,6 +218,7 @@ function DateModal({ initialDate, onClose, onSave }) {
 
 function TodoModal({ initial, date, sections, onClose, onSave }) {
   const [form, setForm] = useState(() => ({
+    date: initial?.date || date,
     title: initial?.title || "",
     status: initial?.status || "todo",
     priority: initial?.priority || "normal",
@@ -173,7 +243,7 @@ function TodoModal({ initial, date, sections, onClose, onSave }) {
     try {
       await onSave({
         ...form,
-        date: initial?.date || date,
+        date: form.date || date,
         estimateMinutes: Number(form.estimateMinutes) || 0,
         tags: form.tags.split(",").map((tag) => tag.trim()).filter(Boolean),
       });
@@ -189,7 +259,7 @@ function TodoModal({ initial, date, sections, onClose, onSave }) {
     <div className="todo-modal-backdrop" onMouseDown={onClose}>
       <form className="todo-editor-modal" onSubmit={submit} onMouseDown={(event) => event.stopPropagation()}>
         <header>
-          <h2>{initial ? "编辑 Todo" : "新建 Todo"}</h2>
+          <h2>{initial?.id ? "编辑 Todo" : "新建 Todo"}</h2>
           <button type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button>
         </header>
         <label className="todo-wide">
@@ -197,6 +267,10 @@ function TodoModal({ initial, date, sections, onClose, onSave }) {
           <input value={form.title} onChange={(event) => setField("title", event.target.value)} placeholder="写下一个可执行动作" autoFocus />
         </label>
         <div className="todo-form-grid">
+          <label>
+            <span>日期</span>
+            <input type="date" value={form.date} onChange={(event) => setField("date", event.target.value)} />
+          </label>
           <label>
             <span>状态</span>
             <select value={form.status} onChange={(event) => setField("status", event.target.value)}>
@@ -253,6 +327,144 @@ function TodoModal({ initial, date, sections, onClose, onSave }) {
           <button type="submit" className="todo-primary" disabled={saving}>
             {saving ? <Loader2 className="todo-spin" size={15} /> : <CheckCircle2 size={15} />}
             <span>{saving ? "保存中" : "保存 Todo"}</span>
+          </button>
+        </footer>
+      </form>
+    </div>
+  );
+}
+
+function RecurringModal({ initial, date, sections, onClose, onSave }) {
+  const [form, setForm] = useState(() => ({
+    title: initial?.title || "",
+    frequency: initial?.frequency || "daily",
+    weekdays: initial?.weekdays || [1, 2, 3, 4, 5],
+    startDate: initial?.startDate || date,
+    endDate: initial?.endDate || "",
+    active: initial?.active ?? true,
+    priority: initial?.priority || "normal",
+    section: initial?.section || sections[0] || "日常事务",
+    startTime: initial?.startTime || "",
+    dueTime: initial?.dueTime || "",
+    estimateMinutes: initial?.estimateMinutes || 30,
+    energy: initial?.energy || "medium",
+    tags: (initial?.tags || []).join(", "),
+    notes: initial?.notes || "",
+  }));
+  const [saving, setSaving] = useState(false);
+  const [error, setError] = useState("");
+
+  const setField = (key, value) => setForm((current) => ({ ...current, [key]: value }));
+  const toggleWeekday = (value) => {
+    setForm((current) => {
+      const next = current.weekdays.includes(value)
+        ? current.weekdays.filter((item) => item !== value)
+        : [...current.weekdays, value].sort((a, b) => a - b);
+      return { ...current, weekdays: next };
+    });
+  };
+
+  const submit = async (event) => {
+    event.preventDefault();
+    setSaving(true);
+    setError("");
+    try {
+      await onSave({
+        ...form,
+        estimateMinutes: Number(form.estimateMinutes) || 0,
+        tags: form.tags.split(",").map((tag) => tag.trim()).filter(Boolean),
+      });
+      onClose();
+    } catch (err) {
+      setError(err.message || "保存失败");
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  return (
+    <div className="todo-modal-backdrop" onMouseDown={onClose}>
+      <form className="todo-editor-modal" onSubmit={submit} onMouseDown={(event) => event.stopPropagation()}>
+        <header>
+          <h2>{initial ? "编辑重复任务" : "新建重复任务"}</h2>
+          <button type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button>
+        </header>
+        <label className="todo-wide">
+          <span>任务</span>
+          <input value={form.title} onChange={(event) => setField("title", event.target.value)} placeholder="例如：学习西语半小时" autoFocus />
+        </label>
+        <div className="todo-form-grid">
+          <label>
+            <span>规律</span>
+            <select value={form.frequency} onChange={(event) => setField("frequency", event.target.value)}>
+              <option value="daily">每天</option>
+              <option value="weekdays">工作日</option>
+              <option value="weekly">每周指定日</option>
+            </select>
+          </label>
+          <label>
+            <span>开始日期</span>
+            <input type="date" value={form.startDate} onChange={(event) => setField("startDate", event.target.value)} />
+          </label>
+          <label>
+            <span>结束日期</span>
+            <input type="date" value={form.endDate} onChange={(event) => setField("endDate", event.target.value)} />
+          </label>
+          <label>
+            <span>分类</span>
+            <input list="todo-sections" value={form.section} onChange={(event) => setField("section", event.target.value)} />
+          </label>
+          <label>
+            <span>优先级</span>
+            <select value={form.priority} onChange={(event) => setField("priority", event.target.value)}>
+              {PRIORITY_OPTIONS.map((item) => <option key={item.value} value={item.value}>{item.label}</option>)}
+            </select>
+          </label>
+          <label>
+            <span>开始</span>
+            <input type="time" value={form.startTime} onChange={(event) => setField("startTime", event.target.value)} />
+          </label>
+          <label>
+            <span>截止</span>
+            <input type="time" value={form.dueTime} onChange={(event) => setField("dueTime", event.target.value)} />
+          </label>
+          <label>
+            <span>预计分钟</span>
+            <input type="number" min="0" max="1440" value={form.estimateMinutes} onChange={(event) => setField("estimateMinutes", event.target.value)} />
+          </label>
+        </div>
+        {form.frequency === "weekly" && (
+          <div className="todo-weekday-row">
+            {WEEKDAY_OPTIONS.map((item) => (
+              <button
+                type="button"
+                key={item.value}
+                className={form.weekdays.includes(item.value) ? "is-active" : ""}
+                onClick={() => toggleWeekday(item.value)}
+              >
+                {item.label}
+              </button>
+            ))}
+          </div>
+        )}
+        <label className="todo-wide">
+          <span>标签（逗号分隔）</span>
+          <input value={form.tags} onChange={(event) => setField("tags", event.target.value)} placeholder="学习, 西语, 每日" />
+        </label>
+        <label className="todo-wide">
+          <span>备注</span>
+          <textarea value={form.notes} onChange={(event) => setField("notes", event.target.value)} placeholder="规则、目标或检查标准" />
+        </label>
+        <label className="todo-checkbox todo-wide">
+          <input type="checkbox" checked={form.active} onChange={(event) => setField("active", event.target.checked)} />
+          <span>启用这个重复任务</span>
+        </label>
+        {error && <div className="todo-form-error">{error}</div>}
+        <footer>
+          <button type="button" className="todo-secondary" onClick={onClose}>取消</button>
+          <button type="submit" className="todo-primary" disabled={saving}>
+            {saving ? <Loader2 className="todo-spin" size={15} /> : <Repeat2 size={15} />}
+            <span>{saving ? "保存中" : "保存重复任务"}</span>
           </button>
         </footer>
       </form>
@@ -343,12 +555,17 @@ function Sidebar({
                         {month.days.map((day) => (
                           <div key={day.date} className={classes("todo-day-row", activeDate === day.date && "is-active")}>
                             <button type="button" onClick={() => onSelectDate(day.date)} className="todo-day-main" title={day.title}>
-                              <span>{String(day.day).padStart(2, "0")}</span>
-                              <strong>{day.title}</strong>
+                              <span className="todo-day-num">{String(day.day).padStart(2, "0")}</span>
+                              <span className="todo-day-copy">
+                                <strong>{sidebarDayTitle(day)}</strong>
+                                <em>{day.open} open</em>
+                              </span>
                               <small>{progress(day.done, day.total)}%</small>
                             </button>
-                            <button type="button" onClick={() => onEditDay(day)} title="编辑日期"><Edit3 size={12} /></button>
-                            <button type="button" onClick={() => onDeleteDay(day.date)} title="删除日期"><Trash2 size={12} /></button>
+                            <div className="todo-day-actions">
+                              <button type="button" onClick={() => onEditDay(day)} title="编辑日期"><Edit3 size={12} /></button>
+                              <button type="button" onClick={() => onDeleteDay(day.date)} title="删除日期"><Trash2 size={12} /></button>
+                            </div>
                           </div>
                         ))}
                       </div>
@@ -367,10 +584,13 @@ function Sidebar({
 function TodoCard({ todo, onEdit, onDelete, onDuplicate, onStatus, onPin }) {
   const statusLabel = STATUS_OPTIONS.find((item) => item.value === todo.status)?.label || todo.status;
   const priorityLabel = PRIORITY_OPTIONS.find((item) => item.value === todo.priority)?.label || todo.priority;
+  const nextStatus = nextTodoStatus(todo.status);
+  const nextStatusLabel = STATUS_OPTIONS.find((item) => item.value === nextStatus)?.label || nextStatus;
   return (
     <article className={classes("todo-card", `priority-${todo.priority}`, todo.status === "done" && "is-done", todo.pinned && "is-pinned")}>
-      <button type="button" className="todo-status-button" onClick={() => onStatus(todo.status === "done" ? "todo" : "done")} title="切换完成">
-        {todo.status === "done" ? <CheckCircle2 size={20} /> : <Circle size={20} />}
+      <button type="button" className={`todo-status-button status-${todo.status}`} onClick={() => onStatus(nextStatus)} title={`切换到${nextStatusLabel}`}>
+        {todo.status === "done" ? <CheckCircle2 size={20} /> : todo.status === "doing" ? <Flame size={20} /> : <Circle size={20} />}
+        <span>{nextStatusLabel}</span>
       </button>
       <div className="todo-card-body">
         <div className="todo-card-title-line">
@@ -384,6 +604,18 @@ function TodoCard({ todo, onEdit, onDelete, onDuplicate, onStatus, onPin }) {
           {(todo.startTime || todo.dueTime) && <span>{todo.startTime || "--:--"} - {todo.dueTime || "--:--"}</span>}
           {todo.estimateMinutes > 0 && <span>{todo.estimateMinutes} 分钟</span>}
           {todo.energy && <span>{ENERGY_OPTIONS.find((item) => item.value === todo.energy)?.label || todo.energy}</span>}
+        </div>
+        <div className="todo-status-stepper" aria-label="状态">
+          {STATUS_OPTIONS.slice(0, 3).map((item) => (
+            <button
+              type="button"
+              key={item.value}
+              className={todo.status === item.value ? "is-active" : ""}
+              onClick={() => onStatus(item.value)}
+            >
+              {item.label}
+            </button>
+          ))}
         </div>
         {(todo.tags || []).length > 0 && (
           <div className="todo-card-tags">
@@ -402,9 +634,121 @@ function TodoCard({ todo, onEdit, onDelete, onDuplicate, onStatus, onPin }) {
   );
 }
 
+function frequencyLabel(rule) {
+  if (rule.frequency === "daily") return "每天";
+  if (rule.frequency === "weekdays") return "工作日";
+  const labels = (rule.weekdays || []).map((value) => WEEKDAY_OPTIONS.find((item) => item.value === value)?.label).filter(Boolean);
+  return labels.length ? labels.join(" / ") : "每周";
+}
+
+function RecurringPanel({ rules, onNew, onEdit, onDelete }) {
+  return (
+    <section className="todo-recurring-panel">
+      <header>
+        <div>
+          <p><Repeat2 size={15} /> 重复任务</p>
+          <span>{rules.length} 条规律计划</span>
+        </div>
+        <button type="button" onClick={onNew}><Plus size={14} /> 新建</button>
+      </header>
+      {rules.length === 0 ? (
+        <div className="todo-recurring-empty">把每天、每周固定要做的事放在这里。</div>
+      ) : (
+        <div className="todo-recurring-list">
+          {rules.map((rule) => (
+            <article key={rule.id} className={classes("todo-recurring-card", !rule.active && "is-paused")}>
+              <div>
+                <strong>{rule.title}</strong>
+                <span>{frequencyLabel(rule)} · {rule.startDate}{rule.endDate ? ` - ${rule.endDate}` : ""}</span>
+              </div>
+              <small>{rule.estimateMinutes || 0} 分钟</small>
+              <button type="button" onClick={() => onEdit(rule)} title="编辑"><Edit3 size={13} /></button>
+              <button type="button" onClick={() => onDelete(rule)} title="删除"><Trash2 size={13} /></button>
+            </article>
+          ))}
+        </div>
+      )}
+    </section>
+  );
+}
+
+function RecurringManagerModal({ rules, onClose, onNew, onEdit, onDelete }) {
+  return (
+    <div className="todo-modal-backdrop" onMouseDown={onClose}>
+      <div className="todo-recurring-manager" onMouseDown={(event) => event.stopPropagation()}>
+        <header>
+          <div>
+            <h2>重复任务</h2>
+            <span>{rules.length} 条规律计划，会自动生成到对应日期</span>
+          </div>
+          <button type="button" onClick={onClose} aria-label="关闭"><X size={18} /></button>
+        </header>
+        <RecurringPanel
+          rules={rules}
+          onNew={onNew}
+          onEdit={onEdit}
+          onDelete={onDelete}
+        />
+      </div>
+    </div>
+  );
+}
+
+function CalendarView({ planner, month, activeDate, onMonth, onSelectDate, onNewTodo }) {
+  const dayMap = useMemo(() => plannerDayMap(planner), [planner]);
+  const cells = useMemo(() => monthCells(month), [month]);
+  const [year, monthNumber] = month.split("-").map(Number);
+  const moveMonth = (amount) => {
+    const next = new Date(year, monthNumber - 1 + amount, 1, 12);
+    onMonth(`${next.getFullYear()}-${String(next.getMonth() + 1).padStart(2, "0")}`);
+  };
+
+  return (
+    <section className="todo-calendar-view">
+      <header className="todo-calendar-head">
+        <button type="button" onClick={() => moveMonth(-1)} title="上个月"><ChevronLeft size={16} /></button>
+        <div>
+          <h2>{year} · {MONTH_NAMES[monthNumber - 1]}</h2>
+          <span>安排未来事项，或查看重复任务生成后的日程密度</span>
+        </div>
+        <button type="button" onClick={() => moveMonth(1)} title="下个月"><ChevronRight size={16} /></button>
+      </header>
+      <div className="todo-calendar-weekdays">
+        {["日", "一", "二", "三", "四", "五", "六"].map((item) => <span key={item}>{item}</span>)}
+      </div>
+      <div className="todo-calendar-grid">
+        {cells.map((cell) => {
+          const day = dayMap.get(cell.date);
+          return (
+            <div
+              key={cell.date}
+              className={classes("todo-calendar-cell", !cell.inMonth && "is-muted", activeDate === cell.date && "is-active")}
+            >
+              <button type="button" className="todo-calendar-day-button" onClick={() => onSelectDate(cell.date)}>
+                <span>{cell.day}</span>
+                {day && (
+                  <div>
+                    <strong>{day.open} open</strong>
+                    <small>{day.done}/{day.total} done</small>
+                  </div>
+                )}
+              </button>
+              <button type="button" className="todo-calendar-add" onClick={() => onNewTodo(cell.date)} title="添加到这一天">
+                <CalendarPlus size={13} />
+              </button>
+            </div>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 export default function DailyTodoApp() {
-  const [planner, setPlanner] = useState({ tree: [], sections: [], tags: [], stats: {} });
+  const [planner, setPlanner] = useState({ tree: [], sections: [], recurring: [], tags: [], stats: {} });
   const [activeDate, setActiveDate] = useState(localDateIso());
+  const [viewMode, setViewMode] = useState("day");
+  const [calendarMonth, setCalendarMonth] = useState(localDateIso().slice(0, 7));
   const [dayData, setDayData] = useState(null);
   const [loadingPlanner, setLoadingPlanner] = useState(true);
   const [loadingDay, setLoadingDay] = useState(false);
@@ -415,6 +759,8 @@ export default function DailyTodoApp() {
   const [openMonths, setOpenMonths] = useState(() => new Set([`${Number(localDateIso().slice(0, 4))}-${Number(localDateIso().slice(5, 7))}`]));
   const [dateModal, setDateModal] = useState(null);
   const [todoModal, setTodoModal] = useState(null);
+  const [recurringModal, setRecurringModal] = useState(null);
+  const [recurringManagerOpen, setRecurringManagerOpen] = useState(false);
   const [quickTitle, setQuickTitle] = useState("");
   const [query, setQuery] = useState("");
   const [statusFilter, setStatusFilter] = useState("all");
@@ -424,7 +770,7 @@ export default function DailyTodoApp() {
     setLoadingPlanner(true);
     setError("");
     try {
-      const data = await fetchPlanner();
+      const data = await fetchPlanner(monthWindow(calendarMonth));
       setPlanner(data);
       const hasActive = data.tree?.some((year) => year.months.some((month) => month.days.some((day) => day.date === activeDate)));
       if (!hasActive) {
@@ -438,7 +784,7 @@ export default function DailyTodoApp() {
     } finally {
       setLoadingPlanner(false);
     }
-  }, [activeDate]);
+  }, [activeDate, calendarMonth]);
 
   const loadDay = useCallback(async (date) => {
     if (!date) return;
@@ -464,6 +810,7 @@ export default function DailyTodoApp() {
 
   useEffect(() => {
     loadDay(activeDate);
+    setCalendarMonth(activeDate.slice(0, 7));
     const year = Number(activeDate.slice(0, 4));
     const month = Number(activeDate.slice(5, 7));
     setOpenYears((current) => new Set([...current, year]));
@@ -519,15 +866,28 @@ export default function DailyTodoApp() {
   };
 
   const saveTodoModal = async (payload) => {
-    if (todoModal?.initial) {
+    if (todoModal?.initial?.id) {
       await updateTodo(todoModal.initial.id, payload);
       setStatus("Todo 已更新");
     } else {
       await createTodo(payload);
       setStatus("Todo 已创建");
     }
+    setActiveDate(payload.date || activeDate);
     await loadPlanner();
     await loadDay(payload.date || activeDate);
+  };
+
+  const saveRecurringModal = async (payload) => {
+    if (recurringModal?.initial) {
+      await updateRecurring(recurringModal.initial.id, payload);
+      setStatus("重复任务已更新");
+    } else {
+      await createRecurring(payload, monthWindow(calendarMonth));
+      setStatus("重复任务已创建");
+    }
+    await loadPlanner();
+    await loadDay(activeDate);
   };
 
   const quickAdd = async (event) => {
@@ -622,6 +982,14 @@ export default function DailyTodoApp() {
     await loadDay(activeDate);
   };
 
+  const handleDeleteRecurring = async (rule) => {
+    if (!window.confirm(`删除重复任务 “${rule.title}”？未来未完成的自动实例也会移除。`)) return;
+    await deleteRecurring(rule.id);
+    await loadPlanner();
+    await loadDay(activeDate);
+    setStatus("重复任务已删除");
+  };
+
   return (
     <div className={classes("todo-shell", sidebarCollapsed && "is-sidebar-collapsed")}>
       <Sidebar
@@ -666,8 +1034,19 @@ export default function DailyTodoApp() {
             <button type="button" onClick={() => setActiveDate(shiftDate(activeDate, 1))} title="后一天"><ChevronRight size={16} /></button>
           </div>
           <div className="todo-top-actions">
+            <div className="todo-view-switch" role="tablist" aria-label="视图">
+              <button type="button" className={viewMode === "day" ? "is-active" : ""} onClick={() => setViewMode("day")}>
+                <LayoutList size={14} /> 今日
+              </button>
+              <button type="button" className={viewMode === "calendar" ? "is-active" : ""} onClick={() => setViewMode("calendar")}>
+                <CalendarRange size={14} /> 月历
+              </button>
+            </div>
             <button type="button" onClick={() => setDateModal({ mode: dayData ? "edit" : "new", initial: dayData?.date || { date: activeDate } })}>
               <Edit3 size={15} /> 日期
+            </button>
+            <button type="button" onClick={() => setRecurringManagerOpen(true)}>
+              <Repeat2 size={15} /> 重复 {planner.recurring?.length || 0}
             </button>
             <button type="button" className="todo-primary-action" onClick={() => setTodoModal({ initial: null })}>
               <Plus size={15} /> Todo
@@ -682,75 +1061,96 @@ export default function DailyTodoApp() {
           </div>
         )}
 
-        <section className="todo-overview">
-          <div className="todo-focus-panel">
-            <div className="todo-kicker"><Sparkles size={14} /> 今日计划</div>
-            <h1>{dayStats.open > 0 ? `还有 ${dayStats.open} 件事要推进` : "今天的清单干净了"}</h1>
-            <p>{dayData?.date?.notes || "把今天变成一个可执行的清单：先定最重要的动作，再安排时间和能量。"}</p>
-            <form className="todo-quick-add" onSubmit={quickAdd}>
-              <input value={quickTitle} onChange={(event) => setQuickTitle(event.target.value)} placeholder="快速添加一个待办" />
-              <button type="submit"><Plus size={15} /></button>
-            </form>
-          </div>
-          <div className="todo-stats-grid">
-            <div><CheckCircle2 size={18} /><strong>{dayStats.pct}%</strong><span>完成度</span></div>
-            <div><LayoutList size={18} /><strong>{dayStats.total}</strong><span>总事项</span></div>
-            <div><Flame size={18} /><strong>{dayStats.doing}</strong><span>进行中</span></div>
-            <div><Clock3 size={18} /><strong>{dayStats.minutes}</strong><span>预计分钟</span></div>
-          </div>
-        </section>
-
-        <section className="todo-controls">
-          <label className="todo-search">
-            <Search size={14} />
-            <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索标题、标签、备注" />
-          </label>
-          <div className="todo-segment">
-            {["all", ...STATUS_OPTIONS.map((item) => item.value)].map((value) => (
-              <button type="button" key={value} className={statusFilter === value ? "is-active" : ""} onClick={() => setStatusFilter(value)}>
-                {value === "all" ? "全部" : STATUS_OPTIONS.find((item) => item.value === value)?.label}
-              </button>
-            ))}
-          </div>
-          <select value={sectionFilter} onChange={(event) => setSectionFilter(event.target.value)}>
-            <option value="all">全部分类</option>
-            {sections.map((section) => <option key={section} value={section}>{section}</option>)}
-          </select>
-        </section>
-
-        {(loadingPlanner || loadingDay) && (
-          <div className="todo-loading"><Loader2 className="todo-spin" size={18} /> 加载中...</div>
-        )}
-
-        <section className="todo-list" aria-label="每日 Todos">
-          {!loadingDay && visibleTodos.length === 0 && (
-            <div className="todo-empty">
-              <MoreHorizontal size={24} />
-              <p>{query || statusFilter !== "all" || sectionFilter !== "all" ? "没有匹配的待办。" : "这一天还没有 todo，先添加一个最小可执行动作。"}</p>
-            </div>
-          )}
-          {visibleTodos.map((todo) => (
-            <TodoCard
-              key={todo.id}
-              todo={todo}
-              onEdit={() => setTodoModal({ initial: todo })}
-              onDelete={async () => {
-                if (!window.confirm(`删除 “${todo.title}”？`)) return;
-                await deleteTodo(todo.id);
-                await loadPlanner();
-                await loadDay(activeDate);
+        {viewMode === "calendar" ? (
+          <>
+            <CalendarView
+              planner={planner}
+              month={calendarMonth}
+              activeDate={activeDate}
+              onMonth={setCalendarMonth}
+              onSelectDate={(date) => {
+                setActiveDate(date);
+                setViewMode("day");
               }}
-              onDuplicate={async () => {
-                await duplicateTodo(todo.id, activeDate);
-                await loadPlanner();
-                await loadDay(activeDate);
-                setStatus("已复制到当前日期");
+              onNewTodo={(date) => {
+                setActiveDate(date);
+                setTodoModal({ initial: { date } });
               }}
-              onStatus={(nextStatus) => mutateTodo(todo, { status: nextStatus })}
-              onPin={(pinned) => mutateTodo(todo, { pinned })}
             />
-          ))}
-        </section>
+          </>
+        ) : (
+          <>
+            <section className="todo-overview">
+              <div className="todo-focus-panel">
+                <div className="todo-kicker"><Sparkles size={14} /> 今日计划</div>
+                <h1>{dayStats.open > 0 ? `还有 ${dayStats.open} 件事要推进` : "今天的清单干净了"}</h1>
+                <p>{dayData?.date?.notes || "把今天变成一个可执行的清单：先定最重要的动作，再安排时间和能量。"}</p>
+                <form className="todo-quick-add" onSubmit={quickAdd}>
+                  <input value={quickTitle} onChange={(event) => setQuickTitle(event.target.value)} placeholder="快速添加一个待办" />
+                  <button type="submit"><Plus size={15} /></button>
+                </form>
+              </div>
+              <div className="todo-stats-grid">
+                <div><CheckCircle2 size={18} /><strong>{dayStats.pct}%</strong><span>完成度</span></div>
+                <div><LayoutList size={18} /><strong>{dayStats.total}</strong><span>总事项</span></div>
+                <div><Flame size={18} /><strong>{dayStats.doing}</strong><span>进行中</span></div>
+                <div><Clock3 size={18} /><strong>{dayStats.minutes}</strong><span>预计分钟</span></div>
+              </div>
+            </section>
+
+            <section className="todo-controls">
+              <label className="todo-search">
+                <Search size={14} />
+                <input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="搜索标题、标签、备注" />
+              </label>
+              <div className="todo-segment">
+                {["all", ...STATUS_OPTIONS.map((item) => item.value)].map((value) => (
+                  <button type="button" key={value} className={statusFilter === value ? "is-active" : ""} onClick={() => setStatusFilter(value)}>
+                    {value === "all" ? "全部" : STATUS_OPTIONS.find((item) => item.value === value)?.label}
+                  </button>
+                ))}
+              </div>
+              <select value={sectionFilter} onChange={(event) => setSectionFilter(event.target.value)}>
+                <option value="all">全部分类</option>
+                {sections.map((section) => <option key={section} value={section}>{section}</option>)}
+              </select>
+            </section>
+
+            {(loadingPlanner || loadingDay) && (
+              <div className="todo-loading"><Loader2 className="todo-spin" size={18} /> 加载中...</div>
+            )}
+
+            <section className="todo-list" aria-label="每日 Todos">
+              {!loadingDay && visibleTodos.length === 0 && (
+                <div className="todo-empty">
+                  <MoreHorizontal size={24} />
+                  <p>{query || statusFilter !== "all" || sectionFilter !== "all" ? "没有匹配的待办。" : "这一天还没有 todo，先添加一个最小可执行动作。"}</p>
+                </div>
+              )}
+              {visibleTodos.map((todo) => (
+                <TodoCard
+                  key={todo.id}
+                  todo={todo}
+                  onEdit={() => setTodoModal({ initial: todo })}
+                  onDelete={async () => {
+                    if (!window.confirm(`删除 “${todo.title}”？`)) return;
+                    await deleteTodo(todo.id);
+                    await loadPlanner();
+                    await loadDay(activeDate);
+                  }}
+                  onDuplicate={async () => {
+                    await duplicateTodo(todo.id, activeDate);
+                    await loadPlanner();
+                    await loadDay(activeDate);
+                    setStatus("已复制到当前日期");
+                  }}
+                  onStatus={(nextStatus) => mutateTodo(todo, { status: nextStatus })}
+                  onPin={(pinned) => mutateTodo(todo, { pinned })}
+                />
+              ))}
+            </section>
+          </>
+        )}
       </main>
 
       {dateModal && (
@@ -767,6 +1167,30 @@ export default function DailyTodoApp() {
           sections={sections}
           onClose={() => setTodoModal(null)}
           onSave={saveTodoModal}
+        />
+      )}
+      {recurringModal && (
+        <RecurringModal
+          initial={recurringModal.initial}
+          date={activeDate}
+          sections={sections}
+          onClose={() => setRecurringModal(null)}
+          onSave={saveRecurringModal}
+        />
+      )}
+      {recurringManagerOpen && (
+        <RecurringManagerModal
+          rules={planner.recurring || []}
+          onClose={() => setRecurringManagerOpen(false)}
+          onNew={() => {
+            setRecurringManagerOpen(false);
+            setRecurringModal({ initial: null });
+          }}
+          onEdit={(rule) => {
+            setRecurringManagerOpen(false);
+            setRecurringModal({ initial: rule });
+          }}
+          onDelete={handleDeleteRecurring}
         />
       )}
     </div>
