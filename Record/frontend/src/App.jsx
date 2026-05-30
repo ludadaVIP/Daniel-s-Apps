@@ -8,6 +8,7 @@ const RecordMeditationApp = lazy(() => import("./apps/record_meditation/App.jsx"
 const SaveMdApp = lazy(() => import("./apps/save_md/App.jsx"));
 const BookADayApp = lazy(() => import("./apps/book_a_day/App.jsx"));
 const DailyTodoApp = lazy(() => import("./apps/daily_todo/App.jsx"));
+const InvestmentApp = lazy(() => import("./apps/investment/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -47,6 +48,10 @@ export default function App() {
       <Route
         path="/daily-todo"
         element={withShell("Daily Todo", "#237489", DailyTodoApp)}
+      />
+      <Route
+        path="/investment"
+        element={withShell("Investment", "#1e3a5f", InvestmentApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

@@ -16,8 +16,10 @@ def read_json(path: Path, default: Any = None) -> Any:
 
 
 def write_json(path: Path, data: Any) -> None:
-    """Write *data* as pretty UTF-8 JSON, creating parent directories."""
+    """Write *data* as pretty UTF-8 JSON atomically (temp-file + rename)."""
     path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as handle:
+    tmp = path.with_suffix(".tmp")
+    with tmp.open("w", encoding="utf-8") as handle:
         json.dump(data, handle, ensure_ascii=False, indent=2)
         handle.write("\n")
+    tmp.replace(path)
