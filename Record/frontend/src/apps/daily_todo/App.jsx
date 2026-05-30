@@ -827,7 +827,7 @@ export default function DailyTodoApp() {
       });
     };
     syncToday();
-    const timer = window.setInterval(syncToday, 60_000);
+    const timer = window.setInterval(syncToday, 60 * 60_000);
     window.addEventListener("focus", syncToday);
     document.addEventListener("visibilitychange", syncToday);
     return () => {

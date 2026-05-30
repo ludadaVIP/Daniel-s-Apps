@@ -118,6 +118,40 @@ def _empty_store() -> dict[str, Any]:
     }
 
 
+def _prune_future_recurring_todos(store: dict[str, Any]) -> bool:
+    today = _today_iso()
+    remove_ids = [
+        todo_id for todo_id, todo in store["todos"].items()
+        if (
+            todo.get("recurringRuleId")
+            and todo.get("date", "") > today
+            and todo.get("status") == "todo"
+        )
+    ]
+    for todo_id in remove_ids:
+        store["todos"].pop(todo_id, None)
+    return bool(remove_ids)
+
+
+def _prune_empty_future_dates(store: dict[str, Any]) -> bool:
+    today = _today_iso()
+    dates = store["dates"]
+    dates_with_todos = {todo.get("date") for todo in store["todos"].values() if todo.get("date")}
+    remove_dates = [
+        date_text for date_text, day in dates.items()
+        if (
+            date_text > today
+            and date_text not in dates_with_todos
+            and isinstance(day, dict)
+            and (day.get("title") in ("", date_text))
+            and not str(day.get("notes") or "").strip()
+        )
+    ]
+    for date_text in remove_dates:
+        dates.pop(date_text, None)
+    return bool(remove_dates)
+
+
 def _load_store() -> dict[str, Any]:
     store = read_json(DATA_FILE, None)
     if not isinstance(store, dict):
@@ -162,6 +196,9 @@ def _load_store() -> dict[str, Any]:
             day["title"] = date_text
             day["updatedAt"] = now
             changed = True
+
+    changed = _prune_future_recurring_todos(store) or changed
+    changed = _prune_empty_future_dates(store) or changed
 
     if changed:
         write_json(DATA_FILE, store)
@@ -254,8 +291,26 @@ def _date_stats(store: dict[str, Any], date: str) -> dict[str, int]:
     }
 
 
-def _tree(store: dict[str, Any]) -> list[dict[str, Any]]:
-    dates = sorted(store["dates"].values(), key=lambda item: item.get("date", ""), reverse=True)
+def _tree(store: dict[str, Any], start: str | None = None, end: str | None = None) -> list[dict[str, Any]]:
+    if start and end:
+        window_dates = set(_date_range(start, end))
+    else:
+        window_dates = set(store["dates"])
+    date_items: dict[str, dict[str, Any]] = {
+        date_text: day for date_text, day in store["dates"].items()
+        if date_text in window_dates and isinstance(day, dict)
+    }
+    for date_text in window_dates:
+        if date_text in date_items:
+            continue
+        stats = _date_stats(store, date_text)
+        if stats["total"] > 0:
+            date_items[date_text] = {
+                "date": date_text,
+                "title": date_text,
+                "notes": "",
+            }
+    dates = sorted(date_items.values(), key=lambda item: item.get("date", ""), reverse=True)
     years: dict[str, dict[str, Any]] = {}
     for day in dates:
         date = day.get("date", "")
@@ -468,12 +523,13 @@ def planner():
     if request.method == "OPTIONS":
         return "", 204
     store = _load_store()
+    start, end = _request_window()
     todos = list(store["todos"].values())
     total = len(todos)
     done = sum(1 for todo in todos if todo.get("status") == "done")
     tags = sorted({tag for todo in todos for tag in todo.get("tags", [])})
     return jsonify({
-        "tree": _tree(store),
+        "tree": _tree(store, start, end),
         "sections": store["sections"],
         "recurring": store["recurring"],
         "tags": tags,
@@ -507,7 +563,16 @@ def date_detail(date: str):
         return "", 204
     current_date = _validate_date(date)
     store = _load_store()
+    changed = False
+    if current_date not in store["dates"] and any(
+        isinstance(rule, dict) and _rule_occurs_on(rule, current_date)
+        for rule in store["recurring"]
+    ):
+        _ensure_date(store, current_date)
+        changed = True
     if _materialise_recurring(store, current_date, current_date):
+        changed = True
+    if changed:
         _save_store(store)
     if current_date not in store["dates"]:
         raise DailyTodoError("Date not found.", 404)
@@ -584,8 +649,7 @@ def create_recurring():
     rule["createdAt"] = now
     rule["updatedAt"] = now
     store["recurring"].append(rule)
-    start, end = _request_window()
-    _materialise_recurring(store, start, end)
+    _materialise_recurring(store, _today_iso(), _today_iso())
     _save_store(store)
     return jsonify(rule), 201
 
@@ -619,8 +683,7 @@ def mutate_recurring(rule_id: str):
             store["recurring"][index] = updated
             break
     _sync_future_recurring_todos(store, updated)
-    start, end = _request_window()
-    _materialise_recurring(store, start, end)
+    _materialise_recurring(store, _today_iso(), _today_iso())
     _save_store(store)
     return jsonify(updated)
 
