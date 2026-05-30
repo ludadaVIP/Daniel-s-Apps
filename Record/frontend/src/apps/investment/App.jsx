@@ -37,6 +37,8 @@ import {
   deleteWatchlistItem,
   fetchBriefDoc,
   fetchBriefList,
+  fetchCase,
+  fetchCases,
   fetchJournal,
   fetchKnowledgeDoc,
   fetchKnowledgeTree,
@@ -85,17 +87,77 @@ const TABS = [
   { id: "journal", label: "决策日志", icon: Pencil, kind: "live" },
   { id: "knowledge", label: "知识库", icon: Library, kind: "live" },
   { id: "models", label: "思维模型", icon: Brain, kind: "live" },
-  { id: "cases", label: "案例库", icon: BookOpen, kind: "soon" },
+  { id: "cases", label: "案例库", icon: BookOpen, kind: "live" },
   { id: "brief", label: "市场简报", icon: Newspaper, kind: "live" },
   { id: "training", label: "训练", icon: GraduationCap, kind: "soon" },
 ];
 
 const SOON_DESCRIPTIONS = {
-  cases:
-    "Phase 3b 开放：经典投资案例（See's Candies / BTC 2013 / LTCM 崩盘 ...）。引擎和 knowledge/models 同源，加上时间轴 + 胜负标签即可。",
   training:
     "Phase 5 开放：每日金句、案例练习题、认知偏差小测。",
 };
+
+// ============================================================
+// Curated reading paths — what each overview should ACTUALLY show.
+// The sidebar already lists everything; the overview's job is to give
+// a curated entry point + reason why this order, not duplicate the list.
+// ============================================================
+
+const KNOWLEDGE_READING_PATH = [
+  { slug: "power-of-compounding", why: '复利的数学是所有价值投资的起点。先理解为什么 30 年不是 30 倍，再谈"长期"。' },
+  { slug: "loss-aversion", why: '你的大脑天生反对复利——损失痛苦是收益快乐的 2.25 倍。不认识敌人，纪律永远不稳。' },
+  { slug: "buffett-12-principles", why: 'Buffett 59 年蒸馏的 12 个判断题。业务 4 + 管理 4 + 财务 4 的可执行清单。' },
+  { slug: "three-financial-statements", why: '12 条原则的财务落地工具。三表互相校验是识破 Enron / Wirecard 类欺诈的底层方法。' },
+  { slug: "naval-four-leverages", why: '为什么 SaaS 估值倍数 = 制造业的 10 倍？理解杠杆类型才看得懂任何估值差异。' },
+  { slug: "bitcoin-as-hard-money", why: '53 年法币史的现代结局。理解硬通货叙事的逻辑根基，前沿才有锚点。' },
+];
+
+const MODELS_READING_PATH = [
+  { slug: "inversion", why: 'Munger 的第一思维工具。问"怎么必然失败"比"怎么成功"有用 10 倍。' },
+  { slug: "incentives", why: '看不见的激励驱动一切。99% 的"看不懂"是因为没看激励结构。' },
+  { slug: "circle-of-competence", why: '大多数人破产不是知识不够，是不知道自己不知道。Dunning-Kruger 的投资版。' },
+  { slug: "margin-of-safety", why: 'Graham 三字诀。承认估值会错的数学防线。从 Graham 进化到 Buffett 后期。' },
+  { slug: "mr-market", why: '把市场拟人化。Graham 1949 年的心理工具至今未过时。' },
+  { slug: "lollapalooza", why: '所有模型的综合应用。识别"多偏差同向" = 识别真危机和真伟大公司。' },
+];
+
+const CASES_READING_PATH = [
+  { slug: "1972-sees-candies", why: 'Buffett 投资哲学的拐点。读懂它你才懂 Berkshire 后 50 年和价值投资进化的逻辑。' },
+  { slug: "2003-amazon-buffett-miss", why: '同一个 Buffett 错过了什么、为什么、代价多大。能力圈纪律的真实成本。' },
+  { slug: "1998-ltcm-collapse", why: '聪明 + 杠杆 = 毁灭。Munger 用反演避开 LTCM 的最经典示范。' },
+  { slug: "2010-bitcoin-early-believers", why: '4 类早期信仰者对比：Hal Finney / Wences / 李笑来 / Roger Ver。"押注重到改变人生"的样本。' },
+  { slug: "2022-luna-terra-collapse", why: '现代旁氏的完整解剖。最近最完整的负向 Lollapalooza 教科书。' },
+];
+
+function CuratedPath({ items, resolve, onPick, emptyText }) {
+  const valid = items
+    .map((it) => ({ ...it, resolved: resolve(it.slug) }))
+    .filter((it) => it.resolved);
+
+  if (valid.length === 0) {
+    return <p className="inv-empty">{emptyText || "（暂无内容）"}</p>;
+  }
+
+  return (
+    <ol className="inv-curated-list">
+      {valid.map((pick, i) => (
+        <li key={pick.slug}>
+          <span className="inv-curated-num">{i + 1}</span>
+          <div className="inv-curated-body">
+            <button
+              type="button"
+              className="inv-curated-link"
+              onClick={() => onPick(pick.resolved.target)}
+            >
+              {pick.resolved.title}
+            </button>
+            <p className="inv-curated-why">{pick.why}</p>
+          </div>
+        </li>
+      ))}
+    </ol>
+  );
+}
 
 function localDateIso(date = new Date()) {
   const copy = new Date(date.getTime() - date.getTimezoneOffset() * 60_000);
@@ -166,6 +228,8 @@ export default function App() {
   const [briefList, setBriefList] = useState(null);
   const [briefKind, setBriefKind] = useState("daily");
   const [briefPath, setBriefPath] = useState(null);
+  const [casesList, setCasesList] = useState(null);
+  const [caseSlug, setCaseSlug] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -235,6 +299,14 @@ export default function App() {
       .catch((e) => setError(e.message || String(e)));
   }, [tab, briefList]);
 
+  // Lazy-load cases list.
+  useEffect(() => {
+    if (tab !== "cases" || casesList) return;
+    fetchCases()
+      .then((d) => setCasesList(d))
+      .catch((e) => setError(e.message || String(e)));
+  }, [tab, casesList]);
+
   // Click on a [[wiki-link]] inside markdown → jump to the matching entry.
   const openWikiLink = useCallback(
     async (slug) => {
@@ -268,6 +340,18 @@ export default function App() {
         }
         return null;
       };
+      const tryCases = async () => {
+        let data = casesList;
+        if (!data) {
+          try {
+            data = await fetchCases();
+            setCasesList(data);
+          } catch {
+            data = { items: [] };
+          }
+        }
+        return (data.items || []).find((c) => c.slug === slug);
+      };
 
       const modelHit = await tryModels();
       if (modelHit) {
@@ -281,9 +365,15 @@ export default function App() {
         setKnowledgePath(docHit.path);
         return;
       }
+      const caseHit = await tryCases();
+      if (caseHit) {
+        setTab("cases");
+        setCaseSlug(slug);
+        return;
+      }
       setError(`内部链接 [[${slug}]] 还没指向已存在的条目。`);
     },
-    [knowledgeTree, modelsList],
+    [knowledgeTree, modelsList, casesList],
   );
 
   return (
@@ -382,6 +472,14 @@ export default function App() {
             }}
             selectedPath={briefPath}
             onSelect={setBriefPath}
+            onWikiLink={openWikiLink}
+            onError={setError}
+          />
+        ) : tab === "cases" ? (
+          <CasesView
+            data={casesList}
+            selectedSlug={caseSlug}
+            onSelect={setCaseSlug}
             onWikiLink={openWikiLink}
             onError={setError}
           />
@@ -1463,24 +1561,14 @@ function KnowledgeView({ tree, selectedPath, onSelect, onWikiLink, onError }) {
 }
 
 function KnowledgeOverview({ tree, onPick }) {
-  const totalByPillar = useMemo(() => {
-    const out = {};
-    for (const cat of tree.categories) {
-      for (const d of cat.docs) {
-        const key = d.pillar || "other";
-        out[key] = (out[key] || 0) + 1;
-      }
+  const resolve = (slug) => {
+    for (const cat of tree?.categories || []) {
+      const doc = (cat.docs || []).find((d) => d.slug === slug);
+      if (doc) return { title: doc.title, target: doc.path };
     }
-    return out;
-  }, [tree]);
-
-  const recent = useMemo(() => {
-    const all = [];
-    for (const cat of tree.categories) {
-      for (const d of cat.docs) all.push(d);
-    }
-    return all.sort((a, b) => String(b.created || "").localeCompare(String(a.created || ""))).slice(0, 6);
-  }, [tree]);
+    return null;
+  };
+  const total = tree?.total ?? 0;
 
   return (
     <div className="inv-overview">
@@ -1488,53 +1576,20 @@ function KnowledgeOverview({ tree, onPick }) {
         <p className="inv-home-eyebrow">Knowledge · 知识库</p>
         <h1>静态知识沉淀</h1>
         <p className="inv-page-sub">
-          长期不变的知识——经济学基础、价值投资原则、前沿叙事、商业认知、行为偏差。
-          AI 按 README 的节奏写入；写完会出现在左侧目录。
+          <strong>左侧</strong>是 {total} 篇完整目录（按 pillar 分组、可搜索过滤）。
+          <strong>这里</strong>只做一件侧栏做不到的事：告诉你<em>从哪一篇开始读 + 为什么是这个顺序</em>。
         </p>
       </header>
 
-      <div className="inv-home-grid">
-        {tree.categories.map((cat) => (
-          <button
-            key={cat.key}
-            type="button"
-            className="inv-dash-card"
-            style={{ "--card-accent": "#2d6a4f" }}
-            onClick={() => cat.docs[0] && onPick(cat.docs[0].path)}
-          >
-            <div className="inv-dash-icon"><Library size={18} strokeWidth={2} /></div>
-            <div className="inv-dash-title">{cat.label}</div>
-            <div className="inv-dash-value">
-              <span className="inv-dash-number">{cat.docs.length}</span>
-              <span className="inv-dash-unit">篇</span>
-            </div>
-            <div className="inv-dash-hint">
-              {cat.docs[0] ? cat.docs[0].title : "（暂无内容）"}
-            </div>
-          </button>
-        ))}
-      </div>
-
-      {recent.length > 0 && (
-        <div className="inv-home-card">
-          <header>
-            <h2>最近写入</h2>
-          </header>
-          <ul className="inv-mini-list">
-            {recent.map((d) => (
-              <li key={d.path}>
-                <span className="inv-mini-tag">{PILLAR_LABEL[d.pillar] || "—"}</span>
-                <strong>
-                  <button type="button" className="inv-link" onClick={() => onPick(d.path)}>
-                    {d.title}
-                  </button>
-                </strong>
-                <span className="inv-mini-thesis">{truncate(d.one_line, 80)}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      )}
+      <section className="inv-curated">
+        <h2>如果你刚开始，按这个顺序读</h2>
+        <CuratedPath
+          items={KNOWLEDGE_READING_PATH}
+          resolve={resolve}
+          onPick={onPick}
+          emptyText="知识库还是空的。让 AI 按 README 节奏写就行。"
+        />
+      </section>
     </div>
   );
 }
@@ -1688,34 +1743,291 @@ function ModelsView({ items, selectedSlug, onSelect, onWikiLink, onError }) {
 }
 
 function ModelsOverview({ items, onPick }) {
-  const featured = items.slice(0, Math.min(6, items.length));
+  const resolve = (slug) => {
+    const m = (items || []).find((x) => x.slug === slug);
+    return m ? { title: m.title, target: m.slug } : null;
+  };
+  const total = items?.length ?? 0;
+
   return (
     <div className="inv-overview">
       <header>
         <p className="inv-home-eyebrow">Mental Models · 思维模型</p>
         <h1>多元思维框架</h1>
         <p className="inv-page-sub">
-          Munger 的 lattice of mental models：从数学、物理、生物、心理、经济、哲学…等学科借来的<em>思维原语</em>。
-          投资是把这些原语组合起来用。
+          Munger 的 lattice of mental models：从数学、物理、生物、心理、经济、哲学借来的<em>思维原语</em>。
+          <strong>左侧</strong>是 {total} 个完整列表（按 pillar 过滤、可搜索）。
+          <strong>这里</strong>只给 Munger 优先级最高的 6 个 + 为什么先学它们。
         </p>
       </header>
-      {items.length === 0 ? (
-        <p className="inv-empty">还没有模型。让 AI 按 README 节奏写就行。</p>
-      ) : (
-        <ul className="inv-mini-list">
-          {featured.map((m) => (
-            <li key={m.slug}>
-              <span className="inv-mini-tag">{PILLAR_LABEL[m.pillar] || "?"}</span>
-              <strong>
-                <button type="button" className="inv-link" onClick={() => onPick(m.slug)}>
-                  {m.title}
+
+      <section className="inv-curated">
+        <h2>如果你只学 6 个模型，学这些</h2>
+        <CuratedPath
+          items={MODELS_READING_PATH}
+          resolve={resolve}
+          onPick={onPick}
+          emptyText="还没有模型。让 AI 按 README 节奏写就行。"
+        />
+      </section>
+    </div>
+  );
+}
+
+// ============================================================
+// Cases view (历史投资案例)
+// ============================================================
+
+const OUTCOME_LABEL = {
+  winner: "胜",
+  loser: "败",
+  mixed: "混",
+};
+
+function decadeOf(era) {
+  const year = parseInt((era || "").slice(0, 4), 10);
+  if (!year || Number.isNaN(year)) return "未定";
+  return `${Math.floor(year / 10) * 10}s`;
+}
+
+function CasesView({ data, selectedSlug, onSelect, onWikiLink, onError }) {
+  const [caseDoc, setCaseDoc] = useState(null);
+  const [loadingDoc, setLoadingDoc] = useState(false);
+  const [outcomeFilter, setOutcomeFilter] = useState("");
+  const [pillarFilter, setPillarFilter] = useState("");
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    if (!selectedSlug) {
+      setCaseDoc(null);
+      return;
+    }
+    let alive = true;
+    setLoadingDoc(true);
+    fetchCase(selectedSlug)
+      .then((d) => {
+        if (alive) setCaseDoc(d);
+      })
+      .catch((e) => {
+        if (alive) onError(e.message || String(e));
+      })
+      .finally(() => {
+        if (alive) setLoadingDoc(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [selectedSlug, onError]);
+
+  if (!data) {
+    return (
+      <div className="inv-loading">
+        <Loader2 size={18} className="inv-spin" />
+        <span>正在读取案例库…</span>
+      </div>
+    );
+  }
+
+  const items = data.items || [];
+  const filtered = items.filter((c) => {
+    if (outcomeFilter && c.winner_or_loser !== outcomeFilter) return false;
+    if (pillarFilter && c.pillar !== pillarFilter) return false;
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      const hay = `${c.title} ${c.slug} ${(c.tags || []).join(" ")} ${c.one_line || ""} ${c.era || ""}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Group by decade descending.
+  const decades = new Map();
+  for (const c of filtered) {
+    const d = decadeOf(c.era);
+    if (!decades.has(d)) decades.set(d, []);
+    decades.get(d).push(c);
+  }
+  const groups = Array.from(decades.entries()).sort((a, b) => b[0].localeCompare(a[0]));
+
+  return (
+    <div className="inv-twocol">
+      <aside className="inv-twocol-side">
+        <div className="inv-search-box">
+          <Search size={14} strokeWidth={2} />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="按标题 / 人物 / 年代搜"
+          />
+          {query && (
+            <button type="button" onClick={() => setQuery("")}>
+              <X size={12} />
+            </button>
+          )}
+        </div>
+
+        <div className="inv-pillar-bar">
+          <button
+            type="button"
+            className={classes("inv-pillar-btn", !outcomeFilter && "is-active")}
+            onClick={() => setOutcomeFilter("")}
+          >
+            全部 <span>{items.length}</span>
+          </button>
+          {["winner", "loser", "mixed"].map((o) =>
+            (data.outcomes || {})[o] ? (
+              <button
+                key={o}
+                type="button"
+                className={classes("inv-pillar-btn", outcomeFilter === o && "is-active")}
+                onClick={() => setOutcomeFilter(o === outcomeFilter ? "" : o)}
+              >
+                {OUTCOME_LABEL[o]} <span>{data.outcomes[o]}</span>
+              </button>
+            ) : null,
+          )}
+        </div>
+
+        {Object.keys(data.pillars || {}).length > 1 && (
+          <div className="inv-pillar-bar">
+            {PILLARS.map((p) =>
+              (data.pillars || {})[p.value] ? (
+                <button
+                  key={p.value}
+                  type="button"
+                  className={classes("inv-pillar-btn", pillarFilter === p.value && "is-active")}
+                  onClick={() => setPillarFilter(p.value === pillarFilter ? "" : p.value)}
+                  data-pillar={p.value}
+                >
+                  {p.short} <span>{data.pillars[p.value]}</span>
                 </button>
-              </strong>
-              <span className="inv-mini-thesis">{truncate(m.one_line, 80)}</span>
-            </li>
+              ) : null,
+            )}
+          </div>
+        )}
+
+        {filtered.length === 0 ? (
+          <div className="inv-side-empty">
+            {items.length === 0 ? "案例库还是空的。" : "当前过滤没有结果。"}
+          </div>
+        ) : (
+          <nav className="inv-tree">
+            {groups.map(([decade, list]) => (
+              <div key={decade} className="inv-tree-cat">
+                <div className="inv-tree-cat-head" style={{ cursor: "default" }}>
+                  <span style={{ marginLeft: 4 }}>{decade}</span>
+                  <span className="inv-tree-count">{list.length}</span>
+                </div>
+                <ul className="inv-tree-list">
+                  {list.map((c) => (
+                    <li key={c.slug}>
+                      <button
+                        type="button"
+                        className={classes("inv-tree-item", selectedSlug === c.slug && "is-active")}
+                        onClick={() => onSelect(c.slug)}
+                        title={c.one_line || c.title}
+                      >
+                        <span className="inv-brief-row">
+                          <span className="inv-brief-key">{c.era}</span>
+                          <span className={classes("inv-outcome-tag", `is-${c.winner_or_loser}`)}>
+                            {OUTCOME_LABEL[c.winner_or_loser] || "?"}
+                          </span>
+                        </span>
+                        <span className="inv-tree-title inv-brief-title">{c.title}</span>
+                        {c.one_line && (
+                          <span className="inv-tree-tags">{truncate(c.one_line, 48)}</span>
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        )}
+      </aside>
+
+      <section className="inv-twocol-main">
+        {!selectedSlug ? (
+          <CasesOverview data={data} onPick={onSelect} />
+        ) : loadingDoc ? (
+          <div className="inv-loading">
+            <Loader2 size={18} className="inv-spin" />
+            <span>载入中…</span>
+          </div>
+        ) : caseDoc ? (
+          <article className="inv-doc">
+            <CaseHeader meta={caseDoc.meta} />
+            <MarkdownReader body={caseDoc.body} onWikiLink={onWikiLink} />
+          </article>
+        ) : (
+          <p className="inv-empty">没找到这个案例。</p>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function CaseHeader({ meta }) {
+  if (!meta) return null;
+  const tags = Array.isArray(meta.tags) ? meta.tags : [];
+  const outcome = String(meta.winner_or_loser || "mixed").toLowerCase();
+  return (
+    <header className="inv-doc-head">
+      <div className="inv-doc-crumbs">
+        {meta.era && <span className="inv-pillar-chip" data-kind="daily">{meta.era}</span>}
+        {meta.pillar && (
+          <span className="inv-pillar-chip" data-pillar={meta.pillar}>
+            {PILLAR_LABEL[meta.pillar] || meta.pillar}
+          </span>
+        )}
+        <span className={classes("inv-outcome-tag", `is-${outcome}`)}>
+          {outcome === "winner" ? "胜：值得学" : outcome === "loser" ? "败：值得避" : "混：复杂"}
+        </span>
+      </div>
+      <h1>{meta.title || meta.slug}</h1>
+      {meta.source && <p className="inv-doc-source">出处：{meta.source}</p>}
+      {tags.length > 0 && (
+        <div className="inv-doc-tags">
+          {tags.map((t) => (
+            <span key={t} className="inv-tag-chip">
+              <Tag size={10} strokeWidth={2} /> {t}
+            </span>
           ))}
-        </ul>
+        </div>
       )}
+    </header>
+  );
+}
+
+function CasesOverview({ data, onPick }) {
+  const items = data.items || [];
+  const resolve = (slug) => {
+    const c = items.find((x) => x.slug === slug);
+    return c ? { title: c.title, target: c.slug } : null;
+  };
+
+  return (
+    <div className="inv-overview">
+      <header>
+        <p className="inv-home-eyebrow">Cases · 案例库</p>
+        <h1>历史的非随机样本</h1>
+        <p className="inv-page-sub">
+          Munger："读历史是最便宜的教育——别人花一辈子学到的事，你只需要花一周读完。"
+          <strong>左侧</strong>是 {items.length} 个完整时间轴（按年代分组、可按胜/败/混过滤）。
+          <strong>这里</strong>是<em>推荐起手的 5 个</em>，按学习价值（不是时间）排序。
+        </p>
+      </header>
+
+      <section className="inv-curated">
+        <h2>如果你只读 5 个案例，读这些</h2>
+        <CuratedPath
+          items={CASES_READING_PATH}
+          resolve={resolve}
+          onPick={onPick}
+          emptyText="案例库还是空的。"
+        />
+      </section>
     </div>
   );
 }
@@ -1911,8 +2223,8 @@ function BriefHeader({ meta, kind }) {
 }
 
 function BriefOverview({ list, onPick }) {
-  const latestDaily = list.daily.slice(0, 4);
-  const latestWeekly = list.weekly.slice(0, 4);
+  const latestDaily = list.daily[0];
+  const latestWeekly = list.weekly[0];
 
   return (
     <div className="inv-overview">
@@ -1921,63 +2233,53 @@ function BriefOverview({ list, onPick }) {
         <h1>日报 + 周报</h1>
         <p className="inv-page-sub">
           每日宏观速读（信号 + 噪音分流）和每周行业深度（Bull vs Bear 对撞）。
-          AI 按 README 模板在当日 / 当周生成，<em>不要事后补写</em>——时效性是这两类内容的核心价值。
+          <strong>左侧</strong>是完整时间轴（按月分组）；<strong>这里</strong>只聚焦
+          <em>今天和本周</em>——简报的价值在时效，不在归档。
         </p>
       </header>
 
-      <div className="inv-home-row">
-        <div className="inv-home-card">
-          <header>
-            <h2>最近日报</h2>
-            <button type="button" className="inv-link" onClick={() => onPick(null, "daily")}>
-              全部 →
-            </button>
-          </header>
-          {latestDaily.length === 0 ? (
-            <p className="inv-empty">还没有日报。让 AI 用今天的数据写第一份。</p>
-          ) : (
-            <ul className="inv-mini-list">
-              {latestDaily.map((it) => (
-                <li key={it.path}>
-                  <span className="inv-mini-tag">{(it.date || "").slice(5)}</span>
-                  <strong>
-                    <button type="button" className="inv-link" onClick={() => onPick(it.path, "daily")}>
-                      {it.title}
-                    </button>
-                  </strong>
-                  <span className="inv-mini-thesis">{truncate(it.one_line, 80)}</span>
-                </li>
-              ))}
-            </ul>
+      {!latestDaily && !latestWeekly ? (
+        <p className="inv-empty">还没有简报。AI 会按 README 模板在当日 / 当周生成。</p>
+      ) : (
+        <div className="inv-brief-spotlight">
+          {latestDaily && (
+            <article className="inv-spotlight-card">
+              <span className="inv-spotlight-label">
+                最新日报 · {latestDaily.date}
+                {latestDaily.weekday ? ` · ${latestDaily.weekday}` : ""}
+                {latestDaily.sample ? " · 样本" : ""}
+              </span>
+              <h2>
+                <button type="button" onClick={() => onPick(latestDaily.path, "daily")}>
+                  {latestDaily.title}
+                </button>
+              </h2>
+              {latestDaily.one_line && (
+                <p className="inv-spotlight-snippet">{latestDaily.one_line}</p>
+              )}
+            </article>
+          )}
+          {latestWeekly && (
+            <article className="inv-spotlight-card">
+              <span className="inv-spotlight-label">
+                本周深度 · {latestWeekly.week_start} → {latestWeekly.week_end}
+                {latestWeekly.sample ? " · 样本" : ""}
+              </span>
+              <h2>
+                <button type="button" onClick={() => onPick(latestWeekly.path, "weekly")}>
+                  {latestWeekly.title}
+                </button>
+              </h2>
+              {latestWeekly.focus_industry && (
+                <p className="inv-spotlight-focus">聚焦：{latestWeekly.focus_industry}</p>
+              )}
+              {latestWeekly.one_line && (
+                <p className="inv-spotlight-snippet">{latestWeekly.one_line}</p>
+              )}
+            </article>
           )}
         </div>
-
-        <div className="inv-home-card">
-          <header>
-            <h2>最近周报</h2>
-            <button type="button" className="inv-link" onClick={() => onPick(null, "weekly")}>
-              全部 →
-            </button>
-          </header>
-          {latestWeekly.length === 0 ? (
-            <p className="inv-empty">还没有周报。</p>
-          ) : (
-            <ul className="inv-mini-list">
-              {latestWeekly.map((it) => (
-                <li key={it.path}>
-                  <span className="inv-mini-tag">{it.slug}</span>
-                  <strong>
-                    <button type="button" className="inv-link" onClick={() => onPick(it.path, "weekly")}>
-                      {it.title}
-                    </button>
-                  </strong>
-                  <span className="inv-mini-thesis">{truncate(it.focus_industry || it.one_line, 60)}</span>
-                </li>
-              ))}
-            </ul>
-          )}
-        </div>
-      </div>
+      )}
     </div>
   );
 }

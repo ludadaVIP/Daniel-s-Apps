@@ -495,6 +495,57 @@ def model_detail(slug: str):
     })
 
 
+# ---------- cases ----------
+
+def _case_summary(md_path: Path) -> dict[str, Any]:
+    try:
+        doc = read_markdown(md_path)
+    except OSError:
+        return {}
+    meta = doc.meta
+    return {
+        "slug": meta.get("slug") or md_path.stem,
+        "title": meta.get("title") or md_path.stem,
+        "pillar": meta.get("pillar") or "other",
+        "era": str(meta.get("era") or ""),
+        "winner_or_loser": str(meta.get("winner_or_loser") or "mixed").lower(),
+        "tags": meta.get("tags") or [],
+        "source": meta.get("source") or "",
+        "one_line": extract_one_line(doc.body),
+    }
+
+
+@bp.get("/cases")
+def cases_list():
+    if not CASES_DIR.exists():
+        return jsonify({"items": [], "pillars": {}, "outcomes": {}})
+    items: list[dict[str, Any]] = []
+    pillars: dict[str, int] = {}
+    outcomes: dict[str, int] = {}
+    for md_path in sorted(CASES_DIR.glob("*.md")):
+        s = _case_summary(md_path)
+        if not s:
+            continue
+        items.append(s)
+        pillars[s["pillar"]] = pillars.get(s["pillar"], 0) + 1
+        outcomes[s["winner_or_loser"]] = outcomes.get(s["winner_or_loser"], 0) + 1
+    # Sort by era DESC (newest first); cases without era go last.
+    items.sort(key=lambda c: (c["era"] or "0000"), reverse=True)
+    return jsonify({"items": items, "pillars": pillars, "outcomes": outcomes})
+
+
+@bp.get("/cases/<slug>")
+def case_detail(slug: str):
+    safe_slug = re.sub(r"[^a-zA-Z0-9_-]+", "", slug)[:80]
+    if not safe_slug:
+        raise InvestmentError("Invalid case slug.")
+    target = CASES_DIR / f"{safe_slug}.md"
+    if not target.exists():
+        raise InvestmentError("Case not found.", 404)
+    doc = read_markdown(target)
+    return jsonify({"slug": safe_slug, "meta": doc.meta, "body": doc.body})
+
+
 # ---------- market brief (daily + weekly) ----------
 
 def _brief_summary(md_path: Path, *, kind: str) -> dict[str, Any]:
@@ -623,7 +674,7 @@ def meta():
     ]
     return jsonify({
         "ok": True,
-        "phase": "1+2+3+4 (scaffold + workbench + knowledge/models + brief)",
+        "phase": "1+2+3+3b+4 (scaffold + workbench + knowledge/models + cases + brief)",
         "counts": {
             "watchlist": len(watchlist),
             "journal": len(journal),

@@ -320,23 +320,35 @@
     flex-direction: column;
     gap: 8px;
   }
+  /* 2-column grid: tag spans both rows on the left,
+     title (row 1) and description (row 2) stack on the right.
+     This prevents long titles from squeezing the description into
+     a 1-character-per-line strip. */
   .inv-mini-list li {
     display: grid;
-    grid-template-columns: auto auto 1fr;
-    gap: 8px;
+    grid-template-columns: auto minmax(0, 1fr);
+    column-gap: 10px;
+    row-gap: 3px;
     align-items: baseline;
-    font-size: 13px;
-    padding: 6px 0;
+    padding: 9px 0;
     border-bottom: 1px dashed var(--inv-line-soft);
+    font-size: 13px;
   }
   .inv-mini-list li:last-child { border-bottom: 0; }
+  .inv-mini-list li > .inv-mini-tag {
+    grid-row: span 2;
+    align-self: start;
+    margin-top: 3px;
+  }
   .inv-mini-list strong {
     color: var(--inv-ink-soft);
     font-weight: 600;
+    line-height: 1.45;
   }
   .inv-mini-thesis {
     color: var(--inv-muted);
     font-size: 12.5px;
+    line-height: 1.55;
   }
   .inv-mini-tag {
     font-size: 10.5px;
@@ -1333,5 +1345,156 @@
   .inv-sample-banner strong {
     color: #5e3b0c;
     font-weight: 600;
+  }
+
+  /* ===================== Cases ===================== */
+
+  .inv-outcome-tag {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 22px;
+    height: 18px;
+    padding: 0 6px;
+    border-radius: 4px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+  }
+  .inv-outcome-tag.is-winner { background: #def0e3; color: #1f6b3a; }
+  .inv-outcome-tag.is-loser { background: #fbe1dc; color: #8c2c1e; }
+  .inv-outcome-tag.is-mixed { background: #fbeed1; color: #7a541a; }
+
+  /* ===================== Curated reading path (overview) ===================== */
+
+  .inv-curated {
+    background: var(--inv-surface);
+    border: 1px solid var(--inv-line);
+    border-radius: 12px;
+    padding: 24px clamp(22px, 3vw, 36px) 28px;
+    box-shadow: var(--inv-shadow);
+    max-width: 880px;
+  }
+  .inv-curated h2 {
+    margin: 0 0 22px;
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--inv-gold);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+  .inv-curated-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+  .inv-curated-list li {
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    column-gap: 16px;
+    align-items: start;
+    padding-bottom: 18px;
+    border-bottom: 1px dashed var(--inv-line-soft);
+  }
+  .inv-curated-list li:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+  }
+  .inv-curated-num {
+    width: 28px;
+    height: 28px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: var(--inv-accent-soft);
+    color: var(--inv-accent);
+    font-weight: 600;
+    font-size: 12.5px;
+    font-family: ui-monospace, SFMono-Regular, monospace;
+    margin-top: 2px;
+  }
+  .inv-curated-body { min-width: 0; }
+  .inv-curated-link {
+    display: inline;
+    color: var(--inv-accent);
+    font-size: 16px;
+    font-weight: 600;
+    text-align: left;
+    line-height: 1.5;
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    text-decoration: none;
+  }
+  .inv-curated-link:hover {
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    color: #15314e;
+  }
+  .inv-curated-why {
+    margin: 6px 0 0;
+    color: var(--inv-ink-soft);
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  /* ===================== Brief spotlight (overview) ===================== */
+
+  .inv-brief-spotlight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 20px;
+    max-width: 1240px;
+  }
+  .inv-spotlight-card {
+    background: var(--inv-surface);
+    border: 1px solid var(--inv-line);
+    border-left: 3px solid var(--inv-gold);
+    border-radius: 10px;
+    padding: 22px 26px 24px;
+    box-shadow: var(--inv-shadow);
+  }
+  .inv-spotlight-label {
+    display: block;
+    font-size: 11px;
+    color: var(--inv-gold);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-weight: 600;
+  }
+  .inv-spotlight-card h2 {
+    margin: 8px 0 12px;
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1.45;
+  }
+  .inv-spotlight-card h2 button {
+    color: var(--inv-ink);
+    text-align: left;
+    padding: 0;
+    background: transparent;
+    border: 0;
+    font: inherit;
+    cursor: pointer;
+  }
+  .inv-spotlight-card h2 button:hover {
+    color: var(--inv-accent);
+  }
+  .inv-spotlight-focus {
+    margin: 6px 0 8px;
+    font-size: 13px;
+    color: var(--inv-accent);
+    font-weight: 500;
+  }
+  .inv-spotlight-snippet {
+    margin: 4px 0 0;
+    color: var(--inv-muted);
+    font-size: 13.5px;
+    line-height: 1.65;
   }
 }

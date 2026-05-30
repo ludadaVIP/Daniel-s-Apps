@@ -101,6 +101,16 @@ export async function fetchModel(slug) {
   return parse(await fetch(`${BASE}/models/${encodeURIComponent(slug)}`));
 }
 
+// ---------- cases ----------
+
+export async function fetchCases() {
+  return parse(await fetch(`${BASE}/cases`));
+}
+
+export async function fetchCase(slug) {
+  return parse(await fetch(`${BASE}/cases/${encodeURIComponent(slug)}`));
+}
+
 // ---------- brief ----------
 
 export async function fetchBriefList() {
