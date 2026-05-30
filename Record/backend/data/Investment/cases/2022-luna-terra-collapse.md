@@ -78,7 +78,7 @@ Anchor 是 Terra 链上的储蓄产品。你存 UST 进去，年化 20%。
 - **FatMan**（匿名研究员，从 2022-01 起）：连续发推剖析机制漏洞
 - **Mike Burgersburg**（Dirty Bubble Media）：分析 LFG 的 BTC 储备根本不够应对 1% 脱锚
 
-**Bear 阵营当时被嘲讽为"FUD"、"看不懂创新"**。这是一个值得记住的模式：**结构性问题被解读为"个人偏见"，本质是 [[social-proof]] + [[loss-aversion]] 的混合作用**。
+**Bear 阵营当时被嘲讽为"FUD"、"看不懂创新"**。这是一个值得记住的模式：**结构性问题被解读为"个人偏见"，本质是 [[lollapalooza]] 里 social-proof 偏差 + [[loss-aversion]] 的混合作用**。
 
 ## 隐藏因素（媒体很少讲的）
 

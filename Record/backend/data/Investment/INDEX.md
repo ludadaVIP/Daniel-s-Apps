@@ -3,7 +3,7 @@
 > 这是 AI 协作的"系统盘点单"。**每次新增/删除/重命名内容文件，都要回来更新这里。**
 > 写作约定见同目录的 `README.md`，总体设计见根目录的 `Investment.md`。
 
-最近更新：2026-05-30 — 新增 6 篇 knowledge（DCF + Kelly + Dalio 债务周期 + Helmer 7 Powers + Christensen 颠覆理论 + 幸存者偏差）；知识库总数从 6 → **12 篇**，覆盖估值 / 仓位 / 宏观 / 战略 / 认知五大缺口。
+最近更新：2026-05-30 — 思维模型新增 **12+12=24 篇**，模型库从 12 → **36 篇**。新增覆盖：Taleb 三连（反脆弱/期权性/切肤）、Soros 反身性、第一性原理、Bayes、4 个 Munger 25 偏差（confirmation/anchoring/sunk-cost/narrative）+ 4 个新偏差（hindsight/availability/endowment/cognitive-dissonance）、博弈论、信息不对称、公地悲剧、Goldratt ToC、Pre-mortem、红皇后、奥卡姆/汉伦双剃刀、Chesterton 栅栏、时间套利。
 
 ---
 
@@ -31,27 +31,55 @@
 
 ## models（按 Pillar 归类显示）
 
-### Wisdom · 商业认知与决策
-- [反演 Inversion](models/inversion.md) — Jacobi 数学起源 + Munger 一辈子实践 + LTCM/dotcom 避开 + Pre-mortem 工具 + 与 Lollapalooza 组合
-- [二阶思维 Second-Order Thinking](models/second-order-thinking.md) — Howard Marks 论断 + 2020 Druckenmiller +30% / Ackman $2.6B 详细 + "然后呢" 训练 + 2022 假二阶反例
-- [网络效应 Network Effects](models/network-effects.md) — Vail 1908 + Metcalfe 定律数学 + 5 类详细 + Facebook vs Friendster + Twitter/Snapchat 反向网络效应
-- [激励的超能力 Incentives](models/incentives.md) — Munger 25 偏差第一位 + 5 个具体场景 + FTX 案例 + 旋转门数据 + Buffett 自身良性激励
-- [Lollapalooza 效应](models/lollapalooza.md) — 25 偏差完整列表 + Madoff 6 重 + See's 正向 / 2008 负向 / 2017 ICO / 2022 LUNA + 实战练习
+### Wisdom · 商业认知与决策（10 篇）
+- [反演 Inversion](models/inversion.md) — Jacobi 数学起源 + Munger 一辈子实践
+- [二阶思维 Second-Order Thinking](models/second-order-thinking.md) — Howard Marks + Druckenmiller + Ackman $2.6B
+- [网络效应 Network Effects](models/network-effects.md) — Vail 1908 + Metcalfe 定律 + 5 类详细
+- [激励的超能力 Incentives](models/incentives.md) — Munger 25 偏差第一位 + FTX 案例
+- [Lollapalooza 效应](models/lollapalooza.md) — Madoff 6 重 + See's 正向 / 2008 负向
+- [反身性 Reflexivity](models/reflexivity.md) **新** — Soros 60 年 $300 亿 + 5 步循环 + 1992 做空英镑
+- [切肤之痛 Skin in the Game](models/skin-in-the-game.md) **新** — Taleb 2018 + Hammurabi + 5 类无切肤的人
+- [切斯特顿栅栏 Chesterton's Fence](models/chestertons-fence.md) **新** — 1929 原则 + 不懂为何存在就别拆 + Naval / Taleb 推崇
+- [汉伦剃刀 Hanlon's Razor](models/hanlons-razor.md) **新** — 别把蠢归结于恶意 + Munger 版（→激励错位）
+- [红皇后效应 Red Queen Effect](models/red-queen-effect.md) **新** — Van Valen 1973 + 必须不停奔跑 + 商业军备竞赛
 
-### Value · 价值投资核心
-- [安全边际 Margin of Safety](models/margin-of-safety.md) — Graham 1934 三字诀 + 数学防线表 + Buffett 60 年进化 + Klarman 4 维 + 2014 IBM 反例 + DCF 实战
-- [能力圈 Circle of Competence](models/circle-of-competence.md) — Buffett 1996 原句 + Tom Watson + Dunning-Kruger + Peter Lynch 实操 + Apple 扩张方法
+### Value · 价值投资核心（3 篇）
+- [安全边际 Margin of Safety](models/margin-of-safety.md) — Graham 三字诀 + Buffett 60 年进化
+- [能力圈 Circle of Competence](models/circle-of-competence.md) — Buffett 1996 + Dunning-Kruger + Lynch 实操
+- [时间套利 Time Arbitrage](models/time-arbitrage.md) **新** — Buffett 真正的隐藏 alpha + 短期 vs 长期视角不匹配
 
-### Psychology · 行为金融
-- [市场先生 Mr. Market](models/mr-market.md) — Graham 1949 完整寓言 + 2008 富国银行 / 2020 COVID 实操 + 2021 散户 FOMO + "内在价值锚"工具
+### Psychology · 行为金融（10 篇）
+- [市场先生 Mr. Market](models/mr-market.md) — Graham 1949 完整寓言 + 2008 富国银行
+- [确认偏差 Confirmation Bias](models/confirmation-bias.md) **新** — Wason 2-4-6 实验 + Munger 警告 + Darwin 反 confirmation 方法
+- [沉没成本谬误 Sunk Cost](models/sunk-cost.md) **新** — Arkes 1985 滑雪票 + Buffett Dexter Shoe 自承认错
+- [锚定效应 Anchoring](models/anchoring.md) **新** — Kahneman 1974 轮盘实验 + Ariely 社保号实验
+- [叙事谬误 Narrative Fallacy](models/narrative-fallacy.md) **新** — Taleb 2007 + 火鸡之喻 + 用故事骗自己
+- [后见之明偏差 Hindsight Bias](models/hindsight-bias.md) **新** — Fischhoff 1975 Nixon 访华实验 + Kahneman 决策日志
+- [可得性启发 Availability Heuristic](models/availability-heuristic.md) **新** — Kahneman & Tversky 1973 K 实验 + 飞机 vs 汽车恐惧
+- [禀赋效应 Endowment Effect](models/endowment-effect.md) **新** — Thaler 1980 + 康奈尔咖啡杯 91% 溢价 + Ariely Duke 篮球票 14 倍
+- [认知失调 Cognitive Dissonance](models/cognitive-dissonance.md) **新** — Festinger 1956 邪教渗透 + $1 vs $20 实验 + 5 类投资 manifestation
 
-### Foundations · 决策与统计基础
-- [机会成本 Opportunity Cost](models/opportunity-cost.md) — Bastiat 1850"破窗谬误" + Wieser 命名 + Munger 1962 选择 + 时间机会成本 + Buffett 现金的逆向应用
-- [基础概率 Base Rates](models/base-rates.md) — Linda 实验 + 投资关键概率表 + SPAC 实证 + Tetlock 超级预测者 + Bayesian 更新
-- [均值回归](models/regression-to-the-mean.md) — Galton 1886 完整 + 4 种回归现象 + Buffett 抗回归 + 腾讯 ROIC 反例 + 结构 vs 周期判别
+### Foundations · 决策与统计基础（8 篇）
+- [机会成本 Opportunity Cost](models/opportunity-cost.md) — Bastiat 破窗谬误 + Munger 1962 弃律师
+- [基础概率 Base Rates](models/base-rates.md) — Linda 实验 + Tetlock 超级预测者
+- [均值回归](models/regression-to-the-mean.md) — Galton 1886 + 抗回归判别
+- [第一性原理 First Principles](models/first-principles.md) **新** — Aristotle → Feynman → Musk 火箭 10× 降本
+- [贝叶斯定理 Bayes' Theorem](models/bayes-theorem.md) **新** — 1763 + 医生测试悖论（50% vs 99%）+ Tetlock 超级预测者
+- [反脆弱 Antifragility](models/antifragility.md) **新** — Taleb 2012 + 杠铃策略 + Universa 2020 +4000%
+- [期权性 Optionality](models/optionality.md) **新** — Buffett 浮存 + Bezos 多赌注 + 凸 vs 凹 payoff
+- [博弈论 Game Theory](models/game-theory.md) **新** — Nash 1950 + 囚徒困境 + Axelrod Tit-for-Tat + Schelling 焦点
+
+### Foundations · 经济学市场失灵（3 篇 新增）
+- [公地悲剧 Tragedy of Commons](models/tragedy-of-commons.md) **新** — Hardin 1968 + Ostrom 8 原则 + AI capex 公地 race
+- [信息不对称 Asymmetric Information](models/asymmetric-information.md) **新** — Akerlof 1970 Lemons Market + IPO 后跑输 + 反 lemons 工具
+- [约束理论 Theory of Constraints](models/theory-of-constraints.md) **新** — Goldratt 1984 + 5 步循环 + 找瓶颈 + Bill Gates 推荐
+
+### Wisdom · 决策工具（2 篇 新增）
+- [奥卡姆剃刀 Occam's Razor](models/occams-razor.md) **新** — Ockham 14 世纪 + Newton 强化 + Einstein "不要更简单"
+- [事前尸检 Pre-Mortem](models/pre-mortem.md) **新** — Klein 2007 HBR + 假装失败 + 30% 更多风险识别 + Bezos/Pixar 应用
 
 ### Frontier · 前沿分布
-- [幂律分布 Power Law](models/power-law.md) — Pareto 1896 + Thiel 论断 + 正态 vs 幂律对比 + a16z 第一基金细分 + 不同领域强度分级
+- [幂律分布 Power Law](models/power-law.md) — Pareto 1896 + Thiel + a16z 第一基金
 
 ## cases
 
@@ -100,7 +128,17 @@ _(用户自维护，AI 一般不写)_
 - `1972-sees-candies` ← 7+ 处
 
 > 现在每篇内容 1200-2500 字（之前 250-400 字），密集引用具体数字、人名、日期、估值倍数。
-> 内容总量：**12 knowledge** + 12 models + 10 cases + 1 daily + 1 weekly = **36 篇**，总字数约 **7 万字** —— 已经超过一本中型投资入门书的体量，且是**网状结构 + 按需阅读**的形式。
+> 内容总量：**12 knowledge** + **36 models** + 10 cases + 1 daily + 1 weekly = **60 篇**，总字数约 **12 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+
+## 模型库 36 篇按 pillar 分布
+
+| Pillar | 数量 | 覆盖 |
+| --- | --- | --- |
+| Wisdom 商业认知与决策 | 12 | Inversion, 2nd-Order, Network Effects, Incentives, Lollapalooza, Reflexivity, Skin in Game, Chesterton, Hanlon, Red Queen, Occam, Pre-mortem |
+| Foundations 决策与统计基础 | 11 | Opportunity Cost, Base Rates, Regression, First Principles, Bayes, Antifragility, Optionality, Game Theory, Tragedy of Commons, Asymmetric Info, ToC |
+| Psychology 行为金融 | 9 | Mr. Market, Confirmation, Sunk Cost, Anchoring, Narrative, Hindsight, Availability, Endowment, Cognitive Dissonance |
+| Value 价值投资核心 | 3 | Margin of Safety, Circle of Competence, Time Arbitrage |
+| Frontier 前沿分布 | 1 | Power Law |
 
 ## 新增 6 篇的设计逻辑
 
