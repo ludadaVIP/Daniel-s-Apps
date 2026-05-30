@@ -45,6 +45,8 @@ JOURNAL_FILE = WORKBENCH_DIR / "journal.json"
 KNOWLEDGE_DIR = DATA_DIR / "knowledge"
 MODELS_DIR = DATA_DIR / "models"
 CASES_DIR = DATA_DIR / "cases"
+DAILY_DIR = DATA_DIR / "daily"
+WEEKLY_DIR = DATA_DIR / "weekly"
 
 KNOWLEDGE_CATEGORY_LABELS = {
     "00-foundations": "00 · 基础 Foundations",
@@ -493,7 +495,69 @@ def model_detail(slug: str):
     })
 
 
-# ---------- search (knowledge + models + cases) ----------
+# ---------- market brief (daily + weekly) ----------
+
+def _brief_summary(md_path: Path, *, kind: str) -> dict[str, Any]:
+    try:
+        doc = read_markdown(md_path)
+    except OSError:
+        return {}
+    meta = doc.meta
+    summary = {
+        "slug": meta.get("slug") or md_path.stem,
+        "title": meta.get("title") or md_path.stem,
+        "path": md_path.relative_to(DATA_DIR).as_posix(),
+        "kind": kind,
+        "one_line": extract_one_line(doc.body),
+        "sample": str(meta.get("sample", "")).lower() in ("true", "yes", "1"),
+        "generated_by": meta.get("generated_by", ""),
+    }
+    if kind == "daily":
+        summary["date"] = meta.get("date") or md_path.stem
+        summary["weekday"] = meta.get("weekday", "")
+    else:
+        summary["week_start"] = meta.get("week_start", "")
+        summary["week_end"] = meta.get("week_end", "")
+        summary["focus_industry"] = meta.get("focus_industry", "")
+    return summary
+
+
+@bp.get("/brief/list")
+def brief_list():
+    daily: list[dict[str, Any]] = []
+    if DAILY_DIR.exists():
+        for md_path in sorted(DAILY_DIR.glob("*.md"), reverse=True):
+            s = _brief_summary(md_path, kind="daily")
+            if s:
+                daily.append(s)
+    weekly: list[dict[str, Any]] = []
+    if WEEKLY_DIR.exists():
+        for md_path in sorted(WEEKLY_DIR.glob("*.md"), reverse=True):
+            s = _brief_summary(md_path, kind="weekly")
+            if s:
+                weekly.append(s)
+    return jsonify({"daily": daily, "weekly": weekly})
+
+
+@bp.get("/brief/doc")
+def brief_doc():
+    rel = request.args.get("path", "")
+    target = _safe_rel_path(rel, root=DATA_DIR)
+    brief_roots = (DAILY_DIR.resolve(), WEEKLY_DIR.resolve())
+    if not any(target == r or r in target.parents for r in brief_roots):
+        raise InvestmentError("Path must live under daily/ or weekly/.")
+    if not target.exists() or target.suffix.lower() != ".md":
+        raise InvestmentError("Brief not found.", 404)
+    doc = read_markdown(target)
+    return jsonify({
+        "path": target.relative_to(DATA_DIR).as_posix(),
+        "kind": "daily" if DAILY_DIR.resolve() in target.parents else "weekly",
+        "meta": doc.meta,
+        "body": doc.body,
+    })
+
+
+# ---------- search (knowledge + models + cases + briefs) ----------
 
 @bp.get("/search")
 def search():
@@ -506,6 +570,8 @@ def search():
         ("knowledge", KNOWLEDGE_DIR),
         ("models", MODELS_DIR),
         ("cases", CASES_DIR),
+        ("daily", DAILY_DIR),
+        ("weekly", WEEKLY_DIR),
     ):
         if not root.exists():
             continue
@@ -557,7 +623,7 @@ def meta():
     ]
     return jsonify({
         "ok": True,
-        "phase": "1+2+3 (scaffold + workbench + knowledge/models)",
+        "phase": "1+2+3+4 (scaffold + workbench + knowledge/models + brief)",
         "counts": {
             "watchlist": len(watchlist),
             "journal": len(journal),
@@ -565,6 +631,8 @@ def meta():
             "knowledge": _count_markdown(KNOWLEDGE_DIR),
             "models": _count_markdown(MODELS_DIR),
             "cases": _count_markdown(CASES_DIR),
+            "daily": _count_markdown(DAILY_DIR),
+            "weekly": _count_markdown(WEEKLY_DIR),
         },
         "watchlist_pillars": pillars,
         "data_dir": str(DATA_DIR),

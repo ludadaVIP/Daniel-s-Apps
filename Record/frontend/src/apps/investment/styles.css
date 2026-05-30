@@ -1244,4 +1244,94 @@
       max-height: 320px;
     }
   }
+
+  /* ===================== Brief (daily / weekly) ===================== */
+
+  .inv-brief-toggle {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    padding: 4px;
+    background: var(--inv-bg-soft);
+    border-radius: 8px;
+  }
+  .inv-brief-toggle-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    padding: 7px 0;
+    border-radius: 5px;
+    color: var(--inv-muted);
+    font-size: 13px;
+    font-weight: 500;
+    transition: background 120ms, color 120ms;
+  }
+  .inv-brief-toggle-btn:hover { color: var(--inv-accent); }
+  .inv-brief-toggle-btn.is-active {
+    background: var(--inv-surface);
+    color: var(--inv-accent);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.07);
+  }
+  .inv-brief-toggle-btn span {
+    font-size: 11px;
+    background: rgba(0, 0, 0, 0.05);
+    color: var(--inv-faint);
+    padding: 0 6px;
+    border-radius: 999px;
+  }
+  .inv-brief-toggle-btn.is-active span {
+    background: var(--inv-accent-soft);
+    color: var(--inv-accent);
+  }
+
+  .inv-brief-row {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 2px;
+  }
+  .inv-brief-key {
+    font-family: ui-monospace, SFMono-Regular, "JetBrains Mono", monospace;
+    font-size: 11.5px;
+    color: var(--inv-gold);
+    letter-spacing: 0.04em;
+  }
+  .inv-brief-title {
+    font-size: 13.5px;
+    line-height: 1.4;
+  }
+  .inv-sample-tag {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 4px;
+    background: #fdf0d9;
+    color: #8a4a08;
+    letter-spacing: 0.04em;
+  }
+
+  .inv-pillar-chip[data-kind="daily"] {
+    background: #f4ead7;
+    color: #7d521c;
+  }
+  .inv-pillar-chip[data-kind="weekly"] {
+    background: #e9d9b8;
+    color: #5e3b0c;
+  }
+
+  .inv-sample-banner {
+    margin: -12px 0 24px;
+    padding: 12px 16px;
+    background: #fdf6e3;
+    border: 1px solid #f0e0b8;
+    border-left: 3px solid var(--inv-gold);
+    border-radius: 6px;
+    color: #5e3b0c;
+    font-size: 13px;
+    line-height: 1.6;
+  }
+  .inv-sample-banner strong {
+    color: #5e3b0c;
+    font-weight: 600;
+  }
 }

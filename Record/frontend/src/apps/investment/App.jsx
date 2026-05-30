@@ -35,6 +35,8 @@ import {
   createWatchlistItem,
   deleteJournalEntry,
   deleteWatchlistItem,
+  fetchBriefDoc,
+  fetchBriefList,
   fetchJournal,
   fetchKnowledgeDoc,
   fetchKnowledgeTree,
@@ -84,15 +86,13 @@ const TABS = [
   { id: "knowledge", label: "知识库", icon: Library, kind: "live" },
   { id: "models", label: "思维模型", icon: Brain, kind: "live" },
   { id: "cases", label: "案例库", icon: BookOpen, kind: "soon" },
-  { id: "brief", label: "市场简报", icon: Newspaper, kind: "soon" },
+  { id: "brief", label: "市场简报", icon: Newspaper, kind: "live" },
   { id: "training", label: "训练", icon: GraduationCap, kind: "soon" },
 ];
 
 const SOON_DESCRIPTIONS = {
   cases:
     "Phase 3b 开放：经典投资案例（See's Candies / BTC 2013 / LTCM 崩盘 ...）。引擎和 knowledge/models 同源，加上时间轴 + 胜负标签即可。",
-  brief:
-    "Phase 4 开放：每日宏观速读 + 每周深度。日历视图。",
   training:
     "Phase 5 开放：每日金句、案例练习题、认知偏差小测。",
 };
@@ -163,6 +163,9 @@ export default function App() {
   const [knowledgePath, setKnowledgePath] = useState(null);
   const [modelsList, setModelsList] = useState(null);
   const [modelSlug, setModelSlug] = useState(null);
+  const [briefList, setBriefList] = useState(null);
+  const [briefKind, setBriefKind] = useState("daily");
+  const [briefPath, setBriefPath] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -203,6 +206,8 @@ export default function App() {
       journal_pending: pending,
       knowledge: meta?.counts?.knowledge ?? 0,
       models: meta?.counts?.models ?? 0,
+      daily: meta?.counts?.daily ?? 0,
+      weekly: meta?.counts?.weekly ?? 0,
     };
   }, [watchlist, journal, meta]);
 
@@ -221,6 +226,14 @@ export default function App() {
       .then((d) => setModelsList(d.items || []))
       .catch((e) => setError(e.message || String(e)));
   }, [tab, modelsList]);
+
+  // Lazy-load brief list (daily + weekly together) the first time brief opens.
+  useEffect(() => {
+    if (tab !== "brief" || briefList) return;
+    fetchBriefList()
+      .then(setBriefList)
+      .catch((e) => setError(e.message || String(e)));
+  }, [tab, briefList]);
 
   // Click on a [[wiki-link]] inside markdown → jump to the matching entry.
   const openWikiLink = useCallback(
@@ -359,6 +372,19 @@ export default function App() {
             onWikiLink={openWikiLink}
             onError={setError}
           />
+        ) : tab === "brief" ? (
+          <BriefView
+            list={briefList}
+            kind={briefKind}
+            onKindChange={(k) => {
+              setBriefKind(k);
+              setBriefPath(null);
+            }}
+            selectedPath={briefPath}
+            onSelect={setBriefPath}
+            onWikiLink={openWikiLink}
+            onError={setError}
+          />
         ) : (
           <ComingSoonView tabId={tab} />
         )}
@@ -425,6 +451,16 @@ function HomeView({ meta, counts, watchlist, journal, onGo }) {
           hint={counts.models ? "Munger 多元思维框架" : "等待 AI 写入"}
           cta="进入"
           onClick={() => onGo("models")}
+        />
+        <DashCard
+          accent="#a55a26"
+          icon={Newspaper}
+          title="市场简报"
+          value={counts.daily + counts.weekly}
+          unit={`篇（日 ${counts.daily} · 周 ${counts.weekly}）`}
+          hint={counts.daily + counts.weekly ? "跟着每日/每周看世界" : "Phase 4 已开放"}
+          cta="进入"
+          onClick={() => onGo("brief")}
         />
       </section>
 
@@ -1680,6 +1716,268 @@ function ModelsOverview({ items, onPick }) {
           ))}
         </ul>
       )}
+    </div>
+  );
+}
+
+// ============================================================
+// Brief view (daily + weekly market notes)
+// ============================================================
+
+const MONTH_LABEL_CN = {
+  "01": "一月", "02": "二月", "03": "三月", "04": "四月",
+  "05": "五月", "06": "六月", "07": "七月", "08": "八月",
+  "09": "九月", "10": "十月", "11": "十一月", "12": "十二月",
+};
+
+function formatYearMonthLabel(ym) {
+  if (!/^\d{4}-\d{2}$/.test(ym || "")) return ym || "未知";
+  const [y, m] = ym.split("-");
+  return `${y} · ${MONTH_LABEL_CN[m] || m}`;
+}
+
+function BriefView({ list, kind, onKindChange, selectedPath, onSelect, onWikiLink, onError }) {
+  const [doc, setDoc] = useState(null);
+  const [loadingDoc, setLoadingDoc] = useState(false);
+
+  useEffect(() => {
+    if (!selectedPath) {
+      setDoc(null);
+      return;
+    }
+    let alive = true;
+    setLoadingDoc(true);
+    fetchBriefDoc(selectedPath)
+      .then((d) => {
+        if (alive) setDoc(d);
+      })
+      .catch((e) => {
+        if (alive) onError(e.message || String(e));
+      })
+      .finally(() => {
+        if (alive) setLoadingDoc(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [selectedPath, onError]);
+
+  if (!list) {
+    return (
+      <div className="inv-loading">
+        <Loader2 size={18} className="inv-spin" />
+        <span>正在读取市场简报…</span>
+      </div>
+    );
+  }
+
+  const items = kind === "weekly" ? list.weekly : list.daily;
+  const groups = (() => {
+    if (kind === "weekly") {
+      return [{ key: "all", label: "", items, showHeader: false }];
+    }
+    const byMonth = new Map();
+    for (const it of items) {
+      const ym = (it.date || it.slug || "").slice(0, 7);
+      if (!byMonth.has(ym)) byMonth.set(ym, []);
+      byMonth.get(ym).push(it);
+    }
+    return Array.from(byMonth.entries())
+      .sort((a, b) => b[0].localeCompare(a[0]))
+      .map(([ym, list]) => ({
+        key: ym,
+        label: formatYearMonthLabel(ym),
+        items: list,
+        showHeader: true,
+      }));
+  })();
+
+  return (
+    <div className="inv-twocol">
+      <aside className="inv-twocol-side">
+        <div className="inv-brief-toggle">
+          <button
+            type="button"
+            className={classes("inv-brief-toggle-btn", kind === "daily" && "is-active")}
+            onClick={() => onKindChange("daily")}
+          >
+            每日 <span>{list.daily.length}</span>
+          </button>
+          <button
+            type="button"
+            className={classes("inv-brief-toggle-btn", kind === "weekly" && "is-active")}
+            onClick={() => onKindChange("weekly")}
+          >
+            每周 <span>{list.weekly.length}</span>
+          </button>
+        </div>
+
+        {items.length === 0 ? (
+          <div className="inv-side-empty">
+            还没有{kind === "daily" ? "日报" : "周报"}。AI 按当日 / 当周生成。
+          </div>
+        ) : (
+          <nav className="inv-tree">
+            {groups.map((group) => (
+              <div key={group.key} className="inv-tree-cat">
+                {group.showHeader && (
+                  <div className="inv-tree-cat-head" style={{ cursor: "default" }}>
+                    <span style={{ marginLeft: 4 }}>{group.label}</span>
+                    <span className="inv-tree-count">{group.items.length}</span>
+                  </div>
+                )}
+                <ul className="inv-tree-list" style={!group.showHeader ? { paddingLeft: 0 } : undefined}>
+                  {group.items.map((it) => (
+                    <li key={it.path}>
+                      <button
+                        type="button"
+                        className={classes("inv-tree-item", selectedPath === it.path && "is-active")}
+                        onClick={() => onSelect(it.path)}
+                        title={it.one_line || it.title}
+                      >
+                        <span className="inv-brief-row">
+                          <span className="inv-brief-key">
+                            {kind === "daily"
+                              ? `${(it.date || "").slice(5)}${it.weekday ? " · " + it.weekday : ""}`
+                              : it.slug}
+                          </span>
+                          {it.sample && <span className="inv-sample-tag">样本</span>}
+                        </span>
+                        <span className="inv-tree-title inv-brief-title">{it.title}</span>
+                        {it.one_line && (
+                          <span className="inv-tree-tags">{truncate(it.one_line, 40)}</span>
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        )}
+      </aside>
+
+      <section className="inv-twocol-main">
+        {!selectedPath ? (
+          <BriefOverview list={list} onPick={(path, k) => { onKindChange(k); onSelect(path); }} />
+        ) : loadingDoc ? (
+          <div className="inv-loading">
+            <Loader2 size={18} className="inv-spin" />
+            <span>载入中…</span>
+          </div>
+        ) : doc ? (
+          <article className="inv-doc">
+            {doc.meta?.sample && (
+              <div className="inv-sample-banner">
+                <strong>样本内容</strong> · 这份是 Phase 4 上线时的演示，
+                数据为基于 2026 宏观环境的合理推演而非实时报价。真实日报/周报由 AI 在当日用真实数据生成。
+              </div>
+            )}
+            <BriefHeader meta={doc.meta} kind={doc.kind} />
+            <MarkdownReader body={doc.body} onWikiLink={onWikiLink} />
+          </article>
+        ) : (
+          <p className="inv-empty">没找到这份简报。</p>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function BriefHeader({ meta, kind }) {
+  if (!meta) return null;
+  return (
+    <header className="inv-doc-head">
+      <div className="inv-doc-crumbs">
+        <span className="inv-pillar-chip" data-kind={kind}>
+          {kind === "weekly" ? "Weekly · 每周" : "Daily · 每日"}
+        </span>
+        {kind === "daily" && meta.date && (
+          <span className="inv-doc-date">{meta.date}{meta.weekday ? ` · ${meta.weekday}` : ""}</span>
+        )}
+        {kind === "weekly" && meta.week_start && meta.week_end && (
+          <span className="inv-doc-date">{meta.week_start} → {meta.week_end}</span>
+        )}
+        {kind === "weekly" && meta.focus_industry && (
+          <span className="inv-doc-origin">聚焦：{meta.focus_industry}</span>
+        )}
+        {meta.generated_by && (
+          <span className="inv-doc-origin">by {meta.generated_by}</span>
+        )}
+      </div>
+      <h1>{meta.title || meta.slug}</h1>
+    </header>
+  );
+}
+
+function BriefOverview({ list, onPick }) {
+  const latestDaily = list.daily.slice(0, 4);
+  const latestWeekly = list.weekly.slice(0, 4);
+
+  return (
+    <div className="inv-overview">
+      <header>
+        <p className="inv-home-eyebrow">Brief · 市场简报</p>
+        <h1>日报 + 周报</h1>
+        <p className="inv-page-sub">
+          每日宏观速读（信号 + 噪音分流）和每周行业深度（Bull vs Bear 对撞）。
+          AI 按 README 模板在当日 / 当周生成，<em>不要事后补写</em>——时效性是这两类内容的核心价值。
+        </p>
+      </header>
+
+      <div className="inv-home-row">
+        <div className="inv-home-card">
+          <header>
+            <h2>最近日报</h2>
+            <button type="button" className="inv-link" onClick={() => onPick(null, "daily")}>
+              全部 →
+            </button>
+          </header>
+          {latestDaily.length === 0 ? (
+            <p className="inv-empty">还没有日报。让 AI 用今天的数据写第一份。</p>
+          ) : (
+            <ul className="inv-mini-list">
+              {latestDaily.map((it) => (
+                <li key={it.path}>
+                  <span className="inv-mini-tag">{(it.date || "").slice(5)}</span>
+                  <strong>
+                    <button type="button" className="inv-link" onClick={() => onPick(it.path, "daily")}>
+                      {it.title}
+                    </button>
+                  </strong>
+                  <span className="inv-mini-thesis">{truncate(it.one_line, 80)}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+
+        <div className="inv-home-card">
+          <header>
+            <h2>最近周报</h2>
+            <button type="button" className="inv-link" onClick={() => onPick(null, "weekly")}>
+              全部 →
+            </button>
+          </header>
+          {latestWeekly.length === 0 ? (
+            <p className="inv-empty">还没有周报。</p>
+          ) : (
+            <ul className="inv-mini-list">
+              {latestWeekly.map((it) => (
+                <li key={it.path}>
+                  <span className="inv-mini-tag">{it.slug}</span>
+                  <strong>
+                    <button type="button" className="inv-link" onClick={() => onPick(it.path, "weekly")}>
+                      {it.title}
+                    </button>
+                  </strong>
+                  <span className="inv-mini-thesis">{truncate(it.focus_industry || it.one_line, 60)}</span>
+                </li>
+              ))}
+            </ul>
+          )}
+        </div>
+      </div>
     </div>
   );
 }
