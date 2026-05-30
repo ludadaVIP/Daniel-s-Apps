@@ -135,16 +135,35 @@ def _load_store() -> dict[str, Any]:
     if not isinstance(sections, list):
         sections = DEFAULT_SECTIONS
     store = {"dates": dates, "todos": todos, "recurring": recurring, "sections": sections}
+    changed = False
+    today = _today_iso()
+    now = _now_iso()
     if not dates and not todos:
-        today = _today_iso()
-        now = _now_iso()
         dates[today] = {
             "date": today,
-            "title": "今天",
+            "title": today,
             "notes": "",
             "createdAt": now,
             "updatedAt": now,
         }
+        changed = True
+    elif today not in dates:
+        dates[today] = {
+            "date": today,
+            "title": today,
+            "notes": "",
+            "createdAt": now,
+            "updatedAt": now,
+        }
+        changed = True
+
+    for date_text, day in dates.items():
+        if date_text != today and isinstance(day, dict) and day.get("title") == "今天":
+            day["title"] = date_text
+            day["updatedAt"] = now
+            changed = True
+
+    if changed:
         write_json(DATA_FILE, store)
     return store
 

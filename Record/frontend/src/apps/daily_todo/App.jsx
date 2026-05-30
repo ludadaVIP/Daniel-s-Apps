@@ -109,10 +109,16 @@ function makeDate(year, month, day) {
   return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`;
 }
 
-function sidebarDayTitle(day) {
-  if (!day?.date) return "";
-  if (day.title && day.title !== day.date) return day.title;
-  return dateLabel(day.date).replace(/^\d{2}\/\d{2}/, "");
+function displayDateTitle(day, fallbackDate, today = localDateIso(), compact = false) {
+  const date = day?.date || fallbackDate || "";
+  if (!date) return "";
+  if (date === today) return "今天";
+  if (day?.title && day.title !== date && day.title !== "今天") return day.title;
+  return compact ? dateLabel(date).replace(/^\d{2}\/\d{2}/, "") : date;
+}
+
+function sidebarDayTitle(day, today = localDateIso()) {
+  return displayDateTitle(day, day?.date, today, true);
 }
 
 function nextTodoAction(status) {
@@ -475,6 +481,7 @@ function RecurringModal({ initial, date, sections, onClose, onSave }) {
 function Sidebar({
   planner,
   activeDate,
+  today,
   collapsed,
   openYears,
   openMonths,
@@ -557,7 +564,7 @@ function Sidebar({
                             <button type="button" onClick={() => onSelectDate(day.date)} className="todo-day-main" title={day.title}>
                               <span className="todo-day-num">{String(day.day).padStart(2, "0")}</span>
                               <span className="todo-day-copy">
-                                <strong>{sidebarDayTitle(day)}</strong>
+                                <strong>{sidebarDayTitle(day, today)}</strong>
                                 <em>{day.open} 未完</em>
                               </span>
                               <small>{progress(day.done, day.total)}%</small>
@@ -730,6 +737,7 @@ function CalendarView({ planner, month, activeDate, onMonth, onSelectDate, onNew
 }
 
 export default function DailyTodoApp() {
+  const [today, setToday] = useState(localDateIso());
   const [planner, setPlanner] = useState({ tree: [], sections: [], recurring: [], tags: [], stats: {} });
   const [activeDate, setActiveDate] = useState(localDateIso());
   const [viewMode, setViewMode] = useState("day");
@@ -758,7 +766,7 @@ export default function DailyTodoApp() {
       const data = await fetchPlanner(monthWindow(calendarMonth));
       setPlanner(data);
       const hasActive = data.tree?.some((year) => year.months.some((month) => month.days.some((day) => day.date === activeDate)));
-      if (!hasActive) {
+      if (!hasActive && activeDate !== localDateIso()) {
         const firstDate = data.tree?.[0]?.months?.[0]?.days?.[0]?.date;
         if (firstDate) setActiveDate(firstDate);
       }
@@ -780,7 +788,13 @@ export default function DailyTodoApp() {
       setDayData(data);
     } catch (err) {
       if (err.message?.includes("not found")) {
-        setDayData(null);
+        if (date === localDateIso()) {
+          await createDate({ date, title: date });
+          const data = await fetchDate(date);
+          setDayData(data);
+        } else {
+          setDayData(null);
+        }
       } else {
         setError(err.message || "加载日期失败");
       }
@@ -801,6 +815,27 @@ export default function DailyTodoApp() {
     setOpenYears((current) => new Set([...current, year]));
     setOpenMonths((current) => new Set([...current, `${year}-${month}`]));
   }, [activeDate, loadDay]);
+
+  useEffect(() => {
+    const syncToday = () => {
+      const currentToday = localDateIso();
+      setToday((previousToday) => {
+        if (previousToday === currentToday) return previousToday;
+        setActiveDate((currentActive) => (currentActive === previousToday ? currentToday : currentActive));
+        setCalendarMonth(currentToday.slice(0, 7));
+        return currentToday;
+      });
+    };
+    syncToday();
+    const timer = window.setInterval(syncToday, 60_000);
+    window.addEventListener("focus", syncToday);
+    document.addEventListener("visibilitychange", syncToday);
+    return () => {
+      window.clearInterval(timer);
+      window.removeEventListener("focus", syncToday);
+      document.removeEventListener("visibilitychange", syncToday);
+    };
+  }, []);
 
   useEffect(() => {
     if (!status) return undefined;
@@ -980,6 +1015,7 @@ export default function DailyTodoApp() {
       <Sidebar
         planner={planner}
         activeDate={activeDate}
+        today={today}
         collapsed={sidebarCollapsed}
         openYears={openYears}
         openMonths={openMonths}
@@ -1013,7 +1049,7 @@ export default function DailyTodoApp() {
           <div className="todo-date-switcher">
             <button type="button" onClick={() => setActiveDate(shiftDate(activeDate, -1))} title="前一天"><ChevronLeft size={16} /></button>
             <div>
-              <p>{dayData?.date?.title || activeDate}</p>
+              <p>{displayDateTitle(dayData?.date, activeDate, today)}</p>
               <span>{activeDate} · {dateLabel(activeDate)}</span>
             </div>
             <button type="button" onClick={() => setActiveDate(shiftDate(activeDate, 1))} title="后一天"><ChevronRight size={16} /></button>
