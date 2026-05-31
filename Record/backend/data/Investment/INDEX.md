@@ -3,31 +3,43 @@
 > 这是 AI 协作的"系统盘点单"。**每次新增/删除/重命名内容文件，都要回来更新这里。**
 > 写作约定见同目录的 `README.md`，总体设计见根目录的 `Investment.md`。
 
-最近更新：2026-05-30 — 思维模型再扩 12，从 36 → **48 篇**。新增覆盖：Cialdini/Munger 4 大社会偏差（authority / social-proof / reciprocation / liking）+ Halo effect、Path dependence、OODA Loop、Tit-for-Tat、Cobra Effect、Goodhart's Law、Pareto 80/20、Annie Duke Decision vs Outcome。
+最近更新：2026-05-30 — 知识库再扩 12，从 12 → **24 篇**。新增覆盖：ROIC 深度 / FCF 深度 / 收益率曲线 / CAPM-Sharpe（4 foundations）+ Float 保险浮存 / 定价权 / 特殊情形（3 value）+ 5 型护城河 / 单位经济（2 wisdom）+ AI thesis / 能源转型（2 frontier）+ 投资人脾性（1 psychology）。每篇 2000-2500 字。
 
 ---
 
-## knowledge/00-foundations
-- [三张报表速读](knowledge/00-foundations/three-financial-statements.md) — 三张表关联机制 + Enron/Wirecard/Luckin 三大欺诈对照 + 行业专用指标 + 关键比率体系
-- [DCF + Owner Earnings](knowledge/00-foundations/dcf-owner-earnings.md) **新** — 估值金本位的数学 + 4 输入合理范围 + Buffett "股东收益" 修正 + 4 种 DCF 失效场景 + Reverse DCF 倒推市场预期
-- [凯利公式](knowledge/00-foundations/kelly-criterion.md) **新** — 1956 贝尔实验室原型 + Thorp 33 年年化 19.1% + Buffett/Munger 哲学翻译 + 半凯利实战 + 5 个仓位应用
-- [Dalio 长短期债务周期](knowledge/00-foundations/dalio-debt-cycles.md) **新** — 短期 5-8 年 + 长期 50-75 年 + 1929/2008/2022 统一解释 + 4 种去杠杆方式 + All Weather 组合逻辑
+## knowledge/00-foundations（8 篇）
+- [三张报表速读](knowledge/00-foundations/three-financial-statements.md) — Enron/Wirecard/Luckin 三大欺诈对照 + 行业专用指标
+- [DCF + Owner Earnings](knowledge/00-foundations/dcf-owner-earnings.md) — 估值金本位 + Buffett "股东收益"修正 + Reverse DCF
+- [凯利公式](knowledge/00-foundations/kelly-criterion.md) — 1956 贝尔实验室 + Thorp 33 年 19.1% + 半凯利实战
+- [Dalio 长短期债务周期](knowledge/00-foundations/dalio-debt-cycles.md) — 1929/2008/2022 统一解释 + All Weather
+- [ROIC vs ROE vs ROA 深度](knowledge/00-foundations/roic-roe-roa-deep.md) **新** — 资本效率三大指标 + DuPont 分解 + 5 种公司 + 3 种操纵 + 读 10-K 5 步
+- [自由现金流深度](knowledge/00-foundations/free-cash-flow-deep.md) **新** — 从 Net Income 完整链路 + 维护性 vs 成长性 capex + FCF Yield + Buffett $1 Test + 5 种操纵
+- [收益率曲线](knowledge/00-foundations/yield-curve.md) **新** — 60 年倒挂 100% 预测衰退 + 3 个机制 + Duration / Convexity + 隐含 duration 思维 + TIPS 通胀预期
+- [CAPM + Sharpe Ratio](knowledge/00-foundations/capm-sharpe.md) **新** — Sharpe / Markowitz 诺奖框架 + 5 个致命缺陷 + Buffett "波动 ≠ 风险" 批判 + Sortino 改进版
 
-## knowledge/10-value
-- [复利的力量](knowledge/10-value/power-of-compounding.md) — 数学事实表 + Buffett 59 年 38000 倍 + 反人性 3 大根因 + Munger 四种复利 + 1% 决定 5 倍财富
-- [巴菲特 12 条原则](knowledge/10-value/buffett-12-principles.md) — 历史演变（Graham→Munger→Apple）+ 每条具体出处 + Buffett 自己违反原则的 3 次（IBM/Kraft/航空）+ 2020s 现代化版本
+## knowledge/10-value（5 篇）
+- [复利的力量](knowledge/10-value/power-of-compounding.md) — Buffett 59 年 38000 倍 + 反人性 3 大根因
+- [巴菲特 12 条原则](knowledge/10-value/buffett-12-principles.md) — Graham→Munger→Apple 进化 + Buffett 自己违反 3 次
+- [Float 保险浮存](knowledge/10-value/float-insurance.md) **新** — Buffett 60 年的秘密武器 + Berkshire $1700 亿浮存 + 4 种浮存来源 + 类浮存（SaaS / Amazon）
+- [定价权深度](knowledge/10-value/pricing-power.md) **新** — Buffett "favorite test" + 5 种定价权来源 + See's 36 年涨 7.3 倍 + Apple iPhone ASP 数据 + 5 个量化指标
+- [特殊情形投资](knowledge/10-value/special-situations.md) **新** — Greenblatt 10 年年化 50% + 5 大类型（分拆 / 套利 / 重组 / 再资本化 / 破产）+ Marriott 1993 教科书案例
 
-## knowledge/20-frontier
-- [比特币作为硬通货](knowledge/20-frontier/bitcoin-as-hard-money.md) — 1971 尼克松休克起点 + 法币恶性通胀 6 国 + Stock-to-Flow 数据 + 中本聪密码学血缘 + 5 个反面
+## knowledge/20-frontier（3 篇）
+- [比特币作为硬通货](knowledge/20-frontier/bitcoin-as-hard-money.md) — 53 年法币史 + Stock-to-Flow + 中本聪密码学血缘
+- [AI 投资 thesis 2026](knowledge/20-frontier/ai-investment-thesis.md) **新** — 3 层栈（算力/模型/应用）+ 3 种押法 + 5 个判断 AI 公司的问题 + 类比 1999 dotcom
+- [能源转型 + 核电复兴](knowledge/20-frontier/energy-transition.md) **新** — AI 算力撞电力墙 + 4 条供给路径 + CEG 3 种估值视角 + Bull vs Bear 对撞 + 5 个追踪数据点
 
-## knowledge/30-wisdom
-- [纳瓦尔的四种杠杆](knowledge/30-wisdom/naval-four-leverages.md) — 4 种杠杆对比表 + Naval 个人路径详解 + AI 时代杠杆变化 + 3 个历史代表（Ford/Buffett/Vitalik）+ 落地阶段建议
-- [Helmer 7 Powers](knowledge/30-wisdom/helmer-7-powers.md) **新** — 2016 后取代 Porter 5 力 + Counter-Positioning 是 Helmer 原创 + 7 种 Power 强弱排序 + NVDA 2024 应用 + 3 阶段时间维度
-- [Christensen 创新者的窘境](knowledge/30-wisdom/christensen-innovators-dilemma.md) **新** — 维持性 vs 破坏性 + 5 步颠覆模式 + Kodak/Nokia/Blockbuster 完整案例 + 在位者"理性"陷阱 5 机制 + Microsoft/Adobe 转型反例
+## knowledge/30-wisdom（5 篇）
+- [纳瓦尔的四种杠杆](knowledge/30-wisdom/naval-four-leverages.md) — 劳动力 / 资本 / 代码 / 媒体 + AI 时代杠杆变化
+- [Helmer 7 Powers](knowledge/30-wisdom/helmer-7-powers.md) — 2016 后取代 Porter 5 力 + Counter-Positioning 原创
+- [Christensen 创新者的窘境](knowledge/30-wisdom/christensen-innovators-dilemma.md) — 维持性 vs 破坏性 + Kodak/Nokia/Blockbuster
+- [Pat Dorsey 5 型护城河](knowledge/30-wisdom/5-types-of-moats.md) **新** — Morningstar 25 年框架 + 5 大类型详解 + vs Helmer 7 Powers 对比 + Visa 多重护城河 + 5 个量化指标
+- [单位经济 LTV/CAC](knowledge/30-wisdom/unit-economics.md) **新** — SaaS 投资真本领 + 5 大核心指标 + Rule of 40 + Zoom vs Peloton 案例 + AI 时代单位经济变化
 
-## knowledge/40-psychology
-- [损失厌恶](knowledge/40-psychology/loss-aversion.md) — Kahneman 实验完整版（含 Prospect Theory 公式）+ 大脑神经基础 + Disposition Effect 实证 + 东亚文化差异 + 5 个对抗动作
-- [幸存者偏差](knowledge/40-psychology/survivorship-bias.md) **新** — Wald 1943 飞机弹孔原型 + 4 大投资偏差 + 5 个日常 manifestation + 数据视角投资人真实分布 + 5 个对抗动作
+## knowledge/40-psychology（3 篇）
+- [损失厌恶](knowledge/40-psychology/loss-aversion.md) — Kahneman 完整版 + Prospect Theory 公式 + 东亚文化差异
+- [幸存者偏差](knowledge/40-psychology/survivorship-bias.md) — Wald 1943 飞机弹孔 + 4 大投资偏差
+- [投资人脾性](knowledge/40-psychology/investment-temperament.md) **新** — Buffett "90% 脾性 10% IQ" + 7 种脾性特质 + 5 种训练方法 + Newton / Livermore / LTCM 反例
 
 ## models（按 Pillar 归类显示）
 
@@ -138,7 +150,17 @@ _(用户自维护，AI 一般不写)_
 - `1972-sees-candies` ← 7+ 处
 
 > 现在每篇内容 1200-2500 字（之前 250-400 字），密集引用具体数字、人名、日期、估值倍数。
-> 内容总量：**12 knowledge** + **48 models** + 10 cases + 1 daily + 1 weekly = **72 篇**，总字数约 **15 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+> 内容总量：**24 knowledge** + **48 models** + 10 cases + 1 daily + 1 weekly = **84 篇**，总字数约 **18 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+
+## knowledge 24 篇按 pillar 分布
+
+| Pillar | 数量 | 涵盖范围 |
+| --- | --- | --- |
+| **Foundations 基础** | 8 | 三表 / DCF / Kelly / Dalio 周期 / ROIC / FCF / 收益率曲线 / CAPM |
+| **Value 价值投资** | 5 | 复利 / 12 原则 / Float / 定价权 / 特殊情形 |
+| **Wisdom 商业认知** | 5 | Naval 杠杆 / 7 Powers / 颠覆理论 / 5 型护城河 / 单位经济 |
+| **Frontier 前沿** | 3 | BTC / AI thesis / 能源转型 |
+| **Psychology 心理** | 3 | 损失厌恶 / 幸存者偏差 / 投资人脾性 |
 
 ## 模型库 48 篇按 pillar 分布
 
