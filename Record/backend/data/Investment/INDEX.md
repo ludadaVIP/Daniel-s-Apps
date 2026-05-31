@@ -3,7 +3,7 @@
 > 这是 AI 协作的"系统盘点单"。**每次新增/删除/重命名内容文件，都要回来更新这里。**
 > 写作约定见同目录的 `README.md`，总体设计见根目录的 `Investment.md`。
 
-最近更新：2026-05-30 — 思维模型新增 **12+12=24 篇**，模型库从 12 → **36 篇**。新增覆盖：Taleb 三连（反脆弱/期权性/切肤）、Soros 反身性、第一性原理、Bayes、4 个 Munger 25 偏差（confirmation/anchoring/sunk-cost/narrative）+ 4 个新偏差（hindsight/availability/endowment/cognitive-dissonance）、博弈论、信息不对称、公地悲剧、Goldratt ToC、Pre-mortem、红皇后、奥卡姆/汉伦双剃刀、Chesterton 栅栏、时间套利。
+最近更新：2026-05-30 — 思维模型再扩 12，从 36 → **48 篇**。新增覆盖：Cialdini/Munger 4 大社会偏差（authority / social-proof / reciprocation / liking）+ Halo effect、Path dependence、OODA Loop、Tit-for-Tat、Cobra Effect、Goodhart's Law、Pareto 80/20、Annie Duke Decision vs Outcome。
 
 ---
 
@@ -31,52 +31,62 @@
 
 ## models（按 Pillar 归类显示）
 
-### Wisdom · 商业认知与决策（10 篇）
+### Wisdom · 商业认知与决策（14 篇）
 - [反演 Inversion](models/inversion.md) — Jacobi 数学起源 + Munger 一辈子实践
 - [二阶思维 Second-Order Thinking](models/second-order-thinking.md) — Howard Marks + Druckenmiller + Ackman $2.6B
 - [网络效应 Network Effects](models/network-effects.md) — Vail 1908 + Metcalfe 定律 + 5 类详细
 - [激励的超能力 Incentives](models/incentives.md) — Munger 25 偏差第一位 + FTX 案例
 - [Lollapalooza 效应](models/lollapalooza.md) — Madoff 6 重 + See's 正向 / 2008 负向
-- [反身性 Reflexivity](models/reflexivity.md) **新** — Soros 60 年 $300 亿 + 5 步循环 + 1992 做空英镑
-- [切肤之痛 Skin in the Game](models/skin-in-the-game.md) **新** — Taleb 2018 + Hammurabi + 5 类无切肤的人
-- [切斯特顿栅栏 Chesterton's Fence](models/chestertons-fence.md) **新** — 1929 原则 + 不懂为何存在就别拆 + Naval / Taleb 推崇
-- [汉伦剃刀 Hanlon's Razor](models/hanlons-razor.md) **新** — 别把蠢归结于恶意 + Munger 版（→激励错位）
-- [红皇后效应 Red Queen Effect](models/red-queen-effect.md) **新** — Van Valen 1973 + 必须不停奔跑 + 商业军备竞赛
+- [反身性 Reflexivity](models/reflexivity.md) — Soros 60 年 $300 亿 + 1992 做空英镑
+- [切肤之痛 Skin in the Game](models/skin-in-the-game.md) — Taleb 2018 + Hammurabi
+- [切斯特顿栅栏 Chesterton's Fence](models/chestertons-fence.md) — 不懂为何存在就别拆
+- [汉伦剃刀 Hanlon's Razor](models/hanlons-razor.md) — 别把蠢归结于恶意
+- [红皇后效应 Red Queen Effect](models/red-queen-effect.md) — Van Valen 1973 + 商业军备竞赛
+- [OODA Loop](models/ooda-loop.md) **新** — Boyd 美军 + 决策循环速度 > 决策完美 + 海湾战争
+- [Tit-for-Tat 针锋相对](models/tit-for-tat.md) **新** — Axelrod 1984 + 4 行代码赢 + Buffett 60 年合作哲学
+- [Decision vs Outcome 决策 vs 结果](models/decision-vs-outcome.md) **新** — Annie Duke 2018 + 扑克思维 + Resulting 谬误
+- [事前尸检 Pre-Mortem](models/pre-mortem.md) — Klein 2007 HBR + Bezos/Pixar 应用
 
 ### Value · 价值投资核心（3 篇）
 - [安全边际 Margin of Safety](models/margin-of-safety.md) — Graham 三字诀 + Buffett 60 年进化
 - [能力圈 Circle of Competence](models/circle-of-competence.md) — Buffett 1996 + Dunning-Kruger + Lynch 实操
 - [时间套利 Time Arbitrage](models/time-arbitrage.md) **新** — Buffett 真正的隐藏 alpha + 短期 vs 长期视角不匹配
 
-### Psychology · 行为金融（10 篇）
+### Psychology · 行为金融（14 篇）
 - [市场先生 Mr. Market](models/mr-market.md) — Graham 1949 完整寓言 + 2008 富国银行
-- [确认偏差 Confirmation Bias](models/confirmation-bias.md) **新** — Wason 2-4-6 实验 + Munger 警告 + Darwin 反 confirmation 方法
-- [沉没成本谬误 Sunk Cost](models/sunk-cost.md) **新** — Arkes 1985 滑雪票 + Buffett Dexter Shoe 自承认错
-- [锚定效应 Anchoring](models/anchoring.md) **新** — Kahneman 1974 轮盘实验 + Ariely 社保号实验
-- [叙事谬误 Narrative Fallacy](models/narrative-fallacy.md) **新** — Taleb 2007 + 火鸡之喻 + 用故事骗自己
-- [后见之明偏差 Hindsight Bias](models/hindsight-bias.md) **新** — Fischhoff 1975 Nixon 访华实验 + Kahneman 决策日志
-- [可得性启发 Availability Heuristic](models/availability-heuristic.md) **新** — Kahneman & Tversky 1973 K 实验 + 飞机 vs 汽车恐惧
-- [禀赋效应 Endowment Effect](models/endowment-effect.md) **新** — Thaler 1980 + 康奈尔咖啡杯 91% 溢价 + Ariely Duke 篮球票 14 倍
-- [认知失调 Cognitive Dissonance](models/cognitive-dissonance.md) **新** — Festinger 1956 邪教渗透 + $1 vs $20 实验 + 5 类投资 manifestation
+- [确认偏差 Confirmation Bias](models/confirmation-bias.md) — Wason 2-4-6 实验 + Darwin 反 confirmation
+- [沉没成本谬误 Sunk Cost](models/sunk-cost.md) — Arkes 1985 + Buffett Dexter Shoe 自承认错
+- [锚定效应 Anchoring](models/anchoring.md) — Kahneman 1974 轮盘 + Ariely 社保号
+- [叙事谬误 Narrative Fallacy](models/narrative-fallacy.md) — Taleb 2007 + 火鸡之喻
+- [后见之明偏差 Hindsight Bias](models/hindsight-bias.md) — Fischhoff 1975 Nixon 访华
+- [可得性启发 Availability Heuristic](models/availability-heuristic.md) — Kahneman 1973 + 飞机 vs 汽车恐惧
+- [禀赋效应 Endowment Effect](models/endowment-effect.md) — Thaler 1980 + Duke 篮球票 14 倍溢价
+- [认知失调 Cognitive Dissonance](models/cognitive-dissonance.md) — Festinger 1956 邪教渗透
+- [权威偏见 Authority Bias](models/authority-bias.md) **新** — Milgram 1961 (65% 按 450V) + Munger 25 偏差
+- [社会认同 Social Proof](models/social-proof.md) **新** — Asch 1951 从众 + Cialdini 6 大原则 + Shiller 叙事流行病
+- [互惠原则 Reciprocation](models/reciprocation.md) **新** — Cialdini + Mauss 1925 + 投行 lunch 锁定
+- [喜爱厌恶倾向 Liking/Disliking](models/liking-tendency.md) **新** — Cialdini 6 大 + Munger 25 偏差 #2 + Buffett "白痴能管"原则
+- [光环效应 Halo Effect](models/halo-effect.md) **新** — Thorndike 1920 + Theranos 极端样本
 
-### Foundations · 决策与统计基础（8 篇）
+### Foundations · 决策与统计基础（13 篇）
 - [机会成本 Opportunity Cost](models/opportunity-cost.md) — Bastiat 破窗谬误 + Munger 1962 弃律师
 - [基础概率 Base Rates](models/base-rates.md) — Linda 实验 + Tetlock 超级预测者
 - [均值回归](models/regression-to-the-mean.md) — Galton 1886 + 抗回归判别
-- [第一性原理 First Principles](models/first-principles.md) **新** — Aristotle → Feynman → Musk 火箭 10× 降本
-- [贝叶斯定理 Bayes' Theorem](models/bayes-theorem.md) **新** — 1763 + 医生测试悖论（50% vs 99%）+ Tetlock 超级预测者
-- [反脆弱 Antifragility](models/antifragility.md) **新** — Taleb 2012 + 杠铃策略 + Universa 2020 +4000%
-- [期权性 Optionality](models/optionality.md) **新** — Buffett 浮存 + Bezos 多赌注 + 凸 vs 凹 payoff
-- [博弈论 Game Theory](models/game-theory.md) **新** — Nash 1950 + 囚徒困境 + Axelrod Tit-for-Tat + Schelling 焦点
+- [第一性原理 First Principles](models/first-principles.md) — Aristotle → Feynman → Musk
+- [贝叶斯定理 Bayes' Theorem](models/bayes-theorem.md) — 1763 + 医生测试悖论 + Tetlock
+- [反脆弱 Antifragility](models/antifragility.md) — Taleb 2012 + 杠铃策略
+- [期权性 Optionality](models/optionality.md) — Buffett 浮存 + Bezos 多赌注 + 凸 payoff
+- [博弈论 Game Theory](models/game-theory.md) — Nash 1950 + 囚徒困境 + Axelrod Tit-for-Tat
+- [奥卡姆剃刀 Occam's Razor](models/occams-razor.md) — Ockham 14 世纪 + Einstein 加强版
+- [公地悲剧 Tragedy of Commons](models/tragedy-of-commons.md) — Hardin 1968 + Ostrom 8 原则
+- [信息不对称 Asymmetric Information](models/asymmetric-information.md) — Akerlof 1970 诺奖 Lemons
+- [约束理论 Theory of Constraints](models/theory-of-constraints.md) — Goldratt 1984 + Bill Gates 推荐
+- [路径依赖 Path Dependence](models/path-dependence.md) **新** — David 1985 QWERTY + Brian Arthur 正反馈
 
-### Foundations · 经济学市场失灵（3 篇 新增）
-- [公地悲剧 Tragedy of Commons](models/tragedy-of-commons.md) **新** — Hardin 1968 + Ostrom 8 原则 + AI capex 公地 race
-- [信息不对称 Asymmetric Information](models/asymmetric-information.md) **新** — Akerlof 1970 Lemons Market + IPO 后跑输 + 反 lemons 工具
-- [约束理论 Theory of Constraints](models/theory-of-constraints.md) **新** — Goldratt 1984 + 5 步循环 + 找瓶颈 + Bill Gates 推荐
-
-### Wisdom · 决策工具（2 篇 新增）
-- [奥卡姆剃刀 Occam's Razor](models/occams-razor.md) **新** — Ockham 14 世纪 + Newton 强化 + Einstein "不要更简单"
-- [事前尸检 Pre-Mortem](models/pre-mortem.md) **新** — Klein 2007 HBR + 假装失败 + 30% 更多风险识别 + Bezos/Pixar 应用
+### Foundations · 经济学反向激励（3 篇 新增聚类）
+- [眼镜蛇效应 Cobra Effect](models/cobra-effect.md) **新** — Siebert 2001 + 印度殖民蛇赏金 + 苏联钉子
+- [古德哈特定律 Goodhart's Law](models/goodharts-law.md) **新** — 1975 + "指标变成目标就不再是好指标" + AAA 评级失败
+- [帕累托原则 Pareto 80/20](models/pareto-principle.md) **新** — Pareto 1896 + Juran 关键少数 + Munger "超 80/20"
 
 ### Frontier · 前沿分布
 - [幂律分布 Power Law](models/power-law.md) — Pareto 1896 + Thiel + a16z 第一基金
@@ -128,17 +138,35 @@ _(用户自维护，AI 一般不写)_
 - `1972-sees-candies` ← 7+ 处
 
 > 现在每篇内容 1200-2500 字（之前 250-400 字），密集引用具体数字、人名、日期、估值倍数。
-> 内容总量：**12 knowledge** + **36 models** + 10 cases + 1 daily + 1 weekly = **60 篇**，总字数约 **12 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+> 内容总量：**12 knowledge** + **48 models** + 10 cases + 1 daily + 1 weekly = **72 篇**，总字数约 **15 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
 
-## 模型库 36 篇按 pillar 分布
+## 模型库 48 篇按 pillar 分布
 
 | Pillar | 数量 | 覆盖 |
 | --- | --- | --- |
-| Wisdom 商业认知与决策 | 12 | Inversion, 2nd-Order, Network Effects, Incentives, Lollapalooza, Reflexivity, Skin in Game, Chesterton, Hanlon, Red Queen, Occam, Pre-mortem |
-| Foundations 决策与统计基础 | 11 | Opportunity Cost, Base Rates, Regression, First Principles, Bayes, Antifragility, Optionality, Game Theory, Tragedy of Commons, Asymmetric Info, ToC |
-| Psychology 行为金融 | 9 | Mr. Market, Confirmation, Sunk Cost, Anchoring, Narrative, Hindsight, Availability, Endowment, Cognitive Dissonance |
+| Wisdom 商业认知与决策 | 14 | Inversion, 2nd-Order, Network Effects, Incentives, Lollapalooza, Reflexivity, Skin in Game, Chesterton, Hanlon, Red Queen, OODA, TFT, Decision vs Outcome, Pre-mortem |
+| Psychology 行为金融 | 14 | Mr. Market, Confirmation, Sunk Cost, Anchoring, Narrative, Hindsight, Availability, Endowment, Cognitive Dissonance, Authority, Social Proof, Reciprocation, Liking, Halo |
+| Foundations 决策与统计基础 | 13 | Opportunity Cost, Base Rates, Regression, First Principles, Bayes, Antifragility, Optionality, Game Theory, Occam, Tragedy of Commons, Asymmetric Info, ToC, Path Dependence |
+| Foundations 经济学反向激励 | 3 | Cobra Effect, Goodhart's Law, Pareto 80/20 |
 | Value 价值投资核心 | 3 | Margin of Safety, Circle of Competence, Time Arbitrage |
 | Frontier 前沿分布 | 1 | Power Law |
+
+## Cialdini 6 大说服原则 / Munger 25 偏差完整覆盖度
+
+Munger 25 偏差里**最重要的 10 个**现在已全部独立成 model：
+
+1. ✓ Reward Superresponse → [[incentives]]
+2. ✓ Liking/Loving → [[liking-tendency]]
+3. ✓ Disliking/Hating → [[liking-tendency]]（双胞胎合一篇）
+4. ✓ Doubt-Avoidance → 部分在 [[hindsight-bias]] / [[confirmation-bias]]
+5. ✓ Inconsistency-Avoidance → 部分在 [[cognitive-dissonance]] / [[sunk-cost]]
+6. ✓ Reciprocation → [[reciprocation]]
+7. ✓ Influence-from-Mere-Association → 部分在 [[halo-effect]] / [[anchoring]]
+8. ✓ Social-Proof → [[social-proof]]
+9. ✓ Authority-Misinfluence → [[authority-bias]]
+10. ✓ Lollapalooza → [[lollapalooza]]
+
+**剩 15 个偏差**多数是上述 10 个的变体或弱版本——核心已经全部入库。
 
 ## 新增 6 篇的设计逻辑
 
