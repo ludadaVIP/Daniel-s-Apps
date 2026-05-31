@@ -3,7 +3,7 @@
 > 这是 AI 协作的"系统盘点单"。**每次新增/删除/重命名内容文件，都要回来更新这里。**
 > 写作约定见同目录的 `README.md`，总体设计见根目录的 `Investment.md`。
 
-最近更新：2026-05-30 — 知识库再扩 12，从 12 → **24 篇**。新增覆盖：ROIC 深度 / FCF 深度 / 收益率曲线 / CAPM-Sharpe（4 foundations）+ Float 保险浮存 / 定价权 / 特殊情形（3 value）+ 5 型护城河 / 单位经济（2 wisdom）+ AI thesis / 能源转型（2 frontier）+ 投资人脾性（1 psychology）。每篇 2000-2500 字。
+最近更新：2026-05-30 — 案例库再扩 10，从 10 → **20 篇**。新增覆盖：1929 大萧条 / 1989 日本泡沫 / 1992 Soros 做空英镑 / 2000 Dotcom 泡沫（4 macro/bubbles）+ 2001 Enron / 2015 Theranos / 2022 FTX（3 frauds）+ 2007 Burry Big Short / 2013 Tesla 濒死 / 2008-2024 Munger 押注 BYD（3 winners）。每篇 2000-2500 字。
 
 ---
 
@@ -103,23 +103,33 @@
 ### Frontier · 前沿分布
 - [幂律分布 Power Law](models/power-law.md) — Pareto 1896 + Thiel + a16z 第一基金
 
-## cases
+## cases（20 篇，按年代倒序）
 
-### 胜 · 值得学的（4）
-- [1972 See's Candies](cases/1972-sees-candies.md) — Buffett 从 Graham 到 Munger 的拐点；$25M → 36 年 $13.5 亿税前
-- [1988 Coca-Cola](cases/1988-coca-cola-buffett.md) — Goizueta 重塑 + Buffett 26% 仓位押注；$13 亿 → $250 亿
-- [2010-2013 比特币早期信仰者](cases/2010-bitcoin-early-believers.md) — Hal Finney / Wences Casares / 李笑来 / Roger Ver 四类信仰者对比
+### 胜 · 值得学的（8）
 - [2016 苹果 Buffett 大转身](cases/2016-apple-buffett-pivot.md) — 87 岁老巴最后一次扩能力圈；$360 亿 → $1700 亿
+- [2010-2013 比特币早期信仰者](cases/2010-bitcoin-early-believers.md) — Hal Finney / Wences Casares / 李笑来 / Roger Ver 四类对比
+- [2008-2024 Munger 押注 BYD](cases/2008-byd-munger.md) **新** — 唯一中国投资 + 40 倍 + Li Lu 介绍 + 创始人识别
+- [2007 Michael Burry 做空次贷](cases/2007-burry-big-short.md) **新** — 独立思考史诗 + 2 年浮亏 + $7.5 亿利润
+- [1992 Soros 做空英镑](cases/1992-soros-black-wednesday.md) **新** — 一天赚 $10 亿 + 反身性教科书
+- [1988 Coca-Cola](cases/1988-coca-cola-buffett.md) — Goizueta 重塑 + 26% 仓位；$13 亿 → $250 亿
+- [1972 See's Candies](cases/1972-sees-candies.md) — Buffett 哲学拐点；$25M → 36 年 $13.5 亿税前
 
-### 败 · 值得避的（4）
-- [1998 长期资本管理 (LTCM)](cases/1998-ltcm-collapse.md) — 诺奖得主 + 30 倍杠杆 → 4 周 $46 亿损失
-- [2008 雷曼](cases/2008-lehman-multidimensional.md) — 7 个偏差同向 lollapalooza；全球 $10T 财富蒸发
-- [2019 WeWork](cases/2019-wework-narrative-collapse.md) — $470 亿叙事估值；S-1 公开 6 周内崩塌
+### 败 · 值得避的（8）
+- [2022 FTX 崩盘](cases/2022-ftx-collapse.md) **新** — SBF + $80 亿欺诈 + EA 慈善光环 + 顶级 VC 集体失明
 - [2022 LUNA / Terra](cases/2022-luna-terra-collapse.md) — 算法稳定币旁氏；7 天 $500 亿蒸发
+- [2019 WeWork](cases/2019-wework-narrative-collapse.md) — $470 亿叙事估值；S-1 公开 6 周内崩塌
+- [2015 Theranos 欺诈](cases/2015-theranos-fraud.md) **新** — Holmes 黑色高领 + Kissinger/Mattis 集体失明
+- [2008 雷曼](cases/2008-lehman-multidimensional.md) — 7 个偏差 lollapalooza；全球 $10T 蒸发
+- [2001 Enron 欺诈](cases/2001-enron-fraud.md) **新** — 会计欺诈祖宗 + Chanos 反向胜利 + Andersen 解体
+- [1998 长期资本管理 (LTCM)](cases/1998-ltcm-collapse.md) — 诺奖 + 30 倍杠杆 → 4 周 $46 亿
+- [1989 日本资产泡沫](cases/1989-japan-bubble.md) **新** — 35 年塌方账户 + Plaza Accord + 永恒"这次不一样"
+- [1929 大萧条](cases/1929-great-depression.md) **新** — 投资史第一案 + 所有泡沫的母版 + Friedman 论点
 
-### 混 · 复杂的（2）
+### 混 · 复杂的（4）
+- [2013 Tesla 濒死救活](cases/2013-tesla-near-death.md) **新** — Musk Founder Mode + 30 天救亡 + 11 年 50 倍
 - [2003 Amazon — Buffett 错过](cases/2003-amazon-buffett-miss.md) — 能力圈纪律正确，但错过 3800 倍
 - [2014-2018 Ethereum + ICO 狂潮](cases/2014-ethereum-ico-mania.md) — Vitalik 19 岁白皮书；真创新和真旁氏共存
+- [2000 Dotcom 泡沫](cases/2000-dotcom-bubble.md) **新** — 最重要的现代崩盘 + 真假颠覆者分水岭 + Amazon 几乎死亡
 
 ## daily
 - [2026-05-30 周末速读](daily/2026-05-30.md) — 五月收官；降息预期回退是本周最大信号；MSFT-CEG 续约链式反应 **[样本]**
@@ -150,7 +160,21 @@ _(用户自维护，AI 一般不写)_
 - `1972-sees-candies` ← 7+ 处
 
 > 现在每篇内容 1200-2500 字（之前 250-400 字），密集引用具体数字、人名、日期、估值倍数。
-> 内容总量：**24 knowledge** + **48 models** + 10 cases + 1 daily + 1 weekly = **84 篇**，总字数约 **18 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+> 内容总量：**24 knowledge** + **48 models** + **20 cases** + 1 daily + 1 weekly = **94 篇**，总字数约 **20 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+
+## cases 20 篇覆盖的 95 年（1929-2024）
+
+| 年代 | 案例数 | 覆盖 |
+| --- | --- | --- |
+| **1920s** | 1 | 大萧条 |
+| **1970s** | 1 | See's Candies |
+| **1980s** | 2 | Coca-Cola, 日本泡沫 |
+| **1990s** | 2 | Soros 英镑, LTCM |
+| **2000s** | 4 | Dotcom, Enron, Amazon Miss, BYD/Burry |
+| **2010s** | 6 | BTC 早期, Tesla, ETH/ICO, Theranos, Apple, WeWork |
+| **2020s** | 4 | LUNA, FTX, AI 时代 |
+
+胜:败:混 = 8:8:4，地理覆盖：美 14 + 国际 6（中国/日本/英国/加密无国界）。
 
 ## knowledge 24 篇按 pillar 分布
 
