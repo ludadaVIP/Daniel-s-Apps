@@ -111,6 +111,16 @@ export async function fetchCase(slug) {
   return parse(await fetch(`${BASE}/cases/${encodeURIComponent(slug)}`));
 }
 
+// ---------- masters ----------
+
+export async function fetchMasters() {
+  return parse(await fetch(`${BASE}/masters`));
+}
+
+export async function fetchMaster(slug) {
+  return parse(await fetch(`${BASE}/masters/${encodeURIComponent(slug)}`));
+}
+
 // ---------- brief ----------
 
 export async function fetchBriefList() {

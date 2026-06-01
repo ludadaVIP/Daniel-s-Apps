@@ -45,6 +45,7 @@ JOURNAL_FILE = WORKBENCH_DIR / "journal.json"
 KNOWLEDGE_DIR = DATA_DIR / "knowledge"
 MODELS_DIR = DATA_DIR / "models"
 CASES_DIR = DATA_DIR / "cases"
+MASTERS_DIR = DATA_DIR / "masters"
 DAILY_DIR = DATA_DIR / "daily"
 WEEKLY_DIR = DATA_DIR / "weekly"
 
@@ -546,6 +547,61 @@ def case_detail(slug: str):
     return jsonify({"slug": safe_slug, "meta": doc.meta, "body": doc.body})
 
 
+# ---------- masters (市场大咖) ----------
+
+def _master_summary(md_path: Path) -> dict[str, Any]:
+    try:
+        doc = read_markdown(md_path)
+    except OSError:
+        return {}
+    meta = doc.meta
+    return {
+        "slug": meta.get("slug") or md_path.stem,
+        "title": meta.get("title") or md_path.stem,
+        "role": meta.get("role") or "",
+        "country": meta.get("country") or "",
+        "era": str(meta.get("era") or ""),
+        "status": meta.get("status") or "active",
+        "key_companies": meta.get("key_companies") or [],
+        "tags": meta.get("tags") or [],
+        "source": meta.get("source") or "",
+        "one_line": extract_one_line(doc.body),
+    }
+
+
+@bp.get("/masters")
+def masters_list():
+    if not MASTERS_DIR.exists():
+        return jsonify({"items": [], "roles": {}, "countries": {}})
+    items: list[dict[str, Any]] = []
+    roles: dict[str, int] = {}
+    countries: dict[str, int] = {}
+    for md_path in sorted(MASTERS_DIR.glob("*.md")):
+        s = _master_summary(md_path)
+        if not s:
+            continue
+        items.append(s)
+        if s["role"]:
+            roles[s["role"]] = roles.get(s["role"], 0) + 1
+        if s["country"]:
+            countries[s["country"]] = countries.get(s["country"], 0) + 1
+    # Sort by era start descending; living legends (no end year) first.
+    items.sort(key=lambda m: (m["era"] or "0000"), reverse=True)
+    return jsonify({"items": items, "roles": roles, "countries": countries})
+
+
+@bp.get("/masters/<slug>")
+def master_detail(slug: str):
+    safe_slug = re.sub(r"[^a-zA-Z0-9_-]+", "", slug)[:80]
+    if not safe_slug:
+        raise InvestmentError("Invalid master slug.")
+    target = MASTERS_DIR / f"{safe_slug}.md"
+    if not target.exists():
+        raise InvestmentError("Master not found.", 404)
+    doc = read_markdown(target)
+    return jsonify({"slug": safe_slug, "meta": doc.meta, "body": doc.body})
+
+
 # ---------- market brief (daily + weekly) ----------
 
 def _brief_summary(md_path: Path, *, kind: str) -> dict[str, Any]:
@@ -621,6 +677,7 @@ def search():
         ("knowledge", KNOWLEDGE_DIR),
         ("models", MODELS_DIR),
         ("cases", CASES_DIR),
+        ("masters", MASTERS_DIR),
         ("daily", DAILY_DIR),
         ("weekly", WEEKLY_DIR),
     ):
@@ -682,6 +739,7 @@ def meta():
             "knowledge": _count_markdown(KNOWLEDGE_DIR),
             "models": _count_markdown(MODELS_DIR),
             "cases": _count_markdown(CASES_DIR),
+            "masters": _count_markdown(MASTERS_DIR),
             "daily": _count_markdown(DAILY_DIR),
             "weekly": _count_markdown(WEEKLY_DIR),
         },

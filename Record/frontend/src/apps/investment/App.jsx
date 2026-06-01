@@ -40,6 +40,8 @@ import {
   fetchCase,
   fetchCases,
   fetchJournal,
+  fetchMaster,
+  fetchMasters,
   fetchKnowledgeDoc,
   fetchKnowledgeTree,
   fetchMeta,
@@ -88,6 +90,7 @@ const TABS = [
   { id: "knowledge", label: "知识库", icon: Library, kind: "live" },
   { id: "models", label: "思维模型", icon: Brain, kind: "live" },
   { id: "cases", label: "案例库", icon: BookOpen, kind: "live" },
+  { id: "masters", label: "市场大咖", icon: Sparkles, kind: "live" },
   { id: "brief", label: "市场简报", icon: Newspaper, kind: "live" },
   { id: "training", label: "训练", icon: GraduationCap, kind: "soon" },
 ];
@@ -230,6 +233,8 @@ export default function App() {
   const [briefPath, setBriefPath] = useState(null);
   const [casesList, setCasesList] = useState(null);
   const [caseSlug, setCaseSlug] = useState(null);
+  const [mastersList, setMastersList] = useState(null);
+  const [masterSlug, setMasterSlug] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -307,6 +312,14 @@ export default function App() {
       .catch((e) => setError(e.message || String(e)));
   }, [tab, casesList]);
 
+  // Lazy-load masters list.
+  useEffect(() => {
+    if (tab !== "masters" || mastersList) return;
+    fetchMasters()
+      .then((d) => setMastersList(d))
+      .catch((e) => setError(e.message || String(e)));
+  }, [tab, mastersList]);
+
   // Click on a [[wiki-link]] inside markdown → jump to the matching entry.
   const openWikiLink = useCallback(
     async (slug) => {
@@ -352,6 +365,18 @@ export default function App() {
         }
         return (data.items || []).find((c) => c.slug === slug);
       };
+      const tryMasters = async () => {
+        let data = mastersList;
+        if (!data) {
+          try {
+            data = await fetchMasters();
+            setMastersList(data);
+          } catch {
+            data = { items: [] };
+          }
+        }
+        return (data.items || []).find((m) => m.slug === slug);
+      };
 
       const modelHit = await tryModels();
       if (modelHit) {
@@ -371,9 +396,15 @@ export default function App() {
         setCaseSlug(slug);
         return;
       }
+      const masterHit = await tryMasters();
+      if (masterHit) {
+        setTab("masters");
+        setMasterSlug(slug);
+        return;
+      }
       setError(`内部链接 [[${slug}]] 还没指向已存在的条目。`);
     },
-    [knowledgeTree, modelsList, casesList],
+    [knowledgeTree, modelsList, casesList, mastersList],
   );
 
   return (
@@ -480,6 +511,14 @@ export default function App() {
             data={casesList}
             selectedSlug={caseSlug}
             onSelect={setCaseSlug}
+            onWikiLink={openWikiLink}
+            onError={setError}
+          />
+        ) : tab === "masters" ? (
+          <MastersView
+            data={mastersList}
+            selectedSlug={masterSlug}
+            onSelect={setMasterSlug}
             onWikiLink={openWikiLink}
             onError={setError}
           />
@@ -2027,6 +2066,250 @@ function CasesOverview({ data, onPick }) {
           onPick={onPick}
           emptyText="案例库还是空的。"
         />
+      </section>
+    </div>
+  );
+}
+
+// ============================================================
+// Masters view (市场大咖)
+// ============================================================
+
+function MastersView({ data, selectedSlug, onSelect, onWikiLink, onError }) {
+  const [masterDoc, setMasterDoc] = useState(null);
+  const [loadingDoc, setLoadingDoc] = useState(false);
+  const [roleFilter, setRoleFilter] = useState("");
+  const [countryFilter, setCountryFilter] = useState("");
+  const [query, setQuery] = useState("");
+
+  useEffect(() => {
+    if (!selectedSlug) {
+      setMasterDoc(null);
+      return;
+    }
+    let alive = true;
+    setLoadingDoc(true);
+    fetchMaster(selectedSlug)
+      .then((d) => {
+        if (alive) setMasterDoc(d);
+      })
+      .catch((e) => {
+        if (alive) onError(e.message || String(e));
+      })
+      .finally(() => {
+        if (alive) setLoadingDoc(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [selectedSlug, onError]);
+
+  if (!data) {
+    return (
+      <div className="inv-loading">
+        <Loader2 size={18} className="inv-spin" />
+        <span>正在读取大咖名单…</span>
+      </div>
+    );
+  }
+
+  const items = data.items || [];
+  const filtered = items.filter((m) => {
+    if (roleFilter && m.role !== roleFilter) return false;
+    if (countryFilter && m.country !== countryFilter) return false;
+    if (query.trim()) {
+      const q = query.trim().toLowerCase();
+      const hay = `${m.title} ${m.slug} ${m.role} ${m.country} ${(m.tags || []).join(" ")} ${m.one_line || ""}`.toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+
+  // Group by role for sidebar
+  const grouped = new Map();
+  for (const m of filtered) {
+    const key = m.role || "其他";
+    if (!grouped.has(key)) grouped.set(key, []);
+    grouped.get(key).push(m);
+  }
+  const groups = Array.from(grouped.entries());
+
+  const roles = Object.keys(data.roles || {});
+  const countries = Object.keys(data.countries || {});
+
+  return (
+    <div className="inv-twocol">
+      <aside className="inv-twocol-side">
+        <div className="inv-search-box">
+          <Search size={14} strokeWidth={2} />
+          <input
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="按姓名 / 公司 / 标签搜"
+          />
+          {query && (
+            <button type="button" onClick={() => setQuery("")}>
+              <X size={12} />
+            </button>
+          )}
+        </div>
+
+        {roles.length > 1 && (
+          <div className="inv-pillar-bar">
+            <button
+              type="button"
+              className={classes("inv-pillar-btn", !roleFilter && "is-active")}
+              onClick={() => setRoleFilter("")}
+            >
+              全部 <span>{items.length}</span>
+            </button>
+            {roles.map((r) => (
+              <button
+                key={r}
+                type="button"
+                className={classes("inv-pillar-btn", roleFilter === r && "is-active")}
+                onClick={() => setRoleFilter(r === roleFilter ? "" : r)}
+              >
+                {r} <span>{data.roles[r]}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {countries.length > 1 && (
+          <div className="inv-pillar-bar">
+            {countries.map((c) => (
+              <button
+                key={c}
+                type="button"
+                className={classes("inv-pillar-btn", countryFilter === c && "is-active")}
+                onClick={() => setCountryFilter(c === countryFilter ? "" : c)}
+              >
+                {c} <span>{data.countries[c]}</span>
+              </button>
+            ))}
+          </div>
+        )}
+
+        {filtered.length === 0 ? (
+          <div className="inv-side-empty">
+            {items.length === 0 ? "大咖库还是空的。" : "当前过滤没有结果。"}
+          </div>
+        ) : (
+          <nav className="inv-tree">
+            {groups.map(([role, list]) => (
+              <div key={role} className="inv-tree-cat">
+                <div className="inv-tree-cat-head" style={{ cursor: "default" }}>
+                  <span style={{ marginLeft: 4 }}>{role}</span>
+                  <span className="inv-tree-count">{list.length}</span>
+                </div>
+                <ul className="inv-tree-list">
+                  {list.map((m) => (
+                    <li key={m.slug}>
+                      <button
+                        type="button"
+                        className={classes("inv-tree-item", selectedSlug === m.slug && "is-active")}
+                        onClick={() => onSelect(m.slug)}
+                        title={m.one_line || m.title}
+                      >
+                        <span className="inv-brief-row">
+                          {m.country && <span className="inv-brief-key">{m.country}</span>}
+                          {m.status === "deceased" && (
+                            <span className="inv-sample-tag">遗</span>
+                          )}
+                        </span>
+                        <span className="inv-tree-title inv-brief-title">{m.title}</span>
+                        {m.one_line && (
+                          <span className="inv-tree-tags">{truncate(m.one_line, 50)}</span>
+                        )}
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            ))}
+          </nav>
+        )}
+      </aside>
+
+      <section className="inv-twocol-main">
+        {!selectedSlug ? (
+          <MastersOverview data={data} onPick={onSelect} />
+        ) : loadingDoc ? (
+          <div className="inv-loading">
+            <Loader2 size={18} className="inv-spin" />
+            <span>载入中…</span>
+          </div>
+        ) : masterDoc ? (
+          <article className="inv-doc">
+            <MasterHeader meta={masterDoc.meta} />
+            <MarkdownReader body={masterDoc.body} onWikiLink={onWikiLink} />
+          </article>
+        ) : (
+          <p className="inv-empty">没找到这位大咖。</p>
+        )}
+      </section>
+    </div>
+  );
+}
+
+function MasterHeader({ meta }) {
+  if (!meta) return null;
+  const tags = Array.isArray(meta.tags) ? meta.tags : [];
+  const companies = Array.isArray(meta.key_companies) ? meta.key_companies : [];
+  return (
+    <header className="inv-doc-head">
+      <div className="inv-doc-crumbs">
+        {meta.role && <span className="inv-pillar-chip" data-kind="daily">{meta.role}</span>}
+        {meta.country && <span className="inv-doc-origin">{meta.country}</span>}
+        {meta.era && <span className="inv-doc-date">{meta.era}</span>}
+        {meta.status === "deceased" && (
+          <span className="inv-outcome-tag is-mixed">遗</span>
+        )}
+      </div>
+      <h1>{meta.title || meta.slug}</h1>
+      {companies.length > 0 && (
+        <p className="inv-doc-source">代表作 / 公司：{companies.join(" · ")}</p>
+      )}
+      {meta.source && <p className="inv-doc-source">出处：{meta.source}</p>}
+      {tags.length > 0 && (
+        <div className="inv-doc-tags">
+          {tags.map((t) => (
+            <span key={t} className="inv-tag-chip">
+              <Tag size={10} strokeWidth={2} /> {t}
+            </span>
+          ))}
+        </div>
+      )}
+    </header>
+  );
+}
+
+function MastersOverview({ data, onPick }) {
+  const items = data.items || [];
+
+  return (
+    <div className="inv-overview">
+      <header>
+        <p className="inv-home-eyebrow">Market Masters · 市场大咖</p>
+        <h1>向真正走在前沿的人学习</h1>
+        <p className="inv-page-sub">
+          Munger 说："读人比读书更高效——但要读对人"。这里是 <strong>{items.length}</strong> 位
+          经过时间检验的投资大师 + 商业奇才 + 思想引领者——他们的<em>发家史 / 关键转折 / 投资哲学 / 经典操作 / 名言金句 / 反面争议</em>。
+          不知道做什么时，<strong>读一个大咖的传记</strong> 比读 10 篇财经新闻有用。
+        </p>
+      </header>
+
+      <section className="inv-curated">
+        <h2>如果你刚开始，按这个顺序读</h2>
+        <p className="inv-curated-why" style={{ marginBottom: 16 }}>
+          1. <strong>Buffett</strong> + <strong>Munger</strong> —— 价值投资的源头（不学其他人前必须读）<br/>
+          2. <strong>Peter Lynch</strong> —— 普通人能学的实战版本<br/>
+          3. <strong>Soros</strong> + <strong>Dalio</strong> —— 宏观视角的不同流派<br/>
+          4. <strong>Naval</strong> —— 现代财富 + 思想最浓缩<br/>
+          5. <strong>Bezos</strong> + <strong>Jobs</strong> + <strong>Musk</strong> —— 创业者视角<br/>
+          6. <strong>段永平</strong> + <strong>李录</strong> —— 中国投资者最值得读的两位
+        </p>
       </section>
     </div>
   );

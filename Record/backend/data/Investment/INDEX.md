@@ -3,7 +3,7 @@
 > 这是 AI 协作的"系统盘点单"。**每次新增/删除/重命名内容文件，都要回来更新这里。**
 > 写作约定见同目录的 `README.md`，总体设计见根目录的 `Investment.md`。
 
-最近更新：2026-05-30 — 案例库再扩 10，从 10 → **20 篇**。新增覆盖：1929 大萧条 / 1989 日本泡沫 / 1992 Soros 做空英镑 / 2000 Dotcom 泡沫（4 macro/bubbles）+ 2001 Enron / 2015 Theranos / 2022 FTX（3 frauds）+ 2007 Burry Big Short / 2013 Tesla 濒死 / 2008-2024 Munger 押注 BYD（3 winners）。每篇 2000-2500 字。
+最近更新：2026-05-30 — **Phase 5 新增"市场大咖" 模块（20 篇）**。覆盖 4 大流派：价值投资源头（Buffett/Munger/Lynch/Marks/Greenblatt/段永平/李录）+ 宏观对冲（Soros/Dalio/Druckenmiller/Tepper/Ackman）+ 科技创始人 + VC 思想家（Jobs/Bezos/Musk/Thiel/Andreessen/Naval）+ 加密世界（Vitalik/孙宇晨）。每篇 1500-2500 字，包含早年 / 关键转折 / 投资哲学 / 经典操作 / 10 名言 / 反面争议 / 启示 5 条 / 8-15 个交叉引用。
 
 ---
 
@@ -131,6 +131,38 @@
 - [2014-2018 Ethereum + ICO 狂潮](cases/2014-ethereum-ico-mania.md) — Vitalik 19 岁白皮书；真创新和真旁氏共存
 - [2000 Dotcom 泡沫](cases/2000-dotcom-bubble.md) **新** — 最重要的现代崩盘 + 真假颠覆者分水岭 + Amazon 几乎死亡
 
+## masters（市场大咖，20 篇 **新**）
+
+### 价值投资源头（7）
+- [Warren Buffett 巴菲特](masters/warren-buffett.md) — GOAT，59 年 19.9%/年，Berkshire $1700 亿浮存
+- [Charlie Munger 芒格](masters/charlie-munger.md) — Buffett 一辈子的合伙人 + 25 偏差 + 跨学科 mental models
+- [Peter Lynch 彼得·林奇](masters/peter-lynch.md) — Magellan Fund 1977-1990 年化 29.2%（13 年 28 倍）
+- [Howard Marks 霍华德·马克斯](masters/howard-marks.md) — Oaktree + 30+ 年 Memos + 第二层思维
+- [Joel Greenblatt 乔尔·格林布拉特](masters/joel-greenblatt.md) — Gotham Capital 1985-1994 年化 50% + Magic Formula
+- [段永平 Duan Yongping](masters/duan-yongping.md) — 步步高 + OPPO/vivo + 网易 100x + 与 Buffett 午餐 + "本分"哲学
+- [李录 Li Lu](masters/li-lu.md) — Munger 公开推荐的唯一私募管理人 + Himalaya Capital + BYD 介绍人
+
+### 宏观对冲（5）
+- [George Soros 索罗斯](masters/george-soros.md) — Quantum Fund 42 年 20%+ + 1992 打败英格兰银行 + 反身性理论
+- [Ray Dalio 雷·达里奥](masters/ray-dalio.md) — Bridgewater $1240 亿 + 债务周期理论 + All Weather
+- [Stanley Druckenmiller 德鲁肯米勒](masters/stanley-druckenmiller.md) — Duquesne Capital 30 年 30%+ 无亏损年 + Soros 实际管理人
+- [David Tepper 大卫·特珀](masters/david-tepper.md) — Appaloosa 2009 +132% + 押注美国银行复苏 $7 亿
+- [Bill Ackman 比尔·阿克曼](masters/bill-ackman.md) — Pershing Square + 2020 COVID CDS 97x + Valeant/Herbalife 教训
+
+### 科技创始人（4）
+- [Steve Jobs 乔布斯](masters/steve-jobs.md) — Apple 创立 + 1985 被炒 + 1997 拯救 + iPhone 重塑产业
+- [Jeff Bezos 贝索斯](masters/jeff-bezos.md) — Amazon 27 年 Day 1 + 长期主义 + AWS 革命 + Regret Minimization
+- [Elon Musk 马斯克](masters/elon-musk.md) — Tesla + SpaceX + 第一性原理 + 押全部钱 + 多次几乎破产
+- [Peter Thiel 彼得·蒂尔](masters/peter-thiel.md) — PayPal + Facebook $50万→$1B + Founders Fund + Zero to One
+
+### VC 思想家 + 现代智慧（2）
+- [Marc Andreessen 安德森](masters/marc-andreessen.md) — Netscape + a16z $450 亿 + "软件正在吞噬世界"
+- [Naval Ravikant 纳瓦尔](masters/naval-ravikant.md) — AngelList + "How to Get Rich" + 4 种杠杆
+
+### 加密世界（2）
+- [Vitalik Buterin 维塔利克](masters/vitalik-buterin.md) — 19 岁创以太坊 + 个人简朴 + 公共物品哲学
+- [孙宇晨 Justin Sun](masters/justin-sun.md) — Tron + BitTorrent + Buffett 午餐 + 营销驱动（**反面案例学习**）
+
 ## daily
 - [2026-05-30 周末速读](daily/2026-05-30.md) — 五月收官；降息预期回退是本周最大信号；MSFT-CEG 续约链式反应 **[样本]**
 
@@ -160,7 +192,19 @@ _(用户自维护，AI 一般不写)_
 - `1972-sees-candies` ← 7+ 处
 
 > 现在每篇内容 1200-2500 字（之前 250-400 字），密集引用具体数字、人名、日期、估值倍数。
-> 内容总量：**24 knowledge** + **48 models** + **20 cases** + 1 daily + 1 weekly = **94 篇**，总字数约 **20 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+> 内容总量：**24 knowledge** + **48 models** + **20 cases** + **20 masters** + 1 daily + 1 weekly = **114 篇**，总字数约 **25 万字** —— 已经远超一本完整投资体系书的体量，且是**网状结构 + 按需阅读**的形式。
+
+## masters 20 篇按流派 + 地理分布
+
+| 流派 | 数量 | 代表人物 |
+| --- | --- | --- |
+| **价值投资源头** | 7 | Buffett / Munger / Lynch / Marks / Greenblatt / 段永平 / 李录 |
+| **宏观对冲** | 5 | Soros / Dalio / Druckenmiller / Tepper / Ackman |
+| **科技创始人** | 4 | Jobs / Bezos / Musk / Thiel |
+| **VC 思想家** | 2 | Andreessen / Naval |
+| **加密世界** | 2 | Vitalik / 孙宇晨（反面案例） |
+
+地理分布：**美国 16 + 中国 3（段永平/李录/孙宇晨）+ 加拿大/俄罗斯 1（Vitalik）**。年代跨度：1930（Buffett）→ 1994（Vitalik），覆盖 60+ 年现代投资史。
 
 ## cases 20 篇覆盖的 95 年（1929-2024）
 
