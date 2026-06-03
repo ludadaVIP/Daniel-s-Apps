@@ -1,4 +1,4 @@
-import { BookOpen, ClipboardList, FileText, NotebookPen, TrendingUp } from "lucide-react";
+import { BookOpen, BookMarked, ClipboardList, FileText, NotebookPen, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
@@ -31,6 +31,16 @@ const APPS = [
     Icon: BookOpen,
     to: "/book-a-day",
     kind: "Books",
+  },
+  {
+    id: "book-in-depth",
+    title: "Book In Depth",
+    subtitle: "深度精读 · 思维导图 + 万字朗读稿 · 一本书读到底",
+    description: "A Book a Day 的兄弟工具，只留两栏：思维导图 + 万字精读稿（~10000 字 / 本）。无 TTS、无右栏，专心看。",
+    accent: "#6d4322",
+    Icon: BookMarked,
+    to: "/book-in-depth",
+    kind: "Deep",
   },
   {
     id: "daily-todo",

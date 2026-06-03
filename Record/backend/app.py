@@ -18,6 +18,7 @@ from apps.book_a_day.routes import AUDIO_DIR as BOOK_A_DAY_AUDIO_DIR
 from apps.book_a_day.routes import DATA_DIR as BOOK_A_DAY_DATA_DIR
 from apps.book_a_day.routes import MATERIALS_DIRNAME as BOOK_A_DAY_MATERIALS_DIRNAME
 from apps.book_a_day.routes import bp as book_a_day_bp
+from apps.book_in_depth.routes import bp as book_in_depth_bp
 from apps.daily_todo.routes import bp as daily_todo_bp
 from apps.investment.routes import bp as investment_bp
 from apps.record_meditation.routes import bp as record_meditation_bp
@@ -41,12 +42,13 @@ def create_app() -> Flask:
     app.register_blueprint(record_meditation_bp, url_prefix="/api/record-meditation")
     app.register_blueprint(save_md_bp, url_prefix="/api/save-md")
     app.register_blueprint(book_a_day_bp, url_prefix="/api/book-a-day")
+    app.register_blueprint(book_in_depth_bp, url_prefix="/api/book-in-depth")
     app.register_blueprint(daily_todo_bp, url_prefix="/api/daily-todo")
     app.register_blueprint(investment_bp, url_prefix="/api/investment")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "daily-todo", "investment"]})
+        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "book-in-depth", "daily-todo", "investment"]})
 
     @app.get("/audio/save-md/<path:filename>")
     def serve_save_md_audio(filename: str):

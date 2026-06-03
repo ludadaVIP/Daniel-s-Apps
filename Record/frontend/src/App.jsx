@@ -7,6 +7,7 @@ import AppShell from "./shared/AppShell.jsx";
 const RecordMeditationApp = lazy(() => import("./apps/record_meditation/App.jsx"));
 const SaveMdApp = lazy(() => import("./apps/save_md/App.jsx"));
 const BookADayApp = lazy(() => import("./apps/book_a_day/App.jsx"));
+const BookInDepthApp = lazy(() => import("./apps/book_in_depth/App.jsx"));
 const DailyTodoApp = lazy(() => import("./apps/daily_todo/App.jsx"));
 const InvestmentApp = lazy(() => import("./apps/investment/App.jsx"));
 
@@ -44,6 +45,10 @@ export default function App() {
       <Route
         path="/book-a-day"
         element={withShell("A Book a Day", "#b25b00", BookADayApp)}
+      />
+      <Route
+        path="/book-in-depth"
+        element={withShell("Book In Depth", "#6d4322", BookInDepthApp)}
       />
       <Route
         path="/daily-todo"
