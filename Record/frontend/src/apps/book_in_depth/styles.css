@@ -415,10 +415,13 @@
 
   .bid-welcome {
     flex: 1;
-    display: grid;
-    place-items: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     text-align: center;
-    padding: 40px;
+    padding: 40px 40px 60px;
+    overflow: auto;
   }
 
   .bid-welcome > svg { color: var(--bid-accent); margin-bottom: 12px; }
@@ -444,6 +447,139 @@
   }
 
   .bid-welcome button:hover { background: var(--bid-accent-dark); }
+
+  /* ---------- Queue panel (on welcome screen) ---------- */
+
+  .bid-queue {
+    width: 100%;
+    max-width: 820px;
+    margin: 36px auto 0;
+    background: var(--bid-panel);
+    border: 1px solid var(--bid-line);
+    border-radius: 12px;
+    padding: 18px 20px;
+    text-align: left;
+  }
+
+  .bid-queue-head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .bid-queue-head h3 {
+    margin: 0 0 4px;
+    font-size: 16px;
+    color: var(--bid-accent-dark);
+  }
+  .bid-queue-head p {
+    margin: 0;
+    color: var(--bid-muted);
+    font-size: 12px;
+    line-height: 1.55;
+  }
+  .bid-queue-head code {
+    background: var(--bid-accent-soft);
+    padding: 1px 6px;
+    border-radius: 4px;
+    font-size: 11px;
+  }
+  .bid-queue-head button {
+    flex-shrink: 0;
+    border: 1px solid var(--bid-line);
+    background: transparent;
+    color: var(--bid-muted);
+    width: 30px;
+    height: 30px;
+    border-radius: 6px;
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+  .bid-queue-head button:hover { color: var(--bid-accent-dark); background: var(--bid-accent-soft); }
+
+  .bid-queue-counts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 14px;
+  }
+  .bid-queue-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 4px 10px;
+    border: 1px solid;
+    border-radius: 999px;
+    background: white;
+    font-size: 12px;
+  }
+  .bid-queue-chip em {
+    font-style: normal;
+    color: var(--bid-muted);
+  }
+  .bid-queue-chip strong {
+    font-weight: 700;
+  }
+
+  .bid-queue-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .bid-queue-row {
+    display: grid;
+    grid-template-columns: 8px 1fr auto;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 10px;
+    border-radius: 6px;
+    background: rgba(255, 255, 255, 0.6);
+    font-size: 13px;
+    text-align: left;
+    border: none;
+    width: 100%;
+    cursor: default;
+  }
+  .bid-queue-row-clickable { cursor: pointer; }
+  .bid-queue-row-clickable:hover { background: var(--bid-accent-soft); }
+  .bid-queue-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+  }
+  .bid-queue-row strong {
+    color: var(--bid-text);
+  }
+  .bid-queue-row small {
+    color: var(--bid-muted);
+    margin-left: 4px;
+  }
+  .bid-queue-row em {
+    font-style: normal;
+    color: var(--bid-muted);
+    font-size: 11px;
+  }
+  .bid-queue-notes {
+    display: block;
+    margin-left: 0 !important;
+    margin-top: 2px;
+    font-size: 11px;
+  }
+
+  .bid-queue-done {
+    margin-top: 14px;
+  }
+  .bid-queue-done summary {
+    cursor: pointer;
+    color: var(--bid-muted);
+    font-size: 12px;
+    padding: 4px 0;
+    user-select: none;
+  }
+  .bid-queue-done summary:hover { color: var(--bid-accent-dark); }
+  .bid-queue-done .bid-queue-list { margin-top: 8px; }
 
   /* ---------- Workspace ---------- */
 

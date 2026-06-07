@@ -24,6 +24,7 @@ import {
   deleteShelf,
   fetchBook,
   fetchLibrary,
+  fetchQueue,
   updateBook,
   updateShelf,
 } from "./services/api";
@@ -443,6 +444,129 @@ function NarrationTOC({ items, onJump }) {
   );
 }
 
+// --------- Queue panel ---------
+//
+// books_queue.xlsx is the user-editable list of "books I want Claude to read
+// next". This panel surfaces the queue inside the welcome screen so the user
+// can see (a) what's pending for the autonomous loop to pick up, (b) what's
+// already done, (c) anything Claude tried but failed. The xlsx file lives at
+// backend/data/BookInDepth/books_queue.xlsx — edit there to add new rows.
+
+const QUEUE_STATUS_LABEL = {
+  pending: "待处理",
+  in_progress: "处理中",
+  done: "已完成",
+  skip: "跳过",
+  failed: "失败",
+};
+
+const QUEUE_STATUS_COLOR = {
+  pending: "#b25b00",
+  in_progress: "#178a58",
+  done: "#6d4322",
+  skip: "#7a7a7a",
+  failed: "#b3261e",
+};
+
+function QueuePanel({ queue, onRefresh, onSelectBook }) {
+  if (!queue) return null;
+  const items = queue.items || [];
+  const counts = queue.counts || {};
+  const pending = items.filter((it) => (it.status || "pending") === "pending");
+  const inProgress = items.filter((it) => it.status === "in_progress");
+  const failed = items.filter((it) => it.status === "failed");
+  const done = items.filter((it) => it.status === "done");
+  return (
+    <section className="bid-queue">
+      <header className="bid-queue-head">
+        <div>
+          <h3>书籍队列</h3>
+          <p>编辑 <code>backend/data/BookInDepth/books_queue.xlsx</code> — Claude 每 5 小时自动扫一次。</p>
+        </div>
+        <button type="button" onClick={onRefresh} title="刷新队列">
+          <RefreshCw size={15} />
+        </button>
+      </header>
+
+      <div className="bid-queue-counts">
+        {["pending", "in_progress", "done", "failed", "skip"].map((s) => (
+          counts[s] ? (
+            <span key={s} className="bid-queue-chip" style={{ borderColor: QUEUE_STATUS_COLOR[s] }}>
+              <em style={{ color: QUEUE_STATUS_COLOR[s] }}>{QUEUE_STATUS_LABEL[s]}</em>
+              <strong>{counts[s]}</strong>
+            </span>
+          ) : null
+        ))}
+        <span className="bid-queue-chip" style={{ borderColor: "#ccc" }}>
+          <em>总计</em>
+          <strong>{items.length}</strong>
+        </span>
+      </div>
+
+      {(inProgress.length > 0 || pending.length > 0 || failed.length > 0) && (
+        <div className="bid-queue-list">
+          {inProgress.map((it) => (
+            <div key={`ip-${it.seq}`} className="bid-queue-row" data-status="in_progress">
+              <span className="bid-queue-dot" style={{ background: QUEUE_STATUS_COLOR.in_progress }} />
+              <div>
+                <strong>{it.title}</strong>
+                {it.author && <small> · {it.author}</small>}
+              </div>
+              <em>处理中</em>
+            </div>
+          ))}
+          {pending.map((it) => (
+            <div key={`p-${it.seq}`} className="bid-queue-row" data-status="pending">
+              <span className="bid-queue-dot" style={{ background: QUEUE_STATUS_COLOR.pending }} />
+              <div>
+                <strong>{it.title}</strong>
+                {it.author && <small> · {it.author}</small>}
+                {it.notes && <small className="bid-queue-notes">📝 {it.notes}</small>}
+              </div>
+              <em>等待中</em>
+            </div>
+          ))}
+          {failed.map((it) => (
+            <div key={`f-${it.seq}`} className="bid-queue-row" data-status="failed">
+              <span className="bid-queue-dot" style={{ background: QUEUE_STATUS_COLOR.failed }} />
+              <div>
+                <strong>{it.title}</strong>
+                {it.notes && <small className="bid-queue-notes">⚠ {it.notes}</small>}
+              </div>
+              <em>失败</em>
+            </div>
+          ))}
+        </div>
+      )}
+
+      {done.length > 0 && (
+        <details className="bid-queue-done">
+          <summary>已完成 ({done.length})</summary>
+          <div className="bid-queue-list">
+            {done.slice(0, 60).map((it) => (
+              <button
+                key={`d-${it.seq}`}
+                type="button"
+                className="bid-queue-row bid-queue-row-clickable"
+                data-status="done"
+                onClick={() => it.bookId && onSelectBook(it.bookId)}
+                title={it.bookId ? `打开《${it.title}》` : ""}
+              >
+                <span className="bid-queue-dot" style={{ background: QUEUE_STATUS_COLOR.done }} />
+                <div>
+                  <strong>{it.title}</strong>
+                  {it.author && <small> · {it.author}</small>}
+                </div>
+                <em>{it.completedAt || ""}</em>
+              </button>
+            ))}
+          </div>
+        </details>
+      )}
+    </section>
+  );
+}
+
 // --------- Main app ---------
 
 export default function BookInDepthApp() {
@@ -460,6 +584,7 @@ export default function BookInDepthApp() {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [queue, setQueue] = useState(null);
   const textareaRef = useRef(null);
   const readerRef = useRef(null);
 
@@ -481,6 +606,20 @@ export default function BookInDepthApp() {
   useEffect(() => {
     loadLibrary();
   }, [loadLibrary]);
+
+  const loadQueue = useCallback(async () => {
+    try {
+      const data = await fetchQueue();
+      setQueue(data);
+    } catch (err) {
+      // Queue is optional — don't fail the whole app if the file isn't there.
+      setQueue({ items: [], counts: {}, total: 0 });
+    }
+  }, []);
+
+  useEffect(() => {
+    loadQueue();
+  }, [loadQueue]);
 
   useEffect(() => {
     if (!activeBookId) {
@@ -715,6 +854,11 @@ export default function BookInDepthApp() {
               没有 TTS、没有右栏：这里是用来「看」的，不是用来「听」的。
             </p>
             <button type="button" onClick={handleNewBook}><Plus size={16} /> 新书</button>
+            <QueuePanel
+              queue={queue}
+              onRefresh={loadQueue}
+              onSelectBook={(bookId) => setActiveBookId(bookId)}
+            />
           </section>
         ) : (
           <section className="bid-workspace">

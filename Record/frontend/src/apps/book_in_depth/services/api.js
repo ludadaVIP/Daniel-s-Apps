@@ -12,6 +12,10 @@ export async function fetchLibrary() {
   return parseResponse(await fetch(`${BASE}/library`));
 }
 
+export async function fetchQueue() {
+  return parseResponse(await fetch(`${BASE}/queue`));
+}
+
 export async function createShelf(payload) {
   return parseResponse(
     await fetch(`${BASE}/shelves`, {

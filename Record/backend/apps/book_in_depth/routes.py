@@ -27,6 +27,7 @@ from flask import Blueprint, jsonify, request
 DEFAULT_DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "BookInDepth"
 DATA_DIR = Path(os.environ.get("BOOK_IN_DEPTH_DATA_DIR", DEFAULT_DATA_DIR))
 SHELVES_FILE = DATA_DIR / "shelves.json"
+QUEUE_FILE = DATA_DIR / "books_queue.xlsx"
 
 RESERVED_DIRS = {"__pycache__"}
 
@@ -212,6 +213,84 @@ def _list_books() -> list[dict[str, Any]]:
         out.append(_book_summary(book))
     out.sort(key=lambda item: item.get("updatedAt", ""), reverse=True)
     return out
+
+
+def _load_queue() -> list[dict[str, Any]]:
+    """Read books_queue.xlsx — returns list of row dicts.
+
+    The queue is the user-editable source of truth for *what to read next*.
+    The Claude autonomous loop reads this every few hours to find new pending
+    rows. The frontend reads it via /queue to show status.
+    Returns [] if the file doesn't exist or openpyxl isn't installed.
+    """
+    if not QUEUE_FILE.exists():
+        return []
+    try:
+        import openpyxl  # type: ignore
+    except ImportError:
+        return []
+    try:
+        wb = openpyxl.load_workbook(QUEUE_FILE, data_only=True, read_only=True)
+        ws = wb.active
+        if ws is None:
+            return []
+        rows_iter = ws.iter_rows(values_only=True)
+        headers_row = next(rows_iter, None)
+        if not headers_row:
+            return []
+        # Map Chinese column headers → English keys for stable JSON
+        key_map = {
+            "序号": "seq",
+            "中文标题": "title",
+            "作者": "author",
+            "原标题": "originalTitle",
+            "年份": "year",
+            "状态": "status",
+            "添加日期": "addedAt",
+            "完成日期": "completedAt",
+            "book_id": "bookId",
+            "备注": "notes",
+        }
+        cols = [key_map.get(str(h or "").strip(), str(h or "").strip()) for h in headers_row]
+        out: list[dict[str, Any]] = []
+        for row in rows_iter:
+            if not row or all(cell is None or str(cell).strip() == "" for cell in row):
+                continue
+            entry: dict[str, Any] = {}
+            for col_name, value in zip(cols, row):
+                if not col_name:
+                    continue
+                entry[col_name] = "" if value is None else str(value).strip()
+            if not entry.get("title"):
+                continue
+            out.append(entry)
+        wb.close()
+        return out
+    except Exception:
+        return []
+
+
+@bp.route("/queue", methods=["GET", "OPTIONS"])
+def queue():
+    """Expose the books_queue.xlsx contents — read-only.
+
+    The user edits the xlsx directly (Excel / WPS / Numbers). This endpoint
+    just surfaces it for the frontend to show status.
+    """
+    if request.method == "OPTIONS":
+        return "", 204
+    items = _load_queue()
+    # Summary counts so the frontend can show "5 pending / 3 done" at a glance.
+    counts: dict[str, int] = {}
+    for item in items:
+        status = item.get("status") or "pending"
+        counts[status] = counts.get(status, 0) + 1
+    return jsonify({
+        "items": items,
+        "counts": counts,
+        "total": len(items),
+        "queueFile": str(QUEUE_FILE.name),
+    })
 
 
 @bp.route("/library", methods=["GET", "OPTIONS"])
