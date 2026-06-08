@@ -1,7 +1,7 @@
 # Book In Depth — 写稿方法论
 
-> 写一本书的精读稿之前，**先读这份文件 + DESIGN.md + WORKFLOW.md**。
-> 这是「怎么写」，DESIGN.md 是「写什么」，WORKFLOW.md 是「自动化流程」。三者都不可绕过。
+> 写一本书的精读稿之前，**先读这份文件 + DESIGN.md**。
+> 这是「怎么写」，DESIGN.md 是「写什么」。二者都不可绕过。
 
 ---
 

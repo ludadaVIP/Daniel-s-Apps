@@ -1,7 +1,8 @@
 # Book In Depth — 设计说明书
 
-> 这是「写什么」的文件。「怎么写」看 METHODOLOGY.md，「自动化流程」看 WORKFLOW.md。
-> 三个文件互相补充，三者都不可绕过。
+> 这是「写什么」的文件。「怎么写」看 METHODOLOGY.md。
+> 两个文件互相补充，二者都不可绕过。
+> 之前的自动循环（queue / loop / trigger）已下线——现在改为：需要时手动新建书籍并按 METHODOLOGY 写。
 
 ---
 
@@ -25,10 +26,6 @@
 backend/data/BookInDepth/
 ├── DESIGN.md                          # 本文件（写什么）
 ├── METHODOLOGY.md                     # 怎么写（角色、流程）
-├── WORKFLOW.md                        # 自动化流程
-├── LOOP_PROMPT.md                     # 循环触发时的 prompt
-├── books_queue.xlsx                   # 用户编辑的入口
-├── queue_helpers.py                   # 队列工具
 ├── shelves.json                       # 书架定义
 └── <book-id>/                         # 每本书一个文件夹
     └── book.json                      # 元信息 + 两个 markdown section
@@ -231,8 +228,7 @@ backend/data/BookInDepth/
 
 - 后端：`backend/apps/book_in_depth/routes.py`，挂载在 `/api/book-in-depth`。
 - 前端：`frontend/src/apps/book_in_depth/App.jsx` + `styles.css`。
-- 路由：`/library`（书架 + 书列表）、`/queue`（队列）、`/shelves`、`/books`、`/books/<id>`、`/trigger`（立即触发）。
-- 队列文件：`books_queue.xlsx`（用户编辑入口）。
+- 路由：`/library`（书架 + 书列表）、`/shelves`、`/books`、`/books/<id>`。
 - 前端左栏每本书会显示 `Xk` 标签（朗读稿字数向下取整千），一眼看出「这本是不是真写到了万字」。
 
 ---
