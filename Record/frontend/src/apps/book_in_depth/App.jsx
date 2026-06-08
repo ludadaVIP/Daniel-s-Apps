@@ -25,6 +25,7 @@ import {
   fetchBook,
   fetchLibrary,
   fetchQueue,
+  triggerScan,
   updateBook,
   updateShelf,
 } from "./services/api";
@@ -444,6 +445,103 @@ function NarrationTOC({ items, onJump }) {
   );
 }
 
+// --------- Modal ---------
+//
+// Native window.prompt is ugly + only handles one field at a time. The new book
+// flow now uses a proper centered modal with a backdrop, multiple fields, and
+// keyboard handling (Esc to close, Enter to submit).
+
+function Modal({ open, title, onClose, children }) {
+  useEffect(() => {
+    if (!open) return undefined;
+    const onKey = (e) => { if (e.key === "Escape") onClose(); };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [open, onClose]);
+  if (!open) return null;
+  return (
+    <div className="bid-modal-backdrop" onClick={onClose}>
+      <div className="bid-modal" onClick={(e) => e.stopPropagation()}>
+        <header className="bid-modal-head">
+          <h3>{title}</h3>
+          <button type="button" className="bid-modal-close" onClick={onClose} aria-label="关闭">×</button>
+        </header>
+        <div className="bid-modal-body">{children}</div>
+      </div>
+    </div>
+  );
+}
+
+function NewBookForm({ shelves, onSubmit, onCancel }) {
+  const [title, setTitle] = useState("");
+  const [author, setAuthor] = useState("");
+  const [originalTitle, setOriginalTitle] = useState("");
+  const [year, setYear] = useState("");
+  const [shelfId, setShelfId] = useState(shelves[0]?.id || "wantToRead");
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (!title.trim()) return;
+        onSubmit({ title: title.trim(), author: author.trim(), originalTitle: originalTitle.trim(), year: year.trim(), shelfId });
+      }}
+      className="bid-form"
+    >
+      <label>
+        <span>书名 *</span>
+        <input autoFocus value={title} onChange={(e) => setTitle(e.target.value)} placeholder="例：人类简史" required />
+      </label>
+      <label>
+        <span>作者</span>
+        <input value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="例：尤瓦尔·赫拉利" />
+      </label>
+      <label>
+        <span>原标题</span>
+        <input value={originalTitle} onChange={(e) => setOriginalTitle(e.target.value)} placeholder="例：Sapiens" />
+      </label>
+      <label>
+        <span>年份</span>
+        <input value={year} onChange={(e) => setYear(e.target.value)} placeholder="例：2011" />
+      </label>
+      <label>
+        <span>书架</span>
+        <select value={shelfId} onChange={(e) => setShelfId(e.target.value)}>
+          {shelves.filter((s) => s.id !== "_unfiled").map((s) => (
+            <option key={s.id} value={s.id}>{s.name}</option>
+          ))}
+        </select>
+      </label>
+      <div className="bid-form-actions">
+        <button type="button" onClick={onCancel}>取消</button>
+        <button type="submit" className="bid-cta">创建</button>
+      </div>
+    </form>
+  );
+}
+
+function NewShelfForm({ onSubmit, onCancel }) {
+  const [name, setName] = useState("");
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        if (!name.trim()) return;
+        onSubmit({ name: name.trim() });
+      }}
+      className="bid-form"
+    >
+      <label>
+        <span>书架名 *</span>
+        <input autoFocus value={name} onChange={(e) => setName(e.target.value)} placeholder="例：今年要读" required />
+      </label>
+      <div className="bid-form-actions">
+        <button type="button" onClick={onCancel}>取消</button>
+        <button type="submit" className="bid-cta">创建</button>
+      </div>
+    </form>
+  );
+}
+
 // --------- Queue panel ---------
 //
 // books_queue.xlsx is the user-editable list of "books I want Claude to read
@@ -468,7 +566,7 @@ const QUEUE_STATUS_COLOR = {
   failed: "#b3261e",
 };
 
-function QueuePanel({ queue, onRefresh, onSelectBook }) {
+function QueuePanel({ queue, onRefresh, onSelectBook, onTrigger, triggerState }) {
   if (!queue) return null;
   const items = queue.items || [];
   const counts = queue.counts || {};
@@ -481,11 +579,22 @@ function QueuePanel({ queue, onRefresh, onSelectBook }) {
       <header className="bid-queue-head">
         <div>
           <h3>书籍队列</h3>
-          <p>编辑 <code>backend/data/BookInDepth/books_queue.xlsx</code> — Claude 每 5 小时自动扫一次。</p>
+          <p>编辑 <code>books_queue.xlsx</code> 加书 · 自动循环每 6 小时一次 · 不想等就「立即触发」</p>
         </div>
-        <button type="button" onClick={onRefresh} title="刷新队列">
-          <RefreshCw size={15} />
-        </button>
+        <div className="bid-queue-head-actions">
+          <button
+            type="button"
+            className="bid-trigger-btn"
+            onClick={onTrigger}
+            disabled={triggerState === "set"}
+            title={triggerState === "set" ? "已触发，等 Claude 看到" : "立即让 Claude 扫描队列"}
+          >
+            {triggerState === "set" ? "✓ 已触发" : "⚡ 立即触发"}
+          </button>
+          <button type="button" onClick={onRefresh} className="bid-icon-btn" title="刷新队列">
+            <RefreshCw size={15} />
+          </button>
+        </div>
       </header>
 
       <div className="bid-queue-counts">
@@ -585,6 +694,9 @@ export default function BookInDepthApp() {
   const [error, setError] = useState("");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [queue, setQueue] = useState(null);
+  const [triggerState, setTriggerState] = useState("idle"); // 'idle' | 'set'
+  const [showNewBookModal, setShowNewBookModal] = useState(false);
+  const [showNewShelfModal, setShowNewShelfModal] = useState(false);
   const textareaRef = useRef(null);
   const readerRef = useRef(null);
 
@@ -620,6 +732,15 @@ export default function BookInDepthApp() {
   useEffect(() => {
     loadQueue();
   }, [loadQueue]);
+
+  // Reset the "立即触发" indicator when the queue changes (e.g. Claude
+  // picked it up and updated rows).
+  useEffect(() => {
+    if (!queue) return;
+    if (triggerState === "set" && queue.counts && (queue.counts.in_progress || 0) > 0) {
+      setTriggerState("idle");
+    }
+  }, [queue, triggerState]);
 
   useEffect(() => {
     if (!activeBookId) {
@@ -661,29 +782,34 @@ export default function BookInDepthApp() {
     setActiveBookId(bookId);
   };
 
-  const handleNewBook = async () => {
-    const title = window.prompt("新书的书名：");
-    if (!title) return;
-    const author = window.prompt("作者（可空）：") || "";
-    const firstShelf = library.shelves.find((s) => s.id !== "_unfiled");
-    const data = await createBook({
-      title,
-      author,
-      shelfId: firstShelf?.id || "wantToRead",
-    });
+  const handleNewBook = () => setShowNewBookModal(true);
+  const handleNewShelf = () => setShowNewShelfModal(true);
+
+  const createNewBook = async (payload) => {
+    setShowNewBookModal(false);
+    const data = await createBook(payload);
     await loadLibrary();
     setActiveBookId(data.book.id);
     setActiveTab("narration");
     setStatus(`新建《${data.book.title}》`);
   };
 
-  const handleNewShelf = async () => {
-    const name = window.prompt("新书架的名字：");
-    if (!name) return;
+  const createNewShelf = async ({ name }) => {
+    setShowNewShelfModal(false);
     const shelf = await createShelf({ name });
     setOpenShelves((current) => new Set([...current, shelf.id]));
     await loadLibrary();
     setStatus(`新建书架「${shelf.name}」`);
+  };
+
+  const handleTriggerScan = async () => {
+    try {
+      await triggerScan();
+      setTriggerState("set");
+      setStatus("已触发——回到 Claude 对话说一句话即可处理新书");
+    } catch (err) {
+      setError(err.message);
+    }
   };
 
   const handleRenameShelf = async (shelf) => {
@@ -848,16 +974,21 @@ export default function BookInDepthApp() {
             <BookOpen size={42} />
             <h2>每本书读到底</h2>
             <p>
-              这里和「A Book a Day」是兄弟工具——同样的书架管理，但右边极简：
-              只有 <strong>思维导图</strong> 和 <strong>朗读稿</strong> 两个 Tab。
-              朗读稿目标 ~10000 字——把一本书真正讲透，而不是浓缩到 2000 字看不出味道。
-              没有 TTS、没有右栏：这里是用来「看」的，不是用来「听」的。
+              客观、详细、结构完整地复述一本书——目标 ~10000 字。
+              <br />
+              右边只有 <strong>思维导图</strong> 和 <strong>朗读稿</strong> 两个 Tab。
+              <br />
+              这里是用来「看」的——不是听书 app，也不是读书笔记。
             </p>
-            <button type="button" onClick={handleNewBook}><Plus size={16} /> 新书</button>
+            <button type="button" className="bid-cta" onClick={handleNewBook}>
+              <Plus size={16} /> 手动新建
+            </button>
             <QueuePanel
               queue={queue}
               onRefresh={loadQueue}
               onSelectBook={(bookId) => setActiveBookId(bookId)}
+              onTrigger={handleTriggerScan}
+              triggerState={triggerState}
             />
           </section>
         ) : (
@@ -917,6 +1048,21 @@ export default function BookInDepthApp() {
           </section>
         )}
       </main>
+
+      <Modal open={showNewBookModal} title="新建书籍" onClose={() => setShowNewBookModal(false)}>
+        <NewBookForm
+          shelves={library.shelves || []}
+          onSubmit={createNewBook}
+          onCancel={() => setShowNewBookModal(false)}
+        />
+      </Modal>
+
+      <Modal open={showNewShelfModal} title="新建书架" onClose={() => setShowNewShelfModal(false)}>
+        <NewShelfForm
+          onSubmit={createNewShelf}
+          onCancel={() => setShowNewShelfModal(false)}
+        />
+      </Modal>
     </div>
   );
 }

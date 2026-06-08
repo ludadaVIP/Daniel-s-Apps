@@ -28,6 +28,7 @@ DEFAULT_DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "BookInDepth"
 DATA_DIR = Path(os.environ.get("BOOK_IN_DEPTH_DATA_DIR", DEFAULT_DATA_DIR))
 SHELVES_FILE = DATA_DIR / "shelves.json"
 QUEUE_FILE = DATA_DIR / "books_queue.xlsx"
+TRIGGER_FILE = DATA_DIR / ".trigger"
 
 RESERVED_DIRS = {"__pycache__"}
 
@@ -197,6 +198,26 @@ def _book_summary(book: dict[str, Any]) -> dict[str, Any]:
     return summary
 
 
+def _title_sort_key(title: str) -> tuple:
+    """Build a sort key that puts Chinese titles in pinyin order.
+
+    Used by both /library (book list) and the frontend secondary sort. The
+    plain Unicode codepoint sort would put 「地球」 way after 「中文」 — useless
+    when the user wants to find 「地球往事」 alphabetically. pypinyin gives us
+    a proper alphabetical ordering for mixed Chinese/Latin titles.
+    """
+    s = str(title or "").strip()
+    if not s:
+        return ("zzz", "")
+    try:
+        from pypinyin import lazy_pinyin, Style  # type: ignore
+        py = "".join(lazy_pinyin(s, style=Style.NORMAL))
+        return (py.lower(), s)
+    except ImportError:
+        # Fallback: just lowercase. Won't sort Chinese properly but won't crash.
+        return (s.lower(), s)
+
+
 def _list_books() -> list[dict[str, Any]]:
     _ensure_seed()
     out: list[dict[str, Any]] = []
@@ -211,7 +232,9 @@ def _list_books() -> list[dict[str, Any]]:
         except Exception:
             continue
         out.append(_book_summary(book))
-    out.sort(key=lambda item: item.get("updatedAt", ""), reverse=True)
+    # Sort by pinyin so users can find books alphabetically — 「地球往事」 lands
+    # under D, not buried somewhere by recent updatedAt.
+    out.sort(key=lambda item: _title_sort_key(item.get("title", "")))
     return out
 
 
@@ -268,6 +291,39 @@ def _load_queue() -> list[dict[str, Any]]:
         return out
     except Exception:
         return []
+
+
+@bp.route("/trigger", methods=["POST", "GET", "DELETE", "OPTIONS"])
+def trigger():
+    """Immediate-trigger flag for the queue scanner.
+
+    The cron runs every 6 hours. If the user just added a row to the xlsx and
+    doesn't want to wait, they click "立即生成" in the UI — the frontend POSTs
+    here, which writes a small flag file. Claude (in the chat session) reads
+    the flag on the next prompt and scans the queue immediately.
+
+    GET → returns whether the flag is set and when (for the UI badge).
+    POST → set the flag (frontend "立即生成" button).
+    DELETE → clear the flag (Claude calls this after consuming it).
+    """
+    if request.method == "OPTIONS":
+        return "", 204
+    if request.method == "POST":
+        TRIGGER_FILE.parent.mkdir(parents=True, exist_ok=True)
+        TRIGGER_FILE.write_text(_now_iso(), encoding="utf-8")
+        return jsonify({"triggered": True, "at": _now_iso()})
+    if request.method == "DELETE":
+        if TRIGGER_FILE.exists():
+            TRIGGER_FILE.unlink()
+        return jsonify({"cleared": True})
+    # GET
+    if TRIGGER_FILE.exists():
+        try:
+            stamp = TRIGGER_FILE.read_text(encoding="utf-8").strip()
+        except Exception:
+            stamp = ""
+        return jsonify({"triggered": True, "at": stamp})
+    return jsonify({"triggered": False, "at": ""})
 
 
 @bp.route("/queue", methods=["GET", "OPTIONS"])

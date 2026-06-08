@@ -420,9 +420,10 @@
     align-items: center;
     justify-content: flex-start;
     text-align: center;
-    padding: 40px 40px 60px;
+    padding: 48px 40px 60px;
     overflow: auto;
   }
+  .bid-welcome > svg { color: var(--bid-accent); }
 
   .bid-welcome > svg { color: var(--bid-accent); margin-bottom: 12px; }
   .bid-welcome h2 { margin: 0 0 10px; }
@@ -447,73 +448,119 @@
   }
 
   .bid-welcome button:hover { background: var(--bid-accent-dark); }
+  .bid-welcome .bid-cta {
+    background: var(--bid-accent);
+    color: white;
+  }
+  .bid-welcome .bid-cta:hover { background: var(--bid-accent-dark); }
 
   /* ---------- Queue panel (on welcome screen) ---------- */
 
   .bid-queue {
     width: 100%;
-    max-width: 820px;
-    margin: 36px auto 0;
-    background: var(--bid-panel);
+    max-width: 880px;
+    margin: 40px auto 0;
+    background: linear-gradient(180deg, #fffdf8, #fbf6ed);
     border: 1px solid var(--bid-line);
-    border-radius: 12px;
-    padding: 18px 20px;
+    border-radius: 14px;
+    padding: 22px 26px;
     text-align: left;
+    box-shadow: 0 4px 18px rgba(110, 80, 50, 0.06);
   }
 
   .bid-queue-head {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    gap: 12px;
-    margin-bottom: 14px;
+    gap: 14px;
+    margin-bottom: 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px dashed var(--bid-line);
   }
   .bid-queue-head h3 {
-    margin: 0 0 4px;
-    font-size: 16px;
+    margin: 0 0 6px;
+    font-size: 17px;
     color: var(--bid-accent-dark);
+    font-weight: 700;
   }
   .bid-queue-head p {
     margin: 0;
     color: var(--bid-muted);
-    font-size: 12px;
-    line-height: 1.55;
+    font-size: 12.5px;
+    line-height: 1.6;
   }
   .bid-queue-head code {
     background: var(--bid-accent-soft);
-    padding: 1px 6px;
+    padding: 2px 7px;
     border-radius: 4px;
-    font-size: 11px;
+    font-size: 11.5px;
+    color: var(--bid-accent-dark);
+    font-family: ui-monospace, "SF Mono", Consolas, monospace;
   }
-  .bid-queue-head button {
+  .bid-queue-head-actions {
+    display: flex;
+    gap: 8px;
+    align-items: center;
     flex-shrink: 0;
-    border: 1px solid var(--bid-line);
-    background: transparent;
-    color: var(--bid-muted);
-    width: 30px;
-    height: 30px;
-    border-radius: 6px;
-    display: grid;
-    place-items: center;
-    cursor: pointer;
   }
-  .bid-queue-head button:hover { color: var(--bid-accent-dark); background: var(--bid-accent-soft); }
+  .bid-trigger-btn {
+    border: 1px solid var(--bid-accent);
+    background: white;
+    color: var(--bid-accent);
+    padding: 7px 14px;
+    border-radius: 8px;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    white-space: nowrap;
+  }
+  .bid-trigger-btn:hover:not(:disabled) {
+    background: var(--bid-accent);
+    color: white;
+  }
+  .bid-trigger-btn:disabled {
+    opacity: 0.55;
+    cursor: default;
+    background: var(--bid-accent-soft);
+    color: var(--bid-accent-dark);
+    border-color: var(--bid-line);
+  }
+  .bid-icon-btn {
+    border: 1px solid var(--bid-line);
+    background: white;
+    color: var(--bid-muted);
+    width: 34px;
+    height: 34px;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    padding: 0;
+  }
+  .bid-icon-btn:hover {
+    color: var(--bid-accent-dark);
+    background: var(--bid-accent-soft);
+    border-color: var(--bid-accent);
+  }
+  .bid-icon-btn svg { display: block; }
 
   .bid-queue-counts {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-    margin-bottom: 14px;
+    margin-bottom: 18px;
   }
   .bid-queue-chip {
     display: inline-flex;
     align-items: center;
-    gap: 6px;
-    padding: 4px 10px;
+    gap: 7px;
+    padding: 6px 12px;
     border: 1px solid;
     border-radius: 999px;
     background: white;
-    font-size: 12px;
+    font-size: 12.5px;
+    line-height: 1;
   }
   .bid-queue-chip em {
     font-style: normal;
@@ -521,65 +568,180 @@
   }
   .bid-queue-chip strong {
     font-weight: 700;
+    font-size: 13px;
   }
 
   .bid-queue-list {
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
   }
   .bid-queue-row {
     display: grid;
-    grid-template-columns: 8px 1fr auto;
+    grid-template-columns: 10px 1fr auto;
     align-items: center;
-    gap: 10px;
-    padding: 8px 10px;
-    border-radius: 6px;
-    background: rgba(255, 255, 255, 0.6);
-    font-size: 13px;
+    gap: 12px;
+    padding: 10px 12px;
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.85);
+    border: 1px solid transparent;
+    font-size: 13.5px;
     text-align: left;
-    border: none;
     width: 100%;
     cursor: default;
+    transition: background 0.12s, border-color 0.12s;
   }
   .bid-queue-row-clickable { cursor: pointer; }
-  .bid-queue-row-clickable:hover { background: var(--bid-accent-soft); }
+  .bid-queue-row-clickable:hover {
+    background: white;
+    border-color: var(--bid-accent);
+  }
   .bid-queue-dot {
-    width: 8px;
-    height: 8px;
+    width: 9px;
+    height: 9px;
     border-radius: 50%;
   }
   .bid-queue-row strong {
     color: var(--bid-text);
+    font-weight: 600;
   }
   .bid-queue-row small {
     color: var(--bid-muted);
-    margin-left: 4px;
+    margin-left: 6px;
+    font-size: 12px;
   }
   .bid-queue-row em {
     font-style: normal;
     color: var(--bid-muted);
-    font-size: 11px;
+    font-size: 11.5px;
+    font-variant-numeric: tabular-nums;
   }
   .bid-queue-notes {
     display: block;
     margin-left: 0 !important;
-    margin-top: 2px;
-    font-size: 11px;
+    margin-top: 3px;
+    font-size: 11.5px;
+    color: var(--bid-accent-dark);
   }
 
   .bid-queue-done {
-    margin-top: 14px;
+    margin-top: 18px;
   }
   .bid-queue-done summary {
     cursor: pointer;
     color: var(--bid-muted);
-    font-size: 12px;
-    padding: 4px 0;
+    font-size: 12.5px;
+    padding: 6px 0;
     user-select: none;
+    font-weight: 600;
   }
   .bid-queue-done summary:hover { color: var(--bid-accent-dark); }
-  .bid-queue-done .bid-queue-list { margin-top: 8px; }
+  .bid-queue-done .bid-queue-list { margin-top: 10px; }
+
+  /* ---------- Modal ---------- */
+
+  .bid-modal-backdrop {
+    position: fixed;
+    inset: 0;
+    background: rgba(31, 20, 8, 0.42);
+    backdrop-filter: blur(3px);
+    display: grid;
+    place-items: center;
+    z-index: 1000;
+    animation: bid-fade 0.16s ease-out;
+  }
+  .bid-modal {
+    background: var(--bid-panel-strong);
+    border-radius: 14px;
+    box-shadow: 0 18px 60px rgba(0, 0, 0, 0.25);
+    width: min(440px, 92vw);
+    max-height: 90vh;
+    overflow: auto;
+    animation: bid-rise 0.18s ease-out;
+  }
+  @keyframes bid-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes bid-rise {
+    from { opacity: 0; transform: translateY(8px) scale(0.98); }
+    to { opacity: 1; transform: translateY(0) scale(1); }
+  }
+  .bid-modal-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 16px 20px;
+    border-bottom: 1px solid var(--bid-line);
+  }
+  .bid-modal-head h3 {
+    margin: 0;
+    font-size: 16px;
+    color: var(--bid-accent-dark);
+  }
+  .bid-modal-close {
+    background: transparent;
+    border: none;
+    color: var(--bid-muted);
+    font-size: 24px;
+    line-height: 1;
+    width: 28px;
+    height: 28px;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  .bid-modal-close:hover { background: var(--bid-accent-soft); color: var(--bid-accent-dark); }
+  .bid-modal-body { padding: 18px 20px 20px; }
+
+  .bid-form { display: flex; flex-direction: column; gap: 12px; }
+  .bid-form label { display: flex; flex-direction: column; gap: 5px; }
+  .bid-form label span {
+    font-size: 12.5px;
+    color: var(--bid-muted);
+    font-weight: 600;
+  }
+  .bid-form input,
+  .bid-form select {
+    border: 1px solid var(--bid-line);
+    background: white;
+    padding: 9px 12px;
+    border-radius: 8px;
+    font-size: 14px;
+    color: var(--bid-text);
+    font-family: inherit;
+  }
+  .bid-form input:focus,
+  .bid-form select:focus {
+    outline: none;
+    border-color: var(--bid-accent);
+    box-shadow: 0 0 0 3px var(--bid-accent-soft);
+  }
+  .bid-form-actions {
+    display: flex;
+    gap: 8px;
+    justify-content: flex-end;
+    margin-top: 6px;
+  }
+  .bid-form-actions button {
+    padding: 9px 16px;
+    border-radius: 8px;
+    border: 1px solid var(--bid-line);
+    background: white;
+    color: var(--bid-text);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 13.5px;
+  }
+  .bid-form-actions button:hover { background: var(--bid-accent-soft); }
+  .bid-form-actions .bid-cta {
+    background: var(--bid-accent);
+    color: white;
+    border-color: var(--bid-accent);
+  }
+  .bid-form-actions .bid-cta:hover { background: var(--bid-accent-dark); border-color: var(--bid-accent-dark); }
+
+  /* ---------- Toolbar refresh icon — keep it upright ---------- */
+  .bid-toolbar svg, .bid-icon-btn svg, .bid-queue-head svg {
+    transform: none !important;
+    transition: none;
+  }
 
   /* ---------- Workspace ---------- */
 

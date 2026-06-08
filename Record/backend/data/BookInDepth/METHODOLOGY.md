@@ -242,13 +242,6 @@
 
 ---
 
-## 应用于《忏悔录》的实例
-
-第二本书《奥古斯丁·忏悔录》是这套方法论的第一次完整应用。
-具体看 [`augustine-confessions/book.json`](augustine-confessions/) 和写作日志 [`augustine-confessions-WRITING-LOG.md`](augustine-confessions-WRITING-LOG.md)（如保留）。
-
----
-
 ## 一句话哲学
 
 > **不要写"够了的"稿子，写"完整的"稿子。**

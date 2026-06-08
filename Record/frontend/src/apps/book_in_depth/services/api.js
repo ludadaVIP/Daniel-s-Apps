@@ -16,6 +16,16 @@ export async function fetchQueue() {
   return parseResponse(await fetch(`${BASE}/queue`));
 }
 
+export async function triggerScan() {
+  return parseResponse(
+    await fetch(`${BASE}/trigger`, { method: "POST" }),
+  );
+}
+
+export async function fetchTriggerStatus() {
+  return parseResponse(await fetch(`${BASE}/trigger`));
+}
+
 export async function createShelf(payload) {
   return parseResponse(
     await fetch(`${BASE}/shelves`, {
