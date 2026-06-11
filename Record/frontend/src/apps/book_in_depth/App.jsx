@@ -6,6 +6,7 @@ import {
   ChevronDown,
   ChevronRight,
   Edit3,
+  FolderOpen,
   Heart,
   Loader2,
   Plus,
@@ -41,12 +42,34 @@ const SECTION_PLACEHOLDERS = {
     "# 引言\n\n（深度精读稿写在这里。目标 ~10000 字。建议用 `## 一级标题` 分章，左侧会自动生成可跳转的目录。）\n\n## 第一章 …\n\n…\n",
 };
 
-const WORKFLOW_STEPS = [
-  { id: "wantToRead", label: "想读", nextLabel: "开始读" },
-  { id: "reading", label: "在读", nextLabel: "读完了" },
-  { id: "read", label: "已读", nextLabel: null },
-];
-const SYSTEM_SHELF_IDS = new Set(["wantToRead", "reading", "read", "collection"]);
+// Shelves are organised into 4 life-cycle groups; see the backend
+// DEFAULT_SHELVES for the full list. The sidebar renders one section per
+// group; the stepper compresses the 4 groups into 3 visible dots (post
+// shares the third dot with finished — it's still "已读完", just classified).
+const SHELF_GROUP_META = {
+  pre: { label: "准备读" },
+  reading: { label: "在读" },
+  finished: { label: "已读" },
+  post: { label: "归类" },
+};
+const SHELF_GROUP_ORDER = ["pre", "reading", "finished", "post"];
+
+const NEXT_DEFAULT_SHELF = {
+  pre: "reading",
+  reading: "read",
+  finished: null,
+};
+const NEXT_BUTTON_LABEL = {
+  pre: "开始读",
+  reading: "读完了",
+};
+
+const SYSTEM_SHELF_IDS = new Set([
+  "wantToRead", "spirit", "culture", "investment",
+  "reading", "read",
+  "collection", "revisit", "archive", "shallow", "deep", "monthly",
+]);
+const DEFAULT_POST_SHELF = "collection";
 
 function classes(...parts) {
   return parts.filter(Boolean).join(" ");
@@ -274,57 +297,77 @@ function Sidebar({
       )}
 
       <nav className="bid-tree" aria-label="Shelves">
-        {shelves.map((shelf) => {
-          const filtered = shelf.books.filter((book) => {
-            if (!normalQuery) return true;
-            const haystack = `${book.title} ${book.author} ${(book.tags || []).join(" ")} ${book.excerpt || ""}`.toLowerCase();
-            return haystack.includes(normalQuery);
+        {SHELF_GROUP_ORDER.map((groupKey) => {
+          // Match Book a Day's sidebar grouping: one section header per life
+          // cycle stage, with custom shelves landing in the group their
+          // `group` field declares (default "pre"). "_unfiled" pins to post.
+          const shelvesInGroup = shelves.filter((shelf) => {
+            if (shelf.id === "_unfiled") return groupKey === "post";
+            return (shelf.group || "pre") === groupKey;
           });
-          const open = openShelves.has(shelf.id);
+          if (shelvesInGroup.length === 0) return null;
+          const meta = SHELF_GROUP_META[groupKey];
           return (
-            <section key={shelf.id} className={classes("bid-shelf", `bid-shelf-${shelf.id}`)}>
-              <button
-                type="button"
-                className="bid-shelf-head"
-                onClick={() => onToggleShelf(shelf.id)}
-                title={shelf.name}
-              >
-                {open ? <ChevronDown size={15} /> : <ChevronRight size={15} />}
-                {!collapsed && <span>{shelf.name}</span>}
-                {!collapsed && <small>{filtered.length}</small>}
-              </button>
-              {open && !collapsed && (
-                <div className="bid-book-list">
-                  {filtered.length === 0 && (
-                    <p className="bid-empty">{normalQuery ? "没匹配的书。" : "这个书架还没书。"}</p>
-                  )}
-                  {filtered.map((book) => (
-                    <button
-                      type="button"
-                      key={book.id}
-                      className={classes("bid-book-item", activeBookId === book.id && "is-active")}
-                      onClick={() => onSelectBook(book.id)}
-                      title={`${book.title}${book.author ? "  ·  " + book.author : ""}${book.narrationLength ? `  ·  ${book.narrationLength} 字` : ""}`}
-                    >
-                      <BookMarked size={14} />
-                      <div className="bid-book-item-text">
-                        <strong>{book.title}</strong>
-                        {book.author && <span>{book.author}</span>}
-                      </div>
-                      {book.narrationLength > 0 && (
-                        <small className="bid-book-len">{Math.round(book.narrationLength / 1000)}k</small>
-                      )}
-                    </button>
-                  ))}
-                  {shelf.id !== "_unfiled" && !SYSTEM_SHELF_IDS.has(shelf.id) && (
-                    <div className="bid-shelf-tools">
-                      <button type="button" onClick={() => onRenameShelf(shelf)}>重命名</button>
-                      <button type="button" onClick={() => onDeleteShelf(shelf)}>删除</button>
-                    </div>
-                  )}
+            <div key={groupKey} className={classes("bid-shelf-group", `bid-shelf-group-${groupKey}`)}>
+              {!collapsed && (
+                <div className="bid-shelf-group-head" aria-hidden="true">
+                  <span>{meta.label}</span>
                 </div>
               )}
-            </section>
+              {shelvesInGroup.map((shelf) => {
+                const filtered = shelf.books.filter((book) => {
+                  if (!normalQuery) return true;
+                  const haystack = `${book.title} ${book.author} ${(book.tags || []).join(" ")} ${book.excerpt || ""}`.toLowerCase();
+                  return haystack.includes(normalQuery);
+                });
+                const open = openShelves.has(shelf.id);
+                return (
+                  <section key={shelf.id} className={classes("bid-shelf", `bid-shelf-${shelf.id}`, `bid-shelf-g-${groupKey}`)}>
+                    <button
+                      type="button"
+                      className="bid-shelf-head"
+                      onClick={() => onToggleShelf(shelf.id)}
+                      title={shelf.name}
+                    >
+                      {open ? <ChevronDown size={15} /> : <ChevronRight size={15} />}
+                      {!collapsed && <span>{shelf.name}</span>}
+                      {!collapsed && <small>{filtered.length}</small>}
+                    </button>
+                    {open && !collapsed && (
+                      <div className="bid-book-list">
+                        {filtered.length === 0 && (
+                          <p className="bid-empty">{normalQuery ? "没匹配的书。" : "这个书架还没书。"}</p>
+                        )}
+                        {filtered.map((book) => (
+                          <button
+                            type="button"
+                            key={book.id}
+                            className={classes("bid-book-item", activeBookId === book.id && "is-active")}
+                            onClick={() => onSelectBook(book.id)}
+                            title={`${book.title}${book.author ? "  ·  " + book.author : ""}${book.narrationLength ? `  ·  ${book.narrationLength} 字` : ""}`}
+                          >
+                            <BookMarked size={14} />
+                            <div className="bid-book-item-text">
+                              <strong>{book.title}</strong>
+                              {book.author && <span>{book.author}</span>}
+                            </div>
+                            {book.narrationLength > 0 && (
+                              <small className="bid-book-len">{Math.round(book.narrationLength / 1000)}k</small>
+                            )}
+                          </button>
+                        ))}
+                        {shelf.id !== "_unfiled" && !SYSTEM_SHELF_IDS.has(shelf.id) && (
+                          <div className="bid-shelf-tools">
+                            <button type="button" onClick={() => onRenameShelf(shelf)}>重命名</button>
+                            <button type="button" onClick={() => onDeleteShelf(shelf)}>删除</button>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </section>
+                );
+              })}
+            </div>
           );
         })}
       </nav>
@@ -334,30 +377,75 @@ function Sidebar({
 
 // --------- Workflow stepper + slim info card ---------
 
-function WorkflowStepper({ book, onPatch }) {
-  if (!book) return null;
-  const isFavorite = book.shelfId === "collection";
-  const currentIndex = isFavorite
-    ? 2
-    : Math.max(0, WORKFLOW_STEPS.findIndex((s) => s.id === book.shelfId));
-  const currentStep = WORKFLOW_STEPS[currentIndex];
-  const nextStep = WORKFLOW_STEPS[currentIndex + 1];
+function findShelf(shelves, shelfId) {
+  for (const shelf of shelves) {
+    if (shelf.id === shelfId) return shelf;
+  }
+  return null;
+}
 
-  const moveTo = (shelfId) => onPatch({ shelfId });
+function WorkflowStepper({ book, shelves, onPatch }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const menuRef = useRef(null);
+
+  useEffect(() => {
+    if (!menuOpen) return undefined;
+    const onDocClick = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target)) {
+        setMenuOpen(false);
+      }
+    };
+    window.addEventListener("mousedown", onDocClick);
+    return () => window.removeEventListener("mousedown", onDocClick);
+  }, [menuOpen]);
+
+  if (!book) return null;
+
+  const currentShelf = findShelf(shelves, book.shelfId);
+  const currentGroup = currentShelf?.group || "pre";
+  const currentStageIndex = Math.min(
+    SHELF_GROUP_ORDER.indexOf(currentGroup),
+    SHELF_GROUP_ORDER.length - 1,
+  );
+  const displayDotIndex = currentGroup === "post" ? 2 : currentStageIndex;
+  const nextDefaultShelf = NEXT_DEFAULT_SHELF[currentGroup];
+  const nextButtonLabel = NEXT_BUTTON_LABEL[currentGroup];
+
+  const DOTS = [
+    { key: "pre", label: "准备读" },
+    { key: "reading", label: "在读" },
+    { key: "finished", label: "已读" },
+  ];
+
+  const moveTo = (shelfId) => {
+    setMenuOpen(false);
+    onPatch({ shelfId });
+  };
+
+  const postShelves = shelves.filter((s) => s.group === "post" && s.id !== "_unfiled");
+  const isFavorite = book.shelfId === "collection";
+  const canClassify = currentGroup === "finished" || currentGroup === "post";
 
   return (
     <section className="bid-workflow">
       <ol className="bid-workflow-steps">
-        {WORKFLOW_STEPS.map((step, idx) => {
+        {DOTS.map((dot, idx) => {
           const state =
-            idx < currentIndex ? "done" : idx === currentIndex ? "current" : "todo";
+            idx < displayDotIndex ? "done" : idx === displayDotIndex ? "current" : "todo";
+          const sublabel =
+            state === "current" && currentShelf && currentShelf.name !== dot.label
+              ? currentShelf.name
+              : null;
           return (
-            <li key={step.id} className={`is-${state}`}>
+            <li key={dot.key} className={`is-${state}`}>
               <span className="bid-workflow-dot">
                 {state === "done" ? <Check size={13} /> : idx + 1}
               </span>
-              <span className="bid-workflow-label">{step.label}</span>
-              {idx < WORKFLOW_STEPS.length - 1 && (
+              <span className="bid-workflow-label">
+                {dot.label}
+                {sublabel && <em className="bid-workflow-sub">· {sublabel}</em>}
+              </span>
+              {idx < DOTS.length - 1 && (
                 <span className="bid-workflow-arrow" aria-hidden="true" />
               )}
             </li>
@@ -365,21 +453,61 @@ function WorkflowStepper({ book, onPatch }) {
         })}
       </ol>
       <div className="bid-workflow-actions">
-        {nextStep && currentStep.nextLabel && !isFavorite && (
+        {nextDefaultShelf && nextButtonLabel && (
           <button
             type="button"
             className="bid-workflow-next"
-            onClick={() => moveTo(nextStep.id)}
-            title={`移到「${nextStep.label}」`}
+            onClick={() => moveTo(nextDefaultShelf)}
+            title={`移到「${nextButtonLabel === "开始读" ? "在读" : "已读"}」`}
           >
-            {currentStep.nextLabel} <ChevronRight size={14} />
+            {nextButtonLabel} <ChevronRight size={14} />
           </button>
+        )}
+        {canClassify && (
+          <div className="bid-workflow-menu" ref={menuRef}>
+            <button
+              type="button"
+              className={classes("bid-workflow-classify", currentGroup === "post" && "is-classified")}
+              onClick={() => setMenuOpen((v) => !v)}
+              title="把这本书归到一个收藏类"
+            >
+              <FolderOpen size={14} />
+              {currentGroup === "post" && currentShelf ? currentShelf.name : "归类…"}
+              <ChevronDown size={13} />
+            </button>
+            {menuOpen && (
+              <div className="bid-workflow-menu-pop" role="menu">
+                {currentGroup === "post" && (
+                  <button
+                    type="button"
+                    className="bid-workflow-menu-item is-revert"
+                    onClick={() => moveTo("read")}
+                  >
+                    ← 移回「已读」
+                  </button>
+                )}
+                {postShelves.map((shelf) => (
+                  <button
+                    type="button"
+                    key={shelf.id}
+                    className={classes(
+                      "bid-workflow-menu-item",
+                      shelf.id === book.shelfId && "is-active",
+                    )}
+                    onClick={() => moveTo(shelf.id)}
+                  >
+                    {shelf.name}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         )}
         <button
           type="button"
           className={classes("bid-workflow-fav", isFavorite && "is-on")}
-          onClick={() => moveTo(isFavorite ? "read" : "collection")}
-          title={isFavorite ? "从「收藏」移回「已读」" : "标记为珍藏 — 想反复读"}
+          onClick={() => moveTo(isFavorite ? "read" : DEFAULT_POST_SHELF)}
+          title={isFavorite ? "从「收藏」移回「已读」" : "一键加入「收藏」"}
         >
           <Heart size={14} fill={isFavorite ? "currentColor" : "none"} />
           {isFavorite ? "已收藏" : "加入收藏"}
@@ -519,18 +647,31 @@ function NewBookForm({ shelves, onSubmit, onCancel }) {
 
 function NewShelfForm({ onSubmit, onCancel }) {
   const [name, setName] = useState("");
+  // Default new shelves to the "pre" life-cycle group (think: another bin
+  // alongside 想读/属灵/etc.). The user can switch to any of the 4 groups
+  // before submitting so the shelf lands in the right sidebar section.
+  const [group, setGroup] = useState("pre");
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
         if (!name.trim()) return;
-        onSubmit({ name: name.trim() });
+        onSubmit({ name: name.trim(), group });
       }}
       className="bid-form"
     >
       <label>
         <span>书架名 *</span>
         <input autoFocus value={name} onChange={(e) => setName(e.target.value)} placeholder="例：今年要读" required />
+      </label>
+      <label>
+        <span>所属阶段</span>
+        <select value={group} onChange={(e) => setGroup(e.target.value)}>
+          <option value="pre">准备读（同「想读」级别）</option>
+          <option value="reading">在读</option>
+          <option value="finished">已读</option>
+          <option value="post">归类（同「收藏」级别）</option>
+        </select>
       </label>
       <div className="bid-form-actions">
         <button type="button" onClick={onCancel}>取消</button>
@@ -633,9 +774,9 @@ export default function BookInDepthApp() {
     setStatus(`新建《${data.book.title}》`);
   };
 
-  const createNewShelf = async ({ name }) => {
+  const createNewShelf = async ({ name, group }) => {
     setShowNewShelfModal(false);
-    const shelf = await createShelf({ name });
+    const shelf = await createShelf({ name, group });
     setOpenShelves((current) => new Set([...current, shelf.id]));
     await loadLibrary();
     setStatus(`新建书架「${shelf.name}」`);
@@ -815,7 +956,7 @@ export default function BookInDepthApp() {
           </section>
         ) : (
           <section className="bid-workspace">
-            <WorkflowStepper book={book} onPatch={handlePatchMeta} />
+            <WorkflowStepper book={book} shelves={library.shelves} onPatch={handlePatchMeta} />
             <InfoCard book={book} onPatch={handlePatchMeta} />
 
             <div className="bid-tabs">

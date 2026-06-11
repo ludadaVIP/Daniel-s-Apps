@@ -30,12 +30,34 @@ SHELVES_FILE = DATA_DIR / "shelves.json"
 
 RESERVED_DIRS = {"__pycache__"}
 
+# Shelves organise books by reading life-cycle. Four groups:
+#   pre       — pre-reading bins (想读 / 属灵 / 文化 / 投资)
+#   reading   — actively reading
+#   finished  — finished, not yet classified
+#   post      — post-reading bins (收藏 / 回看 / 存档 / 浅显 / 深奥 / 月读)
+SHELF_GROUPS = ("pre", "reading", "finished", "post")
+DEFAULT_GROUP = "pre"
+
 DEFAULT_SHELVES = [
-    {"id": "wantToRead", "name": "想读"},
-    {"id": "reading", "name": "在读"},
-    {"id": "read", "name": "已读"},
-    {"id": "collection", "name": "收藏"},
+    # pre-reading (same tier as 想读)
+    {"id": "wantToRead", "name": "想读", "group": "pre"},
+    {"id": "spirit", "name": "属灵", "group": "pre"},
+    {"id": "culture", "name": "文化", "group": "pre"},
+    {"id": "investment", "name": "投资", "group": "pre"},
+    # active
+    {"id": "reading", "name": "在读", "group": "reading"},
+    # finished but not yet classified
+    {"id": "read", "name": "已读", "group": "finished"},
+    # post-reading classification (same tier as 收藏)
+    {"id": "collection", "name": "收藏", "group": "post"},
+    {"id": "revisit", "name": "回看", "group": "post"},
+    {"id": "archive", "name": "存档", "group": "post"},
+    {"id": "shallow", "name": "浅显", "group": "post"},
+    {"id": "deep", "name": "深奥", "group": "post"},
+    {"id": "monthly", "name": "月读", "group": "post"},
 ]
+
+DEFAULT_GROUP_BY_ID = {shelf["id"]: shelf["group"] for shelf in DEFAULT_SHELVES}
 
 SECTION_KEYS = ("mindmap", "narration")
 EMPTY_SECTIONS = {"mindmap": "", "narration": ""}
@@ -108,19 +130,59 @@ def _ensure_seed() -> None:
         _write_json(SHELVES_FILE, DEFAULT_SHELVES)
 
 
+def _normalise_group(value: Any, fallback: str = DEFAULT_GROUP) -> str:
+    group = str(value or "").strip().lower()
+    return group if group in SHELF_GROUPS else fallback
+
+
 def _load_shelves() -> list[dict[str, str]]:
+    """Same shelves model as Book a Day: see that module for the rationale.
+
+    Auto-migrates legacy {id, name} entries by filling in ``group`` from
+    DEFAULT_GROUP_BY_ID, and appends any built-in shelves the user is
+    missing so a fresh upgrade always exposes the full life-cycle.
+    """
     _ensure_seed()
     items = _read_json(SHELVES_FILE, DEFAULT_SHELVES)
+    if not isinstance(items, list):
+        items = list(DEFAULT_SHELVES)
+
     out: list[dict[str, str]] = []
     seen: set[str] = set()
-    for item in items if isinstance(items, list) else []:
+    mutated = False
+
+    for item in items:
+        if not isinstance(item, dict):
+            continue
         shelf_id = _safe_id(item.get("id") or item.get("name") or "", "shelf")
         if shelf_id in seen:
             continue
         seen.add(shelf_id)
-        out.append({"id": shelf_id, "name": str(item.get("name") or shelf_id)[:80]})
+        group_raw = item.get("group")
+        if group_raw is None and shelf_id in DEFAULT_GROUP_BY_ID:
+            group = DEFAULT_GROUP_BY_ID[shelf_id]
+            mutated = True
+        else:
+            group = _normalise_group(group_raw, DEFAULT_GROUP_BY_ID.get(shelf_id, DEFAULT_GROUP))
+            if group != group_raw:
+                mutated = True
+        out.append({
+            "id": shelf_id,
+            "name": str(item.get("name") or shelf_id)[:80],
+            "group": group,
+        })
+
+    for default in DEFAULT_SHELVES:
+        if default["id"] not in seen:
+            out.append(dict(default))
+            seen.add(default["id"])
+            mutated = True
+
     if not out:
-        out = list(DEFAULT_SHELVES)
+        out = [dict(item) for item in DEFAULT_SHELVES]
+        mutated = True
+
+    if mutated:
         _write_json(SHELVES_FILE, out)
     return out
 
@@ -276,9 +338,11 @@ def create_shelf():
     while shelf_id in existing:
         shelf_id = f"{base}-{index}"
         index += 1
-    shelves.append({"id": shelf_id, "name": name[:80]})
+    group = _normalise_group(payload.get("group"), DEFAULT_GROUP)
+    shelf = {"id": shelf_id, "name": name[:80], "group": group}
+    shelves.append(shelf)
     _write_json(SHELVES_FILE, shelves)
-    return jsonify({"id": shelf_id, "name": name[:80], "books": []}), 201
+    return jsonify({**shelf, "books": []}), 201
 
 
 @bp.route("/shelves/<shelf_id>", methods=["PATCH", "DELETE", "OPTIONS"])
@@ -305,10 +369,17 @@ def mutate_shelf(shelf_id: str):
         _write_json(SHELVES_FILE, remaining if remaining else DEFAULT_SHELVES)
         return jsonify({"deletedId": shelf_id, "movedTo": fallback})
     payload = request.get_json(silent=True) or {}
-    name = str(payload.get("name") or "").strip()
-    if not name:
-        raise BookError("Shelf name is required.")
-    match["name"] = name[:80]
+    name_raw = payload.get("name")
+    group_raw = payload.get("group")
+    if name_raw is None and group_raw is None:
+        raise BookError("Provide ``name`` or ``group`` to update.")
+    if name_raw is not None:
+        name = str(name_raw).strip()
+        if not name:
+            raise BookError("Shelf name is required.")
+        match["name"] = name[:80]
+    if group_raw is not None:
+        match["group"] = _normalise_group(group_raw, match.get("group", DEFAULT_GROUP))
     _write_json(SHELVES_FILE, shelves)
     return jsonify(match)
 

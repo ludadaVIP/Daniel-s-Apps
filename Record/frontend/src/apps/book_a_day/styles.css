@@ -204,24 +204,88 @@
     flex-shrink: 0;                 /* never compress — let .bad-tree scroll instead */
   }
 
+  /* ----- Shelf life-cycle groups (visual section headers) ----- */
+  .bad-shelf-group {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-shrink: 0;
+  }
+
+  .bad-shelf-group + .bad-shelf-group {
+    margin-top: 4px;
+  }
+
+  .bad-shelf-group-head {
+    display: flex;
+    align-items: center;
+    padding: 4px 10px 2px 10px;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--bad-muted);
+    opacity: 0.72;
+  }
+
+  .bad-shelf-group-pre .bad-shelf-group-head { color: #4a7fbf; }
+  .bad-shelf-group-reading .bad-shelf-group-head { color: #d97706; }
+  .bad-shelf-group-finished .bad-shelf-group-head { color: #4f8e3e; }
+  .bad-shelf-group-post .bad-shelf-group-head { color: #c0392b; }
+
+  /* ----- Individual shelf colors (palette tuned per life-cycle stage) ----- */
+  /* PRE group — cool blues / teals */
   .bad-shelf-wantToRead {
     --shelf-color: #4a7fbf;          /* 想读 — 蓝 */
     --shelf-color-soft: rgba(74, 127, 191, 0.10);
   }
+  .bad-shelf-spirit {
+    --shelf-color: #6b5ec9;          /* 属灵 — 紫蓝（精神性） */
+    --shelf-color-soft: rgba(107, 94, 201, 0.10);
+  }
+  .bad-shelf-culture {
+    --shelf-color: #2a8a8a;          /* 文化 — 青绿 */
+    --shelf-color-soft: rgba(42, 138, 138, 0.10);
+  }
+  .bad-shelf-investment {
+    --shelf-color: #2f6b5e;          /* 投资 — 深绿（钞票色） */
+    --shelf-color-soft: rgba(47, 107, 94, 0.10);
+  }
 
+  /* READING / FINISHED */
   .bad-shelf-reading {
     --shelf-color: #d97706;          /* 在读 — 暖橙 */
     --shelf-color-soft: rgba(217, 119, 6, 0.12);
   }
-
   .bad-shelf-read {
     --shelf-color: #4f8e3e;          /* 已读 — 绿 */
     --shelf-color-soft: rgba(79, 142, 62, 0.12);
   }
 
+  /* POST group — warm reds / mauves to read as "saved" */
   .bad-shelf-collection {
     --shelf-color: #c0392b;          /* 收藏 — 红 */
     --shelf-color-soft: rgba(192, 57, 43, 0.10);
+  }
+  .bad-shelf-revisit {
+    --shelf-color: #b8460e;          /* 回看 — 橘红（再看一次） */
+    --shelf-color-soft: rgba(184, 70, 14, 0.10);
+  }
+  .bad-shelf-archive {
+    --shelf-color: #7a6a55;          /* 存档 — 灰褐（封存） */
+    --shelf-color-soft: rgba(122, 106, 85, 0.10);
+  }
+  .bad-shelf-shallow {
+    --shelf-color: #b59022;          /* 浅显 — 浅金 */
+    --shelf-color-soft: rgba(181, 144, 34, 0.10);
+  }
+  .bad-shelf-deep {
+    --shelf-color: #5d3a82;          /* 深奥 — 深紫 */
+    --shelf-color-soft: rgba(93, 58, 130, 0.10);
+  }
+  .bad-shelf-monthly {
+    --shelf-color: #a0498d;          /* 月读 — 月夜紫红 */
+    --shelf-color-soft: rgba(160, 73, 141, 0.10);
   }
 
   .bad-shelf-head {
@@ -940,6 +1004,93 @@
 
   .bad-workflow-fav.is-on:hover {
     background: rgba(192, 57, 43, 0.14);
+  }
+
+  /* Tiny subtitle under the current stepper dot, e.g. "属灵" when the user's
+     current pre-shelf is not the default "想读". */
+  .bad-workflow-sub {
+    margin-left: 6px;
+    font-style: normal;
+    font-weight: 500;
+    color: var(--bad-muted);
+    opacity: 0.85;
+    font-size: 11.5px;
+  }
+
+  /* "归类…" dropdown menu — kept compact so it matches the slim toolbar. */
+  .bad-workflow-menu {
+    position: relative;
+    display: inline-flex;
+  }
+
+  .bad-workflow-classify {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px 6px 9px;
+    border: 1px solid var(--bad-line);
+    background: white;
+    color: var(--bad-text);
+    border-radius: 7px;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+  }
+
+  .bad-workflow-classify:hover {
+    border-color: var(--bad-accent);
+    color: var(--bad-accent);
+  }
+
+  .bad-workflow-classify.is-classified {
+    color: #c0392b;
+    border-color: rgba(192, 57, 43, 0.45);
+    background: rgba(192, 57, 43, 0.06);
+  }
+
+  .bad-workflow-menu-pop {
+    position: absolute;
+    top: calc(100% + 6px);
+    left: 0;
+    z-index: 30;
+    min-width: 140px;
+    padding: 4px;
+    background: white;
+    border: 1px solid var(--bad-line);
+    border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(60, 30, 0, 0.18);
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+  }
+
+  .bad-workflow-menu-item {
+    padding: 7px 10px;
+    border: none;
+    background: transparent;
+    text-align: left;
+    border-radius: 6px;
+    font-size: 13px;
+    color: var(--bad-text);
+    cursor: pointer;
+  }
+
+  .bad-workflow-menu-item:hover {
+    background: rgba(217, 119, 6, 0.10);
+    color: var(--bad-accent);
+  }
+
+  .bad-workflow-menu-item.is-active {
+    color: #c0392b;
+    font-weight: 600;
+  }
+
+  .bad-workflow-menu-item.is-revert {
+    color: var(--bad-muted);
+    border-bottom: 1px solid var(--bad-line);
+    border-radius: 0;
+    margin-bottom: 3px;
+    font-size: 12px;
   }
 
   /* ---------- Right sidebar ---------- */
