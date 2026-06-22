@@ -10,6 +10,7 @@ const BookADayApp = lazy(() => import("./apps/book_a_day/App.jsx"));
 const BookInDepthApp = lazy(() => import("./apps/book_in_depth/App.jsx"));
 const DailyTodoApp = lazy(() => import("./apps/daily_todo/App.jsx"));
 const InvestmentApp = lazy(() => import("./apps/investment/App.jsx"));
+const NzInvestApp = lazy(() => import("./apps/nz_invest/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -57,6 +58,10 @@ export default function App() {
       <Route
         path="/investment"
         element={withShell("Investment", "#1e3a5f", InvestmentApp)}
+      />
+      <Route
+        path="/nz-invest"
+        element={withShell("NZ Invest", "#2f7d5f", NzInvestApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

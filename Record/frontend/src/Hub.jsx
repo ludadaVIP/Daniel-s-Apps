@@ -1,4 +1,4 @@
-import { BookOpen, BookMarked, ClipboardList, FileText, NotebookPen, TrendingUp } from "lucide-react";
+import { BookOpen, BookMarked, ClipboardList, FileText, NotebookPen, ShieldCheck, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
@@ -61,6 +61,16 @@ const APPS = [
     Icon: TrendingUp,
     to: "/investment",
     kind: "Invest",
+  },
+  {
+    id: "nz-invest",
+    title: "NZ Invest",
+    subtitle: "新西兰投资学习 · 左栏课程目录 · 右栏 Markdown",
+    description: "从 0 开始理解 IBKR、Sharesies、Kernel、VOO/VTI、ETF、PIE、FIF、PIR、W-8BEN、股息税和遗产税。独立于原 Investment app。",
+    accent: "#2f7d5f",
+    Icon: ShieldCheck,
+    to: "/nz-invest",
+    kind: "NZ",
   },
 ];
 

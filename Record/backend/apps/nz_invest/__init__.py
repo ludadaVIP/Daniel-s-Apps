@@ -1,0 +1,2 @@
+"""NZ Invest app package."""
+
