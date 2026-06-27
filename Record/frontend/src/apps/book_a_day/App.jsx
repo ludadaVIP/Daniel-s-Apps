@@ -123,12 +123,12 @@ const PROMPT_TEMPLATES = [
 // The sidebar renders these groups with visual headers; the workflow stepper
 // shows them as 3 progress dots (pre → reading → finished/post).
 const SHELF_GROUP_META = {
-  pre: { label: "准备读", order: 0 },
-  reading: { label: "在读", order: 1 },
+  reading: { label: "在读", order: 0 },
+  pre: { label: "准备读", order: 1 },
   finished: { label: "已读", order: 2 },
   post: { label: "归类", order: 3 },
 };
-const SHELF_GROUP_ORDER = ["pre", "reading", "finished", "post"];
+const SHELF_GROUP_ORDER = ["reading", "pre", "finished", "post"];
 
 // Default "next" target when the user clicks the workflow forward button.
 const NEXT_DEFAULT_SHELF = {
@@ -809,7 +809,7 @@ export default function BookADayApp() {
   const [materialsLoading, setMaterialsLoading] = useState(false);
   const [activeTab, setActiveTab] = useState("oneLiner");
   const [tabDraft, setTabDraft] = useState("");
-  const [mode, setMode] = useState("split");
+  const [mode, setMode] = useState("read");
   const [openShelves, setOpenShelves] = useState(() => new Set(["reading"]));
   const [query, setQuery] = useState("");
   const [loading, setLoading] = useState(true);
@@ -818,7 +818,7 @@ export default function BookADayApp() {
   const [status, setStatus] = useState("");
   const [error, setError] = useState("");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
-  const [rightSidebarCollapsed, setRightSidebarCollapsed] = useState(false);
+  const [rightSidebarCollapsed, setRightSidebarCollapsed] = useState(true);
   const stopQueueRef = useRef(false);
   const textareaRef = useRef(null);
   const { play, stop, pause, resume, paused, speakingKey, loadingKey, error: ttsError } = useTts();
