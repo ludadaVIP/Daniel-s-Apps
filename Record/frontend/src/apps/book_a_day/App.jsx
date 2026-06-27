@@ -128,7 +128,8 @@ const SHELF_GROUP_META = {
   finished: { label: "已读", order: 2 },
   post: { label: "归类", order: 3 },
 };
-const SHELF_GROUP_ORDER = ["reading", "pre", "finished", "post"];
+const SIDEBAR_SHELF_GROUP_ORDER = ["reading", "pre", "finished", "post"];
+const WORKFLOW_STAGE_ORDER = ["pre", "reading", "finished", "post"];
 
 // Default "next" target when the user clicks the workflow forward button.
 const NEXT_DEFAULT_SHELF = {
@@ -396,7 +397,7 @@ function Sidebar({
       )}
 
       <nav className="bad-tree" aria-label="Shelves">
-        {SHELF_GROUP_ORDER.map((groupKey) => {
+        {SIDEBAR_SHELF_GROUP_ORDER.map((groupKey) => {
           // A shelf belongs to a group when its ``group`` field matches; the
           // synthetic "_unfiled" bucket from the backend has no group and
           // gets pinned to the bottom of the "post" section.
@@ -504,8 +505,8 @@ function WorkflowStepper({ book, shelves, onPatch }) {
   const currentShelf = findShelf(shelves, book.shelfId);
   const currentGroup = currentShelf?.group || "pre";
   const currentStageIndex = Math.min(
-    SHELF_GROUP_ORDER.indexOf(currentGroup),
-    SHELF_GROUP_ORDER.length - 1,
+    WORKFLOW_STAGE_ORDER.indexOf(currentGroup),
+    WORKFLOW_STAGE_ORDER.length - 1,
   );
   // "post" and "finished" both light the third dot — they're both "已经读完
   // 了" from the user's perspective; the difference is whether they've also
@@ -539,22 +540,12 @@ function WorkflowStepper({ book, shelves, onPatch }) {
         {DOTS.map((dot, idx) => {
           const state =
             idx < displayDotIndex ? "done" : idx === displayDotIndex ? "current" : "todo";
-          // Show the user's actual shelf name under the active dot so they
-          // know exactly where the book lives right now (e.g. dot says
-          // "准备读" but sub-label says "属灵").
-          const sublabel =
-            state === "current" && currentShelf && currentShelf.name !== dot.label
-              ? currentShelf.name
-              : null;
           return (
             <li key={dot.key} className={`is-${state}`}>
               <span className="bad-workflow-dot">
                 {state === "done" ? <Check size={13} /> : idx + 1}
               </span>
-              <span className="bad-workflow-label">
-                {dot.label}
-                {sublabel && <em className="bad-workflow-sub">· {sublabel}</em>}
-              </span>
+              <span className="bad-workflow-label">{dot.label}</span>
               {idx < DOTS.length - 1 && (
                 <span className="bad-workflow-arrow" aria-hidden="true" />
               )}
