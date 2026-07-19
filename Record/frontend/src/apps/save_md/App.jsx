@@ -15,6 +15,7 @@ import {
   Search,
   Square,
   Trash2,
+  X,
 } from "lucide-react";
 
 import { isTtsCancelled, useTts } from "../../shared/useTts";
@@ -262,6 +263,7 @@ function Sidebar({
   onRenameCategory,
   onDeleteCategory,
   onQuery,
+  onClearQuery,
   onToggleCollapsed,
 }) {
   const normalQuery = query.trim().toLowerCase();
@@ -286,10 +288,15 @@ function Sidebar({
             <button type="button" onClick={onNewDoc}><Plus size={15} /> New MD</button>
             <button type="button" onClick={onNewCategory}><FolderPlus size={15} /> Category</button>
           </div>
-          <label className="smd-search">
+          <div className="smd-search">
             <Search size={14} />
             <input value={query} onChange={(event) => onQuery(event.target.value)} placeholder="Search saved answers" />
-          </label>
+            {query && (
+              <button type="button" className="smd-search-clear" onClick={onClearQuery} aria-label="清空搜索">
+                <X size={14} />
+              </button>
+            )}
+          </div>
         </>
       )}
 
@@ -343,7 +350,7 @@ export default function SaveMdApp() {
   const [library, setLibrary] = useState({ categories: [], totalDocuments: 0 });
   const [activeCategoryId, setActiveCategoryId] = useState("");
   const [activeDocId, setActiveDocId] = useState("");
-  const [openCategories, setOpenCategories] = useState(() => new Set(["english", "spanish", "french", "devotion", "thoughts"]));
+  const [openCategories, setOpenCategories] = useState(() => new Set());
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [docMeta, setDocMeta] = useState(null);
@@ -425,6 +432,34 @@ export default function SaveMdApp() {
       await loadLibrary();
     } catch (err) {
       setError(err.message);
+    } finally {
+      setSaving(false);
+    }
+  };
+
+  const handleMoveDocument = async (targetCategoryId) => {
+    if (!activeCategoryId || !activeDocId || !docMeta || targetCategoryId === activeCategoryId) return;
+    const targetCategory = library.categories.find((category) => category.id === targetCategoryId);
+    if (!targetCategory) return;
+    setSaving(true);
+    setError("");
+    try {
+      const data = await updateDocument(activeCategoryId, activeDocId, {
+        title,
+        content,
+        targetCategoryId,
+      });
+      setDocMeta(data.document);
+      setTitle(data.document.title);
+      setContent(data.content);
+      setActiveCategoryId(targetCategoryId);
+      setActiveDocId(data.document.id);
+      setDirty(false);
+      setOpenCategories((current) => new Set([...current, targetCategoryId]));
+      setStatus(`Moved to ${targetCategory.name}`);
+      await loadLibrary();
+    } catch (err) {
+      setError(err.message || "Move failed.");
     } finally {
       setSaving(false);
     }
@@ -554,6 +589,7 @@ export default function SaveMdApp() {
         onRenameCategory={handleRenameCategory}
         onDeleteCategory={handleDeleteCategory}
         onQuery={setQuery}
+        onClearQuery={() => setQuery("")}
       />
 
       <main className="smd-main">
@@ -569,12 +605,30 @@ export default function SaveMdApp() {
               className="smd-title-input"
             />
             <div className="smd-meta-row">
-              <span>{hasOpenDocument ? activeCategory?.name || "No category" : `${library.totalDocuments} documents`}</span>
+              {hasOpenDocument ? (
+                <label className="smd-category-select-wrap">
+                  <span>分类</span>
+                  <select
+                    value={activeCategoryId}
+                    onChange={(event) => handleMoveDocument(event.target.value)}
+                    disabled={saving}
+                    aria-label="更改分类"
+                  >
+                    {library.categories.map((category) => (
+                      <option key={category.id} value={category.id}>
+                        {category.name}
+                      </option>
+                    ))}
+                  </select>
+                </label>
+              ) : (
+                <span>{library.totalDocuments} documents</span>
+              )}
               {docMeta && <span>Added {formatDate(docMeta.createdAt)}</span>}
-            {docMeta && <span>{docMeta.wordCount} words</span>}
-            {docMeta && <span>{docMeta.charCount} chars</span>}
-            {dirty && <span className="smd-dirty">Unsaved</span>}
-          </div>
+              {docMeta && <span>{docMeta.wordCount} words</span>}
+              {docMeta && <span>{docMeta.charCount} chars</span>}
+              {dirty && <span className="smd-dirty">Unsaved</span>}
+            </div>
           </div>
           <div className="smd-toolbar">
             <div className="smd-mode-switch" role="tablist" aria-label="View mode">

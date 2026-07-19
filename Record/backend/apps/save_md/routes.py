@@ -373,24 +373,30 @@ def document(category_id: str, doc_id: str):
     payload = request.get_json(silent=True) or {}
     content = str(payload.get("content")) if "content" in payload else path.read_text(encoding="utf-8", errors="replace")
     new_title = str(payload.get("title") or path.stem).strip()
-    target = _unique_file_path(category_id, _safe_filename(new_title), ignore=path)
+    target_category_id = str(payload.get("targetCategoryId") or category_id).strip()
+    _category_dir(target_category_id)
+    target = _unique_file_path(
+        target_category_id,
+        _safe_filename(new_title),
+        ignore=path if target_category_id == category_id else None,
+    )
+    old_key = _metadata_key(category_id, path.name)
     if target.resolve() != path.resolve():
         target.write_text(content, encoding="utf-8")
         path.unlink()
-        old_key = _metadata_key(category_id, path.name)
-        metadata[_metadata_key(category_id, target.name)] = _metadata_for_content(
+        metadata[_metadata_key(target_category_id, target.name)] = _metadata_for_content(
             metadata.pop(old_key, {"createdAt": _now_iso()}),
             content,
         )
         path = target
     else:
         path.write_text(content, encoding="utf-8")
-        metadata[_metadata_key(category_id, path.name)] = _metadata_for_content(
-            metadata.get(_metadata_key(category_id, path.name), {"createdAt": _now_iso()}),
+        metadata[_metadata_key(target_category_id, path.name)] = _metadata_for_content(
+            metadata.get(old_key, {"createdAt": _now_iso()}),
             content,
         )
     _save_metadata(metadata)
-    return jsonify({"document": _doc_summary(category_id, path, metadata, content), "content": content})
+    return jsonify({"document": _doc_summary(target_category_id, path, metadata, content), "content": content})
 
 
 @bp.route("/tts/voices", methods=["GET", "OPTIONS"])

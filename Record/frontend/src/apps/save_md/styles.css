@@ -28,6 +28,7 @@
 
   button,
   input,
+  select,
   textarea {
     font: inherit;
   }
@@ -140,6 +141,24 @@
     background: transparent;
     color: var(--smd-text);
     font-size: 13px;
+  }
+
+  .smd-search-clear {
+    width: 24px;
+    height: 24px;
+    border: 0;
+    border-radius: 999px;
+    background: rgba(20, 33, 25, 0.08);
+    color: var(--smd-muted);
+    display: grid;
+    place-items: center;
+    padding: 0;
+    flex: 0 0 auto;
+  }
+
+  .smd-search-clear:hover {
+    color: var(--smd-text);
+    background: rgba(20, 33, 25, 0.14);
   }
 
   .smd-tree {
@@ -287,11 +306,32 @@
     font-size: 12px;
   }
 
-  .smd-meta-row span {
+  .smd-meta-row > span,
+  .smd-category-select-wrap {
     padding: 4px 8px;
     border: 1px solid var(--smd-line);
     border-radius: 999px;
     background: rgba(255, 255, 255, 0.58);
+  }
+
+  .smd-category-select-wrap {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .smd-category-select-wrap span {
+    font-weight: 800;
+  }
+
+  .smd-category-select-wrap select {
+    max-width: 170px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--smd-text);
+    font-size: 12px;
+    font-weight: 800;
   }
 
   .smd-meta-row .smd-dirty {
