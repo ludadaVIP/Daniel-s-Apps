@@ -35,6 +35,8 @@ Daniel's Apps/
 ├── start.py                   # cross-platform launcher (real logic)
 ├── start.bat                  # Windows wrapper — calls start.py
 ├── start.sh                   # macOS / Linux wrapper — calls start.py
+├── start.command              # macOS double-click launcher
+├── package.json               # root launcher scripts: npm start / npm run dev
 ├── .gitignore                 # venv, node_modules, audio cache, OS junk
 ├── .gitattributes             # consistent line endings across Win/Mac
 ├── README.md
@@ -132,17 +134,22 @@ or just double-click `start.bat` in Explorer.
 **macOS / Linux (Terminal):**
 
 ```bash
-chmod +x start.sh         # only the very first time
-./start.sh
+npm start
 ```
 
-(or equivalently `python3 start.py`)
+Also works:
+
+```bash
+./start.sh
+python3 start.py
+```
+
+On macOS you can also double-click `start.command` in Finder.
 
 ### Step 3 — Open the app
 
-The launcher prints when it's ready, then open
-<http://127.0.0.1:5173> in your browser and click any of the four
-buttons. Ctrl+C in the terminal stops both Flask and Vite.
+The launcher opens <http://127.0.0.1:5173> automatically when Vite is ready.
+Ctrl+C in the terminal stops both Flask and Vite.
 
 **What the launcher does on first run:** creates `backend/.venv/`,
 installs `backend/requirements.txt`, runs `npm install` in `frontend/`,
