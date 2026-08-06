@@ -25,24 +25,31 @@ start.bat
 
 or just double-click `start.bat` in Explorer.
 
-**macOS / Linux (Terminal):**
+**macOS:**
+
+Double-click `start.command` in Finder.
+
+Or run one command from Terminal:
 
 ```bash
-chmod +x start.sh         # only the very first time
 ./start.sh
 ```
 
-(or equivalently `python3 start.py`)
+**Linux / advanced Terminal fallback:**
+
+```bash
+python3 start.py
+```
 
 ### Step 3 — Open the app
 
 The launcher prints when it's ready, then open
-<http://127.0.0.1:5173> in your browser and click any of the four
+<http://127.0.0.1:5175> in your browser and click any of the app
 buttons. Ctrl+C in the terminal stops both Flask and Vite.
 
 **What the launcher does on first run:** creates `backend/.venv/`,
 installs `backend/requirements.txt`, runs `npm install` in `frontend/`,
-then starts Flask :8000 and Vite :5173. Subsequent runs skip the install
+then starts Flask :8005 and Vite :5175. Subsequent runs skip the install
 steps and start in a couple of seconds.
 
 ### Initialise as a Git repo (one-time, if you haven't cloned)
@@ -77,10 +84,10 @@ python -m venv .venv
 # macOS / Linux:
 source .venv/bin/activate
 pip install -r requirements.txt
-python app.py                   # serves http://127.0.0.1:8000
+python app.py                   # serves http://127.0.0.1:8005
 
 # Terminal 2 — frontend
 cd frontend
 npm install
-npm run dev                     # serves http://127.0.0.1:5173
+npm run dev                     # serves http://127.0.0.1:5175
 ```

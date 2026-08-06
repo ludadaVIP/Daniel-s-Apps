@@ -1,13 +1,15 @@
 """Cross-platform launcher for Daniel's Apps.
 
-Run with `python start.py` (or `python3 start.py`). It works the same way
-on Windows and macOS:
+Run with `python start.py` (or `python3 start.py`). On macOS you can also
+run `npm start` or double-click `start.command`. It works the same way on
+Windows and macOS:
 
 1. Creates `backend/.venv/` and installs `backend/requirements.txt` if
    missing.
 2. Runs `npm install` in `frontend/` if `node_modules/` is missing.
-3. Starts Flask on :8000 and Vite on :5173 concurrently. Hit Ctrl+C in
-   the terminal where this script runs to stop both.
+3. Starts Flask on :8000 and Vite on :5173 concurrently, then opens the app
+   in the default browser. Hit Ctrl+C in the terminal where this script runs
+   to stop both.
 
 Windows-specific notes (the reason this script exists at all):
 
@@ -30,6 +32,9 @@ import signal
 import subprocess
 import sys
 import time
+import urllib.error
+import urllib.request
+import webbrowser
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parent
@@ -37,6 +42,9 @@ BACKEND_DIR = ROOT / "backend"
 FRONTEND_DIR = ROOT / "frontend"
 VENV_DIR = BACKEND_DIR / ".venv"
 IS_WINDOWS = os.name == "nt"
+BACKEND_PORT = "8000"
+FRONTEND_PORT = "5173"
+FRONTEND_URL = f"http://127.0.0.1:{FRONTEND_PORT}"
 
 VENV_PYTHON = (
     VENV_DIR / "Scripts" / "python.exe" if IS_WINDOWS
@@ -45,6 +53,7 @@ VENV_PYTHON = (
 
 # Updated by spawn_*() so the signal handler can find them.
 _PROCESSES: list[subprocess.Popen] = []
+_SHUTTING_DOWN = False
 
 
 def find_executable(name: str) -> str:
@@ -67,6 +76,11 @@ def ensure_python_version() -> None:
         raise SystemExit(
             f"Python 3.10+ is required, you are on {sys.version.split()[0]}."
         )
+
+
+def ensure_cli_tools() -> None:
+    find_executable("node")
+    find_executable("npm")
 
 
 def ensure_venv() -> None:
@@ -112,7 +126,7 @@ def run_npm(args: list[str], *, wait: bool, cwd: Path = FRONTEND_DIR) -> subproc
 
 def spawn_flask() -> subprocess.Popen:
     env = os.environ.copy()
-    env.setdefault("PORT", "8000")
+    env.setdefault("PORT", BACKEND_PORT)
     print(f"[run] Flask backend at http://127.0.0.1:{env['PORT']}")
     proc = subprocess.Popen(
         [str(VENV_PYTHON), "-u", "app.py"],  # -u for unbuffered stdout
@@ -124,10 +138,29 @@ def spawn_flask() -> subprocess.Popen:
 
 
 def spawn_vite() -> subprocess.Popen:
-    print("[run] Vite dev server at http://127.0.0.1:5173 (first start may take 10-30s)")
+    print(f"[run] Vite dev server at {FRONTEND_URL} (first start may take 10-30s)")
     proc = run_npm(["run", "dev"], wait=False)
     _PROCESSES.append(proc)
     return proc
+
+
+def wait_for_frontend(timeout: float = 45.0) -> bool:
+    deadline = time.time() + timeout
+    while time.time() < deadline:
+        try:
+            with urllib.request.urlopen(FRONTEND_URL, timeout=1):
+                return True
+        except (urllib.error.URLError, TimeoutError):
+            time.sleep(0.5)
+    return False
+
+
+def open_frontend_when_ready() -> None:
+    if wait_for_frontend():
+        print(f"[run] Opening {FRONTEND_URL} ...")
+        webbrowser.open(FRONTEND_URL)
+    else:
+        print(f"[run] Open {FRONTEND_URL} manually when Vite finishes starting.")
 
 
 def shutdown_children() -> None:
@@ -168,6 +201,10 @@ def shutdown_children() -> None:
 def install_signal_handlers() -> None:
     """Forward Ctrl+C / SIGTERM to children, then exit cleanly."""
     def handler(signum, _frame):
+        global _SHUTTING_DOWN
+        if _SHUTTING_DOWN:
+            return
+        _SHUTTING_DOWN = True
         print(f"\n[exit] Signal {signum} received, stopping Flask + Vite ...")
         shutdown_children()
         sys.exit(0)
@@ -181,6 +218,7 @@ def install_signal_handlers() -> None:
 
 def main() -> int:
     ensure_python_version()
+    ensure_cli_tools()
     print(f"[setup] Project root: {ROOT}")
     ensure_venv()
     ensure_node_modules()
@@ -194,13 +232,14 @@ def main() -> int:
 
     print()
     print("=" * 60)
-    print("  Open http://127.0.0.1:5173 in your browser.")
-    print("  Vite usually prints 'ready in NN ms' once it's serving.")
+    print(f"  App URL: {FRONTEND_URL}")
+    print("  The browser opens automatically once Vite is ready.")
     print("  Press Ctrl+C in this terminal to stop everything cleanly.")
     print("=" * 60)
     print()
 
     try:
+        open_frontend_when_ready()
         while True:
             if flask_proc.poll() is not None:
                 print(f"[exit] Flask exited with code {flask_proc.returncode}.")
