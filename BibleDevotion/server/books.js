@@ -1,3 +1,9 @@
+const ESV_FILE_NAMES = {
+  // ESV source uses the singular filename while the canonical app id remains
+  // "Psalms" everywhere else.
+  Psalms: 'Psalm',
+};
+
 export const BOOKS = [
   ['Genesis', '创世记', 50], ['Exodus', '出埃及记', 40], ['Leviticus', '利未记', 27],
   ['Numbers', '民数记', 36], ['Deuteronomy', '申命记', 34], ['Joshua', '约书亚记', 24],
@@ -22,6 +28,15 @@ export const BOOKS = [
   ['1 Peter', '彼得前书', 5], ['2 Peter', '彼得后书', 3], ['1 John', '约翰一书', 5],
   ['2 John', '约翰二书', 1], ['3 John', '约翰三书', 1], ['Jude', '犹大书', 1],
   ['Revelation', '启示录', 22],
-].map(([id, name, chapters], order) => ({ id, name, chapters, order: order + 1 }));
+].map(([id, name, chapters], order) => ({
+  id,
+  name,
+  chapters,
+  order: order + 1,
+  sources: {
+    cuv: id,
+    esv: ESV_FILE_NAMES[id] ?? id,
+  },
+}));
 
 export const BOOK_BY_ID = new Map(BOOKS.map((book) => [book.id, book]));

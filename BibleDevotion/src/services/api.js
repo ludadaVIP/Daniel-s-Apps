@@ -16,8 +16,11 @@ export function getConfig(signal) {
   return request('/config', { signal });
 }
 
-export function getChapter(bookId, chapter, signal) {
-  return request(`/chapters/${pathPart(bookId)}/${chapter}`, { signal });
+export function getChapter(bookId, chapter, signal, translation = 'cuv') {
+  const path = translation === 'cuv'
+    ? `/chapters/${pathPart(bookId)}/${chapter}`
+    : `/translations/${pathPart(translation)}/chapters/${pathPart(bookId)}/${chapter}`;
+  return request(path, { signal });
 }
 
 export function getNote(target, signal) {

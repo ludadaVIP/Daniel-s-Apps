@@ -6,12 +6,14 @@ import { randomUUID } from 'node:crypto';
 import { BOOKS, BOOK_BY_ID } from './books.js';
 
 const rootDir = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
-const bibleDir = path.join(rootDir, 'data', 'cuv_data');
+const translationDirectories = {
+  cuv: path.join(rootDir, 'data', 'cuv_data'),
+  esv: path.join(rootDir, 'data', 'esv_data'),
+};
 const devotionDir = path.join(rootDir, 'devotion-data');
 const notesDir = path.join(devotionDir, 'notes');
 const indexFile = path.join(devotionDir, 'note-index.json');
 const distDir = path.join(rootDir, 'dist');
-const bibleCache = new Map();
 let writeQueue = Promise.resolve();
 
 const emptyIndex = () => ({ version: 1, chapters: {}, verses: {} });
@@ -21,6 +23,13 @@ function cleanChineseSpacing(text) {
     .replace(/([\u3400-\u9fff])\s+(?=[\u3400-\u9fff，。；：！？、】【（）《》〈〉])/gu, '$1')
     .replace(/([，。；：！？、】【（）《》〈〉])\s+(?=[\u3400-\u9fff])/gu, '$1')
     .replace(/[\t ]{2,}/g, ' ')
+    .trim();
+}
+
+function cleanEnglishText(text) {
+  return String(text)
+    .replace(/<[^>]*>/gu, '')
+    .replace(/\s+/gu, ' ')
     .trim();
 }
 
@@ -40,22 +49,19 @@ function getBook(bookId) {
   return book;
 }
 
-async function loadBook(book) {
-  if (!bibleCache.has(book.id)) {
-    const filePath = path.join(bibleDir, `${book.id}.json`);
-    const loading = readFile(filePath, 'utf8')
-      .then((text) => JSON.parse(text))
-      .then((verses) => {
-        if (!Array.isArray(verses)) throw new Error(`圣经数据格式无效：${book.id}`);
-        return verses;
-      })
-      .catch((error) => {
-        bibleCache.delete(book.id);
-        throw error;
-      });
-    bibleCache.set(book.id, loading);
-  }
-  return bibleCache.get(book.id);
+function getTranslation(translationId) {
+  if (!Object.hasOwn(translationDirectories, translationId)) throw badRequest('未知的圣经译本。');
+  return translationId;
+}
+
+async function loadChapter(translationId, book, chapter) {
+  const translation = getTranslation(translationId);
+  const sourceFileName = book.sources?.[translation];
+  if (!sourceFileName || path.basename(sourceFileName) !== sourceFileName) throw badRequest('该译本没有此卷数据。');
+  const filePath = path.join(translationDirectories[translation], `${sourceFileName}.json`);
+  const source = JSON.parse(await readFile(filePath, 'utf8'));
+  if (!Array.isArray(source)) throw new Error(`圣经数据格式无效：${translation}/${book.id}`);
+  return source.filter((item) => item.chapter === chapter);
 }
 
 async function validateTarget(params, needsVerse) {
@@ -66,8 +72,8 @@ async function validateTarget(params, needsVerse) {
 
   const verse = parsePositiveInteger(params.verse);
   if (!verse) throw badRequest('无效的节号。');
-  const source = await loadBook(book);
-  if (!source.some((item) => item.chapter === chapter && item.verse === verse)) {
+  const source = await loadChapter('cuv', book, chapter);
+  if (!source.some((item) => item.verse === verse)) {
     throw badRequest('该章节中不存在此节。');
   }
   return { book, chapter, verse };
@@ -177,8 +183,6 @@ async function rebuildIndexFromNotes() {
     const book = BOOK_BY_ID.get(bookEntry.name);
     if (!book) continue;
     const bookDirectory = path.join(verseRoot, book.id);
-    const source = await loadBook(book);
-    const available = new Set(source.map((item) => `${item.chapter}:${item.verse}`));
     for (const chapterEntry of await directoryEntries(bookDirectory)) {
       if (!chapterEntry.isDirectory()) continue;
       const chapter = parsePositiveInteger(chapterEntry.name);
@@ -188,7 +192,6 @@ async function rebuildIndexFromNotes() {
         const match = fileEntry.isFile() && /^([1-9]\d*)\.md$/u.exec(fileEntry.name);
         if (!match) continue;
         const verse = Number(match[1]);
-        if (!available.has(`${chapter}:${verse}`)) continue;
         if (await isMeaningfulMarkdown(path.join(chapterDirectory, fileEntry.name))) addIndexMarker(rebuilt, { book, chapter, verse });
       }
     }
@@ -309,19 +312,33 @@ app.get('/api/config', async (_req, res, next) => {
   } catch (error) { next(error); }
 });
 
-app.get('/api/chapters/:book/:chapter', async (req, res, next) => {
+async function sendChapter(req, res, next, translationId) {
   try {
     const target = await validateTarget(req.params, false);
-    const source = await loadBook(target.book);
+    const source = await loadChapter(translationId, target.book, target.chapter);
     const verses = source
-      .filter((item) => item.chapter === target.chapter)
-      .map((item) => ({ number: item.verse, text: cleanChineseSpacing(item.text) }));
+      .map((item) => ({
+        number: item.verse,
+        text: translationId === 'cuv' ? cleanChineseSpacing(item.text) : cleanEnglishText(item.text),
+      }));
     if (!verses.length) throw badRequest('该章节没有可用经文。');
     res.json({
       book: { id: target.book.id, name: target.book.name },
       chapter: target.chapter,
+      translation: translationId,
       verses,
     });
+  } catch (error) { next(error); }
+}
+
+app.get('/api/chapters/:book/:chapter', async (req, res, next) => {
+  await sendChapter(req, res, next, 'cuv');
+});
+
+app.get('/api/translations/:translation/chapters/:book/:chapter', async (req, res, next) => {
+  try {
+    const translation = getTranslation(req.params.translation);
+    await sendChapter(req, res, next, translation);
   } catch (error) { next(error); }
 });
 
@@ -360,4 +377,4 @@ const port = Number(process.env.PORT) || 3000;
 await reconcileNoteIndex();
 app.listen(port, () => console.log(`Bible Devotion API listening on http://localhost:${port}`));
 
-export { app, cleanChineseSpacing };
+export { app, cleanChineseSpacing, cleanEnglishText };

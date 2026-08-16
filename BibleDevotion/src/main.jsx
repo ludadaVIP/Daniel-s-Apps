@@ -81,17 +81,22 @@ function App() {
   const [expanded, setExpanded] = useState(() => new Set());
   const [activeSection, setActiveSection] = useState(DEFAULT_SECTION_ID);
   const [chapterData, setChapterData] = useState({ status: 'idle', data: null, error: '' });
+  const [englishChapter, setEnglishChapter] = useState({ status: 'idle', data: null, error: '' });
+  const [scriptureMode, setScriptureMode] = useState('cuv');
   const [note, setNote] = useState({ key: '', status: 'idle', exists: false, error: '' });
   const [draft, setDraft] = useState('');
   const [mode, setMode] = useState('split');
   const [railCollapsed, setRailCollapsed] = useState(readRailPreference);
   const noteController = useRef(null);
   const chapterController = useRef(null);
+  const englishChapterController = useRef(null);
+  const noteWorkspaceRef = useRef(null);
   const synced = useRef(new Map());
   const saveVersions = useRef(new Map());
   const latestSelection = useRef(null);
   const latestNote = useRef(null);
   const latestDraft = useRef('');
+  const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
     const controller = new AbortController();
@@ -101,7 +106,9 @@ function App() {
         const defaultBook = data.books.find((book) => book.id === DEFAULT_BOOK_ID) ?? data.books[0];
         if (defaultBook) {
           setSelection({ bookId: defaultBook.id, chapter: 1 });
-          setExpanded(new Set([defaultBook.id]));
+          // The four Gospels form the app's default reading desk.  Opening
+          // them costs no Bible-text request; only a selected chapter is read.
+          setExpanded(new Set(data.books.slice(39, 43).map((book) => book.id)));
         }
       })
       .catch((error) => {
@@ -137,6 +144,37 @@ function App() {
       });
     return () => controller.abort();
   }, [selection?.bookId, selection?.chapter]);
+
+  useEffect(() => {
+    englishChapterController.current?.abort();
+    if (scriptureMode !== 'bilingual' || !selection) {
+      setEnglishChapter({ status: 'idle', data: null, error: '' });
+      return undefined;
+    }
+    const controller = new AbortController();
+    englishChapterController.current = controller;
+    setEnglishChapter({ status: 'loading', data: null, error: '' });
+    getChapter(selection.bookId, selection.chapter, controller.signal, 'esv')
+      .then((data) => {
+        if (!controller.signal.aborted) setEnglishChapter({ status: 'ready', data, error: '' });
+      })
+      .catch((error) => {
+        if (error.name !== 'AbortError') setEnglishChapter({ status: 'error', data: null, error: error.message });
+      });
+    return () => controller.abort();
+  }, [scriptureMode, selection?.bookId, selection?.chapter]);
+
+  useEffect(() => {
+    const workspace = noteWorkspaceRef.current;
+    if (!workspace) return undefined;
+    // A textarea owns its own scrolling; listening only on its wrapping
+    // label leaves the back-to-top button invisible in Edit and Split modes.
+    const scrollPanes = [...workspace.querySelectorAll('.editor-pane textarea, .markdown-pane')];
+    const updateBackToTopVisibility = () => setShowBackToTop(scrollPanes.some((pane) => pane.scrollTop > 160));
+    scrollPanes.forEach((pane) => pane.addEventListener('scroll', updateBackToTopVisibility, { passive: true }));
+    updateBackToTopVisibility();
+    return () => scrollPanes.forEach((pane) => pane.removeEventListener('scroll', updateBackToTopVisibility));
+  }, [mode, note.key, note.status]);
 
   useEffect(() => {
     if (!activeTarget) return undefined;
@@ -270,6 +308,12 @@ function App() {
       : current);
   };
 
+  const scrollNoteToTop = () => {
+    noteWorkspaceRef.current?.querySelectorAll('.editor-pane textarea, .markdown-pane').forEach((pane) => {
+      pane.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+  };
+
   if (configError) {
     return <main className="boot-state"><strong>无法打开灵修记录</strong><span>{configError}</span><button onClick={() => window.location.reload()}>重新加载</button></main>;
   }
@@ -282,6 +326,23 @@ function App() {
   const reference = labelForTarget(selection, activeBook.name);
   const noteStatus = note.key === activeKey ? note.status : 'loading';
   const statusText = noteStatus === 'loading' ? '正在读取…' : noteStatus === 'saving' ? '正在保存…' : noteStatus === 'saved' ? '已保存' : noteStatus === 'error' ? '保存失败' : draft !== (synced.current.get(activeKey) ?? '') ? '尚未保存' : '已同步';
+  const renderedVerses = (() => {
+    const cuvVerses = chapterData.data?.verses ?? [];
+    if (scriptureMode !== 'bilingual' || englishChapter.status !== 'ready') {
+      return cuvVerses.map((cuv) => ({ number: cuv.number, cuv, esv: null }));
+    }
+
+    // Keep the ESV lookup explicit: translations occasionally number a
+    // chapter differently.  The union means neither translation vanishes.
+    const esvMap = new Map((englishChapter.data?.verses ?? []).map((esv) => [esv.number, esv]));
+    const cuvMap = new Map(cuvVerses.map((cuv) => [cuv.number, cuv]));
+    return [...new Set([...cuvMap.keys(), ...esvMap.keys()])]
+      .sort((left, right) => left - right)
+      .map((number) => ({ number, cuv: cuvMap.get(number) ?? null, esv: esvMap.get(number) ?? null }));
+  })();
+  const hasTranslationVariance = scriptureMode === 'bilingual'
+    && englishChapter.status === 'ready'
+    && renderedVerses.some((verse) => !verse.cuv || !verse.esv);
 
   return (
     <main className={`devotion-app ${railCollapsed ? 'rail-is-collapsed' : ''}`}>
@@ -345,21 +406,34 @@ function App() {
       <section className="scripture-panel" aria-label="圣经章节">
         <header className="scripture-header">
           <div>
-            <div className="eyebrow">和合本（中文）</div>
+            <div className="eyebrow">{scriptureMode === 'bilingual' ? '和合本（中文） · ESV（英文）' : '和合本（中文）'}</div>
             <h2>{activeBook.name}<span>{selection.chapter}章</span></h2>
           </div>
-          {isVerse && <button className="chapter-context-button" onClick={clearVerse}>查看全章笔记</button>}
+          <div className="scripture-actions">
+            <div className="translation-switcher" aria-label="经文显示语言">
+              <button type="button" className={scriptureMode === 'cuv' ? 'is-active' : ''} onClick={() => setScriptureMode('cuv')} aria-pressed={scriptureMode === 'cuv'}>中</button>
+              <span className="translation-divider" aria-hidden="true">/</span>
+              <button type="button" className={scriptureMode === 'bilingual' ? 'is-active' : ''} onClick={() => setScriptureMode('bilingual')} aria-pressed={scriptureMode === 'bilingual'}>中英</button>
+            </div>
+            {isVerse && <button className="chapter-context-button" onClick={clearVerse}>查看全章笔记</button>}
+          </div>
         </header>
         <div className="scripture-scroll">
           {chapterData.status === 'loading' && <div className="panel-state">正在载入经文…</div>}
           {chapterData.status === 'error' && <div className="panel-state error-state">{chapterData.error}<button onClick={() => selectChapter(selection.bookId, selection.chapter)}>重试</button></div>}
+          {chapterData.status === 'ready' && scriptureMode === 'bilingual' && englishChapter.status === 'loading' && <div className="translation-loading" role="status">正在载入本章 ESV 对照…</div>}
+          {chapterData.status === 'ready' && scriptureMode === 'bilingual' && englishChapter.status === 'error' && <div className="translation-error" role="alert">英文对照暂时无法显示：{englishChapter.error}<button onClick={() => setScriptureMode('cuv')}>返回中文</button></div>}
+          {chapterData.status === 'ready' && hasTranslationVariance && <div className="translation-variance" role="status">本章两译本节号略有差异，已依节号顺序完整显示。</div>}
           {chapterData.status === 'ready' && <div className="verses" role="list">
-            {chapterData.data.verses.map((verse) => {
-              const selected = selection.verse === verse.number;
-              const hasNote = hasVerseNote(config.noteIndex, selection.bookId, selection.chapter, verse.number);
-              return <button type="button" className={`verse-row ${selected ? 'is-selected' : ''}`} key={verse.number} onClick={() => selectVerse(verse.number)} role="listitem" aria-pressed={selected}>
-                <span className="verse-number">{verse.number}</span>
-                <span className="verse-text">{verse.text}</span>
+            {renderedVerses.map(({ number, cuv, esv }) => {
+              const selected = selection.verse === number;
+              const hasNote = hasVerseNote(config.noteIndex, selection.bookId, selection.chapter, number);
+              return <button type="button" className={`verse-row ${selected ? 'is-selected' : ''} ${!cuv ? 'is-esv-only' : ''}`} key={number} onClick={() => selectVerse(number)} role="listitem" aria-pressed={selected}>
+                <span className="verse-number">{number}</span>
+                <span className="verse-copy">
+                  {cuv ? <span className="verse-text">{cuv.text}</span> : <span className="translation-gap">和合本未收录此节号</span>}
+                  {scriptureMode === 'bilingual' && (esv ? <span className="verse-english">{esv.text}</span> : <span className="translation-gap">ESV 未收录此节号</span>)}
+                </span>
                 {hasNote && <span className="verse-note-mark" title="此节有灵修笔记" aria-label="此节有灵修笔记">◆</span>}
               </button>;
             })}
@@ -383,12 +457,13 @@ function App() {
           <button className="save-button" onClick={flushCurrent} disabled={noteStatus === 'loading' || noteStatus === 'saving'}>保存 <kbd>⌘/Ctrl S</kbd></button>
         </div>
         {noteStatus === 'error' && <div className="note-error" role="alert">{note.error} <button onClick={flushCurrent}>重试保存</button></div>}
-        <div className={`note-workspace mode-${mode}`}>
+        <div ref={noteWorkspaceRef} className={`note-workspace mode-${mode}`}>
           {(mode === 'edit' || mode === 'split') && <label className="editor-pane"><span className="sr-only">编辑 {reference} 的 Markdown 笔记</span><textarea value={draft} onChange={updateDraft} disabled={noteStatus === 'loading'} placeholder={`在这里写下 ${reference} 的灵修感动…\n\n支持 Markdown：标题、清单、引用、粗体。`} spellCheck="true" /></label>}
           {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="Markdown 预览">
             {noteStatus === 'loading' ? <div className="panel-state">正在读取笔记…</div> : draft.trim() ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{draft}</ReactMarkdown> : <div className="empty-note"><span>✦</span><strong>给此处留下一盏灯</strong><p>记录今天从经文中领受的一句话、一个问题，或一段祷告。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>开始记录</button>}</div>}
           </article>}
         </div>
+        {showBackToTop && <button type="button" className="back-to-top" onClick={scrollNoteToTop} aria-label="回到灵修笔记顶部" title="回到顶部">↑</button>}
       </aside>
     </main>
   );

@@ -12,7 +12,9 @@ export default defineConfig({
     strictPort: true,
     open: true,
     proxy: {
-      '/api': 'http://localhost:3000',
+      // `scripts/dev.mjs` chooses 3000 or the next free local port, so a
+      // different app cannot prevent this UI from opening on its fixed 5181.
+      '/api': `http://127.0.0.1:${process.env.BIBLE_DEVOTION_API_PORT || 3000}`,
     },
   },
 });
