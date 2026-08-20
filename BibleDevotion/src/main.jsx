@@ -36,6 +36,29 @@ function labelForTarget(target, bookName) {
   return `${bookName}${target.chapter}章${target.verse ? `${target.verse}节` : ''}`;
 }
 
+function verseReference(bookName, chapter, verse) {
+  return `（${bookName}${chapter}:${verse}）`;
+}
+
+async function writeToClipboard(text) {
+  if (navigator.clipboard?.writeText) {
+    await navigator.clipboard.writeText(text);
+    return;
+  }
+
+  // Local HTTP development can occasionally lack the modern Clipboard API.
+  // Keep copying available with the browser's legacy, user-gesture fallback.
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.setAttribute('readonly', '');
+  textarea.style.cssText = 'position:fixed;opacity:0;pointer-events:none;';
+  document.body.append(textarea);
+  textarea.select();
+  const copied = document.execCommand('copy');
+  textarea.remove();
+  if (!copied) throw new Error('浏览器未允许写入剪贴板。');
+}
+
 function copyIndex(index) {
   return {
     version: 1,
@@ -87,6 +110,7 @@ function App() {
   const [draft, setDraft] = useState('');
   const [mode, setMode] = useState('split');
   const [railCollapsed, setRailCollapsed] = useState(readRailPreference);
+  const [copyStatus, setCopyStatus] = useState({ key: '', state: 'idle' });
   const noteController = useRef(null);
   const chapterController = useRef(null);
   const englishChapterController = useRef(null);
@@ -314,6 +338,33 @@ function App() {
     });
   };
 
+  const copyVerse = async (event, verse) => {
+    event.stopPropagation();
+    const key = `${selection.bookId}:${selection.chapter}:${verse.number}`;
+    const referenceText = verseReference(activeBook.name, selection.chapter, verse.number);
+    const chineseText = verse.cuv?.text;
+    const englishText = verse.esv?.text;
+    const content = scriptureMode === 'bilingual'
+      ? [
+        referenceText,
+        chineseText ?? '和合本未收录此节号',
+        '',
+        `(${selection.bookId} ${selection.chapter}:${verse.number}, ESV)`,
+        englishText ?? 'ESV 未收录此节号',
+      ].join('\n')
+      : [referenceText, chineseText ?? '和合本未收录此节号'].join('\n');
+
+    try {
+      await writeToClipboard(content);
+      setCopyStatus({ key, state: 'copied' });
+      window.setTimeout(() => {
+        setCopyStatus((current) => current.key === key ? { key: '', state: 'idle' } : current);
+      }, 1600);
+    } catch {
+      setCopyStatus({ key, state: 'error' });
+    }
+  };
+
   if (configError) {
     return <main className="boot-state"><strong>无法打开灵修记录</strong><span>{configError}</span><button onClick={() => window.location.reload()}>重新加载</button></main>;
   }
@@ -428,14 +479,30 @@ function App() {
             {renderedVerses.map(({ number, cuv, esv }) => {
               const selected = selection.verse === number;
               const hasNote = hasVerseNote(config.noteIndex, selection.bookId, selection.chapter, number);
-              return <button type="button" className={`verse-row ${selected ? 'is-selected' : ''} ${!cuv ? 'is-esv-only' : ''}`} key={number} onClick={() => selectVerse(number)} role="listitem" aria-pressed={selected}>
-                <span className="verse-number">{number}</span>
-                <span className="verse-copy">
-                  {cuv ? <span className="verse-text">{cuv.text}</span> : <span className="translation-gap">和合本未收录此节号</span>}
-                  {scriptureMode === 'bilingual' && (esv ? <span className="verse-english">{esv.text}</span> : <span className="translation-gap">ESV 未收录此节号</span>)}
-                </span>
-                {hasNote && <span className="verse-note-mark" title="此节有灵修笔记" aria-label="此节有灵修笔记">◆</span>}
-              </button>;
+              const copyKey = `${selection.bookId}:${selection.chapter}:${number}`;
+              const copyState = copyStatus.key === copyKey ? copyStatus.state : 'idle';
+              return <div className={`verse-row ${selected ? 'is-selected' : ''} ${!cuv ? 'is-esv-only' : ''}`} key={number} role="listitem">
+                <button type="button" className="verse-select" onClick={() => selectVerse(number)} aria-pressed={selected} aria-label={`选择${activeBook.name}${selection.chapter}:${number}`}>
+                  <span className="verse-number">{number}</span>
+                  <span className="verse-copy">
+                    {cuv ? <span className="verse-text">{cuv.text}</span> : <span className="translation-gap">和合本未收录此节号</span>}
+                    {scriptureMode === 'bilingual' && (esv ? <span className="verse-english">{esv.text}</span> : <span className="translation-gap">ESV 未收录此节号</span>)}
+                  </span>
+                  {hasNote && <span className="verse-note-mark" title="此节有灵修笔记" aria-label="此节有灵修笔记">◆</span>}
+                </button>
+                {selected && <button
+                  type="button"
+                  className={`copy-verse-button ${copyState === 'error' ? 'is-error' : ''}`}
+                  onClick={(event) => copyVerse(event, { number, cuv, esv })}
+                  aria-label={`复制${activeBook.name}${selection.chapter}:${number}`}
+                  title={copyState === 'error' ? '复制失败，请再试一次' : '复制这节经文'}
+                >
+                  {copyState === 'copied'
+                    ? <svg viewBox="0 0 16 16" aria-hidden="true"><path d="m3 8.25 3.05 3.05L13.25 4" /></svg>
+                    : <svg viewBox="0 0 16 16" aria-hidden="true"><rect x="5.25" y="2.25" width="7.25" height="8.5" rx="1.15" /><path d="M10.5 5.25H4.65A1.15 1.15 0 0 0 3.5 6.4v6.1c0 .64.51 1.15 1.15 1.15h5.1c.64 0 1.15-.51 1.15-1.15v-1.25" /></svg>}
+                  <span className="sr-only">{copyState === 'copied' ? '已复制' : copyState === 'error' ? '重试复制' : '复制这节经文'}</span>
+                </button>}
+              </div>;
             })}
           </div>}
         </div>

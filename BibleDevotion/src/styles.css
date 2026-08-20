@@ -46,14 +46,21 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid #7162bb; outli
 .translation-divider { padding: 0 1px; color: #a39c93; }
 .scripture-scroll { flex: 1; overflow-y: auto; padding: 16px clamp(20px, 2.7vw, 44px) 70px; }
 .verses { max-width: 900px; margin: auto; }
-.verse-row { position: relative; display: grid; grid-template-columns: 31px minmax(0, 1fr) 28px; align-items: baseline; width: 100%; padding: 12px 5px 12px 2px; color: #312e35; background: transparent; border: 0; border-bottom: 1px solid #ece9e3; border-radius: 5px; text-align: left; }
+.verse-row { position: relative; width: 100%; color: #312e35; background: transparent; border-bottom: 1px solid #ece9e3; border-radius: 5px; }
+.verse-select { display: grid; grid-template-columns: 31px minmax(0, 1fr) 28px; align-items: baseline; width: 100%; padding: 12px 5px 12px 2px; color: inherit; background: transparent; border: 0; border-radius: inherit; text-align: left; }
 .verse-row:hover { background: #f1efe9; }
 .verse-row.is-selected { color: #24203f; background: #e9e4f7; border-bottom-color: #d7cff0; box-shadow: 4px 0 0 #7566b9 inset; }
+.verse-row.is-selected .verse-select { padding-bottom: 34px; }
 .verse-number { align-self: start; padding-top: .15em; color: #9b7945; font-family: Georgia, "Songti SC", "SimSun", serif; font-size: .83rem; font-weight: 600; }
 .verse-copy { min-width: 0; }
 .verse-text { font-family: "Songti SC", "STSong", "SimSun", Georgia, serif; font-size: clamp(1.03rem, 1.35vw, 1.19rem); line-height: 2; letter-spacing: .045em; }
 .verse-english { display: block; margin-top: 4px; color: #6c6865; font-family: Georgia, "Times New Roman", serif; font-size: clamp(.84rem, 1.06vw, .98rem); line-height: 1.65; letter-spacing: .01em; }
 .verse-note-mark { align-self: center; justify-self: center; color: #e6672f; font-size: 1.1rem; line-height: 1; text-shadow: 0 0 7px rgb(230 103 47 / .38); transform: translateY(-1px); }
+.copy-verse-button { position: absolute; right: 9px; bottom: 7px; display: grid; place-items: center; width: 25px; height: 25px; padding: 0; color: #766ca8; background: transparent; border: 0; border-radius: 5px; opacity: 0; transform: translateY(2px); transition: opacity .14s ease, transform .14s ease, color .14s, background .14s; }
+.verse-row.is-selected .copy-verse-button { opacity: 1; transform: translateY(0); }
+.copy-verse-button svg { width: 15px; height: 15px; fill: none; stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; stroke-width: 1.45; }
+.copy-verse-button:hover { color: #4f4386; background: rgb(98 85 156 / .12); }
+.copy-verse-button.is-error { color: #b35a54; background: rgb(179 90 84 / .1); }
 .translation-loading, .translation-error, .translation-variance { max-width: 900px; margin: 0 auto 8px; padding: 7px 10px; color: #746d61; background: #f0ede5; border-left: 3px solid #b59c5c; font-size: .74rem; }
 .translation-error { color: #8b4848; border-left-color: #bd625c; }.translation-error button { margin-left: 7px; color: inherit; background: transparent; border: 0; text-decoration: underline; }
 .translation-variance { color: #62573e; border-left-color: #a98435; }
