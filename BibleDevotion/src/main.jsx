@@ -2,7 +2,13 @@ import { StrictMode, useCallback, useEffect, useMemo, useRef, useState } from 'r
 import { createRoot } from 'react-dom/client';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
-import { getChapter, getConfig, getNote, putNote } from './services/api.js';
+import Box from '@mui/material/Box';
+import ButtonBase from '@mui/material/ButtonBase';
+import Chip from '@mui/material/Chip';
+import Paper from '@mui/material/Paper';
+import Stack from '@mui/material/Stack';
+import Typography from '@mui/material/Typography';
+import { getChapter, getConfig, getNote, getNoteIndex, getQuestions, putNote, putQuestions } from './services/api.js';
 import './styles.css';
 
 const BOOK_SECTIONS = [
@@ -17,6 +23,11 @@ const MODES = [
   ['read', '阅读'],
   ['edit', '编辑'],
   ['split', '对照'],
+];
+const WORKSPACES = [
+  ['index', '索引'],
+  ['questions', '问题'],
+  ['comments', '笔记'],
 ];
 const RAIL_PREFERENCE_KEY = 'bible-devotion:directory-collapsed';
 
@@ -38,6 +49,20 @@ function labelForTarget(target, bookName) {
 
 function verseReference(bookName, chapter, verse) {
   return `（${bookName}${chapter}:${verse}）`;
+}
+
+function splitNoteContent(content) {
+  const match = String(content).match(/^\s*#\s+(.+?)\s*\n(?:\s*\n)?/);
+  return match ? { title: match[1].replace(/\s+#+\s*$/, '').trim(), body: content.slice(match[0].length), prefix: match[0] } : { title: '', body: content, prefix: '' };
+}
+
+function composeNoteContent(title, body, originalPrefix = '') {
+  const cleanTitle = title.trim();
+  if (!cleanTitle) return body;
+  const originalTitle = originalPrefix.match(/^\s*#\s+(.+?)\s*\n/)?.[1]?.replace(/\s+#+\s*$/, '').trim();
+  if (originalTitle === cleanTitle) return `${originalPrefix}${body}`;
+  const cleanBody = body.replace(/^\n+/, '');
+  return `# ${cleanTitle}${cleanBody ? `\n\n${cleanBody}` : ''}`;
 }
 
 async function writeToClipboard(text) {
@@ -108,10 +133,19 @@ function App() {
   const [scriptureMode, setScriptureMode] = useState('cuv');
   const [note, setNote] = useState({ key: '', status: 'idle', exists: false, error: '' });
   const [draft, setDraft] = useState('');
+  const [noteTitle, setNoteTitle] = useState('');
+  const [noteTitlePrefix, setNoteTitlePrefix] = useState('');
   const [mode, setMode] = useState('split');
+  const [workspace, setWorkspace] = useState('comments');
+  const [indexScope, setIndexScope] = useState('book');
+  const [noteIndex, setNoteIndex] = useState({ status: 'idle', entries: [], error: '' });
+  const [questions, setQuestions] = useState({ key: '', status: 'idle', exists: false, error: '' });
+  const [questionDraft, setQuestionDraft] = useState('');
   const [railCollapsed, setRailCollapsed] = useState(readRailPreference);
   const [copyStatus, setCopyStatus] = useState({ key: '', state: 'idle' });
   const noteController = useRef(null);
+  const indexController = useRef(null);
+  const questionController = useRef(null);
   const chapterController = useRef(null);
   const englishChapterController = useRef(null);
   const noteWorkspaceRef = useRef(null);
@@ -120,6 +154,11 @@ function App() {
   const latestSelection = useRef(null);
   const latestNote = useRef(null);
   const latestDraft = useRef('');
+  const latestTitle = useRef('');
+  const latestTitlePrefix = useRef('');
+  const questionSynced = useRef(new Map());
+  const questionSaveVersions = useRef(new Map());
+  const latestQuestionDraft = useRef('');
   const [showBackToTop, setShowBackToTop] = useState(false);
 
   useEffect(() => {
@@ -152,6 +191,9 @@ function App() {
   latestSelection.current = activeTarget;
   latestNote.current = note;
   latestDraft.current = draft;
+  latestTitle.current = noteTitle;
+  latestTitlePrefix.current = noteTitlePrefix;
+  latestQuestionDraft.current = questionDraft;
 
   useEffect(() => {
     if (!selection) return undefined;
@@ -207,11 +249,16 @@ function App() {
     noteController.current = controller;
     setNote({ key: activeKey, status: 'loading', exists: false, error: '' });
     setDraft('');
+    setNoteTitle('');
+    setNoteTitlePrefix('');
     getNote(activeTarget, controller.signal)
       .then((data) => {
         if (controller.signal.aborted) return;
         synced.current.set(activeKey, data.content);
-        setDraft(data.content);
+        const parsed = splitNoteContent(data.content);
+        setNoteTitle(parsed.title);
+        setDraft(parsed.body);
+        setNoteTitlePrefix(parsed.prefix);
         setNote({ key: activeKey, status: 'ready', exists: data.exists, error: '' });
       })
       .catch((error) => {
@@ -219,6 +266,43 @@ function App() {
       });
     return () => controller.abort();
   }, [activeKey]);
+
+  useEffect(() => {
+    if (!selection) return undefined;
+    questionController.current?.abort();
+    const controller = new AbortController();
+    questionController.current = controller;
+    const key = `${selection.bookId}:${selection.chapter}`;
+    setQuestions({ key, status: 'loading', exists: false, error: '' });
+    setQuestionDraft('');
+    getQuestions(selection.bookId, selection.chapter, controller.signal)
+      .then((data) => {
+        if (controller.signal.aborted) return;
+        questionSynced.current.set(key, data.content);
+        setQuestionDraft(data.content);
+        setQuestions({ key, status: 'ready', exists: data.exists, error: '' });
+      })
+      .catch((error) => {
+        if (error.name !== 'AbortError') setQuestions({ key, status: 'error', exists: false, error: error.message });
+      });
+    return () => controller.abort();
+  }, [selection?.bookId, selection?.chapter]);
+
+  useEffect(() => {
+    if (workspace !== 'index' || !selection) return undefined;
+    indexController.current?.abort();
+    const controller = new AbortController();
+    indexController.current = controller;
+    setNoteIndex({ status: 'loading', entries: [], error: '' });
+    getNoteIndex(selection.bookId, indexScope === 'chapter' ? selection.chapter : null, controller.signal)
+      .then((data) => {
+        if (!controller.signal.aborted) setNoteIndex({ status: 'ready', entries: data.entries, error: '' });
+      })
+      .catch((error) => {
+        if (error.name !== 'AbortError') setNoteIndex({ status: 'error', entries: [], error: error.message });
+      });
+    return () => controller.abort();
+  }, [workspace, indexScope, selection?.bookId, selection?.chapter]);
 
   const saveTarget = useCallback(async (target, content) => {
     const key = targetKey(target);
@@ -254,25 +338,64 @@ function App() {
     }
   }, []);
 
+  const saveQuestionSet = useCallback(async (bookId, chapter, content) => {
+    const key = `${bookId}:${chapter}`;
+    const version = (questionSaveVersions.current.get(key) ?? 0) + 1;
+    questionSaveVersions.current.set(key, version);
+    if (latestSelection.current?.bookId === bookId && latestSelection.current?.chapter === chapter) {
+      setQuestions((current) => current.key === key ? { ...current, status: 'saving', error: '' } : current);
+    }
+    try {
+      const saved = await putQuestions(bookId, chapter, content);
+      if (questionSaveVersions.current.get(key) !== version) return;
+      questionSynced.current.set(key, saved.content);
+      if (latestSelection.current?.bookId === bookId && latestSelection.current?.chapter === chapter) {
+        setQuestions({ key, status: 'saved', exists: saved.exists, error: '' });
+        window.setTimeout(() => setQuestions((current) => current.key === key && current.status === 'saved' ? { ...current, status: 'ready' } : current), 1400);
+      }
+    } catch (error) {
+      if (questionSaveVersions.current.get(key) !== version) return;
+      if (latestSelection.current?.bookId === bookId && latestSelection.current?.chapter === chapter) {
+        setQuestions((current) => current.key === key ? { ...current, status: latestQuestionDraft.current !== content ? 'ready' : 'error', error: latestQuestionDraft.current !== content ? '' : error.message } : current);
+      }
+    }
+  }, []);
+
   const flushCurrent = useCallback(() => {
     const currentTarget = latestSelection.current;
     const currentNote = latestNote.current;
     if (!currentTarget || currentNote?.key !== targetKey(currentTarget) || currentNote.status === 'loading') return;
-    const currentDraft = latestDraft.current;
-    if (synced.current.get(targetKey(currentTarget)) !== currentDraft) saveTarget(currentTarget, currentDraft);
+    const currentContent = composeNoteContent(latestTitle.current, latestDraft.current, latestTitlePrefix.current);
+    if (synced.current.get(targetKey(currentTarget)) !== currentContent) saveTarget(currentTarget, currentContent);
   }, [saveTarget]);
+
+  const flushQuestions = useCallback(() => {
+    const currentTarget = latestSelection.current;
+    if (!currentTarget) return;
+    const key = `${currentTarget.bookId}:${currentTarget.chapter}`;
+    const content = latestQuestionDraft.current;
+    if (questionSynced.current.get(key) !== content) saveQuestionSet(currentTarget.bookId, currentTarget.chapter, content);
+  }, [saveQuestionSet]);
 
   useEffect(() => {
     if (!activeTarget || note.key !== activeKey || !['ready', 'saved'].includes(note.status)) return undefined;
-    if (synced.current.get(activeKey) === draft) return undefined;
-    const timer = window.setTimeout(() => saveTarget(activeTarget, draft), 800);
+    const content = composeNoteContent(noteTitle, draft, noteTitlePrefix);
+    if (synced.current.get(activeKey) === content) return undefined;
+    const timer = window.setTimeout(() => saveTarget(activeTarget, content), 800);
     return () => window.clearTimeout(timer);
-  }, [activeKey, draft, note.key, note.status, saveTarget]);
+  }, [activeKey, draft, noteTitle, noteTitlePrefix, note.key, note.status, saveTarget]);
 
   useEffect(() => {
-    const flushBeforeLeaving = () => flushCurrent();
+    if (!selection || questions.status !== 'ready' || questions.key !== `${selection.bookId}:${selection.chapter}`) return undefined;
+    if (questionSynced.current.get(questions.key) === questionDraft) return undefined;
+    const timer = window.setTimeout(() => saveQuestionSet(selection.bookId, selection.chapter, questionDraft), 800);
+    return () => window.clearTimeout(timer);
+  }, [questionDraft, questions.key, questions.status, saveQuestionSet, selection?.bookId, selection?.chapter]);
+
+  useEffect(() => {
+    const flushBeforeLeaving = () => { flushCurrent(); flushQuestions(); };
     const flushWhenHidden = () => {
-      if (document.visibilityState === 'hidden') flushCurrent();
+      if (document.visibilityState === 'hidden') { flushCurrent(); flushQuestions(); }
     };
     window.addEventListener('pagehide', flushBeforeLeaving);
     document.addEventListener('visibilitychange', flushWhenHidden);
@@ -280,20 +403,21 @@ function App() {
       window.removeEventListener('pagehide', flushBeforeLeaving);
       document.removeEventListener('visibilitychange', flushWhenHidden);
     };
-  }, [flushCurrent]);
+  }, [flushCurrent, flushQuestions]);
 
   useEffect(() => {
     const saveShortcut = (event) => {
       if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === 's') {
         event.preventDefault();
-        flushCurrent();
+        if (workspace === 'questions' && selection) saveQuestionSet(selection.bookId, selection.chapter, latestQuestionDraft.current);
+        else flushCurrent();
         return;
       }
       if (event.key === 'Escape' && !event.defaultPrevented) setRailCollapsed(true);
     };
     window.addEventListener('keydown', saveShortcut);
     return () => window.removeEventListener('keydown', saveShortcut);
-  }, [flushCurrent]);
+  }, [flushCurrent, saveQuestionSet, selection, workspace]);
 
   useEffect(() => {
     try {
@@ -305,20 +429,37 @@ function App() {
 
   const selectChapter = (bookId, chapter) => {
     flushCurrent();
+    flushQuestions();
     setSelection({ bookId, chapter });
     setExpanded((current) => new Set(current).add(bookId));
+    setIndexScope('chapter');
+    setWorkspace('index');
+  };
+
+  const selectBookIndex = (bookId) => {
+    flushCurrent();
+    flushQuestions();
+    const chapter = selection?.bookId === bookId ? selection.chapter : 1;
+    setSelection({ bookId, chapter });
+    setExpanded((current) => new Set(current).add(bookId));
+    setWorkspace('index');
+    setIndexScope('book');
   };
 
   const selectVerse = (verse) => {
     if (!selection) return;
     flushCurrent();
+    flushQuestions();
     setSelection({ ...selection, verse });
+    setWorkspace('comments');
   };
 
   const clearVerse = () => {
     if (!selection?.verse) return;
     flushCurrent();
+    flushQuestions();
     setSelection({ bookId: selection.bookId, chapter: selection.chapter });
+    setWorkspace('comments');
   };
 
   const updateDraft = (event) => {
@@ -330,6 +471,32 @@ function App() {
     setNote((current) => current.key === activeKey && current.status === 'error'
       ? { ...current, status: 'ready', error: '' }
       : current);
+  };
+
+  const updateNoteTitle = (event) => {
+    const nextTitle = event.target.value.replace(/[\r\n]/g, '');
+    setNoteTitle(nextTitle);
+    setNote((current) => current.key === activeKey && current.status === 'error' ? { ...current, status: 'ready', error: '' } : current);
+  };
+
+  const updateQuestionDraft = (event) => {
+    const nextDraft = event.target.value;
+    setQuestionDraft(nextDraft);
+    setQuestions((current) => current.status === 'error' ? { ...current, status: 'ready', error: '' } : current);
+  };
+
+  const openIndexedNote = (entry) => {
+    flushCurrent();
+    flushQuestions();
+    const section = BOOK_SECTIONS.find((item) => {
+      const bookIndex = config.books.findIndex((book) => book.id === selection.bookId);
+      return bookIndex >= item.start && (item.end === undefined || bookIndex < item.end);
+    });
+    if (section) setActiveSection(section.id);
+    setExpanded((current) => new Set(current).add(selection.bookId));
+    setSelection({ bookId: selection.bookId, chapter: entry.chapter, ...(entry.verse ? { verse: entry.verse } : {}) });
+    setWorkspace('comments');
+    setMode('read');
   };
 
   const scrollNoteToTop = () => {
@@ -376,7 +543,11 @@ function App() {
   const isVerse = Boolean(selection.verse);
   const reference = labelForTarget(selection, activeBook.name);
   const noteStatus = note.key === activeKey ? note.status : 'loading';
-  const statusText = noteStatus === 'loading' ? '正在读取…' : noteStatus === 'saving' ? '正在保存…' : noteStatus === 'saved' ? '已保存' : noteStatus === 'error' ? '保存失败' : draft !== (synced.current.get(activeKey) ?? '') ? '尚未保存' : '已同步';
+  const questionKey = `${selection.bookId}:${selection.chapter}`;
+  const questionStatus = questions.key === questionKey ? questions.status : 'loading';
+  const noteContent = composeNoteContent(noteTitle, draft, noteTitlePrefix);
+  const statusText = noteStatus === 'loading' ? '正在读取…' : noteStatus === 'saving' ? '正在保存…' : noteStatus === 'saved' ? '已保存' : noteStatus === 'error' ? '保存失败' : noteContent !== (synced.current.get(activeKey) ?? '') ? '尚未保存' : '已同步';
+  const questionStatusText = questionStatus === 'loading' ? '正在读取…' : questionStatus === 'saving' ? '正在保存…' : questionStatus === 'saved' ? '已保存' : questionStatus === 'error' ? '保存失败' : questionDraft !== (questionSynced.current.get(questionKey) ?? '') ? '尚未保存' : '已同步';
   const renderedVerses = (() => {
     const cuvVerses = chapterData.data?.verses ?? [];
     if (scriptureMode !== 'bilingual' || englishChapter.status !== 'ready') {
@@ -394,6 +565,12 @@ function App() {
   const hasTranslationVariance = scriptureMode === 'bilingual'
     && englishChapter.status === 'ready'
     && renderedVerses.some((verse) => !verse.cuv || !verse.esv);
+  const indexedChapterGroups = noteIndex.entries.reduce((groups, entry) => {
+    const group = groups.find((item) => item.chapter === entry.chapter);
+    if (group) group.entries.push(entry);
+    else groups.push({ chapter: entry.chapter, entries: [entry] });
+    return groups;
+  }, []);
 
   return (
     <main className={`devotion-app ${railCollapsed ? 'rail-is-collapsed' : ''}`}>
@@ -441,10 +618,13 @@ function App() {
                   {bookHasNote(config.noteIndex, book.id) && <span className="book-note-dot" title="此卷含有灵修笔记" aria-label="含有灵修笔记" />}
                 </button>
                 {isOpen && <div className="chapter-grid" aria-label={`${book.name}章节`}>
+                  <button key="book-index" className={`chapter-square book-index-square ${workspace === 'index' && indexScope === 'book' && book.id === selection.bookId ? 'is-selected' : ''}`} onClick={() => selectBookIndex(book.id)} aria-label={`${book.name}0章，全卷灵修索引`} title={`查看${book.name}全卷灵修索引`}>0</button>
                   {Array.from({ length: book.chapters }, (_, index) => index + 1).map((chapter) => {
                     const selected = book.id === selection.bookId && chapter === selection.chapter && !selection.verse;
-                    const noted = hasChapterNote(config.noteIndex, book.id, chapter);
-                    return <button key={chapter} className={`chapter-square ${selected ? 'is-selected' : ''} ${noted ? 'has-note' : ''}`} onClick={() => selectChapter(book.id, chapter)} aria-label={`${book.name}${chapter}章${noted ? '，有章节笔记' : ''}`}>{chapter}</button>;
+                    const chapterNote = hasChapterNote(config.noteIndex, book.id, chapter);
+                    const verseNotes = config.noteIndex.verses?.[book.id]?.[chapter]?.length ?? 0;
+                    const noted = chapterNote || verseNotes;
+                    return <button key={chapter} className={`chapter-square ${selected ? 'is-selected' : ''} ${noted ? 'has-note' : ''} ${!chapterNote && verseNotes ? 'has-verse-notes' : ''}`} onClick={() => selectChapter(book.id, chapter)} aria-label={`${book.name}${chapter}章${chapterNote ? '，有章节笔记' : verseNotes ? `，有${verseNotes}则经节笔记` : ''}`}>{chapter}{verseNotes > 0 && <span className="chapter-note-count">{verseNotes}</span>}</button>;
                   })}
                 </div>}
               </div>;
@@ -508,29 +688,49 @@ function App() {
         </div>
       </section>
 
-      <aside className="note-rail" aria-label="灵修笔记">
+      <aside className={`note-rail workspace-${workspace}`} aria-label={workspace === 'index' ? '灵修索引' : workspace === 'questions' ? '讨论问题' : '灵修笔记'}>
         <header className="note-header">
-          <div>
-            <div className="eyebrow">{isVerse ? '经节默想' : '全章总览'}</div>
-            <h2>{reference}</h2>
-            {!isVerse && <p>让这一章的话语在心中成形。</p>}
+          <div className="note-context">
+            <div className="eyebrow">{workspace === 'index' ? 'DEVOTION INDEX' : workspace === 'questions' ? 'SMALL GROUP' : isVerse ? '经节默想' : '全章总览'}</div>
+            <h2>{workspace === 'index' ? `${activeBook.name}${indexScope === 'book' ? '' : `${selection.chapter}章`}` : workspace === 'questions' ? `${activeBook.name}${selection.chapter}章` : reference}</h2>
           </div>
-          <div className={`save-status ${noteStatus}`}>{statusText}</div>
+          {workspace === 'comments' && <label className="note-title-field"><span className="sr-only">笔记标题</span><input value={noteTitle} onChange={updateNoteTitle} disabled={noteStatus === 'loading'} placeholder="为这篇灵修写一个标题" /></label>}
+          <div className={`save-status ${workspace === 'questions' ? questionStatus : noteStatus}`}>{workspace === 'index' ? `${indexScope === 'book' ? '本卷' : '本章'}记录` : workspace === 'questions' ? questionStatusText : statusText}</div>
         </header>
-        <div className="note-toolbar" aria-label="笔记显示方式">
-          <div className="mode-switcher">
-            {MODES.map(([value, label]) => <button key={value} className={mode === value ? 'is-active' : ''} onClick={() => setMode(value)} aria-pressed={mode === value}>{label}</button>)}
+        <div className="note-toolbar">
+          <div className="mode-switcher workspace-switcher" role="tablist" aria-label="灵修工作区">
+            {WORKSPACES.map(([value, label]) => <button key={value} type="button" role="tab" className={workspace === value ? 'is-active' : ''} aria-selected={workspace === value} onClick={() => { if (value === 'index') setIndexScope('chapter'); setWorkspace(value); }}>{label}</button>)}
           </div>
-          <button className="save-button" onClick={flushCurrent} disabled={noteStatus === 'loading' || noteStatus === 'saving'}>保存 <kbd>⌘/Ctrl S</kbd></button>
+          {workspace !== 'index' && <>
+            <div className="mode-switcher">
+              {MODES.map(([value, label]) => <button key={value} className={mode === value ? 'is-active' : ''} onClick={() => setMode(value)} aria-pressed={mode === value}>{label}</button>)}
+            </div>
+            <button className="save-button" onClick={workspace === 'questions' ? flushQuestions : flushCurrent} disabled={(workspace === 'questions' ? questionStatus : noteStatus) === 'loading' || (workspace === 'questions' ? questionStatus : noteStatus) === 'saving'}>保存 <kbd>⌘/Ctrl S</kbd></button>
+          </>}
         </div>
-        {noteStatus === 'error' && <div className="note-error" role="alert">{note.error} <button onClick={flushCurrent}>重试保存</button></div>}
-        <div ref={noteWorkspaceRef} className={`note-workspace mode-${mode}`}>
-          {(mode === 'edit' || mode === 'split') && <label className="editor-pane"><span className="sr-only">编辑 {reference} 的 Markdown 笔记</span><textarea value={draft} onChange={updateDraft} disabled={noteStatus === 'loading'} placeholder={`在这里写下 ${reference} 的灵修感动…\n\n支持 Markdown：标题、清单、引用、粗体。`} spellCheck="true" /></label>}
-          {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="Markdown 预览">
-            {noteStatus === 'loading' ? <div className="panel-state">正在读取笔记…</div> : draft.trim() ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{draft}</ReactMarkdown> : <div className="empty-note"><span>✦</span><strong>给此处留下一盏灯</strong><p>记录今天从经文中领受的一句话、一个问题，或一段祷告。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>开始记录</button>}</div>}
-          </article>}
-        </div>
-        {showBackToTop && <button type="button" className="back-to-top" onClick={scrollNoteToTop} aria-label="回到灵修笔记顶部" title="回到顶部">↑</button>}
+        {workspace === 'index' && <div className="index-workspace">
+          {noteIndex.status === 'loading' && <div className="panel-state">正在整理灵修索引…</div>}
+          {noteIndex.status === 'error' && <div className="panel-state error-state">{noteIndex.error}<button onClick={() => setWorkspace('comments')}>返回笔记</button></div>}
+          {noteIndex.status === 'ready' && (noteIndex.entries.length ? <Box className="index-list">
+            <Paper className="index-summary" elevation={0}><Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}><Box><Typography className="index-summary-kicker">{indexScope === 'book' ? '全卷记录' : '本章记录'}</Typography><Typography className="index-summary-title">{activeBook.name}{indexScope === 'book' ? '·灵修笔记索引' : `${selection.chapter}章`}</Typography></Box><Chip className="index-total-chip" label={`${noteIndex.entries.length} 则记录`} size="small" /></Stack><Typography className="index-summary-copy">点击任意卡片，回到经文与对应的灵修笔记。</Typography></Paper>
+            {indexedChapterGroups.map((group) => <section className="index-chapter-group" key={group.chapter}><div className="index-chapter-heading"><span>{activeBook.name}{group.chapter}章</span><i>{group.entries.length}</i></div><Stack spacing={1}>{group.entries.map((entry) => <Paper className={`index-entry index-entry-${entry.scope}`} elevation={0} key={`${entry.scope}:${entry.chapter}:${entry.verse ?? ''}`}><ButtonBase className="index-entry-action" onClick={() => openIndexedNote(entry)}><Stack className="index-entry-content" spacing={.7}><Stack direction="row" alignItems="center" justifyContent="space-between" spacing={1}><Chip className="index-reference-chip" label={entry.verse ? `${activeBook.name}${entry.chapter}:${entry.verse}` : '全章默想'} size="small" /><Typography component="strong" className="index-entry-title">{entry.title}</Typography></Stack>{entry.scripture && <Typography className="index-scripture">“{entry.scripture}”</Typography>}{entry.excerpt && <Typography className="index-entry-excerpt">{entry.excerpt}</Typography>}</Stack><span className="index-entry-arrow" aria-hidden="true">→</span></ButtonBase></Paper>)}</Stack></section>)}
+          </Box> : <div className="empty-note"><span>⌁</span><strong>这里还没有灵修笔记</strong><p>{indexScope === 'book' ? `从 ${activeBook.name} 的一章或一节开始记录，它会自动出现在这里。` : '这章还没有笔记。可切换到“笔记”写下第一则默想。'}</p><button onClick={() => setWorkspace('comments')}>写笔记</button></div>)}
+        </div>}
+        {workspace === 'questions' && <>
+          {questionStatus === 'error' && <div className="note-error" role="alert">{questions.error} <button onClick={flushQuestions}>重试保存</button></div>}
+          <div className={`note-workspace mode-${mode}`}>
+            {(mode === 'edit' || mode === 'split') && <label className="editor-pane"><span className="sr-only">编辑 {activeBook.name}{selection.chapter}章的讨论问题</span><textarea value={questionDraft} onChange={updateQuestionDraft} disabled={questionStatus === 'loading'} placeholder={`为 ${activeBook.name}${selection.chapter}章准备小组讨论问题…\n\n例如：\n1. 哪一句经文最触动你？为什么？\n2. 这章如何改变你本周的生活？`} spellCheck="true" /></label>}
+            {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="讨论问题预览">{questionStatus === 'loading' ? <div className="panel-state">正在读取问题…</div> : questionDraft.trim() ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{questionDraft}</ReactMarkdown> : <div className="empty-note"><span>?</span><strong>为同行者预备空间</strong><p>把观察、问题与实践应用写在这里；它只属于这一章。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>添加问题</button>}</div>}</article>}
+          </div>
+        </>}
+        {workspace === 'comments' && <>
+          {noteStatus === 'error' && <div className="note-error" role="alert">{note.error} <button onClick={flushCurrent}>重试保存</button></div>}
+          <div ref={noteWorkspaceRef} className={`note-workspace mode-${mode}`}>
+            {(mode === 'edit' || mode === 'split') && <label className="editor-pane"><span className="sr-only">编辑 {reference} 的 Markdown 笔记</span><textarea value={draft} onChange={updateDraft} disabled={noteStatus === 'loading'} placeholder={`在这里写下 ${reference} 的灵修感动…\n\n支持 Markdown：清单、引用、粗体。标题请填写在上方。`} spellCheck="true" /></label>}
+            {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="Markdown 预览">{noteStatus === 'loading' ? <div className="panel-state">正在读取笔记…</div> : noteContent.trim() ? <ReactMarkdown remarkPlugins={[remarkGfm]}>{noteContent}</ReactMarkdown> : <div className="empty-note"><span>✦</span><strong>给此处留下一盏灯</strong><p>记录今天从经文中领受的一句话、一个问题，或一段祷告。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>开始记录</button>}</div>}</article>}
+          </div>
+          {showBackToTop && <button type="button" className="back-to-top" onClick={scrollNoteToTop} aria-label="回到灵修笔记顶部" title="回到顶部">↑</button>}
+        </>}
       </aside>
     </main>
   );

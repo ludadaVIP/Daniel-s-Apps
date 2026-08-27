@@ -35,3 +35,19 @@ export function putNote(target, content) {
     body: JSON.stringify({ content }),
   });
 }
+
+export function getNoteIndex(bookId, chapter, signal) {
+  const chapterPart = chapter ? `?chapter=${chapter}` : '';
+  return request(`/note-index/${pathPart(bookId)}${chapterPart}`, { signal });
+}
+
+export function getQuestions(bookId, chapter, signal) {
+  return request(`/questions/${pathPart(bookId)}/${chapter}`, { signal });
+}
+
+export function putQuestions(bookId, chapter, content) {
+  return request(`/questions/${pathPart(bookId)}/${chapter}`, {
+    method: 'PUT',
+    body: JSON.stringify({ content }),
+  });
+}

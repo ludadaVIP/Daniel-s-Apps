@@ -12,6 +12,7 @@ const translationDirectories = {
 };
 const devotionDir = path.join(rootDir, 'devotion-data');
 const notesDir = path.join(devotionDir, 'notes');
+const questionsDir = path.join(devotionDir, 'questions');
 const indexFile = path.join(devotionDir, 'note-index.json');
 const distDir = path.join(rootDir, 'dist');
 let writeQueue = Promise.resolve();
@@ -84,6 +85,10 @@ function notePath({ book, chapter, verse }) {
   return path.join(notesDir, 'chapters', book.id, `${chapter}.md`);
 }
 
+function questionPath({ book, chapter }) {
+  return path.join(questionsDir, book.id, `${chapter}.md`);
+}
+
 async function fileExists(filePath) {
   try {
     await access(filePath);
@@ -101,6 +106,29 @@ async function readNote(target) {
     if (error.code === 'ENOENT') return { exists: false, content: '' };
     throw error;
   }
+}
+
+async function readQuestions(target) {
+  const filePath = questionPath(target);
+  try {
+    return { exists: true, content: await readFile(filePath, 'utf8') };
+  } catch (error) {
+    if (error.code === 'ENOENT') return { exists: false, content: '' };
+    throw error;
+  }
+}
+
+function markdownSummary(content, fallback) {
+  const lines = String(content).replace(/\r\n/g, '\n').split('\n');
+  const titleLine = lines.find((line) => /^\s{0,3}#\s+/.test(line));
+  const title = titleLine
+    ? titleLine.replace(/^\s{0,3}#\s+/, '').replace(/\s+#+\s*$/, '').trim()
+    : fallback;
+  const excerpt = lines.find((line) => {
+    const trimmed = line.trim();
+    return trimmed && !/^#{1,6}\s/.test(trimmed) && !/^[-*+]\s*$/.test(trimmed);
+  })?.replace(/[`*_>#]/g, '').trim() ?? '';
+  return { title: title || fallback, excerpt: excerpt.slice(0, 110) };
 }
 
 function normalizeIndex(value) {
@@ -285,6 +313,48 @@ async function saveNote(target, content) {
   });
 }
 
+async function saveQuestions(target, content) {
+  return enqueueWrite(async () => {
+    const trimmed = content.trim();
+    const filePath = questionPath(target);
+    if (trimmed) await atomicWrite(filePath, content);
+    else await rm(filePath, { force: true });
+    return { exists: Boolean(trimmed), content: trimmed ? content : '' };
+  });
+}
+
+async function notesForBook(book, chapter) {
+  const index = await readIndex();
+  const entries = [];
+  const chapterCache = new Map();
+  const verseText = async (chapterNumber, verse) => {
+    if (!chapterCache.has(chapterNumber)) chapterCache.set(chapterNumber, loadChapter('cuv', book, chapterNumber));
+    const verses = await chapterCache.get(chapterNumber);
+    const currentVerse = verses.find((item) => item.verse === verse);
+    return currentVerse ? cleanChineseSpacing(currentVerse.text) : '';
+  };
+  const chapters = chapter ? [chapter] : (index.chapters[book.id] ?? []);
+  for (const chapterNumber of chapters) {
+    if (!(index.chapters[book.id] ?? []).includes(chapterNumber)) continue;
+    const target = { book, chapter: chapterNumber };
+    const note = await readNote(target);
+    if (note.exists && note.content.trim()) {
+      entries.push({ scope: 'chapter', chapter: chapterNumber, ...markdownSummary(note.content, `${book.name}${chapterNumber}章灵修`) });
+    }
+  }
+  const verseChapters = chapter ? [chapter] : Object.keys(index.verses[book.id] ?? {}).map(Number);
+  for (const chapterNumber of verseChapters) {
+    for (const verse of index.verses[book.id]?.[chapterNumber] ?? []) {
+      const target = { book, chapter: chapterNumber, verse };
+      const note = await readNote(target);
+      if (note.exists && note.content.trim()) {
+        entries.push({ scope: 'verse', chapter: chapterNumber, verse, scripture: await verseText(chapterNumber, verse), ...markdownSummary(note.content, `${book.name}${chapterNumber}:${verse} 灵修`) });
+      }
+    }
+  }
+  return entries.sort((left, right) => left.chapter - right.chapter || (left.verse ?? 0) - (right.verse ?? 0));
+}
+
 function targetResponse(target, note) {
   return {
     scope: target.verse ? 'verse' : 'chapter',
@@ -355,6 +425,30 @@ app.put(['/api/notes/:book/:chapter', '/api/notes/:book/:chapter/:verse'], async
     const target = await validateTarget(req.params, Boolean(req.params.verse));
     const note = await saveNote(target, req.body.content);
     res.json(targetResponse(target, note));
+  } catch (error) { next(error); }
+});
+
+app.get('/api/note-index/:book', async (req, res, next) => {
+  try {
+    const book = getBook(req.params.book);
+    const chapter = req.query.chapter === undefined ? null : parsePositiveInteger(String(req.query.chapter));
+    if (req.query.chapter !== undefined && (!chapter || chapter > book.chapters)) throw badRequest('无效的章节号。');
+    res.json({ book: { id: book.id, name: book.name }, ...(chapter ? { chapter } : {}), entries: await notesForBook(book, chapter) });
+  } catch (error) { next(error); }
+});
+
+app.get('/api/questions/:book/:chapter', async (req, res, next) => {
+  try {
+    const target = await validateTarget(req.params, false);
+    res.json({ scope: 'chapter', book: { id: target.book.id, name: target.book.name }, chapter: target.chapter, ...await readQuestions(target) });
+  } catch (error) { next(error); }
+});
+
+app.put('/api/questions/:book/:chapter', async (req, res, next) => {
+  try {
+    if (!req.body || typeof req.body.content !== 'string') throw badRequest('请求体必须包含字符串 content。');
+    const target = await validateTarget(req.params, false);
+    res.json({ scope: 'chapter', book: { id: target.book.id, name: target.book.name }, chapter: target.chapter, ...await saveQuestions(target, req.body.content) });
   } catch (error) { next(error); }
 });
 
