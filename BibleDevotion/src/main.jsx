@@ -30,12 +30,34 @@ const WORKSPACES = [
   ['comments', '笔记'],
 ];
 const RAIL_PREFERENCE_KEY = 'bible-devotion:directory-collapsed';
+const SCRIPTURE_PREFERENCE_KEY = 'bible-devotion:scripture-collapsed';
+const SCRIPTURE_WIDTH_PREFERENCE_KEY = 'bible-devotion:scripture-width';
+const MIN_SCRIPTURE_WIDTH = 300;
+const MIN_NOTE_WIDTH = 360;
+const RESIZER_WIDTH = 12;
 
 function readRailPreference() {
   try {
     return window.localStorage.getItem(RAIL_PREFERENCE_KEY) === 'true';
   } catch {
     return false;
+  }
+}
+
+function readBooleanPreference(key) {
+  try {
+    return window.localStorage.getItem(key) === 'true';
+  } catch {
+    return false;
+  }
+}
+
+function readWidthPreference() {
+  try {
+    const width = Number(window.localStorage.getItem(SCRIPTURE_WIDTH_PREFERENCE_KEY));
+    return Number.isFinite(width) && width >= MIN_SCRIPTURE_WIDTH ? width : 520;
+  } catch {
+    return 520;
   }
 }
 
@@ -142,7 +164,11 @@ function App() {
   const [questions, setQuestions] = useState({ key: '', status: 'idle', exists: false, error: '' });
   const [questionDraft, setQuestionDraft] = useState('');
   const [railCollapsed, setRailCollapsed] = useState(readRailPreference);
+  const [scriptureCollapsed, setScriptureCollapsed] = useState(() => readBooleanPreference(SCRIPTURE_PREFERENCE_KEY));
+  const [scriptureWidth, setScriptureWidth] = useState(readWidthPreference);
+  const [isResizingScripture, setIsResizingScripture] = useState(false);
   const [copyStatus, setCopyStatus] = useState({ key: '', state: 'idle' });
+  const appRef = useRef(null);
   const noteController = useRef(null);
   const indexController = useRef(null);
   const questionController = useRef(null);
@@ -427,6 +453,60 @@ function App() {
     }
   }, [railCollapsed]);
 
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(SCRIPTURE_PREFERENCE_KEY, String(scriptureCollapsed));
+    } catch {
+      // A blocked browser storage setting should not make the reading panel unusable.
+    }
+  }, [scriptureCollapsed]);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(SCRIPTURE_WIDTH_PREFERENCE_KEY, String(Math.round(scriptureWidth)));
+    } catch {
+      // Resizing remains available even when browser storage is blocked.
+    }
+  }, [scriptureWidth]);
+
+  const clampScriptureWidth = useCallback((width) => {
+    const app = appRef.current;
+    const rail = app?.querySelector('.book-rail');
+    if (!app || !rail) return Math.max(MIN_SCRIPTURE_WIDTH, width);
+    const maximum = Math.max(MIN_SCRIPTURE_WIDTH, app.clientWidth - rail.getBoundingClientRect().width - RESIZER_WIDTH - MIN_NOTE_WIDTH);
+    return Math.min(maximum, Math.max(MIN_SCRIPTURE_WIDTH, width));
+  }, []);
+
+  useEffect(() => {
+    const constrainWidth = () => setScriptureWidth((width) => clampScriptureWidth(width));
+    constrainWidth();
+    window.addEventListener('resize', constrainWidth);
+    return () => window.removeEventListener('resize', constrainWidth);
+  }, [clampScriptureWidth, railCollapsed]);
+
+  const beginScriptureResize = useCallback((event) => {
+    if (scriptureCollapsed || event.button !== 0) return;
+    event.preventDefault();
+    setIsResizingScripture(true);
+
+    const move = (moveEvent) => {
+      const app = appRef.current;
+      const rail = app?.querySelector('.book-rail');
+      if (!app || !rail) return;
+      setScriptureWidth(clampScriptureWidth(moveEvent.clientX - app.getBoundingClientRect().left - rail.getBoundingClientRect().width));
+    };
+    const end = () => {
+      setIsResizingScripture(false);
+      document.removeEventListener('pointermove', move);
+      document.removeEventListener('pointerup', end);
+      document.removeEventListener('pointercancel', end);
+    };
+
+    document.addEventListener('pointermove', move);
+    document.addEventListener('pointerup', end);
+    document.addEventListener('pointercancel', end);
+  }, [clampScriptureWidth, scriptureCollapsed]);
+
   const selectChapter = (bookId, chapter) => {
     flushCurrent();
     flushQuestions();
@@ -573,7 +653,7 @@ function App() {
   }, []);
 
   return (
-    <main className={`devotion-app ${railCollapsed ? 'rail-is-collapsed' : ''}`}>
+    <main ref={appRef} className={`devotion-app ${railCollapsed ? 'rail-is-collapsed' : ''} ${scriptureCollapsed ? 'scripture-is-collapsed' : ''} ${isResizingScripture ? 'is-resizing-scripture' : ''}`} style={{ '--scripture-panel-width': `${scriptureWidth}px` }}>
       <aside className={`book-rail ${railCollapsed ? 'is-collapsed' : ''}`} aria-label="圣经目录">
         <button
           className="rail-toggle"
@@ -647,6 +727,16 @@ function App() {
               <button type="button" className={scriptureMode === 'bilingual' ? 'is-active' : ''} onClick={() => setScriptureMode('bilingual')} aria-pressed={scriptureMode === 'bilingual'}>中英</button>
             </div>
             {isVerse && <button className="chapter-context-button" onClick={clearVerse}>查看全章笔记</button>}
+            <button
+              type="button"
+              className="scripture-collapse-toggle"
+              onClick={() => setScriptureCollapsed(true)}
+              aria-label="收起经文栏"
+              title="收起经文栏，扩大笔记空间"
+            >
+              <span aria-hidden="true">‹</span>
+              <span className="sr-only">收起经文栏</span>
+            </button>
           </div>
         </header>
         <div className="scripture-scroll">
@@ -687,6 +777,28 @@ function App() {
           </div>}
         </div>
       </section>
+
+      <div
+        className={`panel-resizer ${scriptureCollapsed ? 'is-collapsed' : ''}`}
+        role="separator"
+        aria-orientation="vertical"
+        aria-label="拖动以调整经文栏和笔记栏宽度"
+        aria-valuemin={MIN_SCRIPTURE_WIDTH}
+        aria-valuemax={Math.max(MIN_SCRIPTURE_WIDTH, Math.round((appRef.current?.clientWidth ?? 0) - (railCollapsed ? 58 : 260) - RESIZER_WIDTH - MIN_NOTE_WIDTH))}
+        aria-valuenow={Math.round(scriptureWidth)}
+        onPointerDown={beginScriptureResize}
+      >
+        {scriptureCollapsed && <button
+          type="button"
+          className="scripture-expand-toggle"
+          onClick={() => setScriptureCollapsed(false)}
+          aria-label="展开经文栏"
+          title="展开经文栏"
+        >
+          <span aria-hidden="true">›</span>
+          <span className="sr-only">展开经文栏</span>
+        </button>}
+      </div>
 
       <aside className={`note-rail workspace-${workspace}`} aria-label={workspace === 'index' ? '灵修索引' : workspace === 'questions' ? '讨论问题' : '灵修笔记'}>
         <header className="note-header">

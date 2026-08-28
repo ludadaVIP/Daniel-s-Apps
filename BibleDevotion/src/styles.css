@@ -1,11 +1,13 @@
-:root { --panel-cut: 94px; color: #292631; background: #e9e5dc; font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", system-ui, sans-serif; font-synthesis: none; }
+:root { --panel-cut: 94px; --panel-resizer-width: 12px; color: #292631; background: #e9e5dc; font-family: "Microsoft YaHei UI", "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", system-ui, sans-serif; font-synthesis: none; }
 * { box-sizing: border-box; }
 body, #root { margin: 0; min-height: 100vh; }
 button, textarea { font: inherit; }
 button { cursor: pointer; }
 button:focus-visible, textarea:focus-visible { outline: 3px solid #7162bb; outline-offset: 2px; }
-.devotion-app { min-height: 100vh; height: 100vh; overflow: hidden; display: grid; grid-template-columns: 260px minmax(0, 520px) minmax(380px, 1fr); background: #f7f5f0; transition: grid-template-columns .2s ease; }
-.devotion-app.rail-is-collapsed { grid-template-columns: 58px minmax(0, 520px) minmax(380px, 1fr); }
+.devotion-app { min-height: 100vh; height: 100vh; overflow: hidden; display: grid; grid-template-columns: 260px minmax(300px, var(--scripture-panel-width, 520px)) var(--panel-resizer-width) minmax(360px, 1fr); background: #f7f5f0; transition: grid-template-columns .2s ease; }
+.devotion-app.rail-is-collapsed { grid-template-columns: 58px minmax(300px, var(--scripture-panel-width, 520px)) var(--panel-resizer-width) minmax(360px, 1fr); }
+.devotion-app.scripture-is-collapsed { grid-template-columns: 260px 44px minmax(0, 1fr); }
+.devotion-app.rail-is-collapsed.scripture-is-collapsed { grid-template-columns: 58px 44px minmax(0, 1fr); }
 .book-rail, .scripture-panel, .note-rail { min-width: 0; min-height: 0; }
 .book-rail { position: relative; display: flex; flex-direction: column; background: #242638; color: #efede7; border-right: 1px solid #46485c; overflow: hidden; }
 .book-rail.is-collapsed { align-items: center; }
@@ -35,12 +37,23 @@ button:focus-visible, textarea:focus-visible { outline: 3px solid #7162bb; outli
 .chapter-square.is-selected { color: white; background: #6758ad; border-color: #b8afe9; box-shadow: 0 0 0 1px #8c7ed1 inset; }
 .chapter-square.is-selected.has-note { color: #fff9e8; background: #9a6f37; border-color: #f6d486; }
 .chapter-square.has-verse-notes { color: #fff8e9; background: #7162aa; border-color: #afa3e3; }.chapter-note-count { position: absolute; right: 2px; bottom: 1px; min-width: 9px; color: currentColor; font-size: .48rem; line-height: 1; opacity: .82; }
-.scripture-panel { display: flex; flex-direction: column; background: #faf9f5; border-right: 1px solid #dedbd4; }
+.scripture-panel { display: flex; flex-direction: column; background: #faf9f5; }
+.scripture-is-collapsed .scripture-panel { display: none; }
+.panel-resizer { position: relative; z-index: 4; display: flex; align-items: stretch; justify-content: center; min-width: var(--panel-resizer-width); cursor: col-resize; outline: 0; touch-action: none; user-select: none; }
+.panel-resizer::after { width: 1px; content: ""; background: #dedbd4; transition: width .14s ease, background .14s ease, box-shadow .14s ease; }
+.panel-resizer:hover::after, .is-resizing-scripture .panel-resizer::after { width: 3px; background: #8173b5; box-shadow: 0 0 0 1px rgb(129 115 181 / .14); }
+.is-resizing-scripture, .is-resizing-scripture * { cursor: col-resize !important; }
+.panel-resizer.is-collapsed { align-items: flex-start; min-width: 44px; cursor: default; background: #f7f5f0; border-right: 1px solid #dedbd4; }
+.panel-resizer.is-collapsed::after { display: none; }
+.scripture-expand-toggle { display: grid; place-items: center; width: 31px; height: 39px; margin-top: 10px; padding: 0; color: #65579b; background: #eee9f8; border: 1px solid #cfc5e8; border-radius: 6px; font-family: Georgia, "Songti SC", "SimSun", serif; font-size: 1.9rem; line-height: 1; transition: color .16s, background .16s, border-color .16s; }
+.scripture-expand-toggle:hover { color: #423875; background: #e3dcf4; border-color: #a99bd2; }
 .scripture-header { flex: 0 0 var(--panel-cut); min-height: var(--panel-cut); display: flex; align-items: center; justify-content: space-between; gap: 18px; padding: 13px clamp(22px, 3vw, 46px); border-bottom: 1px solid #e4e0d7; }
 .scripture-header h2, .note-header h2 { margin: 6px 0 0; color: #292631; font-family: "Songti SC", "STSong", "SimSun", Georgia, serif; font-size: clamp(1.45rem, 2.2vw, 2rem); font-weight: 600; letter-spacing: .035em; }
 .scripture-header h2 span { color: #817a72; font-size: .58em; font-weight: 400; margin-left: .45em; }
 .chapter-context-button { flex: 0 0 auto; margin-top: 0; padding: 7px 10px; color: #6659aa; background: #f0edf9; border: 1px solid #d5cef0; border-radius: 5px; font-size: .72rem; }
 .scripture-actions { display: flex; align-items: center; justify-content: flex-end; gap: 8px; }
+.scripture-collapse-toggle { display: grid; place-items: center; width: 29px; height: 29px; padding: 0; color: #6659aa; background: #f0edf9; border: 1px solid #d5cef0; border-radius: 5px; font-family: Georgia, "Songti SC", "SimSun", serif; font-size: 1.4rem; line-height: 1; transition: color .16s, background .16s, border-color .16s; }
+.scripture-collapse-toggle:hover { color: #483d7c; background: #e7e1f5; border-color: #b9adda; }
 .translation-switcher { display: inline-flex; align-items: center; gap: 1px; padding: 3px; color: #8b837a; background: #eeeae3; border: 1px solid #ded8cf; border-radius: 6px; font-size: .7rem; white-space: nowrap; }
 .translation-switcher button { padding: 4px 7px; color: #706a63; background: transparent; border: 0; border-radius: 4px; font-size: inherit; }
 .translation-switcher button.is-active { color: #3f376e; background: #fbfaf6; box-shadow: 0 1px 3px #c9c3b9; font-weight: 700; }
@@ -91,6 +104,6 @@ kbd { color: #8b8580; font-family: inherit; font-size: .57rem; }
 .panel-state { display: grid; place-items: center; min-height: 190px; color: #888179; font-family: "Songti SC", "STSong", "SimSun", Georgia, serif; font-size: .9rem; text-align: center; }.error-state { color: #a34e4e; gap: 9px; }.error-state button, .boot-state button { color: #fff; background: #6758ad; border: 0; border-radius: 5px; padding: 7px 12px; }
 .boot-state { min-height: 100vh; display: grid; place-content: center; gap: 10px; color: #68636d; background: #f3f0e9; text-align: center; }.boot-state strong { color: #302c39; font-family: "Songti SC", "STSong", "SimSun", Georgia, serif; font-size: 1.4rem; }.cross-mark { color: #7564b0; font-size: 1.8rem; }
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); white-space: nowrap; border: 0; }
-@media (max-width: 1050px) { .devotion-app { height: auto; min-height: 100vh; overflow: visible; grid-template-columns: 220px minmax(0, 1fr); }.devotion-app.rail-is-collapsed { grid-template-columns: 58px minmax(0, 1fr); }.book-rail { grid-row: 1 / span 2; height: 100vh; position: sticky; top: 0; }.scripture-panel { min-height: 58vh; border-right: 0; }.note-rail { min-height: 530px; border-top: 1px solid #dfdbd1; }.note-workspace.mode-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }.scripture-scroll { overflow: visible; } }
+@media (max-width: 1050px) { .devotion-app { height: auto; min-height: 100vh; overflow: visible; grid-template-columns: 220px minmax(0, 1fr); }.devotion-app.rail-is-collapsed { grid-template-columns: 58px minmax(0, 1fr); }.devotion-app.scripture-is-collapsed { grid-template-columns: 220px 44px minmax(0, 1fr); }.devotion-app.rail-is-collapsed.scripture-is-collapsed { grid-template-columns: 58px 44px minmax(0, 1fr); }.book-rail { grid-row: 1 / span 2; height: 100vh; position: sticky; top: 0; }.scripture-panel { min-height: 58vh; }.panel-resizer { display: none; }.scripture-is-collapsed .panel-resizer { display: flex; grid-column: 2; grid-row: 1; min-height: 100vh; }.scripture-is-collapsed .note-rail { grid-column: 3; grid-row: 1; min-height: 100vh; border-top: 0; }.note-rail { min-height: 530px; border-top: 1px solid #dfdbd1; }.note-workspace.mode-split { grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); }.scripture-scroll { overflow: visible; } }
 @media (max-width: 680px) { .devotion-app, .devotion-app.rail-is-collapsed { display: block; }.book-rail { position: relative; height: auto; min-height: 64px; }.book-rail.is-collapsed { height: 64px; }.book-navigation { max-height: 46vh; }.rail-toggle { top: 16px; }.book-rail.is-collapsed .rail-toggle { margin-top: 12px; }.scripture-header, .note-header { padding-left: 20px; padding-right: 20px; }.note-header { grid-template-columns: minmax(0, 1fr) auto; }.note-title-field { grid-column: 1 / -1; grid-row: 2; }.note-rail.workspace-comments .note-header { flex-basis: 78px; min-height: 78px; }.scripture-actions { gap: 5px; }.chapter-context-button { padding: 6px 7px; }.scripture-scroll { padding-left: 20px; padding-right: 20px; }.note-toolbar { padding-left: 20px; padding-right: 20px; }.note-workspace.mode-split { grid-template-columns: 1fr; grid-template-rows: 260px minmax(260px, 1fr); }.editor-pane { border-right: 0; border-bottom: 1px solid #dfdbd1; }.verse-text { font-size: 1rem; }.chapter-grid { grid-template-columns: repeat(8, 1fr); }.index-entry { grid-template-columns: 84px minmax(0, 1fr) 15px; gap: 2px 8px; } }
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; } }
