@@ -40,14 +40,14 @@ npm run dev
 可直接双击：
 
 - Windows：`启动 Bible Devotion（Windows）.bat`
-- macOS：`启动 Bible Devotion（macOS）.command`
+- macOS：`start.command`
 
 两个启动文件都会先切换至其自身所在的应用目录、确认 Node.js 为 24.15.0 或更新版本，且在
 `node_modules` 不存在时自动安装依赖，然后启动 `http://127.0.0.1:5181/`。请保持弹出的终端窗口开启；关闭窗口或按 `Ctrl+C`／`Control+C`
 会停止应用。macOS 若首次提示权限，可在终端进入本文件夹后执行：
 
 ```bash
-chmod +x '启动 Bible Devotion（macOS）.command'
+chmod +x start.command
 ```
 
 ## 生产运行
