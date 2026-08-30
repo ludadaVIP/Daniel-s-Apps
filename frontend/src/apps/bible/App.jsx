@@ -292,21 +292,61 @@ export default function BibleApp() {
 
         {verse ? (
           <article className={`bible-card mode-${mode}`}>
-            <div className="bible-card-meta">
-              <span className="bible-tag">{versionMeta?.shortLabel || verse.version.toUpperCase()}</span>
-              <span className="bible-tag muted">{mode === "memorize" ? "Recall the text" : "Recall the reference"}</span>
-            </div>
+            <aside className="bible-sidebar">
+              <div className="bible-card-meta">
+                <span className="bible-tag">{versionMeta?.shortLabel || verse.version.toUpperCase()}</span>
+                <span className="bible-tag muted">{mode === "memorize" ? "Recall the text" : "Recall the reference"}</span>
+              </div>
 
-            {mode === "memorize" ? (
-              <>
-                <div className="bible-reference">{verse.reference}</div>
-                <div className="bible-meta-line">
-                  <span>{totalChars} characters to recall</span>
-                  {revealedLength > 0 && revealedLength < verse.text.length ? (
-                    <span>{revealedLength} / {verse.text.length} revealed</span>
-                  ) : null}
-                </div>
+              {mode === "memorize" ? (
+                <>
+                  <div className="bible-reference">{verse.reference}</div>
+                  <div className="bible-meta-line">
+                    <span>{totalChars} characters to recall</span>
+                    {revealedLength > 0 && revealedLength < verse.text.length ? (
+                      <span>{revealedLength} / {verse.text.length} revealed</span>
+                    ) : null}
+                  </div>
 
+                  <div className="bible-verse-actions">
+                    <button type="button" className="bible-secondary" onClick={revealMoreText} disabled={revealedLength >= verse.text.length}>
+                      <Lightbulb size={16} /><span>Hint (+{HINT_STEP})</span>
+                    </button>
+                    <button type="button" className="bible-secondary" onClick={showFullText} disabled={revealedLength >= verse.text.length}>
+                      <Eye size={16} /><span>Show all</span>
+                    </button>
+                    <button type="button" className="bible-ghost" onClick={hideText} disabled={revealedLength === 0}>
+                      <EyeOff size={16} /><span>Hide</span>
+                    </button>
+                  </div>
+                </>
+              ) : (
+                <>
+                  <div className="bible-meta-line">
+                    <span>{totalChars} characters</span>
+                  </div>
+                  <div className={`bible-reference ${referenceShown ? "" : "is-hidden"}`}>
+                    {referenceShown ? verse.reference : "(reference hidden)"}
+                  </div>
+                  <div className="bible-verse-actions">
+                    <button type="button" className="bible-secondary" onClick={toggleReference}>
+                      {referenceShown ? <EyeOff size={16} /> : <Eye size={16} />}
+                      <span>{referenceShown ? "Hide reference" : "Show reference"}</span>
+                    </button>
+                  </div>
+                </>
+              )}
+
+              <footer className="bible-card-footer">
+                <button type="button" className="bible-primary" onClick={fetchVerse} disabled={loading}>
+                  {loading ? <Loader2 className="spin" size={18} /> : <RefreshCcw size={18} />}
+                  <span>Next verse</span>
+                </button>
+              </footer>
+            </aside>
+
+            <section className="bible-reading-pane" aria-label="Scripture text">
+              {mode === "memorize" ? (
                 <div className={`bible-verse-body ${revealedLength === 0 ? "is-hidden" : ""}`}>
                   {revealedLength === 0 ? (
                     <span className="bible-placeholder">(text hidden — recall it, then peek with Hint or Show)</span>
@@ -317,47 +357,12 @@ export default function BibleApp() {
                     </>
                   )}
                 </div>
-
-                <div className="bible-verse-actions">
-                  <button type="button" className="bible-secondary" onClick={revealMoreText} disabled={revealedLength >= verse.text.length}>
-                    <Lightbulb size={16} /><span>Hint (+{HINT_STEP})</span>
-                  </button>
-                  <button type="button" className="bible-secondary" onClick={showFullText} disabled={revealedLength >= verse.text.length}>
-                    <Eye size={16} /><span>Show all</span>
-                  </button>
-                  <button type="button" className="bible-ghost" onClick={hideText} disabled={revealedLength === 0}>
-                    <EyeOff size={16} /><span>Hide</span>
-                  </button>
-                </div>
-              </>
-            ) : (
-              <>
+              ) : (
                 <div className="bible-verse-body">
                   <span className="bible-verse-revealed">{verse.text}</span>
                 </div>
-                <div className="bible-meta-line">
-                  <span>{totalChars} characters</span>
-                </div>
-
-                <div className={`bible-reference ${referenceShown ? "" : "is-hidden"}`}>
-                  {referenceShown ? verse.reference : "(reference hidden)"}
-                </div>
-
-                <div className="bible-verse-actions">
-                  <button type="button" className="bible-secondary" onClick={toggleReference}>
-                    {referenceShown ? <EyeOff size={16} /> : <Eye size={16} />}
-                    <span>{referenceShown ? "Hide reference" : "Show reference"}</span>
-                  </button>
-                </div>
-              </>
-            )}
-
-            <footer className="bible-card-footer">
-              <button type="button" className="bible-primary" onClick={fetchVerse} disabled={loading}>
-                {loading ? <Loader2 className="spin" size={18} /> : <RefreshCcw size={18} />}
-                <span>Next verse</span>
-              </button>
-            </footer>
+              )}
+            </section>
           </article>
         ) : null}
       </main>

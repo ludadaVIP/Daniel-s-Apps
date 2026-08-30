@@ -91,9 +91,9 @@ CANONICAL_ORDER = {
     ])
 }
 
-# Treat the New Testament epistles + Revelation as the default "memorize
-# set" so the experience matches the original standalone app, which
-# rotated through Paul's letters, the general epistles, and Revelation.
+# Treat the New Testament epistles as the default "memorize set". This is
+# deliberately Romans through Jude (21 books), leaving Revelation available
+# in the picker without including it in a new Recall Bible session.
 DEFAULT_BOOK_SETS: dict[str, list[str]] = {
     "esv": [
         "Romans", "1 Corinthians", "2 Corinthians", "Galatians",
@@ -101,7 +101,7 @@ DEFAULT_BOOK_SETS: dict[str, list[str]] = {
         "1 Thessalonians", "2 Thessalonians",
         "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews",
         "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John",
-        "Jude", "Revelation",
+        "Jude",
     ],
     "cuv": [
         "Romans", "1 Corinthians", "2 Corinthians", "Galatians",
@@ -109,7 +109,7 @@ DEFAULT_BOOK_SETS: dict[str, list[str]] = {
         "1 Thessalonians", "2 Thessalonians",
         "1 Timothy", "2 Timothy", "Titus", "Philemon", "Hebrews",
         "James", "1 Peter", "2 Peter", "1 John", "2 John", "3 John",
-        "Jude", "Revelation",
+        "Jude",
     ],
     "nvi": [
         "Romanos", "1 Corintios", "2 Corintios", "Gálatas",
@@ -117,7 +117,7 @@ DEFAULT_BOOK_SETS: dict[str, list[str]] = {
         "1 Tesalonicenses", "2 Tesalonicenses",
         "1 Timoteo", "2 Timoteo", "Tito", "Filemón", "Hebreos",
         "Santiago", "1 Pedro", "2 Pedro", "1 Juan", "2 Juan", "3 Juan",
-        "Judas", "Apocalipsis",
+        "Judas",
     ],
 }
 
@@ -210,8 +210,8 @@ def coerce_version(raw: str | None) -> str:
     requested = (raw or "").strip().lower()
     if requested in codes:
         return requested
-    # Sensible default: ESV if present, otherwise the first folder we found.
-    return "esv" if "esv" in codes else codes[0]
+    # Recall Bible starts in the Chinese Union Version when it is available.
+    return "cuv" if "cuv" in codes else codes[0]
 
 
 # --------------------------------------------------------------- Routes ----
