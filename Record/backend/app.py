@@ -7,7 +7,7 @@ import re
 import sys
 from pathlib import Path
 
-from flask import Flask, jsonify, send_from_directory
+from flask import Flask, jsonify, request, send_from_directory
 
 # Make `apps.*` and `shared.*` importable regardless of cwd.
 BACKEND_DIR = Path(__file__).resolve().parent
@@ -21,13 +21,36 @@ from apps.book_a_day.routes import bp as book_a_day_bp
 from apps.book_in_depth.routes import bp as book_in_depth_bp
 from apps.daily_todo.routes import bp as daily_todo_bp
 from apps.investment.routes import bp as investment_bp
-from apps.nz_invest.routes import bp as nz_invest_bp
 from apps.record_meditation.routes import bp as record_meditation_bp
 from apps.save_md.routes import AUDIO_DIR as SAVE_MD_AUDIO_DIR
 from apps.save_md.routes import bp as save_md_bp
+from apps.bible.routes import bp as bible_bp
+from shared.io import read_json, write_json
 
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
+HUB_LAYOUT_FILE = BACKEND_DIR / "data" / "Hub" / "layout.json"
+HUB_APP_IDS = {
+    "record-meditation",
+    "save-md",
+    "bible",
+    "book-a-day",
+    "book-in-depth",
+    "daily-todo",
+    "investment",
+}
+
+
+def _hub_order(value: object) -> list[str]:
+    """Return a valid, duplicate-free launcher card order."""
+    if not isinstance(value, list):
+        return []
+    order: list[str] = []
+    for item in value:
+        app_id = str(item).strip()
+        if app_id in HUB_APP_IDS and app_id not in order:
+            order.append(app_id)
+    return order
 
 
 def create_app() -> Flask:
@@ -46,11 +69,24 @@ def create_app() -> Flask:
     app.register_blueprint(book_in_depth_bp, url_prefix="/api/book-in-depth")
     app.register_blueprint(daily_todo_bp, url_prefix="/api/daily-todo")
     app.register_blueprint(investment_bp, url_prefix="/api/investment")
-    app.register_blueprint(nz_invest_bp, url_prefix="/api/nz-invest")
+    app.register_blueprint(bible_bp, url_prefix="/api/bible")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "book-in-depth", "daily-todo", "investment", "nz-invest"]})
+        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "book-in-depth", "daily-todo", "investment", "bible"]})
+
+    @app.get("/api/hub/layout")
+    def get_hub_layout():
+        stored = read_json(HUB_LAYOUT_FILE, {})
+        order = _hub_order(stored.get("order") if isinstance(stored, dict) else None)
+        return jsonify({"order": order})
+
+    @app.post("/api/hub/layout")
+    def save_hub_layout():
+        payload = request.get_json(silent=True) or {}
+        order = _hub_order(payload.get("order") if isinstance(payload, dict) else None)
+        write_json(HUB_LAYOUT_FILE, {"order": order})
+        return jsonify({"ok": True, "order": order})
 
     @app.get("/audio/save-md/<path:filename>")
     def serve_save_md_audio(filename: str):

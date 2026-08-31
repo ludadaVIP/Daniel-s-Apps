@@ -158,7 +158,94 @@
     color: var(--bad-text);
   }
 
+  .bad-search-area {
+    min-width: 0;
+  }
+
+  .bad-search-clear {
+    display: grid;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    color: var(--bad-muted);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .bad-search-clear:hover {
+    color: var(--bad-accent);
+    background: rgba(150, 110, 60, 0.1);
+  }
+
+  .bad-search-clear:focus-visible,
+  .bad-search-result:focus-visible {
+    outline: 2px solid var(--bad-accent);
+    outline-offset: -2px;
+  }
+
+  .bad-search-results {
+    max-height: 220px;
+    margin-top: 6px;
+    overflow-y: auto;
+    border: 1px solid var(--bad-line);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(78, 52, 27, 0.1);
+  }
+
+  .bad-search-results-label {
+    margin: 0;
+    padding: 8px 10px 6px;
+    color: var(--bad-muted);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .bad-search-result {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border: 0;
+    border-top: 1px solid rgba(78, 52, 27, 0.07);
+    color: var(--bad-text);
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .bad-search-result:hover {
+    background: rgba(150, 110, 60, 0.08);
+  }
+
+  .bad-search-result > svg {
+    flex: 0 0 auto;
+    color: var(--bad-accent);
+  }
+
+  .bad-search-result > span {
+    display: grid;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .bad-search-result strong,
+  .bad-search-result small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bad-search-result strong { font-size: 13px; }
+  .bad-search-result small { color: var(--bad-muted); font-size: 11px; }
+
   .is-sidebar-collapsed .bad-sidebar-actions,
+  .is-sidebar-collapsed .bad-search-area,
   .is-sidebar-collapsed .bad-search {
     display: none;
   }
@@ -976,6 +1063,29 @@
   .bad-workflow-next:hover {
     background: var(--bad-accent-dark);
     border-color: var(--bad-accent-dark);
+  }
+
+  .bad-workflow-shelf-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border: 1px solid var(--bad-line);
+    border-radius: 8px;
+    background: white;
+    color: var(--bad-muted);
+    font-size: 12px;
+  }
+
+  .bad-workflow-shelf-select select {
+    max-width: 190px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--bad-text);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
   }
 
   .bad-workflow-fav {

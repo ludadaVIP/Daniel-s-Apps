@@ -1,6 +1,7 @@
 """A Book a Day blueprint.
 
-Mounted at ``/api/book-a-day``. Data lives in ``backend/data/ABookADay/``.
+Mounted at ``/api/book-a-day``. Book data lives in ``backend/data/ABookADay/``;
+the shelf catalogue is shared with Book In Depth.
 
 Each book is a folder ``<bookId>/`` containing:
 
@@ -19,8 +20,9 @@ position in the reading life-cycle:
 * ``finished`` — finished, not yet classified (已读).
 * ``post`` — post-reading classification (收藏 / 回看 / 存档 / 浅显 / 深奥 / 月读).
 
-Shelves can be renamed, deleted, or added freely. Custom shelves default to the
-``pre`` group; the group can be edited via PATCH /shelves/<id>.
+Shelves can be renamed, moved between groups, deleted, or added freely. The
+reading life-cycle is a convenience layer, not a restriction: every book can
+move to every shelf.
 """
 
 from __future__ import annotations
@@ -40,42 +42,24 @@ from flask import Blueprint, jsonify, request
 
 from shared.tts import audio_file_is_usable, generate_audio
 from shared.voices import ALLOWED_VOICES, default_voice_for_language, normalise_language, voices_for_language
+from shared.bookshelves import (
+    DEFAULT_GROUP,
+    DEFAULT_GROUP_BY_ID,
+    DEFAULT_SHELVES,
+    SHELF_GROUPS,
+    SHARED_SHELVES_FILE,
+    legacy_shelves,
+    reassign_books_from_shelf,
+)
 
 DEFAULT_DATA_DIR = Path(__file__).resolve().parents[2] / "data" / "ABookADay"
 DATA_DIR = Path(os.environ.get("BOOK_A_DAY_DATA_DIR", DEFAULT_DATA_DIR))
 AUDIO_DIR = DATA_DIR / "_audio"
 AUDIO_CACHE_DIR = AUDIO_DIR / "edge-tts"
-SHELVES_FILE = DATA_DIR / "shelves.json"
+SHELVES_FILE = SHARED_SHELVES_FILE
 
 RESERVED_DIRS = {"_audio", "__pycache__"}
 MATERIALS_DIRNAME = "materials"
-
-SHELF_GROUPS = ("pre", "reading", "finished", "post")
-DEFAULT_GROUP = "pre"
-
-DEFAULT_SHELVES = [
-    # pre-reading (same tier as 想读)
-    {"id": "wantToRead", "name": "想读", "group": "pre"},
-    {"id": "spirit", "name": "属灵", "group": "pre"},
-    {"id": "culture", "name": "文化", "group": "pre"},
-    {"id": "investment", "name": "投资", "group": "pre"},
-    # active
-    {"id": "reading", "name": "在读", "group": "reading"},
-    # finished but not yet classified
-    {"id": "read", "name": "已读", "group": "finished"},
-    # post-reading classification (same tier as 收藏)
-    {"id": "collection", "name": "收藏", "group": "post"},
-    {"id": "revisit", "name": "回看", "group": "post"},
-    {"id": "archive", "name": "存档", "group": "post"},
-    {"id": "shallow", "name": "浅显", "group": "post"},
-    {"id": "deep", "name": "深奥", "group": "post"},
-    {"id": "monthly", "name": "月读", "group": "post"},
-]
-
-# Quick lookup: id -> group for the built-in shelves. Used to backfill the
-# ``group`` field when an older ``shelves.json`` is loaded (or when a user
-# created a custom shelf that happens to share a default id).
-DEFAULT_GROUP_BY_ID = {shelf["id"]: shelf["group"] for shelf in DEFAULT_SHELVES}
 
 SECTION_KEYS = ("oneLiner", "synopsis", "points", "mindmap", "quotes", "notes", "narration")
 
@@ -152,9 +136,8 @@ def _book_file(book_id: str) -> Path:
 
 
 def _ensure_seed() -> None:
-    DATA_DIR.mkdir(parents=True, exist_ok=True)
     if not SHELVES_FILE.exists():
-        _write_json(SHELVES_FILE, DEFAULT_SHELVES)
+        _write_json(SHELVES_FILE, legacy_shelves() or DEFAULT_SHELVES)
 
 
 def _normalise_group(value: Any, fallback: str = DEFAULT_GROUP) -> str:
@@ -170,10 +153,9 @@ def _load_shelves() -> list[dict[str, str]]:
     1. Keep whatever the user has (their order, names, custom shelves).
     2. Backfill the ``group`` field — use the user's value if present, else
        look it up by id in DEFAULT_GROUP_BY_ID, else default to ``pre``.
-    3. Append any built-in shelf the user is missing (so deleting the default
-       shelves stays possible, but a fresh install / upgrade always shows the
-       full life-cycle).
-    4. Rewrite the file once if anything was added so the user can edit it
+    3. Do not re-add deleted presets. A shelf is user data, so deleting a
+       default shelf must persist just like deleting a custom one.
+    4. Rewrite the file once if a legacy entry was migrated so the user can edit it
        directly without next-launch churn.
     """
     _ensure_seed()
@@ -205,16 +187,6 @@ def _load_shelves() -> list[dict[str, str]]:
             "name": str(item.get("name") or shelf_id)[:80],
             "group": group,
         })
-
-    # Append any built-in shelf missing from the user's file. We keep their
-    # custom order at the top; new defaults go to the end in the canonical
-    # life-cycle order so the sidebar still reads pre → reading → finished →
-    # post even after migration.
-    for default in DEFAULT_SHELVES:
-        if default["id"] not in seen:
-            out.append(dict(default))
-            seen.add(default["id"])
-            mutated = True
 
     if not out:
         out = [dict(item) for item in DEFAULT_SHELVES]
@@ -357,20 +329,15 @@ def mutate_shelf(shelf_id: str):
     if not match:
         raise BookError("Shelf not found.", 404)
     if request.method == "DELETE":
-        # Move books on this shelf to the first remaining shelf (or wantToRead).
+        if len(shelves) <= 1:
+            raise BookError("Keep at least one shelf in the library.")
+        payload = request.get_json(silent=True) or {}
         remaining = [item for item in shelves if item["id"] != shelf_id]
-        fallback = remaining[0]["id"] if remaining else "wantToRead"
-        for entry in DATA_DIR.iterdir() if DATA_DIR.exists() else []:
-            if not entry.is_dir() or entry.name in RESERVED_DIRS:
-                continue
-            book_file = entry / "book.json"
-            if not book_file.exists():
-                continue
-            data = _read_json(book_file, {})
-            if data.get("shelfId") == shelf_id:
-                data["shelfId"] = fallback
-                _save_book(entry.name, data)
-        _write_json(SHELVES_FILE, remaining if remaining else DEFAULT_SHELVES)
+        fallback = str(payload.get("moveTo") or remaining[0]["id"])
+        if fallback not in {item["id"] for item in remaining}:
+            raise BookError("Destination shelf not found.", 404)
+        reassign_books_from_shelf(shelf_id, fallback)
+        _write_json(SHELVES_FILE, remaining)
         return jsonify({"deletedId": shelf_id, "movedTo": fallback})
     payload = request.get_json(silent=True) or {}
     # PATCH allows updating ``name`` and/or ``group``. Either field is

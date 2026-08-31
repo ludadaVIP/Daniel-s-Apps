@@ -32,10 +32,12 @@ export async function updateShelf(shelfId, payload) {
   );
 }
 
-export async function deleteShelf(shelfId) {
+export async function deleteShelf(shelfId, moveTo) {
   return parseResponse(
     await fetch(`${BASE}/shelves/${encodeURIComponent(shelfId)}`, {
       method: "DELETE",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ moveTo }),
     }),
   );
 }

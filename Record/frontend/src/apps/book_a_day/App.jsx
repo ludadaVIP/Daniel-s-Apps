@@ -23,10 +23,20 @@ import {
   Square,
   Trash2,
   Wand2,
+  X,
 } from "lucide-react";
 
 import { isTtsCancelled, useTts } from "../../shared/useTts";
 import "./styles.css";
+import ShelfManager, { ShelfManagerDialog } from "../shared/ShelfManager";
+import {
+  NEXT_BUTTON_LABEL,
+  NEXT_DEFAULT_SHELF,
+  SHELF_GROUP_BY_ID,
+  SHELF_GROUP_ORDER,
+  shelfLabel,
+  shelvesForMoving,
+} from "../shared/shelfModel";
 import {
   createBook,
   createShelf,
@@ -114,42 +124,6 @@ const PROMPT_TEMPLATES = [
     prompt: "把《{{title}}》和领域内 2-3 本经典做对比，说明它的独特价值与不足。",
   },
 ];
-
-// Shelves are grouped by reading life-cycle. Each book is at one of 4 stages:
-//   pre       — 想读 / 属灵 / 文化 / 投资
-//   reading   — 在读
-//   finished  — 已读 (not yet classified)
-//   post      — 收藏 / 回看 / 存档 / 浅显 / 深奥 / 月读
-// The sidebar renders these groups with visual headers; the workflow stepper
-// shows them as 3 progress dots (pre → reading → finished/post).
-const SHELF_GROUP_META = {
-  reading: { label: "在读", order: 0 },
-  pre: { label: "准备读", order: 1 },
-  finished: { label: "已读", order: 2 },
-  post: { label: "归类", order: 3 },
-};
-const SIDEBAR_SHELF_GROUP_ORDER = ["reading", "pre", "finished", "post"];
-const WORKFLOW_STAGE_ORDER = ["pre", "reading", "finished", "post"];
-
-// Default "next" target when the user clicks the workflow forward button.
-const NEXT_DEFAULT_SHELF = {
-  pre: "reading",
-  reading: "read",
-  finished: null, // 已读 → 归类菜单
-};
-const NEXT_BUTTON_LABEL = {
-  pre: "开始读",
-  reading: "读完了",
-};
-
-// All built-in shelves. The user can still create custom shelves; only
-// these are protected from delete / rename in the sidebar.
-const SYSTEM_SHELF_IDS = new Set([
-  "wantToRead", "spirit", "culture", "investment",
-  "reading", "read",
-  "collection", "revisit", "archive", "shallow", "deep", "monthly",
-]);
-const DEFAULT_POST_SHELF = "collection";
 
 const SECTION_PLACEHOLDERS = {
   oneLiner: "在这一行写下这本书最核心的那句话…",
@@ -360,14 +334,24 @@ function Sidebar({
   onToggleShelf,
   onSelectBook,
   onNewBook,
-  onNewShelf,
-  onRenameShelf,
-  onDeleteShelf,
+  onManageShelves,
   onQuery,
   onToggleCollapsed,
   totalBooks,
 }) {
   const normalQuery = query.trim().toLowerCase();
+  const matchesQuery = (book) => {
+    if (!normalQuery) return true;
+    const haystack = `${book.title} ${book.author} ${(book.tags || []).join(" ")} ${book.excerpt || ""}`.toLowerCase();
+    return haystack.includes(normalQuery);
+  };
+  const searchResults = normalQuery
+    ? shelves.flatMap((shelf) => shelf.books.filter(matchesQuery).map((book) => ({ book, shelfName: shelf.name })))
+    : [];
+  const selectSearchResult = (bookId) => {
+    if (onSelectBook(bookId) !== false) onQuery("");
+  };
+
   return (
     <aside className={classes("bad-sidebar", collapsed && "is-collapsed")}>
       <div className="bad-brand">
@@ -387,17 +371,40 @@ function Sidebar({
         <>
           <div className="bad-sidebar-actions">
             <button type="button" onClick={onNewBook}><Plus size={15} /> 新书</button>
-            <button type="button" onClick={onNewShelf}><FolderPlus size={15} /> 书架</button>
+            <button type="button" onClick={onManageShelves}><FolderPlus size={15} /> 管理书架</button>
           </div>
-          <label className="bad-search">
-            <Search size={14} />
-            <input value={query} onChange={(event) => onQuery(event.target.value)} placeholder="搜索书名 / 作者 / 标签" />
-          </label>
+          <div className="bad-search-area">
+            <div className="bad-search">
+              <Search size={14} />
+              <input value={query} onChange={(event) => onQuery(event.target.value)} placeholder="搜索书名 / 作者 / 标签" />
+              {query && (
+                <button type="button" className="bad-search-clear" onClick={() => onQuery("")} aria-label="清除搜索">
+                  <X size={15} strokeWidth={2.3} />
+                </button>
+              )}
+            </div>
+            {normalQuery && (
+              <div className="bad-search-results" aria-label="搜索结果">
+                <p className="bad-search-results-label">
+                  {searchResults.length ? `找到 ${searchResults.length} 本书` : "没有找到匹配的书"}
+                </p>
+                {searchResults.map(({ book, shelfName }) => (
+                  <button type="button" key={book.id} className="bad-search-result" onClick={() => selectSearchResult(book.id)}>
+                    <BookMarked size={14} />
+                    <span>
+                      <strong>{book.title}</strong>
+                      <small>{[book.author, shelfName].filter(Boolean).join(" · ")}</small>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </>
       )}
 
       <nav className="bad-tree" aria-label="Shelves">
-        {SIDEBAR_SHELF_GROUP_ORDER.map((groupKey) => {
+        {SHELF_GROUP_ORDER.map((groupKey) => {
           // A shelf belongs to a group when its ``group`` field matches; the
           // synthetic "_unfiled" bucket from the backend has no group and
           // gets pinned to the bottom of the "post" section.
@@ -406,7 +413,7 @@ function Sidebar({
             return (shelf.group || "pre") === groupKey;
           });
           if (shelvesInGroup.length === 0) return null;
-          const meta = SHELF_GROUP_META[groupKey];
+          const meta = SHELF_GROUP_BY_ID[groupKey];
           return (
             <div key={groupKey} className={classes("bad-shelf-group", `bad-shelf-group-${groupKey}`)}>
               {!collapsed && (
@@ -415,11 +422,7 @@ function Sidebar({
                 </div>
               )}
               {shelvesInGroup.map((shelf) => {
-                const filtered = shelf.books.filter((book) => {
-                  if (!normalQuery) return true;
-                  const haystack = `${book.title} ${book.author} ${(book.tags || []).join(" ")} ${book.excerpt || ""}`.toLowerCase();
-                  return haystack.includes(normalQuery);
-                });
+                const filtered = shelf.books.filter(matchesQuery);
                 const open = openShelves.has(shelf.id);
                 return (
                   <section key={shelf.id} className={classes("bad-shelf", `bad-shelf-${shelf.id}`, `bad-shelf-g-${groupKey}`)}>
@@ -453,12 +456,6 @@ function Sidebar({
                             </div>
                           </button>
                         ))}
-                        {shelf.id !== "_unfiled" && !SYSTEM_SHELF_IDS.has(shelf.id) && (
-                          <div className="bad-shelf-tools">
-                            <button type="button" onClick={() => onRenameShelf(shelf)}>重命名</button>
-                            <button type="button" onClick={() => onDeleteShelf(shelf)}>删除</button>
-                          </div>
-                        )}
                       </div>
                     )}
                   </section>
@@ -485,28 +482,13 @@ function findShelf(shelves, shelfId) {
 }
 
 function WorkflowStepper({ book, shelves, onPatch }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-
-  // Close the "归类" dropdown when the user clicks outside.
-  useEffect(() => {
-    if (!menuOpen) return undefined;
-    const onDocClick = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false);
-      }
-    };
-    window.addEventListener("mousedown", onDocClick);
-    return () => window.removeEventListener("mousedown", onDocClick);
-  }, [menuOpen]);
-
   if (!book) return null;
 
   const currentShelf = findShelf(shelves, book.shelfId);
   const currentGroup = currentShelf?.group || "pre";
   const currentStageIndex = Math.min(
-    WORKFLOW_STAGE_ORDER.indexOf(currentGroup),
-    WORKFLOW_STAGE_ORDER.length - 1,
+    SHELF_GROUP_ORDER.indexOf(currentGroup),
+    SHELF_GROUP_ORDER.length - 1,
   );
   // "post" and "finished" both light the third dot — they're both "已经读完
   // 了" from the user's perspective; the difference is whether they've also
@@ -524,15 +506,19 @@ function WorkflowStepper({ book, shelves, onPatch }) {
     { key: "finished", label: "已读" },
   ];
 
-  const moveTo = (shelfId) => {
-    setMenuOpen(false);
-    onPatch({ shelfId });
-  };
-
-  // Post-reading shelves available in the "归类" dropdown.
-  const postShelves = shelves.filter((s) => s.group === "post" && s.id !== "_unfiled");
-  const isFavorite = book.shelfId === "collection";
-  const canClassify = currentGroup === "finished" || currentGroup === "post";
+  const moveTo = (shelfId) => onPatch({ shelfId });
+  const movableShelves = shelvesForMoving(shelves);
+  const nextShelf = nextDefaultShelf
+    ? movableShelves.find((shelf) => shelf.id === nextDefaultShelf)
+      || movableShelves.find((shelf) => shelf.group === (currentGroup === "pre" ? "reading" : "finished"))
+      || movableShelves[0]
+    : null;
+  const favoriteShelf = movableShelves.find((shelf) => shelf.id === "collection")
+    || movableShelves.find((shelf) => shelf.group === "post");
+  const readShelf = movableShelves.find((shelf) => shelf.id === "read")
+    || movableShelves.find((shelf) => shelf.group === "finished")
+    || movableShelves[0];
+  const isFavorite = favoriteShelf && book.shelfId === favoriteShelf.id;
 
   return (
     <section className="bad-workflow">
@@ -554,65 +540,32 @@ function WorkflowStepper({ book, shelves, onPatch }) {
         })}
       </ol>
       <div className="bad-workflow-actions">
-        {nextDefaultShelf && nextButtonLabel && (
+        {nextShelf && nextButtonLabel && (
           <button
             type="button"
             className="bad-workflow-next"
-            onClick={() => moveTo(nextDefaultShelf)}
-            title={`移到「${nextButtonLabel === "开始读" ? "在读" : "已读"}」`}
+            onClick={() => moveTo(nextShelf.id)}
+            title={`移到「${nextShelf.name}」`}
           >
             {nextButtonLabel} <ChevronRight size={14} />
           </button>
         )}
-        {canClassify && (
-          <div className="bad-workflow-menu" ref={menuRef}>
-            <button
-              type="button"
-              className={classes("bad-workflow-classify", currentGroup === "post" && "is-classified")}
-              onClick={() => setMenuOpen((v) => !v)}
-              title="把这本书归到一个收藏类"
-            >
-              <FolderOpen size={14} />
-              {currentGroup === "post" && currentShelf ? currentShelf.name : "归类…"}
-              <ChevronDown size={13} />
-            </button>
-            {menuOpen && (
-              <div className="bad-workflow-menu-pop" role="menu">
-                {currentGroup === "post" && (
-                  <button
-                    type="button"
-                    className="bad-workflow-menu-item is-revert"
-                    onClick={() => moveTo("read")}
-                  >
-                    ← 移回「已读」
-                  </button>
-                )}
-                {postShelves.map((shelf) => (
-                  <button
-                    type="button"
-                    key={shelf.id}
-                    className={classes(
-                      "bad-workflow-menu-item",
-                      shelf.id === book.shelfId && "is-active",
-                    )}
-                    onClick={() => moveTo(shelf.id)}
-                  >
-                    {shelf.name}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-        <button
+        <label className="bad-workflow-shelf-select" title="可随时移动到任意书架">
+          <FolderOpen size={14} />
+          <span>所在书架</span>
+          <select value={book.shelfId} onChange={(event) => moveTo(event.target.value)}>
+            {movableShelves.map((shelf) => <option key={shelf.id} value={shelf.id}>{shelfLabel(shelf)}</option>)}
+          </select>
+        </label>
+        {favoriteShelf && readShelf && <button
           type="button"
           className={classes("bad-workflow-fav", isFavorite && "is-on")}
-          onClick={() => moveTo(isFavorite ? "read" : DEFAULT_POST_SHELF)}
-          title={isFavorite ? "从「收藏」移回「已读」" : "一键加入「收藏」"}
+          onClick={() => moveTo(isFavorite ? readShelf.id : favoriteShelf.id)}
+          title={isFavorite ? `从「${favoriteShelf.name}」移到「${readShelf.name}」` : `一键加入「${favoriteShelf.name}」`}
         >
           <Heart size={14} fill={isFavorite ? "currentColor" : "none"} />
           {isFavorite ? "已收藏" : "加入收藏"}
-        </button>
+        </button>}
       </div>
     </section>
   );
@@ -810,6 +763,7 @@ export default function BookADayApp() {
   const [error, setError] = useState("");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [rightSidebarCollapsed, setRightSidebarCollapsed] = useState(true);
+  const [showShelfManager, setShowShelfManager] = useState(false);
   const stopQueueRef = useRef(false);
   const textareaRef = useRef(null);
   const { play, stop, pause, resume, paused, speakingKey, loadingKey, error: ttsError } = useTts();
@@ -887,8 +841,9 @@ export default function BookADayApp() {
   }, [tabDraft, mode, activeTab, book?.id]);
 
   const handleSelectBook = (bookId) => {
-    if (dirty && !window.confirm("当前 Tab 还没保存，要切走吗？")) return;
+    if (dirty && !window.confirm("当前 Tab 还没保存，要切走吗？")) return false;
     setActiveBookId(bookId);
+    return true;
   };
 
   const handleNewBook = async () => {
@@ -907,33 +862,22 @@ export default function BookADayApp() {
     setStatus(`新建《${data.book.title}》`);
   };
 
-  const handleNewShelf = async () => {
-    const name = window.prompt("新书架的名字：");
-    if (!name) return;
-    // Ask which life-cycle group it belongs to so it lands in the right
-    // place in the sidebar. Default = 准备读 (the safest catch-all).
-    const groupAnswer = window.prompt(
-      "属于哪个阶段？\n  1 - 准备读（同「想读」级别）\n  2 - 在读\n  3 - 已读\n  4 - 归类（同「收藏」级别）\n输入数字（默认 1）：",
-      "1",
-    );
-    if (groupAnswer === null) return; // user pressed Cancel
-    const group = { 1: "pre", 2: "reading", 3: "finished", 4: "post" }[groupAnswer.trim()] || "pre";
+  const handleNewShelf = () => setShowShelfManager(true);
+
+  const createNewShelf = async ({ name, group }) => {
     const shelf = await createShelf({ name, group });
     setOpenShelves((current) => new Set([...current, shelf.id]));
     await loadLibrary();
     setStatus(`新建书架「${shelf.name}」`);
   };
 
-  const handleRenameShelf = async (shelf) => {
-    const name = window.prompt("重命名书架：", shelf.name);
-    if (!name || name === shelf.name) return;
-    await updateShelf(shelf.id, { name });
+  const handleUpdateShelf = async (shelf, patch) => {
+    await updateShelf(shelf.id, patch);
     await loadLibrary();
   };
 
-  const handleDeleteShelf = async (shelf) => {
-    if (!window.confirm(`删除书架「${shelf.name}」？里面的书会被移到第一个书架，不会丢。`)) return;
-    await deleteShelf(shelf.id);
+  const handleDeleteShelf = async (shelf, moveTo) => {
+    await deleteShelf(shelf.id, moveTo);
     await loadLibrary();
   };
 
@@ -1087,9 +1031,7 @@ export default function BookADayApp() {
         })}
         onSelectBook={handleSelectBook}
         onNewBook={handleNewBook}
-        onNewShelf={handleNewShelf}
-        onRenameShelf={handleRenameShelf}
-        onDeleteShelf={handleDeleteShelf}
+        onManageShelves={handleNewShelf}
         onQuery={setQuery}
       />
 
@@ -1155,11 +1097,9 @@ export default function BookADayApp() {
         ) : !book ? (
           <section className="bad-welcome">
             <BookOpen size={42} />
-            <h2>每天读一本（或一点）</h2>
+            <h2>每天读一本</h2>
             <p>
-              这里是你的读书工作台。左栏按 准备读（想读 / 属灵 / 文化 / 投资）→ 在读 → 已读 → 归类（收藏 / 回看 / 存档 / 浅显 / 深奥 / 月读）的进度管理你的书；
-              中间每本书都有 7 个 Tab；右栏（可折叠）是这本书的资料文件夹和一键复制的 AI 整理模板。<br />
-              先从「新书」开始，或点左栏的一本书。
+              这里是你的读书工作台。选本书，读起来。腹有诗书气自华！
             </p>
             <button type="button" onClick={handleNewBook}><Plus size={16} /> 新书</button>
           </section>
@@ -1217,6 +1157,15 @@ export default function BookADayApp() {
           </section>
         )}
       </main>
+
+      <ShelfManagerDialog open={showShelfManager} onClose={() => setShowShelfManager(false)}>
+        <ShelfManager
+          shelves={library.shelves}
+          onCreate={createNewShelf}
+          onUpdate={handleUpdateShelf}
+          onDelete={handleDeleteShelf}
+        />
+      </ShelfManagerDialog>
 
       <RightSidebar
         book={book}

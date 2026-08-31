@@ -125,7 +125,94 @@
     color: var(--bid-text);
   }
 
+  .bid-search-area {
+    min-width: 0;
+  }
+
+  .bid-search-clear {
+    display: grid;
+    width: 22px;
+    height: 22px;
+    flex: 0 0 auto;
+    place-items: center;
+    padding: 0;
+    border: 0;
+    border-radius: 5px;
+    color: var(--bid-muted);
+    background: transparent;
+    cursor: pointer;
+  }
+
+  .bid-search-clear:hover {
+    color: var(--bid-accent);
+    background: rgba(110, 80, 50, 0.1);
+  }
+
+  .bid-search-clear:focus-visible,
+  .bid-search-result:focus-visible {
+    outline: 2px solid var(--bid-accent);
+    outline-offset: -2px;
+  }
+
+  .bid-search-results {
+    max-height: 220px;
+    margin-top: 6px;
+    overflow-y: auto;
+    border: 1px solid var(--bid-line);
+    border-radius: 8px;
+    background: #ffffff;
+    box-shadow: 0 8px 18px rgba(63, 45, 29, 0.1);
+  }
+
+  .bid-search-results-label {
+    margin: 0;
+    padding: 8px 10px 6px;
+    color: var(--bid-muted);
+    font-size: 11px;
+    font-weight: 700;
+  }
+
+  .bid-search-result {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    border: 0;
+    border-top: 1px solid rgba(63, 45, 29, 0.07);
+    color: var(--bid-text);
+    background: transparent;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  .bid-search-result:hover {
+    background: rgba(110, 80, 50, 0.08);
+  }
+
+  .bid-search-result > svg {
+    flex: 0 0 auto;
+    color: var(--bid-accent);
+  }
+
+  .bid-search-result > span {
+    display: grid;
+    min-width: 0;
+    gap: 2px;
+  }
+
+  .bid-search-result strong,
+  .bid-search-result small {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .bid-search-result strong { font-size: 13px; }
+  .bid-search-result small { color: var(--bid-muted); font-size: 11px; }
+
   .is-sidebar-collapsed .bid-sidebar-actions,
+  .is-sidebar-collapsed .bid-search-area,
   .is-sidebar-collapsed .bid-search { display: none; }
 
   .bid-tree {
@@ -987,6 +1074,29 @@
   .bid-workflow-next:hover {
     background: var(--bid-accent-dark);
     border-color: var(--bid-accent-dark);
+  }
+
+  .bid-workflow-shelf-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 8px;
+    border: 1px solid var(--bid-line);
+    border-radius: 8px;
+    background: white;
+    color: var(--bid-muted);
+    font-size: 12px;
+  }
+
+  .bid-workflow-shelf-select select {
+    max-width: 190px;
+    border: 0;
+    outline: 0;
+    background: transparent;
+    color: var(--bid-text);
+    font: inherit;
+    font-weight: 600;
+    cursor: pointer;
   }
 
   .bid-workflow-fav {

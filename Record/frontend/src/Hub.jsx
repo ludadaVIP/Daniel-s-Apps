@@ -1,4 +1,5 @@
-import { BookOpen, BookMarked, ClipboardList, FileText, NotebookPen, ShieldCheck, TrendingUp } from "lucide-react";
+import { useEffect, useState } from "react";
+import { BookOpen, BookMarked, ClipboardList, FileText, GripVertical, NotebookPen, Save, ScrollText, TrendingUp } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
@@ -21,6 +22,16 @@ const APPS = [
     Icon: FileText,
     to: "/save-md",
     kind: "MD",
+  },
+  {
+    id: "bible",
+    title: "Recall Bible",
+    subtitle: "圣经背诵 · CUV / ESV / NVI 三语切换",
+    description: "随机经文练习：看经文出处回忆正文，或看正文回忆出处；可按书卷筛选。",
+    accent: "#8a3a2e",
+    Icon: ScrollText,
+    to: "/bible",
+    kind: "Bible",
   },
   {
     id: "book-a-day",
@@ -62,19 +73,98 @@ const APPS = [
     to: "/investment",
     kind: "Invest",
   },
-  {
-    id: "nz-invest",
-    title: "NZ Invest",
-    subtitle: "新西兰投资学习 · 左栏课程目录 · 右栏 Markdown",
-    description: "从 0 开始理解 IBKR、Sharesies、Kernel、VOO/VTI、ETF、PIE、FIF、PIR、W-8BEN、股息税和遗产税。独立于原 Investment app。",
-    accent: "#2f7d5f",
-    Icon: ShieldCheck,
-    to: "/nz-invest",
-    kind: "NZ",
-  },
 ];
 
+function orderApps(order) {
+  const appsById = new Map(APPS.map((app) => [app.id, app]));
+  const seen = new Set();
+  const savedApps = (Array.isArray(order) ? order : []).flatMap((id) => {
+    const app = appsById.get(id);
+    if (!app || seen.has(id)) return [];
+    seen.add(id);
+    return [app];
+  });
+
+  return [...savedApps, ...APPS.filter((app) => !seen.has(app.id))];
+}
+
 export default function Hub() {
+  const [apps, setApps] = useState(APPS);
+  const [savedOrder, setSavedOrder] = useState(() => APPS.map((app) => app.id));
+  const [isArranging, setIsArranging] = useState(false);
+  const [draggedId, setDraggedId] = useState(null);
+  const [isDirty, setIsDirty] = useState(false);
+  const [isSaving, setIsSaving] = useState(false);
+  const [layoutMessage, setLayoutMessage] = useState("");
+
+  useEffect(() => {
+    let cancelled = false;
+
+    fetch("/api/hub/layout")
+      .then((response) => (response.ok ? response.json() : Promise.reject(new Error("Unable to load layout."))))
+      .then((layout) => {
+        if (cancelled) return;
+        const orderedApps = orderApps(layout.order);
+        setApps(orderedApps);
+        setSavedOrder(orderedApps.map((app) => app.id));
+      })
+      .catch(() => {
+        // A missing backend should not stop the launcher from opening.
+      });
+
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const moveApp = (sourceId, targetId) => {
+    if (!sourceId || sourceId === targetId) return;
+    setApps((currentApps) => {
+      const fromIndex = currentApps.findIndex((app) => app.id === sourceId);
+      const toIndex = currentApps.findIndex((app) => app.id === targetId);
+      if (fromIndex < 0 || toIndex < 0) return currentApps;
+      const nextApps = [...currentApps];
+      const [movedApp] = nextApps.splice(fromIndex, 1);
+      nextApps.splice(toIndex, 0, movedApp);
+      return nextApps;
+    });
+    setIsDirty(true);
+    setLayoutMessage("卡片已重新排列，点击“保存排列”生效。");
+  };
+
+  const saveLayout = async () => {
+    setIsSaving(true);
+    setLayoutMessage("");
+    try {
+      const order = apps.map((app) => app.id);
+      const response = await fetch("/api/hub/layout", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ order }),
+      });
+      if (!response.ok) throw new Error("Unable to save layout.");
+      const result = await response.json();
+      const confirmedApps = orderApps(result.order);
+      setApps(confirmedApps);
+      setSavedOrder(confirmedApps.map((app) => app.id));
+      setIsDirty(false);
+      setIsArranging(false);
+      setLayoutMessage("排列已保存。");
+    } catch {
+      setLayoutMessage("保存失败，请确认本地服务正在运行后重试。");
+    } finally {
+      setIsSaving(false);
+    }
+  };
+
+  const cancelArranging = () => {
+    setApps(orderApps(savedOrder));
+    setIsDirty(false);
+    setDraggedId(null);
+    setIsArranging(false);
+    setLayoutMessage("");
+  };
+
   return (
     <div className="hub-root">
       <header className="hub-header">
@@ -83,28 +173,77 @@ export default function Hub() {
           <h1 className="hub-title">Road2elite</h1>
           <p className="hub-subtitle">几个独立保留的本地工具，点击卡片进入。</p>
         </div>
-        <span className="hub-count">{APPS.length} apps</span>
+        <div className="hub-actions">
+          {isArranging ? (
+            <>
+              <button type="button" className="hub-action-button hub-action-button-secondary" onClick={cancelArranging}>
+                取消
+              </button>
+              <button type="button" className="hub-action-button" onClick={saveLayout} disabled={!isDirty || isSaving}>
+                <Save size={15} strokeWidth={2} />
+                {isSaving ? "保存中…" : "保存排列"}
+              </button>
+            </>
+          ) : (
+            <button
+              type="button"
+              className="hub-action-button hub-action-button-secondary"
+              onClick={() => {
+                setIsArranging(true);
+                setLayoutMessage("拖动卡片调整顺序，完成后点击“保存排列”。");
+              }}
+            >
+              <GripVertical size={16} strokeWidth={2} />
+              整理卡片
+            </button>
+          )}
+          <span className="hub-count">{APPS.length} apps</span>
+        </div>
       </header>
 
-      <section className="hub-grid" aria-label="Sons app launcher">
-        {APPS.map((app) => (
+      {layoutMessage && <p className="hub-layout-message" role="status">{layoutMessage}</p>}
+
+      <section className={`hub-grid${isArranging ? " is-arranging" : ""}`} aria-label="Sons app launcher">
+        {apps.map((app) => (
           <Link
             key={app.id}
             to={app.to}
-            className="hub-card"
+            className={`hub-card${draggedId === app.id ? " is-dragging" : ""}`}
             style={{ "--card-accent": app.accent }}
             title={`${app.subtitle}\n${app.description}`}
+            draggable={isArranging}
+            onClick={(event) => {
+              if (isArranging) event.preventDefault();
+            }}
+            onDragStart={(event) => {
+              if (!isArranging) return;
+              event.dataTransfer.effectAllowed = "move";
+              event.dataTransfer.setData("text/plain", app.id);
+              setDraggedId(app.id);
+            }}
+            onDragOver={(event) => {
+              if (!isArranging) return;
+              event.preventDefault();
+              event.dataTransfer.dropEffect = "move";
+            }}
+            onDrop={(event) => {
+              if (!isArranging) return;
+              event.preventDefault();
+              moveApp(draggedId || event.dataTransfer.getData("text/plain"), app.id);
+              setDraggedId(null);
+            }}
+            onDragEnd={() => setDraggedId(null)}
           >
             <div className="hub-card-top">
               <div className="hub-card-icon">
                 <app.Icon size={20} strokeWidth={1.9} />
               </div>
+              {isArranging && <GripVertical className="hub-card-drag-handle" size={20} strokeWidth={2} aria-hidden="true" />}
               <span className="hub-card-kind">{app.kind}</span>
             </div>
             <div className="hub-card-body">
               <h2>{app.title}</h2>
               <p className="hub-card-subtitle">{app.subtitle}</p>
-              <p className="hub-card-description">{app.description}</p>
             </div>
             <span className="hub-card-cta" aria-hidden="true">-&gt;</span>
           </Link>

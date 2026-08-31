@@ -10,7 +10,6 @@ URL layout
 - ``/api/quiz/*``           English Adventure Quiz (mc / wordorder / fill)
 - ``/api/live-spanish/*``   Live Spanish (rich quizzes with per-question audio)
 - ``/api/lab/*``            Language Output Lab (topics across 4 languages)
-- ``/api/bible/*``          Bible Memorizer (random verses across CUV/ESV/NVI)
 - ``/audio/<app>/*``        Audio cache for the matching sub-app
 - ``/api/health``           Liveness probe
 """
@@ -36,7 +35,6 @@ from apps.free_german.routes import bp as free_german_bp, AUDIO_DIR as FREE_GERM
 from apps.quiz.routes import bp as quiz_bp
 from apps.live_spanish.routes import bp as live_spanish_bp, AUDIO_DIR as LIVE_SPANISH_AUDIO_DIR
 from apps.language_lab.routes import bp as language_lab_bp, AUDIO_DIR as LANGUAGE_LAB_AUDIO_DIR
-from apps.bible.routes import bp as bible_bp
 from apps.translator.routes import bp as translator_bp
 from apps.ai_practice.routes import bp as ai_practice_bp
 from apps.german.routes import bp as german_bp, AUDIO_DIR as GERMAN_AUDIO_DIR
@@ -52,7 +50,6 @@ from apps.french_vocab.routes import bp as french_vocab_bp, AUDIO_DIR as FRENCH_
 from apps.german_vocab.routes import bp as german_vocab_bp, AUDIO_DIR as GERMAN_VOCAB_AUDIO_DIR
 from apps.record_meditation.routes import bp as record_meditation_bp
 from apps.bible_lang.routes import bp as bible_lang_bp, AUDIO_DIR as BIBLE_LANG_AUDIO_DIR
-from apps.save_md.routes import bp as save_md_bp, AUDIO_DIR as SAVE_MD_AUDIO_DIR
 
 
 FRONTEND_DIST = Path(__file__).resolve().parent.parent / "frontend" / "dist"
@@ -77,7 +74,6 @@ def create_app() -> Flask:
     app.register_blueprint(quiz_bp, url_prefix="/api/quiz")
     app.register_blueprint(live_spanish_bp, url_prefix="/api/live-spanish")
     app.register_blueprint(language_lab_bp, url_prefix="/api/lab")
-    app.register_blueprint(bible_bp, url_prefix="/api/bible")
     app.register_blueprint(translator_bp, url_prefix="/api/translator")
     app.register_blueprint(ai_practice_bp, url_prefix="/api/ai-practice")
     app.register_blueprint(german_bp, url_prefix="/api/german")
@@ -93,11 +89,10 @@ def create_app() -> Flask:
     app.register_blueprint(german_vocab_bp, url_prefix="/api/german-vocab")
     app.register_blueprint(record_meditation_bp, url_prefix="/api/record-meditation")
     app.register_blueprint(bible_lang_bp, url_prefix="/api/bible-lang")
-    app.register_blueprint(save_md_bp, url_prefix="/api/save-md")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "free-french", "free-english", "free-spanish", "free-german", "quiz", "live-spanish", "lab", "bible", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "french-vocab", "german-vocab", "record-meditation", "bible-lang", "bible-and-eng", "bible-and-esp", "bible-and-fr", "bible-and-ge", "save-md"]})
+        return jsonify({"ok": True, "apps": ["french", "free-french", "free-english", "free-spanish", "free-german", "quiz", "live-spanish", "lab", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "french-vocab", "german-vocab", "record-meditation", "bible-lang", "bible-and-eng", "bible-and-esp", "bible-and-fr", "bible-and-ge"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")
@@ -175,10 +170,6 @@ def create_app() -> Flask:
     @app.get("/audio/bible-lang/<path:filename>")
     def serve_bible_lang_audio(filename: str):
         return send_from_directory(BIBLE_LANG_AUDIO_DIR, filename, max_age=31536000)
-
-    @app.get("/audio/save-md/<path:filename>")
-    def serve_save_md_audio(filename: str):
-        return send_from_directory(SAVE_MD_AUDIO_DIR, filename, max_age=31536000)
 
     # Fallback: serve the built Vite SPA if it exists (single-port deployment).
     @app.get("/", defaults={"path": ""})

@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, FileText, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, NotebookPen, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, NotebookPen, ScrollText, Sparkles } from "lucide-react";
 
 const HUB_ORDER_KEY = "daniels-apps:hub-order";
 
@@ -76,15 +76,6 @@ const APPS = [
     accent: "#10b981",
     Icon: Brain,
     to: "/lab",
-  },
-  {
-    id: "bible",
-    title: "Recall Bible",
-    subtitle: "圣经背诵：CUV / ESV / NVI 三语切换",
-    description: "Random verse drills in two modes — recall the text from a reference, or guess the reference from the text.",
-    accent: "#8a3a2e",
-    Icon: ScrollText,
-    to: "/bible",
   },
   {
     id: "translator",
@@ -250,15 +241,6 @@ const APPS = [
     Icon: ScrollText,
     to: "/bible-and-ge",
   },
-  {
-    id: "save-md",
-    title: "Save MD",
-    subtitle: "保存 AI 回答 · Markdown 文件库 · 阅读/编辑/朗读",
-    description: "A Markdown knowledge shelf for saving strong AI answers as real .md files, with category navigation, rich reading view, editing, metadata, and Edge TTS playback.",
-    accent: "#178a58",
-    Icon: FileText,
-    to: "/save-md",
-  },
 ];
 
 function normalizeAppOrder(order) {
@@ -300,7 +282,6 @@ function getAppKind(app) {
   if (app.title.includes("900")) return "900";
   if (app.title.includes("Sprint")) return "Sprint";
   if (app.id.includes("bible")) return "Bible";
-  if (app.id === "save-md") return "MD";
   if (app.id === "curiosity") return "Science";
   if (app.id === "record-meditation") return "Journal";
   return "Practice";

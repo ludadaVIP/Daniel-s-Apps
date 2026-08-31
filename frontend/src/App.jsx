@@ -14,7 +14,6 @@ const FreeGermanApp = lazy(() => import("./apps/free_german/App.jsx"));
 const QuizApp = lazy(() => import("./apps/quiz/App.jsx"));
 const LiveSpanishApp = lazy(() => import("./apps/live_spanish/App.jsx"));
 const LanguageLabApp = lazy(() => import("./apps/language_lab/App.jsx"));
-const BibleApp = lazy(() => import("./apps/bible/App.jsx"));
 const TranslatorApp = lazy(() => import("./apps/translator/App.jsx"));
 const AIPracticeApp = lazy(() => import("./apps/ai_practice/App.jsx"));
 const GermanApp = lazy(() => import("./apps/german/App.jsx"));
@@ -33,7 +32,6 @@ const BibleAndEngApp = lazy(() => import("./apps/bible_and_eng/App.jsx"));
 const BibleAndEspApp = lazy(() => import("./apps/bible_and_esp/App.jsx"));
 const BibleAndFrApp = lazy(() => import("./apps/bible_and_fr/App.jsx"));
 const BibleAndGeApp = lazy(() => import("./apps/bible_and_ge/App.jsx"));
-const SaveMdApp = lazy(() => import("./apps/save_md/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -71,10 +69,6 @@ export default function App() {
       <Route
         path="/lab"
         element={withShell("Language Output Lab", "#10b981", LanguageLabApp)}
-      />
-      <Route
-        path="/bible"
-        element={withShell("Recall Bible", "#8a3a2e", BibleApp)}
       />
       <Route
         path="/translator"
@@ -147,10 +141,6 @@ export default function App() {
       <Route
         path="/bible-and-ge"
         element={withShell("Bible and GE", "#8a5a2b", BibleAndGeApp)}
-      />
-      <Route
-        path="/save-md"
-        element={withShell("Save MD", "#178a58", SaveMdApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

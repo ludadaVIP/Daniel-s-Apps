@@ -55,6 +55,13 @@ select {
   margin: 0 auto 28px;
 }
 
+.hub-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 8px;
+}
+
 .hub-heading {
   display: grid;
   gap: 8px;
@@ -101,10 +108,56 @@ select {
   background: rgba(255, 255, 255, 0.7);
 }
 
+.hub-action-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 34px;
+  gap: 6px;
+  padding: 0 11px;
+  border: 1px solid var(--text-primary);
+  border-radius: 8px;
+  color: #ffffff;
+  background: var(--text-primary);
+  font-size: 13px;
+  font-weight: 760;
+  cursor: pointer;
+  transition: background 150ms ease, border-color 150ms ease, color 150ms ease;
+}
+
+.hub-action-button:hover:not(:disabled) {
+  border-color: #334155;
+  background: #334155;
+}
+
+.hub-action-button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+.hub-action-button-secondary {
+  border-color: var(--border-soft);
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.7);
+}
+
+.hub-action-button-secondary:hover:not(:disabled) {
+  border-color: var(--border-strong);
+  background: #ffffff;
+}
+
+.hub-layout-message {
+  max-width: 1120px;
+  margin: -14px auto 16px;
+  color: var(--text-secondary);
+  font-size: 13px;
+  font-weight: 680;
+}
+
 .hub-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 18px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
   max-width: 1120px;
   margin: 0 auto;
 }
@@ -112,8 +165,8 @@ select {
 .hub-card {
   position: relative;
   display: grid;
-  min-height: 238px;
-  padding: 22px;
+  min-height: 176px;
+  padding: 16px;
   border: 1px solid var(--border-soft);
   border-top: 5px solid var(--card-accent);
   border-radius: 8px;
@@ -128,11 +181,29 @@ select {
   transform: translateY(-2px);
 }
 
+.hub-grid.is-arranging .hub-card {
+  cursor: grab;
+}
+
+.hub-grid.is-arranging .hub-card:active {
+  cursor: grabbing;
+}
+
+.hub-card.is-dragging {
+  opacity: 0.46;
+  transform: scale(0.98);
+}
+
 .hub-card-top {
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
+}
+
+.hub-card-drag-handle {
+  margin-left: auto;
+  color: var(--text-muted);
 }
 
 .hub-card-icon {
@@ -152,14 +223,14 @@ select {
 .hub-card-body {
   display: grid;
   align-content: end;
-  gap: 10px;
+  gap: 7px;
   min-width: 0;
 }
 
 .hub-card-body h2 {
   margin: 0;
   color: var(--text-primary);
-  font-size: 25px;
+  font-size: 21px;
   line-height: 1.15;
   letter-spacing: 0;
 }
@@ -171,6 +242,7 @@ select {
 
 .hub-card-subtitle {
   font-weight: 720;
+  font-size: 14px;
 }
 
 .hub-card-description {
@@ -327,12 +399,17 @@ select {
     flex-direction: column;
   }
 
+  .hub-actions {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+  }
+
   .hub-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .hub-card {
-    min-height: 220px;
+    min-height: 168px;
   }
 
   .hub-footer {
@@ -343,6 +420,12 @@ select {
   .dh-back-to-top {
     right: max(14px, env(safe-area-inset-right));
     bottom: max(14px, env(safe-area-inset-bottom));
+  }
+}
+
+@media (max-width: 520px) {
+  .hub-grid {
+    grid-template-columns: 1fr;
   }
 }
 

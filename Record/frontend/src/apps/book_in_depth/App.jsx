@@ -15,9 +15,19 @@ import {
   Save,
   Search,
   Trash2,
+  X,
 } from "lucide-react";
 
 import "./styles.css";
+import ShelfManager, { ShelfManagerDialog } from "../shared/ShelfManager";
+import {
+  NEXT_BUTTON_LABEL,
+  NEXT_DEFAULT_SHELF,
+  SHELF_GROUP_BY_ID,
+  SHELF_GROUP_ORDER,
+  shelfLabel,
+  shelvesForMoving,
+} from "../shared/shelfModel";
 import {
   createBook,
   createShelf,
@@ -41,35 +51,6 @@ const SECTION_PLACEHOLDERS = {
   narration:
     "# 引言\n\n（深度精读稿写在这里。目标 ~10000 字。建议用 `## 一级标题` 分章，左侧会自动生成可跳转的目录。）\n\n## 第一章 …\n\n…\n",
 };
-
-// Shelves are organised into 4 life-cycle groups; see the backend
-// DEFAULT_SHELVES for the full list. The sidebar renders one section per
-// group; the stepper compresses the 4 groups into 3 visible dots (post
-// shares the third dot with finished — it's still "已读完", just classified).
-const SHELF_GROUP_META = {
-  pre: { label: "准备读" },
-  reading: { label: "在读" },
-  finished: { label: "已读" },
-  post: { label: "归类" },
-};
-const SHELF_GROUP_ORDER = ["pre", "reading", "finished", "post"];
-
-const NEXT_DEFAULT_SHELF = {
-  pre: "reading",
-  reading: "read",
-  finished: null,
-};
-const NEXT_BUTTON_LABEL = {
-  pre: "开始读",
-  reading: "读完了",
-};
-
-const SYSTEM_SHELF_IDS = new Set([
-  "wantToRead", "spirit", "culture", "investment",
-  "reading", "read",
-  "collection", "revisit", "archive", "shallow", "deep", "monthly",
-]);
-const DEFAULT_POST_SHELF = "collection";
 
 function classes(...parts) {
   return parts.filter(Boolean).join(" ");
@@ -260,14 +241,24 @@ function Sidebar({
   onToggleShelf,
   onSelectBook,
   onNewBook,
-  onNewShelf,
-  onRenameShelf,
-  onDeleteShelf,
+  onManageShelves,
   onQuery,
   onToggleCollapsed,
   totalBooks,
 }) {
   const normalQuery = query.trim().toLowerCase();
+  const matchesQuery = (book) => {
+    if (!normalQuery) return true;
+    const haystack = `${book.title} ${book.author} ${(book.tags || []).join(" ")} ${book.excerpt || ""}`.toLowerCase();
+    return haystack.includes(normalQuery);
+  };
+  const searchResults = normalQuery
+    ? shelves.flatMap((shelf) => shelf.books.filter(matchesQuery).map((book) => ({ book, shelfName: shelf.name })))
+    : [];
+  const selectSearchResult = (bookId) => {
+    if (onSelectBook(bookId) !== false) onQuery("");
+  };
+
   return (
     <aside className={classes("bid-sidebar", collapsed && "is-collapsed")}>
       <div className="bid-brand">
@@ -287,12 +278,35 @@ function Sidebar({
         <>
           <div className="bid-sidebar-actions">
             <button type="button" onClick={onNewBook}><Plus size={15} /> 新书</button>
-            <button type="button" onClick={onNewShelf}><FolderPlus size={15} /> 书架</button>
+            <button type="button" onClick={onManageShelves}><FolderPlus size={15} /> 管理书架</button>
           </div>
-          <label className="bid-search">
-            <Search size={14} />
-            <input value={query} onChange={(event) => onQuery(event.target.value)} placeholder="搜索书名 / 作者 / 标签" />
-          </label>
+          <div className="bid-search-area">
+            <div className="bid-search">
+              <Search size={14} />
+              <input value={query} onChange={(event) => onQuery(event.target.value)} placeholder="搜索书名 / 作者 / 标签" />
+              {query && (
+                <button type="button" className="bid-search-clear" onClick={() => onQuery("")} aria-label="清除搜索">
+                  <X size={15} strokeWidth={2.3} />
+                </button>
+              )}
+            </div>
+            {normalQuery && (
+              <div className="bid-search-results" aria-label="搜索结果">
+                <p className="bid-search-results-label">
+                  {searchResults.length ? `找到 ${searchResults.length} 本书` : "没有找到匹配的书"}
+                </p>
+                {searchResults.map(({ book, shelfName }) => (
+                  <button type="button" key={book.id} className="bid-search-result" onClick={() => selectSearchResult(book.id)}>
+                    <BookMarked size={14} />
+                    <span>
+                      <strong>{book.title}</strong>
+                      <small>{[book.author, shelfName].filter(Boolean).join(" · ")}</small>
+                    </span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
         </>
       )}
 
@@ -306,7 +320,7 @@ function Sidebar({
             return (shelf.group || "pre") === groupKey;
           });
           if (shelvesInGroup.length === 0) return null;
-          const meta = SHELF_GROUP_META[groupKey];
+          const meta = SHELF_GROUP_BY_ID[groupKey];
           return (
             <div key={groupKey} className={classes("bid-shelf-group", `bid-shelf-group-${groupKey}`)}>
               {!collapsed && (
@@ -315,11 +329,7 @@ function Sidebar({
                 </div>
               )}
               {shelvesInGroup.map((shelf) => {
-                const filtered = shelf.books.filter((book) => {
-                  if (!normalQuery) return true;
-                  const haystack = `${book.title} ${book.author} ${(book.tags || []).join(" ")} ${book.excerpt || ""}`.toLowerCase();
-                  return haystack.includes(normalQuery);
-                });
+                const filtered = shelf.books.filter(matchesQuery);
                 const open = openShelves.has(shelf.id);
                 return (
                   <section key={shelf.id} className={classes("bid-shelf", `bid-shelf-${shelf.id}`, `bid-shelf-g-${groupKey}`)}>
@@ -356,12 +366,6 @@ function Sidebar({
                             )}
                           </button>
                         ))}
-                        {shelf.id !== "_unfiled" && !SYSTEM_SHELF_IDS.has(shelf.id) && (
-                          <div className="bid-shelf-tools">
-                            <button type="button" onClick={() => onRenameShelf(shelf)}>重命名</button>
-                            <button type="button" onClick={() => onDeleteShelf(shelf)}>删除</button>
-                          </div>
-                        )}
                       </div>
                     )}
                   </section>
@@ -385,20 +389,6 @@ function findShelf(shelves, shelfId) {
 }
 
 function WorkflowStepper({ book, shelves, onPatch }) {
-  const [menuOpen, setMenuOpen] = useState(false);
-  const menuRef = useRef(null);
-
-  useEffect(() => {
-    if (!menuOpen) return undefined;
-    const onDocClick = (event) => {
-      if (menuRef.current && !menuRef.current.contains(event.target)) {
-        setMenuOpen(false);
-      }
-    };
-    window.addEventListener("mousedown", onDocClick);
-    return () => window.removeEventListener("mousedown", onDocClick);
-  }, [menuOpen]);
-
   if (!book) return null;
 
   const currentShelf = findShelf(shelves, book.shelfId);
@@ -417,14 +407,19 @@ function WorkflowStepper({ book, shelves, onPatch }) {
     { key: "finished", label: "已读" },
   ];
 
-  const moveTo = (shelfId) => {
-    setMenuOpen(false);
-    onPatch({ shelfId });
-  };
-
-  const postShelves = shelves.filter((s) => s.group === "post" && s.id !== "_unfiled");
-  const isFavorite = book.shelfId === "collection";
-  const canClassify = currentGroup === "finished" || currentGroup === "post";
+  const moveTo = (shelfId) => onPatch({ shelfId });
+  const movableShelves = shelvesForMoving(shelves);
+  const nextShelf = nextDefaultShelf
+    ? movableShelves.find((shelf) => shelf.id === nextDefaultShelf)
+      || movableShelves.find((shelf) => shelf.group === (currentGroup === "pre" ? "reading" : "finished"))
+      || movableShelves[0]
+    : null;
+  const favoriteShelf = movableShelves.find((shelf) => shelf.id === "collection")
+    || movableShelves.find((shelf) => shelf.group === "post");
+  const readShelf = movableShelves.find((shelf) => shelf.id === "read")
+    || movableShelves.find((shelf) => shelf.group === "finished")
+    || movableShelves[0];
+  const isFavorite = favoriteShelf && book.shelfId === favoriteShelf.id;
 
   return (
     <section className="bid-workflow">
@@ -453,65 +448,32 @@ function WorkflowStepper({ book, shelves, onPatch }) {
         })}
       </ol>
       <div className="bid-workflow-actions">
-        {nextDefaultShelf && nextButtonLabel && (
+        {nextShelf && nextButtonLabel && (
           <button
             type="button"
             className="bid-workflow-next"
-            onClick={() => moveTo(nextDefaultShelf)}
-            title={`移到「${nextButtonLabel === "开始读" ? "在读" : "已读"}」`}
+            onClick={() => moveTo(nextShelf.id)}
+            title={`移到「${nextShelf.name}」`}
           >
             {nextButtonLabel} <ChevronRight size={14} />
           </button>
         )}
-        {canClassify && (
-          <div className="bid-workflow-menu" ref={menuRef}>
-            <button
-              type="button"
-              className={classes("bid-workflow-classify", currentGroup === "post" && "is-classified")}
-              onClick={() => setMenuOpen((v) => !v)}
-              title="把这本书归到一个收藏类"
-            >
-              <FolderOpen size={14} />
-              {currentGroup === "post" && currentShelf ? currentShelf.name : "归类…"}
-              <ChevronDown size={13} />
-            </button>
-            {menuOpen && (
-              <div className="bid-workflow-menu-pop" role="menu">
-                {currentGroup === "post" && (
-                  <button
-                    type="button"
-                    className="bid-workflow-menu-item is-revert"
-                    onClick={() => moveTo("read")}
-                  >
-                    ← 移回「已读」
-                  </button>
-                )}
-                {postShelves.map((shelf) => (
-                  <button
-                    type="button"
-                    key={shelf.id}
-                    className={classes(
-                      "bid-workflow-menu-item",
-                      shelf.id === book.shelfId && "is-active",
-                    )}
-                    onClick={() => moveTo(shelf.id)}
-                  >
-                    {shelf.name}
-                  </button>
-                ))}
-              </div>
-            )}
-          </div>
-        )}
-        <button
+        <label className="bid-workflow-shelf-select" title="可随时移动到任意书架">
+          <FolderOpen size={14} />
+          <span>所在书架</span>
+          <select value={book.shelfId} onChange={(event) => moveTo(event.target.value)}>
+            {movableShelves.map((shelf) => <option key={shelf.id} value={shelf.id}>{shelfLabel(shelf)}</option>)}
+          </select>
+        </label>
+        {favoriteShelf && readShelf && <button
           type="button"
           className={classes("bid-workflow-fav", isFavorite && "is-on")}
-          onClick={() => moveTo(isFavorite ? "read" : DEFAULT_POST_SHELF)}
-          title={isFavorite ? "从「收藏」移回「已读」" : "一键加入「收藏」"}
+          onClick={() => moveTo(isFavorite ? readShelf.id : favoriteShelf.id)}
+          title={isFavorite ? `从「${favoriteShelf.name}」移到「${readShelf.name}」` : `一键加入「${favoriteShelf.name}」`}
         >
           <Heart size={14} fill={isFavorite ? "currentColor" : "none"} />
           {isFavorite ? "已收藏" : "加入收藏"}
-        </button>
+        </button>}
       </div>
     </section>
   );
@@ -699,7 +661,7 @@ export default function BookInDepthApp() {
   const [error, setError] = useState("");
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [showNewBookModal, setShowNewBookModal] = useState(false);
-  const [showNewShelfModal, setShowNewShelfModal] = useState(false);
+  const [showShelfManager, setShowShelfManager] = useState(false);
   const textareaRef = useRef(null);
   const readerRef = useRef(null);
 
@@ -758,12 +720,13 @@ export default function BookInDepthApp() {
   }, [tabDraft, mode, activeTab, book?.id]);
 
   const handleSelectBook = (bookId) => {
-    if (dirty && !window.confirm("当前 Tab 还没保存，要切走吗？")) return;
+    if (dirty && !window.confirm("当前 Tab 还没保存，要切走吗？")) return false;
     setActiveBookId(bookId);
+    return true;
   };
 
   const handleNewBook = () => setShowNewBookModal(true);
-  const handleNewShelf = () => setShowNewShelfModal(true);
+  const handleNewShelf = () => setShowShelfManager(true);
 
   const createNewBook = async (payload) => {
     setShowNewBookModal(false);
@@ -775,23 +738,19 @@ export default function BookInDepthApp() {
   };
 
   const createNewShelf = async ({ name, group }) => {
-    setShowNewShelfModal(false);
     const shelf = await createShelf({ name, group });
     setOpenShelves((current) => new Set([...current, shelf.id]));
     await loadLibrary();
     setStatus(`新建书架「${shelf.name}」`);
   };
 
-  const handleRenameShelf = async (shelf) => {
-    const name = window.prompt("重命名书架：", shelf.name);
-    if (!name || name === shelf.name) return;
-    await updateShelf(shelf.id, { name });
+  const handleUpdateShelf = async (shelf, patch) => {
+    await updateShelf(shelf.id, patch);
     await loadLibrary();
   };
 
-  const handleDeleteShelf = async (shelf) => {
-    if (!window.confirm(`删除书架「${shelf.name}」？里面的书会被移到第一个书架，不会丢。`)) return;
-    await deleteShelf(shelf.id);
+  const handleDeleteShelf = async (shelf, moveTo) => {
+    await deleteShelf(shelf.id, moveTo);
     await loadLibrary();
   };
 
@@ -878,9 +837,7 @@ export default function BookInDepthApp() {
         })}
         onSelectBook={handleSelectBook}
         onNewBook={handleNewBook}
-        onNewShelf={handleNewShelf}
-        onRenameShelf={handleRenameShelf}
-        onDeleteShelf={handleDeleteShelf}
+        onManageShelves={handleNewShelf}
         onQuery={setQuery}
       />
 
@@ -1020,12 +977,14 @@ export default function BookInDepthApp() {
         />
       </Modal>
 
-      <Modal open={showNewShelfModal} title="新建书架" onClose={() => setShowNewShelfModal(false)}>
-        <NewShelfForm
-          onSubmit={createNewShelf}
-          onCancel={() => setShowNewShelfModal(false)}
+      <ShelfManagerDialog open={showShelfManager} onClose={() => setShowShelfManager(false)}>
+        <ShelfManager
+          shelves={library.shelves}
+          onCreate={createNewShelf}
+          onUpdate={handleUpdateShelf}
+          onDelete={handleDeleteShelf}
         />
-      </Modal>
+      </ShelfManagerDialog>
     </div>
   );
 }
