@@ -38,8 +38,39 @@ function buildChinaLinks(company) {
   ]
 }
 
+function buildInternationalLinks(company) {
+  const companySearch = encodeURIComponent(`${company.name} annual report investor relations`)
+  const wiki = encodeURIComponent(`${company.name} company`)
+  const isEurope = company.market === 'eu'
+  const exchangeHub = isEurope
+    ? 'https://live.euronext.com/en/markets/equities'
+    : 'https://www.jpx.co.jp/english/listing/stocks/index.html'
+  const secondaryExchangeHub = isEurope
+    ? 'https://www.londonstockexchange.com/news?tab=news-explorer'
+    : 'https://www.sgx.com/securities/company-announcements'
+  const regulatorHub = isEurope
+    ? 'https://registers.esma.europa.eu/publication/'
+    : 'https://www.asx.com.au/markets/trade-our-cash-market/announcements'
+
+  return [
+    { group: '一手资料', label: '公司官网', note: '产品、业务与新闻中心', href: company.website },
+    { group: '一手资料', label: '投资者关系', note: '年报、业绩材料与公告', href: company.ir || `https://www.google.com/search?q=${companySearch}` },
+    { group: '监管披露', label: '公司年报与公告', note: '优先读取公司法定披露原文', href: company.ir || `https://www.google.com/search?q=${companySearch}` },
+    { group: '监管披露', label: isEurope ? '欧洲交易所公告' : '亚洲交易所公告', note: '交易所公告与市场披露入口', href: company.exchangeUrl || exchangeHub },
+    { group: '监管披露', label: isEurope ? '伦敦交易所 RNS' : '新交所公告', note: '区域重要公告检索入口', href: secondaryExchangeHub },
+    { group: '监管披露', label: isEurope ? 'ESMA 披露库' : 'ASX 公告中心', note: '跨市场监管与公告检索入口', href: regulatorHub },
+    { group: '背景资料', label: 'Wikipedia', note: '公司沿革与业务全景', href: `https://en.wikipedia.org/wiki/Special:Search?search=${wiki}` },
+    { group: '市场数据', label: 'Google Finance', note: '报价、估值与同业对照', href: `https://www.google.com/finance/?q=${encodeURIComponent(company.name)}` },
+    { group: '市场数据', label: 'Yahoo Finance', note: '财务历史与业绩日历', href: `https://finance.yahoo.com/lookup?s=${encodeURIComponent(company.name)}` },
+    { group: '市场数据', label: 'TradingView', note: '价格、图形与财报事件', href: `https://www.tradingview.com/symbols/${encodeURIComponent(company.ticker)}/` },
+    { group: '市场数据', label: 'MarketScreener', note: '国际市场数据与公告摘要', href: `https://www.marketscreener.com/search/?q=${encodeURIComponent(company.name)}` },
+    { group: '深读入口', label: '业绩会与演示材料', note: '从管理层原话建立判断', href: company.ir || `https://www.google.com/search?q=${companySearch}` },
+  ]
+}
+
 function buildLinks(company) {
   if (company.market === 'cn') return buildChinaLinks(company)
+  if (company.market === 'eu' || company.market === 'asia') return buildInternationalLinks(company)
   const ticker = company.secTicker || company.ticker
   const financeSymbol = company.financeSymbol || `${company.exchange || 'NASDAQ'}:${company.ticker}`
   const yahooSymbol = company.yahooSymbol || company.ticker
@@ -81,7 +112,9 @@ function enrichCompany(company, position) {
     { label: '管理层验证', title: '话术如何落到行动', text: `检查管理层是否把资源投向“${company.focus}”，以及资本配置是否符合“${allocationText}”。业绩会承诺应被后续订单、利润率、现金流和回购/并购行为逐项验证。` },
     { label: '研究动作', title: '下一步应读什么', text: company.market === 'cn'
       ? `先读最近三年年报中的业务、风险因素与管理层讨论；再用定期报告、交易所公告和业绩会材料交叉验证“${company.growth}”是否已体现在订单、价格、成本或现金流中。`
-      : `先读 10-K 的业务、风险因素与 MD&A；再用最近两份 10-Q 和 8-K 交叉验证“${company.growth}”是否已体现在订单、价格、成本或现金流中。` },
+      : company.market === 'eu' || company.market === 'asia'
+        ? `先读最近三年年报中的业务、风险因素与管理层讨论；再用公司 IR、主要上市地交易所公告和业绩会材料交叉验证“${company.growth}”是否已体现在订单、价格、成本或现金流中。`
+        : `先读 10-K 的业务、风险因素与 MD&A；再用最近两份 10-Q 和 8-K 交叉验证“${company.growth}”是否已体现在订单、价格、成本或现金流中。` },
   ]
 
   return {
@@ -380,6 +413,252 @@ const chinaExpansionRecords = {
     ['600115', '中国东航', '大型航空公司', '国际航线与收益管理', 'https://www.ceair.com/', 'https://www.ceair.com/', '经营国内外客货运，航线结构、收益管理、油价和汇率决定周期利润。', '油价、汇率、运力、竞争和负债。', '出行修复'],
     ['601021', '春秋航空', '低成本航空公司', '低成本网络与机队效率', 'https://www.ch.com/', 'https://www.ch.com/', '以低成本模式运营国内外航线，单位成本、客座率和航线投放决定竞争优势。', '油价、航权、运力、汇率和竞争。', '效率航空'],
     ['002120', '韵达股份', '快递网络运营商', '单票成本与服务质量', 'https://www.yundaex.com/', 'https://www.yundaex.com/', '经营全国快递网络，件量、单票价格、分拨效率和直营网点质量影响盈利。', '价格战、单票成本、加盟商和需求。', '网络运营'],
+  ],
+}
+
+const europeRecords = {
+  semis: [
+    ['ASML', 'ASML', '先进光刻设备商', 'EUV 与 High-NA', 'https://www.asml.com/', 'https://www.asml.com/en/investors', '提供先进制程所需的光刻系统，是全球芯片制造设备链最关键的瓶颈环节之一。', '客户资本开支、出口限制、交付节奏与供应链。', '稀缺设备'],
+    ['ASM', 'ASM International', '原子层沉积设备商', '先进沉积工艺', 'https://www.asm.com/', 'https://www.asm.com/investors/', '提供原子层沉积等半导体设备，受益于晶体管结构复杂化和先进制程投资。', '晶圆厂 CapEx、客户集中、订单波动与技术迭代。', '工艺设备'],
+    ['BESI', 'BE Semiconductor Industries', '先进封装设备商', '混合键合与封装', 'https://www.besi.com/', 'https://www.besi.com/investor-relations/', '提供芯片贴装和先进封装设备，混合键合渗透将决定长期增长斜率。', '封装投资周期、订单确认、客户 CapEx 与高估值。', '先进封装'],
+    ['STM', 'STMicroelectronics', '模拟与功率半导体商', '汽车与工业芯片', 'https://www.st.com/', 'https://investors.st.com/', '提供 MCU、功率和传感器芯片，汽车电动化与工业自动化是核心终端。', '库存调整、汽车需求、价格竞争与产能利用率。', '汽车芯片'],
+    ['IFX', 'Infineon', '功率与汽车芯片商', 'SiC 与汽车电子', 'https://www.infineon.com/', 'https://www.infineon.com/cms/en/about-infineon/investor/', '聚焦功率、微控制器和安全芯片，碳化硅与汽车电子构成重要增长方向。', '汽车周期、SiC 供需、价格和库存。', '功率平台'],
+    ['AIXA', 'Aixtron', '化合物半导体设备商', 'SiC/GaN 设备', 'https://www.aixtron.com/', 'https://www.aixtron.com/en/investors/', '提供用于 SiC、GaN 和光电器件的沉积设备，终端需求来自电动化和数据通信。', '订单波动、客户扩产、技术路线与出口限制。', '化合物设备'],
+  ],
+  cloud: [
+    ['SAP', 'SAP', '企业资源管理软件商', '云迁移与 S/4HANA', 'https://www.sap.com/', 'https://www.sap.com/investors/en.html', '提供 ERP、供应链、人力与业务流程软件，存量客户上云与订阅化驱动结构升级。', '迁移进度、实施复杂度、云利润率和竞争。', '全球企业软件'],
+    ['DSY', 'Dassault Systèmes', '工业软件平台', '数字孪生与 PLM', 'https://www.3ds.com/', 'https://investor.3ds.com/', '通过设计、仿真和产品生命周期管理软件服务制造、生命科学和基础设施客户。', '工业预算、软件续费、并购整合和汇率。', '工业软件'],
+    ['SGE', 'Sage Group', '中小企业财务软件商', '云订阅渗透', 'https://www.sage.com/', 'https://www.sage.com/en-gb/company/investors/', '提供会计、薪资和业务管理云软件，续费与客户上云支持经常性收入。', '中小企业需求、获客成本、竞争与迁移执行。', '订阅防御'],
+    ['HEXA-B', 'Hexagon', '工业测量与数字现实软件商', '测量软件与自动化', 'https://hexagon.com/', 'https://hexagon.com/company/investors', '提供测量、定位和数字现实软件，帮助工业客户提升设计、制造和运营效率。', '工业周期、产品整合、软件渗透和汇率。', '数字工业'],
+    ['NEM', 'Nemetschek', '建筑设计软件商', 'AEC 云化', 'https://www.nemetschek.com/', 'https://ir.nemetschek.com/', '提供建筑设计、工程和施工软件，行业数字化和云化提升订阅化空间。', '建筑周期、云转型、竞争和估值。', '垂直软件'],
+    ['TEMN', 'Temenos', '银行核心系统软件商', '银行上云与现代化', 'https://www.temenos.com/', 'https://investors.temenos.com/', '向银行提供核心账务、支付和数字化软件，客户迁移周期长但切换成本高。', '大项目执行、客户预算、治理与竞争。', '金融 IT'],
+  ],
+  digital: [
+    ['SPOT', 'Spotify', '音频流媒体平台', '订阅与广告', 'https://www.spotify.com/', 'https://investors.spotify.com/', '以音乐、播客和有声书连接全球用户，订阅、广告和内容效率决定长期盈利。', '版权成本、竞争、用户留存与广告周期。', '音频平台'],
+    ['PRX', 'Prosus', '互联网投资与电商平台', '全球平台资产与资本配置', 'https://www.prosus.com/', 'https://www.prosus.com/investors.html', '持有并运营多项电商、分类信息和支付平台资产，价值取决于被投企业经营与资本配置。', '资产折价、投资退出、监管与执行。', '平台投资'],
+    ['DHER', 'Delivery Hero', '本地配送平台', '配送盈利与市场份额', 'https://www.deliveryhero.com/', 'https://ir.deliveryhero.com/', '连接消费者、商户和骑手，业务覆盖即时配送与本地电商，重点在单位经济和现金流。', '补贴竞争、监管、劳动力与地区经营风险。', '高频配送'],
+    ['AUTO', 'Auto Trader Group', '汽车交易信息平台', '广告定价与经销商工具', 'https://www.autotrader.co.uk/', 'https://plc.autotrader.co.uk/investors/', '以汽车分类信息、经销商工具和数据服务连接买卖双方，网络效应支撑定价。', '汽车交易量、经销商预算、竞争与监管。', '信息平台'],
+    ['UBI', 'Ubisoft', '互动娱乐内容商', '核心 IP 与内容管线', 'https://www.ubisoft.com/', 'https://www.ubisoft.com/en-us/company/investors', '开发和运营全球游戏 IP，产品按期交付、在线服务与内容投资回报是关键。', '延期、开发成本、用户口味与竞争。', '内容周期'],
+    ['UMG', 'Universal Music Group', '音乐版权与娱乐集团', '订阅流媒体与版权价值', 'https://www.universalmusic.com/', 'https://investors.universalmusic.com/', '拥有广泛音乐版权与艺人资源，流媒体订阅和版权授权带来长期变现。', '平台议价、版权成本、艺人竞争与广告周期。', '版权资产'],
+  ],
+  finance: [
+    ['HSBA', 'HSBC', '国际银行集团', '亚洲财富与跨境金融', 'https://www.hsbc.com/', 'https://www.hsbc.com/investors.html', '覆盖零售、商业、投行和财富管理，跨境网络与亚洲客户基础是其核心特色。', '利率、信贷、地缘、监管资本与重组。', '跨境银行'],
+    ['UBSG', 'UBS Group', '全球财富管理机构', '高净值资产与整合', 'https://www.ubs.com/', 'https://www.ubs.com/global/en/investor-relations.html', '以财富管理为核心并提供投行与资产管理服务，客户资产流入和成本协同决定回报。', '市场回撤、整合、监管资本与投行周期。', '财富平台'],
+    ['ALV', 'Allianz', '保险与资产管理集团', '承保利润与资产管理', 'https://www.allianz.com/', 'https://www.allianz.com/en/investor_relations.html', '经营财险、寿险、健康险和资产管理，定价纪律与投资收益共同驱动盈利。', '灾害损失、利率、市场波动与监管。', '保险复利'],
+    ['SAN-MC', 'Banco Santander', '国际零售银行', '存款与区域组合', 'https://www.santander.com/', 'https://www.santander.com/en/shareholders-and-investors', '通过欧洲与美洲零售银行、消费金融和企业服务实现多地区收入组合。', '信贷损失、利率、汇率、资本与区域风险。', '区域分散'],
+    ['LSEG', 'London Stock Exchange Group', '金融市场基础设施商', '数据与交易平台', 'https://www.lseg.com/', 'https://www.lseg.com/en/investor-relations', '提供交易所、清算、指数和金融数据服务，数据订阅扩大经常性收入。', '监管、整合、数据竞争与资本市场活跃度。', '数据基础设施'],
+    ['ADYEN', 'Adyen', '全球支付平台', '企业支付与国际扩张', 'https://www.adyen.com/', 'https://investors.adyen.com/', '向大型商户提供收单、发卡和支付数据平台，统一技术栈支撑跨境扩张。', '费率竞争、客户集中、交易量和监管。', '支付网络'],
+  ],
+  consumer: [
+    ['NESN', 'Nestlé', '全球食品饮料集团', '品牌组合与定价', 'https://www.nestle.com/', 'https://www.nestle.com/investors', '经营咖啡、宠物食品、营养和大众食品，品牌、渠道和产品组合支撑全球现金流。', '原料成本、消费降级、汇率和执行。', '全球消费'],
+    ['ULVR', 'Unilever', '家庭与个人护理集团', '品牌效率与新兴市场', 'https://www.unilever.com/', 'https://www.unilever.com/investors/', '以个人护理、家庭清洁和食品品牌覆盖高频消费，新兴市场和定价影响增长。', '原料、汇率、渠道与组织调整。', '防御品牌'],
+    ['OR', 'L’Oréal', '美妆品牌集团', '高端化与数字渠道', 'https://www.loreal.com/', 'https://www.loreal-finance.com/', '拥有多层级美妆品牌组合，产品创新、渠道数字化和全球化支撑长期增长。', '消费疲软、渠道变化、竞争和汇率。', '品牌龙头'],
+    ['DGE', 'Diageo', '高端酒类集团', '品牌定价与高端消费', 'https://www.diageo.com/', 'https://www.diageo.com/en/investors', '经营烈酒和啤酒品牌，全球分销、品牌力和高端化决定利润弹性。', '消费降级、库存、监管税负和汇率。', '高端消费'],
+    ['AD', 'Ahold Delhaize', '食品零售集团', '自有品牌与全渠道', 'https://www.aholddelhaize.com/', 'https://www.aholddelhaize.com/en/investors/', '运营欧洲和美国食品零售网络，自有品牌、供应链和数字履约影响盈利质量。', '食品通胀、劳动力、价格竞争与监管。', '零售防御'],
+    ['CA', 'Carrefour', '综合零售集团', '门店优化与数字化', 'https://www.carrefour.com/', 'https://www.carrefour.com/en/finance', '经营大型卖场、便利店和电商业务，资产处置、成本效率和区域组合决定修复空间。', '消费、竞争、劳动力和执行。', '转型零售'],
+  ],
+  discretionary: [
+    ['MC', 'LVMH', '奢侈品集团', '品牌矩阵与全球高端消费', 'https://www.lvmh.com/', 'https://www.lvmh.com/investors/', '覆盖时装皮具、珠宝、酒类和零售，稀缺品牌与直营网络支撑定价权。', '中国以外需求、汇率、旅游零售与品牌投入。', '奢侈品龙头'],
+    ['ITX', 'Inditex', '快时尚零售集团', '供应链速度与全渠道', 'https://www.inditex.com/', 'https://www.inditex.com/itxcomweb/en/shareholders-and-investors', '以 Zara 等品牌经营全球服装零售，快速供应链与门店网络提升库存效率。', '消费需求、库存、汇率和竞争。', '零售效率'],
+    ['RACE', 'Ferrari', '豪华跑车制造商', '稀缺供给与品牌定价', 'https://www.ferrari.com/', 'https://corporate.ferrari.com/en/investors', '以限量跑车、个性化和授权业务服务高端客户，供给纪律和品牌稀缺性最重要。', '全球高端消费、车型周期、监管与估值。', '稀缺品牌'],
+    ['RYA', 'Ryanair', '低成本航空公司', '单位成本与运力扩张', 'https://www.ryanair.com/', 'https://investor.ryanair.com/', '以低成本模式服务欧洲短途出行，机队效率、票价和机场网络决定竞争力。', '油价、罢工、运力、飞机交付与监管。', '效率航空'],
+    ['AC', 'Accor', '酒店管理与加盟集团', '轻资产客房增长', 'https://group.accor.com/', 'https://group.accor.com/en/finance', '通过品牌、会员和管理加盟网络覆盖全球住宿市场，客房增长与费用收入为核心。', '旅游周期、酒店供给、加盟商质量和汇率。', '轻资产酒店'],
+    ['CPG', 'Compass Group', '团餐与餐饮服务商', '外包渗透与运营效率', 'https://www.compass-group.com/', 'https://www.compass-group.com/en/investors.html', '向企业、学校、医疗和体育场馆提供餐饮服务，合同续约与成本管理决定利润率。', '食品和人工成本、合同流失与宏观需求。', '服务外包'],
+  ],
+  health: [
+    ['NOVO-B', 'Novo Nordisk', '代谢疾病药企', 'GLP-1 供给与适应症扩展', 'https://www.novonordisk.com/', 'https://www.novonordisk.com/investors.html', '聚焦糖尿病和肥胖症治疗，产能、临床数据和医保覆盖决定长期增长。', '供给、竞争、定价、报销与临床数据。', '代谢药龙头'],
+    ['ROG', 'Roche', '制药与诊断集团', '肿瘤管线与诊断平台', 'https://www.roche.com/', 'https://www.roche.com/investors', '拥有创新药与体外诊断双平台，临床管线和医院检测需求共同影响增长。', '专利到期、临床风险、价格与诊断需求。', '双平台'],
+    ['AZN', 'AstraZeneca', '创新制药公司', '肿瘤与罕见病管线', 'https://www.astrazeneca.com/', 'https://www.astrazeneca.com/investor-relations.html', '以肿瘤、心肾代谢和罕见病药物驱动增长，研发与商业化能力是价值核心。', '临床结果、定价、专利和并购整合。', '管线成长'],
+    ['SAN-PA', 'Sanofi', '疫苗与免疫药企', 'Dupixent 与管线扩展', 'https://www.sanofi.com/', 'https://www.sanofi.com/en/investors', '覆盖免疫、疫苗、罕见病和普药，核心产品放量和研发效率决定重估。', '产品集中、临床、定价与政策。', '组合升级'],
+    ['NOVN', 'Novartis', '创新制药公司', '专科药与资本回报', 'https://www.novartis.com/', 'https://www.novartis.com/investors', '聚焦创新药和高价值专科治疗，产品组合更新和研发回报影响每股价值。', '专利、临床、定价和并购。', '现金流药企'],
+    ['BAYN', 'Bayer', '医药与农业科技集团', '管线修复与资产重组', 'https://www.bayer.com/', 'https://www.bayer.com/en/investors', '覆盖处方药、消费者健康和农业科技，研究重点在于产品恢复、负债与诉讼风险。', '诉讼、债务、专利、农业周期和重组。', '高风险修复'],
+  ],
+  medtech: [
+    ['SHL', 'Siemens Healthineers', '医学影像与诊断设备商', '影像升级与诊断', 'https://www.siemens-healthineers.com/', 'https://www.siemens-healthineers.com/investor-relations', '提供影像、实验室诊断和放疗设备，装机基础、服务收入和医院投资是关键。', '医院 CapEx、汇率、供应链和整合。', '影像龙头'],
+    ['STMN', 'Straumann', '牙科种植与正畸器械商', '高端牙科渗透', 'https://www.straumann-group.com/', 'https://www.straumann-group.com/en/investors.html', '提供种植牙、正畸和数字牙科解决方案，医生网络与临床品牌构成壁垒。', '可选医疗需求、竞争、渠道和汇率。', '牙科龙头'],
+    ['AFX', 'Carl Zeiss Meditec', '眼科与显微外科设备商', '眼科设备与耗材', 'https://www.zeiss.com/meditec/', 'https://www.zeiss.com/meditec/en/investor-relations.html', '提供眼科诊疗和显微外科设备，技术创新、装机与服务影响长期回报。', '医院预算、产品周期、竞争和中国需求。', '高端器械'],
+    ['SN', 'Smith+Nephew', '骨科与运动医学器械商', '关节重建与机器人辅助手术', 'https://www.smith-nephew.com/', 'https://www.smith-nephew.com/investors/', '覆盖骨科、运动医学和伤口管理，临床渠道与产品组合升级是主要变量。', '医院手术量、竞争、产品执行和汇率。', '外科耗材'],
+    ['GETI-B', 'Getinge', '重症医疗设备商', '感染控制与生命支持', 'https://www.getinge.com/', 'https://www.getinge.com/int/investors/', '提供重症医疗、手术流程和灭菌解决方案，医院长期资本预算决定订单。', '质量合规、医院采购、供应链和汇率。', '医院设备'],
+    ['DIM', 'Sartorius Stedim Biotech', '生物制药工艺工具商', '生物药产能与耗材', 'https://www.sartorius.com/', 'https://www.sartorius.com/en/company/investor-relations', '提供生物药生产所需的过滤、一次性耗材和工艺工具，行业库存与产能投资影响明显。', '去库存、客户 CapEx、竞争和估值。', '生命科学工具'],
+  ],
+  energy: [
+    ['SHEL', 'Shell', '综合能源集团', '油气现金流与低碳转型', 'https://www.shell.com/', 'https://www.shell.com/investors.html', '覆盖上游、LNG、炼化、营销和低碳业务，资本配置与项目回报是关键。', '油气价格、项目执行、政策与转型投资。', '综合能源'],
+    ['TTE', 'TotalEnergies', '综合能源集团', 'LNG 与电力组合', 'https://totalenergies.com/', 'https://totalenergies.com/investors', '经营油气、LNG、炼化和电力资产，资源组合与低碳项目回报共同影响现金流。', '商品价格、项目、地缘和转型资本开支。', '多元能源'],
+    ['BP', 'BP', '综合能源公司', '资本纪律与转型组合', 'https://www.bp.com/', 'https://www.bp.com/en/global/corporate/investors.html', '覆盖油气、炼化、贸易和低碳业务，去杠杆、股东回报与战略执行是重点。', '油气价格、项目、政策、事故与资本配置。', '现金流修复'],
+    ['ENEL', 'Enel', '电力公用事业集团', '电网投资与可再生能源', 'https://www.enel.com/', 'https://www.enel.com/investors.html', '运营受监管电网和可再生能源资产，资产轮动、负债与允许回报决定价值。', '利率、监管、项目执行与负债。', '公用事业'],
+    ['IBE', 'Iberdrola', '电网与可再生能源运营商', '受监管网络与风光项目', 'https://www.iberdrola.com/', 'https://www.iberdrola.com/shareholders-investors', '以输配电网络和可再生能源资产为核心，长期合同和监管回报支撑增长。', '利率、监管、项目成本和天气。', '电网资产'],
+    ['ORSTED', 'Ørsted', '海上风电开发商', '项目重估与资产处置', 'https://orsted.com/', 'https://orsted.com/en/investors', '开发和运营海上风电及可再生能源项目，项目回报、融资和供应链是经营核心。', '利率、项目取消、供应链、政策和资产减值。', '高风险转型'],
+  ],
+  industrial: [
+    ['SIE', 'Siemens', '工业自动化与基础设施集团', '自动化软件与电网', 'https://www.siemens.com/', 'https://www.siemens.com/global/en/company/investor-relations.html', '提供工业自动化、数字化软件、智能基础设施和交通技术，软件与服务提升业务质量。', '制造业周期、订单、项目执行与汇率。', '工业平台'],
+    ['SU', 'Schneider Electric', '电气化与自动化公司', '电网效率与数据中心', 'https://www.se.com/', 'https://www.se.com/ww/en/about-us/investor-relations/', '提供配电、自动化和能源管理产品，电气化、数据中心和能效投资带来增长。', '工业需求、供应链、竞争和估值。', '电气化龙头'],
+    ['ABBN', 'ABB', '电气化与机器人集团', '自动化与运动控制', 'https://global.abb/', 'https://global.abb/group/en/investors', '提供电气化、传动、自动化和机器人产品，服务工业、建筑和基础设施客户。', '工业周期、订单、项目与汇率。', '自动化龙头'],
+    ['ATCO-A', 'Atlas Copco', '工业设备与真空技术商', '服务收入与高端设备', 'https://www.atlascopcogroup.com/', 'https://www.atlascopcogroup.com/en/investors', '提供压缩机、真空、工业工具和服务，装机基础与售后收入提升韧性。', '工业 CapEx、订单、汇率和收购整合。', '高质量工业'],
+    ['SAF', 'Safran', '航空航天发动机与设备商', '发动机售后与交付', 'https://www.safran-group.com/', 'https://www.safran-group.com/investors', '提供航空发动机、起落架和航空设备，飞行小时和交付提升高利润售后业务。', '航空供应链、交付、质量和汇率。', '航空售后'],
+    ['DG', 'Vinci', '基础设施与特许经营集团', '收费公路与机场网络', 'https://www.vinci.com/', 'https://www.vinci.com/vinci.nsf/en/investors.htm', '覆盖特许经营、能源服务和建筑，长期资产合同与项目执行共同决定现金流。', '交通量、利率、项目风险与并购。', '基础设施'],
+  ],
+  cyber: [
+    ['HO', 'Thales', '国防与网络安全集团', '关键基础设施安全', 'https://www.thalesgroup.com/', 'https://www.thalesgroup.com/en/investor', '提供国防电子、身份安全和网络安全产品，政府与关键行业客户形成深厚壁垒。', '预算、项目执行、出口和整合。', '关键安全'],
+    ['CAP', 'Capgemini', 'IT 服务与网络安全商', '企业转型与安全服务', 'https://www.capgemini.com/', 'https://investors.capgemini.com/', '提供云、数据、工程和网络安全服务，客户数字化预算与人员利用率决定盈利。', 'IT 预算、人员成本、订单与汇率。', '服务平台'],
+    ['WITH', 'WithSecure', '企业网络安全服务商', '云原生安全订阅', 'https://www.withsecure.com/', 'https://www.withsecure.com/en/investors', '提供终端、云和托管安全服务，订阅化和合作伙伴渠道是增长重点。', '竞争、客户留存、转型成本和规模。', '安全订阅'],
+    ['NCC', 'NCC Group', '网络安全咨询与测试商', '渗透测试与托管服务', 'https://www.nccgroup.com/', 'https://www.nccgroupplc.com/investors/', '提供网络安全咨询、测试和托管服务，专家能力与客户信任构成核心资产。', '人才成本、项目周期、客户集中与竞争。', '安全服务'],
+    ['YSN', 'secunet Security Networks', '高保障网络安全商', '政府与关键行业安全', 'https://www.secunet.com/', 'https://www.secunet.com/en/company/investor-relations', '提供高保障 IT 安全、身份和云方案，政府与关键基础设施客户认证构成门槛。', '项目确认、政府预算、客户集中和人员成本。', '高保障安全'],
+    ['NOKIA', 'Nokia', '网络设备与数据基础设施商', '5G/6G 与云网络', 'https://www.nokia.com/', 'https://www.nokia.com/about-us/investors/', '提供移动网络、固定网络和云网络设备，运营商 CapEx 与技术份额决定增长。', '运营商预算、价格竞争、项目执行和地缘。', '通信基础设施'],
+  ],
+  defense: [
+    ['RHM', 'Rheinmetall', '陆战装备与军工电子商', '弹药与防空产能', 'https://www.rheinmetall.com/', 'https://www.rheinmetall.com/en/investor-relations', '提供军用车辆、弹药、防空和电子系统，订单积压和扩产决定中期增长。', '预算节奏、产能、供应链和估值。', '军工扩产'],
+    ['BA', 'BAE Systems', '国防系统与服务商', '电子战与长期项目', 'https://www.baesystems.com/', 'https://investors.baesystems.com/', '提供航空、海军、陆军和电子系统，长期项目与政府关系形成较高订单能见度。', '预算、项目执行、劳动力和出口。', '国防龙头'],
+    ['LDO', 'Leonardo', '航空航天与防务集团', '直升机与电子系统', 'https://www.leonardo.com/', 'https://www.leonardo.com/en/investors', '覆盖直升机、国防电子、航空与网络安全，订单和项目利润率是主要关注点。', '项目执行、政府预算、供应链和治理。', '欧洲防务'],
+    ['SAAB-B', 'Saab', '国防与安全系统商', '防空与传感器系统', 'https://www.saab.com/', 'https://www.saab.com/investors', '提供防空、雷达、潜艇和训练系统，技术认证和客户关系支持长期订单。', '订单兑现、产能、出口与项目风险。', '高端防务'],
+    ['HAG', 'Hensoldt', '防务传感器公司', '雷达与电子战', 'https://www.hensoldt.net/', 'https://investors.hensoldt.net/', '提供雷达、光电和电子战传感器，平台认证与积压订单是增长基础。', '预算、供应链、项目交付和客户集中。', '防务传感'],
+    ['KOG', 'Kongsberg Gruppen', '海事与防务技术集团', '导弹与海事自动化', 'https://www.kongsberg.com/', 'https://www.kongsberg.com/investor-relations/', '涵盖导弹、防务系统和海事技术，订单储备与出口市场带来增长。', '预算、项目执行、出口与产能。', '海事防务'],
+  ],
+  realestate: [
+    ['VNA', 'Vonovia', '德国住宅地产公司', '租金与资产负债表', 'https://www.vonovia.com/', 'https://www.vonovia.com/en/investors.html', '持有并运营大规模出租住宅组合，租金、融资成本和资产估值决定股东回报。', '利率、监管租金、资产减值和负债。', '住宅资产'],
+    ['SGRO', 'SEGRO', '物流地产 REIT', '仓储租金与开发', 'https://www.segro.com/', 'https://www.segro.com/investors', '在欧洲持有物流仓储和城市配送资产，电商与供应链重构支撑长期需求。', '利率、租金、开发成本与供给。', '物流地产'],
+    ['URW', 'Unibail-Rodamco-Westfield', '购物中心地产集团', '核心资产与去杠杆', 'https://www.urw.com/', 'https://www.urw.com/en/investors', '运营大型购物中心与商业资产，客流、租户销售和资产处置影响现金流修复。', '消费、利率、空置率和负债。', '商业地产'],
+    ['SPSN', 'Swiss Prime Site', '瑞士核心商业地产商', '出租率与资产质量', 'https://www.swiss-prime-site.ch/', 'https://www.swiss-prime-site.ch/en/investors', '持有瑞士优质办公、零售和服务型地产，资产位置与稳定租金构成价值基础。', '利率、租户需求、估值和开发风险。', '核心资产'],
+    ['CLNX', 'Cellnex', '通信塔与数据基础设施商', '租约增长与去杠杆', 'https://www.cellnex.com/', 'https://www.cellnex.com/investors/', '运营欧洲通信塔和无线基础设施，长期租约、整合与资本结构是研究重点。', '利率、客户 CapEx、整合和债务。', '数字基建'],
+    ['LAND', 'Land Securities', '英国商业地产 REIT', '伦敦办公与城市更新', 'https://www.landsec.com/', 'https://landsec.com/investors', '持有伦敦办公、零售和混合用途资产，出租率、开发与资产负债表决定周期弹性。', '办公需求、利率、开发成本和估值。', '城市资产'],
+  ],
+  materials: [
+    ['LIN', 'Linde', '工业气体集团', '现场供气与长期合同', 'https://www.linde.com/', 'https://investors.linde.com/', '向工业、医疗和电子客户提供气体及工程服务，现场供气合同与规模支撑现金流。', '工业需求、能源成本、项目执行和估值。', '工业气体'],
+    ['RIO', 'Rio Tinto', '多金属资源集团', '铁矿与铜资源', 'https://www.riotinto.com/', 'https://www.riotinto.com/en/investors', '经营铁矿、铜、铝和矿产资源，成本曲线、产量和资源寿命决定周期内回报。', '商品价格、矿山运营、地缘和 CapEx。', '资源龙头'],
+    ['GLEN', 'Glencore', '资源与大宗商品贸易集团', '铜钴资源与贸易网络', 'https://www.glencore.com/', 'https://www.glencore.com/investors', '覆盖矿产资源、能源和全球贸易，资产组合与交易能力共同影响现金流。', '商品价格、监管、地缘、资产处置和负债。', '贸易资源'],
+    ['BAS', 'BASF', '综合化工集团', '化工一体化与组合调整', 'https://www.basf.com/', 'https://www.basf.com/global/en/investors.html', '生产基础化学、材料和农业解决方案，需求、能源成本和资产组合决定盈利。', '化工周期、能源、产能过剩和重组。', '化工龙头'],
+    ['AI', 'Air Liquide', '工业气体集团', '氢能与电子气体', 'https://www.airliquide.com/', 'https://www.airliquide.com/investors', '提供工业、医疗和电子气体，长期客户嵌入和项目管理支撑稳定回报。', '项目 CapEx、能源、工业需求和氢能回报。', '合同现金流'],
+    ['AAL', 'Anglo American', '矿业公司', '铜与优质资源重组', 'https://www.angloamerican.com/', 'https://www.angloamerican.com/investors', '拥有铜、铁矿和多元资源资产，资产重组、产量和成本控制是主要变量。', '商品价格、项目、地缘和资本配置。', '资源重组'],
+  ],
+  mobility: [
+    ['DHL', 'DHL Group', '全球物流与快递集团', '国际快递与供应链', 'https://group.dhl.com/', 'https://group.dhl.com/en/investors.html', '运营国际快递、货运和供应链服务，全球贸易量、网络效率和定价影响利润。', '全球贸易、燃油、劳动力、运价和资本开支。', '物流网络'],
+    ['MAERSK-B', 'A.P. Møller - Mærsk', '集装箱航运与物流集团', '运价与综合物流', 'https://www.maersk.com/', 'https://investor.maersk.com/', '以集装箱航运为基础扩展端到端物流，运价、运力和物流服务渗透决定现金流。', '运价、供给、燃油、地缘和资产配置。', '航运周期'],
+    ['AIR', 'Airbus', '商用航空与防务制造商', '飞机交付与积压订单', 'https://www.airbus.com/', 'https://www.airbus.com/en/investors.html', '生产商用飞机、防务和航天产品，供应链、交付和售后服务决定现金流兑现。', '供应链、发动机、交付、汇率和质量。', '航空制造'],
+    ['VOLV-B', 'Volvo', '商用车与设备集团', '车队更新与服务', 'https://www.volvogroup.com/', 'https://www.volvogroup.com/en/investors.html', '提供卡车、工程设备、动力系统和金融服务，产品周期与售后服务影响回报。', '货运周期、订单、供应链和排放法规。', '商用车'],
+    ['LHA', 'Lufthansa', '网络航空集团', '高端客群与航线恢复', 'https://www.lufthansagroup.com/', 'https://investor-relations.lufthansagroup.com/', '运营欧洲航空网络、货运和维修服务，收益管理、成本和运力决定盈利。', '油价、劳资、运力、经济周期和负债。', '出行周期'],
+    ['KNIN', 'Kuehne+Nagel', '全球货运代理商', '海空运与合同物流', 'https://home.kuehne-nagel.com/', 'https://home.kuehne-nagel.com/en/investor-relations', '提供海运、空运、陆运和合同物流服务，货量、运价和客户组合决定利润质量。', '贸易量、运价下行、竞争和汇率。', '轻资产物流'],
+  ],
+}
+
+const asiaRecords = {
+  semis: [
+    ['TSM', 'TSMC', '先进制程代工厂', '先进节点与先进封装', 'https://www.tsmc.com/', 'https://investor.tsmc.com/', '为全球芯片设计公司制造先进逻辑芯片，良率、客户信任和资本强度形成核心壁垒。', '地缘、客户 CapEx、海外建厂和技术周期。', '制造龙头'],
+    ['005930', 'Samsung Electronics', '存储与半导体集团', 'HBM 与先进存储', 'https://www.samsung.com/', 'https://www.samsung.com/global/ir/', '覆盖存储、移动、显示和消费电子，存储周期与高带宽内存竞争决定半导体弹性。', '存储价格、良率、竞争、CapEx 与地缘。', '综合科技'],
+    ['000660', 'SK hynix', '存储芯片制造商', 'HBM 供给与技术迭代', 'https://www.skhynix.com/', 'https://news.skhynix.com/investor-relations/', '生产 DRAM、NAND 与 HBM，AI 服务器内存需求和技术领先影响周期盈利。', '存储价格、产能、客户集中和资本开支。', 'HBM 龙头'],
+    ['2454', 'MediaTek', '无晶圆厂芯片设计商', '手机 SoC 与边缘 AI', 'https://www.mediatek.com/', 'https://corp.mediatek.com/investor-relations', '设计手机、连接和边缘计算芯片，终端需求、产品组合和客户份额决定增长。', '手机周期、价格、客户集中和竞争。', '终端芯片'],
+    ['8035', 'Tokyo Electron', '半导体制造设备商', '涂布显影与刻蚀', 'https://www.tel.com/', 'https://www.tel.com/ir/', '提供涂布显影、刻蚀等晶圆制造设备，受先进制程与存储投资周期驱动。', '晶圆厂 CapEx、出口限制、订单和客户集中。', '设备龙头'],
+    ['6857', 'Advantest', '半导体测试设备商', '高性能芯片测试', 'https://www.advantest.com/', 'https://www.advantest.com/investors/', '提供 SoC 和存储测试设备，AI 芯片复杂度和测试时间提升推动设备需求。', '客户 CapEx、测试技术变化和订单波动。', '测试平台'],
+  ],
+  cloud: [
+    ['INFY', 'Infosys', 'IT 服务与云转型商', '企业 AI 与外包', 'https://www.infosys.com/', 'https://www.infosys.com/investors.html', '为全球企业提供应用开发、云迁移和业务流程服务，订单和人员利用率决定盈利。', '客户 IT 预算、人员成本、汇率和合同执行。', 'IT 服务'],
+    ['TCS', 'Tata Consultancy Services', '全球 IT 服务商', '大型客户数字化', 'https://www.tcs.com/', 'https://www.tcs.com/investor-relations', '提供咨询、应用、云和托管服务，长期客户关系与规模交付能力形成壁垒。', '海外需求、员工成本、汇率和订单。', '服务龙头'],
+    ['6702', 'Fujitsu', '企业 IT 与基础设施商', '日本企业数字化', 'https://www.fujitsu.com/', 'https://www.fujitsu.com/global/about/ir/', '提供 IT 服务、云、硬件和行业解决方案，日本企业及公共部门数字化是主要基础。', '项目执行、国内预算、硬件周期和利润率。', '企业 IT'],
+    ['9613', 'NTT Data', 'IT 服务与系统集成商', '全球交付与行业云', 'https://www.nttdata.com/', 'https://www.nttdata.com/global/en/investors/', '服务金融、制造和公共部门客户，全球交付网络与行业 know-how 支撑长期合同。', '项目风险、人员成本、客户预算和汇率。', '系统集成'],
+    ['018260', 'Samsung SDS', '企业云与物流 IT 商', '云平台与数字物流', 'https://www.samsungsds.com/', 'https://www.samsungsds.com/kr/investor-relations.html', '提供云、企业软件和数字物流服务，集团客户与外部化拓展共同影响增长。', '客户集中、云竞争、项目与汇率。', '企业云'],
+    ['WTC', 'WiseTech Global', '物流软件平台', 'CargoWise 全球渗透', 'https://www.wisetechglobal.com/', 'https://www.wisetechglobal.com/investors/', '为货运代理和物流企业提供 CargoWise 操作系统，工作流嵌入带来高转换成本。', '客户集中、并购整合、估值和全球贸易。', '垂直软件'],
+  ],
+  digital: [
+    ['SE', 'Sea', '东南亚互联网平台', '电商、金融与游戏组合', 'https://www.sea.com/', 'https://www.sea.com/investor/home', '运营 Shopee、数字金融和游戏业务，履约效率、金融变现和区域竞争决定价值。', '补贴、信贷、竞争、监管和执行。', '区域平台'],
+    ['GRAB', 'Grab', '东南亚出行与配送平台', '配送与金融服务', 'https://www.grab.com/', 'https://investors.grab.com/', '连接出行、配送、商户和金融服务，单位经济、用户频次与金融风控是关键。', '补贴、监管、司机供给、信贷和竞争。', '高频入口'],
+    ['035720', 'Kakao', '韩国互联网平台', '社交生态与内容变现', 'https://www.kakaocorp.com/', 'https://www.kakaocorp.com/page/ir/irMain', '依托即时通信拓展内容、支付、出行和广告，生态协同与监管共同影响增长。', '监管、竞争、内容成本和新业务盈利。', '社交平台'],
+    ['4755', 'Rakuten Group', '电商与互联网服务集团', '电商、金融与移动通信', 'https://global.rakuten.com/', 'https://corp.rakuten.co.jp/investor/', '经营电商、信用卡、银行、证券和移动通信，会员生态与移动业务现金消耗是重点。', '移动网络投入、竞争、融资和消费需求。', '生态平台'],
+    ['MMYT', 'MakeMyTrip', '在线旅行平台', '印度旅行渗透与酒店供给', 'https://www.makemytrip.com/', 'https://investors.makemytrip.com/', '连接机票、酒店和度假服务，旅游需求、供应商网络和营销效率决定盈利。', '旅行周期、竞争、营销投入和监管。', '旅行平台'],
+    ['GOTO', 'GoTo Gojek Tokopedia', '印尼互联网平台', '本地服务与电商协同', 'https://www.gotocompany.com/', 'https://www.gotocompany.com/investor-relations/', '结合出行、配送、金融和电商服务，提升单位经济和减少补贴依赖是关键。', '竞争、现金消耗、监管和执行。', '区域修复'],
+  ],
+  finance: [
+    ['HDFCBANK', 'HDFC Bank', '印度私营银行', '零售存款与信贷增长', 'https://www.hdfcbank.com/', 'https://www.hdfc.bank.in/about-us/investor-relations', '提供零售、公司和数字银行服务，低成本存款、信贷增长与风控是长期优势。', '息差、信用成本、监管和整合。', '银行龙头'],
+    ['D05', 'DBS Group', '新加坡银行集团', '财富管理与区域金融', 'https://www.dbs.com/', 'https://www.dbs.com/investors/', '覆盖银行、财富和交易服务，数字化能力与区域客户基础支撑较高回报。', '利率、信贷、房地产与区域经济。', '高质量银行'],
+    ['8306', 'Mitsubishi UFJ Financial Group', '日本综合金融集团', '利率正常化与海外业务', 'https://www.bk.mufg.jp/', 'https://www.bk.mufg.jp/global/investor-relations/', '拥有银行、信托、证券和全球金融业务，日本利率与海外资产收益影响盈利。', '利率、信用、汇率、资本与市场风险。', '金融巨头'],
+    ['8411', 'Mizuho Financial Group', '日本综合金融集团', '企业金融与资本市场', 'https://www.mizuho-fg.co.jp/', 'https://www.mizuho-fg.co.jp/english/investor/', '提供银行、证券、信托和资产管理服务，利率正常化与成本控制是研究重点。', '利率、市场风险、信用和监管资本。', '利率修复'],
+    ['MQG', 'Macquarie Group', '另类资产与金融服务商', '基础设施资管与交易', 'https://www.macquarie.com/', 'https://www.macquarie.com/au/en/investors.html', '通过资产管理、市场交易、投行和银行业务服务全球客户，资产退出和市场环境影响较大。', '市场周期、资产估值、融资和交易波动。', '另类资管'],
+    ['ICICIBANK', 'ICICI Bank', '印度私营银行', '零售金融与数字化', 'https://www.icicibank.com/', 'https://www.icicibank.com/about-us/investor-relations', '覆盖零售、企业和数字金融服务，客户增长、风控和成本效率推动盈利。', '信用成本、息差、竞争和监管。', '增长银行'],
+  ],
+  consumer: [
+    ['NESTLEIND', 'Nestlé India', '食品饮料品牌商', '品牌渗透与定价', 'https://www.nestle.in/', 'https://www.nestle.in/info/investors', '经营咖啡、食品和营养品牌，分销扩张、产品组合和定价影响增长。', '原料、消费、渠道和竞争。', '品牌消费'],
+    ['HINDUNILVR', 'Hindustan Unilever', '印度日用消费品集团', '家庭护理与新兴市场', 'https://www.hul.co.in/', 'https://www.hul.co.in/investor-relations/', '提供个人护理、家庭清洁和食品产品，广泛分销网络支撑高频消费需求。', '原料成本、农村需求、竞争和价格。', '防御消费'],
+    ['2502', 'Asahi Group', '啤酒与饮料集团', '高端啤酒与国际化', 'https://www.asahigroup-holdings.com/', 'https://www.asahigroup-holdings.com/en/ir/', '经营啤酒、饮料和食品品牌，产品高端化、海外整合和成本控制决定回报。', '原料、消费、汇率和竞争。', '饮料品牌'],
+    ['2503', 'Kirin Holdings', '啤酒与健康科学集团', '品牌与健康业务', 'https://www.kirinholdings.com/', 'https://www.kirinholdings.com/en/investors/', '覆盖啤酒、饮料和健康科学产品，区域品牌与产品组合升级驱动增长。', '需求、原料、汇率和竞争。', '组合消费'],
+    ['F34', 'Wilmar International', '农业与食品加工集团', '农产品加工与消费品牌', 'https://www.wilmar-international.com/', 'https://www.wilmar-international.com/investors/', '覆盖油籽压榨、食用油、食品和农业加工，原料价差与区域消费共同影响盈利。', '商品价格、政策、天气和利润率。', '农食平台'],
+    ['Y92', 'Thai Beverage', '东南亚酒类集团', '品牌与渠道覆盖', 'https://www.thaibev.com/', 'https://www.thaibev.com/en/investor-relations', '经营啤酒、烈酒和非酒精饮料，区域渠道与产品组合决定消费现金流。', '消费、监管税负、原料和竞争。', '区域品牌'],
+  ],
+  discretionary: [
+    ['6758', 'Sony Group', '娱乐与电子集团', '游戏、内容与传感器', 'https://www.sony.com/', 'https://www.sony.com/en/SonyInfo/IR/', '覆盖游戏、音乐、影视、电子和图像传感器，内容 IP 与平台服务支撑利润。', '游戏周期、硬件、内容成本、汇率和竞争。', '内容科技'],
+    ['9983', 'Fast Retailing', '全球服装零售集团', '优衣库国际化', 'https://www.fastretailing.com/', 'https://www.fastretailing.com/eng/ir/', '以优衣库等品牌经营全球服装零售，供应链、门店扩张和商品效率决定增长。', '消费、库存、汇率和竞争。', '全球零售'],
+    ['005380', 'Hyundai Motor', '汽车制造商', '电动化与高端品牌', 'https://www.hyundai.com/', 'https://www.hyundai.com/worldwide/en/company/ir', '生产乘用车、商用车和电动车，产品组合、全球渠道与成本决定竞争力。', '价格战、需求、汇率、供应链和电动化投资。', '汽车龙头'],
+    ['066570', 'LG Electronics', '家电与汽车零部件集团', '高端家电与车载业务', 'https://www.lg.com/', 'https://www.lg.com/global/investor-relations', '经营家电、电视和汽车零部件，产品高端化与车载业务影响长期盈利。', '消费周期、价格、原材料与汽车业务执行。', '耐用消费'],
+    ['4911', 'Shiseido', '美妆品牌集团', '高端美妆与亚洲渠道', 'https://corp.shiseido.com/', 'https://corp.shiseido.com/en/ir/', '经营高端美妆品牌，产品创新、旅游零售和区域渠道是增长重点。', '消费、渠道库存、汇率和竞争。', '美妆复苏'],
+    ['1910', 'Samsonite', '旅行箱包品牌商', '旅行复苏与高端化', 'https://www.samsonite.com/', 'https://ir.samsonite.com/', '经营旅行箱包与配件品牌，旅行需求、渠道和产品创新决定业绩弹性。', '旅行周期、消费、库存和汇率。', '旅行消费'],
+  ],
+  health: [
+    ['CSL', 'CSL', '血浆制品与生物制药公司', '血浆采集与免疫治疗', 'https://www.csl.com/', 'https://www.csl.com/investors', '提供血浆衍生药物、疫苗和细胞治疗，采集能力与高壁垒产品组合决定盈利。', '采集成本、报销、竞争和研发。', '生物制药'],
+    ['SUNPHARMA', 'Sun Pharmaceutical', '仿制药与专科药企', '全球仿制药与专科治疗', 'https://sunpharma.com/', 'https://sunpharma.com/investors/', '覆盖仿制药、皮肤科和专科药物，产品审批、市场份额与合规决定增长。', 'FDA 合规、价格、产品审批和汇率。', '印度药企'],
+    ['4502', 'Takeda', '创新制药公司', '消化与罕见病组合', 'https://www.takeda.com/', 'https://www.takeda.com/investors/', '聚焦消化、罕见病、血浆和神经科学，去杠杆与管线回报影响每股价值。', '专利、研发、债务、定价和汇率。', '组合药企'],
+    ['4568', 'Daiichi Sankyo', '肿瘤创新药企', 'ADC 管线与全球商业化', 'https://www.daiichisankyo.com/', 'https://www.daiichisankyo.com/investors/', '以抗体偶联药物和心血管产品为核心，临床数据与合作商业化决定增长。', '临床、竞争、定价和合作依赖。', '肿瘤成长'],
+    ['207940', 'Samsung Biologics', '生物药 CDMO', '产能扩张与客户导入', 'https://samsungbiologics.com/', 'https://samsungbiologics.com/kr/ir/ir-overview.html', '为全球药企提供生物药开发和生产服务，产能利用、订单与质量体系构成壁垒。', '客户集中、扩产、监管质量和竞争。', '制造服务'],
+    ['CIPLA', 'Cipla', '仿制药与呼吸治疗药企', '呼吸产品与海外市场', 'https://www.cipla.com/', 'https://www.cipla.com/investor-relations', '提供呼吸、慢病和仿制药产品，产品结构、合规与海外市场决定盈利。', '价格、FDA 合规、汇率和竞争。', '呼吸药企'],
+  ],
+  medtech: [
+    ['4543', 'Terumo', '医疗器械与耗材商', '介入与血液管理', 'https://www.terumo.com/', 'https://www.terumo.com/investors/', '提供导管、血液管理和医院耗材，临床渠道和产品创新支撑长期增长。', '医院预算、竞争、产品合规和汇率。', '医疗耗材'],
+    ['7733', 'Olympus', '内窥镜与治疗设备商', '内窥镜升级与治疗化', 'https://www.olympus-global.com/', 'https://www.olympus-global.com/ir/', '提供消化内窥镜和治疗设备，装机基础、临床证据和服务收入形成壁垒。', '质量合规、医院 CapEx、竞争和汇率。', '内窥镜龙头'],
+    ['6869', 'Sysmex', '体外诊断设备商', '血液分析与试剂', 'https://www.sysmex.co.jp/', 'https://www.sysmex.co.jp/en/ir/', '提供血液、尿液和生命科学诊断仪器及试剂，装机和试剂消耗是核心驱动。', '医院采购、试剂价格、竞争和中国需求。', '诊断平台'],
+    ['7741', 'Hoya', '光学与医疗技术集团', '眼科镜片与内窥镜', 'https://www.hoya.com/', 'https://www.hoya.com/investor/', '经营眼科镜片、医疗内窥镜和精密光学产品，技术和品牌推动高附加值增长。', '医院需求、产品组合、汇率和竞争。', '光学医疗'],
+    ['8086', 'Nipro', '透析与医疗设备商', '透析耗材与医院服务', 'https://www.nipro.co.jp/', 'https://www.nipro.co.jp/en/ir/', '提供透析、注射、制药包装和医院相关产品，耗材使用与全球渠道支撑收入。', '报销、医院预算、竞争和汇率。', '耗材平台'],
+    ['FPH', 'Fisher & Paykel Healthcare', '呼吸护理设备商', '医院与家用呼吸治疗', 'https://www.fphcare.com/', 'https://www.fphcare.com/investors/', '提供呼吸湿化、麻醉和睡眠呼吸护理设备，临床使用和耗材带来持续收入。', '医院需求、竞争、汇率和产品周期。', '呼吸护理'],
+  ],
+  energy: [
+    ['2222', 'Saudi Aramco', '综合油气公司', '低成本产量与分红', 'https://www.aramco.com/', 'https://www.aramco.com/en/investors', '拥有低成本上游油气资源及炼化业务，产量、油价和资本回报决定现金流。', '油价、政策、地缘、产量配额和 CapEx。', '资源现金流'],
+    ['RELIANCE', 'Reliance Industries', '综合能源与消费集团', '炼化、零售与新能源', 'https://www.ril.com/', 'https://www.ril.com/InvestorRelations.aspx', '覆盖炼化、化工、电信、零售和新能源投资，多业务协同与资本配置是核心。', '油价、CapEx、竞争、监管和执行。', '综合平台'],
+    ['6033', 'Petronas Gas', '天然气基础设施运营商', '管道与公用事业合同', 'https://www.petronas.com/gas/', 'https://www.petronas.com/gas/investor-relations', '运营马来西亚天然气处理、输送和公用事业资产，长期合同支撑相对稳定现金流。', '监管、合同、利率和资产维护。', '管道现金流'],
+    ['ADANIGREEN', 'Adani Green Energy', '可再生能源开发商', '装机扩张与融资', 'https://www.adanigreenenergy.com/', 'https://www.adanigreenenergy.com/investor-relations', '开发和运营风光发电项目，项目执行、利用率和融资能力决定增长质量。', '负债、项目执行、政策和电价。', '高成长公用'],
+    ['ACEN', 'ACEN', '东南亚可再生能源公司', '区域装机与项目组合', 'https://www.acenrenewables.com/', 'https://www.acenrenewables.com/investors/', '在菲律宾及区域市场开发风光和储能项目，资产质量与资本成本是长期约束。', '利率、项目、政策和天气。', '区域转型'],
+    ['NTPC', 'NTPC', '印度电力公用事业集团', '发电规模与新能源转型', 'https://www.ntpc.co.in/', 'https://www.ntpc.co.in/en/investors', '运营大型火电与新能源资产，负荷增长、电价和转型 CapEx 共同影响现金流。', '燃料、电价、负债、政策和项目执行。', '公用事业'],
+  ],
+  industrial: [
+    ['6501', 'Hitachi', '工业与数字基础设施集团', '铁路、电网与 IT 服务', 'https://www.hitachi.com/', 'https://www.hitachi.com/IR-e/', '提供电力、铁路、工业设备和数字服务，资产组合优化与软件服务提升质量。', '项目执行、工业周期、汇率和并购整合。', '基础设施平台'],
+    ['7011', 'Mitsubishi Heavy Industries', '重工业与能源装备集团', '燃气轮机、国防与航天', 'https://www.mhi.com/', 'https://www.mhi.com/finance/', '覆盖能源、航空航天、防务和工业机械，订单积压与项目利润率是增长基础。', '项目执行、供应链、订单和资本强度。', '重工业龙头'],
+    ['6273', 'SMC', '气动自动化部件商', '工厂自动化渗透', 'https://www.smcworld.com/', 'https://www.smcworld.com/ir/', '提供气动控制设备和工业自动化元件，客户认证与产品广度形成全球竞争力。', '制造业周期、库存、价格和汇率。', '自动化部件'],
+    ['6301', 'Komatsu', '工程机械制造商', '矿山设备与智能施工', 'https://www.komatsu.jp/', 'https://www.komatsu.jp/en/ir/', '提供工程和矿山设备，车队更新、矿业 CapEx 与智能施工服务驱动需求。', '基建、矿业、汇率、库存和供应链。', '装备龙头'],
+    ['LT', 'Larsen & Toubro', '工程建设与工业集团', '印度基建与制造投资', 'https://www.larsentoubro.com/', 'https://investors.larsentoubro.com/', '覆盖工程建设、能源、制造和 IT 服务，订单增长与项目现金回款决定质量。', '项目执行、回款、原材料和政府 CapEx。', '基建平台'],
+    ['010140', 'Samsung Heavy Industries', '造船与海工装备商', 'LNG 船与高端订单', 'https://www.samsungshi.com/', 'https://www.samsungshi.com/eng/ir/', '建造 LNG 船、集装箱船和海工装备，订单价格、交付和钢材成本决定盈利。', '船价、钢价、交付、客户融资和周期。', '订单周期'],
+  ],
+  cyber: [
+    ['4704', 'Trend Micro', '网络安全软件商', '云与企业安全订阅', 'https://www.trendmicro.com/', 'https://ir.trendmicro.com/', '提供终端、云和网络安全平台，全球渠道与威胁情报支持订阅收入。', '竞争、客户续费、产品转型和汇率。', '安全平台'],
+    ['CYBR', 'CyberArk', '身份安全平台', '特权访问与身份云', 'https://www.cyberark.com/', 'https://investors.cyberark.com/', '提供特权访问和身份安全服务，企业身份治理刚需与订阅化推动增长。', '竞争、转型、估值和客户预算。', '身份安全'],
+    ['CHKP', 'Check Point Software', '网络安全平台商', '防火墙与订阅服务', 'https://www.checkpoint.com/', 'https://ir.checkpoint.com/', '提供网络、云和终端安全产品，庞大客户基础支撑维护、订阅和平台交叉销售。', '新一代安全竞争、产品更新与增长放缓。', '现金流防御'],
+    ['HCLTECH', 'HCL Technologies', 'IT 服务与网络安全商', '安全服务与全球交付', 'https://www.hcltech.com/', 'https://www.hcltech.com/investor-relations', '提供数字化、云和网络安全服务，客户 IT 外包与交付规模构成竞争优势。', 'IT 预算、人员成本、订单和汇率。', '安全服务'],
+    ['6701', 'NEC', 'IT 与网络基础设施商', '政府数字化与生物识别', 'https://www.nec.com/', 'https://www.nec.com/en/global/ir/', '提供政府 IT、网络、身份识别和安全解决方案，公共部门客户关系与技术积累是关键。', '项目执行、政府预算、竞争和利润率。', '关键基础设施'],
+    ['3132', 'Macnica Holdings', '半导体与网络安全解决方案商', '安全分销与服务', 'https://holdings.macnica.co.jp/', 'https://holdings.macnica.co.jp/en/ir/', '提供网络安全产品分销、集成和服务，渠道能力与企业客户覆盖构成核心优势。', '供应商依赖、IT 预算、库存和竞争。', '安全渠道'],
+  ],
+  defense: [
+    ['012450', 'Hanwha Aerospace', '航空航天与防务集团', '火炮与航空发动机', 'https://www.hanwhaaerospace.com/', 'https://www.hanwhaaerospace.com/eng/ir/', '提供火炮、导弹、发动机和航天系统，出口订单与产能扩张推动增长。', '出口、订单执行、供应链和预算。', '韩国防务'],
+    ['047810', 'Korea Aerospace Industries', '军机与航空制造商', '军机出口与维护', 'https://www.koreaaero.com/', 'https://www.koreaaero.com/EN/ir/', '开发生产军机、直升机和航空结构件，项目交付、出口与维护服务是核心。', '订单、项目延期、出口审批和供应链。', '航空平台'],
+    ['079550', 'LIG Nex1', '国防电子与导弹系统商', '精确制导与防空系统', 'https://www.lignex1.com/', 'https://www.lignex1.com/eng/ir/', '提供精确制导、防空、雷达和电子战系统，技术认证与出口订单支撑增长。', '订单执行、出口审批、供应链和预算。', '导弹系统'],
+    ['BEL', 'Bharat Electronics', '国防电子公司', '雷达与指挥控制系统', 'https://bel-india.in/', 'https://bel-india.in/investors/', '提供雷达、通信、电子战和指挥控制系统，政府客户与资质构成较高壁垒。', '预算、项目确认、应收和供应链。', '国防电子'],
+    ['HAL', 'Hindustan Aeronautics', '航空制造与维修商', '军机生产与 MRO', 'https://hal-india.co.in/', 'https://hal-india.co.in/Investors.aspx', '生产军机、直升机和发动机并提供维修服务，订单积压与交付能力决定增长。', '订单节奏、供应链、项目执行和应收。', '军机平台'],
+    ['S63', 'ST Engineering', '防务、航空与城市解决方案商', '维护服务与系统集成', 'https://www.stengg.com/', 'https://www.stengg.com/en/investor-relations/', '覆盖航空维修、防务系统和城市解决方案，服务收入与项目执行共同影响盈利。', '合同执行、劳动力、订单和区域风险。', '服务防务'],
+  ],
+  realestate: [
+    ['9CI', 'CapitaLand Investment', '房地产投资管理平台', '基金管理与运营资产', 'https://www.capitalandinvest.com/', 'https://www.capitalandinvest.com/en/investor-relations.html', '管理和运营商业、住宿、物流和数据中心资产，基金管理与资产周转提升轻资产收入。', '利率、资产估值、募资和租金。', '资产管理'],
+    ['BN4', 'Keppel', '基础设施与房地产资产管理商', '能源转型与基金管理', 'https://www.keppel.com/', 'https://www.keppel.com/investor-relations/', '覆盖基础设施、资产管理和城市解决方案，资产变现与经常性费用是转型重点。', '利率、项目、资产出售和执行。', '综合资产'],
+    ['8802', 'Mitsubishi Estate', '日本综合地产公司', '东京办公与城市更新', 'https://www.mec.co.jp/', 'https://www.mec.co.jp/en/ir/', '持有并开发东京核心办公、商业和住宅资产，出租率与城市更新项目决定长期回报。', '利率、办公需求、开发成本和估值。', '核心城市'],
+    ['8830', 'Sumitomo Realty & Development', '日本地产开发商', '办公资产与住宅开发', 'https://www.sumitomo-rd.co.jp/', 'https://www.sumitomo-rd.co.jp/english/ir/', '经营办公出租、住宅开发和商业资产，核心城市资产与开发节奏影响盈利。', '利率、租金、住宅需求和项目风险。', '城市资产'],
+    ['DLF', 'DLF', '印度商业与住宅地产商', '办公租赁与城市开发', 'https://www.dlf.in/', 'https://www.dlf.in/investor-relations', '覆盖办公、零售和住宅开发，印度城市化、租赁需求和融资能力决定增长。', '利率、销售回款、开发和监管。', '印度地产'],
+    ['GMG', 'Goodman Group', '物流与数据中心地产集团', '全球仓储与数字基础设施', 'https://www.goodman.com/', 'https://www.goodman.com/investors', '开发和运营物流仓储及数据中心资产，客户需求、开发回报和资本成本决定价值。', '利率、项目开发、租金和客户集中。', '数字地产'],
+  ],
+  materials: [
+    ['BHP', 'BHP Group', '多金属资源集团', '铜铁矿与资本纪律', 'https://www.bhp.com/', 'https://www.bhp.com/investors', '经营铁矿、铜、煤和钾肥资源，低成本资产、产量和资本回报决定周期价值。', '商品价格、项目、地缘和 CapEx。', '资源龙头'],
+    ['FMG', 'Fortescue', '铁矿与绿色能源集团', '铁矿成本与能源转型', 'https://www.fortescue.com/', 'https://www.fortescue.com/investors', '以澳洲铁矿为现金流基础，并投资绿色能源和氢能项目，资本纪律是研究重点。', '铁矿价格、成本、项目回报和政策。', '资源现金流'],
+    ['005490', 'POSCO Holdings', '钢铁与电池材料集团', '高端钢材与锂材料', 'https://www.posco-inc.com/', 'https://www.posco-inc.com/eng/ir/', '覆盖钢铁、锂电材料和资源资产，价差、产能与新材料投资决定盈利质量。', '钢价、原料、需求、CapEx 和竞争。', '材料转型'],
+    ['051910', 'LG Chem', '化工与电池材料集团', '正极材料与石化周期', 'https://www.lgchem.com/', 'https://www.lgchem.com/company/investor-relations', '经营石化、先进材料和生命科学业务，电池材料扩张与石化价差共同影响回报。', '电池需求、材料价格、石化周期和 CapEx。', '电池材料'],
+    ['1301', 'Formosa Plastics', '石化与材料集团', '一体化石化与成本控制', 'https://www.fpc.com.tw/', 'https://www.fpc.com.tw/fpcw/english/', '生产 PVC、塑料和石化产品，原料、产能利用率和区域需求决定周期盈利。', '石化价差、能源、需求和环保。', '化工周期'],
+    ['TATASTEEL', 'Tata Steel', '钢铁与材料集团', '印度需求与欧洲重组', 'https://www.tatasteel.com/', 'https://www.tatasteel.com/investors/', '覆盖印度和海外钢铁资产，成本、需求、产能和绿色转型投资影响现金流。', '钢价、原料、欧洲重组和 CapEx。', '工业材料'],
+  ],
+  mobility: [
+    ['7203', 'Toyota Motor', '全球汽车制造商', '混动、电动与供应链', 'https://global.toyota/', 'https://global.toyota/en/ir/', '生产乘用车、商用车和金融服务，混动优势、产品组合和全球产能支撑现金流。', '汇率、价格战、供应链、电动化与召回。', '汽车龙头'],
+    ['7267', 'Honda Motor', '汽车与摩托车制造商', '摩托车现金流与电动化', 'https://global.honda/', 'https://global.honda/investors/', '经营汽车、摩托车、动力产品与金融服务，摩托车业务与电动化投入共同影响回报。', '需求、汇率、价格、电动化投资与供应链。', '多元出行'],
+    ['6902', 'Denso', '汽车零部件供应商', '电动化与热管理', 'https://www.denso.com/', 'https://www.denso.com/global/en/investors/', '提供动力总成、热管理、电子和安全系统，客户认证与技术升级支撑增长。', '汽车需求、价格、客户集中与技术路线。', '核心零部件'],
+    ['QAN', 'Qantas Airways', '航空公司', '澳洲网络与忠诚度计划', 'https://www.qantas.com/', 'https://investor.qantas.com/', '运营国内外航空和忠诚度计划，运力、票价、燃油与客户积分业务决定盈利。', '油价、劳资、运力、监管和周期。', '网络航空'],
+    ['C6L', 'Singapore Airlines', '国际航空公司', '高端客群与枢纽网络', 'https://www.singaporeair.com/', 'https://www.singaporeair.com/en_UK/us/about-us/information-for-investors/', '以新加坡枢纽连接国际客货运，高服务质量和网络效率支撑收益管理。', '油价、运力、全球旅行、汇率和竞争。', '枢纽航空'],
+    ['9101', 'Nippon Yusen', '航运与物流集团', '集装箱与汽车运输', 'https://www.nyk.com/', 'https://www.nyk.com/english/ir/', '经营集装箱、散货、汽车运输和物流，运价、船队和全球贸易决定利润波动。', '运价、供给、燃油、地缘和资本开支。', '航运周期'],
   ],
 }
 
@@ -819,6 +1098,23 @@ const chinaDefinitions = [
   ]),
 }))
 
+function internationalCompanies(sector, records, market) {
+  return rows(sector, compactCompanies(sector, records).map((company) => ({
+    ...company,
+    market,
+  })))
+}
+
+function buildRegionalIndustries(records, market) {
+  return definitions.map(({ companies, ...sector }) => ({
+    ...sector,
+    companies: internationalCompanies(sector, records[sector.id] || [], market),
+  }))
+}
+
+const europeIndustries = buildRegionalIndustries(europeRecords, 'eu')
+const asiaIndustries = buildRegionalIndustries(asiaRecords, 'asia')
+
 export const markets = {
   us: {
     id: 'us', label: '美国', libraryLabel: '美国研究库', disclosureLabel: 'SEC 检索',
@@ -831,13 +1127,15 @@ export const markets = {
     })),
   },
   cn: { id: 'cn', label: '中国', libraryLabel: '中国研究库', disclosureLabel: '公告检索', industries: chinaDefinitions },
+  eu: { id: 'eu', label: '欧洲', libraryLabel: '欧洲研究库', disclosureLabel: '交易所 / 监管披露', industries: europeIndustries },
+  asia: { id: 'asia', label: '亚洲（除中国）', libraryLabel: '亚洲研究库', disclosureLabel: '交易所 / 监管披露', industries: asiaIndustries },
 }
 
 export const marketOptions = [
   { id: 'us', label: '美国', enabled: true },
   { id: 'cn', label: '中国', enabled: true },
-  { id: 'eu', label: '欧洲', enabled: false },
-  { id: 'asia', label: '亚洲', enabled: false },
+  { id: 'eu', label: '欧洲', enabled: true },
+  { id: 'asia', label: '亚洲（除中国）', enabled: true },
 ]
 
 export const industries = markets.us.industries
