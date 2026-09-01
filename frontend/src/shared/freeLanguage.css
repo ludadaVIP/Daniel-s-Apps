@@ -350,6 +350,13 @@
     font-weight: 700;
   }
 
+  .fl-audio-note {
+    max-width: 250px;
+    color: var(--fl-muted);
+    font-size: 11px;
+    line-height: 1.3;
+  }
+
   .fl-error {
     margin: 10px 0;
     padding: 9px 11px;
@@ -636,6 +643,10 @@
     .fl-lesson-header {
       align-items: flex-start;
       flex-direction: column;
+    }
+
+    .fl-audio-note {
+      max-width: none;
     }
   }
 }

@@ -79,6 +79,17 @@ SUPPORTED_LANGUAGES: dict[str, dict[str, Any]] = {
              "style": "Multilingual voice — can sound English-accented on isolated German words; use only when reading mixed-language text"},
         ],
     },
+    "el": {
+        "name": "Greek",
+        "nameZh": "希腊语",
+        "promptName": "Greek",
+        "voices": [
+            {"id": "el-GR-AthinaNeural", "name": "Athina", "gender": "Female",
+             "style": "Natural Greek neural voice; a modern-Greek reference, not reconstructed Koine pronunciation"},
+            {"id": "el-GR-NestorasNeural", "name": "Nestoras", "gender": "Male",
+             "style": "Natural Greek neural voice; a modern-Greek reference, not reconstructed Koine pronunciation"},
+        ],
+    },
 }
 
 LANGUAGE_ALIASES = {
@@ -90,6 +101,8 @@ LANGUAGE_ALIASES = {
     "french": "fr", "francais": "fr", "français": "fr", "fra": "fr",
     "fr-fr": "fr", "法语": "fr",
     "german": "de", "deutsch": "de", "ger": "de", "de-de": "de", "德语": "de",
+    "greek": "el", "koine-greek": "el", "koine": "el", "grc": "el", "el-gr": "el",
+    "greek-greece": "el", "希腊语": "el", "通用希腊语": "el",
 }
 
 ALLOWED_VOICES: set[str] = {
