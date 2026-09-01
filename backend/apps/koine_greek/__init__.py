@@ -1,0 +1,1 @@
+"""Koine Greek application blueprint."""

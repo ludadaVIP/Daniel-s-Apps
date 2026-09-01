@@ -467,7 +467,12 @@ export default function FreeLanguageApp({ api, config }) {
           key,
           waitForEnd: false,
           getUrl: async () => {
-            const data = await api.requestTts({ lessonId: selectedLessonId, text, language });
+            const data = await api.requestTts({
+              lessonId: selectedLessonId,
+              text,
+              language,
+              voice: config.ttsVoice,
+            });
             return { url: data.audio_url };
           },
         });
@@ -583,9 +588,10 @@ export default function FreeLanguageApp({ api, config }) {
             {fullLessonText && (
               <button className="fl-primary-button" onClick={() => speak(fullLessonText, "lesson:all", config.targetLanguage.key)} type="button">
                 {loadingKey === "lesson:all" ? <Loader2 className="fl-spin" size={16} /> : <Volume2 size={16} />}
-                {config.targetLanguage.label}
+                {config.audioLabel || config.targetLanguage.label}
               </button>
             )}
+            {config.audioNote && <span className="fl-audio-note" title={config.audioNote}>{config.audioNote}</span>}
             <span className="fl-md-pill" title="Markdown inbox">
               <FileText size={15} />
               {library?.mdInbox?.length || 0} MD

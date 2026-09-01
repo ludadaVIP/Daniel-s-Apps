@@ -32,6 +32,7 @@ from apps.free_french.routes import bp as free_french_bp, AUDIO_DIR as FREE_FREN
 from apps.free_english.routes import bp as free_english_bp, AUDIO_DIR as FREE_ENGLISH_AUDIO_DIR
 from apps.free_spanish.routes import bp as free_spanish_bp, AUDIO_DIR as FREE_SPANISH_AUDIO_DIR
 from apps.free_german.routes import bp as free_german_bp, AUDIO_DIR as FREE_GERMAN_AUDIO_DIR
+from apps.koine_greek.routes import bp as koine_greek_bp, AUDIO_DIR as KOINE_GREEK_AUDIO_DIR
 from apps.quiz.routes import bp as quiz_bp
 from apps.live_spanish.routes import bp as live_spanish_bp, AUDIO_DIR as LIVE_SPANISH_AUDIO_DIR
 from apps.language_lab.routes import bp as language_lab_bp, AUDIO_DIR as LANGUAGE_LAB_AUDIO_DIR
@@ -71,6 +72,7 @@ def create_app() -> Flask:
     app.register_blueprint(free_english_bp, url_prefix="/api/free-english")
     app.register_blueprint(free_spanish_bp, url_prefix="/api/free-spanish")
     app.register_blueprint(free_german_bp, url_prefix="/api/free-german")
+    app.register_blueprint(koine_greek_bp, url_prefix="/api/koine-greek")
     app.register_blueprint(quiz_bp, url_prefix="/api/quiz")
     app.register_blueprint(live_spanish_bp, url_prefix="/api/live-spanish")
     app.register_blueprint(language_lab_bp, url_prefix="/api/lab")
@@ -92,7 +94,7 @@ def create_app() -> Flask:
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "free-french", "free-english", "free-spanish", "free-german", "quiz", "live-spanish", "lab", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "french-vocab", "german-vocab", "record-meditation", "bible-lang", "bible-and-eng", "bible-and-esp", "bible-and-fr", "bible-and-ge"]})
+        return jsonify({"ok": True, "apps": ["french", "free-french", "free-english", "free-spanish", "free-german", "koine-greek", "quiz", "live-spanish", "lab", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "french-vocab", "german-vocab", "record-meditation", "bible-lang", "bible-and-eng", "bible-and-esp", "bible-and-fr", "bible-and-ge"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")
@@ -114,6 +116,10 @@ def create_app() -> Flask:
     @app.get("/audio/free-german/<path:filename>")
     def serve_free_german_audio(filename: str):
         return send_from_directory(FREE_GERMAN_AUDIO_DIR, filename, max_age=31536000)
+
+    @app.get("/audio/koine-greek/<path:filename>")
+    def serve_koine_greek_audio(filename: str):
+        return send_from_directory(KOINE_GREEK_AUDIO_DIR, filename, max_age=31536000)
 
     @app.get("/audio/live-spanish/<path:filename>")
     def serve_live_spanish_audio(filename: str):

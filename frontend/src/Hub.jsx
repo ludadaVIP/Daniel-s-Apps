@@ -51,6 +51,15 @@ const APPS = [
     to: "/free-german",
   },
   {
+    id: "koine-greek",
+    title: "Koine Greek",
+    subtitle: "New Testament Greek · English support · tiny lessons · every line audible",
+    description: "A seminary-oriented Koine Greek course. Foundation is complete now; later CEFR-style stages are ready as an empty roadmap. Natural Greek neural audio accompanies every line, while the course separately teaches Koine pronunciation rather than passing modern Greek off as ancient speech.",
+    accent: "#6b4e16",
+    Icon: ScrollText,
+    to: "/koine-greek",
+  },
+  {
     id: "quiz",
     title: "English Adventure Quiz",
     subtitle: "英语综合练习：选择 / 排序 / 填空",
