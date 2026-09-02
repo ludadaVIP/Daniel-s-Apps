@@ -481,6 +481,118 @@ def generated_hebrews_note(chapter: int, verse: int, text: str) -> dict[str, Any
     }
 
 
+# Revelation 14–18 continues the same verse-card approach as the hand-authored
+# opening chapters.  These chapters are especially dense with rare image words
+# and long prophetic sentences, so the fallback remains deliberately local to
+# the actual ESV line rather than offering a generic blank card.
+_REVELATION_VOCABULARY: dict[str, tuple[str, str]] = {
+    "lamb": ("n.", "羔羊；本书中作为称号时通常大写为 Lamb"),
+    "mount": ("n.", "山；Mount Zion 为锡安山这一专名"),
+    "harp": ("n.", "竖琴；古代敬拜中常见的乐器"),
+    "virgin": ("n.", "童身、贞洁的人；文学/宗教语境词"),
+    "firstfruits": ("n.", "初熟的果子；复数形式，指首先归给神的一部分"),
+    "proclaim": ("v.", "宣告、高声传讲；proclaiming 为现在分词"),
+    "everlasting": ("adj.", "永恒的、长存的；比 eternal 更具文学色彩"),
+    "worship": ("v.", "敬拜；worshiped 为过去式"),
+    "wrath": ("n.", "烈怒、震怒；正式且强烈的 anger"),
+    "harvest": ("n./v.", "收割、庄稼；reap the harvest 指收割"),
+    "reap": ("v.", "收割；过去式 reaped"),
+    "sickle": ("n.", "镰刀；农业收割工具"),
+    "winepress": ("n.", "榨酒池；wine + press 的复合名词"),
+    "plague": ("n.", "灾害、瘟疫"),
+    "tabernacle": ("n.", "帐幕；神同在/敬拜的帐幕图像"),
+    "sanctuary": ("n.", "圣所、圣殿中的圣洁空间"),
+    "pour": ("v.", "倾倒；过去式 poured"),
+    "bowl": ("n.", "碗、钵；bowl of 指盛装某物的器皿"),
+    "fierce": ("adj.", "猛烈的、凶猛的"),
+    "scorch": ("v.", "灼烧；be scorched by 表被……灼伤"),
+    "throne": ("n.", "宝座；也可指王权"),
+    "euphrates": ("proper n.", "幼发拉底河"),
+    "assemble": ("v.", "聚集、召集；assemble for battle"),
+    "armageddon": ("proper n.", "哈米吉多顿；希伯来语地名的希腊化形式"),
+    "harlot": ("n.", "妓女；古典/经文用词，现代英语避免用于称呼人"),
+    "wilderness": ("n.", "旷野、荒野"),
+    "blasphemy": ("n.", "亵渎、毁谤神；blasphemous 为形容词"),
+    "mystery": ("n.", "奥秘；在经文中常指被揭示的隐藏事实"),
+    "desolate": ("adj.", "荒凉的、被弃绝的；make ... desolate"),
+    "merchandise": ("n.", "商品、货物；通常不可数"),
+    "lament": ("v./n.", "哀哭、哀歌；正式文学词"),
+    "sorcery": ("n.", "邪术；不可数名词"),
+    "hallelujah": ("interj.", "哈利路亚；希伯来语赞美呼喊的音译"),
+    "multitude": ("n.", "众多的人群；a great multitude"),
+    "judgment": ("n.", "审判、判断；judge 是动词"),
+    "bride": ("n.", "新娘；Bride 大写时为象征性称号"),
+    "linen": ("n.", "细麻布；不可数名词"),
+    "righteous": ("adj.", "公义的、正直的；righteous deeds 指公义的行为"),
+    "testimony": ("n.", "见证、证词；testify 是动词"),
+    "robe": ("n.", "长袍、外衣；正式文学词"),
+    "diadem": ("n.", "王冠、冠冕"),
+    "fury": ("n.", "狂怒、暴怒；比 wrath 更强调猛烈"),
+    "bottomless": ("adj.", "无底的；bottomless pit 指无底坑"),
+    "resurrection": ("n.", "复活；rise 是动词"),
+    "torment": ("n./v.", "折磨；可作名词或动词"),
+    "thirsty": ("adj.", "口渴的；the thirsty 可指“口渴的人”"),
+    "heritage": ("n.", "产业、承受物；比 inheritance 更庄重"),
+    "cowardly": ("adj.", "胆怯的；coward 是名词"),
+    "jasper": ("n.", "碧玉；宝石名称"),
+    "foundation": ("n.", "根基、地基；复数 foundations"),
+    "transparent": ("adj.", "透明的；transparent glass"),
+    "accursed": ("adj.", "受咒诅的；古典/经文用词"),
+    "recompense": ("n.", "报应、报偿；正式词"),
+}
+
+
+def _revelation_theme(chapter: int, verse: int) -> tuple[str, str]:
+    ranges: dict[int, list[tuple[range, str, str]]] = {
+        14: [(range(1, 6), "the Lamb and the faithful", "留意身份、声音和敬拜词汇；先辨认异象中名词群，再抓主要动词。"), (range(6, 14), "three angelic announcements", "本段由天使宣告推进；关注 proclaim、worship、fear 等命令或宣告动词。"), (range(14, 21), "the harvest imagery", "收割和榨酒池为连续图像；英语上先分清 harvest、reap、sickle 的动作关系。")],
+        15: [(range(1, 5), "the song of Moses and the Lamb", "赞美段落常有表语前置、抽象名词并列；朗读时按并列结构停顿。"), (range(5, 9), "the sanctuary and the seven plagues", "本段以 sanctuary、tabernacle、plagues 建立异象场景；留意被动语态。")],
+        16: [(range(1, 8), "the first four bowls", "连续命令与被动结果构成叙事骨架；识别 pour out、become、be given 等动词。"), (range(8, 13), "the fifth and sixth bowls", "黑暗、河流和污灵的描述使用大量地点介词；先找介词短语修饰谁。"), (range(13, 22), "the gathering and the seventh bowl", "本段反复出现 gather、come、fall；注意直接引语内的祈使和警醒表达。")],
+        17: [(range(1, 7), "the woman and the beast", "先分辨 woman、beast、waters 等名词指代；复杂描写多由 with 短语逐层累加。"), (range(7, 15), "the mystery explained", "解释段落常用 that / which 关系从句；可把每个从句接回它修饰的名词。"), (range(15, 19), "the beast and the woman", "本段动词多为将来或情态结构；留意 make ... desolate、devour、burn。")],
+        18: [(range(1, 9), "the fall of Babylon announced", "宣告与哀叹交错；注意 fallen、come out、receive 等动词和命令式。"), (range(9, 20), "the merchants lament", "长串商品名词是并列清单；阅读时先定位主句 weep/lament，再逐项浏览清单。"), (range(20, 25), "Babylon's fall pictured", "结尾使用强烈的比喻、被动和过去时；先抓图像的核心动词。")],
+        19: [(range(1, 7), "hallelujah in heaven", "本段有密集的敬拜与赞美名词；留意直接引语中的并列结构和 for 引出的理由。"), (range(7, 11), "the marriage supper of the Lamb", "婚宴图像中常有被动语态和邀请用语；先辨认 Bride、Lamb、linen 的关系。"), (range(11, 17), "the rider on the white horse", "描述性长句把外貌、称号与行动逐层叠加；先抓主语 The one / He，再读修饰语。"), (range(17, 22), "the final battle scene", "本段使用 gather、slain、thrown 等强动词；注意过去被动所描写的结果。")],
+        20: [(range(1, 7), "the thousand years", "锁、深渊和王权的场景混合将来与过去叙事；尤其注意 be bound / be released 被动结构。"), (range(7, 11), "the final deception ended", "本段以条件时间从句和连续过去时推进；先找 when / after that 的时间层次。"), (range(11, 16), "the great white throne", "审判段落出现 books、judged、according to；留意被动语态与按……而定的介词短语。")],
+        21: [(range(1, 9), "the new heaven and earth", "新造的宣告使用 shall、will 和否定并列；先区分异象所见与宝座所说。"), (range(9, 15), "the holy city shown", "城市描写有许多位置短语和过去分词；先定位 city / wall / gates 等中心名词。"), (range(15, 22), "the city's beauty and dimensions", "量度与材料词汇较密；数字和宝石名可先按名词清单理解。"), (range(22, 28), "God and the Lamb as the city's light", "结尾反复使用 no / never / nothing；观察否定怎样建立永恒安全的画面。")],
+        22: [(range(1, 6), "the river and tree of life", "本段有 flowing、yielding 等分词，补充河流和树的状态；先找主句动词。"), (range(6, 12), "the trustworthy words and the coming one", "命令式与 blessed 宣告交替；注意 keep、seal up、repay 的搭配。"), (range(12, 18), "the final invitation", "邀请句多用 let + 宾语 + 动词原形；整体朗读能帮助掌握节奏。"), (range(18, 22), "the warning and farewell", "警告以 if 条件句展开；最后是简短书信式祝祷。")],
+    }
+    for verse_range, phrase, note in ranges[chapter]:
+        if verse in verse_range:
+            return phrase, note
+    return "the vision of Revelation", "把本节放回相邻段落阅读，先找主要动词，再处理附加的图像和介词短语。"
+
+
+def generated_revelation_note(chapter: int, verse: int, text: str) -> dict[str, Any]:
+    """Return a text-sensitive study card for Revelation 14–18."""
+    lower = text.lower()
+    vocab = [{"word": word, "ipa": "", "pos": pos, "meaning": meaning}
+             for word, (pos, meaning) in _REVELATION_VOCABULARY.items()
+             if word in lower][:2]
+    if len(vocab) < 2:
+        candidates = [w.strip(".,;:!?\"'—()") for w in text.split()]
+        for word in candidates:
+            key = word.lower()
+            if len(key) >= 7 and key.isalpha() and all(item["word"] != key for item in vocab):
+                vocab.append({"word": key, "ipa": "", "pos": "key word", "meaning": "本节的重要内容词；结合 ESV 原句、上下文和 CUV 对照理解。"})
+            if len(vocab) == 2:
+                break
+    if not vocab:
+        vocab = [{"word": "key expression", "ipa": "", "pos": "key phrase", "meaning": "本节以完整表达为学习单位；先结合 ESV 原句辨认核心动词和对象。"}]
+    lower_spaced = f" {lower} "
+    if "let " in lower_spaced:
+        grammar = ("Let + 宾语 + 动词", "let 引导劝勉或命令；后面用动词原形。")
+    elif "if " in lower_spaced or "unless " in lower_spaced:
+        grammar = ("条件句", "if / unless 引出条件；先找主句，再看条件所限制的结果。")
+    elif "who " in lower_spaced or "which " in lower_spaced or "that " in lower_spaced:
+        grammar = ("关系从句", "who / which / that 为前面的名词补充身份、内容或结果；先找它所修饰的先行词。")
+    elif "was " in lower_spaced or "were " in lower_spaced or "been " in lower_spaced:
+        grammar = ("被动与状态表达", "be + 过去分词常表示“被……”，也可能描述已形成的状态；结合上下文判断。")
+    elif lower.startswith(("and ", "then ", "for ", "but ")):
+        grammar = ("连接词推进叙事", "And / Then 推进画面，For 给出原因，But 引出转折；先辨认其与上一句的关系。")
+    else:
+        grammar = ("主句与修饰成分", "先找有限动词和主语，再把介词短语、分词短语或同位语逐层接回主句。")
+    phrase, note = _revelation_theme(chapter, verse)
+    return {"vocab": vocab, "grammar": [{"title": grammar[0], "detail": grammar[1]}], "expression": [{"phrase": phrase, "note": note}], "translation": ""}
+
+
 def tts_cache_key(text: str, voice: str) -> str:
     return hashlib.sha1(f"bible-lang-v1\n{voice}\n{text}".encode("utf-8")).hexdigest()
 
@@ -599,6 +711,12 @@ def get_chapter():
     for verse in primary_verses:
         n = int(verse.get("verse") or 0)
         note = normalize_note(notes.get(str(n)))
+        # The opening Revelation chapters have hand-authored JSON.  The next
+        # five chapters use the same public card schema, generated from each
+        # exact ESV line and its local scene until their corpus files exist.
+        if (cfg["code"] == "en" and book == "Revelation" and 14 <= chapter <= 22
+                and not (note["vocab"] or note["grammar"] or note["expression"])):
+            note = generated_revelation_note(chapter, n, str(verse.get("text") or ""))
         payload_verses.append({
             "verse": n,
             "text": clean_verse_text(str(verse.get("text") or "")),
