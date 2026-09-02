@@ -174,7 +174,16 @@ def create_free_language_blueprint(
         return items
 
     def library_payload(data: dict[str, Any]) -> dict[str, Any]:
-        lessons = data.get("lessons", [])
+        # A curriculum can be drafted in the library before every lesson file
+        # exists. Do not expose an orphaned sidebar entry that would 404 when
+        # selected; it becomes visible automatically as soon as its JSON file
+        # is added.
+        lessons = [
+            lesson
+            for lesson in data.get("lessons", [])
+            if isinstance(lesson, dict) and lesson.get("id")
+            and lesson_path(str(lesson["id"])).is_file()
+        ]
         return {
             "levels": [
                 {

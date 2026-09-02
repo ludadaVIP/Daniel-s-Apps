@@ -12,9 +12,14 @@ async function parseResponse(response) {
   return data;
 }
 
+// Study notes can be added while the development app remains open.  Never
+// reuse a previously cached chapter response: otherwise a browser can keep
+// showing the old “not filled in yet” state for its full cache lifetime.
+const FRESH_REQUEST = { cache: "no-store" };
+
 export async function fetchConfig(lang) {
   return parseResponse(
-    await fetch(`${BASE}/config?lang=${encodeURIComponent(lang)}`)
+    await fetch(`${BASE}/config?lang=${encodeURIComponent(lang)}`, FRESH_REQUEST)
   );
 }
 
@@ -24,7 +29,9 @@ export async function fetchChapter({ lang, book, chapter }) {
     book,
     chapter: String(chapter),
   });
-  return parseResponse(await fetch(`${BASE}/chapter?${params.toString()}`));
+  return parseResponse(
+    await fetch(`${BASE}/chapter?${params.toString()}`, FRESH_REQUEST)
+  );
 }
 
 export async function requestTtsAudio({ lang, text, voice }) {

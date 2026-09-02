@@ -39,7 +39,8 @@ function valueFor(item, key) {
   return item?.[key] || "";
 }
 
-function sectionTargetText(section, targetKey) {
+function sectionTargetText(section, config) {
+  const targetKey = config.targetLanguage.key;
   if (section.kind === "verbs") {
     return (section.verbs || [])
       .flatMap((verb) => [valueFor(verb, targetKey), ...(verb.forms || []), verb.example])
@@ -59,14 +60,16 @@ function sectionTargetText(section, targetKey) {
     return (section.lines || []).map((line) => valueFor(line, targetKey)).filter(Boolean).join(". ");
   }
   if (section.kind === "table") {
-    return (section.rows || []).map((row) => row[0]).filter(Boolean).join(". ");
+    const targetColumnIndex = (section.columns || []).findIndex((column) => languageForColumn(column, config) === targetKey);
+    if (targetColumnIndex < 0) return "";
+    return (section.rows || []).map((row) => row[targetColumnIndex]).filter(Boolean).join(". ");
   }
   return "";
 }
 
-function lessonTargetText(lesson, targetKey) {
+function lessonTargetText(lesson, config) {
   return (lesson?.sections || [])
-    .map((section) => sectionTargetText(section, targetKey))
+    .map((section) => sectionTargetText(section, config))
     .filter(Boolean)
     .join(". ");
 }
@@ -397,7 +400,7 @@ function VerbsSection({ config, loadingKey, onSpeak, section, speakingKey }) {
 }
 
 function LessonSection({ config, loadingKey, onSpeak, section, speakingKey }) {
-  const sectionText = sectionTargetText(section, config.targetLanguage.key);
+  const sectionText = sectionTargetText(section, config);
   return (
     <section className="fl-section">
       <header className="fl-section-header">
@@ -556,7 +559,7 @@ export default function FreeLanguageApp({ api, config }) {
     return <div className="fl-shell"><div className="fl-empty">{error}</div></div>;
   }
 
-  const fullLessonText = lessonTargetText(lesson, config.targetLanguage.key);
+  const fullLessonText = lessonTargetText(lesson, config);
 
   return (
     <div className={`fl-shell ${collapsed ? "is-collapsed" : ""}`} style={{ "--fl-accent": config.accent }}>

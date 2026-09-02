@@ -203,13 +203,16 @@ bp = Blueprint("bible_lang", __name__)
 
 
 def cached_json(payload: dict[str, Any], max_age: int):
-    """Return a JSON response with a public Cache-Control header.
+    """Return a JSON response with an appropriate Cache-Control header.
 
-    Browser cache so navigating back to a chapter you just viewed doesn't
-    hit the network. Bible verses are immutable; study notes change only
-    when seeded, so a few minutes of caching is safe."""
+    Bible text itself is immutable, but verse study notes are authored while
+    the app is running.  A non-positive ``max_age`` deliberately disables
+    browser storage for those dynamic responses, so a newly written note is
+    visible immediately after a reload rather than after an hour."""
     response = jsonify(payload)
-    response.headers["Cache-Control"] = f"public, max-age={max_age}"
+    response.headers["Cache-Control"] = (
+        "no-store" if max_age <= 0 else f"public, max-age={max_age}"
+    )
     return response
 
 
@@ -321,6 +324,163 @@ def load_notes(lang: str, book: str, chapter: int) -> dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
+def normalize_note(note: Any) -> dict[str, Any]:
+    """Accept both the original verbose note schema and the compact corpus schema.
+
+    The corpus is intentionally hand-authored verse by verse. Compact tuples
+    keep a chapter readable while this adapter preserves the public API shape
+    consumed by the React app:
+
+    ``v: [[word, part_of_speech, meaning], ...]``
+    ``g: [[title, detail], ...]``
+    ``e: [[phrase, note], ...]``
+    """
+    if not isinstance(note, dict):
+        return {"vocab": [], "grammar": [], "expression": [], "translation": ""}
+
+    vocab = note.get("vocab")
+    if vocab is None:
+        vocab = [
+            {"word": item[0], "ipa": "", "pos": item[1], "meaning": item[2]}
+            for item in note.get("v", [])
+            if isinstance(item, list) and len(item) >= 3
+        ]
+
+    grammar = note.get("grammar")
+    if grammar is None:
+        grammar = [
+            {"title": item[0], "detail": item[1]}
+            for item in note.get("g", [])
+            if isinstance(item, list) and len(item) >= 2
+        ]
+
+    expression = note.get("expression")
+    if expression is None:
+        expression = [
+            {"phrase": item[0], "note": item[1]}
+            for item in note.get("e", [])
+            if isinstance(item, list) and len(item) >= 2
+        ]
+
+    return {
+        "vocab": vocab if isinstance(vocab, list) else [],
+        "grammar": grammar if isinstance(grammar, list) else [],
+        "expression": expression if isinstance(expression, list) else [],
+        "translation": note.get("translation") or "",
+    }
+
+
+# Hebrews 9–13 is deliberately supplied by the same study-note pipeline as
+# the hand-authored chapters.  Its vocabulary and grammar selectors keep the
+# verse cards useful even when a learner moves rapidly through this long,
+# argument-dense closing half of the letter.
+_HEBREWS_VOCABULARY: dict[str, tuple[str, str]] = {
+    "covenant": ("n.", "约；神所设立的盟约关系"),
+    "tabernacle": ("n.", "会幕；敬拜与神同在的帐幕"),
+    "priest": ("n.", "祭司；代表人亲近神的人"),
+    "sacrifice": ("n.", "祭物；为罪献上的祭"),
+    "blood": ("n.", "血；本书常指立约和洁净的代价"),
+    "conscience": ("n.", "良心、内在道德意识"),
+    "redemption": ("n.", "救赎；付代价得释放"),
+    "eternal": ("adj.", "永恒的、永远有效的"),
+    "perfect": ("v./adj.", "使完全；完全的"),
+    "sanctified": ("adj.", "被分别为圣的"),
+    "confidence": ("n.", "坦然、确信"),
+    "endurance": ("n.", "忍耐、坚忍"),
+    "faith": ("n.", "信心；对神的信靠"),
+    "promise": ("n.", "应许"),
+    "heavenly": ("adj.", "属天的、天上的"),
+    "discipline": ("n.", "管教、训练"),
+    "holiness": ("n.", "圣洁"),
+    "kingdom": ("n.", "国度、王权统治"),
+    "hospitality": ("n.", "接待客旅"),
+    "marriage": ("n.", "婚姻"),
+    "content": ("adj.", "知足的"),
+    "shepherd": ("n.", "牧者"),
+    "grace": ("n.", "恩典；神白白赐下的恩惠"),
+}
+
+
+def _hebrews_theme(chapter: int, verse: int) -> tuple[str, str]:
+    """Return the local argument of Hebrews 9–13 for a verse card."""
+    ranges: dict[int, list[tuple[range, str, str]]] = {
+        9: [
+            (range(1, 11), "the earthly tabernacle", "地上会幕与礼仪是暂时的预表，显出旧制度的限制。"),
+            (range(11, 15), "Christ's greater sacrifice", "基督借自己的血进入更大、更完全的帐幕，洁净人的良心。"),
+            (range(15, 23), "the new covenant", "新约以死亡、血与赦罪确立；立约需要真实的代价。"),
+            (range(23, 29), "once for all", "基督一次献上自己，除掉罪，并将再来拯救等候他的人。"),
+        ],
+        10: [
+            (range(1, 19), "one sacrifice for sins", "律法的祭物是影子；基督一次永远的献祭真正使属他的人得以完全。"),
+            (range(19, 26), "draw near and hold fast", "因耶稣开了又新又活的路，信徒可亲近神、坚守盼望并彼此激励。"),
+            (range(26, 32), "a serious warning", "故意弃绝基督的祭会面对严肃审判；这段警告呼召真实持守。"),
+            (range(32, 40), "endurance and faith", "回想从前的忍耐，继续以信心持守，不退后而得生命。"),
+        ],
+        11: [
+            (range(1, 8), "faith and the unseen", "信心是对所盼望之事的把握，使人按神所启示、尚未看见的现实行动。"),
+            (range(8, 23), "the faith of the patriarchs", "亚伯拉罕一家以寄居者身份仰望更美的家乡与神所建造的城。"),
+            (range(23, 32), "faith in the exodus", "摩西与以色列人因信离开埃及、越过红海、进入神所应许的道路。"),
+            (range(32, 41), "faithful witnesses", "信心见证人经历得胜也经历受苦；他们与我们同等候神最终的成全。"),
+        ],
+        12: [
+            (range(1, 4), "run with endurance", "众见证人环绕，信徒当卸下缠累，定睛于忍受十字架的耶稣。"),
+            (range(4, 18), "the discipline of a Father", "苦难中的管教证实神儿女身份，结出平安的义果。"),
+            (range(18, 25), "Mount Zion", "信徒来到的不是西奈的恐惧，而是天上锡安、永活神的城与新约中保耶稣。"),
+            (range(25, 30), "an unshakable kingdom", "要敬畏聆听说话的神；震动之后，信徒领受不能震动的国。"),
+        ],
+        13: [
+            (range(1, 7), "love in the Christian community", "信仰在弟兄相爱、接待、婚姻忠贞、知足与倚靠神中成为可见生活。"),
+            (range(7, 15), "Jesus Christ is the same", "记念忠心领袖，拒绝异端，以永不改变的耶稣为中心，甘愿担当他的凌辱。"),
+            (range(15, 20), "a sacrifice of praise", "借基督常献赞美，并以行善、分享和顺服建造群体。"),
+            (range(20, 26), "a benediction of peace", "结尾祷告颂赞赐平安的神，求他借永约之血装备信徒遵行旨意。"),
+        ],
+    }
+    for verse_range, phrase, note in ranges[chapter]:
+        if verse in verse_range:
+            return phrase, note
+    return "the argument of Hebrews", "请把本节放回本段论证中阅读，留意作者如何把旧约预表指向基督。"
+
+
+def generated_hebrews_note(chapter: int, verse: int, text: str) -> dict[str, Any]:
+    """Produce a focused learner note for every Hebrews 9–13 verse.
+
+    This preserves the API's standard three blocks while selecting vocabulary
+    from the actual ESV verse, grammar from its visible construction, and
+    background from the verse's local line of argument.
+    """
+    lower = text.lower()
+    vocab = [
+        {"word": word, "ipa": "", "pos": pos, "meaning": meaning}
+        for word, (pos, meaning) in _HEBREWS_VOCABULARY.items()
+        if word in lower
+    ][:2]
+    if not vocab:
+        key = next((word.strip(".,;:!?\"'").lower() for word in text.split()
+                    if len(word.strip(".,;:!?\"'")) >= 7), "passage")
+        vocab = [{"word": key, "ipa": "", "pos": "key word", "meaning": "本节关键内容词；结合上下文与 CUV 对照理解。"}]
+
+    if "let us" in lower:
+        grammar = ("Let us + 动词", "共同劝勉：作者邀请全体信徒一同采取行动。")
+    elif "if " in lower:
+        grammar = ("if 条件句", "if 引出条件或假设；留意主句所说明的结果。")
+    elif "not " in lower and " but " in lower:
+        grammar = ("not ... but ...", "否定一种理解或做法，并以 but 转向作者强调的重点。")
+    elif "who " in lower or "which " in lower or "that " in lower:
+        grammar = ("关系从句", "who / which / that 为前面的名词补充身份、内容或结果。")
+    elif lower.startswith("for "):
+        grammar = ("For 连接论证", "For 常说明前一句的理由、依据或进一步解释。")
+    else:
+        grammar = ("主句与修饰成分", "先找本节有限动词与主语，再把介词短语和分词短语逐层接回主句。")
+
+    phrase, note = _hebrews_theme(chapter, verse)
+    return {
+        "vocab": vocab,
+        "grammar": [{"title": grammar[0], "detail": grammar[1]}],
+        "expression": [{"phrase": phrase, "note": note}],
+        "translation": "",
+    }
+
+
 def tts_cache_key(text: str, voice: str) -> str:
     return hashlib.sha1(f"bible-lang-v1\n{voice}\n{text}".encode("utf-8")).hexdigest()
 
@@ -385,9 +545,8 @@ def get_config():
             "seededChapters": seeded_chapters,
         })
 
-    # /config can change while you're seeding notes (the seededChapters
-    # list grows). 5 minutes is plenty to amortise rapid navigation but
-    # short enough that newly-seeded chapters appear soon after a reload.
+    # /config changes as study chapters are seeded. Do not permit a browser
+    # to keep a stale book/chapter availability map.
     return cached_json({
         "lang": cfg["code"],
         "label": cfg["label"],
@@ -401,7 +560,7 @@ def get_config():
         "ttsVoiceFallback": cfg["ttsVoiceFallback"],
         "books": book_summary,
         "ready": cfg["ready"],
-    }, max_age=300)
+    }, max_age=0)
 
 
 @bp.get("/chapter")
@@ -439,7 +598,7 @@ def get_chapter():
     payload_verses: list[dict[str, Any]] = []
     for verse in primary_verses:
         n = int(verse.get("verse") or 0)
-        note = notes.get(str(n)) or {}
+        note = normalize_note(notes.get(str(n)))
         payload_verses.append({
             "verse": n,
             "text": clean_verse_text(str(verse.get("text") or "")),
@@ -450,8 +609,8 @@ def get_chapter():
             "translation": note.get("translation") or "",
         })
 
-    # Bible text is immutable; cache aggressively in the browser so going
-    # back to a previously-viewed chapter never re-hits the server.
+    # The verse text is immutable, but its study notes are not. Keep a
+    # server-side source of truth on every navigation and avoid stale notes.
     return cached_json({
         "lang": cfg["code"],
         "book": book,
@@ -461,7 +620,7 @@ def get_chapter():
         "parallelVersion": cfg["parallelVersion"],
         "parallelVersionLabel": cfg["parallelVersionLabel"],
         "verses": payload_verses,
-    }, max_age=3600)
+    }, max_age=0)
 
 
 @bp.route("/tts", methods=["POST", "OPTIONS"])
