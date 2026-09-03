@@ -593,6 +593,36 @@ def generated_revelation_note(chapter: int, verse: int, text: str) -> dict[str, 
     return {"vocab": vocab, "grammar": [{"title": grammar[0], "detail": grammar[1]}], "expression": [{"phrase": phrase, "note": note}], "translation": ""}
 
 
+def generated_acts_note(chapter: int, verse: int, text: str) -> dict[str, Any]:
+    """A distinct, text-led English card for every Acts 1–7 verse."""
+    words = [w.strip(".,;:!?\"'—()[]") for w in text.split()]
+    key_words = []
+    for word in words:
+        normal = word.lower()
+        if len(normal) >= 6 and normal.isalpha() and normal not in key_words:
+            key_words.append(normal)
+        if len(key_words) == 2:
+            break
+    vocab = [{"word": word, "ipa": "", "pos": "key word", "meaning": "本节的核心内容词；先在 ESV 原句中定位它所连接的对象、动作或结果。"} for word in key_words]
+    if not vocab:
+        vocab = [{"word": "key expression", "ipa": "", "pos": "key phrase", "meaning": "本节以完整表达学习；先辨认主语、动词和宾语。"}]
+    lower = text.lower()
+    if "who " in lower or "which " in lower or "that " in lower:
+        grammar = ("关系从句", "who / which / that 为前面名词补充身份或内容；先找它所修饰的名词。")
+    elif "if " in lower or "unless " in lower:
+        grammar = ("条件句", "if / unless 引出条件；先找主句所表达的结果、命令或应许。")
+    elif "was " in lower or "were " in lower or "been " in lower:
+        grammar = ("被动与叙事时态", "be + 过去分词多表示被动或状态；注意叙事中动作发生的先后。")
+    elif "to " in lower:
+        grammar = ("不定式 to + 动词", "to + 动词原形常表示目的、内容或下一步行动；判断它修饰哪个动词/名词。")
+    else:
+        grammar = ("主句与并列动作", "先找有限动词，再观察 and / but / for 如何连接叙事动作与理由。")
+    excerpt = " ".join(words[:min(7, len(words))])
+    chapter_topics = {1: "升天、等候与圣灵应许", 2: "五旬节、彼得讲道与初代群体", 3: "医治与圣殿讲道", 4: "见证、祷告与群体生活", 5: "使徒见证与逼迫", 6: "服事分工与司提反", 7: "司提反的历史讲论", 8: "分散中的福音、腓利与埃提阿伯太监", 9: "扫罗归主与彼得事工", 10: "哥尼流异象与福音临到外邦人", 11: "安提阿教会与福音扩展", 12: "彼得获救与希律的结局", 13: "第一次宣教旅程与彼西底安提阿讲道", 14: "坚固众教会与宣教回程"}
+    topic = chapter_topics.get(chapter, "使徒行传的宣教与见证叙事")
+    return {"vocab": vocab, "grammar": [{"title": grammar[0], "detail": grammar[1]}], "expression": [{"phrase": excerpt, "note": f"本节位于“{topic}”段落；将这段原文作为整体朗读，留意其核心动词如何推进事件。"}], "translation": ""}
+
+
 def tts_cache_key(text: str, voice: str) -> str:
     return hashlib.sha1(f"bible-lang-v1\n{voice}\n{text}".encode("utf-8")).hexdigest()
 
@@ -717,6 +747,9 @@ def get_chapter():
         if (cfg["code"] == "en" and book == "Revelation" and 14 <= chapter <= 22
                 and not (note["vocab"] or note["grammar"] or note["expression"])):
             note = generated_revelation_note(chapter, n, str(verse.get("text") or ""))
+        if (cfg["code"] == "en" and book == "Acts" and 1 <= chapter <= 28
+                and not (note["vocab"] or note["grammar"] or note["expression"])):
+            note = generated_acts_note(chapter, n, str(verse.get("text") or ""))
         payload_verses.append({
             "verse": n,
             "text": clean_verse_text(str(verse.get("text") or "")),
