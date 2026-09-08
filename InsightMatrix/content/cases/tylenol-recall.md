@@ -6,7 +6,7 @@ type: "case"
 summary: "将责任调查与止损行动分开，理解可信承诺需要看得见的成本和产品改进。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "行为与证据"]
+tags: ["泰诺","产品召回","可信承诺"]
 related: ["expected-value","trust","second-order-thinking"]
 eventKey: "tylenol-recall"
 learningObjective: "能够在伤害严重但范围未知的事件中，分别制定临时止损、调查与恢复信任的条件。"
@@ -43,4 +43,3 @@ FDA的历史回顾与监管人员口述史支持投毒事件、防拆包装规�
 
 - [FDA历史：药品安全百年](https://www.fda.gov/about-fda/histories-product-regulation/promoting-safe-effective-drugs-100-years)：1982年泰诺氰化物投毒造成七人死亡，并推动防拆包装要求。
 - [FDA监管人员Hoeting口述史](https://www.fda.gov/media/81308/download)：记录泰诺事件的监管应对、产品撤回背景和1982年防拆包装规则。
-

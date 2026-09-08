@@ -6,7 +6,7 @@ type: "case"
 summary: "学习用逐项可验证的能力声明评估突破性技术，防止声誉替代独立验证。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "行为与证据"]
+tags: ["Theranos","技术验证","声誉效应"]
 related: ["narrative-bias","circle-of-competence","confirmation-bias"]
 eventKey: "theranos-fraud"
 learningObjective: "能够把技术愿景拆成可测试的能力声明，并按证据类型调整对技术及商业价值的信任。"
@@ -43,4 +43,3 @@ SEC公告指出，所谓便携血液分析技术的实际能力与宣传存在�
 
 - [SEC 2018 Theranos执法公告](https://www.sec.gov/newsroom/press-releases/2018-41)：指控公司夸大血液检测技术、商业应用与收入，通过误导陈述融资。
 - [美国司法部案件页面](https://www.justice.gov/usao-ndca/us-v-elizabeth-holmes-et-al)：记录Holmes与Balwani的案件结果，并区分相关罪名和判决对象。
-

@@ -6,7 +6,7 @@ type: "case"
 summary: "检查风险举证责任和信息传递链，避免把程序签字当成充分知情的决定。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史决策","证据核验"]
+tags: ["挑战者号","异议机制","举证责任"]
 related: ["confirmation-bias","principal-agent","loss-aversion"]
 eventKey: "challenger-disaster"
 learningObjective: "能够追踪重大决策的异议传递路径，并区分证明安全与尚未证明危险这两种标准。"
@@ -43,4 +43,3 @@ sources:
 
 - [罗杰斯委员会报告第五章](https://www.nasa.gov/history/rogersrep/v1ch5.htm)：发射决策存在沟通缺陷，关键管理者未充分了解承包商的低温担忧。
 - [罗杰斯委员会报告第四章](https://www.nasa.gov/history/rogersrep/v1ch4.htm)：调查认定右侧固体火箭接头密封失效是事故的直接技术原因。
-

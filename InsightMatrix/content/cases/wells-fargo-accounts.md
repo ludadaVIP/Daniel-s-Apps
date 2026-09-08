@@ -6,7 +6,7 @@ type: "case"
 summary: "识别业绩数字与客户价值脱钩的路径，为激励制度设计独立验证和纠偏信号。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "决策机制"]
+tags: ["富国银行","指标异化","交叉销售"]
 related: ["incentives","principal-agent","second-order-thinking"]
 eventKey: "wells-fargo-accounts"
 learningObjective: "能够识别可被操纵的代理指标，并设计客户价值和授权证据的独立验证机制。"
@@ -43,4 +43,3 @@ CFPB公告和同意令支持未经授权开户、客户费用损失以及退款�
 
 - [CFPB 2016执法公告](https://www.consumerfinance.gov/archive/newsroom/consumer-financial-protection-bureau-fines-wells-fargo-100-million-widespread-illegal-practice-secretly-opening-unauthorized-accounts/)：销售目标和奖励推动员工未经授权开立账户，公告区分可能未获授权的账户。
 - [CFPB 同意令](https://files.consumerfinance.gov/f/documents/092016_cfpb_WFBconsentorder.pdf)：列明银行的整改、退款及对销售行为进行独立审查的义务。
-

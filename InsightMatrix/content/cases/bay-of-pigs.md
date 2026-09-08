@@ -6,7 +6,7 @@ type: "case"
 summary: "把失败复盘从责备胆识转向检查相互冲突的目标、支援假设与退出路径。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史决策","证据核验"]
+tags: ["猪湾","计划假设","群体决策"]
 related: ["confirmation-bias","overconfidence","second-order-thinking"]
 eventKey: "bay-of-pigs"
 learningObjective: "能够把复杂计划拆成必要条件，并检查政治目标与执行条件是否互相矛盾。"
@@ -43,4 +43,3 @@ sources:
 
 - [肯尼迪图书馆：猪湾行动](https://www.jfklibrary.org/learn/about-jfk/jfk-in-history/the-bay-of-pigs)：计划期待古巴内部支持，美国希望隐蔽介入，登陆地点与撤退条件存在困难。
 - [美国国务院历史办公室：猪湾](https://history.state.gov/milestones/1961-1968/bay-of-pigs)：说明1961年行动的政策背景、失败及其对肯尼迪政府的影响。
-

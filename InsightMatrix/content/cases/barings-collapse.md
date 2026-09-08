@@ -6,7 +6,7 @@ type: "case"
 summary: "理解交易权限与记账权限集中如何掩盖风险，训练从异常收益倒查控制链。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "决策机制"]
+tags: ["巴林银行","独立对账","越权交易"]
 related: ["overconfidence","principal-agent","sunk-cost"]
 eventKey: "barings-collapse"
 learningObjective: "能够从高收益和资金需求的矛盾识别控制缺口，为关键岗位设计独立对账责任。"
@@ -43,4 +43,3 @@ sources:
 
 - [澳大利亚央行对巴林调查的分析](https://www.rba.gov.au/publications/bulletin/1995/nov/1.html)：Leeson同时控制前后台，未授权头寸和隐藏损失、资金需求未被及时质疑。
 - [英国银行监督委员会报告发布记录](https://www.gov.uk/government/publications/report-into-the-collapse-of-barings-bank)：1995年7月18日发布针对巴林倒闭的正式调查报告，并提供原报告入口。
-

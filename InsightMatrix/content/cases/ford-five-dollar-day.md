@@ -6,7 +6,7 @@ type: "case"
 summary: "区分工资支出与人员流失总成本，同时识别福利附带的权力条件。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "行为与证据"]
+tags: ["福特","效率工资","福利边界"]
 related: ["incentives","opportunity-cost","principal-agent"]
 eventKey: "ford-five-dollar-day"
 learningObjective: "能够把员工工资放进总成本比较，并同时审查高待遇附带的资格条件与控制边界。"
@@ -43,4 +43,3 @@ sources:
 
 - [亨利福特博物馆：五美元工作日](https://www.thehenryford.org/collections/explore/articles/detail/articles/2014/01/03/fords-five-dollar-day)：1914年计划包含利润分享资格条件，流水线工作与高流失率是重要背景。
 - [亨利福特博物馆：社会学部档案](https://www.thehenryford.org/collections/explore/sets/detail/henry-ford-sociological-department)：员工家庭访问和生活习惯调查等档案展示待遇与厂外控制的联系。
-

@@ -40,6 +40,10 @@ test('missing counterfactuals, thin exercises and malformed evidence do not pass
   assert.ok(has(report, 'source-format'));
   assert.ok(has(report, 'source-url'));
   assert.ok(has(report, 'source-count'));
+  const mirrored = example();
+  mirrored.sources = [mirrored.sources[0], { ...mirrored.sources[0], title: mirrored.sources[0].title + '（镜像）', url: 'https://example.org/mirror' }];
+  mirrored.body += '\nhttps://example.org/mirror';
+  assert.ok(has(auditCases([mirrored], options), 'duplicate-source-document'));
 });
 
 test('content changes invalidate a previously approved editorial record', () => {

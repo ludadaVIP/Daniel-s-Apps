@@ -6,7 +6,7 @@ type: "case"
 summary: "追踪关联方交易背后的控制权与风险承担，避免被会计表面隔离迷惑。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "决策机制"]
+tags: ["安然","关联交易","利益冲突"]
 related: ["principal-agent","incentives","circle-of-competence"]
 eventKey: "enron-incentives"
 learningObjective: "能够沿关联交易追踪现金、控制权与兜底责任，识别名义独立和经济实质的差异。"
@@ -29,6 +29,8 @@ sources:
 
 ## 结果与证据
 
+审核时还要比较交易之前和之后的融资来源。假如新实体的钱最终来自原公司的担保贷款，表面上多出一个交易对手，经济上却未多出一个愿意独立承受损失的人。这个检查能把复杂结构还原成可回答的问题，也避免仅凭利润增长就相信风险已经分散。
+
 司法部2002年文件描述了LJM等实体、管理人员的利益冲突和某些事先约定的资产回购安排，SEC文件则给出了利润与负债披露操纵的多种路径。二者支持沿合同实质核查的必要性，却不能让读者在几页文章后声称已重建安然完整账目。如果一项所谓出售附带原卖方承担风险的承诺，读者至少应暂停“卖掉所以风险消失”的推论；后续还须查合同、合并口径与会计期间。
 
 ## 反事实与适用边界
@@ -43,4 +45,3 @@ sources:
 
 - [SEC对Skilling与Causey的起诉书](https://www.sec.gov/litigation/complaints/comp18582.htm)：指控通过储备、估值和非独立关联实体操纵利润并隐瞒债务。
 - [司法部对Fastow的2002年指控](https://www.justice.gov/archive/opa/pr/2002/October/02_crm_568.htm)：描述LJM安排及回购承诺，区分形式上的资产出售与风险是否实际转移。
-

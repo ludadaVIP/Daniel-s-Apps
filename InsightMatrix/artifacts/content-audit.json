@@ -1,45 +1,29 @@
 {
-  "checkedAt": "2026-09-08T04:26:48.930Z",
+  "checkedAt": "2026-09-08T09:28:45.889Z",
   "passed": false,
   "counts": {
-    "human-nature": 9,
-    "psychology": 2,
-    "society": 5,
-    "economics": 3,
-    "industries": 3,
-    "investing": 3
+    "human-nature": 10,
+    "psychology": 10,
+    "society": 10,
+    "economics": 10,
+    "industries": 10,
+    "investing": 10
   },
-  "totalCases": 25,
+  "totalCases": 60,
   "errors": [
     {
-      "rule": "category-coverage",
-      "ids": [],
-      "message": "human-nature 只有 9 篇案例，需要至少 10 篇"
+      "rule": "thin-case",
+      "ids": [
+        "argentina-convertibility-2001"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
     },
     {
-      "rule": "category-coverage",
-      "ids": [],
-      "message": "psychology 只有 2 篇案例，需要至少 10 篇"
-    },
-    {
-      "rule": "category-coverage",
-      "ids": [],
-      "message": "society 只有 5 篇案例，需要至少 10 篇"
-    },
-    {
-      "rule": "category-coverage",
-      "ids": [],
-      "message": "economics 只有 3 篇案例，需要至少 10 篇"
-    },
-    {
-      "rule": "category-coverage",
-      "ids": [],
-      "message": "industries 只有 3 篇案例，需要至少 10 篇"
-    },
-    {
-      "rule": "category-coverage",
-      "ids": [],
-      "message": "investing 只有 3 篇案例，需要至少 10 篇"
+      "rule": "thin-case",
+      "ids": [
+        "asian-financial-crisis-1997"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
     },
     {
       "rule": "event-key",
@@ -114,231 +98,14 @@
     {
       "rule": "thin-case",
       "ids": [
-        "enron-incentives"
-      ],
-      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
-    },
-    {
-      "rule": "event-key",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "缺少规范的历史事件 eventKey"
-    },
-    {
-      "rule": "learning-objective",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "需要说明至少 20 个汉字的具体学习目标"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "缺少“事件与当时的信息”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "缺少“决策与因果机制”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "缺少“结果与证据”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "缺少“反事实与适用边界”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "缺少“判断练习”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "缺少“来源与核验”"
-    },
-    {
-      "rule": "thin-case",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
-    },
-    {
-      "rule": "source-count",
-      "ids": [
-        "financial-crisis-2008"
-      ],
-      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
-    },
-    {
-      "rule": "thin-case",
-      "ids": [
-        "glorious-revolution-1688"
-      ],
-      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
-    },
-    {
-      "rule": "event-key",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "缺少规范的历史事件 eventKey"
-    },
-    {
-      "rule": "learning-objective",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "需要说明至少 20 个汉字的具体学习目标"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "缺少“事件与当时的信息”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "缺少“决策与因果机制”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "缺少“结果与证据”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "缺少“反事实与适用边界”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "缺少“判断练习”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "缺少“来源与核验”"
-    },
-    {
-      "rule": "thin-case",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
-    },
-    {
-      "rule": "source-count",
-      "ids": [
-        "great-inflation"
-      ],
-      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
-    },
-    {
-      "rule": "event-key",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "缺少规范的历史事件 eventKey"
-    },
-    {
-      "rule": "learning-objective",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "需要说明至少 20 个汉字的具体学习目标"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "缺少“事件与当时的信息”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "缺少“决策与因果机制”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "缺少“结果与证据”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "缺少“反事实与适用边界”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "缺少“判断练习”"
-    },
-    {
-      "rule": "missing-section",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "缺少“来源与核验”"
-    },
-    {
-      "rule": "source-count",
-      "ids": [
-        "japan-bubble"
-      ],
-      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
-    },
-    {
-      "rule": "thin-case",
-      "ids": [
-        "london-cholera-1854"
+        "intel-dram-exit"
       ],
       "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
     },
     {
       "rule": "thin-case",
       "ids": [
-        "ostrom-irrigation"
+        "nixon-gold-window-1971"
       ],
       "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
     },
@@ -411,6 +178,27 @@
         "south-sea-bubble"
       ],
       "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "sweden-banking-crisis"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "swiss-franc-floor-2015"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "toyota-oil-shock"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
     },
     {
       "rule": "event-key",
@@ -486,6 +274,26 @@
   "warnings": [],
   "inventory": [
     {
+      "id": "air-france-447",
+      "category": "psychology",
+      "eventKey": "air-france-447",
+      "title": "法航447：自动化退出后，谁掌握系统状态",
+      "chineseCharacters": 776,
+      "sourceCount": 2,
+      "hash": "69a38c41efff8c81de451c42bf1a2ece3f42ad7564a184bcaf351a94e6ad559b",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "amaranth-natural-gas",
+      "category": "investing",
+      "eventKey": "amaranth-natural-gas-calendar-spread-2006",
+      "title": "Amaranth：同一种商品的多空头寸，也可能高度集中",
+      "chineseCharacters": 761,
+      "sourceCount": 2,
+      "hash": "febac7295db179c48af1129ffe0f18907e3e39c68c3c7d6ad629682920a649cc",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "amazon-survival",
       "category": "investing",
       "eventKey": "amazon-liquidity-runway-2000",
@@ -496,6 +304,66 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "amex-salad-oil",
+      "category": "investing",
+      "eventKey": "american-express-salad-oil-investment-1963-1964",
+      "title": "美国运通色拉油事件：一次损失与持续赚钱能力要分开",
+      "chineseCharacters": 789,
+      "sourceCount": 2,
+      "hash": "998101db087cdc876fbe2209310a67e240cf4ee7ee5122d2560cf1d4ca822bb4",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "argentina-convertibility-2001",
+      "category": "economics",
+      "eventKey": "argentina-convertibility-collapse-2001-2002",
+      "title": "2001 年阿根廷：成功的稳定工具如何变成退出困局",
+      "chineseCharacters": 743,
+      "sourceCount": 2,
+      "hash": "fbb2fa451b3ee70429152c2e18af87eb9628db043b6bd71aa3a2ccaf2f379ba9",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "asch-conformity",
+      "category": "psychology",
+      "eventKey": "asch-conformity",
+      "title": "阿希从众实验：一致意见有多少独立信息",
+      "chineseCharacters": 816,
+      "sourceCount": 2,
+      "hash": "eaaae6de54fb8a44ca58ffd28f0d562182ba1dc72d866a387eeed94e0a216365",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "asian-disease-framing",
+      "category": "psychology",
+      "eventKey": "asian-disease-framing",
+      "title": "1981年框架实验：同一结果为什么看起来不同",
+      "chineseCharacters": 766,
+      "sourceCount": 2,
+      "hash": "0cbe114b01f996d0bc2d10696bdf92ff11b8bda78d3fb7b28831452425aea5b4",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "asian-financial-crisis-1997",
+      "category": "economics",
+      "eventKey": "asian-financial-crisis-1997-1998",
+      "title": "1997 年亚洲金融危机：高增长如何掩盖货币与期限错配",
+      "chineseCharacters": 726,
+      "sourceCount": 2,
+      "hash": "6f5169e62f8a4d2b1bee4b01b0e15d4c55b99b829be1d7ad7bb37fc2a135480a",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "bank-holiday-1933",
+      "category": "economics",
+      "eventKey": "us-national-bank-holiday-1933",
+      "title": "1933 年银行休业：暂停挤兑之后，凭什么重新开门",
+      "chineseCharacters": 754,
+      "sourceCount": 2,
+      "hash": "84dfa0ae7b123610f5cc74b49faade9febf09e5eea89f96eb09a8bbbd51119c2",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "barings-collapse",
       "category": "human-nature",
       "eventKey": "barings-collapse",
@@ -503,6 +371,46 @@
       "chineseCharacters": 757,
       "sourceCount": 2,
       "hash": "665244a2ac8b3a0a6c9f015435eeca1bf71d9c6e52077e2ca81fe0df4656d27f",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "bay-of-pigs",
+      "category": "psychology",
+      "eventKey": "bay-of-pigs",
+      "title": "猪湾行动：计划里的关键假设是谁验证的",
+      "chineseCharacters": 769,
+      "sourceCount": 2,
+      "hash": "9826bdd2a9038cbb8ee0ebc5153ce310e3a6a356db75dc21e822c1be5eaf6284",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "challenger-disaster",
+      "category": "psychology",
+      "eventKey": "challenger-disaster",
+      "title": "挑战者号：异议是否真正到达了决策者",
+      "chineseCharacters": 780,
+      "sourceCount": 2,
+      "hash": "d22d9003b4764878a2c5dd59941ec39cfc8b82f8792390981b2944430378718b",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "columbia-shuttle",
+      "category": "psychology",
+      "eventKey": "columbia-shuttle",
+      "title": "哥伦比亚号：没有出事如何被误读成已经安全",
+      "chineseCharacters": 766,
+      "sourceCount": 2,
+      "hash": "71b96b0ea850dfd40beedad9ec4874d70807eb09057cd7381a1f444eac86cfa7",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "containerization",
+      "category": "industries",
+      "eventKey": "ideal-x-containerization-1956",
+      "title": "集装箱革命：真正的创新发生在交接处",
+      "chineseCharacters": 773,
+      "sourceCount": 2,
+      "hash": "c80c8fad210b593ce52229716c28009dd1a69fce125a90bbb7f79b62fcd5ec04",
       "editorialDecision": "pending"
     },
     {
@@ -519,18 +427,29 @@
       "category": "human-nature",
       "eventKey": "enron-incentives",
       "title": "安然：独立交易为何需要独立的利益结构",
-      "chineseCharacters": 748,
+      "chineseCharacters": 853,
       "sourceCount": 2,
-      "hash": "0b23b3a396dfce3c4ee1a79eaff6327f7742dd3ad47fec4c84fb623c3108e3f2",
+      "hash": "0088b3fd9c96305bb52f665cdcaeb99b6e8d94c061b145139b008f85dd567325",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "estonia-digital-state",
+      "category": "society",
+      "eventKey": "estonia-digital-state-xtee-2001",
+      "title": "爱沙尼亚数字政府：把数据连起来之前，先把责任分清",
+      "chineseCharacters": 759,
+      "sourceCount": 2,
+      "hash": "22ff115c1fdacb4e886a062a101ceb4ebf226932145199e4d24810314bf5beb6",
       "editorialDecision": "pending"
     },
     {
       "id": "financial-crisis-2008",
       "category": "economics",
+      "eventKey": "global-financial-crisis-2007-2009",
       "title": "2008 金融危机：局部房贷风险如何穿透整个系统",
-      "chineseCharacters": 691,
-      "sourceCount": 0,
-      "hash": "81625f61179227b7b0e0726b5b24cecccee4f5cf5ef1b0c9b042173a3f6e673f",
+      "chineseCharacters": 764,
+      "sourceCount": 2,
+      "hash": "be489d8fbf5cd2ff9cc7b02f27c39d9374cc688827b04232912ce2fbe4c03d4e",
       "editorialDecision": "pending"
     },
     {
@@ -541,6 +460,16 @@
       "chineseCharacters": 784,
       "sourceCount": 2,
       "hash": "45be63f56df781361713b183f44fd5d0f3a880eb19e675ddec62019161fe6252",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "gamestop-2021",
+      "category": "investing",
+      "eventKey": "gamestop-market-structure-january-2021",
+      "title": "GameStop：看对价格故事，也可能误判交易规则",
+      "chineseCharacters": 788,
+      "sourceCount": 2,
+      "hash": "69c8e7a5e21c21a4635243fc157bbab94863cce5b1b02dcf9fb7e92f3400aa51",
       "editorialDecision": "pending"
     },
     {
@@ -558,18 +487,29 @@
       "category": "society",
       "eventKey": "england-glorious-revolution-1688-1689",
       "title": "1688 年后的英国：可信承诺如何进入国家融资",
-      "chineseCharacters": 749,
+      "chineseCharacters": 846,
       "sourceCount": 2,
-      "hash": "68a15b367059d9e5827b9b7f8a1b84ba34aeda28585fd7c227ffb2ac3e888160",
+      "hash": "e796e27cbf94e338a31390ed1dc1e06efe0f93beb6e480bdbb05bac28ca703df",
       "editorialDecision": "pending"
     },
     {
       "id": "great-inflation",
       "category": "economics",
+      "eventKey": "us-great-inflation-1965-1982",
       "title": "1970 年代大通胀：冲击、预期与政策信誉",
-      "chineseCharacters": 739,
-      "sourceCount": 0,
-      "hash": "a70f5f1259b51ad8346d618d7c08bf22d574aa40bc856704fac52d7be6a904a3",
+      "chineseCharacters": 750,
+      "sourceCount": 2,
+      "hash": "8d156f8f09e3497ef7bf6e46d66e3caaf00d9510ce977f60761c630cc8ab1208",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "great-smog-1952",
+      "category": "society",
+      "eventKey": "london-great-smog-1952",
+      "title": "1952 年伦敦烟雾：每家的取暖选择如何累积成公共灾难",
+      "chineseCharacters": 825,
+      "sourceCount": 2,
+      "hash": "22bd928aefb41f537f580bd747d3fb4a933238586678751b62eaa0ad28deb60a",
       "editorialDecision": "pending"
     },
     {
@@ -583,12 +523,33 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "india-green-revolution",
+      "category": "society",
+      "eventKey": "india-green-revolution-wheat-1960s",
+      "title": "印度绿色革命：种子为何必须与一整套条件一起工作",
+      "chineseCharacters": 763,
+      "sourceCount": 2,
+      "hash": "750c718bb4bc276f1fe48feee77271b6dfefd41e2187dab0fcb4fd4782c40455",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "intel-dram-exit",
+      "category": "industries",
+      "eventKey": "intel-dram-exit-1985",
+      "title": "英特尔退出DRAM：资源配置先于身份认同",
+      "chineseCharacters": 748,
+      "sourceCount": 2,
+      "hash": "cc9eb8f176b3ad1c14802b661c686826fdb0bcdf7162f297b8ec75cb9f731fa2",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "japan-bubble",
       "category": "economics",
+      "eventKey": "japan-asset-bubble-1980s-1990s",
       "title": "日本资产泡沫：物价平稳，也可能积累金融风险",
-      "chineseCharacters": 767,
-      "sourceCount": 0,
-      "hash": "99072c848496ac89bc991b802a2bdd0b806e44ea3e5f1eecf73b32086fb54233",
+      "chineseCharacters": 756,
+      "sourceCount": 2,
+      "hash": "843a0bff1aab31a1b23846b5ce37c9b9d8c9c18633de5e1a596506d91a1b78db",
       "editorialDecision": "pending"
     },
     {
@@ -606,9 +567,9 @@
       "category": "society",
       "eventKey": "london-broad-street-cholera-1854",
       "title": "1854 年伦敦霍乱：一张地图之外的因果证据",
-      "chineseCharacters": 745,
+      "chineseCharacters": 855,
       "sourceCount": 2,
-      "hash": "97f0921a0e2ff614d76ac5b88f20c58f983bb01b3d882f879f1325ef64e34a38",
+      "hash": "06f03e52e8d138e22eaf3b8ffb1e66f64e26c7f15eca4f8668b88eee6a94848a",
       "editorialDecision": "pending"
     },
     {
@@ -622,13 +583,33 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "metallgesellschaft-hedge",
+      "category": "investing",
+      "eventKey": "metallgesellschaft-oil-hedge-1993",
+      "title": "德国金属公司：对冲了价格，为什么仍付不出现金",
+      "chineseCharacters": 787,
+      "sourceCount": 2,
+      "hash": "376fc50cc38f3b852a972993e6a3b8f6180bd77a49a60307b935f0f868a4aaaf",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "milgram-obedience",
       "category": "human-nature",
       "eventKey": "milgram-obedience",
       "title": "米尔格拉姆实验：服从来自怎样的情境",
-      "chineseCharacters": 777,
+      "chineseCharacters": 797,
       "sourceCount": 2,
-      "hash": "7620b18c6c00da9091a2baf9a3c130b1f40c6dc9c821b673c117f80cd791a6e8",
+      "hash": "8b000f7737604d1441149f8b9534c0ed2fd766b41aaad395abb5fd1e140ba0fd",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "montreal-protocol-1987",
+      "category": "society",
+      "eventKey": "montreal-protocol-1987",
+      "title": "1987 年蒙特利尔议定书：全球合作如何变得可执行",
+      "chineseCharacters": 847,
+      "sourceCount": 2,
+      "hash": "1a8fb30c698a87bde44fa4d7f7efc6eeb91e79a9d18e6559fc1ad82a9b91e6e1",
       "editorialDecision": "pending"
     },
     {
@@ -642,6 +623,26 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "netflix-streaming",
+      "category": "industries",
+      "eventKey": "netflix-streaming-launch-2007",
+      "title": "Netflix走向流媒体：先验证客户任务，再迁移交付方式",
+      "chineseCharacters": 768,
+      "sourceCount": 2,
+      "hash": "9f2c6b9722881dabb5cd9816f539b55cf23518364e343e2e12f28a8e6d69e567",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "nixon-gold-window-1971",
+      "category": "economics",
+      "eventKey": "us-gold-window-closure-1971",
+      "title": "1971 年关闭黄金窗口：国际规则为何会被发行者改写",
+      "chineseCharacters": 745,
+      "sourceCount": 2,
+      "hash": "1967b0f2e62fce627828d4280e9c303377b618d0ff3bb3aee4b476e837516e1a",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "nokia-platform",
       "category": "industries",
       "eventKey": "nokia-smartphone-platform-sale-2011-2014",
@@ -652,13 +653,23 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "orange-county-bankruptcy",
+      "category": "investing",
+      "eventKey": "orange-county-investment-pool-bankruptcy-1994",
+      "title": "橙县破产：公共资金的高收益，可能来自隐藏的利率赌注",
+      "chineseCharacters": 808,
+      "sourceCount": 2,
+      "hash": "0a2a59ac7362bc7a635a89dfb6fe0bd0887ab87192caa5e90b8fe214d3688d45",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "ostrom-irrigation",
       "category": "society",
       "eventKey": "nepal-irrigation-institutional-studies",
       "title": "尼泊尔灌溉：修好水坝，为什么反而分不好水",
-      "chineseCharacters": 734,
+      "chineseCharacters": 840,
       "sourceCount": 2,
-      "hash": "10fde28e40222cfc4885fa4e8a31dddcdfb797b2882393f8941ce09bac6db353",
+      "hash": "1bbcc86dab9abd4dae9f3e80041af10c337d69d88e4bee08dc88405cee48b74d",
       "editorialDecision": "pending"
     },
     {
@@ -672,12 +683,62 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "rjr-nabisco-buyout",
+      "category": "investing",
+      "eventKey": "rjr-nabisco-leveraged-buyout-1988-1989",
+      "title": "RJR Nabisco收购：赢得竞价，不等于买到了足够回报",
+      "chineseCharacters": 766,
+      "sourceCount": 2,
+      "hash": "dfa41eac4ce607463582b65ccd3bfe44330f6be1857a7a0fbbdbe7656fe9175a",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "solar-overcapacity",
+      "category": "industries",
+      "eventKey": "global-solar-pv-manufacturing-overcapacity-2011",
+      "title": "2011光伏过剩：行业需求增长，为什么制造商仍难赚钱",
+      "chineseCharacters": 767,
+      "sourceCount": 2,
+      "hash": "05ea2f3566093c496786a11ce306c9ea261ff7b6752578a911169cb60ccf9a53",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "south-sea-bubble",
       "category": "human-nature",
       "title": "南海泡沫：权威背书如何与价格上涨互相强化",
       "chineseCharacters": 718,
       "sourceCount": 0,
       "hash": "93cdc27ca8d482a771bdae15a5671198a00d201bdcc87b088eb9a60d2456f11f",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "standard-oil-breakup",
+      "category": "industries",
+      "eventKey": "standard-oil-antitrust-dissolution-1911",
+      "title": "标准石油拆分：低成本优势与排他行为要分别判断",
+      "chineseCharacters": 801,
+      "sourceCount": 2,
+      "hash": "959e1ebdc43db3ddb9e76c3f2d986dd5ea7751795363e0877b274777f224d1cf",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "sweden-banking-crisis",
+      "category": "economics",
+      "eventKey": "sweden-banking-crisis-1991-1993",
+      "title": "1990 年代瑞典银行危机：承认损失为什么有助于恢复信任",
+      "chineseCharacters": 735,
+      "sourceCount": 2,
+      "hash": "89426c33c28e752efe09762c0a9c23010b46ec41672286420820d2b97a2d75c3",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "swiss-franc-floor-2015",
+      "category": "economics",
+      "eventKey": "snb-eur-chf-floor-exit-2015",
+      "title": "2015 年瑞郎下限取消：政策承诺不是永久价格保证",
+      "chineseCharacters": 749,
+      "sourceCount": 2,
+      "hash": "185dc6362c19cfc6271416413386001c6f03e04f13c20e044bebabcd8b50f089",
       "editorialDecision": "pending"
     },
     {
@@ -688,6 +749,36 @@
       "chineseCharacters": 774,
       "sourceCount": 2,
       "hash": "eea2e3b0cea71b26501d6a3877d8fb862f44857a2443a0dd1a9a898386967dda",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "three-mile-island",
+      "category": "psychology",
+      "eventKey": "three-mile-island",
+      "title": "三里岛：当仪表支持了错误的心智模型",
+      "chineseCharacters": 771,
+      "sourceCount": 2,
+      "hash": "2e6b90324eb64905279a397a689bcc549c6a0d3cb3abce1a71ba6cf5a0a64340",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "toyota-oil-shock",
+      "category": "industries",
+      "eventKey": "toyota-first-oil-shock-1973-1975",
+      "title": "丰田应对石油危机：降低产量也能是一种经营能力",
+      "chineseCharacters": 742,
+      "sourceCount": 2,
+      "hash": "20237a357fb3f7f50cbba23fb752bc59ebdf44c11439fdd642478c8475b8c631",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "tsmc-foundry",
+      "category": "industries",
+      "eventKey": "tsmc-pure-play-foundry-1987",
+      "title": "台积电纯代工：不与客户竞争，本身可以成为产品",
+      "chineseCharacters": 802,
+      "sourceCount": 2,
+      "hash": "a90ee19d1b3985e8e815e58186c9bad912e56bbc9a03df015cf8d0e31c3093e2",
       "editorialDecision": "pending"
     },
     {
@@ -710,6 +801,26 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "ultimatum-game",
+      "category": "human-nature",
+      "eventKey": "ultimatum-game",
+      "title": "最后通牒实验：拒绝小收益未必是不理性",
+      "chineseCharacters": 768,
+      "sourceCount": 2,
+      "hash": "82caa249afc0013cc454a5555d83d441276be17bb6ef353daa31a48e7493617c",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "vietnam-doi-moi",
+      "category": "society",
+      "eventKey": "vietnam-doi-moi-reforms-1986",
+      "title": "越南革新开放：为什么改革是一组互相配合的变化",
+      "chineseCharacters": 765,
+      "sourceCount": 2,
+      "hash": "a9234af522349f3c96ab166cd9bd633ab247007b555b00cbae57ff2cf67696e8",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "volkswagen-diesel",
       "category": "human-nature",
       "eventKey": "volkswagen-diesel",
@@ -720,6 +831,26 @@
       "editorialDecision": "pending"
     },
     {
+      "id": "wald-survivorship",
+      "category": "psychology",
+      "eventKey": "wald-survivorship",
+      "title": "沃尔德战机研究：没有回来的样本如何进入推断",
+      "chineseCharacters": 778,
+      "sourceCount": 2,
+      "hash": "cf3840d8570a72291c7254174624f0c69f013ec92af990ab13b8d21bc6595104",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "weimar-hyperinflation-1923",
+      "category": "economics",
+      "eventKey": "weimar-hyperinflation-1923",
+      "title": "1923 年德国恶性通胀：货币失去的不只是购买力",
+      "chineseCharacters": 752,
+      "sourceCount": 2,
+      "hash": "0936f0ce714b0215b18bb62e4294a217b69a0848e92e285da55fe02fcacc9dd9",
+      "editorialDecision": "pending"
+    },
+    {
       "id": "wells-fargo-accounts",
       "category": "human-nature",
       "eventKey": "wells-fargo-accounts",
@@ -727,6 +858,16 @@
       "chineseCharacters": 809,
       "sourceCount": 2,
       "hash": "d069f48e3ff07c07ecb726ccd03f8706093aba8e4b6dc47660ee82e7b7023100",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "worldcom-accounting",
+      "category": "investing",
+      "eventKey": "worldcom-line-cost-capitalization-2002",
+      "title": "世通会计丑闻：利润改善，可能只是费用换了位置",
+      "chineseCharacters": 808,
+      "sourceCount": 2,
+      "hash": "87cd77c899c3922c8a928c85ad6d9390fbd7337ece6e2fd91e4d122acb9474b1",
       "editorialDecision": "pending"
     }
   ],

@@ -6,7 +6,7 @@ type: "case"
 summary: "理解被评价者如何适应评价规则，学会用场景外测试检验漂亮成绩。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "决策机制"]
+tags: ["大众排放","测试作弊","外部性"]
 related: ["incentives","externalities","confirmation-bias"]
 eventKey: "volkswagen-diesel"
 learningObjective: "能够区分测试内表现与现实表现，并为可识别的评价体系设计场景外验证。"
@@ -43,4 +43,3 @@ EPA资料记录了2015年的违规通知、后续调查与和解，民事和解�
 
 - [EPA违规事实说明](https://www.epa.gov/vw/learn-about-volkswagen-violations)：部分柴油车软件识别排放测试，并在测试条件下启动完整排放控制。
 - [EPA民事和解](https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement)：和解要求回购、召回或经批准的排放修改，并规定验证条件。
-

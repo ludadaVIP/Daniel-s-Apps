@@ -67,6 +67,20 @@ try {
   await page.setViewportSize({ width: 1600, height: 1000 });
   fs.writeFileSync(path.join(artifacts, 'qa-dom.txt'), await page.locator('body').innerText());
   console.log(`Screenshots saved in ${artifacts}`);
+  await check('history library displays sixty cases and ten under each category filter', async () => {
+    await page.goto(`${url}/#cases`);
+    await page.locator('.library-toolbar').waitFor();
+    assert.equal(await page.locator('.article-card').count(), 60);
+    for (const label of ['人性', '心理', '社会', '经济', '产业', '投资']) {
+      await page.locator('.category-tabs').getByRole('button', { name: label, exact: true }).click();
+      await page.waitForFunction((expected) => document.querySelector('.category-tabs .active')?.textContent === expected, label);
+      assert.equal(await page.locator('.article-card').count(), 10);
+      const visibleLabels = await page.locator('.article-card .category-label').allTextContents();
+      assert.ok(visibleLabels.every((value) => value.startsWith(label)));
+    }
+    await page.goto(url);
+    await page.locator('.challenge-hero').waitFor();
+  });
   await check('library category, full-text search and empty state filters', async () => {
     await page.getByRole('button', { name: '探索全部', exact: true }).click();
     await page.locator('.library-toolbar').waitFor();

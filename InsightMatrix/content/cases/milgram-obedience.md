@@ -6,7 +6,7 @@ type: "case"
 summary: "拆解权威、渐进承诺和退出阻力，同时学习经典实验的样本与伦理边界。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史案例", "行为与证据"]
+tags: ["米尔格拉姆","权威服从","实验伦理"]
 related: ["herd-behavior","incentives","overconfidence"]
 eventKey: "milgram-obedience"
 learningObjective: "能够把服从解释为情境与个人选择的互动，并设计明确、可执行的拒绝和升级规则。"
@@ -14,9 +14,9 @@ sources:
   - title: "Milgram 1963原始论文（MIT存档）"
     url: "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Influence_Compliance/Milgrim_1963_Behavioral_study_of_obedience.pdf"
     claim: "描述四十名男性的特定实验、递增模拟电击、继续者与退出者及紧张反应。"
-  - title: "Milgram 1963原始论文（UNC存档）"
-    url: "https://irbmember.web.unc.edu/wp-content/uploads/sites/7878/2017/01/1963_Milgram_BehavioralStudy.pdf"
-    claim: "同一论文的大学存档用于交叉核对实验指令和伦理相关描述，不算独立重复实验。"
+  - title: "Burger 2014情境机制分析"
+    url: "https://spssi.onlinelibrary.wiley.com/doi/10.1111/josi.12073"
+    claim: "作者摘要提出渐进任务、规范信息、责任分散和思考时间限制等情境解释。"
 ---
 
 ## 事件与当时的信息
@@ -29,7 +29,7 @@ sources:
 
 ## 结果与证据
 
-原论文报告该特定条件下有二十六人到达最高等级，十四人在不同阶段停止。这里的比例属于该样本和程序，不是人类面对权威必然服从的常数，也不是每位参与者内心动机的测量。两所大学的链接保存的是同一篇论文，交叉核对能减少转述误差，却不增加独立证据数量。这个结果重要之处是提醒我们，口头相信自己会拒绝，并不足以预测在权威和逐步升级压力中的实际行为。
+原论文报告该特定条件下有二十六人到达最高等级，十四人在不同阶段停止。这里的比例属于该样本和程序，不是人类面对权威必然服从的常数，也不是每位参与者内心动机的测量。Burger的2014年分析摘要提出渐进任务、规范信息、责任分散和有限思考时间等解释；本文仅核验其公开摘要，不把该分析误写为独立复制实验的结果。这个结果重要之处是提醒我们，口头相信自己会拒绝，并不足以预测在权威和逐步升级压力中的实际行为。
 
 ## 反事实与适用边界
 
@@ -42,5 +42,4 @@ sources:
 ## 来源与核验
 
 - [Milgram 1963原始论文（MIT存档）](https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Influence_Compliance/Milgrim_1963_Behavioral_study_of_obedience.pdf)：描述四十名男性的特定实验、递增模拟电击、继续者与退出者及紧张反应。
-- [Milgram 1963原始论文（UNC存档）](https://irbmember.web.unc.edu/wp-content/uploads/sites/7878/2017/01/1963_Milgram_BehavioralStudy.pdf)：同一论文的大学存档用于交叉核对实验指令和伦理相关描述，不算独立重复实验。
-
+- [Burger 2014情境机制分析](https://spssi.onlinelibrary.wiley.com/doi/10.1111/josi.12073)：作者摘要提出渐进任务、规范信息、责任分散和思考时间限制等情境解释。

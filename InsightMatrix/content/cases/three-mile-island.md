@@ -6,7 +6,7 @@ type: "case"
 summary: "理解观察信号与系统真实状态的距离，训练多信号诊断和操作后的反馈核对。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史决策","证据核验"]
+tags: ["三里岛","心智模型","人因工程"]
 related: ["confirmation-bias","second-order-thinking","probability-updating"]
 eventKey: "three-mile-island"
 learningObjective: "能够区分仪表读数与实际系统状态，并在异常情境中用独立信号检验竞争性解释。"
@@ -43,4 +43,3 @@ NRC资料把设备失灵、设计相关问题和操作错误共同列为原因�
 
 - [NRC三里岛事故说明](https://www.nrc.gov/reading-rm/doc-collections/fact-sheets/3mile-isle)：阀门卡开、控制室信息误导及应急冷却减少共同导致堆芯损伤。
 - [NRC三里岛知识管理综述](https://www.nrc.gov/reading-rm/doc-collections/nuregs/knowledge/km0001/r1/index)：事故推动操作员培训、人因工程与应急管理等方面改进。
-

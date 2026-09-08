@@ -80,6 +80,7 @@ export function auditCases(articles, { minimumPerCategory = 10, reviews = [], re
 
     const sources = Array.isArray(article.sources) ? article.sources : [];
     const sourceUrls = new Set();
+    const sourceDocuments = new Set();
     for (const source of sources) {
       if (!source || typeof source !== 'object' || Array.isArray(source)) {
         fail('source-format', '来源必须为包含标题、URL 和支持事实的对象');
@@ -91,9 +92,11 @@ export function auditCases(articles, { minimumPerCategory = 10, reviews = [], re
         sourceUrls.add(url.href.replace(/\/$/, ''));
       } catch { fail('source-url', '来源链接无效'); }
       if (typeof source.title !== 'string' || !source.title.trim() || typeof source.claim !== 'string' || source.claim.trim().length < 15) fail('source-claim', '每个来源必须注明标题及其支持的具体事实');
+      else sourceDocuments.add(normalized(source.title.replace(/（[^）]*）|\([^)]*\)/g, '')));
       if (typeof source.url === 'string' && !article.body.includes(source.url)) fail('uncited-source', `来源没有在正文中出现：${source.url}`);
     }
     if (sourceUrls.size < 2) fail('source-count', '至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验');
+    if (sourceUrls.size >= 2 && sourceDocuments.size < 2) fail('duplicate-source-document', '同一文件的镜像不能算作两份资料，请补充不同文件并由编辑核对');
 
     for (const paragraph of prose.split(/\n\s*\n/)) {
       const clean = normalized(withoutLinks(paragraph));

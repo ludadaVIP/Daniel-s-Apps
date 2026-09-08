@@ -6,7 +6,7 @@ type: "case"
 summary: "区分过去幸存与风险被验证，设计异常调查和新信息获取的升级规则。"
 minutes: 7
 difficulty: "进阶"
-tags: ["历史决策","证据核验"]
+tags: ["哥伦比亚号","异常常态化","主动取证"]
 related: ["survivorship-bias","confirmation-bias","probability-updating"]
 eventKey: "columbia-shuttle"
 learningObjective: "能够识别用过去成功替代安全证据的推理，并为未解释异常制定升级调查规则。"
@@ -43,4 +43,3 @@ NASA回顾确认泡沫撞击与左翼热防护损伤的关系，官方调查概�
 
 - [NASA：哥伦比亚号二十周年回顾](https://www.nasa.gov/history/20-years-ago-remembering-columbia-and-her-crew/)：泡沫撞击损伤左翼，工程师要求额外影像，既往泡沫事件影响风险判断。
 - [NASA：调查委员会建议概要](https://www.nasa.gov/history/columbia-accident-investigation-board-synopsis/)：建议改进在轨影像、热防护检查和独立技术安全权力。
-
