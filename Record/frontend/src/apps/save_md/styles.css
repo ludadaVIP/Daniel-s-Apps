@@ -588,6 +588,50 @@
     font-size: 0.9em;
   }
 
+  .smd-markdown pre {
+    overflow: auto;
+    padding: 16px;
+    border: 1px solid rgba(15, 23, 42, 0.12);
+    border-radius: 8px;
+    background: #101820;
+    color: #eefbf3;
+    font: 13px/1.6 "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+
+  .smd-markdown pre code {
+    padding: 0;
+    background: transparent;
+    color: inherit;
+    font-size: inherit;
+  }
+
+  .smd-markdown del {
+    color: var(--smd-muted);
+  }
+
+  .smd-markdown img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    margin: 1em 0;
+    border-radius: 8px;
+  }
+
+  .smd-markdown .contains-task-list {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .smd-markdown .task-list-item {
+    display: flex;
+    gap: 8px;
+    align-items: baseline;
+  }
+
+  .smd-markdown .task-list-item input[type="checkbox"] {
+    accent-color: var(--smd-accent);
+  }
+
   .smd-markdown blockquote {
     padding: 12px 16px;
     border-left: 4px solid var(--smd-accent);
@@ -646,6 +690,16 @@
 
   .smd-markdown th {
     background: rgba(23, 138, 88, 0.1);
+  }
+
+  .smd-markdown th[align="center"],
+  .smd-markdown td[align="center"] {
+    text-align: center;
+  }
+
+  .smd-markdown th[align="right"],
+  .smd-markdown td[align="right"] {
+    text-align: right;
   }
 
   .smd-muted {

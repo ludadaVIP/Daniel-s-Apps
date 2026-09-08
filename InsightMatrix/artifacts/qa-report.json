@@ -1,0 +1,148 @@
+{
+  "checkedAt": "2026-09-08T01:54:41.041Z",
+  "report": [
+    "48 substantive articles loaded from the real API",
+    "1600px dashboard has no horizontal overflow",
+    "1920px dashboard has no horizontal overflow",
+    "390px dashboard has no horizontal overflow",
+    "library category, full-text search and empty state filters",
+    "bookmarks and completed articles survive page reload",
+    "daily draft survives reload; submission persists and gives honest preset guidance",
+    "thesis creation, editing and reviews preserve the original prediction",
+    "Brier arithmetic includes true and false outcomes using original probabilities",
+    "failed save preserves database and offers a working retry",
+    "nested malformed import is rejected without changing the current archive",
+    "export contains actual persisted reading, answers, predictions and reviews",
+    "global search and graph links open real Markdown articles",
+    "valid restore replaces saved state and does not resurrect stale browser drafts",
+    "390px library, reader, graph, thesis and archive views have no horizontal overflow",
+    "browser has no JavaScript errors"
+  ],
+  "errors": [],
+  "expectedNetworkErrors": [
+    "Failed to load resource: the server responded with a status of 404 (Not Found)",
+    "Failed to load resource: the server responded with a status of 400 (Bad Request)",
+    "Failed to load resource: the server responded with a status of 503 (Service Unavailable)",
+    "Failed to load resource: the server responded with a status of 400 (Bad Request)"
+  ],
+  "state": {
+    "bookmarks": [
+      "sunk-cost"
+    ],
+    "completed": [
+      "sunk-cost"
+    ],
+    "answers": {
+      "daily-2026-09-08": {
+        "text": "QA 恢复后的较新回答：重新审视反方证据。",
+        "question": "一个好故事，需要什么证据才能成立？",
+        "savedAt": "2026-09-08T01:54:37.617Z"
+      }
+    },
+    "theses": [
+      {
+        "title": "QA：第二条失败的预测",
+        "judgement": "目标企业下一财年经营现金流将转正。",
+        "evidence": "应收账款周转改善，经营回款率达到 95%。",
+        "counterEvidence": "客户集中度高，单一客户取消订单可能打断改善。",
+        "falsification": "财年披露的经营现金流仍为负，则命题不成立。",
+        "probability": 60,
+        "deadline": "2027-12-31",
+        "id": "e0a4415e-c8bf-40a3-9235-86d1e492efa1",
+        "createdAt": "2026-09-08T01:54:39.316Z",
+        "updatedAt": "2026-09-08T01:54:39.316Z",
+        "original": {
+          "title": "QA：第二条失败的预测",
+          "judgement": "目标企业下一财年经营现金流将转正。",
+          "evidence": "应收账款周转改善，经营回款率达到 95%。",
+          "counterEvidence": "客户集中度高，单一客户取消订单可能打断改善。",
+          "falsification": "财年披露的经营现金流仍为负，则命题不成立。",
+          "probability": 60,
+          "deadline": "2027-12-31"
+        },
+        "reviews": [
+          {
+            "outcome": "false",
+            "reflection": "经营现金流仍然为负，原始命题不成立。",
+            "id": "c9b98d66-6df7-44bb-95b8-7f7fe887a9fb",
+            "date": "2026-09-08T01:54:39.417Z"
+          }
+        ]
+      },
+      {
+        "title": "QA：现金流转正的可检验判断",
+        "judgement": "更新判断：新增一个季度数据支持原始命题。",
+        "evidence": "应收账款周转改善，经营回款率达到 95%。",
+        "counterEvidence": "客户集中度高，单一客户取消订单可能打断改善。",
+        "falsification": "财年披露的经营现金流仍为负，则命题不成立。",
+        "probability": 60,
+        "deadline": "2027-12-31",
+        "id": "c550a357-3625-4715-b07d-d9140a81d353",
+        "createdAt": "2026-09-08T01:54:38.467Z",
+        "updatedAt": "2026-09-08T01:54:38.567Z",
+        "original": {
+          "title": "QA：现金流转正的可检验判断",
+          "judgement": "目标企业下一财年经营现金流将转正。",
+          "evidence": "应收账款周转改善，经营回款率达到 95%。",
+          "counterEvidence": "客户集中度高，单一客户取消订单可能打断改善。",
+          "falsification": "财年披露的经营现金流仍为负，则命题不成立。",
+          "probability": 60,
+          "deadline": "2027-12-31"
+        },
+        "reviews": [
+          {
+            "outcome": "true",
+            "reflection": "财报确认经营现金流转正，原始命题成立。",
+            "id": "27a74e2a-c14d-4591-80b7-8d569d0034d9",
+            "date": "2026-09-08T01:54:38.667Z"
+          }
+        ]
+      }
+    ],
+    "activity": [
+      {
+        "id": "bf6de38f-4088-4957-9b63-0abf8b515e19",
+        "type": "review",
+        "date": "2026-09-08T01:54:39.417Z",
+        "day": "2026-09-08"
+      },
+      {
+        "id": "e8d8ccf0-33f1-4ae7-bbe4-ccb2aef63499",
+        "type": "thesis",
+        "date": "2026-09-08T01:54:39.317Z",
+        "day": "2026-09-08"
+      },
+      {
+        "id": "b6f1243d-ebae-4b32-b7dc-cf54d8dd8e95",
+        "type": "review",
+        "date": "2026-09-08T01:54:38.667Z",
+        "day": "2026-09-08"
+      },
+      {
+        "id": "0d391aaf-65aa-4b9f-8669-420200399a2d",
+        "type": "thesis",
+        "date": "2026-09-08T01:54:38.568Z",
+        "day": "2026-09-08"
+      },
+      {
+        "id": "4b758820-a33c-4e96-ba64-1ab6d1d59edc",
+        "type": "thesis",
+        "date": "2026-09-08T01:54:38.468Z",
+        "day": "2026-09-08"
+      },
+      {
+        "id": "baeb1964-9ce4-4847-a734-cf6d6989a3b7",
+        "type": "challenge",
+        "date": "2026-09-08T01:54:37.617Z",
+        "day": "2026-09-08"
+      },
+      {
+        "id": "8c48183e-bd84-4588-a3ce-81164615aed2",
+        "type": "learn",
+        "date": "2026-09-08T01:54:36.200Z",
+        "day": "2026-09-08",
+        "articleId": "sunk-cost"
+      }
+    ]
+  }
+}

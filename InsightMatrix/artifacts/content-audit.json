@@ -1,0 +1,734 @@
+{
+  "checkedAt": "2026-09-08T04:26:48.930Z",
+  "passed": false,
+  "counts": {
+    "human-nature": 9,
+    "psychology": 2,
+    "society": 5,
+    "economics": 3,
+    "industries": 3,
+    "investing": 3
+  },
+  "totalCases": 25,
+  "errors": [
+    {
+      "rule": "category-coverage",
+      "ids": [],
+      "message": "human-nature 只有 9 篇案例，需要至少 10 篇"
+    },
+    {
+      "rule": "category-coverage",
+      "ids": [],
+      "message": "psychology 只有 2 篇案例，需要至少 10 篇"
+    },
+    {
+      "rule": "category-coverage",
+      "ids": [],
+      "message": "society 只有 5 篇案例，需要至少 10 篇"
+    },
+    {
+      "rule": "category-coverage",
+      "ids": [],
+      "message": "economics 只有 3 篇案例，需要至少 10 篇"
+    },
+    {
+      "rule": "category-coverage",
+      "ids": [],
+      "message": "industries 只有 3 篇案例，需要至少 10 篇"
+    },
+    {
+      "rule": "category-coverage",
+      "ids": [],
+      "message": "investing 只有 3 篇案例，需要至少 10 篇"
+    },
+    {
+      "rule": "event-key",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "缺少规范的历史事件 eventKey"
+    },
+    {
+      "rule": "learning-objective",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "需要说明至少 20 个汉字的具体学习目标"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "缺少“事件与当时的信息”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "缺少“决策与因果机制”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "缺少“结果与证据”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "缺少“反事实与适用边界”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "缺少“判断练习”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "缺少“来源与核验”"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "source-count",
+      "ids": [
+        "dotcom-bubble"
+      ],
+      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "enron-incentives"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "event-key",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "缺少规范的历史事件 eventKey"
+    },
+    {
+      "rule": "learning-objective",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "需要说明至少 20 个汉字的具体学习目标"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "缺少“事件与当时的信息”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "缺少“决策与因果机制”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "缺少“结果与证据”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "缺少“反事实与适用边界”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "缺少“判断练习”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "缺少“来源与核验”"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "source-count",
+      "ids": [
+        "financial-crisis-2008"
+      ],
+      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "glorious-revolution-1688"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "event-key",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "缺少规范的历史事件 eventKey"
+    },
+    {
+      "rule": "learning-objective",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "需要说明至少 20 个汉字的具体学习目标"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "缺少“事件与当时的信息”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "缺少“决策与因果机制”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "缺少“结果与证据”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "缺少“反事实与适用边界”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "缺少“判断练习”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "缺少“来源与核验”"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "source-count",
+      "ids": [
+        "great-inflation"
+      ],
+      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
+    },
+    {
+      "rule": "event-key",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "缺少规范的历史事件 eventKey"
+    },
+    {
+      "rule": "learning-objective",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "需要说明至少 20 个汉字的具体学习目标"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "缺少“事件与当时的信息”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "缺少“决策与因果机制”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "缺少“结果与证据”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "缺少“反事实与适用边界”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "缺少“判断练习”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "缺少“来源与核验”"
+    },
+    {
+      "rule": "source-count",
+      "ids": [
+        "japan-bubble"
+      ],
+      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "london-cholera-1854"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "ostrom-irrigation"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "event-key",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "缺少规范的历史事件 eventKey"
+    },
+    {
+      "rule": "learning-objective",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "需要说明至少 20 个汉字的具体学习目标"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "缺少“事件与当时的信息”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "缺少“决策与因果机制”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "缺少“结果与证据”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "缺少“反事实与适用边界”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "缺少“判断练习”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "缺少“来源与核验”"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "source-count",
+      "ids": [
+        "south-sea-bubble"
+      ],
+      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
+    },
+    {
+      "rule": "event-key",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "缺少规范的历史事件 eventKey"
+    },
+    {
+      "rule": "learning-objective",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "需要说明至少 20 个汉字的具体学习目标"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "缺少“事件与当时的信息”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "缺少“决策与因果机制”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "缺少“结果与证据”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "缺少“反事实与适用边界”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "缺少“判断练习”"
+    },
+    {
+      "rule": "missing-section",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "缺少“来源与核验”"
+    },
+    {
+      "rule": "thin-case",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "有效正文不足 750 个汉字；需要补足证据和论证，不能靠参考链接或模板凑字"
+    },
+    {
+      "rule": "source-count",
+      "ids": [
+        "tulip-mania"
+      ],
+      "message": "至少需要两个不同的可追溯来源页面；来源是否支持事实仍需编辑核验"
+    }
+  ],
+  "warnings": [],
+  "inventory": [
+    {
+      "id": "amazon-survival",
+      "category": "investing",
+      "eventKey": "amazon-liquidity-runway-2000",
+      "title": "亚马逊穿越泡沫：长期主义首先需要现金跑道",
+      "chineseCharacters": 905,
+      "sourceCount": 2,
+      "hash": "c01b838398523de77da4bcd84c308b678738d11cfb3c41172f889cd768ee21db",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "barings-collapse",
+      "category": "human-nature",
+      "eventKey": "barings-collapse",
+      "title": "巴林银行：明星业绩为什么更需要独立核对",
+      "chineseCharacters": 757,
+      "sourceCount": 2,
+      "hash": "665244a2ac8b3a0a6c9f015435eeca1bf71d9c6e52077e2ca81fe0df4656d27f",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "dotcom-bubble",
+      "category": "psychology",
+      "title": "2000 互联网泡沫：改变世界，不等于任何价格都值得",
+      "chineseCharacters": 727,
+      "sourceCount": 0,
+      "hash": "b16a0b2226a48b3fdd43681ef5eade833be215f1d8f87e0380aecfecba9feb62",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "enron-incentives",
+      "category": "human-nature",
+      "eventKey": "enron-incentives",
+      "title": "安然：独立交易为何需要独立的利益结构",
+      "chineseCharacters": 748,
+      "sourceCount": 2,
+      "hash": "0b23b3a396dfce3c4ee1a79eaff6327f7742dd3ad47fec4c84fb623c3108e3f2",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "financial-crisis-2008",
+      "category": "economics",
+      "title": "2008 金融危机：局部房贷风险如何穿透整个系统",
+      "chineseCharacters": 691,
+      "sourceCount": 0,
+      "hash": "81625f61179227b7b0e0726b5b24cecccee4f5cf5ef1b0c9b042173a3f6e673f",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "ford-five-dollar-day",
+      "category": "human-nature",
+      "eventKey": "ford-five-dollar-day",
+      "title": "福特五美元日薪：高工资的效率与控制边界",
+      "chineseCharacters": 784,
+      "sourceCount": 2,
+      "hash": "45be63f56df781361713b183f44fd5d0f3a880eb19e675ddec62019161fe6252",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "german-reunification-1990",
+      "category": "society",
+      "eventKey": "german-monetary-reunification-1990",
+      "title": "1990 年德国统一：同一货币为何不能立即带来同一生产率",
+      "chineseCharacters": 760,
+      "sourceCount": 2,
+      "hash": "91adb82858e88f464b46512ad7505207d1d485329f732cd124f900c54178a05b",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "glorious-revolution-1688",
+      "category": "society",
+      "eventKey": "england-glorious-revolution-1688-1689",
+      "title": "1688 年后的英国：可信承诺如何进入国家融资",
+      "chineseCharacters": 749,
+      "sourceCount": 2,
+      "hash": "68a15b367059d9e5827b9b7f8a1b84ba34aeda28585fd7c227ffb2ac3e888160",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "great-inflation",
+      "category": "economics",
+      "title": "1970 年代大通胀：冲击、预期与政策信誉",
+      "chineseCharacters": 739,
+      "sourceCount": 0,
+      "hash": "a70f5f1259b51ad8346d618d7c08bf22d574aa40bc856704fac52d7be6a904a3",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "household-responsibility-1978",
+      "category": "society",
+      "eventKey": "china-household-responsibility-reform-1978-1984",
+      "title": "1978 年后家庭承包：让努力与收益重新连接",
+      "chineseCharacters": 775,
+      "sourceCount": 2,
+      "hash": "5aa71ba7d8323d41872d530727df1d0f4b71c273de84a426bc8620e2c05de118",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "japan-bubble",
+      "category": "economics",
+      "title": "日本资产泡沫：物价平稳，也可能积累金融风险",
+      "chineseCharacters": 767,
+      "sourceCount": 0,
+      "hash": "99072c848496ac89bc991b802a2bdd0b806e44ea3e5f1eecf73b32086fb54233",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "kodak-transition",
+      "category": "industries",
+      "eventKey": "kodak-digital-transition-1975-2013",
+      "title": "柯达：发明了数字相机，为何仍难以保住价值",
+      "chineseCharacters": 854,
+      "sourceCount": 2,
+      "hash": "a9337a4af18ae1244d05ed1d9e2e62912959bf0b23db2ea788833d354bed053b",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "london-cholera-1854",
+      "category": "society",
+      "eventKey": "london-broad-street-cholera-1854",
+      "title": "1854 年伦敦霍乱：一张地图之外的因果证据",
+      "chineseCharacters": 745,
+      "sourceCount": 2,
+      "hash": "97f0921a0e2ff614d76ac5b88f20c58f983bb01b3d882f879f1325ef64e34a38",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "ltcm-crisis",
+      "category": "investing",
+      "eventKey": "ltcm-liquidity-crisis-1998",
+      "title": "LTCM：长期可能正确，也会在短期失去生存资格",
+      "chineseCharacters": 859,
+      "sourceCount": 2,
+      "hash": "1bea693be51d55a3a6d055086fce13eb62f16618697c2dffcf277d165519726d",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "milgram-obedience",
+      "category": "human-nature",
+      "eventKey": "milgram-obedience",
+      "title": "米尔格拉姆实验：服从来自怎样的情境",
+      "chineseCharacters": 777,
+      "sourceCount": 2,
+      "hash": "7620b18c6c00da9091a2baf9a3c130b1f40c6dc9c821b673c117f80cd791a6e8",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "negative-oil-2020",
+      "category": "investing",
+      "eventKey": "wti-may-contract-negative-price-2020",
+      "title": "2020 负油价：你买到的是商品，还是交付义务",
+      "chineseCharacters": 849,
+      "sourceCount": 2,
+      "hash": "db5a6874d00aa22e480520b5bae25d0c707569c511c67e9eb2b64e08fd08908f",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "nokia-platform",
+      "category": "industries",
+      "eventKey": "nokia-smartphone-platform-sale-2011-2014",
+      "title": "诺基亚：硬件优势遇到生态竞争",
+      "chineseCharacters": 885,
+      "sourceCount": 2,
+      "hash": "a503c9e7ef6d0cf932c5cbe7742876e63319f4b2cc4b7d0aa34a782bb2e644b4",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "ostrom-irrigation",
+      "category": "society",
+      "eventKey": "nepal-irrigation-institutional-studies",
+      "title": "尼泊尔灌溉：修好水坝，为什么反而分不好水",
+      "chineseCharacters": 734,
+      "sourceCount": 2,
+      "hash": "10fde28e40222cfc4885fa4e8a31dddcdfb797b2882393f8941ce09bac6db353",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "railway-mania",
+      "category": "industries",
+      "eventKey": "british-railway-mania-1840s",
+      "title": "铁路狂热：社会留下基础设施，股东未必留下回报",
+      "chineseCharacters": 848,
+      "sourceCount": 2,
+      "hash": "7df2706f5074d6ff2da839ca86050202a94bfa5a47a52a38ab551a98ca3ca41b",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "south-sea-bubble",
+      "category": "human-nature",
+      "title": "南海泡沫：权威背书如何与价格上涨互相强化",
+      "chineseCharacters": 718,
+      "sourceCount": 0,
+      "hash": "93cdc27ca8d482a771bdae15a5671198a00d201bdcc87b088eb9a60d2456f11f",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "theranos-fraud",
+      "category": "human-nature",
+      "eventKey": "theranos-fraud",
+      "title": "Theranos：把名人信任与技术证据分开",
+      "chineseCharacters": 774,
+      "sourceCount": 2,
+      "hash": "eea2e3b0cea71b26501d6a3877d8fb862f44857a2443a0dd1a9a898386967dda",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "tulip-mania",
+      "category": "psychology",
+      "title": "郁金香狂热：连泡沫故事本身，也需要查证",
+      "chineseCharacters": 698,
+      "sourceCount": 0,
+      "hash": "91c8fb97caacc15019e43e50795bebc2a1e822199ebbc1aefbc08985d1e31af6",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "tylenol-recall",
+      "category": "human-nature",
+      "eventKey": "tylenol-recall",
+      "title": "泰诺召回：信息未齐时如何承担不对称风险",
+      "chineseCharacters": 786,
+      "sourceCount": 2,
+      "hash": "5e02774ad33d07235f035b11211731c2b1469ff5618c8f0f5931b20053ffc265",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "volkswagen-diesel",
+      "category": "human-nature",
+      "eventKey": "volkswagen-diesel",
+      "title": "大众排放事件：通过测试与真实达标的裂缝",
+      "chineseCharacters": 786,
+      "sourceCount": 2,
+      "hash": "ac9caf5d256c229b90194d24372e0306ab85c0c4b6cf8f8298f8acfa757a1d6f",
+      "editorialDecision": "pending"
+    },
+    {
+      "id": "wells-fargo-accounts",
+      "category": "human-nature",
+      "eventKey": "wells-fargo-accounts",
+      "title": "富国银行虚假账户：指标变成目标之后",
+      "chineseCharacters": 809,
+      "sourceCount": 2,
+      "hash": "d069f48e3ff07c07ecb726ccd03f8706093aba8e4b6dc47660ee82e7b7023100",
+      "editorialDecision": "pending"
+    }
+  ],
+  "limits": "规则用于发现内容缺漏、重复候选和过期审读记录；不能证明历史因果或保证读者认知改善。认知价值、来源支持程度和类比边界需要逐篇审读。"
+}

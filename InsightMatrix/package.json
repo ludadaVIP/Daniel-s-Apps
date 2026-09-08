@@ -1,0 +1,7 @@
+{
+  "name": "insight-matrix", "version": "1.0.0", "private": true, "type": "module",
+  "engines": { "node": ">=24.15.0" },
+  "scripts": { "dev": "concurrently -k -n api,web \"node --watch server/index.js --port 5758\" \"vite --host 127.0.0.1 --port 5757 --strictPort\"", "build": "npm run check:content && vite build", "start": "node server/index.js --port 5757", "preview": "vite preview --host 127.0.0.1 --port 5757 --strictPort", "test": "node --test server/*.test.js", "check:content": "node scripts/check-content.mjs" },
+  "dependencies": { "express": "^5.1.0", "gray-matter": "^4.0.3", "lucide-react": "^0.468.0", "react": "^19.0.0", "react-dom": "^19.0.0", "react-markdown": "^10.1.0", "remark-gfm": "^4.0.1" },
+  "devDependencies": { "@tailwindcss/vite": "^4.1.0", "@vitejs/plugin-react": "^4.3.4", "concurrently": "^9.1.2", "tailwindcss": "^4.1.0", "vite": "^6.1.0" }
+}

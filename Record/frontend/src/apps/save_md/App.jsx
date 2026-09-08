@@ -1,4 +1,6 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 import {
   BookOpen,
   ChevronDown,
@@ -94,159 +96,66 @@ function splitForTts(markdown, categoryId) {
   }));
 }
 
-function renderInline(text) {
-  const parts = [];
-  const rx = /(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g;
-  let last = 0;
-  let match;
-  while ((match = rx.exec(text)) !== null) {
-    if (match.index > last) parts.push(text.slice(last, match.index));
-    const token = match[0];
-    const key = `${match.index}-${token}`;
-    if (token.startsWith("`")) {
-      parts.push(<code key={key}>{token.slice(1, -1)}</code>);
-    } else if (token.startsWith("**")) {
-      parts.push(<strong key={key}>{token.slice(2, -2)}</strong>);
-    } else if (token.startsWith("*")) {
-      parts.push(<em key={key}>{token.slice(1, -1)}</em>);
-    } else {
-      const link = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-      parts.push(
-        <a key={key} href={link?.[2] || "#"} target="_blank" rel="noreferrer">
-          {link?.[1] || token}
-        </a>,
-      );
+function normalizeTableSeparators(markdown) {
+  const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
+  let fencedCode = false;
+
+  return lines.map((line, index) => {
+    if (/^\s*(```|~~~)/.test(line)) {
+      fencedCode = !fencedCode;
+      return line;
     }
-    last = rx.lastIndex;
-  }
-  if (last < text.length) parts.push(text.slice(last));
-  return parts;
-}
+    if (fencedCode || !line.includes("|")) return line;
 
-function isTableRow(line) {
-  const trimmed = (line || "").trim();
-  return trimmed.startsWith("|") && trimmed.endsWith("|") && trimmed.slice(1, -1).includes("|");
-}
+    const trimmed = line.trim();
+    const leadingPipe = trimmed.startsWith("|");
+    const trailingPipe = trimmed.endsWith("|");
+    const cells = trimmed
+      .replace(/^\|/, "")
+      .replace(/\|$/, "")
+      .split("|")
+      .map((cell) => cell.trim());
+    const divider = /^:?-{1,}:?$/;
+    const neighboringTableRow = [lines[index - 1], lines[index + 1]].some((row) => row?.includes("|"));
 
-function isTableSeparator(line) {
-  const trimmed = (line || "").trim();
-  if (!isTableRow(trimmed)) return false;
-  const cells = trimmed.slice(1, -1).split("|").map((cell) => cell.trim());
-  return cells.length > 1 && cells.every((cell) => /^:?-{3,}:?$/.test(cell));
+    // AI answers often use `--:` rather than GFM's required `---:`. Normalize
+    // only a table-divider row, so prose and code remain untouched.
+    if (cells.length < 2 || !neighboringTableRow || !cells.every((cell) => divider.test(cell))) return line;
+    const normalizedCells = cells.map((cell) => {
+      const [, left = "", dashes = "", right = ""] = cell.match(/^(\:?)(-+)(\:?)$/) || [];
+      return `${left}${dashes.length < 3 ? "---" : dashes}${right}`;
+    });
+    return `${leadingPipe ? "| " : ""}${normalizedCells.join(" | ")}${trailingPipe ? " |" : ""}`;
+  }).join("\n");
 }
 
 function MarkdownView({ markdown }) {
-  const blocks = useMemo(() => {
-    const lines = (markdown || "").replace(/\r\n/g, "\n").split("\n");
-    const out = [];
-    let i = 0;
-    let safety = 0;
+  const normalizedMarkdown = useMemo(() => normalizeTableSeparators(markdown), [markdown]);
+  const components = useMemo(
+    () => ({
+      a: ({ href, children, ...props }) => (
+        <a href={href} target="_blank" rel="noreferrer noopener" {...props}>{children}</a>
+      ),
+      table: ({ children, ...props }) => (
+        <div className="smd-table-wrap">
+          <table {...props}>{children}</table>
+        </div>
+      ),
+    }),
+    [],
+  );
 
-    const nextParagraph = () => {
-      const parts = [];
-      while (i < lines.length && lines[i].trim()) {
-        if (isTableRow(lines[i]) && isTableSeparator(lines[i + 1] || "")) break;
-        if (/^(#{1,4})\s+/.test(lines[i]) || /^```/.test(lines[i]) || /^[-*]\s+/.test(lines[i]) || /^\d+\.\s+/.test(lines[i]) || /^>\s?/.test(lines[i])) break;
-        parts.push(lines[i]);
-        i += 1;
-      }
-      if (parts.length) out.push(<p key={`p-${i}`}>{renderInline(parts.join(" "))}</p>);
-      else if (i < lines.length) {
-        out.push(<p key={`p-${i}`}>{renderInline(lines[i])}</p>);
-        i += 1;
-      }
-    };
+  if (!normalizedMarkdown.trim()) {
+    return <article className="smd-markdown"><p className="smd-muted">No content yet.</p></article>;
+  }
 
-    while (i < lines.length) {
-      safety += 1;
-      if (safety > lines.length + 100) {
-        out.push(
-          <p key="parser-stopped" className="smd-muted">
-            Preview stopped because this Markdown contains an unusual structure.
-          </p>,
-        );
-        break;
-      }
-      const line = lines[i];
-      const trimmed = line.trim();
-      if (!trimmed) {
-        i += 1;
-        continue;
-      }
-      if (/^```/.test(trimmed)) {
-        const language = trimmed.replace(/^```/, "").trim();
-        i += 1;
-        const code = [];
-        while (i < lines.length && !/^```/.test(lines[i].trim())) {
-          code.push(lines[i]);
-          i += 1;
-        }
-        i += 1;
-        out.push(
-          <figure className="smd-code-block" key={`code-${i}`}>
-            {language && <figcaption>{language}</figcaption>}
-            <pre><code>{code.join("\n")}</code></pre>
-          </figure>,
-        );
-        continue;
-      }
-      const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
-      if (heading) {
-        const level = Math.min(heading[1].length, 4);
-        const Tag = `h${level}`;
-        out.push(<Tag key={`h-${i}`}>{renderInline(heading[2])}</Tag>);
-        i += 1;
-        continue;
-      }
-      if (/^---+$/.test(trimmed)) {
-        out.push(<hr key={`hr-${i}`} />);
-        i += 1;
-        continue;
-      }
-      if (/^>\s?/.test(trimmed)) {
-        const quote = [];
-        while (i < lines.length && /^>\s?/.test(lines[i].trim())) {
-          quote.push(lines[i].replace(/^>\s?/, ""));
-          i += 1;
-        }
-        out.push(<blockquote key={`q-${i}`}>{quote.map((item, idx) => <p key={idx}>{renderInline(item)}</p>)}</blockquote>);
-        continue;
-      }
-      if (/^[-*]\s+/.test(trimmed) || /^\d+\.\s+/.test(trimmed)) {
-        const ordered = /^\d+\.\s+/.test(trimmed);
-        const items = [];
-        const itemRx = ordered ? /^\d+\.\s+/ : /^[-*]\s+/;
-        while (i < lines.length && itemRx.test(lines[i].trim())) {
-          items.push(lines[i].trim().replace(itemRx, ""));
-          i += 1;
-        }
-        const Tag = ordered ? "ol" : "ul";
-        out.push(<Tag key={`list-${i}`}>{items.map((item, idx) => <li key={idx}>{renderInline(item)}</li>)}</Tag>);
-        continue;
-      }
-      if (isTableRow(trimmed) && isTableSeparator(lines[i + 1] || "")) {
-        const rows = [];
-        while (i < lines.length && isTableRow(lines[i])) {
-          rows.push(lines[i].trim().replace(/^\||\|$/g, "").split("|").map((cell) => cell.trim()));
-          i += 1;
-        }
-        const [head, , ...body] = rows;
-        out.push(
-          <div className="smd-table-wrap" key={`table-${i}`}>
-            <table>
-              <thead><tr>{head.map((cell, idx) => <th key={idx}>{renderInline(cell)}</th>)}</tr></thead>
-              <tbody>{body.map((row, ridx) => <tr key={ridx}>{row.map((cell, cidx) => <td key={cidx}>{renderInline(cell)}</td>)}</tr>)}</tbody>
-            </table>
-          </div>,
-        );
-        continue;
-      }
-      nextParagraph();
-    }
-    return out.length ? out : [<p key="empty" className="smd-muted">No content yet.</p>];
-  }, [markdown]);
-
-  return <article className="smd-markdown">{blocks}</article>;
+  return (
+    <article className="smd-markdown">
+      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+        {normalizedMarkdown}
+      </ReactMarkdown>
+    </article>
+  );
 }
 
 function Sidebar({
