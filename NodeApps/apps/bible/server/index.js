@@ -467,8 +467,14 @@ app.use((error, _req, res, _next) => {
   res.status(status).json({ error: status === 500 ? '服务器发生错误。' : error.message });
 });
 
-const port = Number(process.env.PORT) || 3000;
-await reconcileNoteIndex();
-app.listen(port, () => console.log(`Bible Devotion API listening on http://localhost:${port}`));
+export async function initializeBibleDevotion() {
+  await reconcileNoteIndex();
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  const port = Number(process.env.PORT) || 3000;
+  await initializeBibleDevotion();
+  app.listen(port, () => console.log(`Bible Devotion API listening on http://localhost:${port}`));
+}
 
 export { app, cleanChineseSpacing, cleanEnglishText };

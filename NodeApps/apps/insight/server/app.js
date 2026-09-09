@@ -12,7 +12,7 @@ export function createApp({ contentDirectory = path.join(root, 'content'), datab
   const store = createStateStore(databasePath, new Set(articles.map((article) => article.id)));
   // In development the Vite UI (5757) proxies API calls to the Node process (5758).
   // Keep the allow-list exact so the proxy works without opening the API to other sites.
-  const developmentOrigins = new Set(['http://127.0.0.1:5757', 'http://localhost:5757']);
+  const developmentOrigins = new Set(['http://127.0.0.1:5757', 'http://localhost:5757', 'http://127.0.0.1:5888', 'http://localhost:5888']);
   const app = express();
   app.disable('x-powered-by');
   app.locals.close = () => store.close();

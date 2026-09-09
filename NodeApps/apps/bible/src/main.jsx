@@ -1,5 +1,4 @@
-import { StrictMode, useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { createRoot } from 'react-dom/client';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import Box from '@mui/material/Box';
@@ -9,7 +8,6 @@ import Paper from '@mui/material/Paper';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import { getChapter, getConfig, getNote, getNoteIndex, getQuestions, putNote, putQuestions } from './services/api.js';
-import './styles.css';
 
 const BOOK_SECTIONS = [
   { id: 'old', label: '旧约', start: 0, end: 22 },
@@ -848,8 +846,4 @@ function App() {
   );
 }
 
-createRoot(document.getElementById('root')).render(
-  <StrictMode>
-    <App />
-  </StrictMode>,
-);
+export default App;

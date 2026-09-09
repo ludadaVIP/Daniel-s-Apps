@@ -195,5 +195,13 @@ app.use((error, _req, res, _next) => {
   res.status(500).json({ error: 'Notebook could not access the vault.' });
 });
 
-await fs.mkdir(vault, { recursive: true });
-app.listen(port, () => console.log(`Notebook vault available at http://localhost:${port}`));
+export async function initializeNotebook() {
+  await fs.mkdir(vault, { recursive: true });
+}
+
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  await initializeNotebook();
+  app.listen(port, () => console.log(`Notebook vault available at http://localhost:${port}`));
+}
+
+export { app };

@@ -60,7 +60,7 @@ const toAnchor = (value) =>
     .replace(/[^\p{L}\p{N}]+/gu, "-")
     .replace(/^-|-$/g, "") || "section";
 const noteUrl = (id) =>
-  `/api/notes/${id.split("/").map(encodeURIComponent).join("/")}`;
+  `/notebook/api/notes/${id.split("/").map(encodeURIComponent).join("/")}`;
 
 function readPreferences() {
   try {
@@ -209,7 +209,7 @@ function App() {
   }, [activeId, raw]);
 
   const refreshNotes = useCallback(async (force = false) => {
-    const response = await fetch(`/api/notes${force ? "?refresh=1" : ""}`);
+    const response = await fetch(`/notebook/api/notes${force ? "?refresh=1" : ""}`);
     if (!response.ok) throw new Error("无法读取你的 Markdown 笔记");
     const nextNotes = await response.json();
     setNotes(nextNotes);
@@ -579,7 +579,7 @@ function App() {
   }
   async function deleteTag(tag) {
     if (!window.confirm(`确定从所有笔记移除标签“${tag}”吗？`)) return;
-    await mutateTag("/api/tags/delete", { tag }, `已删除 #${tag}`);
+    await mutateTag("/notebook/api/tags/delete", { tag }, `已删除 #${tag}`);
   }
   async function deleteActiveNote() {
     if (!activeId) return;
@@ -1186,7 +1186,7 @@ function App() {
           notes={notes}
           onClose={() => setTagManagerOpen(false)}
           onRename={(from, to) =>
-            mutateTag("/api/tags/rename", { from, to }, `已重命名 #${from}`)
+            mutateTag("/notebook/api/tags/rename", { from, to }, `已重命名 #${from}`)
           }
           onDelete={deleteTag}
         />
