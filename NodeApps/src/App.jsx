@@ -1,7 +1,16 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { BookOpenText, ChartNoAxesCombined, House, Network, NotebookPen } from 'lucide-react';
+import { BookOpenText, ChartNoAxesCombined, House, Landmark, Network, NotebookPen } from 'lucide-react';
 
 const APPS = [
+  {
+    id: 'investment',
+    name: 'Road2Elite · Investment',
+    kind: 'INVEST',
+    description: '投资工作台、知识库、案例与决策复盘。',
+    Icon: Landmark,
+    color: '#b67a38',
+    load: () => import('../apps/investment/entry.jsx'),
+  },
   {
     id: 'industry',
     name: 'Industry with coms',
@@ -41,6 +50,7 @@ const APPS = [
 ];
 
 const APP_STYLE_LOADERS = {
+  investment: () => import('../apps/investment/src/styles.css?inline'),
   industry: () => import('../apps/industry/src/styles.css?inline'),
   insight: () => import('../apps/insight/src/styles.css?inline'),
   notebook: () => import('../apps/notebook/src/styles.css?inline'),
@@ -90,9 +100,9 @@ function Home({ open }) {
       <div className="launcher-hub-heading">
         <p className="launcher-hub-eyebrow">NODEAPPS</p>
         <h1>NodeApps</h1>
-        <p>四个独立保留的本地工具，点击卡片进入。</p>
+        <p>五个独立保留的本地工具，点击卡片进入。</p>
       </div>
-      <div className="launcher-hub-actions"><span>4 APPS</span></div>
+      <div className="launcher-hub-actions"><span>5 APPS</span></div>
     </header>
     <section className="launcher-hub-grid" aria-label="应用列表">
       {APPS.map((app) => <button className="launcher-hub-card" key={app.id} onClick={() => open(app.id)} style={{ '--launcher-card-accent': app.color }}>

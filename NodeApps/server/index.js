@@ -47,6 +47,12 @@ app.use('/bible', lazyMount(async () => {
   return module.app;
 }));
 
+app.use('/investment', lazyMount(async () => {
+  const module = await import('../apps/investment/server/index.js');
+  await module.initializeInvestment();
+  return module.createInvestmentApp();
+}));
+
 if (production) {
   const dist = path.join(root, 'dist');
   app.use(express.static(dist, { index: false }));
@@ -55,7 +61,7 @@ if (production) {
 
 app.use((error, _request, response, _next) => {
   console.error('[NodeApps]', error);
-  response.status(500).json({ error: '本地应用无法启动，请检查终端日志。' });
+  response.status(error.status || 500).json({ error: error.status ? error.message : '本地应用无法启动，请检查终端日志。' });
 });
 
 app.listen(port, '127.0.0.1', () => console.log(`NodeApps API: http://127.0.0.1:${port}`));
