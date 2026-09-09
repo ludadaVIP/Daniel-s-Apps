@@ -1,0 +1,422 @@
+[
+  {
+    "id": "wells-fargo-accounts",
+    "eventKey": "wells-fargo-accounts",
+    "sourceChecks": [
+      {
+        "url": "https://www.consumerfinance.gov/archive/newsroom/consumer-financial-protection-bureau-fines-wells-fargo-100-million-widespread-illegal-practice-secretly-opening-unauthorized-accounts/",
+        "claim": "销售目标和奖励推动员工未经授权开立账户，公告区分可能未获授权的账户。",
+        "verification": "read",
+        "note": "CFPB新闻与同意令已读；区分潜在未经授权账户估计与逐笔裁判事实。"
+      },
+      {
+        "url": "https://files.consumerfinance.gov/f/documents/092016_cfpb_WFBconsentorder.pdf",
+        "claim": "列明银行的整改、退款及对销售行为进行独立审查的义务。",
+        "verification": "read",
+        "note": "CFPB新闻与同意令已读；区分潜在未经授权账户估计与逐笔裁判事实。"
+      }
+    ],
+    "cognitiveValue": "能够识别可被操纵的代理指标，并设计客户价值和授权证据的独立验证机制。",
+    "limits": "监管处置不能单独量化每位员工动机。",
+    "distinctFrom": "区别安然的结构化融资，聚焦零售销售指标。"
+  },
+  {
+    "id": "volkswagen-diesel",
+    "eventKey": "volkswagen-diesel",
+    "sourceChecks": [
+      {
+        "url": "https://www.epa.gov/vw/learn-about-volkswagen-violations",
+        "claim": "部分柴油车软件识别排放测试，并在测试条件下启动完整排放控制。",
+        "verification": "read",
+        "note": "EPA违规说明与民事和解正文已读；测试识别软件与道路排放差异有据。"
+      },
+      {
+        "url": "https://www.epa.gov/enforcement/volkswagen-clean-air-act-civil-settlement",
+        "claim": "和解要求回购、召回或经批准的排放修改，并规定验证条件。",
+        "verification": "read",
+        "note": "EPA违规说明与民事和解正文已读；测试识别软件与道路排放差异有据。"
+      }
+    ],
+    "cognitiveValue": "能够区分测试内表现与现实表现，并为可识别的评价体系设计场景外验证。",
+    "limits": "不将部分车型排放倍数推广全部车辆。",
+    "distinctFrom": "区别富国银行，聚焦被测指标与真实环境脱节。"
+  },
+  {
+    "id": "enron-incentives",
+    "eventKey": "enron-incentives",
+    "sourceChecks": [
+      {
+        "url": "https://www.sec.gov/litigation/complaints/comp18582.htm",
+        "claim": "指控通过储备、估值和非独立关联实体操纵利润并隐瞒债务。",
+        "verification": "read",
+        "note": "SEC诉状与DOJ2002年指控新闻已读；正文保留指控身份。"
+      },
+      {
+        "url": "https://www.justice.gov/archive/opa/pr/2002/October/02_crm_568.htm",
+        "claim": "描述LJM安排及回购承诺，区分形式上的资产出售与风险是否实际转移。",
+        "verification": "read",
+        "note": "SEC诉状与DOJ2002年指控新闻已读；正文保留指控身份。"
+      }
+    ],
+    "cognitiveValue": "能够沿关联交易追踪现金、控制权与兜底责任，识别名义独立和经济实质的差异。",
+    "limits": "指控不能等同全部被告的最终裁判，激励因果为作者分析。",
+    "distinctFrom": "区别巴林，聚焦关联交易及名义独立的融资。"
+  },
+  {
+    "id": "barings-collapse",
+    "eventKey": "barings-collapse",
+    "sourceChecks": [
+      {
+        "url": "https://www.rba.gov.au/publications/bulletin/1995/nov/1.html",
+        "claim": "Leeson同时控制前后台，未授权头寸和隐藏损失、资金需求未被及时质疑。",
+        "verification": "read",
+        "note": "RBA1995同期文章相关控制缺陷已读；GOV.UK原调查报告入口已读用于核实身份。"
+      },
+      {
+        "url": "https://www.gov.uk/government/publications/report-into-the-collapse-of-barings-bank",
+        "claim": "1995年7月18日发布针对巴林倒闭的正式调查报告，并提供原报告入口。",
+        "verification": "read",
+        "note": "RBA1995同期文章相关控制缺陷已读；GOV.UK原调查报告入口已读用于核实身份。"
+      }
+    ],
+    "cognitiveValue": "能够从高收益和资金需求的矛盾识别控制缺口，为关键岗位设计独立对账责任。",
+    "limits": "未通读354页调查原件，细节依据RBA同期摘要。",
+    "distinctFrom": "区别安然，聚焦交易结算未分离与保证金预警。"
+  },
+  {
+    "id": "tylenol-recall",
+    "eventKey": "tylenol-recall",
+    "sourceChecks": [
+      {
+        "url": "https://www.fda.gov/about-fda/histories-product-regulation/promoting-safe-effective-drugs-100-years",
+        "claim": "1982年泰诺氰化物投毒造成七人死亡，并推动防拆包装要求。",
+        "verification": "read",
+        "note": "FDA百年药品史与Hoeting口述史相关页已读；召回及包装规则有据。"
+      },
+      {
+        "url": "https://www.fda.gov/media/81308/download",
+        "claim": "记录泰诺事件的监管应对、产品撤回背景和1982年防拆包装规则。",
+        "verification": "read",
+        "note": "FDA百年药品史与Hoeting口述史相关页已读；召回及包装规则有据。"
+      }
+    ],
+    "cognitiveValue": "能够在伤害严重但范围未知的事件中，分别制定临时止损、调查与恢复信任的条件。",
+    "limits": "口述史OCR日期有误，以FDA史页校核1982年；不采用市场份额传说。",
+    "distinctFrom": "区别大众欺诈，研究证据不完备时的消费者保护决定。"
+  },
+  {
+    "id": "ford-five-dollar-day",
+    "eventKey": "ford-five-dollar-day",
+    "sourceChecks": [
+      {
+        "url": "https://www.thehenryford.org/collections/explore/articles/detail/articles/2014/01/03/fords-five-dollar-day",
+        "claim": "1914年计划包含利润分享资格条件，流水线工作与高流失率是重要背景。",
+        "verification": "read",
+        "note": "Henry Ford博物馆工资改革与社会学部门两份展藏说明已读。"
+      },
+      {
+        "url": "https://www.thehenryford.org/collections/explore/sets/detail/henry-ford-sociological-department",
+        "claim": "员工家庭访问和生活习惯调查等档案展示待遇与厂外控制的联系。",
+        "verification": "read",
+        "note": "Henry Ford博物馆工资改革与社会学部门两份展藏说明已读。"
+      }
+    ],
+    "cognitiveValue": "能够把员工工资放进总成本比较，并同时审查高待遇附带的资格条件与控制边界。",
+    "limits": "不同资料离职率数字有差异，正文不采用精确比例；效应非随机识别。",
+    "distinctFrom": "区别单纯高薪叙事，比较留任激励与生活审查成本。"
+  },
+  {
+    "id": "milgram-obedience",
+    "eventKey": "milgram-obedience",
+    "sourceChecks": [
+      {
+        "url": "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Influence_Compliance/Milgrim_1963_Behavioral_study_of_obedience.pdf",
+        "claim": "描述四十名男性的特定实验、递增模拟电击、继续者与退出者及紧张反应。",
+        "verification": "read",
+        "note": "1963原论文样本与程序已读；Burger2014独立综述公开摘要已读。"
+      },
+      {
+        "url": "https://spssi.onlinelibrary.wiley.com/doi/10.1111/josi.12073",
+        "claim": "作者摘要提出渐进任务、规范信息、责任分散和思考时间限制等情境解释。",
+        "verification": "read",
+        "note": "1963原论文样本与程序已读；Burger2014独立综述公开摘要已读。"
+      }
+    ],
+    "cognitiveValue": "能够把服从解释为情境与个人选择的互动，并设计明确、可执行的拒绝和升级规则。",
+    "limits": "综述仅阅读摘要，不是独立复现实驗；不外推固定服从比例。",
+    "distinctFrom": "区别Asch，聚焦渐进承诺、权威和责任转移。"
+  },
+  {
+    "id": "theranos-fraud",
+    "eventKey": "theranos-fraud",
+    "sourceChecks": [
+      {
+        "url": "https://www.sec.gov/newsroom/press-releases/2018-41",
+        "claim": "指控公司夸大血液检测技术、商业应用与收入，通过误导陈述融资。",
+        "verification": "read",
+        "note": "SEC2018公告与DOJ案件页已读；融资陈述与裁判结果作区分。"
+      },
+      {
+        "url": "https://www.justice.gov/usao-ndca/us-v-elizabeth-holmes-et-al",
+        "claim": "记录Holmes与Balwani的案件结果，并区分相关罪名和判决对象。",
+        "verification": "read",
+        "note": "SEC2018公告与DOJ案件页已读；融资陈述与裁判结果作区分。"
+      }
+    ],
+    "cognitiveValue": "能够把技术愿景拆成可测试的能力声明，并按证据类型调整对技术及商业价值的信任。",
+    "limits": "不将名人背书直接判定欺诈，也不提供临床判断。",
+    "distinctFrom": "区别安然，聚焦专业信息不对称和验证权限。"
+  },
+  {
+    "id": "bay-of-pigs",
+    "eventKey": "bay-of-pigs",
+    "sourceChecks": [
+      {
+        "url": "https://www.jfklibrary.org/learn/about-jfk/jfk-in-history/the-bay-of-pigs",
+        "claim": "计划期待古巴内部支持，美国希望隐蔽介入，登陆地点与撤退条件存在困难。",
+        "verification": "read",
+        "note": "JFK图书馆历史介绍与国务院里程碑正文已读；起义假设及行动失败有据。"
+      },
+      {
+        "url": "https://history.state.gov/milestones/1961-1968/bay-of-pigs",
+        "claim": "说明1961年行动的政策背景、失败及其对肯尼迪政府的影响。",
+        "verification": "read",
+        "note": "JFK图书馆历史介绍与国务院里程碑正文已读；起义假设及行动失败有据。"
+      }
+    ],
+    "cognitiveValue": "能够把复杂计划拆成必要条件，并检查政治目标与执行条件是否互相矛盾。",
+    "limits": "事后团体迷思诊断不能替代完整政治军事因果。",
+    "distinctFrom": "区别挑战者工程异议，聚焦计划相互冲突的前提。"
+  },
+  {
+    "id": "columbia-shuttle",
+    "eventKey": "columbia-shuttle",
+    "sourceChecks": [
+      {
+        "url": "https://www.nasa.gov/history/20-years-ago-remembering-columbia-and-her-crew/",
+        "claim": "泡沫撞击损伤左翼，工程师要求额外影像，既往泡沫事件影响风险判断。",
+        "verification": "read",
+        "note": "NASA20周年事故回顾与CAIB建议概要正文已读。"
+      },
+      {
+        "url": "https://www.nasa.gov/history/columbia-accident-investigation-board-synopsis/",
+        "claim": "建议改进在轨影像、热防护检查和独立技术安全权力。",
+        "verification": "read",
+        "note": "NASA20周年事故回顾与CAIB建议概要正文已读。"
+      }
+    ],
+    "cognitiveValue": "能够识别用过去成功替代安全证据的推理，并为未解释异常制定升级调查规则。",
+    "limits": "未通读CAIB完整报告；不宣称影像检查必然能救援。",
+    "distinctFrom": "区别挑战者发射前异议，聚焦飞行中异常后的证据获取。"
+  },
+  {
+    "id": "three-mile-island",
+    "eventKey": "three-mile-island",
+    "sourceChecks": [
+      {
+        "url": "https://www.nrc.gov/reading-rm/doc-collections/fact-sheets/3mile-isle",
+        "claim": "阀门卡开、控制室信息误导及应急冷却减少共同导致堆芯损伤。",
+        "verification": "read",
+        "note": "NRC事实说明的阀门、仪表及应急冷却链条已读；知识管理页相关改革说明已读。"
+      },
+      {
+        "url": "https://www.nrc.gov/reading-rm/doc-collections/nuregs/knowledge/km0001/r1/index",
+        "claim": "事故推动操作员培训、人因工程与应急管理等方面改进。",
+        "verification": "read",
+        "note": "NRC事实说明的阀门、仪表及应急冷却链条已读；知识管理页相关改革说明已读。"
+      }
+    ],
+    "cognitiveValue": "能够区分仪表读数与实际系统状态，并在异常情境中用独立信号检验竞争性解释。",
+    "limits": "指示与状态区分不等于全部责任归操作员，不推断未核实健康后果。",
+    "distinctFrom": "区别AF447，聚焦代理仪表与系统状态错配。"
+  },
+  {
+    "id": "challenger-disaster",
+    "eventKey": "challenger-disaster",
+    "sourceChecks": [
+      {
+        "url": "https://www.nasa.gov/history/rogersrep/v1ch5.htm",
+        "claim": "发射决策存在沟通缺陷，关键管理者未充分了解承包商的低温担忧。",
+        "verification": "read",
+        "note": "Rogers报告第4章物理机制与第5章发射决策相关原文已读。"
+      },
+      {
+        "url": "https://www.nasa.gov/history/rogersrep/v1ch4.htm",
+        "claim": "调查认定右侧固体火箭接头密封失效是事故的直接技术原因。",
+        "verification": "read",
+        "note": "Rogers报告第4章物理机制与第5章发射决策相关原文已读。"
+      }
+    ],
+    "cognitiveValue": "能够追踪重大决策的异议传递路径，并区分证明安全与尚未证明危险这两种标准。",
+    "limits": "两章同属一项调查，不能当成两次独立实验；不以事后确定性替代当时风险判断。",
+    "distinctFrom": "区别哥伦比亚，聚焦发射前异议和举证责任倒置。"
+  },
+  {
+    "id": "ultimatum-game",
+    "eventKey": "ultimatum-game",
+    "sourceChecks": [
+      {
+        "url": "https://www.cesifo.org/DocDL/cesifo1_wp4380.pdf",
+        "claim": "原研究作者回顾1982年实验，并讨论低报价拒绝、策略动机和多种实验变体。",
+        "verification": "read",
+        "note": "Guth与Kocher2013作者回顾相关原文及SJDM任务定义已读。"
+      },
+      {
+        "url": "https://sjdm.org/dmidi/Ultimatum_Game.html",
+        "claim": "明确两人报价、接受或拒绝以及拒绝后双方均得不到收益的基本规则。",
+        "verification": "read",
+        "note": "Guth与Kocher2013作者回顾相关原文及SJDM任务定义已读。"
+      }
+    ],
+    "cognitiveValue": "能够区分公平偏好与预期拒绝造成的策略性让步，并用情境变化检验谈判动机。",
+    "limits": "未读1982收费原文；公平偏好与策略解释并存，拒绝率不可普适。",
+    "distinctFrom": "区别米尔格拉姆，聚焦对他人偏好与策略响应的建模。"
+  },
+  {
+    "id": "asch-conformity",
+    "eventKey": "asch-conformity",
+    "sourceChecks": [
+      {
+        "url": "https://web.mit.edu/curhan/www/docs/Articles/15341_Readings/Influence_Compliance/Asch_1955_Opinions_and_social_pressure.pdf",
+        "claim": "原作者描述线段判断、安排好的错误多数及参与者之间的差异。",
+        "verification": "read",
+        "note": "Asch1955原文程序与异质性已读；2024独立系统综述正文相关局限已读。"
+      },
+      {
+        "url": "https://rips-irsp.com/articles/10.5334/irsp.874",
+        "claim": "综述比较不同情境与文化的研究，提醒结论受样本、测量层次和任务差异影响。",
+        "verification": "read",
+        "note": "Asch1955原文程序与异质性已读；2024独立系统综述正文相关局限已读。"
+      }
+    ],
+    "cognitiveValue": "能够区分公开同意与独立证据，并设计先独立作答再讨论的群体判断流程。",
+    "limits": "两URL为不同文献；样本文化与公开表达限制外推。",
+    "distinctFrom": "区别服从权威，聚焦同辈公开答案和独立判断通道。"
+  },
+  {
+    "id": "asian-disease-framing",
+    "eventKey": "asian-disease-framing",
+    "sourceChecks": [
+      {
+        "url": "https://cool.ntu.edu.tw/files/3801495/download?download_frd=1",
+        "claim": "原论文用假想疾病的等价获救和死亡表述展示不同选择比例。",
+        "verification": "read",
+        "note": "1981论文公开PDF的题目与选择结果已读；Princeton作者书目核实出版身份。"
+      },
+      {
+        "url": "https://kahneman.scholar.princeton.edu/publications",
+        "claim": "核实论文的作者、1981年发表时间及Science卷页信息。",
+        "verification": "read",
+        "note": "1981论文公开PDF的题目与选择结果已读；Princeton作者书目核实出版身份。"
+      }
+    ],
+    "cognitiveValue": "能够把不同语言框架转换成相同的结果与概率表，并检查自己的选择是否保持一致。",
+    "limits": "书目不是独立实验；假想选择不能直接预测实际医疗行为。",
+    "distinctFrom": "区别从众，聚焦同一结果的语言编码与参照点。"
+  },
+  {
+    "id": "wald-survivorship",
+    "eventKey": "wald-survivorship",
+    "sourceChecks": [
+      {
+        "url": "https://www.cna.org/analyses/1980/a-method-of-estimating-plane-vulnerability",
+        "claim": "说明重印沃尔德二战时期根据幸存战机损伤估计脆弱性的研究备忘录。",
+        "verification": "read",
+        "note": "CNA重印介绍及Wald原备忘录关于观察样本、损失率和假设的段落已读。"
+      },
+      {
+        "url": "https://www.cna.org/reports/1980/0204320000.pdf",
+        "claim": "以参战总数、幸存者受击数量和损失比例推断被击落概率，并明确模型假设。",
+        "verification": "read",
+        "note": "CNA重印介绍及Wald原备忘录关于观察样本、损失率和假设的段落已读。"
+      }
+    ],
+    "cognitiveValue": "能够识别结果影响样本可见性的情况，并明确推断缺失样本需要哪些额外假设。",
+    "limits": "CNA介绍页与重印原备忘录属于同一史料链，不是两项独立研究。不使用红点飞机传说或声称挽救具体人数；模型结论依赖识别假设。",
+    "distinctFrom": "区别郁金香史料筛选，聚焦非随机缺失造成的生存者样本。"
+  },
+  {
+    "id": "air-france-447",
+    "eventKey": "air-france-447",
+    "sourceChecks": [
+      {
+        "url": "https://bea.aero/fileadmin/uploads/tx_elyextendttnews/presentation.rapport.final.05juillet2012.en_04.pdf",
+        "claim": "概括空速不一致、自动驾驶断开、操纵与失速识别问题，并列出惊吓和训练等因素。",
+        "verification": "read",
+        "note": "BEA2012最终报告发布演示全部可读文字与案件时间线已读。"
+      },
+      {
+        "url": "https://bea.aero/en/investigation-reports/notified-events/detail/accident-to-the-airbus-a330-203-registered-f-gzcp-and-operated-by-air-france-occured-on-06-01-2009-in-the-atlantic-ocean/",
+        "claim": "核实事故日期、调查时间线、记录器恢复和安全调查以预防事故为目的。",
+        "verification": "read",
+        "note": "BEA2012最终报告发布演示全部可读文字与案件时间线已读。"
+      }
+    ],
+    "cognitiveValue": "能够在自动化状态变化时明确接管责任，并用共享状态和独立核验避免错误诊断持续。",
+    "limits": "未通读224页最终报告；正文以官方演示摘要为界，不给驾驶操作建议。",
+    "distinctFrom": "区别三里岛，聚焦自动化退出后的模式理解与团队沟通。"
+  },
+  {
+    "id": "south-sea-bubble",
+    "eventKey": "south-sea-bubble",
+    "sourceChecks": [
+      {
+        "url": "https://www.bankofengland.co.uk/about/history",
+        "claim": "说明1711年成立、贸易权与国债安排，以及1720年股价繁荣和崩溃。",
+        "verification": "read",
+        "note": "英格兰银行1720历史段落及英国议会所存2025研究相关债股转换段已读。"
+      },
+      {
+        "url": "https://data.parliament.uk/DepositedPapers/Files/DEP2025-0405/Research_into_Historic_Links_to_Transatlantic_Chattel_Slavery_Report.pdf",
+        "claim": "研究说明南海债转股安排及泡沫后重组，区分国债重整与投资者损失。",
+        "verification": "read",
+        "note": "英格兰银行1720历史段落及英国议会所存2025研究相关债股转换段已读。"
+      }
+    ],
+    "cognitiveValue": "能够拆开政府授权、合同现金流和证券价格，检验权威背书实际覆盖的是哪一种风险。",
+    "limits": "后者是后来的历史研究；练习现金流为假设，不作真实股价估值。",
+    "distinctFrom": "区别互联网热潮，聚焦国家债务转换与股东回报的目标差异。"
+  },
+  {
+    "id": "dotcom-bubble",
+    "eventKey": "dotcom-bubble",
+    "sourceChecks": [
+      {
+        "url": "https://www.federalreserve.gov/boarddocs/speeches/2002/20020830/",
+        "claim": "回顾信息技术进步、过剩产能、收益预期及识别泡沫的困难。",
+        "verification": "read",
+        "note": "Greenspan2002演讲相关技术投资与识别段落已读；Amazon2000年报文件核验。"
+      },
+      {
+        "url": "https://s2.q4cdn.com/299287126/files/doc_financials/annual/00ar.pdf",
+        "claim": "提供当时经营、亏损和流动性披露，作为同一市场中企业差异的具体材料。",
+        "verification": "read",
+        "note": "Greenspan2002演讲相关技术投资与识别段落已读；Amazon2000年报文件核验。"
+      }
+    ],
+    "cognitiveValue": "能够把技术普及、企业盈利与证券价格拆成三个可检验命题，并识别融资驱动的增长反馈。",
+    "limits": "单家公司年报仅作为幸存者样本提醒，不证明整个行业机制。",
+    "distinctFrom": "区别amazon-long-termism的公司生存策略，聚焦行业估值与融资反馈。"
+  },
+  {
+    "id": "tulip-mania",
+    "eventKey": "tulip-mania",
+    "sourceChecks": [
+      {
+        "url": "https://press.uchicago.edu/ucp/books/book/chicago/T/bo5414939.html",
+        "claim": "介绍作者档案研究对全民破产等传奇叙述的修正，同时保留存在投机的判断。",
+        "verification": "read",
+        "note": "Goldgar出版社书介已读；Fitzwilliam博物馆相关历史文字通过HTML读取。"
+      },
+      {
+        "url": "https://fitzmuseum.cam.ac.uk/explore-our-collection/highlights/context/stories-and-histories/tulipomania",
+        "claim": "提供花卉收藏与艺术物件背景，说明价格剧变后花卉和花卉画仍有需求。",
+        "verification": "read",
+        "note": "Goldgar出版社书介已读；Fitzwilliam博物馆相关历史文字通过HTML读取。"
+      }
+    ],
+    "cognitiveValue": "能够区分报价、实际结算与社会总体损失，并根据史料范围修正流行历史叙事。",
+    "limits": "未通读Goldgar全书；博物馆价格故事不当作宏观损失估计。",
+    "distinctFrom": "区别南海债股制度，聚焦流行故事与史料的证据等级。"
+  }
+]

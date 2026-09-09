@@ -11,6 +11,8 @@ npm install
 npm run dev
 ```
 
+也可以直接双击项目根目录的 `start.bat`（Windows）或 `start.command`（macOS）一键启动；脚本会在首次运行时安装依赖，并打开 `http://127.0.0.1:5757`。
+
 开发地址固定为 **http://127.0.0.1:5757**。前端通过 Vite 代理连接本地 API，Node API 仅在 `127.0.0.1:5758` 提供服务。开发时若改动 Markdown 内容，请重启开发服务。
 
 本地运行生产构建：

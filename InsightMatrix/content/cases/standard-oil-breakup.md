@@ -10,7 +10,7 @@ tags: ["标准石油","竞争政策","1911"]
 related: ["economies-of-scale","institutions","profit-pools"]
 eventKey: "standard-oil-antitrust-dissolution-1911"
 learningObjective: "能够把企业效率与排他行为拆开检验，避免用低价格或高份额单独推断竞争是否健康。"
-sources: [{"title":"Standard Oil v. United States, 221 U.S. 1","url":"https://supreme.justia.com/cases/federal/us/221/1/","claim":"最高法院1911年判决讨论不合理限制贸易并维持拆分救济。"},{"title":"DOJ legacy judgment archive","url":"https://www.justice.gov/atr/legacy-antitrust-judgment-standard-oil-company-of-new-jersey-et-al","claim":"司法部保存标准石油1911年判决记录及后续档案入口。"}]
+sources: [{"title":"Standard Oil v. United States, 221 U.S. 1","url":"https://supreme.justia.com/cases/federal/us/221/1/","claim":"最高法院1911年判决讨论不合理限制贸易并维持拆分救济。"},{"title":"DOJ legacy judgment archive","url":"https://www.justice.gov/atr/legacy-antitrust-judgment-standard-oil-company-of-new-jersey-et-al","claim":"司法部档案分别保存1909年下级法院终局判决和1911年修改裁定入口。"}]
 ---
 
 ## 事件与当时的信息
@@ -23,7 +23,7 @@ sources: [{"title":"Standard Oil v. United States, 221 U.S. 1","url":"https://su
 
 ## 结果与证据
 
-可以核验的结果是最高法院维持拆分方向，判决对限制贸易的合理性作出解释；[司法部档案](https://www.justice.gov/atr/legacy-antitrust-judgment-standard-oil-company-of-new-jersey-et-al)保留1911年的相关判决记录。这里不把拆分后的股价传闻当作政策绩效证据：资产和业务持续存在，股东也可能持有拆分后的权益。要评估效果，应分别观察竞争进入、价格成本差和资本回报，同时考虑石油需求及技术变化，不能把之后所有变化都归功于同一次法律行动。
+可以核验的结果是最高法院维持拆分方向，判决对限制贸易的合理性作出解释；[司法部档案](https://www.justice.gov/atr/legacy-antitrust-judgment-standard-oil-company-of-new-jersey-et-al)分别保留1909年下级法院终局判决与1911年修改裁定，不能将它们混称为最高法院判决。这里不把拆分后的股价传闻当作政策绩效证据：资产和业务持续存在，股东也可能持有拆分后的权益。要评估效果，应分别观察竞争进入、价格成本差和资本回报，同时考虑石油需求及技术变化，不能把之后所有变化都归功于同一次法律行动。
 
 ## 反事实与适用边界
 
@@ -37,7 +37,6 @@ sources: [{"title":"Standard Oil v. United States, 221 U.S. 1","url":"https://su
 
 1. [Standard Oil v. United States, 221 U.S. 1](https://supreme.justia.com/cases/federal/us/221/1/)：最高法院1911年判决讨论不合理限制贸易并维持拆分救济。
 
-2. [DOJ legacy judgment archive](https://www.justice.gov/atr/legacy-antitrust-judgment-standard-oil-company-of-new-jersey-et-al)：司法部保存标准石油1911年判决记录及后续档案入口。
+2. [DOJ legacy judgment archive](https://www.justice.gov/atr/legacy-antitrust-judgment-standard-oil-company-of-new-jersey-et-al)：司法部档案分别保存1909年下级法院终局判决和1911年修改裁定入口。
 
 事实依据见原始披露或研究；反事实和练习属于本文分析。
-

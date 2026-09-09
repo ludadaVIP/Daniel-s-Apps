@@ -23,8 +23,11 @@ import os
 import re
 import secrets
 from datetime import datetime, timezone
+from html import unescape
 from pathlib import Path
 from typing import Any
+from urllib.error import URLError
+from urllib.request import Request, urlopen
 
 from flask import Blueprint, jsonify, request
 
@@ -48,6 +51,14 @@ CASES_DIR = DATA_DIR / "cases"
 MASTERS_DIR = DATA_DIR / "masters"
 DAILY_DIR = DATA_DIR / "daily"
 WEEKLY_DIR = DATA_DIR / "weekly"
+READINGS_CACHE_FILE = DATA_DIR / "reading-library-cache.json"
+READINGS_CACHE_SCHEMA = 2
+
+BERKSHIRE_LETTERS_INDEX_URL = "https://www.berkshirehathaway.com/letters/letters.html"
+BERKSHIRE_LETTERS_BASE_URL = "https://www.berkshirehathaway.com/letters"
+OAKTREE_MEMOS_INDEX_URL = "https://www.oaktreecapital.com/insights/memos"
+OAKTREE_BASE_URL = "https://www.oaktreecapital.com"
+READINGS_CACHE_HOURS = 24
 
 KNOWLEDGE_CATEGORY_LABELS = {
     "00-foundations": "00 · 基础 Foundations",
@@ -600,6 +611,209 @@ def master_detail(slug: str):
         raise InvestmentError("Master not found.", 404)
     doc = read_markdown(target)
     return jsonify({"slug": safe_slug, "meta": doc.meta, "body": doc.body})
+
+
+# ---------- primary-source reading library ----------
+
+def _readings_cache() -> dict[str, Any]:
+    """The library is an index of primary sources, not a copy of their text.
+
+    Keeping only catalogue data locally makes the reading room quick to open while
+    leaving every article at its copyright holder's official URL.
+    """
+    cache = read_json(READINGS_CACHE_FILE, {})
+    return cache if isinstance(cache, dict) else {}
+
+
+def _is_fresh(iso_time: Any) -> bool:
+    try:
+        created = datetime.fromisoformat(str(iso_time).replace("Z", "+00:00"))
+    except ValueError:
+        return False
+    return (datetime.now(timezone.utc) - created).total_seconds() < READINGS_CACHE_HOURS * 3600
+
+
+def _fetch_primary_source(url: str) -> str:
+    request_obj = Request(
+        url,
+        headers={
+            "User-Agent": "InvestmentLearningLibrary/1.0 (personal research index)",
+            "Accept": "text/html,application/xhtml+xml",
+        },
+    )
+    try:
+        with urlopen(request_obj, timeout=20) as response:  # nosec B310: fixed official sources only
+            encoding = response.headers.get_content_charset() or "utf-8"
+            return response.read().decode(encoding, errors="replace")
+    except (URLError, TimeoutError, OSError) as exc:
+        raise InvestmentError(f"暂时无法读取官方资料目录：{exc}", 503) from exc
+
+
+def _absolute_oaktree_url(value: str) -> str:
+    href = unescape(value).strip()
+    if href.startswith("/"):
+        return f"{OAKTREE_BASE_URL}{href}"
+    if href.startswith("https://www.oaktreecapital.com/"):
+        return href
+    return ""
+
+
+def _parse_oaktree_memos(page: str) -> list[dict[str, str]]:
+    """Parse Oaktree's own archive page into a stable, local catalogue.
+
+    Older entries point straight to a PDF through ``javascript:openPDF``;
+    newer entries point to a memo page. Both forms are deliberately retained.
+    """
+    card_rx = re.compile(
+        r'<time\b[^>]*\bdatetime="[^\d]*(\d{4}-\d{2}-\d{2})[^\"]*"[^>]*>.*?</time>'
+        r'\s*<a\b(?=[^>]*\bclass="[^"]*\boc-title-link\b[^"]*")[^>]*\bhref="([^"]+)"[^>]*>(.*?)</a>',
+        re.IGNORECASE | re.DOTALL,
+    )
+    entries: list[dict[str, str]] = []
+    seen: set[str] = set()
+    for date, raw_href, raw_title in card_rx.findall(page):
+        href = unescape(raw_href)
+        if href.startswith("javascript:openPDF"):
+            urls = re.findall(r"'(https://www\.oaktreecapital\.com/[^']+)'", href)
+            source_url = unescape(urls[-1]) if urls else ""
+        else:
+            source_url = _absolute_oaktree_url(href)
+        title = re.sub(r"\s+", " ", unescape(re.sub(r"<[^>]+>", "", raw_title))).strip()
+        if not source_url or not title:
+            continue
+        # The archive starts with two downloadable anthologies. They are useful
+        # references but are not individual Marks memos, so they do not belong
+        # in the chronological "all memos" count.
+        clean_source_url = source_url.split("?", 1)[0].lower()
+        if clean_source_url.endswith(("/the-complete-collection.pdf", "/the-best-of.pdf")):
+            continue
+        item_id = f"{date}-{re.sub(r'[^a-z0-9]+', '-', title.lower()).strip('-')}"
+        if item_id in seen:
+            continue
+        seen.add(item_id)
+        entries.append(
+            {
+                "id": item_id,
+                "date": date,
+                "year": date[:4],
+                "title": title,
+                "source_url": source_url,
+                "source_type": "pdf" if ".pdf" in source_url.lower() else "page",
+            }
+        )
+    return sorted(entries, key=lambda item: item["date"], reverse=True)
+
+
+def _oaktree_memos() -> tuple[list[dict[str, str]], bool, str]:
+    cache = _readings_cache()
+    cached = cache.get("memos") if isinstance(cache.get("memos"), list) else []
+    cached_at = cache.get("memos_fetched_at")
+    if cached and cache.get("memos_schema") == READINGS_CACHE_SCHEMA and _is_fresh(cached_at):
+        return cached, False, str(cached_at)
+
+    try:
+        memos = _parse_oaktree_memos(_fetch_primary_source(OAKTREE_MEMOS_INDEX_URL))
+        if not memos:
+            raise InvestmentError("官方目录返回为空。", 503)
+        cache["memos"] = memos
+        cache["memos_fetched_at"] = _now_iso()
+        cache["memos_schema"] = READINGS_CACHE_SCHEMA
+        write_json(READINGS_CACHE_FILE, cache)
+        return memos, False, cache["memos_fetched_at"]
+    except InvestmentError:
+        if cached:
+            return cached, True, str(cached_at or "")
+        raise
+
+
+def _buffett_letters() -> list[dict[str, str]]:
+    """Berkshire's official index currently starts with the 1977 letter.
+
+    The company keeps the earlier letters in HTML and the newer letters in PDFs.
+    Both URL patterns are verified against its public archive.
+    """
+    entries: list[dict[str, str]] = []
+    for year in range(2024, 1976, -1):
+        suffix = f"{year}ltr.pdf" if year >= 2007 else f"{year}.html"
+        source_url = f"{BERKSHIRE_LETTERS_BASE_URL}/{suffix}"
+        entries.append(
+            {
+                "id": str(year),
+                "year": str(year),
+                "date": f"{year}-02-01",
+                "title": f"{year} 年致股东信",
+                "title_en": f"Chairman’s Letter · {year}",
+                "source_url": source_url,
+                "source_type": "pdf" if suffix.endswith(".pdf") else "page",
+            }
+        )
+    return entries
+
+
+def _oaktree_simplified_chinese_url(source_url: str) -> str:
+    """Find the official Simplified Chinese PDF advertised on a current memo page."""
+    if not source_url.startswith(f"{OAKTREE_BASE_URL}/insights/memo/"):
+        return ""
+    try:
+        page = _fetch_primary_source(source_url)
+    except InvestmentError:
+        return ""
+    match = re.search(
+        r"(https://www\.oaktreecapital\.com/[^'\"\s]*(?:translated-memos|translated_memos)[^'\"\s]*_sc\.pdf[^'\"\s]*)",
+        page,
+        re.IGNORECASE,
+    )
+    return unescape(match.group(1)) if match else ""
+
+
+@bp.get("/readings/buffett-letters")
+def buffett_letters_list():
+    entries = _buffett_letters()
+    return jsonify(
+        {
+            "items": entries,
+            "official_index_url": BERKSHIRE_LETTERS_INDEX_URL,
+            "source_name": "Berkshire Hathaway · Shareholder Letters",
+            "language_note": "英文为 Berkshire 官方原文；中文按钮使用即时机器翻译，便于学习时对照。",
+            "first_year": entries[-1]["year"],
+            "last_year": entries[0]["year"],
+        }
+    )
+
+
+@bp.get("/readings/oaktree-memos")
+def oaktree_memos_list():
+    entries, is_stale, fetched_at = _oaktree_memos()
+    return jsonify(
+        {
+            "items": entries,
+            "official_index_url": OAKTREE_MEMOS_INDEX_URL,
+            "source_name": "Oaktree Capital · Memos from Howard Marks",
+            "language_note": "英文为 Oaktree 官方原文；如 Oaktree 为该篇发布官方简体中文 PDF，中文按钮会直接打开该版本。",
+            "first_year": entries[-1]["year"],
+            "last_year": entries[0]["year"],
+            "fetched_at": fetched_at,
+            "is_stale": is_stale,
+        }
+    )
+
+
+@bp.get("/readings/oaktree-memos/<item_id>")
+def oaktree_memo_detail(item_id: str):
+    safe_id = re.sub(r"[^a-z0-9-]+", "", item_id.lower())[:220]
+    if not safe_id:
+        raise InvestmentError("Invalid memo id.")
+    entries, is_stale, _ = _oaktree_memos()
+    entry = next((candidate for candidate in entries if candidate["id"] == safe_id), None)
+    if not entry:
+        raise InvestmentError("Memo not found.", 404)
+    return jsonify(
+        {
+            **entry,
+            "official_chinese_url": _oaktree_simplified_chinese_url(entry["source_url"]),
+            "is_stale": is_stale,
+        }
+    )
 
 
 # ---------- market brief (daily + weekly) ----------

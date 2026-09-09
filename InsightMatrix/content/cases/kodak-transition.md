@@ -29,11 +29,15 @@ sources: [{"title":"Kodak Milestones","url":"https://www.kodak.com/en/company/pa
 
 ## 结果与证据
 
+可核验的结果是柯达2012年调整消费成像业务，并于2013年退出重组，转向商业成像。[公司里程碑](https://www.kodak.com/en/company/page/milestones/)支持这条时间线；[长期转型研究](https://web-docs.stern.nyu.edu/management/strategyscience/Kodaks_Surprisingly_Long_Journey.pdf)结合多年年报与内部资料，说明数字投入是长期过程。两者不能证明单一决策导致全部结局，下面用教学数字分开客户价值与企业获利。
+
 假设旧业务每位客户每年买耗材贡献 100 元，新设备一次性贡献 150 元、三年才换一次。即使客户数量不变、数字产品很受欢迎，年化贡献仍可能下降。企业还要承担新研发、旧产能与组织调整成本。数字为教学构造，不是柯达实际利润。
 
 因此转型目标不能只写“数字收入占比提高”。需要追踪自由现金流、客户价值获取方式、所需资本以及新业务是否能独立承担成本。
 
 ## 反事实与适用边界
+
+这里的反事实是提前隔离新模式预算、降低旧资产退出摩擦，但若新产业利润天然较薄，组织更果断也不能保证重建胶片利润。适用对象是收费单位被消灭的业务；若技术仅降低生产成本且收费关系稳定，结论需要调整。
 
 一个可研究的选择是给新模式更合适的成本与评价体系，同时有计划地处理旧资产。但事后不能断言只要某位经理更果断，一切就会成功。竞争者能力、产业标准、渠道变化与融资约束都可能限制路径。
 
@@ -51,4 +55,4 @@ sources: [{"title":"Kodak Milestones","url":"https://www.kodak.com/en/company/pa
 
 1. [Kodak Milestones](https://www.kodak.com/en/company/page/milestones/)：公司记录数字相机发展及2012业务调整、2013退出重组。读取公司时间线相关段落。
 
-2. [Kodak's Surprisingly Long Journey](https://web-docs.stern.nyu.edu/management/strategyscience/Kodaks_Surprisingly_Long_Journey.pdf)：研究梳理柯达长期数字化投入与转型的多阶段过程。PDF可获取但文本搜索不稳定，进一步核验待根代理；未用其作具体数字依据。
+2. [Kodak's Surprisingly Long Journey](https://web-docs.stern.nyu.edu/management/strategyscience/Kodaks_Surprisingly_Long_Journey.pdf)：研究梳理柯达长期数字化投入与转型的多阶段过程。已读取PDF研究设计、第31至34页转型与身份讨论；用于多阶段过程解释，不主张唯一因果。

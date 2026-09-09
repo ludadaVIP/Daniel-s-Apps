@@ -121,6 +121,20 @@ export async function fetchMaster(slug) {
   return parse(await fetch(`${BASE}/masters/${encodeURIComponent(slug)}`));
 }
 
+// ---------- primary-source reading library ----------
+
+export async function fetchBuffettLetters() {
+  return parse(await fetch(`${BASE}/readings/buffett-letters`));
+}
+
+export async function fetchOaktreeMemos() {
+  return parse(await fetch(`${BASE}/readings/oaktree-memos`));
+}
+
+export async function fetchOaktreeMemo(itemId) {
+  return parse(await fetch(`${BASE}/readings/oaktree-memos/${encodeURIComponent(itemId)}`));
+}
+
 // ---------- brief ----------
 
 export async function fetchBriefList() {

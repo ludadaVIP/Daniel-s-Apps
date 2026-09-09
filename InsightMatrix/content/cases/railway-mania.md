@@ -10,7 +10,7 @@ tags: ["铁路", "资本周期", "1840年代"]
 related: ["capital-cycle", "externalities", "discounted-cash-flow"]
 eventKey: "british-railway-mania-1840s"
 learningObjective: "能够把基础设施的社会收益和股东回报分开，并把追加资本与竞争产能纳入项目判断。"
-sources: [{"title":"Collective Hallucinations and Inefficient Markets","url":"https://www-users.cse.umn.edu/~odlyzko/doc/hallucinations.pdf","claim":"研究通过当时报刊与财务材料讨论资本催缴、投资预期及建设约束。"},{"title":"Early railway original sources","url":"https://www-users.cse.umn.edu/~odlyzko/rrsources/index.html","claim":"研究者整理铁路原始文献入口，用于追溯本文历史解释的材料来源。"}]
+sources: [{"title":"Collective Hallucinations and Inefficient Markets","url":"https://www-users.cse.umn.edu/~odlyzko/doc/hallucinations.pdf","claim":"研究通过当时报刊与财务材料讨论资本催缴、投资预期及建设约束。"},{"title":"Hansard: Railway Bills, 23 April 1846","url":"https://api.parliament.uk/historic-hansard/commons/1846/apr/23/railway-bills","claim":"当时议会辩论讨论资本催缴和认购资金占用对商业活动的压力。"}]
 ---
 
 ## 事件与当时的信息
@@ -19,7 +19,7 @@ sources: [{"title":"Collective Hallucinations and Inefficient Markets","url":"ht
 
 Odlyzko 的研究及其整理的史料展示了当时投资预期与后来经营结果之间的张力。历史研究对投资者究竟多么非理性、信息如何形成等问题仍有讨论，不宜把全部参与者写成不懂算账的人。
 
-当时已知已有铁路能够运输和收费，未知的是新线建设成本及竞争后的收入。反事实是提高需求证明要求并留足建设缓冲，可能减少超支，却也可能延迟有用网络建成，不能只计算风险而忽略机会成本。
+当时已有铁路能够运输和收费，但旧线的成功并不能直接证明新线会获得同样客流。议会对线路的审议、股份认购和以后实际缴付的工程款也是不同环节。投资者需要同时读取线路的收入预测和认购所附的后续缴款义务，不能把获准建设或已经认购理解为工程资金已全部到位。
 
 ## 决策与因果机制
 
@@ -29,11 +29,15 @@ Odlyzko 的研究及其整理的史料展示了当时投资预期与后来经营
 
 ## 结果与证据
 
+[1846年4月23日议会辩论](https://api.parliament.uk/historic-hansard/commons/1846/apr/23/railway-bills)已讨论资本催缴对商业资金的压力，说明资金约束并非纯粹事后发明的解释。[Odlyzko研究](https://www-users.cse.umn.edu/~odlyzko/doc/hallucinations.pdf)进一步整理当时报刊与结果。议员讲话反映当时的观察和争论，不能当作无争议的宏观因果估计。下面用假设数字展示基础设施有用与股东回报之间的差距。
+
 教学假设：一条线路花 100 单位建设，每年经营净现金 4 单位；它让商户每年节省运输成本 10 单位。对社会而言可能带来重要收益，但若投资者需要 8% 回报，私人现金流未必支撑原投入。使用者获得的便利不会自动流入股东账户。
 
 如果竞争线路出现，票价下降，社会消费者收益可能进一步增加，而企业盈利反而变差。技术越成功，股东越赚钱并不是恒等式。
 
 ## 反事实与适用边界
+
+反事实是提高需求证据要求、分阶段授权和预留催缴资金，能减少部分压力，却可能延迟有用网络形成。若新项目有长期保底合同、资产可转用或需求更快爬坡，经营风险会不同；如果技术寿命短于铁路，残值又可能更低。
 
 研究基础设施热潮时，除了需求，还要把所有已规划产能加总，检查建设时滞和融资承诺。每家公司声称占据大份额并不意味着总市场能满足它们。资金成本、维护开支与需求爬坡，都会影响回收期。
 
@@ -51,4 +55,4 @@ Odlyzko 的研究及其整理的史料展示了当时投资预期与后来经营
 
 1. [Collective Hallucinations and Inefficient Markets](https://www-users.cse.umn.edu/~odlyzko/doc/hallucinations.pdf)：研究通过当时报刊与财务材料讨论资本催缴、投资预期及建设约束。
 
-2. [Early railway original sources](https://www-users.cse.umn.edu/~odlyzko/rrsources/index.html)：研究者整理铁路原始文献入口，用于追溯本文历史解释的材料来源。此为材料目录，不作为独立结果验证。
+2. [Hansard: Railway Bills, 23 April 1846](https://api.parliament.uk/historic-hansard/commons/1846/apr/23/railway-bills)：当时议会辩论讨论资本催缴和认购资金占用对商业活动的压力。已读议会原文；发言属当时观点，不把所有评论认作宏观事实。

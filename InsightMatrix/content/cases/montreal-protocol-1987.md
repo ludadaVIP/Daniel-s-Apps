@@ -7,7 +7,7 @@ summary: "把环保共识拆成可测承诺、差异化责任、资金支持与�
 learningObjective: "能够分析跨主体合作的履约激励和成本分担，并区分已观察结果与依赖持续行动的预测。"
 tags: ["国际合作","公共品","机制设计"]
 related: ["externalities","institutions","reciprocity"]
-sources: [{"title":"联合国环境署：蒙特利尔议定书机制","url":"https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol","claim":"1987 年议定书采用分阶段控制、差异时间表、数据报告和资金技术援助。"},{"title":"联合国环境署：2023 年臭氧评估发布","url":"https://www.unep.org/news-and-stories/press-release/ozone-layer-recovery-track-helping-avoid-global-warming-05degc","claim":"评估认为臭氧层恢复在推进，未来恢复预测依赖现行政策持续实施。"}]
+sources: [{"title":"联合国环境署：蒙特利尔议定书机制","url":"https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol","claim":"1987 年通过的议定书及后续机制采用分阶段控制、差异时间表、数据报告和资金技术援助。"},{"title":"联合国环境署：2023 年臭氧评估发布","url":"https://www.unep.org/news-and-stories/press-release/ozone-layer-recovery-track-helping-avoid-global-warming-05degc","claim":"评估认为臭氧层恢复在推进，未来恢复预测依赖现行政策持续实施。"}]
 type: "case"
 minutes: 7
 difficulty: "进阶"
@@ -19,7 +19,7 @@ difficulty: "进阶"
 
 ## 决策与因果机制
 
-合作能够推进，与把共同目标变成可操作义务有关：控制具体物质，规定时间表，要求报告数据，并为不同发展条件安排不同进度。后来建立的资金与技术支持降低了部分国家转换设备和生产的障碍。这些设计改变履约成本，而不是单靠道德劝说。本文据此推演：如果一方缺乏替代能力，即使承诺相同也不代表履约机会相同；能被衡量的责任与可获得的支持，需要同时进入合作设计。
+合作能够推进，与把共同目标变成可操作义务有关：控制具体物质，规定时间表，要求报告数据，并为不同发展条件安排不同进度。1991 年建立的多边基金提供资金与技术支持，降低了部分国家转换设备和生产的障碍；它是后续完善的安排，不能倒写成1987 年已全部就位。这些设计改变履约成本，而不是单靠道德劝说。本文据此推演：如果一方缺乏替代能力，即使承诺相同也不代表履约机会相同；能被衡量的责任与可获得的支持，需要同时进入合作设计。
 
 一个容易漏掉的环节是控制生产与处理存量并不相同。新设备停止使用某种物质，不表示旧设备中的物质已经消失；回收、维护和报废方式仍影响排放。因此，执行评价需要沿着产品生命周期追踪，不能只在销售端检查一种替代品是否上市。
 
@@ -37,7 +37,7 @@ difficulty: "进阶"
 
 ## 来源与核验
 
-- [联合国环境署：蒙特利尔议定书机制](https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol)：1987 年议定书采用分阶段控制、差异时间表、数据报告和资金技术援助。
+- [联合国环境署：蒙特利尔议定书机制](https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol)：1987 年通过的议定书及后续机制采用分阶段控制、差异时间表、数据报告和资金技术援助。
 - [联合国环境署：2023 年臭氧评估发布](https://www.unep.org/news-and-stories/press-release/ozone-layer-recovery-track-helping-avoid-global-warming-05degc)：评估认为臭氧层恢复在推进，未来恢复预测依赖现行政策持续实施。
 
 史实依据以上公开资料；反事实为机制推演，未将官方回顾当作排除所有其他解释的因果实验。

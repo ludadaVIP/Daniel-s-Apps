@@ -15,6 +15,7 @@ import {
   Home as HomeIcon,
   LayoutGrid,
   Library,
+  Languages,
   Loader2,
   Newspaper,
   Pencil,
@@ -42,6 +43,9 @@ import {
   fetchJournal,
   fetchMaster,
   fetchMasters,
+  fetchBuffettLetters,
+  fetchOaktreeMemo,
+  fetchOaktreeMemos,
   fetchKnowledgeDoc,
   fetchKnowledgeTree,
   fetchMeta,
@@ -91,6 +95,8 @@ const TABS = [
   { id: "models", label: "思维模型", icon: Brain, kind: "live" },
   { id: "cases", label: "案例库", icon: BookOpen, kind: "live" },
   { id: "masters", label: "市场大咖", icon: Sparkles, kind: "live" },
+  { id: "buffett-letters", label: "巴菲特致股东信", icon: BookOpen, kind: "live", child: true },
+  { id: "marks-memos", label: "马克思备忘录", icon: Newspaper, kind: "live", child: true },
   { id: "brief", label: "市场简报", icon: Newspaper, kind: "live" },
   { id: "training", label: "训练", icon: GraduationCap, kind: "soon" },
 ];
@@ -428,7 +434,7 @@ export default function App() {
               <button
                 key={item.id}
                 type="button"
-                className={classes("inv-nav-item", isActive && "is-active", item.kind === "soon" && "is-soon")}
+                className={classes("inv-nav-item", item.child && "is-child", isActive && "is-active", item.kind === "soon" && "is-soon")}
                 onClick={() => setTab(item.id)}
               >
                 <Icon size={16} strokeWidth={1.9} />
@@ -522,6 +528,10 @@ export default function App() {
             onWikiLink={openWikiLink}
             onError={setError}
           />
+        ) : tab === "buffett-letters" ? (
+          <PrimarySourceLibrary kind="buffett" onError={setError} />
+        ) : tab === "marks-memos" ? (
+          <PrimarySourceLibrary kind="marks" onError={setError} />
         ) : (
           <ComingSoonView tabId={tab} />
         )}
@@ -2310,6 +2320,276 @@ function MastersOverview({ data, onPick }) {
           5. <strong>Bezos</strong> + <strong>Jobs</strong> + <strong>Musk</strong> —— 创业者视角<br/>
           6. <strong>段永平</strong> + <strong>李录</strong> —— 中国投资者最值得读的两位
         </p>
+      </section>
+    </div>
+  );
+}
+
+// ============================================================
+// Primary-source reading library
+// ============================================================
+
+function formatReadingDate(isoDate) {
+  if (!isoDate) return "日期待核";
+  const date = new Date(`${isoDate}T12:00:00`);
+  if (Number.isNaN(date.getTime())) return isoDate;
+  return new Intl.DateTimeFormat("zh-CN", {
+    year: "numeric",
+    month: "short",
+    day: "numeric",
+  }).format(date);
+}
+
+function googleTranslateUrl(url) {
+  return `https://translate.google.com/translate?sl=en&tl=zh-CN&u=${encodeURIComponent(url)}`;
+}
+
+function PrimarySourceLibrary({ kind, onError }) {
+  const isBuffett = kind === "buffett";
+  const [library, setLibrary] = useState(null);
+  const [selectedId, setSelectedId] = useState(null);
+  const [language, setLanguage] = useState("zh");
+  const [query, setQuery] = useState("");
+  const [year, setYear] = useState("");
+  const [memoDetail, setMemoDetail] = useState(null);
+  const [loadingDetail, setLoadingDetail] = useState(false);
+
+  useEffect(() => {
+    let alive = true;
+    setLibrary(null);
+    setSelectedId(null);
+    setMemoDetail(null);
+    setQuery("");
+    setYear("");
+    const load = isBuffett ? fetchBuffettLetters : fetchOaktreeMemos;
+    load()
+      .then((data) => {
+        if (alive) setLibrary(data);
+      })
+      .catch((error) => {
+        if (alive) onError(error.message || String(error));
+      });
+    return () => {
+      alive = false;
+    };
+  }, [isBuffett, onError]);
+
+  useEffect(() => {
+    if (isBuffett || !selectedId) {
+      setMemoDetail(null);
+      return;
+    }
+    let alive = true;
+    setLoadingDetail(true);
+    setMemoDetail(null);
+    fetchOaktreeMemo(selectedId)
+      .then((data) => {
+        if (alive) setMemoDetail(data);
+      })
+      .catch((error) => {
+        if (alive) onError(error.message || String(error));
+      })
+      .finally(() => {
+        if (alive) setLoadingDetail(false);
+      });
+    return () => {
+      alive = false;
+    };
+  }, [isBuffett, onError, selectedId]);
+
+  const items = library?.items || [];
+  const years = useMemo(
+    () => [...new Set(items.map((item) => item.year))].sort((a, b) => b.localeCompare(a)),
+    [items],
+  );
+  const filtered = useMemo(() => {
+    const normalizedQuery = query.trim().toLowerCase();
+    return items.filter((item) => {
+      if (year && item.year !== year) return false;
+      if (!normalizedQuery) return true;
+      return `${item.title} ${item.title_en || ""} ${item.year}`.toLowerCase().includes(normalizedQuery);
+    });
+  }, [items, query, year]);
+  const selected = items.find((item) => item.id === selectedId) || null;
+  const chineseUrl = selected
+    ? isBuffett
+      ? googleTranslateUrl(selected.source_url)
+      : memoDetail?.official_chinese_url || ""
+    : "";
+  const readingUrl = selected ? (language === "en" ? selected.source_url : chineseUrl) : "";
+  const hasChinese = Boolean(chineseUrl);
+  const selectedTitle = selected
+    ? language === "en"
+      ? selected.title_en || selected.title
+      : isBuffett
+        ? selected.title
+        : selected.title
+    : "";
+  const collectionName = isBuffett ? "巴菲特致股东信" : "霍华德·马克思备忘录";
+  const englishName = isBuffett ? "Berkshire Shareholder Letters" : "Oaktree Memos";
+
+  if (!library) {
+    return (
+      <div className="inv-loading">
+        <Loader2 size={18} className="inv-spin" />
+        <span>正在整理官方资料目录…</span>
+      </div>
+    );
+  }
+
+  return (
+    <div className="inv-reading-layout">
+      <aside className="inv-reading-index" aria-label={`${collectionName}目录`}>
+        <div className="inv-reading-index-head">
+          <p>{isBuffett ? "BERKSHIRE / 1977—2024" : "OAKTREE / 1990—NOW"}</p>
+          <strong>{items.length} 篇原始资料</strong>
+        </div>
+
+        <div className="inv-search-box">
+          <Search size={14} strokeWidth={2} />
+          <input
+            value={query}
+            onChange={(event) => setQuery(event.target.value)}
+            placeholder={isBuffett ? "搜索年份" : "搜索标题 / 年份"}
+            aria-label="搜索资料"
+          />
+          {query && (
+            <button type="button" onClick={() => setQuery("")} aria-label="清空搜索">
+              <X size={12} />
+            </button>
+          )}
+        </div>
+
+        <div className="inv-reading-years" aria-label="按年份筛选">
+          <button
+            type="button"
+            className={classes("inv-reading-year", !year && "is-active")}
+            onClick={() => setYear("")}
+          >
+            全部
+          </button>
+          {years.map((itemYear) => (
+            <button
+              key={itemYear}
+              type="button"
+              className={classes("inv-reading-year", year === itemYear && "is-active")}
+              onClick={() => setYear(itemYear === year ? "" : itemYear)}
+            >
+              {itemYear}
+            </button>
+          ))}
+        </div>
+
+        <div className="inv-reading-list">
+          {filtered.map((item) => (
+            <button
+              key={item.id}
+              type="button"
+              className={classes("inv-reading-row", selectedId === item.id && "is-active")}
+              onClick={() => setSelectedId(item.id)}
+              title={item.title_en || item.title}
+            >
+              <span className="inv-reading-row-date">{item.year}</span>
+              <span className="inv-reading-row-title">{item.title}</span>
+              {!isBuffett && <span className="inv-reading-row-kind">{item.source_type === "pdf" ? "PDF" : "WEB"}</span>}
+            </button>
+          ))}
+          {filtered.length === 0 && <p className="inv-side-empty">没有找到匹配资料。</p>}
+        </div>
+      </aside>
+
+      <section className="inv-reading-main">
+        {!selected ? (
+          <div className="inv-reading-welcome">
+            <div className="inv-reading-monogram" aria-hidden="true">{isBuffett ? "B" : "M"}</div>
+            <p className="inv-reading-kicker">PRIMARY SOURCES · 长期投资的原始档案</p>
+            <h1>{collectionName}</h1>
+            <p className="inv-reading-deck">
+              {isBuffett
+                ? "把每一封年度信放回当时的商业环境中读：资本配置、保险浮存、企业文化与诚实复盘。"
+                : "沿着周期读，而不是追着新闻读：风险、价格、心理、信用和“你不能预测，但可以准备”。"}
+            </p>
+
+            <div className="inv-reading-stats" aria-label="资料库范围">
+              <div><strong>{library.first_year}</strong><span>起始年份</span></div>
+              <div><strong>{library.last_year}</strong><span>最新年份</span></div>
+              <div><strong>{items.length}</strong><span>已编目篇数</span></div>
+            </div>
+
+            <div className="inv-reading-start">
+              <p>从左侧选一篇开始。建议先读最新一篇，再回看市场极端年份，形成自己的时间轴。</p>
+              <a href={library.official_index_url} target="_blank" rel="noreferrer">
+                查看 {englishName} 官方总目录 <ExternalLink size={14} />
+              </a>
+            </div>
+          </div>
+        ) : (
+          <article className="inv-reading-paper">
+            <header className="inv-reading-paper-head">
+              <div className="inv-reading-paper-meta">
+                <span>{isBuffett ? "BERKSHIRE HATHAWAY" : "OAKTREE CAPITAL"}</span>
+                <span>{formatReadingDate(selected.date)}</span>
+                {selected.source_type === "pdf" && <span>PDF</span>}
+              </div>
+              <div className="inv-reading-language" aria-label="阅读语言">
+                <button
+                  type="button"
+                  className={classes(language === "zh" && "is-active")}
+                  onClick={() => setLanguage("zh")}
+                >
+                  <Languages size={14} /> 中文
+                </button>
+                <button
+                  type="button"
+                  className={classes(language === "en" && "is-active")}
+                  onClick={() => setLanguage("en")}
+                >
+                  EN English
+                </button>
+              </div>
+              <h1>{selectedTitle}</h1>
+              <p>
+                {language === "zh"
+                  ? isBuffett
+                    ? "中文为即时机器翻译，适合快速学习；投资判断请回到英文原文核对。"
+                    : loadingDetail
+                      ? "正在核对 Oaktree 是否为此篇提供官方简体中文 PDF…"
+                      : hasChinese
+                        ? "已找到 Oaktree 官方简体中文 PDF。"
+                        : "Oaktree 尚未为这篇公开官方简体中文 PDF；可切换英文阅读原文。"
+                  : "Berkshire / Oaktree 官方英文原文。"}
+              </p>
+              <div className="inv-reading-actions">
+                {readingUrl ? (
+                  <a className="inv-reading-open" href={readingUrl} target="_blank" rel="noreferrer">
+                    {language === "zh" ? (isBuffett ? "打开中文译文" : "打开官方中文 PDF") : "打开英文原文"}
+                    <ExternalLink size={15} />
+                  </a>
+                ) : (
+                  <span className="inv-reading-unavailable">此篇暂无官方中文版本</span>
+                )}
+                <a className="inv-reading-source" href={selected.source_url} target="_blank" rel="noreferrer">
+                  英文原文 <ExternalLink size={13} />
+                </a>
+              </div>
+            </header>
+
+            <div className="inv-reading-guide">
+              <p className="inv-reading-guide-label">带着问题读</p>
+              <ol>
+                <li>他正在回应哪一种市场环境、企业问题或投资者情绪？</li>
+                <li>文中对价格、风险或资本配置的判断，放到今天还成立吗？</li>
+                <li>写下一句你不同意的观点，以及你需要什么证据来改变看法。</li>
+              </ol>
+            </div>
+
+            <footer className="inv-reading-citation">
+              <span>资料归属：{library.source_name}</span>
+              <a href={library.official_index_url} target="_blank" rel="noreferrer">官方档案页 <ExternalLink size={12} /></a>
+            </footer>
+          </article>
+        )}
+        {library.is_stale && <p className="inv-reading-stale">当前使用的是最近一次成功同步的官方目录；网络恢复后会自动更新。</p>}
       </section>
     </div>
   );

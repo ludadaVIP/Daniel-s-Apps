@@ -1,0 +1,222 @@
+[
+  {
+    "id": "argentina-convertibility-2001",
+    "hash": "3d295bb4e6b33d65cc85d7ab01604a2b34ba297c48fc0a706331e8da852c514b",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够区分一项制度的初期收益和后期约束，并在沉没成本增加之前预先设计退出条件及损失分担。",
+    "limitations": "如果繁荣期积累更多财政缓冲、减少外币债务，制度也许能承受更大冲击；如果更早讨论退出，安排成本可能较小，但消息泄露也可能加速挤兑。这是需要权衡的反事实，而不是证明某个替代时间点必然成功。一般化的教训是，过去一项工具有效，不代表环境变化后仍应无限投入资源维护它。迁移到企业战略时，要看继续投入带来的未来收益与退出成本，而不是为此前选择证明正确。",
+    "distinctness": "独特焦点：初期稳定工具转为高退出成本困局，主权债务与银行契约传导。",
+    "sourceVerification": "已阅读 https://www.imf.org/external/np/ieo/2004/arg/eng/index.htm；web403后curl读取2004独立评估执行摘要，核对初期稳定、2001违约、2002退出及继续支持批评。 已阅读 https://www.imf.org/external/np/ieo/2003/arg/index.htm；web403后curl读取2003问题文件，核对八项竞争解释；不将评估前的讨论当净因果估计。"
+  },
+  {
+    "id": "asian-financial-crisis-1997",
+    "hash": "74c1b54246c9268a83dcedac43ba54eda3a8e6e5afb3ae8e8aa561633af5f0eb",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够识别外币债务与本币收入、短期负债与长期资产的双重错配，并评价危机政策的相互冲突。",
+    "limitations": "若企业收入主要是外币出口所得，贬值对它的影响可能与纯内需企业不同；若债务期限更长或已有可靠对冲，资本突然撤离也未必立刻引爆同样压力。这是为什么高债务总量不能单独替代结构分析。反过来，即便政府预算平衡，私人部门的外币短债仍可能最终转化为公共救助成本。将案例套到其他经济体时，应核对可用外汇、到期结构、隐含担保与银行资本，避免只比较增长率和政府赤字。",
+    "distinctness": "与阿根廷区别：企业外币短债及资本突然撤离，不以主权可兑换制退出为主体。",
+    "sourceVerification": "已阅读 https://www.imf.org/external/pubs/ft/fandd/1998/06/imfstaff.htm；web403后curl读取1998 IMF正文至文末；核对短期外债、固定汇率与外币风险。 已阅读 https://www.imf.org/external/pubs/ft/fandd/1999/09/lane.htm；web403后curl读取1999复盘正文，核对深度衰退、政策初期失效和利率争议，明确机构参与者立场。"
+  },
+  {
+    "id": "bank-holiday-1933",
+    "hash": "84dfa0ae7b123610f5cc74b49faade9febf09e5eea89f96eb09a8bbbd51119c2",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够把流动性短缺与资不抵债分开，并判断暂停交易是否配套了筛查、资金支持和重启条件。",
+    "limitations": "假如休业结束时没有公布清晰的重开标准，公众可能仍然无法区分银行质量，现金需求就可能再度上升。假如对所有股东无条件兜底，又会削弱承担风险的约束。这些反事实提示，保护支付功能、保护存款者和保护原股东并非同一件事。案例适用于分析暂停赎回、平台冻结或组织危机，但不能推出任何临时限制都合理；需要计算限制给正常用户带来的成本，并给出有期限的恢复程序。",
+    "distinctness": "与瑞典区别：中止抢跑后的筛查重开条件，而非资产透明估值与资本修复。",
+    "sourceVerification": "已阅读 https://www.federalreservehistory.org/essays/bank-holiday-of-1933；已阅读全文，核对3月6日命令、A/B/C分类、许可重开和部分银行永久关闭。 已阅读 https://www.federalreservehistory.org/essays/banking-panics-1931-33；已读1931-33恐慌历史正文，核对全国化及黄金现金压力；不把休业当全面经济复苏。"
+  },
+  {
+    "id": "estonia-digital-state",
+    "hash": "83b267b25a56f0e86079b5f1657fc3f77cb9cb619c5651d3716392366f01070c",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够区分界面上线与流程重构，检查数字服务的数据责任、访问权限和失败时的恢复方式。",
+    "limitations": "假如把同样软件移植到数据质量低、部门不愿承担责任的环境，用户可能仍需线下反复证明材料。反过来，没有华丽平台但先统一责任和字段的部门，也可能减少大量重复工作。数字身份本身不自动解决越权访问和排斥问题，仍需明确用途边界、日志、纠错与替代办事通道。这个案例可以指导组织数字化，却不能证明任何数据集中或自动化都值得实施；应根据具体服务所需的最少信息设计流程。",
+    "distinctness": "独特焦点：数据交换责任、身份授权与失败恢复，非单纯技术乐观。",
+    "sourceVerification": "已阅读 https://www.ria.ee/en/state-information-system/data-exchange-platforms/data-exchange-layer-x-tee；已读RIA X-tee介绍及运行原则，核对交换、授权、日志与参与者控制数据。 已阅读 https://ria.ee/uudised/id-kaart-sai-20-aastaseks；已读2022原文L246-255，核对2002首卡及2017芯片弱点；未采用世界唯一等宣传性强断言。"
+  },
+  {
+    "id": "financial-crisis-2008",
+    "hash": "be489d8fbf5cd2ff9cc7b02f27c39d9374cc688827b04232912ce2fbe4c03d4e",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够把初始资产损失与融资网络中的放大器分开，识别共同抵押品和短期负债造成的系统脆弱性。",
+    "limitations": "假如相同资产损失由低杠杆、长期资金持有人承担，系统冲击可能小得多；假如损失虽小但无法确认持有人，所有交易对手都可能被审慎对待。由此应同时检查金额、时间与信息。任何资产下跌都不等于重演2008 年，监管、资本和流动性安排可能已经不同。央行提供流动性能够缓和贱卖循环，却不等同于修复所有资不抵债者，这也是政策组合比单一救助口号更值得分析的原因。",
+    "distinctness": "独特焦点：共同抵押品及短期批发融资网络把初始损失放大到实体经济。",
+    "sourceVerification": "已阅读 https://www.federalreservehistory.org/essays/great-recession-of-200709；已读美联储大衰退历史正文，核对实体经济信用传导及多工具回应。 已阅读 https://www.federalreserve.gov/newsevents/testimony/bernanke20100902a.htm；已读伯南克2010证词触发/脆弱性和短期融资段L25-49，作为参与者证词，不宣称唯一原因。"
+  },
+  {
+    "id": "german-reunification-1990",
+    "hash": "91adb82858e88f464b46512ad7505207d1d485329f732cd124f900c54178a05b",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够区分名义制度统一与实际能力收敛，并识别跨地区历史比较中的迁移与起点偏差。",
+    "limitations": "假设采用更低工资并配合财政补贴，部分岗位可能更易保留，但人口迁移、政治接受度和财政成本也会变化，不能把反事实写成必胜方案。若只比较统一后的东西部平均收入，会遗漏迁移者的选择性：留下和离开的人在年龄、技能或机会方面可能不同。这个案例适合提醒组织并购者重视系统、技能与客户关系的迁移成本；它不支持把任何地区差距简单归结为居民文化或某个制度名称。",
+    "distinctness": "与革新开放区别：名义制度快速统一与实际生产率调整的时间差。",
+    "sourceVerification": "已阅读 https://www.bundesbank.de/en/tasks/topics/german-monetary-union-historical-background-666890；已阅读全文，核对7月货币联盟、10月政治统一的先后。 已阅读 https://www.bundesbank.de/en/press/speeches/not-against-the-laws-of-economics-hans-werner-sinn-as-a-public-intellectual-667008；已读2016年演讲第二节，核对工资、迁移、兑换和生产率；作为央行政策解释标明立场。"
+  },
+  {
+    "id": "glorious-revolution-1688",
+    "hash": "e796e27cbf94e338a31390ed1dc1e06efe0f93beb6e480bdbb05bac28ca703df",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够把制度变迁拆成可执行的约束与财政能力，并拒绝将历史先后顺序直接视为增长因果。",
+    "limitations": "一个有用的反事实是：若议会掌握征税批准权，但税基薄弱、征管失效，纸面保障能否支持长期债务？很可能仍有限。另一个反事实是财政能力增强而少数债权人垄断规则，融资可能改善，分配却未必公平。历史中没有可完全匹配的平行英国，因此不宜声称已精确估出革命对利率或增长的独立贡献。迁移到企业治理时，应观察承诺能否执行、破约是否付出代价，而非只看章程里写了多少漂亮原则。",
+    "distinctness": "与其他制度案例区别：限制破约与财政执行能力的互补。",
+    "sourceVerification": "已阅读 https://www.parliament.uk/about/living-heritage/evolutionofparliament/parliamentaryauthority/revolution/collections1/collections-glorious-revolution/billofrights/；已读议会原件说明L153-173，核对征税需议会同意及1689年日期。 已阅读 https://www.bankofengland.co.uk/about/history；已读银行官方历史1694成立和政府战争融资段；没有把融资成本因果归于此页。"
+  },
+  {
+    "id": "great-inflation",
+    "hash": "8d156f8f09e3497ef7bf6e46d66e3caaf00d9510ce977f60761c630cc8ab1208",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够把相对价格冲击、持续需求与预期变化区分开，并评估抗通胀政策的信誉和实体经济代价。",
+    "limitations": "假设能源冲击很快逆转且长期预期稳定，一次价格上升可能不会持续扩散；假设需求旺盛且市场预期当局总在压力下退让，即使能源回落也不一定迅速恢复稳定。比较新一轮通胀时，应核对能源强度、工资合同、债务期限和政策框架，不能仅凭涨价就套用1970 年代。另一个重要区分是名义利率与扣除预期通胀后的实际利率，名义数字很高也未必代表同样程度的紧缩。",
+    "distinctness": "与1971区别：供给、需求和预期使价格压力持续；与1923区别：抗通胀政策权衡。",
+    "sourceVerification": "已阅读 https://www.federalreservehistory.org/essays/great-inflation；已读历史正文，核对1965-82时间范围、首次石油冲击前的通胀与政策框架。 已阅读 https://www.federalreservehistory.org/essays/recession-of-1981-82；web打开失败后curl读取全文，核对1981-82衰退、部门就业代价、名义/实际利率与信誉。"
+  },
+  {
+    "id": "great-smog-1952",
+    "hash": "22bd928aefb41f537f580bd747d3fb4a933238586678751b62eaa0ad28deb60a",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够区分系统中的触发因素与积累条件，并评估减少外部成本时的替代能力和分配负担。",
+    "limitations": "设想只禁止某种取暖方式，却没有可负担替代品，低收入家庭可能在寒冷与违规之间被迫选择；只补贴设备而不关注燃料供应，也可能落实困难。这些反事实说明政策需要把环境收益与转换成本放在同一张表里。案例与1854 年霍乱不同：那里主要训练如何辨别因果证据，这里训练如何治理已经分散到无数私人决策中的公共成本。它也不证明所有污染只能用单一税收或禁令解决。",
+    "distinctness": "独特焦点：私人排放累积、气象触发和替代能力，不重讲霍乱因果地图。",
+    "sourceVerification": "已阅读 https://weather.metoffice.gov.uk/learn-about/weather/case-studies/great-smog；已读Met Office事件正文L270-298，核对燃煤、逆温、消散及立法后逐步改进。 已阅读 https://publications.parliament.uk/pa/bills/lbill/58-03/005/5803005en03.htm；已读议会法案背景说明，此文件为后期说明材料，支持1952事件与1956立法时间关系。"
+  },
+  {
+    "id": "household-responsibility-1978",
+    "hash": "5aa71ba7d8323d41872d530727df1d0f4b71c273de84a426bc8620e2c05de118",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够识别个人努力与可保留收益之间的联系，并把激励变化与价格投入等共同因素分开评估。",
+    "limitations": "若把家庭收益全部提高，却让水利维护无人负责，个人激励增强与公共设施退化可能同时发生。这一反事实揭示可单独归属的劳动成果与必须共同供给的条件需要不同治理办法。再假设收购价格提高而责任安排不变，产出也可能上升，所以比较改革效果必须考虑同期价格和天气。向知识工作迁移时，不能简单按可见产量奖励每个人，因为协作、质量与帮助同事很容易在单项指标中被遗漏。",
+    "distinctness": "与尼泊尔灌溉区别：个人收益权及公共设施配套，而非上下游议价。",
+    "sourceVerification": "已阅读 https://blogs.worldbank.org/en/eastasiapacific/china-s-reform-change-the-system-open-the-door；已读世界银行作者回顾关于家庭责任安排与市场连接，未把个人见闻当定量实验。 已阅读 https://blogs.worldbank.org/en/eastasiapacific/reflections-on-forty-years-of-china-reforms；已读改革阶段、双轨制度及激励段落；正文不引用未经独立验证的贡献比例。"
+  },
+  {
+    "id": "india-green-revolution",
+    "hash": "750c718bb4bc276f1fe48feee77271b6dfefd41e2187dab0fcb4fd4782c40455",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够识别一项技术取得效果所需的互补条件，并分别评价总产量、群体收益和长期资源成本。",
+    "limitations": "若一个雨养地区无法稳定供水，复制灌溉区方案可能达不到同样效果；若借贷成本很高，平均增产也未必覆盖风险。长期还应单独核算地下水、土壤和投入污染成本，不能让当季产量成为唯一目标。反事实比较应尽可能使用相近土壤、天气和投入条件，同时观察采用者为何有能力先采用。这个案例可迁移到企业引入人工智能或自动化：新工具必须与流程、训练和反馈体系一起判断。",
+    "distinctness": "独特焦点：技术包互补及采用群体差异，不重复农业责任制激励。",
+    "sourceVerification": "已阅读 https://www.nobelprize.org/prizes/peace/1970/borlaug/lecture/；web403后curl读取博洛格1970演讲，核对早期灌溉地区与作物限定以及配套投入。 已阅读 https://www.nobelprize.org/prizes/peace/1970/ceremony-speech/；web403后curl读取颁奖词，核对印度推广和配套信贷分配讨论；演讲与颁奖词为不同文件但同一机构托管。"
+  },
+  {
+    "id": "japan-bubble",
+    "hash": "843a0bff1aab31a1b23846b5ce37c9b9d8c9c18633de5e1a596506d91a1b78db",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够识别资产价格与抵押信贷的反馈，并区分利率下降、资产负债表修复与长期结构变化的作用。",
+    "limitations": "若同样资产调整发生在负债较低、经营现金流较强的企业中，后续收缩可能较轻；若银行及时识别并处理损失，贷款配置也可能不同，但处置本身有现实成本。降低利率可以减轻部分融资负担，却未必令正在修复资产负债表的企业愿意新增借款。把另一个国家直接称为下一个日本，通常忽略城市迁移、住房供给、债务币种和金融结构差异。更有价值的比较是具体反馈回路是否相似。",
+    "distinctness": "与2008区别：抵押信贷与长期资产负债表修复，新增结构性坏账。",
+    "sourceVerification": "已阅读 https://www.imes.boj.or.jp/research/papers/english/me19-s1-14.pdf；已读IMES原始论文摘要引言，核对资产信用共同扩张及研究明确声明机制未达共识。 已阅读 https://www.boj.or.jp/en/finsys/fs_policy/fss0210a.htm；已读2002BOJ总结L250-270，核对新增坏账与产业结构变化，不把全时期归于泡沫。"
+  },
+  {
+    "id": "london-cholera-1854",
+    "hash": "06f03e52e8d138e22eaf3b8ffb1e66f64e26c7f15eca4f8668b88eee6a94848a",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够区分地理聚集与因果证据，主动寻找反例并说明干预前趋势对效果判断的影响。",
+    "limitations": "假如没有移除泵柄，疫情仍可能因污染消退而回落；这不意味着停止可疑暴露毫无价值，而说明不能用前后变化直接估计其净效果。若能获得同期不同水源、相近居住条件人群的发病率，解释会更有区分度。还应记录没有生病者的分母，不能只数死者中多少人喝过井水。这个方法可用于审视产品故障和组织事件，本文讨论历史证据结构，不提供疾病诊疗或当代公共卫生处置建议。",
+    "distinctness": "与大烟雾区别：证据鉴别及干预前趋势，而非排放外部性治理。",
+    "sourceVerification": "已阅读 https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_d.html；已读UCLA转录的斯诺1855原著及调查，明确记载拆柄前发病减少、没有非病例饮水分母。 已阅读 https://epi-snow.ph.ucla.edu/Stream2_BSPoutbreak_e.html；已打开并检查后续调查页面；引用只支持干预与补充调查的过程，不用来估算干预净效果。"
+  },
+  {
+    "id": "montreal-protocol-1987",
+    "hash": "d637a01d73af879d2a7e5d07499beb508c196370c70c6d41eedd200c19619e05",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够分析跨主体合作的履约激励和成本分担，并区分已观察结果与依赖持续行动的预测。",
+    "limitations": "假设只有减排承诺，没有核验、转型资金与替代技术，遵守者可能承担过高成本，协议更难持续；但支持本身也需要防止虚报与资源浪费。将此案例类比气候合作时，应承认能源体系比特定化学品用途更广，替代成本、参与者数量与分配冲突不同。可以借鉴报告、资助和动态修订机制，不能从一次成功推出所有全球环境问题都可用相同速度解决。持续履约也是成果的一部分。",
+    "distinctness": "独特焦点：跨国可核验承诺、差异责任与转型资助。",
+    "sourceVerification": "已阅读 https://www.unep.org/ozonaction/who-we-are/about-montreal-protocol；已读UNEP协议机制正文L31-54，核对1987通过、差异时间表、资金与修订。 已阅读 https://www.unep.org/news-and-stories/press-release/ozone-layer-recovery-track-helping-avoid-global-warming-05degc；已读2023评估发布L143-163，明确恢复预测以政策维持为条件且年度变化受气象影响。"
+  },
+  {
+    "id": "nixon-gold-window-1971",
+    "hash": "f75c4b8b9cf086b42bab45a3ebfd959839335aeb8db806c1c17eea8bdb1847db",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够检查固定兑换承诺背后的资源与政策冲突，并区分国际货币制度变化和国内通胀机制。",
+    "limitations": "若美国坚持原有安排，可能需要更强的国内调整、更换黄金价格或推动共同协调；每种方案都有成本，不能把没有发生的路径写成无代价的稳定。假设境外持有人同时请求兑换，静态储备比率会变得更重要；若对承诺持续信任，实际需求又可能小得多。这个案例可用于检查任何固定兑换或回购安排的可持续性，但不意味着所有纸币制度必然崩溃，也不能直接预测黄金或汇率的方向。",
+    "distinctness": "与大通胀区别：国际官方兑换制度及发行者政策冲突；与瑞郎区别：兑金资源约束。",
+    "sourceVerification": "已阅读 https://www.federalreservehistory.org/essays/gold-convertibility-ends；已读美联储历史正文，核对官方兑换主体、1971年日期及货币互换背景。 已阅读 https://history.state.gov/milestones/1969-1976/nixon-shock；已读国务院历史办公室页面，核对后续国际协调与汇率演进，正文没有写成当晚完全自由浮动。"
+  },
+  {
+    "id": "ostrom-irrigation",
+    "hash": "1bbcc86dab9abd4dae9f3e80041af10c337d69d88e4bee08dc88405cee48b74d",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够画出公共资源中各方的互相依赖关系，并检验技术升级是否破坏原有合作激励。",
+    "limitations": "设想建造新坝同时建立可执行的轮灌安排，让下游拥有监督和申诉权，技术改善未必再破坏合作。这是机制推演，并非已完成的随机试验。反过来，若使用者频繁迁移、资源边界模糊或上游可以无成本绕开规则，仅靠熟人互惠也可能失败。迁移这个案例时，应先确认谁拥有入口、谁承担维护，以及不配合能否真的被发现；不能把公共资源治理简化成鼓励大家自觉。",
+    "distinctness": "与家庭承包区别：共同资源的横向互赖，而非个体剩余收益。",
+    "sourceVerification": "已阅读 https://www.nobelprize.org/prizes/economic-sciences/2009/popular-information/；已用 curl 读取公众说明全文中 Failed modernization 小节，核对尼泊尔上下游维护互赖；web open403后改用官方HTML。 已阅读 https://www.nobelprize.org/prizes/economic-sciences/2009/press-release/；已用 curl 读取授奖公告全文；此页支持公共资源治理研究结论，不作为尼泊尔个别产量估计依据。"
+  },
+  {
+    "id": "sweden-banking-crisis",
+    "hash": "8c6845bb34360d23969122cbbd93d27b8bece9c9b0224152d6cd66c49c58e0ff",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够区分为银行提供流动性与恢复偿付能力的工具，并评价损失确认和重组中的信息作用。",
+    "limitations": "假如政府提供担保却允许不断隐瞒损失，市场可能仍不愿给银行长期融资，因为谁最终承担缺口并不清楚。反过来，突然公布损失但没有重组能力和可信资金安排，也可能加剧恐慌。能否复制瑞典经验，取决于法律执行、估值可信度、财政承受力及政治协调。这里与1933 年案例的学习重点不同：1933 年强调暂停后的重新开门条件，本案例进一步聚焦信息不透明如何妨碍资本修复。",
+    "distinctness": "与1933区别：坏账透明、信息不对称和资本修复；不重复单纯流动性中止。",
+    "sourceVerification": "已阅读 https://www.bis.org/review/r061117b.pdf；已读BIS托管央行行长演讲PDF前3页，核对1985信贷、1989资本流动放开及风险评估缺口。 已阅读 https://www.bis.org/review/r120615j.pdf；已读2012演讲PDF第6-8页，核对担保买时间、关闭拆分资本重组和有利政治环境。"
+  },
+  {
+    "id": "swiss-franc-floor-2015",
+    "hash": "48bc1e078c4114fb889c42e55b810fdc594c91e1b3b86fa0be83c559a31e1fd7",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够识别政策维持价格的条件与退出权力，并在风险评估中纳入连续报价失效和价格跳跃。",
+    "limitations": "若参与者没有杠杆、现金义务匹配且可持有较久，同一次价格跳跃与高杠杆短期头寸的后果会很不同。假设央行继续维持下限，也需承担更大干预及未来退出成本，不能把未发生的路径当作零风险。这个案例不支持央行承诺毫无价值的极端结论，而是要求识别承诺的目标、工具与改变条件。对任何有政策价格边界的场景，都应额外问：如果边界明天消失，我是否仍能履行现金义务。",
+    "distinctness": "与1971区别：投放本币保卫升值边界的意愿和干预成本，非耗尽黄金兑换。",
+    "sourceVerification": "已阅读 https://www.snb.ch/en/publications/communication/press-releases/2015/pre_20150115；已打开新闻页并点击读取一页官方PDF，核对1.20下限取消和相关存款利率调整。 已阅读 https://www.snb.ch/en/publications/communication/speeches/2015/ref_20150424_tjn；已读2015年4月Jordan演讲摘要，核对欧元走弱和迅速扩大的持续干预理由；不引用平台瞬时波动。"
+  },
+  {
+    "id": "vietnam-doi-moi",
+    "hash": "a9234af522349f3c96ab166cd9bd633ab247007b555b00cbae57ff2cf67696e8",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够把增长解释分解成制度、外部环境与公共投入，判断改革之间的互补关系和后续瓶颈。",
+    "limitations": "假设同样放宽企业进入，却缺少可靠基础设施，改革收益可能小得多；假设全球贸易环境恶化，即便国内制度改善，出口增速也可能放缓。这些反事实不能精确计算已经发生的另一条历史，却能提醒比较者控制外部条件。越南与中国都经历农业和市场改革，但初始产业结构、人口规模和国际时间窗口不同。借鉴时应该迁移解决约束的方法，不能把某国曾经增长当作另一国必然复制的预测。",
+    "distinctness": "与中国承包区别：市场、基础设施和外需互补及升级瓶颈。",
+    "sourceVerification": "已阅读 https://www.worldbank.org/en/country/vietnam/overview.print；已读发展概览历史段，采用1986改革与全球趋势共同作用的限定判断，未引用易变的现期预测数字。 已阅读 https://blogs.worldbank.org/en/developmenttalk/reflecting-vietnams-success-and-challenges；已读Goldberg2019回顾正文L17-24，核对转型、低附加值制造和后续政策挑战。"
+  },
+  {
+    "id": "weimar-hyperinflation-1923",
+    "hash": "0936f0ce714b0215b18bb62e4294a217b69a0848e92e285da55fe02fcacc9dd9",
+    "decision": "approved",
+    "reviewer": "Hypatia（独立交叉审读）",
+    "checkedAt": "2026-09-09",
+    "cognitiveValue": "能够区分一般通胀与货币功能失灵，分析财政融资、货币需求和预期之间的反馈关系及稳定条件。",
+    "limitations": "若财政融资更早受到约束、供给恢复且公众愿意继续持币，过程未必走到同样极端；但具体替代路径不能脱离战后政治与国际条件。现代经济出现财政赤字或央行扩表，不足以单独证明将重演1923 年，必须检验财政是否失去持续融资渠道、生产是否受损及货币需求是否崩塌。本文与大通胀案例的区别在于货币功能接近失灵，而不是一般的价格压力持续，二者不能仅凭都出现上涨就混为一谈。",
+    "distinctness": "与大通胀区别：货币支付、记账和储值功能失灵，不混同一般高通胀。",
+    "sourceVerification": "已阅读 https://www.bundesbank.de/en/tasks/topics/inflation-lessons-learnt-from-history-666006；已读德国央行英文全文，核对战时与战后财政融资以及1923年11月货币改革。 已阅读 https://www.bundesbank.de/de/presse/reden/bezahlen-damals-heute-und-morgen-907040；已读2023德文演讲历史部分L47-58，核对财政央行融资、货币三功能破坏；未以当前扩表直接类比。"
+  }
+]

@@ -10,7 +10,7 @@ tags: ["亚马逊", "现金流", "2000"]
 related: ["dotcom-bubble", "survivorship-bias", "economies-of-scale"]
 eventKey: "amazon-liquidity-runway-2000"
 learningObjective: "能够分别评估成长企业的客户价值、单位经济和现金跑道，并避免用成功结局替代当时证据。"
-sources: [{"title":"Amazon 2000 Annual Report","url":"https://s2.q4cdn.com/299287126/files/doc_financials/annual/00ar.pdf","claim":"股东信记录融资后年末现金与有价证券11亿美元以及对失败投资的反思。"},{"title":"Amazon shareholder letter archive","url":"https://ir.aboutamazon.com/annual-reports-proxies-and-shareholder-letters/default.aspx","claim":"官方年报与股东信档案提供历史披露入口，用于追溯资料版本。"}]
+sources: [{"title":"Amazon 2000 Annual Report","url":"https://s2.q4cdn.com/299287126/files/doc_financials/annual/00ar.pdf","claim":"股东信记录融资后年末现金与有价证券11亿美元以及对失败投资的反思。"},{"title":"Amazon 2001 Form 10-K","url":"https://www.sec.gov/Archives/edgar/data/1018724/000103221002000059/d10k405.htm","claim":"现金流表显示2001第四季度经营现金流为正、全年仍为负，并列融资现金来源。"}]
 ---
 
 ## 事件与当时的信息
@@ -19,7 +19,7 @@ sources: [{"title":"Amazon 2000 Annual Report","url":"https://s2.q4cdn.com/29928
 
 知道后来亚马逊成功，很容易把当时的不确定性删掉。更有价值的练习是只使用当时公开的信息，检查是否存在支持继续经营的证据，以及哪些风险仍无法消除。
 
-当时投资者能读取现金、债务、履约费用和复购证据，却不能预知后来云业务或长期股价。反事实是融资更晚、同样经营改善却失去资金窗口，公司可能没有足够时间兑现规模经济。因此本案例研究生存约束，与互联网市场整体估值泡沫是不同事件层次。
+当时投资者能读取现金、债务、履约费用和复购证据，却不能预知后来云业务或长期股价。年末现金是某一天的余额，不能单独回答下一年还需投入多少；同一份披露中的融资来源、经营流出与付款承诺要放在一起理解。本案例因此研究企业的生存约束，与互联网市场整体估值泡沫是不同事件层次。
 
 ## 决策与因果机制
 
@@ -29,11 +29,15 @@ sources: [{"title":"Amazon 2000 Annual Report","url":"https://s2.q4cdn.com/29928
 
 ## 结果与证据
 
+[2000年报](https://s2.q4cdn.com/299287126/files/doc_financials/annual/00ar.pdf)记载年末现金与有价证券11亿美元，并说明年初融资的作用；[2001年10-K](https://www.sec.gov/Archives/edgar/data/1018724/000103221002000059/d10k405.htm)披露现金流和季度差异，显示第四季度经营现金流为正而全年仍为负。活下来与现金持续改善不能只看一个旺季。下面的跑道计算是教学假设，既不等同真实账户，也不能直接由现金余额推导股价。
+
 教学假设：公司有 12 亿元可用现金，每年净流出 4 亿元，粗略跑道为三年。但若还有到期债务、季节性营运资金和最低运营现金，实际可支撑时间更短。反过来，单位经济改善与固定投入减少可以延长跑道。不能只用现金余额除以去年亏损得出安全结论。
 
 对成长企业，关键不是立刻要求所有投入都停止，而是判断新增投入能否在资金耗尽前形成更好现金流。
 
 ## 反事实与适用边界
+
+反事实是同样经营进展但融资窗口更早关闭，企业可能无法等待规模经济实现。适用边界是客户复购和成本改善已有证据；仅有扩张口号而每单亏损无法改善，充足现金也只会推迟失败。后来的成功不能证明任何买入价格都合理。
 
 客户是否复购、成熟品类是否改善贡献利润、履约成本是否随规模下降、收入是否真实收回，都比单纯客户数更有区分力。管理层调整后利润口径也必须与会计利润和现金流对照，防止忽略真实成本。
 
@@ -51,4 +55,4 @@ sources: [{"title":"Amazon 2000 Annual Report","url":"https://s2.q4cdn.com/29928
 
 1. [Amazon 2000 Annual Report](https://s2.q4cdn.com/299287126/files/doc_financials/annual/00ar.pdf)：股东信记录融资后年末现金与有价证券11亿美元以及对失败投资的反思。
 
-2. [Amazon shareholder letter archive](https://ir.aboutamazon.com/annual-reports-proxies-and-shareholder-letters/default.aspx)：官方年报与股东信档案提供历史披露入口，用于追溯资料版本。目录用于溯源，关键经营事实只由2000年报支持。
+2. [Amazon 2001 Form 10-K](https://www.sec.gov/Archives/edgar/data/1018724/000103221002000059/d10k405.htm)：现金流表显示2001第四季度经营现金流为正、全年仍为负，并列融资现金来源。
