@@ -4,7 +4,7 @@ import { BookOpenText, ChartNoAxesCombined, House, Landmark, Network, NotebookPe
 const APPS = [
   {
     id: 'investment',
-    name: 'Road2Elite · Investment',
+    name: 'Investment',
     kind: 'INVEST',
     description: '投资工作台、知识库、案例与决策复盘。',
     Icon: Landmark,
