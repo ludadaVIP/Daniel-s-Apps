@@ -4,7 +4,13 @@
 
 ## 启动
 
-双击 `start.bat`。首次运行会安装一次共享依赖，随后访问 `http://127.0.0.1:5888`。
+Windows 双击 `start.bat`；Mac 双击 `start.command`。首次运行会安装一次共享依赖，随后自动打开 `http://127.0.0.1:5888`。
+
+Mac 初次下载或拷贝到新电脑后，若 Finder 提示没有权限，可在终端进入本目录后执行一次：
+
+```bash
+chmod +x start.command
+```
 
 也可以在本目录运行：
 
