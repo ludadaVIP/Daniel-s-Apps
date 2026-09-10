@@ -1,6 +1,6 @@
 # NodeApps
 
-一个统一的本地工作台，包含 Industry with coms、InsightMatrix、Notebook 与 BibleDevotion。
+一个统一的本地工作台，包含 Industry with coms、InsightMatrix、Notebook、BibleDevotion 与 Recall Verses。
 
 ## 启动
 
@@ -21,7 +21,7 @@ npm run dev
 ## 结构与加载方式
 
 - `src/`：首页与共享工作台壳层。
-- `apps/`：四个迁移后的 APP、各自的 Markdown/JSON 数据和后端模块。
+- `apps/`：独立 APP、各自的 Markdown/JSON 数据和后端模块。Recall Verses 复用 BibleDevotion 的 CUV 经文与笔记索引，并将背诵隐藏状态存放在自己的 `recall-data` 中。
 - `server/`：唯一的 API 网关。
 
 首页只包含启动页。选中卡片后才会动态下载该 APP 的 React/CSS 代码；Notebook、BibleDevotion、InsightMatrix 的 API 也在第一次访问其专属路径时才会初始化。

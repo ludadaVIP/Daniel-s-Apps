@@ -11,7 +11,7 @@ const SCROLL_THRESHOLD = 180;
  * Sub-app components stay completely unaware of routing — they only need
  * to render their own UI inside the children slot.
  */
-export default function AppShell({ label, accent = "#6366f1", children }) {
+export default function AppShell({ accent = "#6366f1", children }) {
   const shellRef = useRef(null);
   const lastScrollTargetRef = useRef(null);
   const [showBackToTop, setShowBackToTop] = useState(false);
@@ -56,17 +56,11 @@ export default function AppShell({ label, accent = "#6366f1", children }) {
       style={{ "--shell-accent": accent }}
       onScrollCapture={handleContentScroll}
     >
-      <header className="dh-shell-bar">
-        <Link to="/" className="dh-shell-home" title="回到主页">
-          <Home size={16} strokeWidth={2} />
-          <span>主页</span>
-        </Link>
-        <span className="dh-shell-divider">/</span>
-        <span className="dh-shell-label" style={{ color: accent }}>
-          {label}
-        </span>
-      </header>
       <main className="dh-shell-content">{children}</main>
+      <Link to="/" className="dh-return-to-hub" title="返回工作台">
+        <Home size={17} strokeWidth={2.2} aria-hidden="true" />
+        <span>返回工作台</span>
+      </Link>
       <button
         type="button"
         className={`dh-back-to-top${showBackToTop ? " is-visible" : ""}`}

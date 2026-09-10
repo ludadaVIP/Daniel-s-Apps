@@ -2,26 +2,20 @@ import { Link } from "react-router-dom";
 import { Home } from "lucide-react";
 
 /**
- * Thin top-bar wrapper shown above every sub-app. Provides a consistent
- * "back to hub" affordance so the user can always escape to the launcher.
+ * Shared wrapper for every sub-app. Keeps a consistent, unobtrusive
+ * "back to hub" affordance available without reserving a header row.
  *
  * Sub-app components stay completely unaware of routing — they only need
  * to render their own UI inside the children slot.
  */
-export default function AppShell({ label, accent = "#6366f1", children }) {
+export default function AppShell({ accent = "#6366f1", children }) {
   return (
     <div className="dh-shell" style={{ "--shell-accent": accent }}>
-      <header className="dh-shell-bar">
-        <Link to="/" className="dh-shell-home" title="回到主页">
-          <Home size={16} strokeWidth={2} />
-          <span>主页</span>
-        </Link>
-        <span className="dh-shell-divider">/</span>
-        <span className="dh-shell-label" style={{ color: accent }}>
-          {label}
-        </span>
-      </header>
       <main className="dh-shell-content">{children}</main>
+      <Link to="/" className="dh-return-to-hub" title="返回工作台">
+        <Home size={16} strokeWidth={2.2} aria-hidden="true" />
+        <span>返回工作台</span>
+      </Link>
     </div>
   );
 }

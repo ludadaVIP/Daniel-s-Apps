@@ -47,6 +47,12 @@ app.use('/bible', lazyMount(async () => {
   return module.app;
 }));
 
+app.use('/recall-verses', lazyMount(async () => {
+  const module = await import('../apps/recall-verses/server/index.js');
+  await module.initializeRecallVerses();
+  return module.app;
+}));
+
 app.use('/investment', lazyMount(async () => {
   const module = await import('../apps/investment/server/index.js');
   await module.initializeInvestment();

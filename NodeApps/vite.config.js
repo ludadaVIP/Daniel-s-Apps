@@ -12,6 +12,7 @@ export default defineConfig({
       '/insight': 'http://127.0.0.1:5889',
       '/notebook': 'http://127.0.0.1:5889',
       '/bible': 'http://127.0.0.1:5889',
+      '/recall-verses': 'http://127.0.0.1:5889',
       '/investment': 'http://127.0.0.1:5889',
     },
   },

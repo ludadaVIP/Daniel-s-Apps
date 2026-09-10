@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { BookOpenText, ChartNoAxesCombined, House, Landmark, Network, NotebookPen } from 'lucide-react';
+import { BookOpenText, BrainCircuit, ChartNoAxesCombined, House, Landmark, Network, NotebookPen } from 'lucide-react';
 
 const APPS = [
   {
@@ -47,6 +47,15 @@ const APPS = [
     color: '#9c7140',
     load: () => import('../apps/bible/entry.jsx'),
   },
+  {
+    id: 'recall-verses',
+    name: 'Recall Verses',
+    kind: 'CUV · RECALL',
+    description: '隐藏易忘经节，在上下文中练习回想与背诵。',
+    Icon: BrainCircuit,
+    color: '#397b5b',
+    load: () => import('../apps/recall-verses/entry.jsx'),
+  },
 ];
 
 const APP_STYLE_LOADERS = {
@@ -55,6 +64,7 @@ const APP_STYLE_LOADERS = {
   insight: () => import('../apps/insight/src/styles.css?inline'),
   notebook: () => import('../apps/notebook/src/styles.css?inline'),
   bible: () => import('../apps/bible/src/styles.css?inline'),
+  'recall-verses': () => import('../apps/recall-verses/src/styles.css?inline'),
 };
 
 let activeAppStyle;
@@ -100,9 +110,9 @@ function Home({ open }) {
       <div className="launcher-hub-heading">
         <p className="launcher-hub-eyebrow">NODEAPPS</p>
         <h1>NodeApps</h1>
-        <p>五个独立保留的本地工具，点击卡片进入。</p>
+        <p>六个独立保留的本地工具，点击卡片进入。</p>
       </div>
-      <div className="launcher-hub-actions"><span>5 APPS</span></div>
+      <div className="launcher-hub-actions"><span>6 APPS</span></div>
     </header>
     <section className="launcher-hub-grid" aria-label="应用列表">
       {APPS.map((app) => <button className="launcher-hub-card" key={app.id} onClick={() => open(app.id)} style={{ '--launcher-card-accent': app.color }}>
