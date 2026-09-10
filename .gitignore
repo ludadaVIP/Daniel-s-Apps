@@ -25,6 +25,7 @@ env/
 ENV/
 spanish_900_apk/
 Turn2apk/
+recall_verses_apk/
 
 # ---------- Node / Vite -----------------------------------------------
 node_modules/
@@ -90,6 +91,14 @@ $RECYCLE.BIN/
 # differ between Mac/Windows machines.
 backend/data/**/audio/
 backend/data/**/progress/
+
+# Keep the Recall Verses Flutter source under version control while the other
+# locally generated APK workspaces remain ignored. Its generated output stays
+# ignored by the generic Flutter rules below.
+!Turn2apk/
+Turn2apk/*
+!Turn2apk/recall_verses_apk/
+!Turn2apk/recall_verses_apk/**
 
 # Edge-TTS rebuilds audio on demand. If you ever need to commit a specific
 # clip deliberately, use `git add -f path/to/file.mp3`.
