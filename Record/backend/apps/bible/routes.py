@@ -39,6 +39,7 @@ from shared.io import read_json
 
 DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[2] / "data" / "Bible"
 DATA_ROOT = Path(os.environ.get("BIBLE_DATA_DIR", DEFAULT_DATA_ROOT))
+PARAGRAPH_DATA_ROOT = DATA_ROOT / "cuv_paragraphs"
 
 # Human-friendly metadata for each version folder. Anything not listed
 # here still works — it'll show up with auto-generated label and lang
@@ -180,6 +181,16 @@ def load_book_verses(code: str, book: str) -> list[dict[str, Any]]:
     return data if isinstance(data, list) else []
 
 
+@lru_cache(maxsize=128)
+def load_book_paragraphs(book: str) -> dict[str, Any]:
+    """Return the CUV paragraph ranges for one New Testament book."""
+    path = PARAGRAPH_DATA_ROOT / f"{book}.json"
+    if not path.exists():
+        return {}
+    data = read_json(path)
+    return data if isinstance(data, dict) else {}
+
+
 def public_verse(verse: dict[str, Any], version_code: str) -> dict[str, Any]:
     """Strip to the fields the UI cares about."""
     return {
@@ -196,11 +207,43 @@ def reference(verse: dict[str, Any]) -> str:
     return f"{verse.get('book', '')} {verse.get('chapter', '')}:{verse.get('verse', '')}".strip()
 
 
+def reference_for_verses(verse: dict[str, Any], verse_numbers: list[int]) -> str:
+    """Build a reference for one or more selected verses in one chapter."""
+    if len(verse_numbers) == 1:
+        return reference(verse)
+    is_contiguous = verse_numbers == list(range(verse_numbers[0], verse_numbers[-1] + 1))
+    label = (
+        f"{verse_numbers[0]}-{verse_numbers[-1]}"
+        if is_contiguous
+        else "+".join(str(number) for number in verse_numbers)
+    )
+    return f"{verse.get('book', '')} {verse.get('chapter', '')}:{label}".strip()
+
+
 def parse_books_param(raw: str | None, fallback: list[str]) -> list[str]:
     if not raw:
         return fallback
     parsed = [item.strip() for item in raw.split(",") if item.strip()]
     return parsed or fallback
+
+
+def parse_verse_numbers(raw: str | None) -> list[int]:
+    """Return the supported verse numbers requested by the practice mode."""
+    if not raw:
+        return []
+    numbers: list[int] = []
+    for item in raw.split(","):
+        try:
+            number = int(item.strip())
+        except ValueError:
+            continue
+        if number in {1, 2, 3} and number not in numbers:
+            numbers.append(number)
+    return [number for number in (1, 2, 3) if number in numbers]
+
+
+def is_truthy_param(raw: str | None) -> bool:
+    return (raw or "").strip().lower() in {"1", "true", "yes"}
 
 
 def coerce_version(raw: str | None) -> str:
@@ -257,6 +300,18 @@ def random_verse():
         DEFAULT_BOOK_SETS.get(version, all_books),
     )
     candidate_books = [book for book in requested_books if book in all_books] or all_books
+    requested_verses = parse_verse_numbers(request.args.get("verses"))
+    # Keep the previous parameter working for bookmarked or older clients.
+    if not requested_verses and is_truthy_param(request.args.get("firstVerse")):
+        requested_verses = [1]
+    paragraph_first = is_truthy_param(request.args.get("paragraphFirst"))
+
+    if paragraph_first and version != "cuv":
+        return jsonify({"error": "Paragraph mode is currently available for CUV only."}), 400
+    if paragraph_first:
+        candidate_books = [book for book in candidate_books if load_book_paragraphs(book)]
+        if not candidate_books:
+            return jsonify({"error": "No paragraph data found in the selected books."}), 404
 
     # Pick a book first, then a random verse inside that book. Two-stage
     # sampling keeps the per-request work cheap even when the Bible has
@@ -265,12 +320,136 @@ def random_verse():
         book = random.choice(candidate_books)
         verses = load_book_verses(version, book)
         if verses:
-            verse = random.choice(verses)
+            if paragraph_first:
+                verses_by_chapter: dict[int, dict[int, dict[str, Any]]] = {}
+                for entry in verses:
+                    chapter = int(entry.get("chapter") or 0)
+                    verse_number = int(entry.get("verse") or 0)
+                    verses_by_chapter.setdefault(chapter, {})[verse_number] = entry
+
+                paragraph_map = load_book_paragraphs(book)
+                chapter_segments: dict[int, list[dict[str, int]]] = {}
+                for chapter_key, segments in (paragraph_map.get("chapters") or {}).items():
+                    try:
+                        chapter = int(chapter_key)
+                    except (TypeError, ValueError):
+                        continue
+                    valid_segments = [
+                        segment for segment in (segments if isinstance(segments, list) else [])
+                        if isinstance(segment, dict)
+                        and int(segment.get("start") or 0) in verses_by_chapter.get(chapter, {})
+                    ]
+                    if valid_segments:
+                        chapter_segments[chapter] = valid_segments
+
+                if not chapter_segments:
+                    continue
+                chapter = random.choice(list(chapter_segments))
+                segment = random.choice(chapter_segments[chapter])
+                start_verse = int(segment["start"])
+                verse = verses_by_chapter[chapter][start_verse]
+                payload = public_verse(verse, version)
+                payload["paragraph"] = {
+                    "start": start_verse,
+                    "end": int(segment.get("end") or start_verse),
+                }
+                payload["reference"] = reference(payload)
+                return jsonify(payload)
+            elif requested_verses:
+                verses_by_chapter: dict[int, dict[int, dict[str, Any]]] = {}
+                for entry in verses:
+                    chapter = int(entry.get("chapter") or 0)
+                    verse_number = int(entry.get("verse") or 0)
+                    if verse_number in requested_verses:
+                        verses_by_chapter.setdefault(chapter, {})[verse_number] = entry
+
+                eligible_chapters = [
+                    chapter for chapter, chapter_verses in verses_by_chapter.items()
+                    if all(number in chapter_verses for number in requested_verses)
+                ]
+                if not eligible_chapters:
+                    continue
+
+                chapter = random.choice(eligible_chapters)
+                chapter_verses = verses_by_chapter[chapter]
+                verse = chapter_verses[requested_verses[0]]
+                if len(requested_verses) > 1:
+                    selected_verses = [chapter_verses[number] for number in requested_verses]
+                    payload = public_verse(verse, version)
+                    payload["verseNumbers"] = requested_verses
+                    if requested_verses == list(range(requested_verses[0], requested_verses[-1] + 1)):
+                        payload["verseEnd"] = requested_verses[-1]
+                    payload["text"] = "\n".join(
+                        str(item.get("text") or "").strip() for item in selected_verses
+                    ).strip()
+                    payload["reference"] = reference_for_verses(payload, requested_verses)
+                    return jsonify(payload)
+            else:
+                verse = random.choice(verses)
             payload = public_verse(verse, version)
             payload["reference"] = reference(payload)
             return jsonify(payload)
 
     return jsonify({"error": "Could not find any verse in the selected books."}), 404
+
+
+@bp.get("/paragraph")
+def specific_paragraph():
+    """Return the CUV paragraph containing one exact verse."""
+    version = coerce_version(request.args.get("version"))
+    if not version:
+        return jsonify({"error": "No Bible versions are available on disk."}), 404
+    if version != "cuv":
+        return jsonify({"error": "Paragraph mode is currently available for CUV only."}), 400
+
+    book = request.args.get("book", "").strip()
+    if not book:
+        return jsonify({"error": "book is required."}), 400
+    if book not in list_books_for(version):
+        return jsonify({"error": f"Unknown book: {book}."}), 404
+
+    try:
+        chapter = int(request.args.get("chapter", "").strip())
+        verse_num = int(request.args.get("verse", "").strip())
+    except ValueError:
+        return jsonify({"error": "chapter and verse must be integers."}), 400
+
+    paragraph_map = load_book_paragraphs(book)
+    segments = (paragraph_map.get("chapters") or {}).get(str(chapter), [])
+    segment = next(
+        (
+            item
+            for item in segments
+            if int(item.get("start") or 0) <= verse_num <= int(item.get("end") or 0)
+        ),
+        None,
+    )
+    if not segment:
+        return jsonify({"error": f"{book} {chapter}:{verse_num} has no paragraph data."}), 404
+
+    start = int(segment["start"])
+    end = int(segment["end"])
+    verses = load_book_verses(version, book)
+    selected = [
+        entry
+        for entry in verses
+        if int(entry.get("chapter") or 0) == chapter
+        and start <= int(entry.get("verse") or 0) <= end
+    ]
+    selected.sort(key=lambda item: int(item.get("verse") or 0))
+    if not selected:
+        return jsonify({"error": f"{book} {chapter}:{verse_num} not found."}), 404
+
+    return jsonify({
+        "version": version,
+        "book": book,
+        "chapter": chapter,
+        "startVerse": start,
+        "endVerse": end,
+        "verseNumbers": [int(item.get("verse") or 0) for item in selected],
+        "reference": f"{book} {chapter}:{start}-{end}" if start != end else f"{book} {chapter}:{start}",
+        "text": "\n".join(str(item.get("text") or "").strip() for item in selected).strip(),
+    })
 
 
 @bp.get("/verse")

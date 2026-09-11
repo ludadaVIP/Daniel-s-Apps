@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
-import { fetchVersions, fetchBooks, fetchRandomVerse } from "./services/api";
+import { fetchVersions, fetchBooks, fetchRandomVerse, fetchParagraph } from "./services/api";
 
 const HINT_STEP = 5;
 const MODES = [
@@ -38,7 +38,14 @@ export default function BibleApp() {
   const [verse, setVerse] = useState(null);
   const [revealedLength, setRevealedLength] = useState(0);
   const [referenceShown, setReferenceShown] = useState(false);
+  const [paragraph, setParagraph] = useState(null);
+  const [paragraphOpen, setParagraphOpen] = useState(false);
+  const [paragraphLoading, setParagraphLoading] = useState(false);
   const [filterOpen, setFilterOpen] = useState(false);
+  const [firstVerseOnly, setFirstVerseOnly] = useState(false);
+  const [secondVerseOnly, setSecondVerseOnly] = useState(false);
+  const [thirdVerseOnly, setThirdVerseOnly] = useState(false);
+  const [paragraphFirstOnly, setParagraphFirstOnly] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
 
@@ -85,6 +92,10 @@ export default function BibleApp() {
     return () => { cancelled = true; };
   }, [version]);
 
+  useEffect(() => {
+    if (version && version !== "cuv") setParagraphFirstOnly(false);
+  }, [version]);
+
   const versionMeta = useMemo(
     () => versions.find((item) => item.code === version) || null,
     [versions, version]
@@ -109,19 +120,58 @@ export default function BibleApp() {
     setError("");
     setRevealedLength(0);
     setReferenceShown(false);
+    setParagraph(null);
+    setParagraphOpen(false);
     try {
       const filterByBooks =
         selectedBooks.length && selectedBooks.length !== availableBooks.length
           ? selectedBooks
           : null;
-      const payload = await fetchRandomVerse({ version, books: filterByBooks });
+      const verseNumbers = paragraphFirstOnly
+        ? []
+        : [
+            ...(firstVerseOnly ? [1] : []),
+            ...(secondVerseOnly ? [2] : []),
+            ...(thirdVerseOnly ? [3] : []),
+          ];
+      const payload = await fetchRandomVerse({
+        version,
+        books: filterByBooks,
+        verseNumbers,
+        paragraphFirst: paragraphFirstOnly,
+      });
       setVerse(payload);
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
     }
-  }, [version, selectedBooks, availableBooks]);
+  }, [
+    version,
+    selectedBooks,
+    availableBooks,
+    firstVerseOnly,
+    secondVerseOnly,
+    thirdVerseOnly,
+    paragraphFirstOnly,
+  ]);
+
+  function toggleVerseMode(setter) {
+    setParagraphFirstOnly(false);
+    setter((value) => !value);
+  }
+
+  function toggleParagraphMode() {
+    setParagraphFirstOnly((value) => {
+      const nextValue = !value;
+      if (nextValue) {
+        setFirstVerseOnly(false);
+        setSecondVerseOnly(false);
+        setThirdVerseOnly(false);
+      }
+      return nextValue;
+    });
+  }
 
   function toggleBook(book) {
     setSelectedBooks((current) =>
@@ -159,12 +209,39 @@ export default function BibleApp() {
     setReferenceShown((current) => !current);
   }
 
+  async function toggleParagraph() {
+    if (!verse || paragraphLoading) return;
+    if (paragraph) {
+      setParagraphOpen((current) => !current);
+      return;
+    }
+
+    setParagraphLoading(true);
+    setError("");
+    try {
+      const payload = await fetchParagraph({
+        version,
+        book: verse.book,
+        chapter: verse.chapter,
+        verse: verse.verse,
+      });
+      setParagraph(payload);
+      setParagraphOpen(true);
+    } catch (err) {
+      setError(err.message);
+    } finally {
+      setParagraphLoading(false);
+    }
+  }
+
   function switchMode(nextMode) {
     if (nextMode === mode) return;
     setMode(nextMode);
     setVerse(null);
     setRevealedLength(0);
     setReferenceShown(false);
+    setParagraph(null);
+    setParagraphOpen(false);
     setError("");
   }
 
@@ -243,6 +320,51 @@ export default function BibleApp() {
             <span>Books: {filterSummary}</span>
             {filterOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
+
+          <button
+            type="button"
+            className={`bible-verse-toggle ${firstVerseOnly ? "active" : ""}`}
+            onClick={() => toggleVerseMode(setFirstVerseOnly)}
+            aria-pressed={firstVerseOnly}
+            title="Only pick verse 1 from a random chapter"
+          >
+            <BookOpen size={16} />
+            <span>Verse 1st</span>
+          </button>
+
+          <button
+            type="button"
+            className={`bible-verse-toggle ${secondVerseOnly ? "active" : ""}`}
+            onClick={() => toggleVerseMode(setSecondVerseOnly)}
+            aria-pressed={secondVerseOnly}
+            title="Only pick verse 2 from a random chapter"
+          >
+            <BookOpen size={16} />
+            <span>Verse 2nd</span>
+          </button>
+
+          <button
+            type="button"
+            className={`bible-verse-toggle ${thirdVerseOnly ? "active" : ""}`}
+            onClick={() => toggleVerseMode(setThirdVerseOnly)}
+            aria-pressed={thirdVerseOnly}
+            title="Only pick verse 3 from a random chapter"
+          >
+            <BookOpen size={16} />
+            <span>Verse 3rd</span>
+          </button>
+
+          <button
+            type="button"
+            className={`bible-verse-toggle ${paragraphFirstOnly ? "active" : ""}`}
+            onClick={toggleParagraphMode}
+            aria-pressed={paragraphFirstOnly}
+            disabled={version !== "cuv"}
+            title={version === "cuv" ? "Pick the first verse of a random CUV paragraph" : "Paragraph mode is currently available for CUV only"}
+          >
+            <BookOpen size={16} />
+            <span>Pag 1st</span>
+          </button>
         </div>
 
         {filterOpen ? (
@@ -295,7 +417,11 @@ export default function BibleApp() {
             <aside className="bible-sidebar">
               <div className="bible-card-meta">
                 <span className="bible-tag">{versionMeta?.shortLabel || verse.version.toUpperCase()}</span>
-                <span className="bible-tag muted">{mode === "memorize" ? "Recall the text" : "Recall the reference"}</span>
+                <span className="bible-tag muted">
+                  {paragraphFirstOnly
+                    ? "Paragraph 1st"
+                    : mode === "memorize" ? "Recall the text" : "Recall the reference"}
+                </span>
               </div>
 
               {mode === "memorize" ? (
@@ -342,10 +468,23 @@ export default function BibleApp() {
                   {loading ? <Loader2 className="spin" size={18} /> : <RefreshCcw size={18} />}
                   <span>Next verse</span>
                 </button>
+                <button
+                  type="button"
+                  className="bible-secondary bible-see-paragraph"
+                  onClick={toggleParagraph}
+                  disabled={paragraphLoading || version !== "cuv"}
+                  title={version === "cuv" ? "Show the paragraph containing this verse" : "Paragraph view is currently available for CUV only"}
+                >
+                  {paragraphLoading ? <Loader2 className="spin" size={16} /> : <BookOpen size={16} />}
+                  <span>{paragraphOpen ? "Hide Paragraph" : "See Paragraph"}</span>
+                </button>
               </footer>
             </aside>
 
-            <section className="bible-reading-pane" aria-label="Scripture text">
+            <section
+              className={`bible-reading-pane ${paragraphOpen && paragraph ? "has-paragraph" : ""}`}
+              aria-label="Scripture text"
+            >
               {mode === "memorize" ? (
                 <div className={`bible-verse-body ${revealedLength === 0 ? "is-hidden" : ""}`}>
                   {revealedLength === 0 ? (
@@ -362,6 +501,15 @@ export default function BibleApp() {
                   <span className="bible-verse-revealed">{verse.text}</span>
                 </div>
               )}
+              {paragraphOpen && paragraph ? (
+                <section className="bible-paragraph-panel" aria-label="Scripture paragraph">
+                  <div className="bible-paragraph-heading">
+                    <span>Paragraph</span>
+                    <strong>{paragraph.reference}</strong>
+                  </div>
+                  <div className="bible-paragraph-text">{paragraph.text}</div>
+                </section>
+              ) : null}
             </section>
           </article>
         ) : null}

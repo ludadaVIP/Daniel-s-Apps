@@ -174,6 +174,24 @@
     background: var(--accent-soft);
   }
 
+  .bible-verse-toggle {
+    display: inline-flex; align-items: center; gap: 6px;
+    min-height: 34px; padding: 0 10px;
+    border-radius: 8px;
+    background: var(--bg); color: var(--ink-soft);
+    border: 1px solid var(--rule);
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px; font-weight: 700;
+    transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+  }
+  .bible-verse-toggle:hover { color: var(--accent); border-color: var(--gold); transform: translateY(-1px); }
+  .bible-verse-toggle.active {
+    color: var(--accent-deep); border-color: var(--accent);
+    background: var(--accent-soft);
+    box-shadow: inset 0 0 0 1px rgba(138, 58, 46, 0.08);
+  }
+  .bible-verse-toggle:disabled { opacity: 0.45; cursor: not-allowed; }
+
   /* ---------- book filter panel ---------- */
   .bible-filter-panel {
     display: grid; gap: 12px;
@@ -283,6 +301,7 @@
   }
   .bible-reading-pane {
     display: flex;
+    flex-direction: column;
     min-width: 0;
     min-height: 0;
     height: 100%;
@@ -292,6 +311,10 @@
     border-radius: 6px 12px 12px 6px;
     box-shadow: var(--shadow);
     overflow: hidden;
+  }
+  .bible-reading-pane.has-paragraph {
+    display: grid;
+    grid-template-rows: minmax(0, 3fr) minmax(0, 7fr);
   }
 
   .bible-card-meta {
@@ -343,6 +366,49 @@
     word-break: break-word;
     overflow-y: auto;
   }
+
+  .bible-paragraph-panel {
+    flex: 0 0 auto;
+    min-height: 0;
+    max-height: none;
+    overflow-y: auto;
+    padding: 14px clamp(18px, 3vw, 30px) 16px;
+    border-top: 1px solid var(--rule);
+    background: linear-gradient(180deg, rgba(184, 138, 58, 0.08), rgba(184, 138, 58, 0.03));
+  }
+
+  .bible-paragraph-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 12px;
+    margin-bottom: 8px;
+    color: var(--muted);
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  .bible-paragraph-heading strong {
+    color: var(--accent-deep);
+    font-size: 12px;
+    letter-spacing: 0;
+    text-transform: none;
+  }
+
+  .bible-paragraph-text {
+    color: var(--ink-soft);
+    font-family: "Source Serif Pro", Georgia, "Times New Roman", serif;
+    font-size: clamp(16px, 1.8vw, 20px);
+    line-height: 1.65;
+    white-space: pre-wrap;
+    word-break: break-word;
+  }
+  .bible-reading-pane.has-paragraph .bible-verse-body {
+    min-height: 0;
+    overflow-y: auto;
+  }
   .bible-verse-body.is-hidden {
     color: var(--muted);
     font-style: italic;
@@ -372,13 +438,21 @@
   }
 
   .bible-card-footer {
-    display: flex;
-    justify-content: stretch;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: stretch;
     margin-top: 0;
     padding-top: 12px;
     border-top: 1px solid var(--rule);
   }
   .bible-card-footer .bible-primary { width: 100%; }
+
+  .bible-see-paragraph {
+    min-height: 34px;
+    padding-inline: 10px;
+    white-space: nowrap;
+  }
 
   .spin { animation: bible-spin 0.9s linear infinite; }
   @keyframes bible-spin { to { transform: rotate(360deg); } }
@@ -388,11 +462,12 @@
     :scope { min-height: 100%; padding: 10px 12px 24px; }
     .bible-mode-tabs { grid-template-columns: 1fr; }
     .bible-action-row { flex-direction: column; align-items: stretch; }
-    .bible-primary, .bible-secondary, .bible-ghost, .bible-filter-toggle {
+    .bible-primary, .bible-secondary, .bible-ghost, .bible-filter-toggle, .bible-verse-toggle {
       width: 100%; justify-content: center;
     }
-    .bible-card-footer { justify-content: stretch; }
+    .bible-card-footer { grid-template-columns: 1fr; }
     .bible-card-footer .bible-primary { width: 100%; }
+    .bible-card-footer .bible-secondary { width: 100%; justify-content: center; }
     .bible-stage { display: block; flex: none; }
     .bible-card { height: auto; grid-template-columns: 1fr; }
     .bible-sidebar { gap: 12px; }
