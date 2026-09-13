@@ -1,0 +1,547 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="伊斯兰教：从信仰核心、起源、经典、教派、法律传统到现代世界的系统分析">
+<title>伊斯兰教：信仰、历史、经典、教派与现代世界</title>
+<style>
+:root{
+  --bg:#f5f2e9; --paper:#fffdf7; --ink:#18221d; --muted:#647068;
+  --green:#123f35; --green2:#1f6654; --gold:#b78b3e; --gold2:#e6cc8b;
+  --line:#ddd7c8; --soft:#eef2eb; --red:#8b3d37; --blue:#315a75;
+  --shadow:0 16px 45px rgba(25,42,32,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+    radial-gradient(circle at 12% 5%,rgba(183,139,62,.10),transparent 25rem),
+    radial-gradient(circle at 90% 22%,rgba(18,63,53,.08),transparent 28rem),
+    var(--bg);
+  color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+  line-height:1.85;font-size:17px;
+}
+a{color:var(--green2);text-decoration-thickness:1px;text-underline-offset:3px}
+.hero{
+  min-height:72vh;display:grid;place-items:center;position:relative;overflow:hidden;
+  color:#fff;background:
+    linear-gradient(115deg,rgba(8,42,34,.96),rgba(18,63,53,.89)),
+    url("https://upload.wikimedia.org/wikipedia/commons/b/b3/The_Kaaba_during_Hajj_-_edited.jpg") center/cover;
+}
+.hero:before,.hero:after{content:"";position:absolute;width:440px;height:440px;border:1px solid rgba(255,255,255,.12);transform:rotate(45deg);border-radius:28px}
+.hero:before{left:-230px;top:-160px}.hero:after{right:-260px;bottom:-220px}
+.hero-inner{width:min(1140px,92vw);position:relative;z-index:2;padding:80px 0}
+.kicker{letter-spacing:.18em;text-transform:uppercase;font-size:13px;color:#e8cf95;font-weight:700}
+h1{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(42px,6vw,78px);line-height:1.08;margin:.25em 0 .28em;max-width:980px}
+.subtitle{font-size:clamp(18px,2vw,24px);max-width:900px;color:#e7eee9}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:42px}
+.hero-stat{border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.07);backdrop-filter:blur(8px);padding:17px;border-radius:14px}
+.hero-stat b{display:block;font-size:24px;color:#f4dda8}.hero-stat span{font-size:13px;color:#d8e3dd}
+.wrap{width:min(1180px,94vw);margin:0 auto}
+.layout{display:grid;grid-template-columns:255px minmax(0,1fr);gap:34px;align-items:start;padding:38px 0 80px}
+nav.toc{position:sticky;top:18px;background:rgba(255,253,247,.86);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:18px;max-height:92vh;overflow:auto}
+nav.toc h3{margin:0 0 10px;font-size:14px;color:var(--muted);letter-spacing:.08em}
+nav.toc a{display:block;color:#3e4a43;text-decoration:none;padding:7px 9px;border-left:2px solid transparent;font-size:14px;line-height:1.35}
+nav.toc a:hover{background:#eef2eb;border-left-color:var(--gold)}
+main{min-width:0}
+section{scroll-margin-top:24px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,48px);margin:0 0 24px;box-shadow:var(--shadow)}
+h2{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(29px,4vw,43px);line-height:1.2;margin:0 0 20px;color:var(--green)}
+h3{font-size:23px;margin:30px 0 10px;color:#243f35}
+h4{font-size:18px;margin:24px 0 6px;color:#315143}
+.lead{font-size:20px;color:#34443b}
+.note,.warning,.insight{border-left:4px solid var(--gold);background:#fbf5e7;padding:16px 18px;border-radius:0 12px 12px 0;margin:20px 0}
+.warning{border-left-color:var(--red);background:#fbefee}
+.insight{border-left-color:var(--green2);background:#eef6f2}
+.small{font-size:14px;color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px}
+.card .num{font-family:Georgia,serif;font-size:36px;color:var(--gold);line-height:1}
+.card h4{margin:8px 0 4px}
+.pill{display:inline-block;padding:4px 10px;border:1px solid #cfd8d1;border-radius:999px;background:#f7faf7;font-size:13px;margin:2px}
+.figure{margin:26px 0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#111}
+.figure img{display:block;width:100%;max-height:560px;object-fit:cover}
+.figure figcaption{background:#fff;padding:10px 14px;font-size:13px;color:var(--muted)}
+.timeline{position:relative;margin:24px 0 0;padding-left:34px}
+.timeline:before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--green2))}
+.tl{position:relative;padding:0 0 22px 12px}
+.tl:before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.tl time{font-weight:800;color:var(--green2)}
+.tl b{color:#253f36}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:12px 10px;vertical-align:top;text-align:left}
+th{background:#eff4ef;color:var(--green);font-weight:700}
+tr:hover td{background:#fcfaf4}
+.arabic{font-family:"Times New Roman",serif;font-size:1.18em;direction:rtl}
+.bars{margin:16px 0}
+.bar{display:grid;grid-template-columns:125px 1fr 72px;gap:10px;align-items:center;margin:9px 0}
+.track{height:16px;background:#e8ece8;border-radius:999px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--green2),var(--gold))}
+.tree{display:flex;flex-direction:column;align-items:center;gap:11px;margin:22px 0}
+.node{border:1px solid #cdd8d1;background:#f8fbf8;padding:8px 14px;border-radius:999px;text-align:center}
+.branch{display:flex;gap:12px;flex-wrap:wrap;justify-content:center}
+.arrow{color:var(--gold);font-size:22px;line-height:1}
+.quote{font-family:Georgia,"Songti SC","STSong",serif;font-size:22px;line-height:1.7;color:#28443a;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 2px;margin:24px 0}
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.metric{padding:18px;border-radius:16px;background:#eef3ef;border:1px solid #d5ded7}
+.metric b{display:block;font-size:26px;color:var(--green)}
+.glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.term{border-bottom:1px dashed #d4d8d3;padding:10px 0}.term b{color:var(--green)}
+.sources li{margin:8px 0}
+footer{padding:30px 0 60px;text-align:center;color:var(--muted);font-size:13px}
+@media(max-width:900px){
+ .layout{grid-template-columns:1fr}.toc{display:none}.hero-grid,.metric-row{grid-template-columns:repeat(2,1fr)}
+ .grid3{grid-template-columns:1fr}.grid2,.glossary{grid-template-columns:1fr}
+}
+@media(max-width:560px){.hero-grid,.metric-row{grid-template-columns:1fr}.bar{grid-template-columns:90px 1fr 58px}body{font-size:16px}}
+@media print{
+ body{background:white;font-size:12pt}.hero{min-height:auto;color:#111;background:#fff;border-bottom:2px solid #222}.hero .subtitle,.hero-stat span{color:#333}
+ .hero-stat{border:1px solid #aaa}.hero-stat b{color:#111}.layout{display:block}.toc{display:none}section{box-shadow:none;break-inside:auto}.figure img{max-height:420px}
+ a{color:#111;text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Religion · History · Scripture · Law · Civilization</div>
+    <h1>伊斯兰教：从信仰核心到现代世界</h1>
+    <div class="subtitle">一份把“穆斯林相信什么”“伊斯兰怎样形成”“《古兰经》与圣训是什么”“逊尼—什叶为何分裂”“沙里亚如何运作”“今天的伊斯兰世界是什么样”放进同一框架的系统分析。</div>
+    <div class="hero-grid">
+      <div class="hero-stat"><b>7世纪</b><span>伊斯兰教在阿拉伯半岛形成</span></div>
+      <div class="hero-stat"><b>114章</b><span>《古兰经》的苏拉（surah）数量</span></div>
+      <div class="hero-stat"><b>约20亿</b><span>Pew 对2020年全球穆斯林人口的估计</span></div>
+      <div class="hero-stat"><b>25.6%</b><span>2020年约占全球人口比例</span></div>
+    </div>
+    <p class="small" style="color:#dce7e1;margin-top:18px">说明：人口统计采用 Pew Research Center 2025 年发布的 2020 全球可比数据；神学部分分别说明伊斯兰传统内部的自我理解与现代历史研究的观察。</p>
+  </div>
+</header>
+
+<div class="wrap layout">
+<nav class="toc">
+  <h3>目录</h3>
+  <a href="#overview">01 一句话理解伊斯兰</a>
+  <a href="#belief">02 信什么：信仰结构</a>
+  <a href="#pillars">03 五功：怎样实践</a>
+  <a href="#prophets">04 先知与亚伯拉罕传统</a>
+  <a href="#origin">05 穆罕默德与起源</a>
+  <a href="#history">06 1400年历史主线</a>
+  <a href="#quran">07 《古兰经》是什么</a>
+  <a href="#hadith">08 圣训、逊奈与权威</a>
+  <a href="#law">09 沙里亚与伊斯兰法</a>
+  <a href="#sects">10 逊尼、什叶、苏菲</a>
+  <a href="#theology">11 神学思想内部差异</a>
+  <a href="#jesus">12 耶稣、圣经与基督教</a>
+  <a href="#society">13 社会伦理与现代争议</a>
+  <a href="#world">14 当代伊斯兰世界</a>
+  <a href="#myths">15 常见误解</a>
+  <a href="#framework">16 最终理解框架</a>
+  <a href="#glossary">17 术语表</a>
+  <a href="#sources">18 资料来源与进阶阅读</a>
+</nav>
+
+<main>
+
+<section id="overview">
+<h2>01｜先建立一个总框架：伊斯兰教到底是什么？</h2>
+<p class="lead">“Islam”（阿拉伯语 <span class="arabic">الإسلام</span>）通常理解为对独一真主的顺服、归顺；“Muslim”（穆斯林）就是“顺服于真主的人”。伊斯兰教自我理解并不是一种“穆罕默德发明的新宗教”，而是亚当、挪亚、亚伯拉罕、摩西、大卫、耶稣等众先知所传“独一神信仰”的最终恢复与完成，而穆罕默德被视为最后一位先知。</p>
+
+<div class="insight"><b>理解伊斯兰最重要的一把钥匙：</b>它不是只包含“个人相信什么”的宗教系统，而是同时包含信仰（ʿaqīdah）、敬拜（ʿibādah）、道德（akhlāq）、共同体（ummah）、法律传统（sharīʿah/fiqh）和文明秩序。历史上，宗教、社会、法律和政治的边界往往不像现代西方国家那样分得很开。</div>
+
+<div class="grid3">
+  <div class="card"><div class="num">1</div><h4>神学中心：独一神</h4><p>核心是 <b>tawḥīd（认主独一）</b>：只有一位真主，祂无配偶、无子嗣、无同等者。伊斯兰对任何把受造物与神并列的做法都极为警惕。</p></div>
+  <div class="card"><div class="num">2</div><h4>启示中心：《古兰经》</h4><p>穆斯林相信《古兰经》是安拉藉天使吉卜利勒向穆罕默德启示的最终经典；阿拉伯文原文具有特殊权威。</p></div>
+  <div class="card"><div class="num">3</div><h4>生活中心：顺服</h4><p>信仰不是只在思想中承认神存在，而是要落实在祷告、斋戒、慈善、婚姻、财产、伦理与社会生活之中。</p></div>
+</div>
+
+<div class="note"><b>不要把三个概念混在一起：</b>“伊斯兰”（Islam）是宗教传统；“穆斯林”（Muslim）是认同这宗教的人；“伊斯兰世界/穆斯林世界”是由众多国家、民族、语言与政治制度组成的社会现实。一个穆斯林国家的政策不能自动等同于伊斯兰教义本身。</div>
+</section>
+
+<section id="belief">
+<h2>02｜穆斯林信什么：六大信仰与“认主独一”</h2>
+<p>在逊尼派最常见的教义整理中，信仰通常概括为六项：信真主、信天使、信经典、信众先知、信末日、信前定。什叶派的系统化表达方式不同，但大部分基本内容重叠。</p>
+
+<div class="grid3">
+ <div class="card"><h4>① 真主 Allah</h4><p>绝对独一、创造天地、全知全能、慈悯而公义。《古兰经》第112章常被视为最简洁的“独一神宣言”。</p></div>
+ <div class="card"><h4>② 天使</h4><p>天使是顺服真主的受造者。吉卜利勒（Jibrīl/Gabriel）在启示中具有关键角色。</p></div>
+ <div class="card"><h4>③ 启示经典</h4><p>相信真主曾赐下《讨拉特》（Tawrat）、《宰逋尔》（Zabur）、《引支勒》（Injil）等，最后赐下《古兰经》。</p></div>
+ <div class="card"><h4>④ 众先知</h4><p>包括亚当、挪亚、亚伯拉罕、摩西、大卫、耶稣等；穆罕默德被称为“众先知的封印”（《古兰经》33:40）。</p></div>
+ <div class="card"><h4>⑤ 末日审判</h4><p>人将复活，接受审判，进入乐园或火狱。末世论在《古兰经》中极其重要。</p></div>
+ <div class="card"><h4>⑥ 前定 Qadar</h4><p>真主的知识与旨意涵盖万事，同时人又要为自己的选择负责；如何协调神的主权与人的责任，形成了长久神学讨论。</p></div>
+</div>
+
+<h3>认主独一（Tawḥīd）为什么如此关键？</h3>
+<p>如果要把伊斯兰神学压缩成一个中心概念，那就是 <b>tawḥīd</b>。它不仅是“世界上只有一个神”，还意味着：敬拜只能归给祂；神的属性不能与受造者混同；任何把其他对象提升到神圣层面的行为都可能被归入 <b>shirk（以物配主）</b>。在伊斯兰神学中，shirk 通常被认为是最严重的罪。</p>
+<p>这也解释了为什么伊斯兰教对基督教“三位一体”“神子”“道成肉身”的教义具有根本性异议：穆斯林通常认为这些教义损害了神绝对、不可分割的独一性；基督徒则认为三位一体不是三个神，而是一位神三个位格。双方争议并不只是词汇不同，而是对“神如何是独一的”有不同本体论理解。</p>
+</section>
+
+<section id="pillars">
+<h2>03｜五功：穆斯林怎样把信仰变成生活</h2>
+<div class="grid3">
+ <div class="card"><div class="num">1</div><h4>念功 Shahāda</h4><p>见证“除真主外绝无应受崇拜者，穆罕默德是真主的使者”。它同时确立独一神信仰与穆罕默德的先知权威。</p></div>
+ <div class="card"><div class="num">2</div><h4>礼功 Ṣalāh</h4><p>每日五次礼拜，面向麦加克尔白。礼拜包含站立、诵读、鞠躬和叩头，是高度身体化的敬拜。</p></div>
+ <div class="card"><div class="num">3</div><h4>课功 Zakāh</h4><p>按一定规则从合资格财产中缴纳慈善义务。它既是敬拜，也是社会责任。</p></div>
+ <div class="card"><div class="num">4</div><h4>斋功 Ṣawm</h4><p>斋月期间，具备条件的成年人从黎明到日落禁食禁饮，并强调祷告、自制、施舍和悔改。</p></div>
+ <div class="card"><div class="num">5</div><h4>朝功 Ḥajj</h4><p>身体和经济许可者，一生至少一次前往麦加完成朝觐仪式。</p></div>
+</div>
+
+<figure class="figure">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/b3/The_Kaaba_during_Hajj_-_edited.jpg" alt="麦加朝觐期间的克尔白">
+<figcaption>麦加禁寺中的克尔白（Kaaba）。朝觐是伊斯兰“五功”之一。图片：Adli Wahid / Basile Morin，Wikimedia Commons，CC BY-SA 4.0。</figcaption>
+</figure>
+
+<h3>礼拜为何面向麦加？</h3>
+<p>克尔白不是穆斯林所敬拜的“神像”。穆斯林敬拜的对象是安拉，克尔白是全世界穆斯林共同的礼拜方向（qibla），象征共同体的统一。朝觐时绕行克尔白（ṭawāf）也并不意味着把建筑本身当作神。</p>
+</section>
+
+<section id="prophets">
+<h2>04｜伊斯兰如何理解亚伯拉罕、摩西、耶稣与“启示历史”</h2>
+<p>伊斯兰把自己放进一条连续的启示史：神不断差遣先知呼召人敬拜独一的神，但人类不断遗忘、偏离或扭曲信息，于是神再次差遣使者。穆罕默德被视为最后的使者，《古兰经》则被视为最终、受保护的启示。</p>
+
+<div class="tree">
+ <div class="node">独一的真主</div><div class="arrow">↓</div>
+ <div class="branch"><div class="node">亚当</div><div class="node">挪亚</div><div class="node">亚伯拉罕 Ibrahim</div></div>
+ <div class="arrow">↓</div>
+ <div class="branch"><div class="node">摩西 Musa</div><div class="node">大卫 Dawud</div><div class="node">耶稣 Isa</div></div>
+ <div class="arrow">↓</div>
+ <div class="node" style="border-color:#b78b3e;background:#fbf4e4">穆罕默德 Muhammad：最后的先知</div>
+</div>
+<p class="small">上图表达的是伊斯兰教自身的“先知史”理解，不是现代历史学所能直接验证的一条连续制度谱系。</p>
+
+<h3>亚伯拉罕为何特别重要？</h3>
+<p>《古兰经》把亚伯拉罕描述为纯粹归顺独一真主的人（ḥanīf），既不是犹太人也不是基督徒，而是先于后来的宗派标签。因此伊斯兰常把自己称为“亚伯拉罕的信仰”的恢复。麦加的克尔白在伊斯兰传统中也与亚伯拉罕和以实玛利相连。</p>
+</section>
+
+<section id="origin">
+<h2>05｜起源：穆罕默德、麦加、麦地那与伊斯兰共同体</h2>
+
+<div class="timeline">
+ <div class="tl"><time>约570</time>　<b>穆罕默德出生于麦加。</b>麦加位于阿拉伯西部商贸与朝圣网络中；半岛宗教环境多元，有阿拉伯多神信仰，也有犹太教、基督教及其他一神传统。</div>
+ <div class="tl"><time>约610</time>　<b>首次启示。</b>按照伊斯兰传统，穆罕默德在希拉山洞中经吉卜利勒领受启示，此后约22年持续领受《古兰经》经文。</div>
+ <div class="tl"><time>610s–622</time>　<b>麦加时期。</b>早期信息强烈强调独一神、末日审判、悔改、照顾穷人，并批判偶像崇拜和社会不义。</div>
+ <div class="tl"><time>622</time>　<b>迁徙（Hijra）到麦地那。</b>这是伊斯兰历纪元的起点。穆罕默德从传道者成为宗教共同体与政治共同体的领导者。</div>
+ <div class="tl"><time>624–630</time>　<b>战争、结盟与共同体扩张。</b>麦地那共同体与麦加发生多次冲突，阿拉伯部落联盟不断重组。</div>
+ <div class="tl"><time>630</time>　<b>穆罕默德进入麦加。</b>克尔白被重新确立为独一神敬拜中心。</div>
+ <div class="tl"><time>632</time>　<b>穆罕默德去世。</b>继承问题迅速成为政治和宗教历史的核心，最终孕育逊尼—什叶分歧。</div>
+</div>
+
+<h3>“传统叙事”与“历史研究”为什么要区分？</h3>
+<p>穆斯林传统关于穆罕默德生平的材料主要来自《古兰经》、早期传记（sīra）、历史编年与圣训。现代历史学家会同时研究这些文本形成的年代、传承链、文本层次、早期碑铭、钱币和非穆斯林文献。由于完整的穆罕默德传记材料大多在他去世数代以后整理成书，许多细节的历史重建仍有争论。</p>
+<p>但另一方面，7世纪的早期《古兰经》手稿、铭文与外部资料也说明，一个以穆罕默德与《古兰经》启示为中心的新宗教—政治共同体确实在7世纪迅速出现。也就是说，现代研究并不是“什么都不知道”，而是对哪些细节可确定、哪些依赖后来的传统更加谨慎。</p>
+</section>
+
+<section id="history">
+<h2>06｜从阿拉伯运动到世界宗教：1400年历史主线</h2>
+
+<div class="timeline">
+ <div class="tl"><time>632–661</time>　<b>“正统哈里发”时期。</b>阿布·伯克尔、欧麦尔、奥斯曼、阿里相继领导共同体。阿拉伯军队击败拜占庭与萨珊在中东的大片势力，统治迅速扩展。</div>
+ <div class="tl"><time>661–750</time>　<b>倭马亚王朝。</b>首都大马士革。帝国从伊比利亚半岛延伸到中亚和印度河地区。阿拉伯语逐渐成为国家行政与高文化的重要语言。</div>
+ <div class="tl"><time>750–1258</time>　<b>阿拔斯王朝与巴格达。</b>政治中心东移。翻译、医学、数学、哲学、天文学、法律和文学蓬勃发展，但实际政治权力逐步分散给地方王朝。</div>
+ <div class="tl"><time>10–15世纪</time>　<b>多中心的伊斯兰文明。</b>法蒂玛、塞尔柱、马穆鲁克、安达卢斯诸国，以及非洲、印度洋、中亚的穆斯林政权并存。伊斯兰已不再等于一个帝国。</div>
+ <div class="tl"><time>15–19世纪</time>　<b>奥斯曼、萨法维、莫卧儿等帝国。</b>逊尼—什叶的国家化界线更明显；伊斯兰文明覆盖东南欧、中东、南亚，并通过商贸与苏菲网络深入东南亚和非洲。</div>
+ <div class="tl"><time>19–20世纪</time>　<b>殖民主义、改革与民族国家。</b>欧洲殖民扩张、现代教育、民族主义、现代主义、伊斯兰复兴主义与世俗主义相互竞争。</div>
+ <div class="tl"><time>1924</time>　<b>土耳其废除奥斯曼哈里发制度。</b>此后世界穆斯林再无普遍承认的统一政治宗教领袖。</div>
+ <div class="tl"><time>20–21世纪</time>　<b>高度多元的全球伊斯兰。</b>民族国家、移民社会、传统宗教学术、现代大学、伊斯兰主义、萨拉菲主义、自由派改革、苏菲复兴等多种力量同时存在。</div>
+</div>
+
+<div class="insight"><b>一个关键历史修正：</b>“阿拉伯帝国迅速征服”不等于“当地人口马上都改信伊斯兰”。在埃及、伊朗、中亚等很多地区，政治征服可能在几十年内完成，而社会的大规模伊斯兰化往往持续几个世纪。东南亚的伊斯兰传播更主要依赖贸易网络、地方统治者、学者和苏菲教团，而不是阿拉伯军队征服。</div>
+</section>
+
+<section id="quran">
+<h2>07｜《古兰经》：伊斯兰最核心的经典</h2>
+
+<figure class="figure">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/7/72/15th-century_Timurid_Quran.jpg" alt="十五世纪帖木儿时期古兰经手稿">
+<figcaption>15世纪波斯《古兰经》手稿，书写于明代中国纸张上。Wikimedia Commons，公有领域图像。</figcaption>
+</figure>
+
+<h3>它是什么？</h3>
+<p>《古兰经》（Qurʾān，意为“诵读/诵念”）共有114个苏拉（章）。穆斯林相信这些文字不是穆罕默德个人的宗教反思，而是真主直接的言语，经天使吉卜利勒传达给穆罕默德。因此在传统伊斯兰神学中，阿拉伯文《古兰经》具有无可取代的地位；翻译通常被理解为“经义翻译”，而不是完全等同于阿拉伯原文。</p>
+
+<h3>它不是一本按时间顺序写成的“圣经故事书”</h3>
+<p>除第一章外，《古兰经》的章序大致不是按启示年代排列，也不是完整历史叙事。它反复讨论独一神、创造、审判、道德、先知故事、法律、敬拜和共同体秩序。理解经文时，穆斯林释经传统会关注它属于麦加时期还是麦地那时期、启示背景（asbāb al-nuzūl）、语言结构、其他经文以及圣训。</p>
+
+<h3>文本是怎样形成的？</h3>
+<p>按照伊斯兰传统，启示在穆罕默德生前既被背诵也被书写；其去世后，阿布·伯克尔时期进行过收集，第三任哈里发奥斯曼（ʿUthmān）时期约在7世纪中叶形成标准化文本传统，并向重要城市发送规范抄本。现代学术界对具体过程仍有争论，但现存早期手稿表明《古兰经》的书面传统非常早。</p>
+
+<div class="note"><b>伯明翰《古兰经》手稿：</b>英国伯明翰大学收藏的一组羊皮纸残片包含第18–20章部分内容。羊皮纸放射性碳测年给出公元568–645年的95.4%概率范围。必须注意：碳测年测的是动物皮死亡的大致时间，不是墨水书写的精确日期；大学在综合古文字学后将其描述为7世纪中期的手稿。这是研究早期《古兰经》文本史的重要实物证据之一。</div>
+
+<h3>为什么有不同“读法”却仍被认为是一本《古兰经》？</h3>
+<p>早期阿拉伯文字缺少今天完整的元音和辅音点记系统，同一基本辅音骨架（rasm）可以容纳一些传统读法。后来伊斯兰学术界认可若干规范的 <b>qirāʾāt（诵读传统）</b>。今天全球最常见的是 Ḥafṣ 传自 ʿĀṣim 的读法，北非和西非一些地区常见 Warsh 读法。它们存在一定用词、元音和语法差异，但并不是“逊尼派和什叶派各有一本完全不同的《古兰经》”。</p>
+</section>
+
+<section id="hadith">
+<h2>08｜圣训、逊奈与宗教权威：为什么只有《古兰经》还不够？</h2>
+<p><b>Hadith（圣训）</b>是关于穆罕默德言语、行为、默许或相关事件的传述；<b>Sunnah（逊奈）</b>则指先知的规范性榜样。很多伊斯兰实践——例如每日五次礼拜的具体动作与细节——不能只靠《古兰经》完整重建，因此圣训在法律和宗教生活中具有巨大影响。</p>
+
+<table>
+<thead><tr><th>层级</th><th>是什么</th><th>作用</th><th>重要提醒</th></tr></thead>
+<tbody>
+<tr><td>《古兰经》</td><td>最终启示</td><td>最高经典权威</td><td>所有主流派别共同承认核心文本</td></tr>
+<tr><td>圣训 Hadith</td><td>关于先知言行的单条传述</td><td>解释经文、法律、礼仪、伦理</td><td>不是所有圣训都被视为可靠</td></tr>
+<tr><td>逊奈 Sunnah</td><td>先知的规范性榜样</td><td>提供“怎样活出伊斯兰”的模型</td><td>往往通过圣训材料被认识</td></tr>
+<tr><td>圣训学</td><td>研究传承链 isnād 与正文 matn</td><td>评估真伪与强弱</td><td>形成 sahih、hasan、da'if 等等级</td></tr>
+</tbody>
+</table>
+
+<h3>逊尼派与什叶派的圣训传统并不完全相同</h3>
+<p>逊尼派通常把《布哈里圣训实录》《穆斯林圣训实录》置于极高地位，并有所谓“六大圣训集”。十二伊玛目什叶派则拥有自己的核心圣训集和传承权威体系，更强调先知家族（Ahl al-Bayt）与伊玛目的传述。因此两派的差异不仅是政治继承问题，也逐渐延伸到法律、神学和宗教权威来源。</p>
+
+<div class="insight"><b>深层理解：</b>《古兰经》与圣训的关系，有一点像“宪法文本”与庞大解释传统的关系，但这个类比不能完全等同。真正塑造日常伊斯兰生活的，往往是《古兰经》＋圣训＋法学＋地方文化的共同结果。</div>
+</section>
+
+<section id="law">
+<h2>09｜沙里亚到底是什么：它不是一部统一的《伊斯兰法典》</h2>
+<p>“Sharīʿah（沙里亚）”本义接近“通往水源的道路”，在宗教语境中指真主所要求的正确生活道路。<b>Fiqh（菲格赫/伊斯兰法学）</b>则是人类学者对这条道路的理解和推导。把两者区分开非常重要：前者在信仰上被视为神圣规范，后者是人类解释，因此可能有不同学派和意见。</p>
+
+<h3>逊尼派经典法学常见的证据来源</h3>
+<div class="grid2">
+ <div class="card"><h4>《古兰经》</h4><p>最高文本来源，但直接法律条文只占经文的一部分。</p></div>
+ <div class="card"><h4>逊奈 / 圣训</h4><p>为礼拜、婚姻、交易、刑罚和司法等提供大量具体材料。</p></div>
+ <div class="card"><h4>Ijmaʿ 共识</h4><p>不同理论对“谁的共识、何时构成共识”有不同理解。</p></div>
+ <div class="card"><h4>Qiyās 类比推理</h4><p>从已有规范推演新问题；不同法学派对其权重不同。</p></div>
+</div>
+
+<h3>四大逊尼法学派</h3>
+<table>
+<thead><tr><th>学派</th><th>传统分布</th><th>大体特点</th></tr></thead>
+<tbody>
+<tr><td>哈乃斐 Hanafi</td><td>土耳其、中亚、南亚等</td><td>历史上传播最广的法学派之一，重视体系化推理传统。</td></tr>
+<tr><td>马立克 Maliki</td><td>北非、西非</td><td>早期尤其重视麦地那共同体的实践传统。</td></tr>
+<tr><td>沙斐仪 Shafi‘i</td><td>东非、也门、东南亚等</td><td>对经典证据和法理体系的整合影响深远。</td></tr>
+<tr><td>罕百里 Hanbali</td><td>阿拉伯半岛部分地区</td><td>传统上更强调文本与圣训证据，后世与一些萨拉菲传统关系密切。</td></tr>
+</tbody>
+</table>
+
+<h3>法律不只是“刑罚”</h3>
+<p>现代媒体谈到沙里亚时常直接想到砍手、石刑等 <b>ḥudūd</b> 刑罚，但经典伊斯兰法的大部分篇幅其实涉及礼拜、洁净、婚姻、离婚、遗产、商业合同、债务、慈善、土地、司法程序等。许多现代穆斯林国家只在家庭法等有限领域保留古典法影响；也有少数国家在刑法和宪法层面更广泛引用沙里亚。</p>
+
+<div class="note"><b>Fatwa（法特瓦）也不是“宗教判决书”的同义词。</b>传统上它是具资格的法学者针对问题给出的法律意见，通常本身不是法院强制判决；法院法官（qāḍī）的司法裁决则是另一回事。</div>
+</section>
+
+<section id="sects">
+<h2>10｜逊尼派、什叶派、伊巴德派与苏菲主义</h2>
+<p>全球穆斯林内部没有一个“教皇式”的统一机构。最重要的结构性分野是逊尼派和什叶派，但同时还有法学派、神学派、苏菲教团、改革运动、民族传统等多重身份。</p>
+
+<div class="metric-row">
+ <div class="metric"><b>87–90%</b><span>历史人口研究常用的逊尼派估计范围</span></div>
+ <div class="metric"><b>10–13%</b><span>历史人口研究常用的什叶派估计范围</span></div>
+ <div class="metric"><b>交叉身份</b><span>苏菲实践可存在于逊尼或什叶传统内部</span></div>
+ <div class="metric"><b>无中央教廷</b><span>学者、大学、国家机构与宗教组织权威并存</span></div>
+</div>
+
+<h3>分裂最初从哪里来？</h3>
+<p>632年穆罕默德去世后，谁应该领导共同体成为核心争议。后来形成的逊尼立场认可阿布·伯克尔、欧麦尔、奥斯曼、阿里为前四位“正统哈里发”；什叶传统则认为阿里及先知家族拥有特殊、甚至由神指定的领导权。680年的卡尔巴拉事件——阿里之子侯赛因被杀——成为什叶宗教记忆的决定性事件。</p>
+
+<table>
+<thead><tr><th>主题</th><th>逊尼派</th><th>十二伊玛目什叶派</th></tr></thead>
+<tbody>
+<tr><td>早期领导权</td><td>共同体接受的哈里发体系具有正统性</td><td>阿里及其后裔的伊玛目拥有特殊神圣领导权</td></tr>
+<tr><td>宗教权威</td><td>《古兰经》、逊奈、学者共识和法学传统</td><td>《古兰经》、先知及十二伊玛目的权威传承</td></tr>
+<tr><td>圣训典籍</td><td>以布哈里、穆斯林等合集为核心</td><td>以《卡菲》等什叶圣训集为核心</td></tr>
+<tr><td>末世</td><td>有马赫迪传统，但细节多样</td><td>第十二伊玛目被认为隐遁，将以马赫迪身份再临</td></tr>
+<tr><td>主要分布</td><td>绝大多数穆斯林国家</td><td>伊朗、伊拉克、阿塞拜疆、巴林等及广泛少数群体</td></tr>
+</tbody>
+</table>
+
+<h3>苏菲主义（Sufism）是不是第三大教派？</h3>
+<p>更准确地说，苏菲主义是一系列重视内在灵性、记念真主（dhikr）、心灵净化、师徒关系和灵修道路的传统。一个人可以同时是逊尼派、某一法学派成员，又属于某一苏菲教团。因此“逊尼—什叶—苏菲”并不是三个完全平行的分类。</p>
+
+<h3>伊巴德派</h3>
+<p>伊巴德派（Ibadi）是另一个古老分支，今天主要集中在阿曼，也见于北非少数社区。它既不是逊尼派也不是什叶派。</p>
+</section>
+
+<section id="theology">
+<h2>11｜伊斯兰神学内部并不只有一种声音</h2>
+<p>很多外部观察者把伊斯兰想成一套高度统一、从7世纪至今不变的教义。实际上，穆斯林学者长期争论理性与启示、神的属性、人的自由、经典语言、政治权威等问题。</p>
+
+<table>
+<thead><tr><th>传统/思潮</th><th>核心特征</th><th>历史意义</th></tr></thead>
+<tbody>
+<tr><td>Ashʿari 阿什尔里</td><td>接受理性神学工具，但强调启示与神的绝对主权</td><td>成为逊尼神学最重要传统之一</td></tr>
+<tr><td>Maturidi 马图里迪</td><td>与哈乃斐法学传统关系密切，对理性认知能力通常给予较大空间</td><td>中亚、奥斯曼及南亚影响广</td></tr>
+<tr><td>Athari / 传统主义</td><td>更谨慎使用哲学推理，强调经文和早期传统</td><td>影响罕百里与部分现代萨拉菲传统</td></tr>
+<tr><td>Muʿtazila 穆尔太齐赖</td><td>强调神的公义、人类责任和理性神学</td><td>中世纪曾非常重要，后来在逊尼主流中衰落</td></tr>
+<tr><td>什叶 Kalam</td><td>围绕伊玛目论、神义论与理性发展出自身体系</td><td>尤其在十二伊玛目派中形成成熟哲学神学</td></tr>
+</tbody>
+</table>
+
+<h3>现代常听到的“萨拉菲”与“瓦哈比”</h3>
+<p><b>Salafism（萨拉菲主义）</b>广义上强调回到“虔诚的前三代”穆斯林（salaf）的信仰和实践、减少后世被视为创新（bidʿah）的内容。<b>Wahhabism（瓦哈比运动）</b>则具体指18世纪阿拉伯半岛纳季德地区穆罕默德·伊本·阿卜杜勒·瓦哈卜所推动的改革运动及其与沙特政治力量的历史联盟。两者有重叠和影响关系，但不能把所有萨拉菲都简单叫作“瓦哈比”。</p>
+
+<h3>伊斯兰主义与圣战主义不是伊斯兰本身</h3>
+<p><b>Islamism（伊斯兰主义/政治伊斯兰）</b>一般指近现代主张社会与国家应更明确按照伊斯兰原则重塑的政治思想与运动，内部从议会政治到革命路线差异巨大。<b>Jihadism（圣战主义）</b>通常指以暴力革命和跨国武装斗争为核心的极端主义思潮，是更窄的类别。把“伊斯兰＝伊斯兰主义＝圣战主义”视为同义，是严重的概念错误。</p>
+</section>
+
+<section id="jesus">
+<h2>12｜伊斯兰如何看耶稣、《圣经》与基督教</h2>
+<p>这是理解伊斯兰与基督教关系最重要的部分之一。伊斯兰并不否认耶稣的重要性；相反，《古兰经》高度尊重耶稣（ʿĪsā）与马利亚（Maryam）。但伊斯兰对耶稣身份的理解与历史基督教存在根本差异。</p>
+
+<table>
+<thead><tr><th>主题</th><th>伊斯兰主流理解</th><th>历史基督教主流理解</th></tr></thead>
+<tbody>
+<tr><td>神</td><td>绝对一位，拒绝任何位格区分被神格化</td><td>一位神、三个位格：父、子、圣灵</td></tr>
+<tr><td>耶稣</td><td>弥赛亚、伟大先知、由童贞女马利亚所生，但不是神、不是神子</td><td>道成肉身的圣子，完全的神、完全的人</td></tr>
+<tr><td>十字架</td><td>《古兰经》4:157通常被主流传统理解为耶稣没有被敌人真正杀死并钉死；具体解释历史上有差异</td><td>耶稣真实被钉十字架、受死、埋葬并复活，是救恩核心</td></tr>
+<tr><td>原罪/人性</td><td>通常不接受奥古斯丁式“亚当罪责遗传”；人出生在 fitrah（原初自然状态）上</td><td>各传统表述不同，但普遍认为人类在罪与堕落中需要基督救赎</td></tr>
+<tr><td>得救/末日</td><td>信真主、悔改、善功与真主的怜悯；最终审判由真主决定</td><td>核心是上帝在基督里的救恩；不同宗派对信心、恩典、圣礼与行为的关系表述不同</td></tr>
+<tr><td>穆罕默德</td><td>最后一位先知，“众先知的封印”</td><td>基督教不接受其为具有圣经意义上的先知</td></tr>
+<tr><td>经典</td><td>《古兰经》是最终且具有纠正功能的启示</td><td>旧约与新约构成正典；不接受《古兰经》为后续启示</td></tr>
+</tbody>
+</table>
+
+<h3>穆斯林是否相信《圣经》？</h3>
+<p>更准确的说法是：穆斯林相信真主曾启示给摩西“讨拉特”、给大卫“宰逋尔”、给耶稣“引支勒”，但《古兰经》被视为最终标准。后世穆斯林关于现存犹太—基督教经文发生了何种程度的“篡改”（taḥrīf）有不同理论：可以指文字被改变，也可以指解释被扭曲。现代大众伊斯兰中常见“现存圣经已经被改变”的说法，但早期伊斯兰思想并非只有一种简单模式。</p>
+
+<h3>伊斯兰末世论中的耶稣</h3>
+<p>《古兰经》强烈强调复活和最后审判；在圣训和后来的末世论传统中，耶稣的再临、敌基督式人物 Dajjāl、马赫迪等构成复杂末世图景。逊尼与什叶传统对马赫迪身份和细节有显著差异。</p>
+
+<div class="insight"><b>最根本的分水岭：</b>伊斯兰与基督教并不是“都信一个神，所以只是礼仪不同”。两者确实共享大量亚伯拉罕传统人物与一神论语言，但在三位一体、道成肉身、十字架、复活、救恩和最终启示这些核心问题上存在结构性分歧。</div>
+</section>
+
+<section id="society">
+<h2>13｜社会伦理、家庭、金融、圣战与几个现代争议</h2>
+
+<h3>饮食与日常规范</h3>
+<p><b>Halal</b>意为“许可”，<b>haram</b>意为“禁止”。伊斯兰法学传统还常把行为划分为义务、推荐、中性许可、可憎/不推荐、禁止等等级。猪肉和酒精被普遍禁止；宰牲、饮食添加物和现代食品认证则会涉及具体法学判断。</p>
+
+<h3>金融：为何伊斯兰金融反对 riba？</h3>
+<p>《古兰经》禁止 riba，古典传统通常理解为不义的债务增殖。现代伊斯兰金融因此发展出利润分享、资产买卖、租赁等替代结构。至于现代银行利息是否所有形式都等同于古典 riba，现代穆斯林学者存在争论，但主流伊斯兰金融机构通常采取较严格的禁止立场。</p>
+
+<h3>婚姻、性别与服饰</h3>
+<p>经典法学允许男子在特定条件下最多娶四妻（《古兰经》4:3），同时要求公平；现实法律从全面禁止多妻到附加法院条件、再到较宽许可，各国差异很大。关于 hijab（遮盖/端庄服饰），经文、圣训、古典法学和地方文化共同塑造了多种实践，从头巾到面纱并不完全相同。</p>
+<p>在继承、离婚、证词、监护等问题上，古典法学往往存在性别不对称；现代穆斯林学者与国家围绕这些规则如何解释、是否改革形成广泛争论。因此既不能说“伊斯兰在性别问题上只有一种不变实践”，也不能把古典法传统中的具体差异全部抹去。</p>
+
+<h3>Jihad（吉哈德）到底是什么意思？</h3>
+<p>jihad 的字根是“努力、奋斗”。在宗教文本和法学传统中，它可以指为信仰与道德进行努力，也可以指武装斗争。古典法学确实发展了战争、停战、保护非战斗人员、战利品和领土关系等“jihad 法”体系，因此把 jihad 全部翻译成“纯粹内心奋斗”同样不准确；但把它直接等同“恐怖主义”也同样错误。</p>
+<p>现代穆斯林对国家战争、反殖民斗争、恐怖主义、自杀袭击等问题的看法高度分歧。基地组织、ISIS 等组织使用伊斯兰术语建立自己的暴力意识形态，但它们的解释遭到大量穆斯林学者、机构和普通穆斯林反对。</p>
+
+<h3>叛教与亵渎</h3>
+<p>古典逊尼和什叶法学中，叛教（ridda）通常被视为严重罪行，并在特定条件下讨论世俗刑罚；各学派对性别、悔改期限、程序等存在差异。现代穆斯林学界对此分裂明显：一部分延续古典刑罚观点，另一部分主张《古兰经》本身对离教强调末日审判而不是固定人间死刑，并把古典规定放在早期政治叛乱与战争背景中重新解释。现代国家的法律也从完全保障改宗自由到设置严厉叛教/亵渎法不等。</p>
+
+<div class="warning"><b>阅读现代争议时的原则：</b>不要只问“《古兰经》有一句什么”，还要继续问：圣训怎么说？古典法学怎样解释？哪一法学派？现代国家法律怎样规定？普通穆斯林实际怎样生活？否则很容易把一个文本、一种学派或一个国家误当成“整个伊斯兰”。</div>
+</section>
+
+<section id="world">
+<h2>14｜今天的伊斯兰世界：人口中心其实不在阿拉伯世界</h2>
+<p>Pew Research Center 2025年发布的全球宗教人口重估显示：2020年全球约有 <b>20亿穆斯林，占世界人口约25.6%</b>，是世界第二大宗教群体；2010—2020年间，穆斯林人口增长约21%，是同期增长最快的主要宗教群体。</p>
+
+<div class="bars">
+ <div class="bar"><span>亚太地区</span><div class="track"><div class="fill" style="width:59%"></div></div><b>59%</b></div>
+ <div class="bar"><span>中东北非</span><div class="track"><div class="fill" style="width:20%"></div></div><b>约20%</b></div>
+ <div class="bar"><span>撒哈拉以南非洲</span><div class="track"><div class="fill" style="width:18%"></div></div><b>18%</b></div>
+ <div class="bar"><span>其他地区</span><div class="track"><div class="fill" style="width:3%"></div></div><b>约3%</b></div>
+</div>
+
+<p>最大的穆斯林人口国家都不在阿拉伯核心区：2020年印度尼西亚约2.39亿穆斯林、巴基斯坦约2.27亿、印度约2.13亿、孟加拉国约1.51亿。中东北非虽然穆斯林占本地区人口约94%，但只容纳全球约五分之一的穆斯林。</p>
+
+<h3>全球伊斯兰没有一个“总部”</h3>
+<div class="grid2">
+ <div class="card"><h4>麦加与麦地那</h4><p>最重要的圣地，位于沙特阿拉伯；朝觐使沙特拥有独特宗教象征地位。</p></div>
+ <div class="card"><h4>开罗 al-Azhar</h4><p>爱资哈尔长期是逊尼宗教学术的重要中心，但它不是“全球伊斯兰梵蒂冈”。</p></div>
+ <div class="card"><h4>纳杰夫与库姆</h4><p>十二伊玛目什叶派重要宗教教育与学者中心。</p></div>
+ <div class="card"><h4>雅加达、伊斯兰堡、伊斯坦布尔等</h4><p>现代人口、教育、国家机构和宗教组织形成多个相互竞争的中心。</p></div>
+</div>
+
+<h3>为什么穆斯林人口增长较快？</h3>
+<p>人口增长主要与年龄结构和生育率有关，而不是“大规模改宗”。Pew 的跨国数据估计，全球层面从穆斯林家庭长大后离开伊斯兰的人口比例，与后来加入伊斯兰的人口比例大体相互抵消；2010—2020年增长的主要动力是人口学结构。</p>
+</section>
+
+<section id="myths">
+<h2>15｜十个最常见、也最容易把伊斯兰看错的地方</h2>
+
+<table>
+<thead><tr><th>常见说法</th><th>更准确的理解</th></tr></thead>
+<tbody>
+<tr><td>“Allah 是穆斯林自己的一个神。”</td><td>Allah 是阿拉伯语“神/真主”的常用词，阿拉伯语基督徒也使用 Allah。真正差异在于双方如何理解神的本性，而不是这个词本身。</td></tr>
+<tr><td>“伊斯兰＝阿拉伯文化。”</td><td>错误。全球多数穆斯林不是阿拉伯人，最大穆斯林人口集中在南亚和东南亚。</td></tr>
+<tr><td>“所有穆斯林都读同一本圣训集、同一个法学。”</td><td>《古兰经》核心文本高度共享，但圣训传统、法学派和神学传统存在显著差异。</td></tr>
+<tr><td>“逊尼派和什叶派只是政治派别。”</td><td>分裂起点与继承权有关，但后来形成不同的宗教权威、圣训、法学、礼仪与神学体系。</td></tr>
+<tr><td>“苏菲派是与逊尼、什叶并列的第三派。”</td><td>并不准确。苏菲主义通常是一种横跨不同教派的灵修传统。</td></tr>
+<tr><td>“沙里亚就是严刑峻法。”</td><td>沙里亚涵盖敬拜、婚姻、遗产、商业、伦理等广阔领域；刑法只是其中很小部分。</td></tr>
+<tr><td>“历史上伊斯兰传播完全靠武力。”</td><td>不准确。帝国征服很重要，但大量人口改宗通常很慢；东南亚等地区主要通过贸易、学者、婚姻、地方政治和苏菲网络传播。</td></tr>
+<tr><td>“历史上伊斯兰传播完全和平。”</td><td>同样不准确。早期帝国扩张存在战争和征服，某些时代也存在强迫、歧视或政治压力。不同地区历史差异很大。</td></tr>
+<tr><td>“jihad 就是恐怖主义。”</td><td>错误。它是一个更广的宗教—法学概念，其中确实包括武装斗争传统，但恐怖主义是现代政治暴力的一类。</td></tr>
+<tr><td>“伊斯兰和基督教差不多，只是称呼不同。”</td><td>两者共享一神论与大量圣经人物，但在三位一体、耶稣神性、十字架、复活、救恩、最终启示等核心教义上存在根本分歧。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="framework">
+<h2>16｜最后怎样“抓住”伊斯兰：一个六层理解框架</h2>
+<p class="lead">如果以后你再读任何关于伊斯兰的新闻、历史、教义或争论，可以先判断它属于下面哪一层。这样就不容易把一个国家的政治、一位学者的意见、一个极端组织的解释直接等同于整个宗教。</p>
+
+<div class="grid3">
+ <div class="card"><div class="num">A</div><h4>神学层</h4><p>安拉、tawhid、先知、启示、末日、前定。</p></div>
+ <div class="card"><div class="num">B</div><h4>经典层</h4><p>《古兰经》、圣训、逊奈、经注与传承。</p></div>
+ <div class="card"><div class="num">C</div><h4>法学层</h4><p>沙里亚、fiqh、法学派、fatwa、司法。</p></div>
+ <div class="card"><div class="num">D</div><h4>灵修层</h4><p>礼拜、斋戒、朝觐、dhikr、苏菲传统。</p></div>
+ <div class="card"><div class="num">E</div><h4>历史文明层</h4><p>哈里发、帝国、科学文化、贸易、殖民与现代化。</p></div>
+ <div class="card"><div class="num">F</div><h4>现代政治社会层</h4><p>民族国家、世俗主义、伊斯兰主义、移民、身份政治与全球化。</p></div>
+</div>
+
+<div class="quote">要真正理解伊斯兰，不能只问“《古兰经》写了什么”，也不能只看“今天某个穆斯林国家做了什么”。必须把经典、解释传统、历史制度和现实社会同时放在桌面上。</div>
+
+<h3>一句话总结</h3>
+<p>伊斯兰教是一种以<b>绝对独一的神</b>为中心、以<b>《古兰经》为最终启示</b>、以<b>穆罕默德为最后先知</b>、以<b>顺服神的旨意</b>为生活目标，并通过礼拜、法律、伦理和共同体生活形成完整文明传统的亚伯拉罕一神教。它内部高度多元，但又被若干非常稳定的共同核心——独一神、《古兰经》、穆罕默德、礼拜、末日——连接起来。</p>
+</section>
+
+<section id="glossary">
+<h2>17｜核心术语速查</h2>
+<div class="glossary">
+ <div class="term"><b>Allah 安拉/真主</b>：阿拉伯语中“神”的称呼。</div>
+ <div class="term"><b>Islam 伊斯兰</b>：顺服、归顺于真主。</div>
+ <div class="term"><b>Muslim 穆斯林</b>：归顺真主的人。</div>
+ <div class="term"><b>Tawhid</b>：认主独一，伊斯兰神学核心。</div>
+ <div class="term"><b>Shirk</b>：把其他对象与真主并列，被视为最严重的神学错误。</div>
+ <div class="term"><b>Qur'an 古兰经</b>：伊斯兰最终经典。</div>
+ <div class="term"><b>Hadith 圣训</b>：关于先知言行的传述。</div>
+ <div class="term"><b>Sunnah 逊奈</b>：先知的规范性榜样。</div>
+ <div class="term"><b>Sharia 沙里亚</b>：神圣规范/正确生活道路。</div>
+ <div class="term"><b>Fiqh</b>：人类法学家对沙里亚的理解和推导。</div>
+ <div class="term"><b>Ummah 乌玛</b>：穆斯林共同体。</div>
+ <div class="term"><b>Caliph 哈里发</b>：早期穆斯林共同体的政治继承者称号。</div>
+ <div class="term"><b>Imam 伊玛目</b>：可指礼拜领拜者；在什叶派中还有特殊神学含义。</div>
+ <div class="term"><b>Ulama 乌里玛</b>：宗教学者群体。</div>
+ <div class="term"><b>Fatwa 法特瓦</b>：法学意见，通常不等同法院判决。</div>
+ <div class="term"><b>Jihad 吉哈德</b>：为信仰而奋斗/努力；语境中也可包括武装斗争。</div>
+ <div class="term"><b>Halal</b>：许可的。</div>
+ <div class="term"><b>Haram</b>：禁止的。</div>
+ <div class="term"><b>Hajj</b>：麦加朝觐。</div>
+ <div class="term"><b>Ramadan</b>：伊斯兰历第九月，斋戒月。</div>
+</div>
+</section>
+
+<section id="sources">
+<h2>18｜资料来源与进阶阅读</h2>
+<p>本文件把宗教内部传统与现代学术研究并置。人口数字采用最新可比全球数据；早期手稿部分使用大学馆藏资料；历史部分参考主流学术框架。以下资源适合进一步核对。</p>
+<ol class="sources">
+<li><b>Pew Research Center (2025)</b>, “How the Global Religious Landscape Changed From 2010 to 2020 — Muslim population change.” <a href="https://www.pewresearch.org/religion/2025/06/09/muslim-population-change/" target="_blank" rel="noopener">来源</a>。用于全球人口、地区分布和最大穆斯林人口国家数据。</li>
+<li><b>University of Birmingham</b>, “The Birmingham Qur’an Manuscript.” <a href="https://www.birmingham.ac.uk/facilities/cadbury/birmingham-quran-mingana-collection/birmingham-quran" target="_blank" rel="noopener">来源</a>。用于早期《古兰经》手稿、碳测年与古文字学说明。</li>
+<li><b>Oxford Research Encyclopedia of Religion</b>, Carool Kersten, “The Caliphate.” 用于哈里发制度形成与历史框架。</li>
+<li><b>The Metropolitan Museum of Art, Heilbrunn Timeline</b>, Eastern Mediterranean 500–1000 CE. 用于倭马亚、阿拔斯早期历史背景。</li>
+<li><b>《古兰经》</b>：尤其参见 2:255；4:157、4:171；5:72–75；19章；33:40；112章。引用章节目的是说明伊斯兰教自身的教义依据。</li>
+<li><b>Jonathan A. C. Brown</b>, <i>Hadith: Muhammad's Legacy in the Medieval and Modern World</i>。圣训学与权威传统的可靠入门。</li>
+<li><b>Wael B. Hallaq</b>, <i>An Introduction to Islamic Law</i>。理解沙里亚、fiqh、法学派与现代国家法之间的区别。</li>
+<li><b>Hugh Kennedy</b>, <i>The Prophet and the Age of the Caliphates</i>。早期伊斯兰政治史。</li>
+<li><b>Fred M. Donner</b>, <i>Muhammad and the Believers</i>。提供现代历史学对早期信徒共同体的一种重要解释。</li>
+<li><b>Marshall G. S. Hodgson</b>, <i>The Venture of Islam</i>。从文明史角度理解伊斯兰世界的经典大型研究。</li>
+</ol>
+
+<div class="small">
+图片来源与许可：封面/朝觐图片 “The Kaaba during Hajj - edited.jpg”，Adli Wahid / Basile Morin，Wikimedia Commons，CC BY-SA 4.0；
+《古兰经》手稿 “15th-century Timurid Quran.jpg”，Wikimedia Commons，公有领域。
+<br><br>
+版本：2026年9月。本文为宗教史与宗教学导论，不代表任何宗派的官方教义声明，也不对宗教真理主张作最终裁决。
+</div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  伊斯兰教系统分析 · HTML Study File · 2026
+</footer>
+</body>
+</html>

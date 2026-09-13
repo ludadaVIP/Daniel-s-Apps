@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>认识耶和华见证人｜信仰、历史、组织与当代现状</title>
+<meta name="description" content="一份中立、图文并茂的中文入门介绍：耶和华见证人的信仰、圣经、历史、组织、敬拜生活、争议与当代全球现状。">
+<style>
+:root{
+  --ink:#17212b; --muted:#5e6b78; --paper:#f7f5ef; --card:#fff;
+  --blue:#1e5675; --blue2:#2f7697; --gold:#b28a45; --line:#dfe3e6;
+  --soft:#edf4f7; --warn:#fbf3e4; --rose:#f8eeee; --green:#eef5ef;
+  --shadow:0 12px 35px rgba(20,35,48,.08);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Sans SC","Microsoft YaHei","PingFang SC",Arial,sans-serif;line-height:1.75}
+a{color:var(--blue2)}
+.container{max-width:1180px;margin:auto;padding:0 24px}
+.hero{
+  color:#fff; min-height:600px; display:flex; align-items:end;
+  background:
+    linear-gradient(180deg,rgba(5,25,38,.18),rgba(5,25,38,.82)),
+    url("https://commons.wikimedia.org/wiki/Special:FilePath/Kingdom%20Hall%20of%20Jehovah%27s%20Witnesses%20in%20Karlsruhe-M%C3%BChlburg%20in%20Baden-W%C3%BCrttemberg.jpg")
+    center/cover no-repeat;
+}
+.hero-inner{padding:86px 24px 72px;max-width:1180px;width:100%;margin:auto}
+.kicker{letter-spacing:.16em;text-transform:uppercase;font-size:13px;opacity:.82}
+h1{font-size:clamp(40px,6vw,72px);line-height:1.08;margin:16px 0 18px;max-width:850px}
+.hero p{font-size:19px;max-width:820px;color:#edf4f7}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:26px}
+.pill{border:1px solid rgba(255,255,255,.35);background:rgba(255,255,255,.11);padding:7px 12px;border-radius:999px;font-size:13px}
+nav{
+  position:sticky;top:0;z-index:20;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--line)
+}
+nav .navin{display:flex;gap:8px;overflow:auto;white-space:nowrap;padding:9px 24px}
+nav a{text-decoration:none;color:#44525e;font-size:14px;padding:8px 11px;border-radius:9px}
+nav a:hover{background:var(--soft);color:var(--blue)}
+section{padding:72px 0}
+h2{font-size:34px;line-height:1.2;margin:0 0 14px}
+h3{font-size:21px;line-height:1.35;margin:0 0 9px}
+.lead{color:var(--muted);font-size:18px;max-width:900px}
+.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:var(--shadow)}
+.card p{margin:8px 0}
+.icon{font-size:28px;margin-bottom:8px}
+.fact{
+  background:linear-gradient(135deg,#eaf3f7,#f9fbfc);border:1px solid #d5e5eb;
+  border-radius:20px;padding:26px
+}
+.fact strong{font-size:31px;display:block;color:var(--blue)}
+.note{color:var(--muted);font-size:13px}
+figure{margin:0}
+figure img{width:100%;height:310px;object-fit:cover;border-radius:18px;border:1px solid var(--line);display:block}
+figcaption{font-size:12px;color:var(--muted);margin-top:8px}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:34px;align-items:center}
+.quote{padding:24px 26px;border-left:4px solid var(--gold);background:#fff;border-radius:0 15px 15px 0;box-shadow:var(--shadow)}
+.compare{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.compare th,.compare td{padding:15px 16px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.compare th{background:#eff5f7;font-weight:700}
+.timeline{position:relative;margin-top:28px}
+.timeline:before{content:"";position:absolute;left:13px;top:0;bottom:0;width:2px;background:#c9d9e0}
+.event{position:relative;padding:0 0 26px 44px}
+.dot{position:absolute;left:5px;top:7px;width:18px;height:18px;border-radius:50%;background:var(--gold);border:4px solid #fff;box-shadow:0 0 0 1px #cfb57f}
+.year{font-weight:800;color:var(--blue);font-size:14px}
+.tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:12px;background:var(--soft);color:var(--blue);margin:4px 4px 0 0}
+.callout{padding:20px 22px;border-radius:16px;border:1px solid var(--line);background:#fff}
+.callout.blue{background:var(--soft);border-color:#d1e3ea}
+.callout.warn{background:var(--warn);border-color:#ecd7ac}
+.callout.rose{background:var(--rose);border-color:#e8cccc}
+.callout.green{background:var(--green);border-color:#d2e1d4}
+.smallcaps{font-size:12px;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+ul{padding-left:20px}
+li{margin:6px 0}
+.source-list a{display:block;margin:6px 0;text-decoration:none}
+footer{background:#15212a;color:#d9e2e7;padding:48px 0 60px}
+footer a{color:#bcd8e6}
+footer .small{color:#aab8c1;font-size:13px}
+.badge{display:inline-block;border-radius:999px;padding:5px 10px;background:#e8edf0;font-size:12px;color:#42515c;margin-right:6px}
+@media(max-width:860px){
+  .grid,.grid2,.split{grid-template-columns:1fr}
+  section{padding:54px 0}
+  figure img{height:250px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">RELIGION 101 · 中文入门</div>
+    <h1>认识耶和华见证人</h1>
+    <p>它到底是谁？信什么？为什么不庆祝生日、不参加政治、拒绝输血？它和天主教、东正教、新教最大的区别在哪里？这份页面把<strong>信仰、历史、组织、实践、争议与当代现状</strong>放在同一个框架里，帮助你先建立一张“地图”，再决定要深入哪一部分。</p>
+    <div class="hero-meta">
+      <span class="pill">中立介绍，不替任何一方辩护</span>
+      <span class="pill">同时呈现“他们怎么说”与“外部资料怎么记载”</span>
+      <span class="pill">资料更新：2026-09</span>
+    </div>
+  </div>
+</header>
+
+<nav>
+  <div class="container navin">
+    <a href="#one">一句话认识</a>
+    <a href="#beliefs">核心信仰</a>
+    <a href="#bible">经书</a>
+    <a href="#history">起源与历史</a>
+    <a href="#life">日常生活</a>
+    <a href="#organization">组织结构</a>
+    <a href="#compare">与主流基督教</a>
+    <a href="#controversy">争议</a>
+    <a href="#today">今日现状</a>
+    <a href="#sources">资料来源</a>
+  </div>
+</nav>
+
+<main>
+
+<section id="one">
+  <div class="container">
+    <div class="split">
+      <div>
+        <div class="smallcaps">先抓住核心</div>
+        <h2>耶和华见证人是什么？</h2>
+        <p class="lead">耶和华见证人（Jehovah’s Witnesses）是19世纪美国兴起、强调“恢复早期基督教”、高度重视圣经传道与组织统一性的基督教运动。信徒自己明确称自己为<strong>基督徒</strong>；但他们拒绝三位一体、地狱永刑、灵魂不死等许多传统教会教义，因此在基督教内部通常被视为一个与天主教、东正教及主流新教存在重大神学差异的独特群体。</p>
+        <div class="quote"><strong>最容易记住的一句话：</strong>他们的中心思想不是“上天堂”，而是“上帝的王国是现实的天上政府；耶稣已经是这王国的君王；少数受膏者与基督一同在天上作王，而大多数忠心的人期待在地上永远生活”。</div>
+      </div>
+      <figure>
+        <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kingdom%20Hall%20of%20Jehovah%27s%20Witnesses%20in%20Karlsruhe-M%C3%BChlburg%20in%20Baden-W%C3%BCrttemberg.jpg" alt="德国一座耶和华见证人王国聚会所">
+        <figcaption>“王国聚会所”（Kingdom Hall）是当地会众进行聚会、圣经教育与敬拜的主要场所。图片：Wikimedia Commons。</figcaption>
+      </figure>
+    </div>
+
+    <div class="grid" style="margin-top:26px">
+      <div class="fact"><strong>约 920.5 万</strong>2025工作年度最高传道员人数</div>
+      <div class="fact"><strong>119,652</strong>全球会众数量</div>
+      <div class="fact"><strong>241</strong>报告地区 / 国家与地区范围</div>
+    </div>
+    <p class="note" style="margin-top:12px">以上数字来自耶和华见证人官方《2025年度全球报告》；其“传道员”统计口径指每月积极参与传道工作者，而不是所有参加纪念聚会的人。2025工作年度为 2024-09-01 至 2025-08-31。</p>
+  </div>
+</section>
+
+<section id="beliefs" style="background:#fff">
+  <div class="container">
+    <div class="smallcaps">01 · theology</div>
+    <h2>他们到底“信什么”？</h2>
+    <p class="lead">下面是最关键的信仰骨架。这里尽量使用他们自己的教义表述，同时在容易混淆之处加上解释。</p>
+
+    <div class="grid" style="margin-top:25px">
+      <div class="card">
+        <div class="icon">①</div><h3>上帝：只有一位</h3>
+        <p>他们敬拜独一的全能上帝，使用“耶和华”（Jehovah）作为上帝的名字。他们不接受三位一体，因此不会把“父、子、圣灵”理解成一个三位一体的神。</p>
+        <span class="badge">反三位一体</span>
+      </div>
+      <div class="card">
+        <div class="icon">②</div><h3>耶稣：上帝的儿子，但不是全能上帝</h3>
+        <p>他们承认耶稣是救世主、弥赛亚、上帝的儿子，并相信他在降生前已经存在；但不把耶稣等同于全能的上帝。</p>
+        <span class="badge">高基督论以外的独特理解</span>
+      </div>
+      <div class="card">
+        <div class="icon">③</div><h3>圣灵：上帝的“动力”</h3>
+        <p>圣灵不是与父、子并列的第三位神格，而主要被理解为上帝发挥作用的力量。</p>
+      </div>
+      <div class="card">
+        <div class="icon">④</div><h3>上帝的王国：真正的政府</h3>
+        <p>这是他们整个神学的中心。王国不是单纯“人心里的平安”，而是天上的真实政府，耶稣是君王；最终它会取代现有的人类政治体系，完成上帝对地球的目的。</p>
+      </div>
+      <div class="card">
+        <div class="icon">⑤</div><h3>144,000：与基督在天上作王</h3>
+        <p>他们把《启示录》中的144,000理解为一个字面上的有限人数：与基督一同在天上统治。绝大多数忠心的见证人并不期待成为天上的灵体。</p>
+      </div>
+      <div class="card">
+        <div class="icon">⑥</div><h3>地上永生：大多数人的盼望</h3>
+        <p>他们相信地球会成为一个公义、和平、没有死亡和疾病的居所；死去的人也将被复活，并获得按照上帝标准生活的机会。</p>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:24px">
+      <div class="callout blue"><h3>关于“末世”</h3><p>他们认为人类正处于“最后的日子”，并把1914年视为基督开始在天上作王的关键年份。这里的1914并不是说耶稣在地上肉眼出现，而是他们对圣经预言计算后的神学结论。</p></div>
+      <div class="callout"><h3>关于救恩</h3><p>救恩来自耶稣的赎价牺牲；信心必须体现在行动、悔改、受浸和持续的基督徒生活中。他们同时强调救恩是上帝的“非分之恩”，不是人用功德“赚来的”。</p></div>
+    </div>
+
+    <div style="margin-top:30px">
+      <h3>一张表看懂他们与传统基督教最常见的分歧</h3>
+      <table class="compare">
+        <tr><th>主题</th><th>耶和华见证人的典型理解</th><th>天主教 / 东正教 / 主流新教的主流立场</th></tr>
+        <tr><td>上帝</td><td>独一上帝；不接受三位一体</td><td>三位一体：一位上帝、父子圣灵三个位格</td></tr>
+        <tr><td>耶稣</td><td>上帝的儿子、弥赛亚；不是全能上帝</td><td>圣子与父同质，同为完全的神</td></tr>
+        <tr><td>圣灵</td><td>上帝的动力 / 作用力</td><td>圣灵是三位一体中的第三个位格</td></tr>
+        <tr><td>地狱</td><td>不接受传统“永恒意识刑罚”的地狱观</td><td>不同传统解释各异，但普遍保留最终审判与地狱教义</td></tr>
+        <tr><td>人的灵魂</td><td>人本身就是一个“有生命的魂”，不把灵魂看作死后自动独立存在的永恒实体</td><td>主流传统一般承认死后灵魂 / 人格继续存在，并有来世状态</td></tr>
+        <tr><td>永恒生命</td><td>多数人在更新后的地上永远生活；少数受膏者在天上与基督统治</td><td>主流基督教一般把最终盼望理解为与上帝永远同在，包括复活与新天新地</td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section id="bible">
+  <div class="container">
+    <div class="smallcaps">02 · scripture</div>
+    <h2>他们的“经书”是什么？</h2>
+    <div class="split">
+      <figure>
+        <img src="https://cms-imgp.jw-cdn.org/img/p/nwtsty/E/pt/nwtsty_E_lg.jpg" alt="圣经新世界译本 Study Edition">
+        <figcaption>耶和华见证人使用《圣经新世界译本》（New World Translation）。图片来自 jw.org。</figcaption>
+      </figure>
+      <div>
+        <p class="lead">严格来说，<strong>他们的圣经仍然是《圣经》66卷</strong>，而不是一本与基督教完全不同的新经典。他们特别普遍使用自己的《新世界译本》（NWT）。</p>
+        <div class="card">
+          <h3>《新世界译本》有什么特点？</h3>
+          <ul>
+            <li>旧约 / 希伯来语经卷与新约 / 基督教希腊语经卷合计66卷。</li>
+            <li>在许多译文中使用“耶和华”这个神名，尤其强调上帝个人名字的使用。</li>
+            <li>英文完整译本在1950—1960年间分阶段发表，1961年合订为一卷；之后多次修订。</li>
+            <li>2013年英文版有较大修订，目标之一是让英文更现代、易读。</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid2" style="margin-top:26px">
+      <div class="callout blue">
+        <h3>一个很重要的理解</h3>
+        <p>耶和华见证人并不是“除了圣经还有一本神秘的第二圣经”。他们正式教导中把圣经视为上帝所启示的话语；《守望台》等出版物承担的是解释、学习与组织教导的功能。</p>
+      </div>
+      <div class="callout warn">
+        <h3>但为什么会有人争论《新世界译本》？</h3>
+        <p>原因之一是某些关键经文的译法明显不同于传统译本，尤其涉及耶稣神性、“地狱”、十字架等议题。见证人认为这些译法忠于原文与他们的圣经理解；其他基督教传统则经常对若干具体译文提出强烈批评。因此，若做严肃神学比较，最好把同一节经文在多种译本之间逐句对照，而不是只凭某一方评价。</p>
+      </div>
+    </div>
+
+    <div class="quote" style="margin-top:25px">
+      <strong>常见学习材料：</strong>《守望台》（The Watchtower）、《警醒！》（Awake!）、圣经研究教材、聚会工作册以及 jw.org 上的大量视频和课程。现在其圣经与教学资源已经高度数字化。
+    </div>
+  </div>
+</section>
+
+<section id="history" style="background:#fff">
+  <div class="container">
+    <div class="smallcaps">03 · history</div>
+    <h2>起源 → 分裂 → 组织化 → 全球化</h2>
+    <p class="lead">不要把耶和华见证人简单理解为“从古代教会一路传下来的宗派”。它的现代组织形态形成于19世纪末的美国，带有当时美国复兴主义、末世论与圣经研究运动的明显背景。</p>
+
+    <div class="timeline">
+      <div class="event"><span class="dot"></span><div class="year">1870年代</div><h3>查尔斯·泰兹·罗素与“圣经学生”圈子</h3><p>在宾夕法尼亚州阿勒格尼一带形成圣经研究小组，罗素逐渐成为主要组织者和教师。后来见证人把自己的现代历史追溯到这一时期。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1879</div><h3>《锡安守望台》开始出版</h3><p>罗素开始出版 <em>Zion’s Watch Tower and Herald of Christ’s Presence</em>，这成为后来《守望台》的前身。出版物与主动传道逐渐成为这个运动的核心传播方式。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1881–1884</div><h3>守望台相关法律实体形成</h3><p>守望台圣经书社相关组织成立并正式法人化，为后来大规模出版、差派传道员及建立分支机构奠定组织基础。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1914</div><h3>关键年份：他们认为基督开始在天上作王</h3><p>1914第一次世界大战爆发，也成为圣经学生运动神学上的转折点。今天的见证人仍把1914作为基督开始天上统治的重要年份。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1916–1917</div><h3>罗素去世；卢瑟福接任</h3><p>罗素于1916年去世。1917年约瑟夫·卢瑟福成为守望台社团的主要领导者，随后运动经历重要的组织重整与内部冲突。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1931</div><h3>正式采用“耶和华见证人”这一名称</h3><p>早期常被称为“圣经学生”。1931年在卢瑟福任内正式采用“Jehovah’s Witnesses”这一名称，以区别于其他分裂出来的圣经学生团体。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1950–1961</div><h3>《新世界译本》陆续出版</h3><p>英文版新约1950年发布，旧约分卷至1960年完成，1961年合订为整本《新世界译本》。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1975</div><h3>一个重要、也值得了解的历史节点</h3><p>当时组织内出现对“1975年”有特殊末世期待的强烈氛围；1975年过去后，期待落空，一部分成员离开。组织自己的历史资料也承认当时存在“强烈期待”。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">1980年代–2000年代</div><h3>全球化、数字化、组织调整</h3><p>见证人在亚洲、非洲、拉丁美洲等地区持续发展，同时出版与传道方式逐渐从纸本扩展到广播、视频和互联网。</p></div>
+      <div class="event"><span class="dot"></span><div class="year">2010年代–2020年代</div><h3>王国聚会所、数字教学、在线传道</h3><p>jw.org 与 JW Library 成为重要的全球数字平台。疫情时期传统“逐户传道”曾暂停或受限，之后逐渐恢复，同时继续发展线上教学与数字内容。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="life">
+  <div class="container">
+    <div class="smallcaps">04 · practice</div>
+    <h2>一个普通见证人的生活，大致是什么样？</h2>
+    <div class="grid">
+      <div class="card"><h3>逐户 / 公共传道</h3><p>主动向公众传讲“王国好消息”，包括逐家拜访、公共场所接触、文字与线上方式。这不是边缘活动，而是其身份认同的核心部分。</p></div>
+      <div class="card"><h3>固定聚会</h3><p>在王国聚会所进行圣经课程、讲道、讨论、唱诗和祷告。地方会众由长老团体负责照料。</p></div>
+      <div class="card"><h3>圣经学习</h3><p>个人和家庭读经十分重要，也常参加一对一或小组圣经课程。官方统计中的“圣经课程”规模很大。</p></div>
+      <div class="card"><h3>不收什一税、无带薪神职</h3><p>他们不实行传统教会式“什一奉献”，地方长老也不是领取教会薪水的牧师。组织依靠自愿捐献维持全球活动。</p></div>
+      <div class="card"><h3>不庆祝某些节日</h3><p>通常不庆祝生日、圣诞节、复活节以及部分国家性节日，理由包括宗教来源、崇拜性质与“保持不属于世界”的原则。</p></div>
+      <div class="card"><h3>政治中立</h3><p>官方立场是不为政党或候选人投票、不竞选政府职位，也不参与推翻政府的政治行动；同时强调守法、纳税、尊重政府权柄。</p></div>
+      <div class="card"><h3>输血</h3><p>他们接受现代医学，但通常拒绝全血输血，并把“禁止摄取血”理解为圣经要求。具体医疗决定也会涉及血液成分与治疗方式的区分。</p></div>
+      <div class="card"><h3>十字架与宗教图像</h3><p>他们不在敬拜中使用十字架或圣像，认为早期基督徒不应以这些对象作为宗教崇拜的焦点。</p></div>
+      <div class="card"><h3>战争与服役</h3><p>政治中立也延伸到军事问题。不同国家法律环境不同，但其基本伦理是避免参与战争和杀人，并把效忠上帝的王国置于国家政治之上。</p></div>
+    </div>
+
+    <div class="split" style="margin-top:30px">
+      <figure>
+        <img src="https://wol.jw.org/es/wol/mp/r4/lp-s/mwb16/2016/407" alt="耶和华见证人进行逐户传道">
+        <figcaption>逐户传道是最具辨识度的实践之一。图片：Watchtower Online Library。</figcaption>
+      </figure>
+      <div>
+        <div class="callout green">
+          <h3>值得注意：他们并不把“参加礼拜”放在第一位</h3>
+          <p>从他们的自我理解看，基督徒不是每周去一次教堂就结束了，而是应该持续学习圣经、改变生活、参加聚会，并积极向别人传讲王国信息。因此，“传道”在其宗教生活中的权重非常高。</p>
+        </div>
+        <div class="callout" style="margin-top:16px">
+          <h3>“纪念耶稣死亡”比“圣诞节”更重要</h3>
+          <p>每年他们举行一次“耶稣受难纪念”（Memorial of Christ’s Death），这是年度最重要的宗教活动之一。参加者通常远多于其活跃传道员人数，因为没有受浸或并非见证人的人也可以前来观察。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="organization" style="background:#fff">
+  <div class="container">
+    <div class="smallcaps">05 · organization</div>
+    <h2>他们是怎么管理自己的？</h2>
+    <p class="lead">从基层看像“一个个小会众”，从全球看却是一个高度统一的跨国组织体系。</p>
+    <div class="grid2">
+      <div class="card">
+        <h3>地方：会众 + 长老</h3>
+        <p>每个会众由长老负责教导与牧养，辅以助理仆人等职分。长老不是传统意义上的带薪神职人员。</p>
+      </div>
+      <div class="card">
+        <h3>巡回：区域监督</h3>
+        <p>巡回监督负责访问多个会众，提供指导、培训与组织监督。</p>
+      </div>
+      <div class="card">
+        <h3>全球：中央长老团（Governing Body）</h3>
+        <p>一个人数不多的男性长老群体，为全球见证人提供教义、出版、会议、传道与组织方向。官方称他们不是“组织的领袖”，而是在基督领导下提供全球指导。</p>
+      </div>
+      <div class="card">
+        <h3>法律实体与组织资产</h3>
+        <p>“守望台圣经书社”等法律实体承担出版、地产、捐献资产及行政职能。需要区分“法人实体”和“教义上的治理机构”，二者并不完全等同。</p>
+      </div>
+    </div>
+    <div class="quote" style="margin-top:24px">
+      <strong>为什么外界常感觉它“很统一”？</strong><br>
+      因为教义、出版物、会议材料、培训和组织政策在全球范围高度标准化；地方会众并不像很多新教教会那样自行决定核心教义。统一性本身正是其组织理念的重要组成部分。
+    </div>
+  </div>
+</section>
+
+<section id="compare">
+  <div class="container">
+    <div class="smallcaps">06 · comparison</div>
+    <h2>它与“普通教会”到底差在哪里？</h2>
+    <p class="lead">下面不是说谁“好”或“坏”，而是为了让你迅速定位神学上的距离。</p>
+    <table class="compare">
+      <tr><th>议题</th><th>耶和华见证人</th><th>主流基督教常见立场</th></tr>
+      <tr><td>三位一体</td><td>拒绝</td><td>接受</td></tr>
+      <tr><td>耶稣与父的关系</td><td>耶稣是上帝的儿子，不是全能上帝</td><td>父与子同为完全的神</td></tr>
+      <tr><td>复活</td><td>强调身体死亡后，上帝使人复活；部分人复活为天上的灵体生命，绝大多数忠心者最终在地上生活</td><td>普遍强调死人复活与最终身体 / 整全人的复活，传统表述各有差异</td></tr>
+      <tr><td>灵魂不死</td><td>拒绝传统意义上的“人有一个不死灵魂”</td><td>多数接受某种形式的死后灵魂存续</td></tr>
+      <tr><td>地狱永刑</td><td>拒绝传统永恒意识刑罚观</td><td>多数传统保留地狱或最终审判教义，但内部解释差异很大</td></tr>
+      <tr><td>教会结构</td><td>全球统一的治理与教义体系</td><td>天主教高度集中；东正教分布式主教体系；新教从高度集中到完全自治都有</td></tr>
+      <tr><td>政治</td><td>政治中立，不参与党派政治</td><td>教派与国家不同，政治参与从积极到谨慎不一</td></tr>
+      <tr><td>节日</td><td>通常不庆祝生日、圣诞节、复活节等</td><td>多数传统会庆祝圣诞节、复活节，生日通常也属文化活动</td></tr>
+    </table>
+  </div>
+</section>
+
+<section id="controversy">
+  <div class="container">
+    <div class="smallcaps">07 · difficult questions</div>
+    <h2>争议最大的地方在哪里？</h2>
+    <p class="lead">要真正理解一个宗教，不能只看它自己的宣传材料，也不能只看批评它的材料。下面把最主要的争议点拆开。</p>
+
+    <div class="grid2">
+      <div class="callout rose">
+        <h3>① 与主流基督教的“异端 / 非正统”争论</h3>
+        <p>主流三位一体传统认为耶和华见证人对耶稣神性的理解不符合尼西亚信经以来的正统基督教；见证人则反过来认为三位一体是后来发展出的非圣经教义，坚持自己是恢复了早期基督教的一神论。</p>
+        <p class="note">所以，“是不是基督徒”在这里既是神学问题，也是不同传统对“基督教”边界的定义问题。</p>
+      </div>
+      <div class="callout warn">
+        <h3>② 对输血的拒绝</h3>
+        <p>这是其最广为人知的实践之一。见证人把《使徒行传》等“禁戒血”的经文扩展到医疗输血，因此通常拒绝全血输注。现代医学中的血液成分、血液回收、自体输血等具体情况则存在更细的个人决定空间。</p>
+      </div>
+      <div class="callout rose">
+        <h3>③ “开除 / 断绝来往”与群体关系</h3>
+        <p>组织对于严重违反教义和道德标准的情况存在纪律处分。外界尤其关注被开除者与原有宗教社群的关系、社会支持网络以及家庭成员之间如何处理联系。实际执行规则在不同历史时期也有调整。</p>
+      </div>
+      <div class="callout warn">
+        <h3>④ 儿童性侵与机构处理方式</h3>
+        <p>这是一个不能回避的重大公共争议。澳大利亚皇家委员会曾对耶和华见证人进行专题调查，并对其历史上的内部处理程序、所谓“两名见证人”规则、对民事机关报告等问题提出严厉批评。该委员会的调查对象和结论应与“所有个别成员都如何”严格区分。</p>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3>如何理性看待这些争议？</h3>
+      <ol>
+        <li><strong>区分教义、组织政策和个人行为。</strong>不能因为一个成员做错事，就直接推导出整个教义；同样也不能因为组织宣称某制度“符合圣经”，就自动证明该制度没有现实风险。</li>
+        <li><strong>把“官方自我描述”和“独立调查”放在一起看。</strong>这是研究宗教组织最基本的资料原则。</li>
+        <li><strong>注意时间差。</strong>某项政策在1970年代、2000年代与2020年代可能并不完全相同。</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section id="today" style="background:#fff">
+  <div class="container">
+    <div class="smallcaps">08 · today</div>
+    <h2>今天的耶和华见证人是什么状态？</h2>
+    <div class="grid">
+      <div class="fact"><strong>9,205,326</strong>2025年度最高“传道员”数</div>
+      <div class="fact"><strong>20,635,015</strong>2025年耶稣牺牲纪念聚会出席人数</div>
+      <div class="fact"><strong>24,576</strong>2025年全球纪念聚会“领食”人数</div>
+    </div>
+    <div class="grid2" style="margin-top:24px">
+      <div class="card">
+        <h3>它仍然是一个高度全球化的宗教网络</h3>
+        <p>官方2025报告覆盖241个报告地区、11万多会众；组织依靠统一的出版和数字平台，在多种语言环境中开展传道与圣经课程。</p>
+      </div>
+      <div class="card">
+        <h3>它的人数统计方式值得理解</h3>
+        <p>“920万”不是说全世界有920万名每天都参加聚会的成员，而是官方按“积极参与传道”的标准统计的最高人数。另一方面，纪念聚会出席人数超过2,000万，说明其接触群体远大于活跃传道员数。</p>
+      </div>
+    </div>
+
+    <div class="quote" style="margin-top:24px">
+      <strong>从社会学角度看：</strong>耶和华见证人最显著的特征，是把“全球统一的教义”“高度规律的圣经学习”“积极传道”“政治中立”“群体纪律”组合在一起。这使它既具很强的跨国组织能力，也比多数普通基督教会更强调组织边界。
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="smallcaps">最后的定位图</div>
+    <h2>如果你只想记住 8 件事</h2>
+    <div class="grid">
+      <div class="card"><h3>1. 一神论</h3><p>只敬拜一位上帝“耶和华”。</p></div>
+      <div class="card"><h3>2. 反三位一体</h3><p>耶稣是上帝的儿子，但不是全能上帝。</p></div>
+      <div class="card"><h3>3. 王国中心</h3><p>上帝的王国是真实的天上政府，耶稣是君王。</p></div>
+      <div class="card"><h3>4. 1914</h3><p>他们认为耶稣于1914年开始天上作王。</p></div>
+      <div class="card"><h3>5. 两类终极盼望</h3><p>144,000 与基督在天上统治；多数忠心者期待地上永生。</p></div>
+      <div class="card"><h3>6. 圣经至上</h3><p>以66卷圣经为根本权威，并特别使用《新世界译本》。</p></div>
+      <div class="card"><h3>7. 强调传道</h3><p>逐户传道、圣经课程、聚会和全球统一教学是日常核心。</p></div>
+      <div class="card"><h3>8. 与主流教会差异很大</h3><p>政治中立、节日、输血、灵魂与地狱观，以及对教会权威的理解都很特殊。</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="sources">
+  <div class="container">
+    <div class="smallcaps">资料来源</div>
+    <h2>建议从这些原始资料继续看</h2>
+    <p class="lead">这份页面尽量避免把任何一方的观点当成“无争议事实”。最好的下一步，是同时读组织自己的材料与独立机构资料。</p>
+    <div class="grid2 source-list">
+      <div class="card">
+        <h3>耶和华见证人官方资料</h3>
+        <a href="https://www.jw.org/cmn-hans/" target="_blank">jw.org 中文简体站</a>
+        <a href="https://www.jw.org/cmn-hans/多媒体图书馆/书籍/2025工作年度耶和华见证人全球报告/2025年度全球总报告/" target="_blank">2025年度全球报告</a>
+        <a href="https://www.jw.org/en/jehovahs-witnesses/faq/jehovah-witness-beliefs/" target="_blank">What Do Jehovah’s Witnesses Believe?</a>
+        <a href="https://www.jw.org/en/jehovahs-witnesses/faq/governing-body-jw-helpers/" target="_blank">What Is the Governing Body?</a>
+        <a href="https://www.jw.org/en/library/bible" target="_blank">New World Translation / 在线圣经</a>
+      </div>
+      <div class="card">
+        <h3>外部资料与公共调查</h3>
+        <a href="https://www.encyclopedia.com/" target="_blank">Encyclopedia.com：Jehovah’s Witnesses</a>
+        <a href="https://www.childabuseroyalcommission.gov.au/religious-institutions" target="_blank">澳大利亚皇家委员会：Religious institutions</a>
+        <a href="https://www.childabuseroyalcommission.gov.au/case-studies/case-study-29-jehovahs-witnesses" target="_blank">皇家委员会：Case Study 29 — Jehovah’s Witnesses</a>
+        <a href="https://www.childabuseroyalcommission.gov.au/case-studies/case-study-54-institutional-review-jehovahs-witnesses" target="_blank">皇家委员会：Case Study 54 — Institutional review</a>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:24px">
+      <h3>图片说明</h3>
+      <p class="note">页面中的图片来自 Wikimedia Commons 与 Jehovah’s Witnesses / Watchtower Online Library。若你把本 HTML 继续公开发布，请保留相应来源与原站许可信息，并检查各图片的具体许可条款。</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <h3 style="color:#fff">认识一个宗教，最好同时问三个问题</h3>
+    <p>它自己说自己信什么？它在历史上实际上做过什么？外部观察者和独立调查又记录了什么？</p>
+    <p class="small">本页面为知识性介绍，不是宗教劝导、神学裁决或法律意见。内容根据可公开检索的资料整理；不同历史时期的教义和组织政策可能发生变化。</p>
+    <p class="small">制作日期：2026-09-13</p>
+  </div>
+</footer>
+
+</body>
+</html>

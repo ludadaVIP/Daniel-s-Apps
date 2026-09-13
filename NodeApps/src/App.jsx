@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { BookOpenText, BrainCircuit, ChartNoAxesCombined, House, Landmark, Network, NotebookPen } from 'lucide-react';
+import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, House, Landmark, Network, NotebookPen } from 'lucide-react';
 
 const APPS = [
   {
@@ -39,6 +39,15 @@ const APPS = [
     load: () => import('../apps/notebook/entry.jsx'),
   },
   {
+    id: 'html-library',
+    name: 'VisualShelf',
+    kind: 'HTML LIBRARY',
+    description: '像管理电子书一样整理、预览和阅读独立 HTML 图文资料。',
+    Icon: Archive,
+    color: '#3b82f6',
+    load: () => import('../apps/html-library/entry.jsx'),
+  },
+  {
     id: 'bible',
     name: 'BibleDevotion',
     kind: 'BIBLE',
@@ -63,6 +72,7 @@ const APP_STYLE_LOADERS = {
   industry: () => import('../apps/industry/src/styles.css?inline'),
   insight: () => import('../apps/insight/src/styles.css?inline'),
   notebook: () => import('../apps/notebook/src/styles.css?inline'),
+  'html-library': () => import('../apps/html-library/src/styles.css?inline'),
   bible: () => import('../apps/bible/src/styles.css?inline'),
   'recall-verses': () => import('../apps/recall-verses/src/styles.css?inline'),
 };
@@ -97,7 +107,16 @@ function createLazyApp(app) {
 
 function currentAppId() {
   const match = location.hash.match(/^#\/app\/([^/]+)/);
-  return match?.[1] ?? null;
+  if (match) return match[1];
+  const legacyRoute = location.hash.slice(1);
+  return /^(today|explore|cases|graph|theses|profile|article\/)/.test(legacyRoute) ? 'insight' : null;
+}
+
+function normalizeLegacyInsightRoute() {
+  const legacyRoute = location.hash.slice(1);
+  if (/^(today|explore|cases|graph|theses|profile|article\/)/.test(legacyRoute)) {
+    location.hash = `/app/insight/${legacyRoute}`;
+  }
 }
 
 function Loading({ name }) {
@@ -110,9 +129,9 @@ function Home({ open }) {
       <div className="launcher-hub-heading">
         <p className="launcher-hub-eyebrow">NODEAPPS</p>
         <h1>NodeApps</h1>
-        <p>六个独立保留的本地工具，点击卡片进入。</p>
+        <p>七个独立保留的本地工具，点击卡片进入。</p>
       </div>
-      <div className="launcher-hub-actions"><span>6 APPS</span></div>
+      <div className="launcher-hub-actions"><span>7 APPS</span></div>
     </header>
     <section className="launcher-hub-grid" aria-label="应用列表">
       {APPS.map((app) => <button className="launcher-hub-card" key={app.id} onClick={() => open(app.id)} style={{ '--launcher-card-accent': app.color }}>
@@ -129,7 +148,11 @@ export default function App() {
   const [selected, setSelected] = useState(currentAppId);
   const [dockVisible, setDockVisible] = useState(true);
   useEffect(() => {
-    const sync = () => setSelected(currentAppId());
+    const sync = () => {
+      normalizeLegacyInsightRoute();
+      setSelected(currentAppId());
+    };
+    sync();
     addEventListener('hashchange', sync);
     return () => removeEventListener('hashchange', sync);
   }, []);

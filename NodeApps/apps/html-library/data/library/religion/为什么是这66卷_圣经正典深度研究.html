@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>为什么是这66卷？——圣经正典、默示与教会承认的历史—神学研究</title>
+<style>
+  :root{
+    --ink:#171717; --muted:#666; --line:#d8d8d8; --paper:#fbfbf9;
+    --panel:#f2f2ef; --deep:#292929; --accent:#6f2e2e; --accent2:#334b5c;
+    --good:#285943; --warn:#7a5620;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; color:var(--ink); background:var(--paper);
+    font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","SimSun",serif;
+    line-height:1.82; font-size:17px;
+  }
+  a{color:#244c68;text-decoration:none;border-bottom:1px solid #9fb0bc}
+  a:hover{color:#111;border-color:#111}
+  .shell{max-width:1180px;margin:0 auto;padding:0 28px}
+  header{
+    border-bottom:1px solid var(--line);
+    padding:78px 0 54px;
+    background:#fff;
+  }
+  .eyebrow{font-family:Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-size:12px}
+  h1{font-size:46px;line-height:1.18;margin:12px 0 18px;font-weight:800;letter-spacing:-.02em}
+  .lead{font-size:21px;max-width:890px;color:#383838}
+  .thesis{
+    margin-top:32px;border-left:5px solid var(--accent);padding:18px 24px;background:#f7f4f1;
+    font-size:18px;
+  }
+  .layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:46px;padding-top:42px}
+  nav{
+    position:sticky;top:20px;align-self:start;border-right:1px solid var(--line);padding-right:22px;
+    max-height:calc(100vh - 40px);overflow:auto;font-family:Arial,"Microsoft YaHei",sans-serif;font-size:13px;
+  }
+  nav strong{display:block;margin-bottom:10px;font-size:13px;letter-spacing:.08em}
+  nav a{display:block;padding:5px 0;border:0;color:#555}
+  nav a:hover{color:#000}
+  main{min-width:0}
+  section{padding:10px 0 52px;border-bottom:1px solid var(--line)}
+  h2{font-size:31px;line-height:1.3;margin:18px 0 18px}
+  h3{font-size:23px;margin:30px 0 10px}
+  h4{font-size:18px;margin:24px 0 8px}
+  p{margin:12px 0}
+  .muted{color:var(--muted)}
+  .note,.caution,.answer,.quote{
+    padding:18px 22px;margin:22px 0;border-left:4px solid var(--accent2);background:#f3f5f6;
+  }
+  .caution{border-left-color:var(--warn);background:#f7f3ea}
+  .answer{border-left-color:var(--good);background:#eff5f1}
+  .quote{border-left-color:#999;background:#f4f4f2;font-size:16px}
+  .grid2,.grid3{display:grid;gap:18px;margin:20px 0}
+  .grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .card{border:1px solid var(--line);padding:20px;background:#fff}
+  .card h4{margin-top:0}
+  .num{font-family:Georgia,serif;font-size:34px;color:var(--accent);line-height:1}
+  .tag{font-family:Arial,sans-serif;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:#555}
+  table{width:100%;border-collapse:collapse;margin:22px 0;font-size:15.5px;background:#fff}
+  th,td{border:1px solid #d7d7d7;padding:12px 13px;vertical-align:top;text-align:left}
+  th{background:#ededeb;font-family:Arial,"Microsoft YaHei",sans-serif}
+  tr:nth-child(even) td{background:#fafafa}
+  .timeline{border-left:3px solid #bbb;margin:28px 0 28px 11px;padding-left:24px}
+  .event{position:relative;margin:0 0 24px}
+  .event:before{content:"";position:absolute;left:-31px;top:8px;width:11px;height:11px;background:#fff;border:3px solid var(--accent);border-radius:50%}
+  .event b{font-family:Arial,"Microsoft YaHei",sans-serif}
+  .fn{font-size:12px;vertical-align:super;border:0;color:var(--accent)}
+  .svgbox{border:1px solid var(--line);background:#fff;padding:10px;margin:24px 0}
+  .svgbox svg{width:100%;height:auto;display:block}
+  .bigline{font-size:24px;line-height:1.5;font-weight:700}
+  .verdict{display:grid;grid-template-columns:130px 1fr;gap:14px;border-top:1px solid #ccc;padding:14px 0}
+  .verdict .label{font-family:Arial,"Microsoft YaHei",sans-serif;font-size:12px;text-transform:uppercase;letter-spacing:.08em;color:#555}
+  .books{columns:3;column-gap:30px;font-size:14px}
+  .books p{break-inside:avoid;margin:0 0 12px}
+  .myth{font-weight:700;color:#712f2f}
+  .truth{font-weight:700;color:#285943}
+  details{border-top:1px solid var(--line);padding:14px 0}
+  summary{cursor:pointer;font-weight:700;font-size:18px}
+  .script{font-family:"Microsoft YaHei",Arial,sans-serif;background:#f5f5f3;border:1px solid #ddd;padding:18px 20px;margin:18px 0;white-space:normal}
+  .sources li{margin:11px 0}
+  .image-strip{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px;margin:24px 0}
+  figure{margin:0;border:1px solid var(--line);background:#fff}
+  figure img{display:block;width:100%;height:250px;object-fit:cover;background:#eee}
+  figcaption{padding:9px 11px;font-size:12px;line-height:1.45;color:#555}
+  footer{padding:38px 0 70px;color:#666;font-size:14px}
+  .printnote{font-family:Arial,sans-serif;font-size:12px;color:#777}
+  @media(max-width:900px){
+    .layout{grid-template-columns:1fr}
+    nav{position:relative;top:auto;border-right:0;border-bottom:1px solid var(--line);padding:0 0 18px;max-height:none}
+    nav a{display:inline-block;margin-right:12px}
+    .grid2,.grid3,.image-strip{grid-template-columns:1fr}
+    .books{columns:2}
+    h1{font-size:36px}
+  }
+  @media(max-width:600px){
+    .shell{padding:0 18px}
+    body{font-size:16px}
+    h1{font-size:31px}.lead{font-size:18px}
+    .books{columns:1}
+    .verdict{grid-template-columns:1fr}
+  }
+  @media print{
+    nav{display:none}.layout{display:block}a{color:#000;border:0}
+    body{font-size:11pt;background:#fff}.shell{max-width:none}
+    section{break-inside:auto}.card,table,.svgbox{break-inside:avoid}
+    header{padding-top:20px}
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="shell">
+    <div class="eyebrow">圣经论 · 正典史 · 护教学 · 改革宗/福音派视角</div>
+    <h1>为什么是这66卷？</h1>
+    <div class="lead">为什么新旧约圣经66卷是神的话、是真理、是教会的最高规范，而不是后来某些人开会，从许多宗教书籍中“挑了66本”编成一本《圣经》？又为什么新教接受66卷，而罗马天主教通行73卷？</div>
+    <div class="thesis"><strong>核心结论：</strong>正统新教的主张并不是“教会拥有权力把某些普通书变成神的话”，而是：<strong>神先启示并默示；被默示的书从产生之时就具有正典权威；以色列与使徒教会在历史中逐渐辨认、保存、诵读并共同承认这些书。</strong>因此，教会与会议在正典问题上的角色主要是<strong>见证、辨认、划界与公开承认</strong>，不是创造神圣性。历史证据能够有力反驳“第四世纪某次会议随意挑书”的说法；但“这些书最终为何具有神的权威”仍然是一个神学—认识论问题，不能被考古学或会议记录单独证明。</div>
+  </div>
+</header>
+
+<div class="shell layout">
+<nav>
+  <strong>目录</strong>
+  <a href="#why">01 研究动机</a>
+  <a href="#distinctions">02 四个必须区分的概念</a>
+  <a href="#epistemology">03 谁给圣经权威？</a>
+  <a href="#ot">04 旧约：24如何成为39</a>
+  <a href="#nt">05 新约：27卷如何被承认</a>
+  <a href="#criteria">06 早期教会如何辨认</a>
+  <a href="#disputed">07 为什么曾有争议</a>
+  <a href="#excluded">08 为什么别的书没进去</a>
+  <a href="#66vs73">09 66卷与73卷</a>
+  <a href="#objections">10 最强质疑逐条回答</a>
+  <a href="#proof">11 能证明什么，不能证明什么</a>
+  <a href="#case">12 累积论证</a>
+  <a href="#pastoral">13 传福音时怎么回答</a>
+  <a href="#wrong">14 五种不要再说的论证</a>
+  <a href="#canonmap">15 66卷速查图</a>
+  <a href="#sources">16 资料来源</a>
+</nav>
+
+<main>
+
+<section id="why">
+  <h2>01｜为什么值得做这个研究</h2>
+  <p>在传福音、带查经、牧养和护教中，一个极其常见的质疑是：“圣经不也是人写的吗？”“谁决定哪些书算圣经？”“如果是教会决定的，那不就是人决定神的话吗？”“天主教的圣经和新教还不一样，那到底谁对？”这些问题并不愚蠢。相反，如果一个人不了解启示史、犹太正典史、使徒时代、早期教会文献和宗教改革，这些疑问几乎是必然的。</p>
+  <p>因此，成熟的回答不能只是：“因为圣经说自己是神的话，所以它就是。”这句话在基督徒内部有意义，却不足以单独回答怀疑者。也不能说：“公元325年尼西亚会议投票选了66卷。”这是历史错误。现存尼西亚会议的信经与二十条教规并没有一张圣经书目；同时，会议之前已经存在广泛承认的福音书与使徒书信传统。<a class="fn" href="#s16">[16]</a></p>
+  <div class="answer"><strong>更好的护教方向：</strong>先把问题拆开：①神是否可能启示？②神是否借先知和使徒说话？③哪些文本具有这种先知—使徒权威？④历史中的信仰群体如何辨认这些文本？⑤为何不同传统在旧约边界上出现差异？这样就不会把“神的启示”与“教会后来列了一张目录”混为一谈。</div>
+</section>
+
+<section id="distinctions">
+  <h2>02｜四个必须区分的概念：启示、默示、正典性、承认</h2>
+  <div class="grid2">
+    <div class="card"><div class="num">1</div><h4>启示 Revelation</h4><p>神主动使人知道祂自己、祂的旨意和祂的救赎作为。圣经不是从“人想认识神”开始，而是从“神主动说话”开始。</p></div>
+    <div class="card"><div class="num">2</div><h4>默示 Inspiration</h4><p>神借真实的人类作者、真实语言、文体、处境和人格，使其写成祂要赐给教会的话。这里不是机械听写，也不是单纯“宗教灵感”。</p></div>
+    <div class="card"><div class="num">3</div><h4>正典性 Canonicity</h4><p>一卷书若真是神以先知或使徒性的权威赐下，它的规范性并不是等到第四世纪会议通过后才产生。正典性首先是书本身与神启示行为的关系。</p></div>
+    <div class="card"><div class="num">4</div><h4>承认 Recognition</h4><p>神的百姓在历史中辨认哪些书具有这种权威，并在敬拜、教导、抄写与跨地区使用中逐渐形成稳定共识。会议能够确认一个已经形成的共识，也能处理边缘争议。</p></div>
+  </div>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 900 380" role="img" aria-label="正典形成不是会议创造，而是从神的启示到教会承认">
+    <rect x="30" y="35" width="840" height="300" fill="#fbfbf9" stroke="#c8c8c8"/>
+    <circle cx="190" cy="185" r="105" fill="#f2ece9" stroke="#6f2e2e" stroke-width="3"/>
+    <text x="190" y="165" text-anchor="middle" font-size="27" font-weight="700" fill="#6f2e2e">神的启示</text>
+    <text x="190" y="200" text-anchor="middle" font-size="17">先知 / 使徒</text>
+    <text x="190" y="227" text-anchor="middle" font-size="17">圣灵默示</text>
+    <path d="M305 185 H420" stroke="#777" stroke-width="3"/>
+    <polygon points="420,185 405,176 405,194" fill="#777"/>
+    <rect x="430" y="95" width="180" height="180" fill="#fff" stroke="#334b5c" stroke-width="3"/>
+    <text x="520" y="152" text-anchor="middle" font-size="25" font-weight="700" fill="#334b5c">具有权威的书</text>
+    <text x="520" y="190" text-anchor="middle" font-size="16">不是等会议批准</text>
+    <text x="520" y="217" text-anchor="middle" font-size="16">才“变成”神的话</text>
+    <path d="M615 185 H700" stroke="#777" stroke-width="3"/>
+    <polygon points="700,185 685,176 685,194" fill="#777"/>
+    <circle cx="765" cy="185" r="78" fill="#edf2f4" stroke="#334b5c" stroke-width="3"/>
+    <text x="765" y="166" text-anchor="middle" font-size="23" font-weight="700">教会承认</text>
+    <text x="765" y="199" text-anchor="middle" font-size="15">诵读 · 抄写</text>
+    <text x="765" y="223" text-anchor="middle" font-size="15">辨别 · 列表</text>
+    <text x="450" y="320" text-anchor="middle" font-size="16" fill="#555">神学上的“正典性”先于历史上的“正典目录”</text>
+  </svg>
+  </div>
+</section>
+
+<section id="epistemology">
+  <h2>03｜谁给圣经权威？这是整个问题的中心</h2>
+  <p>改革宗传统在这里提出一个非常重要的区分：<strong>圣经的权威原因</strong>与<strong>我们认识圣经权威的途径</strong>并不是一回事。《威斯敏斯特信条》第一章强调，圣经应当被相信和顺服的权威，不依赖任何人或教会的见证，而依赖神这位作者；同时，教会的见证、圣经整体的一致、教义的属天性质、救恩信息的完整性等，都是促使人尊重圣经的重要证据，而最终的确信来自圣灵借着圣言在心中的见证。<a class="fn" href="#s15">[15]</a></p>
+  <p>这并不是说“我心里有感觉，所以这66卷是真的”。成熟的“自证性”理论不是私人直觉，而是一个整体：<strong>书卷自身显明的神圣属性 + 与救赎历史的一致 + 先知/使徒来源 + 神百姓跨时代的共同承认 + 圣灵使人对这些证据产生正确认识。</strong></p>
+  <div class="caution"><strong>认识论上的关键：</strong>如果圣经真的是最高权威，就不可能再找一个“比圣经更高、完全中立、能够最终认证圣经”的权威。否则那个认证者才成了最高权威。最高权威在某种意义上必然最终诉诸自身，但这不等于没有外部证据；外部证据构成的是<strong>累积论证</strong>，不是一个高于神的法庭。</div>
+  <p>罗马天主教的表述不同。《天主教教理》说，教会借使徒传统辨认哪些书进入圣经正典，并接受46卷旧约、27卷新约。<a class="fn" href="#s14">[14]</a> 因此，新教与天主教真正的分歧，不仅是“多了七卷”，更深处是：<strong>教会与圣经在认知权威上的关系</strong>。新教倾向说教会是“受圣经管理的见证者”；天主教更强调“使徒传统中的教会具有权威地辨认正典”。</p>
+</section>
+
+<section id="ot">
+  <h2>04｜旧约：新教的39卷不是“另造一套”，而是犹太《塔纳赫》同一批文本的不同分卷</h2>
+  <p>现代犹太《塔纳赫》通常计为24卷，而新教旧约计为39卷；两者在书卷内容上是同一批文本，差别主要来自合卷、分卷和次序：例如撒母耳记、列王纪、历代志在犹太传统各算一卷；十二小先知合算一卷；以斯拉—尼希米合算一卷。剑桥的《希伯来圣经/旧约指南》明确指出：希伯来圣经的24卷，在新教旧约中被计为39卷。<a class="fn" href="#s1">[1]</a></p>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 900 330" role="img" aria-label="希伯来24卷与新教39卷的关系">
+    <rect x="35" y="45" width="300" height="210" fill="#fff" stroke="#334b5c" stroke-width="3"/>
+    <text x="185" y="85" text-anchor="middle" font-size="28" font-weight="700">希伯来圣经 24</text>
+    <text x="185" y="125" text-anchor="middle" font-size="17">撒母耳 = 1卷</text>
+    <text x="185" y="155" text-anchor="middle" font-size="17">列王 = 1卷</text>
+    <text x="185" y="185" text-anchor="middle" font-size="17">历代志 = 1卷</text>
+    <text x="185" y="215" text-anchor="middle" font-size="17">十二小先知 = 1卷</text>
+    <path d="M350 150 H550" stroke="#777" stroke-width="4"/>
+    <polygon points="550,150 530,138 530,162" fill="#777"/>
+    <text x="450" y="130" text-anchor="middle" font-size="15" fill="#555">分卷方式改变</text>
+    <text x="450" y="190" text-anchor="middle" font-size="15" fill="#555">内容主体不增加</text>
+    <rect x="565" y="45" width="300" height="210" fill="#fff" stroke="#6f2e2e" stroke-width="3"/>
+    <text x="715" y="85" text-anchor="middle" font-size="28" font-weight="700">新教旧约 39</text>
+    <text x="715" y="125" text-anchor="middle" font-size="17">撒上 + 撒下 = 2卷</text>
+    <text x="715" y="155" text-anchor="middle" font-size="17">王上 + 王下 = 2卷</text>
+    <text x="715" y="185" text-anchor="middle" font-size="17">代上 + 代下 = 2卷</text>
+    <text x="715" y="215" text-anchor="middle" font-size="17">十二小先知 = 12卷</text>
+    <text x="450" y="300" text-anchor="middle" font-size="17" font-weight="700">24 ≠ 少15卷；39 ≠ 多15卷。是同一核心语料的不同计数。</text>
+  </svg>
+  </div>
+
+  <h3>第二圣殿时期的证据必须既认真使用，也避免夸大</h3>
+  <p>约瑟夫斯在一世纪末《驳阿庇安》中说，犹太人不是拥有无数彼此冲突的宗教书，而是有二十二卷被视为神圣的书，并把它们区分为摩西、先知及诗歌/训诲类；他还说，亚达薛西之后虽然继续有人写历史，却没有与此前文本相同的权威，因为“先知的确切承继”不再存在。<a class="fn" href="#s2">[2]</a> 这是一项非常重要的证据，因为它显示：至少在一世纪犹太世界中，存在一个<strong>边界明显、权威特殊、与其他宗教著作有等级差异</strong>的圣书集合。</p>
+  <p>不过，不能把约瑟夫斯的“22卷”轻率地逐一等同为今天新教39卷的每个标题，因为他没有给出完整书名清单，具体如何合卷仍有讨论。更稳妥的说法是：他的见证<strong>高度支持一个与后来希伯来正典相对应的有限神圣文献集合</strong>，并表明后期宗教作品与先知时代作品之间存在权威区别。</p>
+  <p>死海古卷同样重要，但它们不能被简单宣传为“死海古卷证明66卷”。以色列博物馆指出，昆兰发现了约两百份圣经书卷抄本，涉及希伯来圣经几乎全部书卷（以斯帖和尼希米例外），同时也发现《多比传》《禧年书》《以诺一书》等后来未进入犹太正典的作品。<a class="fn" href="#s3">[3]</a> 这说明第二圣殿时期的犹太宗教文献生态很丰富；“被保存、被阅读”本身并不等于“具有正典地位”。</p>
+  <div class="note"><strong>一个常见误区：</strong>过去常说“公元90年的雅姆尼亚会议关闭了旧约正典”。现代研究已经大幅修正这种说法。更准确的是：雅姆尼亚/雅弗尼存在拉比活动与关于某些书的讨论，但没有可靠证据显示发生过一次像大公会议那样、通过投票正式关闭正典的“会议”。正典形成是一个更长、更复杂的过程。<a class="fn" href="#s4">[4]</a></div>
+
+  <h3>耶稣与使徒对旧约的态度</h3>
+  <p>从新约内部看，耶稣和使徒并不是把以色列的圣书当作普通宗教文学。耶稣说“经上的话是不能废的”（约10:35），以“经上记着说”作为终结性权威；复活后又以“摩西的律法、先知的书和诗篇”来概括有关祂的旧约见证（路24:44）。这里至少表明：第一世纪的耶稣运动已经在一个既有的犹太圣经世界中思考，而不是基督徒几个世纪后才发明“旧约”这个权威观念。</p>
+</section>
+
+<section id="nt">
+  <h2>05｜新约27卷：不是一次大会“挑出来”，而是从使徒权威到跨教会共识的收敛</h2>
+  <p>新约正典形成最重要的起点不是第四世纪，而是<strong>使徒职分本身</strong>。耶稣差遣使徒作祂复活的见证人；最早教会“恒心遵守使徒的教训”（徒2:42）；保罗把自己奉基督授权的教导视为必须被教会承认的“主的命令”（林前14:37）。因此，新约权威的原始核心是“基督 → 使徒 → 使徒性见证”，书卷后来成为这种权威见证的固定文本形态。</p>
+
+  <div class="timeline">
+    <div class="event"><b>第一世纪</b>｜福音传统、保罗书信、使徒书信在不同教会中被读、传抄、交换。新约内部已经出现“主的话”“使徒教训”“经书”等权威语言。</div>
+    <div class="event"><b>约公元180年前后</b>｜爱任纽明确维护四福音——马太、马可、路加、约翰——并反对异端任意删改福音传统。无论他为“四”提出的象征性理由今天是否有说服力，这都证明四福音集合在二世纪末已不是第四世纪会议的突然发明。<a class="fn" href="#s6">[6]</a></div>
+    <div class="event"><b>约公元325年</b>｜优西比乌总结当时教会使用情况，把新约书分为普遍承认、受争议但许多人承认、以及被拒绝或伪托的著作。他列出的“受争议”包括雅各、犹大、彼后二三约等，说明边缘书卷仍在辨认中。<a class="fn" href="#s7">[7]</a></div>
+    <div class="event"><b>公元367年</b>｜亚他那修第三十九封复活节书信给出现存最早与今天完全相同的27卷新约目录，并明确把另一些适合阅读的书与正典区分。<a class="fn" href="#s8">[8]</a></div>
+    <div class="event"><b>公元393–419年</b>｜北非希波、迦太基等地方会议列出与今天相同的27卷新约；这些是区域性教会的公开确认，而不是“那一天才让书突然获得神性”。<a class="fn" href="#s11">[11]</a></div>
+  </div>
+
+  <h3>为什么“渐进承认”比“秘密委员会选书”更符合史料？</h3>
+  <p>如果一个中央机构在某一天凭权力决定正典，我们应该看到明确的大会记录、候选名单、投票过程以及会后统一执行。但现有史料呈现的恰恰是另一幅图景：各地区教会长期使用某些核心书卷；少数边缘书卷在不同地区有不同接受速度；伪经和后期作品也有局部流传；到了第四世纪，广泛共识已经足以被公开列成目录。</p>
+  <p>牛津学术综述把早期正典判断概括为与使徒人物的联系、与基督教核心信仰的一致，以及在早期教会中的广泛接受与使用；它同时强调，保罗书信与福音书等核心很早被接受，部分书卷较晚才达成共识。<a class="fn" href="#s10">[10]</a></p>
+
+  <div class="image-strip">
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/9/91/Codex_Sinaiticus_Matthew_7%2C27-8%2C28.JPG" alt="西奈抄本页面">
+      <figcaption>《西奈抄本》四世纪页面（公版图像）。完整新约部分包含今天的27卷，同时抄本末尾还附《巴拿巴书信》和《赫马牧人书》，提醒我们：同一册抄本中的“收录”与最终正典地位不能简单画等号。<a href="https://www.codexsinaiticus.org/en/codex/content.aspx">资料</a></figcaption>
+    </figure>
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/4/4b/Athanasius_I.jpg" alt="亚他那修图像">
+      <figcaption>亚他那修（后世圣像，公版图像）。他在367年书信中列出与今天相同的27卷新约，并区分“正典”与“可供初信者阅读”的其他作品。<a href="https://www.newadvent.org/fathers/2806039.htm">原文</a></figcaption>
+    </figure>
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Council_of_Trent.JPG" alt="特伦托会议绘画">
+      <figcaption>特伦托会议（后世绘画，公版图像）。1546年第四会期正式列出罗马天主教接受的旧、新约书卷，并对拒绝该清单者作出教义性裁定。<a href="https://www.papalencyclicals.net/councils/trent/fourth-session.htm">法令</a></figcaption>
+    </figure>
+  </div>
+</section>
+
+<section id="criteria">
+  <h2>06｜早期教会怎样辨认一卷书？不是简单“打勾表”，而是多个证据共同工作</h2>
+  <table>
+    <thead><tr><th>维度</th><th>主要问题</th><th>意义</th><th>局限</th></tr></thead>
+    <tbody>
+      <tr><td><strong>使徒性</strong></td><td>是否来自使徒，或与使徒圈有可靠联系？</td><td>基督把奠基性的见证职分交给使徒。</td><td>并非所有卷都由十二使徒亲笔写；马可、路加就是明显例子。</td></tr>
+      <tr><td><strong>古老性</strong></td><td>是否属于使徒时代，而不是后世伪托？</td><td>大量“彼得福音”“多马福音”等产生较晚。</td><td>早并不自动等于受默示。</td></tr>
+      <tr><td><strong>信仰一致性</strong></td><td>是否符合教会从使徒领受的“信仰准则”？</td><td>可识别诺斯底式、幻影说等与使徒福音冲突的作品。</td><td>不能变成“教会先定教义，再删掉不合口味的书”的循环论证。</td></tr>
+      <tr><td><strong>广泛接纳</strong></td><td>是否被不同地区教会持续诵读、教导、抄写？</td><td>跨地域、跨语言的长期使用比某一位主教的个人喜好更有分量。</td><td>“多数票”本身不能产生默示。</td></tr>
+      <tr><td><strong>礼拜使用</strong></td><td>是否被作为神圣经文在公共敬拜中诵读？</td><td>显示教会实际把它当作规范性文本，而不只是好书。</td><td>某些非正典作品也曾在局部教会公开阅读。</td></tr>
+      <tr><td><strong>内在神圣品质</strong></td><td>是否显明与神整个救赎启示相称的内容、能力、统一与基督中心性？</td><td>这是改革宗“自证性”的一部分。</td><td>必须与历史证据和教会共同辨认结合，不能退化为私人感受。</td></tr>
+    </tbody>
+  </table>
+  <p>因此，所谓“教会选择了这些书”的说法有一半是真的：历史中的人确实进行了辨认、讨论、排除与列册。但另一半是误导：<strong>他们不是在一堆同样地位的书中随意评奖，而是在辨认哪些文本已经因其来源与性质而被教会当作先知—使徒性权威。</strong></p>
+</section>
+
+<section id="disputed">
+  <h2>07｜既然是神的话，为什么希伯来书、启示录、雅各书等曾经有争议？</h2>
+  <p>这恰恰是正典史最需要诚实面对的地方。优西比乌明确记录，有些书“被许多人承认但仍受争议”，包括雅各、犹大、彼后二书、约二约三等；启示录在不同地区也有不同接受情况。<a class="fn" href="#s7">[7]</a></p>
+  <p>争议的存在并不自动否定正典，反而说明早期教会并没有一个能瞬间强迫所有地区统一的中央出版委员会。交通缓慢、使徒身份核验困难、局部伪经流行、语言区域差异，都会导致接纳速度不同。一个边缘书卷被谨慎审查两三百年，最后跨地区收敛为共同承认，与“一群掌权者随意把喜欢的书塞进去”是完全不同的历史图景。</p>
+  <div class="answer"><strong>值得记住的一句话：</strong>早期争议证明的是“承认过程并非机械”，不是“书卷在争论前没有权威”。如果一封真正由使徒授权而写的信在公元70年已经是神的话，它不会因为叙利亚某地教会到公元250年才确认其来源，就在180年以前一直只是普通书。</div>
+</section>
+
+<section id="excluded">
+  <h2>08｜那《多马福音》《彼得福音》《赫马牧人书》《巴拿巴书信》为什么没有进去？</h2>
+  <p>这些作品不能一概而论。有些明显较晚、带有伪托特征或神学倾向；另一些如《赫马牧人书》确实在部分早期教会很受尊重，甚至出现在重要抄本中。正确的护教方式不是说“早期教会从来没人看过它们”，而是比较它们与27卷核心书卷在<strong>时间、使徒联系、跨地区接受、公共敬拜、神学一致性</strong>上的差异。</p>
+  <p>《西奈抄本》是很好的例子。其现存新约含有与现代西方圣经相同的27卷，但在新约之后又附有《巴拿巴书信》和《赫马牧人书》。西奈抄本项目本身就指出这一点。<a class="fn" href="#s9">[9]</a> 因此，“某书被抄在同一册里”不能单独决定正典身份；但同样，它也提醒我们早期边界在部分地区确实存在流动性。</p>
+
+  <div class="grid3">
+    <div class="card"><h4>四福音</h4><p>二世纪末已经形成强烈的四福音传统；爱任纽甚至把“四”视为不可增减。<a class="fn" href="#s6">[6]</a></p></div>
+    <div class="card"><h4>使徒书信</h4><p>保罗书信很早形成集合；其他公函有些因作者认定或地区流通较慢而较迟统一。</p></div>
+    <div class="card"><h4>后期“福音”</h4><p>许多作品的年代、伪托身份、神学内容和接纳范围与四福音及使徒文本存在明显差异，不是同等候选人。</p></div>
+  </div>
+</section>
+
+<section id="66vs73">
+  <h2>09｜最棘手的问题：为什么新教66卷，而天主教通常说73卷？</h2>
+  <p>首先要把争论范围缩小：<strong>新教与罗马天主教的新约都是同样27卷。</strong>差异主要在旧约。天主教教理列46卷旧约、27卷新约；新教列39卷旧约、27卷新约。<a class="fn" href="#s14">[14]</a></p>
+
+  <table>
+    <thead><tr><th>传统</th><th>旧约</th><th>新约</th><th>主要差异</th></tr></thead>
+    <tbody>
+      <tr><td>犹太《塔纳赫》</td><td>24（与新教39主体相同，分卷不同）</td><td>—</td><td>不收天主教次经为《塔纳赫》正典。</td></tr>
+      <tr><td>新教</td><td>39</td><td>27</td><td>旧约内容与犹太24卷主体相同。</td></tr>
+      <tr><td>罗马天主教</td><td>46</td><td>27</td><td>包括多比、友弟德、智慧、德训、巴录、玛加伯上下等及以斯帖/但以理增补。</td></tr>
+      <tr><td>东正教传统</td><td>各传统存在进一步差异</td><td>27</td><td>不能简单说“所有古代教会都只有同一套73卷”。牛津手册也强调东正教旧约边界更具开放性与传统差异。<a class="fn" href="#s19">[19]</a></td></tr>
+    </tbody>
+  </table>
+
+  <h3>9.1 不能说：“天主教到1546年才突然发明七卷书”</h3>
+  <p>这是不准确的。多比、友弟德、智慧、德训、玛加伯等早已在古代基督教世界被阅读；北非迦太基传统列出的旧约目录就包括多比、友弟德、玛加伯等。<a class="fn" href="#s11">[11]</a> 特伦托会议1546年的重要性在于：它在宗教改革争论背景下，<strong>以罗马天主教的最高教义形式明确固定并维护这一较广旧约清单</strong>，并规定这些书及其各部分均应作为神圣正典接受。<a class="fn" href="#s13">[13]</a></p>
+
+  <h3>9.2 也不能说：“整个早期教会一直都接受天主教73卷”</h3>
+  <p>同样不准确。耶柔米在翻译和讨论旧约时明确把希伯来正典之外的一些书与正典区分。他说教会可以阅读友弟德、多比、玛加伯、智慧、德训等用于造就，但不以它们作为建立教义权威的正典书。<a class="fn" href="#s12">[12]</a> 亚他那修的旧约清单也与后来罗马天主教及现代新教都不完全一样：他把一些书列为正典之外可供初信者阅读的作品。<a class="fn" href="#s8">[8]</a> 这说明古代基督教对旧约边界确有真实差异。</p>
+
+  <h3>9.3 “新约常用七十士译本，所以七十士译本里的所有书都应算正典”成立吗？</h3>
+  <p>不成立得那么直接。首先，现代学术越来越谨慎使用“一个固定的七十士译本正典”这个概念。牛津研究指出，早期基督教旧约边界长期具有流动性；不同希腊抄本的附加书也并不完全相同。<a class="fn" href="#s5">[5]</a> 例如《西奈抄本》的旧约/次经部分包含一些新教不收的书，其整册又附有新约之外的《巴拿巴书信》和《赫马牧人书》。<a class="fn" href="#s9">[9]</a> 因此，“某古抄本里有”与“全教会认定为同等正典”不是同一命题。</p>
+  <p>其次，耶稣和使徒使用一种译本，并不自动意味着认可与该译本传统后来一起流传的每一部作品。今天一个牧师引用某一版研读圣经，也不意味着他认可该书所有附录、地图和注释具有圣经权威。</p>
+
+  <h3>9.4 那么新教为何坚持39卷旧约？</h3>
+  <div class="verdict"><div class="label">历史理由</div><div>39卷与犹太24卷为同一主体语料；一世纪犹太证据显示一个有限、特殊权威的圣书集合；约瑟夫斯还明确区分后先知时代的著作与此前作品的权威。<a class="fn" href="#s1">[1]</a><a class="fn" href="#s2">[2]</a></div></div>
+  <div class="verdict"><div class="label">救赎历史理由</div><div>旧约首先是神托付给以色列的约之文献。新教因此特别重视希伯来圣经传统，而不是以后基督教抄本中所有广义希腊宗教文献。</div></div>
+  <div class="verdict"><div class="label">教父证据</div><div>古代教会并非只有一种观点；耶柔米等明确作出“可读但不作为教义正典”的区分。<a class="fn" href="#s12">[12]</a></div></div>
+  <div class="verdict"><div class="label">宗教改革判断</div><div>宗教改革者不是从历史中“发现一套从来没人争过的66卷目录”，而是在复杂传统中选择以希伯来旧约为规范，并把次经放在较低地位。后来新教信条把这种判断系统化。</div></div>
+
+  <div class="caution"><strong>历史诚实带来的结论：</strong>“为何不是73卷”不是一句“因为天主教加书”就能解决。更准确的结论是：<strong>新教与天主教在旧约正典上继承并制度化了古代基督教内部已经存在的两种权威取向——希伯来正典优先，与较广泛教会传统优先。</strong>从改革宗立场看，前者更能维护旧约作为以色列先知性文献的边界；但我们应当承认，天主教的73卷并不是1546年凭空出现。</div>
+</section>
+
+<section id="objections">
+  <h2>10｜把最强的质疑摆到桌面上</h2>
+
+  <details open><summary>质疑一：“都是人写的，怎么会是神的话？”</summary>
+    <p>基督教从来不否认圣经由人写。问题不是“人写”与“神写”二选一，而是神是否能够借真实作者完成祂的启示。古典基督教把这理解为神的主权与人的真实作者活动同时成立。诗篇的诗人格、路加的史家风格、保罗的论辩性都没有被抹掉。</p>
+  </details>
+
+  <details><summary>质疑二：“既然有会议列目录，那不就是会议创造了圣经？”</summary>
+    <p>列目录与创造权威不是同一回事。气象局宣布某颗行星存在，不是制造那颗行星；法院确认一份遗嘱真伪，也不是写成那份遗嘱。类比当然有限，但它帮助说明“认识论上的确认”不等于“本体上的产生”。</p>
+  </details>
+
+  <details><summary>质疑三：“尼西亚会议不是投票决定圣经吗？”</summary>
+    <p>没有可靠史料支持。现存尼西亚会议材料集中于基督论、教会纪律、复活节等事项，二十条教规没有圣经书目。<a class="fn" href="#s16">[16]</a> 正典讨论在会议前后都有，但“325年尼西亚投票造出圣经”属于后世流行神话。</p>
+  </details>
+
+  <details><summary>质疑四：“直到367年才第一次出现完整27卷，那之前新约不存在？”</summary>
+    <p>“现存最早完全相同的清单”不等于“那一年才第一次有人使用这些书”。爱任纽二世纪已维护四福音；优西比乌在367年前几十年已经区分普遍承认与受争议书卷。亚他那修的价值是显示到367年时，一份完整27卷目录已经能够被明确陈述。<a class="fn" href="#s6">[6]</a><a class="fn" href="#s7">[7]</a><a class="fn" href="#s8">[8]</a></p>
+  </details>
+
+  <details><summary>质疑五：“西奈抄本还有《巴拿巴书信》和《赫马牧人书》，所以正典明显是后来删的。”</summary>
+    <p>它确实说明部分早期抄本的边界与用途比现代印刷圣经复杂；这个证据不应回避。但西奈抄本的新约部分本身已经含今天全部27卷，而附加作品的位置、其他教父的分类以及跨地区使用情况都需要一起评估。单凭“同册出现”无法判定同等正典地位。<a class="fn" href="#s9">[9]</a></p>
+  </details>
+
+  <details><summary>质疑六：“犹大书引用《以诺书》，那《以诺书》也应进圣经。”</summary>
+    <p>引用不等于授予整本正典地位。保罗也引用希腊诗人。一个受默示作者可以引用真实、合适甚至广为人知的非正典资料，而不必宣布该资料整部都由神默示。</p>
+  </details>
+
+  <details><summary>质疑七：“教会用了这些书，所以教会比圣经更有权威。”</summary>
+    <p>这正是新教与天主教的核心分歧之一。新教回答是：教会能真实地认识、保存和宣告圣经，却不因此成为圣经权威的来源；正如先知的听众能认出先知，却不是听众把神的话变成神的话。</p>
+  </details>
+
+  <details><summary>质疑八：“如果圣灵带领，为什么还会争几百年？”</summary>
+    <p>基督教并没有承诺神会绕过历史过程、语言障碍、伪托文本、通信困难与人的有限性。神的护理可以借一个缓慢而真实的辨认过程工作。事实上，没有单一中央权力，却在广泛地区最终对27卷新约高度收敛，本身是一个值得解释的历史现象。</p>
+  </details>
+
+  <details><summary>质疑九：“既然学者承认早期旧约边界有流动性，那66卷就不能成立。”</summary>
+    <p>“曾有边界讨论”与“没有任何合理边界”不是一回事。学术研究强调第二圣殿与早期基督教的复杂性；新教正典论则进一步作神学判断：以希伯来圣经的先知性传统作为旧约规范边界。历史资料能约束这个判断，却不能自动替代神学判断。</p>
+  </details>
+
+  <details><summary>质疑十：“这是不是循环论证：圣经是真的，因为圣经说自己是真的？”</summary>
+    <p>如果只说这一句，确实太弱。成熟论证应是累积性的：历史耶稣与使徒见证、文本年代、教会早期使用、跨区域接纳、犹太圣经传统、文本内部统一与救赎结构，以及基督徒所说圣灵的内在见证。最高权威最终具有某种自我认证结构，但并非没有公共证据。</p>
+  </details>
+</section>
+
+<section id="proof">
+  <h2>11｜历史研究到底能证明什么？不能证明什么？</h2>
+  <table>
+    <thead><tr><th>历史研究能较强建立</th><th>历史研究不能单独建立</th></tr></thead>
+    <tbody>
+      <tr><td>四福音与保罗书信等核心文本在很早期已经拥有特殊权威。</td><td>“圣灵默示”作为超自然事实无法像碳十四测年一样被实验室直接检测。</td></tr>
+      <tr><td>新约27卷不是尼西亚会议凭空创造。</td><td>任何一份教会目录本身不能把普通文本变成神的话。</td></tr>
+      <tr><td>新约边缘书卷确实经历过真实争议与逐渐收敛。</td><td>没有一种纯粹“中立”的历史方法能强迫所有世界观接受神存在与启示。</td></tr>
+      <tr><td>犹太24卷与新教39卷属于同一核心文本集合。</td><td>单靠“古老”“被广泛阅读”不能等同于“受默示”。</td></tr>
+      <tr><td>古代基督教对旧约次经的地位并不完全统一。</td><td>仅靠某一位教父、某一抄本或某一地方会议无法独立解决66/73之争。</td></tr>
+      <tr><td>1546年特伦托会议正式固定罗马天主教的较广旧约目录，但这些书此前早已被许多基督徒使用。</td><td>“谁历史上人数更多”也不能自动成为神学真理的最终标准。</td></tr>
+    </tbody>
+  </table>
+  <p class="bigline">所以，护教中最稳健的说法不是“我能用考古学百分之百证明神亲自写了66卷”，而是：“我能够证明‘后来某群人任意挑书’这个流行叙事与史料不符；并且我能给出一套历史上扎实、神学上连贯、认识论上自洽的理由，解释为什么教会把这批书视为神的规范性启示。”</p>
+</section>
+
+<section id="case">
+  <h2>12｜一个更完整的“累积论证”：为什么改革宗/福音派有充分理由承认66卷</h2>
+  <div class="grid2">
+    <div class="card"><h4>第一层：神学可能性</h4><p>如果创造世界的神存在，祂向受造者启示并不是荒谬事件。启示的可能性取决于神论，而不是先取决于正典目录。</p></div>
+    <div class="card"><h4>第二层：基督中心</h4><p>基督教正典问题最终围绕耶稣是谁。如果耶稣确是复活的主，祂对旧约的态度与祂授权的使徒见证具有决定性重量。</p></div>
+    <div class="card"><h4>第三层：先知—使徒结构</h4><p>旧约围绕先知性启示形成；新约围绕基督授权的使徒见证形成。正典不是宗教文学排行榜，而是救赎历史中的官方见证。</p></div>
+    <div class="card"><h4>第四层：历史接纳轨迹</h4><p>核心书卷早期、广泛、跨地区被当作权威；边缘书卷经历谨慎核验；伪经和后期作品整体未获得同等普遍承认。</p></div>
+    <div class="card"><h4>第五层：圣经内在统一</h4><p>跨越长时期、多作者、多文体，却形成创造—堕落—应许—以色列—基督—教会—新创造的巨大叙事统一，这是新教传统所谓圣经“各部分同意、全书目标一致”的一部分证据。<a class="fn" href="#s15">[15]</a></p></div>
+    <div class="card"><h4>第六层：圣灵与教会见证</h4><p>教会的共同见证不是权威来源，却是重要公共证据；圣灵的工作不是替代证据，而是使人真正看见神的话所显明的神圣性质。</p></div>
+  </div>
+
+  <div class="answer"><strong>一句话总结整套模型：</strong><br>不是“教会选择了66本，于是它们成为圣经”；而是“神在救赎历史中借先知与使徒赐下权威见证，这些书因此具有正典性；神的百姓在历史中逐渐、并非毫无曲折地认出了它们。”</div>
+</section>
+
+<section id="pastoral">
+  <h2>13｜以后传福音或牧会时，可以怎么回答？</h2>
+
+  <h3>30秒版本</h3>
+  <div class="script">“圣经不是公元四世纪某个会议从很多书里随便挑了66本。旧约39卷其实就是犹太《塔纳赫》24卷同一批文本的不同分卷；新约的四福音和使徒书信在第二世纪已经广泛被教会当作权威使用，少数书卷后来才完成跨地区确认。教会做的是辨认和承认，不是把普通书变成神的话。至于为什么最终相信它是神的启示，那是历史证据、耶稣与使徒权威、圣经自身性质和圣灵见证共同构成的信仰判断。”</div>
+
+  <h3>三分钟版本</h3>
+  <div class="script">“这个问题其实要分两层。第一层是历史：有没有一次会议制造了圣经？答案是否定的。尼西亚会议没有决定圣经目录。二世纪已经有四福音的明确传统，四世纪优西比乌还能告诉我们哪些书普遍承认、哪些仍有争议；367年亚他那修列出完整27卷新约。这看起来是一个逐渐辨认并收敛的历史，而不是一次政治投票。第二层是神学：教会为什么有资格认出它？新教的回答不是教会给圣经权威，而是神先借先知和使徒说话；教会像见证人一样承认这些权威文本。旧约66/73的差异则要进一步讨论希伯来圣经与次经在早期教会中的不同地位，不能用一句‘天主教后来加了’草率处理。”</div>
+
+  <h3>面对天主教朋友时</h3>
+  <p>不要从“你们加了七卷假经”开场。更好的问题是：<strong>旧约正典的规范边界应主要由希伯来圣经的先知性传统决定，还是由后来较广的教会传统决定？</strong>然后讨论约瑟夫斯、希伯来24卷、耶柔米、迦太基、七十士传统的多样性与特伦托会议。这样讨论会落在真正分歧上。</p>
+
+  <h3>面对无神论/不可知论朋友时</h3>
+  <p>不要一上来要求对方先接受“圣经无误”。先拆掉错误历史叙事：没有尼西亚投票造圣经；然后谈耶稣、使徒见证、文本年代与早期接纳，再解释基督教为何认为神能够借人说话。<strong>正典护教最好从基督论出发，而不是从“66”这个数字出发。</strong></p>
+</section>
+
+<section id="wrong">
+  <h2>14｜为了让论证真正经得起查证，五种说法尽量不要再用</h2>
+  <table>
+    <thead><tr><th>不要这样说</th><th>为什么不稳</th><th>更准确的说法</th></tr></thead>
+    <tbody>
+      <tr><td class="myth">“尼西亚会议投票选出圣经。”</td><td>现存会议资料没有这件事。</td><td class="truth">正典共识在多个世纪逐渐形成，尼西亚并非决定正典的会议。</td></tr>
+      <tr><td class="myth">“从使徒时代开始，所有教会对66卷从未有任何争议。”</td><td>优西比乌明确记录新约争议书；旧约边界更复杂。</td><td class="truth">核心很早稳定，边缘书卷经历较长辨认。</td></tr>
+      <tr><td class="myth">“天主教1546年凭空加了七卷。”</td><td>这些书在古代早已被许多教会阅读并列入一些地方清单。</td><td class="truth">特伦托把古代较广旧约传统以天主教教义形式正式固定。</td></tr>
+      <tr><td class="myth">“七十士译本就是一本固定73卷的犹太圣经。”</td><td>早期希腊抄本内容与边界并不整齐一致。</td><td class="truth">“七十士译本传统”是复杂的文本与书卷集合，不能简单等同于后来某一固定目录。</td></tr>
+      <tr><td class="myth">“死海古卷证明当时犹太人只有39卷。”</td><td>昆兰同时保存圣经书卷与大量非正典宗教作品。</td><td class="truth">死海古卷证明希伯来圣书传统极古老，也显示第二圣殿文献生态的丰富与复杂。</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="canonmap">
+  <h2>15｜66卷速查：你真正需要记住的不是数字，而是结构</h2>
+  <div class="books">
+    <p><strong>旧约·摩西五经（5）</strong><br>创世记、出埃及记、利未记、民数记、申命记</p>
+    <p><strong>旧约·历史书（12）</strong><br>约书亚记、士师记、路得记、撒母耳记上/下、列王纪上/下、历代志上/下、以斯拉记、尼希米记、以斯帖记</p>
+    <p><strong>旧约·诗歌智慧书（5）</strong><br>约伯记、诗篇、箴言、传道书、雅歌</p>
+    <p><strong>旧约·大先知（5）</strong><br>以赛亚书、耶利米书、耶利米哀歌、以西结书、但以理书</p>
+    <p><strong>旧约·小先知（12）</strong><br>何西阿、约珥、阿摩司、俄巴底亚、约拿、弥迦、那鸿、哈巴谷、西番雅、哈该、撒迦利亚、玛拉基</p>
+    <p><strong>新约·福音与历史（5）</strong><br>马太、马可、路加、约翰、使徒行传</p>
+    <p><strong>新约·保罗书信（13）</strong><br>罗马书、林前/林后、加拉太、以弗所、腓立比、歌罗西、帖前/帖后、提前/提后、提多、腓利门</p>
+    <p><strong>新约·希伯来书与大公书信（8）</strong><br>希伯来书、雅各书、彼前/彼后、约一/约二/约三、犹大书</p>
+    <p><strong>新约·启示文学（1）</strong><br>启示录</p>
+  </div>
+  <div class="note"><strong>最值得背下来的结构：</strong>39卷旧约 = 犹太24卷同一主体文本的基督教分卷；27卷新约 = 四福音 + 使徒行传 + 保罗书信 + 大公书信/希伯来书 + 启示录。正典的神学核心不是“66这个数字有神秘意义”，而是<strong>先知与使徒的规范性见证</strong>。</div>
+</section>
+
+<section id="sources">
+  <h2>16｜主要史料与研究来源</h2>
+  <p class="muted">以下来源刻意混合了原始史料、天主教官方文件、改革宗信条与现代学术研究，以避免只引用“自己这一方”的材料。</p>
+  <ol class="sources">
+    <li id="s1"><strong>Cambridge University Press</strong>, “Texts, titles, and translations,” <em>The Cambridge Companion to the Hebrew Bible/Old Testament</em>. 指出希伯来24卷与新教39卷是同一批书的不同计数。<br><a href="https://www.cambridge.org/core/books/cambridge-companion-to-the-hebrew-bibleold-testament/texts-titles-and-translations/E2FB15A92E8748D4F6892B7A4494A8D6">来源链接</a></li>
+    <li id="s2"><strong>Josephus, Against Apion 1.8</strong>. 一世纪末关于22卷神圣书卷、后先知时代著作权威差异的重要犹太见证。<br><a href="https://penelope.uchicago.edu/josephus/apion-1.html">来源链接</a></li>
+    <li id="s3"><strong>Israel Museum, Digital Dead Sea Scrolls</strong>, “Nature and Significance.” 昆兰约两百份圣经抄本及非正典宗教作品并存的说明。<br><a href="https://dss.collections.imj.org.il/significance">来源链接</a></li>
+    <li id="s4"><strong>Timothy H. Lim</strong>, “How was the Canon Formed?” <em>Expository Times</em> 133 (2022), 357–369. 现代学术对希伯来正典形成复杂性的概述。<br><a href="https://journals.sagepub.com/doi/10.1177/00145246221088365">来源链接</a></li>
+    <li id="s5"><strong>Timothy Michael Law</strong>, “The New Old Testament,” in <em>When God Spoke Greek</em>, Oxford University Press. 早期基督教旧约边界流动性的学术讨论。<br><a href="https://academic.oup.com/book/6258/chapter-abstract/149905979">来源链接</a></li>
+    <li id="s6"><strong>Irenaeus</strong>, <em>Against Heresies</em> 3.11. 二世纪末明确维护四福音传统。<br><a href="https://www.newadvent.org/fathers/0103311.htm">来源链接</a></li>
+    <li id="s7"><strong>Eusebius</strong>, <em>Ecclesiastical History</em> 3.25. 区分“公认”“受争议”“被拒绝”等新约文本。<br><a href="https://www.newadvent.org/fathers/250103.htm">来源链接</a></li>
+    <li id="s8"><strong>Athanasius</strong>, Festal Letter 39 (367). 现存最早与今天完全一致的27卷新约清单，同时区分正典与可读书。<br><a href="https://www.newadvent.org/fathers/2806039.htm">来源链接</a></li>
+    <li id="s9"><strong>Codex Sinaiticus Project</strong>, “Content” and “Significance.” 说明西奈抄本新约27卷及附录《巴拿巴书信》《赫马牧人书》。<br><a href="https://www.codexsinaiticus.org/en/codex/content.aspx">来源链接</a></li>
+    <li id="s10"><strong>Donald Senior</strong>, “The Formation of the Canon and the Creation of the ‘New Testament’,” Oxford University Press, 2021/2022. 对使徒联系、信仰一致、广泛接纳等准则的学术综述。<br><a href="https://academic.oup.com/book/41140/chapter-abstract/350492151">来源链接</a></li>
+    <li id="s11"><strong>Council of Carthage / African Code</strong>. 古代北非教会包含多比、友弟德、玛加伯等的正典清单，以及与今天一致的27卷新约。<br><a href="https://www.newadvent.org/fathers/3816.htm">来源链接</a></li>
+    <li id="s12"><strong>Jerome</strong>, Prologues to the biblical books. 对智慧、德训、友弟德、多比、玛加伯等作“可读但不用于建立教义正典权威”的区分。<br><a href="https://ccel.org/ccel/schaff/npnf206.vii.iii.x.html">来源链接</a></li>
+    <li id="s13"><strong>Council of Trent</strong>, Fourth Session, Decree Concerning the Canonical Scriptures, 8 April 1546. 罗马天主教正式列出并教义性确认其圣经清单。<br><a href="https://www.papalencyclicals.net/councils/trent/fourth-session.htm">来源链接</a></li>
+    <li id="s14"><strong>Catechism of the Catholic Church</strong>, §120. 罗马天主教官方说明46卷旧约与27卷新约。<br><a href="https://www.vatican.va/content/catechism/en/part_one/section_one/chapter_two/article_3/iv_the_canon_of_scripture.html">来源链接</a></li>
+    <li id="s15"><strong>Westminster Confession of Faith</strong>, 1.3–1.5. 改革宗关于次经、圣经权威来源、教会见证和圣灵内证的经典表述。<br><a href="https://www.pcahistory.org/HCLibrary/westminster/wcf/tercentenary/carruthers.pdf">来源链接</a></li>
+    <li id="s16"><strong>First Council of Nicaea (325), surviving canons</strong>. 现存教规内容可核对，并无圣经目录决议。<br><a href="https://www.newadvent.org/fathers/3801.htm">来源链接</a></li>
+    <li id="s17"><strong>Geoffrey Mark Hahneman</strong>, <em>The Muratorian Fragment and the Development of the Canon</em>, Oxford University Press. 提醒穆拉多利残篇传统年代本身存在学术争议，不应把它当作毫无争论的“约180年完整正典证明”。<br><a href="https://academic.oup.com/book/1386">来源链接</a></li>
+    <li id="s18"><strong>J. K. Elliott</strong>, “Manuscripts, the Codex and the Canon,” <em>Journal for the Study of the New Testament</em> 19 (1997). 讨论重要抄本内容差异及旧约边界的流动性。<br><a href="https://journals.sagepub.com/doi/10.1177/0142064X9701906306">来源链接</a></li>
+    <li id="s19"><strong>Oxford Handbook of the Bible in Orthodox Christianity</strong> (2022). 说明东正教传统在旧约正典与“可读书”范围上不像新教/天主教那样单一固定。<br><a href="https://academic.oup.com/edited-volume/41986">来源链接</a></li>
+    <li id="s20"><strong>Gilles Dorival</strong>, “The Septuagint and the Issue of the Canon,” Oxford University Press, 2021. 讨论希腊旧约、次经与犹太阅读传统之间比“亚历山大有一套固定更大正典”更复杂的关系。<br><a href="https://academic.oup.com/book/39198/chapter-abstract/338691469">来源链接</a></li>
+  </ol>
+
+  <h3>进一步研读建议</h3>
+  <p>若要继续进入学术层面，可重点阅读：F. F. Bruce, <em>The Canon of Scripture</em>；Bruce M. Metzger, <em>The Canon of the New Testament</em>；Michael J. Kruger, <em>Canon Revisited</em> 与 <em>The Question of Canon</em>；Lee Martin McDonald 关于正典形成的研究；Timothy H. Lim 关于希伯来正典形成的研究。阅读时最好同时保留天主教与较批判学派的作品作为对照，这样能避免只在自己的神学传统内部循环论证。</p>
+</section>
+
+<footer>
+  <p><strong>结语：</strong>基督徒不需要害怕正典史的复杂性。真正危险的不是“历史上曾经有争议”，而是用错误历史去捍卫真理。更有力量的护教，是承认所有真实证据，再说明为什么这些证据与“神借先知和使徒赐下启示、教会在历史中辨认启示”的模型高度相容。</p>
+  <p class="printnote">本文件为单页HTML研究报告。正文中的史料图片使用公共领域的Wikimedia图像链接，需联网加载；所有图表与主要排版均内嵌于本文件。</p>
+</footer>
+</main>
+</div>
+</body>
+</html>

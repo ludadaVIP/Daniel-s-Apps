@@ -13,7 +13,7 @@ if not exist "node_modules\" (
 
 echo.
 echo NodeApps is starting at http://127.0.0.1:5888
-echo One window, four apps. Press Ctrl+C to stop.
+echo One window, seven apps. Press Ctrl+C to stop.
 echo.
 call npm run dev
 pause

@@ -26,7 +26,7 @@ fi
 
 echo
 echo "NodeApps is starting at http://127.0.0.1:5888"
-echo "One window, four apps. Press Control-C to stop."
+echo "One window, seven apps. Press Control-C to stop."
 echo
 
 # Let Vite begin listening before opening the default browser. `exec` keeps

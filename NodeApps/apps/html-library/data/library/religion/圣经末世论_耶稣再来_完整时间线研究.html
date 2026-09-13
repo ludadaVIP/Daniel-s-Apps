@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<title>圣经中的世界末了与耶稣再来：旧约—新约完整时间线研究</title>
+<meta name="description" content="从创世记到启示录，系统梳理主的日子、弥赛亚国度、大灾难、敌基督、耶稣再来、复活、审判、千禧年与新天新地。"/>
+<style>
+:root{
+  --bg:#0b1020; --panel:#111831; --panel2:#161f3e; --text:#edf1ff; --muted:#aeb8d8;
+  --line:#2b3767; --gold:#f0c56c; --blue:#75a7ff; --green:#68d6a8; --red:#ff7d8a;
+  --purple:#b49cff; --cyan:#75d7e8; --ink:#0d1325;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 20% 0%, rgba(117,167,255,.13), transparent 34rem),
+ radial-gradient(circle at 80% 12%, rgba(180,156,255,.11), transparent 30rem),
+ var(--bg); color:var(--text); font-family: Inter, "Noto Sans SC", "Microsoft YaHei", system-ui, sans-serif; line-height:1.78}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.container{max-width:1220px;margin:auto;padding:0 22px}
+.hero{padding:72px 0 38px;border-bottom:1px solid var(--line)}
+.kicker{color:var(--gold);font-weight:800;letter-spacing:.14em;text-transform:uppercase;font-size:.82rem}
+h1{font-size:clamp(2.2rem,5vw,4.7rem);line-height:1.08;margin:.35rem 0 1rem;max-width:1050px}
+.hero p{font-size:1.12rem;color:var(--muted);max-width:980px}
+.badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.badge{border:1px solid var(--line);background:rgba(255,255,255,.035);padding:7px 11px;border-radius:999px;font-size:.9rem}
+.badge.gold{border-color:#7b6538;color:var(--gold)}
+.badge.blue{border-color:#395c98;color:#a9c7ff}
+.badge.green{border-color:#2d6c57;color:#93e8c4}
+.notice{margin:28px 0;padding:18px 20px;border-left:4px solid var(--gold);background:rgba(240,197,108,.08);border-radius:8px}
+.grid{display:grid;gap:18px}
+.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+@media(max-width:900px){.grid-2,.grid-3,.grid-4{grid-template-columns:1fr}}
+.card{background:linear-gradient(180deg,rgba(255,255,255,.035),rgba(255,255,255,.015));border:1px solid var(--line);border-radius:16px;padding:20px}
+.card h3{margin:.1rem 0 .6rem}
+.card p:last-child{margin-bottom:0}
+.section{padding:52px 0;border-bottom:1px solid rgba(43,55,103,.65)}
+.section h2{font-size:clamp(1.55rem,3vw,2.55rem);line-height:1.2;margin:0 0 14px}
+.section-intro{color:var(--muted);max-width:980px;margin-bottom:26px}
+.toc{position:sticky;top:0;z-index:30;background:rgba(11,16,32,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.toc .container{display:flex;gap:16px;overflow:auto;padding-top:11px;padding-bottom:11px}
+.toc a{white-space:nowrap;color:#c9d3f4;font-size:.9rem}
+.timeline{position:relative;margin:30px 0}
+.timeline:before{content:"";position:absolute;left:18px;top:0;bottom:0;width:2px;background:linear-gradient(var(--blue),var(--purple),var(--gold))}
+.event{position:relative;margin-left:52px;padding:0 0 28px}
+.event:before{content:"";position:absolute;left:-41px;top:7px;width:15px;height:15px;border-radius:50%;background:var(--bg);border:3px solid var(--blue);box-shadow:0 0 0 5px rgba(117,167,255,.08)}
+.event[data-c="A"]:before{border-color:var(--green)}
+.event[data-c="B"]:before{border-color:var(--gold)}
+.event[data-c="C"]:before{border-color:var(--purple)}
+.event h3{margin:0 0 4px;font-size:1.15rem}
+.event .meta{font-size:.85rem;color:var(--muted);margin-bottom:6px}
+.conf{display:inline-block;font-size:.72rem;font-weight:800;border:1px solid;padding:3px 7px;border-radius:999px;margin-right:6px}
+.conf.a{color:#9ce9c8;border-color:#2d6c57}.conf.b{color:#f6d78f;border-color:#7b6538}.conf.c{color:#d3c6ff;border-color:#5f4f9c}
+.refs{color:#9fb0df;font-size:.92rem}
+.quote{margin:14px 0;padding:14px 18px;border-left:3px solid var(--blue);background:rgba(117,167,255,.07);color:#dce6ff}
+table{width:100%;border-collapse:collapse;margin:18px 0;background:rgba(255,255,255,.02);font-size:.94rem}
+th,td{border:1px solid var(--line);padding:12px 13px;text-align:left;vertical-align:top}
+th{background:#182249;color:#f5f7ff;position:sticky;top:42px;z-index:2}
+.small{font-size:.88rem;color:var(--muted)}
+.callout{border:1px solid var(--line);border-radius:14px;padding:18px;margin:18px 0;background:#10172d}
+.callout strong{color:var(--gold)}
+.pill{display:inline-flex;align-items:center;gap:6px;border-radius:999px;border:1px solid var(--line);padding:5px 9px;margin:3px 4px 3px 0;font-size:.82rem}
+.pill:before{content:"";width:7px;height:7px;border-radius:50%;background:var(--blue)}
+.pill.green:before{background:var(--green)}.pill.gold:before{background:var(--gold)}.pill.red:before{background:var(--red)}.pill.purple:before{background:var(--purple)}
+.svgbox{overflow:auto;border:1px solid var(--line);border-radius:16px;background:#0e152b;padding:14px}
+svg text{font-family:Inter,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif}
+.book{border-top:4px solid var(--blue)}
+.book.ot{border-top-color:var(--gold)} .book.nt{border-top-color:var(--cyan)}
+.mini{font-size:.82rem;color:var(--muted)}
+details{border:1px solid var(--line);border-radius:12px;margin:10px 0;background:rgba(255,255,255,.02)}
+summary{cursor:pointer;padding:14px 16px;font-weight:700}
+details>div{padding:0 16px 16px;color:#dbe2fb}
+.legend{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 22px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0 26px}
+button{background:#162042;color:#eaf0ff;border:1px solid var(--line);border-radius:9px;padding:8px 12px;cursor:pointer}
+button:hover{background:#1d2a55}
+.footer{padding:48px 0 70px;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:30px 0}
+code{background:#151e3a;border:1px solid var(--line);padding:2px 5px;border-radius:5px}
+@media print{
+  body{background:white;color:#111}
+  .toc,.controls{display:none}
+  .card,.callout,details,table,.svgbox{background:white;color:#111;border-color:#bbb}
+  .section{page-break-inside:avoid}
+  a{color:#111}
+  .section-intro,.small,.mini,.refs{color:#444}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="container">
+    <div class="kicker">Biblical Eschatology · 从创世记到启示录</div>
+    <h1>圣经中的世界末了与耶稣再来：完整时间线研究</h1>
+    <p>以整本圣经为一条救赎历史主线，梳理“主的日子、弥赛亚国度、末后的患难、敌基督、耶稣再来、死人复活、圣徒被聚集、审判、千禧年与新天新地”。重点区分：<b>圣经明确陈述</b>、<b>经文间较强推论</b>、以及<b>不同新教末世论体系的争议性排序</b>。</p>
+    <div class="badges">
+      <span class="badge gold">旧约预言基础</span>
+      <span class="badge blue">福音书与使徒书信</span>
+      <span class="badge green">启示录全书结构</span>
+      <span class="badge">前千禧年 · 无千禧年 · 后千禧年</span>
+      <span class="badge">灾前 / 灾中 / 灾后被提争议</span>
+    </div>
+    <div class="notice"><b>阅读原则：</b>圣经对“基督必再来、死人必复活、人人必受审判、神国必完全、新天新地必来到”极其清楚；但对某些事件之间究竟相隔多久、启示录异象是否严格线性、千禧年性质、教会是否在大灾难前被提等，历代正统新教内部存在不同解释。本文不会把争议性体系伪装成“经文明说”。</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="container">
+    <a href="#map">总图</a><a href="#method">解释方法</a><a href="#ot">旧约基础</a><a href="#jesus">耶稣的末世讲论</a>
+    <a href="#paul">保罗书信</a><a href="#general">普通书信</a><a href="#revelation">启示录</a>
+    <a href="#timeline">事件时间线</a><a href="#models">四大模型</a><a href="#disputed">争议经文</a>
+    <a href="#passages">核心经文索引</a><a href="#application">属灵应用</a>
+  </div>
+</nav>
+
+<main>
+<section class="section" id="map">
+<div class="container">
+  <h2>一、一张图看完整个圣经末世主线</h2>
+  <p class="section-intro">从“创造—堕落”开始，圣经的终点不是灵魂永远离开物质世界，而是神在基督里完成救赎，使死人复活，审判罪恶，并更新受造界。末世论首先是<b>救赎历史的完成</b>，其次才是事件排序问题。</p>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 1180 430" width="1180" height="430" role="img" aria-label="圣经末世救赎历史总图">
+    <defs>
+      <linearGradient id="g1" x1="0" x2="1"><stop offset="0%" stop-color="#75a7ff"/><stop offset="100%" stop-color="#b49cff"/></linearGradient>
+      <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8ea9ee"/></marker>
+    </defs>
+    <rect x="20" y="30" width="1140" height="360" rx="24" fill="#0b1227" stroke="#2b3767"/>
+    <line x1="90" y1="215" x2="1090" y2="215" stroke="url(#g1)" stroke-width="4" marker-end="url(#arrow)"/>
+    <g fill="#111831" stroke="#49619c" stroke-width="2">
+      <circle cx="110" cy="215" r="32"/><circle cx="250" cy="215" r="32"/><circle cx="390" cy="215" r="32"/>
+      <circle cx="540" cy="215" r="32"/><circle cx="700" cy="215" r="32"/><circle cx="860" cy="215" r="32"/><circle cx="1030" cy="215" r="32"/>
+    </g>
+    <g fill="#edf1ff" font-size="17" font-weight="700" text-anchor="middle">
+      <text x="110" y="220">创造</text><text x="250" y="220">堕落</text><text x="390" y="220">旧约应许</text>
+      <text x="540" y="220">基督初临</text><text x="700" y="220">末后的日子</text><text x="860" y="220">基督再临</text><text x="1030" y="220">新创造</text>
+    </g>
+    <g fill="#aeb8d8" font-size="14" text-anchor="middle">
+      <text x="110" y="275">神看一切甚好</text>
+      <text x="250" y="275">罪、死、咒诅进入</text>
+      <text x="390" y="275">后裔 · 国度 · 主的日子</text>
+      <text x="540" y="275">十架 · 复活 · 升天</text>
+      <text x="700" y="275">福音传万邦 · 教会作见证</text>
+      <text x="860" y="275">显现 · 复活 · 聚集 · 审判</text>
+      <text x="1030" y="275">新天新地 · 神与人同住</text>
+    </g>
+    <g fill="#f0c56c" font-size="15" text-anchor="middle">
+      <text x="390" y="115">预言指向终末</text><text x="860" y="115">“看哪，我必快来”</text>
+    </g>
+    <path d="M390 130 C520 70,720 70,860 130" fill="none" stroke="#f0c56c" stroke-width="2" stroke-dasharray="7 7"/>
+    <text x="625" y="65" fill="#cfd8f7" text-anchor="middle" font-size="15">已经开始（Already） ← 神国已借基督进入历史 → 尚未完全（Not Yet）</text>
+    <text x="700" y="342" fill="#75d7e8" text-anchor="middle" font-size="16">新约称基督初临之后已经进入“末后的日子”</text>
+  </svg>
+  </div>
+
+  <div class="grid grid-4" style="margin-top:18px">
+    <div class="card"><h3>确定的终点</h3><p>耶稣本人要再来；死人复活；神审判世界；撒但与死亡最终被除灭；圣徒永远与主同在；新天新地成为永恒居所。</p></div>
+    <div class="card"><h3>已经开始</h3><p>基督复活已经是“初熟的果子”；圣灵浇灌表明“末后的日子”已经开始；基督现今坐在父右边掌权。</p></div>
+    <div class="card"><h3>尚未完全</h3><p>罪恶仍在，死亡仍在，万物仍叹息。新约信徒活在“已经—尚未”张力之中，等候身体得赎。</p></div>
+    <div class="card"><h3>最需谨慎</h3><p>任何精确日期、把每一场战争直接对应某节启示录、声称已经确定敌基督是谁，通常都超过经文本身证据。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="method">
+<div class="container">
+  <h2>二、如何读末世经文：先区分“确定性等级”</h2>
+  <div class="legend">
+    <span class="conf a">A 级：经文明说</span><span class="conf b">B 级：较强综合推论</span><span class="conf c">C 级：解释体系有明显分歧</span>
+  </div>
+  <div class="grid grid-3">
+    <div class="card"><h3>A 级：必须持守</h3><p>例如：基督将亲自再来（徒1:11）；死人复活（约5:28-29；林前15）；末日审判（太25:31-46；启20:11-15）；新天新地（彼后3:13；启21-22）。这些属于大公基督教与主流新教共同信仰核心。</p></div>
+    <div class="card"><h3>B 级：可以建立时间关系</h3><p>例如：福音向万民作见证与终局有关（太24:14）；“不法的人”与主降临存在关联（帖后2）；大规模背道、逼迫、敌对权势在终末加剧。</p></div>
+    <div class="card"><h3>C 级：不要绝对化</h3><p>例如：帖前4的“被提”发生在七年灾难前还是基督公开降临时；启20的“一千年”是字面未来国度还是象征教会时代；但9“七十个七”的最后一七是否与前六十九个七之间有长间隔。</p></div>
+  </div>
+  <div class="callout"><strong>一个关键观察：</strong>新约并没有把末世变成“猜日期的密码学”。耶稣一方面要求门徒留意征兆、警醒等候，另一方面明确拒绝让门徒掌握父凭自己权柄所定的时候和日期（太24:36；徒1:7）。因此，成熟的末世论应同时具备<b>盼望、警醒、圣洁、使命</b>，而不是恐慌、猎奇和日期计算。</div>
+</div>
+</section>
+
+<section class="section" id="ot">
+<div class="container">
+  <h2>三、旧约：末世论不是从《启示录》突然开始</h2>
+  <p class="section-intro">旧约已经建立几乎全部核心主题：女人后裔胜过蛇、万国归向亚伯拉罕之约、君王弥赛亚、耶和华的日子、死人复活、列国受审判、以色列复兴、圣灵浇灌、锡安得荣耀、受造界更新。新约不是另起炉灶，而是在基督里重新聚焦并展开这些主题。</p>
+
+  <div class="grid grid-3">
+    <div class="card book ot"><h3>创世记：终末盼望的种子</h3><p><b>创3:15</b>：女人的后裔最终伤蛇的头，成为整本圣经“弥赛亚战胜仇敌”的原型。<br><b>创12:1-3；22:18</b>：地上万国要因亚伯拉罕后裔得福，为新约万民福音与末后万国敬拜奠基。</p></div>
+    <div class="card book ot"><h3>申命记：审判之后的归回</h3><p><b>申30:1-10</b>把被掳、归回、心的更新连在一起。后来先知把这种“归回”扩展到更宏大的末世更新。</p></div>
+    <div class="card book ot"><h3>诗篇：受膏君王统治列国</h3><p><b>诗2</b>：列国敌挡耶和华和受膏者，但神立王在锡安。<br><b>诗110</b>：弥赛亚坐在神右边，直到仇敌成为脚凳。新约频繁用它解释基督升天与末后得胜。</p></div>
+
+    <div class="card book ot"><h3>以赛亚：主的日子与新创造</h3><p><b>赛2</b>万国流归耶和华的山；<b>赛11</b>耶西之根治理万民；<b>赛24-27</b>宇宙性审判、吞灭死亡、死人复活；<b>赛65-66</b>新天新地。以赛亚把“审判”和“更新”紧密并置。</p></div>
+    <div class="card book ot"><h3>以西结：新心、新灵、歌革玛各</h3><p><b>结36-37</b>新心新灵、枯骨复生、重新成为一个子民；<b>结38-39</b>歌革与玛各战争；<b>结40-48</b>末后圣殿/土地/神同在异象。启示录大量吸收其图像。</p></div>
+    <div class="card book ot"><h3>但以理：国度、兽、人子、复活</h3><p><b>但2</b>列国帝国被神永恒国度取代；<b>但7</b>四兽与“人子”得永远国权；<b>但9</b>七十个七；<b>但12</b>前所未有的艰难、死人复活、末后封印开启。</p></div>
+
+    <div class="card book ot"><h3>约珥：圣灵浇灌与耶和华大日</h3><p><b>珥2:28-32</b>圣灵浇灌伴随日月天象与“耶和华大而可畏的日子”。彼得在徒2宣告五旬节已经开始应验，但终末层面仍指向未来。</p></div>
+    <div class="card book ot"><h3>撒迦利亚：王来临、被刺者、终末争战</h3><p><b>亚9:9</b>君王谦和骑驴；<b>12:10</b>仰望被扎者；<b>14</b>耶和华的日子、万国聚集、耶和华作全地之王。福音书与启示录不断借用撒迦利亚。</p></div>
+    <div class="card book ot"><h3>玛拉基：大而可畏之日</h3><p><b>玛3-4</b>使者预备道路，主忽然进入殿中，施行炼净与审判；“耶和华大而可畏之日”成为旧约最后的终末呼声。</p></div>
+  </div>
+
+  <h3 style="margin-top:34px">旧约主要末世母题 → 新约完成</h3>
+  <table>
+    <thead><tr><th>旧约主题</th><th>核心旧约经文</th><th>新约中的展开</th><th>终末意义</th></tr></thead>
+    <tbody>
+      <tr><td>蛇被击败</td><td>创3:15</td><td>罗16:20；启12；20</td><td>撒但最终被彻底除灭</td></tr>
+      <tr><td>万国得福</td><td>创12:3；22:18</td><td>太28:18-20；加3:8；启7:9</td><td>救赎包含各族各民</td></tr>
+      <tr><td>受膏君王</td><td>诗2；110</td><td>徒2；来1；启19</td><td>基督现今并最终作王</td></tr>
+      <tr><td>主的日子</td><td>赛13；珥2；番1</td><td>帖前5；彼后3；启6-19</td><td>审判与拯救共同临到</td></tr>
+      <tr><td>死人复活</td><td>赛26:19；但12:2</td><td>约5:28-29；林前15</td><td>身体复活，不只是灵魂继续存在</td></tr>
+      <tr><td>列国审判</td><td>珥3；亚14</td><td>太25；启19-20</td><td>基督公开审判世界</td></tr>
+      <tr><td>新天新地</td><td>赛65-66</td><td>彼后3:13；启21-22</td><td>受造界更新，神与人同住</td></tr>
+    </tbody>
+  </table>
+
+  <details><summary>但以理书 7 章为什么是理解耶稣再来的“骨架经文”？</summary><div>
+    但7先出现四个兽，代表敌对神的帝国权势；随后“亘古常在者”坐着审判，兽的权柄被夺去；“一位像人子的”驾云来到，领受权柄、荣耀、国度，万民都事奉他。耶稣在太24:30与太26:64把“人子驾云”语言应用在自己身上；启1:7、14:14也继续使用。换言之，新约的再来图景很大程度就是把但7的“人子得国、兽受审判”基督论化、终末化。</div></details>
+
+  <details><summary>但以理书 9 章“七十个七”为什么争议极大？</summary><div>
+    共同点是：经文围绕罪恶终止、赎罪、永义、受膏者与圣城灾难展开。争议在于最后一个“七”如何与基督、主后70年耶路撒冷被毁、以及未来终末联系。时代论常把第69与第70个七之间放置教会时代，将最后一七理解为未来七年灾难；另一些改革宗、无千禧年或历史前千禧年解经者则认为七十个七在基督第一次降临及随后耶路撒冷审判中已经达到核心实现。本文因此把“末后七年灾难”列为C级争议，而不是圣经无争议明说。</div></details>
+</div>
+</section>
+
+<section class="section" id="jesus">
+<div class="container">
+  <h2>四、耶稣亲自怎样教导世界的末了</h2>
+  <p class="section-intro">最核心文本是太24-25、可13、路21，通常称“橄榄山讲论”。这里要特别注意：耶稣回答的问题同时涉及<b>圣殿被毁</b>与<b>他的降临和世代终结</b>。不同解释的关键，就是哪些句子主要指主后70年，哪些指最终再来，哪些具有“近处预表—远处终极”的双重结构。</p>
+
+  <div class="grid grid-2">
+    <div class="card"><h3>1. 假基督、战争、饥荒、地震</h3><p>太24:4-8称这些为“灾难的起头/生产之难的开始”。重点不是每一次战争都代表末日马上到，而是整个时代处于阵痛之中；阵痛会指向最终生产，却不能单凭某一次震动计算日期。</p></div>
+    <div class="card"><h3>2. 逼迫、背道、假先知、不法增多</h3><p>太24:9-13把末世危机放在教会内部与外部：圣徒受逼迫、有人跌倒彼此陷害、假先知迷惑、不法增多使爱心冷淡；“忍耐到底”成为门徒伦理。</p></div>
+    <div class="card"><h3>3. 福音传遍天下</h3><p>太24:14：天国福音要传遍天下，对万民作见证，然后末期才来到。它是大使命与末世论的交汇点：教会不是消极等待灾难，而是在末世中执行宣教使命。</p></div>
+    <div class="card"><h3>4. “行毁坏可憎的”与大灾难</h3><p>太24:15-22引用但以理。“可憎之物”可能首先联系安提阿古四世的亵渎传统，并在主后70年罗马毁城中获得近端应验；许多未来派解经者进一步认为它还指向终末敌基督的最后亵渎。</p></div>
+    <div class="card"><h3>5. 假基督与假先知行大神迹</h3><p>太24:23-28警告末后迷惑极强，以至若能行连选民也要迷惑。耶稣因此强调真正再来不需要秘密地点广告：“人子降临”像闪电从东照到西，具有公开、不可误认的性质。</p></div>
+    <div class="card"><h3>6. 天象震动与人子显现</h3><p>太24:29-31使用赛13、34和但7的语言：日月昏暗、众天势力震动，人子在天云上有能力大荣耀降临，并差遣使者聚集选民。</p></div>
+  </div>
+
+  <h3 style="margin-top:34px">太24-25的内在结构</h3>
+  <div class="timeline">
+    <div class="event" data-c="B"><h3>圣殿审判的历史背景</h3><div class="meta"><span class="conf b">B</span>主后70年是关键近端应验</div><p>耶稣预言圣殿石头不留在石头上（太24:2）。这在罗马战争中应验，为“旧时代审判”的强烈历史标记。</p></div>
+    <div class="event" data-c="A"><h3>整个教会时代充满阵痛</h3><div class="meta"><span class="conf a">A</span>太24:4-14</div><p>战争、灾害、逼迫、宣教并行。耶稣没有把这些描写成单一一周或一年，而是作为末期之前的总体特征。</p></div>
+    <div class="event" data-c="C"><h3>终末性“大灾难”如何定位</h3><div class="meta"><span class="conf c">C</span>太24:15-28</div><p>部分过去派强调主后70年；未来派强调末世最后危机；“预表—终极”解释认为70年事件是模式，未来还有更完全的应验。</p></div>
+    <div class="event" data-c="A"><h3>人子公开显现并聚集选民</h3><div class="meta"><span class="conf a">A</span>太24:29-31</div><p>这是耶稣再来核心文本之一：荣耀、云彩、号筒、聚集四个意象后来与帖前4、林前15形成强烈互文。</p></div>
+    <div class="event" data-c="A"><h3>不知道日子时辰 → 警醒</h3><div class="meta"><span class="conf a">A</span>太24:36-51</div><p>“挪亚的日子”强调日常生活中的突然性与道德准备，而不是鼓励日期计算。</p></div>
+    <div class="event" data-c="A"><h3>十童女、才干、绵羊山羊</h3><div class="meta"><span class="conf a">A</span>太25</div><p>末世论最终导向门徒生活：预备、忠心、善用托付、怜悯基督最小的弟兄，并迎接王的审判。</p></div>
+  </div>
+
+  <div class="callout"><strong>“这世代还没有过去，这些事都要成就”（太24:34）</strong>是关键难题。主要解释包括：①“这世代”指耶稣当代人，因此大量内容先在主后70年应验；②“这世代”指末后看见征兆开始的那一代；③“世代”理解为这一类悖逆世代/族类。最自然的希腊语通常支持“耶稣同时代人”的读法，因此即使持未来派，也应认真处理主后70年的近端层面，而不是把整章全部推到未来。</div>
+</div>
+</section>
+
+<section class="section" id="paul">
+<div class="container">
+  <h2>五、保罗：再来、复活、被提、不法的人</h2>
+
+  <div class="grid grid-3">
+    <div class="card book nt"><h3>哥林多前书 15</h3><p>基督复活是“初熟的果子”；他再来时属基督的人复活；末了基督废去一切执政掌权，把国交给父；最后仇敌“死亡”被毁灭。复活身体是不朽坏、荣耀、属灵的身体，不是脱离身体。</p></div>
+    <div class="card book nt"><h3>帖撒罗尼迦前书 4-5</h3><p>主亲自从天降临，有呼叫声、天使长声音和神的号；在基督里死了的人先复活；活着的信徒一同被提到云里迎接主；紧接着5章谈“主的日子”像夜间的贼来到。</p></div>
+    <div class="card book nt"><h3>帖撒罗尼迦后书 2</h3><p>“我们主耶稣基督降临”和“我们到他那里聚集”之前，经文说会有离道反教与“不法的人”显露；主耶稣要用口中的气灭绝他，并用降临的荣光废掉他。</p></div>
+  </div>
+
+  <h3 style="margin-top:32px">“被提”到底是不是秘密、与再来分成两次？</h3>
+  <table>
+    <thead><tr><th>经文观察</th><th>含义</th><th>争议点</th></tr></thead>
+    <tbody>
+      <tr><td>帖前4:16包含呼叫、天使长声音、神的号</td><td>文本本身呈现非常公开、声势宏大的场景</td><td>“秘密被提”主要来自体系整合，不是该段直接措辞</td></tr>
+      <tr><td>死者复活与活人被提相连</td><td>被提是复活事件的一部分</td><td>它与启20“第一次复活”的关系取决于千禧年框架</td></tr>
+      <tr><td>“迎接主”的希腊词 apantēsis</td><td>古代常用于出城迎接来访尊贵者，再陪同其进入</td><td>灾后/历史前千禧年与无千禧年者常据此主张圣徒迎主后随主公开降临；灾前被提者则认为主带教会返回天上</td></tr>
+      <tr><td>帖后2把“降临”和“聚集”并提</td><td>至少显示二者神学上极紧密</td><td>不法之人显露在聚集之前还是只在公开再来之前，是灾前派与灾后派争论焦点</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout"><strong>林前15与帖前4的共同元素：</strong>基督降临、号筒、死人复活、活人改变/聚集。无论采取何种被提时间观，这两段都要求把信徒盼望的中心放在<b>基督自己与身体复活</b>，而不是把盼望缩减为“逃离地球”。</div>
+</div>
+</section>
+
+<section class="section" id="general">
+<div class="container">
+  <h2>六、普通书信：警醒、审判、新天新地</h2>
+  <div class="grid grid-3">
+    <div class="card"><h3>希伯来书</h3><p>来9:28：基督第二次显现不是再担当罪，而是拯救等候他的人。来12:26-28描述天地震动，为要留下不能震动的国。终末盼望与敬虔敬拜相连。</p></div>
+    <div class="card"><h3>彼得后书 3</h3><p>讥诮者质疑“他降临的应许在哪里”；彼得回答神的迟延是忍耐，为给人悔改机会。主的日子如贼来到，诸天与地受审判，因此信徒等候“新天新地，有义居在其中”。</p></div>
+    <div class="card"><h3>约翰一书、犹大书</h3><p>约壹2:18说“如今是末时了”，并提许多敌基督已出现；犹14-15借以诺传统描绘主带千万圣者施行审判。新约同时承认“敌基督精神现在已运行”和“末后集中显现”的双层结构。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="revelation">
+<div class="container">
+  <h2>七、《启示录》：不是孤立密码，而是旧约异象的总汇</h2>
+  <p class="section-intro">《启示录》约有数百处对旧约的暗示。兽来自但以理；歌革玛各来自以西结；灾祸像出埃及；巴比伦浓缩了巴别、巴比伦、推罗和罗马帝国意象；新耶路撒冷融合以赛亚、以西结与伊甸园。读启示录，最危险的方法就是离开旧约，只拿当天新闻去对号入座。</p>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 1180 520" width="1180" height="520" role="img" aria-label="启示录结构图">
+    <rect x="20" y="25" width="1140" height="465" rx="22" fill="#0b1227" stroke="#2b3767"/>
+    <g font-size="15" font-weight="700" text-anchor="middle">
+      <rect x="60" y="75" width="170" height="70" rx="12" fill="#162042" stroke="#75a7ff"/><text x="145" y="105" fill="#edf1ff">1章</text><text x="145" y="129" fill="#aeb8d8" font-size="13">荣耀基督显现</text>
+      <rect x="260" y="75" width="170" height="70" rx="12" fill="#162042" stroke="#75d7e8"/><text x="345" y="105" fill="#edf1ff">2–3章</text><text x="345" y="129" fill="#aeb8d8" font-size="13">七教会</text>
+      <rect x="460" y="75" width="170" height="70" rx="12" fill="#162042" stroke="#f0c56c"/><text x="545" y="105" fill="#edf1ff">4–5章</text><text x="545" y="129" fill="#aeb8d8" font-size="13">宝座与羔羊</text>
+      <rect x="660" y="75" width="170" height="70" rx="12" fill="#162042" stroke="#ff7d8a"/><text x="745" y="105" fill="#edf1ff">6–16章</text><text x="745" y="129" fill="#aeb8d8" font-size="13">七印·七号·七碗</text>
+      <rect x="860" y="75" width="170" height="70" rx="12" fill="#162042" stroke="#b49cff"/><text x="945" y="105" fill="#edf1ff">17–19章</text><text x="945" y="129" fill="#aeb8d8" font-size="13">巴比伦败亡·基督凯旋</text>
+      <rect x="400" y="260" width="180" height="75" rx="12" fill="#162042" stroke="#68d6a8"/><text x="490" y="293" fill="#edf1ff">20章</text><text x="490" y="319" fill="#aeb8d8" font-size="13">千年·末战·白色大宝座</text>
+      <rect x="640" y="260" width="220" height="75" rx="12" fill="#162042" stroke="#68d6a8"/><text x="750" y="293" fill="#edf1ff">21–22章</text><text x="750" y="319" fill="#aeb8d8" font-size="13">新天新地·新耶路撒冷</text>
+    </g>
+    <g stroke="#758ac8" stroke-width="2" fill="none">
+      <line x1="230" y1="110" x2="260" y2="110"/><line x1="430" y1="110" x2="460" y2="110"/><line x1="630" y1="110" x2="660" y2="110"/><line x1="830" y1="110" x2="860" y2="110"/>
+      <path d="M945 145 C930 210,650 215,540 260"/><line x1="580" y1="297" x2="640" y2="297"/>
+    </g>
+    <text x="590" y="410" fill="#f0c56c" text-anchor="middle" font-size="17">神学中心：被杀的羔羊已经得胜，因此教会在逼迫中忠心作见证，直到基督完全显现。</text>
+    <text x="590" y="445" fill="#aeb8d8" text-anchor="middle" font-size="14">启示录不只是“灾难目录”，而是敬拜、忠诚、忍耐与盼望之书。</text>
+  </svg>
+  </div>
+
+  <h3 style="margin-top:30px">1. 七印、七号、七碗：线性还是循环递进？</h3>
+  <p>有两种主要阅读方式。<b>严格线性</b>：七印后接七号、七号后接七碗，事件越来越靠近终局。<b>循环递进/重述</b>：几组异象从不同角度反复覆盖教会时代与终末审判，每一循环比前一循环更强烈。例如第6印已经出现近乎终局的宇宙震动和“羔羊忿怒的大日到了”（启6:12-17），而第7号又宣告“世上的国成了我主和主基督的国”（11:15-18），似乎都触及终局。因此很多无千禧年和部分历史前千禧年学者认为启示录存在明显“重述结构”。</p>
+
+  <h3>2. 启示录 12–14：背后的属灵战争</h3>
+  <div class="grid grid-3">
+    <div class="card"><h3>龙</h3><p>启12明确解释为古蛇、魔鬼、撒但。它试图吞吃弥赛亚，并转而逼迫女人其余儿女。</p></div>
+    <div class="card"><h3>海兽与地兽/假先知</h3><p>海兽结合但7四兽特征，象征敌对神的帝国政治权力，并在末世论中常被理解为敌基督权势的集中体现；另一兽借宗教/意识形态迷惑世界。</p></div>
+    <div class="card"><h3>羔羊与十四万四千</h3><p>羔羊站立锡安，与属他的人形成鲜明对照：末世的根本冲突是“敬拜谁、效忠谁”。数字是否字面以色列余民或象征全体蒙赎子民，是重要争论。</p></div>
+  </div>
+
+  <h3 style="margin-top:30px">3. “兽的印记 666”是什么？</h3>
+  <p>启13把兽印与敬拜、经济控制、政治忠诚关联。666很可能与字母数字象征有关，“尼禄凯撒”是著名早期解释之一；但经文的神学重点更广：兽的印记与启7、14中神仆人额上的印相对，代表<b>最终归属与忠诚</b>。因此，不应轻率地把某张银行卡、疫苗、条形码或某个新科技本身直接宣布为666；除非它实际进入“敬拜兽、否认基督、以敌神权势为终极效忠对象”的结构。</p>
+
+  <h3>4. 启示录 19：骑白马者</h3>
+  <p>天开了，基督以“诚信真实”“神之道”“万王之王、万主之主”身份显现；兽和假先知被擒拿。此处是全书最明确的再来战胜图景之一，并大量回响赛11“以口中的杖击打世界”和赛63“踹酒榨”的审判意象。</p>
+
+  <h3>5. 启示录 20：千禧年争论中心</h3>
+  <p>撒但被捆绑一千年，圣徒与基督一同作王；千年完了撒但被释放，迷惑列国“歌革和玛各”，随后火从天降下；魔鬼被扔进火湖；接着白色大宝座审判。问题集中在：这一千年发生在基督再来之后的未来地上国度，还是象征基督第一次降临到第二次降临之间的教会时代。</p>
+
+  <h3>6. 启示录 21–22：圣经终点不是“逃离世界”</h3>
+  <p>约翰看见新天新地、新耶路撒冷“由神那里从天而降”。圣城具有至圣所尺寸象征；生命水、生命树和不再有咒诅使圣经回到伊甸园，却超越伊甸园：神的众仆面对面见他，作王直到永永远远。救赎的终点是<b>神与复活的人类在更新受造界中同住</b>。</p>
+</div>
+</section>
+
+<section class="section" id="timeline">
+<div class="container">
+  <h2>八、把整本圣经合起来：可能发生的末世事件时间线</h2>
+  <p class="section-intro">下面按照“最低争议的共同骨架”排序，再把存在争议的节点标出来。按钮可按确定性筛选。</p>
+
+  <div class="controls">
+    <button onclick="filterEvents('all')">全部</button>
+    <button onclick="filterEvents('A')">只看 A 级明确事件</button>
+    <button onclick="filterEvents('B')">A+B</button>
+    <button onclick="filterEvents('C')">只看争议节点</button>
+  </div>
+
+  <div class="timeline" id="masterTimeline">
+    <div class="event" data-c="A"><h3>① 基督第一次降临开启“末后的日子”</h3><div class="meta"><span class="conf a">A</span>来1:2；徒2:16-21；林前10:11</div><p>末世并非只指世界结束前几个月；新约作者认为弥赛亚已经来到、圣灵已经浇灌，因此末世时代已开启。</p></div>
+
+    <div class="event" data-c="A"><h3>② 基督升天，在父右边掌权</h3><div class="meta"><span class="conf a">A</span>诗110；徒2:32-36；来1:3</div><p>基督王权不是等再来才开始。再来是已经登基的王公开显现其统治与完成征服。</p></div>
+
+    <div class="event" data-c="A"><h3>③ 教会时代：福音传万民，同时伴随逼迫与属灵争战</h3><div class="meta"><span class="conf a">A</span>太24:9-14；28:18-20；启12:11</div><p>教会在列国中作见证，靠羔羊的血和所见证的道胜过龙。历史不会简单直线变好，也不会只剩灾难；宣教扩展与敌对并存。</p></div>
+
+    <div class="event" data-c="B"><h3>④ 末期临近时，背道、迷惑与不法加剧</h3><div class="meta"><span class="conf b">B</span>太24:10-13；帖后2:3；提后3:1-5</div><p>经文明显预警末世会出现显著属灵危机，但“加剧程度”和持续时间没有精确刻度。</p></div>
+
+    <div class="event" data-c="B"><h3>⑤ 敌基督/不法之人/兽性权势出现集中体现</h3><div class="meta"><span class="conf b">B</span>帖后2:3-10；约壹2:18；启13</div><p>新约既说“许多敌基督已经出来”，也描绘一个更集中的终末对手。是否就是单一全球政治领袖，细节仍有解释空间。</p></div>
+
+    <div class="event" data-c="C"><h3>⑥ “行毁坏可憎的”、圣殿与末世亵渎</h3><div class="meta"><span class="conf c">C</span>但9:27；11:31；12:11；太24:15；帖后2:4</div><p>这里可能涉及历史中的安提阿古、主后70年、以及未来敌基督终极亵渎。未来是否必须重建第三圣殿，是典型C级推论。</p></div>
+
+    <div class="event" data-c="C"><h3>⑦ 大灾难 / 极端逼迫</h3><div class="meta"><span class="conf c">C</span>但12:1；太24:21；启7:14</div><p>圣经明确有“极大患难”主题；争议在它是否专指未来固定七年、是否主要已经在主后70年体现、以及教会是否经历其中全部阶段。</p></div>
+
+    <div class="event" data-c="C"><h3>⑧ 以色列的大规模归信？</h3><div class="meta"><span class="conf c">C</span>罗11:25-27；亚12:10</div><p>许多改革宗、历史前千禧年及时代论学者都期待末后犹太人出现大规模归向基督；另一些解释把“以色列全家”理解为历代神选民整体。经文重要，但具体形式有分歧。</p></div>
+
+    <div class="event" data-c="B"><h3>⑨ 宇宙性征兆与受造界震动</h3><div class="meta"><span class="conf b">B</span>珥2:30-31；太24:29；启6:12-17</div><p>日月星辰语言既承载旧约“王朝倾覆”的先知象征，也可能包含最终宇宙性震动。无论象征或物理，其指向都是神介入历史的终极审判。</p></div>
+
+    <div class="event" data-c="A"><h3>⑩ 耶稣基督亲自、公开、荣耀地再来</h3><div class="meta"><span class="conf a">A</span>太24:30；徒1:11；帖前4:16；启1:7；19:11-16</div><p>这不是只在心中“属灵回来”。新约以显现、降临、启示、驾云、众目看见等语言描述一个客观终末事件。</p></div>
+
+    <div class="event" data-c="A"><h3>⑪ 死了的圣徒复活，活着的圣徒改变</h3><div class="meta"><span class="conf a">A</span>林前15:51-54；帖前4:16</div><p>信徒盼望的核心是身体得赎。复活身体不朽坏、不羞辱、有荣耀、有能力。</p></div>
+
+    <div class="event" data-c="A"><h3>⑫ 圣徒被聚集 / 被提迎接主</h3><div class="meta"><span class="conf a">A</span>太24:31；帖前4:17</div><p>“被提”本身是明确教义；争议不是“有没有被提”，而是它与最后大灾难和公开再来的时间关系。</p></div>
+
+    <div class="event" data-c="A"><h3>⑬ 基督击败最后敌对权势</h3><div class="meta"><span class="conf a">A</span>帖后2:8；启19:19-21</div><p>不法者不是靠教会政治工程最终击败，而是被主降临的荣光废掉。终局胜利属于羔羊。</p></div>
+
+    <div class="event" data-c="C"><h3>⑭ 千禧年：基督再来后的一千年，还是现今教会时代？</h3><div class="meta"><span class="conf c">C</span>启20:1-6</div><p>前千禧年：再来→千年国度→末战；无千禧年：千年象征现今基督与圣徒掌权；后千禧年：福音在历史中带来长久繁荣期，之后再来。</p></div>
+
+    <div class="event" data-c="C"><h3>⑮ 歌革玛各最后叛乱</h3><div class="meta"><span class="conf c">C</span>结38-39；启20:7-10</div><p>启20把“歌革玛各”用于千年之后的全球性最后叛乱。它与启16/19哈米吉多顿是同一终局战争的重述，还是两个不同战争，取决于对启示录结构的理解。</p></div>
+
+    <div class="event" data-c="A"><h3>⑯ 最后的复活与白色大宝座审判</h3><div class="meta"><span class="conf a">A</span>约5:28-29；启20:11-15</div><p>海、死亡、阴间交出其中死人，各人照行为受审；生命册成为归属羔羊的终极标记。不同体系争论义人与恶人的复活是否相隔千年，但最终普世审判本身无争议。</p></div>
+
+    <div class="event" data-c="A"><h3>⑰ 撒但、死亡、阴间最终被除灭</h3><div class="meta"><span class="conf a">A</span>林前15:26；启20:10,14</div><p>圣经末世不只是“恶人被罚”，还包括一切反创造秩序的权势——撒但与死亡本身——被彻底废除。</p></div>
+
+    <div class="event" data-c="A"><h3>⑱ 新天新地与新耶路撒冷</h3><div class="meta"><span class="conf a">A</span>赛65-66；彼后3:13；启21-22</div><p>神与人同住，不再有死亡、悲哀、哭号、疼痛、咒诅。生命水与生命树恢复伊甸并超越伊甸；神仆人面对面见神，直到永远。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="models">
+<div class="container">
+  <h2>九、四种主流新教末世时间线：它们到底差在哪里？</h2>
+  <p class="section-intro">下面不是把它们说成同样正确，而是准确显示“争论真正集中在哪里”。四者都可出现在认信三位一体、基督再来、复活、审判、新天新地的正统新教范围内。</p>
+
+  <table>
+    <thead><tr><th>体系</th><th>大致时间线</th><th>主要特点</th><th>主要难题</th></tr></thead>
+    <tbody>
+      <tr><td><b>时代论前千禧年</b></td><td>教会时代 → （常见：灾前被提）→ 七年灾难 → 基督公开再来 → 字面千年国 → 最后叛乱 → 白色宝座 → 新天新地</td><td>较强区分以色列与教会；倾向未来主义阅读但9、太24、启6-19；强调字面未来千年国。</td><td>灾前秘密被提是否被任何一段经文明说；帖后2似乎把聚集与不法者显露联系；新约如何重释以色列与圣殿。</td></tr>
+      <tr><td><b>历史前千禧年</b></td><td>教会时代 → 末后患难/敌基督 → 基督再来 + 复活/聚集 → 千年国 → 最后叛乱 → 审判 → 新天新地</td><td>早期教会有重要先例；一般认为教会经历末后患难；基督一次公开再来开启千年国。</td><td>启20“一千年”是否需要按启19之后线性理解；复活与最后审判为何分成两个阶段。</td></tr>
+      <tr><td><b>无千禧年</b></td><td>基督初临 → “千年”=现今教会时代/天上掌权 → 末后逼迫加剧 → 基督再来 → 总复活/审判 → 新天新地</td><td>强调启示录循环重述；撒但被“捆绑”意为不能阻止福音进入万国；把再来、复活、审判视为终局集中事件。</td><td>启20“第一次复活”如何理解；“一千年”与圣徒作王的具体性质；部分旧约国度预言如何完全落实。</td></tr>
+      <tr><td><b>后千禧年</b></td><td>教会时代 → 福音长期扩展形成“千禧年”式繁荣 → 最后短暂背叛 → 基督再来 → 复活/审判 → 新天新地</td><td>对历史中福音征服列国持更乐观期待；常重视诗2、诗72、赛2、太28的大使命国度性。</td><td>如何处理太24、提后3、启13等末后逼迫与背道经文；历史是否支持长期普遍基督化的期待。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 1180 610" width="1180" height="610" aria-label="四大末世论时间线对比">
+    <rect x="20" y="20" width="1140" height="565" rx="22" fill="#0b1227" stroke="#2b3767"/>
+    <g fill="#edf1ff" font-size="16" font-weight="700">
+      <text x="55" y="90">时代论前千禧年</text><text x="55" y="215">历史前千禧年</text><text x="55" y="340">无千禧年</text><text x="55" y="465">后千禧年</text>
+    </g>
+    <g stroke="#7891cf" stroke-width="4">
+      <line x1="250" y1="85" x2="1100" y2="85"/><line x1="250" y1="210" x2="1100" y2="210"/>
+      <line x1="250" y1="335" x2="1100" y2="335"/><line x1="250" y1="460" x2="1100" y2="460"/>
+    </g>
+    <g font-size="13" text-anchor="middle">
+      <rect x="310" y="55" width="120" height="58" rx="9" fill="#182249" stroke="#75a7ff"/><text x="370" y="80" fill="#edf1ff">被提</text><text x="370" y="99" fill="#aeb8d8">常置于灾前</text>
+      <rect x="450" y="55" width="120" height="58" rx="9" fill="#381b29" stroke="#ff7d8a"/><text x="510" y="80" fill="#edf1ff">七年灾难</text><text x="510" y="99" fill="#aeb8d8">未来主义</text>
+      <rect x="590" y="55" width="120" height="58" rx="9" fill="#182249" stroke="#f0c56c"/><text x="650" y="80" fill="#edf1ff">公开再来</text><text x="650" y="99" fill="#aeb8d8">启19</text>
+      <rect x="730" y="55" width="120" height="58" rx="9" fill="#17392e" stroke="#68d6a8"/><text x="790" y="80" fill="#edf1ff">千年国</text><text x="790" y="99" fill="#aeb8d8">字面未来</text>
+      <rect x="870" y="55" width="120" height="58" rx="9" fill="#2b2145" stroke="#b49cff"/><text x="930" y="80" fill="#edf1ff">末战/审判</text><text x="930" y="99" fill="#aeb8d8">启20</text>
+      <text x="1060" y="90" fill="#75d7e8">新创造</text>
+
+      <rect x="370" y="180" width="145" height="58" rx="9" fill="#381b29" stroke="#ff7d8a"/><text x="442" y="205" fill="#edf1ff">患难/敌基督</text><text x="442" y="224" fill="#aeb8d8">教会经历</text>
+      <rect x="540" y="180" width="150" height="58" rx="9" fill="#182249" stroke="#f0c56c"/><text x="615" y="205" fill="#edf1ff">再来+复活+聚集</text><text x="615" y="224" fill="#aeb8d8">一次公开事件</text>
+      <rect x="715" y="180" width="130" height="58" rx="9" fill="#17392e" stroke="#68d6a8"/><text x="780" y="205" fill="#edf1ff">千年国</text><text x="780" y="224" fill="#aeb8d8">再来之后</text>
+      <rect x="870" y="180" width="120" height="58" rx="9" fill="#2b2145" stroke="#b49cff"/><text x="930" y="205" fill="#edf1ff">末战/审判</text>
+      <text x="1060" y="215" fill="#75d7e8">新创造</text>
+
+      <rect x="330" y="305" width="360" height="58" rx="9" fill="#17392e" stroke="#68d6a8"/><text x="510" y="330" fill="#edf1ff">“千年” = 基督初临至再临</text><text x="510" y="349" fill="#aeb8d8">撒但受限 · 福音传万国 · 圣徒作王</text>
+      <rect x="715" y="305" width="145" height="58" rx="9" fill="#381b29" stroke="#ff7d8a"/><text x="787" y="330" fill="#edf1ff">末后短暂危机</text>
+      <rect x="885" y="305" width="120" height="58" rx="9" fill="#182249" stroke="#f0c56c"/><text x="945" y="330" fill="#edf1ff">再来/审判</text>
+      <text x="1070" y="340" fill="#75d7e8">新创造</text>
+
+      <rect x="330" y="430" width="390" height="58" rx="9" fill="#17392e" stroke="#68d6a8"/><text x="525" y="455" fill="#edf1ff">福音长期扩展 → 历史中的“千禧年”繁荣</text><text x="525" y="474" fill="#aeb8d8">列国广泛归服基督</text>
+      <rect x="745" y="430" width="120" height="58" rx="9" fill="#381b29" stroke="#ff7d8a"/><text x="805" y="455" fill="#edf1ff">最后背叛</text>
+      <rect x="890" y="430" width="120" height="58" rx="9" fill="#182249" stroke="#f0c56c"/><text x="950" y="455" fill="#edf1ff">再来/审判</text>
+      <text x="1070" y="465" fill="#75d7e8">新创造</text>
+    </g>
+    <text x="590" y="548" fill="#aeb8d8" text-anchor="middle" font-size="14">共同核心远大于争议节点：基督必再来 → 死人复活 → 神最终审判 → 神国完全 → 新天新地。</text>
+  </svg>
+  </div>
+</div>
+</section>
+
+<section class="section" id="disputed">
+<div class="container">
+  <h2>十、最重要的争议经文与应当怎样判断</h2>
+
+  <div class="grid grid-2">
+    <div class="card"><h3>1. 罗马书 11：“以色列全家都要得救”</h3><p><b>未来民族性归信解释：</b>外邦人数添满后，大量犹太人归信耶稣。<br><b>全体选民解释：</b>“以色列全家”指历世历代由犹太与外邦信徒组成的神子民。<br><b>评估：</b>罗11对“以色列”反复指民族犹太人，因而未来大规模归信解释具有相当强度，但经文未提供政治国家时间表。</p></div>
+
+    <div class="card"><h3>2. 马太福音 24：“大灾难”</h3><p><b>过去派：</b>主要指主后66–70年犹太战争。<br><b>未来派：</b>主要指世界末了前最后灾难。<br><b>预表—终极：</b>70年是真实应验，也是末后终局模式。<br><b>评估：</b>最后一种能同时认真对待圣殿语境与宇宙性再来高潮，是很多福音派学者采用的综合路径。</p></div>
+
+    <div class="card"><h3>3. 帖撒罗尼迦前书 4：“被提”</h3><p>“被提”不是争议概念，经文本身有这个事件。争议是<b>何时</b>。灾前被提需要把帖前4与太24/帖后2/启示录大灾难之间作体系性分隔；灾后观点则强调太24:29-31明确说“灾难以后”人子显现并聚集选民。</p></div>
+
+    <div class="card"><h3>4. 帖撒罗尼迦后书 2：“拦阻者”是谁？</h3><p>主要候选包括：罗马政权/法治秩序、圣灵、教会、天使性权势、神主权安排。保罗显然曾口头解释给帖撒罗尼迦人，但书信中没有把身份写明，因此任何断言都应保持谦卑。</p></div>
+
+    <div class="card"><h3>5. 启示录 13：“兽”</h3><p>第一世纪读者很自然会想到罗马帝国与皇帝崇拜；但但以理式“兽国”也成为历代敌神帝国的原型。未来主义进一步期待终末集中化的兽性政权。一个稳妥的综合判断是：<b>第一世纪真实参照 + 历史反复模式 + 可能的终末高潮</b>。</p></div>
+
+    <div class="card"><h3>6. 启示录 20：“第一次复活”</h3><p><b>前千禧年：</b>身体复活，因此显然发生在未来再来附近。<br><b>无千禧年：</b>可指信徒重生、殉道者死后在天上与基督作王，最后才有普遍身体复活。<br><b>关键问题：</b>启20是否严格延续启19的时间顺序，还是回到基督第一次降临后的另一循环。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <h2>十一、“哈米吉多顿”“歌革玛各”“主的日子”之间是什么关系？</h2>
+  <table>
+    <thead><tr><th>概念</th><th>经文</th><th>主要图景</th><th>可能关系</th></tr></thead>
+    <tbody>
+      <tr><td>耶和华 / 主的日子</td><td>赛13；珥2；番1；帖前5；彼后3</td><td>神突然介入，审判恶人、拯救属他的人</td><td>可以指历史性审判的“预演”，最终汇聚到基督再来与终末审判</td></tr>
+      <tr><td>哈米吉多顿</td><td>启16:16</td><td>龙、兽、假先知聚集列王敌挡神</td><td>很多解释将其与启19的最后战争视为同一终局事件</td></tr>
+      <tr><td>歌革玛各</td><td>结38-39；启20:8</td><td>列国最后围攻神百姓，神亲自毁灭敌军</td><td>线性前千禧年通常放在千年后；循环解释可能视其为与启16/19同一终局战争的另一幅图</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <h2>十二、耶稣再来的“确定特征”</h2>
+  <div class="grid grid-4">
+    <div class="card"><h3>亲自</h3><p>徒1:11：“这离开你们被接升天的耶稣”还要怎样往天上去，也要怎样来。再来者不是一个象征理念，而是复活升天的耶稣本人。</p></div>
+    <div class="card"><h3>公开</h3><p>启1:7：“众目要看见他”；太24:27用闪电比喻。经文没有把最终再来说成只有少数属灵精英看见的隐藏事件。</p></div>
+    <div class="card"><h3>荣耀</h3><p>太25:31称人子在荣耀里同众天使降临；帖后1:7-10把其显现与能力、审判、圣徒惊奇相连。</p></div>
+    <div class="card"><h3>决定性</h3><p>再来不是开启一个仍可能逆转的试验，而是神国公开得胜的决定性转折：敌对权势被废，死人复活，审判临到。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <h2>十三、死人复活：末世论最容易被忽略、却最核心的一环</h2>
+  <p>现代基督徒谈末世常把焦点放在敌基督、666、战争，却忘了新约使徒真正反复强调的是<b>复活</b>。林前15甚至说若死人不复活，基督也没有复活，信仰就是徒然。圣经的终极盼望不是“灵魂永远在云端”，而是神使人从死里复活，并更新整个受造界。</p>
+  <table>
+    <thead><tr><th>问题</th><th>圣经回答</th></tr></thead>
+    <tbody>
+      <tr><td>谁复活？</td><td>约5:28-29描绘“凡在坟墓里的”都出来；义人与恶人都面对终局。</td></tr>
+      <tr><td>信徒复活身体怎样？</td><td>林前15：不朽坏、荣耀、强壮、“属灵的身体”——意为被圣灵完全支配，不是非物质。</td></tr>
+      <tr><td>什么时候？</td><td>林前15:23说“基督来的时候，是那些属基督的”；帖前4也把圣徒复活与主降临连接。</td></tr>
+      <tr><td>复活后住哪里？</td><td>启21-22的终局是新天新地与新耶路撒冷，而非永远离开受造界。</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <h2>十四、最后审判：行为、恩典与生命册如何同时成立？</h2>
+  <p>圣经一方面清楚教导人因恩典、借着信、在基督里称义；另一方面末日审判又“照各人所行的”施行（太25；罗2；林后5:10；启20:12）。新教经典解释不是“靠行为赚得救恩”，而是：<b>行为在末日成为真实信心和生命归属的公开证据</b>。生命册表明救恩根源在羔羊；行为审判显明神判决公义、人的生命实际归属于谁。</p>
+  <div class="callout"><strong>因此：</strong>末世论绝不是让基督徒靠掌握秘密时间表得救，而是呼召人在今天悔改、信靠基督、忠心生活。耶稣在太24-25把再来教义的应用直接落在“警醒、忠心、怜悯、预备”上。</div>
+</div>
+</section>
+
+<section class="section" id="passages">
+<div class="container">
+  <h2>十五、末世与再来核心经文索引</h2>
+  <p class="section-intro">可把下面当作专题查经清单。若要继续深入，可按“旧约背景 → 耶稣讲论 → 保罗 → 普通书信 → 启示录”顺序逐段研读。</p>
+  <table>
+    <thead><tr><th>主题</th><th>重点经文</th><th>研究问题</th></tr></thead>
+    <tbody>
+      <tr><td>弥赛亚最终得胜</td><td>创3:15；诗2；诗110</td><td>基督王权何时开始？何时完全公开？</td></tr>
+      <tr><td>耶和华的日子</td><td>赛13；珥2；番1；亚14</td><td>历史审判与最终审判是什么关系？</td></tr>
+      <tr><td>死人复活</td><td>赛26:19；但12:2；约5:28-29；林前15</td><td>义人与恶人的复活是否同一时点？</td></tr>
+      <tr><td>人子驾云</td><td>但7:9-14；太24:30；26:64；启1:7</td><td>但7如何塑造耶稣对再来的自我理解？</td></tr>
+      <tr><td>七十个七</td><td>但9:24-27</td><td>第70个七是否未来？受膏者被剪除如何定位？</td></tr>
+      <tr><td>末后患难</td><td>但12:1；太24:15-28；启7:14</td><td>主后70年与未来终局是否具有双重层次？</td></tr>
+      <tr><td>敌基督/不法者</td><td>帖后2；约壹2:18-22；4:3；启13</td><td>“许多敌基督”与最后不法者怎样联系？</td></tr>
+      <tr><td>被提与聚集</td><td>太24:31；林前15:51-52；帖前4:13-18</td><td>三段是否描述同一终末聚集事件？</td></tr>
+      <tr><td>以色列</td><td>亚12；罗9-11</td><td>罗11是否预言末后民族性归信？</td></tr>
+      <tr><td>主的日子如贼</td><td>帖前5:1-11；彼后3:10；启3:3；16:15</td><td>“突然”与“有征兆”如何同时成立？</td></tr>
+      <tr><td>巴比伦</td><td>启17-18</td><td>巴比伦是罗马、世界体系，还是未来具体城市/帝国？</td></tr>
+      <tr><td>基督凯旋</td><td>启19:11-21</td><td>与帖后2:8、赛11的互文是什么？</td></tr>
+      <tr><td>千禧年</td><td>启20:1-10</td><td>线性还是循环？“第一次复活”如何解释？</td></tr>
+      <tr><td>最后审判</td><td>太25:31-46；约5:28-29；启20:11-15</td><td>因信称义与照行为审判如何协调？</td></tr>
+      <tr><td>新天新地</td><td>赛65-66；罗8:18-25；彼后3:13；启21-22</td><td>更新是毁灭后重造还是净化更新？</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <h2>十六、几个常见误区</h2>
+  <div class="grid grid-2">
+    <div class="card"><h3>误区 1：把所有新闻都直接塞进《启示录》</h3><p>启示录首先写给第一世纪真实教会，因此任何解释若对当时读者完全不可理解，都需要格外谨慎。正确方法是先确定旧约背景和第一世纪语境，再谈可能的未来终局。</p></div>
+    <div class="card"><h3>误区 2：认为“不知道日子时辰”=不能研究末世</h3><p>耶稣禁止的是日期掌控与虚假安全感，不是禁止末世论。相反，太24、帖前4-5、启示录都要求教会理解并警醒。</p></div>
+    <div class="card"><h3>误区 3：把“被提”当成福音核心</h3><p>基督再来与复活是核心；灾前/灾后时间点不是使徒信经级别的信仰条款。基督徒不应因这一点彼此定罪。</p></div>
+    <div class="card"><h3>误区 4：忽略末世伦理</h3><p>彼后3问的不是“你算出哪一年了吗”，而是“你们为人该当怎样圣洁、怎样敬虔”。真正理解再来，会改变今天的生活。</p></div>
+  </div>
+</div>
+</section>
+
+<section class="section" id="application">
+<div class="container">
+  <h2>十七、圣经为什么把末世启示给教会？</h2>
+  <div class="grid grid-3">
+    <div class="card"><h3>为了安慰</h3><p>帖前4不是写给猎奇者，而是安慰因弟兄姊妹去世而忧伤的教会：“我们就要和主永远同在。”</p></div>
+    <div class="card"><h3>为了忍耐</h3><p>启示录写给在帝国压力、逼迫、妥协诱惑中的教会。终局信息是：兽看似强大，真正掌权的是被杀又复活的羔羊。</p></div>
+    <div class="card"><h3>为了圣洁与宣教</h3><p>太24-25与彼后3都把再来应用在忠心、警醒、圣洁；太24:14又把末世与万民福音使命直接相连。</p></div>
+  </div>
+
+  <div class="notice"><b>最终一句话：</b>圣经末世论的中心不是敌基督，而是基督；不是恐惧，而是盼望；不是逃避世界，而是等候万物更新；不是计算日期，而是在王尚未公开显现的今天忠心敬拜、传福音、忍耐、行义，直到他说：“是了，我必快来。”</div>
+</div>
+</section>
+
+<section class="section">
+<div class="container">
+  <h2>十八、建议的深度研读顺序</h2>
+  <table>
+    <thead><tr><th>阶段</th><th>阅读</th><th>目标</th></tr></thead>
+    <tbody>
+      <tr><td>第一阶段：建立骨架</td><td>太24-25；林前15；帖前4-5；帖后2；启19-22</td><td>先抓住再来、复活、聚集、审判、新创造</td></tr>
+      <tr><td>第二阶段：回到旧约</td><td>但2、7、9、12；赛24-27、65-66；结36-39；亚12-14；珥2-3</td><td>理解新约末世图像的来源</td></tr>
+      <tr><td>第三阶段：完整读启示录</td><td>启1-22，一次通读后再分段</td><td>不要只读13章与20章，要看羔羊、敬拜、见证、巴比伦、新耶路撒冷整条主线</td></tr>
+      <tr><td>第四阶段：比较体系</td><td>逐一研究前千禧、无千禧、后千禧；再研究灾前/灾后被提</td><td>问“哪一体系需要最少额外假设，最能同时解释全部关键经文？”</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+</main>
+
+<footer class="footer">
+<div class="container">
+  <hr/>
+  <p><b>版本说明：</b>本文以主流新教、福音派与改革宗常见释经框架为主要参照，同时公平展示前千禧年、无千禧年、后千禧年及被提时间争议。经文以章节索引和释义为主，避免让某一中文译本措辞差异主导讨论。</p>
+  <p class="small">提示：末世论属于“重要但存在次级分歧”的系统神学领域。最值得坚持的优先次序是：基督必再来；死人必复活；神必审判；撒但与死亡必败；神国必完全；神的百姓必在新天新地永远与主同住。</p>
+</div>
+</footer>
+
+<script>
+function filterEvents(mode){
+  const items=[...document.querySelectorAll('#masterTimeline .event')];
+  items.forEach(el=>{
+    const c=el.dataset.c;
+    let show = mode==='all' || (mode==='A' && c==='A') || (mode==='B' && (c==='A'||c==='B')) || (mode==='C' && c==='C');
+    el.style.display=show?'block':'none';
+  });
+}
+</script>
+</body>
+</html>

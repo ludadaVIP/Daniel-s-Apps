@@ -1,0 +1,120 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>原油波段｜风险优先仪表盘</title>
+  <style>
+    :root { --ink:#10273a; --ink-2:#173f57; --paper:#f3f1e8; --panel:#fbfaf5; --muted:#627181; --line:#d6d7d0; --orange:#ef6b3b; --amber:#f0b556; --blue:#48b8d4; --red:#ba3c45; --green:#187b68; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:Inter,"Microsoft YaHei UI","Microsoft YaHei",system-ui,sans-serif; line-height:1.55; }
+    .masthead { color:#eef4f5; background:radial-gradient(800px 360px at 93% 8%, #2a6276 0%, transparent 62%),linear-gradient(115deg,#0c2132 0%,#102c42 58%,#0b1e2c 100%); padding:clamp(30px,5vw,76px) clamp(20px,7vw,106px) 44px; overflow:hidden; }
+    .eyebrow,.label { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; letter-spacing:.12em; text-transform:uppercase; font-size:11px; font-weight:700; }
+    .eyebrow { color:#8bd9e9; margin-bottom:17px; }
+    h1 { font-family:Georgia,"Noto Serif SC","Songti SC",serif; font-weight:500; font-size:clamp(40px,7vw,84px); line-height:.99; max-width:960px; letter-spacing:-.045em; margin:0; }
+    h1 em { color:#ffb875; font-style:normal; }
+    .sub { max-width:785px; color:#c8d8df; font-size:clamp(15px,1.8vw,19px); margin:24px 0 0; }
+    .portfolio-strip { display:grid; grid-template-columns:1.33fr .67fr .1fr; max-width:860px; gap:4px; margin-top:38px; height:54px; }
+    .portfolio-strip > div { display:flex; align-items:center; padding:0 16px; font-size:13px; font-weight:700; color:#0e2338; }
+    .voo { background:#8cd7e3; }.cash { background:#f7d479; }.oil { min-width:30px; background:var(--orange); }
+    .portfolio-key { display:flex; flex-wrap:wrap; gap:12px 24px; margin-top:11px; color:#b9cad2; font-size:12px; }.dot { display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px; }
+    main { max-width:1240px; margin:0 auto; padding:24px clamp(16px,4vw,54px) 80px; }
+    .notice { border-left:4px solid var(--orange); background:#fff5ed; padding:14px 17px; margin:0 0 24px; color:#5a3428; font-size:14px; }
+    .notice strong { color:#892e22; }
+    .grid { display:grid; grid-template-columns:1.2fr .8fr; gap:20px; }
+    .card { background:var(--panel); border:1px solid var(--line); box-shadow:0 6px 19px rgba(16,39,58,.045); }
+    .thesis { padding:28px; }
+    h2 { font-family:Georgia,"Noto Serif SC","Songti SC",serif; font-weight:500; font-size:29px; letter-spacing:-.025em; line-height:1.16; margin:6px 0 14px; }
+    h3 { font-size:16px; margin:0 0 10px; }.muted { color:var(--muted); }.callout { margin-top:20px; padding:14px 15px; background:#e7f3f4; border-left:3px solid var(--blue); font-size:14px; }
+    .rail-wrap { margin-top:26px; }.price-rail { height:68px; position:relative; display:grid; grid-template-columns:30% 50% 20%; border:1px solid #bbc6c8; overflow:hidden; }
+    .price-rail div { display:flex; align-items:flex-end; padding:0 8px 7px; font-size:11px; font-family:ui-monospace,monospace; color:#263c4a; border-right:1px solid rgba(16,39,58,.14); }
+    .price-rail .stress { background:#efb19b; }.price-rail .hypothesis { background:#bae1e7; }.price-rail .heat { background:#f6d789; border:0; }
+    .needle { position:absolute; top:-4px; bottom:-4px; width:2px; background:var(--orange); left:62%; }.needle::before { content:"你的入场假设"; position:absolute; white-space:nowrap; top:-19px; left:-34px; color:#b8532b; font-size:10px; font-weight:700; }
+    .rail-axis { display:flex; justify-content:space-between; color:var(--muted); font:11px ui-monospace,monospace; margin-top:6px; }
+    .summary { padding:26px; background:var(--ink); color:#eaf2f3; }.summary .label { color:#8bd9e9; }.summary h2 { color:white; }.metric { padding:17px 0; border-top:1px solid rgba(255,255,255,.16); }.metric:first-of-type { border-top:0; }.metric b { display:block; color:#ffbd7b; font:500 32px/1 Georgia,serif; margin:4px 0; }.metric span { color:#b9cbd3; font-size:13px; }
+    .section-title { display:flex; align-items:baseline; justify-content:space-between; margin:50px 0 15px; border-bottom:1px solid var(--line); padding-bottom:10px; }.section-title h2{margin:0}.section-title span{font-size:12px;color:var(--muted)}
+    .calculator { display:grid; grid-template-columns:.88fr 1.12fr; gap:0; overflow:hidden; }.inputs { padding:26px; background:#e5eff0; }.outputs { padding:26px; }
+    .form-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }.field label { display:block; color:#415767; font-size:12px; font-weight:700; margin-bottom:5px; }.field input { width:100%; border:1px solid #aebfc2; border-radius:0; padding:9px 8px; background:#fbfdfb; color:var(--ink); font:15px ui-monospace,monospace; }.field input:focus { outline:3px solid rgba(72,184,212,.36); border-color:#31798e; }
+    .formula { color:#627181; font:12px ui-monospace,monospace; margin:17px 0 0; }.risk-main { border-bottom:1px solid var(--line); padding-bottom:18px; }.risk-main b { font:500 clamp(41px,6vw,62px)/1 Georgia,serif; color:var(--orange); letter-spacing:-.05em; }.risk-main p { margin:8px 0 0; font-size:14px; }.output-grid { display:grid; grid-template-columns:1fr 1fr; gap:11px; margin-top:18px; }.output { padding:13px; background:#f0f1eb; }.output span { display:block;color:var(--muted);font-size:12px; }.output b { display:block;margin-top:4px;font-size:19px; }
+    .flag { margin-top:18px; padding:12px 14px; font-size:13px; background:#fff4e7; color:#6a401d; border-left:3px solid var(--amber); }.flag.good { background:#e5f3ee;color:#155645;border-left-color:var(--green); }
+    .table-wrap { overflow-x:auto; }.products { width:100%; border-collapse:collapse; min-width:710px; background:var(--panel); }.products th,.products td { text-align:left; vertical-align:top; padding:15px 14px; border-bottom:1px solid var(--line); font-size:13px; }.products th { color:#45606f; background:#e7eeee; font-size:11px; letter-spacing:.08em; text-transform:uppercase; }.products tr:last-child td { border-bottom:0; }.products td:first-child { font-weight:800; color:var(--ink-2); }.pill { font:10px ui-monospace,monospace; letter-spacing:.04em; padding:3px 5px; color:#fff; background:#3a6877; white-space:nowrap; }.pill.warn {background:#a3493a}.pill.no {background:#7c3944}
+    .rules { display:grid; grid-template-columns:repeat(3,1fr); gap:14px; }.rule { padding:20px; border-top:3px solid var(--blue); background:var(--panel); border-right:1px solid var(--line); border-bottom:1px solid var(--line); border-left:1px solid var(--line); }.rule:nth-child(2){border-top-color:var(--orange)}.rule:nth-child(3){border-top-color:var(--green)}.rule .num { color:#67808b; font:11px ui-monospace,monospace; }.rule h3 { margin-top:8px; }.rule p { color:var(--muted);font-size:13px;margin:0; }
+    .checklist { display:grid; grid-template-columns:1fr 1fr; gap:12px 24px; padding:4px 0; }.check { border-bottom:1px dashed #bfc7c6; padding:11px 0; font-size:14px; }.check::before { content:"□"; color:var(--orange); font-size:18px; vertical-align:-1px; margin-right:9px; }
+    .sources { font-size:12px; color:var(--muted); }.sources a { color:#236d84; }.sources li { margin:7px 0; }
+    footer { margin-top:42px; border-top:1px solid var(--line); padding-top:16px; color:var(--muted); font-size:12px; }
+    @media (max-width:760px) { .grid,.calculator { grid-template-columns:1fr; }.portfolio-strip { grid-template-columns:2fr 1fr .15fr; }.rules { grid-template-columns:1fr; }.form-grid,.checklist { grid-template-columns:1fr; }.section-title{display:block}.section-title span{display:block;margin-top:5px} }
+    @media (prefers-reduced-motion:reduce) { *,html { scroll-behavior:auto; transition:none!important; } }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="eyebrow">PRIVATE INVESTMENT WORKBENCH · 2026-08-29</div>
+    <h1>搏的是<em>赔率</em>，<br>不是把 30 当地板。</h1>
+    <p class="sub">把原油当作一个上限明确、规则先于观点的卫星仓位。这个页面的目标不是预测油价，而是在每一次买入之前，把最坏结果、成本和退出条件算清楚。</p>
+    <div class="portfolio-strip" aria-label="计划后资产构成"><div class="voo">VOO · $400,000</div><div class="cash">现金 · $170,000</div><div class="oil" title="原油计划上限 $30,000"></div></div>
+    <div class="portfolio-key"><span><i class="dot" style="background:#8cd7e3"></i>VOO 66.7%</span><span><i class="dot" style="background:#f7d479"></i>现金 28.3%</span><span><i class="dot" style="background:#ef6b3b"></i>原油上限 5.0%</span></div>
+  </header>
+  <main>
+    <div class="notice"><strong>先校正一个重要前提：</strong>“50–80 常见”可以是观察，不是安全边界。2020 年出现的是特定近月 WTI 期货合约的极端失灵情形；期货型 ETF 的回报也不等于现货价格变化。下面的规则因此以亏损额度、仓位和展期为锚，而不是赌“跌到某价一定反弹”。</div>
+    <section class="grid">
+      <article class="card thesis">
+        <div class="label">你的资产框架</div><h2>30,000 美元是现金的 15%，也是全部组合的 5%。</h2>
+        <p class="muted">按 VOO $400k + 现金 $200k 计算，原油资金来自现有现金而非新增杠杆。5% 的卫星仓位可以允许判断出错；一旦用杠杆，名义敞口而不是保证金才是风险口径。</p>
+        <div class="rail-wrap"><div class="price-rail"><div class="stress">&lt; $50<br>压力区</div><div class="hypothesis">$50–80<br>观察区间，不是护栏</div><div class="heat">&gt; $80<br>高温区</div><i class="needle"></i></div><div class="rail-axis"><span>$30</span><span>$50</span><span>$80</span><span>$120+</span></div></div>
+        <div class="callout"><strong>更稳的定义：</strong>不是提高胜率的承诺，而是让单笔、单次主题和极端跳空都不至于伤到核心组合。高收益与稳定不能同时被“设计出来”；能被设计的是亏损上限与执行纪律。</div>
+      </article>
+      <aside class="card summary"><div class="label">建议先定三条硬线</div><h2>风险预算<br>先于交易计划</h2><div class="metric"><span>主题仓位上限</span><b>$30,000</b><span>不因浮亏加码而抬高</span></div><div class="metric"><span>示例：全组合风险预算</span><b>0.6%</b><span>即 $3,600；可在下方修改</span></div><div class="metric"><span>非杠杆优先</span><b>1×</b><span>先把展期、税务与执行跑通</span></div></aside>
+    </section>
+
+    <div class="section-title"><h2>交易前压力测试</h2><span>修改黄色区域以匹配你的计划；仅作情景估算</span></div>
+    <section class="card calculator">
+      <div class="inputs"><div class="label">输入假设 · 美元</div><div class="form-grid" style="margin-top:17px">
+        <div class="field"><label for="voo">VOO 市值</label><input id="voo" type="number" value="400000" step="1000"></div><div class="field"><label for="cash">可用现金</label><input id="cash" type="number" value="200000" step="1000"></div>
+        <div class="field"><label for="cap">原油主题上限</label><input id="cap" type="number" value="30000" step="1000"></div><div class="field"><label for="risk">全组合风险预算 %</label><input id="risk" type="number" value="0.6" step="0.1"></div>
+        <div class="field"><label for="entry">假设入场油价 / bbl</label><input id="entry" type="number" value="70" step="1"></div><div class="field"><label for="stop">失效/退出价 / bbl</label><input id="stop" type="number" value="60" step="1"></div>
+        <div class="field"><label for="target">目标价 / bbl</label><input id="target" type="number" value="85" step="1"></div><div class="field"><label for="days">预计持有天数</label><input id="days" type="number" value="90" step="1"></div>
+        <div class="field"><label for="fee">产品年化费用 %</label><input id="fee" type="number" value="0.74" step="0.01"></div><div class="field"><label for="friction">双边交易摩擦 %</label><input id="friction" type="number" value="0.10" step="0.01"></div>
+      </div><p class="formula">摩擦 = 买卖价差 + 佣金 + 滑点；不含税、期货展期差或跳空。请用你的券商数据替换。</p></div>
+      <div class="outputs"><div class="label">结果 · 最坏情景优先</div><div class="risk-main" style="margin-top:13px"><b id="loss">$4,286</b><p id="lossText">若满额 $30,000 且从 $70 跌至 $60，估算亏损（未含跳空）</p></div><div class="output-grid"><div class="output"><span>你的风险预算</span><b id="budget">$3,600</b></div><div class="output"><span>按止损可承受上限</span><b id="allowed">$25,200</b></div><div class="output"><span>到目标的毛利润</span><b id="upside">$6,429</b></div><div class="output"><span>持有期显性成本</span><b id="cost">$85</b></div></div><div class="flag" id="flag"></div></div>
+    </section>
+
+    <div class="section-title"><h2>产品：先匹配“你在交易什么”</h2><span>例子不是买入建议；交易前读当日招募说明书、流动性与税务文件</span></div>
+    <div class="table-wrap"><table class="products"><thead><tr><th>路径</th><th>暴露与适用场景</th><th>主要成本 / 偏差</th><th>对这个 $30k 计划的判断</th></tr></thead><tbody>
+      <tr><td>USO<br><span class="pill">非杠杆 ETF</span></td><td>近月 WTI 期货暴露；适合短至中短期的 WTI 观点、希望在普通股票账户交易。</td><td>基金管理费、其他运营/经纪成本、买卖价差，以及最关键的展期收益/损失。2025 年报披露总费用约 0.74% 年化（会变化）。</td><td><strong>更容易把风险锁在现金仓位内。</strong>但别用它来表达“现货必然回到 X”；要观察期限结构。</td></tr>
+      <tr><td>USL<br><span class="pill">12 个月曲线</span></td><td>12 个连续 WTI 合约的平均暴露，不是单一近月；适合更看重曲线平均、持有期较长的观点。</td><td>同样有费用、交易成本与跟踪偏差；分散期限不等于没有展期/追踪风险。</td><td>先比较实际买卖价差、资产规模及招募说明书费用，再决定是否比近月暴露更贴合持有期限。</td></tr>
+      <tr><td>BNO / Brent 路径<br><span class="pill warn">不同基准</span></td><td>Brent 暴露。若你的逻辑是全球海运、OPEC 或地缘风险，Brent 与 WTI 不是同一笔交易。</td><td>基准错配、展期、费用、价差。油价新闻说“原油”，不代表 WTI 与 Brent 同幅波动。</td><td>先写清你交易的是 WTI 还是 Brent；不要仅按 ticker 或“油价”标题选择。</td></tr>
+      <tr><td>MCL 微型期货<br><span class="pill warn">需要熟练度</span></td><td>100 桶/张，$1/bbl 约 $100/张；现金结算。可以精准做仓位，但仍是保证金和逐日盯市产品。</td><td>保证金会变动；跳空、展期、杠杆与强平风险。保证金不是最大损失。</td><td><strong>不作为第一次执行的默认路径。</strong>若使用，按名义敞口计风险，且预先处理到期/移仓。</td></tr>
+      <tr><td>UCO 等 2×日杠杆 ETF<br><span class="pill no">不适合作为波段核心</span></td><td>目标是指数<strong>单日</strong>约 2× 表现，不是持有期 2×。</td><td>波动越大、持有越久，复利路径偏差越可能显著；另有费用、展期与价差。</td><td>这与“较稳一些”冲突。把杠杆当作缩短持有周期的工具也仍需极严的风控；本页不把它纳入默认方案。</td></tr>
+    </tbody></table></div>
+
+    <div class="section-title"><h2>可执行的三层防线</h2><span>不是预测模型；是为了不让一笔观点吞噬组合</span></div>
+    <section class="rules"><article class="rule"><div class="num">01 · 先写失效条件</div><h3>价格 + 事实，二者之一即可退出</h3><p>不要只写“跌到 60 卖”。写成：收盘跌破某技术条件，或库存/供给/需求数据推翻原逻辑时退出。止损单也无法保证跳空成交价。</p></article><article class="rule"><div class="num">02 · 3 笔是建仓计划，不是摊平许可</div><h3>每笔 1/3，且只在预先条件满足时加</h3><p>先投入 $10k；后两笔必须经过同一套信号和总风险预算检查。若论点失效，剩余现金是成功执行，不是错失机会。</p></article><article class="rule"><div class="num">03 · 把盈利也系统化</div><h3>分段止盈，余仓才追趋势</h3><p>事先写出目标区、减仓比例和最多持有天数。达到第一目标后，至少把止损上移到不亏或明确成本水平；不因新闻刺激临时改规则。</p></article></section>
+
+    <div class="section-title"><h2>每周 15 分钟检查单</h2><span>看数据与结构，不只看走势图</span></div>
+    <section class="checklist"><div class="check">本周 EIA 原油库存、炼厂开工、进出口，是否支持原假设？</div><div class="check">近月与远月期货是 contango 还是 backwardation？展期正在帮忙还是拖累？</div><div class="check">WTI / Brent 选对了吗？新闻驱动是美国库存还是全球供给中断？</div><div class="check">当前名义敞口、最坏情景亏损、主题亏损累计，是否仍在硬线上？</div><div class="check">产品的 bid–ask、成交量、基金公告/展期安排有变化吗？</div><div class="check">下一次 EIA、OPEC+、到期/展期、财报等事件前，是否接受隔夜跳空风险？</div></section>
+
+    <div class="section-title"><h2>资料与边界</h2><span>页面中的产品信息为截至 2026-08-29 可查资料</span></div>
+    <ul class="sources"><li>USO 的目标、风险与费用：<a href="https://www.sec.gov/Archives/edgar/data/1327068/000110465926021501/uso-20251231x10k.htm" target="_blank" rel="noopener">USO 2025 年报（SEC）</a>；其管理费为 0.45%，2025 年报披露总费用约 0.74% 年化。费用和投资策略会变化。</li><li>USL 使用 12 个连续 WTI 合约平均作为基准：<a href="https://www.sec.gov/Archives/edgar/data/1405528/000110465926021509/usl-20251231x10k.htm" target="_blank" rel="noopener">USL 2025 年报（SEC）</a>。</li><li>MCL 是 100 桶、每 $0.01 跳动约 $1 的现金结算微型 WTI 期货：<a href="https://www.cmegroup.com/education/articles-and-reports/micro-wti-crude-oil-futures-faq" target="_blank" rel="noopener">CME 产品说明</a>。保证金会变动，页面中的历史保证金数字不可当作当前报价。</li><li>2× UCO 追求的是标的<strong>每日</strong>约 2× 表现，长期回报可明显偏离：<a href="https://www.proshares.com/globalassets/proshares/fact-sheet/prosharesfactsheetuco.pdf" target="_blank" rel="noopener">ProShares UCO 说明书</a>。</li><li>用于每周复盘：<a href="https://www.eia.gov/petroleum/supply/weekly/" target="_blank" rel="noopener">EIA Weekly Petroleum Status Report</a>；用于月度宏观情景：<a href="https://www.eia.gov/outlooks/steo/" target="_blank" rel="noopener">EIA STEO</a>。</li></ul>
+    <footer>教育与决策记录工具，不构成投资、税务或法律建议，也不含实时行情。尤其在使用期货、期权、保证金或美国税务居民以外的账户前，请确认券商规则、税务处理和产品文件。把本文件保存为交易日志：每次开仓前另存一份，写下当时的论点、失效条件和实际成本。</footer>
+  </main>
+  <script>
+    const ids=['voo','cash','cap','risk','entry','stop','target','days','fee','friction'];
+    const n=id=>Number(document.getElementById(id).value)||0;
+    const money=x=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(x);
+    function update(){
+      const voo=n('voo'),cash=n('cash'),cap=n('cap'),risk=n('risk')/100,entry=n('entry'),stop=n('stop'),target=n('target'),days=n('days'),fee=n('fee')/100,friction=n('friction')/100;
+      const total=voo+cash, stopPct=Math.max(0,(entry-stop)/Math.max(entry,1)), gainPct=(target-entry)/Math.max(entry,1);
+      const budget=total*risk, loss=cap*stopPct, allowed=stopPct?budget/stopPct:0, upside=cap*gainPct, cost=cap*(fee*(days/365)+friction);
+      document.getElementById('loss').textContent=money(loss);
+      document.getElementById('lossText').textContent=`若满额 ${money(cap)} 且从 $${entry} 跌至 $${stop}，估算亏损（未含跳空）`;
+      document.getElementById('budget').textContent=money(budget); document.getElementById('allowed').textContent=money(allowed); document.getElementById('upside').textContent=money(upside); document.getElementById('cost').textContent=money(cost);
+      const flag=document.getElementById('flag');
+      if(stop>=entry){ flag.className='flag'; flag.textContent='退出价必须低于入场价，才能计算下行风险。'; }
+      else if(loss>budget){ flag.className='flag'; flag.innerHTML=`<strong>超出预算：</strong>在这个止损幅度下，满额仓位比 ${money(budget)} 风险预算多 ${money(loss-budget)}。若坚持此止损，理论上限约为 ${money(allowed)}；也可缩小首笔或收紧失效条件。`; }
+      else { flag.className='flag good'; flag.innerHTML=`<strong>在预算内：</strong>估算止损损失 ${money(loss)}，低于 ${money(budget)}。仍要为跳空、跟踪偏差和执行滑点留额外缓冲。`; }
+    }
+    ids.forEach(id=>document.getElementById(id).addEventListener('input',update)); update();
+  </script>
+</body>
+</html>

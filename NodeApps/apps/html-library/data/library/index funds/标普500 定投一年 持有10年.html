@@ -1,0 +1,167 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="VOO 十年定投复盘：2016-08-31 至 2026-08-31，含分红再投资、回撤与完整买入明细。" />
+  <title>十年之后：VOO 定投复盘</title>
+  <style>
+    :root { --ink:#081b33; --ink2:#183553; --paper:#f7faf6; --white:#fffefa; --mint:#c5eed7; --mint2:#78c7a2; --orange:#ffb84d; --coral:#ff6d55; --line:#d9e4dc; --muted:#617086; --serif:"Noto Serif SC","Songti SC",STSong,serif; --sans:"Microsoft YaHei UI","PingFang SC",Arial,sans-serif; --mono:"Cascadia Mono","SFMono-Regular",Consolas,monospace; }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--paper); font-family:var(--sans); line-height:1.65; }
+    a { color:inherit; text-underline-offset:3px; }
+    .wrap { max-width:1180px; margin:auto; padding:0 28px; }
+    .eyebrow, .label { font:700 11px/1 var(--mono); letter-spacing:.12em; text-transform:uppercase; color:#4d6d63; }
+    .hero { min-height:670px; background:var(--ink); color:var(--white); overflow:hidden; position:relative; }
+    .hero:after { content:""; position:absolute; right:-14vw; bottom:-26vw; width:67vw; height:67vw; border:1px solid rgba(197,238,215,.26); border-radius:50%; box-shadow:0 0 0 55px rgba(197,238,215,.055),0 0 0 110px rgba(197,238,215,.035); }
+    .topline { padding-top:27px; display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid rgba(255,255,255,.18); padding-bottom:18px; font:600 12px var(--mono); color:#c9d6df; position:relative; z-index:1; }
+    .topline b { color:var(--mint); font-size:15px; }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; gap:50px; padding:84px 0 74px; align-items:end; }
+    h1 { margin:14px 0 22px; font:500 clamp(43px,7.2vw,90px)/.98 var(--serif); letter-spacing:-.055em; max-width:800px; }
+    h1 em { font-style:normal; color:var(--mint); white-space:nowrap; }
+    .thesis { max-width:610px; margin:0; font-size:17px; color:#c9d6df; }
+    .thesis strong { color:#fff; }
+    .answer { border-left:4px solid var(--orange); padding:0 0 3px 23px; align-self:center; }
+    .answer .value { font:500 clamp(46px,6vw,76px)/1 var(--serif); color:var(--orange); letter-spacing:-.06em; }
+    .answer p { margin:9px 0 0; color:#d4e1e9; font-size:14px; }
+    .hero-foot { position:relative; z-index:1; display:flex; gap:10px; flex-wrap:wrap; padding-bottom:30px; }
+    .chip { border:1px solid rgba(255,255,255,.23); border-radius:999px; padding:5px 10px; color:#d9e5ea; font:11px var(--mono); }
+    section { padding:88px 0; }
+    .intro { background:var(--mint); padding:48px 0; }
+    .intro-grid { display:grid; grid-template-columns:170px 1fr; gap:35px; align-items:start; }
+    .intro h2 { font:500 27px/1.2 var(--serif); margin:0; }
+    .intro p { margin:0; font-size:17px; max-width:850px; }
+    .section-head { display:flex; align-items:baseline; justify-content:space-between; border-bottom:1px solid var(--line); padding-bottom:16px; margin-bottom:29px; gap:20px; }
+    h2 { font:500 clamp(28px,4vw,45px)/1.1 var(--serif); letter-spacing:-.035em; margin:0; }
+    .section-head p { margin:0; color:var(--muted); font-size:13px; text-align:right; }
+    .metric-grid { display:grid; grid-template-columns:repeat(4,1fr); border-top:1px solid var(--line); border-left:1px solid var(--line); }
+    .metric { min-height:170px; padding:21px 20px; border-right:1px solid var(--line); border-bottom:1px solid var(--line); background:var(--white); }
+    .metric span { display:block; color:var(--muted); font-size:12px; }
+    .metric b { display:block; margin:15px 0 4px; font:500 31px/1 var(--serif); letter-spacing:-.045em; }
+    .metric small { color:#557064; font-size:12px; }
+    .metric.highlight { background:var(--ink); color:var(--white); }
+    .metric.highlight span,.metric.highlight small { color:#c1d6ce; }
+    .metric.highlight b { color:var(--mint); }
+    .chart-shell { background:var(--white); border:1px solid var(--line); padding:28px 26px 20px; margin-top:31px; }
+    .chart-top { display:flex; justify-content:space-between; gap:12px; margin-bottom:16px; }
+    .chart-title { font:600 14px var(--sans); }
+    .chart-note { font:11px var(--mono); color:var(--muted); }
+    #portfolioChart { display:block; width:100%; height:337px; overflow:visible; }
+    .chart-tooltip { min-height:27px; color:var(--ink2); font:12px var(--mono); padding-top:10px; }
+    .legend { display:flex; gap:17px; flex-wrap:wrap; color:var(--muted); font-size:12px; }
+    .legend i { width:10px; height:10px; border-radius:50%; display:inline-block; margin-right:5px; background:var(--mint2); }
+    .legend i.dot { background:var(--orange); }
+    .two-col { display:grid; grid-template-columns:1.03fr .97fr; gap:26px; }
+    .card { background:var(--white); border:1px solid var(--line); padding:31px; }
+    .card h3 { margin:0 0 17px; font:500 25px/1.2 var(--serif); letter-spacing:-.03em; }
+    .card p { margin:0 0 14px; color:var(--ink2); }
+    .bridge { margin:22px 0 4px; }
+    .bridge-row { display:grid; grid-template-columns:1fr 120px; gap:16px; align-items:center; margin:13px 0; font-size:13px; }
+    .bar { height:11px; background:#edf2ed; position:relative; overflow:hidden; }
+    .bar span { display:block; height:100%; background:var(--mint2); }
+    .bridge-row:nth-child(2) .bar span { background:var(--orange); }
+    .bridge-row:nth-child(3) .bar span { background:var(--ink2); }
+    .bridge-row b { text-align:right; font:600 12px var(--mono); }
+    .notice { background:#fff3df; border-left:4px solid var(--orange); padding:17px 18px; font-size:13px; color:#5c4824; }
+    .risk-list { list-style:none; padding:0; margin:0; }
+    .risk-list li { padding:15px 0; border-top:1px solid var(--line); display:grid; grid-template-columns:94px 1fr auto; gap:12px; align-items:baseline; font-size:13px; }
+    .risk-list li:first-child { border-top:0; padding-top:0; }
+    .risk-list b { font:500 23px/1 var(--serif); color:var(--coral); }
+    .risk-list small { color:var(--muted); text-align:right; }
+    .table-wrap { overflow:auto; border:1px solid var(--line); background:var(--white); }
+    table { width:100%; border-collapse:collapse; min-width:760px; font-size:13px; }
+    caption { text-align:left; padding:18px 20px 9px; font:500 20px var(--serif); }
+    th { background:#edf4ef; color:#446358; font:700 11px var(--mono); letter-spacing:.04em; text-align:right; }
+    td,th { padding:11px 16px; border-bottom:1px solid #e5ece6; white-space:nowrap; }
+    td { text-align:right; font-family:var(--mono); font-size:12px; }
+    td:first-child,th:first-child { text-align:left; }
+    tr:last-child td { border-bottom:0; }
+    .method { background:var(--ink); color:#e8f1ed; }
+    .method .section-head { border-color:rgba(255,255,255,.2); }
+    .method .section-head p { color:#b9cbc3; }
+    .method .label { color:var(--mint); }
+    .method-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+    .method-grid div { border-top:2px solid var(--mint2); padding-top:15px; }
+    .method-grid h3 { margin:0 0 8px; font:500 21px var(--serif); color:#fff; }
+    .method-grid p { margin:0; color:#c7d7d0; font-size:13px; }
+    .guide { display:grid; grid-template-columns:210px 1fr; gap:50px; }
+    .guide-sticky { position:sticky; top:22px; align-self:start; }
+    .guide-sticky p { color:var(--muted); font-size:14px; }
+    .guidance { border-top:1px solid var(--line); }
+    .guidance article { display:grid; grid-template-columns:52px 1fr; gap:19px; border-bottom:1px solid var(--line); padding:20px 0; }
+    .guidance .n { color:var(--mint2); font:500 28px/1 var(--serif); }
+    .guidance h3 { margin:0 0 4px; font:600 15px var(--sans); }
+    .guidance p { margin:0; color:var(--muted); font-size:14px; }
+    footer { background:#e8efe9; padding:36px 0 54px; color:#53665f; font-size:12px; }
+    footer .sources { display:grid; grid-template-columns:1.2fr 1fr; gap:34px; }
+    footer p { margin:0 0 8px; }
+    @media (max-width:800px) { .wrap{padding:0 18px}.hero-grid,.two-col,.guide,.intro-grid{grid-template-columns:1fr;gap:27px}.hero-grid{padding:58px 0}.metric-grid{grid-template-columns:repeat(2,1fr)}.method-grid{grid-template-columns:1fr}.intro{padding:36px 0}section{padding:59px 0}.answer{margin-top:4px}.guide-sticky{position:static}.risk-list li{grid-template-columns:70px 1fr}.risk-list small{grid-column:2;text-align:left}.section-head{display:block}.section-head p{text-align:left;margin-top:8px}footer .sources{grid-template-columns:1fr} }
+    @media (max-width:440px) { .metric-grid{grid-template-columns:1fr}.topline span:last-child{display:none}.chart-shell{padding:20px 12px}#portfolioChart{height:260px} }
+    @media (prefers-reduced-motion:no-preference) { .hero:after{animation:float 11s ease-in-out infinite}.metric,.card{transition:transform .2s ease,box-shadow .2s ease}.metric:hover,.card:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(8,27,51,.08)}@keyframes float{50%{transform:translate(-2vw,-2vw)}} }
+  </style>
+</head>
+<body>
+  <header class="hero">
+    <div class="wrap">
+      <div class="topline"><b>LONG / TEN</b><span>一笔虚拟的、严格定义的十年定投实验</span><span>截至 2026.08.31</span></div>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow" style="color:var(--mint)">2016.08.31 → 2026.08.31</div>
+          <h1>把 24 万美元<br>交给<em>十年</em>。</h1>
+          <p class="thesis">从 2016 年 8 月底开始，连续 12 个自然月的最后一个交易日买入 <strong>VOO</strong>，每次 20,000 美元。之后不再加仓，持有至 2026 年 8 月 31 日。</p>
+        </div>
+        <div class="answer"><div class="label" style="color:#f8cf87">含分红再投资 · 期末组合市值</div><div class="value">$937,891</div><p>本金 $240,000 · 净赚 $697,891<br>不是“翻一倍”，而是本金的 <strong>3.91 倍</strong>。</p></div>
+      </div>
+      <div class="hero-foot"><span class="chip">12 次 × $20,000</span><span class="chip">VOO · S&amp;P 500 ETF</span><span class="chip">税费 / 交易摩擦：未计入</span><span class="chip">分红：假设自动再投资</span></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="intro"><div class="wrap intro-grid"><h2>先校正一个<br>ticker。</h2><p>你写的是 <strong>“VO”</strong>，但 VO 是 Vanguard Mid-Cap ETF（美国中盘股）；本报告按你的真实意图改用 <strong>VOO — Vanguard S&amp;P 500 ETF</strong>。这不是小差别：两者的指数、风险暴露与十年结果都不同。以下结论仅属于 VOO 这一口径。</p></div></section>
+
+    <section><div class="wrap">
+      <div class="section-head"><div><div class="label">The answer, uncompressed</div><h2>这笔钱做了什么？</h2></div><p>美元；基于 2026-08-31 收盘数据</p></div>
+      <div class="metric-grid">
+        <div class="metric highlight"><span>期末市值（总回报）</span><b>$937.9k</b><small>相当于本金 3.91 倍</small></div>
+        <div class="metric"><span>累计总回报</span><b>+290.8%</b><small>净增 $697,891</small></div>
+        <div class="metric"><span>资金加权年化回报</span><b>15.34%</b><small>XIRR；考虑每月现金流时点</small></div>
+        <div class="metric"><span>最大回撤</span><b>−33.99%</b><small>2020-02-19 至 2020-03-23</small></div>
+        <div class="metric"><span>不含分红的期末市值</span><b>$803.5k</b><small>仅价格变化，仍为本金 3.35 倍</small></div>
+        <div class="metric"><span>分红再投资的增量</span><b>$134.4k</b><small>占最终价值约 14.3%</small></div>
+        <div class="metric"><span>实际买入总份额</span><b>1,139.94</b><small>未将分红折算为新增份额</small></div>
+        <div class="metric"><span>加权平均持有期</span><b>9.54 年</b><small>首笔约 10 年；末笔约 9.09 年</small></div>
+      </div>
+      <div class="chart-shell">
+        <div class="chart-top"><div><div class="chart-title">组合市值轨迹</div><div class="legend"><span><i></i>含分红再投资的组合市值</span><span><i class="dot"></i>每月投入节点（2016.08—2017.07）</span></div></div><div class="chart-note">鼠标移动查看节点</div></div>
+        <svg id="portfolioChart" role="img" aria-label="2016年至2026年VOO定投组合市值走势图"></svg><div class="chart-tooltip" id="chartTooltip">组合开始：2016-08-31 · $20,000</div>
+      </div>
+    </div></section>
+
+    <section><div class="wrap two-col">
+      <div class="card"><div class="label">Return bridge</div><h3>收益不是只靠涨价</h3><p>用同一组买入日期比较，价格上涨贡献了大部分结果；但十年后，假设分红持续再投所带来的额外价值也已超过 13 万美元。</p><div class="bridge"><div class="bridge-row"><span>投入本金</span><div class="bar"><span style="width:25.6%"></span></div><b>$240,000</b></div><div class="bridge-row"><span>价格增值</span><div class="bar"><span style="width:60.1%"></span></div><b>$563,530</b></div><div class="bridge-row"><span>分红再投资增量</span><div class="bar"><span style="width:14.3%"></span></div><b>$134,361</b></div></div><div class="notice"><strong>一个容易忽略的事实：</strong>“不卖、再投资”并没有消除风险；它只是把现金分红重新暴露于股票市场。总回报更高，路径也仍然会经历大幅下跌。</div></div>
+      <div class="card"><div class="label">Drawdown reality</div><h3>最大的考验发生在第 4 年</h3><ul class="risk-list"><li><b>−19.48%</b><span><strong>2018 年四季度</strong><br>2018-09-20 → 2018-12-24</span><small>$316k → $255k</small></li><li><b>−33.99%</b><span><strong>COVID 冲击</strong><br>2020-02-19 → 2020-03-23</span><small>$376k → $248k</small></li><li><b>−24.52%</b><span><strong>2022 年加息熊市</strong><br>2022-01-03 → 2022-10-12</span><small>$548k → $414k</small></li></ul><p class="notice" style="margin-top:18px">2020 年的组合从高点到低点少了约 <strong>$127,759</strong>；回到前高用了 173 个日历日（2020-08-10）。这才是“长期持有”需要预先承受的金额级别。</p></div>
+    </div></section>
+
+    <section><div class="wrap"><div class="section-head"><div><div class="label">Trade ledger</div><h2>12 笔买入，没有补仓技巧</h2></div><p>月末非交易日时，使用该月最后一个交易日收盘价</p></div>
+      <div class="table-wrap"><table><caption>买入明细 · 2016-08 至 2017-07</caption><thead><tr><th>买入日</th><th>投入金额</th><th>VOO 收盘价</th><th>实际买入份额</th><th>当日调整后收盘价*</th><th>截至 2026-08-31 的总回报价值</th></tr></thead><tbody>
+        <tr><td>2016-08-31</td><td>$20,000</td><td>$199.52</td><td>100.24</td><td>$169.13</td><td>$83,351</td></tr><tr><td>2016-09-30</td><td>$20,000</td><td>$198.69</td><td>100.66</td><td>$169.18</td><td>$83,327</td></tr><tr><td>2016-10-31</td><td>$20,000</td><td>$195.13</td><td>102.50</td><td>$166.15</td><td>$84,847</td></tr><tr><td>2016-11-30</td><td>$20,000</td><td>$202.40</td><td>98.81</td><td>$172.34</td><td>$81,800</td></tr><tr><td>2016-12-30</td><td>$20,000</td><td>$205.31</td><td>97.41</td><td>$175.91</td><td>$80,327</td></tr><tr><td>2017-01-31</td><td>$20,000</td><td>$208.97</td><td>95.71</td><td>$179.04</td><td>$78,754</td></tr><tr><td>2017-02-28</td><td>$20,000</td><td>$217.07</td><td>92.14</td><td>$185.98</td><td>$75,792</td></tr><tr><td>2017-03-31</td><td>$20,000</td><td>$216.35</td><td>92.44</td><td>$186.23</td><td>$75,692</td></tr><tr><td>2017-04-28</td><td>$20,000</td><td>$218.60</td><td>91.49</td><td>$188.17</td><td>$74,912</td></tr><tr><td>2017-05-31</td><td>$20,000</td><td>$221.67</td><td>90.22</td><td>$190.81</td><td>$73,875</td></tr><tr><td>2017-06-30</td><td>$20,000</td><td>$222.06</td><td>90.07</td><td>$192.01</td><td>$73,413</td></tr><tr><td>2017-07-31</td><td>$20,000</td><td>$226.64</td><td>88.25</td><td>$195.97</td><td>$71,801</td></tr>
+      </tbody></table></div><p style="color:var(--muted);font-size:12px;margin:12px 0 0">* 调整后收盘价用于模拟分红再投资的总回报，不是当时实际可成交价格。各行因四舍五入可能与合计略有差异。</p>
+    </div></section>
+
+    <section class="method"><div class="wrap"><div class="section-head"><div><div class="label">Methodology</div><h2>这组数字是怎样算出来的？</h2></div><p>把“看起来很高的收益”拆回可复核的假设</p></div><div class="method-grid"><div><h3>现金流</h3><p>2016-08-31 起，每个自然月月末投入 $20,000，共 12 次；如月末休市则取该月最后一个 NYSE 交易日。最后一笔为 2017-07-31。</p></div><div><h3>总回报</h3><p>使用日频 Adjusted Close，将每笔 $20,000 按买入日调整后收盘价换算为“总回报单位”，在 2026-08-31 以调整后收盘价估值。这是“分红即时、无摩擦再投资”的标准近似。</p></div><div><h3>回报率与成本</h3><p>XIRR 对 12 次实际现金流及期末市值求解。交易佣金、买卖价差、税、汇兑、管理费以外费用均未另行扣除；VOO 的基金费用已反映在基金净值及历史价格中。</p></div></div></div></section>
+
+    <section><div class="wrap guide"><aside class="guide-sticky"><div class="label">What this does / does not say</div><h2 style="font-size:34px">给 2026 的<br>三条提示</h2><p>这是一份历史压力测试，不是一条预测线。最有价值的部分，往往是路径，而不是最后的 93.8 万。</p></aside><div class="guidance"><article><div class="n">01</div><div><h3>先为下一次 −34% 定价，再谈长期回报</h3><p>在这个案例中，最大回撤时组合一度少了约 $128k。若这个数字会迫使你卖出，那么股票配置或一次性投入额度对你而言可能过高；把短期用途资金与股票长期资金分开，比寻找“更好买点”更基础。</p></div></article><article><div class="n">02</div><div><h3>定投的价值是执行纪律，不是保证买在低点</h3><p>12 笔的成交价集中在 $195–$227；真正决定结果的是随后九年多持续留在市场里。定投降低了入场时点单点风险，但并不降低持有期间的市场风险。</p></div></article><article><div class="n">03</div><div><h3>不要把 15.34% 年化当作未来十年的默认值</h3><p>这是一个异常强劲的完整样本期，且起点、估值与未来都无法复制。做规划时应使用多情景（低 / 中 / 高）回报与更长的回撤承受期；本页也没有纳入你的税率、汇率、现金流需求或风险承受能力。</p></div></article></div></div></section>
+  </main>
+
+  <footer><div class="wrap sources"><div><p><strong>数据与复核</strong></p><p>历史日频价格、调整后价格和分红事件：<a href="https://finance.yahoo.com/quote/VOO/history/" target="_blank" rel="noopener">Yahoo Finance · VOO Historical Data</a>（下载并计算于 2026-09-01，价格截至 2026-08-31）。基金识别及指数口径：<a href="https://investor.vanguard.com/investment-products/etfs/profile/voo" target="_blank" rel="noopener">Vanguard · VOO profile</a>。</p></div><div><p><strong>重要限制</strong></p><p>这不是投资建议，也不是对未来收益的预测。历史数据可能经后续修订；Adjusted Close 的分红再投资假设与券商实际到账时间、税收与可买入份额可能不同。所有金额为美元。</p></div></div></footer>
+
+  <script>
+    const points = [{d:"2016-08-31",v:20000},{d:"2016-12-30",v:103187},{d:"2017-06-30",v:235884},{d:"2017-12-29",v:285017},{d:"2018-06-29",v:292609},{d:"2018-12-31",v:272189},{d:"2019-06-28",v:322244},{d:"2019-12-31",v:357562},{d:"2020-03-23",v:248080},{d:"2020-06-30",v:346007},{d:"2020-12-31",v:423083},{d:"2021-06-30",v:487781},{d:"2021-12-31",v:544907},{d:"2022-06-30",v:436198},{d:"2022-12-30",v:445875},{d:"2023-06-30",v:521035},{d:"2023-12-29",v:563247},{d:"2024-06-28",v:649283},{d:"2024-12-31",v:703924},{d:"2025-06-30",v:746970},{d:"2025-12-31",v:829387},{d:"2026-06-30",v:913835},{d:"2026-08-31",v:937891}];
+    const svg = document.getElementById('portfolioChart'), tip = document.getElementById('chartTooltip');
+    const money = n => '$' + Math.round(n).toLocaleString('en-US');
+    function draw(){ const r=svg.getBoundingClientRect(), w=Math.max(280,r.width), h=Math.max(220,r.height), pad={l:51,r:18,t:16,b:37}, max=1000000, min=0, iw=w-pad.l-pad.r, ih=h-pad.t-pad.b; svg.setAttribute('viewBox',`0 0 ${w} ${h}`); const x=i=>pad.l+i*iw/(points.length-1), y=v=>pad.t+(max-v)/(max-min)*ih; let s=''; [0,250000,500000,750000,1000000].forEach(v=>{const yy=y(v);s+=`<line x1="${pad.l}" x2="${w-pad.r}" y1="${yy}" y2="${yy}" stroke="#dce6df" stroke-width="1"/><text x="0" y="${yy+4}" fill="#617086" font-family="Cascadia Mono,monospace" font-size="10">${v===0?'$0':'$'+(v/1000)+'k'}</text>`}); [0,3,7,11,15,19,22].forEach(i=>{s+=`<text x="${x(i)}" y="${h-9}" text-anchor="middle" fill="#617086" font-family="Cascadia Mono,monospace" font-size="10">${points[i].d.slice(0,4)}</text>`}); const path=points.map((p,i)=>`${i?'L':'M'}${x(i)},${y(p.v)}`).join(' '); const area=path+` L${x(points.length-1)},${y(0)} L${x(0)},${y(0)} Z`; s+=`<path d="${area}" fill="#c5eed7" opacity=".55"/><path d="${path}" fill="none" stroke="#183553" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>`; points.forEach((p,i)=>{const accent=i<3?'#ffb84d':'#78c7a2';s+=`<circle class="node" data-i="${i}" cx="${x(i)}" cy="${y(p.v)}" r="${i===8?5:3.2}" fill="${accent}" stroke="#fffefa" stroke-width="1.5" tabindex="0"><title>${p.d}: ${money(p.v)}</title></circle>`}); svg.innerHTML=s; svg.querySelectorAll('.node').forEach(n=>{const show=()=>{const p=points[+n.dataset.i];tip.textContent=`${p.d} · 组合市值 ${money(p.v)}`};n.addEventListener('mouseenter',show);n.addEventListener('focus',show);}); }
+    draw(); addEventListener('resize',draw);
+  </script>
+</body>
+</html>

@@ -1,0 +1,801 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="摩门教 / 后期圣徒运动：从约瑟·斯密、《摩尔门经》、复兴神学、圣殿礼仪，到历史争议、分支与现代全球发展的系统分析">
+<title>摩门教 / 后期圣徒运动：信仰、历史、经书、神学与现代世界</title>
+<style>
+:root{
+  --bg:#f3f0ea; --paper:#fffdf8; --ink:#202731; --muted:#68717b;
+  --navy:#173d5c; --navy2:#285e84; --blue:#5d8eb0;
+  --gold:#b48a42; --gold2:#dfbf78; --burg:#713d43;
+  --line:#d9d4c8; --soft:#eef3f6; --warm:#f7f0e4; --red:#8c4545;
+  --green:#466b5d; --shadow:0 18px 50px rgba(27,43,56,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+ margin:0;color:var(--ink);
+ background:
+ radial-gradient(circle at 10% 5%,rgba(180,138,66,.11),transparent 27rem),
+ radial-gradient(circle at 92% 24%,rgba(40,94,132,.08),transparent 30rem),
+ var(--bg);
+ font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+ line-height:1.84;font-size:17px;
+}
+a{color:#2c6388;text-decoration-thickness:1px;text-underline-offset:3px}
+.hero{
+ min-height:78vh;display:grid;place-items:center;color:white;position:relative;overflow:hidden;
+ background:
+ linear-gradient(112deg,rgba(11,37,58,.96),rgba(30,65,91,.85)),
+ url("https://commons.wikimedia.org/wiki/Special:FilePath/Salt_Lake_Temple_Front_1.jpg?width=1800") center/cover;
+}
+.hero:before{content:"";position:absolute;inset:-25%;background:
+ radial-gradient(circle at 80% 10%,rgba(226,190,116,.23),transparent 20%),
+ linear-gradient(135deg,transparent 0 46%,rgba(255,255,255,.035) 46% 47%,transparent 47% 100%)}
+.hero:after{content:"";position:absolute;width:510px;height:510px;border:1px solid rgba(255,255,255,.10);border-radius:50%;right:-230px;bottom:-220px}
+.hero-inner{width:min(1160px,92vw);position:relative;z-index:2;padding:82px 0}
+.kicker{letter-spacing:.17em;text-transform:uppercase;font-size:13px;color:#f0d28f;font-weight:750}
+h1{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(42px,6vw,76px);line-height:1.08;margin:.22em 0 .27em;max-width:1060px}
+.subtitle{font-size:clamp(18px,2vw,24px);max-width:970px;color:#e9f0f4}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:40px}
+.hero-stat{border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.075);backdrop-filter:blur(8px);padding:17px;border-radius:14px}
+.hero-stat b{display:block;font-size:24px;color:#f4d391}.hero-stat span{font-size:13px;color:#dfebf1}
+.wrap{width:min(1220px,94vw);margin:0 auto}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:34px;align-items:start;padding:38px 0 82px}
+nav.toc{position:sticky;top:18px;background:rgba(255,253,248,.90);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:18px;max-height:92vh;overflow:auto}
+nav.toc h3{margin:0 0 10px;font-size:14px;color:var(--muted);letter-spacing:.08em}
+nav.toc a{display:block;color:#46525c;text-decoration:none;padding:7px 9px;border-left:2px solid transparent;font-size:13.8px;line-height:1.35}
+nav.toc a:hover{background:#eef3f6;border-left-color:var(--gold)}
+main{min-width:0}
+section{scroll-margin-top:24px;background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(24px,4vw,48px);margin:0 0 24px;box-shadow:var(--shadow)}
+h2{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(29px,4vw,43px);line-height:1.2;margin:0 0 20px;color:var(--navy)}
+h3{font-size:23px;margin:31px 0 10px;color:#294f68}
+h4{font-size:18px;margin:24px 0 6px;color:#31566d}
+.lead{font-size:20px;color:#354751}
+.small{font-size:14px;color:var(--muted)}
+.note,.warning,.insight,.compare,.historybox{border-left:4px solid var(--gold);background:#faf4e8;padding:16px 18px;border-radius:0 12px 12px 0;margin:20px 0}
+.warning{border-left-color:var(--red);background:#faeeee}
+.insight{border-left-color:var(--navy2);background:#edf4f8}
+.compare{border-left-color:var(--green);background:#eef5f1}
+.historybox{border-left-color:var(--burg);background:#f7eeee}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px}
+.card .num{font-family:Georgia,serif;font-size:36px;color:var(--gold);line-height:1}
+.card h4{margin:8px 0 4px}
+.pill{display:inline-block;padding:4px 10px;border:1px solid #cfdae1;border-radius:999px;background:#f6f9fb;font-size:13px;margin:2px}
+.figure{margin:26px 0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#162b3a}
+.figure img{display:block;width:100%;max-height:600px;object-fit:cover}
+.figure.portrait img{max-height:580px;object-fit:contain;background:#ece8df}
+.figure figcaption{background:#fff;padding:10px 14px;font-size:13px;color:var(--muted)}
+.timeline{position:relative;margin:24px 0 0;padding-left:34px}
+.timeline:before{content:"";position:absolute;left:10px;top:8px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--navy2))}
+.tl{position:relative;padding:0 0 22px 12px}
+.tl:before{content:"";position:absolute;left:-30px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--paper);border:3px solid var(--gold)}
+.tl time{font-weight:800;color:var(--navy2)}
+.tl b{color:#2c4658}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:15px}
+th,td{border-bottom:1px solid var(--line);padding:12px 10px;vertical-align:top;text-align:left}
+th{background:#edf3f6;color:var(--navy);font-weight:700}
+tr:hover td{background:#fafbfd}
+.quote{font-family:Georgia,"Songti SC","STSong",serif;font-size:22px;line-height:1.7;color:#31566b;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 2px;margin:24px 0}
+.tree{display:flex;flex-direction:column;align-items:center;gap:10px;margin:24px 0}
+.node{border:1px solid #c9d7df;background:#f6fafc;padding:8px 14px;border-radius:999px;text-align:center}
+.branch{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.arrow{color:var(--gold);font-size:23px;line-height:1}
+.metric-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}
+.metric{padding:18px;border-radius:16px;background:#eef3f6;border:1px solid #d5e0e6}
+.metric b{display:block;font-size:26px;color:var(--navy)}
+.bars{margin:16px 0}
+.bar{display:grid;grid-template-columns:155px 1fr 80px;gap:10px;align-items:center;margin:9px 0}
+.track{height:16px;background:#e8edf0;border-radius:999px;overflow:hidden}.fill{height:100%;background:linear-gradient(90deg,var(--navy2),var(--gold))}
+.glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.term{border-bottom:1px dashed #d3d9dc;padding:10px 0}.term b{color:var(--navy)}
+.flow{display:flex;gap:8px;align-items:stretch;flex-wrap:wrap;margin:18px 0}
+.step{flex:1 1 135px;border:1px solid #d0dce3;border-radius:13px;padding:13px;background:#f7fafc;text-align:center}
+.step b{display:block;color:var(--navy);margin-bottom:4px}.arr{display:grid;place-items:center;color:var(--gold);font-size:22px}
+.sources li{margin:8px 0}
+.badge{font-size:12px;display:inline-block;background:#eaf1f5;border:1px solid #d0dce4;padding:3px 8px;border-radius:999px;color:#436279}
+.badge.official{background:#edf5f0;color:#3f6754;border-color:#cfe0d7}
+.badge.history{background:#f8eeee;color:#7b4545;border-color:#ead0d0}
+@media(max-width:940px){
+ .layout{grid-template-columns:1fr}.toc{display:none}.hero-grid,.metric-row,.grid4{grid-template-columns:repeat(2,1fr)}
+ .grid3{grid-template-columns:1fr}.grid2,.glossary{grid-template-columns:1fr}
+}
+@media(max-width:560px){
+ .hero-grid,.metric-row,.grid4{grid-template-columns:1fr}.bar{grid-template-columns:105px 1fr 62px}body{font-size:16px}.arr{display:none}
+}
+@media print{
+ body{background:white;font-size:12pt}.hero{min-height:auto;color:#111;background:#fff;border-bottom:2px solid #222}.hero .subtitle,.hero-stat span{color:#333}
+ .hero-stat{border:1px solid #aaa}.hero-stat b{color:#111}.layout{display:block}.toc{display:none}
+ section{box-shadow:none;break-inside:auto}.figure img{max-height:430px}a{color:#111;text-decoration:none}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+ <div class="hero-inner">
+   <div class="kicker">Restoration · Joseph Smith · Book of Mormon · Temple · Modern Global Church</div>
+   <h1>“摩门教” / 后期圣徒运动：从美国复兴主义到全球宗教</h1>
+   <div class="subtitle">一份同时从“信徒自己相信什么”“19世纪历史发生了什么”“它与传统基督教究竟差在哪里”三个角度，系统介绍约瑟·斯密、《摩尔门经》、复兴、救恩计划、圣职、圣殿、一夫多妻制、经书争议与现代发展的深度报告。</div>
+   <div class="hero-grid">
+     <div class="hero-stat"><b>1830</b><span>约瑟·斯密正式组织教会</span></div>
+     <div class="hero-stat"><b>4部</b><span>今日主流后期圣徒教会的“标准经文”</span></div>
+     <div class="hero-stat"><b>1789万</b><span>截至2025年底官方登记成员</span></div>
+     <div class="hero-stat"><b>204座</b><span>截至2025年底投入运作的圣殿</span></div>
+   </div>
+   <p class="small" style="color:#dbe8ef;margin-top:18px">名称说明：本报告标题保留中文社会最熟悉的“摩门教”作为检索词，但其最大宗派——耶稣基督后期圣徒教会——自2018年以来明确要求媒体和公众不要以“Mormon Church / 摩门教会”作为正式名称。本报告下文尽量称“后期圣徒教会”或“耶稣基督后期圣徒教会”。</p>
+ </div>
+</header>
+
+<div class="wrap layout">
+<nav class="toc">
+ <h3>目录</h3>
+ <a href="#overview">01 到底什么是“摩门教”</a>
+ <a href="#core">02 一句话抓住其核心</a>
+ <a href="#god">03 神是谁：Godhead</a>
+ <a href="#plan">04 救恩计划与前生</a>
+ <a href="#jesus">05 耶稣、赎罪与救恩</a>
+ <a href="#restoration">06 大背道与复兴</a>
+ <a href="#smith">07 约瑟·斯密</a>
+ <a href="#bofm">08 《摩尔门经》</a>
+ <a href="#scriptures">09 四部标准经文</a>
+ <a href="#priesthood">10 圣职与教会组织</a>
+ <a href="#temple">11 圣殿、恩道门与永恒家庭</a>
+ <a href="#practice">12 日常生活与伦理</a>
+ <a href="#history">13 200年历史主线</a>
+ <a href="#polygamy">14 一夫多妻制</a>
+ <a href="#race">15 种族与圣职禁令</a>
+ <a href="#questions">16 最关键历史争议</a>
+ <a href="#branches">17 后期圣徒运动的分支</a>
+ <a href="#today">18 当代规模与全球化</a>
+ <a href="#christianity">19 与主流基督教对照</a>
+ <a href="#isChristian">20 它是不是基督教？</a>
+ <a href="#myths">21 常见误解</a>
+ <a href="#framework">22 最终理解框架</a>
+ <a href="#glossary">23 术语表</a>
+ <a href="#sources">24 资料来源</a>
+</nav>
+
+<main>
+
+<section id="overview">
+<h2>01｜“摩门教”到底指什么？先把名称弄清楚</h2>
+<p class="lead">严格说，“Mormonism / 摩门教”不是一个单一、没有分支的宗教机构，而是19世纪由约瑟·斯密（Joseph Smith）所开启的<b>后期圣徒运动（Latter Day Saint movement）</b>及其相关宗教传统的通俗总称。</p>
+
+<p>今天这个运动中规模远远最大的宗派是 <b>The Church of Jesus Christ of Latter-day Saints</b>，中文官方名称通常译为<b>耶稣基督后期圣徒教会</b>。它的总部在美国犹他州盐湖城。由于《摩尔门经》（Book of Mormon）是其重要经书，外界长期把成员称为“Mormons”。不过教会今天明确鼓励使用完整正式名称或“后期圣徒”，并认为“Mormon Church”并不是正确正式名称。</p>
+
+<div class="note"><b>本报告的用词原则：</b>谈整个历史传统时使用“后期圣徒运动”；谈盐湖城总部的最大教会时使用“耶稣基督后期圣徒教会”或“后期圣徒教会”；“摩门教”只作为大众熟悉的历史通称。</div>
+
+<div class="grid3">
+ <div class="card"><div class="num">运动</div><h4>后期圣徒运动</h4><p>1830年从约瑟·斯密周围形成，1844年他去世后发生继承分裂，今天有多个宗派。</p></div>
+ <div class="card"><div class="num">最大</div><h4>耶稣基督后期圣徒教会</h4><p>以盐湖城为总部，由先知/会长、第一会长团与十二使徒定额组领导；全球登记成员近1800万。</p></div>
+ <div class="card"><div class="num">其他</div><h4>基督社区等</h4><p>Community of Christ（原“重组耶稣基督后期圣徒教会”）是另一重要历史分支；另有一些规模很小的宗派和一夫多妻制基本教义派。</p></div>
+</div>
+
+<figure class="figure">
+<img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Salt_Lake_Temple_Front_1.jpg?width=1600" alt="盐湖城圣殿">
+<figcaption>盐湖城圣殿（Salt Lake Temple）。圣殿并不是普通每周主日聚会的礼拜堂，而是进行特殊“圣约与教仪”的神圣场所。图片：Wikimedia Commons，CC ShareAlike。</figcaption>
+</figure>
+</section>
+
+<section id="core">
+<h2>02｜一句话抓住它：它相信“基督教曾失落，后来被重新恢复”</h2>
+
+<p>要理解后期圣徒教会，最重要的不是先记住一夫多妻制或美国西部拓荒，而是理解<b>Restoration（复兴/恢复）</b>这个概念。</p>
+
+<div class="quote">它的基本叙事是：耶稣基督在新约时代建立了真实教会；使徒死后，完整福音、圣职权柄和某些真理逐渐失落；19世纪神藉约瑟·斯密重新启示这些真理、恢复圣职并再次建立基督真正的教会。</div>
+
+<p>因此，它既不是典型意义上的新教宗派，也不认为自己只是基督教几百个教派中的一个。它自我理解为<b>原始基督教权柄与福音的恢复</b>。</p>
+
+<div class="flow">
+ <div class="step"><b>耶稣与使徒</b>原始教会</div><div class="arr">→</div>
+ <div class="step"><b>大背道</b>权柄与真理失落</div><div class="arr">→</div>
+ <div class="step"><b>1820年代</b>约瑟·斯密异象</div><div class="arr">→</div>
+ <div class="step"><b>1829</b>圣职恢复</div><div class="arr">→</div>
+ <div class="step"><b>1830</b>教会重新组织</div>
+</div>
+
+<div class="insight"><b>这也是它与传统基督教真正冲突的根源。</b>天主教、东正教、新教虽然彼此在教会论上分歧很大，但都不会接受“基督的教会在使徒以后从地上失去真正圣职，直到约瑟·斯密才重新恢复”这一后期圣徒前提。</div>
+</section>
+
+<section id="god">
+<h2>03｜他们所说的“父、子、圣灵”，与三位一体一样吗？</h2>
+
+<p>后期圣徒当然相信父神、耶稣基督和圣灵，也称三者为 <b>Godhead</b>。但这里非常容易产生“大家都说父、子、圣灵，所以只是用词不同”的误解。</p>
+
+<h3>后期圣徒教义</h3>
+<p>官方教义明确说：父、子、圣灵是<b>三个彼此区分的神圣存在</b>，在旨意、目的和教义上完全合一。父与复活后的耶稣拥有“可触摸的骨肉身体”，圣灵则是灵体。</p>
+
+<div class="grid3">
+ <div class="card"><h4>天父 Heavenly Father</h4><p>是人类灵体之父，是敬拜和祷告最终指向的对象，并制定救恩计划。</p></div>
+ <div class="card"><h4>耶稣基督 Jesus Christ</h4><p>天父的独生子、救主和救赎者；在前生已存在，创造世界并道成肉身、死亡与复活。</p></div>
+ <div class="card"><h4>圣灵 Holy Ghost</h4><p>具有神性但没有骨肉身体，见证父与子、给予启示与属灵确认。</p></div>
+</div>
+
+<h3>与尼西亚三位一体的区别</h3>
+<table>
+<thead><tr><th>问题</th><th>后期圣徒教义</th><th>尼西亚基督教</th></tr></thead>
+<tbody>
+<tr><td>父、子、圣灵</td><td>三个彼此独立的存在，在目的上完全合一</td><td>一个神性本体（ousia），三个位格（hypostases）</td></tr>
+<tr><td>父神有身体吗？</td><td>有荣耀、完善的骨肉身体</td><td>父神是非物质的神；圣子因道成肉身具有真正人性和复活身体</td></tr>
+<tr><td>“一神”如何理解</td><td>更强调神格成员目的、意志与荣耀的完全统一</td><td>强调本体上只有一个神</td></tr>
+<tr><td>创造</td><td>神“组织”预先存在的元素/物质；拒绝传统 creatio ex nihilo</td><td>主流传统认为神从无创造一切受造实在</td></tr>
+</tbody>
+</table>
+
+<h3>天父是否有“天母”？</h3>
+<p>后期圣徒教会正式教导：人类是<b>天父与天母（Heavenly Parents）</b>所爱的灵体儿女。关于天母具体身份与角色，官方教义非常少，也没有像向天父那样向天母祷告的正式礼仪。</p>
+
+<h3>“人可以成为神”是什么意思？</h3>
+<p>后期圣徒教义把 <b>exaltation（超升/高升）</b>理解为人藉基督的赎罪、圣约和永恒进步，最终“成为像天父一样”。约瑟·斯密晚期讲道甚至说神“曾像我们一样”，第五任教会会长 Lorenzo Snow 后来用著名两句概括：“人现在如何，神曾经如何；神现在如何，人将来可如何。”</p>
+
+<p>今天官方“Becoming Like God”文章同时说明：关于这句话的前半句——神过去究竟怎样——启示很少；教会真正反复强调的是人类拥有神圣潜能、可以进入超升。官方也明确反对把这个教义简单漫画化为“每个人死后得到自己一个星球”。</p>
+
+<div class="compare"><b>这里最适合与东正教 theosis（神化）作比较，但不能简单等同。</b>传统基督教的神化通常坚持创造者与受造者本体差异永不消失；后期圣徒的前生、物质永恒、父神有身体以及人类最终神性潜能，使它的形上学结构明显不同。</div>
+</section>
+
+<section id="plan">
+<h2>04｜完整世界观：前生 → 今生 → 灵界 → 复活 → 三层荣耀</h2>
+
+<p>后期圣徒信仰最有辨识度的部分之一，是一套非常完整的 <b>Plan of Salvation / Plan of Happiness（救恩计划 / 幸福计划）</b>。</p>
+
+<h3>① 我们出生以前已经存在</h3>
+<p>人不是受孕时才第一次存在。官方教义认为所有人都曾作为<b>天上父母的灵体儿女</b>生活在前生（premortal life）。在那里，人认识天父，并拥有某种选择能力。</p>
+
+<h3>② 天上的议会与路西弗的叛乱</h3>
+<p>天父提出让灵体儿女来到地上取得身体、经历试炼并自由选择的计划。耶稣基督愿意成为救主；路西弗反对这种计划并试图破坏人的自由意志，最终成为撒但。一部分灵体跟随他，不获得今生肉体。</p>
+
+<h3>③ 亚当的堕落不只是灾难</h3>
+<p>传统奥古斯丁式基督教常把堕落强调为罪进入世界的巨大灾难；后期圣徒则更强烈把亚当夏娃的堕落看成救恩计划中使死亡、生育、自由选择和进步成为可能的一步。《摩尔门经》甚至有著名表达：“亚当堕落，使人得以存在；人存在，是为了得喜乐。”</p>
+
+<h3>④ 今生：获得身体、学习选择、立圣约</h3>
+<p>人生是成长与试炼场。人藉信心、悔改、洗礼、领受圣灵、圣殿圣约和持续忠信，与基督的赎罪建立关系。</p>
+
+<h3>⑤ 死后灵界</h3>
+<p>死者进入灵界（spirit world）。未曾充分听闻福音的人仍有机会接受福音；这为“替死人洗礼”等代理教仪提供神学基础。</p>
+
+<h3>⑥ 所有人最终复活</h3>
+<p>基督的复活保证所有人最终都将身体与灵体重新结合。后期圣徒在这里区分 <b>immortality（不死/普遍复活）</b> 与 <b>eternal life / exaltation（与神同住、像神一样的最高永生）</b>。</p>
+
+<h3>⑦ 三种荣耀国度</h3>
+<div class="grid3">
+ <div class="card"><div class="num">☀</div><h4>Celestial Kingdom 天荣国</h4><p>最高荣耀，与天父同在；最高层级的超升与永恒婚姻、圣殿圣约密切相关。</p></div>
+ <div class="card"><div class="num">☾</div><h4>Terrestrial Kingdom 地荣国</h4><p>次一级荣耀，给予那些并未接受最高福音圣约但有一定正义生活的人。</p></div>
+ <div class="card"><div class="num">★</div><h4>Telestial Kingdom 星荣国</h4><p>最低荣耀，但仍被描述为超过今世理解的荣耀；另有非常有限的“外层黑暗”概念。</p></div>
+</div>
+
+<div class="insight"><b>重要：</b>因此它不像某些通俗描述那样只有“得救/下地狱”二分。它的末世结构更像一个分层的荣耀体系，大多数人最终都会得到某种程度的荣耀，而“超升”才是最高目标。</div>
+</section>
+
+<section id="jesus">
+<h2>05｜他们如何看耶稣？赎罪、恩典、信心与行为是什么关系？</h2>
+
+<p>后期圣徒毫无疑问把耶稣基督放在信仰中心：祂是前生的耶和华、神的儿子、创造者、弥赛亚；祂降生、受苦、被钉十字架、真实复活，并且只有藉祂人才能胜过罪和死亡。</p>
+
+<h3>“赎罪”范围</h3>
+<p>后期圣徒常用 <b>Atonement of Jesus Christ</b> 指基督从客西马尼园的痛苦开始，延伸到十字架死亡与复活的整个救赎行动。与大多数新教神学相比，他们往往更加突出客西马尼园中基督承担人的罪与痛苦。</p>
+
+<h3>恩典是否只是“人先努力，然后耶稣补差额”？</h3>
+<p>这种说法太简单。官方现代教导明确强调：没有基督的恩典与赎罪，没有任何人能复活、蒙赦免或进入神的荣耀。但同时，后期圣徒也强调救恩的“圣约道路”——信心、悔改、洗礼、圣灵、圣殿教仪、持守到底。</p>
+
+<p>《摩尔门经》2 Nephi 25:23 有一句经常引发新教徒争论的话：“我们知道，我们得救是藉着恩典，尽我们所能做的以后。”后期圣徒解释传统一般不愿把它理解成“人靠行为赚取基督恩典”，但其<b>恩典—圣约—顺服—教仪</b>体系仍明显不同于宗教改革传统的“唯独因信称义”。</p>
+
+<div class="compare"><b>从改革宗角度看，关键不是“后期圣徒是否说耶稣拯救人”——他们当然这么说；真正的问题是称义、成圣、教仪、圣职权柄和最终超升之间怎样连接。</b></div>
+
+<h3>耶稣和撒但是“兄弟”吗？</h3>
+<p>外界常用一句刺激性口号：“摩门教相信耶稣和撒但是兄弟。”更准确的表达是：后期圣徒认为<b>所有人、耶稣以及路西弗都在前生存在于天父的灵体家庭中</b>；耶稣是天父的“首生者”并具有独特神圣地位，而路西弗后来叛逆成为撒但。因此在其前生体系中二者确实都属于天父灵体儿女的框架，但把两者说成地位对等的“兄弟神”会严重误导。</p>
+</section>
+
+<section id="restoration">
+<h2>06｜“大背道”与“复兴”：为什么需要约瑟·斯密？</h2>
+
+<p>如果新约教会从未失去核心权柄，那么约瑟·斯密的历史角色就很难成立。因此“大背道”（Great Apostasy）是后期圣徒神学的支柱。</p>
+
+<h3>教会自身的叙事</h3>
+<p>使徒时代以后，迫害、错误教义和人为改变导致完整的使徒权柄与圣职从地上消失。虽然仍有真诚基督徒和部分真理，但没有任何现存教会拥有完整授权。宗教改革者做了重要工作，却没有恢复失去的使徒圣职。</p>
+
+<h3>复兴包含的不只是一本新经书</h3>
+<div class="grid2">
+ <div class="card"><h4>第一异象</h4><p>约瑟·斯密宣称天父与耶稣向他显现，由此理解现存宗派都不是完整复兴教会。</p></div>
+ <div class="card"><h4>《摩尔门经》</h4><p>作为“耶稣基督的另一部见证”，证明神继续启示并证明约瑟的先知呼召。</p></div>
+ <div class="card"><h4>亚伦圣职</h4><p>教会相信1829年施洗约翰向约瑟和 Oliver Cowdery 显现并授予洗礼权柄。</p></div>
+ <div class="card"><h4>麦基洗德圣职</h4><p>彼得、雅各、约翰随后显现并恢复更高圣职与使徒权柄。</p></div>
+ <div class="card"><h4>圣殿密钥</h4><p>教会相信摩西、以利亚等在 Kirtland Temple 恢复以色列聚集和永恒“印证”权柄。</p></div>
+ <div class="card"><h4>活先知</h4><p>启示并未随着新约正典完成而结束；今天仍有先知与使徒。</p></div>
+</div>
+
+<div class="historybox"><b>历史研究需要另问一个问题：</b>“这些天使显现是否真实”属于宗教信仰判断；历史学更能处理的是这些主张何时第一次被记录、不同记载之间如何变化、哪些同时代资料可以互证。这两类问题不能假装是同一种证据。</div>
+</section>
+
+<section id="smith">
+<h2>07｜约瑟·斯密：先知、宗教创新者，也是理解整个运动不可绕过的人</h2>
+
+<figure class="figure portrait">
+<img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Joseph%20Smith%2C%20Jr.%20portrait%20owned%20by%20Joseph%20Smith%20III.jpg?width=1000" alt="约瑟·斯密肖像">
+<figcaption>约瑟·斯密（Joseph Smith Jr., 1805–1844）肖像。Wikimedia Commons。后期圣徒视其为“复兴时代的先知”；现代历史学则把他视为19世纪美国最具影响力的新宗教运动创始人物之一。</figcaption>
+</figure>
+
+<h3>成长背景</h3>
+<p>约瑟·斯密1805年出生于美国佛蒙特州，成长于纽约州西部。这一地区19世纪初处在美国第二次大觉醒的强烈宗教复兴氛围中：浸信会、卫理公会、长老会、复兴讲员和新兴宗教运动竞争激烈。</p>
+
+<h3>1820：第一异象</h3>
+<p>按照后来成为正典的1838年叙述，约瑟14岁时因各宗派争论而祷告，在树林中看见天父和耶稣基督。这个经历今天被后期圣徒视为复兴的起点。</p>
+
+<h3>1823–1827：天使摩罗乃与金页片</h3>
+<p>约瑟说天使 Moroni 告诉他附近山丘埋着一套古代金属页片，记录古代美洲先知历史；1827年他获准取出页片。</p>
+
+<h3>1828–1829：翻译</h3>
+<p>约瑟口述《摩尔门经》，书记员记录。今天官方资料明确承认，除了被称为“解释器/乌陵与土明”的两块石头，他也使用自己在获得金页片之前就拥有的一块<b>棕色先见石（seer stone）</b>。一些目击者说他把石头放入帽子遮光，看到文字后口述。</p>
+
+<h3>1830：教会成立</h3>
+<p>《摩尔门经》于1830年3月出版；1830年4月6日，约瑟·斯密、Oliver Cowdery 等人在纽约州组织“Church of Christ”，起初只有很小规模。</p>
+
+<h3>1830–1844：不断扩展的神学</h3>
+<p>他的神学并非1830年一次全部完成，而是在14年间不断发展：新的启示、圣职组织、锡安观念、圣殿、死人洗礼、永恒婚姻、前生、超升、神的本质，以及一夫多妻制，许多最有辨识度的教义都在晚期 Kirtland / Nauvoo 阶段成熟。</p>
+
+<h3>1844：死亡</h3>
+<p>1844年 Nauvoo 的反对者出版 <i>Nauvoo Expositor</i>，批评约瑟的政治权力和一夫多妻制等问题。约瑟当时是市长；市议会将报纸视为公共滋扰并下令摧毁印刷机，引发巨大危机。约瑟被关押在 Illinois 的 Carthage Jail，6月27日被武装暴民杀死，38岁。</p>
+</section>
+
+<section id="bofm">
+<h2>08｜《摩尔门经》是什么？它讲了什么？</h2>
+
+<figure class="figure portrait">
+<img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/The_Book_of_Mormon-_An_Account_Written_by_the_Hand_of_Mormon_upon_Plates_Taken_from_the_Plates_of_Nephi.jpg?width=1000" alt="1830年摩尔门经扉页">
+<figcaption>1830年第一版《摩尔门经》扉页。Wikimedia Commons；出版物本身已属公有领域。</figcaption>
+</figure>
+
+<p>《摩尔门经》正式副标题是 <b>Another Testament of Jesus Christ（耶稣基督的另一部见证）</b>。教会认为它不是约瑟·斯密创作的19世纪宗教小说，而是他藉“神的恩赐和能力”翻译的古代美洲先知记录。</p>
+
+<h3>书中的历史框架</h3>
+<div class="timeline">
+ <div class="tl"><time>巴别塔后</time>　<b>Jaredites 雅列人。</b>据书中叙述，一群人从旧世界来到美洲，后来文明毁灭。</div>
+ <div class="tl"><time>约前600</time>　<b>Lehi 家族离开耶路撒冷。</b>一家人跨海抵达美洲，后代分成 Nephites（尼腓人）和 Lamanites（拉曼人）。</div>
+ <div class="tl"><time>数世纪</time>　<b>先知、战争、悔改与背道循环。</b>书的大部分叙事描述两个群体复杂历史。</div>
+ <div class="tl"><time>复活后</time>　<b>耶稣向美洲尼腓人显现。</b>这是《摩尔门经》自我理解的高潮，集中在 3 Nephi。</div>
+ <div class="tl"><time>约公元4世纪</time>　<b>尼腓文明毁灭。</b>Mormon 与其子 Moroni 整理记录，Moroni 最终埋藏页片。</div>
+ <div class="tl"><time>1820年代</time>　<b>Moroni 以天使身份向约瑟显现。</b>由此把古代记录与现代复兴连接起来。</div>
+</div>
+
+<h3>“拉曼人＝所有美洲原住民”吗？</h3>
+<p>早期和近现代后期圣徒文化中，常出现把整个美洲原住民 broadly 视为拉曼人后裔的表达。今天《摩尔门经》英文导言较谨慎地说拉曼人是美洲印第安人的<b>“祖先之一（among the ancestors）”</b>，并不声称他们是所有原住民唯一或主要祖先。</p>
+
+<h3>翻译到底发生了什么？</h3>
+<p>约瑟·斯密本人很少详细解释机制，只说“藉神的恩赐和能力”。官方现代历史资料承认两类工具：</p>
+<div class="grid2">
+ <div class="card"><h4>“解释器”</h4><p>据叙述，与金页片一起埋藏的一对透明石头，装在金属框架中，后来通常称作“Urim and Thummim”。</p></div>
+ <div class="card"><h4>个人先见石</h4><p>约瑟在得到金页片前已找到的一块棕色石头；目击者说它后来也被用于口述《摩尔门经》。</p></div>
+</div>
+
+<div class="note"><b>这点值得注意：</b>20世纪大众教会艺术常画约瑟坐在桌前直接看着展开的金页片翻译；现代官方史料则更坦率地呈现先见石和帽子的目击者记载。教会将这理解为启示工具；批评者则把它与约瑟青年时期的“寻宝/民间魔法”文化联系起来。</div>
+
+<h3>学术上的核心争论</h3>
+<p>支持者会研究希伯来式语言结构、古代近东平行、地理模型与考古线索；批评者则指出19世纪《钦定版圣经》语言、时代错置（anachronisms）、尚无普遍学术认可的尼腓文明考古证据，以及美洲原住民遗传学主要显示东北亚祖源。</p>
+
+<p>教会官方的 DNA 文章承认：现有证据显示多数美洲原住民 DNA 主要与东亚人群相近，但认为由于小规模迁入、遗传漂变、瓶颈效应和混合等问题，DNA 不能“决定性证明或否定”《摩尔门经》的历史真实性。主流人口遗传学并没有把《摩尔门经》的古代以色列迁徙叙事作为解释美洲人口形成的标准模型。</p>
+</section>
+
+<section id="scriptures">
+<h2>09｜它的“圣经”不只有《摩尔门经》：四部标准经文</h2>
+
+<p>耶稣基督后期圣徒教会把四部经书称为 <b>Standard Works（标准经文）</b>。</p>
+
+<table>
+<thead><tr><th>经书</th><th>内容</th><th>地位与特点</th></tr></thead>
+<tbody>
+<tr><td><b>《圣经》 Bible</b></td><td>旧约、新约</td><td>英语传统主要使用 King James Version；信条第8条说：“只要翻译正确，我们相信圣经是神的话。”</td></tr>
+<tr><td><b>《摩尔门经》 Book of Mormon</b></td><td>尼腓人、拉曼人、雅列人等古代美洲叙事</td><td>“耶稣基督的另一部见证”，被称为宗教的“拱心石”。</td></tr>
+<tr><td><b>《教义和圣约》 Doctrine and Covenants</b></td><td>主要是约瑟·斯密及后期教会领袖所得启示</td><td>教会组织、圣职、洗礼、圣殿、永恒婚姻、荣耀国度等大量核心教义来源。</td></tr>
+<tr><td><b>《无价珍珠》 Pearl of Great Price</b></td><td>《摩西书》《亚伯拉罕书》、Joseph Smith—Matthew、Joseph Smith—History、信条</td><td>体积不大，却包含前生、创造、第一异象等极关键材料。</td></tr>
+</tbody>
+</table>
+
+<h3>还有“活先知”</h3>
+<p>后期圣徒与宗教改革“唯独圣经”的最大区别之一，是它认为正典并不意味着神停止说话。现代教会会长被支持为“先知、先见和启示者”，十二使徒也被视为先知、先见和启示者。</p>
+
+<div class="insight"><b>但“活先知说过的话”并不自动等于正式经文。</b>后期圣徒内部也区分标准经文、正式公告、总会大会教导、教会手册与个人领袖意见。哪些历史言论具有永久教义权威，是解释争议的重要来源。</div>
+</section>
+
+<section id="priesthood">
+<h2>10｜圣职权柄：为什么“谁给你施洗”非常重要？</h2>
+
+<p>在后期圣徒教会里，正确教义并不足够；<b>正确圣职权柄（priesthood authority）</b>同样是教会真实性的核心。</p>
+
+<h3>两个主要圣职层级</h3>
+<div class="grid2">
+ <div class="card"><h4>亚伦圣职 Aaronic Priesthood</h4><p>处理洗礼、圣餐等外在教仪及服务职责。教会认为1829年由复活的施洗约翰恢复。</p></div>
+ <div class="card"><h4>麦基洗德圣职 Melchizedek Priesthood</h4><p>更高层级圣职，涉及圣灵按手礼、治理、祝福和圣殿相关权柄。教会认为由彼得、雅各、约翰恢复。</p></div>
+</div>
+
+<h3>谁可以按立？</h3>
+<p>今天主流后期圣徒教会中，符合资格的男性可以接受圣职按立。女性不被按立到亚伦或麦基洗德圣职职位，但在扶助协会（Relief Society）、女青年、儿童会等组织中担任重要领导角色，也在圣殿和传教体系中承担广泛职分。</p>
+
+<h3>教会怎样组织？</h3>
+<div class="tree">
+ <div class="node">会长 / 先知 + 第一会长团</div><div class="arrow">↓</div>
+ <div class="node">十二使徒定额组</div><div class="arrow">↓</div>
+ <div class="branch"><div class="node">区域 / 七十员</div><div class="node">圣殿会长</div><div class="node">传道部会长</div></div>
+ <div class="arrow">↓</div>
+ <div class="branch"><div class="node">Stake 支联会</div><div class="node">District 区会</div></div>
+ <div class="arrow">↓</div>
+ <div class="branch"><div class="node">Ward 支会</div><div class="node">Branch 分会</div></div>
+</div>
+
+<p>地方主教、长老定额组领袖等大量职位通常是<b>无薪平信徒职分</b>。这使后期圣徒地方教会具有很高程度的成员参与。</p>
+</section>
+
+<section id="temple">
+<h2>11｜圣殿：如果不理解它，就没有真正理解后期圣徒教义</h2>
+
+<p>普通礼拜堂（meetinghouse/chapel）供每周主日聚会，任何人通常都可以参加；<b>Temple（圣殿）</b>则用于特殊救恩与超升教仪，只向符合条件、持有效“圣殿推荐书”的成员开放。</p>
+
+<h3>主要圣殿教仪</h3>
+<div class="grid2">
+ <div class="card"><h4>Endowment 恩道门</h4><p>通过关于创造、亚当夏娃、基督和救恩计划的礼仪化教学与圣约，象征性地从堕落走向神的同在。</p></div>
+ <div class="card"><h4>Sealing 印证</h4><p>夫妻被“为时间和全永恒”结合；孩子也可被印证给父母，形成“永恒家庭”。</p></div>
+ <div class="card"><h4>Baptism for the Dead 替死人洗礼</h4><p>活着的成员代理已死之人接受洗礼；教会强调亡者在灵界仍可自由接受或拒绝。</p></div>
+ <div class="card"><h4>Proxy ordinances 代理教仪</h4><p>除洗礼外，其他圣殿教仪也可以代理死者完成，因此家谱研究在后期圣徒文化中极重要。</p></div>
+</div>
+
+<h3>圣殿服装与 garment</h3>
+<p>接受恩道门的成年成员通常在日常衣服内穿着特殊的 sacred garment（圣殿内衣/圣衣），作为个人与神所立圣约的提醒。它不是官方教义意义上的“魔法护身符”，虽然某些成员个人叙事会把它与神的保护联系起来。</p>
+
+<h3>圣殿推荐书</h3>
+<p>成员需接受地方圣职领袖面谈，内容涉及对神与耶稣的信心、支持教会领袖、贞洁、诚实、十一奉献、智慧语等生活要求。</p>
+
+<div class="insight"><b>神学上，圣殿把后期圣徒最重要的几个概念连在一起：</b>圣职权柄、圣约、家庭、死人救恩、祖先、超升，以及神仍然在现代恢复古代礼仪的信念。</div>
+</section>
+
+<section id="practice">
+<h2>12｜一个虔诚后期圣徒通常怎样生活？</h2>
+
+<h3>主日</h3>
+<p>核心聚会是 Sacrament Meeting（圣餐聚会），使用面包和水纪念基督；之后有主日学、圣职定额组、扶助协会、女青年和儿童会等课程。</p>
+
+<h3>智慧语 Word of Wisdom</h3>
+<p>源于《教义和圣约》第89篇。今天圣殿资格实践中通常要求不饮酒、不吸烟、不饮咖啡和传统茶，并拒绝非法药物。教会也持续强调身体健康。</p>
+
+<h3>什一奉献</h3>
+<p>虔诚成员被要求缴纳收入的十分之一作为 tithing。圣殿推荐面谈会询问是否为“full-tithe payer”。</p>
+
+<h3>家庭</h3>
+<p>家庭是其神学而不仅是文化价值：婚姻和亲子关系可经印证延续到永恒。教会强调异性婚姻、婚前禁欲、婚内忠贞。对同性吸引本身与同性性行为作区分；目前教会婚姻教义仍把婚姻定义为一男一女。</p>
+
+<h3>传教</h3>
+<p>年轻成员被强烈鼓励考虑全职传教。年轻男性通常在18岁后、年轻女性在19岁后可以申请服务；也有年长夫妇、单身年长成员和服务型传教士。</p>
+
+<h3>家庭晚会、每日读经和祷告</h3>
+<p>后期圣徒文化高度重视家庭宗教生活、个人祷告、经文研读和“个人启示”。</p>
+
+<div class="note"><b>外部观察经常只看到衣着整洁的年轻传教士或犹他文化。</b>但对内部成员来说，真正日常塑造身份的是“圣约道路”：洗礼 → 圣灵 → 圣餐更新 → 圣殿 → 家庭印证 → 持守到底。</div>
+</section>
+
+<section id="history">
+<h2>13｜约200年历史主线</h2>
+
+<div class="timeline">
+ <div class="tl"><time>1805</time>　<b>约瑟·斯密出生。</b></div>
+ <div class="tl"><time>1820</time>　<b>第一异象（按后来正典叙述）。</b></div>
+ <div class="tl"><time>1823</time>　<b>Moroni 显现，告知金页片。</b></div>
+ <div class="tl"><time>1827</time>　<b>约瑟称获得金页片。</b></div>
+ <div class="tl"><time>1829</time>　<b>《摩尔门经》主要口述完成；教会相信圣职恢复。</b></div>
+ <div class="tl"><time>1830</time>　<b>《摩尔门经》出版；4月6日教会正式组织。</b></div>
+ <div class="tl"><time>1831–1838</time>　<b>Kirtland 与 Missouri 阶段。</b>圣殿、圣职结构与“锡安”聚集观发展，同时发生金融危机和严重社会冲突。</div>
+ <div class="tl"><time>1839–1844</time>　<b>Nauvoo 阶段。</b>城市快速发展；死人洗礼、恩道门、永恒婚姻、超升、一夫多妻等晚期核心教义形成。</div>
+ <div class="tl"><time>1844</time>　<b>约瑟与兄长 Hyrum 在 Carthage Jail 被杀。</b>随即发生继承危机。</div>
+ <div class="tl"><time>1846–1847</time>　<b>Brigham Young 领导多数成员向西迁徙。</b>抵达大盐湖谷。</div>
+ <div class="tl"><time>1852</time>　<b>犹他教会公开承认一夫多妻制。</b></div>
+ <div class="tl"><time>1857</time>　<b>Mountain Meadows Massacre。</b>犹他南部后期圣徒民兵等杀害约120名移民，成为教会历史最严重暴力事件。</div>
+ <div class="tl"><time>1870s–1880s</time>　<b>美国联邦政府加强反多妻执法。</b>教会财产与政治地位面临巨大压力。</div>
+ <div class="tl"><time>1890</time>　<b>Wilford Woodruff 发布 Manifesto。</b>公开多妻制度开始终止，但实际结束是渐进过程。</div>
+ <div class="tl"><time>1904</time>　<b>Second Manifesto。</b>新的多妻婚姻可导致开除教籍；现代主流教会与基本教义派多妻团体明确分离。</div>
+ <div class="tl"><time>20世纪</time>　<b>从区域性犹他教会转型为国际宗教。</b>传教、圣殿、教育与家谱体系扩张。</div>
+ <div class="tl"><time>1978</time>　<b>解除黑人男性圣职与黑人男女圣殿限制。</b>成为现代教会历史重要转折。</div>
+ <div class="tl"><time>1996</time>　<b>官方登记的美国以外成员首次超过美国国内成员。</b></div>
+ <div class="tl"><time>2018以后</time>　<b>更强调完整教会名称。</b>领导层要求减少“Mormon / LDS”作为教会和成员代称。</div>
+ <div class="tl"><time>2025年底</time>　<b>官方登记成员17,887,212人，32,046个支会/分会。</b></div>
+</div>
+</section>
+
+<section id="polygamy">
+<h2>14｜一夫多妻制：不是“谣言”，也不是今天主流教会仍在实行</h2>
+
+<p>这是研究后期圣徒历史必须正视的问题。</p>
+
+<h3>约瑟·斯密本人实行多妻婚姻</h3>
+<p>教会今天的官方历史明确承认：约瑟·斯密在 Nauvoo 时期与<b>多名女性</b>建立 plural marriages（复数婚姻），并向部分亲密追随者介绍这种做法。因为当时要求保密，史料不完整，具体数量在历史研究中有不同统计。</p>
+
+<p>其中一些女性此前已有合法丈夫；教会资料把这些关系区分为永恒“印证”等不同类型，且并非每一段关系都有确证的性关系证据。也有年龄很年轻的妻子。官方 Gospel Topics Essay 承认其中最年轻者“在15岁生日之前数月”，即14岁。</p>
+
+<h3>为什么实行？</h3>
+<p>教会自我解释认为这来自神给约瑟的启示，是某些圣经族长多妻实践的恢复；《教义和圣约》132篇后来成为主要正典依据。现代历史研究则同时关注19世纪婚姻实验、宗教权威、家族联盟、末世共同体和约瑟个人权力等因素。</p>
+
+<h3>公开的犹他多妻制</h3>
+<p>1852–1890年，犹他后期圣徒公开实行 plural marriage。并非所有男性都拥有多位妻子，但接受其作为神启示的原则成为当时教会身份的重要组成部分。</p>
+
+<h3>如何结束？</h3>
+<p>1890年 Manifesto 标志正式转向遵守美国反多妻法律，但新多妻婚姻没有在那一天立刻完全消失；1904年 Second Manifesto 后，主流教会更明确将新的多妻婚姻视为可开除教籍的行为。</p>
+
+<div class="warning"><b>因此两种说法都不准确：</b>“今天主流摩门教仍要求一夫多妻”是错的；“一夫多妻只是敌人捏造，约瑟·斯密从没实行过”也与教会自己的现代官方历史不符。</div>
+</section>
+
+<section id="race">
+<h2>15｜黑人与圣职：一个直到1978年才结束的重大历史问题</h2>
+
+<p>19世纪中叶以后，主流后期圣徒教会长期不允许具有黑人非洲血统的男性接受圣职按立，同时黑人男女也不能获得某些圣殿教仪。</p>
+
+<h3>什么时候开始？</h3>
+<p>约瑟·斯密时期已有黑人男性接受圣职，例如 Elijah Abel。限制在 Brigham Young 领导时期形成并制度化。</p>
+
+<h3>历史上如何解释？</h3>
+<p>一些教会领袖曾使用“该隐咒诅”“洪水前身份”“前生行为”等理论解释限制。今天官方 <i>Race and the Priesthood</i> 文章明确拒绝过去用于合理化限制的种族主义理论，并说明这些解释并非今日教义。</p>
+
+<h3>1978发生什么？</h3>
+<p>1978年教会领导层宣布获得启示：所有符合资格的男性，无论种族，都可以接受圣职；所有种族成员都可以获得圣殿祝福。该启示被收入《教义和圣约》官方宣言2。</p>
+
+<div class="historybox"><b>最重要的历史问题不是“今天教会是否仍维持这项禁令”——答案是不维持；而是：</b>为什么一个自称由持续启示和先知领导的教会，会存在超过一个世纪的种族限制，以及如何理解先知过去在此问题上的错误、文化影响与启示权威。</div>
+</section>
+
+<section id="questions">
+<h2>16｜理解这个宗教时最重要的五组历史与文本争议</h2>
+
+<h3>① 第一异象为什么有多个版本？</h3>
+<p><span class="badge official">官方承认</span> 约瑟·斯密本人或书记员留下至少四个主要第一异象叙述，写于1832、1835、1838、1842等时期。今天最知名的是1838年版本，后来收入《无价珍珠》。</p>
+
+<p>不同版本在强调重点和细节上并不完全相同：例如最早1832年叙述更集中于罪得赦免，并主要说看见“主”；后来叙述更清楚区分父与子，以及不同宗派错误的问题。教会认为这些差异是不同场合、不同目的下对同一事件的补充；批评者则认为发展性差异需要解释。</p>
+
+<h3>② 先见石和帽子是真的吗？</h3>
+<p><span class="badge official">官方承认</span> 是。现代官方文章明确承认约瑟使用个人先见石，并引用目击者资料。争议的核心不是“有没有这块石头”，而是：这种19世纪民间寻宝/先见文化应被看作神借用普通文化工具进行启示，还是理解约瑟宗教主张的自然主义背景。</p>
+
+<h3>③ 《亚伯拉罕书》与埃及纸草</h3>
+<p><span class="badge official">官方承认关键事实</span> 1835年约瑟得到埃及木乃伊与纸草，随后发表《亚伯拉罕书》。今天存留下来的相关纸草片被后期圣徒和非后期圣徒埃及学者一致认定为埃及葬礼文献，包括 Book of Breathings 和 Book of the Dead 的材料；纸草上的文字并不对应现行《亚伯拉罕书》英文文本。</p>
+
+<p>教会提出或允许多种可能解释：真正源文本可能位于已遗失长卷中；或者纸草只是“催化剂”，使约瑟得到关于亚伯拉罕的启示，而非传统意义逐字翻译。教会没有在这些理论中正式选定一个。</p>
+
+<div class="warning"><b>这里存在一个非常清楚的事实与信仰分界：</b>“现存纸草字面内容与《亚伯拉罕书》不匹配”是官方也承认的埃及学事实；“因此约瑟是否仍可能通过启示得到真实亚伯拉罕信息”则成为神学判断，而不是普通语言翻译问题。</div>
+
+<h3>④ 《摩尔门经》与 DNA / 考古</h3>
+<p>教会承认多数现代美洲原住民 DNA 与东亚人群关系最密切，并认为遗传学无法决定性否定一个可能人数很少、后来被大规模人口稀释的以色列移民群体。批评者指出，目前主流考古、语言学和遗传学并没有独立确认《摩尔门经》描述的尼腓/拉曼文明。</p>
+
+<p>因此目前最准确的说法不是“科学已经证明《摩尔门经》”，也不是“单独某一项 DNA 数据数学上证明任何小规模迁徙绝不可能”，而是：<b>《摩尔门经》作为古代美洲历史记录的主张尚未获得主流相关学科的接受。</b></p>
+
+<h3>⑤ 圣殿仪式与 Freemasonry 共济会</h3>
+<p>约瑟·斯密1842年在 Nauvoo 加入共济会；不久后他开始向成员施行完整的圣殿 endowment。两者在手势、象征和仪式形式上存在明显相似处，教会官方历史也承认可能的影响。</p>
+
+<p>后期圣徒解释通常认为，约瑟可借用熟悉的仪式形式表达更古老、由启示恢复的永恒真理；批评者则认为圣殿礼仪更自然地解释为19世纪共济会文化的宗教改造。这是“形式来源”与“神学意义来源”之间的争论。</p>
+</section>
+
+<section id="branches">
+<h2>17｜约瑟·斯密去世以后为什么分成很多派？</h2>
+
+<p>1844年约瑟没有留下所有人都接受的单一继承程序，引发 <b>succession crisis（继承危机）</b>。</p>
+
+<div class="tree">
+ <div class="node">Joseph Smith 1805–1844</div><div class="arrow">↓</div>
+ <div class="branch">
+   <div class="node" style="border-color:#2c6388"><b>Brigham Young 路线</b><br>多数追随者西迁 → 今日最大后期圣徒教会</div>
+   <div class="node"><b>Smith 家族 / 中西部路线</b><br>后形成 RLDS → 今日 Community of Christ</div>
+   <div class="node"><b>其他继承主张</b><br>Strangites、Cutlerites 等小型传统</div>
+ </div>
+ <div class="arrow">↓</div>
+ <div class="branch">
+   <div class="node">主流后期圣徒教会<br>17.9m 官方成员</div>
+   <div class="node">Community of Christ<br>约250,000成员（官方称）</div>
+   <div class="node">20世纪多妻基本教义派等<br>与主流教会无隶属关系</div>
+ </div>
+</div>
+
+<h3>Community of Christ 为什么很不一样？</h3>
+<p>原名 Reorganized Church of Jesus Christ of Latter Day Saints（RLDS），长期由约瑟·斯密后代领导。它拒绝 Brigham Young 体系的一夫多妻制，后来逐渐向主流自由派/普世基督教靠近，接受女性圣职，神学也比盐湖城主流后期圣徒教会更接近传统三位一体基督教。2001年改名 Community of Christ。</p>
+
+<h3>FLDS 是不是主流后期圣徒教会？</h3>
+<p>不是。Fundamentalist Church of Jesus Christ of Latter-Day Saints（FLDS）等团体继续实行多妻制度，是20世纪脱离主流教会的基本教义派群体。主流耶稣基督后期圣徒教会与它们没有组织隶属，并会开除实行新的多妻婚姻的成员。</p>
+</section>
+
+<section id="today">
+<h2>18｜今天的规模与现状：已经不是“犹他州地方宗教”</h2>
+
+<p>按教会2026年4月公布的2025年度统计，截至<b>2025年12月31日</b>：</p>
+
+<div class="metric-row">
+ <div class="metric"><b>17,887,212</b><span>官方登记成员总数</span></div>
+ <div class="metric"><b>32,046</b><span>支会与分会</span></div>
+ <div class="metric"><b>3,695</b><span>Stake 支联会</span></div>
+ <div class="metric"><b>451</b><span>传道部</span></div>
+</div>
+
+<div class="metric-row">
+ <div class="metric"><b>78,596</b><span>2025年底全职教导传教士</span></div>
+ <div class="metric"><b>385,490</b><span>2025年受洗归信者</span></div>
+ <div class="metric"><b>204</b><span>2025年底运作中的圣殿</span></div>
+ <div class="metric"><b>172</b><span>当时已宣布或建设中的圣殿</span></div>
+</div>
+
+<p>官方资料显示，早在1996年美国以外登记成员就已超过美国国内成员；到2024年底约有1060万登记成员居住在美国以外，约693万在美国。拉丁美洲、菲律宾、非洲与太平洋岛国是重要增长区域。</p>
+
+<h3>官方“成员数”≠每周实际参加人数</h3>
+<p>这个区别对所有宗教都重要。17.9m 是教会记录中的 membership，不是“最近一个月实际参加聚会的人数”。独立研究一般认为全球活跃参与人数明显低于登记人数，但不同国家差异很大，且没有一个与官方成员档案完全可比的全球统一活跃率数据。</p>
+
+<h3>美国社会中的位置</h3>
+<p>Pew 2023–24 Religious Landscape Study 显示，约<b>2%的美国成年人</b>自我认同为后期圣徒，这一比例与2007、2014年的大规模调查基本相同。美国后期圣徒仍高度集中在西部，但已经是明显全国化和国际化宗教。</p>
+
+<h3>传教与圣殿为什么仍然是增长核心？</h3>
+<p>传教把人带入教会；圣殿则把成员放进更深的圣约与家庭体系。换句话说，<b>missionary work 是外向扩张机制，temple covenant system 是内部身份强化机制。</b></p>
+</section>
+
+<section id="christianity">
+<h2>19｜与传统新教 / 尼西亚基督教最核心的区别</h2>
+
+<table>
+<thead><tr><th>主题</th><th>耶稣基督后期圣徒教会</th><th>尼西亚传统基督教（天主教/东正教/多数新教）</th></tr></thead>
+<tbody>
+<tr><td><b>神</b></td><td>父、子、圣灵为三个分开的神圣存在，旨意完全合一；父与子有荣耀身体</td><td>一位神、三个位格，共享一个神性本体</td></tr>
+<tr><td><b>创造</b></td><td>神组织预先存在的元素；人最深层 intelligence 也具有永恒性</td><td>神从无创造受造界；创造者与受造者有根本本体区别</td></tr>
+<tr><td><b>人的前生</b></td><td>人出生前已作为天父灵体儿女存在</td><td>主流传统不接受所有人具有这种前生灵体生活</td></tr>
+<tr><td><b>堕落</b></td><td>既有罪与死亡后果，也是在救恩计划中使生育、选择和成长成为可能的必要步骤</td><td>普遍强调堕落为人类与神隔绝和罪进入世界的灾难</td></tr>
+<tr><td><b>正典</b></td><td>圣经＋摩尔门经＋教义和圣约＋无价珍珠，并有持续启示</td><td>旧约/新约；不同传统正典卷数略有差异，但不接受约瑟新增经书</td></tr>
+<tr><td><b>教会历史</b></td><td>使徒时代后发生全面“大背道”，19世纪恢复真正圣职</td><td>即使承认教会腐败或需要改革，也通常不认为基督的教会和圣职完全从地上消失</td></tr>
+<tr><td><b>圣职</b></td><td>1829年由天使恢复给约瑟·斯密与 Oliver Cowdery</td><td>天主教/东正教主张使徒传承；新教则有不同圣职与牧职理解</td></tr>
+<tr><td><b>人的终局</b></td><td>三层荣耀；最高为 exaltation，成为像神一样并永恒家庭化存在</td><td>复活、审判、新天新地；神化传统仍坚持受造者不成为与神同类的独立神</td></tr>
+<tr><td><b>死人教仪</b></td><td>替死者洗礼、恩道门、印证，亡者可自由接受或拒绝</td><td>传统主流教会不实行这种代理圣礼体系</td></tr>
+<tr><td><b>婚姻</b></td><td>圣殿印证可使婚姻与家庭持续到永恒，并关系最高超升</td><td>各宗派婚姻神学不同，但普遍没有相同“永恒印证家族”体系</td></tr>
+</tbody>
+</table>
+
+<h3>与改革宗“因信称义”的冲突尤其明显</h3>
+<p>改革宗强调人的称义完全基于基督归算的义，唯独因信领受，行为是得救果子而非获得称义和最终神性地位的圣约条件。后期圣徒虽然强烈强调“唯有基督的恩典使救恩成为可能”，但仍把洗礼、圣职权柄、圣殿圣约、顺服和持守到底放进获得最高 eternal life / exaltation 的必要秩序中。</p>
+
+<div class="compare"><b>因此，从新教神学角度，双方真正差异不是几个边缘习俗，而是：</b>神论、创造论、人论、启示论、教会论、圣礼论和救恩论几乎都被重新构造。</div>
+</section>
+
+<section id="isChristian">
+<h2>20｜那么，它“是不是基督教”？答案取决于你在问什么</h2>
+
+<p>这是一个很容易变成标签争吵的问题。更精确的回答应该分三层。</p>
+
+<h3>第一层：自我身份</h3>
+<p><b>是。</b>后期圣徒明确自称 Christian，把耶稣基督称为救主、主、神的儿子，接受新旧约，举行基督名下的洗礼、圣餐，并把整个教会正式命名为“耶稣基督后期圣徒教会”。如果问题是“他们自己是否真诚认为自己是基督徒”，答案毫无疑问是肯定的。</p>
+
+<h3>第二层：宗教学分类</h3>
+<p>宗教学和社会科学通常把它归入 <b>Christian restorationist / Christian-derived new religious movement</b>，即源于基督教、以复兴原始基督教为自我理解的新宗教传统。因此统计机构如 Pew 通常在美国宗教人口数据中把后期圣徒放在广义 Christian 类别之内。</p>
+
+<h3>第三层：尼西亚正统神学分类</h3>
+<p><b>传统天主教、东正教和绝大多数新教神学不会把后期圣徒的神论视为正统三位一体基督教。</b>原因不只是他们多了一本《摩尔门经》，而是父、子、圣灵关系、神是否有身体、人与神的本体关系、前生和超升等教义与尼西亚—迦克墩传统差异过大。</p>
+
+<div class="insight"><b>因此最清楚的表述是：</b>后期圣徒是一个<b>明确以耶稣基督为中心、从基督教传统中产生并自我认同为基督教的复兴主义宗教</b>；但其神学不属于历史尼西亚基督教的正统框架。这样说比简单喊“是基督教”或“完全不是基督教”更有分析价值。</div>
+</section>
+
+<section id="myths">
+<h2>21｜十二个常见说法：哪些是真的，哪些需要修正？</h2>
+
+<table>
+<thead><tr><th>常见说法</th><th>更准确的理解</th></tr></thead>
+<tbody>
+<tr><td>“摩门教徒不信耶稣。”</td><td>错。他们高度以耶稣为中心；真正争议是他们怎样定义耶稣、父神和神格。</td></tr>
+<tr><td>“他们就是普通新教，多了一本经书。”</td><td>错。神论、前生、创造、教会权柄、圣殿、超升都与传统新教存在结构性差别。</td></tr>
+<tr><td>“他们现在还普遍一夫多妻。”</td><td>错。现代主流教会禁止新的多妻婚姻；实行者可能被开除教籍。</td></tr>
+<tr><td>“约瑟·斯密没有多妻，这都是反摩门宣传。”</td><td>错。主流教会官方历史明确承认约瑟实行多妻婚姻。</td></tr>
+<tr><td>“FLDS 就是盐湖城的主流教会。”</td><td>错。两者没有组织隶属，且主流教会反对现代多妻实践。</td></tr>
+<tr><td>“他们敬拜约瑟·斯密。”</td><td>错。他们尊崇约瑟为先知，但祷告对象是天父，以耶稣基督之名祷告。</td></tr>
+<tr><td>“《摩尔门经》取代《圣经》。”</td><td>不准确。两者都被视为经文；此外还有《教义和圣约》《无价珍珠》。</td></tr>
+<tr><td>“金页片一直放在盐湖城博物馆里。”</td><td>错。约瑟声称翻译完成后 Moroni 收回页片，因此今天没有可供考古鉴定的金页片实物。</td></tr>
+<tr><td>“教会否认约瑟用先见石和帽子翻译。”</td><td>今天不对。现代官方资料明确讨论这种做法。</td></tr>
+<tr><td>“他们认为每个好信徒死后都会得到一颗自己的星球。”</td><td>这是流行文化夸张。教会教导超升和创造性潜能，但官方明确称“得到自己的星球”是漫画式简化。</td></tr>
+<tr><td>“他们认为耶稣和撒但完全是同等级兄弟。”</td><td>误导。其前生体系把二者都置于天父灵体家庭框架，但耶稣被赋予独特、首生、救赎性的神圣地位。</td></tr>
+<tr><td>“官方成员数就等于每周参加聚会人数。”</td><td>错。官方 membership 是档案人数；活跃参与率需要另外测量。</td></tr>
+</tbody>
+</table>
+</section>
+
+<section id="framework">
+<h2>22｜最后怎样真正抓住它：八层理解框架</h2>
+
+<div class="grid4">
+ <div class="card"><div class="num">A</div><h4>复兴</h4><p>原始教会失落 → 约瑟·斯密恢复。</p></div>
+ <div class="card"><div class="num">B</div><h4>神格</h4><p>父、子、圣灵是区分的存在，父与子有荣耀身体。</p></div>
+ <div class="card"><div class="num">C</div><h4>人的前生</h4><p>所有人都是天上父母的灵体儿女。</p></div>
+ <div class="card"><div class="num">D</div><h4>基督赎罪</h4><p>复活普及众人，赦罪与超升皆以基督为基础。</p></div>
+ <div class="card"><div class="num">E</div><h4>圣约道路</h4><p>信心、悔改、洗礼、圣灵、圣殿、持守到底。</p></div>
+ <div class="card"><div class="num">F</div><h4>圣职权柄</h4><p>正确教仪必须由恢复的圣职执行。</p></div>
+ <div class="card"><div class="num">G</div><h4>永恒家庭</h4><p>印证、祖先代理教仪与超升联系起来。</p></div>
+ <div class="card"><div class="num">H</div><h4>持续启示</h4><p>神今天仍藉先知和使徒带领教会。</p></div>
+</div>
+
+<div class="quote">后期圣徒信仰不是“美国人加了一本《摩尔门经》的新教”。它实际上重新回答了基督教几乎所有最大的系统神学问题：神是谁，人从哪里来，创造是什么，教会何时失去权柄，经文是否封闭，怎样得救，家庭是否永恒，以及人最终可以成为什么。</div>
+
+<h3>一句话总结</h3>
+<p>耶稣基督后期圣徒教会是一场起源于19世纪美国的<b>基督教复兴主义新宗教运动</b>：它相信神通过约瑟·斯密恢复了失落的使徒圣职和原始福音，赐下《摩尔门经》等新经文，并通过现代先知、圣职和圣殿圣约，引导人藉耶稣基督从前生走向复活、永恒家庭和最终的超升。</p>
+
+<p>如果从历史尼西亚基督教立场评价，其最大争议绝不是生活方式，而是其<b>神论、人论、启示论和救恩结构已经明显超出传统基督教信经边界</b>；如果从宗教学角度评价，它则是近代世界最成功、组织化程度最高、全球扩张最显著的新宗教传统之一。</p>
+</section>
+
+<section id="glossary">
+<h2>23｜核心术语速查</h2>
+<div class="glossary">
+ <div class="term"><b>Restoration 复兴/恢复</b>：失落的福音与圣职在19世纪重新恢复。</div>
+ <div class="term"><b>Latter-day Saints 后期圣徒</b>：主流教会今日偏好的成员称呼。</div>
+ <div class="term"><b>Book of Mormon 摩尔门经</b>：被视为耶稣基督的另一部见证。</div>
+ <div class="term"><b>Doctrine and Covenants 教义和圣约</b>：现代启示汇编。</div>
+ <div class="term"><b>Pearl of Great Price 无价珍珠</b>：含摩西书、亚伯拉罕书等。</div>
+ <div class="term"><b>Godhead 神格</b>：父、子、圣灵三位神圣存在的组合。</div>
+ <div class="term"><b>Premortal Life 前生</b>：出生前作为灵体儿女与神同住。</div>
+ <div class="term"><b>Plan of Salvation 救恩计划</b>：前生、今生、死亡、复活与荣耀国度的整体框架。</div>
+ <div class="term"><b>Exaltation 超升</b>：最高永生状态，成为像天父一样。</div>
+ <div class="term"><b>Priesthood 圣职</b>：代表神执行教仪和治理教会的权柄。</div>
+ <div class="term"><b>Aaronic Priesthood 亚伦圣职</b>：较低圣职层级。</div>
+ <div class="term"><b>Melchizedek Priesthood 麦基洗德圣职</b>：较高圣职层级。</div>
+ <div class="term"><b>Temple 圣殿</b>：进行超升相关圣约与教仪的场所。</div>
+ <div class="term"><b>Endowment 恩道门</b>：圣殿内的重要圣约与教导仪式。</div>
+ <div class="term"><b>Sealing 印证</b>：把夫妻与家庭关系结合到永恒。</div>
+ <div class="term"><b>Baptism for the Dead 替死人洗礼</b>：代理已死之人受洗。</div>
+ <div class="term"><b>Word of Wisdom 智慧语</b>：饮食与健康宗教规范。</div>
+ <div class="term"><b>Ward / Branch</b>：地方支会 / 分会。</div>
+ <div class="term"><b>Stake</b>：由多个地方会众组成的支联会。</div>
+ <div class="term"><b>First Presidency 第一会长团</b>：最高行政领导层。</div>
+ <div class="term"><b>Quorum of the Twelve 十二使徒定额组</b>：核心全球领导机构。</div>
+ <div class="term"><b>Plural Marriage 复数婚姻</b>：19世纪部分成员实行的一夫多妻制度。</div>
+ <div class="term"><b>Seer Stone 先见石</b>：约瑟用于部分启示/翻译过程的石头。</div>
+ <div class="term"><b>Community of Christ 基督社区</b>：1844继承分裂后形成的重要另一支。</div>
+</div>
+</section>
+
+<section id="sources">
+<h2>24｜资料来源与进一步阅读</h2>
+
+<p>为了避免把支持者宣传、反对者争议和历史事实混在一起，本报告优先使用三类材料：<b>① 教会自己的最新官方说明；② 第一手历史文献与 Joseph Smith Papers；③ 主流宗教史与美国宗教研究。</b></p>
+
+<h3>一、官方资料：先准确知道“他们自己今天到底教什么”</h3>
+<ol class="sources">
+<li><b>The Church of Jesus Christ of Latter-day Saints, Gospel Topics Essays</b>：极重要。包含第一异象、多妻制、种族与圣职、《亚伯拉罕书》、DNA、成神论等敏感主题。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays?lang=eng" target="_blank" rel="noopener">Gospel Topics Essays</a></li>
+<li><b>2025 Statistical Report</b>：截至2025年12月31日，登记成员17,887,212；32,046个支会/分会；204座运作中圣殿。<br><a href="https://newsroom.churchofjesuschrist.org/article/2025-statistical-report" target="_blank" rel="noopener">2025 Statistical Report</a></li>
+<li><b>Godhead</b>：官方解释父、子、圣灵为三个分开的神圣存在，父与子有骨肉身体。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/godhead?lang=eng" target="_blank" rel="noopener">Godhead</a></li>
+<li><b>Plan of Salvation / Premortal Life</b>：前生、天上父母、救恩计划。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/plan-of-salvation-study-guide?lang=eng" target="_blank" rel="noopener">Plan of Salvation</a></li>
+<li><b>Becoming Like God</b>：理解 exaltation、Joseph Smith King Follett discourse、Lorenzo Snow 格言及官方对“own planet”漫画化说法的回应。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/becoming-like-god?lang=eng" target="_blank" rel="noopener">Becoming Like God</a></li>
+<li><b>Book of Mormon Translation</b>：官方讨论解释器、先见石以及翻译目击资料。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/book-of-mormon-translation?lang=eng" target="_blank" rel="noopener">Book of Mormon Translation</a></li>
+<li><b>Book of Mormon and DNA Studies</b>：官方对美洲原住民 DNA 问题的说明。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/book-of-mormon-and-dna-studies?lang=eng" target="_blank" rel="noopener">Book of Mormon and DNA Studies</a></li>
+<li><b>Translation and Historicity of the Book of Abraham</b>：官方明确承认现存纸草属于埃及葬礼文本，字符与《亚伯拉罕书》英文文本不对应。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/translation-and-historicity-of-the-book-of-abraham?lang=eng" target="_blank" rel="noopener">Book of Abraham essay</a></li>
+<li><b>First Vision Accounts</b>：不同第一异象版本的官方说明。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/first-vision-accounts?lang=eng" target="_blank" rel="noopener">First Vision Accounts</a></li>
+<li><b>Race and the Priesthood</b>：黑人圣职限制及1978年改变。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/race-and-the-priesthood?lang=eng" target="_blank" rel="noopener">Race and the Priesthood</a></li>
+<li><b>Plural Marriage</b> 系列 Gospel Topics Essays / Church History Topics：约瑟的多妻婚姻、犹他公开实践及1890—1904终止过程。</li>
+<li><b>Temples / Baptisms for the Dead</b>：圣殿、恩道门、印证与代理教仪。<br><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/temples?lang=eng" target="_blank" rel="noopener">Temples</a></li>
+<li><b>Style Guide — The Name of the Church</b>：解释为什么今天官方不鼓励“Mormon Church / LDS Church”用法。<br><a href="https://newsroom.churchofjesuschrist.org/style-guide" target="_blank" rel="noopener">Official Style Guide</a></li>
+</ol>
+
+<h3>二、第一手历史与高质量学术史</h3>
+<ol class="sources">
+<li><b>The Joseph Smith Papers</b>：研究约瑟·斯密最重要的原始文献数字工程，包括日记、启示草稿、1830《摩尔门经》、1832第一异象等。<br><a href="https://www.josephsmithpapers.org/" target="_blank" rel="noopener">Joseph Smith Papers</a></li>
+<li><b>Richard Lyman Bushman</b>, <i>Joseph Smith: Rough Stone Rolling</i>。由一位后期圣徒历史学者撰写、学术界高度重视的约瑟·斯密传记，既非简单护教也非反教宣传。</li>
+<li><b>Jan Shipps</b>, <i>Mormonism: The Story of a New Religious Tradition</i>。理解为什么后期圣徒可以被研究为一种从基督教环境中发展出来的独特新宗教传统。</li>
+<li><b>Terryl L. Givens</b>, <i>People of Paradox: A History of Mormon Culture</i>；以及关于《摩尔门经》的研究。适合理解后期圣徒思想和文化。</li>
+<li><b>Patrick Q. Mason</b>, <i>What Is Mormonism?</i> 等著作。现代宗教史与后期圣徒身份研究。</li>
+<li><b>Oxford Handbook of Mormonism</b>。多学者综合研究历史、神学、性别、政治与全球化。</li>
+</ol>
+
+<h3>三、现代人口与宗教社会学</h3>
+<ol class="sources">
+<li><b>Pew Research Center, 2023–24 Religious Landscape Study</b>：显示约2%的美国成年人自我认同为 Latter-day Saints，并提供人口与宗教实践数据。<br><a href="https://www.pewresearch.org/religious-landscape-study/religious-tradition/latter-day-saint-mormon/" target="_blank" rel="noopener">Pew — Latter-day Saints</a></li>
+<li><b>Community of Christ</b> 官方资料：当前自称约250,000成员、遍及60多个国家。<br><a href="https://cofchrist.org/about-us/" target="_blank" rel="noopener">Community of Christ</a></li>
+</ol>
+
+<div class="note"><b>推荐研究顺序：</b>先读教会官方《信条》与“Plan of Salvation”，再读《摩尔门经》3 Nephi、Moroni；随后读《教义和圣约》76、89、132篇和《无价珍珠》；最后把 Gospel Topics Essays 与 Joseph Smith Papers 放在一起读。这样会比只看支持者或批评者剪辑出来的短视频可靠得多。</div>
+
+<div class="small">
+图片来源：盐湖城圣殿与约瑟·斯密肖像来自 Wikimedia Commons；1830《摩尔门经》扉页来自 Wikimedia Commons 公有领域/开放许可材料。具体许可请以对应 Commons 文件页为准。
+<br><br>
+统计版本：2026年9月制作；教会年度数字统一采用2025年12月31日官方统计，以避免把不同月份指标混在一起。本文是宗教学、美国宗教史与比较神学导论，不代表耶稣基督后期圣徒教会、任何基督教宗派或反摩门组织的官方立场。
+</div>
+</section>
+
+</main>
+</div>
+
+<footer>
+后期圣徒运动 / “摩门教”系统分析 · HTML Study File · 2026
+</footer>
+</body>
+</html>

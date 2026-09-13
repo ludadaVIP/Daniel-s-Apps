@@ -41,6 +41,12 @@ app.use('/notebook', lazyMount(async () => {
   return module.app;
 }));
 
+app.use('/html-library', lazyMount(async () => {
+  const module = await import('../apps/html-library/server/index.js');
+  await module.initializeHtmlLibrary();
+  return module.createHtmlLibraryApp();
+}));
+
 app.use('/bible', lazyMount(async () => {
   const module = await import('../apps/bible/server/index.js');
   await module.initializeBibleDevotion();

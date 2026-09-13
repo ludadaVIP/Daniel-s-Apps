@@ -7,7 +7,8 @@ import {Library,ArticleReader,Graph,SearchModal} from './Knowledge';
 import {Challenge,ThesisForm,ReviewForm,Theses} from './Training';
 import Profile from './Profile';
 import BackToTop from './BackToTop';
-const getRoute=()=>{let raw='';try{raw=decodeURIComponent(location.hash.slice(1))}catch{}return raw.startsWith('article/')?{page:'article',id:raw.slice(8)}:{page:nav.some(n=>n.id===raw)?raw:'today'}};
+import {getInsightRoute,navigateInsight} from './router';
+const getRoute=()=>{const raw=getInsightRoute();return raw.startsWith('article/')?{page:'article',id:raw.slice(8)}:{page:nav.some(n=>n.id===raw)?raw:'today'}};
 async function request(url,options){const r=await fetch(url,options),data=await r.json();if(!r.ok)throw new Error(data.error||'请求失败（'+r.status+'）');return data}
 export default function App(){
  const [articles,setArticles]=useState([]),[state,setState]=useState(emptyState),[loading,setLoading]=useState(true),[error,setError]=useState(''),[saveError,setSaveError]=useState(''),[saving,setSaving]=useState(false),[route,setRoute]=useState(getRoute),[searchOpen,setSearchOpen]=useState(false),[mobileOpen,setMobileOpen]=useState(false),[challengeOpen,setChallengeOpen]=useState(false),[editor,setEditor]=useState(null),[review,setReview]=useState(null),[toast,setToast]=useState(''),[category,setCategory]=useState('all'),[today,setToday]=useState(dayKey());
@@ -20,7 +21,7 @@ export default function App(){
    pending.current++;setSaving(true);
    const task=queue.current.catch(()=>{}).then(async()=>{try{const next=typeof updater==='function'?updater(stateRef.current):{...stateRef.current,...updater};const saved=await request('/insight/api/state',{method:'PATCH',headers:{'Content-Type':'application/json'},body:JSON.stringify(next)});stateRef.current=saved;setState(saved);setSaveError('');return true}catch(e){setSaveError((options.pessimistic?'导入失败：':'保存失败：')+e.message+'。原有记录已保留，请重试刚才的操作。');notify('保存失败：'+e.message);return false}finally{pending.current--;if(!pending.current)setSaving(false)}});queue.current=task;return task;
  },[notify]);
- const go=page=>{location.hash=page;setMobileOpen(false)},openArticle=id=>go('article/'+id),onCategory=id=>{setCategory(id);go('explore')};
+ const go=page=>{navigateInsight(page);setMobileOpen(false)},openArticle=id=>go('article/'+id),onCategory=id=>{setCategory(id);go('explore')};
  const activity=(type,extra={})=>({id:crypto.randomUUID(),type,date:new Date().toISOString(),day:dayKey(),...extra});
  const bookmark=id=>persist(s=>({...s,bookmarks:s.bookmarks.includes(id)?s.bookmarks.filter(v=>v!==id):[...s.bookmarks,id]}));
  const complete=id=>{let already=false;persist(s=>{already=s.completed.includes(id);return {...s,completed:already?s.completed.filter(v=>v!==id):[...s.completed,id],activity:already?s.activity:[activity('learn',{articleId:id}),...s.activity]}}).then(ok=>ok&&notify(already?'已取消学完标记':'已记录到学习档案'))};

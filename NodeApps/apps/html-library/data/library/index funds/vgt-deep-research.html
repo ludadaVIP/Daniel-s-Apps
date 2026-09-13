@@ -1,0 +1,1185 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VGT：买在每年最高点的长期投资压力测试</title>
+<style>
+:root{--ink:#14213d;--muted:#5f6c80;--paper:#f7f6f1;--panel:#fff;--line:#dfe4ea;--blue:#1e5aa8;--blue2:#dbeafe;--green:#117a65;--red:#bd3c3c;--gold:#bd7a12;--navy:#0b1f3a}*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}.wrap{max-width:1180px;margin:auto;padding:0 28px}.hero{background:linear-gradient(125deg,#071a32,#163d72 58%,#1b6397);color:#fff;padding:64px 0 54px}.eyebrow{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:#a8d4ff;margin:0 0 10px}.hero h1{font-size:clamp(32px,5vw,58px);line-height:1.12;letter-spacing:-.04em;margin:0;max-width:900px}.lead{max-width:760px;font-size:19px;color:#e6f1fb;margin:21px 0 0}.meta{font-size:13px;color:#b9cee4;margin-top:23px}.callout{border-left:4px solid var(--gold);background:#fff9ed;padding:18px 20px;margin:28px 0;color:#5f451d}.nav{position:sticky;top:0;z-index:4;background:rgba(247,246,241,.94);backdrop-filter:blur(9px);border-bottom:1px solid var(--line)}.nav .wrap{display:flex;gap:19px;overflow:auto;padding-top:10px;padding-bottom:10px}.nav a{color:var(--muted);font-size:14px;text-decoration:none;white-space:nowrap}.nav a:hover{color:var(--blue)}section{padding:48px 0;border-bottom:1px solid var(--line)}h2{font-size:29px;letter-spacing:-.025em;margin:0 0 14px}h3{font-size:19px;margin:28px 0 8px}.section-intro{color:var(--muted);max-width:850px;margin:0 0 25px}.grid{display:grid;gap:16px}.metrics{grid-template-columns:repeat(4,1fr)}.metric{background:var(--panel);border:1px solid var(--line);padding:18px;min-height:130px}.metric label{display:block;font-size:13px;color:var(--muted);margin-bottom:7px}.metric strong{display:block;font-size:27px;letter-spacing:-.04em;line-height:1.05}.metric span{color:var(--muted);font-size:12px}.two{grid-template-columns:1fr 1fr}.three{grid-template-columns:repeat(3,1fr)}.card{background:var(--panel);border:1px solid var(--line);padding:22px}.card h3{margin-top:0}.good{color:var(--green)}.bad{color:var(--red)}.accent{color:var(--blue)}.chart-box{background:#fff;border:1px solid var(--line);padding:18px;margin-top:18px}.chart-title{font-weight:700;margin:0 0 2px}.chart-sub{font-size:13px;color:var(--muted);margin:0 0 12px}.chart{width:100%;height:auto;display:block}.legend{font-size:12px;color:var(--muted);display:flex;gap:16px;flex-wrap:wrap;margin-top:6px}.legend i{display:inline-block;width:11px;height:11px;margin-right:5px;vertical-align:-1px}.table-wrap{overflow-x:auto;background:#fff;border:1px solid var(--line)}table{width:100%;border-collapse:collapse;font-size:13px;min-width:900px}th,td{padding:10px 11px;border-bottom:1px solid var(--line);text-align:right;white-space:nowrap}th{position:sticky;top:44px;background:#f0f4f8;color:#34475e;font-size:12px}th:first-child,td:first-child,th:nth-child(2),td:nth-child(2){text-align:left}.note{font-size:13px;color:var(--muted)}.timeline{border-left:2px solid #bdd2eb;margin:20px 0 0 8px}.event{position:relative;padding:0 0 25px 24px}.event:before{content:"";position:absolute;left:-7px;top:6px;width:12px;height:12px;border-radius:50%;background:var(--blue)}.event h3{margin:0 0 3px}.event p{margin:0;color:var(--muted)}.risk{display:grid;grid-template-columns:160px 1fr 1fr;gap:0;border-top:1px solid var(--line);font-size:14px}.risk>div{padding:13px;border-bottom:1px solid var(--line)}.risk strong{color:var(--ink)}.plan{counter-reset:step}.plan-item{position:relative;padding:6px 0 8px 52px}.plan-item:before{counter-increment:step;content:counter(step);position:absolute;left:0;top:7px;background:var(--blue);color:#fff;width:31px;height:31px;border-radius:50%;display:grid;place-items:center;font-weight:700}.sources a{color:var(--blue)}.sources li{margin:10px 0}.pill{display:inline-block;font-size:12px;background:var(--blue2);color:var(--blue);padding:2px 8px;border-radius:20px;margin-right:7px}.footer{padding:34px 0 52px;color:var(--muted);font-size:13px}.heat{fill:var(--blue)}.neg{fill:var(--red)}@media(max-width:800px){.wrap{padding:0 18px}.hero{padding:44px 0}.metrics,.two,.three{grid-template-columns:1fr 1fr}.metric strong{font-size:23px}.risk{grid-template-columns:110px 1fr}.risk>div:nth-child(3n){grid-column:2}.risk>div:nth-child(3n+1){font-weight:700}.nav .wrap{padding-left:18px}}@media(max-width:500px){.metrics,.two,.three{grid-template-columns:1fr}.hero h1{font-size:34px}h2{font-size:25px}section{padding:36px 0}.risk{grid-template-columns:1fr}.risk>div:nth-child(3n){grid-column:auto}.risk>div{padding:9px}.risk>div:nth-child(3n+1){padding-bottom:0}}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap"><p class="eyebrow">Vanguard Information Technology ETF · 反直觉压力测试</p><h1>假如每年都“不幸”买在 VGT 年内最高点</h1><p class="lead">从 2006 年起每年投入 $10,000，始终以该年日内最高价成交，所有仓位持有至 2026-09-03。结果不是“择时无关”，而是：长期持有与分散投入能吸收极差的入场点，但前提是你真能穿越 <b>−55%</b> 的回撤。</p><p class="meta">资料截至：2026-09-03 美股收盘｜币种：USD｜研究性质：历史情景与投资框架，非个性化投资、税务或法律建议</p></div></header>
+<nav class="nav"><div class="wrap"><a href="#answer">结果</a><a href="#method">口径</a><a href="#lots">逐笔结果</a><a href="#journey">经历</a><a href="#plan">未来计划</a><a href="#sources">来源</a></div></nav>
+<main>
+<section id="answer"><div class="wrap"><h2>结论先行</h2><p class="section-intro">这个极端设定仍产生了非常高的终值，但不是一条平滑曲线。它证明的是“持有优质行业资产 + 分期投入”的力量，不是证明 VGT 未来仍会复制过去的回报。</p><div class="grid metrics" id="metrics"></div><div class="callout"><b>最重要的阅读方式：</b>累计投入是跨 21 年发生的现金流，不能用“$210k 一次性投 20 年”的 CAGR 解释。报告使用逐笔日期计算的 XIRR：在“分红再投资”情景下约 <b id="xirr">—</b>。所有数字均未扣税、佣金、点差和汇兑影响。</div><div class="grid two"><article class="card"><h3>一页答案</h3><p>即使每次都在一年内最昂贵的日子成交，2006–2025 的每笔仓位截至截点都为正；唯一尚处浮亏的是 2026 年的最新一笔。长期胜出的原因不是“最高点不重要”，而是早期份额经历了复利、科技行业长期增长和极低的基金费率。</p><p>反面同样真实：2007 年那笔在金融危机中一度相对成本 <b class="bad">−54.8%</b>，直到 2011 年初才按价格回到成本。若这会迫使你卖出，本回测就不具备可执行性。</p></article><article class="card"><h3>这不是对 VGT 的“买入结论”</h3><p>VGT 是美国信息技术行业的单一行业 ETF；Vanguard 页面将其归为“Domestic Stock – Sector-Specific”，风险级别为 5，费率 0.09%。行业、风格、估值和成分股集中风险显著高于全市场基金。</p><p>因此，合理的推论是：<b>停止用“年内高点/低点”决定是否投入</b>；而不是把全部资产押在近年表现最强的行业。</p></article></div></div></section>
+<section id="method"><div class="wrap"><h2>计算口径：先把“最高点”和“收益”说清楚</h2><div class="grid two"><article class="card"><h3>入场规则</h3><p><span class="pill">最苛刻但可复核</span>每个自然年从 Yahoo Finance 的日线中取最高的 <b>日内 High</b>，以该价格一次性买入 $10,000 的 VGT，可买碎股。2006–2026 共 21 笔。</p><p>全部 OHLC 都使用已反映 2026-04-21 之 8:1 拆分的可比价格。它不是“当日收盘最高价”，也不是凭事后知道年度最高的真实可交易订单；因此更适合作为心理压力测试。</p></article><article class="card"><h3>终值的三个层次</h3><p><b>价格价值</b>：只看期末股价，忽略分配；<br><b>现金分配价值</b>：分配不再投，仅累积现金；<br><b>总回报价值</b>：每次分配在除息日按收盘价买回份额。</p><p>正文以第三项为主，因 Vanguard 的标准总回报也包含分红和资本利得再投资。现实账户会因税、再投资时间、成交价与基金跟踪差异而不同。</p></article></div><div class="chart-box"><p class="chart-title">每年“最坏入场价”随时间上移</p><p class="chart-sub">日内最高价，已按 2026 年 8:1 拆分调整；蓝点为每年实际假设买入日。</p><svg id="priceChart" class="chart" viewBox="0 0 1040 300" role="img" aria-label="2006 至 2026 年 VGT 年内最高价走势"></svg></div></div></section>
+<section id="lots"><div class="wrap"><h2>21 笔投资：没有一笔被“最高点”永久困住</h2><p class="section-intro">“最大回撤”从买入日内高点到该笔之后最低的日收盘价；“价格回本”不含分配，空白代表截至 2026-09-03 尚未回本。分红再投资价值是最接近总回报账户的列。</p><div class="chart-box"><p class="chart-title">逐笔最大价格回撤</p><p class="chart-sub">红色越长，说明买在该年高点后需要承受的心理考验越强。</p><svg id="drawdownChart" class="chart" viewBox="0 0 1040 360" role="img" aria-label="每笔 VGT 年内高点买入后的最大回撤"></svg></div><div class="table-wrap"><table><thead><tr><th>年份</th><th>买入日</th><th>日内高点</th><th>买入份额</th><th>最大回撤</th><th>谷底日</th><th>价格回本日</th><th>期末价格价值</th><th>累计现金分配</th><th>期末总回报价值</th><th>总回报</th></tr></thead><tbody id="lotRows"></tbody></table></div><p class="note">例如“2007 年”行以 2007-10-31 的 $8.10（拆分调整后）买入；这笔确实经历了 −54.8% 的低点，但在分红再投资情景下截至截点约为 $175,672。过去结果不构成未来保证。</p></div></section>
+<section id="journey"><div class="wrap"><h2>中间经历了什么：收益不是直线</h2><div class="grid two"><div class="timeline"><div class="event"><h3>2007–2011｜金融危机：最严苛的验证</h3><p>2007 年高点买入的仓位，2008-11-20 的收盘低点相对买入价约 −54.8%，价格直到 2011-01-18 才恢复。它说明“买在高点”在熊市前并非小问题；持有纪律必须先于回测结果。</p></div><div class="event"><h3>2011–2016｜复苏、欧债阴影与增长股重估</h3><p>2011 年入场一度 −19.8%，2014–2015 入场也分别经历约 −12% 和 −17%。但这些均在数月到一年内恢复，分散的年度投入持续累积份额。</p></div><div class="event"><h3>2018–2020｜Q4 风险厌恶与疫情冲击</h3><p>2018 高点买入的最大回撤约 −24.3%；2019 高点那笔在 2020-03-23 前后约 −24.8%。买入发生在年末高点，使该设定没有把 2020 年的低位当作“免费午餐”。</p></div><div class="event"><h3>2021–2023｜利率冲击，再到 AI 驱动修复</h3><p>2021 和 2022 年初高点买入的两笔，均在 2022-10-14 附近承受约 −35%。它们的价格回本分别在 2023-12 与 2023-12；含分配的回本略早。</p></div><div class="event"><h3>2024–2026｜高集中度资产仍会深度波动</h3><p>2024 年高点买入后最大回撤约 −27.5%，2025 年约 −17.1%。2026 年高点买入的仓位截至截点仍约 −3.9%（总回报），且曾到 −14.1%。最新一笔不应被历史长尾收益掩盖。</p></div></div><article class="card"><h3>真正的“胜率”与代价</h3><p><b class="good">20 / 21 笔</b> 截至截点在分红再投资口径为正；但这并不表示每年高点都安全。</p><p>回测中最糟的两笔来自 2007 和 2008：它们在最深亏损时的账户感受会远差于今天的终值。真正的风险是投资者在 30%–55% 下跌的中段卖出，从而把“暂时回撤”变成永久损失。</p><hr><h3>反方观点（必须保留）</h3><p>VGT 的历史含有美国大型科技公司的长期超额增长和估值扩张。未来若增长放缓、利率上升、监管/竞争侵蚀利润、或指数权重高度集中带来反转，过去 18.9% 的 XIRR 不应被当作预期回报。行业基金也缺少全市场对金融、能源、医疗、非美股票等的分散化。</p></article></div></div></section>
+<section id="plan"><div class="wrap"><h2>由此制定未来计划：把“坏入场点”变成可忍受的风险</h2><p class="section-intro">以下是基于此历史压力测试的执行框架，不是针对你的完整组合的买卖指令。投资期限、税务居住地、收入稳定性、紧急储备、其他持仓和可承受亏损尚未提供，所以组合适配度仍未完成。</p><div class="grid two"><article class="card"><h3>一个比“猜低点”更稳健的流程</h3><div class="plan"><div class="plan-item"><b>先定核心，再定卫星。</b>用全球或全市场低成本权益基金作为长期权益核心；把 VGT 视为行业卫星，而不是完整股票配置。</div><div class="plan-item"><b>把年度 $10,000 自动化。</b>若现金流稳定，可改为每月约 $833.33，而不是等“低点”。这并不提高期望收益的数学保证，但能减少一次性错时和决策摩擦。</div><div class="plan-item"><b>预先写下再平衡规则。</b>例如每 6 或 12 个月检查；当 VGT 因上涨明显超过你事先设定的行业目标权重时，补充其他资产或按规则减回目标，不追涨加杠杆。</div><div class="plan-item"><b>用回撤做适配测试。</b>在投入前假设 VGT 再跌 55%。如果这个损失会影响生活开支、诱发卖出或债务压力，就降低风险资产/行业仓位，而非期待回测重演。</div></div></article><article class="card"><h3>条件化的仓位框架</h3><p><b>未知组合时，优先给边界而非结论。</b>一个单一行业 ETF 的占比应随投资期限、已持有科技敞口、收入与税务情况调整。作为研究框架，许多长期投资者会把行业卫星限制在<b>权益资产的一小部分（如 10%–25%）</b>，并把其余部分配置于更广泛的资产；但这不是对你个人的建议。</p><p><b>若你未来 3–5 年需要这笔钱：</b>不应依赖 VGT 的历史回本速度，优先把短期支出资金放在与期限匹配的低波动工具中。<br><b>若你持有 10 年以上且能承受深跌：</b>纪律、分散与低成本更重要；不要把“此处看起来是高点”本身作为暂停长期投入的理由。</p><hr><h3>未来一年监控清单</h3><p>1) VGT 在全组合与权益资产中的实际权重；2) 前十大成分与行业暴露是否进一步集中；3) 基金费用、指数与跟踪情况是否变化；4) 自己的现金流、应急金和风险承受能力是否变化；5) 是否因短期涨跌偏离已写好的再平衡规则。</p></article></div><h3>风险—信号—动作</h3><div class="risk"><div><strong>集中度</strong></div><div>单一行业及大市值成分股权重上升，组合与科技周期同步。</div><div>每半年核对穿透后的科技权重；超过预设上限时再平衡，而非新增追涨。</div><div><strong>估值/利率</strong></div><div>成长现金流久期较长，折现率上升时可能发生快速重估。</div><div>不预测利率；用较小卫星仓位和足够期限来承受估值压缩。</div><div><strong>行为风险</strong></div><div>回撤时卖出，反而截断长期回报。</div><div>在买入前做 −55% 压力测试；把自动投入与再平衡写入日历。</div><div><strong>流动性需求</strong></div><div>短期用钱时被迫在低位出售。</div><div>将应急金和近期支出与长期权益账户隔离。</div></div></div></section>
+<section id="sources"><div class="wrap"><h2>数据、来源与限制</h2><div class="grid two"><article class="card"><h3>主要来源</h3><ol class="sources"><li><a href="https://query2.finance.yahoo.com/v8/finance/chart/VGT?period1=1136073600&amp;interval=1d&amp;period2=1788566400&amp;events=div%2Csplits">Yahoo Finance chart API：VGT 日线、分配与拆分事件</a>。本报告将日内 High 用于每年买入价，并使用 2026-09-03 收盘 $120.88 估值。</li><li><a href="https://investor.vanguard.com/investment-products/etfs/profile/vgt">Vanguard VGT 官方基金页</a>：基金属性、风险级别、费率、基准与官方总回报说明；页面抓取时显示费率 0.09%、风险级别 5，信息有各自的“as of”日期。</li><li><a href="https://www.nber.org/research/data/us-business-cycle-expansions-and-contractions">NBER：美国商业周期日期</a>，用于金融危机阶段的宏观背景核验。</li><li><a href="https://www.investor.gov/introduction-investing/investing-basics/what-are-investments/asset-allocation-and-diversification">SEC Investor.gov：资产配置与分散化</a>，用于组合层面的原则性参考。</li></ol></article><article class="card"><h3>重要限制</h3><ul><li>“年内最高点”使用日线内高点，不能代表实际订单必然成交的价格；年度最高只有事后才知道。</li><li>Yahoo 的历史 OHLC 与分配数据为第三方市场数据；与券商、Vanguard 官方 NAV 或实际成交记录可能有细微差异。</li><li>总回报模型假设分配在除息日收盘价无摩擦再投资；不扣美国/当地税、交易成本、管理费以外费用（基金净值本身已反映费率）、汇兑和资金占用。</li><li>本报告不估值 VGT 的未来合理价格，也不预测科技股回报；历史回测不能证明未来胜率或收益率。</li></ul></article></div></div></section>
+</main><footer class="footer"><div class="wrap">研究生成日期：2026-09-04（Pacific/Auckland）｜数据截点：2026-09-03 美股收盘｜HTML 内嵌计算结果，离线打开亦可查看图表和逐笔表。</div></footer>
+<script>
+const DATA = {
+  "asOf": "2026-09-03",
+  "endClose": 120.88,
+  "method": "Daily intraday high; split-adjusted Yahoo OHLC. $10,000 / high creates fractional current-share equivalent. Dividends reinvested at that ex-date closing price for the total-return column; no tax, commissions, bid-ask spread, or FX conversion.",
+  "lots": [
+    {
+      "year": 2006,
+      "purchaseDate": "2006-11-24",
+      "entryHigh": 6.77,
+      "closeOnPurchase": 6.76,
+      "shares": 1476.287,
+      "priceValue": 178453.59,
+      "cashDividends": 6176.97,
+      "cashValue": 184630.56,
+      "reinvestedValue": 210540.91,
+      "priceReturn": 1684.5,
+      "cashReturn": 1746.3,
+      "totalReturn": 2005.4,
+      "maxDrawdown": -46,
+      "troughDate": "2008-11-20",
+      "recoveryDate": "2007-01-11",
+      "recoveryTRDate": "2007-01-11"
+    },
+    {
+      "year": 2007,
+      "purchaseDate": "2007-10-31",
+      "entryHigh": 8.1,
+      "closeOnPurchase": 8.09,
+      "shares": 1234.949,
+      "priceValue": 149280.64,
+      "cashDividends": 5146.19,
+      "cashValue": 154426.83,
+      "reinvestedValue": 175671.75,
+      "priceReturn": 1392.8,
+      "cashReturn": 1444.3,
+      "totalReturn": 1656.7,
+      "maxDrawdown": -54.8,
+      "troughDate": "2008-11-20",
+      "recoveryDate": "2011-01-18",
+      "recoveryTRDate": "2011-01-10"
+    },
+    {
+      "year": 2008,
+      "purchaseDate": "2008-01-02",
+      "entryHigh": 7.6,
+      "closeOnPurchase": 7.38,
+      "shares": 1316.006,
+      "priceValue": 159078.79,
+      "cashDividends": 5455.17,
+      "cashValue": 164533.96,
+      "reinvestedValue": 186658.67,
+      "priceReturn": 1490.8,
+      "cashReturn": 1545.3,
+      "totalReturn": 1766.6,
+      "maxDrawdown": -51.9,
+      "troughDate": "2008-11-20",
+      "recoveryDate": "2010-11-04",
+      "recoveryTRDate": "2010-11-03"
+    },
+    {
+      "year": 2009,
+      "purchaseDate": "2009-12-31",
+      "entryHigh": 6.96,
+      "closeOnPurchase": 6.86,
+      "shares": 1437.298,
+      "priceValue": 173740.56,
+      "cashDividends": 5854.47,
+      "cashValue": 179595.04,
+      "reinvestedValue": 200960.74,
+      "priceReturn": 1637.4,
+      "cashReturn": 1696,
+      "totalReturn": 1909.6,
+      "maxDrawdown": -11.7,
+      "troughDate": "2010-07-02",
+      "recoveryDate": "2010-01-04",
+      "recoveryTRDate": "2010-01-04"
+    },
+    {
+      "year": 2010,
+      "purchaseDate": "2010-12-13",
+      "entryHigh": 7.78,
+      "closeOnPurchase": 7.72,
+      "shares": 1285.141,
+      "priceValue": 155347.79,
+      "cashDividends": 5234.7,
+      "cashValue": 160582.49,
+      "reinvestedValue": 179686.34,
+      "priceReturn": 1453.5,
+      "cashReturn": 1505.8,
+      "totalReturn": 1696.9,
+      "maxDrawdown": -13.4,
+      "troughDate": "2011-08-19",
+      "recoveryDate": "2011-01-04",
+      "recoveryTRDate": "2011-01-03"
+    },
+    {
+      "year": 2011,
+      "purchaseDate": "2011-02-18",
+      "entryHigh": 8.4,
+      "closeOnPurchase": 8.38,
+      "shares": 1190.122,
+      "priceValue": 143861.94,
+      "cashDividends": 4793.81,
+      "cashValue": 148655.75,
+      "reinvestedValue": 165430.71,
+      "priceReturn": 1338.6,
+      "cashReturn": 1386.6,
+      "totalReturn": 1554.3,
+      "maxDrawdown": -19.8,
+      "troughDate": "2011-08-19",
+      "recoveryDate": "2012-02-02",
+      "recoveryTRDate": "2012-02-01"
+    },
+    {
+      "year": 2012,
+      "purchaseDate": "2012-09-14",
+      "entryHigh": 9.48,
+      "closeOnPurchase": 9.45,
+      "shares": 1054.713,
+      "priceValue": 127493.74,
+      "cashDividends": 4184.44,
+      "cashValue": 131678.18,
+      "reinvestedValue": 145439.27,
+      "priceReturn": 1174.9,
+      "cashReturn": 1216.8,
+      "totalReturn": 1354.4,
+      "maxDrawdown": -13.4,
+      "troughDate": "2012-11-15",
+      "recoveryDate": "2013-05-16",
+      "recoveryTRDate": "2013-05-08"
+    },
+    {
+      "year": 2013,
+      "purchaseDate": "2013-12-27",
+      "entryHigh": 11.2,
+      "closeOnPurchase": 11.13,
+      "shares": 892.558,
+      "priceValue": 107892.45,
+      "cashDividends": 3342.85,
+      "cashValue": 111235.3,
+      "reinvestedValue": 120331.39,
+      "priceReturn": 978.9,
+      "cashReturn": 1012.4,
+      "totalReturn": 1103.3,
+      "maxDrawdown": -4.6,
+      "troughDate": "2014-02-03",
+      "recoveryDate": "2014-01-15",
+      "recoveryTRDate": "2014-01-15"
+    },
+    {
+      "year": 2014,
+      "purchaseDate": "2014-11-28",
+      "entryHigh": 13.42,
+      "closeOnPurchase": 13.39,
+      "shares": 745.018,
+      "priceValue": 90057.74,
+      "cashDividends": 2790.28,
+      "cashValue": 92848.02,
+      "reinvestedValue": 100440.51,
+      "priceReturn": 800.6,
+      "cashReturn": 828.5,
+      "totalReturn": 904.4,
+      "maxDrawdown": -12.3,
+      "troughDate": "2016-02-09",
+      "recoveryDate": "2015-02-13",
+      "recoveryTRDate": "2015-02-13"
+    },
+    {
+      "year": 2015,
+      "purchaseDate": "2015-12-02",
+      "entryHigh": 14.16,
+      "closeOnPurchase": 14.02,
+      "shares": 705.965,
+      "priceValue": 85337.1,
+      "cashDividends": 2557.09,
+      "cashValue": 87894.19,
+      "reinvestedValue": 94258.01,
+      "priceReturn": 753.4,
+      "cashReturn": 778.9,
+      "totalReturn": 842.6,
+      "maxDrawdown": -16.9,
+      "troughDate": "2016-02-09",
+      "recoveryDate": "2016-07-20",
+      "recoveryTRDate": "2016-07-18"
+    },
+    {
+      "year": 2016,
+      "purchaseDate": "2016-12-13",
+      "entryHigh": 15.56,
+      "closeOnPurchase": 15.48,
+      "shares": 642.57,
+      "priceValue": 77673.89,
+      "cashDividends": 2201.93,
+      "cashValue": 79875.82,
+      "reinvestedValue": 84594.91,
+      "priceReturn": 676.7,
+      "cashReturn": 698.8,
+      "totalReturn": 745.9,
+      "maxDrawdown": -2.4,
+      "troughDate": "2016-12-30",
+      "recoveryDate": "2017-01-09",
+      "recoveryTRDate": "2017-01-06"
+    },
+    {
+      "year": 2017,
+      "purchaseDate": "2017-11-28",
+      "entryHigh": 21.03,
+      "closeOnPurchase": 21,
+      "shares": 475.539,
+      "priceValue": 57483.21,
+      "cashDividends": 1533.2,
+      "cashValue": 59016.41,
+      "reinvestedValue": 61869.94,
+      "priceReturn": 474.8,
+      "cashReturn": 490.2,
+      "totalReturn": 518.7,
+      "maxDrawdown": -8,
+      "troughDate": "2018-12-24",
+      "recoveryDate": "2018-01-03",
+      "recoveryTRDate": "2017-12-18"
+    },
+    {
+      "year": 2018,
+      "purchaseDate": "2018-10-03",
+      "entryHigh": 25.56,
+      "closeOnPurchase": 25.44,
+      "shares": 391.313,
+      "priceValue": 47301.9,
+      "cashDividends": 1166.16,
+      "cashValue": 48468.06,
+      "reinvestedValue": 50373.46,
+      "priceReturn": 373,
+      "cashReturn": 384.7,
+      "totalReturn": 403.7,
+      "maxDrawdown": -24.3,
+      "troughDate": "2018-12-24",
+      "recoveryDate": "2019-04-03",
+      "recoveryTRDate": "2019-03-21"
+    },
+    {
+      "year": 2019,
+      "purchaseDate": "2019-12-27",
+      "entryHigh": 30.84,
+      "closeOnPurchase": 30.7,
+      "shares": 324.215,
+      "priceValue": 39191.08,
+      "cashDividends": 829.99,
+      "cashValue": 40021.07,
+      "reinvestedValue": 41069.27,
+      "priceReturn": 291.9,
+      "cashReturn": 300.2,
+      "totalReturn": 310.7,
+      "maxDrawdown": -24.8,
+      "troughDate": "2020-03-23",
+      "recoveryDate": "2020-01-02",
+      "recoveryTRDate": "2020-01-02"
+    },
+    {
+      "year": 2020,
+      "purchaseDate": "2020-12-29",
+      "entryHigh": 44.71,
+      "closeOnPurchase": 44.13,
+      "shares": 223.657,
+      "priceValue": 27035.7,
+      "cashDividends": 491.12,
+      "cashValue": 27526.82,
+      "reinvestedValue": 28038.13,
+      "priceReturn": 170.4,
+      "cashReturn": 175.3,
+      "totalReturn": 180.4,
+      "maxDrawdown": -15.9,
+      "troughDate": "2022-10-14",
+      "recoveryDate": "2021-01-20",
+      "recoveryTRDate": "2021-01-20"
+    },
+    {
+      "year": 2021,
+      "purchaseDate": "2021-12-28",
+      "entryHigh": 58.38,
+      "closeOnPurchase": 57.85,
+      "shares": 171.284,
+      "priceValue": 20704.83,
+      "cashDividends": 313.54,
+      "cashValue": 21018.37,
+      "reinvestedValue": 21316.53,
+      "priceReturn": 107,
+      "cashReturn": 110.2,
+      "totalReturn": 113.2,
+      "maxDrawdown": -35.6,
+      "troughDate": "2022-10-14",
+      "recoveryDate": "2023-12-08",
+      "recoveryTRDate": "2023-11-20"
+    },
+    {
+      "year": 2022,
+      "purchaseDate": "2022-01-04",
+      "entryHigh": 57.88,
+      "closeOnPurchase": 57.02,
+      "shares": 172.786,
+      "priceValue": 20886.39,
+      "cashDividends": 316.29,
+      "cashValue": 21202.68,
+      "reinvestedValue": 21503.45,
+      "priceReturn": 108.9,
+      "cashReturn": 112,
+      "totalReturn": 115,
+      "maxDrawdown": -35,
+      "troughDate": "2022-10-14",
+      "recoveryDate": "2023-12-01",
+      "recoveryTRDate": "2023-07-18"
+    },
+    {
+      "year": 2023,
+      "purchaseDate": "2023-12-28",
+      "entryHigh": 60.98,
+      "closeOnPurchase": 60.85,
+      "shares": 163.988,
+      "priceValue": 19822.89,
+      "cashDividends": 176.51,
+      "cashValue": 19999.41,
+      "reinvestedValue": 20088.08,
+      "priceReturn": 98.2,
+      "cashReturn": 100,
+      "totalReturn": 100.9,
+      "maxDrawdown": -5.3,
+      "troughDate": "2024-01-04",
+      "recoveryDate": "2024-01-18",
+      "recoveryTRDate": "2024-01-18"
+    },
+    {
+      "year": 2024,
+      "purchaseDate": "2024-12-16",
+      "entryHigh": 81.08,
+      "closeOnPurchase": 81,
+      "shares": 123.331,
+      "priceValue": 14908.27,
+      "cashDividends": 87.46,
+      "cashValue": 14995.73,
+      "reinvestedValue": 15028.35,
+      "priceReturn": 49.1,
+      "cashReturn": 50,
+      "totalReturn": 50.3,
+      "maxDrawdown": -27.5,
+      "troughDate": "2025-04-08",
+      "recoveryDate": "2025-06-25",
+      "recoveryTRDate": "2025-06-25"
+    },
+    {
+      "year": 2025,
+      "purchaseDate": "2025-10-29",
+      "entryHigh": 100.87,
+      "closeOnPurchase": 100.19,
+      "shares": 99.134,
+      "priceValue": 11983.3,
+      "cashDividends": 32.28,
+      "cashValue": 12015.58,
+      "reinvestedValue": 12022.65,
+      "priceReturn": 19.8,
+      "cashReturn": 20.2,
+      "totalReturn": 20.2,
+      "maxDrawdown": -17.1,
+      "troughDate": "2026-03-30",
+      "recoveryDate": "2026-04-20",
+      "recoveryTRDate": "2026-04-17"
+    },
+    {
+      "year": 2026,
+      "purchaseDate": "2026-06-03",
+      "entryHigh": 126,
+      "closeOnPurchase": 123.91,
+      "shares": 79.365,
+      "priceValue": 9593.65,
+      "cashDividends": 10.95,
+      "cashValue": 9604.6,
+      "reinvestedValue": 9605.15,
+      "priceReturn": -4.1,
+      "cashReturn": -4,
+      "totalReturn": -3.9,
+      "maxDrawdown": -14.1,
+      "troughDate": "2026-07-29",
+      "recoveryDate": null,
+      "recoveryTRDate": null
+    }
+  ],
+  "totals": {
+    "contributions": 210000,
+    "lots": 21,
+    "currentShares": 14205.239,
+    "priceValue": 1717129.45,
+    "cashDividends": 52695.4,
+    "cashValue": 1769824.87,
+    "reinvestedValue": 1944928.22,
+    "priceReturn": 717.7,
+    "cashReturn": 742.8,
+    "totalReturn": 826.2,
+    "moneyWeightedReturn": 18.9
+  },
+  "monthly": [
+    {
+      "date": "2006-02-01",
+      "close": 6.32
+    },
+    {
+      "date": "2006-03-01",
+      "close": 6.36
+    },
+    {
+      "date": "2006-05-01",
+      "close": 6.27
+    },
+    {
+      "date": "2006-06-01",
+      "close": 5.96
+    },
+    {
+      "date": "2006-08-01",
+      "close": 5.45
+    },
+    {
+      "date": "2006-09-01",
+      "close": 5.97
+    },
+    {
+      "date": "2006-11-01",
+      "close": 6.36
+    },
+    {
+      "date": "2006-12-01",
+      "close": 6.58
+    },
+    {
+      "date": "2007-02-01",
+      "close": 6.67
+    },
+    {
+      "date": "2007-03-01",
+      "close": 6.49
+    },
+    {
+      "date": "2007-05-01",
+      "close": 6.9
+    },
+    {
+      "date": "2007-06-01",
+      "close": 7.17
+    },
+    {
+      "date": "2007-08-01",
+      "close": 7.19
+    },
+    {
+      "date": "2007-10-01",
+      "close": 7.69
+    },
+    {
+      "date": "2007-11-01",
+      "close": 7.96
+    },
+    {
+      "date": "2008-02-01",
+      "close": 6.67
+    },
+    {
+      "date": "2008-04-01",
+      "close": 6.58
+    },
+    {
+      "date": "2008-05-01",
+      "close": 7.05
+    },
+    {
+      "date": "2008-07-01",
+      "close": 6.61
+    },
+    {
+      "date": "2008-08-01",
+      "close": 6.49
+    },
+    {
+      "date": "2008-10-01",
+      "close": 5.7
+    },
+    {
+      "date": "2008-12-01",
+      "close": 3.9
+    },
+    {
+      "date": "2009-04-01",
+      "close": 4.5
+    },
+    {
+      "date": "2009-05-01",
+      "close": 5.01
+    },
+    {
+      "date": "2009-06-01",
+      "close": 5.29
+    },
+    {
+      "date": "2009-07-01",
+      "close": 5.36
+    },
+    {
+      "date": "2009-09-01",
+      "close": 5.83
+    },
+    {
+      "date": "2009-10-01",
+      "close": 6.07
+    },
+    {
+      "date": "2009-12-01",
+      "close": 6.58
+    },
+    {
+      "date": "2010-02-01",
+      "close": 6.4
+    },
+    {
+      "date": "2010-03-01",
+      "close": 6.69
+    },
+    {
+      "date": "2010-04-01",
+      "close": 7.02
+    },
+    {
+      "date": "2010-06-01",
+      "close": 6.5
+    },
+    {
+      "date": "2010-07-01",
+      "close": 6.16
+    },
+    {
+      "date": "2010-09-01",
+      "close": 6.34
+    },
+    {
+      "date": "2010-10-01",
+      "close": 6.95
+    },
+    {
+      "date": "2010-11-01",
+      "close": 7.4
+    },
+    {
+      "date": "2010-12-01",
+      "close": 7.49
+    },
+    {
+      "date": "2011-02-01",
+      "close": 8.15
+    },
+    {
+      "date": "2011-03-01",
+      "close": 8.04
+    },
+    {
+      "date": "2011-04-01",
+      "close": 8.01
+    },
+    {
+      "date": "2011-06-01",
+      "close": 7.94
+    },
+    {
+      "date": "2011-07-01",
+      "close": 8.05
+    },
+    {
+      "date": "2011-08-01",
+      "close": 7.88
+    },
+    {
+      "date": "2011-09-01",
+      "close": 7.31
+    },
+    {
+      "date": "2011-11-01",
+      "close": 7.74
+    },
+    {
+      "date": "2011-12-01",
+      "close": 7.85
+    },
+    {
+      "date": "2012-02-01",
+      "close": 8.38
+    },
+    {
+      "date": "2012-03-01",
+      "close": 8.92
+    },
+    {
+      "date": "2012-05-01",
+      "close": 9.11
+    },
+    {
+      "date": "2012-06-01",
+      "close": 8.11
+    },
+    {
+      "date": "2012-08-01",
+      "close": 8.59
+    },
+    {
+      "date": "2012-10-01",
+      "close": 9.14
+    },
+    {
+      "date": "2012-11-01",
+      "close": 8.74
+    },
+    {
+      "date": "2013-02-01",
+      "close": 8.93
+    },
+    {
+      "date": "2013-03-01",
+      "close": 8.89
+    },
+    {
+      "date": "2013-04-01",
+      "close": 9.02
+    },
+    {
+      "date": "2013-05-01",
+      "close": 9.08
+    },
+    {
+      "date": "2013-07-01",
+      "close": 9.32
+    },
+    {
+      "date": "2013-08-01",
+      "close": 9.87
+    },
+    {
+      "date": "2013-10-01",
+      "close": 10.19
+    },
+    {
+      "date": "2013-11-01",
+      "close": 10.46
+    },
+    {
+      "date": "2014-04-01",
+      "close": 11.59
+    },
+    {
+      "date": "2014-05-01",
+      "close": 11.34
+    },
+    {
+      "date": "2014-07-01",
+      "close": 12.23
+    },
+    {
+      "date": "2014-08-01",
+      "close": 12.11
+    },
+    {
+      "date": "2014-10-01",
+      "close": 12.3
+    },
+    {
+      "date": "2014-12-01",
+      "close": 13.22
+    },
+    {
+      "date": "2015-04-01",
+      "close": 13.21
+    },
+    {
+      "date": "2015-05-01",
+      "close": 13.66
+    },
+    {
+      "date": "2015-06-01",
+      "close": 13.86
+    },
+    {
+      "date": "2015-07-01",
+      "close": 13.35
+    },
+    {
+      "date": "2015-09-01",
+      "close": 12.39
+    },
+    {
+      "date": "2015-10-01",
+      "close": 12.51
+    },
+    {
+      "date": "2015-12-01",
+      "close": 14.1
+    },
+    {
+      "date": "2016-02-01",
+      "close": 12.77
+    },
+    {
+      "date": "2016-03-01",
+      "close": 13
+    },
+    {
+      "date": "2016-04-01",
+      "close": 13.8
+    },
+    {
+      "date": "2016-06-01",
+      "close": 13.74
+    },
+    {
+      "date": "2016-07-01",
+      "close": 13.4
+    },
+    {
+      "date": "2016-08-01",
+      "close": 14.46
+    },
+    {
+      "date": "2016-09-01",
+      "close": 14.79
+    },
+    {
+      "date": "2016-11-01",
+      "close": 14.84
+    },
+    {
+      "date": "2016-12-01",
+      "close": 14.68
+    },
+    {
+      "date": "2017-02-01",
+      "close": 15.96
+    },
+    {
+      "date": "2017-03-01",
+      "close": 16.86
+    },
+    {
+      "date": "2017-05-01",
+      "close": 17.5
+    },
+    {
+      "date": "2017-06-01",
+      "close": 18.2
+    },
+    {
+      "date": "2017-08-01",
+      "close": 18.43
+    },
+    {
+      "date": "2017-09-01",
+      "close": 18.89
+    },
+    {
+      "date": "2017-11-01",
+      "close": 20.4
+    },
+    {
+      "date": "2017-12-01",
+      "close": 20.51
+    },
+    {
+      "date": "2018-02-01",
+      "close": 22.13
+    },
+    {
+      "date": "2018-03-01",
+      "close": 21.82
+    },
+    {
+      "date": "2018-05-01",
+      "close": 21.63
+    },
+    {
+      "date": "2018-06-01",
+      "close": 23.29
+    },
+    {
+      "date": "2018-08-01",
+      "close": 23.54
+    },
+    {
+      "date": "2018-10-01",
+      "close": 25.37
+    },
+    {
+      "date": "2018-11-01",
+      "close": 23.49
+    },
+    {
+      "date": "2019-02-01",
+      "close": 22.67
+    },
+    {
+      "date": "2019-03-01",
+      "close": 24.33
+    },
+    {
+      "date": "2019-04-01",
+      "close": 25.43
+    },
+    {
+      "date": "2019-05-01",
+      "close": 26.57
+    },
+    {
+      "date": "2019-07-01",
+      "close": 26.75
+    },
+    {
+      "date": "2019-08-01",
+      "close": 27.16
+    },
+    {
+      "date": "2019-10-01",
+      "close": 26.7
+    },
+    {
+      "date": "2019-11-01",
+      "close": 28.32
+    },
+    {
+      "date": "2020-04-01",
+      "close": 25.24
+    },
+    {
+      "date": "2020-05-01",
+      "close": 29.38
+    },
+    {
+      "date": "2020-06-01",
+      "close": 32.73
+    },
+    {
+      "date": "2020-07-01",
+      "close": 34.92
+    },
+    {
+      "date": "2020-09-01",
+      "close": 41.99
+    },
+    {
+      "date": "2020-10-01",
+      "close": 39.42
+    },
+    {
+      "date": "2020-12-01",
+      "close": 42.26
+    },
+    {
+      "date": "2021-02-01",
+      "close": 45.01
+    },
+    {
+      "date": "2021-03-01",
+      "close": 46.03
+    },
+    {
+      "date": "2021-04-01",
+      "close": 45.75
+    },
+    {
+      "date": "2021-06-01",
+      "close": 46.33
+    },
+    {
+      "date": "2021-07-01",
+      "close": 49.86
+    },
+    {
+      "date": "2021-09-01",
+      "close": 53.37
+    },
+    {
+      "date": "2021-10-01",
+      "close": 50.86
+    },
+    {
+      "date": "2021-11-01",
+      "close": 54.33
+    },
+    {
+      "date": "2021-12-01",
+      "close": 54.94
+    },
+    {
+      "date": "2022-02-01",
+      "close": 53
+    },
+    {
+      "date": "2022-03-01",
+      "close": 49.52
+    },
+    {
+      "date": "2022-04-01",
+      "close": 51.91
+    },
+    {
+      "date": "2022-06-01",
+      "close": 44.96
+    },
+    {
+      "date": "2022-07-01",
+      "close": 40.94
+    },
+    {
+      "date": "2022-08-01",
+      "close": 46.19
+    },
+    {
+      "date": "2022-09-01",
+      "close": 43.28
+    },
+    {
+      "date": "2022-11-01",
+      "close": 40.96
+    },
+    {
+      "date": "2022-12-01",
+      "close": 43.65
+    },
+    {
+      "date": "2023-02-01",
+      "close": 44.87
+    },
+    {
+      "date": "2023-03-01",
+      "close": 43.67
+    },
+    {
+      "date": "2023-05-01",
+      "close": 48.1
+    },
+    {
+      "date": "2023-06-01",
+      "close": 52.65
+    },
+    {
+      "date": "2023-08-01",
+      "close": 56.88
+    },
+    {
+      "date": "2023-09-01",
+      "close": 55.83
+    },
+    {
+      "date": "2023-11-01",
+      "close": 51.81
+    },
+    {
+      "date": "2023-12-01",
+      "close": 58.08
+    },
+    {
+      "date": "2024-02-01",
+      "close": 62.53
+    },
+    {
+      "date": "2024-03-01",
+      "close": 65.92
+    },
+    {
+      "date": "2024-04-01",
+      "close": 65.68
+    },
+    {
+      "date": "2024-05-01",
+      "close": 61.17
+    },
+    {
+      "date": "2024-07-01",
+      "close": 72.78
+    },
+    {
+      "date": "2024-08-01",
+      "close": 68.43
+    },
+    {
+      "date": "2024-10-01",
+      "close": 71.47
+    },
+    {
+      "date": "2024-11-01",
+      "close": 73.31
+    },
+    {
+      "date": "2025-04-01",
+      "close": 68.37
+    },
+    {
+      "date": "2025-05-01",
+      "close": 69.89
+    },
+    {
+      "date": "2025-07-01",
+      "close": 82.06
+    },
+    {
+      "date": "2025-08-01",
+      "close": 84.3
+    },
+    {
+      "date": "2025-10-01",
+      "close": 94.07
+    },
+    {
+      "date": "2025-12-01",
+      "close": 93.99
+    },
+    {
+      "date": "2026-04-01",
+      "close": 88.33
+    },
+    {
+      "date": "2026-05-01",
+      "close": 104.85
+    },
+    {
+      "date": "2026-06-01",
+      "close": 124.19
+    },
+    {
+      "date": "2026-07-01",
+      "close": 117.22
+    },
+    {
+      "date": "2026-09-01",
+      "close": 118.87
+    },
+    {
+      "date": "2026-09-03",
+      "close": 120.88
+    }
+  ],
+  "annualHighs": [
+    {
+      "year": 2006,
+      "date": "2006-11-24",
+      "high": 6.77
+    },
+    {
+      "year": 2007,
+      "date": "2007-10-31",
+      "high": 8.1
+    },
+    {
+      "year": 2008,
+      "date": "2008-01-02",
+      "high": 7.6
+    },
+    {
+      "year": 2009,
+      "date": "2009-12-31",
+      "high": 6.96
+    },
+    {
+      "year": 2010,
+      "date": "2010-12-13",
+      "high": 7.78
+    },
+    {
+      "year": 2011,
+      "date": "2011-02-18",
+      "high": 8.4
+    },
+    {
+      "year": 2012,
+      "date": "2012-09-14",
+      "high": 9.48
+    },
+    {
+      "year": 2013,
+      "date": "2013-12-27",
+      "high": 11.2
+    },
+    {
+      "year": 2014,
+      "date": "2014-11-28",
+      "high": 13.42
+    },
+    {
+      "year": 2015,
+      "date": "2015-12-02",
+      "high": 14.16
+    },
+    {
+      "year": 2016,
+      "date": "2016-12-13",
+      "high": 15.56
+    },
+    {
+      "year": 2017,
+      "date": "2017-11-28",
+      "high": 21.03
+    },
+    {
+      "year": 2018,
+      "date": "2018-10-03",
+      "high": 25.56
+    },
+    {
+      "year": 2019,
+      "date": "2019-12-27",
+      "high": 30.84
+    },
+    {
+      "year": 2020,
+      "date": "2020-12-29",
+      "high": 44.71
+    },
+    {
+      "year": 2021,
+      "date": "2021-12-28",
+      "high": 58.38
+    },
+    {
+      "year": 2022,
+      "date": "2022-01-04",
+      "high": 57.88
+    },
+    {
+      "year": 2023,
+      "date": "2023-12-28",
+      "high": 60.98
+    },
+    {
+      "year": 2024,
+      "date": "2024-12-16",
+      "high": 81.08
+    },
+    {
+      "year": 2025,
+      "date": "2025-10-29",
+      "high": 100.87
+    },
+    {
+      "year": 2026,
+      "date": "2026-06-03",
+      "high": 126
+    }
+  ],
+  "splits": [
+    {
+      "date": "2026-04-21",
+      "ratio": "8:1"
+    }
+  ]
+};
+const usd=n=>new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0}).format(n);
+const pct=n=>`${n>=0?'+':''}${n.toFixed(1)}%`;
+const metrics=[['累计投入',usd(DATA.totals.contributions),`${DATA.totals.lots} 笔 × $10,000`],['期末总回报价值',usd(DATA.totals.reinvestedValue),`分配再投资；较投入 ${pct(DATA.totals.totalReturn)}`],['逐笔现金流 XIRR',pct(DATA.totals.moneyWeightedReturn),'不是把 $210k 一次性投入的 CAGR'],['最深单笔回撤','−54.8%','2007 年高点买入，2008-11-20 谷底']];
+document.querySelector('#metrics').innerHTML=metrics.map((m,i)=>`<div class="metric"><label>${m[0]}</label><strong class="${i===3?'bad':i===1?'good':''}">${m[1]}</strong><span>${m[2]}</span></div>`).join('');document.querySelector('#xirr').textContent=pct(DATA.totals.moneyWeightedReturn);
+document.querySelector('#lotRows').innerHTML=DATA.lots.map(l=>`<tr><td>${l.year}</td><td>${l.purchaseDate}</td><td>$${l.entryHigh.toFixed(2)}</td><td>${l.shares.toLocaleString()}</td><td class="bad">${pct(l.maxDrawdown)}</td><td>${l.troughDate}</td><td>${l.recoveryDate||'尚未回本'}</td><td>${usd(l.priceValue)}</td><td>${usd(l.cashDividends)}</td><td>${usd(l.reinvestedValue)}</td><td class="good">${pct(l.totalReturn)}</td></tr>`).join('');
+function text(svg,x,y,t,anchor='middle',size=11,color='#5f6c80'){const e=document.createElementNS('http://www.w3.org/2000/svg','text');e.setAttribute('x',x);e.setAttribute('y',y);e.setAttribute('text-anchor',anchor);e.setAttribute('font-size',size);e.setAttribute('fill',color);e.textContent=t;svg.append(e)}
+function priceChart(){const s=document.querySelector('#priceChart'),W=1040,H=300,p={l:68,r:25,t:18,b:46},d=DATA.annualHighs,max=Math.ceil(Math.max(...d.map(x=>x.high))/20)*20,x=i=>p.l+i*(W-p.l-p.r)/(d.length-1),y=v=>H-p.b-v*(H-p.t-p.b)/max;[0,.25,.5,.75,1].forEach(a=>{let v=max*a,yy=y(v);let l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',p.l);l.setAttribute('x2',W-p.r);l.setAttribute('y1',yy);l.setAttribute('y2',yy);l.setAttribute('stroke','#e1e7ee');s.append(l);text(s,p.l-8,yy+4,'$'+v,'end')});let path=document.createElementNS('http://www.w3.org/2000/svg','path');path.setAttribute('d',d.map((a,i)=>`${i?'L':'M'}${x(i)},${y(a.high)}`).join(' '));path.setAttribute('fill','none');path.setAttribute('stroke','#1e5aa8');path.setAttribute('stroke-width','2.5');s.append(path);d.forEach((a,i)=>{let c=document.createElementNS('http://www.w3.org/2000/svg','circle');c.setAttribute('cx',x(i));c.setAttribute('cy',y(a.high));c.setAttribute('r','3.5');c.setAttribute('fill','#1e5aa8');c.setAttribute('data-tooltip',`${a.year}: ${a.date}，$${a.high.toFixed(2)}`);s.append(c);if(i%2===0||i===d.length-1)text(s,x(i),H-22,a.year,'middle',10)});text(s,(p.l+W-p.r)/2,H-4,'年份','middle',12,'#34475e');text(s,16,(p.t+H-p.b)/2,'价格（USD，拆分调整）','middle',12,'#34475e')}
+function ddChart(){const s=document.querySelector('#drawdownChart'),W=1040,H=360,p={l:58,r:25,t:18,b:35},d=DATA.lots,x=i=>p.l+i*(W-p.l-p.r)/d.length,bar=(W-p.l-p.r)/d.length*.66,y=v=>p.t+(-v)*(H-p.t-p.b)/60;[0,20,40,60].forEach(v=>{let yy=p.t+v*(H-p.t-p.b)/60,l=document.createElementNS('http://www.w3.org/2000/svg','line');l.setAttribute('x1',p.l);l.setAttribute('x2',W-p.r);l.setAttribute('y1',yy);l.setAttribute('y2',yy);l.setAttribute('stroke','#e1e7ee');s.append(l);text(s,p.l-7,yy+4,'−'+v+'%','end')});d.forEach((a,i)=>{let r=document.createElementNS('http://www.w3.org/2000/svg','rect');r.setAttribute('x',x(i)+(W-p.l-p.r)/d.length/2-bar/2);r.setAttribute('y',p.t);r.setAttribute('width',bar);r.setAttribute('height',y(a.maxDrawdown)-p.t);r.setAttribute('fill','#bd3c3c');r.setAttribute('opacity','.88');r.setAttribute('data-tooltip',`${a.year} 年：最大回撤 ${pct(a.maxDrawdown)}，谷底 ${a.troughDate}`);s.append(r);if(i%2===0||i===d.length-1)text(s,x(i)+(W-p.l-p.r)/d.length/2,H-16,a.year,'middle',10)});text(s,(p.l+W-p.r)/2,H-2,'买入年份','middle',12,'#34475e')}
+priceChart();ddChart();
+</script></body></html>

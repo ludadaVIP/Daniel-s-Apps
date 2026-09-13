@@ -1,0 +1,229 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="QQQ 年度独立账户十年持有回测，2008–2026。">
+  <title>QQQ｜每年 10 万美元的十年账户</title>
+  <style>
+    :root {
+      --ink: #0e1823;
+      --muted: #5c6977;
+      --paper: #edf2f3;
+      --surface: #f9fbfb;
+      --rule: #c9d3d5;
+      --signal: #ff5c35;
+      --signal-dark: #d94624;
+      --teal: #046e71;
+      --teal-pale: #dceeed;
+      --night: #102735;
+      --closed: #1d4e89;
+      --open: #e85836;
+      --shadow: 0 12px 30px rgba(14, 24, 35, .09);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        linear-gradient(90deg, transparent 0 7.5%, rgba(4,110,113,.055) 7.5% 7.58%, transparent 7.58% 100%),
+        var(--paper);
+      font-family: "Microsoft YaHei", "PingFang SC", system-ui, sans-serif;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .wrap { width: min(1240px, calc(100% - 40px)); margin: 0 auto; }
+    .topline { height: 8px; background: repeating-linear-gradient(90deg, var(--signal) 0 46px, var(--ink) 46px 52px, var(--teal) 52px 98px, var(--paper) 98px 105px); }
+
+    header { padding: 54px 0 28px; border-bottom: 1px solid var(--ink); }
+    .kicker { margin: 0 0 12px; color: var(--teal); font: 700 12px/1.2 ui-monospace, Consolas, monospace; letter-spacing: .12em; text-transform: uppercase; }
+    h1 { max-width: 890px; margin: 0; font-family: Georgia, "Times New Roman", "Songti SC", serif; font-size: clamp(42px, 6.2vw, 84px); font-weight: 400; line-height: .96; letter-spacing: -.055em; }
+    h1 em { color: var(--signal); font-style: normal; }
+    .lede { max-width: 790px; margin: 22px 0 0; color: var(--muted); font-size: 16px; line-height: 1.75; }
+    .lede strong { color: var(--ink); }
+
+    .ticker {
+      display: flex; gap: 22px; align-items: center; margin-top: 30px; padding: 15px 18px;
+      color: #fff; background: var(--night); overflow: hidden;
+    }
+    .ticker b { font: 700 15px/1 ui-monospace, Consolas, monospace; letter-spacing: .06em; }
+    .ticker span { color: #b9d5d4; font-size: 13px; white-space: nowrap; }
+    .ticker .price { margin-left: auto; color: #fff; font-size: 18px; font-weight: 700; }
+
+    main { padding: 32px 0 62px; }
+    .section-label { display: flex; align-items: baseline; gap: 12px; margin: 0 0 14px; }
+    .section-label .num { color: var(--signal); font: 700 13px/1 ui-monospace, Consolas, monospace; }
+    .section-label h2 { margin: 0; font-family: Georgia, "Times New Roman", serif; font-size: 25px; font-weight: 400; letter-spacing: -.02em; }
+
+    .summary-grid { display: grid; grid-template-columns: 1.2fr repeat(3, 1fr); border-top: 1px solid var(--ink); border-left: 1px solid var(--ink); }
+    .metric { min-height: 160px; padding: 20px; border-right: 1px solid var(--ink); border-bottom: 1px solid var(--ink); background: rgba(249,251,251,.62); }
+    .metric.primary { background: var(--signal); color: #fff; }
+    .metric small { display: block; margin-bottom: 20px; font: 700 11px/1.2 ui-monospace, Consolas, monospace; letter-spacing: .08em; }
+    .metric strong { display: block; font-family: Georgia, "Times New Roman", serif; font-size: clamp(30px, 3.2vw, 47px); font-weight: 400; letter-spacing: -.045em; line-height: 1; }
+    .metric span { display: block; margin-top: 10px; color: var(--muted); font-size: 12px; }
+    .metric.primary span { color: rgba(255,255,255,.82); }
+
+    .assumptions { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-top: 34px; border: 1px solid var(--rule); background: var(--surface); }
+    .assumptions > div { padding: 20px 22px; }
+    .assumptions > div + div { border-left: 1px solid var(--rule); }
+    .assumptions h3 { margin: 0 0 10px; font-size: 14px; }
+    .assumptions p { margin: 0; color: var(--muted); font-size: 13px; line-height: 1.7; }
+    .assumptions a { color: var(--teal); }
+
+    .accounts { margin-top: 47px; }
+    .controls { display: flex; justify-content: space-between; gap: 16px; align-items: center; margin-bottom: 12px; }
+    .legend { display: flex; gap: 15px; color: var(--muted); font-size: 12px; }
+    .legend i { display: inline-block; width: 9px; height: 9px; margin-right: 5px; }
+    .legend .closed { background: var(--closed); } .legend .open { background: var(--open); }
+    .filter { display: flex; padding: 3px; background: #dce4e5; }
+    .filter button { border: 0; padding: 7px 11px; color: var(--muted); background: transparent; cursor: pointer; font: 700 11px/1 ui-monospace, Consolas, monospace; }
+    .filter button.active { color: #fff; background: var(--ink); }
+    .filter button:focus-visible { outline: 3px solid var(--signal); outline-offset: 2px; }
+
+    .timeline { border-top: 2px solid var(--ink); }
+    .account {
+      display: grid; grid-template-columns: 88px minmax(265px, 1fr) 165px 110px; gap: 18px; align-items: center;
+      padding: 14px 8px 14px 0; border-bottom: 1px solid var(--rule); transition: background .18s ease;
+    }
+    .account:hover { background: rgba(4,110,113,.045); }
+    .year { font: 700 27px/1 Georgia, serif; letter-spacing: -.04em; }
+    .year small { display: block; margin-top: 5px; color: var(--muted); font: 10px/1.2 ui-monospace, Consolas, monospace; letter-spacing: .04em; }
+    .track { position: relative; height: 43px; }
+    .track-base { position: absolute; top: 20px; width: 100%; height: 2px; background: #d6dfe0; }
+    .track-fill { position: absolute; top: 16px; left: 0; width: var(--width); height: 10px; background: var(--color); }
+    .track-fill::after { content: ""; position: absolute; right: -5px; top: -4px; width: 18px; height: 18px; border: 3px solid var(--color); border-radius: 50%; background: var(--surface); }
+    .track-note { position: absolute; left: 0; bottom: 0; color: var(--muted); font-size: 10px; }
+    .track-end { position: absolute; right: 0; top: 0; color: var(--muted); font: 10px/1 ui-monospace, Consolas, monospace; }
+    .account-value { text-align: right; }
+    .account-value strong { display: block; font: 700 19px/1.1 ui-monospace, Consolas, monospace; letter-spacing: -.06em; }
+    .account-value span { display: block; margin-top: 6px; color: var(--teal); font-size: 11px; }
+    .status { text-align: right; }
+    .pill { display: inline-block; padding: 5px 7px; color: #fff; font: 700 10px/1 ui-monospace, Consolas, monospace; letter-spacing: .05em; }
+    .pill.closed { background: var(--closed); } .pill.open { background: var(--open); }
+    .status small { display: block; margin-top: 7px; color: var(--muted); font-size: 10px; }
+    .account[hidden] { display: none; }
+
+    .table-section { margin-top: 53px; }
+    .table-wrap { overflow-x: auto; border-top: 2px solid var(--ink); }
+    table { width: 100%; min-width: 880px; border-collapse: collapse; background: rgba(249,251,251,.55); }
+    th { padding: 11px 10px; color: var(--muted); border-bottom: 1px solid var(--ink); text-align: left; font: 700 10px/1.2 ui-monospace, Consolas, monospace; letter-spacing: .05em; }
+    td { padding: 13px 10px; border-bottom: 1px solid var(--rule); font-size: 13px; }
+    td:first-child { font: 700 16px/1 Georgia, serif; } td.num { text-align: right; font-family: ui-monospace, Consolas, monospace; }
+    .return { color: var(--teal); font-weight: 700; }
+
+    .takeaway { display: grid; grid-template-columns: 205px 1fr; gap: 30px; margin-top: 52px; padding: 28px 0; border-top: 1px solid var(--ink); border-bottom: 1px solid var(--ink); }
+    .takeaway h2 { margin: 0; font: 400 27px/1.05 Georgia, serif; letter-spacing: -.035em; }
+    .takeaway p { max-width: 750px; margin: 0; font-size: 16px; line-height: 1.8; }
+    footer { padding: 21px 0 40px; color: var(--muted); font-size: 11px; line-height: 1.65; }
+
+    @media (max-width: 760px) {
+      .wrap { width: min(100% - 28px, 1240px); }
+      header { padding-top: 38px; } .ticker { gap: 12px; padding: 13px; } .ticker span { display: none; }
+      .summary-grid { grid-template-columns: 1fr 1fr; } .metric.primary { grid-column: span 2; min-height: 142px; }
+      .assumptions { grid-template-columns: 1fr; } .assumptions > div + div { border-top: 1px solid var(--rule); border-left: 0; }
+      .controls { align-items: flex-start; flex-direction: column; }
+      .account { grid-template-columns: 62px 1fr 92px; gap: 12px; } .status { display: none; }
+      .year { font-size: 22px; } .account-value strong { font-size: 14px; } .track-end { font-size: 9px; }
+      .takeaway { grid-template-columns: 1fr; gap: 15px; }
+    }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } .account { transition: none; } }
+  </style>
+</head>
+<body>
+  <div class="topline"></div>
+  <header>
+    <div class="wrap">
+      <p class="kicker">独立账户模拟 · QQQ / NASDAQ-100</p>
+      <h1>每年投入 <em>$100,000</em><br>十年后，这些账户怎样了？</h1>
+      <p class="lede">从 2008 年起，每年建立一个彼此独立的 QQQ 账户；不追加、不择时。已满 10 年者按规则平仓，其余按 <strong>2026-08-12</strong> 最近收盘价继续计值。</p>
+      <div class="ticker"><b>QQQ</b><span>INVESCO QQQ TRUST · 纳斯达克 100 ETF</span><span class="price">$723.70</span><span>最近收盘 · 2026-08-12</span></div>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section aria-labelledby="overview-heading">
+      <div class="section-label"><span class="num">00</span><h2 id="overview-heading">账户总览</h2></div>
+      <div class="summary-grid">
+        <article class="metric primary"><small>19 个账户合计价值</small><strong>$8.00M</strong><span>累计投入 $1.90M · 合计盈利 $6.10M</span></article>
+        <article class="metric"><small>已平仓 · 9 笔</small><strong>$4.88M</strong><span>2008–2016 年建仓</span></article>
+        <article class="metric"><small>仍在持有 · 10 笔</small><strong>$3.11M</strong><span>2017–2026 年建仓</span></article>
+        <article class="metric"><small>整体回报</small><strong>+321.0%</strong><span>总价值 / 总投入 − 1</span></article>
+      </div>
+
+      <div class="assumptions">
+        <div><h3>计算口径</h3><p>每年 1 月 1 日休市，均改为当年首个交易日以收盘价买入。满十年时，于该年第一个交易日收盘平仓。买入金额固定为 $100,000；不含税费、交易成本与汇率影响。</p></div>
+        <div><h3>价格与分红</h3><p>使用 QQQ 的复权收盘价，等价于将现金分配再投资；未平仓账户按最近收盘价 $723.70 估值。数据来自 <a href="https://query1.finance.yahoo.com/v8/finance/chart/QQQ?period1=1199145600&amp;period2=1797120000&amp;interval=1d&amp;events=history&amp;includeAdjustedClose=true">Yahoo Finance 日线</a>，本页面是历史模拟，不构成投资建议。</p></div>
+      </div>
+    </section>
+
+    <section class="accounts" aria-labelledby="accounts-heading">
+      <div class="section-label"><span class="num">01</span><h2 id="accounts-heading">每笔账户的十年轨道</h2></div>
+      <div class="controls">
+        <div class="legend"><span><i class="closed"></i>已平仓</span><span><i class="open"></i>仍持有</span></div>
+        <div class="filter" role="group" aria-label="筛选账户"><button class="active" data-filter="all">全部 19</button><button data-filter="closed">已平仓 9</button><button data-filter="open">持有中 10</button></div>
+      </div>
+      <div class="timeline" id="timeline"></div>
+    </section>
+
+    <section class="table-section" aria-labelledby="detail-heading">
+      <div class="section-label"><span class="num">02</span><h2 id="detail-heading">可核对的明细</h2></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>建仓年</th><th>买入日</th><th class="num">买入复权价</th><th>估值 / 平仓日</th><th class="num">估值 / 平仓价</th><th class="num">账户价值</th><th class="num">累计回报</th><th>状态</th></tr></thead>
+          <tbody id="details"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="takeaway">
+      <h2>读图的一句话</h2>
+      <p>在这个设定中，最早的账户经历了 2008 年金融危机后的低点，2009 年账户的十年结果最高，期末达到 <strong>$552,707</strong>。即便 2017 年后建仓的账户还没达到十年，10 笔账户截至最近收盘的合计估值仍为 <strong>$3.11M</strong>。</p>
+    </section>
+  </main>
+  <footer class="wrap">生成日期：2026-08-14（NZST） · 价格截至：2026-08-12（美国市场收盘） · 标的：Invesco QQQ Trust（QQQ）。历史表现不代表未来结果。</footer>
+
+  <script>
+    const accounts = [
+      {year:2008,entry:'2008-01-02',entryPrice:43.3092,end:'2018-01-02',endPrice:150.0573,status:'closed',value:346479.15,ret:246.48},
+      {year:2009,entry:'2009-01-02',entryPrice:26.7553,end:'2019-01-02',endPrice:147.8784,status:'closed',value:552706.88,ret:452.71},
+      {year:2010,entry:'2010-01-04',entryPrice:40.2466,end:'2020-01-02',endPrice:208.0888,status:'closed',value:517035.15,ret:417.04},
+      {year:2011,entry:'2011-01-03',entryPrice:48.3996,end:'2021-01-04',endPrice:299.4560,status:'closed',value:618715.30,ret:518.72},
+      {year:2012,entry:'2012-01-03',entryPrice:50.2573,end:'2022-01-03',endPrice:390.7568,status:'closed',value:777511.98,ret:677.51},
+      {year:2013,entry:'2013-01-02',entryPrice:60.0951,end:'2023-01-03',endPrice:259.1838,status:'closed',value:431289.69,ret:331.29},
+      {year:2014,entry:'2014-01-02',entryPrice:78.9568,end:'2024-01-02',endPrice:397.2542,status:'closed',value:503128.18,ret:403.13},
+      {year:2015,entry:'2015-01-02',entryPrice:94.5611,end:'2025-01-02',endPrice:506.4595,status:'closed',value:535589.45,ret:435.59},
+      {year:2016,entry:'2016-01-04',entryPrice:101.6056,end:'2026-01-02',endPrice:611.6757,status:'closed',value:602009.62,ret:502.01},
+      {year:2017,entry:'2017-01-03',entryPrice:112.1573,end:'2026-08-12',endPrice:723.7000,status:'open',value:645254.20,ret:545.25},
+      {year:2018,entry:'2018-01-02',entryPrice:150.0573,end:'2026-08-12',endPrice:723.7000,status:'open',value:482282.49,ret:382.28},
+      {year:2019,entry:'2019-01-02',entryPrice:147.8784,end:'2026-08-12',endPrice:723.7000,status:'open',value:489388.62,ret:389.39},
+      {year:2020,entry:'2020-01-02',entryPrice:208.0888,end:'2026-08-12',endPrice:723.7000,status:'open',value:347784.15,ret:247.78},
+      {year:2021,entry:'2021-01-04',entryPrice:299.4560,end:'2026-08-12',endPrice:723.7000,status:'open',value:241671.57,ret:141.67},
+      {year:2022,entry:'2022-01-03',entryPrice:390.7568,end:'2026-08-12',endPrice:723.7000,status:'open',value:185204.71,ret:85.20},
+      {year:2023,entry:'2023-01-03',entryPrice:259.1838,end:'2026-08-12',endPrice:723.7000,status:'open',value:279222.66,ret:179.22},
+      {year:2024,entry:'2024-01-02',entryPrice:397.2542,end:'2026-08-12',endPrice:723.7000,status:'open',value:182175.57,ret:82.18},
+      {year:2025,entry:'2025-01-02',entryPrice:506.4595,end:'2026-08-12',endPrice:723.7000,status:'open',value:142893.95,ret:42.89},
+      {year:2026,entry:'2026-01-02',entryPrice:611.6757,end:'2026-08-12',endPrice:723.7000,status:'open',value:118314.34,ret:18.31}
+    ];
+    const usd = new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',maximumFractionDigits:0});
+    const price = n => '$' + n.toFixed(2);
+    const max = Math.max(...accounts.map(a => a.value));
+    const timeline = document.querySelector('#timeline');
+    const details = document.querySelector('#details');
+    timeline.innerHTML = accounts.map(a => `
+      <article class="account" data-status="${a.status}">
+        <div class="year">${a.year}<small>${a.entry}</small></div>
+        <div class="track"><div class="track-base"></div><div class="track-fill" style="--width:${Math.max(12,a.value/max*100)}%;--color:var(--${a.status === 'closed' ? 'closed' : 'open'})"></div><span class="track-end">${a.status === 'closed' ? '平仓' : '最近收盘'} ${a.end}</span><span class="track-note">$100k → ${usd.format(a.value)}</span></div>
+        <div class="account-value"><strong>${usd.format(a.value)}</strong><span>+${a.ret.toFixed(2)}%</span></div>
+        <div class="status"><span class="pill ${a.status}">${a.status === 'closed' ? '已平仓' : '持有中'}</span><small>${a.status === 'closed' ? '完整十年' : '尚未满十年'}</small></div>
+      </article>`).join('');
+    details.innerHTML = accounts.map(a => `<tr><td>${a.year}</td><td>${a.entry}</td><td class="num">${price(a.entryPrice)}</td><td>${a.end}</td><td class="num">${price(a.endPrice)}</td><td class="num">${usd.format(a.value)}</td><td class="num return">+${a.ret.toFixed(2)}%</td><td><span class="pill ${a.status}">${a.status === 'closed' ? '已平仓' : '持有中'}</span></td></tr>`).join('');
+    document.querySelectorAll('[data-filter]').forEach(button => button.addEventListener('click', () => {
+      const selected = button.dataset.filter;
+      document.querySelectorAll('[data-filter]').forEach(b => b.classList.toggle('active', b === button));
+      document.querySelectorAll('.account').forEach(row => row.hidden = selected !== 'all' && row.dataset.status !== selected);
+    }));
+  </script>
+</body>
+</html>

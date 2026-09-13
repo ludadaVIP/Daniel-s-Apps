@@ -1,0 +1,444 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="从 Transformer 到 AI Agent：2023—2026 生成式 AI 浪潮的技术、人物、公司、产业链与现实进度。" />
+  <title>AI 浪潮：2023—2026 的四年跃迁</title>
+  <style>
+    :root {
+      --ink: #101522;
+      --muted: #657080;
+      --paper: #f5f7fb;
+      --card: #ffffff;
+      --line: #dce2ec;
+      --blue: #3264ff;
+      --cyan: #1bbbd1;
+      --purple: #7957e8;
+      --coral: #ef6c54;
+      --amber: #e9a53b;
+      --green: #2d9b75;
+      --navy: #111b31;
+      --shadow: 0 20px 50px rgba(24, 39, 75, .10);
+      --radius: 22px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 8% 4%, rgba(50,100,255,.08), transparent 30rem),
+        radial-gradient(circle at 90% 15%, rgba(27,187,209,.08), transparent 28rem),
+        var(--paper);
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", Arial, sans-serif;
+      line-height: 1.72;
+    }
+    a { color: inherit; }
+    .wrap { width: min(1180px, calc(100% - 40px)); margin: 0 auto; }
+    .eyebrow, .micro, .tag, .stat-label, .filter, .source-label {
+      font-family: "Segoe UI", "Microsoft YaHei", sans-serif;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      font-size: 11px;
+      font-weight: 800;
+    }
+    .eyebrow { color: var(--blue); display: flex; align-items: center; gap: 10px; }
+    .eyebrow::before { content: ""; width: 30px; height: 2px; background: var(--blue); display: inline-block; }
+    h1, h2, h3, p { margin-top: 0; }
+    h1, h2, h3 { line-height: 1.12; letter-spacing: -.045em; }
+    h1 { font-size: clamp(48px, 8vw, 100px); max-width: 860px; margin: 22px 0 24px; }
+    h2 { font-size: clamp(34px, 4.4vw, 62px); margin-bottom: 18px; }
+    h3 { font-size: 22px; margin-bottom: 10px; }
+    .lede { font-size: clamp(18px, 2vw, 23px); line-height: 1.6; color: #465164; max-width: 740px; }
+    .hero {
+      min-height: 760px;
+      background:
+        linear-gradient(115deg, rgba(17,27,49,.99) 0%, rgba(17,27,49,.97) 48%, rgba(17,27,49,.80) 100%),
+        radial-gradient(circle at 80% 28%, #3679ff, transparent 30%),
+        var(--navy);
+      color: #f8fbff;
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.11);
+    }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none; opacity: .14;
+      background-image: linear-gradient(rgba(255,255,255,.11) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.11) 1px, transparent 1px);
+      background-size: 44px 44px; mask-image: linear-gradient(90deg, #000, transparent 82%);
+    }
+    .hero .wrap { position: relative; z-index: 1; padding: 34px 0 90px; }
+    .topline { display: flex; justify-content: space-between; align-items: center; color: #b8c4d8; font-size: 13px; }
+    .topline strong { color: #fff; letter-spacing: .12em; }
+    .hero-grid { display: grid; grid-template-columns: 1.03fr .97fr; gap: 40px; align-items: center; margin-top: 90px; }
+    .hero .eyebrow { color: #7de7ef; }
+    .hero .eyebrow::before { background: #7de7ef; }
+    .hero h1 { color: #f6f9ff; }
+    .hero h1 em { color: #73dce8; font-style: normal; }
+    .hero .lede { color: #c4cede; }
+    .timestamp { border-left: 2px solid #ff9d76; padding-left: 16px; color: #ffc2aa; margin-top: 28px; font-size: 14px; }
+    .hero-art { min-height: 480px; position: relative; display: grid; place-items: center; }
+    .orb { width: min(440px, 82vw); aspect-ratio: 1; border: 1px solid rgba(115,220,232,.35); border-radius: 50%; position: relative; box-shadow: 0 0 80px rgba(50,100,255,.32), inset 0 0 70px rgba(27,187,209,.10); }
+    .orb::before, .orb::after { content: ""; position: absolute; inset: 10%; border: 1px solid rgba(255,255,255,.15); border-radius: 50%; transform: rotate(46deg) scaleY(.36); }
+    .orb::after { inset: 24%; transform: rotate(-25deg) scaleY(.5); border-color: rgba(255,157,118,.35); }
+    .orb-core { position: absolute; inset: 35%; border-radius: 50%; background: radial-gradient(circle at 35% 30%, #e7ffff, #73dce8 16%, #3264ff 48%, #8c5bff 72%, transparent 73%); filter: drop-shadow(0 0 28px #5be1ee); }
+    .orbit { position: absolute; width: 100%; height: 100%; border-radius: 50%; animation: spin 24s linear infinite; }
+    .orbit:nth-child(2) { transform: rotate(70deg); animation-duration: 31s; }
+    .orbit:nth-child(3) { transform: rotate(140deg); animation-duration: 38s; }
+    .node { position: absolute; width: 13px; height: 13px; border-radius: 50%; background: #fff; box-shadow: 0 0 18px #73dce8; }
+    .node-a { left: 8%; top: 48%; } .node-b { right: 7%; top: 27%; background: #ff9d76; box-shadow: 0 0 18px #ff9d76; }
+    .node-c { left: 26%; bottom: 3%; background: #d4beff; box-shadow: 0 0 18px #d4beff; }
+    .orbit-label { position: absolute; color: #d8e5f5; font-size: 13px; letter-spacing: .08em; background: rgba(17,27,49,.72); border: 1px solid rgba(255,255,255,.16); padding: 6px 10px; border-radius: 999px; white-space: nowrap; }
+    .label-data { left: 4%; top: 25%; } .label-model { right: 1%; top: 47%; } .label-product { left: 18%; bottom: 4%; } .label-capital { right: 7%; bottom: 17%; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .chapter-nav { background: rgba(255,255,255,.84); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 5; backdrop-filter: blur(16px); }
+    .chapter-nav .wrap { display: flex; gap: 20px; overflow-x: auto; scrollbar-width: none; }
+    .chapter-nav a { text-decoration: none; color: #5e697b; font-size: 13px; padding: 16px 3px 13px; white-space: nowrap; border-bottom: 3px solid transparent; }
+    .chapter-nav a:hover, .chapter-nav a:focus-visible { color: var(--blue); border-color: var(--blue); }
+    section { padding: 108px 0; }
+    .section-head { display: grid; grid-template-columns: .85fr 1.15fr; gap: 60px; align-items: end; margin-bottom: 54px; }
+    .section-head p { margin-bottom: 4px; color: #5e697b; font-size: 17px; }
+    .thesis { font-size: 28px; line-height: 1.35; letter-spacing: -.035em; color: var(--navy); }
+    .grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: var(--radius); box-shadow: var(--shadow); }
+    .summary-card { padding: 26px; min-height: 218px; position: relative; overflow: hidden; }
+    .summary-card::after { content: attr(data-year); position: absolute; right: 16px; bottom: -20px; font-size: 110px; font-weight: 900; color: #eef1f7; letter-spacing: -.1em; z-index: 0; }
+    .summary-card > * { position: relative; z-index: 1; }
+    .summary-card .tag { color: var(--blue); margin-bottom: 24px; }
+    .summary-card h3 { max-width: 180px; }
+    .summary-card p { color: #657080; font-size: 14px; margin-bottom: 0; }
+    .band { background: #fff; }
+    .timeline-shell { position: relative; }
+    .timeline-line { position: absolute; left: 92px; top: 0; bottom: 0; width: 2px; background: linear-gradient(var(--blue), var(--cyan), var(--coral)); opacity: .45; }
+    .timeline-item { display: grid; grid-template-columns: 74px 36px 1fr; gap: 18px; align-items: start; margin-bottom: 32px; position: relative; }
+    .timeline-year { font-size: 16px; font-weight: 900; color: var(--blue); padding-top: 16px; }
+    .timeline-dot { width: 14px; height: 14px; border-radius: 50%; background: var(--card); border: 4px solid var(--blue); margin-top: 19px; z-index: 1; }
+    .timeline-content { padding: 22px 24px; }
+    .timeline-content .tag { color: var(--coral); margin-bottom: 10px; display: inline-block; }
+    .timeline-content p { color: #5e697b; margin-bottom: 12px; }
+    .timeline-content small { color: #8b95a5; }
+    .filters { display: flex; gap: 9px; flex-wrap: wrap; margin: 0 0 30px 128px; }
+    .filter { border: 1px solid var(--line); background: #fff; color: #687486; border-radius: 999px; padding: 8px 13px; cursor: pointer; letter-spacing: .03em; text-transform: none; }
+    .filter.active, .filter:hover { background: var(--navy); color: #fff; border-color: var(--navy); }
+    .timeline-item.hidden { display: none; }
+    .origin { background: var(--navy); color: #f5f9ff; position: relative; overflow: hidden; }
+    .origin::after { content: ""; width: 550px; height: 550px; border-radius: 50%; border: 1px solid rgba(115,220,232,.13); position: absolute; right: -260px; top: 100px; box-shadow: 0 0 0 80px rgba(115,220,232,.02), 0 0 0 160px rgba(115,220,232,.02); }
+    .origin .section-head p, .origin .thesis { color: #c4cede; }
+    .origin .eyebrow { color: #7de7ef; } .origin .eyebrow::before { background: #7de7ef; }
+    .origin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; position: relative; z-index: 1; }
+    .origin-card { border: 1px solid rgba(255,255,255,.15); background: rgba(255,255,255,.06); border-radius: var(--radius); padding: 26px; min-height: 244px; }
+    .origin-card .big-no { color: #73dce8; font-weight: 900; font-size: 42px; letter-spacing: -.08em; }
+    .origin-card h3 { color: #fff; } .origin-card p { color: #b6c3d6; font-size: 14px; }
+    .origin-card a { color: #8eeaf3; }
+    .pipeline { margin-top: 26px; display: grid; grid-template-columns: repeat(5, 1fr); border: 1px solid rgba(255,255,255,.15); border-radius: var(--radius); overflow: hidden; position: relative; z-index: 1; }
+    .pipe-step { padding: 22px 16px; min-height: 170px; background: rgba(255,255,255,.04); border-right: 1px solid rgba(255,255,255,.12); }
+    .pipe-step:last-child { border: 0; } .pipe-step strong { display: block; color: #fff; margin-bottom: 7px; } .pipe-step span { color: #abb9ce; font-size: 13px; }
+    .pipe-arrow { color: #73dce8; font-size: 22px; float: right; }
+    .people-grid { display: grid; grid-template-columns: 1.1fr .9fr .9fr; gap: 18px; }
+    .person-card { padding: 26px; min-height: 218px; position: relative; overflow: hidden; }
+    .person-card .avatar { width: 54px; height: 54px; border-radius: 18px; display: grid; place-items: center; font-weight: 900; color: #fff; background: linear-gradient(135deg, var(--blue), var(--purple)); margin-bottom: 20px; }
+    .person-card:nth-child(2) .avatar { background: linear-gradient(135deg, var(--coral), var(--amber)); }
+    .person-card:nth-child(3) .avatar { background: linear-gradient(135deg, var(--green), var(--cyan)); }
+    .person-card:nth-child(4) .avatar { background: linear-gradient(135deg, #444, #111b31); }
+    .person-card:nth-child(5) .avatar { background: linear-gradient(135deg, #bd4de8, var(--blue)); }
+    .person-card:nth-child(6) .avatar { background: linear-gradient(135deg, #e2a537, #e86750); }
+    .person-card p { color: #657080; font-size: 14px; margin-bottom: 0; }
+    .person-card .role { color: var(--blue); font-size: 12px; font-weight: 800; }
+    .company-map { display: grid; grid-template-columns: 1.12fr .88fr; gap: 18px; }
+    .map-card { padding: 28px; }
+    .map-card h3 { margin-bottom: 18px; }
+    .company-list { display: grid; gap: 10px; }
+    .company { display: grid; grid-template-columns: 46px 1fr auto; gap: 12px; align-items: center; padding: 12px; border: 1px solid var(--line); border-radius: 16px; background: #fbfcff; }
+    .company-logo { width: 38px; height: 38px; border-radius: 12px; display: grid; place-items: center; color: #fff; font-size: 11px; font-weight: 900; background: var(--navy); }
+    .company:nth-child(2) .company-logo { background: #4285f4; } .company:nth-child(3) .company-logo { background: #d56b4d; } .company:nth-child(4) .company-logo { background: #5d57bd; } .company:nth-child(5) .company-logo { background: #51a85e; } .company:nth-child(6) .company-logo { background: #1c74d9; }
+    .company b { display: block; font-size: 14px; } .company span { color: #768092; font-size: 12px; } .company em { font-style: normal; font-size: 11px; color: var(--blue); font-weight: 800; }
+    .callout { background: #edf3ff; border: 1px solid #cedbff; padding: 22px; border-radius: 18px; color: #33466d; font-size: 14px; }
+    .callout strong { display: block; color: var(--blue); margin-bottom: 6px; }
+    .dark-panel { background: var(--navy); color: #fff; border-radius: 30px; padding: 42px; position: relative; overflow: hidden; }
+    .dark-panel::before { content: ""; position: absolute; width: 280px; height: 280px; border-radius: 50%; border: 1px solid rgba(115,220,232,.22); right: -90px; top: -110px; box-shadow: 0 0 0 50px rgba(115,220,232,.04), 0 0 0 100px rgba(115,220,232,.025); }
+    .dark-panel > * { position: relative; z-index: 1; }
+    .dark-panel h2 { max-width: 760px; } .dark-panel .lede { color: #bdcadb; }
+    .capability-chart { display: grid; gap: 14px; margin-top: 35px; }
+    .cap-row { display: grid; grid-template-columns: 150px 1fr 70px; gap: 16px; align-items: center; }
+    .cap-label { color: #e7eef8; font-weight: 700; font-size: 14px; } .cap-label span { display: block; color: #9badc4; font-size: 11px; font-weight: 400; }
+    .bar { height: 16px; border-radius: 999px; background: #23334f; overflow: hidden; }
+    .bar i { height: 100%; display: block; border-radius: inherit; background: linear-gradient(90deg, #73dce8, #6d74ff 70%, #bd8dff); }
+    .bar-note { color: #9badc4; font-size: 12px; text-align: right; }
+    .jagged { margin-top: 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .jagged article { background: rgba(255,255,255,.06); border: 1px solid rgba(255,255,255,.12); border-radius: 18px; padding: 18px; }
+    .jagged b { display: block; color: #73dce8; margin-bottom: 5px; } .jagged span { color: #bac8db; font-size: 13px; }
+    .stack { display: grid; gap: 10px; max-width: 900px; margin: 0 auto; }
+    .layer { display: grid; grid-template-columns: 180px 1fr auto; gap: 20px; align-items: center; padding: 18px 22px; border-radius: 15px; border: 1px solid var(--line); background: #fff; box-shadow: 0 10px 25px rgba(30,42,70,.06); }
+    .layer strong { font-size: 15px; } .layer p { margin: 0; color: #657080; font-size: 13px; } .layer .layer-mark { font-size: 19px; }
+    .layer:nth-child(1) { border-left: 5px solid var(--coral); } .layer:nth-child(2) { border-left: 5px solid var(--amber); } .layer:nth-child(3) { border-left: 5px solid var(--purple); } .layer:nth-child(4) { border-left: 5px solid var(--blue); } .layer:nth-child(5) { border-left: 5px solid var(--cyan); } .layer:nth-child(6) { border-left: 5px solid var(--green); }
+    .metric-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; }
+    .metric { padding: 22px 18px; min-height: 170px; background: #fff; border: 1px solid var(--line); border-radius: 18px; }
+    .metric .number { font-size: clamp(30px, 4vw, 48px); font-weight: 900; letter-spacing: -.08em; color: var(--navy); line-height: 1; margin: 18px 0 12px; }
+    .metric p { color: #6a7484; font-size: 12px; margin: 0; line-height: 1.5; }
+    .metric:nth-child(1) .number { color: var(--blue); } .metric:nth-child(2) .number { color: var(--coral); } .metric:nth-child(3) .number { color: var(--green); } .metric:nth-child(4) .number { color: var(--purple); } .metric:nth-child(5) .number { color: var(--amber); }
+    .now-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 22px; }
+    .now-card { padding: 26px; } .now-card h3 { font-size: 20px; } .now-card p { color: #657080; font-size: 14px; }
+    .now-card ul { margin: 0; padding-left: 18px; color: #657080; font-size: 14px; } .now-card li { margin-bottom: 7px; }
+    .horizon { background: #eaf1ff; border-top: 1px solid #d2ddf3; border-bottom: 1px solid #d2ddf3; }
+    .horizon-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .horizon-card { padding: 28px; background: rgba(255,255,255,.74); border: 1px solid #ccd9f3; border-radius: 20px; }
+    .horizon-card .signal { display: inline-block; padding: 5px 9px; border-radius: 999px; background: #fff; color: var(--blue); font-size: 11px; font-weight: 900; margin-bottom: 18px; }
+    .horizon-card p { color: #5e6d87; font-size: 14px; } .horizon-card h3 { margin-bottom: 10px; }
+    .sources { background: var(--navy); color: #fff; padding: 85px 0 52px; }
+    .sources .eyebrow { color: #7de7ef; } .sources .eyebrow::before { background: #7de7ef; }
+    .sources h2 { max-width: 750px; } .sources-intro { color: #b8c6d9; max-width: 760px; }
+    .source-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 11px; margin-top: 32px; }
+    .source { display: block; text-decoration: none; border: 1px solid rgba(255,255,255,.14); background: rgba(255,255,255,.05); border-radius: 14px; padding: 15px; transition: transform .2s, background .2s; }
+    .source:hover { transform: translateY(-3px); background: rgba(255,255,255,.1); }
+    .source-label { color: #7de7ef; font-size: 10px; } .source b { display: block; margin-top: 7px; font-size: 13px; } .source small { display: block; color: #9badc4; font-size: 11px; margin-top: 5px; }
+    .footer { color: #8b9ab0; font-size: 12px; padding-top: 30px; display: flex; justify-content: space-between; gap: 20px; border-top: 1px solid rgba(255,255,255,.13); margin-top: 40px; }
+    .scroll-top { color: #fff; text-decoration: none; }
+    .reveal { opacity: 0; transform: translateY(16px); transition: opacity .7s ease, transform .7s ease; } .reveal.is-visible { opacity: 1; transform: none; }
+    :focus-visible { outline: 3px solid #ff9d76; outline-offset: 4px; }
+    @media (max-width: 900px) {
+      .hero { min-height: auto; } .hero-grid, .section-head, .company-map, .people-grid { grid-template-columns: 1fr; }
+      .hero-grid { margin-top: 70px; } .hero-art { min-height: 390px; } .section-head { gap: 10px; }
+      .grid-4, .metric-grid { grid-template-columns: repeat(2, 1fr); } .origin-grid { grid-template-columns: 1fr; } .pipeline { grid-template-columns: 1fr; }
+      .pipe-step { min-height: auto; border-right: 0; border-bottom: 1px solid rgba(255,255,255,.12); } .pipe-arrow { transform: rotate(90deg); }
+      .source-grid { grid-template-columns: repeat(2, 1fr); } .horizon-grid { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .wrap { width: min(100% - 28px, 1180px); } section { padding: 76px 0; }
+      h1 { font-size: 49px; } h2 { font-size: 38px; } .hero .wrap { padding-top: 23px; }
+      .topline span { display: none; } .hero-grid { margin-top: 54px; } .hero-art { min-height: 300px; }
+      .orb { width: 290px; } .label-data { left: 0; top: 18%; } .label-model { right: 0; top: 45%; } .label-product { left: 12%; } .label-capital { right: 0; }
+      .grid-4, .metric-grid, .now-grid, .source-grid { grid-template-columns: 1fr; } .summary-card { min-height: 175px; }
+      .timeline-line { left: 54px; } .timeline-item { grid-template-columns: 40px 28px 1fr; gap: 8px; } .timeline-year { font-size: 13px; } .filters { margin-left: 76px; }
+      .timeline-content { padding: 18px; } .dark-panel { padding: 25px 18px; border-radius: 22px; } .cap-row { grid-template-columns: 1fr; gap: 5px; } .bar-note { text-align: left; }
+      .jagged { grid-template-columns: 1fr; } .layer { grid-template-columns: 1fr auto; gap: 4px 12px; } .layer p { grid-column: 1 / -1; }
+      .footer { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; scroll-behavior: auto !important; } }
+  </style>
+</head>
+<body>
+  <header class="hero" id="top">
+    <div class="wrap">
+      <div class="topline"><strong>AI TIDE / 01</strong><span>一份面向普通读者的技术与产业长文 · 约 25 分钟</span><span>2026.09.11</span></div>
+      <div class="hero-grid">
+        <div>
+          <div class="eyebrow">THE FOUR-YEAR TAKEOFF</div>
+          <h1>2023 年开始的 AI 浪潮，<em>到底是怎么起来的？</em></h1>
+          <p class="lede">它不是某一家公司的单点突破，而是数据、算力、模型、产品、资本与分发渠道在同一时间咬合起来，终于把“会生成”推成了“会工作”的新基础设施。</p>
+          <div class="timestamp">时间截点：2026 年 9 月 11 日<br />读法：先看结论，再沿时间线回到源头，最后看产业链和仍未解决的难题。</div>
+        </div>
+        <div class="hero-art" aria-label="数据、模型、产品与资本围绕 AI 核心旋转的抽象图">
+          <div class="orb">
+            <div class="orbit"><span class="node node-a"></span></div>
+            <div class="orbit"><span class="node node-b"></span></div>
+            <div class="orbit"><span class="node node-c"></span></div>
+            <div class="orb-core"></div>
+            <span class="orbit-label label-data">DATA</span>
+            <span class="orbit-label label-model">MODEL</span>
+            <span class="orbit-label label-product">PRODUCT</span>
+            <span class="orbit-label label-capital">CAPITAL</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <nav class="chapter-nav" aria-label="章节导航">
+    <div class="wrap">
+      <a href="#thesis">先说结论</a><a href="#origin">源头</a><a href="#timeline">时间线</a><a href="#people">人物</a><a href="#companies">公司地图</a><a href="#capability">能力曲线</a><a href="#industry">产业链</a><a href="#now">2026 现场</a><a href="#sources">资料</a>
+    </div>
+  </nav>
+
+  <main>
+    <section id="thesis">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">01 / 一句话看懂</div><h2>四年，四次重心迁移</h2></div><p class="thesis">从“聊天机器人”到“能调用工具、持续执行任务的智能系统”，AI 的竞争单位已经从一个模型，变成了一整套可运行的工作流。</p></div>
+        <div class="grid-4">
+          <article class="card summary-card reveal" data-year="23"><div class="tag">2023 · 公开化</div><h3>模型第一次走出实验室</h3><p>ChatGPT、GPT-4 把大模型从研究成果变成全民可用的产品；企业开始抢着接 API。</p></article>
+          <article class="card summary-card reveal" data-year="24"><div class="tag">2024 · 多模态</div><h3>从文字窗口变成感官接口</h3><p>语音、图像、视频、超长上下文同时推进；开源权重把模型能力推向更广的开发者。</p></article>
+          <article class="card summary-card reveal" data-year="25"><div class="tag">2025 · 推理化</div><h3>多想一会儿，再做难事</h3><p>o 系列、DeepSeek-R1 等让“推理时增加计算”成为主线，Agent 开始操作浏览器和电脑。</p></article>
+          <article class="card summary-card reveal" data-year="26"><div class="tag">2026 · 系统化</div><h3>从模型竞赛进入系统竞赛</h3><p>长任务、沙盒、子代理、企业工作流和治理规则，开始决定 AI 能不能真正进入生产。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="origin" id="origin">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">02 / 不是凭空出现</div><h2>2023 的爆发，实际酝酿了六年</h2></div><p class="thesis">真正的“点火”发生在 2022 年底，但燃料来自更早的架构、数据和训练方法。把这条链看懂，才不会把 AI 误解成一夜之间的魔法。</p></div>
+        <div class="origin-grid">
+          <article class="origin-card reveal"><div class="big-no">2017</div><h3>Transformer：让注意力成为主引擎</h3><p>Google 团队在 <a href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noreferrer">Attention Is All You Need</a> 中提出 Transformer：不再依赖循环结构，而用 attention 并行处理 token。它更适合规模化训练，后来成为 GPT、BERT、Gemini、Claude、Llama 等模型的共同底座。</p></article>
+          <article class="origin-card reveal"><div class="big-no">2020–21</div><h3>跨模态与生成式视觉先把门撞开</h3><p>CLIP 用图文对比学习把自然语言变成视觉接口；扩散模型让高分辨率图像生成进入可用区；AlphaFold 则展示了 AI 不只是“写东西”，也能把科研问题变成可计算、可验证的预测。</p></article>
+          <article class="origin-card reveal"><div class="big-no">2022</div><h3>RLHF：让模型从“会续写”变成“听得懂话”</h3><p>InstructGPT 把人类示范、偏好比较和强化学习接到预训练模型后面。模型原本只是在预测下一个词；经过后训练，它开始更像一个能理解意图、遵守约束的助手。</p></article>
+          <article class="origin-card reveal"><div class="big-no">2022.11</div><h3>ChatGPT：把技术变成了分发事件</h3><p>OpenAI 以“研究预览”的方式推出 ChatGPT。对用户来说，它无需装软件、无需学机器学习，只要打字就能试。产品分发瞬间把模型能力、用户反馈、迭代速度和资本预期接成了飞轮。</p></article>
+        </div>
+        <div class="pipeline reveal" aria-label="AI 浪潮的五段生产线">
+          <div class="pipe-step"><span>01</span><strong>互联网数据</strong><span>文本、代码、图像、音频、视频成为训练语料。</span><span class="pipe-arrow">→</span></div>
+          <div class="pipe-step"><span>02</span><strong>Transformer</strong><span>把序列中的关联关系转成可并行的计算。</span><span class="pipe-arrow">→</span></div>
+          <div class="pipe-step"><span>03</span><strong>规模化算力</strong><span>GPU 集群、互联网络、先进封装和云服务。</span><span class="pipe-arrow">→</span></div>
+          <div class="pipe-step"><span>04</span><strong>后训练</strong><span>人类反馈、合成数据、工具调用、强化学习。</span><span class="pipe-arrow">→</span></div>
+          <div class="pipe-step"><span>05</span><strong>产品分发</strong><span>聊天、API、Copilot、搜索、Agent 和设备。</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="timeline">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">03 / 时间线</div><h2>每一年，竞争重点都换了</h2></div><p>下面的时间线不把所有发布会堆在一起，而是挑出改变产业方向的节点。标签可以过滤你关心的主线。</p></div>
+        <div class="filters" role="toolbar" aria-label="时间线过滤器"><button class="filter active" data-filter="all">全部</button><button class="filter" data-filter="技术">技术</button><button class="filter" data-filter="公司">公司</button><button class="filter" data-filter="产业">产业</button><button class="filter" data-filter="治理">治理</button></div>
+        <div class="timeline-shell">
+          <div class="timeline-line"></div>
+          <article class="timeline-item reveal" data-tags="公司 技术"><div class="timeline-year">2022</div><div class="timeline-dot"></div><div class="card timeline-content"><span class="tag">产品 / 分发</span><h3>ChatGPT 把“基础模型”变成全民产品</h3><p>11 月 30 日，OpenAI 发布 ChatGPT 研究预览。它使用 GPT-3.5，通过对话界面让普通用户直接体验大模型，并将“会回答问题”变成一种新的软件形态。</p><small>关键人物：Sam Altman、Mira Murati、Ilya Sutskever 及 OpenAI 研究与产品团队</small></div></article>
+          <article class="timeline-item reveal" data-tags="技术 公司"><div class="timeline-year">2023</div><div class="timeline-dot"></div><div class="card timeline-content"><span class="tag">能力 / 规模化</span><h3>GPT-4 把能力上限向前推，API 经济启动</h3><p>GPT-4 展示了更强的复杂指令、代码、专业考试和视觉输入能力；微软把 Copilot 推向软件开发与办公场景。Google、Anthropic、Meta 等加速建立自己的模型阵营。</p><small>产业信号：模型不再只是“研究论文”，而是可以被开发者嵌入产品的基础服务。</small></div></article>
+          <article class="timeline-item reveal" data-tags="公司 技术"><div class="timeline-year">2024</div><div class="timeline-dot"></div><div class="card timeline-content"><span class="tag">多模态 / 开放权重</span><h3>“更会看、更会听、更能读”成为主战场</h3><p>GPT-4o 把实时语音、视觉与文本放到同一模型叙事中；Gemini 1.5 把百万 token 长上下文带进开发者预览；Claude 3、Llama 3/3.1 让闭源与开放权重生态正面竞争。</p><small>产业信号：模型价格下降、上下文变长、部署方式变多，应用试错成本显著下降。</small></div></article>
+          <article class="timeline-item reveal" data-tags="产业 技术"><div class="timeline-year">2024.12</div><div class="timeline-dot"></div><div class="card timeline-content"><span class="tag">效率 / 结构创新</span><h3>DeepSeek-V3 让“更高效地训练和推理”成为全球话题</h3><p>DeepSeek-V3 采用 MoE、MLA、多 token 预测等方案；官方技术报告称总参数 671B、每 token 激活约 37B，并以 14.8T token 训练。核心问题从“能不能做大”转向“能不能把每一份算力用好”。</p><small>注意：训练成本与总拥有成本不是同一个数字，公开报告的口径应与其他公司的披露分开比较。</small></div></article>
+          <article class="timeline-item reveal" data-tags="技术 公司"><div class="timeline-year">2025</div><div class="timeline-dot"></div><div class="card timeline-content"><span class="tag">推理 / Agent</span><h3>模型开始学会“先想，再做”</h3><p>OpenAI o 系列、Gemini 2.5、DeepSeek-R1 等把 test-time compute、强化学习和可验证任务推到台前；Operator / Computer-Using Agent 让模型用鼠标、键盘和浏览器完成多步工作。</p><small>重要变化：输出不再只有一句答案，而可以是计划、工具调用、中间结果和可审计的产物。</small></div></article>
+          <article class="timeline-item reveal" data-tags="产业 公司"><div class="timeline-year">2026</div><div class="timeline-dot"></div><div class="card timeline-content"><span class="tag">系统 / 组织</span><h3>AI 进入“长任务、沙盒与组织工作流”阶段</h3><p>OpenAI 在 2026 年公开介绍 Agents SDK 与 Agents API，强调沙盒执行、文件操作、子代理并行和长时间运行；Google、Anthropic 等也把 agent、coding、science workbench 作为主产品方向。</p><small>阶段判断：模型排行榜仍重要，但可靠性、权限、数据连接、成本、监控和责任边界开始决定商业价值。</small></div></article>
+          <article class="timeline-item reveal" data-tags="治理"><div class="timeline-year">2026.08</div><div class="timeline-dot"></div><div class="card timeline-content"><span class="tag">治理 / 规则</span><h3>欧盟 AI Act 进入新的执行阶段</h3><p>欧盟委员会资料显示，AI Act 自 2026 年 8 月起进入重要执行节点，透明度规则要求在一定场景告知用户其正在与 AI 交互，并对深度伪造与合成内容提出标记要求。高风险系统仍按分阶段时间表推进。</p><small>治理信号：AI 的合规对象从“产品”扩展到模型、数据、部署者和下游系统。</small></div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="band" id="people">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">04 / 人物</div><h2>这不是一部“天才单人传”</h2></div><p>AI 浪潮的关键人物分属不同层：有人改变了架构，有人推动了对齐，有人把模型变成产品，有人把算力和资本堆到了足够大的规模。</p></div>
+        <div class="people-grid">
+          <article class="card person-card reveal"><div class="avatar">AV</div><div class="role">架构 / 研究群体</div><h3>Transformer 八位作者</h3><p>Ashish Vaswani、Noam Shazeer、Niki Parmar 等在 2017 年论文中提出了后来成为大模型共同底座的 Transformer。它的重要性不在“更像人”，而在于可并行、可扩展、可持续堆算力。</p></article>
+          <article class="card person-card reveal"><div class="avatar">AR</div><div class="role">视觉 / 多模态</div><h3>Alec Radford</h3><p>从 GPT 系列到 CLIP，Radford 代表了一条把大规模无监督学习与自然语言接口结合起来的路线：模型先学通用表示，再由语言把能力调度出来。</p></article>
+          <article class="card person-card reveal"><div class="avatar">IS</div><div class="role">规模化 / 对齐</div><h3>Ilya Sutskever</h3><p>他参与推动了深度学习规模化、GPT 路线与 OpenAI 的研究方向。2023 年之后，研究社区开始更强烈地讨论：规模化是否会持续带来涌现能力，如何让它服务于人类目标。</p></article>
+          <article class="card person-card reveal"><div class="avatar">DH</div><div class="role">科学 / 基础模型</div><h3>Demis Hassabis</h3><p>Google DeepMind 把 AlphaFold、Gemini 等路线接起来：一端是 AI for Science，另一端是通用多模态基础模型。它提醒我们，AI 产业不只属于聊天应用。</p></article>
+          <article class="card person-card reveal"><div class="avatar">DA</div><div class="role">安全 / 产品阵营</div><h3>Dario Amodei</h3><p>Anthropic 以 Constitutional AI、安全研究与 Claude 为核心，代表了“更强模型必须和可控性一起设计”的路线；Claude 3/4 又把长任务与编码能力带入竞争。</p></article>
+          <article class="card person-card reveal"><div class="avatar">JH</div><div class="role">算力 / 产业基础</div><h3>Jensen Huang</h3><p>NVIDIA 把 GPU 从图形处理器扩展成 AI 工厂的核心组件。今天模型竞赛的另一面，是芯片、互联、内存、散热、电力和数据中心的工程竞赛。</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="companies">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">05 / 公司地图</div><h2>谁在抢什么？</h2></div><p>不要只问“谁的模型第一”。不同公司在争夺不同的稀缺资源：前沿能力、开发者入口、企业分发、算力供给、开放生态或国家级自主性。</p></div>
+        <div class="company-map">
+          <article class="card map-card reveal"><h3>前沿模型与开放生态</h3><div class="company-list">
+            <div class="company"><div class="company-logo">OAI</div><div><b>OpenAI</b><span>GPT / o 系列 / ChatGPT / Codex：从模型到 Agent 平台</span></div><em>产品飞轮</em></div>
+            <div class="company"><div class="company-logo">G</div><div><b>Google DeepMind</b><span>Gemini / TPU / Search / Cloud / Android：研究与分发一体化</span></div><em>全栈</em></div>
+            <div class="company"><div class="company-logo">A</div><div><b>Anthropic</b><span>Claude / Claude Code：安全、长上下文与编码工作流</span></div><em>可靠性</em></div>
+            <div class="company"><div class="company-logo">M</div><div><b>Meta</b><span>Llama：开放权重、社交分发、设备与开发者生态</span></div><em>开放生态</em></div>
+            <div class="company"><div class="company-logo">DS</div><div><b>DeepSeek / Qwen / Mistral / xAI</b><span>效率、开源、中文与区域化能力，持续压缩模型差距</span></div><em>多极化</em></div>
+            <div class="company"><div class="company-logo">MS</div><div><b>Microsoft / Amazon</b><span>Copilot、Azure AI、Bedrock：把模型嵌入企业软件与云采购</span></div><em>企业入口</em></div>
+          </div></article>
+          <article class="card map-card reveal"><h3>围绕模型的“第二层战争”</h3><div class="callout"><strong>分发</strong> ChatGPT、Gemini、Meta AI、Copilot、搜索、手机和办公软件，把模型送到用户每天工作的地方。</div><div class="callout"><strong>开发工具</strong> API、SDK、RAG、向量数据库、评测、监控与 Agent 编排，让模型变成可交付的软件。</div><div class="callout"><strong>安全与治理</strong> 评测、红队、模型卡、内容标识、版权、数据隐私和权限控制，决定系统能不能进入关键行业。</div><div class="callout"><strong>主权与区域化</strong> 各国开始关心本地数据、本地算力、本地模型和供应链，AI 变成产业政策与地缘竞争的一部分。</div></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="origin" id="capability">
+      <div class="wrap">
+        <div class="dark-panel reveal">
+          <div class="eyebrow">06 / 能力曲线</div>
+          <h2>AI 进步不是一条平滑直线，而是一片“锯齿前沿”</h2>
+          <p class="lede">模型可以在某些数学或代码任务上接近、甚至超过人类基线，但在常识、事实、时间感、权限边界和现实世界操作上仍然会突然失手。真正的产品设计，必须围绕“哪一格可靠、哪一格不可靠”来做。</p>
+          <div class="capability-chart" role="img" aria-label="AI 能力从聊天到物理世界的相对成熟度示意图">
+            <div class="cap-row"><div class="cap-label">文字生成<span>写作、翻译、总结</span></div><div class="bar"><i style="width: 93%"></i></div><div class="bar-note">成熟</div></div>
+            <div class="cap-row"><div class="cap-label">视觉与语音<span>看图、听说、实时交互</span></div><div class="bar"><i style="width: 83%"></i></div><div class="bar-note">可用</div></div>
+            <div class="cap-row"><div class="cap-label">代码与研究<span>生成、调试、检索、实验</span></div><div class="bar"><i style="width: 79%"></i></div><div class="bar-note">跃升</div></div>
+            <div class="cap-row"><div class="cap-label">工具与长任务<span>浏览器、文件、沙盒、子代理</span></div><div class="bar"><i style="width: 63%"></i></div><div class="bar-note">快速进步</div></div>
+            <div class="cap-row"><div class="cap-label">物理世界<span>机器人、家庭、开放环境</span></div><div class="bar"><i style="width: 24%"></i></div><div class="bar-note">远未解决</div></div>
+          </div>
+          <div class="jagged"><article><b>为什么“会做题”不等于“像人一样聪明”？</b><span>基准题通常边界清晰、反馈明确；现实工作却有隐含目标、多人协作、脏数据、权限和责任。AI 的强项与弱项会在任务切换时突然翻转。</span></article><article><b>为什么 Agent 是下一阶段？</b><span>聊天只交付文本；Agent 把文本变成行动：读取资料、调用工具、修改文件、运行代码、检查结果、继续迭代。但每多一步，错误累积与安全风险也会上升。</span></article></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="industry">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">07 / 产业链</div><h2>每一次“回答”，背后都有六层供应链</h2></div><p>生成式 AI 的产品表面是一个对话框，底层却是一条极其重资产、强协同的产业链。模型越强，对基础设施和组织能力的要求越高。</p></div>
+        <div class="stack">
+          <div class="layer reveal"><strong>应用与工作流</strong><p>办公、客服、编程、设计、营销、教育、医疗、金融、科学、机器人。</p><span class="layer-mark">◉</span></div>
+          <div class="layer reveal"><strong>Agent 运行时</strong><p>工具调用、浏览器、沙盒、记忆、权限、评测、监控、审计与人机协作。</p><span class="layer-mark">↻</span></div>
+          <div class="layer reveal"><strong>基础模型</strong><p>语言、视觉、音频、视频、推理、嵌入、重排、领域模型与开放权重。</p><span class="layer-mark">✦</span></div>
+          <div class="layer reveal"><strong>云与开发平台</strong><p>训练集群、API、模型目录、RAG、微调、推理路由、企业数据连接。</p><span class="layer-mark">▦</span></div>
+          <div class="layer reveal"><strong>芯片与系统</strong><p>GPU / TPU / ASIC、HBM、网络互联、服务器、先进封装、散热与软件栈。</p><span class="layer-mark">⬡</span></div>
+          <div class="layer reveal"><strong>能源与空间</strong><p>数据中心、电力、土地、冷却、光纤、供应链、融资与监管许可。</p><span class="layer-mark">⚡</span></div>
+        </div>
+        <div class="callout reveal" style="max-width:900px;margin:24px auto 0;"><strong>一个关键判断</strong> 2023 年之后，AI 竞争不再只是“谁的论文更漂亮”。当推理调用规模上升，成本、延迟、可用性、数据中心容量、能源与责任边界，都变成模型能力的一部分。</div>
+      </div>
+    </section>
+
+    <section class="band" id="now">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">08 / 2026.09 现场</div><h2>发展到哪一步了？</h2></div><p>截至 2026 年 9 月，最准确的描述不是“AI 已经无所不能”，也不是“只是玩具”，而是：它已经成为通用软件基础设施，但可靠性与现实世界闭环仍在补课。</p></div>
+        <div class="metric-grid">
+          <article class="metric reveal"><div class="stat-label">Frontier models</div><div class="number">90%+</div><p>Stanford AI Index：2025 年有超过九成的 notable frontier models 由产业界产出。</p></article>
+          <article class="metric reveal"><div class="stat-label">组织采用率</div><div class="number">88%</div><p>Stanford AI Index 2026 给出的组织层面 AI adoption 指标。</p></article>
+          <article class="metric reveal"><div class="stat-label">大学生使用</div><div class="number">4/5</div><p>约五分之四的大学生使用生成式 AI；教育正在重写“完成作业”的含义。</p></article>
+          <article class="metric reveal"><div class="stat-label">中美模型差距</div><div class="number">2.7%</div><p>Stanford 报告称，截至 2026 年 3 月，头部模型表现差距已收窄到约 2.7%。</p></article>
+          <article class="metric reveal"><div class="stat-label">数据中心用电</div><div class="number">+17%</div><p>IEA：数据中心电力需求在 2025 年增长 17%，AI 专用数据中心增长更快。</p></article>
+        </div>
+        <div class="now-grid">
+          <article class="card now-card reveal"><h3>已经发生的变化</h3><ul><li>软件从“按钮式工具”开始加入自然语言入口，用户不必先学会产品结构。</li><li>编程、研究、客服、内容生产等知识工作，开始出现“人定目标，Agent 执行”的新分工。</li><li>模型选择从单一供应商变成路由问题：能力、价格、延迟、隐私和地区可用性要一起权衡。</li><li>算力、电力、芯片出口、先进封装和数据中心建设，已经进入国家竞争和公司战略核心。</li></ul></article>
+          <article class="card now-card reveal"><h3>仍然没有被解决的事</h3><ul><li>幻觉与不稳定：同一模型在不同上下文中可能给出互相矛盾的答案。</li><li>Agent 的错误会串联放大；“偶尔错一次”在财务、医疗、法律与生产环境可能不可接受。</li><li>版权、隐私、训练数据透明度、合成内容溯源和责任归属仍在快速变化。</li><li>机器人和家庭场景还远比软件环境难：现实世界的长尾、摩擦和安全要求极高。</li></ul></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="horizon" id="horizon">
+      <div class="wrap">
+        <div class="section-head reveal"><div><div class="eyebrow">09 / 向前看</div><h2>接下来，不要只盯着发布会</h2></div><p>未来两三年的观察重点，会从“模型又多了几个参数”转向“系统能否持续完成真实任务”。</p></div>
+        <div class="horizon-grid">
+          <article class="horizon-card reveal"><span class="signal">SIGNAL 01</span><h3>推理成本会变成产品设计</h3><p>同一请求可能先由小模型快速处理，遇到难题再升级到更强推理模型。模型路由、缓存、压缩、蒸馏和本地运行会决定毛利。</p></article>
+          <article class="horizon-card reveal"><span class="signal">SIGNAL 02</span><h3>Agent 的护城河是上下文与权限</h3><p>真正有价值的 Agent 不是会聊天，而是能安全地接入企业数据、工具、流程和审批，并且在失败时留下清楚的证据链。</p></article>
+          <article class="horizon-card reveal"><span class="signal">SIGNAL 03</span><h3>“AI 原生组织”会重新分配工作</h3><p>当每个人都能调用一组模型与 Agent，组织的瓶颈会从“执行人手”部分转向目标定义、判断质量、流程设计和责任承担。</p></article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <section class="sources" id="sources">
+    <div class="wrap">
+      <div class="eyebrow">SOURCEBOOK / 一手资料</div>
+      <h2>这份页面的证据从哪里来</h2>
+      <p class="sources-intro">页面优先使用论文、公司官方发布、政府/监管机构、Stanford HAI 与 IEA 的原始资料。公司自己公布的性能与采用数据，均按“公司口径”呈现，不当作独立审计结论。数字随时间更新，阅读时请以来源页面最新版本为准。</p>
+      <div class="source-grid">
+        <a class="source" href="https://arxiv.org/abs/1706.03762" target="_blank" rel="noreferrer"><span class="source-label">论文 · 2017</span><b>Attention Is All You Need</b><small>Transformer 原始论文</small></a>
+        <a class="source" href="https://openai.com/index/clip/" target="_blank" rel="noreferrer"><span class="source-label">OpenAI · 2021</span><b>CLIP: Connecting text and images</b><small>图文对比学习与零样本迁移</small></a>
+        <a class="source" href="https://openai.com/index/instruction-following/" target="_blank" rel="noreferrer"><span class="source-label">OpenAI · 2022</span><b>Aligning language models to follow instructions</b><small>InstructGPT / RLHF</small></a>
+        <a class="source" href="https://openai.com/index/chatgpt/" target="_blank" rel="noreferrer"><span class="source-label">OpenAI · 2022</span><b>Introducing ChatGPT</b><small>2022 年 11 月产品发布</small></a>
+        <a class="source" href="https://openai.com/index/gpt-4-research/" target="_blank" rel="noreferrer"><span class="source-label">OpenAI · 2023</span><b>GPT-4</b><small>能力、训练与系统说明</small></a>
+        <a class="source" href="https://blog.google/innovation-and-ai/products/google-gemini-next-generation-model-february-2024/" target="_blank" rel="noreferrer"><span class="source-label">Google · 2024</span><b>Introducing Gemini 1.5</b><small>长上下文与 MoE</small></a>
+        <a class="source" href="https://openai.com/index/hello-gpt-4o/" target="_blank" rel="noreferrer"><span class="source-label">OpenAI · 2024</span><b>Hello GPT-4o</b><small>实时音频、视觉与文本</small></a>
+        <a class="source" href="https://ai.meta.com/blog/meta-llama-3/" target="_blank" rel="noreferrer"><span class="source-label">Meta · 2024</span><b>Introducing Meta Llama 3</b><small>开放权重生态与 15T token</small></a>
+        <a class="source" href="https://deepseek.com/en/news/deepseek-v3/" target="_blank" rel="noreferrer"><span class="source-label">DeepSeek · 2024</span><b>Introducing DeepSeek-V3</b><small>MoE、效率与开放模型</small></a>
+        <a class="source" href="https://arxiv.org/abs/2501.12948" target="_blank" rel="noreferrer"><span class="source-label">论文 · 2025</span><b>DeepSeek-R1</b><small>强化学习与推理模型</small></a>
+        <a class="source" href="https://openai.com/index/computer-using-agent/" target="_blank" rel="noreferrer"><span class="source-label">OpenAI · 2025</span><b>Computer-Using Agent</b><small>浏览器与电脑操作</small></a>
+        <a class="source" href="https://openai.com/index/introducing-the-agents-api/" target="_blank" rel="noreferrer"><span class="source-label">OpenAI · 2026</span><b>Introducing the Agents API</b><small>长运行 Agent 与沙盒</small></a>
+        <a class="source" href="https://hai.stanford.edu/assets/files/ai_index_report_2026.pdf" target="_blank" rel="noreferrer"><span class="source-label">Stanford HAI · 2026</span><b>AI Index Report 2026</b><small>模型、经济、社会、治理与环境</small></a>
+        <a class="source" href="https://www.iea.org/news/data-centre-electricity-use-surged-in-2025-even-with-tightening-bottlenecks-driving-a-scramble-for-solutions" target="_blank" rel="noreferrer"><span class="source-label">IEA · 2026</span><b>Data centre electricity use surged in 2025</b><small>能源与数据中心</small></a>
+        <a class="source" href="https://digital-strategy.ec.europa.eu/en/policies/regulatory-framework-ai" target="_blank" rel="noreferrer"><span class="source-label">European Commission · 2026</span><b>AI Act</b><small>规则时间表与执行</small></a>
+        <a class="source" href="https://www.cac.gov.cn/2023-07/13/c_1690898327029107.htm" target="_blank" rel="noreferrer"><span class="source-label">中国网信网 · 2023</span><b>生成式人工智能服务管理暂行办法</b><small>中国生成式 AI 服务规则</small></a>
+        <a class="source" href="https://investor.tsmc.com/static/annualReports/2025/english/index.html" target="_blank" rel="noreferrer"><span class="source-label">TSMC · 2025</span><b>2025 Annual Report</b><small>AI 需求、先进制程与封装</small></a>
+      </div>
+      <div class="footer"><span>制作说明：这是一个单文件、无外部依赖的科普页面。页面中的“成熟度条”是叙事示意，不是统一量表。</span><a class="scroll-top" href="#top">回到顶部 ↑</a></div>
+    </div>
+  </section>
+
+  <script>
+    // 时间线筛选：把复杂历史压缩成可探索的阅读路径。
+    const filters = document.querySelectorAll('.filter');
+    const events = document.querySelectorAll('.timeline-item');
+    filters.forEach(button => button.addEventListener('click', () => {
+      filters.forEach(item => item.classList.remove('active'));
+      button.classList.add('active');
+      const key = button.dataset.filter;
+      events.forEach(event => {
+        const visible = key === 'all' || event.dataset.tags.split(' ').includes(key);
+        event.classList.toggle('hidden', !visible);
+      });
+    }));
+
+    // 进入视口时轻微显现；尊重 prefers-reduced-motion。
+    const revealItems = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('is-visible'); observer.unobserve(entry.target); } });
+    }, { threshold: .08 });
+    revealItems.forEach(item => observer.observe(item));
+  </script>
+</body>
+</html>

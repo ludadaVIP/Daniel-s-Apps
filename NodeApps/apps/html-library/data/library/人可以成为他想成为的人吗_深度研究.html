@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>人可以成为他想成为的人吗？——自由、命运、习惯、结构、罪与恩典</title>
+<meta name="description" content="一篇从哲学、历史、文学、心理学、社会学与基督教神学交叉讨论“人可以成为他想成为的人吗”的深度研究。" />
+<style>
+:root{
+  --bg:#f5f1e8; --paper:#fffdf8; --ink:#20231f; --muted:#666b63; --line:#d9d0bd;
+  --gold:#8a6428; --green:#35594a; --rust:#8b4638; --blue:#38556d; --shadow:0 18px 60px rgba(45,40,28,.12);
+  --serif:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",Georgia,serif;
+  --sans:"Noto Sans SC","Microsoft YaHei","PingFang SC",Arial,sans-serif;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--serif);line-height:1.9;font-size:17px}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:3px}.progress{position:fixed;z-index:999;top:0;left:0;height:3px;background:var(--rust);width:0}
+.hero{min-height:92vh;display:flex;align-items:center;position:relative;overflow:hidden;background:linear-gradient(120deg,#1d2b26 0%,#27372e 52%,#2f2a24 100%);color:#f6f0e4}
+.hero:before{content:"";position:absolute;inset:-20%;background:radial-gradient(circle at 22% 35%,rgba(194,155,87,.22),transparent 28%),radial-gradient(circle at 78% 68%,rgba(110,144,129,.18),transparent 25%);transform:rotate(-7deg)}
+.hero-grid{width:min(1180px,92vw);margin:auto;display:grid;grid-template-columns:1.2fr .8fr;gap:60px;position:relative;z-index:2;align-items:center}.eyebrow{font-family:var(--sans);font-size:13px;letter-spacing:.18em;text-transform:uppercase;color:#d8c29b}.hero h1{font-size:clamp(44px,7vw,88px);line-height:1.08;margin:.25em 0 .32em;letter-spacing:-.03em}.hero h1 em{font-style:normal;color:#e7c681}.hero p{font-size:20px;color:#ded8cc;max-width:780px}.hero-card{border:1px solid rgba(255,255,255,.15);border-radius:24px;padding:26px;background:rgba(255,255,255,.06);backdrop-filter:blur(10px)}
+.orbit{width:100%;aspect-ratio:1;position:relative}.orbit .c{position:absolute;border-radius:50%;border:1px solid rgba(231,198,129,.42);display:grid;place-items:center;text-align:center;font-family:var(--sans);font-size:14px;color:#eadfc9}.c1{inset:7%}.c2{inset:20%}.c3{inset:34%;background:rgba(231,198,129,.08)}.dot{position:absolute;width:11px;height:11px;background:#e7c681;border-radius:50%;box-shadow:0 0 20px #e7c681}.d1{left:9%;top:47%}.d2{right:18%;top:21%}.d3{right:10%;bottom:30%}.d4{left:30%;bottom:7%}
+.topnav{position:sticky;top:0;z-index:100;background:rgba(255,253,248,.9);backdrop-filter:blur(14px);border-bottom:1px solid var(--line);font-family:var(--sans)}.topnav .inner{width:min(1180px,94vw);margin:auto;display:flex;gap:18px;overflow:auto;white-space:nowrap;padding:12px 0}.topnav a{color:#3d403c;text-decoration:none;font-size:13px;padding:5px 8px;border-radius:8px}.topnav a:hover{background:#eee7da}
+main{width:min(1120px,92vw);margin:auto}.section{padding:90px 0;border-bottom:1px solid var(--line)}.section h2{font-size:clamp(32px,4vw,50px);line-height:1.2;margin:0 0 24px;letter-spacing:-.02em}.section h3{font-size:26px;margin:48px 0 12px}.kicker{font-family:var(--sans);font-size:13px;letter-spacing:.13em;color:var(--rust);font-weight:700;margin-bottom:10px}.lead{font-size:22px;line-height:1.8;color:#343831;max-width:920px}.big-claim{font-size:clamp(30px,4vw,52px);line-height:1.42;margin:34px 0;padding-left:26px;border-left:5px solid var(--gold);font-weight:700}.small{font-size:14px;color:var(--muted);font-family:var(--sans)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:24px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.card{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:28px;box-shadow:0 5px 20px rgba(60,50,30,.04)}.card h3,.card h4{margin-top:0}.tag{display:inline-block;font-family:var(--sans);font-size:12px;padding:4px 9px;border-radius:999px;background:#ece5d7;color:#5d5547;margin-bottom:10px}.metric{font-family:var(--sans);font-size:46px;font-weight:800;color:var(--green);line-height:1}.metric-label{font-family:var(--sans);font-size:13px;color:var(--muted);margin-top:7px}.note{border-radius:16px;padding:20px 24px;background:#eef3ee;border-left:4px solid var(--green)}.warning{background:#f5ebe7;border-left-color:var(--rust)}
+.figure{margin:38px 0;background:#ece6da;border-radius:22px;overflow:hidden;border:1px solid var(--line)}.figure img{display:block;width:100%;max-height:560px;object-fit:cover}.figure figcaption{padding:12px 18px 16px;font-family:var(--sans);font-size:12px;color:#686157}.portrait-row{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:34px 0}.portrait{position:relative;border-radius:18px;overflow:hidden;min-height:290px;background:#ddd}.portrait img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(1.03)}.portrait .cap{position:absolute;inset:auto 0 0;background:linear-gradient(transparent,rgba(0,0,0,.8));padding:54px 15px 14px;color:#fff;font-family:var(--sans);font-size:13px}.portrait .cap b{display:block;font-size:17px}
+.timeline{position:relative;margin:36px 0;padding-left:34px}.timeline:before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:#c9b78f}.titem{position:relative;margin:0 0 30px;padding:0 0 0 18px}.titem:before{content:"";position:absolute;left:-32px;top:10px;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px var(--bg)}.titem b{font-family:var(--sans);color:var(--green)}
+.spectrum{display:grid;grid-template-columns:1fr 1.25fr 1fr;gap:0;border:1px solid var(--line);border-radius:18px;overflow:hidden;margin:30px 0}.spectrum>div{padding:28px}.spectrum .left{background:#efe9df}.spectrum .mid{background:#dfe9e3}.spectrum .right{background:#eee2de}.spectrum h4{margin:0 0 8px;font-family:var(--sans)}
+.model{background:#1e2924;color:#f6f0e4;border-radius:24px;padding:34px;margin:38px 0}.model .formula{font-family:Georgia,serif;font-size:clamp(19px,2.5vw,28px);line-height:1.6;color:#e6d7b7;overflow-wrap:anywhere}.model .explain{color:#cdd6d0;font-size:15px}.rings{display:grid;grid-template-columns:.9fr 1.1fr;gap:36px;align-items:center}.ringviz{aspect-ratio:1;position:relative;max-width:520px;margin:auto}.ringviz .r{position:absolute;border-radius:50%;display:grid;place-items:center;text-align:center;border:1px solid}.r1{inset:1%;border-color:#c2a56a;background:rgba(194,165,106,.08)}.r2{inset:12%;border-color:#7f9f8c;background:rgba(127,159,140,.07)}.r3{inset:23%;border-color:#7f899f;background:rgba(127,137,159,.07)}.r4{inset:34%;border-color:#a66d5b;background:rgba(166,109,91,.09)}.r5{inset:45%;background:#263b32!important;color:#fff;border-color:#263b32!important;font-family:var(--sans);font-weight:700}.ring-label{position:absolute;font-family:var(--sans);font-size:12px;background:var(--paper);padding:3px 7px;border-radius:8px;border:1px solid var(--line)}
+.compare{width:100%;border-collapse:collapse;margin:24px 0;background:var(--paper);font-size:15px}.compare th,.compare td{padding:14px 16px;border:1px solid var(--line);vertical-align:top}.compare th{font-family:var(--sans);background:#eee7da;text-align:left}.compare tr:nth-child(even) td{background:#fcfaf5}
+.quote{margin:34px auto;padding:28px 34px;max-width:900px;font-size:26px;line-height:1.65;text-align:center;color:#3a3d38}.quote cite{display:block;font-family:var(--sans);font-size:12px;color:var(--muted);margin-top:12px;font-style:normal;letter-spacing:.08em}.verse{background:#262c28;color:#eee9df;border-radius:18px;padding:28px 32px;margin:22px 0}.verse b{color:#e7c681}.verse small{color:#bfc9c2}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;margin:32px 0}.flow .box{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:17px;text-align:center;font-family:var(--sans);font-size:14px;position:relative}.flow .box:not(:last-child):after{content:"→";position:absolute;right:-15px;top:40%;z-index:2;color:var(--gold);font-size:20px;font-weight:700}.flow .box b{display:block;margin-bottom:4px;color:var(--green)}
+.steps{counter-reset:step}.step{display:grid;grid-template-columns:64px 1fr;gap:20px;margin:24px 0;align-items:start}.step:before{counter-increment:step;content:counter(step);width:54px;height:54px;border-radius:50%;display:grid;place-items:center;background:#25372f;color:#fff;font-family:var(--sans);font-weight:800}.step h4{font-size:20px;margin:2px 0 6px}.step p{margin:0}
+.refs{font-family:var(--sans);font-size:14px}.refs li{margin:11px 0}.credit{font-family:var(--sans);font-size:12px;color:var(--muted)}
+footer{padding:55px 0 80px;color:#67645e;font-family:var(--sans);font-size:13px;text-align:center}.pill{display:inline-block;padding:8px 12px;border:1px solid #8aa093;border-radius:999px;margin:4px;font-family:var(--sans);font-size:13px;background:#f8faf8}.tocbox{background:#f0eadf;border:1px solid var(--line);border-radius:20px;padding:26px;margin-top:-44px;position:relative;z-index:5;box-shadow:var(--shadow)}
+@media(max-width:850px){body{font-size:16px}.hero{min-height:auto;padding:85px 0 70px}.hero-grid,.grid2,.grid3,.rings{grid-template-columns:1fr}.hero-card{display:none}.portrait-row{grid-template-columns:1fr 1fr}.spectrum{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.flow .box:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-22px}.section{padding:64px 0}.topnav{display:none}.big-claim{font-size:30px}.compare{font-size:13px}.compare th,.compare td{padding:10px}.rings{gap:10px}.ringviz{max-width:390px}}
+@media print{.topnav,.progress{display:none}.hero{min-height:auto;padding:60px 0}.section{page-break-inside:auto}.card,.figure,.model,.verse{break-inside:avoid}a{color:inherit}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="hero">
+  <div class="hero-grid">
+    <div>
+      <div class="eyebrow">A study of agency, formation & grace</div>
+      <h1>人可以成为<br><em>他想成为的人</em>吗？</h1>
+      <p>关于自由、命运、习惯、阶层、身体、欲望、罪与恩典的一次交叉研究。真正的问题不是“只要努力是否就能成功”，而是：一个已经被塑造的人，究竟还有多大能力重新塑造自己？</p>
+      <div style="margin-top:28px"><span class="pill" style="color:#efe8da;border-color:#7e8e84;background:rgba(255,255,255,.04)">哲学</span><span class="pill" style="color:#efe8da;border-color:#7e8e84;background:rgba(255,255,255,.04)">心理学</span><span class="pill" style="color:#efe8da;border-color:#7e8e84;background:rgba(255,255,255,.04)">社会学</span><span class="pill" style="color:#efe8da;border-color:#7e8e84;background:rgba(255,255,255,.04)">文学</span><span class="pill" style="color:#efe8da;border-color:#7e8e84;background:rgba(255,255,255,.04)">基督教神学</span></div>
+    </div>
+    <div class="hero-card">
+      <div class="orbit" aria-label="自我形成的同心圆图">
+        <div class="c c1">历史 · 社会 · 身体 · 偶然</div>
+        <div class="c c2">家庭 · 制度 · 关系 · 习惯</div>
+        <div class="c c3">意志 · 选择 · 信念</div>
+        <span class="dot d1"></span><span class="dot d2"></span><span class="dot d3"></span><span class="dot d4"></span>
+      </div>
+      <div style="text-align:center;font-family:var(--sans);font-size:13px;color:#c9c4b8">人的选择是真实的，却从不发生在真空里。</div>
+    </div>
+  </div>
+</header>
+<nav class="topnav"><div class="inner">
+<a href="#answer">结论</a><a href="#question">问题拆解</a><a href="#history">思想史</a><a href="#akrasia">为何知而不行</a><a href="#limits">限制</a><a href="#agency">能动性</a><a href="#literature">文学</a><a href="#theology">神学</a><a href="#model">统一模型</a><a href="#practice">实践</a><a href="#final">最终判断</a>
+</div></nav>
+<main>
+<section class="section" id="answer">
+  <div class="tocbox">
+    <div class="kicker">先给答案</div>
+    <div class="big-claim">人不能任意成为任何他想成为的人；但人也绝不是只能成为环境替他决定的人。更准确地说：<span style="color:var(--rust)">人是在限制之中具有真实能动性的“被塑造者，也是参与塑造自己的人”。</span></div>
+    <div class="grid3">
+      <div class="card"><div class="tag">命题一</div><h3>“想要”不等于“能够”</h3><p>愿望只是行动链条最前端的一环。身体条件、认知能力、家庭、资本、时代、制度、机会与他人的选择，都能改变最后的结果。</p></div>
+      <div class="card"><div class="tag">命题二</div><h3>“知道”不等于“做到”</h3><p>人可以真诚地赞同一套原则，却在具体时刻被习惯、即时奖励、疲劳、恐惧、羞耻、注意力劫持和冲突欲望带向另一套行为。</p></div>
+      <div class="card"><div class="tag">命题三</div><h3>“成为”比“成功”更深</h3><p>财富、职业和声望受外部变量强烈影响；品格、技能、关系方式和属灵生命也受限制，却更直接地受到长期操练、群体和恩典的塑造。</p></div>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:52px">所以，“有志者事竟成”作为鼓励是有价值的，作为人性理论却太粗糙。它把<strong>意志</strong>当成唯一变量，把结果失败简单解释成“你不够想要”。与它相反的宿命论也同样粗糙：它把人的过去、环境或结构当成全部变量，仿佛人只是一块被世界推动的石头。更接近真实的图景，是一种<strong>受约束的能动性（situated agency）</strong>：我们不是自己生命的全能作者，却通常也不是纯粹的读者；我们更像是在已经写了许多页、纸张和语言也不是自己选择的书中，真正参与续写下一页。</p>
+</section>
+
+<section class="section" id="question">
+  <div class="kicker">01 / 先把问题问准确</div><h2>“成为我想成为的人”其实混合了四个不同问题</h2>
+  <p>如果不先拆开，“能不能成为”会在职业成功、能力成长、道德改变、身份认同之间来回滑动。它们的可控程度并不相同。</p>
+  <table class="compare">
+    <thead><tr><th>层次</th><th>典型表达</th><th>可控性</th><th>关键限制</th></tr></thead>
+    <tbody>
+      <tr><td><b>结果型成为</b></td><td>“我要成为亿万富翁、总统、世界冠军、著名学者。”</td><td>低到中</td><td>稀缺席位、竞争、运气、时代、他人决策。</td></tr>
+      <tr><td><b>能力型成为</b></td><td>“我要成为一个优秀程序员、语言学习者、研究者。”</td><td>中到高</td><td>先天差异、时间、训练质量、资源与健康。</td></tr>
+      <tr><td><b>品格型成为</b></td><td>“我要成为诚实、勇敢、节制、可靠的人。”</td><td>相对较高，但非瞬间</td><td>旧习、欲望、人格防御、关系环境、长期重复。</td></tr>
+      <tr><td><b>属灵型成为</b></td><td>“我要成为更爱神、更像基督的人。”</td><td>不是自我工程</td><td>基督教传统强调罪、恩典、圣灵工作与人的顺服同时存在。</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><strong>最重要的一步：</strong>不要把“成为某种人”和“获得某种结果”混为一谈。你可以忠心、勤奋、谨慎地成为一个成熟的投资者，却不能命令市场给你年化 20%；你可以成为一个严谨的研究者，却不能命令世界一定授予你职位、名望或奖项。<strong>行动与品格比结果更接近你的权责范围。</strong></div>
+
+  <h3>第二个隐藏问题：“这个‘我想成为’的愿望，是谁塑造出来的？”</h3>
+  <p>现代人很容易把愿望看成最私密、最自主的东西，好像“我想要”就是自由的最后堡垒。但一个人为什么偏偏想成为某种人？为什么某代人渴望做官，某代人渴望创业，某代人渴望做网红？欲望也有历史。家庭的期待、同侪比较、市场广告、学校评价、社交媒体的可见性机制，都在训练我们“应该羡慕谁”。因此，自由最深的一层并不是<strong>“我能不能做我想做的事”</strong>，而是<strong>“我能不能审查、重排甚至改变我所想要的东西”</strong>。</p>
+</section>
+
+<section class="section" id="history">
+  <div class="kicker">02 / 两千多年思想史</div><h2>几乎所有重要传统，都在处理同一矛盾：人既能塑造自己，又被自己塑造过的东西反过来控制</h2>
+  <div class="portrait-row">
+    <div class="portrait"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/f/f2/%E5%AD%94%E5%AD%90%E7%87%95%E5%B1%85%E5%83%8F.jpg" alt="孔子传统画像"><div class="cap"><b>孔子</b>礼、习、教化：人的欲望与品格可以被长期训练。</div></div>
+    <div class="portrait"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Aristotle_Bust_at_Old_Library_%2828214898208%29.jpg" alt="亚里士多德雕像"><div class="cap"><b>亚里士多德</b>德性不是一时冲动，而是经由行动形成的稳定品格。</div></div>
+    <div class="portrait"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/2/22/Epictetus_-_Henri_Bonnart_engraving_c._1700.png" alt="爱比克泰德版画"><div class="cap"><b>爱比克泰德</b>区分属于意志范围之内的事，与外在结果。</div></div>
+    <div class="portrait"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/5/50/Juan_de_Vald%C3%A9s_Leal_-_The_Conversion_and_Baptism_of_St._Augustine_by..._-_1-1964_-_Saint_Louis_Art_Museum.jpg" alt="奥古斯丁归信与受洗主题画作"><div class="cap"><b>奥古斯丁</b>人会被自己曾经自愿养成的欲望和习惯捆绑，需要恩典医治意志。</div></div>
+  </div>
+  <div class="credit">图像来源与许可见文末“图像鸣谢”。</div>
+  <div class="timeline">
+    <div class="titem"><b>孔子传统：人是可教化的。</b>《论语》“性相近也，习相远也”的思想，把“习”放在人的差异形成中。现代研究者也强调，孔子思想中的礼乐并非只是外在礼仪，而具有塑造欲望、情感与社会角色的功能。<sup><a href="#r-confucius">[3]</a></sup></div>
+    <div class="titem"><b>孟子与荀子：一个说“萌芽”，一个说“矫治”。</b>孟子用“芽”说明德性潜能需要环境和培育；荀子更强调未经训练的欲望不会自动通向善，需要礼、师法和刻意实践。两者虽对“性”定义不同，却共同反对“只要心里想好就自然会好”。<sup><a href="#r-mencius">[4]</a></sup><sup><a href="#r-xunzi">[5]</a></sup></div>
+    <div class="titem"><b>亚里士多德：我们通过反复行动成为某种人。</b>德性不是知道几个原则，而是理性、情绪、知觉和行动共同形成稳定倾向。伦理学的目的不是背规则，而是学会在具体情境中看见什么值得做，并且真的做出来。<sup><a href="#r-aristotle">[2]</a></sup></div>
+    <div class="titem"><b>斯多亚：把自由从“控制世界”收回到“治理自己的判断”。</b>爱比克泰德把人的意志、判断、意向视为最核心的自由领域，而财富、名声、身体状态及计划成败都属于外在条件。它不是说外界不重要，而是反对把幸福完全抵押给不可控结果。<sup><a href="#r-epictetus">[6]</a></sup></div>
+    <div class="titem"><b>奥古斯丁：意志可以分裂，而且习惯会变成“第二自然”。</b>他的《忏悔录》极其现代：一个人可以真诚地想改变，又真诚地想保留旧生活；两种意愿都是“我的”。后来奥古斯丁越来越强调堕落使意志受损，恩典不是取消意志，而是释放、医治意志。<sup><a href="#r-augustine">[7]</a></sup></div>
+    <div class="titem"><b>近现代：从“接受本性”走向“自我创造”。</b>尼采强调自我塑形、自我超越；萨特强调人在“既成事实”中仍要承担选择的责任。值得注意的是，萨特并没有主张“想什么就能做到什么”，而是说自由总发生在具体情境与事实性之中。<sup><a href="#r-nietzsche">[8]</a></sup><sup><a href="#r-sartre">[9]</a></sup></div>
+    <div class="titem"><b>现代心理学：意志被重新放进系统。</b>Bandura 的能动性理论强调人既是社会系统的产物，也是其参与塑造者；习惯研究则表明，重复情境可以让行为越来越由线索自动触发，减少每次都靠“重新下决心”的需要。<sup><a href="#r-bandura">[11]</a></sup><sup><a href="#r-habit">[12]</a></sup></div>
+  </div>
+  <div class="spectrum">
+    <div class="left"><h4>宿命论的错误</h4><p>“我之所以这样，是原生家庭、基因、社会、过去造成的；所以我只能这样。”</p></div>
+    <div class="mid"><h4>更合理的位置：受约束的能动性</h4><p>“我的起点和边界不是我选的，但我能对一部分条件作出回应，并通过长期行动改变未来的条件。”</p></div>
+    <div class="right"><h4>成功学全能论的错误</h4><p>“只要你足够想要、足够努力，任何人都能得到任何结果；失败就是不够努力。”</p></div>
+  </div>
+</section>
+
+<section class="section" id="akrasia">
+  <div class="kicker">03 / 为什么“听过很多道理”仍过不好一生</div><h2>人的最大误解之一，是把“知道”当成一种会自动执行的命令</h2>
+  <p class="lead">哲学把这种现象称为 <strong>akrasia</strong>——软弱意志、缺乏自制或“违背自己较好判断而行动”。它古老到苏格拉底时代就已成为难题，直到今天仍是行动哲学的重要主题。<sup><a href="#r-akrasia">[10]</a></sup></p>
+  <div class="flow">
+    <div class="box"><b>价值判断</b>“学习更重要”</div>
+    <div class="box"><b>抽象意图</b>“今晚我要学习”</div>
+    <div class="box"><b>具体情境</b>疲劳、家务、手机在旁</div>
+    <div class="box"><b>即时奖励</b>短视频 15 秒一个刺激</div>
+    <div class="box"><b>实际行为</b>“再刷五分钟”→一小时</div>
+  </div>
+  <p>这里未必有虚伪。你上午说“我要读书”时，是真的；晚上点开手机时，那个想放松、想逃避认知负荷、想获得即时刺激的你，也是真的。人的行动不是由一个单一、稳定、全权统治的“中央意志”发号施令。我们内部存在不同时间尺度的欲望：长期的“我要成为怎样的人”，中期的“我今天应该做什么”，和瞬间的“我现在舒服一点行不行”。冲突最激烈的时候，抽象原则往往距离行动最远，而眼前线索距离行动最近。</p>
+  <div class="grid2">
+    <div class="card"><h3>意图—行动鸿沟</h3><p>“我决定了”与“我做到了”之间有一个独立问题：如何在正确的时间、地点、情境启动行为。Gollwitzer 与 Sheeran 的经典元分析汇总 94 项独立检验，发现把目标写成具体的“如果 X 情况出现，我就做 Y”的执行意图，对目标达成有中到较大的总体促进效应。<sup><a href="#r-implementation">[13]</a></sup></p></div>
+    <div class="card"><h3>习惯不是观点，而是自动化</h3><p>习惯研究强调：当某行为在稳定情境里被反复执行，情境线索会越来越直接触发行为。于是，改变并不只是“把道理想得更通”，还包括改变线索、摩擦成本、默认选项和重复结构。<sup><a href="#r-habit">[12]</a></sup></p></div>
+  </div>
+  <p>这解释了一个常见现象：一个人可能能给朋友提出非常理性的建议，却不能把同一套建议施加在自己身上。旁观者看到的是<strong>结构</strong>，当事人承受的是<strong>即时感受</strong>。你看别人“应该学习”，只需处理逻辑；你轮到自己学习时，却要同时处理疲劳、无聊、不确定、过去失败形成的自我怀疑、桌上的手机、家务、孩子哭、消息提醒，以及“大脑现在更想得到什么”。</p>
+  <div class="quote">“自制”并不只是意志更强；它常常意味着，提前把自己放进一个更容易做对事的环境里。<cite>——本文综合行为科学后的表述</cite></div>
+</section>
+
+<section class="section" id="limits">
+  <div class="kicker">04 / 人为什么不能想成为什么就成为什么</div><h2>自由不是全能。人的生命从一开始就带着大量“非自选事实”</h2>
+  <div class="rings">
+    <div class="ringviz">
+      <div class="r r1"></div><div class="r r2"></div><div class="r r3"></div><div class="r r4"></div><div class="r r5">当下选择</div>
+      <span class="ring-label" style="top:6%;left:44%">时代 / 偶然</span><span class="ring-label" style="top:20%;right:2%">制度 / 阶层</span><span class="ring-label" style="bottom:22%;right:5%">家庭 / 关系</span><span class="ring-label" style="bottom:8%;left:27%">身体 / 历史</span>
+    </div>
+    <div>
+      <h3>① 身体性</h3><p>你不能通过决心取消睡眠、衰老、疾病、气质差异或认知资源的有限性。成熟的能动性不是假装没有身体，而是学会在身体条件中安排生活。</p>
+      <h3>② 出生与社会结构</h3><p>家庭资本、社区、学校、语言、护照、治安、网络与社会信任会改变一个人可见的道路、失败成本和机会密度。Opportunity Insights 对数百万儿童的研究显示，成长社区对成年后的向上流动机会具有显著因果影响。<sup><a href="#r-chetty">[15]</a></sup></p>
+      <h3>③ 历史时间</h3><p>同一种能力在不同年代价值不同。个人努力永远是在某个技术周期、政治制度、经济结构和文化语境中发生。你能选择怎样回应时代，却不能选择自己出生在哪个时代。</p>
+      <h3>④ 他人的自由</h3><p>婚姻、合作、招聘、市场交易、教会服事都包含他人的意志。只要你的目标涉及“别人必须如何对待我”，它就不再是纯粹个人可控的目标。</p>
+      <h3>⑤ 偶然与运气</h3><p>机会、相遇、事故、市场周期、疾病、战争、意外发现都会改变路径。把所有成功都解释为能力，会产生幸存者偏差；把所有失败都解释为命运，又会抹去责任。</p>
+    </div>
+  </div>
+  <div class="warning note"><strong>因此，公平的道德判断必须同时容纳两件事：</strong>人的处境真的会限制他；但“有限”并不自动推出“毫无责任”。理解原因不是取消责任，承认责任也不意味着否认结构。</div>
+</section>
+
+<section class="section" id="agency">
+  <div class="kicker">05 / 那么人到底能改变多少？</div><h2>能动性并不是“我一想就能”，而是“我能通过行动逐渐改变下一次行动的条件”</h2>
+  <p class="lead">这是比“意志力”更有力量的定义。真正的自我改变往往不是一次英雄式决定，而是连续修改反馈系统。</p>
+  <div class="model">
+    <div class="formula">下一阶段的“我” ≈ 当前的我 ＋ 反复选择 ＋ 环境设计 ＋ 技能训练 ＋ 关系与制度 ＋ 机会／偶然 ＋ 时间</div>
+    <p class="explain">这不是统计学公式，而是一个概念模型：每一次行动不仅产生结果，还会改变习惯、身份叙事、能力、关系和以后可选的道路。因此，人不是在同一个起点上每天重新选择；今天的选择会改变明天“选择的难度”。</p>
+  </div>
+  <div class="grid3">
+    <div class="card"><div class="metric">A</div><div class="metric-label">Agency / 能动性</div><h3>先改变可改变的变量</h3><p>Bandura 强调，人既受社会结构影响，又能通过个人、代理与集体行动改变生活条件。能动性不是否认结构，而是与结构互动。<sup><a href="#r-bandura">[11]</a></sup></p></div>
+    <div class="card"><div class="metric">H</div><div class="metric-label">Habit / 习惯</div><h3>把正确行为自动化</h3><p>当每次学习都要靠一场“我到底学不学”的内战，系统成本极高。固定时间、固定位置、固定开始动作，会逐渐把启动交给情境线索。<sup><a href="#r-habit">[12]</a></sup></p></div>
+    <div class="card"><div class="metric">E</div><div class="metric-label">Environment / 环境</div><h3>让环境替意志出力</h3><p>删除推送、手机离开房间、预先打开学习材料、加入共同体，这些动作看似“不够英雄”，实际上更符合真实人性：我们会响应线索。</p></div>
+  </div>
+  <h3>“自我塑造”的悖论：如果现在的我很软弱，谁来把我变强？</h3>
+  <p>这里存在一个经典的“自举问题”：改变自己的人，恰恰是那个需要被改变的自己。如果你需要高度自律才能建立自律，那第一步从哪里来？答案通常不是等待一个更强的“真实自我”突然觉醒，而是借助<strong>脚手架</strong>：规则、日程、同伴、导师、制度、承诺、物理环境、礼仪、群体规范。在古代，这是礼、师友、城邦、修院；在现代，是学校、训练计划、戒除工具、教练、共同体。基督教还会进一步说：最深层的更新不是自我从虚无中把自己拔起来，而是恩典临到一个不能自救却仍被呼召回应的人。</p>
+</section>
+
+<section class="section" id="literature">
+  <div class="kicker">06 / 文学比成功学更早看见人的复杂</div><h2>伟大文学反复写的，不是“人有目标就成功”，而是“人常常连自己到底想要什么都不完全知道”</h2>
+  <div class="grid3">
+    <div class="card"><h3>哈姆雷特：知道不等于行动</h3><p>莎士比亚笔下最著名的行动困境之一：理解、反思和道德敏感性并不会自动缩短行动距离，有时反而让人不断推迟。哈姆雷特提醒我们：智力可以诊断世界，却未必能治理意志。</p></div>
+    <div class="card"><h3>地下室人：人甚至会破坏自己的利益</h3><p>陀思妥耶夫斯基《地下室手记》挑战一种过度理性的人性观：即便有人把“什么对你最有利”计算得清清楚楚，人也可能故意反着来，以证明自己不是公式里的齿轮。人的自由欲、怨恨、自尊和自我毁坏可能纠缠在一起。</p></div>
+    <div class="card"><h3>盖茨比：可以重塑形象，却不能控制现实</h3><p>一个人可以惊人地重建财富、身份和社交形象，却仍不能命令过去重来、命令另一个人爱自己、命令阶层壁垒消失。外在“自我创造”的巨大成功，并不等于内在自由。</p></div>
+  </div>
+  <p>文学的贡献在于，它拒绝把“人”压缩成一个理性决策器。一个人可能同时爱善、爱舒适、爱名声、怕失败、恨自己、需要别人肯定；这些力量会在一个具体决定里同时发声。所以，自我认识不能只问“我的原则是什么”，还要问：“我在害怕什么？我在逃避什么？我需要向谁证明什么？我真正反复奖励的是什么？”</p>
+</section>
+
+<section class="section" id="theology">
+  <div class="kicker">07 / 基督教神学：自由、罪与恩典</div><h2>圣经对人的判断，比“人完全自由”更悲观，也比“人毫无希望”更乐观</h2>
+  <p class="lead">如果把基督教的答案压缩成一句话：<strong>人不是自己生命的主宰，罪使人的意志弯曲；但神的恩典不是把人变成木偶，而是使被捆绑的意志重新能够爱善、选择善、活出善。</strong></p>
+  <div class="grid2">
+    <div class="card"><div class="tag">创造</div><h3>人有真实能动性，但首先是受造者</h3><p>“照神形象被造”意味着人不是石头：人能理解、判断、立志、负责、治理、建立关系。但受造也意味着边界：有限不是罪。你不是神，不需要为所有结果负责，也无权要求现实服从自己的愿望。</p></div>
+    <div class="card"><div class="tag">堕落</div><h3>罪不是只让人“偶尔做错”，而会扭曲欲望本身</h3><p>圣经不是把问题仅仅放在知识不足。人会爱不该爱的、怕不该怕的、把受造物当最终价值。于是问题从“我知道什么”深入为“我爱什么、我被什么辖制”。</p></div>
+  </div>
+  <div class="verse"><b>“立志为善由得我，只是行出来由不得我。”</b><br><small>罗马书 7:18（和合本）</small></div>
+  <p>关于罗马书 7:14–25 主要描述保罗信主前还是信主后的经历，新教释经传统内部有不同理解；但至少在现象层面，这段经文极其准确地触及<strong>道德分裂</strong>：一个人可以认可善、甚至愿意善，却发现另有力量与自己争战。保罗的解决也不是“再给自己做一次更激昂的目标管理”，而是把视线转向基督和圣灵（罗 7:24–8:4）。</p>
+  <h3>奥古斯丁：坏习惯如何从“我选择它”变成“它辖制我”</h3>
+  <p>奥古斯丁的思想特别适合这个问题。他并不把旧欲望解释成外来的“另一个我”，而承认冲突的意志都属于自己。早期自愿重复的行为可以形成习惯，习惯再变成近似必然的束缚。SEP 对奥古斯丁的概述指出，他后来越来越强调堕落严重损害人选择善的能力，而恩典所做的是恢复自由，不是强迫一个人违背其意愿。<sup><a href="#r-augustine">[7]</a></sup></p>
+  <div class="spectrum">
+    <div class="left"><h4>错误一：伯拉纠式乐观</h4><p>只要告诉人什么是善，再要求他努力，他就能靠自己完成最深的道德更新。</p></div>
+    <div class="mid"><h4>新教主流张力</h4><p>人的责任是真实的；人的罪性也是真实的；恩典不是奖励自救成功的人，而是更新人，使人开始愿意并能够顺服。</p></div>
+    <div class="right"><h4>错误二：属灵宿命论</h4><p>既然一切靠恩典，我就无需操练、抵挡、祷告、读经、悔改，也无需对自己的习惯负责。</p></div>
+  </div>
+  <div class="verse"><b>“因为你们立志行事，都是神在你们心里运行，为要成就他的美意。”</b><br><small>腓立比书 2:13（和合本；与 2:12 连读尤其重要）</small></div>
+  <p>这节经文提供了一种与现代“自主神话”很不同的图景：人的立志和行事没有被取消，却被放在神更深的工作里面。基督教的成圣既不是“神做，所以我不做”，也不是“我做，所以不需要神”。它把人的操练、群体生活、真理更新、祷告与圣灵工作放在同一个过程中。</p>
+  <h3>真正的基督徒问题，也许不是“我能成为我想成为的人吗？”</h3>
+  <p>因为这个问法仍然把“我想要什么”设为最高标准。圣经更深的追问是：<strong>我应当成为怎样的人？神创造和救赎我是为了什么？</strong>基督教的终点不是无限自我创造，而是“效法他儿子的模样”（罗 8:29）、“荣上加荣，变成主的形状”（林后 3:18）。换言之，救恩不是帮旧我更高效地实现所有野心，而是连“我最终想成为什么”也一起被更新。</p>
+</section>
+
+<section class="section" id="model">
+  <div class="kicker">08 / 一个统一模型</div><h2>把“成为”理解成七层系统，而不是一句口号</h2>
+  <table class="compare">
+    <thead><tr><th>层</th><th>问题</th><th>你能做什么</th><th>典型错误</th></tr></thead>
+    <tbody>
+      <tr><td>1. 既定事实</td><td>我从哪里出发？</td><td>诚实盘点身体、家庭、时间、资源、义务。</td><td>否认限制，制定幻想目标。</td></tr>
+      <tr><td>2. 欲望</td><td>我为什么想要它？</td><td>审查羡慕、恐惧、比较与价值排序。</td><td>把社会灌输的欲望当“真实自我”。</td></tr>
+      <tr><td>3. 叙事</td><td>我如何解释自己？</td><td>区分“事实”与“我对事实的解释”。</td><td>“我一直这样，所以我就是这样。”</td></tr>
+      <tr><td>4. 能力</td><td>我是否具备所需技能？</td><td>拆解技能、反馈、刻意练习、接受纠错。</td><td>拿热情代替能力建设。</td></tr>
+      <tr><td>5. 习惯系统</td><td>日常默认会把我带去哪？</td><td>固定线索、降低好行为摩擦、提高坏行为摩擦。</td><td>每天靠临时意志力。</td></tr>
+      <tr><td>6. 共同体</td><td>谁在一起塑造我？</td><td>选择同伴、导师、教会、制度与问责。</td><td>把自我改变想成私人项目。</td></tr>
+      <tr><td>7. 不可控结果</td><td>结果若不按计划怎么办？</td><td>做忠心行动，保留调整路径，接受偶然。</td><td>把结果当人格价值证明。</td></tr>
+    </tbody>
+  </table>
+  <p class="big-claim">真正成熟的自由，不是“没有限制”，而是越来越能在真实限制中看见善、愿意善、并稳定地行出善。</p>
+  <p>这句话把几条传统接在一起：亚里士多德会强调德性与实践智慧；孔子传统会强调礼与教化；斯多亚会强调不可控与可控的区分；现代行为科学会强调环境、计划和自动化；基督教会再追问更深的欲望奴役，并把自由的恢复放进恩典与成圣。</p>
+</section>
+
+<section class="section" id="practice">
+  <div class="kicker">09 / 回到你的具体例子</div><h2>“我每天都想学习，结果家务一耽误，手机一打开，就乐不思蜀”——应该怎样重新设计？</h2>
+  <p>如果把这件事解释为“我意志薄弱”，你得到的是羞耻；如果解释为“算法太强，我没办法”，你得到的是无力。更有效的解释是：<strong>当前系统让娱乐行为的启动成本接近 0，让深度学习的启动成本远高于 0。</strong>那就不要只增强决心，要改系统。</p>
+  <div class="steps">
+    <div class="step"><div><h4>把“我要好好学习”改成可执行身份</h4><p>例如：不是“我要成为博学的人”，而是“我是一个每天第一段完整精力先给最重要阅读的人”。身份必须能被今天的行为证据支持。</p></div></div>
+    <div class="step"><div><h4>把“学习时间”从剩余时间改成预先保护时间</h4><p>家务、消息和琐事天然会膨胀。如果学习只能等“一切都忙完”，通常永远没有真正的深度时段。把最重要的 60–90 分钟放在一天较早、精力较好的固定窗口。</p></div></div>
+    <div class="step"><div><h4>对手机使用“物理距离”，而不是道德劝说</h4><p>关闭非必要推送；学习时手机不在手边、桌上或同一视野；电脑只开本轮任务所需窗口。你不是在证明自己能抵抗诱惑，而是在减少不必要的战斗。</p></div></div>
+    <div class="step"><div><h4>建立执行意图</h4><p>不是“有空就学”，而是：“如果孩子/家务打断，我处理完后先回到书签处读 10 分钟，再决定是否继续其他事。”这把“重新启动”提前写进规则。执行意图研究说明，这类 if–then 结构能帮助意图更稳定地转化为行动。<sup><a href="#r-implementation">[13]</a></sup></p></div></div>
+    <div class="step"><div><h4>记录证据，不记录情绪</h4><p>每周只问：本周完成了多少次保护时段？手机破例发生在什么线索下？什么安排使学习最顺？不要把一次失败写成“我就是没自律”，而要把它当系统诊断数据。</p></div></div>
+    <div class="step"><div><h4>把属灵操练理解为“恩典中的训练”</h4><p>对基督徒而言，读经、祷告、团契、认罪、敬拜不是用功换取神接纳，而是在已经领受的恩典中，让思想、爱好和行为不断被重整。恩典与操练不是竞争关系。</p></div></div>
+  </div>
+  <div class="note"><strong>一个很有用的判断标准：</strong>不要问“我今天有没有强烈地想成为那个人”，而问“我今天的默认系统，在把我训练成谁？”因为你反复做的事，通常比你偶尔被感动时说的话更有塑形力量。</div>
+</section>
+
+<section class="section">
+  <div class="kicker">10 / 两个极端都要拒绝</div><h2>既不要用“励志”羞辱处境艰难的人，也不要用“结构”取消人的责任</h2>
+  <div class="grid2">
+    <div class="card"><h3>“你只要足够努力”为什么危险</h3><p>它容易把贫困、疾病、歧视、家庭照护责任、教育资源差异、经济周期等真实变量全都个人化。成功者也容易把运气忘掉，把自己的路径误当成人人可复制的公式。</p></div>
+    <div class="card"><h3>“一切都是环境造成的”为什么也危险</h3><p>如果过去能够解释一切，未来就失去伦理意义。人会开始把解释当免责，把受伤经历变成永久身份。真实的同情不是宣布一个人永远无能，而是在承认难度的同时帮助他恢复可行动的范围。</p></div>
+  </div>
+  <p>社会学负责提醒个人主义：“你的道路不是只靠你自己铺的。”道德哲学负责提醒结构论：“即使道路不公平，你仍在每一步作出某种回应。”基督教又同时对二者说：你既是受造且有限的人，也是要在神面前负责的人；你既不能自救，也不能用“我不能自救”来合理化继续爱罪。</p>
+</section>
+
+<section class="section" id="final">
+  <div class="kicker">11 / 最终判断</div><h2>所以，人可以成为他想成为的人吗？</h2>
+  <p class="big-claim">如果意思是“只要足够想要，我就能获得任何身份与结果”——<span style="color:var(--rust)">不能。</span><br>如果意思是“人的过去、环境和性格已经把未来完全封死”——<span style="color:var(--rust)">也不能这样说。</span></p>
+  <p class="lead">人拥有的不是神一样的“无限自我创造权”，而是一种有限、脆弱、可培养、可受损、也能被恢复的能动性。我们真正能够做的，是在给定的身体、历史和责任中，逐步扩大自己对注意力、习惯、技能、关系、价值和行动的治理能力；同时承认外部结果永远含有他人、结构、偶然与上帝护理中我们不能掌控的部分。</p>
+  <div class="grid2">
+    <div class="card"><h3>从哲学上</h3><p>自由不是脱离因果、脱离历史、脱离身体的神秘能力，而是一个人以理由、价值和反思来治理行动的能力。关于自由意志究竟是否与决定论相容，哲学仍有深刻争论；但“自由 ≠ 全能”几乎是讨论的起点。<sup><a href="#r-freewill">[1]</a></sup></p></div>
+    <div class="card"><h3>从心理学上</h3><p>目标意向本身不足以保证行为。改变需要把动机转译为情境化的行动规则、技能与环境结构，并通过重复让正确行为更少依赖临时冲动。</p></div>
+    <div class="card"><h3>从社会学上</h3><p>人的机会集合并不平等。好的社会制度不是替人取消责任，而是扩大更多人真正能够选择、尝试和失败后重来的空间。</p></div>
+    <div class="card"><h3>从基督教神学上</h3><p>最终的希望不是“我终于把自己打造成理想作品”，而是“我被神所认识、呼召、赦免、更新，并在恩典中真实参与自己的成圣”。基督徒的自由不是无限选择，而是从罪的奴役中被释放，越来越能够爱神与爱人。</p></div>
+  </div>
+  <div class="quote">人最深的成熟，也许不是终于“成为我想成为的人”，而是我的欲望、能力与道路被真理重新排序，使我越来越愿意成为一个<strong>值得成为的人</strong>。<cite>——本文结论</cite></div>
+</section>
+
+<section class="section refs" id="references">
+  <div class="kicker">参考与延伸阅读</div><h2>主要资料来源</h2>
+  <ol>
+    <li id="r-freewill"><a href="https://plato.stanford.edu/entries/freewill/">Stanford Encyclopedia of Philosophy, “Free Will”</a>；并参见 <a href="https://plato.stanford.edu/entries/compatibilism/">“Compatibilism”</a>。用于自由意志、控制与责任的哲学框架。</li>
+    <li id="r-aristotle"><a href="https://plato.stanford.edu/entries/aristotle-ethics/">Stanford Encyclopedia of Philosophy, “Aristotle’s Ethics”</a>；另参见 “Moral Character”。用于德性、习惯与实践智慧。</li>
+    <li id="r-confucius"><a href="https://plato.stanford.edu/entries/confucius/">Stanford Encyclopedia of Philosophy, “Confucius”</a>。用于礼、教化、欲望与品格形成。</li>
+    <li id="r-mencius"><a href="https://plato.stanford.edu/entries/mencius/">Stanford Encyclopedia of Philosophy, “Mencius”</a>。用于“萌芽”与环境培育的人性模型。</li>
+    <li id="r-xunzi"><a href="https://plato.stanford.edu/entries/xunzi/">Stanford Encyclopedia of Philosophy, “Xunzi”</a>。用于人性、学习与刻意努力。</li>
+    <li id="r-epictetus"><a href="https://plato.stanford.edu/entries/epictetus/">Stanford Encyclopedia of Philosophy, “Epictetus”</a>。用于意志、外在条件与自我治理。</li>
+    <li id="r-augustine"><a href="https://plato.stanford.edu/entries/augustine/">Stanford Encyclopedia of Philosophy, “Augustine of Hippo”</a>，尤其“Will and Freedom”。用于分裂意志、习惯、堕落与恩典。</li>
+    <li id="r-nietzsche"><a href="https://plato.stanford.edu/entries/nietzsche/">Stanford Encyclopedia of Philosophy, “Friedrich Nietzsche”</a>。用于自我塑形、自我超越及其争议。</li>
+    <li id="r-sartre"><a href="https://plato.stanford.edu/entries/sartre/">Stanford Encyclopedia of Philosophy, “Jean-Paul Sartre”</a>。用于事实性、自由、坏信仰与情境中的行动。</li>
+    <li id="r-akrasia"><a href="https://plato.stanford.edu/entries/weakness-will/">Stanford Encyclopedia of Philosophy, “Weakness of Will”</a>。用于 akrasia 与意志软弱问题。</li>
+    <li id="r-bandura">Albert Bandura (2001), <a href="https://doi.org/10.1146/annurev.psych.52.1.1">“Social Cognitive Theory: An Agentic Perspective”</a>, <i>Annual Review of Psychology</i> 52:1–26。</li>
+    <li id="r-habit">Wendy Wood & Dennis Rünger (2016), <a href="https://doi.org/10.1146/annurev-psych-122414-033417">“Psychology of Habit”</a>, <i>Annual Review of Psychology</i> 67:289–314。</li>
+    <li id="r-implementation">Peter M. Gollwitzer & Paschal Sheeran (2006), <a href="https://doi.org/10.1016/S0065-2601(06)38002-1">“Implementation Intentions and Goal Achievement: A Meta-analysis of Effects and Processes”</a>, <i>Advances in Experimental Social Psychology</i> 38:69–119。</li>
+    <li id="r-sdt"><a href="https://selfdeterminationtheory.org/topics/application-basic-psychological-needs/">Self-Determination Theory: Basic Psychological Needs</a>。用于自主、胜任、关系需要与高质量动机背景。</li>
+    <li id="r-chetty">Raj Chetty & Nathaniel Hendren (2018), <a href="https://opportunityinsights.org/paper/neighborhoodsi/">“The Impacts of Neighborhoods on Intergenerational Mobility I: Childhood Exposure Effects”</a>, <i>Quarterly Journal of Economics</i> 133(3):1107–1162。</li>
+    <li>Duckworth et al. 相关自制研究的一个开放综述入口：<a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC4372146/">“Unpacking Self-Control”</a>，用于区分执行性过程与冲动性过程。</li>
+  </ol>
+  <h3>图像鸣谢</h3>
+  <p class="credit">孔子燕居像：佚名，明代，Wikimedia Commons，公版标记（Public Domain）。亚里士多德雕像摄影：Sonse，Wikimedia Commons，CC BY 2.0。爱比克泰德版画：Henri Bonnart，约 1700，Wikimedia Commons，Public Domain。奥古斯丁归信与受洗主题画作：Juan de Valdés Leal，1673，Saint Louis Art Museum / Wikimedia Commons，Public Domain。图片仅用于历史思想脉络的视觉说明。</p>
+  <p class="credit">研究说明：本文是跨学科综合论证，不把任何单一心理学研究、哲学流派或神学传统当作可独立“证明”全部结论的证据。神学部分采取以奥古斯丁—宗教改革传统为重要背景的主流新教框架，并承认具体经文与自由意志问题在基督教内部存在不同解释。</p>
+</section>
+</main>
+<footer>《人可以成为他想成为的人吗？》 · 深度研究版 · 2026<br>建议在桌面浏览器阅读；打印时版式会自动简化。</footer>
+<script>
+const p=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;p.style.width=(max?100*h.scrollTop/max:0)+'%'});
+</script>
+</body>
+</html>
