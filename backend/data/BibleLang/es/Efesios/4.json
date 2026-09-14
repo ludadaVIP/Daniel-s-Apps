@@ -1,47 +1,162 @@
 {
   "1": {
-    "vocab": [
-      { "word": "preso", "ipa": "/ˈpɾe.so/", "pos": "adj./past participle", "meaning": "imprisoned, captive — irregular p.p. of prender" },
-      { "word": "rogar", "ipa": "/roˈɣaɾ/", "pos": "verb (o→ue)", "meaning": "to beg, to plead with" },
-      { "word": "digno", "ipa": "/ˈdiɣ.no/", "pos": "adj.", "meaning": "worthy" },
-      { "word": "llamamiento", "ipa": "/ʎa.maˈmjen.to/", "pos": "noun (m.)", "meaning": "calling, vocation" }
-    ],
-    "grammar": [
-      { "title": "rogar + que + subjunctive", "detail": "‘les ruego que vivan…’ — verbs of pleading/requesting trigger the subjunctive in the following clause. ‘vivan’ = 3rd plural present subjunctive of vivir." },
-      { "title": "‘digno de’ + noun", "detail": "‘worthy of’ — fixed preposition: digno de algo, digno de hacer algo." }
-    ],
-    "expression": [
-      { "phrase": "vivir de una manera digna del llamamiento", "note": "Classic Pauline move: connect identity (‘who you are in Christ’) to behaviour (‘how you walk’). Idiomatic in Spanish too: ‘to live in a way worthy of …’" }
-    ]
+    "v": [["preso", "adjective/noun", "imprisoned; prisoner"], ["llamamiento", "noun (m.)", "calling; vocation"]],
+    "g": [["Rogar que + present subjunctive", "‘Les ruego que vivan’ uses subjunctive vivan after a request. The inserted relative ‘que estoy preso’ describes yo."]],
+    "e": [["vivan de una manera digna", "Vivir de una manera + adjective means ‘to live in a ... way.’ Digna agrees with feminine manera and takes de before llamamiento."]]
   },
   "2": {
-    "vocab": [
-      { "word": "humilde", "ipa": "/uˈmil.de/", "pos": "adj.", "meaning": "humble" },
-      { "word": "amable", "ipa": "/aˈma.βle/", "pos": "adj.", "meaning": "kind, friendly" },
-      { "word": "paciente", "ipa": "/paˈθjen.te/", "pos": "adj.", "meaning": "patient" },
-      { "word": "tolerante", "ipa": "/to.leˈɾan.te/", "pos": "adj.", "meaning": "bearing with, tolerant" }
-    ],
-    "grammar": [
-      { "title": "Adjective stacking with ‘siempre’", "detail": "‘siempre humildes y amables, pacientes, tolerantes…’ Several adjectives in apposition, modifying the implied subject (you, plural). No verb needed — they’re elaborating ‘vivan’ from v.1." },
-      { "title": "‘unos con otros’", "detail": "‘with one another’ — Spanish’s standard reciprocal phrase, used after a verb or adjective: aman unos a otros, pacientes unos con otros." }
-    ],
-    "expression": [
-      { "phrase": "tolerantes unos con otros en amor", "note": "‘bearing with one another in love’ — in modern Spanish ‘tolerante’ is a softer rendering than the older ‘soportar / aguantar’. The point: patience anchored in love, not gritted teeth." }
-    ]
+    "v": [["humildes", "adjective, plural", "humble"], ["tolerantes", "adjective, plural", "patiently bearing with; tolerant"]],
+    "g": [["Adjectival continuation of the command", "The verse has no finite verb of its own: ‘siempre humildes y amables, pacientes, tolerantes’ describes how the recipients are to vivir from verse 1."]],
+    "e": [["unos con otros en amor", "Unos con otros is the reciprocal ‘with one another.’ En amor gives the sphere or manner in which their patience operates."]]
   },
   "3": {
-    "vocab": [
-      { "word": "esforzarse", "ipa": "/es.foɾˈθaɾ.se/", "pos": "verb (reflexive, o→ue)", "meaning": "to make every effort" },
-      { "word": "mantener", "ipa": "/man.teˈneɾ/", "pos": "verb (irreg.)", "meaning": "to maintain, to keep" },
-      { "word": "unidad", "ipa": "/u.niˈðað/", "pos": "noun (f.)", "meaning": "unity" },
-      { "word": "vínculo", "ipa": "/ˈbiŋ.ku.lo/", "pos": "noun (m.)", "meaning": "bond, tie" }
-    ],
-    "grammar": [
-      { "title": "Imperative ‘Esfuércense’", "detail": "ustedes imperative of the reflexive esforzarse. Reflexive pronoun attaches to the end: esforzarse → esfuércense. Note the written accent." },
-      { "title": "‘por mantener…’", "detail": "‘por + infinitive’ = ‘in order to…’ here. Spanish uses ‘por’ + infinitive for ‘the way / means by which’." }
-    ],
-    "expression": [
-      { "phrase": "el vínculo de la paz", "note": "‘the bond of peace’ — Paul imagines peace as a cord that ties believers to each other. The image returns in Col 3:14 (love = the bond of perfection)." }
-    ]
+    "v": [["Esfuércense", "pronominal verb, ustedes imperative", "make every effort"], ["vínculo", "noun (m.)", "bond; tie"]],
+    "g": [["Affirmative pronominal command", "In ‘Esfuércense,’ the pronoun se attaches to the ustedes imperative esfuercen; the written accent preserves the original stress."]],
+    "e": [["mantener la unidad del Espíritu", "Mantener is the infinitive complement of esforzarse por. The wording treats unity as something received and to be maintained."]]
+  },
+  "4": {
+    "v": [["un solo cuerpo", "noun phrase", "one body"], ["llamados", "past participle, plural", "called"]],
+    "g": [["Existential hay plus así como", "‘Hay un solo cuerpo’ makes an existence statement. Así como then adds a comparison: ‘just as you were also called to one hope.’"]],
+    "e": [["una sola esperanza", "Sola agrees with feminine esperanza and reinforces numerical oneness. The preposition a links llamados to the hope of their calling."]]
+  },
+  "5": {
+    "v": [["Señor", "noun/title (m.)", "Lord"], ["bautismo", "noun (m.)", "baptism"]],
+    "g": [["Verbless parallel series", "‘Un solo Señor, una sola fe, un solo bautismo’ continues the hay construction from verse 4; the repeated adjective agrees with each noun's gender."]],
+    "e": [["un solo Señor, una sola fe, un solo bautismo", "The three balanced noun phrases use repetition to create a compact confession; Spanish alternates solo and sola for gender agreement."]]
+  },
+  "6": {
+    "v": [["Padre", "noun/title (m.)", "Father"], ["por medio de", "compound preposition", "through; by means of"]],
+    "g": [["Relative clause with parallel prepositions", "‘Que está sobre todos y por medio de todos y en todos’ uses one relative subject with three coordinated location or relation phrases."]],
+    "e": [["sobre todos y por medio de todos y en todos", "Repeated todos gives the three phrases a deliberate rhythm: over all, through all, and in all."]]
+  },
+  "7": {
+    "v": [["a cada uno", "distributive phrase", "to each one"], ["ha repartido", "present perfect verb", "has distributed; apportioned"]],
+    "g": [["Se-passive with duplicated recipient", "‘A cada uno ... se nos ha dado gracia’ fronts the individual recipient while nos includes the speaker; the perfect passive presents the gift as received."]],
+    "e": [["en la medida en que Cristo ha repartido los dones", "En la medida en que means ‘in accordance with the measure that.’ Here it relates grace to Christ's distribution of gifts."]]
+  },
+  "8": {
+    "v": [["ascendió", "verb, preterite", "ascended; went up"], ["cautivos", "noun/adjective, plural", "captives"]],
+    "g": [["Cuando + preterite narrative", "‘Cuando ascendió ... se llevó ... y dio’ places two completed actions at the time of another completed action, all in the preterite."]],
+    "e": [["se llevó consigo a los cautivos", "Llevarse consigo means ‘to take along with oneself.’ The line is presented as a Scripture quotation and uses personal a before los cautivos."]]
+  },
+  "9": {
+    "v": [["quiere decir", "verbal expression", "means; intends to say"], ["descendió", "verb, preterite", "descended; went down"]],
+    "g": [["Rhetorical ¿Qué ... sino que ...?", "‘¿Qué quiere decir ... sino que ...?’ asks what ascendió can mean except that a descent also occurred; sino que introduces the proposed implication."]],
+    "e": [["a las partes bajas, o sea, a la tierra", "O sea reformulates the preceding phrase as ‘that is, the earth.’ The commas mark this clarification within the parenthesis."]]
+  },
+  "10": {
+    "v": [["por encima de", "compound preposition", "above; higher than"], ["llenarlo", "infinitive + object pronoun", "to fill it"]],
+    "g": [["El que as a substantivized relative", "‘El que descendió’ means ‘the one who descended.’ The same construction supplies the subject linked by es el mismo que."]],
+    "e": [["para llenarlo todo", "Para + infinitive gives purpose. Spanish commonly combines attached lo with todo: llenarlo todo means ‘to fill it all’ or ‘to fill everything.’"]]
+  },
+  "11": {
+    "v": [["constituyó", "verb, preterite", "appointed; designated"], ["evangelistas", "noun, plural", "evangelists; gospel proclaimers"]],
+    "g": [["A unos ... a otros distributive pattern", "The repeated ‘a unos ... a otros’ divides people into appointed roles. Personal a marks those whom él constituyó."]],
+    "e": [["pastores y maestros", "Pastores means shepherds or pastors; its pairing with maestros, teachers, closes the list of ministry roles in this verse."]]
+  },
+  "12": {
+    "v": [["capacitar", "infinitive", "to equip; prepare"], ["edificar", "infinitive", "to build up"]],
+    "g": [["Nested purpose phrases", "‘A fin de capacitar’ states why the roles were given; ‘para la obra’ and ‘para edificar’ then describe service and its building purpose."]],
+    "e": [["la obra de servicio", "Obra here means ‘work’ or ‘task,’ not meritorious deeds. De servicio specifies that the work consists of service."]]
+  },
+  "13": {
+    "v": [["llegaremos", "verb, future", "we will reach; attain"], ["estatura", "noun (f.)", "stature; maturity"]],
+    "g": [["Relative que + present subjunctive", "‘Una humanidad perfecta que se conforme’ uses subjunctive conforme to describe the intended standard toward which the group will develop."]],
+    "e": [["la plena estatura de Cristo", "Plena means ‘full’ or ‘complete’ and agrees with estatura. The growth image expresses mature conformity to Christ."]]
+  },
+  "14": {
+    "v": [["zarandeados", "past participle, plural", "tossed about; shaken"], ["artimañas", "noun (f.), plural", "schemes; crafty tricks"]],
+    "g": [["Coordinated passive participles", "‘Zarandeados ... y llevados’ describes the plural niños as acted upon; por phrases name the forces producing the instability."]],
+    "e": [["de aquí para allá", "This fixed directional expression means ‘back and forth’ or ‘from here to there,’ reinforcing the image of unstable movement."]]
+  },
+  "15": {
+    "v": [["Más bien", "discourse connector", "rather; instead"], ["creceremos", "verb, future", "we will grow"]],
+    "g": [["Al + infinitive and hasta + infinitive", "‘Al vivir’ means ‘by living’ or ‘as we live,’ while ‘hasta ser’ marks the endpoint toward which creceremos advances."]],
+    "e": [["vivir la verdad con amor", "NVI uses vivir la verdad, literally ‘live the truth,’ to express truth practiced rather than merely spoken; con amor gives its manner."]]
+  },
+  "16": {
+    "v": [["ligamentos", "noun (m.), plural", "ligaments; supporting connections"], ["se edifica", "pronominal/passive verb", "builds itself up; is built up"]],
+    "g": [["Participles attached to todo el cuerpo", "‘Sostenido y ajustado’ are masculine singular because they describe todo el cuerpo; the main verbs are crece and se edifica."]],
+    "e": [["según la actividad propia de cada miembro", "Según means ‘according to.’ Cada takes a singular noun, so cada miembro highlights the proper contribution of each part."]]
+  },
+  "17": {
+    "v": [["insisto", "verb, present indicative", "I insist"], ["frívolos", "adjective, plural", "futile; empty-minded"]],
+    "g": [["Negative ustedes command", "‘No vivan más’ uses present subjunctive vivan as a negative imperative. Más means ‘any longer’ in this negative pattern."]],
+    "e": [["les insisto en el Señor", "Insistir normally takes en before a matter; here en el Señor frames the authority or sphere in which Paul makes the appeal."]]
+  },
+  "18": {
+    "v": [["oscurecido", "past participle", "darkened"], ["dureza", "noun (f.)", "hardness; callousness"]],
+    "g": [["Tener + participle for a resulting state", "‘Tienen oscurecido el entendimiento’ presents the understanding as left darkened; oscurecido agrees with singular entendimiento."]],
+    "e": [["alejados de la vida que proviene de Dios", "Alejado de means ‘separated from.’ The relative que proviene de identifies God as the source of the life in question."]]
+  },
+  "19": {
+    "v": [["vergüenza", "noun (f.)", "shame; sense of shame"], ["se sacian", "pronominal verb, present", "become satisfied; have enough"]],
+    "g": [["Present perfects followed by no + present", "‘Han perdido’ and ‘se han entregado’ give completed developments with present effects; ‘no se sacian de’ describes continuing appetite."]],
+    "e": [["toda clase de actos indecentes", "Toda clase de means ‘every kind of.’ The plural noun actos takes masculine plural adjective indecentes."]]
+  },
+  "20": {
+    "v": [["enseñanza", "noun (f.)", "teaching; instruction"], ["recibieron", "verb, preterite", "received"]],
+    "g": [["Fronted demonstrative predicate", "‘No fue esta la enseñanza’ places esta before the noun phrase for contrast. The relative que ustedes recibieron identifies enseñanza."]],
+    "e": [["acerca de Cristo", "Acerca de is a compound preposition meaning ‘about’ or ‘concerning.’ It specifies the subject matter of the received teaching."]]
+  },
+  "21": {
+    "v": [["de veras", "adverbial phrase", "truly; really"], ["se les habló", "impersonal/passive construction", "you were told; he was spoken of to you"]],
+    "g": [["Si + indicative with passive se", "‘Si de veras se les habló y enseñó’ treats the condition as assumed true. Se forms passive/impersonal verbs and les marks the learners."]],
+    "e": [["la verdad que está en él", "The relative que está en él modifies verdad and locates the truth in Jesus; él carries an accent because it is a pronoun."]]
+  },
+  "22": {
+    "v": [["quitarse", "pronominal infinitive", "to take off; remove from oneself"], ["ropaje", "noun (m.)", "clothing; garment"]],
+    "g": [["Se les enseñó que debían + infinitive", "The impersonal/passive ‘se les enseñó’ introduces reported obligation; imperfect debían governs quitarse and looks back to received instruction."]],
+    "e": [["el ropaje de la vieja naturaleza", "Ropaje makes the former way of life into clothing to be removed; vieja agrees with feminine naturaleza, not masculine ropaje."]]
+  },
+  "23": {
+    "v": [["ser renovados", "passive infinitive", "to be renewed"], ["actitud", "noun (f.)", "attitude; disposition"]],
+    "g": [["Passive infinitive in a continuing list", "‘Ser renovados’ continues the infinitive complements of debían from verse 22. Renovados is plural because the understood subject is ustedes."]],
+    "e": [["en la actitud de su mente", "En marks the sphere in which renewal occurs. Su is singular because Spanish uses each person's mente collectively for plural ustedes."]]
+  },
+  "24": {
+    "v": [["ponerse", "pronominal infinitive", "to put on; clothe oneself with"], ["santidad", "noun (f.)", "holiness"]],
+    "g": [["Infinitive plus reduced passive", "‘Ponerse el ropaje’ completes the take-off/put-on contrast; ‘creada a imagen de Dios’ modifies feminine nueva naturaleza."]],
+    "e": [["a imagen de Dios", "A imagen de means ‘in the image of.’ It belongs to creada and identifies the model for the new nature."]]
+  },
+  "25": {
+    "v": [["dejando", "gerund", "leaving behind; putting away"], ["prójimo", "noun (m.)", "neighbor; fellow person"]],
+    "g": [["Gerund + third-person exhortation", "‘Dejando la mentira’ supplies a preliminary action; ‘hable cada uno’ uses present subjunctive as a formal third-person command."]],
+    "e": [["miembros de un mismo cuerpo", "Mismo reinforces shared membership in one body and supplies the stated reason, introduced by porque, for truthful speech."]]
+  },
+  "26": {
+    "v": [["se enojan", "pronominal verb, present", "become angry"], ["puesta del sol", "noun phrase", "sunset"]],
+    "g": [["Si + indicative, then negative commands", "‘Si se enojan’ presents a possible real condition; ‘no pequen’ and ‘no permitan’ use subjunctive forms as ustedes prohibitions."]],
+    "e": [["hasta la puesta del sol", "Puesta del sol is the standard expression ‘sunset.’ Hasta marks the endpoint beyond which anger must not be allowed to continue."]]
+  },
+  "27": {
+    "v": [["den cabida", "verbal expression, command", "give room; give an opportunity"], ["diablo", "noun/title (m.)", "devil; slanderer"]],
+    "g": [["Ni continues a negative imperative", "The verse depends grammatically on the previous prohibition: ni adds ‘and do not.’ In ‘ni den cabida,’ den is the ustedes subjunctive command form of dar."]],
+    "e": [["den cabida al diablo", "Dar cabida a means ‘to make room for’ or ‘give an opportunity to.’ Al contracts a + el before diablo."]]
+  },
+  "28": {
+    "v": [["robaba", "verb, imperfect", "used to steal"], ["honradamente", "adverb", "honestly; honorably"]],
+    "g": [["El que + past habit, then que-command", "‘El que robaba’ means ‘the one who used to steal.’ ‘Que no robe’ uses present subjunctive as an indirect third-person command."]],
+    "e": [["para tener qué compartir", "Para gives purpose. Qué carries an accent because it means ‘something/what to share,’ rather than functioning as a relative conjunction."]]
+  },
+  "29": {
+    "v": [["obscena", "adjective", "obscene; corrupt"], ["edificación", "noun (f.)", "building up; edification"]],
+    "g": [["Imperative followed by que + subjunctive", "‘Eviten’ directly commands ustedes; ‘que sus palabras contribuyan y sean’ uses subjunctive to express the desired alternative."]],
+    "e": [["sean de bendición para quienes escuchan", "Ser de bendición means ‘to be a blessing.’ Quienes is a plural relative pronoun meaning ‘those who’ and serves as the object of para."]]
+  },
+  "30": {
+    "v": [["agravien", "verb, negative ustedes command", "grieve; offend"], ["redención", "noun (f.)", "redemption; final deliverance"]],
+    "g": [["Con el cual relative phrase", "‘Con el cual fueron sellados’ refers to masculine el Espíritu Santo. Fueron sellados is a preterite passive agreeing with plural ustedes."]],
+    "e": [["para el día de la redención", "Para points toward a destined time, ‘for the day of redemption.’ The definite article presents it as a known future event."]]
+  },
+  "31": {
+    "v": [["amargura", "noun (f.)", "bitterness"], ["calumnias", "noun (f.), plural", "slanderous statements; accusations"]],
+    "g": [["Imperative governing a coordinated list", "‘Abandonen’ is the ustedes command for every item that follows; repeated y joins the final categories in the list."]],
+    "e": [["toda forma de malicia", "Toda forma de broadens the list to ‘every form of malice.’ After de, the abstract noun malicia appears without an article."]]
+  },
+  "32": {
+    "v": [["bondadosos", "adjective, plural", "kind"], ["perdónense", "reciprocal pronominal command", "forgive one another"]],
+    "g": [["Sean + adjectives and reciprocal imperative", "‘Sean bondadosos y compasivos’ commands a state; in perdónense, attached se has reciprocal force, confirmed by mutuamente."]],
+    "e": [["así como Dios los perdonó a ustedes", "Así como introduces the model for the command, ‘just as.’ Los and a ustedes refer to the same plural object, with doubling for emphasis."]]
   }
 }
