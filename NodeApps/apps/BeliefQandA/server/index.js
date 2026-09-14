@@ -13,6 +13,7 @@ const LAYER_DEFINITIONS = [
   ['detailed', 'AI 的复杂回答'],
   ['explore', '更深层次的探讨'],
 ];
+const BRIEF_ANSWER_MAX_LENGTH = 2000;
 
 function badRequest(message) { const error = new Error(message); error.status = 400; return error; }
 function slug(index, number) { return `section-${String(index).padStart(2, '0')}-question-${String(number).padStart(3, '0')}`; }
@@ -72,6 +73,9 @@ function safeLayers(value) {
     if (typeof text !== 'string') throw badRequest('每个回答层级都必须是 Markdown 文本。');
     if (text.length > 60000) throw badRequest('单个回答层级不能超过 60,000 个字符。');
     output[id] = text.trim();
+  }
+  if (output.brief.length > BRIEF_ANSWER_MAX_LENGTH) {
+    throw badRequest(`AI 的简单回答不能超过 ${BRIEF_ANSWER_MAX_LENGTH} 个字符。`);
   }
   return output;
 }
