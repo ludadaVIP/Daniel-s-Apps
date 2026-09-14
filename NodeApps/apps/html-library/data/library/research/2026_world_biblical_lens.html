@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>2026：加速的世界与不改变的国度——从圣经看技术、文明与末世</title>
+<meta name="description" content="站在2026年的节点，以现实数据与圣经神学双重视角，分析AI、互联网、资本、战争、人口、太空与文明加速，并讨论基督徒应如何分辨、生活与盼望。" />
+<style>
+:root{
+  --bg:#07111d;--bg2:#0b1828;--card:#0e2034;--card2:#122942;--text:#eef5ff;--muted:#a9bdd3;
+  --line:#23425f;--cyan:#65d8ff;--gold:#f2c96d;--rose:#ff8b9c;--green:#8ee6b0;--purple:#bca7ff;
+  --max:1180px;--shadow:0 20px 70px rgba(0,0,0,.35)
+}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:
+radial-gradient(circle at 70% -10%,rgba(101,216,255,.13),transparent 32%),
+radial-gradient(circle at 0% 20%,rgba(188,167,255,.10),transparent 28%),
+linear-gradient(180deg,var(--bg),#081421 55%,#060d16);color:var(--text);font-family:Inter,"Noto Sans SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.85}
+a{color:var(--cyan);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:var(--max);margin:auto;padding:0 28px}.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--gold));width:0;z-index:99}.hero{min-height:92vh;display:grid;place-items:center;position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
+.hero:before{content:"";position:absolute;width:780px;height:780px;border:1px solid rgba(101,216,255,.12);border-radius:50%;top:-260px;right:-220px;box-shadow:0 0 0 80px rgba(101,216,255,.018),0 0 0 160px rgba(101,216,255,.012),0 0 0 240px rgba(101,216,255,.008)}
+.hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:56px;align-items:center}.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:800}.hero h1{font-size:clamp(44px,6.2vw,82px);line-height:1.06;margin:.25em 0 .3em;letter-spacing:-.04em}.hero .sub{font-size:clamp(18px,2vw,24px);color:#d1dfed;max-width:740px}.hero-note{margin-top:28px;padding:18px 22px;border-left:3px solid var(--gold);background:rgba(242,201,109,.07);color:#e9dfc2;border-radius:0 12px 12px 0}.earth{width:min(480px,100%);aspect-ratio:1;border-radius:50%;margin:auto;position:relative;background:
+radial-gradient(circle at 64% 35%,#d6f2ff 0 2%,transparent 3%),
+radial-gradient(circle at 42% 28%,#7ed1d8 0 5%,transparent 6%),
+radial-gradient(circle at 50% 42%,#4a9f79 0 14%,transparent 15%),
+radial-gradient(circle at 35% 60%,#4b936c 0 10%,transparent 11%),
+radial-gradient(circle at 72% 60%,#b3a76b 0 8%,transparent 9%),
+radial-gradient(circle at 50% 50%,#165b8f 0 61%,#0b315b 62%,#071225 70%,transparent 71%);
+box-shadow:0 0 70px rgba(101,216,255,.25),inset -38px -28px 70px rgba(0,0,0,.5)}
+.earth:after{content:"";position:absolute;inset:-12%;border:1px dashed rgba(101,216,255,.25);border-radius:50%;transform:rotate(-18deg)}.sat{position:absolute;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 18px var(--gold)}.sat.s1{top:13%;right:7%}.sat.s2{bottom:17%;left:3%}.sat.s3{top:50%;right:-7%}
+section{padding:92px 0;border-bottom:1px solid rgba(35,66,95,.65)}h2{font-size:clamp(30px,4vw,52px);line-height:1.18;margin:0 0 20px;letter-spacing:-.03em}h3{font-size:25px;line-height:1.35;margin:44px 0 12px}p{font-size:18px;color:#d8e5f3;margin:0 0 20px}.lead{font-size:22px;color:#edf5ff;max-width:980px}.muted{color:var(--muted)}.kicker{color:var(--gold);font-weight:800;font-size:13px;letter-spacing:.12em;text-transform:uppercase}.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.card{background:linear-gradient(180deg,rgba(18,41,66,.9),rgba(11,27,44,.9));border:1px solid var(--line);border-radius:18px;padding:26px;box-shadow:var(--shadow)}.card h3{margin-top:0}.span4{grid-column:span 4}.span6{grid-column:span 6}.span8{grid-column:span 8}.span12{grid-column:span 12}.metric{font-size:42px;font-weight:900;letter-spacing:-.04em}.metric.cyan{color:var(--cyan)}.metric.gold{color:var(--gold)}.metric.rose{color:var(--rose)}.metric.green{color:var(--green)}.metric.purple{color:var(--purple)}.small{font-size:14px;color:var(--muted);line-height:1.6}.quote{font-family:Georgia,"Noto Serif SC",serif;font-size:25px;color:#f8f4e8;border-left:3px solid var(--gold);padding:8px 0 8px 24px;margin:32px 0}.verse{color:var(--gold);font-weight:700}.callout{padding:28px;border:1px solid rgba(242,201,109,.35);background:linear-gradient(135deg,rgba(242,201,109,.08),rgba(101,216,255,.05));border-radius:18px;margin:30px 0}.danger{border-color:rgba(255,139,156,.35);background:rgba(255,139,156,.06)}
+.toc{columns:2;column-gap:42px;padding:26px 30px;background:rgba(14,32,52,.72);border:1px solid var(--line);border-radius:18px}.toc a{display:block;padding:7px 0;color:#d9e8f7;border-bottom:1px dashed rgba(35,66,95,.7)}
+.timeline{position:relative;margin:40px 0 0;padding-left:34px}.timeline:before{content:"";position:absolute;left:7px;top:5px;bottom:5px;width:2px;background:linear-gradient(var(--cyan),var(--purple),var(--gold))}.titem{position:relative;margin:0 0 31px;padding:0 0 0 18px}.titem:before{content:"";position:absolute;width:14px;height:14px;left:-33px;top:8px;border-radius:50%;background:var(--bg);border:3px solid var(--cyan);box-shadow:0 0 18px rgba(101,216,255,.35)}.titem b{font-size:20px}.tag{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:4px 10px;font-size:12px;color:var(--muted);margin:2px 5px 2px 0}.svgbox{background:#071625;border:1px solid var(--line);border-radius:18px;padding:18px;overflow:hidden}.matrix{width:100%;border-collapse:collapse;margin:28px 0;font-size:16px}.matrix th,.matrix td{border:1px solid var(--line);padding:16px;vertical-align:top}.matrix th{background:#112942;color:#f6fbff;text-align:left}.matrix td:first-child{color:var(--rose);font-weight:700}.matrix td:nth-child(2){color:#d4e7f8}.matrix td:nth-child(3){color:var(--gold)}.steps{counter-reset:step}.step{counter-increment:step;display:grid;grid-template-columns:56px 1fr;gap:18px;margin:28px 0}.step:before{content:counter(step);width:48px;height:48px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--cyan);color:var(--cyan);font-weight:900}.source{font-size:14px;color:#9fb3c9;margin:7px 0}.sources li{margin:8px 0;color:#b9c9d9}.footer{padding:48px 0 70px;color:#91a6bc;font-size:14px}.pill{display:inline-flex;gap:8px;align-items:center;border:1px solid var(--line);border-radius:999px;padding:7px 12px;margin:4px;background:#0b1c2e;color:#c9d9e9}.two{display:grid;grid-template-columns:1fr 1fr;gap:26px}.three{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.bigword{font-size:clamp(58px,10vw,140px);font-weight:950;line-height:.9;letter-spacing:-.07em;color:transparent;-webkit-text-stroke:1px rgba(101,216,255,.33);margin:24px 0}.center{text-align:center}.hr{height:1px;background:var(--line);margin:38px 0}.sticky-note{position:relative}.sticky-note:after{content:"事实 ≠ 预言解释";position:absolute;right:18px;top:14px;font-size:11px;color:var(--gold);border:1px solid rgba(242,201,109,.35);padding:3px 7px;border-radius:999px}.footnote{font-size:13px;color:#90a6bd}
+@media(max-width:900px){.hero-grid,.two,.three{grid-template-columns:1fr}.hero{padding:90px 0 60px}.span4,.span6,.span8{grid-column:span 12}.toc{columns:1}.earth{max-width:360px}.matrix{display:block;overflow-x:auto}.wrap{padding:0 18px}section{padding:68px 0}.hero h1{font-size:48px}}
+@media print{body{background:#fff;color:#111}.hero,section{border-color:#ddd}.card,.toc,.svgbox{box-shadow:none;background:#fff;color:#111;border-color:#ddd}p,.lead,.muted,.small,.source,.sources li{color:#333}a{color:#135d88}.progress{display:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">2026 · WORLD / SCRIPTURE / ESCHATOLOGY</div>
+      <h1>加速的世界<br>与不改变的国度</h1>
+      <p class="sub">站在2026年的节点，从互联网、人工智能、资本、战争、人口与太空扩张出发，尝试用一颗既冷静又属灵的眼睛，看见现代文明真正正在发生什么。</p>
+      <div class="hero-note">核心命题：<b>圣经并不要求基督徒害怕技术；圣经要求我们看穿技术背后的人心、偶像、权力与终极目的。</b></div>
+      <div style="margin-top:20px">
+        <span class="pill">现实数据</span><span class="pill">圣经神学</span><span class="pill">末世辨识</span><span class="pill">文明批判</span><span class="pill">基督徒实践</span>
+      </div>
+    </div>
+    <div class="center">
+      <div class="earth" aria-label="stylized earth"><span class="sat s1"></span><span class="sat s2"></span><span class="sat s3"></span></div>
+      <div class="small" style="margin-top:20px">人类把网络铺满地球，又把目光投向月球与火星。问题却仍然是创世记第三章的问题：<b>人愿不愿意在神之下做人？</b></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="preface"><div class="wrap">
+  <div class="kicker">01 · 先给结论</div><h2>世界确实在加速，但“加速”本身不是末世的充分证据</h2>
+  <p class="lead">如果把过去几十年的变化放在整个人类史里看，2026确实处在一个极不寻常的节点：六十亿人已经联网，生成式AI在数年内进入大众生活，数据中心开始重塑电力系统，全球军费持续处于历史高位，商业航天把“成为多行星物种”从科幻叙事变成工程计划。可从圣经角度，真正值得警醒的并不是“机器变聪明了”，而是人的能力增长速度，正在明显快于人的道德成熟、属灵智慧与自我节制。</p>
+  <div class="callout"><b>这份报告的神学立场：</b> 新约告诉我们已经活在“末后的日子”中（来1:2；徒2:17；约壹2:18），并呼召教会警醒等候主；但耶稣同时明确禁止人把历史趋势换算成日期表（太24:36；徒1:7）。因此可以谈“末世结构越来越可见”，却不应把某项科技、某家公司或某个年份武断宣布为某段启示录预言的唯一对应。</div>
+  <div class="toc">
+    <a href="#data">02. 2026：现实世界正在怎样加速</a><a href="#lastdays">03. 圣经所谓“末后的日子”</a>
+    <a href="#anthropology">04. 人：有神形象，却又堕落</a><a href="#babel">05. 巴别塔：文明扩张的原型</a>
+    <a href="#ai">06. AI：知识膨胀与智慧贫困</a><a href="#attention">07. 信息、注意力与真实危机</a>
+    <a href="#wealth">08. 财富、资本与“巴比伦”逻辑</a><a href="#power">09. 国家、战争与控制基础设施</a>
+    <a href="#space">10. 太空：治理使命还是自我神化</a><a href="#acceleration">11. 人类能否“加速末世”</a>
+    <a href="#godview">12. 神怎样看今日世界</a><a href="#scenario">13. 2026—2040：非预言式情景推演</a>
+    <a href="#discern">14. 基督徒的十个辨识问题</a><a href="#church">15. 教会应该成为怎样的群体</a>
+    <a href="#conclusion">16. 结语：不是逃离世界，而是忠心直到主来</a><a href="#sources">资料来源</a>
+  </div>
+</div></section>
+
+<section id="data"><div class="wrap">
+  <div class="kicker">02 · 现实扫描</div><h2>2026：人类文明进入“全域放大器”时代</h2>
+  <p class="lead">过去的工业革命主要放大肌肉、运输与生产；互联网放大连接；智能手机放大即时性；而AI开始放大认知、写作、编程、设计、决策和自动化。几个系统叠加后，文明的“反馈回路”变短：研究更快、融资更快、传播更快、模仿更快、情绪感染更快，错误也更快。</p>
+  <div class="grid" style="margin-top:34px">
+    <div class="card span4 sticky-note"><div class="metric cyan">6.0B</div><h3>联网人口</h3><p>ITU估计，2025年约有60亿人使用互联网，约占世界人口74%。这意味着人类第一次拥有近乎全球性的即时信息神经系统。</p><div class="source">ITU, Facts and Figures 2025 [S1]</div></div>
+    <div class="card span4 sticky-note"><div class="metric purple">88%</div><h3>组织采用AI</h3><p>Stanford 2026 AI Index引用的调查显示，2025年受访组织中约88%已使用AI；生成式AI在至少一个业务功能中的使用达到70%。</p><div class="source">Stanford AI Index 2026 [S2]</div></div>
+    <div class="card span4 sticky-note"><div class="metric gold">≈950 TWh</div><h3>2030数据中心用电</h3><p>IEA的2026更新估计，全球数据中心用电将从2025年的约485 TWh增至2030年的约950 TWh；AI是增长的主要推动力之一。</p><div class="source">IEA, Key Questions on Energy and AI [S3]</div></div>
+    <div class="card span4 sticky-note"><div class="metric rose">$2.887T</div><h3>全球军费</h3><p>SIPRI统计，2025年全球军费达到约2.887万亿美元，为连续第11年增长，也是其记录中的历史高位。</p><div class="source">SIPRI 2026 [S4]</div></div>
+    <div class="card span4 sticky-note"><div class="metric green">8.2B → 10.3B</div><h3>人口仍增长，但结构剧变</h3><p>联合国预计，全球人口从2024年约82亿继续增长，到2080年代中期约103亿见顶；与此同时，许多国家已经进入低生育与老龄化。</p><div class="source">UN World Population Prospects 2024 [S5]</div></div>
+    <div class="card span4 sticky-note"><div class="metric cyan">Mars ≥ 2028</div><h3>多行星文明成为工程目标</h3><p>SpaceX当前公开页面把火星货运任务设为“不早于2028”，并明确以建设自给自足火星城市、长期“多行星化”为目标。</p><div class="source">SpaceX, Mars & Beyond [S6]</div></div>
+  </div>
+
+  <h3>不是“技术更多”这么简单，而是六种放大同时发生</h3>
+  <div class="three">
+    <div class="card"><b>能力放大</b><p class="small">个人借助AI即可获得过去需要团队才能完成的研究、设计与软件能力。</p></div>
+    <div class="card"><b>传播放大</b><p class="small">一个观点、一段谣言、一种欲望可以在数小时内跨越语言和国家。</p></div>
+    <div class="card"><b>资本放大</b><p class="small">全球市场、平台效应和计算基础设施让赢家取得前所未有的规模。</p></div>
+    <div class="card"><b>治理放大</b><p class="small">传感器、身份、支付、云和AI使管理更精准，也使滥权潜力更强。</p></div>
+    <div class="card"><b>欲望放大</b><p class="small">算法可以持续学习人的偏好，把“想要”变成全天候、个性化的刺激。</p></div>
+    <div class="card"><b>后果放大</b><p class="small">当系统高度连接，一个错误模型、金融冲击、网络攻击或战争升级更容易跨域传播。</p></div>
+  </div>
+
+  <div class="svgbox" style="margin-top:34px">
+    <svg viewBox="0 0 1100 350" width="100%" role="img" aria-label="civilization acceleration diagram">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#65d8ff"/><stop offset=".5" stop-color="#bca7ff"/><stop offset="1" stop-color="#f2c96d"/></linearGradient></defs>
+      <line x1="70" y1="260" x2="1040" y2="260" stroke="#23425f" stroke-width="2"/>
+      <path d="M80 250 C250 247, 360 235, 500 215 S700 170, 815 110 S950 42,1030 28" fill="none" stroke="url(#g)" stroke-width="7"/>
+      <g fill="#a9bdd3" font-size="18"><text x="65" y="302">1750</text><text x="260" y="302">1900</text><text x="440" y="302">1980</text><text x="610" y="302">2007</text><text x="780" y="302">2022</text><text x="960" y="302">2026</text></g>
+      <g fill="#eef5ff" font-size="17" font-weight="700"><text x="115" y="225">工业化</text><text x="330" y="210">电气化/大众媒体</text><text x="500" y="185">PC + Internet</text><text x="650" y="145">智能手机</text><text x="810" y="88">生成式AI</text><text x="915" y="55">Agent / Robotics</text></g>
+      <text x="70" y="45" fill="#f2c96d" font-size="24" font-weight="800">示意图：文明的反馈周期持续缩短（概念图，不是定量曲线）</text>
+    </svg>
+  </div>
+</div></section>
+
+<section id="lastdays"><div class="wrap">
+  <div class="kicker">03 · 末世时间观</div><h2>圣经的“末世”首先不是技术年代，而是基督事件之后的历史阶段</h2>
+  <p>现代人一听“末世”，容易立即想到芯片、数字货币、AI、战争或某位政治人物。但新约的时间观更深。希伯来书说神“就在这末世借着他儿子晓谕我们”（来1:2）；彼得在五旬节引用约珥书说“在末后的日子”（徒2:17）；约翰甚至说“如今是末时了”（约壹2:18）。也就是说，按新约神学，<b>末世并不是从2020、2000或1948才开始，而是随着基督第一次降临、十字架、复活、升天与圣灵浇灌已经展开。</b></p>
+  <p>因此，基督徒对2026年的判断应该同时保持两件事。第一，主再来的确比任何前代更近——这是时间本身的事实，也是罗13:11意义上的属灵警醒。第二，我们并没有得到把科技曲线转换成末日日期的许可。耶稣说那日子那时辰没有人知道（太24:36），复活后又说“父凭着自己的权柄所定的时候、日期，不是你们可以知道的”（徒1:7）。</p>
+  <div class="two">
+    <div class="card"><h3>应该有的末世意识</h3><p>警醒、圣洁、忍耐、宣教、盼望、忠心；知道现今世界不是终局，人的帝国都会过去，基督的国永不震动。</p><span class="tag">太24—25</span><span class="tag">彼后3</span><span class="tag">启21—22</span></div>
+    <div class="card"><h3>不应该有的末世意识</h3><p>不断猜日期、追逐阴谋论、把每个技术标准都解释成“兽印”、把恐惧当敬虔、为了逃避现实责任而沉迷预言拼图。</p><span class="tag">徒1:7</span><span class="tag">帖后2</span><span class="tag">太24:36</span></div>
+  </div>
+  <div class="quote">末世神学的目的，不是满足人对“内幕”的好奇，而是塑造一种在动荡历史中仍然忠心的生命。</div>
+</div></section>
+
+<section id="anthropology"><div class="wrap">
+  <div class="kicker">04 · 圣经人论</div><h2>为什么技术既能成为祝福，也能迅速成为毁灭工具？因为使用它的是“有神形象的罪人”</h2>
+  <p class="lead">如果没有圣经的人论，就很难理解现代文明。世俗科技乐观主义往往只看到人的创造能力；悲观主义只看到人的破坏能力。圣经同时承认两者。</p>
+  <div class="grid">
+    <div class="card span6"><h3>人有神的形象：所以能创造文明</h3><p>创1:26—28把治理、繁衍、管理受造界放在人的使命中。语言、数学、农业、医学、工程、艺术和计算并不天然敌对神。创世记4章甚至在堕落后的家谱中记载城市、畜牧、音乐与冶金的发展。这说明所谓“文化使命”并未因堕落完全消失。</p></div>
+    <div class="card span6"><h3>人又已经堕落：所以每一种能力都可能被偶像化</h3><p>创3的本质不是“吃一种水果”，而是人拒绝受造者的位置，要自行定义善恶。罪进入之后，人仍有聪明，却不再天然把聪明指向神的荣耀。于是知识可以服务医治，也可以服务战争；网络可以传播福音，也可以传播色情、仇恨与谎言；AI可以辅助学习，也可以工业化操纵。</p></div>
+  </div>
+  <div class="callout"><b>关键公式：</b> 技术不是独立的道德主体。<b>技术 = 人的能力 × 人心的方向 × 制度的激励。</b> 当能力成倍增长、而人心与制度没有同步被真理约束，后果就会被放大。</div>
+  <p>这也解释了为什么“文明进步”与“道德进步”不是一回事。二十世纪已经证明，一个社会可以拥有最先进的化学、工业、铁路、统计学和行政体系，同时实施极端邪恶。二十一世纪的危险不是人忽然比从前更坏，而是<b>同样的罪性获得了更强的工具、更大的数据、更快的传播和更高的杠杆。</b></p>
+</div></section>
+
+<section id="babel"><div class="wrap">
+  <div class="kicker">05 · 巴别塔范式</div><h2>创世记11章不是“反技术”寓言，而是“文明如何把共同能力变成共同背叛”的经典图景</h2>
+  <p>巴别塔叙事最值得注意的，不是砖本身。烧砖是一种技术进步；城市组织也是社会能力。问题在于那一代人的共同宣言：建城、造塔、塔顶通天，并且“为要传扬我们的名”。这里出现了现代文明至今仍不断重复的四个结构：</p>
+  <div class="grid">
+    <div class="card span4"><div class="metric cyan">01</div><h3>技术统一</h3><p>“砖代替石头”提高了标准化和建造能力。技术降低协作成本。</p></div>
+    <div class="card span4"><div class="metric purple">02</div><h3>语言统一</h3><p>共同语言提升集体行动能力。今天的协议、平台、代码与英语，也在形成新的全球共同语。</p></div>
+    <div class="card span4"><div class="metric gold">03</div><h3>权力集中</h3><p>能力越集中，统一目标越容易推进；但若目标错了，错误也会获得系统性规模。</p></div>
+    <div class="card span12"><div class="bigword">MAKE A NAME</div><p class="center lead">“传扬我们的名”才是属灵核心：受造者不再以神的名为中心，而要建立一个自足、自我保障、自我荣耀的世界。</p></div>
+  </div>
+  <p>所以，今天谈AI、火星、超级公司、全球网络时，最有意义的问题不是“这是不是巴别塔的现代版本？”——这种一对一比附过于粗糙。更好的问题是：<b>巴别塔揭示的那种人心结构，有没有在这些计划里重现？</b> 当人说“我们最终可以战胜一切限制”“人类将靠技术解决死亡、意义、孤独、道德和终极安全”，那就已经从工程进入了神学。</p>
+  <div class="danger callout"><b>需要避免另一种错误：</b> 探索太空、发展AI、建造城市、做大企业，并不因“规模大”就成为巴别。诗8甚至把人受托治理受造界视为尊荣。真正的分界线是：<b>这是受托管理，还是自主僭越？是荣耀神、服务邻舍，还是用受造之物替代神？</b></div>
+</div></section>
+
+<section id="ai"><div class="wrap">
+  <div class="kicker">06 · AI与智慧</div><h2>AI最深的属灵挑战，不是“机器会不会像人”，而是“人会不会越来越不像一个有智慧的人”</h2>
+  <p class="lead">保罗说：“这世界的智慧，在神看是愚拙。”（林前3:19）这不是反智主义。保罗本人受过严密训练，也不断劝信徒在悟性上成熟。经文攻击的是一种离开神、自以为终极的智慧。</p>
+  <p>AI把“知道”和“生成”变得极其廉价。过去，一个人写一篇论文、一个程序、一个商业计划需要大量时间；如今模型可以在数秒内生成初稿。Stanford 2026 AI Index指出，AI能力仍在快速提升，企业采用率已非常高。问题随之变化：当答案随处可得，真正稀缺的将不是信息，而是<b>判断什么是真的、什么值得做、什么不应该做，以及我为什么要做。</b></p>
+  <div class="two">
+    <div class="svgbox">
+      <svg viewBox="0 0 520 390" width="100%">
+        <rect x="70" y="70" width="380" height="250" rx="28" fill="#102b46" stroke="#65d8ff"/>
+        <rect x="145" y="125" width="230" height="140" rx="18" fill="#071625" stroke="#bca7ff"/>
+        <text x="260" y="185" text-anchor="middle" fill="#eef5ff" font-size="34" font-weight="900">AI</text>
+        <text x="260" y="222" text-anchor="middle" fill="#a9bdd3" font-size="16">KNOWLEDGE AMPLIFIER</text>
+        <g stroke="#f2c96d" stroke-width="3"><line x1="260" y1="48" x2="260" y2="70"/><line x1="260" y1="320" x2="260" y2="345"/><line x1="45" y1="195" x2="70" y2="195"/><line x1="450" y1="195" x2="480" y2="195"/></g>
+        <text x="260" y="375" text-anchor="middle" fill="#f2c96d" font-size="16">能力增长 ≠ 智慧增长</text>
+      </svg>
+    </div>
+    <div>
+      <h3>圣经里的“智慧”比知识多三个维度</h3>
+      <p><b>敬畏：</b>箴言把敬畏耶和华称为知识与智慧的开端。一个人可以知道很多，却根本不知道自己是谁、向谁负责。</p>
+      <p><b>道德方向：</b>智慧不只是“怎样做到”，还包括“该不该做”。AI擅长优化手段，却不能替人承担终极道德责任。</p>
+      <p><b>生命整合：</b>圣经的智慧进入欲望、习惯、关系、受苦和死亡。它不只是认知输出，而是整个人在神面前的秩序。</p>
+    </div>
+  </div>
+  <div class="quote">未来最危险的人，未必是无知的人，而可能是“拥有极强工具，却没有敬畏”的人。</div>
+  <p>因此AI时代会把林前3:18—20推到一个新的现实场景中：世界会拥有更强的预测、更快的分析、更庞大的模型，却仍回答不了最古老的问题——我为什么活？我为什么必须行善？死亡之后是什么？罪怎样得赦免？谁有权定义人的价值？在这些问题上，算力无法替代启示。</p>
+</div></section>
+
+<section id="attention"><div class="wrap">
+  <div class="kicker">07 · 信息与注意力</div><h2>当内容无限，人的“心”反而成为最稀缺的资源</h2>
+  <p>过去的稀缺是信息；今天的稀缺是注意力。平台经济的核心竞争之一，是争夺人的眼睛、时间、情绪和习惯。AI又把内容生产成本压低：文字、图片、视频、声音都可以批量生成。于是“内容膨胀”会进一步制造三个属灵后果。</p>
+  <div class="three">
+    <div class="card"><h3>真实变贵</h3><p>当伪造越来越容易，核实越来越费力。基督徒对“不可作假见证”的遵守，将从私人伦理变成公共见证。</p></div>
+    <div class="card"><h3>安静变贵</h3><p>人不断被通知、短视频、推荐流和热点拉走。诗篇式的默想、祷告、静默与长时间读经，变成逆文化操练。</p></div>
+    <div class="card"><h3>人格变碎</h3><p>算法按照即时偏好喂养人，容易使“我喜欢什么”取代“什么是真的、善的、值得爱的”。</p></div>
+  </div>
+  <p>从圣经看，“心”不是单指情绪，而是人的认知、欲望、意志与敬拜中心。“你要保守你心，胜过保守一切”（箴4:23）在算法时代具有异常现实的意义。谁塑造你的注意力，谁就在持续塑造你的爱；谁塑造你的爱，谁就在塑造你最终敬拜什么。</p>
+  <div class="callout"><b>一个重要转变：</b>过去基督徒可能把“属灵争战”想成偶尔发生的重大试探；今天它往往呈现为每天数百次微小的注意力争夺。末世警醒不是每天刷“末日新闻”，而是让心持续归向基督。</div>
+</div></section>
+
+<section id="wealth"><div class="wrap">
+  <div class="kicker">08 · 财富与巴比伦</div><h2>启示录对“巴比伦”的批判提醒我们：文明最强盛时，也可能最容易把商品、奢华与权力当成救主</h2>
+  <p>启示录17—18章中的“巴比伦”不是一个简单的经济学名词，它是政治权力、宗教偶像与商业奢华交织的象征。第18章反复描写商人、货物、财富与突然崩塌。它不是在说商业本身邪恶，而是在揭示一个世界体系：<b>人可以把繁荣变成宗教，把消费变成身份，把市场价值误当成人的终极价值。</b></p>
+  <table class="matrix">
+    <thead><tr><th>世界的叙事</th><th>隐藏假设</th><th>圣经的纠正</th></tr></thead>
+    <tbody>
+      <tr><td>“规模越大，越成功”</td><td>可量化增长等于真实价值</td><td>神衡量忠心、公义、怜悯与真理；小也可以在神眼中极重。</td></tr>
+      <tr><td>“财富能带来自主”</td><td>资源越多，就越不需要依靠任何人</td><td>路12的无知财主拥有仓房，却不能掌握下一夜的生命。</td></tr>
+      <tr><td>“市场会奖励最优者”</td><td>价格等于价值，胜者等于义者</td><td>圣经不断为穷人、寄居者、弱者发声，拒绝用财富证明义。</td></tr>
+      <tr><td>“人的价值来自生产力”</td><td>能创造经济价值的人才重要</td><td>人的尊严根植于神形象，不取决于岗位、收入、智商或AI时代的“可替代性”。</td></tr>
+    </tbody>
+  </table>
+  <p>AI时代尤其会逼迫社会重新回答“人为什么有价值”。如果越来越多脑力劳动能够自动化，仅以经济产出定义人的社会会陷入危机。圣经的人论反而提供更坚固的答案：婴儿、病人、老人、失业者、残障者都不因市场生产力下降而少有一点尊严。</p>
+</div></section>
+
+<section id="power"><div class="wrap">
+  <div class="kicker">09 · 权力、战争与基础设施</div><h2>末世经文关心的从来不只是“某个坏人”，而是权力如何形成敬拜、经济和强制的系统</h2>
+  <p class="lead">2025年全球军费达到SIPRI记录中的最高水平，说明科技进步并没有自动消除安全困境。恰恰相反，AI、无人系统、网络战、太空资产与精确打击正在把技术竞争直接带入国家权力。</p>
+  <p>启示录13章呈现了政治权力、宗教迷惑与经济控制之间的结合。面对现代数字基础设施，基督徒很容易马上问：“数字身份是不是兽印？无现金社会是不是启13？”这里必须保持文本纪律。启示录首先强调的是<b>忠诚、敬拜和归属</b>，而不是要求读者猜某种通信协议。把每一种新支付工具直接等同“兽印”，历史上已经反复失败。</p>
+  <div class="callout danger"><b>但另一方面也不能幼稚：</b>现代云计算、数字身份、金融网络、摄像头、AI分析和平台治理，确实使“大规模、实时、细粒度的社会控制”在技术上比古代更可行。这是技术事实；它是不是某段末世预言的具体实现，则是另一层神学判断。两者不能混为一谈。</div>
+  <h3>因此，基督徒应该区分三个层次</h3>
+  <div class="steps">
+    <div class="step"><div><b>技术可能性</b><p>某种系统能否追踪、限制、筛选、操纵？这是工程和制度问题，可以用事实研究。</p></div></div>
+    <div class="step"><div><b>伦理正当性</b><p>即使能做，是否应该做？谁监督？是否侵犯良心、隐私、公义与弱者权利？这是伦理问题。</p></div></div>
+    <div class="step"><div><b>末世对应</b><p>它是否就是启示录某象征的唯一实现？这是释经问题，必须更谨慎，不能从“像”直接跳到“就是”。</p></div></div>
+  </div>
+</div></section>
+
+<section id="space"><div class="wrap">
+  <div class="kicker">10 · 太空与超越冲动</div><h2>“地球不够了，我们去火星”——这句话既可以是工程愿景，也可以暴露一种深层人本主义</h2>
+  <p>SpaceX的官方愿景明确谈到建立自给自足的火星城市，并最终让生命成为“多行星”的。NASA也在推进从月球到火星的长期架构。从工程史看，这当然是令人惊叹的能力扩展；从圣经看，也没有经文说人不可离开地球轨道。诗8甚至赞叹神把受造界置于人的治理之下。</p>
+  <p>真正需要分辨的是叙事。若太空探索意味着：研究受造界、发展科学、服务人类、承担治理责任，那么它可以放在“受托管理”的框架中。若它变成另一种福音——“人类最终靠科技逃离一切限制，甚至逃离死亡，自己保证永续”——它就开始承担宗教功能。</p>
+  <div class="two">
+    <div class="card"><h3>圣经的宇宙观不是“逃离地球”</h3><p>基督徒最终的盼望不是灵魂逃到一个抽象天堂，也不是人造火星乌托邦，而是复活、审判与“新天新地”（林前15；启21—22）。神不是放弃受造界，而是更新受造界。</p></div>
+    <div class="card"><h3>真正不可逃离的是罪与死亡</h3><p>换一个星球不会换掉人的心。若把同样的骄傲、贪婪、权力斗争和偶像带到火星，火星只会成为另一个人类社会。地理距离无法解决创3的问题。</p></div>
+  </div>
+  <div class="svgbox" style="margin-top:30px">
+    <svg viewBox="0 0 1100 350" width="100%">
+      <circle cx="150" cy="175" r="75" fill="#145b8c" stroke="#65d8ff"/><circle cx="895" cy="175" r="55" fill="#8b3b31" stroke="#ff8b9c"/>
+      <path d="M230 175 C420 55, 620 55, 825 175" fill="none" stroke="#f2c96d" stroke-width="4" stroke-dasharray="10 9"/>
+      <polygon points="535,82 565,103 534,112" fill="#f2c96d"/><text x="150" y="290" text-anchor="middle" fill="#eef5ff" font-size="20">Earth</text><text x="895" y="290" text-anchor="middle" fill="#eef5ff" font-size="20">Mars</text>
+      <text x="550" y="250" text-anchor="middle" fill="#a9bdd3" font-size="19">跨越1.4亿英里，并不能跨越人心的罪</text>
+    </svg>
+  </div>
+</div></section>
+
+<section id="acceleration"><div class="wrap">
+  <div class="kicker">11 · 一个关键神学修正</div><h2>人类是否真的能“加速末世的到来”？可以这样说，但必须加限定</h2>
+  <p>你提出的直觉很有力量：人类按自己的方式越做越大，似乎正在加速一个最终危机。圣经确实呈现“罪恶成熟”“国度冲突加剧”“世界体系走向审判”的图景。但若把这句话理解为“人类的科技进度决定基督什么时候回来”，就不够准确。</p>
+  <div class="grid">
+    <div class="card span6"><h3>从人的历史责任看：可以说“加速”</h3><p>人的罪会累积、制度化、全球化。雅1:15说私欲怀胎生出罪，罪既长成生出死。个人层面的机制也可以扩展到文明：当贪婪、权力、谎言和暴力借技术获得巨大杠杆，败坏的后果会更快、更广地显露。从这个意义说，现代文明确实可能“加速危机”。</p></div>
+    <div class="card span6"><h3>从神的主权时间看：不能说人控制末日</h3><p>圣经最终把历史的终点放在神的主权中。基督再来不是技术进度条跑到100%以后自动触发的系统事件。徒1:7强调时间由父凭自己的权柄所定；彼后3则把“耽延”放在神的忍耐与救恩目的里。</p></div>
+  </div>
+  <div class="quote">更准确的表达是：人类正在更快速地把自己的属灵倾向“技术化、规模化、全球化”；而神仍按自己的时间治理历史，并最终审判与更新。</div>
+</div></section>
+
+<section id="godview"><div class="wrap">
+  <div class="kicker">12 · 神如何看世界</div><h2>如果从“神的眼光”看2026，祂看见的重点与财经新闻、科技发布会完全不同</h2>
+  <p class="lead">我们不能越过圣经声称知道神未启示的“具体想法”，但圣经已经充分告诉我们神怎样衡量国家、文明、财富、智慧和人的生命。</p>
+  <div class="grid">
+    <div class="card span4"><h3>神不被规模震撼</h3><p>赛40把列国描写为水桶的一滴、天平上的微尘。一个万亿美元企业、一个超级大国、一个千万GPU的计算集群，在人看来巨大，在创造主面前仍属受造物。</p></div>
+    <div class="card span4"><h3>神看人的心</h3><p>撒上16:7的原则持续有效：人看外貌，耶和华看内心。神首先不是问“你做到了多大”，而是问忠心、动机、真理、公义与敬拜。</p></div>
+    <div class="card span4"><h3>神听受压者的声音</h3><p>从出埃及记、先知书到雅各书，神一再审判欺压、剥削和以财富践踏人的制度。技术先进不能抵消不义。</p></div>
+    <div class="card span4"><h3>神反对把受造物当神</h3><p>罗1的核心交换，是人把创造主的荣耀换成受造之物。今天偶像可以不再是木头石头，也可以是国家、市场、性、科技、算法、名声与自我。</p></div>
+    <div class="card span4"><h3>神重视被世界忽略的人</h3><p>耶稣把天国颠倒性的价值显明出来：贫穷的、哀恸的、温柔的、饥渴慕义的、怜恤人的、清心的、使人和睦的。</p></div>
+    <div class="card span4"><h3>神看历史的终局</h3><p>诗2、但以理书和启示录共同强调：列国喧嚷并不是最终现实。最终不是人类帝国自我完成，而是基督的王权公开显明。</p></div>
+  </div>
+  <h3>所以，神可能怎样看一个“极成功”的现代人？</h3>
+  <p>世界看他的公司市值、粉丝、权力、创新、地产、飞船、模型参数；圣经却会继续追问：他是否认识创造他的主？他是否诚实？是否公义？是否爱邻舍？是否把自己当作神？是否为了扩张而牺牲人？是否知道自己的生命不过是一口气？可8:36把尺度彻底翻转：“人就是赚得全世界，赔上自己的生命，有什么益处呢？”这不是否认“赚得世界”的能力，而是指出：<b>哪怕真赚到了全世界，也仍然可能在终极意义上彻底失败。</b></p>
+</div></section>
+
+<section id="scenario"><div class="wrap">
+  <div class="kicker">13 · 2026—2040</div><h2>下面不是预言，而是“属灵风险情景推演”</h2>
+  <p>根据当前技术与制度趋势，可以合理设想若干方向。它们不代表一定发生，更不能作为末日时间表；价值在于训练辨识力。</p>
+  <div class="timeline">
+    <div class="titem"><b>AI代理从“回答问题”走向“代表人执行”</b><p class="small">风险不只是假信息，而是决策代理权逐步外包。属灵问题：人是否把判断、责任甚至良心一并外包？</p></div>
+    <div class="titem"><b>真实与合成内容更难区分</b><p class="small">身份验证、来源证明、可信机构会更重要。属灵问题：教会是否仍坚持慢、真、可核验的见证文化？</p></div>
+    <div class="titem"><b>就业与生产率重构</b><p class="small">部分职业价值链被压缩，新的高技能岗位产生，同时“人的价值是否等于经济产出”成为社会冲突点。</p></div>
+    <div class="titem"><b>算力、电力与芯片成为战略基础设施</b><p class="small">IEA已经观察到数据中心对电力需求的显著拉动。技术权力将更依赖能源、云、芯片与资本的集中。</p></div>
+    <div class="titem"><b>数字治理能力继续增强</b><p class="small">便利与控制可能同时增长。属灵问题：基督徒如何既不阴谋论化，也不把国家或平台当成无条件可信的“良善机器”。</p></div>
+    <div class="titem"><b>生物技术、AI与机器人进一步合流</b><p class="small">“治疗疾病”和“重新设计人”之间的界线会变得重要。人的身体究竟是礼物、项目还是产品，将成为神学问题。</p></div>
+    <div class="titem"><b>月球—火星基础设施逐步现实化</b><p class="small">太空从象征性探索进入经济与战略竞争。人的疆域扩大，但对罪、死亡和意义的根本问题仍不会自动改变。</p></div>
+  </div>
+</div></section>
+
+<section id="discern"><div class="wrap">
+  <div class="kicker">14 · 十个问题</div><h2>面对任何新技术、新制度、新潮流，都可以用这十个问题做属灵体检</h2>
+  <div class="steps">
+    <div class="step"><div><b>它在解决什么真实问题？</b><p>先承认普通恩典，不要因“新”就敌视，也不要因“酷”就崇拜。</p></div></div>
+    <div class="step"><div><b>它把什么能力放大？</b><p>沟通、生产、监控、杀伤、娱乐、消费、学习？能力本身决定风险半径。</p></div></div>
+    <div class="step"><div><b>它奖励人里面哪一种欲望？</b><p>耐心还是即时满足？真理还是情绪？忠诚还是自我品牌？服事还是控制？</p></div></div>
+    <div class="step"><div><b>它让谁拥有更大的权力？</b><p>平台、国家、企业、个人、社区？谁能审计？谁能退出？谁承担错误代价？</p></div></div>
+    <div class="step"><div><b>弱者会怎样被影响？</b><p>圣经伦理不能只看平均效率，也要问儿童、穷人、老人、失业者、少数者会怎样。</p></div></div>
+    <div class="step"><div><b>它是否把便利变成偶像？</b><p>很多危险不是“邪恶功能”，而是人愿意为了便利放弃自由、隐私、关系、身体与真理。</p></div></div>
+    <div class="step"><div><b>它是否侵蚀真实的人际共同体？</b><p>基督教不是信息宗教，而是道成肉身、教会身体、圣餐、彼此相爱的共同体。</p></div></div>
+    <div class="step"><div><b>它是否模糊人的受造界限？</b><p>人可以延伸能力，却仍不是全知、全能、无所不在。忘记界限就是现代版“像神一样”。</p></div></div>
+    <div class="step"><div><b>如果它突然消失，我还能忠心生活吗？</b><p>任何让你失去它就无法平安、祷告、工作、关系和身份稳定的工具，都可能开始成为偶像。</p></div></div>
+    <div class="step"><div><b>它使我更爱神、更爱人，还是更爱自己？</b><p>这是最后也最简单的检验。耶稣把律法总纲归结为爱神与爱邻舍。</p></div></div>
+  </div>
+</div></section>
+
+<section id="church"><div class="wrap">
+  <div class="kicker">15 · 教会的角色</div><h2>未来教会最重要的见证，可能不是“比世界更会使用AI”，而是活出世界越来越稀缺的东西</h2>
+  <p>技术时代当然需要基督徒懂技术、做研究、写软件、办企业、参与政策；但教会若只是更高效地生产内容，很容易被世界同化。AI可以生成讲章大纲，却不能替代一个牧者多年真实地认识羊群；可以生成敬拜音乐，却不能替代圣徒在苦难中彼此担当；可以模拟对话，却不能替代道成肉身式的临在。</p>
+  <div class="grid">
+    <div class="card span4"><h3>真实</h3><p>在合成内容泛滥时，坚持诚实、可核验、无表演性的生命。</p></div>
+    <div class="card span4"><h3>安静</h3><p>在注意力经济中保留祷告、默想、圣经、安息与不被推送支配的时间。</p></div>
+    <div class="card span4"><h3>身体</h3><p>强调真实聚集、彼此服事、圣餐、探访、同哭同笑，而不是把教会降格为内容频道。</p></div>
+    <div class="card span4"><h3>忠贞</h3><p>在价值快速变动时不追逐每个风口，坚持使徒所传的福音与圣洁生活。</p></div>
+    <div class="card span4"><h3>怜悯</h3><p>当社会按效率重估人时，坚持照顾弱者，证明人的价值不是市场定价。</p></div>
+    <div class="card span4"><h3>盼望</h3><p>既不科技乌托邦，也不末日恐慌；基督徒的盼望不是“世界不会坏”，而是基督最终得胜。</p></div>
+  </div>
+  <div class="quote">一个被AI包围的时代，教会若仍然会祷告、会悔改、会彼此相爱、会为真理受苦，本身就是对世界最强的反文化见证。</div>
+</div></section>
+
+<section id="conclusion"><div class="wrap">
+  <div class="kicker">16 · 结语</div><h2>2026最值得警醒的，不是“机器像不像人”，而是“人还愿不愿意做受造的人”</h2>
+  <p class="lead">把今日世界放回整本圣经的大叙事中，会看到一条很清楚的线：创造——堕落——救赎——成全。技术发展发生在这条线里面，而不是取代这条线。</p>
+  <p>人越聪明，越需要敬畏；能力越大，越需要节制；网络越广，越需要真实；财富越多，越需要知道自己不过是管家；国家越强，越需要记住权柄来自神并要受审判；太空走得越远，越需要记住“诸天述说神的荣耀”，不是人的荣耀；AI越能回答问题，人越需要面对一个它不能代替你回答的问题：<b>你究竟敬拜谁？</b></p>
+  <p>所以，对2026最成熟的基督徒态度不是兴奋到把技术当救主，也不是恐惧到把每项创新当敌基督。是清醒。保罗在林前3章不是叫信徒变笨，而是叫自以为聪明的人先承认自己在神面前的有限；罗12:2不是叫人退出世界，而是“心意更新而变化”，察验何为神的善良、纯全、可喜悦的旨意。</p>
+  <div class="callout"><b>可以把整篇报告压缩成一句话：</b><br><span style="font-size:28px;color:#fff">现代文明正在以前所未有的速度放大人的能力；圣经提醒我们，若人的敬拜方向没有改变，被放大的不仅是创造力，也包括骄傲、欲望、控制与毁灭。真正的盼望因此不在文明自我升级，而在基督。</span></div>
+  <p>从这个角度看，“末日越来越近”不应该把基督徒推向焦虑，而应该推向彼后3章的结论：既然这一切都要过去，我们就当怎样圣洁、怎样敬虔、怎样等候并盼望神的日子。末世论最终不是让我们更会猜，而是让我们更会活。</p>
+</div></section>
+
+<section id="sources"><div class="wrap">
+  <div class="kicker">资料与方法</div><h2>现实数据来源与神学说明</h2>
+  <p class="muted">本报告把“可验证的现实趋势”和“圣经神学解释”分开处理。现实数据取自国际机构、研究机构与官方项目页面；属灵判断基于经文的整体主题。数据不能自行证明某段末世预言已经应验。</p>
+  <ol class="sources">
+    <li><b>[S1] ITU — Facts and Figures 2025.</b> 2025年约60亿人使用互联网，约占全球人口74%。 <a href="https://www.itu.int/itu-d/reports/statistics/2025/10/15/ff25-internet-use/" target="_blank">来源</a></li>
+    <li><b>[S2] Stanford HAI — 2026 AI Index Report.</b> AI能力、组织采用、投资与基础设施趋势。 <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report" target="_blank">来源</a></li>
+    <li><b>[S3] International Energy Agency — Key Questions on Energy and AI / Electricity 2026.</b> 数据中心用电、AI对电力需求的推动。 <a href="https://www.iea.org/reports/key-questions-on-energy-and-ai/executive-summary" target="_blank">来源</a></li>
+    <li><b>[S4] SIPRI — Trends in World Military Expenditure, 2025.</b> 2025年全球军费约2.887万亿美元，连续第11年增长。 <a href="https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-world-military-expenditure-2025" target="_blank">来源</a></li>
+    <li><b>[S5] United Nations — World Population Prospects 2024.</b> 全球人口预计在2080年代中期约103亿见顶。 <a href="https://www.un.org/sustainabledevelopment/blog/2024/07/press-release-wpp2024/" target="_blank">来源</a></li>
+    <li><b>[S6] SpaceX — Mars & Beyond.</b> 火星货运任务目前写明“不早于2028”，长期目标是建立自给自足的火星城市。 <a href="https://new.spacex.com/humanspaceflight/mars" target="_blank">来源</a></li>
+    <li><b>[S7] NASA — Artemis / Moon to Mars architecture.</b> 2026年继续推进月球—火星架构与载人深空能力。 <a href="https://www.nasa.gov/artemis/" target="_blank">来源</a></li>
+  </ol>
+  <div class="hr"></div>
+  <p class="footnote"><b>主要经文索引：</b> 创1—4、11；诗2、8；箴1、4；赛40；但2、7、12；太5、24—25；路12；约17；徒1—2；罗1、12—13；林前1—3、15；帖前4—5；帖后2；来1、12—13；雅1、5；彼后3；约壹2；启13、17—22。</p>
+  <p class="footnote"><b>释经边界：</b> 本报告采用历史正统的新教/福音派大框架，但在启示录具体时间顺序、千禧年、以色列与教会关系等存在多种正统观点的问题上，不把某一派的推演当成不可争议事实。</p>
+</div></section>
+</main>
+
+<footer class="footer"><div class="wrap">2026 · 加速的世界与不改变的国度 · 研究型HTML长文</div></footer>
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{const d=document.documentElement;const p=d.scrollTop/(d.scrollHeight-d.clientHeight)*100;bar.style.width=p+'%'});
+</script>
+</body></html>

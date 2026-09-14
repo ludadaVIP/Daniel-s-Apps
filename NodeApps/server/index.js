@@ -27,6 +27,12 @@ function lazyMount(load) {
 
 app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'NodeApps' }));
 
+app.use('/belief-qa', lazyMount(async () => {
+  const module = await import('../apps/BeliefQandA/server/index.js');
+  await module.initializeBeliefQA();
+  return module.app;
+}));
+
 app.use('/insight', lazyMount(async () => {
   const { createApp } = await import('../apps/insight/server/app.js');
   return createApp({

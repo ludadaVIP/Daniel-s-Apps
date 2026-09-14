@@ -1,0 +1,519 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>印度教：从内部世界进入 Sanātana Dharma｜深度导览</title>
+<meta name="description" content="从印度教徒自身的语言、信仰结构、经书、宗派、礼仪、历史与当代生活出发，理解印度教（Sanātana Dharma）。">
+<style>
+:root{
+  --ink:#1e2329; --muted:#667085; --paper:#f7f1e7; --paper2:#fffaf2;
+  --saffron:#c85b21; --deep:#7a2e1b; --gold:#d8a53a; --green:#4f6654;
+  --line:#e3d4bf; --card:#fffdf9; --nav:#241b17; --shadow:0 14px 45px rgba(50,31,18,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); background:
+  radial-gradient(circle at 12% 8%, rgba(216,165,58,.10), transparent 30rem),
+  linear-gradient(180deg,#fbf7f0 0%,#f5eee3 100%);
+  font-family:"Noto Serif SC","Songti SC","STSong","Source Han Serif SC",Georgia,serif;
+  line-height:1.85;
+}
+a{color:var(--deep);text-decoration-thickness:.08em;text-underline-offset:.18em}
+.hero{
+  min-height:78vh; position:relative; display:flex; align-items:flex-end; overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(24,17,13,.90) 0%,rgba(24,17,13,.70) 48%,rgba(24,17,13,.32) 100%),
+    url("https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Ahilya_Ghat_by_the_Ganges%2C_Varanasi.jpg/1280px-Ahilya_Ghat_by_the_Ganges%2C_Varanasi.jpg") center/cover;
+  color:white;
+}
+.hero:after{
+  content:"ॐ"; position:absolute; right:4vw; top:4vh; font-family:serif; font-size:min(34vw,340px);
+  color:rgba(255,218,135,.10); line-height:1; pointer-events:none;
+}
+.hero-inner{position:relative;z-index:2;max-width:1200px;width:100%;margin:0 auto;padding:10vh 7vw 8vh}
+.kicker{font-family:system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;font-weight:700;color:#f4c96c;font-size:.82rem}
+h1{font-size:clamp(2.8rem,7vw,6.6rem);line-height:1.02;margin:.35rem 0 1rem;max-width:900px}
+.hero p{max-width:760px;font-size:clamp(1.08rem,2vw,1.35rem);color:#f3eadf;margin:0}
+.hero .meta{margin-top:2rem;font:500 .9rem/1.5 system-ui,sans-serif;color:#ddcfc1}
+.layout{display:grid;grid-template-columns:280px minmax(0,840px);gap:58px;max-width:1240px;margin:0 auto;padding:50px 28px 110px}
+nav{
+  position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;
+  background:rgba(36,27,23,.97);color:#eee3d6;border-radius:18px;padding:22px 20px;box-shadow:var(--shadow);
+  font:500 .88rem/1.4 system-ui,sans-serif;
+}
+nav strong{display:block;color:#f5ca76;letter-spacing:.08em;margin-bottom:12px}
+nav a{display:block;color:#e7ddd2;text-decoration:none;padding:8px 9px;border-radius:8px}
+nav a:hover{background:rgba(255,255,255,.07);color:white}
+main{min-width:0}
+section{scroll-margin-top:24px;margin:0 0 78px}
+h2{font-size:clamp(1.8rem,3.5vw,2.65rem);line-height:1.22;margin:0 0 23px;color:#40251b}
+h3{font-size:1.35rem;line-height:1.35;margin:34px 0 12px;color:#64311d}
+p{margin:0 0 1.1rem}
+.lead{font-size:1.19rem;line-height:1.9;color:#3d3935}
+.dropcap:first-letter{float:left;font-size:4.2rem;line-height:.78;margin:.15rem .55rem 0 0;color:var(--saffron);font-weight:800}
+.note,.insider,.warning{
+  border-left:4px solid var(--gold);padding:18px 22px;margin:26px 0;background:rgba(255,253,249,.78);
+  border-radius:0 12px 12px 0;box-shadow:0 5px 20px rgba(75,50,30,.04)
+}
+.insider{border-color:var(--saffron);background:#fff5e8}
+.warning{border-color:#806c50;background:#f7f3ec}
+.label{
+  display:inline-block;font:700 .73rem/1 system-ui,sans-serif;letter-spacing:.11em;text-transform:uppercase;
+  color:white;background:var(--saffron);padding:6px 8px;border-radius:999px;margin-bottom:9px
+}
+.term{font-weight:750;color:#7c311d}
+.sanskrit{font-style:italic}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0}
+.card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:0 8px 25px rgba(60,38,20,.05)}
+.card h3{margin-top:0;font-size:1.12rem}
+.card p:last-child{margin-bottom:0}
+.quote{
+  position:relative;margin:34px 0;padding:28px 30px 26px 46px;background:#36251d;color:#fff4e7;border-radius:16px;
+  font-size:1.08rem
+}
+.quote:before{content:"“";position:absolute;left:14px;top:7px;font-size:4rem;color:#e8b952;line-height:1}
+.quote small{display:block;color:#d6c2ad;margin-top:12px;font:500 .82rem/1.5 system-ui,sans-serif}
+.figure{margin:32px 0;background:#1f1a17;border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}
+.figure img{display:block;width:100%;max-height:560px;object-fit:cover}
+.figure.tall img{max-height:720px;object-fit:contain;background:#d9d8d4}
+.figure figcaption{padding:12px 16px;color:#d7cabe;font:500 .78rem/1.55 system-ui,sans-serif}
+.timeline{position:relative;margin:28px 0;padding-left:26px}
+.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}
+.ti{position:relative;margin:0 0 26px;padding-left:16px}
+.ti:before{content:"";position:absolute;left:-24px;top:.62em;width:10px;height:10px;border-radius:50%;background:var(--saffron);box-shadow:0 0 0 5px #f6eadb}
+.ti b{color:#71311f}
+.flow{display:flex;gap:9px;align-items:stretch;flex-wrap:wrap;margin:26px 0}
+.flow .step{flex:1 1 145px;position:relative;background:#fffdf9;border:1px solid var(--line);border-radius:14px;padding:16px}
+.flow .step b{display:block;color:#7d321d;margin-bottom:5px}
+.flow .arrow{align-self:center;color:#aa7b4c;font-size:1.5rem}
+.table-wrap{overflow:auto;margin:24px 0;border:1px solid var(--line);border-radius:14px;background:white}
+table{border-collapse:collapse;width:100%;min-width:660px}
+th,td{padding:13px 15px;border-bottom:1px solid #eee4d8;text-align:left;vertical-align:top}
+th{background:#f2e6d7;color:#542b1c;font:700 .84rem/1.4 system-ui,sans-serif}
+td{font-size:.95rem}
+tr:last-child td{border-bottom:none}
+.pill{display:inline-block;padding:3px 8px;border-radius:999px;background:#f0e1cf;color:#61331f;font:700 .74rem/1.3 system-ui,sans-serif;margin:2px}
+.scripture{
+  display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:25px 0
+}
+.scripture .box{padding:20px;border-radius:15px;border:1px solid var(--line);background:#fffdf8}
+.scripture .box:first-child{border-top:5px solid #a94620}.scripture .box:last-child{border-top:5px solid #4f6654}
+.big-number{font:800 clamp(2.3rem,5vw,4.2rem)/1 system-ui,sans-serif;color:#a84320;margin-bottom:7px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:24px 0}
+.stat{background:#fffdf8;border:1px solid var(--line);border-radius:14px;padding:20px}
+.stat span{font:500 .78rem/1.4 system-ui,sans-serif;color:var(--muted)}
+.glossary{columns:2;column-gap:26px}
+.gitem{break-inside:avoid;margin:0 0 14px;padding-bottom:12px;border-bottom:1px dotted #d9c5ab}
+.gitem b{color:#79301d}
+.refs{font:500 .89rem/1.7 system-ui,sans-serif;color:#4f4a46}
+.refs li{margin-bottom:8px}
+footer{border-top:1px solid var(--line);padding-top:25px;color:#70675f;font:500 .84rem/1.65 system-ui,sans-serif}
+sup a{text-decoration:none;font-family:system-ui,sans-serif}
+@media(max-width:950px){
+ .layout{grid-template-columns:1fr;max-width:860px}
+ nav{position:relative;top:auto;max-height:none;display:grid;grid-template-columns:repeat(2,1fr)}
+ nav strong{grid-column:1/-1}
+ .hero-inner{padding-left:7vw;padding-right:7vw}
+}
+@media(max-width:650px){
+ .layout{padding:34px 17px 80px}
+ nav{grid-template-columns:1fr}
+ .grid,.scripture,.stats{grid-template-columns:1fr}
+ .glossary{columns:1}
+ h1{font-size:2.65rem}
+ .figure img{max-height:420px}
+}
+@media print{
+ nav{display:none}.layout{display:block;max-width:none;padding:0 18mm}.hero{min-height:45vh}
+ a{color:inherit}.card,.figure,.note,.insider{break-inside:avoid}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Inside Hinduism · Emic Perspective</div>
+    <h1>印度教<br>从内部世界进入<br><span style="color:#f5c968">Sanātana Dharma</span></h1>
+    <p>不是先问“它属于一神教还是多神教”，而是先进入一个印度教徒真正生活其中的世界：神圣临在、业、轮回、法、奉爱、圣像、朝圣、导师、家庭责任与解脱。</p>
+    <div class="meta">深度研究导览 · 中文版 · 更新至 2026-09 · 兼顾信徒自我理解与现代宗教学/历史学视角</div>
+  </div>
+</header>
+
+<div class="layout">
+<nav>
+<strong>阅读地图</strong>
+<a href="#method">01 · 如何“从里面看”</a>
+<a href="#essence">02 · 印度教到底是什么</a>
+<a href="#reality">03 · 神与终极实在</a>
+<a href="#human">04 · 人、业、轮回、解脱</a>
+<a href="#paths">05 · 四条主要道路</a>
+<a href="#deities">06 · 神祇与宗派</a>
+<a href="#philosophy">07 · 哲学诸学派</a>
+<a href="#scriptures">08 · 经书体系</a>
+<a href="#gita">09 · 《薄伽梵歌》</a>
+<a href="#worship">10 · 敬拜与日常生活</a>
+<a href="#guru">11 · 上师与传承</a>
+<a href="#society">12 · 人生秩序与种姓</a>
+<a href="#history">13 · 起源与发展</a>
+<a href="#modern">14 · 近现代与全球化</a>
+<a href="#today">15 · 今日印度教</a>
+<a href="#misread">16 · 常见误解</a>
+<a href="#experience">17 · 如果你生在印度教家庭</a>
+<a href="#glossary">18 · 核心词汇</a>
+<a href="#sources">19 · 资料与图片来源</a>
+</nav>
+
+<main>
+
+<section id="method">
+  <h2>01｜怎样才算真正“从印度教里面看”</h2>
+  <p class="lead dropcap">如果一开始就问：“印度教到底信几个神？”“谁是创教者？”“哪一本书相当于《圣经》？”你已经不知不觉把另一个宗教的结构套在印度教上。印度教当然可以被研究、归类和比较，但它首先不是一套由创始人宣布、由单一教会管理、由一部正典统一规定的信条系统，而是一个跨越数千年、内部高度多样、同时又共享一套宗教语汇与文明记忆的传统家族。</p>
+  <div class="insider"><div class="label">内部视角</div>
+    <p>一个印度教徒更可能说：我属于某个家庭、地域、寺庙、<span class="term">sampradāya（传承/宗派）</span>，我敬奉 Krishna、Shiva、Devi、Rama 或其他神圣形态；我相信 <span class="term">dharma</span>、<span class="term">karma</span>、<span class="term">saṃsāra</span> 与 <span class="term">mokṣa</span>；我做 <span class="term">pūjā</span>，去寺庙接受 <span class="term">darśan</span>，在节庆中与神、家族和社群相连。宗教不是“周末参加的一项活动”，而是一种理解宇宙、责任、家庭、身体、食物、生死与时间的方式。</p>
+  </div>
+  <p>因此，这份报告刻意采用两层镜头：第一层尽可能使用印度教徒自己的概念解释自身；第二层在涉及历史起源、社会制度与现代政治时，再补上现代学术研究的辨析。这样既不把印度教缩成外部刻板印象，也不把信徒自我叙述直接当成唯一历史结论。哈佛宗教素养项目特别强调：宗教具有<strong>内部多样性、历史变化性，并且嵌入社会文化的各个层面</strong>。这对理解印度教尤其重要。<sup><a href="#r1">[1]</a></sup></p>
+</section>
+
+<section id="essence">
+  <h2>02｜印度教到底是什么？</h2>
+  <p>“Hinduism（印度教）”是现代常用的总称，但许多印度教徒也会使用 <span class="term sanskrit">Sanātana Dharma</span>，通常译作“永恒之法”“永恒之道”或“永恒秩序”。这里的 <span class="term">dharma</span> 很难只用一个中文词翻完：它既可以指宇宙与社会赖以成立的秩序，也可以指正当生活、伦理责任、个人处境中的本分，以及帮助灵性成长的生活方式。信徒内部的解释往往不是“我们在某一天由某人创立”，而是“这些真理本来就存在，古代圣哲只是看见、听见、领悟它们”。<sup><a href="#r2">[2]</a></sup></p>
+  <div class="grid">
+    <div class="card"><h3>没有单一创教者</h3><p>不像佛教可追溯到释迦牟尼、基督教以耶稣基督为中心、伊斯兰教与穆罕默德及《古兰经》的启示历史密切相连，印度教没有一个“创教时刻”。</p></div>
+    <div class="card"><h3>没有唯一中央权威</h3><p>没有一位全球性的“印度教教皇”，也没有一个组织能替所有印度教徒宣布最终教义。权威分散在经书、上师、寺庙、宗派、家庭和地方习俗之间。</p></div>
+    <div class="card"><h3>不是“什么都可以”</h3><p>多样性不等于没有边界。承认吠陀传统、业与轮回、法、解脱以及若干共享仪式与神圣宇宙观，构成了多数印度教传统之间的“家族相似性”。</p></div>
+    <div class="card"><h3>更像“文明性的宗教生态”</h3><p>哲学、祭祀、神话、家庭礼俗、寺庙、瑜伽、音乐、舞蹈、朝圣、饮食伦理与地域传统相互交织。它常常既是信仰，也是生活世界。</p></div>
+  </div>
+  <p>现代学术更谨慎地说：我们今天称为“Hinduism”的，是南亚本土多种宗教思想、实践和群体在三千年以上时间里逐渐交织形成的“马赛克”。哈佛神学院的概览也强调，虽然很难列出每一个印度教徒都同意的信条，多数传统仍以某种方式承认吠陀的权威，并共享神圣以多种形态显现、灵魂经历轮回、行动产生业果等观念。<sup><a href="#r3">[3]</a></sup></p>
+</section>
+
+<section id="reality">
+  <h2>03｜“神”与终极实在：为什么不能简单说成“多神教”</h2>
+  <p>理解印度教最关键的一步，是分清几个常被中文全部翻成“神”的层次。<span class="term">Brahman（梵）</span>是终极实在、绝对者、存在本身或最高意识的概念；<span class="term">Īśvara</span>可指被人格化理解的至高主；<span class="term">deva / devī</span>则是神圣的男性/女性形态与神祇。不同宗派会以不同方式说明这些层次之间的关系。</p>
+  <div class="flow">
+    <div class="step"><b>Brahman</b>终极实在、绝对、无限；有些传统强调不可言说与无形。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Saguṇa / Nirguṇa</b>“有属性的神”与“无属性的绝对者”是两种重要表达。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>神圣形态</b>Vishnu、Shiva、Devi 等，在不同传承中可以就是至高者本身。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Iṣṭa-devatā</b>个人最亲近、最主要敬奉的神圣形态。</div>
+  </div>
+  <p>因此，问“印度教到底是一神教还是多神教？”往往会得到“这个问题太窄”的回答。某些印度教徒非常接近强烈的一神论：例如一位毗湿奴派信徒可能认为 Krishna 或 Vishnu 就是最高神，其他神祇处于次级位置；某些湿婆派以 Shiva 为至高；性力派以 Devi/Shakti 为终极神圣实在。另一些传统则强调诸神都是同一绝对实在的不同显现；不二论者甚至进一步认为，神、人、自我与宇宙的终极基础必须在 Brahman 中理解。</p>
+  <div class="quote">
+    “真理是一，圣贤以不同的名字称说。”
+    <small>常被印度教徒引用来表达多种神名背后的统一性；典出《梨俱吠陀》1.164.46 的著名思想。这里采用意译。</small>
+  </div>
+  <h3>圣像为什么不是“把石头当神”？</h3>
+  <p><span class="term">mūrti</span> 常被英语旧式著作译成 “idol”，很容易造成“印度教徒把一块石头当作神本身”的印象。从信徒内部看，圣像更接近<strong>神圣临在可被敬拜、观看和亲近的具体形态</strong>。在寺庙中，经过特定仪轨使圣像成为礼仪中心后，信徒来到神前接受 <span class="term">darśan</span>——不只是“我看见神像”，而是“我来到神圣者面前，被神圣者看见”。视觉在这里本身就是关系。</p>
+</section>
+
+<section id="human">
+  <h2>04｜人是什么？为什么会受苦？轮回又要到哪里结束？</h2>
+  <p>印度教关于人生最典型的叙事不是“人只有一次生命，然后进入永恒结局”，而是：生命处于不断流转的 <span class="term">saṃsāra（轮回）</span> 中；行为、动机与选择留下 <span class="term">karma（业）</span>；生命在出生、死亡、再出生中继续；而宗教修行的终极目标之一，是达到 <span class="term">mokṣa（解脱）</span>——从无明、执著与轮回束缚中得到自由。</p>
+  <div class="grid">
+    <div class="card"><h3>Ātman｜我最深处是谁</h3><p><span class="term">ātman</span> 常译“自我”“真我”或“灵魂”。各派理解并不一致：不二吠檀多强调 ātman 在终极层面与 Brahman 不二；其他吠檀多传统则坚持个体灵魂与至高神之间真实而永恒的区别或“有区别的合一”。</p></div>
+    <div class="card"><h3>Avidyā｜根本问题是“无明”</h3><p>许多哲学传统把人类困境追溯到错误认同：把短暂的身体、欲望、地位、心理活动当成最终的“我”，因此不断执著、行动、受果，再进入轮回。</p></div>
+    <div class="card"><h3>Karma｜不是“命中注定”</h3><p>业首先是行动及其因果结构，而不是神秘的惩罚积分。过去的行动塑造处境，但当下的行动仍会产生新的因果。它既解释命运，又保留道德责任。</p></div>
+    <div class="card"><h3>Mokṣa｜宗教的终点</h3><p>“解脱”在不同学派中可能被理解为认识真我、与至高神亲密共在、进入神的居所、摆脱业与轮回，或实现对终极实在的直接觉知。</p></div>
+  </div>
+  <p>这也是为什么印度教徒对死亡的理解往往带有“迁居”而非“绝对终结”的色彩。死亡当然伴随哀痛，但身体并非最终自我；许多印度教社群选择火葬，象征身体元素归还自然，灵魂继续其旅程。对许多家庭而言，身后仪礼、祖先纪念与神圣河流因此具有非常具体的宗教意义。</p>
+</section>
+
+<section id="paths">
+  <h2>05｜走向解脱：不是一条路，而是多种瑜伽</h2>
+  <p>现代人一听“Yoga”常想到体式运动，但在印度教语境里，<span class="term">yoga</span> 更广义地指训练、联结、灵性道路。尤其在《薄伽梵歌》的影响下，几条经典道路常被并列讨论，而且现实中的信徒通常会把它们混合起来。</p>
+  <div class="grid">
+    <div class="card"><h3>Karma Yoga｜行动之道</h3><p>履行责任，却不执著于行动的果报。不是逃离世界，而是在世界中行动，同时把结果交托给神圣秩序。</p></div>
+    <div class="card"><h3>Jñāna Yoga｜知识之道</h3><p>通过辨识、学习、沉思与直接洞见，认清真实与虚幻、永恒与短暂、真我与表层自我的区别。</p></div>
+    <div class="card"><h3>Bhakti Yoga｜奉爱之道</h3><p>以爱、唱诵、祷告、服事、圣名和对人格神的全心归依来亲近神。对大量普通信徒而言，这是最具情感温度也最普及的路径。</p></div>
+    <div class="card"><h3>Rāja / Dhyāna Yoga｜禅修与心识训练</h3><p>约束身心、专注、禅定，最终超越日常心识状态。帕坦伽利《瑜伽经》是这一传统的重要经典。</p></div>
+  </div>
+  <div class="insider"><div class="label">一个关键差别</div>
+    <p>“解脱”并不等于现代流行文化中笼统的“做更好的自己”。它涉及对存在本身的理解发生根本改变：我到底是谁？行动为什么束缚我？神与世界是什么关系？怎样停止被欲望、恐惧、无明和业力牵引？</p>
+  </div>
+</section>
+
+<section id="deities">
+  <h2>06｜Vishnu、Shiva、Devi：诸神与四大传统</h2>
+  <p>印度教不只是“有许多神”，更重要的是这些神圣形态组织成了完整的宗派宇宙。对信徒来说，自己所敬奉的神未必只是“众多神中的一个”；在许多宗派中，祂就是最高实在以最完全、最可亲近方式的显现。</p>
+
+  <div class="grid">
+    <div class="card"><h3>Vaiṣṇavism｜毗湿奴派</h3><p>以 Vishnu 及其化身为中心，尤其是 Rama 与 Krishna。强调神的恩典、奉爱与归依。Sri Vaishnavism、Gaudiya Vaishnavism（高迪亚毗湿奴派，ISKCON 所属传统）等内部又有明显差异。</p></div>
+    <div class="card"><h3>Śaivism｜湿婆派</h3><p>以 Shiva 为至高者。既有强烈的寺庙礼仪与奉爱，也发展出高度复杂的瑜伽、形上学和密续传统，如 Shaiva Siddhanta、Kashmir Shaivism。</p></div>
+    <div class="card"><h3>Śāktism｜性力派</h3><p>以 Devi / Shakti——神圣女性力量——为终极神圣实在。Durga、Kali、Lakshmi、Saraswati 等女神形态在不同脉络中受到敬拜。</p></div>
+    <div class="card"><h3>Smārta｜斯玛尔塔传统</h3><p>常与不二吠檀多联系，以多种主要神祇作为同一 Brahman 的可敬拜形式。家庭可选择自己的 <span class="term">iṣṭa-devatā</span>，而不必否认其他神圣形态。</p></div>
+  </div>
+
+  <figure class="figure tall">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/MET_DT240.jpg" alt="湿婆作为宇宙舞王 Nataraja 的青铜像">
+    <figcaption>湿婆作为 Naṭarāja（舞王）的形象，约11世纪，泰米尔纳德，纽约大都会艺术博物馆藏。火环、舞姿、鼓、火焰和脚下被压制的无明共同构成一幅关于创造、维系、毁灭与解脱的视觉神学。图片：The Met / Wikimedia Commons，CC0。</figcaption>
+  </figure>
+
+  <h3>化身（avatāra）意味着什么？</h3>
+  <p>在毗湿奴派传统中，<span class="term">avatāra</span> 指至高神为了恢复 <span class="term">dharma</span>、保护世界而“降临”于历史/宇宙秩序之中。Rama 与 Krishna 是最具影响力的两位。这里不是简单的“英雄后来被神化”，至少从信徒内部来说，是神主动以可见、可亲近的方式进入世界。</p>
+
+  <figure class="figure">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/9/9c/Durga_Puja_celebration.jpg" alt="杜尔迦女神节中的杜尔迦圣像">
+    <figcaption>Durga Puja（杜尔迦女神节）中的 Durga 圣像。性力派传统不是把“女神”理解为男性神的附属物；在许多 Shakta 神学中，Devi / Shakti 本身就是终极神圣力量。图片：Dipankan001 / Wikimedia Commons，CC BY 3.0。</figcaption>
+  </figure>
+</section>
+
+<section id="philosophy">
+  <h2>07｜印度教不是只有神话：它还是一个巨大的哲学辩论场</h2>
+  <p>古典印度思想常提到六个承认吠陀权威的 <span class="term">āstika darśana</span>。“正统”在这里主要是“承认吠陀的权威”，并不等于每一派都主张同样的人格神论。六派分别是 Nyāya（正理）、Vaiśeṣika（胜论）、Sāṃkhya（数论）、Yoga（瑜伽）、Mīmāṃsā（弥曼差）和 Vedānta（吠檀多）。</p>
+  <div class="table-wrap"><table>
+    <thead><tr><th>学派</th><th>核心关切</th><th>内部观察</th></tr></thead>
+    <tbody>
+      <tr><td><b>Nyāya</b></td><td>逻辑、认识论、有效知识</td><td>“我们凭什么知道一件事是真的？”印度哲学并非只靠神秘体验，也发展了严格论证。</td></tr>
+      <tr><td><b>Vaiśeṣika</b></td><td>存在分类、原子论</td><td>分析世界由哪些基本范畴构成。</td></tr>
+      <tr><td><b>Sāṃkhya</b></td><td>Puruṣa 与 Prakṛti</td><td>意识主体与物质自然的区分，为瑜伽思想提供重要框架。</td></tr>
+      <tr><td><b>Yoga</b></td><td>心识控制、禅定、解脱</td><td>经典瑜伽远不止身体姿势；八支瑜伽包括伦理、呼吸、专注和三摩地。</td></tr>
+      <tr><td><b>Mīmāṃsā</b></td><td>吠陀解释与仪式义务</td><td>重视祭祀、语言、经文权威和 dharma 的解释。</td></tr>
+      <tr><td><b>Vedānta</b></td><td>奥义书、梵经、薄伽梵歌的终极解释</td><td>后来成为全球最知名的印度教哲学家族。</td></tr>
+    </tbody>
+  </table></div>
+
+  <h3>吠檀多内部：同一本经书，可以导出非常不同的神学</h3>
+  <div class="grid">
+    <div class="card"><h3>Advaita｜不二论</h3><p>以 Śaṅkara（商羯罗）为代表。终极实在唯有 Brahman；真正的 ātman 与 Brahman 不二。差异世界并非简单“什么都不存在”，而是其终极地位受无明与 māyā 的条件制约。</p></div>
+    <div class="card"><h3>Viśiṣṭādvaita｜限定不二论</h3><p>以 Rāmānuja（罗摩奴阇）为代表。神、灵魂与世界真实存在；万有依附于至高神，形成一种“统一中有真实差异”的结构，奉爱与恩典极为重要。</p></div>
+    <div class="card"><h3>Dvaita｜二元论</h3><p>以 Madhva 为代表。神与个体灵魂之间有真实而永恒的差异，Vishnu 至高，得救/解脱依赖对至高神的正确认识与奉爱。</p></div>
+    <div class="card"><h3>为什么这很重要</h3><p>因此，“印度教相信灵魂就是神”并不准确——这是某些传统，尤其 Advaita 的典型表达，却不是所有印度教徒都接受的统一教义。</p></div>
+  </div>
+</section>
+
+<section id="scriptures">
+  <h2>08｜印度教“圣经”是什么？答案是一座图书馆，而不是一本书</h2>
+  <p>印度教经书最重要的区分之一，是 <span class="term">śruti</span>（“所听闻者”）与 <span class="term">smṛti</span>（“所记忆者”）。在传统理解中，吠陀属于 śruti，具有最高层级的启示性权威；古代圣哲 <span class="term">ṛṣi</span> 并不是像普通作者那样“创作”吠陀，而是“听见/看见”永恒真理。哈佛世界宗教研究中心概括说，传统上吠陀被理解为 <span class="term">apauruṣeya</span>——非人所作、无普通人类作者的神圣知识。<sup><a href="#r4">[4]</a></sup></p>
+
+  <div class="scripture">
+    <div class="box"><h3>Śruti｜最高层级的“所听闻”</h3>
+      <p><b>四吠陀</b>：Ṛgveda《梨俱吠陀》、Sāmaveda《娑摩吠陀》、Yajurveda《夜柔吠陀》、Atharvaveda《阿闼婆吠陀》。</p>
+      <p>每一吠陀传统又包含赞歌/咒句、祭仪解释、森林书和奥义书等层次。它们保存了从祭祀宗教到哲学沉思的漫长发展。</p>
+    </div>
+    <div class="box"><h3>Smṛti｜“所记忆”的传统</h3>
+      <p><b>史诗与经典：</b>《摩诃婆罗多》（其中包括《薄伽梵歌》）、《罗摩衍那》；<b>往世书（Purāṇa）</b>；<b>Dharmaśāstra</b> 法论传统；以及众多宗派的 <b>Āgama / Tantra</b>、地方语言奉爱文学、圣徒诗歌、注疏等。</p>
+    </div>
+  </div>
+
+  <h3>四吠陀内部也不是同一种文体</h3>
+  <div class="flow">
+    <div class="step"><b>Saṃhitā</b>赞歌、咒句、祷文；最古层。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Brāhmaṇa</b>祭仪解释、象征与礼制。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Āraṇyaka</b>“森林书”，祭仪向内在沉思过渡。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Upaniṣad</b>追问 Brahman、ātman、业、轮回与解脱。</div>
+  </div>
+
+  <p>这也解释了一个有趣现象：一位普通印度教徒可能从来没有完整读过吠陀，却仍然承认其崇高地位；他实际最熟悉的可能是《薄伽梵歌》、Rama/Krishna 的故事、地方神话、节庆歌曲和家族仪礼。经书权威与日常使用并不总是一回事。</p>
+
+  <figure class="figure">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/BhagavadGita-19th-century-Illustrated-Sanskrit-Chapter_1.20.21.jpg" alt="十九世纪梵文薄伽梵歌插图手稿">
+    <figcaption>19世纪梵文《薄伽梵歌》插图手稿，画面为战场上的 Krishna 与 Arjuna。《薄伽梵歌》并非一部独立于史诗之外的“唯一圣经”，而是《摩诃婆罗多》的一部分，却成为影响最广的印度教灵性经典之一。图片：British Library / Wikimedia Commons，公版。</figcaption>
+  </figure>
+</section>
+
+<section id="gita">
+  <h2>09｜《薄伽梵歌》为什么如此重要：一场“我到底该不该行动”的危机</h2>
+  <p>《薄伽梵歌》的戏剧张力来自一个极具体的处境：战士 Arjuna 面对战争，看见对面有自己的亲属、老师和熟人，陷入道德崩溃。他想放下武器。Krishna 对他的教导因此不是抽象课堂，而是对一个人“如何在冲突世界里履行 dharma，又不被行动捆绑”的回答。</p>
+  <p>从印度教内部看，《歌》之所以巨大，是因为它把几个本来可能被视为竞争的方向放到了一起：<strong>行动而不执著、通过知识辨识真实、以奉爱归依神、训练心识、看见神的宇宙形态</strong>。它没有简单说“世界是坏的，所以离开世界”；相反，它问：你能否在行动中不被行动占有？你能否把工作、责任、战斗、奉献都重新置于神圣秩序之中？</p>
+  <div class="quote">
+    《薄伽梵歌》的宗教力量，在于把“解脱”从纯粹退隐者的道路重新带回行动者的人生：家庭、社会、责任与神圣追求可以被重新整合。
+    <small>这是对《歌》思想结构的概括，不是经文逐字引语。</small>
+  </div>
+</section>
+
+<section id="worship">
+  <h2>10｜一个印度教徒实际怎样敬拜：pūjā、darśan、prasāda 与节庆</h2>
+  <p>如果只研究 Brahman、ātman 和 Vedānta，你会理解一部分印度哲学，却仍然可能不理解一个普通印度教家庭。活的印度教充满感官经验：灯火、香、花、水、铃声、梵文或地方语言赞歌、额头印记、圣食、圣像、绕行、触摸、朝圣与家庭记忆。</p>
+
+  <h3>Pūjā｜不是只“祷告”，而是款待神圣临在</h3>
+  <p>家庭或寺庙的 <span class="term">pūjā</span> 通常包括清洁、献灯、献香、花、水、食物、诵名、诵咒、礼拜等。其内在逻辑可以理解为：神圣者并非远离日常生活，而是可以被迎接、敬奉、感恩和爱。印度教徒自己的教育材料把 pūjā 描述为对至高者、devas、圣者乃至祖先表达尊敬、感谢与奉爱的互惠行为。<sup><a href="#r5">[5]</a></sup></p>
+  <div class="flow">
+    <div class="step"><b>进入神圣空间</b>净身、脱鞋、安静心绪。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>供献</b>灯、香、花、水、果物、食物。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Darśan</b>看见神圣者，也被神圣者“看见”。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Ārati / Prasāda</b>接受灯火祝福与被神圣恩典“触及”的供物。</div>
+  </div>
+
+  <h3>节庆就是神学被活出来</h3>
+  <div class="grid">
+    <div class="card"><h3>Diwali｜排灯节</h3><p>不同地区赋予不同神话背景，常与光胜过黑暗、吉祥、Lakshmi、Rama 等相连。家庭点灯、清洁、祈福、团聚。</p></div>
+    <div class="card"><h3>Holi｜洒红节</h3><p>春季、色彩、游戏与社群秩序暂时被打乱；与 Krishna 故事及善胜恶的神话记忆相连。</p></div>
+    <div class="card"><h3>Navarātri / Durga Puja</h3><p>围绕 Devi 的九夜庆典，在孟加拉等地以 Durga Puja 尤其盛大，彰显神圣女性力量战胜混乱与邪恶。</p></div>
+    <div class="card"><h3>Janmāṣṭamī / Rāma Navamī</h3><p>庆祝 Krishna 与 Rama 的诞生；通过戏剧、唱诵、禁食、夜间敬拜重新进入神圣故事。</p></div>
+  </div>
+
+  <h3>朝圣：地理本身也可以是神圣的</h3>
+  <p>印度教的“圣地”不是仅仅纪念过去发生过的事。河流、山岳、城市、寺庙和神话地点可以被理解为神圣力量特别浓厚的空间。Varanasi（瓦拉纳西）与恒河在死亡、净化、湿婆崇拜和解脱想象中具有特殊地位。</p>
+  <figure class="figure">
+    <img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/04/Ahilya_Ghat_by_the_Ganges%2C_Varanasi.jpg/1280px-Ahilya_Ghat_by_the_Ganges%2C_Varanasi.jpg" alt="瓦拉纳西恒河河坛">
+    <figcaption>瓦拉纳西恒河岸的 Ahilya Ghat。对许多印度教徒而言，圣河不是“宗教象征而已”，而是可沐浴、供献、祈祷、送别亡者并与神圣秩序相连的真实地点。图片：Ken Wieland / Wikimedia Commons，CC BY-SA 2.0。</figcaption>
+  </figure>
+</section>
+
+<section id="guru">
+  <h2>11｜为什么“上师—门徒”关系如此重要</h2>
+  <p><span class="term">guru</span> 不是简单等于“宗教老师”或“人生导师”。在许多传统中，上师承担把经书、修行、咒语与活的传承交给门徒的角色。印度教的知识观往往认为，某些最高真理不是仅凭阅读就能获得，而需要在修行、人格训练、仪式与师承中被“实现”。</p>
+  <p><span class="term">sampradāya</span> 则是传承链条：某位老师从前代老师接受教导，再传给下一代。它提供了身份、解释框架和实践规范。于是两个都自称“印度教徒”的人，可能因为属于完全不同 sampradāya，对神、人、解脱和仪式的理解相差很大，但他们仍把彼此看作更广阔 Dharma 家族的一部分。</p>
+  <div class="warning"><b>需要辨别：</b>现代全球化使“guru”一词同时出现于传统寺院、跨国灵修组织、瑜伽产业和商业化个人品牌中。印度教内部本身也一直有辨别真假教师、伦理失范与权威滥用的问题；“有上师”不等于取消理性和道德判断。</div>
+</section>
+
+<section id="society">
+  <h2>12｜宗教如何进入人生与社会：四个人生目标、四阶段与种姓问题</h2>
+  <h3>Puruṣārtha｜人生不是只有“解脱”一个目标</h3>
+  <p>传统印度教经常用四个“人生目标”理解完整人生：<span class="term">dharma</span>（正当秩序与责任）、<span class="term">artha</span>（物质资源与社会成就）、<span class="term">kāma</span>（欲望、爱情、审美与享受）和 <span class="term">mokṣa</span>（解脱）。它的妙处在于：财富与欲望本身并不必然被妖魔化，但应受到 dharma 的规范，而人生最终可以向 mokṣa 打开。</p>
+
+  <h3>Āśrama｜理想人生的四个阶段</h3>
+  <div class="flow">
+    <div class="step"><b>Brahmacarya</b>学习、训练、自律的学生期。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Gṛhastha</b>成家、工作、养育、供养社会的家居期。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Vānaprastha</b>逐渐退居、减少世务、加深灵性。</div>
+    <div class="arrow">→</div>
+    <div class="step"><b>Sannyāsa</b>出离、放下身份与财产、专注解脱。</div>
+  </div>
+
+  <h3>种姓：既不能把它说成“印度教全部”，也不能假装它与宗教毫无关系</h3>
+  <p>外部讨论常把 <span class="term">varṇa</span> 和 <span class="term">jāti</span> 都翻成“种姓”，但二者不是同一概念。经典的 varṇa 模型把社会分成婆罗门、刹帝利、吠舍、首陀罗等理想类别；现实南亚社会更复杂的，是成千上万与职业、地域、婚姻网络相连的 jāti 群体。历史上，不平等、排斥和“不可接触制”确实造成了严重伤害，也曾被宗教文本和习俗合法化；与此同时，印度教传统内部也长期存在反等级化的奉爱圣徒、改革运动和现代反种姓思想。</p>
+  <p>因此，把“种姓制度完全等于印度教”会遮蔽历史复杂性；但把它说成“纯粹社会问题，与印度教没有关系”同样不准确。更稳妥的理解是：宗教、法律文本、经济结构、地方习俗与政治权力在漫长历史中共同塑造了种姓现实，而不同印度教徒对其正当性的评价差异巨大。</p>
+</section>
+
+<section id="history">
+  <h2>13｜起源与发展：从吠陀祭火到寺庙、奉爱与全球印度教</h2>
+  <p>这里必须同时保留“信徒叙事”和“历史研究”两种语言。对许多印度教徒来说，Sanātana Dharma 没有真正的开始——它是永恒秩序；而历史学家研究的是：今天被称为印度教的各种文本、礼仪、神祇与社群在何时出现、怎样相互影响。</p>
+
+  <div class="timeline">
+    <div class="ti"><b>公元前约2600–1900年｜印度河流域文明</b><br>哈拉帕、摩亨佐-达罗等城市繁荣。某些印章、浴池与神像长期被用来讨论其与后世印度宗教的可能连续性，但具体对应关系仍有争议，不能把所有考古图像直接认作后来的 Shiva、瑜伽或女神崇拜。<sup><a href="#r3">[3]</a></sup></div>
+    <div class="ti"><b>公元前约1500–500年｜吠陀时代</b><br>以赞歌、祭火（yajña）、祭司传统和诸神为中心的吠陀宗教逐渐形成并发展。早期吠陀文本主要通过严格口传保存。</div>
+    <div class="ti"><b>公元前约800–300年｜奥义书与“向内转”</b><br>祭祀思考被内化：Brahman、ātman、karma、rebirth、mokṣa 等问题走向哲学核心。大致同一时代，佛教与耆那教也在北印度形成，对祭祀、阶序和解脱问题提出竞争性答案。</div>
+    <div class="ti"><b>公元前数世纪—公元数世纪｜史诗时代</b><br>《摩诃婆罗多》《罗摩衍那》在长期口传和编纂中成形；Krishna、Rama 的奉爱与 dharma 的伦理困境进入大众叙事，《薄伽梵歌》成为核心文本。</div>
+    <div class="ti"><b>约公元300–800年｜古典/往世书与寺庙宗教扩展</b><br>Purāṇa 文学、Vishnu/Shiva/Devi 神学和大型寺庙文化成熟，神话、圣地与地方传统被不断整合。</div>
+    <div class="ti"><b>约公元600–1700年｜Bhakti 奉爱运动</b><br>泰米尔地区 Āḻvār、Nāyaṉār 等诗人圣徒，以及后来印度各地的 Kabir、Tulsidas、Mirabai、Chaitanya 等传统，使地方语言唱诗、个人奉爱和神恩成为大众宗教的重要力量。</div>
+    <div class="ti"><b>中世纪并行发展｜Tantra / Āgama</b><br>湿婆、性力、毗湿奴等宗派发展大量寺庙礼仪、曼陀罗、咒语、身体与宇宙对应理论。Tantra 远不等于现代西方语境中的“性修炼”。</div>
+    <div class="ti"><b>18–19世纪｜殖民遭遇与“印度教”现代重构</b><br>英国殖民知识体系、传教批评、东方学研究、印刷出版与印度改革者共同推动“什么是 Hinduism”成为新的自觉问题。Brahmo Samaj、Arya Samaj、Ramakrishna/Vivekananda 等以不同方式重新解释传统。</div>
+    <div class="ti"><b>20世纪至今｜民族国家、侨民与全球灵修</b><br>印度独立、移民浪潮、瑜伽与 Vedānta 全球传播、ISKCON、Swaminarayan/BAPS 等跨国组织，以及现代 Hindu identity 与政治之间的复杂关系，塑造当代印度教。</div>
+  </div>
+
+  <div class="note"><b>关于“5000年历史”的说法：</b>印度教团体常把传统追溯到印度河流域甚至更早，并称其为“世界最古老的现存宗教”。这是重要的信徒自我理解。历史学术界则更倾向把“印度教”视为多个传统长期演化的结果，并对印度河文明与后世吠陀/印度教之间的具体连续性保持谨慎。两种叙述回答的其实不是完全相同的问题。</div>
+</section>
+
+<section id="modern">
+  <h2>14｜近现代印度教：改革、民族身份、侨民与全球传播</h2>
+  <p>殖民时期以后，印度教经历了深刻的自我重述。Vivekananda 在19世纪末向西方介绍 Vedānta 与 Yoga 时，强调宗教的普遍性、神圣统一与直接经验；Arya Samaj 倾向“回到吠陀”，批判某些后期习俗；Ramakrishna 传统强调多条宗教道路可能通向同一神圣实在；Gaudiya Vaishnavism 经由 ISKCON 在全球传播 Krishna bhakti；Swaminarayan/BAPS 则建立高度组织化的全球寺庙与社群网络。</p>
+  <p>与此同时，现代印度还出现了 <span class="term">Hindutva</span>（印度教民族主义/印度性）这一政治思想传统。它与 Hinduism 共享某些文明符号和宗教身份，但二者不应被简单画等号：Hinduism 是极其宽广的宗教—文明传统；Hindutva 是近现代形成的政治/民族身份项目。支持者强调文化统一、历史创伤与多数社群的公共地位；批评者则担忧它可能把印度多宗教社会压缩为多数主义国家身份。现实中的印度教徒对这一政治议题并没有单一立场。</p>
+  <p>全球侨民则产生了另一种变化：当印度教徒生活在美国、英国、加拿大、澳大利亚、新西兰等地时，过去在印度由社区、家庭与环境自然承载的传统，往往需要被“解释出来”——建寺庙、开周末宗教课程、编写 Hinduism 101、建立跨地域身份。这也是为什么现代英语世界出现越来越清晰的印度教自我介绍材料。</p>
+</section>
+
+<section id="today">
+  <h2>15｜今日印度教：一个约12亿人的世界宗教</h2>
+  <p>根据 Pew Research Center 2025 年发布、以 2020 年为比较基准的全球宗教人口研究，全球印度教徒约 <strong>12亿</strong>，约占世界人口 <strong>14.9%</strong>；2010–2020 年间人数增加约 1.26 亿，整体增速大致与全球人口同步。约 <strong>99%</strong> 的印度教徒生活在亚太地区，约 <strong>95%</strong> 生活在印度。<sup><a href="#r6">[6]</a></sup></p>
+  <div class="stats">
+    <div class="stat"><div class="big-number">1.2B</div><span>2020 年全球印度教徒约 12 亿</span></div>
+    <div class="stat"><div class="big-number">14.9%</div><span>约占全球人口比例</span></div>
+    <div class="stat"><div class="big-number">95%</div><span>全球印度教徒约 95% 居住在印度</span></div>
+  </div>
+  <p>这种高度地理集中很重要：与基督教、伊斯兰教相比，印度教虽然已经全球化，却仍然与印度文明、南亚语言、家族网络和圣地体系保持极强联系。Pew 的分析指出，97% 的印度教徒生活在印度和尼泊尔这两个印度教占多数的国家。<sup><a href="#r6">[6]</a></sup></p>
+  <p>与此同时，现代印度教不是静止传统。城市化、跨国教育、互联网、全球瑜伽文化、女性教育、反种姓运动、宗教民族主义、侨民身份，以及年轻一代对仪式与哲学的重新选择，都在不断改变“做一个印度教徒”意味着什么。</p>
+</section>
+
+<section id="misread">
+  <h2>16｜十个最容易把印度教看错的地方</h2>
+  <div class="table-wrap"><table>
+    <thead><tr><th>常见说法</th><th>更准确的理解</th></tr></thead>
+    <tbody>
+      <tr><td>“印度教就是多神教。”</td><td>太简单。不同传统可以是一神论、泛神/泛在论式、非二元论、二元论、神格多元，甚至包含较弱神论的哲学系统。</td></tr>
+      <tr><td>“他们有三亿多个神。”</td><td>这是流行化说法。经典中的巨大数字常有象征性；关键不是统计“神的数量”，而是理解神圣统一与多重显现的关系。</td></tr>
+      <tr><td>“Brahma、Vishnu、Shiva 就是印度版三位一体。”</td><td>Trimūrti 可象征创造、维系、毁灭，但并不是所有宗派的中心教义，也不能直接类比基督教三位一体。</td></tr>
+      <tr><td>“他们拜偶像，就是把石头当神。”</td><td>mūrti 的内部理解是神圣临在与可亲近形态；darśan 强调人与神圣者的相遇。</td></tr>
+      <tr><td>“karma 就是命运。”</td><td>karma 是行动及其道德因果，不是绝对宿命。当前选择仍会产生新的业。</td></tr>
+      <tr><td>“轮回就是人死后随机变动物。”</td><td>轮回是一整套由业、欲望与灵性状态塑造的生命连续性理论，重点是如何超越轮回。</td></tr>
+      <tr><td>“瑜伽就是拉伸。”</td><td>身体体式只是近现代最可见的一部分；古典 yoga 是伦理、呼吸、感官收摄、专注、禅定与解脱训练。</td></tr>
+      <tr><td>“所有印度教徒都是素食者。”</td><td>素食与 ahiṃsā 对许多社群很重要，但实际饮食依地区、种姓、宗派和家庭而异。</td></tr>
+      <tr><td>“所有印度教徒都相信 ātman = Brahman。”</td><td>这是不二吠檀多的经典方向；其他吠檀多学派坚持灵魂与神有真实差异。</td></tr>
+      <tr><td>“印度教没有教义，所以什么都信。”</td><td>没有单一信经不等于没有传统边界。经书、师承、礼仪与宗派神学形成了复杂而真实的规范体系。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="experience">
+  <h2>17｜如果你真的生在一个印度教家庭里，宗教可能是什么感觉？</h2>
+  <p class="lead">你很可能不是先从一本“印度教教理问答”开始信仰，而是先从家开始。</p>
+  <p>清晨，家里有一个小神龛。祖母点灯，香烟升起；有人给 Ganesha、Krishna、Shiva 或 Devi 献花。你从小知道进神龛前要干净，知道某些日子禁食，知道节庆要穿特别的衣服，知道把供奉过的食物当 <span class="term">prasāda</span> 接受。你不一定能解释 Brahman，却已经学会在神圣者面前合掌。</p>
+  <p>后来你跟父母去寺庙。你听见铃响，看见祭司在灯火前做 ārati。你排队走到圣像前，几秒钟里接受 darśan。你并不觉得自己面对的是“艺术品”；那一刻的逻辑是“我站在神面前”。你可能额头被点上 tilak/vibhuti/kumkum，手里接到 prasāda，然后绕着神殿行走。</p>
+  <p>再后来，你可能读《薄伽梵歌》，开始问：为什么我必须履行责任？如果结果无法控制，为什么还要努力？我到底是身体、心理，还是比这些更深的 ātman？你可能倾向 Advaita，认为最终应觉知 Brahman；也可能深深爱 Krishna，认为人生最深处不是“我就是绝对”，而是“我是神的仆人、朋友、爱人，靠恩典归向祂”。</p>
+  <p>家中有人去世时，轮回不再只是哲学名词。火葬、骨灰、恒河、祖先礼仪、关于下一世与解脱的语言会进入真实悲伤。婚礼时，dharma 也不再只是抽象伦理：它成为家庭承诺、祭火、誓言、祖辈和未来子女之间的一条线。</p>
+  <div class="insider"><div class="label">最重要的理解</div>
+    <p>所以，从内部看，印度教首先不是“相信一堆奇怪神话”；它是一种<strong>把宇宙、家庭、身体、伦理、神、时间、生死和终极解脱连成一个整体的生活世界</strong>。你可能质疑其中的某些传统、改变某些习俗、甚至很少去寺庙，却仍在这套语言里理解自己是谁、祖先是谁、什么是吉祥、怎样面对死亡、怎样追问终极真实。</p>
+  </div>
+</section>
+
+<section id="glossary">
+  <h2>18｜一页掌握：印度教核心词汇</h2>
+  <div class="glossary">
+    <div class="gitem"><b>Sanātana Dharma</b>：印度教常见自称，“永恒之法/道”。</div>
+    <div class="gitem"><b>Dharma</b>：秩序、正当生活、伦理责任、本分。</div>
+    <div class="gitem"><b>Brahman</b>：终极实在、绝对者；不是创造神 Brahmā。</div>
+    <div class="gitem"><b>Brahmā</b>：与创造功能相关的神祇，和 Brahman 不同。</div>
+    <div class="gitem"><b>Ātman</b>：真我、自我/灵魂；各学派解释不同。</div>
+    <div class="gitem"><b>Karma</b>：行动及其因果。</div>
+    <div class="gitem"><b>Saṃsāra</b>：生死流转、轮回。</div>
+    <div class="gitem"><b>Mokṣa</b>：从轮回与无明中解脱。</div>
+    <div class="gitem"><b>Māyā</b>：常译“幻”，但并非简单“世界不存在”；尤其在 Vedānta 中涉及现象世界与终极实在的关系。</div>
+    <div class="gitem"><b>Bhakti</b>：对人格神的奉爱、归依。</div>
+    <div class="gitem"><b>Yoga</b>：广义灵性训练/道路，不限于体式。</div>
+    <div class="gitem"><b>Pūjā</b>：供养、礼敬、敬拜仪式。</div>
+    <div class="gitem"><b>Darśan</b>：见神，也被神圣者看见。</div>
+    <div class="gitem"><b>Prasāda</b>：供奉后作为恩典/祝福接受的食物或物品。</div>
+    <div class="gitem"><b>Mūrti</b>：神圣形态/圣像。</div>
+    <div class="gitem"><b>Mantra</b>：具有宗教力量和修行功能的音声、咒语、圣句。</div>
+    <div class="gitem"><b>Guru</b>：灵性老师/上师。</div>
+    <div class="gitem"><b>Sampradāya</b>：宗派、师承传统。</div>
+    <div class="gitem"><b>Avatāra</b>：神圣“降临/化身”，尤其见于 Vishnu 传统。</div>
+    <div class="gitem"><b>Ahiṃsā</b>：不伤害、非暴力原则。</div>
+    <div class="gitem"><b>Śruti</b>：最高层级“所听闻”的启示传统，主要指 Veda。</div>
+    <div class="gitem"><b>Smṛti</b>：“所记忆”的传统，包括史诗、往世书、法论等。</div>
+  </div>
+</section>
+
+<section id="sources">
+  <h2>19｜研究资料、数据与图片来源</h2>
+  <p>本报告刻意同时采用两类资料：一类是印度教社群自身的教育材料，用来获得 <em>emic / insider</em> 视角；另一类是大学宗教学与人口研究资料，用来处理历史、内部多样性与统计问题。</p>
+  <ol class="refs">
+    <li id="r1"><b>Harvard Online / Religious Literacy Project</b>：宗教内部多样性、历史变化性与文化嵌入性的研究方法。<br><a href="https://harvardonline.harvard.edu/course/religious-literacy-traditions-scriptures">Religious Literacy: Traditions and Scriptures</a></li>
+    <li id="r2"><b>Hindu American Foundation</b>：Hinduism Basics；Sanātana Dharma、dharma、Brahman、karma、mokṣa 等印度教社群自我解释。<br><a href="https://www.hinduamerican.org/hinduism-basics">Hinduism Basics</a> · <a href="https://www.hinduamerican.org/learn/hinduism-faq">Hinduism FAQ</a></li>
+    <li id="r3"><b>Harvard Divinity School, Religion and Public Life</b>：Hinduism 概览；南亚宗教传统演变、吠陀权威、轮回与印度河文明连续性争论。<br><a href="https://rpl.hds.harvard.edu/resource/hinduism">Hinduism</a></li>
+    <li id="r4"><b>Harvard Center for the Study of World Religions</b>：Veda 作为 śruti、ṛṣi、“非人所作”（apauruṣeya）及 smṛti 的传统理解。<br><a href="https://cswr.hds.harvard.edu/news/2026/03/02/revelation">Revelation — Hindu (Vedic) and Buddhist Traditions</a></li>
+    <li id="r5"><b>Hindu American Foundation</b>：家庭 pūjā 的实践性自我说明。<br><a href="https://www.hinduamerican.org/learn/puja-guide">Pūjā at Home — A Practical Guide</a></li>
+    <li id="r6"><b>Pew Research Center, 2025</b>：2020 全球宗教人口更新；印度教约 12 亿、14.9%，以及 95% 居住印度等。<br><a href="https://www.pewresearch.org/religion/2025/06/09/how-the-global-religious-landscape-changed-from-2010-to-2020/">The World’s Religious Groups: How Their Sizes Changed from 2010 to 2020</a> · <a href="https://www.pewresearch.org/religion/2025/06/09/hindu-population-change/">Hindu population change</a></li>
+    <li><b>Census of India 2011</b>：印度宗教人口官方数据表 C-01。<br><a href="https://www.censusindia.gov.in/nada/index.php/catalog/11361">Population by religious community, India — 2011</a></li>
+    <li><b>Harvard University</b>：Hinduism Through Its Scriptures，强调印度教经书的丰富、多样及历史解释。<br><a href="https://pll.harvard.edu/course/hinduism-through-its-scriptures">Hinduism Through Its Scriptures</a></li>
+    <li><b>Hinduism Today</b>：作为印度教内部刊物，用于理解 karma、reincarnation、temple、guru 与宗派自我叙述；不是用作所有印度教徒的唯一权威。<br><a href="https://www.hinduismtoday.com/2009-04-introduction-to-hinduism/">Introduction to Hinduism</a></li>
+  </ol>
+
+  <h3>图片授权</h3>
+  <ul class="refs">
+    <li>Ahilya Ghat, Varanasi — Ken Wieland，Wikimedia Commons，CC BY-SA 2.0。</li>
+    <li>Durga Puja celebration — Dipankan001，Wikimedia Commons，CC BY 3.0。</li>
+    <li>Bhagavad Gita 19th-century manuscript — British Library / Wikimedia Commons，Public Domain。</li>
+    <li>Shiva as Lord of Dance (Nataraja), MET DT240 — The Metropolitan Museum of Art / Wikimedia Commons，CC0。</li>
+  </ul>
+</section>
+
+<footer>
+  <p><b>阅读提示：</b>这份报告的目标不是替任何一个宗派宣布“唯一正确的印度教”，而是把一个高度多样的传统尽可能按它自己的词汇组织起来。对具体宗派——例如 ISKCON、Sri Vaishnavism、Shaiva Siddhanta、Advaita Vedānta、Shakta Tantra、Swaminarayan/BAPS——若进一步深入，许多本报告中的“大框架”还需要继续细分。</p>
+  <p>制作日期：2026-09-14 · 单文件 HTML，可打印或“打印 → 另存为 PDF”。在线打开时可加载文中的 Wikimedia Commons 图片。</p>
+</footer>
+
+</main>
+</div>
+</body>
+</html>

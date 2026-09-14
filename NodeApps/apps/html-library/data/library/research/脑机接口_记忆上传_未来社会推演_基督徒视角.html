@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>当大脑成为接口：脑机接口、记忆加载与未来社会推演</title>
+<meta name="description" content="一份关于可植入脑机接口、记忆读写、认知增强、社会秩序、精神自由与基督教末世论辨析的思想实验与研究报告。" />
+<style>
+:root{
+  --bg:#071017;
+  --bg2:#0b1720;
+  --panel:#0e1d27;
+  --panel2:#122735;
+  --text:#e8f0f3;
+  --muted:#9eb0ba;
+  --cyan:#61e3ff;
+  --blue:#77a7ff;
+  --gold:#ffd36b;
+  --red:#ff7474;
+  --green:#75e0a7;
+  --violet:#c29bff;
+  --line:rgba(255,255,255,.09);
+  --shadow:0 18px 60px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:
+    radial-gradient(circle at 15% 0%, rgba(79,164,255,.15), transparent 35%),
+    radial-gradient(circle at 90% 20%, rgba(194,155,255,.11), transparent 30%),
+    linear-gradient(180deg,var(--bg),#050a0f 90%);
+  color:var(--text);
+  font-family:"Inter","PingFang SC","Microsoft YaHei","Noto Sans CJK SC",system-ui,sans-serif;
+  line-height:1.82;
+}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.shell{max-width:1180px;margin:auto;padding:0 24px}
+.hero{
+  min-height:92vh;
+  display:grid;grid-template-columns:1.08fr .92fr;gap:52px;align-items:center;
+  padding:64px 0 44px;
+}
+.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:800}
+h1{font-size:clamp(40px,6vw,78px);line-height:1.04;margin:18px 0 26px;letter-spacing:-.035em}
+h1 .soft{color:#afbec6;font-weight:500}
+.lead{font-size:20px;color:#c5d1d7;max-width:780px}
+.notice{
+  margin-top:28px;padding:18px 20px;border:1px solid var(--line);border-left:4px solid var(--gold);
+  background:rgba(255,211,107,.06);border-radius:12px;color:#e9e1c8
+}
+.hero-art{
+  border:1px solid var(--line);border-radius:26px;padding:24px;
+  background:linear-gradient(145deg,rgba(18,39,53,.95),rgba(8,17,24,.88));
+  box-shadow:var(--shadow);position:relative;overflow:hidden;
+}
+.hero-art:before{content:"";position:absolute;inset:-40%;background:conic-gradient(from 10deg,transparent,rgba(97,227,255,.08),transparent 35%);animation:spin 16s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-art svg{position:relative;z-index:1;width:100%;height:auto;display:block}
+.nav{
+  position:sticky;top:0;z-index:30;backdrop-filter:blur(18px);
+  background:rgba(5,10,15,.82);border-top:1px solid var(--line);border-bottom:1px solid var(--line)
+}
+.nav .inner{display:flex;gap:22px;overflow:auto;white-space:nowrap;padding:12px 24px;max-width:1180px;margin:auto}
+.nav a{font-size:13px;color:#b8c9d2}
+section{padding:76px 0;border-bottom:1px solid rgba(255,255,255,.05)}
+h2{font-size:clamp(28px,4vw,46px);line-height:1.18;margin:0 0 22px;letter-spacing:-.02em}
+h3{font-size:22px;margin:34px 0 12px}
+p{margin:0 0 16px;color:#d5dfe4}
+.muted{color:var(--muted)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{
+  background:linear-gradient(180deg,rgba(18,39,53,.74),rgba(11,23,32,.82));
+  border:1px solid var(--line);border-radius:18px;padding:24px;box-shadow:0 8px 32px rgba(0,0,0,.13)
+}
+.card h3{margin-top:0}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.04em;padding:5px 9px;border-radius:999px;background:rgba(97,227,255,.11);color:var(--cyan);margin-bottom:12px}
+.tag.gold{background:rgba(255,211,107,.12);color:var(--gold)}
+.tag.red{background:rgba(255,116,116,.12);color:var(--red)}
+.tag.green{background:rgba(117,224,167,.12);color:var(--green)}
+blockquote{
+  margin:26px 0;padding:20px 24px;border-left:4px solid var(--violet);background:rgba(194,155,255,.07);
+  border-radius:0 14px 14px 0;color:#e1d9ef;font-size:18px
+}
+table{width:100%;border-collapse:collapse;margin:24px 0;background:rgba(10,22,30,.65);border-radius:14px;overflow:hidden}
+th,td{padding:14px 15px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font-size:13px;color:#a9bbc4;background:rgba(255,255,255,.03);letter-spacing:.03em}
+td{color:#d9e3e7}
+.badge{display:inline-block;border:1px solid var(--line);border-radius:8px;padding:3px 7px;font-size:12px;color:#bdcbd2}
+.diagram{margin:32px 0;padding:24px;border:1px solid var(--line);border-radius:18px;background:#0a151d;overflow:auto}
+.timeline{position:relative;margin:26px 0 0;padding-left:26px}
+.timeline:before{content:"";position:absolute;left:7px;top:5px;bottom:5px;width:2px;background:linear-gradient(var(--cyan),var(--violet),var(--red))}
+.event{position:relative;padding:0 0 30px 18px}
+.event:before{content:"";position:absolute;left:-24px;top:8px;width:12px;height:12px;border-radius:50%;background:var(--bg);border:3px solid var(--cyan)}
+.event:nth-child(3n+2):before{border-color:var(--violet)}
+.event:nth-child(3n):before{border-color:var(--red)}
+.event h3{margin:0 0 7px;font-size:18px}
+.level{
+  display:flex;gap:8px;align-items:center;margin:8px 0
+}
+.dot{width:9px;height:9px;border-radius:50%;background:#203542}
+.dot.on{background:var(--cyan);box-shadow:0 0 12px rgba(97,227,255,.45)}
+.meter{height:8px;background:#172833;border-radius:999px;overflow:hidden;margin-top:10px}
+.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--gold),var(--red))}
+.callout{
+  padding:26px;border:1px solid rgba(97,227,255,.25);border-radius:18px;
+  background:linear-gradient(140deg,rgba(97,227,255,.075),rgba(194,155,255,.06))
+}
+.bigline{font-size:clamp(25px,4vw,40px);line-height:1.35;font-weight:800;letter-spacing:-.02em;color:#eef8fb}
+.smallcaps{font-size:12px;text-transform:uppercase;letter-spacing:.14em;color:#8fa4ad;font-weight:800}
+.controls{display:grid;grid-template-columns:repeat(2,1fr);gap:22px}
+.control label{display:flex;justify-content:space-between;font-weight:700;margin-bottom:8px}
+input[type=range]{width:100%;accent-color:#64dff7}
+#simResult{min-height:230px}
+.score{font-size:56px;font-weight:900;letter-spacing:-.04em}
+.scenarioName{font-size:24px;font-weight:850;margin-bottom:8px}
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{font-size:12px;padding:5px 9px;border-radius:999px;border:1px solid var(--line);color:#c4d1d7}
+details{border-top:1px solid var(--line);padding:16px 0}
+summary{cursor:pointer;font-weight:800}
+.source{font-size:13px;color:#9cafb8}
+footer{padding:55px 0 80px;color:#879aa4;font-size:13px}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;min-height:auto;padding-top:52px}
+  .grid2,.grid3,.controls{grid-template-columns:1fr}
+}
+@media print{
+  body{background:white;color:#111}
+  .nav,.simulator{display:none!important}
+  .card,.hero-art,.diagram,.callout{box-shadow:none;background:white;border:1px solid #ccc}
+  p,td{color:#222} h1,h2,h3{color:#111}.muted,.source{color:#555}
+  section{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<div class="shell">
+  <header class="hero" id="top">
+    <div>
+      <div class="kicker">Thought Experiment · Neurotechnology · Christian Discernment</div>
+      <h1>当大脑成为接口<br><span class="soft">世界还会是人的世界吗？</span></h1>
+      <p class="lead">一个关于可植入脑机接口、记忆备份与“加载”、认知增强、社会分层、思想自由、经济强制，以及《启示录》“兽印”联想的未来推演。</p>
+      <div class="notice"><strong>阅读原则：</strong>本文不是预言，也不是把某项技术直接解释成圣经预言的实现。它采用“从已知能力出发，逐级增加假设”的方法：先确认现实，再推演制度后果，最后进行神学辨析。</div>
+    </div>
+    <div class="hero-art" aria-label="脑机接口概念图">
+      <svg viewBox="0 0 640 640" role="img">
+        <defs>
+          <radialGradient id="g1"><stop stop-color="#61e3ff" stop-opacity=".8"/><stop offset="1" stop-color="#61e3ff" stop-opacity="0"/></radialGradient>
+          <linearGradient id="g2" x1="0" x2="1"><stop stop-color="#61e3ff"/><stop offset=".55" stop-color="#c29bff"/><stop offset="1" stop-color="#ff7474"/></linearGradient>
+          <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+        </defs>
+        <circle cx="320" cy="320" r="250" fill="none" stroke="#ffffff" stroke-opacity=".06" stroke-width="1"/>
+        <circle cx="320" cy="320" r="200" fill="none" stroke="#61e3ff" stroke-opacity=".12" stroke-dasharray="5 12"/>
+        <path d="M211 197 C165 220 154 279 177 325 C145 380 178 445 236 459 C271 499 349 500 384 462 C443 448 474 388 447 339 C482 282 454 223 405 204 C366 153 256 153 211 197Z"
+              fill="#102b3a" stroke="url(#g2)" stroke-width="4" filter="url(#glow)"/>
+        <path d="M246 220 C205 244 212 292 240 312 C210 339 219 388 259 410 M315 193 C280 228 295 264 322 282 C289 309 293 350 326 373 C298 399 306 434 343 455 M389 216 C432 246 421 292 394 314 C423 339 419 385 380 406"
+              fill="none" stroke="#b7f6ff" stroke-opacity=".55" stroke-width="5" stroke-linecap="round"/>
+        <rect x="278" y="282" width="84" height="84" rx="14" fill="#071017" stroke="#ffd36b" stroke-width="3"/>
+        <rect x="295" y="299" width="50" height="50" rx="8" fill="#ffd36b" fill-opacity=".12" stroke="#ffd36b" stroke-opacity=".7"/>
+        <g stroke="#61e3ff" stroke-width="3" stroke-linecap="round" filter="url(#glow)">
+          <path d="M278 300 H224 L190 266"/><path d="M278 320 H212 L177 320"/><path d="M278 344 H226 L192 383"/>
+          <path d="M362 300 H418 L457 263"/><path d="M362 320 H432 L475 320"/><path d="M362 344 H417 L455 385"/>
+        </g>
+        <g fill="#61e3ff"><circle cx="190" cy="266" r="6"/><circle cx="177" cy="320" r="6"/><circle cx="192" cy="383" r="6"/><circle cx="457" cy="263" r="6"/><circle cx="475" cy="320" r="6"/><circle cx="455" cy="385" r="6"/></g>
+        <circle cx="320" cy="324" r="150" fill="url(#g1)" opacity=".12"/>
+        <text x="320" y="546" text-anchor="middle" fill="#a9bcc6" font-size="18">READ  ·  WRITE  ·  STORE  ·  CONNECT</text>
+      </svg>
+    </div>
+  </header>
+</div>
+
+<nav class="nav">
+  <div class="inner">
+    <a href="#reality">现实边界</a><a href="#threshold">真正的分水岭</a><a href="#timeline">阶段推演</a><a href="#society">社会重构</a>
+    <a href="#memory">记忆与身份</a><a href="#risk">风险矩阵</a><a href="#sim">情景模拟器</a><a href="#revelation">兽印辨析</a><a href="#christian">基督徒回应</a><a href="#sources">资料来源</a>
+  </div>
+</nav>
+
+<main>
+<section id="intro">
+<div class="shell">
+  <div class="smallcaps">01 · 核心命题</div>
+  <h2>真正可怕的，不是机器替人工作，而是“外部系统进入人的主体性”</h2>
+  <div class="grid2">
+    <div>
+      <p>机器人、AI 助手、自动驾驶、工业自动化，本质上仍主要发生在“人之外”。即使它们极其强大，人仍然可以在原则上把机器关掉、离开平台、拒绝使用某个工具。可植入且具有双向能力的脑机接口，则可能跨过一道过去很少被跨过的边界：技术不再只是人的<strong>工具</strong>，而开始成为人的<strong>感知、记忆、判断与行动回路的一部分</strong>。</p>
+      <p>所以真正决定未来社会性质的，不是“芯片多快”，而是四个问题：它能不能<strong>读</strong>大脑？能不能<strong>写</strong>大脑？是否必须<strong>联网</strong>？人是否拥有真实的<strong>拒绝权</strong>？</p>
+    </div>
+    <div class="callout">
+      <div class="smallcaps">最重要的判断</div>
+      <div class="bigline">“增强智力”本身未必导致失控；<br>“他者拥有对你大脑的写权限”才是文明级变量。</div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="reality">
+<div class="shell">
+  <div class="smallcaps">02 · Reality Check</div>
+  <h2>先把科幻与现实分开：2026 年，我们究竟走到哪里？</h2>
+  <p>今天的植入式脑机接口已经不是纯粹科幻：研究系统可以从皮层活动中解码运动意图、尝试说话的神经活动，并帮助部分瘫痪者控制计算机或合成语音。Neuralink 在 2024 年报告首位人体植入者使用脑信号操作计算机；其 2026 年更新称已有 21 名参与者。学术研究也已经展示高性能“脑—文字”“脑—声音”神经假体。与此同时，临床综述指出，植入式 BCI 仍然处于试验阶段，长期安全性、稳定性、规模化部署与监管问题仍然没有解决。</p>
+  <div class="grid3">
+    <div class="card">
+      <span class="tag green">已实现 / 正在试验</span>
+      <h3>读取有限神经意图</h3>
+      <p>从特定脑区的神经活动推断光标移动、尝试发音、少量内部言语等。在特定受试者和特定训练条件下，准确率已经相当可观。</p>
+    </div>
+    <div class="card">
+      <span class="tag gold">初步证据</span>
+      <h3>帮助某些记忆编码</h3>
+      <p>海马相关研究已尝试用个体神经编码模式指导刺激，在特定实验任务中改善部分记忆表现。这远不等于“下载一段人生记忆”。</p>
+    </div>
+    <div class="card">
+      <span class="tag red">尚属高度假设</span>
+      <h3>完整记忆备份与加载</h3>
+      <p>目前没有证据表明人类可以像复制文件一样读取、存储并重新写回完整自传式记忆、人格、技能和主观体验，更谈不上把“一个人的自我”完整上传。</p>
+    </div>
+  </div>
+
+  <div class="diagram">
+    <svg viewBox="0 0 1040 330" width="100%" role="img" aria-label="脑机接口能力分层图">
+      <style>.t{fill:#dfe9ed;font:700 18px sans-serif}.s{fill:#9db0b9;font:14px sans-serif}.l{stroke:#2d4653;stroke-width:2}.b{stroke-width:2;rx:16}</style>
+      <line class="l" x1="105" y1="168" x2="940" y2="168"/>
+      <g transform="translate(40,70)"><rect class="b" width="190" height="190" fill="#102a25" stroke="#75e0a7"/><text class="t" x="20" y="40">① 读取意图</text><text class="s" x="20" y="76">光标 / 运动 / 尝试发音</text><text class="s" x="20" y="104">现实已有大量研究</text><text class="s" x="20" y="150">风险：数据隐私</text></g>
+      <g transform="translate(285,70)"><rect class="b" width="190" height="190" fill="#122735" stroke="#61e3ff"/><text class="t" x="20" y="40">② 闭环刺激</text><text class="s" x="20" y="76">读信号 + 定向刺激</text><text class="s" x="20" y="104">医疗用途正在进展</text><text class="s" x="20" y="150">风险：行为影响</text></g>
+      <g transform="translate(530,70)"><rect class="b" width="190" height="190" fill="#2b2616" stroke="#ffd36b"/><text class="t" x="20" y="40">③ 认知增强</text><text class="s" x="20" y="76">记忆 / 注意 / 学习</text><text class="s" x="20" y="104">部分仍是假设</text><text class="s" x="20" y="150">风险：阶层分化</text></g>
+      <g transform="translate(775,70)"><rect class="b" width="190" height="190" fill="#321b24" stroke="#ff7474"/><text class="t" x="20" y="40">④ 记忆“加载”</text><text class="s" x="20" y="76">经历 / 技能 / 人格片段</text><text class="s" x="20" y="104">目前仍属科幻级</text><text class="s" x="20" y="150">风险：身份与自由</text></g>
+    </svg>
+  </div>
+</div>
+</section>
+
+<section id="threshold">
+<div class="shell">
+  <div class="smallcaps">03 · The Threshold</div>
+  <h2>未来真正的“相变点”：从读脑，到写脑</h2>
+  <p>如果脑机接口只能读取用户主动发出的运动意图，它更像高带宽鼠标；如果它能够向特定神经回路写入稳定、可解释、可重复的状态，性质就完全不同。那时，技术开始有可能改变注意、情绪、奖励、恐惧、记忆形成甚至判断倾向。</p>
+  <table>
+    <thead><tr><th>系统形态</th><th>类比</th><th>最大价值</th><th>最大危险</th></tr></thead>
+    <tbody>
+      <tr><td><strong>只读、离线</strong></td><td>“脑控键盘”</td><td>残障辅助、沟通恢复</td><td>神经数据泄漏</td></tr>
+      <tr><td><strong>只读、云连接</strong></td><td>“大脑 API”</td><td>AI 实时协作</td><td>持续监测、画像与商业操纵</td></tr>
+      <tr><td><strong>读写、离线</strong></td><td>“神经起搏器 2.0”</td><td>医疗、记忆辅助、精神疾病治疗</td><td>刺激错误、人格和行为副作用</td></tr>
+      <tr><td><strong>读写、云连接</strong></td><td>“人的认知操作系统”</td><td>极强增强能力</td><td>远程控制面、黑客攻击、平台依赖</td></tr>
+      <tr><td><strong>读写 + 身份/支付绑定</strong></td><td>“神经身份基础设施”</td><td>无缝认证、支付与服务</td><td><strong>退出系统即退出社会</strong></td></tr>
+    </tbody>
+  </table>
+  <blockquote>文明的危险，不一定来自一台“有恶意的超级 AI”；也可能来自一个起初非常便利、后来逐渐成为生活必需品、最终让拒绝者无法正常参与社会的基础设施。</blockquote>
+</div>
+</section>
+
+<section id="timeline">
+<div class="shell">
+  <div class="smallcaps">04 · Scenario Timeline</div>
+  <h2>一种可能的演化链：它不会在一天内突然降临</h2>
+  <p class="muted">以下阶段不是年份预测，而是逻辑顺序。技术可能停留在某一层，也可能以完全不同的道路发展。</p>
+  <div class="timeline">
+    <div class="event">
+      <h3>阶段 A：医疗必要性建立合法性</h3>
+      <p>首先服务于瘫痪、失语、癫痫、帕金森、严重记忆障碍等患者。社会接受度很高，因为目标是“恢复失去的功能”，伦理阻力相对小。</p>
+    </div>
+    <div class="event">
+      <h3>阶段 B：从治疗转向增强</h3>
+      <p>“既然可以让患者恢复到 100，为什么不能让健康人到 120？”高压职业、军队、金融、科研、编程、语言学习首先出现增强需求。</p>
+    </div>
+    <div class="event">
+      <h3>阶段 C：AI 与 BCI 合流</h3>
+      <p>你不再“打开 AI 问问题”，而是把 AI 变成持续存在的认知副脑：提示名字、补全事实、翻译语言、调用个人档案、预测下一步行动。</p>
+    </div>
+    <div class="event">
+      <h3>阶段 D：增强者形成生产率优势</h3>
+      <p>如果一个增强者能以非增强者数倍的速度学习、检索知识和协同 AI，企业招聘自然偏向增强者。此时“自愿安装”开始变成<strong>经济上的非自愿</strong>。</p>
+    </div>
+    <div class="event">
+      <h3>阶段 E：身份与支付整合</h3>
+      <p>出于安全和便利，设备逐渐用于身份验证、数字签名、银行授权、医疗身份和访问控制。拒绝植入者仍“法律上自由”，但现实摩擦不断增大。</p>
+    </div>
+    <div class="event">
+      <h3>阶段 F：记忆层成为可管理资产</h3>
+      <p>假设技术最终能保存相当高保真的“记忆表征”，人生经历将第一次进入备份、版权、继承、证据、删除、伪造和黑市交易的范畴。</p>
+    </div>
+    <div class="event">
+      <h3>阶段 G：社会出现“认知公民等级”</h3>
+      <p>人与人的差距不再只是财富、教育和健康，而可能变成“神经带宽、模型权限、记忆容量、算法版本”的差距。阶级固化进入生物—数字层。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="society">
+<div class="shell">
+  <div class="smallcaps">05 · Social Reconfiguration</div>
+  <h2>如果认知能力本身成为可升级产品，八个制度会被重写</h2>
+  <div class="grid2">
+    <div class="card"><span class="tag">教育</span><h3>“学习”与“加载”分离</h3><p>如果事实知识可以即时检索，学校的价值会从记忆知识转向判断、人格、创造、身体经验与价值形成。但若技能也能部分写入，传统学历体系可能崩塌，考试则必须证明“这个人本身能做什么”，而不是其外挂系统能做什么。</p></div>
+    <div class="card"><span class="tag">工作</span><h3>不增强者可能变成“慢速劳动力”</h3><p>最危险的情形不是政府强迫，而是市场迫使：公司只雇用拥有某种认知插件的人，保险对未植入者提高费率，专业牌照要求实时神经认证。法律上的“自由选择”可能仍在，实际选择却消失。</p></div>
+    <div class="card"><span class="tag">经济</span><h3>人的思维可能被订阅化</h3><p>高级记忆检索、语言、专业知识、情绪调节可能按月订阅。若停止付费，“你”会不会失去曾经依赖的认知能力？届时“数字贫困”不再只是没有好手机，而是大脑功能被服务等级切割。</p></div>
+    <div class="card"><span class="tag">政治</span><h3>宣传从“争夺注意”走向“争夺神经入口”</h3><p>今天的政治传播需要先说服你点击、观看、相信；未来若平台可读取高度敏感的神经数据，精准操纵可能升级。若再有写入能力，民主制度需要把“认知自由”视为比普通隐私更高层级的权利。</p></div>
+    <div class="card"><span class="tag">司法</span><h3>记忆能否成为证据？</h3><p>如果记忆可以读取，法院会不会要求读取嫌疑人的记忆？如果记忆可以编辑，证词还可靠吗？“我记得”与“系统显示我记得”将成为两个不同的证据对象。</p></div>
+    <div class="card"><span class="tag">家庭</span><h3>亲密关系出现“精神隐私边界”</h3><p>伴侣是否有权要求查看某段记忆？父母是否可以安装儿童学习增强？成年后孩子能否删除父母在其未成年时上传的神经数据？这些问题会直接进入家庭伦理。</p></div>
+    <div class="card"><span class="tag">犯罪</span><h3>“黑客入侵”不再只丢钱</h3><p>最坏的安全事故可能从盗取密码升级为干扰知觉、情绪、记忆或身份认证。只要存在远程更新机制，“谁有权向设备写代码”就等于“谁可能拥有一条通往神经系统的供应链”。</p></div>
+    <div class="card"><span class="tag">宗教</span><h3>人的终极忠诚受到新的制度考验</h3><p>当参与经济生活、就业、医疗甚至公共身份都依赖某种技术基础设施时，宗教自由问题会变得极其具体：人能否因良心拒绝升级？能否保留一个“不可被系统拥有”的内在领域？</p></div>
+  </div>
+</div>
+</section>
+
+<section id="memory">
+<div class="shell">
+  <div class="smallcaps">06 · Memory & Identity</div>
+  <h2>“备份记忆”最深的问题不是存储，而是：备份出来的还是不是你？</h2>
+  <p>日常语言很容易把记忆想成电脑文件：读取、复制、保存、再加载。但人的记忆并不是孤立文件。一个记忆同时牵涉感官线索、身体状态、情绪、意义解释、其他记忆、身份叙事以及不断发生的重构。因此，即使未来能精确复现某些神经模式，也不能直接推出“我们已经复制了完整的主观经历”。</p>
+  <div class="grid3">
+    <div class="card"><span class="tag green">层 1</span><h3>事实记忆</h3><p>名字、地点、公式、词汇。这一层最接近“外部数据库 + 快速调用”，甚至不需要真正写入大脑就能获得类似效果。</p></div>
+    <div class="card"><span class="tag gold">层 2</span><h3>技能与习惯</h3><p>骑车、弹琴、外科操作涉及运动回路和长期训练。如果未来可加速形成某些神经模式，会显著挑战教育与职业认证。</p></div>
+    <div class="card"><span class="tag red">层 3</span><h3>自传式记忆</h3><p>“那件事发生在我身上”包含第一人称体验和个人历史。复制信息，不等于复制主体；这正是“数字永生”论最难跨过的一道哲学鸿沟。</p></div>
+  </div>
+  <h3>五个思想实验</h3>
+  <table>
+    <thead><tr><th>问题</th><th>为什么棘手</th></tr></thead>
+    <tbody>
+      <tr><td>给你加载一个你从未经历过的童年片段，你却真诚地“记得”它——这段记忆属于谁？</td><td>第一人称确信不再足以证明历史真实性。</td></tr>
+      <tr><td>你删除了十年创伤记忆，法律上还是同一个责任主体吗？</td><td>身份连续性与刑事责任可能发生冲突。</td></tr>
+      <tr><td>你的完整记忆复制到另一个身体，两个人谁是“原来的你”？</td><td>信息同一性不等于数值上的人格同一性。</td></tr>
+      <tr><td>配偶去世后，你让 AI 用其记忆档案重建一个高度逼真的“他/她”。</td><td>哀悼、婚姻、死亡和偶像化的边界被重写。</td></tr>
+      <tr><td>公司拥有你工作期间形成的增强记忆模型，离职时要求删除。</td><td>知识产权第一次直接进入人格和记忆层。</td></tr>
+    </tbody>
+  </table>
+</div>
+</section>
+
+<section id="risk">
+<div class="shell">
+  <div class="smallcaps">07 · Risk Matrix</div>
+  <h2>最值得警惕的不是一个单点风险，而是五种条件叠加</h2>
+  <div class="grid2">
+    <div>
+      <table>
+        <thead><tr><th>变量</th><th>低风险端</th><th>高风险端</th></tr></thead>
+        <tbody>
+          <tr><td>控制权</td><td>用户本地控制</td><td>平台/雇主/国家远程控制</td></tr>
+          <tr><td>能力</td><td>只读</td><td>持续读写</td></tr>
+          <tr><td>连接</td><td>离线</td><td>云端实时连接</td></tr>
+          <tr><td>社会地位</td><td>可选工具</td><td>事实上的基础设施</td></tr>
+          <tr><td>退出成本</td><td>随时拆除且无损</td><td>退出即失业/失去支付和身份能力</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="card">
+      <span class="tag red">危险组合</span>
+      <h3>读写 + 云连接 + 身份绑定 + 市场强制 + 不可退出</h3>
+      <p>任何一个变量单独出现，都未必构成反乌托邦；当它们叠加时，个人与制度之间的权力差距会发生结构性变化。</p>
+      <div class="level"><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><span class="dot on"></span><strong> 文明级风险</strong></div>
+      <div class="meter"><span style="width:92%"></span></div>
+      <p class="muted" style="margin-top:14px">这也是为什么国际神经伦理讨论特别强调精神隐私、认知自由、人格同一性、自由意志和神经数据保护。</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="sim" class="simulator">
+<div class="shell">
+  <div class="smallcaps">08 · Interactive Scenario</div>
+  <h2>未来社会模拟器：自己调五个旋钮</h2>
+  <p>拖动参数，观察一个非常简化的思想实验模型。它不是预测工具，只用于帮助理解不同制度条件如何共同塑造风险。</p>
+  <div class="grid2">
+    <div class="card controls">
+      <div class="control"><label>社会普及率 <span id="v1">60</span></label><input id="a1" type="range" min="0" max="100" value="60"></div>
+      <div class="control"><label>大脑“写入”能力 <span id="v2">40</span></label><input id="a2" type="range" min="0" max="100" value="40"></div>
+      <div class="control"><label>基础设施集中度 <span id="v3">70</span></label><input id="a3" type="range" min="0" max="100" value="70"></div>
+      <div class="control"><label>退出社会成本 <span id="v4">55</span></label><input id="a4" type="range" min="0" max="100" value="55"></div>
+      <div class="control"><label>法律与神经权利保护 <span id="v5">35</span></label><input id="a5" type="range" min="0" max="100" value="35"></div>
+    </div>
+    <div class="card" id="simResult">
+      <div class="smallcaps">综合制度风险</div>
+      <div class="score" id="score">—</div>
+      <div class="scenarioName" id="scenarioName">—</div>
+      <p id="scenarioText"></p>
+      <div class="pills" id="pills"></div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="revelation">
+<div class="shell">
+  <div class="smallcaps">09 · Revelation 13</div>
+  <h2>脑机接口会不会就是《启示录》所说的“兽印”？</h2>
+  <p>这里必须非常谨慎。启示录 13:16–17 的确把“印记”与买卖资格联系起来，因此当人看到植入物、数字身份、无现金支付、脑机接口时产生联想，并非毫无理由。然而，从经文本身不能得出“某一种芯片技术就是兽印”的结论。</p>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag gold">可以认真观察的相似点</span>
+      <h3>经济参与与身份控制的结合</h3>
+      <p>经文描述一种权力结构，使“不接受其印记者”不能买卖。任何把经济身份、支付权限和高度集中化控制结合起来的未来系统，都值得基督徒警觉。</p>
+      <p>如果未来神经植入物成为全球身份与经济基础设施，它当然可能成为某种强制体系的<strong>技术载体之一</strong>；但“可能被使用”与“它本身就是预言对象”不是同一件事。</p>
+    </div>
+    <div class="card">
+      <span class="tag green">不能跳过的经文中心</span>
+      <h3>“印记”首先与敬拜、效忠、归属相关</h3>
+      <p>启示录 13 的上下文并不只是技术识别，而是兽的权柄、欺骗、敬拜和忠诚。许多释经传统因此认为，“兽印”不能被简化为一个无意中植入的硬件零件；它至少表达对敌对上帝之权力体系的认同与归属。</p>
+    </div>
+  </div>
+
+  <h3>四类主流解释视角</h3>
+  <table>
+    <thead><tr><th>视角</th><th>“兽印”重点</th><th>如何看脑机接口</th></tr></thead>
+    <tbody>
+      <tr><td><strong>历史背景 / 部分过去派</strong></td><td>与罗马帝国、皇帝崇拜、经济与社会效忠有关</td><td>BCI 不是经文直接对象，但现代权力系统可重复类似模式</td></tr>
+      <tr><td><strong>理想派</strong></td><td>历世历代敌对上帝的政治—宗教—经济体系</td><td>关键是忠诚与压迫结构，不拘泥具体技术</td></tr>
+      <tr><td><strong>未来派</strong></td><td>末世将出现更具体、全球化的控制与效忠机制</td><td>未来数字/生物技术可能成为工具，但不能提前断言是哪一项</td></tr>
+      <tr><td><strong>折衷理解</strong></td><td>一世纪已有真实指向，同时具有末世终极实现</td><td>既避免把经文完全古代化，也避免每代都把新技术硬套成 666</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote>更稳妥的基督徒问题不是：“这块芯片是不是兽印？”而是：“这个系统要求我把什么样的忠诚、自由、敬拜和人格主权交出去？”</blockquote>
+</div>
+</section>
+
+<section id="christian">
+<div class="shell">
+  <div class="smallcaps">10 · Christian Discernment</div>
+  <h2>如果这一天真的来到，基督徒需要守住什么？</h2>
+  <div class="grid3">
+    <div class="card"><span class="tag">01</span><h3>不要把“人”还原成可计算信息</h3><p>在基督教的人论中，人的尊严不是来自运算速度、记忆容量或市场生产率，而来自人按神形象受造。即使一个人没有任何增强能力，他也不会因此成为“低级版本的人”。</p></div>
+    <div class="card"><span class="tag">02</span><h3>医疗修复与超人主义要区分</h3><p>让瘫痪者重新交流，与追求摆脱一切人类限制并不是同一个伦理项目。前者通常属于治疗与怜悯；后者可能隐含一种救赎论：把技术当作战胜有限、苦难甚至死亡的终极道路。</p></div>
+    <div class="card"><span class="tag">03</span><h3>保留“认知不可侵犯权”</h3><p>思想、良心与信仰不能成为雇主、政府或平台的可检索数据库。未来宗教自由可能不仅是“允许你去教会”，也包括“不能强迫你开放神经数据”。</p></div>
+    <div class="card"><span class="tag">04</span><h3>坚持真实退出权</h3><p>一个制度若声称自愿，却让拒绝者无法就业、交易、受教育或就医，就不能简单称为自由。基督徒应支持法律上的“拒绝增强权”和非植入者平等参与社会的权利。</p></div>
+    <div class="card"><span class="tag">05</span><h3>把“便利”与“敬拜”分开</h3><p>使用技术本身不等于拜偶像；但若一个系统要求以否认基督、接受不义忠诚、参与偶像崇拜作为经济生存条件，问题就不再是技术伦理，而是信仰忠诚。</p></div>
+    <div class="card"><span class="tag">06</span><h3>不要被末世恐慌牵着走</h3><p>基督徒可以警醒，却不需要把每种新技术都宣布为末日工具。启示录写给教会的目的不是制造技术恐惧，而是在强权、欺骗和逼迫中呼召圣徒忍耐、忠诚与敬拜真神。</p></div>
+  </div>
+</div>
+</section>
+
+<section id="twofutures">
+<div class="shell">
+  <div class="smallcaps">11 · Two Futures</div>
+  <h2>同一项技术，可以通向两个完全不同的世界</h2>
+  <div class="grid2">
+    <div class="card">
+      <span class="tag green">较好的未来</span>
+      <h3>“神经技术是人的仆人”</h3>
+      <p>医疗优先；数据本地化；设备可离线；用户拥有密钥；禁止广告神经画像；雇主不得强迫植入；未成年人受到更严格保护；所有写入操作必须可见、可撤销、可审计；拒绝植入不影响基本公民权。</p>
+    </div>
+    <div class="card">
+      <span class="tag red">较坏的未来</span>
+      <h3>“人成为神经平台的终端”</h3>
+      <p>设备由少数平台控制；服务按订阅分层；教育和就业默认增强；身份支付绑定；神经数据被用于广告、保险和政治画像；远程更新不可拒绝；退出者被定义为“不可信”“不安全”“低效率”。</p>
+    </div>
+  </div>
+  <div class="callout" style="margin-top:24px">
+    <div class="smallcaps">最终判断</div>
+    <div class="bigline">决定未来是否可怕的，不只是“脑机接口有多先进”，而是：<br>谁拥有它？谁能写入？谁能审计？谁能拒绝？拒绝以后还能不能正常做人？</div>
+  </div>
+</div>
+</section>
+
+<section id="questions">
+<div class="shell">
+  <div class="smallcaps">12 · Questions Worth Keeping</div>
+  <h2>如果我们今天就开始立规矩，最该提前回答的十个问题</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>个人权利</h3>
+      <p>1. 人是否拥有“神经数据绝对所有权”？<br>
+      2. 法院能否强制读取神经数据？<br>
+      3. 人是否拥有“拒绝认知增强而不受歧视”的权利？<br>
+      4. 写入功能是否必须物理断网、双重确认？<br>
+      5. 设备厂商倒闭后，谁负责维护植入者的身体内硬件？</p>
+    </div>
+    <div class="card">
+      <h3>社会与信仰</h3>
+      <p>6. 雇主能否要求员工使用增强模式？<br>
+      7. 儿童能否被父母同意植入非医疗增强设备？<br>
+      8. 神经插件中的 AI 建议由谁负责法律后果？<br>
+      9. “记忆副本”能否被出售、继承、传唤或删除？<br>
+      10. 社会能否承诺：不植入的人仍然可以工作、买卖、旅行、受教育并实践宗教？</p>
+    </div>
+  </div>
+</div>
+</section>
+
+<section id="sources">
+<div class="shell">
+  <div class="smallcaps">13 · Sources</div>
+  <h2>现实部分参考资料</h2>
+  <p class="muted">本文的未来部分属于情景推演；以下资料用于校准“今天已经做到什么”与现有伦理讨论。</p>
+  <div class="card">
+    <details open><summary>植入式 BCI 的临床状态</summary>
+      <p class="source">Patrick-Krueger K.M. et al., “The state of clinical trials of implantable brain–computer interfaces,” <em>Nature Reviews Bioengineering</em> (2025). <a href="https://www.nature.com/articles/s44222-024-00239-5">Nature</a></p>
+    </details>
+    <details><summary>Neuralink 人体植入与 2026 更新</summary>
+      <p class="source">Neuralink, PRIME Study Progress Update (2024)；Updates 页面（2026 年 1 月宣布 21 名参与者）。<a href="https://neuralink.com/updates/">Neuralink Updates</a></p>
+    </details>
+    <details><summary>脑信号实时合成语音</summary>
+      <p class="source">Wairagkar M. et al., “An instantaneous voice-synthesis neuroprosthesis,” <em>Nature</em> 644 (2025): 145–152. <a href="https://www.nature.com/articles/s41586-025-09127-3">Nature</a></p>
+    </details>
+    <details><summary>海马记忆神经假体研究</summary>
+      <p class="source">Roeder B.M. et al., “Developing a hippocampal neural prosthetic to facilitate human memory encoding and recall of stimulus features and categories,” <em>Frontiers in Computational Neuroscience</em> 18 (2024). <a href="https://www.frontiersin.org/journals/computational-neuroscience/articles/10.3389/fncom.2024.1263311/full">Frontiers</a></p>
+    </details>
+    <details><summary>精神隐私、认知自由与全球神经伦理规范</summary>
+      <p class="source">UNESCO, Ethics of Neurotechnology；2025 年通过首个全球神经技术伦理规范。<a href="https://www.unesco.org/en/ethics-neurotech">UNESCO Neurotechnology Ethics</a></p>
+    </details>
+    <details><summary>《启示录》13 章释经背景</summary>
+      <p class="source">Bible Gateway, IVP New Testament Commentary on Revelation 13；另参关于“兽印”象征性、忠诚与所有权的福音派讨论。<a href="https://www.biblegateway.com/resources/ivp-nt/Beast-Earth">IVP Commentary</a></p>
+    </details>
+  </div>
+  <p class="source" style="margin-top:18px">版本：2026-09-14。本文故意避免把未来年份写成确定预测，也避免把任何现存公司、芯片或支付技术直接等同于《启示录》的兽印。</p>
+</div>
+</section>
+</main>
+
+<footer>
+<div class="shell">
+  <p>《当大脑成为接口：脑机接口、记忆加载与未来社会推演》</p>
+  <p>用途：思想实验、技术伦理与基督教神学辨析。不是医疗、法律或投资建议。</p>
+</div>
+</footer>
+
+<script>
+const ids = ["a1","a2","a3","a4","a5"];
+function update(){
+  const x = ids.map(id=>+document.getElementById(id).value);
+  x.forEach((v,i)=>document.getElementById("v"+(i+1)).textContent=v);
+  // protection subtracts risk; interactions make centralization + write capability especially important.
+  let risk = 0.17*x[0] + 0.24*x[1] + 0.21*x[2] + 0.23*x[3] + 0.15*(100-x[4]);
+  risk += (x[1]*x[2]/100)*0.08 + (x[0]*x[3]/100)*0.06;
+  risk = Math.max(0,Math.min(100,Math.round(risk)));
+  document.getElementById("score").textContent=risk+"/100";
+  let name,text;
+  if(risk<28){name="辅助型社会";text="技术主要仍是可选工具，个人退出成本低，法律保护较强。主要问题是隐私与公平，而不是系统性控制。";}
+  else if(risk<50){name="增强竞争社会";text="增强开始产生就业与教育优势。表面仍属自愿，但非增强者承受明显竞争压力；需要尽快建立反歧视和退出权。";}
+  else if(risk<72){name="神经平台社会";text="脑机接口正在变成身份、生产力与服务入口。平台集中度和退出成本使个人自主权显著下降，精神隐私成为核心政治议题。";}
+  else{name="认知控制社会";text="读写能力、高集中度与高退出成本叠加。此时最大的危险不是“人更聪明”，而是个人的内在认知领域失去事实上的主权。";}
+  document.getElementById("scenarioName").textContent=name;
+  document.getElementById("scenarioText").textContent=text;
+  const labels=[];
+  if(x[1]>65) labels.push("高写入能力");
+  if(x[2]>65) labels.push("高度集中");
+  if(x[3]>65) labels.push("难以退出");
+  if(x[4]<40) labels.push("权利保护薄弱");
+  if(x[0]>70) labels.push("近基础设施化");
+  if(!labels.length) labels.push("风险条件尚未叠加");
+  document.getElementById("pills").innerHTML=labels.map(s=>`<span class="pill">${s}</span>`).join("");
+}
+ids.forEach(id=>document.getElementById(id).addEventListener("input",update));
+update();
+</script>
+</body>
+</html>

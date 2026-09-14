@@ -1,0 +1,304 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>巴哈伊信仰：从信徒内部理解的一份深度导览</title>
+<style>
+:root{
+  --ink:#1a2430; --muted:#66737f; --paper:#f7f3ea; --paper2:#fffdf8;
+  --navy:#17374b; --teal:#2d6f6b; --gold:#b58b3c; --red:#8c4f4b;
+  --line:#ddd5c8; --soft:#eee7dc; --shadow:0 16px 45px rgba(30,42,52,.10);
+  --serif:"Noto Serif CJK SC","Source Han Serif SC","Songti SC","STSong",serif;
+  --sans:"Noto Sans CJK SC","Source Han Sans SC","PingFang SC","Microsoft YaHei",sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);line-height:1.82}
+a{color:var(--teal);text-decoration:none;border-bottom:1px dotted rgba(45,111,107,.45)}
+a:hover{color:var(--navy);border-bottom-style:solid}
+.progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--teal));z-index:99;width:0}
+.hero{min-height:92vh;display:grid;place-items:center;position:relative;overflow:hidden;background:
+radial-gradient(circle at 20% 20%,rgba(181,139,60,.18),transparent 28%),
+radial-gradient(circle at 80% 72%,rgba(45,111,107,.17),transparent 32%),
+linear-gradient(140deg,#102c3b 0%,#1a4151 54%,#244a51 100%);color:white;padding:72px 22px}
+.hero:after{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.13) 1px,transparent 1px);background-size:29px 29px;mask-image:linear-gradient(to bottom,rgba(0,0,0,.8),transparent)}
+.hero-inner{position:relative;z-index:2;max-width:980px;text-align:center}
+.emblem{width:190px;height:190px;margin:0 auto 28px;display:grid;place-items:center;position:relative}
+.emblem:before,.emblem:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.28);border-radius:50%;inset:8px}
+.emblem:after{inset:27px;border-color:rgba(217,187,125,.65)}
+.star9{width:120px;height:120px;background:linear-gradient(135deg,#e8d19c,#b98e43);clip-path:polygon(50% 0%,57.1% 31.5%,82.1% 11.7%,68.1% 40.3%,99.2% 41.3%,69.7% 52.6%,93.3% 75%,62.2% 63.8%,67.1% 95.5%,50% 68%,32.9% 95.5%,37.8% 63.8%,6.7% 75%,30.3% 52.6%,0.8% 41.3%,31.9% 40.3%,17.9% 11.7%,42.9% 31.5%);filter:drop-shadow(0 10px 18px rgba(0,0,0,.22))}
+.kicker{letter-spacing:.32em;text-transform:uppercase;font-size:.79rem;color:#e6d2a5;margin-bottom:16px}
+h1{font-family:var(--serif);font-weight:700;font-size:clamp(2.35rem,6vw,5rem);line-height:1.16;margin:.1em 0 .28em}
+.hero-sub{max-width:790px;margin:0 auto;font-size:clamp(1.05rem,2.1vw,1.35rem);color:#e7eef0}
+.hero-note{margin:30px auto 0;max-width:750px;padding:17px 22px;border:1px solid rgba(255,255,255,.18);background:rgba(255,255,255,.07);border-radius:14px;color:#dfe8ea;font-size:.95rem}
+.layout{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:250px minmax(0,840px);gap:48px;padding:50px 26px 90px;justify-content:center}
+.toc{position:sticky;top:28px;align-self:start;background:rgba(255,253,248,.88);backdrop-filter:blur(8px);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:0 6px 24px rgba(30,42,52,.05);max-height:calc(100vh - 56px);overflow:auto}
+.toc .title{font-size:.78rem;font-weight:800;letter-spacing:.14em;color:var(--gold);margin:0 0 8px}.toc a{display:block;border:0;padding:7px 9px;border-radius:8px;color:#53616c;font-size:.88rem;line-height:1.35}.toc a:hover,.toc a.active{background:#eef3f1;color:var(--navy)}
+main{min-width:0}.chapter{padding:12px 0 44px;scroll-margin-top:20px}.eyebrow{color:var(--gold);font-size:.79rem;letter-spacing:.16em;font-weight:800;text-transform:uppercase;margin-bottom:7px}.chapter h2{font-family:var(--serif);font-size:clamp(1.7rem,3vw,2.45rem);line-height:1.35;margin:0 0 18px;color:var(--navy)}
+h3{font-family:var(--serif);font-size:1.3rem;color:#234656;margin:30px 0 10px}p{margin:0 0 1.08em}.lead{font-family:var(--serif);font-size:1.18rem;line-height:1.9;color:#33444e}
+.callout{border-left:4px solid var(--gold);background:#fffaf0;padding:17px 21px;margin:24px 0;border-radius:0 12px 12px 0}.callout strong{color:var(--navy)}
+.inside{border:1px solid #bdd3ce;background:#f0f7f5;padding:18px 21px;border-radius:14px;margin:24px 0}.inside .tag{font-size:.75rem;font-weight:800;color:var(--teal);letter-spacing:.12em}.inside b{color:#245b58}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:22px 0}.card{background:var(--paper2);border:1px solid var(--line);border-radius:15px;padding:20px;box-shadow:0 7px 20px rgba(25,40,50,.035)}.card h3,.card h4{margin-top:0}.mini{font-size:.9rem;color:var(--muted)}
+.figure{margin:28px 0;background:#fdfbf6;border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:var(--shadow)}.figure .cap{padding:12px 18px;background:#f4efe6;border-top:1px solid var(--line);font-size:.85rem;color:var(--muted)}
+.diagram{padding:28px;overflow:auto}.diagram svg{display:block;width:100%;height:auto;min-width:610px}
+.timeline{position:relative;margin:30px 0 10px;padding-left:28px}.timeline:before{content:"";position:absolute;left:6px;top:4px;bottom:4px;width:2px;background:linear-gradient(var(--gold),var(--teal))}.event{position:relative;margin:0 0 23px;padding:0 0 0 17px}.event:before{content:"";position:absolute;left:-28px;top:.48em;width:12px;height:12px;background:var(--paper);border:3px solid var(--gold);border-radius:50%}.event .date{font-size:.77rem;font-weight:800;color:var(--gold);letter-spacing:.08em}.event b{color:var(--navy)}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:14px;margin:22px 0;background:white}table{border-collapse:collapse;width:100%;min-width:680px;font-size:.94rem}th,td{text-align:left;vertical-align:top;padding:13px 15px;border-bottom:1px solid #ece6db}th{background:#f4f0e8;color:var(--navy);font-size:.84rem}tr:last-child td{border-bottom:0}
+.pill{display:inline-block;border-radius:999px;padding:3px 9px;background:#edf4f2;color:#2d6f6b;font-size:.76rem;font-weight:700;margin:2px 4px 2px 0}.pill.gold{background:#f7eedc;color:#8f6b28}.pill.red{background:#f7eceb;color:#8c4f4b}
+.quote{font-family:var(--serif);font-size:1.15rem;line-height:1.85;margin:26px 0;padding:24px 30px;background:linear-gradient(135deg,#f4efe3,#fffdf8);border:1px solid #ded1ba;border-radius:18px;color:#334650}.quote cite{display:block;font-family:var(--sans);font-size:.79rem;color:var(--muted);margin-top:9px;font-style:normal}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:18px 0}.stat{background:#17374b;color:white;padding:18px 13px;border-radius:14px;text-align:center}.stat strong{display:block;font-family:var(--serif);font-size:1.75rem;color:#ead39f}.stat span{font-size:.78rem;color:#d6e0e4}
+.compare td:first-child{font-weight:700;color:var(--navy);white-space:nowrap}
+.refs{font-size:.89rem;color:#56646e}.refs li{margin:.5em 0}.refs a{word-break:break-all}
+footer{background:#102c3b;color:#d7e2e5;padding:44px 22px;text-align:center}footer .small{font-size:.84rem;color:#aebfc5;max-width:780px;margin:auto}
+.back{position:fixed;right:22px;bottom:22px;width:44px;height:44px;border-radius:50%;border:1px solid rgba(255,255,255,.25);background:#17374b;color:white;display:grid;place-items:center;box-shadow:0 8px 24px rgba(0,0,0,.18);cursor:pointer}
+@media(max-width:980px){.layout{grid-template-columns:1fr;max-width:880px}.toc{position:relative;top:0;max-height:none}.toc nav{columns:2}.stats{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:620px){.hero{min-height:80vh;padding-top:54px}.layout{padding:32px 16px 70px}.toc nav{columns:1}.grid2{grid-template-columns:1fr}.diagram{padding:14px}.stats{grid-template-columns:1fr 1fr}.quote{padding:20px}.chapter{padding-bottom:32px}}
+@media print{.toc,.progress,.back{display:none}.layout{display:block;max-width:900px}.hero{min-height:auto;padding:55px 30px}.chapter{break-inside:auto}.figure,.card,.callout{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<section class="hero" id="top">
+  <div class="hero-inner">
+    <div class="emblem"><div class="star9"></div></div>
+    <div class="kicker">An Emic Guide to the Bahá’í Faith</div>
+    <h1>巴哈伊信仰</h1>
+    <div class="hero-sub">不是把它当作“一个十九世纪波斯教派”从外面分类，而是先进入巴哈伊信徒自己的世界：他们怎样理解上帝、宗教史、巴哈欧拉、人类命运、圣约、经典、敬拜与全球秩序。</div>
+    <div class="hero-note">方法说明：本报告以巴哈伊官方经文、世界正义院资料与巴哈伊国际社群的自我陈述为主轴，力求忠实呈现其“内部语法”；必要处再用宗教学史料交叉核对。它不是替巴哈伊作信仰辩护，也不是先以其他宗教的神学标准判决它。</div>
+  </div>
+</section>
+
+<div class="layout">
+<aside class="toc"><div class="title">内容导航</div><nav id="tocnav">
+<a href="#s1">01 一句话抓住它</a><a href="#s2">02 从内部看：它以为自己是什么</a><a href="#s3">03 上帝与“显示者”</a><a href="#s4">04 渐进启示与宗教合一</a><a href="#s5">05 起源：巴布运动</a><a href="#s6">06 巴哈欧拉的一生与宣称</a><a href="#s7">07 圣约与权威传承</a><a href="#s8">08 经书与权威层级</a><a href="#s9">09 核心教义</a><a href="#s10">10 灵修与日常生活</a><a href="#s11">11 社群与行政秩序</a><a href="#s12">12 礼拜堂与宗教空间</a><a href="#s13">13 人死以后</a><a href="#s14">14 当代世界与现状</a><a href="#s15">15 从基督教背景最易误读之处</a><a href="#s16">16 内部张力与不应回避的问题</a><a href="#s17">17 最后的整体画像</a><a href="#sources">资料来源</a>
+</nav></aside>
+
+<main>
+<section class="chapter" id="s1"><div class="eyebrow">01 · Orientation</div><h2>一句话抓住巴哈伊信仰</h2>
+<p class="lead">如果必须用一句话概括：<strong>巴哈伊信徒相信，唯一的上帝在历史中不断借着一系列“上帝的显示者”教育人类；摩西、佛陀、琐罗亚斯德、耶稣、穆罕默德等都属于这条连续的神圣启示，而十九世纪的巴布与巴哈欧拉开启了适合“人类成年期”的新阶段，其核心使命是促成人类在精神与制度层面的合一。</strong></p>
+<div class="callout"><strong>最关键的理解：</strong>巴哈伊信徒通常不会说“我们发明了一个把各宗教拼在一起的新宗教”。他们更可能说：<em>宗教本来就是一个，上帝也是一个，只是同一位上帝在不同历史阶段给予人类不同课程；巴哈欧拉带来的，是这一连续启示在当代的新篇章。</em></div>
+<div class="grid2"><div class="card"><h3>三个“一”</h3><span class="pill gold">上帝唯一</span><span class="pill gold">宗教本一</span><span class="pill gold">人类一家</span><p class="mini">这三个命题不是边缘口号，而是理解巴哈伊神学和社会愿景的最短路径。</p></div><div class="card"><h3>一个历史判断</h3><p>人类并非走向不可避免的崩溃，而正处在从集体“少年期”进入“成年期”的痛苦转型。全球相互依存、旧民族主义危机与世界治理需求，都被理解为这个成熟过程的一部分。</p></div></div>
+</section>
+
+<section class="chapter" id="s2"><div class="eyebrow">02 · Emic View</div><h2>从内部看：巴哈伊并不把自己理解成“伊斯兰教的一个支派”</h2>
+<p>历史上，巴哈伊信仰确实从十九世纪伊朗什叶派社会中的巴布运动发展出来；它的语言、早期经文风格、末世期待与伊斯兰背景密不可分。但在巴哈伊自身的理解中，这只是<strong>历史出生地</strong>，不是其<strong>宗教身份的上限</strong>。官方用语明确把巴哈伊信仰称为一个独立的一神论宗教，而不是伊斯兰教派。</p>
+<p>一个会友若向你解释自己的信仰，他大概率不会从“1844年发生了什么”开始，而会从更大的宇宙图景开始：上帝不可穷尽；人类需要启示；上帝在不同文明中不断差遣显示者；每次启示都有永恒的精神核心，也有适应当时代的社会律法；今天人类已经进入全球文明阶段，所以需要一套能够把“全人类”作为一个整体来塑造的启示。</p>
+<div class="inside"><div class="tag">INSIDE THE FAITH · 内部语言</div><p>在这个框架里，“巴哈欧拉是真理”并不意味着“耶稣、穆罕默德或佛陀是假的”；恰恰相反，巴哈伊认为接受巴哈欧拉应当使人更充分地承认过去的显示者。它对宗教史的核心叙事不是“旧宗教错误、新宗教正确”，而是“同一位上帝的教育过程持续推进”。</p></div>
+</section>
+
+<section class="chapter" id="s3"><div class="eyebrow">03 · Theology</div><h2>上帝与“上帝的显示者”：不是化身论，也不只是普通先知</h2>
+<p>巴哈伊信仰坚持一神论。上帝是创造者、全知、慈爱、超越且不可被人的有限心智直接把握。于是出现一个关键问题：若上帝本体不可认识，人如何真正认识上帝？巴哈伊的答案是“<strong>上帝的显示者</strong>”（Manifestations of God）。</p>
+<p>“显示者”在巴哈伊神学中比一般意义的“先知”更强，却又不等于“上帝本体成为人”。巴哈伊著作经常使用<strong>太阳—镜子</strong>比喻：上帝像太阳，显示者像完美无瑕的镜子。你在镜中真正看见太阳的光与属性，因此“认识显示者就是认识上帝”；但镜子并不因此等于太阳的本体。</p>
+<div class="figure"><div class="diagram">
+<svg viewBox="0 0 900 360" xmlns="http://www.w3.org/2000/svg" aria-label="太阳与镜子比喻">
+<defs><linearGradient id="sun" x1="0" x2="1"><stop stop-color="#d5a84f"/><stop offset="1" stop-color="#f2d99c"/></linearGradient><filter id="sh"><feDropShadow dx="0" dy="8" stdDeviation="8" flood-opacity=".15"/></filter></defs>
+<circle cx="150" cy="180" r="78" fill="url(#sun)" filter="url(#sh)"/><g stroke="#d7b46c" stroke-width="4" opacity=".55"><path d="M150 56v-35M150 339v-35M26 180H0M300 180h-35M62 92L35 65M238 268l27 27M62 268l-27 27M238 92l27-27"/></g>
+<text x="150" y="178" text-anchor="middle" font-size="26" fill="#17374b" font-weight="700">上帝</text><text x="150" y="207" text-anchor="middle" font-size="16" fill="#35505e">本体不可穷尽</text>
+<path d="M245 180 C350 110 425 110 520 155" fill="none" stroke="#c29b54" stroke-width="3" stroke-dasharray="8 8"/>
+<rect x="520" y="88" width="95" height="184" rx="12" fill="#dfe9e7" stroke="#5d8b86" stroke-width="5" transform="skewY(-5)" filter="url(#sh)"/>
+<text x="568" y="175" text-anchor="middle" font-size="22" fill="#17374b" font-weight="700">显示者</text><text x="568" y="203" text-anchor="middle" font-size="15" fill="#4e686f">完美反映神的属性</text>
+<path d="M620 175 C700 145 755 145 830 178" fill="none" stroke="#5c8c86" stroke-width="3" stroke-dasharray="8 8"/>
+<circle cx="835" cy="180" r="46" fill="#eef4f2" stroke="#5d8b86" stroke-width="3"/><text x="835" y="176" text-anchor="middle" font-size="18" fill="#17374b" font-weight="700">人类</text><text x="835" y="198" text-anchor="middle" font-size="13" fill="#5d6d76">由此认识神</text>
+<text x="450" y="330" text-anchor="middle" font-size="15" fill="#6d777c">巴哈伊的重点：神的光真实临到世界，但神的超越本体不被有限的人形所穷尽。</text>
+</svg></div><div class="cap">图 1 · “太阳—镜子”是理解巴哈伊显示者观最常见的内部比喻。它解释了为什么巴哈伊既能用极高语言谈巴哈欧拉，又仍然坚持上帝的绝对超越。</div></div>
+<p>在其公认的宗教历史谱系中，亚伯拉罕、克里希纳、琐罗亚斯德、摩西、佛陀、耶稣、穆罕默德，以及近代的巴布与巴哈欧拉，都可被称为上帝的显示者。它并不主张人类已经得知历史上所有显示者；相反，神圣教育被视为远比现存史料更古老、更广泛。</p>
+</section>
+
+<section class="chapter" id="s4"><div class="eyebrow">04 · Progressive Revelation</div><h2>渐进启示：为什么宗教既“一个”，又看起来彼此冲突？</h2>
+<p>这是巴哈伊整套思想的枢纽。所谓<strong>渐进启示</strong>（progressive revelation），可以把它理解成“同一所学校的不同年级”。数学不会因为孩子升入中学而否定小学；课程会更新，是因为学生的能力、社会规模与历史任务改变了。</p>
+<div class="figure"><div class="diagram">
+<svg viewBox="0 0 980 300" xmlns="http://www.w3.org/2000/svg">
+<path d="M70 170 C190 80 270 250 390 155 S600 70 705 160 S850 235 930 120" fill="none" stroke="#c9a45d" stroke-width="4"/>
+<g font-family="sans-serif" font-size="16" text-anchor="middle" fill="#17374b">
+<g><circle cx="90" cy="158" r="34" fill="#f4ead5" stroke="#b58b3c"/><text x="90" y="164">亚伯拉罕</text></g>
+<g><circle cx="225" cy="145" r="34" fill="#eef4f2" stroke="#2d6f6b"/><text x="225" y="151">摩西</text></g>
+<g><circle cx="355" cy="172" r="34" fill="#eef4f2" stroke="#2d6f6b"/><text x="355" y="178">佛陀</text></g>
+<g><circle cx="490" cy="135" r="34" fill="#eef4f2" stroke="#2d6f6b"/><text x="490" y="141">耶稣</text></g>
+<g><circle cx="625" cy="147" r="38" fill="#eef4f2" stroke="#2d6f6b"/><text x="625" y="153">穆罕默德</text></g>
+<g><circle cx="760" cy="164" r="34" fill="#f4ead5" stroke="#b58b3c"/><text x="760" y="170">巴布</text></g>
+<g><circle cx="900" cy="133" r="42" fill="#17374b" stroke="#17374b"/><text x="900" y="139" fill="white">巴哈欧拉</text></g>
+</g>
+<text x="490" y="260" text-anchor="middle" font-size="16" fill="#66737f">一条连续的神圣教育史：精神真理相通，社会律法随人类阶段而更新</text>
+</svg></div><div class="cap">图 2 · 这不是“所有宗教说法都一样”的相对主义。巴哈伊主张的是一个连续、具有方向性的启示史，并认为巴哈欧拉的启示在当代具有规范性。</div></div>
+<h3>“宗教合一”不等于“所有教义细节都同时为真”</h3>
+<p>巴哈伊会区分两类内容：一类是恒常的精神与伦理真理，例如爱、正义、诚实、祈祷、服务；另一类是适应时代的社会律法与象征形式。不同宗教在饮食、婚姻、礼仪、社会治理上的差异，被解释为“医生为不同病人开不同处方”，而不是上帝前后矛盾。</p>
+<p>因此，巴哈伊的“宗教合一”实际上包含一个强烈的历史方向：过去的启示是真实的，但今天应当承认新的显示者。巴哈欧拉的启示并非终结一切启示；巴哈伊经典明确说，未来仍会有新的显示者，但至少要经过“一千整年”之后。</p>
+</section>
+
+<section class="chapter" id="s5"><div class="eyebrow">05 · Origins</div><h2>起源：1844年的巴布运动，是“序幕”也是独立启示</h2>
+<p>巴哈伊历史通常从<strong>1844年</strong>算起。那一年，波斯商人赛义德·阿里·穆罕默德（1819–1850）宣称自己是“巴布”（Báb，意为“门”）。早期追随者处在什叶派十二伊玛目传统和强烈末世期待的语境中，因此“巴布”的宣称最初具有鲜明的弥赛亚色彩。</p>
+<p>随着运动发展，巴布的身份主张与经文越来越超出“通往隐藏伊玛目的门”这一早期框架。他成为新宗教律法与启示的中心，并不断指向一个未来人物——“<strong>上帝将使之显现者</strong>”（He Whom God shall make manifest）。在巴哈伊理解中，巴布不是巴哈欧拉的普通施洗约翰式助手，而是<strong>一位独立的上帝显示者，同时又是巴哈欧拉的先驱</strong>。因此巴哈伊常谈“两位创始显示者”或“双重启示”。</p>
+<div class="timeline">
+<div class="event"><div class="date">1844</div><b>巴布宣示</b>：巴迪历（巴哈伊历）的纪元由此开始。</div>
+<div class="event"><div class="date">1848–1850</div><b>冲突与镇压升级</b>：巴布运动与宗教、政治秩序激烈冲突，巴布信徒遭大规模迫害。</div>
+<div class="event"><div class="date">1850</div><b>巴布在大不里士被处决</b>：此后巴布社群陷入危机。</div>
+<div class="event"><div class="date">1852</div><b>对巴布信徒的镇压进一步扩大</b>；巴哈欧拉在德黑兰“黑坑”（Síyáh-Chál）监禁期间，后来被巴哈伊视为其先知使命开始的关键时刻。</div>
+</div>
+<p>外部宗教学通常强调巴布运动从十九世纪什叶派谢赫派和弥赛亚主义中产生；这在历史上是必要背景。巴哈伊内部则把1844年理解为一个真正的“新宗教周期”开端，而不仅是伊斯兰内部一次改革失败。</p>
+</section>
+
+<section class="chapter" id="s6"><div class="eyebrow">06 · Bahá’u’lláh</div><h2>巴哈欧拉：为什么他是整个信仰的中心</h2>
+<p>巴哈欧拉（Bahá’u’lláh，1817–1892，本名米尔扎·侯赛因-阿里·努里）出身波斯贵族家庭，早期成为巴布运动的重要支持者。1852年遭监禁后，他回忆自己在德黑兰黑坑中经历神圣召命。释放后被放逐到巴格达，随后一生几乎都在流放与监禁中度过。</p>
+<div class="timeline">
+<div class="event"><div class="date">1853</div><b>流放巴格达</b>。他逐渐重整四散的巴布社群，并写下《隐言经》《七谷经》《确信经》等著名作品。</div>
+<div class="event"><div class="date">1863 · 里兹万花园</div><b>公开向亲近追随者宣示使命</b>：他自认就是巴布预告的“上帝将使之显现者”。巴哈伊信仰通常把这十二天作为里兹万节（Riḍván）纪念。</div>
+<div class="event"><div class="date">1863–1868</div><b>君士坦丁堡与阿德里安堡时期</b>：巴哈欧拉的宣称逐渐公开，并写信给当时多位君王和统治者。</div>
+<div class="event"><div class="date">1868</div><b>被流放至阿卡（‘Akká）</b>：当时是奥斯曼帝国的监狱城。</div>
+<div class="event"><div class="date">约1873</div><b>《至圣经》（Kitáb-i-Aqdas）</b>成书，成为巴哈伊律法与秩序的核心经典。</div>
+<div class="event"><div class="date">1892</div><b>巴哈欧拉逝世于巴吉（Bahjí）附近</b>。其陵寝后来成为巴哈伊义务祷告所面向的朝向（Qiblih）。</div>
+</div>
+<div class="inside"><div class="tag">信徒如何理解这段流放史</div><p>对巴哈伊信徒而言，巴哈欧拉并不是因为政治失败才“被迫离开故土”；连续的监禁与流放反而构成其使命叙事的一部分：一个被帝国权力不断推向边缘的人，却从监狱城向君王和全人类宣告世界合一。受苦不是其宣称失效的证据，而被理解为启示代价与神圣计划的一环。</p></div>
+</section>
+
+<section class="chapter" id="s7"><div class="eyebrow">07 · Covenant</div><h2>圣约：为什么巴哈伊如此强调“不中断的权威链”</h2>
+<p>若只知道“世界大同”，你仍然没有触到巴哈伊的组织神学。巴哈伊最独特的概念之一是<strong>圣约（Covenant）</strong>：巴哈欧拉不仅留下教义，还试图以书面指定的权威传承，防止宗教在创始人逝世后迅速分裂。</p>
+<div class="figure"><div class="diagram"><svg viewBox="0 0 920 440" xmlns="http://www.w3.org/2000/svg">
+<defs><filter id="ds"><feDropShadow dx="0" dy="6" stdDeviation="6" flood-opacity=".1"/></filter></defs>
+<g font-family="sans-serif" text-anchor="middle"><rect x="340" y="25" width="240" height="72" rx="16" fill="#17374b" filter="url(#ds)"/><text x="460" y="58" fill="white" font-size="23" font-weight="700">巴哈欧拉</text><text x="460" y="82" fill="#dbe7ea" font-size="14">启示者 · 立约者</text>
+<path d="M460 97V145" stroke="#b58b3c" stroke-width="4"/><rect x="340" y="145" width="240" height="72" rx="16" fill="#f2e8d3" stroke="#b58b3c" filter="url(#ds)"/><text x="460" y="178" fill="#17374b" font-size="23" font-weight="700">阿博都-巴哈</text><text x="460" y="202" fill="#59666f" font-size="14">圣约中心 · 权威解释者 · 完美典范</text>
+<path d="M460 217V265" stroke="#b58b3c" stroke-width="4"/><rect x="180" y="265" width="245" height="76" rx="16" fill="#eef4f2" stroke="#2d6f6b" filter="url(#ds)"/><text x="303" y="298" fill="#17374b" font-size="22" font-weight="700">守基·埃芬迪</text><text x="303" y="322" fill="#59666f" font-size="14">圣护（Guardian）· 权威解释</text><rect x="500" y="265" width="245" height="76" rx="16" fill="#eef4f2" stroke="#2d6f6b" filter="url(#ds)"/><text x="623" y="298" fill="#17374b" font-size="22" font-weight="700">世界正义院</text><text x="623" y="322" fill="#59666f" font-size="14">立法与全球治理机构</text>
+<path d="M460 217V238M460 238H303V265M460 238H623V265" stroke="#b58b3c" stroke-width="3" fill="none"/><text x="460" y="392" fill="#66737f" font-size="15">1957年守基·埃芬迪去世且无可合法任命的继任圣护；1963年世界正义院首次选举成立。</text></g></svg></div><div class="cap">图 3 · 巴哈伊权威结构不是“教皇—主教—神父”式神职阶层，而是一条由经典指定的解释与治理权威链。</div></div>
+<h3>阿博都-巴哈（‘Abdu’l-Bahá，1844–1921）</h3><p>巴哈欧拉指定长子阿博都-巴哈为“圣约中心”和其教义的权威解释者。巴哈伊不把阿博都-巴哈当作新的显示者；他的地位是独特但从属于巴哈欧拉。他同时被视为巴哈伊生活方式的“完美典范”。他在二十世纪初访问欧洲和北美，使巴哈伊从中东宗教运动进一步走向国际社会。</p>
+<h3>守基·埃芬迪（Shoghi Effendi，1897–1957）</h3><p>阿博都-巴哈在遗嘱中指定外孙守基·埃芬迪为“圣护”（Guardian）。他的任务包括权威解释经文、翻译、发展行政秩序、规划全球传播。1957年他突然去世，没有留下符合经典条件的继任圣护。</p>
+<h3>世界正义院（Universal House of Justice）</h3><p>1963年首次选举产生，九名成员，每五年由各国国家灵体会成员组成的国际选举团选出。它无权改变巴哈欧拉经文中已经明确规定的律法，但可就经文未明确规定之事项立法，并可在以后改变自己所制定的这类法律，以适应时代需要。</p>
+</section>
+
+<section class="chapter" id="s8"><div class="eyebrow">08 · Scripture</div><h2>经书：巴哈伊不是“一本经”的宗教，而是一整套权威文本体系</h2>
+<p>巴哈伊的“圣典”不像基督教或伊斯兰教那样主要围绕一本固定合订本。它拥有大量书信、经文、祷文、法律文本、解释性著作与机构文告。理解权威层级比只记书名更重要。</p>
+<div class="table-wrap"><table><thead><tr><th>层级 / 人物</th><th>在巴哈伊内部的地位</th><th>代表文本</th></tr></thead><tbody>
+<tr><td><b>巴哈欧拉</b></td><td>本时代上帝显示者；其经文是启示性圣典与最高规范来源。</td><td>《至圣经》Kitáb-i-Aqdas；《确信经》Kitáb-i-Íqán；《隐言经》The Hidden Words；《七谷经》；《巴哈欧拉圣作选粹》；给君王与宗教领袖的书简等。</td></tr>
+<tr><td><b>巴布</b></td><td>独立显示者、巴哈欧拉先驱；经文具有圣典地位。</td><td>《巴扬经》（Bayán）等大量经文与祷文。</td></tr>
+<tr><td><b>阿博都-巴哈</b></td><td>不是显示者；是巴哈欧拉指定的权威解释者与圣约中心。</td><td>《已答之问》（Some Answered Questions）、书简、演讲、《神圣计划书简》等。</td></tr>
+<tr><td><b>守基·埃芬迪</b></td><td>圣护；其解释在巴哈伊体系内具有权威性，但其文字不被称为神圣启示。</td><td>《巴哈欧拉的世界秩序》《神临记》（God Passes By）及大量书信。</td></tr>
+<tr><td><b>世界正义院</b></td><td>最高选举治理机构；可就圣典未明确之事项立法并提供权威指导。</td><td>里兹万文告、全球计划文告、专题信函、宪章与指导文件。</td></tr>
+</tbody></table></div>
+<h3>几本最能帮助外人“进入内部”的书</h3>
+<div class="grid2"><div class="card"><h3>《确信经》</h3><p>若想理解“宗教为什么是一条连续启示链”，这本书比先读行政制度更重要。它大量解释预言、宗教象征、显示者被人拒绝的规律。</p></div><div class="card"><h3>《隐言经》</h3><p>短句式灵修文本，语言带强烈神秘主义色彩。它能让人看到巴哈伊并不只是社会改革项目，也有浓厚的敬虔和内在灵性。</p></div><div class="card"><h3>《至圣经》</h3><p>巴哈伊律法与未来秩序的核心，不只是“道德格言”。祷告、斋戒、婚姻、继承、行政机构、朝向等都与此相关。</p></div><div class="card"><h3>《已答之问》</h3><p>阿博都-巴哈对基督教、灵魂、复活、进化、善恶等问题的解释，是理解巴哈伊如何重新诠释传统宗教概念的关键。</p></div></div>
+<div class="callout"><strong>一个重要区别：</strong>巴哈伊会尊重《圣经》《古兰经》等过去宗教经典，但它不会把这些经典与巴哈欧拉经文放在“今天同等规范权威”的位置上。过去显示者的神圣地位被肯定，但巴哈欧拉的启示被视为当前时代应遵循的神圣律法。</div>
+</section>
+
+<section class="chapter" id="s9"><div class="eyebrow">09 · Core Teachings</div><h2>核心教义：从“个人得救”扩展到“人类文明的成熟”</h2>
+<div class="grid2">
+<div class="card"><h3>人类一体</h3><p>不是简单“大家彼此友好”，而是巴哈伊所有社会教义的轴心。种族、民族、性别与阶级偏见被视为人类未成熟状态的产物；理想是“多样性中的统一”。</p></div>
+<div class="card"><h3>男女平等</h3><p>男女拥有同等属灵价值与受教育、参与社会生活的权利。巴哈伊把女性充分参与公共生活视为世界和平的必要条件。</p></div>
+<div class="card"><h3>科学与宗教和谐</h3><p>理性与真正宗教不应互相敌对。宗教若违背理性、制造迷信，就需要被重新理解；科学若完全脱离道德目的，也不能独自建立完整文明。</p></div>
+<div class="card"><h3>普及教育</h3><p>教育被视为人类潜能和世界合一的关键。家庭、社群与制度都有责任培养儿童、青少年和成人的精神与智力能力。</p></div>
+<div class="card"><h3>消除极端贫富</h3><p>巴哈伊并非提供一套现成经济学制度，但明确反对财富与贫困达到破坏社会共同体的极端程度，强调正义、劳动尊严、合作与社会责任。</p></div>
+<div class="card"><h3>世界和平与全球治理</h3><p>它期待一个由主权国家合作形成、更成熟的世界秩序，包括国际法、国际裁判机制、全球安全安排与辅助性的世界语言等。</p></div>
+</div>
+<p>更深一层看，巴哈伊不是把“灵性”和“社会改革”分开。它常用两个同时推进的过程描述信仰生活：<strong>个人的精神转化</strong>与<strong>社会结构的文明化</strong>。祷告、品格、家庭、教育、邻里服务和世界制度都被放进同一幅图里。</p>
+</section>
+
+<section class="chapter" id="s10"><div class="eyebrow">10 · Practice</div><h2>一个巴哈伊平常怎样生活？</h2>
+<h3>1. 每日义务祷告</h3><p>成年巴哈伊每天须从巴哈欧拉启示的三篇义务祷文中选择一篇：短篇每日一次；中篇每日早、中、晚；长篇每二十四小时一次。义务祷告原则上是个人完成，不是由神职人员带领的集体礼拜。祷告时的朝向是巴哈欧拉在巴吉的陵寝。</p>
+<h3>2. 每年十九日斋戒</h3><p>成年信徒在巴哈伊历最后一个月守斋十九天，大致落在每年3月2日至20日，从日出到日落禁食与饮水；有疾病、旅行、年龄等豁免。巴哈伊强调，身体禁食是属灵自制、祈祷与更新的外在记号，不是苦修本身。</p>
+<h3>3. 巴迪历：19 × 19 的宗教时间</h3><p>一年有19个月，每月19天，再加4或5个闰日（Ayyám-i-Há）。新年诺鲁孜（Naw-Rúz）与春分相合。每个巴哈伊月通常举行一次十九日灵宴会。</p>
+<div class="figure"><div class="diagram"><svg viewBox="0 0 900 370" xmlns="http://www.w3.org/2000/svg"><g transform="translate(210,185)">
+<circle r="128" fill="#f8f2e6" stroke="#d6c6aa"/><circle r="72" fill="#17374b"/><text y="-7" text-anchor="middle" fill="white" font-size="23" font-weight="700">巴迪历</text><text y="20" text-anchor="middle" fill="#dfe8ea" font-size="15">19个月 × 19天</text>
+<g fill="#b58b3c"> 
+<circle cx="0" cy="-150" r="8"/><circle cx="48" cy="-142" r="8"/><circle cx="91" cy="-119" r="8"/><circle cx="124" cy="-84" r="8"/><circle cx="145" cy="-40" r="8"/><circle cx="150" cy="8" r="8"/><circle cx="139" cy="56" r="8"/><circle cx="112" cy="97" r="8"/><circle cx="72" cy="132" r="8"/><circle cx="24" cy="148" r="8"/><circle cx="-25" cy="148" r="8"/><circle cx="-72" cy="132" r="8"/><circle cx="-112" cy="97" r="8"/><circle cx="-139" cy="56" r="8"/><circle cx="-150" cy="8" r="8"/><circle cx="-145" cy="-40" r="8"/><circle cx="-124" cy="-84" r="8"/><circle cx="-91" cy="-119" r="8"/><circle cx="-48" cy="-142" r="8"/>
+</g></g><g transform="translate(470,55)" font-family="sans-serif"><rect width="365" height="260" rx="18" fill="#eef4f2" stroke="#bcd1cc"/><text x="24" y="42" font-size="20" fill="#17374b" font-weight="700">一年里的几个核心节律</text><text x="24" y="82" font-size="16" fill="#4c626a">• 十九日灵宴会：每19天一次</text><text x="24" y="116" font-size="16" fill="#4c626a">• Ayyám-i-Há：闰日、款待与慈善</text><text x="24" y="150" font-size="16" fill="#4c626a">• 19日斋戒：日出至日落</text><text x="24" y="184" font-size="16" fill="#4c626a">• Naw-Rúz：春分，新年</text><text x="24" y="218" font-size="16" fill="#4c626a">• 里兹万等圣日：纪念双创始显示者</text></g></svg></div><div class="cap">图 4 · 巴哈伊历法把时间本身重新组织成一种宗教节律。对信徒而言，新历法象征一个新启示时代的开始。</div></div>
+<h3>4. 十九日灵宴会（Nineteen Day Feast）</h3><p>“灵宴会”不是圣餐，也不以大吃大喝为中心。它通常有三个层面：<strong>灵修</strong>（祷告、读经）、<strong>行政协商</strong>（社群与地方灵体会交流）和<strong>社会交谊</strong>。巴哈伊官方把它称为社区生活的基石。</p>
+<h3>5. 品格、婚姻与生活规范</h3><p>巴哈伊强调诚实、可信、谦卑、纯洁、服务、避免背后诽谤等。酒精和成瘾性毒品原则上禁用（医疗用途另论）。婚姻在现行巴哈伊律法中被定义为一男一女的结合，婚外性关系不被许可；结婚双方自由选择配偶，但巴哈伊婚姻要求所有在世父母同意，目的是在其内部逻辑中加强两个家庭的联结。</p>
+<h3>6. “工作即敬拜”</h3><p>巴哈伊经常强调：以服务精神从事专业、手艺或职业，可以具有敬拜意义。这让宗教生活不只存在于祷告时间，也进入教育、工作、家庭与社会服务。</p>
+</section>
+
+<section class="chapter" id="s11"><div class="eyebrow">11 · Community & Administration</div><h2>没有牧师、神父或阿訇：那谁治理巴哈伊社群？</h2>
+<p>巴哈伊没有职业神职阶层。没有人因为被按立就拥有垄断讲道、赦罪、施礼或解释经典的神圣身份。每个信徒都被期待自己读经、祷告、学习并参与服务。</p>
+<p>与此同时，它并不是“完全去组织化”的宗教。恰恰相反，巴哈伊拥有高度制度化而又非神职化的行政秩序：</p>
+<div class="figure"><div class="diagram"><svg viewBox="0 0 900 350" xmlns="http://www.w3.org/2000/svg"><g font-family="sans-serif" text-anchor="middle"><rect x="325" y="25" width="250" height="68" rx="16" fill="#17374b"/><text x="450" y="54" fill="white" font-size="22" font-weight="700">世界正义院</text><text x="450" y="78" fill="#dfe8ea" font-size="13">全球 · 9人 · 每5年</text><path d="M450 93V132" stroke="#b58b3c" stroke-width="4"/><rect x="325" y="132" width="250" height="68" rx="16" fill="#e9f1ef" stroke="#2d6f6b"/><text x="450" y="161" fill="#17374b" font-size="21" font-weight="700">国家灵体会</text><text x="450" y="184" fill="#586b72" font-size="13">国家/地区层级 · 9人</text><path d="M450 200V239" stroke="#b58b3c" stroke-width="4"/><rect x="325" y="239" width="250" height="68" rx="16" fill="#f5ead6" stroke="#b58b3c"/><text x="450" y="268" fill="#17374b" font-size="21" font-weight="700">地方灵体会</text><text x="450" y="291" fill="#586b72" font-size="13">地方社群 · 9人 · 每年选举</text><text x="150" y="160" fill="#66737f" font-size="15">无政党</text><text x="150" y="186" fill="#66737f" font-size="15">无竞选</text><text x="150" y="212" fill="#66737f" font-size="15">无候选人提名</text><text x="745" y="160" fill="#66737f" font-size="15">祷告式选举</text><text x="745" y="186" fill="#66737f" font-size="15">秘密投票</text><text x="745" y="212" fill="#66737f" font-size="15">以协商作决策</text></g></svg></div><div class="cap">图 5 · 巴哈伊行政秩序强调“无竞选的选举 + 集体协商”。个人不以政治平台争夺职位，机构成员被要求把个人意见投入集体寻求真理的过程。</div></div>
+<p>地方灵体会（Local Spiritual Assembly）通常由九人组成，每年选举；国家灵体会（National Spiritual Assembly）在国家或地区层面治理；世界正义院则处于全球层面。选举没有提名、竞选、拉票和政党，投票者祷告后自由选择其认为最适合服务的人。</p>
+<h3>当代社群建设：不是只把人“拉进教”</h3><p>近几十年，巴哈伊全球行动越来越围绕“能力建设”和“邻里社群”展开。四类常见活动是：祈祷聚会、儿童品格教育、青少年精神赋能项目、学习小组（study circles）。这些活动常向非巴哈伊开放，官方叙事把它们描述为服务当地人口精神与社会需要的“入口”，而不仅是传统意义的布道活动。</p>
+<h3>政治态度</h3><p>巴哈伊鼓励参与社会议题、公共讨论、教育和发展，但要求信徒避免党派政治、派系斗争和权力竞争。其理由不是认为社会事务不属灵，而是认为党争模式会加深分裂，不符合其“人类一体”的长期目标。</p>
+</section>
+
+<section class="chapter" id="s12"><div class="eyebrow">12 · Sacred Space</div><h2>巴哈伊礼拜堂：为什么常是九边形、向所有人开放？</h2>
+<p>巴哈伊礼拜堂称为 <em>Mashriqu’l-Adhkár</em>，意为“赞念上帝的黎明之地”。它们向所有宗教与无宗教背景的人开放。礼拜空间可以诵读巴哈伊及其他宗教圣典，但没有讲坛式布道、圣职主持的仪式或募捐。</p>
+<p>九在巴哈伊文化中常象征圆满、包容和统一，因此著名礼拜堂通常具有九边或九个入口。最知名的实例之一是印度新德里的莲花寺。巴哈伊理想中的礼拜堂还不仅是“宗教建筑”，长远设想是与教育、慈善、社会服务设施形成一个服务共同体。</p>
+<div class="figure"><div class="diagram"><svg viewBox="0 0 900 390" xmlns="http://www.w3.org/2000/svg"><g transform="translate(230,195)"><polygon points="0,-145 93,-111 143,-25 126,73 50,136 -50,136 -126,73 -143,-25 -93,-111" fill="#eef4f2" stroke="#2d6f6b" stroke-width="4"/><circle r="72" fill="#17374b"/><text y="-8" text-anchor="middle" font-size="22" fill="white" font-weight="700">礼拜</text><text y="21" text-anchor="middle" font-size="15" fill="#dce8ea">祈祷 · 圣典诵读</text><g fill="#b58b3c"><circle cx="0" cy="-145" r="7"/><circle cx="93" cy="-111" r="7"/><circle cx="143" cy="-25" r="7"/><circle cx="126" cy="73" r="7"/><circle cx="50" cy="136" r="7"/><circle cx="-50" cy="136" r="7"/><circle cx="-126" cy="73" r="7"/><circle cx="-143" cy="-25" r="7"/><circle cx="-93" cy="-111" r="7"/></g></g><g transform="translate(480,70)" font-family="sans-serif"><rect width="330" height="250" rx="16" fill="#fffaf0" stroke="#d9c8a7"/><text x="25" y="43" font-size="20" fill="#17374b" font-weight="700">空间本身表达的神学</text><text x="25" y="82" font-size="16" fill="#53656e">九个方向进入同一中心</text><text x="25" y="118" font-size="16" fill="#53656e">→ 人类多样性中的统一</text><text x="25" y="160" font-size="16" fill="#53656e">没有讲坛与圣职中心</text><text x="25" y="196" font-size="16" fill="#53656e">→ 圣言与共同祈祷居中心</text></g></svg></div><div class="cap">图 6 · 九边形并不是“九种宗教拼盘”的简单符号，而更广泛地指向圆满、统一与向所有方向开放。</div></div>
+</section>
+
+<section class="chapter" id="s13"><div class="eyebrow">13 · Soul & Afterlife</div><h2>灵魂、天堂与地狱：巴哈伊如何理解“得救”</h2>
+<p>巴哈伊认为每个人具有理性且不朽的灵魂。身体是灵魂在物质世界中的暂时工具；死亡不是灵魂毁灭，而是灵魂与身体分离，进入对人类目前经验而言不可完全描述的属灵世界，并继续趋向完善。</p>
+<p>因此，“天堂”和“地狱”主要不被理解为宇宙中两个物理地点，而被理解为<strong>与上帝接近或远离的状态</strong>。在今生，这种状态就已经开始：爱、认识神、培养美德和服务使灵魂更接近其目的；自我中心、恶习、拒绝真理则使人远离神。</p>
+<p>巴哈伊的救恩图景因此更像“灵魂永恒成长”而不是一次司法裁决后永久固定的空间归宿。祈祷也可以为逝者而献，活人与逝者之间仍被认为存在精神关系。</p>
+<div class="inside"><div class="tag">对“末世”的重新解释</div><p>巴哈伊大量把传统宗教中的末世、复活、再来语言作属灵和历史性的解释。例如阿博都-巴哈明确把基督“三日复活”解释为基督事业在门徒中重新获得生命，而不是肉身从坟墓复活。由此可见，巴哈伊虽然尊崇耶稣，却并不接受主流基督教对肉身复活的解释。</p></div>
+</section>
+
+<section class="chapter" id="s14"><div class="eyebrow">14 · The Faith Today</div><h2>发展与现状：一个规模不算巨大的全球性宗教网络</h2>
+<p>根据巴哈伊世界新闻社目前公布的官方统计，全球有<strong>超过500万</strong>巴哈伊，分布在几乎所有国家和许多属地，居住于<strong>超过10万个地方</strong>；社群中代表约<strong>2100个</strong>原住民部族、种族和族群背景。官方统计还列出<strong>188个国家层级理事会</strong>、300多个培训机构，以及截至2026年所列的<strong>14座巴哈伊礼拜堂</strong>。</p>
+<div class="stats"><div class="stat"><strong>500万+</strong><span>官方公布的全球信徒数</span></div><div class="stat"><strong>10万+</strong><span>有巴哈伊居住的地方</span></div><div class="stat"><strong>188</strong><span>国家层级理事会</span></div><div class="stat"><strong>14</strong><span>已列出的巴哈伊礼拜堂</span></div></div>
+<p>数字需要谨慎解释：不同宗教的人口统计口径并不统一，“登记信徒”“活跃参与者”“文化身份”也不完全一样。因此，理解巴哈伊的现实影响力，不能只看人口总数。它的特点是<strong>地理分布广、跨文化组织度高、统一的全球行政体系明显</strong>。</p>
+<h3>为何世界中心在以色列海法—阿卡一带？</h3><p>这经常被误解为近现代政治选择。实际历史原因是：巴哈欧拉在奥斯曼帝国时期被流放到阿卡，最终葬于巴吉；巴布遗骸后来安葬在海法迦密山。巴哈伊世界中心由此在当地发展起来，其历史早于1948年以色列建国。</p>
+<h3>当代受迫害处境</h3><p>巴哈伊的发源地伊朗至今仍是其最严峻的宗教自由问题之一。2026年巴哈伊国际社群继续向联合国报告大学教育排斥、逮捕、财产没收、宣传污名化以及酷刑等情况。埃及、也门等地也存在不同程度的法律与社会限制。对巴哈伊信徒而言，“和平、不报复、服从合法政府但不否认信仰”构成其面对迫害时的重要伦理叙事。</p>
+</section>
+
+<section class="chapter" id="s15"><div class="eyebrow">15 · Translation for Christian Readers</div><h2>如果你有基督教背景，最容易误读巴哈伊的几个地方</h2>
+<p>下面不是从基督教立场反驳巴哈伊，而是帮助你准确知道：<strong>当同一个词出现时，两边其实可能在说不同的东西。</strong></p>
+<div class="table-wrap"><table class="compare"><thead><tr><th>词语</th><th>容易产生的第一印象</th><th>巴哈伊内部实际含义</th></tr></thead><tbody>
+<tr><td>“相信耶稣”</td><td>似乎等于承认尼西亚信经意义上的基督论</td><td>承认耶稣是上帝的显示者，具有神圣权威；但上帝本体不可成为有限肉身，且耶稣不是最后一次启示。</td></tr>
+<tr><td>“复活”</td><td>肉身从死里复活</td><td>阿博都-巴哈对耶稣复活作属灵—象征性解释，重点是基督事业在使徒群体中的复苏。</td></tr>
+<tr><td>“再来”</td><td>同一位耶稣以可见方式再临</td><td>预言可在“属灵身份与神圣使命的再现”中应验；巴哈伊将许多末世预言理解为巴布与巴哈欧拉时代已经开启。</td></tr>
+<tr><td>“宗教合一”</td><td>所有宗教任选、彼此没有真假区别</td><td>不是相对主义；过去显示者都来自同一上帝，但当代人应承认巴哈欧拉这一新的显示者。</td></tr>
+<tr><td>“上帝的显示者”</td><td>可能听起来像“上帝化身”</td><td>更接近“完美镜子”：真实反映神的属性与权威，却不等同于不可知的神圣本体。</td></tr>
+<tr><td>“无神职人员”</td><td>没有权威结构</td><td>没有按立神职阶级，但有高度组织化的选举机构、圣约权威与全球治理体系。</td></tr>
+</tbody></table></div>
+<div class="callout"><strong>因此：</strong>若一个基督徒只听到“巴哈伊也相信耶稣、也相信圣经、也讲爱与和平”，很容易以为差异只是“再多承认几个先知”。其实真正的差异在更深层：<strong>启示观、基督论、复活观、末世观、经文权威观、救恩论与宗教历史观都被重新组织。</strong></div>
+</section>
+
+<section class="chapter" id="s16"><div class="eyebrow">16 · Tensions & Questions</div><h2>真正理解一个宗教，也要看它内部需要承受的张力</h2>
+<p>“从内部看”不等于把所有难题略过。恰恰相反，要理解巴哈伊信徒为何仍然接受某些看似矛盾的制度，就必须知道他们怎样处理这些问题。</p>
+<h3>1. 男女平等 vs. 世界正义院成员仅限男性</h3><p>这是最明显的张力。巴哈伊一方面把男女平等列为核心原则，另一方面世界正义院的九名成员按其权威解释仅限男性。巴哈伊官方的内部回答不是“男女其实不平等”，而是：这是一项明确的圣约与经文规定，其智慧目前并未完整显明，不能据此推导男性在属灵或社会价值上更高；女性可担任几乎所有其他选举与任命职位。无论外部观察者是否觉得这个答案充分，<strong>这就是巴哈伊自身处理该张力的方式</strong>。</p>
+<h3>2. 普遍宗教合一 vs. 对巴哈欧拉的强规范性宣称</h3><p>巴哈伊非常重视宗教间和谐，但它并不是只说“每个人原样留在自己的宗教即可”。在其内部逻辑里，过去宗教是真实的，却已进入新的启示阶段；因此它既具有包容性，又具有宣称性。这两面必须同时看到。</p>
+<h3>3. 独立思考 vs. 权威解释与圣约忠诚</h3><p>巴哈伊鼓励“独立探求真理”，反对神职垄断；但一旦一个人认信巴哈欧拉，他也进入一个有明确解释与行政权威边界的共同体。个人可以研究、提问、讨论，但不能把个人解释提升为与阿博都-巴哈、守基·埃芬迪或世界正义院相竞争的宗派权威。巴哈伊会把这种边界理解为维护宗教统一，而不是压制思想。</p>
+<h3>4. 高度全球主义 vs. 现实世界的政治复杂性</h3><p>巴哈伊追求世界联邦式秩序、反对党派斗争，并强调对合法政府的忠诚。在稳定社会，这种姿态容易理解；在威权、战争或高度极化环境中，如何既保持“不卷入党派政治”又积极维护正义，会产生非常现实的实践难题。巴哈伊近代大量机构文告都在细化这一平衡。</p>
+</section>
+
+<section class="chapter" id="s17"><div class="eyebrow">17 · Synthesis</div><h2>最后的整体画像：一个“宗教史神学 + 灵性纪律 + 全球文明工程”的组合</h2>
+<p class="lead">若从内部真正把巴哈伊信仰拼起来，它不是“和平、平等、世界大同”几句现代口号，也不只是“伊斯兰教里长出来的新宗教”。它有一套完整而自洽的世界观：<strong>不可知的独一上帝 → 连续的显示者 → 渐进启示 → 巴布与巴哈欧拉 → 圣约保证统一 → 个人灵魂修炼 → 社群协商 → 人类迈向全球文明。</strong></p>
+<div class="figure"><div class="diagram"><svg viewBox="0 0 920 500" xmlns="http://www.w3.org/2000/svg"><g font-family="sans-serif" text-anchor="middle"><circle cx="460" cy="250" r="86" fill="#17374b"/><text x="460" y="240" fill="white" font-size="24" font-weight="700">巴哈欧拉的启示</text><text x="460" y="270" fill="#dce8ea" font-size="15">“人类成年期”的神圣教育</text>
+<g fill="#f4ead5" stroke="#b58b3c" stroke-width="2"><circle cx="460" cy="72" r="60"/><circle cx="700" cy="145" r="60"/><circle cx="742" cy="355" r="60"/><circle cx="460" cy="430" r="60"/><circle cx="178" cy="355" r="60"/><circle cx="220" cy="145" r="60"/></g>
+<g font-size="17" fill="#17374b" font-weight="700"><text x="460" y="68">独一上帝</text><text x="460" y="91" font-size="13" font-weight="400">超越而不可穷尽</text><text x="700" y="140">渐进启示</text><text x="700" y="163" font-size="13" font-weight="400">诸显示者一脉相承</text><text x="742" y="350">圣约与行政</text><text x="742" y="373" font-size="13" font-weight="400">维持全球统一</text><text x="460" y="425">灵魂成长</text><text x="460" y="448" font-size="13" font-weight="400">祷告 · 斋戒 · 品格</text><text x="178" y="350">社群服务</text><text x="178" y="373" font-size="13" font-weight="400">教育 · 协商 · 行动</text><text x="220" y="140">人类一体</text><text x="220" y="163" font-size="13" font-weight="400">世界文明的目标</text></g>
+<g stroke="#8da7a4" stroke-width="2" stroke-dasharray="5 7"><line x1="460" y1="158" x2="460" y2="132"/><line x1="535" y1="205" x2="645" y2="163"/><line x1="535" y1="295" x2="682" y2="339"/><line x1="460" y1="336" x2="460" y2="370"/><line x1="385" y1="295" x2="238" y2="339"/><line x1="385" y1="205" x2="275" y2="163"/></g></g></svg></div><div class="cap">图 7 · 把巴哈伊看成“全球文明工程”并不意味着它世俗化；恰恰相反，它认为世界文明只有在神圣启示与灵性品格基础上才可能真正统一。</div></div>
+<p>若站在虔诚巴哈伊的角度，他每天祷告、守斋、读巴哈欧拉，不是在加入一个宽泛的“宗教大联盟”；他相信自己正生活在一个新的神圣时代。耶稣、穆罕默德、佛陀等过去的伟大宗教创始者并没有被推翻，而是被放入同一条启示史；巴哈欧拉则被视为这条启示史在当代的中心。</p>
+<p>因此，理解巴哈伊最好的入口不是先问“它到底属于伊斯兰教还是新兴宗教”，而是先问：<strong>如果一个人真的相信人类历史是一场由上帝分阶段推进的教育，并且认为十九世纪出现了面向全球文明的新启示，那么他的宗教生活、历史解释、伦理和政治想象会变成什么样？</strong>巴哈伊信仰，就是对这个问题的一整套回答。</p>
+</section>
+
+<section class="chapter" id="sources"><div class="eyebrow">Sources</div><h2>主要资料来源与进一步阅读</h2>
+<p class="mini">本报告刻意以巴哈伊官方/权威材料为主，以符合“从会友内部理解”的目标；历史部分辅以《伊朗百科全书》交叉核对。以下均为公开网页，访问时间为2026年9月。</p>
+<ol class="refs">
+<li><a href="https://www.bahai.org/beliefs">Bahá’í.org — What Bahá’ís Believe</a>：官方信仰总览。</li>
+<li><a href="https://www.bahai.org/beliefs/god-his-creation/revelation">Bahá’í.org — Revelation</a>：显示者、渐进启示与人类成熟。</li>
+<li><a href="https://www.bahai.org/sw/bahaullah/life-bahaullah">Bahá’í.org — The Life of Bahá’u’lláh</a>：巴哈欧拉生平、巴格达与1863年里兹万宣示。</li>
+<li><a href="https://www.bahai.org/library/authoritative-texts/bahaullah/kitab-i-aqdas/2">Bahá’í Reference Library — The Kitáb-i-Aqdas</a>：巴哈欧拉核心律法书。</li>
+<li><a href="https://www.bahai.org/library/authoritative-texts/downloads">Bahá’í Reference Library — Authoritative Writings and Guidance</a>：权威经文与文告总入口。</li>
+<li><a href="https://www.bahai.org/shoghi-effendi">Bahá’í.org — Shoghi Effendi, Guardian of the Bahá’í Faith</a>：圣约与圣护。</li>
+<li><a href="https://www.bahai.org/the-universal-house-of-justice">Bahá’í.org — The Universal House of Justice</a>：世界正义院的地位、选举与职责。</li>
+<li><a href="https://www.bahai.org/beliefs/life-spirit/human-soul">Bahá’í.org — The Human Soul</a>：灵魂、死亡与永恒成长。</li>
+<li><a href="https://www.bahai.org/library/authoritative-texts/abdul-baha/some-answered-questions/7">Some Answered Questions — The Resurrection of Christ</a>：阿博都-巴哈对基督复活的权威解释。</li>
+<li><a href="https://www.bahai.org/zh/action/devotional-life/calendar">Bahá’í.org 中文 — 巴哈伊历法</a>：19×19历法、圣日和2026年日期。</li>
+<li><a href="https://www.bahai.org/zh/documents/bahaullah/obligatory-prayers">Bahá’í.org 中文 — 义务祷文</a>：每日三种义务祷文。</li>
+<li><a href="https://www.bahai.org/beliefs/life-spirit/devotion/fasting">Bahá’í.org — Fasting</a>：十九日斋戒。</li>
+<li><a href="https://www.bahai.org/beliefs/essential-relationships/administrative-order/local-spiritual-assembly">Bahá’í.org — Local Spiritual Assembly</a>：地方灵体会与十九日灵宴会。</li>
+<li><a href="https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/20241006_001/1">Universal House of Justice, 6 Oct 2024</a>：无提名、无竞选的巴哈伊选举原则。</li>
+<li><a href="https://news.bahai.org/media-information/statistics">Bahá’í World News Service — Statistics</a>：当前官方全球统计。</li>
+<li><a href="https://www.bic.org/statements/statement-61st-session-human-rights-council">Bahá’í International Community — 16 Mar 2026</a>：伊朗巴哈伊受迫害的当代报告。</li>
+<li><a href="https://www.bic.org/news/bahais-iran-face-scapegoating-and-incitement-hatred-midst-national-crisis">Bahá’í International Community — 3 Feb 2026</a>：伊朗危机中的替罪羊与仇恨煽动。</li>
+<li><a href="https://www.bahai.org/library/authoritative-texts/the-universal-house-of-justice/messages/19880531_001/1">Universal House of Justice, 31 May 1988</a>：男女平等与世界正义院男性成员规定。</li>
+<li><a href="https://www.bahai.org/fa/beliefs/life-spirit/character-conduct/articles-resources/compilation-family-life-marriage">Bahá’í.org — Family Life and Marriage compilation</a>：婚姻、父母同意、贞洁与性伦理。</li>
+<li><a href="https://www.iranicaonline.org/articles/bahaism-index/bahaism-i/">Encyclopaedia Iranica — Bahaism I: The Faith</a>：历史学术视角的起源与发展。</li>
+<li><a href="https://www.iranicaonline.org/articles/babism-index/babism-i-the-babi-movement/">Encyclopaedia Iranica — The Babi Movement</a>：巴布运动的历史背景。</li>
+</ol>
+</section>
+</main>
+</div>
+<footer><div style="font-family:var(--serif);font-size:1.2rem;margin-bottom:8px">巴哈伊信仰 · 内部视角深度导览</div><div class="small">本文件用于宗教理解与比较研究。对一个宗教最公平的第一步，是先准确听懂它自己如何描述上帝、经典、历史与救恩；是否认同，则是第二个问题。</div></footer>
+<button class="back" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="返回顶部">↑</button>
+<script>
+const p=document.getElementById('progress');
+const links=[...document.querySelectorAll('#tocnav a')];
+const secs=links.map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+function onScroll(){const h=document.documentElement;const max=h.scrollHeight-h.clientHeight;p.style.width=(max?100*h.scrollTop/max:0)+'%';let cur=secs[0];for(const s of secs){if(s.getBoundingClientRect().top<150)cur=s}links.forEach(a=>a.classList.toggle('active',cur&&a.getAttribute('href')==='#'+cur.id));}
+document.addEventListener('scroll',onScroll,{passive:true});onScroll();
+</script>
+</body></html>

@@ -1,7 +1,16 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, House, Landmark, Network, NotebookPen } from 'lucide-react';
+import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, House, Landmark, MessageCircleQuestion, Network, NotebookPen } from 'lucide-react';
 
 const APPS = [
+  {
+    id: 'belief-qa',
+    name: 'BeliefQ&A',
+    kind: 'FAITH · QUESTIONS',
+    description: '围绕未信者真实问题，逐层预备可对话的回答。',
+    Icon: MessageCircleQuestion,
+    color: '#7956a8',
+    load: () => import('../apps/BeliefQandA/entry.jsx'),
+  },
   {
     id: 'investment',
     name: 'Investment',
@@ -68,6 +77,7 @@ const APPS = [
 ];
 
 const APP_STYLE_LOADERS = {
+  'belief-qa': () => import('../apps/BeliefQandA/src/styles.css?inline'),
   investment: () => import('../apps/investment/src/styles.css?inline'),
   industry: () => import('../apps/industry/src/styles.css?inline'),
   insight: () => import('../apps/insight/src/styles.css?inline'),
@@ -106,7 +116,7 @@ function createLazyApp(app) {
 }
 
 function currentAppId() {
-  const match = location.hash.match(/^#\/app\/([^/]+)/);
+  const match = location.hash.match(/^#\/app\/([^/?]+)/);
   if (match) return match[1];
   const legacyRoute = location.hash.slice(1);
   return /^(today|explore|cases|graph|theses|profile|article\/)/.test(legacyRoute) ? 'insight' : null;
@@ -129,9 +139,9 @@ function Home({ open }) {
       <div className="launcher-hub-heading">
         <p className="launcher-hub-eyebrow">NODEAPPS</p>
         <h1>NodeApps</h1>
-        <p>七个独立保留的本地工具，点击卡片进入。</p>
+        <p>八个独立保留的本地工具，点击卡片进入。</p>
       </div>
-      <div className="launcher-hub-actions"><span>7 APPS</span></div>
+      <div className="launcher-hub-actions"><span>8 APPS</span></div>
     </header>
     <section className="launcher-hub-grid" aria-label="应用列表">
       {APPS.map((app) => <button className="launcher-hub-card" key={app.id} onClick={() => open(app.id)} style={{ '--launcher-card-accent': app.color }}>

@@ -1,44 +1,32 @@
 {
-  "1": {
-    "vocab": [
-      { "word": "siervo", "ipa": "/ˈsjeɾ.βo/", "pos": "noun (m.)", "meaning": "servant, slave" },
-      { "word": "santo", "ipa": "/ˈsan.to/", "pos": "noun (m.)", "meaning": "saint, holy one" },
-      { "word": "obispo", "ipa": "/oˈβis.po/", "pos": "noun (m.)", "meaning": "overseer, bishop" },
-      { "word": "diácono", "ipa": "/ˈdja.ko.no/", "pos": "noun (m.)", "meaning": "deacon" }
-    ],
-    "grammar": [
-      { "title": "Joint subject ‘Pablo y Timoteo’", "detail": "Letters frequently open with a co-sender. Spanish, like English, lists names with ‘y’ — verbs that would follow take a plural form (here none — the salutation is verbless)." },
-      { "title": "‘junto con’", "detail": "‘together with’ — a fixed prepositional phrase, often used to extend a list to a final, slightly distinct group." }
-    ],
-    "expression": [
-      { "phrase": "siervos de Cristo Jesús", "note": "Both writers describe themselves as ‘siervos’ — slaves, not employees. Notably, Paul does not invoke ‘apostle’ here, perhaps because Philippi was a uniquely warm relationship." }
-    ]
-  },
-  "2": {
-    "vocab": [
-      { "word": "conceder", "ipa": "/kon.θeˈðer/", "pos": "verb", "meaning": "to grant" },
-      { "word": "gracia", "ipa": "/ˈɡɾa.θja/", "pos": "noun (f.)", "meaning": "grace, favour" },
-      { "word": "paz", "ipa": "/paθ/", "pos": "noun (f.)", "meaning": "peace" }
-    ],
-    "grammar": [
-      { "title": "‘Que’ + subjunctive (wish / blessing)", "detail": "Identical to Eph 1:2. ‘Que Dios… les concedan…’ The opening ‘Que’ + subjunctive expresses ‘May God grant…’" }
-    ],
-    "expression": [
-      { "phrase": "gracia y paz", "note": "Paul’s recurring greeting. Notice he uses it word-for-word across letters — a deliberate trademark." }
-    ]
-  },
-  "3": {
-    "vocab": [
-      { "word": "dar gracias", "ipa": "—", "pos": "phrase", "meaning": "to give thanks" },
-      { "word": "acordarse de", "ipa": "/a.koɾˈðaɾ.se/", "pos": "verb (reflexive, o→ue)", "meaning": "to remember (someone/something)" },
-      { "word": "cada vez que", "ipa": "—", "pos": "phrase", "meaning": "every time that, whenever" }
-    ],
-    "grammar": [
-      { "title": "acordarse + de", "detail": "‘to remember’ in Spanish almost always uses the reflexive form acordarse + de + object. Compare: ‘recordar algo’ (transitive, more formal)." },
-      { "title": "cada vez que + indicative", "detail": "‘every time that’ with a habitual present takes the indicative: ‘cada vez que me acuerdo’. (If it pointed to a future, possibly subjunctive.)" }
-    ],
-    "expression": [
-      { "phrase": "Doy gracias a mi Dios cada vez que me acuerdo de ustedes", "note": "Philippi was Paul’s favourite church. The verse sets a tone of warmth that runs throughout the letter." }
-    ]
-  }
+  "1": {"v":[["siervos","noun, masculine plural","servants; slaves"]],"g":[["a todos los santos","a + a personal before a group of people introduces the recipients: ‘to all the saints’. "]],"e":[["junto con los obispos y diáconos","junto con means ‘together with’ and adds the overseers and deacons to the greeting."]]},
+  "2": {"v":[["concedan","verb, present subjunctive","may grant"]],"g":[["Que Dios ... les concedan","Opening Que plus the subjunctive concedan forms a blessing: ‘May God ... grant you’. "]],"e":[["gracia y paz","A conventional letter greeting: ‘grace and peace’; the two nouns are coordinated without an article."]]},
+  "3": {"v":[["acuerdo","verb, present indicative","I remember"]],"g":[["cada vez que me acuerdo","cada vez que introduces a repeated occasion; me acuerdo is first-person present, ‘I remember’. "]],"e":[["Doy gracias a mi Dios","dar gracias a means ‘give thanks to’; mi Dios makes the reference personal."]]},
+  "4": {"v":[["oraciones","noun, feminine plural","prayers"]],"g":[["En todas mis oraciones","The preposition en locates the action within ‘all my prayers’; mis agrees with feminine plural oraciones."]],"e":[["oro con alegría","con alegría literally means ‘with joy’ and describes the manner of oro, ‘I pray’. "]]},
+  "5": {"v":[["participado","past participle","participated; shared"]],"g":[["han participado","han + participado is the present perfect, describing participation continuing in relevance to now."]],"e":[["desde el primer día hasta ahora","desde ... hasta marks a span: ‘from the first day until now’. "]]},
+  "6": {"v":[["perfeccionando","gerund","bringing to completion"]],"g":[["la irá perfeccionando","ir + gerund here expresses an ongoing future process: ‘will keep perfecting it’. "]],"e":[["hasta el día de Cristo Jesús","hasta sets the endpoint of the process: ‘until the day of Christ Jesus’. "]]},
+  "7": {"v":[["encuentre","verb, present subjunctive","I may find myself"]],"g":[["ya sea que me encuentre preso","ya sea que introduces an alternative and takes subjunctive encuentre: ‘whether I am imprisoned’. "]],"e":[["los llevo en el corazón","llevar en el corazón is an affectionate idiom: ‘I carry you in my heart’. "]]},
+  "8": {"v":[["entrañable","adjective","deeply felt; heartfelt"]],"g":[["de cuánto los quiero","cuánto introduces the extent of querer: God is witness to ‘how much I love you’. "]],"e":[["el entrañable amor","entrañable derives from entrañas, ‘inner parts’, and conveys very deep affection."]]},
+  "9": {"v":[["abunde","verb, present subjunctive","may abound"]],"g":[["que el amor de ustedes abunde","The content of pido en oración is introduced by que + subjunctive abunde, expressing Paul’s request."]],"e":[["cada vez más","A fixed comparative phrase meaning ‘more and more’; it intensifies abunde."]]},
+  "10": {"v":[["disciernan","verb, present subjunctive","you may discern"]],"g":[["para que disciernan","para que expresses purpose and requires subjunctive disciernan: ‘so that you may discern’. "]],"e":[["lo que es mejor","lo que is ‘what/that which’ and turns the following clause into the object to discern."]]},
+  "11": {"v":[["alabanza","noun, feminine","praise"]],"g":[["llenos del fruto de justicia","llenos is an adjective agreeing with an implied plural group; de introduces what they are filled with."]],"e":[["para gloria y alabanza de Dios","para marks the intended result: ‘for God’s glory and praise’. "]]},
+  "12": {"v":[["contribuido","past participle","contributed"]],"g":[["ha contribuido al avance","ha contribuido is present perfect; al contracts a + el before the masculine noun avance."]],"e":[["en realidad","An adverbial phrase meaning ‘in fact’ or ‘actually’, used to clarify the situation."]]},
+  "13": {"v":[["encadenado","past participle/adjective","chained"]],"g":[["se ha hecho evidente","se ha hecho is a present-perfect change-of-state construction: ‘has become evident’. "]],"e":[["por causa de Cristo","por causa de means ‘because of’ or ‘on account of’ and gives the reason for the chains."]]},
+  "14": {"v":[["atrevido","past participle","dared"]],"g":[["se han atrevido a anunciar","atreverse a + infinitive means ‘dare to’; se han atrevido is present perfect plural."]],"e":[["sin temor","sin + noun means ‘without’; sin temor describes their fearless manner of announcing."]]},
+  "15": {"v":[["rivalidad","noun, feminine","rivalry"]],"g":[["pero otros lo hacen","pero contrasts the first group with otros; lo is the neuter object, ‘it’ (preaching)."]],"e":[["con buenas intenciones","con buenas intenciones means ‘with good motives’; con introduces the manner or motivation."]]},
+  "16": {"v":[["defensa","noun, feminine","defense"]],"g":[["he sido puesto","he sido puesto is the present perfect passive: ‘I have been appointed/placed’. "]],"e":[["por amor","por amor means ‘out of love’; por identifies the motive of Estos últimos."]]},
+  "17": {"v":[["ambición","noun, feminine","selfish ambition"]],"g":[["creyendo que así van a aumentar","creyendo is a gerund giving their accompanying thought; van a aumentar is a near-future construction."]],"e":[["motivos puros","motivos puros means ‘pure motives’; puros agrees with masculine plural motivos."]]},
+  "18": {"v":[["sinceridad","noun, feminine","sincerity"]],"g":[["sea como sea","The subjunctive sea in this fixed phrase means ‘however it may be’ or ‘in any case’. "]],"e":[["Al fin y al cabo","An idiom meaning ‘after all’ or ‘when all is said and done’; it frames Paul’s conclusion."]]},
+  "19": {"v":[["resultará","verb, future indicative","will result"]],"g":[["resultará en mi liberación","resultar en means ‘result in’; the future resultará states the expected outcome."]],"e":[["gracias a las oraciones de ustedes","gracias a means ‘thanks to’ and credits the readers’ prayers as a means."]]},
+  "20": {"v":[["avergonzado","past participle/adjective","put to shame"]],"g":[["ya sea que yo viva o muera","ya sea que sets alternatives and takes subjunctives viva and muera: ‘whether I live or die’. "]],"e":[["Cristo será exaltado en mi cuerpo","The future passive será exaltado means ‘will be exalted’; en mi cuerpo specifies the sphere."]]},
+  "21": {"v":[["ganancia","noun, feminine","gain"]],"g":[["el vivir ... el morir","Infinitives can function as nouns; el turns vivir and morir into ‘living’ and ‘dying’. "]],"e":[["para mí","para mí means ‘for me’ and marks this as Paul’s personal evaluation."]]},
+  "22": {"v":[["fructífero","adjective","fruitful; productive"]],"g":[["si seguir viviendo ... representa","The whole infinitive phrase seguir viviendo is the subject of singular representa after si, ‘if continuing to live means’. "]],"e":[["¡No lo sé!","lo is a neuter pronoun referring to the choice; the phrase means ‘I do not know it’. "]]},
+  "23": {"v":[["presionado","past participle/adjective","pressed; torn"]],"g":[["deseo partir y estar","deseo is followed by two coordinated infinitives, partir and estar, expressing what he wants."]],"e":[["muchísimo mejor","muchísimo intensifies mejor: ‘very much better’ or ‘far better’. "]]},
+  "24": {"v":[["preferible","adjective","preferable"]],"g":[["es preferible que yo permanezca","es preferible que requires subjunctive permanezca because it evaluates a desired alternative."]],"e":[["por el bien de ustedes","por el bien de means ‘for the good of’; it states whose benefit is in view."]]},
+  "25": {"v":[["jubiloso","adjective","joyful; jubilant"]],"g":[["sé que permaneceré y continuaré","sé que introduces future indicatives permaneceré and continuaré, expressing a settled expectation."]],"e":[["avance en la fe","avance means ‘progress’; en la fe identifies the area in which that progress occurs."]]},
+  "26": {"v":[["satisfacción","noun, feminine","satisfaction; reason for rejoicing"]],"g":[["cuando yo vuelva","A future time clause uses present subjunctive vuelva after cuando: ‘when I return’. "]],"e":[["por causa mía","por causa de + possessive means ‘because of me’; mía agrees with the understood feminine causa."]]},
+  "27": {"v":[["compórtense","verb, affirmative command","conduct yourselves"]],"g":[["Pase lo que pase","Pase is subjunctive in an open-ended concessive phrase: ‘whatever happens’. "]],"e":[["de una manera digna","de una manera digna means ‘in a manner worthy’; digna agrees with feminine manera."]]},
+  "28": {"v":[["adversarios","noun, masculine plural","opponents"]],"g":[["lo cual es para ellos señal","lo cual refers back to the preceding situation as a whole, not to one noun."]],"e":[["en cambio","A discourse connector meaning ‘by contrast’ or ‘on the other hand’. "]]},
+  "29": {"v":[["concedido","past participle","granted"]],"g":[["se les ha concedido","An impersonal passive-like construction: les identifies those to whom something ‘has been granted’. "]],"e":[["no solo creer en Cristo, sino también sufrir por él","no solo ... sino también pairs two infinitives: ‘not only to believe ... but also to suffer’. "]]},
+  "30": {"v":[["sostienen","verb, present indicative","you maintain; carry on"]],"g":[["que antes me vieron sostener","ver + infinitive lets vieron express ‘saw’ while sostener names the action seen."]],"e":[["la misma lucha","misma means ‘same’ and links the readers’ struggle with Paul’s earlier one."]]}
 }
