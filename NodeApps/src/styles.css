@@ -147,7 +147,7 @@ button { font: inherit; }
 .launcher-dock {
   position: fixed;
   z-index: 1000;
-  top: 18px;
+  top: 6px;
   left: 50%;
   opacity: 0;
   pointer-events: none;
@@ -157,23 +157,24 @@ button { font: inherit; }
 .launcher-dock.is-visible { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
 .launcher-dock button {
   display: inline-flex;
-  min-height: 38px;
+  min-width: 156px;
+  min-height: 30px;
+  justify-content: center;
   align-items: center;
-  gap: 8px;
-  padding: 0 12px;
-  border: 1px solid rgba(32, 47, 60, .16);
+  gap: 7px;
+  padding: 0 16px;
+  border: 1px solid rgba(32, 47, 60, .22);
   border-radius: 999px;
   color: #263d4f;
-  background: rgba(255, 255, 255, .82);
-  box-shadow: 0 6px 19px rgba(23, 38, 50, .14);
-  backdrop-filter: blur(14px);
+  background: transparent;
+  box-shadow: none;
   cursor: pointer;
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
-  transition: color .16s ease, background .16s ease, transform .16s ease;
+  transition: border-color .16s ease, color .16s ease, background-color .16s ease, transform .16s ease;
 }
-.launcher-dock button:hover { border-color: var(--launcher-accent); color: #fff; background: var(--launcher-accent); transform: translateY(-1px); }
+.launcher-dock button:hover { border-color: var(--launcher-accent); color: var(--launcher-accent); background: color-mix(in srgb, var(--launcher-accent) 8%, transparent); transform: translateY(-1px); }
 .launcher-dock button:focus-visible { outline: 3px solid color-mix(in srgb, var(--launcher-accent) 38%, white); outline-offset: 3px; }
 
 .app-loading { display: grid; min-height: 100vh; place-content: center; gap: 16px; color: #18334c; text-align: center; }
@@ -193,9 +194,8 @@ button { font: inherit; }
   .launcher-hub-grid { grid-template-columns: 1fr; gap: 14px; }
   .launcher-hub-card { min-height: 190px; }
   .launcher-hub-footer { flex-direction: column; gap: 8px; padding-top: 28px; text-align: center; }
-  .launcher-dock { top: 12px; }
-  .launcher-dock button { width: 38px; justify-content: center; padding: 0; }
-  .launcher-dock button span { display: none; }
+  .launcher-dock { top: 5px; }
+  .launcher-dock button { min-width: 136px; min-height: 29px; padding-inline: 12px; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }

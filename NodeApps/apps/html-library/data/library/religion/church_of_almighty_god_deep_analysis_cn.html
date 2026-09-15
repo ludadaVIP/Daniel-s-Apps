@@ -1,0 +1,525 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light dark">
+<title>东方闪电（全能神教会）深度研究：从信徒内部世界理解其信仰、历史与现状</title>
+<style>
+:root{
+  --bg:#f6f1e8; --paper:#fffdf8; --ink:#23211f; --muted:#6d675f; --line:#ded6c9;
+  --gold:#a87b2a; --gold2:#d4b46b; --red:#7b2f31; --blue:#284d63; --green:#4f6957;
+  --soft:#f0e7d8; --quote:#f7f0e5; --shadow:0 18px 60px rgba(55,43,28,.10);
+}
+@media (prefers-color-scheme:dark){
+  :root{
+    --bg:#151513;--paper:#1d1c19;--ink:#ece7de;--muted:#aaa196;--line:#3d3932;
+    --gold:#d7b36a;--gold2:#9d7b3b;--red:#c67d7f;--blue:#79a9c4;--green:#8db09a;
+    --soft:#29251f;--quote:#24211d;--shadow:0 18px 60px rgba(0,0,0,.25)
+  }
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(circle at 10% 0%, rgba(168,123,42,.10), transparent 28rem),
+ radial-gradient(circle at 95% 7%, rgba(40,77,99,.08), transparent 32rem),
+ var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;line-height:1.78}
+a{color:var(--blue);text-decoration-thickness:1px;text-underline-offset:3px}
+.wrap{max-width:1180px;margin:auto;padding:0 24px}
+.hero{min-height:72vh;display:grid;align-items:center;padding:70px 0 45px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;right:-110px;top:70px;width:430px;height:430px;border:1px solid var(--gold2);border-radius:50%;opacity:.28}
+.eyebrow{font-size:13px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(42px,7vw,88px);line-height:1.03;margin:.12em 0 .18em;letter-spacing:-.03em}
+.subtitle{font-size:clamp(18px,2vw,25px);max-width:860px;color:var(--muted);margin:0}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(260px,.75fr);gap:42px;align-items:end}
+.badgebox{border:1px solid var(--line);background:color-mix(in srgb,var(--paper) 85%,transparent);padding:24px;border-radius:22px;box-shadow:var(--shadow);backdrop-filter:blur(8px)}
+.badgebox strong{display:block;font-family:Georgia,"Songti SC","STSong",serif;font-size:26px;margin-bottom:8px}
+.badgebox p{margin:.4em 0;color:var(--muted);font-size:14px}
+.meta{margin-top:28px;display:flex;gap:10px;flex-wrap:wrap}
+.pill{font-size:12px;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:var(--paper);color:var(--muted)}
+.layout{display:grid;grid-template-columns:270px minmax(0,1fr);gap:38px;align-items:start}
+nav.toc{position:sticky;top:16px;background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:18px;box-shadow:0 8px 35px rgba(0,0,0,.05);max-height:calc(100vh - 32px);overflow:auto}
+.toc-title{font-weight:800;font-size:13px;letter-spacing:.08em;color:var(--gold);margin-bottom:10px}
+.toc a{display:block;text-decoration:none;color:var(--muted);font-size:13px;padding:6px 8px;border-left:2px solid transparent}
+.toc a:hover{color:var(--ink);border-left-color:var(--gold)}
+main{min-width:0}
+section{background:var(--paper);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,4vw,54px);margin-bottom:28px;box-shadow:0 8px 40px rgba(35,30,22,.035)}
+h2{font-family:Georgia,"Songti SC","STSong",serif;font-size:clamp(28px,4vw,48px);line-height:1.15;margin:0 0 18px}
+h3{font-family:Georgia,"Songti SC","STSong",serif;font-size:24px;line-height:1.35;margin:34px 0 10px}
+h4{font-size:17px;margin:24px 0 7px}
+.lead{font-size:19px;color:var(--muted);margin-top:0}
+.kicker{font-size:12px;text-transform:uppercase;letter-spacing:.16em;font-weight:800;color:var(--gold);margin-bottom:8px}
+.note{border-left:4px solid var(--gold);background:var(--soft);padding:17px 19px;border-radius:0 13px 13px 0;margin:20px 0}
+.note.red{border-left-color:var(--red)}
+.note.blue{border-left-color:var(--blue)}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
+.card{border:1px solid var(--line);border-radius:16px;padding:18px;background:color-mix(in srgb,var(--paper) 90%,var(--soft))}
+.card b{display:block;margin-bottom:4px}
+.tag{display:inline-block;padding:3px 8px;border-radius:6px;font-size:11px;font-weight:800;letter-spacing:.06em;margin-right:6px}
+.tag.inside{background:rgba(79,105,87,.14);color:var(--green)}
+.tag.academic{background:rgba(40,77,99,.14);color:var(--blue)}
+.tag.contested{background:rgba(123,47,49,.13);color:var(--red)}
+.timeline{position:relative;margin:28px 0 10px;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:7px;top:3px;bottom:8px;width:2px;background:linear-gradient(var(--gold),var(--line))}
+.titem{position:relative;padding:0 0 25px 10px}
+.titem:before{content:"";position:absolute;left:-27px;top:9px;width:10px;height:10px;border:3px solid var(--paper);background:var(--gold);border-radius:50%;box-shadow:0 0 0 1px var(--gold)}
+.year{font-weight:900;color:var(--gold);font-size:13px;letter-spacing:.08em}
+.stages{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}
+.stage{border:1px solid var(--line);border-radius:18px;padding:18px;position:relative;overflow:hidden;min-height:205px}
+.stage:after{content:"";position:absolute;width:90px;height:90px;right:-25px;bottom:-25px;border:18px solid rgba(168,123,42,.08);border-radius:50%}
+.stage .n{font:700 52px/1 Georgia,serif;color:rgba(168,123,42,.28)}
+.stage h4{margin:3px 0 7px}
+.stage small{color:var(--muted)}
+.flow{display:flex;gap:8px;align-items:stretch;margin:20px 0;flex-wrap:wrap}
+.flow .step{flex:1 1 150px;border:1px solid var(--line);border-radius:14px;padding:14px;min-width:145px}
+.flow .arrow{display:grid;place-items:center;color:var(--gold);font-size:22px}
+.quote{font-family:Georgia,"Songti SC","STSong",serif;font-size:21px;background:var(--quote);padding:22px;border-radius:16px;margin:18px 0;border:1px solid var(--line)}
+.quote cite{display:block;font-family:inherit;font-size:12px;color:var(--muted);margin-top:10px;font-style:normal}
+.figure{margin:24px 0;border:1px solid var(--line);border-radius:18px;overflow:hidden;background:#eee}
+.figure img{display:block;width:100%;height:auto;max-height:560px;object-fit:contain;background:white}
+.figure figcaption{background:var(--paper);padding:11px 15px;color:var(--muted);font-size:12px}
+.svgbox{padding:20px;border:1px solid var(--line);border-radius:18px;background:linear-gradient(135deg,var(--soft),var(--paper));overflow:hidden;margin:24px 0}
+table{width:100%;border-collapse:collapse;margin:22px 0;font-size:14px}
+th,td{padding:12px 11px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{color:var(--gold);font-size:12px;letter-spacing:.04em}
+td:first-child{font-weight:700;width:17%}
+.spectrum{display:grid;grid-template-columns:190px 1fr;gap:10px 15px;align-items:center;margin:24px 0}
+.bar{height:12px;border-radius:20px;background:var(--soft);overflow:hidden;border:1px solid var(--line)}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--green),var(--gold));border-radius:20px}
+.source-list{counter-reset:src;padding:0;list-style:none}
+.source-list li{counter-increment:src;margin:11px 0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:color-mix(in srgb,var(--paper) 92%,var(--soft));font-size:13px}
+.source-list li:before{content:counter(src);display:inline-grid;place-items:center;width:22px;height:22px;border-radius:50%;background:var(--gold);color:#fff;font-size:11px;font-weight:900;margin-right:8px}
+details{border:1px solid var(--line);border-radius:14px;padding:12px 15px;margin:12px 0;background:color-mix(in srgb,var(--paper) 94%,var(--soft))}
+summary{cursor:pointer;font-weight:800}
+footer{color:var(--muted);padding:16px 0 60px;font-size:12px}
+.hr{height:1px;background:var(--line);margin:32px 0}
+.warning-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.iconline{font-size:13px;color:var(--muted);margin-top:14px}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr}
+  nav.toc{position:relative;top:auto;max-height:none}
+  .hero-grid,.grid2,.grid3,.stages,.warning-grid{grid-template-columns:1fr}
+  .hero{min-height:auto}
+  .spectrum{grid-template-columns:1fr}
+  .flow .arrow{display:none}
+}
+@media print{
+ body{background:white;color:#111}
+ .wrap{max-width:none}
+ nav.toc{display:none}
+ .layout{display:block}
+ section{box-shadow:none;break-inside:avoid}
+ a{color:#111}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Religion · New Religious Movements · China</div>
+      <h1>东方闪电<br><span style="color:var(--gold)">全能神教会</span></h1>
+      <p class="subtitle">不是先问“外界怎么评价它”，而是先进入一个全能神信徒的宗教世界：他们究竟相信谁、怎样理解耶稣再来、为何接受《话在肉身显现》、怎样理解末世审判，以及这个运动如何从1990年代中国发展成跨国宗教网络。</p>
+      <div class="meta">
+        <span class="pill">内部理解优先</span>
+        <span class="pill">宗教学资料交叉校验</span>
+        <span class="pill">争议事实分层呈现</span>
+        <span class="pill">资料更新：2026-09-15</span>
+      </div>
+    </div>
+    <aside class="badgebox">
+      <strong>阅读方法</strong>
+      <p><span class="tag inside">内部</span> 尽可能按全能神教会自身的神学语言来重建其信仰。</p>
+      <p><span class="tag academic">学术</span> 用宗教学、移民与宗教自由资料校验历史、组织和规模。</p>
+      <p><span class="tag contested">争议</span> 对暴力、末日事件、政府指控等不把单一叙事写成定论。</p>
+      <p style="margin-top:14px"><b>重要：</b>忠实呈现一个宗教的内部逻辑，不等于认定其神学主张为事实。</p>
+    </aside>
+  </div>
+</header>
+
+<div class="wrap layout">
+<nav class="toc">
+  <div class="toc-title">目录 · CONTENTS</div>
+  <a href="#s0">0. 先用一句话抓住核心</a>
+  <a href="#s1">1. 进入信徒的世界</a>
+  <a href="#s2">2. 三步作工：整套神学骨架</a>
+  <a href="#s3">3. “女基督”与第二次道成肉身</a>
+  <a href="#s4">4. 圣经与《话在肉身显现》</a>
+  <a href="#s5">5. 得救、审判与末世</a>
+  <a href="#s6">6. 聚会、灵修、尽本分</a>
+  <a href="#s7">7. 起源与发展时间线</a>
+  <a href="#s8">8. 组织与领导结构</a>
+  <a href="#s9">9. 全球化与2026现状</a>
+  <a href="#s10">10. 三个最重要争议</a>
+  <a href="#s11">11. 与主流新教的关键分歧</a>
+  <a href="#s12">12. 为什么有人会被吸引</a>
+  <a href="#s13">13. 如何做严肃辨析</a>
+  <a href="#sources">资料来源</a>
+</nav>
+
+<main>
+<section id="s0">
+  <div class="kicker">Executive summary</div>
+  <h2>0. 先用一句话抓住它的核心</h2>
+  <p class="lead">如果只记住一件事，请记住：<b>全能神教会认为，圣经中的主耶稣已经在末世再次道成肉身，以“全能神”之名在中国显现，并以大量新的神圣话语完成“审判从神家起首”的最后阶段工作。</b></p>
+  <p>这一个主张几乎能解释它所有其他教义：为什么“东方”重要、为什么现在是“国度时代”、为什么《话在肉身显现》具有决定性权威、为什么传统基督教被看成停留在“恩典时代”、为什么信徒强调“听见神现时的声音”，也解释了它为何与历史基督教产生根本性的神学冲突。</p>
+  <div class="note">
+    <b>从信徒内部看：</b>他们通常并不觉得自己“离开基督教去信另一个神”，反而认为自己是<b>继续跟随同一位神的新阶段工作</b>。在其叙事中，犹太教若只守耶和华而拒绝耶稣，就是停留在旧时代；同理，今天若只守“耶稣”这个名字而拒绝“全能神”，就是没有跟上神工作的脚踪。
+  </div>
+</section>
+
+<section id="s1">
+  <div class="kicker">Inside the worldview</div>
+  <h2>1. 先进入一个会友的宗教世界</h2>
+  <p class="lead">要真正理解全能神教会，不能先从“异端”“邪教”“受迫害团体”等外部标签开始；要先理解他们认为自己正处在怎样的宇宙历史时刻。</p>
+  <div class="grid2">
+    <div class="card"><b>世界处境</b>人类被撒但败坏，虽然耶稣已经完成赎罪，但人的“犯罪本性”和败坏性情并未根除。</div>
+    <div class="card"><b>末世处境</b>历史已经进入神六千年经营计划最后阶段：不是再重复十字架赎罪，而是以“话语的审判”洁净人。</div>
+    <div class="card"><b>神的临在</b>主再来不是仅仅未来某一天从天而降；“基督的末世工作”已经开始，神已经在肉身中发声。</div>
+    <div class="card"><b>人的关键任务</b>不是只等候神迹，而是做“聪明童女”：辨认神的声音、接受现时说话，并在审判中被洁净。</div>
+  </div>
+  <p>所以，对一个虔诚会友而言，阅读“全能神的话”不是读一位现代宗教作者的灵修书，而是与“现在正在说话的神”相遇；聚会也不是单纯查经，而是围绕这些话语“吃喝神话”、交通经历、认识自己的败坏性情，并寻求怎样实行真理。</p>
+
+  <div class="quote">“东方闪电”在他们内部并不是神秘暗号，而是把《马太福音》24:27“闪电从东边发出，直照到西边”解释为：末世神的说话与工作从东方中国开始，再向西方和世界传播。<cite>全能神教会中文见证材料的典型内部解释</cite></div>
+
+  <p>这意味着，他们的自我身份并非“一个来自中国的新宗教，借用了基督教符号”，而是“<b>同一位创造主在救赎历史中的第三阶段教会</b>”。宗教学者当然会以“基督教相关的新兴宗教运动”来分类，但这与信徒的自我理解不同，二者必须区分。</p>
+</section>
+
+<section id="s2">
+  <div class="kicker">Core theology</div>
+  <h2>2. “三步作工”：整套神学的骨架</h2>
+  <p>全能神教会最重要的系统性教义，是神有一个约六千年的“经营计划”，救赎人类的工作分为三个时代。这个框架不是旁枝，而是理解其全部神学的钥匙。</p>
+
+  <div class="stages">
+    <div class="stage"><div class="n">Ⅰ</div><h4>律法时代</h4><small>名称：耶和华</small><p>借摩西颁布律法、诫命，使人认识罪，学习敬拜神。核心不是终极拯救，而是建立人类生活秩序并显明罪。</p></div>
+    <div class="stage"><div class="n">Ⅱ</div><h4>恩典时代</h4><small>名称：耶稣</small><p>第一次道成肉身，以十字架完成“赎罪工作”。人因信可蒙赦免，但其败坏性情与犯罪根源仍未被彻底洁净。</p></div>
+    <div class="stage"><div class="n">Ⅲ</div><h4>国度时代</h4><small>名称：全能神</small><p>第二次道成肉身，主要不是行神迹或再次钉十字架，而是发表真理、审判、揭示、洁净、征服和成全人。</p></div>
+  </div>
+
+  <p>他们强调：这三步并不是三个神，而是<b>同一位神在三个时代以不同名字、不同工作方式表达不同性情</b>。因此“耶和华—耶稣—全能神”在他们看来是连续而非断裂的。</p>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 900 210" width="100%" role="img" aria-label="三步作工示意图">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#4f6957"/><stop offset=".52" stop-color="#a87b2a"/><stop offset="1" stop-color="#7b2f31"/></linearGradient></defs>
+      <line x1="95" y1="105" x2="805" y2="105" stroke="url(#g)" stroke-width="8" stroke-linecap="round"/>
+      <g font-family="Arial, sans-serif" text-anchor="middle">
+        <circle cx="150" cy="105" r="35" fill="#4f6957"/><text x="150" y="111" fill="white" font-size="18">律法</text>
+        <circle cx="450" cy="105" r="35" fill="#a87b2a"/><text x="450" y="111" fill="white" font-size="18">恩典</text>
+        <circle cx="750" cy="105" r="35" fill="#7b2f31"/><text x="750" y="111" fill="white" font-size="18">国度</text>
+        <text x="150" y="48" fill="currentColor" font-size="16">耶和华 · 律法</text>
+        <text x="450" y="48" fill="currentColor" font-size="16">耶稣 · 赎罪</text>
+        <text x="750" y="48" fill="currentColor" font-size="16">全能神 · 审判洁净</text>
+        <text x="450" y="180" fill="currentColor" opacity=".7" font-size="15">同一位神的一条“经营 / management”历史</text>
+      </g>
+    </svg>
+  </div>
+
+  <h3>他们为何反对三位一体？</h3>
+  <p>全能神教会坚持神只有一位，并明确拒绝历史基督教的“三位一体”教义。其官方文本称“父、子、圣灵”作为三个永恒位格的理解是人的宗教观念；父子语言主要被解释为道成肉身后“天上的灵”和“地上的肉身”之间的表达方式。其立场更接近一种强烈的“一神—不同显现/工作方式”框架，而不是尼西亚—迦克墩传统的三一论。</p>
+  <div class="note red"><b>这是最根本的分界之一。</b>因此，把它简单称为“另一种基督教宗派”会掩盖其与天主教、东正教以及绝大多数新教在神论上的结构性差异。</div>
+</section>
+
+<section id="s3">
+  <div class="kicker">Incarnation</div>
+  <h2>3. “女基督”到底是什么意思？</h2>
+  <p class="lead">外界最醒目的标签往往是“他们信一个中国女人是再来的基督”。但内部神学比这句话复杂一些。</p>
+  <p>全能神教会认为：末世的第二次道成肉身具有正常人的外貌和生活，但其“实质”是神；这一次肉身为女性。教会官方论证说，耶稣第一次以男性肉身出现，如果神永远只能以男性显现，人就可能把“神”本身限定为男性；第二次以女性肉身出现，是为了打破这种限制，并完成“两次道成肉身”的意义。</p>
+  <div class="flow">
+    <div class="step"><b>第一次</b><br>男性肉身 · 耶稣<br><small>完成赎罪</small></div><div class="arrow">→</div>
+    <div class="step"><b>第二次</b><br>女性肉身 · “全能神”<br><small>完成审判与洁净</small></div><div class="arrow">→</div>
+    <div class="step"><b>神学结论</b><br>神的本质不受人类性别限定</div>
+  </div>
+  <p><span class="tag academic">学术</span> 宗教学研究通常把产生启示话语的女性识别为<b>杨向彬（Yang Xiangbin，学者常加“可能/据称”限定）</b>；全能神教会的官方材料则通常不以世俗姓名作为信仰焦点，而称“全能神”“末世基督”。学术研究还把赵维山（Zhao Weishan）识别为其主要行政组织者或“被神使用的人”。</p>
+  <p><span class="tag inside">内部</span> 这两个角色在信徒理解中完全不对等：前者被敬拜为神自己，后者只被理解为负责行政与牧养配合的人，不能被敬拜，也不能代替“神的话”。</p>
+
+  <figure class="figure">
+    <img src="https://is1-ssl.mzstatic.com/image/thumb/Publication112/v4/d6/b7/23/d6b7238f-5cba-e087-e559-1cc30fd63d18/ZB-BK001_20221016-GY-1400px.png/1200x1200wz.jpg" alt="《The Word Appears in the Flesh》英文版书封">
+    <figcaption>《The Word Appears in the Flesh（话在肉身显现）》英文版封面。图片来源：Apple Books；本页仅作宗教研究与文本介绍。若离线打开，图片可能需要联网加载。</figcaption>
+  </figure>
+</section>
+
+<section id="s4">
+  <div class="kicker">Scripture & authority</div>
+  <h2>4. 圣经与《话在肉身显现》：谁拥有最高权威？</h2>
+  <p>这是理解它与传统新教差异最直接的入口。全能神教会并不否认圣经，也大量引用圣经，但它<b>拒绝“唯独圣经”以及“神所有启示都已经被封闭在圣经中”</b>的观念。</p>
+  <p>在其神学中，圣经是神在律法时代和恩典时代工作的真实见证与历史记录，却不能限制神此后继续说话。于是，若神在末世再次道成肉身，新的话语自然可以超出圣经文本。教会常用耶稣时代作为类比：若犹太人因为耶稣的话超出旧约既有文字而拒绝耶稣，就会错过神的新工作；同理，今天把圣经当作神无法超越的边界，也可能错过末世的“神现时说话”。</p>
+
+  <table>
+    <thead><tr><th>文本层级</th><th>全能神教会内部理解</th><th>功能</th></tr></thead>
+    <tbody>
+      <tr><td>旧约</td><td>律法时代及相关历史的记录与见证</td><td>认识神过去的工作</td></tr>
+      <tr><td>新约</td><td>尤其见证耶稣在恩典时代的赎罪工作；并非每一句都被等同为神亲口说的话</td><td>认识恩典时代</td></tr>
+      <tr><td>《话在肉身显现》</td><td>被视为末世基督“全能神”的直接发表</td><td>国度时代的审判、洁净、生命供应与教会治理</td></tr>
+      <tr><td>讲道/交通</td><td>人的解释与牧养，不等同于神的话</td><td>帮助会友理解和实行</td></tr>
+    </tbody>
+  </table>
+
+  <p>官方英文站截至2026年把《话在肉身显现》列为七卷，包括《神的显现与作工》《关于认识神》《末世基督座谈纪要》《揭示敌基督》《带领工人的职责》《追求真理》等卷册。这个文本库规模巨大，也是教会内容生产——读经音频、电影、诗歌、见证、讲道——的核心源头。</p>
+
+  <div class="note blue"><b>关键辨析：</b>他们不是“把《话在肉身显现》附加在圣经后面，当作一本普通注释”；而是把它理解为<b>神在新阶段对教会的现时话语</b>。因此权威结构已经发生根本改变。</div>
+</section>
+
+<section id="s5">
+  <div class="kicker">Salvation & eschatology</div>
+  <h2>5. 得救、审判与末世：十字架为什么“还不够”？</h2>
+  <p>在全能神教会的救恩论中，耶稣的十字架真实且必要，但完成的是“赎罪”，即人的罪得到赦免；它并没有彻底解决人里面持续骄傲、自私、诡诈、悖逆神的“撒但性情”。因此末世还需要一步更深的工作：<b>用真理的话审判并洁净人的性情</b>。</p>
+  <div class="flow">
+    <div class="step"><b>罪得赦免</b><br><small>恩典时代</small></div><div class="arrow">→</div>
+    <div class="step"><b>接受末世话语审判</b><br><small>看见自己的败坏</small></div><div class="arrow">→</div>
+    <div class="step"><b>实行真理</b><br><small>性情变化</small></div><div class="arrow">→</div>
+    <div class="step"><b>蒙洁净、得成全</b><br><small>进入神国</small></div>
+  </div>
+  <p>这里的“审判”不主要被理解为末日某一天法庭式宣判，而是已经开始的、长期的属灵过程：读到神的话，被揭露、修理、对付，经历试炼与熬炼，认出自己真实的败坏，再在现实生活中实行真理。</p>
+
+  <h3>他们怎样理解“大灾难”和基督公开显现？</h3>
+  <p>其末世论通常区分神“隐秘降临、成为人子发声作工”的阶段，与后来更公开的灾难、赏罚和国度显现。真正的“聪明童女”应当在神公开显现之前，先借“听声音”认出基督。于是他们常把今天接受全能神理解为“灾前被提到神宝座前”——这里的“被提”主要是属灵地来到神面前，而不是身体突然升空。</p>
+
+  <p>这也形成一种很强的宗教紧迫感：<b>历史不是普通地继续前进，而是救赎史已经来到最后关口。</b>这能解释教会对传福音、见证、制作多语种媒体内容投入大量资源的原因。</p>
+</section>
+
+<section id="s6">
+  <div class="kicker">Religious life</div>
+  <h2>6. 如果你真的坐进他们的聚会，会发生什么？</h2>
+  <p class="lead">以下是依据教会自身材料与宗教学研究重建的“典型体验”，不是声称每个地方、每次聚会完全相同。</p>
+
+  <figure class="figure">
+    <img src="https://m.media-amazon.com/images/M/MV5BYzExNTZhZGYtMmZiOS00YTdkLTk5MGYtNjM3ZWQyNjhhOGJlXkEyXkFqcGc%40._V1_.jpg" alt="全能神教会影片中的查考/聚会场景">
+    <figcaption>全能神教会相关影片中的聚会/学习场景。图片来源：IMDb 影片条目《The Origin and Development of the Church of Almighty God》(2016)；用于说明其自我呈现方式。</figcaption>
+  </figure>
+
+  <div class="grid2">
+    <div class="card"><b>① 读神话</b>通常以《话在肉身显现》或相关摘录为中心，反复阅读某段“全能神的话”。</div>
+    <div class="card"><b>② 交通</b>会友轮流分享自己怎样理解这段话，以及生活中暴露了哪些败坏性情。</div>
+    <div class="card"><b>③ 见证</b>强调具体经历：例如因追求地位而失败、怎样接受修理对付、如何悔改改变。</div>
+    <div class="card"><b>④ 祷告与诗歌</b>祷告通常奉“全能神”的名；大量原创诗歌和影视作品把神学转化为情感经验。</div>
+    <div class="card"><b>⑤ 尽本分</b>传福音、翻译、视频、音乐、教会行政、接待、牧养等都可被理解为受造之物应尽的“本分”。</div>
+    <div class="card"><b>⑥ 辨别与纪律</b>其文本高度强调真假带领、敌基督、恶人、搅扰教会者，并有内部行政原则与开除制度。</div>
+  </div>
+
+  <h3>“尽本分”为什么如此重要？</h3>
+  <p>在近期官方讲道中，“只聚会、不尽本分”会被认为不足以使人获得真理。对投入程度较高的成员而言，信仰不只是每周一次宗教活动，而是一个<b>重构时间、职业选择、人际关系和人生意义的整体框架</b>。这能产生很强的奉献感，也正是部分家庭冲突和外部批评出现的背景之一。</p>
+
+  <p>宗教学者Massimo Introvigne把其敬拜风格描述为“形式简约但内容丰富”：没有传统大教堂礼仪的中心性，而大量时间用于读话、交通、唱诗、见证与媒体创作。学者同时指出，其地方教会通常规模并不巨大，组织上却有从本地到更高层级的领导体系。</p>
+</section>
+
+<section id="s7">
+  <div class="kicker">History</div>
+  <h2>7. 起源—发展：把两套历史叙述叠在一起看</h2>
+  <p>这里必须同时保留<b>信徒叙事</b>和<b>历史学/宗教学叙事</b>。它们对“谁创立了教会”这一点就使用完全不同的语言。</p>
+
+  <div class="timeline">
+    <div class="titem"><div class="year">1991</div><b>启示话语开始流传。</b>官方《话在肉身显现》卷一把“圣灵向众教会的说话”日期追溯到1991年2月。学术研究也把1991视为运动成形的关键起点，地点集中在中国河南及北方家庭教会网络。</div>
+    <div class="titem"><div class="year">1991–1992</div><b>从“圣灵说话”到认出“基督”。</b>早期追随者逐渐把持续发表话语的女性理解为神的第二次道成肉身。“全能神”“国度时代”等神学逐步成型。</div>
+    <div class="titem"><div class="year">1990s</div><b>快速扩张与强烈冲突。</b>它从中国家庭教会生态中扩展，尤其向已有基督徒传福音；同时与传统家庭教会、官方宗教管理体系冲突加剧。</div>
+    <div class="titem"><div class="year">1995以后</div><b>被中国政府列入“邪教组织”打击体系。</b>此后秘密聚会、地下组织和反侦查成为大陆生存环境的重要组成部分。</div>
+    <div class="titem"><div class="year">2000s</div><b>领导核心转向海外。</b>外部研究普遍认为赵维山与杨向彬后来移居美国；运动同时在中国大陆继续扩展。</div>
+    <div class="titem"><div class="year">2012</div><b>末世热潮中的公共事件。</b>部分成员卷入与“世界末日”相关的街头传教和集会。学术资料显示，教会领导层此后强调其传福音不应追求政治目的；这一时期也是理解其内部末世观与基层传播偏差的重要节点。</div>
+    <div class="titem"><div class="year">2014</div><b>招远麦当劳杀人案引发全球恶名。</b>中国官方最初把凶手描述为全能神相关人员；后来的宗教学研究依据审判材料认为，凶手属于另一个也使用“全能神”称号的小团体。此案至今仍是公众认知最混乱的争议之一。</div>
+    <div class="titem"><div class="year">2010s–2020s</div><b>海外制度化与媒体化。</b>教会在美洲、欧洲、韩国、东南亚、大洋洲等地建立网络，大量制作电影、舞蹈、合唱、见证视频和多语种网站。</div>
+    <div class="titem"><div class="year">2024–2026</div><b>大陆高压与海外扩展并存。</b>国际宗教自由机构继续把CAG成员列为中国遭打压的未获认可宗教群体之一；教会自身则持续发布大规模逮捕与刑罚统计。</div>
+  </div>
+
+  <div class="note"><b>两种“创立”语言：</b><br>
+    <span class="tag inside">内部</span> 教会坚持“不是任何人创立的”，而是因末世基督显现作工自然产生；“被神使用的人”只是配合行政与牧养。<br>
+    <span class="tag academic">学术</span> 学者则会说：运动围绕一位女性的启示话语形成，并由赵维山建立有效组织网络。这是宗教史叙事，不等于信徒的神学自述。
+  </div>
+</section>
+
+<section id="s8">
+  <div class="kicker">Organization</div>
+  <h2>8. 组织与领导：神权语言与现实行政同时存在</h2>
+  <p>从内部神学看，最高权威永远是“全能神”和“神的话”；从社会学角度看，任何跨国宗教都需要组织、人员选拔、财务、纪律和层级协调。因此两种描述可以同时成立。</p>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 900 360" width="100%" aria-label="全能神教会权威与行政结构示意">
+      <g font-family="Arial, sans-serif" text-anchor="middle">
+        <rect x="250" y="18" width="400" height="66" rx="18" fill="#7b2f31"/><text x="450" y="58" fill="#fff" font-size="22">全能神 / 神的话（神学最高权威）</text>
+        <path d="M450 84V125" stroke="#a87b2a" stroke-width="4"/>
+        <rect x="285" y="125" width="330" height="60" rx="16" fill="#a87b2a"/><text x="450" y="162" fill="#fff" font-size="20">“被神使用的人” / 行政领导</text>
+        <path d="M450 185V225M450 225H170M450 225H730" stroke="#a87b2a" stroke-width="3"/>
+        <rect x="65" y="225" width="210" height="58" rx="15" fill="#284d63"/><text x="170" y="260" fill="#fff" font-size="17">区域 / 区级协调</text>
+        <rect x="345" y="225" width="210" height="58" rx="15" fill="#4f6957"/><text x="450" y="260" fill="#fff" font-size="17">地方教会带领、执事</text>
+        <rect x="625" y="225" width="210" height="58" rx="15" fill="#284d63"/><text x="730" y="260" fill="#fff" font-size="17">海外平行组织</text>
+        <path d="M170 283V322M450 283V322M730 283V322" stroke="#777" stroke-width="2"/>
+        <text x="170" y="347" fill="currentColor" font-size="15">教会成员 / 各类本分</text>
+        <text x="450" y="347" fill="currentColor" font-size="15">教会成员 / 各类本分</text>
+        <text x="730" y="347" fill="currentColor" font-size="15">教会成员 / 各类本分</text>
+      </g>
+    </svg>
+  </div>
+
+  <p>Oxford的研究把地方教会描述为常见约20–50人的单位，并存在更高层级的区、地区、省级等组织，以及海外平行结构。加拿大移民与难民委员会（IRB）的资料综合学者访谈后指出，赵维山被称为“被圣灵使用的人”，是最高行政领导者；教会官方也公开存在“从上面来的弟兄”的讲道与行政指导文本。</p>
+  <p>这形成一种很值得注意的“双层权威”：<b>神学上，领导人绝不能与神等同；组织上，他的解释、任命和治理具有很高实际影响。</b>研究这个团体时，不能只看神学宣言，也不能只看组织结构。</p>
+</section>
+
+<section id="s9">
+  <div class="kicker">Current landscape</div>
+  <h2>9. 2026年的现状：大陆地下化，海外高度媒体化</h2>
+  <p>精确会员人数无法可靠核实。教会早年的官方材料称大陆有“至少数百万”信徒；中国政府和部分学者也曾给出数百万量级估计，但宗教学研究明确提醒，这些数字无法像公开注册宗派那样审计，因此更适合说“<b>被普遍认为是中国规模最大的基督教相关新兴宗教运动之一</b>”，而不要假装知道精确数字。</p>
+
+  <h3>海外存在已经非常广泛</h3>
+  <p>截至2026年，教会英文官网提供数十种语言版本，并公开列出亚洲、欧洲、大洋洲和美洲多国联络方式。这说明它已从一个中国地下宗教运动转变为跨国、多语言、强数字媒体型组织。官方网站本身就是理解这一变化的最好证据之一：书籍、每日神话、电影、合唱、舞蹈、见证、新闻、迫害报告、线上聊天室构成完整内容生态。</p>
+
+  <div class="svgbox">
+    <svg viewBox="0 0 900 260" width="100%" aria-label="全能神教会全球传播示意">
+      <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="6" refY="3" orient="auto"><path d="M0,0 L0,6 L7,3 z" fill="#a87b2a"/></marker></defs>
+      <g font-family="Arial, sans-serif">
+        <circle cx="450" cy="130" r="58" fill="#7b2f31"/><text x="450" y="127" text-anchor="middle" fill="white" font-size="20">中国</text><text x="450" y="151" text-anchor="middle" fill="white" font-size="13">1991起源</text>
+        <g fill="#284d63">
+          <circle cx="140" cy="65" r="42"/><circle cx="148" cy="202" r="42"/><circle cx="750" cy="58" r="42"/><circle cx="770" cy="202" r="42"/>
+        </g>
+        <g fill="white" font-size="15" text-anchor="middle">
+          <text x="140" y="70">欧洲</text><text x="148" y="207">大洋洲</text><text x="750" y="63">北美</text><text x="770" y="207">亚洲其他地区</text>
+        </g>
+        <g stroke="#a87b2a" stroke-width="3" fill="none" marker-end="url(#arr)">
+          <path d="M398 103 Q290 30 185 58"/><path d="M403 160 Q285 230 195 207"/><path d="M505 102 Q615 25 705 55"/><path d="M508 160 Q640 235 720 205"/>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <h3>在新西兰也具有公开法律实体</h3>
+  <p>新西兰Charities Services登记显示，<b>The Church of Almighty God (New Zealand) Incorporated</b>自2018年注册为慈善机构，当前状态为Registered，活动范围标示为Nationwide。这个事实很能说明其海外阶段已经不只是隐蔽的华人家庭小组，而是在部分民主国家形成公开、制度化的宗教组织。</p>
+
+  <h3>中国大陆的处境则完全不同</h3>
+  <p>中国政府把全能神教会列为“邪教”并以刑法第300条等手段打击相关成员。美国国务院近年的宗教自由报告、USCIRF 2025年度报告都提到CAG成员遭逮捕、监禁和虐待。教会自己的2025年度报告（2026年发布）声称2025年至少19,191名成员被捕、2,291人被判刑、23人因迫害死亡；这些具体数字主要来自教会自身网络，难以独立逐案核实，因此应标记为<b>自报统计</b>，但更广泛的“其成员在中国面临严重国家打压”则有多个独立宗教自由来源支持。</p>
+</section>
+
+<section id="s10">
+  <div class="kicker">Controversies</div>
+  <h2>10. 三个最重要的争议：哪些可以确定，哪些不能？</h2>
+
+  <h3>争议一：2014年招远麦当劳杀人案</h3>
+  <p><span class="tag contested">公众叙事</span> 2014年山东招远麦当劳发生极其残酷的杀人案后，中国官方与大量媒体迅速把凶手与“全能神”联系起来，这成为全能神教会最著名的负面标签。</p>
+  <p><span class="tag academic">后续研究</span> Massimo Introvigne等学者重新分析公开审判材料后主张：凶手所信的小团体虽然也使用“全能神”称号，却有不同神学结构，并非全能神教会（CAG）本身；Oxford University Press 2020年的专章把这一区分作为核心结论。因而，把“麦当劳杀人案=CAG组织实施”直接写成确定事实并不严谨。</p>
+
+  <h3>争议二：2012“世界末日”传播</h3>
+  <p>Emily Dunn等研究记录，2012年中国出现全能神相关成员公开传播末世迫近、参与集会的情况。这里需要避免两个极端：一方面，不能因为后来教会否认粗糙的“某天世界毁灭”说法，就说基层从未出现过强烈末日宣传；另一方面，也不能把2012年流行的玛雅历“12·21世界终结”完全等同于教会正式成熟教义。更合理的理解是：<b>强烈末世论是其结构性特征，但基层传播在某些时期出现了与正式教义并不完全一致的激化表达。</b></p>
+
+  <h3>争议三：它究竟是“教会”“异端”还是“邪教”？</h3>
+  <p>这三个词属于三套不同的分类系统：</p>
+  <table>
+    <thead><tr><th>标签</th><th>谁在使用</th><th>它实际表达什么</th></tr></thead>
+    <tbody>
+      <tr><td>“教会”</td><td>成员自称</td><td>认为自己是国度时代、由末世基督亲自建立和牧养的教会。</td></tr>
+      <tr><td>“新兴宗教运动”</td><td>宗教学</td><td>描述其历史年代、组织形成和与既有宗教传统的关系，通常不先作真伪神学判决。</td></tr>
+      <tr><td>“异端”</td><td>主流基督教神学</td><td>根据三位一体、基督再来、正典、启示等教义判断其离开历史基督教正统。</td></tr>
+      <tr><td>“邪教/xie jiao”</td><td>中国国家法律政治体系</td><td>是国家列管与刑事打击类别，不等于西方社会学“cult”概念，也不能自动证明所有犯罪指控。</td></tr>
+    </tbody>
+  </table>
+
+  <div class="note red"><b>最重要的方法论原则：</b>“遭国家迫害”不自动证明一个宗教的神学是真的；反过来，“神学异端”也绝不能成为酷刑、任意拘禁或剥夺宗教自由的理由。这两件事需要分别判断。</div>
+</section>
+
+<section id="s11">
+  <div class="kicker">Comparison</div>
+  <h2>11. 与主流基督教新教相比，真正的分歧在哪里？</h2>
+  <p>如果你已有传统新教背景，下面这张表最能帮助你迅速定位：全能神教会并不是在一些次要礼仪上与新教不同，而是在<b>神论、基督论、启示论、末世论、正典观</b>上都作了系统性重构。</p>
+
+  <table>
+    <thead><tr><th>议题</th><th>主流历史基督教 / 新教</th><th>全能神教会</th></tr></thead>
+    <tbody>
+      <tr><td>三位一体</td><td>一位神、三个位格：父、子、圣灵，同质同荣</td><td>明确否认“三个位格”的三位一体结构；强调神只有一位、不同阶段显现和作工</td></tr>
+      <tr><td>耶稣再来</td><td>基督本人将再临；各派对具体末世次序有差异</td><td>认为耶稣已经再次道成肉身，在中国以女性肉身“全能神”显现</td></tr>
+      <tr><td>正典与启示</td><td>圣经是教会规范性、封闭的正典；新教强调唯独圣经</td><td>圣经见证前两阶段，但神仍继续发表新的、权威性的末世话语</td></tr>
+      <tr><td>十字架</td><td>基督一次献上成全救赎；成圣由圣灵继续施行</td><td>十字架完成赎罪，却仍需末世基督以话语审判来根除败坏性情</td></tr>
+      <tr><td>教会时代</td><td>教会从五旬节延续到基督再来</td><td>传统基督教属于已过去的“恩典时代”；如今是“国度时代”</td></tr>
+      <tr><td>末世识别</td><td>以圣经启示和基督使徒见证为规范辨别</td><td>强调“听神的声音”：判断新话语是否具有真理、权柄和神的声音</td></tr>
+    </tbody>
+  </table>
+
+  <p>因此，从历史基督教的尼西亚信经、迦克墩信经和宗教改革正典观来看，全能神教会通常会被判断为严重偏离正统；而全能神教会则反过来认为，传统教会正因为坚持旧教义、旧时代和旧名字，成为拒绝神现时工作的“宗教界”。双方并不是同一套前提下的小分歧，而是<b>对“神今天有没有新的道成肉身和新的权威启示”这个根本问题给出相反答案</b>。</p>
+</section>
+
+<section id="s12">
+  <div class="kicker">Why it persuades</div>
+  <h2>12. 为什么它会吸引一些原本很虔诚的基督徒？</h2>
+  <p>若只把成员解释成“无知、被骗”，就无法解释这个运动为何持续数十年并形成全球网络。它的吸引力来自几种机制叠加。</p>
+
+  <div class="grid3">
+    <div class="card"><b>① 解释教会冷淡</b>对经历过教会形式化、讲道重复、属灵枯干的人，它给出极强解释：“圣灵的工作已经转移到新阶段。”</div>
+    <div class="card"><b>② 大量文本供应</b>数百万字的“神话”、讲道、经历见证让追求深度读经的人感到有持续新内容可进入。</div>
+    <div class="card"><b>③ 强烈个人省察</b>反复讨论骄傲、诡诈、地位欲、交易心态等，对一些人会产生非常真实的道德自我审视。</div>
+    <div class="card"><b>④ 救赎史完整感</b>“律法—恩典—国度”提供一个简单而宏大的历史模型，让复杂圣经叙事看起来被统一起来。</div>
+    <div class="card"><b>⑤ 末世紧迫感</b>“主已经回来了”的主张把信仰从等待变成当下事件，使人生具有巨大戏剧性和使命感。</div>
+    <div class="card"><b>⑥ 高参与共同体</b>聚会、传福音、媒体、艺术、翻译和尽本分给成员清晰角色、归属感与意义感。</div>
+  </div>
+
+  <p>同时，这些优势也可能产生相反风险：如果一个群体把自身解释体系设为几乎不可被外部证据修正的终极框架，把其他教会整体描述为已被神弃绝，那么成员的世界可能变得越来越封闭。研究宗教时应同时理解“它为什么有说服力”和“它怎样处理反证”。</p>
+
+  <div class="spectrum">
+    <b>解释世界的完整性</b><div class="bar"><i style="width:92%"></i></div>
+    <b>个人道德省察</b><div class="bar"><i style="width:84%"></i></div>
+    <b>末世紧迫感</b><div class="bar"><i style="width:96%"></i></div>
+    <b>对传统教会开放度</b><div class="bar"><i style="width:22%"></i></div>
+    <b>接受外部神学纠错</b><div class="bar"><i style="width:20%"></i></div>
+  </div>
+  <p class="iconline">上图不是“科学评分”，只是把本报告分析出的结构特征视觉化。</p>
+</section>
+
+<section id="s13">
+  <div class="kicker">Discernment</div>
+  <h2>13. 如果你要严肃辨析它，真正应该问哪些问题？</h2>
+  <p class="lead">不要只问“政府说它是不是邪教”，也不要只问“他们的见证感不感人”。真正的神学辨析要深入其最核心的可检验主张。</p>
+
+  <div class="warning-grid">
+    <div class="card"><b>问题一：新启示的合法性</b>使徒时代之后，是否可能出现一套地位上实质超越/推进圣经正典的新“神亲口说话”？基督教历史怎样理解启示的终结与圣灵继续带领之间的区别？</div>
+    <div class="card"><b>问题二：第二次道成肉身</b>新约关于基督再临的经文，是否允许“先在中国以一位普通女性肉身隐秘生活并持续发表新启示”这种解释？还是这种解释是事后把经文重新拼合？</div>
+    <div class="card"><b>问题三：基督是谁</b>新约所说复活、升天、将再来的耶稣，与“另一个出生于中国家庭的肉身”之间如何维持人格连续性？这不是“神能不能成为女性”的问题，而是基督论连续性的问题。</div>
+    <div class="card"><b>问题四：三位一体</b>历史教会的三一论真是后世“凭空发明”，还是来自新约中父、子、圣灵同时出现且相互关系的整体见证？</div>
+    <div class="card"><b>问题五：十字架与成圣</b>“罪得赦免”与“败坏性情被洁净”的区分有一定属灵洞察；但是否必须由另一位末世道成肉身者发表新话语才能完成？新约如何描述圣灵、教会、真道和成圣？</div>
+    <div class="card"><b>问题六：可证伪性</b>如果所有反对意见都被预先解释为“宗教界抵挡神”“撒但搅扰”，那么体系还剩下什么证据能够使它承认自己可能错了？这是辨别任何高控制宗教体系的重要问题。</div>
+  </div>
+
+  <div class="hr"></div>
+  <h3>我的综合判断</h3>
+  <p>若目标是“真正理解它”，最准确的描述不是一句“它就是某某邪教”就结束，而是：<b>全能神教会是一个1990年代在中国家庭教会环境中形成、以“主耶稣已经以女性肉身再次道成肉身”为中心启示的基督教相关新兴宗教运动。</b>它发展出完整的“三步作工”救赎史，把《话在肉身显现》视为末世神的现时说话，否认历史基督教的三位一体，并认为传统基督教已停留在恩典时代。</p>
+  <p>从成员内部看，这是一场“迎接主再来”的运动；从宗教学看，它是中国当代最重要的新兴宗教运动之一；从主流基督教神学看，它在神论、基督论、正典观和末世论上都发生了根本性断裂；从人权角度看，其成员在中国所遭受的国家镇压又必须与神学真伪问题严格分开处理。</p>
+  <p><b>也就是说：要真正认识全能神教会，必须同时看见四层东西——信徒的敬虔经验、其独特神学系统、现实组织结构，以及围绕它形成的政治与媒体战争。</b>只看其中任何一层，都会失真。</p>
+</section>
+
+<section id="sources">
+  <div class="kicker">Sources & methodology</div>
+  <h2>主要资料来源</h2>
+  <p>本报告刻意把“第一手自述”放在很高权重，因为目标是从会友理解内部出发；历史与争议部分则用学术出版物、政府宗教自由资料、移民难民资料和公共登记交叉校验。</p>
+  <ol class="source-list">
+    <li><b>全能神教会官网：</b>《The Basic Beliefs of The Church of Almighty God》——基本信仰、三步作工与《话在肉身显现》。<br><a href="https://en.godfootsteps.org/about-us-questions-6.html">en.godfootsteps.org/about-us-questions-6.html</a></li>
+    <li><b>全能神教会官网：</b>《How The Church of Almighty God Came Into Being》——教会如何解释自己的起源及“被神使用的人”。<br><a href="https://en.godfootsteps.org/about-us-questions-2.html">en.godfootsteps.org/about-us-questions-2.html</a></li>
+    <li><b>全能神教会官网：</b>《The Difference Between Christianity and The Church of Almighty God》——其对传统基督教与“国度时代”的内部定位。<br><a href="https://en.godfootsteps.org/about-us-questions-4.html">en.godfootsteps.org/about-us-questions-4.html</a></li>
+    <li><b>全能神教会官网：</b>《The Word Appears in the Flesh》书目页——截至2026年的七卷结构。<br><a href="https://en.godfootsteps.org/books/the-word-appears-in-the-flesh.html">en.godfootsteps.org/books/the-word-appears-in-the-flesh.html</a></li>
+    <li><b>全能神教会官网：</b>《Does the Trinity Exist?》——其明确反三位一体立场。<br><a href="https://en.godfootsteps.org/does-the-trinity-exist-records.html">en.godfootsteps.org/does-the-trinity-exist-records.html</a></li>
+    <li><b>全能神教会官网：</b>《Concerning the Bible (4)》——圣经是前两个阶段历史见证的内部观点。<br><a href="https://en.godfootsteps.org/concerning-the-bible-4.html">en.godfootsteps.org/concerning-the-bible-4.html</a></li>
+    <li><b>全能神教会官网：</b>《Why Is the God Incarnate of the Last Days Female?》——女性道成肉身的内部神学论证。<br><a href="https://en.godfootsteps.org/testimonies/God-incarnate-of-last-days-female.html">en.godfootsteps.org/testimonies/God-incarnate-of-last-days-female.html</a></li>
+    <li><b>Massimo Introvigne, Oxford University Press (2020)：</b><i>Inside The Church of Almighty God: The Most Persecuted Religious Movement in China</i>，基于大量成员及相关人士访谈的专著。<br><a href="https://academic.oup.com/book/36596">academic.oup.com/book/36596</a></li>
+    <li><b>Emily C. Dunn：</b>“Cult,” Church, and the CCP: Introducing Eastern Lightning（Modern China, 2009），早期重要学术研究；另有2015年Brill专著 <i>Lightning from the East</i>。<br><a href="https://journals.sagepub.com/doi/10.1177/0097700408320546">journals.sagepub.com/doi/10.1177/0097700408320546</a></li>
+    <li><b>Immigration and Refugee Board of Canada (2021)：</b>综合领导、文本、成员处境与学者访谈的国家信息报告。<br><a href="https://www.ecoi.net/en/document/2063634.html">ecoi.net/en/document/2063634.html</a></li>
+    <li><b>USCIRF 2025 Annual Report / China：</b>确认中国继续把CAG列为非法“邪教”并打击其成员。<br><a href="https://www.uscirf.gov/sites/default/files/2025-03/2025%20USCIRF%20Annual%20Report.pdf">USCIRF 2025 Annual Report (PDF)</a></li>
+    <li><b>美国国务院2023 International Religious Freedom Report / China：</b>记录CAG自报的大规模逮捕、监禁与虐待数据，并置于中国宗教自由总体状况中。<br><a href="https://2021-2025.state.gov/reports/2023-report-on-international-religious-freedom/china/">State Department report</a></li>
+    <li><b>全能神教会2025迫害年报（2026发布）：</b>用于说明教会自身最新统计；数字在正文中已标注为“自报、难以完全独立核实”。<br><a href="https://en.godfootsteps.org/persecution/annual-report-2025.html">Annual Report 2025</a></li>
+    <li><b>New Zealand Charities Services：</b>The Church of Almighty God (New Zealand) Incorporated，CC55149，2018注册，当前Registered。<br><a href="https://register.charities.govt.nz/Charity/CC55149">register.charities.govt.nz/Charity/CC55149</a></li>
+  </ol>
+
+  <details>
+    <summary>关于“招远麦当劳案”的资料处理</summary>
+    <p>本报告没有沿用早期媒体“凶手=全能神教会正式成员”的简单说法。Oxford 2020专章依据审判材料认为凶手属于另一个使用“全能神”名号的小型运动。参见：<a href="https://academic.oup.com/book/36596/chapter-abstract/321570124">Fake News: The McDonald’s Murder of 2014</a>。这并不意味着围绕CAG的其他指控自动为假，只表示这一具体案件必须精确区分组织身份。</p>
+  </details>
+
+  <details>
+    <summary>关于“会员人数”的资料处理</summary>
+    <p>教会官方、政府与不同学者都曾给出数百万量级数字，但中国地下宗教环境无法进行独立普查。故本报告不把任何精确数字当作2026年的确定事实。</p>
+  </details>
+
+  <details>
+    <summary>关于“内部视角”的边界</summary>
+    <p>所谓“从会友理解出发”，是把其核心概念放回自己的语义系统中解释——例如“审判”不是简单刑罚，“被提”不一定指身体升天，“东方闪电”被理解为神的话从东方向西方传播。它不意味着本报告接受“全能神确为再来基督”等超自然主张为历史事实。</p>
+  </details>
+</section>
+
+<footer>
+  <p>研究文件 · 2026-09-15。用于宗教研究、神学辨析与跨宗教理解。外部图片版权归原权利人所有，本页仅作说明性引用；离线阅读时远程图片可能无法加载。</p>
+</footer>
+</main>
+</div>
+</body>
+</html>

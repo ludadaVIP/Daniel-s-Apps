@@ -15,3 +15,4 @@ export const getAnswer = (id) => request(`/questions/${encodeURIComponent(id)}/a
 export const saveAnswer = (id, layers) => request(`/questions/${encodeURIComponent(id)}/answer`, {
   method: 'PUT', body: JSON.stringify({ layers }),
 });
+export const deleteAnswer = (id, layerId) => request(`/questions/${encodeURIComponent(id)}/answer/${encodeURIComponent(layerId)}`, { method: 'DELETE' });

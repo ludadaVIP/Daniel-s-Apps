@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>资本市场周度观察｜2026-09-07—09-13</title>
+<meta name="description" content="2026年9月7日至13日全球资本市场深度周报：美股、油价、利率、AI基础设施、个股异动、中国与欧洲市场。">
+<style>
+:root{
+  --bg:#071019; --panel:#0d1822; --panel2:#101f2b; --ink:#eaf1f7; --muted:#9fb0bf;
+  --line:#243746; --blue:#62b0ff; --cyan:#62e5d4; --amber:#ffbe55; --red:#ff6f78;
+  --green:#5cd49b; --violet:#ab8cff; --white:#ffffff;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+ radial-gradient(1200px 700px at 75% -10%,rgba(57,125,184,.18),transparent 60%),
+ linear-gradient(180deg,#071019,#09131c 38%,#071019);color:var(--ink);
+ font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,-apple-system,Segoe UI,Arial,sans-serif;
+ line-height:1.75}
+a{color:#8bc8ff;text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1180px;margin:auto;padding:0 28px}
+.hero{padding:82px 0 56px;border-bottom:1px solid var(--line);position:relative;overflow:hidden}
+.kicker{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:700}
+h1{font-size:clamp(40px,7vw,78px);line-height:1.06;margin:.35em 0 .25em;letter-spacing:-.04em}
+.subtitle{max-width:850px;color:#c0cfdb;font-size:19px}
+.hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:30px;align-items:end;margin-top:40px}
+.hero-art{background:linear-gradient(145deg,#102332,#0b151f);border:1px solid #284052;border-radius:24px;padding:16px;box-shadow:0 20px 70px #0006}
+.hero-art svg{display:block;width:100%;height:auto}
+.meta{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.meta .box,.stat,.card,.callout,.source,.timeline-item,.mover{background:linear-gradient(180deg,rgba(17,32,44,.94),rgba(11,23,32,.94));border:1px solid var(--line);border-radius:18px}
+.meta .box{padding:18px}.meta b{display:block;font-size:22px}.meta span{color:var(--muted);font-size:13px}
+nav{position:sticky;top:0;z-index:10;background:#071019e8;backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;gap:18px;overflow:auto;padding-top:12px;padding-bottom:12px;white-space:nowrap}
+nav a{font-size:13px;color:#b8c7d2}
+section{padding:64px 0;border-bottom:1px solid #182937}
+h2{font-size:33px;margin:0 0 12px;letter-spacing:-.025em}
+h3{font-size:22px;margin:28px 0 10px}
+.lead{color:#c7d4de;font-size:18px;max-width:930px}
+.small{font-size:13px;color:var(--muted)}
+.grid-4{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin:28px 0}
+.stat{padding:20px}.stat .num{font-size:31px;font-weight:760;letter-spacing:-.03em}
+.stat .label{font-size:13px;color:var(--muted)}
+.up{color:var(--green)} .down{color:var(--red)} .warn{color:var(--amber)} .blue{color:var(--blue)}
+.summary{display:grid;grid-template-columns:repeat(2,1fr);gap:18px;margin-top:28px}
+.card{padding:24px}.card h3{margin-top:0}.card p{margin-bottom:0;color:#c5d1da}
+.tag{display:inline-block;padding:4px 9px;border-radius:999px;background:#183041;color:#b9dbf5;font-size:12px;margin:2px 4px 2px 0}
+.callout{padding:26px;border-left:4px solid var(--amber);margin:24px 0;background:linear-gradient(90deg,rgba(255,190,85,.08),rgba(13,24,34,.96))}
+.callout strong{color:#ffd992}
+.chart{padding:24px;background:#0b1720;border:1px solid var(--line);border-radius:20px;margin:24px 0}
+.chart-title{display:flex;justify-content:space-between;gap:15px;align-items:flex-end;margin-bottom:20px}
+.chart-title b{font-size:20px}.chart-title span{font-size:12px;color:var(--muted)}
+.bar-row{display:grid;grid-template-columns:180px 1fr 72px;gap:12px;align-items:center;margin:11px 0}
+.bar-track{height:12px;background:#132734;border-radius:99px;position:relative;overflow:hidden}
+.bar{height:100%;border-radius:99px}
+.bar.pos{background:linear-gradient(90deg,#37a57c,#61e0ad)}
+.bar.neg{background:linear-gradient(90deg,#a63e4b,#ff7680)}
+.bar.zero{background:linear-gradient(90deg,#4d84ad,#6bbcff)}
+.bar-value{text-align:right;font-variant-numeric:tabular-nums;font-weight:700}
+.timeline{position:relative;margin:32px 0}.timeline:before{content:"";position:absolute;left:22px;top:0;bottom:0;width:2px;background:#294354}
+.timeline-item{margin:0 0 18px 54px;padding:20px;position:relative}
+.timeline-item:before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;background:var(--cyan);left:-39px;top:28px;box-shadow:0 0 0 6px #0a1720}
+.timeline-item time{color:var(--cyan);font-size:13px;font-weight:700}.timeline-item b{font-size:17px}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:28px 0}
+.flow .node{padding:18px 14px;text-align:center;border:1px solid var(--line);border-radius:16px;background:#0c1923;position:relative}
+.flow .node:not(:last-child):after{content:"→";position:absolute;right:-17px;top:38%;color:#6d8291;font-size:20px}
+.flow small{display:block;color:var(--muted)}
+.movers{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.mover{padding:22px}.mover h3{margin-top:0}
+.mrow{display:grid;grid-template-columns:70px 1fr 75px;gap:10px;padding:10px 0;border-bottom:1px dashed #27404f}
+.mrow:last-child{border-bottom:0}.ticker{font-weight:800;letter-spacing:.03em}.why{font-size:13px;color:#aebdca}
+.matrix{width:100%;border-collapse:collapse;margin:24px 0;background:#0b1720;border-radius:18px;overflow:hidden}
+.matrix th,.matrix td{padding:14px;border-bottom:1px solid #223746;text-align:left;vertical-align:top}
+.matrix th{color:#9eb3c2;font-size:12px;text-transform:uppercase;letter-spacing:.06em;background:#0d1d28}
+.matrix tr:last-child td{border-bottom:0}.matrix td:nth-child(2){font-weight:700}
+.observations{counter-reset:o;display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:28px}
+.obs{counter-increment:o;padding:26px;background:#0d1923;border:1px solid var(--line);border-radius:18px}
+.obs:before{content:counter(o,decimal-leading-zero);display:block;color:#5a839f;font-weight:800;font-size:13px;letter-spacing:.1em}
+.obs h3{margin:4px 0 8px}.obs p{margin:0;color:#c0ced8}
+.watch{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.watch .card{min-height:180px}
+.sources{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.source{padding:14px 16px;font-size:13px;color:#b8c5cf}
+.source b{color:#e8f1f7}
+.footer{padding:34px 0 60px;color:#8194a3;font-size:12px}
+hr{border:0;border-top:1px solid var(--line);margin:28px 0}
+blockquote{margin:24px 0;padding:18px 22px;border-left:3px solid var(--blue);background:#0b1923;color:#d2dde5}
+@media(max-width:850px){
+ .hero-grid,.summary,.movers,.observations,.sources{grid-template-columns:1fr}
+ .grid-4{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.flow .node:after{display:none}
+ .watch{grid-template-columns:1fr}.bar-row{grid-template-columns:110px 1fr 62px}
+}
+@media(max-width:520px){.grid-4{grid-template-columns:1fr}.wrap{padding:0 18px}h1{font-size:43px}}
+@media print{
+ nav{display:none}body{background:#fff;color:#111}.card,.stat,.chart,.mover,.source,.timeline-item,.obs,.callout,.meta .box{background:#fff;color:#111;border-color:#ccc}
+ .subtitle,.lead,.card p,.obs p,.small,.source,.why,.meta span{color:#444}section{page-break-inside:avoid}.hero{padding-top:30px}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+  <div class="kicker">WEEKLY CAPITAL MARKETS INTELLIGENCE · No. 01</div>
+  <h1>资本市场周度观察</h1>
+  <div class="subtitle">2026 年 9 月 7 日—13 日｜油价冲破 100 美元、长债收益率逼近 5%、AI 从“讲故事”进一步走向“基础设施兑现”。这一周真正重要的，不是指数跌了多少，而是资本正在重新给<strong>能源、利率、AI 产业链和风险</strong>定价。</div>
+  <div class="hero-grid">
+    <div class="hero-art">
+      <svg viewBox="0 0 850 330" role="img" aria-label="本周市场结构示意图">
+        <defs>
+          <linearGradient id="g1" x1="0" x2="1"><stop stop-color="#56e0ca"/><stop offset="1" stop-color="#5b9cff"/></linearGradient>
+          <linearGradient id="g2" x1="0" x2="1"><stop stop-color="#ffbb55"/><stop offset="1" stop-color="#ff6f78"/></linearGradient>
+        </defs>
+        <rect x="0" y="0" width="850" height="330" rx="18" fill="#0a1720"/>
+        <g opacity=".18" stroke="#72a2bd"><path d="M0 60H850M0 120H850M0 180H850M0 240H850M0 300H850"/><path d="M100 0V330M200 0V330M300 0V330M400 0V330M500 0V330M600 0V330M700 0V330M800 0V330"/></g>
+        <path d="M35 235 C110 228,125 194,185 206 S285 242,340 190 S430 122,470 150 S535 220,585 166 S675 92,812 74" fill="none" stroke="url(#g1)" stroke-width="7" stroke-linecap="round"/>
+        <path d="M35 278 C150 285,170 250,260 262 S385 254,430 225 S530 204,590 140 S675 90,812 54" fill="none" stroke="url(#g2)" stroke-width="5" stroke-linecap="round" opacity=".9"/>
+        <g fill="#dfeef7" font-family="Arial, sans-serif">
+          <text x="35" y="42" font-size="19" font-weight="700">THIS WEEK’S MARKET REGIME</text>
+          <text x="35" y="68" font-size="13" fill="#9bb1c0">ENERGY SHOCK → INFLATION → YIELDS → EQUITY REPRICING</text>
+          <text x="565" y="295" font-size="13" fill="#62e5d4">AI infrastructure resilience</text>
+          <text x="600" y="320" font-size="13" fill="#ffbe55">oil / rates pressure</text>
+        </g>
+        <g transform="translate(80 105)">
+          <circle cx="0" cy="0" r="34" fill="#132a37" stroke="#ffbe55"/><text x="-18" y="7" fill="#ffcc78" font-size="23">$100</text><text x="-23" y="57" fill="#9fb0bf" font-size="12">BRENT+</text>
+        </g>
+        <g transform="translate(245 95)">
+          <circle cx="0" cy="0" r="34" fill="#132a37" stroke="#ff6f78"/><text x="-19" y="7" fill="#ff8f97" font-size="23">5%</text><text x="-37" y="57" fill="#9fb0bf" font-size="12">10Y YIELD</text>
+        </g>
+        <g transform="translate(420 82)">
+          <rect x="-42" y="-30" width="84" height="60" rx="10" fill="#132a37" stroke="#62e5d4"/>
+          <path d="M-24 -12H24M-24 0H24M-24 12H10" stroke="#62e5d4" stroke-width="5" stroke-linecap="round"/>
+          <text x="-33" y="55" fill="#9fb0bf" font-size="12">AI SERVERS</text>
+        </g>
+      </svg>
+    </div>
+    <div class="meta">
+      <div class="box"><span>美股交易周</span><b>4 个交易日</b><span>9 月 7 日 Labor Day 休市</span></div>
+      <div class="box"><span>核心资产冲击</span><b class="warn">油 + 债</b><span>风险资产双重估值压力</span></div>
+      <div class="box"><span>AI 的变化</span><b class="blue">从芯片到整栈</b><span>服务器 / 光纤 / 网络 / Agent</span></div>
+      <div class="box"><span>本周关键词</span><b>再通胀</b><span>而不是“降息交易”</span></div>
+    </div>
+  </div>
+</div>
+</header>
+
+<nav><div class="wrap">
+<a href="#exec">结论</a><a href="#dashboard">数据盘面</a><a href="#timeline">时间线</a><a href="#us">美股</a><a href="#movers">个股异动</a><a href="#ai">AI产业链</a><a href="#macro">油与利率</a><a href="#global">全球市场</a><a href="#signals">八大信号</a><a href="#watch">下一步观察</a><a href="#sources">来源</a>
+</div></nav>
+
+<section id="exec"><div class="wrap">
+<h2>一、先说结论：这一周市场到底在告诉我们什么？</h2>
+<p class="lead">如果只看 S&amp;P 500 一周跌不到 1%，你会误以为这一周“没发生什么”。实际上，底层变量发生了很大的重新定价。资本市场正在从过去一段时间的“增长 + AI + 未来降息”叙事，转向更复杂的<strong>增长仍强、能源冲击重新抬头、通胀黏性上升、央行可能再次收紧</strong>的组合。</p>
+<div class="summary">
+  <div class="card"><span class="tag">主线 1</span><h3>油价重新成为全球资产定价的上游变量</h3><p>WTI 周涨约 9%，Brent 一度接近 110 美元。问题不只是能源股涨，而是油价通过运输、制造、通胀预期、央行政策一路传导到债券和股票估值。能源再次从“行业变量”变成“宏观变量”。</p></div>
+  <div class="card"><span class="tag">主线 2</span><h3>10 年期美债逼近 5%，市场重新认识“高利率可以更久”</h3><p>10 年期收益率盘中触及 4.9915%，30 年期来到多年高位。债券不再只是背景噪音，而开始对股票构成真正的机会成本；小盘股和高杠杆企业首先受压。</p></div>
+  <div class="card"><span class="tag">主线 3</span><h3>AI 没有熄火，但“受益者名单”正在变长、也更苛刻</h3><p>Oracle 的订单积压、Dell/HPE 的服务器需求、Corning/Coherent 的光互联、Meta 的 Agent，都说明 AI 资本开支正在向部署层扩散。资本开始追问：谁有订单、谁有现金流、谁掌握瓶颈资源？</p></div>
+  <div class="card"><span class="tag">主线 4</span><h3>风险偏好并没有消失，而是高度集中</h3><p>大盘回撤、港股科技走弱，但量子、AI 芯片 IPO、SPAC、数据中心基础设施仍出现激烈追逐。这不是全面熊市式风险厌恶，而是“宏观收紧 + 主题投机并存”的分裂市场。</p></div>
+</div>
+<div class="callout"><strong>本周最值得记住的一句话：</strong> 市场不是在否定 AI，而是在把 AI 从“概念资产”重新分解成可验证的产业链——算力、服务器、网络、光纤、电力、能源、软件 Agent、现金流和资产负债表。</div>
+</div></section>
+
+<section id="dashboard"><div class="wrap">
+<h2>二、本周数据盘面</h2>
+<p class="small">美股周度收益按 9 月 4 日收盘至 9 月 11 日收盘计算；9 月 7 日美国 Labor Day 休市。周末 9 月 12–13 日无美股现金市场交易。</p>
+<div class="grid-4">
+ <div class="stat"><div class="label">S&amp;P 500</div><div class="num down">−0.8%</div><div class="small">收于 7,656.98</div></div>
+ <div class="stat"><div class="label">Nasdaq Composite</div><div class="num down">−0.7%</div><div class="small">收于 26,333.04</div></div>
+ <div class="stat"><div class="label">Dow Jones</div><div class="num down">−1.6%</div><div class="small">本周大盘股中最弱</div></div>
+ <div class="stat"><div class="label">Russell 2000</div><div class="num down">−2.4%</div><div class="small">利率敏感，小盘明显跑输</div></div>
+ <div class="stat"><div class="label">原油</div><div class="num up">+9%左右</div><div class="small">Brent 周内一度逼近 $110</div></div>
+ <div class="stat"><div class="label">美国10Y国债</div><div class="num warn">4.9915%</div><div class="small">周内高点，逼近 5%</div></div>
+ <div class="stat"><div class="label">Fed 9月加息概率</div><div class="num warn">~85–87%</div><div class="small">周五市场定价显著上升</div></div>
+ <div class="stat"><div class="label">Hang Seng</div><div class="num down">−3.3%</div><div class="small">港股科技压力更大</div></div>
+</div>
+
+<div class="chart">
+ <div class="chart-title"><b>美国主要股指：周度表现</b><span>越偏小盘、越依赖融资，压力越大</span></div>
+ <div class="bar-row"><span>S&amp;P 500</span><div class="bar-track"><div class="bar neg" style="width:33%"></div></div><div class="bar-value down">−0.8%</div></div>
+ <div class="bar-row"><span>Nasdaq</span><div class="bar-track"><div class="bar neg" style="width:29%"></div></div><div class="bar-value down">−0.7%</div></div>
+ <div class="bar-row"><span>Dow</span><div class="bar-track"><div class="bar neg" style="width:66%"></div></div><div class="bar-value down">−1.6%</div></div>
+ <div class="bar-row"><span>Russell 2000</span><div class="bar-track"><div class="bar neg" style="width:100%"></div></div><div class="bar-value down">−2.4%</div></div>
+</div>
+
+<div class="chart">
+ <div class="chart-title"><b>S&amp;P 500 行业：资金在躲什么、追什么？</b><span>LPL/Bloomberg 周度口径</span></div>
+ <div class="bar-row"><span>Energy</span><div class="bar-track"><div class="bar pos" style="width:58%"></div></div><div class="bar-value up">+1.99%</div></div>
+ <div class="bar-row"><span>Communication</span><div class="bar-track"><div class="bar pos" style="width:42%"></div></div><div class="bar-value up">+1.42%</div></div>
+ <div class="bar-row"><span>Technology</span><div class="bar-track"><div class="bar zero" style="width:4%"></div></div><div class="bar-value">0.00%</div></div>
+ <div class="bar-row"><span>Financials</span><div class="bar-track"><div class="bar neg" style="width:44%"></div></div><div class="bar-value down">−1.52%</div></div>
+ <div class="bar-row"><span>Materials</span><div class="bar-track"><div class="bar neg" style="width:74%"></div></div><div class="bar-value down">−2.56%</div></div>
+ <div class="bar-row"><span>Health Care</span><div class="bar-track"><div class="bar neg" style="width:100%"></div></div><div class="bar-value down">−3.45%</div></div>
+</div>
+</div></section>
+
+<section id="timeline"><div class="wrap">
+<h2>三、四个交易日，市场是怎样一步一步变化的？</h2>
+<div class="timeline">
+ <div class="timeline-item"><time>9 月 7 日 · 周一</time><br><b>美国休市，但亚洲已经发出两个信号：科技仍强，能源风险上升。</b><p>美国 Labor Day 休市。亚洲半导体走强，日韩科技股活跃；与此同时，Brent 已升至接近 97 美元，市场开始担心海湾局势把能源价格重新推入三位数。</p></div>
+ <div class="timeline-item"><time>9 月 8 日 · 周二</time><br><b>美股开周即承压；医疗大跌，但科技基础设施逆势活跃。</b><p>油价与收益率上升压制指数。Amgen 因 Novartis 心血管药物后期试验失败、引发同类资产重估而单日大跌约 10%；Intel、Corning、量子计算相关股票则因升级、光纤大单和政府投资出现显著上涨。</p></div>
+ <div class="timeline-item"><time>9 月 9 日 · 周三</time><br><b>Brent 重新站上 100 美元，市场从“个股故事”切换为“宏观再通胀”。</b><p>S&amp;P 500 跌 0.48%、Nasdaq 跌 0.64%、Dow 跌 0.77%。Energy 是 S&amp;P 500 当天唯一上涨行业。与此同时，Meta 因推出可自主执行任务的 AI assistant，股价跳涨逾 6%，说明应用层 AI 仍能获得资本奖励。</p></div>
+ <div class="timeline-item"><time>9 月 10 日 · 周四</time><br><b>油价再冲、ECB 加息、全球长债被抛售。</b><p>Brent 一度大涨约 6% 至 107 美元附近；ECB 将关键利率从 2.25% 上调至 2.50%。美国 10 年、30 年期收益率进一步抬升，S&amp;P 500 再跌约 0.6%。市场开始真正担心：如果供给冲击让通胀重新上行，央行可能不得不在增长尚未明显衰退时继续收紧。</p></div>
+ <div class="timeline-item"><time>9 月 11 日 · 周五</time><br><b>CPI + 油价回落带来“技术性喘息”，但没有改变周线逻辑。</b><p>美国 8 月 CPI 环比 +0.4%，核心 CPI 环比 +0.3%。油价从高位回落，美股三大指数单日反弹约 1%；但全周仍下跌。市场对下一周 Fed 加息 25bp 的定价升至约 85–87%。</p></div>
+ <div class="timeline-item"><time>9 月 12–13 日 · 周末</time><br><b>现金市场休市，但风险并没有休息。</b><p>周末围绕 AI 安全与“是否应放慢前沿模型能力发展”的讨论升级，成为下一交易周新的 AI 风险因子。它不计入本周股价表现，但值得纳入下一期周报的“跨周事件”。</p></div>
+</div>
+</div></section>
+
+<section id="us"><div class="wrap">
+<h2>四、美股：指数跌得不多，但内部结构变化很大</h2>
+<p class="lead">本周真正的“市场信息”隐藏在相对强弱里：Russell 2000 比 S&amp;P 500 多跌约 1.6 个百分点，而 Energy 上涨、Health Care 明显下跌、Technology 整体接近持平。这意味着市场并没有简单地抛售所有风险资产，而是在重新选择谁能承受更高的资金成本。</p>
+
+<div class="flow">
+ <div class="node"><b>海湾冲突升级</b><small>运输/供给风险</small></div>
+ <div class="node"><b>油价上行</b><small>Brent &gt; $100</small></div>
+ <div class="node"><b>通胀预期上升</b><small>CPI黏性</small></div>
+ <div class="node"><b>长债收益率上行</b><small>10Y ≈ 5%</small></div>
+ <div class="node"><b>估值与融资承压</b><small>小盘先受伤</small></div>
+</div>
+
+<h3>为什么 Russell 2000 跌得最明显？</h3>
+<p>小盘企业通常更依赖浮动利率贷款、银行融资和再融资，利润率也更薄。当无风险利率和信用成本同时上升时，它们没有大型科技企业那样的现金储备和议价能力。因此本周的 −2.4% 不是一个孤立数字，而是一个非常“教科书式”的高利率传导信号。</p>
+
+<h3>为什么金融股没有因为利率上升而上涨？</h3>
+<p>“利率上升 = 银行一定受益”是过度简化的。收益率急升如果来自通胀和风险溢价，可能同时抬高存款成本、融资成本、信贷损失预期，并压低资产估值；如果长端走高速度太快，资本市场业务与并购融资也可能受到抑制。因此本周金融板块下跌约 1.5%，反而说明市场更担心“高利率的副作用”。</p>
+</div></section>
+
+<section id="movers"><div class="wrap">
+<h2>五、个股异动：谁在上涨？谁在被重新定价？</h2>
+<p class="small">以下涨跌幅主要采用 9/4 收盘至 9/11 收盘的周度统计；个别“原因”来自当日新闻事件。不同数据商对公司纳入范围、复权方式可能造成小幅差异，因此这里强调的是方向和产业含义，而不是把 0.1 个百分点当成核心信息。</p>
+<div class="movers">
+ <div class="mover"><h3 class="up">代表性上涨</h3>
+  <div class="mrow"><span class="ticker">HPE</span><span><b>Hewlett Packard Enterprise</b><div class="why">AI服务器、网络与企业基础设施；Oracle强劲AI云订单进一步强化数据中心支出预期</div></span><strong class="up">+18.7%</strong></div>
+  <div class="mrow"><span class="ticker">SWKS</span><span><b>Skyworks</b><div class="why">Qorvo合并进度、通信/数据中心相关产品预期改善</div></span><strong class="up">+17.8%</strong></div>
+  <div class="mrow"><span class="ticker">HPQ</span><span><b>HP Inc.</b><div class="why">AI PC / edge AI 与成本改善叙事重新获得关注</div></span><strong class="up">+11.3%</strong></div>
+  <div class="mrow"><span class="ticker">NTAP</span><span><b>NetApp</b><div class="why">存储基础设施随AI数据增长受益</div></span><strong class="up">+9.1%</strong></div>
+  <div class="mrow"><span class="ticker">DELL</span><span><b>Dell</b><div class="why">AI服务器订单和backlog强劲；周五受Oracle结果外溢提振</div></span><strong class="up">+8.9%</strong></div>
+  <div class="mrow"><span class="ticker">COHR</span><span><b>Coherent</b><div class="why">光通信/高速互联成为AI集群的重要瓶颈资产</div></span><strong class="up">+8.7%</strong></div>
+  <div class="mrow"><span class="ticker">AMD</span><span><b>AMD</b><div class="why">算力与数据中心预期继续被交易</div></span><strong class="up">+5.6%</strong></div>
+  <div class="mrow"><span class="ticker">META</span><span><b>Meta</b><div class="why">Muse AI assistant 展示“Agent化”商业化路径，9/9 单日涨逾6%</div></span><strong class="up">+5.2%</strong></div>
+ </div>
+ <div class="mover"><h3 class="down">代表性下跌</h3>
+  <div class="mrow"><span class="ticker">AMGN</span><span><b>Amgen</b><div class="why">Novartis同类心血管药物后期试验失败，引发项目成功率与估值重估</div></span><strong class="down">−13.7%</strong></div>
+  <div class="mrow"><span class="ticker">HWM</span><span><b>Howmet Aerospace</b><div class="why">大盘工业/高估值制造股在利率上冲中承压</div></span><strong class="down">−11.4%</strong></div>
+  <div class="mrow"><span class="ticker">BSX</span><span><b>Boston Scientific</b><div class="why">运营扰动与行业风险偏好下降叠加</div></span><strong class="down">−10.1%</strong></div>
+  <div class="mrow"><span class="ticker">BKNG</span><span><b>Booking Holdings</b><div class="why">消费/旅行类高估值资产在宏观收紧背景下回撤</div></span><strong class="down">−10.0%</strong></div>
+  <div class="mrow"><span class="ticker">SYK</span><span><b>Stryker</b><div class="why">医疗板块整体成为本周最弱行业之一</div></span><strong class="down">−9.1%</strong></div>
+ </div>
+</div>
+
+<div class="callout"><strong>最有价值的观察：</strong> 上涨榜中大量出现 HPE、Dell、NetApp、Coherent、Corning、AMD 这类“AI 基础设施的二阶受益者”。市场已经不只问“谁拥有最强模型/最强GPU”，而是开始把资金分配给<strong>服务器、存储、网络、光互联、边缘设备</strong>。</div>
+</div></section>
+
+<section id="ai"><div class="wrap">
+<h2>六、AI：从“芯片牛市”进入“整套基础设施牛市”的验证阶段</h2>
+<p class="lead">这一周最重要的产业信号，可能不是某一只 AI 股票涨了多少，而是 AI 资本开支的收益开始沿着产业链向下游扩散。</p>
+
+<table class="matrix">
+<tr><th>层级</th><th>本周证据</th><th>资本市场在定价什么</th></tr>
+<tr><td>云 / 数据中心</td><td>Oracle 季度收入同比 +30%；AI cloud 新增合同逾 300 亿美元，总 backlog 达 6640 亿美元</td><td>AI 需求不再只是“未来可能有”，而是在形成可见订单</td></tr>
+<tr><td>服务器</td><td>Dell、HPE 强势上涨；Dell 此前披露大规模 AI server orders/backlog</td><td>GPU 之外，整机、机架、存储、网络设备成为支出承接者</td></tr>
+<tr><td>光纤 / 网络</td><td>Corning 与 Verizon 签署多年大额光纤协议；Coherent 等光通信股走强</td><td>AI 集群的瓶颈从“算力芯片”扩展到“互联带宽”</td></tr>
+<tr><td>Agent / 应用层</td><td>Meta 推出可自主执行邮件、交易、预订等任务的 AI assistant，股价显著上涨</td><td>市场愿意为“能替用户完成任务”的 AI 重新给收入想象空间</td></tr>
+<tr><td>电力</td><td>Holtec Nuclear 启动 IPO，最高目标估值约 102 亿美元；SMR 概念同时剧烈分化</td><td>数据中心电力需求是真问题，但核能题材的估值并非可以无限扩张</td></tr>
+</table>
+
+<h3>Oracle 是这一周 AI 产业链非常关键的“验证点”</h3>
+<p>Oracle 报告的不只是营收好于预期，更关键的是 backlog 与现金流结构：新增 AI cloud 合同超过 300 亿美元，总收入积压达到约 6640 亿美元；负自由现金流虽然仍然很大，但好于市场预期，而且公司披露部分资本开支由客户预付款覆盖。这意味着市场开始看到一个重要变化：<strong>AI 基础设施投资正在从“纯烧钱”逐步向“有客户承诺、有预付款、有收入可见性”的阶段推进。</strong></p>
+
+<h3>但这同样是风险点：AI 开支正在越来越资产负债表化</h3>
+<p>当资本开支上升到数百亿美元、甚至整个 hyperscaler 群体达到数千亿美元级别时，投资者的评估标准会变化。过去是“你是否参与 AI”，以后更可能是“每一美元 AI Capex 能换回多少收入、毛利和自由现金流”。这会扩大 AI 公司的分化，而不是让所有相关股票永久享受同一估值溢价。</p>
+
+<h3>核能：基本面故事可能是真的，股价故事仍然可能太贵</h3>
+<p>Holtec 试图以最高约 102 亿美元估值上市，背后逻辑非常清晰：数据中心正在给美国电网增加巨量新负荷，核电和 SMR 因稳定基荷电力重新被重视。但同一周，部分已经大涨的先进核能/铀燃料概念股出现 8%–16% 级别回撤。这里非常值得长期记住：<strong>产业趋势正确，不等于任何价格都值得买。</strong></p>
+</div></section>
+
+<section id="macro"><div class="wrap">
+<h2>七、真正控制这周市场的变量：油价、通胀与 5% 的美国国债</h2>
+
+<h3>1. 为什么 100 美元油价如此重要？</h3>
+<p>霍尔木兹海峡承担全球约五分之一石油消费量对应的运输流量。海湾军事冲突、油轮和基础设施风险，使市场重新为“供应中断概率”定价。油价上涨对全球经济相当于一种广泛的成本税：运输贵、化工贵、航空贵、农业物流贵，消费者可支配收入被挤压。</p>
+
+<h3>2. 为什么 10 年期 5% 比单日股市涨跌更值得看？</h3>
+<p>当 10 年期美国国债逼近 5%，它形成一个非常高的无风险收益率锚。股票尤其是高估值成长股的未来现金流，需要用更高贴现率折现；企业债、房贷、并购融资、基础设施项目的资本成本也会同步抬升。换言之，5% 不是“一个债券数字”，而是一根贯穿估值体系的基准利率。</p>
+
+<h3>3. 市场对 Fed 的理解在一周之内明显改变</h3>
+<p>周中 Reuters 调查仍显示不少经济学家预计 Fed 维持不变；但随着油价上冲、PPI/CPI 显示价格压力没有快速消退，到周五，期货市场对下一周加息 25bp 的概率已经抬升至约 85–87%。这说明市场的“默认剧本”正在从<strong>等待降息</strong>切换成<strong>重新防范加息</strong>。</p>
+
+<div class="callout"><strong>宏观框架：</strong> 如果未来数周油价持续位于 100 美元以上，那么“经济增长不错”本身反而可能成为债券与高估值股票的坏消息，因为它给央行更多空间去维持或提高利率。市场会从过去熟悉的 <em>good news is good news</em> 再次滑向 <em>good news can be bad news</em>。</div>
+</div></section>
+
+<section id="global"><div class="wrap">
+<h2>八、欧洲、中国与亚洲：同一个世界，不同的症状</h2>
+<table class="matrix">
+<tr><th>市场</th><th>本周变化</th><th>更深层含义</th></tr>
+<tr><td>欧洲</td><td>STOXX 600 录得 7 月初以来最大单周跌幅；ECB 将关键利率由 2.25% 升至 2.50%</td><td>欧洲面对的是“能源输入型通胀 + 本已脆弱增长”的困难组合，政策空间比美国更窄</td></tr>
+<tr><td>中国 A 股</td><td>CSI 300 周跌约 0.8%，成交趋弱；STAR 50 一度跌至 4 月以来低位</td><td>上半年 AI 主题大涨后出现获利了结；强出口并没有自动转化为指数上涨</td></tr>
+<tr><td>香港</td><td>恒生指数周跌约 3.3%，恒生科技约跌 5.4%</td><td>高估值科技资产对全球利率预期仍高度敏感</td></tr>
+<tr><td>中国实体贸易</td><td>8 月出口同比 +25%，进口 +28.2%，高科技出口 +42.9%</td><td>中国制造与高科技出口竞争力很强，但内需/地产与资本市场流动性仍是另一条线</td></tr>
+<tr><td>中国 AI IPO</td><td>腾讯支持的 Enflame 在上海上市首日一度上涨约 180%–200%</td><td>即使指数弱，资金仍会集中追逐“稀缺 AI 资产”；风险偏好不是消失，而是高度局部化</td></tr>
+<tr><td>日本</td><td>日元一度升至约 7 个月高位，市场强化 BOJ 加息预期</td><td>日元套利交易的融资逻辑受到挑战；全球高杠杆 carry trade 需重新评估</td></tr>
+</table>
+
+<h3>中国市场最值得注意的矛盾：数据很强，股票却不强</h3>
+<p>8 月出口同比大增 25%，高科技产品出口更强，但 CSI 300 与港股科技仍下跌。这说明股票并不是“GDP/出口数据的实时温度计”，它更像<strong>未来利润、流动性、风险偏好和折现率的综合价格</strong>。实体经济某一项数据好，并不等于权益资产就一定涨。</p>
+</div></section>
+
+<section id="signals"><div class="wrap">
+<h2>九、“春江水暖鸭先知”：从这一周资本市场读出的八个结构性信号</h2>
+<div class="observations">
+ <div class="obs"><h3>能源安全重新成为科技时代的基础设施</h3><p>AI 时代并没有让传统能源变得不重要，反而因为数据中心电力需求、地缘冲突和电网瓶颈，让能源安全重新进入科技估值模型。</p></div>
+ <div class="obs"><h3>AI 的下一阶段是“瓶颈资产”</h3><p>芯片仍重要，但服务器、存储、光纤、网络、电力、冷却、土地和变压器正在被重新定价。真正稀缺的环节可能获得更持久的利润率。</p></div>
+ <div class="obs"><h3>Agent 是应用层 AI 的重要商业化方向</h3><p>Meta 的市场反应说明投资者愿意为“能替人完成具体任务”的 AI 付估值，而不仅仅为聊天或生成内容付估值。</p></div>
+ <div class="obs"><h3>5% 国债会强迫股票提高“质量门槛”</h3><p>当无风险资产可以提供接近 5% 的收益，只有真正具有增长、现金流和竞争壁垒的股票，才更容易长期维持高估值。</p></div>
+ <div class="obs"><h3>小盘股是融资环境的预警器</h3><p>Russell 2000 的明显跑输提醒我们：如果利率继续上行，压力首先会在小公司、杠杆企业、房地产和信用市场中显现。</p></div>
+ <div class="obs"><h3>“产业正确”与“价格正确”必须分开</h3><p>核电/SMR 的长期需求逻辑很强，但热门核能股票仍可以一周下跌两位数。主题投资最危险的地方，往往是把趋势真实性误认为估值合理性。</p></div>
+ <div class="obs"><h3>全球正在形成重新同步的紧缩压力</h3><p>ECB 已加息，Fed 加息概率上升，BOJ 也面临更强的加息预期。这与此前“全球央行逐步转向宽松”的舒适叙事明显不同。</p></div>
+ <div class="obs"><h3>投机并未退潮，只是变得更集中</h3><p>2026 年 SPAC 再度活跃，AI 芯片 IPO 上市首日暴涨，量子计算等题材获得追捧。宏观风险升高与局部投机狂热可以同时存在，这是成熟牛市中常见的复杂状态。</p></div>
+</div>
+</div></section>
+
+<section id="watch"><div class="wrap">
+<h2>十、这周之后，投资者应该盯住什么？</h2>
+<p class="lead">这不是“预测下周涨跌”，而是把本周暴露出的关键变量转化为一个持续跟踪的仪表盘。以后每一期周报都可以对这些变量做同比、环比。</p>
+<div class="watch">
+ <div class="card"><h3>① 10Y 是否真正站稳 5%</h3><p>若只是短暂触及，权益市场有喘息空间；若持续高于 5%，估值压缩和融资压力会成为更长周期问题。</p></div>
+ <div class="card"><h3>② Brent 是否长期在 $100 以上</h3><p>油价如果高位维持数周，比单日暴涨更危险，因为它会逐步进入 CPI、企业利润率和工资谈判。</p></div>
+ <div class="card"><h3>③ Fed：一次性修正还是新加息周期</h3><p>市场真正害怕的并非单次 25bp，而是点阵图/声明是否暗示连续收紧。</p></div>
+ <div class="card"><h3>④ AI Capex 的 ROI</h3><p>继续追踪 Oracle、Microsoft、Amazon、Meta、Alphabet 等是否能把 Capex 转化为云收入、Agent 付费和自由现金流。</p></div>
+ <div class="card"><h3>⑤ AI 基础设施相对强弱</h3><p>观察服务器、网络、光模块、数据中心电力是否继续跑赢传统软件/纯概念股，这是产业资本开支持续性的市场验证。</p></div>
+ <div class="card"><h3>⑥ 小盘 / 信用利差</h3><p>如果 Russell 2000 继续跑输且信用利差扩大，说明高利率已经从“估值问题”演变为“融资问题”。</p></div>
+</div>
+
+<blockquote><b>适合长期投资者的结论：</b> 本周并没有给出“必须卖出股票”的信号，但它非常明确地提醒投资者：在能源冲击和 5% 国债环境下，未来收益更可能来自企业盈利兑现，而不是单纯依靠估值继续扩张。宽基指数依然有分散优势，而个股选择需要比过去两年更重视现金流、资产负债表和资本开支回报率。</blockquote>
+</div></section>
+
+<section id="sources"><div class="wrap">
+<h2>十一、数据来源与方法</h2>
+<p class="small">本报告以 Reuters、AP、LSEG/Bloomberg 汇总数据、Guggenheim、公开市场数据与公司报道为主。对于不同数据商存在微小差异的周度涨跌幅，采用约数并注明口径；不将 9 月 14 日的市场涨跌计入本周，只在必要时用于识别 9/12–13 周末事件的后续影响。</p>
+<div class="sources">
+ <div class="source"><b>Reuters｜9/11 全球市场</b><br><a href="https://www.reuters.com/world/china/global-markets-corrected-2026-09-11/">Wall Street jumps, oil lower ahead of Fed vote next week</a></div>
+ <div class="source"><b>Reuters｜9/9 美股</b><br><a href="https://www.reuters.com/business/wall-st-futures-muted-oil-tops-100-first-time-since-july-2026-09-09/">S&amp;P 500 ends down as oil tops $100 per barrel</a></div>
+ <div class="source"><b>Reuters｜9/10 美股</b><br><a href="https://www.reuters.com/business/sp-500-dow-futures-attempt-recovery-ahead-inflation-report-2026-09-10/">S&amp;P 500 ends down as Treasury yields rise</a></div>
+ <div class="source"><b>Reuters｜Oracle</b><br><a href="https://www.reuters.com/technology/oracles-quarterly-revenue-beats-estimates-ai-boom-drives-cloud-demand-2026-09-10/">Oracle tops estimates as AI demand tempers cash-burn fears</a></div>
+ <div class="source"><b>Reuters｜Adobe</b><br><a href="https://www.reuters.com/business/adobe-beats-third-quarter-revenue-estimates-2026-09-10/">Adobe beats Q3 revenue estimates on AI product demand</a></div>
+ <div class="source"><b>Reuters｜欧洲市场</b><br><a href="https://www.reuters.com/markets/europe/european-stocks-rise-head-sharp-weekly-declines-2026-09-11/">European stocks rise, but log sharp weekly loss</a></div>
+ <div class="source"><b>Reuters｜中国贸易</b><br><a href="https://www.reuters.com/world/asia-pacific/chinas-exports-up-25-yy-august-imports-surge-282-2026-09-08/">China exports surge 25% as high-tech/AI demand grows</a></div>
+ <div class="source"><b>Reuters｜Holtec Nuclear IPO</b><br><a href="https://www.reuters.com/business/energy/holtec-nuclear-targets-102-billion-valuation-us-ipo-as-fall-window-kicks-off-2026-09-08/">Holtec Nuclear targets $10.2bn valuation</a></div>
+ <div class="source"><b>Reuters｜SPAC 风险偏好</b><br><a href="https://www.reuters.com/commentary/breakingviews/wild-spac-deal-hounds-howl-moonshots-2026-09-11/">Wild SPAC deal-hounds howl at moonshots</a></div>
+ <div class="source"><b>Reuters｜Fed 周前瞻</b><br><a href="https://www.reuters.com/business/wall-st-week-ahead-investors-brace-possible-rate-hike-uncertain-fed-meeting-2026-09-11/">Investors brace for possible rate hike</a></div>
+ <div class="source"><b>Reuters｜霍尔木兹海峡背景</b><br><a href="https://www.reuters.com/business/energy/strait-hormuz-worlds-most-important-oil-artery-2023-10-20/">Why the Strait of Hormuz matters for oil</a></div>
+ <div class="source"><b>Guggenheim｜周度指数</b><br><a href="https://www.guggenheiminvestments.com/perspectives/weekly-viewpoint/stocks-fall-as-rate-hike-probability-rise/">Stocks Fall as Rate Hike Probability Rise</a></div>
+ <div class="source"><b>Meridian / LPL / Bloomberg｜行业数据</b><br><a href="https://meridianteam.com/weekly-market-performance-september-11-2026/">Weekly Market Performance — Sep 11, 2026</a></div>
+ <div class="source"><b>RTHK｜港股周度</b><br><a href="https://news.rthk.hk/rthk/en/component/k2/1869684-20260911.htm">Hang Seng −3.3% for the week</a></div>
+ <div class="source"><b>StatMuse｜S&amp;P 500 周度涨幅榜</b><br><a href="https://www.statmuse.com/money/ask/best-performing-s-and-p-500-stocks-this-week">Best performing S&amp;P 500 stocks this week</a></div>
+ <div class="source"><b>Money365｜大市值涨跌榜（辅助核对）</b><br><a href="https://www.money365.market/news/weekly-movers/2026-w37">Weekly Market Movers — week ending Sep 11</a></div>
+</div>
+</div></section>
+
+<footer class="footer"><div class="wrap">
+<p><b>资本市场周度观察 · 第 1 期</b>｜覆盖 2026-09-07—09-13。制作日期：2026-09-15。</p>
+<p>免责声明：本报告用于市场研究与信息整理，不构成个性化投资建议。历史表现、行业强弱和事件驱动均不能保证未来收益。对于单一个股，应进一步核对公司公告、财报、估值、资本结构与风险因素。</p>
+</div></footer>
+</body>
+</html>

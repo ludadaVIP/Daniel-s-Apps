@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>站在2026年的当下，看懂这个世界趋势（20260915）</title>
+<style>
+:root{
+  --bg:#071019;--bg2:#0c1722;--panel:#0f1d2a;--panel2:#132536;--text:#edf4f8;--muted:#9eb0bc;
+  --line:#254052;--blue:#62b7ff;--cyan:#5de0d2;--gold:#f1c66d;--red:#ff8c87;--green:#76d39b;--purple:#b59cff;
+  --shadow:0 18px 60px rgba(0,0,0,.28);--max:1240px;
+}
+[data-theme="light"]{
+  --bg:#f4f6f8;--bg2:#eef2f5;--panel:#ffffff;--panel2:#f6f9fb;--text:#17242e;--muted:#5d6c77;
+  --line:#dbe3e8;--blue:#126cae;--cyan:#087e77;--gold:#9c6d0d;--red:#b74440;--green:#217c4b;--purple:#6348b3;
+  --shadow:0 18px 50px rgba(20,45,65,.08);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:linear-gradient(180deg,var(--bg),var(--bg2));color:var(--text);font-family:Inter,"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;line-height:1.8;letter-spacing:.01em}
+a{color:var(--blue);text-decoration:none} a:hover{text-decoration:underline}.wrap{max-width:var(--max);margin:auto;padding:0 28px}.progress{position:fixed;z-index:99;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--cyan),var(--blue),var(--purple));width:0}
+.topbar{position:sticky;top:0;z-index:90;backdrop-filter:blur(16px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid color-mix(in srgb,var(--line) 70%,transparent)}
+.topbar .inner{max-width:var(--max);margin:auto;padding:12px 28px;display:flex;align-items:center;gap:18px;justify-content:space-between}.brand{font-size:13px;font-weight:800;letter-spacing:.14em;color:var(--muted)}.actions{display:flex;gap:8px}.btn{border:1px solid var(--line);background:var(--panel);color:var(--text);padding:7px 11px;border-radius:9px;cursor:pointer;font-size:12px}
+.hero{padding:82px 0 38px}.eyebrow{color:var(--cyan);font-weight:800;font-size:12px;letter-spacing:.2em;text-transform:uppercase}.hero h1{font-size:clamp(38px,6vw,78px);line-height:1.08;letter-spacing:-.04em;margin:14px 0 22px;max-width:1020px}.hero .dek{font-size:clamp(17px,2vw,22px);line-height:1.75;color:var(--muted);max-width:940px}.meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:26px}.pill{border:1px solid var(--line);background:color-mix(in srgb,var(--panel) 80%,transparent);border-radius:999px;padding:7px 12px;font-size:12px;color:var(--muted)}
+.hero-grid{display:grid;grid-template-columns:1.3fr .7fr;gap:18px;margin-top:42px}.photo{min-height:270px;border-radius:18px;overflow:hidden;border:1px solid var(--line);position:relative;background:#111;box-shadow:var(--shadow)}.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.03)}.photo .cap{position:absolute;left:0;right:0;bottom:0;padding:42px 18px 14px;background:linear-gradient(transparent,rgba(0,0,0,.78));color:white;font-size:12px}.photo-stack{display:grid;grid-template-rows:1fr 1fr;gap:18px}.photo-stack .photo{min-height:126px}
+.section{padding:66px 0;border-top:1px solid var(--line)}.section-head{display:grid;grid-template-columns:.33fr .67fr;gap:30px;align-items:start;margin-bottom:32px}.kicker{font-size:12px;letter-spacing:.18em;color:var(--cyan);font-weight:800;text-transform:uppercase}.section h2{font-size:clamp(29px,4vw,48px);line-height:1.15;letter-spacing:-.025em;margin:7px 0 0}.lead{font-size:17px;color:var(--muted);margin:0}.callout{border:1px solid var(--line);border-left:4px solid var(--cyan);background:var(--panel);border-radius:14px;padding:20px 22px;margin:22px 0;box-shadow:var(--shadow)}.callout strong{color:var(--cyan)}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:16px}.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px;box-shadow:var(--shadow)}.card h3{margin:0 0 9px;font-size:18px}.card p{margin:0;color:var(--muted)}.span4{grid-column:span 4}.span6{grid-column:span 6}.span8{grid-column:span 8}.span12{grid-column:span 12}.metric{font-size:36px;line-height:1;font-weight:850;letter-spacing:-.03em;margin:7px 0 10px}.metric small{font-size:13px;color:var(--muted);font-weight:600}.tag{font-size:10px;text-transform:uppercase;letter-spacing:.15em;font-weight:850;color:var(--cyan)}.confidence{display:inline-block;border-radius:999px;padding:4px 8px;font-size:10px;font-weight:800;margin-left:6px}.high{background:color-mix(in srgb,var(--green) 17%,transparent);color:var(--green)}.med{background:color-mix(in srgb,var(--gold) 17%,transparent);color:var(--gold)}.uncertain{background:color-mix(in srgb,var(--red) 17%,transparent);color:var(--red)}
+.toc{columns:2;column-gap:40px}.toc a{display:block;padding:8px 0;border-bottom:1px dashed var(--line);color:var(--text)}.toc a span{color:var(--muted);font-size:12px;margin-right:10px}.chapter{padding:54px 0}.chapter + .chapter{border-top:1px dashed var(--line)}.chapter h3{font-size:30px;line-height:1.25;margin:0 0 20px;letter-spacing:-.02em}.chapter h4{font-size:20px;margin:32px 0 10px}.chapter p{font-size:16px;color:color-mix(in srgb,var(--text) 90%,var(--muted));margin:0 0 18px}.chapter .thesis{font-size:20px;color:var(--text);border-left:4px solid var(--gold);padding-left:18px;margin:22px 0 28px}.signal{display:grid;grid-template-columns:160px 1fr;gap:18px;padding:14px 0;border-bottom:1px solid var(--line)}.signal .lab{font-weight:800;color:var(--cyan)}
+.figure{background:var(--panel);border:1px solid var(--line);border-radius:17px;padding:22px;margin:26px 0;box-shadow:var(--shadow)}.figure-title{font-weight:800;margin-bottom:4px}.figure-sub{font-size:12px;color:var(--muted);margin-bottom:18px}.bars{display:grid;gap:13px}.barrow{display:grid;grid-template-columns:190px 1fr 78px;align-items:center;gap:12px;font-size:12px}.track{height:12px;background:var(--panel2);border-radius:999px;overflow:hidden;border:1px solid var(--line)}.fill{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--cyan),var(--blue))}.fill.gold{background:linear-gradient(90deg,var(--gold),#ff9f70)}.fill.red{background:linear-gradient(90deg,var(--red),var(--purple))}.num{text-align:right;font-weight:800}.note{font-size:11px;color:var(--muted);margin-top:14px}
+.matrix{width:100%;border-collapse:separate;border-spacing:0;overflow:hidden;border:1px solid var(--line);border-radius:14px}.matrix th,.matrix td{padding:13px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);vertical-align:top}.matrix th{background:var(--panel2);text-align:left;font-size:12px}.matrix td{font-size:13px;color:var(--muted)}.matrix tr:last-child td{border-bottom:0}.matrix th:last-child,.matrix td:last-child{border-right:0}
+.mythingrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}.myth{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px}.myth b{display:block;margin-bottom:6px}.wrong{color:var(--red)}.right{color:var(--green)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}.timebox{border-top:3px solid var(--blue);background:var(--panel);border-radius:0 0 13px 13px;padding:18px}.timebox .year{font-weight:900;font-size:22px}.timebox p{font-size:13px;color:var(--muted);margin:8px 0 0}
+.source-list{counter-reset:src}.source-list li{margin:10px 0;color:var(--muted);padding-left:4px}.source-list li::marker{color:var(--cyan);font-weight:800}.source-list a{word-break:break-all}.footer{padding:55px 0 70px;border-top:1px solid var(--line);color:var(--muted);font-size:12px}.tiny{font-size:11px;color:var(--muted)}
+@media(max-width:900px){.hero-grid,.section-head{grid-template-columns:1fr}.photo-stack{grid-template-columns:1fr 1fr;grid-template-rows:auto}.span4,.span6,.span8{grid-column:span 12}.timeline{grid-template-columns:1fr 1fr}.mythingrid{grid-template-columns:1fr}.toc{columns:1}.barrow{grid-template-columns:120px 1fr 66px}.signal{grid-template-columns:1fr}.hero{padding-top:55px}}
+@media(max-width:580px){.wrap{padding:0 18px}.topbar .inner{padding:10px 18px}.hero h1{font-size:42px}.timeline{grid-template-columns:1fr}.photo-stack{grid-template-columns:1fr}.barrow{grid-template-columns:1fr}.num{text-align:left}.topbar .brand{display:none}}
+@media print{.topbar,.progress,.actions{display:none}.section,.chapter{break-inside:avoid}.card,.figure{box-shadow:none}.hero{padding-top:20px}body{background:white;color:#111}.wrap{max-width:none}.photo{box-shadow:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="topbar"><div class="inner"><div class="brand">WORLD TRENDS · 2026.9.15</div><div class="actions"><button class="btn" onclick="document.documentElement.dataset.theme=document.documentElement.dataset.theme==='light'?'dark':'light'">明暗切换</button><button class="btn" onclick="window.print()">打印 / PDF</button></div></div></div>
+
+<header class="hero wrap">
+  <div class="eyebrow">Evidence-based worldview · Updated 15 Sep 2026</div>
+  <h1>站在2026年的当下，<br>看懂这个世界趋势（2026.9.15）</h1>
+  <p class="dek">这不是一份“预测下一个热点”的报告，而是一张理解世界结构变化的地图。真正重要的，不是知道今天发生了什么，而是判断：<b>哪些变化会持续十年，哪些只是周期扰动；哪些变量彼此强化，哪些流行叙事其实被数据否定。</b></p>
+  <div class="meta"><span class="pill">宏观经济</span><span class="pill">AI 与生产力</span><span class="pill">地缘政治</span><span class="pill">贸易与供应链</span><span class="pill">人口与城市</span><span class="pill">能源与电力</span><span class="pill">气候与适应</span><span class="pill">金融与货币</span><span class="pill">就业与技能</span></div>
+  <div class="hero-grid">
+    <div class="photo"><img alt="数据中心服务器" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Front_of_server_racks_at_NERSC.jpg"><div class="cap">AI 正从“软件故事”变成算力、电力、资本开支和基础设施故事。图：NERSC server racks，Derrick Coetzee，CC0。</div></div>
+    <div class="photo-stack">
+      <div class="photo"><img alt="港口与供应链" src="https://upload.wikimedia.org/wikipedia/commons/6/6c/Oakland_California_aerial_view.jpg"><div class="cap">全球化没有消失，但供应链的目标函数正在改变。图：Port of Oakland，CC BY-SA 3.0。</div></div>
+      <div class="photo"><img alt="风电" src="https://upload.wikimedia.org/wikipedia/commons/e/e0/Wind_power_plants_in_Xinjiang%2C_China.jpg"><div class="cap">“电气化时代”意味着电网、储能、发电能力成为新瓶颈。图：Xinjiang wind power，Chris Lim，CC BY-SA 2.0。</div></div>
+    </div>
+  </div>
+</header>
+
+<section class="section"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">Executive thesis</div><h2>先用八句话<br>抓住世界主线</h2></div><p class="lead">2026 年最大的误区，是试图用一个标签解释世界：去全球化、AI 革命、能源转型、战争时代、人口危机……事实上，这些都是真的一部分。真正的结构，是它们彼此叠加。</p></div>
+  <div class="grid">
+    <div class="card span6"><div class="tag">01 · 生产力</div><h3>AI 已进入“扩散阶段”，而不只是“模型竞赛” <span class="confidence high">高确定性</span></h3><p>模型能力仍在提升，但竞争焦点越来越从“谁的模型更聪明”转向成本、可靠性、代理能力、企业工作流、专有数据以及算力与电力。Stanford 2026 AI Index 显示，2025 年受访组织 AI 使用率已达 88%，生成式 AI 在至少一个业务功能中的使用率达 70%。<a href="#s4">[4]</a></p></div>
+    <div class="card span6"><div class="tag">02 · 全球化</div><h3>不是“去全球化”，而是“全球化改写目标函数” <span class="confidence high">高确定性</span></h3><p>2025 年全球贸易仍创纪录，2026 年上半年继续扩张；与此同时，关税、技术管制、非关税措施、产业补贴和安全审查增加。企业不再只追求最低成本，而是同时优化成本、安全、冗余、合规和政治风险。<a href="#s9">[9]</a><a href="#s10">[10]</a></p></div>
+    <div class="card span6"><div class="tag">03 · 国家能力</div><h3>“安全溢价”正在重新进入经济体系 <span class="confidence high">高确定性</span></h3><p>全球军费在 2025 年达到 2.887 万亿美元，连续第 11 年增长；欧洲和亚洲军费增长尤其明显。国防、能源安全、关键矿产、半导体与本土制造正吞噬更多公共与私人资本。<a href="#s11">[11]</a></p></div>
+    <div class="card span6"><div class="tag">04 · 能源</div><h3>世界正在进入“电力约束”而非单纯“能源约束”时代 <span class="confidence high">高确定性</span></h3><p>IEA 预计 2026–2030 年全球电力需求年均增长约 3.6%，显著快于过去十年。AI 数据中心、制造业、电动车、空调与热泵共同推高电力需求；电网连接、变压器、储能与稳定电源的重要性同步上升。<a href="#s7">[7]</a></p></div>
+    <div class="card span6"><div class="tag">05 · 人口</div><h3>人口问题的关键词不是“全球下降”，而是“地区分化” <span class="confidence high">高确定性</span></h3><p>全球总人口预计到 2080 年代中期才见顶，但已有约四分之一人口生活在总人口已经见顶的国家；东亚、南欧面临超低生育与老龄化，而南亚和非洲部分地区仍具有年轻人口和城市化红利。<a href="#s12">[12]</a></p></div>
+    <div class="card span6"><div class="tag">06 · 财政</div><h3>未来十年的政策选择，会被“高债务”牢牢约束 <span class="confidence high">高确定性</span></h3><p>IMF 估计全球公共债务在 2025 年已接近 GDP 的 94%，按当前轨迹 2029 年将达到 100%。老龄化、国防、产业政策、气候适应和利息支出在争夺同一份财政空间。<a href="#s3">[3]</a></p></div>
+    <div class="card span6"><div class="tag">07 · 气候</div><h3>气候正在从“环保议题”变成“资产定价与基础设施议题” <span class="confidence high">高确定性</span></h3><p>WMO 确认 2015–2025 是有记录以来最热的 11 年，2025 年约比工业化前高 1.43°C。真正会进入经济决策的变量是保险、用电峰值、水资源、农产品、港口、城市降温和灾害韧性。<a href="#s14">[14]</a></p></div>
+    <div class="card span6"><div class="tag">08 · 金融秩序</div><h3>美元体系正在演化，但“美元马上被替代”没有数据支持 <span class="confidence high">高确定性</span></h3><p>2026 年一季度美元仍占已配置全球外汇储备约 57.13%。与此同时，代币化、稳定币和新的跨境支付基础设施在加速发展——更可能先改变“钱如何流动”，而不是立即改变“什么是核心储备资产”。<a href="#s15">[15]</a><a href="#s16">[16]</a></p></div>
+  </div>
+  <div class="callout"><strong>一句话总括：</strong> 2026–2030 的世界不是简单的“高科技繁荣”或“地缘政治衰退”，而是一个<strong>技术加速、国家回归、电力扩张、人口分化、财政受限</strong>同时发生的世界。最有价值的判断，往往产生在这些趋势的交叉点。</div>
+</div></section>
+
+<section class="section" id="dashboard"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">Dashboard</div><h2>2026 世界<br>十二个数字</h2></div><p class="lead">数字不是趋势本身，但它们能防止我们被叙事带走。以下指标选自 IMF、World Bank、Stanford、IEA、SIPRI、UN、WMO、ITU、UNHCR 等公开资料。</p></div>
+  <div class="grid">
+    <div class="card span4"><div class="tag">全球增长 · IMF</div><div class="metric">3.0%</div><p>IMF 2026 年 7 月对 2026 年全球实际 GDP 增长预测；2027 年 3.4%。<a href="#s1">[1]</a></p></div>
+    <div class="card span4"><div class="tag">全球增长 · World Bank</div><div class="metric">2.5%</div><p>World Bank 2026 年 6 月预测。两家机构差异本身说明能源与冲突假设带来的预测不确定性。<a href="#s2">[2]</a></p></div>
+    <div class="card span4"><div class="tag">公共债务</div><div class="metric">≈94% <small>of GDP</small></div><p>2025 年全球公共债务；IMF 预计 2029 年达到 100%。<a href="#s3">[3]</a></p></div>
+    <div class="card span4"><div class="tag">企业 AI 使用</div><div class="metric">88%</div><p>Stanford AI Index 汇总的 2025 年受访组织 AI 使用率。<a href="#s4">[4]</a></p></div>
+    <div class="card span4"><div class="tag">电力需求</div><div class="metric">+3.6% <small>/年</small></div><p>IEA 对 2026–2030 年全球电力需求年均增速预测。<a href="#s7">[7]</a></p></div>
+    <div class="card span4"><div class="tag">全球军费</div><div class="metric">$2.887T</div><p>2025 年，连续第 11 年增长。<a href="#s11">[11]</a></p></div>
+    <div class="card span4"><div class="tag">2026 H1 商品贸易</div><div class="metric">$13.7T</div><p>同比约 +12.5%，但相当部分增长来自价格上升而非纯粹贸易量。<a href="#s9">[9]</a></p></div>
+    <div class="card span4"><div class="tag">互联网人口</div><div class="metric">6.0B</div><p>2025 年约 74% 世界人口在线，但仍有 22 亿人离线。<a href="#s17">[17]</a></p></div>
+    <div class="card span4"><div class="tag">被迫流离失所</div><div class="metric">117.8M</div><p>2025 年末；较 2024 年下降，但仍处历史极高水平。<a href="#s18">[18]</a></p></div>
+    <div class="card span4"><div class="tag">全球人口</div><div class="metric">10.3B <small>峰值</small></div><p>UN 中位情景预计在 2080 年代中期附近达到峰值。<a href="#s12">[12]</a></p></div>
+    <div class="card span4"><div class="tag">全球温度</div><div class="metric">+1.43°C</div><p>WMO 对 2025 年相对 1850–1900 年平均的估计。<a href="#s14">[14]</a></p></div>
+    <div class="card span4"><div class="tag">美元储备份额</div><div class="metric">57.13%</div><p>IMF COFER，2026 Q1 已配置外汇储备。<a href="#s15">[15]</a></p></div>
+  </div>
+</div></section>
+
+<section class="section"><div class="wrap">
+  <div class="section-head"><div><div class="kicker">Navigation</div><h2>阅读地图</h2></div><div class="toc">
+    <a href="#macro"><span>01</span>宏观经济：低速增长与高约束时代</a>
+    <a href="#geo"><span>02</span>地缘政治：安全溢价重新定价世界</a>
+    <a href="#ai"><span>03</span>AI：从模型竞赛进入基础设施与应用扩散</a>
+    <a href="#jobs"><span>04</span>就业：岗位不是一起消失，而是任务结构被重写</a>
+    <a href="#energy"><span>05</span>能源：真正的主线是电气化与电网</a>
+    <a href="#trade"><span>06</span>贸易：全球化重构，不是全球化消失</a>
+    <a href="#population"><span>07</span>人口：老龄化与年轻化同时发生</a>
+    <a href="#cities"><span>08</span>城市：增长继续向城市网络集中</a>
+    <a href="#climate"><span>09</span>气候：从价值观议题转为资本开支议题</a>
+    <a href="#money"><span>10</span>金融：债务、美元、稳定币与代币化</a>
+    <a href="#cross"><span>11</span>交叉趋势：真正值得看的“二阶效应”</a>
+    <a href="#myths"><span>12</span>六个最容易误判的流行叙事</a>
+    <a href="#scenarios"><span>13</span>2026–2030 三种世界情景</a>
+    <a href="#signals"><span>14</span>未来四年应该持续观察的 20 个信号</a>
+  </div></div>
+</div></section>
+
+<main class="wrap">
+<section class="chapter" id="macro">
+<h3>01｜宏观经济：世界进入“增长不差，但空间更小”的时代</h3>
+<p class="thesis">核心判断：与 2010 年代相比，未来几年更难出现“低通胀、低利率、低地缘政治风险、财政可随时扩张”四者同时成立的环境。</p>
+<p>IMF 在 2026 年 7 月预计全球增长为 3.0%，World Bank 6 月则预计 2.5%。两者并非谁必然“错”，而是对中东冲突、能源价格、政策反应和技术投资的假设不同。更值得关注的是共同点：全球经济没有陷入系统性衰退，但增长分布非常不均衡，AI 技术链、能源出口、人口结构和财政空间正在放大国家之间的差异。<a href="#s1">[1]</a><a href="#s2">[2]</a></p>
+<p>第二个变化是通胀的“尾部风险”更高。IMF 7 月称全球去通胀进程已经停滞，并把 2026 年全球总体通胀预测上调至 4.7%。这并不等于长期高通胀已成定局，而意味着能源、供应链、战争、关税与财政支出会让通胀比 2010 年代更容易反复。<a href="#s1">[1]</a></p>
+<p>第三个变化是财政约束。全球公共债务接近 GDP 的 94%，同时政府又面对国防、养老金、医疗、产业补贴、基础设施和气候适应等支出。过去可以通过降息或扩张财政“解决”的问题，今后更可能形成取舍：<b>政府想做的事更多，但便宜的钱更少。</b><a href="#s3">[3]</a></p>
+<div class="figure"><div class="figure-title">财政空间为什么会越来越珍贵</div><div class="figure-sub">概念图：不是把不同量纲直接比较，而是展示同时向财政施压的结构因素。</div><div class="bars">
+<div class="barrow"><span>公共债务 / GDP</span><div class="track"><div class="fill red" style="width:94%"></div></div><span class="num">~94%</span></div>
+<div class="barrow"><span>国防与安全支出</span><div class="track"><div class="fill gold" style="width:78%"></div></div><span class="num">上升</span></div>
+<div class="barrow"><span>老龄化相关支出</span><div class="track"><div class="fill gold" style="width:75%"></div></div><span class="num">上升</span></div>
+<div class="barrow"><span>产业政策 / 战略自主</span><div class="track"><div class="fill" style="width:72%"></div></div><span class="num">上升</span></div>
+<div class="barrow"><span>气候适应与电网</span><div class="track"><div class="fill" style="width:68%"></div></div><span class="num">上升</span></div>
+</div><div class="note">第一行是 IMF 数据；其余为方向性结构示意，不代表统一指数。</div></div>
+<h4>看透这一趋势，需要关注什么？</h4>
+<div class="signal"><div class="lab">真正的变量</div><div>实际利率、财政利息支出占收入、能源价格、工资增速、生产率增速，而不仅仅是央行某一次加息或降息。</div></div>
+<div class="signal"><div class="lab">长期赢家特征</div><div>拥有较高生产率、稳定能源、较深资本市场、较强财政可信度和能够吸引人才的经济体。</div></div>
+<div class="signal"><div class="lab">最大风险</div><div>低增长 + 高债务 + 再通胀 + 政治上无法削减支出的组合，会显著增加金融市场重新定价风险。</div></div>
+</section>
+
+<section class="chapter" id="geo">
+<h3>02｜地缘政治：世界正在为“安全”支付更高价格</h3>
+<p class="thesis">核心判断：过去三十年，企业把供应链当成本问题；未来十年，越来越多产业会把供应链当国家安全问题。</p>
+<p>SIPRI 统计显示，2025 年全球军费达到 2.887 万亿美元，连续第 11 年上升。欧洲军费同比实际增长约 14%，亚洲与大洋洲增长约 8.1%。这不仅意味着武器采购增加，更意味着钢铁、造船、航空、卫星、网络安全、无人系统、芯片、能源和关键矿产获得新的长期需求。<a href="#s11">[11]</a></p>
+<p>更深层的变化是“经济政策安全化”。半导体出口限制、关键矿产投资审查、本土制造补贴、能源储备、数据主权、云服务主权化等，过去被认为主要属于市场效率的问题，现在越来越多地进入国家战略。于是世界并不会简单分裂成两个完全封闭阵营，而更可能形成<b>重叠的、分层的、议题式联盟</b>：安全上站队，贸易上仍往来；技术上脱钩一部分，消费品上继续融合。</p>
+<div class="figure"><div class="figure-title">全球军费：安全溢价已经可量化</div><div class="figure-sub">SIPRI：2024 → 2025，单位：十亿美元（名义值）。</div><div class="bars"><div class="barrow"><span>2024</span><div class="track"><div class="fill gold" style="width:94%"></div></div><span class="num">2,718</span></div><div class="barrow"><span>2025</span><div class="track"><div class="fill red" style="width:100%"></div></div><span class="num">2,887</span></div></div></div>
+<p>对经济而言，“安全化”通常意味着两件事：第一，重复建设增加，效率下降但韧性提高；第二，政府对资本流向的影响变大。这会强化“产业政策回归”，也会让某些行业出现过去很少见的长期订单与政策支持。</p>
+</section>
+
+<section class="chapter" id="ai">
+<h3>03｜AI：从“模型有多聪明”进入“社会怎样重新组织工作”</h3>
+<p class="thesis">核心判断：AI 的真正经济影响，不会主要由聊天机器人使用量决定，而由它能否嵌入工作流、替代任务链、降低推理成本，并与企业数据和现实世界系统连接决定。</p>
+<p>Stanford 2026 AI Index 给出的几个信号非常关键：全球企业 AI 投资在 2025 年显著上升；受访组织 AI 使用率升至 88%；生成式 AI 人口层面的采用速度达到约 53%，扩散速度快于个人电脑和互联网早期；与此同时，头部模型能力差距缩小，竞争越来越转向成本、可靠性与专业化。<a href="#s4">[4]</a><a href="#s5">[5]</a></p>
+<p>这意味着 AI 正从“稀缺的模型能力”转向“可调用的通用能力”。一旦能力商品化，利润池会向模型之外迁移：芯片、内存、网络、数据中心、电力、云、企业软件、数据、行业工作流、分发入口以及拥有客户关系的公司都可能获得价值。</p>
+<p>更重要的是“Agent 化”。2026 年企业级代理仍处早期阶段，远没有达到“自主公司”的程度，但方向已经清晰：AI 从回答一个问题，变成接收目标、拆解任务、调用工具、检查结果、反复执行。这个变化会把软件从“工具”推向“半自主劳动资本”。</p>
+<div class="grid"><div class="card span4"><div class="tag">模型层</div><h3>能力趋同</h3><p>前沿模型继续进步，但头部差距缩窄，单纯模型领先的护城河可能缩短。</p></div><div class="card span4"><div class="tag">基础设施层</div><h3>算力 → 电力</h3><p>AI 扩张将算力瓶颈外溢为电网、冷却、土地、变压器、融资和许可瓶颈。</p></div><div class="card span4"><div class="tag">应用层</div><h3>工作流重构</h3><p>真正的价值来自把多个任务串起来，而不是把人类原有流程原封不动地“加一个聊天框”。</p></div></div>
+<h4>哪些行业会最先被重写？</h4>
+<p>不是“最简单的工作”这么单一。首先被重写的是<b>数字化程度高、任务可分解、质量可验证、数据已电子化、输出可被机器读取</b>的工作：软件开发、客服、内容生产、翻译、研究辅助、法务检索、财务分析、销售运营、行政流程等。实体世界工作也会被 AI 影响，但机器人、传感器、安全与硬件部署速度决定其节奏。</p>
+</section>
+
+<section class="chapter" id="jobs">
+<h3>04｜就业：不是“工作消失”，而是任务组合重新定价</h3>
+<p class="thesis">核心判断：AI 对劳动市场的第一波冲击，更可能先体现在招聘入口、初级岗位和单项任务价格，而不是全社会就业率突然崩塌。</p>
+<p>ILO 2025 年的全球指数估计，约四分之一劳动者处于某种程度的生成式 AI 暴露岗位中，但只有约 3.3% 的全球就业落在最高暴露类别。ILO 的主结论是：在多数岗位上，<b>“转化”比“完全替代”更可能</b>。<a href="#s6">[6]</a></p>
+<p>Stanford 2026 报告则捕捉到更早期的分布效应：AI 暴露职业中的年轻软件开发者等群体出现更明显的就业压力。这提示一个重要机制——如果 AI 首先替代的是初级任务，那么公司未必马上裁掉大量成熟员工，却可能减少“用新人完成基础工作”的需要。长期问题因此变成：<b>没有初级任务，人如何获得成为高级人才所需的经验？</b><a href="#s4">[4]</a></p>
+<p>WEF 的雇主调查同样显示，就业的总量变化与结构变化可以同时存在：到 2030 年，宏观趋势可能创造约 1.7 亿个岗位、置换约 9200 万个岗位，净增仍为正，但技能错配会很剧烈。这个数字属于调查预测而非确定结果，价值主要在方向：AI、大数据、网络安全、技术素养上升，同时韧性、创造力、协作等人类能力也更重要。<a href="#s20">[20]</a></p>
+<div class="callout"><strong>一个关键推论：</strong> AI 时代最危险的不是“不懂某个工具”，而是你的工作价值完全建立在“信息搬运、标准格式、低责任判断”之上。越靠近真实责任、客户信任、复杂协调、物理世界、最终决策与结果承担，越难被一次性商品化。</div>
+</section>
+
+<section class="chapter" id="energy">
+<h3>05｜能源：世界正在进入“电气化 + 电网瓶颈”的新周期</h3>
+<p class="thesis">核心判断：未来十年的能源故事，不应只问“石油还是新能源”，而要问“谁能最快、最稳定、最便宜地增加可用电力”。</p>
+<p>IEA 预计 2026–2030 年全球电力需求年均增长约 3.6%，未来五年每年新增需求比过去十年平均水平高约 50%。驱动因素不仅是电动车，还包括空调、热泵、工业、电解过程、数据中心和 AI。电力消费增速预计至少是总体能源需求增速的 2.5 倍。<a href="#s7">[7]</a></p>
+<p>供给结构也在快速变化。IEA 预计可再生能源在 2026 年超过煤电成为全球最大的发电来源类别，并继续扩大领先；到 2030 年，可再生能源加核电合计可能贡献全球约一半电力。与此同时，煤炭不会“立刻退出”：到 2030 年它仍可能是最大的单一燃料发电来源。<a href="#s8">[8]</a></p>
+<div class="figure"><div class="figure-title">全球发电结构的方向变化</div><div class="figure-sub">IEA Electricity 2026：低排放电源（可再生 + 核电）占比。</div><div class="bars"><div class="barrow"><span>2025</span><div class="track"><div class="fill" style="width:84%"></div></div><span class="num">42%</span></div><div class="barrow"><span>2030E</span><div class="track"><div class="fill" style="width:100%"></div></div><span class="num">50%</span></div></div><div class="note">条形长度按 50%=100% 归一化，仅用于展示趋势。</div></div>
+<p>因此，真正稀缺的可能不是“发电技术本身”，而是电网连接、储能、灵活调度、变压器、土地许可和建设速度。AI 数据中心让这一点更加明显：数字世界的增长最终会落到铜、铝、钢、天然气、核电、光伏、风电、变电站和施工周期上。</p>
+</section>
+
+<section class="chapter" id="trade">
+<h3>06｜贸易：全球化没有结束，它只是从“效率最大化”变成“约束条件更多”</h3>
+<p class="thesis">核心判断：如果只看政治语言，会觉得世界迅速脱钩；如果只看贸易总额，又会觉得一切照旧。两者都不完整。</p>
+<p>UNCTAD 估计 2025 年全球贸易总额达到约 35 万亿美元的新纪录，2026 年上半年商品贸易约 13.7 万亿美元，同比上升 12.5%，服务贸易也继续增长。不过 2026 上半年相当一部分增幅来自能源、运输与商品价格上升。<a href="#s9">[9]</a></p>
+<p>同时，贸易摩擦的“形态”变化很重要。关税只是表层，技术标准、碳边境措施、卫生规则、数据规则、出口管制和国家安全审查等非关税措施影响越来越大。UNCTAD 指出，自 2020 年以来大约新增了 1.8 万项歧视性贸易措施；技术与卫生类规则已覆盖世界贸易很大一部分。<a href="#s10">[10]</a></p>
+<p>WTO 2026 年报告给出了一个有意义的反事实：如果世界真正裂解为地缘阵营，模型模拟的全球 GDP 和出口损失会非常显著。这恰恰说明为什么“完全脱钩”成本极高，也解释了现实世界为何更可能走向<b>选择性脱钩 + 广泛贸易继续存在</b>。<a href="#s19">[19]</a></p>
+<div class="photo" style="min-height:360px;margin:28px 0"><img alt="上海浦东城市与全球经济" src="https://upload.wikimedia.org/wikipedia/commons/8/82/Pudong_Skyline%2C_Shanghai%2C_PRC.jpg"><div class="cap">城市、港口、制造、金融和技术并不是相互独立的趋势，它们共同构成全球生产网络。图：Shanghai Pudong，Jens Schott Knudsen，CC BY 2.0。</div></div>
+<h4>更准确的未来图景</h4>
+<p>供应链会变得更长、更贵、更冗余，也更有政治属性。企业可能同时采用 China+1、near-shoring、friend-shoring、本地库存、双供应商、关键零部件国产化等策略。结果不是世界贸易归零，而是<b>同样一单位产出需要更多安全冗余资本</b>。</p>
+</section>
+
+<section class="chapter" id="population">
+<h3>07｜人口：世界最大的长期分化之一，正在悄悄发生</h3>
+<p class="thesis">核心判断：21 世纪中叶的人口问题不是“人太多”或“人太少”的统一问题，而是不同国家同时面对完全相反的问题。</p>
+<p>UN 2024 版人口展望预计，全球人口从 2024 年约 82 亿继续增长，到 2080 年代中期约 103 亿见顶，随后略降。但已有约四分之一人口生活在总人口已经见顶的国家。更具结构意义的是生育率：东亚部分地区和欧洲部分国家已经进入“超低生育”区间，而部分非洲国家仍保持年轻人口结构。<a href="#s12">[12]</a></p>
+<p>这会产生两种完全不同的经济问题。老龄社会需要自动化、医疗、养老、提高劳动参与率和吸引移民；年轻社会需要教育、城市基础设施、就业创造和资本形成。如果年轻人口没有足够岗位，“人口红利”会变成社会压力；如果老龄国家无法提高生产率，社会福利承诺会变成财政压力。</p>
+<p>人口结构也会与 AI 相互作用：劳动力紧缺的国家更有动力把自动化当“补人”，劳动力大量增长的国家则更关心 AI 是否削弱白领就业吸纳能力。技术相同，社会含义可能完全相反。</p>
+</section>
+
+<section class="chapter" id="cities">
+<h3>08｜城市：全球增长仍将高度集中在城市网络</h3>
+<p class="thesis">核心判断：人口增长、生产率、住房、交通、能源与气候风险最终都会在城市里“碰面”。</p>
+<p>UN 2025 版城市化展望采用新的“城市—城镇—乡村”空间口径，估计 2025 年约 44.8% 世界人口居住在城市（city），另有约 35.6% 居住在城镇（town）。到 2050 年，城市人口占比预计上升至约 48.3%。这个口径与传统“urban population”统计不同，因此不能简单与旧版“全球一半以上人口城市化”数字直接对比。<a href="#s13">[13]</a></p>
+<p>2025 年全球有 33 个超过 1000 万人口的超大城市，到 2050 年预计增至 37 个；但 96% 的城市人口规模仍低于 100 万。真正的城市化趋势因此不只是“超级城市越来越大”，而是成千上万中小城市形成新的消费、物流、教育和基础设施需求。<a href="#s13">[13]</a></p>
+<p>城市将成为气候适应最昂贵也最必要的场景：制冷用电、洪水排水、海平面、防火、饮水、保险和住房可负担性，会越来越直接影响人口迁移与企业选址。</p>
+</section>
+
+<section class="chapter" id="climate">
+<h3>09｜气候：从“价值观争论”进入“经济系统硬约束”</h3>
+<p class="thesis">核心判断：无论一个人对具体气候政策持什么政治观点，极端热、降水、水资源与保险损失都已经是现实经济变量。</p>
+<p>WMO 2026 年发布的报告确认，2015–2025 是记录中最热的连续 11 年，2025 年大约比 1850–1900 年平均高 1.43°C。Copernicus 的 ERA5 数据给出约 1.47°C，数据集之间存在小幅差异，但方向一致：近年全球温度处于历史高位。<a href="#s14">[14]</a><a href="#s21">[21]</a></p>
+<p>这类变化的经济传导渠道越来越明确：高温推高空调用电；干旱影响水电、农业与河运；极端降雨损害城市和物流；灾害损失进入保险费率和房地产价格；热应激影响劳动生产率。换句话说，气候问题正在从 ESG 报告的一章，变成企业资本预算、政府基建和家庭资产选择的一部分。</p>
+<div class="figure"><div class="figure-title">气候趋势最值得跟踪的不是一个温度数字</div><div class="grid"><div class="card span4"><div class="tag">物理风险</div><h3>热、洪水、旱、火</h3><p>决定保险损失、农业产量、城市建设标准与基础设施韧性。</p></div><div class="card span4"><div class="tag">转型风险</div><h3>法规与技术替代</h3><p>碳规则、汽车与发电技术变化会改变行业资本回报。</p></div><div class="card span4"><div class="tag">适应经济</div><h3>制冷、排水、电网</h3><p>适应支出可能成为一个长期基础设施投资方向。</p></div></div></div>
+</section>
+
+<section class="chapter" id="money">
+<h3>10｜金融与货币：旧秩序很强，新基础设施正在长出来</h3>
+<p class="thesis">核心判断：储备货币的变化很慢，支付技术的变化可以很快。不要把两者混为一谈。</p>
+<p>IMF COFER 显示，2026 年一季度美元占已配置全球外汇储备约 57.13%，较 2025 年四季度反而上升。长期看，美元份额相比二十多年前确有下降，但“美元正在迅速失去储备货币地位”的说法并不符合当前数据。<a href="#s15">[15]</a></p>
+<p>真正变化更快的是金融基础设施。BIS 2026 年报告把代币化视为下一代金融系统的重要技术方向，同时对现有稳定币的可扩展性、完整性和金融稳定问题保持谨慎。一个合理的中期图景是：稳定币、代币化存款、代币化证券与央行/商业银行体系逐渐互联，跨境结算更快、更可编程，但核心货币信用体系不会一夜之间被公链替代。<a href="#s16">[16]</a></p>
+<p>与此同时，高公共债务意味着主权债券市场本身变得更重要。利率上升时，政府利息支出、银行资产负债表、保险和养老资金、非银杠杆都会彼此影响。金融体系最大的潜在风险之一，不是某个新资产单独崩盘，而是<b>高债务世界对利率与风险溢价重新定价更敏感</b>。</p>
+</section>
+
+<section class="chapter" id="cross">
+<h3>11｜交叉趋势：真正值得看的，是“二阶效应”</h3>
+<p class="thesis">单独理解 AI、人口、能源或地缘政治并不难。困难也最有价值的部分，是理解它们发生碰撞以后会出现什么。</p>
+<table class="matrix"><thead><tr><th>趋势交叉</th><th>一阶变化</th><th>二阶影响</th><th>最值得观察</th></tr></thead><tbody>
+<tr><td>AI × 电力</td><td>数据中心耗电增加</td><td>电网连接、天然气、核电、储能、变压器、土地许可变成 AI 产业链</td><td>新增电源与并网时间</td></tr>
+<tr><td>AI × 人口老龄化</td><td>自动化替代部分任务</td><td>劳动力短缺国家可能更快接受自动化，缓解照护与服务缺口</td><td>单位劳动生产率、机器人密度</td></tr>
+<tr><td>AI × 年轻人口</td><td>白领入门任务减少</td><td>教育体系与就业吸纳之间可能出现新的结构错配</td><td>青年失业率、初级岗位招聘</td></tr>
+<tr><td>地缘政治 × 产业链</td><td>增加备份供应商</td><td>资本效率下降，但本地制造、物流、库存和关键材料获得溢价</td><td>资本开支、库存周期、FDI 流向</td></tr>
+<tr><td>国防 × 财政债务</td><td>军费上升</td><td>与养老金、医疗、绿色投资争夺预算，税收与债务压力上升</td><td>利息支出 / 财政收入</td></tr>
+<tr><td>气候 × 电力</td><td>高温推高制冷</td><td>峰值电力需求与电网韧性比年平均电量更关键</td><td>峰值负荷、储能、需求响应</td></tr>
+<tr><td>城市化 × 气候</td><td>更多人口集中</td><td>灾害风险集中在高价值资产密集区，保险与基建成本抬升</td><td>保险费率、洪水/火灾区房价</td></tr>
+<tr><td>数字金融 × 美元</td><td>美元稳定币扩张</td><td>技术上“去银行化”未必意味着货币上“去美元化”，甚至可能扩大美元数字使用</td><td>稳定币储备结构、跨境支付份额</td></tr>
+</tbody></table>
+</section>
+
+<section class="chapter" id="myths">
+<h3>12｜六个最容易误判的流行叙事</h3>
+<div class="mythingrid">
+<div class="myth"><b class="wrong">误判 1：全球化正在终结。</b><span class="right">更准确：</span>贸易仍在扩张，但规则、路线和资本配置更政治化；“全球化 2.0”比“全球化消失”更符合数据。</div>
+<div class="myth"><b class="wrong">误判 2：AI 会让大多数工作很快消失。</b><span class="right">更准确：</span>现阶段证据更支持任务重组、招聘入口变化与岗位再设计；替代速度高度取决于行业、责任与现实世界约束。</div>
+<div class="myth"><b class="wrong">误判 3：可再生能源增长意味着化石能源马上失去意义。</b><span class="right">更准确：</span>可再生能源增长极快，但电力系统仍需要调峰、稳定性与存量资产，天然气与煤的区域作用不会同步消失。</div>
+<div class="myth"><b class="wrong">误判 4：美元马上会被另一种货币替代。</b><span class="right">更准确：</span>储备结构缓慢多元化，但美元仍占约 57% 已配置储备；支付创新和储备货币替代是两种时间尺度。</div>
+<div class="myth"><b class="wrong">误判 5：全球人口马上进入下降时代。</b><span class="right">更准确：</span>全球总量仍可能增长数十年，但越来越多国家已经进入人口峰值之后；关键是地区分化。</div>
+<div class="myth"><b class="wrong">误判 6：世界会整齐地分成两个完全隔绝的阵营。</b><span class="right">更准确：</span>现实更可能是分层网络：安全、技术、资本、能源、消费贸易各自形成不同程度的阵营化。</div>
+</div>
+</section>
+
+<section class="chapter" id="scenarios">
+<h3>13｜2026–2030：三种值得准备、但不要装作能精确预测的世界</h3>
+<div class="timeline">
+<div class="timebox"><div class="year">基准情景</div><p>AI 投资继续扩散，全球增长中低速；贸易继续但摩擦频繁；电力资本开支上升；通胀偶有反复；人口与财政差异扩大。最接近当前机构基线。</p></div>
+<div class="timebox" style="border-color:var(--green)"><div class="year">生产率上行</div><p>AI 从资本开支真正转化为劳动生产率，推理成本下降，企业流程重构成功。增长提高、财政压力相对缓解，技术链和电力基础设施受益。</p></div>
+<div class="timebox" style="border-color:var(--red)"><div class="year">碎片化下行</div><p>冲突升级、能源与航运反复受扰、贸易限制扩张，通胀重新抬头，债券市场要求更高风险溢价，全球增长受压。</p></div>
+<div class="timebox" style="border-color:var(--gold)"><div class="year">双速世界</div><p>AI / 电力 / 制造链国家增长较强，能源脆弱、财政空间小、技术接入弱的经济体相对落后。国家之间的生产率差距扩大。</p></div>
+</div>
+<p style="margin-top:22px">最需要避免的认知错误，是给上述情景硬塞一个看似精确的概率。更好的做法是：建立观察指标，一旦指标连续改变，就调整对世界的判断。</p>
+</section>
+
+<section class="chapter" id="signals">
+<h3>14｜未来四年，持续观察这 20 个信号</h3>
+<div class="grid">
+<div class="card span6"><h3>技术与生产力</h3><p>① AI 推理单位成本；② 企业 Agent 从试点到生产的比例；③ AI 资本开支占大型科技公司现金流；④ 生产率数据是否出现广泛而非仅技术行业的改善。</p></div>
+<div class="card span6"><h3>劳动市场</h3><p>⑤ 22–30 岁白领就业与工资；⑥ 初级岗位发布量；⑦ 高 AI 暴露职业工时变化；⑧ 企业培训与岗位再设计速度。</p></div>
+<div class="card span6"><h3>能源与工业</h3><p>⑨ 全球电力需求增速；⑩ 数据中心并网等待时间；⑪ 可再生、核电、天然气新增装机；⑫ 电网与变压器交付周期。</p></div>
+<div class="card span6"><h3>宏观与财政</h3><p>⑬ 实际利率；⑭ 全球公共债务 / GDP；⑮ 主要经济体利息支出 / 财政收入；⑯ 能源价格对核心通胀的二次传导。</p></div>
+<div class="card span6"><h3>全球化与地缘</h3><p>⑰ 全球贸易量而不只是贸易金额；⑱ 非关税措施、出口管制与产业补贴数量；⑲ FDI 是否沿地缘阵营重定向。</p></div>
+<div class="card span6"><h3>货币与制度</h3><p>⑳ 美元 COFER 份额、稳定币结算量、代币化证券规模，以及这些新体系是否连接而不是替代银行体系。</p></div>
+</div>
+<div class="callout"><strong>判断趋势的纪律：</strong> 不要因为一个季度的数据否定十年趋势，也不要因为十年趋势忽略短期周期。结构趋势回答“方向”，周期数据回答“速度”，政策与估值决定“路径”。</div>
+</section>
+
+<section class="chapter">
+<h3>结语｜2026 年真正值得看懂的，不是“未来会发生什么”，而是世界的约束条件变了</h3>
+<p>过去几十年最强的时代背景，是全球化、廉价资本、人口红利、互联网和相对稳定的能源体系。站在 2026 年，这些底层条件正在被重新组合：AI 提高了知识劳动的可复制性，却需要巨额电力与资本；全球贸易继续繁荣，却被安全和法规重新塑形；可再生能源高速增长，却使电网与灵活性变得更关键；人口总量仍增长，却掩盖了国家之间截然相反的老龄化与年轻化；政府承担更多战略任务，却背负更高债务。</p>
+<p>因此，未来世界最重要的能力不是猜中某一条新闻，而是建立一个能够持续更新的世界模型。这个模型至少应同时包含五个问题：<b>技术把什么变便宜？地缘政治把什么变贵？人口让什么变稀缺？能源系统在哪里形成瓶颈？财政还能为多少目标买单？</b></p>
+<p>只要这五个问题没有发生根本逆转，2026 年看到的许多变化就不是短期噪音，而是下一阶段世界秩序的雏形。</p>
+</section>
+</main>
+
+<section class="section" id="sources"><div class="wrap">
+<div class="section-head"><div><div class="kicker">Sources & method</div><h2>主要资料来源</h2></div><p class="lead">优先采用国际组织、研究机构和官方统计。报告中的“高确定性”用于描述已有多源数据支持的结构方向；“情景”部分不代表确定预测。网页资料检索截至 2026-09-15。</p></div>
+<ol class="source-list">
+<li id="s1"><b>IMF</b>, World Economic Outlook Update, July 2026 — Global Economy in Crosscurrents of War and Technology. <a href="https://www.imf.org/en/publications/weo/issues/2026/07/08/world-economic-outlook-update-july-2026">imf.org</a></li>
+<li id="s2"><b>World Bank</b>, Global Economic Prospects, June 2026. <a href="https://www.worldbank.org/en/publication/global-economic-prospects">worldbank.org</a></li>
+<li id="s3"><b>IMF</b>, Fiscal Monitor, April 2026 — Fiscal Policy under Pressure: High Debt, Rising Risks. <a href="https://www.imf.org/en/publications/fm/issues/2026/04/15/fiscal-monitor-april-2026">imf.org</a></li>
+<li id="s4"><b>Stanford HAI</b>, The 2026 AI Index Report — Economy. <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/economy">stanford.edu</a></li>
+<li id="s5"><b>Stanford HAI</b>, The 2026 AI Index Report — Technical Performance. <a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/technical-performance">stanford.edu</a></li>
+<li id="s6"><b>ILO</b>, Generative AI and Jobs: A Refined Global Index of Occupational Exposure, 2025. <a href="https://www.ilo.org/publications/generative-ai-and-jobs-refined-global-index-occupational-exposure">ilo.org</a></li>
+<li id="s7"><b>IEA</b>, Electricity 2026 / Mid-Year Update 2026 — Demand and Executive Summary. <a href="https://www.iea.org/reports/electricity-mid-year-update-2026/executive-summary">iea.org</a></li>
+<li id="s8"><b>IEA</b>, Electricity 2026 — Supply. <a href="https://www.iea.org/reports/electricity-2026/supply">iea.org</a></li>
+<li id="s9"><b>UNCTAD</b>, Global Trade Update, July/August 2026. <a href="https://unctad.org/publication/global-trade-update-julyaugust-2026-global-trade-continues-expand-amid-rising-price">unctad.org</a></li>
+<li id="s10"><b>UNCTAD</b>, Global Trade Update, January 2026 — Top trends redefining global trade in 2026. <a href="https://unctad.org/publication/global-trade-update-january-2026-top-trends-redefining-global-trade-2026">unctad.org</a></li>
+<li id="s11"><b>SIPRI</b>, Trends in World Military Expenditure, 2025, published April 2026. <a href="https://www.sipri.org/publications/2026/sipri-fact-sheets/trends-world-military-expenditure-2025">sipri.org</a></li>
+<li id="s12"><b>United Nations DESA</b>, World Population Prospects 2024 — Summary of Results. <a href="https://www.un.org/development/desa/pd/content/world-population-prospects-2024">un.org</a></li>
+<li id="s13"><b>United Nations DESA</b>, World Urbanization Prospects 2025 — Summary of Results. <a href="https://www.un.org/development/desa/pd/node/4442">un.org</a></li>
+<li id="s14"><b>WMO</b>, State of the Global Climate 2025, published March 2026. <a href="https://public.wmo.int/publication-series/state-of-global-climate/state-of-global-climate-2025">wmo.int</a></li>
+<li id="s15"><b>IMF COFER</b>, Currency Composition of Official Foreign Exchange Reserves, 2026 Q1. <a href="https://data.imf.org/en/news/imf%20data%20brief%20july%201">imf.org</a></li>
+<li id="s16"><b>BIS</b>, Annual Economic Report 2026 / The path to the next-generation monetary and financial system. <a href="https://www.bis.org/publ/arpdf/ar2026e.pdf">bis.org</a></li>
+<li id="s17"><b>ITU</b>, Facts and Figures 2025. <a href="https://www.itu.int/en/ITU-D/Statistics/Pages/facts/default.aspx">itu.int</a></li>
+<li id="s18"><b>UNHCR</b>, Global Trends 2025, published June 2026. <a href="https://www.unhcr.org/about-unhcr/overview/figures-glance">unhcr.org</a></li>
+<li id="s19"><b>WTO</b>, World Trade Report 2026 — Executive Summary. <a href="https://www.wto.org/english/res_e/publications_e/world-trade-report-2026_execsum_e.htm">wto.org</a></li>
+<li id="s20"><b>World Economic Forum</b>, Future of Jobs Report 2025. <a href="https://www.weforum.org/publications/the-future-of-jobs-report-2025/">weforum.org</a></li>
+<li id="s21"><b>Copernicus Climate Change Service</b>, Global Climate Highlights 2025. <a href="https://climate.copernicus.eu/global-climate-highlights-2025">copernicus.eu</a></li>
+</ol>
+<p class="tiny">图片许可：NERSC server racks（CC0）；Oakland aerial view（CC BY-SA 3.0）；Xinjiang wind power（CC BY-SA 2.0）；Pudong skyline（CC BY 2.0）。图片通过 Wikimedia Commons 外链加载，因此离线状态下可能不显示；正文、图表和分析本身可离线阅读。</p>
+</div></section>
+
+<footer class="footer"><div class="wrap">《站在2026年的当下，看懂这个世界趋势》 · 研究型 HTML 报告 · 更新：2026-09-15<br><span class="tiny">本报告用于理解结构趋势，不构成投资、法律或政策建议。预测值随战争、能源价格、政策和统计修订而变化。</span></div></footer>
+<script>
+const p=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement.scrollHeight-innerHeight;p.style.width=(scrollY/h*100)+'%'});
+if(matchMedia('(prefers-color-scheme: light)').matches) document.documentElement.dataset.theme='light';
+</script>
+</body></html>

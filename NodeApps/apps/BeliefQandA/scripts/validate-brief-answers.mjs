@@ -6,11 +6,13 @@ import matter from 'gray-matter';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const questionsFile = path.join(root, 'Questions.md');
 const answersDirectory = path.join(root, 'answers');
+const minLength = 1500;
 const maxLength = 2000;
 const briefHeading = /^## AI 的简单回答\s*$/m;
 const nextHeading = /^## (?:我的回答|AI 的复杂回答|更深层次的探讨)\s*$/m;
 const requiredHeadings = ['AI 的简单回答', '我的回答', 'AI 的复杂回答', '更深层次的探讨'];
 const errors = [];
+const requireAll = process.argv.includes('--require-all');
 
 function questionsFrom(source) {
   const questions = [];
@@ -57,13 +59,22 @@ for (const name of entries.filter((entry) => entry.endsWith('.md'))) {
   const brief = briefFrom(parsed.content);
   if (brief === null) errors.push(`${name}: 缺少“AI 的简单回答”标题。`);
   else if (!brief) errors.push(`${name}: 第一层回答不能为空。`);
-  else if (brief.length > maxLength) errors.push(`${name}: 第一层回答为 ${brief.length} 字符，超过 ${maxLength}。`);
+  else if (brief.length < minLength || brief.length > maxLength) errors.push(`${name}: 第一层回答为 ${brief.length} 字符，不在 ${minLength}–${maxLength} 字范围内。`);
   else checked += 1;
+}
+
+if (requireAll) {
+  const answerFiles = new Set(entries.filter((entry) => entry.endsWith('.md')).map((entry) => entry.slice(0, -3)));
+  const missing = questions.filter((question) => !answerFiles.has(question.id));
+  if (missing.length) {
+    const preview = missing.slice(0, 5).map((question) => `${question.id}（${question.text}）`).join('、');
+    errors.push(`缺少 ${missing.length} 道第一层回答：${preview}${missing.length > 5 ? '……' : ''}`);
+  }
 }
 
 if (errors.length) {
   console.error(`BeliefQ&A 校验失败（${errors.length} 项）：\n- ${errors.join('\n- ')}`);
   process.exitCode = 1;
 } else {
-  console.log(`BeliefQ&A 校验通过：${checked} 个已填写的第一层回答，均不超过 ${maxLength} 字符。`);
+  console.log(`BeliefQ&A 校验通过：${checked} 个已填写的第一层回答，均在 ${minLength}–${maxLength} 字范围内。`);
 }

@@ -13,6 +13,7 @@ const LAYER_DEFINITIONS = [
   ['detailed', 'AI 的复杂回答'],
   ['explore', '更深层次的探讨'],
 ];
+const BRIEF_ANSWER_MIN_LENGTH = 1500;
 const BRIEF_ANSWER_MAX_LENGTH = 2000;
 
 function badRequest(message) { const error = new Error(message); error.status = 400; return error; }
@@ -74,8 +75,11 @@ function safeLayers(value) {
     if (text.length > 60000) throw badRequest('单个回答层级不能超过 60,000 个字符。');
     output[id] = text.trim();
   }
+  if (output.brief && output.brief.length < BRIEF_ANSWER_MIN_LENGTH) {
+    throw badRequest(`AI 的简单回答需在 ${BRIEF_ANSWER_MIN_LENGTH}–${BRIEF_ANSWER_MAX_LENGTH} 字之间。`);
+  }
   if (output.brief.length > BRIEF_ANSWER_MAX_LENGTH) {
-    throw badRequest(`AI 的简单回答不能超过 ${BRIEF_ANSWER_MAX_LENGTH} 个字符。`);
+    throw badRequest(`AI 的简单回答需在 ${BRIEF_ANSWER_MIN_LENGTH}–${BRIEF_ANSWER_MAX_LENGTH} 字之间。`);
   }
   return output;
 }
@@ -112,6 +116,28 @@ app.put('/api/questions/:id/answer', async (request, response, next) => {
     await fs.mkdir(answersDirectory, { recursive: true });
     await fs.writeFile(path.join(answersDirectory, `${question.id}.md`), answerMarkdown(question, layers, updatedAt), 'utf8');
     response.json({ layers, updatedAt });
+  } catch (error) { next(error); }
+});
+
+app.delete('/api/questions/:id/answer/:layerId', async (request, response, next) => {
+  try {
+    const library = await readQuestions();
+    const question = library.questions.find((item) => item.id === request.params.id);
+    if (!question) throw badRequest('未找到这道题。');
+    if (!LAYER_DEFINITIONS.some(([id]) => id === request.params.layerId)) throw badRequest('未找到这个回答层级。');
+    const existing = await answerFor(question);
+    const layers = existing.layers;
+    layers[request.params.layerId] = '';
+    if (Object.values(layers).some(Boolean)) {
+      const updatedAt = new Date().toISOString();
+      await fs.mkdir(answersDirectory, { recursive: true });
+      await fs.writeFile(path.join(answersDirectory, `${question.id}.md`), answerMarkdown(question, layers, updatedAt), 'utf8');
+      response.json({ layers, updatedAt });
+    } else {
+      try { await fs.unlink(path.join(answersDirectory, `${question.id}.md`)); }
+      catch (error) { if (error.code !== 'ENOENT') throw error; }
+      response.json({ layers, updatedAt: null });
+    }
   } catch (error) { next(error); }
 });
 
