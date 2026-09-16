@@ -15,6 +15,7 @@ export default defineConfig({
       '/bible': 'http://127.0.0.1:5889',
       '/recall-verses': 'http://127.0.0.1:5889',
       '/belief-qa': 'http://127.0.0.1:5889',
+      '/world-qa': 'http://127.0.0.1:5889',
       '/investment': 'http://127.0.0.1:5889',
     },
   },

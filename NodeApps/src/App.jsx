@@ -1,7 +1,16 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, House, Landmark, MessageCircleQuestion, Network, NotebookPen } from 'lucide-react';
+import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, Compass, House, Landmark, MessageCircleQuestion, Network, NotebookPen } from 'lucide-react';
 
 const APPS = [
+  {
+    id: 'world-qa',
+    name: 'World Q&A',
+    kind: 'WORLD · QUESTIONS',
+    description: '从底层问题入手，建立理解世界的结构、机制与长期视角。',
+    Icon: Compass,
+    color: '#347d94',
+    load: () => import('../apps/WorldQandA/entry.jsx'),
+  },
   {
     id: 'belief-qa',
     name: 'BeliefQ&A',
@@ -77,6 +86,7 @@ const APPS = [
 ];
 
 const APP_STYLE_LOADERS = {
+  'world-qa': () => import('../apps/WorldQandA/src/styles.css?inline'),
   'belief-qa': () => import('../apps/BeliefQandA/src/styles.css?inline'),
   investment: () => import('../apps/investment/src/styles.css?inline'),
   industry: () => import('../apps/industry/src/styles.css?inline'),
@@ -139,9 +149,9 @@ function Home({ open }) {
       <div className="launcher-hub-heading">
         <p className="launcher-hub-eyebrow">NODEAPPS</p>
         <h1>NodeApps</h1>
-        <p>八个独立保留的本地工具，点击卡片进入。</p>
+        <p>{APPS.length} 个独立保留的本地工具，点击卡片进入。</p>
       </div>
-      <div className="launcher-hub-actions"><span>8 APPS</span></div>
+      <div className="launcher-hub-actions"><span>{APPS.length} APPS</span></div>
     </header>
     <section className="launcher-hub-grid" aria-label="应用列表">
       {APPS.map((app) => <button className="launcher-hub-card" key={app.id} onClick={() => open(app.id)} style={{ '--launcher-card-accent': app.color }}>

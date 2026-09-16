@@ -1,0 +1,21 @@
+@import '../../BeliefQandA/src/styles.css';
+
+/* WorldQ&A uses the shared Q&A canvas with a cooler, exploratory cartographic theme. */
+:root {
+  --bqa-ink: #1d2a35;
+  --bqa-muted: #73828c;
+  --bqa-line: #dce7e8;
+  --bqa-paper: #fbfdfc;
+  --bqa-violet: #347d94;
+  --bqa-amber: #b8873e;
+  --bqa-blue: #457fb0;
+  --bqa-rose: #b76564;
+}
+.bqa-sidebar { background: radial-gradient(circle at 12% 8%, #255a69 0, transparent 32%), linear-gradient(162deg, #122b37 0%, #173d48 58%, #10262f 100%); }
+.bqa-brand-mark { color: #123642; background: #bfe5e4; box-shadow: inset 0 -3px 0 rgb(17 54 66 / .14); }
+.bqa-category.is-active { background: linear-gradient(90deg, rgb(107 197 205 / .28), rgb(107 197 205 / .08)); box-shadow: inset 2px 0 #9ee1dd; }
+.bqa-workspace { background: radial-gradient(circle at 82% 0%, #e8f5f2 0, transparent 27%), var(--bqa-paper); }
+.bqa-question-number { color: #6b9ca4; background: #e9f4f2; }
+.bqa-question-number i { background: #91d1c9; }
+.bqa-footer span { color: #397888; }
+.bqa-no-results button { background: #23697a; }

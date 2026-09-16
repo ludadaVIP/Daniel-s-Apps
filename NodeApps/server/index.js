@@ -33,6 +33,12 @@ app.use('/belief-qa', lazyMount(async () => {
   return module.app;
 }));
 
+app.use('/world-qa', lazyMount(async () => {
+  const module = await import('../apps/WorldQandA/server/index.js');
+  await module.initializeWorldQA();
+  return module.app;
+}));
+
 app.use('/insight', lazyMount(async () => {
   const { createApp } = await import('../apps/insight/server/app.js');
   return createApp({

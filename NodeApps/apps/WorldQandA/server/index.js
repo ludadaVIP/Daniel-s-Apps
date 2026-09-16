@@ -4,12 +4,12 @@ import { createQuestionLibraryApp } from '../../qanda-core/server/createQuestion
 
 const here = path.dirname(fileURLToPath(import.meta.url));
 const library = createQuestionLibraryApp({
-  appName: 'BeliefQ&A',
-  questionsFile: path.join(here, '..', 'Questions.md'),
+  appName: 'WorldQ&A',
+  questionsFile: path.join(here, '..', 'questions.md'),
   answersDirectory: path.join(here, '..', 'answers'),
-  categoryHeading: (_title, depth) => depth === 2,
-  briefLength: { min: 1500, max: 2000 },
+  // The first H1 is the document title; every following numbered Chinese H1 is a category.
+  categoryHeading: (title, depth) => depth === 1 && /^[一二三四五六七八九十百千万]+、/.test(title),
 });
 
 export const { app } = library;
-export const initializeBeliefQA = library.initialize;
+export const initializeWorldQA = library.initialize;
