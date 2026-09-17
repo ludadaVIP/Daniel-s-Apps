@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>在“再来”的十字路口：改革宗基督徒与全能神教会会友的一场长谈</title>
+<style>
+:root{
+  --bg:#f3efe7; --paper:#fffdf8; --ink:#24221f; --muted:#6f6a61;
+  --blue:#274c77; --blue2:#eaf2fb; --gold:#a06b1f; --gold2:#fff4dc;
+  --red:#8f3d33; --red2:#fff0ed; --green:#3a6555; --line:#ddd4c6;
+  --shadow:0 14px 40px rgba(44,37,28,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#eee7dc 0,#f7f4ee 280px,#f3efe7 100%);color:var(--ink);
+font-family:"Noto Serif SC","Songti SC","STSong","Source Han Serif SC",serif;line-height:1.86}
+a{color:#1f5e91;text-decoration:none}
+a:hover{text-decoration:underline}
+.hero{position:relative;overflow:hidden;background:#152536;color:#fff;padding:70px 24px 58px}
+.hero .wrap{max-width:1180px;margin:auto;display:grid;grid-template-columns:1.25fr .75fr;gap:40px;align-items:center}
+.kicker{font:600 13px/1.4 system-ui,sans-serif;letter-spacing:.17em;text-transform:uppercase;color:#b9d5ee}
+h1{font-size:clamp(34px,5vw,66px);line-height:1.16;margin:14px 0 18px;letter-spacing:-.03em}
+.subtitle{font-size:19px;color:#d9e4ed;max-width:800px}
+.hero-art{background:rgba(255,255,255,.055);border:1px solid rgba(255,255,255,.13);border-radius:28px;padding:22px;box-shadow:0 24px 60px rgba(0,0,0,.20)}
+main{max-width:1180px;margin:0 auto;padding:28px 20px 90px}
+.panel{background:var(--paper);border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:28px;margin:24px 0}
+.note{border-left:5px solid var(--gold);background:#fff9ec;padding:16px 18px;border-radius:10px;margin:18px 0}
+.note.blue{border-color:var(--blue);background:#f2f7fc}
+.note.red{border-color:var(--red);background:#fff4f1}
+.meta{font:14px/1.7 system-ui,sans-serif;color:var(--muted)}
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px 18px;margin-top:18px}
+.toc a{display:block;padding:10px 12px;background:#f7f3eb;border:1px solid #e9e0d3;border-radius:10px;color:#3b3935;font:14px/1.45 system-ui,sans-serif}
+h2{font-size:31px;line-height:1.28;margin:12px 0 16px;color:#1c2d3f}
+h3{font-size:21px;margin:22px 0 10px;color:#2f3f4d}
+.scene{margin:40px 0 58px;scroll-margin-top:20px}
+.scene-head{display:grid;grid-template-columns:68px 1fr;gap:18px;align-items:center;margin-bottom:18px}
+.num{width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:#172f46;color:#fff;font:700 20px/1 system-ui,sans-serif}
+.scene p{margin:10px 0}
+.dialogue{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:12px 0}
+.speech{border-radius:18px;padding:18px 19px;border:1px solid var(--line);background:#fff;min-height:100%}
+.speech.christian{background:linear-gradient(180deg,#f5f9fd,#eaf2fb);border-color:#cddceb}
+.speech.cag{background:linear-gradient(180deg,#fff9ec,#fff1d6);border-color:#ead4a8}
+.who{display:flex;align-items:center;gap:10px;font:700 14px/1.35 system-ui,sans-serif;margin-bottom:10px}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800}
+.christian .avatar{background:var(--blue)}
+.cag .avatar{background:var(--gold)}
+.speech blockquote{margin:10px 0 0;padding:0;border:0;color:#2d2b27}
+.speech .ref{font:12px/1.5 system-ui,sans-serif;color:#706a60;margin-top:8px}
+.interlude{margin:18px 0;padding:16px 18px;background:#f9f6f0;border:1px dashed #ccbfae;border-radius:14px}
+.interlude b{color:#6b4a20}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{border:1px solid var(--line);background:#fff;border-radius:18px;padding:18px}
+.card h3{margin-top:0}
+.badge{display:inline-block;padding:4px 9px;border-radius:999px;background:#eaf1f7;color:#264b6d;font:700 12px/1.2 system-ui,sans-serif;margin-right:6px}
+.badge.gold{background:#fff0cd;color:#7d551c}
+.badge.red{background:#ffe7e2;color:#7c342d}
+.compare{width:100%;border-collapse:collapse;margin:16px 0;font-size:15px}
+.compare th,.compare td{border:1px solid #ded5c8;padding:12px 13px;vertical-align:top}
+.compare th{background:#21374c;color:#fff;text-align:left;font-family:system-ui,sans-serif}
+.compare tr:nth-child(even) td{background:#faf7f1}
+.figure{margin:24px 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:18px}
+.figure figcaption{font:13px/1.6 system-ui,sans-serif;color:var(--muted);margin-top:8px}
+.keypoint{border:1px solid #cfd9e3;border-radius:18px;padding:20px;background:#f6f9fc;margin:20px 0}
+.keypoint strong{color:#163c60}
+.verse{font-family:"Noto Serif SC","Songti SC",serif;font-weight:700;color:#2d445b}
+.footnotes{font-size:14px;color:#4f4a43}
+.footnotes li{margin:10px 0}
+.footer{margin-top:60px;border-top:1px solid var(--line);padding-top:24px;color:#746e65;font:13px/1.7 system-ui,sans-serif}
+.smallcaps{font-variant:small-caps;letter-spacing:.04em}
+@media(max-width:860px){
+ .hero .wrap,.grid2,.grid3,.dialogue{grid-template-columns:1fr}
+ .toc{grid-template-columns:1fr 1fr}
+ .hero{padding-top:44px}
+}
+@media(max-width:560px){.toc{grid-template-columns:1fr}.panel{padding:20px}.scene-head{grid-template-columns:52px 1fr}.num{width:48px;height:48px}}
+@media print{
+ body{background:#fff}.hero{background:#fff;color:#000;padding:25px 0}.hero .wrap{display:block}.hero-art{display:none}
+ .subtitle,.kicker{color:#555}.panel{box-shadow:none}.speech{break-inside:avoid}.scene{break-before:auto}
+ a{color:#000;text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+<div class="wrap">
+  <div>
+    <div class="kicker">A LONG-FORM THEOLOGICAL DIALOGUE · 改革宗护教学专题</div>
+    <h1>在“再来”的十字路口</h1>
+    <p class="subtitle">一位改革宗基督徒与一位“东方闪电／全能神教会”会友，在多年重逢之后，围绕圣经、启示、基督、道成肉身、末世、审判与救恩展开的一场长谈。</p>
+  </div>
+  <div class="hero-art">
+    <svg viewBox="0 0 540 360" width="100%" role="img" aria-label="两位朋友隔桌对谈，桌上放着圣经与书籍的插画">
+      <defs><linearGradient id="g" x1="0" x2="1"><stop stop-color="#25496d"/><stop offset="1" stop-color="#9a6924"/></linearGradient></defs>
+      <rect x="0" y="0" width="540" height="360" rx="24" fill="#0f1d2a"/>
+      <circle cx="120" cy="105" r="48" fill="#d8c0a8"/><path d="M72 105c5-48 91-69 101 0-26-20-55-26-101 0z" fill="#222"/>
+      <circle cx="420" cy="105" r="48" fill="#dec7aa"/><path d="M372 107c8-57 88-68 100 0-24-20-62-25-100 0z" fill="#3d2a1f"/>
+      <path d="M62 270c10-84 39-118 98-118s87 34 98 118z" fill="#274c77"/>
+      <path d="M282 270c10-84 39-118 98-118s87 34 98 118z" fill="#9a6924"/>
+      <rect x="110" y="250" width="320" height="18" rx="9" fill="#7b5a40"/>
+      <path d="M208 244h124l-11-53H219z" fill="#efe9dc" stroke="#cbbda8" stroke-width="3"/>
+      <path d="M270 192v52" stroke="#c9b99f" stroke-width="2"/>
+      <path d="M235 205h28M277 205h28M235 217h28M277 217h28" stroke="#8d8170" stroke-width="2"/>
+      <path d="M270 40v60M240 70h60" stroke="#d8e8f4" stroke-width="5" stroke-linecap="round"/>
+      <path d="M268 121c-52 13-82 39-106 73M273 121c58 13 85 40 106 73" stroke="url(#g)" stroke-width="3" stroke-dasharray="8 7" fill="none"/>
+      <text x="270" y="327" text-anchor="middle" fill="#cbd6df" font-size="16" font-family="sans-serif">朋友仍是朋友 · 真理却必须被检验</text>
+    </svg>
+  </div>
+</div>
+</header>
+
+<main>
+<section class="panel">
+<h2>阅读说明：这不是“吵赢对方”的剧本</h2>
+<p>以下两位人物均为虚构。为了避免稻草人论证，“全能神教会”一方的核心教义尽量按照其公开网站自身的表述来写：他们承认旧约、新约，但同时把《话在肉身显现》视作“国度时代的圣经”；宣称“全能神”是末世再来的主耶稣、是末后的基督；强调律法时代、恩典时代、国度时代三个阶段；主张末世的道成肉身先以隐秘方式作审判、洁净和成全人的工作。其公开资料也明确讨论“末后道成肉身为女性”的问题。<sup><a href="#s1">[1]</a></sup><sup><a href="#s2">[2]</a></sup><sup><a href="#s3">[3]</a></sup></p>
+<p>但这篇文章的<strong>神学立场不是中立裁判</strong>：它明确从历史基督教新教、特别是改革宗的圣经论、基督论、救恩论与末世论出发，对上述主张进行检验。所谓“错误”，在本文中是指：按这一告白传统判断，与使徒性福音、三位一体、基督位格、圣经终极规范性或因信称义相冲突的命题。人物之间保持尊重，因为对人的爱与对教义的辨析并不矛盾。</p>
+<div class="note blue"><b>建议读法：</b>不要只看“基督徒最后怎么回应”，也认真读“全能神会友为什么会被那些经文与论证吸引”。真正的护教学不是把对方写笨，而是先把对方最强的论点说清楚，然后再回答。</div>
+<div class="toc">
+<a href="#c1">01 重逢：先做朋友，再谈立场</a><a href="#c2">02 我们到底信的是不是“同一位神”</a><a href="#c3">03 三个时代与三次名称</a>
+<a href="#c4">04 第一战场：圣经是否足够</a><a href="#c5">05 “神还有很多话没写在圣经里”</a><a href="#c6">06 如何辨认“神的声音”</a>
+<a href="#c7">07 新启示能否反过来解释旧启示</a><a href="#c8">08 谁是再来的基督</a><a href="#c9">09 女性道成肉身：真正的问题在哪里</a>
+<a href="#c10">10 “人子秘密降临”与“驾云显现”</a><a href="#c11">11 东方的闪电是否指向中国</a><a href="#c12">12 审判从神的家起首</a>
+<a href="#c13">13 十字架完成了什么</a><a href="#c14">14 赦罪以后为何还会犯罪</a><a href="#c15">15 称义、成圣与末后“洁净”</a>
+<a href="#c16">16 另一个耶稣？另一个福音？</a><a href="#c17">17 教会两千年是否已经过时</a><a href="#c18">18 经历、感动和生命改变够不够</a>
+<a href="#c19">19 “聪明童女听见声音”</a><a href="#c20">20 “看哪，我站在门外叩门”</a><a href="#c21">21 羊听牧人的声音</a>
+<a href="#c22">22 一场真正尖锐的交锋</a><a href="#c23">23 朋友之间最难的一刻</a><a href="#c24">24 回到使徒的福音</a>
+<a href="#appendix">附录：教义对照、释经检查表、资料来源</a>
+</div>
+</section>
+
+<section class="scene" id="c1">
+<div class="scene-head"><div class="num">01</div><div><h2>重逢：先做朋友，再谈立场</h2><div class="meta">场景：多年未见的老朋友，在一家安静咖啡馆重新坐下来。</div></div></div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩 · 改革宗基督徒</div><blockquote>好多年了。你还是跟以前一样，说话前会先笑一下。最近好吗？家里呢？</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦 · 全能神教会会友</div><blockquote>都还好。其实这几年变化挺大的。你也变了很多。我听共同朋友说，你现在信主了，而且读圣经读得很认真。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>是。后来我进了教会，慢慢接触到宗教改革、改革宗神学。不过我不太想一上来就把我们的见面变成“辩论赛”。你先说说你吧。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>那我也直说。我现在接受了全能神末世的作工。以前我也信耶稣，也看圣经，但后来我越来越觉得，只停留在恩典时代是不够的。主已经回来了，发表了新的话，作审判、洁净人的工作。</blockquote></div>
+</div>
+<div class="interlude"><b>旁白：</b>到这里，两个人已经知道后面的谈话不会轻松。但林恩刻意没有马上说“你错了”，因为他首先想确认：陈曦说的“主回来了”，究竟是什么意思。</div>
+</section>
+
+<section class="scene" id="c2">
+<div class="scene-head"><div class="num">02</div><div><h2>我们到底信的是不是“同一位神”</h2></div></div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>我先问一个基础问题。你说你仍然信耶稣。那在你现在的信仰里，耶稣与“全能神”是什么关系？</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>不是两个神。耶和华、耶稣、全能神，本质上是一位神。只是神在不同阶段作不同工作，用不同名字。耶稣在恩典时代作救赎；末世全能神再次道成肉身，作审判、洁净、成全的工作。《话在肉身显现》就是末世神发表的话。</blockquote><div class="ref">与全能神教会公开“基本信仰”表述一致。<sup><a href="#s1">[1]</a></sup></div></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>所以我们不能只说“你也讲耶稣，我也讲耶稣，所以差不多”。关键是“耶稣是谁”“全能神是谁”“两者怎样是同一位”。如果定义不同，即使词汇一样，内容也可能完全不同。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>我同意应该看内容。但我也想反问：神难道不能作新工作吗？如果犹太人当年坚持耶和华的名，坚持旧约，不接受耶稣，那不是也把神限制在过去了吗？</blockquote></div>
+</div>
+<div class="keypoint"><strong>真正的问题被提出了：</strong>改革宗一方若只回答“因为圣经里没有‘全能神’这三个字”，是不够的。因为对方会把这类拒绝类比为一世纪犹太人拒绝耶稣。必须进一步讨论：<em>耶稣的来临与使徒见证，是怎样在旧约中被预备、在历史中公开发生、并由复活确证；而一个现代“新启示”又需要满足什么标准。</em></div>
+</section>
+
+<section class="scene" id="c3">
+<div class="scene-head"><div class="num">03</div><div><h2>三个时代与三个名称</h2></div></div>
+<figure class="figure">
+<svg viewBox="0 0 1000 260" width="100%" role="img" aria-label="全能神教会三阶段工作与改革宗回应示意图">
+<rect x="20" y="55" width="270" height="145" rx="18" fill="#eef4f8" stroke="#b8cbd9"/><text x="155" y="90" text-anchor="middle" font-size="23" font-weight="700">律法时代</text><text x="155" y="124" text-anchor="middle" font-size="18">耶和华 · 律法与引导</text><text x="155" y="154" text-anchor="middle" font-size="15">CAG：第一阶段</text>
+<rect x="365" y="55" width="270" height="145" rx="18" fill="#f5f1e8" stroke="#d1bd91"/><text x="500" y="90" text-anchor="middle" font-size="23" font-weight="700">恩典时代</text><text x="500" y="124" text-anchor="middle" font-size="18">耶稣 · 十字架救赎</text><text x="500" y="154" text-anchor="middle" font-size="15">CAG：第二阶段</text>
+<rect x="710" y="55" width="270" height="145" rx="18" fill="#fff0dc" stroke="#d8a764"/><text x="845" y="90" text-anchor="middle" font-size="23" font-weight="700">国度时代</text><text x="845" y="124" text-anchor="middle" font-size="18">全能神 · 审判与洁净</text><text x="845" y="154" text-anchor="middle" font-size="15">CAG：第三阶段</text>
+<path d="M290 128h75M635 128h75" stroke="#777" stroke-width="4"/><path d="M350 118l15 10-15 10M695 118l15 10-15 10" fill="#777"/>
+<text x="500" y="238" text-anchor="middle" font-size="16" fill="#5a554e">改革宗追问：这是圣经自己的救赎历史结构，还是由后来的新启示重新分期？</text>
+</svg><figcaption>示意图仅概括全能神教会公开教义框架，不表示改革宗认可该分期。</figcaption>
+</figure>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>你看，神的工作是向前发展的。律法时代，人知道什么是罪；恩典时代，耶稣把人从罪的定罪中赎出来；但人的败坏性情还在，所以末世神要进一步审判、洁净人。三个阶段不是三个神，而是同一位神完整的经营。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>我承认圣经有渐进启示，也承认救赎历史有不同阶段。改革宗从来不是“神只能做过去做过的事”。问题是：圣经最后把整个救赎历史的中心放在哪里？希伯来书不是说“耶稣完成第二阶段，后来还需要另一个道成肉身完成第三阶段”，而是把基督的一次献上描述为具有终极性。</blockquote><div class="ref">参：来 1:1–3；7:27；9:12、26–28；10:10–14。</div></div>
+</div>
+</section>
+
+<section class="scene" id="c4">
+<div class="scene-head"><div class="num">04</div><div><h2>第一战场：圣经是否足够</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>你们最根本的问题，就是把神限定在圣经里。圣经只是过去两步工作的记录。神那么丰富，怎么可能几本书就把神所有的话都装进去？主耶稣自己所说所行，也没有全部写下来。约翰不是说，若一一都写出来，世界也容不下那些书吗？</blockquote><div class="ref">全能神教会公开材料经常用约 21:25 反驳“神的话只能在圣经中”。<sup><a href="#s4">[4]</a></sup></div></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>这里要区分两个命题。第一，“神在历史上说过的每一句话，都逐字记在圣经里。”——我不信这个，圣经自己也不这样说。第二，“神为教会设立、用来规范信仰与生活的使徒性启示，已经充分赐下。”——这是我们所说的圣经充足性。约翰福音 21:25 否定的是第一句话，不是否定第二句话。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>但你怎么证明神不能在末世再说新话？启示录还多次说：“圣灵向众教会所说的话，凡有耳的就应当听。”</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>关键不是“神有没有能力说话”，而是“神有没有应许赐下一套后来可以取代、补全、甚至纠正使徒福音的新经典”。改革宗从不限制神的能力，而是受神已经启示的秩序约束。希伯来书说，末后的这些日子，神借着<strong>子</strong>向我们说话；犹大书谈到“一次交付圣徒的真道”；加拉太书甚至要求，即便有天使传一个不同的福音，也必须拒绝。能力问题与规范问题不是一回事。</blockquote></div>
+</div>
+<div class="note"><b>改革宗要点：</b>“唯独圣经”不是“神除了圣经之外什么都不能做”，而是“任何自称来自神、要求全教会信服的教义，都必须接受使徒性圣经的终极审判；没有后来的启示拥有同等或更高的规范地位。”《威斯敏斯特信条》1.6、1.10正是在这个意义上谈圣经的充足性与最高裁判权。</div>
+</section>
+
+<section class="scene" id="c5">
+<div class="scene-head"><div class="num">05</div><div><h2>“神还有很多话没写在圣经里”——这句话为何既对又不够</h2></div></div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>假设我承认：耶稣在地上说过许多没有被福音书记录的话。这能推出“1990年代出现的一套言论就是神的话”吗？中间缺了一个巨大逻辑步骤。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>所以我们不是只靠“圣经没有记录完”来证明。我们是读全能神的话，发现这些话有权柄，揭示人的败坏，揭开圣经奥秘，把神经营计划讲清楚，因此认出这是神的声音。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>那我们现在进入第二层：<strong>识别标准</strong>。一本书很有穿透力、能揭露人的罪、能形成宏大解释体系，不等于它就是神的默示。奥古斯丁、加尔文、爱德华兹也能深刻剖析罪；优秀的异教哲学家甚至也能准确描述人性某些层面。我们需要比“读起来很有权柄”更客观的检验。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>但当年彼得、约翰跟随耶稣，不也是从他的话和工作认出他是谁吗？</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>不只是“听起来像神”。耶稣的身份处在旧约弥赛亚预言、施洗约翰的见证、公开的神迹、他自己的言行、十字架、空坟墓、复活显现、使徒亲眼见证，以及圣灵降临这一整套历史事件中。基督教信仰不是一本匿名新书自我宣称“我是神的话”，然后要求你用这本书自己的尺度来证明自己。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c6">
+<div class="scene-head"><div class="num">06</div><div><h2>如何辨认“神的声音”：内在感动还是公开可检验的启示</h2></div></div>
+<div class="grid2">
+<div class="card"><span class="badge gold">全能神教会常见路径</span><h3>“羊听神的声音”</h3><p>读末世话语 → 感到有真理、有权柄 → 这些话揭露败坏、开启奥秘 → 因而确认是神的声音 → 进一步接受说话者为末世基督。</p></div>
+<div class="card"><span class="badge">改革宗辨识路径</span><h3>“圣灵不会推翻自己先前的启示”</h3><p>任何新的属灵主张 → 与先知和使徒已经确立的福音、基督位格、救恩结构核对 → 若改变福音核心，即使带来强烈体验也不能被认作具有神圣权威。</p></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>你是不是把理性放在神上面？神说话，人应该谦卑听，不是先拿自己的神学框架审判神。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>如果“检验”就是把自己放在神上面，那么申命记要求检验先知、约翰一书要求试验诸灵、使徒行传称赞庇哩亚人查考圣经，就都说不通了。我们不是审判神，而是审判<strong>“有人声称这是神”</strong>这个人类命题。神本身无须受审；人的宣称必须受审。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c7">
+<div class="scene-head"><div class="num">07</div><div><h2>新启示能否反过来解释旧启示</h2></div></div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>我发现一个结构性问题：你先接受《话在肉身显现》是神的话，然后用它告诉你圣经应该怎样读；再用经过它重新解释的圣经，反过来证明《话在肉身显现》是神的话。这会形成封闭循环。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>你们不也一样吗？你先信圣经是神的话，再用圣经证明圣经。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>所有终极权威都有一定程度的自我见证，这点我承认。但基督教正典不是只有循环论证。它还有历史公开性：文本来自先知—使徒共同体，围绕以色列与耶稣的公开救赎事件展开；新约使徒自称是复活基督的见证人，而且第一代教会可以核查他们。更关键的是：新约并不是在一千九百年后出现，然后宣布“过去的教会一直把核心福音理解错了”。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>但每次神作新工作，宗教界都可能抵挡。法利赛人就熟读圣经，却把弥赛亚钉了十字架。</blockquote></div>
+</div>
+<div class="speech christian" style="margin-top:14px"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>这是一个很有力量的警告，但不能变成免疫机制：“只要有人反对我，就证明他是法利赛人。”否则任何新宗教都可以说：你不接受我，是因为你像法利赛人。真正的问题仍是：这项新主张是否符合神已经公开赐下、由基督和使徒确立的福音。</blockquote></div>
+</section>
+
+<section class="scene" id="c8">
+<div class="scene-head"><div class="num">08</div><div><h2>谁是再来的基督：同一位耶稣，还是另一具肉身？</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>全能神不是“另一个神”。他就是主耶稣回来，只是神这一次取了不同的肉身，来完成末世工作。外表只是普通的人，但里面有神性，能发表真理。</blockquote><div class="ref">全能神教会官方材料明确称“全能神是再来的主耶稣，是末后的基督”。<sup><a href="#s1">[1]</a></sup><sup><a href="#s5">[5]</a></sup></div></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>这里是我认为最核心的基督论冲突之一。新约所盼望的不是“神性以后再次住进另一个普通人肉身里”，而是<strong>那位被钉、复活、升天的耶稣本人再来</strong>。使徒行传 1 章的逻辑非常具体：“这离开你们被接升天的耶稣”，还要照样再来。希伯来书也说基督一次担当多人的罪，将来要“第二次显现”。主语始终是同一位基督。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>可是“人子来临”的预言，说明他还会以普通人子的方式出现。若直接是荣耀的灵体，怎么还能被人拒绝、受苦？</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>复活的耶稣仍然是真正的人，不是失去人性的“纯灵”。改革宗的基督论是：基督复活后仍是同一位神人中保，带着荣耀的身体升天。所谓“人子”并不要求他必须换一个生物学身体、换成另一位历史人物。反而，如果那位从死里复活、带着钉痕、升天的耶稣不再亲自回来，而由另一具肉身代替他，“这位耶稣必照样再来”的自然含义就被改变了。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c9">
+<div class="scene-head"><div class="num">09</div><div><h2>女性道成肉身：真正的问题不是“女人低一等”</h2></div></div>
+<div class="note red"><b>重要：</b>一个严谨的新教回应不应建立在“神不可能取女性肉身，因为女性不配”之类论证上。那既缺乏圣经依据，也把争论带向错误方向。全能神教会公开材料确实教导末后基督为女性。<sup><a href="#s3">[3]</a></sup> 改革宗真正要追问的是<strong>位格连续性与启示根据</strong>。</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>很多牧师一听“女性”就说不可能。他们把神限制成男性。但创世记明明说男和女都是按神的形象造的。神可以第一次成为男性，也可以第二次成为女性，正好显明神不受人的性别观念限制。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>如果你的论点只是“神的能力不受性别限制”，我不想用贬低女性的方式反驳你。我的问题是：圣经有没有教导“永恒之子第一次成为拿撒勒人耶稣，复活升天之后，末世再取另一个人的身体，以另一个人的地上身份继续成为基督”？我看不到这样的使徒教训。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>你看不到，是因为这是奥秘，需要末世神自己揭开。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>这正是循环。你先凭一个未经使徒见证的新启示，建立“第二具肉身”的教义；当我问圣经依据时，你说“圣经看不出来，因为需要这个新启示”。这样任何与新约基督论冲突的东西都可以被包装成“过去隐藏、如今揭开”。</blockquote></div>
+</div>
+<div class="keypoint"><strong>改革宗基督论核心：</strong>道成肉身不是神临时“穿上一件肉体衣服”。永恒圣子取了完整人性之后，神性与人性在一位格中永不分离。复活、升天与再来属于<strong>同一位耶稣基督</strong>的历史连续性，而不是“同一个神性先后使用两具互不连续的人体”。</div>
+</section>
+
+<section class="scene" id="c10">
+<div class="scene-head"><div class="num">10</div><div><h2>“人子秘密降临”与“驾云显现”能否分成两个阶段？</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>圣经一方面说主驾云、众目都要看见；另一方面又说他像贼一样来，在人想不到的时候来，还说人子要被这个世代弃绝。所以主再来必须有两个阶段：先秘密道成肉身作工，后来公开驾云显现。现在正是秘密阶段。</blockquote><div class="ref">这是全能神教会公开讲解“隐秘降临＋公开显现”的常见框架。<sup><a href="#s6">[6]</a></sup></div></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>“像贼一样”首先描述的是<strong>时间的突然而不可预料</strong>，不等于“来临本身不可见”。保罗在帖撒罗尼迦前书 5 章就把“像贼来到”与主的日子联系起来；彼得后书 3 章也说主的日子像贼来到，却伴随宇宙性审判。这不是秘密事件。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>至于“人子先受许多苦、被这世代弃绝”，路加福音 17:25 放在耶稣第一次受难的历史语境里十分自然：在荣耀显现之前，他必须先走十字架道路。你们把“先受苦”挪到两千年后的第二次道成肉身，再建立一个数十年的秘密阶段，这并不是经文本身必须得出的结论。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>可如果人人都看见他驾云，就没有“寻找、听声音、迎接新郎”的过程了。</blockquote></div>
+</div>
+<div class="speech christian" style="margin-top:14px"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>警醒不等于提前识别一个隐藏身份。新约的警醒更常指：忠心生活，因为你不知道主何时公开来到。十童女比喻的重点是预备，不是建立一套“第二肉身先秘密发表新经典”的识别系统。</blockquote></div>
+</section>
+
+<section class="scene" id="c11">
+<div class="scene-head"><div class="num">11</div><div><h2>“闪电从东边发出，直照到西边”是否预言中国？</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>耶稣说，闪电从东边发出，直照到西边，人子降临也要这样。末世神在东方中国显现，话语传到西方，这不是很明显的应验吗？官方资料也明确这样解释。</blockquote><div class="ref">参全能神教会对太 24:27 的官方运用。<sup><a href="#s7">[7]</a></sup></div></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>如果看上下文，耶稣恰恰是在警告门徒不要因有人说“基督在旷野”“在内屋”就相信。为什么？因为人子的临到不像一个需要内部消息才能发现的隐藏人物，而像闪电横跨天空一样明显。把“东方”地理化成现代中国，反而逆转了这个比喻的功能。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>但“东”总不是没有意义吧？</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>比喻中东—西方向是为了表达可见范围之广。若一定把“东”当成国家预言，还要回答：以哪里为坐标的东？第一世纪犹太地的东、约翰所在拔摩岛的东、还是现代欧洲的东？经文本身没有给出“中国”这个地理锁定。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c12">
+<div class="scene-head"><div class="num">12</div><div><h2>“审判要从神的家起首”是否预言末世新一轮道成肉身</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>彼得前书 4:17 说，审判要从神的家起首。主耶稣第一次来主要是救赎，不是末世审判。所以末世还必须有一步用话语审判、洁净神家中的人。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>彼得前书 4 章的直接上下文是教会正在受苦。彼得说信徒不要因“火炼的试验”惊奇，并说审判从神的家起首——意思至少包括神先炼净、管教自己的百姓，而不必推出“十九世纪以后要出现一位新的道成肉身，发表一本新经典”。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>可约翰福音 12:48 也说，耶稣的话在末日要审判人。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>正因为如此，我反而会问：经文说“我所讲的道在末日要审判他”，为什么要把它解释成“末世另一具肉身必须再发表数百万字新的审判话语”？经文已经把末日审判与耶稣自己的道联系起来。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c13">
+<div class="scene-head"><div class="num">13</div><div><h2>十字架完成了什么：只解决“罪责”，还是成就完全救恩的根基</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>我们并没有否定十字架。恰恰相反，我们说耶稣的救赎是真实的：人信耶稣，罪得到赦免。但人里面撒但败坏性情还在，仍旧骄傲、嫉妒、说谎、犯罪。所以赦罪不等于人已经圣洁。末世必须有更进一步的审判工作。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>这里你观察到一个真实问题：称义的人仍然与罪争战。改革宗完全同意。但不同在于解决方案。新约不是说“十字架只能赦免，不能真正洁净，因此需要第二套救赎阶段”；而是说，基督一次献上已经为属他的人取得完整救恩，而圣灵把这救恩逐步施行在我们身上。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>希伯来书甚至把“成圣”与基督一次献上直接相连：他借一次献上，使那些正在成圣的人在地位上被成全。罗马书 6 章也把信徒脱离罪权势与联合于基督的死和复活连接。不是“耶稣只负责第一半，全能神负责第二半”。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>可是现实呢？教会里太多人信几十年照样犯罪，这不就说明还缺少末世洁净吗？</blockquote></div>
+</div>
+<div class="speech christian" style="margin-top:14px"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>人的失败可以证明人没有活出福音，却不能证明福音本身还缺一位新的道成肉身。保罗写给哥林多教会时面对非常真实的罪，但他的处方不是等候未来另一本神言，而是把他们重新带回十字架、复活、圣灵和教会纪律。</blockquote></div>
+</section>
+
+<section class="scene" id="c14">
+<div class="scene-head"><div class="num">14</div><div><h2>赦罪以后为何还会犯罪？</h2></div></div>
+<div class="grid3">
+<div class="card"><h3>称义</h3><p>一次性的法庭性宣告：因基督的义，罪人借信被算为义。依据不在人的内在改变程度。</p></div>
+<div class="card"><h3>成圣</h3><p>圣灵持续更新信徒，使人越来越真实地恨恶罪、爱神、顺服神。今生并不达到无罪完全。</p></div>
+<div class="card"><h3>得荣</h3><p>基督再来时，救恩最终完成，信徒身体复活，完全脱离罪与朽坏。</p></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>听起来你们就是把救恩拆成“称义、成圣、得荣”。我们说的是“救赎、审判洁净、进入国度”。有那么不同吗？</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>形式上都有阶段，实质差别极大。改革宗三项都根植在<strong>同一位基督已经完成的工作</strong>，由同一位圣灵施行；你们的第三阶段却要求承认一个新的道成肉身及其新话语，并把接受这一末世工作与最终被洁净得救紧密绑定。救恩的客观中心因此发生转移。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c15">
+<div class="scene-head"><div class="num">15</div><div><h2>称义、成圣与末后“洁净”：分歧究竟在哪里</h2></div></div>
+<table class="compare">
+<tr><th>问题</th><th>历史改革宗</th><th>全能神教会公开教义</th></tr>
+<tr><td>罪得赦免</td><td>基督一次献上完全足够；因信称义。</td><td>承认耶稣在恩典时代完成救赎，使罪得赦免。</td></tr>
+<tr><td>为何仍犯罪</td><td>信徒已脱离罪的定罪与主权，但残余败坏仍需圣灵持续成圣。</td><td>认为罪虽赦免，人的罪性／败坏性情尚未除去，因此需要末世审判洁净。</td></tr>
+<tr><td>洁净的决定性依据</td><td>基督既成之工＋圣灵在圣道中的持续施行。</td><td>接受末世全能神的话语审判与国度时代工作。<sup><a href="#s1">[1]</a></sup></td></tr>
+<tr><td>末世的基督</td><td>复活升天的耶稣本人公开再临。</td><td>全能神是再来的耶稣，先以末后道成肉身秘密作工。<sup><a href="#s5">[5]</a></sup></td></tr>
+</table>
+</section>
+
+<section class="scene" id="c16">
+<div class="scene-head"><div class="num">16</div><div><h2>“另一个耶稣”？“另一个福音”？</h2></div></div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>现在我必须说得更尖锐一点。保罗在哥林多后书 11 章警告“另一个耶稣”，加拉太书 1 章警告“别的福音”。这说明只要一个体系使用“耶稣、十字架、救恩”这些词，并不能自动保证它仍是使徒福音。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>你是在说我们传的是别的福音？可我们没有否定耶稣，我们是在跟随羔羊的脚踪，接受神今天的新工作。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>我判断一个“福音”是否相同，至少要看三个核心：第一，耶稣基督的位格有没有被重新定义；第二，十字架是否仍是决定性的、足够的救赎成就；第三，一个人是否必须接受一个后使徒时代的新启示和新道成肉身，才能进入最终救恩。如果这三处都发生结构性变化，就不能只说“我们也是基督教的一种更新”。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>但如果神真的作了新工作，你拒绝，就是拒绝神。</blockquote></div>
+</div>
+<div class="speech christian" style="margin-top:14px"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>没错——所以问题极其严肃。但这句话反过来也成立：如果这不是神的新工作，而是人把新的启示、人物和经典放到使徒福音之上，那么接受它就不是“跟随神向前”，而是离开已经启示的基督。双方都不能靠威胁性语言解决问题，只能回到证据和经文。</blockquote></div>
+</section>
+
+<section class="scene" id="c17">
+<div class="scene-head"><div class="num">17</div><div><h2>教会两千年是否已经“跟不上神的新工作”</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>宗教界今天越来越荒凉，讲道老生常谈，信徒追求世界，很多牧师自己都活不出真理。神作新工作以后，圣灵的工作就转移了。你一直守着旧的，就像当年圣殿里的祭司还在献祭，却不知道神已经在耶稣身上开始新工作。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>教会败坏、形式主义、牧者犯罪，我一点不想粉饰。宗教改革本身就是对教会严重腐败的回应。但改革者的路径不是“宣布使徒福音过期，另立一本新经典”，而是 <em>ad fontes</em>——回到源头，回到先知和使徒的话。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>而且基督应许阴间的权柄不能胜过他的教会，圣灵会与教会同在。你可以说教会有严重背道、需要改革，却很难从新约推出：“真正神的工作在两千年后转移到一个新的末世共同体，而历史教会必须承认一位新道成肉身才重新跟上神。”这是另一个层级的主张。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>那为什么教会这么多宗派、这么混乱？</blockquote></div>
+</div>
+<div class="speech christian" style="margin-top:14px"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>宗派分裂证明人的罪与解释会出错，不证明神因此废除使徒根基。事实上，尼西亚信经、迦克墩定义，以及宗教改革共同继承的三一论、基督二性论，恰恰显示跨世纪、跨文化仍有一条可辨认的使徒信仰主干。</blockquote></div>
+</section>
+
+<section class="scene" id="c18">
+<div class="scene-head"><div class="num">18</div><div><h2>经历、感动和生命改变够不够？</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>我不能否认我在读全能神的话之后真的变了。我过去很骄傲，和家人关系也很僵。后来那些审判人的话刺到我，我开始反省自己。我身边很多弟兄姊妹也有真实变化。难道这些都没有意义吗？</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>当然有意义，我不会嘲笑你的经历。人被迫认真面对自私、虚假、骄傲，本身可能产生真实道德改变。但“产生改变”与“说话者就是道成肉身的神”是两个命题。很多宗教、哲学甚至戒瘾团体都能带来真实行为改变。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>圣经本身也警告我们，属灵体验不是最高鉴别标准。申命记 13 章甚至假设有人有“神迹”而后引人离开已经启示的神；耶稣也说不是所有奉他名行异能的人都属他。体验必须服在真理之下，而不能反过来认证一个教义体系。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>所以你认为我这些年的改变都是假的？</blockquote></div>
+</div>
+<div class="speech christian" style="margin-top:14px"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>我没有这样说。我说的是：<strong>一个错误的终极解释，可以包裹一些真实的道德洞见。</strong>我们必须把“我经历过什么”与“因此谁是神”分开。</blockquote></div>
+</section>
+
+<section class="scene" id="c19">
+<div class="scene-head"><div class="num">19</div><div><h2>“聪明童女听见神的声音”</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>马太福音 25 章说聪明童女迎接新郎。今天有人见证“主回来了”，聪明的人就应该寻求，不应该一听是新话、新工作就拒绝。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>愿意查考，这一点我赞成。基督徒不应该靠谣言判断任何群体。但比喻中“油”是什么、童女如何预备，不能脱离马太福音 24—25 章整体。那里反复强调忠心、忍耐、行善、警醒等候主，而不是给出一个识别“末世新经典”的解码表。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>可“有人喊着说新郎来了”，不就是有人传主再来的消息吗？</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>可以说比喻包含“宣告新郎到来”，但从“有人喊”到“因此二十世纪中国出现的特定人物就是第二次道成肉身”，仍然跨越了大量没有由文本提供的步骤。护教学最怕的就是把“可能相关”直接当成“唯一指向”。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c20">
+<div class="scene-head"><div class="num">20</div><div><h2>“看哪，我站在门外叩门”究竟是谁在向谁说话</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>启示录 3:20 说主站在门外叩门，人若听见他的声音就开门。我们理解为末世基督借发表话语来叩人的心门。听见神声音的人就迎接到主。</blockquote><div class="ref">全能神教会公开文章会这样把“叩门”与末世话语、迎接主联系。<sup><a href="#s8">[8]</a></sup></div></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>启示录 3 章直接是复活的基督写给老底嘉教会的信息。它首先责备一间自满、温吞的现存教会，并呼召他们悔改。“叩门”可以有福音性的应用，但上下文本身并没有说：未来会有另一位肉身基督发表一套新话，接受这些话就是开门。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c21">
+<div class="scene-head"><div class="num">21</div><div><h2>“我的羊听我的声音”——到底怎样听</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>约翰福音 10 章最直接：神的羊听神的声音。真正属神的人读到全能神的话，会认出这是神的声音；只会分析字句的人反而容易错过。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>约翰福音 10 章中，耶稣本人就是好牧人，他的羊认识<strong>他的</strong>声音、跟随<strong>他</strong>。这节经文当然讲属灵认识，但不能被改造成一个自我认证公式：“凡觉得某本新书有权柄，就是证明作者是神；若你不觉得，就是因为你不是羊。”那样论证不可证伪。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>更稳妥的用法是：圣灵使属基督的人认识圣经中所见证的基督，并在牧人的真道中被保守。一个声音若告诉我：复活升天的耶稣必须由另一个现代肉身身份来继续，并且使徒时代之后还有一套新的“神话语”成为信仰根基，我就必须按使徒教训检验这个声音。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>可你这样永远不可能接受任何神的新工作，因为你预先规定一切必须和旧的完全一样。</blockquote></div>
+</div>
+<div class="speech christian" style="margin-top:14px"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>“发展”可以更深地展开已经赐下的真理，但不能把“同一位复活的耶稣”发展成“另一具历史肉身”，不能把“一次献上、永远成全”发展成“还需要一个新的道成肉身阶段才能完成洁净”，不能把“使徒根基”发展成“后来的书有同等甚至实际更高的权威”。这不只是深度增加，而是结构改变。</blockquote></div>
+</section>
+
+<section class="scene" id="c22">
+<div class="scene-head"><div class="num">22</div><div><h2>一场真正尖锐的交锋：谁在“限制神”？</h2></div></div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>我还是觉得你们最大的问题是限制神。你们说“神以后不能这样做、不能那样做”。神是全能的，神有权按照自己的计划不断作新工作。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>让我把这句话精确一点。神当然有能力做一切与他本性一致的事，但神不会否定自己。他已经在历史中启示“耶稣是谁”“福音是什么”“使徒见证是什么”，后来出现的任何主张若与这些矛盾，我们拒绝的不是“神的自由”，而是“人用神的自由为矛盾背书”。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>那旧约犹太人也可以说：神已经规定献祭、守安息日、割礼，耶稣改变这些就是矛盾。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>区别在于，新约自己把耶稣解释为旧约应许的成全，而不是对旧约神的否定。献祭制度本身就是预表性的；先知早已应许新约、弥赛亚、圣灵浇灌。耶稣和使徒的解释从同一条公开启示史中生长出来。你现在需要证明的是：新约是否同样预告“复活的耶稣之后，还要以另一具不同历史肉身出现，并赐下一部新的国度时代经典”。这才是平行类比成立所必须证明的。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>我们认为“人子来临”“圣灵向众教会说话”“书卷被展开”“审判从神家起首”都在预告。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>而我认为这些经文都能在新约自身语境中得到解释，不需要导入“第二个道成肉身＋新经典”这个模型。一个理论若必须先假定自己正确，才能让这些经文都变成对它的预言，那证据力就比你想象的弱。</blockquote></div>
+</div>
+</section>
+
+<section class="scene" id="c23">
+<div class="scene-head"><div class="num">23</div><div><h2>朋友之间最难的一刻：如果我不接受，你会怎么看我？</h2></div></div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>我想问一个不是纯神学的问题。如果我听完这些，仍然因为圣经和基督论的原因不接受全能神，你会觉得我是故意抵挡神吗？</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>我不敢代替神判断你。但我会觉得很可惜，因为我真相信这是主的再来。你如果一直停在过去，可能会错过神末世的救恩。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>我也必须对你说同样严肃的话：如果使徒所见证的耶稣已经是完全的神人中保，他一次献上已经成就救赎，而你却把最终得救与接受另一位末世肉身和新话语绑定，我认为你不是“把基督信得更完整”，而是在使徒福音之外加了另一个必要中心。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>所以我们都觉得对方在很危险的位置。</blockquote></div>
+</div>
+<div class="dialogue">
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>是。但这也是为什么我不想嘲笑你、攻击你的人格。若我们都认为这是永恒性的真理问题，就更应该把论证说清楚，而不是靠讽刺、恐吓、谣言。你可以把我今天每一句话拿回去查，我也会继续查你给我的原始资料。</blockquote></div>
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>这一点我同意。我也不希望你只看网上骂我们的东西。至少你应该直接看我们的书，再判断。</blockquote></div>
+</div>
+<div class="interlude"><b>旁白：</b>这是整场对话中最重要的一幕之一。真正的护教学既不相对主义，也不靠敌意维持确信。双方都意识到：如果真理重要，那么准确、公平和可检验就同样重要。</div>
+</section>
+
+<section class="scene" id="c24">
+<div class="scene-head"><div class="num">24</div><div><h2>回到使徒的福音：改革宗基督徒的最后陈述</h2></div></div>
+<div class="speech christian">
+<div class="who"><span class="avatar">林</span>林恩</div>
+<blockquote>
+<p>如果今天只能让我留下几句话，我想留下这些。</p>
+<p>第一，我相信神真的在历史中说话，而且启示不是人的宗教幻想。旧约的众先知最终把人带向基督；新约的众使徒见证的是一位真实进入历史、被钉十字架、身体复活、升天、将再来的耶稣。</p>
+<p>第二，我相信耶稣不只是救恩计划中的“第二阶段工作人员”。他自己就是终末性的启示中心。希伯来书说神末后借着儿子晓谕我们；这位儿子成就洁净，坐在高天至大者右边。他的祭不是临时性的半成品，而是一次献上、具有永恒效力的工作。</p>
+<p>第三，我相信信徒得赦免以后仍然会与罪争战，但这不说明我们需要另一位道成肉身的基督。圣灵借着已经赐下的道，把基督已经赢得的救恩施行在我们里面。我们的成圣常常缓慢、痛苦、不完全，但根基仍在十字架和复活。</p>
+<p>第四，我相信主耶稣真的会再来。但我等候的是<strong>这位升天的耶稣本人</strong>。不是一个与拿撒勒耶稣在人性历史上不连续的现代人物。使徒说“这离开你们被接升天的耶稣”怎样升天，还要怎样来。我不认为我有权把这句话改写成“同一个神性将以另一具肉身、另一个地上身份秘密出现”。</p>
+<p>第五，我不会因为一本书很深、很有力量、很能责备罪，就把它提升为神的新经典。教会可以有很多极宝贵的属灵作品，但教会永远受先知和使徒的圣经管辖。后来者可以解释、讲道、劝勉、改革，却不能重新定义福音的根基。</p>
+<p>所以，我不能承认“全能神”就是再来的主耶稣，也不能承认《话在肉身显现》与圣经同属神赐给普世教会的规范性话语。这个结论不是因为我害怕新东西，也不是因为我认为神没有能力行新事，而是因为我认为神在基督里所完成、在使徒见证中所托付的福音，已经给了我们判断一切后来宗教宣称的尺度。</p>
+<p>但我仍愿意和你吃饭，愿意继续读你给我的材料，也希望你愿意跟我一起从约翰福音、加拉太书、希伯来书和使徒行传重新读起。不是为了谁输谁赢，而是问一个最根本的问题：<strong>使徒当初所传的那位耶稣，究竟够不够？</strong></p>
+</blockquote>
+</div>
+<div class="dialogue" style="margin-top:14px">
+<div class="speech cag"><div class="who"><span class="avatar">陈</span>陈曦</div><blockquote>我不同意你的结论。但至少我知道你不是因为没听懂我们的信仰才反对。你反对的是几个很具体的地方：圣经权威、耶稣再来的位格连续性、十字架是否已经具有终极充分性，以及末后新话语有没有资格成为新的规范。</blockquote></div>
+<div class="speech christian"><div class="who"><span class="avatar">林</span>林恩</div><blockquote>对。也正因为问题具体，我们下次还可以继续逐段查经。真正的分歧越被说清楚，越不需要靠情绪撑住自己。</blockquote></div>
+</div>
+</section>
+
+<section class="panel" id="appendix">
+<h2>附录一：八个关键分歧，一眼看清</h2>
+<table class="compare">
+<tr><th>主题</th><th>全能神教会主张（概括）</th><th>改革宗回应焦点</th></tr>
+<tr><td>圣经与新话语</td><td>旧新约之外，末后“全能神”发表《话在肉身显现》，构成国度时代神的话语。<sup><a href="#s1">[1]</a></sup></td><td>后使徒时代作品可有价值，但不可成为与先知使徒同等的规范性新启示。</td></tr>
+<tr><td>三阶段工作</td><td>律法时代—恩典时代—国度时代；同一位神以不同名称、不同工作推进经营计划。</td><td>承认渐进启示，但质疑第三阶段与“第二次道成肉身”是否来自圣经自身，而非后来体系的回读。</td></tr>
+<tr><td>末世基督</td><td>全能神是再来的耶稣、末后的基督。<sup><a href="#s5">[5]</a></sup></td><td>新约所盼望的是复活、升天的同一位耶稣本人再来。</td></tr>
+<tr><td>女性道成肉身</td><td>官方材料明确教导末后道成肉身为女性。<sup><a href="#s3">[3]</a></sup></td><td>反对理由不应是贬低女性，而是“第二具不同肉身”是否破坏基督位格与人性的历史连续性。</td></tr>
+<tr><td>秘密降临</td><td>先秘密道成肉身作审判，后公开驾云显现。<sup><a href="#s6">[6]</a></sup></td><td>“像贼”主要指时间突然；公开显现经文不必被拆成两次末世阶段。</td></tr>
+<tr><td>十字架</td><td>完成恩典时代救赎与赦罪，但人的败坏性情仍需末世审判洁净。</td><td>区分称义与成圣，但二者都根植于基督一次成就的救恩，由圣灵施行，不需另一位末世肉身补足。</td></tr>
+<tr><td>识别神声音</td><td>通过读末世话语、认出真理与权柄来认出神的声音。</td><td>主观／内在辨认必须接受使徒福音的外在规范检验。</td></tr>
+<tr><td>历史教会</td><td>旧宗教体系可能因神新工作而失去圣灵现实工作。</td><td>教会需不断改革，但改革原则是回归使徒根基，而不是由新的经典重写根基。</td></tr>
+</table>
+
+<h2>附录二：和全能神教会会友谈话时，可用的“释经检查表”</h2>
+<div class="grid2">
+<div class="card"><h3>1. 先问上下文</h3><p>这节经文在原段落里解决什么问题？例如太 24:27 的“闪电”，前后是否正在反对“基督在隐秘地点”的说法？</p></div>
+<div class="card"><h3>2. 区分“可能”与“证明”</h3><p>“人子会来”当然可能与再临有关，但能否直接证明“二十世纪中国女性肉身＋新经典”？需要中间证据。</p></div>
+<div class="card"><h3>3. 警惕封闭循环</h3><p>如果一本新书先宣布自己是神的话，再用自己提供的释经方式证明自己，要问是否有独立于该体系的使徒性证据。</p></div>
+<div class="card"><h3>4. 不把体验当最高法庭</h3><p>生命被触动、罪被揭露、关系改善都值得认真对待，但不能单独证明一个人就是道成肉身的神。</p></div>
+<div class="card"><h3>5. 抓住基督位格连续性</h3><p>不要陷入“神能不能成为女性”的次要争论。问：升天的这位耶稣是否亲自再来？还是由另一具肉身替代？</p></div>
+<div class="card"><h3>6. 抓住福音充分性</h3><p>信徒仍犯罪，不等于十字架不够。先把称义、成圣、得荣区分清楚，再讨论是否需要新的救赎阶段。</p></div>
+</div>
+
+<h2>附录三：资料与方法</h2>
+<p class="meta">为了让对话中的“全能神教会”一方尽量接近其自身理解，本文件优先引用其公开官网资料；另以宗教学研究作为外部背景参考。这里不采用未经核实的网络传闻来论证教义真假。</p>
+<ol class="footnotes">
+<li id="s1"><b>[1] 全能神教会官方：</b>“The Basic Beliefs of The Church of Almighty God”，明确把旧约、新约以及《话在肉身显现》放入其“三阶段工作”的信仰框架，并称全能神为末后基督。<br><a href="https://www.holyspiritspeaks.org/about-us-questions-6/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/about-us-questions-6/</a></li>
+<li id="s2"><b>[2] 全能神教会官方：</b>“The Origin and Development of The Church of Almighty God”，称末世神再次道成肉身、在中国作审判工作。<br><a href="https://www.holyspiritspeaks.org/about-us-03/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/about-us-03/</a></li>
+<li id="s3"><b>[3] 全能神教会官方：</b>“Why Is the God Incarnate of the Last Days Female?”，公开讨论并肯定末后基督为女性的教义。<br><a href="https://www.holyspiritspeaks.org/videos/God-incarnated-as-female-in-last-days/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/videos/God-incarnated-as-female-in-last-days/</a></li>
+<li id="s4"><b>[4] 全能神教会官方：</b>“The truths in the Bible are already complete… We don’t need any new words!” 页面明确反驳“神的话都在圣经中”，并主张末世工作是圣经之外的新工作。<br><a href="https://www.holyspiritspeaks.org/gospel/inside-story-of-the-bible-2/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/gospel/inside-story-of-the-bible-2/</a></li>
+<li id="s5"><b>[5] 全能神教会官方：</b>“Why The Church of Almighty God Is Said to Believe in God Incarnate”，称全能神为“末后的基督”、主耶稣在肉身中的再来。<br><a href="https://www.holyspiritspeaks.org/about-us-07/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/about-us-07/</a></li>
+<li id="s6"><b>[6] 全能神教会官方：</b>有关“先隐秘、后公开驾云”的解释，可见其见证与讲道页面。<br><a href="https://www.holyspiritspeaks.org/testimonies/the-pharisees-today/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/testimonies/the-pharisees-today/</a></li>
+<li id="s7"><b>[7] 全能神教会官方：</b>“Does the Lord Really Return on a Cloud?” 将太 24:27 的“东方闪电”与其在东方／中国出现并向西传播联系起来。<br><a href="https://www.holyspiritspeaks.org/gospel/will-the-Lord-really-come-on-a-cloud-at-His-return/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/gospel/will-the-Lord-really-come-on-a-cloud-at-His-return/</a></li>
+<li id="s8"><b>[8] 全能神教会官方：</b>有关启 3:20“叩门”、太 25“迎接新郎”与末世听神声音的解释。<br><a href="https://www.holyspiritspeaks.org/testimonies/how-will-the-Lord-Jesus-return/" target="_blank" rel="noopener">https://www.holyspiritspeaks.org/testimonies/how-will-the-Lord-Jesus-return/</a></li>
+<li><b>外部宗教学参考：</b>Holly Folk, “Protestant Continuities in The Church of Almighty God,” <i>The Journal of CESNUR</i> 2/1 (2018), pp. 58–77。文章从宗教学角度描述全能神教会与基督教传统之间的连续与差异。<br><a href="https://cesnur.net/wp-content/uploads/2018/02/tjoc_2_1_full_issue.pdf" target="_blank" rel="noopener">CESNUR PDF</a></li>
+</ol>
+
+<div class="note blue"><b>建议继续查考的经文：</b>申 13:1–5；太 24:23–31；约 1:1–18；10:1–30；20:24–31；徒 1:6–11；林后 11:1–4；加 1:6–10；西 1:15–23；帖前 4:13–5:11；提前 3:16；来 1:1–4；7:23–28；9:24–28；10:1–18；彼前 4:12–19；彼后 3:1–13；约一 4:1–6；犹 3；启 1:4–8；3:14–22。</div>
+
+<div class="footer">
+<p><b>立场说明：</b>本文是从历史新教／改革宗告白立场写成的护教学对话，不代表全能神教会对本文批评的认同，也不应被当作对任何个别会友人格、动机或经历的判断。</p>
+<p>版式：响应式双栏对话 · 可打印 · 内嵌 SVG 插图 · 无外部脚本依赖。</p>
+</div>
+</section>
+</main>
+</body>
+</html>

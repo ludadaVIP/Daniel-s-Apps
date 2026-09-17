@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>真耶稣教会：从会友内部视角理解其信仰、历史与实践</title>
+<style>
+:root{
+  --bg:#f6f4ef; --paper:#fffdf8; --ink:#1e2932; --muted:#66727b;
+  --navy:#17324d; --blue:#285c87; --sky:#eaf3f9; --gold:#b4893b;
+  --line:#d9d4c8; --green:#416a59; --red:#8b4a42; --violet:#665a82;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.82}
+a{color:var(--blue);text-decoration:none;border-bottom:1px dotted #7ca0bf}
+a:hover{color:#0c416e}
+.hero{background:linear-gradient(135deg,#122a40 0%,#1f4563 60%,#2d5976 100%);color:white;padding:74px 24px 62px;position:relative;overflow:hidden}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.12);border-radius:50%}
+.hero:before{width:520px;height:520px;right:-170px;top:-220px}
+.hero:after{width:300px;height:300px;right:90px;top:-100px}
+.hero-inner{max-width:1180px;margin:auto;position:relative;z-index:1}
+.kicker{letter-spacing:.18em;text-transform:uppercase;font-size:13px;opacity:.8}
+h1{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(40px,6vw,72px);line-height:1.12;margin:16px 0 18px;font-weight:700}
+.subtitle{font-size:20px;max-width:900px;color:#dce9f1}
+.meta{margin-top:28px;display:flex;gap:18px;flex-wrap:wrap;font-size:14px;color:#c6d7e2}
+.shell{max-width:1240px;margin:0 auto;display:grid;grid-template-columns:270px minmax(0,1fr);gap:34px;padding:34px 24px 80px}
+aside{position:sticky;top:18px;align-self:start;background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:18px 16px;box-shadow:0 8px 28px rgba(22,35,48,.06)}
+aside h3{margin:0 0 10px;font-size:14px;color:var(--navy);letter-spacing:.08em}
+.toc a{display:block;padding:7px 8px;border:0;border-radius:8px;color:#42515d;font-size:14px}
+.toc a:hover{background:var(--sky)}
+main{min-width:0}
+section{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:34px;margin-bottom:26px;box-shadow:0 8px 28px rgba(22,35,48,.045)}
+h2{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:30px;color:var(--navy);line-height:1.3;margin:0 0 18px}
+h3{font-size:20px;color:#244c6d;margin:30px 0 10px}
+h4{font-size:16px;color:#334e62;margin:22px 0 8px}
+p{margin:11px 0}
+.lead{font-size:18px;color:#33434f}
+.callout{padding:18px 20px;border-radius:12px;margin:18px 0}
+.insider{background:#edf6fb;border-left:5px solid var(--blue)}
+.outsider{background:#f2f0eb;border-left:5px solid #8b8b83}
+.warning{background:#fbf2e7;border-left:5px solid var(--gold)}
+.key{background:#eef5f0;border-left:5px solid var(--green)}
+.quote{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:20px;line-height:1.7;color:#263c4d;padding:18px 22px;border-left:3px solid var(--gold);background:#fcfaf4;margin:20px 0}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin:18px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin:18px 0}
+.card{border:1px solid #ded9ce;border-radius:14px;padding:18px;background:#fff}
+.card h4{margin-top:0;color:var(--navy)}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;background:#e8f0f6;color:#255174;font-size:12px;margin-right:6px}
+.metric{font-size:31px;font-weight:700;color:var(--navy);line-height:1}
+.small{font-size:13px;color:var(--muted)}
+hr{border:0;border-top:1px solid var(--line);margin:26px 0}
+.timeline{position:relative;padding-left:30px;margin-top:18px}
+.timeline:before{content:"";position:absolute;left:9px;top:5px;bottom:5px;width:2px;background:#b9c8d3}
+.event{position:relative;margin:0 0 22px}
+.event:before{content:"";position:absolute;left:-27px;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px #e8f1f7}
+.year{font-weight:700;color:var(--blue);font-size:15px}
+.beliefs{counter-reset:item}
+.belief{display:grid;grid-template-columns:46px 1fr;gap:14px;padding:18px 0;border-bottom:1px solid #e6e1d6}
+.belief:last-child{border-bottom:0}
+.belief:before{counter-increment:item;content:counter(item);width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:var(--navy);color:#fff;font-weight:700}
+.belief b{color:var(--navy)}
+.table-wrap{overflow:auto;margin:16px 0}
+table{width:100%;border-collapse:collapse;font-size:14px}
+th,td{padding:13px 12px;border-bottom:1px solid #ded9ce;vertical-align:top;text-align:left}
+th{background:#eef3f6;color:#193b57}
+svg{max-width:100%;height:auto}
+.figure{border:1px solid #dfdbd2;border-radius:16px;padding:16px;background:#fcfbf7;margin:20px 0}
+.figcap{font-size:13px;color:var(--muted);margin-top:8px}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:18px 0}
+.flow .step{padding:11px 14px;border-radius:10px;background:#eef4f8;border:1px solid #cddae3;color:#244c6d;font-weight:600}
+.flow .arrow{color:#8c9ba6}
+.cols{columns:2 320px;column-gap:28px}
+.cols p{break-inside:avoid}
+.tagline{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:24px;line-height:1.55;color:#193b57}
+.src{font-size:13px;color:#5d6871}
+.src li{margin:7px 0}
+.footer{max-width:1180px;margin:0 auto 60px;padding:0 24px;color:#74808a;font-size:13px}
+@media(max-width:900px){.shell{grid-template-columns:1fr}.grid,.grid3{grid-template-columns:1fr}aside{position:relative;top:0}.hero{padding-top:52px}section{padding:24px}}
+@media print{aside{display:none}.shell{display:block;max-width:none}.hero{print-color-adjust:exact;-webkit-print-color-adjust:exact}section{box-shadow:none;break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">INSIDE THE TRUE JESUS CHURCH</div>
+    <h1>真耶稣教会</h1>
+    <div class="subtitle">不是先从外部贴标签，而是先进入其内部世界：他们怎样理解神、圣经、教会、圣灵、洗礼、救恩、安息日与末世。</div>
+    <div class="meta">
+      <span>研究视角：内部自我理解优先</span>
+      <span>资料更新：2026年9月</span>
+      <span>主要依据：真耶稣教会官方资料＋宗教史研究</span>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+<aside>
+  <h3>目录</h3>
+  <nav class="toc">
+    <a href="#method">01｜怎样读这份报告</a>
+    <a href="#core">02｜一句话进入他们的世界</a>
+    <a href="#history">03｜起源与历史发展</a>
+    <a href="#scripture">04｜他们的“经书”是什么</a>
+    <a href="#god">05｜他们怎样理解神与耶稣</a>
+    <a href="#ten">06｜十大信条逐条拆解</a>
+    <a href="#salvation">07｜救恩体系到底怎样运作</a>
+    <a href="#spirit">08｜圣灵、方言与属灵经验</a>
+    <a href="#church">09｜为什么他们强调“真教会”</a>
+    <a href="#worship">10｜会友实际怎样聚会生活</a>
+    <a href="#culture">11｜群体文化与身份认同</a>
+    <a href="#today">12｜当代分布与现状</a>
+    <a href="#classification">13｜外部学术怎样定位</a>
+    <a href="#differences">14｜与一般新教最关键差异</a>
+    <a href="#inside">15｜如果你真的成为会友</a>
+    <a href="#summary">16｜最后只记住这12句话</a>
+    <a href="#sources">资料来源</a>
+  </nav>
+</aside>
+
+<main>
+
+<section id="method">
+<h2>01｜怎样读这份报告：先理解，再判断</h2>
+<p class="lead">理解真耶稣教会最容易犯的错误，是一开始就问：“它到底是不是异端？”这样会立刻把研究变成外部分类，而不是理解其内部神学。更好的方法，是先问：<b>一个真耶稣教会会友为什么会真诚地认为自己所处的教会，是使徒教会在末后时代的恢复？</b></p>
+<div class="callout insider"><b>蓝色框＝内部视角。</b> 这里尽量按照真耶稣教会自己的语言、经文链条和属灵经验来重建其信仰逻辑。</div>
+<div class="callout outsider"><b>灰色框＝历史／学术视角。</b> 这里才说明宗教史学者如何描述它，以及它与五旬节运动、独一神论五旬节派、复原主义之间的关系。</div>
+<p>这一区分很重要，因为真耶稣教会自己的起源叙事与历史学者的叙事并不完全相同。历史学者会谈魏恩波、张灵生、张巴拿巴、早期中国五旬节运动，以及外来五旬节网络的影响；真耶稣教会会友却会强调：<b>真正的创立者不是某个中国人，而是圣灵自己。</b> 对他们来说，1917年不是“魏恩波创立了一个新教派”，而是“神在末后时代恢复了使徒时期的教会”。</p>
+</section>
+
+<section id="core">
+<h2>02｜一句话进入他们的世界</h2>
+<p class="tagline">“两千年前，使徒教会拥有纯正真理、圣灵与合乎主命令的救恩典礼；后来基督教历史发生偏离。末后的‘晚雨圣灵’重新浇灌，神在1917年的中国恢复了那一个教会——这就是今天的真耶稣教会。”</p>
+<p>如果抓住这一句话，几乎所有看似零散的教义都会连起来。为什么必须奉耶稣名在活水中低头全身浸？因为他们认为这才是使徒式的“一洗”。为什么必须求圣灵，而且以说方言为明证？因为他们认为使徒行传里的教会正是如此。为什么守星期六安息日？因为他们认为神设立的是第七日，而不是后来教会传统中的星期日。为什么洗脚不只是象征谦卑，而具有救恩意义？因为他们把约翰福音13章“若不洗你，你就与我无分”理解为主设立的属灵典礼。为什么他们不愿意说“所有教派其实都一样”？因为在其神学中，<b>真理、圣灵、正确的救恩实践与教会本身不可分割。</b></p>
+
+<div class="figure">
+<svg viewBox="0 0 920 310" role="img" aria-label="真耶稣教会内部世界观示意图">
+  <rect x="15" y="18" width="890" height="274" rx="20" fill="#f8fafb" stroke="#ccd8e0"/>
+  <circle cx="150" cy="155" r="88" fill="#17324d"/>
+  <text x="150" y="140" text-anchor="middle" fill="white" font-size="24" font-weight="700">使徒教会</text>
+  <text x="150" y="173" text-anchor="middle" fill="#d6e4ed" font-size="16">真理 · 圣灵 · 一洗</text>
+  <path d="M245 155 C310 85 355 85 415 155" fill="none" stroke="#b4893b" stroke-width="4" stroke-dasharray="8 7"/>
+  <text x="330" y="76" text-anchor="middle" fill="#7d673f" font-size="15">历史中的偏离／传统累积</text>
+  <circle cx="480" cy="155" r="72" fill="#e7edf1" stroke="#a9bac6"/>
+  <text x="480" y="145" text-anchor="middle" fill="#3e5260" font-size="20" font-weight="700">教会历史</text>
+  <text x="480" y="176" text-anchor="middle" fill="#657783" font-size="14">多教派、多传统</text>
+  <path d="M555 155 C610 115 645 110 700 128" fill="none" stroke="#416a59" stroke-width="4"/>
+  <polygon points="700,128 684,119 686,138" fill="#416a59"/>
+  <circle cx="790" cy="155" r="92" fill="#285c87"/>
+  <text x="790" y="130" text-anchor="middle" fill="white" font-size="20" font-weight="700">1917以后</text>
+  <text x="790" y="160" text-anchor="middle" fill="#e9f4fb" font-size="18">“晚雨”恢复</text>
+  <text x="790" y="190" text-anchor="middle" fill="#d9eaf5" font-size="14">真耶稣教会</text>
+</svg>
+<div class="figcap">图1｜这是其“内部救赎历史”逻辑的概念图，不是历史学界的价值判断。</div>
+</div>
+
+<div class="grid3">
+  <div class="card"><div class="metric">1917</div><p><b>北京起源</b></p><p class="small">官方自述：圣灵启示真理并建立真教会。</p></div>
+  <div class="card"><div class="metric">60+</div><p><b>国家／地区</b></p><p class="small">2026年国际总会官网称遍及六大洲、六十多个国家和地区。</p></div>
+  <div class="card"><div class="metric">10</div><p><b>基本信条</b></p><p class="small">将基督、圣经、教会、五项核心教义、救恩与再临串成完整体系。</p></div>
+</div>
+</section>
+
+<section id="history">
+<h2>03｜起源—发展—全球化：两套历史叙事要同时看</h2>
+
+<h3>3.1 内部叙事：不是“谁创办”，而是“神恢复”</h3>
+<p>真耶稣教会国际总会的正式说法是：1917年教会起源于北京，早期工人领受圣灵与“真福音”的启示，之后把救恩真理传往中国各省，再传播至世界。官方尤其强调“并非由某些人所创立，也不源自某教派，而是圣灵所亲自建立”，目的在于恢复使徒时代教会的光景。</p>
+
+<div class="callout insider">
+<b>会友会如何讲这段历史？</b><br>
+他不会首先说：“我们的创办人是魏恩波。”更可能说：“神在末世藉着圣灵把失落的真理重新显明出来，早期工人只是被神使用的人。”这并非修辞差异，而是整个教会身份认同的核心。
+</div>
+
+<h3>3.2 宗教史叙事：20世纪初中国五旬节复兴的土壤</h3>
+<p>从历史研究角度看，真耶稣教会出现在20世纪初全球五旬节运动传入中国之后。学术著作通常会谈到挪威裔传道人 Bernt Berntsen（中文常译作贲德新／柏恩森等不同形式）与中国早期五旬节网络，也会把魏恩波（Paul Wei）、张灵生、张巴拿巴视为关键早期人物。宗教史学者因此常将真耶稣教会视为中国本土化程度极高的五旬节—复原主义运动之一。</p>
+<p>这里必须保持两种叙事的区别：<b>“历史上受到五旬节运动影响”</b>与<b>“教会自认是某个外国教派的分支”</b>不是同一件事。后者正是真耶稣教会明确否认的。</p>
+
+<div class="timeline">
+  <div class="event"><div class="year">1900年代初</div><b>全球五旬节运动兴起并进入中国。</b><br>新的圣灵经验、方言、神医与使徒教会复兴观念，为中国本土基督教运动提供了新的宗教语汇。</div>
+  <div class="event"><div class="year">1917</div><b>北京：真耶稣教会形成。</b><br>官方把这一年视为“圣灵恢复真教会”的起点；历史研究常以魏恩波及一批早期工人为关键人物。</div>
+  <div class="event"><div class="year">1919前后</div><b>向山东及中国多省扩展。</b><br>布道、见证、属灵经验和文字事工成为扩展手段。</div>
+  <div class="event"><div class="year">1920年代</div><b>组织逐渐制度化。</b><br>官方史料记载1926年南京设总部，1927年迁往上海，并发展刊物与全国性会议。</div>
+  <div class="event"><div class="year">1926</div><b>传入台湾。</b><br>此后台湾成为极重要的发展中心，并扩展到汉人及原住民族群体。</div>
+  <div class="event"><div class="year">二战后</div><b>亚洲与海外网络扩张。</b><br>东亚、东南亚、北美、欧洲、大洋洲及非洲陆续建立教会，海外华人网络在传播中具有明显作用。</div>
+  <div class="event"><div class="year">今天</div><b>全球化但保持高度统一的基本信仰。</b><br>国际总会官网称教会已遍及六大洲60多个国家／地区。</div>
+</div>
+
+<div class="callout warning"><b>数字要谨慎。</b> 不同年份的教会资料曾出现“约150万会员”“39国”“48国”等数字；2026年的国际总会首页更强调“60多个国家／地区、六大洲”，但没有在同一页面给出最新全球会员总数。因此，本报告不把旧的会员人数当作2026年的精确现状。</div>
+</section>
+
+<section id="scripture">
+<h2>04｜他们的“经书”是什么？答案其实很简单：只有圣经</h2>
+<p>真耶稣教会没有像摩门教那样另有一套被列入正典的《摩门经》，也没有第二部具有同等权威的启示经典。其第二条基本信仰明确说：<b>新旧约圣经是神所默示，是证明真道的唯一根据，也是信徒生活的准则。</b></p>
+<p>因此，如果从会友内部去理解，他们会强烈反对“你们是不是另有一本经？”这种印象。教会确实出版大量书刊、教义书、查经材料、见证集、宗教教育教材、《Manna》杂志及网络课程，但这些材料在规范地位上不是圣经正典，而是对圣经的解释、教学和见证。</p>
+
+<div class="grid">
+<div class="card"><h4>规范性最高</h4><p><b>旧约＋新约圣经</b></p><p>被视为神所默示、唯一的经文真理和生活标准。</p></div>
+<div class="card"><h4>次级教导资料</h4><p><b>十大信条、教义书、讲道、教材、杂志、见证</b></p><p>用于说明教会如何理解圣经，本身不被宣布为新增正典。</p></div>
+</div>
+
+<p>真正的关键不是“他们有没有额外经书”，而是<b>他们如何解释同一本圣经</b>。真耶稣教会与一般福音派、改革宗、路德宗、圣公会等传统的主要差异，不在于圣经书卷目录，而在于对圣灵、洗礼、洗脚礼、圣餐、安息日、神论以及“唯一真教会”等经文的解释。</p>
+</section>
+
+<section id="god">
+<h2>05｜他们怎样理解神、耶稣与父子圣灵？这是最容易被误解的一点</h2>
+<p>真耶稣教会第一条信仰非常高举耶稣：耶稣基督是道成肉身，为罪人死、第三日复活、升天；祂是人类唯一救主、天地的主宰，并且是<b>独一真神</b>。</p>
+
+<h3>5.1 他们不是“不承认圣父、圣子、圣灵”</h3>
+<p>官方教义材料承认圣经中确实有父、子、圣灵的区分，也承认耶稣是真神、圣灵是真神的灵；但他们对传统基督教用“一个本质、三个位格、同尊同荣”等尼西亚传统术语持保留甚至拒绝态度，认为这些哲学—神学术语并不是圣经自己的表达方式，容易使人把独一的神理解成三个彼此分开的主体。</p>
+
+<h3>5.2 会友内部更常用的直觉</h3>
+<p>他们会从“神只有一位”出发，再理解父、子、圣灵。可以把其内部思路粗略表示为：</p>
+<div class="figure">
+<svg viewBox="0 0 900 330">
+<rect x="20" y="20" width="860" height="290" rx="20" fill="#fbfaf6" stroke="#d9d4c8"/>
+<circle cx="450" cy="160" r="100" fill="#17324d"/>
+<text x="450" y="148" text-anchor="middle" fill="#fff" font-size="28" font-weight="700">独一真神</text>
+<text x="450" y="182" text-anchor="middle" fill="#dce9f1" font-size="18">在基督里向人显明</text>
+<circle cx="180" cy="100" r="68" fill="#eaf3f9" stroke="#8fb0c8"/>
+<text x="180" y="108" text-anchor="middle" fill="#285c87" font-size="22" font-weight="700">父</text>
+<circle cx="180" cy="230" r="68" fill="#eef5f0" stroke="#9ab6a6"/>
+<text x="180" y="238" text-anchor="middle" fill="#416a59" font-size="22" font-weight="700">圣灵</text>
+<circle cx="720" cy="165" r="78" fill="#fbf2e7" stroke="#d6b679"/>
+<text x="720" y="155" text-anchor="middle" fill="#7c5e26" font-size="22" font-weight="700">耶稣基督</text>
+<text x="720" y="184" text-anchor="middle" fill="#7c5e26" font-size="14">道成肉身的真神</text>
+<line x1="245" y1="118" x2="352" y2="143" stroke="#8aa0af" stroke-width="3"/>
+<line x1="245" y1="216" x2="352" y2="182" stroke="#8aa0af" stroke-width="3"/>
+<line x1="550" y1="160" x2="640" y2="163" stroke="#a9905f" stroke-width="3"/>
+</svg>
+<div class="figcap">图2｜这只是帮助理解其“独一神优先”的神论直觉，并不是官方公布的神学图示。</div>
+</div>
+
+<div class="callout outsider"><b>外部分类提醒：</b> 学者常指出它与“Oneness Pentecostalism（独一神论／耶稣名五旬节传统）”存在明显相似性与历史联系；但真耶稣教会自己的神学表述有其独立发展，简单把它等同于任何一个北美宗派都不够准确。</div>
+</section>
+
+<section id="ten">
+<h2>06｜十大信条：把整个宗教系统摊开来看</h2>
+<p>真耶稣教会并不是只有“守星期六”和“讲方言”两个特点。它的十大基本信仰构成一套非常完整的系统：神是谁 → 圣经是什么 → 教会是什么 → 人怎样进入救恩 → 怎样在圣灵里生活 → 最后怎样面对基督再临。</p>
+
+<div class="beliefs">
+  <div class="belief"><div><b>耶稣基督是独一真神与唯一救主。</b><br>强调道成肉身、代赎、复活、升天，同时把耶稣直接称为天地之主宰和独一真神。</div></div>
+  <div class="belief"><div><b>圣经是唯一经文真理与生活准则。</b><br>教会传统不能凌驾圣经；“是否合乎使徒教训”是核心判断标准。</div></div>
+  <div class="belief"><div><b>真耶稣教会是晚雨圣灵所恢复的使徒真教会。</b><br>这使“教会论”直接进入救恩论，而不只是组织归属。</div></div>
+  <div class="belief"><div><b>水洗是赦罪、重生的典礼。</b><br>必须在天然活水中，由已受水洗和圣灵者奉主耶稣圣名施行；受洗者低头、面向下、全身浸入。</div></div>
+  <div class="belief"><div><b>领受圣灵是天国基业的凭据，说方言是明证。</b><br>不是把方言只视为少数人的一种恩赐，而把“灵言”视为领受圣灵可辨识的证据。</div></div>
+  <div class="belief"><div><b>洗脚礼使人与主“有分”。</b><br>同时教导爱、圣洁、谦卑、服事和饶恕；受洗者通常接受一次正式洗脚礼。</div></div>
+  <div class="belief"><div><b>圣餐是与主肉和血有分的典礼。</b><br>不仅纪念，也具有与基督联合、永生及末日复活的意义；使用一个无酵饼与葡萄汁。</div></div>
+  <div class="belief"><div><b>星期六安息日仍是神所赐福、分别为圣之日。</b><br>但他们强调“在恩典下”纪念创造与救赎，而不是把守安息日解释成靠律法赚取救恩。</div></div>
+  <div class="belief"><div><b>得救本乎恩，也因着信，但信必须活在圣灵与顺服中。</b><br>信徒要依靠圣灵追求圣洁、实践经训、敬神爱人。</div></div>
+  <div class="belief"><div><b>基督将在末日再来，审判万民。</b><br>义人得永生，罪人受永刑；末世意识也强化了其宣教紧迫感。</div></div>
+</div>
+</section>
+
+<section id="salvation">
+<h2>07｜最关键的问题：在他们看来，人到底怎样得救？</h2>
+<p>如果只用“因信称义”或“靠行为得救”二分法，很容易误读真耶稣教会。它自己的表述是：<b>救恩完全出于神的恩典，也必须藉信接受；但真正的信不是只在头脑里同意某个命题，而是顺服基督所设立的救恩命令，并在圣灵中持续成圣。</b></p>
+
+<h3>7.1 他们所说的“三项圣礼”</h3>
+<p>官方《The Way of Salvation》明确把水洗、洗脚、圣餐称为必须接受的三项圣礼（sacraments）。这是理解其与很多福音派教会差异的关键：许多新教传统把洗礼和圣餐称作“圣礼／圣礼性记号”或“ordinances”，但通常不会认为洗脚是具有救恩功效的圣礼；真耶稣教会则把三者都放在新约救恩关系中。</p>
+
+<div class="flow">
+<span class="step">听见福音</span><span class="arrow">→</span>
+<span class="step">相信并悔改</span><span class="arrow">→</span>
+<span class="step">耶稣名水洗</span><span class="arrow">→</span>
+<span class="step">洗脚礼</span><span class="arrow">→</span>
+<span class="step">圣餐</span><span class="arrow">→</span>
+<span class="step">求圣灵／领受圣灵</span><span class="arrow">→</span>
+<span class="step">在圣灵中成圣到底</span>
+</div>
+
+<p>这个流程不应机械理解为每个人一定按同一时间顺序经历全部事项，例如使徒行传本身就有“先领圣灵、后受洗”的情形。真耶稣教会更关心的是：<b>这些都属于完整福音，而不能把其中某些内容降格为可有可无。</b></p>
+
+<h3>7.2 水洗为什么这么具体？</h3>
+<p>在真耶稣教会看来，洗礼不是单纯公开见证，而是神在其中使罪得赦的救恩行动。因此“奉谁的名、怎样浸、在哪里浸”都不是无关紧要的礼仪细节。其官方教义强调：</p>
+<div class="grid">
+<div class="card"><h4>奉主耶稣基督的名</h4><p>他们以使徒行传2:38等经文解释使徒实际施洗的方式，认为“父、子、圣灵的名”在救恩历史中落实为耶稣的名。</p></div>
+<div class="card"><h4>天然“活水”</h4><p>河、海、泉等天然水域被视为符合圣经样式；传统教义资料一般不把人工洗礼池当作首选或等同方式。</p></div>
+<div class="card"><h4>低头、面向下、全身浸入</h4><p>他们把罗马书6章“与主同死”、约翰福音19:30耶稣低下头等经文结合起来，形成具有高度辨识度的洗礼方式。</p></div>
+<div class="card"><h4>施洗者具有水、灵经历</h4><p>施洗者应已领受合乎教会教义的水洗与圣灵，使洗礼与“圣灵所在的真教会”连接起来。</p></div>
+</div>
+
+<h3>7.3 婴儿也可以受洗</h3>
+<p>这是很多人不知道的一点。真耶稣教会实践婴儿洗礼，并用家庭之约、使徒行传2:39“这应许是给你们和你们的儿女”、原罪／罪的普遍性以及父母信心的经文模式来论证。官方教义材料同时强调，这不是简单说“父母的信心自动转账给婴儿”，而是把孩子理解为信主家庭之约的范围内。</p>
+</section>
+
+<section id="spirit">
+<h2>08｜圣灵与方言：这不是附属体验，而是教会真实性的证据链</h2>
+<p>对真耶稣教会会友而言，“圣灵”不是神学课里的一章，而是非常可经验的现实。官方资料反复强调：人应当祈求圣灵；当圣灵降临时，会以“说灵言／方言”作为可听见的明证，并常伴随身体轻微震动等现象，不过身体动作本身不是必要证据。</p>
+
+<h3>8.1 他们区分两种“方言”功能</h3>
+<p>在其教义中，哥林多前书14章中用于个人祷告、对神说奥秘的“灵言”，与哥林多前书12章里造就教会、可能需要翻译的“方言恩赐”可以区分。于是他们回答一个常见问题：为什么聚会中多人可以同时用灵言祷告，而保罗又说聚会中说方言要有翻译？他们认为两处讨论的功能并不完全相同。</p>
+
+<h3>8.2 为什么“说方言”具有如此高的证明力？</h3>
+<p>内部经文链通常围绕使徒行传2、10、19章：五旬节、哥尼流家、以弗所门徒领受圣灵时，都出现方言；彼得也借此认出外邦人“与我们一样”领受了圣灵。因此他们认为，今天神若恢复使徒教会，圣灵的可经验方式也应与使徒时代一致。</p>
+
+<div class="quote">从内部看，方言不是“情绪很强烈的一种敬拜风格”，而是“神亲自证明祂把圣灵赐下来”的记号。</div>
+
+<p>这也解释为什么一个真耶稣教会会友可能并不会因为另一个教会讲道很好、敬拜很热烈，就马上承认那个教会拥有同样的“圣灵印证”。在他的神学中，<b>真理内容、圣灵经验、正确洗礼与真教会身份是互相印证的。</b></p>
+</section>
+
+<section id="church">
+<h2>09｜为什么他们如此坚持“真教会”？</h2>
+<p>“真耶稣教会”这个名称，对外人听来容易像是在说“别人的都假”。但从内部逻辑看，这个名字不是一种市场营销口号，而是教会论的结论。</p>
+
+<h3>9.1 一个身体，不能无限拆成彼此矛盾的身体</h3>
+<p>他们常用以弗所书4章“一主、一信、一洗”、哥林多前书12章“一个身体”、以弗所书5章“基督的新妇”来论证：基督的身体在本质上应当是一，而不是互相矛盾的教义都同样正确。因此“教派林立”在他们看来不是基督教成熟多元的必然状态，而是需要回到使徒真理才能解决的问题。</p>
+
+<h3>9.2 圣灵＋真理＋救恩圣礼＝真教会的可辨识标记</h3>
+<div class="figure">
+<svg viewBox="0 0 880 360">
+<circle cx="330" cy="145" r="120" fill="#285c87" fill-opacity=".82"/>
+<circle cx="500" cy="145" r="120" fill="#416a59" fill-opacity=".78"/>
+<circle cx="415" cy="245" r="120" fill="#b4893b" fill-opacity=".72"/>
+<text x="280" y="105" fill="white" font-size="22" font-weight="700">使徒真理</text>
+<text x="500" y="105" fill="white" font-size="22" font-weight="700">圣灵印证</text>
+<text x="415" y="300" text-anchor="middle" fill="white" font-size="22" font-weight="700">合乎圣经的救恩典礼</text>
+<text x="415" y="176" text-anchor="middle" fill="white" font-size="28" font-weight="700">真教会</text>
+</svg>
+<div class="figcap">图3｜其教会论的三重内部逻辑：不是只凭组织名称，而是声称真理、圣灵和救恩实践彼此印证。</div>
+</div>
+
+<h3>9.3 因此，“加入教会”在他们那里不是可有可无</h3>
+<p>官方资料直接说，基督是整个身体的救主，人不是作为“脱离身体的独立肢体”得救；洗礼、洗脚、圣餐等也由教会施行。因此一个人不能只说“我个人信耶稣，不需要教会”。从他们内部看，进入真教会不是宗派偏好，而是进入基督身体。</p>
+</section>
+
+<section id="worship">
+<h2>10｜一个会友实际怎样聚会、敬拜与生活？</h2>
+<p>国际总会FAQ描述，固定安息日聚会通常从星期五晚开始，延续到星期六；聚会前会唱诗预备心，正式聚会通常以诗歌和祷告开始、结束，中间以讲道为核心。各地教会还会有查经、团契、诗班、儿童及青年宗教教育等。</p>
+
+<div class="grid3">
+<div class="card"><h4>安息日</h4><p>星期六是主要敬拜日，星期五晚常已进入安息日聚会。</p></div>
+<div class="card"><h4>祷告</h4><p>会众常跪下祷告，并可能同时以灵言祷告；求圣灵是重要属灵操练。</p></div>
+<div class="card"><h4>圣经讲道</h4><p>非常强调经文依据，教义讲解常以大量串联经文构成。</p></div>
+<div class="card"><h4>圣餐与洗脚</h4><p>不是单纯象征性传统，而处在救恩与与主联合的神学框架中。</p></div>
+<div class="card"><h4>见证</h4><p>医治、祷告蒙应允、领受圣灵、洗礼经历等见证，在群体记忆中很重要。</p></div>
+<div class="card"><h4>较少强调传统节期</h4><p>官方FAQ明确表示不庆祝圣诞节，主要理由是圣经没有命令纪念耶稣生日，也没有记载12月25日为其生日。</p></div>
+</div>
+
+<p>所以，若你第一次走进真耶稣教会，外观上你会看到很多熟悉的基督教元素：圣经、十字架、诗歌、讲道、祷告、耶稣、救恩、复活、再来；但一进入祷告方式、星期六安息日、洗礼形式、洗脚礼和“求圣灵”的层面，就会明显感觉到其独特传统。</p>
+</section>
+
+<section id="culture">
+<h2>11｜群体文化：为什么这种信仰会形成很强的身份认同？</h2>
+<p>如果只读信条，会低估真耶稣教会的宗教生活。它是一种高度“可经验”的信仰：会友不仅被教导一组命题，也被期待亲自祷告、亲自求圣灵、亲自经历灵言、亲自接受洗礼、洗脚、圣餐，并听见前辈关于医治、异梦、神迹和带领的见证。于是“我为什么相信”经常不只是“这套释经最有逻辑”，也是“我在这个群体中经历过神”。</p>
+
+<h3>11.1 真理意识很强</h3>
+<p>宗教社会学研究指出，真耶稣教会群体常具有很强的“truth-centered identity”：真理不是模糊的共同价值，而是可以依据圣经辨别的具体内容。这个特点带来两面性：一方面，会友通常十分重视教义一致、圣经依据和代际传承；另一方面，这也意味着他们较难接受“各宗派虽相互矛盾，却都同样是完整真理”的宗派多元主义。</p>
+
+<h3>11.2 共同经验强化“我们确实活在使徒教会里”的感觉</h3>
+<p>当会友在祷告中听到全场灵言、在洗礼中听到见证、在教会历史课中学习1917年“晚雨恢复”、又从小接受宗教教育时，这些经验会互相支持，形成一个相当完整的信仰世界。对内部会友而言，“真教会”不是冷冰冰的排他命题，而是他关于神、家庭、成长、属灵经验与救恩的整体叙事。</p>
+
+<h3>11.3 华人民间社会与全球网络</h3>
+<p>真耶稣教会诞生于中国，却很早形成跨国网络。台湾、东南亚、北美、英国、澳洲等地都有成熟群体。随着第二、第三代会友成长，它也不再只是“华人教会”；国际总会特别强调其会员来自多种族群，并提供多语言网站、教材、讲道和应用程序。</p>
+</section>
+
+<section id="today">
+<h2>12｜2026年的现状：一个源自中国、但已经全球化的独立基督教运动</h2>
+<div class="grid">
+<div class="card"><h4>地理分布</h4><p>国际总会官网称，目前在<b>六大洲、60多个国家／地区</b>设有教会或聚会点。</p></div>
+<div class="card"><h4>组织</h4><p>具有国际总会（International Assembly），各国家／地区设总会、协调委员会或地方教会体系；基本信仰保持高度一致。</p></div>
+<div class="card"><h4>媒体与教育</h4><p>拥有电子图书馆、查经指南、宗教教育教材、讲道影音、Manna杂志、eRhema Bible App、诗歌应用等完整数字体系。</p></div>
+<div class="card"><h4>自我定位</h4><p>官方仍坚持“非宗派”（non-denominational）——不是说没有组织，而是说不把自己理解为众多宗派中的一个分支。</p></div>
+</div>
+
+<p>其全球会员总数的公开数字并不统一。较旧的官方页面曾使用约150万会员的数字，其他二手资料则给出更宽的估算；但由于统计年份、是否计入慕道者／儿童／聚会点等口径不同，最稳妥的现状表述是：<b>这是一个规模可观、跨洲际、组织成熟，并在华人基督教史中具有独特地位的本土教会运动。</b></p>
+</section>
+
+<section id="classification">
+<h2>13｜如果暂时走出内部视角，学术界通常怎样定位它？</h2>
+<p>在宗教史研究中，真耶稣教会常被放在几个交叠的框架中理解，但这些标签都只是分析工具，并不能完全替代它自己的身份：</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>学术标签</th><th>为什么会这样分类</th><th>内部会友可能怎样回应</th></tr></thead>
+<tbody>
+<tr><td>中国本土基督教／独立教会</td><td>1917年在中国形成，领导、宣教和组织很快本土化，不受传统西方差会直接控制。</td><td>可以接受“中国起源”的历史事实，但会强调真正建立者是圣灵，不是民族主义工程。</td></tr>
+<tr><td>五旬节／灵恩传统</td><td>强调圣灵浇灌、说方言、神迹、医治，与20世纪五旬节复兴存在历史联系。</td><td>会说重点不是加入“五旬节派”，而是恢复《使徒行传》本来的圣灵经验。</td></tr>
+<tr><td>复原主义（Restorationist）</td><td>认为后世教会偏离，使徒教会的真理必须恢复。</td><td>这一描述与自我理解相当接近，但他们会把“恢复”理解为神主动的工作，而非人重建古教会。</td></tr>
+<tr><td>独一神论五旬节相近传统</td><td>拒绝经典“三个位格”公式，强调独一真神与耶稣名洗礼。</td><td>会坚持应直接用圣经语言谈神，而不愿被一个外部宗派标签定义。</td></tr>
+<tr><td>高边界宗教共同体</td><td>清晰区分真理／错误、真教会／宗派传统，并有独特礼仪与生活节奏。</td><td>会说这种边界不是为了优越感，而是因为救恩真理不能被相对化。</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section id="differences">
+<h2>14｜与一般新教相比，真正决定性的差异在哪里？</h2>
+<p>如果只比较“是否相信耶稣复活”“是否相信圣经”，你会发现大量共同点；真正的分水岭出现在下面这些地方。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>主题</th><th>真耶稣教会</th><th>许多主流新教传统常见立场</th></tr></thead>
+<tbody>
+<tr><td>神论</td><td>坚持独一真神、耶稣是真神；不接受经典“三个位格”术语体系。</td><td>接受尼西亚—君士坦丁堡传统的三位一体表述：一神、三个位格。</td></tr>
+<tr><td>教会</td><td>今日真耶稣教会是晚雨圣灵恢复的使徒真教会，真理与救恩不可脱离此身体。</td><td>通常承认基督的普世教会可以跨越多个宗派存在。</td></tr>
+<tr><td>水洗</td><td>具有赦罪、重生的救恩功效；耶稣名、天然活水、低头面下全浸十分重要。</td><td>差异很大；浸信会强调见证，改革宗强调圣约记号，路德宗等强调洗礼恩典，但通常不要求真耶稣教会式具体姿势与天然水域。</td></tr>
+<tr><td>洗脚</td><td>是与主有分的圣礼，具有救恩关联。</td><td>多数只视为谦卑服事的榜样，少数群体保留礼仪，但通常不赋予同等救恩必要性。</td></tr>
+<tr><td>圣灵</td><td>领受圣灵应有说灵言的明证，是天国基业的凭据。</td><td>很多传统不把方言视为每个信徒领受圣灵的必要证据。</td></tr>
+<tr><td>安息日</td><td>星期六第七日应在恩典下遵守。</td><td>多数在星期日主日敬拜；对第四诫在新约中的持续方式解释不一。</td></tr>
+<tr><td>圣诞节</td><td>官方不庆祝。</td><td>大多数传统会纪念，但通常不认为12月25日本身是受启示的耶稣实际生日。</td></tr>
+</tbody>
+</table>
+</div>
+<p>所以，若把真耶稣教会简单描述成“一个星期六聚会的五旬节教会”，会严重低估它。它真正独特的是：<b>把神论、圣灵经验、救恩圣礼、安息日和唯一真教会整合为一个彼此锁合的系统。</b></p>
+</section>
+
+<section id="inside">
+<h2>15｜如果你真的以会友的眼睛看世界，会看到什么？</h2>
+<div class="cols">
+<p><b>你会认为神不是沉默的。</b> 神今天仍赐圣灵、听祷告、医治、带领，也会藉神迹奇事印证祂的话。</p>
+<p><b>你会认为圣经中的使徒教会不是一个永远回不去的黄金时代。</b> 神能在末世把那种教会重新恢复。</p>
+<p><b>你会对“宗派相对主义”很不舒服。</b> 如果洗礼到底赦不赦罪、圣灵是否必有方言明证、安息日到底是哪一天都可以彼此矛盾却同时正确，那么“一信、一洗”在你看来就失去实际含义。</p>
+<p><b>你会非常看重“亲自经历”。</b> 你不只想听别人解释圣灵，而会祷告求神让自己领受。</p>
+<p><b>你会认为顺服礼仪不是靠行为赚救恩。</b> 对你来说，真正的问题是：既然主已经命令，信心怎么可能故意拒绝？</p>
+<p><b>你会认为教会归属与救恩不是两个完全分开的议题。</b> 基督救的是祂的身体，而不是互相断裂的私人信仰个体。</p>
+<p><b>你会在星期六而不是星期日形成整周的属灵节奏。</b> 安息日既是创造的记念，也是救赎和将来永远安息的预表。</p>
+<p><b>你会把“真耶稣教会”这个名字理解成责任，而不只是荣誉。</b> 如果神真的把完整福音托付给教会，那么传福音不是扩大组织，而是在末日之前把人带进救恩。</p>
+</div>
+
+<div class="callout key"><b>理解到这里，你才算真正“从里面看见”了。</b> 你不一定因此同意它的每一项释经，但你应该能理解：为什么一个受过良好教育、真诚读圣经的会友，会把水洗、圣灵、洗脚、圣餐、安息日和真教会看成一个整体，而不是一串古怪习俗。</div>
+</section>
+
+<section id="summary">
+<h2>16｜最后只记住这12句话，就能抓住真耶稣教会的骨架</h2>
+<ol>
+<li><b>它1917年起源于北京</b>，但内部不把任何个人视为真正“创办人”，而认为是圣灵建立。</li>
+<li><b>它自认是使徒教会在末后时代的恢复</b>，不是众多教派之一。</li>
+<li><b>它只有新旧约圣经为正典</b>，没有第二部与圣经同级的经书。</li>
+<li><b>它坚信耶稣是真神、唯一救主</b>，但不接受经典三位一体“三个位格”公式。</li>
+<li><b>它把真理、圣灵和教会紧密连在一起</b>，所以教会论直接关系到救恩。</li>
+<li><b>它认为水洗真实具有赦罪、重生意义</b>，并坚持耶稣名、活水、低头全浸等具体方式。</li>
+<li><b>它实践婴儿洗礼</b>，以圣约、应许及罪的普遍性论证。</li>
+<li><b>它认为领受圣灵应以说方言为明证</b>，并把这视为使徒时代经验今天仍持续。</li>
+<li><b>它把洗脚视为与主有分的救恩圣礼</b>，而不只是谦卑象征。</li>
+<li><b>它把圣餐理解为真实与主的肉和血有分</b>，并与永生和末日复活相关。</li>
+<li><b>它守星期六安息日</b>，同时强调是在恩典下遵守，而不是靠律法称义。</li>
+<li><b>它有强烈末世与宣教意识</b>：基督要再来，教会应恢复纯正福音并预备新妇。</li>
+</ol>
+
+<p class="quote">最准确的理解不是：“这是一群特别守规矩的基督徒。”而是：“这是一群相信神已经在末世恢复了使徒教会，因此必须重新按使徒时代的真理、圣灵经验与救恩实践生活的基督徒。”</p>
+</section>
+
+<section id="sources">
+<h2>资料来源与进一步阅读</h2>
+<p>本报告刻意以真耶稣教会自己的资料为第一层来源，再用宗教史研究作背景校准。以下网页均可直接继续阅读：</p>
+<ol class="src">
+<li><a href="https://tjc.org/about/" target="_blank">True Jesus Church International Assembly — About True Jesus Church</a>：官方历史、自我定位、全球分布与基本信仰。</li>
+<li><a href="https://tjc.org/cn/articles-of-faith/" target="_blank">真耶稣教会国际总会 — 十大信条</a>：中文官方信仰摘要。</li>
+<li><a href="https://tjc.org/the-complete-gospel/" target="_blank">The Complete Gospel</a>：官方如何把十大信仰组织成“完整福音”。</li>
+<li><a href="https://tjc.org/the-way-of-salvation/" target="_blank">The Way of Salvation</a>：救恩、洗礼、洗脚与圣餐的内部逻辑。</li>
+<li><a href="https://tjc.org/seek/" target="_blank">Ask & Seek — Holy Spirit</a>：为什么求圣灵、为什么以方言为明证。</li>
+<li><a href="https://tjc.org/church-2/" target="_blank">Church</a>：为什么教会与救恩相关、为什么称“真教会”。</li>
+<li><a href="https://tjc.org/gospel-holy-bible/" target="_blank">Holy Bible</a>：官方圣经观。</li>
+<li><a href="https://tjc.org/faqs/" target="_blank">FAQs</a>：聚会时间、加入方式、圣诞节等常见问题。</li>
+<li><a href="https://elibrary.tjc.org/content/cm/EN/pdf/2021/tjc_lm_baptism_2021_11329.pdf" target="_blank">The Doctrine of Baptism</a>：洗礼、婴儿洗礼、活水与洗礼方式的系统教义书。</li>
+<li><a href="https://elibrary.tjc.org/content/cm/EN/pdf/2021/tjc_lm_footwashing_48400.pdf" target="_blank">The Doctrine of Footwashing</a>：洗脚礼的救恩意义。</li>
+<li><a href="https://ia.tjc.org/elibrary/ContentDetail.aspx?ItemID=75&langid=1" target="_blank">True Jesus Church eLibrary — Godhead / Trinity discussion</a>：官方对“三位一体”传统术语的保留与其独一神论述。</li>
+<li><a href="https://tjc.org/centennial-collection/" target="_blank">TJC Centennial Testimony Collection 1917–2017</a>：百年见证与内部历史记忆。</li>
+<li><a href="https://brill.com/display/title/34205" target="_blank">Global Chinese Pentecostal and Charismatic Christianity</a>（Brill, 2017）：学术研究，含多章专论真耶稣教会。</li>
+<li><a href="https://www.jstor.org/stable/j.ctt1nprz4.7" target="_blank">Lian Xi, Redeemed by Fire — “The Lightning out of the East: The True Jesus Church”</a>：现代中国基督教史的重要学术研究。</li>
+<li><a href="https://english.religion.info/2023/12/06/the-true-jesus-church-in-taiwan/" target="_blank">Joanna Eva, The True Jesus Church in Taiwan (2023)</a>：较新的田野／宗教社会学观察，尤其适合理解会友经验与群体文化。</li>
+</ol>
+<p class="small">说明：本文对“神建立真教会”“神迹印证”等表述，在相应段落中明确作为真耶稣教会的自我信仰陈述，而不是把宗教信仰命题转换成可由历史学独立证明的事实。历史人物、时间、地域传播等则尽量用官方资料与学术资料相互核对。</p>
+</section>
+
+</main>
+</div>
+
+<div class="footer">
+<p>《真耶稣教会：从会友内部视角理解其信仰、历史与实践》｜生成于 2026-09-17</p>
+</div>
+</body>
+</html>
