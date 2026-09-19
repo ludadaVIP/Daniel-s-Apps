@@ -1,0 +1,1400 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>改革宗基督徒 × 真耶稣教会会友｜一场关于福音、圣灵、圣礼与教会的深度对话</title>
+<style>
+:root {
+  --ink:#1d2430; --muted:#647083; --paper:#f7f4ee; --white:#fff;
+  --reform:#183b56; --reform2:#dfeaf1; --tjc:#7d3b32; --tjc2:#f2e4df;
+  --gold:#9d7a3c; --line:#d7d0c3; --green:#325d50;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",serif;line-height:1.9}
+a{color:inherit}
+.hero{min-height:92vh;position:relative;overflow:hidden;display:grid;align-items:end;background:#17212b;color:#fff}
+.hero:before{content:"";position:absolute;inset:0;background:
+linear-gradient(90deg,rgba(17,30,42,.96) 0%,rgba(17,30,42,.86) 48%,rgba(17,30,42,.25) 100%),
+url('https://upload.wikimedia.org/wikipedia/commons/f/fd/Tainan_Taiwan_True-Jesus-Church-01.jpg') center/cover no-repeat;filter:saturate(.8)}
+.hero-inner{position:relative;max-width:1220px;margin:auto;width:100%;padding:8vw 5vw 6vw}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;font:600 12px/1.4 system-ui;color:#d9c69a}
+h1{font-size:clamp(42px,6.5vw,88px);line-height:1.08;margin:.3em 0 .2em;max-width:1050px;font-weight:900}
+.subtitle{max-width:780px;font-size:clamp(17px,2vw,24px);color:#e8e8e8}
+.hero-badges{display:flex;gap:10px;flex-wrap:wrap;margin-top:28px}
+.badge{border:1px solid rgba(255,255,255,.35);padding:8px 13px;border-radius:999px;font:500 13px/1.2 system-ui;background:rgba(255,255,255,.07)}
+.credit{position:absolute;right:20px;bottom:12px;font:11px/1.5 system-ui;color:#ddd;background:rgba(0,0,0,.35);padding:4px 8px;border-radius:5px}
+.wrap{max-width:1220px;margin:auto;padding:0 28px}
+.notice{margin:-40px auto 46px;position:relative;background:white;border:1px solid #e5dfd4;box-shadow:0 18px 50px rgba(43,37,29,.12);padding:28px 32px;max-width:1100px}
+.notice strong{color:var(--reform)}
+.intro-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:28px;margin:58px 0}
+.panel{background:#fff;border:1px solid #e4ded3;padding:28px}
+.panel h3{margin-top:0;font-size:24px}
+.people{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.person{padding:20px;border-radius:12px}
+.person.r{background:var(--reform2);border-left:5px solid var(--reform)}
+.person.t{background:var(--tjc2);border-left:5px solid var(--tjc)}
+.person .big{font-size:28px;font-weight:800}
+.person small{display:block;font-family:system-ui;color:var(--muted)}
+.toc{display:grid;grid-template-columns:repeat(2,1fr);gap:7px}
+.toc a{text-decoration:none;background:#f7f5f1;padding:9px 12px;font:500 13px/1.45 system-ui;border:1px solid #ebe5da}
+.toc span{display:inline-block;min-width:30px;color:var(--gold);font-weight:800}
+.visual-strip{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin:40px 0 70px}
+.vitem{background:white;border-top:4px solid var(--gold);padding:18px;text-align:center;min-height:145px;display:flex;flex-direction:column;justify-content:center}
+.vitem b{font-size:18px} .vitem small{font:12px/1.5 system-ui;color:var(--muted);margin-top:7px}
+.dialogue-section{padding:76px 0 30px;scroll-margin-top:20px}
+.section-kicker{font:700 11px/1.2 system-ui;letter-spacing:.2em;color:var(--gold)}
+.dialogue-section h2{font-size:clamp(28px,4vw,46px);line-height:1.25;margin:10px 0 12px}
+.section-line{width:72px;height:4px;background:var(--gold);margin:0 0 32px}
+.exchange{position:relative;display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:0 0 25px;align-items:start}
+.exchange-tag{grid-column:1/-1;text-align:center;font:700 11px/1 system-ui;letter-spacing:.12em;color:#85775f;margin:5px 0 -5px;text-transform:uppercase}
+.speech{background:#fff;border:1px solid #e6e0d7;border-radius:14px;overflow:hidden;box-shadow:0 6px 20px rgba(34,34,34,.04)}
+.speech.reform{border-top:4px solid var(--reform)} .speech.tjc{border-top:4px solid var(--tjc)}
+.speaker{display:flex;gap:12px;align-items:center;padding:17px 20px 12px;border-bottom:1px solid #eee8df}
+.avatar{width:38px;height:38px;border-radius:50%;display:grid;place-items:center;color:white;font:800 14px system-ui}
+.reform .avatar{background:var(--reform)} .tjc .avatar{background:var(--tjc)}
+.speaker b{display:block;font-size:16px} .speaker small{display:block;font:11px/1.2 system-ui;color:var(--muted);margin-top:2px}
+.body{padding:18px 22px 20px}
+.body p{margin:.15em 0 .9em} .body p:last-child{margin-bottom:0}
+.body strong{color:#2b3541}
+.infographic{margin:70px 0;background:#17212b;color:white;padding:40px;border-radius:18px;overflow:hidden}
+.infographic h3{font-size:31px;margin:0 0 18px}
+.axis{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch}
+.axis .node{padding:18px 14px;background:#243342;border:1px solid #3f4e5c;text-align:center;border-radius:9px}
+.axis .node b{display:block;color:#e2c990} .axis .node small{font:12px/1.5 system-ui;color:#ccd2d8}
+.compare{width:100%;border-collapse:collapse;background:#fff;margin:24px 0 60px;font-size:14px}
+.compare th,.compare td{border:1px solid #ded7cc;padding:14px;vertical-align:top}
+.compare th{background:#252f3a;color:#fff;font-family:system-ui}
+.compare td:first-child{font-weight:800;width:14%} .compare td:nth-child(2){background:#f4f8fa} .compare td:nth-child(3){background:#fbf4f2}
+.verdict{background:#fff;border:1px solid #ded7ca;border-left:8px solid var(--green);padding:34px;margin:70px 0 35px}
+.verdict h2{font-size:34px;margin:0 0 10px}
+.five{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;margin-top:20px}
+.five div{background:#f1f5f2;padding:15px;text-align:center;font-weight:800}
+.sources{background:#1d252e;color:#dfe5ea;margin-top:80px;padding:55px 0}
+.sources h2{color:white}
+.sources ol{padding-left:22px} .sources li{margin:9px 0}
+.sources a{color:#d7c083;word-break:break-all}
+.sources .small{font:12px/1.65 system-ui;color:#aeb8c1}
+.toolbar{position:fixed;right:18px;bottom:18px;z-index:9;display:flex;gap:8px}
+.toolbar button{border:0;background:#17212b;color:white;border-radius:999px;padding:10px 14px;cursor:pointer;box-shadow:0 6px 20px #0003}
+@media(max-width:850px){
+  .hero{min-height:72vh} .hero:before{background:linear-gradient(rgba(17,30,42,.83),rgba(17,30,42,.92)),url('https://upload.wikimedia.org/wikipedia/commons/f/fd/Tainan_Taiwan_True-Jesus-Church-01.jpg') center/cover}
+  .intro-grid,.exchange{grid-template-columns:1fr} .people{grid-template-columns:1fr} .toc{grid-template-columns:1fr}
+  .visual-strip,.axis,.five{grid-template-columns:1fr} .wrap{padding:0 16px}
+  .notice{margin:-20px 12px 30px;padding:22px} .dialogue-section{padding-top:55px}
+}
+@media print{
+  .toolbar{display:none} body{background:white} .hero{min-height:auto;padding:50px 0} .speech{box-shadow:none;break-inside:avoid}
+  .dialogue-section{break-before:page} .notice{box-shadow:none;margin:20px auto}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">A LONG-FORM THEOLOGICAL DIALOGUE · JUDE 3</div>
+    <h1>“我们都说自己回到圣经。”</h1>
+    <p class="subtitle">一个改革宗新教基督徒，与一位真耶稣教会会友多年后重逢。从寒暄开始，一直谈到三位一体、洗礼、方言、洗脚、安息日、圣餐、称义、1917年的“真教会”与教会历史连续性。</p>
+    <div class="hero-badges"><span class="badge">左右双栏长对话</span><span class="badge">改革宗视角结论</span><span class="badge">尽量准确呈现对方官方教义</span><span class="badge">经文优先</span></div>
+  </div>
+  <div class="credit">题图：台南真耶稣教会建筑 · Wikimedia Commons</div>
+</header>
+
+<div class="notice">
+  <strong>写作立场与公平说明：</strong>本文是一篇虚构的护教/教义对话，最终立场明确站在历史性改革宗新教一边；但“真耶稣教会会友”一方并非故意写成稻草人，其核心主张尽量依据真耶稣教会国际总会现行公开信条与教义材料综合。个别会友的实际理解可能不同。本文批评的是教义主张，不是对任何具体会友的品格、动机或得救状态作终极审判。
+</div>
+
+<main class="wrap">
+  <div class="intro-grid">
+    <section class="panel">
+      <h3>两位老朋友</h3>
+      <div class="people">
+        <div class="person r"><div class="big">以诺</div><small>改革宗 / 福音派新教</small><p>重视唯独圣经、三位一体、唯独恩典、唯独信心、圣约、可见与不可见教会之区分。认为信条服在圣经之下。</p></div>
+        <div class="person t"><div class="big">子衡</div><small>真耶稣教会会友</small><p>相信1917年使徒教会真理在“晚雨圣灵”中恢复；强调奉耶稣名活水浸礼、方言明证、洗脚、星期六安息日及一个真教会。</p></div>
+      </div>
+    </section>
+    <aside class="panel">
+      <h3>章节导航</h3>
+      <nav class="toc"><a href="#reunion"><span>00</span>多年以后，两个人又坐到了一张桌子前</a>
+<a href="#scripture"><span>01</span>我们都说“唯独圣经”，为什么会走到不同结论？</a>
+<a href="#trinity"><span>02</span>独一的神：三位一体，还是“父、子、圣灵是一位”？</a>
+<a href="#baptism"><span>03</span>洗礼：福音的记号，还是赦罪重生不可缺少的仪式？</a>
+<a href="#name"><span>04</span>“奉耶稣的名受洗”是否推翻“父、子、圣灵的名”？</a>
+<a href="#spirit"><span>05</span>圣灵与方言：所有真正领受圣灵的人都必须说方言吗？</a>
+<a href="#footwashing"><span>06</span>洗脚礼：谦卑的榜样，还是与主有分的救恩圣礼？</a>
+<a href="#communion"><span>07</span>圣餐与约翰福音6章：吃主肉、喝主血意味着什么？</a>
+<a href="#sabbath"><span>08</span>安息日：为什么你们星期日聚会，而我们坚持星期六？</a>
+<a href="#salvation"><span>09</span>得救到底“本乎恩、因着信”，还是还需要一套必须完成的救恩程序？</a>
+<a href="#church"><span>10</span>“唯一真教会”：基督只有一个身体，是否等于1917年建立的一个机构？</a>
+<a href="#history"><span>11</span>如果教会在使徒后失落了，基督“阴间的门不能胜过她”的应许怎么办？</a>
+<a href="#hermeneutics"><span>12</span>一节经文很强烈，能不能直接变成所有人的救恩法规？</a>
+<a href="#holiness"><span>13</span>“你们改革宗只讲信，不讲圣洁吗？”</a>
+<a href="#pastoral"><span>14</span>如果一个人爱主、读经、结果却不在“真耶稣教会”，他到底在哪里？</a>
+<a href="#rapid"><span>15</span>最后一轮：子衡把最强的问题一次问完</a>
+<a href="#epilogue"><span>16</span>夜已经深了：不是赢了朋友，而是把圣经重新打开</a></nav>
+    </aside>
+  </div>
+
+  <div class="visual-strip">
+    <div class="vitem"><b>θεός</b><small>独一神<br>如何同时保留父、子、圣灵的真实区分？</small></div>
+    <div class="vitem"><b>βάπτισμα</b><small>洗礼<br>恩典的记号与印证，还是赦罪程序？</small></div>
+    <div class="vitem"><b>πνεῦμα</b><small>圣灵<br>方言是否是人人领受圣灵的普遍明证？</small></div>
+    <div class="vitem"><b>σάββατον</b><small>安息<br>星期六规范，还是复活主日的新创造秩序？</small></div>
+    <div class="vitem"><b>ἐκκλησία</b><small>教会<br>一个身体是否等于一个1917年恢复的机构？</small></div>
+  </div>
+
+  <section class="infographic">
+    <h3>争议的真正结构：不是“哪间教会气氛好”，而是救恩链条怎么理解</h3>
+    <div class="axis">
+      <div class="node"><b>启示</b><small>圣经是否足够？“恢复真理”具有何种权威？</small></div>
+      <div class="node"><b>基督</b><small>三一神、道成肉身与父子圣灵关系</small></div>
+      <div class="node"><b>称义</b><small>唯独借信，还是信心 + 必要礼仪程序？</small></div>
+      <div class="node"><b>圣礼</b><small>洗礼、圣餐及洗脚的地位与功效</small></div>
+      <div class="node"><b>教会</b><small>大公身体，还是特定末世恢复机构？</small></div>
+    </div>
+  </section>
+
+  
+    <section class="dialogue-section" id="reunion">
+      <div class="section-kicker">CHAPTER 00</div>
+      <h2>序幕｜多年以后，两个人又坐到了一张桌子前</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">重逢</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“你真的一点没变。”以诺笑着把咖啡推过去，“就是比以前安静了一点。”</p>
+<p>两个人大学毕业以后各自去了不同的城市。以前一起打球、熬夜、谈工作，后来偶尔在朋友圈点个赞，却已经七八年没有真正坐下来聊过。</p>
+<p>“我听说你现在很认真信主？”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡也笑了：“你才是。我听共同朋友说，你现在不只是去教会，还读神学、读改革宗的书。”</p>
+<p>“我也信主，不过我现在在真耶稣教会。说实话，这几年对我改变很大。以前我觉得信仰就是劝人为善，现在我相信圣经是真理，也相信人真的需要得救。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">先公平地理解</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“那我们有很多共同点。”以诺说，“我们都承认耶稣基督是救主，都承认圣经是神的话，也都相信十字架、复活、审判、永生。这一点我不会故意忽略。”</p>
+<p>他停了一下：“但我也知道，我们之间不是只有‘聚会习惯不同’。真耶稣教会有一些非常独特的教义，而这些教义牵涉到神是谁、人怎样得救、教会是什么。这些不是小问题。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我也不想把差异说成无所谓。”子衡点头，“我们相信真理只有一个。如果圣经真的这样教，就不能因为怕得罪人而不讲。”</p>
+<p>“不过我希望你不是拿网上别人对我们的批评来跟我辩。我宁愿你先听我自己怎么说。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">共同判准</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“同意。你先把你真正相信的讲清楚。我也会尽量区分：什么是你们官网正式信条，什么是个别会友的说法。”</p>
+<p>“而且我们约定一条：最后不是‘谁口才好谁赢’，而是谁能更忠实地解释整本圣经。不能只拿一节经文压另一节经文。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这条我接受。”</p>
+<p>子衡把手机调成静音，放在桌边：“那今天就别急着走。我们慢慢谈。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="scripture">
+      <div class="section-kicker">CHAPTER 01</div>
+      <h2>第一幕｜我们都说“唯独圣经”，为什么会走到不同结论？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">共同承认圣经</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“先从最基础的开始。改革宗也有信条，《威斯敏斯特信条》《海德堡要理问答》都很重要，但它们不是第二本圣经。它们的权威是派生的、可被圣经纠正的。真正无误的规范只有先知与使徒的圣经。”</p>
+<p>“所以当我听到任何教会说‘神后来重新启示了完整救恩真理’，我会立刻追问：这是不是在功能上给圣经加了一个必须接受的解释权威？”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们也明确相信新旧约圣经是神所默示，是证明真道唯一的根据，也是生活准则。”子衡回答。</p>
+<p>“1917 年不是说多了一本经书，而是圣灵重新带领人看见使徒时代原有的真理。我们的说法是：后使徒时代教会逐渐偏离，圣灵在末后的‘晚雨’中恢复了使徒教会。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">问题不是“有没有解释”</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我明白区别。你不是说1917年多了一卷《启示录》，而是说圣经一直在那里，但真正完整的救恩解释在1917年被恢复。”</p>
+<p>“可问题恰恰就在这里：如果一个解释体系最后告诉我——只有接受这个恢复体系，才真正进入基督的身体——那么它虽然没有增加经卷，却可能增加了一个<strong>救恩所必需的解释框架</strong>。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“但任何宗派不都有解释框架吗？改革宗说因信称义、圣约、预定，也都是解释。”</p>
+<p>“不能因为有解释就说是在圣经之外加东西。关键应当是解释是否符合经文。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">进入核心</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“完全正确。所以今天我不靠‘改革宗历史更长’来压你，也不靠教父名字来决定真理。”</p>
+<p>“我们逐项看。你们最独特的教义若真是救恩必需，就应当在使徒书信里被清楚、反复、普遍地教导，而不是主要靠把几段叙事、象征或特定场景拼成一个后来才恢复的体系。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“好。那就从最根本的——神是谁——开始。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="trinity">
+      <div class="section-kicker">CHAPTER 02</div>
+      <h2>第二幕｜独一的神：三位一体，还是“父、子、圣灵是一位”？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">真正分歧不是“一神/三神”</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“改革宗首先和你一样坚持：只有一位神。三位一体不是三个神。”</p>
+<p>“但圣经同时迫使我们承认三组事实：第一，父是神、子是神、圣灵是神；第二，神只有一位；第三，父、子、圣灵彼此有真实区分，彼此差遣、爱、说话，并不是同一位格换三个称号。”</p>
+<p>“三位一体这个词不是圣经原词，但它是在尽量短的语言里保护这三组圣经事实。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们不否认父、子、圣灵的说法，也不否认圣经有区别性的描述。”</p>
+<p>“但我们对‘三个位格、同质、同荣、同永恒’这套哲学语言很谨慎。我们强调神是一位、一个灵。耶稣说‘我与父原为一’，又说‘人看见了我，就是看见了父’；圣灵又被称为基督的灵。所以为什么一定要把神定义成三个‘person’？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">约翰福音的张力</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“因为问题不是‘person’这个英文词神不神圣，问题是经文有没有必须保留的<strong>我—你关系</strong>。”</p>
+<p>“约翰福音1:1说，道‘与神同在’，同时‘道就是神’。约17章，子向父祷告，提到创世以前父与子之间的荣耀与爱。耶稣受洗时，子在水中，圣灵降临，父从天上发声。来1章里，父对子说话。约14—16章里，子求父，父赐‘另一位保惠师’。”</p>
+<p>“这些不能只用‘同一位神以不同方式出现’解释，因为文本本身有同步的、关系性的区别。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“可神是灵，不受人的空间限制。父在子里面，子也在父里面。你不能因为经文有对话，就把神切成三个中心。”</p>
+<p>“而且以赛亚9:6称将来的弥赛亚为‘永在的父’。耶稣又说‘我与父原为一’。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">不能只保留“合一”而吞掉“区别”</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“‘一’不自动等于‘同一位格’。约17:21耶稣也祷告门徒‘合而为一’，显然不是要所有门徒变成同一个人。”</p>
+<p>“至于‘永在的父’，在希伯来语语境可以表达弥赛亚是永恒的父性保护者、永恒之父，并不能抹掉以赛亚同卷中父与受膏者的区分。更关键的是，我们必须让所有经文彼此约束。”</p>
+<p>“如果你用‘看见我就是看见父’推出‘子就是父这个位格’，那么同一段约14:16里‘我要求父，父就另外赐给你们一位保惠师’又怎么办？”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡沉默了一会儿：“我们的解释是，父、子、圣灵不是三个分开的神格个体，而是一位神的不同显明与工作。”</p>
+<p>“我承认约翰福音里确实有一些经文需要同时放在一起读。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">避免稻草人</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“这正是大公教会早期三一论语言的目的：不是用哲学征服圣经，而是防止我们只保存一组经文、牺牲另一组。”</p>
+<p>“改革宗不会说三位一体可以被人完全解释。它是神自我启示所划出的边界：<strong>一神、三位；位格有别，本质不分。</strong>奥秘不等于矛盾，承认奥秘也不等于可以把关系性的经文消掉。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那你会不会说，我们因此就完全不信耶稣是神？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">争论的精确位置</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“不会。你们明确高举耶稣的神性，这一点必须如实承认。我真正的批评是：你们对‘父、子、圣灵是一神一灵’的表达，若最终否定父、子、圣灵真实而永恒的位格区分，就不足以承载全部圣经资料。”</p>
+<p>“这不是因为我爱‘三位一体’这个术语胜过圣经，而是因为我不敢丢掉约1:1、17:5、17:24、太3:16-17、约14:16等经文中的关系。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这个区别我听懂了。你不是在说我们拜三个神，而是说我们把‘一’解释得太强，以至于把圣经中的‘彼此’压扁了。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="baptism">
+      <div class="section-kicker">CHAPTER 03</div>
+      <h2>第三幕｜洗礼：福音的记号，还是赦罪重生不可缺少的仪式？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">先准确呈现对方</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“你们正式信条对洗礼的要求很具体：自然活水、全身浸入、低头面向下、奉主耶稣圣名，而且施洗者本身要受过水灵二浸；并且把洗礼称为赦罪重生的典礼。”</p>
+<p>“我想先让你解释，不急着反驳。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“因为徒2:38彼得说悔改、奉耶稣基督的名受洗，使罪得赦；徒22:16说‘起来，受洗，洗去你的罪’；约3:5又说从水和圣灵生。”</p>
+<p>“耶稣受洗是下到水里；罗6章说受洗归入基督的死，所以我们低头、全身浸入活水，象征与基督同死。我们不是说水有魔法，而是神给洗礼应许了赦罪功效。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">不要制造“信心反对顺服”</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“改革宗也绝不把洗礼降格为一场空洞表演。洗礼是基督设立的圣礼，是恩典之约的记号与印证，指向与基督联合、罪得洁净、新生命。”</p>
+<p>“但‘记号与所指之恩典紧密相连’不等于‘仪式本身在指定姿势下自动成为称义的必要工具’。新约最清楚谈称义的段落——罗3—5、加2—3、腓3——把罪人被神称义的工具指向信心，而不是某种洗礼动作的完整技术规格。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“可如果信心是真的，为什么会拒绝主所命定的洗礼？雅各也说没有行为的信心是死的。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">常规与根基</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“真正的问题不是‘信了以后要不要受洗’。当然要。问题是：<strong>洗礼是称义的根基或工具，还是已经领受福音之人的约记号与蒙恩管道？</strong>”</p>
+<p>“举一个极端却能暴露逻辑的例子：十字架旁悔改的强盗没有机会完成活水、低头、面朝下的洗礼，但基督直接应许他同在乐园。重点不是把强盗变成常规，而是说明基督的救恩不受仪式条件辖制。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们会说神有主权处理特殊情况，但一般情况下，人不能拿例外废掉命令。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">必要的顺服 ≠ 称义的原因</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我也不拿例外废命令。那我们看常规教导：保罗在林前1:14-17说，他感谢神自己没有给很多哥林多人施洗，并把‘基督差遣我，原不是为施洗，乃是为传福音’作区分。”</p>
+<p>“如果特定形式的水洗本身是罪得赦免不可分割的救恩步骤，这句话至少会变得非常奇怪。保罗当然支持洗礼，却能把‘传福音’作为其使徒使命的核心与‘亲自施洗’区分。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“但使徒行传里信的人几乎都马上受洗。洗礼从来不是可有可无。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">从描述推成救恩规则？</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“同意，不可轻看。现在再看你们独特的技术要求：哪里有一条使徒命令说必须是‘自然活水’？哪里命令头一定向下？哪里说面一定朝下？哪里说施洗者若未先说方言，洗礼无效？”</p>
+<p>“罗6讲的是与基督同死同复活的属灵实质；把‘同死’进一步锁定成头朝下的物理姿势，是从象征推出了经文没有明说的礼仪法规。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“耶稣低头死在十字架上；活水也有圣经意象。我们希望照圣经最完整地实行，而不是随意简化。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">关键区分</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“谨慎顺服本身是好事。但当你把一种<strong>可能富有象征意义的做法</strong>提升为‘有效洗礼乃至赦罪所必需的规范’，举证责任就非常高。”</p>
+<p>“宗教改革所谓‘唯独圣经’的锋刃就在这里：教会没有权柄把圣经没有规定为必要的细节，提升为良心与救恩的必要条件。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“所以你不是反对浸礼，也不是反对在河里洗，而是反对把这些细节变成救恩边界。”</p>
+<p>“对吗？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">进入洗礼名义</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“正是。你可以因良心选择浸礼、河水、低头；我不会因此责备你。问题是：能不能说没有按这些条件受洗的人就没有真正得赦免、没有进入基督的身体？我认为圣经不允许教会做这个加法。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡点了点头，但没有完全同意：“这会牵涉到下一个问题——‘奉耶稣名’到底是什么意思。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="name">
+      <div class="section-kicker">CHAPTER 04</div>
+      <h2>第四幕｜“奉耶稣的名受洗”是否推翻“父、子、圣灵的名”？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">“名”是单数</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“你们很重视使徒行传里‘奉耶稣基督的名’受洗，这是可以理解的。但太28:19是主自己明确的命令：奉父、子、圣灵的名施洗。改革宗没有理由因为使徒行传的简写而删掉耶稣亲口的大使命。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们的理解不是删掉马太福音，而是解释它。父、子、圣灵不是三个名字；经文说的是单数的‘名’。使徒后来实际施洗都奉耶稣的名，所以他们显然明白那个‘名’就是耶稣。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">叙事中的简称</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“单数的‘名’恰好非常适合三位一体：三个位格共享一个神圣之名、一个神性权柄，并不等于‘父这个名称的词汇就是耶稣’。”</p>
+<p>“使徒行传说‘奉耶稣名’更自然的功能，是把基督教洗礼与约翰的洗、犹太洁净礼、其他宗教仪式区分开：受洗归入耶稣、承认耶稣的权柄与弥赛亚身份。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“可彼得没有说‘奉父子圣灵的名’，他就是明确说耶稣基督。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">文本类型</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“新约也说医治是‘奉耶稣的名’，祷告‘奉耶稣的名’，这不是说每次都必须用某一个发音公式才有效，而是诉诸他的权柄与位格。”</p>
+<p>“如果使徒行传是在给我们逐字礼仪公式，它反而出现‘奉耶稣基督的名’‘奉主耶稣的名’等不同表达。最稳妥的做法不是让叙事摘要取消主明确的三一命令，而是让二者彼此照明。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“也就是说，你把使徒行传的‘耶稣之名’看作洗礼的归属和权柄，而不是必须逐字念出的唯一公式。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">教义彼此相连</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“对。更重要的是：如果把‘父、子、圣灵的名就是耶稣’当成三一论反证，我们又回到了前一幕的问题——你必须证明父与子没有真实位格区分。但约翰福音、耶稣受洗、主的祷告都不允许那么简单。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这点我承认，洗礼公式和神论其实绑在一起。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="spirit">
+      <div class="section-kicker">CHAPTER 05</div>
+      <h2>第五幕｜圣灵与方言：所有真正领受圣灵的人都必须说方言吗？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">叙事中的三个显著场景</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“你们第五条信仰说，领受圣灵是得天国基业的凭据，并以说灵言为受圣灵的明证。这句话非常关键，因为它实际会影响一个人有没有得救确据。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“使徒行传很清楚：五旬节他们受圣灵就说方言；哥尼流家也是；以弗所的门徒也是。圣灵降下时，人有可以听见、看见的凭据。”</p>
+<p>“如果只说‘我心里相信我有圣灵’，那太主观了。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">常见回应：两种方言</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我同意使徒行传2、10、19确实把方言与圣灵降临连在一起。但使徒行传还有第8章，撒玛利亚人受圣灵，文本没有说他们说方言；更重要的是，叙事里发生过某种现象，不等于每个时代每个信徒都必须复制同一现象。”</p>
+<p>“教义上最直接的是林前12章。保罗说圣灵按自己的意思把不同恩赐分给不同人，然后用一连串反问：岂都是使徒吗？岂都说方言吗？希腊文修辞期待的答案是‘当然不是’。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们通常会区分‘受圣灵时作为证据的方言’和‘教会中翻出来造就人的方言恩赐’。林前12章讲的是恩赐职分，不一定否定受圣灵的灵言。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">确据问题</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“这个区分可能帮助你协调体系，但问题是：保罗有没有明确教过‘有两种本质不同的方言，一种人人受圣灵时都有，一种只有部分人作为恩赐拥有’？”</p>
+<p>“林前12—14章的论证恰恰把方言放在圣灵多样恩赐之中。若存在一个对所有信徒都具有救恩验证意义的普遍方言，哥林多教会是保罗最应该讲清楚的地方。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那罗8:9说没有基督的灵就不属基督；你怎么知道一个人什么时候真正有圣灵？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">外在现象能否保证真实？</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“罗8确实说没有基督的灵就不属基督；但同一卷罗马书没有把方言设为验证测试。加3:2问他们受圣灵，是因行律法还是因听信福音；弗1:13说听见真理的道、信了基督，就受所应许圣灵为印记。”</p>
+<p>“新约把圣灵与对基督的真实信心、圣灵的果子、儿子的名分、对罪的争战联系起来，而不是给所有信徒一个统一的声音现象。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“但没有客观外在现象，会不会让人自欺？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">停止论不是第一层</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“外在现象也可能被误判。耶稣自己警告末日有人会以神迹、赶鬼等经历自证，却不一定真正属他；保罗也警告假神迹。”</p>
+<p>“改革宗的确据不是‘我今天感觉很好’，而是三方面：神在福音中的客观应许、我单单倚靠基督的信心、以及圣灵在生命中结出的果子。这比把一个现象绝对化更符合整本新约。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“你们是不是还认为方言已经停止？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">把争议收窄到经文</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“经典改革宗通常持停止论：使徒性、启示性神迹恩赐不再作为教会常规根基标志。但即使我们暂时不争这一点，我仍然可以和一个持续论者一起读林前12:30，然后说：<strong>方言绝不能成为所有基督徒领受圣灵的普遍必要证据。</strong>”</p>
+<p>“所以我们的核心分歧甚至早于停止论。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这个论点比直接说‘方言都是假的’要公平得多。”子衡说，“我们当然不认为假的方言就是圣灵。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="footwashing">
+      <div class="section-kicker">CHAPTER 06</div>
+      <h2>第六幕｜洗脚礼：谦卑的榜样，还是与主有分的救恩圣礼？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">约13:8</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“约13章可能是我们最容易被一句话卡住的地方。耶稣对彼得说：‘我若不洗你，你就与我无分。’你们因此把洗脚礼视为使人与主有分的圣礼。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“对。耶稣的话非常重。之后他又命令门徒彼此洗脚。既然洗礼、圣餐我们都照做，为什么洗脚反而被说成只是文化象征？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">象征并不等于不存在命令</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“因为我们必须继续读上下文。彼得立刻说那连手和头也洗；耶稣回答，已经洗过澡的人只要洗脚，全身就洁净了，并且说‘你们是干净的，然而不都是’——指向犹大。”</p>
+<p>“这里显然不只是卫生动作。耶稣正在用洗脚展示他洁净门徒、降卑服侍的救赎图像。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“但象征有属灵意义，不就更应该实行吗？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">新约书信中的洗脚</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“教会当然可以真实地彼此洗脚，尤其在文化和服侍情境中，这可以是很美的行动。争议不是‘能不能洗’，而是‘是否每个受洗者必须接受一次正式洗脚礼，否则不能与主有分’。”</p>
+<p>“约13:15耶稣自己解释：‘我给你们作了榜样，叫你们照着我向你们所做的去做。’新约书信之后反复讲彼此服侍、谦卑，却没有像洗礼和圣餐那样建立一个普世教会必须施行的第三种救恩圣礼。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“提前5:10还提到寡妇‘洗圣徒的脚’。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">释经原则重复出现</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“恰恰因为提前5:10把‘洗圣徒的脚’和接待客旅、救济遭难的人并列为善行，它更像谦卑服侍与接待的实际表现，而不是人人必须领受的一次性救恩礼仪。”</p>
+<p>“如果洗脚礼与得救有同等必要性，我们会期待使徒在罗马书、加拉太书、哥林多前书论圣礼秩序时明确教导它；但这类系统性教导缺席。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“你又回到同一个原则：不能从一个强烈场景直接推出普遍救恩条件。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">严肃但不越界</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“对。这是今天我们反复遇到的分水岭。改革宗并不是因为‘不喜欢仪式’而反对，而是坚持教会不能把主没有普遍设立为救恩门槛的行为，变成良心必须背负的条件。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“不过如果耶稣真的说‘与我无分’，你要非常认真对待。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">基督亲自洁净</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“完全同意。所以我会把这句话看得比一个水盆更深：除非基督亲自洁净我，我就与他无分。彼得不是靠完成礼仪救自己，而是被主洗净。然后被主洗净的人，必须以主人的姿态去服侍别人。”</p>
+<p>“这使约13章更基督中心，而不是更轻。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡看着桌面：“这个解释我能理解，虽然我还没有被说服。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="communion">
+      <div class="section-kicker">CHAPTER 07</div>
+      <h2>第七幕｜圣餐与约翰福音6章：吃主肉、喝主血意味着什么？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">约6章</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“你们相信圣餐使人同领主肉主血、与主联合、得永生并在末日复活；并规定一个无酵饼和葡萄汁。”</p>
+<p>“改革宗也比很多人想象的更重视圣餐。我们不认为它只是脑中回忆；信徒借着圣灵、凭信心真实领受基督和他的恩惠。但不是饼酒本身机械地产生永生。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“约6章耶稣的话很直接：若不吃人子的肉、不喝人子的血，就没有生命；吃喝的人有永生，末日要复活。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">圣餐真实地指向基督</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“把约6章从33节读到40节，会发现耶稣先用‘到我这里来’和‘信我的’来解释饥饿、口渴与生命：到他这里来的不饿，信他的永不渴。”</p>
+<p>“然后才发展到吃肉喝血。最自然的阅读是：吃喝是以极强烈的身体隐喻描述<strong>凭信心领受被钉的基督</strong>，而不是先给尚未设立的圣餐一个仪式性救恩公式。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“可主后来确实设立圣餐，说这是我的身体、我的血。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">礼仪细节</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“所以圣餐正是约6章真理的可见福音：不是否认，而是把基督已经完成的救赎借着饼和杯印在信徒身上。”</p>
+<p>“改革宗传统因此拒绝两个极端：一边把圣餐变成空洞纪念；另一边把饼杯变成脱离信心、凭仪式本身运作的救恩装置。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那你们为什么不坚持一个无酵饼、一杯葡萄汁？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">圣礼神学的分水岭</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我们坚持主所设立的要素与意义，但对经文没有普遍规定的物理数量，不建立救恩边界。林前10说‘我们虽多，仍是一个饼、一个身体’，重点是教会的联合，并不意味着全球每场圣餐必须由一个物理面包才有效。”</p>
+<p>“同样，圣礼的能力来自基督的应许与圣灵的工作，不来自礼仪技术参数本身。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“你一直在防止把象征的具体形式绝对化。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="sabbath">
+      <div class="section-kicker">CHAPTER 08</div>
+      <h2>第八幕｜安息日：为什么你们星期日聚会，而我们坚持星期六？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">共同重视安息</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“这点我们倒有一个有趣的共同处：改革宗不像某些现代基督徒那样说第四诫完全没意义。经典改革宗认为安息原则仍然有道德性，一周分别一天归给神。”</p>
+<p>“分歧是：新约以后，这个主日是否仍被锁定为第七日星期六。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“创2:2-3神第七日安息，出20第四诫也说第七日是向耶和华守的安息日。耶稣和使徒也在安息日聚会。十诫没有一处说后来改成星期日。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">转移的证据是累积性的</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“耶稣在安息日进会堂并不奇怪，他生在律法之下，也在犹太人中传道。使徒在安息日进会堂，很多时候是因为犹太人聚在那里，是宣教场景。”</p>
+<p>“但复活发生在七日的第一日；约20记载主在第一日向门徒显现；徒20:7说七日第一日门徒聚会擘饼；林前16:2把奉献安排在每周第一日；启1:10出现‘主日’这一基督徒时间标记。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这些最多证明第一日有聚会，不能证明第四诫的第七日被改变。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">歌罗西书争议</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“所以改革宗的论证不是拿一节‘星期日取代星期六’的公式，而是看救赎历史：旧创造以第七日安息为终点；新创造由基督在第一日复活开启，教会在第一日围绕复活的主聚集。”</p>
+<p>“同时西2:16-17明确警告不要因节期、月朔、安息日让人论断，这些是影儿，实体属于基督；罗14:5也处理对日子的不同看法。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们会说西2讲的是节期性的安息日，不一定是十诫里的每周安息日。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">安息与称义</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“这个解释可以讨论。但至少它说明：新约没有把第七日守法当作区分真教会与假教会的标志。保罗面对外邦信徒时，从来没有说‘你们必须在星期六守安息，才是恢复使徒教会’。”</p>
+<p>“而且使徒大会徒15列给外邦人的必要事项时，也没有把第七日守安息列进去。如果这是救恩真道不可缺的一部分，这是非常显著的缺席。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“所以你们认为守主日是恩典秩序，不是靠守日称义。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">共同警惕律法主义</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“对。我们守主日不是为了靠日历进入天国，而是因为基督已经成就救赎，我们在复活日进入他的安息、敬拜、领受恩典。真正的安息最终在基督里，并指向来世完全安息。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“至少这一点，我们都不应该把安息日过成新的法利赛主义。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="salvation">
+      <div class="section-kicker">CHAPTER 09</div>
+      <h2>第九幕｜得救到底“本乎恩、因着信”，还是还需要一套必须完成的救恩程序？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">顺服是真信心的果子</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“你们第九条也说得救本乎恩、因着信。这句话表面看与我们完全一致。”</p>
+<p>“但当我把其他条目放在一起：有效水洗赦罪重生、受圣灵且以方言为明证、洗脚使人与主有分、圣餐使人得永生——我就必须问：‘因信得救’在你们体系里到底意味着什么？”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“意味着没有神的恩典，没有人能靠行为买到救恩。可是信心必须顺服。挪亚若说他信神却不造方舟，那种信有什么用？耶稣命令的，人当然要做。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">真正的问题是“果子”还是“工具”</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“改革宗同样反对一种嘴上说信、生命完全拒绝基督的死信心。我们从不把‘唯独信心’解释成‘唯独一张口头同意的票’。”</p>
+<p>“改革宗的经典公式是：<strong>我们唯独因信称义，但使人称义的信心从来不是孤独的。</strong>它必然生出悔改、爱与顺服。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那听起来和我们并没有很远。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">雅各与保罗</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“距离就在这里：顺服是得救信心的<strong>果子与证据</strong>，还是神宣告罪人称义时必须共同完成的<strong>工具与条件集合</strong>？”</p>
+<p>“罗4拿亚伯拉罕作例子：作工的得工价不算恩典；不作工、只信称罪人为义之神的人，他的信就算为义。保罗的目的不是贬低善行，而是把称义的根据彻底移出罪人自己，放在基督义上。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“雅2又说人称义是因着行为，不是单因着信。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">福音的中心</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“雅各攻击的是自称有信却没有果子的死信；保罗攻击的是把行为带进神法庭作为称义根据。两人用‘称义’时论敌不同、问题不同。”</p>
+<p>“亚伯拉罕在创15因信被算为义；多年以后创22献以撒显明那信心是真的。雅各甚至说信心与行为并行、因行为得以完全——行为<strong>证明并成全</strong>活信心，不是替基督的义补一块。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“所以你很担心‘必须再完成某项礼仪，否则无分于基督’这种说法。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">类比而非等同</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“非常担心。因为罪人的安慰应当落在：基督已经成了；我空手领受他。洗礼、圣餐、成圣、善行都极其重要，但它们不能成为我每晚重新计算‘是不是还少完成一个步骤’的账单。”</p>
+<p>“加拉太书之所以激烈，就是因为任何把额外礼仪条件放到福音门口的做法，哪怕那礼仪本身曾经由神设立，也可能破坏恩典逻辑。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“你把我们的洗脚、方言这些类比成加拉太人的割礼？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">争论回到释经</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我不是说它们历史上等同割礼，而是说逻辑值得警惕：如果一个条件被宣布为‘没有它就不能真正成为神子民、不能真正有救恩’，它就站到了与加拉太争论相似的位置。”</p>
+<p>“因此必须要求极清楚的使徒教导，而不能只靠若干经文推论。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这的确是最尖锐的地方。因为在我们看来，那些不是人加的，是主自己教的。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="church">
+      <div class="section-kicker">CHAPTER 10</div>
+      <h2>第十幕｜“唯一真教会”：基督只有一个身体，是否等于1917年建立的一个机构？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">一个身体</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“现在谈我认为最严重的教会论问题。你们官方教导强调：圣灵建立的只有一个真教会，真耶稣教会是1917年恢复使徒教会的末世真教会；听见这完整福音的人应当加入这个身体。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“弗4就是一个身体、一个圣灵、一个信、一个洗。耶稣也祷告门徒合一。现在基督教几万个宗派互相矛盾，怎么可能都是真教会？神的真理不应该混乱。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">“一个”不是先验等于一个现代机构</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我完全同意基督只有一个身体。改革宗也痛惜分裂。问题是：‘基督只有一个身体’是否能直接推出‘这个身体在历史上等同于1917年北京出现并延续至今的真耶稣教会组织’？”</p>
+<p>“这中间缺了一个巨大的逻辑桥梁。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“桥梁就是完整真理、同一圣灵、同一洗礼，以及神迹印证。若一个群体没有使徒的完整真理，它怎么能是那一个身体？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">真教会也可能不完全纯净</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“改革宗对‘一教会’的理解是大公性的：所有真正与基督联合的人在属灵上构成一个身体；在可见层面，他们分布于各地真实教会。地方教会有更纯正、更不纯正，甚至堕落到不再是教会的差别。”</p>
+<p>“因此，一不是组织总部上的单一，而是同一元首、同一福音、同一圣灵、同一使徒根基里的大公合一。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“可是如果两个教会关于洗礼、三一、安息日讲的都不一样，怎么还能说都属于同一个真教会？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">弗4的“一个”</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“新约自己面对的地方教会差异比我们想象的大。哥林多有严重混乱；加拉太受到假福音威胁；启示录七教会中有的被主严厉责备。主没有因为存在错误就立刻假设地上只剩一个完美机构。”</p>
+<p>“教会的真假当然有边界，但边界应围绕使徒福音、基督是谁、三一神、圣言与基督设立的圣礼，而不是把某个近代组织的所有独特礼仪都提升为教会存在条件。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那‘一个洗’怎么解释？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">制度排他性</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“‘一个洗’首先指归入同一位基督、同一新约身体的基督徒洗礼，而不是说所有教会必须在物理姿势、地点、水体条件上完全一致。”</p>
+<p>“否则你还需要证明保罗写弗4时，他心里的‘一个洗’已经包含1917年以后才被恢复的活水、低头面朝下、特定施洗者资格这些技术条件。经文本身没有展开这些。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“你还是认为我们把‘一个’解释成了‘只有我们这个组织’。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">大公不等于相对主义</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“是。更具体地说，我认为这是一个类别错误：从‘基督的身体在真理中是一个’跳到‘一个现代可识别宗派机构就是这个身体的唯一历史承载者’。这需要远超过弗4本身的证明。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那你如何避免另一端——大家都说自己信耶稣，什么教义都无所谓？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">共同承认真理高于机构</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“靠清楚的福音和大公信仰边界，而不是靠组织独占。否认基督的神人二性、否认三一神、否认复活、把别的功德加进称义，都不是小差异。”</p>
+<p>“真正的大公性不是‘什么都行’，而是承认基督的羊不由我的宗派名册创造。教会服在基督之下，而不是基督被锁在教会机构之内。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡慢慢说：“这句话我会记住。但我们会反过来说，离开真道的机构再古老也没有用。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="history">
+      <div class="section-kicker">CHAPTER 11</div>
+      <h2>第十一幕｜如果教会在使徒后失落了，基督“阴间的门不能胜过她”的应许怎么办？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">背道与消失不是同一件事</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“你们关于1917恢复的叙事还有一个历史神学难题：如果后使徒时代教会根基被毁、圣灵离开，直到1917年才恢复，那么基督在太16:18说阴间的门不能胜过他的教会，太28:20说直到世界末了常与门徒同在，应当怎样理解？”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“旧约以色列也曾严重背道，圣殿也被毁。神后来可以复兴。启示录也预言教会受逼迫、真理被践踏。神的应许不等于地上机构永远不败坏。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">历史早 ≠ 自动正确，历史断裂也需证明</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“这个回应能证明教会可能极度败坏，却不能自动证明基督的教会整体在一千多年里失去圣灵与真福音。”</p>
+<p>“改革宗自己就是改革运动：它从不需要声称从使徒以后直到16世纪完全没有教会。我们说中世纪教会有严重错误，却仍有圣经、信经、洗礼、关于基督的核心见证，也有真实信徒。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“但很多后来传统——婴儿洗、星期日、三一论术语、礼仪制度——不就是一步步偏离使徒吗？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">进入神迹问题</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我同意‘古老’不能自动证明正确。二世纪的错误仍是错误。但同样，‘后来我才发现使徒真正意思’也不能自动证明正确。”</p>
+<p>“恢复主义最大的举证责任是：你不仅要证明前人有错，还要证明基督的真教会曾整体失去关键救恩真理，并且神在1917年对某群体恢复了那些真理。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们会以圣灵、神迹和圣经的一致性作为印证。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">那最终仍回到圣经</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“那就要继续问：如果神迹是最终印证，申13为什么说即使预言的神迹实现，若引人离开神，也不可听？太24为什么警告假基督假先知行大神迹？帖后2也提到虚假的异能奇事？”</p>
+<p>“这说明神迹从来不是高于启示真理的终审法官。必须反过来：圣经审查神迹所伴随的信息。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们当然也不认为任何神迹都来自神。真正的神迹必须与真理一致。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">共同回到文本</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“很好。那我们的争论就不能用‘我们有方言、医治、神迹，所以教义是真的’来结束。我们仍要逐条检验：关于三位一体、洗礼、洗脚、安息日、方言、唯一教会，这些是否真是使徒的清楚教导。”</p>
+<p>“而一旦这些关键独特教义的经文基础不够，神迹就不能补足释经上的缺口。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这一点我接受：经历不能取代经文。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="hermeneutics">
+      <div class="section-kicker">CHAPTER 12</div>
+      <h2>第十二幕｜一节经文很强烈，能不能直接变成所有人的救恩法规？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">不是削弱经文，而是辨别体裁与范围</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“我们谈到现在，我发现真正反复出现的不是某一节经文，而是释经方法。”</p>
+<p>“你们常从一个具体叙事或一句强烈语言，推导出普遍、必要、具有救恩边界意义的礼仪规则：‘与我无分’变成必须洗脚；几次方言叙事变成人人受圣灵的明证；耶稣低头断气与罗6结合，变成洗礼必须低头；使徒行传‘耶稣之名’变成唯一口头公式。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“可是若我们总把强烈经文解释成象征，不就什么都可以不做了吗？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">必要推论可以有</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“所以需要几条控制原则。”</p>
+<p><strong>第一</strong>，清楚经文解释较难经文；<strong>第二</strong>，教义性书信帮助我们理解叙事中哪些现象是普遍规范；<strong>第三</strong>，一项若被宣布为全体信徒得救所必需，应当有相称程度的清楚、反复教导；<strong>第四</strong>，整本圣经的救赎中心是基督及其完成的工作，不是把象征细节不断升级成新律法。</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那改革宗就从来不会从隐含逻辑推教义吗？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">教义强度要匹配证据强度</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“当然会。三位一体就是把许多经文事实综合起来；婴儿洗也涉及圣约连续性的推论。区别在于：我们必须公开承认哪些是直接命令、哪些是良好必要推论，并让推论接受整本经文审查。”</p>
+<p>“更重要的是，越靠推论得出的细节，越不应轻易升级成‘没有做到就不得救’。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这句话确实值得想。因为‘教会可以这样做’和‘人人必须这样做，否则没有救恩’，强度差很多。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="holiness">
+      <div class="section-kicker">CHAPTER 13</div>
+      <h2>第十三幕｜“你们改革宗只讲信，不讲圣洁吗？”</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">对改革宗的反质询</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>子衡忽然反问：“我也有一个对改革宗的担心。你们一再说因信称义，会不会最后变成：反正已经得救，洗不洗、守不守、圣不圣洁都没关系？”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我认识一些自称基督徒的人就是这样。礼拜天去教会，平日生活看不出任何分别。至少我们教会非常强调祷告、圣灵、圣洁、实际顺服。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">区分但不分离</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“这是合理的警告。若一个改革宗教会把因信称义讲成廉价恩典，它同样背叛改革宗自己的信仰。”</p>
+<p>“罗6在讲完恩典之后立刻问：我们可以仍在罪中叫恩典显多吗？断乎不可。弗2:8-10也把次序排得很清楚：本乎恩、因着信，不是出于行为；但我们在基督里被造，是为要叫我们行神预备的善工。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“所以你们把称义和成圣区分，但不分离。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">福音次序</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“正是。称义回答‘神凭什么接纳我’——唯独因基督的义，借信心领受；成圣回答‘被接纳的人如今怎样活’——圣灵真实更新，使人治死罪、追求圣洁。”</p>
+<p>“如果把两者混在一起，信徒永远不知道自己是否够圣洁才能被接纳；如果把两者割裂，就会产生你说的放纵。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这点其实我很赞同。我们也不会说靠人的功德赚救恩。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">仍回到同一核心</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“那我们可以共同反对两种错误：一种是律法主义，把人的顺服带进称义根基；另一种是反律主义，把恩典当作犯罪许可证。”</p>
+<p>“真正的福音是：因为基督已经完全拯救，所以圣灵开始真实改变；不是因为我终于完成一串仪式，所以基督才勉强接纳。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“我们的争议仍然是，那些礼仪究竟是不是基督指定的救恩方式。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="pastoral">
+      <div class="section-kicker">CHAPTER 14</div>
+      <h2>第十四幕｜如果一个人爱主、读经、结果却不在“真耶稣教会”，他到底在哪里？</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">把制度教义落到牧养</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>以诺把问题变得很具体：“假设有一个老人，一辈子信靠基督，承认父子圣灵，悔改，爱主，受过基督徒洗礼，常领圣餐，生命结出圣灵果子；但他从没听说1917年的真耶稣教会，也从没接受低头活水洗礼、一次性洗脚礼、方言明证。你能说他在基督身体之外吗？”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡迟疑：“神最终判断人，我们不能代替神。但如果一个人已经听见完整真理，就应该顺服。无知和明知拒绝不一样。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">福音简洁不等于门徒生活贫乏</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“这个保留比简单判人下地狱谨慎。但它也显出一个问题：如果这些项目确实是福音本身不可缺少的内容，使徒为什么在向外邦人传福音时没有每次都列出完整程序？”</p>
+<p>“保罗对腓立比禁卒说的是‘当信主耶稣，你和你一家都必得救’，随后当然给他们施洗；他没有先给出一套后来才能完整恢复的宗派礼仪表。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“但他们后来受洗了，信心不是停在一句话。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">教会服侍福音</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“当然。一个人信主以后，会进入一生的门徒训练：受洗、聚会、圣餐、顺服、服侍、忍耐到底。福音的简洁并不是基督徒生活的贫乏。”</p>
+<p>“关键仍是次序：<strong>进入基督的门是基督自己，而不是先通过某个近代教会制度的完整认证。</strong>教会把人带到基督，不是把基督变成只有通过本机构才能接近的资源。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“你很反感任何‘机构垄断救恩’的说法。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">改革宗也必须被审判</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“因为教会是基督的新妇，不是基督的主人。她有钥匙职分、有教导与纪律权柄，但她的权柄是服侍性的、宣告性的；她不能制造福音，也不能添加基督没有设立的救恩条件。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那如果改革宗教会讲错了呢？”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">宗派标签不能代替真理</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“同样被圣经审判。‘改革宗’三个字不保人。一个挂改革宗牌子的教会若否认福音、容忍异端、把传统放到圣经上面，我不会因为它的招牌为它辩护。”</p>
+<p>“这就是为什么我今天的结论必须是‘回到圣经所见证的改革宗福音原则’，而不是‘无条件忠于某个改革宗机构’。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“这个答案比‘我们历史更正统，所以你错’更有说服力。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="rapid">
+      <div class="section-kicker">CHAPTER 15</div>
+      <h2>第十五幕｜最后一轮：子衡把最强的问题一次问完</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">快速交锋 I</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p><strong>子衡：</strong>“如果洗礼不是赦罪必要条件，为什么徒2:38把受洗和罪得赦连在一起？”</p>
+<p><strong>以诺：</strong>“因为悔改、信基督、受洗在初代归信中本来就是紧密整体；洗礼可称为罪得赦的记号与印证。但使徒在其他论称义文本中把领受义的工具聚焦于信心。不能把一个紧密相连的记号反转成基督工作之外另一个法庭根基。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p><strong>以诺：</strong>“如果说方言是人人受圣灵必有的明证，如何处理林前12:30‘岂都是说方言的吗’？”</p>
+<p><strong>子衡：</strong>“我们会区分受圣灵的灵言与教会性方言恩赐。”</p>
+<p><strong>以诺：</strong>“那请继续证明这种二分是保罗自己明确教导，而不是为了协调体系才加入的分类。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">快速交锋 II</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p><strong>子衡：</strong>“如果洗脚不是圣礼，怎么解释‘我若不洗你，你就与我无分’？”</p>
+<p><strong>以诺：</strong>“把主亲自的洁净当作实质，把水洗脚当作行动中的记号与榜样；尤其结合13:10、13:15和后来书信对洗脚的处理。若要把它提升为普世救恩圣礼，需要使徒更明确的建立。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p><strong>以诺：</strong>“如果1917年的机构是唯一恢复的使徒真教会，太16:18、28:20怎样与长期教会消失相容？”</p>
+<p><strong>子衡：</strong>“我们不会说神没有任何选民，而是说完整使徒教会的真理和圣灵工作需要末后复兴。”</p>
+<p><strong>以诺：</strong>“那‘完整真理直到1917才恢复’本身就需要极强的圣经与历史证据。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">快速交锋 III</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p><strong>子衡：</strong>“你们为什么敢把安息日改成星期日？”</p>
+<p><strong>以诺：</strong>“不是凭教皇命令修改十诫，而是从基督复活与使徒教会第一日聚集理解安息原则在新创造中的成全；同时拒绝把星期六守法变成称义或真教会标志。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p><strong>以诺：</strong>“你们为什么不接受传统三位一体？”</p>
+<p><strong>子衡：</strong>“怕用非圣经哲学术语把一位神分割。”</p>
+<p><strong>以诺：</strong>“我也反对分割。但必须同时保留父爱子、父差子、子求父、父赐圣灵等真实关系。三一论正是为了不牺牲这些文本。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">不把教义判断变成人身审判</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p><strong>子衡：</strong>“你是不是最终认为真耶稣教会里没有一个真正信主的人？”</p>
+<p><strong>以诺：</strong>“我不会越过神去审判每个个体。一个人的救恩由基督掌握。我的判断对象是教义：我认为你们关于神位格、救恩圣礼化、方言明证、星期六规范以及1917唯一真教会的几项独特主张，不能由整本圣经充分建立。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p><strong>以诺：</strong>“你会不会因此认为改革宗的人只要挂名就自动安全？”</p>
+<p><strong>子衡：</strong>“我想你已经回答过：不会。”</p>
+<p><strong>以诺：</strong>“对。真正的问题永远是：我是否在圣经所启示的基督里，单靠他的恩典，凭真实信心归向他，并在圣灵里结出顺服的果子。”</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+    <section class="dialogue-section" id="epilogue">
+      <div class="section-kicker">CHAPTER 16</div>
+      <h2>尾声｜夜已经深了：不是赢了朋友，而是把圣经重新打开</h2>
+      <div class="section-line"></div>
+      
+    <div class="exchange">
+      <div class="exchange-tag">朋友不是辩论对象，而是真理面前的同行者</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>咖啡店开始收椅子。以诺看了一眼时间，已经谈了四个多小时。</p>
+<p>“我今天不是想证明你比我笨，也不是想靠一场辩论把你逼到墙角。”他说，“如果我是错的，我宁愿你用圣经纠正我。因为我们都没有资格把自己的宗派放在基督之上。”</p>
+<p>“但如果要我总结，我仍然会站在宗教改革的福音上：圣经足够；三一神按他自己的启示被敬拜；罪人唯独因恩典、唯独借信、唯独在基督里称义；圣礼服侍福音而不取代福音；教会属于基督，不被1917年的一个机构垄断。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡把已经凉掉的咖啡喝完。</p>
+<p>“我也不会因为今天几句话就立刻改变。我在教会里有我认识的人、有经历、有祷告，也看见过生命改变。”</p>
+<p>“但我承认，有几件事我以前主要是‘因为教会这样教所以这样读’。尤其是林前12章、约13章，还有‘唯一教会’与1917之间那一步，我愿意重新查。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">两边都接受检验</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“那就不要先读我的书。”以诺说，“先把约翰福音14—17章完整读一遍，问父、子、圣灵在文本里到底如何彼此说话；再把罗马书3—5章、加拉太书2—3章读一遍，问称义的工具到底是什么；再把林前10—14章整体读，问方言在圣灵恩赐中到底是什么地位。”</p>
+<p>“然后把使徒行传所有受洗与受圣灵的段落并排，不只挑最像我们体系的那几段。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“你也答应我，”子衡说，“不要因为一个教会的某个教义让你反感，就先假设里面所有见证都是假的，所有人都是被迷惑的。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">争辩与温柔</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>“答应。我可以批评一个教义，却仍然尊重那些真诚寻求神的人。”</p>
+<p>“真理不需要我们用轻蔑保护。犹大书说为一次交付圣徒的真道竭力争辩；彼得前书又要求我们以温柔、敬畏回答。两件事应当同时存在。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>“那下次我们只谈一个题目。”</p>
+<p>“哪个？”</p>
+<p>“三位一体。我们把所有经文摊开，一节一节来。”</p></div>
+      </article>
+    </div>
+    
+    <div class="exchange">
+      <div class="exchange-tag">终点不是口才，而是基督与圣言</div>
+      <article class="speech reform">
+        <div class="speaker"><span class="avatar">R</span><div><b>以诺</b><small>改革宗新教基督徒</small></div></div>
+        <div class="body"><p>两个人起身。门外夜色很深。</p>
+<p>以诺最后说：“我越来越觉得，真正危险的不是我们认真争论，而是我们太早觉得自己已经知道答案，所以不再让圣经审判自己的体系。”</p>
+<p>“改革宗也必须不断改革——不是追逐新奇，而是不断回到神的话。<strong>Ecclesia reformata, semper reformanda secundum verbum Dei</strong>：已经改革的教会，仍当照着神的话不断被改革。”</p></div>
+      </article>
+      <article class="speech tjc">
+        <div class="speaker"><span class="avatar">T</span><div><b>子衡</b><small>真耶稣教会会友</small></div></div>
+        <div class="body"><p>子衡点头：“那就从经文开始。”</p>
+<p>他们没有在门口互相宣布胜负。</p>
+<p>但有一件事已经很清楚：下一次见面时，桌上不会只有咖啡，还会有两本摊开的圣经。</p></div>
+      </article>
+    </div>
+    
+    </section>
+    
+
+  <section>
+    <h2>把主要分歧放在一张表里</h2>
+    <table class="compare">
+      <thead><tr><th>议题</th><th>改革宗新教</th><th>真耶稣教会官方主张（概括）</th></tr></thead>
+      <tbody>
+        <tr><td>神论</td><td>一位神、三个位格；父子圣灵同质同荣同永恒，位格真实有别。</td><td>强调一位神、一位灵；不接受传统“三个位格”框架，倾向把父子圣灵理解为一神的显明与工作。</td></tr>
+        <tr><td>圣经与恢复</td><td>圣经是唯一无误规范；教会会败坏但基督的教会不会从历史中完全消失。</td><td>圣经是唯一真道根据；同时相信1917年圣灵恢复使徒时代真教会与完整福音。</td></tr>
+        <tr><td>水洗</td><td>基督设立的圣礼、恩典之约的记号与印证；不以具体水体、头部方向作为有效性的救恩条件。</td><td>赦罪重生的典礼；强调自然活水、全身浸入、低头面下、奉耶稣名及施洗者资格。</td></tr>
+        <tr><td>圣灵/方言</td><td>所有属基督者都有圣灵；方言不是所有信徒领受圣灵的普遍必要明证。</td><td>领受圣灵为天国基业凭据，并以说灵言为受圣灵之明证。</td></tr>
+        <tr><td>洗脚</td><td>约13主要显明基督洁净与谦卑服侍；可实行，但不视为普世救恩圣礼。</td><td>洗脚礼使人与主有分，并教导爱、圣洁、谦卑、服侍、饶恕；受洗者应领受。</td></tr>
+        <tr><td>圣餐</td><td>基督真实借圣灵使信徒凭信领受他；拒绝仪式机械产生永生。</td><td>同领主肉主血、与主联合、得永生、末日复活；强调一个无酵饼与葡萄汁。</td></tr>
+        <tr><td>安息日</td><td>经典改革宗把第一日“主日”视为基督徒安息日，根植复活与新创造。</td><td>坚持第七日星期六为神赐福、分别为圣的安息日。</td></tr>
+        <tr><td>称义与成圣</td><td>唯独因恩典、唯独借信、唯独在基督里称义；善行和圣洁是必然果子，不是称义工具。</td><td>宣称得救本乎恩也因着信，同时把若干圣礼与受圣灵经验置于完整救恩路径中。</td></tr>
+        <tr><td>教会</td><td>基督只有一个大公身体；可见地方教会纯正程度不同，不能由单一近代宗派机构垄断。</td><td>真耶稣教会是1917年由晚雨圣灵恢复的使徒真教会，承载完整救恩真理。</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section class="verdict">
+    <h2>本文的改革宗结论</h2>
+    <p>这场对话并不需要否认真耶稣教会会友可能真诚爱主、认真祷告、重视圣经，也不需要把每一个属灵经历一概嘲笑掉。真正需要检验的是：那些<strong>把人划入或划出救恩与真教会的独特教义</strong>，是否有与其严重程度相称的圣经根据。</p>
+    <p>从改革宗释经框架看，问题集中在五个“加法”风险：把对神独一性的强调推进到削弱父子圣灵真实位格区分；把洗礼的恩典意义推进到特定水体与姿势的有效性条件；把使徒行传的方言现象推进到所有人受圣灵的普遍明证；把约13的洗脚推进到与主有分的普遍救恩圣礼；把基督只有一个身体推进到“1917年恢复的一个机构就是唯一真教会”。这些推论都需要比现有经文更强的证明。</p>
+    <p>因此，本文最终回到宗教改革的五个“唯独”，不是为了高举一个欧洲传统，而是为了把罪人的良心重新安放在基督已经完成的工作上：</p>
+    <div class="five"><div>唯独圣经</div><div>唯独恩典</div><div>唯独信心</div><div>唯独基督</div><div>唯独荣耀归神</div></div>
+  </section>
+</main>
+
+<footer class="sources">
+  <div class="wrap">
+    <h2>资料来源与进一步查考</h2>
+    <p>以下材料用于校准“真耶稣教会一方”的公开教义表述，以及“改革宗一方”的信条框架。对话中的圣经论证仍应由读者自行打开经文逐段核查。</p>
+    <ol>
+      <li>真耶稣教会国际总会：《十大信条》：<a href="https://tjc.org/cn/articles-of-faith/">https://tjc.org/cn/articles-of-faith/</a></li>
+      <li>真耶稣教会国际总会：《本会简介》：<a href="https://tjc.org/cn/about/">https://tjc.org/cn/about/</a></li>
+      <li>True Jesus Church, “Jesus Christ / Are the Father, Son, and Holy Spirit the same person?”：<a href="https://tjc.org/gospel-jesus-christ/">https://tjc.org/gospel-jesus-christ/</a></li>
+      <li>True Jesus Church, “The One Church”：<a href="https://tjc.org/the-one-church/">https://tjc.org/the-one-church/</a></li>
+      <li>True Jesus Church, “Intro to Basic Beliefs”：<a href="https://tjc.org/intro-to-basic-beliefs/">https://tjc.org/intro-to-basic-beliefs/</a></li>
+      <li>Orthodox Presbyterian Church：《Westminster Confession of Faith》：<a href="https://opc.org/wcf.html">https://opc.org/wcf.html</a></li>
+      <li>Presbyterian Church of Aotearoa New Zealand：《Westminster Confession (1646)》：<a href="https://www.presbyterian.org.nz/about-us/statements-of-faith/westminster-confession-1646">https://www.presbyterian.org.nz/about-us/statements-of-faith/westminster-confession-1646</a></li>
+      <li>题图：Wikimedia Commons, “Tainan Taiwan True-Jesus-Church-01.jpg”：<a href="https://commons.wikimedia.org/wiki/File:Tainan_Taiwan_True-Jesus-Church-01.jpg">图片说明及授权页</a></li>
+    </ol>
+    <p class="small">说明：本文为神学比较与护教写作，不代表真耶稣教会官方参与本对话，也不把虚构人物的每一句话归于所有真实会友。改革宗部分以经典威斯敏斯特传统为主要参照；改革宗内部在部分次要议题（例如神迹性恩赐是否持续）亦存在差异。</p>
+  </div>
+</footer>
+
+<div class="toolbar">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ 顶部</button>
+  <button onclick="window.print()">打印 / PDF</button>
+</div>
+</body>
+</html>

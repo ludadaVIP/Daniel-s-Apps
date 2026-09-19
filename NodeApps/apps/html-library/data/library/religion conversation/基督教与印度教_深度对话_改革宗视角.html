@@ -1,0 +1,1528 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>基督教 × 印度教｜一次深度信仰对话</title>
+<meta name="description" content="从改革宗新教立场出发，与一位受《薄伽梵歌》、奥义书、吠檀多与虔信传统影响的印度教朋友进行长篇、尊重而深入的信仰对话。">
+<style>
+:root {
+  --ink:#182024; --muted:#66727a; --paper:#fbfaf6; --card:#fff;
+  --christian:#1f4b63; --christian-soft:#eaf2f6;
+  --hindu:#9a4f1d; --hindu-soft:#fbefe5;
+  --gold:#c89b48; --line:#ddd8cc; --dark:#101719;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC",serif;line-height:1.78}
+a{color:inherit}
+.progress{position:fixed;z-index:99;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--christian),var(--gold),var(--hindu));width:0}
+.hero{min-height:88vh;display:grid;grid-template-columns:1.1fr .9fr;background:#111;color:#fff;overflow:hidden}
+.hero-copy{padding:9vw 7vw 7vw;display:flex;flex-direction:column;justify-content:center;position:relative}
+.hero-copy:before{content:"";position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,#2d627b66,transparent 35%),radial-gradient(circle at 80% 70%,#b4622c55,transparent 35%)}
+.hero-copy>*{position:relative}
+.eyebrow{letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;color:#d8c79f}
+h1{font-size:clamp(2.7rem,6vw,6.8rem);line-height:1.02;margin:.3em 0 .25em;font-weight:800}
+.hero .lead{font-size:clamp(1.05rem,1.7vw,1.35rem);max-width:48rem;color:#e9ecec}
+.hero-note{margin-top:2rem;border-left:3px solid var(--gold);padding:.8rem 1rem;color:#d3d8d8;max-width:52rem}
+.hero-images{display:grid;grid-template-rows:1fr 1fr;min-height:88vh}
+.photo{position:relative;overflow:hidden;background:#333}
+.photo img{width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.9) contrast(1.03)}
+.photo:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#111b,transparent 40%)}
+.photo figcaption{position:absolute;z-index:2;bottom:1rem;right:1.2rem;left:1.2rem;font:600 .78rem/1.5 system-ui,sans-serif;color:#fff;background:#0008;padding:.55rem .7rem;border-radius:8px}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);max-width:1560px;margin:auto}
+aside{position:sticky;top:0;height:100vh;padding:2rem 1.2rem 3rem;border-right:1px solid var(--line);overflow:auto;background:#f6f3ec}
+aside h3{font:700 .9rem/1.2 system-ui,sans-serif;text-transform:uppercase;letter-spacing:.12em;margin:0 0 1rem;color:#526067}
+.toc a{display:flex;gap:.7rem;text-decoration:none;padding:.55rem .5rem;border-radius:9px;font:500 .88rem/1.35 system-ui,sans-serif;color:#515b60}
+.toc a:hover{background:#fff;color:#111}
+.toc span{font-variant-numeric:tabular-nums;color:#a0895e}
+main{min-width:0;padding:4rem clamp(1rem,4vw,5rem) 8rem}
+.preface{max-width:1100px;margin:0 auto 4rem}
+.preface h2{font-size:2rem;margin-bottom:.5rem}
+.notice{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1.5rem 0}
+.notice>div{padding:1.2rem 1.35rem;background:#fff;border:1px solid var(--line);border-radius:14px}
+.notice h3{margin:.1rem 0 .45rem;font-size:1.05rem}
+.notice p{margin:0;color:#4f595f}
+.thesis{margin:2.5rem 0;padding:1.7rem 2rem;background:var(--dark);color:#fff;border-radius:18px;font-size:1.2rem}
+.scene{max-width:1120px;margin:0 auto 5rem;scroll-margin-top:1rem}
+.scene-head{display:grid;grid-template-columns:64px 1fr;gap:1rem;align-items:start;margin-bottom:1.4rem;padding-bottom:1rem;border-bottom:1px solid var(--line)}
+.scene-no{font:700 1rem/1 system-ui,sans-serif;color:#fff;background:var(--dark);width:48px;height:48px;border-radius:50%;display:grid;place-items:center}
+.scene h2{margin:0;font-size:clamp(1.5rem,2.5vw,2.25rem);line-height:1.25}
+.scene-head p{margin:.45rem 0 0;color:var(--muted)}
+.dialogue-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:1rem 0}
+.speech{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1.15rem 1.25rem;box-shadow:0 4px 18px #2b2b2b0a}
+.speech.christian{border-top:4px solid var(--christian)}
+.speech.hindu{border-top:4px solid var(--hindu)}
+.speaker{display:flex;align-items:center;gap:.72rem;margin-bottom:.65rem;font-family:system-ui,sans-serif}
+.avatar{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;font-weight:800}
+.christian .avatar{background:var(--christian-soft);color:var(--christian)}
+.hindu .avatar{background:var(--hindu-soft);color:var(--hindu)}
+.speaker strong{display:block;font-size:.92rem}
+.speaker small{display:block;color:#7b858a;font-size:.72rem}
+.speech p{margin:0;font-size:1.02rem}
+.spacer{visibility:hidden}
+.interlude{max-width:1120px;margin:1rem auto 5rem;display:grid;grid-template-columns:repeat(4,1fr);gap:1rem}
+.interlude div{padding:1.25rem;border-radius:14px;background:#ece9df}
+.interlude b{font:700 .92rem system-ui,sans-serif;display:block;margin-bottom:.35rem}
+.interlude span{font-size:.9rem;color:#566064}
+.summary{max-width:1120px;margin:3rem auto 0;background:#fff;border:1px solid var(--line);border-radius:20px;padding:2rem}
+.summary h2{font-size:2rem;margin-top:0}
+.matrix{width:100%;border-collapse:collapse;margin:1.3rem 0;font-size:.92rem}
+.matrix th,.matrix td{padding:.9rem;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+.matrix th{font-family:system-ui,sans-serif;font-size:.82rem;color:#536067;background:#f5f2eb}
+.matrix td:nth-child(2){background:#f7fbfd}
+.matrix td:nth-child(3){background:#fff9f4}
+.verdict{margin-top:1.8rem;padding:1.4rem 1.5rem;border-left:5px solid var(--christian);background:var(--christian-soft)}
+.sources{max-width:1120px;margin:4rem auto 0;padding-top:2rem;border-top:1px solid var(--line);color:#4e5a60}
+.sources h2{font-size:1.5rem}
+.sources li{margin:.55rem 0}
+.sources a{text-decoration-thickness:1px;text-underline-offset:3px}
+footer{padding:3rem;text-align:center;font:500 .82rem system-ui,sans-serif;color:#788287}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr} .hero-images{min-height:55vh;grid-template-columns:1fr 1fr;grid-template-rows:1fr}
+  .layout{grid-template-columns:1fr} aside{position:relative;height:auto;border-right:0;border-bottom:1px solid var(--line)} .toc{display:grid;grid-template-columns:repeat(2,1fr)}
+  .notice,.dialogue-row{grid-template-columns:1fr} .spacer{display:none} .interlude{grid-template-columns:1fr 1fr}
+}
+@media(max-width:560px){
+  .hero-images{grid-template-columns:1fr;grid-template-rows:1fr 1fr} .toc{grid-template-columns:1fr} .interlude{grid-template-columns:1fr}
+  main{padding-left:.8rem;padding-right:.8rem} .speech{padding:1rem} .scene-head{grid-template-columns:50px 1fr}
+  .matrix{display:block;overflow:auto;white-space:normal}
+}
+@media print{aside,.progress{display:none} .layout{display:block} .hero{min-height:auto} .scene{break-inside:avoid-page}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="hero">
+  <div class="hero-copy">
+    <div class="eyebrow">A long-form theological dialogue</div>
+    <h1>基督教<br>× 印度教</h1>
+    <p class="lead">两位多年未见的朋友，在一张咖啡桌前，从近况聊到终极实在，从 Brahman、Atman、karma、samsara 与 moksha，一路谈到创造、罪、十字架、称义、复活与唯独基督。</p>
+    <div class="hero-note">写作立场：最终从<strong>基督教新教改革宗</strong>立场作出回应；方法上尽力让印度教一方以较强版本陈述自己的信仰，避免把复杂传统简化成稻草人。主题呼应《犹大书》3节：“为一次交付圣徒的真道竭力争辩。”</div>
+  </div>
+  <div class="hero-images">
+    <figure class="photo">
+      <img loading="eager" alt="印度教寺庙建筑" src="https://commons.wikimedia.org/wiki/Special:FilePath/Madurai%20Meenakshi%20temple%20gopuram.jpg">
+      <figcaption>印度教传统具有高度多样性：经典、哲学、敬拜对象与实践方式并不完全统一。</figcaption>
+    </figure>
+    <figure class="photo">
+      <img loading="lazy" alt="教堂内打开的圣经" src="https://commons.wikimedia.org/wiki/Special:FilePath/Open%20Bible%20in%20chapel%20at%20Deaf%20Smith%20County,%20TX,%20Museum%20IMG%204879.JPG">
+      <figcaption>改革宗基督教将圣经视为信仰与生活的最高规范，并以基督的位格与工作为救恩中心。</figcaption>
+    </figure>
+  </div>
+</header>
+
+<div class="layout">
+<aside>
+  <h3>对话目录</h3>
+  <nav class="toc"><a href="#scene-1"><span>01</span>多年后的重逢：先谈人生，再谈信仰</a><a href="#scene-2"><span>02</span>“印度教”到底是什么？先避免把对方画成稻草人</a><a href="#scene-3"><span>03</span>谁是终极者：人格的上帝，还是超越人格的梵？</a><a href="#scene-4"><span>04</span>很多神，还是一位神的不同显现？</a><a href="#scene-5"><span>05</span>梵我一如，还是创造者与受造者永远有别？</a><a href="#scene-6"><span>06</span>经典与启示：吠陀、奥义书、《薄伽梵歌》与圣经</a><a href="#scene-7"><span>07</span>人的根本问题：无明，还是罪？</a><a href="#scene-8"><span>08</span>业力：公正的宇宙法则，还是无法赦罪的账本？</a><a href="#scene-9"><span>09</span>轮回与复活：人会一次次回来，还是一次活、一次死、然后审判？</a><a href="#scene-10"><span>10</span>解脱的道路：知识、行动、虔信，与“唯独恩典”</a><a href="#scene-11"><span>11</span>克里希纳的“化身”与基督的“道成肉身”是同一回事吗？</a><a href="#scene-12"><span>12</span>三位一体不是“三个神”，也不是印度教“三相神”</a><a href="#scene-13"><span>13</span>苦难与恶：业力解释得更好吗？</a><a href="#scene-14"><span>14</span>Dharma、社会责任与种姓问题</a><a href="#scene-15"><span>15</span>瑜伽、冥想与属灵经验：经验本身能证明真理吗？</a><a href="#scene-16"><span>16</span>“所有宗教都是通往同一山顶的路”吗？</a><a href="#scene-17"><span>17</span>为什么基督徒坚持“唯独基督”？这是不是傲慢？</a><a href="#scene-18"><span>18</span>复活：这是基督教与印度教最可检验的分界之一</a><a href="#scene-19"><span>19</span>称义：神怎样接纳一个不义的人？</a><a href="#scene-20"><span>20</span>预定、恩典与人的回应：改革宗是不是让人成了木偶？</a><a href="#scene-21"><span>21</span>祷告与敬拜：我是在寻找神，还是神先寻找我？</a><a href="#scene-22"><span>22</span>最后的分歧：人的最大需要究竟是什么？</a><a href="#scene-23"><span>23</span>临别：为一次交付圣徒的真道竭力争辩，但不把朋友当敌人</a></nav>
+</aside>
+<main>
+<section class="preface">
+  <h2>阅读说明</h2>
+  <p>这不是一篇“所有印度教徒都相信同一套教义”的文章。印度教包含广泛而彼此有差异的传统：有些更强调梵（Brahman）的非人格终极性，有些以毗湿奴、克里希纳、湿婆或女神为最高神；不同吠檀多学派对灵魂与神的关系也有实质分歧。本文中的印度教朋友“拉杰”主要受到<strong>奥义书、吠檀多、《薄伽梵歌》与 bhakti（虔信）传统</strong>影响，因此他有时会主动指出印度教内部并非只有一种答案。</p>
+  <div class="notice">
+    <div><h3>阿明｜改革宗新教基督徒</h3><p>强调创造主—受造物区分、圣经最高权威、三位一体、人的全然败坏、唯独恩典、唯独信心、基督代赎、与基督联合、身体复活与最终审判。</p></div>
+    <div><h3>拉杰｜受吠檀多与《薄伽梵歌》影响的印度教徒</h3><p>强调 Brahman/神圣终极实在、Atman、karma、samsara、moksha，并重视 jñāna（知识）、karma-yoga（行动）与 bhakti（虔信）等路径。</p></div>
+  </div>
+  <div class="thesis">这场对话不以“谁说话更响”为目标，而以一个更严格的问题为目标：<strong>当两套世界观对同一件事给出互不相容的答案时，我们有什么理由相信其中一个答案是真的？</strong></div>
+</section>
+
+
+    <section class="scene" id="scene-1">
+      <div class="scene-head">
+        <span class="scene-no">01</span>
+        <div><h2>第一幕｜多年后的重逢：先谈人生，再谈信仰</h2><p>不是从争辩开始，而是从“你这些年经历了什么”开始。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>真没想到还能这样坐下来喝咖啡。上次见你，我们两个还都在谈工作、房子、未来，好像人生最大的事就是把日子安排好。现在再见面，我听说你这些年开始认真接触印度教？</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>是，而且不是那种旅游式地去看寺庙。我开始读《薄伽梵歌》，也接触奥义书和吠檀多。你也变了不少，我听共同的朋友说，你现在成了很认真的基督徒，而且还是改革宗那一类。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>对。我以前也觉得宗教大概都是人在寻找一点精神寄托，但后来我越来越不能把“神存在不存在、我们为什么活着、人死后怎样”当成兴趣问题。若这些问题是真的，它们就不是生活边角，而是整个人生的根基。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>这一点我完全同意。只是我们走向了不同方向。我后来越来越觉得，人的痛苦来自无明、执著和对自我的错误理解。你把问题归到“罪”和人与神隔绝，我更倾向于把问题理解成无明与轮回中的束缚。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>那很好。我们今天不必假装彼此差不多。真正的尊重不是说“你说得都对、我说得也都对”，而是认真听清楚对方在说什么，然后问：这些彼此冲突的命题，到底哪些是真的。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我也不想把谈话变成吵架。如果信仰不能经得起提问，它本身就很脆弱。我们可以把各自最强的理由都拿出来。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-2">
+      <div class="scene-head">
+        <span class="scene-no">02</span>
+        <div><h2>第二幕｜“印度教”到底是什么？先避免把对方画成稻草人</h2><p>印度教不是单一教派；对话中的拉杰以《薄伽梵歌》、奥义书、吠檀多与虔信传统为主要背景。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我先承认一个问题：很多基督徒一听“印度教”，就直接等同于“拜很多偶像”。这其实太粗糙。印度教内部有不二论、限定不二论、二元论，也有毗湿奴派、湿婆派、性力派等传统，对神、世界和灵魂的关系理解并不一样。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>对。有人强调梵——Brahman——是终极实在；有人专一敬拜毗湿奴或克里希纳；有人敬奉湿婆；有人把女神视为最高神性。甚至“神有位格还是超越位格”这个问题，在印度教内部也没有单一答案。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>所以今天我不会拿某个民间习俗代表全部印度教。我更想问你：你自己的核心信念是什么？</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我会这样说：终极实在是神圣的，远比人的概念广大；人的真正自我不是肉体和短暂的心理状态；我们的行动会产生业果；生命处于轮回；人的终极目标是解脱。至于道路，可以包含知识、无私行动、敬爱与降服。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这就清楚多了。那我们的分歧不是“你有宗教我没有宗教”，而是对终极实在、人是谁、人的根本问题是什么、救赎或解脱怎样发生，给出了不同答案。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>而且我也会提醒你：印度教不是只有抽象哲学。像《薄伽梵歌》里面，克里希纳和阿周那的关系非常个人化，有敬爱、信靠、顺服，不只是“万物都是一”的玄学。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-3">
+      <div class="scene-head">
+        <span class="scene-no">03</span>
+        <div><h2>第三幕｜谁是终极者：人格的上帝，还是超越人格的梵？</h2><p>这是两种世界观最根本的分岔之一。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你们说神是有位格的，会爱、会说话、会审判。我有时觉得这把终极实在人格化了。也许“人格”只是人的有限经验，而梵超越所有范畴，甚至超越“有位格”和“无位格”。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>如果你说终极实在完全超越人格，那我会追问：我们为什么会有理性、爱、道德责任和主体性？基督教认为这些不是从一个低于人格的根源偶然冒出来，而是因为创造者本身就是有位格、能认识、能爱、能立约的神。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>不二论不会说梵“低于人格”，反而会说所有人格性描述只是较低层面的表达。人需要借助名字、形象、神祇来接近终极，但最终实在超越这些分别。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>问题就在这里：若人格只是较低层次，而终极真实最终是不可区分的绝对，那么“爱”在最高层面还有没有真实对象？爱至少涉及我与你的关系。圣经的神在创造世界以前，就不是孤独的一位——父爱子，子与父相交，圣灵也永恒存在。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你是在用三位一体回答“爱如何在创造以前就存在”。这确实比简单的一神论更复杂。但从我这边看，复杂也不等于真实。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>同意，所以我不拿“复杂”当证明。我只是指出：基督教没有把终极实在理解成没有关系的抽象一体，而是永恒、圣洁、爱的三一上帝。接下来关键就变成：这位神有没有在历史中启示自己。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-4">
+      <div class="scene-head">
+        <span class="scene-no">04</span>
+        <div><h2>第四幕｜很多神，还是一位神的不同显现？</h2><p>“印度教多神论”这个常见标签并不能覆盖全部情况。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我想问一个外人很容易困惑的问题：寺庙里有那么多神像，克里希纳、罗摩、湿婆、象头神、女神……这到底是很多神，还是一位终极者的很多表现？</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>不同印度教徒会给不同答案。有些人确实以非常具体的方式敬拜某一位神；也有人认为不同神祇是同一个终极神性的不同显现。对一个虔诚者来说，自己所敬拜的神不是“很多神里面随便挑一个”，而可能就是最高者。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这和基督教三位一体仍然不同。三位一体不是一个神以三个面具出现，也不是许多神最后融合成一个绝对。基督教说：只有一位神，却永恒存在于父、子、圣灵三个位格中；三个位格彼此区别，却同一本质。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我也不会把梵天、毗湿奴、湿婆的“三相神”直接等同于你们三位一体。那样比较通常太随意。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>对，而且这正好说明表面的“三”没有意义。真正要问的是本体论结构。圣经拒绝把受造物、自然力量、历史人物或神圣象征当作应受敬拜的对象，因为敬拜只能归给创造主。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>而我会说，形象未必就是把石头本身当神。它可以像窗口、象征、神圣临在的媒介。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我理解这个最强的解释。但圣经的反对仍然更深：即使你说形象只是媒介，人仍在用受造形式规定神如何被敬拜。改革宗传统尤其强调，敬拜的方式必须受神自己的启示约束，而不是由人的宗教想象来设计。</p>
+      </article>
+    <div class="speech spacer" aria-hidden="true"></div></div>
+    </section>
+    
+    <section class="scene" id="scene-5">
+      <div class="scene-head">
+        <span class="scene-no">05</span>
+        <div><h2>第五幕｜梵我一如，还是创造者与受造者永远有别？</h2><p>“我是谁”在两种传统中得到截然不同的答案。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>奥义书传统里最吸引我的，是对自我的追问。我们平常把自己当成身体、职业、记忆、情绪，但这些都在变化。真正的自我——Atman——更深。在不二论中，最终的觉悟就是认识到 Atman 与 Brahman 在终极层面并不二。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这与圣经的人论分歧极大。基督教同意人不只是物质机器，但人的灵魂也不是神性的一部分。人是按神形象被造，却永远是受造者。我们可以与神联合、与基督相交，却不会成为神的本体。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你觉得“人与神最终合一”会消解人格吗？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>至少在严格不二论里，这是我必须问的问题。如果终极觉悟意味着“我与你的区分属于无明层面”，那么最终救赎是否以取消真正的他者性为代价？基督教的永生不是个体消失进神性海洋，而是被救赎的人以真实人格永远认识神、爱神，也彼此相爱。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>限定不二论和二元论恰好会反驳你。他们并不认为灵魂最终失去区别。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这也是为什么我不把所有印度教压成不二论。但这样一来，印度教内部关于“灵魂与神究竟同一、依存而有别，还是永远不同”的问题，本身就存在互不兼容的答案。基督教则从创造论开始就坚持创造主—受造物区分。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-6">
+      <div class="scene-head">
+        <span class="scene-no">06</span>
+        <div><h2>第六幕｜经典与启示：吠陀、奥义书、《薄伽梵歌》与圣经</h2><p>不是只问“哪本书更古老”，而是问：谁说话、如何知道、启示是否具有统一历史结构。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>说到权威，你最看重哪些经典？</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>传统上吠陀属于 śruti，也就是“所听见的启示”，奥义书属于吠陀传统的重要组成；《薄伽梵歌》属于 smrti，但影响极大。除此之外还有《摩诃婆罗多》《罗摩衍那》、往世书和很多注疏。印度教经典体系本来就不像你们的六十六卷正典那样封闭。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这正是我很关心的一点。圣经不是一本从天上掉下来的书，而是跨越漫长历史、不同作者和文体，却围绕创造、堕落、约、应许、基督、救赎和新创造形成一条历史性的启示线。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>但“历史线很统一”也可能只是后来的信徒这样读。印度教反而允许多种路径、多种表达，这可能更符合终极实在的丰富性。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>也可能相反：多种互相冲突的终极主张，显示人不断在寻找，却没有一个决定性的公开启示。若神真的在历史中行动并说话，那么真理就不只是“不同道路都各自有效”，而是可以检验神在历史中究竟做了什么。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你把“历史事件”看得很重。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>非常重。因为基督教的核心不是“耶稣给了一个有用的灵修方法”，而是“神在特定历史中成为肉身、被钉、死而复活”。如果这些没有发生，基督教自己就承认它站不住。</p>
+      </article>
+    <div class="speech spacer" aria-hidden="true"></div></div>
+    </section>
+    
+    <section class="scene" id="scene-7">
+      <div class="scene-head">
+        <span class="scene-no">07</span>
+        <div><h2>第七幕｜人的根本问题：无明，还是罪？</h2><p>诊断不同，救法必然不同。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我还是觉得“罪”这个词容易让人陷入罪疚。印度思想更像是在说：你之所以被束缚，是因为你不知道自己真正是谁，并且被欲望和行为的果报牵引。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>基督教当然承认无知，但它认为人的问题比“没看明白”更严重。我们不是只缺少知识，而是意志、欲望、爱和敬拜都出了问题。人知道一些善，却仍会选择自私、骄傲、嫉妒、欺骗。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>印度教也不天真。贪、嗔、痴、欲望、执著都会奴役人。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>差别在于这些为什么是错的。圣经的答案不是“因为它们阻碍自我觉悟”，而首先是“因为我们得罪了那位圣洁、有权柄的创造主”。罪是关系性的叛逆，也是法律性的罪责。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>可如果神完全，为什么人的有限错误会形成这么严重的罪责？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>严重性不只由行为的物理大小决定，也由对象和关系决定。背叛一个陌生人与背叛深爱你的父亲，不是同一层次。更何况，圣经说我们的一切生命、理性和善都来自神，却把受造之物放在创造主的位置上。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>所以你认为人的核心不是“发现内在神性”，而是“承认自己是受造、悖逆、需要赦免的人”。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>对。改革宗会进一步说，人甚至不能靠自己把心重新转向神；恩典不是辅助已有的属灵能力，而是神使死在罪中的人活过来。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-8">
+      <div class="scene-head">
+        <span class="scene-no">08</span>
+        <div><h2>第八幕｜业力：公正的宇宙法则，还是无法赦罪的账本？</h2><p>两边都重视道德后果，但对“公义如何与怜悯相遇”有不同答案。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>业力吸引我的地方，是它拒绝把行为看成没有后果。你做什么，就塑造你未来的境遇。宇宙在道德上不是混乱的。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这一点与圣经“人种的是什么，收的也是什么”有相似的道德直觉。但业力通常被理解为一种因果秩序：行为产生后果，甚至跨越生死。我的问题是：罪责怎样真正被赦免？</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>在很多传统里，解脱不是机械地把每一笔旧业一一偿还。敬虔、知识、恩典、对神的降服都可能改变人与业的关系。尤其虔信传统非常强调神的恩宠。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这是重要修正。但我仍会问：如果神只是取消业果，公义在哪里？如果业果必须完全承受，怜悯在哪里？十字架的宣告恰恰是：神没有假装罪不存在，也没有把罪人永久留在债务里；罪的刑罚由基督担当，因此神既公义，又称信的人为义。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你会把代赎理解成一个人代替另一个人受罚。我会问，这公平吗？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>如果是无关第三者被强迫惩罚，当然不公平。但基督教说的不是那样：圣子与父同为神，基督自愿取了人的性情，作为新约的代表和中保，为属他的人承担刑罚。改革宗把这放在“代表性”与“联合于基督”的框架里，不是简单的罚单转账。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-9">
+      <div class="scene-head">
+        <span class="scene-no">09</span>
+        <div><h2>第九幕｜轮回与复活：人会一次次回来，还是一次活、一次死、然后审判？</h2><p>这是无法用“殊途同归”消除的直接冲突。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>轮回对我来说能解释很多不平衡。为什么有人一出生就很顺，有人一出生就受苦？如果生命只有一次，很多事情似乎没有完整因果。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我理解它的解释力，但也有两个问题。第一，我们几乎都不记得所谓前世，若今生的痛苦是对前世行为的回应，却没有可辨认的记忆和司法宣告，这种道德教育功能很难说明。第二，圣经不是用前世业力解释苦难，而是把苦难放进堕落世界、神护理、人的责任与最终审判的框架。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>记忆不是身份连续的唯一条件。你也不记得婴儿时期每一天，但你仍然是同一个人。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这是个好反驳。但婴儿时期与现在有同一身体和可追踪的生命连续性；前世轮回则提出跨身体的个人连续，却缺少同样的经验链条。更关键的是，圣经给出相反的末世论：死亡不是灵魂换一个身体继续循环，而是等候身体复活和最终审判。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你们为什么这么执着身体？很多宗教都觉得身体是较低层次。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>因为圣经的创造论说物质世界本来是好的，罪败坏了人，却没有让身体本身成为邪恶。救赎的终点不是逃离受造界，而是身体复活、新天新地。基督自己身体复活，就是这个盼望的初熟果子。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-10">
+      <div class="scene-head">
+        <span class="scene-no">10</span>
+        <div><h2>第十幕｜解脱的道路：知识、行动、虔信，与“唯独恩典”</h2><p>最深的分歧之一，是“人最终靠什么到达终点”。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>《薄伽梵歌》很打动我的一点，是它不是只给一种人一条路。有人适合知识之路，有人以无私行动操练，有人以敬爱和降服亲近神。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>从人的宗教经验看，这确实很有包容性。但福音的逻辑完全不同：得救不是因为我找到最适合自己的属灵上升路线，而是因为神向无力自救的人下降。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>虔信传统也强调神的恩宠。不能说印度教只有自力。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我同意，不能这样简化。真正的问题是：恩宠在救恩中是决定性的、充分的吗？改革宗说，称义从头到尾建立在基督已经完成的义上，信心只是领受，不是功德；连使人相信的更新也是圣灵的工作。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>那这样会不会让道德生活变得不重要？既然不是靠行为得救，人为什么还要成圣？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>恰恰相反。改革宗会区分“称义的根据”和“得救之后必然结出的果子”。善行不能购买神的接纳，却是活信心的结果。我们不是靠成圣换取儿子的身份，而是因为已经在基督里被收纳，才开始像儿子那样生活。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>所以你最反对的不是操练本身，而是把操练当作人通向神的功德阶梯。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>正是。祷告、禁食、默想、善行都可以有位置，但它们不能取代基督，也不能成为我们在神面前称义的资本。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-11">
+      <div class="scene-head">
+        <span class="scene-no">11</span>
+        <div><h2>第十一幕｜克里希纳的“化身”与基督的“道成肉身”是同一回事吗？</h2><p>表面都谈“神来到人间”，本质却很不相同。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你讲神成为人，我自然会想到 avatar。毗湿奴为恢复 dharma 而降世，罗摩、克里希纳都可以这样理解。为什么你认为耶稣的道成肉身是独特的？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>因为“化身”与基督教的 incarnation 在结构上不同。新约不是说神一次次以不同形态显现，而是说永恒的圣子在历史中真正取了完整人性，成为一个具体的人耶稣基督，而且这件事是一次性的。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>但《薄伽梵歌》中克里希纳也说，当正法衰微时，他会显现，为保护善者、毁灭恶者、重建秩序。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>正因为相似，才更需要分辨。基督来不是主要为了恢复社会—宇宙秩序，而是为了成全律法、担当罪、击败死亡、建立新约。十字架不是神性临时穿上一件人体外衣，而是真神真人的中保顺服至死。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你强调耶稣的历史唯一性。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>是。基督教不能把耶稣变成众多神圣显现之一。若他只是众多 avatar 中的一个，那么新约关于他的身份——创造万有的道、独生子、万有的主、唯一中保——就被改写了。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-12">
+      <div class="scene-head">
+        <span class="scene-no">12</span>
+        <div><h2>第十二幕｜三位一体不是“三个神”，也不是印度教“三相神”</h2><p>避免最常见的比较错误。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>从外面听，你们也说父、子、圣灵。我会想，这与一神多相有什么本质区别？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>区别在于：父不是子的一个暂时形态，子也不是父换了一个名字。父、子、圣灵是永恒真实的三个位格；但他们不是三个彼此独立的神性实体，而是同一神性本质。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>听起来仍然很神秘。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>神秘不等于矛盾。矛盾是说“神在同一意义上既是一位又是三位”；基督教没有这么说，而是“一本质、三位格”。我们承认无法把神完全装进人的概念，却不是放弃逻辑。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>印度思想也常承认终极实在超越概念。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>对，但基督教强调：虽然神不可穷尽，却可以真实认识，因为神主动启示。不可穷尽与不可认识不是同一回事。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-13">
+      <div class="scene-head">
+        <span class="scene-no">13</span>
+        <div><h2>第十三幕｜苦难与恶：业力解释得更好吗？</h2><p>两种体系都必须面对苦难，却承担不同的难题。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>基督教最难的问题之一，还是恶。如果有一位全能又慈爱的神，为什么容许战争、疾病、儿童受苦？业力至少告诉我，道德宇宙有因果，不是随机。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>恶的问题确实严肃，基督徒不该用一句话轻轻带过。但业力也有自己的难题：如果一个受苦者的境况被解释为前世业果，这会不会把我们不知道原因的苦难过快道德化？</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>成熟的印度教徒不会因此冷漠。帮助受苦者本身就是 dharma，也会产生善业。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我接受这个澄清。基督教的不同是：圣经拒绝把每一次具体受苦都简单推回某个具体罪。约伯记和约翰福音九章都打破了这种机械对应。同时，圣经把恶放在受造者堕落、神暂时容许、最终审判与救赎历史中。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>可“神容许”仍然把责任问题留着。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>是，基督教不会声称把神护理的每一个奥秘都解释透。但十字架让问题出现一个独特转折：神不是远处解释苦难，而是圣子亲自进入受苦与死亡，并藉复活应许最终更新。这不是完整的哲学答案，却是历史中的救赎行动。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-14">
+      <div class="scene-head">
+        <span class="scene-no">14</span>
+        <div><h2>第十四幕｜Dharma、社会责任与种姓问题</h2><p>既不把整个印度教等同于种姓，也不回避其历史联系。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>谈 dharma 时，我常想到一个难题：个人责任和社会身份之间怎样平衡？历史上种姓制度与印度宗教文化有复杂联系。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我会非常谨慎。现代印度教徒对种姓有大量不同看法，许多人明确反对基于出生的歧视。不能把所有印度教信仰都缩成种姓制度。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我同意，也不会把印度社会的一切问题算在你个人头上。但《薄伽梵歌》确实在一个关于职责的语境中谈 sva-dharma，也就是自己的职责。问题在于，当社会结构本身不公时，“各守本分”可能需要被更高的道德标准审判。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>而基督教历史里也有奴隶制、等级压迫，宗教文本也曾被人利用。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这是真的，所以历史罪恶不能靠比较来逃避。基督教必须用自己的经文审判自己的失败。新约最根本的原则之一是：所有人同为按神形象被造的罪人，也只有在基督里才有同一救主与同一身份。教会若按种族、财富或血统决定人的属灵价值，就是背叛福音。</p>
+      </article>
+    <div class="speech spacer" aria-hidden="true"></div></div>
+    </section>
+    
+    <section class="scene" id="scene-15">
+      <div class="scene-head">
+        <span class="scene-no">15</span>
+        <div><h2>第十五幕｜瑜伽、冥想与属灵经验：经验本身能证明真理吗？</h2><p>“我体验到了”很重要，但不能自动解决世界观冲突。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我必须说，很多东西不是纯理论。我在冥想、诵念、敬拜中确实经验过很深的平静、超越自我、与万物连接的感觉。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我不会嘲笑这些经验。基督徒也会有祷告中的平安、敬拜中的敬畏。但经验本身不能成为最高裁判，因为不同宗教的人都会报告强烈、甚至互相冲突的宗教经验。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>那你凭什么说你的经验指向真神，而我的经验不可靠？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>我不会用“我的感觉更强”来证明。改革宗强调，经验必须受神的话检验。问题是经验所对应的解释是否真实：宇宙是不是被一位人格神创造？耶稣是否真的复活？罪是否真实？这些不是靠内心宁静程度决定。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你对瑜伽怎么看？很多人现在只是把它当伸展和呼吸练习。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>动作本身未必自动具有宗教意义，但如果练习明确包含向特定神祇敬拜、咒语祈求、把目标设为与梵合一，那就不再只是运动。基督徒需要分辨形式背后的神学内容，而不是只看名称。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-16">
+      <div class="scene-head">
+        <span class="scene-no">16</span>
+        <div><h2>第十六幕｜“所有宗教都是通往同一山顶的路”吗？</h2><p>宽容与逻辑不是同一个问题。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我比较喜欢一种看法：人从不同方向接近同一个终极实在。不同宗教是不同语言、不同文化里的道路。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这听起来宽容，但它其实也是一个很强的神学判断：你在说“所有宗教的表面冲突，最终可以被一个更高视角调和”。可你怎么知道自己拥有那个更高视角？</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>因为终极实在比任何一套教义都大。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>“终极实在比教义大”我同意，但“所以互相矛盾的教义都以某种方式是真的”并不跟着成立。比如基督教说人不会轮回，印度教多数传统接受轮回；基督教说创造者与受造者永远不同，不二论说终极上二者不二。这些命题不可能在同一意义上都成立。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>也许它们只是不同层次的真理。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>那仍然需要证据说明哪一个是较高层次。否则“不同层次”只是把矛盾重新命名。真正的宗教对话不能以取消差异来获得和平。我们可以彼此尊重，同时承认至少在一些核心问题上，必然有人错。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-17">
+      <div class="scene-head">
+        <span class="scene-no">17</span>
+        <div><h2>第十七幕｜为什么基督徒坚持“唯独基督”？这是不是傲慢？</h2><p>排他性主张不等于说“基督徒本人比别人优越”。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我对基督教最不舒服的一点，就是“只有基督”。听起来像在说，几十亿认真寻求神的人都错了。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>如果“只有基督”是基督徒发明出来抬高自己，那当然很傲慢。但福音的逻辑恰好把基督徒的自夸排除掉：我不是因为比你聪明、道德更好、属灵程度更高才得救。若得救全是恩典，我反而没有资格轻视你。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>但你仍然说我的路不能救我。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>是，因为真理主张本身有内容。如果人的问题真的是对圣洁神的罪责，那么自我觉悟不能取消罪责；如果基督真的担当罪并从死里复活，那么绕开他寻找另一套终极救法，就不是“另一个等价选项”。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>所以你的排他性建立在耶稣是谁，而不是建立在“基督教文化更高级”。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>完全是。基督教可以在任何文化里被人滥用，也没有哪一个民族垄断福音。问题最终集中到一个人：拿撒勒人耶稣究竟是谁，他是否真是神的儿子，他是否真的从死里复活。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-18">
+      <div class="scene-head">
+        <span class="scene-no">18</span>
+        <div><h2>第十八幕｜复活：这是基督教与印度教最可检验的分界之一</h2><p>基督教把自己押在一个历史宣告上。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>如果今天只能留一个问题给你，我不会先让你研究所有基督教宗派，而会让你认真看复活。因为使徒的论证很直接：若基督没有复活，我们所传的就是空的。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>宗教故事里超自然事件很多。为什么你特别相信这一件？</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>因为新约把它当作公共历史宣告，不只是象征。最早的基督徒不是说“耶稣的精神继续活着”，而是说坟墓空了、他向门徒显现、他们触摸他、与他吃饭，并且许多人因为这个见证付出代价。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>殉道只能证明他们真诚，不能证明他们正确。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>完全同意。真诚不是充分证据。所以要综合看：早期见证的时间、多个传统、门徒从惧怕到公开宣讲的转变、保罗这类反对者的转变，以及基督教运动围绕“复活的弥赛亚”迅速形成。没有任何单一因素独立证明一切，但它们构成需要解释的历史数据。</p>
+      </article>
+    
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>那你也必须承认，历史论证不可能像数学证明。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>当然。历史知识本来就靠最佳解释、证词、背景与反事实比较。但基督教至少把核心宣告放进可以讨论的历史空间，而不是只要求你接受一种无法检验的内在体验。</p>
+      </article>
+    <div class="speech spacer" aria-hidden="true"></div></div>
+    </section>
+    
+    <section class="scene" id="scene-19">
+      <div class="scene-head">
+        <span class="scene-no">19</span>
+        <div><h2>第十九幕｜称义：神怎样接纳一个不义的人？</h2><p>改革宗信仰的中心，不是“变得足够好”，而是“在基督里被称为义”。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你一直讲“称义”。这和一般说“神赦免我”有什么不同？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>称义是法庭性的宣告：神不是先等我变成完全义的人才接纳我，而是因基督的义归算给我，赦免我的罪，并宣告我在他面前为义。然后成圣才是一生中真实被改变的过程。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>这会不会只是法律拟制？人里面还很糟，神却说他义。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>如果称义与基督毫无关系，确实会像虚构。但改革宗说信徒借着信与基督联合：他的罪被基督担当，基督的义成为他的地位；同一联合也带来圣灵更新。所以称义不是假装罪人已经完美，而是依据真实的代表与代赎做出判决。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>这与你讲的轮回体系差别太大了。轮回像一个漫长的净化过程，而你说人在今生就能获得一个确定的法律地位。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>对。这也带来“确据”的可能：我的盼望最终不系在“我还要多少生才能净化”，而在“基督是否已经完成他的工作”。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-20">
+      <div class="scene-head">
+        <span class="scene-no">20</span>
+        <div><h2>第二十幕｜预定、恩典与人的回应：改革宗是不是让人成了木偶？</h2><p>朋友开始追问改革宗内部最有争议的教义之一。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>既然你是改革宗，我必须问：你们说拣选、预定，那人还有自由吗？如果神决定谁得救，这比业力更像宿命。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>改革宗不把人看成没有意志的木偶。人会按自己真实的欲望选择，只是堕落的人不会凭天然意志爱神为最高善。重生不是神拖着一个爱神的人去做他讨厌的事，而是改变人的心，使他甘心来到基督面前。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>可为什么神不这样改变所有人？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这是最难的问题之一。改革宗会回答：神没有义务向任何罪人施恩；若有人得救，完全是怜悯；若神按公义审判，也不是不义。但圣经没有把神隐藏旨意的每个原因都告诉我们。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你能接受不知道？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>如果“不知道”是因为没有证据，我不会用奥秘堵嘴。但如果启示已经给出一些边界，而没有解释全部原因，那承认知识限度比编造答案诚实。基督教的确有奥秘，但不是所有东西都被归为奥秘。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-21">
+      <div class="scene-head">
+        <span class="scene-no">21</span>
+        <div><h2>第二十一幕｜祷告与敬拜：我是在寻找神，还是神先寻找我？</h2><p>救恩次序背后，是两种完全不同的灵性结构。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你这么讲，好像人寻找神都没有价值。可我这些年真正开始祷告、克制欲望、帮助别人，我确实变得更平静、更有爱。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>这些改变可以是真实的，我没有理由否认。基督教甚至认为不信基督的人也可能有公民意义上的美德、牺牲和自律。争论点不是“你有没有任何好处”，而是这些能不能解决人与神的罪责和隔绝。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>那你的灵性核心是什么？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>不是“我终于爬到了神那里”，而是“神在基督里来到我这里”。祷告不是操纵宇宙规律，也不是通过技术进入更高意识，而是蒙儿女名分的人向天父说话；敬拜不是自我上升，而是回应神已经说话和施恩。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>这听起来很强调关系。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>是。圣经救恩的终点也不只是没有痛苦，而是“神与人同住”。罪得赦免、身体复活、新创造，最终都服务于人与神恢复正确关系。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-22">
+      <div class="scene-head">
+        <span class="scene-no">22</span>
+        <div><h2>第二十二幕｜最后的分歧：人的最大需要究竟是什么？</h2><p>两人把漫长讨论压缩成彼此最核心的一句话。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>如果让我概括，我会说：人需要从错误的自我认同、欲望执著和轮回束缚中醒来，认识终极实在，并走向解脱。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>如果让我概括，我会说：人需要与创造他的圣洁神和好。我们的问题不是忘了自己本来就是神，而是作为受造者背叛了神；我们的盼望也不是发现自己与神同一，而是在基督里被赦免、收纳、更新，最终身体复活。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>所以我们真正不一样的地方，不是饮食、仪式、文化，而是“神是谁、人是谁、罪是什么、救恩是什么”。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>完全正确。也正因为如此，我不愿用“都是劝人为善”把它们揉在一起。那样看起来友善，实际上既没有认真对待印度教，也没有认真对待基督教。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>我仍然不接受你所有结论，但至少我现在知道，你所谓“唯独基督”不是一句宗派口号，而是从创造、罪、道成肉身、十字架、复活一路推出来的。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>而我也更清楚，印度教最有力量的地方并不是“有很多神像”，而是它对自我、苦难、行动后果、灵性操练和解脱提出了非常完整的世界观。正因为它是一个世界观，基督徒才必须在世界观层面回应，而不是靠几个口号。</p>
+      </article>
+    </div>
+    </section>
+    
+    <section class="scene" id="scene-23">
+      <div class="scene-head">
+        <span class="scene-no">23</span>
+        <div><h2>第二十三幕｜临别：为一次交付圣徒的真道竭力争辩，但不把朋友当敌人</h2><p>真理的争辩与爱人的命令，不是二选一。</p></div>
+      </div>
+      <div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>今天聊了这么久，我反而没有觉得被冒犯。虽然你很明确地说我有些核心信念是错的。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>因为我想区分两件事：反对一个信念，不等于贬低持有这个信念的人。若我相信你是按神形象受造的人，我就更应该认真听你，而不是把你当成需要被击败的对象。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>那你希望我接下来做什么？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>不是先去“变成一个基督教文化的人”。我希望你自己读一卷福音书，比如约翰福音，直接看耶稣怎样谈自己；再读罗马书，看使徒怎样解释罪、恩典、称义。然后把最难的问题继续带回来。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>你也愿意继续读《薄伽梵歌》，而不是只读批判它的文章吗？</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>愿意。要回应一个信仰，就应该先尽可能准确理解它。我可以反对它，但不能歪曲它。</p>
+      </article>
+    </div><div class="dialogue-row">
+      <article class="speech hindu">
+        <div class="speaker">
+          <span class="avatar">ॐ</span>
+          <div><strong>拉杰</strong><small>印度教徒</small></div>
+        </div>
+        <p>那我们下次继续。</p>
+      </article>
+    
+      <article class="speech christian">
+        <div class="speaker">
+          <span class="avatar">✝</span>
+          <div><strong>阿明</strong><small>基督徒</small></div>
+        </div>
+        <p>继续。真理不怕问题，友情也不需要靠回避真理维持。</p>
+      </article>
+    </div>
+    </section>
+    
+
+<section class="summary">
+  <h2>对话后的神学总表</h2>
+  <p>下面不是为了把复杂的印度教压缩成一个固定公式，而是总结本对话中出现的主要分歧。印度教一栏描述的是拉杰所代表的“奥义书—吠檀多—《薄伽梵歌》—虔信”综合立场；不同印度教传统会有不同修正。</p>
+  <table class="matrix">
+    <thead><tr><th>问题</th><th>改革宗基督教</th><th>本对话中的印度教立场</th></tr></thead>
+    <tbody>
+      <tr><td>终极实在</td><td>一位永恒、人格、三位一体的创造主</td><td>Brahman／最高神性；不同传统对人格性理解不同</td></tr>
+      <tr><td>神与世界</td><td>神创造世界，创造主与受造物本体有别</td><td>可从不二、限定不二、二元等不同框架理解</td></tr>
+      <tr><td>人是谁</td><td>按神形象被造的受造人格；不是神性的一部分</td><td>Atman 为更深层的自我；与 Brahman 的关系依学派而异</td></tr>
+      <tr><td>根本问题</td><td>罪、罪责、败坏、与神隔绝</td><td>无明、执著、业力束缚与轮回</td></tr>
+      <tr><td>终极目标</td><td>与神和好、成圣、身体复活、新创造中永远与神同住</td><td>Moksha：脱离 samsara；具体定义依传统而异</td></tr>
+      <tr><td>道路</td><td>唯独恩典、唯独基督、借着信心称义；善行是果子</td><td>知识、行动、虔信、降服等路径，不同传统权重不同</td></tr>
+      <tr><td>耶稣／神圣降临</td><td>永恒圣子一次性道成肉身，真神真人</td><td>印度教中可存在 avatar（神圣降世）框架，但定义不同</td></tr>
+      <tr><td>死后</td><td>一次人生、死亡、等候复活与审判</td><td>轮回，直至解脱</td></tr>
+      <tr><td>最高权威</td><td>圣经作为神所默示、教会所领受的正典</td><td>Veda/śruti 具有核心地位，同时有广泛 smrti 与注疏传统</td></tr>
+    </tbody>
+  </table>
+  <div class="verdict">
+    <strong>从改革宗基督教立场作出的最终判断：</strong>
+    印度教对人的内在困境、欲望、道德后果、敬虔操练与终极意义提出了深刻问题，也发展出高度复杂的哲学与宗教传统；但它对神、人、罪、救赎与死后的核心答案，与圣经启示存在根本冲突。基督教不是在印度教的“解脱路线”旁边再增加一条路线，而是重新定义人的处境：人不是需要发现“自己本来与神同一”，而是需要作为受造而悖逆的人与创造主和好。福音的核心因此不是自我觉悟、业力净化或轮回中的逐步提升，而是神在耶稣基督里一次性完成的救赎——道成肉身、十字架代赎、从死里复活，并借圣灵使罪人因信与基督联合。
+  </div>
+</section>
+
+<section class="sources">
+  <h2>资料说明与延伸阅读</h2>
+  <p>本文是神学对话体作品，不把任何单一人物当作“全体印度教”的代表。下列资料用于校准关于印度教多样性、经典与核心概念的基本描述。</p>
+  <ul>
+    <li><a href="https://www.britannica.com/topic/Hinduism" target="_blank" rel="noopener">Encyclopaedia Britannica — Hinduism</a>：印度教的历史、多样传统、dharma、karma、moksha 等概览。</li>
+    <li><a href="https://www.britannica.com/topic/Upanishad" target="_blank" rel="noopener">Encyclopaedia Britannica — Upanishad</a>：奥义书在吠陀传统中的位置，以及 Brahman / Atman 相关思想。</li>
+    <li><a href="https://www.britannica.com/topic/karma" target="_blank" rel="noopener">Encyclopaedia Britannica — Karma</a>：业、轮回及其在印度宗教中的道德因果意义。</li>
+    <li>基督教论述主要依据：创世记1–3章；约翰福音1章、3章、14章；罗马书1–8章；哥林多前书15章；以弗所书1–2章；希伯来书9章；启示录21–22章；以及改革宗关于三位一体、称义、成圣与圣经权威的经典表述。</li>
+    <li>封面印度教寺庙图：Wikimedia Commons，<a href="https://commons.wikimedia.org/wiki/File:Madurai_Meenakshi_temple_gopuram.jpg" target="_blank" rel="noopener">Madurai Meenakshi temple gopuram.jpg</a>。</li>
+    <li>封面圣经图：Billy Hathorn / Wikimedia Commons，CC BY-SA 3.0，<a href="https://commons.wikimedia.org/wiki/File:Open_Bible_in_chapel_at_Deaf_Smith_County,_TX,_Museum_IMG_4879.JPG" target="_blank" rel="noopener">Open Bible in chapel…</a>。</li>
+  </ul>
+</section>
+</main>
+</div>
+<footer>基督教 × 印度教｜长篇信仰对话 · 改革宗视角</footer>
+<script>
+const bar=document.getElementById('progress');
+addEventListener('scroll',()=>{const d=document.documentElement;const p=(d.scrollTop/(d.scrollHeight-d.clientHeight))*100;bar.style.width=p+'%'},{passive:true});
+</script>
+</body>
+</html>

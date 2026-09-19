@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="description" content="从犹太传统内部理解犹太教：信仰、盟约、妥拉、塔木德、诫命、安息日、祷告、节期、历史、宗派、弥赛亚、以色列与现代犹太生活。" />
+<title>犹太教：从内部理解一个活着的盟约传统</title>
+<style>
+:root{
+  --ink:#1f2937;--muted:#667085;--paper:#fbfaf7;--card:#ffffff;--line:#e8e1d3;
+  --blue:#123c69;--blue2:#1d5a89;--gold:#b38a39;--wine:#6e2638;--green:#315d4c;
+  --shadow:0 16px 50px rgba(20,32,48,.09);--radius:22px;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",Arial,sans-serif;line-height:1.9}
+a{color:var(--blue2);text-decoration:none} a:hover{text-decoration:underline}
+.progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--gold),var(--blue2));width:0;z-index:1000}
+.hero{min-height:78vh;display:grid;place-items:center;position:relative;overflow:hidden;background:#0f2d4a;color:#fff}
+.hero:before{content:"";position:absolute;inset:0;background:linear-gradient(100deg,rgba(6,24,40,.94),rgba(9,35,59,.70) 55%,rgba(9,35,59,.28)),url('https://commons.wikimedia.org/wiki/Special:Redirect/file/Open%20Torah,%20the%20Jewish%20Holy%20Book.jpg?width=1800') center/cover;filter:saturate(.78)}
+.hero-inner{position:relative;z-index:2;width:min(1120px,92vw);padding:80px 0}
+.kicker{letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:#ead7a8;font-weight:700}
+.hero h1{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(3rem,7vw,6.9rem);line-height:1.05;margin:.2em 0 .14em;max-width:980px}
+.hero .hebrew{font-size:clamp(1.2rem,2vw,1.65rem);direction:rtl;text-align:left;color:#ead7a8;margin:0 0 18px}
+.hero p{max-width:820px;font-size:1.12rem;color:#eef4f8;margin:0}
+.hero .meta{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}.pill{border:1px solid rgba(255,255,255,.24);background:rgba(255,255,255,.07);padding:8px 12px;border-radius:999px;font-size:.9rem}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:34px;width:min(1280px,94vw);margin:36px auto 80px}
+.toc{position:sticky;top:24px;align-self:start;background:rgba(255,255,255,.83);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:18px;padding:18px 16px;box-shadow:var(--shadow);max-height:calc(100vh - 48px);overflow:auto}
+.toc h3{margin:0 0 10px;font-size:.86rem;letter-spacing:.1em;color:var(--muted);text-transform:uppercase}.toc a{display:block;padding:7px 9px;border-radius:9px;color:#334155;font-size:.92rem}.toc a:hover{background:#f1ede4;text-decoration:none}.toc .small{font-size:.78rem;color:var(--muted);margin-top:10px}
+main{min-width:0}.section{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(24px,4vw,52px);margin-bottom:28px;box-shadow:0 8px 30px rgba(25,35,50,.035)}
+.section h2{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(1.8rem,3vw,2.8rem);line-height:1.25;margin:0 0 18px;color:#17324b}.section h3{margin:32px 0 10px;font-size:1.25rem;color:#29475f}.section p{margin:0 0 16px}
+.lead{font-size:1.13rem;color:#364152}.dropcap:first-letter{float:left;font-family:Georgia,serif;font-size:4.2rem;line-height:.78;padding:10px 10px 0 0;color:var(--gold)}
+.quote{border-left:4px solid var(--gold);background:#faf6ea;padding:16px 20px;border-radius:0 14px 14px 0;margin:22px 0;color:#493f2d}.quote .he{display:block;direction:rtl;font-size:1.2rem;font-family:Georgia,serif;color:#6b5522;margin-bottom:4px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:22px 0}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:22px 0}
+.card{border:1px solid var(--line);border-radius:16px;padding:20px;background:#fdfcf9}.card h4{margin:0 0 8px;color:#17324b;font-size:1.05rem}.card p{font-size:.95rem;margin:0;color:#4b5563}
+.tag{display:inline-block;background:#edf4f9;color:#214d6d;border:1px solid #d8e6ef;border-radius:999px;padding:3px 9px;font-size:.78rem;margin:3px 4px 3px 0}
+.warn{background:#fff7e8;border:1px solid #efd7a4;border-radius:16px;padding:18px 20px;margin:20px 0}.insider{background:linear-gradient(135deg,#eff6fb,#f9f5e8);border:1px solid #dfe8ea;border-radius:18px;padding:22px;margin:22px 0}.insider b{color:#17324b}
+figure{margin:28px 0}.photo{width:100%;max-height:510px;object-fit:cover;border-radius:18px;border:1px solid var(--line);box-shadow:var(--shadow)}figcaption{font-size:.8rem;color:var(--muted);margin-top:8px;line-height:1.5}
+.table-wrap{overflow:auto;margin:20px 0}table{border-collapse:collapse;width:100%;min-width:700px;font-size:.94rem}th,td{border-bottom:1px solid var(--line);padding:12px 14px;text-align:left;vertical-align:top}th{color:#17324b;background:#f7f4ec;font-weight:700}
+.timeline{position:relative;margin:28px 0 10px;padding-left:26px}.timeline:before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:#d9c9a4}.event{position:relative;padding:0 0 22px 18px}.event:before{content:"";position:absolute;width:12px;height:12px;border-radius:50%;left:-24px;top:8px;background:var(--gold);border:3px solid #fff;box-shadow:0 0 0 1px #c9b27c}.event b{color:#17324b}.event .date{font-variant-numeric:tabular-nums;color:var(--wine);font-weight:700;margin-right:8px}
+.big-number{font-family:Georgia,serif;font-size:2.4rem;color:var(--blue);line-height:1}.mini{font-size:.84rem;color:var(--muted)}
+.diagram{border:1px solid var(--line);border-radius:20px;background:#fbfaf6;padding:18px;margin:24px 0;overflow:auto}.diagram svg{width:100%;min-width:720px;height:auto;display:block}
+.holiday{border-left:4px solid var(--blue2);padding:10px 0 10px 16px;margin:12px 0}.holiday b{color:#17324b}.holiday em{color:var(--muted)}
+.glossary{columns:2;column-gap:30px}.term{break-inside:avoid;margin:0 0 14px}.term b{color:#17324b}.term .he{direction:rtl;font-family:Georgia,serif;color:var(--wine)}
+.source{font-size:.9rem;border-bottom:1px dashed #ddd3c1;padding:12px 0}.source:last-child{border-bottom:0}.source b{display:block;color:#17324b}.source span{color:var(--muted)}
+.footer{width:min(1100px,92vw);margin:40px auto 70px;text-align:center;color:var(--muted);font-size:.88rem}
+@media (max-width:980px){.layout{grid-template-columns:1fr}.toc{position:relative;top:auto;max-height:none}.grid3{grid-template-columns:1fr 1fr}}
+@media (max-width:680px){.grid2,.grid3{grid-template-columns:1fr}.glossary{columns:1}.section{padding:24px 19px}.hero{min-height:68vh}.hero-inner{padding:55px 0}.hero h1{font-size:3rem}}
+@media print{.toc,.progress{display:none}.layout{display:block;width:100%}.section{box-shadow:none;break-inside:avoid-page}.hero{min-height:auto}.hero:before{background:#17324b}a{color:inherit;text-decoration:none}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Judaism · יהדות · 犹太教深度导读</div>
+    <h1>犹太教：<br>从内部理解一个活着的盟约传统</h1>
+    <div class="hebrew">שְׁמַע יִשְׂרָאֵל — “以色列啊，你要听”</div>
+    <p>不是把犹太教当作“基督教之前的一段历史”，也不是只列一套抽象教义，而是尽量进入犹太人的自我理解：一个民族怎样以盟约、妥拉、诫命、记忆、家庭、安息日、祷告与不断解释经文的生活方式，穿越三千年历史而继续存在。</p>
+    <div class="meta"><span class="pill">内部视角</span><span class="pill">历史 + 经书 + 神学 + 生活</span><span class="pill">正统 / 保守 / 改革等内部差异</span><span class="pill">更新至 2026 年可得资料</span></div>
+  </div>
+</header>
+
+<div class="layout">
+<nav class="toc">
+  <h3>Contents</h3>
+  <a href="#how">0. 怎样阅读这份报告</a>
+  <a href="#core">1. 一句话理解犹太教</a>
+  <a href="#identity">2. 犹太人：宗教、民族还是文明？</a>
+  <a href="#god">3. 神：Shema 与绝对的一</a>
+  <a href="#covenant">4. 盟约、拣选与使命</a>
+  <a href="#texts">5. 经书世界：Tanakh 到 Talmud</a>
+  <a href="#halakha">6. Halakha：把信仰变成生活</a>
+  <a href="#daily">7. 一个敬虔犹太人的日常</a>
+  <a href="#calendar">8. 节期与神圣时间</a>
+  <a href="#synagogue">9. 会堂、拉比与共同体</a>
+  <a href="#life">10. 从出生到死亡</a>
+  <a href="#messiah">11. 弥赛亚、来世与末后的盼望</a>
+  <a href="#history">12. 起源—发展—现代</a>
+  <a href="#streams">13. 现代宗派与内部差异</a>
+  <a href="#ethnic">14. 阿什肯纳兹、塞法迪、米兹拉希…</a>
+  <a href="#who">15. 谁算犹太人？</a>
+  <a href="#israel">16. 以色列地、锡安与现代国家</a>
+  <a href="#christian">17. 基督徒最容易误解的地方</a>
+  <a href="#week">18. “如果你生活在其中”</a>
+  <a href="#status">19. 当代犹太教现状</a>
+  <a href="#glossary">20. 关键词表</a>
+  <a href="#sources">资料来源</a>
+  <div class="small">提示：犹太教内部差异很大。文中出现“犹太教认为”时，尽量标明是传统/正统观点，还是较广泛的共同语言。</div>
+</nav>
+
+<main>
+<section class="section" id="how">
+<h2>0. 怎样阅读这份报告：先放下三个错误框架</h2>
+<p class="lead dropcap">如果要真正理解犹太教，最重要的不是先背“犹太人相信哪十三条”，而是先改变提问方式。犹太教当然有关于神、启示、罪、悔改、审判、弥赛亚和复活的信念，但它不像某些基督教传统那样，以一份所有人共同签署的系统信条作为最主要的入口。犹太人的宗教生命更像一个由<strong>神—盟约—以色列民—妥拉—诫命—土地—记忆—共同体</strong>交织成的网络。</p>
+<div class="grid3">
+  <div class="card"><h4>不是“只有旧约的基督教”</h4><p>拉比传统、口传妥拉、塔木德与两千年的判例解释，使今日犹太教与圣经时代的以色列宗教既连续又不等同。</p></div>
+  <div class="card"><h4>不是“只讲行为、不讲信心”</h4><p>敬畏神、爱神、信靠、悔改、祷告都重要；只是信念通常被要求落在具体的 mitzvot（诫命）与共同体生活中。</p></div>
+  <div class="card"><h4>也不是一个同质群体</h4><p>正统派、保守派/马所拉派、改革派、重建派，以及世俗犹太人，对启示、律法约束力、性别角色、弥赛亚等问题可有显著差别。</p></div>
+</div>
+<div class="insider"><b>内部视角的核心：</b>一个传统犹太人通常不会说：“我选择了一套宗教哲学。”更自然的表达是：“我们在西奈进入盟约；妥拉是我们的产业；我们这一代要继续学习、守诫命、纪念、传给下一代。”这是理解整套体系的钥匙。</div>
+</section>
+
+<section class="section" id="core">
+<h2>1. 一句话理解犹太教</h2>
+<div class="quote"><span class="he">שְׁמַע יִשְׂרָאֵל יְהוָה אֱלֹהֵינוּ יְהוָה אֶחָד</span>“以色列啊，你要听：耶和华我们的神，耶和华是独一的。”——申命记 6:4，Shema 的核心句。</div>
+<p>如果必须用一句话概括传统犹太教，可以这样说：</p>
+<p style="font-size:1.25rem;font-family:Georgia,'Noto Serif SC','Songti SC',serif;color:#17324b"><strong>独一的神与以色列民立约，把妥拉赐给他们；犹太人的使命是在日常生活中以诫命使这个盟约可见，并盼望世界最终在神的统治、正义与和平中被修复。</strong></p>
+<p>这句话里几乎已经包含整个犹太教：独一神论（God）、盟约（Brit）、以色列民（Israel）、妥拉（Torah）、诫命（Mitzvot）、生活之道（Halakha）和救赎盼望（Geulah / Messianic hope）。</p>
+</section>
+
+<section class="section" id="identity">
+<h2>2. 犹太人：宗教、民族，还是一种文明？答案是“同时是”</h2>
+<p>现代西方人常把“宗教”理解为私人信仰：你相信什么神、周末去哪里礼拜。但犹太人的自我理解更复杂。一个人可以不相信神，仍然认同自己是犹太人；一个人也可以通过皈依进入犹太民族和盟约共同体。犹太身份同时具有宗教、亲缘/族群、历史记忆、文化、语言与人民共同体（peoplehood）的维度。</p>
+<div class="diagram">
+<svg viewBox="0 0 980 410" role="img" aria-label="犹太身份结构示意图">
+<defs><filter id="s" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="6" stdDeviation="8" flood-opacity=".12"/></filter></defs>
+<rect x="10" y="10" rx="25" width="960" height="390" fill="#fbfaf6"/>
+<g filter="url(#s)" font-family="Arial, sans-serif" text-anchor="middle">
+<circle cx="365" cy="198" r="120" fill="#dcebf4" fill-opacity=".85"/><text x="365" y="184" font-size="25" fill="#17324b" font-weight="700">宗教</text><text x="365" y="216" font-size="15" fill="#4b6070">神 · 妥拉 · 祷告 · 诫命</text>
+<circle cx="505" cy="198" r="120" fill="#eee2c6" fill-opacity=".85"/><text x="505" y="184" font-size="25" fill="#634d21" font-weight="700">人民</text><text x="505" y="216" font-size="15" fill="#75613a">祖先 · 家庭 · 共同命运</text>
+<circle cx="435" cy="292" r="120" fill="#e7d9dc" fill-opacity=".82"/><text x="435" y="285" font-size="25" fill="#6e2638" font-weight="700">文明</text><text x="435" y="317" font-size="15" fill="#744957">语言 · 食物 · 音乐 · 记忆</text>
+</g>
+<text x="750" y="150" font-family="Arial" font-size="20" fill="#17324b" font-weight="700">“犹太性”不是单一标签</text>
+<text x="750" y="188" font-family="Arial" font-size="15" fill="#556070" text-anchor="middle">因此会出现“世俗犹太人”、</text><text x="750" y="214" font-family="Arial" font-size="15" fill="#556070" text-anchor="middle">“文化犹太人”、高度守律法的犹太人，</text><text x="750" y="240" font-family="Arial" font-size="15" fill="#556070" text-anchor="middle">而他们仍可能把彼此视为同一民族历史的一部分。</text>
+</svg>
+</div>
+<p>这也是为什么“犹太教”和“犹太人”不能完全互换。Judaism 指宗教/传统体系；Jewish people 指人民共同体。一个犹太人可能宗教上非常敬虔，也可能不可知论；但安息日晚餐、逾越节家宴、希伯来语祷词、家族记忆、耶路撒冷与大屠杀记忆，仍可能构成强烈身份。</p>
+</section>
+
+<section class="section" id="god">
+<h2>3. 神：Shema 与犹太信仰的绝对中心</h2>
+<p>传统犹太教最不可动摇的核心，是神的独一性。Shema 不只是“神只有一个”的算术命题，也是在说：以色列只属于这位神，只敬拜祂，不把任何受造物、人物、力量或中介与祂并列。</p>
+<div class="grid2">
+<div class="card"><h4>传统神观</h4><p>神是创造者、永恒、非物质、无可比拟、知道人的行为、施行审判与怜悯。迈蒙尼德（Maimonides / Rambam）的十三信条把这些思想系统化，对正统犹太教影响尤其巨大。</p></div>
+<div class="card"><h4>“名字”的敬畏</h4><p>四字神名 YHWH 在犹太传统中通常不直接读出；祷告读作 Adonai，日常谈论常说 HaShem（“那名”）。有些英语犹太资料会写作 G‑d，以表达敬畏。</p></div>
+</div>
+<p>但要注意：现代改革派和许多非正统犹太人对“神”的理解非常宽，有人格神、有哲学性的神观，也有人怀疑甚至不信神，却仍参与犹太生活。改革犹太教自己的官方说明就明确承认内部信念的多样性，而仍把“God, Torah, Israel”看作其传统的中心词汇。</p>
+<div class="warn"><strong>不要把“犹太教没有系统神学”误解为“犹太教不重视真理”。</strong> 从塔木德争论到中世纪哲学、卡巴拉和现代犹太思想，犹太传统拥有极其浓厚的神学与哲学讨论；只是它往往不是以单一教理问答形式组织。</div>
+</section>
+
+<section class="section" id="covenant">
+<h2>4. 盟约、拣选与使命：为什么以色列是“选民”</h2>
+<p>“选民”是最容易从外部被误解的概念之一。传统犹太理解通常不是“我们比其他民族更有价值”，而是“我们承担了一个特别的盟约责任”。亚伯拉罕之约涉及后裔、土地与祝福；西奈之约则把以色列塑造成一个受妥拉约束的共同体。</p>
+<div class="grid3">
+<div class="card"><h4>Brit · בְּרִית</h4><p>盟约不是抽象理念，而是一段带有义务、忠诚和历史记忆的关系。</p></div>
+<div class="card"><h4>Mitzvah · מִצְוָה</h4><p>“诫命”不是单纯道德建议；在传统理解中，它来自盟约中的神圣命令。</p></div>
+<div class="card"><h4>Kedushah · קְדֻשָּׁה</h4><p>“圣洁”表现为分别、秩序和日常行为：时间、食物、婚姻、金钱、身体、说话都进入神圣领域。</p></div>
+</div>
+<p>传统拉比文献认为妥拉中有 613 条 mitzvot——248 条积极命令与 365 条禁令；但不是每条在今天都能实行，因为许多诫命与圣殿、祭司、土地农业制度有关。对敬虔犹太人而言，诫命不是“用行为赚取救恩”的积分制度，而是盟约生活本身：神把一种生活交托给以色列，以色列在生活中回应神。</p>
+<p>对非犹太人，传统犹太教通常并不要求“必须成为犹太人才能蒙神悦纳”。拉比传统发展出“挪亚七诫”的普世道德框架；因此犹太教历史上通常不像基督教和伊斯兰教那样以普遍传教、吸收所有民族皈依为中心使命。</p>
+</section>
+
+<section class="section" id="texts">
+<h2>5. 经书世界：不是“一本圣经”，而是一场延续两千年的对话</h2>
+<figure>
+<img class="photo" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Torah%20Reading%20Sephardic%20custom.jpg?width=1400" alt="塞法迪传统中的妥拉诵读" />
+<figcaption>妥拉卷轴在会堂中被公开诵读。图：Sagie Maoz / Wikimedia Commons，CC BY-SA 2.0。</figcaption>
+</figure>
+<p>从内部看，犹太教最重要的“圣书”概念是 <strong>Torah</strong>。这个词既可以狭义指摩西五经，也可以广义指整个犹太教导传统。正统犹太教尤其强调“书面妥拉”（Torah shebikhtav）与“口传妥拉”（Torah shebe’al peh）共同构成启示与解释传统。</p>
+<div class="diagram">
+<svg viewBox="0 0 1100 560" role="img" aria-label="犹太经典结构图">
+<rect width="1100" height="560" rx="25" fill="#fbfaf6"/>
+<g font-family="Arial, sans-serif">
+<rect x="420" y="35" width="260" height="70" rx="18" fill="#17324b"/><text x="550" y="78" fill="white" text-anchor="middle" font-size="27" font-weight="700">TORAH · 妥拉</text>
+<line x1="550" y1="105" x2="315" y2="165" stroke="#b38a39" stroke-width="3"/><line x1="550" y1="105" x2="785" y2="165" stroke="#b38a39" stroke-width="3"/>
+<rect x="150" y="165" width="330" height="86" rx="18" fill="#dfeaf1"/><text x="315" y="202" fill="#17324b" text-anchor="middle" font-size="22" font-weight="700">书面妥拉</text><text x="315" y="228" fill="#52616d" text-anchor="middle" font-size="15">Tanakh：Torah + Prophets + Writings</text>
+<rect x="620" y="165" width="330" height="86" rx="18" fill="#eee3c8"/><text x="785" y="202" fill="#624c21" text-anchor="middle" font-size="22" font-weight="700">口传妥拉</text><text x="785" y="228" fill="#6d6248" text-anchor="middle" font-size="15">解释、判例、讨论与传统</text>
+<line x1="315" y1="251" x2="315" y2="310" stroke="#9bb6c7" stroke-width="3"/><line x1="785" y1="251" x2="785" y2="310" stroke="#cbb57f" stroke-width="3"/>
+<rect x="88" y="310" width="205" height="85" rx="16" fill="#f3f7f9"/><text x="190" y="344" text-anchor="middle" font-size="19" font-weight="700" fill="#17324b">Torah</text><text x="190" y="370" text-anchor="middle" font-size="14" fill="#5c6872">创 出 利 民 申</text>
+<rect x="313" y="310" width="205" height="85" rx="16" fill="#f3f7f9"/><text x="415" y="344" text-anchor="middle" font-size="19" font-weight="700" fill="#17324b">Nevi’im</text><text x="415" y="370" text-anchor="middle" font-size="14" fill="#5c6872">先知书</text>
+<rect x="201" y="420" width="205" height="85" rx="16" fill="#f3f7f9"/><text x="303" y="454" text-anchor="middle" font-size="19" font-weight="700" fill="#17324b">Ketuvim</text><text x="303" y="480" text-anchor="middle" font-size="14" fill="#5c6872">圣卷 / 著作</text>
+<rect x="585" y="310" width="180" height="85" rx="16" fill="#fbf4e5"/><text x="675" y="344" text-anchor="middle" font-size="19" font-weight="700" fill="#684f1e">Mishnah</text><text x="675" y="370" text-anchor="middle" font-size="14" fill="#6c634f">约 200 CE 定型</text>
+<rect x="805" y="310" width="180" height="85" rx="16" fill="#fbf4e5"/><text x="895" y="344" text-anchor="middle" font-size="19" font-weight="700" fill="#684f1e">Gemara</text><text x="895" y="370" text-anchor="middle" font-size="14" fill="#6c634f">围绕 Mishnah 的讨论</text>
+<line x1="675" y1="395" x2="785" y2="445" stroke="#cbb57f" stroke-width="3"/><line x1="895" y1="395" x2="785" y2="445" stroke="#cbb57f" stroke-width="3"/>
+<rect x="665" y="445" width="240" height="75" rx="16" fill="#6e2638"/><text x="785" y="478" fill="white" text-anchor="middle" font-size="23" font-weight="700">TALMUD</text><text x="785" y="501" fill="#f3dfe4" text-anchor="middle" font-size="14">巴比伦塔木德最具规范影响</text>
+</g></svg>
+</div>
+<h3>Tanakh：犹太人的《圣经》</h3>
+<p><strong>TaNaKh</strong> 是三个希伯来词首字母组成：Torah（妥拉）、Nevi’im（先知书）、Ketuvim（圣卷/著作）。它与新教《旧约》大体包含相同书卷材料，但<strong>书卷的分组、次序、计数方式和诠释语境不同</strong>。犹太人通常不称它为“旧约”，因为从犹太自我理解看，它并不是被某个“新约”取代的旧版本。</p>
+<h3>Mishnah 与 Talmud：为什么经文之后还有这么多书？</h3>
+<p>书面的妥拉会说“守安息日”，却不会在经文本身中穷尽“什么行为算 melachah（被禁止的工）”；它会命令系戴经匣、设门柱经文，却需要传统解释具体怎么做。拉比犹太教因此把口传解释视为不可或缺。Mishnah 约在公元 200 年前后定型；Gemara 是后来几代拉比围绕 Mishnah 的讨论，两者合成 Talmud。通常说“The Talmud”时，多指约公元 5—6 世纪完成其主要形态的<strong>巴比伦塔木德</strong>；另有耶路撒冷/巴勒斯坦塔木德。</p>
+<h3>之后还有什么？</h3>
+<p>Midrash（米德拉什，经文释义传统）、Rashi 等注释家、Maimonides 的《密西拿妥拉》、Joseph Karo 的《Shulchan Aruch》、无数 responsa（拉比法律答复），以及 Kabbalah（卡巴拉神秘传统）的经典，使犹太文本传统像一棵不断长出新枝的树。Sefaria 把这种传统称作一场跨世代的“犹太文本大对话”，这个比喻非常贴近内部阅读经验。</p>
+</section>
+
+<section class="section" id="halakha">
+<h2>6. Halakha：把“神圣”翻译成每一天怎么活</h2>
+<p><strong>Halakha（הֲלָכָה）</strong> 字根与“行走”有关，常译作“犹太律法”，但更接近“应当怎样行走/生活的道路”。它不仅处理宗教仪式，也触及商业、损害赔偿、婚姻、饮食、节期、安息日、慈善、言语、死亡与哀悼。</p>
+<div class="grid2">
+<div class="card"><h4>诫命不是孤立条文</h4><p>经文命令 → 拉比解释 → 塔木德讨论 → 中世纪法典 → 当代 responsa，形成法律推理链条。不同权威有时给出不同结论。</p></div>
+<div class="card"><h4>“争论”本身可以是敬虔行为</h4><p>塔木德常保存少数意见甚至最终未被采纳的意见。学习者会追问“为什么”“依据什么”“此例外是否成立”，而不是只背结论。</p></div>
+</div>
+<p>正统派认为 halakha 对犹太人具有神圣约束力；保守派/马所拉派也主张其约束力，但认为法律可在传统法律机制内因历史与现实条件发展；改革派通常把 halakha 视为重要传统资源，而更强调个人与共同体经过学习后的选择，而非所有传统条文都具有同样的强制性。</p>
+<div class="insider"><b>从内部看：</b>当一个守律法的犹太人问“这个食物 kosher 吗？”“安息日能不能做这件事？”时，他并不一定觉得自己陷在繁文缛节中。对他而言，问题恰恰是：<em>“在这个很具体的时刻，我怎样让自己属于盟约？”</em></div>
+</section>
+
+<section class="section" id="daily">
+<h2>7. 一个敬虔犹太人的日常：信仰如何进入时间、身体与家</h2>
+<div class="grid3">
+<div class="card"><h4>祷告 · Tefillah</h4><p>传统日祷分 Shacharit（晨祷）、Mincha（午后祷）、Maariv（晚祷）。核心包括 Shema 与 Amidah。祷告书称 Siddur。</p></div>
+<div class="card"><h4>学习 · Talmud Torah</h4><p>“学习妥拉”本身就是宗教责任。学习可以是经文、塔木德、律法、伦理或注释，并常采用两人 chavruta 对学、问答辩论。</p></div>
+<div class="card"><h4>饮食 · Kashrut</h4><p>Kosher 不等于“拉比祝福过的食物”，而是一整套可食物种、屠宰、血、肉奶分离、器具与加工监管规则。</p></div>
+</div>
+<h3>安息日：每周一次“世界不靠我运转”</h3>
+<figure>
+<img class="photo" style="max-height:470px" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/ShabbatcandlesC.jpg?width=1300" alt="安息日蜡烛" />
+<figcaption>安息日前点燃蜡烛。图：Gilabrand / Wikimedia Commons，CC BY-SA 3.0。</figcaption>
+</figure>
+<p>Shabbat 从星期五日落前开始，到星期六夜幕之后结束。传统家庭点灯、唱 Kiddush（祝圣酒的祷词）、吃 challah 面包和节日晚餐；会堂有特别礼仪。正统犹太教依据拉比传统避免 39 类 melachot 及其衍生行为，因此现代生活中会涉及驾车、电器、烹饪、写字、金钱、携带等大量具体判例。</p>
+<p>但如果只把 Shabbat 写成“这也不许、那也不许”，就完全错过内部感受。安息日是<strong>停止生产、停止掌控、回到创造者、家庭、饭桌、歌唱、学习、祷告和共同体</strong>的神圣时间。它不是“宗教版周末”，而像每周进入一次不同的世界秩序。</p>
+<h3>还有哪些可见的宗教生活标记？</h3>
+<p><span class="tag">Mezuzah 门柱经文</span><span class="tag">Tefillin 经匣</span><span class="tag">Tallit 祷告披巾</span><span class="tag">Kippah 头盖</span><span class="tag">Tzedakah 公义/慈善</span><span class="tag">Berakhot 各类祝福</span><span class="tag">Mikveh 礼仪浴池</span></p>
+<p>这些实践在不同宗派、性别和家庭中差异很大。例如改革派和保守派许多会堂在礼仪角色上完全性别平等；正统派通常维持传统性别分工，但正统内部也存在多种模式。</p>
+</section>
+
+<section class="section" id="calendar">
+<h2>8. 节期：犹太教把神学刻进日历</h2>
+<p>犹太历是阴阳合历。节期的力量在于它们不仅“纪念过去”，而是在礼仪中把过去重新带到现在：逾越节不是只说“他们曾经出埃及”，而是让每一代人在 Seder 餐桌上把自己放进出埃及故事；住棚节让身体住进临时棚屋；赎罪日让共同体以禁食、认罪与祈求进入悔改。</p>
+<div class="holiday"><b>Pesach · 逾越节</b> <em>自由与出埃及</em><br>核心是 Seder 家宴、讲述出埃及、无酵饼。家庭教育色彩极强。</div>
+<div class="holiday"><b>Shavuot · 七七节</b> <em>西奈与妥拉</em><br>传统上纪念领受妥拉；常有通宵学习妥拉的习惯。</div>
+<div class="holiday"><b>Rosh Hashanah · 犹太新年</b> <em>王权、审判、悔改</em><br>吹角（shofar），进入“敬畏十日”。</div>
+<div class="holiday"><b>Yom Kippur · 赎罪日</b> <em>一年最严肃的日子</em><br>禁食、认罪、长时间会堂祷告，寻求人与神、人与人关系的修复。</div>
+<div class="holiday"><b>Sukkot · 住棚节</b> <em>旷野、供应、脆弱与喜乐</em><br>住在 sukkah 临时棚屋中，并使用四样植物礼仪。</div>
+<div class="holiday"><b>Hanukkah · 光明节</b> <em>圣殿重献与宗教忠诚</em><br>八日点灯，源于马加比时代的历史记忆；其地位并不等同于妥拉规定的朝圣节期。</div>
+<div class="holiday"><b>Purim · 普珥节</b> <em>以斯帖记中的拯救</em><br>读《以斯帖记》、赠礼、周济穷人、节庆宴席。</div>
+<div class="holiday"><b>Tisha B’Av · 圣殿毁灭哀日</b> <em>民族灾难的宗教记忆</em><br>传统纪念第一、第二圣殿毁灭，并把后世许多灾难纳入集体哀悼。</div>
+</section>
+
+<section class="section" id="synagogue">
+<h2>9. 会堂、拉比与共同体：没有圣殿之后，犹太教怎样继续？</h2>
+<figure>
+<img class="photo" style="max-height:520px;object-position:center 45%" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Ark%20at%20Sfat%20synagogue.jpg?width=1200" alt="采法特会堂中的圣柜" />
+<figcaption>采法特（Safed）一座会堂的 Torah Ark（圣柜）。图：Joshua Paquin / Wikimedia Commons，CC BY 2.0。</figcaption>
+</figure>
+<p>古代耶路撒冷圣殿的核心礼拜是祭献，由祭司体系执行。公元 70 年第二圣殿被罗马毁灭后，拉比犹太教把<strong>祷告、妥拉学习、会堂、家庭礼仪与诫命生活</strong>发展为一个不依赖中央圣殿也能延续的宗教文明。</p>
+<p>Synagogue（希伯来语 Beit Knesset，“聚会之家”）通常有存放妥拉卷轴的 Aron Kodesh（圣柜）、读经台、祷告座位等。会堂既是礼拜空间，也是学习、教育、慈善和社群生活中心。</p>
+<h3>拉比不是“犹太版祭司”</h3>
+<p>Rabbi 原意近于“我的老师/师尊”。拉比的核心权威来自妥拉、塔木德和 halakha 的学习与按立，不是因为他是祭司血统。传统祭司身份（Kohen）和利未人（Levi）在犹太教中仍有残余礼仪角色，但与拉比职分不是一回事。</p>
+<h3>Minyan：为什么共同体重要？</h3>
+<p>传统上某些公共祷告需要十名成年犹太人的法定人数（minyan）。正统会堂通常按传统只计算成年男性；保守、改革等很多会堂把成年女性同样计算在内。这个制度本身表达一个重要观念：犹太信仰不是只有“我与神”，而是“我们作为以色列共同体站在神面前”。</p>
+</section>
+
+<section class="section" id="life">
+<h2>10. 从出生到死亡：一个人的生命如何被放进盟约故事</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>生命阶段</th><th>常见礼仪/概念</th><th>内部意义</th></tr></thead>
+<tbody>
+<tr><td>出生</td><td>Brit Milah（男婴第八日割礼）；女孩命名礼等</td><td>不是“加入俱乐部”，而是把新生命公开放进亚伯拉罕盟约与以色列共同体。</td></tr>
+<tr><td>成年责任</td><td>Bar Mitzvah / Bat Mitzvah</td><td>意为“诫命之子/女”，强调开始承担宗教责任，而不只是举办一场十三岁派对。</td></tr>
+<tr><td>婚姻</td><td>Chuppah（婚棚）、Ketubah（婚约）、祝福、碎杯等</td><td>婚姻既是私人关系，也是 halakhic / covenantal 的公共关系。</td></tr>
+<tr><td>死亡与哀悼</td><td>快速安葬、Shiva 七日哀悼、Kaddish 等</td><td>通过高度结构化的共同体支持，让哀伤有时间、语言和边界。</td></tr>
+</tbody></table></div>
+<p>犹太传统非常擅长把生命转折点“仪式化”：人不是独自穿越出生、成年、婚姻、失落，而由共同体、经文、祝福、时间规则陪伴。一个犹太人的私人生命因此不断被嵌入更大的历史。</p>
+</section>
+
+<section class="section" id="messiah">
+<h2>11. 弥赛亚、来世与末后的盼望：有共同主题，却没有一张所有人都同意的末世时间表</h2>
+<p>传统犹太教相信神最终会救赎世界。迈蒙尼德十三信条包括弥赛亚的来临与死人复活。传统描绘中的 Moshiach 是大卫后裔的人类君王/领袖，带来以色列复兴、和平、正义、认识神的时代；正统传统还保留圣殿重建、流散者聚集等主题。</p>
+<p>但犹太思想对“来世”细节历来多样。你会看到 <strong>Olam Ha‑Ba（来世/将来的世界）</strong>、Gan Eden、Gehinnom、灵魂不朽、复活等概念，却很难像读一份统一教理那样把它们排列成一张所有犹太人认可的流程图。现代自由派犹太教甚至常把弥赛亚盼望理解为“messianic age（弥赛亚时代）”而非特定个人弥赛亚。</p>
+<div class="warn"><strong>关键差异：</strong>在主流犹太教内部，耶稣并不被承认为弥赛亚或神；《新约》也不属于犹太经典。所谓 “Messianic Judaism（弥赛亚犹太教）” 因接受耶稣为弥赛亚/救主，被正统、保守、改革、重建等主要犹太运动普遍视为基督教体系，而非犹太教的一个宗派。</div>
+</section>
+
+<section class="section" id="history">
+<h2>12. 起源—发展—现代：犹太教真正发生过的最大转折</h2>
+<p>理解犹太教历史时，最好同时保留两条线：<strong>传统内部叙事</strong>与<strong>现代历史研究</strong>。传统以亚伯拉罕、出埃及、西奈启示作为民族与盟约起源；现代学术则对族群形成、出埃及规模、五经成书过程提出不同重构。内部理解不必假装这些学术争论不存在，而应知道：对传统犹太人而言，西奈不是单纯古史事件，而是“我们今天为何守妥拉”的根本身份记忆。</p>
+<div class="timeline">
+<div class="event"><span class="date">族长时代（传统叙事）</span><b>亚伯拉罕、以撒、雅各</b><br>亚伯拉罕之约、应许之地与以色列家族的形成成为后世身份原型。</div>
+<div class="event"><span class="date">出埃及与西奈（传统叙事核心）</span><b>从奴役到盟约民族</b><br>逾越节不断重演“被神带出为奴之家”的记忆；西奈则解释“为什么这个民族受妥拉约束”。</div>
+<div class="event"><span class="date">约前 10 世纪起</span><b>王国与第一圣殿</b><br>大卫—所罗门传统、耶路撒冷成为王权与敬拜中心。现代学界对早期王国规模有持续讨论。</div>
+<div class="event"><span class="date">前 586</span><b>巴比伦毁第一圣殿</b><br>耶路撒冷毁灭与流亡迫使犹太身份学习在失去政治中心后继续生存；圣经、祷告、群体边界的重要性上升。</div>
+<div class="event"><span class="date">前 538 起</span><b>波斯时期归回与第二圣殿</b><br>居鲁士允许被掳群体归回并重建圣所；以斯拉、尼希米传统强化妥拉与共同体秩序。</div>
+<div class="event"><span class="date">第二圣殿时期</span><b>犹太教内部多元化</b><br>祭司、法利赛人、撒都该人、艾赛尼等群体并存；希腊化、哈斯蒙尼王朝与罗马统治深刻塑造犹太社会。</div>
+<div class="event"><span class="date">70 CE</span><b>第二圣殿被罗马毁灭</b><br>这是犹太教史的超级转折点：以祭坛为中心的宗教必须转向没有圣殿的生活。</div>
+<div class="event"><span class="date">约 200—600 CE</span><b>拉比犹太教成熟</b><br>Mishnah 定型，之后巴勒斯坦与巴比伦两地发展 Gemara；巴比伦塔木德成为后世 halakha 学习最有影响力的基础文本之一。</div>
+<div class="event"><span class="date">中世纪</span><b>在基督教与伊斯兰文明之间</b><br>犹太社群从伊比利亚、北非、中东到欧洲发展出不同语言、法学、哲学与诗歌传统；也经历歧视、驱逐与暴力。</div>
+<div class="event"><span class="date">12 世纪</span><b>迈蒙尼德</b><br>哲学、法典化和十三信条深刻影响后世；展示犹太思想可同时极度理性又极度守律法。</div>
+<div class="event"><span class="date">1492 及以后</span><b>西班牙驱逐与塞法迪离散</b><br>塞法迪犹太人分散至奥斯曼帝国、北非、荷兰和新世界，带着 Ladino 语言和独特礼仪传统。</div>
+<div class="event"><span class="date">18 世纪</span><b>哈西德运动与启蒙运动</b><br>东欧哈西德主义强调喜乐、祷告与神秘传统；Haskalah 犹太启蒙推动现代教育、社会融入，并为现代宗派分化铺路。</div>
+<div class="event"><span class="date">19 世纪</span><b>改革派、正统派、保守派逐步成形</b><br>核心争论变成：现代性到来后，妥拉和 halakha 的权威应如何理解？</div>
+<div class="event"><span class="date">1933—1945</span><b>Shoah / Holocaust</b><br>欧洲犹太文明遭到纳粹德国及其合作者系统性毁灭，约六百万犹太人被杀害。此后犹太神学、人口与政治现实都被永久改变。</div>
+<div class="event"><span class="date">1948—至今</span><b>现代以色列国与全球犹太重组</b><br>大量来自欧洲、中东、北非及其他地区的犹太人迁入以色列；与此同时美国成为另一个巨大犹太中心。现代犹太生活形成以以色列与北美为两大人口中心、同时保留全球离散社群的格局。</div>
+</div>
+<div class="insider"><b>最重要的历史观察：</b>今天你在会堂里看到的“犹太教”，在很大程度上是<strong>圣殿之后的拉比犹太教</strong>。它不是简单保存古代以色列宗教，而是在毁灭、流亡和没有祭坛的条件下，把妥拉变成可携带的家园。</div>
+</section>
+
+<section class="section" id="streams">
+<h2>13. 现代宗派：真正的分歧在“妥拉与律法的权威怎样来到今天”</h2>
+<p>宗派标签主要在欧洲现代性和北美犹太生活中形成，在以色列和塞法迪/米兹拉希社会中并不总以同样方式运作。尤其不要把“正统—保守—改革”想成全球所有犹太人的三党制。</p>
+<div class="table-wrap"><table>
+<thead><tr><th>传统</th><th>对妥拉/启示的大体理解</th><th>Halakha</th><th>典型特点（概括）</th></tr></thead>
+<tbody>
+<tr><td><strong>Orthodox 正统</strong></td><td>强调书面与口传妥拉的神圣来源及连续权威；内部也有哲学差异。</td><td>具有约束力。</td><td>严格守 Shabbat、kashrut 等；包括 Modern Orthodox、Haredi、Hasidic、Yeshivish 等不同世界。</td></tr>
+<tr><td><strong>Conservative / Masorti 保守/马所拉</strong></td><td>保留传统权威，同时接受历史研究与现代知识。</td><td>仍具约束力，但可通过 halakhic 机制发展。</td><td>“Tradition and Change”；许多会堂性别平等，礼仪仍较传统。</td></tr>
+<tr><td><strong>Reform 改革</strong></td><td>强调妥拉神圣价值与历史发展，可接受批判性学术。</td><td>传统具有权威与资源性，但个人/共同体经过学习作选择。</td><td>重平等、包容、伦理行动与适应现代生活；礼仪形式范围很宽。</td></tr>
+<tr><td><strong>Reconstructionist 重建</strong></td><td>把犹太教理解为“不断演化的犹太文明”。</td><td>传统有“投票权”，不必有“否决权”。</td><td>强调共同体、民主、创新和文明整体性。</td></tr>
+<tr><td><strong>Haredi / Hasidic 等</strong></td><td>属于正统大框架，但社会结构、教育与灵修风格独特。</td><td>高度约束。</td><td>Haredi 倾向与世俗文化保持更强边界；Hasidism 具有 Rebbe、神秘传统、喜乐敬拜等特色。</td></tr>
+<tr><td><strong>Secular / cultural Jews</strong></td><td>可无宗教信仰。</td><td>通常不视为个人义务。</td><td>仍可能强烈认同民族、历史、希伯来语、家庭、节期与文化。</td></tr>
+</tbody></table></div>
+<p>美国 2020 年 Pew 调查显示：美国犹太成年人中约 37% 自称 Reform、17% Conservative、9% Orthodox、32% 不归属特定宗派，另有约 4% 属其他较小传统。这个数据<strong>只代表美国调查，不应拿来当全球犹太教宗派比例</strong>。以色列常用的自我描述则更多是 hiloni（世俗）、masorti（传统型）、dati（宗教型）、haredi（极正统）等，含义与美国宗派标签并不一一对应。</p>
+</section>
+
+<section class="section" id="ethnic">
+<h2>14. 犹太世界不是“欧洲白人宗教”：阿什肯纳兹、塞法迪、米兹拉希、埃塞俄比亚与更多</h2>
+<p>共同的经文、节期和民族记忆把世界各地犹太人联系起来，但数百上千年的离散也形成非常不同的饮食、发音、音乐、礼仪和语言传统。</p>
+<div class="grid2">
+<div class="card"><h4>Ashkenazim · 阿什肯纳兹</h4><p>历史根源在德国、法国北部及中东欧；Yiddish、东欧 yeshiva 文化与许多北美犹太习俗由此而来。</p></div>
+<div class="card"><h4>Sephardim · 塞法迪</h4><p>根源于伊比利亚犹太世界及 1492 后的西班牙离散；Ladino 语言、独特祷告传统和地中海饮食文化很有代表性。</p></div>
+<div class="card"><h4>Mizrahim · 米兹拉希</h4><p>指来自中东与邻近地区的犹太社群，如伊拉克、伊朗、也门等；常与塞法迪礼法传统相近但历史来源不同。</p></div>
+<div class="card"><h4>Beta Israel · 埃塞俄比亚犹太人</h4><p>拥有长期独立发展的犹太传统。20 世纪后期大批移居以色列，成为现代犹太民族多样性的显著组成部分。</p></div>
+</div>
+<p>此外还有布哈拉、格鲁吉亚、印度科钦与 Bene Israel、罗马尼奥特、山地犹太人等诸多社群。犹太教因此不能只用“黑帽、白衬衫、纽约口音”来想象。</p>
+</section>
+
+<section class="section" id="who">
+<h2>15. 谁算犹太人？这是身份、律法与现代社会交叉的复杂问题</h2>
+<p>传统 halakha 的基本标准是：<strong>由犹太母亲所生，或按犹太法完成皈依</strong>。正统与保守派基本坚持母系标准。美国改革派从 1983 年起，在满足以犹太身份成长和公开认同等条件时，也承认只有父亲为犹太人的孩子为犹太人；重建派也采取类似方向。</p>
+<h3>皈依 Judaism 是什么？</h3>
+<p>传统皈依通常包括长期学习与生活实践、接受 mitzvot、拉比法庭（beit din）、mikveh 浸礼；男性还涉及 brit milah 或象征性取血。不同宗派对要求及彼此皈依的承认并不一致，因此“某人被哪一个犹太社群承认为犹太人”有时会产生现实差异。</p>
+<div class="warn"><strong>身份不是只靠 DNA。</strong> 犹太民族确实存在连续的族群历史，但宗教法意义上的“谁是犹太人”不是基因检测问题。皈依者进入犹太教后，在宗教共同体中不是“二等犹太人”，而是加入盟约之民。</div>
+</section>
+
+<section class="section" id="israel">
+<h2>16. 以色列地、锡安与现代以色列国：宗教、民族与政治必须区分</h2>
+<figure>
+<img class="photo" src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Western%20wall%20jerusalem%20night.jpg?width=1600" alt="耶路撒冷西墙" />
+<figcaption>耶路撒冷西墙（Kotel），为古代圣殿山平台的西侧挡土墙之一，是现代犹太世界最重要的祷告与记忆地点之一。图：Wayne McLean / Wikimedia Commons，CC BY 2.0。</figcaption>
+</figure>
+<p>犹太人与 Eretz Yisrael（以色列地）的关系远早于现代民族国家：圣经、每日祷告、节期、婚礼、逾越节、赎罪日和哀悼礼仪反复出现耶路撒冷与回归锡安的语言。也就是说，<strong>锡安在犹太教中首先是经文—礼仪—历史记忆的一部分</strong>。</p>
+<p>19 世纪现代 Zionism（锡安主义）则是一组现代民族政治运动，内部既有世俗、社会主义、自由主义，也有宗教锡安主义等不同版本。1948 年现代以色列国建立后，“国家以色列”又成为现实政治实体。三者——<strong>圣经中的以色列、宗教意义的以色列地、现代以色列国</strong>——彼此相关，但不是完全相同的概念。</p>
+<p>犹太人对现代以色列国的宗教意义也并不一致。宗教锡安主义者可能把国家建立看作救赎历史中的重要事件；部分 Haredi 群体持非锡安主义或反锡安主义神学立场；改革与保守传统内部也存在多样的宗教和政治态度。因此不能把“犹太教”“犹太人”“某一届以色列政府政策”混为一谈。</p>
+</section>
+
+<section class="section" id="christian">
+<h2>17. 如果你来自基督教背景，最容易误解犹太教的十个地方</h2>
+<div class="table-wrap"><table>
+<thead><tr><th>常见外部想法</th><th>从犹太内部看更准确的理解</th></tr></thead>
+<tbody>
+<tr><td>“犹太教就是旧约宗教。”</td><td>今日犹太教是 Tanakh + 口传妥拉 + Mishnah/Talmud + 约两千年拉比解释形成的生活传统。</td></tr>
+<tr><td>“拉比等于牧师。”</td><td>拉比首先是教师、解释者与法律权威；他不是取代圣殿祭司的“新祭司”。</td></tr>
+<tr><td>“会堂等于教堂。”</td><td>会堂集祷告、读经、学习与社群于一体；古代圣殿在犹太礼仪记忆中具有独一位置。</td></tr>
+<tr><td>“犹太人靠守律法赚取上天堂资格。”</td><td>这种表述并不符合犹太人的自我理解。诫命是盟约责任、圣洁生活和对神的回应；犹太传统也高度强调 teshuvah（悔改）、怜悯与赦免。</td></tr>
+<tr><td>“所有 613 条今天都要实际执行。”</td><td>许多诫命只适用于圣殿、祭司、古代司法或以色列地农业条件，今日无法或不适用。</td></tr>
+<tr><td>“弥赛亚就是神成为人。”</td><td>传统犹太教期待的弥赛亚是大卫后裔的人类领袖；犹太教不接受神道成肉身的基督教教义。</td></tr>
+<tr><td>“赎罪一定需要血祭。”</td><td>圣殿祭献在古代很重要，但拉比犹太教长期以 teshuvah、祷告、禁食、慈善与修复关系来实践悔改与赎罪日。</td></tr>
+<tr><td>“犹太教只重行为，不重内心。”</td><td>Kavanah（祷告/行诫命时的意向）、爱神、敬畏、信靠、悔改都重要；只是内心必须进入实践。</td></tr>
+<tr><td>“犹太人都很宗教。”</td><td>全球有大量世俗、文化型犹太人；犹太身份不仅是宗教身份。</td></tr>
+<tr><td>“弥赛亚犹太教是犹太教中的基督徒派别。”</td><td>主流犹太宗派普遍不承认其为犹太教宗派，因为其核心信仰接受耶稣作为弥赛亚/救主。</td></tr>
+</tbody></table></div>
+<p>若从犹太人内部去听，一个更重要的问题不是“为什么他们没有看见基督教说的预表”，而是先理解：他们阅读同一批希伯来经文时，处在另一套解释传统中——希伯来原文、拉比米德拉什、塔木德、Rashi、Maimonides、节期礼仪与民族历史共同构成其释经世界。</p>
+</section>
+
+<section class="section" id="week">
+<h2>18. “如果你真的生活在其中”：一个传统犹太家庭的一周会是什么感觉？</h2>
+<p>想象你不是在读一门“世界宗教概论”，而是出生在一个较守传统的犹太家庭。</p>
+<p>星期天到星期四，你每天的时间可能由晨祷、工作、祝福、饮食规则和学习切割出来。你经过家门时看见 mezuzah；吃东西前后有 berakhah；如果是守 kosher 的家庭，厨房器具可能区分肉与奶；你会知道这一周读哪一段 parashah（妥拉周课）。</p>
+<p>星期五下午，整个节奏改变。家里提前做饭，因为安息日不能像平日那样烹饪；屋子收拾干净，蜡烛预备好。日落临近，灯点燃，平日的生产逻辑停止。手机、车、工作、电器怎样处理，取决于你所属的传统和守法程度。饭桌上有酒、challah、祝福和歌。第二天早上去会堂，妥拉卷轴从圣柜中取出，按年度周期公开诵读。下午学习、吃饭、散步、会朋友。周六晚 Havdalah 以酒、香料和编织蜡烛区分“圣”与“俗”，一周重新开始。</p>
+<p>到了春天，家里清除 chametz（发酵谷物），逾越节晚上孩子问“今晚为什么与别夜不同？”；到了赎罪日，整个社群禁食、反省、反复认罪；到了住棚节，你真的走进临时棚屋吃饭。你的孩子不是只听“我们祖先发生过什么”，而是被训练说：<strong>“这是我们的故事，我站在其中。”</strong></p>
+<div class="insider"><b>这就是犹太教最难用“信什么”三个字概括的原因：</b>它是一套把神学做成时间、食物、家庭、身体、语言和记忆的文明工程。</div>
+</section>
+
+<section class="section" id="status">
+<h2>19. 当代犹太教现状：人数很少，内部却极度多元</h2>
+<div class="grid3">
+<div class="card"><div class="big-number">≈15.8m</div><h4>全球核心犹太人口</h4><p>2025 年左右的主流人口估计约 1580 万。数字会随“谁算犹太人”的人口学定义而变化。</p></div>
+<div class="card"><div class="big-number">≈7.2m</div><h4>生活在以色列</h4><p>以色列已是全球最大或接近最大单一犹太人口中心。</p></div>
+<div class="card"><div class="big-number">≈6.3m</div><h4>生活在美国</h4><p>美国是另一个巨大中心；以色列与美国合计占全球犹太人口绝大多数。</p></div>
+</div>
+<p class="mini">人口数字参考以色列中央统计局 2025 年资料及 Sergio DellaPergola 的核心犹太人口估计。不同机构定义可产生差异，尤其是否计入混合家庭、犹太血缘但认同其他宗教者、以及《回归法》资格人口。</p>
+<h3>现代犹太教正在面对什么？</h3>
+<p>其内部议题包括：高度世俗化与宗教复兴同时发生；跨宗派婚姻与“谁是犹太人”；Haredi 社群人口增长；女性与 LGBTQ 在不同宗派中的角色；反犹主义安全问题；以色列与 Diaspora 的关系；历史记忆怎样传给不再使用 Yiddish/Ladino、生活高度现代化的新世代；以及如何在科技与全球化社会中解释古老 halakha。</p>
+<p>这也意味着，今天的犹太教不是博物馆中保存的古代宗教。它仍在不断进行那件已经做了两千年的事：<strong>读旧文本、面对新问题、争论、判例、调整、坚持、重新解释，然后把结果带回家庭和共同体。</strong></p>
+</section>
+
+<section class="section" id="glossary">
+<h2>20. 读懂犹太教的关键词</h2>
+<div class="glossary">
+<div class="term"><b>Torah <span class="he">תורה</span></b>：教导；狭义摩西五经，广义整个妥拉传统。</div>
+<div class="term"><b>Tanakh <span class="he">תנ״ך</span></b>：犹太圣经，由 Torah、Nevi’im、Ketuvim 构成。</div>
+<div class="term"><b>Mitzvah <span class="he">מצוה</span></b>：诫命；复数 mitzvot。</div>
+<div class="term"><b>Halakha <span class="he">הלכה</span></b>：犹太法律与生活道路。</div>
+<div class="term"><b>Talmud <span class="he">תלמוד</span></b>：Mishnah 与 Gemara 组成的拉比讨论体系。</div>
+<div class="term"><b>Midrash <span class="he">מדרש</span></b>：经文解释传统/作品。</div>
+<div class="term"><b>Shema <span class="he">שמע</span></b>：以申 6:4 开头的核心宣认与每日祷文。</div>
+<div class="term"><b>Shabbat <span class="he">שבת</span></b>：安息日，周五日落至周六夜晚。</div>
+<div class="term"><b>Kashrut / Kosher <span class="he">כשרות</span></b>：饮食适宜性法律体系。</div>
+<div class="term"><b>Teshuvah <span class="he">תשובה</span></b>：悔改、回转，字面有“返回”之意。</div>
+<div class="term"><b>Tzedakah <span class="he">צדקה</span></b>：公义式慈善/施予，不只是自愿好心。</div>
+<div class="term"><b>Kavanah <span class="he">כוונה</span></b>：祷告或行诫命时的意向、专注。</div>
+<div class="term"><b>Brit <span class="he">ברית</span></b>：盟约。</div>
+<div class="term"><b>Minyan <span class="he">מניין</span></b>：公共祷告所需的十人法定人数。</div>
+<div class="term"><b>Siddur <span class="he">סידור</span></b>：日常祷告书。</div>
+<div class="term"><b>Moshiach <span class="he">משיח</span></b>：弥赛亚，“受膏者”。</div>
+<div class="term"><b>Olam Ha‑Ba <span class="he">עולם הבא</span></b>：将来的世界/来世。</div>
+<div class="term"><b>Diaspora / Galut <span class="he">גלות</span></b>：离散/流亡语境。</div>
+<div class="term"><b>Aliyah <span class="he">עלייה</span></b>：“上行”；可指上台读妥拉，也指移居以色列。</div>
+<div class="term"><b>Kotel <span class="he">כותל</span></b>：西墙，耶路撒冷重要祷告地点。</div>
+</div>
+</section>
+
+<section class="section" id="sources">
+<h2>资料来源与进一步阅读</h2>
+<p>这份报告刻意混合三类资料：① 犹太传统内部机构/宗派自己的说明，用来理解“他们怎样说自己”；② 跨宗派犹太教育资源，用来呈现内部多样性；③ 人口学与历史资料，用来校正现状和年代。以下均可继续深入。</p>
+<div class="source"><b>Chabad.org — What Is Judaism? / Fundamental Jewish Beliefs / What Is Torah?</b><span>传统/正统—哈西德内部视角，适合理解妥拉、613 mitzvot、书面与口传妥拉、Shabbat、Moshiach 等概念。</span><br><a href="https://www.chabad.org/library/article_cdo/aid/3710122/jewish/What-Is-Judaism.htm">What Is Judaism?</a> · <a href="https://www.chabad.org/library/article_cdo/aid/2313760/jewish/Fundamental-Jewish-Beliefs.htm">Fundamental Jewish Beliefs</a> · <a href="https://www.chabad.org/library/article_cdo/aid/2153/jewish/What-is-the-Torah.htm">What Is the Torah?</a></div>
+<div class="source"><b>Sefaria</b><span>开放的犹太文本数据库，可直接阅读 Tanakh、Mishnah、Talmud、Midrash、halakhic codes 与注释的互文关系。</span><br><a href="https://www.sefaria.org/texts/Tanakh">Tanakh</a> · <a href="https://www.sefaria.org/about">About Sefaria</a></div>
+<div class="source"><b>My Jewish Learning</b><span>跨宗派犹太教育平台；本文关于拉比犹太教、祷告、宗派、身份、来世、民族多样性等部分大量参考其概述。</span><br><a href="https://www.myjewishlearning.com/article/judaism/">Judaism overview</a> · <a href="https://www.myjewishlearning.com/article/the-jewish-denominations/">Denominations</a> · <a href="https://www.myjewishlearning.com/article/ancient-jewish-religion-and-culture/">Early Jewish history</a></div>
+<div class="source"><b>Union for Reform Judaism — What is Reform Judaism?</b><span>改革派自身对 God, Torah, Israel、适应现代性、个人选择与社会正义的表述。</span><br><a href="https://reformjudaism.org/what-is-reform-judaism">Reform Judaism</a></div>
+<div class="source"><b>Masorti Judaism — What is Masorti Judaism?</b><span>保守/马所拉传统自身对 covenant、halakha、现代学术与“tradition and change”的说明。</span><br><a href="https://masorti.org.uk/articles/what-is-masorti-judaism/">Masorti Judaism</a></div>
+<div class="source"><b>Pew Research Center — Jewish Americans in 2020</b><span>美国犹太宗派、自我认同、宗教实践与人口结构的重要调查。本文只把其宗派比例用于美国，不外推全球。</span><br><a href="https://www.pewresearch.org/religion/2021/05/11/jewish-americans-in-2020/">Full report</a></div>
+<div class="source"><b>Israel Central Bureau of Statistics / Jewish Agency / Sergio DellaPergola</b><span>全球核心犹太人口估计。2025 前后约 1580 万；定义不同会造成数字差异。</span><br><a href="https://www.cbs.gov.il/en/subjects/Pages/Jews-in-the-world.aspx">CBS: Jews in the world</a> · <a href="https://www.jewishagency.org/jewish-population-rises-to-15-8-million-worldwide-in-2024/">Jewish Agency 2024 population release</a></div>
+<div class="source"><b>Wikimedia Commons image credits</b><span>Torah：Lawrie Cate, CC BY 2.0；Torah reading：Sagie Maoz, CC BY-SA 2.0；Shabbat candles：Gilabrand, CC BY-SA 3.0；Safed ark：Joshua Paquin, CC BY 2.0；Western Wall：Wayne McLean, CC BY 2.0。</span></div>
+</section>
+</main>
+</div>
+
+<div class="footer">《犹太教：从内部理解一个活着的盟约传统》 · 中文研究型导读 · 2026</div>
+<script>
+const p=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;const s=h.scrollTop;const d=h.scrollHeight-h.clientHeight;p.style.width=(d?100*s/d:0)+'%'});
+</script>
+</body>
+</html>

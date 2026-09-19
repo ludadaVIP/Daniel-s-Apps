@@ -1,0 +1,750 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>基督教改革宗与伊斯兰教：一场朋友之间的深度对话</title>
+<style>
+:root {
+  --bg:#f5f1e8; --paper:#fffdf8; --ink:#20242a; --muted:#6f6d67; --line:#ddd4c3;
+  --christian:#274f6b; --christian-soft:#e9f1f5; --muslim:#7b6131; --muslim-soft:#f4eddf;
+  --accent:#9b563f; --shadow:0 12px 34px rgba(35,31,25,.08); --radius:22px;
+  --font: "Noto Serif SC","Source Han Serif SC","Songti SC","STSong","Microsoft YaHei",serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+radial-gradient(circle at 20% 0%, rgba(39,79,107,.08), transparent 32%),
+radial-gradient(circle at 90% 8%, rgba(123,97,49,.09), transparent 28%),
+var(--bg);color:var(--ink);font-family:var(--font);line-height:1.82}
+a{color:inherit}
+.topbar{position:sticky;top:0;z-index:50;background:rgba(245,241,232,.88);backdrop-filter:blur(14px);border-bottom:1px solid rgba(120,105,80,.18)}
+.topbar-inner{max-width:1360px;margin:auto;padding:10px 22px;display:flex;align-items:center;gap:16px}
+.brand{font-weight:800;letter-spacing:.04em;flex:1}
+.controls button{border:1px solid var(--line);background:var(--paper);border-radius:999px;padding:7px 11px;cursor:pointer;color:var(--ink)}
+.hero{max-width:1360px;margin:34px auto 0;padding:0 22px}
+.hero-card{background:linear-gradient(120deg,#173247 0%,#264b62 48%,#725831 100%);color:#fff;border-radius:32px;padding:54px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero-card:before{content:"";position:absolute;inset:-80px -20px auto auto;width:330px;height:330px;border:1px solid rgba(255,255,255,.17);transform:rotate(45deg)}
+.hero-card:after{content:"";position:absolute;left:-110px;bottom:-130px;width:360px;height:360px;border-radius:50%;border:1px solid rgba(255,255,255,.14)}
+.eyebrow{font:700 12px/1.2 system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;opacity:.72}
+h1{font-size:clamp(34px,5vw,68px);line-height:1.12;margin:16px 0 18px;max-width:950px}
+.hero p{max-width:900px;font-size:18px;color:rgba(255,255,255,.88)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:25px}
+.pill{font:600 13px/1.2 system-ui,sans-serif;padding:9px 13px;border:1px solid rgba(255,255,255,.25);border-radius:999px;background:rgba(255,255,255,.08)}
+.layout{max-width:1360px;margin:24px auto 80px;padding:0 22px;display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;align-items:start}
+.toc{position:sticky;top:66px;max-height:calc(100vh - 84px);overflow:auto;background:rgba(255,253,248,.75);border:1px solid var(--line);border-radius:20px;padding:14px}
+.toc h3{margin:5px 8px 10px;font-size:14px;color:var(--muted)}
+.toc a{display:flex;gap:10px;text-decoration:none;padding:9px 8px;border-radius:12px;font-size:13px;line-height:1.35;color:#4e4b44}
+.toc a:hover{background:#eee7d8}
+.toc span{font:700 11px/1.5 system-ui;color:#9a8c74;min-width:22px}
+.content{min-width:0}
+.position-note{background:#fff8e8;border:1px solid #ead6a7;border-left:5px solid #c39b48;border-radius:16px;padding:18px 20px;margin-bottom:22px;font-size:14px}
+.position-note strong{color:#6a4f1e}
+.chapter{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:34px;margin:0 0 28px;box-shadow:var(--shadow)}
+.chapter-kicker{font:700 12px/1.2 system-ui;letter-spacing:.18em;color:#998a73}
+.chapter h2{font-size:clamp(25px,3vw,38px);line-height:1.28;margin:9px 0 10px}
+.chapter-intro{color:var(--muted);margin:0 0 20px;font-size:15px}
+.art-card{margin:22px 0 24px;border:1px solid var(--line);border-radius:20px;overflow:hidden;background:#faf7f0}
+.art-card svg{display:block;width:100%;height:auto}
+.art-card figcaption{padding:11px 16px;color:var(--muted);font-size:13px;background:rgba(255,255,255,.74)}
+.study-note{margin:18px 0 24px;padding:13px 16px;border-radius:14px;background:#f3f0e8;border:1px dashed #cfc4b0;display:grid;grid-template-columns:95px 1fr;gap:10px;font-size:13px}
+.study-note b{color:#665c4d}
+.dialogue-head{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:15px 0 8px;position:sticky;top:58px;z-index:10}
+.dialogue-head>div{padding:10px 14px;border-radius:13px;font:700 13px/1.2 system-ui,sans-serif;box-shadow:0 5px 18px rgba(0,0,0,.05)}
+.dialogue-head>div:first-child{background:var(--christian);color:#fff}
+.dialogue-head>div:last-child{background:var(--muslim);color:#fff}
+.dialogue-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;align-items:start;margin:10px 0}
+.speech{border-radius:17px;padding:17px 18px;border:1px solid transparent;min-height:100%;position:relative}
+.speech.christian{background:var(--christian-soft);border-color:#cbdde7}
+.speech.muslim{background:var(--muslim-soft);border-color:#e2d3b6}
+.speaker{display:flex;align-items:center;gap:9px;margin-bottom:8px;font:700 13px/1.2 system-ui,sans-serif}
+.christian .speaker{color:var(--christian)} .muslim .speaker{color:var(--muslim)}
+.sigil{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.75)}
+.speech p{margin:0;font-size:15.5px;text-align:justify}
+.empty{visibility:hidden}
+.summary-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.summary-card{padding:18px;border:1px solid var(--line);border-radius:16px;background:#fff}
+.summary-card h4{margin:0 0 7px;font-size:16px}
+.summary-card p{margin:0;color:#5f5b52;font-size:14px}
+.sources{background:#1d2a33;color:#eef4f6;border-radius:24px;padding:30px;margin-top:28px}
+.sources h2{margin-top:0}
+.sources p{color:#c9d4d9;font-size:14px}
+.sources ol{padding-left:22px}
+.sources li{margin:11px 0}
+.sources a{color:#fff;text-decoration-thickness:1px;text-underline-offset:3px}
+.sources li span{display:block;color:#abb8be;font-size:12.5px;margin-top:2px}
+.footer-note{margin-top:22px;padding:18px 20px;background:#f8f3e8;border:1px solid var(--line);border-radius:16px;color:#5d584f;font-size:13px}
+body.large .speech p{font-size:17px} body.large .chapter-intro{font-size:16px}
+body.dark{--bg:#111619;--paper:#182126;--ink:#ecf1f3;--muted:#aeb9bd;--line:#354146;--christian-soft:#1e3542;--muslim-soft:#382f20;--shadow:none}
+body.dark .toc,body.dark .controls button{background:#182126;color:#e8eef0}
+body.dark .position-note{background:#2b261a;border-color:#54482f}
+body.dark .study-note{background:#21292d;border-color:#4a5357}
+body.dark .summary-card{background:#1c252a}
+body.dark .art-card{background:#1a2226}
+body.dark .footer-note{background:#20282c;color:#c4cdd0}
+@media(max-width:900px){
+  .layout{grid-template-columns:1fr} .toc{position:relative;top:0;max-height:none} .hero-card{padding:34px 25px}
+  .dialogue-head{position:static} .chapter{padding:24px 17px}
+}
+@media(max-width:660px){
+  .dialogue-head{display:none} .dialogue-row{grid-template-columns:1fr;gap:8px} .empty{display:none}
+  .speech.christian{border-left:5px solid var(--christian)} .speech.muslim{border-left:5px solid var(--muslim)}
+  .summary-grid{grid-template-columns:1fr} .study-note{grid-template-columns:1fr}
+  h1{font-size:38px}
+}
+@media print{
+  .topbar,.toc{display:none!important} body{background:white} .layout{display:block;max-width:none;margin:0;padding:0}
+  .hero{max-width:none;margin:0;padding:0} .hero-card{border-radius:0;box-shadow:none}
+  .chapter{break-inside:auto;box-shadow:none;border:0;border-bottom:1px solid #ddd;border-radius:0}
+  .dialogue-row{break-inside:avoid} .dialogue-head{position:static}
+}
+</style>
+</head>
+<body>
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">真理对话 · Christian–Muslim Dialogue</div>
+    <div class="controls">
+      <button onclick="document.body.classList.toggle('large')">字号</button>
+      <button onclick="document.body.classList.toggle('dark')">明暗</button>
+      <button onclick="window.print()">打印 / PDF</button>
+    </div>
+  </div>
+</div>
+
+<header class="hero">
+  <div class="hero-card">
+    <div class="eyebrow">REFORMED CHRISTIANITY × ISLAM</div>
+    <h1>当老朋友重新见面：<br>基督教改革宗与伊斯兰教的一场深度对话</h1>
+    <p>从寒暄开始，进入独一神、三位一体、经典权威、耶稣身份、十字架、代赎、称义、穆罕默德、亚伯拉罕、预定与末世。不是吵架，也不是把分歧磨平；而是在尊重人的同时，把彼此真正相信的内容说清楚。</p>
+    <div class="hero-meta">
+      <span class="pill">改革宗立场明确</span><span class="pill">伊斯兰观点尽量按主流逊尼传统准确陈述</span>
+      <span class="pill">左右双栏对话</span><span class="pill">含经文与研究资料索引</span><span class="pill">自包含插画 · 可打印</span>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+  <nav class="toc">
+    <h3>对话目录</h3>
+    <a href="#s1"><span>01</span>久别重逢：你这些年到底经历了什么？</a><a href="#s2"><span>02</span>独一的神：讨黑德与三位一体真的是同一个概念吗？</a><a href="#s3"><span>03</span>“神的儿子”是不是说神有配偶、生孩子？</a><a href="#s4"><span>04</span>启示与经典：圣经真的被篡改了吗？</a><a href="#s5"><span>05</span>耶稣是谁：先知、弥赛亚，还是道成肉身的主？</a><a href="#s6"><span>06</span>十字架：整个分歧最尖锐的一点</a><a href="#s7"><span>07</span>为什么一定需要代赎？神不能直接饶恕吗？</a><a href="#s8"><span>08</span>原罪、人性与自由：人究竟有多坏？</a><a href="#s9"><span>09</span>称义：我怎样才能在审判者面前被判为义？</a><a href="#s10"><span>10</span>穆罕默德是谁？他是申命记与约翰福音预言的那一位吗？</a><a href="#s11"><span>11</span>亚伯拉罕、应许与以实玛利：谁承受圣约？</a><a href="#s12"><span>12</span>神的主权、预定与人的责任：改革宗与伊斯兰其实一样吗？</a><a href="#s13"><span>13</span>耶稣再来：为什么在伊斯兰末世论里，回来的竟然也是耶稣？</a><a href="#s14"><span>14</span>“你们崇拜的是另一个神吗？”——语言与对象的谨慎区分</a><a href="#s15"><span>15</span>最后的交锋：如果只能问对方一个问题</a><a href="#s16"><span>16</span>分别之前：争辩不是为了赢朋友，而是为了把真理摆明</a>
+    <a href="#conclusion"><span>◎</span>神学分歧总览</a>
+    <a href="#sources"><span>※</span>主要资料与延伸阅读</a>
+  </nav>
+
+  <main class="content">
+    <div class="position-note">
+      <strong>立场说明：</strong>
+      本文是从<strong>历史性基督教新教—改革宗</strong>立场写成的护教式对话，因此结论不会假装宗教中立；但伊斯兰一方尽量采用其自身经典与主流逊尼派常见论证，不故意设置“稻草人”。“穆斯林”内部存在法学派、神学派与文化差异，文中阿明是一个用于对话的综合性角色，并不代表所有穆斯林。
+    </div>
+
+    
+    <section id="s1" class="chapter">
+      <div class="chapter-kicker">CHAPTER 01</div>
+      <h2>第一幕｜久别重逢：你这些年到底经历了什么？</h2>
+      <p class="chapter-intro">两个人先不急着辩论。真正有价值的信仰对话，通常不是从“你错我对”开始，而是从“你为什么会相信”开始。</p>
+      
+            <figure class="art-card">
+            <svg viewBox="0 0 900 240" role="img" aria-label="两位老朋友在书与光之间交谈的抽象插画">
+              <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#355c7d"/><stop offset="1" stop-color="#8a6d3b"/></linearGradient></defs>
+              <rect width="900" height="240" rx="28" fill="#f3efe6"/>
+              <path d="M450 20v200" stroke="#c7bda9" stroke-width="2"/>
+              <circle cx="205" cy="92" r="34" fill="#355c7d"/><path d="M135 205c7-60 35-88 70-88s65 28 72 88" fill="#355c7d" opacity=".9"/>
+              <circle cx="695" cy="92" r="34" fill="#8a6d3b"/><path d="M625 205c7-60 35-88 70-88s65 28 72 88" fill="#8a6d3b" opacity=".9"/>
+              <path d="M365 172h170l-20 32H385z" fill="url(#g1)" opacity=".75"/>
+              <path d="M398 140l52 22 52-22v48l-52 18-52-18z" fill="#fff" stroke="#8f866f" stroke-width="3"/>
+              <circle cx="450" cy="65" r="22" fill="none" stroke="#c59b45" stroke-width="4"/><path d="M450 44v42M429 65h42" stroke="#c59b45" stroke-width="3"/>
+            </svg>
+            <figcaption>不是把朋友变成靶子，而是把彼此真正相信的东西放到桌面上。</figcaption>
+            </figure>
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>阿明，好久不见。上次我们认真坐下来聊天，恐怕已经是好几年前了。听说你这几年开始认真信伊斯兰教？我其实很想听你自己讲，不想只从网上那些互相攻击的视频里认识你的信仰。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>是。我也听说你成了很认真的基督徒，而且还是改革宗。说实话，我以前以为你只是文化上对基督教有兴趣，没想到你现在会读圣经、参加教会、谈因信称义。我们今天可以聊，但先说好，我不想变成互相贴标签。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>同意。我也不想把你当成一个“需要被击败的观点”。你是我朋友。但因为我们都声称自己相信独一的神、相信启示、相信审判，也都承认耶稣极其重要，所以如果我们彼此矛盾，至少在同一意义上不可能都是真的。友谊不要求我们把矛盾说成没有矛盾。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>这点我接受。伊斯兰也不是说“什么都对”。我信安拉独一无二，穆罕默德是安拉的使者，古兰经是最终启示；我尊敬尔撒——也就是耶稣——是麦西哈、先知和使者，但我不相信他是神，也不相信三位一体。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>那我们其实很快就触到核心了。基督教若没有基督的神性、十字架和复活，整个福音就不存在；而伊斯兰若接受这些，又会动摇它对讨黑德、古兰经和穆罕默德使命的理解。真正的分水岭不是饮食、礼拜形式或文化，而是：耶稣究竟是谁？</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>是。所以我也不想从猪肉、头巾这些外围问题谈起。先谈神、启示和耶稣。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s2" class="chapter">
+      <div class="chapter-kicker">CHAPTER 02</div>
+      <h2>第二幕｜独一的神：讨黑德与三位一体真的是同一个概念吗？</h2>
+      <p class="chapter-intro">伊斯兰与基督教都拒绝多神论，但对“独一”的内部理解并不相同。这里最容易出现的误解，是把三位一体说成“三位神”。</p>
+      
+      <div class="study-note"><b>文本坐标</b><span>古兰经 112:1–4；4:171；5:72–73 ｜ 圣经：申 6:4；太 28:19；约 1:1–18；林后 13:14 ｜ 《威斯敏斯特信条》第2章</span></div>
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>如果三位一体等于“三个神”，我也会拒绝。历史正统基督教不是说一位父神、一位子神、一位圣灵神，三神并列；而是说只有一位神，在同一神性中永恒存在三个位格：父不是子，子不是圣灵，圣灵不是父；但三者不是三个神性或三个本体。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我信仰最简单的地方就是：安拉是独一的。古兰经《忠诚章》说，他是独一的、万物所仰赖的；他不生，也不被生，没有任何可与他相比。对我来说，这非常纯粹。你们说父、子、圣灵，我听起来就已经不像纯粹的一神论。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>因为“位格”回答的是“谁”，神性或本体回答的是“是什么”。基督教不是说一个本体等于三个本体，而是一个神性、三个位格。三位一体确实超越我们的直觉，但不等于形式逻辑中的自相矛盾。矛盾会是“神在同一意义上既是一位又是三位”；基督教并没有这样说。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>可是你说三个“位格”，再说每个位格都是完全的神，这在逻辑上怎么不是三？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我理解。所以真正的问题必须落到启示：耶稣是否以只有神才有的身份说话、行事、接受敬拜？圣灵是否只是能力，还是有位格、施行神的工作？如果圣经确实如此启示，那么拒绝三位一体并不是保护一神论，而可能是在拒绝神对自己更完全的启示。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>古兰经却直接警告“不要说三个”。在伊斯兰看来，人把受造者提升到神的地位，就是以物配主。最严重的问题不是数学，而是敬拜对象。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>对，所以我们下一步必须谈：谁有资格定义神？我们的直觉、后来的启示主张，还是最早关于耶稣的使徒见证？</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>反过来，如果圣经里的那些表达是后人神学化的结果，或者经文被误读，那么三位一体就可能是把先知尔撒抬高了。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s3" class="chapter">
+      <div class="chapter-kicker">CHAPTER 03</div>
+      <h2>第三幕｜“神的儿子”是不是说神有配偶、生孩子？</h2>
+      <p class="chapter-intro">这是穆斯林—基督徒对话中最常见、也最需要先澄清的概念误会之一。</p>
+      
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这一点基督徒同样拒绝。基督教从来不认为父神与某个女性发生关系、生下耶稣。‘子’不是生物学意义，而是永恒关系的语言。约翰福音说‘道’在起初与神同在，道就是神；这位道后来成为肉身。也就是说，基督的神性不是从马利亚开始。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我对“神的儿子”这个说法本能上就很排斥。神超越受造界，怎么会有儿子？如果说神生了一个儿子，就把神降到生物性的层次。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>因为这是耶稣和使徒使用的启示语言。‘父—子’既表达位格区别，也表达同一神性的独特关系。尼西亚传统后来用‘受生而非被造’来排除一种误解：子不是神后来创造出来的最高受造物。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那为什么不用别的词，非要用‘父’和‘子’？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这个回应我知道。基督教也不是因为童女生子这一件事就推导‘耶稣是神’。证据链是整体性的：他的先存、对自己的称谓、赦罪的权柄、对安息日与律法的主权、接受敬拜、与父共享荣耀、使徒对他的称呼，以及复活。童女生子只是其中一环，不是全部论证。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>伊斯兰会说，神一句‘有’，尔撒就有了，所以他称为来自神的一句话，并不表示他是神。亚当没有父亲、母亲，也不是神。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s4" class="chapter">
+      <div class="chapter-kicker">CHAPTER 04</div>
+      <h2>第四幕｜启示与经典：圣经真的被篡改了吗？</h2>
+      <p class="chapter-intro">伊斯兰护教中常见“原始讨拉特、引支勒是真启示，但现有圣经已经失真”的论证；基督徒则会追问：这种失真发生在何时、以何种文本证据证明？</p>
+      
+      <div class="study-note"><b>文本坐标</b><span>古兰经 3:3；5:46–48；10:94。注意：穆斯林对“tahrif（篡改/歪曲）”的具体理解并不完全一致，不能把所有传统压成一个说法。</span></div>
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这里我会问一个历史问题：你说的‘篡改’具体发生在什么时候？公元七世纪以前，我们已经有大量新约手稿、早期译本、教父引用。它们有抄写差异，但核心叙事——耶稣被钉十字架、复活、被称为主——不是七世纪以后才突然出现。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我们的立场不是说摩西和尔撒没有得到启示。恰恰相反，古兰经承认讨拉特和引支勒来自安拉。问题是，人后来篡改、隐瞒、误解了启示，所以最终需要古兰经来鉴别并纠正。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这可以证明有假教师、误解和经文滥用，但还不能自动证明整部旧新约文本被整体替换。更关键的是，古兰经本身又说它‘证实’先前的讨拉特和福音，并让福音的百姓按其中的启示判断。如果七世纪时基督徒手里的福音已经全面失真，这种命令就会很难解释。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>文本保存得多，不等于原始启示没有被改变。也可能很早就发生了神学偏离。古兰经说有些经书之民用舌头扭曲经文，也有把自己的话说成从神来的。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>那我们就得到一个循环：为什么现有圣经中与古兰经一致的算原始真理，不一致的就算被篡改？因为古兰经说了算；为什么古兰经说了算？因为它是最终启示。可这并没有独立证明前面的文本真的被改到否定十字架与神子身份。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>穆斯林可以回答：古兰经证实的是原始启示中的真理，不是现存每一句话；并且它作为最后启示，是前面经书的监督者与准绳。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>是，任何最终权威都会有某种自证性。但改革宗不是说‘毫无证据地闭眼循环’。我们同时谈历史传承、文本证据、先知—使徒连续性、救赎历史的一致性，以及圣灵借圣经作见证。最终权威不能由一个更高权威认证，否则那个更高权威才是真正的最终权威。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那你们基督徒也有前设：因为圣经是神的话，所以圣经不会错。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s5" class="chapter">
+      <div class="chapter-kicker">CHAPTER 05</div>
+      <h2>第五幕｜耶稣是谁：先知、弥赛亚，还是道成肉身的主？</h2>
+      <p class="chapter-intro">古兰经给予耶稣许多尊称：麦西哈、马利亚之子、来自神的“话”、在今世与后世尊荣；但主流伊斯兰仍坚持他是受造的先知与使者。</p>
+      
+            <figure class="art-card">
+            <svg viewBox="0 0 900 260" role="img" aria-label="关于耶稣身份的抽象插画">
+              <rect width="900" height="260" rx="28" fill="#0d2030"/>
+              <circle cx="450" cy="130" r="86" fill="#f6e8bb" opacity=".12"/>
+              <path d="M450 52v158M394 105h112" stroke="#f1d48a" stroke-width="10" stroke-linecap="round"/>
+              <path d="M80 210Q180 80 280 210" fill="none" stroke="#72a7bd" stroke-width="6"/>
+              <path d="M620 210Q720 80 820 210" fill="none" stroke="#b08a51" stroke-width="6"/>
+              <text x="95" y="52" fill="#dceaf0" font-size="28">先知？</text>
+              <text x="700" y="52" fill="#f3e5c5" font-size="28">麦西哈？</text>
+              <text x="380" y="242" fill="#fff" font-size="26">“你们说我是谁？”</text>
+            </svg>
+            <figcaption>真正的争议不是“是否尊敬耶稣”，而是“应该怎样认识他”。</figcaption>
+            </figure>
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我承认伊斯兰对耶稣的尊重远高于很多世俗主义者。但我会追问：为什么耶稣在古兰经中的地位如此独特，却又必须被解释回一个普通先知框架？新约中，他不只是传递神的话，他自己就是‘道’；不只是告诉人道路，他说自己就是道路、真理、生命。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>你别以为穆斯林轻看尔撒。古兰经称他麦西哈，说他由童贞女马尔彦所生，行神迹，是神的一句话，在今世和后世都有尊荣。我们只是拒绝把这些尊荣变成‘他就是安拉’。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这正是道成肉身的核心：一位基督、两个完整本性，真神也真人。作为取了奴仆形象的人，他顺服父、祷告父、经历真实的人性限制；这不等于他的神性低于父。改革宗承继迦克墩基督论：二性不混乱、不改变、不分割、不分离。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>福音书中耶稣也祷告、饥饿、疲倦，还说父比我大。神怎么会祷告神？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>术语确实后来更精确，但问题本身来自经文：同一个耶稣既会疲倦，又赦免罪；既受死，又被称为生命之主；既向父祷告，又说在亚伯拉罕以前‘我就是’。教会的术语不是制造问题，而是在防止把任何一组经文删掉。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>听起来像后来为了调和矛盾发展出的哲学术语。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s6" class="chapter">
+      <div class="chapter-kicker">CHAPTER 06</div>
+      <h2>第六幕｜十字架：整个分歧最尖锐的一点</h2>
+      <p class="chapter-intro">古兰经 4:157 否认耶稣被杀、被钉；新约则把十字架放在救恩中心。历史研究也通常把耶稣在本丢彼拉多任内被钉视为关于历史耶稣最稳固的事实之一。</p>
+      
+      <div class="study-note"><b>历史旁注</b><span>古兰经 4:157 明确否定耶稣被杀与被钉。关于历史研究，Helen K. Bond 的剑桥专著指出，耶稣在本丢彼拉多任内被钉是基督教史最稳固的事实之一，并提到塔西佗《编年史》15.44 的外部见证。</span></div>
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>对我来说，这也是检验伊斯兰启示主张最关键的地方。因为十字架不是四福音晚期附加的小细节。保罗在公元一世纪中叶已经传讲‘基督照圣经所说为我们的罪死了，又复活了’，而且他引用的传统一般被认为比他的书信更早。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>这里我们确实根本不同。古兰经说，他们没有杀死他，也没有把他钉死，只是事情在他们看来仿佛如此；安拉把他提升到自己那里。所以我不能接受十字架是救恩中心。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>当然，‘早’本身不是充分条件。但问题是证据方向非常集中：保罗书信、四福音、早期基督徒传统，以及非基督徒的罗马资料都指向耶稣在彼拉多任内被处死。剑桥出版的历史研究甚至把这一点称为基督教历史中最确定的事实之一。七世纪的一段启示若反向否定它，需要非常强的历史理由。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>但早不等于真。群体可以很早就误会。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这一点在原则上我同意：真正的神启可以纠正历史学。但前提是先证明这个后来的启示确实来自神。否则我们不能用‘它是启示，所以它纠正历史’来证明‘它是启示’。这正是需要比较两套启示主张的地方。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>对穆斯林来说，神的启示高于历史学家的重建。神若告诉我们真相，我们不会因为多数史家不同意就放弃启示。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我当然承认它是基督教核心。但它之所以成为核心，不是教会先需要一个理论再发明事件，而是最早的基督徒宣称他们所跟随的耶稣真的死了、坟墓空了、他们见到复活的主。保罗甚至说：若基督没有复活，我们所信的就是徒然。这个信仰把自己押在一个可被否证的历史宣称上。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>你会不会把‘钉十字架’当成基督教不能放弃的教义，所以无论如何都要保住？</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s7" class="chapter">
+      <div class="chapter-kicker">CHAPTER 07</div>
+      <h2>第七幕｜为什么一定需要代赎？神不能直接饶恕吗？</h2>
+      <p class="chapter-intro">伊斯兰常强调个人承担自己的罪，并强调神的宽恕；改革宗则强调神既公义又称罪人为义，十字架是公义与怜悯同时成全的地方。</p>
+      
+            <figure class="art-card">
+            <svg viewBox="0 0 900 250" role="img" aria-label="公义与怜悯的天平插画">
+              <rect width="900" height="250" rx="28" fill="#faf7f0"/>
+              <path d="M450 50v150M360 72h180" stroke="#25384a" stroke-width="7" stroke-linecap="round"/>
+              <path d="M450 46l-40 42h80z" fill="#25384a"/>
+              <path d="M370 78l-65 100M530 78l65 100" stroke="#7d725c" stroke-width="4"/>
+              <path d="M245 178h120c-8 34-112 34-120 0z" fill="#6c8fa6"/>
+              <path d="M535 178h120c-8 34-112 34-120 0z" fill="#b78f4d"/>
+              <text x="258" y="222" fill="#355c7d" font-size="24">公义</text><text x="566" y="222" fill="#8a6d3b" font-size="24">怜悯</text>
+              <path d="M450 99v82M420 128h60" stroke="#9b563f" stroke-width="7" stroke-linecap="round"/>
+            </svg>
+            <figcaption>改革宗对十字架的理解：不是公义让位给怜悯，而是二者在基督里同时成全。</figcaption>
+            </figure>
+      <div class="study-note"><b>文本坐标</b><span>古兰经 6:164；23:102–103；4:48；《穆斯林圣训实录》2816d ｜ 圣经：赛 53；可 10:45；罗 3:21–26；林后 5:21；彼前 2:24。</span></div>
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>如果是强迫一个无辜的第三方替罪，那确实不公义。但基督教不是这个结构。父、子、圣灵不是三个彼此独立的神；子自愿取人性、代表他的百姓。耶稣说没有人夺他的命，是他自己舍的。代赎不是神抓了一个无辜者来泄怒，而是神亲自在子里承担审判。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我最难接受的是替罪。古兰经说，没有一个负重担的人替另一个人负重担。每个人为自己的行为负责。为什么神要让无罪的耶稣替有罪的人受罚？这听起来反而不公义。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>因为神不只是私人关系中的受害者，他还是公义的审判者。法官不能因为自己很慈爱，就把谋杀案说成没关系。圣经的救赎问题是：神如何既显为义，又称不义的人为义？十字架的答案是，罪没有被假装不存在，审判被真实承担；同时罪人不是靠自己付清。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>可神若全能，为什么不能直接说‘我原谅你’？一个父亲原谅孩子，也不需要先惩罚另一个孩子。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这个澄清很重要。把伊斯兰简单说成‘纯粹靠行为赚天堂’是不准确的。真正差异在于：赦免的客观基础是什么？伊斯兰强调安拉按自己的怜悯赦免；改革宗则说，神的怜悯不是绕过公义，而是在基督的顺服和代赎中满足公义。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>伊斯兰也说安拉是公义的、也是至仁至慈的。悔改、信靠、行善，并求神怜悯。圣训甚至说，没有人单靠自己的行为进乐园，连先知也要靠安拉的怜悯。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>而我会说，不是有某个高于神的‘赎价法则’约束神，而是神不能否定自己的圣洁、公义与信实。十字架不是神受制于外部规则，而是神的性情在救赎中自洽地显明。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我会说安拉的赦免本身就足够，不需要一个外在代价来约束他。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s8" class="chapter">
+      <div class="chapter-kicker">CHAPTER 08</div>
+      <h2>第八幕｜原罪、人性与自由：人究竟有多坏？</h2>
+      <p class="chapter-intro">伊斯兰通常强调人出生在 fitrah（自然本性）之上，不承受亚当的罪责；改革宗则区分“继承的罪性/败坏”与“亚当作为盟约代表的归算”。</p>
+      
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>如果原罪只是说‘神把亚当私人犯的那件罪机械算给毫无关联的人’，确实会显得荒谬。但保罗的论证是代表性：亚当是旧人类的盟约之首，基督是新人类的末后亚当。我们不只是模仿亚当犯罪，而是实际出生在一个堕落、与神隔绝的人类秩序中。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我们不相信婴儿一出生就背着亚当的罪。亚当犯罪后悔改，安拉赦免他。每个人为自己负责。这比‘祖先犯错，后代被定罪’更公平。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>改革宗的‘全然败坏’不是说每个人坏到可能达到的最大程度，也不是说不信的人不能行社会意义上的善。它说罪影响人的理性、意志、情感和身体，没有哪一部分保持中立；人在属灵上不会凭自己转向神、把神当神来爱。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那是不是说人根本不能做好事？现实里很多非基督徒也很善良。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>改革宗也肯定人的选择是真实选择，责任是真责任；但我们区分‘按自己愿望行动的自由’和‘脱离罪性、能够自发爱神的道德能力’。堕落的人不是被外力逼着恨神，而是照自己败坏的愿望选择。恩典不是替人相信，而是更新人的心，使他甘心来到基督面前。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>伊斯兰更强调人有选择，可以顺服也可以悖逆。否则审判就没有意义。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s9" class="chapter">
+      <div class="chapter-kicker">CHAPTER 09</div>
+      <h2>第九幕｜称义：我怎样才能在审判者面前被判为义？</h2>
+      <p class="chapter-intro">这里是改革宗福音的中心之一：称义是法庭性的宣告，不是先把人变得足够好再接纳。</p>
+      
+      <div class="study-note"><b>改革宗要点</b><span>《威斯敏斯特信条》第11章：称义不是把义注入人里面后再根据人的表现宣判，而是神因基督的缘故赦罪并算人为义；信心是领受基督的工具，不是可夸的功劳。</span></div>
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我想把问题问得非常个人：如果今晚你死去，站在完全圣洁的神面前，你凭什么被接纳？</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我会说，我信独一的安拉和他的使者，我悔改，尽力履行功修，也知道我的行为不够，所以我求安拉的怜悯。我不会说我有资格向神索取乐园。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这比我见过一些基督徒的自义都谦卑。但我的问题仍是：在审判中，罪债到底怎样被处理？改革宗称义不是说神看见我已经道德改造到合格，而是神因基督的缘故赦免我的罪，把基督的义归给我；信心只是接受基督的空手。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那会不会导致‘我已经称义，所以怎么犯罪都没关系’？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>保罗也被这样质问过。改革宗区分称义与成圣，但绝不分离它们。使人称义的信心从来不是孤零零的死信心；圣灵重生的人会被改变，会悔改、争战、结出果子。好行为不是称义的根基，却是活信心必然的果子。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>从伊斯兰角度看，信仰、悔改、善功都属于完整顺服的一部分。你们把‘功劳’完全放在基督那里，会不会削弱人的责任？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>恰恰相反。因为我不再用行为买神的接纳，我才第一次可以出于感恩而顺服。律法不再是登天的梯子，而成为被救赎之人生活的规范。改革宗不是反律法，而是反对把律法当成称义之路。</p>
+        </article><div class="speech empty"></div></div></div>
+    </section>
+    
+    <section id="s10" class="chapter">
+      <div class="chapter-kicker">CHAPTER 10</div>
+      <h2>第十幕｜穆罕默德是谁？他是申命记与约翰福音预言的那一位吗？</h2>
+      <p class="chapter-intro">穆斯林护教常把申命记 18 的“像摩西的先知”与约翰福音中的“保惠师”解释为穆罕默德；基督徒传统则把前者最终指向基督，把后者明确理解为圣灵。</p>
+      
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我会分别处理。申命记18的背景是以色列中的先知职分，而新约使徒行传直接把这段用在耶稣身上。更关键的是，‘像摩西’不只是政治领袖、立法者几个表面相似点，而是作为救赎历史中神与百姓之间的中保型人物；新约把这一类型推进到基督。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那我们也得谈穆罕默德。我们相信他不是来发明新宗教，而是恢复亚伯拉罕纯粹的一神信仰。有人认为申命记所说‘像摩西的先知’，以及耶稣应许将来的那位，都指向穆罕默德。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>约翰福音14到16章对保惠师有具体描述：他要住在门徒里面、使他们想起耶稣所说的话、为耶稣作见证、荣耀耶稣；而且约翰14:26直接称他为圣灵。把这位解释成六百年后的阿拉伯先知，必须越过文本本身的身份说明。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>但耶稣说保惠师将来，穆罕默德在耶稣之后来到，也带来真理。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>那又回到文本证据。我们有远早于伊斯兰时代的约翰福音手稿与引用，没有证据显示原文曾是某个指向穆罕默德的不同词。一个解释如果每次遇到反证都诉诸‘原文可能被改’，它就很难被证伪，也因此失去历史论证力。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>穆斯林会说希腊文本可能也受到了后来的编辑。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s11" class="chapter">
+      <div class="chapter-kicker">CHAPTER 11</div>
+      <h2>第十一幕｜亚伯拉罕、应许与以实玛利：谁承受圣约？</h2>
+      <p class="chapter-intro">两个传统都追溯亚伯拉罕，但圣经把救赎应许的盟约线明确连接到以撒、雅各，并最终指向基督。</p>
+      
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>基督徒当然也不说亚伯拉罕在历史上属于后来形成的‘基督教宗派’。保罗甚至把他称为因信称义的典范。差异在于，创世记反复把立约应许的那条线指向以撒：‘从以撒生的才要称为你的后裔。’这不表示以实玛利没有祝福，而是盟约线不同。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>伊斯兰也非常尊重易卜拉欣。我们认为他既不是犹太人也不是基督徒，而是顺服独一神的人。麦加传统也把易卜拉欣、易司马仪与天房联系起来。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>圣经也没有否认以实玛利得到现实的祝福。真正关键是‘应许的后裔’最终是谁。加拉太书把亚伯拉罕之约的终极实现落在基督身上，所以问题不是阿拉伯人与犹太人谁更高贵，而是谁在应许的弥赛亚里。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>穆斯林传统则会强调以实玛利同样是先知、亚伯拉罕的儿子。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>绝不会。福音正是在拆毁这种自夸：不是血统、割礼、民族或文明使人称义，而是基督。一个犹太人若拒绝基督，不能靠亚伯拉罕血统得救；一个阿拉伯人若在基督里，就是亚伯拉罕信心意义上的后裔。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>也就是说，你不会把这个问题变成民族优越论？</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s12" class="chapter">
+      <div class="chapter-kicker">CHAPTER 12</div>
+      <h2>第十二幕｜神的主权、预定与人的责任：改革宗与伊斯兰其实一样吗？</h2>
+      <p class="chapter-intro">二者都强烈强调神的主权，但神学结构不同：改革宗把预定置于三一神、圣约与基督中保工作的框架中。</p>
+      
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>表面确实接近。改革宗也说神从永恒按自己至圣、至智的旨意预定万事，但神不是罪的作者，人的第二因与责任是真实的。不同之处在于，我们理解神主权的中心不是裸露的绝对意志，而是父在子里、借圣灵施行创造与救赎的三一旨意。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>有意思的是，你们改革宗谈预定，听起来有些地方和伊斯兰对神主权的强调很接近。万事都在神旨意之下，人不可能逃出神的知识和许可。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这个纠正是对的，我不应该把伊斯兰简单描述成‘神想怎样就怎样’。我的意思是，在改革宗里，神的属性彼此不冲突；他的拣选与救赎具体落实在基督替代性的工作中。我们不是从抽象主权推导救恩，而是从十字架认识主权的神。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>你说‘不是裸露意志’，听起来像在暗示伊斯兰的安拉是任性的。这个我不同意。古兰经也反复说安拉是智慧、公义、慈悯的。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s13" class="chapter">
+      <div class="chapter-kicker">CHAPTER 13</div>
+      <h2>第十三幕｜耶稣再来：为什么在伊斯兰末世论里，回来的竟然也是耶稣？</h2>
+      <p class="chapter-intro">主流逊尼传统的可靠圣训包含耶稣末后降临的教导；这形成一个很有意思的共同点，也暴露出双方对耶稣身份的根本差别。</p>
+      
+            <figure class="art-card">
+            <svg viewBox="0 0 900 250" role="img" aria-label="末世与再临的抽象插画">
+              <defs><linearGradient id="sky" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#142b3c"/><stop offset="1" stop-color="#647883"/></linearGradient></defs>
+              <rect width="900" height="250" rx="28" fill="url(#sky)"/>
+              <path d="M0 205Q130 165 260 205T520 205T900 205V250H0z" fill="#16212a"/>
+              <path d="M450 42v118M410 82h80" stroke="#f2dc9b" stroke-width="8" stroke-linecap="round"/>
+              <circle cx="450" cy="105" r="74" fill="none" stroke="#f2dc9b" stroke-width="2" opacity=".35"/>
+              <path d="M100 215v-58h62v58M118 157q13-30 26 0" fill="none" stroke="#d1b47a" stroke-width="5"/>
+              <path d="M735 215v-75h65v75M750 140q17-38 34 0" fill="none" stroke="#8cb2c1" stroke-width="5"/>
+              <text x="332" y="228" fill="white" font-size="24">同样说“耶稣再来”，却不是同一个神学命题</text>
+            </svg>
+            <figcaption>共享词汇并不自动意味着共享含义。</figcaption>
+            </figure>
+      <div class="study-note"><b>伊斯兰末世论旁注</b><span>《布哈里圣训实录》3448–3449 记载“马利亚之子”末后降临的传统；这不是说伊斯兰承认基督教的再临神学，而是双方对同一末世人物作出不同解释。</span></div>
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>还有一个我一直觉得很值得谈的点：伊斯兰也期待耶稣再来。圣训说马利亚之子将降临并施行公义。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>对。尔撒没有被钉死，而是被提升；末后的时候他会回来，纠正人对他的错误崇拜，恢复对独一安拉的敬拜。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这恰恰显出两个传统对同一人物赋予完全不同的末世角色。基督教说耶稣再来，是因为这位被钉又复活的主本来就是审判活人死人的王；伊斯兰则说他作为安拉的仆人和先知回来，否定基督徒对他的神性理解。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>所以不能因为‘我们都等耶稣再来’就说信仰其实差不多。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>完全同意。表面共同词汇有时反而会遮蔽最深分歧。‘耶稣再来’在两个系统里指向不同的耶稣身份、不同的十字架理解和不同的救恩论。</p>
+        </article><div class="speech empty"></div></div></div>
+    </section>
+    
+    <section id="s14" class="chapter">
+      <div class="chapter-kicker">CHAPTER 14</div>
+      <h2>第十四幕｜“你们崇拜的是另一个神吗？”——语言与对象的谨慎区分</h2>
+      <p class="chapter-intro">“Allah”只是阿拉伯语中“神”的常用词，阿拉伯基督徒也使用这一词；真正争论应落在对神本性的具体宣称，而不是词汇本身。</p>
+      
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这一点应该纠正。‘Allah’在阿拉伯语里就是对神的称呼，不能仅凭这个词判定对象不同。真正问题不是音节，而是我们对这位创造天地之神作出了哪些互相冲突的断言。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>有些基督徒会说‘Allah是另一个神’，甚至把这个词当作异教神名。其实阿拉伯基督徒祷告时也说Allah。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我会非常谨慎。历史指向上，我们都声称敬拜亚伯拉罕、创造天地的独一神；但教义内容上，伊斯兰明确否认父、子、圣灵以及道成肉身，而基督教认为这些不是可有可无的附加信息，而是神对自己身份的启示。所以不能用一句‘同一个’把实质矛盾抹平。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那你会不会说穆斯林和基督徒其实敬拜同一个神，只是理解不同？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>辩护真理不需要靠错误资料。若一个基督徒必须先歪曲伊斯兰才能显得基督教有道理，那反而是在亏损自己的见证。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>这个说法比‘你们拜月神’之类的网络攻击公平得多。</p>
+        </article></div></div>
+    </section>
+    
+    <section id="s15" class="chapter">
+      <div class="chapter-kicker">CHAPTER 15</div>
+      <h2>第十五幕｜最后的交锋：如果只能问对方一个问题</h2>
+      <p class="chapter-intro">辩论走到最后，两人各自提出一个自己认为最难绕开的核心问题。</p>
+      
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我会从整本约翰福音回答：他既与父有位格区别，又分享父的神性和荣耀。‘父比我大’发生在他取奴仆形象、完成使命的语境中；而同一卷书开头称道为神，结尾多马称耶稣‘我的主，我的神’，耶稣没有纠正他。耶稣不是用后世神学课本的句式自我介绍，而是在犹太一神论的语境中，以神的名、神的工作、神的荣耀和神的权柄启示自己。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>如果只能问你一个问题，我会问：耶稣若真是神，为什么他向神祷告、说自己奉差遣而来、说父比我大？为什么不直接说一句‘我是神，你们拜我’？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>如果只能问你一个问题，我会问：为什么我要接受一份六百年后出现的启示，让它否定关于耶稣最早、最广泛、最核心的使徒见证——尤其是否定十字架——而这份后来的启示又声称自己确认先前的启示？</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>我会回答：因为古兰经本身的语言、教导、保存、先知穆罕默德的使命以及它恢复纯正一神论的能力，使我相信它来自神。若神最后启示纠正前人的误传，时间晚不是问题。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>而我会说，恰恰要检验它是否真是‘纠正’，还是与此前启示的中心相冲突。对我而言，神在旧约中逐步展开牺牲、逾越节、赎罪日、受苦仆人、弥赛亚应许；在福音中这些线索集中于基督的死与复活。若一个后来体系拿走十字架，它不是修正枝节，而是拿走整条救赎历史的轴心。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>所以我们最后真的不是差一点，而是对救赎历史的结构有两种完全不同的解释。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>是。但这也是为什么我愿意认真跟你谈，而不是说‘反正都差不多’。如果永恒、审判、罪与救恩都是真的，礼貌不能代替真理；同样，真理也不授权我们傲慢、嘲讽或仇恨。</p>
+        </article><div class="speech empty"></div></div></div>
+    </section>
+    
+    <section id="s16" class="chapter">
+      <div class="chapter-kicker">CHAPTER 16</div>
+      <h2>第十六幕｜分别之前：争辩不是为了赢朋友，而是为了把真理摆明</h2>
+      <p class="chapter-intro">最后一幕不制造一个轻率的“对方当场信主”结局，而让对话停在一个真实的位置：分歧仍在，但问题已经被说清楚。</p>
+      
+            <figure class="art-card">
+            <svg viewBox="0 0 900 240" role="img" aria-label="两条道路在光中分开的抽象插画">
+              <rect width="900" height="240" rx="28" fill="#efe9dc"/>
+              <circle cx="450" cy="62" r="34" fill="#d6b567" opacity=".7"/>
+              <path d="M450 96C410 140 320 160 200 240" fill="none" stroke="#355c7d" stroke-width="18" stroke-linecap="round"/>
+              <path d="M450 96C490 140 580 160 700 240" fill="none" stroke="#8a6d3b" stroke-width="18" stroke-linecap="round"/>
+              <text x="125" y="190" fill="#355c7d" font-size="25">福音：基督成就</text>
+              <text x="600" y="190" fill="#8a6d3b" font-size="25">伊斯兰：顺服与怜悯</text>
+              <text x="338" y="40" fill="#594f3f" font-size="23">分歧被说清，友谊仍被珍惜</text>
+            </svg>
+            <figcaption>真正的深度对话，不以“假装没有差别”结束。</figcaption>
+            </figure>
+      
+      <div class="dialogue-head"><div>✝ 以诺 · 改革宗基督徒</div><div>◆ 阿明 · 穆斯林</div></div>
+      <div class="dialogue"><div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>这已经很重要。我也会更准确地描述伊斯兰：不是简单的‘靠好行为买天堂’，因为你们也强调安拉的怜悯；不是不尊重耶稣，而是给耶稣非常高的先知性地位。但正因为我更准确地理解它，我也更清楚自己为什么不能接受它。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>今天聊完，我还是穆斯林。我仍然认为三位一体过于复杂，十字架代赎也不是我所理解的神的赦免方式。但我至少承认，你信的并不是‘三个神’，你也不是说神和马利亚生了一个儿子。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>十字架是中心，但更深的是基督本身。若耶稣只是先知，那么基督教是在拜受造物；若耶稣真是永恒之道、道成肉身、为罪人死而复活的主，那么拒绝他的神性就不是一个小的教义误差。两边不能靠模糊词汇融合。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>你最不能接受的，还是它否认十字架？</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>可以。我希望我们的规则很简单：不把自己经典里最难的地方藏起来，也不把对方最弱的网络版本当靶子。让文本说话，让历史证据说话，也让我们各自面对自己体系最难回答的问题。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那我们之后可以一段一段读吗？比如先一起读约翰福音，再读古兰经里关于尔撒的经文。</p>
+        </article></div>
+<div class="dialogue-row"><article class="speech christian">
+          <div class="speaker"><span class="sigil">✝</span><strong>以诺（改革宗基督徒）</strong></div>
+          <p>我当然盼望你认识我所信的基督，但我不能替圣灵做他的工作。我能做的是把福音尽量清楚地摆出来：人不能靠自己站立在圣洁的神面前；神却在基督里亲自成就救赎，使一切悔改、信靠基督的人白白称义。对我来说，这不是一套宗教技巧，而是好消息本身。</p>
+        </article><article class="speech muslim">
+          <div class="speaker"><span class="sigil">◆</span><strong>阿明（穆斯林）</strong></div>
+          <p>那今天就先到这里。至少我知道你不是为了吵赢我。</p>
+        </article></div></div>
+    </section>
+    
+
+    <section id="conclusion" class="chapter">
+      <div class="chapter-kicker">THEOLOGICAL MAP</div>
+      <h2>神学分歧总览：双方究竟在哪些地方不能同时成立？</h2>
+      <p class="chapter-intro">这些不是外围习俗差异，而是彼此互相排斥的真理宣称。</p>
+      <div class="summary-grid">
+        <div class="summary-card"><h4>神是谁</h4><p><b>伊斯兰：</b>绝对独一，不承认三个位格。<br><b>改革宗：</b>一神三位，父、子、圣灵同一本体、同尊同荣。</p></div>
+        <div class="summary-card"><h4>耶稣是谁</h4><p><b>伊斯兰：</b>麦西哈、童贞女之子、先知与使者、受造者。<br><b>改革宗：</b>永恒的子，道成肉身，真神真人。</p></div>
+        <div class="summary-card"><h4>十字架发生了吗</h4><p><b>伊斯兰：</b>古兰经 4:157 否认耶稣被杀、被钉。<br><b>改革宗：</b>十字架是历史事件，也是代赎核心。</p></div>
+        <div class="summary-card"><h4>罪如何得赦</h4><p><b>伊斯兰：</b>信、悔改、顺服，并仰望安拉的怜悯。<br><b>改革宗：</b>基督满足公义，罪人唯独因信领受其义。</p></div>
+        <div class="summary-card"><h4>最终经典权威</h4><p><b>伊斯兰：</b>古兰经为最终启示和鉴别准绳。<br><b>改革宗：</b>旧新约圣经是成文的最高权威，启示在使徒时代完成。</p></div>
+        <div class="summary-card"><h4>穆罕默德的地位</h4><p><b>伊斯兰：</b>最后的先知与使者。<br><b>改革宗：</b>不承认其先知权威，因为其信息在基督论与十字架上与使徒见证冲突。</p></div>
+      </div>
+      <div class="footer-note"><b>改革宗结论：</b>真正的争点最终集中于基督。若耶稣只是受造先知，基督徒对他的敬拜就是严重错误；若耶稣确是道成肉身、被钉并复活的主，那么任何否认其神性与十字架的后续启示主张，都必须被使徒福音所检验。改革宗因此不是把“信耶稣”理解成接受一位宗教导师，而是安息在基督已经完成的救赎里。</div>
+    </section>
+
+    <section id="sources" class="sources">
+      <h2>主要资料与延伸阅读</h2>
+      <p>对伊斯兰的陈述优先参照《古兰经》和被主流逊尼传统高度重视的圣训集；改革宗立场以圣经与《威斯敏斯特信条》为代表。历史性论断另列学术资料。链接用于核对上下文，不表示本文接受各网站全部神学立场。</p>
+      <ol><li><a href="https://quran.com/4/157" target="_blank" rel="noopener">《古兰经》4:157</a><span>关于耶稣被杀与被钉的否定</span></li><li><a href="https://quran.com/4/171" target="_blank" rel="noopener">《古兰经》4:171</a><span>耶稣为麦西哈、使者、来自神的话；并警告“不要说三”</span></li><li><a href="https://quran.com/5/46-48" target="_blank" rel="noopener">《古兰经》5:46–48</a><span>福音中的引导与光；古兰经确认并作为准绳</span></li><li><a href="https://quran.com/5/72-73" target="_blank" rel="noopener">《古兰经》5:72–73</a><span>反对把麦西哈等同于神以及“三”的表述</span></li><li><a href="https://quran.com/112" target="_blank" rel="noopener">《古兰经》112</a><span>伊斯兰关于神独一、不生不被生的经典表述</span></li><li><a href="https://quran.com/3/45-47" target="_blank" rel="noopener">《古兰经》3:45–47</a><span>耶稣被称为来自神的话、麦西哈，并记童女生子</span></li><li><a href="https://quran.com/6/164" target="_blank" rel="noopener">《古兰经》6:164</a><span>各人承担自己的重担</span></li><li><a href="https://quran.com/23/102-103" target="_blank" rel="noopener">《古兰经》23:102–103</a><span>末日天平与行为轻重</span></li><li><a href="https://sunnah.com/muslim:2816d" target="_blank" rel="noopener">Sahih Muslim 2816d</a><span>无人单靠行为得救，强调安拉的怜悯</span></li><li><a href="https://sunnah.com/bukhari:3448" target="_blank" rel="noopener">Sahih al-Bukhari 3448–3449</a><span>关于马利亚之子末后降临的圣训传统</span></li><li><a href="https://opc.org/wcf.html" target="_blank" rel="noopener">Westminster Confession of Faith</a><span>改革宗关于圣经、三位一体、基督中保、称义等的经典信条</span></li><li><a href="https://www.cambridge.org/core/books/pontius-pilate-in-history-and-interpretation/63B220E6DB3EB55C2BC9AD54502949EC" target="_blank" rel="noopener">Helen K. Bond, Pontius Pilate in History and Interpretation</a><span>关于耶稣在彼拉多任内被钉的历史讨论</span></li></ol>
+      <p><b>建议并行阅读的圣经段落：</b>创 15、22；申 6:4、18:15–19；赛 52:13–53:12；诗 2、110；太 26–28；约 1、5、8、10、14–17、20；徒 2–4；罗 3–5、8–9；林前 15；林后 5；加 2–4；腓 2；西 1–2；来 1、7–10；彼前 2；启 1、5、19–22。</p>
+    </section>
+  </main>
+</div>
+
+<script>
+document.querySelectorAll('.toc a').forEach(a=>a.addEventListener('click',()=>{
+  if(innerWidth<900) window.scrollBy(0,-8);
+}));
+</script>
+</body>
+</html>
