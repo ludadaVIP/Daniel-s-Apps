@@ -1,0 +1,25 @@
+.shelf-manager { display: flex; flex-direction: column; gap: 14px; }
+.shelf-manager-intro { margin: 0; color: #6b625a; font-size: 13px; line-height: 1.55; }
+.shelf-manager-create, .shelf-manager-fields, .shelf-manager-delete { display: flex; align-items: center; gap: 8px; }
+.shelf-manager-create { padding: 10px; border: 1px dashed #cfc4b6; border-radius: 10px; background: #fbf8f3; }
+.shelf-manager input, .shelf-manager select { min-width: 0; border: 1px solid #d8cec1; border-radius: 7px; background: #fff; color: #352b24; font: inherit; padding: 7px 9px; }
+.shelf-manager input { flex: 1; }
+.shelf-manager select { max-width: 150px; }
+.shelf-manager button { display: inline-flex; align-items: center; justify-content: center; gap: 5px; border: 1px solid #8b5e3c; border-radius: 7px; background: #8b5e3c; color: #fff; padding: 7px 9px; font: inherit; font-size: 12px; white-space: nowrap; }
+.shelf-manager button:disabled { cursor: not-allowed; opacity: .45; }
+.shelf-manager-list { display: flex; flex-direction: column; gap: 8px; max-height: min(45vh, 430px); overflow: auto; padding-right: 2px; }
+.shelf-manager-row { display: flex; flex-direction: column; gap: 8px; padding: 10px; border: 1px solid #e3dbd1; border-radius: 10px; background: #fff; }
+.shelf-manager-delete { color: #756b62; font-size: 12px; }
+.shelf-manager-delete select { flex: 1; max-width: none; }
+.shelf-manager button.shelf-manager-remove { border-color: #b74438; background: #fff; color: #b74438; }
+.shelf-manager-modal-backdrop { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(34, 25, 18, .42); }
+.shelf-manager-modal { width: min(680px, 100%); max-height: min(82vh, 720px); overflow: auto; padding: 18px; border: 1px solid #dfd4c7; border-radius: 15px; background: #fffdf9; box-shadow: 0 20px 60px rgba(45, 30, 18, .3); }
+.shelf-manager-modal > header { display: flex; align-items: flex-start; justify-content: space-between; gap: 16px; margin-bottom: 16px; }
+.shelf-manager-modal h3 { margin: 0; color: #3b2c22; font-size: 18px; }
+.shelf-manager-modal header p { margin: 4px 0 0; color: #756b62; font-size: 12px; }
+.shelf-manager button.shelf-manager-modal-close, .shelf-manager-modal .shelf-manager-modal-close { min-width: 30px; min-height: 30px; padding: 0; border-color: transparent; background: transparent; color: #756b62; font-size: 25px; line-height: 1; }
+@media (max-width: 620px) {
+  .shelf-manager-create, .shelf-manager-fields, .shelf-manager-delete { align-items: stretch; flex-wrap: wrap; }
+  .shelf-manager-create input, .shelf-manager-fields input { flex-basis: 100%; }
+  .shelf-manager select { flex: 1; max-width: none; }
+}

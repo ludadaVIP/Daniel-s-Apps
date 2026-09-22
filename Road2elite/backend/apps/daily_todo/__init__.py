@@ -1,0 +1,2 @@
+"""Daily Todo app package."""
+

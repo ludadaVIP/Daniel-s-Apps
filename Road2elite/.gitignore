@@ -1,0 +1,28 @@
+# Local AI/tooling state
+.agents/
+.claude/
+
+# JavaScript dependencies and build output
+node_modules/
+dist/
+build/
+.vite/
+coverage/
+
+# Python caches and virtual environments
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+
+# Environment-specific secrets and local state
+.env
+.env.*
+!.env.example
+*.log
+
+# OS/editor files
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
