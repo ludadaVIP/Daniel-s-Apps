@@ -16,7 +16,6 @@ if str(BACKEND_DIR) not in sys.path:
 from apps.book_a_day.routes import AUDIO_DIR as BOOK_A_DAY_AUDIO_DIR
 from apps.book_a_day.routes import bp as book_a_day_bp
 from apps.book_in_depth.routes import bp as book_in_depth_bp
-from apps.daily_todo.routes import bp as daily_todo_bp
 from apps.record_meditation.routes import bp as record_meditation_bp
 from apps.save_md.routes import AUDIO_DIR as SAVE_MD_AUDIO_DIR
 from apps.save_md.routes import bp as save_md_bp
@@ -32,7 +31,6 @@ HUB_APP_IDS = {
     "bible",
     "book-a-day",
     "book-in-depth",
-    "daily-todo",
 }
 
 
@@ -62,12 +60,11 @@ def create_app() -> Flask:
     app.register_blueprint(save_md_bp, url_prefix="/api/save-md")
     app.register_blueprint(book_a_day_bp, url_prefix="/api/book-a-day")
     app.register_blueprint(book_in_depth_bp, url_prefix="/api/book-in-depth")
-    app.register_blueprint(daily_todo_bp, url_prefix="/api/daily-todo")
     app.register_blueprint(bible_bp, url_prefix="/api/bible")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "book-in-depth", "daily-todo", "bible"]})
+        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "book-in-depth", "bible"]})
 
     @app.get("/api/hub/layout")
     def get_hub_layout():

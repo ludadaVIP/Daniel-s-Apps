@@ -8,7 +8,6 @@ const RecordMeditationApp = lazy(() => import("./apps/record_meditation/App.jsx"
 const SaveMdApp = lazy(() => import("./apps/save_md/App.jsx"));
 const BookADayApp = lazy(() => import("./apps/book_a_day/App.jsx"));
 const BookInDepthApp = lazy(() => import("./apps/book_in_depth/App.jsx"));
-const DailyTodoApp = lazy(() => import("./apps/daily_todo/App.jsx"));
 const BibleApp = lazy(() => import("./apps/bible/App.jsx"));
 
 function LoadingScreen({ label }) {
@@ -49,10 +48,6 @@ export default function App() {
       <Route
         path="/book-in-depth"
         element={withShell("Book In Depth", "#6d4322", BookInDepthApp)}
-      />
-      <Route
-        path="/daily-todo"
-        element={withShell("Daily Todo", "#237489", DailyTodoApp)}
       />
       <Route
         path="/bible"

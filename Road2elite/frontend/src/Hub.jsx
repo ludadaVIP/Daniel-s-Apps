@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { BookOpen, BookMarked, ClipboardList, FileText, GripVertical, NotebookPen, Save, ScrollText } from "lucide-react";
+import { BookOpen, BookMarked, FileText, GripVertical, NotebookPen, Save, ScrollText } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
@@ -52,16 +52,6 @@ const APPS = [
     Icon: BookMarked,
     to: "/book-in-depth",
     kind: "Deep",
-  },
-  {
-    id: "daily-todo",
-    title: "Daily Todo",
-    subtitle: "每日计划 · 年月日导航 · 优先级 · 时间块 · 复盘",
-    description: "左栏按年 / 月 / 日管理计划日期，右侧维护当天 todos，支持状态、优先级、分类、时间、标签、备注、复制和快速添加。",
-    accent: "#237489",
-    Icon: ClipboardList,
-    to: "/daily-todo",
-    kind: "Todo",
   },
 ];
 

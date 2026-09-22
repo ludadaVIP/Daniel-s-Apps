@@ -13,8 +13,8 @@ if not exist "node_modules\" (
 
 echo.
 echo NodeApps is starting at http://127.0.0.1:5888
-echo Building the interface, then starting one stable local service.
+echo Development mode: changes refresh automatically; no production build is run.
 echo One window, nine apps. Press Ctrl+C to stop.
 echo.
-call npm run desktop
+call npm run dev
 pause
