@@ -26,10 +26,21 @@ fi
 
 echo
 echo "NodeApps is starting at http://127.0.0.1:5888"
-echo "One window, seven apps. Press Control-C to stop."
+echo "Building the interface, then starting one stable local service."
+echo "One window, nine apps. Press Control-C to stop."
 echo
 
-# Let Vite begin listening before opening the default browser. `exec` keeps
-# Control-C attached to npm so concurrently can stop both the web and API processes.
-( sleep 2; open "http://127.0.0.1:5888" ) &
-exec npm run dev
+npm run build || fail "NodeApps could not build the interface."
+
+# Open only after the single production server reports healthy. `exec` keeps
+# Control-C attached to npm so the local service shuts down cleanly.
+(
+  for _ in {1..80}; do
+    if curl --silent --fail "http://127.0.0.1:5888/api/health" >/dev/null; then
+      open "http://127.0.0.1:5888"
+      exit 0
+    fi
+    sleep 0.25
+  done
+) &
+exec npm run start

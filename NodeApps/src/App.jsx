@@ -97,6 +97,34 @@ const APP_STYLE_LOADERS = {
   'recall-verses': () => import('../apps/recall-verses/src/styles.css?inline'),
 };
 
+const API_BACKED_APPS = new Set([
+  'world-qa',
+  'belief-qa',
+  'investment',
+  'insight',
+  'notebook',
+  'html-library',
+  'bible',
+  'recall-verses',
+]);
+
+const API_RETRY_DELAY = 250;
+const API_MAX_RETRY_DELAY = 1500;
+
+async function waitForApiReady(signal) {
+  let retryDelay = API_RETRY_DELAY;
+  while (!signal.aborted) {
+    try {
+      const response = await fetch('/api/health', { cache: 'no-store', signal });
+      if (response.ok) return;
+    } catch (error) {
+      if (error.name === 'AbortError') return;
+    }
+    await new Promise((resolve) => setTimeout(resolve, retryDelay));
+    retryDelay = Math.min(Math.round(retryDelay * 1.5), API_MAX_RETRY_DELAY);
+  }
+}
+
 let activeAppStyle;
 function applyAppStyles(id, css) {
   if (!activeAppStyle) {
@@ -141,6 +169,24 @@ function normalizeLegacyInsightRoute() {
 
 function Loading({ name }) {
   return <div className="app-loading" role="status"><span /><p>正在打开 {name}…</p></div>;
+}
+
+function AppGate({ app, SelectedApp }) {
+  const requiresApi = API_BACKED_APPS.has(app.id);
+  const [apiReady, setApiReady] = useState(!requiresApi);
+
+  useEffect(() => {
+    if (!requiresApi) return undefined;
+    const controller = new AbortController();
+    setApiReady(false);
+    waitForApiReady(controller.signal).then(() => {
+      if (!controller.signal.aborted) setApiReady(true);
+    });
+    return () => controller.abort();
+  }, [requiresApi]);
+
+  if (!apiReady) return <Loading name={app.name} />;
+  return <Suspense fallback={<Loading name={app.name} />}><SelectedApp /></Suspense>;
 }
 
 function Home({ open }) {
@@ -201,6 +247,6 @@ export default function App() {
     <nav className={`launcher-dock ${dockVisible ? 'is-visible' : ''}`} aria-label="应用导航">
       <button onClick={back} title="回到 NodeApps 首页"><House size={17} strokeWidth={2.1} /><span>返回工作台</span></button>
     </nav>
-    <div className="launcher-app-content"><Suspense fallback={<Loading name={app.name} />}><SelectedApp /></Suspense></div>
+    <div className="launcher-app-content"><AppGate key={app.id} app={app} SelectedApp={SelectedApp} /></div>
   </div>;
 }

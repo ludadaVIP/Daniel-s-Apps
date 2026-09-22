@@ -9,6 +9,7 @@ export default defineConfig({
     port: 5888,
     strictPort: true,
     proxy: {
+      '/api': 'http://127.0.0.1:5889',
       '/insight': 'http://127.0.0.1:5889',
       '/notebook': 'http://127.0.0.1:5889',
       '/html-library': 'http://127.0.0.1:5889',

@@ -4,7 +4,7 @@
 
 ## 启动
 
-Windows 双击 `start.bat`；Mac 双击 `start.command`。首次运行会安装一次共享依赖，随后自动打开 `http://127.0.0.1:5888`。
+Windows 双击 `start.bat`；Mac 双击 `start.command`。首次运行会安装一次共享依赖。日常启动会先构建界面，再以单一稳定服务运行在 `http://127.0.0.1:5888`，避免开发服务器与 API 启动不同步。
 
 Mac 初次下载或拷贝到新电脑后，若 Finder 提示没有权限，可在终端进入本目录后执行一次：
 
@@ -12,10 +12,16 @@ Mac 初次下载或拷贝到新电脑后，若 Finder 提示没有权限，可�
 chmod +x start.command
 ```
 
-也可以在本目录运行：
+开发时可以在本目录运行（包含热更新）：
 
 ```powershell
 npm run dev
+```
+
+普通使用也可以直接运行：
+
+```powershell
+npm run desktop
 ```
 
 ## 结构与加载方式
