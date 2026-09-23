@@ -1,16 +1,18 @@
 @scope (.bid-shell) {
   :scope {
-    --bid-bg: #f6f1e7;
-    --bid-panel: rgba(255, 255, 255, 0.92);
-    --bid-panel-strong: #fffdf8;
-    --bid-line: rgba(110, 80, 50, 0.18);
-    --bid-line-strong: rgba(110, 80, 50, 0.32);
-    --bid-text: #1f1408;
-    --bid-muted: #7a6448;
-    --bid-accent: #6d4322;        /* deep brown — different from book_a_day's orange */
-    --bid-accent-dark: #4f2f15;
-    --bid-accent-soft: rgba(109, 67, 34, 0.10);
-    --bid-danger: #b42318;
+    /* Same quiet reading family as A Book a Day, with a deeper ink tone. */
+    --bid-bg: #edf3ed;
+    --bid-panel: rgba(251, 253, 249, 0.9);
+    --bid-panel-strong: #fbfdf9;
+    --bid-control: #f7faf5;
+    --bid-line: rgba(67, 96, 76, 0.18);
+    --bid-line-strong: rgba(67, 96, 76, 0.32);
+    --bid-text: #223329;
+    --bid-muted: #617468;
+    --bid-accent: #587563;
+    --bid-accent-dark: #385542;
+    --bid-accent-soft: rgba(88, 117, 99, 0.11);
+    --bid-danger: #a85450;
 
     flex: 1;
     min-height: 0;
@@ -20,7 +22,7 @@
     overflow: hidden;
     color: var(--bid-text);
     background:
-      linear-gradient(135deg, rgba(248, 242, 226, 0.95), rgba(245, 234, 210, 0.85)),
+      linear-gradient(135deg, rgba(247, 251, 246, 0.96), rgba(228, 238, 229, 0.88)),
       var(--bid-bg);
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
       "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
@@ -43,7 +45,7 @@
     gap: 12px;
     padding: 16px 14px;
     border-right: 1px solid var(--bid-line);
-    background: rgba(244, 232, 208, 0.72);
+    background: rgba(226, 237, 227, 0.76);
   }
 
   .bid-brand {
@@ -85,7 +87,7 @@
     place-items: center;
     border-radius: 7px;
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     color: var(--bid-muted);
   }
 
@@ -106,7 +108,7 @@
     padding: 8px 10px;
     border-radius: 8px;
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     font-size: 13px;
     color: var(--bid-text);
     transition: border-color 0.15s, color 0.15s;
@@ -122,7 +124,7 @@
     align-items: center;
     gap: 6px;
     padding: 6px 10px;
-    background: white;
+    background: var(--bid-control);
     border: 1px solid var(--bid-line);
     border-radius: 8px;
     color: var(--bid-muted);
@@ -172,7 +174,7 @@
     overflow-y: auto;
     border: 1px solid var(--bid-line);
     border-radius: 8px;
-    background: #ffffff;
+    background: var(--bid-control);
     box-shadow: 0 8px 18px rgba(63, 45, 29, 0.1);
   }
 
@@ -465,7 +467,7 @@
     padding: 6px 10px;
     border-radius: 7px;
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     font-size: 12.5px;
     color: var(--bid-text);
     white-space: nowrap;
@@ -491,7 +493,7 @@
   .bid-mode-switch button {
     border: none;
     padding: 6px 10px;
-    background: white;
+    background: var(--bid-control);
     border-radius: 0;
     text-transform: capitalize;
     font-size: 12px;
@@ -635,7 +637,7 @@
   .bid-form input,
   .bid-form select {
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     padding: 9px 12px;
     border-radius: 8px;
     font-size: 14px;
@@ -658,7 +660,7 @@
     padding: 9px 16px;
     border-radius: 8px;
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     color: var(--bid-text);
     font-weight: 600;
     cursor: pointer;
@@ -725,7 +727,7 @@
     flex: 1;
     min-width: 0;
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     border-radius: 6px;
     padding: 5px 9px;
     font-size: 13px;
@@ -792,7 +794,8 @@
   }
 
   .bid-reader {
-    padding: 28px 38px 36px 38px;
+    padding: 32px clamp(28px, 5vw, 60px) 42px;
+    box-shadow: 0 12px 32px rgba(42, 72, 51, 0.07);
   }
 
   .bid-editor-head {
@@ -801,7 +804,7 @@
     gap: 6px;
     padding: 8px 12px;
     border-bottom: 1px solid var(--bid-line);
-    background: rgba(245, 232, 208, 0.5);
+    background: rgba(224, 237, 225, 0.62);
     font-size: 12px;
     color: var(--bid-muted);
   }
@@ -816,7 +819,7 @@
     line-height: 1.65;
     color: var(--bid-text);
     resize: none;
-    background: white;
+    background: var(--bid-control);
     overflow: hidden;
     min-height: 320px;
     box-sizing: border-box;
@@ -825,11 +828,13 @@
   /* Markdown rendering — tuned for long-form reading. */
 
   .bid-markdown {
-    max-width: 760px;
+    max-width: 740px;
     margin: 0 auto;
     font-size: 16px;
     line-height: 1.9;
-    color: #221404;
+    color: var(--bid-text);
+    font-family: Georgia, "Songti SC", "STSong", "Noto Serif SC", serif;
+    letter-spacing: 0.012em;
   }
 
   .bid-markdown h1,
@@ -1095,7 +1100,7 @@
     padding: 5px 8px;
     border: 1px solid var(--bid-line);
     border-radius: 8px;
-    background: white;
+    background: var(--bid-control);
     color: var(--bid-muted);
     font-size: 12px;
   }
@@ -1118,7 +1123,7 @@
     padding: 7px 12px;
     border-radius: 8px;
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     color: var(--bid-muted);
     font-size: 13px;
     transition: color 0.15s, border-color 0.15s, background 0.15s;
@@ -1159,7 +1164,7 @@
     gap: 6px;
     padding: 6px 10px 6px 9px;
     border: 1px solid var(--bid-line);
-    background: white;
+    background: var(--bid-control);
     color: var(--bid-text);
     border-radius: 7px;
     font-size: 12.5px;
@@ -1182,7 +1187,7 @@
     z-index: 30;
     min-width: 140px;
     padding: 4px;
-    background: white;
+    background: var(--bid-control);
     border: 1px solid var(--bid-line);
     border-radius: 8px;
     box-shadow: 0 8px 24px rgba(60, 30, 0, 0.18);
