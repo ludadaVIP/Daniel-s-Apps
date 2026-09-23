@@ -23,6 +23,7 @@ import {
 
 import { isTtsCancelled, useTts } from "../../shared/useTts";
 import "./styles.css";
+import BookLibraryHome from "../shared/BookLibraryHome";
 import ShelfManager, { ShelfManagerDialog } from "../shared/ShelfManager";
 import {
   NEXT_BUTTON_LABEL,
@@ -256,6 +257,7 @@ function Sidebar({
   onManageShelves,
   onQuery,
   onToggleCollapsed,
+  onGoHome,
   totalBooks,
 }) {
   const normalQuery = query.trim().toLowerCase();
@@ -274,7 +276,9 @@ function Sidebar({
   return (
     <aside className={classes("bad-sidebar", collapsed && "is-collapsed")}>
       <div className="bad-brand">
-        <div className="bad-brand-icon"><BookOpen size={20} /></div>
+        <button type="button" className="bad-brand-icon" onClick={onGoHome} title="回到全部书目" aria-label="回到全部书目">
+          <BookOpen size={20} />
+        </button>
         {!collapsed && (
           <div>
             <p>A Book a Day</p>
@@ -608,6 +612,11 @@ export default function BookADayApp() {
     return true;
   };
 
+  const handleGoHome = () => {
+    if (dirty && !window.confirm("当前 Tab 还没保存，要回到全部书目吗？")) return;
+    setActiveBookId("");
+  };
+
   const handleNewBook = async () => {
     const title = window.prompt("新书的书名：");
     if (!title) return;
@@ -781,6 +790,7 @@ export default function BookADayApp() {
           return next;
         })}
         onSelectBook={handleSelectBook}
+        onGoHome={handleGoHome}
         onNewBook={handleNewBook}
         onManageShelves={handleNewShelf}
         onQuery={setQuery}
@@ -789,7 +799,7 @@ export default function BookADayApp() {
       <main className="bad-main">
         <header className="bad-topbar">
           <div className="bad-title-zone">
-            <input
+            {book ? <input
               value={book?.title || ""}
               onChange={(e) => handleTitleChange(e.target.value)}
               placeholder={book ? "未命名书籍" : "A Book a Day"}
@@ -799,14 +809,13 @@ export default function BookADayApp() {
                   handlePatchMeta({ title: book.title });
                 }
               }}
-            />
-            {(!book || dirty) && (
+            /> : <>
+              <div className="bad-title-input">A Book a Day</div>
+              <div className="bad-meta-row"><span>{totalBooks} 本书 · 点击左上角图标可随时回到全部书目</span></div>
+            </>}
+            {book && dirty && (
               <div className="bad-meta-row">
-                {book ? (
-                  dirty && <span className="bad-dirty">本 Tab 未保存</span>
-                ) : (
-                  <span>{totalBooks} 本书 · 从左栏选一本，或按 “新书” 开始记录</span>
-                )}
+                <span className="bad-dirty">本 Tab 未保存</span>
               </div>
             )}
           </div>
@@ -846,14 +855,14 @@ export default function BookADayApp() {
         {loading ? (
           <div className="bad-loading"><Loader2 className="bad-spin" size={20} /> 加载书库…</div>
         ) : !book ? (
-          <section className="bad-welcome">
-            <BookOpen size={42} />
-            <h2>每天读一本</h2>
-            <p>
-              这里是你的读书工作台。选本书，读起来。腹有诗书气自华！
-            </p>
-            <button type="button" onClick={handleNewBook}><Plus size={16} /> 新书</button>
-          </section>
+          <BookLibraryHome
+            shelves={library.shelves}
+            totalBooks={totalBooks}
+            activeBookId={activeBookId}
+            appName="A Book a Day"
+            onSelectBook={handleSelectBook}
+            onCreateBook={handleNewBook}
+          />
         ) : (
           <section className="bad-workspace">
             <WorkflowStepper book={book} shelves={library.shelves} onPatch={handlePatchMeta} />

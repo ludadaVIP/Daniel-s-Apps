@@ -19,6 +19,7 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
+import BookLibraryHome from "../shared/BookLibraryHome";
 import ShelfManager, { ShelfManagerDialog } from "../shared/ShelfManager";
 import {
   NEXT_BUTTON_LABEL,
@@ -244,6 +245,7 @@ function Sidebar({
   onManageShelves,
   onQuery,
   onToggleCollapsed,
+  onGoHome,
   totalBooks,
 }) {
   const normalQuery = query.trim().toLowerCase();
@@ -262,7 +264,9 @@ function Sidebar({
   return (
     <aside className={classes("bid-sidebar", collapsed && "is-collapsed")}>
       <div className="bid-brand">
-        <div className="bid-brand-icon"><BookOpen size={20} /></div>
+        <button type="button" className="bid-brand-icon" onClick={onGoHome} title="回到全部书目" aria-label="回到全部书目">
+          <BookOpen size={20} />
+        </button>
         {!collapsed && (
           <div>
             <p>Book In Depth</p>
@@ -725,6 +729,11 @@ export default function BookInDepthApp() {
     return true;
   };
 
+  const handleGoHome = () => {
+    if (dirty && !window.confirm("当前 Tab 还没保存，要回到全部书目吗？")) return;
+    setActiveBookId("");
+  };
+
   const handleNewBook = () => setShowNewBookModal(true);
   const handleNewShelf = () => setShowShelfManager(true);
 
@@ -836,6 +845,7 @@ export default function BookInDepthApp() {
           return next;
         })}
         onSelectBook={handleSelectBook}
+        onGoHome={handleGoHome}
         onNewBook={handleNewBook}
         onManageShelves={handleNewShelf}
         onQuery={setQuery}
@@ -844,7 +854,7 @@ export default function BookInDepthApp() {
       <main className="bid-main">
         <header className="bid-topbar">
           <div className="bid-title-zone">
-            <input
+            {book ? <input
               value={book?.title || ""}
               onChange={(e) => handleTitleChange(e.target.value)}
               placeholder={book ? "未命名书籍" : "Book In Depth"}
@@ -854,18 +864,15 @@ export default function BookInDepthApp() {
                   handlePatchMeta({ title: book.title });
                 }
               }}
-            />
-            {(!book || dirty || charCount > 0) && (
+            /> : <>
+              <div className="bid-title-input">Book In Depth</div>
+              <div className="bid-meta-row"><span>{totalBooks} 本书 · 点击左上角图标可随时回到全部书目</span></div>
+            </>}
+            {book && (dirty || charCount > 0) && (
               <div className="bid-meta-row">
-                {book ? (
-                  <>
-                    {dirty && <span className="bid-dirty">本 Tab 未保存</span>}
-                    {charCount > 0 && (
-                      <span>{TABS.find((t) => t.id === activeTab)?.label}：{charCount} 字</span>
-                    )}
-                  </>
-                ) : (
-                  <span>{totalBooks} 本书 · 从左栏选一本，或按 “新书” 开始深读</span>
+                {dirty && <span className="bid-dirty">本 Tab 未保存</span>}
+                {charCount > 0 && (
+                  <span>{TABS.find((t) => t.id === activeTab)?.label}：{charCount} 字</span>
                 )}
               </div>
             )}
@@ -897,20 +904,14 @@ export default function BookInDepthApp() {
         {loading ? (
           <div className="bid-loading"><Loader2 className="bid-spin" size={20} /> 加载书库…</div>
         ) : !book ? (
-          <section className="bid-welcome">
-            <BookOpen size={42} />
-            <h2>每本书读到底</h2>
-            <p>
-              客观、详细、结构完整地复述一本书——目标 ~10000 字。
-              <br />
-              右边只有 <strong>思维导图</strong> 和 <strong>朗读稿</strong> 两个 Tab。
-              <br />
-              这里是用来「看」的——不是听书 app，也不是读书笔记。
-            </p>
-            <button type="button" className="bid-cta" onClick={handleNewBook}>
-              <Plus size={16} /> 手动新建
-            </button>
-          </section>
+          <BookLibraryHome
+            shelves={library.shelves}
+            totalBooks={totalBooks}
+            activeBookId={activeBookId}
+            appName="Book In Depth"
+            onSelectBook={handleSelectBook}
+            onCreateBook={handleNewBook}
+          />
         ) : (
           <section className="bid-workspace">
             <WorkflowStepper book={book} shelves={library.shelves} onPatch={handlePatchMeta} />

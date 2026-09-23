@@ -60,6 +60,18 @@
     background: var(--bid-accent);
     color: white;
     border-radius: 10px;
+    border: 0;
+    flex: 0 0 auto;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .bid-brand-icon:hover,
+  .bid-brand-icon:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(79, 47, 21, 0.28);
+    outline: 2px solid var(--bid-accent-dark);
+    outline-offset: 2px;
   }
 
   .bid-brand > div { flex: 1; min-width: 0; }

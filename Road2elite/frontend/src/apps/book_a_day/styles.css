@@ -68,6 +68,18 @@
     background: var(--bad-accent);
     color: white;
     border-radius: 10px;
+    border: 0;
+    flex: 0 0 auto;
+    cursor: pointer;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .bad-brand-icon:hover,
+  .bad-brand-icon:focus-visible {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(138, 68, 0, 0.28);
+    outline: 2px solid var(--bad-accent-dark);
+    outline-offset: 2px;
   }
 
   .bad-brand > div {
