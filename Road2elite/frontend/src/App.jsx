@@ -9,6 +9,7 @@ const SaveMdApp = lazy(() => import("./apps/save_md/App.jsx"));
 const BookADayApp = lazy(() => import("./apps/book_a_day/App.jsx"));
 const BookInDepthApp = lazy(() => import("./apps/book_in_depth/App.jsx"));
 const BibleApp = lazy(() => import("./apps/bible/App.jsx"));
+const CalendarApp = lazy(() => import("./apps/calendar/App.jsx"));
 
 function LoadingScreen({ label }) {
   return (
@@ -52,6 +53,10 @@ export default function App() {
       <Route
         path="/bible"
         element={withShell("Recall Bible", "#8a3a2e", BibleApp)}
+      />
+      <Route
+        path="/calendar"
+        element={withShell("Calendar", "#315f8d", CalendarApp)}
       />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

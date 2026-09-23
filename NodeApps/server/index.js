@@ -65,6 +65,11 @@ app.use('/bible', lazyMount(async () => {
   return module.app;
 }));
 
+app.use('/bible-parallel', lazyMount(async () => {
+  const module = await import('../apps/bible-parallel/server/index.js');
+  return module.app;
+}));
+
 app.use('/recall-verses', lazyMount(async () => {
   const module = await import('../apps/recall-verses/server/index.js');
   await module.initializeRecallVerses();

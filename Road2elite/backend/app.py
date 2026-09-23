@@ -20,6 +20,7 @@ from apps.record_meditation.routes import bp as record_meditation_bp
 from apps.save_md.routes import AUDIO_DIR as SAVE_MD_AUDIO_DIR
 from apps.save_md.routes import bp as save_md_bp
 from apps.bible.routes import bp as bible_bp
+from apps.calendar.routes import bp as calendar_bp
 from shared.io import read_json, write_json
 
 
@@ -31,6 +32,7 @@ HUB_APP_IDS = {
     "bible",
     "book-a-day",
     "book-in-depth",
+    "calendar",
 }
 
 
@@ -61,10 +63,11 @@ def create_app() -> Flask:
     app.register_blueprint(book_a_day_bp, url_prefix="/api/book-a-day")
     app.register_blueprint(book_in_depth_bp, url_prefix="/api/book-in-depth")
     app.register_blueprint(bible_bp, url_prefix="/api/bible")
+    app.register_blueprint(calendar_bp, url_prefix="/api/calendar")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "book-in-depth", "bible"]})
+        return jsonify({"ok": True, "apps": ["record-meditation", "save-md", "book-a-day", "book-in-depth", "bible", "calendar"]})
 
     @app.get("/api/hub/layout")
     def get_hub_layout():

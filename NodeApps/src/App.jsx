@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, Compass, House, Landmark, MessageCircleQuestion, Network, NotebookPen } from 'lucide-react';
+import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, Check, Columns3, Compass, GripVertical, House, Landmark, MessageCircleQuestion, Network, NotebookPen, Save } from 'lucide-react';
 
 const APPS = [
   {
@@ -75,6 +75,15 @@ const APPS = [
     load: () => import('../apps/bible/entry.jsx'),
   },
   {
+    id: 'bible-parallel',
+    name: 'Bible Parallel',
+    kind: 'CUV · ESV · NVI',
+    description: '逐节对齐阅读中文、英文与西班牙文圣经。',
+    Icon: Columns3,
+    color: '#1d6570',
+    load: () => import('../apps/bible-parallel/entry.jsx'),
+  },
+  {
     id: 'recall-verses',
     name: 'Recall Verses',
     kind: 'CUV · RECALL',
@@ -85,6 +94,31 @@ const APPS = [
   },
 ];
 
+const APP_ORDER_STORAGE_KEY = 'nodeapps.launcher.app-order.v1';
+
+function restoreAppOrder() {
+  try {
+    const savedIds = JSON.parse(localStorage.getItem(APP_ORDER_STORAGE_KEY));
+    if (!Array.isArray(savedIds)) return APPS;
+    const appsById = new Map(APPS.map((app) => [app.id, app]));
+    const restoredApps = savedIds.map((id) => appsById.get(id)).filter(Boolean);
+    const restoredIds = new Set(restoredApps.map((app) => app.id));
+    return [...restoredApps, ...APPS.filter((app) => !restoredIds.has(app.id))];
+  } catch {
+    return APPS;
+  }
+}
+
+function reorderApps(apps, sourceId, targetId) {
+  const sourceIndex = apps.findIndex((app) => app.id === sourceId);
+  const targetIndex = apps.findIndex((app) => app.id === targetId);
+  if (sourceIndex < 0 || targetIndex < 0 || sourceIndex === targetIndex) return apps;
+  const nextApps = [...apps];
+  const [movedApp] = nextApps.splice(sourceIndex, 1);
+  nextApps.splice(targetIndex, 0, movedApp);
+  return nextApps;
+}
+
 const APP_STYLE_LOADERS = {
   'world-qa': () => import('../apps/WorldQandA/src/styles.css?inline'),
   'belief-qa': () => import('../apps/BeliefQandA/src/styles.css?inline'),
@@ -94,6 +128,7 @@ const APP_STYLE_LOADERS = {
   notebook: () => import('../apps/notebook/src/styles.css?inline'),
   'html-library': () => import('../apps/html-library/src/styles.css?inline'),
   bible: () => import('../apps/bible/src/styles.css?inline'),
+  'bible-parallel': () => import('../apps/bible-parallel/src/styles.css?inline'),
   'recall-verses': () => import('../apps/recall-verses/src/styles.css?inline'),
 };
 
@@ -105,6 +140,7 @@ const API_BACKED_APPS = new Set([
   'notebook',
   'html-library',
   'bible',
+  'bible-parallel',
   'recall-verses',
 ]);
 
@@ -190,21 +226,75 @@ function AppGate({ app, SelectedApp }) {
 }
 
 function Home({ open }) {
+  const [apps, setApps] = useState(restoreAppOrder);
+  const [savedOrder, setSavedOrder] = useState(() => restoreAppOrder().map((app) => app.id).join(','));
+  const [draggedId, setDraggedId] = useState(null);
+  const currentOrder = apps.map((app) => app.id).join(',');
+  const hasUnsavedOrder = currentOrder !== savedOrder;
+
+  const moveApp = (sourceId, targetId) => {
+    setApps((currentApps) => reorderApps(currentApps, sourceId, targetId));
+  };
+
+  const moveAppByOffset = (id, offset) => {
+    setApps((currentApps) => {
+      const sourceIndex = currentApps.findIndex((app) => app.id === id);
+      const target = currentApps[sourceIndex + offset];
+      return target ? reorderApps(currentApps, id, target.id) : currentApps;
+    });
+  };
+
+  const beginDrag = (event, id) => {
+    if (event.pointerType === 'mouse' && event.button !== 0) return;
+    event.preventDefault();
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setDraggedId(id);
+  };
+
+  const updateDrag = (event) => {
+    if (!draggedId) return;
+    const target = document.elementFromPoint(event.clientX, event.clientY)?.closest('[data-app-id]');
+    const targetId = target?.dataset.appId;
+    if (targetId && targetId !== draggedId) moveApp(draggedId, targetId);
+  };
+
+  const endDrag = (event) => {
+    if (event.currentTarget.hasPointerCapture?.(event.pointerId)) event.currentTarget.releasePointerCapture(event.pointerId);
+    setDraggedId(null);
+  };
+
+  const saveOrder = () => {
+    try {
+      localStorage.setItem(APP_ORDER_STORAGE_KEY, JSON.stringify(apps.map((app) => app.id)));
+      setSavedOrder(currentOrder);
+    } catch { /* Keep the save action available when browser storage is disabled. */ }
+  };
+
   return <main className="launcher-hub">
     <header className="launcher-hub-header">
       <div className="launcher-hub-heading">
-        <p className="launcher-hub-eyebrow">NODEAPPS</p>
-        <h1>NodeApps</h1>
-        <p>{APPS.length} 个独立保留的本地工具，点击卡片进入。</p>
+        <h2>NodeApps</h2>
       </div>
-      <div className="launcher-hub-actions"><span>{APPS.length} APPS</span></div>
+      <div className="launcher-hub-actions">
+        <span>{APPS.length} APPS</span>
+        <button className="launcher-save-order" type="button" onClick={saveOrder} disabled={!hasUnsavedOrder}>
+          {hasUnsavedOrder ? <Save size={15} strokeWidth={2} /> : <Check size={15} strokeWidth={2} />}
+          {hasUnsavedOrder ? '保存布局' : '布局已保存'}
+        </button>
+      </div>
     </header>
     <section className="launcher-hub-grid" aria-label="应用列表">
-      {APPS.map((app) => <button className="launcher-hub-card" key={app.id} onClick={() => open(app.id)} style={{ '--launcher-card-accent': app.color }}>
-        <span className="launcher-hub-card-top"><span className="launcher-hub-card-icon"><app.Icon size={25} strokeWidth={1.9} /></span><span className="launcher-hub-card-kind">{app.kind}</span></span>
-        <span className="launcher-hub-card-body"><strong>{app.name}</strong><span>{app.description}</span></span>
-        <span className="launcher-hub-card-arrow" aria-hidden="true">-&gt;</span>
-      </button>)}
+      {apps.map((app) => <article className={`launcher-hub-card${draggedId === app.id ? ' is-dragging' : ''}`} data-app-id={app.id} key={app.id} style={{ '--launcher-card-accent': app.color }}>
+        <button className="launcher-card-drag-handle" type="button" aria-label={`拖动 ${app.name} 以调整顺序`} title="拖动排序" onPointerDown={(event) => beginDrag(event, app.id)} onPointerMove={updateDrag} onPointerUp={endDrag} onPointerCancel={endDrag} onKeyDown={(event) => {
+          if (event.key === 'ArrowLeft' || event.key === 'ArrowUp') { event.preventDefault(); moveAppByOffset(app.id, -1); }
+          if (event.key === 'ArrowRight' || event.key === 'ArrowDown') { event.preventDefault(); moveAppByOffset(app.id, 1); }
+        }}><GripVertical size={18} strokeWidth={2.15} /></button>
+        <button className="launcher-hub-card-launch" type="button" onClick={() => open(app.id)}>
+          <span className="launcher-hub-card-top"><span className="launcher-hub-card-icon"><app.Icon size={21} strokeWidth={1.9} /></span><span className="launcher-hub-card-kind">{app.kind}</span></span>
+          <span className="launcher-hub-card-body"><strong>{app.name}</strong><span>{app.description}</span></span>
+          <span className="launcher-hub-card-arrow" aria-hidden="true">-&gt;</span>
+        </button>
+      </article>)}
     </section>
     <footer className="launcher-hub-footer"><code>Node.js · React · Vite</code><span>本地数据 · 多工具工作台</span></footer>
   </main>;

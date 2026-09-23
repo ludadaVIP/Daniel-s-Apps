@@ -1,8 +1,18 @@
 import { useEffect, useState } from "react";
-import { BookOpen, BookMarked, FileText, GripVertical, NotebookPen, Save, ScrollText } from "lucide-react";
+import { BookOpen, BookMarked, CalendarDays, FileText, GripVertical, NotebookPen, Save, ScrollText } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const APPS = [
+  {
+    id: "calendar",
+    title: "Calendar",
+    subtitle: "月历 · 每天几件小事 · 可展开详情",
+    description: "在月历上快速记下一件事；标题一眼看完，需要时再在右侧展开详情。",
+    accent: "#315f8d",
+    Icon: CalendarDays,
+    to: "/calendar",
+    kind: "Daily",
+  },
   {
     id: "record-meditation",
     title: "Record & Meditation",

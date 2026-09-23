@@ -49,7 +49,6 @@ from apps.esp_vocab.routes import bp as esp_vocab_bp, AUDIO_DIR as ESP_VOCAB_AUD
 from apps.eng_vocab.routes import bp as eng_vocab_bp, AUDIO_DIR as ENG_VOCAB_AUDIO_DIR
 from apps.french_vocab.routes import bp as french_vocab_bp, AUDIO_DIR as FRENCH_VOCAB_AUDIO_DIR
 from apps.german_vocab.routes import bp as german_vocab_bp, AUDIO_DIR as GERMAN_VOCAB_AUDIO_DIR
-from apps.record_meditation.routes import bp as record_meditation_bp
 from apps.bible_lang.routes import bp as bible_lang_bp, AUDIO_DIR as BIBLE_LANG_AUDIO_DIR
 
 
@@ -89,12 +88,11 @@ def create_app() -> Flask:
     app.register_blueprint(eng_vocab_bp, url_prefix="/api/eng-vocab")
     app.register_blueprint(french_vocab_bp, url_prefix="/api/french-vocab")
     app.register_blueprint(german_vocab_bp, url_prefix="/api/german-vocab")
-    app.register_blueprint(record_meditation_bp, url_prefix="/api/record-meditation")
     app.register_blueprint(bible_lang_bp, url_prefix="/api/bible-lang")
 
     @app.get("/api/health")
     def health():
-        return jsonify({"ok": True, "apps": ["french", "free-french", "free-english", "free-spanish", "free-german", "koine-greek", "quiz", "live-spanish", "lab", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "french-vocab", "german-vocab", "record-meditation", "bible-lang", "bible-and-eng", "bible-and-esp", "bible-and-fr", "bible-and-ge"]})
+        return jsonify({"ok": True, "apps": ["french", "free-french", "free-english", "free-spanish", "free-german", "koine-greek", "quiz", "live-spanish", "lab", "translator", "ai-practice", "german", "spanish", "spanish-900", "english-900", "french-900", "german-900", "curiosity", "esp-vocab", "eng-vocab", "french-vocab", "german-vocab", "bible-lang", "bible-and-eng", "bible-and-esp", "bible-and-fr", "bible-and-ge"]})
 
     # Per-app audio serving — each sub-app has its own audio root directory.
     @app.get("/audio/french/<path:filename>")

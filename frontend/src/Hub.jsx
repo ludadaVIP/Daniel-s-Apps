@@ -179,15 +179,6 @@ const APPS = [
 
   },
   {
-    id: "record-meditation",
-    title: "Record & Meditation",
-    subtitle: "日记 · 读书笔记 · AI 对话感想 · 讲座回顾",
-    description: "按年 / 月 / 日组织的轻量日志：富文本编辑、自动摘要、标签 / 心情筛选、关键词搜索。后端按月份分文件，写入时同步生成 entries-index.csv，可以直接用 Excel 浏览历史；支持按月 JSON、按年 ZIP、整库 ZIP 多种导出。",
-    accent: "#6a3f86",
-    Icon: NotebookPen,
-    to: "/record-meditation",
-  },
-  {
     id: "eng-vocab",
     title: "Eng Vocab",
     subtitle: "英语单词 · CEFR A1 → C2 · 英中对照 · 按词性分组",
@@ -292,7 +283,6 @@ function getAppKind(app) {
   if (app.title.includes("Sprint")) return "Sprint";
   if (app.id.includes("bible")) return "Bible";
   if (app.id === "curiosity") return "Science";
-  if (app.id === "record-meditation") return "Journal";
   return "Practice";
 }
 
