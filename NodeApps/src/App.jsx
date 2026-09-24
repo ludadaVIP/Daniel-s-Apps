@@ -147,11 +147,11 @@ const API_BACKED_APPS = new Set([
 const API_RETRY_DELAY = 250;
 const API_MAX_RETRY_DELAY = 1500;
 
-async function waitForApiReady(signal) {
+async function waitForApiReady(signal, appId) {
   let retryDelay = API_RETRY_DELAY;
   while (!signal.aborted) {
     try {
-      const response = await fetch('/api/health', { cache: 'no-store', signal });
+      const response = await fetch(`/api/apps/${encodeURIComponent(appId)}/health`, { cache: 'no-store', signal });
       if (response.ok) return;
     } catch (error) {
       if (error.name === 'AbortError') return;
@@ -215,7 +215,10 @@ function AppGate({ app, SelectedApp }) {
     if (!requiresApi) return undefined;
     const controller = new AbortController();
     setApiReady(false);
-    waitForApiReady(controller.signal).then(() => {
+    // The workspace API can listen before an individual lazy-loaded app has
+    // initialized. Its centralized readiness endpoint completes that work
+    // before this app's own data requests are allowed to begin.
+    waitForApiReady(controller.signal, app.id).then(() => {
       if (!controller.signal.aborted) setApiReady(true);
     });
     return () => controller.abort();

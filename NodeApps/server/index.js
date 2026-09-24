@@ -11,76 +11,104 @@ app.disable('x-powered-by');
 function lazyMount(load) {
   let target;
   let loading;
-  return async (request, response, next) => {
+
+  const ready = async () => {
+    if (target) return target;
+    loading ??= load();
     try {
-      if (!target) {
-        loading ??= load();
-        target = await loading;
-      }
-      return target(request, response, next);
+      target = await loading;
+      return target;
     } catch (error) {
       loading = undefined;
-      next(error);
+      throw error;
     }
+  };
+
+  return {
+    ready,
+    handler: async (request, response, next) => {
+      try {
+        return (await ready())(request, response, next);
+      } catch (error) {
+        next(error);
+      }
+    },
   };
 }
 
 app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'NodeApps' }));
 
-app.use('/belief-qa', lazyMount(async () => {
-  const module = await import('../apps/BeliefQandA/server/index.js');
-  await module.initializeBeliefQA();
-  return module.app;
-}));
+const appMounts = {
+  'belief-qa': lazyMount(async () => {
+    const module = await import('../apps/BeliefQandA/server/index.js');
+    await module.initializeBeliefQA();
+    return module.app;
+  }),
 
-app.use('/world-qa', lazyMount(async () => {
-  const module = await import('../apps/WorldQandA/server/index.js');
-  await module.initializeWorldQA();
-  return module.app;
-}));
+  'world-qa': lazyMount(async () => {
+    const module = await import('../apps/WorldQandA/server/index.js');
+    await module.initializeWorldQA();
+    return module.app;
+  }),
 
-app.use('/insight', lazyMount(async () => {
-  const { createApp } = await import('../apps/insight/server/app.js');
-  return createApp({
-    contentDirectory: path.join(root, 'apps', 'insight', 'content'),
-    databasePath: path.join(root, 'apps', 'insight', 'data', 'insightmatrix.sqlite'),
-  });
-}));
+  insight: lazyMount(async () => {
+    const { createApp } = await import('../apps/insight/server/app.js');
+    return createApp({
+      contentDirectory: path.join(root, 'apps', 'insight', 'content'),
+      databasePath: path.join(root, 'apps', 'insight', 'data', 'insightmatrix.sqlite'),
+    });
+  }),
 
-app.use('/notebook', lazyMount(async () => {
-  const module = await import('../apps/notebook/server/index.js');
-  await module.initializeNotebook();
-  return module.app;
-}));
+  notebook: lazyMount(async () => {
+    const module = await import('../apps/notebook/server/index.js');
+    await module.initializeNotebook();
+    return module.app;
+  }),
 
-app.use('/html-library', lazyMount(async () => {
-  const module = await import('../apps/html-library/server/index.js');
-  await module.initializeHtmlLibrary();
-  return module.createHtmlLibraryApp();
-}));
+  'html-library': lazyMount(async () => {
+    const module = await import('../apps/html-library/server/index.js');
+    await module.initializeHtmlLibrary();
+    return module.createHtmlLibraryApp();
+  }),
 
-app.use('/bible', lazyMount(async () => {
-  const module = await import('../apps/bible/server/index.js');
-  await module.initializeBibleDevotion();
-  return module.app;
-}));
+  bible: lazyMount(async () => {
+    const module = await import('../apps/bible/server/index.js');
+    await module.initializeBibleDevotion();
+    return module.app;
+  }),
 
-app.use('/bible-parallel', lazyMount(async () => {
-  const module = await import('../apps/bible-parallel/server/index.js');
-  return module.app;
-}));
+  'bible-parallel': lazyMount(async () => {
+    const module = await import('../apps/bible-parallel/server/index.js');
+    return module.app;
+  }),
 
-app.use('/recall-verses', lazyMount(async () => {
-  const module = await import('../apps/recall-verses/server/index.js');
-  await module.initializeRecallVerses();
-  return module.app;
-}));
+  'recall-verses': lazyMount(async () => {
+    const module = await import('../apps/recall-verses/server/index.js');
+    await module.initializeRecallVerses();
+    return module.app;
+  }),
 
-app.use('/investment', lazyMount(async () => {
-  const module = await import('../apps/investment/server/index.js');
-  await module.initializeInvestment();
-  return module.createInvestmentApp();
-}));
+  investment: lazyMount(async () => {
+    const module = await import('../apps/investment/server/index.js');
+    await module.initializeInvestment();
+    return module.createInvestmentApp();
+  }),
+};
+
+app.get('/api/apps/:appId/health', async (request, response, next) => {
+  const mount = appMounts[request.params.appId];
+  if (!mount) return response.status(404).json({ error: '未知的子应用。' });
+  try {
+    await mount.ready();
+    response.json({ ok: true, app: request.params.appId });
+  } catch (error) {
+    next(error);
+  }
+});
+
+for (const [appId, mount] of Object.entries(appMounts)) {
+  app.use(`/${appId}`, mount.handler);
+}
 
 if (production) {
   const dist = path.join(root, 'dist');

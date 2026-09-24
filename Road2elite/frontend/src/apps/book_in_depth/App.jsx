@@ -666,6 +666,10 @@ export default function BookInDepthApp() {
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
   const [showNewBookModal, setShowNewBookModal] = useState(false);
   const [showShelfManager, setShowShelfManager] = useState(false);
+  const [readerFontSize, setReaderFontSize] = useState(() => {
+    const saved = Number(window.localStorage.getItem("book-in-depth-reader-font-size"));
+    return saved >= 14 && saved <= 22 ? saved : 16;
+  });
   const textareaRef = useRef(null);
   const readerRef = useRef(null);
 
@@ -683,6 +687,14 @@ export default function BookInDepthApp() {
       setLoading(false);
     }
   }, []);
+
+  const changeReaderFontSize = (amount) => {
+    setReaderFontSize((current) => {
+      const next = Math.min(22, Math.max(14, current + amount));
+      window.localStorage.setItem("book-in-depth-reader-font-size", String(next));
+      return next;
+    });
+  };
 
   useEffect(() => {
     loadLibrary();
@@ -830,6 +842,7 @@ export default function BookInDepthApp() {
         "bid-shell",
         sidebarCollapsed && "is-sidebar-collapsed",
       )}
+      style={{ "--bid-reader-font-size": `${readerFontSize}px` }}
     >
       <Sidebar
         shelves={library.shelves}
@@ -884,6 +897,15 @@ export default function BookInDepthApp() {
                   {m}
                 </button>
               ))}
+            </div>
+            <div className="bid-font-controls" role="group" aria-label="调整正文大小">
+              <button type="button" onClick={() => changeReaderFontSize(-1)} disabled={readerFontSize <= 14} title="缩小正文">
+                A−
+              </button>
+              <span aria-label={`当前正文大小 ${readerFontSize} 像素`}>{readerFontSize}px</span>
+              <button type="button" onClick={() => changeReaderFontSize(1)} disabled={readerFontSize >= 22} title="放大正文">
+                A+
+              </button>
             </div>
             <button type="button" onClick={handleSaveTab} disabled={!book || saving}>
               <Save size={16} /> {saving ? "保存中" : "保存本 Tab"}
