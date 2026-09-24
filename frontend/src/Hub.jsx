@@ -1,6 +1,6 @@
 import { useMemo, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, NotebookPen, ScrollText, Sparkles } from "lucide-react";
+import { BookOpen, Brain, Flag, GraduationCap, Headphones, Languages, MessageSquare, Microscope, Music, NotebookPen, ScrollText } from "lucide-react";
 
 const HUB_ORDER_KEY = "daniels-apps:hub-order";
 
@@ -58,15 +58,6 @@ const APPS = [
     accent: "#6b4e16",
     Icon: ScrollText,
     to: "/koine-greek",
-  },
-  {
-    id: "quiz",
-    title: "English Adventure Quiz",
-    subtitle: "英语综合练习：选择 / 排序 / 填空",
-    description: "Ten themed quizzes covering grammar, vocabulary, and reading.",
-    accent: "#f97316",
-    Icon: Sparkles,
-    to: "/quiz",
   },
   {
     id: "live-spanish",

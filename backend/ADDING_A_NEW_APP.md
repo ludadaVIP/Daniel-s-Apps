@@ -15,7 +15,7 @@ A single Flask backend (port 8000) + single Vite/React frontend (port 5173) host
 - Owns its CSS — never leaks selectors or variables to other apps.
 - Is modifiable in isolation: editing one app cannot affect another.
 
-Existing apps (as of writing): `french`, `quiz`, `live_spanish` (`/live-spanish`), `language_lab` (`/lab`), `bible`, `translator`, `ai_practice` (`/ai-practice`).
+Representative apps: `french`, `live_spanish` (`/live-spanish`), `language_lab` (`/lab`), `bible`, `translator`, `ai_practice` (`/ai-practice`).
 
 ---
 
@@ -285,7 +285,7 @@ The root `<div>` MUST have a unique class. Convention: `.<short-prefix>-shell` o
 
 #### Pattern A: `@scope` (recommended for new apps)
 
-Modern native CSS scoping. Used by `quiz`, `bible`, `live_spanish`, `language_lab`, `ai_practice`. Every selector inside the block is automatically constrained to descendants of `.mna-shell`.
+Modern native CSS scoping. Used by `bible`, `live_spanish`, `language_lab`, `ai_practice`. Every selector inside the block is automatically constrained to descendants of `.mna-shell`.
 
 ```css
 @scope (.mna-shell) {
@@ -340,7 +340,7 @@ If you can't use `@scope` but don't want to prefix every selector, prefix all va
 
 ### 6.5 Layout — Layout A vs Layout B
 
-#### Layout A: scrollable single-page (Bible, AI Practice, Quiz)
+#### Layout A: scrollable single-page (Bible, AI Practice)
 
 Your content is variable-length; the user scrolls naturally. `dh-shell-content` becomes the scroll container.
 
@@ -607,7 +607,6 @@ Copy structure, not code. Each existing app is well-isolated, so copying its pat
 | 3-column with rich sidebar | `language_lab/` | Pattern A with three rails |
 | 2-column quiz/study tool | `translator/`, `ai_practice/` | Layout B with sidebar + main |
 | Multi-question quiz with per-Q audio | `live_spanish/` | TTS with caching, full Pattern A |
-| Sequence-based learning (questions/blocks) | `quiz/` | Clean Pattern A, progress tracking |
 
 Don't copy multiple at once — pick the closest match and adapt.
 

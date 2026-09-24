@@ -5,12 +5,11 @@ Flask backend (port 8000) + a single Vite dev server (port 5173) host all of
 them, so there are no more port collisions when you want to switch between
 them.
 
-The five sub-apps are:
+The following core sub-apps are:
 
 | App                  | Route             | Backend prefix          | Source folder                       |
 | -------------------- | ----------------- | ----------------------- | ----------------------------------- |
 | French Sprint        | `/french`         | `/api/french/*`         | `backend/data/French/`              |
-| English Quiz         | `/quiz`           | `/api/quiz/*`           | `backend/data/Quiz/`                |
 | Live Spanish         | `/live-spanish`   | `/api/live-spanish/*`   | `backend/data/Live-Spanish/`        |
 | Language Output Lab  | `/lab`            | `/api/lab/*`            | `backend/data/Lab/`                 |
 | Recall Bible         | `/bible`          | `/api/bible/*`          | `backend/data/Bible/`               |
@@ -43,9 +42,8 @@ Daniel's Apps/
 ├── backend/
 │   ├── requirements.txt
 │   ├── app.py                 # entry; registers four blueprints
-│   ├── data/                  # all five apps' JSON + audio (committed)
+│   ├── data/                  # all listed core apps' JSON + audio (committed)
 │   │   ├── French/
-│   │   ├── Quiz/
 │   │   ├── Live-Spanish/
 │   │   ├── Lab/
 │   │   └── Bible/             # cuv_data / esv_data / nvi_data
@@ -55,7 +53,6 @@ Daniel's Apps/
 │   │   └── io.py              # JSON read/write helpers
 │   └── apps/
 │       ├── french/routes.py
-│       ├── quiz/routes.py
 │       ├── live_spanish/routes.py
 │       ├── language_lab/routes.py
 │       └── bible/routes.py
@@ -73,7 +70,6 @@ Daniel's Apps/
         │   └── styles.css     # hub + shell CSS variables
         └── apps/
             ├── french/        # App.jsx + scoped styles.css
-            ├── quiz/          # App.jsx + services/* + scoped styles.css
             ├── live_spanish/  # App.jsx + scoped styles.css
             ├── language_lab/  # App.jsx + scoped styles.css
             └── bible/         # App.jsx + scoped styles.css
@@ -100,7 +96,7 @@ project keeps **one** implementation each:
 
 The four `App.jsx` files were kept mostly intact (only the fetch URLs were
 re-pointed to the namespaced backend). Each sub-app's stylesheet is wrapped
-in a CSS `@scope` block (`.french-shell`, `.quiz-shell`, `.ls-shell`,
+in a CSS `@scope` block (`.french-shell`, `.ls-shell`,
 `.lab-shell`) so generic class names like `.sidebar` or `.primary-button` in
 one app never bleed into another.
 
@@ -202,7 +198,6 @@ The merged backend reads each sub-app's JSON / audio cache from a folder
 under `backend/data/`. The defaults (relative to this project root):
 
 - `FRENCH_DATA_DIR` → `backend/data/French/`            (`lessons/`, `audio/`, `progress/`)
-- `QUIZ_DATA_DIR` → `backend/data/Quiz/`                (`quizzes/`)
 - `LIVE_SPANISH_DATA_DIR` → `backend/data/Live-Spanish/` (`quizzes/`, `progress/`, `audio/`)
 - `LANGUAGE_LAB_DATA_DIR` → `backend/data/Lab/`         (`topics/`, `audio/`)
 - `BIBLE_DATA_DIR` → `backend/data/Bible/`              (`cuv_data/`, `esv_data/`, `nvi_data/` — drop in `<code>_data/` folders to add more translations)
