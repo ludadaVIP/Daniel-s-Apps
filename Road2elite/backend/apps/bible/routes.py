@@ -39,6 +39,9 @@ from shared.io import read_json
 
 DEFAULT_DATA_ROOT = Path(__file__).resolve().parents[2] / "data" / "Bible"
 DATA_ROOT = Path(os.environ.get("BIBLE_DATA_DIR", DEFAULT_DATA_ROOT))
+# The paragraph files were curated from the Chinese Union Version (CUV), but
+# their chapter/verse ranges are useful as a shared New Testament study grid
+# for all three versions.  The files themselves keep English canonical names.
 PARAGRAPH_DATA_ROOT = DATA_ROOT / "cuv_paragraphs"
 
 # Human-friendly metadata for each version folder. Anything not listed
@@ -122,6 +125,40 @@ DEFAULT_BOOK_SETS: dict[str, list[str]] = {
     ],
 }
 
+# NVI uses Spanish book names on disk, while the paragraph files use the
+# English/CUV canonical names. ESV already uses those English names, as does
+# CUV's data folder. Only New Testament books appear here because that is the
+# scope of the curated CUV paragraph data.
+NVI_TO_PARAGRAPH_BOOK: dict[str, str] = {
+    "Mateo": "Matthew",
+    "Marcos": "Mark",
+    "Lucas": "Luke",
+    "Juan": "John",
+    "Hechos": "Acts",
+    "Romanos": "Romans",
+    "1 Corintios": "1 Corinthians",
+    "2 Corintios": "2 Corinthians",
+    "Gálatas": "Galatians",
+    "Efesios": "Ephesians",
+    "Filipenses": "Philippians",
+    "Colosenses": "Colossians",
+    "1 Tesalonicenses": "1 Thessalonians",
+    "2 Tesalonicenses": "2 Thessalonians",
+    "1 Timoteo": "1 Timothy",
+    "2 Timoteo": "2 Timothy",
+    "Tito": "Titus",
+    "Filemón": "Philemon",
+    "Hebreos": "Hebrews",
+    "Santiago": "James",
+    "1 Pedro": "1 Peter",
+    "2 Pedro": "2 Peter",
+    "1 Juan": "1 John",
+    "2 Juan": "2 John",
+    "3 Juan": "3 John",
+    "Judas": "Jude",
+    "Apocalipsis": "Revelation",
+}
+
 
 bp = Blueprint("bible", __name__)
 
@@ -191,15 +228,52 @@ def load_book_paragraphs(book: str) -> dict[str, Any]:
     return data if isinstance(data, dict) else {}
 
 
+def paragraph_source_book(version_code: str, book: str) -> str | None:
+    """Return the CUV paragraph-file book corresponding to a version book."""
+    if version_code == "nvi":
+        return NVI_TO_PARAGRAPH_BOOK.get(book)
+    # CUV and ESV use the paragraph files' English canonical book names.
+    return book
+
+
+def paragraph_map_for(version_code: str, book: str) -> dict[str, Any]:
+    """Load the shared CUV paragraph map for a book in any supported version."""
+    source_book = paragraph_source_book(version_code, book)
+    return load_book_paragraphs(source_book) if source_book else {}
+
+
+def paragraph_segment_for(
+    version_code: str, book: str, chapter: int, verse_num: int
+) -> dict[str, Any] | None:
+    """Find the CUV-aligned segment containing a verse, if it exists."""
+    paragraph_map = paragraph_map_for(version_code, book)
+    segments = (paragraph_map.get("chapters") or {}).get(str(chapter), [])
+    for segment in segments if isinstance(segments, list) else []:
+        if not isinstance(segment, dict):
+            continue
+        try:
+            if int(segment.get("start") or 0) <= verse_num <= int(segment.get("end") or 0):
+                return segment
+        except (TypeError, ValueError):
+            continue
+    return None
+
+
 def public_verse(verse: dict[str, Any], version_code: str) -> dict[str, Any]:
     """Strip to the fields the UI cares about."""
-    return {
+    payload = {
         "version": version_code,
         "book": str(verse.get("book") or ""),
         "chapter": int(verse.get("chapter") or 0),
         "verse": int(verse.get("verse") or 0),
         "text": str(verse.get("text") or "").strip(),
     }
+    payload["paragraphAvailable"] = bool(
+        paragraph_segment_for(
+            version_code, payload["book"], payload["chapter"], payload["verse"]
+        )
+    )
+    return payload
 
 
 def reference(verse: dict[str, Any]) -> str:
@@ -306,12 +380,10 @@ def random_verse():
         requested_verses = [1]
     paragraph_first = is_truthy_param(request.args.get("paragraphFirst"))
 
-    if paragraph_first and version != "cuv":
-        return jsonify({"error": "Paragraph mode is currently available for CUV only."}), 400
     if paragraph_first:
-        candidate_books = [book for book in candidate_books if load_book_paragraphs(book)]
+        candidate_books = [book for book in candidate_books if paragraph_map_for(version, book)]
         if not candidate_books:
-            return jsonify({"error": "No paragraph data found in the selected books."}), 404
+            return jsonify({"error": "No CUV-aligned paragraph data found in the selected books."}), 404
 
     # Pick a book first, then a random verse inside that book. Two-stage
     # sampling keeps the per-request work cheap even when the Bible has
@@ -327,7 +399,7 @@ def random_verse():
                     verse_number = int(entry.get("verse") or 0)
                     verses_by_chapter.setdefault(chapter, {})[verse_number] = entry
 
-                paragraph_map = load_book_paragraphs(book)
+                paragraph_map = paragraph_map_for(version, book)
                 chapter_segments: dict[int, list[dict[str, int]]] = {}
                 for chapter_key, segments in (paragraph_map.get("chapters") or {}).items():
                     try:
@@ -338,6 +410,7 @@ def random_verse():
                         segment for segment in (segments if isinstance(segments, list) else [])
                         if isinstance(segment, dict)
                         and int(segment.get("start") or 0) in verses_by_chapter.get(chapter, {})
+                        and int(segment.get("end") or 0) in verses_by_chapter.get(chapter, {})
                     ]
                     if valid_segments:
                         chapter_segments[chapter] = valid_segments
@@ -352,6 +425,7 @@ def random_verse():
                 payload["paragraph"] = {
                     "start": start_verse,
                     "end": int(segment.get("end") or start_verse),
+                    "boundaryVersion": "cuv",
                 }
                 payload["reference"] = reference(payload)
                 return jsonify(payload)
@@ -395,13 +469,10 @@ def random_verse():
 
 @bp.get("/paragraph")
 def specific_paragraph():
-    """Return the CUV paragraph containing one exact verse."""
+    """Return the CUV-aligned paragraph containing one exact verse."""
     version = coerce_version(request.args.get("version"))
     if not version:
         return jsonify({"error": "No Bible versions are available on disk."}), 404
-    if version != "cuv":
-        return jsonify({"error": "Paragraph mode is currently available for CUV only."}), 400
-
     book = request.args.get("book", "").strip()
     if not book:
         return jsonify({"error": "book is required."}), 400
@@ -414,16 +485,7 @@ def specific_paragraph():
     except ValueError:
         return jsonify({"error": "chapter and verse must be integers."}), 400
 
-    paragraph_map = load_book_paragraphs(book)
-    segments = (paragraph_map.get("chapters") or {}).get(str(chapter), [])
-    segment = next(
-        (
-            item
-            for item in segments
-            if int(item.get("start") or 0) <= verse_num <= int(item.get("end") or 0)
-        ),
-        None,
-    )
+    segment = paragraph_segment_for(version, book, chapter, verse_num)
     if not segment:
         return jsonify({"error": f"{book} {chapter}:{verse_num} has no paragraph data."}), 404
 
@@ -442,6 +504,7 @@ def specific_paragraph():
 
     return jsonify({
         "version": version,
+        "boundaryVersion": "cuv",
         "book": book,
         "chapter": chapter,
         "startVerse": start,

@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useState } from "react";
 import {
   BookOpen,
   Check,
@@ -19,6 +19,7 @@ import "./styles.css";
 import { fetchVersions, fetchBooks, fetchRandomVerse, fetchParagraph } from "./services/api";
 
 const HINT_STEP = 5;
+const DEFAULT_BOOKS_STORAGE_KEY = "road2elite.recall-bible.default-books.v1";
 const MODES = [
   { id: "memorize", label: "Memorize", description: "See the reference, recall the text." },
   { id: "guess", label: "Guess Reference", description: "Read the text, recall the reference." },
@@ -26,6 +27,33 @@ const MODES = [
 
 function charCount(text) {
   return (text || "").replace(/\s+/g, "").length;
+}
+
+function readSavedDefaultBooks(version, availableBooks, fallback) {
+  try {
+    const stored = JSON.parse(window.localStorage.getItem(DEFAULT_BOOKS_STORAGE_KEY) || "{}");
+    const saved = Array.isArray(stored?.[version]) ? stored[version] : [];
+    const validSaved = availableBooks.filter((book) => saved.includes(book));
+    return validSaved.length ? validSaved : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function persistDefaultBooks(version, books) {
+  try {
+    const stored = JSON.parse(window.localStorage.getItem(DEFAULT_BOOKS_STORAGE_KEY) || "{}");
+    window.localStorage.setItem(
+      DEFAULT_BOOKS_STORAGE_KEY,
+      JSON.stringify({ ...(stored && typeof stored === "object" ? stored : {}), [version]: books })
+    );
+  } catch {
+    // Local storage can be unavailable in private or restricted browser contexts.
+  }
+}
+
+function sameBooks(first, second) {
+  return first.length === second.length && first.every((book) => second.includes(book));
 }
 
 export default function BibleApp() {
@@ -76,7 +104,8 @@ export default function BibleApp() {
         const payload = await fetchBooks(version);
         if (cancelled) return;
         setAvailableBooks(payload.books || []);
-        const initialDefault = payload.defaultBooks?.length ? payload.defaultBooks : payload.books || [];
+        const serverDefault = payload.defaultBooks?.length ? payload.defaultBooks : payload.books || [];
+        const initialDefault = readSavedDefaultBooks(version, payload.books || [], serverDefault);
         setDefaultBooks(initialDefault);
         setSelectedBooks((current) => {
           if (current.length === 0) return initialDefault;
@@ -90,10 +119,6 @@ export default function BibleApp() {
       }
     })();
     return () => { cancelled = true; };
-  }, [version]);
-
-  useEffect(() => {
-    if (version && version !== "cuv") setParagraphFirstOnly(false);
   }, [version]);
 
   const versionMeta = useMemo(
@@ -187,8 +212,15 @@ export default function BibleApp() {
     setSelectedBooks([]);
   }
 
-  function restoreDefaultBooks() {
-    setSelectedBooks(defaultBooks);
+  function saveDefaultBooks() {
+    if (!selectedBooks.length) {
+      setError("Choose at least one book before setting a default.");
+      return;
+    }
+    const nextDefault = availableBooks.filter((book) => selectedBooks.includes(book));
+    setDefaultBooks(nextDefault);
+    persistDefaultBooks(version, nextDefault);
+    setError("");
   }
 
   function revealMoreText() {
@@ -234,6 +266,21 @@ export default function BibleApp() {
     }
   }
 
+  function switchVersion(nextVersion) {
+    if (nextVersion === version) return;
+    // A verse belongs to one translation. Clear it immediately so a version
+    // change can never show ESV/NVI text beneath another version's label.
+    setVersion(nextVersion);
+    setVerse(null);
+    setRevealedLength(0);
+    setReferenceShown(false);
+    setParagraph(null);
+    setParagraphOpen(false);
+    setSelectedBooks([]);
+    setDefaultBooks([]);
+    setError("");
+  }
+
   function switchMode(nextMode) {
     if (nextMode === mode) return;
     setMode(nextMode);
@@ -246,6 +293,8 @@ export default function BibleApp() {
   }
 
   const totalChars = charCount(verse?.text);
+  const paragraphAvailable = verse?.paragraphAvailable !== false;
+  const defaultHasChanged = !sameBooks(selectedBooks, defaultBooks);
   const displayedText = useMemo(() => {
     if (!verse) return "";
     if (mode === "guess") return verse.text;
@@ -272,7 +321,7 @@ export default function BibleApp() {
               role="tab"
               aria-selected={item.code === version}
               className={`bible-version-chip ${item.code === version ? "active" : ""}`}
-              onClick={() => setVersion(item.code)}
+              onClick={() => switchVersion(item.code)}
               title={item.description}
             >
               <strong>{item.shortLabel}</strong>
@@ -359,8 +408,7 @@ export default function BibleApp() {
             className={`bible-verse-toggle ${paragraphFirstOnly ? "active" : ""}`}
             onClick={toggleParagraphMode}
             aria-pressed={paragraphFirstOnly}
-            disabled={version !== "cuv"}
-            title={version === "cuv" ? "Pick the first verse of a random CUV paragraph" : "Paragraph mode is currently available for CUV only"}
+            title="Pick the first verse of a random CUV-aligned paragraph"
           >
             <BookOpen size={16} />
             <span>Pag 1st</span>
@@ -372,8 +420,13 @@ export default function BibleApp() {
             <div className="bible-filter-actions">
               <button type="button" onClick={selectAllBooks}><Check size={14} />All</button>
               <button type="button" onClick={clearAllBooks}><X size={14} />None</button>
-              <button type="button" onClick={restoreDefaultBooks}>
-                <Sparkles size={14} />Default ({defaultBooks.length})
+              <button
+                type="button"
+                onClick={saveDefaultBooks}
+                disabled={!defaultHasChanged || selectedBooks.length === 0}
+                title={defaultHasChanged ? "Save the current selection as this version's default" : "This version's saved default"}
+              >
+                <Sparkles size={14} />{defaultHasChanged ? "Set Default" : `Default (${defaultBooks.length})`}
               </button>
               <span className="bible-filter-meta">
                 {selectedBooks.length}/{availableBooks.length} selected
@@ -472,8 +525,11 @@ export default function BibleApp() {
                   type="button"
                   className="bible-secondary bible-see-paragraph"
                   onClick={toggleParagraph}
-                  disabled={paragraphLoading || version !== "cuv"}
-                  title={version === "cuv" ? "Show the paragraph containing this verse" : "Paragraph view is currently available for CUV only"}
+                  disabled={paragraphLoading || !paragraphAvailable}
+                  title={paragraphAvailable
+                    ? "Show the CUV-aligned paragraph containing this verse"
+                    : "CUV-aligned paragraphs are currently provided for New Testament books"
+                  }
                 >
                   {paragraphLoading ? <Loader2 className="spin" size={16} /> : <BookOpen size={16} />}
                   <span>{paragraphOpen ? "Hide Paragraph" : "See Paragraph"}</span>
@@ -504,7 +560,7 @@ export default function BibleApp() {
               {paragraphOpen && paragraph ? (
                 <section className="bible-paragraph-panel" aria-label="Scripture paragraph">
                   <div className="bible-paragraph-heading">
-                    <span>Paragraph</span>
+                    <span>{paragraph.boundaryVersion === "cuv" ? "CUV-aligned paragraph" : "Paragraph"}</span>
                     <strong>{paragraph.reference}</strong>
                   </div>
                   <div className="bible-paragraph-text">{paragraph.text}</div>

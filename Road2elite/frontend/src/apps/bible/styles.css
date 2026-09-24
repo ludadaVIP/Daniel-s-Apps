@@ -211,7 +211,8 @@
     font-family: Inter, system-ui, sans-serif;
     font-size: 12px; font-weight: 700;
   }
-  .bible-filter-actions button:hover { color: var(--accent); border-color: var(--accent); }
+  .bible-filter-actions button:hover:not(:disabled) { color: var(--accent); border-color: var(--accent); }
+  .bible-filter-actions button:disabled { opacity: 0.5; cursor: not-allowed; }
   .bible-filter-meta {
     margin-left: auto;
     color: var(--muted);
