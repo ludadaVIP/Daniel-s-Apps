@@ -1,0 +1,844 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>改革宗基督徒与后期圣徒：一场关于福音、神与救恩的深度对话</title>
+<style>
+:root {
+  --paper:#f5f0e6; --ink:#1d252c; --muted:#65707a; --line:#d9d0c1;
+  --a:#234b66; --a-soft:#e8f0f4; --b:#7a4b35; --b-soft:#f3ebe6;
+  --gold:#9a7a38; --white:#fffdf9; --shadow:0 12px 40px rgba(30,35,40,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","Microsoft YaHei",serif;line-height:1.85}
+a{color:inherit}
+.hero{min-height:88vh;display:grid;place-items:center;position:relative;overflow:hidden;background:
+linear-gradient(90deg,rgba(15,29,38,.90),rgba(15,29,38,.56)),
+url('https://upload.wikimedia.org/wikipedia/commons/9/93/Salt_Lake_Temple%2C_Utah_-_Sept_2004-2.jpg') center/cover fixed}
+.hero:after{content:"";position:absolute;inset:auto 0 0;height:140px;background:linear-gradient(transparent,var(--paper))}
+.hero-inner{width:min(1180px,92vw);position:relative;z-index:2;color:white;padding:70px 0 130px}
+.kicker{letter-spacing:.18em;text-transform:uppercase;font-family:system-ui,sans-serif;font-size:.78rem;opacity:.78}
+h1{font-size:clamp(2.7rem,6vw,6rem);line-height:1.12;margin:.35em 0 .25em;max-width:1000px;font-weight:800}
+.subtitle{font-size:clamp(1.05rem,2vw,1.45rem);max-width:850px;color:#eef2f4}
+.verse{margin-top:34px;padding:18px 22px;border-left:3px solid #d8bd73;background:rgba(255,255,255,.08);backdrop-filter:blur(4px);max-width:760px}
+.verse strong{color:#f0d997}
+.wrap{width:min(1180px,92vw);margin:0 auto}
+.top-note{margin:-70px auto 60px;position:relative;z-index:4;background:var(--white);box-shadow:var(--shadow);padding:28px 32px;border-radius:18px;border:1px solid #e8e0d3}
+.top-note h3{margin:0 0 8px;font-family:system-ui,sans-serif}
+.identity{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:38px 0}
+.id-card{background:var(--white);border-radius:18px;padding:24px;border:1px solid var(--line)}
+.id-card.a{border-top:5px solid var(--a)} .id-card.b{border-top:5px solid var(--b)}
+.id-card h3{margin:0 0 10px;font-size:1.35rem} .id-card p{margin:.4em 0}
+.id-badge{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:5px 11px;font-family:system-ui,sans-serif;font-size:.78rem}
+.a .id-badge{background:var(--a-soft);color:var(--a)} .b .id-badge{background:var(--b-soft);color:var(--b)}
+.toc{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:45px 0 70px}
+.toc a{text-decoration:none;background:rgba(255,255,255,.62);border:1px solid var(--line);padding:12px 14px;border-radius:10px;font-family:system-ui,sans-serif;font-size:.9rem;display:flex;gap:9px;align-items:flex-start}
+.toc a:hover{background:white;transform:translateY(-1px)} .toc span{color:var(--gold);font-weight:700}
+.mid-figure{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center;background:#18252d;color:white;border-radius:22px;overflow:hidden;margin:0 0 65px;box-shadow:var(--shadow)}
+.mid-figure img{width:100%;height:100%;max-height:460px;object-fit:cover;filter:sepia(.16)} .mid-copy{padding:34px}
+.mid-copy h2{font-size:2rem;line-height:1.25;margin-top:0} .mid-copy p{color:#dce4e7}
+.dialogue-section{scroll-margin-top:20px;margin:0 0 72px;padding-bottom:28px;border-bottom:1px solid var(--line)}
+.section-head{display:flex;gap:18px;align-items:flex-start;margin-bottom:22px}
+.section-no{font:800 1.1rem/1 system-ui,sans-serif;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:10px}
+.section-head h2{margin:0;font-size:clamp(1.55rem,2.8vw,2.35rem);line-height:1.32}
+.theme{font-family:system-ui,sans-serif;color:var(--muted);font-size:.88rem;margin-top:6px}
+.dialogue-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.voice{background:var(--white);border-radius:16px;padding:24px 25px;box-shadow:0 6px 18px rgba(26,31,35,.055);border:1px solid var(--line)}
+.voice-a{border-top:4px solid var(--a)} .voice-b{border-top:4px solid var(--b)}
+.speaker{display:flex;align-items:center;gap:12px;margin-bottom:17px;font-family:system-ui,sans-serif}
+.speaker .avatar{width:42px;height:42px;border-radius:50%;display:grid;place-items:center;color:white;font-weight:800}
+.voice-a .avatar{background:var(--a)} .voice-b .avatar{background:var(--b)}
+.speaker strong{display:block} .speaker span{display:block;font-size:.78rem;color:var(--muted)}
+.speech{font-size:1.02rem}
+.speech strong{box-shadow:inset 0 -.42em 0 rgba(211,180,101,.28)}
+.editor-note{margin:16px 18px 0;padding:13px 16px;border-left:3px solid var(--gold);background:#eee5d5;color:#4d4b46;font-size:.91rem}
+.interlude{margin:85px 0;background:#2b221e;color:#f8f1e9;border-radius:22px;overflow:hidden;display:grid;grid-template-columns:.42fr .58fr}
+.interlude img{width:100%;height:100%;object-fit:cover;filter:sepia(.32)} .interlude div{padding:36px}
+.interlude h2{font-size:2rem;margin-top:0} .interlude p{color:#e3d8ce}
+.summary{margin:80px 0}
+.summary h2,.sources h2{font-size:2.2rem;margin-bottom:12px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:15px;background:white}
+table{border-collapse:collapse;width:100%;min-width:940px;font-family:system-ui,sans-serif;font-size:.9rem}
+th{background:#1f3039;color:white;text-align:left;padding:14px;position:sticky;top:0}
+td{vertical-align:top;padding:14px;border-bottom:1px solid #e9e4db}
+tr:nth-child(even) td{background:#faf8f3}
+.conclusion{margin:70px 0;padding:34px;border-radius:20px;background:#1b2b34;color:#eef4f6;box-shadow:var(--shadow)}
+.conclusion h2{margin-top:0;font-size:2rem} .conclusion p{color:#dfe7ea}
+.conclusion .accent{color:#e3c57b;font-weight:700}
+.sources{margin:70px 0 35px}
+.sources ol{padding-left:1.4em;columns:2;column-gap:40px}
+.sources li{break-inside:avoid;margin-bottom:16px}
+.sources a{font-weight:700;text-decoration-thickness:1px;text-underline-offset:3px}
+.sources p{margin:2px 0 0;color:var(--muted);font-size:.88rem}
+.credits{font-size:.8rem;color:var(--muted);border-top:1px solid var(--line);padding:24px 0 50px}
+.toolbar{position:fixed;right:18px;bottom:18px;z-index:20;display:flex;gap:8px}
+.toolbar button{border:1px solid #c9c1b4;background:rgba(255,253,249,.94);backdrop-filter:blur(8px);padding:9px 11px;border-radius:9px;cursor:pointer;font-weight:700}
+body.large .speech{font-size:1.14rem}
+@media(max-width:850px){
+ .dialogue-grid,.identity,.mid-figure,.interlude{grid-template-columns:1fr}
+ .toc{grid-template-columns:1fr 1fr}
+ .hero{background-attachment:scroll}
+ .mid-figure img{max-height:300px}
+ .sources ol{columns:1}
+}
+@media(max-width:560px){
+ .toc{grid-template-columns:1fr}
+ .voice{padding:20px 18px}
+ .top-note{padding:22px}
+ h1{font-size:2.7rem}
+}
+@media print{
+ .toolbar{display:none} .hero{min-height:auto;background:#17262f!important;padding:40px 0} .hero:after{display:none}
+ .dialogue-section{break-inside:avoid} a{text-decoration:none}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+ <div class="hero-inner">
+   <div class="kicker">A REFORMED CHRISTIAN × A LATTER-DAY SAINT</div>
+   <h1>“为一次交付圣徒的真道竭力地争辩”</h1>
+   <p class="subtitle">一个改革宗新教基督徒与一位耶稣基督后期圣徒教会会友，在多年后重逢。两位朋友不吵架、不回避，也不把分歧磨平：从启示、神论、基督论一路谈到称义、圣殿、永恒婚姻与人成为像神。</p>
+   <div class="verse"><strong>写作立场：</strong> 这是按你的要求写成的“改革宗护教学对话”。B 的论述尽量按 LDS 官方材料准确呈现；最终神学判断则明确回到经典新教、特别是改革宗的圣经与信条框架。</div>
+ </div>
+</header>
+
+<main class="wrap">
+  <section class="top-note">
+    <h3>阅读说明</h3>
+    <p>“摩门教”是常见历史称呼，但该教会今天更强调正式名称 <b>The Church of Jesus Christ of Latter-day Saints</b>（耶稣基督后期圣徒教会，本文简称 <b>LDS</b>）。本文不把普通会友当作攻击对象，也不故意把其信仰写成最弱版本。相反，B 会多次对 A 的批评作出较强回应；A 再从圣经与改革宗神学继续追问。这样，真正的冲突才会显出来。</p>
+    <p><b>角色绝不互换：</b> A 始终代表改革宗新教立场；B 始终代表 LDS 立场。页面也用固定颜色、头像与左右栏锁定身份。</p>
+  </section>
+
+  <section class="identity">
+    <article class="id-card a">
+      <span class="id-badge">A · 左栏 · 蓝色</span>
+      <h3>林恩｜改革宗新教基督徒</h3>
+      <p><b>最高权威：</b>旧新约六十六卷圣经。</p>
+      <p><b>信仰框架：</b>尼西亚—迦克墩正统基督论、宗教改革“五个唯独”、威斯敏斯特传统。</p>
+      <p><b>核心坚持：</b>独一神三位一体；基督为永恒非受造之圣子；罪人唯独因基督、唯独借信称义。</p>
+    </article>
+    <article class="id-card b">
+      <span class="id-badge">B · 右栏 · 棕色</span>
+      <h3>周泽｜耶稣基督后期圣徒教会会友</h3>
+      <p><b>最高权威：</b>圣经、《摩尔门经》《教义和圣约》《无价珍珠》，并接受现代先知启示。</p>
+      <p><b>信仰框架：</b>大背道与十九世纪“复兴”、恢复祭司权柄、圣约道路与圣殿。</p>
+      <p><b>核心坚持：</b>父、子、圣灵为三位分别的神圣存在；前生；基督赎罪；exaltation 与永恒家庭。</p>
+    </article>
+  </section>
+
+  <nav class="toc" aria-label="目录"><a href="#reunion"><span>01</span>多年后再见——先把“人”放在争论前面</a><a href="#same-words"><span>02</span>我们都说“耶稣”，但我们说的是同一个神学体系吗？</a><a href="#authority"><span>03</span>最高权威——六十六卷圣经，还是开放的正典与活先知？</a><a href="#canon-test"><span>04</span>A 追问——“神还能说话”不等于“任何后来的经书都可能是真的”</a><a href="#apostasy"><span>05</span>大背道——教会真的从地上消失了近一千八百年吗？</a><a href="#joseph"><span>06</span>约瑟·斯密——现代先知的主张应当怎样检验？</a><a href="#experience"><span>07</span>内在见证能不能成为最终证据？</a><a href="#godhead"><span>08</span>神是谁——一个神、三个位格，还是三位分离的神圣存在？</a><a href="#trinity-reply"><span>09</span>A 回应——“父与子有区别”恰恰不是三位一体的反证</a><a href="#christ"><span>10</span>耶稣是谁——永恒的圣子，还是前生中天父的“首生灵子”？</a><a href="#human-origin"><span>11</span>人从哪里来——被神从无创造，还是曾作为灵儿女存在？</a><a href="#sin"><span>12</span>堕落与罪——人只是需要继续成长，还是已经死在过犯罪恶中？</a><a href="#justification"><span>13</span>称义——神一次宣告罪人为义，还是在圣约忠信中逐步达到永生？</a><a href="#james"><span>14</span>A 回应《雅各书》——活的信心有行为，但行为不是称义的功劳根基</a><a href="#baptism-priesthood"><span>15</span>洗礼与祭司权柄——圣礼有效的根基到底是什么？</a><a href="#dead-baptism"><span>16</span>为死人受洗——哥林多前书15:29究竟能承担多大教义重量？</a><a href="#eternal-marriage"><span>17</span>永恒婚姻——婚姻是今生的圣约，还是最高升格的必要条件？</a><a href="#exaltation"><span>18</span>人成为像神——教父的“神化”与 LDS 的 exaltation 是一回事吗？</a><a href="#kingdoms"><span>19</span>三个荣耀国度——林前15章的“日月星”是在讲三层永恒国度吗？</a><a href="#gospel-structure"><span>20</span>真正的分水岭——不是“谁更敬虔”，而是福音的结构</a><a href="#closing"><span>21</span>最后的邀请——“回到基督”到底意味着什么？</a></nav>
+
+  <section class="mid-figure">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/7/77/Joseph_Smith_Jr_3_generation_albumen_print.jpg" alt="约瑟·斯密历史肖像">
+    <div class="mid-copy">
+      <h2>整场争论绕不开一个人：约瑟·斯密</h2>
+      <p>LDS 的开放正典、祭司权柄、圣殿、前生、荣耀国度与 exaltation，都与“恢复”这一历史—神学主张相连。改革宗的检验次序则相反：不是先承认现代先知，再用现代启示解释圣经；而是先以已经交付的使徒福音检验一切后来先知与启示。</p>
+    </div>
+  </section>
+
+  
+    <section class="dialogue-section" id="reunion">
+      <div class="section-head">
+        <div class="section-no">01</div>
+        <div>
+          <h2>第一幕：多年后再见——先把“人”放在争论前面</h2>
+          <div class="theme">重逢 · 友谊 · 为什么信仰值得认真谈</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">周泽？真的是你。差不多七八年了吧。你脸都没怎么变，就是……比以前安静了。<br><br>
+我记得我们以前什么都聊：工作、读书、结婚、未来。那时候我对信仰其实很模糊，觉得“有个神”“人要善良”大概就够了。后来这些年，我越来越发现，真正的问题不是我有没有一点宗教感觉，而是：<strong>神究竟是谁？他有没有真实地说话？耶稣基督究竟是谁？我这个罪人怎样才能与神和好？</strong><br><br>
+所以我后来归信了基督，也越来越认同宗教改革所强调的那条道路：唯独圣经、唯独恩典、唯独信心、唯独基督、唯独归荣耀给神。我现在所在的教会是改革宗传统。你呢？听说你也信主了，但走的是另一条路。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">对。我现在是耶稣基督后期圣徒教会的成员。你以前可能更熟悉“摩门教”这个叫法，不过我们更愿意用教会的正式名称。<br><br>
+其实我也不是因为猎奇才加入。我最开始也是在找答案：为什么世界上有这么多教会？为什么大家都读圣经，却能得出那么多不同结论？神如果以前能呼召先知，为什么今天就一定不能？后来我接触到《摩尔门经》，也了解约瑟·斯密所讲的“复兴”。我祷告、读经、参加聚会，慢慢相信：父神和耶稣基督真的在近代重新恢复了福音、祭司权柄和教会。<br><br>
+我知道我们两边会有很大分歧。但我希望我们不是互相贴标签。你别把我想成“不信耶稣”，我也不会把你想成“只会攻击摩门教的人”。我们就把各自真正相信的东西摆出来。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>本文件把 B 的核心信仰尽量按耶稣基督后期圣徒教会官方材料来呈现；A 的回应则按经典新教、特别是改革宗/《威斯敏斯特信条》的框架展开。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="same-words">
+      <div class="section-head">
+        <div class="section-no">02</div>
+        <div>
+          <h2>第二幕：我们都说“耶稣”，但我们说的是同一个神学体系吗？</h2>
+          <div class="theme">共同词汇 · 不同定义</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">我同意先澄清一个原则：不能因为你说“耶稣”“恩典”“福音”“圣灵”，我就假设这些词在我们两边一定是同一个意思；反过来也不能因为有重大差异，就假装你们从不谈基督。<br><br>
+所以我想这样谈：每碰到一个关键词，我们先问三个问题——<strong>你们怎么定义？这个定义从哪里来？这个定义能否经得起整本圣经的检验？</strong><br><br>
+对我来说，争论的核心不是“哪一种宗教生活更温馨”，也不是“谁的成员更友善”。基督教的真伪最终落在启示、神论、基督论和救恩论上。保罗在《加拉太书》一开始就警告“另一个福音”；约翰也要求试验诸灵。也就是说，热心、道德、宗教经验都不能替代对福音内容本身的检验。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">这个方法我接受。不过我也会提醒你：我们不会承认“改革宗对圣经的解释”天然等于“圣经本身”。你说“唯独圣经”，我会问：谁来解释圣经？为什么你接受尼西亚、迦克墩、威斯敏斯特这些后来的神学语言？<br><br>
+我们后期圣徒相信耶稣基督是世界的救主，是神的儿子；相信他的受难、赎罪、死亡和复活；奉他的名祷告；每周领受圣餐纪念他；也相信没有他的恩典，没有人能得救。<br><br>
+所以，如果你要说我们错，我希望你具体说明：究竟错在哪里，而不是只说“你们不是传统基督教”。因为历史上的传统本身，也可能需要被神纠正。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>这是整场对话的方法论：不以标签代替论证，不以宗教体验代替启示内容，也不把“历史传统”本身当作最高权威。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="authority">
+      <div class="section-head">
+        <div class="section-no">03</div>
+        <div>
+          <h2>第三幕：最高权威——六十六卷圣经，还是开放的正典与活先知？</h2>
+          <div class="theme">正典 · 启示 · 最终裁判者</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">那我们就从根基开始。对改革宗来说，旧新约六十六卷圣经是神所默示、规范教会信仰与生活的书面启示。教会不是圣经的主人，而是圣经的受造者、领受者和见证者。《威斯敏斯特信条》第一章说，关乎神荣耀、人的救恩、信仰与生活所需要的全备旨意，已经明载于圣经，或可由圣经的“良好且必要的推论”得出；不能再凭所谓新的启示加上去。<br><br>
+这并不是说神今天不带领人、不光照人，而是说：<strong>使徒性的、具有全教会规范权威的新启示已经完成，圣灵今天借着已经赐下的道工作。</strong>因此，没有一个现代先知可以站在圣经之上，也没有后来的经书能重新定义神、基督、救恩和教会。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">而我们恰好在这里不同。我们相信圣经是神的话，但并不认为圣经是神给人类的最后一份书面启示。教会官方把《圣经》《摩尔门经》《教义和圣约》《无价珍珠》称为标准经文，也相信神今天仍能借先知说话。<br><br>
+我会反问：圣经哪里明确列出“从此以后只能有六十六卷”？圣经本身记载的神，是不断说话的神。旧约之后有新约；如果第一世纪的人说“摩西已经够了”，那不也会拒绝基督和使徒吗？<br><br>
+对我来说，开放正典不是降低圣经，而是相信神没有沉默。我们认为《摩尔门经》是“耶稣基督的另一部见证”，与圣经一起见证基督。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>LDS 官方页面明确称其正典包括《圣经》《摩尔门经》《教义和圣约》《无价珍珠》，并教导开放正典与现代启示。改革宗则以圣经的充足性与使徒性启示的完成为原则。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="canon-test">
+      <div class="section-head">
+        <div class="section-no">04</div>
+        <div>
+          <h2>第四幕：A 追问——“神还能说话”不等于“任何后来的经书都可能是真的”</h2>
+          <div class="theme">正典封闭的逻辑 · 使徒性 · 启示连续性</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">我觉得你刚才把两个问题混在一起了。第一，神有没有能力继续说话？当然有。第二，神有没有应许在使徒时代之后不断赐下与使徒同等权威的新正典？这是另一回事。<br><br>
+旧约到新约不是“随便又加了一批宗教书”，而是救赎历史本身进入终末性的高潮：神“在这末世借着他的儿子晓谕我们”（来1:1–2）；使徒是复活基督特别拣选的见证人，教会被建造在“使徒和先知的根基”上，而基督是房角石（弗2:20）。根基不是每隔几百年重铺一次。犹大书也说要为“一次交付圣徒的真道”竭力争辩。<br><br>
+因此，后来的启示主张不是因为“晚”就自动错，而是必须接受先前、已经确立的启示检验。若后来的启示把独一真神重新定义为一个有骨肉身体、与子为两个分离的神圣存在，并且再引入前生、升格、永恒婚姻作为最高荣耀条件，那就不是补充几个细节，而是在重新构造整套神论与救恩论。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">但我们的理解是：正因为“大背道”发生，许多真理才丢失，所以恢复必然会让后来的人觉得“陌生”。如果你先假定第四、第五世纪形成的神学是不可动摇的，那么任何恢复都会被你排除。<br><br>
+而且，我们并不是说随便任何人的异梦都能成为经文。我们相信神按秩序设立先知、使徒和祭司权柄。关键问题就变成了：约瑟·斯密是否真是被神呼召？复兴是否真发生？如果是真的，那么新的经文和启示就合理；如果是假的，那整个体系当然站不住。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>这里双方把争议压缩成一个关键：后来的“恢复性启示”是否有资格重写先前启示中已经清楚建立的教义边界。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="apostasy">
+      <div class="section-head">
+        <div class="section-no">05</div>
+        <div>
+          <h2>第五幕：大背道——教会真的从地上消失了近一千八百年吗？</h2>
+          <div class="theme">教会论 · 历史连续性 · 马太福音16章</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">你们官方材料说，耶稣和使徒死后出现“大背道”，真正的福音、组织和祭司权柄从地上失去，直到十九世纪借约瑟·斯密恢复。这个主张非常大，因为它意味着：从使徒时代以后，殉道者、教父、古代信经、中世纪教会、宗教改革中的信徒，虽然可能有真诚，却都活在一个没有完整真教会、没有原始祭司权柄的时代。<br><br>
+我的问题首先不是“历史上有没有腐败”。当然有，而且宗教改革本身就是对严重腐败的回应。问题是：<strong>腐败是否等于基督的教会整体从地上灭绝？</strong><br><br>
+基督说他要建造教会，“阴间的权柄不能胜过她”（太16:18）；升天的基督把牧者教师赐给教会，为要建立身体，直到众人在真道上同归于一（弗4:11–16）；他也应许与门徒同在“直到世界的末了”（太28:20）。改革宗承认地方教会有纯有不纯、甚至可以堕落到不再是真教会，但同时坚持基督在历史中始终保守他的教会。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我们的“大背道”并不是说那一千多年里地上没有任何真诚基督徒、没有任何真理，也不是说神完全不工作。我们的意思是：使徒权柄和完整福音在普遍背道后不再完整存在，后来需要恢复，而不是仅仅改革。<br><br>
+你引用“阴间不能胜过教会”，我们会说这可以指神最终的计划不会失败，不必推出某一条制度化权柄链从第一世纪一直无中断地存在。事实上，早期教会很快出现纷争、异端和制度变化，这恰恰说明背道的可能。<br><br>
+而十九世纪的复兴就是神对这种失落的回答：父和子向约瑟显现，祭司权柄由施洗约翰以及彼得、雅各、约翰等天上使者恢复。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>LDS 官方明确把自身定位为“restored, not reformed Christianity（恢复，而非改革的基督教）”。A 的改革宗反驳区分“教会会严重败坏”与“基督在历史上完全失去其教会”。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="joseph">
+      <div class="section-head">
+        <div class="section-no">06</div>
+        <div>
+          <h2>第六幕：约瑟·斯密——现代先知的主张应当怎样检验？</h2>
+          <div class="theme">第一异象 · 先知 · 可检验性</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">我同意，如果约瑟·斯密真的像摩西、以赛亚、彼得、保罗那样受神差遣，问题会完全不同。所以我不会只说“十九世纪太晚了”。我会问圣经要求我们怎样检验先知。<br><br>
+《申命记》要求先知的话必须真实；《以赛亚书》要求人回到神已经赐下的启示；耶稣警告假先知也会有宗教外貌；保罗甚至说，哪怕“天上来的使者”传一个不同的福音，也当拒绝（加1:8）。这一点对“天使摩罗乃带来新经书”的主张尤其重要：天使身份本身不是认证，<strong>信息必须先接受已经启示之福音的审判。</strong><br><br>
+所以我不会先问“约瑟是否有超自然经历”，而会先问：他的教义是否与使徒所传的神、基督和救恩一致。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">从我们的立场看，第一异象正是恢复的开端。约瑟年轻时面对宗派冲突，不知道哪间教会正确；他按《雅各书》1:5祷告求智慧。他后来见证父神和耶稣基督向他显现，并告诉他不要加入当时的教会。之后又有《摩尔门经》的出现、祭司权柄的恢复以及教会建立。<br><br>
+我们当然也会检验，只是检验的方法不只是一套既有神学体系。我们会读《摩尔门经》，思考它对基督的见证，并按其中的邀请真诚祷告，求神借圣灵使人知道真假。对许多成员来说，这个属灵见证非常重要。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>A 不否定“属灵经验可能真实而强烈”，但坚持经验不是自证性的；B 则把经文阅读、祷告与圣灵见证放在确认恢复真实性的核心位置。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="experience">
+      <div class="section-head">
+        <div class="section-no">07</div>
+        <div>
+          <h2>第七幕：内在见证能不能成为最终证据？</h2>
+          <div class="theme">圣灵见证 · 主观经验 · 客观启示</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">我也相信圣灵内在的见证。《威斯敏斯特信条》甚至说，我们对圣经神圣权威的完全确信来自圣灵“借着并同着圣道”在心里的见证。区别在那几个字：<strong>借着并同着圣道。</strong><br><br>
+基督教从来不是纯理性主义，但也不是“我祷告时有平安，所以这套教义是真的”。不同宗教的人都可能报告强烈的平安、光照、热泪和确信。如果彼此矛盾的命题都靠同一种内心感受确证，那么体验本身无法做最后的裁判。<br><br>
+因此，《约翰一书》4:1不是说“有灵感就相信”，而是说要试验诸灵；庇哩亚人甚至查考圣经来检验保罗所传的是否如此（徒17:11）。真正的圣灵不会用一个内在感动推翻他自己已经默示的真理。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">这点我可以部分同意。我们也不会鼓励人只凭一次情绪决定。一般会读、思考、祷告、实践，并观察长期结出的果子。<br><br>
+但我会说，你其实也无法完全绕过属灵认识。你怎么最终知道圣经是神的话？不是数学证明。你也会诉诸圣灵的工作。所以差异不是“你有客观证据、我只有感觉”，而是我们认定圣灵见证的对象不同。<br><br>
+真正争议还是回到：神是否有可能见证《摩尔门经》和复兴。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>这是一个重要的交叉点：双方都承认圣灵的内在工作；分歧在于圣灵见证是否能够授权新的、会改变既有教义框架的启示。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="godhead">
+      <div class="section-head">
+        <div class="section-no">08</div>
+        <div>
+          <h2>第八幕：神是谁——一个神、三个位格，还是三位分离的神圣存在？</h2>
+          <div class="theme">三位一体 · 神的身体 · Creator/creature distinction</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">现在到最核心的地方了。改革宗所说的三位一体不是“三个神装成一个”，也不是“一个神戴三张面具”。我们相信：<strong>只有一位、独一、永恒、自有永有的神；在这一个神性本体中，父、子、圣灵是三个真实不同的位格，同质、同荣、同永恒。</strong><br><br>
+这不是为了玩哲学概念，而是为了同时忠于圣经的三组事实：第一，只有一位神（申6:4；赛43:10；44:6）；第二，父是神、子是神、圣灵是神；第三，父不是子，子不是圣灵。三位一体是把这三组经文同时守住。<br><br>
+而《威斯敏斯特信条》第二章还强调神是无限、永恒、不变、无身体的灵，自有而全足。约4:24说神是灵；民23:19强调神不像人那样；徒17:24–25说创造万物的神不靠人手服事，仿佛缺少什么。<br><br>
+你们官方教导却说，父与子都是荣耀的、具有可触摸“骨肉身体”的存在，圣灵是灵体；三者是三个分别的存在，在目的和教义上完全合一。那不是尼西亚意义上的“三位一体”，而是另一种神论。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">是，我们不需要在这里假装没有差异。我们相信父、子、圣灵组成 Godhead（神组/神格），但他们是三位不同的存在。父与复活的基督都有荣耀的身体，圣灵则是灵的位格。三者完全合一，但这种合一主要表现为旨意、目的、荣耀与工作上的合一。<br><br>
+我们会引用耶稣受洗时父从天上说话、子在水中、圣灵如鸽子降下；也会引用司提反看见耶稣站在神右边，以及耶稣向父祷告。对我们来说，这些经文自然地显示父和子是可区分的存在。<br><br>
+我们也不认为父有身体就意味着他软弱、有限或像堕落的人。那是荣耀、不朽、完美的身体。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>LDS 官方《Godhead》页面明确指出：父与子是“glorified, physical beings”，彼此为分离的存在；这与尼西亚—改革宗的一本体三位格并非同义表达。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="trinity-reply">
+      <div class="section-head">
+        <div class="section-no">09</div>
+        <div>
+          <h2>第九幕：A 回应——“父与子有区别”恰恰不是三位一体的反证</h2>
+          <div class="theme">位格区别 · 本体合一</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">你刚才列的那些经文，我全部接受，而且三位一体正是因为接受它们才坚持“父不是子”。如果父与子没有真实区别，就成了形态论。<br><br>
+真正问题不是“父与子是否可区分”，而是<strong>这种区分是位格区别，还是神性本体被分成多个独立神圣存在。</strong>约翰福音一面说“道与神同在”，显示位格区别；另一面又说“道就是神”，并且“万物是借着他造的”，显示子不是神之外的次级神圣个体。多马向复活的耶稣说“我的主，我的神”；希伯来书把旧约对耶和华的语言用于子；使徒又坚持只有一位神。<br><br>
+所以三位一体不是后来教父凭空发明一个难懂公式，而是教会为了拒绝两种相反错误——一边把父子混为一个位格，另一边把子降格成受造或次等神——而形成的护栏。<br><br>
+如果我们把“神是一”仅仅解释为“几个神圣存在目标一致”，那么以赛亚书那种排他的独一神宣告就变得非常难解释：神说在他以前没有神被造，在他以后也必没有；除他以外没有救主（赛43:10–11）。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我理解你的逻辑。但从我们角度看，后来的“同一本体”“永恒受生”等语言并不是圣经原句。我们倾向于让父和子在经文中显出的真实区别更直接地保留下来。<br><br>
+你说以赛亚书的“除我以外没有神”，我们可以理解为以色列的神是人类唯一应当敬拜、唯一施行救赎的神，而不是一定要排除神圣家庭或人的神圣潜能。<br><br>
+所以这里恐怕不是一两节经文能解决，而是整套解释框架不同。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>A 的核心论点不是“传统用了哲学词，所以传统就对”，而是这些术语是否准确概括了圣经同时呈现的独一神、三个位格与基督完全神性。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="christ">
+      <div class="section-head">
+        <div class="section-no">10</div>
+        <div>
+          <h2>第十幕：耶稣是谁——永恒的圣子，还是前生中天父的“首生灵子”？</h2>
+          <div class="theme">基督论 · 前生 · 永恒圣子</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">我们再谈基督。你们当然承认耶稣是救主，这一点我不会否认。但你们官方也教导“前生”：我们在出生以前作为天父的灵儿女生活；耶稣是父在灵中的首生子；路西弗也是神的另一个灵子，只是后来反叛。<br><br>
+我要非常谨慎地说：我不想用一句粗糙的“你们说耶稣和撒但一样”来攻击你们，因为你们显然认为耶稣在地位、使命、圣洁和荣耀上独一无二。真正的神学问题是：<strong>你们把耶稣放进了一个包括其他灵儿女在内的前生家族结构；新约却把圣子放在受造万有的另一边。</strong><br><br>
+约1:3不是说“除耶稣之外的万物借他造”，而是说凡被造的，没有一样不是借着他造的。西1:16–17说天上地上的一切、可见不可见的都是借着他、为着他造的，并且他在万有之先。希1把子描述为神荣耀所发的光辉，是神本体的真像。改革宗因此称他为永恒受生的子，不是众灵中的第一位，而是与父同一本体的永恒神。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我们确实相信前生，也确实称基督为父在灵中的首生子。但我们同样相信他在创世以前就具有独特地位，是耶和华，是父创造世界的执行者，是从起初被拣选的救主。<br><br>
+而且“儿子”这个词本身就在圣经里。如果你说“永恒受生”不是受造，那也是一种神学解释。我们则通过现代启示理解“父”“子”“神的儿女”这些关系更为真实。<br><br>
+对我来说，称耶稣为我们的长兄并没有贬低他；反而让我觉得他真的进入我们的处境，带领我们回到父那里。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>这里刻意避免稻草人。争议焦点不是 LDS 是否尊敬耶稣，而是耶稣与一切其他存在之间的本体论界线到底在哪里。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="human-origin">
+      <div class="section-head">
+        <div class="section-no">11</div>
+        <div>
+          <h2>第十一幕：人从哪里来——被神从无创造，还是曾作为灵儿女存在？</h2>
+          <div class="theme">创造论 · 人论 · 神人界线</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">改革宗的创造论有一个很重要的结构：只有神是自有永有的；其余一切都因为他的自由创造而存在。创1:1、诗33:6–9、约1:3、罗4:17、来11:3共同建立了创造者与受造者之间的绝对区别。<br><br>
+人极其尊贵，因为按神形象受造；但“神的形象”不是说我们属于与神同一种类、只是发展阶段较低。我们永远是受造的人。得荣耀以后，我们会完全圣洁、与神相交、分享他赐下的生命与荣耀，却不会跨越造物主—受造物的界线。<br><br>
+而前生教义会改变整个人论：今生不是一个被造之人的唯一地上历史，而是一个更长“永恒进程”的中段。这样一来，救赎也很容易被理解成帮助神的儿女继续升格，而不再只是从罪和定罪中蒙恩得救。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">对我们来说，前生正好解释了很多问题：为什么人有永恒价值、为什么来到世上、为什么自由选择如此重要。我们相信我们在来世以前与天父同住，来到尘世是为了获得身体、接受考验、学习分辨善恶，并借基督走向永生。<br><br>
+这不是说我们靠自己升级成神。整个计划仍然依赖耶稣基督的赎罪。没有他的复活，我们不能胜过死亡；没有他的恩典，我们不能从罪中洁净，也不可能获得永生。<br><br>
+只是我们对“神为什么创造/安排人的生命”有更宏大的前生—今生—来生框架。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>LDS《Premortality》官方页面把前生定义为人以天父“spirit children”的身份与他同住，并把今生视为继续迈向 eternal life 的阶段。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="sin">
+      <div class="section-head">
+        <div class="section-no">12</div>
+        <div>
+          <h2>第十二幕：堕落与罪——人只是需要继续成长，还是已经死在过犯罪恶中？</h2>
+          <div class="theme">原罪 · 属灵死亡 · 人的无能</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">我觉得这里直接影响福音本身。改革宗看人的问题，不只是“不够成熟”或“需要更多属灵教育”，而是亚当堕落以后，全人类在罪中败坏、受定罪、与神隔绝。保罗说我们“死在过犯罪恶之中”（弗2:1），肉体的心思与神为仇，也不能顺服神（罗8:7–8）。<br><br>
+所以救恩不是给一个基本健康的人加一套永恒进阶课程，而是神叫死人活过来。重生不是人先把自己修到某个程度以后获得，而是圣灵主权地赐新生命；悔改和信心是重生所结出的果子。<br><br>
+这也是为什么改革宗会特别珍惜“恩典”这个词：救恩从头到尾都不能把最终区别放在人自己的配合程度上。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我们也绝不认为罪只是“小缺点”。我们相信堕落带来身体死亡和属灵死亡，所有人都需要基督。我们也谈重生、悔改、罪得赦免。<br><br>
+不过我们不接受一种把人的自由意志描述成几乎没有真实回应能力的体系。天父的救恩计划非常重视 agency，也就是人的道德选择。基督的恩典使救恩成为可能，人必须以信心回应、悔改、接受洗礼、领受圣灵，并持续跟随基督。<br><br>
+我们不会说这些行为“赚取”了基督的恩典，而是说神要求我们进入并忠于与他的圣约关系。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>此处不把 LDS 简单概括为“靠行为得救”；B 的最佳版本是“恩典使救恩成为可能，而人需以信心、悔改、圣约与持守回应”。A 的批评则针对这些回应在最终称义/升格结构中的地位。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="justification">
+      <div class="section-head">
+        <div class="section-no">13</div>
+        <div>
+          <h2>第十三幕：称义——神一次宣告罪人为义，还是在圣约忠信中逐步达到永生？</h2>
+          <div class="theme">唯独信心 · 恩典 · 善行的位置</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">这可能是宗教改革最不能让步的一点。改革宗所说的称义，是神作为审判者对罪人的一次法庭性宣告：不是因为我里面已经足够圣洁，也不是因为我的福音顺服成为我被接纳的部分根据，而是因为基督的义算在我身上；我借着信心领受他。罗3–5、加2–3、腓3:8–9都把人的夸口排除。<br><br>
+《威斯敏斯特信条》第十一章说得非常锋利：神称人为义，不是因为在人里面做成什么，也不是因为人自己做了什么，而是唯独为基督的缘故，把基督的顺服与满足归算给信徒。<br><br>
+这并不导致放纵。真正使人称义的信心从来不是孤单的；它必然结出爱与善行。但善行是救恩的果子和证据，不是使我在神法庭上获得无罪地位的共同基础。<br><br>
+所以当你们官方材料说，要接受基督恩典，需要信、悔改、洗礼、领受圣灵，并终身努力遵守基督教导；而最高意义上的 exaltation 又要求圣殿圣约、祭司与永恒婚姻时，我看到的不是我们之间一点术语差异，而是称义结构发生了根本变化。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我要替我们澄清一点：后期圣徒绝不是说“耶稣做百分之九十，我做百分之十，然后凑够一百分”。教会官方讲恩典时明确说，没有神的恩典，没有人能回到神面前；基督是唯一救主。<br><br>
+我们也会反对一种只有口头承认、人生却完全没有悔改和改变的“信心”。《雅各书》说没有行为的信心是死的。耶稣也不断命令人跟从他、遵守诫命。<br><br>
+我们会把信、悔改、洗礼、圣灵、持守到底看作真实的福音道路，而不是可有可无的附加项。称“我已经得救”如果意味着以后无论怎样生活都不重要，我们不会接受。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>双方都拒绝“廉价恩典”。真正差异在于：行为与圣礼是称义后的必然果子，还是取得/维持最终救恩与 exaltation 的必要条件。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="james">
+      <div class="section-head">
+        <div class="section-no">14</div>
+        <div>
+          <h2>第十四幕：A 回应《雅各书》——活的信心有行为，但行为不是称义的功劳根基</h2>
+          <div class="theme">保罗与雅各 · 果子与根基</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">我完全同意，死人式的“我口头相信”不能救人。雅各攻击的是这种没有果子的伪信心。亚伯拉罕献以撒显明他的信是真实的；但保罗在罗马书4章讨论亚伯拉罕在神面前被算为义的根据时，明确回到更早的创15:6：“亚伯拉罕信神，这就算为他的义。”<br><br>
+所以可以这样区分：<strong>信心是称义的唯一工具，但使人称义的信心从不单独存在。</strong>善行证明树活着，却不是树根。<br><br>
+而且我不相信“称义以后怎么活都无所谓”。罗马书6章正是在反驳这种误解。被基督称义的人同时被圣灵更新，进入成圣；若一个人长期毫无悔改、毫无圣洁，教会有理由怀疑他的信是否真实。<br><br>
+真正安慰在于：我每天的成圣会有高低，但我在神面前的义不是按今天灵修做得好不好浮动，而是建立在基督已经完成的工作上。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">这样说我能更准确理解你们。也就是说，你不是反对行为，而是反对把行为放进“神称我为义的根据”里面。<br><br>
+我们的语言体系确实不同。我们更常讲“圣约道路”，讲借着基督的赎罪，人在信心中接受诫命和圣礼，并忠信到底。对我们而言，这不是与恩典竞争，而是恩典要求的回应。<br><br>
+但我也看见你的担心：如果最高永恒身份取决于一系列必须完成并持守的圣约，人很容易问“到底做到多少才够”。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>这一幕故意让 B 准确复述 A，而不是把“唯独信心”误解成“行为不重要”。这是理解宗教改革救恩论的关键。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="baptism-priesthood">
+      <div class="section-head">
+        <div class="section-no">15</div>
+        <div>
+          <h2>第十五幕：洗礼与祭司权柄——圣礼有效的根基到底是什么？</h2>
+          <div class="theme">洗礼 · 祭司权柄 · 教会权柄</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">你们认为洗礼必须由拥有恢复之祭司权柄的人执行，才能成为进入教会并通向 celestial kingdom 的有效救恩圣礼；这又把问题带回“真正教会只有被恢复权柄的这一间”。<br><br>
+改革宗同样认真看待洗礼。我们绝不会说“反正心里信就行，教会和圣礼都不重要”。基督亲自设立洗礼，教会必须按他的命令施行。但我们不认为使洗礼成为真洗礼的关键，是一条十九世纪由天使重新授予的独家祭司链。<br><br>
+新约把整个教会建在基督和使徒见证之上；牧职权柄来自基督借着教会按圣经设立的职分，而不是另一个后来恢复的亚伦/麦基洗德祭司体系。希伯来书特别强调，新约中那终极、不可转让的大祭司是基督自己。旧约祭司制度在他里面达到成全。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我们同样认为基督是终极大祭司，但相信他把代表他的祭司权柄交给人。我们区分亚伦祭司和麦基洗德祭司，并相信这些权柄在背道时期失去，后来借天上使者恢复给约瑟·斯密和奥利佛·考德里。<br><br>
+因此，不只是“做了一个浸水动作”就等于洗礼。执行圣礼的人必须有来自神的权柄。就像一个人不能因为穿上制服就自动成为法官或警察。<br><br>
+如果恢复是真的，这个逻辑很直接；如果恢复是假的，那我们的祭司体系当然也就失去基础。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>双方都把教会权柄视为基督所赐；真正分歧是新约是否预言并需要一个在十九世纪由天使重新授予的独家祭司制度。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="dead-baptism">
+      <div class="section-head">
+        <div class="section-no">16</div>
+        <div>
+          <h2>第十六幕：为死人受洗——哥林多前书15:29究竟能承担多大教义重量？</h2>
+          <div class="theme">代理洗礼 · 死后机会 · 经文解释</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">你们圣殿实践中很特别的一项，是活人为死者代理受洗。你们认为那些生前没有接受有效洗礼的人，可以在死后的灵界听福音，而活人代替他们完成圣礼，死者仍可自由接受或拒绝。主要圣经依据之一常是林前15:29。<br><br>
+问题是，那一节经文本身处在保罗为复活辩论的段落里：“若死人总不复活，那些为死人受洗的是为什么呢？”保罗提到一个当时存在的行为，却没有在上下文中命令哥林多人实践，更没有解释一套死后福音与圣殿代理圣礼制度。<br><br>
+在教义方法上，我不会让一节高度简略、解释困难的经文推翻大量清楚经文所建立的模式：今生听见福音、悔改相信，死亡之后面对审判（来9:27；路16的结构也强调死后状态的严肃性）。<br><br>
+所以我的问题不是“神能不能怜悯没听过福音的人”，而是：我们有没有圣经授权建立代理洗礼制度？</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我们确实相信代理洗礼不是强迫死者，而是给他们机会。教会官方说明，死者可以选择接受或拒绝。这个教义让我们看见神既公义又怜悯：如果洗礼真的重要，那些生在没有福音时代的人怎么办？<br><br>
+林前15:29至少说明“为死人受洗”这个概念并非完全不存在于最早期基督徒环境。再加上彼前3:18–20、4:6关于向灵传道，以及现代启示，我们认为整个图景就清晰了。<br><br>
+你之所以觉得证据不足，是因为你不接受现代启示；我们接受，所以同一节经文在更大启示框架里有不同位置。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>此处真正分歧再次回到“开放启示”：林前15:29本身并不足以独立建立完整 LDS 圣殿代理圣礼体系，LDS 的体系依赖《教义和圣约》等现代启示来补全。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="eternal-marriage">
+      <div class="section-head">
+        <div class="section-no">17</div>
+        <div>
+          <h2>第十七幕：永恒婚姻——婚姻是今生的圣约，还是最高升格的必要条件？</h2>
+          <div class="theme">圣殿 · sealing · 婚姻与永恒</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">你们最吸引人的教导之一，是“家庭可以永远在一起”。这在情感上非常有力量，我能理解。你们官方还进一步教导：在圣殿中由祭司权柄“印证”的婚姻可以延续到永恒，而 eternal marriage 是 exaltation 的必要条件。<br><br>
+但我要把最难的问题直接提出来：耶稣在回答撒都该人关于复活与婚姻的问题时说，复活里“也不娶也不嫁，乃像天上的使者一样”（太22:30）。这并不意味着信徒在永恒里彼此成为陌生人，而是意味着今世婚姻作为创造秩序中的盟约制度，不再以同样方式延续。<br><br>
+新约把最大的永恒婚姻图景放在基督与教会之间：地上的婚姻是一个指向性的记号（弗5:25–32）。到了终末，影儿让位给实体。<br><br>
+所以改革宗会很谨慎地反对把“是否完成圣殿永恒婚姻”变成获得最高永恒荣耀的条件，因为新约从未把基督徒的终极福分系在这个条件上。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我们解释太22时，会强调耶稣回答的是那些没有在神权柄下进入永恒圣约的婚姻关系，并不否认经神授权印证的永恒婚姻。我们相信基督给彼得“在地上捆绑、在天上也捆绑”的权柄，这种 sealing power 后来被恢复。<br><br>
+对我们来说，家庭不是暂时的训练场然后消失，而是神永恒计划的中心。圣殿婚姻和家庭关系正是人获得 exaltation、成为像天父那样的生命的一部分。<br><br>
+我承认这点与传统新教差异非常明显。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>LDS 官方《Marriage》页面明确说 temple sealing 可使婚姻延续永恒，并称“the covenant of eternal marriage is necessary for exaltation”。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="exaltation">
+      <div class="section-head">
+        <div class="section-no">18</div>
+        <div>
+          <h2>第十八幕：人成为像神——教父的“神化”与 LDS 的 exaltation 是一回事吗？</h2>
+          <div class="theme">成神 · 神化 · 永恒进升</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">你们官方有一篇很重要的文章叫《Becoming Like God》，也会引用早期教父讲 theosis（神化/成神）。这确实值得认真处理，因为如果新教简单说“基督教从来没讲人成为神”，那是不准确的。东正教传统尤其保留了很强的神化语言。<br><br>
+但要分清两种东西。古典基督教神化是在<strong>造物主—受造物区别不被取消</strong>的前提下，受造的人因恩典与神联合、分享神所赐的生命、圣洁和荣耀。彼后1:4说“与神的性情有分”，不是说受造者变成另一个与神同类、同等级、自有的神。<br><br>
+而 LDS 的 exaltation 放在另一套宇宙论里：人本来就有前生的神圣来源与潜能；终极目标是成为像天父，并在最高 celestial glory 中获得完整 exaltation。你们传统中还有“人现在如何，神从前也如何；神现在如何，人将来也可能如何”这句著名格言。官方文章今天对前半句很谨慎，承认关于“神从前如何”启示很少，但对人的 eternal progression 与成为像神则明确肯定。<br><br>
+所以不能只因为两边都用了“become god / deification”这类词，就说教父其实在教 LDS。关键是：神是否永远独一、自有、非受造？人是否永远是受造者？</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">这个区分是公平的。我们也不会说每一个教父都完整教导今天的后期圣徒神学。教会官方文章引用教父，主要是说明“人成为像神”的语言并不是十九世纪凭空第一次出现。<br><br>
+我们相信人是神的儿女，有真实的神圣潜能；借着耶稣基督的赎罪、恩典、圣约和永恒进步，忠信的人可以获得 exaltation，变得像天父。至于这究竟意味着多少细节，教会并没有对所有问题都给出完整解释。<br><br>
+但对我们来说，这不是取代神，而是成为像他，永远依赖基督。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>这一幕特别区分古典基督教 theosis 与 LDS exaltation。两者有词汇上的相似，但神论、人论与创造论背景明显不同。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="kingdoms">
+      <div class="section-head">
+        <div class="section-no">19</div>
+        <div>
+          <h2>第十九幕：三个荣耀国度——林前15章的“日月星”是在讲三层永恒国度吗？</h2>
+          <div class="theme">末世论 · celestial / terrestrial / telestial</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">你们把死后荣耀分成 celestial、terrestrial、telestial 三个国度，并常引用林前15:40–42关于天上的形体、地上的形体以及日月星不同荣光。<br><br>
+但保罗那一段的直接主题是<strong>复活身体的性质</strong>，不是给出一个三层救恩地理学。他在解释“死人怎样复活，带着什么身体来”，用不同种类和不同荣光说明复活身体与今世朽坏身体的区别。把 sun/moon/stars 直接等同于三个永恒国度，需要《教义和圣约》76章等现代启示才能成立，并不是从林前15章自然推出。<br><br>
+新约更常见的终末结构是：复活、审判、在基督里得永生或在罪中受审判；新天新地是神与蒙赎之民同住的最终盼望。确实存在奖赏程度、荣耀差异等问题，但这和 LDS 那套三国度系统不是一回事。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">对，我们也不会说只读林前15章就能得到《教义和圣约》76章所有细节。我们相信后来的启示把保罗简略提到的荣光差异展开了。<br><br>
+而且这套教义对我很有吸引力，因为它显示神的审判不是只有非常粗糙的“好人上天堂、坏人全下地狱”。绝大多数人都会在某个荣耀国度中获得神按公义与怜悯所赐的位置；最高的 celestial kingdom 则与父和子同住。<br><br>
+你可以说这依赖现代启示，我承认；但这正是我们接受恢复的结果。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>LDS 官方《Kingdoms of Glory》明确教导三个荣耀国度，并说所得荣耀与人的归信深度、顺服和接受基督见证的方式相关。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="gospel-structure">
+      <div class="section-head">
+        <div class="section-no">20</div>
+        <div>
+          <h2>第二十幕：真正的分水岭——不是“谁更敬虔”，而是福音的结构</h2>
+          <div class="theme">福音核心 · 基督完成的工作</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">聊到这里，我发现我们不能把分歧缩小成“你们多一本书、我们少一本书”。那只是表面。真正的分水岭至少有四层。<br><br>
+第一，<strong>启示</strong>：我把使徒性的旧新约圣经当作最终规范；你接受新的正典和活先知。第二，<strong>神论</strong>：我相信独一神三位一体、神永恒不变且非受造；你相信父、子、圣灵是三个分别的神圣存在，并接受人具有走向神性荣耀的永恒潜能。第三，<strong>基督论和人论</strong>：我把永恒圣子放在一切受造存在之外；你把人、基督的前生放在天父灵儿女的框架中。第四，<strong>救恩论</strong>：我把称义建立在基督完成的义被归算、借信心领受；你则把最终 exaltation 放在恢复福音的圣约道路、有效圣礼、忠信持守、圣殿和永恒婚姻的结构里。<br><br>
+所以我不能只说“我们都爱耶稣，细节不重要”。因为这些不是边缘细节，它们决定“耶稣是谁”“神是谁”“我怎样得救”。</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">而从我的角度看，你们把神后来恢复的东西当成“另一个福音”，是因为你们先把正典封闭和传统三位一体当成不可改变的框架。<br><br>
+但我也承认，你今天没有用那种网上很廉价的方式跟我谈：比如抓一个最夸张的旧时代言论就说“所有摩门教徒都这么想”，或者说我们根本不信基督。你是从我们的官方核心教义出发，然后告诉我为什么你的圣经框架无法接受这些东西。<br><br>
+至少这样我知道，争论真正在哪里。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>到这里，双方都能准确复述对方。真正有价值的护教学不是先赢气势，而是先把对方最强的版本说准确。</aside>
+    </section>
+    
+    <section class="dialogue-section" id="closing">
+      <div class="section-head">
+        <div class="section-no">21</div>
+        <div>
+          <h2>第二十一幕：最后的邀请——“回到基督”到底意味着什么？</h2>
+          <div class="theme">结尾 · 友谊 · 为真道争辩</div>
+        </div>
+      </div>
+      <div class="dialogue-grid">
+        <article class="voice voice-a">
+          <div class="speaker">
+            <div class="avatar">A</div>
+            <div><strong>A · 林恩</strong><span>改革宗新教基督徒</span></div>
+          </div>
+          <div class="speech">周泽，如果今天只是为了赢辩论，我觉得没有意义。你不是一个抽象的“摩门教对象”，你是我很多年的朋友。我愿意继续跟你读书、查经、吃饭，也愿意听你把你认为最强的证据都摆出来。<br><br>
+但如果你问我最终立场，我不能含糊。我会劝你把所有后来启示暂时放在桌面一边，先让旧新约圣经自己说话：<strong>神是否真是从亘古到永远独一的神？圣子是否是创造万有的永恒主？福音是否是神使不敬虔的人因基督白白称义？使徒有没有预告整间真教会和福音必须消失一千八百年，再由一个十九世纪先知恢复？</strong><br><br>
+如果圣经已经清楚回答这些问题，那么后来任何先知、天使、经书、宗教经验都必须站在这个标准下受审判，而不能反过来重写标准。<br><br>
+我最希望你看见的，不是“改革宗比你们聪明”，而是基督已经足够。他不是我永恒进升路线中最伟大的帮助者；他是道成肉身的永恒神子，是我的替代者、义、生命和唯一中保。我在神面前的盼望最终不在于我是否完成了一条足够忠信的升格路径，而在于他说：“成了。”</div>
+        </article>
+        <article class="voice voice-b">
+          <div class="speaker">
+            <div class="avatar">B</div>
+            <div><strong>B · 周泽</strong><span>耶稣基督后期圣徒教会会友</span></div>
+          </div>
+          <div class="speech">我不能现在就说我同意你，因为那会显得我们刚才二十幕对话都只是表演。我仍然相信恢复、相信《摩尔门经》，也珍惜我在教会里得到的属灵生活。<br><br>
+但我愿意接受你最后这个挑战：不是先看哪边让我感觉更熟悉，而是重新把双方最核心的主张摆在圣经面前。我也希望你愿意真正读我们的官方资料，而不是只读反对我们的材料。<br><br>
+如果真理是从神来的，它不应该害怕被认真检查。我们还是朋友。下一次，我们可以只拿《约翰福音》一卷，从第一章开始，一节一节谈“道是谁”。</div>
+        </article>
+      </div>
+      <aside class="editor-note"><b>本幕辨析：</b>结尾按用户设定回到改革宗立场，但没有把 B 写成瞬间“被辩倒”。更真实的深度对话通常留下继续查验的空间。</aside>
+    </section>
+    
+
+  <section class="interlude">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/00/Westminster_Confession_of_Faith_title_page.jpg" alt="1647年威斯敏斯特信条初版标题页">
+    <div>
+      <h2>改革宗不是把《威斯敏斯特信条》放在圣经之上</h2>
+      <p>在改革宗理解中，信条是“次级标准”：它没有独立于圣经的无误权威。它的价值在于公开说明“我们认为整本圣经教导什么”，因此也让信仰能够被检验。若信条与圣经冲突，最终裁判者仍是“圣灵在圣经中说话”。</p>
+      <p>这也是 A 在整个对话里的立场：不是用十七世纪文件替代第一世纪使徒，而是借一套公开、可追溯的释经结论来说明为什么他认为 LDS 的恢复性启示越过了圣经边界。</p>
+    </div>
+  </section>
+
+  <section class="summary">
+    <h2>十个核心分歧，一眼看清</h2>
+    <p>下面不是为了把双方压缩成口号，而是帮助读者在长对话之后重新看见结构。</p>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>议题</th><th>LDS 官方核心教导</th><th>改革宗回应</th><th>关键圣经文本</th></tr></thead>
+        <tbody><tr><td><strong>最高权威</strong></td><td>开放正典；四部标准经文 + 现代先知启示</td><td>旧新约六十六卷为最终规范；新启示不得增补救恩教义</td><td>加1:8；犹3；弗2:20；来1:1–2</td></tr><tr><td><strong>神</strong></td><td>父、子、圣灵为三个分别的神圣存在；父与子有荣耀身体</td><td>一位神、三个位格、同一本体、同永恒；神为灵</td><td>申6:4；赛43:10–11；约4:24；太28:19</td></tr><tr><td><strong>耶稣基督</strong></td><td>救主、神子、前生中父的首生灵子；创造工作由他执行</td><td>永恒圣子，与父同一本体；非受造，万物借他而造</td><td>约1:1–3；西1:16–17；来1:2–3</td></tr><tr><td><strong>人的起源</strong></td><td>前生中作为天父灵儿女存在，来到地上取得身体并进步</td><td>神按自己形象创造人；人永远是受造者</td><td>创1:26–27；诗100:3；徒17:24–29</td></tr><tr><td><strong>救恩/称义</strong></td><td>恩典绝对必要；信、悔改、有效洗礼、圣灵、圣约与持守到底；最高 exaltation 另涉及圣殿等</td><td>因基督之义归算，唯独借信心称义；善行为必然果子而非称义根据</td><td>罗3:21–28；4:1–8；加2:16；弗2:8–10</td></tr><tr><td><strong>教会历史</strong></td><td>使徒后发生大背道，真教会与祭司权柄需在十九世纪恢复</td><td>教会会败坏却不会从历史消失；基督持续保守其教会</td><td>太16:18；28:20；弗4:11–16</td></tr><tr><td><strong>祭司权柄</strong></td><td>亚伦、麦基洗德祭司由天使恢复，授权有效圣礼</td><td>新约职分在基督教会中设立；基督是终极大祭司</td><td>来7–10；提前3；多1</td></tr><tr><td><strong>死者洗礼</strong></td><td>圣殿内可为死者代理受洗，死者可接受或拒绝</td><td>林前15:29不足以建立代理圣礼制度；圣礼在今生教会中施行</td><td>林前15:29；来9:27</td></tr><tr><td><strong>婚姻</strong></td><td>圣殿印证可延续永恒，永恒婚姻为最高 exaltation 必要条件</td><td>婚姻为今生神圣盟约，终末指向基督与教会的完全联合</td><td>太22:30；弗5:25–32</td></tr><tr><td><strong>人的终局</strong></td><td>可在基督恩典中获得 exaltation、成为像天父；三荣耀国度</td><td>得荣耀、与神联合但不成为另一位神；终末为复活、审判、新天新地</td><td>彼后1:4；启21–22；林前15</td></tr></tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="conclusion">
+    <h2>改革宗立场的最终归结</h2>
+    <p>如果把整场对话压缩成一句话，改革宗的异议并不是：<span class="accent">“LDS 不够重视耶稣。”</span> 更准确的异议是：LDS 在使用大量基督教词汇的同时，借恢复性启示重新定义了这些词背后的神论、基督论、人论、教会论与救恩论。</p>
+    <p>因此，A 最后的呼吁不是“加入我喜欢的宗派”，而是回到旧新约中那位独一、永恒、自有永有的三一神；回到那位不是灵性家族中最高成员、而是创造万有的永恒圣子；回到那件已经完成、不靠圣殿升格条件补足的十字架救赎；回到罪人<strong>唯独因基督、唯独借着信心</strong>被神接纳的福音。</p>
+    <p>与此同时，真正“为真道争辩”的态度也要求改革宗基督徒拒绝稻草人、嘲讽和流言。越确信真理，就越不需要歪曲对手。把对方说准确，再让圣经成为最终裁判者，才是这篇长对话想呈现的护教学方式。</p>
+  </section>
+
+  <section class="sources">
+    <h2>主要资料来源</h2>
+    <p>关于 LDS 的陈述优先采用其教会官方 Gospel Topics / Study 页面；改革宗部分以 Orthodox Presbyterian Church 公布的 Westminster Standards 为主要信条来源。资料访问时间：2026-09。</p>
+    <ol><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/godhead?lang=eng" target="_blank" rel="noopener">LDS：Godhead（神格）</a><p>三位为分别的存在；父与子有荣耀的骨肉身体，圣灵为灵体。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/scriptures?lang=eng" target="_blank" rel="noopener">LDS：Scriptures（经文）</a><p>官方标准经文包括 Bible、Book of Mormon、Doctrine and Covenants、Pearl of Great Price；现代先知启示可具有经文性质。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/bible?lang=eng" target="_blank" rel="noopener">LDS：Bible</a><p>圣经是神的话，但不是最终或完整的全部启示；开放正典。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/book-of-mormon-study-guide?lang=eng" target="_blank" rel="noopener">LDS：Book of Mormon</a><p>把《摩尔门经》称为耶稣基督的另一部见证。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/apostasy?lang=eng" target="_blank" rel="noopener">LDS：Apostasy</a><p>教导使徒去世后发生大背道、祭司权柄从地上被收回，直到复兴。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/restoration-of-the-church-study-guide?lang=eng" target="_blank" rel="noopener">LDS：Restoration of the Gospel</a><p>复兴的官方概述。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/joseph-smith?lang=eng" target="_blank" rel="noopener">LDS：Joseph Smith</a><p>第一异象与先知使命的官方概述。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/premortality?lang=eng" target="_blank" rel="noopener">LDS：Premortality</a><p>前生、灵儿女、基督为父在灵中的首生子、路西弗反叛。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/grace?lang=eng" target="_blank" rel="noopener">LDS：Grace</a><p>恩典、信心、悔改、洗礼、圣灵与持续跟随基督之间的关系。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/salvation?lang=eng" target="_blank" rel="noopener">LDS：Salvation</a><p>区分多种“得救”含义，并描述条件性救恩与 exaltation。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/baptism-study-guide?lang=eng" target="_blank" rel="noopener">LDS：Baptism</a><p>洗礼须由持有祭司权柄者施行，是救恩与升格的圣礼。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/baptisms-for-the-dead?lang=eng" target="_blank" rel="noopener">LDS：Baptisms for the Dead</a><p>代理死者洗礼的官方教导。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/marriage-study-guide?lang=eng" target="_blank" rel="noopener">LDS：Marriage</a><p>圣殿印证、永恒婚姻以及其与 exaltation 的关系。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics-essays/becoming-like-god?lang=eng" target="_blank" rel="noopener">LDS：Becoming Like God</a><p>人的神圣潜能、exaltation、早期基督教神化资料及 Lorenzo Snow 格言的官方讨论。</p></li><li><a href="https://www.churchofjesuschrist.org/study/manual/gospel-topics/kingdoms-of-glory?lang=eng" target="_blank" rel="noopener">LDS：Kingdoms of Glory</a><p>celestial、terrestrial、telestial 三个荣耀国度。</p></li><li><a href="https://www.opc.org/wcf.html" target="_blank" rel="noopener">Reformed：Westminster Confession of Faith</a><p>改革宗核心标准：圣经、三位一体、创造、称义、教会等。</p></li><li><a href="https://www.opc.org/documents/standards.html" target="_blank" rel="noopener">Reformed：OPC Standards</a><p>说明圣经是唯一无误的信仰与生活准则，威斯敏斯特诸标准为次级信条。</p></li></ol>
+  </section>
+
+  <section class="credits">
+    <p><b>图片：</b>Salt Lake Temple（Wikimedia Commons, Diliff / Entheta, CC BY 2.5）；Joseph Smith historical portrait（Wikimedia Commons）；1647 Westminster Confession title page（Wikimedia Commons，Public Domain）。图片仅用于历史与宗教教育语境，不表示图片作者或机构赞同本文观点。</p>
+    <p><b>文本性质：</b>本页中的林恩、周泽及其具体对话为文学化设定，并非真实人物访谈。B 的表述根据 LDS 官方公开教义资料综合写作；不同成员个人理解可能存在差异。</p>
+  </section>
+</main>
+
+<div class="toolbar">
+  <button onclick="document.body.classList.toggle('large')" title="切换大字号">A+</button>
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
+</div>
+</body>
+</html>
