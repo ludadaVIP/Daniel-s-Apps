@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
   Check,
@@ -76,6 +76,10 @@ export default function BibleApp() {
   const [paragraphFirstOnly, setParagraphFirstOnly] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
+  const [autoPlaying, setAutoPlaying] = useState(false);
+  const fetchVerseRef = useRef(null);
+  const modeRef = useRef(mode);
+  const autoRunRef = useRef(0);
 
   // Bootstrap: list versions, pick a default, fetch its book catalog.
   useEffect(() => {
@@ -143,6 +147,7 @@ export default function BibleApp() {
     }
     setLoading(true);
     setError("");
+    setVerse(null);
     setRevealedLength(0);
     setReferenceShown(false);
     setParagraph(null);
@@ -166,8 +171,10 @@ export default function BibleApp() {
         paragraphFirst: paragraphFirstOnly,
       });
       setVerse(payload);
+      return payload;
     } catch (err) {
       setError(err.message);
+      return null;
     } finally {
       setLoading(false);
     }
@@ -180,6 +187,97 @@ export default function BibleApp() {
     thirdVerseOnly,
     paragraphFirstOnly,
   ]);
+
+  // Keep the automatic player on the newest settings without restarting its
+  // current timed cycle when the component re-renders.
+  useEffect(() => {
+    fetchVerseRef.current = fetchVerse;
+  }, [fetchVerse]);
+
+  useEffect(() => {
+    modeRef.current = mode;
+  }, [mode]);
+
+  useEffect(() => {
+    if (!autoPlaying) return undefined;
+
+    const runId = autoRunRef.current + 1;
+    autoRunRef.current = runId;
+    let timeoutId;
+    let cancelled = false;
+    const isRunning = () => !cancelled && autoRunRef.current === runId;
+    const wait = (milliseconds) => new Promise((resolve) => {
+      timeoutId = window.setTimeout(resolve, milliseconds);
+    });
+
+    async function playAutomatically() {
+      while (isRunning()) {
+        // This is the same action as pressing Start / Next verse.
+        const nextVerse = await fetchVerseRef.current?.();
+        if (!isRunning()) return;
+        if (!nextVerse) {
+          setAutoPlaying(false);
+          return;
+        }
+
+        await wait(15_000);
+        if (!isRunning()) return;
+
+        // "Show" means the text in Memorize mode and the reference in Guess mode.
+        if (modeRef.current === "memorize") {
+          setRevealedLength(nextVerse.text.length);
+        } else {
+          setReferenceShown(true);
+        }
+
+        await wait(5_000);
+        if (!isRunning()) return;
+
+        // This mirrors See Paragraph. Paragraphs that are unavailable simply
+        // leave the panel closed and continue to the next verse on schedule.
+        if (nextVerse.paragraphAvailable !== false) {
+          setParagraphLoading(true);
+          setError("");
+          try {
+            const paragraphPayload = await fetchParagraph({
+              version: nextVerse.version,
+              book: nextVerse.book,
+              chapter: nextVerse.chapter,
+              verse: nextVerse.verse,
+            });
+            if (isRunning()) {
+              setParagraph(paragraphPayload);
+              setParagraphOpen(true);
+            }
+          } catch (err) {
+            if (isRunning()) setError(err.message);
+          } finally {
+            setParagraphLoading(false);
+          }
+        }
+
+        await wait(30_000);
+        if (!isRunning()) return;
+      }
+    }
+
+    playAutomatically();
+    return () => {
+      cancelled = true;
+      window.clearTimeout(timeoutId);
+    };
+  }, [autoPlaying]);
+
+  function toggleAutoPlay() {
+    if (autoPlaying) {
+      // Invalidate in-flight requests as well as the current delay immediately.
+      autoRunRef.current += 1;
+      setAutoPlaying(false);
+      return;
+    }
+    setError("");
+    setAutoPlaying(true);
+  }
 
   function toggleVerseMode(setter) {
     setParagraphFirstOnly(false);
@@ -412,6 +510,16 @@ export default function BibleApp() {
           >
             <BookOpen size={16} />
             <span>Pag 1st</span>
+          </button>
+
+          <button
+            type="button"
+            className={`bible-auto-toggle ${autoPlaying ? "active" : ""}`}
+            onClick={toggleAutoPlay}
+            aria-pressed={autoPlaying}
+            title={autoPlaying ? "Stop automatic practice" : "Start automatic practice"}
+          >
+            <span>{autoPlaying ? "Stop" : "Auto"}</span>
           </button>
         </div>
 

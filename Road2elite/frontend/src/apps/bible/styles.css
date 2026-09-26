@@ -192,6 +192,22 @@
   }
   .bible-verse-toggle:disabled { opacity: 0.45; cursor: not-allowed; }
 
+  .bible-auto-toggle {
+    display: inline-flex; align-items: center; justify-content: center;
+    min-height: 34px; padding: 0 14px;
+    border-radius: 8px;
+    background: var(--blue-soft); color: var(--blue);
+    border: 1px solid #b8cde2;
+    font-family: Inter, system-ui, sans-serif;
+    font-size: 12px; font-weight: 800;
+    transition: background 0.16s ease, border-color 0.16s ease, color 0.16s ease, transform 0.16s ease;
+  }
+  .bible-auto-toggle:hover { border-color: var(--blue); transform: translateY(-1px); }
+  .bible-auto-toggle.active {
+    background: var(--accent); color: #fff8e7; border-color: var(--accent-deep);
+    box-shadow: 0 8px 16px rgba(138, 58, 46, 0.18);
+  }
+
   /* ---------- book filter panel ---------- */
   .bible-filter-panel {
     display: grid; gap: 12px;
@@ -463,7 +479,7 @@
     :scope { min-height: 100%; padding: 10px 12px 24px; }
     .bible-mode-tabs { grid-template-columns: 1fr; }
     .bible-action-row { flex-direction: column; align-items: stretch; }
-    .bible-primary, .bible-secondary, .bible-ghost, .bible-filter-toggle, .bible-verse-toggle {
+    .bible-primary, .bible-secondary, .bible-ghost, .bible-filter-toggle, .bible-verse-toggle, .bible-auto-toggle {
       width: 100%; justify-content: center;
     }
     .bible-card-footer { grid-template-columns: 1fr; }
