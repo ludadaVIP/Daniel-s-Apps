@@ -7,7 +7,7 @@
     "node": ">=24.15.0"
   },
   "scripts": {
-    "dev": "concurrently -k -n api,web -c blue,green \"node --watch --watch-path=server --watch-path=apps/BeliefQandA/server --watch-path=apps/WorldQandA/server --watch-path=apps/qanda-core/server --watch-path=apps/insight/server --watch-path=apps/notebook/server --watch-path=apps/html-library/server --watch-path=apps/bible/server --watch-path=apps/bible-parallel/server --watch-path=apps/recall-verses/server --watch-path=apps/investment/server server/index.js\" \"vite --host 127.0.0.1 --port 5888 --strictPort\"",
+    "dev": "concurrently -k -n api,web -c blue,green \"node --watch --watch-path=server --watch-path=apps/BeliefQandA/server --watch-path=apps/WorldQandA/server --watch-path=apps/qanda-core/server --watch-path=apps/insight/server --watch-path=apps/notebook/server --watch-path=apps/html-library/server --watch-path=apps/bible/server --watch-path=apps/bible-parallel/server --watch-path=apps/recall-verses/server --watch-path=apps/investment/server --watch-path=apps/InvestMaster/server server/index.js\" \"vite --host 127.0.0.1 --port 5888 --strictPort\"",
     "build": "vite build",
     "desktop": "npm run build && node server/index.js --production",
     "test": "node --test apps/html-library/server/index.test.js",

@@ -18,6 +18,7 @@ export default defineConfig({
       '/belief-qa': 'http://127.0.0.1:5889',
       '/world-qa': 'http://127.0.0.1:5889',
       '/investment': 'http://127.0.0.1:5889',
+      '/invest-master': 'http://127.0.0.1:5889',
     },
   },
   build: { outDir: 'dist', emptyOutDir: true },

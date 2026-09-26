@@ -1,6 +1,6 @@
 # NodeApps
 
-一个统一的本地工作台，包含 Investment、Industry with coms、InsightMatrix、Notebook、VisualShelf、BibleDevotion 与 Recall Verses。VisualShelf 将独立 HTML 图文资料保存在 `apps/html-library/data/library/`，并在不改写原文件的前提下提供目录、预览与阅读管理。
+一个统一的本地工作台，包含 Investment、Invest Master、Industry with coms、InsightMatrix、Notebook、VisualShelf、BibleDevotion 与 Recall Verses。Invest Master 通过 Markdown 课程、案例、自测和复习训练投资研究能力；详见 `apps/InvestMaster/README.md`。VisualShelf 将独立 HTML 图文资料保存在 `apps/html-library/data/library/`，并在不改写原文件的前提下提供目录、预览与阅读管理。
 
 ## 启动
 

@@ -1,0 +1,13 @@
+import express from 'express';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { createApp } from './app.js';
+const port = Number(process.env.PORT || 5789);
+const root = fileURLToPath(new URL('../', import.meta.url));
+const subapp = createApp();
+const app = express();
+app.use('/invest-master', subapp);
+app.use(express.static(path.join(root, 'dist'), { index: false }));
+app.get('/{*splat}', (_request, response) => response.sendFile(path.join(root, 'dist', 'index.html')));
+const server = app.listen(port, '127.0.0.1', () => console.log(`Invest Master: http://127.0.0.1:${port}`));
+for (const signal of ['SIGINT', 'SIGTERM']) process.once(signal, () => server.close(() => { subapp.locals.close(); process.exit(0); }));

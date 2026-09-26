@@ -93,6 +93,10 @@ const appMounts = {
     await module.initializeInvestment();
     return module.createInvestmentApp();
   }),
+  'invest-master': lazyMount(async () => {
+    const { createApp } = await import('../apps/InvestMaster/server/app.js');
+    return createApp();
+  }),
 };
 
 app.get('/api/apps/:appId/health', async (request, response, next) => {

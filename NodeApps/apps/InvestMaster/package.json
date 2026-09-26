@@ -1,0 +1,27 @@
+{
+  "name": "invest-master",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "engines": { "node": ">=24.15.0" },
+  "scripts": {
+    "dev": "concurrently -k -n api,web \"node --watch server/start.js\" \"vite --host 127.0.0.1 --port 5788 --strictPort\"",
+    "build": "vite build",
+    "start": "node server/start.js",
+    "test": "node --test server/*.test.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "gray-matter": "^4.0.3",
+    "lucide-react": "^0.468.0",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-markdown": "^10.1.0",
+    "remark-gfm": "^4.0.1"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-react": "^5.0.4",
+    "concurrently": "^9.2.1",
+    "vite": "^7.1.7"
+  }
+}
