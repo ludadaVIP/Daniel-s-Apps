@@ -404,7 +404,7 @@ export default function BibleApp() {
     <div className="bible-shell">
       <header className="bible-topbar">
         <div className="bible-brand">
-          <div className="bible-brand-mark"><BookOpen size={22} /></div>
+          <div className="bible-brand-mark"><BookOpen size={17} /></div>
           <div>
             <span className="bible-eyebrow">Recall Bible</span>
             <h1>Bible Memorizer</h1>
@@ -439,6 +439,7 @@ export default function BibleApp() {
               aria-selected={mode === item.id}
               className={`bible-mode-tab ${mode === item.id ? "active" : ""}`}
               onClick={() => switchMode(item.id)}
+              title={item.description}
             >
               <strong>{item.label}</strong>
               <small>{item.description}</small>
@@ -447,16 +448,6 @@ export default function BibleApp() {
         </div>
 
         <div className="bible-action-row">
-          <button
-            type="button"
-            className="bible-primary"
-            disabled={loading || !version}
-            onClick={fetchVerse}
-          >
-            {loading ? <Loader2 className="spin" size={18} /> : <Shuffle size={18} />}
-            <span>{verse ? "New verse" : "Start"}</span>
-          </button>
-
           <button
             type="button"
             className={`bible-filter-toggle ${filterOpen ? "open" : ""}`}
