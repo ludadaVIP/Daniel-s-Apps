@@ -15,6 +15,7 @@ concepts:
 cases:
   - yuanshan-client-ips-liquidity
   - swensen-endowment-liquidity-committee
+  - haichen-exporter-fx-client-exam
 quiz:
   - id: q1
     question: 他人委托一笔资金，最先应确认什么？

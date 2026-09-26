@@ -113,6 +113,29 @@ test('review scheduling and invalid payloads', async () => {
   assert.equal((await patch({ kind: 'framework', id: 'anything', value: 'x' })).status, 400);
 });
 
+test('sealed case analysis requires an immutable first attempt', async () => {
+  const id = 'haichen-exporter-fx-client-exam';
+  const publicContent = await (await fetch(`${origin}/api/content`)).json();
+  const sealed = publicContent.items.find((item) => item.id === id);
+  assert.ok(sealed.brief.includes('2026 年'));
+  assert.equal(sealed.body, '');
+  const analysisUrl = `${origin}/api/case-analysis/${id}`;
+  assert.equal((await fetch(analysisUrl)).status, 403);
+  assert.equal((await patch({ kind: 'caseAttempt', id, value: '太短' })).status, 400);
+  assert.equal((await patch({ kind: 'caseAttempt', id: 'what-you-own', value: '独立判断'.repeat(50) })).status, 400);
+  const firstDraft = '经营现金流需要先从 EBIT 扣利息和税，调整折旧与营运资本，再扣资本支出。美元本金到期要按实际汇率支付，受限现金不能参与。客户先覆盖确定付款与现金底线，再决定能否买入股票；估值需要检查终值和债务桥。'.repeat(2);
+  const accepted = await patch({ kind: 'caseAttempt', id, value: firstDraft });
+  assert.equal(accepted.status, 200);
+  assert.equal(accepted.data.caseAttempts.find((row) => row.id === id).body, firstDraft);
+  const revealed = await (await fetch(analysisUrl)).json();
+  assert.match(revealed.body, /CFO = 90/);
+  assert.equal((await patch({ kind: 'caseAttempt', id, value: '改写'.repeat(80) })).status, 409);
+  await patch({ kind: 'note', id, value: '复盘：我遗漏了受限现金。' });
+  const state = await (await fetch(`${origin}/api/state`)).json();
+  assert.equal(state.caseAttempts.find((row) => row.id === id).body, firstDraft);
+  assert.equal(state.notes.find((row) => row.id === id).body, '复盘：我遗漏了受限现金。');
+});
+
 test('integrated research requires a substantial draft before completion can be recorded', async () => {
   const lesson = loadContent().find((item) => item.id === 'integrated-research-capstone');
   for (const question of lesson.quiz) await patch({ kind: 'answer', id: lesson.id, value: { questionId: question.id, choice: question.answer } });

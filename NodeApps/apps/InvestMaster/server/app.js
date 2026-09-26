@@ -10,6 +10,7 @@ export function createApp({ contentDirectory = path.join(root, 'content'), datab
   const content = loadContent(contentDirectory);
   const ids = new Set(content.map((item) => item.id));
   const lessons = new Map(content.filter((item) => item.type === 'lessons').map((item) => [item.id, item]));
+  const sealedCases = new Map(content.filter((item) => item.type === 'cases' && item.brief).map((item) => [item.id, item]));
   const store = createStore(databasePath);
   const app = express();
   app.disable('x-powered-by');
@@ -21,14 +22,25 @@ export function createApp({ contentDirectory = path.join(root, 'content'), datab
     next();
   });
   app.get('/api/health', (_request, response) => response.json({ ok: true, content: content.length }));
-  app.get('/api/content', (_request, response) => response.json({ items: content }));
+  app.get('/api/content', (_request, response) => response.json({ items: content.map((item) => sealedCases.has(item.id) ? { ...item, body: '' } : item) }));
   app.get('/api/state', (_request, response) => response.json(store.get()));
+  app.get('/api/case-analysis/:id', (request, response) => {
+    const item = sealedCases.get(request.params.id);
+    if (!item) return response.status(404).json({ error: '封题案例不存在' });
+    if (!store.hasCaseAttempt(item.id)) return response.status(403).json({ error: '先封存首次答卷，才能查看参考推导' });
+    response.json({ body: item.body });
+  });
   app.patch('/api/state', (request, response) => {
     const { kind, id, value } = request.body || {};
-    if (!['complete', 'bookmark', 'note', 'framework', 'answer', 'review'].includes(kind) || typeof id !== 'string') return response.status(400).json({ error: '操作无效' });
+    if (!['complete', 'bookmark', 'note', 'framework', 'answer', 'review', 'caseAttempt'].includes(kind) || typeof id !== 'string') return response.status(400).json({ error: '操作无效' });
     if (kind === 'framework' && !['objective', 'horizon', 'circle', 'quality', 'valuation', 'risk', 'sizing', 'sell', 'behavior'].includes(id)) return response.status(400).json({ error: '框架章节无效' });
     if (kind !== 'framework' && !ids.has(id)) return response.status(404).json({ error: '内容不存在' });
     if (['note', 'framework'].includes(kind) && (typeof value !== 'string' || value.length > 20000)) return response.status(400).json({ error: '文字长度无效' });
+    if (kind === 'caseAttempt') {
+      if (!sealedCases.has(id)) return response.status(400).json({ error: '此内容不是封题案例' });
+      if (typeof value !== 'string' || value.trim().length < 120 || value.length > 20000) return response.status(400).json({ error: '首次答卷至少需要 120 字，最多 20000 字' });
+      if (store.hasCaseAttempt(id)) return response.status(409).json({ error: '首次答卷已封存；可以在决策卡中继续修订笔记' });
+    }
     if (['complete', 'bookmark'].includes(kind) && typeof value !== 'boolean') return response.status(400).json({ error: '状态无效' });
     if (kind === 'review' && (!['again', 'hard', 'good', 'easy'].includes(value) || !content.find((item) => item.id === id && item.type === 'concepts'))) return response.status(400).json({ error: '复习评分无效' });
     if (kind === 'answer') {

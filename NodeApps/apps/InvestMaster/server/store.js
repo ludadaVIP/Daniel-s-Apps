@@ -11,7 +11,8 @@ export function createStore(filename) {
     CREATE TABLE IF NOT EXISTS notes (content_id TEXT PRIMARY KEY, body TEXT NOT NULL, updated_at TEXT NOT NULL);
     CREATE TABLE IF NOT EXISTS answers (lesson_id TEXT NOT NULL, question_id TEXT NOT NULL, choice INTEGER NOT NULL, correct INTEGER NOT NULL, answered_at TEXT NOT NULL, PRIMARY KEY (lesson_id, question_id));
     CREATE TABLE IF NOT EXISTS reviews (content_id TEXT PRIMARY KEY, due_at TEXT NOT NULL, interval_days INTEGER NOT NULL, repetitions INTEGER NOT NULL, last_rating TEXT NOT NULL);
-    CREATE TABLE IF NOT EXISTS framework (section_id TEXT PRIMARY KEY, body TEXT NOT NULL, updated_at TEXT NOT NULL);`);
+    CREATE TABLE IF NOT EXISTS framework (section_id TEXT PRIMARY KEY, body TEXT NOT NULL, updated_at TEXT NOT NULL);
+    CREATE TABLE IF NOT EXISTS case_attempts (content_id TEXT PRIMARY KEY, body TEXT NOT NULL, submitted_at TEXT NOT NULL);`);
   const get = () => ({
     completed: db.prepare('SELECT content_id AS id, completed_at AS at FROM progress').all(),
     bookmarks: db.prepare('SELECT content_id AS id FROM bookmarks').all().map((row) => row.id),
@@ -19,6 +20,7 @@ export function createStore(filename) {
     answers: db.prepare('SELECT lesson_id AS lessonId, question_id AS questionId, choice, correct, answered_at AS answeredAt FROM answers').all(),
     reviews: db.prepare('SELECT content_id AS id, due_at AS dueAt, interval_days AS intervalDays, repetitions, last_rating AS lastRating FROM reviews').all(),
     framework: db.prepare('SELECT section_id AS id, body, updated_at AS updatedAt FROM framework').all(),
+    caseAttempts: db.prepare('SELECT content_id AS id, body, submitted_at AS submittedAt FROM case_attempts').all(),
   });
   const now = () => new Date().toISOString();
   const update = ({ kind, id, value }) => {
@@ -30,6 +32,17 @@ export function createStore(filename) {
       if (value) db.prepare('INSERT OR REPLACE INTO bookmarks VALUES (?, ?)').run(id, timestamp);
       else db.prepare('DELETE FROM bookmarks WHERE content_id = ?').run(id);
     } else if (kind === 'note') db.prepare('INSERT OR REPLACE INTO notes VALUES (?, ?, ?)').run(id, value, timestamp);
+    else if (kind === 'caseAttempt') {
+      db.exec('BEGIN');
+      try {
+        db.prepare('INSERT INTO case_attempts VALUES (?, ?, ?)').run(id, value, timestamp);
+        db.prepare('INSERT OR REPLACE INTO notes VALUES (?, ?, ?)').run(id, value, timestamp);
+        db.exec('COMMIT');
+      } catch (error) {
+        db.exec('ROLLBACK');
+        throw error;
+      }
+    }
     else if (kind === 'framework') db.prepare('INSERT OR REPLACE INTO framework VALUES (?, ?, ?)').run(id, value, timestamp);
     else if (kind === 'answer') db.prepare('INSERT OR REPLACE INTO answers VALUES (?, ?, ?, ?, ?)').run(id, value.questionId, value.choice, Number(value.correct), timestamp);
     else if (kind === 'review') {
@@ -41,5 +54,5 @@ export function createStore(filename) {
     }
     return get();
   };
-  return { get, update, close: () => db.close() };
+  return { get, update, hasCaseAttempt: (id) => Boolean(db.prepare('SELECT 1 FROM case_attempts WHERE content_id = ?').get(id)), close: () => db.close() };
 }

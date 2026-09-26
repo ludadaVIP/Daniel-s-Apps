@@ -5,7 +5,7 @@ unit: "衍生品与另类"
 order: 3
 level: "进阶"
 master: null
-minutes: 70
+minutes: 95
 depth: textbook
 concepts: ["opportunity-cost", "permanent-loss", "position-sizing"]
 cases: ["credit-cycle"]
@@ -35,14 +35,21 @@ quiz:
     options: [净费用后回报、共同风险、流动性与个人期限, 只比较标签种类, 只看历史低波动]
     answer: 0
     explanation: 名义上的另类不保证分散，实际现金约束和共同风险仍需分析。
-practice: "选择一个公开披露的 REIT 或另类基金文件，写清底层资产、杠杆、估值、费用、赎回与分派来源；用坏情景解释个人组合是否能承受其流动性。"
+  - id: q6
+    question: 基金实缴 90、已向投资者分派 25、剩余未售资产报告净值 80。DPI、RVPI 与 TVPI 分别约为？
+    options: [0.28、0.89、1.17, 1.17、0.28、0.89, 0.89、1.17、0.28]
+    answer: 0
+    explanation: DPI=25/90≈0.28，RVPI=80/90≈0.89，TVPI=(25+80)/90≈1.17；只有分派是已回到账户的现金。
+practice: "选择一个公开披露的 REIT 或另类基金文件，写清底层资产、杠杆、估值、费用、赎回与分派来源；以逐期出资通知和客户付款表测流动性，并分别计算 DPI、RVPI 与 TVPI。"
 sources:
   - label: CFA Institute · Alternative Investment Features and Structures
     url: https://www.cfainstitute.org/insights/professional-learning/refresher-readings/2026/alternative-investment-features-methods-and-structures
   - label: SEC Investor.gov · Private Equity Funds
     url: https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds/private-equity
   - label: SEC Investor.gov · REITs
-    url: https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/real
+    url: https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-89
+  - label: CFA Institute Research Foundation · The Economics of Private Equity
+    url: https://rpc.cfainstitute.org/-/media/documents/article/rf-brief/economics-of-private-equity.pdf
 ---
 
 ## 学习目标与先修
@@ -66,6 +73,31 @@ sources:
 私募基金投资者可能承诺出资 100，先缴 40，未来依基金通知再缴剩余 60。你必须留出可用现金，不能把未缴承诺全部投到难以变现的其他资产中。若基金后来分派 20，也要确认其中是经营利润、资产出售所得还是返还出资；总分派 20 不等于赚了 20。考核私募绩效常看内部收益率 IRR 与投入资本倍数，二者对时间和估值的敏感性不同。尚未出售资产的估值可以变化，不能把纸面 IRR 当已实现现金。
 
 费用层次也影响回报：管理费、业绩提成、基金层交易费用、被投企业层成本与借款利息都可能存在。比较公开市场替代物时，应计算投资者**净费用后**的现金回报，并考虑税与风险。即使预期回报更高，锁定多年且资金可能被提前通知缴付，也可能不适合短期有资金需求的人。
+
+### 把未缴承诺放进客户付款日
+
+模拟客户今日可靠现金为 120，另有与这笔现金分开的长期资产。她承诺向基金出资 100，今日缴 40，基金合同允许未来再通知缴款 60。为做压力测试，假设六个月后通知缴 30、十八个月后再通知缴 30；客户十二个月后还有确定付款 70。这里的通知日期是教学假设，真实合同还需看催缴时间与违约后果。
+
+| 日期 | 已知或压力情景现金流 | 若不另筹资金，可靠现金余额 |
+| --- | ---: | ---: |
+| 今日 | `120−40` | 80 |
+| 第六个月 | `80−30` | 50 |
+| 第十二个月 | `50−70` | **−20，付款缺口** |
+| 第十八个月 | 若此前缺口已另行解决，仍可能再需 30 | 另行安排 |
+
+基金估值表上即使显示未售资产升值，也不能在第十二个月当作可支付的 20。若合同限制退出，客户须在承诺前把到期付款与潜在催缴放在同一现金梯度；能否出售其他资产、会否触发税费及法律违约，都要在承诺规模中反映。对受托资金，还要遵守客户授权和组合流动性预算。承诺额 100 **不是今日投入 100**，但剩余 60 也绝不是可自由花用的现金。
+
+### 账面倍数与已返回现金分开读
+
+到另一个观察时点，假设基金累计实缴 90、已向投资者分派 25、剩余未售资产报告净值 80；所有数值以投资者扣费后的同一口径给出。`DPI=25/90≈0.28` 是已分派现金相对实缴，`RVPI=80/90≈0.89` 依赖未售资产估值，`TVPI=(25+80)/90≈1.17` 是两者合计。纸面上超出实缴的 15 并不等于客户已经收到 15 利润：她实际只收回 25，尚有 80 等待退出。若最初承诺 100，则仍有 10 未缴，但它**不应直接从当前 NAV 80 再减一次**来计算这三个倍数；应在未来现金义务表另列。
+
+| 指标 | 本例计算 | 能证明什么 | 不能证明什么 |
+| --- | ---: | --- | --- |
+| DPI，已分派／实缴 | `25/90≈0.28` | 已返回账户的现金比例 | 已分派部分是否全是利润 |
+| RVPI，未售净值／实缴 | `80/90≈0.89` | 按报告估值仍持有的份额 | 最终能以 80 变现 |
+| TVPI，两项之和 | `(25+80)/90≈1.17` | 含未售估值的账面总倍数 | 现金发生时间、年化收益和风险 |
+
+这些倍数都不说明现金何时发生，也没有扣除同风险公开市场替代方案的表现。比较两个基金时还要重建逐笔出资和分派日期、核实净费用口径，并检查估值是否经后来真实出售验证。若分派来自基金借款或返回出资本金，DPI 仍会计入现金，但它不能证明底层资产赚到了同等利润。
 
 ## 看起来稳定的价格，可能只是报价稀疏
 
