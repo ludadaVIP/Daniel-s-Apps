@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>亚里士多德哲学：从“存在是什么”到“人应当怎样活”</title>
+<meta name="description" content="一文系统讲透亚里士多德：逻辑、形而上学、四因说、质料形式论、潜能与现实、灵魂论、德性伦理、政治学、修辞学、诗学，以及他与柏拉图的根本分歧。">
+<style>
+:root{
+  --bg:#f5f1e8;
+  --paper:#fffdf8;
+  --ink:#252019;
+  --muted:#6f675d;
+  --line:#d8d0c2;
+  --accent:#7b4f2f;
+  --accent2:#315c57;
+  --gold:#a17835;
+  --soft:#eee6d8;
+  --soft2:#e5eeeb;
+  --shadow:0 14px 40px rgba(47,37,25,.10);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong",Georgia,serif;
+  background:
+    radial-gradient(circle at 10% 0%, rgba(161,120,53,.10), transparent 35%),
+    linear-gradient(180deg,#f7f3eb 0%,#f2ede3 100%);
+  color:var(--ink);
+  line-height:1.9;
+}
+a{color:var(--accent2);text-decoration:none;border-bottom:1px solid rgba(49,92,87,.35)}
+a:hover{border-bottom-color:var(--accent2)}
+.hero{
+  min-height:78vh;
+  display:grid;
+  place-items:center;
+  padding:64px 24px;
+  position:relative;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg, rgba(24,25,23,.88), rgba(24,25,23,.55)),
+    url("https://upload.wikimedia.org/wikipedia/commons/d/d7/Portrait_of_Aristotle%2C_set_on_a_restored_bust%2C_Colosseum.jpg") center 26%/cover no-repeat;
+  color:#fffaf0;
+}
+.hero:after{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 65%,rgba(245,241,232,.98));
+  pointer-events:none;
+}
+.hero-inner{width:min(1100px,100%);position:relative;z-index:2}
+.kicker{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;opacity:.78;margin-bottom:16px}
+h1{font-size:clamp(2.5rem,6.5vw,5.7rem);line-height:1.05;margin:0 0 20px;font-weight:700;letter-spacing:-.03em}
+.hero .lead{font-size:clamp(1.08rem,2.2vw,1.45rem);max-width:780px;line-height:1.7;color:#f4eee4}
+.hero-meta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.pill{border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.08);padding:7px 12px;border-radius:999px;font-size:.86rem}
+.wrapper{width:min(1180px,calc(100% - 32px));margin:0 auto 80px;display:grid;grid-template-columns:270px minmax(0,1fr);gap:28px;align-items:start}
+.toc{
+  position:sticky;top:18px;
+  margin-top:-54px;
+  background:rgba(255,253,248,.94);backdrop-filter:blur(10px);
+  border:1px solid var(--line);border-radius:var(--radius);padding:20px;
+  box-shadow:var(--shadow);z-index:4;max-height:92vh;overflow:auto
+}
+.toc h3{margin:0 0 12px;font-size:1rem}
+.toc ol{margin:0;padding-left:1.2rem}
+.toc li{margin:.32rem 0;color:var(--muted);font-size:.88rem;line-height:1.45}
+.toc a{border:0;color:inherit}.toc a:hover{color:var(--accent)}
+main{margin-top:-54px;position:relative;z-index:3}
+.card,section{
+  background:var(--paper);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  box-shadow:var(--shadow);
+  padding:clamp(24px,4vw,52px);
+  margin-bottom:22px;
+}
+.intro-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:28px;align-items:center}
+h2{font-size:clamp(1.75rem,3.5vw,2.55rem);line-height:1.25;margin:0 0 22px}
+h3{font-size:1.35rem;line-height:1.4;margin:34px 0 12px}
+h4{font-size:1.05rem;margin:26px 0 8px}
+p{margin:.8rem 0}
+.big-idea{font-size:1.17rem;line-height:1.85}
+.dropcap:first-letter{float:left;font-size:3.2rem;line-height:.8;padding:.12em .12em 0 0;color:var(--accent)}
+.quote{border-left:4px solid var(--gold);padding:14px 18px;background:#faf4e7;border-radius:0 12px 12px 0;margin:24px 0}
+.quote b{color:var(--accent)}
+.note{padding:16px 18px;border-radius:12px;background:var(--soft2);border:1px solid #cfded9;color:#2a4945}
+.warning{padding:16px 18px;border-radius:12px;background:#f6eadf;border:1px solid #e4cbb6}
+.key{display:inline-block;background:var(--soft);border:1px solid #ddd1be;padding:.05em .45em;border-radius:7px;font-weight:650;color:#5d3d28}
+.figure{margin:26px 0}
+.figure figcaption{font-size:.82rem;color:var(--muted);margin-top:8px;line-height:1.55}
+.imgwide{width:100%;max-height:520px;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.three{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.fact{background:#faf7f0;border:1px solid var(--line);padding:17px;border-radius:14px}
+.fact strong{display:block;color:var(--accent);font-size:1.05rem;margin-bottom:4px}
+table{width:100%;border-collapse:collapse;margin:18px 0;font-size:.94rem}
+th,td{padding:11px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{color:var(--accent);background:#faf6ee}
+.timeline{position:relative;margin:28px 0;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:8px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.tl{position:relative;margin:0 0 20px;padding:0 0 0 18px}
+.tl:before{content:"";position:absolute;left:-26px;top:.55em;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 5px #f2e8db}
+.tl b{color:var(--accent)}
+.flow{display:grid;gap:10px;margin:22px 0}
+.flow .row{display:grid;grid-template-columns:160px 34px 1fr;gap:10px;align-items:center}
+.flow .box{padding:12px 14px;border-radius:11px;border:1px solid var(--line);background:#faf7f1}
+.flow .arrow{text-align:center;color:var(--gold);font-size:1.5rem}
+.svgbox{background:#fbf9f4;border:1px solid var(--line);border-radius:16px;padding:14px;margin:24px 0;overflow:auto}
+.svgbox svg{display:block;width:100%;height:auto;min-width:650px}
+.badge{font-size:.78rem;padding:3px 8px;border-radius:999px;background:#efe5d7;border:1px solid #dccab4;color:#6f492e;white-space:nowrap}
+.compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:12px;align-items:stretch;margin:20px 0}
+.compare .side{border:1px solid var(--line);border-radius:14px;padding:18px;background:#faf7f1}
+.compare .mid{display:grid;place-items:center;font-size:2rem;color:var(--gold)}
+.list-clean{padding-left:1.2rem}.list-clean li{margin:.5rem 0}
+.callout{
+  padding:22px;border-radius:16px;color:#fff;background:linear-gradient(135deg,#315c57,#243f3c);
+  margin:24px 0
+}
+.callout h3{margin-top:0;color:#fff}
+.chapter-index{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.chapter-index a{border:0}.chapter-index span{display:inline-block;padding:6px 10px;border:1px solid var(--line);border-radius:999px;background:#faf7f1;font-size:.82rem;color:#594f45}
+.footer{width:min(980px,calc(100% - 32px));margin:0 auto 60px;color:var(--muted);font-size:.86rem}
+.footer .source-list{columns:2;column-gap:32px}
+hr{border:0;border-top:1px solid var(--line);margin:32px 0}
+@media (max-width:900px){
+  .wrapper{display:block}
+  .toc{position:relative;top:auto;margin:-54px 0 22px;max-height:none}
+  main{margin:0}
+  .intro-grid,.two,.three{grid-template-columns:1fr}
+  .compare{grid-template-columns:1fr}.compare .mid{transform:rotate(90deg);height:46px}
+  .footer .source-list{columns:1}
+}
+@media print{
+  body{background:white}.hero{min-height:auto;padding:48px;background:#222}.toc{display:none}.wrapper{display:block;width:100%}main{margin:0}
+  section,.card{box-shadow:none;break-inside:avoid;border-color:#bbb}.footer{width:100%}
+  a{color:inherit;border:0}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">Aristotle · 384–322 BCE</div>
+    <h1>亚里士多德<br>哲学全景</h1>
+    <p class="lead">如果柏拉图问：“在可见世界背后，永恒的真理在哪里？”亚里士多德则把视线重新拉回眼前：<b>事物本身是怎样成为它所是？变化为何可能？人这种动物如何活得好？</b></p>
+    <div class="hero-meta">
+      <span class="pill">形而上学</span><span class="pill">逻辑学</span><span class="pill">自然哲学</span>
+      <span class="pill">灵魂论</span><span class="pill">伦理学</span><span class="pill">政治学</span>
+      <span class="pill">修辞学</span><span class="pill">诗学</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrapper">
+<aside class="toc">
+  <h3>目录</h3>
+  <ol>
+    <li><a href="#overview">先看全局：他究竟在做什么？</a></li>
+    <li><a href="#life">生平与作品地图</a></li>
+    <li><a href="#method">方法：从经验出发，但不止于经验</a></li>
+    <li><a href="#logic">逻辑：论证的“骨架”</a></li>
+    <li><a href="#categories">范畴、实体与“是什么”</a></li>
+    <li><a href="#hylomorphism">质料—形式论</a></li>
+    <li><a href="#fourcauses">四因说：完整解释一件事</a></li>
+    <li><a href="#potentiality">潜能与现实：变化如何可能</a></li>
+    <li><a href="#nature">自然、目的与运动</a></li>
+    <li><a href="#soul">灵魂论：生命的形式</a></li>
+    <li><a href="#knowledge">知识、经验与科学</a></li>
+    <li><a href="#ethics">伦理学：幸福与德性</a></li>
+    <li><a href="#mean">中道、实践智慧与选择</a></li>
+    <li><a href="#friendship">友爱、快乐与完整人生</a></li>
+    <li><a href="#politics">政治哲学：城邦与共同善</a></li>
+    <li><a href="#rhetoric">修辞学：说服的结构</a></li>
+    <li><a href="#poetics">诗学：悲剧与模仿</a></li>
+    <li><a href="#plato">与柏拉图的根本分歧</a></li>
+    <li><a href="#unity">把整个体系串起来</a></li>
+    <li><a href="#limits">局限、争议与历史影响</a></li>
+    <li><a href="#reading">如何继续读原著</a></li>
+  </ol>
+</aside>
+
+<main>
+<section id="overview">
+  <div class="intro-grid">
+    <div>
+      <div class="kicker" style="color:var(--accent)">01 · The Big Picture</div>
+      <h2>先看全局：亚里士多德究竟在做什么？</h2>
+      <p class="dropcap big-idea">亚里士多德最重要的特征，不是某一个单独理论，而是他试图建立一种<strong>从语言、推理、自然、生命一路延伸到伦理与政治的总体知识架构</strong>。在他那里，“世界是什么”“我们如何知道”“人应该怎样生活”并不是互相孤立的问题。</p>
+      <p>他的核心直觉可以压缩成一句话：</p>
+      <div class="quote"><b>理解一个事物，就是理解它“是什么”、由什么构成、如何发生、为了什么而存在，以及它怎样从可能性实现为现实。</b></div>
+    </div>
+    <div class="fact">
+      <strong>一条主线贯穿全部哲学</strong>
+      <p><span class="key">形式</span>回答“它是什么”；<span class="key">目的</span>回答“它趋向何处”；<span class="key">潜能→现实</span>解释“变化”；<span class="key">德性</span>则是人的能力被良好实现后的状态。</p>
+      <p>因此，《形而上学》的“实现”、生物学的“功能”、伦理学的“德性”、政治学的“共同生活”，其实使用的是同一套结构。</p>
+    </div>
+  </div>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 980 330" role="img" aria-label="亚里士多德哲学系统图">
+    <defs>
+      <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#a17835"/></marker>
+    </defs>
+    <rect x="370" y="22" rx="20" width="240" height="65" fill="#315c57"/>
+    <text x="490" y="61" text-anchor="middle" fill="white" font-size="24" font-family="serif">“事物如何成为其所是？”</text>
+    <g fill="#fffdf8" stroke="#d8d0c2" stroke-width="2">
+      <rect x="35" y="140" rx="16" width="165" height="70"/><rect x="225" y="140" rx="16" width="165" height="70"/>
+      <rect x="415" y="140" rx="16" width="165" height="70"/><rect x="605" y="140" rx="16" width="165" height="70"/>
+      <rect x="795" y="140" rx="16" width="150" height="70"/>
+    </g>
+    <g fill="#252019" font-size="22" text-anchor="middle" font-family="serif">
+      <text x="117" y="172">逻辑</text><text x="117" y="197" font-size="15" fill="#6f675d">怎样正确推理</text>
+      <text x="307" y="172">形而上学</text><text x="307" y="197" font-size="15" fill="#6f675d">存在与实体</text>
+      <text x="497" y="172">自然与生命</text><text x="497" y="197" font-size="15" fill="#6f675d">变化、功能、灵魂</text>
+      <text x="687" y="172">伦理</text><text x="687" y="197" font-size="15" fill="#6f675d">人如何活得好</text>
+      <text x="870" y="172">政治与艺术</text><text x="870" y="197" font-size="15" fill="#6f675d">共同生活与表达</text>
+    </g>
+    <g stroke="#a17835" stroke-width="2.5" marker-end="url(#arr)" fill="none">
+      <path d="M490 87 C340 105,170 105,117 137"/><path d="M490 87 C400 105,330 110,307 137"/>
+      <path d="M490 87 L497 136"/><path d="M490 87 C580 105,650 110,687 137"/><path d="M490 87 C700 104,835 112,870 137"/>
+    </g>
+    <rect x="245" y="255" rx="18" width="490" height="48" fill="#efe6d8" stroke="#d8d0c2"/>
+    <text x="490" y="286" text-anchor="middle" font-size="20" font-family="serif" fill="#7b4f2f">共同结构：形式 · 原因 · 功能/目的 · 潜能 → 现实</text>
+  </svg>
+  </div>
+</section>
+
+<section id="life">
+  <div class="kicker" style="color:var(--accent)">02 · Life & Corpus</div>
+  <h2>生平与作品：为什么他的著作读起来像“课程讲义”？</h2>
+  <div class="two">
+    <div>
+      <div class="timeline">
+        <div class="tl"><b>384 BCE</b>：出生于马其顿辖下的斯塔吉拉。父亲尼各马可与马其顿宫廷有医疗关系。</div>
+        <div class="tl"><b>约 367 BCE</b>：进入雅典的柏拉图学园，前后约二十年。</div>
+        <div class="tl"><b>347 BCE 后</b>：离开雅典，在小亚细亚、莱斯博斯等地研究，尤其进行生物观察。</div>
+        <div class="tl"><b>约 343 BCE</b>：受马其顿王腓力二世邀请，参与年轻亚历山大的教育。</div>
+        <div class="tl"><b>335 BCE</b>：回到雅典，创办吕克昂（Lyceum），形成“逍遥学派”传统。</div>
+        <div class="tl"><b>322 BCE</b>：离开雅典后卒于优卑亚岛。</div>
+      </div>
+    </div>
+    <div>
+      <figure class="figure">
+        <img class="imgwide" style="max-height:420px" src="https://upload.wikimedia.org/wikipedia/commons/d/d7/Portrait_of_Aristotle%2C_set_on_a_restored_bust%2C_Colosseum.jpg" alt="亚里士多德古代雕像的罗马时期复制品">
+        <figcaption>传统上认作亚里士多德的罗马时期大理石肖像复制品。图源：Wikimedia Commons，公有领域图像条目。</figcaption>
+      </figure>
+    </div>
+  </div>
+  <p>今天所称的“亚里士多德全集”并不是一套由作者精心排版、准备公开出版的现代意义著作。大量存世文本更接近学园内部使用的研究稿、课程材料或经过后人整理的论述，因此常显得压缩、跳跃、重复，甚至在不同篇章间存在张力。</p>
+
+  <h3>主要作品地图</h3>
+  <table>
+    <tr><th>领域</th><th>代表作品</th><th>核心问题</th></tr>
+    <tr><td>逻辑</td><td>《范畴篇》《解释篇》《前分析篇》《后分析篇》《论题篇》等，后世合称 <i>Organon</i>（工具论）</td><td>概念、命题、推理、证明与科学知识如何成立？</td></tr>
+    <tr><td>自然哲学</td><td>《物理学》《论天》《论生灭》《气象学》</td><td>运动、变化、自然、时间、因果如何理解？</td></tr>
+    <tr><td>生命与心灵</td><td>《论灵魂》《动物志》《动物部分》等</td><td>生命是什么？感觉、记忆、思维如何可能？</td></tr>
+    <tr><td>第一哲学</td><td>《形而上学》</td><td>作为存在的存在是什么？实体、形式、原因和第一原理是什么？</td></tr>
+    <tr><td>实践哲学</td><td>《尼各马可伦理学》《政治学》</td><td>何为幸福？德性如何形成？什么样的共同体使人生活得更好？</td></tr>
+    <tr><td>表达与艺术</td><td>《修辞学》《诗学》</td><td>说服如何发生？诗与悲剧为何能产生认知与情感效应？</td></tr>
+  </table>
+</section>
+
+<section id="method">
+  <div class="kicker" style="color:var(--accent)">03 · Method</div>
+  <h2>方法：从经验出发，但不止于经验</h2>
+  <p>把亚里士多德简单称为“经验主义者”并不充分。他确实比柏拉图更强调观察、分类与对具体事物的研究，但他的目标不是堆积事实，而是<strong>从经验中把握结构、原因与普遍性</strong>。</p>
+
+  <div class="three">
+    <div class="fact"><strong>① 从“显现”出发</strong>先看我们实际上如何经验世界、如何说话、前人如何争论，而不是直接从一个纯粹抽象体系开始。</div>
+    <div class="fact"><strong>② 保存合理直觉</strong>哲学理论最好能解释日常经验与成熟判断，而不是为了理论整洁把它们全部抹掉。</div>
+    <div class="fact"><strong>③ 寻找原因与原理</strong>真正的知识不是“知道发生了什么”，而是知道“为什么必然或通常如此”。</div>
+  </div>
+
+  <div class="callout">
+    <h3>一个很“亚里士多德”的研究姿态</h3>
+    <p>不要只问“这是真的吗？”还要问：<b>它属于哪一类事物？它的定义是什么？它由什么构成？什么使它产生？它为了什么？它在什么意义上可以被称为同一个东西？</b></p>
+  </div>
+</section>
+
+<section id="logic">
+  <div class="kicker" style="color:var(--accent)">04 · Logic</div>
+  <h2>逻辑：第一次把“论证形式”本身系统地研究</h2>
+  <p>亚里士多德最持久的成就之一，是把推理的有效性从具体内容中抽离出来研究。一个论证是否有效，不只看结论是否碰巧为真，还看<strong>结论是否必然地由前提推出</strong>。</p>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 900 300" aria-label="三段论结构">
+    <rect x="80" y="35" width="310" height="70" rx="14" fill="#fffdf8" stroke="#d8d0c2" stroke-width="2"/>
+    <rect x="510" y="35" width="310" height="70" rx="14" fill="#fffdf8" stroke="#d8d0c2" stroke-width="2"/>
+    <rect x="295" y="195" width="310" height="70" rx="14" fill="#315c57"/>
+    <text x="235" y="64" text-anchor="middle" font-size="18" fill="#7b4f2f">大前提</text>
+    <text x="235" y="89" text-anchor="middle" font-size="21">所有人都是会死的</text>
+    <text x="665" y="64" text-anchor="middle" font-size="18" fill="#7b4f2f">小前提</text>
+    <text x="665" y="89" text-anchor="middle" font-size="21">苏格拉底是人</text>
+    <text x="450" y="225" text-anchor="middle" font-size="18" fill="#f4dfbc">结论</text>
+    <text x="450" y="250" text-anchor="middle" font-size="21" fill="white">所以苏格拉底会死</text>
+    <path d="M240 108 C270 155,355 165,405 190" stroke="#a17835" stroke-width="3" fill="none"/>
+    <path d="M660 108 C630 155,545 165,495 190" stroke="#a17835" stroke-width="3" fill="none"/>
+  </svg>
+  </div>
+
+  <h3>“有效”与“真实”不是一回事</h3>
+  <p>如果推理形式保证：只要前提真，结论就不可能假，那么它在逻辑上有效。但一个有效论证仍可能有假的前提。因此，亚里士多德的科学理想还要求前提具有真、先在、解释性的地位。</p>
+
+  <h3>三段论的历史意义</h3>
+  <p>现代逻辑早已超越亚里士多德的三段论体系，但他开启了一个决定性的传统：<strong>把推理当作可以形式化、分类和证明的对象</strong>。逻辑不再只是“会辩论”，而成为研究正确推理结构的学科。</p>
+</section>
+
+<section id="categories">
+  <div class="kicker" style="color:var(--accent)">05 · Categories & Substance</div>
+  <h2>范畴与实体：“存在”不是只有一种说法</h2>
+  <p>我们说“某物存在”，其实可能在说完全不同的东西：一匹马存在、一种颜色存在、一个长度存在、一个关系存在。亚里士多德试图分析我们谈论存在的基本方式。</p>
+  <p>《范畴篇》传统上列出十个范畴：<b>实体、数量、性质、关系、地点、时间、姿态、状态、动作、承受</b>。其中最核心的是<strong>实体（ousia）</strong>。</p>
+
+  <div class="two">
+    <div class="fact"><strong>第一实体</strong>具体个体，例如“这个人”“这匹马”。它们不是作为某个主体的属性而存在；相反，颜色、身高、姿势等都依附于具体事物。</div>
+    <div class="fact"><strong>第二实体</strong>种与属，例如“人”“动物”。它们说明具体个体是什么。</div>
+  </div>
+
+  <div class="note"><b>关键：</b>亚里士多德不是把世界首先理解成一堆漂浮的抽象性质，而是由具体的、具有结构和本性的事物构成。后来《形而上学》会进一步追问：究竟是个体、形式、质料，还是复合体最配称作“实体”？这也是文本中最复杂的问题之一。</div>
+</section>
+
+<section id="hylomorphism">
+  <div class="kicker" style="color:var(--accent)">06 · Hylomorphism</div>
+  <h2>质料—形式论：事物既是“材料”，又是“结构”</h2>
+  <p>希腊文 <i>hylē</i> 是质料，<i>morphē/eidos</i> 是形式。亚里士多德认为，许多自然实体都应理解为<strong>质料与形式的统一体</strong>。</p>
+
+  <div class="compare">
+    <div class="side"><span class="badge">质料 · matter</span><h3>“由什么做成？”</h3><p>它提供承载变化的可能性。铜可以成为雕像，木材可以成为桌子，身体的有机材料可以构成活体。</p></div>
+    <div class="mid">＋</div>
+    <div class="side"><span class="badge">形式 · form</span><h3>“什么使它成为这个东西？”</h3><p>形式不是仅指外形，而是组织原则、结构、本质与功能秩序。正因为具有某种形式，一堆材料才是“这一类东西”。</p></div>
+  </div>
+
+  <p>这个理论要解决一个老问题：<strong>如果一切变化，那么同一性如何可能？如果有永恒形式，为什么要把它放在另一个世界？</strong>亚里士多德的答案是：形式就在具体事物之中，并不是一个与个体分离的“第二世界”。</p>
+
+  <div class="quote">木头本身不是床，床的“床性”也不是飘在另一个世界。现实中的床，是特定材料按照特定结构和功能被组织起来的复合体。</div>
+</section>
+
+<section id="fourcauses">
+  <div class="kicker" style="color:var(--accent)">07 · Four Causes</div>
+  <h2>四因说：完整理解一件事，需要四种“为什么”</h2>
+  <p>现代汉语的“原因”容易让人只想到前因后果，但亚里士多德的 <i>aitia</i> 更接近“解释根据”。他认为，一件事往往需要四种不同层面的解释。</p>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 980 520" aria-label="四因说">
+    <circle cx="490" cy="260" r="92" fill="#315c57"/>
+    <text x="490" y="250" fill="white" font-size="24" text-anchor="middle">一座</text>
+    <text x="490" y="282" fill="white" font-size="30" text-anchor="middle">青铜雕像</text>
+    <g>
+      <rect x="60" y="70" width="260" height="110" rx="18" fill="#fffdf8" stroke="#d8d0c2" stroke-width="2"/>
+      <text x="190" y="106" text-anchor="middle" font-size="23" fill="#7b4f2f">质料因</text><text x="190" y="137" text-anchor="middle" font-size="18">它由什么构成？</text><text x="190" y="163" text-anchor="middle" font-size="18">→ 青铜</text>
+      <rect x="660" y="70" width="260" height="110" rx="18" fill="#fffdf8" stroke="#d8d0c2" stroke-width="2"/>
+      <text x="790" y="106" text-anchor="middle" font-size="23" fill="#7b4f2f">形式因</text><text x="790" y="137" text-anchor="middle" font-size="18">它是什么结构/形态？</text><text x="790" y="163" text-anchor="middle" font-size="18">→ 某个人物的形象</text>
+      <rect x="60" y="340" width="260" height="110" rx="18" fill="#fffdf8" stroke="#d8d0c2" stroke-width="2"/>
+      <text x="190" y="376" text-anchor="middle" font-size="23" fill="#7b4f2f">动力因</text><text x="190" y="407" text-anchor="middle" font-size="18">是什么使它产生？</text><text x="190" y="433" text-anchor="middle" font-size="18">→ 雕塑家的制作活动</text>
+      <rect x="660" y="340" width="260" height="110" rx="18" fill="#fffdf8" stroke="#d8d0c2" stroke-width="2"/>
+      <text x="790" y="376" text-anchor="middle" font-size="23" fill="#7b4f2f">目的因</text><text x="790" y="407" text-anchor="middle" font-size="18">它为了什么？</text><text x="790" y="433" text-anchor="middle" font-size="18">→ 纪念、祭祀、展示等</text>
+    </g>
+    <g stroke="#a17835" stroke-width="3" fill="none">
+      <line x1="320" y1="170" x2="415" y2="220"/><line x1="660" y1="170" x2="565" y2="220"/>
+      <line x1="320" y1="350" x2="415" y2="300"/><line x1="660" y1="350" x2="565" y2="300"/>
+    </g>
+  </svg>
+  </div>
+
+  <h3>为什么“目的因”最难让现代人接受？</h3>
+  <p>近代科学非常擅长用机制解释自然：什么力量、粒子、基因、化学过程导致了什么结果。亚里士多德则认为，对于生物体尤其如此，只讲材料和触发机制仍然不够；一个器官“是什么”，往往与它<strong>做什么</strong>密切相关。眼睛之所以是眼睛，与视觉功能有关。</p>
+  <p>这并不意味着“每件事都被一个有意识的设计者安排”。亚里士多德的自然目的论更常见的意思是：<strong>自然过程内部有典型的成熟方向与功能结构</strong>。</p>
+</section>
+
+<section id="potentiality">
+  <div class="kicker" style="color:var(--accent)">08 · Potentiality & Actuality</div>
+  <h2>潜能与现实：变化既不是“从无到有”，也不是幻觉</h2>
+  <p>古希腊哲学有一个棘手问题：如果“无”不能产生“有”，那么变化如何可能？亚里士多德通过<strong>潜能（dynamis）</strong>与<strong>现实/实现（energeia / entelecheia）</strong>的区分来解释。</p>
+
+  <div class="flow">
+    <div class="row"><div class="box"><b>橡子</b></div><div class="arrow">→</div><div class="box">不是一棵现实的橡树，但具有成为橡树的<strong>潜能</strong></div></div>
+    <div class="row"><div class="box"><b>生长过程</b></div><div class="arrow">→</div><div class="box">在适当条件下，潜能逐步被<strong>实现</strong></div></div>
+    <div class="row"><div class="box"><b>成熟橡树</b></div><div class="arrow">→</div><div class="box">“成为橡树”的能力以更充分的方式处于<strong>现实态</strong></div></div>
+  </div>
+
+  <p>这里最重要的不是“潜能=未来”。潜能必须是一个事物基于其本性真正能够实现的能力。例如，一块石头并不以同样的意义“潜在地是一匹马”。</p>
+
+  <div class="callout"><h3>连接伦理学的关键</h3><p>人的德性也可以理解为能力的完善实现：我们不是仅仅“拥有理性”，而是要让理性、情感与行动形成稳定而优秀的秩序。<b>幸福不是静止占有某种东西，而是优秀能力的现实活动。</b></p></div>
+</section>
+
+<section id="nature">
+  <div class="kicker" style="color:var(--accent)">09 · Nature</div>
+  <h2>自然、运动与第一推动者</h2>
+  <p>亚里士多德把“自然”理解为某类事物自身具有的运动与静止原则。自然物与人工物的差别，在于自然物的发展原则内在于其自身；一棵树在适宜条件下会自己生长，而一张桌子不会自己长成。</p>
+
+  <h3>运动不仅是位置移动</h3>
+  <p>在《物理学》中，“运动/变化”（<i>kinesis</i>）包括位置变化、数量变化、性质变化乃至生成与消灭。变化可被理解为：<strong>某种潜能就其作为潜能而言的实现过程</strong>。</p>
+
+  <h3>第一推动者（Unmoved Mover）</h3>
+  <p>在其宇宙论与《形而上学》Λ卷中，亚里士多德论证需要一种不以尚待实现的潜能为其存在方式的第一原理，即“纯现实”。这一第一原理不是像推桌子那样从外部机械推动宇宙，而更像作为终极对象、完满活动而“引动”运动秩序。</p>
+  <div class="warning"><b>需要区分：</b>后来的犹太教、基督教、伊斯兰哲学家都深度吸收亚里士多德，但他们关于创造、上帝意志、人格性等概念，并不能简单等同于亚里士多德原本的“不动的推动者”。</div>
+</section>
+
+<section id="soul">
+  <div class="kicker" style="color:var(--accent)">10 · De Anima</div>
+  <h2>灵魂论：灵魂不是“身体里的幽灵”，而是生命的形式</h2>
+  <p>亚里士多德的“灵魂”（<i>psychē</i>）与现代日常语言里的“一个脱离肉体的灵体”并不完全相同。《论灵魂》中一个著名定义是：灵魂是<strong>具有生命潜能的自然有机体的第一现实性</strong>。</p>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 900 390" aria-label="灵魂能力层级">
+    <g>
+      <rect x="150" y="290" width="600" height="65" rx="14" fill="#eee6d8" stroke="#d8d0c2"/>
+      <text x="450" y="319" text-anchor="middle" font-size="22" fill="#7b4f2f">营养能力：摄取、生长、繁殖</text><text x="450" y="343" text-anchor="middle" font-size="15" fill="#6f675d">植物、动物、人</text>
+      <rect x="230" y="195" width="440" height="65" rx="14" fill="#e5eeeb" stroke="#c7d8d3"/>
+      <text x="450" y="224" text-anchor="middle" font-size="22" fill="#315c57">感觉与欲求：感知、趋避、运动</text><text x="450" y="248" text-anchor="middle" font-size="15" fill="#6f675d">动物、人</text>
+      <rect x="310" y="100" width="280" height="65" rx="14" fill="#315c57"/>
+      <text x="450" y="129" text-anchor="middle" font-size="22" fill="white">理性能力：思考与判断</text><text x="450" y="153" text-anchor="middle" font-size="15" fill="#d9efea">人</text>
+      <text x="450" y="52" text-anchor="middle" font-size="25" fill="#252019">生命不是“有/无”二分，而呈现能力层级</text>
+    </g>
+  </svg>
+  </div>
+
+  <p>这是一种典型的质料—形式论应用：身体不是灵魂的“监狱”，灵魂也不是临时寄居者；活体就是以特定生命形式组织起来的身体。没有这种形式，留下的材料不再是同一意义上的活体器官。</p>
+
+  <h3>理性灵魂的难题</h3>
+  <p>关于“主动理智/能动理智”的若干段落极其简短而难解，后来引发了亚历山大·阿佛洛狄西亚、阿维森纳、阿威罗伊、托马斯·阿奎那等截然不同的解释。亚里士多德本人究竟主张何种意义上的理智不朽，并不是一个可以用一句话解决的问题。</p>
+</section>
+
+<section id="knowledge">
+  <div class="kicker" style="color:var(--accent)">11 · Epistemology & Science</div>
+  <h2>知识：从感觉开始，走向“知道为什么”</h2>
+  <p>亚里士多德认为，认知通常从感觉开始。重复感觉留下记忆，多次记忆形成经验，而经验可以成为把握普遍结构的基础。真正严格的科学知识（<i>epistēmē</i>）则要求我们通过证明掌握原因。</p>
+
+  <div class="flow">
+    <div class="row"><div class="box">感觉</div><div class="arrow">→</div><div class="box">接触具体个别事物</div></div>
+    <div class="row"><div class="box">记忆</div><div class="arrow">→</div><div class="box">过去经验得以保留</div></div>
+    <div class="row"><div class="box">经验</div><div class="arrow">→</div><div class="box">大量个例形成稳定认识</div></div>
+    <div class="row"><div class="box">普遍原理</div><div class="arrow">→</div><div class="box">把握类型、本质与原因</div></div>
+    <div class="row"><div class="box">科学证明</div><div class="arrow">→</div><div class="box">从原理说明“为什么如此”</div></div>
+  </div>
+
+  <p>这使他的知识论既不是“纯粹从理性里演绎整个世界”，也不是“只收集观察数据”。经验提供材料，理智把握普遍性；科学则把两者组织成因果解释。</p>
+</section>
+
+<section id="ethics">
+  <div class="kicker" style="color:var(--accent)">12 · Nicomachean Ethics</div>
+  <h2>伦理学：人生的最高目标不是“感觉快乐”，而是 flourishing</h2>
+  <p>《尼各马可伦理学》开篇提出：一切技艺、研究、行动和选择似乎都以某种善为目标。问题随即变成：有没有一个我们为了它本身而追求、而不是为了别的东西才追求的最高目的？亚里士多德把它称为 <strong>eudaimonia</strong>。</p>
+
+  <div class="note"><b>Eudaimonia 很难用一个中文词完全翻译。</b>“幸福”容易让人想到主观快乐，“福祉”又显得偏外在。它更接近“人生整体上的良好实现、兴盛、活得圆满”。英文常译作 <i>flourishing</i> 或 <i>well-being</i>。</div>
+
+  <h3>功能论证：人之所以活得好，关键在于人的特有活动</h3>
+  <p>如果眼睛的好坏取决于它能否良好地完成视觉功能，那么“好的人生”也应与人的特有功能有关。亚里士多德认为，人区别于植物和其他动物的关键在于具有理性的活动，因此：</p>
+  <div class="quote"><b>幸福不是一种情绪，而是一生中依照德性而进行的理性活动。</b></div>
+
+  <p>这里的“德性”（<i>aretē</i>）原义接近“卓越、优秀状态”。一把好刀的“德性”在于切割得好；人的德性则意味着人的理性、情感、欲望与行动被塑造成良好秩序。</p>
+
+  <h3>幸福为什么仍需要外在条件？</h3>
+  <p>亚里士多德并不认为只要内心有德性，任何极端处境都完全无关紧要。朋友、一定程度的物质条件、社会位置与免于严重灾祸等，会影响一个人实施好行动的可能性。这使他的伦理学比一种纯粹“只看内心意志”的理论更贴近现实生活。</p>
+</section>
+
+<section id="mean">
+  <div class="kicker" style="color:var(--accent)">13 · Virtue, Mean & Phronesis</div>
+  <h2>中道：不是“凡事五五开”，而是在具体情境中做到恰到好处</h2>
+  <p>最常被误解的亚里士多德命题之一，就是“德性是中道”。中道绝不是数学平均，更不是没有原则的折中。它是<strong>相对于我们、在特定情境中，由理性与实践智慧决定的恰当程度</strong>。</p>
+
+  <table>
+    <tr><th>过少</th><th>德性（中道）</th><th>过多</th></tr>
+    <tr><td>怯懦：面对应承担的风险时不足</td><td><b>勇敢</b>：为正确理由，以合适方式面对应当面对的危险</td><td>鲁莽：不当地低估风险</td></tr>
+    <tr><td>麻木：对合理享受反应过弱</td><td><b>节制</b>：欲望服从良好判断</td><td>放纵：欲望压倒判断</td></tr>
+    <tr><td>吝啬</td><td><b>慷慨</b>：在对象、时机、数量上恰当给予</td><td>挥霍</td></tr>
+  </table>
+
+  <h3>德性不是“知道规则”，而是形成品格</h3>
+  <p>道德德性通过习惯形成。我们通过一次次做勇敢的事，逐渐成为勇敢的人；通过反复作出公正选择，形成公正的性格。因此伦理教育不仅传授命题，更塑造欲望、感受与选择模式。</p>
+
+  <h3>实践智慧（phronēsis）为什么不可替代？</h3>
+  <p>生活不像几何题。规则无法提前穷尽所有具体情况，所以需要实践智慧：能够看清此时此地什么是重要的，怎样权衡多个善，如何把一般原则应用到复杂现实。</p>
+
+  <div class="callout"><h3>现代读者最值得抓住的一点</h3><p>亚里士多德的伦理学不是“我这次该不该做 X？”的规则手册，而是更根本地问：<b>“我要成为怎样的人，才能在各种不同情境里看见该做什么，并愿意去做？”</b></p></div>
+</section>
+
+<section id="friendship">
+  <div class="kicker" style="color:var(--accent)">14 · Friendship & Pleasure</div>
+  <h2>友爱：幸福不是孤立个体的项目</h2>
+  <p>《尼各马可伦理学》用了整整两卷讨论友爱（<i>philia</i>），这本身就说明：好的人生不是一个人关起门来“自我完善”。</p>
+
+  <div class="three">
+    <div class="fact"><strong>有用之友</strong>双方因利益而交往；利益消失，关系可能结束。</div>
+    <div class="fact"><strong>快乐之友</strong>双方因相处愉快而交往；兴趣改变，关系可能改变。</div>
+    <div class="fact"><strong>德性之友</strong>彼此因对方自身的品格而希望其好，建立在相对稳定的互相认识上。</div>
+  </div>
+
+  <p>第三种友谊最完整，因为朋友成为某种“另一个自己”：我们通过共同生活、互相观察、共同实践善，更清楚地认识什么样的人生值得追求。</p>
+
+  <h3>快乐不是敌人</h3>
+  <p>亚里士多德并非禁欲主义者。他认为与良好活动相匹配的快乐，会像“完成”一样伴随活动。问题不在“快乐本身坏”，而在于我们喜欢什么、为什么喜欢，以及这种快乐是否与优秀活动一致。</p>
+</section>
+
+<section id="politics">
+  <div class="kicker" style="color:var(--accent)">15 · Politics</div>
+  <h2>政治哲学：人是“政治的动物”</h2>
+  <p>对亚里士多德而言，伦理学自然通向政治学。因为人要形成语言、判断、公正感、习惯与德性，都离不开共同生活。城邦（<i>polis</i>）不只是安全与交易平台，也是塑造生活方式的制度环境。</p>
+
+  <div class="quote"><b>“政治动物”不是说人人热衷政党或权力，而是说人的完整生活天然包含制度、规范、语言与共同体。</b></div>
+
+  <h3>政体分析</h3>
+  <p>亚里士多德常按两个问题区分政体：<b>谁统治？统治为了共同利益还是统治者私利？</b>于是形成一人、少数人、多数人三种基本结构及其正/偏离形式。这不是现代宪政分类的直接等价物，而是古希腊城邦背景下的分析框架。</p>
+
+  <table>
+    <tr><th>统治人数</th><th>以共同利益为目标</th><th>以统治者私利为目标</th></tr>
+    <tr><td>一人</td><td>王政</td><td>僭主制</td></tr>
+    <tr><td>少数</td><td>贵族政体</td><td>寡头制</td></tr>
+    <tr><td>多数</td><td>共和/混合政体（politeia）</td><td>“民主制”——此处是其古典技术性用法，不等于现代民主概念</td></tr>
+  </table>
+
+  <h3>必须正视的历史局限</h3>
+  <p>亚里士多德的政治哲学包含今天不能接受的等级性判断，包括为某些形式的奴役辩护、把公民资格限制在狭窄群体中，以及对女性政治角色的限制。研究他的政治思想，需要同时理解其分析工具的历史影响，也要清楚地区分这些古代前提与现代平等、公民权和人权观念。</p>
+</section>
+
+<section id="rhetoric">
+  <div class="kicker" style="color:var(--accent)">16 · Rhetoric</div>
+  <h2>修辞学：说服不是“花言巧语”，而是对判断机制的研究</h2>
+  <p>亚里士多德把修辞视为在特定场合发现可用说服手段的能力。他著名地区分三类说服资源：</p>
+  <div class="three">
+    <div class="fact"><strong>Logos · 论证</strong>理由、证据、推理结构本身。</div>
+    <div class="fact"><strong>Ethos · 说话者品格</strong>受众是否把说话者视为可信、审慎、善意。</div>
+    <div class="fact"><strong>Pathos · 情感</strong>受众处于何种情绪，会影响他们如何判断同一事实。</div>
+  </div>
+
+  <p>这一理论的深刻之处在于：现实中的公共判断很少只由抽象逻辑驱动。可信度、情绪、情境与论证会共同作用。修辞学因此既是表达技术，也是对人类判断的心理—社会分析。</p>
+</section>
+
+<section id="poetics">
+  <div class="kicker" style="color:var(--accent)">17 · Poetics</div>
+  <h2>诗学：为什么虚构故事反而能揭示普遍真理？</h2>
+  <p>《诗学》讨论史诗、悲剧、情节、人物、模仿（<i>mimēsis</i>）与悲剧情感。亚里士多德不同于把艺术简单看作“现实的低级复制”的立场；诗能够呈现一种比单纯史实更具普遍性的结构：不是只说“某一天某个人发生了什么”，而是展示“怎样的人在怎样的条件下通常会发生怎样的事”。</p>
+
+  <h3>悲剧的核心不是华丽语言，而是情节结构</h3>
+  <p>悲剧通过有组织的行动、转折与认知，使观众经历怜悯与恐惧。关于 <i>katharsis</i> 究竟应译作“净化”“疏泄”还是更复杂的情感澄清，学界长期有争论；不宜把它简化成“看完悲剧哭一场就排毒”。</p>
+</section>
+
+<section id="plato">
+  <div class="kicker" style="color:var(--accent)">18 · Aristotle vs Plato</div>
+  <h2>与柏拉图的根本分歧：形式究竟“在哪里”？</h2>
+
+  <figure class="figure">
+    <img class="imgwide" src="https://upload.wikimedia.org/wikipedia/commons/9/98/Sanzio_01_Plato_Aristotle.jpg" alt="拉斐尔《雅典学院》中柏拉图与亚里士多德">
+    <figcaption>拉斐尔《雅典学院》局部：柏拉图指向上方，亚里士多德手掌朝向地面。这个姿势经常被后人当作两者哲学取向的象征——虽是文艺复兴时期的艺术解释，而非历史现场。图源：Wikimedia Commons，公有领域。</figcaption>
+  </figure>
+
+  <table>
+    <tr><th>问题</th><th>柏拉图倾向</th><th>亚里士多德倾向</th></tr>
+    <tr><td>形式/本质</td><td>真正可知的形式具有独立于可感个体的地位</td><td>形式原则存在于具体实体之中；不需要另设一个分离的“形式世界”来解释个体</td></tr>
+    <tr><td>知识</td><td>哲学教育强调灵魂由可感上升到可知的形式</td><td>认知从感觉与经验开始，再把握普遍结构与原因</td></tr>
+    <tr><td>自然研究</td><td>对数学结构与规范秩序的强调更突出</td><td>大量观察生物与自然现象，强调分类、功能与内在原则</td></tr>
+    <tr><td>伦理</td><td>善的理念具有最高统摄地位</td><td>反对把“善”当成单一分离实体；研究不同实践中的善以及人的具体功能</td></tr>
+    <tr><td>政治</td><td>《理想国》构造高度规范性的理想城邦</td><td>《政治学》大量比较现实政体，更关注制度如何在具体条件下运作</td></tr>
+  </table>
+
+  <div class="warning"><b>不要把二人漫画化成“柏拉图=空想、亚里士多德=科学”。</b>柏拉图也重视数学与政治实践，亚里士多德同样提出高度抽象的形而上学。真正的分野在于：他们如何理解形式、知识、个体与普遍性之间的关系。</div>
+</section>
+
+<section id="unity">
+  <div class="kicker" style="color:var(--accent)">19 · The Unity of the System</div>
+  <h2>把整个体系串起来：同一个结构，在不同领域反复出现</h2>
+  <p>理解亚里士多德最有效的方法，不是背诵十几个名词，而是看到这些理论如何互相嵌套。</p>
+
+  <div class="svgbox">
+  <svg viewBox="0 0 980 520" aria-label="亚里士多德思想统一结构">
+    <defs><marker id="arr2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#a17835"/></marker></defs>
+    <rect x="335" y="25" width="310" height="62" rx="18" fill="#315c57"/>
+    <text x="490" y="64" text-anchor="middle" fill="white" font-size="25">存在者具有形式与能力</text>
+
+    <g fill="#fffdf8" stroke="#d8d0c2" stroke-width="2">
+      <rect x="75" y="150" width="240" height="90" rx="16"/><rect x="370" y="150" width="240" height="90" rx="16"/><rect x="665" y="150" width="240" height="90" rx="16"/>
+      <rect x="220" y="335" width="240" height="90" rx="16"/><rect x="520" y="335" width="240" height="90" rx="16"/>
+    </g>
+    <g text-anchor="middle" font-family="serif">
+      <text x="195" y="183" font-size="22" fill="#7b4f2f">自然哲学</text><text x="195" y="212" font-size="17">潜能在运动中实现</text>
+      <text x="490" y="183" font-size="22" fill="#7b4f2f">生物与灵魂</text><text x="490" y="212" font-size="17">形式组织材料并执行功能</text>
+      <text x="785" y="183" font-size="22" fill="#7b4f2f">形而上学</text><text x="785" y="212" font-size="17">实体、形式、原因与现实性</text>
+      <text x="340" y="368" font-size="22" fill="#7b4f2f">伦理学</text><text x="340" y="397" font-size="17">人的能力以德性卓越地实现</text>
+      <text x="640" y="368" font-size="22" fill="#7b4f2f">政治学</text><text x="640" y="397" font-size="17">制度为共同生活提供条件</text>
+    </g>
+    <g stroke="#a17835" stroke-width="2.5" fill="none" marker-end="url(#arr2)">
+      <path d="M430 88 C330 108,240 120,205 147"/><path d="M490 88 L490 147"/><path d="M550 88 C650 108,740 120,775 147"/>
+      <path d="M195 243 C225 285,290 300,330 332"/><path d="M490 243 C455 280,400 300,355 332"/>
+      <path d="M490 243 C535 280,590 300,625 332"/><path d="M785 243 C750 285,690 302,650 332"/>
+    </g>
+    <text x="490" y="485" text-anchor="middle" font-size="24" fill="#315c57">“好”＝一个存在者依其形式与功能，把能力实现得好</text>
+  </svg>
+  </div>
+
+  <h3>这条统一线索解释了很多看似分散的概念</h3>
+  <ul class="list-clean">
+    <li><b>形而上学：</b>问“什么最真实地存在？”——实体、形式、现实性居于核心。</li>
+    <li><b>自然哲学：</b>问“变化如何可能？”——潜能向现实转化。</li>
+    <li><b>生物学：</b>问“生命体为什么有这些器官？”——形式、功能与目的解释。</li>
+    <li><b>伦理学：</b>问“人怎样才活得好？”——人的理性能力通过德性被卓越实现。</li>
+    <li><b>政治学：</b>问“怎样的共同体帮助人实现善的生活？”——伦理从个体扩展到制度。</li>
+  </ul>
+</section>
+
+<section id="limits">
+  <div class="kicker" style="color:var(--accent)">20 · Limits & Legacy</div>
+  <h2>局限、争议与两千年的影响</h2>
+
+  <h3>1. 科学理论中有大量已经被推翻的内容</h3>
+  <p>亚里士多德的物理学、天文学与某些生物学判断并不符合现代科学。历史上，当他的某些文本被过度权威化时，也曾与新的实验和数学自然科学发生冲突。理解他的意义，不能把古代自然科学结论当作现代事实。</p>
+
+  <h3>2. 目的论需要谨慎使用</h3>
+  <p>在生物功能、行动解释中，“为了什么”仍然很有解释力；但把所有自然事件都强行解释为具有目的，会造成错误推断。现代哲学和生物学常区分功能性解释与强目的论。</p>
+
+  <h3>3. 伦理学具有现实敏感性，也承受“精英性”批评</h3>
+  <p>他的幸福观充分重视教育、习惯、友谊与社会条件；但同时，他设想的“完整人生”建立在古希腊城邦中一部分自由男性公民的生活条件上。这使现代读者必须重新讨论：德性伦理如何与平等、权利、多元社会相结合。</p>
+
+  <h3>4. 历史影响极其广泛</h3>
+  <div class="two">
+    <div class="fact"><strong>希腊—阿拉伯哲学传统</strong>亚里士多德著作经叙利亚语和阿拉伯语翻译、注释，对法拉比、阿维森纳、阿威罗伊等产生深刻影响。</div>
+    <div class="fact"><strong>中世纪拉丁世界</strong>13世纪后，亚里士多德成为经院哲学核心资源之一，托马斯·阿奎那对其形而上学、伦理学与灵魂论进行了基督教语境下的重新整合。</div>
+    <div class="fact"><strong>现代哲学</strong>近代机械论科学挑战其自然哲学，但“实体、因果、德性、实践智慧、目的”等概念持续回归。</div>
+    <div class="fact"><strong>当代复兴</strong>德性伦理、行动理论、心灵哲学、形而上学中的能力/倾向理论等领域，仍不断与亚里士多德对话。</div>
+  </div>
+</section>
+
+<section id="reading">
+  <div class="kicker" style="color:var(--accent)">21 · Reading Guide</div>
+  <h2>如果想真正读进去：推荐的阅读顺序</h2>
+  <p>直接从《形而上学》第一卷一路硬读，往往效率不高。更好的方式是先从最能建立“亚里士多德式思考”直觉的文本进入。</p>
+
+  <table>
+    <tr><th>阶段</th><th>文本</th><th>读什么</th></tr>
+    <tr><td>① 入门</td><td>《尼各马可伦理学》卷一、卷二、卷六、卷八—十</td><td>幸福、德性、习惯、实践智慧、友爱、沉思生活</td></tr>
+    <tr><td>② 逻辑骨架</td><td>《范畴篇》＋《解释篇》选读</td><td>实体、谓述、命题、真假</td></tr>
+    <tr><td>③ 自然与变化</td><td>《物理学》卷二、卷三选读</td><td>自然、四因、运动、潜能与现实</td></tr>
+    <tr><td>④ 心灵</td><td>《论灵魂》卷二—三</td><td>灵魂作为形式、感觉、想象、理智</td></tr>
+    <tr><td>⑤ 深水区</td><td>《形而上学》Α、Γ、Ζ、Θ、Λ卷</td><td>智慧、矛盾律、实体、形式、潜能与现实、第一推动者</td></tr>
+    <tr><td>⑥ 社会与艺术</td><td>《政治学》《修辞学》《诗学》</td><td>制度、共同体、说服、情感、悲剧结构</td></tr>
+  </table>
+
+  <div class="callout">
+    <h3>读亚里士多德时最有用的五个追问</h3>
+    <p>每遇到一个论证，都可以问：① 他正在区分哪几种意义？ ② 他把什么当作实体/主体？ ③ 这里是哪一种“原因”？ ④ 哪个潜能正在变成现实？ ⑤ 他认为这个事物的功能或目的是什么？</p>
+  </div>
+
+  <h3>最终总结：一段话抓住亚里士多德</h3>
+  <p class="big-idea">亚里士多德的哲学，是一场对“具体存在”的巨大辩护。世界不是一个低级影像，而是由真实个体、形式结构、因果关系和实现过程构成；知识不是逃离经验，而是从经验上升到原因；灵魂不是身体里的幽灵，而是生命的组织原则；伦理不是背规则，而是让人的能力通过习惯与实践智慧形成卓越；政治则是为这种生活提供共同条件。<strong>从橡子成为橡树，到孩子成长为能够判断和行动的人，他关心的始终是同一个问题：一种可能性，怎样按照其本性，被实现成更充分的现实。</strong></p>
+</section>
+
+<section>
+  <div class="kicker" style="color:var(--accent)">One-page Memory Map</div>
+  <h2>一页记忆地图</h2>
+  <div class="three">
+    <div class="fact"><strong>世界是什么？</strong>具体实体；质料＋形式；存在有多种意义。</div>
+    <div class="fact"><strong>为何会变化？</strong>潜能 → 现实；变化有内在结构。</div>
+    <div class="fact"><strong>怎样解释事物？</strong>质料因、形式因、动力因、目的因。</div>
+    <div class="fact"><strong>怎样获得知识？</strong>感觉 → 经验 → 普遍原理 → 因果证明。</div>
+    <div class="fact"><strong>生命是什么？</strong>灵魂是活体的形式与生命能力原则。</div>
+    <div class="fact"><strong>人怎样活得好？</strong>在完整人生中依德性进行理性活动。</div>
+    <div class="fact"><strong>德性怎样形成？</strong>习惯＋正确情感＋选择＋实践智慧。</div>
+    <div class="fact"><strong>社会为何重要？</strong>人通过共同体、制度和教育形成生活方式。</div>
+    <div class="fact"><strong>最核心的词？</strong>实体、形式、原因、功能、目的、潜能、现实、德性。</div>
+  </div>
+</section>
+</main>
+</div>
+
+<footer class="footer">
+  <hr>
+  <h3>参考与延伸阅读</h3>
+  <div class="source-list">
+    <p>Stanford Encyclopedia of Philosophy, “Aristotle” 及专题条目 “Aristotle’s Ethics”, “Aristotle’s Political Theory”, “Aristotle’s Metaphysics”.</p>
+    <p>Internet Encyclopedia of Philosophy, “Aristotle” 与 “Aristotle: Metaphysics”.</p>
+    <p>Aristotle, <i>Nicomachean Ethics</i>; <i>Metaphysics</i>; <i>Physics</i>; <i>De Anima</i>; <i>Politics</i>; <i>Rhetoric</i>; <i>Poetics</i>.</p>
+    <p>图片：Wikimedia Commons 公有领域条目，包括传统亚里士多德肖像及拉斐尔《雅典学院》局部。</p>
+  </div>
+  <p>注：本文为哲学导读，旨在展示概念关系。亚里士多德著作内部及当代学术解释存在大量争议，特别是实体论、能动理智、幸福的构成、目的论与第一推动者等问题。</p>
+</footer>
+
+</body>
+</html>

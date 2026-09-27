@@ -1,0 +1,710 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>一文讲透康德哲学｜从认识论到伦理、美学与自由</title>
+<meta name="description" content="系统讲解康德哲学：哥白尼式革命、先验唯心论、综合先天判断、范畴、物自体、二律背反、自由、绝对命令、美与崇高、目的论、启蒙与永久和平。">
+<style>
+:root{
+  --bg:#f5f1e8; --paper:#fffdf8; --ink:#1f2328; --muted:#6a665e;
+  --line:#d8d0c0; --accent:#6e3f2a; --accent2:#263b50; --gold:#a47b3c;
+  --soft:#eee7da; --soft2:#e7edf1; --shadow:0 18px 50px rgba(58,45,31,.12);
+  --max:1180px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; color:var(--ink); background:
+  radial-gradient(circle at 15% 10%, rgba(164,123,60,.08), transparent 25rem),
+  linear-gradient(180deg,#f7f3eb 0,#f2ede4 100%);
+  font-family: "Noto Serif SC","Source Han Serif SC","Songti SC","STSong","Times New Roman",serif;
+  line-height:1.9;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+.progress{position:fixed;z-index:90;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--accent),var(--gold));width:0}
+.hero{
+  min-height:92vh; display:grid; place-items:center; position:relative; overflow:hidden;
+  border-bottom:1px solid var(--line);
+}
+.hero:before{
+  content:"";position:absolute;inset:0;
+  background:
+   linear-gradient(90deg,rgba(24,26,28,.9),rgba(24,26,28,.55) 45%,rgba(24,26,28,.15)),
+   url("https://upload.wikimedia.org/wikipedia/commons/c/c0/Immanuel_Kant_by_Johann_Christoph_Frisch.jpg") center 30%/cover no-repeat;
+  filter:saturate(.72) contrast(1.02);
+}
+.hero-inner{
+  position:relative; z-index:2; width:min(var(--max),92vw); color:#fff;
+  display:grid; grid-template-columns:1.3fr .7fr; gap:3rem; align-items:end;
+  padding:8rem 0 5rem;
+}
+.kicker{font:600 13px/1.2 system-ui,sans-serif;letter-spacing:.22em;text-transform:uppercase;color:#d8c5a3}
+h1{font-size:clamp(48px,8vw,104px);line-height:.98;margin:.25em 0 .22em;letter-spacing:-.045em}
+.hero h2{font-size:clamp(20px,2.1vw,30px);font-weight:500;line-height:1.55;margin:0 0 1.5rem;color:#f1eadc}
+.hero p{max-width:770px;font-size:17px;color:#e7e1d7;margin:.75rem 0}
+.hero-card{
+  border:1px solid rgba(255,255,255,.28);background:rgba(14,16,18,.34);
+  backdrop-filter:blur(10px);padding:1.4rem;border-radius:18px
+}
+.hero-card strong{display:block;font-size:14px;letter-spacing:.08em;margin-bottom:.7rem;color:#e3c995}
+.hero-card div{font-size:14px;color:#ece8e0;margin:.35rem 0}
+.layout{width:min(var(--max),94vw);margin:auto;display:grid;grid-template-columns:280px minmax(0,1fr);gap:3.2rem}
+aside{
+  position:sticky; top:18px; height:calc(100vh - 36px); overflow:auto; padding:2.2rem 0;
+}
+.toc-title{font:700 12px/1 system-ui,sans-serif;letter-spacing:.14em;color:var(--muted);margin-bottom:.9rem}
+nav a{
+  display:block;padding:.35rem .7rem;border-left:2px solid transparent;
+  font:500 13px/1.45 system-ui,sans-serif;color:#5c5c58;border-radius:0 8px 8px 0
+}
+nav a:hover, nav a.active{border-left-color:var(--accent);background:#ece4d8;color:#261f1a;text-decoration:none}
+main{padding:4rem 0 8rem;min-width:0}
+section{background:rgba(255,253,248,.82);border:1px solid rgba(216,208,192,.72);box-shadow:var(--shadow);
+  border-radius:22px;padding:clamp(1.5rem,4vw,3.5rem);margin:0 0 2.1rem}
+.section-no{font:700 12px/1 system-ui,sans-serif;color:var(--accent);letter-spacing:.18em;text-transform:uppercase}
+h2{font-size:clamp(31px,4.2vw,54px);line-height:1.12;letter-spacing:-.035em;margin:.2em 0 .55em}
+h3{font-size:25px;line-height:1.35;margin:2rem 0 .65rem;color:#2f3e4b}
+h4{font-size:18px;margin:1.4rem 0 .45rem}
+p{margin:.75rem 0}
+.lead{font-size:20px;line-height:1.8;color:#34312c}
+.callout{
+  margin:1.4rem 0;padding:1.2rem 1.4rem;border-left:4px solid var(--accent);
+  background:#f1eadf;border-radius:0 12px 12px 0
+}
+.callout.blue{border-left-color:var(--accent2);background:#edf1f3}
+.callout.gold{border-left-color:var(--gold);background:#f6efe0}
+.quote{
+  padding:1.4rem 1.6rem;margin:1.5rem 0;background:#20242a;color:#f7f3eb;
+  border-radius:16px;font-size:19px;line-height:1.7
+}
+.quote small{display:block;margin-top:.6rem;color:#c7c2b8;font:500 12px/1.4 system-ui,sans-serif}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem;margin:1.2rem 0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:1rem;margin:1.2rem 0}
+.card{padding:1.15rem 1.25rem;border:1px solid var(--line);border-radius:14px;background:#fffdfa}
+.card h4{margin:.05rem 0 .45rem;color:var(--accent2)}
+.card p{font-size:14px;color:#55514b}
+.metric{font:800 34px/1 system-ui,sans-serif;color:var(--accent);margin-bottom:.5rem}
+.table-wrap{overflow-x:auto;margin:1.2rem 0}
+table{width:100%;border-collapse:collapse;font-size:14px;background:#fffdfa}
+th,td{padding:.8rem .85rem;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+th{font:700 12px/1.4 system-ui,sans-serif;letter-spacing:.04em;color:#48443d;background:#eee7da}
+.pill{display:inline-block;padding:.12rem .55rem;border:1px solid #c9bea9;border-radius:99px;font:600 11px/1.6 system-ui,sans-serif;color:#5d4f3f;background:#fffaf1}
+.diagram{margin:1.4rem 0;padding:1rem;border:1px solid var(--line);border-radius:18px;background:#fbf8f1;overflow:hidden}
+.diagram svg{width:100%;height:auto;display:block}
+.timeline{position:relative;margin:1.4rem 0 0;padding-left:1.6rem}
+.timeline:before{content:"";position:absolute;left:.42rem;top:.4rem;bottom:.4rem;width:2px;background:#cabb9f}
+.tl{position:relative;margin:0 0 1rem}
+.tl:before{content:"";position:absolute;left:-1.57rem;top:.48rem;width:.72rem;height:.72rem;border-radius:50%;background:var(--accent);border:3px solid #f9f4eb}
+.tl b{color:var(--accent);margin-right:.45rem}
+.bookspread{display:grid;grid-template-columns:.65fr 1.35fr;gap:1.4rem;align-items:start}
+.bookspread img{width:100%;border-radius:12px;border:1px solid #cabca5;box-shadow:0 15px 35px rgba(50,40,30,.12)}
+.caption{font:500 11px/1.5 system-ui,sans-serif;color:var(--muted);margin-top:.4rem}
+details{margin:.7rem 0;border:1px solid var(--line);border-radius:12px;background:#fffdfa;padding:.1rem .9rem}
+summary{cursor:pointer;font-weight:700;padding:.75rem 0;color:#3a3c3f}
+.note{font-size:13px;color:var(--muted)}
+.footer{padding:3rem 0 6rem;color:#5f5a52;font:500 12px/1.7 system-ui,sans-serif}
+.sources li{margin:.45rem 0}
+sup a{font-size:11px}
+.term{font-weight:700;color:var(--accent2)}
+hr{border:0;border-top:1px solid var(--line);margin:2rem 0}
+.printbtn{position:fixed;right:18px;bottom:18px;z-index:80;border:0;border-radius:999px;padding:.8rem 1rem;background:#222831;color:white;font:600 12px system-ui;box-shadow:0 8px 28px rgba(0,0,0,.25);cursor:pointer}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;padding-top:6rem}
+  .layout{grid-template-columns:1fr}
+  aside{position:relative;height:auto;padding:1.5rem 0 0}
+  nav{display:grid;grid-template-columns:repeat(2,1fr);gap:.2rem}
+  nav a{border-left:0;border-bottom:1px solid #ddd0bd}
+  .grid,.grid3,.bookspread{grid-template-columns:1fr}
+}
+@media print{
+  .progress,.printbtn,aside{display:none!important}
+  .layout{display:block;width:100%}
+  .hero{min-height:auto;page-break-after:always}
+  section{box-shadow:none;break-inside:avoid;border-color:#bbb}
+  body{background:white}
+}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<button class="printbtn" onclick="window.print()">打印 / 保存 PDF</button>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div>
+      <div class="kicker">IMMANUEL KANT · 1724—1804</div>
+      <h1>一文讲透<br>康德哲学</h1>
+      <h2>不是“世界是什么”，而是：<br><strong>我们凭什么能够认识、行动与判断？</strong></h2>
+      <p>从《纯粹理性批判》的知识边界，到《实践理性批判》的自由与道德，再到《判断力批判》的美、崇高与目的性——把康德读成一个完整系统。</p>
+    </div>
+    <div class="hero-card">
+      <strong>THE CENTRAL MOVE</strong>
+      <div>认识论：不是心被动复制世界，而是经验必须服从人类认知的先天条件。</div>
+      <div>伦理学：不是欲望决定价值，而是理性意志为自己立普遍法则。</div>
+      <div>美学：不是概念证明美，而是在无确定概念时仍要求一种“可共同分享”的判断。</div>
+      <div>一句话：<b>康德把“主体的条件”提升为哲学的中心。</b></div>
+    </div>
+  </div>
+</header>
+
+<div class="layout">
+<aside>
+  <div class="toc-title">目录 · READING MAP</div>
+  <nav id="toc">
+    <a href="#s1">01 核心问题</a>
+    <a href="#s2">02 历史背景</a>
+    <a href="#s3">03 哥白尼式革命</a>
+    <a href="#s4">04 先天 / 后天与分析 / 综合</a>
+    <a href="#s5">05 感性：空间与时间</a>
+    <a href="#s6">06 知性：范畴与经验</a>
+    <a href="#s7">07 现象与物自体</a>
+    <a href="#s8">08 理性的幻相与二律背反</a>
+    <a href="#s9">09 自由如何可能</a>
+    <a href="#s10">10 道德哲学</a>
+    <a href="#s11">11 绝对命令</a>
+    <a href="#s12">12 人格、尊严与自主</a>
+    <a href="#s13">13 美、崇高与判断力</a>
+    <a href="#s14">14 目的论与自然</a>
+    <a href="#s15">15 启蒙、政治与和平</a>
+    <a href="#s16">16 宗教与希望</a>
+    <a href="#s17">17 三大批判如何统一</a>
+    <a href="#s18">18 康德与其他哲学家</a>
+    <a href="#s19">19 最强批评</a>
+    <a href="#s20">20 当代意义</a>
+    <a href="#s21">21 阅读路线</a>
+    <a href="#s22">22 术语表</a>
+    <a href="#s23">23 最终全景图</a>
+    <a href="#sources">资料与延伸阅读</a>
+  </nav>
+</aside>
+
+<main>
+<section id="s1">
+  <div class="section-no">01 · THE QUESTION</div>
+  <h2>康德真正要解决的，不是一个问题，而是“理性如何合法地使用自己”</h2>
+  <p class="lead">康德哲学可以看成一场<strong>理性的自我审判</strong>：理性既是法官，又是被告。它要问的不是“我能不能想象某个终极答案”，而是“我有没有资格声称自己知道它”。</p>
+  <div class="grid3">
+    <div class="card"><div class="metric">Ⅰ</div><h4>我能知道什么？</h4><p>经验知识为什么可能？数学和自然科学的必然性从哪里来？形而上学的边界在哪里？</p></div>
+    <div class="card"><div class="metric">Ⅱ</div><h4>我应当做什么？</h4><p>道德是否只是偏好、感情、习俗或结果计算？自由与义务如何同时成立？</p></div>
+    <div class="card"><div class="metric">Ⅲ</div><h4>我可以希望什么？</h4><p>当理论理性不能证明上帝、灵魂与自由时，道德实践还能否为“希望”保留位置？</p></div>
+  </div>
+  <div class="callout gold"><b>最简总纲：</b>第一批判限制“知道”，第二批判确立“应当”，第三批判解释我们如何在自然与自由之间建立可思考的桥梁。</div>
+</section>
+
+<section id="s2">
+  <div class="section-no">02 · CONTEXT</div>
+  <h2>历史背景：理性主义与经验主义为什么都走到了墙边</h2>
+  <p>近代哲学的一条主线，是“知识从哪里来”。笛卡尔、莱布尼茨等理性主义者相信理性能够把握某些独立于经验的必然真理；洛克、贝克莱、休谟等经验主义者则把知识的起点放在经验。</p>
+  <div class="grid">
+    <div class="card">
+      <h4>理性主义的诱惑</h4>
+      <p>如果理性本身能给出必然真理，那么传统形而上学似乎可以仅凭概念证明灵魂、世界整体、上帝等对象。</p>
+    </div>
+    <div class="card">
+      <h4>经验主义的炸弹</h4>
+      <p>休谟对因果性提出挑战：我们经验到的是事件先后与恒常联结，却没有直接感知“必然联系”本身。若知识只能来自经验，科学中的必然性从何而来？</p>
+    </div>
+  </div>
+  <p>康德后来把休谟称作把自己从“独断论睡梦”中唤醒的人。康德接受休谟对传统形而上学的破坏，却拒绝由此滑向全面怀疑论。他的任务是：<strong>既解释经验科学的客观有效性，又阻止理性越界。</strong></p>
+  <div class="timeline">
+    <div class="tl"><b>1724</b> 康德出生于东普鲁士柯尼斯堡。</div>
+    <div class="tl"><b>1770</b> 就任教授；“批判时期”的关键思想逐渐成熟。</div>
+    <div class="tl"><b>1781 / 1787</b> 《纯粹理性批判》第一版 / 第二版。</div>
+    <div class="tl"><b>1784</b> 《答复这个问题：什么是启蒙？》。</div>
+    <div class="tl"><b>1785</b> 《道德形而上学奠基》。</div>
+    <div class="tl"><b>1788</b> 《实践理性批判》。</div>
+    <div class="tl"><b>1790</b> 《判断力批判》。</div>
+    <div class="tl"><b>1795</b> 《论永久和平》。</div>
+    <div class="tl"><b>1804</b> 康德去世。</div>
+  </div>
+</section>
+
+<section id="s3">
+  <div class="section-no">03 · COPERNICAN TURN</div>
+  <h2>“哥白尼式革命”：不是认识去迎合对象，而是经验对象必须符合我们的认识条件</h2>
+  <p class="lead">这是理解康德的钥匙。传统认识论常问：心灵怎样准确复制一个已经完全成形的外在世界？康德反过来问：<strong>一个对象要成为“我们能够经验的对象”，必须满足什么条件？</strong></p>
+  <div class="diagram">
+  <svg viewBox="0 0 1000 390" role="img" aria-label="康德哥白尼式革命示意图">
+    <defs>
+      <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+        <path d="M 0 0 L 10 5 L 0 10 z" fill="#6e3f2a"/>
+      </marker>
+    </defs>
+    <rect x="35" y="45" rx="18" width="250" height="120" fill="#eee7da" stroke="#c8b89f"/>
+    <text x="160" y="88" text-anchor="middle" font-size="24" font-weight="700" fill="#263b50">物自身</text>
+    <text x="160" y="123" text-anchor="middle" font-size="16" fill="#5c554c">独立于我们的认识方式</text>
+    <text x="160" y="148" text-anchor="middle" font-size="14" fill="#6e3f2a">不可作为经验对象被认识</text>
+
+    <rect x="360" y="30" rx="18" width="280" height="150" fill="#e7edf1" stroke="#afbcc5"/>
+    <text x="500" y="70" text-anchor="middle" font-size="24" font-weight="700" fill="#263b50">主体的先天形式</text>
+    <text x="500" y="106" text-anchor="middle" font-size="16" fill="#4c5660">感性：空间 · 时间</text>
+    <text x="500" y="136" text-anchor="middle" font-size="16" fill="#4c5660">知性：范畴 · 规则</text>
+    <text x="500" y="162" text-anchor="middle" font-size="14" fill="#6e3f2a">不是“内容”，而是经验的条件</text>
+
+    <rect x="715" y="45" rx="18" width="250" height="120" fill="#f1eadf" stroke="#c8b89f"/>
+    <text x="840" y="88" text-anchor="middle" font-size="24" font-weight="700" fill="#6e3f2a">现象 / 经验对象</text>
+    <text x="840" y="123" text-anchor="middle" font-size="16" fill="#5c554c">我们实际上能够认识的世界</text>
+    <text x="840" y="148" text-anchor="middle" font-size="14" fill="#263b50">具有客观有效性，但受条件限制</text>
+
+    <path d="M285 105 C320 105,320 105,350 105" stroke="#6e3f2a" stroke-width="3" fill="none" marker-end="url(#arr)"/>
+    <path d="M650 105 C680 105,680 105,705 105" stroke="#6e3f2a" stroke-width="3" fill="none" marker-end="url(#arr)"/>
+
+    <text x="500" y="245" text-anchor="middle" font-size="20" font-weight="700" fill="#222">关键结论</text>
+    <text x="500" y="282" text-anchor="middle" font-size="17" fill="#444">经验并非杂乱感觉的堆积；主体主动综合感觉材料，使其成为“一个对象世界”。</text>
+    <text x="500" y="316" text-anchor="middle" font-size="17" fill="#444">因此：自然的普遍形式与我们的认知结构之间存在先验对应。</text>
+    <text x="500" y="350" text-anchor="middle" font-size="15" fill="#6e3f2a">这就是“先验哲学”：研究经验何以可能，而不是研究超经验对象本身。</text>
+  </svg>
+  </div>
+  <div class="callout blue"><b>注意：</b>康德不是说“世界是我脑子创造的”。他不是主观唯心主义者。更准确的说法是：我们只能认识<strong>对象作为可能经验中的对象</strong>，而不能跳出人类认知条件，从“上帝视角”认识对象本身。</div>
+</section>
+
+<section id="s4">
+  <div class="section-no">04 · SYNTHETIC A PRIORI</div>
+  <h2>为什么“综合先天判断”是《纯粹理性批判》的发动机</h2>
+  <p>康德把判断分成两组轴线：</p>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th></th><th>含义</th><th>典型特征</th></tr></thead>
+    <tbody>
+      <tr><td><b>先天 a priori</b></td><td>其正当性不依赖具体经验</td><td>必然性、普遍性</td></tr>
+      <tr><td><b>后天 a posteriori</b></td><td>依赖经验</td><td>事实性、可变化</td></tr>
+      <tr><td><b>分析 analytic</b></td><td>谓词已包含在主词概念中</td><td>解释概念，不增加实质内容</td></tr>
+      <tr><td><b>综合 synthetic</b></td><td>谓词增加了主词概念中没有明含的内容</td><td>扩展知识</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>康德的难题是：如果一个判断既<strong>扩展知识</strong>又具有<strong>必然性</strong>，它怎么可能？他把数学和纯粹自然科学中的一些基本原则视作“综合先天”判断。</p>
+  <div class="callout"><b>真正的问题不是“有哪些综合先天判断”，而是：</b>如果它们成立，我们的认知结构必须是什么样，才能使它们成立？这一步把哲学从“对象清单”转向“可能性条件”。</div>
+</section>
+
+<section id="s5">
+  <div class="section-no">05 · TRANSCENDENTAL AESTHETIC</div>
+  <h2>感性不是被动窗口：空间与时间是我们接受经验的先天形式</h2>
+  <p>在康德那里，<span class="term">感性（Sinnlichkeit）</span>是对象“给予”我们的能力。感性有两种纯粹形式：<strong>空间</strong>与<strong>时间</strong>。</p>
+  <div class="grid">
+    <div class="card"><h4>空间</h4><p>不是从外部经验中总结出来的概念，而是任何外部对象能呈现给我们的前提。你必须已经以空间方式组织感受，才会经验到“外在的、并列的、远近的”对象。</p></div>
+    <div class="card"><h4>时间</h4><p>是一切表象的内在形式。变化、先后、持续等经验都预设时间秩序。</p></div>
+  </div>
+  <p>因此，康德说空间与时间具有<span class="term">先验观念性</span>：它们是人类感性形式；同时又具有<span class="term">经验实在性</span>：对一切可能经验而言，它们完全有效。</p>
+  <div class="callout gold">这是一种非常精细的“双重主张”：<b>空间和时间不是幻觉，但也不能被简单当作“事物脱离任何观察者时本身的属性”。</b></div>
+</section>
+
+<section id="s6">
+  <div class="section-no">06 · UNDERSTANDING & CATEGORIES</div>
+  <h2>知性不是给感觉贴标签：它把感觉材料综合成“可判断的对象”</h2>
+  <p>如果感性提供“材料”，知性（Verstand）提供的是统一经验所必需的概念规则。康德称最基本的纯粹知性概念为<span class="term">范畴</span>。</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>类别</th><th>三个范畴</th><th>直观理解</th></tr></thead>
+      <tbody>
+        <tr><td>量</td><td>单一 · 多数 · 全体</td><td>“多少 / 作为整体”</td></tr>
+        <tr><td>质</td><td>实在 · 否定 · 限制</td><td>“是什么 / 不是什么 / 到什么程度”</td></tr>
+        <tr><td>关系</td><td>实体与属性 · 因果与依存 · 共同作用</td><td>对象如何持续、变化、相互关联</td></tr>
+        <tr><td>模态</td><td>可能 · 存在 · 必然</td><td>一个判断以何种方式成立</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <h3>“先验演绎”到底在演绎什么？</h3>
+  <p>不是从前提“推导”出范畴，而是在回答它们的<strong>合法性</strong>：这些并非来自经验的概念，凭什么适用于经验对象？康德的基本策略是：如果没有统一的综合活动，就不会有一个“对我而言统一的经验”；而统一经验要求某些先天规则。范畴就是这些规则的核心形式。</p>
+  <div class="quote">“思想没有内容是空的，直观没有概念是盲的。”<small>——《纯粹理性批判》（常见译法；意在说明感性与知性的合作）</small></div>
+  <div class="callout blue"><b>最重要的理解：</b>因果性不是我们先看见无数事件后才“发明”出的便利习惯；在康德体系中，因果规则参与构成一个客观、时间有序的经验世界。</div>
+</section>
+
+<section id="s7">
+  <div class="section-no">07 · APPEARANCE & THING IN ITSELF</div>
+  <h2>“现象 / 物自体”不是两个世界那么简单</h2>
+  <p>这是康德最容易被误解的地方。粗糙的说法是：“我们生活在假象世界，背后藏着真实世界。”这不准确。</p>
+  <div class="grid">
+    <div class="card"><h4>现象（Erscheinung）</h4><p>对象在我们的感性形式和知性规则下呈现的方式。现象不是幻觉，而是<strong>经验知识真正的对象</strong>。</p></div>
+    <div class="card"><h4>物自体（Ding an sich）</h4><p>同一对象若不以人类认知条件为参照时“其自身如何”。它是一个<strong>限界概念</strong>：提醒我们不要把经验形式等同于存在本身的绝对结构。</p></div>
+  </div>
+  <p>学界对康德究竟应采用“两世界解释”还是“两方面解释”存在长期争论。更稳妥的把握是：康德的批判哲学首先是在规定<strong>知识主张的边界</strong>，而不是给我们描述一个神秘的“第二宇宙”。</p>
+  <div class="callout">你可以把物自体理解为一块哲学上的“禁止越界”路牌：<b>经验有效 ≠ 我们拥有无条件的上帝视角。</b></div>
+</section>
+
+<section id="s8">
+  <div class="section-no">08 · DIALECTIC</div>
+  <h2>理性为什么必然产生幻相：它总想把“条件链”追到无条件者</h2>
+  <p>知性在经验中工作；理性（Vernunft）则追求系统性、完备性和“无条件者”。问题在于：这种追求一旦把自己的理念当作可认识对象，就会越界。</p>
+  <h3>三类传统形而上学对象</h3>
+  <div class="grid3">
+    <div class="card"><h4>灵魂</h4><p>由“我思”推到一个可作为实体认识的不朽灵魂，康德认为犯了“谬误推理”。</p></div>
+    <div class="card"><h4>世界整体</h4><p>把宇宙作为一个完成的总体来推理，会产生著名的“二律背反”。</p></div>
+    <div class="card"><h4>上帝</h4><p>传统本体论、宇宙论等证明在理论理性的范围内不能达到知识意义上的证明。</p></div>
+  </div>
+  <h3>二律背反：为什么理性会“证明”互相矛盾的命题</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>问题</th><th>正题</th><th>反题</th></tr></thead>
+    <tbody>
+      <tr><td>世界在时空中是否有开端 / 边界？</td><td>有</td><td>没有</td></tr>
+      <tr><td>复杂事物是否最终由简单部分构成？</td><td>是</td><td>否</td></tr>
+      <tr><td>是否存在自由因果？</td><td>存在</td><td>一切都受自然因果决定</td></tr>
+      <tr><td>是否存在绝对必然者？</td><td>存在</td><td>不存在</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>康德的诊断：矛盾并不说明理性毫无价值，而说明它把<strong>只适用于可能经验的范畴</strong>拿去规定“世界作为一个超经验整体”。</p>
+</section>
+
+<section id="s9">
+  <div class="section-no">09 · FREEDOM</div>
+  <h2>自由如何可能：同一个人既属于自然因果，又必须被视为自由者</h2>
+  <p>第三二律背反把康德逼到其体系最深处：如果自然科学要求每个事件都有原因，那么人的行为似乎也完全被决定；但没有自由，道德责任又如何可能？</p>
+  <div class="diagram">
+    <svg viewBox="0 0 1000 300" aria-label="康德自由与自然双重视角">
+      <rect x="50" y="55" width="390" height="160" rx="18" fill="#e7edf1" stroke="#afbcc5"/>
+      <text x="245" y="95" text-anchor="middle" font-size="24" font-weight="700" fill="#263b50">作为现象的人</text>
+      <text x="245" y="132" text-anchor="middle" font-size="17" fill="#45525c">身体 · 心理状态 · 行为事件</text>
+      <text x="245" y="166" text-anchor="middle" font-size="17" fill="#45525c">处在时间中，服从自然因果</text>
+      <text x="245" y="196" text-anchor="middle" font-size="14" fill="#6e3f2a">科学解释的对象</text>
+      <rect x="560" y="55" width="390" height="160" rx="18" fill="#f1eadf" stroke="#c8b89f"/>
+      <text x="755" y="95" text-anchor="middle" font-size="24" font-weight="700" fill="#6e3f2a">作为理性行动者的人</text>
+      <text x="755" y="132" text-anchor="middle" font-size="17" fill="#5c554c">能以理由和法则决定行动</text>
+      <text x="755" y="166" text-anchor="middle" font-size="17" fill="#5c554c">必须从实践立场视为自由</text>
+      <text x="755" y="196" text-anchor="middle" font-size="14" fill="#263b50">责任与道德的主体</text>
+      <text x="500" y="260" text-anchor="middle" font-size="17" font-weight="700" fill="#222">不是“科学证实自由”，而是：道德实践要求我们把自己理解为能够自律的行动者。</text>
+    </svg>
+  </div>
+  <div class="callout gold"><b>康德的高明之处：</b>他没有用“灵魂是一种神秘物质”来解释自由，而是把自由放到“实践理性”的层次。理论理性不能证明自由作为对象是什么；但一旦我们经验到“我应当”，就已经把自己当作“我能够”的主体。</div>
+</section>
+
+<section id="s10">
+  <div class="section-no">10 · MORAL PHILOSOPHY</div>
+  <h2>道德的价值不在“做出了好结果”，而在意志以何种原则行动</h2>
+  <p class="lead">康德伦理学的核心不是“死守规则”，而是：<strong>一个自由而理性的存在者，能否让自己的行动原则成为所有理性者都可共同认可的法则。</strong></p>
+  <h3>善良意志</h3>
+  <p>才能、勇气、财富、幸福都可能被坏意志使用。对康德而言，唯有<strong>善良意志</strong>的善不取决于进一步的结果。道德评价首先针对行动的<strong>准则（Maxime）</strong>与动机。</p>
+  <h3>“合乎义务”与“出于义务”</h3>
+  <div class="grid">
+    <div class="card"><h4>合乎义务</h4><p>行为恰好符合道德要求，但可能主要由利益、名誉、感情或恐惧驱动。</p></div>
+    <div class="card"><h4>出于义务</h4><p>行动者之所以行动，是因为承认某一原则具有道德上的约束力。</p></div>
+  </div>
+  <p>这不是说感情“越少越道德”，而是说感情不能构成道德义务的最终根据；否则同一行为的规范性会随个人偏好变化。</p>
+</section>
+
+<section id="s11">
+  <div class="section-no">11 · CATEGORICAL IMPERATIVE</div>
+  <h2>绝对命令：不是一条具体规则，而是检验行动准则的最高形式</h2>
+  <p>康德区分两类命令：</p>
+  <div class="grid">
+    <div class="card"><h4>假言命令</h4><p>“如果你想达到 X，就应该做 Y。”它依赖你已经拥有的目的，例如想通过考试、想赚钱、想保持健康。</p></div>
+    <div class="card"><h4>绝对命令</h4><p>不以任何偶然欲望为前提。它要求一个理性行动者仅凭其作为理性行动者的身份就受到约束。</p></div>
+  </div>
+  <h3>第一公式：普遍法则公式</h3>
+  <div class="quote">只按照你同时能够意愿它成为普遍法则的准则行动。<small>《道德形而上学奠基》4:421，意译</small></div>
+  <p>一个实用化的检验流程：</p>
+  <ol>
+    <li><b>写出准则：</b>在情境 C 中，为了目的 E，我打算做行动 A。</li>
+    <li><b>普遍化：</b>设想所有处于 C 的理性行动者都以同一准则行动。</li>
+    <li><b>可设想性：</b>这种普遍化是否会摧毁该行动本身所依赖的制度或实践？若会，出现“概念上的矛盾”。</li>
+    <li><b>可意愿性：</b>即便它逻辑上可存在，你能否作为理性者意愿生活在这种普遍法则之下？</li>
+  </ol>
+  <h3>第二公式：人性公式</h3>
+  <p>把人性——无论在自己还是他人身上——始终同时作为目的，而绝不仅仅作为手段。这不是说“不能利用任何人的服务”，而是说不能把对方的理性选择、同意和目的完全排除在外。</p>
+  <h3>第三公式：自主与目的王国</h3>
+  <p>理性者不是被一个外在权威强迫服从，而是在理性意义上把自己理解为<strong>普遍法则的共同立法者</strong>。这就是康德的“自主（Autonomie）”。</p>
+  <div class="callout blue"><b>绝对命令的三个公式不是三套互不相干的道德学：</b>普遍法则强调一致性，人性公式强调人格的不可工具化，自主公式强调理性主体既服从法则又是法则的共同立法者。</div>
+</section>
+
+<section id="s12">
+  <div class="section-no">12 · DIGNITY & AUTONOMY</div>
+  <h2>康德为什么成为现代“人格尊严”思想的重要来源</h2>
+  <p>康德区分可以用价格替代的东西与具有“尊严”的存在。理性者能够设定目的、理解理由并对原则负责，因此不能仅按交换价值处理。</p>
+  <div class="grid3">
+    <div class="card"><h4>同意</h4><p>欺骗、胁迫、操纵之所以具有道德问题，不只是因为造成坏结果，也因为它们绕过或破坏对方作为理性主体的选择。</p></div>
+    <div class="card"><h4>责任</h4><p>尊重一个人并不等于永远顺从其愿望；尊重也包含把对方当作能理解理由、承担规范责任的人。</p></div>
+    <div class="card"><h4>自我尊重</h4><p>人性公式同样要求不把“自己”仅当工具：对自己也存在义务。</p></div>
+  </div>
+  <p>这条线索影响了后来关于权利、人格、正义、医学伦理、研究伦理以及技术伦理的讨论。</p>
+</section>
+
+<section id="s13">
+  <div class="section-no">13 · AESTHETICS</div>
+  <h2>美是什么：主观的愉悦，为什么又要求别人“也应该觉得美”？</h2>
+  <p>《判断力批判》的美学从一个怪现象出发：审美判断显然不是物理测量，也不是概念证明；但当人说“这很美”时，通常不只是报告“我碰巧喜欢它”，而会隐含地期待他人赞同。</p>
+  <h3>审美判断的四个关键特征</h3>
+  <div class="grid">
+    <div class="card"><h4>无利害的愉悦</h4><p>纯粹审美不是问“我能拿它做什么”“它能给我什么好处”，而是对呈现本身的欣赏。</p></div>
+    <div class="card"><h4>无概念的普遍性</h4><p>美的判断不由一个确定概念推出，却提出某种“应当可共同分享”的要求。</p></div>
+    <div class="card"><h4>无目的的合目的性</h4><p>对象仿佛非常适合我们的认知能力，却不是因为我们知道它有某个明确用途。</p></div>
+    <div class="card"><h4>共通感</h4><p>审美判断预设人类认知能力之间存在某种可以沟通、共享的结构。</p></div>
+  </div>
+  <h3>崇高：不是对象巨大，而是理性发现自己超越感性的尺度</h3>
+  <p>面对无边海洋、群山、风暴或宇宙尺度，想象力可能“装不下”对象；但理性能够形成无限、整体、自由等理念。崇高因此带有一种先压迫、后提升的结构：感性能力受挫，却凸显理性维度。</p>
+  <div class="callout gold">美让我们感到自然“与我们的认识能力协调”；崇高则让我们意识到：人的价值不完全等于他作为自然存在物的大小与力量。</div>
+</section>
+
+<section id="s14">
+  <div class="section-no">14 · TELEOLOGY</div>
+  <h2>目的论：生物看起来像“为了某种目的”而组织，但这并不等于科学可以直接证明造物主</h2>
+  <p>有机体与机械装置不同：叶、根、营养循环、繁殖等部分似乎互相成为条件。康德认为，我们在反思生命时很难完全避免目的性语言。</p>
+  <p>但他的关键限制是：<strong>目的性首先是反思判断力的调节原则，而不是我们获得超经验实体知识的捷径。</strong>我们可以“仿佛”自然具有目的性地研究它，却不能由此直接完成一套理论神学证明。</p>
+  <div class="callout blue">这体现康德一贯的方法：允许理性使用某种理念来组织经验，但禁止把“方法上的必要”偷换成“对象本体上的知识”。</div>
+</section>
+
+<section id="s15">
+  <div class="section-no">15 · ENLIGHTENMENT & POLITICS</div>
+  <h2>启蒙不是“知道得多”，而是有勇气公开使用自己的理性</h2>
+  <p>在《什么是启蒙？》中，康德把启蒙理解为人从“自我招致的不成熟状态”中走出。重点不是反权威本身，而是<strong>不把判断能力永久外包</strong>。</p>
+  <h3>公共理性与制度</h3>
+  <p>康德区分人在某一具体职务中的角色要求与作为学者 / 公民进行公开论证的理性使用。启蒙社会的关键，不是每个人意见一致，而是制度允许理由进入公开讨论。</p>
+  <h3>永久和平</h3>
+  <p>康德在国际政治上提出共和政体、国家间法秩序与世界公民法等设想。他不是在描述当时现实，而是在提出一种规范性方向：战争不能仅作为国际政治的自然状态被永久接受。</p>
+</section>
+
+<section id="s16">
+  <div class="section-no">16 · RELIGION & HOPE</div>
+  <h2>康德并非简单“反宗教”：他反对的是把信仰伪装成理论知识</h2>
+  <p>第一批判限制关于上帝、灵魂不朽的理论证明；但实践哲学中，康德又讨论自由、上帝、灵魂不朽与“最高善”的关系。这里的逻辑不是“我已经证明上帝存在”，而是：<strong>实践理性如何在道德生活中形成合理的希望结构。</strong></p>
+  <div class="grid">
+    <div class="card"><h4>知识</h4><p>需要能够合法适用于对象的认识条件。超经验对象不能成为理论知识。</p></div>
+    <div class="card"><h4>实践信念</h4><p>与行动、道德要求和希望有关，地位不同于经验科学知识。</p></div>
+  </div>
+  <p>因此，康德既批判形而上学神学的过度证明，也批判把宗教仅变成外在礼仪、教条服从而与道德人格无关。</p>
+</section>
+
+<section id="s17">
+  <div class="section-no">17 · SYSTEM</div>
+  <h2>三大批判不是三本彼此独立的书，而是一套“理性建筑学”</h2>
+  <div class="diagram">
+  <svg viewBox="0 0 1000 640" aria-label="康德三大批判结构图">
+    <rect x="115" y="70" width="770" height="90" rx="20" fill="#222831"/>
+    <text x="500" y="112" text-anchor="middle" font-size="28" fill="#fff" font-weight="700">批判哲学：理性先审查自己的能力、边界与合法使用</text>
+    <text x="500" y="142" text-anchor="middle" font-size="16" fill="#d9d5cc">不是摧毁理性，而是让理性从独断与怀疑之间获得合法疆界</text>
+
+    <rect x="55" y="235" width="270" height="205" rx="18" fill="#e7edf1" stroke="#aebcc5"/>
+    <text x="190" y="275" text-anchor="middle" font-size="24" font-weight="700" fill="#263b50">纯粹理性批判</text>
+    <text x="190" y="310" text-anchor="middle" font-size="16" fill="#45525c">自然 · 认识 · 必然性</text>
+    <text x="190" y="345" text-anchor="middle" font-size="18" fill="#6e3f2a">我能知道什么？</text>
+    <text x="190" y="385" text-anchor="middle" font-size="14" fill="#45525c">知识限于可能经验</text>
+    <text x="190" y="412" text-anchor="middle" font-size="14" fill="#45525c">为科学奠基，限制形而上学</text>
+
+    <rect x="365" y="235" width="270" height="205" rx="18" fill="#f1eadf" stroke="#c7b89f"/>
+    <text x="500" y="275" text-anchor="middle" font-size="24" font-weight="700" fill="#6e3f2a">实践理性批判</text>
+    <text x="500" y="310" text-anchor="middle" font-size="16" fill="#5c554c">自由 · 义务 · 自主</text>
+    <text x="500" y="345" text-anchor="middle" font-size="18" fill="#263b50">我应当做什么？</text>
+    <text x="500" y="385" text-anchor="middle" font-size="14" fill="#5c554c">道德法则来自理性自律</text>
+    <text x="500" y="412" text-anchor="middle" font-size="14" fill="#5c554c">自由在实践立场中获得现实意义</text>
+
+    <rect x="675" y="235" width="270" height="205" rx="18" fill="#f6efe0" stroke="#cfb578"/>
+    <text x="810" y="275" text-anchor="middle" font-size="24" font-weight="700" fill="#8c6a32">判断力批判</text>
+    <text x="810" y="310" text-anchor="middle" font-size="16" fill="#5c554c">美 · 崇高 · 目的性</text>
+    <text x="810" y="345" text-anchor="middle" font-size="18" fill="#263b50">自然与自由如何接轨？</text>
+    <text x="810" y="385" text-anchor="middle" font-size="14" fill="#5c554c">反思判断发现合目的性</text>
+    <text x="810" y="412" text-anchor="middle" font-size="14" fill="#5c554c">桥接理论世界与实践世界</text>
+
+    <line x1="190" y1="440" x2="410" y2="520" stroke="#6e3f2a" stroke-width="2"/>
+    <line x1="500" y1="440" x2="500" y2="520" stroke="#6e3f2a" stroke-width="2"/>
+    <line x1="810" y1="440" x2="590" y2="520" stroke="#6e3f2a" stroke-width="2"/>
+    <rect x="290" y="520" width="420" height="80" rx="16" fill="#fffdfa" stroke="#cbbfae"/>
+    <text x="500" y="554" text-anchor="middle" font-size="21" font-weight="700" fill="#222">人：有限的认识者 + 自由的行动者 + 反思的判断者</text>
+    <text x="500" y="582" text-anchor="middle" font-size="15" fill="#6e3f2a">康德哲学的统一中心：自主与有限性同时成立</text>
+  </svg>
+  </div>
+  <p>第一批判告诉你：不要把认识能力无限化。第二批判告诉你：有限的认识并不意味着人只是自然机器。第三批判告诉你：自然世界与自由世界虽然不能被一种理论知识直接合并，却可以在审美与目的性判断中获得“可思考的协调”。</p>
+  <div class="callout"><b>这就是康德的深层结构：</b>人之尊严不来自“我们无所不知”，反而来自我们能在承认认知有限性的同时，仍然依据理性为行动负责。</div>
+</section>
+
+<section id="s18">
+  <div class="section-no">18 · COMPARISONS</div>
+  <h2>把康德放进哲学史：他到底改变了什么</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>比较对象</th><th>对知识的理解</th><th>对伦理的理解</th><th>康德的转折</th></tr></thead>
+    <tbody>
+      <tr><td><b>休谟</b></td><td>经验与习惯；怀疑必然因果能否从经验中推出</td><td>更强调情感与人性倾向</td><td>接受经验主义的挑战，但用先验条件解释经验客观性与必然结构</td></tr>
+      <tr><td><b>莱布尼茨 / 理性主义</b></td><td>理性能够把握必然真理</td><td>理性秩序与完善性</td><td>保留先天结构，却限制其对超经验对象的知识主张</td></tr>
+      <tr><td><b>亚里士多德</b></td><td>知识从经验与形式分析中展开</td><td>德性、习惯、实践智慧与幸福</td><td>把“普遍法则与自主”推到义务伦理核心，弱化幸福作为最高道德根据</td></tr>
+      <tr><td><b>功利主义</b></td><td>——</td><td>以总体后果 / 福祉为核心</td><td>拒绝把人格仅视为总体结果计算中的可替换单位；强调不可仅作为手段</td></tr>
+      <tr><td><b>黑格尔</b></td><td>批判康德的二分与“物自体”</td><td>强调伦理生活的社会制度具体性</td><td>黑格尔从康德出发，但试图让理性穿透康德留下的界限</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="s19">
+  <div class="section-no">19 · CRITICISMS</div>
+  <h2>康德最难绕开的几类批评</h2>
+  <details open><summary>1. 物自体难题：既然不可知，怎么还能说它“影响”我们？</summary>
+    <p>如果因果性只合法地适用于经验现象，那么把“物自体”说成感觉的原因似乎会越界。康德解释传统中对此争论极多。这也是后来德国唯心主义试图突破康德的重要入口。</p>
+  </details>
+  <details><summary>2. 范畴表真的必然吗？</summary>
+    <p>康德从判断形式推导十二范畴，但后世逻辑学发展使许多人怀疑这套表格是否具有他声称的最终性。即便接受“经验需要结构条件”，也未必接受这十二项就是唯一完整清单。</p>
+  </details>
+  <details><summary>3. 伦理是否过度形式主义？</summary>
+    <p>批评者认为，仅靠“普遍化”可能不足以生成足够具体的伦理内容；不同描述方式会改变一个准则的普遍化结果。康德主义者则强调人性公式、目的王国、义务体系并非空形式。</p>
+  </details>
+  <details><summary>4. 动机是否被理解得过于严苛？</summary>
+    <p>“出于义务”常被误读为“有感情就不道德”。较稳妥的解释是：感情可以伴随道德行动，但不能成为义务的最终根据。即便如此，康德对道德价值与倾向之间关系的表述仍引发长期争论。</p>
+  </details>
+  <details><summary>5. 抽象理性是否忽略社会、历史与关系？</summary>
+    <p>黑格尔传统、女性主义伦理、关怀伦理等都指出，人并不是脱离社会关系、制度与依赖结构的纯粹立法者。康德式普遍主义因此不断被修正、扩展或批判。</p>
+  </details>
+  <div class="callout gold"><b>重要方法：</b>真正理解一位哲学家，不是把他的体系当成“标准答案”，而是知道它解决了什么旧问题、付出了什么代价、又制造了哪些新问题。</div>
+</section>
+
+<section id="s20">
+  <div class="section-no">20 · TODAY</div>
+  <h2>康德今天为什么仍然重要：很多现代问题本质上仍在问“哪些边界不能越过”</h2>
+  <div class="grid3">
+    <div class="card"><h4>人工智能与人格</h4><p>一个系统能否拥有“目的本身”的地位？哪些能力与人格尊严相关？当技术以预测和操控人为目标时，人性公式提供了强力问题框架。</p></div>
+    <div class="card"><h4>隐私与数据</h4><p>即使数据利用提升总体效率，是否仍可能把个人仅当作优化系统的手段？知情同意与自主权具有康德式结构。</p></div>
+    <div class="card"><h4>科学的边界</h4><p>科学能够解释越来越多现象，但“科学很强”并不自动等于“科学方法能够回答所有规范、意义和价值问题”。</p></div>
+    <div class="card"><h4>公共讨论</h4><p>启蒙意味着公开给出理由、允许批评，并承认任何人都不能以不可质疑的私人权威结束公共论证。</p></div>
+    <div class="card"><h4>人权</h4><p>现代权利语言中的人格平等、不可被纯粹工具化、理性自主等主题与康德传统存在深刻亲缘性。</p></div>
+    <div class="card"><h4>审美与算法推荐</h4><p>“我喜欢”与“这值得被共同欣赏”是否相同？康德关于审美普遍性的分析，在个性化推荐时代显得格外有趣。</p></div>
+  </div>
+</section>
+
+<section id="s21">
+  <div class="section-no">21 · HOW TO READ</div>
+  <h2>读康德的正确路线：不要一上来硬啃《纯粹理性批判》全部细节</h2>
+  <div class="bookspread">
+    <div>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/b/b9/Kant-KdrV-1781.png" alt="1781年《纯粹理性批判》初版标题页">
+      <div class="caption">1781 年《纯粹理性批判》标题页。Wikimedia Commons，公版图像。</div>
+    </div>
+    <div>
+      <h3 style="margin-top:0">推荐阅读顺序</h3>
+      <ol>
+        <li><b>《答复这个问题：什么是启蒙？》</b> —— 先理解“自己使用理性”的精神。</li>
+        <li><b>《未来形而上学导论》</b> —— 作为《纯粹理性批判》的入口，抓住“综合先天判断”与批判问题。</li>
+        <li><b>《道德形而上学奠基》</b> —— 先读伦理，最容易看到康德关于自主与普遍法则的力量。</li>
+        <li><b>《纯粹理性批判》</b> —— 按“先验感性论 → 先验分析论 → 先验辩证论”的骨架读。</li>
+        <li><b>《实践理性批判》</b> —— 看自由、道德法则与最高善如何系统化。</li>
+        <li><b>《判断力批判》</b> —— 最后理解为什么审美和目的论不是边角料，而是体系的桥梁。</li>
+      </ol>
+      <div class="callout blue"><b>阅读技巧：</b>每次看到“先验（transcendental）”，先问：康德是不是在讨论“某类经验 / 判断何以可能的条件”？不要把它直接等同于“超验（transcendent）”。这两个词在康德那里几乎是相反方向。</div>
+    </div>
+  </div>
+</section>
+
+<section id="s22">
+  <div class="section-no">22 · GLOSSARY</div>
+  <h2>康德术语速查：最容易混淆的 16 个词</h2>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>术语</th><th>一句话解释</th></tr></thead>
+    <tbody>
+      <tr><td>先验 transcendental</td><td>研究经验、知识或判断“何以可能”的先天条件。</td></tr>
+      <tr><td>超验 transcendent</td><td>越过可能经验界限，把范畴用于经验之外对象。</td></tr>
+      <tr><td>先天 a priori</td><td>其正当性不依赖具体经验。</td></tr>
+      <tr><td>综合先天 synthetic a priori</td><td>既扩展知识，又具有先天必然性的判断。</td></tr>
+      <tr><td>感性 sensibility</td><td>对象被给予我们的能力。</td></tr>
+      <tr><td>直观 intuition / Anschauung</td><td>对象被直接给予的表象方式；人类直观是感性的。</td></tr>
+      <tr><td>知性 understanding</td><td>以概念和规则思考对象的能力。</td></tr>
+      <tr><td>范畴 categories</td><td>构成经验对象统一性的纯粹知性概念。</td></tr>
+      <tr><td>综合 synthesis</td><td>把表象的多样性结合成统一经验的活动。</td></tr>
+      <tr><td>统觉 apperception</td><td>“我思”能够伴随表象的统一自我意识结构。</td></tr>
+      <tr><td>现象 appearance</td><td>对象在我们的认知条件下作为经验对象呈现。</td></tr>
+      <tr><td>物自体 thing in itself</td><td>对象不依赖人类认识条件时“其自身如何”；不可成为理论知识对象。</td></tr>
+      <tr><td>理性 reason</td><td>追求条件的整体、系统统一与无条件者的能力。</td></tr>
+      <tr><td>准则 maxim</td><td>行动者主观采用的行动原则。</td></tr>
+      <tr><td>自主 autonomy</td><td>理性意志不是被欲望或外在命令最终支配，而是以普遍理性法则自我立法。</td></tr>
+      <tr><td>合目的性 purposiveness</td><td>对象仿佛以适合某种目的或认知协调的方式组织；在第三批判中是判断力的重要原则。</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<section id="s23">
+  <div class="section-no">23 · ONE-PAGE MAP</div>
+  <h2>最后，用一张逻辑链把康德串起来</h2>
+  <div class="diagram">
+    <svg viewBox="0 0 1050 860" aria-label="康德哲学全景图">
+      <defs>
+        <marker id="a2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto">
+          <path d="M0 0 L10 5 L0 10 z" fill="#6e3f2a"/>
+        </marker>
+      </defs>
+      <rect x="325" y="25" width="400" height="80" rx="18" fill="#222831"/>
+      <text x="525" y="60" text-anchor="middle" font-size="25" font-weight="700" fill="white">人类理性：强大，但有限</text>
+      <text x="525" y="88" text-anchor="middle" font-size="15" fill="#d6d3cc">哲学首先必须审查理性自身的合法使用</text>
+
+      <rect x="70" y="180" width="280" height="125" rx="16" fill="#e7edf1" stroke="#aebcc5"/>
+      <text x="210" y="215" text-anchor="middle" font-size="22" font-weight="700" fill="#263b50">认识</text>
+      <text x="210" y="247" text-anchor="middle" font-size="15" fill="#45525c">空间/时间 + 范畴</text>
+      <text x="210" y="275" text-anchor="middle" font-size="15" fill="#45525c">→ 经验对象成为可能</text>
+
+      <rect x="385" y="180" width="280" height="125" rx="16" fill="#f1eadf" stroke="#c7b89f"/>
+      <text x="525" y="215" text-anchor="middle" font-size="22" font-weight="700" fill="#6e3f2a">边界</text>
+      <text x="525" y="247" text-anchor="middle" font-size="15" fill="#5c554c">现象 ≠ 物自体</text>
+      <text x="525" y="275" text-anchor="middle" font-size="15" fill="#5c554c">→ 形而上学不得越界</text>
+
+      <rect x="700" y="180" width="280" height="125" rx="16" fill="#f6efe0" stroke="#cfb578"/>
+      <text x="840" y="215" text-anchor="middle" font-size="22" font-weight="700" fill="#8c6a32">理性理念</text>
+      <text x="840" y="247" text-anchor="middle" font-size="15" fill="#5c554c">灵魂 · 世界 · 上帝</text>
+      <text x="840" y="275" text-anchor="middle" font-size="15" fill="#5c554c">→ 可调节思想，不等于知识</text>
+
+      <path d="M525 105 L210 170" stroke="#6e3f2a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+      <path d="M525 105 L525 170" stroke="#6e3f2a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+      <path d="M525 105 L840 170" stroke="#6e3f2a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+
+      <rect x="110" y="395" width="360" height="150" rx="18" fill="#fffdfa" stroke="#cbbfae"/>
+      <text x="290" y="432" text-anchor="middle" font-size="22" font-weight="700" fill="#263b50">理论理性：你不能知道自由</text>
+      <text x="290" y="466" text-anchor="middle" font-size="15" fill="#555">自然经验中的事件服从因果法则</text>
+      <text x="290" y="496" text-anchor="middle" font-size="15" fill="#555">科学解释有其合法领域</text>
+      <text x="290" y="525" text-anchor="middle" font-size="14" fill="#6e3f2a">“不能知道”不是“证明不存在”</text>
+
+      <rect x="580" y="395" width="360" height="150" rx="18" fill="#fffdfa" stroke="#cbbfae"/>
+      <text x="760" y="432" text-anchor="middle" font-size="22" font-weight="700" fill="#6e3f2a">实践理性：你必须预设自由</text>
+      <text x="760" y="466" text-anchor="middle" font-size="15" fill="#555">“你应当”意味着你被当作能以理由行动者</text>
+      <text x="760" y="496" text-anchor="middle" font-size="15" fill="#555">道德法则表现为绝对命令</text>
+      <text x="760" y="525" text-anchor="middle" font-size="14" fill="#263b50">自由 = 自主，不是任性</text>
+
+      <path d="M525 305 C450 345,380 365,290 385" stroke="#6e3f2a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+      <path d="M525 305 C600 345,670 365,760 385" stroke="#6e3f2a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+
+      <rect x="210" y="650" width="630" height="150" rx="20" fill="#222831"/>
+      <text x="525" y="690" text-anchor="middle" font-size="24" font-weight="700" fill="white">判断力：在自然与自由之间搭桥</text>
+      <text x="525" y="726" text-anchor="middle" font-size="16" fill="#e0dcd5">美：认知能力的自由协调　·　崇高：理性超越感性尺度</text>
+      <text x="525" y="757" text-anchor="middle" font-size="16" fill="#e0dcd5">目的论：把自然作为“仿佛合目的”来反思</text>
+      <text x="525" y="785" text-anchor="middle" font-size="14" fill="#d9c59b">最终图景：承认知识的有限性，同时维护人格的自由与尊严</text>
+
+      <path d="M290 545 C320 600,420 620,470 640" stroke="#6e3f2a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+      <path d="M760 545 C730 600,630 620,580 640" stroke="#6e3f2a" stroke-width="2" fill="none" marker-end="url(#a2)"/>
+    </svg>
+  </div>
+  <div class="quote">康德最深刻的遗产，不是某一个结论，而是一种哲学纪律：<br><b>在提出宏大主张之前，先追问自己是否拥有提出这种主张的条件与权利。</b></div>
+  <p>这也是为什么康德既能限制形而上学，又能捍卫科学；既能否定“理论上证明自由”，又能把自由置于道德的核心；既强调主体，又拒绝把世界降格为私人幻觉。康德的哲学始终在两种危险之间保持张力：<strong>独断论</strong>与<strong>怀疑论</strong>，<strong>自然决定论</strong>与<strong>任性自由</strong>，<strong>主观趣味</strong>与<strong>客观概念</strong>。</p>
+</section>
+
+<section id="sources">
+  <div class="section-no">SOURCES · FURTHER READING</div>
+  <h2>资料来源与延伸阅读</h2>
+  <p class="note">本文为解释性综述。康德文本不同译本在术语上可能略有差异；学界对先验唯心论、物自体、先验演绎等问题存在重要解释分歧。</p>
+  <ul class="sources">
+    <li><b>Stanford Encyclopedia of Philosophy</b> — “Immanuel Kant”; “Kant’s Account of Reason”; “Kant’s Moral Philosophy”; “Kant’s Aesthetics and Teleology”; “Kant’s Critique of Metaphysics”; “Kant’s Transcendental Arguments”; “Kant’s Social and Political Philosophy”.</li>
+    <li><b>Internet Encyclopedia of Philosophy</b> — “Immanuel Kant”; “Kant: Transcendental Idealism”; “Kant: Aesthetics”.</li>
+    <li><b>Immanuel Kant</b> — <i>Critique of Pure Reason</i> (1781/1787); <i>Groundwork of the Metaphysics of Morals</i> (1785); <i>Critique of Practical Reason</i> (1788); <i>Critique of the Power of Judgment</i> (1790); “An Answer to the Question: What Is Enlightenment?” (1784); <i>Perpetual Peace</i> (1795).</li>
+    <li>康德肖像：Johann Christoph Frisch 所绘版本，Wikimedia Commons，Public Domain。</li>
+    <li>《纯粹理性批判》1781 年版标题页：Wikimedia Commons，Public Domain。</li>
+  </ul>
+  <hr>
+  <p class="note">视觉设计与结构化导读：为屏幕长文阅读优化；支持浏览器“打印 / 保存 PDF”。</p>
+</section>
+
+<div class="footer">
+  <b>阅读建议：</b>第一次阅读先掌握第 3、7、9、11、17、23 节；第二次再回到范畴、先验演绎和二律背反。康德难不在术语多，而在于他几乎每个术语都承担“划界”的功能。
+</div>
+</main>
+</div>
+
+<script>
+const bar=document.getElementById('progress');
+const secs=[...document.querySelectorAll('main section')];
+const links=[...document.querySelectorAll('#toc a')];
+function onScroll(){
+  const h=document.documentElement.scrollHeight-innerHeight;
+  bar.style.width=(h?scrollY/h*100:0)+'%';
+  let current='';
+  for(const s of secs){ if(s.getBoundingClientRect().top<150) current=s.id; }
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+}
+addEventListener('scroll',onScroll,{passive:true}); onScroll();
+</script>
+</body>
+</html>

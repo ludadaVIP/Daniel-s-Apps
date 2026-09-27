@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>柏拉图（Plato）哲学：一文讲透</title>
+<meta name="description" content="系统讲解柏拉图哲学：理念论、知识论、洞穴寓言、灵魂三分、伦理学、政治哲学、爱与美、宇宙论、方法论、争议与影响。" />
+<style>
+:root{
+  --bg:#f6f1e8;
+  --paper:#fffdf8;
+  --ink:#20242b;
+  --muted:#696d73;
+  --line:#d9d0c2;
+  --gold:#a27632;
+  --deep:#243447;
+  --blue:#5b7897;
+  --sage:#73806b;
+  --rose:#8b5f62;
+  --shadow:0 18px 60px rgba(56,42,20,.10);
+  --radius:20px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:
+  radial-gradient(circle at 10% 0%, rgba(162,118,50,.08), transparent 30%),
+  linear-gradient(180deg,#f8f4ed 0%,#f3eee5 100%);
+  color:var(--ink);font-family:Inter,"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;line-height:1.8}
+a{color:inherit}
+.hero{min-height:92vh;display:grid;grid-template-columns:1.1fr .9fr;gap:50px;align-items:center;padding:70px max(6vw,28px) 55px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;inset:auto -10% -35% 35%;height:70%;background:radial-gradient(circle,rgba(162,118,50,.12),transparent 68%)}
+.eyebrow{font-size:.78rem;letter-spacing:.24em;text-transform:uppercase;color:var(--gold);font-weight:700}
+h1{font-family:Georgia,"Songti SC",serif;font-size:clamp(3.2rem,8vw,7rem);line-height:.95;margin:.22em 0 .18em;letter-spacing:-.04em}
+.hero h2{font-family:Georgia,"Songti SC",serif;font-size:clamp(1.4rem,3vw,2.1rem);font-weight:500;color:var(--deep);margin:.2em 0 1em}
+.lede{font-size:1.08rem;color:#4c5057;max-width:760px}
+.hero-quote{margin:24px 0 0;padding:18px 20px;border-left:3px solid var(--gold);background:rgba(255,255,255,.46);border-radius:0 14px 14px 0;color:#4a4339}
+.hero-art{background:linear-gradient(145deg,#2f4052,#15212f);border-radius:36px;box-shadow:var(--shadow);padding:26px;position:relative;min-height:530px;display:flex;align-items:center;justify-content:center}
+.hero-art .caption{position:absolute;left:30px;bottom:24px;color:#eef4f7;font-size:.85rem;letter-spacing:.08em}
+nav{position:sticky;top:0;z-index:20;backdrop-filter:blur(12px);background:rgba(246,241,232,.88);border-top:1px solid rgba(217,208,194,.7);border-bottom:1px solid rgba(217,208,194,.9)}
+.navinner{max-width:1180px;margin:auto;display:flex;gap:20px;overflow:auto;padding:11px 22px;white-space:nowrap;font-size:.9rem;color:#555b63}
+.navinner a{text-decoration:none}.navinner a:hover{color:var(--gold)}
+main{max-width:1180px;margin:0 auto;padding:66px 24px 100px}
+section{margin:0 0 88px}
+.sec-head{display:grid;grid-template-columns:86px 1fr;gap:20px;align-items:start;margin-bottom:26px}
+.num{font:700 2.6rem/1 Georgia,serif;color:#d6c2a0}
+h2.section-title{font-family:Georgia,"Songti SC",serif;font-size:clamp(2rem,4vw,3.2rem);line-height:1.1;margin:0 0 8px}
+.subtitle{color:var(--muted);margin:0}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--paper);border:1px solid #e4dbcf;border-radius:var(--radius);padding:24px;box-shadow:0 8px 28px rgba(55,40,20,.04)}
+.card h3{margin:.1em 0 .5em;font-family:Georgia,"Songti SC",serif;color:var(--deep);font-size:1.25rem}
+.card p:last-child{margin-bottom:0}
+.term{display:inline-block;padding:.12rem .5rem;border-radius:999px;background:#efe5d4;color:#6f5428;font-size:.82rem;font-weight:700;margin-right:.35rem}
+.callout{padding:26px 28px;border-radius:20px;background:#28384a;color:#f8fbfd;box-shadow:var(--shadow)}
+.callout strong{color:#f0c98e}
+.callout h3{margin-top:0;font-family:Georgia,"Songti SC",serif;font-size:1.55rem}
+.diagram{background:var(--paper);border:1px solid #dfd6c9;border-radius:22px;padding:18px;overflow:hidden}
+.diagram .cap{font-size:.84rem;color:var(--muted);margin:8px 8px 2px}
+.kicker{color:var(--gold);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:.78rem}
+.timeline{position:relative;margin-top:18px;padding-left:22px;border-left:2px solid #ccb892}.timeline-item{margin:0 0 22px;padding-left:12px}.timeline-item strong{color:var(--deep)}
+.table-wrap{overflow:auto;border-radius:18px;border:1px solid #ded5c7;background:#fffdf9}
+table{border-collapse:collapse;width:100%;min-width:760px}th,td{text-align:left;padding:15px 17px;border-bottom:1px solid #ece4d8;vertical-align:top}th{background:#f0e7d9;color:#4f4535;font-size:.88rem}tr:last-child td{border-bottom:none}
+.quote{font-family:Georgia,"Songti SC",serif;font-size:1.5rem;line-height:1.55;color:#333943;padding:26px 0;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.mini{font-size:.9rem;color:var(--muted)}
+.pill-row{display:flex;flex-wrap:wrap;gap:9px}.pill{border:1px solid #d9cfbf;background:#fffaf2;padding:7px 11px;border-radius:999px;font-size:.84rem}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch}.flow .step{background:#fffdf9;border:1px solid #ddd2c2;padding:15px;border-radius:16px;text-align:center;font-size:.91rem}.arrow{text-align:center;color:#a38b65;font-weight:700}
+.reading{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.reading .card{padding:19px}.reading .tag{font-size:.75rem;color:#7d6844;font-weight:700;text-transform:uppercase;letter-spacing:.08em}
+.footer{border-top:1px solid var(--line);padding:35px 24px 55px;text-align:center;color:#777;font-size:.88rem;background:#f2ece2}
+mark{background:#f4dfb8;padding:.05em .12em}
+ul{padding-left:1.25rem}li{margin:.45em 0}
+@media(max-width:900px){.hero{grid-template-columns:1fr;min-height:auto;padding-top:50px}.hero-art{min-height:420px}.grid2,.grid3,.reading{grid-template-columns:1fr}.flow{grid-template-columns:1fr}.sec-head{grid-template-columns:58px 1fr}.num{font-size:2rem}}
+@media print{nav{display:none}.hero{min-height:auto}.card,.diagram,.callout{break-inside:avoid}body{background:#fff}main{max-width:none}}
+</style>
+</head>
+<body>
+<header class="hero" id="top">
+  <div>
+    <div class="eyebrow">Philosophy · Ancient Greece · c. 428/427–348/347 BCE</div>
+    <h1>柏拉图</h1>
+    <h2>Plato：把“什么是真的、什么是好的、谁应当统治”连成一个系统</h2>
+    <p class="lede">理解柏拉图，不应把他拆成几个孤立标签——“理念论”“洞穴寓言”“哲人王”。他的真正野心，是把<strong>存在论、知识论、伦理学、政治哲学、教育、爱与美、灵魂与宇宙秩序</strong>编织成一个统一问题：如果现实世界充满变化、意见和欲望，人如何抵达不变的真理，并据此过一种正义而有秩序的生活？</p>
+    <div class="hero-quote">本篇的主线：<strong>从“可见世界”上升到“可知世界”，再从真理返回城邦与日常生活。</strong></div>
+  </div>
+  <div class="hero-art" aria-label="柏拉图哲学主题插图">
+    <svg viewBox="0 0 620 620" width="100%" role="img" aria-label="柏拉图理念世界与洞穴象征图">
+      <defs>
+        <linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#f4d59d"/><stop offset="1" stop-color="#e7b65f"/></linearGradient>
+        <radialGradient id="halo"><stop offset="0" stop-color="#f8dfa8" stop-opacity=".9"/><stop offset="1" stop-color="#f8dfa8" stop-opacity="0"/></radialGradient>
+      </defs>
+      <circle cx="425" cy="145" r="122" fill="url(#halo)"/>
+      <circle cx="430" cy="140" r="46" fill="url(#g1)" opacity=".95"/>
+      <path d="M180 520 Q240 390 330 330 Q400 285 470 235" fill="none" stroke="#d9b36e" stroke-width="5" stroke-dasharray="9 11"/>
+      <path d="M70 520 H360 Q320 430 240 390 Q145 365 70 405 Z" fill="#111a25" stroke="#536477" stroke-width="3"/>
+      <path d="M210 454 q32 -32 62 0 v62 h-62z" fill="#253243"/>
+      <circle cx="241" cy="431" r="19" fill="#b4b8bb"/>
+      <path d="M245 420 l-8 8 9 8" fill="none" stroke="#333" stroke-width="2"/>
+      <path d="M122 455 C150 420 175 420 198 455" fill="none" stroke="#e0a74f" stroke-width="5"/>
+      <path d="M108 454 q13 -33 28 0 q15 -38 31 0" fill="none" stroke="#f0bd63" stroke-width="4"/>
+      <path d="M78 424 q90 -62 196 -12" fill="none" stroke="#6f7f8f" stroke-width="3"/>
+      <path d="M485 330 q-55 -38 -112 -2 q-56 36 -28 94 q25 51 95 48 q70 -2 92 -54 q18 -49 -47 -86z" fill="#d7c3a5" opacity=".93"/>
+      <path d="M390 414 q42 35 95 0" fill="none" stroke="#7a674f" stroke-width="4"/>
+      <path d="M392 376 q13 -8 26 0 M461 376 q13 -8 26 0" stroke="#5d5142" stroke-width="4" fill="none"/>
+      <path d="M438 380 q-6 22 7 28" fill="none" stroke="#7a674f" stroke-width="3"/>
+      <path d="M362 347 q76 -78 146 0" fill="none" stroke="#b8a184" stroke-width="26" stroke-linecap="round"/>
+      <path d="M356 354 q-35 65 -2 124" fill="none" stroke="#b8a184" stroke-width="24" stroke-linecap="round"/>
+      <path d="M506 349 q42 66 6 132" fill="none" stroke="#b8a184" stroke-width="24" stroke-linecap="round"/>
+      <path d="M350 494 q85 -68 170 0" fill="#b8a184"/>
+      <circle cx="433" cy="141" r="78" fill="none" stroke="#f1cc84" stroke-width="2" opacity=".5"/>
+      <path d="M430 44 v-22 M430 260 v-22 M334 140 h-22 M550 140 h-22 M360 70 l-16-16 M505 215 l-16-16 M503 68 l16-16" stroke="#f2ce88" stroke-width="3" opacity=".7"/>
+      <text x="372" y="307" fill="#c8d3dd" font-size="18" font-family="Georgia">ἀλήθεια · truth</text>
+      <text x="84" y="555" fill="#768797" font-size="18" font-family="Georgia">δόξα · opinion</text>
+    </svg>
+    <div class="caption">“从影子到太阳”：柏拉图哲学的基本运动</div>
+  </div>
+</header>
+<nav>
+  <div class="navinner">
+    <a href="#overview">总览</a><a href="#context">时代与问题</a><a href="#method">对话法</a><a href="#forms">理念论</a><a href="#knowledge">知识论</a><a href="#cave">洞穴寓言</a><a href="#soul">灵魂与伦理</a><a href="#politics">政治哲学</a><a href="#love">爱与美</a><a href="#cosmos">宇宙论</a><a href="#critique">争议</a><a href="#legacy">影响</a><a href="#reading">阅读路线</a>
+  </div>
+</nav>
+<main>
+
+<section id="overview">
+  <div class="sec-head"><div class="num">01</div><div><h2 class="section-title">先抓住柏拉图的“总系统”</h2><p class="subtitle">他不是在回答十几个问题，而是在回答一个层层展开的问题。</p></div></div>
+  <div class="callout">
+    <h3>柏拉图的核心结构</h3>
+    <p>现实世界是变化的，而真正的知识要求稳定对象；因此，必须承认某种比感官对象更稳定的<strong>可知秩序</strong>。人的灵魂能够通过哲学教育从意见提升为知识；当灵魂内部由理性统治，个人就趋于正义；当城邦由真正理解善的人治理，政治秩序才可能合理。</p>
+  </div>
+  <div class="flow" style="margin-top:18px">
+    <div class="step"><strong>存在论</strong><br>什么真正存在？</div>
+    <div class="step"><strong>知识论</strong><br>人如何知道？</div>
+    <div class="step"><strong>灵魂论</strong><br>谁在“知道”？</div>
+    <div class="step"><strong>伦理学</strong><br>何谓正义生活？</div>
+    <div class="step"><strong>政治哲学</strong><br>何谓正义城邦？</div>
+  </div>
+  <p class="quote">柏拉图最重要的不是“另有一个理念世界”这句口号，而是：<mark>真理的结构、灵魂的秩序、城邦的秩序，在他那里彼此映照。</mark></p>
+</section>
+
+<section id="context">
+  <div class="sec-head"><div class="num">02</div><div><h2 class="section-title">时代背景：为什么柏拉图如此执着于“真理”和“秩序”</h2><p class="subtitle">雅典民主、伯罗奔尼撒战争、苏格拉底之死，构成了他的精神背景。</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <div class="kicker">Historical pressure</div>
+      <h3>政治失序</h3>
+      <p>柏拉图成长于雅典霸权衰落与战争动荡之中。民主、寡头、僭政不断相互否定，使他对“多数意见是否等于正确”产生根本怀疑。</p>
+      <p>对他而言，政治不是单纯权力技术，而是一个知识论问题：<strong>如果统治者不知道何为善，制度如何可能稳定地趋向正义？</strong></p>
+    </div>
+    <div class="card">
+      <div class="kicker">Socratic shock</div>
+      <h3>苏格拉底之死</h3>
+      <p>公元前399年，苏格拉底被雅典法庭判处死刑。这件事深刻塑造柏拉图：一个自称追问真理、检验灵魂的人，竟被城邦以法律程序处死。</p>
+      <p>由此产生柏拉图终身的难题：<strong>如何让真理与政治不再成为敌人？</strong></p>
+    </div>
+  </div>
+  <div class="timeline">
+    <div class="timeline-item"><strong>c. 428/427 BCE</strong> — 柏拉图出生于雅典贵族家庭。</div>
+    <div class="timeline-item"><strong>399 BCE</strong> — 苏格拉底被处死；柏拉图对雅典政治产生深刻怀疑。</div>
+    <div class="timeline-item"><strong>387 BCE 左右</strong> — 创办“学院”（Academy），成为西方最重要的早期哲学教育机构之一。</div>
+    <div class="timeline-item"><strong>中晚期</strong> — 从苏格拉底式伦理辩难，发展到理念论、政治哲学、自然哲学与方法论反思。</div>
+    <div class="timeline-item"><strong>348/347 BCE</strong> — 去世；其学院延续数百年，影响远超古希腊。</div>
+  </div>
+</section>
+
+<section id="method">
+  <div class="sec-head"><div class="num">03</div><div><h2 class="section-title">为什么柏拉图几乎总用“对话”写哲学</h2><p class="subtitle">哲学在他那里不是知识灌输，而是灵魂被迫自我检验。</p></div></div>
+  <div class="grid3">
+    <div class="card"><h3>反驳（Elenchus）</h3><p>通过追问定义、例外和矛盾，迫使对话者发现自己以为“知道”的东西其实并不稳固。</p></div>
+    <div class="card"><h3>辩证法（Dialectic）</h3><p>从意见向原则上升，寻找概念之间的结构关系，直到触及能够解释其他知识的更高原则。</p></div>
+    <div class="card"><h3>神话（Mythos）</h3><p>当论证触及灵魂、死后、宇宙秩序等边界时，柏拉图常以神话表达超出严格证明范围、但具有哲学指向的图景。</p></div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <h3>关键阅读提醒：苏格拉底说的话 ≠ 自动等于“柏拉图本人最终观点”</h3>
+    <p>柏拉图没有写系统教科书。他让不同人物说话，故意保留张力、反例和未解决问题。研究者常按“早期—中期—晚期”区分对话篇，但这种分期并非绝对。因此，读柏拉图应关注<strong>戏剧场景、论证结构、发言者身份以及对话有没有真正收束</strong>。</p>
+  </div>
+</section>
+
+<section id="forms">
+  <div class="sec-head"><div class="num">04</div><div><h2 class="section-title">理念论（Theory of Forms）：为什么“美的东西”不等于“美本身”</h2><p class="subtitle">这是柏拉图最著名、也最容易被简化的思想。</p></div></div>
+  <div class="grid2">
+    <div>
+      <div class="card"><h3>基本问题</h3><p>世上的美丽事物会衰败，正义制度会改变，两个“相等”的物体也不可能绝对相等；但我们却能讨论“美”“正义”“相等”本身，好像这些概念具有稳定标准。</p><p>柏拉图由此倾向于认为：感官世界中的个别事物之所以“是某种东西”，因为它们以某种方式<strong>分有（participate in）</strong>相应的理念（Form / Idea）。</p></div>
+      <div class="card" style="margin-top:16px"><h3>理念不是“脑中的概念”</h3><p>对柏拉图而言，理念并不只是主观分类工具。它们具有更强的客观性：是使具体事物可理解、可判断、可定义的稳定根据。</p><p><span class="term">εἶδος</span><span class="term">ἰδέα</span>常译为“形式、理念、相”。</p></div>
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 0 700 520" width="100%" aria-label="理念与个别事物关系图">
+        <defs><linearGradient id="fg" x1="0" x2="1"><stop stop-color="#f3d69f"/><stop offset="1" stop-color="#b88a42"/></linearGradient></defs>
+        <rect x="70" y="45" width="560" height="150" rx="26" fill="#243447"/>
+        <text x="350" y="95" text-anchor="middle" fill="#f7e2b7" font-size="26" font-family="Georgia">FORM / IDEA</text>
+        <text x="350" y="137" text-anchor="middle" fill="#fff" font-size="22">“美本身” · “正义本身” · “圆本身”</text>
+        <text x="350" y="170" text-anchor="middle" fill="#bcc9d5" font-size="16">稳定 · 普遍 · 可知 · 作为判断标准</text>
+        <path d="M350 200 v80" stroke="#a27632" stroke-width="4" marker-end="url(#x)"/>
+        <text x="372" y="245" fill="#8d7044" font-size="18">分有 / 模仿 / 体现</text>
+        <g transform="translate(65 320)"><circle cx="80" cy="60" r="55" fill="#d6b17b"/><text x="80" y="65" text-anchor="middle" font-size="18">一朵花</text></g>
+        <g transform="translate(255 320)"><rect x="25" y="5" width="110" height="110" rx="20" fill="#bfc9d2"/><text x="80" y="65" text-anchor="middle" font-size="18">一座城</text></g>
+        <g transform="translate(445 320)"><polygon points="80,0 140,105 20,105" fill="url(#fg)"/><text x="80" y="72" text-anchor="middle" font-size="18">一件器物</text></g>
+        <text x="350" y="485" text-anchor="middle" fill="#666" font-size="18">个别事物：变化、生成、毁灭，却可被“某种形式”所理解</text>
+      </svg>
+      <p class="cap">示意图：理念为个别事物提供可理解的结构与规范尺度。柏拉图在不同对话篇中对“分有”的具体机制并未给出单一、无争议的模型。</p>
+    </div>
+  </div>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card"><h3>本体论功能</h3><p>解释为什么变化世界仍然具有稳定的“是什么”。</p></div>
+    <div class="card"><h3>知识论功能</h3><p>解释为什么知识能够超越瞬息万变的感官经验。</p></div>
+    <div class="card"><h3>规范功能</h3><p>解释我们为何能说某个法律“不够正义”、某个行为“不够善”。</p></div>
+  </div>
+</section>
+
+<section id="knowledge">
+  <div class="sec-head"><div class="num">05</div><div><h2 class="section-title">知识论：意见（doxa）与知识（epistēmē）不是程度差，而是对象与方法之差</h2><p class="subtitle">真正的知识必须把握“为什么”，而不只是“看起来如此”。</p></div></div>
+  <div class="grid2">
+    <div class="diagram">
+      <svg viewBox="0 0 760 410" width="100%" aria-label="柏拉图分线比喻">
+        <rect x="70" y="55" width="620" height="44" rx="22" fill="#d8c7ac"/>
+        <rect x="70" y="55" width="155" height="44" rx="22" fill="#8e98a3"/>
+        <rect x="225" y="55" width="155" height="44" fill="#b3b8ba"/>
+        <rect x="380" y="55" width="155" height="44" fill="#8da1b2"/>
+        <rect x="535" y="55" width="155" height="44" rx="22" fill="#c49b58"/>
+        <text x="148" y="140" text-anchor="middle" font-size="20">想象</text><text x="148" y="168" text-anchor="middle" font-size="15">eikasia</text>
+        <text x="302" y="140" text-anchor="middle" font-size="20">信念</text><text x="302" y="168" text-anchor="middle" font-size="15">pistis</text>
+        <text x="458" y="140" text-anchor="middle" font-size="20">推理</text><text x="458" y="168" text-anchor="middle" font-size="15">dianoia</text>
+        <text x="612" y="140" text-anchor="middle" font-size="20">理智直观</text><text x="612" y="168" text-anchor="middle" font-size="15">noēsis</text>
+        <path d="M70 225 H380" stroke="#6d7276" stroke-width="5"/><path d="M380 225 H690" stroke="#a27632" stroke-width="5"/>
+        <text x="225" y="260" text-anchor="middle" fill="#555" font-size="20">可见世界 · Opinion</text>
+        <text x="535" y="260" text-anchor="middle" fill="#7b5c29" font-size="20">可知世界 · Knowledge</text>
+        <text x="148" y="320" text-anchor="middle" font-size="16">影像、倒影</text><text x="302" y="320" text-anchor="middle" font-size="16">具体事物</text><text x="458" y="320" text-anchor="middle" font-size="16">数学对象</text><text x="612" y="320" text-anchor="middle" font-size="16">理念与第一原则</text>
+      </svg>
+      <p class="cap">《理想国》“分线比喻”的经典解释。它展示从低级认识到更高层次理解的连续上升。</p>
+    </div>
+    <div class="card">
+      <h3>为什么数学在柏拉图那里重要</h3>
+      <p>数学训练让灵魂脱离感官个别物，转向稳定关系和抽象结构。它因此成为哲学辩证法的预备训练。</p>
+      <p>但数学仍会借助假设。哲学的最高任务则是追问：<strong>这些假设最终凭什么成立？</strong></p>
+      <h3 style="margin-top:20px">“回忆说”（Anamnesis）</h3>
+      <p>在《美诺》《斐多》等篇中，柏拉图借“学习是回忆”说明：我们之所以能够识别“绝对相等”“善”等标准，似乎意味着灵魂并非完全从感官白纸开始。</p>
+      <p class="mini">注意：这一说法兼具认识论与灵魂论意义；不能简单等同于现代心理学意义的“记忆”。</p>
+    </div>
+  </div>
+</section>
+
+<section id="cave">
+  <div class="sec-head"><div class="num">06</div><div><h2 class="section-title">洞穴寓言：不是“现实都是假的”，而是“教育是一场灵魂转向”</h2><p class="subtitle">这是柏拉图最具视觉力量的哲学图景。</p></div></div>
+  <div class="diagram">
+    <svg viewBox="0 0 980 500" width="100%" aria-label="洞穴寓言分解图">
+      <rect x="25" y="70" width="580" height="360" rx="70" fill="#1d2732"/>
+      <path d="M605 120 Q690 145 760 110 Q860 55 945 85 V430 H605 Z" fill="#e7dcc8"/>
+      <circle cx="860" cy="130" r="56" fill="#d8aa5b"/>
+      <path d="M805 270 q60 -80 120 -30" fill="none" stroke="#76856f" stroke-width="18"/>
+      <path d="M680 340 q65 -100 145 -120" fill="none" stroke="#a27632" stroke-width="5" stroke-dasharray="11 10"/>
+      <path d="M100 250 H290" stroke="#77828c" stroke-width="5"/>
+      <rect x="92" y="155" width="215" height="35" rx="17" fill="#566471"/>
+      <circle cx="165" cy="275" r="24" fill="#adb5bb"/><rect x="149" y="297" width="32" height="75" rx="12" fill="#8a949d"/>
+      <circle cx="240" cy="275" r="24" fill="#adb5bb"/><rect x="224" y="297" width="32" height="75" rx="12" fill="#8a949d"/>
+      <path d="M340 275 h110" stroke="#896c45" stroke-width="8"/><path d="M375 247 v40 M420 245 v42" stroke="#c8b18a" stroke-width="15"/>
+      <path d="M465 275 h55" stroke="#b37936" stroke-width="5"/>
+      <path d="M523 245 q20 25 0 50" fill="#e7a94a"/>
+      <path d="M306 190 q78 -60 175 0" fill="none" stroke="#77828c" stroke-width="2"/>
+      <text x="150" y="120" fill="#d6dde3" font-size="18">① 影子</text>
+      <text x="366" y="120" fill="#d6dde3" font-size="18">② 制造影子的对象</text>
+      <text x="472" y="355" fill="#cbd3d9" font-size="18">③ 火光</text>
+      <text x="650" y="385" fill="#74572e" font-size="18">④ 艰难上升</text>
+      <text x="822" y="75" fill="#74572e" font-size="18">⑤ 太阳 / 善</text>
+      <text x="760" y="455" fill="#6d6458" font-size="17">⑥ 哲学家必须返回洞穴</text>
+    </svg>
+    <p class="cap">洞穴寓言的政治锋芒在“返回”：哲学不是个人逃离世界，而是理解真理后重新承担公共责任。</p>
+  </div>
+  <div class="grid3" style="margin-top:18px">
+    <div class="card"><h3>认识论</h3><p>人可能把影像、习俗和舆论误当成现实本身。</p></div>
+    <div class="card"><h3>教育论</h3><p>教育不是把知识塞进灵魂，而是使灵魂“转向”更值得认识的对象。</p></div>
+    <div class="card"><h3>政治哲学</h3><p>看见太阳的人若只享受真理而拒绝返回，仍未完成正义义务。</p></div>
+  </div>
+</section>
+
+<section id="soul">
+  <div class="sec-head"><div class="num">07</div><div><h2 class="section-title">灵魂三分：正义不是“听话”，而是内在秩序</h2><p class="subtitle">《理想国》把人的心理结构和城邦结构做成镜像。</p></div></div>
+  <div class="grid2">
+    <div class="diagram">
+      <svg viewBox="0 0 700 500" width="100%" aria-label="灵魂三分结构图">
+        <circle cx="350" cy="250" r="190" fill="#f7f0e4" stroke="#d7c6ab" stroke-width="3"/>
+        <path d="M350 60 A190 190 0 0 1 515 345 L350 250Z" fill="#7890a7" opacity=".9"/>
+        <path d="M515 345 A190 190 0 0 1 185 345 L350 250Z" fill="#b59091" opacity=".9"/>
+        <path d="M185 345 A190 190 0 0 1 350 60 L350 250Z" fill="#8b987c" opacity=".9"/>
+        <circle cx="350" cy="250" r="62" fill="#fffaf2" stroke="#d6c5aa"/>
+        <text x="350" y="243" text-anchor="middle" font-size="24">正义</text><text x="350" y="271" text-anchor="middle" font-size="16">harmonia</text>
+        <text x="430" y="160" text-anchor="middle" fill="#fff" font-size="22">理性</text><text x="430" y="187" text-anchor="middle" fill="#eef" font-size="15">logos</text>
+        <text x="350" y="395" text-anchor="middle" fill="#fff" font-size="22">欲望</text><text x="350" y="422" text-anchor="middle" fill="#fff" font-size="15">epithymia</text>
+        <text x="250" y="185" text-anchor="middle" fill="#fff" font-size="22">意气</text><text x="250" y="212" text-anchor="middle" fill="#fff" font-size="15">thymos</text>
+      </svg>
+      <p class="cap">正义的人并非没有欲望，而是理性、意气、欲望各司其职，并由理性领导整体。</p>
+    </div>
+    <div class="card">
+      <h3>三个部分</h3>
+      <p><strong>理性（reason）</strong>追求真与整体利益；<strong>意气（spirit）</strong>关乎荣誉、愤怒、勇气与自尊；<strong>欲望（appetite）</strong>追求食物、财富、性、舒适等满足。</p>
+      <h3 style="margin-top:20px">四种德性</h3>
+      <ul>
+        <li><strong>智慧</strong>：理性知道整体何者为善。</li>
+        <li><strong>勇敢</strong>：意气稳定维护正确判断。</li>
+        <li><strong>节制</strong>：各部分对谁应当统治形成一致。</li>
+        <li><strong>正义</strong>：每一部分做自己的工作，不篡夺他者职分。</li>
+      </ul>
+      <p>于是，伦理学不再只是“遵守规则”，而是<strong>灵魂结构是否有序</strong>。一个外表成功但被贪欲支配的人，在柏拉图看来仍是不自由的。</p>
+    </div>
+  </div>
+</section>
+
+<section id="politics">
+  <div class="sec-head"><div class="num">08</div><div><h2 class="section-title">政治哲学：为什么柏拉图提出“哲人王”</h2><p class="subtitle">其出发点不是崇拜权力，而是把统治看成一种需要知识的技艺。</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>城邦与灵魂的对应</h3>
+      <div class="table-wrap"><table>
+        <thead><tr><th>城邦阶层</th><th>灵魂部分</th><th>主要德性</th><th>功能</th></tr></thead>
+        <tbody>
+          <tr><td>统治者</td><td>理性</td><td>智慧</td><td>判断整体之善</td></tr>
+          <tr><td>护卫者</td><td>意气</td><td>勇敢</td><td>保卫法律与共同体</td></tr>
+          <tr><td>生产者</td><td>欲望</td><td>节制</td><td>经济生产与日常生活</td></tr>
+        </tbody>
+      </table></div>
+      <p>“正义城邦”意味着功能分工与整体秩序，而不是现代意义上的平等权利理论。</p>
+    </div>
+    <div class="card">
+      <h3>哲人王（Philosopher-King）</h3>
+      <p>柏拉图认为，真正适合统治的人必须理解“善”的结构，而不是只擅长赢得选票、操控舆论或追求个人利益。</p>
+      <p>这并不意味着任何自称“哲学家”的人都有统治资格。《理想国》设定了极为严苛的长期教育、数学训练、辩证法训练与人格考验。</p>
+      <p><strong>核心逻辑：</strong>统治是一种面向共同善的专业性判断；若权力与知识彻底分离，政治就容易被欲望和意见支配。</p>
+    </div>
+  </div>
+  <div class="card" style="margin-top:18px">
+    <h3>政体退化序列</h3>
+    <p>《理想国》描述一种由较好秩序向较坏秩序滑落的序列：</p>
+    <div class="pill-row"><span class="pill">贵族政体 / 哲人统治</span><span class="pill">→ 荣誉政体</span><span class="pill">→ 寡头政体</span><span class="pill">→ 民主政体</span><span class="pill">→ 僭主政体</span></div>
+    <p class="mini" style="margin-top:13px">这是柏拉图的规范性政治心理学模型，不应直接套用为现代政体分类。尤其是他对“民主”的批判针对古典雅典直接民主与其特定政治经验，与现代宪政民主存在重大制度差异。</p>
+  </div>
+</section>
+
+<section id="love">
+  <div class="sec-head"><div class="num">09</div><div><h2 class="section-title">爱与美：《会饮》里的“爱的阶梯”</h2><p class="subtitle">Eros 不是单纯浪漫爱情，而是一种由匮乏推动的上升欲望。</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>爱的动力：因为“不拥有”，所以追求</h3>
+      <p>爱（Eros）既非纯粹占有，也非单纯感情。它是一种朝向美、善与某种“不朽”的追求。爱从具体身体开始，却可以被教育、净化、提升。</p>
+      <p>这一上升过程说明柏拉图伦理学并不要求彻底消灭欲望，而是<strong>改变欲望所爱的对象</strong>。</p>
+    </div>
+    <div class="diagram">
+      <svg viewBox="0 0 700 500" width="100%" aria-label="爱的阶梯">
+        <g font-family="sans-serif">
+          <rect x="70" y="395" width="560" height="60" rx="14" fill="#caa67a"/><text x="350" y="432" text-anchor="middle" font-size="20">1. 一个美的身体</text>
+          <rect x="105" y="320" width="490" height="58" rx="14" fill="#b99578"/><text x="350" y="356" text-anchor="middle" font-size="20">2. 一切身体之美</text>
+          <rect x="140" y="247" width="420" height="56" rx="14" fill="#9e8f83"/><text x="350" y="282" text-anchor="middle" font-size="20" fill="#fff">3. 灵魂之美</text>
+          <rect x="175" y="178" width="350" height="54" rx="14" fill="#7f8b8a"/><text x="350" y="212" text-anchor="middle" font-size="20" fill="#fff">4. 制度与知识之美</text>
+          <rect x="210" y="112" width="280" height="52" rx="14" fill="#607b8d"/><text x="350" y="145" text-anchor="middle" font-size="20" fill="#fff">5. 美本身</text>
+          <circle cx="350" cy="58" r="32" fill="#d4aa5f"/><text x="350" y="64" text-anchor="middle" font-size="17">BEAUTY</text>
+        </g>
+      </svg>
+      <p class="cap">“爱的阶梯”表达的是对象层次的提升：从个别美走向普遍而不依附个别对象的美。</p>
+    </div>
+  </div>
+</section>
+
+<section id="cosmos">
+  <div class="sec-head"><div class="num">10</div><div><h2 class="section-title">宇宙论：《蒂迈欧》中的秩序、数学与造物匠</h2><p class="subtitle">柏拉图晚期自然哲学试图解释：为何宇宙不是完全混乱。</p></div></div>
+  <div class="grid3">
+    <div class="card"><h3>Demiurge</h3><p>“造物匠”并非典型意义上从无创造世界的全能神，而更像按照永恒范型整理既有混乱，使宇宙尽可能有秩序。</p></div>
+    <div class="card"><h3>世界灵魂</h3><p>宇宙被描绘为某种有生命、有比例、有整体结构的秩序；数学比例在其中具有根本地位。</p></div>
+    <div class="card"><h3>目的论色彩</h3><p>自然不仅“发生”，还可以从“为何这样更好、更有秩序”来理解。这影响了后来的古代与中世纪自然哲学。</p></div>
+  </div>
+  <p class="mini" style="margin-top:14px">《蒂迈欧》混合了哲学推理、几何模型与神话叙事。把它当现代科学论文阅读会误解其目的；它更像一套“宇宙可理解性”的形而上学模型。</p>
+</section>
+
+<section id="good">
+  <div class="sec-head"><div class="num">11</div><div><h2 class="section-title">“善的理念”：柏拉图体系的最高点</h2><p class="subtitle">太阳不是善本身，而是善的类比。</p></div></div>
+  <div class="grid2">
+    <div class="card">
+      <h3>太阳比喻</h3>
+      <p>如同太阳使可见对象能够被看见，并滋养其生成；“善”使可知对象能够被认识，并赋予其真理性与可理解性。</p>
+      <p>因此，“善”不仅是伦理词汇，也是认识论与存在论的最高原则。</p>
+    </div>
+    <div class="card">
+      <h3>为什么它如此难</h3>
+      <p>柏拉图并没有在《理想国》中给出一份像字典条目那样的“善的定义”。善更多通过太阳、分线、洞穴等连续比喻被逼近。</p>
+      <p>这也使“善的理念”成为柏拉图研究中最重要、最有争议的解释中心之一。</p>
+    </div>
+  </div>
+</section>
+
+<section id="critique">
+  <div class="sec-head"><div class="num">12</div><div><h2 class="section-title">柏拉图哲学的难题与内部张力</h2><p class="subtitle">真正理解柏拉图，也要理解他在哪里最容易被质疑。</p></div></div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>问题</th><th>质疑</th><th>柏拉图文本中的回应方向</th></tr></thead>
+      <tbody>
+        <tr><td>理念与个别事物</td><td>理念如何与具体事物发生关系？“分有”究竟是什么？</td><td>《巴门尼德》直接提出严厉反驳，表明柏拉图自己意识到早期理念论的困难。</td></tr>
+        <tr><td>“第三人论证”</td><td>如果人之所以为人因分有“人的理念”，那“人”和“人的理念”共同为人，是否又需要更高的“第三个理念”？</td><td>迫使理念论进一步精细化，而不是简单把每个普通名词都实体化。</td></tr>
+        <tr><td>知识与政治</td><td>谁来判断一个人真的“知道善”？哲人王会不会变成知识精英的自我授权？</td><td>柏拉图试图用长期教育、共同生活与权力限制防止私人利益，但仍留下重大政治问题。</td></tr>
+        <tr><td>诗歌与艺术</td><td>《理想国》对模仿艺术与诗人的限制是否过度？</td><td>柏拉图担心艺术绕过理性直接塑造情绪与欲望；《伊安》《斐德若》等篇则显示他对诗性灵感态度更复杂。</td></tr>
+        <tr><td>身体与感官</td><td>是否贬低身体与现实世界？</td><td>部分文本确有强烈“灵魂上升”语言，但《蒂迈欧》《法律篇》等又更积极讨论身体、教育和现实制度。</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="legacy">
+  <div class="sec-head"><div class="num">13</div><div><h2 class="section-title">为什么柏拉图几乎无处不在</h2><p class="subtitle">很多后来的哲学争论，都像是在回答一个柏拉图式问题。</p></div></div>
+  <div class="grid3">
+    <div class="card"><h3>亚里士多德</h3><p>既继承柏拉图追求形式与本质的冲动，又批评将形式与个别事物分离。二人的差异塑造了西方形而上学的基本坐标。</p></div>
+    <div class="card"><h3>新柏拉图主义</h3><p>普罗提诺等人把柏拉图思想发展为“太一—理智—灵魂”的层级宇宙论，深刻影响晚期古代宗教哲学。</p></div>
+    <div class="card"><h3>基督教思想</h3><p>奥古斯丁等思想家借助柏拉图主义语言处理永恒真理、灵魂、善与上帝等问题；但基督教创造论与人格神概念又不能简单等同柏拉图。</p></div>
+    <div class="card"><h3>理性主义</h3><p>对先验结构、数学真理、普遍概念的强调，使柏拉图成为笛卡尔、莱布尼茨等理性主义传统的重要远祖。</p></div>
+    <div class="card"><h3>现代政治哲学</h3><p>“专家知识与民主”“教育与公民资格”“政治是否需要真理”这些问题，仍带有鲜明的柏拉图式结构。</p></div>
+    <div class="card"><h3>分析哲学与科学哲学</h3><p>数学对象是否客观存在、属性是否真实、普遍者如何存在——这些讨论中，“柏拉图主义”仍是活跃立场。</p></div>
+  </div>
+</section>
+
+<section id="reading">
+  <div class="sec-head"><div class="num">14</div><div><h2 class="section-title">怎么读柏拉图：一条不会迷路的路线</h2><p class="subtitle">不要一上来硬啃全部《理想国》；先建立问题感，再进入体系。</p></div></div>
+  <div class="reading">
+    <div class="card"><div class="tag">Entry</div><h3>《申辩篇》</h3><p>看苏格拉底如何理解哲学使命、死亡与城邦责任。最适合入门。</p></div>
+    <div class="card"><div class="tag">Ethics</div><h3>《尤西弗罗》《克里同》</h3><p>理解定义、虔敬、法律义务以及苏格拉底式追问。</p></div>
+    <div class="card"><div class="tag">Knowledge</div><h3>《美诺》《斐多》</h3><p>进入德性、回忆说、灵魂与理念论。</p></div>
+    <div class="card"><div class="tag">System</div><h3>《理想国》</h3><p>理念、善、洞穴、灵魂三分、正义与政治在这里汇流。</p></div>
+    <div class="card"><div class="tag">Love</div><h3>《会饮》《斐德若》</h3><p>看爱、欲望、修辞与灵魂上升如何连接。</p></div>
+    <div class="card"><div class="tag">Self-Critique</div><h3>《巴门尼德》</h3><p>看柏拉图如何让自己的理念论接受强力压力测试。</p></div>
+    <div class="card"><div class="tag">Late Method</div><h3>《智者》《政治家》</h3><p>研究分类、存在、非存在和哲学方法的成熟形式。</p></div>
+    <div class="card"><div class="tag">Cosmos & Law</div><h3>《蒂迈欧》《法律篇》</h3><p>进入宇宙论与更现实主义的制度思考。</p></div>
+  </div>
+</section>
+
+<section id="summary">
+  <div class="sec-head"><div class="num">15</div><div><h2 class="section-title">最后，用十句话抓住柏拉图</h2><p class="subtitle">如果读完整篇只记住这一页，也足以建立一个可靠骨架。</p></div></div>
+  <div class="card">
+    <ol>
+      <li>柏拉图从“变化世界中如何可能有稳定知识”出发。</li>
+      <li>他用“理念”解释普遍标准、定义与可理解性。</li>
+      <li>感官提供经验，但哲学知识要求灵魂从现象上升到结构与原则。</li>
+      <li>分线、太阳、洞穴三个比喻共同描述从意见到知识的上升。</li>
+      <li>教育不是灌输，而是让灵魂重新朝向真正值得认识的对象。</li>
+      <li>伦理上的正义，是理性、意气、欲望形成恰当秩序。</li>
+      <li>政治上的正义，是城邦各功能在共同善之下协调。</li>
+      <li>哲人王思想建立在“统治需要关于善的知识”这一前提上。</li>
+      <li>爱与美展示欲望如何从个别对象被提升到普遍善与美。</li>
+      <li>柏拉图最深的遗产，是把哲学变成一种“从表象转向本质，再把本质带回生活”的精神训练。</li>
+    </ol>
+  </div>
+  <p class="quote" style="margin-top:24px">柏拉图真正留下的问题不是：“另一个世界在哪里？”而是：<br><strong>当意见、欲望和权力都在争夺你时，你凭什么判断什么是真的，什么是好的，以及你应当怎样活？</strong></p>
+</section>
+
+</main>
+<footer class="footer">柏拉图哲学 · 综合导读 · 独立 HTML 版<br><span class="mini">适合桌面与手机浏览，也可直接打印为 PDF。</span></footer>
+</body>
+</html>

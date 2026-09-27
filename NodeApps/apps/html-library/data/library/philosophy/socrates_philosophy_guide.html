@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>苏格拉底：一文讲透他的哲学 | Socrates</title>
+<meta name="description" content="从苏格拉底问题、反诘法、无知之知、灵魂关怀、德性即知识、政治义务、宗教与审判，到其历史影响的系统长文。">
+<style>
+:root{
+  --bg:#f4f0e8;
+  --paper:#fffdf8;
+  --ink:#1e2529;
+  --muted:#677078;
+  --accent:#7b4f2c;
+  --accent2:#315a66;
+  --line:#ded5c7;
+  --soft:#eee7da;
+  --gold:#a87a32;
+  --shadow:0 16px 48px rgba(47,39,30,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+  radial-gradient(circle at 8% 0%, rgba(123,79,44,.10), transparent 34%),
+  radial-gradient(circle at 95% 18%, rgba(49,90,102,.09), transparent 30%),
+  var(--bg);
+  color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",sans-serif;
+  line-height:1.85;
+}
+a{color:var(--accent2);text-decoration-thickness:1px;text-underline-offset:3px}
+.hero{
+  min-height:76vh;display:grid;grid-template-columns:1.25fr .75fr;gap:0;
+  max-width:1400px;margin:0 auto;background:#1c2023;color:#f6f2ea;box-shadow:var(--shadow)
+}
+.hero-copy{padding:8vw 7vw 6vw}
+.kicker{letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:#d8c4a2}
+h1{font-family:Georgia,"Times New Roman","Songti SC",serif;font-size:clamp(3.2rem,7vw,7.4rem);line-height:.95;margin:.25em 0 .18em;font-weight:600}
+.hero h1 span{display:block;font-size:.25em;letter-spacing:.08em;color:#c7c9c5;margin-top:1.1em;font-family:inherit}
+.lede{font-size:clamp(1.1rem,1.8vw,1.45rem);max-width:760px;color:#dcdedc}
+.hero-note{margin-top:2rem;padding-left:1rem;border-left:3px solid #b58c56;color:#cfd4d2;max-width:740px}
+.hero-image{position:relative;overflow:hidden;min-height:520px}
+.hero-image img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.08);opacity:.86}
+.hero-image:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#1c2023 0%,transparent 34%),linear-gradient(0deg,rgba(28,32,35,.55),transparent 45%)}
+.caption{font-size:.78rem;color:#8b8f90;margin-top:.45rem}
+.hero-image .caption{position:absolute;bottom:18px;right:20px;color:#d1d4d2;z-index:2;text-align:right;max-width:75%}
+
+.shell{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:260px minmax(0,1fr);gap:44px;padding:56px 28px 100px}
+.toc{position:sticky;top:24px;align-self:start;background:rgba(255,253,248,.82);backdrop-filter:blur(12px);border:1px solid var(--line);padding:20px;border-radius:14px}
+.toc strong{font-family:Georgia,"Times New Roman","Songti SC",serif;font-size:1.1rem}
+.toc a{display:block;color:#50595e;text-decoration:none;padding:.38rem 0;font-size:.92rem}
+.toc a:hover{color:var(--accent)}
+main{min-width:0}
+section{background:rgba(255,253,248,.93);border:1px solid var(--line);border-radius:18px;padding:clamp(28px,4vw,58px);margin-bottom:30px;box-shadow:0 10px 28px rgba(47,39,30,.055)}
+.eyebrow{color:var(--accent);font-size:.78rem;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
+h2,h3{font-family:Georgia,"Times New Roman","Songti SC",serif;line-height:1.25;color:#1d272b}
+h2{font-size:clamp(2rem,3.5vw,3.25rem);margin:.22em 0 .55em}
+h3{font-size:1.45rem;margin:1.6em 0 .55em}
+p{margin:.8em 0}
+.big-thesis{font-family:Georgia,"Times New Roman","Songti SC",serif;font-size:clamp(1.35rem,2.4vw,2rem);line-height:1.55;color:#26343a;border-left:5px solid var(--accent);padding-left:1.2rem}
+.grid2,.grid3{display:grid;gap:18px}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:20px}
+.card h3,.card h4{margin-top:0}
+.metric{font-family:Georgia,serif;font-size:2rem;color:var(--accent);line-height:1}
+.small{font-size:.9rem;color:var(--muted)}
+.callout{background:#eef2f1;border-left:4px solid var(--accent2);padding:18px 20px;border-radius:8px;margin:1.2rem 0}
+.warn{background:#f6eee4;border-left-color:var(--accent)}
+.quote{font-family:Georgia,"Times New Roman","Songti SC",serif;font-size:1.24rem;line-height:1.7;padding:18px 0 18px 22px;border-left:4px solid var(--gold);color:#2a3337}
+.term{display:inline-block;padding:.1rem .45rem;border-radius:999px;background:#ece7dc;color:#5a442f;font-size:.86rem;margin-right:.25rem}
+table{width:100%;border-collapse:collapse;margin:1.2rem 0;font-size:.95rem}
+th,td{padding:13px 12px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{color:#4b555a;font-weight:700;background:#f5f1e9}
+.timeline{position:relative;margin:22px 0 0;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:7px;top:4px;bottom:4px;width:2px;background:#cdbca3}
+.titem{position:relative;margin:0 0 18px}
+.titem:before{content:"";position:absolute;left:-26px;top:.55rem;width:12px;height:12px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px #efe6d9}
+.year{font-weight:800;color:var(--accent)}
+.figure{margin:1.5rem 0}
+.figure img{width:100%;display:block;border-radius:12px;border:1px solid #c8c0b5;box-shadow:0 8px 24px rgba(36,30,24,.12)}
+.figcap{font-size:.84rem;color:var(--muted);margin-top:.55rem}
+.svgbox{background:#fcfaf5;border:1px solid var(--line);border-radius:14px;padding:18px;overflow:auto}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;align-items:stretch;margin:1rem 0}
+.step{padding:14px;border-radius:10px;background:#f4eee5;border:1px solid #dfd2c0;min-height:116px}
+.step b{display:block;color:var(--accent);margin-bottom:6px}
+.arrow{text-align:center;font-size:1.5rem;color:#997a54;display:none}
+.tagrow{display:flex;flex-wrap:wrap;gap:8px;margin:.8rem 0}
+.tag{padding:.35rem .7rem;border-radius:999px;background:#e9efef;color:#34535b;font-size:.86rem}
+.columns{columns:2;column-gap:28px}
+.columns p{break-inside:avoid}
+.reading{display:grid;grid-template-columns:130px 1fr;gap:18px;padding:16px 0;border-bottom:1px solid var(--line)}
+.reading:last-child{border-bottom:0}
+.level{font-weight:800;color:var(--accent)}
+.note{font-size:.88rem;color:var(--muted)}
+.footer{max-width:1400px;margin:0 auto 70px;padding:0 28px;color:#626a6f;font-size:.88rem}
+.sources li{margin:.55rem 0}
+@media(max-width:980px){
+  .hero{grid-template-columns:1fr}.hero-image{min-height:420px}.shell{grid-template-columns:1fr}.toc{position:relative;top:auto}.grid3{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.columns{columns:1}
+}
+@media(max-width:680px){
+  .hero-copy{padding:54px 28px}.grid2,.grid3{grid-template-columns:1fr}.shell{padding:28px 14px 70px}section{padding:26px 20px}.reading{grid-template-columns:1fr}
+}
+@media print{
+  body{background:white}.hero{min-height:auto;box-shadow:none}.toc{display:none}.shell{display:block;max-width:100%;padding:0}.hero-image{max-height:420px}section{box-shadow:none;break-inside:avoid;border:0;border-bottom:1px solid #ddd;border-radius:0}.footer{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-copy">
+    <div class="kicker">Philosophy · Ethics · The Examined Life</div>
+    <h1>苏格拉底<span>SOCRATES · c. 469–399 BCE</span></h1>
+    <p class="lede">他没有留下任何著作，却改变了“哲学是什么”。在他那里，哲学不首先是一套理论，而是一种持续接受检验的生活。</p>
+    <div class="hero-note">理解苏格拉底的关键，不是背下几句名言，而是看清一个结构：<b>承认无知 → 追问定义 → 检验信念 → 进入困惑（aporia） → 重新照料灵魂与生活。</b></div>
+  </div>
+  <div class="hero-image">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/3/3f/Socrates_statue_at_the_Louvre%2C_8_April_2013.jpg" alt="苏格拉底雕像">
+    <div class="caption">苏格拉底头像雕塑，卢浮宫藏品摄影。图源：Wikimedia Commons。</div>
+  </div>
+</header>
+
+<div class="shell">
+  <nav class="toc">
+    <strong>目录</strong>
+    <a href="#thesis">01 · 一句话抓住苏格拉底</a>
+    <a href="#problem">02 · “苏格拉底问题”</a>
+    <a href="#athens">03 · 雅典：哲学为何在这里变形</a>
+    <a href="#revolution">04 · 苏格拉底式革命</a>
+    <a href="#method">05 · 反诘法与对话</a>
+    <a href="#ignorance">06 · “无知之知”</a>
+    <a href="#soul">07 · 灵魂关怀与德性</a>
+    <a href="#paradoxes">08 · 苏格拉底悖论</a>
+    <a href="#politics">09 · 政治、法律与公民</a>
+    <a href="#religion">10 · 神意、虔敬与宗教</a>
+    <a href="#trial">11 · 审判与死亡</a>
+    <a href="#legacy">12 · 从柏拉图到现代</a>
+    <a href="#misread">13 · 常见误解</a>
+    <a href="#reading">14 · 阅读路线</a>
+    <a href="#summary">15 · 十条结论</a>
+    <a href="#sources">资料与图像来源</a>
+  </nav>
+
+  <main>
+    <section id="thesis">
+      <div class="eyebrow">01 · Core Thesis</div>
+      <h2>一句话抓住苏格拉底</h2>
+      <p class="big-thesis">苏格拉底把哲学从“世界由什么构成”推进到“<b>我凭什么认为自己知道？我正在成为怎样的人？</b>”——于是，哲学第一次以系统的方式把<strong>认识论的谦卑、逻辑检验与伦理自我塑造</strong>绑在一起。</p>
+      <div class="grid3">
+        <div class="card"><div class="metric">①</div><h3>认识论</h3><p>最大的危险不是无知，而是<strong>不知道自己无知</strong>。虚假的确定感比公开的困惑更妨碍求知。</p></div>
+        <div class="card"><div class="metric">②</div><h3>方法论</h3><p>思想必须经受公开问答、概念澄清和自洽性检验。哲学不是“发表观点”，而是让观点接受反诘。</p></div>
+        <div class="card"><div class="metric">③</div><h3>伦理学</h3><p>真正值得优先照料的不是财富、名望、身体或胜负，而是灵魂的好坏——即一个人判断和行动的品质。</p></div>
+      </div>
+      <div class="callout">
+        <b>最重要的理解：</b>苏格拉底不是“怀疑一切”的犬儒，也不是“什么都不知道”的虚无主义者。他要攻击的是未经检验的自信，并逼迫人从“我有意见”走向“我能为这个判断负责”。
+      </div>
+    </section>
+
+    <section id="problem">
+      <div class="eyebrow">02 · The Socratic Problem</div>
+      <h2>首先要解决：“苏格拉底”到底是谁？</h2>
+      <p>苏格拉底本人没有留下著作。我们看到的“苏格拉底”，来自别人笔下，而且这些形象并不一致。这就是古典学中的<strong>“苏格拉底问题”</strong>：如何从文学人物、回忆录和喜剧讽刺中重建历史人物。</p>
+
+      <table>
+        <thead><tr><th>来源</th><th>呈现的苏格拉底</th><th>价值</th><th>限制</th></tr></thead>
+        <tbody>
+          <tr><td><b>阿里斯托芬</b><br><span class="small">《云》</span></td><td>古怪的知识分子、自然哲学家、善辩者</td><td>最早的同时代公开形象，反映雅典大众印象</td><td>喜剧夸张；把多类知识分子特征揉成一个舞台形象</td></tr>
+          <tr><td><b>色诺芬</b><br><span class="small">《回忆苏格拉底》等</span></td><td>务实、克制、道德教化型的智者</td><td>另一位认识苏格拉底的人，提供与柏拉图不同的视角</td><td>并非纯粹现代意义的历史记录，作品有明显作者塑形</td></tr>
+          <tr><td><b>柏拉图</b><br><span class="small">对话录</span></td><td>不断追问定义、拆穿自以为知、以德性为核心的哲学家</td><td>哲学内容最丰富，也是后世苏格拉底形象的主要来源</td><td>不同对话时期的“苏格拉底”可能越来越成为柏拉图思想的发言者</td></tr>
+        </tbody>
+      </table>
+
+      <div class="warn callout">
+        <b>因此本文采用双层写法：</b>凡较可靠地归属于“早期/苏格拉底式”对话的内容，会称为“苏格拉底式立场”；凡明显属于后期柏拉图体系（如完整的理念论结构），不会直接算到历史苏格拉底头上。
+      </div>
+
+      <h3>一个常被忽略的结论</h3>
+      <p>苏格拉底的历史影响恰恰部分来自这种“不确定性”。因为他不是一套封闭学说的作者，而是一个被不断重写的哲学人格：犬儒派看见他的贫穷自足，斯多亚派看见他的德性与坚忍，怀疑派看见他的无知意识，基督教作家看见他的良知与殉道式形象，现代教育则看见“苏格拉底式提问”。</p>
+    </section>
+
+    <section id="athens">
+      <div class="eyebrow">03 · Athens</div>
+      <h2>雅典：为什么苏格拉底会成为“危险人物”</h2>
+      <p>公元前五世纪的雅典同时是民主政治、帝国扩张、战争、修辞教育和思想实验的中心。苏格拉底生活的时代不是一个安稳的“古典黄金时代”，而是一个制度与价值不断震荡的社会。</p>
+      <div class="timeline">
+        <div class="titem"><span class="year">c. 469 BCE</span>　苏格拉底出生于雅典。</div>
+        <div class="titem"><span class="year">432–422 BCE</span>　据柏拉图与色诺芬传统，他多次作为重装步兵服役，包括波提狄亚、德利翁等战事。</div>
+        <div class="titem"><span class="year">431–404 BCE</span>　伯罗奔尼撒战争长期消耗雅典；政治信心与公共秩序受到持续冲击。</div>
+        <div class="titem"><span class="year">406 BCE</span>　据《申辩篇》，苏格拉底担任议事机构职务时反对以不合法程序集体审判阿吉纽西海战将领。</div>
+        <div class="titem"><span class="year">404–403 BCE</span>　“三十僭主”寡头统治。苏格拉底的一些旧交或关联人物如克里提亚斯、卡尔米德卷入其中；苏格拉底本人据《申辩篇》也拒绝执行一次不义命令。</div>
+        <div class="titem"><span class="year">399 BCE</span>　被控“不敬城邦诸神、引入新的神灵、败坏青年”，经陪审审判后被判死刑。</div>
+      </div>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>智者（Sophists）</h3>
+          <p>职业教育者，教授修辞、政治与论辩，常收取费用。许多人关心“如何在城邦中取得成功”。</p>
+        </div>
+        <div class="card">
+          <h3>苏格拉底</h3>
+          <p>不以教学收费闻名，自称没有可出售的智慧；更关心“你所谓的正义、勇敢、虔敬究竟是什么”。</p>
+        </div>
+      </div>
+      <p>因此，苏格拉底和智者既有相似处——都使用论辩、都吸引青年、都挑战传统——又有根本差别：<strong>智者常把语言当作成功技术，苏格拉底则把对话当作伦理审查。</strong></p>
+    </section>
+
+    <section id="revolution">
+      <div class="eyebrow">04 · The Socratic Turn</div>
+      <h2>苏格拉底式革命：把哲学的焦点转向“如何生活”</h2>
+      <p>早期希腊哲学的重要问题多是宇宙论：万物本原是什么？变化如何可能？自然为何有秩序？苏格拉底并非完全与自然研究绝缘，但他在哲学史中的决定性意义，是把中心问题推进到人的生活。</p>
+
+      <div class="svgbox">
+        <svg viewBox="0 0 900 270" width="100%" role="img" aria-label="苏格拉底式哲学转向图">
+          <defs>
+            <marker id="arr" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#8b6b45"/></marker>
+          </defs>
+          <rect x="25" y="78" width="235" height="110" rx="18" fill="#efe7d9" stroke="#c9b89e"/>
+          <text x="142" y="115" text-anchor="middle" font-size="23" fill="#5b442f">前苏格拉底式问题</text>
+          <text x="142" y="150" text-anchor="middle" font-size="18" fill="#596267">自然、元素、宇宙秩序、变化</text>
+          <line x1="280" y1="133" x2="410" y2="133" stroke="#8b6b45" stroke-width="3" marker-end="url(#arr)"/>
+          <circle cx="470" cy="133" r="72" fill="#2e515c"/>
+          <text x="470" y="125" text-anchor="middle" font-size="26" fill="#fff">苏格拉底</text>
+          <text x="470" y="156" text-anchor="middle" font-size="17" fill="#dbe8ea">检查生活</text>
+          <line x1="542" y1="133" x2="670" y2="133" stroke="#8b6b45" stroke-width="3" marker-end="url(#arr)"/>
+          <rect x="692" y="58" width="183" height="150" rx="18" fill="#f6eee4" stroke="#ccb08f"/>
+          <text x="783" y="98" text-anchor="middle" font-size="22" fill="#6e492c">伦理—认识论</text>
+          <text x="783" y="132" text-anchor="middle" font-size="17" fill="#596267">什么是德性？</text>
+          <text x="783" y="159" text-anchor="middle" font-size="17" fill="#596267">你凭什么说你知道？</text>
+          <text x="783" y="186" text-anchor="middle" font-size="17" fill="#596267">灵魂如何变好？</text>
+        </svg>
+      </div>
+
+      <h3>“什么是 X？”为什么如此重要</h3>
+      <p>在《欧绪弗洛》中问“虔敬是什么”，在《拉凯斯》中问“勇敢是什么”，在《卡尔米德》中问“节制是什么”。苏格拉底不满足于列举例子，而要求找到能解释所有例子的统一定义。</p>
+      <p>这一步非常现代：它把日常词语从“大家都懂”变成可被分析的概念。一个人可以熟练使用“正义”“勇气”“善良”，却未必能说明这些词的判断标准。一旦标准说不清，行动中的自信就值得怀疑。</p>
+    </section>
+
+    <section id="method">
+      <div class="eyebrow">05 · Elenchus</div>
+      <h2>苏格拉底反诘法：不是“问很多问题”，而是让信念彼此碰撞</h2>
+      <p><span class="term">elenchus</span> 常译作“反诘”“驳难”“检验”。典型结构并不是苏格拉底直接宣布答案，而是先让对方承诺若干命题，再展示它们彼此不相容。</p>
+
+      <div class="flow">
+        <div class="step"><b>1 · 提出定义</b>对话者说：“勇敢就是坚持不退。”</div>
+        <div class="step"><b>2 · 接受补充信念</b>对话者又承认：有时有知识地撤退比盲目坚持更勇敢。</div>
+        <div class="step"><b>3 · 构造冲突</b>如果撤退有时是勇敢的，那么“勇敢＝不退”不能成立。</div>
+        <div class="step"><b>4 · 进入 aporia</b>原有自信被打破：我原来会用这个词，却并不知道其本质。</div>
+        <div class="step"><b>5 · 重新开始</b>寻找更好的定义、更一致的信念与更可靠的生活判断。</div>
+      </div>
+
+      <h3>反诘法的深层目标</h3>
+      <div class="grid2">
+        <div class="card"><h3>逻辑层</h3><p>寻找矛盾，测试定义是否过宽、过窄、循环，或与其他承诺冲突。</p></div>
+        <div class="card"><h3>伦理层</h3><p>暴露“我以为我知道”的人格状态。对话对象不是一份论文，而是一个正在据此生活的人。</p></div>
+      </div>
+
+      <div class="quote">苏格拉底式对话真正逼问的，不只是“你的命题是否成立”，而是：“你是否愿意让自己的生活服从同样严格的检验？”</div>
+
+      <h3>苏格拉底式“助产术”要谨慎理解</h3>
+      <p>后世常把苏格拉底描述为“思想的助产士”：不把知识塞给学生，而帮助对方自己生出理解。这个形象明确出现在柏拉图《泰阿泰德》中。它非常贴合苏格拉底精神，但从历史研究角度，不应简单把所有细节都当作历史苏格拉底本人明言的方法论。</p>
+    </section>
+
+    <section id="ignorance">
+      <div class="eyebrow">06 · Socratic Ignorance</div>
+      <h2>“无知之知”：最难得的不是谦虚，而是精确地知道自己不知道什么</h2>
+      <p>《申辩篇》的核心故事是：德尔斐神谕据说称没有人比苏格拉底更智慧。苏格拉底感到困惑，于是去询问政治家、诗人、工匠。结果是：很多人确有某种能力，却把局部能力扩张成对更重要事情的普遍知识。</p>
+      <p>苏格拉底由此形成一个著名结构：</p>
+
+      <div class="grid3">
+        <div class="card"><h3>不知道</h3><p>这是普通的人类有限性，本身并不可耻。</p></div>
+        <div class="card"><h3>以为自己知道</h3><p>这才是危险状态，因为它关闭了追问与修正。</p></div>
+        <div class="card"><h3>知道自己不知道</h3><p>不是知识的终点，而是可靠求知的起点。</p></div>
+      </div>
+
+      <div class="warn callout">
+        <b>名言校正：</b>中文常见的“我唯一知道的就是我一无所知”并非柏拉图文本中一个可直接这样定位的标准原句。更准确地说，苏格拉底在《申辩篇》中反复强调：自己并不自称拥有并无把握的智慧，因此在人类智慧的意义上比那些“无知而自以为知”的人更占优势。
+      </div>
+
+      <h3>这不是相对主义</h3>
+      <p>如果苏格拉底认为“谁都不知道，所以什么都可以”，他就不会如此执着于正义、灵魂、德性和真理。苏格拉底式无知不是取消真理，而是取消<strong>未经证明的占有感</strong>：真理值得追求，但没有人因为身份、声望或多数赞同就自动拥有它。</p>
+    </section>
+
+    <section id="soul">
+      <div class="eyebrow">07 · Care of the Soul</div>
+      <h2>灵魂关怀：苏格拉底伦理学真正的中心</h2>
+      <p>苏格拉底最激进的价值排序，是把人的“灵魂”（psychē）置于财富、地位、名誉乃至生命安全之上。这里的“灵魂”首先不是后世神学体系中的实体概念，而是一个人的<strong>道德—理性人格</strong>：你如何判断、欲求、选择，你因此成为怎样的人。</p>
+
+      <table>
+        <thead><tr><th>普通价值排序</th><th>苏格拉底式倒转</th></tr></thead>
+        <tbody>
+          <tr><td>先追求财富，然后用财富改善自己</td><td>先改善判断与品格，财富才可能被正确使用</td></tr>
+          <tr><td>失败意味着受到外在损失</td><td>真正严重的失败，是自己因不义而变坏</td></tr>
+          <tr><td>社会声誉证明一个人优秀</td><td>多数人的称赞不能替代对善与正义的知识</td></tr>
+          <tr><td>活下去比一切更重要</td><td>活得正当比单纯活着更重要</td></tr>
+        </tbody>
+      </table>
+
+      <h3>德性（aretē）不是“乖”</h3>
+      <p>希腊语 <span class="term">aretē</span> 更接近“优秀、卓越、使某物完成其功能的好状态”。一个人的德性，因此不是服从习俗，而是灵魂处在恰当、理性、正义的状态。</p>
+
+      <p>这解释了为什么苏格拉底会把知识与德性联系得如此紧：如果一个人真正明白什么使灵魂变好，他就不会把短期利益误认成真正的善。伦理错误，在这种模型里深层上是<strong>认知错误</strong>。</p>
+    </section>
+
+    <section id="paradoxes">
+      <div class="eyebrow">08 · Socratic Paradoxes</div>
+      <h2>四个看似离谱、其实高度统一的苏格拉底命题</h2>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>1 · 德性是一种知识</h3>
+          <p>财富、力量、健康、勇敢等如果缺乏智慧引导，都可能带来伤害；真正使它们成为善的，是正确理解与判断。</p>
+        </div>
+        <div class="card">
+          <h3>2 · 没有人“明知是恶仍选择恶”</h3>
+          <p>苏格拉底式理智主义认为：人在作恶时，总是在某种意义上把眼前行为误认成“对我更好”的选择。错误来自对善的误判。</p>
+        </div>
+        <div class="card">
+          <h3>3 · 宁可受不义，也不要行不义</h3>
+          <p>受害伤及外在处境；行不义却使行动者本人的灵魂变坏。从灵魂优先的价值排序看，后者更严重。</p>
+        </div>
+        <div class="card">
+          <h3>4 · 好人不会真正被伤害</h3>
+          <p>《申辩篇》中的意思不是“好人不会受苦”，而是：外在打击不能自动摧毁一个人的道德善；真正的恶是自己成为不义的人。</p>
+        </div>
+      </div>
+
+      <h3>“没人故意作恶”真的站得住吗？</h3>
+      <p>这是苏格拉底最受争议的命题之一。现代人会说：人明明知道熬夜、欺骗、暴怒不好，还是会做。苏格拉底可能会反问：你所谓的“知道”，究竟只是会复述规则，还是在行动当下真正把那个善看成最值得选择的善？</p>
+      <p>因此，苏格拉底把“知识”设定得非常强：真正的知识会重组欲望和选择。如果一个信念完全不能影响行动，也许它只是信息，不是智慧。</p>
+      <div class="callout"><b>现代转译：</b>苏格拉底关注的不是“你是否听说过正确答案”，而是“你的价值判断是否深到足以组织你的行为”。这使他的伦理学更接近人格认知结构，而不是单纯道德口号。</div>
+    </section>
+
+    <section id="politics">
+      <div class="eyebrow">09 · Politics & Law</div>
+      <h2>苏格拉底与政治：不是民主斗士，也不是简单的反民主者</h2>
+      <p>苏格拉底对民主制度中的“多数意见”非常警惕：如果造船要听造船专家，医疗要听医生，那么关于正义和城邦治理，为何仅凭人数就能保证判断正确？这是柏拉图后来政治哲学的重要出发点。</p>
+      <p>但把苏格拉底直接归类为寡头政治拥护者同样过于简单。根据《申辩篇》的叙述，他既在民主政体下拒绝支持不合法的集体审判，也在“三十僭主”统治下拒绝执行他认为不义的命令。</p>
+
+      <div class="grid2">
+        <div class="card">
+          <h3>《申辩篇》的公民</h3>
+          <p>如果城邦命令他停止哲学追问，他表示自己宁愿服从神赋予的使命而不是停止。这里出现了对政治权力的道德限制。</p>
+        </div>
+        <div class="card">
+          <h3>《克里同》的公民</h3>
+          <p>面对朋友安排的越狱，他拒绝逃走。对话中的“法律”论证强调：若认为城邦法律不正，应说服、改变或离开，而不是在不利时单方面破坏承诺。</p>
+        </div>
+      </div>
+
+      <h3>表面矛盾，其实是一个更深原则</h3>
+      <p>《申辩篇》和《克里同》之间的张力长期存在。一个合理的理解是：<strong>苏格拉底并不是“无条件服从国家”，而是拒绝以不义回应不义。</strong>他既不会因为国家命令就主动做错事，也不会因为国家判错就认为自己可以用另一项错误来报复。</p>
+    </section>
+
+    <section id="religion">
+      <div class="eyebrow">10 · Religion</div>
+      <h2>苏格拉底的宗教性：理性追问与神意意识并存</h2>
+      <p>现代读者容易把苏格拉底想成纯世俗理性主义者，但古代资料中的他具有明显宗教维度。他谈德尔斐神谕，也谈自己的 <span class="term">daimonion</span> ——一种从童年起出现、通常以“制止”形式发生的神性征兆。</p>
+      <p>这并不等于现代意义上的“良心”。在柏拉图叙述中，它不是一套普遍伦理规则，而更像一种个人性的禁止信号。</p>
+
+      <h3>《欧绪弗洛》难题：善因为神命令才善吗？</h3>
+      <p>在《欧绪弗洛》中，苏格拉底追问：虔敬之所以虔敬，是因为诸神喜爱它；还是诸神喜爱它，因为它本来就是虔敬的？这个问题后来发展成宗教哲学中的经典“欧绪弗洛困境”。</p>
+      <p>它的力量在于迫使宗教伦理回答：道德标准与神意之间究竟是什么关系？如果“善”只等于“被命令”，是否会使善变得任意？如果神之所以命令善，是因为它本身善，那么善似乎又有可被理性讨论的结构。</p>
+
+      <div class="callout"><b>关键：</b>苏格拉底对传统神话中的不道德叙事保持批判，并不等于他简单否定诸神。现有资料更支持一个复杂形象：他把理性检验本身理解为带有神圣使命色彩的生活。</div>
+    </section>
+
+    <section id="trial">
+      <div class="eyebrow">11 · Trial & Death</div>
+      <h2>399 BCE：雅典为什么要处死苏格拉底？</h2>
+      <p>正式指控包括：不承认城邦的神、引入新的神性存在、败坏青年。理解审判不能只用“自由思想家被保守社会迫害”这个单线故事。</p>
+
+      <div class="grid3">
+        <div class="card"><h3>宗教因素</h3><p>古典雅典的宗教与公民生活紧密相连。“不敬神”不是纯私人信仰问题，而具有公共政治维度。</p></div>
+        <div class="card"><h3>教育因素</h3><p>苏格拉底让年轻人学会追问政治家、父辈和传统权威，自然容易被理解为破坏敬畏与秩序。</p></div>
+        <div class="card"><h3>政治阴影</h3><p>审判发生在战争失败与寡头恐怖统治结束不久；苏格拉底与阿尔西比亚德、克里提亚斯等人的旧关系加重了公众怀疑，尽管正式诉状并非以这些政治罪名起诉。</p></div>
+      </div>
+
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d9/Jacques-Louis_David_-_The_Death_of_Socrates_-_WGA6058.jpg" alt="雅克-路易·大卫《苏格拉底之死》">
+        <div class="figcap">雅克-路易·大卫，《苏格拉底之死》，1787。新古典主义把苏格拉底塑造成理性、德性与死亡面前坚定不移的象征。图源：Wikimedia Commons，公共领域艺术品。</div>
+      </div>
+
+      <h3>真正震撼后世的，是他的辩护策略</h3>
+      <p>苏格拉底没有把法庭当作“如何保命”的技术问题。他拒绝以讨好陪审员为首要目标，反而继续执行自己一贯的任务：质问雅典人究竟更关心财富声望，还是灵魂是否善。</p>
+      <p>因此他的死亡在哲学史中具有象征意义：<strong>哲学的可信度不只来自论证，还来自一个人是否愿意承担其原则的代价。</strong></p>
+
+      <div class="quote">“未经审视的生活不值得人过。”——《申辩篇》38a 的经典思想。这里的“审视”不是持续自责，而是持续检验：我的信念、价值排序和行动是否经得起理由。</div>
+    </section>
+
+    <section id="legacy">
+      <div class="eyebrow">12 · Legacy</div>
+      <h2>苏格拉底之后：一个人如何变成整个哲学传统的原型</h2>
+
+      <div class="figure">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c3/Raphael_School_of_Athens.jpg" alt="拉斐尔《雅典学院》">
+        <div class="figcap">拉斐尔《雅典学院》，1511。中心是柏拉图与亚里士多德；苏格拉底通常被辨认在左侧人群中，以手势参与辩论。图源：Wikimedia Commons，公共领域。</div>
+      </div>
+
+      <table>
+        <thead><tr><th>传统</th><th>继承了苏格拉底什么</th></tr></thead>
+        <tbody>
+          <tr><td><b>柏拉图</b></td><td>把苏格拉底的对话、德性与知识问题扩展成形而上学、认识论、政治哲学的大体系。</td></tr>
+          <tr><td><b>犬儒派</b></td><td>强调自足、对社会惯例的怀疑、简朴生活与德性优先。</td></tr>
+          <tr><td><b>斯多亚派</b></td><td>把苏格拉底视为德性、理性自制和面对命运的典范。</td></tr>
+          <tr><td><b>怀疑主义</b></td><td>发展“不仓促宣称知识”的认识论节制。</td></tr>
+          <tr><td><b>基尔凯郭尔</b></td><td>把“苏格拉底式反讽”和主体存在问题重新置于现代哲学中心。</td></tr>
+          <tr><td><b>现代教育</b></td><td>“苏格拉底式研讨”强调以问题、理由、反例和互相追问替代单向灌输。</td></tr>
+        </tbody>
+      </table>
+
+      <h3>为什么他的影响比一套“学说”更持久？</h3>
+      <p>因为苏格拉底留下的不是答案目录，而是一个可重复运行的思想程序。你可以把它放进伦理、法律、政治、科学、商业决策甚至日常冲突：</p>
+      <div class="tagrow">
+        <span class="tag">你说的概念是什么意思？</span>
+        <span class="tag">什么证据会让你改变观点？</span>
+        <span class="tag">你的两个信念是否冲突？</span>
+        <span class="tag">你是在追求真，还是维护面子？</span>
+        <span class="tag">这个选择让你成为什么样的人？</span>
+      </div>
+    </section>
+
+    <section id="misread">
+      <div class="eyebrow">13 · Misreadings</div>
+      <h2>关于苏格拉底的 7 个常见误解</h2>
+      <table>
+        <thead><tr><th>误解</th><th>更准确的理解</th></tr></thead>
+        <tbody>
+          <tr><td>“苏格拉底什么都不知道。”</td><td>他否认自己拥有并无把握的智慧，但并非否认所有知识，更不是否认真理。</td></tr>
+          <tr><td>“苏格拉底式方法就是老师一直问问题。”</td><td>核心是让命题与对话者已有承诺发生逻辑检验，而不是机械地多问几个“为什么”。</td></tr>
+          <tr><td>“他反对民主，所以支持独裁。”</td><td>他批判多数意见不等于知识，但也有拒绝寡头政权不义命令的传统证词。</td></tr>
+          <tr><td>“他因无神论被处死。”</td><td>正式罪名含“不敬神”和“引入新神性存在”，但苏格拉底本人有明显宗教语言与神性使命意识。</td></tr>
+          <tr><td>“‘认识你自己’是苏格拉底原创名言。”</td><td>“认识你自己”是德尔斐神庙传统箴言；苏格拉底确实赋予自我认识极高地位，但不应把箴言作者简单写成他。</td></tr>
+          <tr><td>“柏拉图说的都是苏格拉底说的。”</td><td>这是“苏格拉底问题”最需避免的错误。后期对话中的复杂体系通常更多属于柏拉图。</td></tr>
+          <tr><td>“苏格拉底方法一定能得到正确答案。”</td><td>很多早期对话以 aporia（困惑、无路）结束。反诘法强于发现假知识，不保证自动产生终极定义。</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section id="reading">
+      <div class="eyebrow">14 · Reading Path</div>
+      <h2>如果你想真正读懂苏格拉底，按这个顺序</h2>
+
+      <div class="reading">
+        <div class="level">第一层<br><span class="small">人格与使命</span></div>
+        <div><b>《申辩篇》Apology</b><p>最重要的入口。看德尔斐神谕、无知之知、哲学使命、灵魂关怀、死亡态度。</p></div>
+      </div>
+      <div class="reading">
+        <div class="level">第二层<br><span class="small">概念反诘</span></div>
+        <div><b>《欧绪弗洛》《拉凯斯》《卡尔米德》</b><p>分别追问虔敬、勇敢、节制。最适合观察反诘法如何让自信进入 aporia。</p></div>
+      </div>
+      <div class="reading">
+        <div class="level">第三层<br><span class="small">伦理悖论</span></div>
+        <div><b>《高尔吉亚》《普罗泰戈拉》</b><p>理解“宁受不义，不行不义”“德性与知识”“无人故意作恶”等激进命题。</p></div>
+      </div>
+      <div class="reading">
+        <div class="level">第四层<br><span class="small">法律与死亡</span></div>
+        <div><b>《克里同》《斐多》</b><p>前者看政治义务，后者看苏格拉底临终叙事。但《斐多》的灵魂与理念论已明显进入柏拉图成熟哲学。</p></div>
+      </div>
+      <div class="reading">
+        <div class="level">第五层<br><span class="small">历史校正</span></div>
+        <div><b>色诺芬《回忆苏格拉底》 + 阿里斯托芬《云》</b><p>把柏拉图形象与另外两种古代证词并置，真正理解“苏格拉底问题”。</p></div>
+      </div>
+    </section>
+
+    <section id="summary">
+      <div class="eyebrow">15 · Ten Conclusions</div>
+      <h2>读完之后，至少记住这十条</h2>
+      <div class="columns">
+        <p><b>1.</b> 苏格拉底没有留下著作，所以任何“苏格拉底哲学”都必须面对史料重建问题。</p>
+        <p><b>2.</b> 他最重要的革命，是把哲学重心从宇宙本原推进到人的知识、德性和生活方式。</p>
+        <p><b>3.</b> “无知之知”不是自我贬低，而是对认知边界的准确把握。</p>
+        <p><b>4.</b> 反诘法的目标不是赢辩论，而是暴露一组信念内部的矛盾。</p>
+        <p><b>5.</b> aporia 不是失败，而是从虚假知识走向真正求知的中间状态。</p>
+        <p><b>6.</b> 灵魂关怀意味着：一个人成为什么样的人，比他暂时拥有多少更根本。</p>
+        <p><b>7.</b> “德性是知识”“无人故意作恶”体现了苏格拉底强烈的伦理理智主义。</p>
+        <p><b>8.</b> “宁受不义，不行不义”源于灵魂优先：做坏事首先损坏的是行动者自己。</p>
+        <p><b>9.</b> 苏格拉底与政治权力的关系不能化约为亲民主或反民主；更稳定的原则是“不以不义回应不义”。</p>
+        <p><b>10.</b> 苏格拉底最大的遗产不是一套答案，而是一种人格化的哲学纪律：<strong>要求理由、接受反驳、照料灵魂、让生活与判断保持一致。</strong></p>
+      </div>
+
+      <div class="quote">苏格拉底最难模仿的地方，不是“会提问”，而是愿意让自己也处在问题之中。</div>
+    </section>
+
+    <section id="sources">
+      <div class="eyebrow">Sources & Notes</div>
+      <h2>资料与图像来源</h2>
+      <p class="note">本文以古代文本的常见学术定位为基础，并用现代哲学百科核对“苏格拉底问题”、方法、伦理与审判背景。以下均可继续延伸阅读。</p>
+      <ol class="sources">
+        <li><b>Stanford Encyclopedia of Philosophy — “Socrates”</b>：苏格拉底生平、史料问题、阿里斯托芬/色诺芬/柏拉图三类来源、审判背景。<br><a href="https://plato.stanford.edu/entries/socrates/" target="_blank" rel="noopener">plato.stanford.edu/entries/socrates/</a></li>
+        <li><b>Internet Encyclopedia of Philosophy — “Socrates”</b>：反诘法、苏格拉底式无知、德性与知识、无人故意作恶、宁受不义等。<br><a href="https://iep.utm.edu/socrates/" target="_blank" rel="noopener">iep.utm.edu/socrates/</a></li>
+        <li><b>Stanford Encyclopedia of Philosophy — “Ancient Political Philosophy”</b>：苏格拉底的政治哲学、审判与雅典政治语境。<br><a href="https://plato.stanford.edu/entries/ancient-political/" target="_blank" rel="noopener">plato.stanford.edu/entries/ancient-political/</a></li>
+        <li><b>Stanford Encyclopedia of Philosophy — “Political Obligation”</b>：对《克里同》服从法律论证的现代哲学定位。<br><a href="https://plato.stanford.edu/entries/political-obligation/" target="_blank" rel="noopener">plato.stanford.edu/entries/political-obligation/</a></li>
+        <li><b>主要古代文本</b>：柏拉图《申辩篇》《欧绪弗洛》《克里同》《拉凯斯》《卡尔米德》《高尔吉亚》《普罗泰戈拉》《斐多》《泰阿泰德》；色诺芬《回忆苏格拉底》《申辩篇》；阿里斯托芬《云》。</li>
+      </ol>
+
+      <h3>图像</h3>
+      <ul class="sources">
+        <li>苏格拉底雕像摄影：Wikimedia Commons，<i>Socrates statue at the Louvre, 8 April 2013</i>。</li>
+        <li>Jacques-Louis David, <i>The Death of Socrates</i> (1787)：Wikimedia Commons，公共领域艺术品。</li>
+        <li>Raphael, <i>The School of Athens</i> (1511)：Wikimedia Commons，公共领域。</li>
+      </ul>
+      <p class="note">说明：历史苏格拉底与柏拉图笔下苏格拉底之间无法完全分离。本文凡涉及较具体的“苏格拉底学说”，都应理解为对早期柏拉图对话、色诺芬材料与现代学术重建的谨慎综合，而非声称拥有苏格拉底本人的直接著作。</p>
+    </section>
+  </main>
+</div>
+
+<footer class="footer">
+  <hr style="border:0;border-top:1px solid #cfc6b8;margin-bottom:18px">
+  <p><b>《苏格拉底：一文讲透他的哲学》</b> · 中文深度长文 · 适合自学、读书会、哲学入门与后续柏拉图研究。</p>
+</footer>
+</body>
+</html>

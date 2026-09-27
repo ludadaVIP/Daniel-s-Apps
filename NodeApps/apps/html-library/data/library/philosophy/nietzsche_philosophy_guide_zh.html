@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="一文讲透尼采哲学：从上帝之死、虚无主义、谱系学、权力意志，到超人、永恒轮回与命运之爱。" />
+<title>尼采哲学：在“上帝死了”之后，如何重新肯定生命</title>
+<style>
+  :root{
+    --bg:#0d0d0f; --panel:#151519; --panel2:#1d1d22; --text:#ece9e2; --muted:#aaa69f;
+    --ink:#181516; --paper:#f4f0e7; --accent:#b52a2a; --accent2:#d9a441;
+    --line:#333238; --soft:#242329; --max:1180px; --serif:"Noto Serif SC","Songti SC","STSong",Georgia,serif;
+    --sans:Inter,"Noto Sans SC","PingFang SC","Microsoft YaHei",Arial,sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.78}
+  a{color:#e4bd69;text-decoration:none}
+  a:hover{text-decoration:underline}
+  .progress{position:fixed;left:0;top:0;height:3px;background:var(--accent2);width:0;z-index:99}
+  .hero{min-height:92vh;position:relative;display:grid;place-items:center;overflow:hidden;border-bottom:1px solid var(--line)}
+  .hero:before{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 78% 30%,rgba(181,42,42,.22),transparent 34%),
+    linear-gradient(135deg,rgba(255,255,255,.03),transparent 40%);}
+  .mountains{position:absolute;bottom:0;left:0;width:100%;height:46%;opacity:.5}
+  .hero-inner{position:relative;z-index:2;width:min(1040px,90vw);padding:70px 0}
+  .eyebrow{letter-spacing:.24em;text-transform:uppercase;color:var(--accent2);font-size:.78rem;font-weight:700}
+  h1{font-family:var(--serif);font-weight:800;font-size:clamp(3rem,8vw,7.6rem);line-height:.96;margin:.25em 0 .18em}
+  .subtitle{font-family:var(--serif);font-size:clamp(1.2rem,2.2vw,2rem);max-width:850px;color:#d7d2c9}
+  .thesis{margin-top:36px;max-width:820px;border-left:4px solid var(--accent);padding:18px 22px;background:rgba(255,255,255,.035);font-size:1.05rem}
+  .meta{margin-top:28px;color:var(--muted);font-size:.9rem}
+  .layout{max-width:var(--max);margin:0 auto;display:grid;grid-template-columns:270px 1fr;gap:38px;padding:54px 24px 100px}
+  nav{position:sticky;top:26px;align-self:start;border:1px solid var(--line);background:rgba(20,20,23,.92);backdrop-filter:blur(12px);padding:20px;border-radius:16px}
+  nav h3{margin:0 0 14px;font-size:.8rem;letter-spacing:.12em;color:var(--muted);text-transform:uppercase}
+  nav a{display:block;padding:7px 9px;border-radius:8px;color:#cfcac0;font-size:.92rem}
+  nav a:hover,nav a.active{background:var(--soft);color:white;text-decoration:none}
+  main{min-width:0}
+  section{padding:26px 0 48px;border-bottom:1px solid var(--line)}
+  h2{font-family:var(--serif);font-size:clamp(2rem,4vw,3.5rem);line-height:1.18;margin:.15em 0 .55em}
+  h3{font-family:var(--serif);font-size:1.55rem;line-height:1.35;margin:1.55em 0 .5em}
+  h4{font-size:1.05rem;margin:1.3em 0 .3em;color:#f1dfb8}
+  p{margin:.75em 0;color:#ddd9d0}
+  strong{color:#fff}
+  .lead{font-size:1.14rem;color:#f1eee7}
+  .kicker{color:var(--accent2);font-weight:700;font-size:.82rem;letter-spacing:.1em;text-transform:uppercase}
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:22px}
+  .card h3,.card h4{margin-top:0}
+  .num{font-size:2.3rem;font-weight:800;color:#5c5857;line-height:1}
+  .tag{display:inline-block;padding:4px 9px;border:1px solid #514943;border-radius:999px;color:#d8c39b;font-size:.78rem;margin:3px 3px 3px 0}
+  .callout{margin:26px 0;background:#161317;border-left:4px solid var(--accent);padding:22px 24px;border-radius:0 14px 14px 0}
+  .callout.gold{border-left-color:var(--accent2);background:#17150f}
+  .quote{font-family:var(--serif);font-size:1.25rem;line-height:1.7;color:#faf7ef}
+  .small{font-size:.86rem;color:var(--muted)}
+  figure{margin:28px 0}
+  figure img{width:100%;display:block;border-radius:16px;border:1px solid var(--line);background:#222}
+  figcaption{font-size:.82rem;color:var(--muted);margin-top:8px}
+  .portrait-wrap{display:grid;grid-template-columns:minmax(240px,.8fr) 1.2fr;gap:26px;align-items:center}
+  .portrait-wrap img{max-height:580px;object-fit:cover;object-position:center 25%}
+  .timeline{position:relative;margin:30px 0;padding-left:24px}
+  .timeline:before{content:"";position:absolute;left:7px;top:6px;bottom:8px;width:2px;background:#4a4748}
+  .event{position:relative;margin:0 0 23px;padding-left:20px}
+  .event:before{content:"";position:absolute;left:-22px;top:.45em;width:10px;height:10px;border-radius:50%;background:var(--accent2);box-shadow:0 0 0 5px #2d2923}
+  .year{font-weight:800;color:#f0d48b}
+  .flow{display:flex;gap:9px;align-items:stretch;flex-wrap:wrap;margin:26px 0}
+  .flow .step{flex:1 1 145px;background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px}
+  .flow .arrow{align-self:center;color:#777;font-size:1.4rem}
+  .concept-map{background:linear-gradient(180deg,#121217,#17171b);border:1px solid var(--line);border-radius:20px;padding:18px;overflow:hidden}
+  .concept-map svg{width:100%;height:auto;display:block}
+  table{width:100%;border-collapse:collapse;margin:24px 0;font-size:.93rem}
+  th,td{padding:12px 13px;border-bottom:1px solid #39373a;text-align:left;vertical-align:top}
+  th{color:#f1d597;background:#19181b}
+  tr:hover td{background:#151519}
+  .vs{display:grid;grid-template-columns:1fr 60px 1fr;gap:10px;align-items:stretch;margin:25px 0}
+  .vs .side{padding:20px;border-radius:14px;border:1px solid var(--line);background:var(--panel)}
+  .vs .mid{display:grid;place-items:center;color:#8a8683;font-weight:800}
+  ul,ol{padding-left:1.4em}
+  li{margin:.45em 0;color:#dad6ce}
+  .danger{border:1px solid #704141;background:#201415;border-radius:14px;padding:18px 20px}
+  .reading{counter-reset:book}
+  .book{display:grid;grid-template-columns:52px 1fr;gap:14px;padding:16px 0;border-bottom:1px solid var(--line)}
+  .book:before{counter-increment:book;content:counter(book);display:grid;place-items:center;width:40px;height:40px;border:1px solid #5c5140;border-radius:50%;color:var(--accent2);font-weight:800}
+  .book b{display:block;color:#fff}
+  .footer{max-width:var(--max);margin:0 auto;padding:0 24px 70px;color:var(--muted)}
+  .sources li{font-size:.9rem}
+  .source-note{padding:16px;background:#141418;border:1px solid var(--line);border-radius:12px}
+  .printonly{display:none}
+  @media (max-width:900px){
+    .layout{grid-template-columns:1fr;padding-top:28px}
+    nav{position:relative;top:0}
+    .grid2,.grid3,.portrait-wrap{grid-template-columns:1fr}
+    .vs{grid-template-columns:1fr}
+    .vs .mid{height:28px}
+  }
+  @media print{
+    body{background:white;color:#111}
+    .progress,nav{display:none}
+    .hero{min-height:auto;color:#111;background:#fff}
+    .hero:before,.mountains{display:none}
+    .layout{display:block;max-width:900px}
+    p,.lead,li{color:#222}
+    .card,.callout,.concept-map,.source-note{background:#fff;color:#111;border-color:#aaa}
+    h1,h2,h3,strong{color:#111}
+    .printonly{display:block}
+    a{color:#111;text-decoration:underline}
+  }
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+
+<header class="hero">
+  <svg class="mountains" viewBox="0 0 1600 500" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,490 L0,350 180,260 300,320 520,130 690,300 840,205 1010,320 1190,90 1360,250 1600,170 1600,500 Z" fill="#19191d"/>
+    <path d="M0,500 L0,410 250,350 430,430 660,260 870,410 1090,260 1270,390 1450,310 1600,410 1600,500 Z" fill="#26242a"/>
+    <path d="M1120,160 L1190,90 1260,160 1218,145 1190,115 1162,146 Z" fill="#d9d5ce" opacity=".65"/>
+    <path d="M450,205 L520,130 590,208 550,188 520,155 492,190 Z" fill="#d9d5ce" opacity=".45"/>
+  </svg>
+  <div class="hero-inner">
+    <div class="eyebrow">Friedrich Nietzsche · 1844–1900</div>
+    <h1>尼采</h1>
+    <div class="subtitle">在“上帝死了”之后，如何重新创造价值、承受世界，并对生命说“是”</div>
+    <div class="thesis">
+      <strong>全文核心：</strong>尼采最深的问题并不是“如何变强”，而是：当传统宗教、形而上学和绝对道德不再具有无条件的说服力，人凭什么继续生活、判断、创造？他的答案不是退回犬儒主义，而是以<strong>价值的谱系学</strong>拆解旧价值，再以<strong>自我超越、创造、永恒轮回与命运之爱</strong>检验一种更彻底的生命肯定。
+    </div>
+    <div class="meta">一篇系统导论 · 思想地图 · 概念辨析 · 作品路线 · 常见误读 · 当代意义</div>
+  </div>
+</header>
+
+<div class="layout">
+<nav>
+  <h3>目录</h3>
+  <a href="#overview">01 · 先抓住总问题</a>
+  <a href="#life">02 · 生平与思想转折</a>
+  <a href="#method">03 · 尼采如何做哲学</a>
+  <a href="#deathofgod">04 · “上帝死了”</a>
+  <a href="#nihilism">05 · 虚无主义</a>
+  <a href="#genealogy">06 · 谱系学与道德</a>
+  <a href="#power">07 · 权力意志</a>
+  <a href="#overman">08 · 超人</a>
+  <a href="#recurrence">09 · 永恒轮回</a>
+  <a href="#amor">10 · 命运之爱</a>
+  <a href="#truth">11 · 真理与视角主义</a>
+  <a href="#art">12 · 悲剧、艺术与酒神</a>
+  <a href="#chain">13 · 一条逻辑链串起来</a>
+  <a href="#misread">14 · 六个常见误读</a>
+  <a href="#compare">15 · 与其他思想家比较</a>
+  <a href="#critique">16 · 尼采的难题与批评</a>
+  <a href="#today">17 · 当代意义</a>
+  <a href="#reading">18 · 阅读路线</a>
+  <a href="#sources">资料来源</a>
+</nav>
+
+<main>
+<section id="overview">
+  <div class="kicker">01 · The problem</div>
+  <h2>先抓住总问题：尼采是在解决“价值崩塌以后怎么办”</h2>
+  <p class="lead">理解尼采，最有效的方式不是背“超人、权力意志、永恒轮回”三个名词，而是把它们放进同一个危机：<strong>现代人已经学会怀疑旧世界，却还没有学会在旧世界崩塌后生活。</strong></p>
+
+  <div class="grid3">
+    <div class="card"><div class="num">1</div><h3>诊断</h3><p>传统宗教、形而上学与绝对道德的可信度正在瓦解，“最高价值”失去支撑。</p></div>
+    <div class="card"><div class="num">2</div><h3>危机</h3><p>旧价值死去，不自动产生新价值。人可能进入“什么都无所谓”的被动虚无主义。</p></div>
+    <div class="card"><div class="num">3</div><h3>实验</h3><p>能否由人自身承担价值创造，并以更高强度的生命肯定来取代对“彼岸世界”的依赖？</p></div>
+  </div>
+
+  <div class="callout gold">
+    <div class="quote">把尼采读成“强者哲学”太浅；把他读成“虚无主义哲学家”也只读了一半。更准确的说法是：他是<strong>虚无主义的诊断者，以及对克服虚无主义进行极端思想实验的人</strong>。</div>
+  </div>
+
+  <div class="concept-map">
+    <svg viewBox="0 0 1000 450" role="img" aria-label="尼采核心概念关系图">
+      <defs>
+        <style>
+          .n{fill:#1d1d22;stroke:#5a5659;stroke-width:2}
+          .r{fill:#2b1719;stroke:#9b4446;stroke-width:2}
+          .g{fill:#2b2619;stroke:#a78443;stroke-width:2}
+          .t{fill:#f3efe6;font:700 23px sans-serif}
+          .s{fill:#b9b3aa;font:16px sans-serif}
+          .a{stroke:#77727a;stroke-width:2;marker-end:url(#m)}
+        </style>
+        <marker id="m" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#77727a"/></marker>
+      </defs>
+      <line class="a" x1="220" y1="100" x2="400" y2="100"/>
+      <line class="a" x1="565" y1="100" x2="760" y2="100"/>
+      <line class="a" x1="845" y1="155" x2="845" y2="265"/>
+      <line class="a" x1="760" y1="330" x2="580" y2="330"/>
+      <line class="a" x1="405" y1="330" x2="225" y2="330"/>
+      <line class="a" x1="130" y1="270" x2="130" y2="155"/>
+      <rect class="r" x="40" y="55" rx="20" width="180" height="100"/><text class="t" x="130" y="96" text-anchor="middle">上帝之死</text><text class="s" x="130" y="126" text-anchor="middle">旧价值失去根据</text>
+      <rect class="r" x="400" y="55" rx="20" width="165" height="100"/><text class="t" x="482" y="96" text-anchor="middle">虚无主义</text><text class="s" x="482" y="126" text-anchor="middle">意义真空</text>
+      <rect class="n" x="760" y="55" rx="20" width="170" height="100"/><text class="t" x="845" y="96" text-anchor="middle">谱系学</text><text class="s" x="845" y="126" text-anchor="middle">追问价值从何而来</text>
+      <rect class="n" x="760" y="275" rx="20" width="170" height="100"/><text class="t" x="845" y="316" text-anchor="middle">权力意志</text><text class="s" x="845" y="346" text-anchor="middle">扩张、塑形、自我超越</text>
+      <rect class="g" x="405" y="275" rx="20" width="175" height="100"/><text class="t" x="492" y="316" text-anchor="middle">超人</text><text class="s" x="492" y="346" text-anchor="middle">价值创造的象征</text>
+      <rect class="g" x="40" y="275" rx="20" width="185" height="100"/><text class="t" x="132" y="316" text-anchor="middle">永恒轮回</text><text class="s" x="132" y="346" text-anchor="middle">你愿意再活无数次吗？</text>
+      <text class="t" x="500" y="425" text-anchor="middle" fill="#d8a742">终点：命运之爱 / 对生命说“是”</text>
+    </svg>
+  </div>
+</section>
+
+<section id="life">
+  <div class="kicker">02 · Life & works</div>
+  <h2>生平与思想转折：尼采不是一套一次完成的体系</h2>
+  <div class="portrait-wrap">
+    <figure>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/2/23/Nietzsche1882.jpg" alt="1882年的尼采肖像" referrerpolicy="no-referrer">
+      <figcaption>Friedrich Nietzsche，1882。Gustav-Adolf Schultze 摄。Wikimedia Commons，公有领域。</figcaption>
+    </figure>
+    <div>
+      <p>尼采（1844–1900）最初不是以哲学教授身份进入学界，而是<strong>古典语文学家</strong>。他24岁即获巴塞尔大学古典语文学教席。这个背景很关键：尼采后来对道德和价值的处理，经常不是问“它逻辑上是否正确”，而是问“这个词、这套价值、这种习惯<strong>是怎样形成的</strong>？”——这正是“谱系学”式思考的雏形。</p>
+      <p>他的思想大致可分为三个阶段，但边界并不绝对：</p>
+      <div>
+        <span class="tag">早期：悲剧 / 酒神 / 叔本华 / 瓦格纳</span>
+        <span class="tag">中期：自由精神 / 心理学 / 反形而上学</span>
+        <span class="tag">晚期：价值重估 / 谱系学 / 查拉图斯特拉</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="timeline">
+    <div class="event"><span class="year">1844</span> 出生于普鲁士萨克森省勒肯；父亲是路德宗牧师。</div>
+    <div class="event"><span class="year">1869</span> 24岁获聘巴塞尔大学古典语文学教授。</div>
+    <div class="event"><span class="year">1872</span> 《悲剧的诞生》出版：阿波罗精神与酒神精神成为早期核心。</div>
+    <div class="event"><span class="year">1878</span> 《人性的，太人性的》标志他与叔本华—瓦格纳世界拉开距离，思想更自然主义、心理学化。</div>
+    <div class="event"><span class="year">1882</span> 《快乐的科学》初版，后来增补版本包含著名的“疯子”段落与永恒轮回思想。</div>
+    <div class="event"><span class="year">1883–1885</span> 创作《查拉图斯特拉如是说》四部。</div>
+    <div class="event"><span class="year">1886–1887</span> 《善恶的彼岸》《道德谱系》：价值批判达到高度成熟。</div>
+    <div class="event"><span class="year">1888</span> 高产之年：《偶像的黄昏》《敌基督者》《瞧！这个人》等。</div>
+    <div class="event"><span class="year">1889</span> 都灵精神崩溃，之后基本停止哲学写作。</div>
+    <div class="event"><span class="year">1900</span> 去世于魏玛。</div>
+  </div>
+
+  <div class="danger"><strong>重要文献学提醒：</strong>《权力意志》（The Will to Power）不是尼采生前完成并授权出版的一部作品，而是身后由遗稿编选而成。理解尼采时，应优先依赖他本人正式出版、校订或授权的著作，以及现代批判版遗稿，而不能把后来的编选本当成他最终体系。</div>
+</section>
+
+<section id="method">
+  <div class="kicker">03 · Method</div>
+  <h2>尼采如何做哲学：不是建大厦，而是拿锤子“听诊”</h2>
+  <p class="lead">传统哲学常问：“什么是真的？”尼采加上一层更不舒服的问题：<strong>为什么你如此需要这个‘真’？这个信念满足了什么生命需要？</strong></p>
+
+  <div class="grid2">
+    <div class="card"><h3>心理学诊断</h3><p>观念不只是观念。某些价值判断可能是恐惧、怨恨、自我防卫、支配欲、求安定等心理力量的升华。</p></div>
+    <div class="card"><h3>谱系学</h3><p>不把“善”“恶”“罪责”“良心”当作永恒概念，而是追踪其历史生成、制度条件和情感机制。</p></div>
+    <div class="card"><h3>视角主义</h3><p>知识总从某个位置、兴趣与概念框架出发；但这并不等于“任何说法都一样对”。更强的理解能容纳更多视角并检验其解释力。</p></div>
+    <div class="card"><h3>风格即方法</h3><p>格言、反讽、寓言、人格面具、夸张与挑衅不是装饰。尼采常逼读者自己完成判断，而不是提供一套可以被机械背诵的教义。</p></div>
+  </div>
+
+  <div class="callout">
+    <strong>“用锤子哲学”常被误解。</strong>《偶像的黄昏》的“锤子”既像砸碎偶像的工具，也像医生敲击身体、听其是否空洞的诊断锤。重点不只是破坏，而是<strong>检验我们的最高价值是否其实已经空心化</strong>。
+  </div>
+</section>
+
+<section id="deathofgod">
+  <div class="kicker">04 · God is dead</div>
+  <h2>“上帝死了”：不是一句无神论口号，而是文明层面的地震</h2>
+
+  <p>尼采当然批判基督教，但“上帝死了”的哲学分量远大于“我不相信上帝”。在《快乐的科学》的著名“疯子”寓言中，真正可怕的不是某个人失去宗教信仰，而是：<strong>整个欧洲文化赖以决定真理、善恶、目的和人之尊严的超越性坐标正在失去公信力。</strong></p>
+
+  <div class="flow">
+    <div class="step"><b>基督教—柏拉图式世界</b><br><span class="small">真理、善、意义有一个高于现世的根据</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>现代批判精神</b><br><span class="small">科学、历史学、怀疑主义侵蚀超越保证</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>价值悬空</b><br><span class="small">我们仍使用旧道德语言，却越来越难解释它为何绝对有效</span></div>
+    <div class="arrow">→</div>
+    <div class="step"><b>虚无主义</b><br><span class="small">“既然没有终极根据，一切是否都没有意义？”</span></div>
+  </div>
+
+  <h3>最深的矛盾：我们可能已经“不信”，却仍按旧价值生活</h3>
+  <p>尼采认为现代欧洲人可能处在一种漫长的过渡期：理智上拆除了旧形而上学，情感上却仍然依赖它留下的道德结构。于是出现一种“影子仍在”的状态——神学根据逐渐消失，但由它支撑过的价值仍被当作不证自明。</p>
+
+  <div class="callout gold"><div class="quote">“上帝死了”真正开启的问题不是“从此什么都可以做”，而是：<strong>如果没有一个宇宙外部的裁判替你担保价值，你是否有能力承担价值判断的责任？</strong></div></div>
+</section>
+
+<section id="nihilism">
+  <div class="kicker">05 · Nihilism</div>
+  <h2>虚无主义：最高价值失效之后的“意义真空”</h2>
+  <p>尼采把虚无主义看作欧洲文化长期发展的后果，而不仅是一种个人情绪。简单说：<strong>当人曾经用来解释世界的最高价值不再可信，世界就会显得“没有为什么”。</strong></p>
+
+  <div class="vs">
+    <div class="side">
+      <h3>被动虚无主义</h3>
+      <p>“既然没有终极真理，那就算了。”</p>
+      <ul><li>追求麻醉、舒适、无风险</li><li>降低欲望与创造的强度</li><li>把“没有绝对意义”误成“任何意义都不可能”</li></ul>
+    </div>
+    <div class="mid">VS</div>
+    <div class="side">
+      <h3>主动的拆解力量</h3>
+      <p>“旧价值已经不能支撑生命，那就把它们彻底检验。”</p>
+      <ul><li>破除失效偶像</li><li>承受价值真空</li><li>为新价值创造腾出空间</li></ul>
+    </div>
+  </div>
+
+  <p>需要注意，“主动/被动虚无主义”在尼采遗稿中的表达比在生前正式著作中更集中，所以不宜把它变成过分整齐的教科书二分。但作为解释框架，它能帮助我们理解：<strong>尼采不是停留在“无意义”，而是在问“谁有力量穿越无意义”。</strong></p>
+</section>
+
+<section id="genealogy">
+  <div class="kicker">06 · Genealogy of morality</div>
+  <h2>谱系学：不要先问“这个道德对不对”，先问“它是怎么来的”</h2>
+
+  <p>《道德谱系》的革命性，在于把道德从天上拉回历史。尼采并不满足于规范伦理学式提问——“善是什么？”——而是追问：<strong>谁把某种行为称为善？在什么社会结构中？这种命名增强了哪种生命，抑制了哪种生命？</strong></p>
+
+  <h3>“主人道德”与“奴隶道德”</h3>
+  <table>
+    <thead><tr><th>维度</th><th>主人式价值评定</th><th>奴隶式价值评定</th></tr></thead>
+    <tbody>
+      <tr><td>起点</td><td>从“我是什么”开始肯定自身</td><td>先否定压迫者或敌人，再定义自己</td></tr>
+      <tr><td>核心对立</td><td>好 / 坏（good / bad）</td><td>善 / 恶（good / evil）</td></tr>
+      <tr><td>情感机制</td><td>自发、自信、外溢</td><td>怨恨（ressentiment）、反应性</td></tr>
+      <tr><td>价值生成</td><td>从自身力量状态出发</td><td>通过价值倒转，把强者的属性重写为“恶”</td></tr>
+    </tbody>
+  </table>
+
+  <p>这不是简单的社会阶级史，也不是“贵族永远正确”。尼采在做的是一种<strong>价值心理学</strong>：有些价值来自“丰盛到需要表达”，另一些价值来自“无法行动，只能把无力解释成道德优越”。他最警惕的是后者中的<strong>怨恨结构</strong>。</p>
+
+  <h3>怨恨（ressentiment）：不能行动，于是改写评价体系</h3>
+  <div class="flow">
+    <div class="step">受挫 / 无力</div><div class="arrow">→</div>
+    <div class="step">敌意无法直接释放</div><div class="arrow">→</div>
+    <div class="step">长期内化</div><div class="arrow">→</div>
+    <div class="step">价值倒转</div><div class="arrow">→</div>
+    <div class="step">“不是我做不到，而是那样本来就邪恶”</div>
+  </div>
+
+  <h3>“坏良心”：攻击性转向自身</h3>
+  <p>当人进入更受规训的社会生活，许多原始冲动不能直接向外释放。尼采的猜想是：这些力量会<strong>向内转</strong>，形成一种对自我的塑形甚至折磨。由此诞生更复杂的内在性、罪责与良心。这个故事不是现代历史学意义上的完整实证史，而是一种哲学—心理学谱系假说。</p>
+
+  <h3>禁欲主义理想：宁可意愿虚无，也不愿没有意愿</h3>
+  <p>人在痛苦中最难承受的往往不只是痛苦，而是痛苦<strong>没有意义</strong>。禁欲主义能够给痛苦一个解释，所以即使这种解释是否定生命的，它仍然比完全无意义更可忍受。尼采的尖锐洞见是：人甚至可能通过“反对欲望、反对身体、反对自身”来维持一种意志。</p>
+</section>
+
+<section id="power">
+  <div class="kicker">07 · Will to power</div>
+  <h2>权力意志：远不只是“统治别人”</h2>
+  <p class="lead">把“权力意志”理解成政治支配或暴力征服，会把尼采压扁。更宽的理解是：生命倾向于<strong>扩展能力、组织混沌、解释世界、克服阻力、赋予形式，并不断超越已有的自己</strong>。</p>
+
+  <div class="grid2">
+    <div class="card"><h3>外向维度</h3><p>影响环境、塑造秩序、取得行动空间。这里可能包含竞争与支配，但不是全部。</p></div>
+    <div class="card"><h3>内向维度</h3><p>统摄冲动、训练自己、形成风格。真正高等级的力量经常表现为“能驾驭自己”。</p></div>
+    <div class="card"><h3>解释维度</h3><p>认识不是纯粹照相；解释本身也体现一种选择、强调、组织与赋形。</p></div>
+    <div class="card"><h3>创造维度</h3><p>艺术、思想、人格塑造都可以理解为把无定形材料组织成形式的活动。</p></div>
+  </div>
+
+  <div class="callout">
+    <strong>学术争议：</strong>尼采究竟把权力意志看成宇宙万物的形而上学原理，还是主要用作生命、心理与解释活动的动态模型，学界一直有争论。由于许多最“宇宙论化”的表述来自遗稿，把它直接说成尼采的最终形而上学体系并不稳妥。
+  </div>
+</section>
+
+<section id="overman">
+  <div class="kicker">08 · Übermensch</div>
+  <h2>超人：不是超级英雄，而是“价值创造者”的象征</h2>
+  <figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/2/24/Also_sprach_Zarathustra_%281883%29.png" alt="《查拉图斯特拉如是说》第一部初版封面" referrerpolicy="no-referrer" style="max-width:390px;margin:auto;object-fit:contain;background:#eee;padding:14px">
+    <figcaption style="text-align:center">《Also sprach Zarathustra》第一部初版封面，1883。Wikimedia Commons，公有领域。</figcaption>
+  </figure>
+
+  <p>“超人”（Übermensch）主要出现在《查拉图斯特拉如是说》。它不是一个可直接转换成政治政策或生物学优生计划的概念，而更像一个<strong>存在论—伦理象征</strong>：人在旧价值崩塌后，不停留于犬儒主义，而能创造新的价值尺度。</p>
+
+  <h3>查拉图斯特拉的“三种变形”</h3>
+  <div class="grid3">
+    <div class="card"><div class="num">骆驼</div><p><strong>承担</strong>：学习负重、纪律、传统、知识。“你应该”压在身上。</p></div>
+    <div class="card"><div class="num">狮子</div><p><strong>否定</strong>：对巨龙“你应该”说“不”。争取自由，但还没有创造新价值。</p></div>
+    <div class="card"><div class="num">孩子</div><p><strong>创造</strong>：遗忘、游戏、新开始、神圣的“是”。真正的创造需要重新开始的能力。</p></div>
+  </div>
+
+  <p>这三个阶段是理解尼采最漂亮的钥匙之一：<strong>只有反抗还不够。</strong>“狮子”会拆毁，但“孩子”才能创造。尼采不满足于反传统，他更关心人是否能在没有旧权威的情况下，建立一种不靠怨恨维持的价值生活。</p>
+</section>
+
+<section id="recurrence">
+  <div class="kicker">09 · Eternal recurrence</div>
+  <h2>永恒轮回：把生命放进最残酷的“压力测试”</h2>
+  <p>永恒轮回有宇宙论与存在论两种主要读法。尼采曾尝试思考其宇宙论可能性，但对多数现代读者更重要的是它作为<strong>思想实验</strong>的力量：</p>
+
+  <div class="callout gold">
+    <div class="quote">假设有一个存在告诉你：你现在这同一个人生——每一次快乐、每一次失败、每一次羞耻、每一个细节——都要以完全相同的方式再发生无数次。你会诅咒这个消息，还是能够说：“那就再来一次”？</div>
+  </div>
+
+  <p>这不是让人盲目接受一切，而是把问题逼到极端：<strong>你的生活方式是否值得被无限重复？</strong> 如果答案是否定的，那么问题不一定是“世界不值得”，也可能是你与世界的关系尚未达到足够的肯定。</p>
+
+  <h3>永恒轮回真正测量的是什么？</h3>
+  <ul>
+    <li><strong>价值一致性：</strong>你口头认同的价值，是否真的体现在你的日常选择里？</li>
+    <li><strong>对偶然性的承受：</strong>你是否只爱“理想人生”，还是能把偶然、失败与有限性也纳入你的生命故事？</li>
+    <li><strong>反悔程度：</strong>你的人生是否被“要是当初……”支配？</li>
+    <li><strong>肯定强度：</strong>你是否只在世界符合你的条件时才愿意肯定它？</li>
+  </ul>
+</section>
+
+<section id="amor">
+  <div class="kicker">10 · Amor fati</div>
+  <h2>命运之爱：不是认命，而是把“已经如此”转化成“我愿它如此”</h2>
+  <p><em>Amor fati</em>（命运之爱）是尼采生命肯定思想最凝练的表达之一。它比“接受现实”更强：接受仍可能带着不情愿，而命运之爱要求一种主动的整合——<strong>不只忍受生命的必要性，而是把它作为“我的生命”来肯定。</strong></p>
+
+  <div class="vs">
+    <div class="side"><h3>宿命论</h3><p>“反正无法改变，所以算了。”</p><p class="small">降低行动，取消责任。</p></div>
+    <div class="mid">≠</div>
+    <div class="side"><h3>命运之爱</h3><p>“既然它已经构成了我，我就把它转化为材料。”</p><p class="small">承认必要性，但仍创造未来。</p></div>
+  </div>
+
+  <p>这与“自我超越”结合起来，就形成一个尼采式悖论：<strong>一方面不否定过去，另一方面不断成为还不是的自己。</strong> 肯定并不是停滞，而是把现实当作创作材料。</p>
+</section>
+
+<section id="truth">
+  <div class="kicker">11 · Truth & perspectivism</div>
+  <h2>真理与视角主义：没有“上帝视角”，但不等于“随便说什么都行”</h2>
+  <p>尼采强烈怀疑哲学家自称拥有纯粹、无兴趣、无身体的“客观眼睛”。任何认识都通过语言、概念、历史位置、身体结构、兴趣与价值选择发生。</p>
+
+  <div class="grid2">
+    <div class="card"><h3>尼采反对什么？</h3><p>反对把某一个有限视角伪装成绝对、永恒、无条件的“世界本身”。</p></div>
+    <div class="card"><h3>尼采不必然主张什么？</h3><p>不必然主张所有观点等价。一个能吸收更多证据、容纳更多视角、解释更多现象的认识，可以比单一僵化视角更强。</p></div>
+  </div>
+
+  <p>所以，视角主义比较接近：<strong>认识永远是有位置的，但我们可以通过增加视角、比较解释、暴露自身偏见来提高认识质量。</strong> 这也是为什么尼采的“客观性”不是取消视角，而是训练自己拥有、切换并统摄多个视角。</p>
+</section>
+
+<section id="art">
+  <div class="kicker">12 · Tragedy & Dionysus</div>
+  <h2>悲剧、艺术与酒神：为什么尼采认为艺术比“安慰性真理”更诚实</h2>
+
+  <p>早期《悲剧的诞生》用两种希腊神祇象征艺术冲动：</p>
+  <div class="grid2">
+    <div class="card"><h3>阿波罗式</h3><p>界限、形式、清晰、个体化、梦的形象。它让混沌变得可以观看。</p></div>
+    <div class="card"><h3>酒神式</h3><p>陶醉、生成、痛苦与欢庆的统一、个体边界的松动。它让人直面生命的过剩与残酷。</p></div>
+  </div>
+
+  <p>伟大的悲剧并不是因为它把痛苦解释掉，而是因为它能在不否认痛苦的情况下仍然让生命显得值得肯定。这个主题后来从美学转化为尼采整个哲学的底色：<strong>真正的肯定不是“世界其实没有痛苦”，而是“即使如此，我仍然不需要发明一个彼岸世界来否定此世”。</strong></p>
+
+  <div class="callout">这也是尼采与叔本华分道扬镳的关键：两人都正视痛苦，但叔本华更倾向于压低意志、走向否定；尼采最终要寻找的是<strong>对生成、偶然、冲突本身的肯定</strong>。</div>
+</section>
+
+<section id="chain">
+  <div class="kicker">13 · One chain</div>
+  <h2>把全部概念串成一条逻辑链</h2>
+
+  <ol>
+    <li><strong>西方传统</strong>长期把真理、善与意义放在高于现世的超越领域。</li>
+    <li><strong>现代性自身的求真精神</strong>逐步侵蚀了这些超越保证，于是发生“上帝之死”。</li>
+    <li>最高价值失去根基，出现<strong>虚无主义</strong>：世界似乎“没有为什么”。</li>
+    <li>尼采用<strong>谱系学</strong>拆解道德，把价值放回历史、身体、心理和权力关系之中。</li>
+    <li>于是问题从“哪个价值由天保证”转成“<strong>哪种生命创造了这种价值，它造成了什么效果</strong>”。</li>
+    <li><strong>权力意志</strong>描述生命的塑形、解释、扩张与自我超越动力。</li>
+    <li><strong>超人</strong>象征能承担“没有旧保证”并创造价值的人。</li>
+    <li><strong>永恒轮回</strong>把这种价值创造置于最严苛的检验：你的生命是否值得无限重复？</li>
+    <li><strong>命运之爱</strong>是最终的肯定姿态：不逃向彼岸，不诅咒必要性，把现实转化为创造材料。</li>
+  </ol>
+
+  <div class="callout gold"><div class="quote"><strong>尼采整套哲学的方向，可以压缩成一句话：</strong><br>从“我要一个更真实的世界来否定这个世界”，转向“我能否强大到不再需要否定这个世界”。</div></div>
+</section>
+
+<section id="misread">
+  <div class="kicker">14 · Misreadings</div>
+  <h2>六个常见误读</h2>
+
+  <div class="grid2">
+    <div class="card"><h3>误读 1：尼采就是虚无主义者</h3><p><strong>更准确：</strong>他把虚无主义视为欧洲文化的危机，并试图穿越它。破坏旧价值只是前半程。</p></div>
+    <div class="card"><h3>误读 2：权力意志 = 欺负别人</h3><p><strong>更准确：</strong>它包括支配，但也包括自我统摄、创造、解释、克服阻力和赋予形式。</p></div>
+    <div class="card"><h3>误读 3：超人 = 生物学优越种族</h3><p><strong>更准确：</strong>《查拉图斯特拉》中的超人首先是价值创造与自我超越的象征，不能直接等同于种族理论。</p></div>
+    <div class="card"><h3>误读 4：“上帝死了” = 欢乐宣布无神论胜利</h3><p><strong>更准确：</strong>尼采写的是价值根基崩塌所带来的灾难性后果，语气远比一句庆祝口号复杂。</p></div>
+    <div class="card"><h3>误读 5：主人道德 = 好，奴隶道德 = 坏</h3><p><strong>更准确：</strong>这是对价值生成方式的类型学分析，不是一本“照着主人做”的行为手册。</p></div>
+    <div class="card"><h3>误读 6：《权力意志》就是尼采最终巨著</h3><p><strong>更准确：</strong>它是身后遗稿编选，不是尼采完成的正式著作。现代研究对此尤其谨慎。</p></div>
+  </div>
+
+  <h3>尼采与纳粹主义：为什么经常被连在一起？</h3>
+  <p>20世纪初，尼采遗稿的编辑与传播受其妹妹伊丽莎白·福斯特-尼采影响，她具有民族主义与反犹主义立场；后来纳粹文化宣传也选择性吸收、重释了“超人”“权力”等尼采词汇。另一方面，尼采本人曾明确嘲讽德国民族主义和反犹主义，并与妹妹的相关立场发生冲突。因此，<strong>把尼采直接等同于纳粹主义并不符合文本史；但同样不能因此把他自己的反平等、等级主义和贵族式价值偏好全部洗掉。</strong> 两件事需要同时保留。</p>
+</section>
+
+<section id="compare">
+  <div class="kicker">15 · Comparisons</div>
+  <h2>把尼采放进哲学史：他在反对谁，又继承了谁</h2>
+
+  <table>
+    <thead><tr><th>思想家 / 传统</th><th>尼采继承什么</th><th>尼采反对什么</th></tr></thead>
+    <tbody>
+      <tr><td>苏格拉底 / 柏拉图</td><td>对灵魂、价值、生活方式的根本追问</td><td>把理性与超感性真理提升为压倒生命的最高法庭</td></tr>
+      <tr><td>基督教</td><td>极高强度的道德心理学、内在化、自我审查传统</td><td>彼岸世界、罪责结构、对身体与本能的怀疑，以及他所理解的怨恨道德</td></tr>
+      <tr><td>康德</td><td>承认认识主体并非透明地接触“物自身”</td><td>普遍、无条件、理性自律式的道德基础</td></tr>
+      <tr><td>叔本华</td><td>世界的非理性冲动、悲观主义问题、艺术的重要性</td><td>通过否定意志而获得解脱；尼采转向肯定与增强</td></tr>
+      <tr><td>达尔文主义</td><td>自然化、反目的论环境</td><td>尼采认为“生存”不足以解释生命的扩张、冒险与自我超越倾向</td></tr>
+      <tr><td>存在主义</td><td colspan="2">尼采不是严格意义上的20世纪存在主义者，但他对无根基世界中的自我创造、责任与意义问题产生巨大先驱性影响。</td></tr>
+    </tbody>
+  </table>
+
+  <h3>尼采 vs. 叔本华：最关键的一刀</h3>
+  <div class="vs">
+    <div class="side"><h3>叔本华</h3><p>看见欲望—痛苦循环 → 降低欲望 → 否定意志 → 寻求解脱。</p></div>
+    <div class="mid">→</div>
+    <div class="side"><h3>尼采</h3><p>看见痛苦与生成 → 不把它当反对生命的证据 → 提高承受与创造能力 → 肯定生命。</p></div>
+  </div>
+</section>
+
+<section id="critique">
+  <div class="kicker">16 · Difficulties & critiques</div>
+  <h2>尼采最强的地方，也正是他最容易出问题的地方</h2>
+
+  <div class="grid2">
+    <div class="card">
+      <h3>1. 规范性难题</h3>
+      <p>如果所有价值都应被谱系化，那么尼采自己为什么可以把“生命增强”“创造”“强度”视为更高价值？他的评价标准从哪里获得正当性？</p>
+    </div>
+    <div class="card">
+      <h3>2. 精英主义与反平等</h3>
+      <p>尼采经常以等级、卓越、少数创造者的语言批评现代平等主义。即便这不等同于任何特定政治方案，其规范含义仍有真实争议。</p>
+    </div>
+    <div class="card">
+      <h3>3. 对女性的言论</h3>
+      <p>尼采文本中存在明显的性别刻板和贬抑性表达。解释者会区分修辞人格、时代语境与作者立场，但这些文本张力不能简单抹去。</p>
+    </div>
+    <div class="card">
+      <h3>4. 历史谱系的实证问题</h3>
+      <p>他的“主人—奴隶”“坏良心”叙事往往是哲学心理学的宏大重构，不应把它当作现代历史学或人类学已经证实的直接结论。</p>
+    </div>
+    <div class="card">
+      <h3>5. 风格导致多义</h3>
+      <p>尼采故意使用格言、面具与夸张，使文本极具力量，也使断章取义特别容易。单句名言几乎永远不足以代表他的完整立场。</p>
+    </div>
+    <div class="card">
+      <h3>6. 自然主义与诗性哲学的张力</h3>
+      <p>他一方面倾向自然主义心理学，一方面又使用“酒神”“永恒轮回”“超人”等高度诗性形象。两者如何统一，是解释尼采的长期难题。</p>
+    </div>
+  </div>
+</section>
+
+<section id="today">
+  <div class="kicker">17 · Why Nietzsche now</div>
+  <h2>为什么今天读尼采仍然刺痛：他研究的是“价值生产”</h2>
+
+  <h3>1. 社交媒体时代的“怨恨经济”</h3>
+  <p>尼采的 ressentiment 提供了一副有穿透力的眼镜：当一个人无法改变现实，他可能把无力转化为道德审判，并通过贬低他人获得心理补偿。这个框架可以帮助分析网络围攻、身份竞争和道德表演，但不能反过来把所有正当批评都污名化为“怨恨”。</p>
+
+  <h3>2. 绩效社会中的“权力意志”</h3>
+  <p>尼采很容易被现代“成功学”征用，仿佛权力意志就是不断升级自我、提升效率。其实尼采关心的不是单纯产出，而是<strong>你是否形成了自己的价值尺度</strong>。一个完全被外部排名支配的人，即使非常成功，也可能仍然是反应性的。</p>
+
+  <h3>3. “做自己”为什么还不够</h3>
+  <p>现代文化常说“忠于真实的自己”。尼采会追问：<strong>哪个自己？</strong> 我们并不是先有一个完整本质再去表达；人格本身需要被组织、训练和创造。“成为你自己”不是发现一件现成物，而是一个长期塑形工程。</p>
+
+  <h3>4. 意义危机</h3>
+  <p>当传统权威减弱、选择越来越多，人更容易体验意义的不确定。尼采的贡献不是给出新的统一教义，而是把问题改写为：<strong>你能否承担没有终极担保的自由，并创造一种经得起反复检验的生活形式？</strong></p>
+
+  <div class="callout gold">
+    <div class="quote">一个实用的“尼采式自检”：</div>
+    <ol>
+      <li>这个价值是我主动认可的，还是仅仅害怕被别人否定？</li>
+      <li>我的愤怒是在推动行动，还是只靠贬低别人维持自尊？</li>
+      <li>我的纪律是在增强生命能力，还是在惩罚自己？</li>
+      <li>如果这一周要被重复一千次，我最想修改哪一部分？</li>
+      <li>我能否把不可逆的过去变成材料，而不是永远变成借口？</li>
+    </ol>
+  </div>
+</section>
+
+<section id="reading">
+  <div class="kicker">18 · Reading path</div>
+  <h2>如何读尼采：不要从“名言合集”开始</h2>
+
+  <div class="reading">
+    <div class="book"><div><b>《偶像的黄昏》</b><span class="small">Twilight of the Idols, 1888</span><p>最适合入门。短、密、攻击面广，能看到成熟期尼采的基本姿态。</p></div></div>
+    <div class="book"><div><b>《快乐的科学》</b><span class="small">The Gay Science, 1882 / 1887</span><p>“上帝死了”、永恒轮回、自我塑造等核心问题的关键文本，兼具诗性与哲学性。</p></div></div>
+    <div class="book"><div><b>《道德谱系》</b><span class="small">On the Genealogy of Morality, 1887</span><p>最接近传统论证结构的一本。主人/奴隶道德、怨恨、坏良心、禁欲主义都在这里。</p></div></div>
+    <div class="book"><div><b>《善恶的彼岸》</b><span class="small">Beyond Good and Evil, 1886</span><p>更系统地讨论哲学家心理、真理、道德类型、自由精神与贵族价值。</p></div></div>
+    <div class="book"><div><b>《查拉图斯特拉如是说》</b><span class="small">Thus Spoke Zarathustra, 1883–1885</span><p>不要最先读。它是诗、寓言、先知式演说和哲学象征的混合体；先掌握其他文本再回来，会清楚很多。</p></div></div>
+    <div class="book"><div><b>《悲剧的诞生》</b><span class="small">The Birth of Tragedy, 1872</span><p>理解早期酒神/日神、美学救赎、叔本华与瓦格纳影响，并观察尼采后来如何离开自己的早期立场。</p></div></div>
+  </div>
+
+  <h3>一个阅读原则：先读“整本书”，再摘名言</h3>
+  <p>尼采最危险的阅读方式就是截图式阅读。因为他经常让一个声音说话，再在后文限定、扭转或反讽它。读他的格言时，至少问三件事：<strong>谁在说？对谁说？这句话在全书哪个问题里出现？</strong></p>
+</section>
+
+<section id="sources">
+  <div class="kicker">Sources</div>
+  <h2>资料来源与延伸阅读</h2>
+  <div class="source-note">
+    <p>本文以尼采本人正式出版著作为主要思想依据，并参考当代学术工具书和批判版资源。关于“权力意志”、遗稿、文本编辑史等容易被误读的问题，特别采用现代文献学共识来处理。</p>
+  </div>
+  <ol class="sources">
+    <li><a href="https://plato.stanford.edu/entries/nietzsche/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy — Friedrich Nietzsche</a>：生平、价值理论、心理学、道德、视角主义与写作方法的综合学术条目。</li>
+    <li><a href="https://iep.utm.edu/nietzsch/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy — Friedrich Nietzsche</a>：适合系统入门的哲学概览。</li>
+    <li><a href="https://www.nietzschesource.org/" target="_blank" rel="noopener">Nietzsche Source</a>：数字批判版与手稿影像资源；用于核对作品、遗稿与版本史。</li>
+    <li><a href="https://www.nietzschesource.org/eKGWB/index" target="_blank" rel="noopener">Digital Critical Edition (eKGWB)</a>：基于 Colli / Montinari 批判版的尼采著作、书信与遗稿数字版。</li>
+    <li><a href="https://www.gutenberg.org/ebooks/author/779" target="_blank" rel="noopener">Project Gutenberg — Nietzsche</a>：多部尼采英文旧译公有领域电子版。</li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Nietzsche1882.jpg" target="_blank" rel="noopener">Wikimedia Commons — Nietzsche 1882 portrait</a>：本文人物肖像来源，公有领域。</li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Also_sprach_Zarathustra_(1883).png" target="_blank" rel="noopener">Wikimedia Commons — Also sprach Zarathustra (1883)</a>：本文初版封面来源，公有领域。</li>
+  </ol>
+
+  <h3>一句话总括</h3>
+  <div class="callout gold">
+    <div class="quote">尼采最深的挑战不是“你够不够强”，而是：<strong>当你不能再把意义外包给上帝、传统、群体、历史进步或任何终极保证时，你能否仍然创造、承担，并对自己的生命说“是”？</strong></div>
+  </div>
+</section>
+</main>
+</div>
+
+<footer class="footer">
+  <p>制作：尼采哲学系统导论 · 中文长文版</p>
+  <p class="small">说明：本文是哲学导论，不把任何单一解释包装成唯一“正确的尼采”。尼采研究内部对权力意志、视角主义、自然主义、政治含义等问题长期存在实质分歧。</p>
+</footer>
+
+<script>
+  const bar = document.getElementById('progress');
+  const links = [...document.querySelectorAll('nav a')];
+  const sections = [...document.querySelectorAll('main section')];
+
+  function updateProgress(){
+    const h = document.documentElement;
+    const max = h.scrollHeight - h.clientHeight;
+    bar.style.width = (max ? (h.scrollTop/max)*100 : 0) + '%';
+  }
+  function updateNav(){
+    let current = sections[0]?.id;
+    for(const s of sections){
+      if(s.getBoundingClientRect().top < 160) current = s.id;
+    }
+    links.forEach(a => a.classList.toggle('active', a.getAttribute('href') === '#' + current));
+  }
+  addEventListener('scroll', ()=>{updateProgress(); updateNav();},{passive:true});
+  updateProgress(); updateNav();
+</script>
+</body>
+</html>
