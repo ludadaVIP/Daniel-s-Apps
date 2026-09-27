@@ -13,7 +13,7 @@ strength: 纪律、估值、下行保护
 blindSpot: 资产折价须核查可实现净额和兑现时间；品牌与无形资产不能仅用账面资产解释。
 concepts: [intrinsic-value, margin-of-safety, mr-market]
 cases: [berkshire-textile]
-lessons: [price-and-value, safety-margin]
+lessons: [price-and-value, safety-margin, graham-lab, graham-original-analysis-and-market]
 compareEvidence: "核对可实现资产净额、优先索取权与兑现时间；账面权益不是清算底线。"
 compareCalculation: "勾稽现金、净债务与保守持续经营价值；资产底线资料不足时留空。"
 compareRevision: "应收难收、债务增加或兑现更晚，会怎样侵蚀折价？"

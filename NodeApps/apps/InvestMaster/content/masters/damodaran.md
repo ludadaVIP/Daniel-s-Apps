@@ -13,7 +13,7 @@ strength: 估值建模、口径一致、叙事检验
 blindSpot: 再完整的模型也不能消除输入估计误差；精确到小数点的结果可能只是精确地表达了错误假设。
 concepts: [intrinsic-value, expectations, capital-allocation, cash-conversion]
 cases: []
-lessons: [damodaran-story-to-numbers, damodaran-growth-reinvestment, damodaran-valuation-audit]
+lessons: [damodaran-story-to-numbers, damodaran-growth-reinvestment, damodaran-valuation-audit, damodaran-original-young-firm-survival]
 compareEvidence: "收入、利润率、再投资和终值各有何业务依据？给定输入只证明条件计算。"
 compareCalculation: "按 FCFF 与 WACC 复算企业价值、股权桥和每股值，列终值占比与敏感性。"
 compareRevision: "回款、利润率、资本需求或风险变了，应重算哪些相连输入？"
@@ -33,7 +33,7 @@ sources:
 
 ## 估值是条件判断
 
-简化 FCFF 可以写成 `税后经营利润 + 折旧摊销 − 资本支出 − 营运资本增加`。用与 FCFF 口径相匹配的资本成本折现，得到经营资产价值；再加非经营现金，减债务及其他优先请求权，检查期权和稀释，最后除以完全摊薄股数。若用股权现金流，贴现率应转为股权资本成本，不能把企业与股权两套口径混用。
+简化 FCFF 可以写成 `税后经营利润 + 折旧摊销 − 资本支出 − 营运资本增加`。用与 FCFF 口径相匹配的资本成本折现，得到经营资产价值；再加非经营现金，减债务及其他优先请求权，检查期权和稀释，最后使用与估值日及证券条款一致的股数计算每股值；不能拿 EPS 的年度加权平均股数代替估值日实际股数。期权行权现金、可转债转换后债务变化与股数必须同时处理，不能重复扣除同一权利。若用股权现金流，贴现率应转为股权资本成本，不能把企业与股权两套口径混用。
 
 假设明年 FCFF 为 10，之后永久增长 2%，资本成本 8%，单阶段永续值为 `10/(0.08−0.02)=166.67`。资本成本若变为 9%，值为 `10/(0.09−0.02)=142.86`；增长率若是 1%，且成本为 8%，也是 `142.86`。只改一个百分点就让估值差 14.3%。这提醒读者：终值不应隐藏在模型底部，应把关键假设公开给反方。
 

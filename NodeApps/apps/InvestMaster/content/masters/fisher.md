@@ -13,7 +13,7 @@ strength: 企业调研、产品竞争力、长期成长质量
 blindSpot: 访谈证据容易受选择偏差、管理层叙事和重大非公开信息边界影响；好公司也可能价格过高。
 concepts: [economic-moat, growth-runway, incentives, circle-of-competence]
 cases: [growth-store]
-lessons: [fisher-scuttlebutt-method, fisher-growth-quality, fisher-valuation-discipline]
+lessons: [fisher-scuttlebutt-method, fisher-growth-quality, fisher-valuation-discipline, fisher-original-fifteen-points-evidence]
 compareEvidence: "用公开客户、竞争者和供应商资料交叉验证成长，不把访谈印象当事实。"
 compareCalculation: "将增长所需资本与回款接入估值；不足时列待验证假设而非补造数字。"
 compareRevision: "客户证据与管理层叙事冲突，或质量已被价格充分计入时，怎样重做？"

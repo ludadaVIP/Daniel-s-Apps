@@ -25,9 +25,9 @@ quiz:
     options: [可能稀释老股东或需用现金回购抵消, 没有经济代价, 自动降低债务]
     answer: 0
     explanation: 非现金会计处理不消除所有权转移和回购所需现金。
-  - id: q4
+  - id: q4-v2
     question: 薪酬方案改为只按经营现金流给奖金，可以完全解决激励问题吗？
-    options: [可以, 不能，推迟供应商付款或削减必要维护投资也可暂时抬高现金, 只对零售公司不行]
+    options: [可以, 不能，推迟供应商付款或削减费用化日常维护也可暂时抬高经营现金流, 只对零售公司不行]
     answer: 1
     explanation: 单一指标仍可能被操纵，应看长期每股经济价值、资本回报与约束。
   - id: q5
@@ -42,6 +42,8 @@ quiz:
     explanation: A 为 80−78−5=−3；B 为 78−55−4=19。签约额排名与经济结果相反。
 practice: "查一家公司最新代理投票文件或薪酬披露，列前三个指标、权重、兑现期限和可调整项目；为每个指标写一种可能被诱导的坏行为，用五年每股现金与资本回报核查，并给出一项反证。"
 sources:
+  - label: IFRS Foundation · IAS 7 Statement of Cash Flows
+    url: https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/
   - label: CFA Institute · Code of Ethics and Standards
     url: https://www.cfainstitute.org/standards/professionals/code-ethics-standards
   - label: Berkshire Hathaway · Wesco Reports Archive
@@ -62,7 +64,7 @@ sources:
 
 这种制度可能鼓励销售员给高违约客户放宽条件、承诺公司难以交付的服务，或把未来订单提前签入本期。要核查回款率、退货与取消、客户留存、坏账、合同毛利和后续客服成本。真正的经营成果以长期客户现金价值为中心，而不止当期签单。
 
-若把奖金改为“收款后才付”，可减少回款问题，却可能让销售员避开有较长付款周期但高质量的客户；若只按经营现金流，经理人可能推迟供应商付款或削减维护支出。每一种指标都有作用和副作用，须设多期考核、质量门槛与审计约束。
+若把奖金改为“收款后才付”，可减少回款问题，却可能让销售员避开有较长付款周期但高质量的客户；若只按经营现金流，经理人可能推迟供应商付款或削减费用化日常维护。资本化维护支出通常列投资现金流，削减它会改变自由现金而不直接抬高CFO；若经营费用被不当地资本化，CFO也可能被抬高，但还须核查会计依据，不能仅凭分类变化指控操纵。每一种指标都有作用和副作用，须设多期考核、质量门槛与审计约束。
 
 ### 两个客户，让激励错位变得可见
 

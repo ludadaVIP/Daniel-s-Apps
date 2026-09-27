@@ -13,7 +13,7 @@ strength: 逆向思考、激励机制、机会成本
 blindSpot: “好企业”容易被误用为忽视估值；多元模型不能代替具体证据。
 concepts: [mental-models, opportunity-cost, incentives, economic-moat]
 cases: [sees-candies, dexter-shoe]
-lessons: [mental-models-lesson, incentives-lesson]
+lessons: [mental-models-lesson, incentives-lesson, munger-lab, munger-wesco-insurance-float]
 compareEvidence: "列回款、激励、融资和付款可能造成失败的机制，找与原判断冲突的证据。"
 compareCalculation: "分别核对公司现金缺口与客户现金缺口，再比较同风险可行方案的机会成本。"
 compareRevision: "若无法活到价值兑现日，或有更好的可行替代，原决定怎样改变？"

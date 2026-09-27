@@ -13,7 +13,7 @@ strength: 企业分类、成长验证、研究线索
 blindSpot: 热门产品不一定意味着优秀股票；PEG 不能概括质量、周期和资本需求。
 concepts: [peg, growth-runway, company-categories, cash-conversion]
 cases: [growth-store, cyclical-trap]
-lessons: [from-store-to-stock, growth-and-price]
+lessons: [from-store-to-stock, growth-and-price, lynch-lab, lynch-original-earnings-reverse-test]
 compareEvidence: "先判成长、周期或转机；增长来自价格、数量、扩张还是并购？"
 compareCalculation: "分开收入、利润、完全摊薄股数与现金；题内不足以计算长期 PEG 时列缺项。"
 compareRevision: "回款恶化、扩张回报下降或类别改变，原增长倍数还适用吗？"

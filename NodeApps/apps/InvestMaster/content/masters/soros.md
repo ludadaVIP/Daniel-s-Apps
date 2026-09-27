@@ -13,7 +13,7 @@ strength: 预期与现实的反馈、假说检验、及时修正
 blindSpot: 反身性不是万能解释，也不意味着所有上涨都是泡沫。
 concepts: [reflexivity, expectations, position-sizing]
 cases: [reflexive-credit]
-lessons: [reflexivity-lesson, thesis-and-revision]
+lessons: [reflexivity-lesson, thesis-and-revision, soros-lab, soros-original-reflexivity-financing]
 compareEvidence: "找价格或融资条件改变经营的具体渠道；没有渠道证据就保留为假说。"
 compareCalculation: "分别重算经营、借款与稀释；股价上涨本身不是公司新增现金。"
 compareRevision: "融资受阻、反馈反转或假说缺少独立支持时，哪些预测须修订？"
