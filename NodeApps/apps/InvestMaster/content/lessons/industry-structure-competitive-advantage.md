@@ -9,7 +9,7 @@ minutes: 120
 depth: textbook
 minimumNoteChars: 240
 concepts: [intrinsic-value, capital-allocation, expectations]
-cases: []
+cases: [nucor-2022-steel-cycle-cash-blind, union-pacific-2022-rail-capital-allocation-blind, nextera-2022-regulated-utility-capital-blind]
 quiz:
   - id: q1
     question: 新投资资本 100，预计税后边际资本回报率 18%，相应资本成本 10%，简化的一年经济利润是多少？

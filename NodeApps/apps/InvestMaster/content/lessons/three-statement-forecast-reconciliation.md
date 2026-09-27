@@ -9,7 +9,7 @@ minutes: 135
 depth: textbook
 minimumNoteChars: 260
 concepts: [cash-conversion, intrinsic-value, capital-allocation]
-cases: []
+cases: [costco-2022-filing-cash-blind, nucor-2022-steel-cycle-cash-blind]
 quiz:
   - id: q1
     question: 收入 200、销货成本 120、现金运营费用 40、折旧 10、利息 5、所得税费用 5，净利润是多少？
@@ -42,8 +42,8 @@ sources:
     url: https://www.ifrs.org/issued-standards/list-of-standards/ias-1-presentation-of-financial-statements/
   - label: IFRS Foundation · IAS 7 Statement of Cash Flows
     url: https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/
-  - label: NYU Stern · Damodaran Valuation Resources
-    url: https://pages.stern.nyu.edu/adamodar/New_Home_Page/valquestions.htm
+  - label: NYU Stern · Damodaran Questions about Discounted Cash Flow Valuation
+    url: https://pages.stern.nyu.edu/~adamodar/New_Home_Page/valquestions/valquestions.htm
 ---
 
 ## 学习目标与先修
@@ -77,6 +77,8 @@ sources:
 | 普通股东权益 | 100 | 120 | `100+净利润20` |
 | 资产 / 负债加权益 | 190 / 190 | 205 / 205 | 差额为零 |
 
+**先确认准则版本。**本例按净利润起算、将已付利息放在经营现金流，属于给定的教学分类。[IFRS 18](https://www.ifrs.org/issued-standards/list-of-standards/ifrs-18-presentation-and-disclosure-in-financial-statements/)适用于 2027 年 1 月 1 日或以后开始的年度期间，允许提前采用，并取代 IAS 1；其对 [IAS 7 的修订](https://www.ifrs.org/issued-standards/list-of-standards/ias-7-statement-of-cash-flows/)改变了间接法起点与利息、股利分类要求。读实际年报时先确认公司是否采用及采用日期，再按披露起点重建桥；改变报表分类不会让同一笔现金收付凭空增加。
+
 ## 从一年演算到预测模型
 
 真实两年或五年预测应先明确业务驱动：销量×价格得到收入，成本可随销量、价格和产能利用率变化；应收、存货、应付由周转假设连接；资本开支与折旧应与产能、维护需求配套；借款额、利率和现金余额之间可能形成循环，需写清解法。若期末现金被模型算成负数，不可直接隐藏为负现金。应检查是否需要新增融资、减少分配或改变投资计划，再据此重算利息与税。反过来，若现金年年堆积，要说明分配或再投资政策，而非让它神秘地进入企业价值。
@@ -98,3 +100,5 @@ sources:
 ## 迁移任务
 
 取一家非金融公司的两期年报，在同一单位、同一会计口径下抄录收入、费用、营运资本、资本开支、折旧、债务、股利和现金。先重建历史三表桥，再仅用报告日已知信息预测下一年，在模型旁列出 `资产−负债−权益` 与 `期初现金+三类现金流−期末现金`。保留原披露页码、时点和暂无法解释的差异；不允许用“其他”填出漂亮的零。
+
+先在关联的 Costco 2022 盲题里练一次真实年报审计：对照第 38–40 页勾稽合并现金、总权益和资产负债表，再把无法直接从现金资本开支与总折旧摊销解释的固定资产差额原样记录。接着做 Nucor 2022 盲题：将受限现金并入现金流表口径，把收购对库存期末余额的影响留在待查项，并将合并总权益与归母权益分开。最后换一家未见过的非金融企业独立重复，不把熟悉案例的答案当作迁移能力。

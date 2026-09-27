@@ -6,7 +6,7 @@ master: swensen
 year: 模拟
 order: 16
 question: "长期资产可能有较高预期回报，但现金、承诺和投资政策上限能否在同一压力下同时满足？"
-sourceUrl: https://investments.yale.edu/wp-content/uploads/2024/10/2009YaleEndowment.pdf
+sourceUrl: https://web.archive.org/web/20100527120144id_/http://www.yale.edu/investments/Yale_Endowment_09.pdf
 brief: |
   **全案虚构，限时 90 分钟；金额单位均为百万本币，不含税与交易手续费。**你是晨港基金会的独立投资委员。请先保存自己的计算与投票结论，再展开参考推导。2009 年耶鲁报告只作为课后历史材料，题目数字不是耶鲁数据，也不给你任何未来实际收益。所有投资与拨款均以同一币种结算。
 
@@ -57,4 +57,4 @@ checkpoints:
 
 **自评分数：**①付款时间线和短债 98% 成交 0–4；②股票现金缺口及跌后出售数量 0–4；③经济净资产、调用不重复扣减、账面/经济口径 0–4；④上限与新增承诺决议 0–4；⑤未知合同资料与董事会说明 0–4。只抄对最终数字但无法写出现金和资产桥，相关项最多 2 分。请保留第一版答卷及时间，交给能独立核算的人抽查；看过答案后换一份新题，不能靠背本题证明迁移能力。
 
-> 历史方法对照：[耶鲁 2009 年捐赠基金报告](https://investments.yale.edu/wp-content/uploads/2024/10/2009YaleEndowment.pdf)讨论了亏损、可交易资产与融资来源。本案例的基金会、数字、政策上限和冲击全部虚构；历史报告没有提供本题的解决方案。
+> 历史方法对照：[耶鲁 2009 年捐赠基金报告（原官方文件历史归档）](https://web.archive.org/web/20100527120144id_/http://www.yale.edu/investments/Yale_Endowment_09.pdf)讨论了亏损、可交易资产与融资来源。本案例的基金会、数字、政策上限和冲击全部虚构；历史报告没有提供本题的解决方案。

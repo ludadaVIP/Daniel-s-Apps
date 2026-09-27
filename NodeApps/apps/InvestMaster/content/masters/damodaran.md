@@ -14,6 +14,10 @@ blindSpot: 再完整的模型也不能消除输入估计误差；精确到小数
 concepts: [intrinsic-value, expectations, capital-allocation, cash-conversion]
 cases: []
 lessons: [damodaran-story-to-numbers, damodaran-growth-reinvestment, damodaran-valuation-audit]
+compareEvidence: "收入、利润率、再投资和终值各有何业务依据？给定输入只证明条件计算。"
+compareCalculation: "按 FCFF 与 WACC 复算企业价值、股权桥和每股值，列终值占比与敏感性。"
+compareRevision: "回款、利润率、资本需求或风险变了，应重算哪些相连输入？"
+compareLesson: "damodaran-valuation-audit"
 sources:
   - label: NYU Stern · Valuation Class
     url: https://pages.stern.nyu.edu/adamodar/New_Home_Page/equity.html

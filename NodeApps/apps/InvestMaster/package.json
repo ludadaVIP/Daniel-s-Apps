@@ -8,7 +8,10 @@
     "dev": "concurrently -k -n api,web \"node --watch server/start.js\" \"vite --host 127.0.0.1 --port 5788 --strictPort\"",
     "build": "vite build",
     "start": "node server/start.js",
-    "test": "node --test server/*.test.js"
+    "test": "node --test server/*.test.js",
+    "audit:sources": "node scripts/audit-sources.mjs",
+    "verify:simulation": "node scripts/verify-simulation.mjs",
+    "verify:risk-frequency": "node scripts/verify-risk-frequency.mjs"
   },
   "dependencies": {
     "express": "^5.1.0",

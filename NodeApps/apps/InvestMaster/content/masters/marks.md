@@ -14,6 +14,10 @@ blindSpot: 识别周期位置是概率判断，不能机械预测顶部或底部
 concepts: [second-level-thinking, market-cycle, permanent-loss, expectations]
 cases: [credit-cycle, oaktree-2008-reserve]
 lessons: [second-level-lesson, risk-cycle]
+compareEvidence: "报价相对模型反映哪些假设？区分公司事实、市场预期与自己的概率判断。"
+compareCalculation: "同一报价下比较基准、压力和共同损失预算；不拿期望损失冒充坏情景损失。"
+compareRevision: "若价格更低但偿债与现金更差，能承受的安全边际是否真的增加？"
+compareLesson: "second-level-lesson"
 sources:
   - label: Oaktree · Memos from Howard Marks
     url: https://www.oaktreecapital.com/insights/memos

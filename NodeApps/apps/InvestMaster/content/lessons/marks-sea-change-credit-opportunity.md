@@ -9,7 +9,7 @@ minutes: 130
 depth: textbook
 minimumNoteChars: 270
 concepts: [risk-cycle, second-level-thinking, permanent-loss, expectations]
-cases: []
+cases: [bbby-2022-unsecured-credit-blind]
 quiz:
   - id: q1
     question: 面值 100、年末付息 4、五年到期的普通固息债，市场要求收益率为 4% 时价格是多少？

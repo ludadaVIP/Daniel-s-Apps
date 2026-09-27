@@ -14,6 +14,10 @@ blindSpot: 反身性不是万能解释，也不意味着所有上涨都是泡沫
 concepts: [reflexivity, expectations, position-sizing]
 cases: [reflexive-credit]
 lessons: [reflexivity-lesson, thesis-and-revision]
+compareEvidence: "找价格或融资条件改变经营的具体渠道；没有渠道证据就保留为假说。"
+compareCalculation: "分别重算经营、借款与稀释；股价上涨本身不是公司新增现金。"
+compareRevision: "融资受阻、反馈反转或假说缺少独立支持时，哪些预测须修订？"
+compareLesson: "soros-original-reflexivity-financing"
 sources:
   - label: Soros · The Alchemy of Finance
     url: https://www.georgesoros.com/1987/10/19/the_alchemy_of_finance/

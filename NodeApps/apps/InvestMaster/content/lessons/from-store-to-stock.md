@@ -20,9 +20,9 @@ quiz:
     options: [20, 30, 50]
     answer: 1
     explanation: 50×1−20=30；前提是单店现金已扣相关维护与税。
-  - id: q3
+  - id: q3-v2
     question: 新开 150 家店每家投入 8，新增资本需求是多少？
-    options: [150, 800, 1,200]
+    options: ["150", "800", "1,200"]
     answer: 2
     explanation: 150×8=1,200；扩张前应考虑融资与每股价值。
   - id: q4

@@ -32,6 +32,9 @@ LESSONS = (
     ('bogle-index-construction', '博格尔：指数是什么，不是什么', '109.4806', 1, 6),
     ('bogle-original-cost-matters', '博格尔原著精读：费用算术与长期财富差', '92.78', 1, 6),
     ('inflation-linked-bonds', '通胀保值债券：实际收益与名义现金流', '1101.20', 1, 6),
+    ('fund-etf-investor-rights', '基金与 ETF：份额权利、净值和交易价格', '271,635', 1, 9),
+    ('capstone-client-ips-stress', '毕业实作三：客户 IPS 与组合压力测试', '271,635', 0, 8),
+    ('integrated-research-capstone', '综合研究：两份跨行业股票、一只债券、一份投资政策', '作品五：反方答辩', 1, 8),
     ('alternatives-liquidity', '另类资产：结构、估值与流动性', 'DPI=25/90', 2, 6),
     ('dalio-credit-mechanics', '达里奥：从交易、信用到债务支付链', '110', 2, 6),
     ('dalio-deleveraging-policy', '达里奥：去杠杆的四条路径与政策边界', '80/40=200%', 1, 6),
@@ -79,6 +82,12 @@ LESSONS = (
     ('buffett-1983-goodwill-purchase-price', '巴菲特 1983 股东信深读：好生意与好价格的两本账', '11.36', 1, 7),
     ('graham-original-analysis-and-market', '格雷厄姆原文深读：调查事实、判断价值，再看市场报价', '12.40', 1, 7),
     ('munger-wesco-insurance-float', '芒格 Wesco 股东信深读：保险浮存金到底是不是免费钱', '15%', 1, 7),
+    ('fisher-valuation-discipline', '费雪：好企业的价格、证伪与退出纪律', '2519.42', 1, 8),
+    ('governance-agency-capital-allocation', '公司治理与代理问题：谁替股东作决定', '26.5', 1, 7),
+    ('marks-sea-change-credit-opportunity', '马克斯《Sea Change》深读：利率顺风消失后的信用赔率', '6.35%', 1, 8),
+    ('mental-models-lesson', '芒格：用逆向思考拆掉故事', '150/2=75', 1, 7),
+    ('reflexivity-lesson', '索罗斯：画出反馈环', '120+150=270', 1, 7),
+    ('swensen-policy-allocation', '斯文森：从支出责任推导政策配置', '764×42%=320.88', 1, 8),
 )
 
 with sync_playwright() as playwright:
@@ -95,6 +104,11 @@ with sync_playwright() as playwright:
             assert prose.locator('table').count() >= minimum_tables, lesson_id
             assert page.locator('.im-quiz-question').count() == question_count, lesson_id
             assert not page.evaluate('document.querySelector(".im-main").scrollWidth > document.querySelector(".im-main").clientWidth'), lesson_id
+        page.goto(f'{BASE}/#/app/invest-master/read/fund-etf-investor-rights', wait_until='domcontentloaded')
+        page.locator('.im-prose').get_by_role('link', name='客户 IPS 实作').click()
+        page.locator('h1').filter(has_text='客户 IPS 与组合压力测试').wait_for(timeout=5000)
+        page.locator('.im-prose').get_by_role('link', name='债券基金压力算例').click()
+        page.locator('h1').filter(has_text='基金与 ETF').wait_for(timeout=5000)
         page.goto(f'{BASE}/#/app/invest-master/read/fisher-scuttlebutt-method', wait_until='domcontentloaded')
         first_question = page.locator('.im-quiz-question').first
         first_question.locator('.im-quiz-options button').first.click()

@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>基督教新教的得救观：加尔文主义、阿米念主义与救恩是否会失落</title>
+<meta name="description" content="系统研究新教内部关于救恩、拣选、自由意志、恩典、信心、称义、重生、成圣、坚忍、背道与救恩确据的主要立场。">
+<style>
+:root{
+  --bg:#f5f0e7; --paper:#fffdf8; --ink:#22231f; --muted:#66665d;
+  --line:#ded6c8; --gold:#a47b31; --blue:#274d68; --red:#8d3f39;
+  --green:#3e654d; --purple:#65537a; --shadow:0 16px 50px rgba(45,38,26,.10);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:linear-gradient(180deg,#eee6d9 0,#f8f4ed 240px,var(--bg) 100%);
+  color:var(--ink); font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","SimSun",serif;
+  line-height:1.84; font-size:17px;
+}
+a{color:var(--blue); text-decoration-thickness:1px; text-underline-offset:3px}
+.hero{
+  min-height:92vh; display:grid; place-items:center; position:relative; overflow:hidden;
+  background:
+  radial-gradient(circle at 16% 22%,rgba(164,123,49,.18),transparent 28%),
+  radial-gradient(circle at 84% 68%,rgba(39,77,104,.15),transparent 30%),
+  linear-gradient(145deg,#151a1f,#25313b 52%,#382e24);
+  color:#fff;
+}
+.hero:before,.hero:after{content:"";position:absolute;border:1px solid rgba(255,255,255,.08);border-radius:50%}
+.hero:before{width:560px;height:560px;left:-220px;top:-180px}
+.hero:after{width:760px;height:760px;right:-340px;bottom:-430px}
+.hero-inner{width:min(1050px,90vw);position:relative;z-index:2;padding:80px 0;text-align:center}
+.kicker{letter-spacing:.18em;text-transform:uppercase;color:#e0c58f;font-size:.82rem}
+h1{font-size:clamp(2.5rem,6vw,5.6rem);line-height:1.08;margin:.25em 0 .25em;font-weight:800}
+.subtitle{font-size:clamp(1.05rem,2vw,1.45rem);max-width:820px;margin:0 auto;color:#e7e7e2}
+.hero-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:28px;align-items:center;margin-top:56px}
+.portrait{
+  display:flex;align-items:center;gap:18px;text-align:left;background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.14);padding:16px;border-radius:18px;backdrop-filter:blur(6px)
+}
+.portrait img{width:92px;height:112px;object-fit:cover;border-radius:12px;filter:saturate(.75) contrast(1.05)}
+.portrait .name{font-size:1.25rem;font-weight:700}
+.portrait small{display:block;color:#c9c9c2;line-height:1.45}
+.vs{font-size:1.1rem;color:#e5c987;border:1px solid rgba(229,201,135,.5);padding:8px 12px;border-radius:999px}
+.scroll{margin-top:56px;color:#c6c7c5;font-size:.92rem}
+.page{display:grid;grid-template-columns:260px minmax(0,850px);gap:42px;width:min(1200px,94vw);margin:44px auto 100px}
+aside{position:sticky;top:20px;align-self:start;max-height:calc(100vh - 40px);overflow:auto;background:rgba(255,253,248,.82);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:var(--shadow)}
+aside strong{display:block;margin-bottom:10px;color:#3a3a35}
+aside a{display:block;text-decoration:none;color:#61615a;padding:6px 8px;border-radius:8px;font-size:.9rem;line-height:1.35}
+aside a:hover{background:#eee7db;color:#222}
+main{min-width:0}
+section{background:var(--paper);border:1px solid var(--line);border-radius:22px;padding:clamp(25px,4vw,48px);margin-bottom:26px;box-shadow:var(--shadow)}
+section h2{font-size:2rem;line-height:1.2;margin:.1em 0 .8em;color:#202a31}
+section h3{font-size:1.34rem;margin:1.7em 0 .55em;color:#343a3b}
+section h4{font-size:1.08rem;margin:1.35em 0 .4em;color:#4e4333}
+p{margin:.65em 0}
+.lead{font-size:1.13rem;color:#3e403d}
+.note,.warning,.definition,.thesis{
+  border-left:4px solid var(--gold);background:#f7f1e5;padding:16px 18px;border-radius:0 12px 12px 0;margin:18px 0
+}
+.warning{border-color:var(--red);background:#f9eded}
+.definition{border-color:var(--blue);background:#eef4f7}
+.thesis{border-color:var(--green);background:#edf5ef}
+.grid2,.grid3{display:grid;gap:16px;margin:18px 0}
+.grid2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.grid3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.card{border:1px solid var(--line);background:#fff;border-radius:16px;padding:18px}
+.card h3,.card h4{margin-top:0}
+.badge{display:inline-block;padding:3px 9px;border-radius:999px;background:#ebe3d3;color:#5b4a2e;font-size:.78rem;margin-right:5px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.94rem}
+th,td{border:1px solid var(--line);padding:12px 11px;vertical-align:top}
+th{background:#eee8dc;text-align:left}
+tr:nth-child(even) td{background:#fffdfa}
+.bigtable{overflow:auto;margin:20px 0;border-radius:14px;border:1px solid var(--line)}
+.bigtable table{margin:0;min-width:950px;border:0}
+.bigtable td,.bigtable th{border-top:0;border-left:0}
+.quote{font-size:1.08rem;padding:18px 22px;background:#f1ece2;border-radius:14px;color:#403b34}
+.scripture{display:grid;grid-template-columns:140px 1fr 1fr;gap:0;border:1px solid var(--line);border-radius:14px;overflow:hidden;margin:12px 0;font-size:.93rem}
+.scripture>div{padding:13px;border-right:1px solid var(--line)}
+.scripture>div:last-child{border-right:0}
+.scripture .ref{background:#eee7d9;font-weight:700}
+.flow{display:flex;align-items:stretch;gap:8px;flex-wrap:wrap;margin:20px 0}
+.step{flex:1 1 120px;min-width:120px;padding:12px 10px;border:1px solid var(--line);background:#fff;border-radius:12px;text-align:center;position:relative}
+.step:not(:last-child):after{content:"→";position:absolute;right:-11px;top:50%;transform:translateY(-50%);z-index:2;color:#8c7651}
+.timeline{position:relative;margin:24px 0;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:8px;top:8px;bottom:8px;width:2px;background:#ccb98f}
+.t{position:relative;margin:0 0 22px}
+.t:before{content:"";position:absolute;left:-26px;top:.45em;width:12px;height:12px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 4px #f2eadc}
+.t b{color:#3a3024}
+.diagram{background:#18222a;color:#f4f1e9;border-radius:18px;padding:22px;margin:20px 0;overflow:auto}
+.diagram svg{display:block;width:100%;min-width:620px;height:auto}
+details{border:1px solid var(--line);border-radius:13px;margin:10px 0;background:#fff}
+summary{cursor:pointer;font-weight:700;padding:13px 16px}
+details>div{padding:0 16px 16px;color:#444}
+.meter{height:12px;background:#e8e0d2;border-radius:999px;overflow:hidden;margin-top:7px}
+.meter span{display:block;height:100%;background:linear-gradient(90deg,var(--blue),var(--gold))}
+.small{font-size:.86rem;color:var(--muted)}
+.chip{display:inline-block;border:1px solid var(--line);padding:4px 9px;border-radius:999px;margin:3px 2px;background:#fff;font-size:.83rem}
+.footnotes{font-size:.9rem;color:#555}
+.refs li{margin-bottom:9px}
+footer{padding:35px 20px 70px;text-align:center;color:#6f6d66;font-size:.9rem}
+@media(max-width:900px){
+  .page{display:block;width:min(94vw,850px)}
+  aside{position:relative;top:auto;max-height:none;margin-bottom:22px}
+  .hero-grid{grid-template-columns:1fr}.vs{justify-self:center}
+}
+@media(max-width:650px){
+  body{font-size:16px}.grid2,.grid3{grid-template-columns:1fr}
+  .scripture{grid-template-columns:1fr}.scripture>div{border-right:0;border-bottom:1px solid var(--line)}
+  .scripture>div:last-child{border-bottom:0}
+  section{border-radius:16px}.portrait{display:block;text-align:center}.portrait img{width:110px;height:130px}
+}
+@media print{
+  body{background:white}.hero{min-height:auto;padding:55px 0}.page{display:block;width:100%}aside{display:none}
+  section{box-shadow:none;break-inside:avoid-page;border-color:#bbb}.hero-grid{grid-template-columns:1fr 1fr}.vs{display:none}
+}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">PROTESTANT SOTERIOLOGY · 新教救恩论研究</div>
+    <h1>人如何得救？<br>得救以后会失落吗？</h1>
+    <p class="subtitle">从奥古斯丁到宗教改革，从加尔文主义与阿米念主义之争，到改革宗、路德宗、浸信会、卫斯理宗、五旬节派与圣公会：一份关于恩典、拣选、信心、重生、称义、坚忍、背道与救恩确据的系统研究。</p>
+    <div class="hero-grid">
+      <div class="portrait">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c5/John_Calvin_by_Holbein.png" alt="传统上被识别为约翰·加尔文的肖像">
+        <div><div class="name">约翰·加尔文</div><small>1509–1564<br>改革宗传统的重要奠基者之一</small></div>
+      </div>
+      <div class="vs">并非简单的 VS</div>
+      <div class="portrait">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f5/Arminius_5_flopped_and_cropped.png" alt="雅各布斯·阿米念肖像">
+        <div><div class="name">雅各布斯·阿米念</div><small>1560–1609<br>抗辩派传统的关键人物</small></div>
+      </div>
+    </div>
+    <div class="scroll">向下阅读：先建立“救恩地图”，再进入经文与宗派分歧</div>
+  </div>
+</header>
+
+<div class="page">
+<aside>
+  <strong>目录</strong>
+  <a href="#overview">01 · 先给出全景图</a>
+  <a href="#terms">02 · 必须先分清的术语</a>
+  <a href="#history">03 · 历史脉络</a>
+  <a href="#calvinism">04 · 加尔文主义</a>
+  <a href="#arminianism">05 · 阿米念主义</a>
+  <a href="#ordo">06 · 救恩次序</a>
+  <a href="#loss">07 · 救恩会不会失落</a>
+  <a href="#texts-security">08 · “保守到底”经文</a>
+  <a href="#texts-warning">09 · “背道警告”经文</a>
+  <a href="#hebrews">10 · 希伯来书难题</a>
+  <a href="#election">11 · 拣选与预定</a>
+  <a href="#atonement">12 · 基督为谁死</a>
+  <a href="#assurance">13 · 救恩确据</a>
+  <a href="#denoms">14 · 宗派地图</a>
+  <a href="#cases">15 · 四个现实案例</a>
+  <a href="#errors">16 · 常见误解</a>
+  <a href="#synthesis">17 · 怎样综合理解</a>
+  <a href="#sources">18 · 主要资料与延伸阅读</a>
+</aside>
+
+<main>
+
+<section id="overview">
+  <span class="badge">总论</span><span class="badge">阅读地图</span>
+  <h2>一、先给出全景图：新教不是只有“两种得救观”</h2>
+  <p class="lead">“加尔文主义还是阿米念主义？”确实是新教救恩论中最著名的一条分界线，但若把所有新教宗派硬塞进这两个盒子，会造成大量误解。真正的争论至少包含六个彼此相关却又不能完全等同的问题。</p>
+  <div class="grid3">
+    <div class="card"><h4>① 人堕落以后还能不能自己信？</h4><p>几乎所有经典新教传统都回答：不能靠天然能力产生救人的信心；争论在于神的恩典如何使人能够信。</p></div>
+    <div class="card"><h4>② 神为何拣选某些人？</h4><p>是基于神无条件的旨意，还是与神所预知、并由恩典使之可能的信心回应有关？</p></div>
+    <div class="card"><h4>③ 基督的代赎意向指向谁？</h4><p>“为选民有效地成就救赎”，还是“为所有人提供救赎、只在信者身上发生救赎功效”？</p></div>
+    <div class="card"><h4>④ 人能否抗拒救恩性的恩典？</h4><p>改革宗强调有效呼召最终必产生回应；阿米念传统强调先行恩典是真实而充分的，却仍可被拒绝。</p></div>
+    <div class="card"><h4>⑤ 真信徒会不会最终背道？</h4><p>这就是“圣徒坚忍”“有条件的安全”“永远得救保障”等观点真正分叉的地方。</p></div>
+    <div class="card"><h4>⑥ 我现在怎么知道自己得救？</h4><p>确据的基础究竟主要是基督客观应许、圣灵见证、圣礼、持续信心，还是生命果子？各传统强调不同。</p></div>
+  </div>
+  <div class="thesis"><b>最重要的结论：</b>“救恩会不会失落”不能孤立讨论。一个传统怎样回答这个问题，取决于它怎样理解<strong>拣选、重生、信心、与基督联合、警告经文以及“真信徒”的定义</strong>。</div>
+</section>
+
+<section id="terms">
+  <h2>二、先把术语弄清楚：很多争论其实是“用同一个词说不同的事”</h2>
+  <div class="bigtable"><table>
+    <thead><tr><th>术语</th><th>基本含义</th><th>为何重要</th></tr></thead>
+    <tbody>
+      <tr><td><b>呼召 Calling</b></td><td>福音向人发出的召唤。改革宗常区分“外在呼召”与“有效呼召”。</td><td>决定“神的呼召是否必然产生信心”。</td></tr>
+      <tr><td><b>重生 Regeneration</b></td><td>圣灵使属灵死亡的人得新生命。</td><td>改革宗常主张重生在逻辑上先于信心；阿米念传统通常把信心看作进入重生的恩典性条件。</td></tr>
+      <tr><td><b>悔改与信心</b></td><td>转离罪、归向基督，并信靠祂。</td><td>所有主流新教都否认“靠功德换救恩”，但对“信心如何成为可能”有差异。</td></tr>
+      <tr><td><b>称义 Justification</b></td><td>神因基督而宣告信徒为义；新教共同强调不是靠人的功德赚取。</td><td>是宗教改革救恩论核心。称义与成圣必须区分，却不可割裂。</td></tr>
+      <tr><td><b>收纳 Adoption</b></td><td>信徒被接纳进入神儿女的身份与家中。</td><td>帮助理解救恩并不只是“法庭无罪”，也是关系与身份的改变。</td></tr>
+      <tr><td><b>与基督联合 Union with Christ</b></td><td>信徒借圣灵与基督相连，分享祂救赎的益处。</td><td>许多争论最终落在：这种联合能否被真正、最终地断绝？</td></tr>
+      <tr><td><b>成圣 Sanctification</b></td><td>圣灵持续更新信徒，使其更像基督。</td><td>好行为是得救的果子、证据与道路，不是购买称义的价码。</td></tr>
+      <tr><td><b>坚忍 Perseverance</b></td><td>持续在信心中直到末了。</td><td>改革宗认为真信徒必被神保守而坚忍；有条件安全论认为必须坚忍，但真实信徒仍可能离弃。</td></tr>
+      <tr><td><b>保守 Preservation</b></td><td>神主动保存祂的百姓。</td><td>“圣徒坚忍”若只强调人的坚持，就会误解改革宗：其核心其实是神的保守产生人的坚忍。</td></tr>
+      <tr><td><b>背道 Apostasy</b></td><td>从所承认的信仰中严重、持续、最终地转离。</td><td>各派争论的是：背道者此前究竟是真重生者、表面信徒，还是在恩约群体中真实蒙恩却最终离开的人。</td></tr>
+      <tr><td><b>确据 Assurance</b></td><td>信徒对自己现在与最终得救的确信。</td><td>“能否有确据”与“救恩能否失落”相关，却不是完全相同的问题。</td></tr>
+    </tbody>
+  </table></div>
+  <div class="definition"><b>一个极关键的区别：</b>“唯独因信称义”不等于“只要曾经作过一次认信，以后是否仍信、是否背弃基督都不重要”。几乎所有历史性新教传统都把真实信心理解为一种会在生命中产生果子、并以某种方式持续的信心；争论在于<strong>这种持续是否由神保证到绝对不会最终失败</strong>。</div>
+</section>
+
+<section id="history">
+  <h2>三、历史脉络：这场争论不是从“加尔文和阿米念吵架”才开始</h2>
+  <div class="timeline">
+    <div class="t"><b>4–5世纪 · 奥古斯丁与伯拉纠争论</b><p>西方教会已经在争论原罪、恩典与人的意志。奥古斯丁越来越强调堕落后的人必须先被神的恩典唤醒与医治。宗教改革时期的许多争论，都在重新读取这一遗产。</p></div>
+    <div class="t"><b>1517以后 · 宗教改革</b><p>路德、慈运理、加尔文等共同反对人凭功德在神面前称义，强调神主动的恩典与因信称义。但路德宗与改革宗在预定、圣礼、救恩失落等问题上并不完全相同。</p></div>
+    <div class="t"><b>16世纪中叶 · 改革宗体系逐渐成熟</b><p>加尔文并没有使用后来著名的“TULIP”五点缩写；后世改革宗救恩论是在更广阔的圣约、基督论、教会论与预定论框架中发展出来的。</p></div>
+    <div class="t"><b>1560–1609 · 雅各布斯·阿米念</b><p>阿米念本人仍深深处于宗教改革传统中。他反对把人描写成可以靠天然自由意志自救；他的核心问题是：神的先在恩典如何与真实的人类回应相协调。</p></div>
+    <div class="t"><b>1610 · 《抗辩五条》</b><p>阿米念去世后追随者提出五条抗辩：有条件的拣选、普遍赎罪的提供、人完全需要恩典、恩典可抗拒；第五条对“真信徒是否能够最终失落”仍保持审慎，表示需要进一步按圣经研究。</p></div>
+    <div class="t"><b>1618–1619 · 多特会议</b><p>改革宗回应抗辩派，形成后来被概括为“TULIP”的五个教义主题：全然败坏、无条件拣选、确定/限定代赎、有效恩召、圣徒坚忍。</p></div>
+    <div class="t"><b>18世纪 · 约翰·卫斯理</b><p>卫斯理接受强烈的原罪观与恩典优先性，却以“先行恩典”解释所有人为何能够回应福音，并明确发展出有条件的最终得救与成圣传统。</p></div>
+    <div class="t"><b>19–20世纪 · 宗派扩展</b><p>改革宗、长老会继续坚持圣徒坚忍；许多浸信会接受“永远保障”；卫理公会、圣洁运动以及大量五旬节宗派通常坚持真实信徒有背道可能；路德宗也明确否认“任何真正信过的人都绝不可能失落”的说法。</p></div>
+  </div>
+  <div class="note">历史上真正的情况不是两支直线，而像一棵树：<b>改革宗、路德宗、圣公会、重洗派、浸信会、卫斯理宗、圣洁运动、五旬节运动</b>各自形成了不同组合。</div>
+</section>
+
+<section id="calvinism">
+  <span class="badge">Reformed</span>
+  <h2>四、加尔文主义：核心不是“神替人做了一切，所以人什么都不用做”</h2>
+  <p>成熟的改革宗救恩论通常被概括成 TULIP，但“五点”本来是多特会议针对抗辩派问题所作的回应，不等于整个改革宗神学。改革宗真正的结构是：<strong>三一神从永恒拣选，在历史中由基督成就救赎，由圣灵把救赎有效施行在选民身上，并保守他们直到荣耀</strong>。</p>
+  <div class="grid2">
+    <div class="card"><h3>T · 全然败坏</h3><p>不是说每个人坏到能坏的极点，而是罪侵入人的理性、情感、意志与身体，使人不能靠自己的天然能力产生救人的信心。属灵无能不是“没有意志”，而是意志被罪辖制。</p></div>
+    <div class="card"><h3>U · 无条件拣选</h3><p>神拣选某人得救的最终理由不在于祂预见此人比别人更愿意信，而在祂自由、恩慈的旨意。信心本身是拣选在历史中的结果，而非拣选的根基。</p></div>
+    <div class="card"><h3>L · 确定/限定代赎</h3><p>改革宗并非否认基督的牺牲具有无限价值，而是强调十字架不只是“使救恩成为可能”，而是实际为神所赐给基督的百姓成就救赎。</p></div>
+    <div class="card"><h3>I · 有效恩召</h3><p>福音的外在呼召可以被拒绝；但当圣灵按神旨意有效地更新人的心时，这工作会使人自由而真实地转向基督。改革宗更喜欢“有效恩召”而非把人描写成被机械强迫。</p></div>
+    <div class="card" style="grid-column:1/-1"><h3>P · 圣徒坚忍</h3><p>凡真正蒙拣选、有效蒙召、重生并与基督联合的人，虽然可能严重跌倒、长期软弱，甚至一度陷在大罪中，却不会完全且最终从恩典中坠落。其根基不是人的意志坚强，而是父的旨意、子的代求、圣灵的内住与恩约的信实。</p></div>
+  </div>
+  <div class="diagram">
+    <svg viewBox="0 0 900 250" role="img" aria-label="改革宗救恩链条示意图">
+      <defs><marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#d5b979"/></marker></defs>
+      <text x="20" y="35" fill="#d5b979" font-size="20">改革宗的逻辑核心：同一位神开始、成就、施行并完成救恩</text>
+      <g fill="#243642" stroke="#d5b979" stroke-width="1.5">
+        <rect x="22" y="80" rx="12" width="140" height="72"/><rect x="200" y="80" rx="12" width="140" height="72"/>
+        <rect x="378" y="80" rx="12" width="140" height="72"/><rect x="556" y="80" rx="12" width="140" height="72"/>
+        <rect x="734" y="80" rx="12" width="140" height="72"/>
+      </g>
+      <g fill="#fff" font-size="18" text-anchor="middle">
+        <text x="92" y="112">永恒拣选</text><text x="92" y="136" font-size="13">Election</text>
+        <text x="270" y="112">基督成就</text><text x="270" y="136" font-size="13">Redemption</text>
+        <text x="448" y="112">有效呼召</text><text x="448" y="136" font-size="13">Calling</text>
+        <text x="626" y="112">信心·成圣</text><text x="626" y="136" font-size="13">Faith & Sanctification</text>
+        <text x="804" y="112">坚忍·得荣</text><text x="804" y="136" font-size="13">Perseverance & Glory</text>
+      </g>
+      <g stroke="#d5b979" stroke-width="2" marker-end="url(#arr)">
+        <line x1="162" y1="116" x2="195" y2="116"/><line x1="340" y1="116" x2="373" y2="116"/>
+        <line x1="518" y1="116" x2="551" y2="116"/><line x1="696" y1="116" x2="729" y2="116"/>
+      </g>
+      <text x="450" y="205" text-anchor="middle" fill="#bac8cf" font-size="15">人的悔改、信心、顺服与坚忍都是真实且必要的；但它们被理解为恩典所产生、所维持的回应。</text>
+    </svg>
+  </div>
+  <div class="thesis"><b>所以改革宗的“不会失落”并不是：</b>“我年轻时决志过一次，所以以后公开否认基督、永远不悔改也照样得救。”经典改革宗会说，持续的、最终的离弃反而显明那个人此前从未真正拥有使人得救的生命，或至少我们没有根据确认其重生。</div>
+</section>
+
+<section id="arminianism">
+  <span class="badge">Arminian</span><span class="badge">Wesleyan</span>
+  <h2>五、阿米念主义：也不是“人自己决定，所以救恩一半靠神、一半靠人”</h2>
+  <p>经典阿米念主义同样坚持：堕落的人不能靠天然能力产生救人的信心。其关键概念是<strong>先行恩典（prevenient grace）</strong>：神先主动临到、唤醒、光照并赋能，使罪人真实有能力回应福音；但这种恩典并不以不可抗拒的方式强迫回应。</p>
+  <div class="grid2">
+    <div class="card"><h4>有条件的拣选</h4><p>神在基督里定意拯救信的人；许多阿米念神学家认为神的预知包含祂对人将如何回应恩典的完全认识。也有“群体拣选”解释，强调基督是选民的代表与中心。</p></div>
+    <div class="card"><h4>普遍代赎</h4><p>基督为所有人死，救恩真实向所有人提供；但代赎的救恩利益只施行在信的人身上。普遍性不等于普救论。</p></div>
+    <div class="card"><h4>完全需要恩典</h4><p>经典阿米念主义并不接受“人有一块未被罪影响的自由意志，可以自己迈出第一步”。最初的能力来自恩典。</p></div>
+    <div class="card"><h4>可抗拒的恩典</h4><p>圣灵真实工作、福音真实呼召，人也真实有可能拒绝。自由不是“脱离神恩典独立行动”，而是在恩典赋能下作真实回应。</p></div>
+    <div class="card" style="grid-column:1/-1"><h4>有条件的安全</h4><p>后来的多数经典阿米念与卫斯理传统认为：神充分赐下保守的恩典，没有外力能把信徒从基督手中夺走；然而一个真实信徒仍可能以持续、最终的不信与背道拒绝这份恩典，因此“最终得救”与“持续在信心中”不可分开。</p></div>
+  </div>
+  <div class="note"><b>历史细节：</b>1610年的《抗辩五条》第五条并没有立刻断言“真信徒必定能够最终失落”，而是说这件事需要进一步按圣经确定。后来阿米念传统逐渐普遍发展为“有条件的安全”。因此把“阿米念本人 = 已经完整持有后世一切阿米念派观点”是不准确的。</div>
+  <h3>卫斯理式阿米念主义又多了一层重点</h3>
+  <p>约翰·卫斯理把救恩理解成一整条“恩典之路”：先行恩典唤醒人，悔改与信心接受称义和新生，随后进入成圣，并强调圣灵能够深度更新人的爱与意志。卫斯理传统因此不像某些争论只问“最低限度怎样上天堂”，它更强调<strong>救恩是恢复神形象、使人圣洁并在爱中完全</strong>。</p>
+</section>
+
+<section id="ordo">
+  <h2>六、救恩次序（Ordo Salutis）：真正的分歧常常发生在“信心与重生谁在逻辑上先”</h2>
+  <p>这里所说的“先后”往往不是钟表上相隔几分钟，而是神学上的逻辑顺序。</p>
+
+  <h3>改革宗典型次序</h3>
+  <div class="flow">
+    <div class="step">拣选</div><div class="step">有效呼召</div><div class="step">重生</div><div class="step">悔改与信心</div><div class="step">称义/收纳</div><div class="step">成圣</div><div class="step">坚忍</div><div class="step">得荣</div>
+  </div>
+  <p class="small">这里“重生先于信心”意在说明：属灵死人不能先凭天然能力产生信心，再要求神使他活；圣灵更新人的心，从而产生真实、自愿的信靠。</p>
+
+  <h3>经典阿米念/卫斯理典型次序</h3>
+  <div class="flow">
+    <div class="step">先行恩典</div><div class="step">福音呼召</div><div class="step">悔改与信心</div><div class="step">重生/称义</div><div class="step">收纳</div><div class="step">成圣</div><div class="step">持续信心</div><div class="step">得荣</div>
+  </div>
+  <p class="small">这里并不是“人先独立信，神随后奖励他”，而是神的恩典先恢复回应能力；信心不是功德，而是领受基督的空手。</p>
+
+  <h3>路德宗的典型重心</h3>
+  <div class="flow">
+    <div class="step">普遍救赎</div><div class="step">道与圣礼</div><div class="step">圣灵创造信心</div><div class="step">因信称义</div><div class="step">成圣生活</div><div class="step">持守信心</div><div class="step">最终得救</div>
+  </div>
+  <p>路德宗通常既拒绝“人天然能自己信”，又拒绝加尔文主义式的双重预定和“真信徒绝不可能失落”的体系。它非常强调神借<strong>外在的道与圣礼</strong>赐下、坚固信心，因此确据不应建立在猜测自己是否属于隐藏的选民，而应建立在神公开的福音应许上。</p>
+</section>
+
+<section id="loss">
+  <h2>七、救恩到底会不会失落？其实至少有四种不同答案</h2>
+  <div class="bigtable"><table>
+    <thead><tr><th>立场</th><th>真信徒会最终失落吗？</th><th>怎样解释最终背道者？</th><th>代表传统</th></tr></thead>
+    <tbody>
+      <tr><td><b>改革宗“圣徒坚忍”</b></td><td>不会。真正重生者必被神保守到末了。</td><td>最终彻底背道显明其并未真正拥有救恩；或者其曾享受教会与圣约群体的真实恩惠，却未有救人的联合。</td><td>改革宗、长老会；部分浸信会</td></tr>
+      <tr><td><b>“永远保障”型浸信会</b></td><td>通常回答不会。</td><td>内部有两种：一种非常接近改革宗，认为真信徒必有某种坚忍；另一种“Free Grace”立场认为即使后来极度失败，最初真实信心仍保证最终得救。</td><td>大量保守派浸信会；部分独立福音派</td></tr>
+      <tr><td><b>阿米念/卫斯理“有条件安全”</b></td><td>可以，但通常不是因每一次软弱犯罪而立刻失去；关键是最终、持续地离弃信心与基督。</td><td>有些背道者曾真实重生、与基督有真实关系，后来以不信拒绝了恩典。</td><td>卫理宗、圣洁运动、许多五旬节派、Free Will Baptist 等</td></tr>
+      <tr><td><b>路德宗</b></td><td>可以因不信、拒绝恩典、背道而失落。</td><td>可以承认此前有真实信心，之后又离弃；也强调神不断借道与圣礼呼召回转。</td><td>信义宗/路德宗</td></tr>
+    </tbody>
+  </table></div>
+
+  <div class="warning"><b>不要把“会失落”理解成一种神经质的计分制度：</b>“今天发脾气 → 失去救恩；晚上认罪 → 又得回来；明天犯罪 → 又失去。”主流的有条件安全传统通常把“背道”理解得比日常软弱严重得多：它涉及不信、拒绝基督、持续悖逆并最终离开信仰。</div>
+
+  <h3>“一次得救，永远得救”这句话为什么容易制造误解？</h3>
+  <p>因为同一句口号至少可以表达两种完全不同的神学：</p>
+  <div class="grid2">
+    <div class="card"><h4>改革宗版本</h4><p>“真得救的人会被神保守，所以最终不会彻底离开基督。”持续信心不是可有可无，而是神救恩工作的必然果子。</p></div>
+    <div class="card"><h4>极端口号化版本</h4><p>“只要过去某个时刻真心祷告过一次，以后即使永远不再信、公开否认基督也必然得救。”这并不是《威斯敏斯特信条》或《多特信经》所说的圣徒坚忍。</p></div>
+  </div>
+</section>
+
+<section id="texts-security">
+  <h2>八、“神必保守到底”的关键经文：改革宗是怎样读的？</h2>
+  <div class="scripture"><div class="ref">约 6:37–40</div><div><b>改革宗重点：</b>父赐给子的，子不会失落；末日复活由基督保证。</div><div><b>条件安全论回应：</b>经文强烈保证基督的信实，却不必然回答一个人是否仍可能主动停止信靠。</div></div>
+  <div class="scripture"><div class="ref">约 10:27–29</div><div><b>改革宗重点：</b>无人能从父与子的手中夺去羊，救恩安全来自神大能。</div><div><b>条件安全论回应：</b>这里的羊被描述为“听声音、跟随”；经文否定外力夺取，不等于明确排除自己离弃。</div></div>
+  <div class="scripture"><div class="ref">罗 8:29–39</div><div><b>改革宗重点：</b>预知—预定—呼召—称义—得荣形成不可断裂的“金链”；没有受造之物能隔绝神的爱。</div><div><b>条件安全论回应：</b>保罗强调外在苦难不能隔绝信徒与神，却未在这里讨论后来主动转为不信的问题。</div></div>
+  <div class="scripture"><div class="ref">腓 1:6</div><div><b>改革宗重点：</b>神开始善工，也必成全。</div><div><b>另一种读法：</b>经文是强烈牧养应许，但上下文也包含腓立比教会参与福音事工，未必旨在定义形而上的“不可背道”。</div></div>
+  <div class="scripture"><div class="ref">彼前 1:3–5</div><div><b>改革宗重点：</b>信徒“蒙神能力保守”，直到末后救恩显现。</div><div><b>条件安全论重点：</b>经文同时说“因信”蒙保守，因此保守与持续信靠并列，而非取消信心条件。</div></div>
+  <div class="scripture"><div class="ref">弗 1:13–14</div><div><b>改革宗重点：</b>圣灵是印记与凭据，指向最终产业。</div><div><b>条件安全论回应：</b>“凭据”强调神的信实与救恩真实性，但警告经文仍必须参与构建完整教义。</div></div>
+  <p class="note">改革宗最强的论证不是抓住某一节“永不灭亡”，而是把这些经文与神的永恒旨意、基督的代求、圣灵的印记、称义的不可逆性和新约应许连成一个整体。</p>
+</section>
+
+<section id="texts-warning">
+  <h2>九、“你们要持守，否则可能坠落”的关键经文：阿米念与路德宗为什么认为这些是真警告？</h2>
+  <div class="scripture"><div class="ref">约 15:1–6</div><div><b>条件安全论：</b>“在我里面”的枝子若不结果被剪去，最自然地像是在描述真实关系后来破裂。</div><div><b>改革宗：</b>“在基督里”可以指可见门徒群体中的外在联合，如犹大；结果显明谁真正有生命。</div></div>
+  <div class="scripture"><div class="ref">罗 11:17–22</div><div><b>条件安全论：</b>保罗明确警告外邦信徒“若不长久在恩慈里，也要被砍下来”。</div><div><b>改革宗：</b>经文首先处理救赎历史中的群体地位与可见约民身份，不必等同个别重生者失去称义。</div></div>
+  <div class="scripture"><div class="ref">林前 9:27</div><div><b>条件安全论：</b>保罗自己认真面对被弃绝的可能，因此坚忍不是自动机制。</div><div><b>改革宗：</b>警告正是神用来使选民警醒、最终坚忍的“手段”；警告真实，不代表结果必会发生。</div></div>
+  <div class="scripture"><div class="ref">加 5:4</div><div><b>条件安全论：</b>“与基督隔绝、从恩典中坠落”语言强烈，似乎允许真实恩典关系被破坏。</div><div><b>改革宗：</b>保罗对可见教会说话，警告人若以律法为称义基础，就是显明离开了福音，而不是证明重生可逆。</div></div>
+  <div class="scripture"><div class="ref">西 1:22–23</div><div><b>条件安全论：</b>最终呈献“只要你们在信仰上恒心”，显示持续信心具有条件性。</div><div><b>改革宗：</b>“如果/只要”可以是识别真信心的证据性条件：真正被和好的人会继续。</div></div>
+  <div class="scripture"><div class="ref">彼后 2:20–22</div><div><b>条件安全论：</b>人曾“脱离世上的污秽”，后来再被缠住，末后更坏。</div><div><b>改革宗：</b>可以有真实的道德改革、知识与群体经验，却仍未发生使本性彻底更新的重生。</div></div>
+  <div class="scripture"><div class="ref">启 2–3</div><div><b>条件安全论：</b>主向教会发出真实、带后果的警告，得胜与生命冠冕紧密相连。</div><div><b>改革宗：</b>同样承认警告真实；但认为神用这些警告维持祂子民的坚忍，而非说明选民最终会灭亡。</div></div>
+</section>
+
+<section id="hebrews">
+  <h2>十、最难的战场：希伯来书 6章与10章</h2>
+  <p>几乎任何严肃讨论“救恩是否可能失落”的研究，都绕不开希伯来书。争论最激烈的原因在于作者不是用“听过福音”这样弱的语言，而是使用“蒙了光照、尝过天恩、与圣灵有分”等极强表达。</p>
+  <details open><summary>希伯来书 6:4–6：这些人到底是否重生？</summary><div>
+    <p><b>有条件安全论：</b>这些描述累积起来最自然地指向真实基督徒；若他们“离弃”，文本把它当作真正的背道危险。因此警告不能被降格成“从没真正信过的人才会这样”。</p>
+    <p><b>改革宗：</b>人可以在新约群体中受到很深的光照，尝到圣灵工作的能力、经历教会恩惠，却仍未拥有使人最终得救的重生。改革宗也常指出后文用土地比喻区分同样领受雨水却结出不同果子的田地。</p>
+    <p><b>另一种改革宗处理：</b>有学者认为这是“假设性警告”或“神用警告保存选民”的语言：危险是真实的，警告正是神使圣徒不走到那一步的工具。</p>
+  </div></details>
+  <details><summary>希伯来书 10:26–31：故意犯罪是否等于每次明知故犯？</summary><div>
+    <p>上下文更接近持续拒绝基督唯一祭物、回头离弃新约，而不是“一个基督徒明知不对却又发了脾气”这种日常失败。无论哪一派，都不应把这段经文用成使软弱信徒持续恐慌的武器。</p>
+  </div></details>
+  <details><summary>“警告是真实的”与“选民必坚忍”能同时成立吗？</summary><div>
+    <p>改革宗回答可以：例如父母说“不要跑到公路上，否则会被车撞”，警告的真实后果与父母最终成功阻止孩子并不矛盾。阿米念派则会追问：若神已在永恒旨意中绝对保证选民不可能最终背道，那么文本为何以如此直接方式描述收信人的危险？这正是双方诠释学分歧之一。</p>
+  </div></details>
+  <div class="thesis"><b>真正的解释关键：</b>不是先决定“我是哪一派”，再让每节经文配合，而是要问：希伯来书作者把收信人视为怎样的人？“有分”“成圣”“蒙光照”等词在本书如何使用？警告在新约群体中发挥什么功能？</div>
+</section>
+
+<section id="election">
+  <h2>十一、拣选与预定：争论不是“神有没有主权”，而是“神怎样行使主权”</h2>
+  <div class="grid2">
+    <div class="card">
+      <h3>改革宗</h3>
+      <p><b>核心：</b>神拣选的最终原因在祂自己，不在被拣选者将来预见的信心或善行。</p>
+      <p><b>常用经文：</b>罗 8:29–30；罗 9；弗 1:3–14；约 6:37–44；徒 13:48。</p>
+      <p><b>神学优点：</b>把全部荣耀归给恩典；救恩从头到尾建立在神不改变的旨意上。</p>
+      <p><b>常受质疑：</b>如何解释神普遍的救恩邀请、神愿万人得救的经文，以及未蒙拣选者责任与神旨意的关系。</p>
+    </div>
+    <div class="card">
+      <h3>阿米念传统</h3>
+      <p><b>核心：</b>神主权地设立“在基督里、借着信”得救的秩序，并借先行恩典使真实回应成为可能；拣选与信心条件相连。</p>
+      <p><b>常用经文：</b>约 3:16；提前 2:3–6；彼后 3:9；罗 10；徒 7:51 等。</p>
+      <p><b>神学优点：</b>强调普遍邀请的真诚性、人的责任与恩典可被拒绝。</p>
+      <p><b>常受质疑：</b>若最终决定差异的是人的回应，那么怎样避免让人的选择成为“最后决定因素”，从而削弱恩典的独一性？阿米念派回答：连回应能力本身都来自恩典，信不是功德。</p>
+    </div>
+  </div>
+  <h3>“预知”到底是什么意思？</h3>
+  <p>罗马书 8:29 的“预先所知道的人”可以被理解为神预见谁会信，也可以按圣经中“认识”常带关系性含义，理解为神预先以爱认识、选择祂的百姓。双方常在这里走向不同方向。单靠希腊词本身并不能自动解决全部预定论争论，必须结合保罗整套论证。</p>
+</section>
+
+<section id="atonement">
+  <h2>十二、基督到底“为谁死”？限定代赎与普遍代赎</h2>
+  <div class="bigtable"><table>
+    <thead><tr><th>问题</th><th>改革宗确定代赎</th><th>阿米念/路德宗/卫斯理普遍代赎</th></tr></thead>
+    <tbody>
+      <tr><td>十字架价值</td><td>无限、充分，足以拯救全世界。</td><td>同样坚持无限价值。</td></tr>
+      <tr><td>救赎意向</td><td>父特别把选民赐给子；基督实际为他们取得救赎，而不只是创造一种可能性。</td><td>基督为每一个人提供并成就足够的救赎基础；救恩利益在信者身上被应用。</td></tr>
+      <tr><td>重点经文</td><td>约 10“为羊舍命”；弗 5“为教会舍己”；太 1:21“将自己的百姓从罪恶里救出来”。</td><td>约 3:16；提前 2:6；约壹 2:2；来 2:9 等“万人/世界”语言。</td></tr>
+      <tr><td>关键问题</td><td>若基督已经以替代方式实际承担每个人的定罪，为何还有人最终承担定罪？</td><td>若福音真诚向所有人宣告基督为他们而死，而十架的救赎意向实际上只指向选民，这个普遍邀请如何理解？</td></tr>
+    </tbody>
+  </table></div>
+  <div class="note">改革宗内部也有“充分为万人、有效为选民”“假设普救论”等细腻差异；不要把所有改革宗都描写成“耶稣与绝大多数人完全没有救赎关系”。</div>
+</section>
+
+<section id="assurance">
+  <h2>十三、救恩确据：一个基督徒怎样知道自己得救？</h2>
+  <p>这是这场争论最具牧养意义的部分。如果一种救恩论只在逻辑上漂亮，却让所有认真信徒永远陷入“我到底够不够真”的无底洞，它在实践上就会发生问题；反过来，如果一种确据完全绕过悔改、信心与生命果子，也会滑向虚假安全感。</p>
+  <div class="grid2">
+    <div class="card"><h3>改革宗的三重根据</h3><p><b>① 基督与福音的客观应许</b>是首要基础；<b>② 圣灵在心中的见证</b>；<b>③ 生命中的信心、悔改与成圣果子</b>作为确认。威斯敏斯特传统并不主张信徒必须靠神秘启示知道自己是选民。</p></div>
+    <div class="card"><h3>阿米念/卫斯理</h3><p>可以对“现在在基督里”有真实、强烈的确据，并借圣灵见证知道自己是神儿女；对未来的确信则与持续信靠不可分。其理想不是焦虑，而是“有条件但可靠”：神绝不会失信，信徒要继续住在基督里。</p></div>
+    <div class="card"><h3>路德宗</h3><p>特别防止信徒过度向内窥探：“我是否有足够果子证明自己被拣选？”确据主要转向外在应许——福音、洗礼、圣餐中神对罪人的应许。人可能背道，但此刻信靠基督的人不应以隐藏预定为焦虑对象。</p></div>
+    <div class="card"><h3>浸信会永远保障</h3><p>许多浸信会把确据建立在基督应许和神保守上，同时强调真正信心通常会显出持续的生命方向。《浸信会信仰与信息 2000》明确说真正信徒会坚忍到底，且“由神能力保守”。</p></div>
+  </div>
+  <div class="thesis"><b>较健康的共同点：</b>确据首先向外看基督，而不是无限分析自己的心理；但真实的基督信仰也必然在悔改、爱、顺服与持守中留下痕迹。客观福音与主观果子不该彼此拆散。</div>
+</section>
+
+<section id="denoms">
+  <h2>十四、不同新教宗派大致站在哪里？</h2>
+  <p class="small">以下是“典型/官方倾向”，不是说每一位地方牧师和会友都完全一致。圣公会、浸信会、独立福音派内部尤其多元。</p>
+  <div class="bigtable"><table>
+    <thead><tr><th>传统/宗派</th><th>人的能力与恩典</th><th>拣选</th><th>救恩可失落？</th><th>特色</th></tr></thead>
+    <tbody>
+      <tr><td><b>改革宗/长老会</b></td><td>全然败坏；有效呼召</td><td>无条件拣选</td><td><b>最终不会</b></td><td>圣徒坚忍；威斯敏斯特、多特传统</td></tr>
+      <tr><td><b>荷兰改革宗</b></td><td>同上</td><td>同上</td><td><b>最终不会</b></td><td>《多特信经》第五教义点系统阐明神保守</td></tr>
+      <tr><td><b>南方浸信会主流</b></td><td>强调恩典与个人回应；内部可有加尔文派与非加尔文派</td><td>表述为神恩惠的旨意</td><td><b>真正信徒不会最终失落</b></td><td>《Baptist Faith & Message 2000》明确坚持真正信徒坚忍到底</td></tr>
+      <tr><td><b>Free Grace 一些福音派</b></td><td>强调单纯信心</td><td>多样</td><td><b>不会</b></td><td>可能把“得救保障”与“门徒奖赏/忠心”强烈区分；与改革宗坚忍论不完全相同</td></tr>
+      <tr><td><b>卫理宗/卫斯理宗</b></td><td>先行恩典使人能回应</td><td>有条件/在基督里</td><td><b>可能</b></td><td>强调成圣、圣灵见证、持续信心</td></tr>
+      <tr><td><b>拿撒勒人会/圣洁运动</b></td><td>卫斯理式先行恩典</td><td>有条件</td><td><b>可能</b></td><td>特别强调完全成圣与圣洁生活</td></tr>
+      <tr><td><b>Assemblies of God 等五旬节派</b></td><td>通常阿米念/卫斯理式</td><td>有条件倾向</td><td><b>可能</b></td><td>官方立场明确反对“无条件永远安全”</td></tr>
+      <tr><td><b>路德宗</b></td><td>人不能靠天然意志相信；圣灵借道与圣礼创造信心</td><td>肯定拣选，但拒绝用加尔文式对称双重预定解释失丧</td><td><b>可能</b></td><td>外在福音应许、圣礼与因信称义是确据中心</td></tr>
+      <tr><td><b>圣公会</b></td><td>《三十九条》强烈强调先在恩典</td><td>承认预定教义</td><td><b>历史内部多元</b></td><td>同一传统中曾长期存在改革宗倾向与阿米念倾向；不宜单一归类</td></tr>
+      <tr><td><b>重洗派/门诺会</b></td><td>强调恩典、真实回应与门徒生活</td><td>通常不以严格改革宗预定论为中心</td><td><b>通常更接近有条件安全</b></td><td>把得救、跟随基督、教会群体与顺服紧密连接</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="cases">
+  <h2>十五、把理论放进现实：四个案例，各传统会怎样判断？</h2>
+
+  <h3>案例 A：彼得式严重跌倒——一度否认主，后来痛悔归回</h3>
+  <div class="grid2">
+    <div class="card"><b>改革宗：</b>圣徒可以严重跌倒，却不会最终失落；彼得正是“坚忍不是无罪”的典型。</div>
+    <div class="card"><b>阿米念/路德宗：</b>严重跌倒是危险的，但悔改归回真实可得赦免；不是每次犯罪都自动等于彻底背道。</div>
+  </div>
+
+  <h3>案例 B：一个人信主十年，后来公开说“耶稣不是主，我永远不再信”并坚持到死</h3>
+  <div class="grid2">
+    <div class="card"><b>改革宗：</b>最终背道成为强烈证据，表明他从未有真正使人得救的信心，尽管可能长期享受教会恩惠。</div>
+    <div class="card"><b>有条件安全论：</b>不能因为他最终背道，就倒推说此前十年一切信仰经验必然是假的；他可能曾真实信、后来真实离弃。</div>
+  </div>
+
+  <h3>案例 C：信徒长期陷在某种罪里，但仍承认基督、为罪忧伤、不断争战</h3>
+  <p>几乎所有正统新教传统都会区别“软弱中争战”与“决意弃绝基督”。成熟牧养不会简单用某一次跌倒替神宣判一个人的最终结局，而会呼召悔改、恢复团契、运用教会纪律与恩典媒介。</p>
+
+  <h3>案例 D：一个人小时候决志受洗，成年后几十年完全不信，也毫无悔改</h3>
+  <p><b>改革宗/坚忍型浸信会：</b>不会把过去的一次决志当成自动保险单；长期最终不信使“当初是否真实重生”成为严重问题。<br>
+  <b>有条件安全传统：</b>过去真实的归信也不能取消后来持续背道的危险。<br>
+  <b>Free Grace 某些版本：</b>若最初确有真实信心，后来的失败并不取消永生，但会影响今生管教与末后奖赏。这一点正是它与经典改革宗明显不同之处。</p>
+</section>
+
+<section id="errors">
+  <h2>十六、十个最常见的误解</h2>
+  <div class="grid2">
+    <div class="card"><h4>误解 1：加尔文主义 = 人是机器人</h4><p>改革宗坚持人有真实意志，只是堕落意志受罪辖制；恩典更新人的欲望，使人自愿来信，而不是外在强迫。</p></div>
+    <div class="card"><h4>误解 2：阿米念主义 = 人靠自由意志自救</h4><p>经典阿米念主义明确否认天然人能够自己产生救人信心；回应能力来自先行恩典。</p></div>
+    <div class="card"><h4>误解 3：圣徒坚忍 = 基督徒从不会严重犯罪</h4><p>《威斯敏斯特信条》明确承认信徒可能陷入严重罪、长时间停留其中，并遭受神管教与失去安慰。</p></div>
+    <div class="card"><h4>误解 4：有条件安全 = 每天得救、失救几十次</h4><p>严肃的阿米念、卫斯理和路德宗讨论的是背道与不信，不是把每个软弱都当成救恩开关。</p></div>
+    <div class="card"><h4>误解 5：预定论只属于加尔文主义</h4><p>路德宗和圣公会同样使用“拣选、预定”语言，只是拒绝某些改革宗推论。</p></div>
+    <div class="card"><h4>误解 6：相信普遍代赎 = 相信所有人最终得救</h4><p>完全不是。普遍代赎说“基督为万人死”，而非“万人最后自动得救”。</p></div>
+    <div class="card"><h4>误解 7：信心若是条件，就一定是功德</h4><p>新教传统通常把信心比作“领受礼物的空手”。“条件”与“功德原因”不是同一概念。</p></div>
+    <div class="card"><h4>误解 8：只要有警告，就证明真信徒必可失落</h4><p>改革宗有一整套“警告作为神保守选民的手段”的解释；所以必须继续论证，而不能单凭警告存在就结束讨论。</p></div>
+    <div class="card"><h4>误解 9：只要有保证经文，就证明不存在背道问题</h4><p>条件安全论会强调保证经文与警告经文必须同时保留；“无人能夺去”与“你们要住在我里面”需要共同解释。</p></div>
+    <div class="card"><h4>误解 10：这只是抽象神学，没有实际意义</h4><p>它直接影响传福音、受洗、教会纪律、如何帮助跌倒者、如何面对疑惑，以及一个信徒的确据究竟建立在哪里。</p></div>
+  </div>
+</section>
+
+<section id="synthesis">
+  <h2>十七、综合：这场争论真正要守住的五个圣经张力</h2>
+  <p class="lead">如果把所有经文摆在桌面上，可以看见新约同时说五件事。任何完整救恩论若牺牲其中一项，就会失衡。</p>
+  <ol>
+    <li><b>救恩彻头彻尾出于神的恩典。</b> 人不能夸口，好像自己比别人更聪明、更属灵，所以“成功选择了神”。</li>
+    <li><b>人的悔改、信心与持续跟随是真实的，不是幻觉。</b> 圣经从不因为神主权就取消人的责任。</li>
+    <li><b>神给信徒极强的保守应许。</b> 基督不是一个随时可能把羊弄丢的救主，圣灵也不是脆弱的心理感受。</li>
+    <li><b>新约也发出极严肃的背道警告。</b> 不可用一句“我以前决志过”把希伯来书、约翰福音15章、罗马书11章等警告消音。</li>
+    <li><b>成圣既不是称义的功德基础，也不是可有可无。</b> 新约拒绝“靠行为赚救恩”，也拒绝“得救以后是否爱神、是否跟随基督完全无所谓”。</li>
+  </ol>
+
+  <div class="diagram">
+    <svg viewBox="0 0 900 420" role="img" aria-label="救恩论五大张力图">
+      <circle cx="450" cy="210" r="92" fill="#283942" stroke="#d5b979" stroke-width="2"/>
+      <text x="450" y="195" text-anchor="middle" fill="#fff" font-size="24">在基督里的</text>
+      <text x="450" y="230" text-anchor="middle" fill="#d5b979" font-size="30">救恩</text>
+      <g fill="#21303a" stroke="#80939d">
+        <rect x="55" y="50" width="210" height="80" rx="15"/><rect x="635" y="50" width="210" height="80" rx="15"/>
+        <rect x="35" y="290" width="225" height="80" rx="15"/><rect x="640" y="290" width="225" height="80" rx="15"/>
+        <rect x="345" y="320" width="210" height="75" rx="15"/>
+      </g>
+      <g fill="#fff" font-size="18" text-anchor="middle">
+        <text x="160" y="82">恩典的绝对优先</text><text x="160" y="108" font-size="13">Grace precedes and enables</text>
+        <text x="740" y="82">真实的人类回应</text><text x="740" y="108" font-size="13">Faith & responsibility</text>
+        <text x="147" y="322">神强有力的保守</text><text x="147" y="348" font-size="13">Divine preservation</text>
+        <text x="752" y="322">真实的背道警告</text><text x="752" y="348" font-size="13">Warnings against apostasy</text>
+        <text x="450" y="350">成圣与坚忍</text><text x="450" y="376" font-size="13">Holiness & perseverance</text>
+      </g>
+      <g stroke="#d5b979" stroke-width="1.5" opacity=".8">
+        <line x1="265" y1="105" x2="375" y2="170"/><line x1="635" y1="105" x2="525" y2="170"/>
+        <line x1="260" y1="315" x2="370" y2="250"/><line x1="640" y1="315" x2="530" y2="250"/>
+        <line x1="450" y1="320" x2="450" y2="302"/>
+      </g>
+    </svg>
+  </div>
+
+  <h3>那么，若只问“哪一种最能解释全部经文”，该怎样继续研究？</h3>
+  <p>最有价值的下一步，不是继续搜更多支持自己一派的“证明经文”，而是集中研究几个真正决定体系的节点：</p>
+  <div class="grid2">
+    <div class="card"><b>节点一：</b>约翰福音6、10、15章能否被同一套“与基督联合”概念自然解释？</div>
+    <div class="card"><b>节点二：</b>罗马书8章的救恩“金链”与罗马书11章“若不长久在恩慈里也要被砍下”如何衔接？</div>
+    <div class="card"><b>节点三：</b>希伯来书6、10章描述的人，作者是否把他们当作真正重生信徒？</div>
+    <div class="card"><b>节点四：</b>约壹2:19“他们出去，是显明不属我们”是解释所有背道案例的总钥匙，还是只针对约翰当时某类离开者？</div>
+    <div class="card"><b>节点五：</b>重生是否必须在逻辑上先于信心？还是先行恩典足以解释罪人如何真实相信？</div>
+    <div class="card"><b>节点六：</b>警告经文是描述“可能发生的结局”，还是神保证不会发生之结局所使用的保存手段？</div>
+  </div>
+
+  <div class="thesis">
+    <b>最后的神学落点：</b>新约的中心不是“我能不能找到一个技术性的机制保证自己永远安全”，而是<strong>基督自己</strong>。改革宗最想保护的是：救恩最终取决于神而非人的不稳定；阿米念与卫斯理传统最想保护的是：神与人之间的爱、信心与顺服不是强制出来的，警告也不是表演性的。两边真正严肃的版本，都希望同时维护“恩典完全是恩典”和“信心必须是真实的信心”。
+  </div>
+</section>
+
+<section id="sources">
+  <h2>十八、主要历史文献、宗派官方资料与延伸阅读</h2>
+  <p>以下资料优先采用历史信条、宗派官方页面或具有明确传统立场的原始材料。阅读争论时，建议先读原始信条，再读二手辩论文章。</p>
+  <ol class="refs">
+    <li><a href="https://www.crcna.org/welcome/beliefs/confessions/canons-dort" target="_blank" rel="noopener">Christian Reformed Church：The Canons of Dort</a> —— 多特信经官方文本，尤其第五教义点“圣徒坚忍”。</li>
+    <li><a href="https://www.presbyterian.org.nz/about-us/statements-of-faith/westminster-confession-1646" target="_blank" rel="noopener">Presbyterian Church of Aotearoa New Zealand：Westminster Confession (1646)</a> —— 第17章“圣徒坚忍”。</li>
+    <li><a href="https://wts.edu/wcf" target="_blank" rel="noopener">Westminster Theological Seminary：Westminster Confession of Faith</a> —— 包含坚忍、确据、称义、拣选等完整章节。</li>
+    <li><a href="https://pages.uoregon.edu/sshoemak/323/texts/remonstrants.htm" target="_blank" rel="noopener">The Five Articles of the Remonstrants (1610)</a> —— 抗辩五条原始文本；第五条尤其能看见早期抗辩派对“失落”问题最初的审慎。</li>
+    <li><a href="https://bookofconcord.org/solid-declaration/election/" target="_blank" rel="noopener">Book of Concord：Formula of Concord, Solid Declaration XI — Election</a> —— 路德宗如何谈拣选、信心与坚忍。</li>
+    <li><a href="https://wels.net/faq/the-formula-of-concord-and-salvation/" target="_blank" rel="noopener">WELS：The Formula of Concord and salvation</a> —— 明确说明路德宗承认真信者可能因离弃信仰而失落。</li>
+    <li><a href="https://www.churchofengland.org/prayer-and-worship/worship-texts-and-resources/book-common-prayer/articles-religion" target="_blank" rel="noopener">Church of England：Thirty-Nine Articles of Religion</a> —— 第10、11、16、17条涉及自由意志、称义、恩典与预定。</li>
+    <li><a href="https://www.umc.org/en/content/articles-of-religion" target="_blank" rel="noopener">United Methodist Church：Articles of Religion</a> —— 卫理公会关于原罪、自由意志、称义、称义后犯罪等官方表述。</li>
+    <li><a href="https://nazarene.org/what-we-believe/" target="_blank" rel="noopener">Church of the Nazarene：Articles of Faith</a> —— 卫斯理—圣洁传统，尤其先行恩典与完全成圣。</li>
+    <li><a href="https://ag.org/Beliefs/Position-Papers/Assurance-Of-Salvation" target="_blank" rel="noopener">Assemblies of God (USA)：Assurance of Salvation</a> —— 明确反对“无条件安全”，强调与基督持续的活关系。</li>
+    <li><a href="https://bfm.sbc.net/bfm2000/" target="_blank" rel="noopener">Southern Baptist Convention：Baptist Faith and Message 2000</a> —— 明确表述“所有真正信徒坚持到底”。</li>
+    <li><a href="https://bfm.sbc.net/chinese/" target="_blank" rel="noopener">《浸信会信仰与信息 2000》中文</a> —— 方便中文阅读。</li>
+    <li><a href="https://www.mennoniteusa.org/who-are-mennonites/what-we-believe/confession-of-faith/salvation/" target="_blank" rel="noopener">Mennonite Church USA：Article 8, Salvation</a> —— 重洗派/门诺传统对救恩、回应、门徒生活的表述。</li>
+    <li><a href="https://evangelicalarminians.org/brian-abasciano-outline-of-approaches-to-the-warning-passages-in-hebrews/" target="_blank" rel="noopener">Society of Evangelical Arminians：Hebrews Warning Passages</a> —— 从福音派阿米念立场梳理希伯来书警告经文。</li>
+    <li><a href="https://nazcloud2.nazarene.org/node/1730" target="_blank" rel="noopener">Holiness Today：John Wesley on Prevenient Grace</a> —— 先行恩典的卫斯理式说明。</li>
+  </ol>
+  <div class="footnotes">
+    <p><b>图像来源：</b>封面人物肖像来自 Wikimedia Commons。加尔文肖像页面注明作品为16世纪肖像、作者未定，传统上常被识别为加尔文；阿米念图像源自17世纪版画，均为公共领域资料。HTML 中使用远程图片链接，因此离线打开时若无网络，人物肖像可能不显示，但全文、表格与矢量图仍可正常阅读。</p>
+    <p><b>研究方法说明：</b>本文以新教内部自我理解为主，尽量避免把任何一派简化成其对手的讽刺版本。宗派内部仍有差异，例如“浸信会”既有严格改革宗，也有非加尔文但坚持永远保障者，还有自由意志浸信会；“圣公会”更是历史上同时容纳改革宗与阿米念倾向。</p>
+  </div>
+</section>
+
+</main>
+</div>
+
+<footer>
+  基督教新教救恩论研究 · Salvation, Grace, Faith, Perseverance & Apostasy<br>
+  适合个人研经、主日学、神学学习与小组讨论。打印时浏览器可直接“另存为 PDF”。
+</footer>
+</body>
+</html>

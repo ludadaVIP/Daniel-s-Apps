@@ -14,6 +14,10 @@ blindSpot: 广泛指数仍会暴露于市场下跌、估值过高、集中权重
 concepts: [opportunity-cost, position-sizing, permanent-loss]
 cases: []
 lessons: [bogle-market-arithmetic, bogle-index-construction, bogle-investor-return]
+compareEvidence: "比较可行的分散替代；题目未给指数、费用及匹配风险的数据时列缺项。"
+compareCalculation: "列扣费后投资者净收益口径；目标价折价不能证明主动研究有超额能力。"
+compareRevision: "扣费后优势无法成立，或策略不满足付款日，政策怎样调整？"
+compareLesson: "bogle-market-arithmetic"
 sources:
   - label: Vanguard · About indexing
     url: https://corporate.vanguard.com/content/corporatesite/us/en/corp/about-indexing.html

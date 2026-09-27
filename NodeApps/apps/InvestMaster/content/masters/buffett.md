@@ -14,6 +14,10 @@ blindSpot: 规模、税务和保险浮存金等条件很难被普通投资者复
 concepts: [economic-moat, owner-earnings, capital-allocation, circle-of-competence]
 cases: [sees-candies, berkshire-textile, dexter-shoe]
 lessons: [moat-and-cash, allocation]
+compareEvidence: "找提价、客户留存与维持性投入的证据；给定利润增长不证明护城河。"
+compareCalculation: "从经营现金扣资本投入，核查增长所需资本和每股所得；区分历史与预测。"
+compareRevision: "竞争侵蚀、再投资需求增加或毁值配置，会改动哪一行现金？"
+compareLesson: "moat-and-cash"
 sources:
   - label: Berkshire 股东信档案
     url: https://www.berkshirehathaway.com/letters/letters.html

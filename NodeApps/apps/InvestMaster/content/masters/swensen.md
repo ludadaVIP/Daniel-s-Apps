@@ -14,15 +14,19 @@ blindSpot: 耶鲁拥有的规模、人才、治理和长期资金并非普通投
 concepts: [position-sizing, opportunity-cost, permanent-loss, incentives]
 cases: [yuanshan-client-ips-liquidity, uk-ldi-2022-liquidity-spiral, swensen-endowment-liquidity-committee]
 lessons: [swensen-policy-allocation, swensen-commitment-liquidity, swensen-manager-net-return, swensen-original-2009-review]
+compareEvidence: "从客户付款、治理与可动用资金开始；机构期限和融资条件不能套给个人。"
+compareCalculation: "先算付款和应急现金，再查配置、集中度及压力后可成交金额。"
+compareRevision: "收入落空、付款提前或无法按时变现时，哪些配置与承诺先调整？"
+compareLesson: "swensen-policy-allocation"
 sources:
   - label: Yale News · David Swensen 生平
     url: https://news.yale.edu/2021/05/06/self-confident-yet-selfless-yales-david-swensen-dies-67
-  - label: Yale Investments · 2002 Endowment Report
-    url: https://investments.yale.edu/wp-content/uploads/2024/10/2002YaleEndowment.pdf
-  - label: Yale Investments · 2009 Endowment Report
-    url: https://investments.yale.edu/wp-content/uploads/2024/10/2009YaleEndowment.pdf
-  - label: Yale Investments · 2012 Endowment Report
-    url: https://investments.yale.edu/wp-content/uploads/2024/10/2012YaleEndowment.pdf
+  - label: Yale Investments · 2002 Endowment Report（原官方文件历史归档）
+    url: https://web.archive.org/web/20120425130538id_/http://www.yale.edu:80/investments/Yale_Endowment_02.pdf
+  - label: Yale Investments · 2009 Endowment Report（原官方文件历史归档）
+    url: https://web.archive.org/web/20100527120144id_/http://www.yale.edu/investments/Yale_Endowment_09.pdf
+  - label: Yale Investments · 2012 Endowment Report（原官方文件历史归档）
+    url: https://web.archive.org/web/20150425052255id_/http://investments.yale.edu:80/images/documents/yale_endowment_12.pdf
 ---
 
 ## 从谁的钱、何时要用开始
@@ -47,7 +51,7 @@ sources:
 
 耶鲁 2012 年捐赠基金报告强调管理人选择。这里的“选择”不是看三年回报排行榜：应核实投资过程、决策权限、容量、激励、估值、风控、托管及团队变动。预期超额收益必须扣掉管理费、业绩费、交易成本和税务影响，还要考虑看错人的概率。高毛收益如果全被费用吃掉，就没有为最终受益人创造价值。
 
-一个简单门槛：基准预期 6%，主动策略毛收益预期 8%，资产管理费 1%，若另收超过基准部分的 20%，其净收益仅为 `8%−1%−20%×(8%−6%)=6.6%`，净超额 0.6 个百分点。若组合不能承受不流动性与落后基准的阶段，0.6% 的预测优势可能不足以批准委托。费用具体计法在真实合同中会不同，必须按合同现金流重算。
+一个单年教学情景：可投资替代组合净收益 6%，主动策略当年毛收益 8%，按期初本金收管理费 1%，另收毛收益超过 6% 部分的 20%，无其他成本，则净收益为 `8%−1%−20%×(8%−6%)=6.6%`，当年净超额 0.6 个百分点。这个单年结果不能直接当成预期净优势：应先按每个情景计算费用，再按概率加权，不能把预期毛收益直接代入带门槛的业绩费公式。若组合不能承受不流动性与落后基准的阶段，这项单年优势也不足以批准委托。费用具体计法在真实合同中会不同，必须按合同现金流重算。
 
 ## 2009 年：框架要面对的反证
 

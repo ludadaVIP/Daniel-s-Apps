@@ -1,0 +1,467 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>神的主权与人的责任｜新教神学深度研究</title>
+<meta name="description" content="一份围绕神的主权与人的责任的系统新教神学研究：经文脉络、概念工具、改革宗／路德宗／亚米念—卫斯理传统比较、苦难与罪的问题、祷告、传福音、决定与成圣的实践应用。" />
+<style>
+:root{
+  --bg:#f4f0e8; --paper:#fffdf8; --ink:#1f2523; --muted:#626b66; --line:#d9d2c4;
+  --deep:#173a33; --deep2:#244f45; --gold:#b3873d; --blue:#456f86; --rust:#9b5946;
+  --soft:#eee8dc; --soft2:#e8f0ec; --shadow:0 18px 50px rgba(39,43,40,.10);
+  --radius:18px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#eee8dc 0,#f7f4ee 520px,#f4f0e8 100%);color:var(--ink);font-family:"Noto Serif SC","Songti SC","STSong","SimSun",serif;line-height:1.86}
+a{color:var(--deep2);text-decoration-thickness:1px;text-underline-offset:3px}
+img{max-width:100%;display:block}
+button{font:inherit}
+.progress{position:fixed;top:0;left:0;height:4px;background:var(--gold);width:0;z-index:100}
+.hero{position:relative;overflow:hidden;min-height:78vh;display:grid;align-items:center;padding:72px 20px 54px;color:#f8f5ed;background:
+ radial-gradient(circle at 20% 15%,rgba(188,149,74,.22),transparent 30%),
+ radial-gradient(circle at 85% 25%,rgba(102,148,131,.20),transparent 28%),
+ linear-gradient(135deg,#102c27,#1e433a 52%,#142f2b)}
+.hero:after{content:"";position:absolute;inset:auto -10% -180px -10%;height:380px;border-radius:50%;background:#f4f0e8}
+.hero-inner{position:relative;z-index:2;width:min(1180px,100%);margin:auto;display:grid;grid-template-columns:1.15fr .85fr;gap:56px;align-items:center}
+.eyebrow{font-family:ui-sans-serif,system-ui,sans-serif;letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:#d8c28d}
+h1{font-size:clamp(2.6rem,6vw,5.6rem);line-height:1.04;margin:.14em 0 .28em;letter-spacing:-.03em}
+.hero p{font-size:1.12rem;max-width:760px;color:#e6e7df}
+.thesis{padding:18px 20px;border-left:4px solid #d0aa61;background:rgba(255,255,255,.075);border-radius:0 12px 12px 0;margin-top:26px}
+.hero-art{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.16);padding:24px;border-radius:26px;box-shadow:0 28px 80px rgba(0,0,0,.25)}
+.container{width:min(1180px,calc(100% - 34px));margin:0 auto;position:relative;z-index:4}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:42px;align-items:start}
+nav.toc{position:sticky;top:22px;background:rgba(255,253,248,.92);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:var(--shadow);max-height:calc(100vh - 44px);overflow:auto;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem}
+nav.toc strong{display:block;color:var(--deep);margin-bottom:10px;font-size:.84rem;letter-spacing:.08em}
+nav.toc a{display:block;padding:6px 8px;border-radius:8px;text-decoration:none;color:#4b5651}
+nav.toc a:hover{background:#ece7dc;color:#173a33}
+main{padding:8px 0 80px}
+section{margin:0 0 72px;scroll-margin-top:24px}
+h2{font-size:clamp(1.8rem,4vw,3rem);line-height:1.18;color:var(--deep);margin:0 0 22px;letter-spacing:-.02em}
+h3{font-size:1.35rem;color:#26453d;margin:30px 0 10px}
+h4{font-size:1.05rem;margin:18px 0 6px;color:#3f4f49}
+p{margin:0 0 1em}
+.lead{font-size:1.15rem;color:#39443f}
+.rule{height:1px;background:linear-gradient(90deg,var(--gold),transparent);margin:18px 0 28px}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:0 12px 32px rgba(49,44,35,.06)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.grid4{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:14px}
+.kicker{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.76rem;text-transform:uppercase;letter-spacing:.12em;color:var(--rust);font-weight:700}
+.big-num{font-family:Georgia,serif;font-size:3rem;line-height:1;color:#c1a263;opacity:.85}
+.scripture{border-left:4px solid var(--blue);padding:14px 18px;background:#edf2f3;border-radius:0 12px 12px 0;margin:16px 0}
+.scripture b{color:#274b5b}
+.note{background:#f2ede4;border:1px dashed #cdbf9e;border-radius:14px;padding:16px 18px;color:#4f514b}
+.warning{background:#f5ebe7;border-left:4px solid var(--rust);padding:16px 18px;border-radius:0 12px 12px 0}
+.truthline{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;margin:28px 0}
+.truthline .side{padding:22px;border-radius:16px;border:1px solid var(--line);background:var(--paper);text-align:center}
+.truthline .plus{font-size:2rem;color:var(--gold)}
+.badge{display:inline-flex;gap:6px;align-items:center;padding:4px 9px;border-radius:99px;background:#e7eee9;color:#26463d;font:600 .76rem ui-sans-serif,system-ui,sans-serif}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px;background:var(--paper)}
+table{width:100%;border-collapse:collapse;min-width:780px}
+th,td{padding:15px 16px;text-align:left;vertical-align:top;border-bottom:1px solid #e4ded2}
+th{background:#eee8dc;color:#2a443c;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.9rem}
+tr:last-child td{border-bottom:0}
+.term{font-weight:700;color:#25443b}
+.diagram{background:#122d28;color:#f7f3e8;border-radius:22px;padding:22px;overflow:hidden;box-shadow:var(--shadow)}
+.diagram svg{width:100%;height:auto;display:block}
+.caption{font: .82rem/1.5 ui-sans-serif,system-ui,sans-serif;color:#727970;margin-top:8px}
+.portraits{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:20px 0}
+.portrait{overflow:hidden;border-radius:18px;border:1px solid var(--line);background:var(--paper)}
+.portrait .img{aspect-ratio:4/5;overflow:hidden;background:#ddd6c8}
+.portrait img{width:100%;height:100%;object-fit:cover;filter:saturate(.78) contrast(.95)}
+.portrait .txt{padding:14px 16px;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.84rem;color:#4e5652}
+.tabs{border:1px solid var(--line);border-radius:18px;overflow:hidden;background:var(--paper)}
+.tab-buttons{display:flex;flex-wrap:wrap;background:#eae4d9;border-bottom:1px solid var(--line)}
+.tab-buttons button{border:0;background:transparent;padding:13px 16px;cursor:pointer;color:#40514b}
+.tab-buttons button.active{background:var(--paper);color:var(--deep);font-weight:700}
+.tab-panel{display:none;padding:24px}
+.tab-panel.active{display:block}
+.axis{position:relative;height:330px;background:linear-gradient(180deg,#f9f7f1,#efeade);border:1px solid var(--line);border-radius:20px;margin:18px 0;overflow:hidden}
+.axis:before,.axis:after{content:"";position:absolute;background:#8c948f}
+.axis:before{left:10%;right:6%;top:50%;height:1px}
+.axis:after{top:8%;bottom:10%;left:50%;width:1px}
+.axis .xlabel,.axis .ylabel{position:absolute;font:700 .76rem ui-sans-serif,system-ui,sans-serif;color:#59635e;letter-spacing:.04em}
+.axis .xlabel{right:5%;top:52%}.axis .ylabel{left:51%;top:5%}
+.dot{position:absolute;transform:translate(-50%,-50%);padding:8px 10px;border-radius:12px;color:white;font:700 .78rem ui-sans-serif,system-ui,sans-serif;box-shadow:0 8px 18px rgba(0,0,0,.15)}
+.dot.r{left:66%;top:30%;background:#355f53}.dot.l{left:52%;top:37%;background:#6f6046}.dot.a{left:37%;top:43%;background:#8a5948}.dot.m{left:43%;top:28%;background:#526c7c}
+.case{padding:22px;border-radius:18px;background:linear-gradient(135deg,#fffdf8,#f0ece4);border:1px solid var(--line)}
+.case .q{font-size:1.08rem;font-weight:700;color:#24453c;margin-bottom:8px}
+.case ol{padding-left:1.3rem;margin-bottom:0}
+.flow{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;align-items:stretch;margin:22px 0}
+.flow div{padding:16px 12px;border-radius:14px;text-align:center;background:#eff1eb;border:1px solid #d6dbd1;font-family:ui-sans-serif,system-ui,sans-serif;font-size:.88rem;position:relative}
+.flow div:not(:last-child):after{content:"→";position:absolute;right:-13px;top:50%;transform:translateY(-50%);color:#927640;font-weight:700}
+.quote{font-size:1.24rem;line-height:1.7;color:#264239;padding:24px 28px;background:#eef1ea;border-radius:20px;border:1px solid #d6dccf}
+.quote small{display:block;margin-top:10px;color:#667068;font: .82rem ui-sans-serif,system-ui,sans-serif}
+details{background:var(--paper);border:1px solid var(--line);border-radius:14px;margin:10px 0;padding:0 16px}
+summary{cursor:pointer;padding:14px 0;font-weight:700;color:#29493f}
+details p{padding:0 0 12px;margin:0}
+.sources{font-family:ui-sans-serif,system-ui,sans-serif;font-size:.88rem;color:#48524e}
+.sources li{margin-bottom:10px}
+.source-tag{font-weight:800;color:#7c6131}
+.footer{background:#102b26;color:#dce3df;padding:44px 20px;font-family:ui-sans-serif,system-ui,sans-serif}
+.footer .inner{width:min(1180px,100%);margin:auto;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:end}
+.print-btn{position:fixed;right:18px;bottom:18px;z-index:30;border:0;border-radius:999px;background:#193b34;color:#fff;padding:11px 15px;box-shadow:0 10px 25px rgba(0,0,0,.2);cursor:pointer}
+@media(max-width:980px){.hero-inner{grid-template-columns:1fr}.hero-art{max-width:620px}.layout{grid-template-columns:1fr}nav.toc{position:relative;top:auto;max-height:none}.grid3,.grid4{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr}.flow div:not(:last-child):after{content:"↓";right:auto;left:50%;top:auto;bottom:-18px;transform:translateX(-50%)}}
+@media(max-width:650px){.grid2,.grid3,.grid4,.portraits{grid-template-columns:1fr}.truthline{grid-template-columns:1fr}.truthline .plus{transform:none;text-align:center}.hero{min-height:auto;padding-top:58px}.container{width:min(100% - 22px,1180px)}.card{padding:19px}.footer .inner{grid-template-columns:1fr}.axis{height:390px}}
+@media print{.print-btn,.progress,nav.toc{display:none}.layout{grid-template-columns:1fr}.hero{min-height:auto;background:#173a33!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}section{break-inside:avoid-page}.card,.diagram,.table-wrap{box-shadow:none}.footer{background:white;color:#333}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<button class="print-btn" onclick="window.print()">打印 / 导出 PDF</button>
+
+<header class="hero" id="top">
+  <div class="hero-inner">
+    <div>
+      <div class="eyebrow">Protestant Theology · Divine Sovereignty & Human Responsibility</div>
+      <h1>神的主权<br>与人的责任</h1>
+      <p>这是基督徒成熟过程中几乎无法绕过的一组张力：如果神真正掌权，人为何仍要负责？如果人的选择真实，神的旨意是否就会落空？如果一切都在神护理之下，我还需要祷告、计划、悔改、传福音和承担后果吗？</p>
+      <div class="thesis"><b>全篇中心：</b>圣经通常不是通过削弱其中一端来化解问题，而是同时坚持两件事——<b>神的统治真实、主动、有效；人的行动真实、有意向、具有道德意义并要受审判。</b>新教内部真正的争论，主要在于“这两件事究竟如何同时为真”。</div>
+    </div>
+    <div class="hero-art" aria-label="神的主权与人的责任关系示意图">
+      <svg viewBox="0 0 520 430" role="img">
+        <defs><linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#d5b56f"/><stop offset="1" stop-color="#7ca58f"/></linearGradient></defs>
+        <circle cx="260" cy="188" r="142" fill="none" stroke="rgba(255,255,255,.18)" stroke-width="1"/>
+        <circle cx="260" cy="188" r="105" fill="rgba(255,255,255,.035)" stroke="url(#g)" stroke-width="2"/>
+        <path d="M260 44 C330 74 387 114 405 188 C390 267 333 320 260 344 C188 320 131 268 114 188 C131 112 188 73 260 44Z" fill="none" stroke="rgba(213,181,111,.45)" stroke-width="2"/>
+        <text x="260" y="126" fill="#f5efe2" text-anchor="middle" font-size="27" font-family="serif">神的主权</text>
+        <text x="260" y="160" fill="#cfded7" text-anchor="middle" font-size="15">旨意 · 护理 · 恩典 · 终局</text>
+        <text x="260" y="224" fill="#f5efe2" text-anchor="middle" font-size="27" font-family="serif">人的责任</text>
+        <text x="260" y="258" fill="#cfded7" text-anchor="middle" font-size="15">选择 · 意图 · 行动 · 回应</text>
+        <line x1="165" y1="188" x2="355" y2="188" stroke="#d6b76d" stroke-width="2" stroke-dasharray="5 6"/>
+        <text x="260" y="378" fill="#d9c68f" text-anchor="middle" font-size="14">不是二选一，而是同一现实的两个真实层面</text>
+      </svg>
+    </div>
+  </div>
+</header>
+
+<div class="container">
+  <div class="layout">
+    <nav class="toc">
+      <strong>目录</strong>
+      <a href="#why">01 为什么这个问题如此关键</a>
+      <a href="#definitions">02 先把词定义清楚</a>
+      <a href="#bible">03 圣经如何同时陈述两端</a>
+      <a href="#framework">04 四层分析框架</a>
+      <a href="#freedom">05 “自由”到底是什么意思</a>
+      <a href="#traditions">06 新教三大传统比较</a>
+      <a href="#evil">07 罪、恶与神的圣洁</a>
+      <a href="#salvation">08 救恩、拣选与回应</a>
+      <a href="#practice">09 祷告、决定、传福音、苦难</a>
+      <a href="#errors">10 常见错误与极端</a>
+      <a href="#faq">11 十个最难问题</a>
+      <a href="#method">12 一个成熟的思考方法</a>
+      <a href="#sources">13 来源与延伸阅读</a>
+    </nav>
+
+    <main>
+      <section id="why">
+        <div class="kicker">01 · Why it matters</div>
+        <h2>为什么这个问题会反复出现？</h2>
+        <p class="lead">因为它不是一个只存在于系统神学课堂里的抽象难题。它会直接改变一个人如何理解成功与失败、罪与悔改、祷告与计划、苦难与护理、传福音与人的回应，以及“我今天应该做什么”。</p>
+        <div class="grid4">
+          <div class="card"><div class="big-num">01</div><h3>决定</h3><p>若神掌权，我是否还需要认真权衡、承担风险、对错误决定负责？</p></div>
+          <div class="card"><div class="big-num">02</div><h3>成圣</h3><p>若改变最终来自恩典，“竭力追求”是否会变成人的功劳？若全靠恩典，懒惰又为何有罪？</p></div>
+          <div class="card"><div class="big-num">03</div><h3>苦难</h3><p>若神护理万事，苦难能否简单说成“神让它发生”？如何避免把神说成恶的作者？</p></div>
+          <div class="card"><div class="big-num">04</div><h3>救恩</h3><p>拣选、恩典、信心、悔改、人真实的回应，到底是怎样的因果关系？</p></div>
+        </div>
+        <div class="truthline">
+          <div class="side"><span class="badge">一端</span><h3>若只强调主权</h3><p>容易滑向宿命论、消极主义，甚至把自己的懒惰与罪包装成“神的旨意”。</p></div>
+          <div class="plus">＋</div>
+          <div class="side"><span class="badge">另一端</span><h3>若只强调责任</h3><p>容易把神降格为旁观者，把救恩变成自救，把护理变成“神尽量善后”。</p></div>
+        </div>
+      </section>
+
+      <section id="definitions">
+        <div class="kicker">02 · Define before debating</div>
+        <h2>先把五个概念分开，否则争论一定混乱</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>概念</th><th>这里所说的意思</th><th>最容易混淆成什么</th></tr></thead>
+          <tbody>
+            <tr><td class="term">神的主权</td><td>神作为创造主，对受造界拥有最高权柄，并能成就自己的终极旨意。</td><td>不是“宇宙是一套无人格的必然机制”。主权属于一位有智慧、圣洁、慈爱与目的的神。</td></tr>
+            <tr><td class="term">神的护理</td><td>神持续保存、治理并引导受造界；经典新教通常拒绝“神创造以后就退场”的自然神论。</td><td>不是说每件事的道德性质都一样，也不是说所有事件都是神以同一种方式造成。</td></tr>
+            <tr><td class="term">人的责任</td><td>人作为有理性、意图和道德意识的行动者，要为自己的信念、欲望、选择和行为负责。</td><td>责任不等于“绝对自主”。一个受造者可以依赖神，同时仍是有责任的行动者。</td></tr>
+            <tr><td class="term">自由</td><td>这是争论核心。改革宗通常强调“不受外在强迫、按自己的意愿行动”；亚米念传统更强调在恩典使能下“可作真实相反选择”。</td><td>若不说明自己使用哪一种“自由”，双方常会以为彼此在否认自由。</td></tr>
+            <tr><td class="term">神的旨意</td><td>神学家常区分神所命令、喜悦我们遵行的“启示旨意”，与神对历史整体的护理和终局安排。</td><td>“神命令人不可犯罪”与“罪仍实际发生在神所治理的世界中”不是同一层面的问题。</td></tr>
+          </tbody>
+        </table></div>
+        <div class="note"><b>关键提醒：</b>“神知道某事会发生”“神允许某事发生”“神使用某事达成目的”“神直接产生某行动”“神认可某行为”是五种不同命题。把它们全部塞进一句“这是神的旨意”，往往就是神学混乱的起点。</div>
+      </section>
+
+      <section id="bible">
+        <div class="kicker">03 · The biblical pattern</div>
+        <h2>圣经最重要的模式：同一事件，可以同时存在神的意图与人的意图</h2>
+        <p class="lead">圣经中最有解释力的材料，并不是单独证明“神有主权”或“人有责任”的经文，而是那些在<strong>同一事件</strong>里同时出现两层因果与两种意图的经文。</p>
+
+        <div class="grid2">
+          <div class="card">
+            <h3>约瑟与兄长｜创世记 50:20</h3>
+            <p>兄长把约瑟卖掉，是出于恶意；约瑟后来却把同一事件放进更大的护理框架中：人的意图是恶，神的意图却指向保存生命。</p>
+            <div class="scripture"><b>神学观察：</b>经文不是说“兄长本来破坏了神的计划，神后来补救”；也不是说“既然神使用这件事，兄长就不再有罪”。两种意图同时成立。</div>
+          </div>
+          <div class="card">
+            <h3>亚述作为杖｜以赛亚书 10:5–19</h3>
+            <p>神使用亚述审判以色列，但亚述自己的动机是扩张与骄傲，所以神又审判亚述。</p>
+            <div class="scripture"><b>神学观察：</b>“被神使用”并不自动使行动者的动机成为义。神的治理与人的道德评估可以处于不同层面。</div>
+          </div>
+          <div class="card">
+            <h3>十字架｜使徒行传 2:23；4:27–28</h3>
+            <p>新约把耶稣受死同时描述为在人类不义行动中发生，并且处于神预定的救赎计划内。</p>
+            <div class="scripture"><b>神学观察：</b>基督教救恩中心事件本身就是“神的计划与人的责任同时成立”的最强案例之一。</div>
+          </div>
+          <div class="card">
+            <h3>成圣｜腓立比书 2:12–13</h3>
+            <p>保罗一面命令信徒实际去“做”、去顺服；另一面把愿意和行动背后的工作归给神。</p>
+            <div class="scripture"><b>神学观察：</b>神在你里面工作，并不是你不行动的理由；在保罗那里，恰好成为你认真行动的理由。</div>
+          </div>
+        </div>
+
+        <div class="diagram" style="margin-top:22px">
+          <svg viewBox="0 0 980 330" role="img" aria-label="双层意图示意图">
+            <text x="490" y="40" fill="#e9d5a6" font-size="25" text-anchor="middle">同一历史事件，两层真实意图</text>
+            <rect x="65" y="88" width="350" height="145" rx="18" fill="#1d4c42" stroke="#739d8f"/>
+            <rect x="565" y="88" width="350" height="145" rx="18" fill="#50372f" stroke="#b98872"/>
+            <text x="240" y="126" fill="#fff" font-size="23" text-anchor="middle">神的护理与目的</text>
+            <text x="240" y="164" fill="#cfe0d9" font-size="16" text-anchor="middle">圣洁 · 智慧 · 终局导向</text>
+            <text x="240" y="194" fill="#cfe0d9" font-size="16" text-anchor="middle">可通过“第二因”工作</text>
+            <text x="740" y="126" fill="#fff" font-size="23" text-anchor="middle">人的意图与行动</text>
+            <text x="740" y="164" fill="#ead7cf" font-size="16" text-anchor="middle">真实欲望 · 真实选择</text>
+            <text x="740" y="194" fill="#ead7cf" font-size="16" text-anchor="middle">因此有真实道德责任</text>
+            <path d="M415 158 C465 120 515 120 565 158" fill="none" stroke="#d5b56f" stroke-width="3"/>
+            <path d="M565 178 C515 216 465 216 415 178" fill="none" stroke="#d5b56f" stroke-width="3"/>
+            <circle cx="490" cy="168" r="44" fill="#d5b56f"/>
+            <text x="490" y="163" fill="#17312b" font-size="17" text-anchor="middle">同一</text><text x="490" y="187" fill="#17312b" font-size="17" text-anchor="middle">事件</text>
+            <text x="490" y="285" fill="#d8ddd9" font-size="15" text-anchor="middle">核心不是“到底是谁做的”，而是不同层面的因果、意图与责任如何同时成立。</text>
+          </svg>
+        </div>
+
+        <h3>另外几组必须成对阅读的经文</h3>
+        <div class="grid3">
+          <div class="card"><b>法老刚硬</b><p>出埃及记既说法老使自己刚硬，也说神使法老的心刚硬。文本拒绝把整件事化约成单一角度。</p></div>
+          <div class="card"><b>约翰福音</b><p>约 6 强调父的吸引与赐予；约 5:40 同时把“不肯到我这里来”归为人的拒绝。</p></div>
+          <div class="card"><b>罗马书 9–10</b><p>第 9 章强调神怜悯与拣选的主权；第 10 章紧接着强调听见、信、求告、传讲与人的回应。</p></div>
+        </div>
+      </section>
+
+      <section id="framework">
+        <div class="kicker">04 · Four analytical layers</div>
+        <h2>把问题分成四层，很多“矛盾”会自动消失</h2>
+        <div class="grid2">
+          <div class="card"><div class="badge">层 1 · 本体论</div><h3>神与受造者是什么关系？</h3><p>经典基督教认为神不是宇宙中的一个更强大的“参与者”，而是创造并维系受造存在的主。因此“神行动”与“人行动”未必像两个同级原因抢占 100% 的因果份额。</p></div>
+          <div class="card"><div class="badge">层 2 · 因果论</div><h3>第一因与第二因</h3><p>传统神学常称神为“第一因”，受造者为“第二因”：神的护理可以通过人的计划、自然规律、社会过程、偶然事件等真实媒介工作，而不是取消这些媒介。</p></div>
+          <div class="card"><div class="badge">层 3 · 道德论</div><h3>责任为何成立？</h3><p>圣经评判人的行动，不只看事件结果，还看其意图、爱什么、信什么、追求什么、是否违背已启示的命令。</p></div>
+          <div class="card"><div class="badge">层 4 · 救恩论</div><h3>罪人如何真正归向神？</h3><p>这里是新教内部差异最大的地方：各传统都强调恩典优先，但对恩典是否不可抗拒、意志如何被释放、拣选是否有条件等问题作出不同回答。</p></div>
+        </div>
+        <div class="warning"><b>非常重要：</b>不要把“神的护理”问题和“救恩中的自由意志”问题完全混为一谈。一个人可能高度肯定神对历史的护理，同时在救恩论上采取不同于改革宗的自由观。</div>
+      </section>
+
+      <section id="freedom">
+        <div class="kicker">05 · What do we mean by freedom?</div>
+        <h2>真正的分水岭，往往不是“有没有自由”，而是“自由是什么”</h2>
+        <div class="table-wrap"><table>
+          <thead><tr><th>自由观</th><th>基本定义</th><th>责任如何成立</th><th>常见新教位置</th></tr></thead>
+          <tbody>
+            <tr><td class="term">相容论自由<br><small>compatibilist freedom</small></td><td>人在没有外在强迫下，照自己的欲望、性格和理由行动；即使这些欲望处于神更大的护理秩序中，行动仍是“他的行动”。</td><td>责任根植于行动出自自己的意图，而非被外力违背意愿地强迫。</td><td>改革宗中常见；现代改革宗作者常用“相容论”描述神主权与责任可同时为真。<sup><a href="#s6">[S6]</a></sup></td></tr>
+            <tr><td class="term">自由意志的能行性区分</td><td>人在日常、社会与“属世”事务中有真实选择能力；但堕落之人不能靠天然能力产生使自己在神面前称义的属灵义。</td><td>人仍是行动者；救恩不能从人的自然能力发动。</td><td>《奥格斯堡信条》第 XVIII 条的典型路德宗表述。<sup><a href="#s3">[S3]</a></sup></td></tr>
+            <tr><td class="term">自由意志／替代可能性<br><small>libertarian emphasis</small></td><td>在恩典使能下，一个人的回应不是由此前状态充分决定；他可真实接受，也可真实拒绝。</td><td>责任更直接地连接到“可以作相反选择”。</td><td>亚米念—卫斯理传统常见；同时强调这种能力本身也来自先行恩典，而不是天然自救能力。<sup><a href="#s4">[S4]</a></sup></td></tr>
+          </tbody>
+        </table></div>
+
+        <div class="axis">
+          <div class="xlabel">更强调替代可能性 →</div><div class="ylabel">更强调恩典先行 / 神主动 ↑</div>
+          <div class="dot r">改革宗相容论</div><div class="dot l">路德宗</div><div class="dot a">亚米念—卫斯理</div><div class="dot m">部分福音派莫林主义*</div>
+        </div>
+        <p class="caption">* 莫林主义源于天主教思想史，但被部分新教福音派采用；它试图以“中间知识”解释神如何完全知道自由受造者在任何情境中会如何选择。本页只把它当作补充模型，不把它列为经典新教三大告解传统之一。</p>
+      </section>
+
+      <section id="traditions">
+        <div class="kicker">06 · Protestant traditions</div>
+        <h2>三条主要新教路径：共同承认恩典，却在“如何协调”上不同</h2>
+
+        <div class="portraits">
+          <div class="portrait"><div class="img"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/b/bc/Lucas_Cranach_d.%C3%84._%28Werkst.%29_-_Portr%C3%A4t_des_Martin_Luther_%28Lutherhaus_Wittenberg%29.jpg" alt="马丁·路德历史肖像" /></div><div class="txt"><b>马丁·路德传统</b><br>强烈强调罪人不能靠天然意志发动属灵得救，同时警惕对神隐藏旨意作过度推演。图像：Wikimedia Commons，公版绘画复制。</div></div>
+          <div class="portrait"><div class="img"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/c5/John_Calvin_by_Holbein.png" alt="常被识别为约翰·加尔文的历史肖像" /></div><div class="txt"><b>改革宗传统</b><br>系统化强调神的永恒旨意、第二因、有效恩召，并通常以相容论方式解释人的责任。图像：Wikimedia Commons，公版作品。</div></div>
+          <div class="portrait"><div class="img"><img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/1/18/Jacobus_Arminius%2C_by_Hieronymus_van_der_Mij.jpg" alt="雅各布斯·阿民念历史肖像" /></div><div class="txt"><b>亚米念—卫斯理传统</b><br>强调恩典先于人的回应，同时主张恩典所恢复的回应能力可被接受或拒绝。图像：Wikimedia Commons，公版作品。</div></div>
+        </div>
+
+        <div class="tabs" id="traditionTabs">
+          <div class="tab-buttons">
+            <button class="active" data-tab="reformed">改革宗</button>
+            <button data-tab="lutheran">路德宗</button>
+            <button data-tab="wesleyan">亚米念—卫斯理</button>
+            <button data-tab="common">共同地基</button>
+          </div>
+          <div class="tab-panel active" id="reformed">
+            <h3>改革宗：神的旨意并不取消第二因，而是确立其真实性</h3>
+            <p>《威斯敏斯特信条》3.1 的结构非常有代表性：一方面宣告神永恒且不改变地安排万事；另一方面马上否认这意味着神是罪的作者、受造者意志被强暴，或“第二因”的自由与偶然性被取消。<sup><a href="#s1">[S1]</a></sup></p>
+            <p>因此成熟的改革宗论证并不是“神决定，所以人只是木偶”，而是：<b>神的主权因果与人的受造因果不是同级竞争关系。</b>人照自己的欲望行动，所以人负责；神通过这些真实行动者成就护理。</p>
+            <p>在救恩论上，多特信经强调拣选出于恩典而非预见的人的功德，同时也明确说福音的呼召是真诚的，并把拒绝福音的责任归给拒绝者。<sup><a href="#s2">[S2]</a></sup></p>
+            <p><b>其优势：</b>强烈保存恩典的非功德性、神计划的确定性与苦难中的护理安慰。<br><b>其难题：</b>必须非常精细地解释罪的来源、神与恶的关系，以及“若一个罪人的欲望受其堕落本性辖制，他为何仍应负责”。</p>
+          </div>
+          <div class="tab-panel" id="lutheran">
+            <h3>路德宗：属灵得救上意志被罪捆绑，但不要越过启示去窥探隐藏旨意</h3>
+            <p>《奥格斯堡信条》第 XVIII 条区分：人在日常或“属世”事务中有某种选择能力，但不能靠自己的自然能力产生神所要求的属灵义；这需要圣灵借着道作工。<sup><a href="#s3">[S3]</a></sup></p>
+            <p>《协同书·论拣选》又反复警告，不要把拣选理解为抽象的“秘密名单”，而要在基督、福音应许、圣道和圣礼中理解神向人的救恩行动；它也拒绝让预定论变成不悔改或绝望的借口。<sup><a href="#s7">[S7]</a></sup></p>
+            <p><b>其优势：</b>把神学思辨拉回福音的公开应许与牧养用途，避免对“弃绝”作过度对称推论。<br><b>其难题：</b>在逻辑上如何同时解释“救恩完全出于神”与“失丧归责于人”，往往保留较大的奥秘空间。</p>
+          </div>
+          <div class="tab-panel" id="wesleyan">
+            <h3>亚米念—卫斯理：罪人不能自救，但先行恩典真实地使回应成为可能</h3>
+            <p>卫斯理传统并不等于“人天然有能力自己选择得救”。卫理宗《宗教条款》第 VIII 条明确说，堕落后的人不能靠自己的天然力量转向信心；人的“好意愿”需要神在基督里的恩典先行并继续工作。<sup><a href="#s5">[S5]</a></sup></p>
+            <p>其关键是<b>先行恩典（prevenient grace）</b>：神先主动临到、唤醒、使能，使真实悔改与信心成为可能；恩典仍然是第一步，但这种恩典通常被理解为可以抗拒。联合卫理公会的现代说明也明确把先行恩典描述为在人的自觉回应之前工作、把人引向悔改与信心。<sup><a href="#s4">[S4]</a></sup></p>
+            <p><b>其优势：</b>直观地保存福音普遍呼召、真实拒绝与人的替代可能性。<br><b>其难题：</b>需要解释为何同样先行恩典临到不同人时产生不同回应，并避免让“最终差异”听起来成为人可夸口的贡献。</p>
+          </div>
+          <div class="tab-panel" id="common">
+            <h3>不要把分歧夸大到共同地基之外</h3>
+            <p>经典新教主流至少有几项高度共同的断言：人是受造者而非自主神；罪真实损坏人的意志；得救不是靠功德；恩典在救恩中具有先行性；悔改与信心不是可有可无；人的罪不能归咎于神的圣洁；圣经的命令、警告、应许、祷告与宣教都具有真实意义。</p>
+            <p>因此，“改革宗相信主权，亚米念派相信自由”这种简化并不准确。真正的争论是：<b>恩典如何使能、人的自由需要哪些条件、拣选与信心的逻辑次序、以及神的护理如何与受造因果协调。</b></p>
+          </div>
+        </div>
+
+        <h3>一张表看见分歧在哪里</h3>
+        <div class="table-wrap"><table>
+          <thead><tr><th>问题</th><th>改革宗典型回答</th><th>路德宗典型回答</th><th>亚米念—卫斯理典型回答</th></tr></thead>
+          <tbody>
+            <tr><td>堕落之人能否凭天然能力归向神？</td><td>不能</td><td>不能</td><td>不能；需先行恩典使能</td></tr>
+            <tr><td>恩典在救恩中是否先于人的回应？</td><td>是</td><td>是</td><td>是</td></tr>
+            <tr><td>使人得救的恩典最终可否被拒绝？</td><td>有效恩召最终成就其目的</td><td>强调圣灵藉道工作，也承认人会抗拒恩典；避免用改革宗术语作完全对称整理</td><td>可抗拒</td></tr>
+            <tr><td>拣选是否以预见信心为条件？</td><td>通常否</td><td>不以人的功德为原因，并强调“在基督里”的拣选；不鼓励以秘密旨意建构对称体系</td><td>通常以神预知、在基督里的信心回应来理解条件性拣选</td></tr>
+            <tr><td>人的责任主要如何解释？</td><td>行动出于自己的欲望与意图，无外在强迫</td><td>人真实抵挡神；责任与神的命令及人的悖逆相连</td><td>恩典使能后存在真实可接受／可拒绝的回应</td></tr>
+          </tbody>
+        </table></div>
+      </section>
+
+      <section id="evil">
+        <div class="kicker">07 · Evil and holiness</div>
+        <h2>最尖锐的问题：若神掌权，神是不是罪与恶的作者？</h2>
+        <p class="lead">这是任何强主权神学都必须正面处理的问题。一个草率答案——“既然神许可，所以一切恶都等于神直接做的”——会破坏圣经对神圣洁与罪责的区分。</p>
+        <div class="grid3">
+          <div class="card"><h3>区分 1：主权 ≠ 道德认同</h3><p>神能把一个罪恶行动纳入护理目的，并不意味着神赞同该行动的恶动机。以赛亚书 10 章和约瑟故事都显示这种区分。</p></div>
+          <div class="card"><h3>区分 2：第一因 ≠ 同方式的直接因</h3><p>经典神学会区分神的终极治理与受造者作为第二因的真实行动。神“使用”一个恶人的选择，不等于神以同样道德方式成为那个恶意的主体。</p></div>
+          <div class="card"><h3>区分 3：终局之善 ≠ 手段本身变善</h3><p>“神能使万事互相效力”不等于恶本身因此变为善。十字架的救赎结果并不洗白不义审判和谋害的罪责。</p></div>
+        </div>
+        <div class="quote">“神能胜过恶、限制恶、使用恶并最终审判恶”与“神在道德上成为恶的作者”不是同一个命题。<small>这是经典新教在讨论神的护理时必须守住的界线。</small></div>
+        <h3>苦难中最危险的两句话</h3>
+        <div class="grid2">
+          <div class="warning"><b>“既然神掌权，所以你的痛苦不重要。”</b><br>错误。圣经的护理信仰从不要求人否认悲伤、哀哭、申诉或寻求公义。</div>
+          <div class="warning"><b>“发生的一切既然在护理中，就都应当被模仿或接受。”</b><br>错误。护理描述“发生了什么”；诫命告诉我们“应当做什么”。不能从前者直接推出后者。</div>
+        </div>
+      </section>
+
+      <section id="salvation">
+        <div class="kicker">08 · Salvation</div>
+        <h2>救恩里的张力：恩典是原因，信心却仍是真实回应</h2>
+        <div class="flow">
+          <div><b>神先行动</b><br>启示、呼召、恩典</div>
+          <div><b>人被唤醒</b><br>听见、认识罪</div>
+          <div><b>真实回应</b><br>悔改、信靠基督</div>
+          <div><b>新生命</b><br>称义、重生、归入群体</div>
+          <div><b>持续成圣</b><br>恩典工作＋人的顺服</div>
+        </div>
+        <p>新教内部对每一箭头的因果强度解释不同，但有一个共同底线：<b>信心不是购买恩典的代价；恩典也不是使人的回应变成幻觉。</b></p>
+        <div class="grid2">
+          <div class="card"><h3>改革宗常说</h3><p>重生与有效恩召使罪人的心真实改变，因此人是“甘心”来到基督，不是被违背意愿地拖来；正因为意愿被更新，信心才是真实的人的信心。</p></div>
+          <div class="card"><h3>卫斯理传统常说</h3><p>先行恩典不是替人相信，而是恢复其回应能力；所以信心仍是人的真实回应，却从头到尾依赖先在的恩典，不能成为可夸口的功劳。</p></div>
+        </div>
+        <p class="note"><b>实用判断：</b>如果一种救恩论使人可以说“真正决定我得救的最终原因是我比别人更聪明、更谦卑、更愿意”，它正在逼近功德论；如果一种救恩论使人可以说“悔改、信心、警告、忍耐都没有真实意义”，它又在逼近宿命论。经典新教各传统都试图避开这两个极端。</p>
+      </section>
+
+      <section id="practice">
+        <div class="kicker">09 · Daily life</div>
+        <h2>这套神学若不能进入生活，就还没有真正学会</h2>
+        <div class="grid2">
+          <div class="case"><div class="q">案例 A：我要做一个重大决定，怎样同时相信神的主权又认真负责？</div><ol><li>先问是否违背明确诫命，而不是先猜“神隐藏的计划”。</li><li>收集事实，运用智慧，评估能力、责任和长期后果。</li><li>祷告不是代替思考，而是承认自己的判断有限。</li><li>寻求成熟建议，但不把别人变成“替我听神声音的人”。</li><li>在可接受选项中作决定，然后承担责任；结果出现后，以护理观学习，而不是事后神秘化每个细节。</li></ol></div>
+          <div class="case"><div class="q">案例 B：若神知道并掌管未来，为什么还祷告？</div><p>因为在圣经里，神通常不仅定目的，也使用“手段”。祷告本身可能就是神达成护理目的的一个真实手段。主权不是把祷告变成多余，而是让祷告不必依赖一个失控的宇宙。</p></div>
+          <div class="case"><div class="q">案例 C：若拣选存在，为什么还传福音？</div><p>因为福音的宣讲在新约里正是神呼召人的手段。改革宗的多特信经也把福音呼召描述为真实、认真，并把拒绝归责于人。<sup><a href="#s2">[S2]</a></sup> 对非改革宗传统而言，传福音同样是人真实回应恩典的必要场域。</p></div>
+          <div class="case"><div class="q">案例 D：我失败了，能说“这也是神的主权”然后算了吗？</div><p>不能。护理教义解释的是神不会被你的失败击败；责任教义要求你诚实承认错误、悔改、修复能修复的后果、学习并改变。把“神掌权”当作逃避责任的口号，本身就是对主权教义的滥用。</p></div>
+          <div class="case"><div class="q">案例 E：成圣到底是“靠神”还是“靠自己”？</div><p>新约经常拒绝这个二选一。腓 2:12–13 的逻辑是：正因为神在你里面工作，你更应认真顺服；恩典不是努力的反义词，恩典是反对功德主义，却能产生更深的努力。</p></div>
+          <div class="case"><div class="q">案例 F：苦难发生时，怎样避免廉价安慰？</div><p>先承认痛苦和不义；若有现实责任，就寻求帮助和公义；把护理当作“神最终不会失去历史”而不是“我现在必须解释清楚每个原因”。《海德堡要理问答》把护理的牧养用途指向忍耐、感恩与对未来的信靠。<sup><a href="#s8">[S8]</a></sup></p></div>
+        </div>
+      </section>
+
+      <section id="errors">
+        <div class="kicker">10 · Failure modes</div>
+        <h2>六个常见错误：看似敬虔，其实都把张力的一端删掉了</h2>
+        <div class="grid3">
+          <div class="card"><h3>宿命论</h3><p>“反正结局早定，我做什么都一样。”——这与圣经把警告、祷告、选择、顺服当作真实手段的模式不符。</p></div>
+          <div class="card"><h3>超加尔文主义</h3><p>把拣选推导为“不需普遍传福音、不需真诚呼召”。多特信经反而强调福音呼召的认真性。<sup><a href="#s2">[S2]</a></sup></p></div>
+          <div class="card"><h3>伯拉纠主义倾向</h3><p>把罪理解得太浅，认为人靠天然道德能力即可发动使自己与神和好的过程。路德宗、改革宗和卫斯理传统在这里都明确反对。</p></div>
+          <div class="card"><h3>“结果神学”</h3><p>“成功就说明这是神的旨意，失败就说明不是。”——圣经人物的忠心与外在结果并非永远正相关。</p></div>
+          <div class="card"><h3>神秘主义式决定</h3><p>把“寻找神的旨意”变成不断追逐征兆、偶然数字和内在感觉，反而忽视圣经明确命令、智慧、事实和责任。</p></div>
+          <div class="card"><h3>机械决定论</h3><p>把神与世界理解成冰冷因果机器，从而忽略位格、爱、盟约、目的、祷告与关系性的真实。</p></div>
+        </div>
+      </section>
+
+      <section id="faq">
+        <div class="kicker">11 · Hard questions</div>
+        <h2>十个最难问题：不逃避，也不过度自信</h2>
+        <details open><summary>1. 如果神已经知道我会怎么选，我还能自由吗？</summary><p>“预知”与“造成”首先是不同概念：知道一件事会发生，不等于以同一种方式强迫它发生。但更深的问题是：若神的知识不可能错误，未来还能否“可能不同”？相容论会说责任不需要形而上意义上的替代可能性；自由意志论则会说神的知识准确地知道一个自由选择，却不决定该选择。这是两种不同的自由模型。</p></details>
+        <details><summary>2. 如果神预定万事，祂是否预定罪？</summary><p>改革宗告解传统会肯定神的永恒旨意涵盖万事，同时明确否认神是罪的作者，并强调第二因的真实性。关键在于“神对事件的护理关系”并不等于“神具有罪人的邪恶意图”。其他新教传统则更常用许可、预知和神能从恶中成善来表达。</p></details>
+        <details><summary>3. 如果人“不能”靠自己归向神，为什么还要为不信负责？</summary><p>改革宗通常区分“外在被强迫的不能”与“出于堕落欲望的道德不能”：人不是想爱神却被拦住，而是其意志本身不愿。亚米念—卫斯理传统则通过先行恩典解释：神给出足以回应的使能，所以拒绝是真实可避免的。两者对“责任所需的自由条件”不同。</p></details>
+        <details><summary>4. 提摩太前书 2:4 说神愿万人得救，为什么不是人人得救？</summary><p>不同传统解释不同。改革宗常区分神命令／喜悦层面的旨意与神对历史终局的旨意，或讨论“万人”的语境范围；亚米念传统通常更直接理解为神救恩意愿普遍，但允许人的拒绝。此处不宜用一节经文跳过整套经文资料。</p></details>
+        <details><summary>5. 神的主权是不是让“偶然”不存在？</summary><p>不必。经典新教尤其改革宗可说“偶然”相对于受造因果、人的知识和自然过程是真实的，同时仍处于神护理之下。《威斯敏斯特信条》特别说第二因的自由与偶然性并未被取消。<sup><a href="#s1">[S1]</a></sup></p></details>
+        <details><summary>6. 那么“神的旨意”到底能不能被违背？</summary><p>要先问你说的是哪一种“旨意”。神命令人不可杀人，这个命令显然会被违背；但基督被钉十字架又没有使神的救赎计划失败。把“命令性旨意”与“护理／终局旨意”区分开，会让很多经文不再互相冲突。</p></details>
+        <details><summary>7. 我怎样知道自己是不是“蒙拣选”？</summary><p>经典告解传统通常反对把人引向窥探神隐藏的名单。多特信经把确据与对基督的真实信心、敬虔的果子相连；路德宗《协同书》更明确把人引回基督、福音与公开的恩典应许，而不是秘密推算。<sup><a href="#s2">[S2]</a></sup><sup><a href="#s7">[S7]</a></sup></p></details>
+        <details><summary>8. 既然神能把错误变成益处，我是不是不用害怕做错决定？</summary><p>护理给你的是“错误不必成为宇宙终局”的盼望，不是“错误没有成本”的许可证。智慧、责任、后果与悔改都仍然真实。</p></details>
+        <details><summary>9. 如果不同新教传统都引用圣经，我怎么判断？</summary><p>不要只比较口号，要比较每套体系能否同时解释整组经文：主权经文、普遍呼召、警告、人的拒绝、恩典的先行性、罪的严重性、圣洁与恶的问题。还要分清“经文明说”“合理推论”“哲学模型”三种层级。</p></details>
+        <details><summary>10. 最后是不是只能说“奥秘”？</summary><p>“奥秘”不应成为停止思考的借口；我们能做很多定义、区分和经文整合。但有限的人也不必承诺把神与受造者的因果关系完全还原为一个可计算模型。成熟神学往往是：尽可能清楚，边界处诚实。</p></details>
+      </section>
+
+      <section id="method">
+        <div class="kicker">12 · A mature method</div>
+        <h2>以后再遇到相关问题，可以用这套“七步法”</h2>
+        <div class="flow">
+          <div><b>① 找经文</b><br>不要先找体系标签</div>
+          <div><b>② 分层</b><br>主权／护理／救恩／道德</div>
+          <div><b>③ 定义自由</b><br>到底是哪一种自由</div>
+          <div><b>④ 区分因果</b><br>第一因／第二因／意图</div>
+          <div><b>⑤ 查传统</b><br>看告解原文而非短视频口号</div>
+        </div>
+        <div class="grid2">
+          <div class="card"><h3>⑥ 检查是否产生错误实践</h3><p>若你的理论让祷告、悔改、宣教、智慧或责任变得多余，说明你很可能把一端推过头；若你的理论让神只能被动响应人的决定，也要检查是否削弱了圣经对恩典与护理的描述。</p></div>
+          <div class="card"><h3>⑦ 把“我不知道”保留下来</h3><p>区别“逻辑矛盾”与“我不知道它的全部机制”。只要两个命题不是在同一意义、同一关系、同一时间彼此否定，就不能仅因难以想象而断言矛盾。</p></div>
+        </div>
+        <div class="quote" style="margin-top:20px">成熟的目标不是把神缩小到一个我们完全可控的模型里，而是让我们的模型足够精确，以至于既不删掉经文，也不把奥秘变成混乱。<small>本页的总方法论</small></div>
+      </section>
+
+      <section id="sources">
+        <div class="kicker">13 · Sources</div>
+        <h2>告解文献、官方资料与延伸阅读</h2>
+        <p>为了避免把宗派立场简化成本页作者的二手概括，下面优先列出各传统自己的告解文本或官方说明。经文引用在正文中以章节编号呈现，不复制长段现代译本。</p>
+        <ol class="sources">
+          <li id="s1"><span class="source-tag">[S1]</span> Orthodox Presbyterian Church, <i>Westminster Confession of Faith</i>, Chapter 3. 重点：神的永恒旨意、神不是罪的作者、受造者意志和第二因并未被取消。<br><a href="https://opc.org/wcf.html" target="_blank" rel="noreferrer">https://opc.org/wcf.html</a></li>
+          <li id="s2"><span class="source-tag">[S2]</span> Christian Reformed Church, <i>Canons of Dort</i>. 重点：无条件拣选、福音呼召的认真性、人拒绝福音的责任、确据的牧养用途。<br><a href="https://www.crcna.org/welcome/beliefs/confessions/canons-dort" target="_blank" rel="noreferrer">Canons of Dort</a></li>
+          <li id="s3"><span class="source-tag">[S3]</span> Book of Concord, <i>Augsburg Confession, Article XVIII: Of Free Will</i>. 重点：属世事务中的意志能力与属灵义上的无能区分。<br><a href="https://bookofconcord.org/augsburg-confession/of-free-will/" target="_blank" rel="noreferrer">Article XVIII</a></li>
+          <li id="s4"><span class="source-tag">[S4]</span> The United Methodist Church, <i>What United Methodists Believe: Grace</i> 与相关官方资料。重点：先行恩典、称义恩典、成圣恩典。<br><a href="https://www.umc.org/content/what-united-methodists-believe-grace" target="_blank" rel="noreferrer">UMC: Grace</a></li>
+          <li id="s5"><span class="source-tag">[S5]</span> The United Methodist Church, <i>Articles of Religion, Article VIII — Of Free Will</i>. 重点：人不能凭天然力量转向信心；需要神在基督里的恩典先行并同工。<br><a href="https://www.umc.org/en/content/articles-of-religion" target="_blank" rel="noreferrer">Articles of Religion</a></li>
+          <li id="s6"><span class="source-tag">[S6]</span> D. A. Carson, 讨论“compatibilism（相容论）”的材料。这里作为现代改革宗对术语的代表性说明，而非新教共同告解。<br><a href="https://www.thegospelcoalition.org/sermon/on-books-with-d-a-carson-part-2/" target="_blank" rel="noreferrer">TGC interview</a></li>
+          <li id="s7"><span class="source-tag">[S7]</span> Book of Concord, <i>Formula of Concord, Solid Declaration XI: Election</i>. 重点：在基督与福音应许中理解拣选、避免窥探隐藏旨意、拒绝使预定论变成绝望或放纵的方式。<br><a href="https://bookofconcord.org/solid-declaration/election/" target="_blank" rel="noreferrer">Solid Declaration XI</a></li>
+          <li id="s8"><span class="source-tag">[S8]</span> Christian Reformed Church, <i>Heidelberg Catechism, Q&A 27–28</i>. 重点：神的护理及其对忍耐、感恩、信靠的牧养意义。<br><a href="https://www.crcna.org/welcome/beliefs/confessions/heidelberg-catechism" target="_blank" rel="noreferrer">Heidelberg Catechism</a></li>
+        </ol>
+
+        <h3>建议继续读的经典作品</h3>
+        <div class="grid2">
+          <div class="card"><b>J. I. Packer — <i>Evangelism and the Sovereignty of God</i></b><p>短小但重要：把神的主权与传福音责任放在同一框架中思考。</p></div>
+          <div class="card"><b>Martin Luther — <i>The Bondage of the Will</i></b><p>理解宗教改革时期关于罪、意志与恩典争论的关键文本；阅读时需结合其历史论战语境。</p></div>
+          <div class="card"><b>John Calvin — <i>Institutes of the Christian Religion</i>, Book I & III</b><p>护理、预定、信心与基督徒生活的重要经典系统论述。</p></div>
+          <div class="card"><b>John Wesley — sermons on grace and salvation</b><p>理解先行恩典、称义与成圣如何在卫斯理传统中构成一个连续的恩典秩序。</p></div>
+        </div>
+      </section>
+    </main>
+  </div>
+</div>
+
+<footer class="footer"><div class="inner"><div><b>神的主权与人的责任｜新教神学深度研究</b><br><span style="opacity:.75">建议用法：个人精读、小组讨论、主日学备课、教会分享前的框架整理。</span></div><div style="opacity:.65">单文件 HTML · 响应式 · 可打印</div></div></footer>
+
+<script>
+const progress=document.getElementById('progress');
+addEventListener('scroll',()=>{const h=document.documentElement;const pct=(h.scrollTop/(h.scrollHeight-h.clientHeight))*100;progress.style.width=pct+'%'});
+document.querySelectorAll('.tab-buttons button').forEach(btn=>btn.addEventListener('click',()=>{
+  document.querySelectorAll('.tab-buttons button').forEach(b=>b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));
+  btn.classList.add('active');document.getElementById(btn.dataset.tab).classList.add('active');
+}));
+</script>
+</body>
+</html>

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import { renderReadyMarkdown } from './markdown.js';
+import { buildPortfolioExport } from './portfolio-export.js';
 import { ArrowDownRight, ArrowLeft, ArrowRight, BookOpen, Bookmark, Check, CheckCircle2, ChevronDown, ChevronRight, CircleHelp, Compass, Download, FileText, GraduationCap, Layers3, LibraryBig, ListChecks, Menu, NotebookPen, PanelLeftClose, RotateCcw, Search, Sparkles, X } from 'lucide-react';
 
 const base = '/invest-master/api';
@@ -49,6 +50,12 @@ const frameworkSections = [
   ['sell','卖出规则','哪些证据变化会让我退出或修订判断？'],
   ['behavior','行为准则','大涨、大跌、观点被质疑时我怎样行动？'],
 ];
+const practiceStops = [
+  { stage:'财报与股票', title:'先把数字做平，再谈便宜', description:'完成三表和现金桥；用零售、周期制造与铁路披露核对经营、资本投入和股东现金。', cases:['qinglan-three-statement-valuation-audit','costco-2022-filing-cash-blind','nucor-2022-steel-cycle-cash-blind','union-pacific-2022-rail-capital-allocation-blind'] },
+  { stage:'债券与信用', title:'把价格接到偿债权利', description:'核对合同、净价与应计利息、交易成本、到期现金及可成交价格；保留无法核实的项目。', cases:['treasury-2022-two-year-auction-price-blind','treasury-2022-reopening-clean-dirty-cash-blind','finra-korth-2009-bond-markup-audit-blind','shanling-bond-liquidity-waterfall','bbby-2022-unsecured-credit-blind','svb-2023-deposit-duration'] },
+  { stage:'客户与组合', title:'让投资服从付款责任', description:'先审查净收益证据和客户支出，再测试宏观信息版本、共同冲击、资本调用与保证金到账时点。', cases:['qingheng-quant-risk-cash-exam','yuanshan-client-ips-liquidity','bls-2024-employment-vintage-cash-blind','swensen-endowment-liquidity-committee','uk-ldi-2022-liquidity-spiral'] },
+  { stage:'跨行业综合', title:'在新材料上重新研究', description:'对照软件、电力与能源项目，综合核查税亏、养老金和付款，再提交股票、债券与 IPS 作品供别人复算。', cases:['adobe-2022-filing-sbc-blind','nextera-2022-regulated-utility-capital-blind','chengyue-tax-pension-capital-cost-exam','haichen-exporter-fx-client-exam'], portfolio:true },
+];
 
 async function request(path, options) {
   const response = await fetch(`${base}${path}`, options);
@@ -65,7 +72,7 @@ function routeFromHash() {
 function navigate(page, id) { location.hash = `#/app/invest-master/${page}${id ? `/${id}` : ''}`; }
 const byOrder = (a,b) => (a.order || 0) - (b.order || 0);
 function IconButton({ children, label, onClick, className='' }) { return <button className={`im-icon-button ${className}`} type="button" aria-label={label} title={label} onClick={onClick}>{children}</button>; }
-function Markdown({ body }) { return <div className="im-prose"><ReactMarkdown remarkPlugins={[remarkGfm]} components={{ a: ({href,children}) => <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>, h2: ({node,children}) => <h2 id={`im-section-${node.position.start.line}`}>{children}</h2> }}>{renderReadyMarkdown(body)}</ReactMarkdown></div>; }
+function Markdown({ body }) { return <div className="im-prose"><ReactMarkdown remarkPlugins={[remarkGfm]} components={{ a: ({href,children}) => href?.startsWith('/#/app/invest-master/') ? <a href={href}>{children}</a> : <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>, h2: ({node,children}) => <h2 id={`im-section-${node.position.start.line}`}>{children}</h2> }}>{renderReadyMarkdown(body)}</ReactMarkdown></div>; }
 function ProgressBar({ value }) { return <div className="im-progress-track"><span style={{width:`${Math.max(0,Math.min(100,value))}%`}} /></div>; }
 function Empty({ icon: Icon=BookOpen, title, text, action, onAction }) { return <div className="im-empty"><Icon size={28} strokeWidth={1.5}/><h3>{title}</h3><p>{text}</p>{action&&<button className="im-button ghost" onClick={onAction}>{action}<ArrowRight size={16}/></button>}</div>; }
 function SourceLinks({ sources, sourceUrl }) {
@@ -109,7 +116,7 @@ export default function App() {
       <div className="im-content">{saveError&&<div className="im-alert" role="alert">{saveError}<button onClick={()=>setSaveError('')}>关闭</button></div>}
         {loading?<div className="im-loading"><div className="im-loading-mark">IM</div><p>正在整理研习资料…</p></div>:error?<Empty title="研习室暂时无法打开" text={error} action="重新加载" onAction={load}/>:<>
           {route.page==='home'&&<Home grouped={grouped} completed={completed} due={due} go={go}/>} 
-          {route.page==='path'&&<PathPage lessons={grouped.lessons} completed={completed} go={go}/>} 
+          {route.page==='path'&&<PathPage lessons={grouped.lessons} cases={grouped.cases} caseAttempts={state.caseAttempts} completed={completed} go={go}/>}
           {route.page==='masters'&&<MastersPage masters={grouped.masters} completed={completed} go={go}/>} 
           {route.page==='concepts'&&<CatalogPage type="concepts" items={grouped.concepts} masters={grouped.masters} go={go}/>} 
           {route.page==='cases'&&<CatalogPage type="cases" items={grouped.cases} masters={grouped.masters} go={go}/>} 
@@ -141,10 +148,38 @@ function Home({grouped,completed,due,go}) {
   </div>;
 }
 
-function PathPage({lessons,completed,go}) { const activeUnits=units.filter(unit=>lessons.some(item=>item.unit===unit));return <div className="im-page"><div className="im-page-intro"><span className="im-overline">STRUCTURED LEARNING · {activeUnits.length} 个已开放单元</span><h1>把知识，练成能力。</h1><p>先学证券、数学、报表、股票和债券，再研究大师方法。课程持续扩写；页面上的完成比例仅表示已开放内容的进度。</p></div><div className="im-roadmap">{activeUnits.map((unit,index)=>{const group=lessons.filter(item=>item.unit===unit);return <section className="im-roadmap-unit" key={unit}><div className="im-roadmap-index">{String(index).padStart(2,'0')}</div><div className="im-roadmap-content"><div className="im-roadmap-heading"><div><span className="im-overline">MODULE {String(index).padStart(2,'0')}</span><h2>{unit}</h2><p>{unitSubtitle(unit)}</p></div><span>{group.filter(item=>completed.has(item.id)).length} / {group.length} 完成</span></div><div className="im-lesson-list">{group.map((lesson,i)=><button key={lesson.id} className="im-lesson-row" onClick={()=>go('read',lesson.id)}><span className={`im-lesson-index ${completed.has(lesson.id)?'done':''}`}>{completed.has(lesson.id)?<Check size={16}/>:String(i+1).padStart(2,'0')}</span><span className="im-lesson-info"><strong>{lesson.title}</strong><small>{lesson.level} · {lesson.minutes} 分钟 · {lesson.concepts?.length||0} 个相关概念</small></span><ArrowRight size={17}/></button>)}</div></div></section>})}</div></div>; }
+function PathPage({lessons,cases,caseAttempts,completed,go}) {
+  const activeUnits=units.filter(unit=>lessons.some(item=>item.unit===unit));
+  const attempted=new Set((caseAttempts||[]).map(item=>item.id));
+  const caseById=new Map(cases.map(item=>[item.id,item]));
+  return <div className="im-page">
+    <div className="im-page-intro"><span className="im-overline">STRUCTURED LEARNING · {activeUnits.length} 个已开放单元</span><h1>把知识，练成能力。</h1><p>先学证券、数学、报表、股票和债券，再研究大师方法。每学完一段，完成阶段实作；最后用毕业作品检验独立研究能力。</p></div>
+    <section className="im-practice-stops" aria-label="阶段实作关口">
+      <div className="im-practice-head"><span className="im-overline">PRACTICE CHECKPOINTS · 阶段实作</span><h2>每学完一段，就换一份材料独立判断。</h2><p>先封存首次答卷，再展开参考推导。已封存只代表有练习记录；结论仍需原始资料复算和他人审读。</p></div>
+      <div className="im-practice-grid">{practiceStops.map((stop,index)=><article className="im-practice-card" key={stop.stage}>
+        <span className="im-practice-number">{String(index+1).padStart(2,'0')} / 04 · {stop.stage}</span>
+        <h3>{stop.title}</h3><p>{stop.description}</p>
+        <div className="im-practice-links">{stop.cases.map(id=>{const item=caseById.get(id);return item&&<button type="button" key={id} onClick={()=>go('read',id)}><span>{item.title}</span><small>{attempted.has(id)?'首次答卷已封存':'打开盲题'}</small><ArrowRight size={16}/></button>})}</div>
+        {stop.portfolio&&<button type="button" className="im-practice-portfolio" onClick={()=>go('portfolio')}>打开毕业作品 <ArrowRight size={16}/></button>}
+      </article>)}</div>
+    </section>
+    <div className="im-roadmap">{activeUnits.map((unit,index)=>{const group=lessons.filter(item=>item.unit===unit);return <section className="im-roadmap-unit" key={unit}><div className="im-roadmap-index">{String(index).padStart(2,'0')}</div><div className="im-roadmap-content"><div className="im-roadmap-heading"><div><span className="im-overline">MODULE {String(index).padStart(2,'0')}</span><h2>{unit}</h2><p>{unitSubtitle(unit)}</p></div><span>{group.filter(item=>completed.has(item.id)).length} / {group.length} 完成</span></div><div className="im-lesson-list">{group.map((lesson,i)=><button key={lesson.id} className="im-lesson-row" onClick={()=>go('read',lesson.id)}><span className={`im-lesson-index ${completed.has(lesson.id)?'done':''}`}>{completed.has(lesson.id)?<Check size={16}/>:String(i+1).padStart(2,'0')}</span><span className="im-lesson-info"><strong>{lesson.title}</strong><small>{lesson.level} · {lesson.minutes} 分钟 · {lesson.concepts?.length||0} 个相关概念</small></span><ArrowRight size={17}/></button>)}</div></div></section>})}</div>
+  </div>;
+}
 function MastersPage({masters,go}) { return <div className="im-page"><div className="im-page-intro"><span className="im-overline">THE THINKERS · 大师群像</span><h1>跟人学习，超越人的答案。</h1><p>他们在不同问题上给出不同方法。理解背景、思想演变和局限，才能把方法迁移到自己的研究。</p></div><div className="im-master-grid">{masters.map((master,index)=><button className="im-master-card" key={master.id} onClick={()=>go('read',master.id)} style={{'--master-accent':master.accent}}><div className="im-master-card-top"><span>{String(index+1).padStart(2,'0')} / {String(masters.length).padStart(2,'0')}</span><ArrowRight size={18}/></div><div className="im-master-monogram">{master.initials}</div><span className="im-overline">{master.school}</span><h2>{master.title}</h2><small>{master.english} · {master.era}</small><p>{master.keyIdea}</p><div className="im-master-card-foot">进入研习 <ArrowRight size={16}/></div></button>)}</div></div>; }
 function CatalogPage({type,items,masters,go}) { const [filter,setFilter]=useState('all');const filtered=items.filter(item=>filter==='all'||(type==='cases'?item.outcome===filter:item.masters?.includes(filter)));const filters=type==='cases'?['all',...new Set(items.map(item=>item.outcome))]:['all',...masters.map(item=>item.id)];return <div className="im-page"><div className="im-page-intro"><span className="im-overline">{type==='cases'?'THE CASE FILES':'THE FIELD GUIDE'}</span><h1>{type==='cases'?'在已发生的事里练习。':'把概念变成工具。'}</h1><p>{type==='cases'?'成功、失败与模拟训练分开阅读。先站回当时，再审视后来。':'每个词条从一句话出发，接着看适用边界、案例和误用方式。'}</p></div><div className="im-filter-bar">{filters.map(key=><button key={key} className={filter===key?'selected':''} onClick={()=>setFilter(key)}>{key==='all'?'全部':type==='cases'?key:masters.find(m=>m.id===key)?.title}</button>)}</div><div className="im-catalog-list">{filtered.map((item,index)=><button key={item.id} className="im-catalog-card" onClick={()=>go('read',item.id)}><span className="im-catalog-number">{String(index+1).padStart(2,'0')}</span><span className="im-catalog-body"><small>{type==='cases'?`${item.outcome} · ${item.year}`:item.masters?.map(id=>masters.find(m=>m.id===id)?.title).join(' / ')}</small><strong>{item.title}</strong><span>{type==='cases'?item.question:item.oneLine}</span></span><ArrowRight size={18}/></button>)}</div>{filtered.length===0&&<Empty title="这里还没有内容" text="换一个筛选条件试试。"/>}</div>; }
-function ComparePage({masters,go}) {const [left,setLeft]=useState('graham'),[right,setRight]=useState('buffett');const a=masters.find(x=>x.id===left),b=masters.find(x=>x.id===right);const rows=[['核心问题','keyIdea'],['最擅长','strength'],['使用边界','blindSpot']];return <div className="im-page"><div className="im-page-intro"><span className="im-overline">COMPARE THE LENSES</span><h1>同一家公司，不同的问题。</h1><p>选两位大师，对照他们会重点检查什么。这里总结的是公开思想框架，并不假装大师本人给出今日意见。</p></div><div className="im-compare-pickers"><label>视角 A<select value={left} onChange={e=>setLeft(e.target.value)}>{masters.map(m=><option value={m.id} key={m.id}>{m.title}</option>)}</select></label><span>VS</span><label>视角 B<select value={right} onChange={e=>setRight(e.target.value)}>{masters.map(m=><option value={m.id} key={m.id}>{m.title}</option>)}</select></label></div><div className="im-compare-grid"><div className="im-compare-name" style={{'--master-accent':a?.accent}}><span>{a?.initials}</span><h2>{a?.title}</h2><small>{a?.school}</small></div><div className="im-compare-name" style={{'--master-accent':b?.accent}}><span>{b?.initials}</span><h2>{b?.title}</h2><small>{b?.school}</small></div>{rows.map(([label,key])=><div className="im-compare-row" key={key}><strong>{label}</strong><div>{a?.[key]}</div><div>{b?.[key]}</div></div>)}</div><div className="im-method-note"><span className="im-method-icon"><Layers3 size={22}/></span><div><strong>将两种视角一起使用</strong><p>选择一家企业，分别回答两位大师最关心的问题。若答案冲突，明确究竟是事实不同、假设不同，还是投资期限不同。</p></div><button onClick={()=>go('framework')}>写入我的体系 <ArrowRight size={16}/></button></div></div>;}
+function ComparePage({masters,go}) {
+  const [left,setLeft]=useState('graham'),[right,setRight]=useState('buffett');
+  const a=masters.find(x=>x.id===left),b=masters.find(x=>x.id===right);
+  const rows=[['核心问题','keyIdea'],['最擅长','strength'],['使用边界','blindSpot'],['先找什么证据','compareEvidence'],['亲手复算什么','compareCalculation'],['什么会改变判断','compareRevision']];
+  return <div className="im-page">
+    <div className="im-page-intro"><span className="im-overline">COMPARE THE LENSES</span><h1>同一家公司，不同的问题。</h1><p>用同一份资料，对照不同方法如何取证、计算和修订。以下研习问题由本课程编写，依据各人物路线的公开思想；不是大师原话或今日投资意见。</p></div>
+    <section className="im-compare-exercise" aria-label="同题对照练习"><span className="im-overline">ONE CASE · TWO LENSES</span><h2>先选两种视角，再做同一份题。</h2><p>打开青岚工业的虚构资料，分别写下证据、公式、反证和行动。只算资料允许的内容，缺项明确留空。先封存首次答卷，再看参考推导；任何视角都须遵守同一份客户付款与风险约束。</p><button className="im-button ghost" onClick={()=>go('read','qinglan-three-statement-valuation-audit')}>打开青岚工业 · 全部虚构 <ArrowRight size={16}/></button></section>
+    <div className="im-compare-pickers"><label>视角 A<select aria-label="视角 A" value={left} onChange={e=>setLeft(e.target.value)}>{masters.map(m=><option value={m.id} key={m.id}>{m.title}</option>)}</select></label><span>VS</span><label>视角 B<select aria-label="视角 B" value={right} onChange={e=>setRight(e.target.value)}>{masters.map(m=><option value={m.id} key={m.id}>{m.title}</option>)}</select></label></div>
+    <div className="im-compare-grid">{[a,b].map((master,index)=><div className="im-compare-name" key={index} style={{'--master-accent':master?.accent}}><span>{master?.initials}</span><h2>{master?.title}</h2><small>{master?.school}</small>{master?.compareLesson&&<button className="im-compare-course" onClick={()=>go('read',master.compareLesson)}>深入{master.title}课程 <ArrowRight size={14}/></button>}</div>)}{rows.map(([label,key])=><div className="im-compare-row" key={key}><strong>{label}</strong><div>{a?.[key]||'请在人物课程中寻找相关证据。'}</div><div>{b?.[key]||'请在人物课程中寻找相关证据。'}</div></div>)}</div>
+    <div className="im-method-note"><span className="im-method-icon"><Layers3 size={22}/></span><div><strong>解释冲突，再形成自己的结论</strong><p>结论不一致时，核对是否用了不同事实、期限、现金口径或风险预算。两位大师都被你解释为赞成，也不构成两份独立证据；最后仍须回到原始资料。</p></div><button onClick={()=>go('framework')}>写入我的体系 <ArrowRight size={16}/></button></div>
+  </div>;
+}
 
 function Reader({item,grouped,state,completed,go,persist,toggleBookmark,bookmarked,notify}) {
   const [note,setNote]=useState(state.notes.find(row=>row.id===item.id)?.body||'');
@@ -205,8 +240,8 @@ function PortfolioPage({lessons,state,go,notify}) {
   const drafted=lessons.filter(lesson=>(state.notes.find(note=>note.id===lesson.id)?.body||'').trim().length>0);
   const exportDrafts=()=>{
     if(!drafted.length)return;
-    const reviewSheet=['## 独立审读记录（由审读者填写）','','研究截止日：____　审读日期：____　资料版本：____','审读者先独立复算，再阅读作者结论；看不到原始文件、公式或合同的项目记为「未核实」。','','| 维度 | 0–4 分 | 对应证据、页码或公式 | 需要修订之处 |','| --- | ---: | --- | --- |',...['来源与公开时点','三表、现金流及估值勾稽','情景、反证与敏感性','债券条款、到期及回收顺位','客户现金义务与组合适配','利益冲突、费用与表达'].map(label=>`| ${label} | 待审 | 待填 | 待填 |`),'','必须逐项核查：','- [ ] 两家不同行业企业各有独立股票报告；三项关键原始数字的发布日期、单位和位置均可找到，没有把后来的资料放回事前。','- [ ] 另一人能从输入重算 CFO、FCFF、企业价值到每股价值；未解释差额已单列。','- [ ] 债券发行实体、保证、到期与回收顺位来自文件；无法确认处明确写「未核实」。','- [ ] 悲观情景会改变模型和仓位；客户确定付款有独立、可按时动用的资金来源。','- [ ] 作者列出最强反方意见、修订触发条件、费用和利益冲突。','','审读者发现的最重要错误：____','作者 v2 如何修改公式、结论或行动：____','仍待取得的资料与再次审读日期：____','','评分仅定位需要重做的环节；未审读草稿或选择题完成记录不构成能力认证。'];
-    const body=['# Invest Master · 毕业作品草稿','',`导出日期：${new Date().toLocaleDateString('zh-CN')}`,'','以下是本机保存的学习草稿；请选择独立审读者核对原始资料、计算与反方意见。','',...drafted.flatMap(lesson=>{const note=state.notes.find(entry=>entry.id===lesson.id);return [`## ${lesson.title}`,'',`课题要求：${lesson.practice}`,'',note.body.trim(),''];}),...reviewSheet].join('\n');
+    const body=buildPortfolioExport(lessons,state.notes,new Date().toLocaleDateString('zh-CN'));
+    if(!body)return;
     const url=URL.createObjectURL(new Blob([body],{type:'text/markdown;charset=utf-8'}));
     const link=document.createElement('a');link.href=url;link.download='InvestMaster-毕业作品草稿.md';document.body.append(link);link.click();link.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);notify('已导出本机保存的 Markdown 草稿');
   };

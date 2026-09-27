@@ -14,6 +14,10 @@ blindSpot: 宏观模板不能精确预测时点；相关性、政策反应和各
 concepts: [market-cycle, position-sizing, permanent-loss, expectations]
 cases: [credit-cycle]
 lessons: [dalio-credit-mechanics, dalio-deleveraging-policy, dalio-risk-balance]
+compareEvidence: "找企业与客户受共同利率、信用及收入冲击的渠道，查到期、币种与重定价。"
+compareCalculation: "按日期重算现金、本息和共同压力；缺债务条款时不能假定利息同步变化。"
+compareRevision: "长期价值不变时，信用收缩或付款提前是否仍使眼前现金不足？"
+compareLesson: "dalio-credit-mechanics"
 sources:
   - label: Dalio · How the Economic Machine Works
     url: https://www.economicprinciples.org/how-the-economic-machine-works

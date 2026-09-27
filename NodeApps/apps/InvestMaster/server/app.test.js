@@ -5,6 +5,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { createApp } from './app.js';
 import { loadContent } from './content.js';
+import { createStore } from './store.js';
 
 const directory = fs.mkdtempSync(path.join(os.tmpdir(), 'invest-master-'));
 let app, server, origin;
@@ -84,6 +85,90 @@ test('Markdown library has connected lessons, masters, concepts, cases and valid
       assert.ok(Number.isInteger(question.answer) && question.answer >= 0 && question.answer < question.options.length, item.id);
       assert.ok(question.explanation, item.id);
     }
+  }
+});
+
+test('financial commas and formula arguments remain complete answer options', () => {
+  const items = loadContent();
+  const find = (lessonId, questionId) => items.find((item) => item.id === lessonId).quiz.find((question) => question.id === questionId);
+  const numericCases = [
+    ['bond-pricing-duration', 'q10-v2', ['98,500', '98,700', '100,200'], 100000 * 98.50 / 100 + 100000 * 2 / 1000],
+    ['damodaran-story-to-numbers', 'q7-v2', ['2,475 万', '1,375 万', '3,300 万'], 3300 * (1 - 0.25) - 900 - 200],
+    ['derivatives-payoffs', 'q6-v2', ['15', '1,500', '2,000'], 100 * (Math.max(120 - 100, 0) - 5)],
+    ['equity-cash-flow-value', 'q2-v2', ['600', '800', '1,200'], 1000 + 100 - 300],
+    ['from-store-to-stock', 'q3-v2', ['150', '800', '1,200'], 150 * 8],
+    ['hedging-basis-margin', 'q6-v2', ['70,000', '90,000', '95,000'], 1000 * (90 + 100 - 120)],
+    ['inflation-linked-bonds', 'q1-v2', ['950', '1,000', '1,050'], 1000 * 1.05],
+    ['marks-lab', 'q2-v2', ['1,610.5', '2,415.8', '4,026.3'], Number((161.05 * 15).toFixed(1))],
+    ['moat-and-cash', 'q2-v2', ['3,880', '4,365', '10,185'], (105 - 60) * 97],
+    ['moat-and-cash', 'q3-v2', ['3,825', '4,000', '8,925'], (105 - 60) * 85],
+  ];
+  for (const [lessonId, questionId, expectedOptions, expectedValue] of numericCases) {
+    const question = find(lessonId, questionId);
+    assert.deepEqual(question.options, expectedOptions, `${lessonId} / ${questionId}`);
+    const chosenValue = Number(question.options[question.answer].replaceAll(',', '').replace(' 万', ''));
+    assert.equal(chosenValue, expectedValue, `${lessonId} / ${questionId} must grade the calculated amount`);
+  }
+  const market = find('market-orders-costs', 'q8-v2');
+  assert.equal(market.options.length, 3);
+  assert.equal(market.options[1], '能；总现金必定为 98,000');
+  assert.equal(market.answer, 0);
+  const option = find('option-parity-no-arbitrage', 'q3-v2');
+  assert.deepEqual(option.options, ['max(ST−K,0)', 'max(K−ST,0)', 'ST+K']);
+  assert.equal(option.options[option.answer], 'max(ST−K,0)');
+});
+
+test('content loading rejects an unquoted financial comma before it can be graded', () => {
+  const fixtureRoot = path.join(directory, 'malformed-content');
+  fs.mkdirSync(path.join(fixtureRoot, 'lessons'), { recursive: true });
+  fs.writeFileSync(path.join(fixtureRoot, 'lessons', 'comma.md'), `---
+id: comma
+title: 金额选项检查
+quiz:
+  - id: q1
+    question: 交割款是多少？
+    options: [98,500, 98,700, 100,200]
+    answer: 1
+    explanation: 引号遗漏不得静默拆分金额。
+---
+教学内容。
+`);
+  assert.throws(() => loadContent(fixtureRoot), /comma.md.*q1.*3 个选项.*引号/);
+});
+
+test('a repaired question requires a new answer while preserving legacy answers and notes', async () => {
+  const filename = path.join(directory, 'legacy-answers.sqlite');
+  const lesson = loadContent().find((item) => item.id === 'bond-pricing-duration');
+  const oldStore = createStore(filename);
+  const note = '现金流、全价、应计利息、面值单位、费用和指定日期的付款能力。'.repeat(20);
+  for (const question of lesson.quiz.filter((entry) => entry.id !== 'q10-v2')) {
+    oldStore.update({ kind: 'answer', id: lesson.id, value: { questionId: question.id, choice: question.answer, correct: true } });
+  }
+  oldStore.update({ kind: 'answer', id: lesson.id, value: { questionId: 'q10', choice: 1, correct: true } });
+  oldStore.update({ kind: 'note', id: lesson.id, value: note });
+  oldStore.update({ kind: 'complete', id: lesson.id, value: true });
+  oldStore.close();
+  const revisedApp = createApp({ databasePath: filename });
+  const revisedServer = await new Promise((resolve) => {
+    const target = revisedApp.listen(0, '127.0.0.1', () => resolve(target));
+  });
+  const revisedOrigin = `http://127.0.0.1:${revisedServer.address().port}`;
+  const update = (body) => fetch(`${revisedOrigin}/api/state`, {
+    method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body),
+  });
+  try {
+    assert.equal((await update({ kind: 'complete', id: lesson.id, value: true })).status, 400);
+    assert.equal((await update({ kind: 'answer', id: lesson.id, value: { questionId: 'q10', choice: 1 } })).status, 400);
+    const answered = await update({ kind: 'answer', id: lesson.id, value: { questionId: 'q10-v2', choice: 1 } });
+    assert.equal(answered.status, 200);
+    const state = await answered.json();
+    assert.equal(state.notes.find((entry) => entry.id === lesson.id).body, note);
+    assert(state.answers.some((entry) => entry.questionId === 'q10' && entry.choice === 1));
+    assert(state.answers.some((entry) => entry.questionId === 'q10-v2' && entry.correct));
+    assert.equal((await update({ kind: 'complete', id: lesson.id, value: true })).status, 200);
+  } finally {
+    await new Promise((resolve) => revisedServer.close(resolve));
+    revisedApp.locals.close();
   }
 });
 
