@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark light">
+<title>AI 时代，究竟该怎样教育孩子？｜2026 深度家庭教育报告</title>
+<style>
+:root{
+  --bg:#07111f; --bg2:#0b1728; --card:#0e1c2f; --card2:#10243b;
+  --text:#eef5ff; --muted:#9fb0c6; --line:#203650;
+  --blue:#62a8ff; --cyan:#5eead4; --gold:#f6c85f; --rose:#ff8da1;
+  --green:#8be28b; --purple:#b6a2ff; --white:#fff;
+  --shadow:0 18px 50px rgba(0,0,0,.28);
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:
+    radial-gradient(circle at 80% 0%, rgba(98,168,255,.10), transparent 32%),
+    radial-gradient(circle at 15% 18%, rgba(94,234,212,.07), transparent 24%),
+    var(--bg);
+  color:var(--text);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont,
+  "Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Arial,sans-serif;
+  line-height:1.72;
+}
+a{color:var(--cyan);text-decoration:none}
+a:hover{text-decoration:underline}
+.shell{display:grid;grid-template-columns:290px minmax(0,1fr);max-width:1680px;margin:auto}
+aside{
+  position:sticky;top:0;height:100vh;padding:28px 22px;border-right:1px solid var(--line);
+  background:rgba(7,17,31,.92);backdrop-filter:blur(16px);overflow:auto
+}
+.brand{font-weight:800;font-size:20px;letter-spacing:.02em;margin-bottom:6px}
+.aside-sub{font-size:12px;color:var(--muted);margin-bottom:22px}
+nav a{display:block;padding:8px 10px;margin:3px 0;border-radius:10px;color:#b7c6d8;font-size:14px}
+nav a:hover{background:#11253b;color:white;text-decoration:none}
+main{min-width:0}
+.wrap{max-width:1260px;margin:0 auto;padding:0 52px 96px}
+.hero{padding:82px 0 46px;display:grid;grid-template-columns:1.14fr .86fr;gap:48px;align-items:center}
+.eyebrow{font-size:13px;letter-spacing:.16em;text-transform:uppercase;color:var(--cyan);font-weight:800}
+h1{font-size:clamp(44px,5vw,78px);line-height:1.05;margin:16px 0 18px;letter-spacing:-.035em}
+.lead{font-size:20px;color:#c8d4e4;max-width:760px}
+.thesis{
+  margin-top:28px;padding:20px 22px;border:1px solid #294b70;border-radius:18px;
+  background:linear-gradient(135deg,rgba(98,168,255,.13),rgba(94,234,212,.06));
+  font-size:18px
+}
+.thesis b{color:white}
+.hero-visual{position:relative}
+.orbit{
+  min-height:500px;border:1px solid var(--line);border-radius:32px;background:
+  radial-gradient(circle at 50% 50%,rgba(98,168,255,.18),transparent 33%),
+  linear-gradient(145deg,#0f2034,#091522);
+  box-shadow:var(--shadow);position:relative;overflow:hidden;padding:26px
+}
+.orbit .core{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:180px;height:180px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:22px;
+  background:linear-gradient(145deg,#203d60,#0c243c);border:1px solid #42678f;
+  font-weight:800;font-size:24px;box-shadow:0 0 80px rgba(98,168,255,.2)
+}
+.node{position:absolute;width:132px;padding:13px;border-radius:16px;border:1px solid #2a4665;background:#0c1c2d;text-align:center;font-size:14px}
+.n1{top:34px;left:50%;transform:translateX(-50%)} .n2{right:32px;top:150px}.n3{right:54px;bottom:56px}
+.n4{left:50%;bottom:24px;transform:translateX(-50%)} .n5{left:38px;bottom:95px}.n6{left:34px;top:140px}
+.node b{display:block;color:white}.node small{color:var(--muted)}
+section{padding:42px 0 12px;scroll-margin-top:20px}
+h2{font-size:34px;margin:0 0 12px;letter-spacing:-.02em}
+h3{font-size:23px;margin:28px 0 10px}
+p{margin:10px 0;color:#d4dfec}
+.muted{color:var(--muted)}
+.kicker{color:var(--gold);font-weight:700}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:20px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:20px 0}
+.card{background:linear-gradient(145deg,var(--card),#0a1828);border:1px solid var(--line);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow)}
+.card h3{margin-top:0}
+.num{font-size:46px;line-height:1;font-weight:850;letter-spacing:-.04em;color:white}
+.stat-label{font-size:13px;color:var(--muted);margin-top:8px}
+.rule{height:1px;background:var(--line);margin:34px 0}
+.quote{
+  border-left:4px solid var(--cyan);padding:18px 22px;background:rgba(94,234,212,.06);
+  border-radius:0 16px 16px 0;font-size:20px;color:#e7fbf7;margin:24px 0
+}
+.callout{padding:22px;border-radius:18px;border:1px solid #3a4d64;background:#0d1c2c;margin:20px 0}
+.callout strong{color:white}
+.good{border-color:#2e6a5c;background:rgba(94,234,212,.06)}
+.warn{border-color:#7b5b2c;background:rgba(246,200,95,.06)}
+.red{border-color:#70424d;background:rgba(255,141,161,.06)}
+.tag{display:inline-block;padding:4px 9px;border-radius:999px;border:1px solid #31506f;color:#bdd8f4;font-size:12px;margin:2px 4px 2px 0}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:18px;margin:20px 0}
+table{width:100%;border-collapse:collapse;min-width:760px;background:#0a1726}
+th,td{padding:15px 16px;text-align:left;border-bottom:1px solid #1f334c;vertical-align:top}
+th{background:#102238;color:white;font-size:13px}
+td{color:#d2deeb;font-size:14px}
+tr:last-child td{border-bottom:0}
+.pill{display:inline-block;padding:5px 9px;border-radius:999px;font-size:12px;font-weight:750}
+.pill-blue{background:rgba(98,168,255,.14);color:#a8d0ff}
+.pill-green{background:rgba(94,234,212,.12);color:#9ff5e7}
+.pill-gold{background:rgba(246,200,95,.12);color:#f8d98e}
+.pill-rose{background:rgba(255,141,161,.12);color:#ffc0cc}
+.stack{display:grid;gap:12px;margin:18px 0}
+.layer{border:1px solid var(--line);border-radius:16px;padding:16px 18px;background:#0b1929;display:grid;grid-template-columns:160px 1fr;gap:18px;align-items:center}
+.layer .label{font-weight:850;color:white}
+.bar{height:12px;background:#172b41;border-radius:999px;overflow:hidden;margin-top:8px}
+.bar span{display:block;height:100%;border-radius:999px;background:linear-gradient(90deg,var(--blue),var(--cyan))}
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--line);border:1px solid var(--line);border-radius:20px;overflow:hidden;margin:22px 0}
+.matrix>div{background:#0b1929;padding:24px;min-height:180px}
+.matrix h4{margin:0 0 8px;font-size:19px}
+.bigword{font-size:25px;font-weight:850;color:white}
+.timeline{position:relative;margin:24px 0;padding-left:22px}
+.timeline:before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:#2d4e70}
+.step{position:relative;margin:0 0 18px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:#0b1929}
+.step:before{content:"";position:absolute;left:-22px;top:28px;width:12px;height:12px;border-radius:50%;background:var(--cyan);box-shadow:0 0 0 5px #0a1c2d}
+.step h4{margin:0 0 5px}
+.donut{width:160px;height:160px;border-radius:50%;background:conic-gradient(var(--cyan) 0 69%,#193149 69% 100%);display:grid;place-items:center;margin:auto}
+.donut:after{content:"69%";display:grid;place-items:center;width:108px;height:108px;border-radius:50%;background:#0d1d2e;color:white;font-size:30px;font-weight:850}
+.metric-row{display:grid;grid-template-columns:170px 1fr 58px;gap:14px;align-items:center;margin:10px 0}
+.metric-row b{font-size:13px}.metric-row .pct{text-align:right;color:#bcd0e6;font-size:13px}
+.spark{height:10px;background:#152b42;border-radius:99px;overflow:hidden}.spark span{display:block;height:100%;background:linear-gradient(90deg,#5f96ff,#68e0ce)}
+.protocol{counter-reset:p}
+.protocol .pitem{counter-increment:p;position:relative;padding:18px 18px 18px 64px;border:1px solid var(--line);border-radius:16px;background:#0b1929;margin:12px 0}
+.protocol .pitem:before{content:counter(p);position:absolute;left:18px;top:18px;width:30px;height:30px;border-radius:50%;display:grid;place-items:center;background:#173250;color:#bfe1ff;font-weight:800}
+.checklist label{display:flex;gap:12px;align-items:flex-start;padding:10px 0;border-bottom:1px dashed #263b52}
+.checklist label:last-child{border:0}
+.checklist input{margin-top:6px;accent-color:#5eead4}
+details{border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:10px 0;background:#0b1929}
+summary{cursor:pointer;font-weight:750;color:white}
+.source{font-size:13px;color:#aab9ca}
+.sources li{margin:10px 0;color:#cbd7e6}
+.mini{font-size:12px;color:#8fa4bb}
+.footer{margin-top:54px;padding-top:24px;border-top:1px solid var(--line);color:#8fa4bb;font-size:13px}
+.action-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.action{padding:18px;border:1px solid var(--line);border-radius:16px;background:#0b1929}
+.action b{display:block;color:white;margin-bottom:6px}
+.print-btn{position:fixed;right:22px;bottom:22px;border:1px solid #36577b;background:#0f253c;color:white;padding:11px 16px;border-radius:999px;cursor:pointer;box-shadow:var(--shadow);z-index:30}
+@media(max-width:1150px){
+ .shell{grid-template-columns:1fr} aside{display:none}.wrap{padding:0 24px 72px}
+ .hero{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}.action-grid{grid-template-columns:1fr 1fr}
+}
+@media(max-width:720px){
+ h1{font-size:43px}.lead{font-size:17px}.hero{padding-top:48px}.grid,.grid3,.action-grid,.matrix{grid-template-columns:1fr}
+ .orbit{min-height:420px}.node{width:108px;font-size:12px}.core{transform:scale(.86)}
+ .layer{grid-template-columns:1fr}.metric-row{grid-template-columns:130px 1fr 44px}
+}
+@media print{
+ :root{--bg:#fff;--bg2:#fff;--card:#fff;--card2:#fff;--text:#152235;--muted:#566678;--line:#dce3ea}
+ body{background:white;color:#152235}.shell{display:block}.wrap{max-width:none;padding:0 22mm}
+ aside,.print-btn{display:none!important}.hero{padding-top:18mm}.card,.step,.layer,.callout,.matrix>div,details,.action{background:white;box-shadow:none}
+ p,td{color:#27384b} h1,h2,h3,h4,.label,.bigword{color:#102033!important}
+ .orbit{background:white;box-shadow:none}.orbit .core,.node{background:#f2f6fa;color:#102033}
+ a{color:#155da8}.quote{color:#123;border-left-color:#168c86;background:#f3fbfa}
+}
+</style>
+</head>
+<body>
+<button class="print-btn" onclick="window.print()">打印 / 保存 PDF</button>
+<div class="shell">
+<aside>
+  <div class="brand">AI × 教育孩子</div>
+  <div class="aside-sub">2026 深度家庭教育战略报告</div>
+  <nav>
+    <a href="#answer">01｜先给结论</a>
+    <a href="#knowledge">02｜知识还重要吗？</a>
+    <a href="#changed">03｜真正改变了什么</a>
+    <a href="#skills">04｜未来能力结构</a>
+    <a href="#ai-use">05｜怎样用 AI 才真的会学</a>
+    <a href="#age">06｜分年龄路线图</a>
+    <a href="#subjects">07｜到底该学什么</a>
+    <a href="#work">08｜大学与工作的未来</a>
+    <a href="#family">09｜家庭教育系统</a>
+    <a href="#week">10｜一周可执行模板</a>
+    <a href="#nz">11｜新西兰语境</a>
+    <a href="#mistakes">12｜最容易踩的坑</a>
+    <a href="#principles">13｜十条总原则</a>
+    <a href="#sources">14｜研究依据</a>
+  </nav>
+</aside>
+
+<main>
+<div class="wrap">
+
+<section class="hero">
+  <div>
+    <div class="eyebrow">AI AGE EDUCATION · 2026</div>
+    <h1>AI 时代，<br>究竟该怎样教育孩子？</h1>
+    <p class="lead">不是把孩子训练成“比 AI 记得更多的人”，也不是让孩子尽早把一切交给 AI。目标是培养一个<strong>有知识底座、能独立思考、会提出好问题、能与 AI 协作、能在真实世界创造价值的人</strong>。</p>
+    <div class="thesis">
+      <b>一句话答案：</b>未来教育不是从“知识”转向“能力”，而是从<strong>知识作为终点</strong>转向<strong>知识作为思考基础；AI 作为认知放大器，而不是认知替代品</strong>。
+    </div>
+    <p class="mini">研究更新截至：2026 年 9 月。报告兼顾全球证据与新西兰学校环境。</p>
+  </div>
+  <div class="hero-visual">
+    <div class="orbit" aria-label="AI时代学习能力结构图">
+      <div class="core">孩子自己的<br>大脑与人格</div>
+      <div class="node n1"><b>知识底座</b><small>知道什么</small></div>
+      <div class="node n2"><b>判断力</b><small>什么可信</small></div>
+      <div class="node n3"><b>创造力</b><small>能做什么新东西</small></div>
+      <div class="node n4"><b>AI 素养</b><small>如何放大自己</small></div>
+      <div class="node n5"><b>行动力</b><small>把想法变现实</small></div>
+      <div class="node n6"><b>人际能力</b><small>与人合作和负责</small></div>
+    </div>
+  </div>
+</section>
+
+<section id="answer">
+  <h2>01｜先解决你的焦虑：教育没有失效，但“教育的目标函数”变了</h2>
+  <p>你担心的逻辑是成立一半的：当信息检索、总结、翻译、写作、编程乃至部分推理都变得极其廉价，单纯“把答案储存在脑子里”的经济价值会下降。但另一半同样重要：<strong>没有脑内知识的人，往往也无法判断 AI 给出的答案是否荒谬、重要、遗漏或有偏差。</strong></p>
+
+  <div class="grid3">
+    <div class="card"><div class="num">80%+</div><div class="stat-label">美国高中与大学学生已使用 AI 完成学校相关任务（Stanford AI Index 2026）</div></div>
+    <div class="card"><div class="num">37%</div><div class="stat-label">OECD：2024 年已有 37% 初中阶段教师在工作中使用 AI</div></div>
+    <div class="card"><div class="num">≈40%</div><div class="stat-label">WEF：企业预计到 2030 年，接近四成核心技能会发生变化</div></div>
+  </div>
+
+  <div class="quote">真正危险的不是孩子“不会用 AI”，而是孩子在还没有形成自己的知识、判断和品味之前，就习惯让 AI 代替自己完成思考。</div>
+
+  <div class="grid">
+    <div class="card">
+      <h3>过去常见的教育逻辑</h3>
+      <p>学知识 → 记住 → 考出来 → 获得学历 → 进入相对稳定职业。</p>
+      <span class="tag">标准答案</span><span class="tag">知识稀缺</span><span class="tag">学历信号</span>
+    </div>
+    <div class="card">
+      <h3>正在形成的新逻辑</h3>
+      <p>建立知识模型 → 定义问题 → 调动人和 AI → 验证 → 创造成果 → 不断更新能力。</p>
+      <span class="tag">问题定义</span><span class="tag">判断与验证</span><span class="tag">作品与能力</span>
+    </div>
+  </div>
+</section>
+
+<section id="knowledge">
+  <h2>02｜“既然 AI 什么都知道，为什么还要学知识？”</h2>
+  <p class="kicker">这是整份报告最重要的问题。</p>
+  <p>答案是：<strong>因为搜索到的信息不等于你拥有的认知结构。</strong>当一个人理解物理、历史、数学、语言、社会制度或生物学时，他脑内形成的是概念之间的网络。新信息进入这个网络后，才能被快速解释、比较、质疑和迁移。</p>
+
+  <div class="matrix">
+    <div>
+      <div class="bigword">外部知识</div>
+      <p>手机、搜索、AI、数据库可以随时调取。适合查日期、定义、资料、例子、格式、初步解释。</p>
+    </div>
+    <div>
+      <div class="bigword">内部知识</div>
+      <p>已经进入长期记忆、能随时调用的概念与事实。它决定你能否看懂、推理、联想、发现错误。</p>
+    </div>
+    <div>
+      <div class="bigword">未来应少花时间</div>
+      <p>机械抄写、无意义重复、只为一次考试的碎片死记、能够由工具稳定完成且没有学习价值的格式劳动。</p>
+    </div>
+    <div>
+      <div class="bigword">未来仍要刻意练</div>
+      <p>阅读、词汇、基础算术、代数、概率、科学常识、历史框架、写作、逻辑、基础编程与领域核心概念。</p>
+    </div>
+  </div>
+
+  <div class="callout good">
+    <strong>更准确的说法不是“少记忆”，而是“更聪明地决定什么必须进入长期记忆”。</strong><br>
+    核心概念、基础事实、常用方法要熟到不必查；边缘细节、低频事实和资料性信息可以外包给工具。
+  </div>
+
+  <h3>一个简单判断法：什么值得背进脑子？</h3>
+  <div class="protocol">
+    <div class="pitem"><strong>高频：</strong>以后会反复调用吗？例如乘法、词汇、语法、常见历史框架。</div>
+    <div class="pitem"><strong>枢纽：</strong>它是不是理解更多知识的“节点”？例如比例、函数、因果、进化、供需。</div>
+    <div class="pitem"><strong>判断：</strong>没有它，我是否无法判断 AI 是否错了？</div>
+    <div class="pitem"><strong>创造：</strong>它是否能让我产生新的联想，而不是每次从零搜索？</div>
+  </div>
+</section>
+
+<section id="changed">
+  <h2>03｜AI 真正改变的，不是“要不要学习”，而是学习链条</h2>
+  <p>OECD 2026 的核心警告很直接：通用型 GenAI 往往能提升学生<strong>当下作业表现</strong>，但如果只是把认知任务外包给 AI，提升可能不会转化为<strong>真实学习</strong>；一旦考试中撤掉 AI，优势会消失甚至反转。相反，有明确教学设计的 AI tutor 能产生真正的学习收益。</p>
+
+  <div class="stack">
+    <div class="layer"><div class="label">1. 获取信息</div><div>过去很贵 → 现在极便宜<div class="bar"><span style="width:95%"></span></div></div></div>
+    <div class="layer"><div class="label">2. 理解概念</div><div>AI 可解释，但孩子必须亲自形成心智模型<div class="bar"><span style="width:78%"></span></div></div></div>
+    <div class="layer"><div class="label">3. 判断真伪</div><div>价值上升：需要知识、逻辑、证据意识<div class="bar"><span style="width:92%"></span></div></div></div>
+    <div class="layer"><div class="label">4. 定义问题</div><div>价值大幅上升：AI 常常“答得好”，但未必“问得对”<div class="bar"><span style="width:96%"></span></div></div></div>
+    <div class="layer"><div class="label">5. 创造与执行</div><div>价值大幅上升：把答案变成实验、产品、文章、方案、组织行动<div class="bar"><span style="width:100%"></span></div></div></div>
+  </div>
+
+  <p class="mini">上图是本报告的概念模型，不是统计量。条形长度表示相对重要性方向。</p>
+</section>
+
+<section id="skills">
+  <h2>04｜未来孩子最需要的“六层能力栈”</h2>
+
+  <div class="grid3">
+    <div class="card"><span class="pill pill-blue">第 1 层</span><h3>基础知识与基础技能</h3><p>阅读、写作、数学、科学、历史、语言。它们不是过时资产，而是判断和迁移的操作系统。</p></div>
+    <div class="card"><span class="pill pill-green">第 2 层</span><h3>思维能力</h3><p>逻辑、因果、概率、系统思维、模型化、证据判断、反事实推理。</p></div>
+    <div class="card"><span class="pill pill-gold">第 3 层</span><h3>AI 与数字素养</h3><p>理解 AI 能做什么、不能做什么；会提示、验证、迭代、自动化，也理解隐私与偏差。</p></div>
+    <div class="card"><span class="pill pill-rose">第 4 层</span><h3>创造与表达</h3><p>提出原创问题、写作、设计、讲故事、视觉表达、构建作品，而不是只消费内容。</p></div>
+    <div class="card"><span class="pill pill-blue">第 5 层</span><h3>人际与人格</h3><p>同理心、合作、冲突解决、责任感、耐挫力、领导、长期主义。这些不是“软技能”，而是复杂协作的硬条件。</p></div>
+    <div class="card"><span class="pill pill-green">第 6 层</span><h3>行动与真实世界</h3><p>把问题做成项目：访谈、实验、销售、组织、演示、服务社区、做产品。现实世界会提供 AI 无法伪造的反馈。</p></div>
+  </div>
+
+  <h3>劳动力市场给出的信号</h3>
+  <div class="card">
+    <div class="metric-row"><b>分析性思维</b><div class="spark"><span style="width:69%"></span></div><div class="pct">69%</div></div>
+    <div class="metric-row"><b>韧性/灵活性</b><div class="spark"><span style="width:67%"></span></div><div class="pct">67%</div></div>
+    <div class="metric-row"><b>领导与影响</b><div class="spark"><span style="width:61%"></span></div><div class="pct">61%</div></div>
+    <div class="metric-row"><b>创造性思维</b><div class="spark"><span style="width:57%"></span></div><div class="pct">57%</div></div>
+    <div class="metric-row"><b>技术素养</b><div class="spark"><span style="width:51%"></span></div><div class="pct">51%</div></div>
+    <div class="metric-row"><b>好奇/终身学习</b><div class="spark"><span style="width:50%"></span></div><div class="pct">50%</div></div>
+    <div class="metric-row"><b>AI 与大数据</b><div class="spark"><span style="width:45%"></span></div><div class="pct">45%</div></div>
+    <p class="mini">WEF Future of Jobs 2025：受访雇主认为这些技能属于当前核心技能的比例。它反映雇主调查，不代表每个职业都相同。</p>
+  </div>
+</section>
+
+<section id="ai-use">
+  <h2>05｜怎样用 AI，才是“增强学习”而不是“替代学习”？</h2>
+  <p>最实用的框架可以概括成：<strong>先自己 → 再 AI → 再质疑 → 再自己。</strong>OECD 2026 甚至建议学生应当具备三种状态：能在<strong>没有 GenAI</strong>时独立学习，也能使用<strong>教育型 GenAI</strong>，最后才是熟练使用<strong>通用 GenAI</strong>。</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>AI 当“导师”</h3>
+      <p>让 AI 提问、给提示、找薄弱点、生成针对性练习，而不是直接给最终答案。</p>
+      <div class="callout good"><strong>好提示：</strong>“不要直接告诉我答案。先问我一个问题，判断我卡在哪里，再给一个最小提示。”</div>
+    </div>
+    <div class="card">
+      <h3>AI 当“对手”</h3>
+      <p>让它反驳你的观点、找漏洞、提出反例。训练的是论证，而不是文案生成。</p>
+      <div class="callout good"><strong>好提示：</strong>“以下是我的观点。请从最强反方立场攻击它，并指出我需要补什么证据。”</div>
+    </div>
+    <div class="card">
+      <h3>AI 当“编辑”</h3>
+      <p>先自己写，再让 AI 指出结构、逻辑、语言问题；最后由孩子决定是否修改。</p>
+    </div>
+    <div class="card">
+      <h3>AI 当“工程工具”</h3>
+      <p>用它写代码、做数据、画图、搭原型、查资料——重点是孩子必须知道目标、验收标准和错误风险。</p>
+    </div>
+  </div>
+
+  <div class="callout red">
+    <strong>需要严格限制的模式：</strong>“把作业粘进去 → 复制答案 → 交上去”。这会把 AI 的生产力提升误认为孩子的学习提升。
+  </div>
+
+  <h3>家庭版「AI 学习四步法」</h3>
+  <div class="protocol">
+    <div class="pitem"><strong>独立尝试 10–20 分钟：</strong>先用自己的脑子生成第一版理解、解法或提纲。</div>
+    <div class="pitem"><strong>向 AI 求助但不交出方向盘：</strong>只请求提示、反例、解释、练习或反馈。</div>
+    <div class="pitem"><strong>交叉验证：</strong>问“依据是什么？”并用教材、原始资料、计算或实验进行核对。</div>
+    <div class="pitem"><strong>关闭 AI 复述：</strong>不看答案，用自己的话讲给父母/同学听，或重新做一道同类题。</div>
+  </div>
+
+  <div class="quote">判断是否真的学会的最好问题：<strong>“把 AI 关掉，你还能不能解释、重做、迁移到一个新情境？”</strong></div>
+</section>
+
+<section id="age">
+  <h2>06｜分年龄路线图：不同阶段，AI 的角色应该不同</h2>
+  <p>年龄不是绝对分界，成熟度与学校规则更重要。下面是一套稳健的默认顺序。</p>
+
+  <div class="timeline">
+    <div class="step">
+      <h4>5–8 岁｜先建“人类操作系统”</h4>
+      <p><strong>重点：</strong>大量阅读、口语表达、数感、书写、运动、游戏、手工、音乐、自然观察、与真人互动。</p>
+      <p><strong>AI：</strong>低比例、成人共同使用。可以让 AI 生成故事问题或解释家长难回答的问题，但不要让聊天机器人取代阅读、玩耍和人与人的对话。</p>
+    </div>
+    <div class="step">
+      <h4>9–12 岁｜知识骨架 + 学会验证</h4>
+      <p><strong>重点：</strong>流利阅读、扎实数学、科学与历史框架、写作；开始做项目。</p>
+      <p><strong>AI：</strong>作为“解释器”和“练习生成器”。开始教幻觉、来源、隐私、版权、偏差。工具本身的最低年龄与家长同意要求必须遵守。</p>
+    </div>
+    <div class="step">
+      <h4>13–15 岁｜思维训练 + AI 素养</h4>
+      <p><strong>重点：</strong>代数/统计、论证写作、实验设计、编程基础、媒体素养、公开表达、团队项目。</p>
+      <p><strong>AI：</strong>允许更系统使用，但作业必须保留“无 AI 区”：闭卷推理、口头解释、手写演算、独立写作。</p>
+    </div>
+    <div class="step">
+      <h4>16–18 岁｜领域深度 + 真实作品</h4>
+      <p><strong>重点：</strong>至少 1–2 个学科形成较深能力；做研究、作品集、实习、竞赛、社区项目或小型创业。</p>
+      <p><strong>AI：</strong>像专业人士一样使用：研究助理、代码助手、数据分析、模拟辩论、原型制作；同时保留独立能力测试。</p>
+    </div>
+    <div class="step">
+      <h4>大学阶段｜“专业 × AI × 人”的组合优势</h4>
+      <p><strong>重点：</strong>不要只学一个工具，而要建立一个可以持续十年以上的专业领域，并掌握如何让 AI 放大该领域。</p>
+      <p><strong>选择：</strong>优先看课程是否提供严谨基础、真实项目、导师反馈、实验/临床/工程/研究机会，以及能否建立可验证的作品与网络。</p>
+    </div>
+  </div>
+</section>
+
+<section id="subjects">
+  <h2>07｜到底该学什么、不该把什么当核心？</h2>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>领域</th><th>仍应扎实学习</th><th>AI 时代新增重点</th><th>可以降权的部分</th></tr></thead>
+      <tbody>
+        <tr><td><strong>语言 / 阅读</strong></td><td>阅读理解、词汇、语法、经典与非虚构阅读、写作</td><td>信息鉴别、论证、编辑、跨媒体表达</td><td>只追求格式套路、无意义抄写</td></tr>
+        <tr><td><strong>数学</strong></td><td>数感、代数、函数、几何、概率统计</td><td>建模、数据判断、估算、用代码验证</td><td>大量同质机械题而不理解</td></tr>
+        <tr><td><strong>科学</strong></td><td>核心概念、实验、证据、因果</td><td>数据分析、模拟、科研工具、AI 辅助探索</td><td>只背术语、不做实验与解释</td></tr>
+        <tr><td><strong>历史 / 社会</strong></td><td>时间线、制度、地理、文明与思想框架</td><td>来源批判、多视角、因果链、识别宣传与合成内容</td><td>孤立日期堆积</td></tr>
+        <tr><td><strong>编程 / 计算</strong></td><td>算法思维、数据结构基础、调试、系统理解</td><td>AI coding、自动化、API/工作流、数据素养</td><td>只背语法</td></tr>
+        <tr><td><strong>艺术 / 人文</strong></td><td>审美、历史、技法、创作、诠释</td><td>与生成工具共创、风格判断、版权与原创性</td><td>只学软件按钮</td></tr>
+        <tr><td><strong>体育 / 手工 / 实践</strong></td><td>运动、协调、耐力、制作、真实世界操作</td><td>团队协作、长期训练、身体与心理自我管理</td><td>不应被屏幕取代</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>不要把“会 prompt”当成一个独立的核心学科。</strong>模型界面会快速变化。真正耐用的能力是：清晰表达目标、拆分任务、提供上下文、定义评价标准、验证结果、迭代。
+  </div>
+</section>
+
+<section id="work">
+  <h2>08｜大学与工作的未来：不要赌“哪个职业永远安全”</h2>
+  <p>没人能可靠地告诉你 10–20 年后哪一个具体职业一定最好。更稳健的方法，是观察<strong>任务</strong>而不是职业名称：AI 往往先自动化一个岗位中的部分任务，再改变岗位结构。</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>越来越容易被 AI 压缩的任务</h3>
+      <p>标准化写作、基础搜索与整理、简单翻译、模板代码、基础分析、常规客服、低复杂度文档生产。</p>
+    </div>
+    <div class="card">
+      <h3>更可能长期需要人的任务</h3>
+      <p>对结果承担责任、复杂情境判断、面对面信任、领导团队、跨学科整合、现实世界操作、高不确定性决策、原创问题发现。</p>
+    </div>
+  </div>
+
+  <h3>大学选择：从“选一个专业”升级为“构建能力组合”</h3>
+  <div class="action-grid">
+    <div class="action"><b>一个硬领域</b>工程、科学、医学、经济、法律、设计、教育等，形成真正领域知识。</div>
+    <div class="action"><b>一种定量能力</b>数学、统计、数据、计算思维，至少掌握其中一条。</div>
+    <div class="action"><b>一种人类能力</b>写作、表达、谈判、领导、教学、同理与团队协作。</div>
+    <div class="action"><b>AI 放大层</b>把 AI、自动化和数字工具嵌入上述专业，而不是单独追逐某个短期工具。</div>
+  </div>
+
+  <div class="callout good">
+    <strong>未来一个很强的学生，不是“什么都自己做”，也不是“什么都让 AI 做”。</strong>而是知道哪些环节必须由自己掌握，哪些环节可以委托 AI，以及如何验收最终结果。
+  </div>
+</section>
+
+<section id="family">
+  <h2>09｜家庭真正能做什么：建立一个“学习生态”，而不是当第二个学校</h2>
+
+  <div class="grid3">
+    <div class="card"><h3>① 家里要有“长文本”</h3><p>纸质或电子都可以，但孩子要习惯连续阅读书、长文章和完整论证，而不是只刷碎片。</p></div>
+    <div class="card"><h3>② 经常讨论“为什么”</h3><p>饭桌上可以谈新闻、科学、商业、历史、生活决定。父母不需要有答案，重点是示范如何思考。</p></div>
+    <div class="card"><h3>③ 用真实项目代替额外练习册</h3><p>做网站、种植物、设计旅行预算、采访长辈、做小研究、修东西、拍纪录片、组织活动。</p></div>
+    <div class="card"><h3>④ 保护无聊和专注</h3><p>注意力是 AI 时代的稀缺资产。不要让每一分钟都被屏幕、短视频和即时反馈填满。</p></div>
+    <div class="card"><h3>⑤ 让孩子承担责任</h3><p>家务、时间管理、预算、承诺、团队任务。这些会建立“我能把事情做完”的自我效能。</p></div>
+    <div class="card"><h3>⑥ 让 AI 可见而非神秘</h3><p>一起看 AI 哪里答得好、哪里会错、为什么会“看起来很自信”。让孩子从消费者变成审查者。</p></div>
+  </div>
+
+  <h3>家庭 AI 协议：建议写在一张纸上</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>场景</th><th>默认规则</th><th>目的</th></tr></thead>
+      <tbody>
+        <tr><td>新概念第一次学习</td><td>先教材/老师/自己，再用 AI 补充解释</td><td>避免一开始就外包理解</td></tr>
+        <tr><td>数学与科学题</td><td>先独立做；AI 只能给提示；最后脱离 AI 重做</td><td>保留问题解决能力</td></tr>
+        <tr><td>作文</td><td>提纲和第一稿必须自己完成；AI 可当编辑</td><td>保护写作与思考</td></tr>
+        <tr><td>研究项目</td><td>AI 可辅助找线索，但关键事实必须追到可靠来源</td><td>训练证据意识</td></tr>
+        <tr><td>考试/学校评估</td><td>严格遵守学校规则</td><td>学术诚信与真实能力</td></tr>
+        <tr><td>个人信息</td><td>不上传敏感隐私、学校内部资料或他人信息</td><td>数据保护</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<section id="week">
+  <h2>10｜一个可以直接执行的“一周学习模板”</h2>
+  <p>不是额外增加大量课时，而是把原本零散的学习重构为更完整的循环。</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>基础训练｜4–5 次 × 30–45 分钟</h3>
+      <p>阅读、写作、数学、语言。尽量无 AI，保持基本功和流利度。</p>
+    </div>
+    <div class="card">
+      <h3>深度阅读｜3 次 × 30–60 分钟</h3>
+      <p>一本真正的书、一篇长文章、一章科学/历史材料。读后口头复述。</p>
+    </div>
+    <div class="card">
+      <h3>AI 导师｜2 次 × 30 分钟</h3>
+      <p>让 AI 找薄弱点、出题、苏格拉底式追问。目标不是完成作业，而是补洞。</p>
+    </div>
+    <div class="card">
+      <h3>真实项目｜1 次 × 2–3 小时</h3>
+      <p>做一个能给别人看的成果：文章、演讲、程序、实验、设计、研究、小生意或社区项目。</p>
+    </div>
+    <div class="card">
+      <h3>家庭讨论｜1 次 × 30 分钟</h3>
+      <p>选一个问题：AI 会不会取代医生？为什么国家会通胀？一项新闻可信吗？让孩子先说。</p>
+    </div>
+    <div class="card">
+      <h3>复盘｜周末 15 分钟</h3>
+      <p>本周学会了什么？哪里靠 AI 太多？有什么问题想继续追？下周做一个小调整。</p>
+    </div>
+  </div>
+</section>
+
+<section id="nz">
+  <h2>11｜放到新西兰教育环境里看</h2>
+  <p>新西兰教育部目前正在推进更明确、按年级序列化的 <strong>knowledge-rich curriculum</strong>（知识丰富课程）。这与“AI 时代不需要知识”的说法恰好相反：官方方向强调学生应逐步建立清晰的知识与技能序列，同时发展沟通、问题解决、创造力和自我管理。</p>
+
+  <div class="grid">
+    <div class="card">
+      <h3>课程方向</h3>
+      <p>2026 年学校已开始使用更新后的 Years 0–10 English、Mathematics 等内容；其他学习领域继续分阶段实施。教育部把“知识丰富、按序列学习”作为改革重点之一。</p>
+    </div>
+    <div class="card">
+      <h3>GenAI 与评估</h3>
+      <p>教育部要求学校对 AI 使用与真实性制定规则。NCEA 外部评估不允许使用 GenAI；校内评估也必须能证明学生提交的是其自身知识与技能的证据。</p>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <strong>对家长最实际的含义：</strong>不要在“学校重知识”和“AI 重能力”之间二选一。更好的做法是：让学校帮助孩子形成系统知识，家庭则增加真实项目、阅读、讨论、AI 素养和跨学科实践。
+  </div>
+</section>
+
+<section id="mistakes">
+  <h2>12｜AI 时代家庭教育最容易犯的八个错误</h2>
+  <div class="grid">
+    <div class="card"><h3>错误 1｜“反正都能查，不用记”</h3><p>结果是孩子缺少判断 AI 的知识底座。</p></div>
+    <div class="card"><h3>错误 2｜“越早用 AI 越领先”</h3><p>如果基础能力尚未形成，AI 可能先强化依赖，而不是能力。</p></div>
+    <div class="card"><h3>错误 3｜把高分等同于学会</h3><p>AI 可以提高作品质量，却不一定提高学生本人能力。</p></div>
+    <div class="card"><h3>错误 4｜只学“未来热门专业”</h3><p>热门会变。领域基础 + 定量能力 + 人际能力 + AI 才更稳健。</p></div>
+    <div class="card"><h3>错误 5｜只卷编程</h3><p>编程仍有价值，但“会敲代码”不是终点；问题建模、调试、系统理解更耐久。</p></div>
+    <div class="card"><h3>错误 6｜只追求效率</h3><p>学习需要一些困难。太顺滑有时意味着认知工作被工具拿走了。</p></div>
+    <div class="card"><h3>错误 7｜忽略人际与现实生活</h3><p>越多数字任务被自动化，信任、领导、合作与现实操作越可能成为差异化能力。</p></div>
+    <div class="card"><h3>错误 8｜父母自己恐慌式追新</h3><p>今天学某个 prompt，明天工具就换了。家庭要追“原则”，不是追每个产品更新。</p></div>
+  </div>
+</section>
+
+<section id="principles">
+  <h2>13｜如果你只记住十条原则</h2>
+  <div class="checklist card">
+    <label><input type="checkbox"><span><strong>1.</strong> 不要取消知识，而要重新决定哪些知识必须内化。</span></label>
+    <label><input type="checkbox"><span><strong>2.</strong> 基础阶段先培养阅读、数学、表达、注意力，再谈效率。</span></label>
+    <label><input type="checkbox"><span><strong>3.</strong> AI 首先应当是导师、对手、编辑，而不是代写者。</span></label>
+    <label><input type="checkbox"><span><strong>4.</strong> 每个重要能力都要定期做“无 AI 测试”。</span></label>
+    <label><input type="checkbox"><span><strong>5.</strong> 学会问问题，比学会写花哨 prompt 更重要。</span></label>
+    <label><input type="checkbox"><span><strong>6.</strong> 学会验证 AI，比学会让 AI 生成更多内容更重要。</span></label>
+    <label><input type="checkbox"><span><strong>7.</strong> 每年至少完成几个真实项目，留下可展示的作品。</span></label>
+    <label><input type="checkbox"><span><strong>8.</strong> 不押注某个“永远不会被 AI 取代”的职业，培养可迁移能力组合。</span></label>
+    <label><input type="checkbox"><span><strong>9.</strong> 保护孩子的现实关系、运动、睡眠、自然体验和长期专注。</span></label>
+    <label><input type="checkbox"><span><strong>10.</strong> 最终目标不是让孩子赢过 AI，而是让孩子拥有方向、判断、责任，并能驾驭工具去做有价值的事。</span></label>
+  </div>
+
+  <div class="quote">
+    你不需要预测 2040 年到底有什么工作。你真正要做的是让孩子成为这样的人：<strong>遇到一个从未学过的问题，能迅速学习；面对一个看似完美的答案，敢于怀疑；拥有强大的工具，仍然保有自己的判断；进入一个陌生环境，能与人合作并把事情做成。</strong>
+  </div>
+</section>
+
+<section id="sources">
+  <h2>14｜研究依据与延伸阅读</h2>
+  <p class="muted">以下来源以政府、国际组织、大学研究与同行评议论文为主。未来职业与 AI 能力变化仍存在不确定性，因此报告把“证据较强的学习原则”和“对未来的合理判断”分开处理。</p>
+  <ol class="sources">
+    <li><a href="https://www.oecd.org/en/publications/oecd-digital-education-outlook-2026_062a7394-en.html" target="_blank">OECD — Digital Education Outlook 2026: Exploring Effective Uses of Generative AI in Education</a>：通用 GenAI 的任务表现与真实学习之间的区别；强调有教学目的的使用。</li>
+    <li><a href="https://www.oecd.org/en/about/projects/future-of-education-and-skills-2030.html" target="_blank">OECD — Future of Education and Skills 2030/2040</a>：学生能动性、知识、技能、态度与价值的综合框架。</li>
+    <li><a href="https://www.unesco.org/en/articles/ai-competency-framework-students?hub=67098" target="_blank">UNESCO — AI Competency Framework for Students</a>：以人为本、AI 伦理、AI 技术与应用、AI 系统设计四维框架。</li>
+    <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/education" target="_blank">Stanford HAI — AI Index 2026, Education</a>：学生 AI 使用率、学校政策与 AI 教育趋势。</li>
+    <li><a href="https://hai.stanford.edu/ai-index/2026-ai-index-report/economy" target="_blank">Stanford HAI — AI Index 2026, Economy</a>：组织 AI 采用与劳动力市场初步变化。</li>
+    <li><a href="https://reports.weforum.org/docs/WEF_Future_of_Jobs_Report_2025.pdf" target="_blank">World Economic Forum — Future of Jobs Report 2025</a>：雇主技能需求与 2030 年变化预期。</li>
+    <li><a href="https://nap.nationalacademies.org/catalog/24783/how-people-learn-ii-learners-contexts-and-cultures" target="_blank">National Academies — How People Learn II</a>：知识、记忆、学习、迁移和学习环境的共识报告。</li>
+    <li><a href="https://www.nature.com/articles/s41598-025-97652-6" target="_blank">Scientific Reports (2025) — AI tutoring outperforms in-class active learning</a>：经教学设计的 AI tutor 随机对照研究。</li>
+    <li><a href="https://www.microsoft.com/en-us/research/publication/the-impact-of-generative-ai-on-critical-thinking-self-reported-reductions-in-cognitive-effort-and-confidence-effects-from-a-survey-of-knowledge-workers/" target="_blank">Microsoft Research / CHI 2025 — GenAI and Critical Thinking</a>：AI 信心、认知努力与批判性思考之间的关系。</li>
+    <li><a href="https://www.education.govt.nz/education-professionals/schools-year-0-13/digital-technology/generative-ai" target="_blank">New Zealand Ministry of Education — Generative AI</a>：学校 GenAI、隐私、真实性与评估指导。</li>
+    <li><a href="https://www.education.govt.nz/parents-and-caregivers/schools-year-0-13/parent-portal/changes-curriculum-and-why-they-matter" target="_blank">New Zealand Ministry of Education — Changes to the curriculum and why they matter</a>：knowledge-rich curriculum 与能力发展。</li>
+    <li><a href="https://www.unicef.org/innocenti/reports/skills-ai-world" target="_blank">UNICEF Innocenti — Skills for an AI World (2026)</a>：儿童如何看待 AI、所需技能与安全使用。</li>
+    <li><a href="https://www.unicef.org/digitaleducation/reports/unicef-digital-education-strategy-2025-2030" target="_blank">UNICEF — Digital Education Strategy 2025–2030</a>：以学习结果、儿童权利与公平为中心的数字/AI 教育策略。</li>
+  </ol>
+
+  <details>
+    <summary>证据强度说明</summary>
+    <p>关于阅读、数学、背景知识、练习与迁移等学习科学结论，已有较长期研究积累；关于 GenAI 对儿童认知和职业结构的长期影响，证据仍在形成。2025–2026 年的研究更适合回答“当前有哪些信号”和“怎样用 AI 更可能帮助学习”，不适合用来精确预测 10–20 年后的某个职业。</p>
+  </details>
+  <details>
+    <summary>为什么报告没有给出“未来十大最安全职业”</summary>
+    <p>因为这种列表通常把“职业”当成不可分割单位，而现实中 AI 改变的是职业内部的任务组合。一个职业可能同时包含容易自动化的任务和高度依赖人类判断、信任、责任与现实操作的任务。培养可迁移能力比押注一个职业名称更稳健。</p>
+  </details>
+</section>
+
+<div class="footer">
+  <strong>结论：</strong>AI 把“获得答案”的成本打得很低，因此未来教育更应该保护那些无法通过复制答案获得的东西：理解、判断、品味、人格、关系、责任、创造和行动。<br>
+  本报告用于家庭教育思考，不替代学校的课程要求、评估规则或个别儿童的专业教育建议。
+</div>
+
+</div>
+</main>
+</div>
+</body>
+</html>

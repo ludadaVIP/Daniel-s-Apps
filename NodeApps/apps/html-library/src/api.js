@@ -18,6 +18,10 @@ export function getDocument(id) {
   return request(`/api/documents/${encodeURIComponent(id)}`);
 }
 
+export function deleteDocument(id) {
+  return request(`/api/documents/${encodeURIComponent(id)}`, { method: 'DELETE' });
+}
+
 export function saveDocumentMetadata(id, metadata) {
   return request(`/api/documents/${encodeURIComponent(id)}/metadata`, {
     method: 'PATCH',

@@ -30,6 +30,20 @@ function openLocalLibraryDirectory(directory) {
   });
 }
 
+function moveFileToRecycleBin(target) {
+  if (process.platform !== 'win32') throw new HtmlLibraryError('当前系统暂不支持移入回收站。', 501);
+  const script = "$ErrorActionPreference = 'Stop'; Add-Type -AssemblyName Microsoft.VisualBasic; [Microsoft.VisualBasic.FileIO.FileSystem]::DeleteFile($env:VISUALSHELF_RECYCLE_TARGET, [Microsoft.VisualBasic.FileIO.UIOption]::OnlyErrorDialogs, [Microsoft.VisualBasic.FileIO.RecycleOption]::SendToRecycleBin)";
+  return new Promise((resolve, reject) => {
+    const child = spawn('powershell.exe', ['-NoProfile', '-NonInteractive', '-Command', script], {
+      env: { ...process.env, VISUALSHELF_RECYCLE_TARGET: target },
+      stdio: 'ignore',
+      windowsHide: true,
+    });
+    child.once('error', reject);
+    child.once('close', (code) => code === 0 ? resolve() : reject(new Error('Recycle Bin operation failed.')));
+  });
+}
+
 class HtmlLibraryError extends Error {
   constructor(message, status = 400) {
     super(message);
@@ -45,7 +59,7 @@ const documentId = (relativePath) => Buffer.from(relativePath, 'utf8').toString(
 
 function safeRelativePath(value) {
   const normalized = String(value || '').replace(/\\/g, '/').replace(/^\/+/, '');
-  if (!normalized || normalized.includes('\0') || !normalized.toLowerCase().endsWith('.html')) return null;
+  if (!normalized || normalized.includes('\0') || !/\.html?$/i.test(normalized)) return null;
   const parts = normalized.split('/');
   if (parts.some((part) => !part || part === '.' || part === '..' || part.startsWith('.'))) return null;
   return parts.join('/');
@@ -123,7 +137,7 @@ function contentSummary(raw) {
 }
 
 function defaultTitle(relativePath) {
-  return path.basename(relativePath, '.html').replace(/[-_]+/g, ' ').trim() || '未命名文档';
+  return path.parse(relativePath).name.replace(/[-_]+/g, ' ').trim() || '未命名文档';
 }
 
 function htmlCharsetFromPreview(bytes) {
@@ -498,6 +512,7 @@ async function openVerifiedHtmlFile(context, relativePath) {
 
 async function listHtmlFiles(context) {
   const paths = [];
+  const directories = [];
   let warningCount = 0;
   const visit = async (relativeDirectory = '') => {
     let directory;
@@ -512,8 +527,9 @@ async function listHtmlFiles(context) {
       if (entry.name.startsWith('.')) continue;
       const relativePath = relativeDirectory ? `${relativeDirectory}/${entry.name}` : entry.name;
       if (entry.isDirectory()) {
+        directories.push(relativePath);
         await visit(relativePath);
-      } else if (entry.isFile() && path.extname(entry.name).toLowerCase() === '.html') {
+      } else if (entry.isFile() && /\.html?$/i.test(entry.name)) {
         paths.push(relativePath);
       } else if (entry.isSymbolicLink()) {
         // Count rejected links without reporting their name or target.
@@ -522,7 +538,7 @@ async function listHtmlFiles(context) {
     }
   };
   await visit();
-  return { paths, warningCount };
+  return { paths, directories, warningCount };
 }
 
 async function readPreviewAndFingerprint(handle, initialStat) {
@@ -632,7 +648,7 @@ function reconcileCatalog(catalog, sources) {
 
 async function scanLibrary(libraryDirectory, catalog, { reconcile = true } = {}) {
   const context = await resolveLibraryContext(libraryDirectory);
-  if (!context) return { items: [], warningCount: 0, catalogChanged: false };
+  if (!context) return { items: [], directories: [], warningCount: 0, catalogChanged: false };
   const discovered = await listHtmlFiles(context);
   const results = await mapWithConcurrency(discovered.paths, (relativePath) => scanSource(context, relativePath));
   const sources = results.flatMap((result) => result.value ? [result.value] : []);
@@ -642,33 +658,36 @@ async function scanLibrary(libraryDirectory, catalog, { reconcile = true } = {})
   // metadata: discovering a document must not add fingerprints, repair
   // renamed paths, or cause a catalog write as a side effect of opening it.
   const catalogChanged = reconcile ? reconcileCatalog(catalog, sources) : false;
-  const items = sources.map((source) => {
-    const stored = sanitizedCatalogRecord(catalog.documents[source.relativePath]);
-    const inferredTitle = firstTagText(source.preview, 'title') || firstTagText(source.preview, 'h1') || defaultTitle(source.relativePath);
-    const inferredSummary = metaDescription(source.preview) || contentSummary(source.preview) || inferredTitle;
-    return {
-      id: documentId(source.relativePath),
-      relativePath: source.relativePath,
-      folder: path.posix.dirname(source.relativePath) === '.' ? '' : path.posix.dirname(source.relativePath),
-      // These internal fields make a metadata-only transaction independent of
-      // a full scan, while keeping the public response free of source internals.
-      inferredTitle,
-      inferredSummary,
-      title: stored.title || inferredTitle,
-      summary: stored.summary || inferredSummary,
-      tags: stored.tags || [],
-      bytes: source.bytes,
-      updatedAt: source.updatedAt,
-      ...source.featureFlags,
-      favorite: stored.favorite || false,
-      readingStatus: stored.readingStatus || 'unread',
-      coverTone: stored.coverTone || 'azure',
-      lastOpenedAt: stored.lastOpenedAt || null,
-      fingerprint: source.fingerprint,
-      sourceVersion: source.sourceVersion,
-    };
-  });
-  return { items: items.sort((left, right) => left.title.localeCompare(right.title, 'zh-Hans-CN')), warningCount, catalogChanged };
+  const items = sources.map((source) => itemFromSource(source, catalog));
+  return { items: items.sort((left, right) => left.title.localeCompare(right.title, 'zh-Hans-CN')), directories: discovered.directories, warningCount, catalogChanged };
+}
+
+function itemFromSource(source, catalog) {
+  const stored = sanitizedCatalogRecord(catalog.documents[source.relativePath]);
+  const current = stored.fingerprint && stored.fingerprint !== source.fingerprint ? {} : stored;
+  const inferredTitle = firstTagText(source.preview, 'title') || firstTagText(source.preview, 'h1') || defaultTitle(source.relativePath);
+  const inferredSummary = metaDescription(source.preview) || contentSummary(source.preview) || inferredTitle;
+  return {
+    id: documentId(source.relativePath),
+    relativePath: source.relativePath,
+    folder: path.posix.dirname(source.relativePath) === '.' ? '' : path.posix.dirname(source.relativePath),
+    // These internal fields make a metadata-only transaction independent of
+    // a full scan, while keeping the public response free of source internals.
+    inferredTitle,
+    inferredSummary,
+    title: current.title || inferredTitle,
+    summary: current.summary || inferredSummary,
+    tags: current.tags || [],
+    bytes: source.bytes,
+    updatedAt: source.updatedAt,
+    ...source.featureFlags,
+    favorite: current.favorite || false,
+    readingStatus: current.readingStatus || 'unread',
+    coverTone: current.coverTone || 'azure',
+    lastOpenedAt: current.lastOpenedAt || null,
+    fingerprint: source.fingerprint,
+    sourceVersion: source.sourceVersion,
+  };
 }
 
 function publicItem(item) {
@@ -730,7 +749,7 @@ function envelope(index) {
     if (item.hasInteractiveContent) summary.hasInteractiveContent += 1;
   }
   const values = (map) => [...map.entries()].map(([name, count]) => ({ name, count })).sort((left, right) => left.name.localeCompare(right.name, 'zh-Hans-CN'));
-  return { items: items.map(publicItem), facets: { folders: values(folders), tags: values(tags) }, summary };
+  return { items: items.map(publicItem), directories: index.directories || [], facets: { folders: values(folders), tags: values(tags) }, summary };
 }
 
 function metadataPatch(payload, current) {
@@ -798,6 +817,7 @@ export function createHtmlLibraryApp({
   catalogWriter = writeCatalog,
   // A narrow seam for tests; production opens the verified fixed library root.
   openLibraryDirectory = openLocalLibraryDirectory,
+  recycleFile = moveFileToRecycleBin,
 } = {}) {
   const library = path.resolve(libraryDirectory);
   const catalogFile = path.resolve(catalogPath);
@@ -899,8 +919,10 @@ export function createHtmlLibraryApp({
     }
     if (!currentItem) throw new HtmlLibraryError('文档不存在或尚未同步。', 404);
 
+    const existingRecord = proposedCatalog.documents[currentItem.relativePath];
+    const safeRecord = existingRecord?.fingerprint && existingRecord.fingerprint !== currentItem.fingerprint ? {} : existingRecord;
     proposedCatalog.documents[currentItem.relativePath] = {
-      ...metadataPatch(patch, proposedCatalog.documents[currentItem.relativePath]),
+      ...metadataPatch(patch, safeRecord),
       fingerprint: currentItem.fingerprint,
     };
     proposedCatalog.version = 2;
@@ -910,6 +932,46 @@ export function createHtmlLibraryApp({
     return updatedItem;
   });
   const recordOpened = async (item) => persistMetadata(item, { lastOpenedAt: new Date().toISOString() });
+
+  const recycleDocument = (id) => enqueueCatalogMutation(async () => {
+    const relativePath = decodedDocumentId(id);
+    if (!relativePath) throw new HtmlLibraryError('文档标识无效。');
+    const currentIndex = indexCache || await rebuildIndex();
+    const item = itemForId(currentIndex, id, relativePath);
+    if (!item) throw new HtmlLibraryError('文档不存在或尚未同步。', 404);
+    const context = await resolveLibraryContext(library);
+    if (!context) throw new HtmlLibraryError('HTML 书库文件夹不存在。', 404);
+    let verified;
+    try { verified = await openVerifiedHtmlFile(context, item.relativePath); }
+    catch (error) {
+      if (error instanceof UnsafeLibrarySourceError || error.code === 'ENOENT') throw new HtmlLibraryError('文件已变化，请同步后重试。', 409);
+      throw error;
+    }
+    try {
+      if (!sameFileVersion(item.sourceVersion, verified.stat)) throw new HtmlLibraryError('文件已变化，请同步后重试。', 409);
+    } finally { await verified.handle.close(); }
+
+    const target = filePathFor(context, item.relativePath);
+    try { await recycleFile(target); }
+    catch { throw new HtmlLibraryError('无法将文件移入回收站。', 500); }
+    try {
+      await fs.lstat(target);
+      throw new HtmlLibraryError('文件仍在原位置，未完成删除。', 500);
+    } catch (error) {
+      if (error.code !== 'ENOENT') throw error;
+    }
+
+    const proposedCatalog = copyCatalog(await catalog());
+    const hadMetadata = own(proposedCatalog.documents, item.relativePath);
+    delete proposedCatalog.documents[item.relativePath];
+    indexCache = { ...currentIndex, items: currentIndex.items.filter((entry) => entry.id !== id) };
+    catalogCache = proposedCatalog;
+    if (hadMetadata) {
+      try { await catalogWriter(catalogFile, proposedCatalog); }
+      catch (error) { console.error('[HtmlLibrary] Recycle succeeded but catalog cleanup failed:', error); }
+    }
+    return { deleted: true, id };
+  });
 
   app.disable('x-powered-by');
   app.use(express.json({ limit: '64kb', strict: true }));
@@ -927,6 +989,10 @@ export function createHtmlLibraryApp({
   });
   app.post('/api/documents/:id/open', async (request, response, next) => {
     try { response.json(publicItem(await recordOpened(await knownDocument(request.params.id)))); }
+    catch (error) { next(error); }
+  });
+  app.delete('/api/documents/:id', async (request, response, next) => {
+    try { response.json(await recycleDocument(request.params.id)); }
     catch (error) { next(error); }
   });
   app.post('/api/library/open', async (_request, response, next) => {

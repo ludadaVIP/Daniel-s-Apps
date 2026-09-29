@@ -1,10 +1,11 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import {
-  Archive, ArrowUpRight, BookOpen, Check, ChevronDown, CircleAlert, Cloud,
+  Archive, ArrowUpRight, BookOpen, Check, ChevronDown, ChevronRight, CircleAlert, Cloud,
   Code2, FileText, Folder, FolderOpen, Grid2X2, Heart, LayoutList,
-  LoaderCircle, MonitorUp, RefreshCw, Search, SlidersHorizontal, Tag, X,
+  LoaderCircle, MonitorUp, RefreshCw, Search, SlidersHorizontal, Tag, Trash2, X,
 } from 'lucide-react';
-import { documentUrl, getDocument, listDocuments, openLibraryFolder, recordDocumentOpen, saveDocumentMetadata } from './api.js';
+import { deleteDocument, documentUrl, getDocument, listDocuments, openLibraryFolder, recordDocumentOpen, saveDocumentMetadata } from './api.js';
+import { belongsToDirectory, buildDirectoryTree } from './directory-tree.js';
 
 const STATUS = {
   unread: { label: '待阅读', color: '#718096' },
@@ -20,12 +21,7 @@ const SORTS = [
 ];
 const LAYOUT_VALUES = new Set(['grid', 'list']);
 const SORT_VALUES = new Set(SORTS.map(([value]) => value));
-const FILTER_VALUE_PATTERN = /^(?:all|favorites|status:(?:unread|reading|finished)|folder:[^\u0000-\u001f]{1,160}|tag:[^\u0000-\u001f]{1,36})$/;
 const EMPTY_DRAFT = { documentId: null, title: '', summary: '', tags: '' };
-
-function isStoredFilter(value) {
-  return typeof value === 'string' && FILTER_VALUE_PATTERN.test(value);
-}
 
 function stored(key, fallback, isValid) {
   try {
@@ -42,13 +38,6 @@ function useStoredState(key, fallback, isValid) {
     return isValid(candidate) ? candidate : fallback;
   });
   return [value, setValidatedValue];
-}
-
-function formatDate(value) {
-  if (!value) return '尚未打开';
-  const date = new Date(value);
-  if (Number.isNaN(date.getTime())) return '—';
-  return new Intl.DateTimeFormat('zh-CN', { year: 'numeric', month: 'short', day: 'numeric' }).format(date);
 }
 
 function formatSize(bytes = 0) {
@@ -78,7 +67,7 @@ function collectFacets(items) {
     }
     return [...entries.entries()].map(([name, total]) => ({ name, count: total })).sort((a, b) => a.name.localeCompare(b.name, 'zh-Hans-CN'));
   };
-  return { folders: count(items, 'folder', folderName), tags: count(items, 'tags') };
+  return { tags: count(items, 'tags') };
 }
 
 function mergeItem(items, item) { return items.map((candidate) => candidate.id === item.id ? { ...candidate, ...item } : candidate); }
@@ -123,6 +112,9 @@ function EmptyState({ title, body, action }) {
 
 export default function VisualShelf() {
   const [items, setItems] = useState([]);
+  const [directories, setDirectories] = useState([]);
+  const [selectedFolder, setSelectedFolder] = useState(null);
+  const [expandedFolders, setExpandedFolders] = useState(() => new Set());
   const [loading, setLoading] = useState(true);
   const [syncing, setSyncing] = useState(false);
   const [loadError, setLoadError] = useState('');
@@ -130,11 +122,12 @@ export default function VisualShelf() {
   const [selectedId, setSelectedId] = useState(null);
   const [detailLoadingById, setDetailLoadingById] = useState({});
   const [detailErrorsById, setDetailErrorsById] = useState({});
-  const [filter, setFilter] = useStoredState('visualshelf.view', 'all', isStoredFilter);
+  const [filter, setFilter] = useState('all');
   const [layout, setLayout] = useStoredState('visualshelf.layout', 'grid', (value) => LAYOUT_VALUES.has(value));
   const [sort, setSort] = useStoredState('visualshelf.sort', 'recent', (value) => SORT_VALUES.has(value));
   const [search, setSearch] = useState('');
   const [openingFolder, setOpeningFolder] = useState(false);
+  const [deletingId, setDeletingId] = useState(null);
   const [draftsById, setDraftsById] = useState({});
   const [savingById, setSavingById] = useState({});
   const itemsRef = useRef([]);
@@ -147,6 +140,7 @@ export default function VisualShelf() {
 
   const stats = useMemo(() => summarize(items), [items]);
   const facets = useMemo(() => collectFacets(items), [items]);
+  const directoryTree = useMemo(() => buildDirectoryTree(directories, items), [directories, items]);
   const selected = useMemo(() => items.find((item) => item.id === selectedId) || null, [items, selectedId]);
   const draft = selected ? draftsById[selected.id] || draftFromItem(selected) : EMPTY_DRAFT;
   const detailLoading = Boolean(selectedId && detailLoadingById[selectedId]);
@@ -154,7 +148,6 @@ export default function VisualShelf() {
   const saving = Boolean(selectedId && savingById[selectedId]);
   const validFilters = useMemo(() => new Set([
     'all', 'favorites', ...Object.keys(STATUS).map((status) => `status:${status}`),
-    ...facets.folders.map(({ name }) => `folder:${name}`),
     ...facets.tags.map(({ name }) => `tag:${name}`),
   ]), [facets]);
 
@@ -227,6 +220,8 @@ export default function VisualShelf() {
       // draft after the user has changed documents. Per-document generations
       // also protect an optimistic metadata update made while syncing.
       if (syncGenerationRef.current !== requestGeneration || selectionGenerationRef.current !== selectionGeneration) return;
+      setDirectories(payload.directories || []);
+      setSelectedFolder((current) => current && !(payload.directories || []).includes(current) ? null : current);
       replaceItems((current) => {
         const currentById = new Map(current.map((item) => [item.id, item]));
         return received.map((item) => documentGeneration(item.id) !== (sourceGenerations.get(item.id) || 0)
@@ -246,6 +241,17 @@ export default function VisualShelf() {
       }
     }
   };
+
+  const selectFolder = (node) => {
+    setSelectedFolder(node.path);
+    setFilter('all');
+    if (node.children.length) setExpandedFolders((current) => {
+      const next = new Set(current);
+      if (next.has(node.path)) next.delete(node.path); else next.add(node.path);
+      return next;
+    });
+  };
+  const clearFolder = () => { setSelectedFolder(null); setExpandedFolders(new Set()); setFilter('all'); };
 
   useEffect(() => { sync({ initial: true }); }, []);
   useEffect(() => {
@@ -283,8 +289,8 @@ export default function VisualShelf() {
     return () => { cancelled = true; };
   }, [selectedId]);
   useEffect(() => {
-    if (!validFilters.has(filter)) setFilter('all');
-  }, [filter, validFilters]);
+    if (!loading && !validFilters.has(filter)) setFilter('all');
+  }, [filter, validFilters, loading]);
   useEffect(() => {
     if (!notice) return undefined;
     const timer = setTimeout(() => setNotice(''), 3500);
@@ -371,14 +377,36 @@ export default function VisualShelf() {
     }
   };
 
+  const deleteSelected = async () => {
+    const item = selected;
+    if (!item || deletingId) return;
+    if (!window.confirm(`将「${item.title}」移入系统回收站？\n\n文件可以从回收站恢复。`)) return;
+    setDeletingId(item.id);
+    setDocumentError(item.id, '');
+    try {
+      await deleteDocument(item.id);
+      nextDocumentGeneration(item.id);
+      const nextVisible = filtered.find((candidate) => candidate.id !== item.id) || null;
+      replaceItems((current) => current.filter((candidate) => candidate.id !== item.id));
+      if (selectedIdRef.current === item.id) selectDocument(nextVisible);
+      setDraftsById((current) => {
+        const { [item.id]: _deleted, ...rest } = current;
+        return rest;
+      });
+      setNotice('文件已移入回收站');
+    } catch (error) {
+      setDocumentError(item.id, error.message || '无法将文件移入回收站。');
+    } finally { setDeletingId(null); }
+  };
+
   const filtered = useMemo(() => {
     const needle = search.trim().toLocaleLowerCase('zh-CN');
     return items.filter((item) => {
-      const matchesFilter = filter === 'all' ? true
+      const matchesFilter = selectedFolder ? belongsToDirectory(item.folder, selectedFolder)
+        : filter === 'all' ? true
         : filter === 'favorites' ? item.favorite
           : filter.startsWith('status:') ? item.readingStatus === filter.slice(7)
-            : filter.startsWith('folder:') ? folderName(item.folder) === filter.slice(7)
-              : filter.startsWith('tag:') ? item.tags.includes(filter.slice(4)) : true;
+            : filter.startsWith('tag:') ? item.tags.includes(filter.slice(4)) : true;
       const haystack = `${item.title} ${item.summary} ${item.relativePath} ${(item.tags || []).join(' ')}`.toLocaleLowerCase('zh-CN');
       return matchesFilter && (!needle || haystack.includes(needle));
     }).sort((left, right) => {
@@ -387,7 +415,7 @@ export default function VisualShelf() {
       if (sort === 'size') return right.bytes - left.bytes || left.title.localeCompare(right.title, 'zh-Hans-CN');
       return left.title.localeCompare(right.title, 'zh-Hans-CN');
     });
-  }, [items, filter, search, sort]);
+  }, [items, selectedFolder, filter, search, sort]);
 
   if (loading) return <main className="visual-shelf vs-loading"><LoaderCircle size={28} /><p>正在整理你的 HTML 书架…</p></main>;
   if (loadError && !items.length) return <main className="visual-shelf vs-loading"><EmptyState title="书架尚未打开" body={loadError} action={<button className="vs-primary" onClick={() => sync({ initial: true })}><RefreshCw size={16} />重新读取</button>} /></main>;
@@ -413,23 +441,26 @@ export default function VisualShelf() {
 
     <div className="vs-workspace">
       <aside className="vs-rail" aria-label="书库筛选">
+        <section className="vs-directory-section"><p className="vs-rail-label">文件夹</p>
+          <nav className="vs-directory-nav" aria-label="文件夹导航">
+            <button className="vs-directory-root" onClick={clearFolder} title="显示全部 HTML 文档"><Folder size={15} /><span>根目录</span></button>
+            {directoryTree.map((node) => <DirectoryNode key={node.path} node={node} depth={1} selectedFolder={selectedFolder} expandedFolders={expandedFolders} onSelect={selectFolder} />)}
+          </nav>
+        </section>
         <section><p className="vs-rail-label">浏览</p>
-          <RailButton active={filter === 'all'} onClick={() => setFilter('all')} icon={Archive} label="全部文档" count={stats.total} />
-          <RailButton active={filter === 'favorites'} onClick={() => setFilter('favorites')} icon={Heart} label="收藏" count={stats.favorites} />
+          <RailButton active={filter === 'all' && !selectedFolder} onClick={clearFolder} icon={Archive} label="全部文档" count={stats.total} />
+          <RailButton active={filter === 'favorites' && !selectedFolder} onClick={() => { setSelectedFolder(null); setFilter('favorites'); }} icon={Heart} label="收藏" count={stats.favorites} />
         </section>
         <section><p className="vs-rail-label">阅读状态</p>
-          {Object.entries(STATUS).map(([value, state]) => <RailButton key={value} active={filter === `status:${value}`} onClick={() => setFilter(`status:${value}`)} label={state.label} count={stats[value]} dot={state.color} />)}
+          {Object.entries(STATUS).map(([value, state]) => <RailButton key={value} active={filter === `status:${value}` && !selectedFolder} onClick={() => { setSelectedFolder(null); setFilter(`status:${value}`); }} label={state.label} count={stats[value]} dot={state.color} />)}
         </section>
-        {facets.folders.length > 0 && <section><p className="vs-rail-label">文件夹</p>
-          {facets.folders.map(({ name, count }) => <RailButton key={name} active={filter === `folder:${name}`} onClick={() => setFilter(`folder:${name}`)} icon={Folder} label={name} count={count} />)}
-        </section>}
         {facets.tags.length > 0 && <section><p className="vs-rail-label">标签</p><div className="vs-rail-tags">
-          {facets.tags.map(({ name, count }) => <button key={name} className={filter === `tag:${name}` ? 'active' : ''} onClick={() => setFilter(`tag:${name}`)}><span>#{name}</span><small>{count}</small></button>)}
+          {facets.tags.map(({ name, count }) => <button key={name} className={filter === `tag:${name}` && !selectedFolder ? 'active' : ''} onClick={() => { setSelectedFolder(null); setFilter(`tag:${name}`); }}><span>#{name}</span><small>{count}</small></button>)}
         </div></section>}
       </aside>
 
       <section className="vs-catalog" aria-label="HTML 文档目录">
-        {filtered.length ? <div className={`vs-document-grid ${layout === 'list' ? 'is-list' : ''}`}>{filtered.map((item) => <DocumentCard key={item.id} item={item} selected={selectedId === item.id} onSelect={() => selectDocument(item)} onFavorite={() => persist(item, { favorite: !item.favorite }, item.favorite ? '已取消收藏' : '已加入收藏')} onOpen={() => openInNewTab(item)} />)}</div> : <EmptyState title="没有符合条件的文档" body={search ? '换一个搜索词，或清除筛选后再试。' : '这个分类还没有图文资料。'} action={filter !== 'all' || search ? <button className="vs-secondary" onClick={() => { setFilter('all'); setSearch(''); }}>清除筛选</button> : null} />}
+        {filtered.length ? <div className={`vs-document-grid ${layout === 'list' ? 'is-list' : ''}`}>{filtered.map((item) => <DocumentCard key={item.id} item={item} selected={selectedId === item.id} onSelect={() => selectDocument(item)} onFavorite={() => persist(item, { favorite: !item.favorite }, item.favorite ? '已取消收藏' : '已加入收藏')} onOpen={() => openInNewTab(item)} />)}</div> : <EmptyState title="没有符合条件的文档" body={search ? '换一个搜索词，或清除筛选后再试。' : '这个分类还没有 HTML 文档。'} action={selectedFolder || filter !== 'all' || search ? <button className="vs-secondary" onClick={() => { clearFolder(); setSearch(''); }}>显示全部文档</button> : null} />}
       </section>
 
       <aside className="vs-inspector" aria-label="书库检索与文档资料">
@@ -437,7 +468,7 @@ export default function VisualShelf() {
           <label className="vs-search"><Search size={16} /><input value={search} onChange={(event) => setSearch(event.target.value)} placeholder="搜索标题、说明、标签…" aria-label="搜索文档" />{search && <button onClick={() => setSearch('')} aria-label="清除搜索"><X size={14} /></button>}</label>
           <div className="vs-browse-options"><label className="vs-sort"><SlidersHorizontal size={15} /><span className="sr-only">排序方式</span><select value={sort} onChange={(event) => setSort(event.target.value)}>{SORTS.map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select><ChevronDown size={14} /></label><div className="vs-layout-toggle" aria-label="目录布局"><button className={layout === 'grid' ? 'active' : ''} onClick={() => setLayout('grid')} aria-label="卡片布局" aria-pressed={layout === 'grid'}><Grid2X2 size={17} /></button><button className={layout === 'list' ? 'active' : ''} onClick={() => setLayout('list')} aria-label="列表布局" aria-pressed={layout === 'list'}><LayoutList size={17} /></button></div></div>
         </div>
-        {selected ? <Inspector item={selected} draft={draft} onDraftChange={changeDraft} saving={saving} loading={detailLoading} error={detailError} clearError={() => setDocumentError(selected.id, '')} onSave={saveEditor} onOpenFolder={openFolder} openingFolder={openingFolder} onOpen={() => openInNewTab(selected)} onFavorite={() => persist(selected, { favorite: !selected.favorite }, selected.favorite ? '已取消收藏' : '已加入收藏')} onStatus={(readingStatus) => persist(selected, { readingStatus }, '阅读状态已更新')} onTone={(coverTone) => persist(selected, { coverTone }, '封面颜色已更新')} /> : <EmptyState title="选一篇资料" body="从目录中选择一个 HTML 文件，即可编辑资料或开始阅读。" />}
+        {selected ? <Inspector item={selected} draft={draft} onDraftChange={changeDraft} saving={saving} loading={detailLoading} deleting={deletingId === selected.id} error={detailError} clearError={() => setDocumentError(selected.id, '')} onSave={saveEditor} onDelete={deleteSelected} onOpenFolder={openFolder} openingFolder={openingFolder} onOpen={() => openInNewTab(selected)} onFavorite={() => persist(selected, { favorite: !selected.favorite }, selected.favorite ? '已取消收藏' : '已加入收藏')} onStatus={(readingStatus) => persist(selected, { readingStatus }, '阅读状态已更新')} onTone={(coverTone) => persist(selected, { coverTone }, '封面颜色已更新')} /> : <EmptyState title="选一篇资料" body="从目录中选择一个 HTML 文件，即可编辑资料或开始阅读。" />}
       </aside>
     </div>
     {notice && <div className="vs-toast" role="status"><Check size={16} />{notice}</div>}
@@ -446,6 +477,17 @@ export default function VisualShelf() {
 
 function RailButton({ active, onClick, icon: Icon, label, count, dot }) {
   return <button className={`vs-rail-button ${active ? 'active' : ''}`} onClick={onClick} aria-current={active ? 'page' : undefined}>{dot ? <i style={{ background: dot }} /> : Icon ? <Icon size={15} /> : null}<span>{label}</span><small>{count}</small></button>;
+}
+
+function DirectoryNode({ node, depth, selectedFolder, expandedFolders, onSelect }) {
+  const active = selectedFolder === node.path;
+  const expanded = expandedFolders.has(node.path);
+  const hasChildren = node.children.length > 0;
+  const Icon = expanded ? FolderOpen : Folder;
+  return <div className="vs-directory-node">
+    <button className={`vs-directory-button ${active ? 'active' : ''}`} style={{ paddingLeft: 7 + Math.min(depth, 4) * 9 }} onClick={() => onSelect(node)} aria-current={active ? 'page' : undefined} aria-expanded={hasChildren ? expanded : undefined} aria-label={node.path} title={node.path}><Icon size={15} /><span>{node.name}</span><small>{node.count}</small>{hasChildren && <ChevronRight className={expanded ? 'is-expanded' : ''} size={13} />}</button>
+    {hasChildren && expanded && node.children.map((child) => <DirectoryNode key={child.path} node={child} depth={depth + 1} selectedFolder={selectedFolder} expandedFolders={expandedFolders} onSelect={onSelect} />)}
+  </div>;
 }
 
 function DocumentCard({ item, selected, onSelect, onFavorite, onOpen }) {
@@ -459,15 +501,15 @@ function DocumentCard({ item, selected, onSelect, onFavorite, onOpen }) {
   </article>;
 }
 
-function Inspector({ item, draft, onDraftChange, saving, loading, error, clearError, onSave, onOpenFolder, openingFolder, onOpen, onFavorite, onStatus, onTone }) {
+function Inspector({ item, draft, onDraftChange, saving, loading, deleting, error, clearError, onSave, onDelete, onOpenFolder, openingFolder, onOpen, onFavorite, onStatus, onTone }) {
   return <div className="vs-inspector-content">
-    <div className="vs-inspector-top"><p className="vs-eyebrow">文档资料 {loading && <LoaderCircle size={13} className="is-spinning" />}</p><button className={item.favorite ? 'is-favorite' : ''} onClick={onFavorite} aria-label={item.favorite ? '取消收藏' : '收藏'}><Heart size={17} fill={item.favorite ? 'currentColor' : 'none'} /></button></div>
+    <div className="vs-inspector-top"><p className="vs-eyebrow">文档资料 {loading && <LoaderCircle size={13} className="is-spinning" />}</p><div className="vs-inspector-top-actions"><button className={item.favorite ? 'is-favorite' : ''} onClick={onFavorite} aria-label={item.favorite ? '取消收藏' : '收藏'}><Heart size={17} fill={item.favorite ? 'currentColor' : 'none'} /></button><button className="vs-delete" onClick={onDelete} disabled={deleting} aria-label="移入回收站" title="移入回收站">{deleting ? <LoaderCircle size={16} className="is-spinning" /> : <Trash2 size={16} />}</button></div></div>
     <Cover item={item} compact />
     <div className="vs-inspector-actions"><button className="vs-folder-action" onClick={onOpenFolder} disabled={openingFolder} title="在文件管理器中打开 HTML 书库根目录"><FolderOpen size={16} />{openingFolder ? '打开中' : '打开文件夹'}</button><button className="vs-primary" onClick={onOpen} title="在新的 Chrome 标签页中阅读"><BookOpen size={16} />阅读内容</button></div>
-    <section className="vs-editor"><label>标题<input value={draft.title} maxLength="160" onChange={(event) => onDraftChange({ title: event.target.value })} /></label><label>简介<textarea value={draft.summary} maxLength="500" rows="4" onChange={(event) => onDraftChange({ summary: event.target.value })} placeholder="写一两句帮助未来的你识别这篇资料。" /></label><label>标签 <span>用逗号分隔</span><input value={draft.tags} onChange={(event) => onDraftChange({ tags: event.target.value })} placeholder="投资, 科普" /></label><button className="vs-save" onClick={onSave} disabled={saving}>{saving && <LoaderCircle size={15} className="is-spinning" />}{saving ? '保存中' : '保存资料'}</button></section>
+    <section className="vs-editor"><label>标题<input value={draft.title} maxLength="160" onChange={(event) => onDraftChange({ title: event.target.value })} /></label><label>简介<textarea value={draft.summary} maxLength="500" rows="2" onChange={(event) => onDraftChange({ summary: event.target.value })} placeholder="写一两句帮助未来的你识别这篇资料。" /></label><label>标签 <span>用逗号分隔</span><input value={draft.tags} onChange={(event) => onDraftChange({ tags: event.target.value })} placeholder="投资, 科普" /></label><button className="vs-save" onClick={onSave} disabled={saving}>{saving && <LoaderCircle size={15} className="is-spinning" />}{saving ? '保存中' : '保存资料'}</button></section>
     {error && <div className="vs-detail-error"><CircleAlert size={15} /><span>{error}</span><button onClick={clearError} aria-label="关闭错误"><X size={14} /></button></div>}
     <section className="vs-field-set"><p>阅读状态</p><div className="vs-status-options">{Object.entries(STATUS).map(([value, state]) => <button key={value} className={item.readingStatus === value ? 'active' : ''} onClick={() => onStatus(value)}><i style={{ background: state.color }} />{state.label}</button>)}</div></section>
     <section className="vs-field-set"><p>封面色标</p><div className="vs-tone-options">{COVER_TONES.map((tone) => <button key={tone} className={`vs-tone-${tone} ${item.coverTone === tone ? 'active' : ''}`} onClick={() => onTone(tone)} aria-label={`选择${tone}色`}><i /></button>)}</div></section>
-    <section className="vs-source-info"><p><FileText size={14} />来源</p><code>{item.relativePath}</code><dl><div><dt>更新</dt><dd>{formatDate(item.updatedAt)}</dd></div><div><dt>大小</dt><dd>{formatSize(item.bytes)}</dd></div><div><dt>上次阅读</dt><dd>{formatDate(item.lastOpenedAt)}</dd></div></dl><div className="vs-signal-list"><Signals item={item} /></div></section>
+    <section className="vs-source-info"><p><FileText size={14} />来源</p><code>{item.relativePath}</code><dl><div><dt>大小</dt><dd>{formatSize(item.bytes)}</dd></div></dl></section>
   </div>;
 }

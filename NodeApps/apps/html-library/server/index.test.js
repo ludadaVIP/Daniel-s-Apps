@@ -45,6 +45,40 @@ test('扫描 HTML、提取回退内容与安全特征', async () => {
   });
 });
 
+test('递归扫描多级目录，仅列出 HTML 与 HTM 文件', async () => {
+  await withTemporaryLibrary(async ({ libraryDirectory, catalogPath }) => {
+    const deepDirectory = path.join(libraryDirectory, 'markets', 'weekly', '2026', 'Q3');
+    await mkdir(deepDirectory, { recursive: true });
+    await mkdir(path.join(libraryDirectory, 'notes-only'), { recursive: true });
+    await writeFile(path.join(libraryDirectory, 'root.html'), '<title>根目录报告</title>');
+    await writeFile(path.join(deepDirectory, 'report.HTML'), '<title>深层报告</title>');
+    await writeFile(path.join(deepDirectory, 'appendix.htm'), '<title>附录</title>');
+    await writeFile(path.join(deepDirectory, 'data.csv'), 'date,value\n2026-09-28,1');
+    await writeFile(path.join(deepDirectory, 'preview.png'), 'not an image');
+    await writeFile(path.join(libraryDirectory, 'notes-only', 'notes.md'), '# 仅供源文件使用');
+
+    const app = createHtmlLibraryApp({ libraryDirectory, catalogPath });
+    const payload = await (await request(app, '/api/documents?refresh=1')).json();
+    assert.deepEqual(payload.items.map(({ relativePath }) => relativePath).sort(), [
+      'markets/weekly/2026/Q3/appendix.htm',
+      'markets/weekly/2026/Q3/report.HTML',
+      'root.html',
+    ]);
+    assert.equal(payload.summary.total, 3);
+    assert.deepEqual(payload.directories.sort(), [
+      'markets', 'markets/weekly', 'markets/weekly/2026', 'markets/weekly/2026/Q3', 'nested', 'notes-only',
+    ]);
+    assert.deepEqual(payload.items.filter(({ folder }) => folder).map(({ folder }) => folder), [
+      'markets/weekly/2026/Q3', 'markets/weekly/2026/Q3',
+    ]);
+    const deepDocument = payload.items.find(({ relativePath }) => relativePath.endsWith('appendix.htm'));
+    const reading = await request(app, `/document/${deepDocument.id}`);
+    assert.equal(reading.status, 200);
+    assert.match(await reading.text(), /附录/);
+    assert.ok(payload.facets.folders.every(({ name }) => name !== 'notes-only'));
+  });
+});
+
 test('无效或越界标识无法读取 API 或阅读页', async () => {
   await withTemporaryLibrary(async ({ libraryDirectory, catalogPath }) => {
     await writeFile(path.join(libraryDirectory, 'safe.html'), '<title>Safe</title>');
@@ -71,6 +105,65 @@ test('打开文件夹只会请求已验证的书库根目录', async () => {
     assert.equal(response.status, 200);
     assert.deepEqual(await response.json(), { opened: true });
     assert.equal(openedDirectory, await realpath(libraryDirectory));
+  });
+});
+
+test('删除仅移动已索引 HTML，清除目录资料并立即更新列表', async () => {
+  await withTemporaryLibrary(async ({ root, libraryDirectory, catalogPath }) => {
+    const source = path.join(libraryDirectory, 'nested', 'report.html');
+    const recycled = path.join(root, 'recycled.html');
+    await writeFile(source, '<title>待删除报告</title>');
+    const canonicalSource = await realpath(source);
+    let movedPath;
+    const app = createHtmlLibraryApp({
+      libraryDirectory,
+      catalogPath,
+      recycleFile: async (target) => { movedPath = target; await rename(target, recycled); },
+    });
+    const initial = await (await request(app, '/api/documents?refresh=1')).json();
+    const item = initial.items[0];
+    await request(app, `/api/documents/${item.id}/metadata`, {
+      method: 'PATCH', headers: { 'content-type': 'application/json' }, body: JSON.stringify({ favorite: true }),
+    });
+
+    const deleted = await request(app, `/api/documents/${item.id}`, { method: 'DELETE' });
+    assert.equal(deleted.status, 200);
+    assert.deepEqual(await deleted.json(), { deleted: true, id: item.id });
+    assert.equal(movedPath, canonicalSource);
+    assert.match(await readFile(recycled, 'utf8'), /待删除报告/);
+    await assert.rejects(readFile(source), { code: 'ENOENT' });
+    assert.equal((await (await request(app, '/api/documents')).json()).summary.total, 0);
+    assert.equal(JSON.parse(await readFile(catalogPath, 'utf8')).documents['nested/report.html'], undefined);
+    assert.equal((await request(app, `/api/documents/${item.id}`, { method: 'DELETE' })).status, 404);
+  });
+});
+
+test('回收站失败或源文件变化时保留原文件和列表', async () => {
+  await withTemporaryLibrary(async ({ libraryDirectory, catalogPath }) => {
+    const source = path.join(libraryDirectory, 'nested', 'report.html');
+    await writeFile(source, '<title>原始报告</title>');
+    let attempts = 0;
+    const app = createHtmlLibraryApp({
+      libraryDirectory,
+      catalogPath,
+      recycleFile: async () => { attempts += 1; throw new Error('Recycle unavailable'); },
+    });
+    const item = (await (await request(app, '/api/documents?refresh=1')).json()).items[0];
+    assert.equal((await request(app, `/api/documents/${item.id}`, { method: 'DELETE' })).status, 500);
+    assert.equal(attempts, 1);
+    assert.match(await readFile(source, 'utf8'), /原始报告/);
+    assert.equal((await (await request(app, '/api/documents')).json()).summary.total, 1);
+
+    const unknownId = Buffer.from('nested/not-indexed.html').toString('base64url');
+    assert.equal((await request(app, `/api/documents/${unknownId}`, { method: 'DELETE' })).status, 404);
+    const traversalId = Buffer.from('../outside.html').toString('base64url');
+    assert.equal((await request(app, `/api/documents/${traversalId}`, { method: 'DELETE' })).status, 400);
+    assert.equal(attempts, 1);
+
+    await writeFile(source, '<title>已替换的另一份报告，内容不同</title>');
+    assert.equal((await request(app, `/api/documents/${item.id}`, { method: 'DELETE' })).status, 409);
+    assert.equal(attempts, 1);
+    assert.match(await readFile(source, 'utf8'), /已替换/);
   });
 });
 

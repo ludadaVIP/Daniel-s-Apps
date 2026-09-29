@@ -1,5 +1,5 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
-import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, Check, Columns3, Compass, GraduationCap, GripVertical, House, Landmark, MessageCircleQuestion, Network, NotebookPen, Save } from 'lucide-react';
+import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, Check, Columns3, Compass, GraduationCap, GripVertical, House, Landmark, LibraryBig, MessageCircleQuestion, Network, NotebookPen, Save } from 'lucide-react';
 
 const APPS = [
   {
@@ -37,6 +37,15 @@ const APPS = [
     Icon: GraduationCap,
     color: '#3b7674',
     load: () => import('../apps/InvestMaster/entry.jsx'),
+  },
+  {
+    id: 'philosophy',
+    name: 'Philosophy',
+    kind: 'THINK · LEARN',
+    description: '循着课程阅读、提问与论证，系统学习哲学。',
+    Icon: LibraryBig,
+    color: '#426b70',
+    load: () => import('../apps/Philosophy/entry.jsx'),
   },
   {
     id: 'industry',
@@ -133,6 +142,7 @@ const APP_STYLE_LOADERS = {
   'belief-qa': () => import('../apps/BeliefQandA/src/styles.css?inline'),
   investment: () => import('../apps/investment/src/styles.css?inline'),
   'invest-master': () => import('../apps/InvestMaster/src/styles.css?inline'),
+  philosophy: () => import('../apps/Philosophy/src/styles.css?inline'),
   industry: () => import('../apps/industry/src/styles.css?inline'),
   insight: () => import('../apps/insight/src/styles.css?inline'),
   notebook: () => import('../apps/notebook/src/styles.css?inline'),
@@ -147,6 +157,7 @@ const API_BACKED_APPS = new Set([
   'belief-qa',
   'investment',
   'invest-master',
+  'philosophy',
   'insight',
   'notebook',
   'html-library',

@@ -97,6 +97,10 @@ const appMounts = {
     const { createApp } = await import('../apps/InvestMaster/server/app.js');
     return createApp();
   }),
+  philosophy: lazyMount(async () => {
+    const { createApp } = await import('../apps/Philosophy/server/app.js');
+    return createApp();
+  }),
 };
 
 app.get('/api/apps/:appId/health', async (request, response, next) => {
