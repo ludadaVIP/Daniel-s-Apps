@@ -1,0 +1,593 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>托马斯·阿奎那：哲学与神学全景</title>
+<meta name="description" content="一文讲透托马斯·阿奎那（Thomas Aquinas）的哲学与神学：形而上学、五路、信仰与理性、自然法、德性、恩典、基督论、圣礼及其影响。" />
+<style>
+:root{
+  --bg:#0f1115; --panel:#171a20; --panel2:#1d2129; --text:#ece7dc;
+  --muted:#b6b0a5; --line:#343943; --gold:#d8b46b; --blue:#8bb8d9;
+  --green:#9bc3a3; --red:#c98d83; --max:1460px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0; background:
+  radial-gradient(circle at 80% 5%, rgba(216,180,107,.10), transparent 24rem),
+  linear-gradient(180deg,#0c0e12 0%,#11141a 100%);
+  color:var(--text); font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","Times New Roman",serif;
+  line-height:1.82; font-size:18px;
+}
+a{color:#b9d8ef;text-decoration:none}
+a:hover{text-decoration:underline}
+#progress{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--gold),#f1dca5);width:0;z-index:99}
+.wrapper{max-width:var(--max);margin:auto;padding:0 26px}
+.hero{
+  min-height:82vh; display:grid; grid-template-columns:1.25fr .75fr; gap:48px;
+  align-items:center; padding:70px 0 46px;
+}
+.eyebrow{font-family:system-ui,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--gold);font-size:.78rem}
+h1{font-size:clamp(3rem,6.5vw,6.8rem);line-height:.96;margin:.18em 0 .25em;font-weight:750;letter-spacing:-.035em}
+.subtitle{font-size:1.22rem;color:#d5cec0;max-width:850px}
+.hero-note{border-left:3px solid var(--gold);padding-left:18px;color:var(--muted);margin-top:26px}
+.hero figure{margin:0;background:var(--panel);border:1px solid var(--line);border-radius:18px;overflow:hidden;box-shadow:0 20px 70px rgba(0,0,0,.35)}
+.hero img{display:block;width:100%;max-height:680px;object-fit:cover;object-position:center top}
+figcaption{padding:10px 14px 14px;color:#aaa398;font-size:.78rem;font-family:system-ui,sans-serif}
+.grid{display:grid;gap:20px}
+.cards4{grid-template-columns:repeat(4,1fr);margin:0 0 60px}
+.card{background:linear-gradient(180deg,var(--panel2),var(--panel));border:1px solid var(--line);border-radius:14px;padding:20px}
+.card .k{color:var(--gold);font-size:1.6rem;font-weight:800}
+.card .t{font-family:system-ui,sans-serif;font-weight:700;margin:4px 0}
+.card .d{color:var(--muted);font-size:.9rem}
+.layout{display:grid;grid-template-columns:280px minmax(0,1fr);gap:42px;align-items:start}
+.toc{
+  position:sticky;top:26px;background:rgba(23,26,32,.92);backdrop-filter:blur(12px);
+  border:1px solid var(--line);border-radius:14px;padding:16px;max-height:92vh;overflow:auto
+}
+.toc h3{font-family:system-ui,sans-serif;font-size:.9rem;margin:0 0 10px;color:var(--gold)}
+.toc a{display:block;color:#c8c2b6;padding:5px 8px;border-radius:7px;font-size:.84rem;font-family:system-ui,sans-serif}
+.toc a:hover{background:#242932;color:white;text-decoration:none}
+main{min-width:0}
+section{padding:28px 0 48px;border-bottom:1px solid #252a32}
+h2{font-size:2.35rem;line-height:1.15;margin:.25em 0 .6em;letter-spacing:-.02em}
+h3{font-size:1.42rem;margin:1.45em 0 .45em;color:#efe4ca}
+h4{font-size:1.05rem;color:var(--gold);margin:1.2em 0 .35em;font-family:system-ui,sans-serif}
+.lead{font-size:1.18rem;color:#ddd6ca}
+.callout{border:1px solid #49402f;background:rgba(216,180,107,.075);padding:20px 22px;border-radius:12px;margin:24px 0}
+.callout strong{color:#f2d494}
+.note{border-left:4px solid var(--blue);background:rgba(139,184,217,.07);padding:14px 18px;margin:22px 0;color:#d8dfe4}
+.warn{border-left:4px solid var(--red);background:rgba(201,141,131,.07);padding:14px 18px;margin:22px 0}
+.quote{font-size:1.2rem;font-style:italic;color:#e7dcc3;border-left:2px solid var(--gold);padding:8px 0 8px 20px;margin:26px 0}
+.small{font-size:.86rem;color:var(--muted)}
+.term{color:#f0d59a;font-weight:700}
+.latin{font-style:italic;color:#c7d7df}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:.93rem;background:var(--panel)}
+th,td{border:1px solid var(--line);padding:12px 13px;vertical-align:top}
+th{background:#222731;color:#f0ddaf;text-align:left;font-family:system-ui,sans-serif}
+tr:nth-child(even) td{background:#191d23}
+.cols2{display:grid;grid-template-columns:1fr 1fr;gap:22px}
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.flow{display:flex;gap:10px;align-items:stretch;flex-wrap:wrap;margin:22px 0}
+.flow .box{flex:1 1 170px;border:1px solid var(--line);border-radius:12px;padding:15px;background:#181c22}
+.flow .arrow{display:flex;align-items:center;color:var(--gold);font-size:1.6rem}
+.timeline{border-left:2px solid #544a36;padding-left:26px;margin:26px 0}
+.event{position:relative;margin:0 0 24px}
+.event:before{content:"";position:absolute;left:-33px;top:.55em;width:12px;height:12px;background:var(--gold);border-radius:50%;box-shadow:0 0 0 5px #181b20}
+.event b{color:#efd69d}
+.diagram{
+  background:linear-gradient(135deg,#161b22,#111419);border:1px solid var(--line);
+  border-radius:16px;padding:24px;margin:26px 0
+}
+.pyramid{display:flex;flex-direction:column;align-items:center;gap:8px}
+.level{padding:12px 16px;border:1px solid #49515d;background:#1c222b;text-align:center;border-radius:9px}
+.level:nth-child(1){width:42%;border-color:#806d43}
+.level:nth-child(2){width:58%}
+.level:nth-child(3){width:74%}
+.level:nth-child(4){width:90%}
+.img-wide{margin:26px 0;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:#111}
+.img-wide img{width:100%;display:block;max-height:720px;object-fit:cover}
+.badges{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 22px}
+.badge{font-family:system-ui,sans-serif;font-size:.78rem;border:1px solid #4a5260;border-radius:999px;padding:5px 10px;color:#d7dbe0;background:#171c23}
+.method{counter-reset:step}
+.method .m{counter-increment:step;display:grid;grid-template-columns:54px 1fr;gap:15px;margin:16px 0}
+.method .m:before{content:counter(step);width:42px;height:42px;border-radius:50%;display:grid;place-items:center;background:#242a33;border:1px solid #5d6571;color:var(--gold);font-weight:800}
+hr{border:0;border-top:1px solid var(--line);margin:34px 0}
+ul,ol{padding-left:1.25em}
+li{margin:.35em 0}
+footer{padding:60px 0 90px;color:#a8a195}
+.sources li{margin:.6em 0}
+.kicker{font-family:system-ui,sans-serif;color:var(--gold);font-size:.82rem;text-transform:uppercase;letter-spacing:.12em}
+@media(max-width:1050px){
+  .hero{grid-template-columns:1fr}.hero figure{max-width:620px}
+  .layout{grid-template-columns:1fr}.toc{position:relative;top:auto;max-height:none}
+  .cards4{grid-template-columns:1fr 1fr}.cols3{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  body{font-size:16px}.wrapper{padding:0 16px}.cards4,.cols2{grid-template-columns:1fr}
+  h2{font-size:1.9rem}.hero{min-height:auto;padding-top:48px}
+  .flow .arrow{display:none}
+}
+@media print{
+  body{background:white;color:#111}.toc,#progress{display:none}.layout{display:block}
+  .card,.diagram,table{background:white;color:#111}.wrapper{max-width:none}
+  a{color:#111;text-decoration:underline}
+}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<div class="wrapper">
+<header class="hero" id="top">
+  <div>
+    <div class="eyebrow">Thomas Aquinas · ca. 1225–1274</div>
+    <h1>托马斯·阿奎那</h1>
+    <p class="subtitle">一套把亚里士多德哲学、基督教启示、形而上学、伦理学与救恩论组织成“统一宇宙”的思想体系。</p>
+    <p class="hero-note">理解阿奎那的关键，不是先背“五路论证”，而是先看见他的总问题：<b>如果一切真理最终来自同一位上帝，那么自然、理性、道德、恩典与启示，应当如何既保持各自层次，又组成一个不自相矛盾的整体？</b></p>
+    <div class="badges">
+      <span class="badge">经院哲学 Scholasticism</span>
+      <span class="badge">亚里士多德主义 Aristotelianism</span>
+      <span class="badge">存在与本质</span>
+      <span class="badge">自然神学</span>
+      <span class="badge">自然法</span>
+      <span class="badge">德性伦理</span>
+      <span class="badge">恩典与自由</span>
+      <span class="badge">基督论与圣礼</span>
+    </div>
+  </div>
+  <figure>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Angelico%2C_san_tommaso_d%27aquino_alla_fondazione_cini.jpg" alt="Fra Angelico 所绘托马斯·阿奎那">
+    <figcaption>Fra Angelico《St Thomas Aquinas》，约 1438–1440。Wikimedia Commons，公共领域。</figcaption>
+  </figure>
+</header>
+
+<div class="grid cards4">
+  <div class="card"><div class="k">①</div><div class="t">实在具有秩序</div><div class="d">世界不是杂乱事实的堆积，而是由潜能—实现、形式—质料、因果与目的构成的有层次实在。</div></div>
+  <div class="card"><div class="k">②</div><div class="t">理性真实但有限</div><div class="d">理性能够认识自然与某些关于上帝的真理，却不能凭自己推出三位一体、道成肉身等启示奥秘。</div></div>
+  <div class="card"><div class="k">③</div><div class="t">恩典成全自然</div><div class="d">恩典不是把自然废掉，而是医治、提升并带领自然达到它凭自身能力不能达到的超性终点。</div></div>
+  <div class="card"><div class="k">④</div><div class="t">终点统摄体系</div><div class="d">知识、伦理、政治、德性、律法与救恩，最终都围绕“受造者如何趋向善与最终幸福”展开。</div></div>
+</div>
+
+<div class="layout">
+<nav class="toc">
+  <h3>目录</h3>
+  <a href="#why">01 为什么阿奎那重要</a>
+  <a href="#life">02 生平与时代</a>
+  <a href="#method">03 经院方法</a>
+  <a href="#architecture">04 整个体系的建筑图</a>
+  <a href="#faith-reason">05 信仰与理性</a>
+  <a href="#metaphysics">06 形而上学</a>
+  <a href="#god">07 上帝与“五路”</a>
+  <a href="#language">08 我们如何谈论上帝</a>
+  <a href="#creation">09 创造、时间与护理</a>
+  <a href="#human">10 人论与知识论</a>
+  <a href="#freedom">11 自由意志与行动</a>
+  <a href="#ethics">12 幸福、德性与自然法</a>
+  <a href="#grace">13 恩典与救恩</a>
+  <a href="#trinity">14 三位一体与基督论</a>
+  <a href="#sacraments">15 圣礼与圣餐</a>
+  <a href="#politics">16 政治与法律</a>
+  <a href="#protestant">17 从新教传统阅读</a>
+  <a href="#critique">18 现代批评与回应</a>
+  <a href="#legacy">19 影响与遗产</a>
+  <a href="#reading">20 阅读路线</a>
+  <a href="#glossary">21 核心术语表</a>
+  <a href="#sources">22 资料来源</a>
+</nav>
+
+<main>
+<section id="why">
+  <div class="kicker">01 · Significance</div>
+  <h2>为什么阿奎那如此重要？</h2>
+  <p class="lead">阿奎那的地位不只来自“他写了很多神学”，而来自他完成了一次文明级的知识重组：他把当时重新进入拉丁西方的亚里士多德哲学，与奥古斯丁传统、教父神学、圣经诠释和大学经院方法整合起来。</p>
+  <p>十三世纪西欧面临一个知识震荡：亚里士多德的大量著作经由希腊文与阿拉伯文传统重新被阅读。它们提供了成熟的逻辑学、自然哲学、心理学、伦理学和形而上学，却也带来紧张——例如世界是否永恒、灵魂如何理解、理性能够知道什么、哲学与启示是否可能冲突。</p>
+  <div class="callout"><strong>阿奎那的雄心：</strong>不是把亚里士多德“基督教化”那么简单，而是辨别哪些哲学结论可接受、哪些需要修正、哪些问题必须由启示补足。于是，“自然”与“恩典”、“哲学”与“神学”既不被混为一谈，也不被彼此割裂。</div>
+  <p>《神学大全》（<span class="latin">Summa Theologiae</span>）尤其体现这种系统性：从上帝开始，经创造、天使、人、人的行动、德性、律法与恩典，再进入基督与圣礼。它不是“主题百科”，而是一条有方向的思想运动：<b>万物从上帝而出，并在理性受造物中以认识与爱归向上帝。</b></p>
+</section>
+
+<section id="life">
+  <div class="kicker">02 · Life & Context</div>
+  <h2>生平：大学、修会与十三世纪知识革命</h2>
+  <div class="timeline">
+    <div class="event"><b>约 1225</b>　出生于意大利南部 Aquino 附近的贵族家庭。</div>
+    <div class="event"><b>青年期</b>　在那不勒斯接触新兴的多明我会，并选择加入；家人曾强烈反对。</div>
+    <div class="event"><b>1240s–1250s</b>　随“大阿尔伯特”（Albert the Great）学习，在科隆与巴黎深入研读亚里士多德。</div>
+    <div class="event"><b>1256</b>　成为巴黎大学神学硕士，参与讲授、公开争辩与学术论战。</div>
+    <div class="event"><b>1260s</b>　写作《反异教大全》、大量亚里士多德注释，并开始《神学大全》。</div>
+    <div class="event"><b>1269–1272</b>　再次在巴黎任教，卷入关于亚里士多德主义、意志与理智等尖锐争论。</div>
+    <div class="event"><b>1273</b>　停止继续写作《神学大全》；作品因此未由他本人完成。</div>
+    <div class="event"><b>1274</b>　前往里昂公会议途中去世，约 49 岁。</div>
+  </div>
+  <p>他大约二十年的写作生涯留下逾八百万字，作品包括神学综合著作、争辩问题、小论文、亚里士多德注释和圣经注释。现代研究通常以《神学大全》作为最成熟的入口，但不能把它当作他全部思想的唯一版本。</p>
+</section>
+
+<section id="method">
+  <div class="kicker">03 · Scholastic Method</div>
+  <h2>经院方法：为什么《神学大全》总是在“反对意见”中前进？</h2>
+  <p>阿奎那的文章常见固定结构，这不是拖沓，而是一种严格的争辩技术。它强迫作者先把反方最有力的理由说出来，再辨析问题。</p>
+  <div class="method">
+    <div class="m"><div><b>提出问题</b><br><span class="small">例如：“上帝存在是否不证自明？”</span></div></div>
+    <div class="m"><div><b>列出反对意见</b><br><span class="small">先让困难完整出现，而不是回避困难。</span></div></div>
+    <div class="m"><div><b>Sed contra</b><br><span class="small">“但另一方面……”通常引用权威或一个相反原则。</span></div></div>
+    <div class="m"><div><b>Respondeo</b><br><span class="small">“我回答说……”给出核心分析与区分。</span></div></div>
+    <div class="m"><div><b>逐条回应</b><br><span class="small">回到前面的 objection，说明为什么它只在某个意义上成立。</span></div></div>
+  </div>
+  <div class="note"><b>阅读技巧：</b>阿奎那思想最重要的词常常不是结论，而是“在某种意义上”“就……而言”“必须区分”。他经常通过区分两个层次来消除表面矛盾。</div>
+</section>
+
+<section id="architecture">
+  <div class="kicker">04 · Architecture</div>
+  <h2>整套体系的建筑图：Exitus–Reditus</h2>
+  <p>理解阿奎那，可以用一个中世纪思想常见的图式：<span class="term">exitus</span>（万物由第一原则而出）与 <span class="term">reditus</span>（受造物归向其终极目的）。这不是说世界是神的“流出物”；阿奎那坚持创造者与受造物的根本差异。它是一种组织知识的神学结构。</p>
+  <div class="flow">
+    <div class="box"><b>上帝</b><br><span class="small">第一原因、纯粹现实、善与存在的源头</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>创造</b><br><span class="small">有限存在者、自然秩序、人的本性</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>人的行动</b><br><span class="small">理智、意志、德性、律法、恩典</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>基督与圣礼</b><br><span class="small">把受造者引向超性终点</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>荣福直观</b><br><span class="small">人的最终圆满：直接认识上帝</span></div>
+  </div>
+  <p>因此，他的伦理学并不是一套孤立的“该做什么”规则，形而上学也不是抽象游戏。存在论说明“人是什么”，目的论说明“人为何行动”，德性论说明“人如何成为能够稳定行善的人”，恩典论说明“为什么人的自然能力仍不足以达到最终超性目的”。</p>
+</section>
+
+<section id="faith-reason">
+  <div class="kicker">05 · Faith & Reason</div>
+  <h2>信仰与理性：不是二选一，而是两个知识层级</h2>
+  <p class="lead">阿奎那既反对“只要信，不需要理性”，也反对“只要理性，启示没有知识地位”。</p>
+  <div class="cols2">
+    <div class="card"><h3>哲学 / 自然理性</h3><p>从感官经验、自然原则与逻辑出发。原则原则上对任何理性研究者开放。它可以讨论存在、因果、灵魂、伦理以及某些关于上帝的真理。</p></div>
+    <div class="card"><h3>神圣教义 / 启示神学</h3><p>以启示为其特有原则。它能够讨论三位一体、道成肉身、救恩等理性无法自行发现的奥秘，也可把理性已能认识的真理置入更高整体。</p></div>
+  </div>
+  <p>这里有一个关键原则：<b>真理不可能真正与真理冲突。</b>如果理性推理与正确理解的启示发生真实矛盾，那么至少一边发生了错误——可能是推理错误，也可能是诠释错误。</p>
+  <div class="callout"><strong>重要区别：</strong>“超越理性”不等于“反理性”。三位一体不能由自然哲学证明，但阿奎那认为这不等于三位一体是逻辑矛盾。哲学在这里常承担“澄清概念、排除误解、回答反驳”的任务。</div>
+  <p>因此，阿奎那不是把哲学降格成宣传工具。相反，他给哲学相当真实的自治空间：与不接受启示的人辩论时，不能把对方不承认的启示文本当作共同前提。</p>
+</section>
+
+<section id="metaphysics">
+  <div class="kicker">06 · Metaphysics</div>
+  <h2>形而上学：阿奎那真正的“发动机”</h2>
+  <h3>6.1 潜能与现实：变化为什么可能？</h3>
+  <p>阿奎那继承亚里士多德的 <span class="term">potentia / actus</span>（潜能 / 现实）框架。一颗橡子不是已经现实地成为橡树，但它有成为橡树的潜能。变化，就是某种潜能被现实化。</p>
+  <p>这组概念后来进入他的自然神学：如果一切发生中的改变都涉及“潜能被现实化”，那么解释某个正在发生的变化，就需要某种已经处于相应现实状态的原因。</p>
+
+  <h3>6.2 质料与形式：人不是“灵魂住在身体里”</h3>
+  <p><span class="term">Hylomorphism</span>（质形论）认为物质实体由质料与形式构成。形式不是物体外加的一层“形状”，而是使某个东西成为它那一类实体的组织原则。人的灵魂在这个框架里是身体的“实体形式”。</p>
+  <div class="note">所以阿奎那的人论不是典型的柏拉图式二元论：完整的人是身体—灵魂统一体。灵魂可以在死亡后以某种方式持续存在，但“分离的灵魂”不是完整的人类状态；身体复活具有真正的人论意义。</div>
+
+  <h3>6.3 本质与存在：他最有原创性的洞见之一</h3>
+  <p>有限存在者可以问两个不同问题：</p>
+  <table>
+    <tr><th>问题</th><th>对应概念</th><th>例子</th></tr>
+    <tr><td>“它是什么？”</td><td><b>本质 essence</b></td><td>一只马是什么类型的东西，它有什么定义性结构。</td></tr>
+    <tr><td>“它是否存在？”</td><td><b>存在 esse</b></td><td>这个本质是否现实地有“存在的行动”。</td></tr>
+  </table>
+  <p>对有限受造物而言，<b>“是什么”本身并不保证“它存在”</b>。因此，本质与存在并不相同。受造物“有”存在，而不是“就是”存在本身。</p>
+  <div class="diagram">
+    <div class="pyramid">
+      <div class="level"><b>上帝</b><br><span class="small">不是“拥有存在”的一种存在者，而是 <span class="latin">ipsum esse subsistens</span>：自存的存在本身</span></div>
+      <div class="level"><b>非物质受造物</b><br><span class="small">没有物质，却仍是有限的本质—存在组合</span></div>
+      <div class="level"><b>物质实体</b><br><span class="small">本质—存在；本质内部又体现质料—形式结构</span></div>
+      <div class="level"><b>偶性与属性</b><br><span class="small">依存于实体而存在，如颜色、姿态、数量</span></div>
+    </div>
+  </div>
+  <p>这解释了阿奎那为何不会把上帝理解为宇宙中“最大、最强的一件东西”。上帝与受造物的差异，不只是程度差异，而是存在方式的根本差异。</p>
+
+  <h3>6.4 四因：完整解释不只有“谁推了它一下”</h3>
+  <table>
+    <tr><th>因</th><th>含义</th><th>雕像例子</th></tr>
+    <tr><td>质料因</td><td>它由什么构成</td><td>青铜</td></tr>
+    <tr><td>形式因</td><td>它是什么结构 / 形态</td><td>雕像的形态</td></tr>
+    <tr><td>动力因</td><td>什么使它产生 / 改变</td><td>雕刻者</td></tr>
+    <tr><td>目的因</td><td>它为何如此、有何趋向</td><td>纪念、装饰或表达</td></tr>
+  </table>
+  <p>现代科学主要关注机制和动力因，但阿奎那会说：如果我们完全取消形式与目的，只剩粒子运动，就很难解释为什么自然过程具有稳定的“这种东西做这种事”的规律性。</p>
+</section>
+
+<section id="god">
+  <div class="kicker">07 · Natural Theology</div>
+  <h2>“五路”：不是五个孤立证明，而是同一形而上学的五个入口</h2>
+  <p class="lead">《神学大全》第一部第二题第三条提出著名“五路”。最常见误读，是把它们当成“只要宇宙有开头，就必须有一个最早事件”。阿奎那的论证更侧重此刻存在与因果活动所依赖的层级。</p>
+  <table>
+    <tr><th>路径</th><th>起点</th><th>基本推理</th><th>不要误读成</th></tr>
+    <tr><td><b>第一路：运动 / 变化</b></td><td>现实世界有变化</td><td>潜能不能在同一方面靠自己使自己现实化；依赖性的现实化链条需要第一现实根源。</td><td>“宇宙第一下是谁推的？”</td></tr>
+    <tr><td><b>第二路：动力因</b></td><td>事物具有因果依赖</td><td>在本质上有序的因果系列里，后续原因只有在接受因果能力时才起作用；需要第一因。</td><td>“每件事都有原因，所以上帝也得有原因。”阿奎那并不主张“所有存在者都有原因”。</td></tr>
+    <tr><td><b>第三路：可能与必然</b></td><td>许多存在者会生灭</td><td>若一切都只是依赖性的、可不在的存在，则无法给出最终存在根据；需要非依赖性的必要存在者。</td><td>简单概率论：“偶然事件很多，所以有神。”</td></tr>
+    <tr><td><b>第四路：程度</b></td><td>真、善、高贵等具有程度</td><td>阿奎那以参与和最大者因果性理解属性等级，指向作为这些完善根源者。</td><td>“我能想象最好的，所以最好的一定存在。”</td></tr>
+    <tr><td><b>第五路：治理 / 目的性</b></td><td>无理性自然对象稳定趋向结果</td><td>自然过程表现出规律性的目标导向；非认知对象本身不理解目标，因此秩序最终指向智慧根源。</td><td>现代“复杂生物一定由设计师直接拼装”的简单版本设计论。</td></tr>
+  </table>
+  <div class="warn"><b>关键限定：</b>五路本身只把论证推进到“第一推动者 / 第一因 / 必要者 / 完善根源 / 智慧治理者”一类结论。阿奎那随后还必须论证这个第一根源是非物质、简单、不变、永恒、唯一、完善、善、智慧等。把“五路”当成一段就完整证明三位一体基督教上帝，会误读他的结构。</div>
+
+  <h3>7.1 神的单纯性：上帝没有“组成部分”</h3>
+  <p>如果第一原因仍由更基础的部分构成，那么它的存在和活动就依赖这些部分。因此阿奎那推出神的<span class="term">单纯性</span>：在上帝里面，没有质料—形式、本质—存在、实体—偶性等受造物式组合。</p>
+  <p>这带来一个深刻后果：上帝不是“拥有善、拥有智慧、拥有存在”——仿佛这些是附加属性。阿奎那会说，神的存在、善、智慧等在神内不是不同部件，只是我们有限理智以不同概念把握同一无限实在。</p>
+</section>
+
+<section id="language">
+  <div class="kicker">08 · Divine Language</div>
+  <h2>我们怎么谈论上帝？类比语言解决“神太不同”的难题</h2>
+  <p>如果上帝不是宇宙中一个普通对象，那么说“上帝是善”“人是善”时，“善”是否完全同义？若完全同义，我们会把神降为受造物；若完全异义，我们根本不知道自己在说什么。</p>
+  <p>阿奎那的答案是<span class="term">类比述谓（analogy）</span>：受造物的完善真实来自并反映第一原因，但以有限方式拥有。于是同一个完善词语可以真实用于上帝和受造物，却不是以完全相同的存在方式。</p>
+  <div class="callout"><strong>三种语言：</strong><br>
+    ① <b>肯定</b>：上帝是善、智慧、存在。<br>
+    ② <b>否定</b>：上帝不是有限、复合、物质的。<br>
+    ③ <b>卓越</b>：受造物中真实的完善，在上帝中以超越有限方式存在。<br><br>
+    这让阿奎那兼具“可以真实认识神”与“我们无法穷尽神本质”的两面。
+  </div>
+</section>
+
+<section id="creation">
+  <div class="kicker">09 · Creation & Providence</div>
+  <h2>创造、宇宙是否有开端，以及上帝如何行动</h2>
+  <h3>9.1 创造不是一个遥远的“过去事件”</h3>
+  <p>对阿奎那而言，创造首先意味着：<b>受造物整个存在本身持续依赖第一原因。</b>哪怕假设一个宇宙在时间上没有开端，它若在“存在为何是现实”这个层次依赖上帝，仍可以是受造的。</p>
+  <h3>9.2 理性能否证明宇宙在时间上有第一刻？</h3>
+  <p>阿奎那的答案很特别：他接受基督教所启示的“世界有时间起点”，但认为单靠哲学理性无法严格证明世界不可能永恒存在。换言之，<b>“被创造”与“在时间上有第一刻”是两个不同命题。</b></p>
+  <div class="note">这点显示他并不为了护教而强迫哲学给出它无法给出的结论。理性有自己的边界。</div>
+
+  <h3>9.3 第一因不会挤掉次级原因</h3>
+  <p>阿奎那认为上帝作为第一因，并不与自然原因竞争，好像“要么上帝做，要么自然做”。反而，上帝使受造物真正具有自己的因果能力。火真的使水变热，人真的作出选择；这些次级原因之所以真实行动，正因为它们的存在与能力由第一因维持。</p>
+</section>
+
+<section id="human">
+  <div class="kicker">10 · Human Person & Epistemology</div>
+  <h2>人是什么？我们如何认识？</h2>
+  <h3>10.1 身体—灵魂统一体</h3>
+  <p>灵魂是人的身体的实体形式；理智灵魂具有非物质活动，因此不能简单等同于物质器官。但“人”不是灵魂本身，而是完整的身体—灵魂复合体。</p>
+
+  <h3>10.2 知识从感官开始，但不止于感官</h3>
+  <p>阿奎那没有把知识看成灵魂预先带着的理念。他的认识论大致经历：</p>
+  <div class="flow">
+    <div class="box"><b>感官经验</b><br><span class="small">看见这棵树、这个三角形</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>想象与感性表象</b><br><span class="small">保留个别经验的形象</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>主动理智抽象</b><br><span class="small">从个别中把握可理解结构</span></div>
+    <div class="arrow">→</div>
+    <div class="box"><b>可能理智理解</b><br><span class="small">形成普遍概念并作判断</span></div>
+  </div>
+  <p>因此，他既不是简单经验主义，也不是“纯理性从自身推出世界”。普遍知识依赖经验，却不能还原成单一感觉图像。</p>
+</section>
+
+<section id="freedom">
+  <div class="kicker">11 · Will & Freedom</div>
+  <h2>自由意志：理智向善，意志选择具体道路</h2>
+  <p>阿奎那把意志称作<span class="term">理性欲求</span>。人总是在“某种被理解为善的东西”之下行动；甚至错误选择，也是在当事人把某个有限对象看成值得追求时发生。</p>
+  <p>自由并不是“完全没有原因、任意随机”。人天然趋向普遍的善与幸福，但面对具体手段时，有限对象并不会以绝对必然性占据意志，所以有选择空间。</p>
+  <div class="cols2">
+    <div class="card"><h3>理智 intellect</h3><p>呈现什么是真、什么可能是善，进行推理、判断与实践审议。</p></div>
+    <div class="card"><h3>意志 will</h3><p>作为理性欲求，倾向被认识为善的对象，并在具体可行方案间作选择。</p></div>
+  </div>
+  <p>这使责任、德性、罪与法律成为可能。没有真实的自我行动，就没有伦理意义上的“应当”。</p>
+</section>
+
+<section id="ethics">
+  <div class="kicker">12 · Ethics & Natural Law</div>
+  <h2>伦理学：不是“遵守命令清单”，而是成为一个真正完善的人</h2>
+  <h3>12.1 幸福（beatitudo）是伦理学的终极方向</h3>
+  <p>所有有意行动都以某种善为目标，但有限善不能完全满足人的理智与意志。财富、荣誉、权力、身体快乐都是真实的有限善，却不能成为最终幸福。</p>
+  <p>阿奎那区分：</p>
+  <ul>
+    <li><b>今生可达到的不完全幸福：</b>通过德性生活、友谊、真理认识与对上帝的间接默观而实现。</li>
+    <li><b>最终、完全幸福：</b>“荣福直观”（beatific vision），即被提升后直接认识上帝；这超出自然能力，需要恩典。</li>
+  </ul>
+
+  <h3>12.2 德性：自由不是“想做什么就做什么”，而是获得良好行动能力</h3>
+  <p>德性是稳定的卓越习性（<span class="latin">habitus</span>），使人的能力被塑造成容易、稳定、合宜地行善。阿奎那接纳古典四枢德，又加入神学三德：</p>
+  <table>
+    <tr><th>类别</th><th>德性</th><th>功能</th></tr>
+    <tr><td rowspan="4">四枢德</td><td>审慎 Prudence</td><td>在具体情境中正确判断应做之事</td></tr>
+    <tr><td>正义 Justice</td><td>给予他者其所当得</td></tr>
+    <tr><td>节制 Temperance</td><td>使感性欲望受理性秩序</td></tr>
+    <tr><td>勇毅 Fortitude</td><td>在困难与恐惧中坚持善</td></tr>
+    <tr><td rowspan="3">神学德性</td><td>信 Faith</td><td>以神为真理之对象而信靠启示</td></tr>
+    <tr><td>望 Hope</td><td>倚靠神的帮助趋向最终福乐</td></tr>
+    <tr><td>爱 Charity</td><td>以神为最高善而爱，并在神内爱邻舍</td></tr>
+  </table>
+
+  <h3>12.3 自然法：理性受造物参与永恒法</h3>
+  <p>阿奎那的法律理论分四层：</p>
+  <table>
+    <tr><th>法律</th><th>含义</th></tr>
+    <tr><td><b>永恒法</b></td><td>神智慧治理整个受造秩序的计划。</td></tr>
+    <tr><td><b>自然法</b></td><td>理性受造物对永恒法的参与；人通过实践理性认识基本善与应行之事。</td></tr>
+    <tr><td><b>人法</b></td><td>政治共同体把自然法的普遍原则具体化为可实施规则。</td></tr>
+    <tr><td><b>神法</b></td><td>启示中给予、把人导向超性终点并处理内在罪与救恩的律法。</td></tr>
+  </table>
+  <div class="callout"><strong>自然法第一原则：</strong><span class="latin">bonum est faciendum et prosequendum, et malum vitandum</span>——善应当被实行和追求，恶应当避免。它不是“所有具体伦理答案都天然写在脑中”，而是实践推理的最基本形式原则。</div>
+  <p>阿奎那进一步从人的自然倾向讨论生命保存、繁衍与教育、寻求真理、社会共同生活等基本善。具体道德判断仍需要审慎、经验与对情境的判断。</p>
+</section>
+
+<section id="grace">
+  <div class="kicker">13 · Grace & Salvation</div>
+  <h2>恩典：不是替代自然，而是医治并提升自然</h2>
+  <p class="lead">最经典的托马斯主义公式之一是：<span class="latin">gratia non tollit naturam, sed perficit</span>——恩典不废除自然，而成全自然。</p>
+  <p>这个公式的分量很大。阿奎那认为，罪使人的秩序受损，但人仍然是理性受造物；自然善并非完全消失。然而，人既需要被医治，也需要被提升，因为最终目标——直接享见上帝——从一开始就超出受造理性的天然能力。</p>
+  <h3>13.1 第一恩典不能靠功德买来</h3>
+  <p>阿奎那明确主张：人在没有先行恩典时，不能凭自己的行为赚取“第一恩典”。连向恩典作合宜准备，都离不开上帝先行的推动。</p>
+  <h3>13.2 恩典与自由不是零和</h3>
+  <p>如果神是第一因，而人是次级理性原因，那么神的推动并不自动取消人的真实选择。阿奎那试图同时维护两点：<b>救恩从根本上是神的恩赐；受恩之人的理智、意志与爱也是真实行动。</b></p>
+  <h3>13.3 “功德”必须放在恩典框架里理解</h3>
+  <p>阿奎那使用 merit（功德）语言，但他的逻辑并不是“人先独立完成善行，神欠他奖赏”。他认为可称为“有功”的善行本身已经由先行恩典与爱德成为可能，因此恩典始终是根源。后来天主教与新教争论的关键，不只是“是否需要恩典”，而是称义、成义、内在更新、信心、爱德、功德及其相互关系应如何界定。</p>
+</section>
+
+<section id="trinity">
+  <div class="kicker">14 · Trinity & Christology</div>
+  <h2>三位一体与基督论：哲学在启示奥秘中做什么？</h2>
+  <h3>14.1 三位一体不是“五路”的结论</h3>
+  <p>自然理性可以论证第一原因，但不能自行发现“三个位格、一体本质”。三位一体属于启示奥秘。哲学的任务主要是：帮助说明“一”与“三”不是在同一意义上计数，从而回应“这是否形式矛盾”的质疑。</p>
+  <p>阿奎那借助“关系”语言理解位格：圣父、圣子、圣灵之间的差异不是把神的本质分成三块，而是神内关系性的区别；神的本质仍是单纯且唯一。</p>
+
+  <h3>14.2 道成肉身：一个位格、两种本性</h3>
+  <p>在基督里，神性与人性不是混成第三种东西，也不是两个主体并列。阿奎那承继迦克墩传统：同一位圣子真实具有完整神性与完整人性。</p>
+  <div class="callout"><strong>“适宜性”是阿奎那神学的重要论证类型：</strong>很多神学问题并不是要证明“上帝只能这样做”，而是说明在已经接受启示事实后，这样行动如何与神的智慧、善与救恩目的高度相称。</div>
+</section>
+
+<section id="sacraments">
+  <div class="kicker">15 · Sacraments</div>
+  <h2>圣礼：恩典如何通过可见、物质的记号行动？</h2>
+  <p>阿奎那的圣礼观与他整个世界观一致：物质并不天然低于属灵，也不必成为恩典的敌人。上帝可以使用受造的、可感知的事物作为工具性原因，把恩典施予人。</p>
+  <h3>15.1 圣餐与“变质说”</h3>
+  <p>阿奎那借助“实体 / 偶性”的形而上学语汇说明圣餐：祝圣后，饼酒的“实体”转变为基督的身体与血，而可感知的性质（外观、味道等“偶性”）仍存。这个教义后来通常称为 <span class="term">transubstantiation</span>（变质 / 实体转化）。</p>
+  <div class="note">注意：这不是说中世纪哲学家做了“显微镜层面的化学变化”主张。这里的“实体”与“偶性”是形而上学范畴，不等同于现代化学意义的“物质成分”。</div>
+</section>
+
+<section id="politics">
+  <div class="kicker">16 · Law & Politics</div>
+  <h2>政治哲学：共同善、法律与不义法</h2>
+  <p>阿奎那把法律定义为一种为了<span class="term">共同善</span>、由负责共同体者制定并公布的理性秩序。政治不是只为阻止暴力，而是为共同生活的秩序与人类善服务。</p>
+  <p>人法的正当性并非无限。若法律明显偏离共同善、超出制定者权限、以不平等负担服务私人利益，它就在重要意义上成为“不义法”。阿奎那因此为后来的自然法、有限政府与良知讨论提供了语言资源。</p>
+  <p>不过，他不是现代自由主义者；他的共同善观、社会等级、宗教与政治关系都属于中世纪基督教世界。把他直接包装成任何现代政治意识形态都会失真。</p>
+</section>
+
+<section id="protestant">
+  <div class="kicker">17 · Reading from Protestant Traditions</div>
+  <h2>如果你来自新教传统，应该怎样读阿奎那？</h2>
+  <p>最差的读法有两个极端：一是“天主教神学家，所以全部跳过”；二是“伟大的古典神学家，所以后来宗派争论都不重要”。更准确的读法是分层。</p>
+  <table>
+    <tr><th>高度可共享 / 可对话的领域</th><th>需要仔细辨析的领域</th></tr>
+    <tr>
+      <td>神的单纯性、创造者—受造物区分、经典有神论、基督两性、三位一体的逻辑澄清、德性伦理、自然法传统、信仰与理性关系等。</td>
+      <td>称义的构造、注入之义与归算之义、功德语言、七圣礼体系、圣餐变质、教会权威结构、部分恩典—自由的后续学派发展等。</td>
+    </tr>
+  </table>
+  <p><b>尤其不要误以为：</b>阿奎那认为人可以“靠天然行为赚到第一恩典”。他的文本明确否认这一点。新教与天主教的分歧更精细，集中在称义与成圣的关系、恩典如何更新人、信心与爱德的关系、行为在救恩秩序中的地位等。</p>
+  <div class="callout"><strong>研究建议：</strong>先让阿奎那用他自己的范畴说话，再与路德、加尔文、改革宗经院或现代新教神学比较。不要先把十六世纪争论的术语反投射到十三世纪。</div>
+</section>
+
+<section id="critique">
+  <div class="kicker">18 · Critiques</div>
+  <h2>现代人会质疑什么？阿奎那的体系最强与最难之处</h2>
+  <div class="cols2">
+    <div class="card">
+      <h3>质疑 1：目的因是否已被现代科学淘汰？</h3>
+      <p>现代科学常用机制解释现象，但阿奎那式目的论未必等同于“每个自然事件都有主观意图”。当代新亚里士多德主义者会把它解释为自然能力具有稳定指向性。批评者则认为规律与因果结构足以解释，无需目的性本体论。</p>
+    </div>
+    <div class="card">
+      <h3>质疑 2：五路是否偷渡“第一因”？</h3>
+      <p>关键争点不是“宇宙有没有最早一秒”，而是本质有序的因果依赖是否真的需要一个非派生根源。接受与否取决于对因果、现实—潜能与解释终止点的整体看法。</p>
+    </div>
+    <div class="card">
+      <h3>质疑 3：神的单纯性会不会让神太抽象？</h3>
+      <p>如果神没有组成、变化和被动潜能，神如何真实爱、回应、行动？托马斯主义者会用“永恒行为造成时间中的不同效果”回答；开放神论等传统则认为这付出的代价过高。</p>
+    </div>
+    <div class="card">
+      <h3>质疑 4：自然法能否跨文化成立？</h3>
+      <p>支持者强调它以共享的人类能力与基本善为基础；批评者质疑“自然倾向”如何推出规范，以及社会历史差异是否被低估。</p>
+    </div>
+  </div>
+  <h3>阿奎那最强的一点：体系互锁</h3>
+  <p>他不是靠一个“神存在证明”独撑整座建筑。形而上学、自然哲学、认识论、人论、伦理学与神学彼此互相支撑。也正因为如此，批评他最好不要只抓一句话，而要问：他的<span class="term">潜能—现实、因果、目的、参与、存在</span>这些基础概念是否成立。</p>
+  <h3>阿奎那最难的一点：你不能用现代词义直接读中世纪词汇</h3>
+  <p>“science”“substance”“form”“cause”“nature”“law”“merit”等词，在他的语境里常与现代日常含义不同。大量误解来自词同而义异。</p>
+</section>
+
+<section id="legacy">
+  <div class="kicker">19 · Legacy</div>
+  <h2>遗产：从中世纪争论到现代“托马斯复兴”</h2>
+  <figure class="img-wide">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/0/05/Benozzo_Gozzoli_004a.jpg" alt="Benozzo Gozzoli 所绘圣托马斯的胜利">
+    <figcaption>Benozzo Gozzoli《The Triumph of St. Thomas Aquinas》，画面把阿奎那置于亚里士多德与柏拉图之间。公共领域。</figcaption>
+  </figure>
+  <p>阿奎那死后并非立即成为“无争议标准答案”。中世纪后期出现托马斯派、司各脱派、奥卡姆派等多种学术传统。随着时间推进，他在天主教思想中的权威不断上升。</p>
+  <p>1879 年，良十三世在通谕 <i>Aeterni Patris</i> 中推动基督教哲学的复兴，并特别推崇阿奎那，由此促成近现代“新托马斯主义”的强劲发展。二十世纪后，又出现存在论托马斯主义、超验托马斯主义、分析托马斯主义等不同路线。</p>
+  <p>今天，阿奎那不仅活在宗教学院，也活在分析哲学、德性伦理学、自然法理论、行动理论、形而上学与心灵哲学的讨论里。</p>
+  <figure class="img-wide">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Filippino_Lippi%2C_Carafa_Chapel%2C_Triumph_of_St_Thomas_Aquinas_over_the_Heretics_02.jpg" alt="Filippino Lippi Carafa Chapel">
+    <figcaption>Filippino Lippi，Carafa Chapel《Triumph of St Thomas Aquinas…》局部，1489–1491。公共领域。</figcaption>
+  </figure>
+</section>
+
+<section id="reading">
+  <div class="kicker">20 · Reading Path</div>
+  <h2>怎样真正读懂阿奎那：一条可执行的阅读路线</h2>
+  <h3>Level 1｜先建立地图</h3>
+  <ol>
+    <li>先理解：现实—潜能、质料—形式、本质—存在、四因。</li>
+    <li>再理解：理智—意志、终极目的、德性、自然法。</li>
+    <li>最后进入：自然神学、神的属性、恩典、基督论、圣礼。</li>
+  </ol>
+  <h3>Level 2｜读短文本，不要一上来硬啃整部《神学大全》</h3>
+  <ul>
+    <li><b>《论存在与本质》De ente et essentia</b>：理解本质 / 存在、实体结构。</li>
+    <li><b>《神学大全》I, q.2–13</b>：上帝存在、属性、神名与类比。</li>
+    <li><b>I–II, q.1–5</b>：终极目的与幸福。</li>
+    <li><b>I–II, q.90–97</b>：法律与自然法。</li>
+    <li><b>I–II, q.109–114</b>：恩典、称义、功德。</li>
+    <li><b>III, q.1–26</b>：基督论。</li>
+    <li><b>III, q.73–83</b>：圣餐论。</li>
+  </ul>
+  <h3>Level 3｜训练“阿奎那式阅读”</h3>
+  <p>每读一条 article，强制自己写四行：</p>
+  <ol>
+    <li>真正的问题是什么？</li>
+    <li>最强反对意见是什么？</li>
+    <li>阿奎那靠哪个 distinction 解题？</li>
+    <li>这个答案依赖哪些更基础的形而上学前提？</li>
+  </ol>
+  <div class="callout"><strong>如果只记一句总纲：</strong>阿奎那的世界不是“自然 vs. 上帝”的世界，而是一个受造实在拥有真实次级因果、真实理性、真实目的，同时其存在与最终完成都依赖第一原因的世界。</div>
+</section>
+
+<section id="glossary">
+  <div class="kicker">21 · Glossary</div>
+  <h2>核心术语表</h2>
+  <table>
+    <tr><th>术语</th><th>简明解释</th></tr>
+    <tr><td><b>actus / potentia</b></td><td>现实 / 潜能；解释变化、有限性与第一推动者的关键。</td></tr>
+    <tr><td><b>materia / forma</b></td><td>质料 / 形式；物质实体的基本构成原则。</td></tr>
+    <tr><td><b>essentia / esse</b></td><td>本质 / 存在；有限者“是什么”与“它存在”不相同。</td></tr>
+    <tr><td><b>ipsum esse subsistens</b></td><td>“自存的存在本身”；阿奎那描述上帝存在方式的重要表达。</td></tr>
+    <tr><td><b>analogia</b></td><td>类比述谓；同一完善词语用于神与受造物时，既非完全同义也非完全异义。</td></tr>
+    <tr><td><b>causa prima / causae secundae</b></td><td>第一因 / 次级原因；上帝的因果作用不会取消受造物真实因果性。</td></tr>
+    <tr><td><b>habitus</b></td><td>稳定习性；德性是使能力完善并稳定行善的 habitus。</td></tr>
+    <tr><td><b>beatitudo</b></td><td>最终福乐；完全意义上指荣福直观。</td></tr>
+    <tr><td><b>lex naturalis</b></td><td>自然法；理性受造物参与永恒法。</td></tr>
+    <tr><td><b>gratia</b></td><td>恩典；医治自然并把人提升到超性终点。</td></tr>
+    <tr><td><b>sacra doctrina</b></td><td>神圣教义；以启示原则为基础的神学知识体系。</td></tr>
+    <tr><td><b>transubstantiatio</b></td><td>变质 / 实体转化；阿奎那用于圣餐的实体—偶性框架。</td></tr>
+  </table>
+</section>
+
+<section id="sources">
+  <div class="kicker">22 · Sources & Notes</div>
+  <h2>研究资料与延伸阅读</h2>
+  <p class="small">本报告以现代学术概述与阿奎那原典为骨架。网页链接可能随时间更新。</p>
+  <ol class="sources">
+    <li><a href="https://plato.stanford.edu/entries/aquinas/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy — “Thomas Aquinas”</a>：生平、著作、自然神学、心灵、自由、伦理、自然法等综合条目。</li>
+    <li><a href="https://iep.utm.edu/thomas-aquinas-metaphysics/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy — “Aquinas: Metaphysics”</a>：本质—存在、实体、质形论。</li>
+    <li><a href="https://plato.stanford.edu/entries/christiantheology-philosophy/" target="_blank" rel="noopener">SEP — “Philosophy and Christian Theology”</a>：哲学与启示神学的合作模式。</li>
+    <li><a href="https://plato.stanford.edu/entries/natural-law-ethics/" target="_blank" rel="noopener">SEP — “The Natural Law Tradition in Ethics”</a>：永恒法与自然法。</li>
+    <li><a href="https://www.newadvent.org/summa/1002.htm" target="_blank" rel="noopener">Summa Theologiae I, q.2</a>：上帝存在与“五路”。</li>
+    <li><a href="https://www.newadvent.org/summa/2109.htm" target="_blank" rel="noopener">Summa Theologiae I–II, q.109</a>：恩典的必要性。</li>
+    <li><a href="https://www.newadvent.org/summa/2114.htm" target="_blank" rel="noopener">Summa Theologiae I–II, q.114</a>：功德。</li>
+    <li><a href="https://www.newadvent.org/summa/4075.htm" target="_blank" rel="noopener">Summa Theologiae III, q.75</a>：圣餐与 transubstantiation。</li>
+    <li><a href="https://www.vatican.va/content/leo-xiii/en/encyclicals/documents/hf_l-xiii_enc_04081879_aeterni-patris.html" target="_blank" rel="noopener">Leo XIII, Aeterni Patris (1879)</a>：近现代托马斯主义复兴的重要文献。</li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Angelico,_san_tommaso_d%27aquino_alla_fondazione_cini.jpg" target="_blank" rel="noopener">Fra Angelico portrait — Wikimedia Commons</a>，公共领域。</li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Benozzo_Gozzoli_004a.jpg" target="_blank" rel="noopener">Benozzo Gozzoli, Triumph of St. Thomas Aquinas — Wikimedia Commons</a>，公共领域。</li>
+    <li><a href="https://commons.wikimedia.org/wiki/File:Filippino_Lippi,_Carafa_Chapel,_Triumph_of_St_Thomas_Aquinas_over_the_Heretics_02.jpg" target="_blank" rel="noopener">Filippino Lippi, Carafa Chapel — Wikimedia Commons</a>，公共领域。</li>
+  </ol>
+  <div class="note"><b>史学提醒：</b>“托马斯主义”不是一个在 1274 年后就冻结不变的单一体系。后世不同学派会以不同方式解释阿奎那，因此遇到争议时应尽量回到阿奎那原文与具体历史语境。</div>
+</section>
+</main>
+</div>
+
+<footer>
+  <hr>
+  <p><b>一句话总结：</b>阿奎那试图展示一个层次分明的宇宙：存在有其根源，自然有其秩序，理性有其真实能力，自由有其目的，德性塑造人的行动，而恩典既不摧毁这些受造善，反而把它们带到超出自身能力的完成。</p>
+  <p class="small">专题报告 · Thomas Aquinas: Philosophy & Theology · 适合桌面大屏阅读与打印</p>
+</footer>
+</div>
+
+<script>
+const p=document.getElementById('progress');
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement;
+  const x=h.scrollTop/(h.scrollHeight-h.clientHeight)*100;
+  p.style.width=x+'%';
+});
+</script>
+</body>
+</html>

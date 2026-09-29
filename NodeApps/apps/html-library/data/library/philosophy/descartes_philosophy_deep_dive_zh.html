@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="description" content="一文讲透笛卡尔哲学：方法论怀疑、我思故我在、上帝证明、心身二元论、自然哲学、自由意志、情感伦理与现代哲学影响。" />
+<title>笛卡尔：从怀疑出发，重建一个确定的世界</title>
+<style>
+:root{
+  --bg:#f4f0e7; --paper:#fffdf8; --ink:#1d2730; --muted:#64717a;
+  --navy:#18324a; --blue:#315e7d; --gold:#b78b45; --red:#8b4b45;
+  --line:#ddd5c7; --soft:#ece6da; --shadow:0 18px 60px rgba(30,42,55,.12);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;line-height:1.82;font-size:18px}
+a{color:#245d84;text-decoration:none} a:hover{text-decoration:underline}
+#progress{position:fixed;left:0;top:0;height:4px;background:var(--gold);width:0;z-index:9999}
+.hero{min-height:78vh;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(320px,.8fr);background:linear-gradient(135deg,#142536 0%,#1f3d55 58%,#315e7d 100%);color:#fff;overflow:hidden}
+.hero-copy{padding:clamp(54px,8vw,120px) clamp(32px,8vw,120px);display:flex;flex-direction:column;justify-content:center;position:relative}
+.eyebrow{letter-spacing:.18em;text-transform:uppercase;font-size:.78rem;color:#d8c49f;font-weight:700}
+h1{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(3rem,6vw,6.5rem);line-height:1.02;margin:.18em 0 .22em;font-weight:700}
+.hero-sub{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(1.2rem,2vw,1.9rem);max-width:820px;color:#eaf0f4;margin:0 0 1.2rem}
+.hero-thesis{max-width:880px;color:#d3e0e8;font-size:1.02rem;border-left:3px solid var(--gold);padding-left:18px}
+.hero-art{position:relative;min-height:520px;background:#0d1b29;overflow:hidden}
+.hero-art img{width:100%;height:100%;object-fit:cover;object-position:50% 18%;filter:saturate(.82) contrast(1.04) brightness(.88)}
+.hero-art:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(20,37,54,.95) 0%,rgba(20,37,54,.18) 36%,rgba(20,37,54,0) 75%),linear-gradient(0deg,rgba(10,23,35,.65),rgba(10,23,35,0) 55%)}
+.caption-overlay{position:absolute;z-index:2;left:26px;right:26px;bottom:24px;color:#f0eadf;font-size:.78rem;background:rgba(9,18,27,.48);backdrop-filter:blur(7px);padding:10px 12px;border:1px solid rgba(255,255,255,.15);border-radius:8px}
+.shell{display:grid;grid-template-columns:300px minmax(0,1fr);max-width:1720px;margin:auto;align-items:start}
+nav.toc{position:sticky;top:18px;height:calc(100vh - 36px);overflow:auto;padding:34px 24px 40px;border-right:1px solid var(--line);background:rgba(244,240,231,.9);backdrop-filter:blur(8px)}
+.toc h3{font-size:.8rem;letter-spacing:.14em;color:var(--muted);margin:0 0 16px;text-transform:uppercase}
+.toc a{display:block;color:#4a5964;font-size:.82rem;line-height:1.35;padding:7px 0;border-bottom:1px dashed rgba(110,100,90,.14)}
+.toc a:hover{color:var(--navy);text-decoration:none}
+main{min-width:0;padding:60px clamp(28px,5vw,86px) 100px}
+section{max-width:1180px;margin:0 auto 88px;scroll-margin-top:24px}
+h2{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:clamp(2rem,3.6vw,3.2rem);line-height:1.15;color:var(--navy);margin:0 0 20px;border-bottom:1px solid var(--line);padding-bottom:14px}
+h3{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:1.45rem;color:#29495f;margin-top:38px;margin-bottom:12px}
+h4{font-size:1.02rem;color:#29495f;margin:26px 0 6px;text-transform:none}
+p{margin:.75em 0}
+.lead{font-family:Georgia,"Noto Serif SC","Songti SC",serif;font-size:1.2rem;line-height:1.85;color:#334754}
+.note,.insight,.warning{padding:20px 22px;border-radius:12px;margin:24px 0;background:var(--paper);box-shadow:0 8px 30px rgba(36,45,54,.06)}
+.note{border-left:4px solid var(--blue)} .insight{border-left:4px solid var(--gold)} .warning{border-left:4px solid var(--red)}
+.label{display:inline-block;font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:#fff;background:var(--navy);border-radius:999px;padding:4px 10px;margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px;margin:26px 0}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin:26px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 8px 28px rgba(25,34,43,.05)}
+.card h3,.card h4{margin-top:0}
+.big-number{font-family:Georgia,serif;font-size:2.6rem;line-height:1;color:var(--gold);font-weight:700}
+.quote{font-family:Georgia,"Noto Serif SC",serif;font-size:clamp(1.4rem,2.5vw,2.1rem);line-height:1.6;color:var(--navy);padding:28px 34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:34px 0;text-align:center}
+.quote small{display:block;font-family:Inter,"Noto Sans SC",sans-serif;color:var(--muted);font-size:.78rem;margin-top:9px}
+.figure{margin:32px 0;background:var(--paper);border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:var(--shadow)}
+.figure img{display:block;width:100%;max-height:740px;object-fit:contain;background:#e8e0d0}.figure figcaption{padding:12px 18px;color:var(--muted);font-size:.78rem;border-top:1px solid var(--line)}
+.svgbox{background:#fbfaf6;border:1px solid var(--line);border-radius:16px;padding:14px;margin:28px 0;overflow:auto}.svgbox svg{display:block;width:100%;min-width:760px;height:auto}
+table{width:100%;border-collapse:collapse;background:var(--paper);border:1px solid var(--line);font-size:.9rem;margin:24px 0}th,td{padding:14px 16px;border-bottom:1px solid var(--line);vertical-align:top}th{background:#e8edf0;color:#274458;text-align:left}tr:last-child td{border-bottom:0}
+ul,ol{padding-left:1.35em}li{margin:.4em 0}
+.timeline{position:relative;margin:28px 0;padding-left:28px}.timeline:before{content:"";position:absolute;left:7px;top:8px;bottom:8px;width:2px;background:var(--line)}.titem{position:relative;margin:0 0 22px;padding:0 0 0 22px}.titem:before{content:"";position:absolute;left:-27px;top:.55em;width:10px;height:10px;border-radius:50%;background:var(--gold);border:3px solid var(--bg)}.year{font-weight:800;color:var(--navy)}
+.kbd{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:#e7e0d4;border:1px solid #d2c7b6;border-radius:5px;padding:1px 5px;font-size:.82rem}
+.mini{font-size:.82rem;color:var(--muted)}
+.bookstrip{display:grid;grid-template-columns:.7fr 1.3fr;gap:28px;align-items:center}.bookstrip img{width:100%;max-height:600px;object-fit:contain;background:#e5dbc7;border-radius:12px}
+.footer{background:#172a3a;color:#d8e2e8;padding:50px clamp(28px,8vw,120px)}.footer .inner{max-width:1260px;margin:auto}.footer a{color:#f0d6a5}.sources li{margin:.7em 0}.footer hr{border:0;border-top:1px solid rgba(255,255,255,.15);margin:30px 0}
+.pill{display:inline-block;border:1px solid #bfcbd3;color:#31536a;background:#f3f7f9;border-radius:999px;padding:3px 9px;font-size:.75rem;margin:3px 4px 3px 0}
+#topbtn{position:fixed;right:22px;bottom:22px;border:0;border-radius:999px;background:#19384f;color:#fff;width:44px;height:44px;box-shadow:0 6px 22px rgba(0,0,0,.25);cursor:pointer;display:none}
+@media(max-width:1050px){.hero{grid-template-columns:1fr}.hero-art{height:62vh;min-height:430px}.shell{grid-template-columns:1fr}.toc{display:none}.bookstrip{grid-template-columns:1fr}.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}main{padding-top:42px}}
+@media print{#progress,#topbtn,.toc{display:none!important}.shell{display:block}.hero{min-height:auto;grid-template-columns:1.2fr .8fr}.hero-copy{padding:50px}.hero-art{min-height:440px}body{background:#fff;font-size:11pt}.card,.figure,.note,.insight,.warning{box-shadow:none}section{break-inside:auto}.svgbox{break-inside:avoid}.footer{background:#fff;color:#222}.footer a{color:#333}}
+</style>
+</head>
+<body>
+<div id="progress"></div>
+<header class="hero" id="top">
+  <div class="hero-copy">
+    <div class="eyebrow">René Descartes · 1596–1650</div>
+    <h1>笛卡尔</h1>
+    <p class="hero-sub">从“我能怀疑什么？”到“我凭什么确信世界存在？”——现代哲学的一次地基重建。</p>
+    <p class="hero-thesis"><strong>核心判断：</strong>理解笛卡尔，不能只记住“我思故我在”。他的真正野心，是找到一种足够坚固的认识论地基，使数学、自然科学、形而上学与人的生活能够重新组成一个体系。</p>
+  </div>
+  <div class="hero-art">
+    <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Utrecht%20Weenix%20Descartes.JPG?width=1200" alt="René Descartes portrait" />
+    <div class="caption-overlay">René Descartes 肖像，Jan Baptist Weenix，约 1647–1649。Wikimedia Commons，公有领域。</div>
+  </div>
+</header>
+
+<div class="shell">
+<nav class="toc">
+  <h3>Contents</h3>
+  <a href="#map">00 · 一张地图看懂笛卡尔</a>
+  <a href="#why">01 · 为什么他是“现代哲学的开端”</a>
+  <a href="#context">02 · 他面对的时代危机</a>
+  <a href="#method">03 · 方法：像数学一样思考</a>
+  <a href="#doubt">04 · 方法论怀疑</a>
+  <a href="#cogito">05 · 我思故我在</a>
+  <a href="#mind">06 · “我是一个思维之物”</a>
+  <a href="#god">07 · 为什么必须证明上帝</a>
+  <a href="#circle">08 · 笛卡尔循环</a>
+  <a href="#world">09 · 如何把外部世界找回来</a>
+  <a href="#ontology">10 · 实体、属性、样态</a>
+  <a href="#dualism">11 · 心身二元论与难题</a>
+  <a href="#science">12 · 机械自然观与科学</a>
+  <a href="#error">13 · 错误、自由意志与责任</a>
+  <a href="#passions">14 · 情感、德性与生活</a>
+  <a href="#math">15 · 数学：为何“Cartesian”</a>
+  <a href="#works">16 · 作品与思想时间线</a>
+  <a href="#influence">17 · 影响与后继者</a>
+  <a href="#critique">18 · 五个最强批评</a>
+  <a href="#myths">19 · 常见误解</a>
+  <a href="#compare">20 · 与康德等人的位置关系</a>
+  <a href="#read">21 · 如何读《第一哲学沉思集》</a>
+  <a href="#final">22 · 最后的哲学画像</a>
+</nav>
+
+<main>
+<section id="map">
+  <span class="label">00 · Map</span>
+  <h2>一张地图看懂笛卡尔</h2>
+  <p class="lead">笛卡尔的整个哲学可以压缩成一个“拆楼—找地基—重建”的工程。先把所有可能不可靠的信念暂时撤下，再寻找一个无法被怀疑的起点，然后一步步恢复真理标准、上帝、外部世界和自然科学。</p>
+  <div class="svgbox">
+  <svg viewBox="0 0 1180 430" role="img" aria-label="笛卡尔哲学重建路线图">
+    <defs><marker id="arr" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#315e7d"/></marker></defs>
+    <rect x="30" y="155" rx="16" width="170" height="110" fill="#e8ecef" stroke="#a9b8c2"/><text x="115" y="194" text-anchor="middle" font-size="23" fill="#18324a" font-weight="700">旧知识体系</text><text x="115" y="225" text-anchor="middle" font-size="17" fill="#52616b">感官 · 权威 · 习惯</text>
+    <line x1="205" y1="210" x2="300" y2="210" stroke="#315e7d" stroke-width="4" marker-end="url(#arr)"/>
+    <rect x="315" y="95" rx="16" width="190" height="230" fill="#f5efe2" stroke="#c8aa75"/><text x="410" y="132" text-anchor="middle" font-size="22" fill="#7d5d2b" font-weight="700">方法论怀疑</text><text x="410" y="172" text-anchor="middle" font-size="16">感官会错</text><text x="410" y="205" text-anchor="middle" font-size="16">梦境论证</text><text x="410" y="238" text-anchor="middle" font-size="16">恶魔假设</text><text x="410" y="280" text-anchor="middle" font-size="15" fill="#7d5d2b">把“可疑”暂时当作不成立</text>
+    <line x1="510" y1="210" x2="600" y2="210" stroke="#315e7d" stroke-width="4" marker-end="url(#arr)"/>
+    <rect x="615" y="138" rx="16" width="190" height="145" fill="#18324a"/><text x="710" y="186" text-anchor="middle" font-size="25" fill="white" font-weight="700">Cogito</text><text x="710" y="220" text-anchor="middle" font-size="18" fill="#f0d6a5">我思，故我在</text><text x="710" y="251" text-anchor="middle" font-size="15" fill="#dbe7ef">怀疑本身证明思者存在</text>
+    <line x1="810" y1="210" x2="900" y2="210" stroke="#315e7d" stroke-width="4" marker-end="url(#arr)"/>
+    <rect x="915" y="70" rx="16" width="225" height="280" fill="#edf3f5" stroke="#9db2bd"/><text x="1028" y="110" text-anchor="middle" font-size="22" fill="#18324a" font-weight="700">重建</text><text x="1028" y="151" text-anchor="middle" font-size="16">清楚分明的观念</text><text x="1028" y="185" text-anchor="middle" font-size="16">上帝非欺骗者</text><text x="1028" y="219" text-anchor="middle" font-size="16">外部世界</text><text x="1028" y="253" text-anchor="middle" font-size="16">物质＝广延</text><text x="1028" y="287" text-anchor="middle" font-size="16">自然科学</text><text x="1028" y="321" text-anchor="middle" font-size="16">心身关系 · 伦理</text>
+  </svg>
+  </div>
+  <div class="insight"><strong>读笛卡尔最重要的顺序感：</strong>“我思故我在”不是终点，而是第一块砖。真正困难的是：从这块砖，能不能合法地建回一个客观世界？笛卡尔后半套哲学几乎都在回答这个问题。</div>
+</section>
+
+<section id="why">
+  <span class="label">01 · Why he matters</span>
+  <h2>为什么笛卡尔常被称为“现代哲学的开端”</h2>
+  <p>这个称呼不是说他凭空发明了现代思想，而是因为他把哲学的“第一问题”改写了。中世纪经院哲学常从存在的秩序、亚里士多德的范畴、神学体系出发；笛卡尔则首先追问：<strong>一个有限的人，凭什么知道任何事情是真的？</strong></p>
+  <div class="grid3">
+    <div class="card"><div class="big-number">1</div><h3>起点换了</h3><p>从“世界是什么”转向“我如何确定我知道世界是什么”。认识论被放到形而上学入口处。</p></div>
+    <div class="card"><div class="big-number">2</div><h3>方法换了</h3><p>不再满足于权威与传统的累积，而要求每一步都经受理性的审查，最好达到数学证明那样的透明度。</p></div>
+    <div class="card"><div class="big-number">3</div><h3>自然观换了</h3><p>自然界不再主要由“目的”“形式”解释，而越来越被理解为可用形状、运动、大小与规律刻画的机械系统。</p></div>
+  </div>
+  <p>SEP 对笛卡尔的概括很准确：他同时是第一流数学家、重要自然哲学家和原创形而上学家；他的分析几何、机械自然观以及心身问题都深刻塑造了现代思想。<sup><a href="#src1">[1]</a></sup></p>
+</section>
+
+<section id="context">
+  <span class="label">02 · Context</span>
+  <h2>他面对的时代危机：旧宇宙正在崩塌</h2>
+  <p class="lead">17 世纪早期的欧洲不是一个“知识稳固”的世界，而是一个旧框架失效、新科学尚未完全定型的世界。</p>
+  <table>
+    <thead><tr><th>旧框架</th><th>正在发生的变化</th><th>笛卡尔的回应</th></tr></thead>
+    <tbody>
+      <tr><td>亚里士多德—经院自然哲学</td><td>天文学、力学、光学不断显示自然可以被数学化</td><td>寻找一种以清楚观念与数学结构为核心的新自然哲学</td></tr>
+      <tr><td>感官作为常识基础</td><td>光学与天文学提醒人：表象未必等于实在</td><td>把感官降格为需要校验的证据，而不是最终法庭</td></tr>
+      <tr><td>知识靠传统积累</td><td>宗教冲突与学派争论使“权威”本身成为争议对象</td><td>从第一人称确定性重新寻找知识地基</td></tr>
+      <tr><td>自然含有内在目的与性质</td><td>新物理越来越偏好量化、机制与普遍规律</td><td>把物质的本性定义为“广延”，以几何方式理解自然</td></tr>
+    </tbody>
+  </table>
+  <div class="note"><strong>关键背景：</strong>笛卡尔并非单纯坐在书房里怀疑世界。他的认识论计划与“如何给新科学提供可靠基础”紧密相连。《方法论》1637 年与《折光学》《气象学》《几何学》一起发表，本身就显示了“哲学方法—科学实践”的关联。<sup><a href="#src1">[1]</a></sup></div>
+</section>
+
+<section id="method">
+  <span class="label">03 · Method</span>
+  <h2>方法：像数学一样把复杂问题拆开</h2>
+  <p>《方法论》中的四条规则常被当成学习技巧，其实它们代表一种更深的理智伦理：<strong>不要让判断跑在证据前面。</strong></p>
+  <div class="grid2">
+    <div class="card"><h3>① 明证</h3><p>只接受那些呈现得足够清楚、足够分明，以至于没有合理理由怀疑的判断。</p></div>
+    <div class="card"><h3>② 分析</h3><p>把困难拆成尽可能小的部分，避免把复杂混乱当作一个整体处理。</p></div>
+    <div class="card"><h3>③ 综合 / 次序</h3><p>从最简单、最容易把握的对象逐步上升到复杂对象。</p></div>
+    <div class="card"><h3>④ 枚举 / 复核</h3><p>做足够完整的检查，尽量避免遗漏。</p></div>
+  </div>
+  <div class="insight"><strong>这里已经有“现代算法式思考”的雏形：</strong>明确输入 → 分解 → 排序 → 验证。笛卡尔真正崇拜的不是数学中的数字，而是数学证明所体现的<strong>透明推演结构</strong>。</div>
+</section>
+
+<section id="doubt">
+  <span class="label">04 · Doubt</span>
+  <h2>方法论怀疑：不是犬儒，而是压力测试</h2>
+  <p class="lead">笛卡尔的怀疑不是“我什么都不相信”，而是：为了找出绝对可靠的信念，暂时拒绝任何存在可设想错误可能性的东西。</p>
+  <div class="svgbox">
+  <svg viewBox="0 0 1120 480" role="img" aria-label="方法论怀疑的三级压力测试">
+    <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#e6edf0"/><stop offset="1" stop-color="#f7f3ea"/></linearGradient></defs>
+    <rect x="60" y="55" width="1000" height="100" rx="18" fill="url(#g1)" stroke="#aab8c2"/>
+    <text x="100" y="94" font-size="22" font-weight="700" fill="#18324a">第 1 层：感官会欺骗</text><text x="100" y="128" font-size="17" fill="#53636d">远处塔看起来是圆的，近看可能是方的。既然感官曾误导，就不能把“感官从不出错”当作绝对地基。</text>
+    <rect x="140" y="190" width="840" height="100" rx="18" fill="#f3eadc" stroke="#c9aa76"/>
+    <text x="180" y="229" font-size="22" font-weight="700" fill="#7a5a29">第 2 层：梦境论证</text><text x="180" y="263" font-size="17" fill="#695d4a">即使眼前经验很鲜明，也可能像梦一样。至少“我现在看到桌子”这种经验，逻辑上并非不可怀疑。</text>
+    <rect x="230" y="325" width="660" height="100" rx="18" fill="#e9e2e1" stroke="#9b6a66"/>
+    <text x="270" y="364" font-size="22" font-weight="700" fill="#7f403b">第 3 层：恶魔 / 欺骗者假设</text><text x="270" y="398" font-size="17" fill="#684d4a">把怀疑推进到数学与推理本身：假设有极强的欺骗机制，使我甚至在 2+3 之类的判断上都被误导。</text>
+  </svg>
+  </div>
+  <p>这是一种<strong>认识论压力测试</strong>：不是证明世界真的不存在，而是把“能够想象出错误机制”与“具有绝对确定性”区分开。</p>
+  <div class="warning"><strong>重要：</strong>怀疑的强度是方法性的，不等于笛卡尔最后相信现实是幻觉。他最终明确要恢复外部世界、身体和科学知识。</div>
+</section>
+
+<section id="cogito">
+  <span class="label">05 · Cogito</span>
+  <h2>“我思故我在”：为什么它真的特殊</h2>
+  <div class="quote">Cogito, ergo sum. <small>“我思，故我在。”——更严格地说，在《沉思集》中是“每当我思时，我存在”。</small></div>
+  <p>如果一个恶魔正在欺骗我，那么至少必须有一个<strong>正在被欺骗的思者</strong>。如果我怀疑自己的存在，那么这一个“怀疑”的活动本身，就已经证明此刻有思维活动正在发生。</p>
+  <div class="grid2">
+    <div class="card"><h3>它不是普通三段论</h3><p>笛卡尔并不是先拿出大前提“凡思考者都存在”，再推出“我存在”。更接近他的意思是：<strong>在我实际进行怀疑或思考时，我的存在以表演性的方式被直接显现。</strong></p></div>
+    <div class="card"><h3>它的确定性是第一人称的</h3><p>它证明的首先不是“世界上有一个名叫笛卡尔、具有某种身体的人”，而是：此刻存在一个进行思维活动的主体。</p></div>
+  </div>
+  <div class="insight"><strong>最深的转折：</strong>笛卡尔不是从“世界”推出“心”，而是从“心的不可否认活动”出发，再试图重建“世界”。这就是后来所谓“主体性转向”的核心。</div>
+</section>
+
+<section id="mind">
+  <span class="label">06 · Res cogitans</span>
+  <h2>“我是一个思维之物”：自我到底是什么？</h2>
+  <p>在确定“我存在”之后，下一个问题是：这个“我”是什么？笛卡尔的回答不是“一个身体”，因为身体此时仍处于怀疑之中；他只能先确定自己是一个<strong>思维着的东西（res cogitans）</strong>。</p>
+  <p>这里的“思维”范围很广，包括：怀疑、理解、肯定、否定、意愿、不愿、想象以及感觉。也就是说，哪怕我的感觉对象是假的，<strong>“我似乎在感觉”作为一种意识事件本身仍然发生了</strong>。</p>
+  <div class="note"><strong>蜡块论证：</strong>一块蜡被加热后，颜色、气味、硬度、形状等感官性质几乎都改变，但我们仍判断“这是同一块蜡”。笛卡尔由此强调：对象作为“延展、可变、可形塑之物”的把握，不只是感官给出的，更需要心智判断。</div>
+  <p>这一步推动了理性主义的核心主张：<strong>知识的最高确定性不依赖感官，而依赖理智对结构的把握。</strong></p>
+</section>
+
+<section id="god">
+  <span class="label">07 · God</span>
+  <h2>为什么一个认识论工程，突然必须证明上帝？</h2>
+  <p class="lead">这不是一个可以从笛卡尔体系里随手删掉的宗教附录。上帝在他的认识论中承担“从瞬间确定性走向稳定知识”的结构性功能。</p>
+  <h3>证明 A：观念的因果论证（第三沉思）</h3>
+  <p>笛卡尔发现自己有一个关于“无限、完满存在者”的观念。他认为，观念作为表象具有不同的“客观实在性”，而原因至少要具有足以解释结果的实在性。有限、不完满的我不能是“无限完满观念”的充分原因，因此这个观念最终指向一个真实的无限完满存在者。</p>
+  <h3>证明 B：本体论论证（第五沉思）</h3>
+  <p>这里的逻辑不同：如果我清楚分明地把握一个“至上完满存在者”，那么存在不能从这一完满本性中被剔除；笛卡尔把它类比于“三角形内角结构”不能任意从三角形概念中拿掉。SEP 指出，这是笛卡尔在第五沉思中最主要的先验上帝论证。<sup><a href="#src2">[2]</a></sup></p>
+  <h3>上帝在体系中的功能</h3>
+  <div class="grid3">
+    <div class="card"><h4>保证真理标准</h4><p>完满的上帝不是系统性欺骗者，因此我们在正确使用理性时，清楚分明的认识并非被某个终极骗局操纵。</p></div>
+    <div class="card"><h4>稳定记忆与推理</h4><p>Cogito 的确定性发生在我当下思考时；科学知识则要求我能信任一连串证明与记忆。上帝承担这种跨时段可靠性的担保角色。</p></div>
+    <div class="card"><h4>为外部世界铺路</h4><p>如果我具有强烈、被动到来的感官经验，而善的上帝不系统欺骗我，那么相信某种外部物质原因存在就获得了依据。</p></div>
+  </div>
+</section>
+
+<section id="circle">
+  <span class="label">08 · Cartesian Circle</span>
+  <h2>“笛卡尔循环”：他的体系是不是绕圈证明？</h2>
+  <p>经典批评由 Antoine Arnauld 等人在《沉思集》的反驳中提出，后来被称为 <strong>Cartesian Circle</strong>：</p>
+  <div class="svgbox"><svg viewBox="0 0 1080 330" role="img" aria-label="Cartesian Circle">
+    <defs><marker id="a2" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><path d="M0,0 L0,6 L8,3 z" fill="#8b4b45"/></marker></defs>
+    <rect x="80" y="105" rx="18" width="330" height="120" fill="#eef3f5" stroke="#99adba"/><text x="245" y="150" text-anchor="middle" font-size="22" font-weight="700" fill="#18324a">清楚分明的观念可靠</text><text x="245" y="184" text-anchor="middle" font-size="16">因为一个完满的上帝不会欺骗我</text>
+    <rect x="670" y="105" rx="18" width="330" height="120" fill="#f5e8e5" stroke="#a87a73"/><text x="835" y="150" text-anchor="middle" font-size="22" font-weight="700" fill="#7d403a">我知道上帝存在</text><text x="835" y="184" text-anchor="middle" font-size="16">因为我清楚分明地把握了相关论证</text>
+    <path d="M410,135 C500,45 590,45 670,135" fill="none" stroke="#8b4b45" stroke-width="4" marker-end="url(#a2)"/><path d="M670,200 C590,295 500,295 410,200" fill="none" stroke="#8b4b45" stroke-width="4" marker-end="url(#a2)"/>
+  </svg></div>
+  <p>如果“清楚分明的观念可靠”需要先证明上帝，而证明上帝又依赖清楚分明的推理，似乎形成循环。</p>
+  <p>笛卡尔的辩护路线之一，是区分<strong>当下正在直观把握的清楚分明真理</strong>与<strong>不再直接注意、只能靠记忆保持的证明</strong>：前者在被直接把握时具有即时确定性，而上帝的非欺骗性主要保证我们可以把这种确定性扩展为稳定的科学知识。现代研究对这种解法是否彻底成功仍有争议；SEP 的“Certainty”条目也指出，笛卡尔是否真正陷入循环取决于如何解释他对当下清楚分明知觉的地位。<sup><a href="#src3">[3]</a></sup></p>
+  <div class="insight"><strong>为什么这个问题重要：</strong>它揭示了哲学中的一个普遍难题——任何“知识标准”都需要某种理由，但给这个标准理由时，我们是不是已经偷偷使用了它？这不是笛卡尔独有的问题，而是基础主义认识论的深层压力。</div>
+</section>
+
+<section id="world">
+  <span class="label">09 · External world</span>
+  <h2>如何把外部世界找回来？</h2>
+  <p>到了第六沉思，笛卡尔要从心的确定性回到身体和物质世界。他并不恢复一种天真的“眼见为实”，而是建立一个分层观点：</p>
+  <ol>
+    <li><strong>感觉经验是真的发生了。</strong>就算对象判断错，我的痛、热、颜色经验作为心理事件是真的。</li>
+    <li><strong>感觉具有被动性。</strong>我不是随心所欲决定何时看到太阳、何时感到疼痛，因此这些经验似乎有外部原因。</li>
+    <li><strong>善的上帝不会让我的自然倾向整体上成为骗局。</strong>所以相信身体和外部物体存在具有正当性。</li>
+    <li><strong>但感官不是科学真理的最终形式。</strong>颜色、味道、冷热等是身心关系中的呈现；物质作为物质的本性更基本地是“广延”。</li>
+  </ol>
+  <div class="note"><strong>这不是简单的“感官不可靠”。</strong>笛卡尔更接近于说：感官非常适合指导身体生存——告诉你什么该接近、什么该远离——但它并不总是告诉你世界的基本物理结构是什么。</div>
+</section>
+
+<section id="ontology">
+  <span class="label">10 · Ontology</span>
+  <h2>实体、属性、样态：笛卡尔世界的“数据模型”</h2>
+  <p>如果把笛卡尔形而上学理解成一个简化的数据模型，会非常清楚：</p>
+  <table>
+    <thead><tr><th>层级</th><th>心灵</th><th>物质</th><th>上帝</th></tr></thead>
+    <tbody>
+      <tr><td><strong>实体</strong></td><td>有限的思维实体</td><td>有限的广延实体</td><td>严格意义上完全不依赖他物的无限实体</td></tr>
+      <tr><td><strong>主要属性</strong></td><td>思维</td><td>广延</td><td>无限完满</td></tr>
+      <tr><td><strong>样态</strong></td><td>怀疑、意愿、想象、感觉等</td><td>形状、大小、位置、运动等</td><td>不以有限样态方式讨论</td></tr>
+    </tbody>
+  </table>
+  <p>对物质而言，最基本的不是颜色、重量感、气味，而是它占据空间、可被几何刻画——即<strong>广延（extension）</strong>。这为“自然的数学化”提供了形而上学基础。</p>
+</section>
+
+<section id="dualism">
+  <span class="label">11 · Mind–body</span>
+  <h2>心身二元论：最有影响力，也最麻烦的遗产</h2>
+  <div class="svgbox"><svg viewBox="0 0 1100 450" role="img" aria-label="心身二元论结构图">
+    <rect x="75" y="80" rx="20" width="360" height="250" fill="#edf2f5" stroke="#9db2bd"/><text x="255" y="130" text-anchor="middle" font-size="28" font-weight="700" fill="#18324a">心灵 / res cogitans</text><text x="255" y="180" text-anchor="middle" font-size="18">本质：思维</text><text x="255" y="215" text-anchor="middle" font-size="18">非空间性的</text><text x="255" y="250" text-anchor="middle" font-size="18">怀疑 · 意愿 · 判断 · 感受</text><text x="255" y="295" text-anchor="middle" font-size="16" fill="#5b6d78">可以被清楚设想为不依赖身体</text>
+    <rect x="665" y="80" rx="20" width="360" height="250" fill="#f3ecdf" stroke="#c8aa76"/><text x="845" y="130" text-anchor="middle" font-size="28" font-weight="700" fill="#7c5b2b">身体 / res extensa</text><text x="845" y="180" text-anchor="middle" font-size="18">本质：广延</text><text x="845" y="215" text-anchor="middle" font-size="18">占据空间</text><text x="845" y="250" text-anchor="middle" font-size="18">形状 · 大小 · 运动</text><text x="845" y="295" text-anchor="middle" font-size="16" fill="#6b5c45">受机械规律支配</text>
+    <line x1="435" y1="185" x2="665" y2="185" stroke="#8b4b45" stroke-width="4"/><line x1="665" y1="240" x2="435" y2="240" stroke="#315e7d" stroke-width="4"/><text x="550" y="165" text-anchor="middle" font-size="17" fill="#8b4b45">意志 → 身体动作？</text><text x="550" y="270" text-anchor="middle" font-size="17" fill="#315e7d">身体刺激 → 感觉？</text>
+    <text x="550" y="392" text-anchor="middle" font-size="19" font-weight="700" fill="#7f403b">难题：两种本性完全不同的实体，究竟如何发生因果作用？</text>
+  </svg></div>
+  <p>笛卡尔认为，我们可以清楚分明地把握心与身体的本性差异：心的本质是思维，身体的本质是广延，因此二者是可以区分的实体。</p>
+  <p>但这立即产生著名的<strong>互动难题</strong>。波希米亚的伊丽莎白公主在 1643 年给笛卡尔写信追问：如果心没有形状、大小、接触面，它如何“推动”身体？现代心灵哲学的 mental causation 问题，某种意义上就是这个问题的延长。SEP 对这一挑战有明确梳理。<sup><a href="#src4">[4]</a></sup></p>
+  <h3>松果体是不是答案？</h3>
+  <p>笛卡尔把松果体视为心灵与大脑关系中的关键部位，历史上因此常被戏称为“灵魂座位”。但这并没有真正解决形而上学难题：指出一个交互位置，不等于解释<strong>非空间的心灵如何对空间物质产生因果作用</strong>。SEP 的专门条目也强调，笛卡尔对这一问题并未给出最终理论。<sup><a href="#src5">[5]</a></sup></p>
+  <div class="insight"><strong>一个常被忽略的修正：</strong>成熟时期的笛卡尔并不只把人看成“灵魂驾驶机器”。他反复强调，人体验自己是一个身心紧密结合的统一体；饥饿、疼痛、情感正说明心不是像船长观察船那样仅仅旁观身体。</div>
+</section>
+
+<section id="science">
+  <span class="label">12 · Nature</span>
+  <h2>机械自然观：世界是一台可数学描述的机器</h2>
+  <p>笛卡尔的自然哲学试图用少量基本性质和普遍规律解释复杂自然现象。SEP 概括他的新自然图景为：物质拥有少数基本属性，通过普遍规律相互作用；这一图景深刻影响了现代物理思想。<sup><a href="#src1">[1]</a></sup></p>
+  <div class="grid2">
+    <div class="card"><h3>物质＝广延</h3><p>物体首先是占据空间、具有形状、大小和运动状态的东西。自然科学应优先研究这些可量化结构。</p></div>
+    <div class="card"><h3>机制替代“隐秘性质”</h3><p>与其说某物“天生倾向某处”，不如尝试说明粒子、运动、压力和结构如何产生现象。</p></div>
+    <div class="card"><h3>生理也可机械解释</h3><p>他把许多身体反应理解为神经、脑与“动物精气”的机械过程，这推动了早期机械生理学。</p></div>
+    <div class="card"><h3>科学必须统一</h3><p>天体与地上现象应由同一种自然秩序解释，而不是两个完全不同的物理世界。</p></div>
+  </div>
+  <p>今天看，他的具体物理理论很多已经被淘汰，但<strong>“优先寻找可量化结构、机制与统一规律”</strong>的科学理想却变成了现代科学的典型气质。</p>
+</section>
+
+<section id="error">
+  <span class="label">13 · Error & freedom</span>
+  <h2>为什么会犯错？因为意志跑得比理解快</h2>
+  <p>第四沉思提出一个极有现代感的模型：<strong>人的理智有限，但意志的判断范围很宽。</strong>当我们只在清楚分明理解的范围内判断时，不会犯错；错误出现于我们在证据不足时仍然肯定或否定。</p>
+  <div class="svgbox"><svg viewBox="0 0 1120 390" role="img" aria-label="笛卡尔错误理论">
+    <circle cx="400" cy="195" r="110" fill="#e8eff3" stroke="#95acba" stroke-width="3"/><text x="400" y="185" text-anchor="middle" font-size="26" font-weight="700" fill="#18324a">有限理智</text><text x="400" y="220" text-anchor="middle" font-size="17">我真正理解的范围</text>
+    <circle cx="580" cy="195" r="170" fill="none" stroke="#b78b45" stroke-width="5"/><text x="790" y="150" font-size="26" font-weight="700" fill="#8a672f">更宽的意志</text><text x="790" y="187" font-size="17">可以对尚未理解的事情</text><text x="790" y="219" font-size="17">也作出肯定 / 否定</text>
+    <path d="M545,100 C640,120 675,170 686,220" fill="none" stroke="#8b4b45" stroke-width="4"/><text x="690" y="280" font-size="20" fill="#7f403b" font-weight="700">超出理解而判断 → 错误</text>
+  </svg></div>
+  <p>SEP 将这一点概括为：错误不是理智或意志本身“坏掉”，而是自由意志使用不当——“意志的范围比理智更宽”。<sup><a href="#src6">[6]</a></sup></p>
+  <div class="insight"><strong>对今天很有用：</strong>这几乎可以直接转译成“认识论纪律”：<span class="kbd">我不知道</span> 不是失败，而是防止意志越权的一种能力。对投资、科学、新闻判断和日常决策都适用。</div>
+</section>
+
+<section id="passions">
+  <span class="label">14 · Passions & ethics</span>
+  <h2>笛卡尔并不只有冷冰冰的理性：情感、德性与生活</h2>
+  <p>晚期《论灵魂的激情》（1649）以及与伊丽莎白公主的通信显示，笛卡尔非常关心：既然人是身心联合体，情感在好生活中到底扮演什么角色？</p>
+  <p>他把身体引起并在心中被体验到的“激情”视为具有自然功能的状态。SEP 对他的六种基本激情概括为：<strong>惊奇、爱、恨、欲望、喜悦、悲伤</strong>；这些激情在自然安排中服务于身体保存与行动。<sup><a href="#src7">[7]</a></sup></p>
+  <div class="grid2">
+    <div class="card"><h3>情感不是敌人</h3><p>问题不是消灭激情，而是避免它们的误用与过度。一个完全没有激情的人并不因此更有德性。</p></div>
+    <div class="card"><h3>德性需要正确判断</h3><p>好的生活依赖于看清什么真正由我掌控，以及如何让意志追随较好的判断，而不是被即时冲动牵着走。</p></div>
+  </div>
+  <h3>临时道德（provisional morality）</h3>
+  <p>在彻底重建知识之前，人仍然必须生活、行动。因此《方法论》提出一种“临时道德”：遵守较稳健的社会规范；行动一旦决定就尽量坚定；与其试图征服世界，不如先治理自己的欲望和判断；持续把理性的培养作为生活方向。</p>
+  <p>这部分显示，笛卡尔不是只想造一套抽象形而上学机器。他最终希望哲学成为一种<strong>智慧的实践</strong>。SEP 的伦理条目也指出，他把哲学的最终目标与足以带来幸福的智慧联系起来。<sup><a href="#src8">[8]</a></sup></p>
+</section>
+
+<section id="math">
+  <span class="label">15 · Mathematics</span>
+  <h2>为什么坐标系叫“Cartesian”？</h2>
+  <p>笛卡尔在数学上的历史地位并不只是“哲学家顺便会数学”。他把代数方法系统地用于几何问题，帮助形成解析几何。今天所谓 <strong>Cartesian coordinates（笛卡尔坐标）</strong> 就以他命名。</p>
+  <div class="svgbox"><svg viewBox="0 0 1100 520" role="img" aria-label="笛卡尔坐标与解析几何示意">
+    <line x1="120" y1="410" x2="990" y2="410" stroke="#18324a" stroke-width="3"/><line x1="250" y1="470" x2="250" y2="65" stroke="#18324a" stroke-width="3"/>
+    <text x="1000" y="430" font-size="18">x</text><text x="230" y="55" font-size="18">y</text>
+    <path d="M160 365 C270 300, 310 175, 450 160 C590 145, 650 300, 790 320 C880 333, 920 245, 970 155" fill="none" stroke="#315e7d" stroke-width="5"/>
+    <circle cx="450" cy="160" r="7" fill="#b78b45"/><line x1="450" y1="160" x2="450" y2="410" stroke="#b78b45" stroke-dasharray="8 8"/><line x1="250" y1="160" x2="450" y2="160" stroke="#b78b45" stroke-dasharray="8 8"/>
+    <text x="475" y="145" font-size="18" fill="#7b5a2b">一个几何点 ↔ 一组代数数值 (x, y)</text>
+    <text x="570" y="480" text-anchor="middle" font-size="22" font-weight="700" fill="#18324a">把“形状”翻译成“方程”——几何与代数开始进入同一种语言</text>
+  </svg></div>
+  <div class="insight"><strong>哲学与数学其实共享同一个理想：</strong>复杂对象可以被拆成更简单的关系，并通过明确规则重新组合。这也是笛卡尔“方法”最深的直觉来源之一。</div>
+</section>
+
+<section id="works">
+  <span class="label">16 · Works</span>
+  <h2>作品与思想时间线</h2>
+  <div class="bookstrip">
+    <img src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Page%20de%20titre%20de%20la%20premi%C3%A8re%20%C3%A9dition%20du%20discours%20de%20la%20m%C3%A9thode.jpg?width=900" alt="1637 年《方法论》初版扉页" />
+    <div>
+      <div class="timeline">
+        <div class="titem"><span class="year">1596</span>　出生于法国拉艾（今 Descartes）。</div>
+        <div class="titem"><span class="year">1637</span>　《方法论》以法文发表，并附《折光学》《气象学》《几何学》。</div>
+        <div class="titem"><span class="year">1641</span>　《第一哲学沉思集》拉丁文出版，围绕怀疑、Cogito、上帝、心身与外部世界建立形而上学基础。</div>
+        <div class="titem"><span class="year">1644</span>　《哲学原理》出版，把形而上学与自然哲学系统化。</div>
+        <div class="titem"><span class="year">1649</span>　《论灵魂的激情》出版，处理情感、生理、德性与身心联合。</div>
+        <div class="titem"><span class="year">1650</span>　在瑞典斯德哥尔摩去世。</div>
+      </div>
+    </div>
+  </div>
+  <p class="mini">图：1637 年《方法论》第一版扉页，Wikimedia Commons / Gallica，公有领域。作品顺序与概述参见 SEP。<sup><a href="#src1">[1]</a></sup></p>
+</section>
+
+<section id="influence">
+  <span class="label">17 · Legacy</span>
+  <h2>他的影响：后来的哲学几乎都必须经过他</h2>
+  <div class="grid3">
+    <div class="card"><h3>斯宾诺莎</h3><p>接受笛卡尔式系统哲学与几何化理想，却拒绝多个实体并立，走向“唯一实体”的一元论。</p></div>
+    <div class="card"><h3>莱布尼茨</h3><p>继承理性主义、先天结构与体系建构，但重新解释实体、因果与身心关系。</p></div>
+    <div class="card"><h3>洛克与经验主义</h3><p>虽然路线不同，但“观念如何代表世界”“知识限度在哪里”仍是在笛卡尔开启的认识论场域里作答。</p></div>
+    <div class="card"><h3>休谟</h3><p>把怀疑推进得更远：自我、因果、外部世界的理性基础都受到更强烈挑战。</p></div>
+    <div class="card"><h3>康德</h3><p>试图突破理性主义与经验主义的对立，仍把“主体的认知结构如何构成经验可能性”放在中心。</p></div>
+    <div class="card"><h3>当代心灵哲学</h3><p>意识的第一人称性、心身关系、心理因果、物理主义与二元论争论，都与笛卡尔的遗产直接相关。</p></div>
+  </div>
+  <p>SEP 指出，他对“先研究认识者的能力，再确定知识范围”的计划，对早期现代认识论和形而上学产生了深远影响。<sup><a href="#src1">[1]</a></sup></p>
+</section>
+
+<section id="critique">
+  <span class="label">18 · Critique</span>
+  <h2>五个最强批评：笛卡尔真正困难在哪里？</h2>
+  <table>
+    <thead><tr><th>批评</th><th>问题</th><th>为何严重</th></tr></thead>
+    <tbody>
+      <tr><td><strong>1. 笛卡尔循环</strong></td><td>真理标准与上帝证明似乎互相担保</td><td>威胁整个“从 Cogito 重建知识”的逻辑结构</td></tr>
+      <tr><td><strong>2. 心身互动难题</strong></td><td>非空间的心如何作用于空间身体</td><td>“指出松果体”不能解释跨范畴因果</td></tr>
+      <tr><td><strong>3. 从观念到现实的跨越</strong></td><td>我有某种观念，为何能推出观念外的对象</td><td>现代认识论一直担心“表象—世界”之间的鸿沟</td></tr>
+      <tr><td><strong>4. 过度抬高确定性</strong></td><td>科学真的需要不可怀疑的地基吗？</td><td>现代科学更多依赖可检验、可修正、概率与模型，而非绝对确定</td></tr>
+      <tr><td><strong>5. 身体被理论化得太薄</strong></td><td>人的经验是否能被拆成纯心灵＋纯机器身体</td><td>现象学、认知科学与具身理论强调认知本身深度依赖身体与环境</td></tr>
+    </tbody>
+  </table>
+  <div class="insight"><strong>但别把批评当成“笛卡尔失败”。</strong>伟大哲学家的价值常常不在于他的每个答案都保留下来，而在于他把问题表述得足够清楚，以至于三百多年后我们仍然在回答。</div>
+</section>
+
+<section id="myths">
+  <span class="label">19 · Misconceptions</span>
+  <h2>六个常见误解</h2>
+  <div class="grid2">
+    <div class="card"><h4>误解 1：他认为世界是假的</h4><p><strong>不对。</strong>怀疑是临时方法；他的目标是恢复外部世界与科学知识。</p></div>
+    <div class="card"><h4>误解 2：“我思故我在”证明了完整人格</h4><p><strong>不对。</strong>它首先只保证思维主体在思考时存在，不立即证明身体、历史身份或社会身份。</p></div>
+    <div class="card"><h4>误解 3：他只相信理性，不相信感官</h4><p><strong>过度简化。</strong>他认为感官对身体生存有重要功能，只是不应把感官呈现直接当成物理本体。</p></div>
+    <div class="card"><h4>误解 4：他把情感视为理性的敌人</h4><p><strong>不对。</strong>晚期理论明确认为激情有自然用途，目标是调节而不是消灭。</p></div>
+    <div class="card"><h4>误解 5：松果体解决了二元论</h4><p><strong>没有。</strong>它至多是一个生理学定位设想，不能自动解决心身因果的形而上学问题。</p></div>
+    <div class="card"><h4>误解 6：他只是“怀疑主义者”</h4><p><strong>方向相反。</strong>他使用怀疑，恰恰是为了击败怀疑并建立确定知识。</p></div>
+  </div>
+</section>
+
+<section id="compare">
+  <span class="label">20 · Positioning</span>
+  <h2>把笛卡尔放进西方哲学的大地图</h2>
+  <table>
+    <thead><tr><th>哲学家</th><th>知识从哪里开始？</th><th>“主体”的地位</th><th>与笛卡尔的关系</th></tr></thead>
+    <tbody>
+      <tr><td>亚里士多德</td><td>感知经验与对形式/因果的理解</td><td>灵魂作为生命体的形式</td><td>笛卡尔削弱形式因与目的因，强化机械自然观</td></tr>
+      <tr><td>奥古斯丁</td><td>内在反思与神圣真理</td><td>内在自我很重要</td><td>笛卡尔并非凭空发明“从内在寻找确定性”，但把它重构成现代认识论工程</td></tr>
+      <tr><td><strong>笛卡尔</strong></td><td><strong>方法性怀疑后的不可怀疑自我</strong></td><td><strong>认识论起点</strong></td><td>主体性转向的标志性人物</td></tr>
+      <tr><td>休谟</td><td>印象与经验</td><td>找不到稳定实体式自我，只见知觉束</td><td>把怀疑推向笛卡尔未愿接受的程度</td></tr>
+      <tr><td>康德</td><td>经验材料＋先天认知形式</td><td>主体不是被发现的实体，而是经验可能性的条件之一</td><td>把“主体性”从实体心理学转为先验结构</td></tr>
+      <tr><td>胡塞尔</td><td>悬置自然态度，分析意识结构</td><td>先验主体性</td><td>继承“回到意识”的策略，但方向和目标不同</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<section id="read">
+  <span class="label">21 · Reading guide</span>
+  <h2>如何读《第一哲学沉思集》：不要把它当论文目录，要当六天思想实验</h2>
+  <p>《沉思集》的力量来自“读者被带着走”的结构。最好的读法不是先背结论，而是每一沉思都问：<strong>到这里为止，我究竟还被允许知道什么？</strong></p>
+  <div class="grid3">
+    <div class="card"><h4>第一沉思</h4><p><strong>拆楼。</strong>感官、梦境、恶魔。目标：让你体验失去默认世界的感觉。</p></div>
+    <div class="card"><h4>第二沉思</h4><p><strong>找到地基。</strong>Cogito、思维之物、蜡块。主体比身体先获得确定性。</p></div>
+    <div class="card"><h4>第三沉思</h4><p><strong>向外迈第一步。</strong>观念、因果原则、上帝存在论证。</p></div>
+    <div class="card"><h4>第四沉思</h4><p><strong>解释错误。</strong>有限理智＋更广意志，判断纪律成为核心。</p></div>
+    <div class="card"><h4>第五沉思</h4><p><strong>本质与必然性。</strong>数学本质、本体论上帝论证。</p></div>
+    <div class="card"><h4>第六沉思</h4><p><strong>世界回来了。</strong>外部物体、心身区分、身心联合、感觉功能。</p></div>
+  </div>
+  <p>如果你想读原文，《方法论》的 John Veitch 英译已由 Project Gutenberg 公共提供。<sup><a href="#src9">[9]</a></sup></p>
+</section>
+
+<section id="final">
+  <span class="label">22 · Synthesis</span>
+  <h2>最后的哲学画像：笛卡尔到底改变了什么？</h2>
+  <p class="lead">他把“你相信什么？”升级成了“你凭什么有资格相信？”；把“自然是什么？”升级成了“什么样的自然观可以被数学与统一规律解释？”；把“我是谁？”变成了现代心灵哲学无法绕开的第一人称意识问题。</p>
+  <div class="grid2">
+    <div class="card"><h3>他最伟大的贡献</h3><ul><li>把认识论的正当化问题推到哲学中心；</li><li>给现代科学提供了强烈的数学化、机械化理想；</li><li>以 Cogito 确立第一人称意识的特殊地位；</li><li>清晰提出心与身体的区分，从而创造现代心身问题的经典形式；</li><li>把自由判断与错误责任联系起来。</li></ul></div>
+    <div class="card"><h3>他最危险的遗产</h3><ul><li>容易把“主体”与“世界”切得太开；</li><li>容易让知识看起来像心中的表象先出现，再困难地去碰外部世界；</li><li>容易把身体降为机器，把人的具身性解释得过薄；</li><li>把“绝对确定性”设成知识理想，可能高估科学真正需要的基础强度。</li></ul></div>
+  </div>
+  <div class="quote">如果只记一句，不要只记“我思故我在”。<br/><strong>真正的笛卡尔问题是：从一个不可怀疑的“我正在思”，究竟能不能重新走回一个真实、公共、可科学认识的世界？</strong></div>
+  <p>正因为这个重建既雄心勃勃又漏洞百出，后来的理性主义者、经验主义者、康德、现象学、分析哲学与心灵哲学，才不断回到他设定的问题场。</p>
+</section>
+</main>
+</div>
+
+<footer class="footer">
+  <div class="inner">
+    <h2 style="color:#fff;border-color:rgba(255,255,255,.2)">参考资料与图像来源</h2>
+    <ol class="sources">
+      <li id="src1"><a href="https://plato.stanford.edu/entries/descartes/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy — René Descartes</a>：生平、主要著作、形而上学、自然哲学、情感与影响的综合权威条目。</li>
+      <li id="src2"><a href="https://plato.stanford.edu/entries/descartes-ontological/" target="_blank" rel="noopener">SEP — Descartes’ Ontological Argument</a>：第五沉思中的本体论论证及相关争议。</li>
+      <li id="src3"><a href="https://plato.stanford.edu/entries/certainty/" target="_blank" rel="noopener">SEP — Certainty</a>：笛卡尔循环、确定性与清楚分明观念问题。</li>
+      <li id="src4"><a href="https://plato.stanford.edu/entries/mental-causation/" target="_blank" rel="noopener">SEP — Mental Causation</a>：伊丽莎白公主对心身因果问题的经典质疑及其后续哲学意义。</li>
+      <li id="src5"><a href="https://plato.stanford.edu/archives/sum2017/entries/pineal-gland/" target="_blank" rel="noopener">SEP — Descartes and the Pineal Gland</a>：松果体、心身关系及历史背景。</li>
+      <li id="src6"><a href="https://plato.stanford.edu/entries/descartes-epistemology/" target="_blank" rel="noopener">SEP — Descartes’ Epistemology</a>：错误理论、意志与理智、知识标准。</li>
+      <li id="src7"><a href="https://plato.stanford.edu/entries/descartes-ethics/" target="_blank" rel="noopener">SEP — Descartes’ Ethics</a>：激情、德性、幸福与笛卡尔实践哲学。</li>
+      <li id="src8"><a href="https://plato.stanford.edu/entries/descartes-ethics/" target="_blank" rel="noopener">SEP — Descartes’ Ethics</a>：哲学之树、最高伦理与智慧的目标。</li>
+      <li id="src9"><a href="https://www.gutenberg.org/ebooks/59" target="_blank" rel="noopener">Project Gutenberg — Discourse on the Method</a>：John Veitch 英译，公共领域电子文本。</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Utrecht_Weenix_Descartes.JPG" target="_blank" rel="noopener">Wikimedia Commons — Portrait of René Descartes</a>：Jan Baptist Weenix 肖像，公有领域。</li>
+      <li><a href="https://commons.wikimedia.org/wiki/File:Page_de_titre_de_la_premi%C3%A8re_%C3%A9dition_du_discours_de_la_m%C3%A9thode.jpg" target="_blank" rel="noopener">Wikimedia Commons — 1637《方法论》第一版扉页</a>：Gallica 来源，公有领域。</li>
+    </ol>
+    <hr/>
+    <p class="mini" style="color:#b8c8d2">说明：本文为解释性综述，引用观点以现代权威哲学资料交叉核对；原典短语仅用于必要的概念说明。页面内概念图均为本报告自制 SVG，可离线显示；两幅历史图像通过 Wikimedia Commons 在线加载。</p>
+  </div>
+</footer>
+<button id="topbtn" aria-label="返回顶部">↑</button>
+<script>
+const progress=document.getElementById('progress');const btn=document.getElementById('topbtn');
+function onScroll(){const h=document.documentElement.scrollHeight-innerHeight;progress.style.width=((scrollY/h)*100)+'%';btn.style.display=scrollY>800?'block':'none';}
+addEventListener('scroll',onScroll,{passive:true});onScroll();btn.onclick=()=>scrollTo({top:0,behavior:'smooth'});
+</script>
+</body>
+</html>

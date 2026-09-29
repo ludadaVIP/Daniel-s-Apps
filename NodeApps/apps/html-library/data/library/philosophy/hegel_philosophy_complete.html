@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>黑格尔哲学：一文讲透｜Hegel — Freedom Becoming Conscious of Itself</title>
+<meta name="description" content="一篇系统、深入、图文并茂的黑格尔哲学导论：辩证法、精神现象学、主奴辩证法、承认、逻辑学、自由、伦理生活、历史、艺术、宗教与绝对精神。" />
+<style>
+:root{
+  --bg:#f5f1e8; --paper:#fffdf7; --ink:#1f2430; --muted:#6d6b67;
+  --line:#d9d1c3; --accent:#7a3f2c; --accent2:#24475d; --gold:#9b7a33;
+  --panel:#eee7da; --shadow:0 14px 42px rgba(54,42,27,.10);
+  --max:1380px;
+}
+[data-theme="dark"]{
+  --bg:#14171b; --paper:#1b1f24; --ink:#ece8df; --muted:#aaa59c;
+  --line:#34383f; --accent:#d48768; --accent2:#83aac1; --gold:#d7b76a;
+  --panel:#23282e; --shadow:0 16px 44px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","STSong","PingFang SC","Microsoft YaHei",serif;line-height:1.82;font-size:18px;}
+a{color:var(--accent2);text-decoration:none;border-bottom:1px dotted currentColor}
+a:hover{opacity:.78}
+.progress{position:fixed;left:0;top:0;height:3px;width:0;background:linear-gradient(90deg,var(--accent),var(--gold));z-index:99}
+.shell{max-width:var(--max);margin:0 auto;padding:0 28px 80px}
+.hero{min-height:88vh;display:grid;grid-template-columns:1.25fr .75fr;gap:58px;align-items:center;padding:80px 0 52px;border-bottom:1px solid var(--line)}
+.eyebrow{font:600 13px/1.4 ui-sans-serif,system-ui,sans-serif;letter-spacing:.2em;text-transform:uppercase;color:var(--accent)}
+h1{font-size:clamp(52px,6vw,90px);line-height:1.02;margin:.16em 0 .2em;letter-spacing:-.045em;font-weight:800}
+.subtitle{font-size:clamp(22px,2.2vw,34px);line-height:1.35;color:var(--accent2);margin:0 0 24px;font-weight:600}
+.lead{font-size:21px;max-width:900px;color:var(--muted)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:10px;margin-top:28px}
+.pill{border:1px solid var(--line);border-radius:999px;padding:7px 12px;font:600 13px/1 ui-sans-serif,system-ui,sans-serif;background:color-mix(in srgb,var(--paper) 85%,transparent)}
+.portrait-wrap{position:relative;max-width:420px;margin:auto}
+.portrait{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:6px;display:block;filter:saturate(.9) contrast(1.02);box-shadow:var(--shadow);background:linear-gradient(150deg,#b9ad98,#5f5145)}
+.portrait-frame{position:absolute;inset:18px -18px -18px 18px;border:1px solid var(--gold);z-index:-1;border-radius:6px}
+.caption{font:500 12px/1.55 ui-sans-serif,system-ui,sans-serif;color:var(--muted);margin-top:12px}
+.controls{position:fixed;right:18px;bottom:18px;z-index:50;display:flex;gap:8px}
+button{border:1px solid var(--line);background:var(--paper);color:var(--ink);border-radius:999px;padding:10px 13px;cursor:pointer;box-shadow:var(--shadow);font:600 13px ui-sans-serif,system-ui,sans-serif}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:48px;padding-top:52px}
+.toc{position:sticky;top:26px;align-self:start;max-height:calc(100vh - 52px);overflow:auto;padding:18px 16px;border:1px solid var(--line);background:color-mix(in srgb,var(--paper) 88%,transparent);border-radius:12px}
+.toc h3{font:700 13px ui-sans-serif,system-ui,sans-serif;margin:0 0 12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.toc a{display:block;border:0;color:var(--muted);font:600 13px/1.5 ui-sans-serif,system-ui,sans-serif;padding:6px 8px;border-radius:7px}
+.toc a:hover,.toc a.active{background:var(--panel);color:var(--ink)}
+main{min-width:0}
+section{padding:24px 0 44px;border-bottom:1px solid var(--line);scroll-margin-top:20px}
+h2{font-size:clamp(32px,3.2vw,48px);line-height:1.15;margin:0 0 18px;letter-spacing:-.025em}
+h3{font-size:26px;line-height:1.25;margin:34px 0 12px;color:var(--accent2)}
+h4{font-size:20px;margin:24px 0 8px}
+p{margin:0 0 18px}
+strong{color:var(--ink)}
+.note,.insight,.warning,.quote{padding:20px 22px;border-radius:10px;margin:26px 0;border-left:4px solid var(--accent);background:var(--panel)}
+.insight{border-left-color:var(--gold)}
+.warning{border-left-color:var(--accent2)}
+.quote{font-size:22px;line-height:1.55;color:var(--accent2);font-style:italic}
+.kicker{font:700 12px/1.4 ui-sans-serif,system-ui,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:24px 0}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin:24px 0}
+.card{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:20px;box-shadow:0 8px 28px rgba(0,0,0,.035)}
+.card h4{margin-top:0;color:var(--accent2)}
+.bigline{font-size:28px;line-height:1.45;font-weight:700;margin:26px 0;color:var(--accent)}
+.small{font-size:14px;color:var(--muted);font-family:ui-sans-serif,system-ui,sans-serif}
+.diagram{margin:28px 0;background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;overflow:auto}
+.diagram svg{display:block;width:100%;height:auto;min-width:720px}
+.axis{font:600 13px ui-sans-serif,system-ui,sans-serif;fill:var(--muted)}
+.label{font:700 16px ui-sans-serif,system-ui,sans-serif;fill:var(--ink)}
+.label2{font:600 13px ui-sans-serif,system-ui,sans-serif;fill:var(--accent2)}
+.stroke{stroke:var(--line)}
+.accentStroke{stroke:var(--accent)}
+.accentFill{fill:var(--accent)}
+.paperFill{fill:var(--paper)}
+.panelFill{fill:var(--panel)}
+.inkFill{fill:var(--ink)}
+.mutedFill{fill:var(--muted)}
+.timeline{position:relative;margin:30px 0 8px;padding-left:22px}
+.timeline:before{content:"";position:absolute;left:5px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.trow{position:relative;padding:0 0 22px 18px}
+.trow:before{content:"";position:absolute;left:-22px;top:8px;width:10px;height:10px;border-radius:50%;background:var(--accent)}
+.tdate{font:800 13px ui-sans-serif,system-ui,sans-serif;color:var(--accent);letter-spacing:.05em}
+.ttext{font-size:16px}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:16px}
+th,td{padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top;text-align:left}
+th{font:700 13px ui-sans-serif,system-ui,sans-serif;color:var(--muted);letter-spacing:.04em}
+code{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;background:var(--panel);padding:2px 5px;border-radius:4px}
+ol,ul{padding-left:1.3em}
+li{margin:.35em 0}
+.glossary{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-top:22px}
+.term{border-top:1px solid var(--line);padding:14px 0}
+.term b{color:var(--accent)}
+.footer{padding:46px 0 10px;color:var(--muted);font-size:14px}
+.sources li{margin:.55em 0}
+@media(max-width:1000px){
+ .hero{grid-template-columns:1fr;min-height:auto;padding-top:48px}.portrait-wrap{max-width:340px}.layout{grid-template-columns:1fr}.toc{position:relative;top:0;max-height:none}.toc nav{columns:2}.grid3{grid-template-columns:1fr 1fr}
+}
+@media(max-width:700px){body{font-size:17px}.shell{padding:0 18px 60px}.hero{gap:34px}.grid2,.grid3,.glossary{grid-template-columns:1fr}.toc nav{columns:1}.diagram{margin-left:-6px;margin-right:-6px}.lead{font-size:19px}}
+@media print{.toc,.controls,.progress{display:none}.layout{display:block}.shell{max-width:none}.hero{min-height:auto;page-break-after:always}body{background:#fff}.card,.diagram{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div class="controls"><button id="themeBtn" aria-label="切换主题">◐ 主题</button><button onclick="window.print()">⎙ 打印</button></div>
+<div class="shell">
+  <header class="hero">
+    <div>
+      <div class="eyebrow">GEORG WILHELM FRIEDRICH HEGEL · 1770–1831</div>
+      <h1>黑格尔哲学<br>一文讲透</h1>
+      <p class="subtitle">不是“正题—反题—合题”，而是一部关于<strong>自由如何经过矛盾、承认、制度与历史，逐渐认识自身</strong>的哲学。</p>
+      <p class="lead">黑格尔最难的地方，不是概念多，而是他试图同时回答四个问题：世界为什么是可理解的？意识怎样知道自己知道？个人自由怎样不被社会吞没？历史为什么既充满灾难，又能被理解为自由结构的展开？理解这四问，就抓住了他的骨架。</p>
+      <div class="hero-meta">
+        <span class="pill">精神现象学</span><span class="pill">辩证法</span><span class="pill">承认</span><span class="pill">逻辑学</span><span class="pill">自由</span><span class="pill">历史哲学</span><span class="pill">绝对精神</span>
+      </div>
+    </div>
+    <div class="portrait-wrap">
+      <div class="portrait-frame"></div>
+      <img class="portrait" alt="黑格尔肖像" src="https://upload.wikimedia.org/wikipedia/commons/c/cc/Jakob_Schlesinger_-_Hegel_1831.jpg" onerror="this.style.display='none';this.parentElement.style.minHeight='430px';"/>
+      <div class="caption">黑格尔肖像，Jakob Schlesinger，1831。Wikimedia Commons（公版图像）。若离线打开，肖像可能不显示；其余图表均内嵌于本文。</div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <aside class="toc">
+      <h3>Contents</h3>
+      <nav id="tocNav">
+        <a href="#one">01 · 一句话抓住黑格尔</a>
+        <a href="#context">02 · 他在回应什么问题</a>
+        <a href="#dialectic">03 · 辩证法到底是什么</a>
+        <a href="#phenomenology">04 · 《精神现象学》</a>
+        <a href="#recognition">05 · 主奴与承认</a>
+        <a href="#logic">06 · 《逻辑学》</a>
+        <a href="#system">07 · 黑格尔体系总图</a>
+        <a href="#freedom">08 · 自由与伦理生活</a>
+        <a href="#history">09 · 历史哲学</a>
+        <a href="#absolute">10 · 艺术·宗教·哲学</a>
+        <a href="#religion">11 · 黑格尔与基督教</a>
+        <a href="#modernity">12 · 为什么他如此现代</a>
+        <a href="#critique">13 · 批评与争议</a>
+        <a href="#legacy">14 · 后世影响</a>
+        <a href="#reading">15 · 如何读黑格尔</a>
+        <a href="#glossary">16 · 术语表与总结</a>
+      </nav>
+    </aside>
+
+    <main>
+      <section id="one">
+        <div class="kicker">The Core</div>
+        <h2>01｜一句话抓住黑格尔</h2>
+        <p class="bigline">现实不是一堆静止的“东西”，而是一个由关系、矛盾、否定与自我修正推动的<strong>生成过程</strong>；而这个过程的哲学意义，是<strong>自由逐渐成为现实并认识自身</strong>。</p>
+        <div class="grid3">
+          <div class="card"><h4>世界观</h4><p>真实不是孤立实体的集合，而是一个彼此规定、相互中介的整体。一个东西“是什么”，往往必须通过它与他者的关系来理解。</p></div>
+          <div class="card"><h4>认识论</h4><p>意识并非先拥有一个固定框架再去照相式地复制世界；它在经验中不断发现自己的标准不充分，并被迫修正自己。</p></div>
+          <div class="card"><h4>自由论</h4><p>自由不是“谁也别管我”，而是我能在合理制度、相互承认和共同生活中，把外在世界认作自己的理性意志能够栖居的世界。</p></div>
+        </div>
+        <div class="insight"><strong>最重要的阅读钥匙：</strong>黑格尔不是在说“一切现实都很好”，而是在问：一个现实形式凭什么成立？它内部的张力是什么？这种张力怎样迫使它转变为一个更能容纳原先冲突的形式？</div>
+      </section>
+
+      <section id="context">
+        <div class="kicker">The Problem-Situation</div>
+        <h2>02｜黑格尔在回应什么问题？</h2>
+        <p>要理解黑格尔，必须先理解他继承的危机。近代哲学从笛卡尔开始，把“主体”与“客体”分开：我怎样知道外部世界？康德给出革命性的回答——经验之所以可能，是因为心灵以先验形式组织经验。但康德也留下裂缝：我们能认识“现象”，却不能认识“物自身”；自由与自然、理性与经验、主体与对象之间仍然存在张力。</p>
+        <div class="diagram" aria-label="从康德到黑格尔的问题链">
+          <svg viewBox="0 0 1000 300" role="img">
+            <defs><marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" class="accentFill"/></marker></defs>
+            <rect x="40" y="70" width="190" height="145" rx="14" class="panelFill stroke"/>
+            <text x="135" y="110" text-anchor="middle" class="label">康德</text>
+            <text x="135" y="143" text-anchor="middle" class="label2">主体构成经验秩序</text>
+            <text x="135" y="170" text-anchor="middle" class="label2">但物自身不可知</text>
+            <line x1="240" y1="142" x2="340" y2="142" class="accentStroke" stroke-width="3" marker-end="url(#arrow)"/>
+            <rect x="350" y="70" width="250" height="145" rx="14" class="panelFill stroke"/>
+            <text x="475" y="110" text-anchor="middle" class="label">德国观念论</text>
+            <text x="475" y="143" text-anchor="middle" class="label2">Fichte：自我活动</text>
+            <text x="475" y="170" text-anchor="middle" class="label2">Schelling：主客统一</text>
+            <line x1="610" y1="142" x2="710" y2="142" class="accentStroke" stroke-width="3" marker-end="url(#arrow)"/>
+            <rect x="720" y="45" width="235" height="195" rx="14" class="paperFill stroke"/>
+            <text x="837" y="90" text-anchor="middle" class="label">黑格尔</text>
+            <text x="837" y="125" text-anchor="middle" class="label2">不是跳过差异</text>
+            <text x="837" y="152" text-anchor="middle" class="label2">而是让差异运动起来</text>
+            <text x="837" y="179" text-anchor="middle" class="label2">在“中介”中达到统一</text>
+            <text x="500" y="275" text-anchor="middle" class="axis">关键：真正的统一不是取消差异，而是能解释差异如何属于同一个整体。</text>
+          </svg>
+        </div>
+        <p>黑格尔的野心因此非常大：如果主体与客体、自由与自然、个人与社会只被当作彼此排斥的两极，那么哲学永远停在二分法里。他要证明，真正的理性不是选择其中一边，而是展示这些对立项如何在更高层次上互相规定。</p>
+
+        <h3>生平与著作：不是背景，而是思想发生的现场</h3>
+        <div class="timeline">
+          <div class="trow"><div class="tdate">1770</div><div class="ttext">生于斯图加特。与荷尔德林、谢林在图宾根神学院相识。</div></div>
+          <div class="trow"><div class="tdate">1807</div><div class="ttext">《精神现象学》出版。它不是“体系百科全书”，更像意识被迫成长为哲学视野的一部教育小说。</div></div>
+          <div class="trow"><div class="tdate">1812–1816</div><div class="ttext">《逻辑学》三卷陆续出版：存在论、反思结构与概念结构在这里被重新建构。</div></div>
+          <div class="trow"><div class="tdate">1817 / 1827 / 1830</div><div class="ttext">《哲学科学百科全书》不断修订，呈现“逻辑—自然—精神”的系统架构。</div></div>
+          <div class="trow"><div class="tdate">1821</div><div class="ttext">《法哲学原理》出版，集中讨论权利、道德、家庭、市民社会、国家与自由。</div></div>
+          <div class="trow"><div class="tdate">1831</div><div class="ttext">卒于柏林。其讲座遗稿后来形成历史哲学、美学、宗教哲学、哲学史等重要文本传统。</div></div>
+        </div>
+      </section>
+
+      <section id="dialectic">
+        <div class="kicker">Dialectics</div>
+        <h2>03｜辩证法到底是什么？</h2>
+        <div class="warning"><strong>先纠正一个流行误解：</strong>把黑格尔的方法概括成机械的“正题—反题—合题（thesis–antithesis–synthesis）”并不准确。黑格尔自己并未把成熟体系描述成一套外在套用的三步公式；他反而批评把“三分法”变成僵死模板的做法。更准确的关键词是：<strong>规定、内在否定、扬弃、中介、具体普遍性</strong>。</div>
+
+        <h3>3.1 矛盾不是逻辑事故，而是一面“暴露有限性”的镜子</h3>
+        <p>在日常逻辑中，如果一个命题导致矛盾，我们通常认为它错了。但黑格尔追问：有些概念为什么会<strong>必然</strong>走向自身不能维持的处境？例如，若把自由理解成“完全不受任何限制”，那么任何具体选择都会变成限制，因为选择 A 就意味着不再选择非 A。于是纯粹、空洞的“无限任性”反而无法成为现实自由。</p>
+        <p>辩证法就是让一个规定充分展开，直到它自己显示出：若坚持自身，它会走向与自身目标相反的结果。转变因此不是外面有人“反驳”它，而是其内部结构迫使它改变。</p>
+
+        <h3>3.2 Aufhebung：最重要、也最难翻译的词</h3>
+        <p><strong>Aufhebung</strong> 常译“扬弃”。德语中它同时包含三层意思：取消、保存、提升。一个较低阶段被超越，却不是像垃圾一样丢掉；它的真理被保存在更复杂的结构中。</p>
+        <div class="diagram">
+          <svg viewBox="0 0 1000 380" role="img" aria-label="扬弃的三重意义">
+            <defs><marker id="arr2" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" class="accentFill"/></marker></defs>
+            <circle cx="180" cy="180" r="92" class="panelFill stroke"/>
+            <text x="180" y="170" text-anchor="middle" class="label">有限规定 A</text><text x="180" y="201" text-anchor="middle" class="label2">它有自己的真理</text>
+            <line x1="280" y1="180" x2="420" y2="180" class="accentStroke" stroke-width="3" marker-end="url(#arr2)"/>
+            <circle cx="520" cy="180" r="92" class="panelFill stroke"/>
+            <text x="520" y="160" text-anchor="middle" class="label">内在否定</text><text x="520" y="191" text-anchor="middle" class="label2">A 显示自身不充分</text><text x="520" y="216" text-anchor="middle" class="label2">不是外部攻击</text>
+            <line x1="620" y1="180" x2="760" y2="180" class="accentStroke" stroke-width="3" marker-end="url(#arr2)"/>
+            <circle cx="850" cy="180" r="108" class="paperFill stroke"/>
+            <text x="850" y="145" text-anchor="middle" class="label">Aufhebung</text><text x="850" y="180" text-anchor="middle" class="label2">取消其片面性</text><text x="850" y="207" text-anchor="middle" class="label2">保存其合理内容</text><text x="850" y="234" text-anchor="middle" class="label2">提升为更具体结构</text>
+            <text x="500" y="345" text-anchor="middle" class="axis">辩证法不是 “A + 非A = 折中”，而是让 A 的真实内容在更高层次获得位置。</text>
+          </svg>
+        </div>
+
+        <h3>3.3 “否定之否定”不是返回原点</h3>
+        <p>第一次否定打破直接性；第二次否定不是把第一步取消后回到原点，而是把经过冲突后获得的差异包含进来。可以把它想成：<strong>天真统一 → 分裂 → 经历分裂后的统一</strong>。最后的统一比最初更“具体”，因为它知道自己包含哪些差异以及为什么包含。</p>
+        <div class="insight"><strong>一个实用理解：</strong>黑格尔关心的不是“冲突本身”，而是<strong>什么样的整体有能力容纳冲突，同时不把差异抹平</strong>。这也是为什么他的辩证法最终会进入法律、家庭、市场、国家、艺术、宗教和哲学——这些都是人类处理差异与统一的制度或文化形式。</div>
+      </section>
+
+      <section id="phenomenology">
+        <div class="kicker">Phenomenology of Spirit</div>
+        <h2>04｜《精神现象学》：意识如何被自己的经验“教育”</h2>
+        <p>《精神现象学》最适合被理解为一条<strong>意识的学习道路</strong>。每一种意识形态都确信自己已经抓住真理；但当它按照自己的标准行动时，会发现经验与标准不一致，于是不得不改变“对象是什么”以及“我是谁”的理解。</p>
+        <div class="diagram">
+          <svg viewBox="0 0 1080 330" role="img" aria-label="精神现象学路径">
+            <defs><marker id="arr3" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" class="accentFill"/></marker></defs>
+            <g>
+              <rect x="25" y="90" width="150" height="95" rx="12" class="panelFill stroke"/><text x="100" y="125" text-anchor="middle" class="label">意识</text><text x="100" y="152" text-anchor="middle" class="label2">对象在外面</text>
+              <line x1="180" y1="137" x2="225" y2="137" class="accentStroke" stroke-width="2.5" marker-end="url(#arr3)"/>
+              <rect x="235" y="90" width="150" height="95" rx="12" class="panelFill stroke"/><text x="310" y="125" text-anchor="middle" class="label">自我意识</text><text x="310" y="152" text-anchor="middle" class="label2">我需他者承认</text>
+              <line x1="390" y1="137" x2="435" y2="137" class="accentStroke" stroke-width="2.5" marker-end="url(#arr3)"/>
+              <rect x="445" y="90" width="150" height="95" rx="12" class="panelFill stroke"/><text x="520" y="125" text-anchor="middle" class="label">理性</text><text x="520" y="152" text-anchor="middle" class="label2">世界可被理解</text>
+              <line x1="600" y1="137" x2="645" y2="137" class="accentStroke" stroke-width="2.5" marker-end="url(#arr3)"/>
+              <rect x="655" y="90" width="150" height="95" rx="12" class="panelFill stroke"/><text x="730" y="125" text-anchor="middle" class="label">精神</text><text x="730" y="152" text-anchor="middle" class="label2">社会—历史世界</text>
+              <line x1="810" y1="137" x2="855" y2="137" class="accentStroke" stroke-width="2.5" marker-end="url(#arr3)"/>
+              <rect x="865" y="60" width="190" height="155" rx="12" class="paperFill stroke"/><text x="960" y="105" text-anchor="middle" class="label">宗教 → 绝对知</text><text x="960" y="138" text-anchor="middle" class="label2">整体以表象理解自身</text><text x="960" y="165" text-anchor="middle" class="label2">再以概念理解自身</text>
+            </g>
+            <text x="540" y="270" text-anchor="middle" class="axis">不是“知识越来越多”，而是意识对“真理标准本身”的理解越来越成熟。</text>
+          </svg>
+        </div>
+
+        <h3>4.1 感性确定性：看起来最具体，其实最贫乏</h3>
+        <p>“这里、现在、这个”似乎是最直接的知识。但一旦说出“现在”，这个词可以指任何时刻；说出“这里”，也可以指任何位置。最具体的感性指示，进入语言后反而暴露为普遍形式。黑格尔用这一开局展示：<strong>所谓“纯粹直接性”总已被概念中介</strong>。</p>
+
+        <h3>4.2 知觉与知性：对象不是静态块，而是关系结构</h3>
+        <p>知觉发现事物包含多个属性；知性进一步寻找属性背后的力、规律与关系。但“背后的本质”如果被理解成与现象彻底分离的另一个世界，就会再次产生二分。意识最终必须看到：它对对象的结构化理解，本身就是经验世界如何成为“可知对象”的一部分。</p>
+
+        <h3>4.3 转折：从“对象是什么”到“我是谁”</h3>
+        <p>当意识意识到自己并非被动观看者，问题就进入自我意识。但自我意识不能独自在镜子里完成：它需要另一个自由主体对自己的承认。这一步开启黑格尔最有影响力的思想之一——<strong>承认（Anerkennung）</strong>。</p>
+      </section>
+
+      <section id="recognition">
+        <div class="kicker">Recognition</div>
+        <h2>05｜主奴辩证法：自由为什么需要他者</h2>
+        <p>两种自我意识相遇时，每一方都希望对方承认自己的独立性。但如果我只想让对方屈服，我得到的就不是来自自由主体的承认，而是来自一个被降格者的服从。于是支配关系包含结构性悖论：</p>
+        <div class="grid2">
+          <div class="card"><h4>主人</h4><p>表面上独立，实际上依赖奴隶劳动以及奴隶的承认；但这种承认恰恰因为对方不被视为平等自由者而失去价值。</p></div>
+          <div class="card"><h4>奴隶</h4><p>表面上从属，却通过劳动延迟欲望、改造世界，也改造自己；在对象化的劳动中获得一种更稳定的自我关系。</p></div>
+        </div>
+        <div class="insight"><strong>关键不是“奴隶最后打败主人”。</strong>关键是：单方面承认无法满足自我意识。真正稳定的自由必须以<strong>相互承认</strong>为结构——我承认你是自由者，而你的承认才因此对我有意义。</div>
+        <p>这条线后来会进入《法哲学》：人格权、财产、契约、家庭、市民社会和国家，并不是自由的外部限制，而是自由获得公共、稳定、可相互承认的形式。现代“承认理论”正是从这里发展出许多关于尊严、身份、社会冲突与制度正义的讨论。</p>
+      </section>
+
+      <section id="logic">
+        <div class="kicker">Science of Logic</div>
+        <h2>06｜《逻辑学》：不是教你三段论，而是研究“可理解性本身”</h2>
+        <p>黑格尔所谓逻辑学，不等于现代形式逻辑。它更接近一门<strong>范畴的自我展开学</strong>：存在、同一、差异、因果、实体、概念、目的等最基本的思维规定，是否可以被孤立地使用？它们彼此之间有什么必要关系？</p>
+
+        <h3>6.1 存在—无—生成：为什么开头如此著名</h3>
+        <p>“纯存在”如果完全没有任何规定，那么它里面没有任何可区分的内容；在这种纯粹空无规定性上，它与“纯无”无法区分。二者的真理不是停在“存在=无”的怪论，而是<strong>生成</strong>：存在向无过渡，无向存在过渡。重点是展示：一个极度抽象的范畴，恰因抽象到没有内容而无法自立。</p>
+        <div class="diagram">
+          <svg viewBox="0 0 1000 350" role="img" aria-label="存在无生成示意">
+            <defs><marker id="arr4" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" class="accentFill"/></marker></defs>
+            <circle cx="205" cy="155" r="95" class="panelFill stroke"/><text x="205" y="150" text-anchor="middle" class="label">纯存在</text><text x="205" y="181" text-anchor="middle" class="label2">完全无规定</text>
+            <line x1="310" y1="155" x2="430" y2="155" class="accentStroke" stroke-width="3" marker-end="url(#arr4)"/>
+            <circle cx="535" cy="155" r="95" class="panelFill stroke"/><text x="535" y="150" text-anchor="middle" class="label">纯无</text><text x="535" y="181" text-anchor="middle" class="label2">同样无规定</text>
+            <line x1="640" y1="155" x2="760" y2="155" class="accentStroke" stroke-width="3" marker-end="url(#arr4)"/>
+            <circle cx="855" cy="155" r="105" class="paperFill stroke"/><text x="855" y="142" text-anchor="middle" class="label">生成</text><text x="855" y="174" text-anchor="middle" class="label2">二者的运动统一</text>
+            <text x="500" y="320" text-anchor="middle" class="axis">抽象范畴不是被外部反驳，而是因自身贫乏而过渡到更丰富的范畴。</text>
+          </svg>
+        </div>
+
+        <h3>6.2 三大部分：存在、本质、概念</h3>
+        <table>
+          <thead><tr><th>部分</th><th>核心问题</th><th>直观理解</th></tr></thead>
+          <tbody>
+            <tr><td><strong>存在（Being）</strong></td><td>事物直接呈现为怎样的规定？</td><td>质、量、尺度等“直接规定性”。</td></tr>
+            <tr><td><strong>本质（Essence）</strong></td><td>表面为何如此？它与条件、根据、关系怎样互相反映？</td><td>同一/差异、根据、现象、因果、实体等反思结构。</td></tr>
+            <tr><td><strong>概念（Concept / Begriff）</strong></td><td>一个整体如何通过自身结构组织差异，并具有目的性？</td><td>普遍—特殊—个别、判断、推论、生命、认识、绝对理念。</td></tr>
+          </tbody>
+        </table>
+        <p>因此，“概念”在黑格尔那里不是脑中标签，而更接近<strong>能通过自身关系组织一个对象领域的理性结构</strong>。所谓“具体概念”，是一个能够包含内部差异、解释其关系并保持整体性的结构。</p>
+      </section>
+
+      <section id="system">
+        <div class="kicker">The System</div>
+        <h2>07｜黑格尔体系总图：逻辑 → 自然 → 精神</h2>
+        <p>成熟黑格尔体系常以三大领域呈现：<strong>逻辑学、自然哲学、精神哲学</strong>。最好不要把它们理解成按时间发生的宇宙神话，而是三种哲学考察层次：纯粹概念结构；外在性与自然；以及在生命、意识、社会与文化中回到自我理解的理性。</p>
+        <div class="diagram">
+          <svg viewBox="0 0 1000 580" role="img" aria-label="黑格尔体系圆环图">
+            <circle cx="500" cy="285" r="235" fill="none" class="stroke" stroke-width="38"/>
+            <path d="M500 50 A235 235 0 0 1 703 402" fill="none" class="accentStroke" stroke-width="38"/>
+            <path d="M703 402 A235 235 0 0 1 297 402" fill="none" stroke="var(--gold)" stroke-width="38"/>
+            <path d="M297 402 A235 235 0 0 1 500 50" fill="none" stroke="var(--accent2)" stroke-width="38"/>
+            <circle cx="500" cy="285" r="145" class="paperFill stroke"/>
+            <text x="500" y="257" text-anchor="middle" class="label">IDEA / 理念</text>
+            <text x="500" y="292" text-anchor="middle" class="label2">不是静止实体</text>
+            <text x="500" y="320" text-anchor="middle" class="label2">而是“圆环中的圆环”</text>
+            <text x="700" y="115" text-anchor="middle" class="label">逻辑</text><text x="720" y="143" text-anchor="middle" class="label2">纯概念结构</text>
+            <text x="500" y="548" text-anchor="middle" class="label">自然</text><text x="500" y="575" text-anchor="middle" class="label2">理念的外在性</text>
+            <text x="274" y="125" text-anchor="middle" class="label">精神</text><text x="255" y="153" text-anchor="middle" class="label2">回到自我关系</text>
+          </svg>
+        </div>
+        <div class="grid3">
+          <div class="card"><h4>主观精神</h4><p>灵魂、意识、心理、意志：个体精神如何形成。</p></div>
+          <div class="card"><h4>客观精神</h4><p>权利、道德、伦理生活：自由如何成为制度与共同生活。</p></div>
+          <div class="card"><h4>绝对精神</h4><p>艺术、宗教、哲学：精神如何在文化形式中理解自身与整体。</p></div>
+        </div>
+      </section>
+
+      <section id="freedom">
+        <div class="kicker">Freedom & Ethical Life</div>
+        <h2>08｜自由：为什么“想干什么就干什么”还不够</h2>
+        <p>《法哲学》的核心不是国家崇拜，而是一个问题：<strong>自由意志怎样获得现实存在？</strong> 黑格尔把“权利”理解为自由在世界中的存在形式。于是自由必须从抽象人格，经过主观道德，进入“伦理生活”（Sittlichkeit）。</p>
+
+        <h3>8.1 三个层次：抽象权利 → 道德 → 伦理生活</h3>
+        <div class="grid3">
+          <div class="card"><h4>抽象权利</h4><p>我是一个人格，因此具有财产、契约与不受侵犯的资格。优点是普遍；缺点是过于抽象。</p></div>
+          <div class="card"><h4>道德</h4><p>行动不仅看外在合法性，还看意图、责任、良心与“善”。优点是强调主体；风险是每个人都把私人确信当最高标准。</p></div>
+          <div class="card"><h4>伦理生活</h4><p>自由进入可持续的社会实践与制度：家庭、市民社会、国家。规范不再只是外在命令，而应成为主体能够认同的生活结构。</p></div>
+        </div>
+
+        <h3>8.2 家庭—市民社会—国家</h3>
+        <p><strong>家庭</strong>体现以爱为媒介的直接统一；<strong>市民社会</strong>则是差异、交换、劳动、法律、需求体系与竞争的领域；<strong>国家</strong>在黑格尔理想中应把个人特殊利益与公共普遍性组织到一个制度整体中。</p>
+        <div class="warning"><strong>重要区分：</strong>黑格尔所说“国家”不是简单等于任何现实政府，更不是“政府做什么都合理”。他的论证是规范性的：国家只有在能够使自由成为制度化、相互承认的现实形式时，才接近其概念。研究者长期争论他对君主制与普鲁士制度的态度，但把他直接概括为“极权国家哲学家”同样过度简化。</div>
+
+        <h3>8.3 市场的洞见：现代自由的发动机，也是裂缝制造机</h3>
+        <p>黑格尔看到现代市民社会的两面性。分工与交换让私人追求彼此依赖，个人通过劳动参与一个普遍的需求网络；但同一机制也可能制造贫困、排斥与失去社会归属的人群。因此，市场并不会自动把私人利益转化为完整的公共善，它需要法律、公共机构与社会组织的中介。</p>
+        <div class="insight"><strong>这也是黑格尔“现代”的原因之一：</strong>他既不是浪漫地反市场，也不是把市场视为自动和谐的机器。他看到现代社会的自由来自复杂分化，而分化本身又会生产新的不自由。</div>
+      </section>
+
+      <section id="history">
+        <div class="kicker">Philosophy of History</div>
+        <h2>09｜历史哲学：历史有意义吗？</h2>
+        <p>黑格尔最著名、也最容易被误解的主张，是世界历史与<strong>自由意识的发展</strong>有关。这里的“进步”不是“每一天都比昨天好”，更不是否认战争、暴力与灾难；他试图说明的是：历史中的制度形态可以按照“谁被承认为自由者、自由如何被制度化”来比较其结构。</p>
+
+        <h3>9.1 “理性的狡计”</h3>
+        <p>个人行动通常追求私人的目标：荣耀、利益、权力、信念。但行动进入公共世界后，结果往往超出行动者意图。黑格尔把这种结构称为“理性的狡计”：历史性结果可以通过个体激情实现，却不等于个体理解或计划了整体结果。</p>
+        <p>这并非神秘地说“所有坏事最终都好”，而是指出<strong>行动的社会意义不等于行动者的主观动机</strong>。制度变迁常由无人完全控制的后果链形成。</p>
+
+        <h3>9.2 历史终点？</h3>
+        <p>黑格尔并没有提供“某一天历史停止”的简单预言。他所谓历史达到一种成熟结构，更接近：现代世界出现了“所有人原则上都自由”的普遍原则，并尝试通过权利与制度实现它。但“原则被承认”与“原则被完全实现”不是同一回事。</p>
+
+        <h3>9.3 必须正视的严重问题：欧洲中心主义</h3>
+        <p>黑格尔的历史讲座包含明显的19世纪欧洲中心视角，对非欧洲社会有大量概括、等级化与失真的判断。今天不能把这些内容当成中立历史学结论。更值得保留的问题框架是：制度如何体现自由、承认与主体性；而不应把他的具体文明排序照单全收。</p>
+      </section>
+
+      <section id="absolute">
+        <div class="kicker">Absolute Spirit</div>
+        <h2>10｜艺术、宗教、哲学：绝对精神为什么有三种形式</h2>
+        <p>“绝对”最容易让人误以为黑格尔在说一个巨大超自然物体。更好的理解是：当精神不再只处理某个有限对象，而开始理解<strong>整体与自身的关系</strong>时，就进入绝对精神。艺术、宗教与哲学是同一内容的不同呈现方式。</p>
+        <div class="grid3">
+          <div class="card"><h4>艺术</h4><p><strong>感性形象</strong>中的真理。理念通过建筑、雕塑、绘画、音乐、诗等具体形式显现。</p></div>
+          <div class="card"><h4>宗教</h4><p><strong>表象（Vorstellung）</strong>中的真理。整体意义通过故事、象征、礼仪、神人关系来把握。</p></div>
+          <div class="card"><h4>哲学</h4><p><strong>概念（Begriff）</strong>中的真理。哲学试图把艺术与宗教表达的内容，转化为自觉的概念关系。</p></div>
+        </div>
+        <p>这不是说艺术和宗教“没用了”，而是说哲学对同一真理要求更高的概念透明度。黑格尔著名的“密涅瓦的猫头鹰在黄昏起飞”正表达类似思想：哲学往往在一种生活形式已经成熟之后，才把其结构理解清楚。哲学不是提前替世界写剧本，而是<strong>概念性地理解已经形成的现实</strong>。</p>
+      </section>
+
+      <section id="religion">
+        <div class="kicker">Hegel & Christianity</div>
+        <h2>11｜黑格尔与基督教：道成肉身、十字架与和解的哲学化</h2>
+        <p>黑格尔成长于新教语境，宗教在他的哲学中不是边缘附录。尤其是基督教，在他看来以表象方式表达了几个与其哲学高度相关的主题：有限与无限并非永远隔绝；神圣不是只能停留在“彼岸”；和解必须穿过分裂，而不是假装分裂不存在。</p>
+        <p>从哲学结构看，<strong>道成肉身</strong>意味着无限进入有限；<strong>受难与死亡</strong>使“纯粹彼岸的神”这一抽象观念受到否定；<strong>复活与圣灵共同体</strong>则可以被理解为一种经由否定后的共同体和解。黑格尔因此把基督教的叙事内容解释为精神认识自身的一种宗教形式。</p>
+        <div class="warning"><strong>但要避免两个误区：</strong>第一，黑格尔并不等同于传统教会教义的简单复述，他会把神学命题重新解释为哲学结构；第二，也不能简单说他“只是把上帝换成历史”。黑格尔研究中对其神学正统性、泛神论或非传统有神论性质一直存在争论。</div>
+        <div class="insight"><strong>若从基督教思想史角度阅读：</strong>黑格尔最值得追问的不是“他是否完全正统”，而是他怎样把“和解必须经过否定”这一模式推入认识论、历史、社会与共同体理论。这既富有洞见，也会对传统创造—堕落—救赎框架产生重构压力。</div>
+      </section>
+
+      <section id="modernity">
+        <div class="kicker">Why Hegel Still Matters</div>
+        <h2>12｜为什么黑格尔如此现代？</h2>
+        <div class="grid2">
+          <div class="card"><h4>① 他把“自我”社会化了</h4><p>我不是先有一个完整自我，再去和别人交往。我的身份、能力与自由本身就需要语言、规范与他者承认。</p></div>
+          <div class="card"><h4>② 他把“真理”动态化了</h4><p>错误不是纯废料。一个立场失败的方式，可能揭示它隐藏的真理以及下一阶段必须解决的问题。</p></div>
+          <div class="card"><h4>③ 他把自由制度化了</h4><p>自由不是心理感受，而要看一个社会是否具有权利、承认、教育、经济参与与公共制度等客观条件。</p></div>
+          <div class="card"><h4>④ 他把现代性理解为“分化”</h4><p>家庭、经济、法律、政治、艺术、宗教不再是一团统一共同体，而成为各自相对自主的领域。现代自由来自这种分化，也因分化而焦虑。</p></div>
+        </div>
+        <p>因此，从身份政治到劳动异化，从制度信任到社会承认，从历史记忆到公共理性，许多当代问题都能在黑格尔那里找到概念祖先。即使不接受他的“系统”，他的核心问题仍然持续有效。</p>
+      </section>
+
+      <section id="critique">
+        <div class="kicker">Critiques</div>
+        <h2>13｜对黑格尔最重要的批评</h2>
+        <table>
+          <thead><tr><th>批评</th><th>问题在哪里</th><th>应如何理解</th></tr></thead>
+          <tbody>
+            <tr><td><strong>体系过度封闭</strong></td><td>如果一切都能被系统吸收，是否还有真正偶然、不可整合的他者？</td><td>这是克尔凯郭尔、存在主义与后结构主义反复追问的方向。</td></tr>
+            <tr><td><strong>历史目的论风险</strong></td><td>把历史理解成进程，是否会把受难合理化为“必要阶段”？</td><td>必须区分“解释结构”与“道德辩护”。黑格尔式解释不应自动变成对灾难的正当化。</td></tr>
+            <tr><td><strong>政治保守倾向</strong></td><td>他的国家理论与君主制安排，是否把当时制度哲学化？</td><td>学界解释差异很大。可同时承认其自由制度论的资源与其时代局限。</td></tr>
+            <tr><td><strong>逻辑与经验混同</strong></td><td>概念的辩证过渡是否真能说明现实结构？</td><td>这是分析哲学传统对黑格尔的重要质疑之一。</td></tr>
+            <tr><td><strong>语言晦涩</strong></td><td>难懂是否掩盖不清楚？</td><td>部分晦涩来自术语重定义和系统互相依赖；但并非所有艰涩都因此自动正当。</td></tr>
+            <tr><td><strong>欧洲中心主义</strong></td><td>历史叙述中的文明等级具有明显偏见。</td><td>这不是小缺点，而是阅读历史哲学时必须明确批判性处理的部分。</td></tr>
+          </tbody>
+        </table>
+        <div class="insight"><strong>最成熟的态度不是“接受黑格尔”或“拒绝黑格尔”。</strong>更有价值的做法是拆分：他的承认理论、社会自由、辩证批判、制度分析可以很有力量；他的某些历史判断、政治安排与系统抱负则完全可以被质疑。</div>
+      </section>
+
+      <section id="legacy">
+        <div class="kicker">After Hegel</div>
+        <h2>14｜没有黑格尔，就很难理解后来的欧洲思想</h2>
+        <div class="grid3">
+          <div class="card"><h4>马克思</h4><p>继承历史性、矛盾与异化问题，但把黑格尔的观念论框架转向劳动、物质生产与阶级结构。</p></div>
+          <div class="card"><h4>克尔凯郭尔</h4><p>反对体系吞没具体个体，强调存在、选择、焦虑、信仰与不可被普遍概念替代的“单独者”。</p></div>
+          <div class="card"><h4>青年黑格尔派</h4><p>把宗教、国家与社会的内在批判发展为更激进的政治与宗教批判。</p></div>
+          <div class="card"><h4>法国传统</h4><p>经科耶夫等人的讲授，“主奴—承认—欲望”深刻影响萨特、拉康及后来的法国思想。</p></div>
+          <div class="card"><h4>法兰克福学派</h4><p>阿多诺、霍克海默、马尔库塞等在现代社会批判中持续与黑格尔辩证法对话。</p></div>
+          <div class="card"><h4>当代承认理论</h4><p>霍耐特等人把承认发展为分析社会伤害、尊重、自尊与制度关系的规范框架。</p></div>
+        </div>
+        <p>甚至在分析哲学内部，20世纪后期以来也出现对黑格尔更严肃的重新评价，尤其围绕概念性、规范性、社会实践与理性结构展开。黑格尔不再只是“大陆哲学的古怪祖先”，而重新进入主流哲学对话。</p>
+      </section>
+
+      <section id="reading">
+        <div class="kicker">Reading Strategy</div>
+        <h2>15｜如何读黑格尔，才不会读三页就放弃</h2>
+        <ol>
+          <li><strong>先抓问题，不先背术语。</strong>每一段先问：“黑格尔试图修复哪种二分或片面性？”</li>
+          <li><strong>找到“这个立场如何自己失败”。</strong>辩证过渡通常不是任意跳转，而是上一规定无法完成自己的承诺。</li>
+          <li><strong>注意“保留了什么”。</strong>新阶段不是把旧阶段全否定；要找被保存的合理内容。</li>
+          <li><strong>区别读者视角与意识视角。</strong>尤其《精神现象学》中，我们常比文本里的“意识形态”更早知道它为什么会失败。</li>
+          <li><strong>不要把“精神”想成鬼魂。</strong>很多场合它指的是可被个体共享的规范、语言、制度、历史实践与自我理解。</li>
+          <li><strong>把《法哲学》当作自由制度论来读。</strong>问每个制度在解决哪类自由困境，而不是先问“他支持不支持某政体”。</li>
+        </ol>
+        <div class="grid2">
+          <div class="card"><h4>入门路线 A：思想地图</h4><p>先读一部可靠导论 → 《精神现象学》序言/导论的二手讲解 → 主奴章节 → 《法哲学》导论与“伦理生活” → 再进入《逻辑学》。</p></div>
+          <div class="card"><h4>路线 B：直接进文本</h4><p>《精神现象学》不要追求一次全懂，重点追踪“意识的标准怎样变化”；《逻辑学》则慢读，每次只处理一个范畴过渡。</p></div>
+        </div>
+        <div class="note"><strong>检验自己是否真的理解黑格尔：</strong>如果你能解释“为什么相互承认比单方面支配更能实现自由”“为什么纯粹不受限制并不等于具体自由”“为什么扬弃不是折中”，就已经抓到黑格尔的中轴。</div>
+      </section>
+
+      <section id="glossary">
+        <div class="kicker">Glossary & Synthesis</div>
+        <h2>16｜核心术语表 + 最后总总结</h2>
+        <div class="glossary">
+          <div class="term"><b>Geist｜精神</b><br><span class="small">既可指心灵，也可指历史—社会—文化中具有规范结构的共同精神生活。</span></div>
+          <div class="term"><b>Aufhebung｜扬弃</b><br><span class="small">取消片面性、保存真理、提升到更具体结构。</span></div>
+          <div class="term"><b>Vermittlung｜中介</b><br><span class="small">任何看似直接的东西，实际上通过关系、概念、实践或制度才成为它自己。</span></div>
+          <div class="term"><b>Anerkennung｜承认</b><br><span class="small">主体互相确认为自由、具有规范地位的主体；自我关系因此具有社会结构。</span></div>
+          <div class="term"><b>Begriff｜概念</b><br><span class="small">不是标签，而是能组织普遍、特殊与个别关系的自我规定结构。</span></div>
+          <div class="term"><b>Sittlichkeit｜伦理生活</b><br><span class="small">自由在家庭、市民社会、国家等制度与实践中的具体化。</span></div>
+          <div class="term"><b>Negativität｜否定性</b><br><span class="small">事物超出固定规定、与自身产生差异并推动发展的能力。</span></div>
+          <div class="term"><b>Absolute｜绝对</b><br><span class="small">不是“超级东西”，而是不再被外在他者简单限制、能把差异纳入自身理解的整体。</span></div>
+        </div>
+        <div class="quote">“真正的黑格尔式问题，不是：哪一边赢？而是：为什么这个对立会出现，以及什么结构能使双方的真理同时获得位置？”</div>
+
+        <h3>把整套哲学压缩成七句话</h3>
+        <ol>
+          <li>孤立、静止的规定往往是不充分的；真实存在于关系与生成中。</li>
+          <li>一个立场的矛盾会暴露它自己的有限性。</li>
+          <li>发展不是抹掉过去，而是通过“扬弃”保存其真理并超越其片面性。</li>
+          <li>自我意识需要他者，因此自由从根本上具有承认结构。</li>
+          <li>自由必须取得制度形式；没有权利、社会实践与共同生活，自由只是抽象愿望。</li>
+          <li>历史可以被读作人类对自由之意义及其制度条件逐步形成自觉的过程，但这一叙事必须接受对欧洲中心主义与目的论风险的批判。</li>
+          <li>艺术、宗教、哲学是精神理解整体的不同方式；哲学的任务，是把这种理解提升到概念的自觉性。</li>
+        </ol>
+        <p class="bigline">黑格尔最终想说：<strong>自由不是逃离关系，而是在正确的关系中成为自己；真理不是逃离矛盾，而是能够解释矛盾为何出现，并把其合理内容纳入更丰富的整体。</strong></p>
+      </section>
+
+      <section id="sources">
+        <div class="kicker">Sources & Further Reading</div>
+        <h2>参考资料</h2>
+        <ul class="sources">
+          <li><a href="https://plato.stanford.edu/entries/hegel/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy — Georg Wilhelm Friedrich Hegel</a></li>
+          <li><a href="https://plato.stanford.edu/entries/hegel-dialectics/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy — Hegel’s Dialectics</a></li>
+          <li><a href="https://plato.stanford.edu/entries/hegel-social-political/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy — Hegel’s Social and Political Philosophy</a></li>
+          <li><a href="https://plato.stanford.edu/entries/recognition/" target="_blank" rel="noopener">Stanford Encyclopedia of Philosophy — Recognition</a></li>
+          <li><a href="https://iep.utm.edu/hegelsoc/" target="_blank" rel="noopener">Internet Encyclopedia of Philosophy — Hegel: Social and Political Thought</a></li>
+          <li><a href="https://commons.wikimedia.org/wiki/File:Jakob_Schlesinger_-_Hegel_1831.jpg" target="_blank" rel="noopener">Wikimedia Commons — Jakob Schlesinger, Hegel portrait (1831)</a></li>
+        </ul>
+        <p class="small">说明：本文为综合性哲学导论，叙述与图示为原创整理；不同黑格尔研究传统对“形而上学/非形而上学”“国家”“宗教”“绝对”等问题存在重要解释分歧，本文在关键争议处尽量作出区分。</p>
+      </section>
+    </main>
+  </div>
+
+  <footer class="footer">HEGEL · A CONCEPTUAL MAP OF FREEDOM, RECOGNITION AND SPIRIT<br>制作：ChatGPT · 2026</footer>
+</div>
+<script>
+const progress=document.getElementById('progress');
+const sections=[...document.querySelectorAll('main section[id]')];
+const links=[...document.querySelectorAll('#tocNav a')];
+function update(){
+  const h=document.documentElement; const max=h.scrollHeight-h.clientHeight;
+  progress.style.width=(max? (h.scrollTop/max*100):0)+'%';
+  let current=sections[0]?.id;
+  for(const s of sections){ if(s.getBoundingClientRect().top < 160) current=s.id; }
+  links.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+current));
+}
+addEventListener('scroll',update,{passive:true}); update();
+const btn=document.getElementById('themeBtn');
+btn.addEventListener('click',()=>{
+  const root=document.documentElement; const dark=root.getAttribute('data-theme')==='dark';
+  root.setAttribute('data-theme',dark?'light':'dark');
+  localStorage.setItem('hegel-theme',dark?'light':'dark');
+});
+const saved=localStorage.getItem('hegel-theme'); if(saved) document.documentElement.setAttribute('data-theme',saved);
+</script>
+</body>
+</html>
