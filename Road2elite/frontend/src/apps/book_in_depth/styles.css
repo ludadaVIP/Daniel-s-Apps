@@ -508,6 +508,19 @@
     font-size: 11px;
     font-variant-numeric: tabular-nums;
   }
+  .bid-font-select {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0 8px;
+    border: 1px solid var(--bid-line);
+    border-radius: 7px;
+    background: var(--bid-control);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+  .bid-font-select select { max-width: 150px; padding: 6px 0; border: 0; background: transparent; cursor: pointer; }
+  .bid-font-select:focus-within { outline: 2px solid var(--bid-accent); outline-offset: 2px; }
   .bid-toolbar .bid-danger { color: var(--bid-danger); }
   .bid-toolbar .bid-danger:hover:not(:disabled) { border-color: var(--bid-danger); }
 
@@ -825,6 +838,7 @@
   .bid-reader {
     padding: 28px 38px 36px;
     box-shadow: 0 12px 32px rgba(42, 72, 51, 0.07);
+    font-family: var(--bid-reader-font-family);
   }
 
   .bid-editor-head {
@@ -862,8 +876,12 @@
     font-size: var(--bid-reader-font-size, 16px);
     line-height: 1.9;
     color: var(--bid-text);
-    font-family: Georgia, "Songti SC", "STSong", "Noto Serif SC", serif;
+    font-family: var(--bid-reader-font-family);
     letter-spacing: 0.012em;
+    --book-reader-accent: var(--bid-accent-dark);
+    --book-reader-line: var(--bid-line-strong);
+    --book-reader-soft: var(--bid-accent-soft);
+    --book-reader-muted: var(--bid-muted);
   }
 
   .bid-markdown h1,
@@ -1013,8 +1031,11 @@
   .bid-toc li.level-2 button { padding-left: 16px; }
   .bid-toc li.level-3 button { padding-left: 24px; font-size: 12px; }
   .bid-toc li.level-4 button { padding-left: 32px; font-size: 11.5px; }
+  .bid-toc li.level-5 button, .bid-toc li.level-6 button { padding-left: 40px; font-size: 11.5px; }
 
   @media (max-width: 1100px) {
+    .bid-topbar { flex-wrap: wrap; }
+    .bid-toolbar { width: 100%; justify-content: flex-start; }
     .bid-tab-pane.mode-split { grid-template-columns: 1fr; }
     .bid-tab-pane.mode-read.with-toc { grid-template-columns: 1fr; }
     .bid-toc { position: static; max-height: 280px; }

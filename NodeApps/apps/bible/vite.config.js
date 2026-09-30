@@ -11,6 +11,10 @@ export default defineConfig({
     port: 5181,
     strictPort: true,
     open: true,
+    watch: {
+      // Autosaved Markdown and note-index.json are runtime data, not source.
+      ignored: ['**/devotion-data/**'],
+    },
     proxy: {
       // `scripts/dev.mjs` chooses 3000 or the next free local port, so a
       // different app cannot prevent this UI from opening on its fixed 5181.

@@ -29,6 +29,11 @@ export default defineConfig({
     port: 5888,
     strictPort: true,
     proxy,
+    watch: {
+      // Bible Devotion writes notes and its index here on every autosave.
+      // These are runtime data, so changes must not trigger a page reload.
+      ignored: ['**/apps/bible/devotion-data/**'],
+    },
   },
   build: { outDir: 'dist', emptyOutDir: true },
 });

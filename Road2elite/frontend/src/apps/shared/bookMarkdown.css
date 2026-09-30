@@ -1,0 +1,19 @@
+.book-markdown { min-width: 0; overflow-wrap: anywhere; }
+.book-markdown h5, .book-markdown h6 { margin: 1.1em 0 0.4em; font-size: 0.95em; color: var(--book-reader-accent); }
+.book-markdown strong { font-weight: 700; color: var(--book-reader-accent); }
+.book-markdown blockquote p { margin: 0.3em 0; }
+.book-markdown hr { width: 100%; height: 0; margin: 1.8em 0; border: 0; border-top: 1px solid var(--book-reader-line); }
+.book-markdown .book-table-wrap { max-width: 100%; overflow-x: auto; margin: 1.2em 0; border: 1px solid var(--book-reader-line); border-radius: 8px; }
+.book-markdown table { width: 100%; min-width: max-content; border-collapse: collapse; font-size: 0.9em; line-height: 1.55; }
+.book-markdown th, .book-markdown td { padding: 0.6em 0.85em; border-right: 1px solid var(--book-reader-line); border-bottom: 1px solid var(--book-reader-line); text-align: left; vertical-align: top; }
+.book-markdown tr > :last-child { border-right: 0; }
+.book-markdown tbody tr:last-child > * { border-bottom: 0; }
+.book-markdown th { color: var(--book-reader-accent); background: var(--book-reader-soft); font-weight: 700; }
+.book-markdown tbody tr:nth-child(even) { background: var(--book-reader-soft); }
+.book-markdown th[align="center"], .book-markdown td[align="center"] { text-align: center; }
+.book-markdown th[align="right"], .book-markdown td[align="right"] { text-align: right; }
+:where(.book-markdown) pre { max-width: 100%; overflow-x: auto; padding: 0.9em 1.1em; border-radius: 8px; background: var(--book-reader-soft); line-height: 1.55; }
+.book-markdown pre code { padding: 0; background: none; white-space: pre; }
+.book-markdown img { display: block; max-width: 100%; height: auto; margin: 1em auto; border-radius: 6px; }
+.book-markdown input[type="checkbox"] { accent-color: var(--book-reader-accent); }
+.book-markdown .book-markdown-empty { color: var(--book-reader-muted); font-size: 13px; }

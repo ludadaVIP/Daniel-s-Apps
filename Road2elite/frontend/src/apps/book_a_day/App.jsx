@@ -23,6 +23,8 @@ import {
 
 import { isTtsCancelled, useTts } from "../../shared/useTts";
 import "./styles.css";
+import BookMarkdown, { BookInlineMarkdown } from "../shared/BookMarkdown";
+import ReaderFontSelect, { readReaderFont, readerFontFamily } from "../shared/ReaderFontSelect";
 import BookLibraryHome from "../shared/BookLibraryHome";
 import ShelfManager, { ShelfManagerDialog } from "../shared/ShelfManager";
 import {
@@ -71,97 +73,6 @@ function classes(...parts) {
   return parts.filter(Boolean).join(" ");
 }
 
-// --------- Markdown rendering (lightweight, same approach as Save MD) ---------
-
-function renderInline(text) {
-  const parts = [];
-  const rx = /(`[^`]+`|\*\*[^*]+\*\*|\*[^*]+\*|\[[^\]]+\]\([^)]+\))/g;
-  let last = 0;
-  let match;
-  while ((match = rx.exec(text)) !== null) {
-    if (match.index > last) parts.push(text.slice(last, match.index));
-    const token = match[0];
-    const key = `${match.index}-${token}`;
-    if (token.startsWith("`")) parts.push(<code key={key}>{token.slice(1, -1)}</code>);
-    else if (token.startsWith("**")) parts.push(<strong key={key}>{token.slice(2, -2)}</strong>);
-    else if (token.startsWith("*")) parts.push(<em key={key}>{token.slice(1, -1)}</em>);
-    else {
-      const link = token.match(/^\[([^\]]+)\]\(([^)]+)\)$/);
-      parts.push(
-        <a key={key} href={link?.[2] || "#"} target="_blank" rel="noreferrer">
-          {link?.[1] || token}
-        </a>,
-      );
-    }
-    last = rx.lastIndex;
-  }
-  if (last < text.length) parts.push(text.slice(last));
-  return parts;
-}
-
-function MarkdownView({ markdown }) {
-  const blocks = useMemo(() => {
-    const lines = (markdown || "").replace(/\r\n/g, "\n").split("\n");
-    const out = [];
-    let i = 0;
-
-    while (i < lines.length) {
-      const trimmed = lines[i].trim();
-      if (!trimmed) {
-        i += 1;
-        continue;
-      }
-      const heading = trimmed.match(/^(#{1,4})\s+(.+)$/);
-      if (heading) {
-        const Tag = `h${Math.min(heading[1].length, 4)}`;
-        out.push(<Tag key={`h-${i}`}>{renderInline(heading[2])}</Tag>);
-        i += 1;
-        continue;
-      }
-      if (/^>\s?/.test(trimmed)) {
-        const quote = [];
-        while (i < lines.length && /^>\s?/.test(lines[i].trim())) {
-          quote.push(lines[i].replace(/^>\s?/, ""));
-          i += 1;
-        }
-        out.push(
-          <blockquote key={`q-${i}`}>
-            {quote.map((item, idx) => <p key={idx}>{renderInline(item)}</p>)}
-          </blockquote>,
-        );
-        continue;
-      }
-      if (/^[-*]\s+/.test(trimmed) || /^\d+\.\s+/.test(trimmed)) {
-        const ordered = /^\d+\.\s+/.test(trimmed);
-        const items = [];
-        const itemRx = ordered ? /^\d+\.\s+/ : /^[-*]\s+/;
-        while (i < lines.length && itemRx.test(lines[i].trim())) {
-          items.push(lines[i].trim().replace(itemRx, ""));
-          i += 1;
-        }
-        const Tag = ordered ? "ol" : "ul";
-        out.push(
-          <Tag key={`list-${i}`}>
-            {items.map((item, idx) => <li key={idx}>{renderInline(item)}</li>)}
-          </Tag>,
-        );
-        continue;
-      }
-      // paragraph
-      const parts = [];
-      while (i < lines.length && lines[i].trim()) {
-        if (/^(#{1,4})\s+/.test(lines[i]) || /^[-*]\s+/.test(lines[i]) || /^>\s?/.test(lines[i]) || /^\d+\.\s+/.test(lines[i])) break;
-        parts.push(lines[i]);
-        i += 1;
-      }
-      if (parts.length) out.push(<p key={`p-${i}`}>{renderInline(parts.join(" "))}</p>);
-    }
-    return out.length ? out : [<p key="empty" className="bad-muted">还没填内容。</p>];
-  }, [markdown]);
-
-  return <article className="bad-markdown">{blocks}</article>;
-}
-
 // --------- Mind map view: parse indented "- " lines into a tree ---------
 
 function parseMindmap(markdown) {
@@ -183,7 +94,7 @@ function MindMapNode({ node, depth }) {
   return (
     <li className={`bad-mm-node depth-${Math.min(depth, 4)}`}>
       <span className="bad-mm-bullet" />
-      <span className="bad-mm-text">{renderInline(node.text)}</span>
+      <span className="bad-mm-text"><BookInlineMarkdown markdown={node.text} /></span>
       {node.children.length > 0 && (
         <ul>
           {node.children.map((child, idx) => (
@@ -551,11 +462,18 @@ export default function BookADayApp() {
     return saved >= 14 && saved <= 22 ? saved : 16;
   });
   const stopQueueRef = useRef(false);
+  const [readerFont, setReaderFont] = useState(() => readReaderFont("book-a-day-reader-font"));
   const textareaRef = useRef(null);
+  const editVersionRef = useRef(0);
+  const savingRef = useRef(false);
+  const failedVersionRef = useRef(-1);
+  const pendingPatchRef = useRef({});
+  const activeBookIdRef = useRef(activeBookId);
+  activeBookIdRef.current = activeBookId;
   const { play, stop, pause, resume, paused, speakingKey, loadingKey, error: ttsError } = useTts();
 
-  const loadLibrary = useCallback(async () => {
-    setLoading(true);
+  const loadLibrary = useCallback(async (silent = false) => {
+    if (!silent) setLoading(true);
     setError("");
     try {
       const data = await fetchLibrary();
@@ -565,7 +483,7 @@ export default function BookADayApp() {
       setError(err.message);
       return null;
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   }, []);
 
@@ -586,15 +504,19 @@ export default function BookADayApp() {
       setBook(null);
       return;
     }
+    let cancelled = false;
     setError("");
     setStatus("");
     fetchBook(activeBookId)
       .then((data) => {
+        if (cancelled) return;
+        pendingPatchRef.current = {};
         setBook(data.book);
         setTabDraft(data.book.sections?.[activeTab] || "");
         setDirty(false);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => { if (!cancelled) setError(err.message); });
+    return () => { cancelled = true; };
   }, [activeBookId]);
 
   useEffect(() => {
@@ -620,12 +542,18 @@ export default function BookADayApp() {
 
   const handleSelectBook = (bookId) => {
     if (dirty && !window.confirm("当前 Tab 还没保存，要切走吗？")) return false;
+    editVersionRef.current += 1;
+    pendingPatchRef.current = {};
+    activeBookIdRef.current = bookId;
     setActiveBookId(bookId);
     return true;
   };
 
   const handleGoHome = () => {
     if (dirty && !window.confirm("当前 Tab 还没保存，要回到全部书目吗？")) return;
+    editVersionRef.current += 1;
+    pendingPatchRef.current = {};
+    activeBookIdRef.current = "";
     setActiveBookId("");
   };
 
@@ -673,44 +601,58 @@ export default function BookADayApp() {
     await loadLibrary();
   };
 
-  const handlePatchMeta = async (patch) => {
+  const handlePatchMeta = (patch) => {
     if (!book) return;
-    const next = { ...book, ...patch };
-    setBook(next);
-    try {
-      const data = await updateBook(book.id, patch);
-      setBook(data.book);
-      await loadLibrary();
-    } catch (err) {
-      setError(err.message);
-    }
+    editVersionRef.current += 1;
+    pendingPatchRef.current = { ...pendingPatchRef.current, ...patch };
+    setBook((current) => ({ ...current, ...patch }));
+    setDirty(true);
   };
 
   const handleTitleChange = (title) => {
     if (!book) return;
-    setBook({ ...book, title });
+    editVersionRef.current += 1;
+    pendingPatchRef.current = { ...pendingPatchRef.current, title };
+    setBook((current) => ({ ...current, title }));
     setDirty(true);
   };
 
   const handleSaveTab = async () => {
-    if (!book) return;
+    if (!book || savingRef.current) return;
+    savingRef.current = true;
+    const version = editVersionRef.current;
+    const savedBook = book;
+    const savedTab = activeTab;
+    const savedDraft = tabDraft;
+    const savedPatch = { ...pendingPatchRef.current };
     setSaving(true);
     setError("");
     try {
-      const data = await updateBook(book.id, {
-        title: book.title,
-        sections: { [activeTab]: tabDraft },
+      const data = await updateBook(savedBook.id, {
+        ...savedPatch,
+        sections: { [savedTab]: savedDraft },
       });
-      setBook(data.book);
-      setDirty(false);
-      setStatus("已保存");
-      await loadLibrary();
+      if (activeBookIdRef.current === savedBook.id && editVersionRef.current === version) {
+        pendingPatchRef.current = {};
+        setBook(data.book);
+        setDirty(false);
+        setStatus("已保存");
+      }
+      await loadLibrary(true);
     } catch (err) {
+      failedVersionRef.current = version;
       setError(err.message);
     } finally {
+      savingRef.current = false;
       setSaving(false);
     }
   };
+
+  useEffect(() => {
+    if (!dirty || !book || saving || failedVersionRef.current === editVersionRef.current) return undefined;
+    const timer = window.setTimeout(handleSaveTab, 3000);
+    return () => window.clearTimeout(timer);
+  }, [dirty, book, tabDraft, activeTab, saving]);
 
   const handleReadCurrent = async () => {
     const language = book?.language || "zh";
@@ -787,7 +729,7 @@ export default function BookADayApp() {
         "bad-shell",
         sidebarCollapsed && "is-sidebar-collapsed",
       )}
-      style={{ "--bad-reader-font-size": `${readerFontSize}px` }}
+      style={{ "--bad-reader-font-size": `${readerFontSize}px`, "--bad-reader-font-family": readerFontFamily(readerFont) }}
     >
       <Sidebar
         shelves={library.shelves}
@@ -817,11 +759,6 @@ export default function BookADayApp() {
               onChange={(e) => handleTitleChange(e.target.value)}
               placeholder={book ? "未命名书籍" : "A Book a Day"}
               className="bad-title-input"
-              onBlur={() => {
-                if (book && dirty) {
-                  handlePatchMeta({ title: book.title });
-                }
-              }}
             /> : <>
               <div className="bad-title-input">A Book a Day</div>
               <div className="bad-meta-row"><span>{totalBooks} 本书 · 点击左上角图标可随时回到全部书目</span></div>
@@ -840,6 +777,7 @@ export default function BookADayApp() {
                 </button>
               ))}
             </div>
+            <ReaderFontSelect className="bad-font-select" value={readerFont} onChange={(font) => { setReaderFont(font); window.localStorage.setItem("book-a-day-reader-font", font); }} />
             <div className="bad-font-controls" role="group" aria-label="调整正文大小">
               <button type="button" onClick={() => changeReaderFontSize(-1)} disabled={readerFontSize <= 14} title="缩小正文">
                 A−
@@ -861,7 +799,7 @@ export default function BookADayApp() {
             <button type="button" onClick={handleSaveTab} disabled={!book || saving}>
               <Save size={16} /> {saving ? "保存中" : "保存本 Tab"}
             </button>
-            <button type="button" onClick={loadLibrary} title="刷新整个书库"><RefreshCw size={16} /></button>
+            <button type="button" onClick={() => loadLibrary()} title="刷新整个书库"><RefreshCw size={16} /></button>
             <button type="button" className="bad-danger" onClick={handleDeleteBook} disabled={!book}>
               <Trash2 size={16} />
             </button>
@@ -915,7 +853,7 @@ export default function BookADayApp() {
                   {activeTab === "mindmap" ? (
                     <MindMapView markdown={tabDraft} />
                   ) : (
-                    <MarkdownView markdown={tabDraft} />
+                    <BookMarkdown markdown={tabDraft} className="bad-markdown" />
                   )}
                 </div>
               )}
@@ -928,7 +866,7 @@ export default function BookADayApp() {
                   <textarea
                     ref={textareaRef}
                     value={tabDraft}
-                    onChange={(e) => { setTabDraft(e.target.value); setDirty(true); }}
+                    onChange={(e) => { editVersionRef.current += 1; setTabDraft(e.target.value); setDirty(true); }}
                     spellCheck={false}
                     placeholder={SECTION_PLACEHOLDERS[activeTab] || ""}
                   />

@@ -1,6 +1,4 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
 import {
   BookOpen,
   ChevronDown,
@@ -22,6 +20,8 @@ import {
 
 import { isTtsCancelled, useTts } from "../../shared/useTts";
 import "./styles.css";
+import BookMarkdown from "../shared/BookMarkdown";
+import ReaderFontSelect, { readReaderFont, readerFontFamily } from "../shared/ReaderFontSelect";
 import {
   createCategory,
   createDocument,
@@ -94,68 +94,6 @@ function splitForTts(markdown, categoryId) {
     text,
     language: /[\u4e00-\u9fff]/.test(text) ? "zh" : baseLanguage,
   }));
-}
-
-function normalizeTableSeparators(markdown) {
-  const lines = String(markdown || "").replace(/\r\n/g, "\n").split("\n");
-  let fencedCode = false;
-
-  return lines.map((line, index) => {
-    if (/^\s*(```|~~~)/.test(line)) {
-      fencedCode = !fencedCode;
-      return line;
-    }
-    if (fencedCode || !line.includes("|")) return line;
-
-    const trimmed = line.trim();
-    const leadingPipe = trimmed.startsWith("|");
-    const trailingPipe = trimmed.endsWith("|");
-    const cells = trimmed
-      .replace(/^\|/, "")
-      .replace(/\|$/, "")
-      .split("|")
-      .map((cell) => cell.trim());
-    const divider = /^:?-{1,}:?$/;
-    const neighboringTableRow = [lines[index - 1], lines[index + 1]].some((row) => row?.includes("|"));
-
-    // AI answers often use `--:` rather than GFM's required `---:`. Normalize
-    // only a table-divider row, so prose and code remain untouched.
-    if (cells.length < 2 || !neighboringTableRow || !cells.every((cell) => divider.test(cell))) return line;
-    const normalizedCells = cells.map((cell) => {
-      const [, left = "", dashes = "", right = ""] = cell.match(/^(\:?)(-+)(\:?)$/) || [];
-      return `${left}${dashes.length < 3 ? "---" : dashes}${right}`;
-    });
-    return `${leadingPipe ? "| " : ""}${normalizedCells.join(" | ")}${trailingPipe ? " |" : ""}`;
-  }).join("\n");
-}
-
-function MarkdownView({ markdown }) {
-  const normalizedMarkdown = useMemo(() => normalizeTableSeparators(markdown), [markdown]);
-  const components = useMemo(
-    () => ({
-      a: ({ href, children, ...props }) => (
-        <a href={href} target="_blank" rel="noreferrer noopener" {...props}>{children}</a>
-      ),
-      table: ({ children, ...props }) => (
-        <div className="smd-table-wrap">
-          <table {...props}>{children}</table>
-        </div>
-      ),
-    }),
-    [],
-  );
-
-  if (!normalizedMarkdown.trim()) {
-    return <article className="smd-markdown"><p className="smd-muted">No content yet.</p></article>;
-  }
-
-  return (
-    <article className="smd-markdown">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
-        {normalizedMarkdown}
-      </ReactMarkdown>
-    </article>
-  );
 }
 
 function Sidebar({
@@ -271,11 +209,22 @@ export default function SaveMdApp() {
   const [saving, setSaving] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [readerFont, setReaderFont] = useState(() => readReaderFont("save-md-reader-font"));
+  const [readerFontSize, setReaderFontSize] = useState(() => {
+    const saved = Number(window.localStorage.getItem("save-md-reader-font-size"));
+    return saved >= 14 && saved <= 22 ? saved : 17;
+  });
   const stopQueueRef = useRef(false);
+  const editVersionRef = useRef(0);
+  const savingRef = useRef(false);
+  const failedVersionRef = useRef(-1);
+  const selectedDocRef = useRef(`${activeCategoryId}/${activeDocId}`);
+  const skipFetchRef = useRef("");
+  selectedDocRef.current = `${activeCategoryId}/${activeDocId}`;
   const { play, stop, pause, resume, paused, speakingKey, loadingKey, error: ttsError } = useTts();
 
-  const loadLibrary = useCallback(async () => {
-    setLoading(true);
+  const loadLibrary = useCallback(async (silent = false) => {
+    if (!silent) setLoading(true);
     setError("");
     try {
       const data = await fetchLibrary();
@@ -285,7 +234,7 @@ export default function SaveMdApp() {
       setError(err.message);
       return null;
     } finally {
-      setLoading(false);
+      if (!silent) setLoading(false);
     }
   }, []);
 
@@ -295,6 +244,13 @@ export default function SaveMdApp() {
 
   useEffect(() => {
     if (!activeCategoryId || !activeDocId) return;
+    const docKey = `${activeCategoryId}/${activeDocId}`;
+    if (skipFetchRef.current === docKey) {
+      skipFetchRef.current = "";
+      return;
+    }
+    skipFetchRef.current = "";
+    let cancelled = false;
     setError("");
     setStatus("");
     setDocMeta(null);
@@ -302,12 +258,14 @@ export default function SaveMdApp() {
     setContent("");
     fetchDocument(activeCategoryId, activeDocId)
       .then((data) => {
+        if (cancelled) return;
         setDocMeta(data.document);
         setTitle(data.document.title);
         setContent(data.content);
         setDirty(false);
       })
-      .catch((err) => setError(err.message));
+      .catch((err) => { if (!cancelled) setError(err.message); });
+    return () => { cancelled = true; };
   }, [activeCategoryId, activeDocId]);
 
   useEffect(() => {
@@ -321,6 +279,8 @@ export default function SaveMdApp() {
 
   const handleSelectDoc = (categoryId, docId) => {
     if (dirty && !window.confirm("当前文档还没保存，要离开吗？")) return;
+    editVersionRef.current += 1;
+    selectedDocRef.current = `${categoryId}/${docId}`;
     setStatus("");
     setError("");
     setActiveCategoryId(categoryId);
@@ -328,23 +288,46 @@ export default function SaveMdApp() {
   };
 
   const handleSave = async () => {
-    if (!activeCategoryId || !activeDocId) return;
+    if (!activeCategoryId || !activeDocId || savingRef.current) return;
+    savingRef.current = true;
+    const categoryId = activeCategoryId;
+    const docId = activeDocId;
+    const version = editVersionRef.current;
+    const savedTitle = title;
+    const savedContent = content;
     setSaving(true);
     setError("");
     try {
-      const data = await updateDocument(activeCategoryId, activeDocId, { title, content });
-      setDocMeta(data.document);
-      setTitle(data.document.title);
-      setActiveDocId(data.document.id);
-      setDirty(false);
-      setStatus(`Saved ${data.document.filename}`);
-      await loadLibrary();
+      const data = await updateDocument(categoryId, docId, { title: savedTitle, content: savedContent });
+      if (selectedDocRef.current === `${categoryId}/${docId}`) {
+        const nextDocId = data.document.id;
+        setDocMeta(data.document);
+        if (nextDocId !== docId) {
+          skipFetchRef.current = `${categoryId}/${nextDocId}`;
+          selectedDocRef.current = skipFetchRef.current;
+          setActiveDocId(nextDocId);
+        }
+        if (editVersionRef.current === version) {
+          setTitle(data.document.title);
+          setDirty(false);
+          setStatus(`Saved ${data.document.filename}`);
+        }
+      }
+      await loadLibrary(true);
     } catch (err) {
+      failedVersionRef.current = version;
       setError(err.message);
     } finally {
+      savingRef.current = false;
       setSaving(false);
     }
   };
+
+  useEffect(() => {
+    if (!dirty || !activeCategoryId || !activeDocId || saving || failedVersionRef.current === editVersionRef.current) return undefined;
+    const timer = window.setTimeout(handleSave, 3000);
+    return () => window.clearTimeout(timer);
+  }, [dirty, title, content, activeCategoryId, activeDocId, saving]);
 
   const handleMoveDocument = async (targetCategoryId) => {
     if (!activeCategoryId || !activeDocId || !docMeta || targetCategoryId === activeCategoryId) return;
@@ -476,8 +459,19 @@ export default function SaveMdApp() {
     stop();
   };
 
+  const changeReaderFontSize = (amount) => {
+    setReaderFontSize((current) => {
+      const next = Math.min(22, Math.max(14, current + amount));
+      window.localStorage.setItem("save-md-reader-font-size", String(next));
+      return next;
+    });
+  };
+
   return (
-    <div className={classes("smd-shell", sidebarCollapsed && "is-sidebar-collapsed")}>
+    <div
+      className={classes("smd-shell", sidebarCollapsed && "is-sidebar-collapsed")}
+      style={{ "--smd-reader-font-size": `${readerFontSize}px`, "--smd-reader-font-family": readerFontFamily(readerFont) }}
+    >
       <Sidebar
         categories={library.categories}
         activeCategoryId={activeCategoryId}
@@ -507,6 +501,7 @@ export default function SaveMdApp() {
             <input
               value={title}
               onChange={(event) => {
+                editVersionRef.current += 1;
                 setTitle(event.target.value);
                 setDirty(true);
               }}
@@ -547,12 +542,18 @@ export default function SaveMdApp() {
                 </button>
               ))}
             </div>
+            <ReaderFontSelect className="smd-font-select" value={readerFont} onChange={(font) => { setReaderFont(font); window.localStorage.setItem("save-md-reader-font", font); }} />
+            <div className="smd-font-controls" role="group" aria-label="调整正文大小">
+              <button type="button" onClick={() => changeReaderFontSize(-1)} disabled={readerFontSize <= 14} title="缩小正文">A−</button>
+              <span aria-label={`当前正文大小 ${readerFontSize} 像素`}>{readerFontSize}px</span>
+              <button type="button" onClick={() => changeReaderFontSize(1)} disabled={readerFontSize >= 22} title="放大正文">A+</button>
+            </div>
             <button type="button" onClick={handleRead} disabled={!content || !!loadingKey}><Play size={16} /> Read</button>
             {speakingKey && !paused && <button type="button" onClick={pause}><Pause size={16} /> Pause</button>}
             {speakingKey && paused && <button type="button" onClick={resume}><Play size={16} /> Resume</button>}
             {speakingKey && <button type="button" onClick={handleStop}><Square size={15} /> Stop</button>}
             <button type="button" onClick={handleSave} disabled={!activeDocId || saving}><Save size={16} /> {saving ? "Saving" : "Save"}</button>
-            <button type="button" onClick={loadLibrary} title="Refresh library"><RefreshCw size={16} /></button>
+            <button type="button" onClick={() => loadLibrary()} title="Refresh library"><RefreshCw size={16} /></button>
             <button type="button" className="smd-danger" onClick={handleDeleteDoc} disabled={!activeDocId}><Trash2 size={16} /></button>
           </div>
         </header>
@@ -582,7 +583,7 @@ export default function SaveMdApp() {
           <section className={classes("smd-workspace", `mode-${mode}`)}>
             {mode !== "edit" && (
               <div className="smd-reader">
-                <MarkdownView markdown={content} />
+                <BookMarkdown markdown={content} className="smd-markdown" emptyText="No content yet." />
               </div>
             )}
             {mode !== "read" && (
@@ -594,6 +595,7 @@ export default function SaveMdApp() {
                 <textarea
                   value={content}
                   onChange={(event) => {
+                    editVersionRef.current += 1;
                     setContent(event.target.value);
                     setDirty(true);
                   }}

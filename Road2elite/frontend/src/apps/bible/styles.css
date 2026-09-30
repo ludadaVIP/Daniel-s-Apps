@@ -91,7 +91,8 @@
 
   /* ---------- controls ---------- */
   .bible-controls {
-    display: flex; align-items: center; gap: 8px;
+    display: grid; grid-template-columns: max-content minmax(0, 1fr);
+    align-items: center; gap: 8px;
     padding: 6px 7px;
     background: linear-gradient(135deg, #fffefb 0%, #fbf6eb 100%);
     border: 1px solid #e4d8bf;
@@ -254,6 +255,7 @@
   /* ---------- book filter panel ---------- */
   .bible-filter-panel {
     display: grid; gap: 12px;
+    grid-column: 1 / -1; min-width: 0;
     padding: 14px; border-radius: 12px;
     background: var(--bg);
     border: 1px solid var(--rule);
@@ -486,9 +488,10 @@
 
   .bible-verse-actions {
     display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
     gap: 8px;
   }
+  .mode-guess .bible-verse-actions { grid-template-columns: 1fr; }
   .bible-verse-actions .bible-secondary,
   .bible-verse-actions .bible-ghost {
     width: 100%;
@@ -520,7 +523,7 @@
   /* ---------- responsive ---------- */
   @media (max-width: 720px) {
     :scope { min-height: 100%; padding: 10px 12px 24px; }
-    .bible-controls { flex-direction: column; align-items: stretch; padding: 8px; }
+    .bible-controls { display: flex; flex-direction: column; align-items: stretch; padding: 8px; }
     .bible-mode-tabs { flex: 1; }
     .bible-mode-tab { flex: 1; justify-content: center; }
     .bible-action-row { flex-direction: column; align-items: stretch; }

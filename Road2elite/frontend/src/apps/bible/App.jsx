@@ -326,13 +326,9 @@ export default function BibleApp() {
     setRevealedLength((current) => Math.min(current + HINT_STEP, verse.text.length));
   }
 
-  function showFullText() {
+  function toggleTextVisibility() {
     if (!verse) return;
-    setRevealedLength(verse.text.length);
-  }
-
-  function hideText() {
-    setRevealedLength(0);
+    setRevealedLength((current) => current >= verse.text.length ? 0 : verse.text.length);
   }
 
   function toggleReference() {
@@ -391,6 +387,7 @@ export default function BibleApp() {
   }
 
   const totalChars = charCount(verse?.text);
+  const textFullyRevealed = Boolean(verse && revealedLength >= verse.text.length);
   const paragraphAvailable = verse?.paragraphAvailable !== false;
   const defaultHasChanged = !sameBooks(selectedBooks, defaultBooks);
   const displayedText = useMemo(() => {
@@ -590,11 +587,9 @@ export default function BibleApp() {
                     <button type="button" className="bible-secondary" onClick={revealMoreText} disabled={revealedLength >= verse.text.length}>
                       <Lightbulb size={16} /><span>Hint (+{HINT_STEP})</span>
                     </button>
-                    <button type="button" className="bible-secondary" onClick={showFullText} disabled={revealedLength >= verse.text.length}>
-                      <Eye size={16} /><span>Show all</span>
-                    </button>
-                    <button type="button" className="bible-ghost" onClick={hideText} disabled={revealedLength === 0}>
-                      <EyeOff size={16} /><span>Hide</span>
+                    <button type="button" className="bible-secondary" onClick={toggleTextVisibility}>
+                      {textFullyRevealed ? <EyeOff size={16} /> : <Eye size={16} />}
+                      <span>{textFullyRevealed ? "Hide" : "Show"}</span>
                     </button>
                   </div>
                 </>
