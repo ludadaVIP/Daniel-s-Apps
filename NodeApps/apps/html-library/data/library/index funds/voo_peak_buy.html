@@ -1,0 +1,372 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>VOO 买在高点会怎样</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --bg: #f7f4ec;
+      --ink: #202124;
+      --muted: #69645a;
+      --line: #d8d0bf;
+      --green: #13795b;
+      --red: #bf3b35;
+      --blue: #2457a6;
+      --gold: #b7791f;
+      --white: #fffdf8;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.5;
+    }
+
+    main {
+      width: min(1080px, calc(100% - 32px));
+      margin: 0 auto;
+      padding: 28px 0 42px;
+    }
+
+    header {
+      display: grid;
+      gap: 12px;
+      margin-bottom: 22px;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(28px, 4vw, 48px);
+      line-height: 1.08;
+      letter-spacing: 0;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(300px, 0.9fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+
+    .panel, .lot, .note {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: 0 10px 24px rgba(40, 32, 20, 0.06);
+    }
+
+    .panel {
+      padding: 20px;
+    }
+
+    .switch-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 16px;
+    }
+
+    .toggle {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 14px;
+      user-select: none;
+    }
+
+    .toggle input {
+      inline-size: 42px;
+      block-size: 22px;
+      accent-color: var(--green);
+    }
+
+    .big-number {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 72px);
+      line-height: 1;
+      font-weight: 800;
+      color: var(--green);
+      letter-spacing: 0;
+    }
+
+    .gain {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 6px 10px;
+      background: #fff9ed;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+
+    .bars {
+      display: grid;
+      gap: 14px;
+      margin-top: 22px;
+    }
+
+    .bar-row {
+      display: grid;
+      gap: 6px;
+    }
+
+    .bar-label {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .track {
+      height: 18px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #ebe3d2;
+      border: 1px solid var(--line);
+    }
+
+    .fill {
+      height: 100%;
+      border-radius: inherit;
+      background: linear-gradient(90deg, var(--blue), var(--green));
+      width: 0;
+      transition: width 250ms ease;
+    }
+
+    .lots {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .lot {
+      padding: 16px;
+    }
+
+    .lot h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing: 0;
+    }
+
+    dl {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 8px 14px;
+      margin: 0;
+      font-size: 14px;
+    }
+
+    dt { color: var(--muted); }
+    dd { margin: 0; font-weight: 700; text-align: right; }
+
+    .chart-wrap {
+      padding: 20px;
+    }
+
+    .chart-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .axis { stroke: #c8bea9; stroke-width: 1; }
+    .price-line { fill: none; stroke: var(--blue); stroke-width: 4; stroke-linecap: round; stroke-linejoin: round; }
+    .marker-buy { fill: var(--red); stroke: var(--white); stroke-width: 3; }
+    .marker-now { fill: var(--green); stroke: var(--white); stroke-width: 3; }
+    .svg-label { fill: var(--muted); font-size: 13px; }
+    .svg-money { fill: var(--ink); font-size: 14px; font-weight: 700; }
+
+    .note {
+      margin-top: 18px;
+      padding: 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .note strong { color: var(--ink); }
+
+    @media (max-width: 760px) {
+      main { width: min(100% - 24px, 1080px); padding-top: 20px; }
+      .hero, .lots { grid-template-columns: 1fr; }
+      .panel, .chart-wrap, .lot, .note { padding: 14px; }
+      .pill { white-space: normal; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <h1>两次都买在 VOO 年度最高点，账户反而还涨了</h1>
+      <p class="lead">假设 2024 年和 2025 年各投入 10,000 美元，成交价都按当年日内最高价计算，中途没有卖出。</p>
+    </header>
+
+    <section class="hero">
+      <div class="panel">
+        <div class="switch-row">
+          <div>
+            <div class="pill">本金合计：$20,000</div>
+          </div>
+          <label class="toggle">
+            <input id="includeDividends" type="checkbox" checked />
+            计入现金分红
+          </label>
+        </div>
+
+        <p id="totalValue" class="big-number">$23,073.55</p>
+        <div class="gain">
+          <span id="gainDollar" class="pill">盈利：$3,073.55</span>
+          <span id="gainPercent" class="pill">收益率：15.37%</span>
+          <span id="dividendPill" class="pill">其中现金分红：$286.02</span>
+        </div>
+
+        <div class="bars">
+          <div class="bar-row">
+            <div class="bar-label"><span>本金</span><strong>$20,000.00</strong></div>
+            <div class="track"><div class="fill" style="width: 86.7%; background: #8b8171;"></div></div>
+          </div>
+          <div class="bar-row">
+            <div class="bar-label"><span id="barTitle">当前账户价值</span><strong id="barAmount">$23,073.55</strong></div>
+            <div class="track"><div id="valueBar" class="fill"></div></div>
+          </div>
+        </div>
+
+        <div class="lots">
+          <article class="lot">
+            <h2>2024 那一笔</h2>
+            <dl>
+              <dt>买入日</dt><dd>2024-12-06</dd>
+              <dt>买入价</dt><dd>$559.96</dd>
+              <dt>买到股数</dt><dd>17.8584</dd>
+              <dt>持仓市值</dt><dd>$12,118.90</dd>
+              <dt>现金分红</dt><dd>$225.75</dd>
+              <dt>合计</dt><dd>$12,344.65</dd>
+            </dl>
+          </article>
+          <article class="lot">
+            <h2>2025 那一笔</h2>
+            <dl>
+              <dt>买入日</dt><dd>2025-12-26</dd>
+              <dt>买入价</dt><dd>$636.08</dd>
+              <dt>买到股数</dt><dd>15.7213</dd>
+              <dt>持仓市值</dt><dd>$10,668.63</dd>
+              <dt>现金分红</dt><dd>$60.28</dd>
+              <dt>合计</dt><dd>$10,728.90</dd>
+            </dl>
+          </article>
+        </div>
+      </div>
+
+      <aside class="panel chart-wrap">
+        <div class="chart-title">
+          <span>价格路径：买点 vs. 当前价</span>
+          <strong>VOO $678.61</strong>
+        </div>
+        <svg viewBox="0 0 520 360" role="img" aria-label="VOO 两次买入点与当前价格">
+          <line class="axis" x1="58" y1="290" x2="480" y2="290" />
+          <line class="axis" x1="58" y1="50" x2="58" y2="290" />
+          <text class="svg-label" x="20" y="56">$700</text>
+          <text class="svg-label" x="20" y="295">$540</text>
+          <path class="price-line" d="M 96 260 C 150 220, 176 155, 228 156 S 316 105, 362 109 S 430 77, 462 82" />
+          <circle class="marker-buy" cx="228" cy="156" r="9" />
+          <circle class="marker-buy" cx="362" cy="109" r="9" />
+          <circle class="marker-now" cx="462" cy="82" r="10" />
+          <text class="svg-label" x="184" y="181">2024 最高点买</text>
+          <text class="svg-money" x="199" y="199">$559.96</text>
+          <text class="svg-label" x="306" y="134">2025 最高点买</text>
+          <text class="svg-money" x="327" y="152">$636.08</text>
+          <text class="svg-label" x="389" y="55">最新收盘</text>
+          <text class="svg-money" x="390" y="73">$678.61</text>
+          <text class="svg-label" x="75" y="322">2024</text>
+          <text class="svg-label" x="225" y="322">2025</text>
+          <text class="svg-label" x="414" y="322">2026-07-23</text>
+        </svg>
+      </aside>
+    </section>
+
+    <section class="note">
+      <strong>口径：</strong>“最高点”按 Yahoo Finance 日线里的当年最高日内价计算。当前价按 Yahoo/StockAnalysis 显示的 2026-07-23 美股收盘价 $678.61；7 月 24 日盘前数据会变化，所以这里用最近一个官方收盘价。分红按已公布除息日现金分红计入，没有假设自动再投资。
+    </section>
+  </main>
+
+  <script>
+    const summary = {
+      cost: 20000,
+      stockValue: 22787.5271757664,
+      dividends: 286.02369430761433
+    };
+
+    const includeDividends = document.querySelector("#includeDividends");
+    const totalValue = document.querySelector("#totalValue");
+    const gainDollar = document.querySelector("#gainDollar");
+    const gainPercent = document.querySelector("#gainPercent");
+    const dividendPill = document.querySelector("#dividendPill");
+    const valueBar = document.querySelector("#valueBar");
+    const barAmount = document.querySelector("#barAmount");
+    const barTitle = document.querySelector("#barTitle");
+
+    function usd(value) {
+      return value.toLocaleString("en-US", { style: "currency", currency: "USD" });
+    }
+
+    function pct(value) {
+      return `${value.toFixed(2)}%`;
+    }
+
+    function render() {
+      const dividends = includeDividends.checked ? summary.dividends : 0;
+      const value = summary.stockValue + dividends;
+      const gain = value - summary.cost;
+      const returnPct = gain / summary.cost * 100;
+      const scaleMax = 24000;
+
+      totalValue.textContent = usd(value);
+      gainDollar.textContent = `盈利：${usd(gain)}`;
+      gainPercent.textContent = `收益率：${pct(returnPct)}`;
+      dividendPill.textContent = includeDividends.checked
+        ? `其中现金分红：${usd(summary.dividends)}`
+        : "未计入现金分红";
+      barAmount.textContent = usd(value);
+      barTitle.textContent = includeDividends.checked ? "当前账户价值" : "当前持仓市值";
+      valueBar.style.width = `${Math.min(100, value / scaleMax * 100)}%`;
+    }
+
+    includeDividends.addEventListener("change", render);
+    render();
+  </script>
+</body>
+</html>
