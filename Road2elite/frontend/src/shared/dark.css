@@ -1,0 +1,232 @@
+/* One document-level choice, with each tool retaining its own accent. */
+html[data-theme="dark"] {
+  --bg-base: #181a1b;
+  --bg-surface: #242627;
+  --border-soft: rgba(242, 244, 245, .11);
+  --border-strong: rgba(242, 244, 245, .23);
+  --text-primary: #eceeef;
+  --text-secondary: #b7bfc2;
+  --text-muted: #929da2;
+  --shadow-soft: 0 6px 20px rgba(0, 0, 0, .16);
+  --shadow-medium: 0 16px 40px rgba(0, 0, 0, .3);
+}
+
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  min-height: 36px;
+  padding: 0 11px;
+  border: 1px solid var(--border-strong);
+  border-radius: 9px;
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  box-shadow: var(--shadow-soft);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.theme-toggle:hover { border-color: currentColor; }
+.theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+.theme-toggle-floating {
+  position: fixed;
+  z-index: 50;
+  left: max(16px, env(safe-area-inset-left));
+  bottom: max(16px, env(safe-area-inset-bottom));
+}
+
+html[data-theme="dark"] .hub-count,
+html[data-theme="dark"] .hub-action-button-secondary { background: var(--bg-surface); }
+html[data-theme="dark"] .hub-action-button:not(.hub-action-button-secondary) {
+  color: #181a1b;
+  background: #eceeef;
+  border-color: #eceeef;
+}
+html[data-theme="dark"] .hub-action-button:not(.hub-action-button-secondary):hover:not(:disabled) { background: #c8d0d2; }
+html[data-theme="dark"] .hub-action-button-secondary:hover:not(:disabled) { background: #343738; }
+html[data-theme="dark"] .hub-card-icon { color: #fff; }
+html[data-theme="dark"] .hub-card-cta { color: color-mix(in srgb, var(--card-accent) 55%, #fff); }
+html[data-theme="dark"] .dh-return-to-hub {
+  color: var(--text-primary);
+  background: rgba(36, 38, 39, .9);
+  border-color: var(--border-strong);
+}
+html[data-theme="dark"] .dh-return-to-hub:hover { color: #fff; background: #315747; }
+html[data-theme="dark"] .dh-back-to-top {
+  color: var(--text-primary);
+  background: var(--bg-surface);
+  border-color: var(--border-strong);
+}
+
+/* The three document tools share a two-column reading layout. */
+html[data-theme="dark"] .bad-shell {
+  --bad-bg: #1a211d;
+  --bad-panel: #242d27;
+  --bad-panel-strong: #252e28;
+  --bad-control: #202922;
+  --bad-line: rgba(214, 230, 215, .13);
+  --bad-line-strong: rgba(214, 230, 215, .25);
+  --bad-text: #e4ebe4;
+  --bad-muted: #a8b7a9;
+  --bad-accent: #86aa8d;
+  --bad-accent-dark: #aed0b0;
+  --bad-accent-soft: rgba(134, 170, 141, .17);
+  --bad-danger: #ed9a94;
+  background: var(--bad-bg);
+}
+html[data-theme="dark"] .bid-shell {
+  --bid-bg: #1a211d;
+  --bid-panel: #242c26;
+  --bid-panel-strong: #252e28;
+  --bid-control: #202922;
+  --bid-line: rgba(214, 230, 215, .13);
+  --bid-line-strong: rgba(214, 230, 215, .25);
+  --bid-text: #e4ebe4;
+  --bid-muted: #a8b7a9;
+  --bid-accent: #86aa8d;
+  --bid-accent-dark: #aed0b0;
+  --bid-accent-soft: rgba(134, 170, 141, .17);
+  --bid-danger: #ed9a94;
+  background: var(--bid-bg);
+}
+html[data-theme="dark"] .smd-shell {
+  --smd-bg: #19231e;
+  --smd-panel: #232e27;
+  --smd-panel-strong: #25312a;
+  --smd-line: rgba(211, 236, 218, .13);
+  --smd-line-strong: rgba(211, 236, 218, .26);
+  --smd-text: #e5eee7;
+  --smd-muted: #a6b8aa;
+  --smd-accent: #56bb83;
+  --smd-accent-dark: #91ddb0;
+  --smd-danger: #f19a91;
+  background: var(--smd-bg);
+}
+html[data-theme="dark"] :is(.bad-sidebar, .bid-sidebar, .smd-sidebar) { background: #202823; }
+html[data-theme="dark"] :is(.bad-book-item:hover, .bid-book-item:hover, .smd-icon-button, .smd-search, .smd-doc-item:hover) { background: rgba(255, 255, 255, .055); }
+html[data-theme="dark"] :is(.bad-editor-head, .bid-editor-head) { background: #202922; }
+html[data-theme="dark"] :is(.smd-topbar, .smd-meta-row > span, .smd-category-select-wrap, .smd-toolbar, .smd-welcome, .smd-editor-pane, .smd-reader, .smd-editor-head) { background: var(--smd-panel); }
+html[data-theme="dark"] .smd-message.is-error { color: #f1a69e; background: #462c2c; }
+html[data-theme="dark"] .smd-message.is-ok { background: #213b2b; }
+html[data-theme="dark"] .smd-meta-row .smd-dirty { color: #e4a887; background: #3f3028; }
+html[data-theme="dark"] .smd-markdown pre,
+html[data-theme="dark"] .smd-code-block pre { background: #141e19; }
+html[data-theme="dark"] .smd-markdown pre code { color: #dcece0; }
+html[data-theme="dark"] .smd-markdown { color: var(--smd-text); --book-reader-soft: rgba(86, 187, 131, .12); }
+html[data-theme="dark"] .smd-markdown blockquote { color: var(--smd-text); background: #293d30; }
+html[data-theme="dark"] .smd-markdown code:not(pre code) { background: #304036; }
+html[data-theme="dark"] .smd-mode-switch { background: #202a23; }
+html[data-theme="dark"] .smd-mode-switch button.is-active { color: var(--smd-text); background: #35483b; }
+html[data-theme="dark"] .smd-category-head.is-active { color: #202823; background: #acc6b2; }
+html[data-theme="dark"] :is(.bad-shelf-group-finished .bad-shelf-group-head, .bid-shelf-group-finished .bid-shelf-group-head) { color: #9bcd8e; }
+html[data-theme="dark"] :is(.bad-shelf-group-reading .bad-shelf-group-head, .bid-shelf-group-reading .bid-shelf-group-head) { color: #e4aa6e; }
+html[data-theme="dark"] .shelf-manager button.shelf-manager-remove { background: #2a2828; color: #f0a19a; }
+html[data-theme="dark"] :is(.bad-brand-icon, .bad-book-item.is-active, .bad-mode-switch button.is-active, .bad-welcome button, .bad-workflow-steps li.is-current .bad-workflow-dot, .bad-workflow-next, .bid-brand-icon, .bid-book-item.is-active, .bid-mode-switch button.is-active, .bid-welcome button, .bid-form-actions .bid-cta, .bid-workflow-steps li.is-current .bid-workflow-dot, .bid-workflow-next) { background: #507359; color: #fff; }
+html[data-theme="dark"] :is(.bad-welcome button:hover, .bid-welcome button:hover, .bid-welcome .bid-cta:hover) { background: #63896b; }
+
+/* Journal and password gate. */
+html[data-theme="dark"] .rec-shell {
+  --ink: #e9e8ea;
+  --muted: #bac0c9;
+  --muted-2: #99a3b1;
+  --line: #3a3e47;
+  --line-strong: #565c66;
+  --surface: #26282d;
+  --surface-soft: #212329;
+  --cream: #303037;
+  --plum: #c39bdc;
+  --plum-dark: #8654a4;
+  --gold: #dbb861;
+  --teal: #82c9bc;
+  --danger: #f19c90;
+  --shadow: 0 12px 32px rgba(0, 0, 0, .2);
+  color: var(--ink);
+  background: #1b1c20;
+}
+html[data-theme="dark"] .rec-shell.is-sidebar-collapsed { background: #1b1c20; }
+html[data-theme="dark"] :is(.rec-hero-main, .rec-export, .rec-card, .rec-card-actions button, .rec-modal, .rec-secondary, .rec-editor, .rec-editor-toolbar button) { background: var(--surface); }
+html[data-theme="dark"] :is(.rec-modal-row input:focus, .rec-modal-tags input:focus) { background: var(--surface); }
+html[data-theme="dark"] :is(.rec-error, .rec-modal-error) { background: #402c2b; }
+html[data-theme="dark"] .rec-lock { color: #e9e8ea; background: #1b1c20; }
+html[data-theme="dark"] .rec-lock-card { color: #e9e8ea; background: #26282d; border-color: #3a3e47; }
+html[data-theme="dark"] :is(.rec-lock-card p.rec-lock-sub, .rec-lock-field span, .rec-lock-hint, .rec-lock-attempts) { color: #b5bdc8; }
+html[data-theme="dark"] .rec-lock-field input { color: #e9e8ea; background: #202228; border-color: #565c66; }
+html[data-theme="dark"] .rec-lock-field input:focus { background: #2d3036; }
+html[data-theme="dark"] .rec-lock-error { color: #f19c90; background: #402c2b; }
+html[data-theme="dark"] .rec-lock-actions .rec-lock-secondary { color: #e9e8ea; background: #303037; border-color: #565c66; }
+html[data-theme="dark"] :is(.rec-primary, .rec-lock-actions .rec-lock-primary, .rec-month-button.is-active) { color: #fff; background: #70468a; }
+
+/* Calendar has dense cells and a separate details panel. */
+html[data-theme="dark"] .cal-app {
+  --paper: #1d242b;
+  --ink: #e6ecf0;
+  --muted: #a6b4c1;
+  --line: #394651;
+  --blue: #8abbe6;
+  --blue-soft: #273d50;
+  --coral: #e18c7d;
+  background: #1b2329;
+}
+html[data-theme="dark"] :is(.cal-grid, .cal-panel, .cal-today-button, .cal-search-button, .cal-panel-button, .cal-quick-add, .cal-search-field) { background: #242e36 !important; }
+html[data-theme="dark"] :is(.cal-today-button:hover, .cal-search-button:hover, .cal-panel-button:hover) { background: #32414c !important; border-color: #61798c !important; }
+html[data-theme="dark"] .cal-day:hover { background: #303c46; }
+html[data-theme="dark"] .cal-day.is-outside { background: #202930; color: #91a1af; }
+html[data-theme="dark"] .cal-day.is-selected { background: #304658; }
+html[data-theme="dark"] .cal-note { background: #304453; }
+html[data-theme="dark"] .cal-note-title { color: #d4e9f7; }
+html[data-theme="dark"] .cal-note-detail-button { color: #b4cede; }
+html[data-theme="dark"] .cal-note-detail-button:hover { background: #3d586b; }
+html[data-theme="dark"] .cal-panel-note { border-color: var(--line); }
+html[data-theme="dark"] .cal-search-result { border-color: var(--line); }
+html[data-theme="dark"] .cal-search-result:hover { background: #304454; }
+html[data-theme="dark"] :is(.cal-editor input, .cal-editor textarea) { background: #1b242b; color: var(--ink); }
+html[data-theme="dark"] .cal-error { color: #f2a89d; background: #442f2d; }
+html[data-theme="dark"] .cal-delete-button:hover { background: #432f30; }
+html[data-theme="dark"] :is(.cal-empty, .cal-search-empty, .cal-search-status) { color: var(--muted); }
+
+/* Bible keeps its paper hierarchy, using charcoal instead of bright parchment. */
+html[data-theme="dark"] .bible-shell {
+  --bg: #1e211f;
+  --paper: #292c29;
+  --paper-edge: #3c413b;
+  --ink: #eeeae1;
+  --ink-soft: #c9c6b9;
+  --muted: #a9a99b;
+  --rule: #4b4a40;
+  --accent: #dfa48e;
+  --accent-soft: #45332d;
+  --accent-deep: #f0bea8;
+  --gold: #d3ae6f;
+  --gold-soft: #403a2b;
+  --blue: #a3c9ef;
+  --blue-soft: #293e51;
+  --shadow: 0 18px 40px rgba(0, 0, 0, .22);
+  background: var(--bg);
+}
+html[data-theme="dark"] .bible-controls { background: #2a2d28; border-color: var(--rule); box-shadow: var(--shadow); }
+html[data-theme="dark"] .bible-mode-tabs { background: #20231f; border-color: var(--rule); }
+html[data-theme="dark"] .bible-mode-tab:hover { background: #393a32; }
+html[data-theme="dark"] .bible-mode-tab.active,
+html[data-theme="dark"] .bible-controls .bible-auto-toggle { background: #403b30; color: var(--ink); border-color: var(--rule); box-shadow: none; }
+html[data-theme="dark"] .bible-controls .bible-auto-toggle.is-active { background: #4b342f; }
+html[data-theme="dark"] .bible-controls .bible-auto-toggle.is-paused { background: #293e51; }
+html[data-theme="dark"] .bible-error { color: #f1b5a4; background: #48302c; border-color: #6e4238; }
+html[data-theme="dark"] .bible-auto-toggle { border-color: var(--rule); }
+html[data-theme="dark"] .bible-controls :is(.bible-filter-toggle, .bible-verse-toggle) {
+  color: var(--ink-soft);
+  background: #34362f;
+  border-color: var(--rule);
+  box-shadow: none;
+}
+html[data-theme="dark"] .bible-controls :is(.bible-filter-toggle.open, .bible-verse-toggle.active) {
+  color: var(--accent-deep);
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+html[data-theme="dark"] :is(.bible-primary, .bible-version-chip.active, .bible-controls .bible-auto-toggle.active, .bible-brand-mark) {
+  color: #fff;
+  background: #88483d;
+}
+html[data-theme="dark"] .bible-version-chip.active small { color: #f6ded5; }

@@ -33,6 +33,8 @@ npm run desktop
 
 首页只包含启动页。选中卡片后才会动态下载该 APP 的 React/CSS 代码；Notebook、VisualShelf、BibleDevotion、InsightMatrix 的 API 也在第一次访问其专属路径时才会初始化。
 
+首页和每个 APP 的工作台导航都提供一个明暗切换按钮，点击即可在浅色与深色之间切换。选择保存在本机浏览器，刷新和切换 APP 后继续生效。各 APP 的深色样式由 `scripts/generate-dark-themes.mjs` 根据自身 CSS 生成，运行 `npm run theme:generate` 可在修改配色后更新；`npm run dev` 和 `npm run build` 会自动生成一次。VisualShelf 收藏的 HTML 文档保留原始外观。
+
 ## 生产构建
 
 ```powershell

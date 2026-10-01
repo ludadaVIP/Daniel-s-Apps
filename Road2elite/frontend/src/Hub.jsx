@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { BookOpen, BookMarked, CalendarDays, FileText, GripVertical, NotebookPen, Save, ScrollText } from "lucide-react";
 import { Link } from "react-router-dom";
+import ThemeToggle from "./shared/ThemeToggle.jsx";
 
 const APPS = [
   {
@@ -164,6 +165,7 @@ export default function Hub() {
           <p className="hub-subtitle">几个独立保留的本地工具，点击卡片进入。</p>
         </div>
         <div className="hub-actions">
+          <ThemeToggle />
           {isArranging ? (
             <>
               <button type="button" className="hub-action-button hub-action-button-secondary" onClick={cancelArranging}>
