@@ -897,6 +897,7 @@ function App() {
               {view !== "write" && (
                 <article className="reader markdown-body">
                   <Markdown
+                    readingControls
                     components={{
                       a: ({ href, children, ...props }) =>
                         href?.startsWith("#note/") ? (

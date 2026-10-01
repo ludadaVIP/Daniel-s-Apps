@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import Markdown from '../../../shared/markdown/Markdown.jsx';
+import Markdown, { MarkdownReadingControls } from '../../../shared/markdown/Markdown.jsx';
 import Box from '@mui/material/Box';
 import ButtonBase from '@mui/material/ButtonBase';
 import Chip from '@mui/material/Chip';
@@ -811,7 +811,8 @@ function App() {
             {WORKSPACES.map(([value, label]) => <button key={value} type="button" role="tab" className={workspace === value ? 'is-active' : ''} aria-selected={workspace === value} onClick={() => { if (value === 'index') setIndexScope('chapter'); setWorkspace(value); }}>{label}</button>)}
           </div>
           {workspace !== 'index' && <>
-            <div className="mode-switcher">
+            {(mode === 'read' || mode === 'split') && <MarkdownReadingControls compact />}
+            <div className="mode-switcher view-mode-switcher">
               {MODES.map(([value, label]) => <button key={value} className={mode === value ? 'is-active' : ''} onClick={() => setMode(value)} aria-pressed={mode === value}>{label}</button>)}
             </div>
             <button className="save-button" onClick={workspace === 'questions' ? flushQuestions : flushCurrent} disabled={(workspace === 'questions' ? questionStatus : noteStatus) === 'loading' || (workspace === 'questions' ? questionStatus : noteStatus) === 'saving'}>保存 <kbd>⌘/Ctrl S</kbd></button>
@@ -829,14 +830,14 @@ function App() {
           {questionStatus === 'error' && <div className="note-error" role="alert">{questions.error} <button onClick={flushQuestions}>重试保存</button></div>}
           <div className={`note-workspace mode-${mode}`}>
             {(mode === 'edit' || mode === 'split') && <label className="editor-pane"><span className="sr-only">编辑 {activeBook.name}{selection.chapter}章的讨论问题</span><textarea value={questionDraft} onChange={updateQuestionDraft} disabled={questionStatus === 'loading'} placeholder={`为 ${activeBook.name}${selection.chapter}章准备小组讨论问题…\n\n例如：\n1. 哪一句经文最触动你？为什么？\n2. 这章如何改变你本周的生活？`} spellCheck="true" /></label>}
-            {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="讨论问题预览">{questionStatus === 'loading' ? <div className="panel-state">正在读取问题…</div> : questionDraft.trim() ? <Markdown>{questionDraft}</Markdown> : <div className="empty-note"><span>?</span><strong>为同行者预备空间</strong><p>把观察、问题与实践应用写在这里；它只属于这一章。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>添加问题</button>}</div>}</article>}
+            {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="讨论问题预览">{questionStatus === 'loading' ? <div className="panel-state">正在读取问题…</div> : questionDraft.trim() ? <Markdown readingAppearance>{questionDraft}</Markdown> : <div className="empty-note"><span>?</span><strong>为同行者预备空间</strong><p>把观察、问题与实践应用写在这里；它只属于这一章。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>添加问题</button>}</div>}</article>}
           </div>
         </>}
         {workspace === 'comments' && <>
           {noteStatus === 'error' && <div className="note-error" role="alert">{note.error} <button onClick={flushCurrent}>重试保存</button></div>}
           <div ref={noteWorkspaceRef} className={`note-workspace mode-${mode}`}>
             {(mode === 'edit' || mode === 'split') && <label className="editor-pane"><span className="sr-only">编辑 {reference} 的 Markdown 笔记</span><textarea value={draft} onChange={updateDraft} disabled={noteStatus === 'loading'} placeholder={`在这里写下 ${reference} 的灵修感动…\n\n支持 Markdown：清单、引用、粗体。标题请填写在上方。`} spellCheck="true" /></label>}
-            {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="Markdown 预览">{noteStatus === 'loading' ? <div className="panel-state">正在读取笔记…</div> : noteContent.trim() ? <Markdown>{noteContent}</Markdown> : <div className="empty-note"><span>✦</span><strong>给此处留下一盏灯</strong><p>记录今天从经文中领受的一句话、一个问题，或一段祷告。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>开始记录</button>}</div>}</article>}
+            {(mode === 'read' || mode === 'split') && <article className="markdown-pane" aria-label="Markdown 预览">{noteStatus === 'loading' ? <div className="panel-state">正在读取笔记…</div> : noteContent.trim() ? <Markdown readingAppearance>{noteContent}</Markdown> : <div className="empty-note"><span>✦</span><strong>给此处留下一盏灯</strong><p>记录今天从经文中领受的一句话、一个问题，或一段祷告。</p>{mode === 'read' && <button onClick={() => setMode('edit')}>开始记录</button>}</div>}</article>}
           </div>
           {showBackToTop && <button type="button" className="back-to-top" onClick={scrollNoteToTop} aria-label="回到灵修笔记顶部" title="回到顶部">↑</button>}
         </>}

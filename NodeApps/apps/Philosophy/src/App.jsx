@@ -210,7 +210,7 @@ function Course({ course, roadmapCourse, progress, changeProgress }) {
     <div className="ph-course-summary"><span>{course.lessons.length} 节课程</span><span>课内研习建议 {course.lessons.reduce((total, lesson) => total + lesson.estimatedMinutes, 0)} 分钟起，作品另计</span><span>{counts.completed} 节已完成</span></div>
     <ProgressLine value={counts.percent} />
     {roadmapCourse && <div className="ph-course-goal"><p><strong>课程能力</strong>{roadmapCourse.competency}</p><p><strong>阶段作品</strong>{roadmapCourse.artifact}</p></div>}
-    {course.body && <section className="ph-course-intro"><div className="ph-section-head"><span>课程导读</span><span>HOW TO STUDY</span></div><div className="ph-prose"><Markdown>{course.body}</Markdown></div></section>}
+    {course.body && <section className="ph-course-intro"><div className="ph-section-head"><span>课程导读</span><span>HOW TO STUDY</span></div><div className="ph-prose"><Markdown readingControls>{course.body}</Markdown></div></section>}
     {roadmapCourse && <ArtifactReview key={course.id} course={roadmapCourse} artifact={progress.artifacts?.[course.id] || {}} onChange={(patch) => changeProgress((current) => updateArtifact(current, course.id, patch))} />}
     <div className="ph-section-head ph-lesson-heading"><span>课程内容</span><span>LESSONS</span></div>
     <div className="ph-lesson-list">{(roadmapCourse?.lessons || course.lessons).map((lesson, index) => <RoadmapLessonRow key={lesson.id} planned={lesson} published={published.get(lesson.id)} index={index} progress={progress} />)}</div>
@@ -261,7 +261,7 @@ function Lesson({ id, course, progress, changeProgress }) {
     <div className="ph-reader-top"><button className="ph-back" onClick={() => go('course', course.id)}><ArrowLeft size={16} /> {course.title}</button><span>第 {currentIndex + 1} / {course.lessons.length} 课</span></div>
     <article className="ph-reader">
       <header className="ph-reader-header"><p className="ph-eyebrow">{course.title} · LESSON {String(lesson.order).padStart(2, '0')}</p><h1>{lesson.title}</h1><p>{lesson.subtitle}</p><div className="ph-reader-meta"><span>建议研习 {lesson.estimatedMinutes} 分钟起</span><Status lesson={lesson} progress={progress} /></div></header>
-      <div className="ph-prose"><Markdown>{lesson.body}</Markdown></div>
+      <div className="ph-prose"><Markdown readingControls>{lesson.body}</Markdown></div>
       {lesson.questions.length > 0 && <section className="ph-questions"><div className="ph-section-head"><span>把理解写下来</span><span>{lesson.questions.length} QUESTIONS</span></div><p className="ph-questions-intro">先独立作答，再看参考思路。这里没有自动评分。</p>{lesson.questions.map((question) => <Question key={question.id} question={question} answer={state.answers?.[question.id]} onAnswer={onAnswer} />)}</section>}
       <div className="ph-lesson-actions"><button className={`ph-review-button ${state.review ? 'is-active' : ''}`} type="button" onClick={toggleReview}><Bookmark size={17} fill={state.review ? 'currentColor' : 'none'} />{state.review ? '已加入回顾' : '稍后回顾'}</button><button className="ph-primary" type="button" onClick={toggleComplete}>{state.completedAt ? <><Check size={17} /> 已完成 · 撤销</> : <>标记完成 <Check size={17} /></>}</button></div>
     </article>

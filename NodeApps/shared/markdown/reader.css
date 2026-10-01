@@ -1,0 +1,33 @@
+.nodeapps-markdown-reader { min-width: 0; }
+.nodeapps-markdown-controls {
+  display: flex; align-items: center; justify-content: flex-end; flex-wrap: wrap; gap: .45rem;
+  margin: 0 0 1rem; padding: 0 0 .65rem; border-bottom: 1px solid color-mix(in srgb, currentColor 16%, transparent);
+  color: inherit; font-family: system-ui, "Microsoft YaHei", sans-serif; font-size: 12px; line-height: 1.3;
+}
+.nodeapps-markdown-controls span { margin-right: auto; opacity: .68; white-space: nowrap; }
+.nodeapps-markdown-controls.nodeapps-markdown-controls button, .nodeapps-markdown-controls.nodeapps-markdown-controls select {
+  box-sizing: border-box; min-height: 29px; margin: 0; padding: 4px 8px; color: inherit;
+  background: color-mix(in srgb, currentColor 5%, transparent); border: 1px solid color-mix(in srgb, currentColor 20%, transparent);
+  border-radius: 5px; font: inherit; line-height: 1.2; cursor: pointer;
+}
+.nodeapps-markdown-controls.nodeapps-markdown-controls button:hover, .nodeapps-markdown-controls.nodeapps-markdown-controls select:hover { background: color-mix(in srgb, currentColor 11%, transparent); }
+.nodeapps-markdown-controls.nodeapps-markdown-controls button:disabled { opacity: .4; cursor: default; }
+.nodeapps-markdown-controls.nodeapps-markdown-controls button:focus-visible, .nodeapps-markdown-controls.nodeapps-markdown-controls select:focus-visible { outline: 2px solid currentColor; outline-offset: 2px; }
+.nodeapps-markdown-controls output { min-width: 37px; text-align: center; font-variant-numeric: tabular-nums; }
+.nodeapps-markdown-controls select { width: 112px; max-width: 100%; }
+.nodeapps-markdown-controls.is-compact { flex: 0 0 auto; justify-content: flex-start; flex-wrap: nowrap; gap: 4px; margin: 0; padding: 0; border: 0; white-space: nowrap; }
+.nodeapps-markdown-controls.is-compact span { display: none; }
+.nodeapps-markdown-controls.is-compact select { width: 101px; }
+.nodeapps-markdown-controls.is-compact button { min-width: 29px; padding: 4px 5px; }
+.nodeapps-markdown-controls.is-compact output { min-width: 34px; }
+.nodeapps-markdown-content { min-width: 0; overflow-wrap: anywhere; line-height: 1.9; }
+.nodeapps-markdown-content > :first-child { margin-top: 0; }
+.nodeapps-markdown-reader .nodeapps-markdown-content h1 { font-size: 1.7em; }
+.nodeapps-markdown-reader .nodeapps-markdown-content h2 { font-size: 1.4em; }
+.nodeapps-markdown-reader .nodeapps-markdown-content h3 { font-size: 1.2em; }
+.nodeapps-markdown-reader .nodeapps-markdown-content h4 { font-size: 1.08em; }
+.nodeapps-markdown-reader .nodeapps-markdown-content :is(p, li, th, td, blockquote) { font-size: 1em; }
+.nodeapps-markdown-reader .nodeapps-markdown-content :is(h1, h2, h3, h4, h5, h6, p, li, th, td, blockquote) { font-family: inherit; }
+.nodeapps-markdown-content pre, .nodeapps-markdown-content .katex-display { max-width: 100%; overflow-x: auto; }
+.nodeapps-markdown-content img { max-width: 100%; height: auto; }
+@media (max-width: 520px) { .nodeapps-markdown-controls { justify-content: flex-start; }.nodeapps-markdown-controls span { width: 100%; } }

@@ -5,6 +5,7 @@ import { renderToStaticMarkup } from 'react-dom/server';
 import ReactMarkdown from 'react-markdown';
 import { defaultRehypePlugins, defaultRemarkPlugins } from './options.js';
 import { prepareMarkdown } from './prepare.js';
+import { FONT_OPTIONS, normalizePreferences } from './preferences.js';
 
 function render(source) {
   return renderToStaticMarkup(React.createElement(
@@ -42,4 +43,38 @@ test('HTML tables are rendered safely and ordinary line breaks stay visible', ()
 test('render repair does not rewrite inline code', () => {
   const source = '问题？**答案：**15；代码 `**答案：**15`';
   assert.equal(prepareMarkdown(source), '问题？**答案：** 15；代码 `**答案：**15`');
+});
+
+test('AI copied lists, headings, bold markers and fullwidth tables render normally', () => {
+  const source = '###标题\r\n\r\n• 第一项\r\n• 第二项\r\n\r\n1、步骤一\r\n2．步骤二\r\n\r\n** 重点 **\r\n\r\n｜项目｜结果｜\r\n｜---｜---｜\r\n｜甲｜乙｜';
+  const html = render(source);
+  assert.match(html, /<h3>标题<\/h3>/);
+  assert.match(html, /<ul>[\s\S]*第一项[\s\S]*第二项[\s\S]*<\/ul>/);
+  assert.match(html, /<ol>[\s\S]*步骤一[\s\S]*步骤二[\s\S]*<\/ol>/);
+  assert.match(html, /<strong>重点<\/strong>/);
+  assert.match(html, /<table>[\s\S]*<td>乙<\/td>/);
+});
+
+test('valid heading levels remain intact beside AI headings without a space', () => {
+  const source = '## 我们总喜欢把自己代入大卫\n\n###标题\n\n# 一级标题\n\n#### 四级标题';
+  const prepared = prepareMarkdown(source);
+  assert.equal(prepared, '## 我们总喜欢把自己代入大卫\n\n### 标题\n\n# 一级标题\n\n#### 四级标题');
+  const html = render(source);
+  assert.match(html, /<h2>我们总喜欢把自己代入大卫<\/h2>/);
+  assert.match(html, /<h3>标题<\/h3>/);
+  assert.doesNotMatch(html, /<h1># 我们总喜欢把自己代入大卫<\/h1>/);
+});
+
+test('a whole markdown code fence is unwrapped while code examples stay literal', () => {
+  assert.match(render('```markdown\n# 标题\n\n**正文**\n```'), /<h1>标题<\/h1>[\s\S]*<strong>正文<\/strong>/);
+  const source = '```text\n• 原样\n** 原样 **\n```\n\n    • 缩进代码';
+  assert.equal(prepareMarkdown(source), source);
+  assert.equal(prepareMarkdown('双反引号 ``**答案：**15`` 保持原样'), '双反引号 ``**答案：**15`` 保持原样');
+});
+
+test('shared Markdown renders math and validates reader preferences', () => {
+  assert.match(render('$x^2$'), /class="katex"/);
+  assert.deepEqual(FONT_OPTIONS.map(({ id }) => id), ['system', 'yahei', 'arial', 'calibri', 'times', 'kaiti']);
+  assert.deepEqual(normalizePreferences({ font: 'kaiti', size: 147 }), { font: 'kaiti', size: 150 });
+  assert.deepEqual(normalizePreferences({ font: 'invalid', size: 999 }), { font: 'system', size: 160 });
 });

@@ -70,7 +70,7 @@ function routeFromHash() {
 function navigate(page, id) { location.hash = `#/app/invest-master/${page}${id ? `/${id}` : ''}`; }
 const byOrder = (a,b) => (a.order || 0) - (b.order || 0);
 function IconButton({ children, label, onClick, className='' }) { return <button className={`im-icon-button ${className}`} type="button" aria-label={label} title={label} onClick={onClick}>{children}</button>; }
-function Markdown({ body }) { return <div className="im-prose"><MarkdownRenderer components={{ a: ({href,children}) => href?.startsWith('/#/app/invest-master/') ? <a href={href}>{children}</a> : <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>, h2: ({node,children}) => <h2 id={`im-section-${node.position.start.line}`}>{children}</h2> }}>{body}</MarkdownRenderer></div>; }
+function Markdown({ body }) { return <div className="im-prose"><MarkdownRenderer readingControls components={{ a: ({href,children}) => href?.startsWith('/#/app/invest-master/') ? <a href={href}>{children}</a> : <a href={href} target="_blank" rel="noopener noreferrer">{children}</a>, h2: ({node,children}) => <h2 id={`im-section-${node.position.start.line}`}>{children}</h2> }}>{body}</MarkdownRenderer></div>; }
 function ProgressBar({ value }) { return <div className="im-progress-track"><span style={{width:`${Math.max(0,Math.min(100,value))}%`}} /></div>; }
 function Empty({ icon: Icon=BookOpen, title, text, action, onAction }) { return <div className="im-empty"><Icon size={28} strokeWidth={1.5}/><h3>{title}</h3><p>{text}</p>{action&&<button className="im-button ghost" onClick={onAction}>{action}<ArrowRight size={16}/></button>}</div>; }
 function SourceLinks({ sources, sourceUrl }) {

@@ -1422,7 +1422,7 @@ function MarkdownReader({ body, onWikiLink }) {
   );
   return (
     <div className="inv-prose">
-      <Markdown components={components}>
+      <Markdown readingControls components={components}>
         {processed}
       </Markdown>
     </div>
