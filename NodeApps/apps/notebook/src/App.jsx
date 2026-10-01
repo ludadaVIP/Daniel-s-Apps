@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import Markdown from '../../../shared/markdown/Markdown.jsx';
 import {
   ArrowLeft,
   ArrowRight,
@@ -897,8 +896,7 @@ function App() {
             <>
               {view !== "write" && (
                 <article className="reader markdown-body">
-                  <ReactMarkdown
-                    remarkPlugins={[remarkGfm]}
+                  <Markdown
                     components={{
                       a: ({ href, children, ...props }) =>
                         href?.startsWith("#note/") ? (
@@ -935,7 +933,7 @@ function App() {
                     }}
                   >
                     {markdownWithLinks(raw)}
-                  </ReactMarkdown>
+                  </Markdown>
                 </article>
               )}
               {view !== "read" && (

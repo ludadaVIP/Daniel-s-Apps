@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useMemo, useState } from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import Markdown from '../../../shared/markdown/Markdown.jsx';
 import {
   AlertTriangle,
   BookOpen,
@@ -1423,9 +1422,9 @@ function MarkdownReader({ body, onWikiLink }) {
   );
   return (
     <div className="inv-prose">
-      <ReactMarkdown remarkPlugins={[remarkGfm]} components={components}>
+      <Markdown components={components}>
         {processed}
-      </ReactMarkdown>
+      </Markdown>
     </div>
   );
 }

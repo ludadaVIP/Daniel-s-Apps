@@ -27,6 +27,7 @@ npm run desktop
 ## 结构与加载方式
 
 - `src/`：首页与共享工作台壳层。
+- `shared/markdown/`：所有 Markdown 阅读和预览视图共用的 React 渲染器。统一支持 GFM 表格、任务列表、删除线、自然换行及经过清理的内嵌 HTML；应用可以按需扩展链接、标题和数学公式。预览时会修正紧贴中文正文的加粗结束标记，原始 `.md` 文件不被改写。
 - `apps/`：独立 APP、各自的 Markdown/JSON 数据和后端模块。VisualShelf 的 HTML 原文件位于 `apps/html-library/data/library/`，可继续作为独立网页在任何浏览器中打开；编辑的标题、简介、标签与阅读状态保存在旁边的 `catalog.json`。Recall Verses 复用 BibleDevotion 的 CUV 经文与笔记索引，并将背诵隐藏状态存放在自己的 `recall-data` 中。
 - `server/`：唯一的 API 网关。
 

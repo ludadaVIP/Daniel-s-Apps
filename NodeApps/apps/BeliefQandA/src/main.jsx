@@ -1,7 +1,5 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import remarkGfm from 'remark-gfm';
-import remarkBreaks from 'remark-breaks';
+import Markdown from '../../../shared/markdown/Markdown.jsx';
 import remarkMath from 'remark-math';
 import rehypeHighlight from 'rehype-highlight';
 import rehypeKatex from 'rehype-katex';
@@ -22,7 +20,7 @@ const DEFAULT_LAYERS = [
   { id: 'detailed', number: '03', label: 'AI 的复杂回答', description: '补足逻辑、背景、经文与常见追问。', Icon: Sparkles, tone: 'blue' },
   { id: 'explore', number: '04', label: '更深层次的探讨', description: '继续进入张力与值得共同思考的地方。', Icon: Telescope, tone: 'rose' },
 ];
-const MARKDOWN_REMARK_PLUGINS = [remarkGfm, remarkBreaks, remarkMath];
+const MARKDOWN_REMARK_PLUGINS = [remarkMath];
 const MARKDOWN_REHYPE_PLUGINS = [rehypeRaw, rehypeSanitize, [rehypeHighlight, { detect: true }], rehypeKatex];
 const DEFAULT_CONFIG = {
   route: 'belief-qa',
@@ -63,14 +61,14 @@ function normalizePastedMarkdown(markdown) {
 
 function MarkdownArticle({ children, preview = false }) {
   return <article className={`bqa-markdown ${preview ? 'is-preview' : ''}`}>
-    <ReactMarkdown
+    <Markdown
       remarkPlugins={MARKDOWN_REMARK_PLUGINS}
       rehypePlugins={MARKDOWN_REHYPE_PLUGINS}
       components={{
         table: ({ node: _node, ...props }) => <div className="bqa-table-scroll"><table {...props} /></div>,
         a: ({ node: _node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
       }}
-    >{children}</ReactMarkdown>
+    >{children}</Markdown>
   </article>;
 }
 
