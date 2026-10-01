@@ -1,5 +1,6 @@
 import { Suspense, lazy, useEffect, useMemo, useState } from 'react';
 import { Archive, BookOpenText, BrainCircuit, ChartNoAxesCombined, Check, Columns3, Compass, GraduationCap, GripVertical, House, Landmark, LibraryBig, MessageCircleQuestion, Network, NotebookPen, Save } from 'lucide-react';
+import ThemeControl, { useWorkspaceTheme } from '../shared/theme/ThemeControl.jsx';
 
 const APPS = [
   {
@@ -152,6 +153,21 @@ const APP_STYLE_LOADERS = {
   'recall-verses': () => import('../apps/recall-verses/src/styles.css?inline'),
 };
 
+const APP_DARK_STYLE_LOADERS = {
+  'world-qa': () => import('../apps/WorldQandA/src/dark.generated.css?inline'),
+  'belief-qa': () => import('../apps/BeliefQandA/src/dark.generated.css?inline'),
+  investment: () => import('../apps/investment/src/dark.generated.css?inline'),
+  'invest-master': () => import('../apps/InvestMaster/src/dark.generated.css?inline'),
+  philosophy: () => import('../apps/Philosophy/src/dark.generated.css?inline'),
+  industry: () => import('../apps/industry/src/dark.generated.css?inline'),
+  insight: () => import('../apps/insight/src/dark.generated.css?inline'),
+  notebook: () => import('../apps/notebook/src/dark.generated.css?inline'),
+  'html-library': () => import('../apps/html-library/src/dark.generated.css?inline'),
+  bible: () => import('../apps/bible/src/dark.generated.css?inline'),
+  'bible-parallel': () => import('../apps/bible-parallel/src/dark.generated.css?inline'),
+  'recall-verses': () => import('../apps/recall-verses/src/dark.generated.css?inline'),
+};
+
 const API_BACKED_APPS = new Set([
   'world-qa',
   'belief-qa',
@@ -184,7 +200,8 @@ async function waitForApiReady(signal, appId) {
 }
 
 let activeAppStyle;
-function applyAppStyles(id, css) {
+let activeAppDarkStyle;
+function applyAppStyles(id, css, darkCss) {
   if (!activeAppStyle) {
     activeAppStyle = document.createElement('style');
     activeAppStyle.dataset.nodeappsAppStyles = '';
@@ -192,10 +209,18 @@ function applyAppStyles(id, css) {
   }
   activeAppStyle.dataset.app = id;
   activeAppStyle.textContent = css;
+  if (!activeAppDarkStyle) {
+    activeAppDarkStyle = document.createElement('style');
+    activeAppDarkStyle.dataset.nodeappsDarkStyles = '';
+    document.head.append(activeAppDarkStyle);
+  }
+  activeAppDarkStyle.dataset.app = id;
+  activeAppDarkStyle.textContent = darkCss;
 }
 
 function clearAppStyles() {
   if (activeAppStyle) activeAppStyle.textContent = '';
+  if (activeAppDarkStyle) activeAppDarkStyle.textContent = '';
 }
 
 function nextPaint() {
@@ -204,8 +229,8 @@ function nextPaint() {
 
 function createLazyApp(app) {
   return lazy(async () => {
-    const [module, styles] = await Promise.all([app.load(), APP_STYLE_LOADERS[app.id]()] );
-    applyAppStyles(app.id, styles.default);
+    const [module, styles, darkStyles] = await Promise.all([app.load(), APP_STYLE_LOADERS[app.id](), APP_DARK_STYLE_LOADERS[app.id]()] );
+    applyAppStyles(app.id, styles.default, darkStyles.default);
     await nextPaint();
     return module;
   });
@@ -250,7 +275,7 @@ function AppGate({ app, SelectedApp }) {
   return <Suspense fallback={<Loading name={app.name} />}><SelectedApp /></Suspense>;
 }
 
-function Home({ open }) {
+function Home({ open, theme }) {
   const [apps, setApps] = useState(restoreAppOrder);
   const [savedOrder, setSavedOrder] = useState(() => restoreAppOrder().map((app) => app.id).join(','));
   const [draggedId, setDraggedId] = useState(null);
@@ -302,6 +327,7 @@ function Home({ open }) {
       </div>
       <div className="launcher-hub-actions">
         <span>{APPS.length} APPS</span>
+        <ThemeControl preference={theme.preference} onToggle={theme.toggleTheme} />
         <button className="launcher-save-order" type="button" onClick={saveOrder} disabled={!hasUnsavedOrder}>
           {hasUnsavedOrder ? <Save size={15} strokeWidth={2} /> : <Check size={15} strokeWidth={2} />}
           {hasUnsavedOrder ? '保存布局' : '布局已保存'}
@@ -327,7 +353,7 @@ function Home({ open }) {
 
 export default function App() {
   const [selected, setSelected] = useState(currentAppId);
-  const [dockVisible, setDockVisible] = useState(true);
+  const theme = useWorkspaceTheme();
   useEffect(() => {
     const sync = () => {
       normalizeLegacyInsightRoute();
@@ -342,25 +368,13 @@ export default function App() {
   useEffect(() => {
     if (!app) clearAppStyles();
   }, [app]);
-  useEffect(() => {
-    if (!app) return undefined;
-    let frame;
-    const onScroll = (event) => {
-      const target = event.target;
-      const offset = target === document ? window.scrollY : target.scrollTop;
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => setDockVisible(offset < 18));
-    };
-    setDockVisible(true);
-    window.addEventListener('scroll', onScroll, true);
-    return () => { cancelAnimationFrame(frame); window.removeEventListener('scroll', onScroll, true); };
-  }, [app]);
   const open = (id) => { location.hash = `/app/${id}`; };
   const back = () => { location.hash = ''; };
-  if (!app) return <Home open={open} />;
+  if (!app) return <Home open={open} theme={theme} />;
   return <div className="launcher-app-shell" style={{ '--launcher-accent': app.color }}>
-    <nav className={`launcher-dock ${dockVisible ? 'is-visible' : ''}`} aria-label="应用导航">
+    <nav className="launcher-dock is-visible" aria-label="应用导航">
       <button onClick={back} title="回到 NodeApps 首页"><House size={17} strokeWidth={2.1} /><span>返回工作台</span></button>
+      <ThemeControl preference={theme.preference} onToggle={theme.toggleTheme} />
     </nav>
     <div className="launcher-app-content"><AppGate key={app.id} app={app} SelectedApp={SelectedApp} /></div>
   </div>;
