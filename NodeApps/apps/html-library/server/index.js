@@ -18,13 +18,27 @@ const FINGERPRINT_PATTERN = /^[a-f0-9]{64}$/;
 const WINDOWS_1252_LABELS = new Set(['windows-1252', 'cp1252', 'x-cp1252', 'iso-8859-1', 'latin1', 'latin-1']);
 const UTF_8_LABELS = new Set(['utf-8', 'utf8']);
 
+export function fileManagerCommand(platform = process.platform) {
+  // `library` is resolved relative to this app at runtime, so this command
+  // always receives the current computer's Library directory rather than a
+  // path saved from another machine.
+  if (platform === 'win32') return { command: 'explorer.exe', windowsHide: false };
+  if (platform === 'darwin') return { command: 'open', windowsHide: true };
+  if (platform === 'linux') return { command: 'xdg-open', windowsHide: true };
+  throw new HtmlLibraryError('当前系统暂不支持从书库直接打开文件管理器。', 501);
+}
+
 function openLocalLibraryDirectory(directory) {
-  if (process.platform !== 'win32') throw new HtmlLibraryError('当前系统暂不支持从书库直接打开文件管理器。', 501);
+  const launcher = fileManagerCommand();
   return new Promise((resolve, reject) => {
-    const explorer = spawn('explorer.exe', [directory], { detached: true, stdio: 'ignore', windowsHide: false });
-    explorer.once('error', reject);
-    explorer.once('spawn', () => {
-      explorer.unref();
+    const fileManager = spawn(launcher.command, [directory], {
+      detached: true,
+      stdio: 'ignore',
+      windowsHide: launcher.windowsHide,
+    });
+    fileManager.once('error', reject);
+    fileManager.once('spawn', () => {
+      fileManager.unref();
       resolve();
     });
   });

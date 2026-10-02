@@ -4,7 +4,7 @@ import { mkdtemp, readFile, realpath, rm, writeFile, mkdir, rename, symlink } fr
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
-import { createHtmlLibraryApp } from './index.js';
+import { createHtmlLibraryApp, fileManagerCommand } from './index.js';
 
 async function withTemporaryLibrary(run) {
   const root = await mkdtemp(path.join(os.tmpdir(), 'html-library-'));
@@ -106,6 +106,13 @@ test('打开文件夹只会请求已验证的书库根目录', async () => {
     assert.deepEqual(await response.json(), { opened: true });
     assert.equal(openedDirectory, await realpath(libraryDirectory));
   });
+});
+
+test('打开文件夹会按当前操作系统选择文件管理器', () => {
+  assert.deepEqual(fileManagerCommand('win32'), { command: 'explorer.exe', windowsHide: false });
+  assert.deepEqual(fileManagerCommand('darwin'), { command: 'open', windowsHide: true });
+  assert.deepEqual(fileManagerCommand('linux'), { command: 'xdg-open', windowsHide: true });
+  assert.throws(() => fileManagerCommand('freebsd'), { status: 501 });
 });
 
 test('删除仅移动已索引 HTML，清除目录资料并立即更新列表', async () => {
