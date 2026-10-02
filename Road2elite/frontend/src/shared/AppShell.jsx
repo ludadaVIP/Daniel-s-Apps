@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
 import { ArrowUp, Home } from "lucide-react";
-import ThemeToggle from "./ThemeToggle.jsx";
 
 const SCROLL_THRESHOLD = 180;
 
@@ -58,10 +57,8 @@ export default function AppShell({ accent = "#6366f1", children }) {
       onScrollCapture={handleContentScroll}
     >
       <main className="dh-shell-content">{children}</main>
-      <ThemeToggle className="theme-toggle-floating" />
-      <Link to="/" className="dh-return-to-hub" title="返回工作台">
-        <Home size={17} strokeWidth={2.2} aria-hidden="true" />
-        <span>返回工作台</span>
+      <Link to="/" className="dh-return-to-hub" aria-label="返回工作台" title="返回工作台">
+        <Home size={18} strokeWidth={2.2} aria-hidden="true" />
       </Link>
       <button
         type="button"

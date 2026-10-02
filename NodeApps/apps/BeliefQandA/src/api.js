@@ -16,4 +16,4 @@ export function createQuestionApi(apiRoot, fallbackError = '无法读取本地�
   };
 }
 
-export const { getQuestions, getAnswer, saveAnswer, deleteAnswer } = createQuestionApi('/belief-qa/api', '无法读取 BeliefQ&A 的本地资料。');
+export const { getQuestions, getAnswer, saveAnswer, deleteAnswer } = createQuestionApi('/belief-qa/api', '无法读取 Belief Q&A 的本地资料。');

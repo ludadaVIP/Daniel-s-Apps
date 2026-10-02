@@ -30,12 +30,6 @@ html[data-theme="dark"] {
 }
 .theme-toggle:hover { border-color: currentColor; }
 .theme-toggle:focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
-.theme-toggle-floating {
-  position: fixed;
-  z-index: 50;
-  left: max(16px, env(safe-area-inset-left));
-  bottom: max(16px, env(safe-area-inset-bottom));
-}
 
 html[data-theme="dark"] .hub-count,
 html[data-theme="dark"] .hub-action-button-secondary { background: var(--bg-surface); }

@@ -80,9 +80,9 @@
 .vs-directory-nav { display: grid; min-width: 0; grid-template-columns: minmax(0, 1fr); gap: 2px; }
 .vs-directory-root, .vs-directory-button { display: flex; width: 100%; min-width: 0; min-height: 34px; align-items: center; gap: 7px; padding: 6px 7px; border-radius: 6px; color: #4c637c; text-align: left; background: transparent; font-size: 13px; font-weight: 650; }
 .vs-directory-root:hover, .vs-directory-button:hover { color: var(--vs-slate); background: rgba(59, 130, 246, .08); }
-.vs-directory-button.active { color: #174f98; background: #dcecff; }
+.vs-directory-root.active, .vs-directory-button.active { color: #174f98; background: #dcecff; }
 .vs-directory-root svg, .vs-directory-button svg { flex: 0 0 auto; color: #6c829b; }
-.vs-directory-button.active svg { color: var(--vs-cobalt); }
+.vs-directory-root.active svg, .vs-directory-button.active svg { color: var(--vs-cobalt); }
 .vs-directory-root span, .vs-directory-button span { min-width: 0; overflow: hidden; flex: 1; text-overflow: ellipsis; white-space: nowrap; }
 .vs-directory-button small { color: #8194aa; font-size: 10px; font-weight: 750; }
 .vs-directory-button svg:last-child { color: #93a6b9; transition: transform .14s ease; }

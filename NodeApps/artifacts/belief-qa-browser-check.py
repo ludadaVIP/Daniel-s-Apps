@@ -75,4 +75,4 @@ with sync_playwright() as playwright:
     assert not errors, errors
     browser.close()
 
-print("BeliefQ&A browser check passed: default layer, GFM, math, code, autosave, and deletion.")
+print("Belief Q&A browser check passed: default layer, GFM, math, code, autosave, and deletion.")

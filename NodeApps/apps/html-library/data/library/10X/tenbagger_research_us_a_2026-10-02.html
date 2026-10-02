@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>美股 × A股：10倍股高赔率候选池深度研究（2026-10-02）</title>
+<style>
+:root{
+  --bg:#070b12; --panel:#0e1522; --panel2:#121c2c; --ink:#edf4ff; --muted:#9fb0c7;
+  --line:#22324a; --cyan:#64d8ff; --green:#65e6a6; --amber:#ffcc6a; --red:#ff7b7b; --violet:#b69cff;
+  --shadow:0 18px 60px rgba(0,0,0,.28);
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:radial-gradient(1200px 700px at 16% -10%,#15304f 0%,transparent 55%),radial-gradient(900px 700px at 95% 0%,#281944 0%,transparent 54%),var(--bg);color:var(--ink);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,-apple-system,sans-serif;line-height:1.62}
+a{color:#8edcff;text-decoration:none} a:hover{text-decoration:underline}
+.wrap{max-width:1760px;margin:auto;padding:28px 34px 80px}
+.hero{padding:44px 44px 38px;border:1px solid #263a58;background:linear-gradient(135deg,rgba(18,34,55,.93),rgba(15,20,34,.90));border-radius:26px;box-shadow:var(--shadow);position:relative;overflow:hidden}
+.hero:after{content:"10×";position:absolute;right:36px;top:-42px;font-size:210px;font-weight:900;color:rgba(100,216,255,.055);letter-spacing:-18px}
+.eyebrow{display:inline-flex;gap:10px;align-items:center;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--cyan);font-weight:750}
+h1{font-size:clamp(34px,4.2vw,70px);line-height:1.03;letter-spacing:-.035em;margin:15px 0 18px;max-width:1200px}
+.subtitle{font-size:19px;color:#bfd0e6;max-width:1200px;margin:0}
+.pills{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}.pill{border:1px solid #334a6c;border-radius:999px;padding:8px 13px;color:#cfe1f5;background:#101a2a;font-size:13px}
+.alert{margin-top:24px;padding:18px 20px;border-left:4px solid var(--amber);background:rgba(255,204,106,.07);border-radius:12px;color:#e9dbc1}.alert b{color:#ffe4aa}
+.nav{position:sticky;top:0;z-index:10;margin:18px 0 30px;padding:11px 14px;border:1px solid #22324a;background:rgba(7,11,18,.84);backdrop-filter:blur(14px);border-radius:14px;display:flex;gap:8px;flex-wrap:wrap}.nav a{padding:7px 10px;border-radius:8px;color:#b9cbe0;font-size:13px}.nav a:hover{background:#152137;text-decoration:none;color:white}
+section{margin-top:40px}.sec-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:18px}.sec-head h2{font-size:30px;letter-spacing:-.025em;margin:0}.sec-head p{margin:0;color:var(--muted);max-width:850px;text-align:right}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);gap:18px}.card{background:linear-gradient(180deg,rgba(17,26,43,.96),rgba(12,18,29,.96));border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:0 10px 35px rgba(0,0,0,.16)}
+.c4{grid-column:span 4}.c5{grid-column:span 5}.c6{grid-column:span 6}.c7{grid-column:span 7}.c8{grid-column:span 8}.c12{grid-column:span 12}
+.kpi{font-size:34px;font-weight:850;line-height:1.05;letter-spacing:-.03em}.label{font-size:12px;color:#8fa3bd;text-transform:uppercase;letter-spacing:.08em;margin-bottom:9px}.small{font-size:13px;color:var(--muted)}
+.mini-note{color:#aabbd0;font-size:14px}.good{color:var(--green)}.warn{color:var(--amber)}.bad{color:var(--red)}.cyan{color:var(--cyan)}.violet{color:var(--violet)}
+.mathbox{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:14px}.mathstep{background:#0a1220;border:1px solid #20314a;border-radius:14px;padding:15px}.mathstep .num{font-weight:850;color:#fff;font-size:22px}.mathstep .txt{font-size:12px;color:#91a5c1}
+svg{max-width:100%;height:auto}.chart-title{font-size:15px;font-weight:750;margin-bottom:12px}.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:#a9bad0}.dot{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px}
+.table-wrap{overflow:auto;border:1px solid var(--line);border-radius:16px}table{width:100%;border-collapse:collapse;min-width:1080px;background:#0d1523}th,td{padding:13px 14px;border-bottom:1px solid #1e2c40;text-align:left;vertical-align:top}th{position:sticky;top:0;background:#142035;color:#cbdcf1;font-size:12px;text-transform:uppercase;letter-spacing:.05em}td{font-size:14px;color:#d8e5f5}tr:hover td{background:#101b2d}.ticker{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--cyan);font-weight:750}.rank{font-weight:900;font-size:20px;color:white}
+.company{padding:0;overflow:hidden}.company .top{padding:22px 24px 17px;background:linear-gradient(90deg,rgba(100,216,255,.07),transparent 60%);border-bottom:1px solid var(--line)}.company .topline{display:flex;align-items:flex-start;justify-content:space-between;gap:16px}.company h3{font-size:24px;margin:0 0 5px;letter-spacing:-.02em}.company .meta{font-size:13px;color:#9db0c8}.score{width:68px;height:68px;border-radius:50%;display:grid;place-items:center;border:6px solid #27415e;background:#0b1421;flex:0 0 auto}.score b{font-size:21px}.score span{font-size:9px;color:#8fa6c2;display:block;margin-top:-7px;text-align:center}.company .body{padding:22px 24px 24px}.thesis{font-size:17px;color:#eaf3ff;margin:0 0 15px}.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:16px}.metric{background:#0a1220;border:1px solid #1d2b40;padding:11px;border-radius:11px}.metric b{display:block;font-size:16px;color:white}.metric span{font-size:11px;color:#8299b7}.cols{display:grid;grid-template-columns:1fr 1fr;gap:14px}.box{padding:14px 15px;border:1px solid #203149;border-radius:12px;background:#0b1320}.box h4{margin:0 0 8px;font-size:13px;color:#bcd1e8;text-transform:uppercase;letter-spacing:.05em}.box ul{margin:0;padding-left:18px}.box li{margin:6px 0;font-size:13.5px;color:#c9d7e7}.box.red{border-color:#513038;background:rgba(255,90,90,.045)}.box.green{border-color:#24543f;background:rgba(60,220,150,.04)}.box.amber{border-color:#53462a;background:rgba(255,204,106,.035)}
+.verdict{margin-top:14px;padding:13px 15px;background:#121e31;border-left:3px solid var(--cyan);border-radius:9px;font-size:14px;color:#cddcee}.verdict b{color:white}.source-line{margin-top:12px;font-size:11px;color:#7f94af}.source-line a{color:#89a6c7}
+.badge{display:inline-block;padding:4px 8px;border:1px solid #344b6c;border-radius:999px;font-size:11px;color:#bcd0e8;margin-right:5px}.badge.hi{border-color:#584925;color:#ffdc8a}.badge.bin{border-color:#55313c;color:#ff9a9a}.badge.cash{border-color:#245541;color:#78e4ad}
+.gate{display:grid;grid-template-columns:150px 1fr;gap:12px;align-items:center;margin:10px 0}.bar{height:9px;border-radius:10px;background:#18263a;overflow:hidden}.bar>i{display:block;height:100%;border-radius:10px;background:linear-gradient(90deg,#5ecff6,#70e4a9)}
+.callout{padding:20px 22px;border:1px dashed #3d5577;border-radius:16px;background:#0b1421}.callout h3{margin-top:0}.callout p:last-child{margin-bottom:0}
+.outcome{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.outcome>div{border:1px solid var(--line);border-radius:12px;padding:13px;background:#0c1523}.outcome b{font-size:20px;display:block}.outcome span{font-size:11px;color:#8da2bd}
+.timeline{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}.t{padding:14px;border-radius:12px;background:#0b1524;border:1px solid #22324a}.t b{color:#fff}.t span{display:block;color:#8ea4bf;font-size:12px;margin-top:4px}
+.avoid{border-left:3px solid #7b5cff}.avoid h4{margin:0 0 4px}.avoid p{margin:0;color:#a8b8cc;font-size:13px}
+.footer{margin-top:46px;border-top:1px solid #26354b;padding-top:24px;color:#8295ad;font-size:12px}.sources{columns:2;column-gap:28px}.sources li{break-inside:avoid;margin:8px 0;color:#91a5bf}
+@media(max-width:1100px){.c4,.c5,.c6,.c7,.c8{grid-column:span 12}.metrics{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.mathbox,.outcome,.timeline{grid-template-columns:repeat(2,1fr)}.sec-head{display:block}.sec-head p{text-align:left;margin-top:8px}.sources{columns:1}}
+@media(max-width:650px){.wrap{padding:16px 14px 60px}.hero{padding:26px 20px}.hero:after{display:none}.metrics,.mathbox,.outcome,.timeline{grid-template-columns:1fr}.company .topline{display:block}.score{margin-top:12px}.nav{position:static}.gate{grid-template-columns:1fr}.kpi{font-size:28px}}
+@media print{body{background:white;color:#111}.card,.hero{box-shadow:none}.nav{display:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">HIGH-CONVEXITY EQUITY RESEARCH · 2026-10-02</div>
+  <h1>美股 × A股：<span class="cyan">最值得跟踪的 10 倍股候选池</span></h1>
+  <p class="subtitle">不是“谁明年一定涨 10 倍”，而是寻找 <b>市值尚小、产业空间足够大、已有实证、催化剂密集、失败可识别</b> 的高凸性公司。研究框架按“风险投资组合”而不是传统核心仓位设计。</p>
+  <div class="pills"><span class="pill">5 美股 + 5 A股</span><span class="pill">目标窗口：3–5 年为主</span><span class="pill">1–3 年用于验证里程碑</span><span class="pill">数据截点：美股 2026-10-01；A股 2026-09-30</span></div>
+  <div class="alert"><b>先把数学说清楚：</b>若 10 只股票等额各投入 $3,000，总投入 $30,000；其中 1 只最终达到 10×、另外 9 只归零，组合名义终值仍约为 $30,000。这个“1 中保本”逻辑在算术上成立，但现实中还要考虑税、汇率、交易成本、稀释、以及“涨到 10× 前是否拿得住”。因此真正关键不是找 10 个故事，而是建立<strong>可证伪的里程碑纪律</strong>。</div>
+</header>
+
+<nav class="nav">
+<a href="#summary">结论</a><a href="#method">方法</a><a href="#matrix">赔率矩阵</a><a href="#us">美股 5 家</a><a href="#cn">A股 5 家</a><a href="#avoid">热门但未入选</a><a href="#portfolio">执行框架</a><a href="#sources">来源</a>
+</nav>
+
+<section id="summary">
+<div class="sec-head"><h2>一页结论</h2><p>“最可能成为 10 倍股”与“最安全”是两回事。以下优先级衡量的是：<b>10× 数学可行性 × 业务证据 × 终局空间 × 催化剂 × 生存能力</b>，不是未来收益概率。</p></div>
+<div class="grid">
+  <div class="card c4"><div class="label">最强非线性赔率</div><div class="kpi cyan">GPCR</div><p>约 $20.7 亿市值，但账上现金及短投约 $13.4 亿；核心口服 GLP‑1 已进入 Phase 3。若后期成功，价值台阶可能不是 20%–30%，而是数倍重估。</p></div>
+  <div class="card c4"><div class="label">最强“收入已验证”弹性</div><div class="kpi green">LUNR</div><p>Q2 收入 $2.06 亿、期末 backlog $18 亿、全年指引 $9–10 亿；它不是纯概念月球股，而是在尝试从项目公司升级为空间基础设施 prime。</p></div>
+  <div class="card c4"><div class="label">A股最佳市值数学</div><div class="kpi amber">耐科装备</div><p>约 54.9 亿元市值；2026H1 半导体封装设备及模具收入同比 +141.31%，且已经超过传统业务成为第一增长引擎。</p></div>
+  <div class="card c7">
+    <div class="chart-title">10× 所需终局市值：现在到底“小不小”？</div>
+    <svg viewBox="0 0 820 310" role="img" aria-label="当前市值与十倍目标示意">
+      <text x="15" y="25" fill="#9fb0c7" font-size="12">美股单位：十亿美元；A股单位：十亿元人民币。条形长度为当前市值，右侧数字为 10× 所需市值。</text>
+      <g font-family="sans-serif" font-size="12">
+        <text x="15" y="62" fill="#fff">GPCR</text><rect x="90" y="50" width="72" height="15" rx="7" fill="#64d8ff"/><text x="172" y="62" fill="#9fcfe0">2.07 → 20.7</text>
+        <text x="15" y="93" fill="#fff">BEAM</text><rect x="90" y="81" width="85" height="15" rx="7" fill="#64d8ff"/><text x="185" y="93" fill="#9fcfe0">2.44 → 24.4</text>
+        <text x="15" y="124" fill="#fff">TMDX</text><rect x="90" y="112" width="95" height="15" rx="7" fill="#64d8ff"/><text x="195" y="124" fill="#9fcfe0">2.73 → 27.3</text>
+        <text x="15" y="155" fill="#fff">LUNR</text><rect x="90" y="143" width="112" height="15" rx="7" fill="#64d8ff"/><text x="212" y="155" fill="#9fcfe0">3.22 → 32.2</text>
+        <text x="15" y="186" fill="#fff">RXRX</text><rect x="90" y="174" width="76" height="15" rx="7" fill="#64d8ff"/><text x="176" y="186" fill="#9fcfe0">2.18 → 21.8</text>
+        <line x1="400" y1="42" x2="400" y2="290" stroke="#2b3a51"/>
+        <text x="425" y="62" fill="#fff">耐科</text><rect x="485" y="50" width="48" height="15" rx="7" fill="#ffcc6a"/><text x="543" y="62" fill="#d9c79b">5.49 → 54.9</text>
+        <text x="425" y="93" fill="#fff">步科</text><rect x="485" y="81" width="75" height="15" rx="7" fill="#ffcc6a"/><text x="570" y="93" fill="#d9c79b">8.64 → 86.4</text>
+        <text x="425" y="124" fill="#fff">埃科</text><rect x="485" y="112" width="86" height="15" rx="7" fill="#ffcc6a"/><text x="581" y="124" fill="#d9c79b">9.85 → 98.5</text>
+        <text x="425" y="155" fill="#fff">柯力</text><rect x="485" y="143" width="117" height="15" rx="7" fill="#ffcc6a"/><text x="612" y="155" fill="#d9c79b">13.45 → 134.5</text>
+        <text x="425" y="186" fill="#fff">迪哲</text><rect x="485" y="174" width="235" height="15" rx="7" fill="#ffcc6a"/><text x="730" y="186" fill="#d9c79b">≈27.0 → 270</text>
+      </g>
+      <text x="15" y="235" fill="#65e6a6" font-size="13" font-weight="700">核心观察：</text><text x="15" y="258" fill="#a8bbd0" font-size="12">对 10× 目标而言，起始市值本身就是“物理约束”。一家 $400 亿公司再涨 10×，需要成为 $4,000 亿巨头；</text><text x="15" y="279" fill="#a8bbd0" font-size="12">一家 $20–30 亿公司只需成长到 $200–300 亿级，难度依然很高，但至少终局市值在现实世界中存在大量先例。</text>
+    </svg>
+  </div>
+  <div class="card c5">
+    <div class="label">我的时间判断</div><div class="kpi">1–3 年 ≠ 10× 基准情景</div>
+    <p class="mini-note">对这批公司，<b>1–3 年更适合看“是否证明自己”</b>：临床是否成功、订单是否转化、机器人业务是否从千万变成数亿、backlog 是否兑现。真正把市值推到 10×，更合理的观察窗是 3–5 年。</p>
+    <div class="timeline"><div class="t"><b>0–12M</b><span>第一批关键催化剂</span></div><div class="t"><b>12–24M</b><span>验证规模化</span></div><div class="t"><b>24–36M</b><span>估值体系切换</span></div><div class="t"><b>36–48M</b><span>商业扩张</span></div><div class="t"><b>48–60M</b><span>冲击终局价值</span></div></div>
+  </div>
+</div>
+</section>
+
+<section id="method">
+<div class="sec-head"><h2>筛选方法：先问“能不能 10×”，再问“好不好”</h2><p>我刻意没有从“最知名公司”开始，而是从终局市值倒推。研究优先级不是模型概率，只用于把不同类型机会放在同一张桌上比较。</p></div>
+<div class="grid">
+<div class="card c6"><div class="label">六个筛选闸门</div>
+  <div class="gate"><b>① 市值头部空间</b><div class="bar"><i style="width:100%"></i></div></div>
+  <div class="gate"><b>② 已有实证</b><div class="bar"><i style="width:88%"></i></div></div>
+  <div class="gate"><b>③ TAM / 平台性</b><div class="bar"><i style="width:95%"></i></div></div>
+  <div class="gate"><b>④ 12–24M 催化</b><div class="bar"><i style="width:90%"></i></div></div>
+  <div class="gate"><b>⑤ 现金/盈利生存</b><div class="bar"><i style="width:80%"></i></div></div>
+  <div class="gate"><b>⑥ 可证伪性</b><div class="bar"><i style="width:92%"></i></div></div>
+</div>
+<div class="card c6"><div class="label">排除规则</div>
+  <p><b>我会主动排除三种“看起来很牛”的公司：</b></p>
+  <p class="mini-note">A. 市值已经大到 10× 终局不现实；B. 只有概念、没有收入/订单/临床数据；C. 即使赛道爆发，公司也没有明确“价值捕获机制”。例如“机器人很火”并不自动意味着所有机器人概念股都能赚到足够利润。</p>
+  <div class="callout"><b class="warn">关键区别：</b>真正的 10 倍股往往不是“今天最完美的公司”，而是“今天已有足够证据、但市场还没有按未来巨头定价的公司”。</div>
+</div>
+</div>
+</section>
+
+<section id="matrix">
+<div class="sec-head"><h2>赔率 × 证据矩阵</h2><p>右上角是理想区域：既有高 10× 头部空间，又已经出现产品、订单、收入或临床验证。越靠左代表更依赖未来故事。</p></div>
+<div class="card">
+<svg viewBox="0 0 1120 520" role="img" aria-label="候选股赔率证据散点矩阵">
+  <defs><linearGradient id="g1" x1="0" x2="1"><stop stop-color="#111c2c"/><stop offset="1" stop-color="#16283a"/></linearGradient></defs>
+  <rect x="80" y="30" width="980" height="410" rx="16" fill="url(#g1)" stroke="#263954"/>
+  <line x1="570" y1="30" x2="570" y2="440" stroke="#31445e" stroke-dasharray="5 7"/><line x1="80" y1="235" x2="1060" y2="235" stroke="#31445e" stroke-dasharray="5 7"/>
+  <text x="80" y="475" fill="#8ea3be" font-size="13">← 证据较弱</text><text x="935" y="475" fill="#8ea3be" font-size="13">证据较强 →</text>
+  <text x="22" y="430" fill="#8ea3be" font-size="13" transform="rotate(-90 22 430)">10× 市值头部空间 →</text>
+  <text x="620" y="60" fill="#65e6a6" font-size="14" font-weight="700">优先研究区</text>
+  <g font-family="sans-serif" font-size="12" font-weight="700">
+    <circle cx="690" cy="92" r="24" fill="#64d8ff" fill-opacity=".82"/><text x="674" y="96" fill="#061018">GPCR</text>
+    <circle cx="815" cy="120" r="25" fill="#64d8ff" fill-opacity=".82"/><text x="800" y="124" fill="#061018">LUNR</text>
+    <circle cx="900" cy="150" r="24" fill="#64d8ff" fill-opacity=".82"/><text x="885" y="154" fill="#061018">TMDX</text>
+    <circle cx="655" cy="158" r="23" fill="#b69cff" fill-opacity=".86"/><text x="639" y="162" fill="#0a0713">BEAM</text>
+    <circle cx="480" cy="130" r="22" fill="#b69cff" fill-opacity=".86"/><text x="464" y="134" fill="#0a0713">RXRX</text>
+    <circle cx="820" cy="195" r="24" fill="#ffcc6a" fill-opacity=".88"/><text x="802" y="199" fill="#171005">耐科</text>
+    <circle cx="730" cy="220" r="23" fill="#ffcc6a" fill-opacity=".88"/><text x="713" y="224" fill="#171005">步科</text>
+    <circle cx="785" cy="255" r="23" fill="#ffcc6a" fill-opacity=".88"/><text x="768" y="259" fill="#171005">埃科</text>
+    <circle cx="870" cy="286" r="24" fill="#ffcc6a" fill-opacity=".88"/><text x="853" y="290" fill="#171005">柯力</text>
+    <circle cx="930" cy="328" r="26" fill="#ffcc6a" fill-opacity=".88"/><text x="912" y="332" fill="#171005">迪哲</text>
+  </g>
+  <g fill="#91a7c1" font-size="11"><text x="95" y="55">高头部 / 低验证</text><text x="905" y="425">低头部 / 高验证</text></g>
+</svg>
+<div class="legend"><span><i class="dot" style="background:#64d8ff"></i>美股：商业/后期临床</span><span><i class="dot" style="background:#b69cff"></i>美股：平台型生物科技</span><span><i class="dot" style="background:#ffcc6a"></i>A股：先进制造/创新药</span></div>
+</div>
+</section>
+
+<section id="us">
+<div class="sec-head"><h2>美股：5 个高凸性候选</h2><p>优先选择约 $20–32 亿市值区间。它们并不“便宜”，但 10× 后的 $200–320 亿终局仍在成功中型平台公司的现实区间。</p></div>
+<div class="grid">
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#1 美股</span><span class="badge bin">临床二元性</span><span class="badge cash">现金厚</span><h3>Structure Therapeutics <span class="ticker">GPCR</span></h3><div class="meta">口服小分子代谢药 · 核心：aleniglipron / oral GLP‑1</div></div><div class="score"><div><b>92</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>目前约 $20.7 亿市值、企业价值仅约 $7.3 亿，但核心口服 GLP‑1 已进入全球 Phase 3；这是典型“现金把下行托住、临床成功打开巨大上行”的结构。</p>
+<div class="metrics"><div class="metric"><b>$28.98</b><span>10/1 收盘</span></div><div class="metric"><b>$2.07B</b><span>市值</span></div><div class="metric"><b>$0.73B</b><span>企业价值</span></div><div class="metric"><b>$20.7B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>Phase 2 数据显示 44 周最高约 16.2% 体重下降，已跨入“有效性被认真对待”的阶段。</li><li>2026 年已启动 ACCOMPLISH Phase 3，若疗效、耐受性和依从性成立，口服减重药的可及性优势很大。</li><li>账上现金及短投约 $13.4 亿，接近市值的 2/3，融资生存压力相对低。</li><li>还有 oral amylin 管线，成功后不是单产品估值，而可能进入代谢平台估值。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>Phase 3 疗效低于预期或 GI 不良事件导致停药率偏高。</li><li>诺和诺德、礼来及下一代口服/多靶点药物把差异化空间压缩。</li><li>商业制造和规模化成本被低估；临床成功也不等于商业成功。</li><li>生物科技估值可在数据前后单日剧烈重定价。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>Phase 3 入组/完成节奏、72 周延长数据、糖尿病/肥胖与 SWITCH 数据、oral amylin 后续 MAD 数据。<br><b>10× 必须发生：</b>aleniglipron 至少证明有全球商业化资格，并让市场相信它能获得数十亿美元级峰值销售机会。</div>
+<div class="source-line">来源：<a href="https://ir.structuretx.com/news-releases/news-release-details/structure-therapeutics-reports-second-quarter-2026-financial" target="_blank">Structure Q2 2026</a> · <a href="https://stockanalysis.com/stocks/gpcr/statistics/" target="_blank">StockAnalysis valuation</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#2 美股</span><span class="badge">商业航天</span><h3>Intuitive Machines <span class="ticker">LUNR</span></h3><div class="meta">航天器 + 月球任务 + 通信网络 + 国防空间基础设施</div></div><div class="score"><div><b>88</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>它最吸引人的不是“登月概念”，而是 2026Q2 已经做到 $2.06 亿季度收入、$18 亿 backlog，并把商业、NASA 与国家安全订单组合起来。</p>
+<div class="metrics"><div class="metric"><b>$14.05</b><span>10/1 收盘</span></div><div class="metric"><b>$3.22B</b><span>市值</span></div><div class="metric"><b>$1.8B</b><span>Q2 backlog</span></div><div class="metric"><b>$32.2B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>Q2 2026 收入 $206M，约为去年同期 4 倍；全年收入指引 $0.9–1.0B，且目标 adjusted EBITDA 转正。</li><li>Q2 新签 $920M，Q3 截止财报时又新增 $300M；backlog 从 2025 年末到 Q2 增加约 $1.5B。</li><li>国防业务收入占比由 3% 升至 30%，降低只靠 NASA 月球项目的单一叙事。</li><li>若成功成为“空间 prime + 网络运营商”，估值逻辑可从项目承包商切换为长期基础设施平台。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>发射失败、卫星/着陆器失效都会直接打击订单与信誉。</li><li>政府合同节奏受预算、抗议、拨款变化影响大。</li><li>2026H1 仍亏损，且历史上股本扩张明显；未来融资可能继续稀释。</li><li>收购 Goonhilly/COMSAT 后整合复杂度上升。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>2026 指引兑现、EBITDA 转正、$1.8B backlog 转收入速度、国防订单持续性、通信网络形成经常性收入。<br><b>10× 必须发生：</b>公司从“几个大项目”升级成多年复购、跨轨道的空间制造与网络基础设施平台。</div>
+<div class="source-line">来源：<a href="https://investors.intuitivemachines.com/news-releases/news-release-details/intuitive-machines-reports-second-quarter-2026-financial-results" target="_blank">Intuitive Machines Q2 2026</a> · <a href="https://stockanalysis.com/stocks/lunr/market-cap/" target="_blank">StockAnalysis market cap</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#3 美股</span><span class="badge">已盈利路径</span><h3>TransMedics <span class="ticker">TMDX</span></h3><div class="meta">器官移植 Organ Care System + NOP 物流网络</div></div><div class="score"><div><b>86</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>这是名单里“最不像彩票”的一个：产品已有真实收入、服务网络形成壁垒。如果它把美国模式复制到全球，$27B 终局并非没有产业参照。</p>
+<div class="metrics"><div class="metric"><b>$78.64</b><span>10/1 收盘</span></div><div class="metric"><b>$2.73B</b><span>市值</span></div><div class="metric"><b>$189.9M</b><span>2026Q2 收入</span></div><div class="metric"><b>$27.3B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>Q2 收入约 $189.9M，同比增长约 21%；服务收入增速快于产品，说明网络化服务正在放大硬件价值。</li><li>2026 全年收入指引 $737–757M，同比增长约 22–25%。</li><li>OCS + 航空物流 + 临床工作流形成系统性壁垒，不只是卖一次性设备。</li><li>全球器官供需长期失衡；若提高可用器官数量和运输半径，市场增长不完全依赖抢份额。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>增长从 20%+ 快速降至低双位数，估值会先压缩，再谈不上 10×。</li><li>物流资产扩张可能拖累资本回报和现金流。</li><li>医院采用、医保/支付与监管变化可能限制渗透。</li><li>国际复制不一定有美国同样的单位经济性。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>NOP 服务增速、国际收入、欧洲/LATAM 网络利用率、利润率与自由现金流。<br><b>10× 必须发生：</b>营收最终跨过数十亿美元并保持高增速/高毛利，市场把它视为全球移植基础设施而非单一 medtech。</div>
+<div class="source-line">来源：<a href="https://investors.transmedics.com/node/11171/xbrl-viewer" target="_blank">TransMedics 2026 Q2 10-Q</a> · <a href="https://investors.transmedics.com/news-releases/news-release-details/transmedics-appoints-fernando-araujo-chief-financial-officer-and" target="_blank">2026 guidance</a> · <a href="https://stockanalysis.com/stocks/tmdx/market-cap/" target="_blank">market cap</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#4 美股</span><span class="badge bin">基因编辑</span><span class="badge cash">长现金跑道</span><h3>Beam Therapeutics <span class="ticker">BEAM</span></h3><div class="meta">Base editing · AATD / SCD / PKU</div></div><div class="score"><div><b>85</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>如果 base editing 从“很酷的科学”跨越到“可重复开发的药物平台”，当前约 $24 亿市值会显得很小；2026 年的不同之处在于它已经走到 pivotal/BLA 级别节点。</p>
+<div class="metrics"><div class="metric"><b>$24.46</b><span>10/1 价格</span></div><div class="metric"><b>$2.44B</b><span>市值</span></div><div class="metric"><b>~$1.2B</b><span>Q1 现金等</span></div><div class="metric"><b>$24.4B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>BEAM‑302 已启动全球 pivotal cohort；AATD 数据显示单次给药产生持续生物学效应。</li><li>risto‑cel 的 SCD BLA 最早可在 2026 年末提交，给平台第一条商业化路径。</li><li>BEAM‑304 已获 IND，平台开始从单一适应症扩展。</li><li>现金跑道预计可到 2029 年中，能穿越多个关键读数。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>基因编辑的安全性、持久性或监管要求在更大样本中暴露问题。</li><li>商业化治疗流程复杂、支付困难，导致科学成功但商业渗透慢。</li><li>CRISPR、prime editing、RNA 等替代技术竞争。</li><li>临床平台失败会导致“平台溢价”一次性消失。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>BEAM‑302 pivotal 安全/生物标志物、risto‑cel BLA 进度、BEAM‑304 临床 POC。<br><b>10× 必须发生：</b>至少 1 个资产商业化 + 第 2/第 3 个项目证明 base editing 可复制，而不是“一次性成功”。</div>
+<div class="source-line">来源：<a href="https://investors.beamtx.com/press-releases/?page=1" target="_blank">Beam 2026 releases</a> · <a href="https://investors.beamtx.com/news-releases/news-release-details/beam-therapeutics-presents-updated-clinical-data-phase-12-trial" target="_blank">BEAM‑302 update</a> · <a href="https://stockanalysis.com/stocks/beam/market-cap/" target="_blank">market cap</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#5 美股</span><span class="badge bin">AI × 生物</span><h3>Recursion Pharmaceuticals <span class="ticker">RXRX</span></h3><div class="meta">AI-native drug discovery · partnered + wholly owned pipeline</div></div><div class="score"><div><b>80</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>RXRX 的 10× 不是靠“AI 概念继续热”，而是靠它第一次证明：计算平台真的能稳定地产出可进入注册路径的药物。2026 年已经出现一些早期验证，但还远未完成证明。</p>
+<div class="metrics"><div class="metric"><b>$4.07</b><span>10/1 收盘</span></div><div class="metric"><b>$2.18B</b><span>市值</span></div><div class="metric"><b>$556.8M</b><span>Q2 现金等</span></div><div class="metric"><b>$21.8B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>Genentech 已把合作的首个神经科学靶点推进到联合 early discovery，至少说明平台并非只有 demo。</li><li>REC‑4881 有 Phase 2 数据催化；REC‑7735 IND 已获批，2H26 启动 Phase 1/2。</li><li>若一个自研资产成功 + 多个大药企合作兑现，估值会从“烧钱 AI 生科”切换到“研发平台 + 管线资产”。</li><li>当前市值较 2021 高点估值显著收缩，预期门槛低于泡沫期。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>平台能找到靶点，但最终药物临床效果并不优于传统研发。</li><li>Q2 收入仅 $7.7M，商业价值仍主要是未来式。</li><li>现金跑道预计至 2028 年初，若临床验证不够快，融资与稀释风险上升。</li><li>过去一年流通股数显著增加，必须盯紧“每股价值”而非只看公司价值。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>REC‑4881 后续数据、REC‑7735 起始临床、Genentech/Roche 继续 option 新项目、2027 前是否出现更强临床 POC。<br><b>10× 必须发生：</b>AI 平台必须从“提高研发效率”变成“创造临床优胜药物”，且至少两次重复成功。</div>
+<div class="source-line">来源：<a href="https://ir.recursion.com/news-releases/news-release-details/recursion-reports-second-quarter-financial-results-genentech" target="_blank">Recursion Q2 2026</a> · <a href="https://stockanalysis.com/stocks/rxrx/statistics/" target="_blank">valuation / dilution</a></div>
+</div></article>
+
+<div class="card c6"><div class="label">美股候选对照表</div><div class="table-wrap"><table><thead><tr><th>优先级</th><th>股票</th><th>市值</th><th>10×终局</th><th>最强证据</th><th>核心风险</th></tr></thead><tbody>
+<tr><td class="rank">1</td><td><span class="ticker">GPCR</span></td><td>$2.07B</td><td>$20.7B</td><td>Phase 3 + 巨额现金垫</td><td>临床/竞争二元性</td></tr>
+<tr><td class="rank">2</td><td><span class="ticker">LUNR</span></td><td>$3.22B</td><td>$32.2B</td><td>$1.8B backlog + $206M Q2 revenue</td><td>发射/合同/稀释</td></tr>
+<tr><td class="rank">3</td><td><span class="ticker">TMDX</span></td><td>$2.73B</td><td>$27.3B</td><td>真实商业化 + 22–25% 指引增长</td><td>增长放缓/国际复制</td></tr>
+<tr><td class="rank">4</td><td><span class="ticker">BEAM</span></td><td>$2.44B</td><td>$24.4B</td><td>Pivotal + BLA 临近</td><td>基因编辑安全/监管</td></tr>
+<tr><td class="rank">5</td><td><span class="ticker">RXRX</span></td><td>$2.18B</td><td>$21.8B</td><td>Genentech option + 临床管线</td><td>平台尚未临床证明</td></tr>
+</tbody></table></div></div>
+</div>
+</section>
+
+<section id="cn">
+<div class="sec-head"><h2>A股：5 个高赔率候选</h2><p>A股筛选更加苛刻：机器人/光模块/半导体明星股很多已经涨到高市值。我更倾向于“业务拐点已经出现、但总市值仍在 50–135 亿元”的公司；迪哲医药是例外，因为全球授权显著提高了证据强度。</p></div>
+<div class="grid">
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#1 A股</span><span class="badge">先进封装</span><h3>耐科装备 <span class="ticker">688419</span></h3><div class="meta">半导体封装设备/模具 · 小市值业务切换</div></div><div class="score"><div><b>89</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>最典型的“小公司新主业爆发”：总市值约 54.9 亿元，而 2026H1 半导体封装设备及模具收入 +141.31%，已经成为第一大业务。</p>
+<div class="metrics"><div class="metric"><b>¥47.48</b><span>9/30 收盘</span></div><div class="metric"><b>¥5.49B</b><span>总市值</span></div><div class="metric"><b>+141%</b><span>半导体业务 H1</span></div><div class="metric"><b>¥54.9B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>2026H1 总营收 1.87 亿元 +33.11%；Q2 单季营收 +64%，归母净利 +85%，加速度明显。</li><li>半导体封装设备及模具 H1 收入 1.08 亿元，占比接近 58%，同比 +141.31%，增长引擎已经完成切换。</li><li>境外收入约 0.94 亿元，占主营约一半，有全球化而非纯国产替代的可能。</li><li>资产负债率低，现金/理财资产较厚，小市值下有扩产与研发容错。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>封装设备属于周期性资本开支，当前高增速可能来自低基数和行业上行。</li><li>客户集中、订单确认具有波动，单季高增长不能线性外推。</li><li>毛利率受成本和产品结构影响，2026H1 利润增速明显低于收入。</li><li>真正 10× 需要进入更大品类/先进封装，而不只是传统塑封设备。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>2026H2/2027 半导体板块能否持续 >50% 增长、设备 ASP 与毛利率、海外客户数量、先进封装新设备放量。<br><b>10× 必须发生：</b>半导体设备收入从“1 亿级半年收入”成长为数十亿级，并形成国产龙头甚至海外竞争力。</div>
+<div class="source-line">来源：<a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12517913&stockid=688419" target="_blank">2026 半年报</a> · <a href="https://stock.quote.stockstar.com/finance/summary_688419.shtml" target="_blank">市值/财务</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#2 A股</span><span class="badge">机器人运动控制</span><h3>步科股份 <span class="ticker">688160</span></h3><div class="meta">伺服/驱动/人机界面 · 机器人业务成为增长主轴</div></div><div class="score"><div><b>85</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>市值约 86.4 亿元，2026H1 机器人业务收入约 2.4 亿元、同比 +62.3%，已经不是“蹭机器人概念”，而是机器人订单在拉动总公司增长。</p>
+<div class="metrics"><div class="metric"><b>¥94.70</b><span>9/30 收盘</span></div><div class="metric"><b>¥8.64B</b><span>总市值</span></div><div class="metric"><b>+44%</b><span>H1 总营收</span></div><div class="metric"><b>¥86.4B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>H1 营收 4.48 亿元 +44%，归母净利 +39%；Q2 增速进一步提高。</li><li>机器人业务 H1 约 2.4 亿元 +62.3%，占总收入已超过一半。</li><li>运动控制是机器人“数量放大即需求放大”的核心部件，若人形机器人量产，每台多关节带来高部件价值量。</li><li>总市值仍低于 100 亿元，若成为中国机器人控制层核心供应商，终局空间存在。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>当前估值已经预支较高成长，业务增速一旦回落会双杀。</li><li>伺服/驱动竞争激烈，国产厂商众多，价格战会压利润。</li><li>人形机器人量产时间若反复推迟，市场会重新按传统自动化公司估值。</li><li>经营现金流 H1 为负，需要观察回款与库存。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>机器人收入增速、头部客户量产、单机价值量、毛利率与回款。<br><b>10× 必须发生：</b>机器人业务从 2–5 亿级跨到数十亿级，并保持技术/客户份额优势。</div>
+<div class="source-line">来源：<a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12534792&stockid=688160" target="_blank">2026H1 摘要</a> · <a href="https://data.eastmoney.com/report/info/AP202608261828484901.html" target="_blank">业务拆分</a> · <a href="https://stock.quote.stockstar.com/capital_688160.shtml" target="_blank">市值</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#3 A股</span><span class="badge">机器视觉</span><h3>埃科光电 <span class="ticker">688610</span></h3><div class="meta">工业相机 / 图像采集卡 · 高阶 PCB / 机器视觉国产替代</div></div><div class="score"><div><b>83</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>这是“业绩真的爆发，但估值也已经不便宜”的典型：H1 营收 +82%、净利 +92%，市值仍约 98.5 亿元；若高速视觉成为 AI 制造/PCB/机器人通用感知层，可能继续跃迁。</p>
+<div class="metrics"><div class="metric"><b>¥144.79</b><span>9/30 收盘</span></div><div class="metric"><b>¥9.85B</b><span>总市值</span></div><div class="metric"><b>+82%</b><span>H1 营收</span></div><div class="metric"><b>¥98.5B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>2026H1 营收 3.78 亿元 +82.33%，净利 6916 万 +91.92%，扣非 +107.9%。</li><li>工业相机 H1 主营收入约 2.79 亿元，产品升级到 8K/16K 等高阶检测需求。</li><li>机器视觉是先进制造的“眼睛”，AI 服务器 PCB、新型材料、在线全检都会提高像素、帧率、带宽要求。</li><li>规模增长同时毛利率小幅改善，说明不完全是低价换收入。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>9/30 PE(TTM) 约 101 倍、PS 约 16 倍，已经非常依赖持续高增速。</li><li>H1 经营现金流为 -2918 万，与利润增长背离，需要防应收/备货问题。</li><li>行业最终可能标准化，海外巨头与国内竞争者压缩价格。</li><li>若增速从 80% 快速掉到 20–30%，估值压缩会很猛烈。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>工业相机订单、PCB/半导体客户占比、应收和经营现金流、毛利率。<br><b>10× 必须发生：</b>从国产高端工业相机供应商成长为机器视觉平台级公司，收入进入数十亿元规模。</div>
+<div class="source-line">来源：<a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12503338&stockid=688610" target="_blank">2026 半年报</a> · <a href="https://data.eastmoney.com/gzfx/detail/688610.html" target="_blank">估值/市值</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#4 A股</span><span class="badge">全球创新药</span><span class="badge cash">授权现金</span><h3>迪哲医药 <span class="ticker">688192</span></h3><div class="meta">肿瘤小分子 · 舒沃替尼 / 戈利昔替尼 · AstraZeneca 全球授权</div></div><div class="score"><div><b>82</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>它起始市值比其他 A 股候选大，但证据强度也明显更高：2026H1 产品销售 +47%，舒沃替尼已经实现中美获批，并收到阿斯利康 $6 亿全球授权首付款。</p>
+<div class="metrics"><div class="metric"><b>¥58.01</b><span>9/30 收盘</span></div><div class="metric"><b>≈¥27.0B</b><span>总市值（按约4.65亿股）</span></div><div class="metric"><b>$600M</b><span>已到账首付款</span></div><div class="metric"><b>≈¥270B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>H1 收入 5.23 亿元 +47.24%，亏损同比大幅收窄，国内商业化已开始验证。</li><li>舒沃替尼全球授权给阿斯利康：$6 亿首付款已到账，另有最高 $9 亿里程碑 + 全球销售 royalties。</li><li>美国二线已获批，一线适应症中美均已申报并获得突破性疗法认定，市场空间可能继续前移扩大。</li><li>大额首付款显著改善现金储备，也给后续管线研发提供弹药。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>10× 需要约 2700 亿元市值，数学门槛明显高于其余 A 股候选。</li><li>一线适应症审批/商业化不及预期会降低全球价值。</li><li>里程碑与 royalty 并非保证收入，取决于临床、监管和销售达成。</li><li>高管减持计划与创新药高波动都可能影响短期估值。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>阿斯利康美国商业化、舒沃替尼一线审批、royalty 起量、DZD8586/DZD6008 后续临床。<br><b>10× 必须发生：</b>舒沃替尼成为全球重要 EGFR exon20ins 标准疗法 + 第二梯队管线至少再出一个全球级资产。</div>
+<div class="source-line">来源：<a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12626720&stockid=688192" target="_blank">$600M 首付款公告</a> · <a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12511533&stockid=688192" target="_blank">2026H1</a> · <a href="https://cn.investing.com/equities/dizal-jiangsu-pharmaceutical-historical-data" target="_blank">9/30 股价</a></div>
+</div></article>
+
+<article class="card c6 company"><div class="top"><div class="topline"><div><span class="badge hi">#5 A股</span><span class="badge">力学传感器</span><h3>柯力传感 <span class="ticker">603662</span></h3><div class="meta">六维力/力矩 + 关节力矩 · 人形/协作机器人感知</div></div><div class="score"><div><b>79</b><span>研究分</span></div></div></div></div><div class="body">
+<p class="thesis"><b>一句话：</b>传统称重传感器给它现金流和渠道，人形机器人给它期权。真正吸引人的不是“机器人概念”，而是 2026 年开始出现月订单破千、客户送样与批量交付的实证。</p>
+<div class="metrics"><div class="metric"><b>¥47.89</b><span>9/30 收盘</span></div><div class="metric"><b>¥13.45B</b><span>总市值</span></div><div class="metric"><b>&gt;2,000</b><span>H1 机器人力传感器销量</span></div><div class="metric"><b>¥134.5B</b><span>10× 终局市值</span></div></div>
+<div class="cols"><div class="box green"><h4>为什么可能 10×</h4><ul><li>自 2026 年 4 月以来机器人力学传感器月订单持续破千；H1 销量已超过 2000 只，超过 2025 全年。</li><li>已向 90+ 家人形/协作/工业机器人企业送样，部分客户已有批量订单。</li><li>六维力/力矩、关节力矩、触觉等属于机器人从“能动”到“能精细操作”的关键感知层。</li><li>传统主业 H1 营收仍 +22%，扣非净利 +24.9%，不是完全靠融资讲故事。</li></ul></div><div class="box red"><h4>怎么失败</h4><ul><li>机器人业务目前相对公司整体仍小，千只/月与百万级机器人出货之间差几个数量级。</li><li>H1 归母净利同比 -24%，主要受非经常因素/基数影响，报表噪声较大。</li><li>六维力传感器可能快速降价，竞争格局尚未稳定。</li><li>人形机器人规模化若延迟 2–3 年，估值期权会衰减。</li></ul></div></div>
+<div class="verdict"><b>关键验证：</b>月订单从 1,000→3,000→10,000 的爬坡、头部客户量产、机器人业务收入披露、单价和毛利率。<br><b>10× 必须发生：</b>柯力必须从“传统传感器公司 + 机器人期权”转成“机器人高价值力觉核心平台”。</div>
+<div class="source-line">来源：<a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12558440&stockid=603662" target="_blank">机器人业务披露</a> · <a href="https://stock.quote.stockstar.com/finance/summary_603662.shtml" target="_blank">H1 财务</a> · <a href="https://stock.quote.stockstar.com/capital_603662.shtml" target="_blank">市值</a></div>
+</div></article>
+
+<div class="card c6"><div class="label">A股候选对照表</div><div class="table-wrap"><table><thead><tr><th>优先级</th><th>股票</th><th>市值</th><th>10×终局</th><th>最强证据</th><th>核心风险</th></tr></thead><tbody>
+<tr><td class="rank">1</td><td>耐科装备 <span class="ticker">688419</span></td><td>54.9亿</td><td>549亿</td><td>半导体业务 +141%</td><td>低基数/设备周期</td></tr>
+<tr><td class="rank">2</td><td>步科股份 <span class="ticker">688160</span></td><td>86.4亿</td><td>864亿</td><td>机器人业务 +62%</td><td>估值高/竞争</td></tr>
+<tr><td class="rank">3</td><td>埃科光电 <span class="ticker">688610</span></td><td>98.5亿</td><td>985亿</td><td>H1 收入 +82%、利润 +92%</td><td>PE~101x/现金流</td></tr>
+<tr><td class="rank">4</td><td>迪哲医药 <span class="ticker">688192</span></td><td>≈270亿</td><td>≈2700亿</td><td>$600M 首付款已到账</td><td>10×终局太大/临床</td></tr>
+<tr><td class="rank">5</td><td>柯力传感 <span class="ticker">603662</span></td><td>134.5亿</td><td>1345亿</td><td>月订单破千 + 90家送样</td><td>机器人收入基数仍小</td></tr>
+</tbody></table></div></div>
+</div>
+</section>
+
+<section id="avoid">
+<div class="sec-head"><h2>为什么一些最热门股票反而没入选</h2><p>优秀公司可以是好投资，但未必是“从今天开始最容易再 10×”的标的。这里专门用终局市值把叙事降温。</p></div>
+<div class="grid">
+<div class="card c4 avoid"><h4>Rocket Lab <span class="ticker">RKLB</span></h4><p>市值约 $42.2B；再 10× 需要约 $422B。它可能继续优秀，但“10× 数学”已不像早期。</p></div>
+<div class="card c4 avoid"><h4>AST SpaceMobile <span class="ticker">ASTS</span></h4><p>市值约 $22.2B；10×≈$222B。上行仍大，但需要成为全球卫星通信巨头。</p></div>
+<div class="card c4 avoid"><h4>IonQ <span class="ticker">IONQ</span></h4><p>市值约 $17.5B；10×≈$175B。技术突破可以推升，但商业收入与终局估值之间仍需巨大跨越。</p></div>
+<div class="card c4 avoid"><h4>Applied Digital <span class="ticker">APLD</span></h4><p>收入增长很快，但约 $7.0B 市值、EV 约 $10.6B，加上重资产融资与股本增长，使 10× 赔率不如本报告前五。</p></div>
+<div class="card c4 avoid"><h4>Redwire <span class="ticker">RDW</span></h4><p>市值约 $2.6B 很合适，但过去一年股数大增约 149%；公司价值增长如果被持续稀释，股东每股回报会弱化。</p></div>
+<div class="card c4 avoid"><h4>奥比中光 / 光库 / 源杰 / 中科飞测</h4><p>这些赛道都很强，但部分标的市值已经 300–2000 亿元级；再 10× 的终局要求远高于本报告小市值候选。</p></div>
+</div>
+</section>
+
+<section id="portfolio">
+<div class="sec-head"><h2>如何把“10 只中 1–3 只”变成可执行研究，而不是买彩票</h2><p>下面是风险研究框架，不是具体交易指令。核心思想：高赔率组合最怕的不是单股归零，而是你在“逻辑已经坏掉”后继续把它当长期投资。</p></div>
+<div class="grid">
+<div class="card c6"><div class="label">组合结果敏感性（假设每只 $3,000）</div>
+<div class="outcome"><div><b class="bad">0 中</b><span>最差：大幅亏损</span></div><div><b>1 ×10</b><span>其余归零 ≈ 名义保本</span></div><div><b class="good">2 ×10</b><span>约 $60k，≈2×组合</span></div><div><b class="good">3 ×10</b><span>约 $90k，≈3×组合</span></div><div><b class="cyan">非零残值</b><span>现实通常不是 0/10 两点分布</span></div></div>
+<p class="mini-note" style="margin-top:14px">现实里更可能出现：1 只 6×、2 只 2–3×、3 只腰斩、若干接近成本。组合最终表现取决于<b>右尾能不能足够大，以及你是否过早卖掉赢家</b>。</p>
+</div>
+<div class="card c6"><div class="label">更重要的不是止损价，而是“论文止损”</div>
+<div class="mathbox"><div class="mathstep"><div class="num">01</div><div class="txt">买入前写下 3 个必须兑现的业务里程碑</div></div><div class="mathstep"><div class="num">02</div><div class="txt">季度只检查论文，不因价格波动改故事</div></div><div class="mathstep"><div class="num">03</div><div class="txt">核心里程碑失败：重新估值，不机械补仓</div></div><div class="mathstep"><div class="num">04</div><div class="txt">赢家持续兑现：允许它自然长成大仓位</div></div></div>
+</div>
+<div class="card c6"><div class="label">两阶段建仓思路（仅作研究框架）</div>
+<p><b>与其一次性判断对错，更合理的是把“买入”拆成“为证据付费”。</b></p>
+<ul class="mini-note"><li><b>第一阶段：</b>只建立观察仓，理由是赔率成立但关键事实还没验证。</li><li><b>第二阶段：</b>核心里程碑兑现后再提高暴露，例如 Phase 3 成功、订单连续两个季度兑现、机器人业务收入真正进入报表。</li><li><b>不做：</b>仅因为股价下跌 40% 就“越跌越买”。高风险成长股下跌往往是在提前反映论文破坏。</li></ul>
+</div>
+<div class="card c6"><div class="label">我会重点盯的“死亡信号”</div>
+<ul class="mini-note"><li><span class="bad">临床：</span>安全性信号、主要终点失败、监管路线延后。</li><li><span class="bad">制造：</span>收入增速高但应收/存货/现金流恶化两三个季度。</li><li><span class="bad">平台：</span>合作方停止 option、客户只试用不量产、订单不转收入。</li><li><span class="bad">资本结构：</span>股数增长长期显著快于业务价值增长。</li><li><span class="bad">估值：</span>业务还没升级，市值已经先达到“成功终局”的大部分。</li></ul>
+</div>
+</div>
+</section>
+
+<section>
+<div class="sec-head"><h2>我的最终排序与持有逻辑</h2><p>如果目标真的是“用很小仓位寻找右尾”，我会更重视凸性而不是短期确定性。排序会随着临床、订单、财报持续变化。</p></div>
+<div class="table-wrap"><table><thead><tr><th>综合</th><th>市场</th><th>标的</th><th>最适观察窗</th><th>我在赌什么</th><th>最关键下一步</th><th>论文被破坏的典型信号</th></tr></thead><tbody>
+<tr><td class="rank">1</td><td>美股</td><td><span class="ticker">GPCR</span></td><td>3–5年</td><td>口服 GLP‑1 成为全球大品种</td><td>Phase 3 / 72周与补充数据</td><td>后期疗效/耐受性明显不及预期</td></tr>
+<tr><td class="rank">2</td><td>美股</td><td><span class="ticker">LUNR</span></td><td>3–5年</td><td>从项目公司升级为空间 prime</td><td>backlog→收入、EBITDA+</td><td>大合同延迟、发射失败、持续稀释</td></tr>
+<tr><td class="rank">3</td><td>A股</td><td>耐科 <span class="ticker">688419</span></td><td>3–5年</td><td>小公司完成半导体主业跃迁</td><td>半导体设备连续高增</td><td>订单高增只维持一两个季度</td></tr>
+<tr><td class="rank">4</td><td>美股</td><td><span class="ticker">TMDX</span></td><td>3–5年</td><td>全球移植基础设施平台</td><td>服务网络 + 国际扩张</td><td>收入跌破中双位数增长且利润不改善</td></tr>
+<tr><td class="rank">5</td><td>美股</td><td><span class="ticker">BEAM</span></td><td>3–5年</td><td>base editing 平台被临床复制验证</td><td>BEAM‑302 pivotal / risto‑cel BLA</td><td>安全性、监管或疗效受挫</td></tr>
+<tr><td class="rank">6</td><td>A股</td><td>步科 <span class="ticker">688160</span></td><td>3–5年</td><td>机器人运动控制成为大主业</td><td>量产客户 + 收入占比继续升</td><td>机器人增速快速跌至传统自动化水平</td></tr>
+<tr><td class="rank">7</td><td>A股</td><td>埃科 <span class="ticker">688610</span></td><td>2–5年</td><td>高端机器视觉成为平台</td><td>高增延续 + 现金流修复</td><td>应收/现金流持续恶化或增速坍塌</td></tr>
+<tr><td class="rank">8</td><td>美股</td><td><span class="ticker">RXRX</span></td><td>3–5年</td><td>AI drug discovery 首次被临床证明</td><td>REC‑4881/7735 + partner options</td><td>临床不优、合作方不继续、融资稀释</td></tr>
+<tr><td class="rank">9</td><td>A股</td><td>迪哲 <span class="ticker">688192</span></td><td>3–5年</td><td>中国创新药变成全球 franchise</td><td>美国商业化 + 一线审批</td><td>海外销售/一线推进显著低预期</td></tr>
+<tr><td class="rank">10</td><td>A股</td><td>柯力 <span class="ticker">603662</span></td><td>3–5年</td><td>机器人力觉从期权变主业</td><td>订单→收入的数量级跃迁</td><td>千只级订单停滞、客户验证不转量产</td></tr>
+</tbody></table></div>
+<div class="alert"><b>最重要的结论：</b>如果把这 10 家当作“十年核心资产”，方法是错的；它们更像一个<b>高凸性研发组合</b>。最值得你每季度追踪的不是股价，而是上表“下一步”有没有兑现。只要论文不断强化，可以容忍价格大幅波动；论文被破坏，就不能用“长期主义”替代重新判断。</div>
+</section>
+
+<section id="sources">
+<div class="sec-head"><h2>主要数据来源</h2><p>优先使用公司 IR、交易所公告/半年报；市值/价格使用 2026-10-01（美股）或 2026-09-30（A股，国庆休市前最后交易日）附近数据。所有前瞻性结论均为本报告分析，不是来源机构观点。</p></div>
+<div class="card"><ol class="sources">
+<li><a href="https://ir.structuretx.com/news-releases/news-release-details/structure-therapeutics-reports-second-quarter-2026-financial" target="_blank">Structure Therapeutics — Q2 2026 results</a></li>
+<li><a href="https://stockanalysis.com/stocks/gpcr/statistics/" target="_blank">StockAnalysis — GPCR valuation</a></li>
+<li><a href="https://investors.intuitivemachines.com/news-releases/news-release-details/intuitive-machines-reports-second-quarter-2026-financial-results" target="_blank">Intuitive Machines — Q2 2026 results</a></li>
+<li><a href="https://stockanalysis.com/stocks/lunr/market-cap/" target="_blank">StockAnalysis — LUNR market cap</a></li>
+<li><a href="https://investors.transmedics.com/node/11171/xbrl-viewer" target="_blank">TransMedics — Q2 2026 10-Q/XBRL</a></li>
+<li><a href="https://investors.transmedics.com/news-releases/news-release-details/transmedics-appoints-fernando-araujo-chief-financial-officer-and" target="_blank">TransMedics — 2026 financial outlook</a></li>
+<li><a href="https://investors.beamtx.com/news-releases/news-release-details/beam-therapeutics-presents-updated-clinical-data-phase-12-trial" target="_blank">Beam — BEAM-302 2026 clinical update</a></li>
+<li><a href="https://investors.beamtx.com/press-releases/?page=1" target="_blank">Beam — 2026 press releases</a></li>
+<li><a href="https://ir.recursion.com/news-releases/news-release-details/recursion-reports-second-quarter-financial-results-genentech" target="_blank">Recursion — Q2 2026 results</a></li>
+<li><a href="https://stockanalysis.com/stocks/rxrx/statistics/" target="_blank">StockAnalysis — RXRX statistics</a></li>
+<li><a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12517913&stockid=688419" target="_blank">耐科装备 — 2026 年半年度报告</a></li>
+<li><a href="https://stock.quote.stockstar.com/finance/summary_688419.shtml" target="_blank">耐科装备 — 市值与财务摘要</a></li>
+<li><a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12534792&stockid=688160" target="_blank">步科股份 — 2026 半年度报告摘要</a></li>
+<li><a href="https://data.eastmoney.com/report/info/AP202608261828484901.html" target="_blank">步科股份 — 2026H1 机器人业务拆分</a></li>
+<li><a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12503338&stockid=688610" target="_blank">埃科光电 — 2026 半年报</a></li>
+<li><a href="https://data.eastmoney.com/gzfx/detail/688610.html" target="_blank">埃科光电 — 9/30 市值与估值</a></li>
+<li><a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12626720&stockid=688192" target="_blank">迪哲医药 — 阿斯利康 $6 亿首付款公告</a></li>
+<li><a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12511533&stockid=688192" target="_blank">迪哲医药 — 2026 半年度报告</a></li>
+<li><a href="https://money.finance.sina.com.cn/corp/view/vCB_AllBulletinDetail.php?id=12558440&stockid=603662" target="_blank">柯力传感 — 2026 半年度行动方案/机器人销量披露</a></li>
+<li><a href="https://stock.quote.stockstar.com/finance/summary_603662.shtml" target="_blank">柯力传感 — 2026H1 财务与市值</a></li>
+</ol></div>
+</section>
+
+<footer class="footer">
+<p><b>免责声明：</b>本报告为研究与教育用途，不构成证券买卖建议或收益承诺。“研究分”“排序”“10×路径”均为基于截至 2026-10-02 可得公开信息的分析框架，不是概率预测。高成长小中盘、创新药、商业航天与机器人产业都可能发生 50%–100% 以上回撤、融资稀释、临床失败或长期不兑现。任何实际投资决策都应结合个人财务状况、税务、流动性需求与独立核验。</p>
+<p>生成日期：2026-10-02 · 数据截点：美股 2026-10-01 收盘附近；A股 2026-09-30 收盘。</p>
+</footer>
+</div>
+</body>
+</html>

@@ -14,7 +14,7 @@ const APPS = [
   },
   {
     id: 'belief-qa',
-    name: 'BeliefQ&A',
+    name: 'Belief Q&A',
     kind: 'FAITH · QUESTIONS',
     description: '围绕未信者真实问题，逐层预备可对话的回答。',
     Icon: MessageCircleQuestion,
@@ -373,7 +373,7 @@ export default function App() {
   if (!app) return <Home open={open} theme={theme} />;
   return <div className="launcher-app-shell" style={{ '--launcher-accent': app.color }}>
     <nav className="launcher-dock is-visible" aria-label="应用导航">
-      <button onClick={back} title="回到 NodeApps 首页"><House size={17} strokeWidth={2.1} /><span>返回工作台</span></button>
+      <button className="launcher-back-button" onClick={back} aria-label="返回工作台" title="返回工作台"><House size={17} strokeWidth={2.1} /></button>
       <ThemeControl preference={theme.preference} onToggle={theme.toggleTheme} />
     </nav>
     <div className="launcher-app-content"><AppGate key={app.id} app={app} SelectedApp={SelectedApp} /></div>

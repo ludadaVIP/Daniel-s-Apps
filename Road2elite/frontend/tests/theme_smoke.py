@@ -1,4 +1,4 @@
-"""Check theme switching and persistence across the launcher and all six routes.
+"""Check Hub-only theme switching and persistence across all six sub-apps.
 
 Run against the local Vite server: python tests/theme_smoke.py
 """
@@ -25,20 +25,20 @@ with sync_playwright() as playwright:
     page.wait_for_load_state("networkidle")
     page.evaluate("localStorage.setItem('road2elite-theme', 'light')")
     page.reload()
-    page.get_by_role("button", name="切换到黑夜模式").click()
+    page.get_by_role("button", name="切换到深色模式").click()
     assert page.locator("html").get_attribute("data-theme") == "dark"
     assert page.evaluate("localStorage.getItem('road2elite-theme')") == "dark"
 
-    for route, selector in ROUTES:
+    for route, selector in ROUTES[1:]:
         page.goto(BASE + route)
         page.locator(selector).first.wait_for()
         assert page.locator("html").get_attribute("data-theme") == "dark", route
-        toggle = page.get_by_role("button", name="切换到白天模式")
-        assert toggle.is_visible(), route
+        assert page.get_by_role("button", name="切换到浅色模式").count() == 0, route
         print(route, page.locator(selector).first.evaluate("element => getComputedStyle(element).backgroundColor"))
 
-    page.get_by_role("button", name="切换到白天模式").click()
+    page.goto(BASE)
+    page.get_by_role("button", name="切换到浅色模式").click()
     page.reload()
     assert page.locator("html").get_attribute("data-theme") == "light"
-    assert page.get_by_role("button", name="切换到黑夜模式").is_visible()
+    assert page.get_by_role("button", name="切换到深色模式").is_visible()
     browser.close()

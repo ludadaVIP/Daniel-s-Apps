@@ -12,6 +12,8 @@ test('directory tree keeps every level, including folders without HTML', () => {
   assert.deepEqual(tree[0].children[0].children.map(({ path, count }) => [path, count]), [
     ['Markets/Weekly/2025', 0], ['Markets/Weekly/2026', 1],
   ]);
-  assert.equal(belongsToDirectory('Markets/Weekly/2026', 'Markets'), true);
+  assert.equal(belongsToDirectory('Markets', 'Markets'), true);
+  assert.equal(belongsToDirectory('Markets/Weekly/2026', 'Markets'), false);
   assert.equal(belongsToDirectory('Markets-old', 'Markets'), false);
+  assert.equal(belongsToDirectory('', ''), true);
 });

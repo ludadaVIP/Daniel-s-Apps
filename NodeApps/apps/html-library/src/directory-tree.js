@@ -36,5 +36,5 @@ export function buildDirectoryTree(paths, items) {
 }
 
 export function belongsToDirectory(folder, directory) {
-  return folder === directory || folder.startsWith(`${directory}/`);
+  return folder === directory;
 }

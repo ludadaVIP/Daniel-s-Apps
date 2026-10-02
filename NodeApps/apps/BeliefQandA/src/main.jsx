@@ -232,7 +232,7 @@ export default function QuestionWorkbench({ config: appConfig = DEFAULT_CONFIG, 
               : answer.layers[activeLayer] ? <MarkdownArticle>{answer.layers[activeLayer]}</MarkdownArticle> : <EmptyAnswer layer={layer} />}
         </section>
 
-        <footer className="bqa-footer"><span>{config.name.replace(' ', '')}</span><i /> <p>{config.footer}</p></footer>
+        <footer className="bqa-footer"><span>{config.name}</span><i /> <p>{config.footer}</p></footer>
       </div>}
       {!selected && <div className="bqa-no-results"><Search size={27} /><h2>没有匹配的问题</h2><p>试试清除搜索，或选择另一个问题分类。</p><button onClick={() => { setQuery(''); setExpandedCategory('all'); }}>查看全部问题</button></div>}
     </section>

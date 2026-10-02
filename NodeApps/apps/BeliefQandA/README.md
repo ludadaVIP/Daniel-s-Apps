@@ -1,4 +1,4 @@
-# BeliefQ&A
+# Belief Q&A
 
 一个用于预备信仰对话的本地网页应用。题库只从 `Questions.md` 读取；应用不会改写该文件。
 
@@ -13,4 +13,4 @@
 
 ## 使用
 
-在 NodeApps 根目录执行 `npm run dev`，随后从 NodeApps 工作台打开 **BeliefQ&A**。
+在 NodeApps 根目录执行 `npm run dev`，随后从 NodeApps 工作台打开 **Belief Q&A**。

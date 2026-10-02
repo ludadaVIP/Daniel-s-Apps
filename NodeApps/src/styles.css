@@ -264,6 +264,7 @@ button { font: inherit; }
 }
 .launcher-dock > button:hover { border-color: var(--launcher-accent); color: #fff; background: color-mix(in srgb, var(--launcher-accent) 24%, #1d2936); transform: translateY(-1px); }
 .launcher-dock > button:focus-visible { outline: 3px solid color-mix(in srgb, var(--launcher-accent) 38%, white); outline-offset: 3px; }
+.launcher-dock > .launcher-back-button { min-width: 52px; width: 52px; padding: 0; }
 .launcher-dock > .workspace-theme-trigger { min-width: 36px; min-height: 30px; padding: 0 8px; border-radius: 999px; color: #f2f6fa; border-color: #52667b; background: rgb(29 41 54 / .94); backdrop-filter: blur(12px); }
 .launcher-dock > .workspace-theme-trigger span { display: none; }
 .launcher-dock > .workspace-theme-trigger:hover { color: #fff; border-color: var(--launcher-accent); }
@@ -306,7 +307,7 @@ button { font: inherit; }
   .launcher-hub-footer { flex-direction: column; gap: 8px; padding-top: 28px; text-align: center; }
   .launcher-dock, .launcher-dock.is-visible { top: auto; right: 12px; bottom: calc(12px + env(safe-area-inset-bottom)); left: auto; transform: none; }
   .launcher-dock > button { min-width: 36px; width: 36px; min-height: 36px; padding: 0; }
-  .launcher-dock > button span { display: none; }
+  .launcher-dock > .launcher-back-button { min-width: 48px; width: 48px; }
   .launcher-dock > .workspace-theme-trigger { min-height: 36px; width: 36px; }
 }
 @media (prefers-reduced-motion: reduce) {

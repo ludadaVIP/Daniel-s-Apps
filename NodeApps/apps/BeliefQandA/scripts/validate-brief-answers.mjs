@@ -73,8 +73,8 @@ if (requireAll) {
 }
 
 if (errors.length) {
-  console.error(`BeliefQ&A 校验失败（${errors.length} 项）：\n- ${errors.join('\n- ')}`);
+  console.error(`Belief Q&A 校验失败（${errors.length} 项）：\n- ${errors.join('\n- ')}`);
   process.exitCode = 1;
 } else {
-  console.log(`BeliefQ&A 校验通过：${checked} 个已填写的第一层回答，均在 ${minLength}–${maxLength} 字范围内。`);
+  console.log(`Belief Q&A 校验通过：${checked} 个已填写的第一层回答，均在 ${minLength}–${maxLength} 字范围内。`);
 }

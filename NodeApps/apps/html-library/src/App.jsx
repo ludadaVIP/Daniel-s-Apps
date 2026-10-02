@@ -251,6 +251,7 @@ export default function VisualShelf() {
       return next;
     });
   };
+  const selectRootFolder = () => { setSelectedFolder(''); setExpandedFolders(new Set()); setFilter('all'); };
   const clearFolder = () => { setSelectedFolder(null); setExpandedFolders(new Set()); setFilter('all'); };
 
   useEffect(() => { sync({ initial: true }); }, []);
@@ -402,7 +403,7 @@ export default function VisualShelf() {
   const filtered = useMemo(() => {
     const needle = search.trim().toLocaleLowerCase('zh-CN');
     return items.filter((item) => {
-      const matchesFilter = selectedFolder ? belongsToDirectory(item.folder, selectedFolder)
+      const matchesFilter = selectedFolder !== null ? belongsToDirectory(item.folder, selectedFolder)
         : filter === 'all' ? true
         : filter === 'favorites' ? item.favorite
           : filter.startsWith('status:') ? item.readingStatus === filter.slice(7)
@@ -443,24 +444,24 @@ export default function VisualShelf() {
       <aside className="vs-rail" aria-label="书库筛选">
         <section className="vs-directory-section"><p className="vs-rail-label">文件夹</p>
           <nav className="vs-directory-nav" aria-label="文件夹导航">
-            <button className="vs-directory-root" onClick={clearFolder} title="显示全部 HTML 文档"><Folder size={15} /><span>根目录</span></button>
+            <button className={`vs-directory-root ${selectedFolder === '' ? 'active' : ''}`} onClick={selectRootFolder} aria-current={selectedFolder === '' ? 'page' : undefined} title="显示根目录中的 HTML 文档"><Folder size={15} /><span>根目录</span></button>
             {directoryTree.map((node) => <DirectoryNode key={node.path} node={node} depth={1} selectedFolder={selectedFolder} expandedFolders={expandedFolders} onSelect={selectFolder} />)}
           </nav>
         </section>
         <section><p className="vs-rail-label">浏览</p>
-          <RailButton active={filter === 'all' && !selectedFolder} onClick={clearFolder} icon={Archive} label="全部文档" count={stats.total} />
-          <RailButton active={filter === 'favorites' && !selectedFolder} onClick={() => { setSelectedFolder(null); setFilter('favorites'); }} icon={Heart} label="收藏" count={stats.favorites} />
+          <RailButton active={filter === 'all' && selectedFolder === null} onClick={clearFolder} icon={Archive} label="全部文档" count={stats.total} />
+          <RailButton active={filter === 'favorites' && selectedFolder === null} onClick={() => { setSelectedFolder(null); setFilter('favorites'); }} icon={Heart} label="收藏" count={stats.favorites} />
         </section>
         <section><p className="vs-rail-label">阅读状态</p>
-          {Object.entries(STATUS).map(([value, state]) => <RailButton key={value} active={filter === `status:${value}` && !selectedFolder} onClick={() => { setSelectedFolder(null); setFilter(`status:${value}`); }} label={state.label} count={stats[value]} dot={state.color} />)}
+          {Object.entries(STATUS).map(([value, state]) => <RailButton key={value} active={filter === `status:${value}` && selectedFolder === null} onClick={() => { setSelectedFolder(null); setFilter(`status:${value}`); }} label={state.label} count={stats[value]} dot={state.color} />)}
         </section>
         {facets.tags.length > 0 && <section><p className="vs-rail-label">标签</p><div className="vs-rail-tags">
-          {facets.tags.map(({ name, count }) => <button key={name} className={filter === `tag:${name}` && !selectedFolder ? 'active' : ''} onClick={() => { setSelectedFolder(null); setFilter(`tag:${name}`); }}><span>#{name}</span><small>{count}</small></button>)}
+          {facets.tags.map(({ name, count }) => <button key={name} className={filter === `tag:${name}` && selectedFolder === null ? 'active' : ''} onClick={() => { setSelectedFolder(null); setFilter(`tag:${name}`); }}><span>#{name}</span><small>{count}</small></button>)}
         </div></section>}
       </aside>
 
       <section className="vs-catalog" aria-label="HTML 文档目录">
-        {filtered.length ? <div className={`vs-document-grid ${layout === 'list' ? 'is-list' : ''}`}>{filtered.map((item) => <DocumentCard key={item.id} item={item} selected={selectedId === item.id} onSelect={() => selectDocument(item)} onFavorite={() => persist(item, { favorite: !item.favorite }, item.favorite ? '已取消收藏' : '已加入收藏')} onOpen={() => openInNewTab(item)} />)}</div> : <EmptyState title="没有符合条件的文档" body={search ? '换一个搜索词，或清除筛选后再试。' : '这个分类还没有 HTML 文档。'} action={selectedFolder || filter !== 'all' || search ? <button className="vs-secondary" onClick={() => { clearFolder(); setSearch(''); }}>显示全部文档</button> : null} />}
+        {filtered.length ? <div className={`vs-document-grid ${layout === 'list' ? 'is-list' : ''}`}>{filtered.map((item) => <DocumentCard key={item.id} item={item} selected={selectedId === item.id} onSelect={() => selectDocument(item)} onFavorite={() => persist(item, { favorite: !item.favorite }, item.favorite ? '已取消收藏' : '已加入收藏')} onOpen={() => openInNewTab(item)} />)}</div> : <EmptyState title="没有符合条件的文档" body={search ? '换一个搜索词，或清除筛选后再试。' : '这个分类还没有 HTML 文档。'} action={selectedFolder !== null || filter !== 'all' || search ? <button className="vs-secondary" onClick={() => { clearFolder(); setSearch(''); }}>显示全部文档</button> : null} />}
       </section>
 
       <aside className="vs-inspector" aria-label="书库检索与文档资料">

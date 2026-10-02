@@ -7,7 +7,7 @@ sys.stdout.reconfigure(encoding="utf-8")
 
 apps = [
     "World Q&A",
-    "BeliefQ&A",
+    "Belief Q&A",
     "Investment",
     "Industry with coms",
     "InsightMatrix",
