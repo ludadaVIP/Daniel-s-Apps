@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>标普500“七姐妹之外”的错杀机会研究｜2026-10-02</title>
+<style>
+:root {
+  --bg:#071019; --panel:#0d1722; --panel2:#111e2b; --text:#e7eef7; --muted:#91a1b4;
+  --line:#243547; --blue:#5aa9ff; --green:#58d68d; --amber:#f7c66a; --red:#ff7b7b; --cyan:#78dce8;
+}
+*{box-sizing:border-box}
+body{margin:0;background:linear-gradient(180deg,#061019 0,#0a1118 100%);color:var(--text);font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.65}
+a{color:#8cc6ff;text-decoration:none} a:hover{text-decoration:underline}
+header{padding:56px 5vw 36px;border-bottom:1px solid var(--line);background:radial-gradient(circle at 15% 0%,#183c5a55,transparent 35%)}
+.kicker{color:var(--cyan);font-weight:700;letter-spacing:.08em;text-transform:uppercase;font-size:13px}
+h1{font-size:clamp(34px,4vw,64px);line-height:1.1;margin:10px 0 18px;max-width:1200px}
+.subtitle{max-width:1150px;color:#b6c3d2;font-size:18px}
+.cutoff{margin-top:20px;color:var(--muted);font-size:13px}
+main{width:min(1540px,94vw);margin:auto;padding:34px 0 80px}
+nav{position:sticky;top:0;z-index:10;background:#071019e8;backdrop-filter:blur(12px);border-bottom:1px solid var(--line);padding:11px 3vw;overflow:auto;white-space:nowrap}
+nav a{margin-right:22px;color:#b8c8da;font-size:14px}
+section{margin:26px 0 42px}
+h2{font-size:28px;margin:0 0 18px} h3{margin:2px 0 0;font-size:22px;display:inline-block}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.panel{background:linear-gradient(180deg,var(--panel),#0b141e);border:1px solid var(--line);border-radius:18px;padding:24px}
+.callout{border-left:4px solid var(--blue);padding:18px 22px;background:#0c1b28;border-radius:10px}
+.callout strong{color:#fff}
+.statgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:18px}
+.stat{background:var(--panel2);border:1px solid var(--line);padding:18px;border-radius:14px}
+.stat b{font-size:27px;display:block} .stat span{color:var(--muted);font-size:13px}
+.chart-title{font-weight:700;margin-bottom:12px}
+.barrow{display:grid;grid-template-columns:64px 1fr 62px;gap:10px;align-items:center;margin:9px 0}
+.barlabel{font-weight:700} .bartrack{height:11px;background:#172638;border-radius:8px;overflow:hidden}
+.bar{height:100%;background:linear-gradient(90deg,#4f91ff,#78dce8);border-radius:8px} .bar.red{background:linear-gradient(90deg,#f2a65a,#ff7474)}
+.barval{text-align:right;color:#c7d5e5;font-variant-numeric:tabular-nums}
+.indexgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.indexcard{background:#0d1824;border:1px solid var(--line);border-radius:14px;padding:18px}
+.indexcard h4{margin:0 0 10px;color:#d8e8f9} .pair{display:flex;justify-content:space-between;border-top:1px solid #1e3145;padding:8px 0}
+.pos{color:var(--green)} .neg{color:var(--red)}
+.method{display:grid;grid-template-columns:repeat(5,1fr);gap:10px}
+.method div{background:#0f1a27;border:1px solid var(--line);padding:14px;border-radius:12px;font-size:14px}
+.method b{display:block;color:#fff;margin-bottom:4px}
+.company-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.company-card{background:#0c1722;border:1px solid var(--line);border-radius:18px;padding:22px;position:relative;overflow:hidden}
+.company-card.a:before,.company-card.b:before,.company-card.c:before{content:"";position:absolute;inset:0 auto 0 0;width:4px}
+.company-card.a:before{background:var(--green)} .company-card.b:before{background:var(--amber)} .company-card.c:before{background:#9aa8b7}
+.company-head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.rank{color:var(--muted);font-size:13px;margin-right:8px} .ticker{color:var(--cyan);font-weight:800;margin-right:9px}
+.tier{border:1px solid #33506b;border-radius:999px;padding:4px 10px;color:#bed3e7;font-size:12px}
+.metrics,.zones{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin:15px 0}
+.metrics div,.zones div{background:#101e2c;border:1px solid #203449;border-radius:10px;padding:10px}
+.metrics span,.zones span{display:block;color:var(--muted);font-size:11px} .metrics b,.zones b{font-size:15px}
+.thesis{color:#d7e0ea} .fact{background:#0b2230;padding:11px 13px;border-radius:9px;color:#c8d7e5;font-size:14px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px} .two>div{background:#0a131c;border:1px solid #1f3040;border-radius:10px;padding:12px}
+.two p{margin:6px 0 0;color:#b2c0cf;font-size:13px}
+table{width:100%;border-collapse:collapse;background:#0c1722;border:1px solid var(--line);border-radius:14px;overflow:hidden}
+th,td{padding:13px 14px;border-bottom:1px solid #203244;vertical-align:top;text-align:left} th{background:#112131;color:#cfe0f1;font-size:13px} td{font-size:14px} td span{color:var(--muted)}
+.verdict{display:grid;grid-template-columns:1.1fr .9fr;gap:18px}
+.biglist{margin:0;padding-left:22px} .biglist li{margin:10px 0}
+.tag{display:inline-block;padding:2px 7px;border:1px solid #35506d;border-radius:999px;font-size:11px;color:#bcd0e4;margin-left:6px}
+.exec{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.exec div{background:#0f1c29;border:1px solid var(--line);border-radius:12px;padding:16px}
+.sources li{margin:7px 0;color:#a8b7c6;font-size:13px}
+.footnote{font-size:12px;color:#8798aa;margin-top:18px}
+@media(max-width:1000px){.grid2,.company-grid,.verdict{grid-template-columns:1fr} .statgrid{grid-template-columns:repeat(2,1fr)} .method{grid-template-columns:1fr 1fr} .indexgrid,.exec{grid-template-columns:1fr}}
+@media(max-width:650px){main{width:94vw} header{padding:36px 4vw} .statgrid,.metrics,.zones,.two,.method{grid-template-columns:1fr} h1{font-size:38px} table{font-size:12px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="kicker">Deep Research · S&P 500 ex-Magnificent Seven</div>
+  <h1>标普500“七姐妹之外”的错杀机会：<br>从指数幻象里寻找 1–3 年的估值修复</h1>
+  <div class="subtitle">结论不是“剩下 493 只都便宜”，而是：2026 年 9 月发生了明显的市场宽度恶化，高利率与 AI 叙事把一批优质非七姐妹公司压到多年更低估值。真正有价值的是区分 <b>价格下跌</b>、<b>盈利下修</b> 与 <b>商业模式受损</b>。</div>
+  <div class="cutoff">数据截止：美国市场 2026-10-01 收盘；报告生成：2026-10-02（Pacific/Auckland）。价格与估值会变化。</div>
+</header>
+<nav>
+<a href="#thesis">核心判断</a><a href="#breadth">市场宽度</a><a href="#method">筛选方法</a><a href="#ranking">核心候选</a><a href="#traps">价值陷阱</a><a href="#execution">建仓框架</a><a href="#sources">来源</a>
+</nav>
+<main>
+<section id="thesis">
+<h2>1. 先校正你的核心假设</h2>
+<div class="callout">
+<strong>你的方向是对的，但叙事需要改写。</strong> 标普500确实高度集中，七姐妹总市值在 2026 年 9 月仍占指数三分之一以上；但“2026 年主要靠七姐妹把指数撑起来、其他大公司普遍下跌”并不准确。七姐妹在年中一度整体跑输标普；真正明显的“指数强、普通股票弱”是在三季度末、尤其 9 月随着长期利率飙升而加剧。
+</div>
+<div class="statgrid">
+<div class="stat"><span>标普500 YTD（9/30）</span><b>+11.8%</b><small>AP [S1]</small></div>
+<div class="stat"><span>年内仍下跌的成分股</span><b>约46%</b><small>MarketWatch [S2]</small></div>
+<div class="stat"><span>9月下跌的成分股</span><b>约78%</b><small>MarketWatch [S2]</small></div>
+<div class="stat"><span>标普500 Forward P/E</span><b>约19.2x</b><small>年初约22x，Reuters [S6]</small></div>
+</div>
+<p>更关键的是时间路径：截至 8 月底，RSP（标普500等权 ETF）年内约 <b>+15.5%</b>，反而高于市值加权标普的约 <b>+13.1%</b>；但 9 月等权指数单月约 <b>-4.7%</b>，而普通标普仅约 <b>-0.5%</b>。也就是说，“宽度断裂”更多是近期利率冲击造成的，而不是贯穿 2026 全年的现象。[S3][S4][S5]</p>
+</section>
+
+<section id="breadth">
+<h2>2. 宽度断裂：为什么现在反而值得筛选个股</h2>
+<div class="indexgrid">
+<div class="indexcard"><h4>截至 8/31：广度仍健康</h4><div class="pair"><span>RSP 等权</span><b class="pos">+15.5%</b></div><div class="pair"><span>S&P 500</span><b class="pos">+13.1%</b></div></div>
+<div class="indexcard"><h4>9 月：普通股票明显转弱</h4><div class="pair"><span>RSP 等权</span><b class="neg">约 -4.7%</b></div><div class="pair"><span>S&P 500</span><b class="neg">约 -0.5%</b></div></div>
+<div class="indexcard"><h4>三季度：分化形成</h4><div class="pair"><span>等权 S&P 500</span><b class="neg">-1.67%</b></div><div class="pair"><span>市值加权 S&P 500</span><b class="pos">+2.82%</b></div></div>
+</div>
+<div class="grid2" style="margin-top:18px">
+<div class="panel"><div class="chart-title">核心候选：距 52 周高点回撤</div>
+        <div class="barrow"><div class="barlabel">SPGI</div>
+        <div class="bartrack"><div class="bar red" style="width:55.4%"></div></div>
+        <div class="barval">29.7%</div></div>
+
+        <div class="barrow"><div class="barlabel">ADBE</div>
+        <div class="bartrack"><div class="bar red" style="width:62.9%"></div></div>
+        <div class="barval">33.7%</div></div>
+
+        <div class="barrow"><div class="barlabel">OTIS</div>
+        <div class="bartrack"><div class="bar red" style="width:59.3%"></div></div>
+        <div class="barval">31.8%</div></div>
+
+        <div class="barrow"><div class="barlabel">UNH</div>
+        <div class="bartrack"><div class="bar red" style="width:39.0%"></div></div>
+        <div class="barval">20.9%</div></div>
+
+        <div class="barrow"><div class="barlabel">HD</div>
+        <div class="bartrack"><div class="bar red" style="width:56.5%"></div></div>
+        <div class="barval">30.3%</div></div>
+
+        <div class="barrow"><div class="barlabel">HSY</div>
+        <div class="bartrack"><div class="bar red" style="width:62.5%"></div></div>
+        <div class="barval">33.5%</div></div>
+
+        <div class="barrow"><div class="barlabel">ACN</div>
+        <div class="bartrack"><div class="bar red" style="width:50.6%"></div></div>
+        <div class="barval">27.1%</div></div>
+
+        <div class="barrow"><div class="barlabel">ZTS</div>
+        <div class="bartrack"><div class="bar red" style="width:100.0%"></div></div>
+        <div class="barval">53.6%</div></div>
+
+        <div class="barrow"><div class="barlabel">UPS</div>
+        <div class="bartrack"><div class="bar red" style="width:43.5%"></div></div>
+        <div class="barval">23.3%</div></div></div>
+<div class="panel"><div class="chart-title">核心候选：当前 Forward P/E</div>
+        <div class="barrow"><div class="barlabel">SPGI</div>
+        <div class="bartrack"><div class="bar " style="width:100.0%"></div></div>
+        <div class="barval">20.9x</div></div>
+
+        <div class="barrow"><div class="barlabel">ADBE</div>
+        <div class="bartrack"><div class="bar " style="width:42.7%"></div></div>
+        <div class="barval">8.9x</div></div>
+
+        <div class="barrow"><div class="barlabel">OTIS</div>
+        <div class="bartrack"><div class="bar " style="width:73.3%"></div></div>
+        <div class="barval">15.3x</div></div>
+
+        <div class="barrow"><div class="barlabel">UNH</div>
+        <div class="bartrack"><div class="bar " style="width:82.2%"></div></div>
+        <div class="barval">17.2x</div></div>
+
+        <div class="barrow"><div class="barlabel">HD</div>
+        <div class="bartrack"><div class="bar " style="width:88.3%"></div></div>
+        <div class="barval">18.4x</div></div>
+
+        <div class="barrow"><div class="barlabel">HSY</div>
+        <div class="bartrack"><div class="bar " style="width:81.3%"></div></div>
+        <div class="barval">17.0x</div></div>
+
+        <div class="barrow"><div class="barlabel">ACN</div>
+        <div class="bartrack"><div class="bar " style="width:59.9%"></div></div>
+        <div class="barval">12.5x</div></div>
+
+        <div class="barrow"><div class="barlabel">ZTS</div>
+        <div class="bartrack"><div class="bar " style="width:54.0%"></div></div>
+        <div class="barval">11.3x</div></div>
+
+        <div class="barrow"><div class="barlabel">UPS</div>
+        <div class="bartrack"><div class="bar " style="width:57.9%"></div></div>
+        <div class="barval">12.1x</div></div></div>
+</div>
+<p class="footnote">注：回撤仅代表价格，不代表便宜；Forward P/E 也必须结合盈利预测是否还会继续下修。图中价格/估值来自 StockAnalysis，截止 2026-10-01。[S15]</p>
+</section>
+
+<section id="method">
+<h2>3. 我采用的筛选框架</h2>
+<div class="method">
+<div><b>① 排除七姐妹</b>只研究 S&P 500 中非 AAPL/MSFT/NVDA/AMZN/GOOGL/META/TSLA。</div>
+<div><b>② 有明显估值压缩</b>优先回撤 >15%，或当前估值显著低于自身近年区间。</div>
+<div><b>③ 基本面没有同步崩塌</b>收入、现金流、订阅、服务或订单至少有一个核心指标仍可验证。</div>
+<div><b>④ 1–3 年有催化剂</b>不能只靠“便宜”；需要利润率修复、利率周期、AI 商业化、成本正常化等路径。</div>
+<div><b>⑤ 区分错杀与价值陷阱</b>如果竞争优势、监管地位或需求结构已改变，跌 50% 也未必便宜。</div>
+</div>
+</section>
+
+<section id="ranking">
+<h2>4. 核心候选：按“质量 × 折价 × 1–3年催化剂”排序</h2>
+<p><span class="tag">Tier A</span> 可重点研究、当前或下一次回调可考虑分批；<span class="tag">Tier B</span> 有吸引力但需更多确认；<span class="tag">Tier C</span> 周期/收益型，优先级较低。下方“正常化区间”是研究区间，不是保证的目标价。</p>
+<div class="company-grid">
+    <article class="company-card a" id="SPGI">
+      <div class="company-head">
+        <div><span class="rank">#1</span><span class="ticker">SPGI</span><h3>S&amp;P Global</h3></div>
+        <div class="tier">Tier A</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$388.16</b></div>
+        <div><span>距52周高点</span><b>-29.7%</b></div>
+        <div><span>Forward P/E</span><b>20.9x</b></div>
+      </div>
+      <p class="thesis">高质量数据/评级/指数基础设施，盈利仍在增长，但估值被利率上行、金融板块走弱与 AI 替代担忧压缩。</p>
+      <div class="fact"><b>最新验证：</b>TTM 收入 +9.7%，净利润 +22.7%；2026Q2 公司披露收入 +11%、调整后 EPS +23%。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$375–395</b></div>
+        <div><span>更深折价区</span><b>$345–365</b></div>
+        <div><span>1–3年正常化区间*</span><b>$470–520</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>评级发行周期恢复、指数与数据业务持续增长、AI 被证明更像增强工具而非替代品。</p></div>
+        <div><b>主要风险</b><p>资本市场发行放缓；AI/数据竞争；并购整合与监管。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card a" id="ADBE">
+      <div class="company-head">
+        <div><span class="rank">#2</span><span class="ticker">ADBE</span><h3>Adobe</h3></div>
+        <div class="tier">Tier A</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$241.28</b></div>
+        <div><span>距52周高点</span><b>-33.7%</b></div>
+        <div><span>Forward P/E</span><b>8.9x</b></div>
+      </div>
+      <p class="thesis">市场把生成式 AI、Canva/Figma 竞争与 freemium 转型几乎按“永久性降速”定价，但核心订阅与现金流仍然强。</p>
+      <div class="fact"><b>最新验证：</b>FY26 Q3 收入 $6.76B，同比 +13%；经营现金流 $2.52B；AI-first ARR 同比 +150% 以上；全年收入/EPS 指引上调。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$225–245</b></div>
+        <div><span>更深折价区</span><b>$200–215</b></div>
+        <div><span>1–3年正常化区间*</span><b>$300–345</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>AI 产品商业化、用户规模突破 10 亿后的付费转化、回购降低股本。</p></div>
+        <div><b>主要风险</b><p>RPO 增速放缓；freemium 先稀释变现；创意软件竞争格局发生结构性变化。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card a" id="OTIS">
+      <div class="company-head">
+        <div><span class="rank">#3</span><span class="ticker">OTIS</span><h3>Otis Worldwide</h3></div>
+        <div class="tier">Tier A</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$64.48</b></div>
+        <div><span>距52周高点</span><b>-31.8%</b></div>
+        <div><span>Forward P/E</span><b>15.3x</b></div>
+      </div>
+      <p class="thesis">新梯业务周期性疲弱掩盖了高质量服务业务；服务收入和现代化改造订单仍有较强增长。</p>
+      <div class="fact"><b>最新验证：</b>2026Q2 净销售 +7%，有机销售 +6%；Service 有机销售 +9%；现代化订单 +9%，backlog +24%。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$60–65</b></div>
+        <div><span>更深折价区</span><b>$54–58</b></div>
+        <div><span>1–3年正常化区间*</span><b>$80–88</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>服务业务占比提高、维修/现代化需求释放、成本与定价改善。</p></div>
+        <div><b>主要风险</b><p>中国地产/新梯低迷时间延长；服务投资短期压利润率。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card a" id="UNH">
+      <div class="company-head">
+        <div><span class="rank">#4</span><span class="ticker">UNH</span><h3>UnitedHealth Group</h3></div>
+        <div class="tier">Tier A</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$365.20</b></div>
+        <div><span>距52周高点</span><b>-20.9%</b></div>
+        <div><span>Forward P/E</span><b>17.2x</b></div>
+      </div>
+      <p class="thesis">医保成本、监管与 PBM 争议造成多年罕见估值折价，但规模、数据、Optum 与现金流能力仍然突出。</p>
+      <div class="fact"><b>最新验证：</b>2026Q2 收入 $112.0B，经营利润 $8.0B；公司上调 FY26 调整后 EPS 指引至 $19.50–20.00。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$340–365</b></div>
+        <div><span>更深折价区</span><b>$310–325</b></div>
+        <div><span>1–3年正常化区间*</span><b>$440–480</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>医疗成本率企稳、费率重新匹配、Optum 效率提升、监管不确定性边际下降。</p></div>
+        <div><b>主要风险</b><p>政策/诉讼风险；Medicare Advantage 利润率；医疗利用率持续高企。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card a" id="HD">
+      <div class="company-head">
+        <div><span class="rank">#5</span><span class="ticker">HD</span><h3>Home Depot</h3></div>
+        <div class="tier">Tier A</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$282.46</b></div>
+        <div><span>距52周高点</span><b>-30.3%</b></div>
+        <div><span>Forward P/E</span><b>18.4x</b></div>
+      </div>
+      <p class="thesis">高利率和住房可负担性压制大项目需求，但公司仍保持销售增长；一旦住房交易/维修周期回暖，经营杠杆明显。</p>
+      <div class="fact"><b>最新验证：</b>2026Q2 销售 $47.9B，同比 +5.7%；同店 +1.7%；调整后 EPS $4.92 vs $4.68；全年指引维持。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$270–290</b></div>
+        <div><span>更深折价区</span><b>$245–260</b></div>
+        <div><span>1–3年正常化区间*</span><b>$340–380</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>住房成交与大型装修需求回归、SRS 协同、利率见顶后估值修复。</p></div>
+        <div><b>主要风险</b><p>10年期美债收益率长期维持高位；消费者延迟大额项目；并购债务。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card b" id="HSY">
+      <div class="company-head">
+        <div><span class="rank">#6</span><span class="ticker">HSY</span><h3>Hershey</h3></div>
+        <div class="tier">Tier B</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$159.30</b></div>
+        <div><span>距52周高点</span><b>-33.5%</b></div>
+        <div><span>Forward P/E</span><b>17.0x</b></div>
+      </div>
+      <p class="thesis">可可成本冲击把短期利润率压低，但品牌与定价能力仍强；如果原料成本正常化，利润率恢复弹性较大。</p>
+      <div class="fact"><b>最新验证：</b>TTM 收入 +7.7%，净利润 -2.7%；股价距离 52 周高点约 -33%。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$150–165</b></div>
+        <div><span>更深折价区</span><b>$135–145</b></div>
+        <div><span>1–3年正常化区间*</span><b>$190–210</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>可可/糖成本下降、价格传导、利润率修复。</p></div>
+        <div><b>主要风险</b><p>原料高价维持更久；消费者降级；提价伤害销量。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card b" id="ACN">
+      <div class="company-head">
+        <div><span class="rank">#7</span><span class="ticker">ACN</span><h3>Accenture</h3></div>
+        <div class="tier">Tier B</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$212.30</b></div>
+        <div><span>距52周高点</span><b>-27.1%</b></div>
+        <div><span>Forward P/E</span><b>12.5x</b></div>
+      </div>
+      <p class="thesis">AI 被市场先当作咨询业的替代者，但最新财报显示企业反而需要外部伙伴实施 AI 与自动化。</p>
+      <div class="fact"><b>最新验证：</b>FY26 收入 $74.2B、同比 +6.5%；净利润 +9%；最新季度 bookings $22.17B；FY27 收入指引 +3%–6%。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$185–205</b></div>
+        <div><span>更深折价区</span><b>$165–180</b></div>
+        <div><span>1–3年正常化区间*</span><b>$245–280</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>AI 实施需求、云/安全项目、AI 提效改善收入/员工。</p></div>
+        <div><b>主要风险</b><p>刚因财报单日大涨约 16%，短线不宜追；定价压力和 AI 自助化仍存在。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card b" id="ZTS">
+      <div class="company-head">
+        <div><span class="rank">#8</span><span class="ticker">ZTS</span><h3>Zoetis</h3></div>
+        <div class="tier">Tier B*</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$69.10</b></div>
+        <div><span>距52周高点</span><b>-53.6%</b></div>
+        <div><span>Forward P/E</span><b>11.3x</b></div>
+      </div>
+      <p class="thesis">估值极度压缩，但这不是纯粹错杀：公司已经显著下调全年指引。更适合作为“基本面确认后再买”的候选。</p>
+      <div class="fact"><b>最新验证：</b>Q2 收入约 $2.5B、基本持平；FY26 有机收入指引从 +2%~+5% 下修至 -3%~-1%，调整后 EPS 指引 $6.15–6.25。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$64–72（需先确认指引企稳）</b></div>
+        <div><span>更深折价区</span><b>$58–62</b></div>
+        <div><span>1–3年正常化区间*</span><b>$85–100</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>伴侣动物需求恢复、新品放量、下调后的低基数。</p></div>
+        <div><b>主要风险</b><p>需求疲弱并非暂时；产品竞争/库存去化；再次下调指引。</p></div>
+      </div>
+    </article>
+    
+    <article class="company-card c" id="UPS">
+      <div class="company-head">
+        <div><span class="rank">#9</span><span class="ticker">UPS</span><h3>United Parcel Service</h3></div>
+        <div class="tier">Tier C</div>
+      </div>
+      <div class="metrics">
+        <div><span>价格</span><b>$93.89</b></div>
+        <div><span>距52周高点</span><b>-23.3%</b></div>
+        <div><span>Forward P/E</span><b>12.1x</b></div>
+      </div>
+      <p class="thesis">低估值和高股息提供一定缓冲，但当前盈利仍在下降，更多是周期修复而非高质量错杀。</p>
+      <div class="fact"><b>最新验证：</b>TTM 收入 -0.4%，EPS -20%；forward P/E 约 12.1x，股息率约 7%。</div>
+      <div class="zones">
+        <div><span>第一观察/分批区</span><b>$85–95</b></div>
+        <div><span>更深折价区</span><b>$78–82</b></div>
+        <div><span>1–3年正常化区间*</span><b>$105–120</b></div>
+      </div>
+      <div class="two">
+        <div><b>催化剂</b><p>网络重组、成本削减、包裹量周期修复。</p></div>
+        <div><b>主要风险</b><p>Amazon 业务缩减、劳动力成本、股息覆盖与资本开支。</p></div>
+      </div>
+    </article>
+    </div>
+</section>
+
+<section id="traps">
+<h2>5. 反例：跌得很惨 ≠ 被错杀</h2>
+<table>
+<thead><tr><th>公司</th><th>现价附近</th><th>为什么不能只看跌幅</th><th>我会等什么</th></tr></thead>
+<tbody><tr><td><b>NKE</b><br><span>Nike</span></td><td>约 $35</td><td>FY27 收入预计高个位数下降、调整后 EPS $1.15–1.35；价格很低，但盈利也在继续下修。</td><td>先看北美/中国收入转正和库存健康，不因“12年低点”单独买入。</td></tr><tr><td><b>FICO</b><br><span>Fair Isaac</span></td><td>约 $661</td><td>9月暴跌源于 FHFA 引入 VantageScore，打破按揭评分的长期独占；部分分析估计 EBITDA 可能受损至 20%。</td><td>这是结构性竞争变化，不是普通情绪错杀；至少观察两个季度的实际份额/定价数据。</td></tr><tr><td><b>LULU</b><br><span>lululemon</span></td><td>约 $96</td><td>TTM 收入仅 +1.7%，净利润 -20.6%，forward P/E 虽低，但一致目标价离现价并不远。</td><td>需先看到北美增长、毛利和产品创新拐点。</td></tr><tr><td><b>PG</b><br><span>Procter &amp; Gamble</span></td><td>约 $144</td><td>业务质量很高，但 forward P/E 仍约 20.6x，而收入仅低个位数增长。</td><td>属于“好公司但折价不够深”，优先级低于本报告 A 组。</td></tr></tbody>
+</table>
+</section>
+
+<section>
+<h2>6. 如果只选 5 个重点跟踪</h2>
+<div class="verdict">
+<div class="panel">
+<ol class="biglist">
+<li><b>SPGI</b> — 我认为是“质量和估值折价最平衡”的一只。数据、评级、指数都带有基础设施属性，而当前估值已明显低于自己的历史常态。</li>
+<li><b>ADBE</b> — “市场担心最重、财报却还没坏”的代表。AI 风险真实存在，但当前估值已经在为相当悲观的未来买单。</li>
+<li><b>OTIS</b> — 不性感，但服务业务具有强粘性。新梯低迷和服务高增长并存，容易被总收入叙事掩盖。</li>
+<li><b>UNH</b> — 高监管风险换来的折价。更像赔率型修复，不是无风险防御股。</li>
+<li><b>HD</b> — 典型高利率受害者。只要住房/装修周期不永久萎缩，1–3 年具备较清晰的周期反转逻辑。</li>
+</ol>
+</div>
+<div class="panel">
+<h3>为什么不是“最跌的五只”？</h3>
+<p>因为 1–3 年投资最容易犯的错，就是把 <b>低价格</b> 当成 <b>低估值</b>。真正的错杀需要满足：市场价格下降的速度 > 企业内在价值下降的速度。</p>
+<p>FICO 的按揭评分独占地位被打破、Nike 的收入与 EPS 仍在下修、Zoetis 也刚大幅下调全年指引。这些都说明“盈利锚”本身在移动。</p>
+</div>
+</div>
+</section>
+
+<section id="execution">
+<h2>7. 建仓方式：比猜最低点更重要</h2>
+<div class="exec">
+<div><b>第一笔：验证估值</b><p>进入“第一观察/分批区”时只建立小仓位，例如计划仓位的 25%–35%。不要一次买满。</p></div>
+<div><b>第二笔：价格更低但逻辑没坏</b><p>跌到“更深折价区”时，先检查最新财报/指引；只有商业逻辑未恶化才加仓。</p></div>
+<div><b>第三笔：基本面确认</b><p>哪怕价格比最低点高一些，只要盈利、订单、毛利或现金流确认拐点，剩余仓位反而更安全。</p></div>
+</div>
+<p>对于 1–3 年周期，我更倾向于 <b>基本面止损</b> 而不是机械价格止损：如果原来的估值修复逻辑被证伪——例如盈利连续下修、竞争优势实质破坏、债务/监管风险上升——应重新估值，而不是因为“已经跌很多”继续摊低成本。避免杠杆和期权放大判断误差。</p>
+</section>
+
+<section>
+<h2>8. 最终判断</h2>
+<div class="callout">
+你的思路值得做，但最有价值的版本不是“七姐妹太贵，所以去买剩下的 493 只”，而是：<br><br>
+<b>利用 2026 年 9 月形成的市场宽度恶化，去寻找那些“估值已经按衰退/颠覆定价，但现金流与竞争优势尚未同步恶化”的非七姐妹公司。</b><br><br>
+目前我认为最值得重点跟踪的是 <b>SPGI、ADBE、OTIS、UNH、HD</b>；其次是 <b>HSY、ACN</b>。<b>ZTS</b> 很便宜但必须先确认指引不再下修；<b>NKE、FICO、LULU</b> 更适合先观察，而不是因为跌幅巨大就抢反弹。
+</div>
+</section>
+
+<section id="sources">
+<h2>9. 主要资料来源</h2>
+<ol class="sources"><li id="S1"><a href="https://apnews.com/article/1ee73f14dc23f6139eeb12c7397f543e" target="_blank" rel="noopener">AP — How major US stock indexes fared, Sep. 30, 2026</a></li>
+<li id="S2"><a href="https://www.marketwatch.com/story/the-15-worst-performing-s-p-500-stocks-during-a-dismal-september-991f8a07" target="_blank" rel="noopener">MarketWatch — 15 worst-performing S&amp;P 500 stocks in September 2026</a></li>
+<li id="S3"><a href="https://www.marketwatch.com/livecoverage/stock-market-today-dow-s-p-500-nasdaq-steady-start-pce-inflation-data-micron-results/card/september-weakness-hits-equal-weight-version-of-s-p-500-kEF4kJpdR6tBg8hOIfsO" target="_blank" rel="noopener">MarketWatch — September weakness hits equal-weight S&amp;P 500</a></li>
+<li id="S4"><a href="https://www.schwab.wallst.com/Prospect/Research/etfs/performance.asp?symbol=RSP" target="_blank" rel="noopener">Schwab — RSP performance through Aug. 31, 2026</a></li>
+<li id="S5"><a href="https://portfolioslab.com/portfolio/etnmhwhwbzqwqlzkbz7z3rxl" target="_blank" rel="noopener">PortfoliosLab — S&amp;P 500 Equal Weight performance through Sep. 30, 2026</a></li>
+<li id="S6"><a href="https://www.reuters.com/legal/transactional/investors-wary-slowdown-us-corporate-profit-boom-2026-10-01/" target="_blank" rel="noopener">Reuters — Investors wary of slowdown in U.S. corporate profit boom, Oct. 1, 2026</a></li>
+<li id="S7"><a href="https://www.reuters.com/business/accenture-forecasts-annual-revenue-growth-above-estimates-2026-10-01/" target="_blank" rel="noopener">Reuters — Accenture outlook eases AI disruption fears, Oct. 1, 2026</a></li>
+<li id="S8"><a href="https://www.adobe.com/cc-shared/assets/investor-relations/pdfs/01906202/au56y4ter.pdf" target="_blank" rel="noopener">Adobe — FY2026 Q3 earnings release</a></li>
+<li id="S9"><a href="https://investor.spglobal.com/" target="_blank" rel="noopener">S&amp;P Global — Investor Relations / Q2 2026</a></li>
+<li id="S10"><a href="https://www.unitedhealthgroup.com/newsroom/2026/2026-07-16-uhg-reports-second-quarter-2026-results.html" target="_blank" rel="noopener">UnitedHealth Group — Q2 2026 results</a></li>
+<li id="S11"><a href="https://www.otisinvestors.com/news/news-details/2026/OTIS-REPORTS-SECOND-QUARTER-2026-RESULTS/default.aspx" target="_blank" rel="noopener">Otis — Q2 2026 results</a></li>
+<li id="S12"><a href="https://ir.homedepot.com/news-releases/2026/08-18-2026-110040463" target="_blank" rel="noopener">Home Depot — Q2 FY2026 results</a></li>
+<li id="S13"><a href="https://investor.zoetis.com/financials/quarterly-results/" target="_blank" rel="noopener">Zoetis — Q2 2026 results</a></li>
+<li id="S14"><a href="https://investors.nike.com/investors/news-events-and-reports/investor-news/investor-news-details/2026/NIKE-Inc--Reports-Fiscal-2027-First-Quarter-Results/default.aspx" target="_blank" rel="noopener">Nike — FY2027 Q1 results</a></li>
+<li id="S15"><a href="https://stockanalysis.com/stocks/" target="_blank" rel="noopener">StockAnalysis — live valuation pages for ADBE, SPGI, OTIS, UNH, HD, HSY, ACN, ZTS, UPS</a></li>
+<li id="S16"><a href="https://www.morningstar.com/stocks/adobe-earnings-forward-looking-metrics-under-pressure-freemium-transition" target="_blank" rel="noopener">Morningstar — Adobe Q3 valuation update</a></li>
+<li id="S17"><a href="https://www.morningstar.com/stocks/3-defensive-stocks-buy-september-2" target="_blank" rel="noopener">Morningstar — UnitedHealth undervaluation / defensive ideas</a></li>
+<li id="S18"><a href="https://www.barrons.com/articles/fair-isaac-stock-fico-26267071" target="_blank" rel="noopener">Barron&#x27;s — FICO after historic decline</a></li></ol>
+<p class="footnote">本报告为研究与教育用途，不构成收益承诺。估值区间是基于公开财务数据、历史估值、行业催化剂和风险做出的情景分析；任何公司都可能因新财报、利率、监管或竞争变化而需要重新估值。</p>
+</section>
+</main>
+</body>
+</html>
