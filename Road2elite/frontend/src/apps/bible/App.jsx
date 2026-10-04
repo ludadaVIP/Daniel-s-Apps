@@ -16,7 +16,7 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
-import { fetchVersions, fetchBooks, fetchRandomVerse, fetchParagraph } from "./services/api";
+import { fetchVersions, fetchBooks, fetchRandomVerse, fetchParagraph, fetchComparison } from "./services/api";
 
 const HINT_STEP = 5;
 const DEFAULT_BOOKS_STORAGE_KEY = "road2elite.recall-bible.default-books.v1";
@@ -24,9 +24,16 @@ const MODES = [
   { id: "memorize", label: "Memorize", description: "See the reference, recall the text." },
   { id: "guess", label: "Guess Reference", description: "Read the text, recall the reference." },
 ];
-
 function charCount(text) {
   return (text || "").replace(/\s+/g, "").length;
+}
+
+function firstWords(text, count) {
+  if (!text || count <= 0) return "";
+  const words = [...text.matchAll(/\S+/gu)];
+  if (words.length <= count) return text;
+  const last = words[count - 1];
+  return text.slice(0, last.index + last[0].length);
 }
 
 function readSavedDefaultBooks(version, availableBooks, fallback) {
@@ -64,11 +71,16 @@ export default function BibleApp() {
   const [defaultBooks, setDefaultBooks] = useState([]);
   const [mode, setMode] = useState("memorize");
   const [verse, setVerse] = useState(null);
-  const [revealedLength, setRevealedLength] = useState(0);
+  const [hintCount, setHintCount] = useState(0);
+  const [showAll, setShowAll] = useState(false);
   const [referenceShown, setReferenceShown] = useState(false);
   const [paragraph, setParagraph] = useState(null);
   const [paragraphOpen, setParagraphOpen] = useState(false);
   const [paragraphLoading, setParagraphLoading] = useState(false);
+  const [comparisonVersions, setComparisonVersions] = useState([]);
+  const [comparison, setComparison] = useState(null);
+  const [comparisonLoading, setComparisonLoading] = useState(false);
+  const [comparisonError, setComparisonError] = useState("");
   const [filterOpen, setFilterOpen] = useState(false);
   const [firstVerseOnly, setFirstVerseOnly] = useState(false);
   const [secondVerseOnly, setSecondVerseOnly] = useState(false);
@@ -148,18 +160,18 @@ export default function BibleApp() {
     setLoading(true);
     setError("");
     setVerse(null);
-    setRevealedLength(0);
+    setHintCount(0);
+    setShowAll(false);
     setReferenceShown(false);
     setParagraph(null);
     setParagraphOpen(false);
+    setComparison(null);
     try {
       const filterByBooks =
         selectedBooks.length && selectedBooks.length !== availableBooks.length
           ? selectedBooks
           : null;
-      const verseNumbers = paragraphFirstOnly
-        ? []
-        : [
+      const verseNumbers = paragraphFirstOnly ? [] : [
             ...(firstVerseOnly ? [1] : []),
             ...(secondVerseOnly ? [2] : []),
             ...(thirdVerseOnly ? [3] : []),
@@ -182,13 +194,13 @@ export default function BibleApp() {
     version,
     selectedBooks,
     availableBooks,
+    paragraphFirstOnly,
     firstVerseOnly,
     secondVerseOnly,
     thirdVerseOnly,
-    paragraphFirstOnly,
   ]);
 
-  // Keep the automatic player on the newest settings without restarting its
+  // Keep the automatic player on the newest callback without restarting its
   // current timed cycle when the component re-renders.
   useEffect(() => {
     fetchVerseRef.current = fetchVerse;
@@ -225,7 +237,7 @@ export default function BibleApp() {
 
         // "Show" means the text in Memorize mode and the reference in Guess mode.
         if (modeRef.current === "memorize") {
-          setRevealedLength(nextVerse.text.length);
+          setShowAll(true);
         } else {
           setReferenceShown(true);
         }
@@ -268,6 +280,29 @@ export default function BibleApp() {
     };
   }, [autoPlaying]);
 
+  const comparisonOn = comparisonVersions.length > 0;
+  const verseKey = verse
+    ? `${verse.version}:${verse.book}:${verse.chapter}:${(verse.verseNumbers || [verse.verse]).join(",")}`
+    : "";
+
+  useEffect(() => {
+    if (!verse || !comparisonOn || comparison?.key === verseKey) return undefined;
+    let cancelled = false;
+    setComparisonLoading(true);
+    setComparisonError("");
+    fetchComparison(verse)
+      .then((payload) => {
+        if (!cancelled) setComparison({ key: verseKey, versions: payload.versions });
+      })
+      .catch((err) => {
+        if (!cancelled) setComparisonError(err.message);
+      })
+      .finally(() => {
+        if (!cancelled) setComparisonLoading(false);
+      });
+    return () => { cancelled = true; };
+  }, [verse, comparisonOn, verseKey]);
+
   function toggleAutoPlay() {
     if (autoPlaying) {
       // Invalidate in-flight requests as well as the current delay immediately.
@@ -302,13 +337,8 @@ export default function BibleApp() {
     );
   }
 
-  function selectAllBooks() {
-    setSelectedBooks(availableBooks);
-  }
-
-  function clearAllBooks() {
-    setSelectedBooks([]);
-  }
+  function selectAllBooks() { setSelectedBooks(availableBooks); }
+  function clearAllBooks() { setSelectedBooks([]); }
 
   function saveDefaultBooks() {
     if (!selectedBooks.length) {
@@ -322,13 +352,18 @@ export default function BibleApp() {
   }
 
   function revealMoreText() {
-    if (!verse) return;
-    setRevealedLength((current) => Math.min(current + HINT_STEP, verse.text.length));
+    if (!activeText) return;
+    setHintCount((current) => current + 1);
   }
 
   function toggleTextVisibility() {
-    if (!verse) return;
-    setRevealedLength((current) => current >= verse.text.length ? 0 : verse.text.length);
+    if (!activeText) return;
+    if (textFullyRevealed) {
+      setHintCount(0);
+      setShowAll(false);
+    } else {
+      setShowAll(true);
+    }
   }
 
   function toggleReference() {
@@ -366,10 +401,12 @@ export default function BibleApp() {
     // change can never show ESV/NVI text beneath another version's label.
     setVersion(nextVersion);
     setVerse(null);
-    setRevealedLength(0);
+    setHintCount(0);
+    setShowAll(false);
     setReferenceShown(false);
     setParagraph(null);
     setParagraphOpen(false);
+    setComparison(null);
     setSelectedBooks([]);
     setDefaultBooks([]);
     setError("");
@@ -379,23 +416,39 @@ export default function BibleApp() {
     if (nextMode === mode) return;
     setMode(nextMode);
     setVerse(null);
-    setRevealedLength(0);
+    setHintCount(0);
+    setShowAll(false);
     setReferenceShown(false);
     setParagraph(null);
     setParagraphOpen(false);
+    setComparison(null);
     setError("");
   }
 
-  const totalChars = charCount(verse?.text);
-  const textFullyRevealed = Boolean(verse && revealedLength >= verse.text.length);
+  const comparisonReady = comparison?.key === verseKey;
+  const activeText = comparisonOn
+    ? (comparisonReady ? comparison.versions.cuv?.text || "" : "")
+    : verse?.text || "";
+  const revealedLength = showAll ? activeText.length : Math.min(hintCount * HINT_STEP, activeText.length);
+  const totalChars = charCount(activeText);
+  const textFullyRevealed = Boolean(activeText && revealedLength >= activeText.length);
   const paragraphAvailable = verse?.paragraphAvailable !== false;
   const defaultHasChanged = !sameBooks(selectedBooks, defaultBooks);
   const displayedText = useMemo(() => {
-    if (!verse) return "";
-    if (mode === "guess") return verse.text;
-    if (revealedLength >= verse.text.length) return verse.text;
-    return verse.text.slice(0, revealedLength);
-  }, [verse, mode, revealedLength]);
+    if (mode === "guess") return activeText;
+    if (revealedLength >= activeText.length) return activeText;
+    return activeText.slice(0, revealedLength);
+  }, [activeText, mode, revealedLength]);
+
+  function toggleComparison(code) {
+    setComparisonVersions((current) =>
+      current.includes(code) ? current.filter((item) => item !== code) : [...current, code]
+    );
+  }
+
+  const comparisonColumns = comparisonOn
+    ? ["cuv", ...["esv", "nvi"].filter((code) => comparisonVersions.includes(code))]
+    : [];
 
   return (
     <div className="bible-shell">
@@ -409,139 +462,80 @@ export default function BibleApp() {
         </div>
 
         <div className="bible-version-row" role="tablist" aria-label="Bible version">
-          {versions.map((item) => (
-            <button
-              key={item.code}
-              type="button"
-              role="tab"
-              aria-selected={item.code === version}
-              className={`bible-version-chip ${item.code === version ? "active" : ""}`}
-              onClick={() => switchVersion(item.code)}
-              title={item.description}
-            >
-              <strong>{item.shortLabel}</strong>
-              <small>{item.label}</small>
-            </button>
-          ))}
+            {versions.map((item) => (
+              <button
+                key={item.code}
+                type="button"
+                role="tab"
+                aria-selected={item.code === version}
+                className={`bible-version-chip ${item.code === version ? "active" : ""}`}
+                onClick={() => switchVersion(item.code)}
+                title={item.description}
+              >
+                <strong>{item.shortLabel}</strong>
+                <small>{item.label}</small>
+              </button>
+            ))}
         </div>
       </header>
 
       <section className="bible-controls">
         <div className="bible-mode-tabs" role="tablist" aria-label="Practice mode">
           {MODES.map((item) => (
-            <button
-              key={item.id}
-              type="button"
-              role="tab"
-              aria-selected={mode === item.id}
+            <button key={item.id} type="button" role="tab" aria-selected={mode === item.id}
               className={`bible-mode-tab ${mode === item.id ? "active" : ""}`}
-              onClick={() => switchMode(item.id)}
-              title={item.description}
-            >
-              <strong>{item.label}</strong>
-              <small>{item.description}</small>
+              onClick={() => switchMode(item.id)} title={item.description}>
+              <strong>{item.label}</strong><small>{item.description}</small>
             </button>
           ))}
         </div>
-
         <div className="bible-action-row">
-          <button
-            type="button"
-            className={`bible-filter-toggle ${filterOpen ? "open" : ""}`}
-            onClick={() => setFilterOpen((value) => !value)}
-            aria-expanded={filterOpen}
-          >
-            <Filter size={16} />
-            <span>Books: {filterSummary}</span>
+          <button type="button" className={`bible-filter-toggle ${filterOpen ? "open" : ""}`}
+            onClick={() => setFilterOpen((value) => !value)} aria-expanded={filterOpen}>
+            <Filter size={16} /><span>Books: {filterSummary}</span>
             {filterOpen ? <ChevronUp size={16} /> : <ChevronDown size={16} />}
           </button>
-
-          <button
-            type="button"
-            className={`bible-verse-toggle ${firstVerseOnly ? "active" : ""}`}
-            onClick={() => toggleVerseMode(setFirstVerseOnly)}
-            aria-pressed={firstVerseOnly}
-            title="Only pick verse 1 from a random chapter"
-          >
-            <BookOpen size={16} />
-            <span>Verse 1st</span>
-          </button>
-
-          <button
-            type="button"
-            className={`bible-verse-toggle ${secondVerseOnly ? "active" : ""}`}
-            onClick={() => toggleVerseMode(setSecondVerseOnly)}
-            aria-pressed={secondVerseOnly}
-            title="Only pick verse 2 from a random chapter"
-          >
-            <BookOpen size={16} />
-            <span>Verse 2nd</span>
-          </button>
-
-          <button
-            type="button"
-            className={`bible-verse-toggle ${thirdVerseOnly ? "active" : ""}`}
-            onClick={() => toggleVerseMode(setThirdVerseOnly)}
-            aria-pressed={thirdVerseOnly}
-            title="Only pick verse 3 from a random chapter"
-          >
-            <BookOpen size={16} />
-            <span>Verse 3rd</span>
-          </button>
-
-          <button
-            type="button"
-            className={`bible-verse-toggle ${paragraphFirstOnly ? "active" : ""}`}
-            onClick={toggleParagraphMode}
-            aria-pressed={paragraphFirstOnly}
-            title="Pick the first verse of a random CUV-aligned paragraph"
-          >
-            <BookOpen size={16} />
-            <span>Pag 1st</span>
-          </button>
-
-          <button
-            type="button"
-            className={`bible-auto-toggle ${autoPlaying ? "active" : ""}`}
-            onClick={toggleAutoPlay}
-            aria-pressed={autoPlaying}
-            title={autoPlaying ? "Stop automatic practice" : "Start automatic practice"}
-          >
+          <button type="button" className={`bible-verse-toggle ${firstVerseOnly ? "active" : ""}`}
+            onClick={() => toggleVerseMode(setFirstVerseOnly)} aria-pressed={firstVerseOnly}
+            title="Only pick verse 1 from a random chapter"><BookOpen size={16} /><span>Verse 1st</span></button>
+          <button type="button" className={`bible-verse-toggle ${secondVerseOnly ? "active" : ""}`}
+            onClick={() => toggleVerseMode(setSecondVerseOnly)} aria-pressed={secondVerseOnly}
+            title="Only pick verse 2 from a random chapter"><BookOpen size={16} /><span>Verse 2nd</span></button>
+          <button type="button" className={`bible-verse-toggle ${thirdVerseOnly ? "active" : ""}`}
+            onClick={() => toggleVerseMode(setThirdVerseOnly)} aria-pressed={thirdVerseOnly}
+            title="Only pick verse 3 from a random chapter"><BookOpen size={16} /><span>Verse 3rd</span></button>
+          <button type="button" className={`bible-verse-toggle ${paragraphFirstOnly ? "active" : ""}`}
+            onClick={toggleParagraphMode} aria-pressed={paragraphFirstOnly}
+            title="Pick the first verse of a random CUV-aligned paragraph"><BookOpen size={16} /><span>Pag 1st</span></button>
+          <button type="button" className={`bible-auto-toggle ${autoPlaying ? "active" : ""}`}
+            onClick={toggleAutoPlay} aria-pressed={autoPlaying}
+            title={autoPlaying ? "Stop automatic practice" : "Start automatic practice"}>
             <span>{autoPlaying ? "Stop" : "Auto"}</span>
           </button>
+          <div className="bible-comparison-toggles" role="group" aria-label="Parallel translations">
+            {["esv", "nvi"].map((code) => (
+              <button key={code} type="button" className={`bible-comparison-toggle ${comparisonVersions.includes(code) ? "active" : ""}`}
+                onClick={() => toggleComparison(code)} aria-pressed={comparisonVersions.includes(code)}
+                title={`Show ${code.toUpperCase()} alongside Chinese`}>{code.toUpperCase()}</button>
+            ))}
+          </div>
         </div>
-
         {filterOpen ? (
           <div className="bible-filter-panel">
             <div className="bible-filter-actions">
               <button type="button" onClick={selectAllBooks}><Check size={14} />All</button>
               <button type="button" onClick={clearAllBooks}><X size={14} />None</button>
-              <button
-                type="button"
-                onClick={saveDefaultBooks}
-                disabled={!defaultHasChanged || selectedBooks.length === 0}
-                title={defaultHasChanged ? "Save the current selection as this version's default" : "This version's saved default"}
-              >
+              <button type="button" onClick={saveDefaultBooks} disabled={!defaultHasChanged || selectedBooks.length === 0}
+                title={defaultHasChanged ? "Save the current selection as this version's default" : "This version's saved default"}>
                 <Sparkles size={14} />{defaultHasChanged ? "Set Default" : `Default (${defaultBooks.length})`}
               </button>
-              <span className="bible-filter-meta">
-                {selectedBooks.length}/{availableBooks.length} selected
-              </span>
+              <span className="bible-filter-meta">{selectedBooks.length}/{availableBooks.length} selected</span>
             </div>
             <div className="bible-book-grid">
-              {availableBooks.map((book) => {
-                const active = selectedBooks.includes(book);
-                return (
-                  <button
-                    key={book}
-                    type="button"
-                    className={`bible-book-chip ${active ? "active" : ""}`}
-                    onClick={() => toggleBook(book)}
-                  >
-                    {book}
-                  </button>
-                );
-              })}
+              {availableBooks.map((book) => (
+                <button key={book} type="button" className={`bible-book-chip ${selectedBooks.includes(book) ? "active" : ""}`}
+                  onClick={() => toggleBook(book)}>{book}</button>
+              ))}
             </div>
           </div>
         ) : null}
@@ -578,16 +572,16 @@ export default function BibleApp() {
                   <div className="bible-reference">{verse.reference}</div>
                   <div className="bible-meta-line">
                     <span>{totalChars} characters to recall</span>
-                    {revealedLength > 0 && revealedLength < verse.text.length ? (
-                      <span>{revealedLength} / {verse.text.length} revealed</span>
+                    {activeText && revealedLength > 0 && revealedLength < activeText.length ? (
+                      <span>{revealedLength} / {activeText.length} revealed</span>
                     ) : null}
                   </div>
 
                   <div className="bible-verse-actions">
-                    <button type="button" className="bible-secondary" onClick={revealMoreText} disabled={revealedLength >= verse.text.length}>
+                    <button type="button" className="bible-secondary" onClick={revealMoreText} disabled={!activeText || revealedLength >= activeText.length}>
                       <Lightbulb size={16} /><span>Hint (+{HINT_STEP})</span>
                     </button>
-                    <button type="button" className="bible-secondary" onClick={toggleTextVisibility}>
+                    <button type="button" className="bible-secondary" onClick={toggleTextVisibility} disabled={!activeText}>
                       {textFullyRevealed ? <EyeOff size={16} /> : <Eye size={16} />}
                       <span>{textFullyRevealed ? "Hide" : "Show"}</span>
                     </button>
@@ -632,10 +626,29 @@ export default function BibleApp() {
             </aside>
 
             <section
-              className={`bible-reading-pane ${paragraphOpen && paragraph ? "has-paragraph" : ""}`}
+              className={`bible-reading-pane ${paragraphOpen && paragraph ? "has-paragraph" : ""} ${comparisonOn ? "is-comparison" : ""}`}
               aria-label="Scripture text"
             >
-              {mode === "memorize" ? (
+              {comparisonOn ? (
+                <div className="bible-comparison-grid" style={{ "--comparison-columns": comparisonColumns.length }}>
+                  {comparisonColumns.map((code) => (
+                    <ParallelColumn
+                      key={code}
+                      code={code}
+                      passage={comparisonReady ? comparison.versions[code] : null}
+                      loading={comparisonLoading || !comparisonReady && !comparisonError}
+                      error={comparisonError}
+                      mode={mode}
+                      displayedText={displayedText}
+                      revealedLength={revealedLength}
+                      activeText={activeText}
+                      hintCount={hintCount}
+                      textFullyRevealed={textFullyRevealed}
+                      paragraphOpen={paragraphOpen}
+                    />
+                  ))}
+                </div>
+              ) : mode === "memorize" ? (
                 <div className={`bible-verse-body ${revealedLength === 0 ? "is-hidden" : ""}`}>
                   {revealedLength === 0 ? (
                     <span className="bible-placeholder">(text hidden — recall it, then peek with Hint or Show)</span>
@@ -651,7 +664,7 @@ export default function BibleApp() {
                   <span className="bible-verse-revealed">{verse.text}</span>
                 </div>
               )}
-              {paragraphOpen && paragraph ? (
+              {!comparisonOn && paragraphOpen && paragraph ? (
                 <section className="bible-paragraph-panel" aria-label="Scripture paragraph">
                   <div className="bible-paragraph-heading">
                     <span>{paragraph.boundaryVersion === "cuv" ? "CUV-aligned paragraph" : "Paragraph"}</span>
@@ -664,6 +677,45 @@ export default function BibleApp() {
           </article>
         ) : null}
       </main>
+    </div>
+  );
+}
+
+function ParallelColumn({ code, passage, loading, error, mode, displayedText, revealedLength, activeText, hintCount, textFullyRevealed, paragraphOpen }) {
+  const primary = code === "cuv";
+  const language = { cuv: "zh", esv: "en", nvi: "es" }[code];
+  const visibleText = primary ? displayedText
+    : mode === "guess" || textFullyRevealed ? passage?.text || ""
+      : firstWords(passage?.text, hintCount * HINT_STEP);
+  const verseLength = primary ? activeText.length : passage?.text.length || 0;
+  return (
+    <div className={`bible-comparison-column ${paragraphOpen ? "has-paragraph" : ""}`} lang={language}>
+      <div className="bible-comparison-verse">
+        <div className="bible-comparison-label">{code.toUpperCase()}</div>
+        {loading ? <span className="bible-placeholder">Loading translation…</span>
+          : error ? <span className="bible-placeholder">{error}</span>
+          : !passage ? <span className="bible-placeholder">Translation unavailable for this passage.</span>
+          : mode === "memorize" && revealedLength === 0
+            ? <span className="bible-placeholder">(text hidden — recall it, then peek with Hint or Show)</span>
+            : <>
+              <span className="bible-comparison-revealed">{visibleText}</span>
+              {mode === "memorize" && visibleText.length < verseLength
+                ? <span className="bible-verse-cursor">▌</span> : null}
+            </>}
+      </div>
+      {paragraphOpen ? (
+        <div className="bible-comparison-paragraph">
+          {passage?.paragraph ? (
+            <>
+              <div className="bible-paragraph-heading">
+                <span>Paragraph</span>
+                <strong>{passage.paragraph.reference}</strong>
+              </div>
+              <div className="bible-paragraph-text">{passage.paragraph.text}</div>
+            </>
+          ) : <span className="bible-placeholder">{loading ? "Loading paragraph…" : "Paragraph unavailable."}</span>}
+        </div>
+      ) : null}
     </div>
   );
 }

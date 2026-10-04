@@ -41,3 +41,14 @@ export async function fetchParagraph({ version, book, chapter, verse }) {
   });
   return parseResponse(await fetch(`${BASE}/paragraph?${params.toString()}`));
 }
+
+export async function fetchComparison({ version, book, chapter, verse, verseNumbers }) {
+  const params = new URLSearchParams({
+    version,
+    book,
+    chapter: String(chapter),
+    verse: String(verse),
+    verses: (verseNumbers?.length ? verseNumbers : [verse]).join(","),
+  });
+  return parseResponse(await fetch(`${BASE}/comparison?${params.toString()}`));
+}

@@ -1,0 +1,510 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>宗教改革：前因、爆发、分化与五百年余波</title>
+<style>
+:root{
+  --bg:#0f1216; --panel:#171c22; --panel2:#1d242c; --text:#e9e4da; --muted:#b9b2a6;
+  --gold:#d7b66f; --red:#b8645a; --blue:#6f95b7; --green:#7da17f; --line:#343b43;
+  --paper:#f1eadc; --ink:#27231e;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#0c0f12 0%,#11161b 45%,#0d1014 100%);color:var(--text);
+font-family:"Noto Serif SC","Source Han Serif SC","Songti SC","Microsoft YaHei",serif;line-height:1.9}
+a{color:#e2c988;text-decoration:none} a:hover{text-decoration:underline}
+.hero{min-height:72vh;display:grid;place-items:center;padding:72px 24px 52px;position:relative;overflow:hidden;
+background:
+radial-gradient(circle at 15% 20%,rgba(215,182,111,.13),transparent 34%),
+radial-gradient(circle at 82% 18%,rgba(111,149,183,.12),transparent 31%),
+linear-gradient(135deg,#11161c,#0b0e12 60%,#171313)}
+.hero:before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:34px 34px}
+.hero-inner{max-width:1180px;position:relative;z-index:1;text-align:center}
+.kicker{letter-spacing:.22em;color:var(--gold);font-size:.88rem;text-transform:uppercase}
+h1{font-size:clamp(2.5rem,6vw,5.7rem);line-height:1.08;margin:.25em 0 .15em;font-weight:800}
+.subtitle{max-width:980px;margin:0 auto;color:#d0c9be;font-size:clamp(1rem,2vw,1.35rem)}
+.hero-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:38px}
+.stat{padding:18px 12px;border:1px solid #3a3f45;background:rgba(255,255,255,.025);border-radius:14px}
+.stat strong{display:block;font-size:1.55rem;color:#f1d28f}.stat span{color:#bcb4a8;font-size:.92rem}
+.shell{max-width:1480px;margin:auto;display:grid;grid-template-columns:285px minmax(0,1fr);gap:36px;padding:32px 24px 100px}
+nav{position:sticky;top:18px;height:calc(100vh - 36px);overflow:auto;padding:20px 18px;background:#12171c;border:1px solid var(--line);border-radius:16px}
+nav h3{margin:0 0 12px;color:#f0d28d} nav a{display:block;color:#bbb4a9;padding:5px 0 5px 10px;border-left:2px solid transparent;font-size:.92rem}
+nav a:hover{color:#fff;border-color:var(--gold);text-decoration:none}
+main{min-width:0}.section{padding:48px 0;border-bottom:1px solid #2b3035}
+h2{font-size:2.2rem;line-height:1.25;margin:0 0 20px;color:#f3e8d0} h3{font-size:1.45rem;color:#e5ca8a;margin-top:30px}
+h4{font-size:1.08rem;color:#d8d2c8;margin-bottom:6px}
+p{margin:.65em 0;color:#d5d0c8}
+.lead{font-size:1.16rem;color:#e7e0d5;border-left:4px solid var(--gold);padding-left:18px}
+.callout{background:linear-gradient(135deg,#1c2229,#15191e);border:1px solid #38414a;border-left:5px solid var(--gold);padding:20px 22px;border-radius:12px;margin:24px 0}
+.callout.red{border-left-color:var(--red)} .callout.blue{border-left-color:var(--blue)} .callout.green{border-left-color:var(--green)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
+.card{background:#151a20;border:1px solid #333a42;border-radius:14px;padding:20px}
+.card h3,.card h4{margin-top:0}
+.quote{font-size:1.15rem;font-style:italic;color:#e6dccb;padding:22px 26px;border-left:3px solid #8d6f3d;background:#151411;margin:24px 0}
+.small{font-size:.88rem;color:#a9a197}.note{font-size:.94rem;color:#bdb6ab}
+.timeline{position:relative;margin:30px 0 12px;padding-left:34px}.timeline:before{content:"";position:absolute;left:9px;top:3px;bottom:3px;width:2px;background:linear-gradient(var(--gold),#44515d)}
+.ti{position:relative;margin:0 0 22px;padding:0 0 0 18px}.ti:before{content:"";position:absolute;left:-31px;top:.58em;width:12px;height:12px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px #1d1a14}
+.ti b{color:#f0cd80}.ti span{display:block;color:#d8d1c7}
+.figure{margin:26px 0;background:#101419;border:1px solid #303840;border-radius:15px;overflow:hidden}
+.figure img{width:100%;display:block;max-height:620px;object-fit:cover}.cap{padding:12px 16px;color:#aaa296;font-size:.88rem;border-top:1px solid #303840}
+.table-wrap{overflow:auto;border:1px solid #343b42;border-radius:12px;margin:22px 0}
+table{width:100%;border-collapse:collapse;min-width:850px;background:#13181d}th,td{padding:14px 14px;border-bottom:1px solid #30363d;border-right:1px solid #2a3036;vertical-align:top}
+th{background:#20262d;color:#f0d493;position:sticky;top:0}td{color:#d5d0c7}tr:last-child td{border-bottom:0}
+.badge{display:inline-block;padding:2px 8px;border-radius:999px;background:#2c333b;color:#d9d2c7;font-size:.78rem;margin-right:6px}
+svg{width:100%;height:auto;display:block}.svgbox{background:#11161b;border:1px solid #343b43;border-radius:14px;padding:16px;margin:24px 0}
+.myth{display:grid;grid-template-columns:1fr 1.6fr;gap:10px 18px;padding:16px 0;border-bottom:1px solid #30363b}.myth b{color:#efc76d}
+details{background:#151a20;border:1px solid #343b42;border-radius:12px;padding:14px 16px;margin:12px 0}
+summary{cursor:pointer;color:#efd391;font-weight:700}
+.footnotes li{margin-bottom:10px;color:#bbb4aa}.pill{font-family:system-ui,sans-serif;font-size:.8rem;padding:3px 8px;border:1px solid #46505a;border-radius:999px;color:#bfc7ce}
+footer{max-width:1200px;margin:0 auto;padding:0 24px 70px;color:#8f8980;text-align:center}
+@media(max-width:1000px){.shell{grid-template-columns:1fr}nav{position:relative;height:auto;top:auto}.hero-grid{grid-template-columns:repeat(2,1fr)}.grid3{grid-template-columns:1fr}.grid2{grid-template-columns:1fr}}
+@media(max-width:620px){.hero{padding-top:52px}.hero-grid{grid-template-columns:1fr}.shell{padding:18px 16px 70px}.section{padding:34px 0}h2{font-size:1.75rem}.myth{grid-template-columns:1fr}}
+@media print{body{background:white;color:#111}nav{display:none}.shell{display:block;max-width:1100px}.section{page-break-inside:avoid}p,td,.note,.small{color:#222}.card,.callout,.figure,.table-wrap,details{background:white;border-color:#bbb}h1,h2,h3,h4{color:#111}.hero{min-height:auto;background:white}.subtitle{color:#333}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="hero-inner">
+    <div class="kicker">The Reformation · c. 1300–Present</div>
+    <h1>宗教改革</h1>
+    <p class="subtitle">从中世纪晚期的危机，到路德、慈运理、加尔文与英国改革；从特利腾会议、宗派化与宗教战争，到天主教、东正教、新教五百年的重塑——一份历史与神学并重的全景报告。</p>
+    <div class="hero-grid">
+      <div class="stat"><strong>1517</strong><span>赎罪券争议成为引爆点</span></div>
+      <div class="stat"><strong>1521</strong><span>沃尔姆斯帝国会议与决裂升级</span></div>
+      <div class="stat"><strong>1545–1563</strong><span>特利腾会议重塑天主教</span></div>
+      <div class="stat"><strong>1648 → 1999</strong><span>从威斯特伐利亚到称义联合声明</span></div>
+    </div>
+  </div>
+</header>
+
+<div class="shell">
+<nav>
+  <h3>目录</h3>
+  <a href="#how">0. 如何理解宗教改革</a>
+  <a href="#timeline">1. 五百年大时间轴</a>
+  <a href="#before">2. 改革之前：中世纪晚期</a>
+  <a href="#causes">3. 为什么偏偏在16世纪爆发</a>
+  <a href="#luther">4. 路德：从争论到决裂</a>
+  <a href="#theology">5. 核心神学争点</a>
+  <a href="#swiss">6. 瑞士与激进宗教改革</a>
+  <a href="#calvin">7. 加尔文与改革宗</a>
+  <a href="#england">8. 英国宗教改革</a>
+  <a href="#catholic">9. 天主教改革与特利腾</a>
+  <a href="#orthodox">10. 东正教如何面对宗教改革</a>
+  <a href="#wars">11. 宗派化、战争与国家</a>
+  <a href="#comparison">12. 五大传统核心比较</a>
+  <a href="#effects">13. 对基督教与社会的长期影响</a>
+  <a href="#modern">14. 从对抗走向对话</a>
+  <a href="#myths">15. 十个常见误解</a>
+  <a href="#judgment">16. 怎样评价这段历史</a>
+  <a href="#glossary">17. 术语表</a>
+  <a href="#sources">18. 资料与图片来源</a>
+</nav>
+
+<main>
+<section class="section" id="how">
+<h2>0. 先抓住一个总框架：宗教改革不是一个事件，而是一场“西方基督教秩序的解体与重组”</h2>
+<p class="lead">如果只把宗教改革理解为“马丁·路德反对赎罪券，于是建立新教”，就会错过真正重要的东西。1517年是一个象征性节点，但背后累积了至少两百年的教会改革诉求、政治重组、神学争论、教育扩张与媒介革命。</p>
+
+<div class="grid3">
+<div class="card"><h3>第一层：改革教会</h3><p>许多16世纪人首先关心的不是“创立新宗派”，而是教会是否忠于福音、圣职是否腐败、信徒是否真正受教、礼仪与牧养是否需要改革。</p></div>
+<div class="card"><h3>第二层：重新定义权威</h3><p>最深的裂缝在于：当《圣经》、古代传统、教宗、主教会议、地方教会与个人良知发生冲突时，谁拥有最终裁决权？这不是一个单纯的道德问题，而是“教会是什么”的问题。</p></div>
+<div class="card"><h3>第三层：重组欧洲秩序</h3><p>宗教改革与城市政治、诸侯权力、帝国结构、印刷市场、大学网络和民族语言彼此放大，最终使“一个西方基督教世界”转变为多个互相竞争的宗派社会。</p></div>
+</div>
+
+<div class="callout blue"><b>一个重要区分：</b>“宗教改革”（Reformation）通常主要指西方基督教内部16世纪的改革与分裂；1054年前后逐渐成形的东西方大分裂比它早四百多年。因此，东正教不是从宗教改革中“分裂出去”的，而是以一个已经与罗马分离的古老传统来观察、回应西方的新争论。</div>
+
+<div class="svgbox">
+<svg viewBox="0 0 1200 390" role="img" aria-label="基督教主要传统历史关系示意">
+<rect x="18" y="18" width="1164" height="354" rx="24" fill="#121820" stroke="#3b444d"/>
+<text x="600" y="60" fill="#f1d28f" text-anchor="middle" font-size="28" font-weight="700">不是“一棵树突然裂开”，而是多阶段的历史分叉</text>
+<line x1="150" y1="125" x2="1050" y2="125" stroke="#65717d" stroke-width="5"/>
+<circle cx="260" cy="125" r="15" fill="#d7b66f"/><text x="260" y="105" fill="#eee" text-anchor="middle" font-size="18">古代大公教会</text>
+<line x1="520" y1="125" x2="520" y2="220" stroke="#b8645a" stroke-width="4"/>
+<circle cx="520" cy="125" r="15" fill="#b8645a"/><text x="520" y="98" fill="#eee" text-anchor="middle" font-size="17">东西方长期分离，1054为象征节点</text>
+<line x1="520" y1="220" x2="325" y2="305" stroke="#7da17f" stroke-width="4"/>
+<line x1="520" y1="220" x2="725" y2="305" stroke="#6f95b7" stroke-width="4"/>
+<text x="325" y="338" fill="#a8c3aa" text-anchor="middle" font-size="22" font-weight="700">东正教诸教会</text>
+<text x="725" y="338" fill="#a8c9e2" text-anchor="middle" font-size="22" font-weight="700">拉丁西方教会</text>
+<line x1="725" y1="305" x2="930" y2="305" stroke="#d7b66f" stroke-width="4"/>
+<circle cx="830" cy="305" r="13" fill="#d7b66f"/>
+<text x="930" y="285" fill="#f0d28d" text-anchor="middle" font-size="17">16世纪宗教改革</text>
+<text x="930" y="330" fill="#ddd" text-anchor="middle" font-size="17">天主教 / 路德宗 / 改革宗 / 英国传统 / 激进改革</text>
+</svg>
+</div>
+</section>
+
+<section class="section" id="timeline">
+<h2>1. 从前史到余波：一张时间轴看完整结构</h2>
+<div class="timeline">
+<div class="ti"><b>1309–1377｜阿维尼翁教廷</b><span>教宗长期驻留阿维尼翁，教廷与法国政治的密切关系损害了部分欧洲人对教宗超国家权威的观感。</span></div>
+<div class="ti"><b>1378–1417｜西方教会大分裂</b><span>同时出现多个教宗竞争者。康斯坦茨会议最终结束分裂，却也留下“教宗与大公会议谁更高”的权威难题。</span></div>
+<div class="ti"><b>约1380–1415｜威克里夫、胡斯等先驱</b><span>对教会财富、圣职腐败、圣经权威与圣餐等问题提出尖锐批评。胡斯于1415年被定罪处死，波希米亚后来爆发胡斯战争。</span></div>
+<div class="ti"><b>约1450年代｜活字印刷扩张</b><span>印刷术并没有“制造”宗教改革，但极大降低了复制、传播、争论和标准化文本的成本。</span></div>
+<div class="ti"><b>1517｜九十五条论纲</b><span>路德围绕赎罪券与悔改提出学术辩论命题。它还不是一份成熟的“新教宣言”。</span></div>
+<div class="ti"><b>1518–1520｜争论升级</b><span>海德堡辩论、莱比锡辩论以及1520年三篇重要改革著作，使问题从赎罪券扩展到教宗权威、圣礼与教会结构。</span></div>
+<div class="ti"><b>1521｜沃尔姆斯帝国会议</b><span>路德拒绝在没有圣经或清楚理性证据说服的情况下撤回其主要著作，随后受帝国禁令；在瓦特堡翻译新约。</span></div>
+<div class="ti"><b>1524–1525｜德意志农民战争</b><span>社会经济诉求与宗教语言交织。路德反对暴力起义；事件暴露“福音自由”与社会革命并非同一概念。</span></div>
+<div class="ti"><b>1529｜马堡会谈</b><span>路德与慈运理在多数议题接近，却因圣餐中基督临在方式无法一致，说明新教从一开始就不是单一阵营。</span></div>
+<div class="ti"><b>1530｜《奥格斯堡信条》</b><span>路德宗最重要的早期信仰告白之一，由梅兰希顿主笔，试图说明改革者并非要抛弃古代大公信仰。</span></div>
+<div class="ti"><b>1534｜英格兰与罗马制度性分离</b><span>亨利八世的婚姻与王权问题触发制度断裂；英国的教义新教化主要在随后数十年逐步推进。</span></div>
+<div class="ti"><b>1536起｜加尔文与日内瓦</b><span>《基督教要义》不断扩充；改革宗在瑞士、法国、荷兰、苏格兰等地形成广泛影响。</span></div>
+<div class="ti"><b>1540｜耶稣会获正式认可</b><span>天主教内部教育、宣教与灵修更新的重要力量。</span></div>
+<div class="ti"><b>1545–1563｜特利腾会议</b><span>天主教系统回应争议，重申教义，同时推动主教驻职、神学院与圣职教育等纪律改革。</span></div>
+<div class="ti"><b>1555｜奥格斯堡和约</b><span>在神圣罗马帝国内为天主教与路德宗建立有限的政治共存安排；不是现代意义的个人宗教自由。</span></div>
+<div class="ti"><b>1573–1581｜路德宗—东正教通信</b><span>图宾根路德宗神学家向君士坦丁堡宗主教耶利米二世递交《奥格斯堡信条》希腊文版本；双方发现有共同点，也确认了不少难以调和的分歧。</span></div>
+<div class="ti"><b>1618–1648｜三十年战争</b><span>宗教冲突与王朝、领土、帝国政治交错，无法简化为“天主教对新教”的单线战争。</span></div>
+<div class="ti"><b>1648｜威斯特伐利亚和约</b><span>进一步制度化欧洲宗派共存，并将改革宗纳入帝国内承认框架；它对国际政治秩序影响深远，但“现代主权国家由此突然诞生”是过度简化。</span></div>
+<div class="ti"><b>1964｜梵蒂冈第二届大公会议《大公主义法令》</b><span>天主教正式以更积极、非纯论战的方式推动与其他基督徒对话，并明确承认历史分裂责任并非只在一方。</span></div>
+<div class="ti"><b>1999｜《称义教义联合声明》</b><span>世界信义宗联会与天主教会在称义“基本真理”上形成差异中的共识，标志着宗教改革核心争议之一出现重大和解。</span></div>
+</div>
+</section>
+
+<section class="section" id="before">
+<h2>2. 宗教改革之前：中世纪晚期教会到底出了什么问题？</h2>
+<p>必须避免把中世纪教会画成一幅纯粹黑暗的漫画。14—15世纪既有腐败、权力斗争与牧养不足，也有旺盛的修道改革、神秘主义、大学神学、平信徒灵修和慈善网络。宗教改革之所以能够爆发，正因为当时社会既<strong>高度宗教化</strong>，又<strong>强烈渴望更可信的宗教生活</strong>。</p>
+
+<div class="grid2">
+<div class="card"><h3>制度性问题</h3><p><b>圣职买卖与裙带关系：</b>并非处处相同，但确实长期存在。</p><p><b>主教缺席与兼领教区：</b>一些高阶神职人员同时掌握多个职位，却不常驻牧养。</p><p><b>教廷财政：</b>赎罪券、圣职任命与各种缴费，使宗教与金钱之间的关系变得高度敏感。</p></div>
+<div class="card"><h3>灵性与知识上的张力</h3><p><b>救恩焦虑：</b>炼狱、告解、补赎、功德与死亡等议题深刻进入普通人的宗教想象。</p><p><b>人文主义：</b>“回到源头”（ad fontes）推动学者阅读希伯来文旧约、希腊文新约与教父原典。</p><p><b>教育与识字率上升：</b>城市中越来越多受教育的平信徒希望直接接触圣经与宗教文本。</p></div>
+</div>
+
+<h3>几个关键前驱</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>人物/运动</th><th>主要诉求</th><th>与16世纪改革的关系</th></tr></thead>
+<tbody>
+<tr><td>约翰·威克里夫（Wycliffe）</td><td>强调圣经权威，批判教会财富与部分圣礼制度</td><td>并非“路德宗提前出现”，但提供了批判教会制度的先例</td></tr>
+<tr><td>扬·胡斯（Jan Hus）</td><td>受威克里夫部分影响，强调讲道、教会道德与基督的首位</td><td>1415年被定罪处死后，其追随者在波希米亚形成长期政治—宗教力量</td></tr>
+<tr><td>“共同生活弟兄会”与现代虔敬（Devotio Moderna）</td><td>内在敬虔、默想基督、日常道德生活</td><td>说明改革冲动并不等于反教会，而是在教会内部早已广泛存在</td></tr>
+<tr><td>伊拉斯谟（Erasmus）</td><td>基督教人文主义、原文研究、讽刺教会弊端</td><td>与路德同样要求改革，却在自由意志、分裂方式等问题上与路德发生冲突</td></tr>
+</tbody></table></div>
+
+<div class="callout"><b>真正的历史逻辑：</b>宗教改革不是“腐败终于激怒了大家”这么简单。若只有腐败，改革未必会造成教义与制度分裂；决定性变化在于，改革者把“改革道德与纪律”的问题推进成了“重新界定福音、权威、圣礼与教会本质”的问题。</div>
+</section>
+
+<section class="section" id="causes">
+<h2>3. 为什么偏偏在16世纪爆发？——六股力量同时叠加</h2>
+<div class="svgbox">
+<svg viewBox="0 0 1200 610" aria-label="宗教改革多重原因示意图">
+<rect x="25" y="20" width="1150" height="565" rx="26" fill="#11171d" stroke="#39434d"/>
+<circle cx="600" cy="300" r="115" fill="#2c2418" stroke="#d7b66f" stroke-width="4"/>
+<text x="600" y="280" fill="#f0d18a" font-size="30" text-anchor="middle" font-weight="700">16世纪</text>
+<text x="600" y="325" fill="#f4eee2" font-size="30" text-anchor="middle" font-weight="700">宗教改革爆发</text>
+<g font-size="20" text-anchor="middle">
+<circle cx="230" cy="145" r="95" fill="#1d2b31" stroke="#6f95b7"/><text x="230" y="135" fill="#d9e7f1">神学</text><text x="230" y="165" fill="#bbb">称义·权威·圣礼</text>
+<circle cx="600" cy="115" r="95" fill="#243026" stroke="#7da17f"/><text x="600" y="105" fill="#deeadf">人文主义</text><text x="600" y="135" fill="#bbb">回到原典</text>
+<circle cx="970" cy="145" r="95" fill="#33231f" stroke="#b8645a"/><text x="970" y="135" fill="#f0d8d4">教会危机</text><text x="970" y="165" fill="#bbb">财政·纪律·权威</text>
+<circle cx="230" cy="455" r="95" fill="#2d2b1f" stroke="#d7b66f"/><text x="230" y="445" fill="#f1dfb9">印刷术</text><text x="230" y="475" fill="#bbb">传播成本骤降</text>
+<circle cx="600" cy="495" r="95" fill="#252737" stroke="#7e86b4"/><text x="600" y="485" fill="#dee0ef">城市社会</text><text x="600" y="515" fill="#bbb">教育·自治·市场</text>
+<circle cx="970" cy="455" r="95" fill="#2d242d" stroke="#a17aa4"/><text x="970" y="445" fill="#eadbec">政治结构</text><text x="970" y="475" fill="#bbb">诸侯·帝国·王权</text>
+</g>
+<g stroke="#64717e" stroke-width="3" opacity=".75">
+<line x1="312" y1="190" x2="500" y2="255"/><line x1="600" y1="210" x2="600" y2="185"/>
+<line x1="888" y1="190" x2="700" y2="255"/><line x1="312" y1="410" x2="500" y2="345"/>
+<line x1="600" y1="400" x2="600" y2="415"/><line x1="888" y1="410" x2="700" y2="345"/>
+</g>
+</svg>
+</div>
+
+<h3>印刷术为什么如此重要？</h3>
+<p>它使争论从大学讲堂和教会会议迅速进入城市公共空间。小册子、木刻、讽刺画、讲道集、圣经译本和教理问答能够被大量复制。路德极其擅长用短小、直接、德语化的文本面向普通读者。印刷术不是宗教改革的“原因”，却是宗教改革成为欧洲级运动的关键放大器。</p>
+
+<h3>政治为什么不是“幕后阴谋”，却又不可忽略？</h3>
+<p>神圣罗马帝国不是现代中央集权国家。皇帝、选帝侯、自由城市、地方领主、主教领地彼此权力交叠。路德若身处一个更集权、能迅速执行宗教裁决的政治体制，其命运可能完全不同。萨克森选帝侯腓特烈三世对他的保护，给改革思想留下了生存空间。</p>
+</section>
+
+<section class="section" id="luther">
+<h2>4. 路德：一场关于悔改的争论，如何变成西方教会的断裂？</h2>
+
+<div class="figure">
+<img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5d/Lucas_Cranach_d.J._-_Martin_Luther_%26_Philippe_Melanchthon_%281546%29.jpg/960px-Lucas_Cranach_d.J._-_Martin_Luther_%26_Philippe_Melanchthon_%281546%29.jpg" alt="马丁路德与梅兰希顿肖像">
+<div class="cap">马丁·路德（左）与菲利普·梅兰希顿（右），卢卡斯·克拉纳赫小卢卡斯，1546。公版作品，Wikimedia Commons。梅兰希顿后来主笔《奥格斯堡信条》。</div>
+</div>
+
+<h3>4.1 赎罪券：真正争论的不是“花钱买天堂”这么粗糙</h3>
+<p>天主教关于赎罪（indulgence）的正式教义，并不等同于“交钱就能买到罪的赦免”。罪的赦免、告解、补赎、炼狱与教会所理解的“暂罚”是一个复杂体系。但晚期中世纪的宣传实践容易把这种精细区分压扁成简单承诺，加上筹资需求，使普通人极易形成交易式理解。路德在1517年写给美因茨总主教阿尔布雷希特的信中，直接担忧赎罪券宣讲会让人误解悔改与救恩。</p>
+
+<h3>4.2 九十五条：不是“今天开始我要建立新教”</h3>
+<p>《九十五条》主要针对赎罪券、悔改、炼狱与教宗权柄的边界提出辩论命题。历史学界对“1517年10月31日是否真的把论纲钉在维滕贝格城堡教堂门上”仍有讨论；但他把论纲寄给教会权威、文本随后迅速流传，则没有争议。</p>
+
+<h3>4.3 1518—1521：争论迅速升级的三步</h3>
+<div class="grid3">
+<div class="card"><h4>从“滥用”到“权威”</h4><p>莱比锡辩论等事件迫使路德面对更根本的问题：大公会议可能犯错吗？教宗拥有何种神授权威？</p></div>
+<div class="card"><h4>从“悔改”到“称义”</h4><p>路德越来越强调：人在上帝面前被接纳，根本根据是上帝在基督里的恩典，而不是人通过功德体系累积可交换的价值。</p></div>
+<div class="card"><h4>从“改革教会”到“重新定义教会”</h4><p>1520年前后，他开始重新理解祭司职分、圣礼数量、教会权威与基督徒自由，冲突不再可能靠停止某种赎罪券销售解决。</p></div>
+</div>
+
+<h3>4.4 沃尔姆斯之后：改革必须落地</h3>
+<p>1521年以后，路德的思想不再只是学术争论，而必须回答：礼拜如何举行？修士修女是否仍应守独身誓？神职人员能否结婚？婴儿如何受教？教会财产如何管理？贫民如何救济？城市学校如何组织？这时“宗教改革”才真正成为制度改造。</p>
+
+<div class="callout red"><b>一个常被忽略的张力：</b>路德强调“基督徒的自由”，但他并不等于现代自由主义者。他既反对教宗权力对福音的束缚，也强烈依赖世俗统治者维护公共秩序。1524–1525年农民战争中，他对起义的严厉态度，说明宗教改革的“自由”首先是神学概念，不等于现代政治民主或个人自治。</div>
+</section>
+
+<section class="section" id="theology">
+<h2>5. 真正把西方教会撕开的，不是一个问题，而是一整套彼此相连的神学结构</h2>
+
+<h3>5.1 “唯独圣经”到底是什么意思？</h3>
+<p><b>Sola Scriptura</b>并不必然意味着“只要我自己读圣经，历史教会全部没用”。经典路德宗与改革宗仍高度引用使徒信经、尼西亚信经、教父和古代大公会议。真正争议在于：当传统或教会训导与改革者所理解的圣经发生冲突时，圣经是最终规范。</p>
+<p>天主教则坚持：启示不是一个脱离教会生命的“文本孤岛”；圣经与宗徒传统属于同一信仰传承，教会训导职具有权威解释责任。特利腾会议正是在宗教改革挑战下更明确界定这一点。</p>
+
+<h3>5.2 “因信称义”：西方基督教争论的心脏</h3>
+<p>对路德来说，称义不是人先变得足够好，最后才获得上帝认可；而是罪人因基督而被上帝宣告为义、接纳为义，信心领受这一恩典。善行是救恩的果子，而非购买救恩的价码。</p>
+<p>天主教反对的不是“恩典”或“信心”，而是它认为某些改革表达会把称义缩减为纯外在归算、削弱恩典真实更新人的生命，并割裂信、望、爱。20世纪天主教—路德宗对话显示，双方历史上使用了不同概念框架，许多旧式互相定罪并不能简单套用于今天对方的正式教义。</p>
+
+<h3>5.3 圣礼：七件还是两件？</h3>
+<p>天主教在特利腾会议中正式重申七件圣事。路德宗通常特别承认洗礼与圣餐，并把赦罪/告解放在非常重要的位置；改革宗通常强调由基督明确设立并有可见记号的洗礼与圣餐。圣礼数量背后其实是更大的问题：基督如何借可见媒介施恩？教会是否有权定义圣礼？圣职的角色是什么？</p>
+
+<h3>5.4 圣餐：改革者内部最重要的裂缝之一</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>传统</th><th>核心主张（高度概括）</th><th>特别反对什么</th></tr></thead>
+<tbody>
+<tr><td>天主教</td><td>饼酒经祝圣发生“实体转变”（transubstantiation）；弥撒与基督一次十字架祭献有真实而非重复的关系</td><td>把圣餐仅理解为心理纪念或普通象征</td></tr>
+<tr><td>路德宗</td><td>强烈坚持基督身体和宝血在圣餐中真实临在；通常避免用天主教“实体转变”解释其机制</td><td>纯象征论</td></tr>
+<tr><td>改革宗（加尔文）</td><td>信徒借圣灵真实参与基督；不是简单象征，但基督肉身不以路德所理解的方式局部临在于饼酒</td><td>纯纪念论，也反对某些物质化解释</td></tr>
+<tr><td>慈运理传统</td><td>更强调纪念、信仰告白与群体记号</td><td>将饼酒本身视作发生实体变化</td></tr>
+<tr><td>东正教</td><td>坚定相信圣餐真实成为基督身体与宝血，强调奥秘而较少以西方经院术语限定变化“机制”</td><td>纯象征化理解</td></tr>
+</tbody></table></div>
+
+<h3>5.5 “五个唯独”需要一点历史校正</h3>
+<p>今天常说的<b>唯独圣经、唯独恩典、唯独信心、唯独基督、唯独上帝的荣耀</b>，很好地概括了后来的新教神学精神，但“五个唯独”作为整齐成套的口号，是后世整理出来的总结；不要把它想成1517年改革者共同签署的一份五条纲领。</p>
+</section>
+
+<section class="section" id="swiss">
+<h2>6. 瑞士宗教改革与激进改革：新教从一开始就是“多中心”的</h2>
+<h3>慈运理：苏黎世的城市改革</h3>
+<p>乌尔里希·慈运理（Zwingli）几乎与路德同时推进改革，却有独立思想路径。他更彻底地根据“圣经是否命令”来评估礼仪传统，苏黎世逐步移除圣像、改革弥撒，并建立由城市政治结构支持的改革教会。</p>
+
+<h3>重洗派：改革得还不够彻底</h3>
+<p>部分改革者认为路德与慈运理仍然把教会和国家绑得太紧。他们拒绝婴儿洗礼，主张有意识的信仰告白后受洗，并强调教会应由自愿门徒组成。由于这直接挑战当时“出生即进入基督教社会共同体”的秩序，重洗派同时受到天主教和许多主流新教政权迫害。</p>
+<p>后来门诺会等传统发展出和平主义、信仰自由和教会—国家分离的强烈伦理。不能把今天所有浸信会简单说成重洗派的直接后代，但激进改革确实成为后来“自由教会”传统的重要历史背景。</p>
+
+<div class="callout green"><b>深层意义：</b>宗教改革不只问“正确教义是什么”，还第一次大规模逼迫欧洲人面对另一个危险问题：如果一个城市里的人不再共享同一种信仰，政治共同体还能如何存在？16世纪的大多数阵营起初都没有现代宗教自由观念，现代宽容是经过长期冲突与失败之后才逐渐形成的。</div>
+</section>
+
+<section class="section" id="calvin">
+<h2>7. 加尔文与改革宗：从日内瓦向欧洲扩散的第二大新教传统</h2>
+
+<div class="figure" style="max-width:620px">
+<img loading="lazy" src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c5/John_Calvin_by_Holbein.png/500px-John_Calvin_by_Holbein.png" alt="传统上常被认作约翰加尔文的肖像">
+<div class="cap">一幅传统上常被认作约翰·加尔文的16世纪肖像；Wikimedia Commons 提醒其人物识别与作者归属存在不确定性。使用它正好提示：历史图像也需要批判性阅读。</div>
+</div>
+
+<h3>7.1 加尔文真正关心的不只是“预定论”</h3>
+<p>大众常把加尔文缩成“预定论神学家”，这是严重失真。《基督教要义》的核心结构是认识上帝、认识人、基督的救赎、圣灵与教会。预定论重要，但并不是他全部神学的中心。</p>
+
+<h3>7.2 日内瓦：教会纪律与城市治理</h3>
+<p>加尔文强调牧师、教师、长老、执事等不同职分，以及教会纪律和教理教育。日内瓦成为受迫害新教徒的训练与出版中心，许多人受训后返回法国、苏格兰、荷兰等地。</p>
+
+<h3>7.3 改革宗与路德宗的不同气质</h3>
+<p>二者都强调恩典与圣经，却在圣餐、基督论某些表达、礼仪原则、教会治理等方面形成差异。改革宗后来发展出长老制、宗派性会议（synod）等多种模式，并在苏格兰长老会、荷兰改革宗、法国胡格诺派以及后来英语世界的清教徒传统中产生巨大影响。</p>
+</section>
+
+<section class="section" id="england">
+<h2>8. 英国宗教改革：起点高度政治化，结果却深度神学化</h2>
+<p>英国宗教改革与德意志、瑞士不同。亨利八世起初并不是路德式改革者，他甚至曾反驳路德。英格兰与罗马的制度断裂主要由王位继承、婚姻合法性、教宗司法权和王权主权问题推动。</p>
+
+<div class="timeline">
+<div class="ti"><b>亨利八世</b><span>确立王室对英格兰教会的最高权力，解散修道院，但在许多教义上仍相当传统。</span></div>
+<div class="ti"><b>爱德华六世</b><span>在克兰麦等人的推动下，礼仪和教义明显向改革宗方向发展，《公祷书》成为英语礼拜史的核心文本之一。</span></div>
+<div class="ti"><b>玛丽一世</b><span>恢复与罗马共融，并迫害部分新教人士；其统治加深后世英国新教叙事的反天主教记忆。</span></div>
+<div class="ti"><b>伊丽莎白一世</b><span>形成较稳定的英格兰教会体制：既保持主教制与传统礼仪连续性，又接受重要的新教教义框架。</span></div>
+</div>
+<p>因此，把英国国教简单称为“天主教和新教各一半”并不准确。它是宗教改革后独立发展出的传统，内部长期存在福音派、高教会、盎格鲁—天主教等不同倾向。</p>
+</section>
+
+<section class="section" id="catholic">
+<h2>9. 天主教改革：不能只叫“反宗教改革”</h2>
+<p class="lead">“Counter-Reformation（反宗教改革）”强调天主教对新教挑战的回应；“Catholic Reformation（天主教改革）”则提醒我们：天主教内部早在1517年前就存在改革力量，而且16世纪的更新远不止“反对路德”。</p>
+
+<div class="figure">
+<img loading="lazy" src="https://upload.wikimedia.org/wikipedia/commons/c/ca/Council_of_Trent.JPG" alt="特利腾会议历史绘画">
+<div class="cap">特利腾会议场景的后世绘画，描绘特伦托 Santa Maria Maggiore 教堂中的会议。作品为公版图像，Wikimedia Commons。</div>
+</div>
+
+<h3>9.1 特利腾会议做了两件同样重要的事：定义教义 + 改革纪律</h3>
+<div class="grid2">
+<div class="card"><h3>教义层面</h3>
+<p>重申圣经与宗徒传统在教会信仰传承中的地位；回应称义争议；确认七件圣事；重申圣餐真实临在及弥撒祭献性；维护告解、圣职与相关教义。</p>
+</div>
+<div class="card"><h3>纪律层面</h3>
+<p>推进主教驻职、圣职教育、教区治理与讲道改革；神学院制度在特利腾之后得到广泛制度化。天主教自身后来也承认，宗教改革危机与当时部分神职教育不足有关。</p>
+</div>
+</div>
+
+<h3>9.2 耶稣会与全球化</h3>
+<p>依纳爵·罗耀拉创立的耶稣会把严格灵修训练、教育、学术和宣教结合起来。耶稣会学校成为天主教教育网络的重要部分；方济各·沙勿略、利玛窦等人把天主教改革时代的传教动力带到亚洲。</p>
+
+<h3>9.3 天主教的“特利腾化”</h3>
+<p>此后数百年，天主教在礼仪、教理教育、神学院、圣职纪律与罗马权威上形成更清晰、更统一的身份。这既带来组织动员能力，也使“天主教/新教”边界变得比中世纪更加清楚。</p>
+
+<div class="callout"><b>一个反直觉结论：</b>宗教改革不仅“创造了新教”，也深刻地“创造了近代形态的天主教”。16世纪之后的天主教虽然自认为与古代教会连续，但其制度纪律、教育系统、论战神学和全球宣教网络都在宗教改革压力下发生了巨大重整。</div>
+</section>
+
+<section class="section" id="orthodox">
+<h2>10. 东正教：没有参加西方宗教改革，却被它长期改变了外部环境</h2>
+
+<h3>10.1 为什么1517年时东正教似乎“在场外”？</h3>
+<p>1453年君士坦丁堡陷落后，君士坦丁堡普世牧首及大量东正教人口生活在奥斯曼统治下。东正教的核心问题与德意志完全不同：如何在伊斯兰帝国结构中保存教会、礼仪、教育与共同体自治。与此同时，俄罗斯教会也走上自身的国家—教会发展道路。</p>
+
+<h3>10.2 路德宗曾经认真尝试与东正教建立神学关系</h3>
+<p>16世纪后期，图宾根神学家把《奥格斯堡信条》的希腊文版本送给君士坦丁堡宗主教耶利米二世。1576年的回复承认某些共同点，但在自由意志、圣礼、圣像、圣徒、教会传统、圣灵“和子说”等方面表现出明显差异。通信持续数年，最终没有产生教会联合。</p>
+
+<h3>10.3 为什么这段通信非常重要？</h3>
+<p>它像一次“神学压力测试”：新教改革者原本常宣称自己是在恢复古代教会，而东正教也自认延续古代教父与大公会议传统。但双方一实际比较，就发现“反对罗马”并不意味着自动彼此一致。东正教既不接受教宗至上，也不因此接受唯独圣经、改革宗圣礼观或新教对传统的重构。</p>
+
+<div class="grid3">
+<div class="card"><h4>东正教与天主教</h4><p>共享使徒传承、主教制、圣礼性教会观、圣像与圣徒敬礼、真实圣餐临在等大量古代传统；但在教宗首席权的性质、Filioque等问题上长期分裂。</p></div>
+<div class="card"><h4>东正教与路德/改革宗</h4><p>共享三位一体、基督论、圣经核心地位与对恩典的强调；但对传统、圣礼、教会权威、自由意志、圣像与敬礼等仍有重大差异。</p></div>
+<div class="card"><h4>宗教改革的间接影响</h4><p>近代东正教神学在面对天主教与新教论战时，也曾采用西方经院式分类和“信条化”表达；学者有时把这种现象称为东正教的“西方化”或“伪形化”，但该解释本身也有争论。</p></div>
+</div>
+
+<div class="callout blue"><b>关键认识：</b>从东正教角度看，宗教改革经常被视为“西方基督教内部的一场争论”。这不是说它无关紧要，而是说东正教会认为许多争议的前提——尤其对罪、恩典、教会权威和圣礼的某些拉丁式概念化——本身已经带着西方中世纪发展的印记。</div>
+</section>
+
+<section class="section" id="wars">
+<h2>11. 宗教改革之后：为什么欧洲进入“宗派化”与宗教战争时代？</h2>
+
+<h3>11.1 “宗派化”（Confessionalization）</h3>
+<p>16—17世纪不只是教义分裂，更是社会被不同宗派重新组织：学校教什么教理、谁能当牧师、婚姻如何登记、节期如何安排、图像能否留在教堂、城市道德如何管制，都逐渐被“天主教/路德宗/改革宗”等身份重塑。</p>
+
+<h3>11.2 奥格斯堡和约：和平，但不是自由</h3>
+<p>1555年的和约为神圣罗马帝国内天主教与路德宗诸侯提供政治妥协，后世常用 <i>cuius regio, eius religio</i>（谁的领地，谁的宗教）概括其逻辑。它主要处理统治者与领地的宗教归属，而不是宣布每个个人都有现代意义上的宗教自由；改革宗也尚未获得同等承认。</p>
+
+<h3>11.3 三十年战争：宗教与地缘政治纠缠</h3>
+<p>1618年爆发的三十年战争最初与帝国内宗教—宪政冲突密切相关，但后来哈布斯堡王朝、法国、瑞典、西班牙和德意志诸邦的战略利益交织。天主教法国反对天主教哈布斯堡，就是最明显证据：到战争后期，阵营已无法按神学标签简单划分。</p>
+
+<h3>11.4 威斯特伐利亚：不是“宗教从此消失”，而是政治学会与分裂共存</h3>
+<p>1648年的和约扩大了帝国内宗派承认框架，改革宗获得制度性位置。它并未立刻创造现代世俗国家，却象征一个趋势：欧洲政治越来越不能以“恢复单一基督教共同体”作为现实目标。</p>
+</section>
+
+<section class="section" id="comparison">
+<h2>12. 一张表看懂：天主教、东正教、路德宗、改革宗、英国圣公会的核心差异</h2>
+<p class="note">下表是教学性概括。每个传统内部都有不同学派；尤其英国圣公会和全球改革宗的内部差异很大。</p>
+<div class="table-wrap">
+<table>
+<thead><tr><th>问题</th><th>天主教</th><th>东正教</th><th>路德宗</th><th>改革宗</th><th>英国圣公会</th></tr></thead>
+<tbody>
+<tr><td><b>最终权威</b></td><td>圣经、宗徒传统与教会训导职</td><td>圣经处于神圣传统内部；大公会议、教父、礼仪传统极重要</td><td>圣经为最终规范；信经和《协同书》等从属权威</td><td>圣经为最终规范；信条/教理问答为从属标准</td><td>圣经为首要规范，同时重视古代教会、理性与传统；内部解释幅度较大</td></tr>
+<tr><td><b>称义</b></td><td>完全出于恩典；信德在爱中工作，称义包含赦免与内在更新</td><td>较少使用宗教改革式“法庭称义”作为唯一中心，更强调神化（theosis）与医治</td><td>因恩典、借信心、为基督缘故称义；善行为必要果子而非称义基础</td><td>同样强调因信称义，并常在救恩次序中系统讨论拣选、成圣等</td><td>经典三十九条明显接受新教称义语言；现代内部有多种解释</td></tr>
+<tr><td><b>圣礼/圣事</b></td><td>七件</td><td>通常也说七件“奥秘”，但不像拉丁传统那样严格限制神圣奥秘的数量逻辑</td><td>洗礼、圣餐居核心；赦罪具有准圣礼/圣礼性重要地位</td><td>洗礼、圣餐两项</td><td>洗礼与圣餐为“福音的两大圣礼”；其他礼仪在不同派别中地位不同</td></tr>
+<tr><td><b>圣餐</b></td><td>实体转变，真实临在</td><td>真实变化与真实临在，强调奥秘</td><td>真实临在，拒绝纯象征</td><td>借圣灵真实参与基督，通常拒绝路德式理解</td><td>从较改革宗到高度圣礼主义都有</td></tr>
+<tr><td><b>教会结构</b></td><td>教宗—主教制</td><td>主教制、地方自主教会共融，无一个拥有教宗式普世司法权的主教</td><td>各地不同，可有主教或监督制，也可较会议制</td><td>常见长老制、会议制</td><td>保留历史主教制</td></tr>
+<tr><td><b>圣像/圣徒</b></td><td>敬礼圣徒、圣像，区分敬礼与对上帝的崇拜</td><td>圣像神学尤其核心，依据第七次大公会议传统</td><td>通常可保留图像和圣徒纪念，但拒绝祈求圣徒作为必要中保</td><td>传统上更克制，部分地区强烈反对教堂宗教图像</td><td>从清教徒式克制到盎格鲁—天主教式丰富敬礼都有</td></tr>
+<tr><td><b>炼狱</b></td><td>肯定</td><td>为亡者祈祷，但不接受拉丁经院体系中完全相同的炼狱定义</td><td>拒绝作为圣经必需教义</td><td>拒绝</td><td>经典改革文献拒绝“罗马炼狱教义”；现代内部看法多样</td></tr>
+<tr><td><b>神职婚姻</b></td><td>拉丁礼司铎通常守独身（存在例外）；东方天主教另有传统</td><td>已婚男子可在受按立前成为司祭；主教通常从独身修士中选</td><td>牧师可婚</td><td>牧师可婚</td><td>牧师可婚</td></tr>
+</tbody>
+</table>
+</div>
+</section>
+
+<section class="section" id="effects">
+<h2>13. 宗教改革到底改变了后世什么？——十个长期影响</h2>
+
+<div class="grid2">
+<div class="card"><h3>① “宗派”成为常态</h3><p>中世纪西欧人通常不会先问“你属于哪个基督教宗派？”宗教改革之后，路德宗、改革宗、天主教、英国国教等身份被制度化。现代“denomination”世界由此逐步形成。</p></div>
+<div class="card"><h3>② 圣经进入民族语言公共文化</h3><p>改革者强烈推动本国语圣经和讲道；天主教也加强教理教育与本地语言牧养。圣经翻译对德语、英语等书面语言标准化产生巨大文化影响。</p></div>
+<div class="card"><h3>③ 平信徒教育与识字需求增加</h3><p>如果每个信徒都应理解教理、听懂讲道、阅读圣经，学校教育就成为宗教工程。天主教、路德宗、改革宗都建立更系统的教育网络。</p></div>
+<div class="card"><h3>④ 牧师家庭成为新教社会的新制度</h3><p>改革者废除强制神职独身后，“牧师妻子”“牧师家庭”成为新教社会的重要文化角色；这改变了神职与普通家庭生活的关系。</p></div>
+<div class="card"><h3>⑤ 礼拜的声音与空间改变</h3><p>会众赞美诗、讲道中心化、本国语礼拜、圣像去留、祭坛与讲台的空间安排，都因传统不同而发生变化。路德圣诗传统与改革宗诗篇歌唱尤其深远。</p></div>
+<div class="card"><h3>⑥ 天主教获得更强的纪律与教育体系</h3><p>神学院、教理问答、主教巡视、修会改革和全球宣教，使天主教进入一个高度组织化的“特利腾时代”。</p></div>
+<div class="card"><h3>⑦ 国家与教会关系被重新谈判</h3><p>改革早期并没有自动实现“政教分离”；恰恰相反，许多地方形成更紧密的国家教会。但长期的宗派冲突促使欧洲逐步探索宽容、良心自由和多宗教共存。</p></div>
+<div class="card"><h3>⑧ 全球基督教版图被重塑</h3><p>天主教在西班牙、葡萄牙全球扩张背景下大规模海外传教；后来新教国家也建立全球宣教网络。今天基督教全球分布与16世纪后的殖民、移民和宣教史密不可分。</p></div>
+<div class="card"><h3>⑨ “个人良心”地位被提升，但不是现代个人主义的直接同义词</h3><p>路德在权威冲突中强调受上帝话语约束的良心，这对后世影响巨大；不过改革者本人并未主张“每个人想信什么就信什么”。</p></div>
+<div class="card"><h3>⑩ 基督徒学会在分裂现实中重新思考“合一”</h3><p>宗教改革造成长期互相定罪，但也间接催生现代大公运动：当分裂持续数百年，教会不得不重新问“哪些差异真正触及福音核心，哪些是语言、文化或历史条件造成的？”</p></div>
+</div>
+
+<h3>“新教伦理导致资本主义”可靠吗？</h3>
+<p>马克斯·韦伯的经典命题认为某些加尔文主义禁欲伦理与近代资本主义精神之间存在选择性亲和关系。这一命题极具启发性，但不能被简化为“没有宗教改革就没有资本主义”。商业资本、法律制度、城市网络、殖民扩张、金融技术等都早于或独立于宗教改革发展。今天更稳妥的说法是：宗教改革改变了劳动、职业、时间纪律、财富伦理的某些文化表达，但不是资本主义的单一原因。</p>
+</section>
+
+<section class="section" id="modern">
+<h2>14. 五百年后：从互相定罪到“差异中的共识”</h2>
+<h3>14.1 梵二：天主教语言发生重要变化</h3>
+<p>1964年的《大公主义法令》明确提出恢复基督徒合一是教会的重要关切，并承认历史分裂“双方常常都有责任”。这并不意味着天主教放弃自身关于教会的主张，而意味着论战方式从单向定罪转向正式对话。</p>
+
+<h3>14.2 1999：《称义教义联合声明》</h3>
+<p>世界信义宗联会与天主教会在奥格斯堡签署联合声明，确认双方在称义教义的若干“基本真理”上存在共识，并说明16世纪的某些相互定罪不再适用于今天对方所正式表达的教义。随后卫理公会、圣公会、世界改革宗教会联合会也以不同方式加入或确认这一进程。</p>
+
+<h3>14.3 但分裂并没有结束</h3>
+<p>教宗职分、使徒继承、圣职、圣餐共融、教会论、伦理问题等仍然存在重大分歧。现代大公对话的意义不是假装差异不存在，而是把差异从“你根本不是基督徒”重新分类为：哪些已可澄清，哪些仍需争论，哪些涉及真正互不兼容的教义结构。</p>
+
+<div class="callout green"><b>五百年后的最大变化也许不是“大家都同意了”，而是：</b>天主教、路德宗、改革宗、圣公会和东正教的许多正式对话已经从16世纪那种互相把对方当作单纯异端的语言，转向更精确地描述对方真实相信什么。历史记忆开始从武器变成研究对象。</div>
+</section>
+
+<section class="section" id="myths">
+<h2>15. 十个常见误解：把宗教改革从“传奇故事”拉回真实历史</h2>
+<div class="myth"><b>误解1：1517年路德已经决定创立新教。</b><span>不对。早期路德仍在中世纪教会制度内争论；决裂是数年升级的结果。</span></div>
+<div class="myth"><b>误解2：天主教正式教义就是“花钱买赦罪”。</b><span>不对。赎罪券实践确实产生严重滥用和交易化宣传，但正式教义远比这种口号复杂。</span></div>
+<div class="myth"><b>误解3：因信称义 = 行为完全不重要。</b><span>主流路德宗和改革宗都认为善行是活信心的必要果子，只是否认善行是赚取称义的功价。</span></div>
+<div class="myth"><b>误解4：所有新教徒在神学上基本一样。</b><span>路德与慈运理在圣餐上很快分裂；改革宗、重洗派、英国传统随后形成不同结构。</span></div>
+<div class="myth"><b>误解5：宗教改革马上带来宗教自由。</b><span>多数16世纪国家仍追求宗教统一。现代宽容往往是在宗派冲突造成巨大代价后才逐渐发展。</span></div>
+<div class="myth"><b>误解6：东正教就是“没有教宗的新教”。</b><span>完全错误。东正教在圣礼、圣像、传统、主教制、圣徒敬礼和礼仪神学上与古代教会连续性极强，与经典新教存在明显结构差异。</span></div>
+<div class="myth"><b>误解7：天主教直到路德出现才想到改革。</b><span>错误。15世纪已有广泛改革诉求；只是宗教改革危机使改革速度、规模和制度化程度大幅提升。</span></div>
+<div class="myth"><b>误解8：三十年战争就是天主教和新教打一仗。</b><span>不够。宗教是核心变量之一，但王朝与地缘政治使阵营多次跨越宗派边界。</span></div>
+<div class="myth"><b>误解9：威斯特伐利亚和约一夜创造了现代主权国家。</b><span>这是教科书式过度概括。它是长期国家形成、帝国宪政和国际法演变中的重要节点，而非单一出生证。</span></div>
+<div class="myth"><b>误解10：“五个唯独”是1517年统一发布的纲领。</b><span>不是。它们很好地总结后来的新教神学，但“五项整齐组合”的表达主要是后世系统化。</span></div>
+</section>
+
+<section class="section" id="judgment">
+<h2>16. 怎样评价宗教改革？一个更成熟的历史判断框架</h2>
+<p>宗教改革之所以至今会引起基督徒强烈情绪，是因为它既包含真实的教会更新，也造成真实的教会撕裂；既产生圣经教育、讲道复兴和牧养改革，也伴随迫害、宗教战争、互相污名和政治利用。任何只讲一半的叙事都不够。</p>
+
+<div class="grid2">
+<div class="card"><h3>从新教内部看</h3><p>宗教改革常被理解为重新发现福音中心、恢复圣经最高规范、澄清因恩典借信称义，并打破不合圣经的制度累积。</p></div>
+<div class="card"><h3>从天主教内部看</h3><p>改革者指出的许多纪律弊端确有真实依据，但教义层面的断裂被视为伤害了教会可见合一、圣礼体系与使徒传统连续性。天主教改革承认改革必要，却拒绝宗教改革的权威重构。</p></div>
+<div class="card"><h3>从东正教角度看</h3><p>常见判断是：罗马与改革者都在西方基督教已经形成的神学框架内争论；改革者纠正了一些西方晚期发展，却又产生新的偏离古代教会传统之处。</p></div>
+<div class="card"><h3>从历史学角度看</h3><p>宗教改革既不能被还原为纯神学，也不能被还原为经济或政治。它是观念、制度、传播技术、地方政治和社会心理共同作用的经典案例。</p></div>
+</div>
+
+<div class="quote">最值得记住的，不是“哪一方全是英雄、哪一方全是反派”，而是：当一个宗教共同体开始争论“什么才是忠于自己的根源”，改革与分裂往往会同时发生。宗教改革的伟大与悲剧，恰恰都在这里。</div>
+
+<h3>给今天基督徒的四个历史提醒</h3>
+<p><b>第一，教义真的会塑造制度。</b>“称义”“圣礼”“教会权威”看似抽象，却会改变礼拜、教育、婚姻、政治与日常生活。</p>
+<p><b>第二，教会若长期拒绝纠正真实弊端，最终的改革成本可能更高。</b>但反过来，改革若缺乏对历史连续性与群体后果的敬畏，也可能迅速变成新的分裂。</p>
+<p><b>第三，不要把自己的传统讲成没有历史。</b>今天的天主教、东正教、路德宗、改革宗、圣公会都不是凭空出现的；每个传统都带着古代遗产、中世纪发展、近代争论和现代修正。</p>
+<p><b>第四，理解对方最好的方式，不是从对方最差的实践开始。</b>应同时阅读其正式信条、最佳神学家与真实历史。现代大公对话最有价值之处，就是迫使各方准确描述彼此。</p>
+</section>
+
+<section class="section" id="glossary">
+<h2>17. 关键术语表</h2>
+<details open><summary>称义（Justification）</summary><p>人在上帝面前被判为义、被接纳进入正确关系的神学概念。宗教改革时期围绕称义究竟如何与信心、恩典、爱、善行及成圣关联发生激烈争论。</p></details>
+<details><summary>赎罪券 / 大赦（Indulgence）</summary><p>在天主教框架中涉及已蒙赦免之罪的“暂罚”及教会施行属灵益处的制度。晚期中世纪的具体宣传与筹资实践成为1517争议的直接导火索。</p></details>
+<details><summary>炼狱（Purgatory）</summary><p>天主教对死后洁净的教义。东正教为亡者祈祷并承认死后奥秘，但并不完全接受拉丁经院式炼狱体系；多数新教传统拒绝把炼狱视为圣经必然教义。</p></details>
+<details><summary>大公会议（Ecumenical Council）</summary><p>古代全教会层级的重要主教会议。天主教与东正教都高度重视古代大公会议，但对后期哪些会议具有“大公”权威以及教宗与会议关系的理解不同。</p></details>
+<details><summary>宗派化（Confessionalization）</summary><p>历史学术语，指16—17世纪不同教派通过信条、教育、纪律、礼仪和国家制度形成更清晰、标准化共同体的过程。</p></details>
+<details><summary>实体转变（Transubstantiation）</summary><p>天主教用来说明圣餐中饼酒本质真实转变为基督身体与宝血的经院神学术语，同时外在可感属性仍保持饼酒样态。</p></details>
+<details><summary>神化（Theosis）</summary><p>东正教特别强调的救恩语言：人借恩典参与上帝生命、被医治并与上帝联合，并非成为神的本体。它使东正教讨论救恩时常不以16世纪西方“称义争论”的概念排序为唯一中心。</p></details>
+</section>
+
+<section class="section" id="sources">
+<h2>18. 资料与图片来源：建议继续深挖的第一手与官方文本</h2>
+<p class="note">以下来源优先采用官方教会文件、大学历史文献库及公版历史图像；本报告以综合解释为主，并非任何单一教派的教义声明。</p>
+<ol class="footnotes">
+<li><a href="https://sourcebooks.web.fordham.edu/source/lutherltr-indulgences.asp">Fordham Internet History Sourcebooks：路德致美因茨总主教关于赎罪券的信（1517）</a> —— 观察争议最初语境的第一手材料。</li>
+<li><a href="https://sourcebooks.web.fordham.edu/mod/luther-freedomchristian.asp">Fordham：路德《基督徒的自由》相关文本</a> —— 理解“自由”“信心”“祭司职”的关键文本。</li>
+<li><a href="https://www.vatican.va/roman_curia/congregations/cfaith/cti_documents/rc_cti_1989_interpretazione-dogmi_en.html">Vatican：关于教义解释的文件</a> —— 涉及特利腾会议对圣经、传统与解释权的立场。</li>
+<li><a href="https://www.vatican.va/content/catechism/en/prologue/ii_handing_on_the_faith_catechesis.html">《天主教教理》：教理传授</a> —— 说明特利腾会议对教理教育及《罗马教理》的推动。</li>
+<li><a href="https://www.vatican.va/content/benedict-xvi/en/audiences/2009/documents/hf_ben-xvi_aud_20090819.pdf">Vatican：关于教区神学院形成的历史说明</a> —— 讨论特利腾会议1563年推动神学院制度。</li>
+<li><a href="https://orthodoxwiki.org/Jeremias_II_Tranos_of_Constantinople">OrthodoxWiki：君士坦丁堡宗主教耶利米二世</a> —— 概述1570年代与图宾根路德宗神学家的通信。</li>
+<li><a href="https://www.vatican.va/archive/hist_councils/ii_vatican_council/documents/vat-ii_decree_19641121_unitatis-redintegratio_en.html">梵二《大公主义法令 Unitatis redintegratio》</a> —— 天主教现代大公运动的重要官方文本。</li>
+<li><a href="https://lutheranworld.org/resources/publication-joint-declaration-doctrine-justification-0">Lutheran World Federation：《称义教义联合声明》</a> —— 1999年路德宗—天主教历史性共识文件。</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Lucas_Cranach_d.J._-_Martin_Luther_%26_Philippe_Melanchthon_(1546).jpg">Wikimedia Commons：路德与梅兰希顿肖像</a> —— 公版历史艺术作品。</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:Council_of_Trent.JPG">Wikimedia Commons：特利腾会议历史绘画</a> —— 公版历史艺术作品。</li>
+<li><a href="https://commons.wikimedia.org/wiki/File:John_Calvin_by_Holbein.png">Wikimedia Commons：传统上认作加尔文的肖像</a> —— 页面特别标注人物识别与作者归属的不确定性。</li>
+</ol>
+
+<div class="callout">
+<b>阅读路线建议：</b>如果想从这份报告继续深入，最值得按顺序读的是：① 路德1517年关于赎罪券的原始文本；② 1530《奥格斯堡信条》；③ 加尔文《基督教要义》精选；④ 特利腾会议“称义”“圣礼”与改革法令；⑤ 1570年代路德宗—东正教通信；⑥ 梵二《大公主义法令》；⑦ 1999《称义教义联合声明》。这样能直接看到五百年间争论语言如何变化。
+</div>
+</section>
+</main>
+</div>
+
+<footer>
+<p>《宗教改革：前因、爆发、分化与五百年余波》 · 独立 HTML 阅读版</p>
+<p class="small">设计目标：历史叙事、神学准确性与跨传统公平性并重。外部历史图片来自 Wikimedia Commons，打开文件时需要网络连接方可加载图片。</p>
+</footer>
+</body>
+</html>

@@ -125,11 +125,24 @@ DEFAULT_BOOK_SETS: dict[str, list[str]] = {
     ],
 }
 
-# NVI uses Spanish book names on disk, while the paragraph files use the
-# English/CUV canonical names. ESV already uses those English names, as does
-# CUV's data folder. Only New Testament books appear here because that is the
-# scope of the curated CUV paragraph data.
-NVI_TO_PARAGRAPH_BOOK: dict[str, str] = {
+# NVI uses Spanish book names on disk. Keep a complete canonical mapping so
+# parallel passages also work outside the New Testament paragraph collection.
+NVI_TO_CANONICAL_BOOK: dict[str, str] = {
+    "Génesis": "Genesis", "Éxodo": "Exodus", "Levítico": "Leviticus",
+    "Números": "Numbers", "Deuteronomio": "Deuteronomy", "Josué": "Joshua",
+    "Jueces": "Judges", "Rut": "Ruth", "1 Samuel": "1 Samuel",
+    "2 Samuel": "2 Samuel", "1 Reyes": "1 Kings", "2 Reyes": "2 Kings",
+    "1 Crónicas": "1 Chronicles", "2 Crónicas": "2 Chronicles",
+    "Esdras": "Ezra", "Nehemías": "Nehemiah", "Ester": "Esther",
+    "Job": "Job", "Salmo": "Psalms", "Proverbios": "Proverbs",
+    "Eclesiastés": "Ecclesiastes", "Cantares": "Song of Solomon",
+    "Isaías": "Isaiah", "Jeremías": "Jeremiah",
+    "Lamentaciones": "Lamentations", "Ezequiel": "Ezekiel",
+    "Daniel": "Daniel", "Oseas": "Hosea", "Joel": "Joel",
+    "Amós": "Amos", "Abdías": "Obadiah", "Jonás": "Jonah",
+    "Miqueas": "Micah", "Nahúm": "Nahum", "Habacuc": "Habakkuk",
+    "Sofonías": "Zephaniah", "Hageo": "Haggai",
+    "Zacarías": "Zechariah", "Malaquías": "Malachi",
     "Mateo": "Matthew",
     "Marcos": "Mark",
     "Lucas": "Luke",
@@ -158,6 +171,7 @@ NVI_TO_PARAGRAPH_BOOK: dict[str, str] = {
     "Judas": "Jude",
     "Apocalipsis": "Revelation",
 }
+CANONICAL_TO_NVI_BOOK = {canonical: spanish for spanish, canonical in NVI_TO_CANONICAL_BOOK.items()}
 
 
 bp = Blueprint("bible", __name__)
@@ -231,7 +245,7 @@ def load_book_paragraphs(book: str) -> dict[str, Any]:
 def paragraph_source_book(version_code: str, book: str) -> str | None:
     """Return the CUV paragraph-file book corresponding to a version book."""
     if version_code == "nvi":
-        return NVI_TO_PARAGRAPH_BOOK.get(book)
+        return NVI_TO_CANONICAL_BOOK.get(book)
     # CUV and ESV use the paragraph files' English canonical book names.
     return book
 
@@ -539,3 +553,53 @@ def specific_verse():
             payload["reference"] = reference(payload)
             return jsonify(payload)
     return jsonify({"error": f"{book} {chapter}:{verse_num} not found in {version}."}), 404
+
+
+@bp.get("/comparison")
+def comparison():
+    """Return matching Chinese, English and Spanish passages in one request."""
+    source_version = request.args.get("version", "").strip().lower()
+    source_book = request.args.get("book", "").strip()
+    if source_version not in {"cuv", "esv", "nvi"} or source_book not in list_books_for(source_version):
+        return jsonify({"error": "Unknown Bible version or book."}), 404
+    try:
+        chapter = int(request.args.get("chapter", ""))
+        verse_num = int(request.args.get("verse", ""))
+        numbers = [int(value) for value in request.args.get("verses", str(verse_num)).split(",")]
+    except ValueError:
+        return jsonify({"error": "chapter and verses must be integers."}), 400
+    if chapter < 1 or verse_num < 1 or not numbers or len(numbers) > 10 or any(number < 1 for number in numbers):
+        return jsonify({"error": "Invalid chapter or verses."}), 400
+
+    canonical_book = paragraph_source_book(source_version, source_book)
+    if not canonical_book:
+        return jsonify({"error": "Book mapping unavailable."}), 404
+    segment = paragraph_segment_for("cuv", canonical_book, chapter, verse_num)
+    versions: dict[str, Any] = {}
+    for code in ("cuv", "esv", "nvi"):
+        book = CANONICAL_TO_NVI_BOOK.get(canonical_book) if code == "nvi" else canonical_book
+        if not book:
+            versions[code] = None
+            continue
+        chapter_verses = {
+            int(entry.get("verse") or 0): str(entry.get("text") or "").strip()
+            for entry in load_book_verses(code, book)
+            if int(entry.get("chapter") or 0) == chapter
+        }
+        if not all(chapter_verses.get(number) for number in numbers):
+            versions[code] = None
+            continue
+        paragraph = None
+        if segment:
+            start, end = int(segment["start"]), int(segment["end"])
+            paragraph_lines = [chapter_verses[number] for number in range(start, end + 1) if chapter_verses.get(number)]
+            if paragraph_lines:
+                paragraph = {
+                    "reference": f"{book} {chapter}:{start}-{end}" if start != end else f"{book} {chapter}:{start}",
+                    "text": "\n".join(paragraph_lines),
+                }
+        versions[code] = {
+            "text": "\n".join(chapter_verses[number] for number in numbers),
+            "paragraph": paragraph,
+        }
+    return jsonify({"versions": versions})
