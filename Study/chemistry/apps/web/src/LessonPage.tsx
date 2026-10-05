@@ -1962,9 +1962,39 @@ function MetalPropertyLab({ mode }: { mode: LanguageMode }) {
 
 function NonmetalEvidenceSort({ mode }: { mode: LanguageMode }) {
   const samples = [
-    { symbol: 'O', nameZh: '氧', nameEn: 'Oxygen', clueZh: '空气中的气体；常与其他元素形成分子。', clueEn: 'A gas in air; often forms molecules with other elements.', answer: 'nonmetal', reasonZh: '氧位于周期表右侧，是非金属。', reasonEn: 'Oxygen sits on the right side of the periodic table and is a non-metal.' },
-    { symbol: 'Cu', nameZh: '铜', nameEn: 'Copper', clueZh: '可拉成电线，导电良好。', clueEn: 'Can be drawn into wire and conducts well.', answer: 'metal', reasonZh: '这是典型金属的性质组合。', reasonEn: 'This is a classic combination of metal properties.' },
-    { symbol: 'Si', nameZh: '硅', nameEn: 'Silicon', clueZh: '用于芯片；导电能力介于金属和非金属之间。', clueEn: 'Used in chips; its conductivity sits between metal and non-metal.', answer: 'metalloid', reasonZh: '硅是类金属，正是“不是非此即彼”的提醒。', reasonEn: 'Silicon is a metalloid—a reminder that categories are not always either-or.' },
+    {
+      symbol: 'O',
+      nameZh: '氧',
+      nameEn: 'Oxygen',
+      clueZh: '空气中的气体；常与其他元素形成分子。',
+      clueEn: 'A gas in air; often forms molecules with other elements.',
+      answer: 'nonmetal',
+      reasonZh: '氧位于周期表右侧，是非金属。',
+      reasonEn:
+        'Oxygen sits on the right side of the periodic table and is a non-metal.',
+    },
+    {
+      symbol: 'Cu',
+      nameZh: '铜',
+      nameEn: 'Copper',
+      clueZh: '可拉成电线，导电良好。',
+      clueEn: 'Can be drawn into wire and conducts well.',
+      answer: 'metal',
+      reasonZh: '这是典型金属的性质组合。',
+      reasonEn: 'This is a classic combination of metal properties.',
+    },
+    {
+      symbol: 'Si',
+      nameZh: '硅',
+      nameEn: 'Silicon',
+      clueZh: '用于芯片；导电能力介于金属和非金属之间。',
+      clueEn:
+        'Used in chips; its conductivity sits between metal and non-metal.',
+      answer: 'metalloid',
+      reasonZh: '硅是类金属，正是“不是非此即彼”的提醒。',
+      reasonEn:
+        'Silicon is a metalloid—a reminder that categories are not always either-or.',
+    },
   ];
   const labels = [
     { id: 'metal', zh: '金属', en: 'Metal' },
@@ -1979,15 +2009,822 @@ function NonmetalEvidenceSort({ mode }: { mode: LanguageMode }) {
     <div className="nonmetal-sort-lab">
       <div className={`evidence-sample ${sample.answer}`}>
         <span>{sample.symbol}</span>
-        <div><strong>{mode === 'en' ? sample.nameEn : sample.nameZh}</strong><p>{mode === 'en' ? sample.clueEn : sample.clueZh}</p></div>
+        <div>
+          <strong>{mode === 'en' ? sample.nameEn : sample.nameZh}</strong>
+          <p>{mode === 'en' ? sample.clueEn : sample.clueZh}</p>
+        </div>
       </div>
       <div className="evidence-controls">
-        <strong>{mode === 'en' ? 'Use the clues. Which label fits best?' : '用证据判断：最适合哪个标签？'}</strong>
+        <strong>
+          {mode === 'en'
+            ? 'Use the clues. Which label fits best?'
+            : '用证据判断：最适合哪个标签？'}
+        </strong>
         <div>
-          {labels.map((label) => <button type="button" key={label.id} className={choice === label.id ? (correct ? 'correct' : 'wrong') : ''} onClick={() => setChoice(label.id)}>{mode === 'en' ? label.en : label.zh}</button>)}
+          {labels.map((label) => (
+            <button
+              type="button"
+              key={label.id}
+              className={
+                choice === label.id ? (correct ? 'correct' : 'wrong') : ''
+              }
+              onClick={() => setChoice(label.id)}
+            >
+              {mode === 'en' ? label.en : label.zh}
+            </button>
+          ))}
         </div>
-        {choice && <p className={correct ? 'correct' : 'wrong'}><b>{correct ? (mode === 'en' ? 'Evidence fits. ' : '证据吻合。') : mode === 'en' ? 'Not quite. ' : '还不完全对。'}</b>{mode === 'en' ? sample.reasonEn : sample.reasonZh}</p>}
-        {correct && <button type="button" className="evidence-next" onClick={() => { setSampleIndex((index) => (index + 1) % samples.length); setChoice(null); }}>{mode === 'en' ? 'Next sample →' : '下一个样品 →'}</button>}
+        {choice && (
+          <p className={correct ? 'correct' : 'wrong'}>
+            <b>
+              {correct
+                ? mode === 'en'
+                  ? 'Evidence fits. '
+                  : '证据吻合。'
+                : mode === 'en'
+                  ? 'Not quite. '
+                  : '还不完全对。'}
+            </b>
+            {mode === 'en' ? sample.reasonEn : sample.reasonZh}
+          </p>
+        )}
+        {correct && (
+          <button
+            type="button"
+            className="evidence-next"
+            onClick={() => {
+              setSampleIndex((index) => (index + 1) % samples.length);
+              setChoice(null);
+            }}
+          >
+            {mode === 'en' ? 'Next sample →' : '下一个样品 →'}
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function Group1ReactivityLab({ mode }: { mode: LanguageMode }) {
+  const metals = [
+    {
+      symbol: 'Li',
+      zh: '锂',
+      en: 'Lithium',
+      period: 2,
+      strength: 28,
+      useZh: '锂离子电池',
+      useEn: 'lithium-ion batteries',
+    },
+    {
+      symbol: 'Na',
+      zh: '钠',
+      en: 'Sodium',
+      period: 3,
+      strength: 56,
+      useZh: '食盐中的 Na⁺',
+      useEn: 'Na⁺ in table salt',
+    },
+    {
+      symbol: 'K',
+      zh: '钾',
+      en: 'Potassium',
+      period: 4,
+      strength: 82,
+      useZh: '食物中的 K⁺',
+      useEn: 'K⁺ in food',
+    },
+  ];
+  const [selectedIndex, setSelectedIndex] = useState(1);
+  const metal = metals[selectedIndex]!;
+  return (
+    <div className="group1-lab">
+      <div className="group1-tabs">
+        {metals.map((item, index) => (
+          <button
+            type="button"
+            key={item.symbol}
+            className={selectedIndex === index ? 'active' : ''}
+            onClick={() => setSelectedIndex(index)}
+          >
+            {item.symbol}
+          </button>
+        ))}
+      </div>
+      <div
+        className="group1-scene"
+        aria-label={
+          mode === 'en'
+            ? `${metal.en}: Period ${metal.period}, Group 1`
+            : `${metal.zh}：第 ${metal.period} 周期，第 1 族`
+        }
+      >
+        <div className={`group1-atom period-${metal.period}`}>
+          {Array.from({ length: metal.period }, (_, index) => (
+            <i className={`g1-shell shell-${index + 1}`} key={index} />
+          ))}
+          <b>{metal.symbol}</b>
+          <em>e⁻</em>
+        </div>
+        <div className="electron-distance">
+          <span>{mode === 'en' ? 'outer electron' : '最外层电子'}</span>
+          <i style={{ width: `${metal.strength}%` }} />
+        </div>
+      </div>
+      <div className="group1-readout">
+        <strong>
+          {mode === 'en' ? metal.en : metal.zh} · {metal.symbol}
+        </strong>
+        <p>
+          {mode === 'en'
+            ? `Period ${metal.period}: ${metal.period} electron shells, but still 1 outer electron.`
+            : `第 ${metal.period} 周期：${metal.period} 层电子活动区域，最外层仍是 1 个电子。`}
+        </p>
+        <div className="reactivity-meter">
+          <span>
+            {mode === 'en'
+              ? 'General tendency to lose that electron'
+              : '失去最外层电子的一般倾向'}
+          </span>
+          <i>
+            <b style={{ width: `${metal.strength}%` }} />
+          </i>
+          <strong>
+            {mode === 'en'
+              ? selectedIndex === 0
+                ? 'lower'
+                : selectedIndex === 1
+                  ? 'higher'
+                  : 'highest of these three'
+              : selectedIndex === 0
+                ? '较低'
+                : selectedIndex === 1
+                  ? '较高'
+                  : '三者中最高'}
+          </strong>
+        </div>
+        <p className="group1-safe-note">
+          ⚠️{' '}
+          {mode === 'en'
+            ? `Model only. Learn Group 1 water reactions from qualified demonstrations—never test metals at home. ${metal.symbol} is encountered safely in ${metal.useEn}.`
+            : `仅为模型。第 1 族与水的反应只能通过合格演示学习，绝不在家测试。${metal.symbol} 可在${metal.useZh}中以安全的离子或化合物形式出现。`}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function Group17IonLab({ mode }: { mode: LanguageMode }) {
+  const elements = [
+    {
+      symbol: 'F',
+      zh: '氟',
+      en: 'Fluorine',
+      period: 2,
+      strength: 86,
+      ion: 'F⁻',
+      useZh: '牙膏中的氟化物',
+      useEn: 'fluoride toothpaste',
+    },
+    {
+      symbol: 'Cl',
+      zh: '氯',
+      en: 'Chlorine',
+      period: 3,
+      strength: 59,
+      ion: 'Cl⁻',
+      useZh: '食盐中的氯离子',
+      useEn: 'chloride in salt',
+    },
+    {
+      symbol: 'Br',
+      zh: '溴',
+      en: 'Bromine',
+      period: 4,
+      strength: 32,
+      ion: 'Br⁻',
+      useZh: '受控的实验室化学品',
+      useEn: 'controlled laboratory chemicals',
+    },
+  ];
+  const [selectedIndex, setSelectedIndex] = useState(1);
+  const [addedElectron, setAddedElectron] = useState(false);
+  const element = elements[selectedIndex]!;
+  return (
+    <div className="group17-lab">
+      <div className="group17-tabs">
+        {elements.map((item, index) => (
+          <button
+            type="button"
+            key={item.symbol}
+            className={selectedIndex === index ? 'active' : ''}
+            onClick={() => {
+              setSelectedIndex(index);
+              setAddedElectron(false);
+            }}
+          >
+            {item.symbol}
+          </button>
+        ))}
+      </div>
+      <div
+        className={`group17-scene ${addedElectron ? 'has-electron' : ''}`}
+        aria-live="polite"
+      >
+        <div className={`group17-atom period-${element.period}`}>
+          {Array.from({ length: element.period }, (_, index) => (
+            <i className={`g17-shell shell-${index + 1}`} key={index} />
+          ))}
+          <b>{addedElectron ? element.ion : element.symbol}</b>
+          {Array.from({ length: 7 }, (_, index) => (
+            <em className={`outer-e outer-${index + 1}`} key={index}>
+              e⁻
+            </em>
+          ))}
+          {addedElectron && <em className="outer-e added-e">e⁻</em>}
+        </div>
+        <div className="incoming-electron">e⁻</div>
+      </div>
+      <div className="group17-readout">
+        <strong>
+          {mode === 'en' ? element.en : element.zh} · {element.symbol}
+        </strong>
+        <p>
+          {addedElectron
+            ? mode === 'en'
+              ? `One electron joined the outer shell: ${element.symbol} is now ${element.ion}.`
+              : `一颗电子加入最外层：${element.symbol} 现在是 ${element.ion}。`
+            : mode === 'en'
+              ? 'Seven outer electrons: one more would fill the beginner-model outer shell.'
+              : '最外层已有 7 个电子：再加入 1 个，就会填满初学模型中的最外层。'}
+        </p>
+        <button
+          type="button"
+          onClick={() => setAddedElectron((value) => !value)}
+        >
+          {addedElectron
+            ? mode === 'en'
+              ? 'Reset atom'
+              : '重置原子'
+            : mode === 'en'
+              ? 'Add one electron →'
+              : '加入一颗电子 →'}
+        </button>
+        <div className="group17-meter">
+          <span>
+            {mode === 'en'
+              ? 'General tendency to attract an electron'
+              : '吸引一个电子的一般倾向'}
+          </span>
+          <i>
+            <b style={{ width: `${element.strength}%` }} />
+          </i>
+          <strong>
+            {mode === 'en'
+              ? selectedIndex === 0
+                ? 'highest of these three'
+                : selectedIndex === 1
+                  ? 'high'
+                  : 'lower'
+              : selectedIndex === 0
+                ? '三者中最高'
+                : selectedIndex === 1
+                  ? '较高'
+                  : '较低'}
+          </strong>
+        </div>
+        <p className="group17-safe-note">
+          ⚠️{' '}
+          {mode === 'en'
+            ? `Model only. Do not mix cleaners or handle reactive chemicals. ${element.symbol} is encountered safely in ${element.useEn}.`
+            : `仅为模型。绝不混合清洁剂或接触活泼化学品。${element.symbol} 可在${element.useZh}中以安全的化合物或离子形式出现。`}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function NobleGasGlow({ mode }: { mode: LanguageMode }) {
+  const gases = [
+    {
+      symbol: 'He',
+      zh: '氦',
+      en: 'Helium',
+      shells: 1,
+      outer: 2,
+      colour: '#f4c86a',
+      glow: '#ffe7a8',
+      useZh: '气球与低温设备',
+      useEn: 'balloons and low-temperature equipment',
+    },
+    {
+      symbol: 'Ne',
+      zh: '氖',
+      en: 'Neon',
+      shells: 2,
+      outer: 8,
+      colour: '#ec755b',
+      glow: '#ff9a7d',
+      useZh: '霓虹招牌',
+      useEn: 'neon signs',
+    },
+    {
+      symbol: 'Ar',
+      zh: '氩',
+      en: 'Argon',
+      shells: 3,
+      outer: 8,
+      colour: '#7b9de1',
+      glow: '#afc6ff',
+      useZh: '灯泡与保温窗',
+      useEn: 'bulbs and insulated windows',
+    },
+  ];
+  const [gasIndex, setGasIndex] = useState(1);
+  const [energized, setEnergized] = useState(false);
+  const gas = gases[gasIndex]!;
+  return (
+    <div className="noble-glow-lab">
+      <div className="noble-tabs">
+        {gases.map((item, index) => (
+          <button
+            type="button"
+            key={item.symbol}
+            className={gasIndex === index ? 'active' : ''}
+            onClick={() => {
+              setGasIndex(index);
+              setEnergized(false);
+            }}
+          >
+            {item.symbol}
+          </button>
+        ))}
+      </div>
+      <div
+        className={`noble-scene shells-${gas.shells} ${energized ? 'energized' : ''}`}
+        style={
+          {
+            '--gas-colour': gas.colour,
+            '--gas-glow': gas.glow,
+          } as CSSProperties
+        }
+        aria-live="polite"
+      >
+        <span className="noble-tube-left" />
+        <span className="noble-tube-right" />
+        <div className="noble-atom">
+          {Array.from({ length: gas.shells }, (_, index) => (
+            <i className={`noble-shell shell-${index + 1}`} key={index} />
+          ))}
+          <b>{gas.symbol}</b>
+          {Array.from({ length: gas.outer }, (_, index) => (
+            <em className={`noble-electron e-${index + 1}`} key={index}>
+              e⁻
+            </em>
+          ))}
+        </div>
+        {energized && (
+          <span className="glow-label">
+            {mode === 'en' ? 'energy in → light out' : '输入能量 → 放出光'}
+          </span>
+        )}
+      </div>
+      <div className="noble-readout">
+        <strong>
+          {mode === 'en' ? gas.en : gas.zh} · {gas.symbol}
+        </strong>
+        <p>
+          {mode === 'en'
+            ? `${gas.shells} shell${gas.shells > 1 ? 's' : ''}; outer shell has ${gas.outer} electron${gas.outer > 1 ? 's' : ''} and is stable in this model.`
+            : `${gas.shells} 层电子活动区域；最外层有 ${gas.outer} 个电子，在此模型中处于稳定状态。`}
+        </p>
+        <button type="button" onClick={() => setEnergized((value) => !value)}>
+          {energized
+            ? mode === 'en'
+              ? 'Turn energy off'
+              : '关闭能量'
+            : mode === 'en'
+              ? 'Send in energy ✦'
+              : '输入能量 ✦'}
+        </button>
+        <p className="noble-use">
+          {mode === 'en'
+            ? `Quiet chemistry, useful job: ${gas.useEn}.`
+            : `安静的化学，也有实用工作：${gas.useZh}。`}
+        </p>
+        <p className="noble-safe-note">
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'This is an animation model. Do not open, break or modify lights, signs or gas containers.'
+            : '这只是动画模型。不要拆开、砸开或改装灯具、招牌或气体容器。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function BondChoiceLab({ mode }: { mode: LanguageMode }) {
+  const models = [
+    {
+      id: 'ionic',
+      left: 'Na',
+      right: 'Cl',
+      typeZh: '电子转移 → 离子键',
+      typeEn: 'electron transfer → ionic bond',
+      resultZh:
+        'Na 失去 1 个电子成为 Na⁺；Cl 得到它成为 Cl⁻。异号离子的吸引让它们靠在一起。',
+      resultEn:
+        'Na loses one electron to become Na⁺; Cl gains it to become Cl⁻. Opposite ions attract and hold together.',
+      labelZh: '食盐模型',
+      labelEn: 'table salt model',
+    },
+    {
+      id: 'covalent',
+      left: 'H',
+      right: 'H',
+      typeZh: '共享电子 → 共价键',
+      typeEn: 'shared electrons → covalent bond',
+      resultZh: '两个 H 各贡献 1 个电子，一起使用这对电子，形成 H—H。',
+      resultEn:
+        'Each H contributes one electron; the pair is used together to form H—H.',
+      labelZh: '氢气模型',
+      labelEn: 'hydrogen model',
+    },
+    {
+      id: 'stable',
+      left: 'Ne',
+      right: 'Ne',
+      typeZh: '最外层已稳定 → 通常不成键',
+      typeEn: 'stable outer shell → usually no bond',
+      resultZh:
+        '氖原子的最外层在这个入门模型中已经稳定，通常不会为了补满外层而与另一个 Ne 形成键。',
+      resultEn:
+        'In this beginner model, neon already has a stable outer shell and does not usually form a bond with another Ne to fill it.',
+      labelZh: '稀有气体对照',
+      labelEn: 'noble-gas contrast',
+    },
+  ] as const;
+  const [selected, setSelected] = useState(0);
+  const model = models[selected]!;
+  const linked = model.id !== 'stable';
+
+  return (
+    <div className="bond-choice-lab">
+      <div
+        className="bond-choice-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Choose atom pair' : '选择原子组合'}
+      >
+        {models.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={selected === index ? 'active' : ''}
+            onClick={() => setSelected(index)}
+          >
+            {item.left} + {item.right}
+          </button>
+        ))}
+      </div>
+      <div className={`bond-scene ${model.id}`} aria-live="polite">
+        <div className="bond-orb left-orb">
+          <b>{model.left}</b>
+          <i>e⁻</i>
+        </div>
+        <div className="bond-bridge" aria-hidden="true">
+          {model.id === 'ionic' && (
+            <span className="travelling-electron">e⁻</span>
+          )}
+          {model.id === 'covalent' && (
+            <span className="shared-electrons">e⁻ e⁻</span>
+          )}
+          {model.id === 'stable' && <span className="no-link">×</span>}
+        </div>
+        <div className="bond-orb right-orb">
+          <b>{model.right}</b>
+          <i>e⁻</i>
+        </div>
+        <span className="bond-caption">
+          {mode === 'en' ? model.labelEn : model.labelZh}
+        </span>
+      </div>
+      <div className="bond-readout">
+        <strong>{mode === 'en' ? model.typeEn : model.typeZh}</strong>
+        <p>{mode === 'en' ? model.resultEn : model.resultZh}</p>
+        <p className="bond-energy-note">
+          ✦{' '}
+          {mode === 'en'
+            ? 'Useful shortcut: compare the outer electrons, then ask whether transfer, sharing, or no easy bond fits the model.'
+            : '实用捷径：先看最外层电子，再判断这个模型更像转移、共享，还是不容易成键。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function IonicLatticeLab({ mode }: { mode: LanguageMode }) {
+  const [state, setState] = useState<'lattice' | 'shifted' | 'dissolved'>(
+    'lattice',
+  );
+  const ions = Array.from({ length: 24 }, (_, index) => ({
+    positive: (Math.floor(index / 6) + (index % 6)) % 2 === 0,
+    row: Math.floor(index / 6),
+    column: index % 6,
+  }));
+  const copy = {
+    lattice: {
+      titleZh: '排列整齐：异号离子相邻',
+      titleEn: 'Ordered: opposite ions are neighbours',
+      bodyZh:
+        'Na⁺ 与 Cl⁻ 交替排列，吸引向各方向延伸。离子被固定在晶格位置，因此固态食盐不容易导电。',
+      bodyEn:
+        'Na⁺ and Cl⁻ alternate, so attraction extends in every direction. The ions are fixed in lattice positions, so solid salt does not conduct readily.',
+    },
+    shifted: {
+      titleZh: '层已错位：同号离子面对面',
+      titleEn: 'Layer shifted: like charges face each other',
+      bodyZh:
+        '受力后，上半层横向移动。同号离子靠近产生排斥，裂纹可能沿晶格扩展——这就是“硬但脆”的微观线索。',
+      bodyEn:
+        'Force shifts the upper layers sideways. Like charges meet and repel, so a crack can spread through the lattice—the particle clue behind “hard but brittle”.',
+    },
+    dissolved: {
+      titleZh: '进入水中：离子分散并能移动',
+      titleEn: 'In water: ions separate and can move',
+      bodyZh:
+        '水分子把离子从晶格中分散开。可移动的 Na⁺ 和 Cl⁻ 能携带电荷，所以盐水可以导电。',
+      bodyEn:
+        'Water molecules separate ions from the lattice. Mobile Na⁺ and Cl⁻ can carry charge, so salt water can conduct electricity.',
+    },
+  } as const;
+  const message = copy[state];
+
+  return (
+    <div className="ionic-lattice-lab">
+      <div
+        className={`ionic-lattice-scene ${state}`}
+        role="img"
+        aria-label={mode === 'en' ? message.titleEn : message.titleZh}
+      >
+        <div className="ionic-grid">
+          {ions.map((ion, index) => (
+            <span
+              key={index}
+              className={`${ion.positive ? 'ion-positive' : 'ion-negative'} ion-row-${ion.row}`}
+              style={
+                {
+                  '--ion-row': ion.row,
+                  '--ion-column': ion.column,
+                  '--scatter-x': `${((index * 37) % 92) + 4}%`,
+                  '--scatter-y': `${((index * 61) % 84) + 8}%`,
+                } as CSSProperties
+              }
+            >
+              {ion.positive ? 'Na⁺' : 'Cl⁻'}
+            </span>
+          ))}
+        </div>
+        {state === 'shifted' && (
+          <span className="lattice-crack" aria-hidden="true" />
+        )}
+        {state === 'dissolved' && (
+          <span className="water-label">
+            H₂O · {mode === 'en' ? 'ions mobile' : '离子可移动'}
+          </span>
+        )}
+      </div>
+      <div className="ionic-lattice-readout">
+        <div
+          className="lattice-actions"
+          role="group"
+          aria-label={
+            mode === 'en' ? 'Change lattice condition' : '改变晶格状态'
+          }
+        >
+          <button
+            type="button"
+            className={state === 'lattice' ? 'active' : ''}
+            onClick={() => setState('lattice')}
+          >
+            {mode === 'en' ? 'Intact lattice' : '完整晶格'}
+          </button>
+          <button
+            type="button"
+            className={state === 'shifted' ? 'active' : ''}
+            onClick={() => setState('shifted')}
+          >
+            {mode === 'en' ? 'Push a layer' : '推动一层'}
+          </button>
+          <button
+            type="button"
+            className={state === 'dissolved' ? 'active' : ''}
+            onClick={() => setState('dissolved')}
+          >
+            {mode === 'en' ? 'Add water' : '加入水'}
+          </button>
+        </div>
+        <strong>{mode === 'en' ? message.titleEn : message.titleZh}</strong>
+        <p>{mode === 'en' ? message.bodyEn : message.bodyZh}</p>
+        <p className="lattice-rule">
+          {state === 'lattice'
+            ? mode === 'en'
+              ? 'Opposites attract → strong repeating structure'
+              : '异号相吸 → 强而重复的结构'
+            : state === 'shifted'
+              ? mode === 'en'
+                ? 'Likes repel → the crystal cleaves'
+                : '同号相斥 → 晶体沿面裂开'
+              : mode === 'en'
+                ? 'Mobile charge → solution can conduct'
+                : '电荷能移动 → 溶液可以导电'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function CovalentSharingLab({ mode }: { mode: LanguageMode }) {
+  type MoleculeModel = {
+    id: string;
+    formula: string;
+    atoms: Array<{ symbol: string; x: number; y: number; colour: string }>;
+    bonds: Array<{ a: number; b: number; pairs: number }>;
+    lonePairs: Array<{ x: number; y: number }>;
+    sharedPairs: number;
+    titleZh: string;
+    titleEn: string;
+    bodyZh: string;
+    bodyEn: string;
+  };
+  const models: MoleculeModel[] = [
+    {
+      id: 'h2',
+      formula: 'H₂',
+      atoms: [
+        { symbol: 'H', x: 92, y: 120, colour: '#7b9db5' },
+        { symbol: 'H', x: 228, y: 120, colour: '#7b9db5' },
+      ],
+      bonds: [{ a: 0, b: 1, pairs: 1 }],
+      lonePairs: [],
+      sharedPairs: 1,
+      titleZh: 'H—H：一对共享电子',
+      titleEn: 'H—H: one shared pair',
+      bodyZh:
+        '两个氢各带来一个电子，在两个原子核之间形成一对共享电子；一条线表示一个单键。',
+      bodyEn:
+        'Each hydrogen brings one electron, forming a shared pair between the nuclei; one line represents a single bond.',
+    },
+    {
+      id: 'o2',
+      formula: 'O₂',
+      atoms: [
+        { symbol: 'O', x: 92, y: 120, colour: '#dc8067' },
+        { symbol: 'O', x: 228, y: 120, colour: '#dc8067' },
+      ],
+      bonds: [{ a: 0, b: 1, pairs: 2 }],
+      lonePairs: [
+        { x: 55, y: 82 },
+        { x: 55, y: 158 },
+        { x: 265, y: 82 },
+        { x: 265, y: 158 },
+      ],
+      sharedPairs: 2,
+      titleZh: 'O=O：两对共享电子',
+      titleEn: 'O=O: two shared pairs',
+      bodyZh:
+        '两个氧共享两对电子，形成双键；每个氧还保留两对没有参与成键的孤电子对。',
+      bodyEn:
+        'The oxygens share two electron pairs in a double bond; each oxygen also keeps two lone pairs that are not in the bond.',
+    },
+    {
+      id: 'h2o',
+      formula: 'H₂O',
+      atoms: [
+        { symbol: 'O', x: 160, y: 86, colour: '#dc8067' },
+        { symbol: 'H', x: 83, y: 174, colour: '#7b9db5' },
+        { symbol: 'H', x: 237, y: 174, colour: '#7b9db5' },
+      ],
+      bonds: [
+        { a: 0, b: 1, pairs: 1 },
+        { a: 0, b: 2, pairs: 1 },
+      ],
+      lonePairs: [
+        { x: 139, y: 43 },
+        { x: 181, y: 43 },
+      ],
+      sharedPairs: 2,
+      titleZh: 'H₂O：两条键，还有两对孤电子',
+      titleEn: 'H₂O: two bonds plus two lone pairs',
+      bodyZh:
+        '氧与每个氢各共享一对电子。氧上的两对孤电子也占空间，使整个分子呈弯曲形。',
+      bodyEn:
+        'Oxygen shares one pair with each hydrogen. Its two lone pairs also occupy space, giving the molecule a bent shape.',
+    },
+  ];
+  const [selected, setSelected] = useState(0);
+  const model = models[selected]!;
+
+  return (
+    <div className="covalent-sharing-lab">
+      <div
+        className="covalent-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Choose a molecule' : '选择分子'}
+      >
+        {models.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={selected === index ? 'active' : ''}
+            onClick={() => setSelected(index)}
+          >
+            {item.formula}
+          </button>
+        ))}
+      </div>
+      <div className="covalent-scene">
+        <svg
+          viewBox="0 0 320 235"
+          role="img"
+          aria-label={mode === 'en' ? model.titleEn : model.titleZh}
+        >
+          {model.bonds.flatMap((bond, bondIndex) => {
+            const first = model.atoms[bond.a]!;
+            const second = model.atoms[bond.b]!;
+            const dx = second.x - first.x;
+            const dy = second.y - first.y;
+            const length = Math.sqrt(dx * dx + dy * dy);
+            return Array.from({ length: bond.pairs }, (_, pairIndex) => {
+              const offset = (pairIndex - (bond.pairs - 1) / 2) * 10;
+              const offsetX = (-dy / length) * offset;
+              const offsetY = (dx / length) * offset;
+              const unitX = dx / length;
+              const unitY = dy / length;
+              const middleX = (first.x + second.x) / 2 + offsetX;
+              const middleY = (first.y + second.y) / 2 + offsetY;
+              return (
+                <g key={`${bondIndex}-${pairIndex}`}>
+                  <line
+                    className="covalent-bond-line"
+                    x1={first.x + unitX * 31 + offsetX}
+                    y1={first.y + unitY * 31 + offsetY}
+                    x2={second.x - unitX * 31 + offsetX}
+                    y2={second.y - unitY * 31 + offsetY}
+                  />
+                  <circle
+                    className="shared-dot"
+                    cx={middleX - unitX * 4}
+                    cy={middleY - unitY * 4}
+                    r="3.1"
+                  />
+                  <circle
+                    className="shared-dot"
+                    cx={middleX + unitX * 4}
+                    cy={middleY + unitY * 4}
+                    r="3.1"
+                  />
+                </g>
+              );
+            });
+          })}
+          {model.lonePairs.map((pair, index) => (
+            <g className="lone-pair" key={`${pair.x}-${pair.y}`}>
+              <circle cx={pair.x - 4} cy={pair.y} r="3.1" />
+              <circle cx={pair.x + 4} cy={pair.y} r="3.1" />
+              <text x={pair.x} y={pair.y - 9} textAnchor="middle">
+                {index === 0 ? (mode === 'en' ? 'lone pair' : '孤对') : ''}
+              </text>
+            </g>
+          ))}
+          {model.atoms.map((atom, index) => (
+            <g className="covalent-atom" key={`${atom.symbol}-${index}`}>
+              <circle cx={atom.x} cy={atom.y} r="28" fill={atom.colour} />
+              <circle
+                cx={atom.x - 7}
+                cy={atom.y - 8}
+                r="6"
+                fill="rgba(255,255,255,.24)"
+              />
+              <text x={atom.x} y={atom.y + 6} textAnchor="middle">
+                {atom.symbol}
+              </text>
+            </g>
+          ))}
+        </svg>
+        <span className="covalent-formula">{model.formula}</span>
+      </div>
+      <div className="covalent-readout">
+        <strong>{mode === 'en' ? model.titleEn : model.titleZh}</strong>
+        <p>{mode === 'en' ? model.bodyEn : model.bodyZh}</p>
+        <div className="shared-pair-count">
+          <span>{mode === 'en' ? 'Shared pairs shown' : '图中共用电子对'}</span>
+          <b>{model.sharedPairs}</b>
+        </div>
+        <p className="covalent-note">
+          {mode === 'en'
+            ? 'Dots are a map, not a photograph: real electrons form moving probability clouds.'
+            : '点图是地图，不是照片：真实电子以不断变化的概率云分布。'}
+        </p>
       </div>
     </div>
   );
@@ -2056,6 +2893,22 @@ function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
       )}
       {lesson.interactive === 'nonmetal-evidence-sort' && (
         <NonmetalEvidenceSort mode={mode} />
+      )}
+      {lesson.interactive === 'group1-reactivity-lab' && (
+        <Group1ReactivityLab mode={mode} />
+      )}
+      {lesson.interactive === 'group17-ion-lab' && (
+        <Group17IonLab mode={mode} />
+      )}
+      {lesson.interactive === 'noble-gas-glow' && <NobleGasGlow mode={mode} />}
+      {lesson.interactive === 'bond-choice-lab' && (
+        <BondChoiceLab mode={mode} />
+      )}
+      {lesson.interactive === 'ionic-lattice-lab' && (
+        <IonicLatticeLab mode={mode} />
+      )}
+      {lesson.interactive === 'covalent-sharing-lab' && (
+        <CovalentSharingLab mode={mode} />
       )}
     </section>
   );

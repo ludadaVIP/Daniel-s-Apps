@@ -71,4 +71,19 @@ export const pathLevels: PathLevel[] = [
       { zh: '第 1、17、18 族', en: 'Groups 1, 17 and 18' },
     ],
   },
+  {
+    id: 'bonding',
+    number: '05',
+    title: { zh: '离子与化学键', en: 'Ions & chemical bonding' },
+    description: {
+      zh: '从“最外层电子”走到盐、水和材料为什么能形成。',
+      en: 'Move from outer electrons to why salt, water and materials can form.',
+    },
+    lessonCount: 4,
+    topics: [
+      { zh: '原子为什么连接？', en: 'Why atoms connect' },
+      { zh: '离子键与共价键', en: 'Ionic and covalent bonds' },
+      { zh: '结构怎样影响性质？', en: 'How structure affects properties' },
+    ],
+  },
 ];

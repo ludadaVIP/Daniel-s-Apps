@@ -200,7 +200,7 @@ function Home({ mode }: { mode: LanguageMode }) {
       >
         <Link className="first-card" to="/chemistry/lesson/what-is-matter">
           <div className="card-topline">
-            <span>01 / 25</span>
+            <span>01 / {lessons.length.toString().padStart(2, '0')}</span>
             <span>
               <Localized text={copy.next} mode={mode} />
             </span>
