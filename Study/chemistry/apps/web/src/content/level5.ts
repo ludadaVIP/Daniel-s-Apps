@@ -508,4 +508,361 @@ export const level5Lessons = [
       },
     ],
   },
+  {
+    id: 'metallic-bonding',
+    levelId: 'bonding',
+    order: 29,
+    title: {
+      zh: '金属键：电线为什么能弯又能导电？',
+      en: 'Metallic bonding: why can wire bend and conduct?',
+    },
+    eyebrow: {
+      zh: '第 29 课 · 会流动的电子线索',
+      en: 'Lesson 29 · The clue of mobile electrons',
+    },
+    hook: {
+      zh: '一根细铜线可以弯来弯去，还能把电能送进手机；盐晶体却会碎，塑料线皮又不导电。铜内部有什么特别的连接方式？',
+      en: 'A thin copper wire can bend repeatedly and carry electrical energy into a phone; salt crystals shatter and plastic coating does not conduct. What is different inside copper?',
+    },
+    hookHint: {
+      zh: '金属最外层的一些电子不只属于某一对原子，而能在整个结构中离域移动。正金属离子与这些离域电子之间的吸引把金属维系在一起。',
+      en: 'Some outer electrons in a metal are not confined to one atom pair; they are delocalised across the structure. Attraction between positive metal ions and these electrons holds the metal together.',
+    },
+    bigIdea: {
+      zh: '金属键是正金属离子与离域电子之间的静电吸引；电子能移动、吸引又没有固定方向，因此金属常能导电、导热并被弯折成形。',
+      en: 'Metallic bonding is electrostatic attraction between positive metal ions and delocalised electrons; mobile, non-directional attraction helps metals conduct electricity and heat and change shape without immediately breaking.',
+    },
+    estimatedMinutes: 17,
+    everydayExamples: [
+      {
+        icon: '🔌',
+        title: { zh: '铜芯电线', en: 'Copper-core wire' },
+        body: {
+          zh: '铜中的离域电子能在电场作用下整体漂移并携带电荷；外面的塑料负责绝缘，减少触电和短路风险。',
+          en: 'Delocalised electrons in copper can drift through an electric field and carry charge; plastic outside insulates, reducing shock and short-circuit risks.',
+        },
+      },
+      {
+        icon: '🥫',
+        title: { zh: '薄薄的铝箔', en: 'Thin aluminium foil' },
+        body: {
+          zh: '金属离子层滑动时，离域电子仍能维持吸引，因此铝可压成很薄的箔；这叫延展性或可锻性。',
+          en: 'When layers of metal ions slide, delocalised electrons keep attracting them, so aluminium can be rolled into thin foil—an example of malleability.',
+        },
+      },
+      {
+        icon: '🍳',
+        title: { zh: '迅速传热的锅', en: 'A pan that spreads heat' },
+        body: {
+          zh: '移动电子与晶格振动都能传递能量，让许多金属快速导热；锅柄常用塑料或木材降低热传到手上的速度。',
+          en: 'Mobile electrons and lattice vibrations transfer energy, so many metals conduct heat quickly; pan handles often use plastic or wood to slow heat reaching a hand.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: {
+          zh: '先把“原子”改画成金属离子',
+          en: 'First redraw atoms as metal ions',
+        },
+        body: {
+          zh: '许多金属原子的外层电子进入整个结构共享的离域电子系统，留下规则排列的正金属离子。整体仍然电中性：正、负电荷总量相等。',
+          en: 'Outer electrons from many metal atoms join a delocalised system shared across the structure, leaving regularly arranged positive metal ions. The whole metal remains neutral: total positive and negative charge balance.',
+        },
+      },
+      {
+        title: {
+          zh: '电子能移动，所以能传递',
+          en: 'Mobile electrons can transport',
+        },
+        body: {
+          zh: '接上电路后，电子在电场作用下产生有方向的净漂移，形成电流；它们也能迅速传递碰撞获得的能量，帮助解释金属导热。',
+          en: 'In a circuit, an electric field gives electrons a net drift, forming current. They also transfer collision energy quickly, helping explain thermal conduction.',
+        },
+      },
+      {
+        title: {
+          zh: '层滑动，吸引仍在',
+          en: 'Layers slide while attraction remains',
+        },
+        body: {
+          zh: '金属键不像固定的一根根方向性连接。离子层错位后，离域电子仍围绕并吸引新的位置，因此金属往往能弯、拉成丝或压成片，而不是立刻脆裂。',
+          en: 'Metallic bonds are not fixed directional sticks. After ion layers shift, delocalised electrons still surround and attract the new positions, so metals can often bend, draw into wire or roll into sheets instead of fracturing at once.',
+        },
+      },
+    ],
+    misconception: {
+      zh: '“电子海”是帮助想象离域电子的模型，不是金属中真的装着一层液态电子。电子遵循量子规律；模型的价值在于解释它们不固定属于某一个原子，并能穿过结构移动。',
+      en: 'The “sea of electrons” is a model for delocalised electrons, not a literal liquid layer inside metal. Electrons follow quantum rules; the model is useful because they are not assigned to one atom and can move through the structure.',
+    },
+    mission: {
+      zh: '找一小片厨房铝箔和一根未连接电源的包胶扎线或纸夹，比较它们怎样弯曲、是否能保持新形状。只研究干净、无尖锐破损的物品；绝不剪开带电电线或把物体插入插座。',
+      en: 'Compare a small piece of kitchen foil with an unplugged coated twist tie or paper clip: how do they bend and keep a new shape? Use clean, undamaged items only—never cut live wires or put objects into a socket.',
+    },
+    vocabulary: [
+      { en: 'metallic bond', zh: '金属键' },
+      { en: 'delocalised electron', zh: '离域电子' },
+      { en: 'electrical conductor', zh: '电导体' },
+      { en: 'malleable', zh: '可锻的' },
+      { en: 'ductile', zh: '可延展的' },
+    ],
+    interactive: 'metallic-bonding-lab',
+    questions: [
+      {
+        id: 'metallic-q1',
+        prompt: {
+          zh: '金属能导电的关键粒子线索是什么？',
+          en: 'What particle-level clue is central to electrical conduction in metals?',
+        },
+        options: [
+          {
+            zh: '所有正离子在电线中快速跑动',
+            en: 'All positive ions race through the wire',
+          },
+          {
+            zh: '离域电子能在金属结构中移动',
+            en: 'Delocalised electrons can move through the metal structure',
+          },
+          { zh: '金属中完全没有电子', en: 'Metals contain no electrons' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '正金属离子主要在晶格位置附近振动；能产生净漂移并携带电荷的是离域电子。',
+          en: 'Positive metal ions mainly vibrate around lattice positions; delocalised electrons can undergo net drift and carry charge.',
+        },
+      },
+      {
+        id: 'metallic-q2',
+        prompt: {
+          zh: '为什么许多金属能压成薄片而不立即碎裂？',
+          en: 'Why can many metals be rolled into sheets without immediately shattering?',
+        },
+        options: [
+          {
+            zh: '离子层移动后，离域电子仍能维持金属键吸引',
+            en: 'After ion layers move, delocalised electrons can continue the metallic attraction',
+          },
+          {
+            zh: '金属内部所有粒子都会消失',
+            en: 'All particles inside the metal disappear',
+          },
+          {
+            zh: '金属没有任何内部结构',
+            en: 'Metals have no internal structure',
+          },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '金属键没有被限制为固定方向的一对一连接，层滑动后整体吸引仍可维持，因此材料能改变形状。',
+          en: 'Metallic bonding is not limited to fixed one-to-one directional links, so overall attraction can remain after layers slide and the material can change shape.',
+        },
+      },
+      {
+        id: 'metallic-q3',
+        prompt: {
+          zh: '关于金属整体电荷，哪项正确？',
+          en: 'Which statement about the overall charge of a metal is correct?',
+        },
+        options: [
+          {
+            zh: '金属一定带大量正电',
+            en: 'A metal must carry a large positive charge',
+          },
+          {
+            zh: '离域电子会让金属永远带负电',
+            en: 'Delocalised electrons make metal permanently negative',
+          },
+          {
+            zh: '正常金属整体通常电中性，正负电荷总量平衡',
+            en: 'An ordinary metal is usually neutral overall, with positive and negative charge balanced',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '“正金属离子 + 离域电子”是同一个中性结构的两部分，不能只数正离子而忘记电子。',
+          en: '“Positive metal ions + delocalised electrons” are two parts of one neutral structure; the electrons cannot be left out of the charge count.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'structure-property-detective',
+    levelId: 'bonding',
+    order: 30,
+    title: {
+      zh: '结构决定性质：材料侦探',
+      en: 'Structure shapes properties: material detective',
+    },
+    eyebrow: {
+      zh: '第 30 课 · 从证据反推微观结构',
+      en: 'Lesson 30 · Work backward from evidence',
+    },
+    hook: {
+      zh: '同样摆在桌上的铜线、食盐、蜡烛和钻石，为什么有的导电、有的会熔、有的能弯、有的硬得惊人？只看几条性质，能不能猜出里面的粒子怎样连接？',
+      en: 'Copper wire, salt, candle wax and diamond can all sit on a table—yet one conducts, one melts, one bends and one is extraordinarily hard. Can a few properties reveal how their particles connect?',
+    },
+    hookHint: {
+      zh: '把每项性质当成线索：有没有可移动电荷？熔化要克服分子间作用还是整张强键网络？受力时粒子层能滑动，还是会让同号电荷相遇？',
+      en: 'Treat each property as evidence: are mobile charges present? Does melting overcome attractions between molecules or a whole strong-bond network? Can layers slide, or does shifting bring like charges together?',
+    },
+    bigIdea: {
+      zh: '材料性质来自“有哪些粒子、怎样排列、怎样连接”；组合多条证据，才能从宏观表现反推出最合理的微观结构。',
+      en: 'Material properties come from which particles exist, how they are arranged and how they connect; combining several clues lets us infer the most plausible microscopic structure.',
+    },
+    estimatedMinutes: 19,
+    everydayExamples: [
+      {
+        icon: '📱',
+        title: {
+          zh: '一根充电线里的多种材料',
+          en: 'Many materials in one charging cable',
+        },
+        body: {
+          zh: '铜芯需要导电和可弯，塑料外皮需要绝缘和柔韧。工程师不会问“哪种材料最好”，而会问“哪种结构适合这个任务”。',
+          en: 'The copper core must conduct and bend; the plastic jacket must insulate and flex. Engineers do not ask which material is simply best—they ask which structure fits the job.',
+        },
+      },
+      {
+        icon: '🧂',
+        title: { zh: '盐粒与盐水', en: 'Salt grains and salt water' },
+        body: {
+          zh: '同一种物质，固态时离子固定而不易导电，溶于水后离子可移动而导电。状态改变了粒子的活动方式。',
+          en: 'The same substance conducts poorly as a solid because ions are fixed, but conducts in solution when ions can move. State changes what particles can do.',
+        },
+      },
+      {
+        icon: '🕯️',
+        title: { zh: '容易软化的蜡', en: 'Wax that softens readily' },
+        body: {
+          zh: '蜡分子内部有共价键，但熔化主要是让分子彼此滑开，不必拆断分子内所有强键，所以熔点远低于钻石。',
+          en: 'Wax has covalent bonds inside molecules, but melting mainly lets molecules slide apart without breaking all internal bonds, so its melting point is far below diamond’s.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: {
+          zh: '第一问：电荷能不能移动？',
+          en: 'First ask: can charge move?',
+        },
+        body: {
+          zh: '固态就导电且能弯，常提示金属中的离域电子；固态不导电、熔化或溶解后导电，常提示离子从固定变为可移动。分子物质通常缺少自由移动的带电粒子。',
+          en: 'Conducting while solid and bendable often suggests delocalised electrons in a metal. Conducting only when molten or dissolved often suggests ions becoming mobile. Molecular substances usually lack freely moving charged particles.',
+        },
+      },
+      {
+        title: {
+          zh: '第二问：加热时要拆开什么？',
+          en: 'Second ask: what must heating overcome?',
+        },
+        body: {
+          zh: '小分子物质熔化或沸腾时，通常主要克服分子间吸引；离子晶格和巨型共价结构则要克服贯穿整体的强作用，因此往往需要更高温度。',
+          en: 'When small-molecule substances melt or boil, heating mainly overcomes intermolecular attractions. Ionic lattices and giant covalent structures involve strong interactions throughout the solid and often need higher temperatures.',
+        },
+      },
+      {
+        title: {
+          zh: '第三问：不要用一条线索判案',
+          en: 'Third ask: do several clues agree?',
+        },
+        body: {
+          zh: '“熔点高”不能单独证明离子结构，因为钻石等巨型共价结构也很耐高温。把导电、硬度、脆性、溶解性与状态变化一起看，结论才更可靠。',
+          en: 'A high melting point alone does not prove an ionic structure; giant covalent materials such as diamond also resist heat. Combine conductivity, hardness, brittleness, solubility and state changes for a stronger conclusion.',
+        },
+      },
+    ],
+    misconception: {
+      zh: '“含共价键”不等于“低熔点”。蜡是独立分子组成的分子物质，钻石却是共价键贯穿全体的巨型网络；真正要问的是强键只在分子内部，还是延伸到整个材料。',
+      en: '“Contains covalent bonds” does not automatically mean “low melting point”. Wax consists of separate molecules, while diamond is a giant network of covalent bonds. Ask whether strong bonds stay inside molecules or extend throughout the material.',
+    },
+    mission: {
+      zh: '在家中选择三个安全物品，例如铝箔、食盐、蜡烛或塑料瓶。只根据可见和已知性质填写“会不会弯、是否金属光泽、常温状态、是否怕热”，再提出一个结构猜想；不要加热、通电或品尝材料。',
+      en: 'Choose three safe household items such as foil, salt, a candle or a plastic bottle. Record only visible or known properties—bends, metallic shine, room-temperature state, heat sensitivity—then propose a structure. Do not heat, electrify or taste materials.',
+    },
+    vocabulary: [
+      { en: 'structure–property relationship', zh: '结构—性质关系' },
+      { en: 'molecular substance', zh: '分子物质' },
+      { en: 'giant covalent structure', zh: '巨型共价结构' },
+      { en: 'evidence', zh: '证据' },
+      { en: 'inference', zh: '推断' },
+    ],
+    interactive: 'structure-detective-lab',
+    questions: [
+      {
+        id: 'structure-property-q1',
+        prompt: {
+          zh: '某固体能导电、可以弯曲并有金属光泽，最合理的结构模型是什么？',
+          en: 'A solid conducts electricity, bends and has metallic lustre. Which structure model fits best?',
+        },
+        options: [
+          {
+            zh: '金属离子与可移动的离域电子',
+            en: 'Metal ions with mobile delocalised electrons',
+          },
+          {
+            zh: '彼此独立且没有带电粒子的小分子',
+            en: 'Separate small molecules with no charged particles',
+          },
+          {
+            zh: '固定不动的正负离子晶格',
+            en: 'A lattice of fixed positive and negative ions',
+          },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '固态导电指向可移动电子，能弯又提示离子层滑动后金属键仍能维持；多条证据共同支持金属结构。',
+          en: 'Solid conductivity points to mobile electrons, while bending suggests bonding survives layer movement. Together the clues support a metallic structure.',
+        },
+      },
+      {
+        id: 'structure-property-q2',
+        prompt: {
+          zh: '哪组证据最支持某物质是典型离子固体？',
+          en: 'Which evidence set best supports a typical ionic solid?',
+        },
+        options: [
+          {
+            zh: '常温是气体，而且完全不带电',
+            en: 'A gas at room temperature with no charge',
+          },
+          {
+            zh: '较硬而脆，固态不导电，熔融或溶解后可导电',
+            en: 'Hard and brittle, non-conducting as a solid but conducting when molten or dissolved',
+          },
+          {
+            zh: '柔软、低熔点、固态导电并容易拉成丝',
+            en: 'Soft, low-melting, solid-conducting and easily drawn into wire',
+          },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '这组证据与固定离子的强晶格、错位后的排斥，以及液态或溶液中离子可移动相互吻合。',
+          en: 'These clues match a strong lattice of fixed ions, repulsion after layer shifts, and mobile ions in a melt or solution.',
+        },
+      },
+      {
+        id: 'structure-property-q3',
+        prompt: {
+          zh: '蜡和钻石内部都含共价键，为什么熔点差别巨大？',
+          en: 'Wax and diamond both contain covalent bonds. Why are their melting behaviours so different?',
+        },
+        options: [
+          { zh: '钻石其实没有碳原子', en: 'Diamond contains no carbon atoms' },
+          {
+            zh: '蜡里的每个电子都消失了',
+            en: 'Every electron in wax has disappeared',
+          },
+          {
+            zh: '蜡由独立分子组成，钻石的强共价键形成贯穿材料的巨型网络',
+            en: 'Wax has separate molecules, while strong covalent bonds form a giant network throughout diamond',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '熔化蜡主要克服分子间吸引；破坏钻石结构则要处理贯穿整体的大量强共价键。',
+          en: 'Melting wax mainly overcomes attractions between molecules; disrupting diamond means confronting many strong covalent bonds throughout the network.',
+        },
+      },
+    ],
+  },
 ] satisfies Lesson[];

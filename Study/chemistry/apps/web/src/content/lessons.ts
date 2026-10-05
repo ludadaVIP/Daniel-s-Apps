@@ -3,6 +3,9 @@ import { level2Lessons } from './level2';
 import { level3Lessons } from './level3';
 import { level4Lessons } from './level4';
 import { level5Lessons } from './level5';
+import { level6Lessons } from './level6';
+import { level7Lessons } from './level7';
+import { level8Lessons } from './level8';
 
 export type LessonQuestion = {
   id: string;
@@ -14,7 +17,15 @@ export type LessonQuestion = {
 
 export type Lesson = {
   id: string;
-  levelId: 'matter' | 'substances' | 'atoms' | 'table' | 'bonding';
+  levelId:
+    | 'matter'
+    | 'substances'
+    | 'atoms'
+    | 'table'
+    | 'bonding'
+    | 'formulae'
+    | 'reactions'
+    | 'acids';
   order: number;
   title: LocalizedText;
   eyebrow: LocalizedText;
@@ -61,7 +72,18 @@ export type Lesson = {
     | 'bond-choice-lab'
     | 'ionic-lattice-lab'
     | 'covalent-sharing-lab'
-    | 'metallic-bonding-lab';
+    | 'metallic-bonding-lab'
+    | 'structure-detective-lab'
+    | 'formula-decoder-lab'
+    | 'ionic-formula-balance-lab'
+    | 'ionic-naming-lab'
+    | 'roman-charge-detective-lab'
+    | 'polyatomic-package-lab'
+    | 'molecular-prefix-lab'
+    | 'reaction-rearrangement-lab'
+    | 'equation-reader-lab'
+    | 'equation-balance-lab'
+    | 'ph-scale-lab';
 };
 
 export const lessons: Lesson[] = [
@@ -817,6 +839,9 @@ export const lessons: Lesson[] = [
   ...level3Lessons,
   ...level4Lessons,
   ...level5Lessons,
+  ...level6Lessons,
+  ...level7Lessons,
+  ...level8Lessons,
 ];
 
 export function getLesson(id: string | undefined) {

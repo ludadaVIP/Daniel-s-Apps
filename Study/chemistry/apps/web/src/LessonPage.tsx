@@ -2830,6 +2830,2134 @@ function CovalentSharingLab({ mode }: { mode: LanguageMode }) {
   );
 }
 
+function MetallicBondingLab({ mode }: { mode: LanguageMode }) {
+  const [view, setView] = useState<'structure' | 'current' | 'shape'>(
+    'structure',
+  );
+  const ions = Array.from({ length: 20 }, (_, index) => ({
+    row: Math.floor(index / 5),
+  }));
+  const electrons = Array.from({ length: 18 }, (_, index) => ({
+    x: 8 + ((index * 31) % 84),
+    y: 10 + ((index * 47) % 78),
+    delay: `${-(index % 6) * 0.19}s`,
+  }));
+  const messages = {
+    structure: {
+      titleZh: '正离子骨架 + 离域电子',
+      titleEn: 'Positive-ion framework + delocalised electrons',
+      bodyZh:
+        '金属离子规则排列；外层电子分布在整个结构中。正负吸引维系晶格，整体电荷仍然平衡。',
+      bodyEn:
+        'Metal ions are ordered while outer electrons spread through the structure. Positive-negative attraction holds the lattice and total charge remains balanced.',
+      ruleZh: '离域 ≠ 丢失：电子仍在金属内部',
+      ruleEn: 'Delocalised ≠ lost: electrons remain in the metal',
+    },
+    current: {
+      titleZh: '接入电场：电子产生净漂移',
+      titleEn: 'Apply an electric field: electrons gain net drift',
+      bodyZh:
+        '电子本来就在快速无规则运动；电场让它们叠加一个有方向的微小净漂移，从而携带电荷形成电流。',
+      bodyEn:
+        'Electrons already move rapidly and randomly; an electric field adds a small directed net drift, carrying charge as current.',
+      ruleZh: '可移动带电粒子 → 能导电',
+      ruleEn: 'Mobile charged particles → conduction',
+    },
+    shape: {
+      titleZh: '推动离子层：连接没有立刻断开',
+      titleEn: 'Slide ion layers: bonding does not immediately fail',
+      bodyZh:
+        '离子层错位后，离域电子仍在新位置周围产生吸引。金属因此常能被弯折、压片或拉成细丝。',
+      bodyEn:
+        'After ion layers shift, delocalised electrons still attract ions in their new positions. Metals can therefore often bend, roll into sheets or draw into wire.',
+      ruleZh: '层能滑动 → 可锻、可延展',
+      ruleEn: 'Layers can slide → malleable and ductile',
+    },
+  } as const;
+  const message = messages[view];
+
+  return (
+    <div className="metallic-bonding-lab">
+      <div className={`metallic-scene ${view}`} aria-live="polite">
+        <div className="metal-ion-grid" aria-hidden="true">
+          {ions.map((ion, index) => (
+            <span className={`metal-ion metal-row-${ion.row}`} key={index}>
+              M⁺
+            </span>
+          ))}
+        </div>
+        <div className="electron-cloud" aria-hidden="true">
+          {electrons.map((electron, index) => (
+            <i
+              key={index}
+              style={
+                {
+                  left: `${electron.x}%`,
+                  top: `${electron.y}%`,
+                  animationDelay: electron.delay,
+                } as CSSProperties
+              }
+            >
+              e⁻
+            </i>
+          ))}
+        </div>
+        <span className="metal-scene-label">
+          {view === 'current'
+            ? mode === 'en'
+              ? 'electron drift →'
+              : '电子净漂移 →'
+            : view === 'shape'
+              ? mode === 'en'
+                ? 'layers slide'
+                : '离子层滑动'
+              : mode === 'en'
+                ? 'metal structure'
+                : '金属结构'}
+        </span>
+      </div>
+      <div className="metallic-readout">
+        <div
+          className="metallic-actions"
+          role="group"
+          aria-label={
+            mode === 'en' ? 'Explore metal properties' : '探索金属性质'
+          }
+        >
+          <button
+            type="button"
+            className={view === 'structure' ? 'active' : ''}
+            onClick={() => setView('structure')}
+          >
+            {mode === 'en' ? 'Structure' : '看结构'}
+          </button>
+          <button
+            type="button"
+            className={view === 'current' ? 'active' : ''}
+            onClick={() => setView('current')}
+          >
+            {mode === 'en' ? 'Switch on' : '接通电场'}
+          </button>
+          <button
+            type="button"
+            className={view === 'shape' ? 'active' : ''}
+            onClick={() => setView('shape')}
+          >
+            {mode === 'en' ? 'Bend metal' : '弯折金属'}
+          </button>
+        </div>
+        <strong>{mode === 'en' ? message.titleEn : message.titleZh}</strong>
+        <p>{mode === 'en' ? message.bodyEn : message.bodyZh}</p>
+        <p className="metallic-rule">
+          {mode === 'en' ? message.ruleEn : message.ruleZh}
+        </p>
+        <p className="metallic-safe-note">
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'Animation only. Never test wires with a wall socket or live power source.'
+            : '仅为动画模型。绝不使用插座或带电电源测试电线。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function StructureDetectiveLab({ mode }: { mode: LanguageMode }) {
+  type StructureKind = 'metallic' | 'ionic' | 'molecular' | 'giant';
+  const kinds: Array<{ id: StructureKind; zh: string; en: string }> = [
+    { id: 'metallic', zh: '金属结构', en: 'Metallic' },
+    { id: 'ionic', zh: '离子晶格', en: 'Ionic lattice' },
+    { id: 'molecular', zh: '分子物质', en: 'Molecular' },
+    { id: 'giant', zh: '巨型共价', en: 'Giant covalent' },
+  ];
+  const materials: Array<{
+    id: string;
+    icon: string;
+    zh: string;
+    en: string;
+    kind: StructureKind;
+    cluesZh: string[];
+    cluesEn: string[];
+    explanationZh: string;
+    explanationEn: string;
+  }> = [
+    {
+      id: 'copper',
+      icon: '🔌',
+      zh: '铜',
+      en: 'Copper',
+      kind: 'metallic',
+      cluesZh: ['固态就能导电', '可以拉成细线', '有金属光泽'],
+      cluesEn: [
+        'conducts as a solid',
+        'can be drawn into wire',
+        'has metallic lustre',
+      ],
+      explanationZh:
+        '固态导电说明有可移动电子；能拉丝说明离子层移动后吸引仍能维持。两条线索共同指向金属键。',
+      explanationEn:
+        'Solid conductivity suggests mobile electrons; drawing into wire shows attraction survives layer movement. Together they point to metallic bonding.',
+    },
+    {
+      id: 'salt',
+      icon: '🧂',
+      zh: '食盐',
+      en: 'Table salt',
+      kind: 'ionic',
+      cluesZh: ['晶体较硬而脆', '固态不易导电', '溶于水后溶液导电'],
+      cluesEn: [
+        'hard, brittle crystals',
+        'solid conducts poorly',
+        'solution conducts',
+      ],
+      explanationZh:
+        '正负离子构成强晶格；固态时离子固定，溶解后离子可移动。整组证据与离子结构吻合。',
+      explanationEn:
+        'Positive and negative ions form a strong lattice. Ions are fixed in the solid but mobile after dissolving—the full evidence set matches an ionic structure.',
+    },
+    {
+      id: 'wax',
+      icon: '🕯️',
+      zh: '蜡',
+      en: 'Wax',
+      kind: 'molecular',
+      cluesZh: ['不导电', '受热较容易软化', '由许多独立分子组成'],
+      cluesEn: [
+        'does not conduct',
+        'softens fairly easily',
+        'contains many separate molecules',
+      ],
+      explanationZh:
+        '蜡分子内部有强共价键，但软化主要克服较弱的分子间吸引，因此符合分子物质模型。',
+      explanationEn:
+        'Wax has strong covalent bonds inside each molecule, but softening mainly overcomes weaker attractions between molecules, fitting a molecular structure.',
+    },
+    {
+      id: 'diamond',
+      icon: '💎',
+      zh: '钻石',
+      en: 'Diamond',
+      kind: 'giant',
+      cluesZh: ['极硬', '耐高温', '每个碳都与网络相连'],
+      cluesEn: [
+        'extremely hard',
+        'resists high temperature',
+        'every carbon joins a network',
+      ],
+      explanationZh:
+        '强共价键贯穿整个三维网络，移动一个原子就会牵动许多强键，因此钻石极硬且耐高温。',
+      explanationEn:
+        'Strong covalent bonds extend through a three-dimensional network, so moving one atom disrupts many strong bonds, making diamond hard and heat-resistant.',
+    },
+  ];
+  const [materialIndex, setMaterialIndex] = useState(0);
+  const [choice, setChoice] = useState<StructureKind | null>(null);
+  const material = materials[materialIndex]!;
+  const correct = choice === material.kind;
+  const nodes = Array.from({ length: 16 }, (_, index) => index);
+
+  return (
+    <div className="structure-detective-lab">
+      <div
+        className="detective-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Choose a material case' : '选择材料案件'}
+      >
+        {materials.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={materialIndex === index ? 'active' : ''}
+            onClick={() => {
+              setMaterialIndex(index);
+              setChoice(null);
+            }}
+          >
+            <span aria-hidden="true">{item.icon}</span>{' '}
+            {mode === 'en' ? item.en : item.zh}
+          </button>
+        ))}
+      </div>
+      <div
+        className={`detective-preview ${material.id}`}
+        aria-label={
+          mode === 'en'
+            ? `${material.en} particle model`
+            : `${material.zh}粒子模型`
+        }
+        role="img"
+      >
+        <div className="preview-network" aria-hidden="true">
+          {nodes.map((index) => (
+            <i
+              key={index}
+              className={`preview-node node-${index + 1} ${
+                material.id === 'salt'
+                  ? index % 2 === Math.floor(index / 4) % 2
+                    ? 'positive'
+                    : 'negative'
+                  : ''
+              }`}
+            >
+              {material.id === 'salt'
+                ? index % 2 === Math.floor(index / 4) % 2
+                  ? '+'
+                  : '−'
+                : material.id === 'diamond'
+                  ? 'C'
+                  : material.id === 'copper'
+                    ? 'M⁺'
+                    : index % 2 === 0
+                      ? 'C'
+                      : 'H'}
+            </i>
+          ))}
+          {material.id === 'copper' &&
+            Array.from({ length: 8 }, (_, index) => (
+              <em
+                key={index}
+                className={`preview-electron electron-${index + 1}`}
+              >
+                e⁻
+              </em>
+            ))}
+        </div>
+        <span className="detective-material-name">
+          {material.icon} {mode === 'en' ? material.en : material.zh}
+        </span>
+      </div>
+      <div className="detective-console">
+        <strong>{mode === 'en' ? 'Evidence collected' : '已收集的证据'}</strong>
+        <ul>
+          {(mode === 'en' ? material.cluesEn : material.cluesZh).map((clue) => (
+            <li key={clue}>{clue}</li>
+          ))}
+        </ul>
+        <p>
+          {mode === 'en'
+            ? 'Which structure fits all clues?'
+            : '哪种结构能同时解释全部线索？'}
+        </p>
+        <div className="detective-answers">
+          {kinds.map((kind) => {
+            const selected = choice === kind.id;
+            const revealCorrect = choice !== null && kind.id === material.kind;
+            return (
+              <button
+                type="button"
+                key={kind.id}
+                className={`${selected ? 'selected' : ''} ${revealCorrect ? 'correct' : ''} ${selected && !correct ? 'wrong' : ''}`}
+                onClick={() => setChoice(kind.id)}
+              >
+                {mode === 'en' ? kind.en : kind.zh}
+              </button>
+            );
+          })}
+        </div>
+        {choice !== null && (
+          <div
+            className={`detective-feedback ${correct ? 'correct' : 'wrong'}`}
+            aria-live="polite"
+          >
+            <b>
+              {correct
+                ? mode === 'en'
+                  ? 'Case solved!'
+                  : '破案成功！'
+                : mode === 'en'
+                  ? 'One clue does not fit yet.'
+                  : '还有线索对不上。'}
+            </b>
+            <p>
+              <strong>{mode === 'en' ? 'Explanation: ' : '解析：'}</strong>
+              {mode === 'en' ? material.explanationEn : material.explanationZh}
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+function FormulaDecoderLab({ mode }: { mode: LanguageMode }) {
+  const templates = [
+    {
+      id: 'water',
+      formula: 'H₂O',
+      zh: '水分子',
+      en: 'water molecule',
+      unitZh: '分子',
+      unitEn: 'molecule',
+      atoms: [
+        { symbol: 'H', count: 2, colour: '#7e9fba' },
+        { symbol: 'O', count: 1, colour: '#df8168' },
+      ],
+      noteZh: '下标 ₂ 只属于 H；O 没写下标，数量就是 1。',
+      noteEn:
+        'The subscript ₂ belongs only to H; O has no written subscript, so its count is one.',
+    },
+    {
+      id: 'carbon-dioxide',
+      formula: 'CO₂',
+      zh: '二氧化碳分子',
+      en: 'carbon dioxide molecule',
+      unitZh: '分子',
+      unitEn: 'molecule',
+      atoms: [
+        { symbol: 'C', count: 1, colour: '#65727b' },
+        { symbol: 'O', count: 2, colour: '#df8168' },
+      ],
+      noteZh: 'C 没写下标，所以每份有 1 个 C；O₂ 表示 2 个 O。',
+      noteEn:
+        'C has no subscript, so each unit has one C; O₂ means two O atoms.',
+    },
+    {
+      id: 'salt',
+      formula: 'NaCl',
+      zh: '氯化钠化学式单位',
+      en: 'sodium chloride formula unit',
+      unitZh: '化学式单位',
+      unitEn: 'formula unit',
+      atoms: [
+        { symbol: 'Na', count: 1, colour: '#709b93' },
+        { symbol: 'Cl', count: 1, colour: '#d58c69' },
+      ],
+      noteZh: '离子固体不用“分子”描述；NaCl 表示 Na⁺ 与 Cl⁻ 的最简比例 1∶1。',
+      noteEn:
+        'An ionic solid is not described as molecules; NaCl gives the simplest Na⁺:Cl⁻ ratio, 1:1.',
+    },
+    {
+      id: 'peroxide',
+      formula: 'H₂O₂',
+      zh: '过氧化氢分子',
+      en: 'hydrogen peroxide molecule',
+      unitZh: '分子',
+      unitEn: 'molecule',
+      atoms: [
+        { symbol: 'H', count: 2, colour: '#7e9fba' },
+        { symbol: 'O', count: 2, colour: '#df8168' },
+      ],
+      noteZh: 'H₂O₂ 比 H₂O 多一个 O，已经是另一种物质；不要把产品当水使用。',
+      noteEn:
+        'H₂O₂ has one more O than H₂O and is a different substance; never treat the product as water.',
+    },
+  ];
+  const [templateIndex, setTemplateIndex] = useState(0);
+  const [coefficient, setCoefficient] = useState(1);
+  const template = templates[templateIndex]!;
+  const displayedFormula = `${coefficient > 1 ? coefficient : ''}${template.formula}`;
+
+  return (
+    <div className="formula-decoder-lab">
+      <div
+        className="formula-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Choose a formula' : '选择化学式'}
+      >
+        {templates.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={templateIndex === index ? 'active' : ''}
+            onClick={() => {
+              setTemplateIndex(index);
+              setCoefficient(1);
+            }}
+          >
+            {item.formula}
+          </button>
+        ))}
+      </div>
+      <div className="formula-scene" aria-live="polite">
+        <div className="formula-display">
+          {coefficient > 1 && <b>{coefficient}</b>}
+          <strong>{template.formula}</strong>
+        </div>
+        <div
+          className="formula-units"
+          aria-label={
+            mode === 'en'
+              ? `${coefficient} ${template.unitEn}${coefficient > 1 ? 's' : ''}`
+              : `${coefficient} 个${template.unitZh}`
+          }
+        >
+          {Array.from({ length: coefficient }, (_, unitIndex) => (
+            <div className={`formula-unit ${template.id}`} key={unitIndex}>
+              {template.atoms.flatMap((atom) =>
+                Array.from({ length: atom.count }, (_, atomIndex) => (
+                  <span
+                    key={`${atom.symbol}-${atomIndex}`}
+                    style={{ '--formula-atom': atom.colour } as CSSProperties}
+                  >
+                    {atom.symbol}
+                  </span>
+                )),
+              )}
+            </div>
+          ))}
+        </div>
+        <span className="formula-unit-label">
+          {coefficient} × {mode === 'en' ? template.unitEn : template.unitZh}
+        </span>
+      </div>
+      <div className="formula-readout">
+        <div className="coefficient-control">
+          <span>{mode === 'en' ? 'Whole units' : '整份数量'}</span>
+          <button
+            type="button"
+            disabled={coefficient === 1}
+            onClick={() => setCoefficient((value) => Math.max(1, value - 1))}
+            aria-label={mode === 'en' ? 'Remove one unit' : '减少一份'}
+          >
+            −
+          </button>
+          <b>{coefficient}</b>
+          <button
+            type="button"
+            disabled={coefficient === 3}
+            onClick={() => setCoefficient((value) => Math.min(3, value + 1))}
+            aria-label={mode === 'en' ? 'Add one unit' : '增加一份'}
+          >
+            +
+          </button>
+        </div>
+        <strong>
+          {displayedFormula} · {mode === 'en' ? template.en : template.zh}
+        </strong>
+        <div className="formula-counts">
+          {template.atoms.map((atom) => (
+            <span key={atom.symbol}>
+              <i style={{ background: atom.colour }} />
+              {atom.symbol}: <b>{atom.count * coefficient}</b>
+            </span>
+          ))}
+        </div>
+        <p>{mode === 'en' ? template.noteEn : template.noteZh}</p>
+        <p className="formula-rule">
+          {mode === 'en'
+            ? `Coefficient ${coefficient} multiplies every atom count; subscripts inside ${template.formula} stay unchanged.`
+            : `系数 ${coefficient} 乘上每一种原子总数；${template.formula} 内部的下标保持不变。`}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function IonicFormulaBalanceLab({ mode }: { mode: LanguageMode }) {
+  const pairs = [
+    {
+      id: 'salt',
+      formula: 'NaCl',
+      useZh: '餐桌盐',
+      useEn: 'table salt',
+      cation: {
+        symbol: 'Na',
+        ion: 'Na⁺',
+        charge: 1,
+        zh: '钠离子',
+        en: 'sodium ion',
+      },
+      anion: {
+        symbol: 'Cl',
+        ion: 'Cl⁻',
+        charge: -1,
+        zh: '氯离子',
+        en: 'chloride ion',
+      },
+      target: [1, 1],
+    },
+    {
+      id: 'magnesium-chloride',
+      formula: 'MgCl₂',
+      useZh: '海水中的镁盐',
+      useEn: 'a magnesium salt in seawater',
+      cation: {
+        symbol: 'Mg',
+        ion: 'Mg²⁺',
+        charge: 2,
+        zh: '镁离子',
+        en: 'magnesium ion',
+      },
+      anion: {
+        symbol: 'Cl',
+        ion: 'Cl⁻',
+        charge: -1,
+        zh: '氯离子',
+        en: 'chloride ion',
+      },
+      target: [1, 2],
+    },
+    {
+      id: 'calcium-oxide',
+      formula: 'CaO',
+      useZh: '石灰的主要成分',
+      useEn: 'the main substance in quicklime',
+      cation: {
+        symbol: 'Ca',
+        ion: 'Ca²⁺',
+        charge: 2,
+        zh: '钙离子',
+        en: 'calcium ion',
+      },
+      anion: {
+        symbol: 'O',
+        ion: 'O²⁻',
+        charge: -2,
+        zh: '氧离子',
+        en: 'oxide ion',
+      },
+      target: [1, 1],
+    },
+    {
+      id: 'aluminium-oxide',
+      formula: 'Al₂O₃',
+      useZh: '铝表面的保护层',
+      useEn: 'the protective layer on aluminium',
+      cation: {
+        symbol: 'Al',
+        ion: 'Al³⁺',
+        charge: 3,
+        zh: '铝离子',
+        en: 'aluminium ion',
+      },
+      anion: {
+        symbol: 'O',
+        ion: 'O²⁻',
+        charge: -2,
+        zh: '氧离子',
+        en: 'oxide ion',
+      },
+      target: [2, 3],
+    },
+  ];
+  const [pairIndex, setPairIndex] = useState(1);
+  const [cationCount, setCationCount] = useState(1);
+  const [anionCount, setAnionCount] = useState(1);
+  const pair = pairs[pairIndex]!;
+  const positiveTotal = cationCount * pair.cation.charge;
+  const negativeTotal = anionCount * pair.anion.charge;
+  const netCharge = positiveTotal + negativeTotal;
+  const commonFactor = (a: number, b: number) => {
+    let left = a;
+    let right = b;
+    while (right !== 0) {
+      [left, right] = [right, left % right];
+    }
+    return left;
+  };
+  const balanced = netCharge === 0;
+  const simplest = balanced && commonFactor(cationCount, anionCount) === 1;
+  const subscript = (count: number) => ['', '', '₂', '₃'][count] ?? '';
+  const builtFormula = `${pair.cation.symbol}${subscript(cationCount)}${pair.anion.symbol}${subscript(anionCount)}`;
+  const meterPosition = 50 + Math.max(-6, Math.min(6, netCharge)) * 7;
+
+  const choosePair = (index: number) => {
+    setPairIndex(index);
+    setCationCount(1);
+    setAnionCount(1);
+  };
+
+  const countControl = (
+    kind: 'cation' | 'anion',
+    count: number,
+    setCount: (value: number | ((old: number) => number)) => void,
+  ) => {
+    const ion = kind === 'cation' ? pair.cation : pair.anion;
+    const name = mode === 'en' ? ion.en : ion.zh;
+    return (
+      <div className={`ion-count-control ${kind}`}>
+        <span>
+          {ion.ion} · {name}
+        </span>
+        <div>
+          <button
+            type="button"
+            disabled={count === 1}
+            onClick={() => setCount((old) => Math.max(1, old - 1))}
+            aria-label={`${mode === 'en' ? 'Remove' : '减少'} ${name}`}
+          >
+            −
+          </button>
+          <b>{count}</b>
+          <button
+            type="button"
+            disabled={count === 3}
+            onClick={() => setCount((old) => Math.min(3, old + 1))}
+            aria-label={`${mode === 'en' ? 'Add' : '增加'} ${name}`}
+          >
+            +
+          </button>
+        </div>
+      </div>
+    );
+  };
+
+  return (
+    <div className="ionic-formula-lab">
+      <div
+        className="ionic-pair-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Choose an ion pair' : '选择离子组合'}
+      >
+        {pairs.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={pairIndex === index ? 'active' : ''}
+            onClick={() => choosePair(index)}
+          >
+            {item.cation.ion} + {item.anion.ion}
+          </button>
+        ))}
+      </div>
+      <div className="ionic-balance-scene" aria-live="polite">
+        <div className="ion-pile positive">
+          {Array.from({ length: cationCount }, (_, index) => (
+            <span key={index}>{pair.cation.ion}</span>
+          ))}
+        </div>
+        <div className="charge-balance-meter">
+          <div className="charge-meter-labels">
+            <span>−</span>
+            <b>{mode === 'en' ? 'net charge' : '净电荷'}</b>
+            <span>+</span>
+          </div>
+          <div className="charge-meter-track">
+            <i style={{ left: `${meterPosition}%` }} />
+          </div>
+          <strong className={balanced ? 'balanced' : ''}>
+            {netCharge > 0 ? '+' : ''}
+            {netCharge}
+          </strong>
+        </div>
+        <div className="ion-pile negative">
+          {Array.from({ length: anionCount }, (_, index) => (
+            <span key={index}>{pair.anion.ion}</span>
+          ))}
+        </div>
+        <span className="ionic-scene-caption">
+          {positiveTotal > 0 ? '+' : ''}
+          {positiveTotal} {negativeTotal < 0 ? '−' : '+'}{' '}
+          {Math.abs(negativeTotal)}
+          {' = '}
+          {netCharge > 0 ? '+' : ''}
+          {netCharge}
+        </span>
+      </div>
+      <div className="ionic-formula-console">
+        <p>
+          {mode === 'en'
+            ? 'Build the smallest neutral team'
+            : '搭出最小的电中性组合'}
+        </p>
+        <div className="ion-count-controls">
+          {countControl('cation', cationCount, setCationCount)}
+          {countControl('anion', anionCount, setAnionCount)}
+        </div>
+        <div
+          className={`ionic-formula-result ${simplest ? 'correct' : balanced ? 'reduce' : ''}`}
+        >
+          <span>{mode === 'en' ? 'Formula' : '化学式'}</span>
+          <strong>
+            {simplest
+              ? pair.formula
+              : balanced
+                ? `${builtFormula} → ${pair.formula}`
+                : '?'}
+          </strong>
+        </div>
+        <p className="ionic-balance-feedback">
+          {simplest
+            ? mode === 'en'
+              ? `Balanced and simplest: ${pair.formula} is ${pair.useEn}.`
+              : `电荷归零，而且比例最简：${pair.formula} 是${pair.useZh}。`
+            : balanced
+              ? mode === 'en'
+                ? 'The charge balances, but both counts share a factor. Reduce the ratio.'
+                : '电荷已经归零，但两个数量还能同时约分；请化成最简比。'
+              : netCharge > 0
+                ? mode === 'en'
+                  ? `Still ${netCharge} positive: add negative charge or remove positive charge.`
+                  : `还多出 +${netCharge}：增加负电荷，或减少正电荷。`
+                : mode === 'en'
+                  ? `Still ${Math.abs(netCharge)} negative: add positive charge or remove negative charge.`
+                  : `还多出 ${Math.abs(netCharge)} 份负电荷：增加正电荷，或减少负电荷。`}
+        </p>
+        <p className="ionic-balance-rule">
+          {mode === 'en'
+            ? `Target: ${pair.target[0]} ${pair.cation.ion} and ${pair.target[1]} ${pair.anion.ion}. Check charge first; write subscripts last.`
+            : `目标：${pair.target[0]} 个 ${pair.cation.ion} 与 ${pair.target[1]} 个 ${pair.anion.ion}。先验电荷，最后才写下标。`}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function IonicNamingLab({ mode }: { mode: LanguageMode }) {
+  const compounds = [
+    {
+      formula: 'NaCl',
+      cationSymbol: 'Na',
+      anionSymbol: 'Cl',
+      cationIon: 'Na⁺',
+      anionIon: 'Cl⁻',
+      cationEn: 'sodium',
+      cationZh: '钠',
+      elementEn: 'chlorine',
+      anionEn: 'chloride',
+      anionZh: '氯化',
+      answer: 0,
+      options: [
+        { zh: '氯化钠', en: 'sodium chloride' },
+        { zh: '钠氯', en: 'sodium chlorine' },
+        { zh: '一氯化钠', en: 'sodium monochloride' },
+      ],
+      useZh: '餐桌盐',
+      useEn: 'table salt',
+    },
+    {
+      formula: 'MgO',
+      cationSymbol: 'Mg',
+      anionSymbol: 'O',
+      cationIon: 'Mg²⁺',
+      anionIon: 'O²⁻',
+      cationEn: 'magnesium',
+      cationZh: '镁',
+      elementEn: 'oxygen',
+      anionEn: 'oxide',
+      anionZh: '氧化',
+      answer: 1,
+      options: [
+        { zh: '镁氧', en: 'magnesium oxygen' },
+        { zh: '氧化镁', en: 'magnesium oxide' },
+        { zh: '一氧化一镁', en: 'monomagnesium monoxide' },
+      ],
+      useZh: '耐火材料',
+      useEn: 'heat-resistant materials',
+    },
+    {
+      formula: 'CaCl₂',
+      cationSymbol: 'Ca',
+      anionSymbol: 'Cl₂',
+      cationIon: 'Ca²⁺',
+      anionIon: 'Cl⁻',
+      cationEn: 'calcium',
+      cationZh: '钙',
+      elementEn: 'chlorine',
+      anionEn: 'chloride',
+      anionZh: '氯化',
+      answer: 2,
+      options: [
+        { zh: '钙氯二', en: 'calcium chlorine' },
+        { zh: '二氯化钙', en: 'calcium dichloride' },
+        { zh: '氯化钙', en: 'calcium chloride' },
+      ],
+      useZh: '吸湿剂',
+      useEn: 'moisture absorbers',
+    },
+    {
+      formula: 'Al₂O₃',
+      cationSymbol: 'Al₂',
+      anionSymbol: 'O₃',
+      cationIon: 'Al³⁺',
+      anionIon: 'O²⁻',
+      cationEn: 'aluminium',
+      cationZh: '铝',
+      elementEn: 'oxygen',
+      anionEn: 'oxide',
+      anionZh: '氧化',
+      answer: 0,
+      options: [
+        { zh: '氧化铝', en: 'aluminium oxide' },
+        { zh: '铝化氧', en: 'aluminium oxygen' },
+        { zh: '三氧化二铝', en: 'dialuminium trioxide' },
+      ],
+      useZh: '铝的保护层',
+      useEn: "aluminium's protective layer",
+    },
+  ];
+  const [compoundIndex, setCompoundIndex] = useState(0);
+  const [guess, setGuess] = useState<number | null>(null);
+  const compound = compounds[compoundIndex]!;
+  const answered = guess !== null;
+  const correct = guess === compound.answer;
+  const showName = (text: { zh: string; en: string }) => {
+    if (mode === 'en') return text.en;
+    if (mode === 'zh') return text.zh;
+    return `${text.zh} · ${text.en}`;
+  };
+
+  return (
+    <div className="ionic-naming-lab">
+      <div
+        className="naming-tabs"
+        role="group"
+        aria-label={
+          mode === 'en' ? 'Choose a formula to name' : '选择要命名的化学式'
+        }
+      >
+        {compounds.map((item, index) => (
+          <button
+            type="button"
+            key={item.formula}
+            className={compoundIndex === index ? 'active' : ''}
+            onClick={() => {
+              setCompoundIndex(index);
+              setGuess(null);
+            }}
+          >
+            {item.formula}
+          </button>
+        ))}
+      </div>
+      <div className="naming-machine">
+        <span className="naming-machine-label">
+          {mode === 'en'
+            ? 'FORMULA → TWO IONS → NAME'
+            : '化学式 → 两种离子 → 名称'}
+        </span>
+        <strong className="naming-formula">{compound.formula}</strong>
+        <div className="naming-ion-parts">
+          <span className="cation">
+            <b>{compound.cationSymbol}</b>
+            <small>{compound.cationIon}</small>
+          </span>
+          <i>+</i>
+          <span className="anion">
+            <b>{compound.anionSymbol}</b>
+            <small>{compound.anionIon}</small>
+          </span>
+        </div>
+        <div className={`naming-language-rails ${answered ? 'revealed' : ''}`}>
+          <div>
+            <span>EN</span>
+            <p>
+              <b>{compound.cationEn}</b>
+              <i>+</i>
+              <b>{answered ? compound.anionEn : `${compound.elementEn} → ?`}</b>
+            </p>
+            <strong>
+              {answered ? `${compound.cationEn} ${compound.anionEn}` : '???'}
+            </strong>
+          </div>
+          <div>
+            <span>中文</span>
+            <p>
+              <b>{answered ? compound.anionZh : '？化'}</b>
+              <i>+</i>
+              <b>{compound.cationZh}</b>
+            </p>
+            <strong>
+              {answered ? `${compound.anionZh}${compound.cationZh}` : '？？？'}
+            </strong>
+          </div>
+        </div>
+      </div>
+      <div className="naming-challenge">
+        <p>{mode === 'en' ? 'Choose the correct name' : '选出正确名称'}</p>
+        <div className="naming-options">
+          {compound.options.map((option, index) => (
+            <button
+              type="button"
+              key={option.en}
+              className={
+                guess === index
+                  ? index === compound.answer
+                    ? 'correct'
+                    : 'wrong'
+                  : answered && index === compound.answer
+                    ? 'correct-answer'
+                    : ''
+              }
+              onClick={() => setGuess(index)}
+            >
+              {showName(option)}
+            </button>
+          ))}
+        </div>
+        <div
+          className={`naming-feedback ${answered ? (correct ? 'correct' : 'wrong') : ''}`}
+          aria-live="polite"
+        >
+          {!answered
+            ? mode === 'en'
+              ? 'Hint: keep the metal name; transform the non-metal name.'
+              : '提示：金属保留原名，非金属换成对应的阴离子名称。'
+            : correct
+              ? mode === 'en'
+                ? `Correct. ${compound.formula} is ${compound.useEn}.`
+                : `命名成功。${compound.formula} 可见于${compound.useZh}。`
+              : mode === 'en'
+                ? `Try the rule again: ${compound.cationEn} + ${compound.anionEn}.`
+                : `再按规则拆一次：${compound.anionZh} + ${compound.cationZh}。`}
+        </div>
+        <p className="naming-rule-note">
+          {mode === 'en'
+            ? 'Ionic subscripts balance charge; do not read them as mono-, di- or tri- prefixes.'
+            : '离子化合物的下标负责平衡电荷，不直接读成“一、二、三”前缀。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function RomanChargeDetectiveLab({ mode }: { mode: LanguageMode }) {
+  const cases = [
+    {
+      formula: 'FeCl₂',
+      metal: 'Fe',
+      metalCount: 1,
+      anion: 'Cl⁻',
+      anionCount: 2,
+      anionCharge: -1,
+      correctCharge: 2,
+      roman: 'II',
+      nameZh: '氯化亚铁',
+      nameEn: 'iron(II) chloride',
+      clueZh: '一些补铁配方使用 Fe²⁺ 盐',
+      clueEn: 'some iron supplements use Fe²⁺ salts',
+      colour: '#75888d',
+    },
+    {
+      formula: 'FeCl₃',
+      metal: 'Fe',
+      metalCount: 1,
+      anion: 'Cl⁻',
+      anionCount: 3,
+      anionCharge: -1,
+      correctCharge: 3,
+      roman: 'III',
+      nameZh: '氯化铁',
+      nameEn: 'iron(III) chloride',
+      clueZh: 'Fe³⁺ 盐常呈黄棕色',
+      clueEn: 'Fe³⁺ salts are often yellow-brown',
+      colour: '#9c7658',
+    },
+    {
+      formula: 'Cu₂O',
+      metal: 'Cu',
+      metalCount: 2,
+      anion: 'O²⁻',
+      anionCount: 1,
+      anionCharge: -2,
+      correctCharge: 1,
+      roman: 'I',
+      nameZh: '氧化亚铜',
+      nameEn: 'copper(I) oxide',
+      clueZh: '这种氧化物常呈红色',
+      clueEn: 'this oxide is commonly red',
+      colour: '#bc704f',
+    },
+    {
+      formula: 'CuO',
+      metal: 'Cu',
+      metalCount: 1,
+      anion: 'O²⁻',
+      anionCount: 1,
+      anionCharge: -2,
+      correctCharge: 2,
+      roman: 'II',
+      nameZh: '氧化铜',
+      nameEn: 'copper(II) oxide',
+      clueZh: '这种氧化物常呈黑色',
+      clueEn: 'this oxide is commonly black',
+      colour: '#555d5b',
+    },
+  ];
+  const [caseIndex, setCaseIndex] = useState(0);
+  const [chargeGuess, setChargeGuess] = useState<number | null>(null);
+  const selected = cases[caseIndex]!;
+  const negativeTotal = selected.anionCount * selected.anionCharge;
+  const guessedNet =
+    chargeGuess === null
+      ? null
+      : selected.metalCount * chargeGuess + negativeTotal;
+  const correct = chargeGuess === selected.correctCharge;
+
+  return (
+    <div className="roman-charge-lab">
+      <div
+        className="roman-case-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Choose a formula' : '选择化学式'}
+      >
+        {cases.map((item, index) => (
+          <button
+            type="button"
+            key={item.formula}
+            className={caseIndex === index ? 'active' : ''}
+            onClick={() => {
+              setCaseIndex(index);
+              setChargeGuess(null);
+            }}
+          >
+            {item.formula}
+          </button>
+        ))}
+      </div>
+      <div className="roman-detective-scene" aria-live="polite">
+        <span className="roman-case-label">
+          {mode === 'en' ? 'CHARGE EVIDENCE' : '电荷证据'}
+        </span>
+        <strong>{selected.formula}</strong>
+        <div className="roman-ion-cloud">
+          <div>
+            {Array.from({ length: selected.metalCount }, (_, index) => (
+              <span
+                className="metal"
+                style={{ '--metal-ion': selected.colour } as CSSProperties}
+                key={index}
+              >
+                {selected.metal}
+                <sup>{chargeGuess === null ? '?+' : `${chargeGuess}+`}</sup>
+              </span>
+            ))}
+          </div>
+          <i>+</i>
+          <div>
+            {Array.from({ length: selected.anionCount }, (_, index) => (
+              <span className="anion" key={index}>
+                {selected.anion}
+              </span>
+            ))}
+          </div>
+        </div>
+        <div className={`roman-equation ${correct ? 'balanced' : ''}`}>
+          <span>
+            {selected.metalCount} ×{' '}
+            {chargeGuess === null ? '?' : `+${chargeGuess}`}
+          </span>
+          <i>+</i>
+          <span>{negativeTotal}</span>
+          <i>=</i>
+          <b>
+            {guessedNet === null
+              ? '?'
+              : `${guessedNet > 0 ? '+' : ''}${guessedNet}`}
+          </b>
+        </div>
+      </div>
+      <div className="roman-detective-console">
+        <p>
+          {mode === 'en'
+            ? `What is the charge on each ${selected.metal} ion?`
+            : `每个 ${selected.metal} 离子带多少正电荷？`}
+        </p>
+        <div className="roman-charge-options">
+          {[1, 2, 3].map((charge) => (
+            <button
+              type="button"
+              key={charge}
+              className={
+                chargeGuess === charge
+                  ? charge === selected.correctCharge
+                    ? 'correct'
+                    : 'wrong'
+                  : ''
+              }
+              onClick={() => setChargeGuess(charge)}
+            >
+              +{charge}
+            </button>
+          ))}
+        </div>
+        <div
+          className={`roman-result ${chargeGuess === null ? '' : correct ? 'correct' : 'wrong'}`}
+          aria-live="polite"
+        >
+          {chargeGuess === null ? (
+            <p>
+              {mode === 'en'
+                ? `The anions total ${negativeTotal}. Make the whole formula equal zero.`
+                : `阴离子合计 ${negativeTotal}。请选择能让整个化学式归零的金属电荷。`}
+            </p>
+          ) : correct ? (
+            <>
+              <span>{mode === 'en' ? 'Name unlocked' : '名称解锁'}</span>
+              <strong>
+                {mode === 'en' ? selected.nameEn : selected.nameZh}
+              </strong>
+              <p>
+                {mode === 'en' ? `${selected.clueEn}.` : `${selected.clueZh}。`}
+              </p>
+            </>
+          ) : (
+            <p>
+              {mode === 'en'
+                ? `${selected.metalCount} × +${chargeGuess} plus ${negativeTotal} gives ${guessedNet}; a compound must total zero.`
+                : `${selected.metalCount} × (+${chargeGuess}) 再加 ${negativeTotal} 等于 ${guessedNet}，还没有归零。`}
+            </p>
+          )}
+        </div>
+        <p className="roman-rule-note">
+          {correct
+            ? mode === 'en'
+              ? `Write charge ${selected.correctCharge} as (${selected.roman}) in the English metal name—not as an atom count.`
+              : `英语把电荷 ${selected.correctCharge} 写成名称中的 (${selected.roman})；它不是原子数量。`
+            : mode === 'en'
+              ? 'Roman numerals report charge per metal ion, not the number of metal atoms.'
+              : '罗马数字记录每个金属离子的电荷，不表示金属原子的数量。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function PolyatomicPackageLab({ mode }: { mode: LanguageMode }) {
+  const cases = [
+    {
+      id: 'chalk',
+      tabZh: '蛋壳与粉笔',
+      tabEn: 'Eggshell & chalk',
+      cation: 'Ca²⁺',
+      cationCount: 1,
+      cationCharge: 2,
+      group: 'CO₃²⁻',
+      groupFormula: 'CO₃',
+      groupCount: 1,
+      groupCharge: -2,
+      atoms: ['C', 'O', 'O', 'O'],
+      formula: 'CaCO₃',
+      nameZh: '碳酸钙',
+      nameEn: 'calcium carbonate',
+      options: ['CaCO₃', 'Ca(CO₃)', 'Ca₂CO₃'],
+      answer: 0,
+      factZh: '只有一组碳酸根，所以不用括号。',
+      factEn:
+        'There is only one carbonate group, so no parentheses are needed.',
+    },
+    {
+      id: 'antacid',
+      tabZh: '抗酸剂',
+      tabEn: 'Antacid',
+      cation: 'Mg²⁺',
+      cationCount: 1,
+      cationCharge: 2,
+      group: 'OH⁻',
+      groupFormula: 'OH',
+      groupCount: 2,
+      groupCharge: -1,
+      atoms: ['O', 'H'],
+      formula: 'Mg(OH)₂',
+      nameZh: '氢氧化镁',
+      nameEn: 'magnesium hydroxide',
+      options: ['MgOH₂', 'Mg(OH)₂', 'Mg₂OH'],
+      answer: 1,
+      factZh: '两组 OH⁻ 必须各自保持完整，因此用括号。',
+      factEn:
+        'Two OH⁻ groups must each stay intact, so parentheses are required.',
+    },
+    {
+      id: 'water-treatment',
+      tabZh: '净水材料',
+      tabEn: 'Water treatment',
+      cation: 'Al³⁺',
+      cationCount: 2,
+      cationCharge: 3,
+      group: 'SO₄²⁻',
+      groupFormula: 'SO₄',
+      groupCount: 3,
+      groupCharge: -2,
+      atoms: ['S', 'O', 'O', 'O', 'O'],
+      formula: 'Al₂(SO₄)₃',
+      nameZh: '硫酸铝',
+      nameEn: 'aluminium sulfate',
+      options: ['AlSO₄', 'Al₂SO₄₃', 'Al₂(SO₄)₃'],
+      answer: 2,
+      factZh: '三组硫酸根合计 −6，与两个 Al³⁺ 的 +6 抵消。',
+      factEn: 'Three sulfate groups total −6, balancing +6 from two Al³⁺ ions.',
+    },
+    {
+      id: 'garden',
+      tabZh: '园艺标签',
+      tabEn: 'Garden label',
+      cation: 'Na⁺',
+      cationCount: 1,
+      cationCharge: 1,
+      group: 'NO₃⁻',
+      groupFormula: 'NO₃',
+      groupCount: 1,
+      groupCharge: -1,
+      atoms: ['N', 'O', 'O', 'O'],
+      formula: 'NaNO₃',
+      nameZh: '硝酸钠',
+      nameEn: 'sodium nitrate',
+      options: ['Na(NO₃)', 'NaNO₃', 'Na₃NO'],
+      answer: 1,
+      factZh: '一组 NO₃⁻ 与一个 Na⁺ 已经平衡，不需要括号。',
+      factEn:
+        'One NO₃⁻ group balances one Na⁺, so parentheses are unnecessary.',
+    },
+  ];
+  const [caseIndex, setCaseIndex] = useState(1);
+  const [answerIndex, setAnswerIndex] = useState<number | null>(null);
+  const selected = cases[caseIndex]!;
+  const correct = answerIndex === selected.answer;
+  const positiveTotal = selected.cationCount * selected.cationCharge;
+  const negativeTotal = selected.groupCount * selected.groupCharge;
+
+  return (
+    <div className="polyatomic-package-lab">
+      <div
+        className="polyatomic-tabs"
+        role="group"
+        aria-label={
+          mode === 'en' ? 'Choose an everyday context' : '选择生活场景'
+        }
+      >
+        {cases.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={caseIndex === index ? 'active' : ''}
+            onClick={() => {
+              setCaseIndex(index);
+              setAnswerIndex(null);
+            }}
+          >
+            {mode === 'en' ? item.tabEn : item.tabZh}
+          </button>
+        ))}
+      </div>
+      <div className="polyatomic-scene" aria-live="polite">
+        <span className="polyatomic-scene-label">
+          {mode === 'en' ? 'KEEP EACH GROUP TOGETHER' : '每一组都要保持完整'}
+        </span>
+        <div className="polyatomic-parts">
+          <div className="poly-cation-pile">
+            {Array.from({ length: selected.cationCount }, (_, index) => (
+              <span key={index}>{selected.cation}</span>
+            ))}
+          </div>
+          <i>+</i>
+          <div className="poly-group-pile">
+            {Array.from({ length: selected.groupCount }, (_, groupIndex) => (
+              <div className="poly-package" key={groupIndex}>
+                <b>{selected.group}</b>
+                <div>
+                  {selected.atoms.map((atom, atomIndex) => (
+                    <span className={atom} key={`${atom}-${atomIndex}`}>
+                      {atom}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="poly-charge-line">
+          <span>
+            {selected.cationCount} × (+{selected.cationCharge})
+          </span>
+          <i>+</i>
+          <span>
+            {selected.groupCount} × ({selected.groupCharge})
+          </span>
+          <i>=</i>
+          <b>{positiveTotal + negativeTotal}</b>
+        </div>
+      </div>
+      <div className="polyatomic-console">
+        <p>
+          {mode === 'en'
+            ? `Which formula keeps ${selected.groupFormula} together?`
+            : `哪一个化学式让 ${selected.groupFormula} 始终保持为整组？`}
+        </p>
+        <div className="polyatomic-options">
+          {selected.options.map((option, index) => (
+            <button
+              type="button"
+              key={option}
+              className={
+                answerIndex === index
+                  ? index === selected.answer
+                    ? 'correct'
+                    : 'wrong'
+                  : ''
+              }
+              onClick={() => setAnswerIndex(index)}
+            >
+              {option}
+            </button>
+          ))}
+        </div>
+        <div
+          className={`polyatomic-result ${answerIndex === null ? '' : correct ? 'correct' : 'wrong'}`}
+          aria-live="polite"
+        >
+          {answerIndex === null
+            ? mode === 'en'
+              ? `You need ${selected.groupCount} complete ${selected.groupFormula} group${selected.groupCount > 1 ? 's' : ''}.`
+              : `需要 ${selected.groupCount} 组完整的 ${selected.groupFormula}。`
+            : correct
+              ? mode === 'en'
+                ? `${selected.formula} · ${selected.nameEn}. ${selected.factEn}`
+                : `${selected.formula} · ${selected.nameZh}。${selected.factZh}`
+              : mode === 'en'
+                ? `That notation breaks the package or changes the ratio. Keep every ${selected.groupFormula} group intact.`
+                : `这种写法拆散了原子团或改变了比例。${selected.groupFormula} 必须整组保留。`}
+        </div>
+        <p className="polyatomic-rule-note">
+          {mode === 'en'
+            ? 'Outside subscript = number of whole packages. It multiplies every atom inside the parentheses.'
+            : '括号外下标＝整组的数量；它会乘括号里的每一种原子。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function MolecularPrefixLab({ mode }: { mode: LanguageMode }) {
+  const molecules = [
+    {
+      formula: 'CO',
+      firstSymbol: 'C',
+      firstCount: 1,
+      firstName: 'carbon',
+      secondSymbol: 'O',
+      secondCount: 1,
+      secondElement: 'oxygen',
+      secondName: 'monoxide',
+      prefix: 'mono-',
+      nameZh: '一氧化碳',
+      nameEn: 'carbon monoxide',
+      answer: 0,
+      options: [
+        { zh: '一氧化碳', en: 'carbon monoxide' },
+        { zh: '碳氧', en: 'carbon oxide' },
+        { zh: '一碳一氧化物', en: 'monocarbon monoxide' },
+      ],
+      factZh: 'CO 无色无味却有毒，安全警报器会直接使用缩写 CO。',
+      factEn:
+        'CO is colourless, odourless and poisonous; safety alarms use the abbreviation CO.',
+    },
+    {
+      formula: 'CO₂',
+      firstSymbol: 'C',
+      firstCount: 1,
+      firstName: 'carbon',
+      secondSymbol: 'O',
+      secondCount: 2,
+      secondElement: 'oxygen',
+      secondName: 'dioxide',
+      prefix: 'di-',
+      nameZh: '二氧化碳',
+      nameEn: 'carbon dioxide',
+      answer: 1,
+      options: [
+        { zh: '一氧化二碳', en: 'dicarbon monoxide' },
+        { zh: '二氧化碳', en: 'carbon dioxide' },
+        { zh: '碳化氧', en: 'carbon oxide' },
+      ],
+      factZh: '汽水开瓶时，溶解的 CO₂ 会形成看得见的气泡。',
+      factEn: 'When a fizzy drink opens, dissolved CO₂ forms visible bubbles.',
+    },
+    {
+      formula: 'NO₂',
+      firstSymbol: 'N',
+      firstCount: 1,
+      firstName: 'nitrogen',
+      secondSymbol: 'O',
+      secondCount: 2,
+      secondElement: 'oxygen',
+      secondName: 'dioxide',
+      prefix: 'di-',
+      nameZh: '二氧化氮',
+      nameEn: 'nitrogen dioxide',
+      answer: 2,
+      options: [
+        { zh: '二氮化氧', en: 'dinitrogen oxide' },
+        { zh: '氮氧', en: 'nitrogen oxygen' },
+        { zh: '二氧化氮', en: 'nitrogen dioxide' },
+      ],
+      factZh: 'NO₂ 是刺激性空气污染物之一，交通繁忙处需要监测它。',
+      factEn: 'NO₂ is an irritating air pollutant monitored near busy traffic.',
+    },
+    {
+      formula: 'N₂O',
+      firstSymbol: 'N',
+      firstCount: 2,
+      firstName: 'dinitrogen',
+      secondSymbol: 'O',
+      secondCount: 1,
+      secondElement: 'oxygen',
+      secondName: 'monoxide',
+      prefix: 'mono-',
+      nameZh: '一氧化二氮',
+      nameEn: 'dinitrogen monoxide',
+      answer: 0,
+      options: [
+        { zh: '一氧化二氮', en: 'dinitrogen monoxide' },
+        { zh: '二氧化氮', en: 'nitrogen dioxide' },
+        { zh: '一氮化二氧', en: 'mononitrogen dioxide' },
+      ],
+      factZh: 'N₂O 也是温室气体；di- 与 mono- 准确保留了 2∶1 的原子数。',
+      factEn:
+        'N₂O is also a greenhouse gas; di- and mono- preserve its exact 2:1 atom count.',
+    },
+  ];
+  const [moleculeIndex, setMoleculeIndex] = useState(0);
+  const [nameGuess, setNameGuess] = useState<number | null>(null);
+  const molecule = molecules[moleculeIndex]!;
+  const correct = nameGuess === molecule.answer;
+  const optionText = (option: { zh: string; en: string }) => {
+    if (mode === 'en') return option.en;
+    if (mode === 'zh') return option.zh;
+    return `${option.zh} · ${option.en}`;
+  };
+
+  return (
+    <div className="molecular-prefix-lab">
+      <div
+        className="molecular-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Choose a molecule' : '选择分子'}
+      >
+        {molecules.map((item, index) => (
+          <button
+            type="button"
+            key={item.formula}
+            className={moleculeIndex === index ? 'active' : ''}
+            onClick={() => {
+              setMoleculeIndex(index);
+              setNameGuess(null);
+            }}
+          >
+            {item.formula}
+          </button>
+        ))}
+      </div>
+      <div className="molecular-prefix-scene" aria-live="polite">
+        <span className="molecular-scene-label">
+          {mode === 'en'
+            ? 'COUNT THE ATOMS IN ONE MOLECULE'
+            : '数清一个分子里的原子'}
+        </span>
+        <strong>{molecule.formula}</strong>
+        <div className="molecule-bubbles">
+          {Array.from({ length: molecule.firstCount }, (_, index) => (
+            <span className="first" key={`first-${index}`}>
+              {molecule.firstSymbol}
+            </span>
+          ))}
+          {Array.from({ length: molecule.secondCount }, (_, index) => (
+            <span className="second" key={`second-${index}`}>
+              {molecule.secondSymbol}
+            </span>
+          ))}
+        </div>
+        <div className="molecular-counts">
+          <span>
+            {molecule.firstSymbol} × <b>{molecule.firstCount}</b>
+          </span>
+          <span>
+            {molecule.secondSymbol} × <b>{molecule.secondCount}</b>
+          </span>
+        </div>
+        <div className="prefix-blueprint">
+          <p>
+            <span>1st</span>
+            <b>{molecule.firstCount}</b>
+            <i>→</i>
+            <strong>{molecule.firstName}</strong>
+          </p>
+          <p>
+            <span>2nd</span>
+            <b>{molecule.secondCount}</b>
+            <i>→</i>
+            <strong>
+              {molecule.prefix} + {molecule.secondElement} →{' '}
+              {molecule.secondName}
+            </strong>
+          </p>
+        </div>
+      </div>
+      <div className="molecular-prefix-console">
+        <p>{mode === 'en' ? 'Choose the precise name' : '选出准确名称'}</p>
+        <div className="molecular-name-options">
+          {molecule.options.map((option, index) => (
+            <button
+              type="button"
+              key={option.en}
+              className={
+                nameGuess === index
+                  ? index === molecule.answer
+                    ? 'correct'
+                    : 'wrong'
+                  : ''
+              }
+              onClick={() => setNameGuess(index)}
+            >
+              {optionText(option)}
+            </button>
+          ))}
+        </div>
+        <div
+          className={`molecular-name-feedback ${nameGuess === null ? '' : correct ? 'correct' : 'wrong'}`}
+          aria-live="polite"
+        >
+          {nameGuess === null
+            ? mode === 'en'
+              ? 'Use each subscript as a real atom count. Omitted subscript = one.'
+              : '把每个下标当作真实原子数；没有下标就是 1。'
+            : correct
+              ? mode === 'en'
+                ? `${molecule.nameEn}. ${molecule.factEn}`
+                : `${molecule.nameZh}。${molecule.factZh}`
+              : mode === 'en'
+                ? `Recount: ${molecule.firstCount} ${molecule.firstSymbol} and ${molecule.secondCount} ${molecule.secondSymbol}.`
+                : `重新数一次：${molecule.firstSymbol} 有 ${molecule.firstCount} 个，${molecule.secondSymbol} 有 ${molecule.secondCount} 个。`}
+        </div>
+        <p className="molecular-prefix-rule">
+          {mode === 'en'
+            ? 'Molecular formula: prefixes count atoms. Ionic formula: charge fixes the ratio.'
+            : '分子化合物：前缀数原子；离子化合物：电荷定比例。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ReactionRearrangementLab({ mode }: { mode: LanguageMode }) {
+  const [stage, setStage] = useState<'before' | 'after'>('before');
+  const [showCounts, setShowCounts] = useState(false);
+  const after = stage === 'after';
+  const reset = () => {
+    setStage('before');
+    setShowCounts(false);
+  };
+  const Atom = ({ type }: { type: 'H' | 'O' }) => (
+    <span className={`reaction-atom ${type.toLowerCase()}`}>{type}</span>
+  );
+  const H2 = () => (
+    <div className="reaction-molecule h2" aria-label="H₂">
+      <Atom type="H" />
+      <Atom type="H" />
+      <small>H₂</small>
+    </div>
+  );
+  const O2 = () => (
+    <div className="reaction-molecule o2" aria-label="O₂">
+      <Atom type="O" />
+      <Atom type="O" />
+      <small>O₂</small>
+    </div>
+  );
+  const Water = () => (
+    <div className="reaction-molecule water" aria-label="H₂O">
+      <Atom type="H" />
+      <Atom type="O" />
+      <Atom type="H" />
+      <small>H₂O</small>
+    </div>
+  );
+
+  return (
+    <div className="reaction-rearrangement-lab">
+      <div
+        className="reaction-tabs"
+        role="group"
+        aria-label={mode === 'en' ? 'Reaction stage' : '反应阶段'}
+      >
+        <button
+          type="button"
+          className={!after ? 'active' : ''}
+          onClick={reset}
+        >
+          {mode === 'en' ? 'Before reaction' : '反应前'}
+        </button>
+        <button
+          type="button"
+          className={after ? 'active' : ''}
+          onClick={() => setStage('after')}
+        >
+          {mode === 'en' ? 'Let atoms regroup' : '让原子重新组队'}
+        </button>
+      </div>
+      <div
+        className={`reaction-scene ${after ? 'after' : 'before'}`}
+        aria-live="polite"
+      >
+        <span className="reaction-scene-label">
+          {after
+            ? mode === 'en'
+              ? 'PRODUCTS: NEW CONNECTIONS'
+              : '生成物：新的连接方式'
+            : mode === 'en'
+              ? 'REACTANTS: SAME ATOMS, OLD TEAMS'
+              : '反应物：同一批原子，原先的队伍'}
+        </span>
+        <div className="reaction-equation-display">
+          <strong>2H₂ + O₂</strong>
+          <i>→</i>
+          <strong>2H₂O</strong>
+        </div>
+        <div className="reaction-particle-stage">
+          {!after ? (
+            <>
+              <div className="reaction-reactant-group">
+                <H2 />
+                <H2 />
+              </div>
+              <i className="reaction-plus">+</i>
+              <div className="reaction-reactant-group">
+                <O2 />
+              </div>
+            </>
+          ) : (
+            <div className="reaction-product-group">
+              <Water />
+              <Water />
+            </div>
+          )}
+        </div>
+        {after && (
+          <span className="reaction-spark" aria-hidden="true">
+            ✦
+          </span>
+        )}
+        <span className="reaction-stage-caption">
+          {after
+            ? mode === 'en'
+              ? 'Two new water molecules have formed.'
+              : '两份新的水分子形成了。'
+            : mode === 'en'
+              ? 'Two hydrogen molecules meet one oxygen molecule.'
+              : '两份氢分子遇上一份氧分子。'}
+        </span>
+      </div>
+      <div className="reaction-console">
+        <p>{mode === 'en' ? 'Check the atom inventory' : '核对原子清单'}</p>
+        <div className="reaction-count-controls">
+          <button
+            type="button"
+            className={showCounts ? 'active' : ''}
+            onClick={() => setShowCounts((value) => !value)}
+          >
+            {showCounts
+              ? mode === 'en'
+                ? 'Hide count check'
+                : '收起原子核对'
+              : mode === 'en'
+                ? 'Count atoms on both sides'
+                : '数一数两边的原子'}
+          </button>
+        </div>
+        <div className={`reaction-count-card ${showCounts ? 'revealed' : ''}`}>
+          {showCounts ? (
+            <>
+              <div>
+                <span>{mode === 'en' ? 'Reactants' : '反应物'}</span>
+                <b>H: 4 · O: 2</b>
+              </div>
+              <i>＝</i>
+              <div>
+                <span>{mode === 'en' ? 'Products' : '生成物'}</span>
+                <b>H: 4 · O: 2</b>
+              </div>
+            </>
+          ) : (
+            <p>
+              {mode === 'en'
+                ? 'Use the coefficients and subscripts to count every atom.'
+                : '用系数和下标数清每一种原子。'}
+            </p>
+          )}
+        </div>
+        <p className="reaction-model-note">
+          {after
+            ? mode === 'en'
+              ? 'The bonds changed, but no H or O atoms were created or lost.'
+              : '化学键改变了，但没有任何 H 或 O 原子被创造或丢失。'
+            : mode === 'en'
+              ? 'The arrow means “becomes”—it does not mean the atoms vanish.'
+              : '箭头表示“变成”，不表示原子消失。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function EquationReaderLab({ mode }: { mode: LanguageMode }) {
+  const [focus, setFocus] = useState<'coefficient' | 'subscript' | 'arrow'>(
+    'coefficient',
+  );
+  const copy = {
+    coefficient: {
+      zh: '系数：前面的 2 表示两份完整的 H₂O。它乘整份，所以总共有 4 个 H 和 2 个 O。',
+      en: 'Coefficient: the front 2 means two whole H₂O particles. It multiplies the whole formula, making 4 H and 2 O atoms in total.',
+    },
+    subscript: {
+      zh: '下标：右下角的 ₂ 只说明“一份 H₂O 里有 2 个 H”。没有下标的 O 默认是 1 个。',
+      en: 'Subscript: the lower ₂ says one H₂O particle contains 2 H atoms. O has no subscript, so it means 1 O atom.',
+    },
+    arrow: {
+      zh: '箭头：读作“生成”或“变成”。左边是反应物，右边是生成物；箭头不是数学等号。',
+      en: 'Arrow: read it as “forms” or “becomes.” Reactants are on the left and products are on the right; it is not a mathematical equals sign.',
+    },
+  }[focus];
+  const labels = {
+    coefficient: mode === 'en' ? 'Spot the coefficient' : '找系数',
+    subscript: mode === 'en' ? 'Spot the subscript' : '找下标',
+    arrow: mode === 'en' ? 'Read the arrow' : '读箭头',
+  };
+
+  return (
+    <div className="equation-reader-lab">
+      <div className="equation-reader-scene" aria-live="polite">
+        <span className="equation-reader-label">
+          {mode === 'en' ? 'TAP A CLUE IN THE MAP' : '点亮反应地图里的线索'}
+        </span>
+        <div
+          className="equation-reader-map"
+          aria-label="2H₂ plus O₂ becomes 2H₂O"
+        >
+          <span className="equation-reactants">2H₂ + O₂</span>
+          <button
+            type="button"
+            className={focus === 'arrow' ? 'active arrow-token' : 'arrow-token'}
+            onClick={() => setFocus('arrow')}
+            aria-label={mode === 'en' ? 'Arrow: forms' : '箭头：生成'}
+          >
+            →
+          </button>
+          <span className="equation-product">
+            <button
+              type="button"
+              className={
+                focus === 'coefficient'
+                  ? 'active coefficient-token'
+                  : 'coefficient-token'
+              }
+              onClick={() => setFocus('coefficient')}
+              aria-label={mode === 'en' ? 'Coefficient 2' : '系数 2'}
+            >
+              2
+            </button>
+            H
+            <button
+              type="button"
+              className={
+                focus === 'subscript'
+                  ? 'active subscript-token'
+                  : 'subscript-token'
+              }
+              onClick={() => setFocus('subscript')}
+              aria-label={mode === 'en' ? 'Subscript 2' : '下标 2'}
+            >
+              ₂
+            </button>
+            O
+          </span>
+        </div>
+        <p className="equation-reader-story">
+          {mode === 'en'
+            ? 'Hydrogen and oxygen form water.'
+            : '氢气和氧气生成水。'}
+        </p>
+      </div>
+      <div className="equation-reader-console">
+        <p>
+          {mode === 'en'
+            ? 'What do you want to inspect?'
+            : '你想检查哪一个符号？'}
+        </p>
+        <div className="equation-reader-controls">
+          {(Object.keys(labels) as Array<keyof typeof labels>).map((key) => (
+            <button
+              type="button"
+              key={key}
+              className={focus === key ? 'active' : ''}
+              onClick={() => setFocus(key)}
+            >
+              {labels[key]}
+            </button>
+          ))}
+        </div>
+        <div className={`equation-reader-feedback ${focus}`}>
+          <strong>
+            {focus === 'coefficient'
+              ? mode === 'en'
+                ? 'Whole packages'
+                : '整份来数'
+              : focus === 'subscript'
+                ? mode === 'en'
+                  ? 'Inside one package'
+                  : '打开一份来看'
+                : mode === 'en'
+                  ? 'The direction of change'
+                  : '变化的方向'}
+          </strong>
+          <p>{mode === 'en' ? copy.en : copy.zh}</p>
+        </div>
+        <div className="equation-reader-count">
+          <span>{mode === 'en' ? 'Count check:' : '快速核对：'}</span>
+          <b>2 × H₂O</b>
+          <i>＝</i>
+          <strong>{mode === 'en' ? 'H: 4 · O: 2' : 'H：4 · O：2'}</strong>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function EquationBalanceLab({ mode }: { mode: LanguageMode }) {
+  const [coefficients, setCoefficients] = useState({ h2: 1, o2: 1, h2o: 1 });
+  const left = { h: coefficients.h2 * 2, o: coefficients.o2 * 2 };
+  const right = { h: coefficients.h2o * 2, o: coefficients.h2o };
+  const balanced = left.h === right.h && left.o === right.o;
+  const change = (key: keyof typeof coefficients, amount: number) => {
+    setCoefficients((current) => ({
+      ...current,
+      [key]: Math.max(1, Math.min(4, current[key] + amount)),
+    }));
+  };
+  const Factor = ({
+    id,
+    formula,
+  }: {
+    id: keyof typeof coefficients;
+    formula: string;
+  }) => (
+    <div className="balance-factor">
+      <button
+        type="button"
+        aria-label={mode === 'en' ? `Decrease ${formula}` : `减少 ${formula}`}
+        onClick={() => change(id, -1)}
+        disabled={coefficients[id] === 1}
+      >
+        −
+      </button>
+      <strong>{coefficients[id] === 1 ? '' : coefficients[id]}</strong>
+      <span>{formula}</span>
+      <button
+        type="button"
+        aria-label={mode === 'en' ? `Increase ${formula}` : `增加 ${formula}`}
+        onClick={() => change(id, 1)}
+      >
+        +
+      </button>
+    </div>
+  );
+
+  return (
+    <div className="equation-balance-lab">
+      <div className="balance-scene" aria-live="polite">
+        <span className="balance-label">
+          {mode === 'en' ? 'ADJUST COEFFICIENTS ONLY' : '只能调整前面的系数'}
+        </span>
+        <div className="balance-equation">
+          <Factor id="h2" formula="H₂" />
+          <i>+</i>
+          <Factor id="o2" formula="O₂" />
+          <i>→</i>
+          <Factor id="h2o" formula="H₂O" />
+        </div>
+        <p>
+          {balanced
+            ? mode === 'en'
+              ? 'Balanced! The atom ledger agrees on both sides.'
+              : '配平成功！原子账本两边一致。'
+            : mode === 'en'
+              ? 'Not balanced yet. Let the atom ledger guide your next move.'
+              : '还没配平。让原子账本告诉你下一步。'}
+        </p>
+      </div>
+      <div className="balance-console">
+        <p>{mode === 'en' ? 'Atom ledger' : '原子账本'}</p>
+        <div className="balance-ledger">
+          <div>
+            <span>{mode === 'en' ? 'Reactants' : '反应物'}</span>
+            <b>
+              H: {left.h} · O: {left.o}
+            </b>
+          </div>
+          <i>{balanced ? '＝' : '≠'}</i>
+          <div>
+            <span>{mode === 'en' ? 'Products' : '生成物'}</span>
+            <b>
+              H: {right.h} · O: {right.o}
+            </b>
+          </div>
+        </div>
+        <div className={`balance-feedback ${balanced ? 'balanced' : ''}`}>
+          <strong>
+            {balanced
+              ? mode === 'en'
+                ? '✓ Every atom is accounted for'
+                : '✓ 每一种原子都核对上了'
+              : mode === 'en'
+                ? 'Look for a mismatched atom type'
+                : '寻找哪一种原子还对不上'}
+          </strong>
+          <p>
+            {balanced
+              ? mode === 'en'
+                ? 'You found 2H₂ + O₂ → 2H₂O. Notice that all formulas stayed the same; only the package counts changed.'
+                : '你得到 2H₂ + O₂ → 2H₂O。所有化学式保持不变，改变的只是“拿几份”。'
+              : mode === 'en'
+                ? 'Use + to change a whole formula’s coefficient. Do not try to alter the small subscripts.'
+                : '用 + 改整份化学式前的系数，绝不修改右下角的小下标。'}
+          </p>
+        </div>
+        <button
+          type="button"
+          className="balance-reset"
+          onClick={() => setCoefficients({ h2: 1, o2: 1, h2o: 1 })}
+        >
+          {mode === 'en' ? 'Restart puzzle' : '重新开始'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function PhScaleLab({ mode }: { mode: LanguageMode }) {
+  const samples = [
+    {
+      id: 'lemon',
+      ph: 2,
+      icon: '🍋',
+      zh: '柠檬汁（约）',
+      en: 'Lemon juice (about)',
+      colour: '#dc4e52',
+      noteZh: '已知食物的酸味是线索；不能用尝来检测未知液体。',
+      noteEn:
+        'Sourness is a clue for a known food; never taste an unknown liquid to test it.',
+    },
+    {
+      id: 'water',
+      ph: 7,
+      icon: '💧',
+      zh: '纯水（常温，约）',
+      en: 'Pure water (room temperature, about)',
+      colour: '#67a85f',
+      noteZh: '接近 7 是中性：不偏酸也不偏碱，不代表自动安全饮用。',
+      noteEn:
+        'Near 7 is neutral: neither acidic nor basic, not automatically safe to drink.',
+    },
+    {
+      id: 'bicarbonate',
+      ph: 9,
+      icon: '🥄',
+      zh: '小苏打水（约）',
+      en: 'Baking-soda solution (about)',
+      colour: '#4389b7',
+      noteZh: '这是偏碱的食物级示例；pH 会随浓度和水质变化。',
+      noteEn:
+        'This is a food-grade basic example; pH changes with concentration and water quality.',
+    },
+    {
+      id: 'soap',
+      ph: 10,
+      icon: '🧼',
+      zh: '肥皂水（约）',
+      en: 'Soapy water (about)',
+      colour: '#6955ad',
+      noteZh: '清洁产品的 pH 不等于使用说明；按标签使用，绝不混合清洁剂。',
+      noteEn:
+        'A cleaner’s pH never replaces its directions; follow labels and never mix cleaners.',
+    },
+  ];
+  const [activeId, setActiveId] = useState('water');
+  const sample = samples.find((item) => item.id === activeId) ?? samples[1]!;
+  const kind = sample.ph < 7 ? 'acidic' : sample.ph > 7 ? 'basic' : 'neutral';
+  const kindText =
+    kind === 'acidic'
+      ? mode === 'en'
+        ? 'Acidic'
+        : '酸性'
+      : kind === 'basic'
+        ? mode === 'en'
+          ? 'Basic / alkaline'
+          : '碱性'
+        : mode === 'en'
+          ? 'Neutral'
+          : '中性';
+
+  return (
+    <div className="ph-scale-lab">
+      <div className="ph-scene">
+        <span className="ph-scene-label">
+          {mode === 'en'
+            ? 'A SAFE MODEL, NOT A HOME TEST'
+            : '安全模型，不是家庭实验指令'}
+        </span>
+        <div
+          className="ph-scale"
+          aria-label={
+            mode === 'en'
+              ? 'pH scale from zero to fourteen'
+              : '从零到十四的 pH 标尺'
+          }
+        >
+          <div className="ph-scale-line" aria-hidden="true" />
+          {Array.from({ length: 15 }, (_, value) => (
+            <span
+              key={value}
+              className={value === sample.ph ? 'active' : ''}
+              style={{ left: `${(value / 14) * 100}%` }}
+            >
+              {value}
+            </span>
+          ))}
+          <i
+            style={
+              {
+                left: `${(sample.ph / 14) * 100}%`,
+                '--ph-colour': sample.colour,
+              } as CSSProperties
+            }
+          >
+            {sample.ph}
+          </i>
+        </div>
+        <div
+          className="ph-indicator-drop"
+          style={{ '--indicator-colour': sample.colour } as CSSProperties}
+        >
+          <b>{sample.icon}</b>
+          <span>{sample.ph}</span>
+        </div>
+        <strong className={`ph-kind ${kind}`}>{kindText}</strong>
+      </div>
+      <div className="ph-console">
+        <p>
+          {mode === 'en'
+            ? 'Choose a familiar reference'
+            : '选择一个熟悉的参考物'}
+        </p>
+        <div className="ph-sample-tabs">
+          {samples.map((item) => (
+            <button
+              type="button"
+              key={item.id}
+              className={item.id === sample.id ? 'active' : ''}
+              onClick={() => setActiveId(item.id)}
+            >
+              <span>{item.icon}</span>
+              {mode === 'en' ? item.en : item.zh}
+            </button>
+          ))}
+        </div>
+        <div className={`ph-reading ${kind}`}>
+          <strong>
+            {mode === 'en'
+              ? `pH ${sample.ph} · ${kindText}`
+              : `pH ${sample.ph} · ${kindText}`}
+          </strong>
+          <p>{mode === 'en' ? sample.noteEn : sample.noteZh}</p>
+        </div>
+        <p className="ph-rule">
+          {mode === 'en'
+            ? 'Rule of thumb: below 7 acidic · 7 neutral · above 7 basic. Real measurements need the right tool and chart.'
+            : '初学口诀：小于 7 为酸性 · 7 为中性 · 大于 7 为碱性。真实测量要用合适工具并对照色卡。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
 function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
   return (
     <section className="lesson-panel interactive-panel">
@@ -2910,6 +5038,40 @@ function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
       {lesson.interactive === 'covalent-sharing-lab' && (
         <CovalentSharingLab mode={mode} />
       )}
+      {lesson.interactive === 'metallic-bonding-lab' && (
+        <MetallicBondingLab mode={mode} />
+      )}
+      {lesson.interactive === 'structure-detective-lab' && (
+        <StructureDetectiveLab mode={mode} />
+      )}
+      {lesson.interactive === 'formula-decoder-lab' && (
+        <FormulaDecoderLab mode={mode} />
+      )}
+      {lesson.interactive === 'ionic-formula-balance-lab' && (
+        <IonicFormulaBalanceLab mode={mode} />
+      )}
+      {lesson.interactive === 'ionic-naming-lab' && (
+        <IonicNamingLab mode={mode} />
+      )}
+      {lesson.interactive === 'roman-charge-detective-lab' && (
+        <RomanChargeDetectiveLab mode={mode} />
+      )}
+      {lesson.interactive === 'polyatomic-package-lab' && (
+        <PolyatomicPackageLab mode={mode} />
+      )}
+      {lesson.interactive === 'molecular-prefix-lab' && (
+        <MolecularPrefixLab mode={mode} />
+      )}
+      {lesson.interactive === 'reaction-rearrangement-lab' && (
+        <ReactionRearrangementLab mode={mode} />
+      )}
+      {lesson.interactive === 'equation-reader-lab' && (
+        <EquationReaderLab mode={mode} />
+      )}
+      {lesson.interactive === 'equation-balance-lab' && (
+        <EquationBalanceLab mode={mode} />
+      )}
+      {lesson.interactive === 'ph-scale-lab' && <PhScaleLab mode={mode} />}
     </section>
   );
 }

@@ -79,11 +79,68 @@ export const pathLevels: PathLevel[] = [
       zh: '从“最外层电子”走到盐、水和材料为什么能形成。',
       en: 'Move from outer electrons to why salt, water and materials can form.',
     },
-    lessonCount: 4,
+    lessonCount: 5,
     topics: [
       { zh: '原子为什么连接？', en: 'Why atoms connect' },
       { zh: '离子键与共价键', en: 'Ionic and covalent bonds' },
       { zh: '结构怎样影响性质？', en: 'How structure affects properties' },
+    ],
+  },
+  {
+    id: 'formulae',
+    number: '06',
+    title: { zh: '化学式与命名', en: 'Chemical formulae & naming' },
+    description: {
+      zh: '读懂元素符号、下标和系数，让化学语言真正有意义。',
+      en: 'Decode symbols, subscripts and coefficients so chemical language makes sense.',
+    },
+    lessonCount: 6,
+    topics: [
+      { zh: '化学式告诉我们什么？', en: 'What does a formula tell us?' },
+      { zh: '下标与原子比例', en: 'Subscripts and atom ratios' },
+      { zh: '离子电荷与最简比', en: 'Ion charges and simplest ratios' },
+      { zh: '二元离子化合物命名', en: 'Naming binary ionic compounds' },
+      { zh: '可变电荷与罗马数字', en: 'Variable charges and Roman numerals' },
+      { zh: '多原子离子与括号', en: 'Polyatomic ions and parentheses' },
+      { zh: '分子化合物与数字前缀', en: 'Molecular compounds and prefixes' },
+    ],
+  },
+  {
+    id: 'reactions',
+    number: '07',
+    title: { zh: '化学反应与方程式', en: 'Chemical reactions & equations' },
+    description: {
+      zh: '看见原子如何重新组合，再用方程式把过程准确记录下来。',
+      en: 'Watch atoms rearrange, then record the process precisely with equations.',
+    },
+    lessonCount: 3,
+    topics: [
+      { zh: '反应物怎样变成生成物？', en: 'How do reactants become products?' },
+      { zh: '反应现象与证据', en: 'Reaction observations and evidence' },
+      { zh: '原子与质量守恒', en: 'Conservation of atoms and mass' },
+      {
+        zh: '读懂方程式的箭头、系数和下标',
+        en: 'Read arrows, coefficients and subscripts',
+      },
+      { zh: '配平与原子守恒', en: 'Balancing and atom conservation' },
+    ],
+  },
+  {
+    id: 'acids',
+    number: '08',
+    title: { zh: '酸、碱与盐', en: 'Acids, bases & salts' },
+    description: {
+      zh: '从舌尖的酸味走到 pH 颜色尺，理解清洁、土壤和中和背后的规律。',
+      en: 'Travel from sour taste to the pH colour scale, then explore the patterns behind cleaning, soil and neutralisation.',
+    },
+    lessonCount: 1,
+    topics: [
+      { zh: '酸、碱与 pH', en: 'Acids, bases and pH' },
+      { zh: '指示剂的颜色线索', en: 'Indicator colour clues' },
+      {
+        zh: '安全观察与正确判断',
+        en: 'Safe observations and sound conclusions',
+      },
     ],
   },
 ];
