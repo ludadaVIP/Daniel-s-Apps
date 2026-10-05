@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Tesla：从电动车创业公司到“现实世界AI”平台｜2003–2026深度公司史</title>
+<style>
+:root{
+  --bg:#0b0d10; --panel:#12161b; --panel2:#171c22; --text:#e9edf2; --muted:#a7b0ba;
+  --line:#29313a; --red:#e82127; --red2:#ff4d54; --green:#64d28b; --amber:#f0b45a;
+  --blue:#7aa7ff; --violet:#ae8cff; --cyan:#5fd9e7; --white:#fff;
+}
+*{box-sizing:border-box} html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#08090b,#0b0d10 12%,#0b0d10);color:var(--text);font-family:Inter,"PingFang SC","Microsoft YaHei",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.78}
+a{color:#9fc2ff;text-decoration:none} a:hover{text-decoration:underline}
+.container{max-width:1440px;margin:0 auto;padding:0 42px}
+.hero{min-height:740px;display:flex;align-items:center;border-bottom:1px solid var(--line);position:relative;overflow:hidden;background:
+ radial-gradient(circle at 72% 34%,rgba(232,33,39,.22),transparent 22%),
+ radial-gradient(circle at 26% 10%,rgba(122,167,255,.08),transparent 30%),
+ linear-gradient(135deg,#07080a,#11151b 48%,#08090b)}
+.hero:after{content:"T";position:absolute;right:4%;top:-120px;font-size:760px;line-height:1;font-weight:800;color:rgba(255,255,255,.018);font-family:Georgia,serif;transform:scaleX(.72)}
+.hero-grid{display:grid;grid-template-columns:1.2fr .8fr;gap:60px;align-items:center;position:relative;z-index:2}
+.kicker{font-size:13px;letter-spacing:.22em;text-transform:uppercase;color:#c9d0d8;margin-bottom:18px}
+h1{font-size:64px;line-height:1.08;margin:0 0 24px;letter-spacing:-.035em;max-width:950px}
+.lead{font-size:22px;color:#c0c7d0;max-width:900px;margin:0 0 34px}
+.badges{display:flex;gap:10px;flex-wrap:wrap}.badge{padding:7px 12px;border:1px solid #333c46;border-radius:999px;background:#12161b;color:#cfd6dd;font-size:13px}
+.hero-card{background:rgba(18,22,27,.86);border:1px solid #303840;border-radius:24px;padding:28px;box-shadow:0 25px 80px rgba(0,0,0,.4)}
+.hero-logo{height:210px;display:grid;place-items:center;margin-bottom:10px}
+.hero-logo svg{width:90%;height:100%}
+.metric-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.metric{background:#0e1115;border:1px solid #262e36;padding:15px;border-radius:14px}.metric .v{font-size:28px;font-weight:700}.metric .l{font-size:12px;color:var(--muted)}
+.note{font-size:12px;color:#7f8994;margin-top:14px}
+nav.toc{position:sticky;top:0;z-index:20;background:rgba(8,10,12,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+nav.toc .inner{max-width:1440px;margin:auto;padding:12px 42px;display:flex;gap:18px;overflow:auto;white-space:nowrap;font-size:13px}nav.toc a{color:#b9c1c9}nav.toc a:hover{color:#fff;text-decoration:none}
+section{padding:72px 0;border-bottom:1px solid #1c232a}.section-head{display:grid;grid-template-columns:140px 1fr;gap:30px;margin-bottom:34px}.section-no{font-size:14px;color:#737e89;letter-spacing:.15em}.section-title{font-size:40px;line-height:1.2;margin:0;letter-spacing:-.02em}.section-sub{color:#9aa5af;margin-top:10px;font-size:17px;max-width:1000px}
+h2{font-size:29px;line-height:1.3;margin:42px 0 14px}h3{font-size:21px;margin:30px 0 8px;color:#f5f7f9}p{margin:12px 0;color:#c8d0d8}.strong{color:#fff;font-weight:650}.red{color:#ff6a70}.green{color:#71dd98}.amber{color:#f0bd6e}.blue{color:#8fb5ff}
+.grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.card{background:linear-gradient(180deg,#14191f,#101419);border:1px solid #28313a;border-radius:18px;padding:22px}.card h3{margin-top:0}.card .big{font-size:33px;font-weight:750;color:white}.card .small{font-size:13px;color:#89939e}.card p:last-child{margin-bottom:0}
+.callout{border-left:3px solid var(--red);background:#12171c;padding:18px 22px;border-radius:0 14px 14px 0;margin:24px 0}.callout.blue{border-left-color:var(--blue)}.callout.green{border-left-color:var(--green)}.callout.amber{border-left-color:var(--amber)}
+.table-wrap{overflow:auto;border:1px solid #28313a;border-radius:16px;margin:22px 0}table{width:100%;border-collapse:collapse;min-width:820px;background:#101419}th,td{padding:14px 16px;border-bottom:1px solid #252d35;text-align:left;vertical-align:top}th{background:#171c22;color:#fff;font-size:13px;letter-spacing:.03em}td{color:#c0c9d2;font-size:14px}tr:last-child td{border-bottom:none}
+.timeline{position:relative;margin:36px 0}.timeline:before{content:"";position:absolute;left:110px;top:0;bottom:0;width:1px;background:#3a444f}.tl-item{display:grid;grid-template-columns:90px 1fr;gap:40px;position:relative;padding:0 0 32px}.tl-item:after{content:"";position:absolute;left:104px;top:8px;width:13px;height:13px;border-radius:50%;background:var(--red);box-shadow:0 0 0 5px #11161b}.tl-year{font-size:21px;font-weight:700;color:#fff}.tl-box{background:#11161b;border:1px solid #252e37;border-radius:14px;padding:17px 20px}.tl-box strong{color:white}.tl-box p{margin:5px 0}
+.visual{background:#0d1115;border:1px solid #26303a;border-radius:20px;padding:24px;margin:28px 0;overflow:hidden}.visual-title{font-size:15px;color:#d5dbe1;margin-bottom:14px;font-weight:650}.visual svg{width:100%;height:auto;display:block}.caption{font-size:12px;color:#7e8995;margin-top:12px}
+.bar{display:flex;align-items:center;gap:12px;margin:10px 0}.bar-label{width:120px;color:#c9d1d9;font-size:13px}.bar-track{height:18px;flex:1;background:#1a2026;border-radius:999px;overflow:hidden}.bar-fill{height:100%;border-radius:999px;background:linear-gradient(90deg,#e82127,#ff6b70)}.bar-value{width:85px;text-align:right;color:#fff;font-weight:650;font-size:13px}
+.pill{display:inline-block;padding:3px 8px;border-radius:999px;background:#202833;border:1px solid #313c47;color:#bcc6d0;font-size:12px;margin-right:6px}
+ul,ol{color:#c6ced7;padding-left:24px}li{margin:7px 0}
+.quote{font-size:23px;line-height:1.55;color:#f2f4f6;border-top:1px solid #303944;border-bottom:1px solid #303944;padding:24px 0;margin:28px 0}
+.score{display:grid;grid-template-columns:200px 1fr 70px;gap:14px;align-items:center;margin:12px 0}.score .track{height:10px;border-radius:999px;background:#1b222a;overflow:hidden}.score .fill{height:100%;background:linear-gradient(90deg,#5f8fff,#65d9e7)}
+.risk-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:7px}.risk-cell{min-height:92px;border:1px solid #2a323a;border-radius:10px;padding:10px;background:#11161b}.risk-cell.h{background:rgba(232,33,39,.13);border-color:rgba(232,33,39,.35)}.risk-cell.m{background:rgba(240,180,90,.10);border-color:rgba(240,180,90,.3)}.risk-cell.l{background:rgba(100,210,139,.08);border-color:rgba(100,210,139,.22)}.risk-cell b{display:block;font-size:13px;color:#fff}.risk-cell span{font-size:11px;color:#96a0aa}
+.sources{font-size:13px}.sources li{margin-bottom:11px}.sources code{color:#cfd6dd}
+.footer{padding:50px 0 80px;color:#7f8994;font-size:12px}.tagline{font-size:30px;line-height:1.35;color:#fff;max-width:1000px;margin:0 auto 20px;text-align:center}.center{text-align:center}
+@media(max-width:900px){.container{padding:0 20px}.hero{min-height:auto;padding:70px 0}.hero-grid,.grid2,.grid3,.grid4,.section-head{grid-template-columns:1fr}.hero h1{font-size:42px}.section-title{font-size:32px}.section-head{gap:6px}.timeline:before{left:78px}.tl-item{grid-template-columns:60px 1fr;gap:30px}.tl-item:after{left:72px}.risk-grid{grid-template-columns:repeat(2,1fr)}nav.toc .inner{padding:10px 20px}.metric-grid{grid-template-columns:1fr 1fr}}
+@media print{nav.toc{display:none}body{background:#fff;color:#111}.card,.visual,.tl-box,.table-wrap{break-inside:avoid}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="container hero-grid">
+    <div>
+      <div class="kicker">TESLA · 2003—2026 · COMPANY HISTORY & STRATEGY</div>
+      <h1>特斯拉：从电动车创业公司，到“现实世界 AI”平台</h1>
+      <p class="lead">一份按“企业史 × 产品史 × 技术史 × 制造史 × 财务史 × 资本市场史”展开的深度研究。重点不是讲传奇，而是解释：Tesla 每一次跨越靠什么完成，哪些能力已经兑现，哪些仍然只是高风险的未来选项。</p>
+      <div class="badges">
+        <span class="badge">创立与创始人争议</span><span class="badge">Roadster → Model S/3/Y</span><span class="badge">Gigafactory</span><span class="badge">电池与制造</span><span class="badge">Supercharger / NACS</span><span class="badge">FSD / Robotaxi</span><span class="badge">Optimus</span><span class="badge">Powerwall / Megapack</span>
+      </div>
+    </div>
+    <aside class="hero-card">
+      <div class="hero-logo">
+        <svg viewBox="0 0 500 220" aria-label="Tesla conceptual timeline graphic">
+          <defs><linearGradient id="g1" x1="0" x2="1"><stop offset="0" stop-color="#e82127"/><stop offset="1" stop-color="#ff6f75"/></linearGradient></defs>
+          <path d="M245 20 C190 20 140 37 101 64 C149 49 198 45 245 45 C292 45 341 49 389 64 C350 37 300 20 245 20Z" fill="url(#g1)"/>
+          <path d="M183 72 C205 63 225 60 245 60 C265 60 285 63 307 72 C292 77 280 84 270 94 L270 187 L245 211 L220 187 L220 94 C210 84 198 77 183 72Z" fill="url(#g1)" opacity=".92"/>
+          <circle cx="245" cy="122" r="88" fill="none" stroke="#3a434d" stroke-width="1" stroke-dasharray="4 6"/>
+        </svg>
+      </div>
+      <div class="metric-grid">
+        <div class="metric"><div class="v">2003</div><div class="l">公司成立</div></div>
+        <div class="metric"><div class="v">2010</div><div class="l">NASDAQ IPO</div></div>
+        <div class="metric"><div class="v">$94.8B</div><div class="l">2025 年营收</div></div>
+        <div class="metric"><div class="v">46.7 GWh</div><div class="l">2025 储能部署</div></div>
+        <div class="metric"><div class="v">486,532</div><div class="l">2026 Q3 车辆交付</div></div>
+        <div class="metric"><div class="v">13.7 GWh</div><div class="l">2026 Q3 储能部署</div></div>
+      </div>
+      <div class="note">资料更新至 2026-10-05。2026 Q3 财务结果尚未发布；Tesla 计划于 2026-10-21 公布。</div>
+    </aside>
+  </div>
+</header>
+
+<nav class="toc"><div class="inner">
+<a href="#s1">总论</a><a href="#s2">创立</a><a href="#s3">Roadster</a><a href="#s4">生死关</a><a href="#s5">Model S</a><a href="#s6">能源化</a><a href="#s7">Model 3</a><a href="#s8">上海与规模化</a><a href="#s9">2021–2023</a><a href="#s10">2024–2026</a><a href="#s11">产品</a><a href="#s12">电池与制造</a><a href="#s13">软件与AI</a><a href="#s14">Robotaxi</a><a href="#s15">能源</a><a href="#s16">充电网络</a><a href="#s17">财务</a><a href="#s18">商业模式</a><a href="#s19">资本市场</a><a href="#s20">治理</a><a href="#s21">护城河</a><a href="#s22">风险</a><a href="#s23">竞争</a><a href="#s24">未来</a><a href="#s25">时间轴</a><a href="#sources">来源</a>
+</div></nav>
+
+<main>
+<section id="s1"><div class="container">
+<div class="section-head"><div class="section-no">01 / THESIS</div><div><h2 class="section-title">先把 Tesla 看对：它从来不只是一家“卖电动车”的公司</h2><div class="section-sub">理解 Tesla 最困难的地方，是它同时处于汽车、能源、软件、AI、机器人、基础设施六个产业交界处。不同阶段，决定公司价值的“主引擎”也发生过改变。</div></div></div>
+<div class="grid3">
+<div class="card"><div class="big">① 汽车公司</div><p>今天现金流与营收的主体仍来自汽车。Model 3 / Y 是规模核心，S/X/Cybertruck 等承担品牌、技术或细分市场角色。</p></div>
+<div class="card"><div class="big">② 制造公司</div><p>Gigafactory、压铸、车身结构、电池包、供应链本地化与“设计即制造”思维，是 Tesla 早期最被低估的真正能力之一。</p></div>
+<div class="card"><div class="big">③ 能源公司</div><p>Powerwall、Megapack 与储能系统正在从“附属故事”变成利润率更高、增长更快的第二业务支柱。</p></div>
+<div class="card"><div class="big">④ 软件公司</div><p>OTA、车机、App、FSD 订阅、联网服务，让汽车变成持续更新的软件终端；这改变了汽车行业的产品生命周期。</p></div>
+<div class="card"><div class="big">⑤ AI 公司</div><p>2025 年 10-K 对公司的描述已明显转向“把 AI 带进现实世界”：FSD、Robotaxi、AI 训练与推理硬件成为战略核心。</p></div>
+<div class="card"><div class="big">⑥ 机器人公司</div><p>Optimus 是最远期、也最不确定的增长选项。若成功，它把 Tesla 从交通与能源扩展到“劳动供给”这个更大的经济变量。</p></div>
+</div>
+<div class="callout"><span class="strong">核心判断：</span>Tesla 的历史不是一条直线，而是连续完成了三次身份跃迁：<span class="red">“证明电动车可行” → “证明电动车可规模制造” → “尝试证明现实世界 AI 可以规模商业化”</span>。前两次已经发生，第三次仍在进行中。</div>
+<div class="visual"><div class="visual-title">Tesla 的战略重心迁移</div>
+<svg viewBox="0 0 1200 330">
+<defs><linearGradient id="r" x1="0" x2="1"><stop offset="0" stop-color="#e82127"/><stop offset="1" stop-color="#ff6f75"/></linearGradient></defs>
+<line x1="70" y1="238" x2="1130" y2="238" stroke="#33404a" stroke-width="3"/>
+<g font-family="sans-serif" fill="#e9edf2">
+<circle cx="140" cy="238" r="9" fill="#e82127"/><text x="95" y="276" font-size="20">2003–2011</text><text x="80" y="102" font-size="25" font-weight="700">证明 EV 能跑</text><text x="80" y="136" font-size="17" fill="#9aa5af">Roadster / 电池包 / 动力总成</text>
+<circle cx="410" cy="238" r="9" fill="#e82127"/><text x="365" y="276" font-size="20">2012–2016</text><text x="350" y="102" font-size="25" font-weight="700">证明 EV 是好车</text><text x="350" y="136" font-size="17" fill="#9aa5af">Model S/X / Supercharger / OTA</text>
+<circle cx="680" cy="238" r="9" fill="#e82127"/><text x="635" y="276" font-size="20">2017–2023</text><text x="620" y="102" font-size="25" font-weight="700">证明能规模制造</text><text x="620" y="136" font-size="17" fill="#9aa5af">Model 3/Y / 上海 / Giga</text>
+<circle cx="970" cy="238" r="9" fill="#e82127"/><text x="925" y="276" font-size="20">2024–2026+</text><text x="900" y="102" font-size="25" font-weight="700">证明 AI 能变现</text><text x="900" y="136" font-size="17" fill="#9aa5af">FSD / Robotaxi / Optimus</text>
+</g>
+<path d="M140 205 C260 185,300 170,410 165 S570 125,680 145 S830 105,970 95" fill="none" stroke="url(#r)" stroke-width="7" stroke-linecap="round"/>
+</svg><div class="caption">这是战略解释图，不是财务占比图。汽车在 2026 年仍然是公司收入主体。</div></div>
+</div></section>
+
+<section id="s2"><div class="container">
+<div class="section-head"><div class="section-no">02 / 2003—2006</div><div><h2 class="section-title">创立：Tesla 不是“马斯克一个人创办的公司”</h2><div class="section-sub">Tesla 的起源比公众印象复杂。创立、早期融资、技术方向与后来对“创始人”身份的争议，是理解公司治理文化的第一章。</div></div></div>
+<p>特斯拉汽车公司（Tesla Motors）于 <span class="strong">2003 年 7 月 1 日</span>在美国特拉华州注册成立。最初发起公司的是工程师 <span class="strong">Martin Eberhard</span> 与 <span class="strong">Marc Tarpenning</span>。2004 年，Elon Musk 领投公司 A 轮融资并成为董事长；J.B. Straubel 与 Ian Wright 等关键早期成员随后加入。2009 年围绕“谁可以被称为创始人”的法律争议最终和解，此后 Eberhard、Tarpenning、Musk、Straubel 与 Wright 五人都可被称为共同创始人。</p>
+<p>这段历史值得保留精度：<span class="strong">Musk 并不是在公司法律注册时的两名最初创办者之一，但他很早就以主要资本提供者、董事长和产品推动者的身份进入，而且后来接管公司并塑造了绝大部分外界熟悉的 Tesla。</span>如果把任何一端说成“完全是他创办”或“他只是后来买来的”，都过于简单。</p>
+<h2>为什么 2003 年会有人认真做电动车？</h2>
+<p>当时美国汽车产业对纯电动车普遍悲观。铅酸或早期电池能量密度不足、续航短、充电基础设施几乎不存在。Tesla 的反直觉判断是：消费电子行业已经大规模使用 <span class="strong">18650 圆柱锂离子电芯</span>，单体虽为消费级，但如果通过电池管理系统、安全设计和热管理，把数千个电芯组成一个可靠电池包，汽车性能可能发生质变。</p>
+<div class="grid2">
+<div class="card"><h3>早期技术假设</h3><ul><li>不用等待“完美汽车电池”出现，先利用已经大规模商业化的锂电芯。</li><li>先从昂贵高性能跑车切入，而不是一开始挑战廉价大众车。</li><li>电动车不应该靠“环保牺牲感”销售，而应该在加速、响应、驾驶体验上更好。</li><li>把电池、功率电子、电机、软件作为一个系统优化，而不是简单把发动机换成电机。</li></ul></div>
+<div class="card"><h3>商业逻辑</h3><ul><li>高端跑车允许较高售价，能吸收极高的早期单位成本。</li><li>跑车市场对加速性能敏感，而电机的瞬时扭矩天然具有优势。</li><li>小规模产品可以先验证技术，不必立即承担百万辆级制造复杂度。</li><li>成功后再向更低价、更大规模车型下沉——这就是后来著名的 Master Plan。</li></ul></div>
+</div>
+<div class="quote">Tesla 最初真正卖的不是“省油”，而是一种新命题：<b>电动车可以比燃油车更令人向往。</b></div>
+<h2>2006 年的“秘密宏图”</h2>
+<p>2006 年 Musk 发表第一版 Master Plan：先造昂贵跑车，用所得资金发展更便宜的车，再继续向大众市场下沉，同时提供零排放能源方案。后来 Tesla 的车型路径——Roadster → Model S/X → Model 3/Y——在大方向上确实遵循了这一逻辑。</p>
+<div class="visual"><div class="visual-title">Master Plan 的“资金与规模阶梯”</div>
+<svg viewBox="0 0 1200 350"><g font-family="sans-serif">
+<rect x="70" y="245" width="230" height="62" rx="12" fill="#241719" stroke="#5b2629"/><text x="95" y="283" fill="#fff" font-size="22" font-weight="700">Roadster</text><text x="95" y="303" fill="#aaa" font-size="13">高价、小规模、技术证明</text>
+<rect x="330" y="185" width="240" height="122" rx="12" fill="#23191b" stroke="#6a2b2f"/><text x="355" y="226" fill="#fff" font-size="22" font-weight="700">Model S / X</text><text x="355" y="250" fill="#aaa" font-size="13">豪华市场、建立品牌</text>
+<rect x="600" y="112" width="245" height="195" rx="12" fill="#21191b" stroke="#7e3035"/><text x="625" y="157" fill="#fff" font-size="22" font-weight="700">Model 3 / Y</text><text x="625" y="181" fill="#aaa" font-size="13">大众化、规模制造</text>
+<rect x="875" y="45" width="255" height="262" rx="12" fill="#1e191a" stroke="#97373d"/><text x="900" y="94" fill="#fff" font-size="22" font-weight="700">Energy + AI</text><text x="900" y="118" fill="#aaa" font-size="13">储能 / 软件 / Robotaxi / Robot</text>
+<path d="M280 235 L340 183 M550 176 L610 110 M825 104 L885 43" stroke="#e82127" stroke-width="4" marker-end="url(#a)"/><defs><marker id="a" markerWidth="10" markerHeight="10" refX="8" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#e82127"/></marker></defs>
+</g></svg></div>
+</div></section>
+
+<section id="s3"><div class="container">
+<div class="section-head"><div class="section-no">03 / ROADSTER</div><div><h2 class="section-title">Roadster：技术验证成功，但几乎把公司拖死</h2><div class="section-sub">Roadster 是 Tesla 的“阿波罗计划”：它证明了电动车性能，却也暴露了创业公司做汽车最可怕的问题——成本、供应链、认证、质量与量产。</div></div></div>
+<p>第一代 Roadster 使用 Lotus Elise 相关底盘基础，但 Tesla 必须自行解决电池包、热管理、控制系统、动力电子、电机、软件、碰撞安全、供应链和大量重新工程。对媒体而言，这是一辆“电动 Lotus”；对工程和财务而言，它远不是简单换动力总成。</p>
+<p>Roadster 的历史意义有三层：</p>
+<ol><li><span class="strong">性能层：</span>电机瞬时扭矩让电动车第一次以“快”而不是“省”进入高端消费语境。</li><li><span class="strong">续航层：</span>200 英里以上级别续航打破当时大众对 EV 只能短途通勤的刻板印象。</li><li><span class="strong">资本层：</span>一辆能让富裕早期用户愿意排队购买的产品，为后续融资提供了故事与实物证明。</li></ol>
+<h2>但 Roadster 也暴露了 Tesla 的第一性问题：汽车不是软件</h2>
+<p>汽车产品的复杂性来自上万个零件、供应商、认证、良率、返修、物流、工装、售后和质量责任。创业公司可以在实验室里做出一辆很快的原型车，但从原型到可重复制造，是完全不同的能力。Roadster 项目出现严重成本超支与进度延迟，也加剧了公司内部管理冲突。</p>
+<div class="callout amber"><span class="strong">重要规律：</span>Tesla 后来几乎所有重大危机都不是“产品有没有需求”，而是<span class="amber">能不能以目标成本、目标节拍、目标良率把产品大量制造出来</span>。Roadster 是第一次，Model 3 是第二次，4680/Cybertruck/Optimus 则在不同程度上重复了同一类挑战。</div>
+</div></section>
+
+<section id="s4"><div class="container">
+<div class="section-head"><div class="section-no">04 / 2007—2011</div><div><h2 class="section-title">第一次生死关：管理层更替、金融危机、Musk 接任 CEO</h2><div class="section-sub">Tesla 并不是一路高歌猛进。2008 年前后，它接近资金断裂；如果这一阶段没有挺过去，后来的 Model S、Model 3、上海工厂都不会存在。</div></div></div>
+<p>2007 年起，公司管理层发生剧烈变化。Martin Eberhard 离开 CEO 职位，随后公司经历过多次临时领导安排。2008 年，Elon Musk 正式出任 CEO。与此同时，全球金融危机使资本市场冻结，Roadster 成本问题仍未彻底解决。</p>
+<p>这一阶段 Tesla 的生存依赖多种资本来源：私人融资、战略投资、政府贷款以及后来公开市场融资。美国能源部先进技术车辆制造贷款计划在 2010 年向 Tesla 发放约 <span class="strong">4.65 亿美元</span>贷款，用于 Model S 和 Fremont 相关制造能力；Tesla 于 2013 年提前约九年偿还完毕。</p>
+<h2>2010 年 IPO：从“私人实验”进入公开市场</h2>
+<p>Tesla 于 2010 年 6 月在 NASDAQ 上市，IPO 价格为每股 17 美元（未按后续拆股调整），发行规模约 2.261 亿美元。这使 Tesla 成为极少数能够在美国公开市场融资的年轻汽车公司，也为后续 Fremont 工厂改造和 Model S 量产提供了资本通道。</p>
+<div class="grid3"><div class="card"><div class="big">$465M</div><div class="small">美国能源部 ATVM 贷款</div><p>2010 发放，2013 年全部提前偿还。</p></div><div class="card"><div class="big">$17</div><div class="small">2010 IPO 发行价（拆股前）</div><p>IPO 总发行价格约 2.261 亿美元。</p></div><div class="card"><div class="big">Fremont</div><div class="small">制造根基</div><p>Tesla 接手原 NUMMI 工厂，开始从小批量跑车向整车制造商转换。</p></div></div>
+<div class="callout blue"><span class="strong">真正的转折：</span>IPO 并不是最重要的，最重要的是 Tesla 获得了一座能够承载大规模制造的工厂，并开始从“做动力系统的硅谷创业公司”变成“自己造整车的工业企业”。</div>
+</div></section>
+
+<section id="s5"><div class="container">
+<div class="section-head"><div class="section-no">05 / 2012—2015</div><div><h2 class="section-title">Model S：Tesla 第一次证明“电动车本身可以是更好的汽车”</h2><div class="section-sub">如果 Roadster 证明“电动车能很快”，Model S 则证明电动车可以在空间、交互、性能、软件与整车体验上建立自己的产品范式。</div></div></div>
+<p>2012 年 Model S 交付，是 Tesla 公司史最关键的产品节点之一。它采用“滑板式”电池包布局，把重电池放在车底，形成低重心与平坦底盘；没有传统发动机与变速箱占据前舱；大型中央触摸屏、OTA 更新、联网能力让汽车开始具备消费电子产品的使用逻辑。</p>
+<p>2013 年，Model S 获得 MotorTrend 年度车型等行业认可。其意义不仅是奖项，而是传统汽车媒体开始把 Tesla 当成汽车工程竞争者，而不是环保小众品牌。</p>
+<h2>Supercharger：Tesla 很早就知道“车只是系统的一部分”</h2>
+<p>电动车早期的核心障碍之一是补能焦虑。Tesla 从 2012 年开始建设 Supercharger 网络，实际上是在自己承担公共基础设施的一部分。传统车企习惯把加油站视为外部系统，而 Tesla 把充电体验纳入产品设计：导航、路线规划、电池预热、支付与车辆软件协同。</p>
+<div class="grid2"><div class="card"><h3>Model S 带来的行业改变</h3><ul><li>大电池 + 长续航成为高端 EV 标准答案。</li><li>中央大屏和软件驱动 UI 逐步成为行业模仿对象。</li><li>OTA 更新让“交付后仍升级”成为汽车能力。</li><li>性能版电动车把 0–100 km/h 加速竞争推到新高度。</li><li>直接销售模式削弱传统经销商在客户关系中的中介角色。</li></ul></div><div class="card"><h3>Tesla 开始形成的系统闭环</h3><ul><li>车：Model S / X</li><li>补能：Supercharger</li><li>软件：OTA、导航、App</li><li>能源：Powerwall / Powerpack</li><li>数据：联网车队</li><li>销售：直营与在线配置</li></ul></div></div>
+<h2>2015：Model X 与能源产品</h2>
+<p>Model X 把 Tesla 拓展到 SUV，但鹰翼门、复杂座椅与结构设计也带来明显制造难度。更重要的是，同年 Tesla 发布 Powerwall 与 Powerpack，正式把电池能力从汽车延展到住宅和电网储能。这为十年后的 Megapack 高增长埋下了伏笔。</p>
+</div></section>
+
+<section id="s6"><div class="container">
+<div class="section-head"><div class="section-no">06 / 2016</div><div><h2 class="section-title">2016：Model 3、SolarCity 与“大一统能源公司”</h2><div class="section-sub">2016 年是 Tesla 叙事扩张最快的一年：一边准备进入大众汽车市场，一边吞并 SolarCity，把汽车、电池与太阳能合并成“可持续能源系统”。</div></div></div>
+<h2>Model 3 预订潮：需求不是问题，制造才是</h2>
+<p>Model 3 以更低价位进入主流市场，发布后获得巨量预订。市场第一次清晰看到：消费者对纯电动车的需求可能远大于行业原先估计。但 Tesla 随之面对一个远比 Roadster/Model S 更难的问题——几十万辆级别生产。</p>
+<h2>收购 SolarCity：战略上合理，治理上争议巨大</h2>
+<p>2016 年 11 月，Tesla 完成对 SolarCity 的收购，交易对价公允价值约 <span class="strong">21 亿美元</span>。公司给出的产业逻辑是：太阳能发电 + 电池储能 + 电动车消费可以形成一体化清洁能源产品。</p>
+<p>争议则来自关联关系与财务状况：Elon Musk 当时既是 Tesla CEO，又担任 SolarCity 董事长；SolarCity 与 Musk 家族关系密切。此交易后来长期成为公司治理争论的一部分。</p>
+<div class="callout"><span class="strong">事后看：</span>SolarCity 的“住宅太阳能整合”并未成为 Tesla 最大成功，但收购强化了 Tesla 的能源公司身份。真正跑出来的并非 Solar Roof，而是<span class="red">储能</span>——尤其是后来面向电网的 Megapack。</div>
+<h2>Autopilot：软件叙事开始进入估值核心</h2>
+<p>Tesla 在 2010 年代中期逐步推出 Autopilot 驾驶辅助功能，并持续升级硬件与软件。其真正重要之处不是某一版功能，而是建立了一个模式：车辆拥有统一传感器与计算平台，软件可以通过 OTA 迭代；车队运行数据又可以反过来训练系统。</p>
+</div></section>
+
+<section id="s7"><div class="container">
+<div class="section-head"><div class="section-no">07 / 2017—2018</div><div><h2 class="section-title">“Production Hell”：Model 3 把 Tesla 推到第二次生死关</h2><div class="section-sub">Tesla 最重要的工业能力不是在 Model S 时代形成，而是在 Model 3 量产危机中被逼出来的。</div></div></div>
+<p>Model 3 于 2017 年开始交付。Musk 曾对自动化程度抱有极高预期，但实际量产初期出现瓶颈：电池模组、总装节拍、机器人流程、供应商与质量等多环节都可能限制产量。</p>
+<p>后来 Musk 自己承认过度自动化是错误之一。Tesla 不得不快速修改产线、增加人工、建立临时总装线，甚至使用大型帐篷式结构扩产。这种在传统汽车工业看来极不“优雅”的做法，却体现出 Tesla 的一种独特组织特征：<span class="strong">宁愿边生产边重构系统，也不等待所有流程在纸面上完美。</span></p>
+<div class="grid4"><div class="card"><div class="big">254,530</div><div class="small">2018 年车辆产量</div></div><div class="card"><div class="big">245,506</div><div class="small">2018 年车辆交付</div></div><div class="card"><div class="big">+152%</div><div class="small">2018 产量同比增长（公司披露）</div></div><div class="card"><div class="big">+138%</div><div class="small">2018 交付同比增长（公司披露）</div></div></div>
+<h2>为什么 Model 3 是公司史最关键车型？</h2>
+<p>因为它不只是销量更大。它迫使 Tesla 学会四件事：成本工程、制造节拍、供应链规模化、现金流纪律。没有这次“地狱式训练”，后来上海工厂快速爬坡和 Model Y 的成功几乎不可能发生。</p>
+<div class="visual"><div class="visual-title">从“产品工程”到“制造系统工程”</div><svg viewBox="0 0 1200 320"><g font-family="sans-serif">
+<rect x="70" y="55" width="220" height="210" rx="20" fill="#141a20" stroke="#33404a"/><text x="100" y="100" fill="#fff" font-size="24" font-weight="700">产品设计</text><text x="100" y="140" fill="#9da8b2" font-size="16">电池包</text><text x="100" y="170" fill="#9da8b2" font-size="16">电机 / 逆变器</text><text x="100" y="200" fill="#9da8b2" font-size="16">车身 / 软件</text>
+<rect x="360" y="55" width="220" height="210" rx="20" fill="#141a20" stroke="#33404a"/><text x="390" y="100" fill="#fff" font-size="24" font-weight="700">制造设计</text><text x="390" y="140" fill="#9da8b2" font-size="16">工位节拍</text><text x="390" y="170" fill="#9da8b2" font-size="16">自动化</text><text x="390" y="200" fill="#9da8b2" font-size="16">良率 / 返工</text>
+<rect x="650" y="55" width="220" height="210" rx="20" fill="#141a20" stroke="#33404a"/><text x="680" y="100" fill="#fff" font-size="24" font-weight="700">供应链</text><text x="680" y="140" fill="#9da8b2" font-size="16">电芯 / 芯片</text><text x="680" y="170" fill="#9da8b2" font-size="16">本地化</text><text x="680" y="200" fill="#9da8b2" font-size="16">物流 / 库存</text>
+<rect x="940" y="55" width="190" height="210" rx="20" fill="#211617" stroke="#783136"/><text x="970" y="100" fill="#fff" font-size="24" font-weight="700">现金流</text><text x="970" y="140" fill="#ff8d91" font-size="16">产能必须变成交付</text><text x="970" y="170" fill="#ff8d91" font-size="16">交付必须变现金</text><text x="970" y="200" fill="#ff8d91" font-size="16">成本决定生存</text>
+<path d="M290 160 H350 M580 160 H640 M870 160 H930" stroke="#e82127" stroke-width="4"/></g></svg></div>
+</div></section>
+
+<section id="s8"><div class="container">
+<div class="section-head"><div class="section-no">08 / 2019—2020</div><div><h2 class="section-title">上海工厂与 Model Y：Tesla 从“会造车”进入“会复制工厂”</h2><div class="section-sub">Tesla 的全球规模化真正开始于上海。这里不仅是产能问题，更是成本、供应链、本地市场与工厂复制速度的突破。</div></div></div>
+<h2>Gigafactory Shanghai</h2>
+<p>上海工厂是 Tesla 第一座海外整车超级工厂，生产 Model 3 与 Model Y。它的战略意义非常大：第一，贴近全球最大电动车市场之一；第二，大规模使用本地供应链降低成本；第三，成为出口基地；第四，证明 Tesla 可以比传统汽车工业更快建设并爬坡新工厂。</p>
+<h2>Model Y：从“成功车型”变成“公司主力平台”</h2>
+<p>Model Y 与 Model 3 共享大量架构和零部件，降低研发与制造复杂度。SUV/跨界车市场空间又显著大于轿车，因此 Model Y 很快成为 Tesla 最重要的销量支柱。到 2023 年，公司在官方材料中称 Model Y 成为全球最畅销车型。</p>
+<h2>2020：第一次全年盈利 + 加入 S&P 500</h2>
+<p>2020 年 Tesla 生产约 509,737 辆、交付 499,647 辆；全年营收约 315.4 亿美元，归属于普通股股东的 GAAP 净利润约 7.21 亿美元。这是公司首次实现全年 GAAP 盈利。2020 年 12 月，Tesla 被纳入 S&P 500，意味着它从“高风险成长股”正式成为美国大型指数核心成分之一。</p>
+<div class="grid3"><div class="card"><div class="big">499,647</div><div class="small">2020 交付量</div></div><div class="card"><div class="big">$31.54B</div><div class="small">2020 营收</div></div><div class="card"><div class="big">$721M</div><div class="small">2020 GAAP 归母净利润</div></div></div>
+<h2>Battery Day：4680 与“车身就是电池结构”</h2>
+<p>2020 年 Battery Day 提出 4680 大圆柱电芯、无极耳设计、干电极方向、结构化电池包等路线。它们背后的目标不是简单提高续航，而是<span class="strong">降低每 kWh 成本、减少零部件与制造步骤、提高结构效率</span>。但后续也证明：电池制造创新从实验室到大规模高良率生产非常困难，4680 的工业化速度远慢于最初最乐观预期。</p>
+</div></section>
+
+<section id="s9"><div class="container">
+<div class="section-head"><div class="section-no">09 / 2021—2023</div><div><h2 class="section-title">扩张期：Berlin、Texas、Plaid、Semi、Cybertruck、NACS</h2><div class="section-sub">这三年 Tesla 同时扩大工厂、产品线、充电标准和 AI 研发。公司从“电动车先锋”进一步变成行业标准制定者。</div></div></div>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">2021</div><div class="tl-box"><strong>Model S Plaid / AI Day / 总部迁往 Texas</strong><p>Plaid 强化高性能电动车品牌；AI Day 让“自动驾驶 + 人形机器人”成为新的长期叙事。公司总部迁至奥斯汀，Texas 工厂成为新核心。</p></div></div>
+<div class="tl-item"><div class="tl-year">2022</div><div class="tl-box"><strong>Berlin 与 Texas 开始 Model Y 交付</strong><p>全球制造从 Fremont + Shanghai 扩展为美国、欧洲、中国多极结构。Tesla Semi 开始向 PepsiCo 等客户交付。</p></div></div>
+<div class="tl-item"><div class="tl-year">2023</div><div class="tl-box"><strong>Model Y、NACS、Cybertruck、Optimus Gen 2</strong><p>Model Y 成为公司规模核心；Ford、GM 等车企推动北美充电接口向 Tesla NACS 靠拢；年底 Cybertruck 开始交付。</p></div></div>
+</div>
+<h2>NACS：Tesla 最成功的“平台外溢”之一</h2>
+<p>Tesla 原本是为自家车设计充电接口和 Supercharger 网络。2023 年后，越来越多北美车企宣布采用 Tesla 的 North American Charging Standard（NACS）接口并接入 Supercharger。到 2026 年 Tesla 官方 NACS 页面列出的支持品牌已覆盖 Ford、GM、Rivian、Mercedes-Benz、Hyundai/Kia、Honda、Toyota、Volkswagen、BMW、Stellantis 等众多厂商。</p>
+<div class="callout green"><span class="strong">为什么重要：</span>当竞争对手也采用你的接口、依赖你的充电基础设施时，Tesla 的角色从“卖车公司”向<span class="green">基础设施平台</span>移动。这种平台价值通常比单纯汽车销量更难复制。</div>
+<h2>Cybertruck：工程激进主义的优点与代价</h2>
+<p>Cybertruck 的不锈钢外壳、独特几何造型、48V 低压架构、线控转向等体现 Tesla 的工程冒险精神。但它也再次展示“复杂新工艺 = 制造风险”：不锈钢外板公差、供应链、结构和产线爬坡都增加难度。它更像品牌与技术旗舰，而不是像 Model Y 那样承担公司大多数销量。</p>
+</div></section>
+
+<section id="s10"><div class="container">
+<div class="section-head"><div class="section-no">10 / 2024—2026</div><div><h2 class="section-title">公司叙事发生根本变化：从“EV 增长股”转向“AI + 能源 + 自动驾驶”</h2><div class="section-sub">2024 之后，Tesla 的汽车增长不再像 2020–2023 那样顺畅，但能源储存与 AI 业务的重要性快速上升。</div></div></div>
+<h2>2024：汽车交付首次出现年度回落</h2>
+<p>Tesla 2024 年共生产约 177.34 万辆、交付约 178.92 万辆。相比 2023 年约 180.86 万辆交付，出现小幅下滑。这是一个象征性变化：市场不能再简单用“每年 40%–50% 交付增长”解释 Tesla。</p>
+<h2>“We, Robot” 与 Cybercab</h2>
+<p>2024 年 Tesla 在 “We, Robot” 活动中展示 Cybercab、Robovan 与 Optimus，明确把未来价值中心放在“自主运输 + 通用机器人”。Cybercab 是无方向盘与踏板的专用自动驾驶车辆，商业逻辑并非卖给普通消费者，而是降低每英里出行成本、提升车辆利用率。</p>
+<h2>2025：Robotaxi 开始从演示变成商业服务</h2>
+<p>2025 年 6 月 Tesla 在 Austin 启动 Robotaxi 服务。公司 2025 年年报称，到年底已扩大服务并开始在 Austin 测试/移除安全监控员；Robotaxi 业务目前以 Model Y 为主，未来将加入 Cybercab。到 2026 年 10 月，Tesla 官方 Robotaxi 页面称其自动驾驶叫车服务已在美国多个城市提供。</p>
+<h2>2025：汽车承压，储能变强</h2>
+<p>2025 年 Tesla 生产约 165.47 万辆消费车辆，交付约 163.61 万辆，较 2024 年继续下降。与此同时，全年储能部署达到 <span class="strong">46.7 GWh</span>，显著高于 2024 年的 31.4 GWh。财务上，2025 年总营收约 <span class="strong">948.27 亿美元</span>，低于 2024 年的 976.90 亿美元；能源业务收入则从 2024 年的 100.86 亿美元增至 127.71 亿美元。</p>
+<div class="grid4"><div class="card"><div class="big">1.636M</div><div class="small">2025 车辆交付</div></div><div class="card"><div class="big">46.7 GWh</div><div class="small">2025 储能部署</div></div><div class="card"><div class="big">$94.83B</div><div class="small">2025 总营收</div></div><div class="card"><div class="big">29.8%</div><div class="small">2025 能源业务毛利率</div></div></div>
+<h2>2026：最新进度</h2>
+<p>截至本报告资料截止日，Tesla 已披露 2026 年前三季度车辆交付。Q1 约 35.80 万辆，Q2 为 48.01 万辆，Q3 为 <span class="strong">486,532 辆</span>；Q3 储能部署 <span class="strong">13.7 GWh</span>。三季度累计车辆交付约 <span class="strong">132.47 万辆</span>。2026 Q3 的完整利润表、现金流与毛利率尚未发布，公司计划于 10 月 21 日公布。</p>
+<div class="visual"><div class="visual-title">汽车交付 vs 储能部署：2024–2026 的结构变化</div>
+<div class="bar"><div class="bar-label">2024 车辆</div><div class="bar-track"><div class="bar-fill" style="width:100%"></div></div><div class="bar-value">1.789M</div></div>
+<div class="bar"><div class="bar-label">2025 车辆</div><div class="bar-track"><div class="bar-fill" style="width:91.4%"></div></div><div class="bar-value">1.636M</div></div>
+<div class="bar"><div class="bar-label">2026 Q1–Q3</div><div class="bar-track"><div class="bar-fill" style="width:74%"></div></div><div class="bar-value">1.325M</div></div>
+<div style="height:18px"></div>
+<div class="bar"><div class="bar-label">2024 储能</div><div class="bar-track"><div class="bar-fill" style="width:67%;background:linear-gradient(90deg,#5fd9e7,#7aa7ff)"></div></div><div class="bar-value">31.4 GWh</div></div>
+<div class="bar"><div class="bar-label">2025 储能</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#5fd9e7,#7aa7ff)"></div></div><div class="bar-value">46.7 GWh</div></div>
+<div class="caption">汽车条形宽度以 2024 为 100%；储能条形宽度以 2025 为 100%。2026 仅为前三季度，不能与全年直接比较。</div></div>
+<div class="callout blue"><span class="strong">公司身份变化已经写进年报：</span>2025 年 10-K 对 Tesla 的描述已经从单纯“加速可持续能源转型”，明显转向<span class="blue">“把人工智能带入现实世界”</span>，具体载体包括 FSD、Robotaxi 与 Optimus。</div>
+</div></section>
+
+<section id="s11"><div class="container">
+<div class="section-head"><div class="section-no">11 / PRODUCTS</div><div><h2 class="section-title">产品谱系：每一款车承担的战略任务不同</h2></div></div>
+<div class="table-wrap"><table><thead><tr><th>产品</th><th>战略角色</th><th>历史意义</th><th>主要局限/挑战</th></tr></thead><tbody>
+<tr><td><b>Roadster (1st gen)</b></td><td>技术验证、品牌破局</td><td>证明锂电电动车可以高性能、长续航</td><td>成本极高、量产困难、小规模</td></tr>
+<tr><td><b>Model S</b></td><td>高端旗舰</td><td>建立 Tesla 产品范式：滑板电池、大屏、OTA、长续航</td><td>市场容量有限、平台逐渐老化</td></tr>
+<tr><td><b>Model X</b></td><td>高端 SUV</td><td>进入 SUV，强化品牌与高售价组合</td><td>鹰翼门等复杂结构提高制造难度</td></tr>
+<tr><td><b>Model 3</b></td><td>规模化轿车</td><td>把 Tesla 从豪华品牌推向大众市场</td><td>价格竞争激烈，成熟期增长放缓</td></tr>
+<tr><td><b>Model Y</b></td><td>全球主力</td><td>平台共享 + SUV 市场，成为销量支柱</td><td>产品集中度高，对需求周期敏感</td></tr>
+<tr><td><b>Cybertruck</b></td><td>技术/品牌旗舰</td><td>48V、线控转向、不锈钢等激进工程</td><td>制造复杂、市场形态更小众</td></tr>
+<tr><td><b>Semi</b></td><td>商用运输</td><td>将电动化延伸至重卡</td><td>电池容量、充电基础设施、规模爬坡</td></tr>
+<tr><td><b>Cybercab</b></td><td>自动驾驶专用平台</td><td>从“卖车”转向“按里程提供移动服务”</td><td>依赖完全自动驾驶、监管与生产爬坡</td></tr>
+<tr><td><b>Optimus</b></td><td>通用人形机器人</td><td>把 AI/电机/电池/控制能力延伸到劳动市场</td><td>技术、可靠性、成本、商业化均高度不确定</td></tr>
+</tbody></table></div>
+<h2>Model 3/Y 为什么是“真正的 Tesla”？</h2>
+<p>在投资叙事中大家容易被 Roadster、Plaid、Cybertruck、Cybercab 吸引，但公司财务史真正由 Model 3/Y 重写。它们共享架构、零部件和供应链，制造规模巨大，构成 Tesla 车队数据的主要来源，并为服务、充电、FSD 订阅创造安装基础。</p>
+</div></section>
+
+<section id="s12"><div class="container">
+<div class="section-head"><div class="section-no">12 / ENGINEERING</div><div><h2 class="section-title">电池与制造：Tesla 最深的“硬科技护城河”其实是系统工程</h2><div class="section-sub">Tesla 的优势从来不是拥有一种别人完全不会的电池化学，而是把电芯、结构、热管理、功率电子、软件与工厂同时优化。</div></div></div>
+<h2>电芯路线：18650 → 2170 → 4680，多化学体系并存</h2>
+<p>Tesla 早期通过大量消费级 18650 电芯建立 Roadster/Model S 能力；Model 3/Y 大规模使用 2170 等规格；后来开发 4680。与此同时，为控制成本与供应链风险，公司并不坚持单一化学路线——不同车型、地区和产品会使用不同供应商及化学体系，包括 LFP 等。</p>
+<h2>真正决定整车竞争力的是“每辆车的系统成本”</h2>
+<div class="grid3"><div class="card"><h3>电池</h3><p>电芯价格、成组效率、热管理、结构、电池管理软件决定续航和成本。</p></div><div class="card"><h3>电驱</h3><p>电机设计、逆变器、碳化硅功率器件、控制算法影响效率与性能。</p></div><div class="card"><h3>车身</h3><p>大型压铸、零件集成、结构电池包尝试减少焊点、零件和工位。</p></div><div class="card"><h3>热系统</h3><p>热泵、Octovalve 等集成方案将座舱、电池与电驱热管理协同。</p></div><div class="card"><h3>软件</h3><p>能耗预测、导航、充电预热、车辆控制共同决定用户实际续航体验。</p></div><div class="card"><h3>工厂</h3><p>产品设计若不能减少工位、缩短节拍、提高良率，就难形成成本优势。</p></div></div>
+<h2>Gigacasting：把几十个零件变成一个大件</h2>
+<p>Tesla 使用大型压铸设备制造大型前/后车体结构，思路是减少冲压件、焊点、夹具与装配步骤。好处是节拍和成本潜力，代价是模具、材料、维修、尺寸控制和工艺风险更集中。</p>
+<h2>“机器制造机器”</h2>
+<p>Musk 多年来反复强调工厂本身也是产品。这句话在 Tesla 历史中并非口号：Model 3 的失败经验让公司逐步理解，产品工程与制造工程必须在设计阶段同时发生。传统汽车也极重视制造，但 Tesla 更倾向于大幅重构零件数量和工艺，而不是仅优化既有生产线。</p>
+<div class="visual"><div class="visual-title">Tesla 的垂直整合栈</div><svg viewBox="0 0 1200 520"><g font-family="sans-serif">
+<rect x="90" y="45" width="1020" height="60" rx="15" fill="#251719" stroke="#753035"/><text x="120" y="82" fill="#fff" font-size="23" font-weight="700">用户层：车辆 / Robotaxi / Powerwall / Megapack / Optimus</text>
+<rect x="130" y="125" width="940" height="60" rx="15" fill="#171d24" stroke="#33404a"/><text x="160" y="162" fill="#fff" font-size="22">软件层：OTA · 车机 · App · FSD · 能源调度</text>
+<rect x="170" y="205" width="860" height="60" rx="15" fill="#171d24" stroke="#33404a"/><text x="200" y="242" fill="#fff" font-size="22">计算层：训练 · 推理芯片 · 车端计算 · 数据闭环</text>
+<rect x="210" y="285" width="780" height="60" rx="15" fill="#171d24" stroke="#33404a"/><text x="240" y="322" fill="#fff" font-size="22">硬件层：电池 · 电驱 · 热管理 · 传感器 · 功率电子</text>
+<rect x="250" y="365" width="700" height="60" rx="15" fill="#171d24" stroke="#33404a"/><text x="280" y="402" fill="#fff" font-size="22">制造层：Giga · 压铸 · 产线 · 供应链 · 质量</text>
+<rect x="290" y="445" width="620" height="45" rx="13" fill="#10151a" stroke="#2c363f"/><text x="320" y="474" fill="#aeb8c2" font-size="18">基础设施：Supercharger · 服务中心 · 电网连接</text>
+</g></svg></div>
+</div></section>
+
+<section id="s13"><div class="container">
+<div class="section-head"><div class="section-no">13 / SOFTWARE & AI</div><div><h2 class="section-title">软件与自动驾驶：Tesla 最有想象力、也最容易被误判的部分</h2><div class="section-sub">要同时避免两个极端：把 FSD 当成“已经完成的无人驾驶”，以及把它当成“永远不可能实现的营销”。正确方法是分层看能力、监管和商业化。</div></div></div>
+<h2>第一层：软件定义汽车——已经兑现</h2>
+<p>OTA、手机钥匙、车机生态、远程诊断、车辆设置云同步、充电规划等已经成为 Tesla 的日常产品能力。传统车企也快速跟进，但 Tesla 很早就通过集中式软件团队和统一车端架构形成领先体验。</p>
+<h2>第二层：FSD (Supervised)——正在快速迭代，但驾驶责任仍在人</h2>
+<p>Tesla 官方资料明确把当前消费者车辆中的 FSD 定义为 <span class="strong">FSD (Supervised)</span>。驾驶员仍需对驾驶负责。技术路线越来越依赖端到端神经网络、视觉感知、海量车队数据与持续训练。</p>
+<h2>第三层：无人监督 Robotaxi——已经在限定区域商业化，但规模与泛化仍需验证</h2>
+<p>2025–2026 年 Robotaxi 从 Austin 起步并向多个美国城市扩张，这是历史性变化：Tesla 不再只要求投资者相信未来视频演示，而开始产生真实乘客服务。真正决定经济价值的将是：无人监督比例、事故率/安全表现、运营边界、监管许可、每车每天利用率、清洁维护成本、保险成本与车队折旧。</p>
+<h2>第四层：Optimus——把自动驾驶的“现实世界 AI”迁移到人形机器人</h2>
+<p>Optimus 与汽车共享的不是车身，而是很多底层能力：视觉感知、运动控制、低功耗计算、电机、电池、制造、数据与神经网络训练。如果机器人能在工厂完成高重复劳动，Tesla 可以先作为自己的第一客户，再向外部销售。但人形机器人对手部灵巧性、可靠性、实时控制、安全和成本的要求远高于演示。</p>
+<div class="grid4"><div class="card"><div class="big">数据</div><p>联网车队产生真实世界驾驶长尾场景。</p></div><div class="card"><div class="big">算力</div><p>GPU/Cortex/自研推理硬件支撑训练与部署。</p></div><div class="card"><div class="big">模型</div><p>视觉、规划、端到端网络持续迭代。</p></div><div class="card"><div class="big">实体</div><p>车辆与机器人把模型输出转成现实世界动作。</p></div></div>
+<div class="callout amber"><span class="strong">最关键的估值分界线：</span>“FSD 功能越来越好”与“FSD 可以无人监督地、低成本地、跨城市大规模运营”不是同一件事。后者一旦成立，商业模式会发生跃迁；若长期不能成立，Tesla 的 AI 溢价就会承压。</div>
+</div></section>
+
+<section id="s14"><div class="container">
+<div class="section-head"><div class="section-no">14 / ROBOTAXI</div><div><h2 class="section-title">Robotaxi：为什么它可能重写汽车经济学</h2></div></div>
+<p>传统私家车的经济模型是“一次性卖车 + 后续服务”。汽车绝大多数时间停在停车场，资产利用率低。Robotaxi 的理想模型则是：同一辆车每天服务更多小时，以里程或乘车次数持续产生收入。</p>
+<div class="visual"><div class="visual-title">从卖车到运营资产：收入模型变化</div><svg viewBox="0 0 1200 330"><g font-family="sans-serif">
+<rect x="70" y="50" width="450" height="230" rx="18" fill="#14191f" stroke="#303a44"/><text x="105" y="95" fill="#fff" font-size="26" font-weight="700">传统汽车</text><text x="105" y="140" fill="#aab4be" font-size="18">制造 → 卖车 → 一次性确认大部分收入</text><text x="105" y="178" fill="#aab4be" font-size="18">资产利用率：低</text><text x="105" y="210" fill="#aab4be" font-size="18">客户：车主</text><text x="105" y="242" fill="#aab4be" font-size="18">价值核心：ASP × 销量 × 毛利率</text>
+<rect x="680" y="50" width="450" height="230" rx="18" fill="#211719" stroke="#713136"/><text x="715" y="95" fill="#fff" font-size="26" font-weight="700">Robotaxi</text><text x="715" y="140" fill="#ffc0c2" font-size="18">制造 → 持有/运营 → 按里程持续收入</text><text x="715" y="178" fill="#ffc0c2" font-size="18">资产利用率：理论上高</text><text x="715" y="210" fill="#ffc0c2" font-size="18">客户：乘客</text><text x="715" y="242" fill="#ffc0c2" font-size="18">价值核心：车队 × 利用率 × 单英里利润</text>
+<path d="M540 165 H660" stroke="#e82127" stroke-width="4"/><path d="M650 155 L670 165 L650 175" fill="#e82127"/></g></svg></div>
+<h2>但 Robotaxi 不是“毛利率自动变高”</h2>
+<p>其成本会从零售汽车的制造成本，变成车队运营成本：清洁、轮胎、事故、维修、保险、空驶、充电、远程支持、监管、人力、折旧。真正的经济学只能在大规模真实运营后验证。</p>
+<div class="grid3"><div class="card"><h3>牛市情形</h3><p>无人监督广泛获批，安全显著优于人类，Cybercab 成本极低，车队快速扩张；Tesla 变成全球移动网络。</p></div><div class="card"><h3>中性情形</h3><p>在部分城市、部分道路、部分时段运行，形成有价值但受地理边界限制的服务。</p></div><div class="card"><h3>熊市情形</h3><p>监管、长尾场景、安全或成本长期限制规模，Robotaxi 只能作为辅助业务，无法支撑平台估值。</p></div></div>
+</div></section>
+
+<section id="s15"><div class="container">
+<div class="section-head"><div class="section-no">15 / ENERGY</div><div><h2 class="section-title">被低估的第二曲线：储能正在变成真正的利润引擎</h2><div class="section-sub">与汽车相比，能源业务过去存在感低，但 2023–2026 的增长速度和毛利率变化使它越来越难被忽略。</div></div></div>
+<p>Tesla 能源业务分为住宅储能 Powerwall、公共事业/商业大储 Megapack，以及太阳能发电相关业务。真正爆发的是储能，尤其是 Megapack。</p>
+<div class="grid3"><div class="card"><div class="big">6.0B</div><div class="small">2023 能源业务收入（美元）</div></div><div class="card"><div class="big">10.1B</div><div class="small">2024 能源业务收入（美元）</div></div><div class="card"><div class="big">12.8B</div><div class="small">2025 能源业务收入（美元）</div></div></div>
+<div class="visual"><div class="visual-title">能源业务毛利率：2023 → 2025</div><div class="bar"><div class="bar-label">2023</div><div class="bar-track"><div class="bar-fill" style="width:63%;background:linear-gradient(90deg,#5fd9e7,#7aa7ff)"></div></div><div class="bar-value">18.9%</div></div><div class="bar"><div class="bar-label">2024</div><div class="bar-track"><div class="bar-fill" style="width:88%;background:linear-gradient(90deg,#5fd9e7,#7aa7ff)"></div></div><div class="bar-value">26.2%</div></div><div class="bar"><div class="bar-label">2025</div><div class="bar-track"><div class="bar-fill" style="width:100%;background:linear-gradient(90deg,#5fd9e7,#7aa7ff)"></div></div><div class="bar-value">29.8%</div></div></div>
+<h2>为什么大储需求会增长？</h2>
+<ul><li>风电、光伏输出波动，需要储能平滑电网。</li><li>数据中心和 AI 负载推高电力需求与电网建设压力。</li><li>电网升级速度慢，电池储能可以更快部署部分容量与调频能力。</li><li>峰谷价差、调频、容量市场等机制可以为储能创造收入。</li></ul>
+<p>因此，Tesla 的能源业务并不是“卖几个家用电池”，而是在向电力基础设施设备商与软件运营商方向发展。</p>
+</div></section>
+
+<section id="s16"><div class="container">
+<div class="section-head"><div class="section-no">16 / CHARGING</div><div><h2 class="section-title">Supercharger：Tesla 最早建立、最难复制的线下网络资产之一</h2></div></div>
+<p>充电网络具有典型的双边网络特征：站点越多，车主越放心；车辆越多，站点利用率越高，经济性越好。Tesla 在早期销量不高时就承担重资产投入，因此形成先发优势。</p>
+<h2>NACS 的标准化价值</h2>
+<p>当其他车企采用 Tesla 接口并逐步接入 Supercharger，网络的潜在利用率与战略价值进一步提高。Tesla 官方称其北美 Supercharger 网络持续向其他品牌开放，并列出大量已支持或正在过渡到 NACS 的品牌。</p>
+<div class="callout green"><span class="strong">护城河不是“一个插头”。</span>真正的护城河是：站点选址、并网、设备制造、可靠性、支付、导航、车机联动、实时占用数据与多年运维经验的组合。</div>
+</div></section>
+
+<section id="s17"><div class="container">
+<div class="section-head"><div class="section-no">17 / FINANCIALS</div><div><h2 class="section-title">财务演变：从烧钱硬件创业公司，到成熟汽车业务承压、能源与 AI 接棒</h2></div></div>
+<h2>2023–2025：收入横盘，但结构在变化</h2>
+<div class="table-wrap"><table><thead><tr><th>亿美元</th><th>2023</th><th>2024</th><th>2025</th><th>趋势</th></tr></thead><tbody>
+<tr><td>汽车收入</td><td>824.19</td><td>770.70</td><td>695.26</td><td>连续下降</td></tr>
+<tr><td>能源发电与储能</td><td>60.35</td><td>100.86</td><td>127.71</td><td>高速增长</td></tr>
+<tr><td>服务及其他</td><td>83.19</td><td>105.34</td><td>125.30</td><td>持续增长</td></tr>
+<tr><td><b>总营收</b></td><td><b>967.73</b></td><td><b>976.90</b></td><td><b>948.27</b></td><td>2025 同比下降</td></tr>
+<tr><td>总毛利率</td><td>18.2%</td><td>17.9%</td><td>18.0%</td><td>大体稳定</td></tr>
+<tr><td>汽车毛利率</td><td>19.4%</td><td>18.4%</td><td>17.8%</td><td>受价格竞争压缩</td></tr>
+<tr><td>能源毛利率</td><td>18.9%</td><td>26.2%</td><td>29.8%</td><td>显著改善</td></tr>
+</tbody></table></div>
+<h2>这组数字讲了什么？</h2>
+<p><span class="strong">第一，Tesla 已经不是单纯的销量增长故事。</span>2024–2025 汽车收入下降，说明价格、产品周期、竞争和宏观需求都在影响传统主业。</p>
+<p><span class="strong">第二，能源业务的质量在上升。</span>2025 年能源毛利率已显著高于汽车业务，是公司结构性变化。</p>
+<p><span class="strong">第三，AI 的财务贡献与估值贡献不对称。</span>目前 FSD/Robotaxi/Optimus 对公司市值叙事影响巨大，但相对汽车与能源，它们尚未贡献同等规模的会计收入和利润。因此投资者实际上是在给未来利润提前定价。</p>
+<h2>2025 现金状况</h2>
+<p>公司 2025 年股东更新披露：全年经营现金流约 147 亿美元，自由现金流约 62 亿美元；年末现金、现金等价物与投资约 440.6 亿美元。与十多年前持续融资求生相比，Tesla 已拥有完全不同的资产负债表承受力。</p>
+<div class="callout blue"><span class="strong">历史反转：</span>2008 年 Tesla 的问题是“有没有钱活到下个月”；2026 年 Tesla 的问题变成“如何把数百亿美元资本与巨大估值，转化成下一代 AI、机器人、能源基础设施的真实回报”。</div>
+</div></section>
+
+<section id="s18"><div class="container">
+<div class="section-head"><div class="section-no">18 / BUSINESS MODEL</div><div><h2 class="section-title">商业模式：Tesla 正试图把一次性卖硬件，变成多层复利收入</h2></div></div>
+<div class="grid3"><div class="card"><h3>一次性硬件</h3><p>汽车、Powerwall、Megapack、太阳能、未来 Cybercab/Optimus。</p></div><div class="card"><h3>持续软件</h3><p>FSD 订阅、联网服务、软件功能、车机服务。</p></div><div class="card"><h3>基础设施</h3><p>Supercharging、充电服务、能源系统服务。</p></div><div class="card"><h3>金融与保险</h3><p>车辆融资、租赁、保险等降低购买摩擦并延伸客户生命周期。</p></div><div class="card"><h3>车队运营</h3><p>Robotaxi 理论上带来持续按里程服务收入。</p></div><div class="card"><h3>能源软件</h3><p>电池调度、虚拟电厂等让硬件产生长期电力市场价值。</p></div></div>
+<div class="visual"><div class="visual-title">Tesla 飞轮：硬件规模如何给软件与网络创造入口</div><svg viewBox="0 0 1200 520"><g font-family="sans-serif">
+<circle cx="600" cy="260" r="85" fill="#241719" stroke="#7d3237"/><text x="545" y="250" fill="#fff" font-size="25" font-weight="700">Tesla</text><text x="523" y="280" fill="#ff9296" font-size="16">硬件 + 软件 + 网络</text>
+<circle cx="600" cy="70" r="72" fill="#151b21" stroke="#34404a"/><text x="554" y="76" fill="#fff" font-size="19">更多车辆</text>
+<circle cx="865" cy="160" r="72" fill="#151b21" stroke="#34404a"/><text x="821" y="166" fill="#fff" font-size="19">更多数据</text>
+<circle cx="865" cy="360" r="72" fill="#151b21" stroke="#34404a"/><text x="817" y="366" fill="#fff" font-size="19">更强软件</text>
+<circle cx="600" cy="450" r="72" fill="#151b21" stroke="#34404a"/><text x="552" y="456" fill="#fff" font-size="19">更多收入</text>
+<circle cx="335" cy="360" r="72" fill="#151b21" stroke="#34404a"/><text x="285" y="366" fill="#fff" font-size="19">更低成本</text>
+<circle cx="335" cy="160" r="72" fill="#151b21" stroke="#34404a"/><text x="285" y="166" fill="#fff" font-size="19">更多基础设施</text>
+<path d="M640 120 Q780 90 816 145 M910 215 Q945 270 907 309 M815 405 Q735 455 672 450 M528 450 Q420 440 380 405 M290 310 Q255 250 292 205 M380 110 Q485 55 530 78" fill="none" stroke="#e82127" stroke-width="3" stroke-dasharray="6 7"/>
+</g></svg></div>
+</div></section>
+
+<section id="s19"><div class="container">
+<div class="section-head"><div class="section-no">19 / CAPITAL MARKETS</div><div><h2 class="section-title">资本市场史：Tesla 的股价从来不是普通汽车股逻辑</h2></div></div>
+<p>Tesla 2010 年 IPO 后，资本市场长期围绕一个问题争论：它应该按汽车制造商估值，还是按科技平台估值？这个问题到 2026 年仍未解决，只是估值支点从“电动车高速增长”转移到“FSD / Robotaxi / Optimus / Energy”。</p>
+<h2>几个结构性节点</h2>
+<ul><li><b>2010 IPO：</b>打开公开市场融资渠道。</li><li><b>2013：</b>Model S 成功、DOE 贷款提前偿还，破产风险明显下降。</li><li><b>2018：</b>Model 3 量产危机后产能突破，市场开始相信大规模制造。</li><li><b>2020：</b>连续盈利、S&P 500 纳入、五拆一，机构被动资金大规模进入。</li><li><b>2022：</b>三拆一，全球产能继续扩张。</li><li><b>2024–2026：</b>汽车增长放缓，但 AI 与自动驾驶预期成为估值中心。</li></ul>
+<div class="callout amber"><span class="strong">估值悖论：</span>如果只看当前汽车利润，Tesla 往往显得昂贵；如果把 Robotaxi 和 Optimus 假设为未来大规模平台业务，它又可能显得“仍在早期”。所以投资 Tesla 的本质不是预测明年卖多少辆车，而是判断<span class="amber">未来利润结构是否真的会从汽车制造转向高利用率的 AI 服务和机器人</span>。</div>
+</div></section>
+
+<section id="s20"><div class="container">
+<div class="section-head"><div class="section-no">20 / GOVERNANCE</div><div><h2 class="section-title">管理与治理：Elon Musk 是最大资产之一，也是最大单点风险之一</h2></div></div>
+<h2>为什么 Musk 对 Tesla 不可替代</h2>
+<ul><li>极端清晰的产品目标与技术叙事，能吸引工程人才、资本和用户。</li><li>愿意做传统车企难以批准的高风险架构变更。</li><li>把品牌传播与产品发布结合，显著降低传统广告依赖。</li><li>能在危机中直接介入工程和制造细节，组织执行速度快。</li></ul>
+<h2>为什么同一特征也会制造风险</h2>
+<ul><li>关键人依赖极高，CEO 同时参与多家公司和公共事务。</li><li>时间承诺、社交媒体言论与政治参与可能影响品牌与治理。</li><li>激进目标容易造成时间表反复延后，投资者需要区分愿景与可交付承诺。</li><li>关联交易、薪酬、董事会独立性等长期引发争议。</li></ul>
+<p>2024 年 Tesla 从特拉华州公司转换为 Texas corporation，这本身也反映了公司治理与法律环境变化。对长期投资者而言，治理风险不能因“创始人天才”而被忽略，也不能因争议而否定其组织能力。</p>
+<div class="grid2"><div class="card"><h3>创始人型 CEO 的优势</h3><p>长期愿景、高风险决策、跨部门整合、吸引人才、品牌号召力。</p></div><div class="card"><h3>创始人型 CEO 的代价</h3><p>权力集中、关键人风险、目标过度乐观、外部事务干扰、治理冲突。</p></div></div>
+</div></section>
+
+<section id="s21"><div class="container">
+<div class="section-head"><div class="section-no">21 / MOATS</div><div><h2 class="section-title">Tesla 真正的护城河：不是某一个零件，而是一组互相强化的系统能力</h2></div></div>
+<div class="score"><div>品牌与用户心智</div><div class="track"><div class="fill" style="width:88%"></div></div><div>很强</div></div>
+<div class="score"><div>EV 制造规模</div><div class="track"><div class="fill" style="width:88%"></div></div><div>很强</div></div>
+<div class="score"><div>软件/OTA</div><div class="track"><div class="fill" style="width:90%"></div></div><div>很强</div></div>
+<div class="score"><div>Supercharger/NACS</div><div class="track"><div class="fill" style="width:94%"></div></div><div>极强</div></div>
+<div class="score"><div>真实世界数据</div><div class="track"><div class="fill" style="width:91%"></div></div><div>极强</div></div>
+<div class="score"><div>电池/电驱系统工程</div><div class="track"><div class="fill" style="width:84%"></div></div><div>很强</div></div>
+<div class="score"><div>能源储存规模</div><div class="track"><div class="fill" style="width:82%"></div></div><div>很强</div></div>
+<div class="score"><div>自动驾驶商业化</div><div class="track"><div class="fill" style="width:65%"></div></div><div>待验证</div></div>
+<div class="score"><div>人形机器人</div><div class="track"><div class="fill" style="width:40%"></div></div><div>早期</div></div>
+<p class="caption">评分为本报告的定性分析，用于比较成熟度与竞争地位，不是客观量化评级。</p>
+<h2>最难复制的其实是“组织接口”</h2>
+<p>许多竞争对手可以买到相似电芯、同类电机、GPU、摄像头或压铸机，但 Tesla 的优势在于把产品、制造、软件、数据、充电和销售打通。系统集成速度本身就是壁垒。</p>
+</div></section>
+
+<section id="s22"><div class="container">
+<div class="section-head"><div class="section-no">22 / RISKS</div><div><h2 class="section-title">主要风险：最危险的不是“某季度少卖几万辆”，而是核心假设失效</h2></div></div>
+<div class="risk-grid">
+<div class="risk-cell h"><b>自动驾驶兑现</b><span>若无人监督长期受限，估值核心叙事受冲击。</span></div>
+<div class="risk-cell h"><b>关键人风险</b><span>CEO 注意力与治理争议可能影响组织。</span></div>
+<div class="risk-cell h"><b>中国竞争</b><span>BYD 等在成本、车型迭代与本地市场强势。</span></div>
+<div class="risk-cell m"><b>价格战</b><span>降价可以保销量，但压缩汽车毛利。</span></div>
+<div class="risk-cell m"><b>产品集中</b><span>Model 3/Y 仍承担大量销量。</span></div>
+<div class="risk-cell m"><b>监管/安全</b><span>FSD 与 Robotaxi 受法规和事故影响。</span></div>
+<div class="risk-cell m"><b>制造爬坡</b><span>Cybercab、4680、Optimus 量产均有执行风险。</span></div>
+<div class="risk-cell m"><b>品牌极化</b><span>CEO 个人品牌与公司品牌高度绑定。</span></div>
+<div class="risk-cell l"><b>资产负债表</b><span>相比早期已明显稳健，但高资本投入仍需回报。</span></div>
+<div class="risk-cell m"><b>估值风险</b><span>市场已预付大量未来 AI 成功概率。</span></div>
+</div>
+<h2>需要特别警惕的认知错误</h2>
+<ol><li><b>把技术领先等同于商业成功。</b>优秀技术也可能因成本、监管和服务网络无法赚钱。</li><li><b>把演示等同于量产。</b>Tesla 历史反复证明，量产是独立难题。</li><li><b>把车队数据等同于自动驾驶必胜。</b>数据很重要，但算法、安全验证、仿真、监管同样重要。</li><li><b>把高估值等同于泡沫。</b>高估值可能有未来期权价值；关键是未来利润是否兑现。</li><li><b>把愿景时间表当承诺。</b>Musk 的时间预测历史上经常偏乐观，应关注实际发布与监管状态。</li></ol>
+</div></section>
+
+<section id="s23"><div class="container">
+<div class="section-head"><div class="section-no">23 / COMPETITION</div><div><h2 class="section-title">竞争格局：Tesla 同时在和四类公司竞争</h2></div></div>
+<div class="table-wrap"><table><thead><tr><th>战场</th><th>主要对手类型</th><th>Tesla 优势</th><th>Tesla 劣势/挑战</th></tr></thead><tbody>
+<tr><td>电动车</td><td>BYD、中国新势力、传统全球车企</td><td>品牌、效率、软件、充电、规模</td><td>车型更新速度、价格竞争、本地化</td></tr>
+<tr><td>自动驾驶</td><td>Waymo 等 Robotaxi 公司、传统 ADAS 供应商</td><td>大车队、低成本量产车、垂直整合</td><td>纯视觉路线争议、监管、安全验证</td></tr>
+<tr><td>储能</td><td>电池厂商、电网设备商、储能集成商</td><td>Megapack、软件、品牌、制造规模</td><td>电芯供应与价格竞争</td></tr>
+<tr><td>人形机器人</td><td>机器人初创、工业自动化公司、AI 实验室</td><td>电机、电池、AI、制造、自用场景</td><td>技术仍早期，可靠性和成本未验证</td></tr>
+</tbody></table></div>
+<h2>BYD 为什么是汽车业务最重要的参照物？</h2>
+<p>BYD 的优势在于电池、垂直整合、广泛车型覆盖、成本控制和中国供应链。Tesla 则在全球品牌、软件、充电网络、极简平台和 AI 叙事上更强。二者不是简单“谁卖得多谁赢”，而是两种不同产业组织方式的竞争。</p>
+<h2>Waymo 为什么是 Robotaxi 最重要的参照物？</h2>
+<p>Waymo 更偏向高传感器冗余、地理围栏和专业运营；Tesla 试图通过量产车辆、视觉为主的方案和大车队训练实现更低硬件成本、更广泛泛化。前者强调先在限定区域做到高可靠，后者强调规模数据与统一通用栈。谁的单位经济和扩张速度更优，仍需真实运营数据回答。</p>
+</div></section>
+
+<section id="s24"><div class="container">
+<div class="section-head"><div class="section-no">24 / 2026—2030</div><div><h2 class="section-title">未来四年：决定 Tesla 下一阶段命运的不是一辆新车，而是四个验证题</h2></div></div>
+<div class="grid2">
+<div class="card"><h3>验证题 1：汽车能否恢复增长？</h3><p>更低成本车型/版本、新 Model Y 周期、地区需求与制造成本是否能重新推动销量与汽车利润。</p></div>
+<div class="card"><h3>验证题 2：Robotaxi 是否可跨城市复制？</h3><p>安全监控员移除、城市扩张、监管、单位成本和利用率是核心，不是单纯“能不能开”。</p></div>
+<div class="card"><h3>验证题 3：能源能否成为第二利润中心？</h3><p>Megapack 3、Megablock、产能扩张与毛利率持续性将决定能源业务地位。</p></div>
+<div class="card"><h3>验证题 4：Optimus 能否从 demo 进入工厂 KPI？</h3><p>要看真正工作小时、任务成功率、维护频率、成本与产量，而不是舞台展示。</p></div>
+</div>
+<h2>三种情景</h2>
+<div class="table-wrap"><table><thead><tr><th>情景</th><th>汽车</th><th>Robotaxi</th><th>Energy</th><th>Optimus</th><th>公司最终形态</th></tr></thead><tbody>
+<tr><td><b>牛市</b></td><td>恢复增长且成本继续下降</td><td>多城市无人监督规模化</td><td>持续高增长、高毛利</td><td>进入工厂和商业销售</td><td>AI + 能源 + 制造平台</td></tr>
+<tr><td><b>中性</b></td><td>成熟稳定</td><td>局部区域商业成功</td><td>成为明确第二支柱</td><td>内部有限应用</td><td>高质量 EV/能源公司 + AI 期权</td></tr>
+<tr><td><b>熊市</b></td><td>价格竞争压利润</td><td>长期受监管/技术限制</td><td>增长但无法弥补汽车</td><td>商业化迟缓</td><td>高估值汽车制造商回归行业估值</td></tr>
+</tbody></table></div>
+<div class="quote">未来对 Tesla 最重要的问题，不是“还能不能造出更酷的车”，而是：<b>它能否把制造业的规模优势，与 AI 的软件经济学真正结合起来。</b></div>
+</div></section>
+
+<section id="s25"><div class="container">
+<div class="section-head"><div class="section-no">25 / TIMELINE</div><div><h2 class="section-title">Tesla 2003–2026 总时间轴</h2></div></div>
+<div class="timeline">
+<div class="tl-item"><div class="tl-year">2003</div><div class="tl-box"><strong>Tesla Motors 成立</strong><p>Martin Eberhard、Marc Tarpenning 创办；公司 7 月 1 日在 Delaware 注册。</p></div></div>
+<div class="tl-item"><div class="tl-year">2004</div><div class="tl-box"><strong>Musk 领投 A 轮并任董事长</strong><p>J.B. Straubel 等关键早期成员加入。</p></div></div>
+<div class="tl-item"><div class="tl-year">2006</div><div class="tl-box"><strong>Roadster 发布；Master Plan</strong><p>高端跑车 → 更便宜车型 → 大众车型 → 零排放能源。</p></div></div>
+<div class="tl-item"><div class="tl-year">2008</div><div class="tl-box"><strong>Musk 出任 CEO</strong><p>金融危机与 Roadster 成本问题使公司接近资金危机。</p></div></div>
+<div class="tl-item"><div class="tl-year">2010</div><div class="tl-box"><strong>DOE 贷款 + IPO + Fremont</strong><p>从创业项目向公共市场与大规模制造过渡。</p></div></div>
+<div class="tl-item"><div class="tl-year">2012</div><div class="tl-box"><strong>Model S 交付；Supercharger 起步</strong><p>Tesla 产品范式成形。</p></div></div>
+<div class="tl-item"><div class="tl-year">2013</div><div class="tl-box"><strong>DOE 贷款提前还清</strong><p>Model S 获主流汽车行业认可，生存风险下降。</p></div></div>
+<div class="tl-item"><div class="tl-year">2015</div><div class="tl-box"><strong>Model X；Powerwall / Powerpack</strong><p>进入 SUV 与固定式储能。</p></div></div>
+<div class="tl-item"><div class="tl-year">2016</div><div class="tl-box"><strong>Model 3 发布；收购 SolarCity</strong><p>同时走向大众汽车和一体化能源。</p></div></div>
+<div class="tl-item"><div class="tl-year">2017</div><div class="tl-box"><strong>Model 3 量产开始</strong><p>公司更名 Tesla, Inc.，强调超越汽车。</p></div></div>
+<div class="tl-item"><div class="tl-year">2018</div><div class="tl-box"><strong>Production Hell</strong><p>Model 3 产量突破，公司制造能力被迫升级。</p></div></div>
+<div class="tl-item"><div class="tl-year">2019</div><div class="tl-box"><strong>上海超级工厂 / Cybertruck 发布</strong><p>全球化制造开始，Cybertruck 进入产品路线图。</p></div></div>
+<div class="tl-item"><div class="tl-year">2020</div><div class="tl-box"><strong>Model Y / 首次全年盈利 / S&P 500 / Battery Day</strong><p>Tesla 成为主流大型上市公司。</p></div></div>
+<div class="tl-item"><div class="tl-year">2021</div><div class="tl-box"><strong>Plaid / AI Day / Optimus 概念</strong><p>AI 与机器人开始进入战略中心。</p></div></div>
+<div class="tl-item"><div class="tl-year">2022</div><div class="tl-box"><strong>Berlin / Texas / Semi</strong><p>全球产能与产品线继续扩张。</p></div></div>
+<div class="tl-item"><div class="tl-year">2023</div><div class="tl-box"><strong>Model Y / NACS / Cybertruck / Optimus Gen 2</strong><p>充电接口开始成为北美行业标准。</p></div></div>
+<div class="tl-item"><div class="tl-year">2024</div><div class="tl-box"><strong>We, Robot；Cybercab / Robovan</strong><p>汽车年交付小幅下降，战略重心明显转向 autonomy。</p></div></div>
+<div class="tl-item"><div class="tl-year">2025</div><div class="tl-box"><strong>Robotaxi Austin 启动；储能 46.7 GWh</strong><p>汽车交付降至约 163.6 万辆，能源高增长；AI 战略写入年报中心。</p></div></div>
+<div class="tl-item"><div class="tl-year">2026</div><div class="tl-box"><strong>Robotaxi 扩张；Q3 交付 486,532 辆</strong><p>Q3 储能部署 13.7 GWh；Q3 完整财报将于 10 月 21 日发布。</p></div></div>
+</div>
+</div></section>
+
+<section id="conclusion"><div class="container">
+<div class="section-head"><div class="section-no">CONCLUSION</div><div><h2 class="section-title">最后怎样理解 Tesla？</h2></div></div>
+<p>Tesla 的真正历史价值，并不只是“造出了一家值很多钱的电动车公司”。它至少永久改变了汽车工业的五件事：</p>
+<ol><li><span class="strong">证明消费者愿意因为性能和体验而买电动车，而不仅因为环保。</span></li><li><span class="strong">迫使全球车企把电动化从边缘项目提升为核心战略。</span></li><li><span class="strong">把 OTA、软件、App 和持续迭代引入汽车主流体验。</span></li><li><span class="strong">证明充电网络可以由车企深度垂直整合，并进一步成为行业标准。</span></li><li><span class="strong">把汽车制造重新拉回科技投资者视野：工厂、材料、供应链和大规模制造本身就是技术。</span></li></ol>
+<p>但从 2026 年继续往前看，历史已经进入另一个阶段。Tesla 不再只需要证明电动车优于燃油车——这个命题基本已被整个产业接受。它现在要证明的是更难的命题：<span class="strong">现实世界 AI 是否能可靠驾驶、可靠劳动，并且以可规模复制的成本持续赚钱。</span></p>
+<p>如果答案是“能”，Tesla 的最终形态可能远远超出汽车公司；如果答案只是“部分能”，它仍然可能是一家优秀的汽车 + 能源企业；如果 AI 兑现明显低于市场预期，那么过去十余年最成功的工业故事之一，也将重新接受传统制造业回报率和估值框架的约束。</p>
+<div class="tagline">Tesla 前二十年最重要的能力，是把“不可能”变成可以量产的产品。<br/>下一个二十年的问题，是它还能不能再做一次。</div>
+</div></section>
+
+<section id="sources"><div class="container">
+<div class="section-head"><div class="section-no">SOURCES</div><div><h2 class="section-title">核心资料来源与核验说明</h2><div class="section-sub">优先使用 Tesla Investor Relations、SEC、美国能源部与公司官方技术页面。历史争议部分辅以主流媒体资料。所有 2026 数据均以资料截止日可公开获得的信息为准。</div></div></div>
+<ol class="sources">
+<li><b>Tesla 2025 Form 10-K (SEC)</b> — 2025 营收、分部、毛利率、车辆交付、能源部署、公司战略描述：<br><a href="https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm">https://www.sec.gov/Archives/edgar/data/1318605/000162828026003952/tsla-20251231.htm</a></li>
+<li><b>Tesla Investor Relations</b> — 历年季度更新、交付、股东材料：<br><a href="https://ir.tesla.com/">https://ir.tesla.com/</a></li>
+<li><b>Tesla Q3 2026 Production, Deliveries & Deployments</b> — 486,532 辆交付、13.7 GWh 储能：<br><a href="https://ir.tesla.com/press-release/tesla-third-quarter-2026-production-deliveries-and-deployments">Tesla IR Q3 2026</a></li>
+<li><b>Tesla Q2 2026 Production, Deliveries & Deployments</b> — 480,126 辆交付、13.5 GWh：<br><a href="https://ir.tesla.com/press-release/tesla-second-quarter-2026-production-deliveries-and-deployments">Tesla IR Q2 2026</a></li>
+<li><b>Tesla Q4 / FY2025 Production, Deliveries & Deployments</b> — 2025 全年 1,636,129 辆交付、46.7 GWh：<br><a href="https://ir.tesla.com/press-release/tesla-fourth-quarter-2025-production-deliveries-deployments">Tesla IR FY2025</a></li>
+<li><b>Tesla Q4 / FY2024 Production, Deliveries & Deployments</b> — 2024 全年 1,789,226 辆交付、31.4 GWh：<br><a href="https://ir.tesla.com/press-release/tesla-fourth-quarter-2024-production-deliveries-and-deployments">Tesla IR FY2024</a></li>
+<li><b>The Secret Tesla Motors Master Plan (2006)</b>：<br><a href="https://www.tesla.com/secret-master-plan">https://www.tesla.com/secret-master-plan</a></li>
+<li><b>Master Plan Part IV</b> — “sustainable abundance” 新使命框架：<br><a href="https://www.tesla.com/master-plan-part-4">https://www.tesla.com/master-plan-part-4</a></li>
+<li><b>U.S. Department of Energy — Tesla ATVM Loan</b> — 4.65 亿美元贷款及 2013 提前偿还：<br><a href="https://www.energy.gov/edf/tesla">https://www.energy.gov/edf/tesla</a></li>
+<li><b>SEC 2010 Tesla IPO Prospectus</b> — 17 美元发行价、总发行价格约 2.261 亿美元：<br><a href="https://www.sec.gov/Archives/edgar/data/1318605/000119312510149105/d424b4.htm">SEC IPO Prospectus</a></li>
+<li><b>SEC — SolarCity Acquisition</b> — 2016-11-21 完成、约 21 亿美元公允价值对价：<br><a href="https://www.sec.gov/Archives/edgar/data/1318605/000156459017003118/R11.htm">SEC SolarCity acquisition note</a></li>
+<li><b>Tesla 2018 Form 10-K</b> — 2018 产量与交付增长：<br><a href="https://www.sec.gov/Archives/edgar/data/1318605/000156459019003165/tsla-10k_20181231.htm">SEC 2018 10-K</a></li>
+<li><b>Tesla 2020 Form 10-K</b> — 2020 交付、营收、全年 GAAP 盈利：<br><a href="https://www.sec.gov/Archives/edgar/data/1318605/000156459021004599/tsla-10k_20201231.htm">SEC 2020 10-K</a></li>
+<li><b>S&P Dow Jones Indices</b> — Tesla 于 2020-12-21 加入 S&P 500：<br><a href="https://press.spglobal.com/2020-12-11-Tesla-Set-to-Join-S-P-500-100-Apartment-Income-REIT-to-Join-S-P-MidCap-400">S&P Global press release</a></li>
+<li><b>Tesla NACS</b> — Supercharger 开放与支持品牌：<br><a href="https://www.tesla.com/NACS">https://www.tesla.com/NACS</a></li>
+<li><b>Tesla Robotaxi</b> — 当前服务与 Cybercab 描述：<br><a href="https://www.tesla.com/robotaxi">https://www.tesla.com/robotaxi</a></li>
+<li><b>Tesla AI & Robotics</b> — FSD 芯片、神经网络、Optimus：<br><a href="https://www.tesla.com/AI">https://www.tesla.com/AI</a></li>
+<li><b>Tesla Manufacturing</b> — Fremont / Shanghai / Texas / Berlin / Megafactory 等：<br><a href="https://www.tesla.com/manufacturing">https://www.tesla.com/manufacturing</a></li>
+<li><b>创始人身份争议补充</b> — 2009 年 Eberhard 与 Musk 争议最终和解，五人均可被称为共同创始人。可参见 WIRED 2009 报道与当时 Tesla/法院资料。</li>
+</ol>
+<div class="callout amber"><b>数据时点提示：</b>本报告截止 2026-10-05。Tesla 已公布 2026 Q3 生产、交付与储能部署，但尚未公布 Q3 营收、利润、自由现金流与分部毛利率，因此本文没有把尚未发布的数据作为事实填入。</div>
+<div class="footer center">Research document for educational use · Generated 2026-10-05 · Not investment advice</div>
+</div></section>
+</main>
+</body>
+</html>

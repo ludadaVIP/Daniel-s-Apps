@@ -811,11 +811,12 @@ function App() {
             {WORKSPACES.map(([value, label]) => <button key={value} type="button" role="tab" className={workspace === value ? 'is-active' : ''} aria-selected={workspace === value} onClick={() => { if (value === 'index') setIndexScope('chapter'); setWorkspace(value); }}>{label}</button>)}
           </div>
           {workspace !== 'index' && <>
-            {(mode === 'read' || mode === 'split') && <MarkdownReadingControls compact />}
-            <div className="mode-switcher view-mode-switcher">
-              {MODES.map(([value, label]) => <button key={value} className={mode === value ? 'is-active' : ''} onClick={() => setMode(value)} aria-pressed={mode === value}>{label}</button>)}
+            <div className="note-format-controls">
+              {(mode === 'read' || mode === 'split') && <MarkdownReadingControls compact />}
+              <div className="mode-switcher view-mode-switcher">
+                {MODES.map(([value, label]) => <button key={value} className={mode === value ? 'is-active' : ''} onClick={() => setMode(value)} aria-pressed={mode === value}>{label}</button>)}
+              </div>
             </div>
-            <button className="save-button" onClick={workspace === 'questions' ? flushQuestions : flushCurrent} disabled={(workspace === 'questions' ? questionStatus : noteStatus) === 'loading' || (workspace === 'questions' ? questionStatus : noteStatus) === 'saving'}>保存 <kbd>⌘/Ctrl S</kbd></button>
           </>}
         </div>
         {workspace === 'index' && <div className="index-workspace">

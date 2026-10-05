@@ -245,6 +245,7 @@ button { font: inherit; }
 .launcher-dock.is-visible { opacity: 1; pointer-events: auto; transform: translate(-50%, 0); }
 .launcher-dock > button {
   display: inline-flex;
+  opacity: .12;
   min-width: 156px;
   min-height: 30px;
   justify-content: center;
@@ -260,10 +261,10 @@ button { font: inherit; }
   font-size: 12px;
   font-weight: 700;
   line-height: 1;
-  transition: border-color .16s ease, color .16s ease, background-color .16s ease, transform .16s ease;
+  transition: opacity .2s ease, border-color .16s ease, color .16s ease, background-color .16s ease, transform .16s ease;
 }
-.launcher-dock > button:hover { border-color: var(--launcher-accent); color: #fff; background: color-mix(in srgb, var(--launcher-accent) 24%, #1d2936); transform: translateY(-1px); }
-.launcher-dock > button:focus-visible { outline: 3px solid color-mix(in srgb, var(--launcher-accent) 38%, white); outline-offset: 3px; }
+.launcher-dock > button:hover { opacity: 1; border-color: var(--launcher-accent); color: #fff; background: color-mix(in srgb, var(--launcher-accent) 24%, #1d2936); transform: translateY(-1px); }
+.launcher-dock > button:focus-visible { opacity: 1; outline: 3px solid color-mix(in srgb, var(--launcher-accent) 38%, white); outline-offset: 3px; }
 .launcher-dock > .launcher-back-button { min-width: 52px; width: 52px; padding: 0; }
 .launcher-dock > .workspace-theme-trigger { min-width: 36px; min-height: 30px; padding: 0 8px; border-radius: 999px; color: #f2f6fa; border-color: #52667b; background: rgb(29 41 54 / .94); backdrop-filter: blur(12px); }
 .launcher-dock > .workspace-theme-trigger span { display: none; }
@@ -309,6 +310,9 @@ button { font: inherit; }
   .launcher-dock > button { min-width: 36px; width: 36px; min-height: 36px; padding: 0; }
   .launcher-dock > .launcher-back-button { min-width: 48px; width: 48px; }
   .launcher-dock > .workspace-theme-trigger { min-height: 36px; width: 36px; }
+}
+@media (hover: none) {
+  .launcher-dock > button { opacity: .55; }
 }
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
