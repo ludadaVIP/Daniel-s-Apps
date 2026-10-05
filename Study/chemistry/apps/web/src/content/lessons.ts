@@ -2,6 +2,7 @@ import type { LocalizedText } from '@study/shared';
 import { level2Lessons } from './level2';
 import { level3Lessons } from './level3';
 import { level4Lessons } from './level4';
+import { level5Lessons } from './level5';
 
 export type LessonQuestion = {
   id: string;
@@ -13,7 +14,7 @@ export type LessonQuestion = {
 
 export type Lesson = {
   id: string;
-  levelId: 'matter' | 'substances' | 'atoms' | 'table';
+  levelId: 'matter' | 'substances' | 'atoms' | 'table' | 'bonding';
   order: number;
   title: LocalizedText;
   eyebrow: LocalizedText;
@@ -53,7 +54,14 @@ export type Lesson = {
     | 'group-family-match'
     | 'period-shell-viewer'
     | 'metal-property-lab'
-    | 'nonmetal-evidence-sort';
+    | 'nonmetal-evidence-sort'
+    | 'group1-reactivity-lab'
+    | 'group17-ion-lab'
+    | 'noble-gas-glow'
+    | 'bond-choice-lab'
+    | 'ionic-lattice-lab'
+    | 'covalent-sharing-lab'
+    | 'metallic-bonding-lab';
 };
 
 export const lessons: Lesson[] = [
@@ -808,6 +816,7 @@ export const lessons: Lesson[] = [
   ...level2Lessons,
   ...level3Lessons,
   ...level4Lessons,
+  ...level5Lessons,
 ];
 
 export function getLesson(id: string | undefined) {
