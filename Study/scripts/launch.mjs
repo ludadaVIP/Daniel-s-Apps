@@ -2,7 +2,6 @@ import { spawn, spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import open, { apps } from 'open';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const isWindows = process.platform === 'win32';
@@ -125,6 +124,7 @@ async function servicesReady() {
 async function openBrowser() {
   if (process.env.STUDY_SKIP_BROWSER === '1') return;
   try {
+    const { default: open, apps } = await import('open');
     // Resolve the user's default browser to its executable. This avoids a
     // hidden cmd.exe `start` process that can finish without opening a tab.
     await open(appUrl, { app: { name: apps.browser } });

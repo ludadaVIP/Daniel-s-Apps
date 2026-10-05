@@ -8,9 +8,9 @@ if ! command -v node >/dev/null 2>&1; then
 fi
 
 node ./scripts/launch.mjs
-status=$?
-if (( status != 0 )); then
+exit_code=$?
+if (( exit_code != 0 )); then
   echo
   read -r "?Startup failed. Read the error above, then press Enter to close..."
 fi
-exit $status
+exit $exit_code

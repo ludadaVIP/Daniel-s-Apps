@@ -2,6 +2,8 @@ import { Link, NavLink, Route, Routes } from 'react-router-dom';
 import type { LanguageMode, LocalizedText } from '@study/shared';
 import { LanguageSwitcher, Localized, useLanguageMode } from '@study/ui';
 import { pathLevels } from './content/path';
+import { lessons } from './content/lessons';
+import { LessonPage } from './LessonPage';
 
 const copy = {
   brand: { zh: '化学学习路径', en: 'Chemistry Path' },
@@ -24,7 +26,7 @@ const copy = {
     zh: '空气算物质吗？光算吗？先从这个问题出发。',
     en: 'Is air matter? What about light? Begin with a question.',
   },
-  coming: { zh: '课程内容正在准备中', en: 'Lesson content is being prepared' },
+  coming: { zh: '现在开始 · 约 12 分钟', en: 'Start now · about 12 min' },
   rhythm: { zh: '学习的节奏', en: 'A learning rhythm' },
   rhythmBody: {
     zh: '先观察 → 再理解 → 动手尝试 → 检查掌握 → 按时复习',
@@ -184,7 +186,7 @@ function Home({ mode }: { mode: LanguageMode }) {
             <Localized
               text={copy.explore}
               mode={mode}
-              secondaryClassName="block text-[0.7em] opacity-70"
+              secondaryClassName="block text-[0.8em] opacity-75"
             />
             <span aria-hidden="true">↗</span>
           </Link>
@@ -196,7 +198,7 @@ function Home({ mode }: { mode: LanguageMode }) {
         className="bottom-grid"
         aria-label={mode === 'en' ? 'Learning preview' : '学习预览'}
       >
-        <div className="first-card">
+        <Link className="first-card" to="/chemistry/lesson/what-is-matter">
           <div className="card-topline">
             <span>01 / 25</span>
             <span>
@@ -207,7 +209,7 @@ function Home({ mode }: { mode: LanguageMode }) {
             <Localized
               text={copy.firstLesson}
               mode={mode}
-              secondaryClassName="block text-[0.56em] font-normal text-[#6f8e8b] mt-2"
+              secondaryClassName="block text-[0.64em] font-normal text-[#6f8e8b] mt-2"
             />
           </h2>
           <p>
@@ -217,7 +219,7 @@ function Home({ mode }: { mode: LanguageMode }) {
             <span className="coming-dot" />
             <Localized text={copy.coming} mode={mode} />
           </div>
-        </div>
+        </Link>
         <div className="rhythm-card">
           <div className="rhythm-icon" aria-hidden="true">
             ↗
@@ -226,7 +228,7 @@ function Home({ mode }: { mode: LanguageMode }) {
             <Localized
               text={copy.rhythm}
               mode={mode}
-              secondaryClassName="block text-[0.64em] font-normal opacity-60 mt-1"
+              secondaryClassName="block text-[0.72em] font-normal opacity-70 mt-1"
             />
           </h2>
           <p>
@@ -273,7 +275,7 @@ function Path({ mode }: { mode: LanguageMode }) {
                 <Localized
                   text={level.title}
                   mode={mode}
-                  secondaryClassName="block text-[0.67em] text-[#6f8e8b] font-normal mt-1"
+                  secondaryClassName="block text-[0.76em] text-[#6f8e8b] font-normal mt-1"
                 />
               </h2>
               <p>
@@ -283,15 +285,32 @@ function Path({ mode }: { mode: LanguageMode }) {
                 <Localized text={copy.topics} mode={mode} />
               </div>
               <div className="topic-list">
-                {level.topics.map((topic) => (
-                  <span key={topic.en}>
-                    <Localized
-                      text={topic}
-                      mode={mode}
-                      secondaryClassName="block text-[0.72em] opacity-55"
-                    />
-                  </span>
-                ))}
+                {lessons.some((lesson) => lesson.levelId === level.id)
+                  ? lessons
+                      .filter((lesson) => lesson.levelId === level.id)
+                      .map((lesson) => (
+                        <Link
+                          key={lesson.id}
+                          to={`/chemistry/lesson/${lesson.id}`}
+                        >
+                          <b>{lesson.order.toString().padStart(2, '0')}</b>
+                          <Localized
+                            text={lesson.title}
+                            mode={mode}
+                            secondaryClassName="block text-[0.82em] opacity-70"
+                          />
+                          <span aria-hidden="true">→</span>
+                        </Link>
+                      ))
+                  : level.topics.map((topic) => (
+                      <span key={topic.en}>
+                        <Localized
+                          text={topic}
+                          mode={mode}
+                          secondaryClassName="block text-[0.82em] opacity-70"
+                        />
+                      </span>
+                    ))}
               </div>
             </div>
             <div className="level-count">
@@ -323,7 +342,7 @@ export function App() {
             <Localized
               text={copy.brand}
               mode={mode}
-              secondaryClassName="block text-[0.62em] font-normal tracking-[.13em] opacity-60"
+              secondaryClassName="block text-[0.7em] font-normal tracking-[.1em] opacity-70"
             />
           </span>
         </Link>
@@ -341,7 +360,7 @@ export function App() {
             <Localized
               text={copy.home}
               mode={mode}
-              secondaryClassName="block text-[0.72em] font-normal opacity-60"
+              secondaryClassName="block text-[0.82em] font-normal opacity-70"
             />
           </NavLink>
           <NavLink
@@ -353,7 +372,7 @@ export function App() {
             <Localized
               text={copy.path}
               mode={mode}
-              secondaryClassName="block text-[0.72em] font-normal opacity-60"
+              secondaryClassName="block text-[0.82em] font-normal opacity-70"
             />
           </NavLink>
         </nav>
@@ -375,6 +394,7 @@ export function App() {
         <Routes>
           <Route index element={<Home mode={mode} />} />
           <Route path="path" element={<Path mode={mode} />} />
+          <Route path="lesson/:lessonId" element={<LessonPage mode={mode} />} />
           <Route path="*" element={<Home mode={mode} />} />
         </Routes>
       </main>

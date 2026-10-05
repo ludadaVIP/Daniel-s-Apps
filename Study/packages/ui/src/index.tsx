@@ -80,7 +80,7 @@ export function Localized({
       <span>{text.zh}</span>
       <span
         className={
-          secondaryClassName ?? 'block text-[0.66em] font-normal opacity-60'
+          secondaryClassName ?? 'block text-[0.78em] font-normal opacity-70'
         }
       >
         {text.en}
