@@ -6,6 +6,17 @@ import { level5Lessons } from './level5';
 import { level6Lessons } from './level6';
 import { level7Lessons } from './level7';
 import { level8Lessons } from './level8';
+import { level9Lessons } from './level9';
+import { level10Lessons } from './level10';
+import { level11Lessons } from './level11';
+import { level12Lessons } from './level12';
+import { level13Lessons } from './level13';
+import { level14Lessons } from './level14';
+import { level15Lessons } from './level15';
+import { level16Lessons } from './level16';
+import { level17Lessons } from './level17';
+import { level18Lessons } from './level18';
+import { level19Lessons } from './level19';
 
 export type LessonQuestion = {
   id: string;
@@ -25,7 +36,18 @@ export type Lesson = {
     | 'bonding'
     | 'formulae'
     | 'reactions'
-    | 'acids';
+    | 'acids'
+    | 'metals'
+    | 'moles'
+    | 'solutions'
+    | 'gases'
+    | 'energetics'
+    | 'rates'
+    | 'equilibrium'
+    | 'electrochemistry'
+    | 'organic'
+    | 'analysis'
+    | 'problem-solving';
   order: number;
   title: LocalizedText;
   eyebrow: LocalizedText;
@@ -83,7 +105,35 @@ export type Lesson = {
     | 'reaction-rearrangement-lab'
     | 'equation-reader-lab'
     | 'equation-balance-lab'
-    | 'ph-scale-lab';
+    | 'ph-scale-lab'
+    | 'neutralisation-lab'
+    | 'acid-carbonate-lab'
+    | 'salt-family-lab'
+    | 'acid-metal-lab'
+    | 'rusting-lab'
+    | 'metal-displacement-lab'
+    | 'galvanising-lab'
+    | 'mole-package-lab'
+    | 'molar-mass-lab'
+    | 'solution-mixing-lab'
+    | 'concentration-lab'
+    | 'solubility-temperature-lab'
+    | 'gas-piston-lab'
+    | 'gas-temperature-lab'
+    | 'energy-flow-lab'
+    | 'reaction-hill-lab'
+    | 'reaction-rate-lab'
+    | 'equilibrium-shuttle-lab'
+    | 'battery-route-lab'
+    | 'carbon-builder-lab'
+    | 'combustion-route-lab'
+    | 'functional-group-lab'
+    | 'polymer-chain-lab'
+    | 'chromatography-lab'
+    | 'calibration-colour-lab'
+    | 'titration-endpoint-lab'
+    | 'soda-evidence-lab'
+    | 'heat-loss-design-lab';
 };
 
 export const lessons: Lesson[] = [
@@ -842,6 +892,17 @@ export const lessons: Lesson[] = [
   ...level6Lessons,
   ...level7Lessons,
   ...level8Lessons,
+  ...level9Lessons,
+  ...level10Lessons,
+  ...level11Lessons,
+  ...level12Lessons,
+  ...level13Lessons,
+  ...level14Lessons,
+  ...level15Lessons,
+  ...level16Lessons,
+  ...level17Lessons,
+  ...level18Lessons,
+  ...level19Lessons,
 ];
 
 export function getLesson(id: string | undefined) {

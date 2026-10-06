@@ -4958,6 +4958,2631 @@ function PhScaleLab({ mode }: { mode: LanguageMode }) {
   );
 }
 
+function NeutralisationLab({ mode }: { mode: LanguageMode }) {
+  const [baseDrops, setBaseDrops] = useState(0);
+  const ph = Math.min(11, 3 + baseDrops);
+  const state = ph < 7 ? 'acidic' : ph === 7 ? 'neutral' : 'basic';
+  const stateText =
+    state === 'acidic'
+      ? mode === 'en'
+        ? 'Still acidic'
+        : '仍偏酸性'
+      : state === 'neutral'
+        ? mode === 'en'
+          ? 'Near neutral: just right in this model'
+          : '接近中性：这个模型里刚刚好'
+        : mode === 'en'
+          ? 'Now basic: base is excess'
+          : '现在偏碱：碱已过量';
+  const stateNote =
+    state === 'acidic'
+      ? mode === 'en'
+        ? 'There are still more acidic effects than this simplified model can balance.'
+        : '在这个简化模型中，酸性影响仍多于可以被抵消的部分。'
+      : state === 'neutral'
+        ? mode === 'en'
+          ? 'The acid-base effects balance here. In real work, an indicator or meter confirms the target range.'
+          : '这里的酸碱影响恰好平衡。真实操作中，要用指示剂或仪器确认目标范围。'
+        : mode === 'en'
+          ? 'Adding more is not better: the extra base now gives the solution a basic effect.'
+          : '更多并不更好：额外的碱现在让溶液呈现碱性影响。';
+
+  return (
+    <div className="neutralisation-lab">
+      <div className={`neutral-scene ${state}`} aria-live="polite">
+        <span className="neutral-scene-label">
+          {mode === 'en' ? 'VIRTUAL PARTICLE MODEL ONLY' : '仅为虚拟粒子模型'}
+        </span>
+        <div className="neutral-beaker">
+          <div
+            className="neutral-liquid"
+            style={
+              {
+                '--neutral-colour':
+                  state === 'acidic'
+                    ? '#d86868'
+                    : state === 'neutral'
+                      ? '#70a863'
+                      : '#5687b7',
+              } as CSSProperties
+            }
+          >
+            {Array.from({ length: 12 }, (_, index) => (
+              <i
+                key={index}
+                style={{
+                  left: `${9 + ((index * 31) % 82)}%`,
+                  top: `${12 + ((index * 47) % 70)}%`,
+                  animationDelay: `${-(index % 5) * 0.25}s`,
+                }}
+              >
+                {index < Math.max(0, 7 - baseDrops)
+                  ? 'H⁺'
+                  : index < 7
+                    ? 'OH⁻'
+                    : 'Na⁺'}
+              </i>
+            ))}
+          </div>
+          <span className="neutral-beaker-rim" />
+          <b>pH {ph}</b>
+        </div>
+        <strong>{stateText}</strong>
+      </div>
+      <div className="neutral-console">
+        <p>
+          {mode === 'en'
+            ? 'Add virtual base tokens to the acidic model'
+            : '向酸性模型加入虚拟“碱”筹码'}
+        </p>
+        <div className="neutral-controls">
+          <button
+            type="button"
+            onClick={() => setBaseDrops((value) => Math.min(8, value + 1))}
+            disabled={baseDrops === 8}
+          >
+            {mode === 'en' ? 'Add one base token +' : '加入 1 枚碱筹码 +'}
+          </button>
+          <button type="button" onClick={() => setBaseDrops(0)}>
+            {mode === 'en' ? 'Reset model' : '重置模型'}
+          </button>
+        </div>
+        <div className="neutral-ledger">
+          <span>
+            {mode === 'en' ? 'Virtual base tokens added' : '已加入的虚拟碱筹码'}
+          </span>
+          <b>{baseDrops} / 8</b>
+          <i>
+            {Array.from({ length: 8 }, (_, index) => (
+              <em className={index < baseDrops ? 'filled' : ''} key={index} />
+            ))}
+          </i>
+        </div>
+        <div className={`neutral-reading ${state}`}>
+          <strong>
+            {mode === 'en' ? `Model reading: pH ${ph}` : `模型读数：pH ${ph}`}
+          </strong>
+          <p>{stateNote}</p>
+        </div>
+        <p className="neutral-safety">
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'This is a screen-only simulation. Never mix household products or medicines to try neutralisation.'
+            : '这是屏幕模拟。绝不混合家用产品或药物来尝试中和。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function AcidCarbonateLab({ mode }: { mode: LanguageMode }) {
+  const [reacted, setReacted] = useState(false);
+  const [showAtoms, setShowAtoms] = useState(false);
+  return (
+    <div className="acid-carbonate-lab">
+      <div
+        className={`carbonate-scene ${reacted ? 'reacted' : ''}`}
+        aria-live="polite"
+      >
+        <span className="carbonate-label">
+          {mode === 'en' ? 'VIRTUAL REACTION MAP' : '虚拟反应地图'}
+        </span>
+        <div className="carbonate-vessel">
+          <div className="carbonate-liquid">
+            {reacted ? (
+              <div className="carbonate-products">
+                <b>CaCl₂(aq)</b>
+                <span>H₂O</span>
+              </div>
+            ) : (
+              <div className="carbonate-chunks">
+                <i>CaCO₃</i>
+                <i>CaCO₃</i>
+                <i>CaCO₃</i>
+              </div>
+            )}
+          </div>
+          {reacted && (
+            <div
+              className="co2-bubbles"
+              aria-label={
+                mode === 'en' ? 'Carbon dioxide bubbles' : '二氧化碳气泡'
+              }
+            >
+              {Array.from({ length: 11 }, (_, index) => (
+                <i
+                  key={index}
+                  style={{
+                    left: `${15 + ((index * 29) % 70)}%`,
+                    animationDelay: `${-(index % 6) * 0.38}s`,
+                    animationDuration: `${1.7 + (index % 3) * 0.27}s`,
+                  }}
+                >
+                  CO₂
+                </i>
+              ))}
+            </div>
+          )}
+          <span className="carbonate-rim" />
+        </div>
+        <p>
+          {reacted
+            ? mode === 'en'
+              ? 'The model shows CO₂ leaving as bubbles while new dissolved particles and water remain.'
+              : '模型显示 CO₂ 以气泡离开，同时留下新的溶解粒子和水。'
+            : mode === 'en'
+              ? 'Carbonate pieces are waiting in the virtual vessel.'
+              : '碳酸盐颗粒正在虚拟容器中等待。'}
+        </p>
+      </div>
+      <div className="carbonate-console">
+        <p>
+          {mode === 'en'
+            ? 'Explore the reaction safely on screen'
+            : '在屏幕上安全探索反应'}
+        </p>
+        <div className="carbonate-controls">
+          <button type="button" onClick={() => setReacted((value) => !value)}>
+            {reacted
+              ? mode === 'en'
+                ? 'Reset virtual vessel'
+                : '重置虚拟容器'
+              : mode === 'en'
+                ? 'Add virtual acid'
+                : '加入虚拟酸'}
+          </button>
+          <button
+            type="button"
+            className={showAtoms ? 'active' : ''}
+            onClick={() => setShowAtoms((value) => !value)}
+          >
+            {showAtoms
+              ? mode === 'en'
+                ? 'Hide atom ledger'
+                : '收起原子账本'
+              : mode === 'en'
+                ? 'Check atom ledger'
+                : '核对原子账本'}
+          </button>
+        </div>
+        <div className="carbonate-equation">
+          <strong>CaCO₃ + 2HCl</strong>
+          <i>→</i>
+          <strong>CaCl₂ + H₂O + CO₂</strong>
+        </div>
+        <div className={`carbonate-ledger ${showAtoms ? 'revealed' : ''}`}>
+          {showAtoms ? (
+            <>
+              <div>
+                <span>{mode === 'en' ? 'Left' : '左边'}</span>
+                <b>Ca 1 · C 1 · O 3 · H 2 · Cl 2</b>
+              </div>
+              <i>＝</i>
+              <div>
+                <span>{mode === 'en' ? 'Right' : '右边'}</span>
+                <b>Ca 1 · C 1 · O 3 · H 2 · Cl 2</b>
+              </div>
+            </>
+          ) : (
+            <p>
+              {mode === 'en'
+                ? 'Count Ca, C, O, H and Cl on both sides.'
+                : '数一数两边的 Ca、C、O、H、Cl。'}
+            </p>
+          )}
+        </div>
+        <p className="carbonate-safety">
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'Screen model only. Do not recreate this with household products, cleaners, powders or unknown materials.'
+            : '仅为屏幕模型。不要用家用产品、清洁剂、粉末或未知材料重现实验。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SaltFamilyLab({ mode }: { mode: LanguageMode }) {
+  const salts = [
+    {
+      id: 'nacl',
+      formula: 'NaCl',
+      cation: 'Na⁺',
+      anion: 'Cl⁻',
+      ratio: '1 : 1',
+      icon: '🧂',
+      zh: '氯化钠',
+      en: 'Sodium chloride',
+      useZh: '食品调味、保存与多种工业用途（只在合适产品中使用）',
+      useEn:
+        'Food seasoning, preservation and many industrial uses (only in appropriate products)',
+      colour: '#779da1',
+    },
+    {
+      id: 'cacl2',
+      formula: 'CaCl₂',
+      cation: 'Ca²⁺',
+      anion: 'Cl⁻',
+      ratio: '1 : 2',
+      icon: '❄️',
+      zh: '氯化钙',
+      en: 'Calcium chloride',
+      useZh: '部分除湿或融冰产品中的成分；只能按产品说明处理',
+      useEn:
+        'An ingredient in some moisture-control or de-icing products; handle only as directed',
+      colour: '#698abb',
+    },
+    {
+      id: 'kno3',
+      formula: 'KNO₃',
+      cation: 'K⁺',
+      anion: 'NO₃⁻',
+      ratio: '1 : 1',
+      icon: '🌾',
+      zh: '硝酸钾',
+      en: 'Potassium nitrate',
+      useZh: '某些专业或园艺配方中的养分来源；不能自行混配',
+      useEn:
+        'A nutrient source in some specialist or garden formulas; never self-mix',
+      colour: '#77a56b',
+    },
+    {
+      id: 'caso4',
+      formula: 'CaSO₄',
+      cation: 'Ca²⁺',
+      anion: 'SO₄²⁻',
+      ratio: '1 : 1',
+      icon: '🏗️',
+      zh: '硫酸钙',
+      en: 'Calcium sulfate',
+      useZh: '石膏和部分建筑材料中的成分',
+      useEn: 'A component of gypsum and some building materials',
+      colour: '#ba9071',
+    },
+  ];
+  const [selectedId, setSelectedId] = useState('nacl');
+  const salt = salts.find((item) => item.id === selectedId) ?? salts[0]!;
+  return (
+    <div className="salt-family-lab">
+      <div
+        className="salt-tabs"
+        role="group"
+        aria-label={
+          mode === 'en' ? 'Choose a salt family member' : '选择一个盐家族成员'
+        }
+      >
+        {salts.map((item) => (
+          <button
+            type="button"
+            key={item.id}
+            className={item.id === salt.id ? 'active' : ''}
+            onClick={() => setSelectedId(item.id)}
+          >
+            <span>{item.icon}</span>
+            {item.formula}
+          </button>
+        ))}
+      </div>
+      <div
+        className="salt-showcase"
+        style={{ '--salt-colour': salt.colour } as CSSProperties}
+      >
+        <div
+          className="salt-ion-pair"
+          aria-label={
+            mode === 'en'
+              ? `${salt.cation} and ${salt.anion}`
+              : `${salt.cation} 和 ${salt.anion}`
+          }
+        >
+          <span>{salt.cation}</span>
+          <i>+</i>
+          <span>{salt.anion}</span>
+          <b>{salt.ratio}</b>
+        </div>
+        <div className="salt-formula-card">
+          <span>
+            {mode === 'en' ? 'CHARGE-BALANCED FORMULA' : '电荷平衡的化学式'}
+          </span>
+          <strong>{salt.formula}</strong>
+          <b>{mode === 'en' ? salt.en : salt.zh}</b>
+        </div>
+      </div>
+      <div className="salt-readout">
+        <p>
+          {mode === 'en' ? 'One family, many roles' : '同一个家族，许多角色'}
+        </p>
+        <h3>
+          {salt.icon} {mode === 'en' ? salt.en : salt.zh}
+        </h3>
+        <div className="salt-ratio-reading">
+          <span>{mode === 'en' ? 'Ions' : '离子'}</span>
+          <b>
+            {salt.cation} : {salt.anion} ＝ {salt.ratio}
+          </b>
+        </div>
+        <p className="salt-use">{mode === 'en' ? salt.useEn : salt.useZh}</p>
+        <p className="salt-safety">
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'A chemical family name is not a safety label. Do not taste or handle substances based on a formula or appearance.'
+            : '化学家族名称不是安全标签。不要仅凭化学式或外观品尝、接触物质。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function AcidMetalLab({ mode }: { mode: LanguageMode }) {
+  const metals = [
+    {
+      id: 'mg',
+      symbol: 'Mg',
+      zh: '镁',
+      en: 'Magnesium',
+      speedZh: '较快（虚拟模型）',
+      speedEn: 'Faster (virtual model)',
+      equation: 'Mg + 2HCl → MgCl₂ + H₂',
+      product: 'MgCl₂',
+      bubbles: 12,
+      colour: '#819eae',
+    },
+    {
+      id: 'fe',
+      symbol: 'Fe',
+      zh: '铁',
+      en: 'Iron',
+      speedZh: '较慢（虚拟模型）',
+      speedEn: 'Slower (virtual model)',
+      equation: 'Fe + 2HCl → FeCl₂ + H₂',
+      product: 'FeCl₂',
+      bubbles: 6,
+      colour: '#a77d65',
+    },
+    {
+      id: 'cu',
+      symbol: 'Cu',
+      zh: '铜',
+      en: 'Copper',
+      speedZh: '此条件下无明显反应',
+      speedEn: 'No obvious reaction in this condition',
+      equation: 'Cu + dilute HCl → no H₂ in this model',
+      product: '—',
+      bubbles: 0,
+      colour: '#bf7b52',
+    },
+  ];
+  const [metalId, setMetalId] = useState('mg');
+  const [reacted, setReacted] = useState(false);
+  const metal = metals.find((item) => item.id === metalId) ?? metals[0]!;
+  const canReact = metal.bubbles > 0;
+  return (
+    <div className="acid-metal-lab">
+      <div className="metal-reaction-tabs">
+        {metals.map((item) => (
+          <button
+            type="button"
+            key={item.id}
+            className={item.id === metal.id ? 'active' : ''}
+            onClick={() => {
+              setMetalId(item.id);
+              setReacted(false);
+            }}
+          >
+            {item.symbol} · {mode === 'en' ? item.en : item.zh}
+          </button>
+        ))}
+      </div>
+      <div
+        className={`metal-reaction-scene ${reacted ? 'reacted' : ''}`}
+        style={{ '--metal-colour': metal.colour } as CSSProperties}
+        aria-live="polite"
+      >
+        <span className="metal-reaction-label">
+          {mode === 'en' ? 'VIRTUAL LAB COMPARISON' : '虚拟实验室对比'}
+        </span>
+        <div className="metal-reaction-vessel">
+          <div className="metal-reaction-liquid">
+            <strong>{reacted && canReact ? metal.product : 'HCl(aq)'}</strong>
+            <span>
+              {reacted && canReact
+                ? mode === 'en'
+                  ? 'salt solution'
+                  : '盐溶液'
+                : mode === 'en'
+                  ? 'acid model'
+                  : '酸模型'}
+            </span>
+          </div>
+          <i className="metal-strip">{metal.symbol}</i>
+          {reacted && canReact && (
+            <div
+              className="hydrogen-bubbles"
+              aria-label={
+                mode === 'en'
+                  ? 'Hydrogen bubbles in virtual model'
+                  : '虚拟模型中的氢气气泡'
+              }
+            >
+              {Array.from({ length: metal.bubbles }, (_, index) => (
+                <b
+                  key={index}
+                  style={{
+                    left: `${12 + ((index * 31) % 74)}%`,
+                    animationDelay: `${-(index % 5) * 0.36}s`,
+                  }}
+                >
+                  H₂
+                </b>
+              ))}
+            </div>
+          )}
+          <span className="metal-vessel-rim" />
+        </div>
+        <p>
+          {reacted
+            ? canReact
+              ? mode === 'en'
+                ? `${metal.en} reacts in this model, forming a salt solution and hydrogen bubbles.`
+                : `${metal.zh} 在这个模型中反应，形成盐溶液和氢气气泡。`
+              : mode === 'en'
+                ? 'Copper does not release hydrogen in this beginner-model condition.'
+                : '铜在这个入门模型条件下不放出氢气。'
+            : mode === 'en'
+              ? 'Choose virtual acid to compare what the model predicts.'
+              : '加入虚拟酸，比较模型预测的结果。'}
+        </p>
+      </div>
+      <div className="metal-reaction-console">
+        <p>
+          {mode === 'en' ? 'What does the model predict?' : '模型预测了什么？'}
+        </p>
+        <div className="metal-reaction-controls">
+          <button type="button" onClick={() => setReacted((value) => !value)}>
+            {reacted
+              ? mode === 'en'
+                ? 'Reset virtual acid'
+                : '重置虚拟酸'
+              : mode === 'en'
+                ? 'Add virtual acid'
+                : '加入虚拟酸'}
+          </button>
+        </div>
+        <div className={`metal-speed-card ${canReact ? 'reactive' : 'quiet'}`}>
+          <span>
+            {mode === 'en'
+              ? 'Predicted hydrogen bubbling'
+              : '预测的氢气冒泡情况'}
+          </span>
+          <strong>{mode === 'en' ? metal.speedEn : metal.speedZh}</strong>
+          <i>
+            {Array.from({ length: 5 }, (_, index) => (
+              <b
+                className={index < Math.ceil(metal.bubbles / 3) ? 'filled' : ''}
+                key={index}
+              />
+            ))}
+          </i>
+        </div>
+        <div className="metal-equation-readout">{metal.equation}</div>
+        <p className="metal-reaction-safety">
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'Screen model only. Do not put cleaners, acids or metals together, and never try to identify a gas yourself.'
+            : '仅为屏幕模型。不要把清洁剂、酸或金属放在一起，也不要自行鉴定气体。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function RustingLab({ mode }: { mode: LanguageMode }) {
+  const [water, setWater] = useState(true);
+  const [oxygen, setOxygen] = useState(true);
+  const [coated, setCoated] = useState(false);
+  const rusting = water && oxygen && !coated;
+  const conditionText = rusting
+    ? mode === 'en'
+      ? 'Rusting conditions are present: water and oxygen can reach the iron.'
+      : '锈蚀条件齐全：水和氧气都能接触铁。'
+    : coated
+      ? mode === 'en'
+        ? 'The coating blocks contact even though the surroundings may still contain water and oxygen.'
+        : '涂层阻断接触，即使周围仍可能有水和氧气。'
+      : mode === 'en'
+        ? 'At least one key condition is missing, so familiar rusting slows dramatically in this model.'
+        : '至少一个关键条件缺失，所以这个模型中的常见锈蚀会大幅减慢。';
+  return (
+    <div className="rusting-lab">
+      <div
+        className={`rust-scene ${rusting ? 'rusting' : 'protected'}`}
+        aria-live="polite"
+      >
+        <span className="rust-scene-label">
+          {mode === 'en' ? 'CONDITION EXPLORER' : '条件探索器'}
+        </span>
+        <div className="rust-air">
+          {oxygen && <span className="oxygen-cloud">O₂</span>}
+          {water && <span className="water-drop">💧</span>}
+        </div>
+        <div className={`rust-metal ${coated ? 'coated' : ''}`}>
+          <span className="rust-bolt">Fe</span>
+          {rusting &&
+            Array.from({ length: 13 }, (_, index) => (
+              <i
+                key={index}
+                style={{
+                  left: `${10 + ((index * 31) % 77)}%`,
+                  top: `${12 + ((index * 43) % 74)}%`,
+                  animationDelay: `${-(index % 4) * 0.3}s`,
+                }}
+              />
+            ))}
+          {coated && <em>{mode === 'en' ? 'coating' : '涂层'}</em>}
+        </div>
+        <strong>
+          {rusting
+            ? mode === 'en'
+              ? 'New rust can form'
+              : '新的铁锈可能形成'
+            : mode === 'en'
+              ? 'Rusting slowed in the model'
+              : '模型中的锈蚀变慢'}
+        </strong>
+      </div>
+      <div className="rust-console">
+        <p>
+          {mode === 'en'
+            ? 'Change one condition at a time'
+            : '一次改变一个条件'}
+        </p>
+        <div className="rust-controls">
+          <button
+            type="button"
+            className={water ? 'active' : ''}
+            onClick={() => setWater((value) => !value)}
+          >
+            {water
+              ? mode === 'en'
+                ? 'Water: on'
+                : '水：有'
+              : mode === 'en'
+                ? 'Water: off'
+                : '水：无'}
+          </button>
+          <button
+            type="button"
+            className={oxygen ? 'active' : ''}
+            onClick={() => setOxygen((value) => !value)}
+          >
+            {oxygen
+              ? mode === 'en'
+                ? 'Oxygen: on'
+                : '氧气：有'
+              : mode === 'en'
+                ? 'Oxygen: off'
+                : '氧气：无'}
+          </button>
+          <button
+            type="button"
+            className={coated ? 'active coating' : ''}
+            onClick={() => setCoated((value) => !value)}
+          >
+            {coated
+              ? mode === 'en'
+                ? 'Remove coating'
+                : '移除涂层'
+              : mode === 'en'
+                ? 'Add coating'
+                : '加上涂层'}
+          </button>
+        </div>
+        <div className={`rust-reading ${rusting ? 'rusting' : 'protected'}`}>
+          <strong>{mode === 'en' ? 'Model reading' : '模型解读'}</strong>
+          <p>{conditionText}</p>
+        </div>
+        <div className="rust-rule">
+          <span>{mode === 'en' ? 'Rusting needs:' : '常见锈蚀需要：'}</span>
+          <b>{mode === 'en' ? 'iron + water + oxygen' : '铁 + 水 + 氧气'}</b>
+        </div>
+        <p className="rust-safety">
+          {mode === 'en'
+            ? 'Observe real metal objects without wetting, scratching or applying substances. This model explores the chemistry safely on screen.'
+            : '观察真实金属物品时，不要弄湿、刮擦或涂抹物质。这个模型在屏幕上安全探索化学。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function MetalDisplacementLab({ mode }: { mode: LanguageMode }) {
+  const [reacted, setReacted] = useState(false);
+  const [showElectrons, setShowElectrons] = useState(false);
+  return (
+    <div className="metal-displacement-lab">
+      <div
+        className={`displacement-scene ${reacted ? 'reacted' : ''}`}
+        aria-live="polite"
+      >
+        <span className="displacement-label">
+          {mode === 'en' ? 'VIRTUAL ION-TO-METAL MAP' : '虚拟“离子变金属”地图'}
+        </span>
+        <div className="displacement-vessel">
+          <div className="copper-solution">
+            {reacted ? <strong>Zn²⁺(aq)</strong> : <strong>Cu²⁺(aq)</strong>}
+            {Array.from({ length: 8 }, (_, index) => (
+              <i
+                key={index}
+                style={{
+                  left: `${11 + ((index * 29) % 77)}%`,
+                  top: `${13 + ((index * 47) % 69)}%`,
+                  animationDelay: `${-(index % 4) * 0.32}s`,
+                }}
+              >
+                {reacted ? 'Zn²⁺' : 'Cu²⁺'}
+              </i>
+            ))}
+          </div>
+          <span className="zinc-strip">{reacted ? 'Cu' : 'Zn'}</span>
+          {reacted && (
+            <div className="copper-deposit">
+              {Array.from({ length: 11 }, (_, index) => (
+                <i
+                  key={index}
+                  style={{
+                    left: `${20 + ((index * 23) % 61)}%`,
+                    top: `${21 + ((index * 37) % 58)}%`,
+                  }}
+                />
+              ))}
+            </div>
+          )}
+          <span className="displacement-rim" />
+        </div>
+        <p>
+          {reacted
+            ? mode === 'en'
+              ? 'Blue Cu²⁺ is reduced to copper metal while zinc becomes Zn²⁺ in solution.'
+              : '蓝色的 Cu²⁺ 被还原成铜金属，同时锌成为溶液中的 Zn²⁺。'
+            : mode === 'en'
+              ? 'Before: zinc metal and copper ions are shown separately.'
+              : '反应前：锌金属和铜离子分开存在。'}
+        </p>
+      </div>
+      <div className="displacement-console">
+        <p>{mode === 'en' ? 'Follow the electron hand-off' : '追踪电子交接'}</p>
+        <div className="displacement-controls">
+          <button type="button" onClick={() => setReacted((value) => !value)}>
+            {reacted
+              ? mode === 'en'
+                ? 'Reset virtual model'
+                : '重置虚拟模型'
+              : mode === 'en'
+                ? 'Let zinc donate electrons'
+                : '让锌交出电子'}
+          </button>
+          <button
+            type="button"
+            className={showElectrons ? 'active' : ''}
+            onClick={() => setShowElectrons((value) => !value)}
+          >
+            {showElectrons
+              ? mode === 'en'
+                ? 'Hide electron story'
+                : '收起电子故事'
+              : mode === 'en'
+                ? 'Show electron story'
+                : '显示电子故事'}
+          </button>
+        </div>
+        <div className="displacement-equation">
+          <strong>Zn + Cu²⁺</strong>
+          <i>→</i>
+          <strong>Zn²⁺ + Cu</strong>
+        </div>
+        <div className={`electron-story ${showElectrons ? 'revealed' : ''}`}>
+          {showElectrons ? (
+            <>
+              <div>
+                <b>Zn → Zn²⁺ + 2e⁻</b>
+                <span>
+                  {mode === 'en'
+                    ? 'oxidation · loses electrons'
+                    : '氧化 · 失电子'}
+                </span>
+              </div>
+              <i>2e⁻ →</i>
+              <div>
+                <b>Cu²⁺ + 2e⁻ → Cu</b>
+                <span>
+                  {mode === 'en'
+                    ? 'reduction · gains electrons'
+                    : '还原 · 得电子'}
+                </span>
+              </div>
+            </>
+          ) : (
+            <p>
+              {mode === 'en'
+                ? 'Reveal both half-equations: electron loss and gain must match.'
+                : '展开两个半反应式：失电子和得电子必须配对。'}
+            </p>
+          )}
+        </div>
+        <p className="displacement-safety">
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'Screen model only. Do not mix metals with household liquids, cleaners or unknown solutions.'
+            : '仅为屏幕模型。不要把金属与家用液体、清洁剂或未知溶液混合。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function GalvanisingLab({ mode }: { mode: LanguageMode }) {
+  const [scratch, setScratch] = useState(false);
+  const [galvanised, setGalvanised] = useState(true);
+  const [wet, setWet] = useState(true);
+  const protectedByZinc = galvanised && wet;
+  const rustRisk = scratch && wet && !protectedByZinc;
+  const message = rustRisk
+    ? mode === 'en'
+      ? 'A bare, wet steel scratch has a high rust risk in this model.'
+      : '在这个模型中，裸露又潮湿的钢铁划痕有较高锈蚀风险。'
+    : protectedByZinc && scratch
+      ? mode === 'en'
+        ? 'The zinc layer can still offer sacrificial protection near the wet scratch.'
+        : '锌层仍可在潮湿划痕附近提供牺牲保护。'
+      : mode === 'en'
+        ? 'The surface is protected by an intact barrier or lacks the wet condition that drives this model.'
+        : '表面由完整屏障保护，或缺少推动该模型的潮湿条件。';
+  return (
+    <div className="galvanising-lab">
+      <div
+        className={`galvanising-scene ${scratch ? 'scratched' : ''} ${galvanised ? 'galvanised' : 'bare'}`}
+        aria-live="polite"
+      >
+        <span className="galvanising-label">
+          {mode === 'en' ? 'VIRTUAL STEEL PANEL' : '虚拟钢板模型'}
+        </span>
+        <div className="galvanised-panel">
+          <div className="zinc-layer">
+            <b>Zn</b>
+            <span>{mode === 'en' ? 'zinc layer' : '锌层'}</span>
+          </div>
+          <div className="steel-layer">
+            <b>Fe</b>
+            <span>{mode === 'en' ? 'steel' : '钢铁'}</span>
+          </div>
+          {scratch && <i className="galvanising-scratch">⌁</i>}
+          {protectedByZinc && scratch && (
+            <em className="electron-path">e⁻ → Fe</em>
+          )}
+          {rustRisk && <em className="rust-warning">rust</em>}
+          {wet && <span className="galvanising-water">💧 O₂</span>}
+        </div>
+        <strong>{message}</strong>
+      </div>
+      <div className="galvanising-console">
+        <p>
+          {mode === 'en' ? 'Change the protection conditions' : '改变保护条件'}
+        </p>
+        <div className="galvanising-controls">
+          <button
+            type="button"
+            className={galvanised ? 'active' : ''}
+            onClick={() => setGalvanised((value) => !value)}
+          >
+            {galvanised
+              ? mode === 'en'
+                ? 'Zinc layer: on'
+                : '锌层：有'
+              : mode === 'en'
+                ? 'Zinc layer: off'
+                : '锌层：无'}
+          </button>
+          <button
+            type="button"
+            className={scratch ? 'active scratch' : ''}
+            onClick={() => setScratch((value) => !value)}
+          >
+            {scratch
+              ? mode === 'en'
+                ? 'Repair scratch'
+                : '修复划痕'
+              : mode === 'en'
+                ? 'Make virtual scratch'
+                : '制造虚拟划痕'}
+          </button>
+          <button
+            type="button"
+            className={wet ? 'active water' : ''}
+            onClick={() => setWet((value) => !value)}
+          >
+            {wet
+              ? mode === 'en'
+                ? 'Wet: on'
+                : '潮湿：有'
+              : mode === 'en'
+                ? 'Wet: off'
+                : '潮湿：无'}
+          </button>
+        </div>
+        <div
+          className={`galvanising-reading ${rustRisk ? 'risk' : protectedByZinc ? 'sacrifice' : ''}`}
+        >
+          <strong>
+            {mode === 'en' ? 'What is happening?' : '发生了什么？'}
+          </strong>
+          <p>{message}</p>
+        </div>
+        <div className="galvanising-rule">
+          <b>Zn → Zn²⁺ + 2e⁻</b>
+          <span>
+            {mode === 'en'
+              ? 'Zinc oxidises first in sacrificial protection.'
+              : '牺牲保护中，锌优先被氧化。'}
+          </span>
+        </div>
+        <p className="galvanising-safety">
+          {mode === 'en'
+            ? 'Virtual model only. Never scratch coatings or wet metal objects to test corrosion.'
+            : '仅为虚拟模型。不要为了测试腐蚀而刮擦涂层或弄湿金属物品。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function MolePackageLab({ mode }: { mode: LanguageMode }) {
+  const items = [
+    {
+      id: 'eggs',
+      icon: '🥚',
+      unit: mode === 'en' ? '1 dozen eggs' : '一打鸡蛋',
+      count: '12',
+      note: mode === 'en' ? 'A familiar package size.' : '熟悉的一包数量。',
+    },
+    {
+      id: 'water',
+      icon: '💧',
+      unit: '1 mol H₂O',
+      count: '6.022 × 10²³',
+      note:
+        mode === 'en'
+          ? 'The same fixed count, now for water molecules.'
+          : '同样是固定数量，但数的是水分子。',
+    },
+    {
+      id: 'iron',
+      icon: '🔩',
+      unit: '1 mol Fe',
+      count: '6.022 × 10²³',
+      note:
+        mode === 'en'
+          ? 'The same fixed count, now for iron atoms.'
+          : '同样是固定数量，但数的是铁原子。',
+    },
+  ];
+  const [selectedId, setSelectedId] = useState('eggs');
+  const item = items.find((value) => value.id === selectedId) ?? items[0]!;
+  const mole = item.id !== 'eggs';
+  return (
+    <div className="mole-package-lab">
+      <div className="mole-tabs">
+        {items.map((value) => (
+          <button
+            type="button"
+            key={value.id}
+            className={value.id === item.id ? 'active' : ''}
+            onClick={() => setSelectedId(value.id)}
+          >
+            {value.icon} {value.unit}
+          </button>
+        ))}
+      </div>
+      <div className="mole-scene">
+        <span>
+          {mode === 'en'
+            ? 'A PACKAGE IS A COUNT, NOT A MASS'
+            : '一“包”是数量，不是质量'}
+        </span>
+        <div className={`mole-package ${mole ? 'mole' : 'dozen'}`}>
+          <b>{item.icon}</b>
+          <strong>{item.count}</strong>
+          <small>
+            {mole
+              ? mode === 'en'
+                ? 'specified particles'
+                : '个指定粒子'
+              : mode === 'en'
+                ? 'eggs'
+                : '个鸡蛋'}
+          </small>
+        </div>
+        <p>{item.note}</p>
+      </div>
+      <div className="mole-readout">
+        <p>{mode === 'en' ? 'What stays fixed?' : '什么保持不变？'}</p>
+        <h3>{item.unit}</h3>
+        <div>
+          <span>{mode === 'en' ? 'count' : '数量'}</span>
+          <b>{item.count}</b>
+        </div>
+        <p className="mole-note">
+          {mole
+            ? mode === 'en'
+              ? 'The particle count is fixed. The mass depends on which particles are packed.'
+              : '粒子数固定；质量取决于装的是哪一种粒子。'
+            : mode === 'en'
+              ? 'A dozen tells you number, not how heavy the eggs are.'
+              : '一打告诉你数量，不告诉你这些鸡蛋有多重。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function MolarMassLab({ mode }: { mode: LanguageMode }) {
+  const samples = [
+    { formula: 'H₂O', mass: 18, parts: '2×1 + 16' },
+    { formula: 'O₂', mass: 32, parts: '2×16' },
+    { formula: 'Fe', mass: 56, parts: '56' },
+  ];
+  const [index, setIndex] = useState(0);
+  const sample = samples[index]!;
+  return (
+    <div className="molar-mass-lab">
+      <div className="molar-mass-tabs">
+        {samples.map((value, itemIndex) => (
+          <button
+            type="button"
+            key={value.formula}
+            className={itemIndex === index ? 'active' : ''}
+            onClick={() => setIndex(itemIndex)}
+          >
+            {value.formula}
+          </button>
+        ))}
+      </div>
+      <div className="molar-mass-scene">
+        <span>
+          {mode === 'en' ? 'ONE MOLE ON THE SCALE' : '把一摩尔放上天平'}
+        </span>
+        <div className="molar-balance">
+          <b>
+            1 mol
+            <br />
+            {sample.formula}
+          </b>
+          <i>⚖</i>
+          <strong>{sample.mass} g</strong>
+        </div>
+        <p>
+          {mode === 'en'
+            ? 'Same particle count. Different mass.'
+            : '粒子数相同，质量不同。'}
+        </p>
+      </div>
+      <div className="molar-mass-readout">
+        <p>{mode === 'en' ? 'Build the molar mass' : '拼出摩尔质量'}</p>
+        <h3>{sample.formula}</h3>
+        <div>
+          <b>{sample.parts}</b>
+          <i>＝</i>
+          <strong>{sample.mass} g/mol</strong>
+        </div>
+        <p>
+          {mode === 'en'
+            ? `n = m ÷ M: ${sample.mass} g ÷ ${sample.mass} g/mol = 1 mol.`
+            : `n = m ÷ M：${sample.mass} g ÷ ${sample.mass} g/mol = 1 mol。`}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function SolutionMixingLab({ mode }: { mode: LanguageMode }) {
+  const choices = [
+    { id: 'sugar', zh: '糖粒', en: 'Sugar', icon: '🍬', color: '#f6bd4d' },
+    { id: 'salt', zh: '盐粒', en: 'Salt', icon: '🧂', color: '#eef6ff' },
+    { id: 'dye', zh: '色素', en: 'Food dye', icon: '🫐', color: '#9b7cff' },
+  ];
+  const [choiceIndex, setChoiceIndex] = useState(0);
+  const [stirred, setStirred] = useState(false);
+  const choice = choices[choiceIndex]!;
+  const dots = Array.from({ length: 20 }, (_, index) => ({
+    left: stirred ? 12 + ((index * 29) % 76) : 42 + ((index * 17) % 18),
+    top: stirred ? 14 + ((index * 41) % 72) : 66 + ((index * 13) % 19),
+  }));
+  return (
+    <div className="solution-mixing-lab">
+      <div className="solution-choice" role="group" aria-label="选择溶质">
+        {choices.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={index === choiceIndex ? 'active' : ''}
+            onClick={() => {
+              setChoiceIndex(index);
+              setStirred(false);
+            }}
+          >
+            {item.icon} {mode === 'en' ? item.en : item.zh}
+          </button>
+        ))}
+      </div>
+      <div className={`solution-cup ${stirred ? 'is-stirred' : ''}`}>
+        <span className="solution-label">H₂O</span>
+        {dots.map((dot, index) => (
+          <i
+            key={index}
+            className="solution-dot"
+            style={{
+              left: `${dot.left}%`,
+              top: `${dot.top}%`,
+              backgroundColor: choice.color,
+              transitionDelay: `${(index % 6) * 35}ms`,
+            }}
+          />
+        ))}
+        <b>{choice.icon}</b>
+      </div>
+      <div className="solution-readout">
+        <p>{mode === 'en' ? 'Particle view' : '粒子视角'}</p>
+        <strong>
+          {stirred
+            ? mode === 'en'
+              ? `${choice.en} particles are spread throughout the water.`
+              : `${choice.zh}的粒子已经分散到整杯水中。`
+            : mode === 'en'
+              ? `${choice.en} particles begin near the bottom.`
+              : `${choice.zh}的粒子先聚在杯底附近。`}
+        </strong>
+        <span>
+          {stirred
+            ? mode === 'en'
+              ? 'Invisible does not mean gone—the solution is now more uniform.'
+              : '看不见不等于不在；现在这杯溶液更均匀。'
+            : mode === 'en'
+              ? 'Stir to increase contact and speed up spreading.'
+              : '试着搅拌，让液体更多接触固体表面。'}
+        </span>
+        <button type="button" onClick={() => setStirred((value) => !value)}>
+          {stirred
+            ? mode === 'en'
+              ? 'Reset cup'
+              : '重新开始'
+            : mode === 'en'
+              ? 'Stir gently'
+              : '轻轻搅拌'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function ConcentrationLab({ mode }: { mode: LanguageMode }) {
+  const [solute, setSolute] = useState(4);
+  const [volume, setVolume] = useState(100);
+  const concentration = Math.round((solute / (volume / 1000)) * 10) / 10;
+  const dots = Array.from({ length: Math.min(28, solute * 3) }, (_, index) => ({
+    left: 10 + ((index * 37) % 78),
+    top: 19 + ((index * 23) % 65),
+  }));
+  const label =
+    concentration >= 45
+      ? mode === 'en'
+        ? 'More crowded'
+        : '更拥挤'
+      : concentration >= 25
+        ? mode === 'en'
+          ? 'Balanced'
+          : '中等浓度'
+        : mode === 'en'
+          ? 'More spread out'
+          : '更分散';
+  return (
+    <div className="concentration-lab">
+      <div className="concentration-cup" aria-label="粒子浓度模型">
+        <span>{volume} mL</span>
+        <div
+          className="concentration-water"
+          style={{ height: `${Math.min(90, 42 + volume / 6)}%` }}
+        >
+          {dots.map((dot, index) => (
+            <i
+              key={index}
+              style={{ left: `${dot.left}%`, top: `${dot.top}%` }}
+            />
+          ))}
+        </div>
+        <b>{label}</b>
+      </div>
+      <div className="concentration-readout">
+        <p>{mode === 'en' ? 'Your recipe' : '你的配方'}</p>
+        <div className="concentration-equation">
+          <b>{solute} g</b>
+          <span>÷</span>
+          <b>{(volume / 1000).toFixed(2)} L</b>
+          <span>＝</span>
+          <strong>{concentration} g/L</strong>
+        </div>
+        <p className="concentration-note">
+          {mode === 'en'
+            ? 'Watch which number changes: adding water makes the same solute share a larger volume.'
+            : '盯住哪个数变了：只加水时，还是同样的溶质分摊到更大体积。'}
+        </p>
+        <div className="concentration-controls">
+          <button type="button" onClick={() => setSolute((value) => value + 2)}>
+            {mode === 'en' ? 'Add 2 g solute' : '加入 2 g 溶质'}
+          </button>
+          <button
+            type="button"
+            onClick={() => setVolume((value) => value + 50)}
+          >
+            {mode === 'en' ? 'Add 50 mL water' : '加入 50 mL 水'}
+          </button>
+          <button
+            type="button"
+            onClick={() => {
+              setSolute(4);
+              setVolume(100);
+            }}
+          >
+            {mode === 'en' ? 'Reset' : '重置'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SolubilityTemperatureLab({ mode }: { mode: LanguageMode }) {
+  const materials = [
+    {
+      id: 'sugar',
+      zh: '糖（固体）',
+      en: 'Sugar (solid)',
+      icon: '🍬',
+      cool: 6,
+      warm: 13,
+      trendZh: '变热后，许多固体可溶解的上限会提高。',
+      trendEn: 'When warmed, many solids can have a higher solubility limit.',
+    },
+    {
+      id: 'fizz',
+      zh: '二氧化碳（气体）',
+      en: 'Carbon dioxide (gas)',
+      icon: '🫧',
+      cool: 10,
+      warm: 4,
+      trendZh: '变热后，气体通常更容易离开水成为气泡。',
+      trendEn:
+        'When warmed, gases usually leave water more readily as bubbles.',
+    },
+  ];
+  const [materialIndex, setMaterialIndex] = useState(0);
+  const [warm, setWarm] = useState(false);
+  const material = materials[materialIndex]!;
+  const slots = warm ? material.warm : material.cool;
+  return (
+    <div className="solubility-temperature-lab">
+      <div className="solubility-tabs" role="group" aria-label="选择物质">
+        {materials.map((item, index) => (
+          <button
+            type="button"
+            key={item.id}
+            className={index === materialIndex ? 'active' : ''}
+            onClick={() => setMaterialIndex(index)}
+          >
+            {item.icon} {mode === 'en' ? item.en : item.zh}
+          </button>
+        ))}
+      </div>
+      <div className={`solubility-vessel ${warm ? 'is-warm' : ''}`}>
+        <span>{warm ? '50°C' : '10°C'}</span>
+        <div className="solubility-water">
+          {Array.from({ length: 14 }, (_, index) => (
+            <i
+              key={index}
+              className={index < slots ? 'is-filled' : ''}
+              style={{
+                left: `${12 + ((index * 31) % 72)}%`,
+                top: `${16 + ((index * 43) % 67)}%`,
+              }}
+            />
+          ))}
+        </div>
+        <b>
+          {mode === 'en'
+            ? `${slots} model slots filled`
+            : `模型中装下 ${slots} 格`}
+        </b>
+      </div>
+      <div className="solubility-readout">
+        <p>
+          {mode === 'en' ? 'Condition changes the limit' : '条件会改变上限'}
+        </p>
+        <strong>{mode === 'en' ? material.trendEn : material.trendZh}</strong>
+        <span>
+          {mode === 'en'
+            ? 'This is a pattern model, not a real measurement scale. Check a solubility graph for exact data.'
+            : '这是帮助看趋势的模型，不是实际测量刻度；精确数据要查对应溶解度曲线。'}
+        </span>
+        <div>
+          <button
+            type="button"
+            className={!warm ? 'active' : ''}
+            onClick={() => setWarm(false)}
+          >
+            {mode === 'en' ? 'Cool water' : '较冷的水'}
+          </button>
+          <button
+            type="button"
+            className={warm ? 'active' : ''}
+            onClick={() => setWarm(true)}
+          >
+            {mode === 'en' ? 'Warmer water' : '较温的水'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function GasPistonLab({ mode }: { mode: LanguageMode }) {
+  const [volume, setVolume] = useState(70);
+  const pressure = volume < 48 ? 'high' : volume > 82 ? 'low' : 'medium';
+  const pressureText = {
+    high:
+      mode === 'en'
+        ? 'High pressure · frequent wall collisions'
+        : '高压强 · 撞壁更频繁',
+    medium:
+      mode === 'en'
+        ? 'Medium pressure · steady collisions'
+        : '中等压强 · 稳定碰撞',
+    low:
+      mode === 'en'
+        ? 'Lower pressure · fewer wall collisions'
+        : '较低压强 · 撞壁较少',
+  }[pressure];
+  const dots = Array.from({ length: 19 }, (_, index) => ({
+    left: 11 + ((index * 29) % 76),
+    top: 10 + ((index * 37) % Math.max(16, volume - 9)),
+  }));
+  return (
+    <div className="gas-piston-lab">
+      <div
+        className="piston-chamber"
+        style={{ '--gas-volume': `${volume}%` } as CSSProperties}
+      >
+        <div className="piston-handle" />
+        <div className="piston-head" />
+        <div className="piston-gas">
+          {dots.map((dot, index) => (
+            <i
+              key={index}
+              style={{ left: `${dot.left}%`, top: `${dot.top}%` }}
+            />
+          ))}
+        </div>
+        <span>
+          {mode === 'en' ? 'same number of particles' : '粒子数量不变'}
+        </span>
+      </div>
+      <div className="piston-readout">
+        <p>{mode === 'en' ? 'Move the piston' : '移动活塞'}</p>
+        <strong>{pressureText}</strong>
+        <span>
+          {mode === 'en'
+            ? `Model volume: ${volume}%. Temperature and particle number are held fixed.`
+            : `模型体积：${volume}%。温度和粒子数量保持不变。`}
+        </span>
+        <div className="piston-controls">
+          <button
+            type="button"
+            onClick={() => setVolume((value) => Math.max(32, value - 18))}
+          >
+            {mode === 'en' ? 'Compress' : '压小体积'}
+          </button>
+          <button
+            type="button"
+            onClick={() => setVolume((value) => Math.min(96, value + 18))}
+          >
+            {mode === 'en' ? 'Expand' : '增大体积'}
+          </button>
+          <button type="button" onClick={() => setVolume(70)}>
+            {mode === 'en' ? 'Reset' : '重置'}
+          </button>
+        </div>
+        <p className="piston-note">
+          {mode === 'en'
+            ? 'Every dot is still present. Only the space between wall collisions changes.'
+            : '每一个粒子都还在；改变的是它们两次撞到容器壁之间所走的空间。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function GasTemperatureLab({ mode }: { mode: LanguageMode }) {
+  const temperatures = [
+    {
+      id: 'cool',
+      zh: '冷',
+      en: 'Cool',
+      value: 8,
+      pressureZh: '较低压强',
+      pressureEn: 'Lower pressure',
+    },
+    {
+      id: 'room',
+      zh: '常温',
+      en: 'Room',
+      value: 20,
+      pressureZh: '中等压强',
+      pressureEn: 'Medium pressure',
+    },
+    {
+      id: 'warm',
+      zh: '温热',
+      en: 'Warm',
+      value: 40,
+      pressureZh: '较高压强',
+      pressureEn: 'Higher pressure',
+    },
+  ];
+  const [temperatureIndex, setTemperatureIndex] = useState(1);
+  const temperature = temperatures[temperatureIndex]!;
+  const speed =
+    temperatureIndex === 0
+      ? '2.2s'
+      : temperatureIndex === 1
+        ? '1.35s'
+        : '0.62s';
+  const dots = Array.from({ length: 19 }, (_, index) => ({
+    left: 10 + ((index * 31) % 78),
+    top: 11 + ((index * 43) % 75),
+    delay: `${-(index % 7) * 0.13}s`,
+  }));
+  return (
+    <div className={`gas-temperature-lab temp-${temperature.id}`}>
+      <div className="temperature-chamber">
+        <span>{temperature.value}°C</span>
+        <b>{mode === 'en' ? 'same rigid container' : '同一个刚性容器'}</b>
+        {dots.map((dot, index) => (
+          <i
+            key={index}
+            style={{
+              left: `${dot.left}%`,
+              top: `${dot.top}%`,
+              animationDuration: speed,
+              animationDelay: dot.delay,
+            }}
+          />
+        ))}
+      </div>
+      <div className="temperature-readout">
+        <p>{mode === 'en' ? 'Change temperature only' : '只改变温度'}</p>
+        <strong>
+          {mode === 'en' ? temperature.pressureEn : temperature.pressureZh}
+        </strong>
+        <span>
+          {mode === 'en'
+            ? 'Particle number and container volume are fixed. Faster motion means more forceful collisions with the walls.'
+            : '粒子数量与容器体积固定。运动更快，撞击容器壁就更频繁、更有力。'}
+        </span>
+        <div className="temperature-controls">
+          {temperatures.map((item, index) => (
+            <button
+              type="button"
+              key={item.id}
+              className={index === temperatureIndex ? 'active' : ''}
+              onClick={() => setTemperatureIndex(index)}
+            >
+              {mode === 'en' ? item.en : item.zh}
+            </button>
+          ))}
+        </div>
+        <p className="temperature-note">
+          {mode === 'en'
+            ? 'A visual model only—never heat a sealed container to test this.'
+            : '这是视觉模型；绝不要为了验证而加热密封容器。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function EnergyFlowLab({ mode }: { mode: LanguageMode }) {
+  const cases = [
+    { id: 'warm', zh: '暖手包', en: 'Hand warmer', kind: 'exo', icon: '🔥' },
+    { id: 'cold', zh: '冷敷袋', en: 'Cold pack', kind: 'endo', icon: '🧊' },
+    { id: 'ice', zh: '冰融化', en: 'Ice melting', kind: 'endo', icon: '💧' },
+  ] as const;
+  const [index, setIndex] = useState(0);
+  const active = cases[index]!;
+  const exothermic = active.kind === 'exo';
+  return (
+    <div className={`energy-flow-lab ${active.kind}`}>
+      <div className="energy-tabs" role="group" aria-label="选择能量变化">
+        {cases.map((item, itemIndex) => (
+          <button
+            type="button"
+            key={item.id}
+            className={index === itemIndex ? 'active' : ''}
+            onClick={() => setIndex(itemIndex)}
+          >
+            {item.icon} {mode === 'en' ? item.en : item.zh}
+          </button>
+        ))}
+      </div>
+      <div className="energy-scene">
+        <div className="energy-surroundings">
+          <span>{mode === 'en' ? 'SURROUNDINGS' : '周围环境'}</span>
+          <b>
+            {exothermic
+              ? mode === 'en'
+                ? '↗ energy arrives'
+                : '↗ 能量来到这里'
+              : mode === 'en'
+                ? '↘ energy leaves here'
+                : '↘ 能量从这里离开'}
+          </b>
+        </div>
+        <div className="energy-arrow" aria-hidden="true">
+          {exothermic ? '←' : '→'}
+        </div>
+        <div className="energy-system">
+          <span>{active.icon}</span>
+          <b>{mode === 'en' ? 'SYSTEM' : '系统'}</b>
+        </div>
+      </div>
+      <div className="energy-readout">
+        <p>{mode === 'en' ? 'Energy direction' : '能量方向'}</p>
+        <strong>
+          {exothermic
+            ? mode === 'en'
+              ? 'System → surroundings: exothermic'
+              : '系统 → 周围环境：放热'
+            : mode === 'en'
+              ? 'Surroundings → system: endothermic'
+              : '周围环境 → 系统：吸热'}
+        </strong>
+        <span>
+          {exothermic
+            ? mode === 'en'
+              ? 'The nearby material can warm because it receives energy.'
+              : '附近的材料得到能量，所以可能变暖。'
+            : mode === 'en'
+              ? 'The nearby material can cool because it gives energy to the system.'
+              : '附近的材料把能量交给系统，所以可能变冷。'}
+        </span>
+        <p className="energy-note">
+          {active.id === 'ice'
+            ? mode === 'en'
+              ? 'This is a physical change, showing that energy direction is not limited to chemical reactions.'
+              : '这是物理变化，说明能量方向不只属于化学反应。'
+            : mode === 'en'
+              ? 'Read the arrows as a model of energy transfer—not as permission to open product packs.'
+              : '把箭头当作能量转移模型，不要因此拆开产品包装。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ReactionHillLab({ mode }: { mode: LanguageMode }) {
+  const [catalyst, setCatalyst] = useState(false);
+  return (
+    <div className={`reaction-hill-lab ${catalyst ? 'is-catalysed' : ''}`}>
+      <div className="hill-chart">
+        <svg viewBox="0 0 360 190" role="img" aria-label="活化能路线图">
+          <line x1="26" y1="167" x2="340" y2="167" className="hill-axis" />
+          <line x1="26" y1="18" x2="26" y2="167" className="hill-axis" />
+          <path
+            className="hill-route normal"
+            d="M32 137 C95 137 101 32 181 32 C252 32 260 153 336 153"
+          />
+          {catalyst && (
+            <path
+              className="hill-route catalyst"
+              d="M32 137 C98 137 106 78 181 78 C250 78 258 153 336 153"
+            />
+          )}
+          <circle cx="32" cy="137" r="5" className="hill-point" />
+          <circle cx="336" cy="153" r="5" className="hill-point product" />
+          <text x="37" y="128">
+            {mode === 'en' ? 'reactants' : '反应物'}
+          </text>
+          <text x="262" y="176">
+            {mode === 'en' ? 'products' : '生成物'}
+          </text>
+          <text x="4" y="38">
+            {mode === 'en' ? 'energy' : '能量'}
+          </text>
+          <text x="230" y="188">
+            {mode === 'en' ? 'reaction path' : '反应路径'}
+          </text>
+        </svg>
+        <div className="hill-legend">
+          <span className="normal" />
+          {mode === 'en' ? 'usual route' : '普通路线'}
+          {catalyst && (
+            <>
+              <span className="catalyst" />
+              {mode === 'en' ? 'catalysed route' : '催化路线'}
+            </>
+          )}
+        </div>
+      </div>
+      <div className="hill-readout">
+        <p>{mode === 'en' ? 'Choose a route' : '选择反应路线'}</p>
+        <strong>
+          {catalyst
+            ? mode === 'en'
+              ? 'Catalyst on: lower activation-energy hill'
+              : '催化剂开启：活化能小山更低'
+            : mode === 'en'
+              ? 'No catalyst: higher activation-energy hill'
+              : '没有催化剂：活化能小山较高'}
+        </strong>
+        <span>
+          {catalyst
+            ? mode === 'en'
+              ? 'Start and finish have not moved. Only the route between them changed.'
+              : '起点和终点没有移动；改变的只有中间路线。'
+            : mode === 'en'
+              ? 'Particles need enough energy to reach the peak before rearranging.'
+              : '粒子要有足够能量跨到峰顶，才容易重新组合。'}
+        </span>
+        <button type="button" onClick={() => setCatalyst((value) => !value)}>
+          {catalyst
+            ? mode === 'en'
+              ? 'Remove catalyst'
+              : '移除催化剂'
+            : mode === 'en'
+              ? 'Add catalyst'
+              : '加入催化剂'}
+        </button>
+        <p className="hill-note">
+          {mode === 'en'
+            ? 'The diagram is a model of energy, not a map of physical distance.'
+            : '这张图是能量模型，不是实际空间距离图。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function ReactionRateLab({ mode }: { mode: LanguageMode }) {
+  const [warm, setWarm] = useState(false);
+  const [concentrated, setConcentrated] = useState(false);
+  const [powdered, setPowdered] = useState(false);
+  const score =
+    2 + (warm ? 2 : 0) + (concentrated ? 2 : 0) + (powdered ? 2 : 0);
+  const particles = Array.from(
+    { length: concentrated ? 24 : 12 },
+    (_, index) => ({
+      left: 8 + ((index * 37) % 84),
+      top: 10 + ((index * 29) % 77),
+      delay: `${-(index % 6) * 0.18}s`,
+    }),
+  );
+  return (
+    <div className="reaction-rate-lab">
+      <div className={`rate-chamber ${warm ? 'is-warm' : ''}`}>
+        {particles.map((particle, index) => (
+          <i
+            key={index}
+            style={{
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              animationDelay: particle.delay,
+            }}
+          />
+        ))}
+        <div className={`rate-solid ${powdered ? 'is-powdered' : ''}`}>
+          {Array.from({ length: powdered ? 12 : 1 }, (_, index) => (
+            <b key={index} />
+          ))}
+        </div>
+        <span>{mode === 'en' ? 'collision model' : '碰撞模型'}</span>
+      </div>
+      <div className="rate-readout">
+        <p>{mode === 'en' ? 'Adjust conditions' : '调整条件'}</p>
+        <strong>
+          {mode === 'en'
+            ? `Successful-collision chance: ${score}/8`
+            : `有效碰撞机会：${score}/8`}
+        </strong>
+        <span>
+          {mode === 'en'
+            ? 'This is a relative model, not a laboratory measurement.'
+            : '这是相对趋势模型，不是实验室测量数值。'}
+        </span>
+        <div className="rate-controls">
+          <button
+            type="button"
+            className={warm ? 'active' : ''}
+            onClick={() => setWarm((value) => !value)}
+          >
+            {warm
+              ? mode === 'en'
+                ? 'Warm: on'
+                : '升温：开'
+              : mode === 'en'
+                ? 'Warm: off'
+                : '升温：关'}
+          </button>
+          <button
+            type="button"
+            className={concentrated ? 'active' : ''}
+            onClick={() => setConcentrated((value) => !value)}
+          >
+            {concentrated
+              ? mode === 'en'
+                ? 'High concentration'
+                : '高浓度'
+              : mode === 'en'
+                ? 'Low concentration'
+                : '低浓度'}
+          </button>
+          <button
+            type="button"
+            className={powdered ? 'active' : ''}
+            onClick={() => setPowdered((value) => !value)}
+          >
+            {powdered
+              ? mode === 'en'
+                ? 'Powder surface'
+                : '粉末表面'
+              : mode === 'en'
+                ? 'Single chunk'
+                : '单块固体'}
+          </button>
+        </div>
+        <p className="rate-note">
+          {mode === 'en'
+            ? 'For a fair test, toggle only one condition before comparing.'
+            : '要做公平比较，请每次只切换一个条件。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function EquilibriumShuttleLab({ mode }: { mode: LanguageMode }) {
+  const [left, setLeft] = useState(8);
+  const [right, setRight] = useState(2);
+  const balanced = left <= 6;
+  const forward = balanced ? 2 : 3;
+  const reverse = 2;
+  const advance = () => {
+    if (balanced) return;
+    setLeft((value) => value - (forward - reverse));
+    setRight((value) => value + (forward - reverse));
+  };
+  return (
+    <div className="equilibrium-shuttle-lab">
+      <div className="equilibrium-rooms">
+        <div className="equilibrium-room">
+          <span>{mode === 'en' ? 'REACTANT SIDE' : '反应物一侧'}</span>
+          <strong>{left}</strong>
+          <small>{mode === 'en' ? 'particles' : '个粒子'}</small>
+        </div>
+        <div className="equilibrium-flow">
+          <b>⇄</b>
+          <span>
+            {forward} → · {reverse} ←
+          </span>
+        </div>
+        <div className="equilibrium-room product">
+          <span>{mode === 'en' ? 'PRODUCT SIDE' : '生成物一侧'}</span>
+          <strong>{right}</strong>
+          <small>{mode === 'en' ? 'particles' : '个粒子'}</small>
+        </div>
+      </div>
+      <div className="equilibrium-readout">
+        <p>{mode === 'en' ? 'Run the sealed model' : '运行密闭模型'}</p>
+        <strong>
+          {balanced
+            ? mode === 'en'
+              ? 'Dynamic equilibrium: 2 forward = 2 reverse'
+              : '动态平衡：正向 2 = 逆向 2'
+            : mode === 'en'
+              ? 'Forward process is faster for now'
+              : '目前正向过程更快'}
+        </strong>
+        <span>
+          {balanced
+            ? mode === 'en'
+              ? 'Amounts now stay steady, but particles still move both ways.'
+              : '两边数量现在保持稳定，但粒子仍在双向移动。'
+            : mode === 'en'
+              ? 'Products build up, giving the reverse process more chances.'
+              : '生成物逐渐增多，逆向过程的机会也会增加。'}
+        </span>
+        <button type="button" onClick={advance} disabled={balanced}>
+          {balanced
+            ? mode === 'en'
+              ? 'Rates matched'
+              : '速率已相等'
+            : mode === 'en'
+              ? 'Run one minute'
+              : '运行一分钟'}
+        </button>
+        <button
+          type="button"
+          className="reset"
+          onClick={() => {
+            setLeft(8);
+            setRight(2);
+          }}
+        >
+          {mode === 'en' ? 'Reset system' : '重置系统'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function BatteryRouteLab({ mode }: { mode: LanguageMode }) {
+  const [connected, setConnected] = useState(false);
+  return (
+    <div className={`battery-route-lab ${connected ? 'is-connected' : ''}`}>
+      <div className="battery-scene">
+        <div className="battery-electrode zinc">
+          <b>Zn</b>
+          <span>{mode === 'en' ? 'oxidation' : '氧化'}</span>
+        </div>
+        <div className="battery-wire">
+          <i>{connected ? 'e⁻  e⁻  e⁻  →' : 'open circuit'}</i>
+        </div>
+        <div className="battery-electrode copper">
+          <b>Cu</b>
+          <span>{mode === 'en' ? 'reduction' : '还原'}</span>
+        </div>
+        <div className="battery-ions">
+          {connected
+            ? mode === 'en'
+              ? 'ions move inside ⇄'
+              : '离子在内部移动 ⇄'
+            : mode === 'en'
+              ? 'ions wait inside'
+              : '离子在内部等待'}
+        </div>
+      </div>
+      <div className="battery-readout">
+        <p>{mode === 'en' ? 'Complete the circuit' : '连接外电路'}</p>
+        <strong>
+          {connected
+            ? mode === 'en'
+              ? 'Electrons travel Zn → wire → Cu'
+              : '电子沿 Zn → 导线 → Cu 移动'
+            : mode === 'en'
+              ? 'No complete path: no sustained electron flow'
+              : '路径不完整：无法持续电子流'}
+        </strong>
+        <span>
+          {connected
+            ? mode === 'en'
+              ? 'Zinc loses electrons; ions compensate inside so charge does not pile up.'
+              : '锌失去电子；内部离子补偿电荷，避免电荷堆积。'
+            : mode === 'en'
+              ? 'A chemical cell needs both an external electron route and an internal ion route.'
+              : '化学电池既需要外部电子路线，也需要内部离子路线。'}
+        </span>
+        <button type="button" onClick={() => setConnected((value) => !value)}>
+          {connected
+            ? mode === 'en'
+              ? 'Open the circuit'
+              : '断开电路'
+            : mode === 'en'
+              ? 'Connect the circuit'
+              : '接通电路'}
+        </button>
+        <p className="battery-note">
+          {mode === 'en'
+            ? 'A diagram model only. Never short-circuit or open a real battery.'
+            : '这是图示模型；绝不要短接或拆开真实电池。'}
+        </p>
+      </div>
+    </div>
+  );
+}
+
+function CarbonBuilderLab({ mode }: { mode: LanguageMode }) {
+  const models = [
+    {
+      formula: 'CH₄',
+      zh: '甲烷',
+      en: 'Methane',
+      carbons: 1,
+      bonds: 'C–H × 4',
+      description: {
+        zh: '一个碳的四个连接位都由氢填满：这是最小的简单碳氢骨架。',
+        en: 'One carbon has all four connections filled by hydrogen: the smallest simple carbon–hydrogen skeleton.',
+      },
+    },
+    {
+      formula: 'C₂H₆',
+      zh: '乙烷',
+      en: 'Ethane',
+      carbons: 2,
+      bonds: 'C–C + C–H × 6',
+      description: {
+        zh: '两个碳先彼此连接，再用剩余连接位接上氢；碳链从这里开始延长。',
+        en: 'Two carbons connect to each other, then fill remaining connections with hydrogen; this is how a carbon chain starts to grow.',
+      },
+    },
+    {
+      formula: 'C₃H₈',
+      zh: '丙烷',
+      en: 'Propane',
+      carbons: 3,
+      bonds: 'C–C–C + C–H × 8',
+      description: {
+        zh: '再加一个碳，骨架继续延伸。更长、分支或成环的骨架会带来更多不同性质。',
+        en: 'Add one more carbon and the skeleton extends. Longer, branched or ring-shaped skeletons create even more properties.',
+      },
+    },
+  ];
+  const [index, setIndex] = useState(0);
+  const active = models[index]!;
+
+  return (
+    <div className="carbon-builder-lab">
+      <div
+        className="carbon-tabs"
+        role="group"
+        aria-label="Carbon skeleton model"
+      >
+        {models.map((model, modelIndex) => (
+          <button
+            key={model.formula}
+            type="button"
+            className={modelIndex === index ? 'active' : ''}
+            onClick={() => setIndex(modelIndex)}
+          >
+            {model.formula} {mode === 'en' ? model.en : model.zh}
+          </button>
+        ))}
+      </div>
+      <div
+        className="carbon-scene"
+        aria-label={`${active.formula} carbon skeleton`}
+      >
+        <div className="carbon-chain">
+          {Array.from({ length: active.carbons }, (_, carbonIndex) => (
+            <span className="carbon-node" key={carbonIndex}>
+              C<i>4</i>
+            </span>
+          ))}
+        </div>
+        <p>
+          {mode === 'en'
+            ? 'Each C starts with four connection slots'
+            : '每个 C 都从四个连接位开始'}
+        </p>
+      </div>
+      <div className="carbon-readout">
+        <p>{mode === 'en' ? 'Build the carbon skeleton' : '搭建碳骨架'}</p>
+        <strong>
+          {active.formula} · {mode === 'en' ? active.en : active.zh}
+        </strong>
+        <span>{active.bonds}</span>
+        <small>
+          {mode === 'en' ? active.description.en : active.description.zh}
+        </small>
+      </div>
+    </div>
+  );
+}
+
+function CombustionRouteLab({ mode }: { mode: LanguageMode }) {
+  const [oxygen, setOxygen] = useState<'enough' | 'limited'>('enough');
+  const complete = oxygen === 'enough';
+
+  return (
+    <div
+      className={`combustion-route-lab ${complete ? 'complete' : 'limited'}`}
+    >
+      <div className="combustion-tabs" role="group" aria-label="Oxygen supply">
+        <button
+          type="button"
+          className={complete ? 'active' : ''}
+          onClick={() => setOxygen('enough')}
+        >
+          {mode === 'en' ? 'Enough oxygen' : '氧气充足'}
+        </button>
+        <button
+          type="button"
+          className={!complete ? 'active' : ''}
+          onClick={() => setOxygen('limited')}
+        >
+          {mode === 'en' ? 'Too little oxygen' : '氧气不足'}
+        </button>
+      </div>
+      <div className="combustion-scene" aria-live="polite">
+        <div className="combustion-air">
+          {Array.from({ length: complete ? 8 : 3 }, (_, index) => (
+            <i
+              key={index}
+              style={{
+                top: `${8 + index * 12}%`,
+                right: `${8 + ((index * 13) % 31)}%`,
+              }}
+            >
+              O₂
+            </i>
+          ))}
+        </div>
+        <div className="combustion-flame" aria-hidden="true">
+          <i />
+          <b />
+        </div>
+        {complete ? (
+          <div className="combustion-products clean">
+            <span>CO₂</span>
+            <span>H₂O</span>
+          </div>
+        ) : (
+          <div className="combustion-products smoky">
+            <span>CO</span>
+            <span>C</span>
+            <span>H₂O</span>
+          </div>
+        )}
+      </div>
+      <div className="combustion-readout">
+        <p>{mode === 'en' ? 'Virtual reaction route' : '虚拟反应路线'}</p>
+        <strong>
+          {complete
+            ? mode === 'en'
+              ? 'Complete combustion: CO₂ + H₂O'
+              : '完全燃烧：CO₂ + H₂O'
+            : mode === 'en'
+              ? 'Incomplete combustion can make CO and soot'
+              : '不完全燃烧可能产生 CO 和烟炱'}
+        </strong>
+        <span>
+          {complete
+            ? mode === 'en'
+              ? 'CH₄ + 2O₂ → CO₂ + 2H₂O'
+              : 'CH₄ + 2O₂ → CO₂ + 2H₂O'
+            : mode === 'en'
+              ? 'Less oxygen changes the route; real flames can make a mixture of products.'
+              : '氧气变少会改变路线；真实火焰可能形成混合产物。'}
+        </span>
+        <small>
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'Screen model only—never restrict air to a real flame or appliance.'
+            : '仅为屏幕模型——绝不要限制真实火焰或燃气设备的空气供应。'}
+        </small>
+      </div>
+    </div>
+  );
+}
+
+function FunctionalGroupLab({ mode }: { mode: LanguageMode }) {
+  const molecules = [
+    {
+      id: 'ethane',
+      formula: 'CH₃–CH₃',
+      zh: '乙烷',
+      en: 'Ethane',
+      group: { zh: '没有额外官能团', en: 'No extra functional group' },
+      clue: {
+        zh: '只有碳和氢的短链；是观察“骨架”的起点。',
+        en: 'A short chain with only carbon and hydrogen: a starting point for seeing the skeleton.',
+      },
+    },
+    {
+      id: 'ethanol',
+      formula: 'CH₃–CH₂–',
+      highlight: 'OH',
+      zh: '乙醇',
+      en: 'Ethanol',
+      group: { zh: '羟基 —OH', en: 'Hydroxyl group —OH' },
+      clue: {
+        zh: '—OH 是与水相处方式的重要线索；不要从公式推断产品能否饮用。',
+        en: '—OH is an important clue for water interaction; never infer whether a product is drinkable from a formula.',
+      },
+    },
+    {
+      id: 'ethanoic-acid',
+      formula: 'CH₃–',
+      highlight: 'COOH',
+      zh: '乙酸',
+      en: 'Ethanoic acid',
+      group: { zh: '羧基 —COOH', en: 'Carboxyl group —COOH' },
+      clue: {
+        zh: '—COOH 给出酸性行为线索；浓度和完整配方仍会影响实际表现。',
+        en: '—COOH gives an acidic-behaviour clue; concentration and the full recipe still affect real behaviour.',
+      },
+    },
+  ];
+  const [index, setIndex] = useState(0);
+  const active = molecules[index]!;
+
+  return (
+    <div className="functional-group-lab">
+      <div
+        className="functional-tabs"
+        role="group"
+        aria-label="Molecule selector"
+      >
+        {molecules.map((molecule, moleculeIndex) => (
+          <button
+            className={moleculeIndex === index ? 'active' : ''}
+            key={molecule.id}
+            type="button"
+            onClick={() => setIndex(moleculeIndex)}
+          >
+            {mode === 'en' ? molecule.en : molecule.zh}
+          </button>
+        ))}
+      </div>
+      <div className="functional-scene" aria-live="polite">
+        <p>{mode === 'en' ? 'Circle the feature label' : '圈出功能贴纸'}</p>
+        <strong>
+          {active.formula}
+          {active.highlight && <mark>{active.highlight}</mark>}
+        </strong>
+        <span>{mode === 'en' ? active.group.en : active.group.zh}</span>
+      </div>
+      <div className="functional-readout">
+        <p>{mode === 'en' ? 'Molecule postcard' : '分子明信片'}</p>
+        <strong>{mode === 'en' ? active.en : active.zh}</strong>
+        <span>{mode === 'en' ? active.group.en : active.group.zh}</span>
+        <small>{mode === 'en' ? active.clue.en : active.clue.zh}</small>
+      </div>
+    </div>
+  );
+}
+
+function PolymerChainLab({ mode }: { mode: LanguageMode }) {
+  const [links, setLinks] = useState(4);
+  const longer = links >= 7;
+
+  return (
+    <div className="polymer-chain-lab">
+      <div className="polymer-scene" aria-live="polite">
+        <p>{mode === 'en' ? 'Repeated-unit chain' : '重复单元长链'}</p>
+        <div className="polymer-chain" aria-hidden="true">
+          {Array.from({ length: links }, (_, index) => (
+            <i key={index}>{index + 1}</i>
+          ))}
+        </div>
+        <span>
+          {mode === 'en'
+            ? `${links} connected repeat units`
+            : `${links} 个已连接的重复单元`}
+        </span>
+      </div>
+      <div className="polymer-readout">
+        <p>{mode === 'en' ? 'Build a virtual chain' : '搭建虚拟长链'}</p>
+        <strong>
+          {longer
+            ? mode === 'en'
+              ? 'Longer chain, more chances to tangle'
+              : '链更长，彼此缠绕的机会更多'
+            : mode === 'en'
+              ? 'Start with a few repeat units'
+              : '先从几个重复单元开始'}
+        </strong>
+        <span>
+          {mode === 'en'
+            ? 'This is a structure model, not a scale drawing of a real material.'
+            : '这是结构模型，不是按比例绘制的真实材料。'}
+        </span>
+        <div className="polymer-controls">
+          <button
+            type="button"
+            disabled={links === 8}
+            onClick={() => setLinks((value) => Math.min(8, value + 1))}
+          >
+            {mode === 'en' ? 'Add a repeat unit +' : '接上一个重复单元 +'}
+          </button>
+          <button type="button" onClick={() => setLinks(4)}>
+            {mode === 'en' ? 'Reset chain' : '重置长链'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ChromatographyLab({ mode }: { mode: LanguageMode }) {
+  const [developed, setDeveloped] = useState(false);
+  const lanes = [
+    {
+      id: 'unknown',
+      label: { zh: '未知墨水', en: 'Unknown ink' },
+      spots: [
+        { colour: '#65499b', top: 27 },
+        { colour: '#4886b7', top: 51 },
+        { colour: '#dfa64a', top: 74 },
+      ],
+    },
+    {
+      id: 'reference',
+      label: { zh: '对照 A', en: 'Reference A' },
+      spots: [
+        { colour: '#65499b', top: 27 },
+        { colour: '#4886b7', top: 51 },
+      ],
+    },
+  ];
+
+  return (
+    <div className={`chromatography-lab ${developed ? 'is-developed' : ''}`}>
+      <div className="chromatography-scene" aria-live="polite">
+        <div className="chromatography-solvent-front">
+          {mode === 'en' ? 'solvent front' : '溶剂前沿'}
+        </div>
+        <div className="chromatography-baseline">
+          {mode === 'en' ? 'start line' : '起点线'}
+        </div>
+        <div className="chromatography-lanes">
+          {lanes.map((lane) => (
+            <div className="chromatography-lane" key={lane.id}>
+              {lane.spots.map((spot, index) => (
+                <i
+                  key={`${lane.id}-${index}`}
+                  style={{
+                    backgroundColor: spot.colour,
+                    top: developed ? `${spot.top}%` : '82%',
+                  }}
+                />
+              ))}
+              <span>{mode === 'en' ? lane.label.en : lane.label.zh}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div className="chromatography-readout">
+        <p>{mode === 'en' ? 'Virtual chromatogram' : '虚拟色谱图'}</p>
+        <strong>
+          {developed
+            ? mode === 'en'
+              ? 'Two heights match; the unknown also has an extra spot.'
+              : '两处高度相同；未知样品还多出一个色点。'
+            : mode === 'en'
+              ? 'Both samples begin at the same line.'
+              : '两个样品从同一条起点线出发。'}
+        </strong>
+        <span>
+          {developed
+            ? mode === 'en'
+              ? 'A pattern match is a clue, not proof of a source. Keep paper and solvent conditions the same.'
+              : '图样吻合是线索，不是来源证明。比较时要固定纸张和溶剂条件。'
+            : mode === 'en'
+              ? 'Let the model solvent rise to reveal component patterns.'
+              : '让模型中的溶剂上升，观察成分图样。'}
+        </span>
+        <button type="button" onClick={() => setDeveloped((value) => !value)}>
+          {developed
+            ? mode === 'en'
+              ? 'Reset chromatogram'
+              : '重置色谱图'
+            : mode === 'en'
+              ? 'Let solvent rise'
+              : '让溶剂上升'}
+        </button>
+      </div>
+    </div>
+  );
+}
+
+function CalibrationColourLab({ mode }: { mode: LanguageMode }) {
+  const unknowns = [
+    {
+      id: 'low',
+      label: { zh: '浅色未知样品', en: 'Pale unknown' },
+      value: 2,
+      x: 79,
+      y: 141,
+    },
+    {
+      id: 'medium',
+      label: { zh: '中等未知样品', en: 'Medium unknown' },
+      value: 5,
+      x: 125,
+      y: 110,
+    },
+    {
+      id: 'high',
+      label: { zh: '深色未知样品', en: 'Deep unknown' },
+      value: 7,
+      x: 155,
+      y: 89,
+    },
+  ];
+  const [index, setIndex] = useState(1);
+  const active = unknowns[index]!;
+
+  return (
+    <div className="calibration-colour-lab">
+      <div
+        className="calibration-tabs"
+        role="group"
+        aria-label="Unknown sample level"
+      >
+        {unknowns.map((unknown, unknownIndex) => (
+          <button
+            className={unknownIndex === index ? 'active' : ''}
+            key={unknown.id}
+            type="button"
+            onClick={() => setIndex(unknownIndex)}
+          >
+            {mode === 'en' ? unknown.label.en : unknown.label.zh}
+          </button>
+        ))}
+      </div>
+      <div className="calibration-graph" aria-label="Calibration graph model">
+        <svg viewBox="0 0 230 190" role="img" aria-hidden="true">
+          <line className="axis" x1="36" y1="18" x2="36" y2="164" />
+          <line className="axis" x1="36" y1="164" x2="210" y2="164" />
+          <line className="trend" x1="47" y1="157" x2="192" y2="58" />
+          <circle className="standard" cx="47" cy="157" r="5" />
+          <circle className="standard" cx="105" cy="117" r="5" />
+          <circle className="standard" cx="163" cy="77" r="5" />
+          <circle className="unknown" cx={active.x} cy={active.y} r="7" />
+          <text x="42" y="178">
+            0
+          </text>
+          <text x="101" y="178">
+            4
+          </text>
+          <text x="159" y="178">
+            8
+          </text>
+          <text className="axis-label" x="93" y="188">
+            concentration
+          </text>
+          <text
+            className="axis-label"
+            x="11"
+            y="93"
+            transform="rotate(-90 11 93)"
+          >
+            reading
+          </text>
+        </svg>
+        <span className="calibration-standard-key">
+          <i /> {mode === 'en' ? 'known standards' : '已知标准'}
+        </span>
+      </div>
+      <div className="calibration-readout">
+        <p>{mode === 'en' ? 'Read the virtual ruler' : '读取虚拟刻度尺'}</p>
+        <strong>
+          {mode === 'en'
+            ? `Unknown estimate: about ${active.value} units`
+            : `未知样品估计：约 ${active.value} 个单位`}
+        </strong>
+        <span>
+          {mode === 'en'
+            ? 'The purple point sits between calibrated standards. This estimate is valid only for this model’s range and conditions.'
+            : '紫色点落在已校准标准之间。这个估计只适用于本模型的范围与条件。'}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function TitrationEndpointLab({ mode }: { mode: LanguageMode }) {
+  const [drops, setDrops] = useState(0);
+  const endpoint = drops === 5;
+  const over = drops > 5;
+  const state = endpoint ? 'endpoint' : over ? 'over' : 'before';
+  const stateText = endpoint
+    ? mode === 'en'
+      ? 'Endpoint signal: stop and record'
+      : '终点信号：停下并记录'
+    : over
+      ? mode === 'en'
+        ? 'Past endpoint: this run overshot'
+        : '已越过终点：这次加过头了'
+      : mode === 'en'
+        ? 'Still approaching endpoint'
+        : '仍在接近终点';
+
+  return (
+    <div className={`titration-endpoint-lab ${state}`}>
+      <div className="titration-scene" aria-live="polite">
+        <div className="titration-burette">
+          <span>known</span>
+          <i />
+          <b>↓</b>
+        </div>
+        <div className="titration-flask">
+          <div className="titration-liquid">
+            {Array.from({ length: Math.min(drops, 8) }, (_, index) => (
+              <i key={index} style={{ left: `${14 + ((index * 31) % 70)}%` }} />
+            ))}
+          </div>
+          <span>unknown</span>
+        </div>
+        <p>
+          {mode === 'en' ? 'screen-only titration model' : '仅为屏幕滴定模型'}
+        </p>
+      </div>
+      <div className="titration-readout">
+        <p>
+          {mode === 'en'
+            ? 'Add virtual titrant carefully'
+            : '谨慎加入虚拟滴定剂'}
+        </p>
+        <strong>{stateText}</strong>
+        <span>
+          {mode === 'en'
+            ? `Virtual titrant added: ${drops} drops`
+            : `已加入虚拟滴定剂：${drops} 滴`}
+        </span>
+        <small>
+          {endpoint
+            ? mode === 'en'
+              ? 'A persistent indicator colour change marks the model endpoint. Record the volume, then repeat a new run.'
+              : '稳定的指示剂颜色变化标出模型终点。记录体积，再开始一次新的重复测量。'
+            : over
+              ? mode === 'en'
+                ? 'One extra drop can shift the endpoint reading. Reset and slow down near the signal.'
+                : '多一滴就会改变终点读数。重置后在信号附近放慢。'
+              : mode === 'en'
+                ? 'The endpoint is still ahead: add one virtual drop at a time.'
+                : '终点仍在前方：每次加入一滴虚拟滴定剂。'}
+        </small>
+        <div className="titration-controls">
+          <button
+            type="button"
+            disabled={drops === 8}
+            onClick={() => setDrops((value) => Math.min(8, value + 1))}
+          >
+            {mode === 'en' ? 'Add one drop +' : '加入一滴 +'}
+          </button>
+          <button type="button" onClick={() => setDrops(0)}>
+            {mode === 'en' ? 'New run' : '开始新一轮'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function SodaEvidenceLab({ mode }: { mode: LanguageMode }) {
+  const [warm, setWarm] = useState(false);
+  const [shaken, setShaken] = useState(false);
+  const [opened, setOpened] = useState(false);
+  const bubbleCount = opened ? (shaken ? 13 : 6) + (warm ? 3 : 0) : 2;
+
+  return (
+    <div
+      className={`soda-evidence-lab ${warm ? 'is-warm' : ''} ${shaken ? 'is-shaken' : ''} ${opened ? 'is-open' : ''}`}
+    >
+      <div className="soda-scene" aria-live="polite">
+        <div className="soda-bottle">
+          <div className="soda-cap">{opened ? 'OPEN' : 'SEALED'}</div>
+          <div className="soda-liquid">
+            {Array.from({ length: bubbleCount }, (_, index) => (
+              <i
+                key={index}
+                style={{
+                  left: `${10 + ((index * 31) % 78)}%`,
+                  bottom: `${8 + ((index * 17) % 43)}%`,
+                  animationDelay: `${-(index % 5) * 0.24}s`,
+                }}
+              />
+            ))}
+          </div>
+        </div>
+        <p>
+          {opened
+            ? mode === 'en'
+              ? 'Pressure drop lets CO₂ leave more easily'
+              : '压强下降让 CO₂ 更容易离开液体'
+            : mode === 'en'
+              ? 'Sealed pressure helps CO₂ remain dissolved'
+              : '密封压强帮助 CO₂ 留在液体中'}
+        </p>
+      </div>
+      <div className="soda-readout">
+        <p>{mode === 'en' ? 'Build a causal explanation' : '搭建因果解释'}</p>
+        <strong>
+          {opened
+            ? mode === 'en'
+              ? 'Opening is the pressure-change trigger.'
+              : '开盖是改变压强的触发点。'
+            : mode === 'en'
+              ? 'Start with a sealed-bottle balance.'
+              : '先从密封瓶中的平衡开始。'}
+        </strong>
+        <div className="soda-clues">
+          <span className={opened ? 'active' : ''}>
+            {mode === 'en' ? 'Pressure' : '压强'}:{' '}
+            {opened
+              ? mode === 'en'
+                ? 'lower after opening'
+                : '开盖后降低'
+              : mode === 'en'
+                ? 'sealed and higher'
+                : '密封时较高'}
+          </span>
+          <span className={warm ? 'active' : ''}>
+            {mode === 'en' ? 'Temperature' : '温度'}:{' '}
+            {warm
+              ? mode === 'en'
+                ? 'warmer → less gas stays dissolved'
+                : '变暖 → 更少气体愿意溶解'
+              : mode === 'en'
+                ? 'cooler model state'
+                : '模型处于较冷状态'}
+          </span>
+          <span className={shaken ? 'active' : ''}>
+            {mode === 'en' ? 'Bubble nuclei' : '气泡核'}:{' '}
+            {shaken
+              ? mode === 'en'
+                ? 'many after virtual shaking'
+                : '虚拟摇晃后增多'
+              : mode === 'en'
+                ? 'fewer'
+                : '较少'}
+          </span>
+        </div>
+        <div className="soda-controls">
+          <button type="button" onClick={() => setWarm((value) => !value)}>
+            {warm
+              ? mode === 'en'
+                ? 'Cool virtual bottle'
+                : '给虚拟瓶降温'
+              : mode === 'en'
+                ? 'Warm virtual bottle'
+                : '给虚拟瓶升温'}
+          </button>
+          <button type="button" onClick={() => setShaken((value) => !value)}>
+            {shaken
+              ? mode === 'en'
+                ? 'Settle virtual bubbles'
+                : '让虚拟气泡静下来'
+              : mode === 'en'
+                ? 'Shake virtual bottle'
+                : '摇晃虚拟瓶'}
+          </button>
+          <button type="button" onClick={() => setOpened((value) => !value)}>
+            {opened
+              ? mode === 'en'
+                ? 'Reseal model'
+                : '重新密封模型'
+              : mode === 'en'
+                ? 'Open virtual cap'
+                : '打开虚拟瓶盖'}
+          </button>
+        </div>
+        <small>
+          ⚠️{' '}
+          {mode === 'en'
+            ? 'Screen model only. Do not deliberately shake or rapidly open drinks.'
+            : '仅为屏幕模型。不要为了验证而故意摇晃或快速打开饮料。'}
+        </small>
+      </div>
+    </div>
+  );
+}
+
+function HeatLossDesignLab({ mode }: { mode: LanguageMode }) {
+  const [lid, setLid] = useState(false);
+  const [vacuum, setVacuum] = useState(false);
+  const [bright, setBright] = useState(false);
+  const score = 10 - (lid ? 2 : 0) - (vacuum ? 4 : 0) - (bright ? 1 : 0);
+
+  return (
+    <div
+      className={`heat-loss-design-lab ${lid ? 'has-lid' : ''} ${vacuum ? 'has-vacuum' : ''} ${bright ? 'has-bright' : ''}`}
+    >
+      <div className="heat-loss-scene" aria-live="polite">
+        <div className="heat-cup">
+          <i className="heat-steam">≈ ≈ ≈</i>
+          <div className="heat-lid" />
+          <div className="heat-wall">
+            <div className="heat-drink">warm</div>
+          </div>
+        </div>
+        <div className="heat-routes" aria-hidden="true">
+          <span className={lid ? 'blocked' : ''}>↑</span>
+          <span className={vacuum ? 'blocked' : ''}>→</span>
+          <span className={bright ? 'blocked' : ''}>⌁</span>
+        </div>
+      </div>
+      <div className="heat-loss-readout">
+        <p>
+          {mode === 'en' ? 'Build an insulated cup model' : '搭建保温杯模型'}
+        </p>
+        <strong>
+          {mode === 'en'
+            ? `Relative heat-escape score: ${score}/10`
+            : `相对热量逃跑评分：${score}/10`}
+        </strong>
+        <span>
+          {mode === 'en'
+            ? 'Lower is better in this simplified model. Real performance also depends on shape, seals and use.'
+            : '在这个简化模型中，越低越好。真实表现还取决于形状、密封和使用方式。'}
+        </span>
+        <div className="heat-route-list">
+          <span className={lid ? 'active' : ''}>
+            {mode === 'en'
+              ? 'Lid: slows convection and evaporation'
+              : '杯盖：减慢对流与蒸发'}
+          </span>
+          <span className={vacuum ? 'active' : ''}>
+            {mode === 'en'
+              ? 'Vacuum gap: weakens conduction and convection'
+              : '真空夹层：削弱传导与对流'}
+          </span>
+          <span className={bright ? 'active' : ''}>
+            {mode === 'en'
+              ? 'Bright lining: reduces some radiation loss'
+              : '明亮内壁：减少部分辐射散热'}
+          </span>
+        </div>
+        <div className="heat-loss-controls">
+          <button type="button" onClick={() => setLid((value) => !value)}>
+            {lid
+              ? mode === 'en'
+                ? 'Remove lid'
+                : '移除杯盖'
+              : mode === 'en'
+                ? 'Add lid'
+                : '加上杯盖'}
+          </button>
+          <button type="button" onClick={() => setVacuum((value) => !value)}>
+            {vacuum
+              ? mode === 'en'
+                ? 'Remove vacuum gap'
+                : '移除真空夹层'
+              : mode === 'en'
+                ? 'Add vacuum gap'
+                : '加入真空夹层'}
+          </button>
+          <button type="button" onClick={() => setBright((value) => !value)}>
+            {bright
+              ? mode === 'en'
+                ? 'Remove bright lining'
+                : '移除明亮内壁'
+              : mode === 'en'
+                ? 'Add bright lining'
+                : '加入明亮内壁'}
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
   return (
     <section className="lesson-panel interactive-panel">
@@ -5072,6 +7697,82 @@ function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
         <EquationBalanceLab mode={mode} />
       )}
       {lesson.interactive === 'ph-scale-lab' && <PhScaleLab mode={mode} />}
+      {lesson.interactive === 'neutralisation-lab' && (
+        <NeutralisationLab mode={mode} />
+      )}
+      {lesson.interactive === 'acid-carbonate-lab' && (
+        <AcidCarbonateLab mode={mode} />
+      )}
+      {lesson.interactive === 'salt-family-lab' && (
+        <SaltFamilyLab mode={mode} />
+      )}
+      {lesson.interactive === 'acid-metal-lab' && <AcidMetalLab mode={mode} />}
+      {lesson.interactive === 'rusting-lab' && <RustingLab mode={mode} />}
+      {lesson.interactive === 'metal-displacement-lab' && (
+        <MetalDisplacementLab mode={mode} />
+      )}
+      {lesson.interactive === 'galvanising-lab' && (
+        <GalvanisingLab mode={mode} />
+      )}
+      {lesson.interactive === 'mole-package-lab' && (
+        <MolePackageLab mode={mode} />
+      )}
+      {lesson.interactive === 'molar-mass-lab' && <MolarMassLab mode={mode} />}
+      {lesson.interactive === 'solution-mixing-lab' && (
+        <SolutionMixingLab mode={mode} />
+      )}
+      {lesson.interactive === 'concentration-lab' && (
+        <ConcentrationLab mode={mode} />
+      )}
+      {lesson.interactive === 'solubility-temperature-lab' && (
+        <SolubilityTemperatureLab mode={mode} />
+      )}
+      {lesson.interactive === 'gas-piston-lab' && <GasPistonLab mode={mode} />}
+      {lesson.interactive === 'gas-temperature-lab' && (
+        <GasTemperatureLab mode={mode} />
+      )}
+      {lesson.interactive === 'energy-flow-lab' && (
+        <EnergyFlowLab mode={mode} />
+      )}
+      {lesson.interactive === 'reaction-hill-lab' && (
+        <ReactionHillLab mode={mode} />
+      )}
+      {lesson.interactive === 'reaction-rate-lab' && (
+        <ReactionRateLab mode={mode} />
+      )}
+      {lesson.interactive === 'equilibrium-shuttle-lab' && (
+        <EquilibriumShuttleLab mode={mode} />
+      )}
+      {lesson.interactive === 'battery-route-lab' && (
+        <BatteryRouteLab mode={mode} />
+      )}
+      {lesson.interactive === 'carbon-builder-lab' && (
+        <CarbonBuilderLab mode={mode} />
+      )}
+      {lesson.interactive === 'combustion-route-lab' && (
+        <CombustionRouteLab mode={mode} />
+      )}
+      {lesson.interactive === 'functional-group-lab' && (
+        <FunctionalGroupLab mode={mode} />
+      )}
+      {lesson.interactive === 'polymer-chain-lab' && (
+        <PolymerChainLab mode={mode} />
+      )}
+      {lesson.interactive === 'chromatography-lab' && (
+        <ChromatographyLab mode={mode} />
+      )}
+      {lesson.interactive === 'calibration-colour-lab' && (
+        <CalibrationColourLab mode={mode} />
+      )}
+      {lesson.interactive === 'titration-endpoint-lab' && (
+        <TitrationEndpointLab mode={mode} />
+      )}
+      {lesson.interactive === 'soda-evidence-lab' && (
+        <SodaEvidenceLab mode={mode} />
+      )}
+      {lesson.interactive === 'heat-loss-design-lab' && (
+        <HeatLossDesignLab mode={mode} />
+      )}
     </section>
   );
 }
