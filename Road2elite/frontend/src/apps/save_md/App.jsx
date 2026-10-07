@@ -22,6 +22,7 @@ import { isTtsCancelled, useTts } from "../../shared/useTts";
 import "./styles.css";
 import BookMarkdown from "../shared/BookMarkdown";
 import ReaderFontSelect, { readReaderFont, readerFontFamily } from "../shared/ReaderFontSelect";
+import ActionDialog from "./ActionDialog";
 import {
   createCategory,
   createDocument,
@@ -209,6 +210,9 @@ export default function SaveMdApp() {
   const [saving, setSaving] = useState(false);
   const [dirty, setDirty] = useState(false);
   const [sidebarCollapsed, setSidebarCollapsed] = useState(false);
+  const [dialog, setDialog] = useState(null);
+  const [dialogPending, setDialogPending] = useState(false);
+  const [dialogError, setDialogError] = useState("");
   const [readerFont, setReaderFont] = useState(() => readReaderFont("save-md-reader-font"));
   const [readerFontSize, setReaderFontSize] = useState(() => {
     const saved = Number(window.localStorage.getItem("save-md-reader-font-size"));
@@ -277,18 +281,27 @@ export default function SaveMdApp() {
   const activeCategory = library.categories.find((category) => category.id === activeCategoryId);
   const hasOpenDocument = Boolean(activeCategoryId && activeDocId && docMeta);
 
-  const handleSelectDoc = (categoryId, docId) => {
-    if (dirty && !window.confirm("当前文档还没保存，要离开吗？")) return;
+  const selectDoc = (categoryId, docId) => {
     editVersionRef.current += 1;
     selectedDocRef.current = `${categoryId}/${docId}`;
     setStatus("");
     setError("");
+    setDirty(false);
     setActiveCategoryId(categoryId);
     setActiveDocId(docId);
   };
 
+  const handleSelectDoc = (categoryId, docId) => {
+    if (categoryId === activeCategoryId && docId === activeDocId) return;
+    if (dirty) {
+      setDialog({ kind: "discard", categoryId, docId });
+      return;
+    }
+    selectDoc(categoryId, docId);
+  };
+
   const handleSave = async () => {
-    if (!activeCategoryId || !activeDocId || savingRef.current) return;
+    if (!activeCategoryId || !activeDocId || savingRef.current) return false;
     savingRef.current = true;
     const categoryId = activeCategoryId;
     const docId = activeDocId;
@@ -314,9 +327,11 @@ export default function SaveMdApp() {
         }
       }
       await loadLibrary(true);
+      return true;
     } catch (err) {
       failedVersionRef.current = version;
       setError(err.message);
+      return false;
     } finally {
       savingRef.current = false;
       setSaving(false);
@@ -324,10 +339,10 @@ export default function SaveMdApp() {
   };
 
   useEffect(() => {
-    if (!dirty || !activeCategoryId || !activeDocId || saving || failedVersionRef.current === editVersionRef.current) return undefined;
+    if (!dirty || !activeCategoryId || !activeDocId || saving || ["discard", "delete-category", "delete-doc"].includes(dialog?.kind) || failedVersionRef.current === editVersionRef.current) return undefined;
     const timer = window.setTimeout(handleSave, 3000);
     return () => window.clearTimeout(timer);
-  }, [dirty, title, content, activeCategoryId, activeDocId, saving]);
+  }, [dirty, title, content, activeCategoryId, activeDocId, saving, dialog?.kind]);
 
   const handleMoveDocument = async (targetCategoryId) => {
     if (!activeCategoryId || !activeDocId || !docMeta || targetCategoryId === activeCategoryId) return;
@@ -357,78 +372,112 @@ export default function SaveMdApp() {
     }
   };
 
-  const handleNewDoc = async () => {
+  const handleNewDoc = () => {
     const categoryId = activeCategoryId || library.categories[0]?.id;
-    if (!categoryId) return;
-    const name = window.prompt("New Markdown title:", `AI Answer ${new Date().toISOString().slice(0, 10)}`);
-    if (!name) return;
-    const data = await createDocument(categoryId, {
-      title: name,
-      content: `# ${name}\n\nPaste the AI answer here.\n`,
+    if (!categoryId) {
+      setError("请先创建一个分类。");
+      return;
+    }
+    setDialog({
+      kind: "new-doc",
+      categoryId,
+      categoryName: library.categories.find((category) => category.id === categoryId)?.name || categoryId,
+      name: `AI Answer ${new Date().toISOString().slice(0, 10)}`,
     });
-    await loadLibrary();
-    setActiveCategoryId(categoryId);
-    setActiveDocId(data.document.id);
   };
 
-  const handleDeleteDoc = async () => {
+  const handleDeleteDoc = () => {
     if (!activeCategoryId || !activeDocId || !docMeta) return;
-    if (!window.confirm(`Delete "${docMeta.title}"? This removes the .md file.`)) return;
-    const deletedCategoryId = activeCategoryId;
-    const deletedDocId = activeDocId;
-    setSaving(true);
-    setError("");
+    setDialog({ kind: "delete-doc", categoryId: activeCategoryId, docId: activeDocId, document: docMeta });
+  };
+
+  const handleNewCategory = () => {
+    setDialog({ kind: "new-category", name: "" });
+  };
+
+  const handleRenameCategory = (category) => {
+    setDialog({ kind: "rename-category", category, name: category.name });
+  };
+
+  const handleDeleteCategory = (category) => {
+    setDialog({ kind: "delete-category", category });
+  };
+
+  const closeDialog = () => {
+    if (dialogPending) return;
+    setDialog(null);
+    setDialogError("");
+  };
+
+  const submitDialog = async (name) => {
+    if (!dialog || dialogPending) return;
+    const action = dialog;
+    setDialogPending(true);
+    setDialogError("");
     try {
-      await deleteDocument(deletedCategoryId, deletedDocId);
-      const nextLibrary = await loadLibrary();
-      const category = nextLibrary?.categories.find((item) => item.id === deletedCategoryId);
-      const nextDoc = category?.documents.find((item) => item.id !== deletedDocId) || category?.documents[0];
-      setActiveCategoryId(deletedCategoryId);
-      setActiveDocId(nextDoc?.id || "");
-      if (!nextDoc) {
-        setTitle("");
-        setContent("");
-        setDocMeta(null);
+      if (action.kind === "new-category") {
+        const category = await createCategory({ name });
+        setOpenCategories((current) => new Set([...current, category.id]));
+        await loadLibrary(true);
+        setStatus(`已创建分类“${category.name}”`);
+      } else if (action.kind === "rename-category") {
+        if (name !== action.category.name) {
+          await updateCategory(action.category.id, { name });
+          await loadLibrary(true);
+          setStatus(`已重命名为“${name}”`);
+        }
+      } else if (action.kind === "delete-category") {
+        await deleteCategory(action.category.id);
+        if (activeCategoryId === action.category.id) {
+          setActiveCategoryId("");
+          setActiveDocId("");
+          setDocMeta(null);
+          setContent("");
+          setTitle("");
+          setDirty(false);
+        }
+        setOpenCategories((current) => {
+          const next = new Set(current);
+          next.delete(action.category.id);
+          return next;
+        });
+        await loadLibrary(true);
+        setStatus(`已删除分类“${action.category.name}”`);
+      } else if (action.kind === "new-doc") {
+        if (dirty && !(await handleSave())) {
+          throw new Error("当前文档保存失败，请先重试。");
+        }
+        const data = await createDocument(action.categoryId, {
+          title: name,
+          content: `# ${name}\n\nPaste the AI answer here.\n`,
+        });
+        await loadLibrary(true);
+        setOpenCategories((current) => new Set([...current, action.categoryId]));
+        setActiveCategoryId(action.categoryId);
+        setActiveDocId(data.document.id);
+      } else if (action.kind === "delete-doc") {
+        await deleteDocument(action.categoryId, action.docId);
+        const nextLibrary = await loadLibrary(true);
+        const category = nextLibrary?.categories.find((item) => item.id === action.categoryId);
+        const nextDoc = category?.documents[0];
+        setActiveCategoryId(action.categoryId);
+        setActiveDocId(nextDoc?.id || "");
+        if (!nextDoc) {
+          setTitle("");
+          setContent("");
+          setDocMeta(null);
+          setDirty(false);
+        }
+        setStatus(`已删除“${action.document.title}”`);
+      } else if (action.kind === "discard") {
+        selectDoc(action.categoryId, action.docId);
       }
-      setStatus(`Deleted ${docMeta.filename || docMeta.title}`);
+      setDialog(null);
     } catch (err) {
-      setError(err.message || "Delete failed.");
+      setDialogError(err.message || "操作失败，请重试。");
     } finally {
-      setSaving(false);
+      setDialogPending(false);
     }
-  };
-
-  const handleNewCategory = async () => {
-    const name = window.prompt("New category name:");
-    if (!name) return;
-    const category = await createCategory({ name });
-    setOpenCategories((current) => new Set([...current, category.id]));
-    setActiveCategoryId(category.id);
-    setActiveDocId("");
-    setDocMeta(null);
-    setTitle("");
-    setContent("");
-    await loadLibrary();
-  };
-
-  const handleRenameCategory = async (category) => {
-    const name = window.prompt("Rename category:", category.name);
-    if (!name || name === category.name) return;
-    await updateCategory(category.id, { name });
-    await loadLibrary();
-  };
-
-  const handleDeleteCategory = async (category) => {
-    if (!window.confirm(`Delete category "${category.name}" and all its Markdown files?`)) return;
-    await deleteCategory(category.id);
-    if (activeCategoryId === category.id) {
-      setActiveCategoryId("");
-      setActiveDocId("");
-      setDocMeta(null);
-      setContent("");
-      setTitle("");
-    }
-    await loadLibrary();
   };
 
   const handleRead = async () => {
@@ -607,6 +656,16 @@ export default function SaveMdApp() {
           </section>
         )}
       </main>
+      {dialog && (
+        <ActionDialog
+          key={`${dialog.kind}/${dialog.category?.id || dialog.docId || dialog.categoryId || "new"}`}
+          dialog={dialog}
+          pending={dialogPending}
+          error={dialogError}
+          onCancel={closeDialog}
+          onSubmit={submitDialog}
+        />
+      )}
     </div>
   );
 }
