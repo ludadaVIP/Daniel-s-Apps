@@ -1,48 +1,15 @@
-import type { LocalizedText } from '@study/shared';
-export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
-export type Question = {
-  prompt: LocalizedText;
-  options: LocalizedText[];
-  correct: number;
-  explanation: LocalizedText;
-};
-export type Lesson = {
-  id: string;
-  title: LocalizedText;
-  subtitle: LocalizedText;
-  minutes: number;
-  kind: 'friction' | 'variables' | 'observation' | 'length' | 'speed';
-  hook: LocalizedText;
-  prediction: LocalizedText;
-  predictions: LocalizedText[];
-  explore: LocalizedText;
-  concept: LocalizedText;
-  example: LocalizedText;
-  misconception: LocalizedText;
-  realWorld: LocalizedText;
-  summary: LocalizedText;
-  homeExperiment: LocalizedText;
-  vocabulary: LocalizedText[];
-  formula?: LocalizedText;
-  questions: Question[];
-  exit: Question;
-};
-const q = (
-  zh: string,
-  en: string,
-  options: [string, string][],
-  correct: number,
-  explanationZh: string,
-  explanationEn: string,
-): Question => ({
-  prompt: t(zh, en),
-  options: options.map(([a, b]) => t(a, b)),
-  correct,
-  explanation: t(explanationZh, explanationEn),
-});
-export const lessons: Lesson[] = [
+import { t, q, type Lesson } from './schema';
+import { measurementSkillsLessons } from './measurementSkills';
+import { measurementLessons } from './measurement';
+import { mysteryLessons } from './mysteries';
+import { causeLesson, discoveryLessons } from './discoveries';
+export { t, q } from './schema';
+export type { Lesson, Question } from './schema';
+const originalLessons: Lesson[] = [
   {
     id: 'physics-everywhere',
+    stage: 0,
+    unit: 'curiosity',
     title: t('物理无处不在', 'Physics is everywhere'),
     subtitle: t(
       '从一颗滚动的球，发现世界的规律。',
@@ -137,6 +104,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 'ask-a-physicist',
+    stage: 0,
+    unit: 'curiosity',
     title: t('像物理学家一样提问', 'Ask like a physicist'),
     subtitle: t(
       '好问题，是一场实验的开始。',
@@ -230,6 +199,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 'observe-explain',
+    stage: 0,
+    unit: 'curiosity',
     title: t('观察，还是解释？', 'Observation or explanation?'),
     subtitle: t(
       '先说发生了什么，再追问为什么。',
@@ -321,6 +292,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 'measure-length',
+    stage: 0,
+    unit: 'measurement',
     title: t('给世界一把尺', 'A ruler for the world'),
     subtitle: t(
       '从“差不多”，走向有单位的测量。',
@@ -417,6 +390,8 @@ export const lessons: Lesson[] = [
   },
   {
     id: 'what-is-speed',
+    stage: 1,
+    unit: 'motion',
     title: t('谁跑得更快？', 'Who is faster?'),
     subtitle: t(
       '用路程和时间，把“快”说清楚。',
@@ -510,6 +485,27 @@ export const lessons: Lesson[] = [
     ),
   },
 ];
+export const lessons: Lesson[] = [
+  ...originalLessons.slice(0, 3),
+  ...measurementLessons.slice(0, 2),
+  originalLessons[3]!,
+  ...measurementLessons.slice(2),
+  causeLesson,
+  ...mysteryLessons,
+  ...discoveryLessons,
+  ...measurementSkillsLessons,
+  originalLessons[4]!,
+];
+export const units = {
+  curiosity: t('从好奇开始', 'Start with curiosity'),
+  measurement: t(
+    '测量，把感觉变成证据',
+    'Measurement: from feelings to evidence',
+  ),
+  patterns: t('数据里藏着规律', 'Find patterns in data'),
+  mysteries: t('解开生活的小谜题', 'Everyday physics mysteries'),
+  motion: t('运动：把快慢说清楚', 'Motion: describe fast and slow'),
+};
 export const stages = [
   {
     title: t('物理启蒙', 'Physics foundations'),
@@ -522,7 +518,7 @@ export const stages = [
   {
     title: t('初中物理 I', 'Junior physics I'),
     age: '10–12',
-    topics: t('运动 · 力 · 重力 · 密度', 'Motion · Force · Gravity · Density'),
+    topics: t('测量 · 运动 · 力 · 重力 · 密度', 'Measurement · Motion · Force · Gravity · Density'),
   },
   {
     title: t('初中物理 II', 'Junior physics II'),

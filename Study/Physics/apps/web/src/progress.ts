@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import { lessons } from './content/lessons';
+import { decodeProjects, type ProjectDraft } from './projects';
 export const STORAGE_KEY = 'study-physics-progress-v1';
 export type LessonProgress = {
   step: number;
@@ -20,6 +21,7 @@ export type Note = {
 export type Progress = {
   lessons: Record<string, LessonProgress>;
   notes: Note[];
+  projects?: Record<string, ProjectDraft>;
 };
 export const freshLesson = (): LessonProgress => ({
   step: 0,
@@ -67,7 +69,7 @@ export function decodeProgress(raw: string | null): Progress {
         ? entry.mistakes.filter(
             (id: unknown) =>
               typeof id === 'string' &&
-              /^\d$/.test(id) &&
+              /^\d+$/.test(id) &&
               Number(id) < questions.length,
           )
         : [];
@@ -92,6 +94,8 @@ export function decodeProgress(raw: string | null): Progress {
             Number.isFinite(n.createdAt),
         )
         .slice(0, 100);
+    const projects = decodeProjects(data.projects);
+    if (projects) empty.projects = projects;
     return empty;
   } catch {
     return empty;

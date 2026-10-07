@@ -1,0 +1,27 @@
+import { t, type Lesson } from './schema';
+export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
+  [
+    { id: 'friction', name: t('滚动与摩擦', 'Rolling & friction') },
+    { id: 'quantities', name: t('测量侦探', 'Measurement detective') },
+    { id: 'units', name: t('同一根绳子', 'Same string, new unit') },
+    { id: 'length', name: t('测量工作台', 'Measurement bench') },
+    { id: 'time', name: t('摆动计时', 'Time the swings') },
+    { id: 'mass', name: t('天平挑战', 'Balance challenge') },
+    { id: 'temperature', name: t('温度谜题', 'Temperature mystery') },
+    { id: 'data', name: t('实验记录台', 'Record the evidence') },
+    { id: 'graph', name: t('走路故事图', 'A walking-story graph') },
+    { id: 'fair-test', name: t('公平比较台', 'Fair-test bench') },
+    { id: 'mirror', name: t('镜子光路室', 'Mirror ray room') },
+    { id: 'static', name: t('气球电荷观察台', 'Balloon charge station') },
+    { id: 'seatbelt', name: t('惯性玩具车', 'Inertia toy vehicle') },
+    { id: 'floating', name: t('冰山水槽', 'Iceberg tank') },
+    { id: 'boats', name: t('造船挑战', 'Build a boat') },
+    { id: 'bounce', name: t('回弹观察场', 'Bounce station') },
+    { id: 'echo', name: t('回声探测器', 'Echo explorer') },
+    { id: 'volume', name: t('排水测量台', 'Water-displacement bench') },
+    { id: 'accuracy', name: t('尺子校准台', 'Ruler calibration bench') },
+    { id: 'repeats', name: t('测量证据板', 'Measurement evidence board') },
+    { id: 'paper', name: t('纸张厚度工坊', 'Paper-thickness workshop') },
+    { id: 'speed', name: t('机器人赛跑', 'Robot race') },
+    { id: 'observation', name: t('下落观察室', 'Falling-ball station') },
+  ];

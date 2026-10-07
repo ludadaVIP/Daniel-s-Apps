@@ -1,3 +1,7 @@
+import { MeasurementArt } from './interactive/MeasurementArt';
+import { MysteryArt } from './interactive/MysteryArt';
+import { DiscoveryArt } from './interactive/DiscoveryArt';
+import { MeasurementSkillsArt } from './interactive/MeasurementSkillsArt';
 import type { LanguageMode, LocalizedText } from '@study/shared';
 import { Localized } from '@study/ui';
 import { t } from './content/lessons';
@@ -87,7 +91,23 @@ export function LessonArt({
         </pattern>
       </defs>
       <rect width="300" height="150" fill={`url(#dots-${kind})`} />
-      {kind === 'friction' ? (
+      {['volume', 'accuracy', 'repeats', 'paper'].includes(kind) ? (
+        <MeasurementSkillsArt kind={kind} />
+      ) : ['mirror', 'static', 'seatbelt', 'fair-test'].includes(kind) ? (
+        <DiscoveryArt kind={kind} />
+      ) : ['floating', 'boats', 'bounce', 'echo'].includes(kind) ? (
+        <MysteryArt kind={kind} />
+      ) : [
+          'quantities',
+          'units',
+          'time',
+          'mass',
+          'temperature',
+          'data',
+          'graph',
+        ].includes(kind) ? (
+        <MeasurementArt kind={kind} />
+      ) : kind === 'friction' ? (
         <>
           <path d="M25 113h250" stroke="currentColor" opacity=".3" />
           <path

@@ -1,46 +1,18 @@
-import { useEffect, useRef, useState } from 'react';
+import { useState } from 'react';
+import { useAnimation } from './useSimulation';
+import { VolumeLab, AccuracyLab, RepeatsLab, PaperLab } from './MeasurementSkillsLabs';
+import { FoundationLab } from './MeasurementLabs';
+import {
+  MirrorLab,
+  StaticLab,
+  SeatbeltLab,
+  FairTestLab,
+} from './DiscoveryLabs';
+import { FloatingLab, BoatLab, BounceLab, EchoLab } from './MysteryLabs';
 import type { LanguageMode } from '@study/shared';
 import { B, Icon } from '../ui';
 import { rollingMotion, raceTime } from './physics';
 import type { Lesson } from '../content/lessons';
-function useAnimation(duration: number, onFinish?: () => void) {
-  const [time, setTime] = useState(0);
-  const [running, setRunning] = useState(false);
-  const [runId, setRunId] = useState(0);
-  const run = useRef({ duration, onFinish });
-  useEffect(() => {
-    if (!runId) return;
-    const { duration: runDuration, onFinish: finish } = run.current;
-    const start = performance.now();
-    let frame = 0;
-    const tick = () => {
-      const elapsed = (performance.now() - start) / 1000;
-      setTime(Math.min(runDuration, elapsed));
-      if (elapsed < runDuration) frame = requestAnimationFrame(tick);
-      else {
-        setRunning(false);
-        finish?.();
-      }
-    };
-    frame = requestAnimationFrame(tick);
-    return () => cancelAnimationFrame(frame);
-  }, [runId]);
-  return {
-    time,
-    running,
-    reset: () => {
-      setTime(0);
-      setRunning(false);
-      setRunId(0);
-    },
-    start: () => {
-      run.current = { duration, onFinish };
-      setTime(0);
-      setRunning(true);
-      setRunId((x) => x + 1);
-    },
-  };
-}
 export function RollingLab({
   mode,
   onExplore,
@@ -511,9 +483,26 @@ export function LessonLab({
   mode: LanguageMode;
   onExplore?: () => void;
 }) {
+  if (kind === 'volume') return <VolumeLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'accuracy') return <AccuracyLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'repeats') return <RepeatsLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'paper') return <PaperLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'mirror') return <MirrorLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'static') return <StaticLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'seatbelt')
+    return <SeatbeltLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'fair-test')
+    return <FairTestLab mode={mode} onExplore={onExplore} />;
   if (kind === 'length') return <RulerLab mode={mode} onExplore={onExplore} />;
   if (kind === 'speed') return <SpeedLab mode={mode} onExplore={onExplore} />;
   if (kind === 'observation')
     return <FallingLab mode={mode} onExplore={onExplore} />;
-  return <RollingLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'friction' || kind === 'variables')
+    return <RollingLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'floating')
+    return <FloatingLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'boats') return <BoatLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'bounce') return <BounceLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'echo') return <EchoLab mode={mode} onExplore={onExplore} />;
+  return <FoundationLab kind={kind} mode={mode} onExplore={onExplore} />;
 }
