@@ -4,7 +4,7 @@ Study is a hub for three independent learning apps: Physics, Chemistry, and Biol
 
 ## Current milestone
 
-The bilingual Study hub has separate entries for Physics, Chemistry, and Biology. Chemistry currently has a home screen and path preview; Physics and Biology have preview pages while their independent apps are planned. The chemistry lessons, quizzes, mastery, and review will be added in the later phases defined in `Plan.md`. The chemistry path page is a preview, not an interactive course yet.
+The bilingual Study hub has separate entries for Physics, Chemistry, and Biology. Physics now has a working V1: five bilingual discovery lessons, four interactive labs, local progress, a review queue, and a discovery notebook. Its nine-stage curriculum roadmap follows `Physics/Plan.md`; later courses are marked as planned. See [Physics/README.md](Physics/README.md) for implementation and content-extension notes. Chemistry retains its existing courses and experiments; Biology remains a preview.
 
 ## Run locally
 
@@ -17,16 +17,16 @@ pnpm install
 pnpm dev
 ```
 
-Open `http://localhost:3456` for the hub, or `http://localhost:3456/chemistry` for Chemistry. The browser port is fixed. The API health endpoint is `http://localhost:3001/health` (also proxied as `/api/health` from the hub).
+Open `http://localhost:3456` for the hub, or `http://localhost:3456/chemistry` for Chemistry, or `http://localhost:3456/physics` for Physics. The browser port is fixed. The API health endpoint is `http://localhost:3001/health` (also proxied as `/api/health` from the hub).
 
 Quality checks:
 
 ```bash
-pnpm typecheck
-pnpm lint
-pnpm test
-pnpm build
-pnpm format:check
+corepack pnpm -r --if-present typecheck
+npm run lint
+corepack pnpm -r --if-present test
+corepack pnpm -r --if-present build
+npm run format:check
 ```
 
 ## Workspace boundaries
@@ -38,7 +38,8 @@ apps/hub              Study hub and subject navigation (port 3456)
 chemistry/apps/web    Chemistry learner interface
 chemistry/apps/server Chemistry API
 chemistry/Plan.md     Chemistry product and curriculum plan
-physics/              Future independent physics app
+Physics/apps/web     Physics learner app (also independent on port 3458)
+Physics/Plan.md       Physics curriculum plan
 biology/              Future independent biology app
 ```
 

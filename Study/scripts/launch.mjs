@@ -77,6 +77,7 @@ function dependenciesNeedInstall() {
     'packages/ui/package.json',
     'apps/hub/package.json',
     'chemistry/apps/web/package.json',
+    'Physics/apps/web/package.json',
     'chemistry/apps/server/package.json',
   ];
   return manifests.some(
