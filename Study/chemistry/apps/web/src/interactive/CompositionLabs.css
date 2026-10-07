@@ -1,0 +1,167 @@
+.composition-lab {
+  min-width: 0;
+}
+.composition-lab p {
+  margin: 0;
+}
+.composition-lab details {
+  padding: 10px 12px;
+  border: 1px solid #bdd1d5;
+  border-radius: 12px;
+}
+.composition-lab summary {
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.composition-lab details p {
+  margin-top: 8px;
+}
+.composition-bars {
+  display: grid;
+  gap: 10px;
+  padding: 12px;
+  border-radius: 12px;
+  background: #eff6ff;
+}
+.composition-bars > strong {
+  font-size: 16px;
+}
+.composition-bars > span {
+  font-size: 15px;
+}
+.composition-bar-row {
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+}
+.composition-bar-track {
+  background: #dbeafe;
+  height: 19px;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.composition-bar-track span {
+  display: block;
+  height: 100%;
+  background: #3b82a0;
+  border-radius: inherit;
+  transition: width 0.25s ease;
+}
+.composition-mole-cards,
+.composition-mass-ledger {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+}
+.composition-mole-cards > div,
+.composition-mass-ledger > div {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 10px;
+  background: #f8fafc;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  overflow-wrap: anywhere;
+}
+.composition-mole-cards strong,
+.composition-mass-ledger strong {
+  font-size: 19px;
+  color: #235c71;
+}
+.composition-mole-cards span,
+.composition-mole-cards b,
+.composition-mass-ledger span,
+.composition-mass-ledger small {
+  font-size: 15px;
+}
+.composition-hydrate {
+  display: grid;
+  gap: 6px;
+  padding: 12px;
+  background: #e0f2fe;
+  border: 1px solid #acd1df;
+  border-radius: 12px;
+}
+.composition-hydrate strong {
+  font-size: 22px;
+  color: #075985;
+}
+.composition-hydrate span {
+  font-size: 15px;
+}
+.composition-reading {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 6px;
+  font-size: 16px;
+}
+.composition-readings {
+  display: grid;
+  gap: 5px;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.composition-readings li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: 8px 10px;
+  border: 1px solid #cbd5e1;
+  border-radius: 9px;
+  font-size: 15px;
+}
+.composition-readings li[aria-current] {
+  background: #e0f2fe;
+  border-color: #4a9bb8;
+}
+.composition-incident {
+  padding: 10px;
+  background: #fff7ed;
+  border-left: 3px solid #c77731;
+  border-radius: 8px;
+}
+.composition-result {
+  display: grid;
+  gap: 5px;
+  padding: 12px;
+  background: #f0fdfa;
+  border: 1px solid #7fb8ae;
+  border-radius: 10px;
+}
+.composition-result strong {
+  font-size: 17px;
+}
+.composition-result span {
+  font-size: 15px;
+}
+@media (max-width: 760px) {
+  .composition-mole-cards,
+  .composition-mass-ledger {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 360px) {
+  .composition-bar-row {
+    grid-template-columns: 28px minmax(0, 1fr);
+    gap: 4px 8px;
+  }
+  .composition-bar-row > span {
+    grid-column: 1 / -1;
+    text-align: right;
+  }
+  .composition-readings li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 3px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .composition-bar-track span {
+    transition: none;
+  }
+}

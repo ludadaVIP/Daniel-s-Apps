@@ -22,8 +22,8 @@ export const level8Lessons = [
       en: 'The answer is pH and indicators. They use numbers and colour to describe whether a water solution is acidic, near neutral or basic; they are clues, not an invitation to test liquids by hand.',
     },
     bigIdea: {
-      zh: 'pH 用来描述水溶液的酸碱性：小于 7 通常为酸性，7 为中性，大于 7 通常为碱性；指示剂可用颜色提供安全线索。',
-      en: 'pH describes acidity or basicity in water solutions: below 7 is usually acidic, 7 is neutral, and above 7 is usually basic; indicators can provide colour clues safely.',
+      zh: 'pH 用来描述水溶液的酸碱性：在 25 °C 时，小于 7 为酸性，7 为中性，大于 7 为碱性；指示剂可用颜色提供线索。',
+      en: 'pH describes acidity or basicity in water solutions: at 25 °C, below 7 is acidic, 7 is neutral and above 7 is basic; indicators can provide colour clues.',
     },
     estimatedMinutes: 18,
     everydayExamples: [
@@ -986,6 +986,500 @@ export const level8Lessons = [
         explanation: {
           zh: '不同金属有不同反应性；铜在这里不像镁那样容易失电子并驱动氢离子形成 H₂。',
           en: 'Metals have different reactivities. Here copper does not lose electrons as readily as magnesium to drive hydrogen ions into H₂.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'ph-tenfold-staircase',
+    levelId: 'acids',
+    order: 73,
+    title: {
+      zh: 'pH 的十倍台阶：差 1，不只是差一点',
+      en: 'The tenfold pH staircase: one step matters',
+    },
+    eyebrow: {
+      zh: '第 73 课 · 用稀释读懂 pH',
+      en: 'Lesson 73 · Read pH through dilution',
+    },
+    hook: {
+      zh: '两份水样的 pH 分别是 3 和 5。数字只差 2，参与酸性的关键离子浓度却差了 100 倍！为什么这把尺子不像厘米尺？',
+      en: 'Two water samples have pH 3 and 5. Just two units apart, yet their hydronium concentrations differ a hundredfold! Why is this ruler unlike a ruler in centimetres?',
+    },
+    hookHint: {
+      zh: '接上第 40 课的酸碱分类和第 71 课的 mol/L。这里先学十倍台阶，不需要先会对数运算。',
+      en: 'Connect the acid/base classification in Lesson 40 with mol/L in Lesson 71. Start with tenfold steps; you do not need logarithm skills yet.',
+    },
+    bigIdea: {
+      zh: '在稀水溶液的入门模型中，pH 每降低 1，H₃O⁺ 的浓度就增大 10 倍。',
+      en: 'In the introductory dilute-solution model, lowering pH by one multiplies hydronium concentration by ten.',
+    },
+    estimatedMinutes: 20,
+    everydayExamples: [
+      {
+        icon: '🌧️',
+        title: { zh: '环境水样的小数字', en: 'Small numbers on water reports' },
+        body: {
+          zh: '比较 pH 4 与 pH 5 的水样时，不能说“只是多 1”。要比较 H₃O⁺ 浓度，它们相差 10 倍；生态影响还需要其他证据，不能只凭这个数字判断。',
+          en: 'Comparing water at pH 4 and 5 is not “just one more.” Their hydronium concentrations differ tenfold; environmental effects still need more evidence than this number alone.',
+        },
+      },
+      {
+        icon: '🧃',
+        title: {
+          zh: '饮料数字不是甜度尺',
+          en: 'Drink pH is not a sweetness scale',
+        },
+        body: {
+          zh: 'pH 描述酸碱相关离子，不直接测糖含量，也不告诉你一杯饮料含有的全部酸。两杯相同 pH 的饮料，配方仍可能很不同。',
+          en: 'pH describes acid/base-related ions, not sugar content or the total acid in a drink. Two drinks at the same pH can still have very different recipes.',
+        },
+      },
+      {
+        icon: '💧',
+        title: {
+          zh: '加水会一路变成碱吗？',
+          en: 'Will adding water eventually make a base?',
+        },
+        body: {
+          zh: '理想酸溶液只用纯水稀释，会接近中性，不会凭空变成碱。越接近中性，水本身产生的离子越不能忽略。',
+          en: 'Diluting an ideal acid with pure water approaches neutrality; it does not create a base. Near neutrality, ions from water itself can no longer be ignored.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: { zh: '先看三个十倍台阶', en: 'Start with three tenfold steps' },
+        body: {
+          zh: '在入门浓度模型中：pH 2 对应 [H₃O⁺] = 0.010 mol/L；pH 3 对应 0.0010 mol/L；pH 4 对应 0.00010 mol/L。方括号表示该粒子的物质的量浓度，不是整瓶酸的总量。',
+          en: 'In the introductory concentration model: pH 2 corresponds to [H₃O⁺] = 0.010 mol/L, pH 3 to 0.0010 mol/L, and pH 4 to 0.00010 mol/L. Brackets mean the ion’s molar concentration, not the total acid in a bottle.',
+        },
+      },
+      {
+        title: {
+          zh: '例题：从 pH 3 到 pH 5',
+          en: 'Worked example: pH 3 versus pH 5',
+        },
+        body: {
+          zh: '问题：哪份水样的 H₃O⁺ 更多？先把浓度写成 0.0010 与 0.000010 mol/L，再相除：0.0010 ÷ 0.000010 = 100。答案：pH 3 那份的 H₃O⁺ 浓度是 pH 5 那份的 100 倍，不是 2 倍。',
+          en: 'Which sample has more hydronium? Write 0.0010 and 0.000010 mol/L, then divide: 0.0010 ÷ 0.000010 = 100. The pH 3 sample has a hundred times the hydronium concentration of the pH 5 sample, not twice as much.',
+        },
+      },
+      {
+        title: {
+          zh: '把十倍台阶接到稀释',
+          en: 'Connect the staircase to dilution',
+        },
+        body: {
+          zh: '例题：理想稀盐酸 pH 2，加纯水至原体积的 10 倍，酸的配制浓度变为十分之一，[H₃O⁺] 也近似减为十分之一，所以 pH 约为 3。这个简便规律只适用于这里的稀强酸模型、且离中性足够远；不能机械套给果汁或缓冲液。',
+          en: 'Example: dilute ideal HCl at pH 2 to ten times its volume with pure water. Acid concentration becomes one tenth, hydronium approximately does too, so pH is about 3. This shortcut applies to this dilute strong-acid model away from neutrality, not automatically to juice or buffers.',
+        },
+      },
+    ],
+    misconception: {
+      zh: 'pH 不是线性刻度，也不是“酸有多少克”。25 °C 时中性对应 pH 7；其他温度下中性 pH 会变化。极度稀释时不能继续把“十倍加 1”外推到 pH 8：水本身也参与离子平衡。',
+      en: 'pH is not a linear scale or grams of acid. Neutral pH is 7 at 25 °C and changes with temperature. At extreme dilution, do not extend “tenfold adds one” to pH 8: water also contributes to the ion balance.',
+    },
+    mission: {
+      zh: '在虚拟稀释台上，先预测 pH 约为 2 的盐酸稀释 10 倍与 100 倍后的结果。再试 100 万倍，观察结果为什么接近 7 而没有越过 7。用“浓度”和“水的贡献”解释，别只念数字。',
+      en: 'On the virtual bench, predict the results of diluting HCl near pH 2 tenfold and a hundredfold. Then try a millionfold dilution. Explain why it approaches 7 without crossing it, using concentration and water’s contribution rather than just reading numbers.',
+    },
+    vocabulary: [
+      { en: 'hydronium ion', zh: '水合氢离子 H₃O⁺' },
+      { en: 'logarithmic scale', zh: '对数刻度' },
+      { en: 'tenfold dilution', zh: '十倍稀释' },
+      { en: 'neutrality', zh: '中性' },
+    ],
+    resources: [
+      {
+        title: {
+          zh: '高中拓展（英文）：pH、离子浓度与温度 · OpenStax',
+          en: 'Optional advanced reading: pH, ion concentration and temperature · OpenStax',
+        },
+        url: 'https://openstax.org/books/chemistry-2e/pages/14-2-ph-and-poh',
+      },
+    ],
+    interactive: 'ph-dilution-lab',
+    questions: [
+      {
+        id: 'ph-staircase-q1',
+        prompt: {
+          zh: '在本课模型中，pH 3 与 pH 4 的水样，谁的 H₃O⁺ 浓度更高？',
+          en: 'In this model, which has more hydronium: pH 3 or pH 4?',
+        },
+        options: [
+          { zh: 'pH 3，是另一份的 10 倍', en: 'pH 3: ten times as much' },
+          { zh: 'pH 4，是另一份的 10 倍', en: 'pH 4: ten times as much' },
+          {
+            zh: '相同，因为只差 1',
+            en: 'Equal because they differ by only one',
+          },
+        ],
+        answer: 0,
+        explanation: {
+          zh: 'pH 数字更小，H₃O⁺ 浓度更高。差 1 个台阶就是 10 倍关系，不是小小的加减差。',
+          en: 'Lower pH means greater hydronium concentration. A one-step difference is a tenfold ratio, not a small additive change.',
+        },
+      },
+      {
+        id: 'ph-staircase-q2',
+        prompt: {
+          zh: 'pH 2 的 H₃O⁺ 浓度是 pH 5 的多少倍？',
+          en: 'How many times greater is hydronium concentration at pH 2 than at pH 5?',
+        },
+        options: [
+          { zh: '3 倍', en: '3 times' },
+          { zh: '100 倍', en: '100 times' },
+          { zh: '1000 倍', en: '1000 times' },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '差 3 个十倍台阶：10 × 10 × 10 = 1000。也可用 10⁻² ÷ 10⁻⁵ = 10³ 检查。',
+          en: 'Three tenfold steps give 10 × 10 × 10 = 1000. Check with 10⁻² ÷ 10⁻⁵ = 10³.',
+        },
+      },
+      {
+        id: 'ph-staircase-q3',
+        prompt: {
+          zh: '理想稀盐酸 pH 2，用纯水稀释到 10 倍体积且远离中性，pH 约变成多少？',
+          en: 'Ideal dilute HCl at pH 2 is diluted to ten times its volume with pure water, away from neutrality. Its new pH is approximately?',
+        },
+        options: [
+          { zh: '20', en: '20' },
+          { zh: '3', en: '3' },
+          { zh: '1', en: '1' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '浓度变成十分之一，对应 pH 增加约 1：2 → 3。不是把 pH 乘 10，也不是让酸性更强。',
+          en: 'One tenth the concentration means pH increases by about one: 2 → 3. Do not multiply pH by ten or make the solution more acidic.',
+        },
+      },
+      {
+        id: 'ph-staircase-q4',
+        prompt: {
+          zh: '25 °C 下，只用纯水极度稀释理想酸溶液，正确预测是什么？',
+          en: 'At 25 °C, what happens when an ideal acid is extremely diluted with pure water only?',
+        },
+        options: [
+          {
+            zh: '从酸性一侧接近 pH 7',
+            en: 'It approaches pH 7 from the acidic side',
+          },
+          { zh: '一定变成 pH 8 的碱', en: 'It must become a pH 8 base' },
+          { zh: 'pH 完全不变', en: 'Its pH never changes' },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '越稀越要考虑水的离子贡献。只加纯水没有加入碱；这个理想模型从酸性一侧趋近中性。',
+          en: 'At very low acid concentration, water’s ions matter. Pure water adds no base; this ideal model approaches neutrality from the acidic side.',
+        },
+      },
+      {
+        id: 'ph-staircase-q5',
+        prompt: {
+          zh: '两瓶饮料 pH 相同，能直接推出什么？',
+          en: 'Two drinks have the same pH. What can you directly conclude?',
+        },
+        options: [
+          { zh: '糖含量相同', en: 'They contain equal sugar' },
+          { zh: '总酸量相同', en: 'They contain equal total acid' },
+          {
+            zh: '同条件下的酸碱度相同，但糖和总酸量未必相同',
+            en: 'Their pH matches under the same conditions, but sugar and total acid need not',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: 'pH 描述特定离子的状况，不是配方总账。糖、其他成分和酸的种类都可能不同。',
+          en: 'pH describes particular ions, not the whole recipe. Sugar, other ingredients and acid types may differ.',
+        },
+      },
+      {
+        id: 'ph-staircase-q6',
+        prompt: {
+          zh: '关于中性，哪句话更准确？',
+          en: 'Which statement about neutrality is more accurate?',
+        },
+        options: [
+          {
+            zh: '所有温度下中性都必须是 pH 7',
+            en: 'Neutral must mean pH 7 at every temperature',
+          },
+          {
+            zh: '中性时 H₃O⁺ 与 OH⁻ 浓度相等；25 °C 时对应 pH 7',
+            en: 'Neutral means equal H₃O⁺ and OH⁻ concentrations; at 25 °C this is pH 7',
+          },
+          { zh: '中性时水里没有任何离子', en: 'Neutral water has no ions' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '相等的是两类离子的浓度，不是离子完全不存在。温度会影响水的离子平衡，所以 pH 7 的中性标尺要带上 25 °C 条件。',
+          en: 'The two ion concentrations are equal, not absent. Temperature changes water’s ion balance, so the neutral pH 7 reference needs the 25 °C condition.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'strong-acid-is-not-concentrated-acid',
+    levelId: 'acids',
+    order: 74,
+    title: {
+      zh: '强酸不等于浓酸：数量与性格分开看',
+      en: 'Strong is not concentrated: amount versus behaviour',
+    },
+    eyebrow: {
+      zh: '第 74 课 · 两个容易混淆的标签',
+      en: 'Lesson 74 · Two easily confused labels',
+    },
+    hook: {
+      zh: '食醋中的乙酸是弱酸，盐酸是强酸。可如果盐酸稀得非常厉害，一份更浓的乙酸溶液反而可能 pH 更低。“强”到底在说什么？',
+      en: 'Ethanoic acid in vinegar is a weak acid; HCl is strong. Yet a more concentrated ethanoic-acid solution can have lower pH than very dilute HCl. What does “strong” actually mean?',
+    },
+    hookHint: {
+      zh: '把第 71 课的配制浓度和第 73 课的 H₃O⁺ 浓度分开：放进了多少酸，不等于此刻有多少酸转化出了离子。第 59 课的双向平衡会帮上忙。',
+      en: 'Separate recipe concentration from Lesson 71 and hydronium concentration from Lesson 73: acid added is not identical to acid ionised. The reversible balance in Lesson 59 will help.',
+    },
+    bigIdea: {
+      zh: '浓或稀描述每升放了多少酸；强或弱描述酸在水中转移质子、形成离子的程度。',
+      en: 'Concentrated or dilute describes acid added per litre; strong or weak describes how it transfers protons and forms ions in water.',
+    },
+    estimatedMinutes: 22,
+    everydayExamples: [
+      {
+        icon: '🍶',
+        title: {
+          zh: '醋：有酸，却不全变成离子',
+          en: 'Vinegar: acid is not all ionised',
+        },
+        body: {
+          zh: '醋中的乙酸在水里只有部分分子转移质子。未转化的酸分子仍在溶液中，并没有“失效”或消失；食醋也不是本课模型的纯乙酸溶液。',
+          en: 'Only some ethanoic-acid molecules transfer protons in water. The others remain in solution, not inactive or vanished; real vinegar is not our pure ethanoic-acid model.',
+        },
+      },
+      {
+        icon: '🏷️',
+        title: { zh: '标签里的两个问题', en: 'Two questions on a label' },
+        body: {
+          zh: '“0.010 mol/L”回答放进了多少酸；“强酸”回答它在水中的行为。只知道其中一条，还不足以公平比较两份不同酸溶液的 pH。',
+          en: '“0.010 mol/L” tells how much acid was added; “strong acid” describes behaviour in water. One label alone is not enough to compare the pH of two different acid solutions fairly.',
+        },
+      },
+      {
+        icon: '⚖️',
+        title: {
+          zh: '为什么要同条件比较？',
+          en: 'Why compare under matching conditions?',
+        },
+        body: {
+          zh: '想看酸的强弱，先把配制浓度、温度等条件设成相同。否则浓度差异可能掩盖酸本身的性质，就像不能靠一锅汤与一小口汤的总盐量比较咸淡。',
+          en: 'To compare acid strength, first match recipe concentration, temperature and other conditions. Otherwise concentration differences can hide the acid’s behaviour, like comparing total salt in a pot and a sip to judge saltiness.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: {
+          zh: '看酸如何把质子交给水',
+          en: 'Watch an acid pass a proton to water',
+        },
+        body: {
+          zh: 'HCl + H₂O → H₃O⁺ + Cl⁻：稀盐酸中的 HCl 几乎完全转化。乙酸则是 CH₃COOH + H₂O ⇌ H₃O⁺ + CH₃COO⁻，到平衡时仍有大量乙酸分子未转化。这里的 H⁺ 是常用简写；水里用 H₃O⁺ 表达更直观。',
+          en: 'HCl + H₂O → H₃O⁺ + Cl⁻: dilute HCl is almost fully ionised. Ethanoic acid follows CH₃COOH + H₂O ⇌ H₃O⁺ + CH₃COO⁻, leaving many acid molecules at equilibrium. H⁺ is a common shorthand; H₃O⁺ makes the water’s role clearer.',
+        },
+      },
+      {
+        title: {
+          zh: '例题：同浓度，谁的 pH 更低？',
+          en: 'Worked example: equal concentration, whose pH is lower?',
+        },
+        body: {
+          zh: '25 °C 的理想模型：都配成 0.010 mol/L。盐酸的 [H₃O⁺] 约 0.010 mol/L，pH 约 2；乙酸约 0.00042 mol/L，pH 约 3.38。因为乙酸只部分电离，所以在相同配制浓度下，盐酸 pH 更低。先理解原因，不要求现在解乙酸平衡方程。',
+          en: 'Ideal model at 25 °C: both are made to 0.010 mol/L. HCl gives about 0.010 mol/L hydronium, pH about 2; ethanoic acid gives about 0.00042 mol/L, pH about 3.38. Partial ionisation explains why HCl has lower pH at equal recipe concentration. You need not solve the weak-acid equation yet.',
+        },
+      },
+      {
+        title: {
+          zh: '换浓度，排名可能倒过来',
+          en: 'Change concentration and the ranking can reverse',
+        },
+        body: {
+          zh: '把盐酸改成 0.00010 mol/L，pH 约 4；乙酸配成 0.100 mol/L，pH 约 2.88。弱酸那杯反而 pH 更低！这没有把乙酸变成强酸：只说明比较 pH 时，酸的性质和配制浓度都要看。',
+          en: 'Use 0.00010 mol/L HCl, pH about 4, and 0.100 mol/L ethanoic acid, pH about 2.88. The weak-acid sample now has lower pH! Ethanoic acid did not become strong; pH depends on both acid behaviour and recipe concentration.',
+        },
+      },
+    ],
+    misconception: {
+      zh: '弱酸不等于无害，稀释强酸也不会把它变成弱酸。弱酸的电离百分比会随浓度变化，不是永久固定的“只有 1%”。本课是虚拟比较，不是尝味、触摸或混合酸的实验。',
+      en: 'Weak does not mean harmless, and diluting a strong acid does not turn it into a weak acid. A weak acid’s ionisation percentage changes with concentration; it is not permanently “only 1%.” This is a virtual comparison, not an experiment involving tasting, touching or mixing acids.',
+    },
+    mission: {
+      zh: '先让盐酸与乙酸都为 0.010 mol/L，预测哪杯 pH 更低。再选“稀强酸 vs 浓弱酸”，找出排名反转的证据。最后只稀释乙酸，观察电离百分比增加却不代表 H₃O⁺ 浓度也增加。',
+      en: 'Start with both acids at 0.010 mol/L and predict the lower pH. Then choose “dilute strong vs concentrated weak” and find evidence of the reversal. Finally dilute only ethanoic acid: notice that a rising ionisation percentage does not mean rising hydronium concentration.',
+    },
+    vocabulary: [
+      { en: 'strong acid', zh: '强酸' },
+      { en: 'weak acid', zh: '弱酸' },
+      { en: 'concentrated / dilute', zh: '浓 / 稀' },
+      { en: 'ionisation', zh: '电离' },
+      { en: 'proton transfer', zh: '质子转移' },
+    ],
+    resources: [
+      {
+        title: {
+          zh: '高中拓展（英文）：酸的强弱与电离平衡 · OpenStax',
+          en: 'Optional advanced reading: acid strength and ionisation equilibrium · OpenStax',
+        },
+        url: 'https://openstax.org/books/chemistry-2e/pages/14-3-relative-strengths-of-acids-and-bases',
+      },
+    ],
+    interactive: 'acid-strength-lab',
+    questions: [
+      {
+        id: 'acid-strength-q1',
+        prompt: {
+          zh: '“强酸”最直接描述什么？',
+          en: 'What does “strong acid” describe most directly?',
+        },
+        options: [
+          {
+            zh: '一定放入很多克酸',
+            en: 'Many grams of acid must have been added',
+          },
+          {
+            zh: '在水中几乎完全电离的行为',
+            en: 'Almost complete ionisation in water',
+          },
+          { zh: '瓶子一定很大', en: 'The bottle must be large' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '强弱讲的是酸与水的质子转移行为。每升放进多少酸才是浓度问题，不能把两个标签混为一谈。',
+          en: 'Strength describes proton-transfer behaviour with water. Acid added per litre is concentration; the two labels answer different questions.',
+        },
+      },
+      {
+        id: 'acid-strength-q2',
+        prompt: {
+          zh: '同温度、同配制浓度的稀盐酸与乙酸，谁通常有更高的 H₃O⁺ 浓度？',
+          en: 'At equal temperature and recipe concentration, which usually has greater hydronium concentration: dilute HCl or ethanoic acid?',
+        },
+        options: [
+          {
+            zh: '盐酸，因为几乎完全电离',
+            en: 'HCl, because it is almost fully ionised',
+          },
+          {
+            zh: '乙酸，因为弱酸分子更大',
+            en: 'Ethanoic acid, because its molecules are larger',
+          },
+          {
+            zh: '一定相同，因为配制浓度相同',
+            en: 'Always equal because recipe concentrations match',
+          },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '同样放入的酸份数，不代表形成同样多的 H₃O⁺。乙酸仍有大量分子未转移质子。',
+          en: 'Equal acid portions added need not create equal hydronium. Many ethanoic-acid molecules remain without transferring a proton.',
+        },
+      },
+      {
+        id: 'acid-strength-q3',
+        prompt: {
+          zh: '强酸溶液加纯水变稀，酸的类别怎样变化？',
+          en: 'A strong-acid solution is diluted with pure water. What happens to its acid classification?',
+        },
+        options: [
+          { zh: '立刻变成弱酸', en: 'It immediately becomes a weak acid' },
+          { zh: '变成碱', en: 'It becomes a base' },
+          {
+            zh: '仍是强酸的溶液，只是浓度更低',
+            en: 'It remains a strong-acid solution, at lower concentration',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '稀释改变每升的酸份数，没有把 HCl 的身份或基本电离行为改成乙酸。强弱与浓稀是两条轴。',
+          en: 'Dilution changes acid portions per litre; it does not change HCl’s identity or ionisation behaviour into that of ethanoic acid. Strength and concentration are separate axes.',
+        },
+      },
+      {
+        id: 'acid-strength-q4',
+        prompt: {
+          zh: '弱酸那杯 pH 比强酸那杯更低，这可能吗？',
+          en: 'Can a weak-acid sample have lower pH than a strong-acid sample?',
+        },
+        options: [
+          {
+            zh: '不可能，强酸标签已经决定一切',
+            en: 'Impossible: the strength label decides everything',
+          },
+          {
+            zh: '可能，要同时考虑两杯的浓度',
+            en: 'Possible: consider both sample concentrations',
+          },
+          {
+            zh: '可能，因为 pH 与离子没有关系',
+            en: 'Possible because pH has nothing to do with ions',
+          },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '很稀的强酸与较浓的弱酸可以出现这样的比较。酸本身的强弱没有反转，只是两份溶液的 H₃O⁺ 浓度排名变了。',
+          en: 'Very dilute strong acid and more concentrated weak acid can show this. Acid strength has not reversed; the samples’ hydronium ranking has.',
+        },
+      },
+      {
+        id: 'acid-strength-q5',
+        prompt: {
+          zh: '乙酸从 0.100 稀释到 0.010 mol/L，模型显示电离百分比上升，但 H₃O⁺ 浓度下降。矛盾吗？',
+          en: 'Diluting ethanoic acid from 0.100 to 0.010 mol/L raises its ionisation percentage but lowers hydronium concentration. Is that a contradiction?',
+        },
+        options: [
+          {
+            zh: '不矛盾：比例升高，但每升的酸总份数减少了',
+            en: 'No: the fraction rises while total acid portions per litre fall',
+          },
+          {
+            zh: '矛盾：百分比与浓度永远是同一个量',
+            en: 'Yes: percentage and concentration are always the same quantity',
+          },
+          {
+            zh: '不矛盾：水把所有离子变成空气',
+            en: 'No: water turns all ions into air',
+          },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '要分清“占多少比例”与“每升实际有多少”。较小总量中的较大比例，仍可能给出更少的 H₃O⁺。',
+          en: 'Distinguish fraction ionised from amount per litre. A larger fraction of a smaller total can still give less hydronium.',
+        },
+      },
+      {
+        id: 'acid-strength-q6',
+        prompt: {
+          zh: '关于弱酸，哪条判断可靠？',
+          en: 'Which judgment about weak acids is reliable?',
+        },
+        options: [
+          {
+            zh: '凡是弱酸都能直接触摸',
+            en: 'Every weak acid can be touched directly',
+          },
+          {
+            zh: '弱酸永远只能电离 1%',
+            en: 'Weak acids always ionise exactly 1%',
+          },
+          {
+            zh: '弱酸只部分电离，但危险性还需看物质与浓度等条件',
+            en: 'Weak acids ionise partly, but hazards also depend on substance and concentration',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '电离程度不是安全许可证，也不是固定百分比。不能只凭“弱酸”两个字决定操作方法。',
+          en: 'Ionisation is neither a safety licence nor a fixed percentage. The words “weak acid” alone do not determine how it should be handled.',
         },
       },
     ],

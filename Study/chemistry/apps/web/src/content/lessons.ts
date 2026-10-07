@@ -8,13 +8,18 @@ import { level7Lessons } from './level7';
 import { level8Lessons } from './level8';
 import { level9Lessons } from './level9';
 import { level10Lessons } from './level10';
+import { stoichiometryLessons } from './stoichiometryLessons';
+import { compositionLessons } from './compositionLessons';
 import { level11Lessons } from './level11';
 import { level12Lessons } from './level12';
 import { level13Lessons } from './level13';
+import { thermochemistryLessons } from './thermochemistryLessons';
 import { level14Lessons } from './level14';
 import { level15Lessons } from './level15';
 import { level16Lessons } from './level16';
+import { electrochemistryLessons } from './electrochemistryLessons';
 import { level17Lessons } from './level17';
+import { organicStructureLessons } from './organicStructureLessons';
 import { level18Lessons } from './level18';
 import { level19Lessons } from './level19';
 
@@ -64,6 +69,7 @@ export type Lesson = {
   misconception: LocalizedText;
   mission: LocalizedText;
   vocabulary: Array<{ en: string; zh: string }>;
+  resources?: Array<{ title: LocalizedText; url: string }>;
   questions: LessonQuestion[];
   interactive:
     | 'matter-sort'
@@ -133,10 +139,27 @@ export type Lesson = {
     | 'calibration-colour-lab'
     | 'titration-endpoint-lab'
     | 'soda-evidence-lab'
-    | 'heat-loss-design-lab';
+    | 'heat-loss-design-lab'
+    | 'separation-recovery-lab'
+    | 'molar-concentration-lab'
+    | 'titration-calculation-lab'
+    | 'ph-dilution-lab'
+    | 'acid-strength-lab'
+    | 'rate-evidence-lab'
+    | 'equilibrium-shift-lab'
+    | 'limiting-reactant-lab'
+    | 'percent-yield-lab'
+    | 'salt-bridge-ledger-lab'
+    | 'copper-plating-lab'
+    | 'isomer-detective-lab'
+    | 'alkene-addition-lab'
+    | 'calorimetry-ledger-lab'
+    | 'hess-route-lab'
+    | 'empirical-formula-lab'
+    | 'hydrate-evidence-lab';
 };
 
-export const lessons: Lesson[] = [
+const lessonCatalog: Lesson[] = [
   {
     id: 'what-is-matter',
     levelId: 'matter',
@@ -894,16 +917,26 @@ export const lessons: Lesson[] = [
   ...level8Lessons,
   ...level9Lessons,
   ...level10Lessons,
+  ...stoichiometryLessons,
+  ...compositionLessons,
   ...level11Lessons,
   ...level12Lessons,
   ...level13Lessons,
+  ...thermochemistryLessons,
   ...level14Lessons,
   ...level15Lessons,
   ...level16Lessons,
+  ...electrochemistryLessons,
   ...level17Lessons,
+  ...organicStructureLessons,
   ...level18Lessons,
   ...level19Lessons,
 ];
+
+// Modules group related concepts; stable lesson numbers preserve saved progress.
+export const lessons: Lesson[] = [...lessonCatalog].sort(
+  (a, b) => a.order - b.order,
+);
 
 export function getLesson(id: string | undefined) {
   return lessons.find((lesson) => lesson.id === id);

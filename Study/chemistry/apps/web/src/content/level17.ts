@@ -65,8 +65,8 @@ export const level17Lessons: Lesson[] = [
       {
         title: { zh: '碳的“四个握手位”', en: 'Carbon’s four handshake slots' },
         body: {
-          zh: '中性碳原子的最外层有四个可用于共享的电子位置，因此常形成四个共价键。甲烷 CH₄ 中，一个碳恰好与四个氢共享电子。',
-          en: 'A neutral carbon atom has four outer-electron positions available for sharing, so it commonly forms four covalent bonds. In methane, CH₄, one carbon shares electrons with four hydrogens.',
+          zh: '碳有四个价电子。在这些简单中性分子里，每个碳的键级总和通常是 4：单键算 1，双键算 2。甲烷 CH₄ 的碳与四个氢各形成一个单键；乙烯则把其中两个连接用于 C=C。',
+          en: 'Carbon has four valence electrons. In these simple neutral molecules, each carbon usually has total bond order four: a single bond counts one and a double bond two. Methane has four C–H single bonds; ethene uses two bond-order units for C=C.',
         },
       },
       {

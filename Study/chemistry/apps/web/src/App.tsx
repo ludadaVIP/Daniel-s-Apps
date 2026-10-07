@@ -375,6 +375,14 @@ export function App() {
               secondaryClassName="block text-[0.82em] font-normal opacity-70"
             />
           </NavLink>
+          <Link
+            className="chemistry-hub-button"
+            to="/"
+            aria-label={mode === 'en' ? 'Back to Study hub' : '返回 Study 首页'}
+            title={mode === 'en' ? 'Back to Study hub' : '返回 Study 首页'}
+          >
+            <HomeIcon />
+          </Link>
         </nav>
         <LanguageSwitcher
           mode={mode}
@@ -382,14 +390,6 @@ export function App() {
           className="language-switch"
         />
       </header>
-      <Link
-        className="chemistry-hub-button"
-        to="/"
-        aria-label={mode === 'en' ? 'Back to Study hub' : '返回 Study 首页'}
-        title={mode === 'en' ? 'Back to Study hub' : '返回 Study 首页'}
-      >
-        <HomeIcon />
-      </Link>
       <main className="main-content">
         <Routes>
           <Route index element={<Home mode={mode} />} />
