@@ -9,7 +9,8 @@ import {
 } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
 import { LanguageSwitcher, useLanguageMode } from '@study/ui';
-import { lessons, stages, t } from './content/lessons';
+import { ProjectPage, ProjectCard } from './ProjectPage';
+import { lessons, stages, units, t, type Lesson } from './content/lessons';
 import { B, Icon, LessonArt, Text } from './ui';
 import {
   dueLessons,
@@ -19,6 +20,7 @@ import {
 } from './progress';
 import { LessonPage, QuestionCard } from './LessonPage';
 import { LessonLab } from './interactive/Labs';
+import { experiments } from './content/experiments';
 function OrbitArt({ mode }: { mode: LanguageMode }) {
   return (
     <div
@@ -149,7 +151,9 @@ function LessonCard({
       className={`phy-lesson-card phy-art-${l.kind}`}
     >
       <div className="phy-card-art">
-        <span className="phy-card-num">0{index + 1}</span>
+        <span className="phy-card-num">
+          {String(index + 1).padStart(2, '0')}
+        </span>
         <LessonArt kind={l.kind} />
         <span className="phy-card-status">
           {p?.completedAt ? (
@@ -249,7 +253,7 @@ function Home({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
           >
             <B
               zh={
-                completed === 5
+                completed === lessons.length
                   ? '再探索一次'
                   : store.progress.lessons[next.id]
                     ? '继续我的探索'
@@ -258,7 +262,7 @@ function Home({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
                       : '开始第一场探索'
               }
               en={
-                completed === 5
+                completed === lessons.length
                   ? 'Explore again'
                   : store.progress.lessons[next.id]
                     ? 'Continue exploring'
@@ -287,7 +291,11 @@ function Home({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
               <B zh="你的第一段旅程" en="Your first discoveries" mode={mode} />
             </h2>
             <Link to="/physics/path">
-              <B zh="全部 5 课" en="All 5 lessons" mode={mode} />
+              <B
+                zh={`全部 ${lessons.length} 课`}
+                en={`All ${lessons.length} lessons`}
+                mode={mode}
+              />
               <Icon name="arrow" size={16} />
             </Link>
           </div>
@@ -341,15 +349,21 @@ function Home({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
               <span>
                 <B zh="我的发现" en="My discoveries" mode={mode} />
               </span>
-              <strong>{completed} / 5</strong>
+              <strong>
+                {completed} / {lessons.length}
+              </strong>
             </div>
             <div className="phy-progress-bar">
-              <i style={{ width: `${(completed / 5) * 100}%` }} />
+              <i style={{ width: `${(completed / lessons.length) * 100}%` }} />
             </div>
             <Link className="phy-today-link" to={`/physics/lesson/${next.id}`}>
               <B
-                zh={completed === 5 ? '回顾第一课' : '去看看'}
-                en={completed === 5 ? 'Revisit lesson one' : 'Let’s explore'}
+                zh={completed === lessons.length ? '回顾第一课' : '去看看'}
+                en={
+                  completed === lessons.length
+                    ? 'Revisit lesson one'
+                    : 'Let’s explore'
+                }
                 mode={mode}
               />
               <Icon name="arrow" size={16} />
@@ -406,27 +420,62 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
           </p>
         </div>
       </div>
-      <div className="phy-path-heading">
-        <span className="phy-stage-number">00</span>
-        <div>
-          <h2>
-            <Text value={stages[0]!.title} mode={mode} />
-          </h2>
-          <p>
-            <B
-              zh="首批 5 节已开放 · 可自由探索"
-              en="First 5 lessons open · Explore at your pace"
-              mode={mode}
-            />
-          </p>
-        </div>
-        <span className="phy-tag">10+</span>
-      </div>
-      <div className="phy-path-lessons">
-        {lessons.map((_, i) => (
-          <LessonCard key={i} index={i} mode={mode} store={store} />
-        ))}
-      </div>
+      {stages.map((stage, stageIndex) => {
+        const available = lessons.filter((l) => l.stage === stageIndex);
+        if (!available.length) return null;
+        return (
+          <section key={stage.title.en} className="phy-open-stage">
+            <div className="phy-path-heading">
+              <span className="phy-stage-number">
+                {String(stageIndex).padStart(2, '0')}
+              </span>
+              <div>
+                <h2>
+                  <Text value={stage.title} mode={mode} />
+                </h2>
+                <p>
+                  <B
+                    zh={`已开放 ${available.length} 课 · 后续内容继续建设`}
+                    en={`${available.length} ${available.length === 1 ? 'lesson' : 'lessons'} open · More to come`}
+                    mode={mode}
+                  />
+                </p>
+              </div>
+              <span className="phy-tag">{stage.age}</span>
+            </div>
+            {Object.entries(units).map(([unit, title]) => {
+              const group = available.filter((l) => l.unit === unit);
+              if (!group.length) return null;
+              return (
+                <div key={unit} className="phy-course-unit">
+                  <h3 className="phy-unit-title">
+                    <Text value={title} mode={mode} />
+                    <span>
+                      {group.length}{' '}
+                      <B
+                        zh="课"
+                        en={group.length === 1 ? 'lesson' : 'lessons'}
+                        mode={mode}
+                      />
+                    </span>
+                  </h3>
+                  <div className="phy-path-lessons">
+                    {group.map((l) => (
+                      <LessonCard
+                        key={l.id}
+                        index={lessons.indexOf(l)}
+                        mode={mode}
+                        store={store}
+                      />
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+            {stageIndex === 0 && <ProjectCard mode={mode} store={store} />}
+          </section>
+        );
+      })}
       <div className="phy-section-heading phy-roadmap-title">
         <h2>
           <B zh="接下来，世界更大。" en="A bigger world ahead." mode={mode} />
@@ -441,43 +490,40 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
       </div>
       <p className="phy-soft">
         <B
-          zh="第 5 课是运动主题的提前体验；完整课程将按启蒙、初中、高中依次展开。"
-          en="Lesson 5 offers an early taste of motion. The full curriculum will progress through foundations, junior and high school physics."
+          zh="先把观察、测量和数据读懂，再走向运动、力、能量与电磁。已有课程可以自由探索，后续按这个顺序逐步展开。"
+          en="Build observation, measurement and data skills before motion, forces, energy and electromagnetism. Explore available lessons freely; later content will follow this progression."
           mode={mode}
         />
       </p>
       <div className="phy-roadmap">
-        {stages.slice(1).map((s, i) => (
-          <article key={s.title.en}>
-            <span className="phy-roadmap-number">0{i + 1}</span>
-            <div>
-              <h3>
-                <Text value={s.title} mode={mode} />
-              </h3>
-              <p>
-                <Text value={s.topics} mode={mode} />
-              </p>
-            </div>
-            <div className="phy-roadmap-meta">
-              <span>{s.age}</span>
-              <B zh="规划中" en="Planned" mode={mode} />
-            </div>
-          </article>
-        ))}
+        {stages.map(
+          (s, i) =>
+            !lessons.some((l) => l.stage === i) && (
+              <article key={s.title.en}>
+                <span className="phy-roadmap-number">
+                  {String(i).padStart(2, '0')}
+                </span>
+                <div>
+                  <h3>
+                    <Text value={s.title} mode={mode} />
+                  </h3>
+                  <p>
+                    <Text value={s.topics} mode={mode} />
+                  </p>
+                </div>
+                <div className="phy-roadmap-meta">
+                  <span>{s.age}</span>
+                  <B zh="规划中" en="Planned" mode={mode} />
+                </div>
+              </article>
+            ),
+        )}
       </div>
     </div>
   );
 }
 function Lab({ mode }: { mode: LanguageMode }) {
-  const [kind, setKind] = useState<
-    'friction' | 'length' | 'speed' | 'observation'
-  >('friction');
-  const choices = [
-    ['friction', t('滚动与摩擦', 'Rolling & friction')],
-    ['length', t('测量工作台', 'Measurement bench')],
-    ['speed', t('机器人赛跑', 'Robot race')],
-    ['observation', t('下落观察室', 'Falling-ball station')],
-  ] as const;
+  const [kind, setKind] = useState<Lesson['kind']>('friction');
   return (
     <div className="phy-page">
       <p className="phy-eyebrow">CHANGE ONE THING. DISCOVER SOMETHING.</p>
@@ -497,21 +543,31 @@ function Lab({ mode }: { mode: LanguageMode }) {
           mode={mode}
         />
       </p>
-      <div
-        className="phy-lab-tabs"
-        role="group"
-        aria-label={mode === 'en' ? 'Choose experiment' : '选择实验'}
-      >
-        {choices.map(([id, name]) => (
-          <button
-            key={id}
-            aria-pressed={kind === id}
-            className={kind === id ? 'active' : ''}
-            onClick={() => setKind(id)}
+      <div className="phy-lab-picker">
+        <label>
+          <B zh="选择一个实验" en="Choose an experiment" mode={mode} />
+          <select
+            value={kind}
+            onChange={(e) => setKind(e.target.value as Lesson['kind'])}
           >
-            <Text value={name} mode={mode} />
-          </button>
-        ))}
+            {experiments.map((e) => (
+              <option key={e.id} value={e.id}>
+                {mode === 'en'
+                  ? e.name.en
+                  : mode === 'zh'
+                    ? e.name.zh
+                    : `${e.name.zh} · ${e.name.en}`}
+              </option>
+            ))}
+          </select>
+        </label>
+        <span>
+          <B
+            zh={`${experiments.length} 个探索工作台`}
+            en={`${experiments.length} exploration stations`}
+            mode={mode}
+          />
+        </span>
       </div>
       <LessonLab key={kind} kind={kind} mode={mode} />
       <div className="phy-lab-notes">
@@ -559,6 +615,7 @@ function Notebook({
           mode={mode}
         />
       </p>
+      <ProjectCard mode={mode} store={store} />
       <form
         className="phy-note-form"
         onSubmit={(e) => {
@@ -851,10 +908,10 @@ export function App() {
             </span>
             <strong>
               {count}
-              <small> / 5</small>
+              <small> / {lessons.length}</small>
             </strong>
             <div className="phy-progress-bar">
-              <i style={{ width: `${(count / 5) * 100}%` }} />
+              <i style={{ width: `${(count / lessons.length) * 100}%` }} />
             </div>
           </div>
           <Link className="phy-study-back" to="/">
@@ -898,6 +955,10 @@ export function App() {
               element={
                 <LessonPage key={location.pathname} mode={mode} store={store} />
               }
+            />
+            <Route
+              path="project/detective"
+              element={<ProjectPage mode={mode} store={store} />}
             />
             <Route path="lab" element={<Lab mode={mode} />} />
             <Route

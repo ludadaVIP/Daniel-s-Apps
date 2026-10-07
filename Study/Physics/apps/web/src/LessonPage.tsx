@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
-import { lessons, t, type Question } from './content/lessons';
+import { lessons, stages, units, t, type Question } from './content/lessons';
 import { B, Icon, Text } from './ui';
 import { freshLesson, isMastered, type ProgressStore } from './progress';
 import { LessonLab } from './interactive/Labs';
@@ -119,12 +119,17 @@ export function LessonPage({
           <B zh="探索路线" en="Learning path" mode={mode} />
         </Link>
         <span>/</span>
-        <span>0{lessons.indexOf(lesson) + 1}</span>
+        <Text value={stages[lesson.stage]!.title} mode={mode} />
+        <span>/</span>
+        <Text value={units[lesson.unit]} mode={mode} />
+        <span>/</span>
+        <span>{String(lessons.indexOf(lesson) + 1).padStart(2, '0')}</span>
       </div>
       <div className="phy-page-heading">
         <div>
           <p className="phy-eyebrow">
-            FOUNDATIONS / DISCOVERY 0{lessons.indexOf(lesson) + 1}
+            STAGE {lesson.stage} / DISCOVERY{' '}
+            {String(lessons.indexOf(lesson) + 1).padStart(2, '0')}
           </p>
           <h1>
             <Text value={lesson.title} mode={mode} />

@@ -90,14 +90,21 @@ describe('curriculum content', () => {
         l.concept,
         l.example,
         l.misconception,
+        l.realWorld,
         l.summary,
         l.homeExperiment,
+        ...l.predictions,
+        ...(l.formula ? [l.formula] : []),
         ...l.vocabulary,
       ]) {
         expect(value.zh.trim()).not.toBe('');
         expect(value.en.trim()).not.toBe('');
       }
       for (const q of [...l.questions, l.exit]) {
+        for (const value of [q.prompt, q.explanation, ...q.options]) {
+          expect(value.zh.trim()).not.toBe('');
+          expect(value.en.trim()).not.toBe('');
+        }
         expect(q.correct).toBeGreaterThanOrEqual(0);
         expect(q.correct).toBeLessThan(q.options.length);
         expect(q.explanation.zh).toBeTruthy();
