@@ -236,11 +236,18 @@ def _metadata_for_content(existing: dict[str, Any] | None, content: str) -> dict
 
 def _ensure_seed_data() -> None:
     DATA_DIR.mkdir(parents=True, exist_ok=True)
-    should_seed_docs = not CATEGORIES_FILE.exists() and not _has_markdown_documents()
+    should_seed_docs = False
     if not CATEGORIES_FILE.exists():
-        _write_json(CATEGORIES_FILE, DEFAULT_CATEGORIES)
-    for category in DEFAULT_CATEGORIES:
-        (DATA_DIR / category["id"]).mkdir(parents=True, exist_ok=True)
+        existing_folders = sorted(
+            path.name for path in DATA_DIR.iterdir()
+            if path.is_dir() and path.name not in RESERVED_DIRS
+        )
+        should_seed_docs = not existing_folders and not _has_markdown_documents()
+        initial_categories = (
+            DEFAULT_CATEGORIES if should_seed_docs else
+            [{"id": folder, "name": folder} for folder in existing_folders]
+        )
+        _write_json(CATEGORIES_FILE, initial_categories)
     if not should_seed_docs:
         if not METADATA_FILE.exists():
             _save_metadata({})
@@ -321,7 +328,12 @@ def mutate_category(category_id: str):
     if not match:
         raise SaveMdError("Category not found.", 404)
     if request.method == "DELETE":
-        shutil.rmtree(_category_dir(category_id), ignore_errors=True)
+        folder = _category_dir(category_id)
+        if folder.exists():
+            try:
+                shutil.rmtree(folder)
+            except OSError as error:
+                raise SaveMdError(f"Unable to delete category files: {error}", 500) from error
         categories = [item for item in categories if item["id"] != category_id]
         metadata = {
             key: value for key, value in _load_metadata().items()

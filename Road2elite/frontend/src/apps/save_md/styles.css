@@ -37,6 +37,159 @@
     cursor: pointer;
   }
 
+  .smd-dialog {
+    width: min(440px, calc(100vw - 32px));
+    max-height: calc(100vh - 32px);
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid var(--smd-line-strong);
+    border-radius: 18px;
+    background: var(--smd-panel-strong);
+    color: var(--smd-text);
+    box-shadow: 0 26px 90px rgba(13, 42, 25, 0.24);
+  }
+
+  .smd-dialog::backdrop {
+    background: rgba(11, 27, 18, 0.52);
+    backdrop-filter: blur(4px);
+  }
+
+  .smd-dialog form {
+    padding: 26px;
+  }
+
+  .smd-dialog-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: start;
+  }
+
+  .smd-dialog-mark {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    color: var(--smd-accent-dark);
+    background: rgba(23, 138, 88, 0.12);
+  }
+
+  .smd-dialog-mark.is-danger {
+    color: var(--smd-danger);
+    background: rgba(180, 35, 24, 0.1);
+  }
+
+  .smd-dialog-close {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 9px;
+    background: transparent;
+    color: var(--smd-muted);
+  }
+
+  .smd-dialog-close:hover {
+    background: var(--smd-bg);
+    color: var(--smd-text);
+  }
+
+  .smd-dialog-eyebrow {
+    margin: 24px 0 8px;
+    color: var(--smd-accent-dark);
+    font-size: 10px;
+    font-weight: 850;
+    letter-spacing: 0.16em;
+  }
+
+  .smd-dialog h2 {
+    margin: 0;
+    font-size: 25px;
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+  }
+
+  .smd-dialog-description {
+    margin: 12px 0 0;
+    color: var(--smd-muted);
+    font-size: 14px;
+    line-height: 1.65;
+  }
+
+  .smd-dialog-field {
+    display: grid;
+    gap: 8px;
+    margin-top: 23px;
+    font-size: 12px;
+    font-weight: 800;
+  }
+
+  .smd-dialog-field input {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 12px;
+    border: 1px solid var(--smd-line-strong);
+    border-radius: 9px;
+    outline: 0;
+    background: var(--smd-panel);
+    color: var(--smd-text);
+    font-size: 15px;
+    font-weight: 500;
+  }
+
+  .smd-dialog-field input:focus-visible,
+  .smd-dialog button:focus-visible {
+    outline: 2px solid var(--smd-accent);
+    outline-offset: 2px;
+  }
+
+  .smd-dialog-error {
+    margin: 16px 0 0;
+    color: var(--smd-danger);
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .smd-dialog-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 28px;
+  }
+
+  .smd-dialog-actions button {
+    min-height: 40px;
+    padding: 0 15px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .smd-dialog-secondary {
+    border: 1px solid var(--smd-line);
+    background: var(--smd-panel);
+    color: var(--smd-text);
+  }
+
+  .smd-dialog-primary {
+    border: 1px solid var(--smd-accent);
+    background: var(--smd-accent);
+    color: white;
+  }
+
+  .smd-dialog-primary.is-danger {
+    border-color: #b42318;
+    background: #b42318;
+  }
+
+  .smd-dialog-actions button:disabled,
+  .smd-dialog-close:disabled {
+    opacity: 0.55;
+    cursor: not-allowed;
+  }
+
   .smd-sidebar {
     min-height: 0;
     overflow: hidden;
