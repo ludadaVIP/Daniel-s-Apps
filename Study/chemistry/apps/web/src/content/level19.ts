@@ -244,7 +244,10 @@ export const level19Lessons: Lesson[] = [
     everydayExamples: [
       {
         icon: '☕',
-        title: { zh: '杯盖不只防洒', en: 'A lid does more than prevent spills' },
+        title: {
+          zh: '杯盖不只防洒',
+          en: 'A lid does more than prevent spills',
+        },
         body: {
           zh: '盖子减少杯口上方暖空气对流，也减少蒸发带走能量。它不会让热量完全消失；杯壁和底部仍会继续传热。',
           en: 'A lid reduces convection of warm air above the cup and reduces energy lost by evaporation. It does not stop all heat loss; walls and base still transfer energy.',
@@ -260,7 +263,10 @@ export const level19Lessons: Lesson[] = [
       },
       {
         icon: '📊',
-        title: { zh: '比较“保温”要先定规则', en: 'Set rules before comparing warmth' },
+        title: {
+          zh: '比较“保温”要先定规则',
+          en: 'Set rules before comparing warmth',
+        },
         body: {
           zh: '若一杯装得更多、起点更热、放在不同风口，温度差不能只归因于杯子材料。好结论来自控制变量与重复读数。',
           en: 'If one cup holds more, starts hotter or sits in a different draft, a temperature difference cannot be blamed only on material. Good conclusions come from controlled variables and repeat readings.',
@@ -269,21 +275,30 @@ export const level19Lessons: Lesson[] = [
     ],
     steps: [
       {
-        title: { zh: '传导：粒子接力传能量', en: 'Conduction: particles pass energy along' },
+        title: {
+          zh: '传导：粒子接力传能量',
+          en: 'Conduction: particles pass energy along',
+        },
         body: {
           zh: '杯壁中相邻粒子的相互作用会把能量从热的一侧传向冷的一侧。厚一点、导热较慢的材料或夹层，能让这条接力变慢。',
           en: 'Interactions between neighbouring particles in a cup wall pass energy from the hotter side to the cooler side. Thicker, slower-conducting materials or layers can slow this relay.',
         },
       },
       {
-        title: { zh: '对流与蒸发：上方的热空气也会流走', en: 'Convection and evaporation: warm air above can leave too' },
+        title: {
+          zh: '对流与蒸发：上方的热空气也会流走',
+          en: 'Convection and evaporation: warm air above can leave too',
+        },
         body: {
           zh: '液面上方的暖空气会上升，被更冷空气替代；蒸发的水分子也会带走能量。盖子能显著减慢这些过程，但要按产品说明安全使用。',
           en: 'Warm air above a liquid rises and is replaced by cooler air; evaporating water molecules also carry energy away. A lid can slow these processes, but products must be used safely as instructed.',
         },
       },
       {
-        title: { zh: '辐射：不需要接触也能传能量', en: 'Radiation: energy can travel without contact' },
+        title: {
+          zh: '辐射：不需要接触也能传能量',
+          en: 'Radiation: energy can travel without contact',
+        },
         body: {
           zh: '所有物体都能以电磁波形式辐射能量。某些明亮表面能反射较多红外辐射，帮助减少辐射散热；真实保温效果仍是多条路线共同决定的。',
           en: 'All objects can radiate energy as electromagnetic waves. Some bright surfaces reflect more infrared radiation and can reduce radiative heat loss; real insulation still comes from several routes together.',
@@ -309,31 +324,286 @@ export const level19Lessons: Lesson[] = [
     questions: [
       {
         id: 'heat-q1',
-        prompt: { zh: '给热饮加盖最直接减慢哪两条热量路线？', en: 'Which two heat-loss routes does a lid most directly slow for a hot drink?' },
-        options: [{ zh: '杯口的对流和蒸发', en: 'Convection and evaporation at the cup opening' }, { zh: '所有传导立刻停止', en: 'All conduction stops instantly' }, { zh: '热量被制造出来', en: 'Heat is created' }],
+        prompt: {
+          zh: '给热饮加盖最直接减慢哪两条热量路线？',
+          en: 'Which two heat-loss routes does a lid most directly slow for a hot drink?',
+        },
+        options: [
+          {
+            zh: '杯口的对流和蒸发',
+            en: 'Convection and evaporation at the cup opening',
+          },
+          { zh: '所有传导立刻停止', en: 'All conduction stops instantly' },
+          { zh: '热量被制造出来', en: 'Heat is created' },
+        ],
         answer: 0,
-        explanation: { zh: '盖子限制暖空气交换并减少蒸发，但杯壁和底部仍可传导能量。', en: 'A lid limits warm-air exchange and reduces evaporation, though walls and base can still conduct energy.' },
+        explanation: {
+          zh: '盖子限制暖空气交换并减少蒸发，但杯壁和底部仍可传导能量。',
+          en: 'A lid limits warm-air exchange and reduces evaporation, though walls and base can still conduct energy.',
+        },
       },
       {
         id: 'heat-q2',
-        prompt: { zh: '真空夹层为什么有助于保温？', en: 'Why does a vacuum layer help insulation?' },
-        options: [{ zh: '粒子很少，传导和对流都更难进行', en: 'There are few particles, making conduction and convection harder' }, { zh: '真空会制造新的热量', en: 'A vacuum creates new heat' }, { zh: '真空让液体变成金属', en: 'A vacuum turns liquid into metal' }],
+        prompt: {
+          zh: '真空夹层为什么有助于保温？',
+          en: 'Why does a vacuum layer help insulation?',
+        },
+        options: [
+          {
+            zh: '粒子很少，传导和对流都更难进行',
+            en: 'There are few particles, making conduction and convection harder',
+          },
+          { zh: '真空会制造新的热量', en: 'A vacuum creates new heat' },
+          { zh: '真空让液体变成金属', en: 'A vacuum turns liquid into metal' },
+        ],
         answer: 0,
-        explanation: { zh: '传导与对流都依赖物质粒子；真空中粒子极少，因此这些路线被大幅削弱。', en: 'Conduction and convection depend on material particles; a vacuum has very few, greatly weakening both routes.' },
+        explanation: {
+          zh: '传导与对流都依赖物质粒子；真空中粒子极少，因此这些路线被大幅削弱。',
+          en: 'Conduction and convection depend on material particles; a vacuum has very few, greatly weakening both routes.',
+        },
       },
       {
         id: 'heat-q3',
-        prompt: { zh: '比较两只杯子的保温效果时，哪项应控制一致？', en: 'What should be kept the same when comparing two cups’ insulation?' },
-        options: [{ zh: '液体体积、起始温度、测量时间和环境', en: 'Liquid volume, starting temperature, measurement time and environment' }, { zh: '让一只杯子有盖、另一只无盖，再只比较材料', en: 'Give one cup a lid, the other none, then compare only material' }, { zh: '每只杯子装不同饮料并只测一次', en: 'Use different drinks and measure only once' }],
+        prompt: {
+          zh: '比较两只杯子的保温效果时，哪项应控制一致？',
+          en: 'What should be kept the same when comparing two cups’ insulation?',
+        },
+        options: [
+          {
+            zh: '液体体积、起始温度、测量时间和环境',
+            en: 'Liquid volume, starting temperature, measurement time and environment',
+          },
+          {
+            zh: '让一只杯子有盖、另一只无盖，再只比较材料',
+            en: 'Give one cup a lid, the other none, then compare only material',
+          },
+          {
+            zh: '每只杯子装不同饮料并只测一次',
+            en: 'Use different drinks and measure only once',
+          },
+        ],
         answer: 0,
-        explanation: { zh: '控制这些因素能让差异更可能来自你想研究的杯子结构，而不是其他条件。', en: 'Controlling these factors makes differences more likely to come from the cup structure you want to study.' },
+        explanation: {
+          zh: '控制这些因素能让差异更可能来自你想研究的杯子结构，而不是其他条件。',
+          en: 'Controlling these factors makes differences more likely to come from the cup structure you want to study.',
+        },
       },
       {
         id: 'heat-q4',
-        prompt: { zh: '保温杯装冷饮时，最准确的说法是什么？', en: 'What is most accurate for an insulated cup holding a cold drink?' },
-        options: [{ zh: '它会减慢周围热量流入，帮助冷饮变暖得更慢', en: 'It slows heat flowing in from surroundings, so the drink warms more slowly' }, { zh: '它会让冷饮自动变得更冷', en: 'It makes a cold drink automatically colder' }, { zh: '它只对热饮起作用', en: 'It only works for hot drinks' }],
+        prompt: {
+          zh: '保温杯装冷饮时，最准确的说法是什么？',
+          en: 'What is most accurate for an insulated cup holding a cold drink?',
+        },
+        options: [
+          {
+            zh: '它会减慢周围热量流入，帮助冷饮变暖得更慢',
+            en: 'It slows heat flowing in from surroundings, so the drink warms more slowly',
+          },
+          {
+            zh: '它会让冷饮自动变得更冷',
+            en: 'It makes a cold drink automatically colder',
+          },
+          { zh: '它只对热饮起作用', en: 'It only works for hot drinks' },
+        ],
         answer: 0,
-        explanation: { zh: '保温结构减慢能量转移的方向由温差决定；它不主动制造冷或热。', en: 'Insulation slows energy transfer in the direction set by temperature difference; it does not actively create cold or heat.' },
+        explanation: {
+          zh: '保温结构减慢能量转移的方向由温差决定；它不主动制造冷或热。',
+          en: 'Insulation slows energy transfer in the direction set by temperature difference; it does not actively create cold or heat.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'sand-salt-water-recovery',
+    levelId: 'problem-solving',
+    order: 70,
+    title: {
+      zh: '沙、盐、水：把三样东西分别找回来',
+      en: 'Sand, salt and water: recover all three',
+    },
+    eyebrow: {
+      zh: '第 70 课 · 从粒子性质设计分离流程',
+      en: 'Lesson 70 · Design a separation using particle properties',
+    },
+    hook: {
+      zh: '你拿到一杯混合物：100 g 水、10 g 已溶解的盐和 5 g 沙。挑战是分别找回三样东西。过滤后水变清了，盐是不是也被留下了？如果把水蒸干，你真的完成任务了吗？',
+      en: 'You have a mixture: 100 g water, 10 g dissolved salt and 5 g sand. Your challenge is to recover all three separately. Filtering makes the water clear, but does it keep the salt behind? If you evaporate the water away, have you really finished?',
+    },
+    hookHint: {
+      zh: '先问每种成分有什么不同：沙不溶，盐已经分散成溶液中的离子，水能蒸发再冷凝。分离方法要利用这些差异，也要记住任务要求保留水。',
+      en: 'First ask how the components differ: sand is insoluble, salt is dispersed as ions in solution, and water can evaporate and condense. Use these differences while remembering that the task requires keeping the water.',
+    },
+    bigIdea: {
+      zh: '选择分离方法，要把“成分的性质”和“想保留的东西”一起考虑。过滤先留下沙；蒸馏再把盐水中的水收集回来，盐留在原容器中。',
+      en: 'Choose a separation by considering both component properties and what you want to keep. Filtering retains sand; distillation then collects water from the salt solution while salt stays in the original vessel.',
+    },
+    estimatedMinutes: 18,
+    everydayExamples: [
+      {
+        icon: '☕',
+        title: {
+          zh: '咖啡滤纸挡住什么？',
+          en: 'What does a coffee filter hold back?',
+        },
+        body: {
+          zh: '滤纸留下较大的咖啡渣，但许多溶解的香味和颜色成分随水通过。想一想：咖啡经过过滤后，为什么仍然有颜色？',
+          en: 'Filter paper holds larger grounds back, while many dissolved flavour and colour components pass through with water. Why does coffee still have colour after filtering?',
+        },
+      },
+      {
+        icon: '🧂',
+        title: {
+          zh: '晒盐想要的是盐',
+          en: 'Salt making aims to keep the salt',
+        },
+        body: {
+          zh: '盐水失去水后，盐能以固体形式留下。如果目标只是收盐，让水蒸发有用；如果还要回收水，就得加上收集和冷凝这一步。',
+          en: 'When salt water loses water, salt can remain as a solid. Evaporation is useful if only salt is wanted; recovering water also needs collection and condensation.',
+        },
+      },
+      {
+        icon: '🔄',
+        title: {
+          zh: '回收流程也有能量账本',
+          en: 'Recovery has an energy cost too',
+        },
+        body: {
+          zh: '蒸馏利用汽化与冷凝，需要供热和冷却。设计流程时，除了分得开，还要比较能量、用时和材料损失。',
+          en: 'Distillation uses vaporisation and condensation, requiring heating and cooling. A design must consider energy, time and material losses as well as separation.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: {
+          zh: '先列性质，不急着选工具',
+          en: 'List properties before choosing tools',
+        },
+        body: {
+          zh: '在这个模型中，沙颗粒不溶于水，盐已溶解，且盐在水蒸馏的条件下不易挥发。普通滤纸能留下沙，却不能把溶解的盐离子从水中筛出。',
+          en: 'In this model, sand particles do not dissolve, salt is dissolved, and salt is non-volatile under water-distillation conditions. Ordinary filter paper retains sand but cannot sieve dissolved salt ions out of water.',
+        },
+      },
+      {
+        title: {
+          zh: '过滤后，做一次质量核对',
+          en: 'After filtering, check the mass',
+        },
+        body: {
+          zh: '假设没有洒出或残留损失：115 g 混合物 → 5 g 沙 + 110 g 盐水。盐水虽然清澈，但其中仍有 10 g 盐。看不见，不代表没有。',
+          en: 'Assume no spills or material left behind: 115 g mixture → 5 g sand + 110 g salt solution. Although the solution is clear, it still contains 10 g salt. Invisible does not mean absent.',
+        },
+      },
+      {
+        title: { zh: '目标决定最后一步', en: 'The goal decides the last step' },
+        body: {
+          zh: '蒸发能留下盐，却让水进入周围空气；蒸馏把水蒸气引到另一处冷凝并收集。本课理想模型的最终核对为 5 g 沙 + 10 g 盐 + 100 g 水 = 115 g；真实实验会有转移损失和残留，要另行测量。',
+          en: 'Evaporation leaves salt but sends water into surrounding air. Distillation sends water vapour elsewhere to condense and collect. The ideal final ledger is 5 g sand + 10 g salt + 100 g water = 115 g; real experiments have transfer losses and residues that must be measured.',
+        },
+      },
+    ],
+    misconception: {
+      zh: '“水变清了，所有杂质就都除去了”不对。清澈只说明没有明显可见的悬浮颗粒；溶解的盐仍可能存在。本课只处理沙、盐、水三种成分，不能据此评价真实水样。',
+      en: '“Clear water means every impurity is removed” is wrong. Clear only means no obvious visible suspended particles; dissolved salt may remain. This lesson handles only sand, salt and water, so it cannot evaluate real water samples.',
+    },
+    mission: {
+      zh: '流程设计师：只在模型中先试“过滤 → 蒸发”，再重置试“过滤 → 蒸馏”。为每条流程写下沙、盐、水的最终去向，用一句话解释为什么只有一条满足“分别回收三样东西”。',
+      en: 'Process designer: in the model, try “filter → evaporate,” then reset and try “filter → distil.” Record the final location of sand, salt and water for each route, and explain why only one recovers all three separately.',
+    },
+    vocabulary: [
+      { en: 'filtrate', zh: '滤液' },
+      { en: 'residue', zh: '残留物' },
+      { en: 'distillation', zh: '蒸馏' },
+      { en: 'condensation', zh: '冷凝' },
+      { en: 'recovery', zh: '回收' },
+    ],
+    interactive: 'separation-recovery-lab',
+    questions: [
+      {
+        id: 'recovery-q1',
+        prompt: {
+          zh: '过滤沙和盐水的混合物后，盐主要在哪里？',
+          en: 'After filtering sand mixed with salt solution, where is most of the salt?',
+        },
+        options: [
+          { zh: '全部留在滤纸上', en: 'All on the filter paper' },
+          { zh: '仍溶解在滤液中', en: 'Still dissolved in the filtrate' },
+          { zh: '已经消失', en: 'It has disappeared' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '普通滤纸挡住沙颗粒，盐离子随水通过。因此清澈滤液仍是盐水。',
+          en: 'Ordinary filter paper retains sand particles while salt ions pass with water, so the clear filtrate is still salt solution.',
+        },
+      },
+      {
+        id: 'recovery-q2',
+        prompt: {
+          zh: '目标是同时保留盐和水，应选哪一步？',
+          en: 'To keep both salt and water, which step should you choose?',
+        },
+        options: [
+          {
+            zh: '蒸发到周围空气中',
+            en: 'Evaporate water into surrounding air',
+          },
+          {
+            zh: '再用相同滤纸过滤一次',
+            en: 'Filter again using the same paper',
+          },
+          {
+            zh: '蒸馏，并冷凝收集水蒸气',
+            en: 'Distil, condense and collect the water vapour',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '在盐不挥发的模型中，蒸馏让水转移到收集容器，盐留在原处；蒸发若不收集水，就达不到全部回收的目标。',
+          en: 'In this non-volatile-salt model, distillation transfers water to a collector while salt stays behind. Evaporation without collecting water does not achieve full recovery.',
+        },
+      },
+      {
+        id: 'recovery-q3',
+        prompt: {
+          zh: '理想模型中，115 g 混合物过滤出 5 g 沙后，剩下多少盐水？',
+          en: 'In the ideal model, 5 g sand is filtered from 115 g mixture. How much salt solution remains?',
+        },
+        options: [
+          { zh: '110 g', en: '110 g' },
+          { zh: '100 g', en: '100 g' },
+          { zh: '10 g', en: '10 g' },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '115 − 5 = 110 g，其中包括 100 g 水和 10 g 盐。先明确每个量包含哪些成分，再做计算。',
+          en: '115 − 5 = 110 g, including 100 g water and 10 g salt. Identify which components each quantity includes before calculating.',
+        },
+      },
+      {
+        id: 'recovery-q4',
+        prompt: {
+          zh: '蒸发后没有收集到水，质量守恒失效了吗？',
+          en: 'If water is not collected after evaporation, has conservation of mass failed?',
+        },
+        options: [
+          {
+            zh: '失效，因为水原子被消灭了',
+            en: 'Yes, because water atoms were destroyed',
+          },
+          {
+            zh: '没有；水蒸气进入空气，核对时也要算进去',
+            en: 'No; water vapour entered the air and must be included in the ledger',
+          },
+          {
+            zh: '失效，因为蒸发变成了化学反应',
+            en: 'Yes, because evaporation became a chemical reaction',
+          },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '水只是改变状态和位置。没有回收到杯子里，不等于不存在；扩大核对范围就能找到去向。',
+          en: 'Water changes state and location. Not recovering it in a cup does not mean it vanished; a wider ledger includes where it went.',
+        },
       },
     ],
   },

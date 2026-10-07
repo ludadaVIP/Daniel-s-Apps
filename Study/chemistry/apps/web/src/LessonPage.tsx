@@ -3,6 +3,39 @@ import { Link, Navigate, useParams } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
 import { Localized } from '@study/ui';
 import { getLesson, lessons, type Lesson } from './content/lessons';
+import { SeparationRecoveryLab } from './interactive/SeparationRecoveryLab';
+import {
+  EmpiricalFormulaLab,
+  HydrateEvidenceLab,
+} from './interactive/CompositionLabs';
+import {
+  CalorimetryLedgerLab,
+  HessRouteLab,
+} from './interactive/ThermochemistryLabs';
+import {
+  AlkeneAdditionLab,
+  IsomerDetectiveLab,
+} from './interactive/OrganicStructureLabs';
+import {
+  CopperPlatingLab,
+  SaltBridgeLedgerLab,
+} from './interactive/ElectrochemistryLabs';
+import {
+  LimitingReactantLab,
+  PercentYieldLab,
+} from './interactive/StoichiometryLabs';
+import {
+  EquilibriumShiftLab,
+  RateEvidenceLab,
+} from './interactive/ReactionEvidenceLabs';
+import {
+  AcidStrengthLab,
+  PhDilutionLab,
+} from './interactive/AcidConcentrationLabs';
+import {
+  MolarConcentrationLab,
+  TitrationCalculationLab,
+} from './interactive/QuantitativeSolutionLabs';
 
 function MatterSort({ mode }: { mode: LanguageMode }) {
   const items = [
@@ -2466,7 +2499,6 @@ function BondChoiceLab({ mode }: { mode: LanguageMode }) {
   ] as const;
   const [selected, setSelected] = useState(0);
   const model = models[selected]!;
-  const linked = model.id !== 'stable';
 
   return (
     <div className="bond-choice-lab">
@@ -6582,8 +6614,9 @@ function ReactionRateLab({ mode }: { mode: LanguageMode }) {
   const [warm, setWarm] = useState(false);
   const [concentrated, setConcentrated] = useState(false);
   const [powdered, setPowdered] = useState(false);
-  const score =
-    2 + (warm ? 2 : 0) + (concentrated ? 2 : 0) + (powdered ? 2 : 0);
+  const changedConditions = [warm, concentrated, powdered].filter(
+    Boolean,
+  ).length;
   const particles = Array.from(
     { length: concentrated ? 24 : 12 },
     (_, index) => ({
@@ -6616,18 +6649,19 @@ function ReactionRateLab({ mode }: { mode: LanguageMode }) {
         <p>{mode === 'en' ? 'Adjust conditions' : '调整条件'}</p>
         <strong>
           {mode === 'en'
-            ? `Successful-collision chance: ${score}/8`
-            : `有效碰撞机会：${score}/8`}
+            ? `${changedConditions} condition changes selected`
+            : `已选择 ${changedConditions} 项条件变化`}
         </strong>
         <span>
           {mode === 'en'
-            ? 'This is a relative model, not a laboratory measurement.'
-            : '这是相对趋势模型，不是实验室测量数值。'}
+            ? 'Animation shows possible collision trends, not a numerical success probability. Measure reaction progress over time to compare actual rates.'
+            : '动画展示可能的碰撞趋势，不是有效碰撞的数值概率。实际速率要记录反应进度随时间的变化。'}
         </span>
         <div className="rate-controls">
           <button
             type="button"
             className={warm ? 'active' : ''}
+            aria-pressed={warm}
             onClick={() => setWarm((value) => !value)}
           >
             {warm
@@ -6641,6 +6675,7 @@ function ReactionRateLab({ mode }: { mode: LanguageMode }) {
           <button
             type="button"
             className={concentrated ? 'active' : ''}
+            aria-pressed={concentrated}
             onClick={() => setConcentrated((value) => !value)}
           >
             {concentrated
@@ -6654,6 +6689,7 @@ function ReactionRateLab({ mode }: { mode: LanguageMode }) {
           <button
             type="button"
             className={powdered ? 'active' : ''}
+            aria-pressed={powdered}
             onClick={() => setPowdered((value) => !value)}
           >
             {powdered
@@ -6760,7 +6796,13 @@ function BatteryRouteLab({ mode }: { mode: LanguageMode }) {
           <span>{mode === 'en' ? 'oxidation' : '氧化'}</span>
         </div>
         <div className="battery-wire">
-          <i>{connected ? 'e⁻  e⁻  e⁻  →' : 'open circuit'}</i>
+          <i>
+            {connected
+              ? 'e⁻  e⁻  e⁻  →'
+              : mode === 'en'
+                ? 'open circuit'
+                : '电路断开'}
+          </i>
         </div>
         <div className="battery-electrode copper">
           <b>Cu</b>
@@ -6772,8 +6814,8 @@ function BatteryRouteLab({ mode }: { mode: LanguageMode }) {
               ? 'ions move inside ⇄'
               : '离子在内部移动 ⇄'
             : mode === 'en'
-              ? 'ions wait inside'
-              : '离子在内部等待'}
+              ? 'ions still move randomly · no sustained net flow'
+              : '离子仍在无规则运动 · 无持续净传递'}
         </div>
       </div>
       <div className="battery-readout">
@@ -7498,7 +7540,7 @@ function HeatLossDesignLab({ mode }: { mode: LanguageMode }) {
   const [lid, setLid] = useState(false);
   const [vacuum, setVacuum] = useState(false);
   const [bright, setBright] = useState(false);
-  const score = 10 - (lid ? 2 : 0) - (vacuum ? 4 : 0) - (bright ? 1 : 0);
+  const modifications = [lid, vacuum, bright].filter(Boolean).length;
 
   return (
     <div
@@ -7509,7 +7551,9 @@ function HeatLossDesignLab({ mode }: { mode: LanguageMode }) {
           <i className="heat-steam">≈ ≈ ≈</i>
           <div className="heat-lid" />
           <div className="heat-wall">
-            <div className="heat-drink">warm</div>
+            <div className="heat-drink">
+              {mode === 'en' ? 'warm drink' : '温热饮品'}
+            </div>
           </div>
         </div>
         <div className="heat-routes" aria-hidden="true">
@@ -7524,13 +7568,13 @@ function HeatLossDesignLab({ mode }: { mode: LanguageMode }) {
         </p>
         <strong>
           {mode === 'en'
-            ? `Relative heat-escape score: ${score}/10`
-            : `相对热量逃跑评分：${score}/10`}
+            ? `${modifications} design changes selected`
+            : `已选择 ${modifications} 项保温设计`}
         </strong>
         <span>
           {mode === 'en'
-            ? 'Lower is better in this simplified model. Real performance also depends on shape, seals and use.'
-            : '在这个简化模型中，越低越好。真实表现还取决于形状、密封和使用方式。'}
+            ? 'Each change slows a heat-transfer route. Arrows show reduced transfer, not a complete stop; only measurements can compare real cooling rates.'
+            : '每项设计减慢一条传热路线。变淡的箭头表示减弱，并非完全停止；实际降温快慢需要测量。'}
         </span>
         <div className="heat-route-list">
           <span className={lid ? 'active' : ''}>
@@ -7550,7 +7594,11 @@ function HeatLossDesignLab({ mode }: { mode: LanguageMode }) {
           </span>
         </div>
         <div className="heat-loss-controls">
-          <button type="button" onClick={() => setLid((value) => !value)}>
+          <button
+            type="button"
+            aria-pressed={lid}
+            onClick={() => setLid((value) => !value)}
+          >
             {lid
               ? mode === 'en'
                 ? 'Remove lid'
@@ -7559,7 +7607,11 @@ function HeatLossDesignLab({ mode }: { mode: LanguageMode }) {
                 ? 'Add lid'
                 : '加上杯盖'}
           </button>
-          <button type="button" onClick={() => setVacuum((value) => !value)}>
+          <button
+            type="button"
+            aria-pressed={vacuum}
+            onClick={() => setVacuum((value) => !value)}
+          >
             {vacuum
               ? mode === 'en'
                 ? 'Remove vacuum gap'
@@ -7568,7 +7620,11 @@ function HeatLossDesignLab({ mode }: { mode: LanguageMode }) {
                 ? 'Add vacuum gap'
                 : '加入真空夹层'}
           </button>
-          <button type="button" onClick={() => setBright((value) => !value)}>
+          <button
+            type="button"
+            aria-pressed={bright}
+            onClick={() => setBright((value) => !value)}
+          >
             {bright
               ? mode === 'en'
                 ? 'Remove bright lining'
@@ -7772,6 +7828,55 @@ function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
       )}
       {lesson.interactive === 'heat-loss-design-lab' && (
         <HeatLossDesignLab mode={mode} />
+      )}
+      {lesson.interactive === 'separation-recovery-lab' && (
+        <SeparationRecoveryLab mode={mode} />
+      )}
+      {lesson.interactive === 'molar-concentration-lab' && (
+        <MolarConcentrationLab mode={mode} />
+      )}
+      {lesson.interactive === 'titration-calculation-lab' && (
+        <TitrationCalculationLab mode={mode} />
+      )}
+      {lesson.interactive === 'ph-dilution-lab' && (
+        <PhDilutionLab mode={mode} />
+      )}
+      {lesson.interactive === 'acid-strength-lab' && (
+        <AcidStrengthLab mode={mode} />
+      )}
+      {lesson.interactive === 'rate-evidence-lab' && (
+        <RateEvidenceLab mode={mode} />
+      )}
+      {lesson.interactive === 'equilibrium-shift-lab' && (
+        <EquilibriumShiftLab mode={mode} />
+      )}
+      {lesson.interactive === 'limiting-reactant-lab' && (
+        <LimitingReactantLab mode={mode} />
+      )}
+      {lesson.interactive === 'percent-yield-lab' && (
+        <PercentYieldLab mode={mode} />
+      )}
+      {lesson.interactive === 'salt-bridge-ledger-lab' && (
+        <SaltBridgeLedgerLab mode={mode} />
+      )}
+      {lesson.interactive === 'copper-plating-lab' && (
+        <CopperPlatingLab mode={mode} />
+      )}
+      {lesson.interactive === 'isomer-detective-lab' && (
+        <IsomerDetectiveLab mode={mode} />
+      )}
+      {lesson.interactive === 'alkene-addition-lab' && (
+        <AlkeneAdditionLab mode={mode} />
+      )}
+      {lesson.interactive === 'calorimetry-ledger-lab' && (
+        <CalorimetryLedgerLab mode={mode} />
+      )}
+      {lesson.interactive === 'hess-route-lab' && <HessRouteLab mode={mode} />}
+      {lesson.interactive === 'empirical-formula-lab' && (
+        <EmpiricalFormulaLab mode={mode} />
+      )}
+      {lesson.interactive === 'hydrate-evidence-lab' && (
+        <HydrateEvidenceLab mode={mode} />
       )}
     </section>
   );
@@ -8069,6 +8174,28 @@ export function LessonPage({ mode }: { mode: LanguageMode }) {
             </span>
           ))}
         </div>
+        {lesson.resources && (
+          <aside
+            className="lesson-resources"
+            aria-label={mode === 'en' ? 'Optional reading' : '可选拓展阅读'}
+          >
+            <p>
+              {mode === 'en'
+                ? 'Optional reading · not needed for the quiz'
+                : '可选拓展 · 不影响本课做题'}
+            </p>
+            {lesson.resources.map((resource) => (
+              <a
+                key={resource.url}
+                href={resource.url}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <Localized text={resource.title} mode={mode} /> ↗
+              </a>
+            ))}
+          </aside>
+        )}
       </section>
 
       <Quiz key={lesson.id} lesson={lesson} mode={mode} />

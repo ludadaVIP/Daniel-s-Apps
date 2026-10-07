@@ -601,4 +601,231 @@ export const level18Lessons: Lesson[] = [
       },
     ],
   },
+  {
+    id: 'titration-mole-bridge',
+    levelId: 'analysis',
+    order: 72,
+    title: {
+      zh: '滴定计算：用一份已知，读出一份未知',
+      en: 'Titration maths: from known to unknown',
+    },
+    eyebrow: {
+      zh: '第 72 课 · 体积 → mol → 浓度',
+      en: 'Lesson 72 · Volume → moles → concentration',
+    },
+    hook: {
+      zh: '两瓶无色盐酸看起来一模一样，浓度却可能不同。把已知浓度的碱慢慢加进去，为什么“用了多少毫升”能告诉你原来有多少酸？',
+      en: 'Two colourless hydrochloric acid samples may look identical but have different concentrations. Why can the volume of a known base reveal how much acid was present?',
+    },
+    hookHint: {
+      zh: '接上第 67 课的滴定终点与第 71 课的 mol/L。这里不是凭颜色猜浓度：颜色提示我们何时读数，再用反应比例把读数连到 mol。',
+      en: 'Build on the endpoint in Lesson 67 and mol/L in Lesson 71. Colour does not guess concentration: it tells us when to read the volume; the reaction ratio connects that reading to moles.',
+    },
+    bigIdea: {
+      zh: '滴定的桥梁是反应比例：已知液体的 cV 给出 mol，再换成未知样品的 mol，最后除以样品体积。',
+      en: 'The reaction ratio is the bridge: known cV gives moles, which gives sample moles, then divide by sample volume.',
+    },
+    estimatedMinutes: 22,
+    everydayExamples: [
+      {
+        icon: '🔎',
+        title: {
+          zh: '透明不等于一样浓',
+          en: 'Clear does not mean equally concentrated',
+        },
+        body: {
+          zh: '盐酸溶液通常无色，眼睛看不出浓度。滴定用能测量的反应来比较，避免把外观当证据。',
+          en: 'Hydrochloric acid solutions are usually colourless. Titration compares them through a measurable reaction instead of treating appearance as evidence.',
+        },
+      },
+      {
+        icon: '🧃',
+        title: {
+          zh: '饮料酸度怎样检查？',
+          en: 'How is drink acidity checked?',
+        },
+        body: {
+          zh: '食品实验室可用滴定比较酸度。但果汁往往有多种酸，不能直接套本课盐酸的 1∶1 模型；需要说明测量的是哪一种酸度指标。',
+          en: 'Food labs can use titration to compare acidity. Juice often contains several acids, so our 1:1 hydrochloric-acid model cannot be copied directly; the acidity measure must be defined.',
+        },
+      },
+      {
+        icon: '📏',
+        title: {
+          zh: '刻度读数是一段差值',
+          en: 'A scale reading is a difference',
+        },
+        body: {
+          zh: '滴定管开始在 2.00 mL，结束在 22.00 mL，实际送出的是 20.00 mL。它不像量杯，只看最后一个数字就够了。',
+          en: 'A burette starts at 2.00 mL and ends at 22.00 mL: it delivered 20.00 mL. Unlike a measuring cup, the final reading alone is not enough.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: {
+          zh: '读条件，找配对关系',
+          en: 'Read the conditions and find the ratio',
+        },
+        body: {
+          zh: '例题：25.0 mL 未知盐酸，需要 20.0 mL 的 0.100 mol/L NaOH 才恰好中和。HCl + NaOH → NaCl + H₂O，系数 1∶1：每 1 mol HCl 对应 1 mol NaOH。',
+          en: 'Worked example: 25.0 mL unknown HCl needs 20.0 mL of 0.100 mol/L NaOH for exact neutralisation. HCl + NaOH → NaCl + H₂O has a 1:1 ratio: each mole of HCl needs one mole of NaOH.',
+        },
+      },
+      {
+        title: {
+          zh: '用已知液体的体积算 mol',
+          en: 'Use the known solution to find moles',
+        },
+        body: {
+          zh: '20.0 mL = 0.0200 L。n(NaOH) = cV = 0.100 × 0.0200 = 0.00200 mol。反应比例是 1∶1，所以样品原有 n(HCl) = 0.00200 mol。',
+          en: '20.0 mL = 0.0200 L. n(NaOH) = cV = 0.100 × 0.0200 = 0.00200 mol. With the 1:1 ratio, the sample originally held 0.00200 mol HCl.',
+        },
+      },
+      {
+        title: {
+          zh: '回到原样品，算每升多少 mol',
+          en: 'Return to the original sample: moles per litre',
+        },
+        body: {
+          zh: '25.0 mL = 0.0250 L。c(HCl) = 0.00200 ÷ 0.0250 = 0.0800 mol/L。分母是原盐酸样品体积，不是加碱后的总体积：我们在问原来那瓶酸有多浓。',
+          en: '25.0 mL = 0.0250 L. c(HCl) = 0.00200 ÷ 0.0250 = 0.0800 mol/L. Divide by the original acid sample volume, not the combined acid-and-base volume: we want the original bottle concentration.',
+        },
+      },
+    ],
+    misconception: {
+      zh: '不能把所有滴定都当作 1∶1，也不能把终点当成绝对精确的等量点。本课用理想读数学习计算；真实实验要看方程式、选择合适指示剂并重复得到相近读数，不能靠尝味辨认酸碱。',
+      en: 'Not every titration is 1:1, and an observed endpoint is not an exact equivalence point. Here ideal readings teach the calculation; real work needs the equation, a suitable indicator and agreeing repeats, never taste-testing acids or bases.',
+    },
+    mission: {
+      zh: '在虚拟实验记录里选择一份样品，先估计酸比 0.100 mol/L 的碱更浓还是更稀，再选择计算结果。查看三步账本，然后换一份记录，解释为什么同体积的酸用碱越多，酸就越浓。',
+      en: 'Choose a virtual sample record. Predict whether the acid is more or less concentrated than the 0.100 mol/L base, then choose a result. Inspect the three-step ledger, switch records and explain why equal-volume acid samples need more base when more concentrated.',
+    },
+    vocabulary: [
+      { en: 'titrant', zh: '滴定剂' },
+      { en: 'delivered volume', zh: '送出体积' },
+      { en: 'stoichiometric ratio', zh: '化学计量比' },
+      { en: 'equivalence point', zh: '等量点' },
+    ],
+    interactive: 'titration-calculation-lab',
+    questions: [
+      {
+        id: 'titration-calculation-q1',
+        prompt: {
+          zh: '滴定管初读数 2.00 mL，末读数 22.00 mL，送出了多少液体？',
+          en: 'A burette starts at 2.00 mL and ends at 22.00 mL. How much was delivered?',
+        },
+        options: [
+          { zh: '22.00 mL', en: '22.00 mL' },
+          { zh: '24.00 mL', en: '24.00 mL' },
+          { zh: '20.00 mL', en: '20.00 mL' },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '送出体积 = 末读数 − 初读数 = 22.00 − 2.00 = 20.00 mL。末读数不等于使用量，除非初读数恰好为零。',
+          en: 'Delivered volume = final minus initial = 22.00 − 2.00 = 20.00 mL. The final reading equals the volume used only when the initial reading is zero.',
+        },
+      },
+      {
+        id: 'titration-calculation-q2',
+        prompt: {
+          zh: '20.0 mL、0.100 mol/L 的 NaOH 含多少 mol？',
+          en: 'How many moles are in 20.0 mL of 0.100 mol/L NaOH?',
+        },
+        options: [
+          { zh: '0.00200 mol', en: '0.00200 mol' },
+          { zh: '2.00 mol', en: '2.00 mol' },
+          { zh: '0.00500 mol', en: '0.00500 mol' },
+        ],
+        answer: 0,
+        explanation: {
+          zh: 'n = cV = 0.100 mol/L × 0.0200 L = 0.00200 mol。L 相消后才得到 mol；不能直接把 20.0 mL 当作 20.0 L。',
+          en: 'n = cV = 0.100 mol/L × 0.0200 L = 0.00200 mol. Litres cancel to leave moles; 20.0 mL must not be treated as 20.0 L.',
+        },
+      },
+      {
+        id: 'titration-calculation-q3',
+        prompt: {
+          zh: '25.0 mL HCl 恰好消耗 0.00200 mol NaOH。HCl∶NaOH = 1∶1，原盐酸浓度是多少？',
+          en: '25.0 mL HCl uses exactly 0.00200 mol NaOH. HCl:NaOH = 1:1. What was the acid concentration?',
+        },
+        options: [
+          {
+            zh: '0.0444 mol/L（除以加碱后 45.0 mL）',
+            en: '0.0444 mol/L (divide by 45.0 mL after adding base)',
+          },
+          { zh: '0.0800 mol/L', en: '0.0800 mol/L' },
+          { zh: '0.0000800 mol/L', en: '0.0000800 mol/L' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '先由 1∶1 得 n(HCl) = 0.00200 mol，再除以原样品 0.0250 L，得到 0.0800 mol/L。要找原瓶浓度，不要用反应后的混合体积。',
+          en: 'The 1:1 ratio gives n(HCl) = 0.00200 mol. Divide by the original 0.0250 L sample to get 0.0800 mol/L. We want the original bottle concentration, not the reacted mixture.',
+        },
+      },
+      {
+        id: 'titration-calculation-q4',
+        prompt: {
+          zh: '同样取 25.0 mL HCl，用同浓度 NaOH 滴定。A 需 10.0 mL，B 需 20.0 mL，哪条推理正确？',
+          en: 'Equal 25.0 mL HCl samples are titrated with the same NaOH concentration. A needs 10.0 mL; B needs 20.0 mL. Which reasoning is correct?',
+        },
+        options: [
+          {
+            zh: 'B 原来的 HCl 浓度是 A 的两倍',
+            en: 'B originally has twice the HCl concentration of A',
+          },
+          {
+            zh: 'A 更浓，因为用碱少',
+            en: 'A is more concentrated because it needs less base',
+          },
+          {
+            zh: '两瓶都透明，所以浓度相同',
+            en: 'Both are clear, so their concentrations match',
+          },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '相同 c(NaOH) 下，V 加倍表示 NaOH 的 mol 数加倍；1∶1 对应的 HCl 也加倍。原酸样品体积相同，所以 B 浓度加倍。',
+          en: 'At the same NaOH concentration, double its volume means double its moles. The 1:1 ratio doubles HCl moles too; equal acid sample volumes mean B has double the concentration.',
+        },
+      },
+      {
+        id: 'titration-calculation-q5',
+        prompt: {
+          zh: '若改用 H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O，0.00400 mol NaOH 恰好中和多少 mol H₂SO₄？',
+          en: 'For H₂SO₄ + 2NaOH → Na₂SO₄ + 2H₂O, how many moles of H₂SO₄ are exactly neutralised by 0.00400 mol NaOH?',
+        },
+        options: [
+          { zh: '0.00400 mol', en: '0.00400 mol' },
+          { zh: '0.00800 mol', en: '0.00800 mol' },
+          { zh: '0.00200 mol', en: '0.00200 mol' },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '每 1 mol H₂SO₄ 需要 2 mol NaOH，所以酸的 mol 数 = 0.00400 ÷ 2 = 0.00200 mol。先看系数，不能把盐酸的 1∶1 机械照搬。',
+          en: 'Each mole of H₂SO₄ needs two moles of NaOH, so acid moles = 0.00400 ÷ 2 = 0.00200 mol. Read the coefficients first; do not mechanically copy the HCl 1:1 ratio.',
+        },
+      },
+      {
+        id: 'titration-calculation-q6',
+        prompt: {
+          zh: '在本课 HCl 滴定中，超过恰好中和点还多加了碱，却用偏大的体积计算，酸浓度会怎样？',
+          en: 'In this HCl titration, extra base is added beyond exact neutralisation and the larger volume is used. What happens to the calculated acid concentration?',
+        },
+        options: [
+          { zh: '偏低', en: 'Too low' },
+          { zh: '偏高', en: 'Too high' },
+          {
+            zh: '不变，因为溶液仍透明',
+            en: 'Unchanged because the solution stays clear',
+          },
+        ],
+        answer: 1,
+        explanation: {
+          zh: 'c(NaOH) 不变，偏大的 V 让算出的 n(NaOH) 偏大，进而把 n(HCl) 和原酸浓度都算高了。这也是终点附近要慢加、真实滴定要重复的原因。',
+          en: 'Fixed c(NaOH) and an overlarge V overestimate NaOH moles, then HCl moles and acid concentration. This is why additions slow near the endpoint and real titrations are repeated.',
+        },
+      },
+    ],
+  },
 ];

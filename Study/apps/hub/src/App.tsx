@@ -5,6 +5,7 @@ import { LanguageSwitcher, useLanguageMode } from '@study/ui';
 import { subjects, type Subject } from './subjects';
 
 const ChemistryPage = lazy(() => import('./ChemistryPage'));
+const PhysicsPage = lazy(() => import('./PhysicsPage'));
 
 function subjectIcon(id: SubjectId) {
   if (id === 'physics') {
@@ -207,7 +208,16 @@ export function App() {
           </Suspense>
         }
       />
-      <Route path="/physics" element={<ComingSoon subject={subjects[0]!} />} />
+      <Route
+        path="/physics/*"
+        element={
+          <Suspense
+            fallback={<div className="study-loading">Loading Physics…</div>}
+          >
+            <PhysicsPage />
+          </Suspense>
+        }
+      />
       <Route path="/biology" element={<ComingSoon subject={subjects[2]!} />} />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>

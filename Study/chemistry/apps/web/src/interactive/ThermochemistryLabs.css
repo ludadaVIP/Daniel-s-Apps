@@ -1,0 +1,152 @@
+.thermo-lab {
+  min-width: 0;
+}
+.thermo-lab p {
+  margin: 0;
+}
+.thermo-lab details {
+  padding: 10px 12px;
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+}
+.thermo-lab summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+}
+.thermo-lab details p {
+  margin-top: 8px;
+}
+.thermo-cup-record {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.3fr);
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: #fff7ed;
+  border-radius: 14px;
+}
+.thermo-cup {
+  display: grid;
+  gap: 4px;
+  text-align: center;
+  padding: 12px 6px;
+  border: 3px solid #e7a96e;
+  border-top: 0;
+  border-radius: 0 0 24px 24px;
+  background: #ffedd5;
+}
+.thermo-cup span,
+.thermo-temperature span {
+  font-size: 15px;
+}
+.thermo-cup strong {
+  font-size: 23px;
+}
+.thermo-temperature {
+  display: grid;
+  gap: 6px;
+}
+.thermo-temperature strong {
+  font-size: 20px;
+  color: #9a3412;
+}
+.thermo-equation {
+  overflow-wrap: anywhere;
+  font-size: 16px;
+  padding: 9px 11px;
+  background: #f8fafc;
+  border-radius: 10px;
+}
+.thermo-ledger {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.thermo-lab .thermo-ledger > div {
+  grid-template-columns: minmax(0, 1fr);
+  gap: 4px;
+}
+.thermo-lab .thermo-ledger span {
+  font-size: 15px;
+}
+.thermo-ledger small {
+  font-size: 15px;
+  overflow-wrap: anywhere;
+}
+.thermo-route-reference {
+  display: grid;
+  gap: 5px;
+  border: 1px solid #b8d8d4;
+  padding: 12px;
+  border-radius: 13px;
+  background: #f0fdfa;
+}
+.thermo-route-reference > span {
+  font-size: 15px;
+  color: #285b59;
+}
+.thermo-route-reference > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 5px 12px;
+  padding: 6px 0;
+  border-bottom: 2px solid #66aaa3;
+}
+.thermo-route-reference strong,
+.thermo-route-reference b {
+  font-size: 17px;
+}
+.thermo-route-reference p {
+  font-size: 16px;
+  padding-left: 12px;
+  color: #9a3412;
+}
+.thermo-equation-stack {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.thermo-equation-stack > div {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  padding: 10px;
+  background: #f8fafc;
+  border-radius: 10px;
+  font-size: 16px;
+  overflow-wrap: anywhere;
+}
+.thermo-equation-stack .thermo-sum {
+  border: 1px solid #72b1a9;
+  background: #f0fdfa;
+}
+@media (max-width: 600px) {
+  .thermo-equation-stack > div {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 4px;
+  }
+  .thermo-ledger {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .thermo-cup-record {
+    gap: 9px;
+    padding: 10px;
+  }
+  .thermo-temperature strong {
+    font-size: 18px;
+  }
+}
+@media (max-width: 360px) {
+  .thermo-cup-record {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .thermo-cup {
+    max-width: 165px;
+    width: 100%;
+    margin-inline: auto;
+    box-sizing: border-box;
+  }
+  .thermo-temperature {
+    text-align: center;
+  }
+}

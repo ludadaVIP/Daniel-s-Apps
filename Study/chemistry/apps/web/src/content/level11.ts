@@ -115,7 +115,7 @@ export const level11Lessons: Lesson[] = [
         answer: 0,
         explanation: {
           zh: '糖是被水分散开的物质，所以是溶质；水是溶剂。',
-          en: 'Explanation: Sugar is the material dispersed by water, so it is the solute; water is the solvent.',
+          en: 'Sugar is the material dispersed by water, so it is the solute; water is the solvent.',
         },
       },
       {
@@ -132,7 +132,7 @@ export const level11Lessons: Lesson[] = [
         answer: 0,
         explanation: {
           zh: '甜味来自仍分散在水中的糖粒子；透明并不等于里面没有溶质。',
-          en: 'Explanation: Sweetness comes from sugar particles still dispersed in water; clear does not mean solute-free.',
+          en: 'Sweetness comes from sugar particles still dispersed in water; clear does not mean solute-free.',
         },
       },
       {
@@ -155,7 +155,7 @@ export const level11Lessons: Lesson[] = [
         answer: 0,
         explanation: {
           zh: '搅拌更新糖粒周围的液体，帮助粒子更快离开表面并扩散；它不制造新元素。',
-          en: 'Explanation: Stirring refreshes liquid around crystals, helping particles leave and spread faster; it does not create new elements.',
+          en: 'Stirring refreshes liquid around crystals, helping particles leave and spread faster; it does not create new elements.',
         },
       },
       {
@@ -175,7 +175,7 @@ export const level11Lessons: Lesson[] = [
         answer: 0,
         explanation: {
           zh: '可溶解的量有限。剩余固体说明此时水已难以再容纳更多同种溶质。',
-          en: 'Explanation: Solubility is limited. Remaining solid shows that the water cannot take much more of that solute at that moment.',
+          en: 'Solubility is limited. Remaining solid shows that the water cannot take much more of that solute at that moment.',
         },
       },
     ],
@@ -540,6 +540,233 @@ export const level11Lessons: Lesson[] = [
         explanation: {
           zh: '溶解度依赖条件；没有温度和单位，数字无法公平比较。',
           en: 'Solubility depends on conditions; without temperature and units, values cannot be compared fairly.',
+        },
+      },
+    ],
+  },
+  {
+    id: 'molar-concentration-recipe',
+    levelId: 'solutions',
+    order: 71,
+    title: {
+      zh: '每升有多少 mol？把配方变成粒子账本',
+      en: 'How many moles per litre? A particle recipe',
+    },
+    eyebrow: {
+      zh: '第 71 课 · 从 g/L 走到 mol/L',
+      en: 'Lesson 71 · From g/L to mol/L',
+    },
+    hook: {
+      zh: '同样是 18 g，葡萄糖和食盐含有的化学“份数”一样多吗？调饮料常看克数；要让反应恰好配对，却需要知道每升溶液里有多少 mol。',
+      en: 'Do 18 g of glucose and 18 g of salt contain the same number of chemical portions? Drink recipes use grams; matching reactants needs moles per litre of solution.',
+    },
+    hookHint: {
+      zh: '先回想第 48–50 课的 mol 与摩尔质量，再接上第 52 课的浓度。不同物质每 mol 的质量不同，所以不能直接拿克数比较粒子份数。',
+      en: 'Recall moles and molar mass from Lessons 48–50, then concentration from Lesson 52. Different substances have different masses per mole, so grams alone cannot compare particle amounts.',
+    },
+    bigIdea: {
+      zh: '物质的量浓度 c = n/V：用溶质的 mol 数，除以最终溶液的升数。',
+      en: 'Molar concentration c = n/V: moles of solute divided by final solution volume in litres.',
+    },
+    estimatedMinutes: 20,
+    everydayExamples: [
+      {
+        icon: '🥤',
+        title: { zh: '配方的两种语言', en: 'Two ways to describe a recipe' },
+        body: {
+          zh: 'g/L 方便称量；mol/L 方便把溶液配方接到反应方程式。它们描述同一杯溶液，却回答不同的问题。',
+          en: 'g/L is handy for weighing; mol/L connects a solution recipe to a reaction equation. They describe the same solution but answer different questions.',
+        },
+      },
+      {
+        icon: '🧪',
+        title: { zh: '实验室为什么写 mol/L？', en: 'Why lab labels use mol/L' },
+        body: {
+          zh: '标签上的 0.100 mol/L 告诉我们：取 1.00 L 溶液，就含有 0.100 mol 指定溶质。取 0.100 L，只取到十分之一的份数。',
+          en: 'A 0.100 mol/L label means 1.00 L contains 0.100 mol of the named solute. A 0.100 L portion contains one tenth as many moles.',
+        },
+      },
+      {
+        icon: '💧',
+        title: {
+          zh: '加水不是加溶质',
+          en: 'Adding water is not adding solute',
+        },
+        body: {
+          zh: '同一杯溶液加水到两倍体积，溶质并没有凭空减少，但每升分到的份数变少了。这就是稀释，不是“糖消失了”。',
+          en: 'Dilute a solution to twice its volume: no solute vanishes, but each litre contains fewer moles. Dilution is not disappearing sugar.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: { zh: '先把克数换成 mol', en: 'First turn grams into moles' },
+        body: {
+          zh: '例题：18.0 g 葡萄糖，摩尔质量取 180 g/mol。n = m/M = 18.0 ÷ 180 = 0.100 mol。不是 18 mol；克是质量，mol 是化学份数。',
+          en: 'Worked example: 18.0 g glucose, using M = 180 g/mol. n = m/M = 18.0 ÷ 180 = 0.100 mol. Not 18 mol: grams measure mass; moles count chemical portions.',
+        },
+      },
+      {
+        title: {
+          zh: '再除以最终溶液体积',
+          en: 'Then divide by final solution volume',
+        },
+        body: {
+          zh: '把这份葡萄糖配成 500 mL 溶液：先把 500 mL 换成 0.500 L。c = 0.100 ÷ 0.500 = 0.200 mol/L。为什么除？因为我们要问“平均每 1 L 有多少 mol”。',
+          en: 'Make a final solution volume of 500 mL: convert it to 0.500 L. c = 0.100 ÷ 0.500 = 0.200 mol/L. Why divide? We are finding moles in each litre.',
+        },
+      },
+      {
+        title: {
+          zh: '稀释时追踪不变的量',
+          en: 'Track what stays fixed during dilution',
+        },
+        body: {
+          zh: '只加水，把上面的整份溶液稀释至 1.00 L。n 仍是 0.100 mol，因此 c = 0.100 mol/L，减半。c₁V₁ = c₂V₂ 只是两边都等于同一份 n；适用于没有反应、没有溶质损失的稀释。',
+          en: 'Add only water to bring the whole solution to 1.00 L. n stays 0.100 mol, so c becomes 0.100 mol/L: half as much. c₁V₁ = c₂V₂ means both sides equal the same n, for dilution without reaction or solute loss.',
+        },
+      },
+    ],
+    misconception: {
+      zh: '500 mL 水不等于最终得到 500 mL 溶液。溶解后的体积不能简单把水和固体体积相加；公式里的 V 必须是最终溶液体积。mol/L 也不是甜度或饮用安全指标。',
+      en: '500 mL of water is not necessarily 500 mL of final solution. Volumes do not simply add when a solid dissolves; V must be the final solution volume. mol/L is not a measure of sweetness or drinking safety.',
+    },
+    mission: {
+      zh: '在虚拟配方台里，把 18 g 葡萄糖配成 500 mL 溶液。先预测加水到 1000 mL 后浓度怎样变，再揭晓。然后把配方的最终体积设为 1000 mL，试着仅增加溶质质量，让浓度回到稀释前的值，并解释为什么。',
+      en: 'On the virtual recipe bench, make 500 mL of solution with 18 g glucose. Predict the change when diluted to 1000 mL, then reveal it. Next set the recipe volume to 1000 mL and increase only the solute mass to restore the pre-dilution concentration. Explain why.',
+    },
+    vocabulary: [
+      { en: 'molar concentration', zh: '物质的量浓度' },
+      { en: 'final solution volume', zh: '最终溶液体积' },
+      { en: 'molar mass', zh: '摩尔质量' },
+      { en: 'dilution', zh: '稀释' },
+    ],
+    interactive: 'molar-concentration-lab',
+    questions: [
+      {
+        id: 'molar-concentration-q1',
+        prompt: {
+          zh: '0.200 mol/L 葡萄糖溶液：这个标签最直接告诉你什么？',
+          en: 'What does a 0.200 mol/L glucose label tell you directly?',
+        },
+        options: [
+          {
+            zh: '每升溶液含 0.200 g 葡萄糖',
+            en: 'Each litre contains 0.200 g glucose',
+          },
+          {
+            zh: '每升溶液含 0.200 mol 葡萄糖',
+            en: 'Each litre contains 0.200 mol glucose',
+          },
+          {
+            zh: '整瓶一定只有 0.200 mol 葡萄糖',
+            en: 'The whole bottle must contain exactly 0.200 mol glucose',
+          },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '“每升”是比较浓度的共同基准。整瓶的 mol 数还取决于瓶中有多少升；单位是 mol/L，不是 g/L。',
+          en: '“Per litre” is the shared basis for concentration. Total moles also depend on bottle volume; the unit is mol/L, not g/L.',
+        },
+      },
+      {
+        id: 'molar-concentration-q2',
+        prompt: {
+          zh: '0.0500 mol 溶质配成 250 mL 溶液，浓度是多少？',
+          en: '0.0500 mol solute makes 250 mL solution. What is its concentration?',
+        },
+        options: [
+          { zh: '0.200 mol/L', en: '0.200 mol/L' },
+          { zh: '0.000200 mol/L', en: '0.000200 mol/L' },
+          { zh: '5.00 mol/L', en: '5.00 mol/L' },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '250 mL = 0.250 L。c = 0.0500 ÷ 0.250 = 0.200 mol/L。不换成 L 就除以 250，会小 1000 倍。',
+          en: '250 mL = 0.250 L. c = 0.0500 ÷ 0.250 = 0.200 mol/L. Dividing by 250 without converting to litres makes the answer 1000 times too small.',
+        },
+      },
+      {
+        id: 'molar-concentration-q3',
+        prompt: {
+          zh: '36.0 g 葡萄糖（M = 180 g/mol）配成 1.00 L 溶液，哪条计算正确？',
+          en: '36.0 g glucose (M = 180 g/mol) makes 1.00 L solution. Which calculation is correct?',
+        },
+        options: [
+          {
+            zh: 'c = 36.0 ÷ 1.00 = 36.0 mol/L',
+            en: 'c = 36.0 ÷ 1.00 = 36.0 mol/L',
+          },
+          {
+            zh: 'c = 180 ÷ 36.0 = 5.00 mol/L',
+            en: 'c = 180 ÷ 36.0 = 5.00 mol/L',
+          },
+          {
+            zh: 'n = 36.0 ÷ 180 = 0.200 mol，再算 c = 0.200 mol/L',
+            en: 'n = 36.0 ÷ 180 = 0.200 mol, then c = 0.200 mol/L',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '先用摩尔质量把 g 换成 mol，再除以 L。第一条得到的是 g/L，不是 mol/L；第二条把 m/M 倒过来了。',
+          en: 'Convert grams to moles using molar mass, then divide by litres. The first line gives g/L, not mol/L; the second reverses m/M.',
+        },
+      },
+      {
+        id: 'molar-concentration-q4',
+        prompt: {
+          zh: '不损失溶质，只加水把整份溶液体积变成两倍，什么保持不变？',
+          en: 'Without losing solute, dilute a whole solution to twice its volume. What stays unchanged?',
+        },
+        options: [
+          { zh: '物质的量浓度 c', en: 'Molar concentration c' },
+          { zh: '溶质的物质的量 n', en: 'Amount of solute n' },
+          { zh: '溶液体积 V', en: 'Solution volume V' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '水增加了，但溶质的 mol 数没有变。V 加倍时，n/V 减半；n 不变并不意味着 c 不变。',
+          en: 'Water is added, but solute moles stay fixed. Doubling V halves n/V; unchanged n does not mean unchanged c.',
+        },
+      },
+      {
+        id: 'molar-concentration-q5',
+        prompt: {
+          zh: '小林把溶质加入 500 mL 水，就用 0.500 L 算浓度。缺少哪条信息？',
+          en: 'Lin adds solute to 500 mL water and uses 0.500 L to calculate concentration. What information is missing?',
+        },
+        options: [
+          { zh: '溶解后最终溶液体积', en: 'Final volume after dissolving' },
+          { zh: '杯子的颜色', en: 'Colour of the cup' },
+          { zh: '搅拌了几圈', en: 'Number of stirs' },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '分母是溶液体积，不是加入前的水体积。应先溶解，再确认或调节最终溶液体积。',
+          en: 'The denominator is solution volume, not the starting water volume. Dissolve first, then measure or adjust the final solution volume.',
+        },
+      },
+      {
+        id: 'molar-concentration-q6',
+        prompt: {
+          zh: 'A：0.100 mol / 0.500 L；B：0.200 mol / 1.00 L。两杯浓度怎么比较？',
+          en: 'A: 0.100 mol / 0.500 L; B: 0.200 mol / 1.00 L. Compare their concentrations.',
+        },
+        options: [
+          {
+            zh: 'B 的溶质多，所以浓度一定高',
+            en: 'B has more solute, so it must be more concentrated',
+          },
+          {
+            zh: 'A 的体积小，所以浓度一定高',
+            en: 'A has less volume, so it must be more concentrated',
+          },
+          { zh: '相同，都是 0.200 mol/L', en: 'Equal: both are 0.200 mol/L' },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '浓度比较的是比值，不是单独比总量或体积。B 的 n 和 V 都是 A 的两倍，所以比值相同。',
+          en: 'Concentration compares a ratio, not total amount or volume alone. B doubles both n and V, leaving the ratio unchanged.',
         },
       },
     ],

@@ -1,0 +1,2774 @@
+.phy-app {
+  --ink: #332e40;
+  --muted: #8a8492;
+  --purple: #78629f;
+  --line: #e8e4ed;
+  --paper: #f7f6f2;
+  font-family:
+    Inter, 'SF Pro Display', 'PingFang SC', 'Microsoft YaHei', system-ui,
+    sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+  min-height: 100vh;
+  font-size: 14px;
+  line-height: 1.55;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  display: flex;
+}
+.phy-app * {
+  box-sizing: border-box;
+}
+.phy-app a {
+  color: inherit;
+  text-decoration: none;
+}
+.phy-app button,
+.phy-app input,
+.phy-app textarea {
+  font: inherit;
+}
+.phy-app button {
+  cursor: pointer;
+}
+.phy-app button:disabled {
+  cursor: default;
+  opacity: 0.45;
+}
+.phy-app button:focus-visible,
+.phy-app a:focus-visible,
+.phy-app input:focus-visible,
+.phy-app textarea:focus-visible {
+  outline: 3px solid #bc8e58;
+  outline-offset: 4px;
+}
+.phy-app h1,
+.phy-app h2,
+.phy-app h3,
+.phy-app p {
+  margin: 0;
+}
+.phy-app h1 {
+  font-size: 30px;
+  font-weight: 760;
+  letter-spacing: -1px;
+  line-height: 1.35;
+}
+.phy-app h1 .phy-en {
+  font-size: 15px;
+  letter-spacing: 0;
+  margin-top: 6px;
+  font-weight: 400;
+}
+.phy-en {
+  display: block;
+  font-size: 0.79em;
+  line-height: 1.4;
+  font-weight: 400;
+  opacity: 0.65;
+  margin-top: 3px;
+}
+.phy-sidebar {
+  width: 218px;
+  flex-shrink: 0;
+  background: #fdfcf9;
+  border-right: 1px solid var(--line);
+  position: fixed;
+  inset: 0 auto 0 0;
+  display: flex;
+  flex-direction: column;
+  padding: 31px 20px 22px;
+  z-index: 20;
+}
+.phy-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 0 9px;
+}
+.phy-brand-symbol {
+  font-family: Georgia, serif;
+  background: #826aa6;
+  color: #fff;
+  width: 37px;
+  height: 42px;
+  border-radius: 12px 12px 12px 3px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 39px;
+  font-style: italic;
+  line-height: 1;
+  padding-bottom: 7px;
+}
+.phy-brand-symbol > span {
+  font-family: system-ui;
+  font-size: 29px;
+  font-style: normal;
+  color: #edcda8;
+  align-self: end;
+  line-height: 0.8;
+  padding-bottom: 7px;
+}
+.phy-brand strong {
+  font-size: 18px;
+  letter-spacing: -0.6px;
+  display: block;
+}
+.phy-brand div > span {
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 2px;
+}
+.phy-sidebar-label {
+  color: #a19aa7;
+  font-size: 9px;
+  letter-spacing: 1.9px;
+  margin: 44px 12px 14px !important;
+  font-weight: 650;
+}
+.phy-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.phy-sidebar nav > a {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 13px 13px;
+  border-radius: 8px;
+  color: #807a89;
+  font-size: 13px;
+  transition: background 0.2s;
+}
+.phy-sidebar nav > a:hover {
+  background: #f3f0f5;
+}
+.phy-sidebar nav > a.active {
+  background: #ece7f2;
+  color: #725a99;
+  font-weight: 650;
+}
+.phy-sidebar nav .phy-en {
+  font-size: 10px;
+  margin-top: 1px;
+}
+.phy-nav-count {
+  margin-left: auto;
+  background: #826ba4;
+  color: white;
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  font-size: 11px;
+}
+.phy-sidebar-bottom {
+  margin-top: auto;
+  padding-top: 40px;
+}
+.phy-sidebar-progress {
+  background: #f3f0f5;
+  padding: 17px;
+  border-radius: 10px;
+}
+.phy-sidebar-progress > span {
+  color: #8f829d;
+  font-size: 11px;
+}
+.phy-sidebar-progress > strong {
+  display: block;
+  font-size: 26px;
+  margin: 9px 0;
+  color: #786299;
+  font-weight: 600;
+}
+.phy-sidebar-progress small {
+  font-size: 14px;
+  color: #a89bb5;
+}
+.phy-study-back {
+  display: flex;
+  gap: 10px;
+  padding: 22px 10px 0;
+  color: #8b8492 !important;
+  font-size: 11px;
+  align-items: center;
+}
+.phy-study-back > span:last-child {
+  margin-left: auto;
+}
+.phy-main-shell {
+  margin-left: 218px;
+  flex: 1;
+  min-width: 0;
+}
+.phy-header {
+  height: 81px;
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 38px;
+  background: #fcfbf8;
+  gap: 20px;
+}
+.phy-header > div:first-child {
+  font-size: 11px;
+  color: #918794;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.phy-header > div:first-child .phy-en {
+  display: inline;
+  margin-left: 8px;
+  font-size: 10px;
+}
+.phy-header-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #b4a2c9;
+}
+.phy-language {
+  display: flex;
+  gap: 2px;
+  padding: 3px;
+  border: 1px solid #e6e1e9;
+  border-radius: 7px;
+  background: #f4f1f5;
+}
+.phy-language button {
+  border: 0;
+  background: transparent;
+  color: #9a90a2;
+  padding: 5px 10px;
+  font-size: 10px;
+  border-radius: 4px;
+}
+.phy-language button.selected {
+  background: #fff;
+  color: #786299;
+  box-shadow: 0 1px 4px #5c487012;
+}
+.phy-main {
+  max-width: 1450px;
+  margin: auto;
+  padding: 30px 38px 40px;
+  min-height: calc(100vh - 140px);
+}
+.phy-page {
+  animation: phy-appear 0.3s ease;
+}
+.phy-eyebrow {
+  font-size: 9px;
+  font-weight: 650;
+  letter-spacing: 1.8px;
+  color: #a198a8;
+  line-height: 1.5;
+}
+.phy-greeting {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  margin-bottom: 24px;
+}
+.phy-greeting .phy-eyebrow {
+  margin-bottom: 8px;
+}
+.phy-greeting h1 {
+  font-size: 25px;
+  letter-spacing: -0.7px;
+}
+.phy-greeting h1 .phy-en {
+  font-size: 13px;
+  margin-top: 3px;
+}
+.phy-age {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #99919f;
+  font-size: 10px;
+  text-align: right;
+  flex-shrink: 0;
+}
+.phy-live-dot {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #99aaa0;
+}
+.phy-hero {
+  background: #73608f;
+  border: 1px solid #766392;
+  border-radius: 14px;
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  min-height: 305px;
+}
+.phy-hero-copy {
+  padding: 29px 34px;
+  z-index: 1;
+}
+.phy-hero-tag {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 10px;
+  color: #e0d5ed;
+  letter-spacing: 1px;
+}
+.phy-hero-tag .phy-en {
+  display: inline;
+  margin-left: 7px;
+  font-size: 8px;
+}
+.phy-hero-tag > span:first-child {
+  width: 5px;
+  height: 5px;
+  background: #e6bb93;
+  border-radius: 50%;
+}
+.phy-hero h2 {
+  white-space: pre-line;
+  font-size: 37px;
+  line-height: 1.35;
+  font-weight: 730;
+  letter-spacing: -1px;
+  margin: 16px 0 12px;
+}
+.phy-hero h2 .phy-en {
+  font-size: 17px;
+  line-height: 1.3;
+  color: #e3d9ef;
+  font-weight: 400;
+  letter-spacing: 0;
+  margin-top: 9px;
+  opacity: 0.85;
+}
+.phy-hero p {
+  white-space: pre-line;
+  font-size: 11px;
+  color: #e6dfef;
+  line-height: 1.8;
+}
+.phy-hero p .phy-en {
+  font-size: 10px;
+  line-height: 1.6;
+  margin-top: 6px;
+  opacity: 0.68;
+}
+.phy-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  background: #7c64a0;
+  color: #fff !important;
+  border: 1px solid transparent;
+  border-radius: 7px;
+  padding: 10px 16px;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 1.3;
+  transition:
+    background 0.18s,
+    transform 0.18s;
+  min-height: 41px;
+}
+.phy-button .phy-en {
+  font-size: 9px;
+  margin-top: 3px;
+}
+.phy-button:hover:not(:disabled) {
+  background: #675085;
+  transform: translateY(-1px);
+}
+.phy-button-peach {
+  background: #f0cead;
+  color: #5c4254 !important;
+  margin-top: 19px;
+  font-size: 12px;
+}
+.phy-button-peach:hover {
+  background: #f9dcbd !important;
+}
+.phy-button-light {
+  background: #f4eef8;
+  color: #795f96 !important;
+  border: 1px solid #e4d9ed;
+}
+.phy-button-light:hover {
+  background: #eae2f0 !important;
+}
+.phy-hero-foot {
+  display: block;
+  font-size: 9px;
+  color: #c8b9d8;
+  margin-top: 12px;
+}
+.phy-hero-foot .phy-en {
+  display: inline;
+  margin-left: 7px;
+  font-size: 8px;
+}
+.phy-orbit {
+  align-self: center;
+  min-width: 0;
+  position: relative;
+  padding-bottom: 20px;
+}
+.phy-orbit svg {
+  width: 100%;
+  max-height: 335px;
+}
+.phy-orbit-caption {
+  position: absolute;
+  left: 50%;
+  bottom: 15px;
+  transform: translateX(-50%);
+  white-space: nowrap;
+  font-family: monospace;
+  font-size: 8px;
+  letter-spacing: 1px;
+  color: #c9b8dd;
+}
+.phy-satellite {
+  animation: phy-float 7s ease-in-out infinite;
+}
+.phy-dashboard-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 263px;
+  gap: 23px;
+  margin-top: 27px;
+}
+.phy-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 14px;
+}
+.phy-section-heading h2 {
+  font-size: 17px;
+  font-weight: 670;
+  letter-spacing: -0.3px;
+}
+.phy-section-heading h2 .phy-en {
+  display: inline;
+  margin-left: 9px;
+  font-size: 10px;
+  color: #8f8498;
+}
+.phy-section-heading > a {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  color: #98899f;
+  font-size: 10px;
+}
+.phy-section-heading > a .phy-en {
+  font-size: 9px;
+}
+.phy-section-heading > span {
+  color: #9a90a1;
+  font-size: 11px;
+}
+.phy-home-lessons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 13px;
+}
+.phy-lesson-card {
+  background: #fffefd;
+  border: 1px solid #e7e2e9;
+  border-radius: 10px;
+  overflow: hidden;
+  transition:
+    transform 0.2s,
+    border-color 0.2s;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+.phy-lesson-card:hover {
+  transform: translateY(-3px);
+  border-color: #bba7ce;
+  box-shadow: 0 7px 18px #6d567b0b;
+}
+.phy-card-art {
+  height: 113px;
+  background: #f0ebf6;
+  color: #8f7aa9;
+  position: relative;
+  overflow: hidden;
+}
+.phy-art-variables .phy-card-art {
+  background: #eef0f7;
+  color: #8a92b2;
+}
+.phy-art-observation .phy-card-art {
+  background: #f7eee4;
+  color: #b49672;
+}
+.phy-art-length .phy-card-art {
+  background: #f8f0e1;
+  color: #ae915a;
+}
+.phy-art-speed .phy-card-art {
+  background: #e9f1ed;
+  color: #769e8e;
+}
+.phy-card-num {
+  position: absolute;
+  top: 10px;
+  left: 13px;
+  font-size: 10px;
+  font-family: monospace;
+  z-index: 1;
+  opacity: 0.6;
+}
+.phy-lesson-art {
+  width: 100%;
+  height: 100%;
+}
+.phy-card-status {
+  position: absolute;
+  bottom: 8px;
+  right: 9px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  background: #ffffffba;
+  backdrop-filter: blur(3px);
+  padding: 3px 6px;
+  border-radius: 4px;
+  font-size: 8px;
+  color: #89778f;
+}
+.phy-card-status .phy-en {
+  display: inline;
+  font-size: 7px;
+  margin: 0;
+}
+.phy-card-copy {
+  padding: 14px 15px 11px;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+.phy-card-copy h3 {
+  font-size: 14px;
+  line-height: 1.4;
+  font-weight: 650;
+}
+.phy-card-copy h3 .phy-en {
+  font-size: 10px;
+  color: #95879e;
+  margin-top: 4px;
+}
+.phy-card-copy p {
+  font-size: 10px;
+  color: #a19aa7;
+  line-height: 1.6;
+  margin-top: 8px;
+}
+.phy-card-copy p .phy-en {
+  font-size: 9px;
+  line-height: 1.4;
+  margin-top: 4px;
+}
+.phy-card-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #8a739e;
+  font-size: 9px;
+  padding-top: 13px;
+  margin-top: auto;
+}
+.phy-card-bottom .phy-en {
+  display: inline;
+  font-size: 8px;
+  margin-left: 5px;
+}
+.phy-lab-invite {
+  margin-top: 18px;
+  background: #eeeee5;
+  border: 1px solid #e5e4d8;
+  border-radius: 10px;
+  padding: 19px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.phy-invite-icon {
+  background: #dfdfcb;
+  color: #919572;
+  display: grid;
+  place-items: center;
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  flex-shrink: 0;
+}
+.phy-lab-invite .phy-eyebrow {
+  color: #929375;
+  font-size: 8px;
+  letter-spacing: 1.5px;
+}
+.phy-lab-invite h3 {
+  font-size: 14px;
+  color: #61674f;
+  margin-top: 5px;
+}
+.phy-lab-invite h3 .phy-en {
+  display: inline;
+  font-size: 10px;
+  margin-left: 8px;
+}
+.phy-lab-invite p:last-child {
+  font-size: 10px;
+  color: #919079;
+  margin-top: 4px;
+}
+.phy-lab-invite p:last-child .phy-en {
+  font-size: 9px;
+}
+.phy-round-arrow {
+  display: grid;
+  place-items: center;
+  border: 1px solid #cfcfbb;
+  width: 31px;
+  height: 31px;
+  border-radius: 50%;
+  margin-left: auto;
+  flex-shrink: 0;
+  color: #8b8d70;
+}
+.phy-today-card {
+  border: 1px solid #e7e1ec;
+  border-radius: 11px;
+  background: #fcfafc;
+  padding: 20px;
+}
+.phy-card-heading {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  color: #8f799e;
+  font-size: 11px;
+}
+.phy-card-heading > .phy-tag {
+  margin-left: auto;
+  font-size: 8px;
+  padding: 4px 6px;
+}
+.phy-card-heading .phy-en {
+  font-size: 8px;
+}
+.phy-tag {
+  display: inline-flex;
+  gap: 6px;
+  align-items: center;
+  flex-shrink: 0;
+  background: #f0ebf4;
+  color: #9a84ae;
+  border-radius: 5px;
+  border: 1px solid #e7dfec;
+  padding: 6px 9px;
+  font-size: 10px;
+}
+.phy-tag .phy-en {
+  display: inline;
+  margin: 0;
+  font-size: 9px;
+}
+.phy-today-card h3 {
+  margin-top: 21px;
+  font-size: 20px;
+  font-weight: 650;
+}
+.phy-today-card h3 .phy-en {
+  font-size: 11px;
+  margin-top: 6px;
+  color: #9b8aa5;
+}
+.phy-today-card > p {
+  font-size: 11px;
+  color: #a095a5;
+  margin-top: 10px;
+}
+.phy-today-card > p .phy-en {
+  font-size: 10px;
+}
+.phy-today-progress {
+  display: flex;
+  justify-content: space-between;
+  font-size: 9px;
+  color: #a296a9;
+  margin-top: 23px;
+  margin-bottom: 8px;
+}
+.phy-today-progress .phy-en {
+  display: inline;
+  margin-left: 5px;
+  font-size: 8px;
+}
+.phy-today-progress strong {
+  font-weight: 500;
+  color: #8a759e;
+}
+.phy-progress-bar {
+  height: 4px;
+  background: #e5ddeb;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.phy-progress-bar i {
+  display: block;
+  height: 100%;
+  background: #a58cbb;
+  border-radius: 5px;
+  transition: width 0.3s;
+}
+.phy-today-link {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-top: 1px solid #e9e2ed;
+  margin-top: 18px;
+  padding-top: 13px;
+  font-size: 10px;
+  color: #947ba6 !important;
+}
+.phy-today-link .phy-en {
+  display: inline;
+  margin-left: 6px;
+  font-size: 9px;
+}
+.phy-review-card {
+  display: flex;
+  gap: 12px;
+  padding: 17px 2px;
+  align-items: center;
+  color: #a087ac !important;
+}
+.phy-review-card h3 {
+  font-size: 12px;
+  font-weight: 500;
+}
+.phy-review-card h3 .phy-en {
+  font-size: 9px;
+}
+.phy-review-card p {
+  font-size: 9px;
+  color: #a89cab;
+  margin-top: 5px;
+}
+.phy-review-card > svg:first-child {
+  flex-shrink: 0;
+}
+.phy-review-card > svg:last-child {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.phy-daily-note {
+  border-top: 1px solid #e5dfe8;
+  margin-top: 2px;
+  padding: 18px 4px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 12px;
+  color: #a397a9;
+}
+.phy-tiny-star {
+  font-size: 27px;
+  line-height: 1;
+  color: #baa0c6;
+}
+.phy-daily-note p {
+  font-size: 11px;
+  white-space: pre-line;
+}
+.phy-daily-note .phy-en {
+  font-size: 10px;
+}
+.phy-daily-note > span:last-child {
+  font-size: 7px;
+  letter-spacing: 1.3px;
+  margin-left: 39px;
+}
+.phy-footer {
+  max-width: 1450px;
+  margin: auto;
+  padding: 18px 38px;
+  border-top: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  color: #b4a9b9;
+  gap: 15px;
+  font-size: 9px;
+}
+.phy-footer > span:first-child {
+  font-size: 8px;
+  letter-spacing: 1.3px;
+}
+.phy-footer i {
+  margin: 0 9px;
+  font-style: normal;
+  color: #d0c5d5;
+}
+.phy-footer .phy-en {
+  display: inline;
+  margin-left: 8px;
+  font-size: 8px;
+}
+.phy-page-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  margin: 12px 0 24px;
+}
+.phy-page-heading .phy-eyebrow {
+  margin-bottom: 8px;
+}
+.phy-lead {
+  color: #958b9c;
+  font-size: 13px;
+  line-height: 1.8;
+  margin: 15px 0 22px !important;
+  max-width: 800px;
+}
+.phy-lead .phy-en {
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 6px;
+}
+.phy-path-heading {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.phy-path-heading h2 {
+  font-size: 20px;
+}
+.phy-path-heading h2 .phy-en {
+  display: inline;
+  margin-left: 12px;
+  font-size: 12px;
+}
+.phy-path-heading p {
+  font-size: 11px;
+  color: #a08ba9;
+  margin-top: 5px;
+}
+.phy-path-heading p .phy-en {
+  display: inline;
+  margin-left: 8px;
+  font-size: 10px;
+}
+.phy-stage-number {
+  width: 44px;
+  height: 44px;
+  border: 1px solid #d9cce5;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: #a18bb6;
+  background: #eee7f3;
+  font-size: 17px;
+  font-family: monospace;
+}
+.phy-path-heading > .phy-tag {
+  margin-left: auto;
+}
+.phy-path-lessons {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+.phy-path-lessons .phy-card-art {
+  height: 150px;
+}
+.phy-path-lessons .phy-card-copy {
+  padding: 19px;
+}
+.phy-path-lessons .phy-card-copy h3 {
+  font-size: 17px;
+}
+.phy-path-lessons .phy-card-copy p {
+  font-size: 12px;
+}
+.phy-roadmap-title {
+  margin-top: 42px;
+}
+.phy-soft {
+  color: #a396ad;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.phy-soft .phy-en {
+  font-size: 10px;
+  margin-top: 5px;
+}
+.phy-roadmap {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 13px;
+  margin-top: 20px;
+}
+.phy-roadmap article {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #fbfaf7;
+  border: 1px solid #e8e3e9;
+  border-radius: 8px;
+  padding: 18px;
+}
+.phy-roadmap-number {
+  font-size: 20px;
+  font-family: monospace;
+  color: #c5b9ce;
+}
+.phy-roadmap h3 {
+  font-size: 14px;
+  font-weight: 600;
+}
+.phy-roadmap h3 .phy-en {
+  font-size: 10px;
+}
+.phy-roadmap p {
+  font-size: 10px;
+  color: #a39aa9;
+  margin-top: 7px;
+}
+.phy-roadmap-meta {
+  margin-left: auto;
+  text-align: right;
+  flex-shrink: 0;
+  font-size: 8px;
+  color: #b3a5bd;
+}
+.phy-roadmap-meta > span:first-child {
+  display: block;
+  font-size: 11px;
+  margin-bottom: 7px;
+}
+.phy-breadcrumb {
+  display: flex;
+  gap: 10px;
+  color: #a294ad;
+  font-size: 10px;
+}
+.phy-breadcrumb .phy-en {
+  display: inline;
+  margin-left: 5px;
+  font-size: 9px;
+}
+.phy-lesson-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 25px;
+}
+.phy-step-nav {
+  display: flex;
+  background: #eeebf1;
+  border: 1px solid #e4dce9;
+  border-radius: 9px;
+  padding: 6px;
+  gap: 3px;
+}
+.phy-step-nav > button {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  padding: 10px 3px;
+  border: 0;
+  background: transparent;
+  color: #a292ae;
+  border-radius: 6px;
+  font-size: 10px;
+}
+.phy-step-nav > button > span:first-child {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #d4c8df;
+  border-radius: 50%;
+  font-size: 8px;
+  flex-shrink: 0;
+}
+.phy-step-nav > button .phy-en {
+  font-size: 8px;
+}
+.phy-step-nav > button.active {
+  background: #fff;
+  color: #7e609b;
+  box-shadow: 0 2px 5px #5d48700a;
+}
+.phy-step-nav > button.active > span:first-child {
+  background: #876ba5;
+  color: #fff;
+  border-color: #876ba5;
+}
+.phy-lesson-body {
+  margin-top: 15px;
+  min-height: 415px;
+  background: #fffefd;
+  border: 1px solid #e6dfea;
+  border-radius: 11px;
+  padding: 30px;
+  animation: phy-appear 0.25s ease;
+}
+.phy-lesson-body h2 {
+  font-size: 23px;
+  line-height: 1.5;
+  margin-bottom: 15px;
+  font-weight: 650;
+  letter-spacing: -0.4px;
+}
+.phy-lesson-body h2 .phy-en {
+  font-size: 14px;
+  line-height: 1.45;
+  margin-top: 10px;
+  letter-spacing: 0;
+}
+.phy-lesson-body > .phy-eyebrow {
+  margin-bottom: 14px;
+}
+.phy-predict {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 23px 0;
+}
+.phy-predict button {
+  border: 1px solid #e4ddea;
+  background: #fcfafc;
+  border-radius: 7px;
+  padding: 14px 17px;
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  text-align: left;
+  color: #8b7a96;
+  font-size: 13px;
+}
+.phy-predict button > span:first-child {
+  font-size: 10px;
+  border: 1px solid #dfd4e8;
+  border-radius: 50%;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+}
+.phy-predict button > svg:last-child {
+  margin-left: auto;
+}
+.phy-predict button.selected {
+  border-color: #b69ccb;
+  background: #f1eaf7;
+  color: #795a97;
+}
+.phy-lesson-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 0;
+  gap: 14px;
+}
+.phy-lesson-bottom > span {
+  font-size: 10px;
+  color: #b09cbd;
+}
+.phy-text-button {
+  border: 0;
+  background: transparent;
+  font-size: 10px !important;
+  color: #9f86b1;
+  padding: 5px;
+}
+.phy-text-button .phy-en {
+  display: inline;
+  margin-left: 6px;
+  font-size: 9px;
+}
+.phy-lesson-aside {
+  padding-top: 13px;
+}
+.phy-lesson-aside h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin: 10px 0 22px;
+}
+.phy-lesson-aside h3 .phy-en {
+  font-size: 10px;
+}
+.phy-vocab {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  border-bottom: 1px solid #e4dcea;
+  padding: 12px 0;
+  font-size: 11px;
+  color: #957ca6;
+}
+.phy-vocab strong {
+  font-weight: 500;
+}
+.phy-vocab > span {
+  font-size: 10px;
+  color: #aaa0b3;
+}
+.phy-aside-tip {
+  background: #efecdf;
+  border-radius: 8px;
+  padding: 18px;
+  color: #9c9877;
+  margin-top: 27px;
+  font-size: 11px;
+}
+.phy-aside-tip p {
+  margin-top: 9px;
+  line-height: 1.8;
+}
+.phy-aside-tip a {
+  display: block;
+  font-size: 10px;
+  margin-top: 15px;
+  color: #898364;
+}
+.phy-aside-back {
+  display: block;
+  margin-top: 26px;
+  font-size: 10px;
+  color: #af9abc !important;
+  line-height: 1.7;
+}
+.phy-concept {
+  font-size: 15px;
+  line-height: 1.9;
+  color: #7c6c88;
+}
+.phy-concept .phy-en {
+  font-size: 12px;
+  line-height: 1.8;
+  margin-top: 12px;
+}
+.phy-formula {
+  background: #f0e9f7;
+  border: 1px solid #e2d4ec;
+  padding: 22px;
+  border-radius: 8px;
+  margin: 24px 0;
+  font-size: 19px;
+  color: #8964a7;
+  line-height: 1.6;
+}
+.phy-formula .phy-en {
+  font-size: 13px;
+}
+.phy-example {
+  border-top: 1px solid #e8dfef;
+  padding-top: 20px;
+  margin-top: 24px;
+  font-size: 13px;
+  line-height: 1.85;
+  color: #908096;
+}
+.phy-example h3 {
+  font-size: 13px;
+  margin-bottom: 12px;
+  color: #7d658e;
+  font-weight: 650;
+}
+.phy-example .phy-en {
+  font-size: 11px;
+  line-height: 1.7;
+  margin-top: 7px;
+}
+.phy-example h3 .phy-en {
+  display: inline;
+  margin-left: 8px;
+  font-size: 10px;
+}
+.phy-misconception {
+  display: flex;
+  gap: 14px;
+  background: #f5ede2;
+  color: #a68a66;
+  border: 1px solid #eddfca;
+  border-radius: 8px;
+  padding: 18px;
+  margin: 23px 0;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.phy-misconception > svg {
+  flex-shrink: 0;
+}
+.phy-misconception h3 {
+  font-size: 13px;
+  color: #927450;
+  margin-bottom: 9px;
+}
+.phy-misconception h3 .phy-en {
+  display: inline;
+  margin-left: 8px;
+  font-size: 10px;
+}
+.phy-question {
+  margin-top: 25px;
+}
+.phy-question-title {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+  margin-bottom: 13px;
+}
+.phy-question-title > span {
+  font-family: monospace;
+  font-size: 11px;
+  color: #b19ac1;
+  margin-top: 3px;
+}
+.phy-question-title h3 {
+  font-size: 14px;
+  font-weight: 550;
+  color: #80688e;
+  line-height: 1.7;
+}
+.phy-question-title .phy-en {
+  font-size: 11px;
+}
+.phy-options {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.phy-options button {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  text-align: left;
+  padding: 12px 16px;
+  border: 1px solid #e5ddec;
+  border-radius: 7px;
+  background: #fcfafc;
+  color: #9783a3;
+  font-size: 12px;
+}
+.phy-options button > span:first-child {
+  font-family: monospace;
+  opacity: 0.65;
+}
+.phy-options button > svg {
+  margin-left: auto;
+}
+.phy-options button.is-correct {
+  background: #ecf3ed;
+  border-color: #b4cbbc;
+  color: #769c7f;
+}
+.phy-options button.is-wrong {
+  background: #f9eeeb;
+  border-color: #e3b4a7;
+  color: #bd8c7f;
+}
+.phy-feedback {
+  margin-top: 12px;
+  padding: 14px;
+  border-radius: 7px;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.phy-feedback strong {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.phy-feedback.correct {
+  background: #eff4ec;
+  color: #799577;
+}
+.phy-feedback.wrong {
+  background: #f8f1e9;
+  color: #aa8b68;
+}
+.phy-feedback .phy-en {
+  font-size: 10px;
+}
+.phy-takeaway {
+  background: #f0e9f5;
+  border: 1px solid #e3d5ec;
+  border-radius: 10px;
+  padding: 24px;
+  color: #9c7ab1;
+}
+.phy-takeaway .phy-eyebrow {
+  margin: 10px 0;
+}
+.phy-takeaway h2 {
+  font-size: 20px;
+  margin: 0;
+}
+.phy-takeaway h2 .phy-en {
+  font-size: 13px;
+}
+.phy-completion {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  background: #edf4ec;
+  padding: 20px;
+  border-radius: 8px;
+  margin-top: 22px;
+  color: #739371;
+  font-size: 12px;
+}
+.phy-completion strong {
+  display: block;
+  margin-bottom: 7px;
+}
+.phy-explored {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  color: #8ea081;
+  margin-top: 16px !important;
+}
+.phy-lab {
+  border: 1px solid #e0d6e8;
+  border-radius: 10px;
+  background: #fcf9ff;
+  overflow: hidden;
+  margin: 20px 0;
+}
+.phy-lab-toolbar {
+  padding: 15px 19px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  color: #a18dad;
+  font-size: 10px;
+  border-bottom: 1px solid #ede5f2;
+}
+.phy-lab-label {
+  font-family: monospace;
+  font-size: 9px;
+  letter-spacing: 1.4px;
+}
+.phy-lab-toolbar .phy-en {
+  display: inline;
+  margin-left: 7px;
+  font-size: 9px;
+}
+.phy-simulation {
+  display: block;
+  width: 100%;
+  max-height: 250px;
+  background-image: radial-gradient(#a392b81f 0.7px, transparent 0.7px);
+  background-size: 15px 15px;
+}
+.phy-lab-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+  padding: 18px;
+  border-top: 1px solid #ede5f2;
+  color: #9c84ac;
+  font-size: 11px;
+}
+.phy-segment {
+  display: flex;
+  gap: 3px;
+  background: #ede5f3;
+  padding: 3px;
+  border-radius: 7px;
+}
+.phy-segment button {
+  border: 0;
+  background: transparent;
+  color: #a48eaf;
+  border-radius: 5px;
+  font-size: 11px;
+  padding: 8px 12px;
+}
+.phy-segment button.selected {
+  background: #fff;
+  box-shadow: 0 1px 4px #56416e14;
+  color: #86629f;
+}
+.phy-segment .phy-en {
+  font-size: 9px;
+}
+.phy-model-note {
+  border-top: 1px solid #ede5f2;
+  font-size: 9px;
+  line-height: 1.7;
+  color: #b29ec0;
+  padding: 12px 18px;
+}
+.phy-model-note .phy-en {
+  font-size: 9px;
+  line-height: 1.6;
+}
+.phy-trials {
+  display: flex;
+  gap: 8px;
+  padding: 0 18px 16px;
+  flex-wrap: wrap;
+}
+.phy-trials > span {
+  font-size: 9px;
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  background: #eee6f5;
+  padding: 5px 9px;
+  border-radius: 4px;
+  color: #a183b0;
+}
+.phy-trials .phy-en {
+  display: inline;
+  margin-left: 5px;
+  font-size: 8px;
+}
+.phy-trials strong {
+  font-weight: 600;
+}
+.phy-slider-row {
+  display: flex;
+  padding: 20px;
+  gap: 25px;
+}
+.phy-slider-row label {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 11px;
+  color: #9c85ac;
+}
+.phy-slider-row label > span:first-child {
+  min-width: 30px;
+}
+.phy-app input[type='range'] {
+  width: 100%;
+  min-width: 50px;
+  accent-color: #9c7dbc;
+  cursor: pointer;
+}
+.phy-slider-row strong {
+  white-space: nowrap;
+  font-weight: 500;
+  font-size: 10px;
+}
+.phy-speed-slider {
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  flex: 1;
+  max-width: 360px;
+}
+.phy-speed-slider > span {
+  flex-shrink: 0;
+}
+.phy-speed-slider strong {
+  white-space: nowrap;
+  font-weight: 500;
+}
+.phy-lab-result {
+  background: #efebf7;
+  padding: 13px 18px;
+  color: #9e80b4;
+  font-size: 12px;
+}
+.phy-lab-tabs {
+  display: flex;
+  gap: 9px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+.phy-lab-tabs button {
+  border: 1px solid #e2d8e9;
+  background: #fcfafc;
+  padding: 13px 19px;
+  border-radius: 8px;
+  color: #a28aac;
+  font-size: 12px;
+}
+.phy-lab-tabs button.active {
+  background: #ece3f3;
+  border-color: #c9b4da;
+  color: #8c66a6;
+}
+.phy-lab-tabs .phy-en {
+  font-size: 10px;
+}
+.phy-lab-notes {
+  background: #f0eedf;
+  border: 1px solid #e6e1ce;
+  border-radius: 9px;
+  display: flex;
+  gap: 20px;
+  padding: 25px;
+  align-items: center;
+  color: #969273;
+}
+.phy-lab-notes h3 {
+  font-size: 16px;
+  margin-bottom: 7px;
+}
+.phy-lab-notes p {
+  font-size: 12px;
+}
+.phy-lab-notes > .phy-button {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.phy-note-form {
+  padding: 25px;
+  background: #fffefa;
+  border: 1px solid #e4daeb;
+  border-radius: 10px;
+  margin: 25px 0 32px;
+}
+.phy-note-form label {
+  display: block;
+  color: #9a80ae;
+  font-size: 13px;
+  margin-bottom: 20px;
+}
+.phy-note-form label .phy-en {
+  display: inline;
+  font-size: 10px;
+  margin-left: 9px;
+}
+.phy-note-form textarea {
+  display: block;
+  margin-top: 10px;
+  width: 100%;
+  border: 1px solid #e8dfef;
+  border-radius: 7px;
+  background: #faf8fc;
+  color: #897093;
+  padding: 15px;
+  resize: vertical;
+  min-height: 100px;
+  line-height: 1.8;
+  font-size: 13px;
+}
+.phy-note-form textarea::placeholder {
+  color: #c1afcb;
+}
+.phy-note-form > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+.phy-notes {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+.phy-notes article {
+  background: #fffefa;
+  border: 1px solid #e8dfed;
+  border-radius: 9px;
+  padding: 24px;
+  min-width: 0;
+}
+.phy-notes header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #b4a0bf;
+  font-size: 10px;
+}
+.phy-notes p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 14px;
+  color: #96819e;
+  margin-top: 16px;
+  line-height: 1.9;
+}
+.phy-notes blockquote {
+  border-left: 2px solid #d8c0e7;
+  margin: 15px 0 0;
+  padding-left: 13px;
+  color: #b09ab9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  font-size: 12px;
+}
+.phy-empty {
+  padding: 60px 25px;
+  text-align: center;
+  border: 1px dashed #d7c9e0;
+  border-radius: 10px;
+  color: #b196c0;
+  background: #fcf9fe;
+  margin-top: 30px;
+}
+.phy-empty > svg {
+  margin: 0 auto 18px;
+}
+.phy-empty h2,
+.phy-empty h3 {
+  font-size: 19px;
+  font-weight: 500;
+  margin-bottom: 17px;
+}
+.phy-empty p {
+  font-size: 12px;
+  margin: 17px 0 25px;
+}
+.phy-empty > a:not(.phy-button) {
+  display: inline-block;
+  font-size: 11px;
+  color: #ac8abe;
+}
+.phy-review-lesson {
+  background: #fffdfa;
+  border: 1px solid #e4d9ea;
+  border-radius: 11px;
+  padding: 27px;
+  margin-top: 25px;
+}
+.phy-review-lesson > .phy-button {
+  margin-top: 23px;
+}
+.phy-storage-message {
+  background: #faedd7;
+  color: #9c793e;
+  padding: 10px 38px;
+  font-size: 11px;
+}
+@keyframes phy-appear {
+  from {
+    transform: translateY(5px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes phy-float {
+  50% {
+    transform: translate(0, 6px);
+  }
+}
+@media (min-width: 1550px) {
+  .phy-main {
+    padding-top: 40px;
+  }
+  .phy-hero {
+    min-height: 355px;
+  }
+  .phy-hero-copy {
+    padding: 35px 45px;
+  }
+  .phy-hero h2 {
+    font-size: 43px;
+  }
+  .phy-card-art {
+    height: 145px;
+  }
+  .phy-card-copy {
+    padding: 20px;
+  }
+  .phy-card-copy h3 {
+    font-size: 17px;
+  }
+  .phy-dashboard-grid {
+    grid-template-columns: minmax(0, 1fr) 310px;
+    gap: 28px;
+  }
+  .phy-today-card {
+    padding: 25px;
+  }
+  .phy-card-copy p {
+    font-size: 12px;
+  }
+}
+@media (max-width: 1200px) {
+  .phy-sidebar {
+    width: 190px;
+    padding: 30px 14px;
+  }
+  .phy-main-shell {
+    margin-left: 190px;
+  }
+  .phy-main {
+    padding: 26px;
+  }
+  .phy-header {
+    padding: 0 26px;
+  }
+  .phy-brand strong {
+    font-size: 16px;
+  }
+  .phy-dashboard-grid {
+    grid-template-columns: minmax(0, 1fr) 230px;
+    gap: 17px;
+  }
+  .phy-home-lessons {
+    gap: 10px;
+  }
+  .phy-card-copy {
+    padding: 12px;
+  }
+  .phy-card-copy h3 {
+    font-size: 12px;
+  }
+  .phy-hero h2 {
+    font-size: 32px;
+  }
+  .phy-hero-copy {
+    padding: 26px;
+  }
+  .phy-greeting h1 {
+    font-size: 23px;
+  }
+  .phy-age {
+    font-size: 9px;
+  }
+  .phy-card-art {
+    height: 95px;
+  }
+  .phy-lab-invite h3 .phy-en {
+    display: block;
+    margin-left: 0;
+  }
+  .phy-lesson-layout {
+    grid-template-columns: minmax(0, 1fr) 170px;
+    gap: 18px;
+  }
+  .phy-lesson-body {
+    padding: 24px;
+  }
+  .phy-lesson-body h2 {
+    font-size: 21px;
+  }
+  .phy-step-nav > button {
+    font-size: 9px;
+    gap: 5px;
+  }
+}
+@media (max-width: 1000px) {
+  .phy-sidebar {
+    width: 165px;
+    padding: 28px 11px;
+  }
+  .phy-main-shell {
+    margin-left: 165px;
+  }
+  .phy-brand {
+    gap: 8px;
+    padding: 0 5px;
+  }
+  .phy-brand strong {
+    font-size: 14px;
+  }
+  .phy-brand-symbol {
+    width: 29px;
+    height: 36px;
+    font-size: 30px;
+  }
+  .phy-brand div > span {
+    font-size: 8px;
+  }
+  .phy-sidebar nav > a {
+    padding: 12px 8px;
+    gap: 8px;
+    font-size: 11px;
+  }
+  .phy-sidebar-label {
+    font-size: 8px;
+  }
+  .phy-dashboard-grid {
+    grid-template-columns: 1fr;
+  }
+  .phy-dashboard-right {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+  .phy-today-card {
+    grid-row: span 2;
+  }
+  .phy-review-card {
+    align-self: start;
+  }
+  .phy-daily-note {
+    margin-top: 0;
+  }
+  .phy-age {
+    display: none;
+  }
+  .phy-hero h2 {
+    font-size: 29px;
+  }
+  .phy-home-lessons .phy-card-art {
+    height: 125px;
+  }
+  .phy-home-lessons .phy-card-copy h3 {
+    font-size: 15px;
+  }
+  .phy-header > div:first-child .phy-en {
+    display: none;
+  }
+  .phy-lesson-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .phy-lesson-aside {
+    display: none;
+  }
+  .phy-roadmap {
+    grid-template-columns: 1fr;
+  }
+  .phy-lab-notes {
+    flex-wrap: wrap;
+  }
+  .phy-path-lessons {
+    grid-template-columns: 1fr 1fr;
+  }
+  .phy-hero-copy {
+    padding: 25px;
+  }
+  .phy-header {
+    height: 68px;
+  }
+  .phy-main {
+    min-height: calc(100vh - 125px);
+  }
+}
+@media (max-width: 700px) {
+  .phy-app {
+    display: block;
+  }
+  .phy-sidebar {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 12px 16px 0;
+    border-right: 0;
+    border-bottom: 1px solid #e7dfea;
+    background: #fdfbf8f5;
+    backdrop-filter: blur(15px);
+  }
+  .phy-brand {
+    width: fit-content;
+  }
+  .phy-brand-symbol {
+    width: 26px;
+    height: 29px;
+    font-size: 28px;
+    border-radius: 8px 8px 8px 2px;
+    padding-bottom: 5px;
+  }
+  .phy-brand-symbol > span {
+    font-size: 23px;
+    padding-bottom: 5px;
+  }
+  .phy-brand strong {
+    font-size: 14px;
+  }
+  .phy-brand div > span {
+    font-size: 8px;
+  }
+  .phy-sidebar-label,
+  .phy-sidebar-bottom {
+    display: none;
+  }
+  .phy-sidebar nav {
+    flex-direction: row;
+    gap: 1px;
+    margin-top: 13px;
+  }
+  .phy-sidebar nav > a {
+    flex: 1;
+    padding: 10px 3px;
+    border-radius: 6px 6px 0 0;
+    flex-direction: column;
+    gap: 3px;
+    position: relative;
+    text-align: center;
+    font-size: 9px;
+  }
+  .phy-sidebar nav > a svg {
+    width: 16px;
+    height: 16px;
+  }
+  .phy-sidebar nav .phy-en {
+    font-size: 7px;
+  }
+  .phy-nav-count {
+    position: absolute;
+    top: 4px;
+    right: 7px;
+    width: 13px;
+    height: 13px;
+    font-size: 8px;
+  }
+  .phy-main-shell {
+    margin-left: 0;
+  }
+  .phy-header {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    height: auto;
+    background: transparent;
+    border: 0;
+    padding: 0;
+  }
+  .phy-header > div:first-child {
+    display: none;
+  }
+  .phy-language button {
+    padding: 4px 8px;
+    font-size: 9px;
+  }
+  .phy-main {
+    padding: 23px 17px 30px;
+  }
+  .phy-greeting h1 {
+    font-size: 21px;
+  }
+  .phy-greeting h1 .phy-en {
+    font-size: 11px;
+  }
+  .phy-eyebrow {
+    font-size: 8px;
+    letter-spacing: 1.4px;
+  }
+  .phy-greeting {
+    margin-bottom: 20px;
+  }
+  .phy-hero {
+    grid-template-columns: 1fr;
+    min-height: unset;
+  }
+  .phy-hero-copy {
+    padding: 24px 25px;
+  }
+  .phy-hero h2 {
+    font-size: 30px;
+  }
+  .phy-hero h2 .phy-en {
+    font-size: 15px;
+  }
+  .phy-hero p {
+    font-size: 11px;
+    max-width: 265px;
+  }
+  .phy-hero p .phy-en {
+    font-size: 10px;
+  }
+  .phy-orbit {
+    position: absolute;
+    right: -89px;
+    top: 49px;
+    width: 260px;
+    opacity: 0.24;
+    pointer-events: none;
+  }
+  .phy-orbit-caption {
+    display: none;
+  }
+  .phy-hero h2,
+  .phy-hero p {
+    position: relative;
+    z-index: 1;
+  }
+  .phy-hero-foot {
+    font-size: 8px;
+  }
+  .phy-hero-foot .phy-en {
+    display: block;
+    font-size: 8px;
+    margin: 4px 0 0;
+  }
+  .phy-section-heading h2 {
+    font-size: 16px;
+  }
+  .phy-section-heading h2 .phy-en {
+    display: block;
+    margin-left: 0;
+    font-size: 10px;
+  }
+  .phy-home-lessons {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .phy-home-lessons .phy-lesson-card {
+    flex-direction: row;
+  }
+  .phy-home-lessons .phy-card-art {
+    width: 105px;
+    height: auto;
+    flex-shrink: 0;
+  }
+  .phy-home-lessons .phy-lesson-art {
+    min-height: 115px;
+  }
+  .phy-home-lessons .phy-card-copy {
+    padding: 12px 14px;
+    flex: 1;
+  }
+  .phy-home-lessons .phy-card-copy h3 {
+    font-size: 14px;
+  }
+  .phy-home-lessons .phy-card-copy p {
+    font-size: 10px;
+  }
+  .phy-home-lessons .phy-card-copy p .phy-en {
+    display: none;
+  }
+  .phy-card-status {
+    font-size: 7px;
+    right: 6px;
+    bottom: 6px;
+  }
+  .phy-card-copy p .phy-en {
+    font-size: 8px;
+  }
+  .phy-dashboard-grid {
+    margin-top: 24px;
+    gap: 20px;
+  }
+  .phy-dashboard-right {
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .phy-today-card {
+    padding: 15px;
+  }
+  .phy-card-heading {
+    font-size: 9px;
+    gap: 5px;
+  }
+  .phy-card-heading > svg {
+    width: 15px;
+  }
+  .phy-card-heading > .phy-tag {
+    display: none;
+  }
+  .phy-today-card h3 {
+    font-size: 17px;
+    margin-top: 17px;
+  }
+  .phy-today-card h3 .phy-en {
+    font-size: 10px;
+  }
+  .phy-today-card > p {
+    font-size: 9px;
+  }
+  .phy-today-card > p .phy-en {
+    font-size: 8px;
+  }
+  .phy-daily-note p {
+    font-size: 9px;
+  }
+  .phy-daily-note .phy-en {
+    font-size: 8px;
+  }
+  .phy-daily-note {
+    padding: 13px 0;
+    gap: 6px;
+  }
+  .phy-daily-note > span:last-child {
+    margin-left: 0;
+    font-size: 6px;
+  }
+  .phy-review-card {
+    gap: 7px;
+    padding: 12px 0;
+  }
+  .phy-review-card h3 {
+    font-size: 10px;
+  }
+  .phy-review-card p {
+    font-size: 9px;
+  }
+  .phy-review-card > svg:last-child {
+    display: none;
+  }
+  .phy-review-card > svg:first-child {
+    width: 17px;
+  }
+  .phy-lab-invite {
+    padding: 15px;
+    gap: 12px;
+  }
+  .phy-lab-invite h3 {
+    font-size: 12px;
+  }
+  .phy-lab-invite h3 .phy-en {
+    font-size: 9px;
+  }
+  .phy-lab-invite p:last-child {
+    font-size: 9px;
+  }
+  .phy-invite-icon {
+    width: 36px;
+    height: 42px;
+    border-radius: 9px;
+  }
+  .phy-round-arrow {
+    width: 26px;
+    height: 26px;
+  }
+  .phy-footer {
+    padding: 17px;
+    align-items: center;
+    font-size: 8px;
+  }
+  .phy-footer .phy-en {
+    display: block;
+    margin-left: 0;
+    font-size: 7px;
+  }
+  .phy-footer > span:first-child {
+    font-size: 6px;
+    letter-spacing: 0.9px;
+  }
+  .phy-app h1 {
+    font-size: 24px;
+  }
+  .phy-app h1 .phy-en {
+    font-size: 13px;
+  }
+  .phy-page-heading {
+    gap: 12px;
+    align-items: flex-start;
+    margin: 10px 0 20px;
+  }
+  .phy-page-heading .phy-tag {
+    font-size: 9px;
+  }
+  .phy-lead {
+    font-size: 12px;
+  }
+  .phy-path-heading {
+    gap: 10px;
+  }
+  .phy-path-heading h2 {
+    font-size: 17px;
+  }
+  .phy-path-heading h2 .phy-en {
+    display: block;
+    font-size: 11px;
+    margin-left: 0;
+  }
+  .phy-path-heading p {
+    font-size: 9px;
+  }
+  .phy-path-heading p .phy-en {
+    display: block;
+    margin-left: 0;
+    font-size: 8px;
+  }
+  .phy-stage-number {
+    width: 35px;
+    height: 35px;
+    font-size: 14px;
+  }
+  .phy-path-lessons {
+    gap: 11px;
+  }
+  .phy-path-lessons .phy-card-art {
+    height: 102px;
+  }
+  .phy-path-lessons .phy-card-copy {
+    padding: 13px;
+  }
+  .phy-path-lessons .phy-card-copy h3 {
+    font-size: 13px;
+  }
+  .phy-path-lessons .phy-card-copy h3 .phy-en {
+    font-size: 9px;
+  }
+  .phy-path-lessons .phy-card-copy p {
+    font-size: 10px;
+  }
+  .phy-path-lessons .phy-card-copy p .phy-en {
+    font-size: 9px;
+  }
+  .phy-card-bottom {
+    font-size: 8px;
+    gap: 5px;
+  }
+  .phy-card-bottom .phy-en {
+    display: block;
+    margin-left: 0;
+    font-size: 8px;
+  }
+  .phy-roadmap-title {
+    align-items: flex-start;
+  }
+  .phy-roadmap-title > span {
+    font-size: 9px;
+    text-align: right;
+  }
+  .phy-roadmap article {
+    padding: 15px;
+    gap: 11px;
+  }
+  .phy-roadmap h3 {
+    font-size: 12px;
+  }
+  .phy-roadmap p {
+    font-size: 9px;
+  }
+  .phy-step-nav {
+    padding: 4px;
+  }
+  .phy-step-nav > button {
+    padding: 8px 2px;
+    font-size: 8px;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .phy-step-nav > button .phy-en {
+    font-size: 7px;
+  }
+  .phy-lesson-body {
+    padding: 21px 17px;
+    min-height: 370px;
+  }
+  .phy-lesson-body h2 {
+    font-size: 20px;
+  }
+  .phy-lesson-body h2 .phy-en {
+    font-size: 12px;
+  }
+  .phy-lesson-body .phy-lead {
+    font-size: 12px;
+  }
+  .phy-predict button {
+    padding: 13px;
+    font-size: 12px;
+    gap: 10px;
+  }
+  .phy-lesson-bottom .phy-button {
+    padding: 10px 13px;
+    font-size: 11px;
+  }
+  .phy-lesson-bottom .phy-text-button {
+    font-size: 9px !important;
+  }
+  .phy-lesson-bottom .phy-text-button .phy-en {
+    display: block;
+    margin: 2px 0 0;
+  }
+  .phy-lab-toolbar {
+    padding: 12px;
+    align-items: flex-start;
+    font-size: 9px;
+  }
+  .phy-lab-toolbar .phy-en {
+    display: block;
+    margin: 2px 0 0;
+    font-size: 8px;
+  }
+  .phy-lab-label {
+    font-size: 8px;
+    letter-spacing: 0.8px;
+  }
+  .phy-lab-controls {
+    padding: 12px;
+    gap: 10px;
+    flex-wrap: wrap;
+  }
+  .phy-lab-controls .phy-button {
+    padding: 9px 12px;
+    font-size: 10px;
+    gap: 7px;
+  }
+  .phy-segment button {
+    padding: 6px 8px;
+    font-size: 10px;
+  }
+  .phy-model-note {
+    padding: 10px 12px;
+    font-size: 8px;
+  }
+  .phy-model-note .phy-en {
+    font-size: 8px;
+  }
+  .phy-slider-row {
+    flex-direction: column;
+    gap: 15px;
+    padding: 16px;
+  }
+  .phy-speed-slider {
+    max-width: none;
+    min-width: 100%;
+  }
+  .phy-lab-tabs {
+    gap: 7px;
+  }
+  .phy-lab-tabs button {
+    padding: 10px 12px;
+    font-size: 10px;
+    flex: 1;
+    min-width: 40%;
+  }
+  .phy-lab-tabs .phy-en {
+    font-size: 9px;
+  }
+  .phy-lab-notes {
+    padding: 20px;
+    gap: 10px;
+    align-items: flex-start;
+  }
+  .phy-lab-notes > svg {
+    flex-shrink: 0;
+  }
+  .phy-lab-notes > div {
+    flex: 1;
+  }
+  .phy-lab-notes h3 {
+    font-size: 14px;
+  }
+  .phy-lab-notes p {
+    font-size: 11px;
+  }
+  .phy-note-form {
+    padding: 18px;
+  }
+  .phy-note-form > div {
+    align-items: flex-end;
+    gap: 10px;
+  }
+  .phy-note-form > div .phy-soft {
+    font-size: 9px;
+  }
+  .phy-note-form > div .phy-soft .phy-en {
+    font-size: 8px;
+  }
+  .phy-note-form .phy-button {
+    flex-shrink: 0;
+    font-size: 10px;
+  }
+  .phy-notes {
+    grid-template-columns: 1fr;
+  }
+  .phy-review-lesson {
+    padding: 20px 17px;
+  }
+  .phy-empty {
+    padding: 45px 20px;
+  }
+  .phy-empty h2,
+  .phy-empty h3 {
+    font-size: 17px;
+  }
+  .phy-formula {
+    font-size: 16px;
+    padding: 18px;
+  }
+  .phy-takeaway {
+    padding: 20px;
+  }
+  .phy-takeaway h2 {
+    font-size: 17px;
+  }
+  .phy-takeaway h2 .phy-en {
+    font-size: 11px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phy-app * {
+    animation: none !important;
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+/* Keep the soft notebook palette while making learning copy easy to read. */
+.phy-en {
+  opacity: 0.78;
+}
+.phy-app {
+  --muted: #756c7d;
+}
+.phy-sidebar nav > a {
+  color: #716779;
+}
+.phy-header > div:first-child {
+  color: #7c7083;
+}
+.phy-greeting h1 {
+  color: #3c3446;
+}
+.phy-hero {
+  min-height: 300px;
+}
+.phy-hero-copy {
+  padding: 24px 30px;
+}
+.phy-hero h2 {
+  font-size: 32px;
+  line-height: 1.25;
+  margin: 12px 0 10px;
+}
+.phy-hero h2 .phy-en {
+  font-size: 15px;
+  margin-top: 6px;
+  line-height: 1.3;
+}
+.phy-hero p {
+  font-size: 11px;
+  line-height: 1.65;
+}
+.phy-hero p .phy-en {
+  font-size: 10px;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.phy-button-peach {
+  margin-top: 15px;
+  padding: 9px 15px;
+}
+.phy-hero-foot {
+  margin-top: 10px;
+}
+.phy-hero-foot .phy-en {
+  font-size: 8px;
+}
+.phy-card-copy p {
+  color: #817489;
+}
+.phy-card-copy p .phy-en {
+  opacity: 0.8;
+}
+.phy-card-copy h3 .phy-en {
+  color: #807086;
+}
+.phy-today-card > p {
+  color: #817087;
+}
+.phy-review-card p {
+  color: #87778e;
+}
+.phy-lead {
+  color: #75637f;
+}
+.phy-concept {
+  color: #594665;
+  font-size: 16px;
+}
+.phy-concept .phy-en {
+  font-size: 13px;
+  opacity: 0.85;
+}
+.phy-example {
+  color: #715a7e;
+  font-size: 14px;
+}
+.phy-example .phy-en {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.phy-example h3 {
+  color: #654674;
+}
+.phy-question-title h3 {
+  color: #594164;
+  font-size: 15px;
+}
+.phy-question-title .phy-en {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.phy-options button {
+  color: #695076;
+  font-size: 14px;
+  padding: 14px 16px;
+}
+.phy-options button .phy-en {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.phy-predict button {
+  color: #6b5277;
+  font-size: 14px;
+}
+.phy-predict button .phy-en {
+  font-size: 12px;
+  opacity: 0.85;
+}
+.phy-soft {
+  color: #8b7596;
+}
+.phy-misconception {
+  color: #8e6d45;
+  font-size: 13px;
+}
+.phy-feedback {
+  font-size: 12px;
+}
+.phy-feedback .phy-en {
+  font-size: 11px;
+  opacity: 0.9;
+}
+.phy-feedback.correct {
+  color: #50754f;
+}
+.phy-feedback.wrong {
+  color: #906c40;
+}
+.phy-options button.is-correct {
+  color: #507859;
+}
+.phy-options button.is-wrong {
+  color: #a86756;
+}
+.phy-takeaway {
+  color: #7c5395;
+}
+.phy-lab-invite p:last-child {
+  color: #7b7b5e;
+}
+.phy-note-form label {
+  color: #7c5a93;
+}
+.phy-note-form textarea {
+  color: #624971;
+}
+.phy-note-form textarea::placeholder {
+  color: #9b84ab;
+}
+.phy-notes p {
+  color: #6c507a;
+}
+.phy-notes blockquote {
+  color: #8b6f9d;
+}
+.phy-notes header {
+  color: #987baa;
+}
+.phy-roadmap p {
+  color: #8b7b95;
+}
+.phy-simulation text {
+  fill: #766180;
+}
+.phy-orbit svg text {
+  font-size: 9px;
+}
+.phy-completion {
+  color: #527650;
+}
+.phy-lab-notes {
+  color: #79754f;
+}
+.phy-lesson-body .phy-model-note {
+  font-size: 10px;
+  color: #9a80aa;
+}
+.phy-lesson-body .phy-model-note .phy-en {
+  font-size: 10px;
+}
+.phy-today-card h3 .phy-en {
+  color: #887291;
+}
+.phy-button-peach .phy-en {
+  opacity: 0.9;
+}
+@media (min-width: 1550px) {
+  .phy-hero-copy {
+    padding: 30px 40px;
+  }
+  .phy-hero h2 {
+    font-size: 37px;
+  }
+  .phy-hero h2 .phy-en {
+    font-size: 17px;
+  }
+  .phy-hero {
+    min-height: 330px;
+  }
+}
+@media (max-width: 700px) {
+  .phy-hero-copy {
+    padding: 23px 25px;
+  }
+  .phy-hero h2 {
+    font-size: 29px;
+  }
+  .phy-hero h2 .phy-en {
+    font-size: 14px;
+  }
+  .phy-card-copy p {
+    font-size: 11px;
+  }
+  .phy-concept {
+    font-size: 15px;
+  }
+  .phy-concept .phy-en {
+    font-size: 12px;
+  }
+  .phy-example {
+    font-size: 13px;
+  }
+  .phy-example .phy-en {
+    font-size: 11px;
+  }
+  .phy-question-title h3 {
+    font-size: 14px;
+  }
+  .phy-options button,
+  .phy-predict button {
+    font-size: 13px;
+  }
+  .phy-options button .phy-en,
+  .phy-predict button .phy-en {
+    font-size: 11px;
+  }
+  .phy-lesson-body .phy-model-note,
+  .phy-lesson-body .phy-model-note .phy-en {
+    font-size: 9px;
+  }
+}
+@media (max-width: 700px) {
+  .phy-header {
+    position: fixed;
+    z-index: 21;
+    top: 13px;
+    right: 16px;
+  }
+  .phy-language {
+    background: #f4f1f5f5;
+  }
+  .phy-lab-tabs button {
+    color: #826391;
+  }
+  .phy-lab-controls {
+    color: #7f6191;
+  }
+  .phy-lab-toolbar {
+    color: #8d719f;
+  }
+  .phy-segment button {
+    color: #8a6c9b;
+  }
+  .phy-lab-notes .phy-en {
+    opacity: 0.9;
+  }
+  .phy-lab-controls input[type='range'] {
+    min-height: 27px;
+  }
+  .phy-predict button {
+    min-height: 55px;
+  }
+}
+@media (min-width: 701px) {
+  .phy-header {
+    height: 70px;
+  }
+  .phy-main {
+    padding-top: 24px;
+  }
+  .phy-greeting {
+    margin-bottom: 20px;
+  }
+  .phy-hero h2 .phy-en {
+    white-space: normal;
+  }
+  .phy-hero p {
+    white-space: normal;
+  }
+  .phy-hero {
+    min-height: 285px;
+  }
+  .phy-main {
+    min-height: calc(100vh - 129px);
+  }
+}
+@media (max-width: 360px) {
+  .phy-path-lessons {
+    grid-template-columns: 1fr;
+  }
+  .phy-path-lessons .phy-lesson-card {
+    flex-direction: row;
+  }
+  .phy-path-lessons .phy-card-art {
+    width: 95px;
+    height: auto;
+    flex-shrink: 0;
+  }
+  .phy-path-lessons .phy-card-copy {
+    padding: 14px;
+    flex: 1;
+  }
+  .phy-path-lessons .phy-lesson-art {
+    min-height: 140px;
+  }
+  .phy-path-lessons .phy-card-copy h3 {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1001px) {
+  .phy-orbit svg {
+    max-height: 260px;
+  }
+  .phy-orbit {
+    padding-bottom: 16px;
+  }
+  .phy-greeting h1 .phy-en {
+    display: inline-block;
+    margin: 0 0 0 13px;
+    font-size: 12px;
+    vertical-align: middle;
+  }
+  .phy-home-lessons .phy-card-art {
+    height: 100px;
+  }
+  .phy-home-lessons .phy-card-copy {
+    padding: 12px;
+  }
+  .phy-home-lessons .phy-card-bottom {
+    padding-top: 9px;
+  }
+  .phy-today-card {
+    padding: 17px;
+  }
+  .phy-today-card h3 {
+    margin-top: 14px;
+  }
+  .phy-today-progress {
+    margin-top: 16px;
+  }
+  .phy-today-link {
+    margin-top: 14px;
+    padding-top: 10px;
+  }
+}

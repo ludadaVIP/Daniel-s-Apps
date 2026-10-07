@@ -189,4 +189,253 @@ export const level15Lessons: Lesson[] = [
       },
     ],
   },
+  {
+    id: 'equilibrium-after-a-disturbance',
+    levelId: 'equilibrium',
+    order: 76,
+    title: {
+      zh: '平衡被打扰以后：调整，不是倒带',
+      en: 'After disturbing equilibrium: adjust, not rewind',
+    },
+    eyebrow: {
+      zh: '第 76 课 · 先看瞬间，再看重新反应',
+      en: 'Lesson 76 · First the instant, then the reaction',
+    },
+    hook: {
+      zh: '把气体容器压小，粒子会立刻变少吗？向平衡体系加入一些生成物，它会把加入的全部“退回去”吗？平衡的调整有方向，却不等于回到原来的照片。',
+      en: 'Compress a gas container: do particles vanish immediately? Add some product to an equilibrium: does it undo the whole addition? An adjustment has a direction, but need not restore the original snapshot.',
+    },
+    hookHint: {
+      zh: '接上第 59 课：相等的是正逆速率，不是两边数量。扰动可能先改变浓度或速率，再让净反应朝某个方向进行，直到速率重新相等。',
+      en: 'Recall Lesson 59: forward and reverse rates match, not necessarily amounts. A disturbance first changes concentration or rates, then a net reaction proceeds until the rates match again.',
+    },
+    bigIdea: {
+      zh: '平衡体系会朝抵抗扰动的方向调整；新的平衡仍在双向反应，但不必恢复原来的组成。',
+      en: 'An equilibrium adjusts in a direction opposing a disturbance; both directions continue at the new equilibrium, without necessarily restoring the original composition.',
+    },
+    estimatedMinutes: 22,
+    everydayExamples: [
+      {
+        icon: '🫧',
+        title: {
+          zh: '汽水开盖：少了上方的气体',
+          en: 'Opening soda removes gas above the liquid',
+        },
+        body: {
+          zh: '开盖让上方二氧化碳逸出，液体中更多二氧化碳会释放出来。持续敞开的瓶子已不是原来的密闭系统，不能把冒泡误称为始终保持原平衡。',
+          en: 'Opening the cap lets CO₂ escape from the headspace, so more can leave the liquid. A bottle left open is no longer the original closed system; fizzing does not mean its old equilibrium remains intact.',
+        },
+      },
+      {
+        icon: '🌾',
+        title: {
+          zh: '制造氨：快慢与产量一起考虑',
+          en: 'Making ammonia: consider speed and yield',
+        },
+        body: {
+          zh: 'N₂ + 3H₂ ⇌ 2NH₃ 的正向过程放热。较高压强有利于气体份数较少的氨一侧；升温虽常加快速率，却不利于该放热方向的平衡产率。工业会权衡，而不是追求“越热越好”。',
+          en: 'The forward reaction N₂ + 3H₂ ⇌ 2NH₃ releases heat. Higher pressure favours the ammonia side with fewer gas moles. Heating often speeds reaction but lowers the equilibrium yield for this exothermic direction, so industry balances the trade-offs.',
+        },
+      },
+      {
+        icon: '🛤️',
+        title: {
+          zh: '催化剂：让路更好走',
+          en: 'Catalysts make the route easier',
+        },
+        body: {
+          zh: '催化剂让正、逆过程更快，却不把同条件下的平衡位置推到另一边。它帮助更快达到平衡，不是保证多出一份最终产物的“魔法按钮”。',
+          en: 'A catalyst speeds both directions without pushing the equilibrium position to a new side under the same conditions. It helps equilibrium be reached sooner, not magically guaranteeing more final product.',
+        },
+      },
+    ],
+    steps: [
+      {
+        title: {
+          zh: '分开“刚发生”和“反应之后”',
+          en: 'Separate the instant from the later reaction',
+        },
+        body: {
+          zh: '用虚构气体 A₂ ⇌ 2A 学规律，正向设为吸热。压小体积的瞬间，A₂ 与 A 的份数都没改变，只是空间更小、浓度更高。随后净反应可朝气体份数较少的 A₂ 一侧进行。不是压一下就把粒子删掉。',
+          en: 'Use fictional gases A₂ ⇌ 2A with an endothermic forward direction. At the instant of compression, neither amount changes; smaller space raises concentration. Afterwards the net reaction can favour A₂, the side with fewer gas portions. Compression does not delete particles.',
+        },
+      },
+      {
+        title: {
+          zh: '例题：增加生成物后会全退回吗？',
+          en: 'Worked example: is added product completely undone?',
+        },
+        body: {
+          zh: '原来有 2 份 A₂ 与 2 份 A，A 原子账本是 2×2+2 = 6。只加 2 份 A，瞬间变为 2 与 4，账本变为 8。模型重新平衡后约为 2.81 份 A₂ 与 2.37 份 A：消耗了一部分新加的 A，却没回到原来的 2 份 A。',
+          en: 'Start with 2 portions A₂ and 2 portions A: atomic inventory is 2×2+2 = 6. Add 2 portions A: immediately amounts are 2 and 4, with inventory 8. The model re-equilibrates to about 2.81 A₂ and 2.37 A: some added A is consumed, but A does not return to its original 2 portions.',
+        },
+      },
+      {
+        title: {
+          zh: '每种扰动，都问同一个问题',
+          en: 'Ask the same question for each disturbance',
+        },
+        body: {
+          zh: '压缩：哪边气体份数更少？升温：哪边方向吸热？加入 A：哪边能消耗一部分 A？催化剂：有没有改变两边的相对平衡关系？最终检查正逆速率是否重新相等、原子账本是否对得上。',
+          en: 'Compression: which side has fewer gas portions? Heating: which direction absorbs heat? Adding A: which direction consumes some A? Catalyst: did the relative equilibrium relationship change? Finally check matching forward/reverse rates and the atomic inventory.',
+        },
+      },
+    ],
+    misconception: {
+      zh: '“抵抗扰动”不是“完全取消扰动”。压缩后 A 的份数可能减少，但因为体积也缩小了，A 的浓度仍可能比原来高。讨论压强影响要看气体反应系数；两边气体份数相同的理想反应不会仅因压缩而偏向一边。',
+      en: 'Opposing a disturbance does not cancel it completely. After compression, A amount may fall while its concentration remains higher than before because volume also shrank. Pressure effects depend on gas coefficients; equal gas-mole counts on both sides do not favour a side merely through ideal compression.',
+    },
+    mission: {
+      zh: '在虚拟体系里分别试压缩、升温、催化剂和加入 A。先预测“从扰动刚发生到重新平衡”A 的份数怎样变，再看三段账本。选加入 A 时，解释为什么最终原子总量是 8 而不是 6；催化剂时，找出“仍在反应”的证据。',
+      en: 'Try compression, heating, catalyst and adding A in the virtual system. Predict how A amount changes from the disturbed instant to the new equilibrium, then inspect the three-stage ledger. For added A, explain inventory 8 rather than 6; for catalyst, find evidence that reaction continues.',
+    },
+    vocabulary: [
+      { en: 'Le Châtelier’s principle', zh: '勒夏特列原理' },
+      { en: 'disturbance', zh: '扰动' },
+      { en: 'equilibrium position', zh: '平衡位置' },
+      { en: 'net reaction', zh: '净反应' },
+      { en: 'catalyst', zh: '催化剂' },
+    ],
+    resources: [
+      {
+        title: {
+          zh: '高中拓展（英文）：平衡扰动与工业制氨 · OpenStax',
+          en: 'Optional advanced reading: shifting equilibria and ammonia production · OpenStax',
+        },
+        url: 'https://openstax.org/books/chemistry-2e/pages/13-3-shifting-equilibria-le-chateliers-principle',
+      },
+    ],
+    interactive: 'equilibrium-shift-lab',
+    questions: [
+      {
+        id: 'equilibrium-shift-q1',
+        prompt: {
+          zh: '恒温压缩气体 A₂ ⇌ 2A 的密闭体系，重新反应时倾向哪边？',
+          en: 'At constant temperature, a closed gas system A₂ ⇌ 2A is compressed. Which side is favoured as it reacts again?',
+        },
+        options: [
+          { zh: '气体份数更多的 2A 一侧', en: '2A, with more gas portions' },
+          {
+            zh: '一定不变，因为元素没有变',
+            en: 'Always unchanged because elements are unchanged',
+          },
+          { zh: '气体份数较少的 A₂ 一侧', en: 'A₂, with fewer gas portions' },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '一份 A₂ 与两份 A 相比，A₂ 方向让气体份数减少，符合对压缩扰动的调整。原子种类不变不代表组成不变。',
+          en: 'One A₂ portion versus two A portions: the A₂ direction reduces gas portions and opposes compression. Unchanged elements do not imply unchanged composition.',
+        },
+      },
+      {
+        id: 'equilibrium-shift-q2',
+        prompt: {
+          zh: '压缩刚发生、还没来得及重新反应，A 的份数怎样？',
+          en: 'Immediately after compression, before further reaction, what happens to the amount of A?',
+        },
+        options: [
+          {
+            zh: '不变，先变的是体积和浓度',
+            en: 'Unchanged; volume and concentration change first',
+          },
+          { zh: '立即减半', en: 'Immediately halved' },
+          { zh: '立即变成零', en: 'Immediately becomes zero' },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '机械压缩先让相同粒子占据更小空间。之后的化学反应才改变 A 与 A₂ 的份数，要分清两段过程。',
+          en: 'Mechanical compression puts the same particles in less space first. Later reaction changes A and A₂ amounts; distinguish the two stages.',
+        },
+      },
+      {
+        id: 'equilibrium-shift-q3',
+        prompt: {
+          zh: '本课 A₂ → 2A 设为吸热，升温后的平衡倾向哪边？',
+          en: 'Here A₂ → 2A is endothermic. Which direction does heating favour at equilibrium?',
+        },
+        options: [
+          {
+            zh: 'A₂ 一侧，因为升温总是减少所有气体',
+            en: 'A₂, because heating always reduces all gases',
+          },
+          {
+            zh: '2A 一侧，吸热方向更有利',
+            en: '2A: the endothermic direction is favoured',
+          },
+          { zh: '一定没有变化', en: 'No change is possible' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '必须先知道哪边吸热，才能判断温度影响。不要把本课方向直接照搬给正向放热的制氨反应。',
+          en: 'Find the endothermic direction before predicting temperature effects. Do not copy this direction into ammonia synthesis, whose forward reaction is exothermic.',
+        },
+      },
+      {
+        id: 'equilibrium-shift-q4',
+        prompt: {
+          zh: '在已平衡体系中加入理想催化剂、其他条件不变，会怎样？',
+          en: 'Add an ideal catalyst to an equilibrated system, with other conditions unchanged. What happens?',
+        },
+        options: [
+          {
+            zh: '最终一定多生成物',
+            en: 'There must be more product at equilibrium',
+          },
+          { zh: '正向加快，逆向停止', en: 'Forward speeds up; reverse stops' },
+          {
+            zh: '平衡组成不变，两个方向仍反应且都加快',
+            en: 'Equilibrium composition stays fixed; both directions continue faster',
+          },
+        ],
+        answer: 2,
+        explanation: {
+          zh: '催化剂改变达到平衡的速率，不改变同条件下的平衡位置。已平衡时，两边继续以相等的速率转化。',
+          en: 'A catalyst changes how quickly equilibrium is reached, not its position under the same conditions. At equilibrium, both directions still convert at matching rates.',
+        },
+      },
+      {
+        id: 'equilibrium-shift-q5',
+        prompt: {
+          zh: '加入 A 后，体系消耗了部分 A。最终一定恢复原来的 A 份数吗？',
+          en: 'After adding A, the system consumes some A. Must its final amount equal the original amount?',
+        },
+        options: [
+          {
+            zh: '不一定；调整只抵抗部分影响，新的总原子量也变了',
+            en: 'Not necessarily: adjustment opposes the change, and total inventory has changed',
+          },
+          { zh: '一定，否则就不叫平衡', en: 'Yes, or it is not equilibrium' },
+          {
+            zh: '一定，因为新增原子会消失',
+            en: 'Yes, because new atoms vanish',
+          },
+        ],
+        answer: 0,
+        explanation: {
+          zh: '本课原子账本从 6 增到 8，不会自动退回 6。新平衡要求速率相等，而不是复制旧照片。',
+          en: 'The model’s atomic inventory grows from 6 to 8 and does not revert automatically. New equilibrium needs equal rates, not an identical old snapshot.',
+        },
+      },
+      {
+        id: 'equilibrium-shift-q6',
+        prompt: {
+          zh: '压缩后 A 从 2 份降到 1.5 份，体积从 1 降到 0.5，A 的浓度怎样比较？',
+          en: 'After compression and adjustment, A falls from 2 to 1.5 portions while volume falls from 1 to 0.5. Compare A concentrations.',
+        },
+        options: [
+          { zh: '下降，因为份数下降', en: 'Lower because amount fell' },
+          {
+            zh: '升高：2/1 = 2，而 1.5/0.5 = 3',
+            en: 'Higher: 2/1 = 2, while 1.5/0.5 = 3',
+          },
+          { zh: '一定为零', en: 'It must be zero' },
+        ],
+        answer: 1,
+        explanation: {
+          zh: '浓度是份数除以体积。只看分子数量而忽略分母，会把“份数减少”误读为“浓度一定减少”。',
+          en: 'Concentration is amount divided by volume. Ignoring the denominator mistakes falling amount for necessarily falling concentration.',
+        },
+      },
+    ],
+  },
 ];

@@ -1,0 +1,147 @@
+.acid-ph-ruler {
+  position: relative;
+  height: 54px;
+  margin: 8px 12px 0;
+}
+.acid-ph-track {
+  position: absolute;
+  inset: 20px 0 auto;
+  height: 8px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, #c87368, #d6b474, #7ca997);
+}
+.acid-ph-tick {
+  position: absolute;
+  top: 34px;
+  font-size: 14px;
+  transform: translateX(-50%);
+}
+.acid-ph-marker {
+  position: absolute;
+  top: 13px;
+  width: 22px;
+  height: 22px;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  transform: translateX(-50%);
+  transition: left 0.4s ease;
+}
+.acid-ph-marker.before {
+  background: #a45647;
+}
+.acid-ph-marker.after {
+  background: #317f85;
+}
+.acid-before-label {
+  color: #944b40;
+}
+.acid-after-label {
+  color: #256e74;
+}
+.acid-reading-pair,
+.acid-comparison {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.acid-reading-pair > div {
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid #c7dbde;
+  border-radius: 10px;
+  background: #f7fbfb;
+}
+.acid-reading-pair strong,
+.acid-sample-results > strong {
+  font-size: 20px;
+  color: #286474;
+}
+.acid-ion-number {
+  font-size: 15px;
+  font-weight: 700;
+}
+.acid-ion-number sup {
+  font-size: 13px;
+}
+.acid-model-details {
+  font-size: 14px;
+  color: #526f77;
+}
+.acid-model-details summary {
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: 700;
+}
+.acid-model-details p {
+  margin: 8px 0 0;
+  overflow-wrap: anywhere;
+}
+.acid-sample-card {
+  padding: 13px;
+  border: 1px solid #bfd9dc;
+  border-radius: 12px;
+  background: #f5fbfb;
+  min-width: 0;
+}
+.acid-sample-card h3 {
+  margin: 0 0 10px;
+  font-size: 18px;
+  color: #2f6370;
+}
+.acid-sample-card label {
+  display: grid;
+  gap: 6px;
+  font-size: 15px;
+}
+.acid-sample-card select {
+  width: 100%;
+  padding: 9px;
+  border: 1px solid #a7c6cb;
+  border-radius: 8px;
+  background: #fff;
+  color: #2f5c67;
+  font: inherit;
+}
+.acid-sample-card > p {
+  margin: 10px 0 0;
+  font-size: 15px;
+}
+.acid-sample-results {
+  display: grid;
+  gap: 6px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid #d1e1e3;
+}
+.acid-sample-results > span:first-child {
+  font-size: 14px;
+}
+.acid-fraction-track {
+  height: 12px;
+  overflow: hidden;
+  border-radius: 6px;
+  background: #dce8e9;
+}
+.acid-fraction-track i {
+  display: block;
+  height: 100%;
+  background: #539997;
+  border-radius: inherit;
+  transition: width 0.4s ease;
+}
+@media (max-width: 760px) {
+  .acid-reading-pair,
+  .acid-comparison {
+    grid-template-columns: 1fr;
+  }
+  .acid-reading-pair > div {
+    grid-template-columns: minmax(0, 1fr) auto;
+    padding: 10px;
+    gap: 5px 8px;
+  }
+  .acid-reading-pair .acid-ion-number {
+    grid-column: 1 / -1;
+  }
+}
