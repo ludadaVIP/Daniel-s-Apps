@@ -30,13 +30,16 @@ export function trialSummary(trials: Trial[]) {
     rawMean: average(raw),
     mean: average(included),
     count: included.length,
-    range: included.length ? Math.max(...included) - Math.min(...included) : null,
+    range: included.length
+      ? Math.max(...included) - Math.min(...included)
+      : null,
   };
 }
 export function paperReading(count: number, endpointError = 0) {
   if (![1, 20, 100].includes(count) || ![0, 1].includes(endpointError))
     throw new RangeError('Invalid paper settings');
-  const trueThickness = 0.1, division = 1;
+  const trueThickness = 0.1,
+    division = 1;
   // Fixed small endpoint variation, rounded to this model's 1 mm divisions.
   const stackReading = Math.round(count * trueThickness + 0.18 + endpointError);
   return {

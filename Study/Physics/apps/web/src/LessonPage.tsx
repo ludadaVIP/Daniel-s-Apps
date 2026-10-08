@@ -1,7 +1,10 @@
 import { useEffect } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
-import { lessons, stages, units, t, type Question } from './content/lessons';
+import { lessonCatalog as lessons } from './content/catalog';
+import { stages, units } from './content/curriculum';
+import { t, type Question, type Lesson } from './content/schema';
+import { LessonContentGate } from './LessonContentGate';
 import { B, Icon, Text } from './ui';
 import { freshLesson, isMastered, type ProgressStore } from './progress';
 import { LessonLab } from './interactive/Labs';
@@ -78,13 +81,30 @@ export function LessonPage({
   store: ProgressStore;
 }) {
   const { lessonId } = useParams();
-  const lesson = lessons.find((l) => l.id === lessonId);
-  const p = (lesson && store.progress.lessons[lesson.id]) || freshLesson();
+  if (!lessonId || !lessons.some((l) => l.id === lessonId))
+    return <Navigate to="/physics/path" replace />;
+  return (
+    <LessonContentGate id={lessonId} mode={mode}>
+      {(lesson) => <LessonView lesson={lesson} mode={mode} store={store} />}
+    </LessonContentGate>
+  );
+}
+function LessonView({
+  lesson,
+  mode,
+  store,
+}: {
+  lesson: Lesson;
+  mode: LanguageMode;
+  store: ProgressStore;
+}) {
+  const lessonId = lesson.id;
+  const index = lessons.findIndex((l) => l.id === lessonId);
+  const p = store.progress.lessons[lesson.id] || freshLesson();
   const step = p.step;
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [lessonId, step]);
-  if (!lesson) return <Navigate to="/physics/path" replace />;
   function patch(fields: Partial<typeof p>) {
     store.saveLesson(lesson!.id, (old) => ({
       ...old,
@@ -111,7 +131,7 @@ export function LessonPage({
           ? lesson.questions.every((q, i) => p.answers[i] === q.correct)
           : true;
   const completed = !!p.completedAt;
-  const next = lessons[lessons.indexOf(lesson) + 1];
+  const next = lessons[index + 1];
   return (
     <div className="phy-page">
       <div className="phy-breadcrumb">
@@ -123,13 +143,13 @@ export function LessonPage({
         <span>/</span>
         <Text value={units[lesson.unit]} mode={mode} />
         <span>/</span>
-        <span>{String(lessons.indexOf(lesson) + 1).padStart(2, '0')}</span>
+        <span>{String(index + 1).padStart(2, '0')}</span>
       </div>
       <div className="phy-page-heading">
         <div>
           <p className="phy-eyebrow">
             STAGE {lesson.stage} / DISCOVERY{' '}
-            {String(lessons.indexOf(lesson) + 1).padStart(2, '0')}
+            {String(index + 1).padStart(2, '0')}
           </p>
           <h1>
             <Text value={lesson.title} mode={mode} />
@@ -316,6 +336,18 @@ export function LessonPage({
                     <B zh="把物理带回家" en="Take physics home" mode={mode} />
                   </h3>
                   <Text value={lesson.homeExperiment} mode={mode} />
+                  {lesson.id === 'human-power-vertical-rise' && (
+                    <Link
+                      className="phy-today-link"
+                      to="/physics/project/power"
+                    >
+                      <B
+                        zh="打开我的上楼功率调查 →"
+                        en="Open my stair-power investigation →"
+                        mode={mode}
+                      />
+                    </Link>
+                  )}
                 </div>
                 {completed && (
                   <div className="phy-completion" role="status">

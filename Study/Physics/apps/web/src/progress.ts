@@ -1,6 +1,9 @@
 import { useEffect, useState } from 'react';
-import { lessons } from './content/lessons';
+import { lessonCatalog as lessons } from './content/catalog';
 import { decodeProjects, type ProjectDraft } from './projects';
+import { decodeWalking, type WalkingDraft } from './walking';
+import { decodeMaterials, type MaterialsDraft } from './materials';
+import { decodePower, type PowerDraft } from './power';
 export const STORAGE_KEY = 'study-physics-progress-v1';
 export type LessonProgress = {
   step: number;
@@ -22,6 +25,9 @@ export type Progress = {
   lessons: Record<string, LessonProgress>;
   notes: Note[];
   projects?: Record<string, ProjectDraft>;
+  walkingProject?: WalkingDraft;
+  materialsProject?: MaterialsDraft;
+  powerProject?: PowerDraft;
 };
 export const freshLesson = (): LessonProgress => ({
   step: 0,
@@ -51,17 +57,17 @@ export function decodeProgress(raw: string | null): Progress {
       if (
         Number.isInteger(entry.prediction) &&
         entry.prediction >= 0 &&
-        entry.prediction < lesson.predictions.length
+        entry.prediction < lesson.predictionCount
       )
         value.prediction = entry.prediction;
       value.explored = entry.explored === true;
-      const questions = [...lesson.questions, lesson.exit];
+      const questions = lesson.assessments;
       questions.forEach((question, index) => {
         const answer = entry.answers?.[index];
         if (
           Number.isInteger(answer) &&
           answer >= 0 &&
-          answer < question.options.length
+          answer < question.optionCount
         )
           value.answers[index] = answer;
       });
@@ -96,6 +102,12 @@ export function decodeProgress(raw: string | null): Progress {
         .slice(0, 100);
     const projects = decodeProjects(data.projects);
     if (projects) empty.projects = projects;
+    const walkingProject = decodeWalking(data.walkingProject);
+    if (walkingProject) empty.walkingProject = walkingProject;
+    const materialsProject = decodeMaterials(data.materialsProject);
+    if (materialsProject) empty.materialsProject = materialsProject;
+    const powerProject = decodePower(data.powerProject);
+    if (powerProject) empty.powerProject = powerProject;
     return empty;
   } catch {
     return empty;
@@ -106,10 +118,10 @@ export function isMastered(id: string, progress: LessonProgress): boolean {
   return (
     !!lesson &&
     progress.explored &&
-    progress.prediction !== undefined &&
-    [...lesson.questions, lesson.exit].every(
-      (q, i) => progress.answers[i] === q.correct,
-    )
+    Number.isInteger(progress.prediction) &&
+    progress.prediction! >= 0 &&
+    progress.prediction! < lesson.predictionCount &&
+    lesson.assessments.every((q, i) => progress.answers[i] === q.correct)
   );
 }
 export function dueLessons(progress: Progress, now = Date.now()) {

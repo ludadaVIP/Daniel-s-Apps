@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import {
   Link,
   NavLink,
@@ -10,7 +10,22 @@ import {
 import type { LanguageMode } from '@study/shared';
 import { LanguageSwitcher, useLanguageMode } from '@study/ui';
 import { ProjectPage, ProjectCard } from './ProjectPage';
-import { lessons, stages, units, t, type Lesson } from './content/lessons';
+import { WalkingCard } from './WalkingCard';
+import { MaterialsCard } from './MaterialsCard';
+import { PowerCard } from './PowerCard';
+const PowerProject = lazy(() =>
+  import('./PowerProject').then((m) => ({ default: m.PowerProject })),
+);
+const MaterialsProject = lazy(() =>
+  import('./MaterialsProject').then((m) => ({ default: m.MaterialsProject })),
+);
+const WalkingProject = lazy(() =>
+  import('./WalkingProject').then((m) => ({ default: m.WalkingProject })),
+);
+import { lessonCatalog as lessons } from './content/catalog';
+import { stages, units } from './content/curriculum';
+import { t, type Lesson } from './content/schema';
+import { LessonContentGate } from './LessonContentGate';
 import { B, Icon, LessonArt, Text } from './ui';
 import {
   dueLessons,
@@ -473,6 +488,9 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
               );
             })}
             {stageIndex === 0 && <ProjectCard mode={mode} store={store} />}
+            {stageIndex === 1 && <WalkingCard mode={mode} store={store} />}
+            {stageIndex === 1 && <MaterialsCard mode={mode} store={store} />}
+            {stageIndex === 2 && <PowerCard mode={mode} store={store} />}
           </section>
         );
       })}
@@ -616,6 +634,9 @@ function Notebook({
         />
       </p>
       <ProjectCard mode={mode} store={store} />
+      <WalkingCard mode={mode} store={store} />
+      <MaterialsCard mode={mode} store={store} />
+      <PowerCard mode={mode} store={store} />
       <form
         className="phy-note-form"
         onSubmit={(e) => {
@@ -796,55 +817,59 @@ function Review({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
           </Link>
         </div>
       ) : (
-        active.map((l) => {
-          const p = store.progress.lessons[l.id] ?? freshLesson();
-          const qs = [...l.questions, l.exit];
-          const indexes = [
-            ...new Set([...p.mistakes, String(l.questions.length)]),
-          ].map(Number);
-          return (
-            <section className="phy-review-lesson" key={l.id}>
-              <div className="phy-section-heading">
-                <h2>
-                  <Text value={l.title} mode={mode} />
-                </h2>
-                <Link to={`/physics/lesson/${l.id}`}>
-                  <B zh="回看课程 →" en="Revisit lesson →" mode={mode} />
-                </Link>
-              </div>
-              {indexes.map((i) => (
-                <QuestionCard
-                  key={i}
-                  number="↻"
-                  mode={mode}
-                  question={qs[i]!}
-                  answer={answers[`${l.id}-${i}`]}
-                  onAnswer={(v) => {
-                    if (!session) setSession(ids);
-                    setAnswers((old) => ({ ...old, [`${l.id}-${i}`]: v }));
-                  }}
-                />
-              ))}
-              <button
-                className="phy-button"
-                disabled={indexes.some(
-                  (i) => answers[`${l.id}-${i}`] !== qs[i]!.correct,
-                )}
-                onClick={() => {
-                  store.saveLesson(l.id, (old) => ({
-                    ...old,
-                    mistakes: [],
-                    reviewedAt: Date.now(),
-                  }));
-                  setSession(ids.filter((id) => id !== l.id));
-                }}
-              >
-                <B zh="复习完成" en="Review complete" mode={mode} />
-                <Icon name="check" />
-              </button>
-            </section>
-          );
-        })
+        active.map((entry) => (
+          <LessonContentGate key={entry.id} id={entry.id} mode={mode}>
+            {(l) => {
+              const p = store.progress.lessons[l.id] ?? freshLesson();
+              const qs = [...l.questions, l.exit];
+              const indexes = [
+                ...new Set([...p.mistakes, String(l.questions.length)]),
+              ].map(Number);
+              return (
+                <section className="phy-review-lesson" key={l.id}>
+                  <div className="phy-section-heading">
+                    <h2>
+                      <Text value={l.title} mode={mode} />
+                    </h2>
+                    <Link to={`/physics/lesson/${l.id}`}>
+                      <B zh="回看课程 →" en="Revisit lesson →" mode={mode} />
+                    </Link>
+                  </div>
+                  {indexes.map((i) => (
+                    <QuestionCard
+                      key={i}
+                      number="↻"
+                      mode={mode}
+                      question={qs[i]!}
+                      answer={answers[`${l.id}-${i}`]}
+                      onAnswer={(v) => {
+                        if (!session) setSession(ids);
+                        setAnswers((old) => ({ ...old, [`${l.id}-${i}`]: v }));
+                      }}
+                    />
+                  ))}
+                  <button
+                    className="phy-button"
+                    disabled={indexes.some(
+                      (i) => answers[`${l.id}-${i}`] !== qs[i]!.correct,
+                    )}
+                    onClick={() => {
+                      store.saveLesson(l.id, (old) => ({
+                        ...old,
+                        mistakes: [],
+                        reviewedAt: Date.now(),
+                      }));
+                      setSession(ids.filter((id) => id !== l.id));
+                    }}
+                  >
+                    <B zh="复习完成" en="Review complete" mode={mode} />
+                    <Icon name="check" />
+                  </button>
+                </section>
+              );
+            }}
+          </LessonContentGate>
+        ))
       )}
     </div>
   );
@@ -962,8 +987,62 @@ export function App() {
             />
             <Route path="lab" element={<Lab mode={mode} />} />
             <Route
+              path="project/walking"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="phy-page">
+                      <B
+                        zh="研究工作台准备中…"
+                        en="Preparing your investigation…"
+                        mode={mode}
+                      />
+                    </div>
+                  }
+                >
+                  <WalkingProject mode={mode} store={store} />
+                </Suspense>
+              }
+            />
+            <Route
               path="notebook"
               element={<Notebook mode={mode} store={store} />}
+            />
+            <Route
+              path="project/materials"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="phy-page">
+                      <B
+                        zh="材料调查台准备中…"
+                        en="Preparing your materials investigation…"
+                        mode={mode}
+                      />
+                    </div>
+                  }
+                >
+                  <MaterialsProject mode={mode} store={store} />
+                </Suspense>
+              }
+            />
+            <Route
+              path="project/power"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="phy-page">
+                      <B
+                        zh="上楼调查台准备中…"
+                        en="Preparing your stair investigation…"
+                        mode={mode}
+                      />
+                    </div>
+                  }
+                >
+                  <PowerProject mode={mode} store={store} />
+                </Suspense>
+              }
             />
             <Route
               path="review"

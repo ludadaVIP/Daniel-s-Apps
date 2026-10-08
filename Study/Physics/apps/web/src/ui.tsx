@@ -1,10 +1,18 @@
 import { MeasurementArt } from './interactive/MeasurementArt';
 import { MysteryArt } from './interactive/MysteryArt';
 import { DiscoveryArt } from './interactive/DiscoveryArt';
+import { MotionArt } from './interactive/MotionArt';
+import { ForceArt } from './interactive/ForceArt';
+import { GravityArt } from './interactive/GravityArt';
+import { EnergyArt } from './interactive/EnergyArt';
+import { WorkArt } from './interactive/WorkArt';
+import { PhaseArt } from './interactive/PhaseArt';
+import { ThermalArt } from './interactive/ThermalArt';
+import { DensityArt } from './interactive/DensityArt';
 import { MeasurementSkillsArt } from './interactive/MeasurementSkillsArt';
 import type { LanguageMode, LocalizedText } from '@study/shared';
 import { Localized } from '@study/ui';
-import { t } from './content/lessons';
+import { t } from './content/schema';
 export function Text({
   value,
   mode,
@@ -91,7 +99,33 @@ export function LessonArt({
         </pattern>
       </defs>
       <rect width="300" height="150" fill={`url(#dots-${kind})`} />
-      {['volume', 'accuracy', 'repeats', 'paper'].includes(kind) ? (
+      {kind.startsWith('phase-') ? (
+        <PhaseArt kind={kind} />
+      ) : kind.startsWith('thermal-') ? (
+        <ThermalArt kind={kind} />
+      ) : kind.startsWith('work-') ? (
+        <WorkArt kind={kind} />
+      ) : kind.startsWith('energy-') ? (
+        <EnergyArt kind={kind} />
+      ) : [
+          'density-compare',
+          'density-block',
+          'density-displacement',
+          'density-float',
+        ].includes(kind) ? (
+        <DensityArt kind={kind} />
+      ) : ['mass-weight', 'moon-weight', 'gravity-fall'].includes(kind) ? (
+        <GravityArt kind={kind} />
+      ) : [
+          'force-effects',
+          'force-balance',
+          'grip-friction',
+          'paper-drag',
+        ].includes(kind) ? (
+        <ForceArt kind={kind} />
+      ) : ['reference', 'journey', 'average', 'motion-graph'].includes(kind) ? (
+        <MotionArt kind={kind} />
+      ) : ['volume', 'accuracy', 'repeats', 'paper'].includes(kind) ? (
         <MeasurementSkillsArt kind={kind} />
       ) : ['mirror', 'static', 'seatbelt', 'fair-test'].includes(kind) ? (
         <DiscoveryArt kind={kind} />

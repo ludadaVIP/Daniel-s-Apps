@@ -1,18 +1,153 @@
-import { useState } from 'react';
+import { useState, lazy, Suspense } from 'react';
 import { useAnimation } from './useSimulation';
-import { VolumeLab, AccuracyLab, RepeatsLab, PaperLab } from './MeasurementSkillsLabs';
-import { FoundationLab } from './MeasurementLabs';
-import {
-  MirrorLab,
-  StaticLab,
-  SeatbeltLab,
-  FairTestLab,
-} from './DiscoveryLabs';
-import { FloatingLab, BoatLab, BounceLab, EchoLab } from './MysteryLabs';
 import type { LanguageMode } from '@study/shared';
 import { B, Icon } from '../ui';
 import { rollingMotion, raceTime } from './physics';
-import type { Lesson } from '../content/lessons';
+import type { Lesson } from '../content/schema';
+const FusionLab = lazy(() =>
+  import('./PhaseLabs').then((m) => ({ default: m.FusionLab })),
+);
+const BoilingLab = lazy(() =>
+  import('./PhaseLabs').then((m) => ({ default: m.BoilingLab })),
+);
+const CondensationLab = lazy(() =>
+  import('./PhaseLabs').then((m) => ({ default: m.CondensationLab })),
+);
+const HeatingCurveLab = lazy(() =>
+  import('./PhaseLabs').then((m) => ({ default: m.HeatingCurveLab })),
+);
+const ThermalParticlesLab = lazy(() =>
+  import('./ThermalLabs').then((m) => ({ default: m.ThermalParticlesLab })),
+);
+const ThermalHeatingLab = lazy(() =>
+  import('./ThermalLabs').then((m) => ({ default: m.ThermalHeatingLab })),
+);
+const ThermalPathsLab = lazy(() =>
+  import('./ThermalLabs').then((m) => ({ default: m.ThermalPathsLab })),
+);
+const ThermalCupsLab = lazy(() =>
+  import('./ThermalLabs').then((m) => ({ default: m.ThermalCupsLab })),
+);
+const ThermalWetLab = lazy(() =>
+  import('./ThermalLabs').then((m) => ({ default: m.ThermalWetLab })),
+);
+const WorkDirectionLab = lazy(() =>
+  import('./WorkLabs').then((m) => ({ default: m.WorkDirectionLab })),
+);
+const WorkAreaLab = lazy(() =>
+  import('./WorkLabs').then((m) => ({ default: m.WorkAreaLab })),
+);
+const WorkPowerLab = lazy(() =>
+  import('./WorkLabs').then((m) => ({ default: m.WorkPowerLab })),
+);
+const HumanPowerLab = lazy(() =>
+  import('./WorkLabs').then((m) => ({ default: m.HumanPowerLab })),
+);
+const RampMachineLab = lazy(() =>
+  import('./WorkLabs').then((m) => ({ default: m.RampMachineLab })),
+);
+const EnergyLampLab = lazy(() =>
+  import('./EnergyLabs').then((m) => ({ default: m.EnergyLampLab })),
+);
+const KineticEnergyLab = lazy(() =>
+  import('./EnergyLabs').then((m) => ({ default: m.KineticEnergyLab })),
+);
+const GravitationalEnergyLab = lazy(() =>
+  import('./EnergyLabs').then((m) => ({ default: m.GravitationalEnergyLab })),
+);
+const ElasticEnergyLab = lazy(() =>
+  import('./EnergyLabs').then((m) => ({ default: m.ElasticEnergyLab })),
+);
+const ConservationTrackLab = lazy(() =>
+  import('./EnergyLabs').then((m) => ({ default: m.ConservationTrackLab })),
+);
+const DissipationTrackLab = lazy(() =>
+  import('./EnergyLabs').then((m) => ({ default: m.DissipationTrackLab })),
+);
+const DensityCompareLab = lazy(() =>
+  import('./DensityLabs').then((m) => ({ default: m.DensityCompareLab })),
+);
+const DensityBlockLab = lazy(() =>
+  import('./DensityLabs').then((m) => ({ default: m.DensityBlockLab })),
+);
+const DensityDisplacementLab = lazy(() =>
+  import('./DensityLabs').then((m) => ({ default: m.DensityDisplacementLab })),
+);
+const DensityFloatLab = lazy(() =>
+  import('./DensityLabs').then((m) => ({ default: m.DensityFloatLab })),
+);
+const MassWeightLab = lazy(() =>
+  import('./GravityLabs').then((m) => ({ default: m.MassWeightLab })),
+);
+const MoonWeightLab = lazy(() =>
+  import('./GravityLabs').then((m) => ({ default: m.MoonWeightLab })),
+);
+const GravityFallLab = lazy(() =>
+  import('./GravityLabs').then((m) => ({ default: m.GravityFallLab })),
+);
+const ForceEffectsLab = lazy(() =>
+  import('./ForceLabs').then((m) => ({ default: m.ForceEffectsLab })),
+);
+const ForceBalanceLab = lazy(() =>
+  import('./ForceLabs').then((m) => ({ default: m.ForceBalanceLab })),
+);
+const GripFrictionLab = lazy(() =>
+  import('./ForceLabs').then((m) => ({ default: m.GripFrictionLab })),
+);
+const PaperDragLab = lazy(() =>
+  import('./ForceLabs').then((m) => ({ default: m.PaperDragLab })),
+);
+const ReferenceLab = lazy(() =>
+  import('./MotionLabs').then((m) => ({ default: m.ReferenceLab })),
+);
+const JourneyLab = lazy(() =>
+  import('./MotionLabs').then((m) => ({ default: m.JourneyLab })),
+);
+const AverageLab = lazy(() =>
+  import('./MotionLabs').then((m) => ({ default: m.AverageLab })),
+);
+const MotionGraphLab = lazy(() =>
+  import('./MotionLabs').then((m) => ({ default: m.MotionGraphLab })),
+);
+const VolumeLab = lazy(() =>
+  import('./MeasurementSkillsLabs').then((m) => ({ default: m.VolumeLab })),
+);
+const AccuracyLab = lazy(() =>
+  import('./MeasurementSkillsLabs').then((m) => ({ default: m.AccuracyLab })),
+);
+const RepeatsLab = lazy(() =>
+  import('./MeasurementSkillsLabs').then((m) => ({ default: m.RepeatsLab })),
+);
+const PaperLab = lazy(() =>
+  import('./MeasurementSkillsLabs').then((m) => ({ default: m.PaperLab })),
+);
+const FoundationLab = lazy(() =>
+  import('./MeasurementLabs').then((m) => ({ default: m.FoundationLab })),
+);
+const MirrorLab = lazy(() =>
+  import('./DiscoveryLabs').then((m) => ({ default: m.MirrorLab })),
+);
+const StaticLab = lazy(() =>
+  import('./DiscoveryLabs').then((m) => ({ default: m.StaticLab })),
+);
+const SeatbeltLab = lazy(() =>
+  import('./DiscoveryLabs').then((m) => ({ default: m.SeatbeltLab })),
+);
+const FairTestLab = lazy(() =>
+  import('./DiscoveryLabs').then((m) => ({ default: m.FairTestLab })),
+);
+const FloatingLab = lazy(() =>
+  import('./MysteryLabs').then((m) => ({ default: m.FloatingLab })),
+);
+const BoatLab = lazy(() =>
+  import('./MysteryLabs').then((m) => ({ default: m.BoatLab })),
+);
+const BounceLab = lazy(() =>
+  import('./MysteryLabs').then((m) => ({ default: m.BounceLab })),
+);
+const EchoLab = lazy(() =>
+  import('./MysteryLabs').then((m) => ({ default: m.EchoLab })),
+);
 export function RollingLab({
   mode,
   onExplore,
@@ -474,7 +609,7 @@ export function FallingLab({
     </div>
   );
 }
-export function LessonLab({
+function LabContent({
   kind,
   mode,
   onExplore,
@@ -483,9 +618,81 @@ export function LessonLab({
   mode: LanguageMode;
   onExplore?: () => void;
 }) {
+  if (kind === 'phase-fusion')
+    return <FusionLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'phase-boiling')
+    return <BoilingLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'phase-condensation')
+    return <CondensationLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'phase-curve')
+    return <HeatingCurveLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'thermal-particles')
+    return <ThermalParticlesLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'thermal-heating')
+    return <ThermalHeatingLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'thermal-paths')
+    return <ThermalPathsLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'thermal-cups')
+    return <ThermalCupsLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'thermal-wet')
+    return <ThermalWetLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'work-direction')
+    return <WorkDirectionLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'work-area')
+    return <WorkAreaLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'work-power')
+    return <WorkPowerLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'work-human')
+    return <HumanPowerLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'work-ramp')
+    return <RampMachineLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'energy-lamp')
+    return <EnergyLampLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'energy-kinetic')
+    return <KineticEnergyLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'energy-height')
+    return <GravitationalEnergyLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'energy-spring')
+    return <ElasticEnergyLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'energy-track')
+    return <ConservationTrackLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'energy-dissipation')
+    return <DissipationTrackLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'density-compare')
+    return <DensityCompareLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'density-block')
+    return <DensityBlockLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'density-displacement')
+    return <DensityDisplacementLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'density-float')
+    return <DensityFloatLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'mass-weight')
+    return <MassWeightLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'moon-weight')
+    return <MoonWeightLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'gravity-fall')
+    return <GravityFallLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'force-effects')
+    return <ForceEffectsLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'force-balance')
+    return <ForceBalanceLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'grip-friction')
+    return <GripFrictionLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'paper-drag')
+    return <PaperDragLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'reference')
+    return <ReferenceLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'journey')
+    return <JourneyLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'average')
+    return <AverageLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'motion-graph')
+    return <MotionGraphLab mode={mode} onExplore={onExplore} />;
   if (kind === 'volume') return <VolumeLab mode={mode} onExplore={onExplore} />;
-  if (kind === 'accuracy') return <AccuracyLab mode={mode} onExplore={onExplore} />;
-  if (kind === 'repeats') return <RepeatsLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'accuracy')
+    return <AccuracyLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'repeats')
+    return <RepeatsLab mode={mode} onExplore={onExplore} />;
   if (kind === 'paper') return <PaperLab mode={mode} onExplore={onExplore} />;
   if (kind === 'mirror') return <MirrorLab mode={mode} onExplore={onExplore} />;
   if (kind === 'static') return <StaticLab mode={mode} onExplore={onExplore} />;
@@ -505,4 +712,27 @@ export function LessonLab({
   if (kind === 'bounce') return <BounceLab mode={mode} onExplore={onExplore} />;
   if (kind === 'echo') return <EchoLab mode={mode} onExplore={onExplore} />;
   return <FoundationLab kind={kind} mode={mode} onExplore={onExplore} />;
+}
+
+export function LessonLab(props: {
+  kind: Lesson['kind'];
+  mode: LanguageMode;
+  onExplore?: () => void;
+}) {
+  return (
+    <Suspense
+      fallback={
+        <div className="phy-lab-loading" role="status">
+          <Icon name="lab" />
+          <B
+            zh="实验台准备中…"
+            en="Preparing your experiment…"
+            mode={props.mode}
+          />
+        </div>
+      }
+    >
+      <LabContent {...props} />
+    </Suspense>
+  );
 }
