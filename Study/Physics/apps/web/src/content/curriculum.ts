@@ -1,0 +1,97 @@
+import { t } from './schema';
+export const units = {
+  curiosity: t('从好奇开始', 'Start with curiosity'),
+  measurement: t(
+    '测量，把感觉变成证据',
+    'Measurement: from feelings to evidence',
+  ),
+  patterns: t('数据里藏着规律', 'Find patterns in data'),
+  mysteries: t('解开生活的小谜题', 'Everyday physics mysteries'),
+  motion: t('运动：位置、方向与快慢', 'Motion: position, direction and speed'),
+  forces: t(
+    '力：推拉、平衡与阻力',
+    'Forces: interactions, balance and resistance',
+  ),
+  gravity: t('质量、重量与重力', 'Mass, weight & gravity'),
+  density: t('密度与材料线索', 'Density & material clues'),
+  energy: t(
+    '能量：储备、转移与去向',
+    'Energy: stores, transfers and destinations',
+  ),
+  work: t(
+    '功与功率：改变多少，改变多快',
+    'Work & power: how much, how quickly',
+  ),
+  thermal: t(
+    '温度与热：追踪能量传递',
+    'Temperature & heat: follow energy transfers',
+  ),
+};
+export const stages = [
+  {
+    title: t('物理启蒙', 'Physics foundations'),
+    age: '10+',
+    topics: t(
+      '观察 · 提问 · 测量 · 生活中的物理',
+      'Observe · Question · Measure · Everyday physics',
+    ),
+  },
+  {
+    title: t('初中物理 I', 'Junior physics I'),
+    age: '10–12',
+    topics: t(
+      '测量 · 运动 · 力 · 重力 · 密度',
+      'Measurement · Motion · Force · Gravity · Density',
+    ),
+  },
+  {
+    title: t('初中物理 II', 'Junior physics II'),
+    age: '11–13',
+    topics: t('能量 · 热 · 声音 · 光', 'Energy · Heat · Sound · Light'),
+  },
+  {
+    title: t('初中物理 III', 'Junior physics III'),
+    age: '12–14',
+    topics: t(
+      '电路 · 磁 · 压强 · 浮力',
+      'Circuits · Magnetism · Pressure · Buoyancy',
+    ),
+  },
+  {
+    title: t('高中桥梁', 'Physics bridge'),
+    age: '13–15',
+    topics: t(
+      '图像 · 代数 · 向量 · 建模',
+      'Graphs · Algebra · Vectors · Models',
+    ),
+  },
+  {
+    title: t('高中力学', 'High school mechanics'),
+    age: '14+',
+    topics: t(
+      '运动学 · 牛顿定律 · 动量 · 引力',
+      'Kinematics · Newton’s laws · Momentum · Gravitation',
+    ),
+  },
+  {
+    title: t('波动与热学', 'Waves & thermal physics'),
+    age: '14+',
+    topics: t('波 · 光学 · 热力学', 'Waves · Optics · Thermodynamics'),
+  },
+  {
+    title: t('电磁学', 'Electricity & magnetism'),
+    age: '15+',
+    topics: t(
+      '电场 · 电路 · 磁场 · 电磁感应',
+      'Fields · Circuits · Magnetism · Induction',
+    ),
+  },
+  {
+    title: t('现代物理', 'Modern physics'),
+    age: '15+',
+    topics: t(
+      '原子 · 量子 · 核 · 相对论入门',
+      'Atoms · Quantum ideas · Nuclei · Relativity',
+    ),
+  },
+];

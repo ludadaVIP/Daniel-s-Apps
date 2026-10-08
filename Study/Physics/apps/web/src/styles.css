@@ -3533,3 +3533,1747 @@
     font-size: 10px;
   }
 }
+
+/* Junior measurement: evidence first, with readable compact comparisons. */
+.phy-skill-check {
+  padding: 12px 20px;
+  margin: 0;
+  color: #7b618c;
+  font-size: 12px;
+}
+.phy-repeat-prompt,
+.phy-repeat-log {
+  margin: 16px 20px;
+  padding: 16px;
+  border: 1px solid #ddd0e7;
+  border-radius: 9px;
+  background: #f4eff8;
+  color: #745b83;
+  font-size: 13px;
+  line-height: 1.7;
+}
+.phy-repeat-log .phy-button {
+  margin-top: 12px;
+}
+.phy-skill-readouts {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  padding: 18px 20px;
+  background: #eee7f4;
+}
+.phy-skill-readouts > div {
+  min-width: 0;
+  font-size: 12px;
+  color: #7a618c;
+}
+.phy-skill-readouts strong {
+  display: block;
+  margin-top: 9px;
+  font-size: 23px;
+  font-weight: 500;
+}
+.phy-art-volume,
+.phy-art-accuracy,
+.phy-art-repeats,
+.phy-art-paper {
+  background: #f2edf6;
+  color: #a18ab5;
+}
+@media (max-width: 480px) {
+  .phy-skill-readouts {
+    grid-template-columns: 1fr;
+    padding: 14px;
+    gap: 16px;
+  }
+  .phy-repeat-prompt,
+  .phy-repeat-log {
+    margin: 12px;
+    padding: 12px;
+  }
+  .phy-repeat-log .phy-button {
+    white-space: normal;
+  }
+}
+.phy-lab-loading {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 32px;
+  border: 1px solid #e0d4e8;
+  border-radius: 12px;
+  color: #846599;
+  background: #f8f4fb;
+}
+@media (max-width: 480px) {
+  .phy-skill-simulation text {
+    font-size: 20px;
+  }
+}
+@media (max-width: 480px) {
+  .phy-page-heading {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+.phy-motion-time {
+  display: grid;
+  grid-template-columns: 120px minmax(0, 1fr) 60px;
+  gap: 14px;
+  align-items: center;
+  padding: 18px;
+  color: #806391;
+  font-size: 12px;
+}
+.phy-motion-time input {
+  width: 100%;
+  min-width: 0;
+  accent-color: #aa8abb;
+}
+.phy-motion-time strong {
+  text-align: right;
+  font-size: 14px;
+}
+.phy-motion-simulation {
+  max-height: 310px;
+}
+@media (max-width: 480px) {
+  .phy-motion-time {
+    grid-template-columns: 1fr 60px;
+    padding: 14px;
+  }
+  .phy-motion-time > span {
+    grid-column: 1 / -1;
+  }
+  .phy-motion-simulation text {
+    font-size: 19px;
+  }
+}
+/* Learner-entered walking evidence stays separate from prescribed simulations. */
+.phy-walking-card {
+  background: #efe9f5;
+  border-color: #ded1e7;
+}
+.phy-walking-demo > summary {
+  cursor: pointer;
+  color: #806294;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.phy-walking-demo > summary .phy-en {
+  display: block;
+  font-size: 12px;
+  margin-top: 3px;
+}
+.phy-walking-card h3 {
+  color: #806294;
+}
+.phy-walking-route {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 20px 24px;
+  margin: 24px 0;
+  border-radius: 10px;
+  background: #eee7f4;
+  border-bottom: 4px solid #c4aed3;
+  color: #7b5d92;
+  font:
+    12px ui-monospace,
+    monospace;
+}
+.phy-walking-hint {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #86738f;
+}
+.phy-walking-hint .phy-en {
+  display: block;
+  font-size: 10px;
+  margin-top: 4px;
+}
+.phy-walking-distance {
+  border-top: 1px solid #e5dbe9;
+  padding-top: 20px;
+  margin-top: 24px;
+}
+.phy-walking-distance-title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #866299;
+  font-size: 12px;
+}
+.phy-walking-distance-title > strong {
+  font-size: 26px;
+}
+.phy-walking-distance-title .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-walking-trials {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 15px 0;
+}
+.phy-walking-trial {
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #e0d6e6;
+  border-radius: 9px;
+  background: #f7f3fa;
+}
+.phy-walking-trial label {
+  margin-top: 0;
+  font-size: 12px;
+}
+.phy-walking-trial label .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-walking-trial input {
+  background: #fffcf8;
+}
+.phy-walking-speed {
+  font-size: 11px;
+  color: #887293;
+  margin: 12px 0;
+}
+.phy-walking-speed .phy-en {
+  display: block;
+  font-size: 9px;
+}
+.phy-walking-speed strong {
+  display: block;
+  color: #735582;
+  margin-top: 8px;
+  font-size: 18px;
+}
+.phy-walking-warning {
+  font-size: 11px;
+  color: #96622f;
+  line-height: 1.7;
+  padding: 9px;
+  border-radius: 6px;
+  background: #f7eddf;
+}
+.phy-walking-warning .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-walking-evidence {
+  border-top: 1px solid #e4dbea;
+  padding-top: 10px;
+  font-size: 11px;
+  color: #82678e;
+}
+.phy-walking-evidence summary {
+  cursor: pointer;
+  line-height: 1.6;
+}
+.phy-walking-evidence summary .phy-en {
+  display: block;
+  font-size: 9px;
+  margin-top: 3px;
+}
+.phy-walking-evidence label {
+  margin-top: 14px;
+}
+.phy-walking-trial .phy-walking-flag {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+.phy-walking-trial .phy-walking-flag input {
+  width: 16px;
+  height: 16px;
+  margin: 3px 0;
+  flex: 0 0 16px;
+  accent-color: #9673ab;
+}
+.phy-walking-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  background: #ece4f3;
+  padding: 14px;
+  border-radius: 8px;
+  color: #846a95;
+}
+.phy-walking-metrics > div {
+  min-width: 0;
+  font-size: 11px;
+}
+.phy-walking-metrics .phy-en {
+  display: block;
+  font-size: 9px;
+  margin-top: 3px;
+}
+.phy-walking-metrics strong {
+  display: block;
+  font-size: 20px;
+  color: #765989;
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+.phy-walking-checkpoints {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 20px;
+}
+.phy-walking-chart {
+  margin-top: 24px;
+}
+.phy-walking-report {
+  margin: 15px 0;
+}
+.phy-walking-report summary {
+  cursor: pointer;
+  color: #806294;
+}
+.phy-walking-report textarea {
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 12px;
+  padding: 10px;
+  border: 1px solid #d9ccdf;
+  border-radius: 7px;
+  background: #fffcf8;
+  color: #796386;
+  font:
+    11px/1.7 ui-monospace,
+    monospace;
+  resize: vertical;
+}
+.phy-walking-page a[aria-disabled='true'] {
+  opacity: 0.5;
+  cursor: default;
+}
+.phy-walking-chart > svg {
+  display: block;
+  width: 100%;
+  max-height: 310px;
+  border: 1px solid #e2d7e9;
+  border-radius: 10px;
+  background: #f8f4fc;
+  color: #846a94;
+}
+.phy-walking-chart svg text {
+  font:
+    16px system-ui,
+    sans-serif;
+  fill: #80698d;
+}
+@media (max-width: 700px) {
+  .phy-walking-trials,
+  .phy-walking-checkpoints {
+    grid-template-columns: 1fr;
+  }
+  .phy-walking-trial {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) 90px;
+    column-gap: 14px;
+  }
+  .phy-walking-trial > label {
+    margin-top: 0;
+  }
+  .phy-walking-speed {
+    margin: 0;
+    align-self: end;
+    padding-bottom: 8px;
+  }
+  .phy-walking-evidence,
+  .phy-walking-trial > .phy-walking-warning,
+  .phy-walking-trial > .phy-walking-hint {
+    grid-column: 1 / -1;
+    margin-top: 12px;
+  }
+  .phy-walking-metrics {
+    grid-template-columns: 1fr;
+    gap: 14px;
+  }
+  .phy-walking-metrics > div {
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    align-items: center;
+  }
+  .phy-walking-metrics strong {
+    margin: 0;
+    font-size: 19px;
+  }
+  .phy-walking-route {
+    padding: 17px 12px;
+    font-size: 10px;
+  }
+  .phy-walking-chart svg text {
+    font-size: 28px;
+  }
+}
+/* Force controls describe each object's selected conditions before playback. */
+.phy-force-options {
+  min-width: 0;
+}
+.phy-forces-lab > .phy-lab-controls {
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+.phy-force-options > span {
+  display: block;
+  margin-bottom: 8px;
+  color: #876696;
+  font-size: 11px;
+}
+.phy-force-options > span .phy-en {
+  font-size: 9px;
+  margin-left: 6px;
+}
+.phy-force-options .phy-segment {
+  flex-wrap: wrap;
+}
+.phy-force-svg {
+  max-height: 310px;
+}
+.phy-force-record {
+  padding: 16px 18px;
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #80618f;
+  border-top: 1px solid #e8dff0;
+}
+.phy-force-record .phy-en,
+.phy-force-legend .phy-en {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+}
+.phy-force-legend {
+  padding: 0 18px 14px;
+  font-size: 11px;
+  line-height: 1.7;
+  color: #947e9e;
+}
+@media (max-width: 700px) {
+  .phy-force-options {
+    width: 100%;
+  }
+  .phy-force-options .phy-segment {
+    width: fit-content;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+  .phy-force-options .phy-segment button {
+    padding: 10px 9px;
+    font-size: 11px;
+  }
+  .phy-force-svg text {
+    font-size: 24px;
+  }
+}
+/* Gravity keeps readings and instrument calibration visible beside comparisons. */
+.phy-gravity-svg {
+  max-height: 340px;
+}
+.phy-gravity-status {
+  color: #8d719a;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.phy-gravity-status .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-gravity-calibration {
+  margin: 0;
+  padding: 20px;
+  background: #f5eee3;
+  border-top: 1px solid #e7d9c6;
+  color: #94794e;
+}
+.phy-gravity-calibration > span {
+  font-size: 12px;
+}
+.phy-gravity-calibration .phy-en {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+}
+.phy-gravity-calibration strong {
+  display: block;
+  margin: 12px 0;
+  font-size: 25px;
+  font-weight: 500;
+}
+.phy-gravity-calibration p {
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.phy-gravity-scrub label {
+  min-width: 0;
+  width: 100%;
+}
+@media (max-width: 700px) {
+  .phy-gravity-svg text {
+    font-size: 24px;
+  }
+  .phy-gravity-calibration {
+    padding: 17px;
+  }
+}
+.phy-density-svg {
+  max-height: 325px;
+}
+.phy-materials-card {
+  background: #edf1ec;
+  border-color: #d3ddce;
+}
+.phy-materials-card h3,
+.phy-materials-card > svg {
+  color: #71856b;
+}
+.phy-materials-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 24px;
+  align-items: center;
+  margin: 20px 0 26px;
+}
+.phy-materials-hero h1 {
+  margin-top: 12px;
+}
+.phy-materials-art {
+  background: #eee9f3;
+  border-radius: 12px;
+  padding: 18px 10px;
+  text-align: center;
+  color: #8a6d9c;
+  font-size: 11px;
+}
+.phy-materials-art svg {
+  width: 100%;
+  display: block;
+}
+.phy-materials-art svg text {
+  fill: #8a6d9c;
+  font-size: 17px;
+  font-family: inherit;
+}
+.phy-materials-art p {
+  margin: 10px 0 0;
+}
+.phy-materials-art .phy-en {
+  display: block;
+  margin-top: 4px;
+  font-size: 9px;
+}
+.phy-materials-cases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 24px 0 16px;
+}
+.phy-materials-cases button {
+  flex: 1 1 145px;
+  min-width: 0;
+  text-align: left;
+  border: 1px solid #dfd7e5;
+  background: #f8f5fa;
+  border-radius: 9px;
+  padding: 13px 15px;
+  color: #8d799a;
+}
+.phy-materials-cases button > span {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 9px;
+  letter-spacing: 1px;
+}
+.phy-materials-cases i {
+  font-style: normal;
+}
+.phy-materials-cases strong {
+  display: block;
+  font-size: 12px;
+  margin-top: 8px;
+  overflow-wrap: anywhere;
+}
+.phy-materials-cases button.selected {
+  border-color: #a990b9;
+  background: #eee7f3;
+  color: #795891;
+}
+.phy-materials-cases .phy-materials-add {
+  flex: 0 1 145px;
+  align-self: stretch;
+  text-align: center;
+  background: transparent;
+  border-style: dashed;
+  font-size: 12px;
+}
+.phy-materials-add .phy-en {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+}
+.phy-materials-steps {
+  margin-bottom: 20px;
+}
+.phy-materials-steps > button {
+  font-size: 12px;
+}
+.phy-materials-steps > button .phy-en {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+}
+.phy-materials-note {
+  font-size: 12px;
+  line-height: 1.8;
+  color: #8e7b99;
+}
+.phy-materials-note .phy-en {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+}
+.phy-materials-example {
+  border-top: 1px solid #e6ddea;
+  margin-top: 22px;
+  padding-top: 17px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #8b709a;
+}
+.phy-materials-example summary {
+  cursor: pointer;
+}
+.phy-materials-example .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-materials-trials {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  margin: 22px 0;
+}
+.phy-materials-trial {
+  background: #f8f5fa;
+  border: 1px solid #e3d9e9;
+  border-radius: 10px;
+  padding: 16px;
+  min-width: 0;
+}
+.phy-materials-trial header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 10px;
+  color: #876497;
+  font-size: 13px;
+}
+.phy-materials-trial header > span {
+  text-align: right;
+  color: #839075;
+  font-size: 10px;
+}
+.phy-materials-trial .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-materials-trial label {
+  margin-top: 14px;
+  font-size: 12px;
+}
+.phy-materials-trial input:not([type='checkbox']),
+.phy-materials-trial select {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 9px;
+  margin-top: 6px;
+  border: 1px solid #ddd2e4;
+  border-radius: 7px;
+  color: #755782;
+  background: #fffdfc;
+  font: inherit;
+}
+.phy-materials-trial select:focus {
+  outline: 2px solid #b49bc7;
+  outline-offset: 2px;
+}
+.phy-materials-numbers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 10px;
+}
+.phy-materials-trial-result {
+  border-block: 1px solid #e5dcec;
+  padding: 13px 0;
+  margin-top: 18px;
+  font-size: 12px;
+  color: #917d9d;
+  overflow-wrap: anywhere;
+}
+.phy-materials-trial-result strong {
+  display: block;
+  margin-top: 5px;
+  color: #826092;
+  font-size: 16px;
+}
+.phy-materials-trial-result strong > span,
+.phy-materials-trial-result strong .phy-en {
+  display: inline;
+  font-size: 11px;
+  margin-right: 5px;
+}
+.phy-materials-trial .phy-materials-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 11px;
+}
+.phy-materials-check input[type='checkbox'] {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+  margin: 2px 0 0;
+  padding: 0;
+  accent-color: #9676a9;
+}
+.phy-materials-warning {
+  color: #a18154;
+  background: #f5eee4;
+  padding: 10px;
+  border-radius: 7px;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.phy-materials-evidence {
+  border-top: 1px dashed #d6c9df;
+  margin-top: 18px;
+  padding-top: 12px;
+  font-size: 11px;
+  color: #99829f;
+}
+.phy-materials-evidence summary {
+  cursor: pointer;
+}
+.phy-materials-help {
+  margin: 12px 0 18px;
+  font-size: 12px;
+  color: #917d9d;
+  line-height: 1.8;
+}
+.phy-materials-help summary {
+  cursor: pointer;
+}
+.phy-content-state {
+  margin: 24px 0;
+  padding: 24px;
+  background: #f5f1f8;
+  border: 1px solid #e1d8e8;
+  border-radius: 12px;
+}
+.phy-content-state h2 {
+  font-size: 20px;
+  line-height: 1.5;
+}
+.phy-content-state p {
+  color: #897895;
+  line-height: 1.8;
+}
+.phy-energy-lab {
+  --energy-ink: #89719a;
+}
+.phy-work-lab {
+  --energy-ink: #89719a;
+}
+.phy-work-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  gap: 20px;
+  align-items: center;
+  margin: 20px 0;
+}
+.phy-work-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px 24px;
+}
+.phy-work-svg {
+  width: 100%;
+  margin: 12px 0;
+}
+.phy-work-grid .phy-energy-bars {
+  margin: 0;
+}
+.phy-work-result {
+  background: #eee7f4;
+  border-radius: 10px;
+  padding: 22px;
+  color: #8d739e;
+  font-size: 13px;
+  line-height: 1.8;
+}
+.phy-work-result > div:first-child > strong {
+  display: block;
+  font-size: 30px;
+  font-weight: 600;
+  margin: 10px 0;
+}
+.phy-work-result .phy-en,
+.phy-work-fixed .phy-en {
+  display: block;
+  font-size: 11px;
+  margin-top: 3px;
+}
+.phy-work-small-metrics {
+  display: flex;
+  gap: 22px;
+  padding: 14px 0;
+  font-size: 11px;
+  color: #9b83a9;
+}
+.phy-work-small-metrics .phy-en {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+}
+.phy-work-small-metrics strong {
+  display: block;
+  font-size: 18px;
+  margin-top: 6px;
+}
+.phy-work-fixed {
+  padding: 12px 16px;
+  background: #f1ebdf;
+  border-radius: 8px;
+  color: #9a825e;
+  line-height: 1.7;
+  font-size: 13px;
+}
+.phy-work-power-cards {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.phy-work-power-cards > div {
+  background: #eee7f4;
+  border: 1px solid #e2d7e9;
+  padding: 16px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #9b83a9;
+  line-height: 1.7;
+}
+.phy-work-power-cards > div + div {
+  background: #f1ebdf;
+  color: #a28b65;
+  border-color: #e8ddc8;
+}
+.phy-work-power-cards strong {
+  display: block;
+  font-size: 22px;
+}
+.phy-work-hoist-id {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+.phy-work-power-cards .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-work-calculation {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px 12px;
+  border-top: 1px dashed #d6c7e0;
+  padding-top: 12px;
+}
+.phy-work-calculation strong {
+  font-size: 15px;
+}
+.phy-work-table {
+  margin-top: 22px;
+}
+.phy-work-table caption {
+  text-align: left;
+  line-height: 1.7;
+  padding-bottom: 14px;
+}
+.phy-work-table td {
+  white-space: nowrap;
+}
+.phy-lesson-card[class*='phy-art-work-'] .phy-card-art {
+  background: #f0ece3;
+}
+@media (max-width: 900px) {
+  .phy-work-grid {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .phy-work-lab .phy-lab-toolbar {
+    flex-wrap: wrap;
+  }
+  .phy-work-grid {
+    gap: 8px;
+  }
+  .phy-work-svg {
+    width: calc(100% + 24px);
+    max-width: none;
+    margin-left: -12px;
+  }
+  .phy-work-svg text {
+    font-size: 28px;
+  }
+  .phy-work-result {
+    padding: 16px;
+  }
+  .phy-work-power-cards > div {
+    padding: 12px;
+  }
+  .phy-work-power-cards strong {
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  .phy-work-table .phy-data-table th,
+  .phy-work-table .phy-data-table td {
+    padding: 10px 4px;
+  }
+  .phy-work-table .phy-data-table {
+    font-size: 11px;
+  }
+}
+.phy-energy-svg {
+  max-height: 300px;
+  margin: 12px auto 18px;
+}
+.phy-energy-bars {
+  padding: 18px;
+  margin: 18px 0;
+  border: 1px solid #e4d9e9;
+  border-radius: 10px;
+  background: #fbf8fd;
+}
+.phy-energy-bars > p {
+  margin: 0 0 16px;
+  color: #a48caf;
+  font-size: 11px;
+}
+.phy-energy-bars > p .phy-en {
+  display: inline;
+  margin-left: 5px;
+}
+.phy-energy-bar-row + .phy-energy-bar-row {
+  margin-top: 15px;
+}
+.phy-energy-bar-row > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  gap: 14px;
+  align-items: center;
+  font-size: 13px;
+  color: var(--energy-ink);
+  margin-bottom: 7px;
+}
+.phy-energy-bar-row .phy-en {
+  display: block;
+  margin-top: 3px;
+  font-size: 11px;
+}
+.phy-energy-bar-row strong {
+  font-size: 17px;
+  white-space: nowrap;
+}
+.phy-energy-bar-track {
+  height: 14px;
+  border-radius: 4px;
+  background: #eee7f3;
+  overflow: hidden;
+}
+.phy-energy-bar-track span {
+  display: block;
+  height: 100%;
+  transition: width 120ms linear;
+}
+.phy-energy-total {
+  font-size: 14px;
+  color: #8d739e;
+  background: #eee6f5;
+  padding: 12px 15px;
+  border-radius: 7px;
+  line-height: 1.8;
+}
+.phy-energy-total .phy-en {
+  display: inline;
+  font-size: 11px;
+  margin: 0 5px;
+}
+.phy-energy-probe {
+  display: block;
+  margin: 18px 0;
+  color: #9d83ab;
+  font-size: 12px;
+}
+.phy-energy-probe > span {
+  display: block;
+  margin-bottom: 10px;
+}
+.phy-energy-probe .phy-en {
+  display: inline;
+  font-size: 11px;
+  margin-left: 6px;
+}
+.phy-energy-probe input {
+  width: 100%;
+  accent-color: #b99a69;
+}
+.phy-energy-task {
+  padding: 18px;
+  margin: 18px 0;
+  border-radius: 10px;
+  background: #eee9dc;
+  color: #94815c;
+  line-height: 1.8;
+  font-size: 12px;
+}
+.phy-energy-task strong {
+  font-size: 14px;
+}
+.phy-energy-task .phy-en {
+  display: block;
+  font-size: 11px;
+  margin-top: 3px;
+}
+.phy-energy-assumptions {
+  margin-top: 22px;
+  padding-top: 14px;
+  border-top: 1px dashed #ddd1e4;
+  font-size: 12px;
+  color: #a18aaa;
+}
+.phy-energy-assumptions summary {
+  cursor: pointer;
+  line-height: 1.8;
+}
+.phy-energy-lab .phy-data-table td {
+  white-space: nowrap;
+}
+.phy-energy-lab .phy-data-table caption {
+  text-align: left;
+}
+.phy-lesson-card[class*='phy-art-energy-'] .phy-card-art {
+  background: #f2eee3;
+}
+@media (max-width: 700px) {
+  .phy-energy-lab .phy-lab-toolbar {
+    flex-wrap: wrap;
+  }
+  .phy-energy-svg {
+    width: calc(100% + 24px);
+    max-width: none;
+    margin-left: -12px;
+    margin-right: -12px;
+  }
+  .phy-energy-svg text {
+    font-size: 28px;
+  }
+  .phy-energy-bars {
+    padding: 13px;
+  }
+  .phy-energy-bar-row > div:first-child {
+    font-size: 12px;
+  }
+  .phy-energy-bar-row strong {
+    font-size: 15px;
+  }
+  .phy-energy-total .phy-en,
+  .phy-energy-probe .phy-en {
+    display: block;
+    margin-left: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .phy-energy-bar-track span {
+    transition: none;
+  }
+}
+.phy-materials-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.phy-materials-metrics > div {
+  background: #eee7f4;
+  border-radius: 9px;
+  padding: 15px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #8b7599;
+  min-width: 0;
+}
+.phy-materials-metrics .phy-en {
+  display: block;
+  font-size: 10px;
+}
+.phy-materials-metrics strong {
+  display: block;
+  margin-top: 12px;
+  color: #826092;
+  font-size: 19px;
+  overflow-wrap: anywhere;
+}
+.phy-materials-references {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin: 20px 0;
+}
+.phy-materials-references > div {
+  background: #f4f0f6;
+  border: 1px solid #e7dfea;
+  border-radius: 10px;
+  padding: 14px 10px;
+  text-align: center;
+  color: #8b7499;
+  font-size: 11px;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.phy-materials-references svg {
+  width: 65px;
+  display: block;
+  margin: 0 auto 12px;
+}
+.phy-materials-references strong {
+  display: block;
+  font-size: 13px;
+  margin-bottom: 9px;
+}
+.phy-materials-references .phy-en {
+  display: block;
+  font-size: 10px;
+  margin-top: 3px;
+}
+.phy-materials-references small {
+  margin-top: 12px;
+}
+.phy-materials-references b {
+  display: block;
+  font-size: 17px;
+  margin-top: 8px;
+  color: #9776a8;
+}
+.phy-materials-page .phy-lesson-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  font-size: 12px;
+  color: #9d8aaa;
+  margin-bottom: 25px;
+}
+.phy-materials-page a[aria-disabled='true'] {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+@media (max-width: 1100px) {
+  .phy-materials-trials,
+  .phy-materials-references {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .phy-materials-trials {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 700px) {
+  .phy-materials-hero {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+  .phy-materials-art {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px;
+  }
+  .phy-materials-art svg {
+    width: 55%;
+  }
+  .phy-materials-art p {
+    margin: 0;
+  }
+  .phy-materials-cases button {
+    flex-basis: 120px;
+    padding: 12px;
+  }
+  .phy-materials-steps > button {
+    flex-direction: column;
+    font-size: 10px;
+    padding-inline: 2px;
+  }
+  .phy-materials-steps > button .phy-en {
+    font-size: 9px;
+  }
+  .phy-materials-trial {
+    padding: 13px;
+  }
+  .phy-materials-numbers label {
+    font-size: 11px;
+  }
+  .phy-materials-metrics {
+    grid-template-columns: 1fr;
+  }
+  .phy-materials-metrics > div {
+    display: flex;
+    flex-direction: column;
+  }
+  .phy-materials-metrics strong {
+    margin-top: 6px;
+  }
+  .phy-materials-page .phy-lesson-footer .phy-button {
+    font-size: 11px;
+    padding-inline: 12px;
+  }
+  .phy-materials-guide {
+    margin-top: 10px;
+  }
+}
+.phy-density-equation {
+  padding: 18px;
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.8;
+  color: #89669c;
+  overflow-wrap: anywhere;
+  background: #f4eef8;
+}
+.phy-density-condition {
+  margin: 0;
+  padding: 17px 18px;
+  line-height: 1.8;
+  font-size: 12px;
+  color: #967d58;
+  background: #f6efe5;
+}
+.phy-density-condition.valid {
+  color: #698e80;
+  background: #edf4ef;
+}
+.phy-density-condition .phy-en {
+  display: block;
+  margin-top: 4px;
+  font-size: 10px;
+}
+.phy-density-validity {
+  display: block;
+  margin-top: 5px;
+  font-size: 10px;
+  color: #947ca0;
+}
+.phy-density-validity .phy-en {
+  display: block;
+  font-size: 9px;
+}
+.phy-density-lab .phy-skill-readouts strong {
+  font-size: 22px;
+  overflow-wrap: anywhere;
+}
+@media (max-width: 700px) {
+  .phy-density-svg text {
+    font-size: 28px;
+  }
+  .phy-density-equation {
+    font-size: 13px;
+  }
+  .phy-density-lab .phy-data-table th,
+  .phy-density-lab .phy-data-table td {
+    padding: 12px 6px;
+  }
+  .phy-density-lab .phy-data-table {
+    font-size: 11px;
+  }
+  .phy-density-lab .phy-data-table .phy-en {
+    font-size: 9px;
+  }
+}
+
+.phy-power-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 24px;
+  align-items: center;
+  margin: 22px 0;
+}
+.phy-power-hero h1 {
+  font-size: clamp(25px, 3vw, 37px);
+  line-height: 1.4;
+}
+.phy-power-hero-art {
+  background: #f3eff6;
+  border: 1px solid #e1d8e7;
+  border-radius: 14px;
+  padding: 12px;
+}
+.phy-power-hero-art svg {
+  width: 100%;
+  display: block;
+  fill: #927b9d;
+  font-size: 18px;
+}
+.phy-power-steps {
+  margin: 24px 0;
+}
+.phy-power-steps button {
+  flex: 1;
+  min-width: 0;
+}
+.phy-power-note {
+  font-size: 12px;
+  line-height: 1.9;
+  color: #8b7796;
+  background: #f7f3f9;
+  padding: 14px;
+  border-radius: 10px;
+}
+.phy-power-example {
+  margin: 20px 0;
+  border-top: 1px dashed #d6c9df;
+  padding-top: 14px;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #8b7796;
+}
+.phy-power-example summary {
+  cursor: pointer;
+}
+.phy-power-numbers,
+.phy-power-readings {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.phy-power-trial {
+  min-width: 0;
+  border: 1px solid #e2d9e8;
+  background: #fffdfc;
+  border-radius: 12px;
+  padding: 16px;
+}
+.phy-power-trial.excluded {
+  background: #f7f5f8;
+  border-style: dashed;
+}
+.phy-power-trial-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 14px;
+  font-size: 12px;
+}
+.phy-power-trial-heading > span {
+  font-size: 10px;
+  color: #9b879f;
+}
+.phy-power-page label.phy-power-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 9px;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.phy-power-check input[type='checkbox'] {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+  margin: 3px 0 0;
+  padding: 0;
+  accent-color: #9676a9;
+}
+.phy-power-trial-value {
+  font-size: 11px;
+  color: #937d9c;
+  border-block: 1px dashed #e2d9e8;
+  padding: 12px 0;
+}
+.phy-power-trial-value strong {
+  display: block;
+  font-size: 19px;
+  color: #826092;
+  margin: 6px 0;
+}
+.phy-power-trial-value small {
+  display: block;
+  font-size: 10px;
+}
+.phy-power-alert {
+  background: #f6eee1;
+  color: #8f7144;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 11px;
+  line-height: 1.8;
+}
+.phy-power-readings + .phy-button {
+  margin-top: 18px;
+}
+.phy-power-series {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-top: 20px;
+}
+.phy-power-series > span {
+  min-width: 0;
+  background: #f3edf7;
+  padding: 14px;
+  border-radius: 10px;
+  font-size: 11px;
+  color: #9c87a7;
+}
+.phy-power-series strong {
+  display: block;
+  font-size: 19px;
+  color: #826092;
+  overflow-wrap: anywhere;
+  margin-top: 8px;
+}
+.phy-power-ledger {
+  align-self: start;
+  min-width: 0;
+  padding: 22px;
+  background: #f3eef6;
+  border: 1px solid #e2d7e8;
+  border-radius: 14px;
+}
+.phy-power-ledger h3 {
+  font-size: 17px;
+}
+.phy-power-ledger dl {
+  margin: 24px 0;
+}
+.phy-power-ledger dl > div {
+  padding: 12px 0;
+  border-bottom: 1px solid #e4dbe9;
+}
+.phy-power-ledger dt {
+  font-size: 12px;
+  color: #9a85a4;
+}
+.phy-power-ledger dd {
+  margin: 6px 0 0;
+  color: #826092;
+  font-size: 23px;
+  overflow-wrap: anywhere;
+}
+.phy-power-ledger dd small {
+  font-size: 13px;
+}
+.phy-power-ledger > p:not(.phy-eyebrow) {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #9b88a5;
+}
+.phy-power-page .phy-lesson-footer {
+  gap: 8px;
+}
+.phy-power-card {
+  background: #f4efe5;
+}
+.phy-power-chart {
+  margin: 20px 0;
+  padding: 12px;
+  background: #f5f0f8;
+  border-radius: 12px;
+}
+.phy-power-chart svg {
+  width: 100%;
+  display: block;
+}
+.phy-power-chart figcaption {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #9982a4;
+  margin-top: 10px;
+}
+@media (max-width: 900px) {
+  .phy-power-readings {
+    grid-template-columns: 1fr;
+  }
+}
+@media (max-width: 560px) {
+  .phy-power-hero {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .phy-power-hero-art {
+    max-width: 240px;
+  }
+  .phy-power-steps {
+    gap: 4px;
+  }
+  .phy-power-steps > button {
+    padding: 9px 4px;
+    font-size: 11px;
+  }
+  .phy-power-steps .phy-en {
+    font-size: 9px;
+  }
+  .phy-power-numbers {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .phy-power-trial {
+    padding: 14px;
+  }
+  .phy-power-ledger {
+    padding: 16px;
+  }
+  .phy-power-page .phy-lesson-footer .phy-button {
+    padding: 10px 9px;
+  }
+  .phy-power-series strong {
+    font-size: 17px;
+  }
+}
+@media (max-width: 560px) {
+  .phy-power-chart text {
+    font-size: 30px;
+  }
+}
+.phy-power-chart-scale {
+  font-size: 11px;
+  color: #957da0;
+  margin: 0 0 10px;
+}
+
+.phy-thermal-lab {
+  padding-bottom: 22px;
+}
+.phy-thermal-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+  gap: 22px;
+  align-items: center;
+  margin: 18px 0;
+}
+.phy-thermal-svg {
+  width: 100%;
+  display: block;
+  margin: 12px 0;
+}
+.phy-thermal-readout {
+  padding: 22px;
+  border: 1px solid #e1d6e8;
+  background: #eee7f3;
+  border-radius: 12px;
+}
+.phy-thermal-readout > div {
+  margin: 14px 0;
+}
+.phy-thermal-readout strong {
+  display: block;
+  font-size: 28px;
+  color: #8a6f9b;
+  margin-top: 8px;
+}
+.phy-thermal-readout > p {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #9c87a9;
+}
+.phy-thermal-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 16px 0;
+}
+.phy-thermal-metrics > div {
+  min-width: 0;
+  border: 1px solid #e2d7e8;
+  border-radius: 11px;
+  background: #f3edf7;
+  padding: 16px;
+  font-size: 12px;
+  color: #9b86a6;
+}
+.phy-thermal-metrics strong {
+  display: block;
+  margin-top: 8px;
+  color: #886b99;
+  font-size: 21px;
+  overflow-wrap: anywhere;
+}
+.phy-thermal-metrics strong .phy-en {
+  font-size: 12px;
+}
+.phy-thermal-note {
+  font-size: 11px;
+  line-height: 1.9;
+  color: #9b85a7;
+  margin: 14px 0;
+}
+.phy-thermal-legend {
+  display: flex;
+  gap: 18px;
+  flex-wrap: wrap;
+  margin: 20px 0 0;
+  font-size: 12px;
+}
+.phy-thermal-legend > span {
+  border-bottom: 3px solid currentColor;
+  padding: 0 0 4px;
+}
+.phy-thermal-lab .phy-data-table th:first-child {
+  max-width: 180px;
+}
+.phy-thermal-lab .phy-force-record {
+  margin-top: 18px;
+}
+@media (max-width: 900px) {
+  .phy-thermal-grid {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+}
+@media (max-width: 560px) {
+  .phy-thermal-svg text {
+    font-size: 28px;
+  }
+  .phy-thermal-lab .phy-simulation {
+    padding: 0;
+  }
+  .phy-thermal-readout {
+    padding: 16px;
+  }
+  .phy-thermal-metrics > div {
+    padding: 10px;
+    font-size: 11px;
+  }
+  .phy-thermal-metrics strong {
+    font-size: 15px;
+    white-space: nowrap;
+  }
+  .phy-thermal-lab .phy-data-table th:first-child {
+    max-width: 110px;
+  }
+  .phy-thermal-lab .phy-data-table th,
+  .phy-thermal-lab .phy-data-table td {
+    padding-inline: 3px;
+  }
+  .phy-thermal-lab .phy-data-table td {
+    white-space: nowrap;
+  }
+  .phy-thermal-legend {
+    gap: 12px;
+    font-size: 11px;
+  }
+}
+
+.phy-phase-legend {
+  display: flex;
+  gap: 24px;
+  padding: 12px 0 0;
+  font-size: 12px;
+}
+.phy-phase-balance {
+  padding: 14px 16px;
+  border-radius: 9px;
+  background: #f0e9f5;
+  font-size: 12px;
+  line-height: 1.9;
+  color: #8f749f;
+  overflow-wrap: anywhere;
+}
+.phy-phase-stages {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin: 18px 0;
+  font-size: 12px;
+}
+.phy-phase-stages > span {
+  padding: 10px;
+  border: 1px solid #e3d8ea;
+  border-radius: 9px;
+  color: #a38bbb;
+}
+.phy-phase-stages > .active {
+  background: #eee3dc;
+  border-color: #cfb895;
+  color: #a88d64;
+}
+.phy-phase-ledger {
+  display: grid;
+  gap: 12px;
+  margin: 14px 0;
+  padding: 0 8px;
+}
+.phy-phase-ledger > div {
+  display: grid;
+  grid-template-columns: 130px minmax(0, 1fr) 94px;
+  gap: 12px;
+  align-items: center;
+  font-size: 12px;
+  color: #9b85a7;
+}
+.phy-phase-ledger strong {
+  font-size: 14px;
+  text-align: right;
+  white-space: nowrap;
+}
+.phy-phase-energy-track {
+  height: 12px;
+  border-radius: 6px;
+  background: #eee7f3;
+  overflow: hidden;
+}
+.phy-phase-energy-track i {
+  display: block;
+  height: 100%;
+  border-radius: 6px;
+}
+@media (max-width: 560px) {
+  .phy-phase-stages {
+    font-size: 10px;
+    gap: 5px;
+  }
+  .phy-phase-stages > span {
+    padding: 9px 5px;
+  }
+  .phy-phase-stages .phy-en {
+    font-size: 8px;
+  }
+  .phy-phase-balance {
+    font-size: 11px;
+    padding: 12px;
+  }
+  .phy-phase-ledger > div {
+    grid-template-columns: 74px minmax(0, 1fr) 65px;
+    gap: 7px;
+    font-size: 10px;
+  }
+  .phy-phase-ledger .phy-en {
+    font-size: 8px;
+  }
+  .phy-phase-ledger strong {
+    font-size: 11px;
+  }
+  .phy-phase-lab .phy-data-table th,
+  .phy-phase-lab .phy-data-table td {
+    font-size: 9px;
+  }
+}

@@ -12,7 +12,18 @@ export type Lesson = {
   subtitle: LocalizedText;
   minutes: number;
   stage: 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8;
-  unit: 'curiosity' | 'measurement' | 'patterns' | 'mysteries' | 'motion';
+  unit:
+    | 'curiosity'
+    | 'measurement'
+    | 'patterns'
+    | 'mysteries'
+    | 'motion'
+    | 'forces'
+    | 'gravity'
+    | 'density'
+    | 'energy'
+    | 'work'
+    | 'thermal';
   kind:
     | 'friction'
     | 'variables'
@@ -37,7 +48,42 @@ export type Lesson = {
     | 'volume'
     | 'accuracy'
     | 'repeats'
-    | 'paper';
+    | 'paper'
+    | 'reference'
+    | 'journey'
+    | 'average'
+    | 'motion-graph'
+    | 'force-effects'
+    | 'force-balance'
+    | 'grip-friction'
+    | 'paper-drag'
+    | 'mass-weight'
+    | 'moon-weight'
+    | 'gravity-fall'
+    | 'density-compare'
+    | 'density-block'
+    | 'density-displacement'
+    | 'density-float'
+    | 'energy-lamp'
+    | 'energy-kinetic'
+    | 'energy-height'
+    | 'energy-spring'
+    | 'energy-track'
+    | 'energy-dissipation'
+    | 'work-direction'
+    | 'work-area'
+    | 'work-power'
+    | 'work-human'
+    | 'work-ramp'
+    | 'thermal-particles'
+    | 'thermal-heating'
+    | 'thermal-paths'
+    | 'thermal-cups'
+    | 'thermal-wet'
+    | 'phase-fusion'
+    | 'phase-boiling'
+    | 'phase-condensation'
+    | 'phase-curve';
   hook: LocalizedText;
   prediction: LocalizedText;
   predictions: LocalizedText[];
