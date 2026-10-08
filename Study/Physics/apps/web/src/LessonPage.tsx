@@ -336,6 +336,48 @@ function LessonView({
                     <B zh="把物理带回家" en="Take physics home" mode={mode} />
                   </h3>
                   <Text value={lesson.homeExperiment} mode={mode} />
+                  {[
+                    'light-reflection-from-normal',
+                    'light-plane-mirror-image',
+                  ].includes(lesson.id) && (
+                    <Link
+                      className="phy-today-link"
+                      to="/physics/project/periscope"
+                    >
+                      <B
+                        zh="打开我的潜望镜工作台 →"
+                        en="Open my periscope workshop →"
+                        mode={mode}
+                      />
+                    </Link>
+                  )}
+                  {[
+                    'machines-longer-handle',
+                    'machines-friction-energy-ledger',
+                  ].includes(lesson.id) && (
+                    <Link
+                      className="phy-today-link"
+                      to="/physics/project/lifting"
+                    >
+                      <B
+                        zh="打开我的抬升设计工作台 →"
+                        en="Open my lifting design workshop →"
+                        mode={mode}
+                      />
+                    </Link>
+                  )}
+                  {lesson.id === 'thermal-cooling-and-insulation' && (
+                    <Link
+                      className="phy-today-link"
+                      to="/physics/project/insulation"
+                    >
+                      <B
+                        zh="打开我的双杯保温调查 →"
+                        en="Open my two-cup insulation investigation →"
+                        mode={mode}
+                      />
+                    </Link>
+                  )}
                   {lesson.id === 'human-power-vertical-rise' && (
                     <Link
                       className="phy-today-link"

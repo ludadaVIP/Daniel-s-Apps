@@ -4,6 +4,131 @@ import type { LanguageMode } from '@study/shared';
 import { B, Icon } from '../ui';
 import { rollingMotion, raceTime } from './physics';
 import type { Lesson } from '../content/schema';
+const ChargeTransferLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.ChargeTransferLab })),
+);
+const ChargeInteractionLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.ChargeInteractionLab })),
+);
+const ElectricCurrentLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.ElectricCurrentLab })),
+);
+const CompleteCircuitLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.CompleteCircuitLab })),
+);
+const BatteryPolarityLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.BatteryPolarityLab })),
+);
+const LampChargeLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.LampChargeLab })),
+);
+const SwitchPathLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.SwitchPathLab })),
+);
+const MaterialContactLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.MaterialContactLab })),
+);
+const SeriesCircuitLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.SeriesCircuitLab })),
+);
+const ParallelCircuitLab = lazy(() =>
+  import('./ElectricLabs').then((m) => ({ default: m.ParallelCircuitLab })),
+);
+const LeverLab = lazy(() =>
+  import('./MachineLabs').then((m) => ({ default: m.LeverLab })),
+);
+const TurningLab = lazy(() =>
+  import('./MachineLabs').then((m) => ({ default: m.TurningLab })),
+);
+const PulleyLab = lazy(() =>
+  import('./MachineLabs').then((m) => ({ default: m.PulleyLab })),
+);
+const GearsLab = lazy(() =>
+  import('./MachineLabs').then((m) => ({ default: m.GearsLab })),
+);
+const AdvantageLab = lazy(() =>
+  import('./MachineLabs').then((m) => ({ default: m.AdvantageLab })),
+);
+const RealMachineLab = lazy(() =>
+  import('./MachineLabs').then((m) => ({ default: m.RealMachineLab })),
+);
+const BuoyancyReleaseLab = lazy(() =>
+  import('./BuoyancyLabs').then((m) => ({ default: m.BuoyancyReleaseLab })),
+);
+const BuoyancyPressureLab = lazy(() =>
+  import('./BuoyancyLabs').then((m) => ({ default: m.BuoyancyPressureLab })),
+);
+const BuoyancyDisplacementLab = lazy(() =>
+  import('./BuoyancyLabs').then((m) => ({
+    default: m.BuoyancyDisplacementLab,
+  })),
+);
+const BuoyancyArchimedesLab = lazy(() =>
+  import('./BuoyancyLabs').then((m) => ({ default: m.BuoyancyArchimedesLab })),
+);
+const BuoyancyShipLab = lazy(() =>
+  import('./BuoyancyLabs').then((m) => ({ default: m.BuoyancyShipLab })),
+);
+const BuoyancySubmarineLab = lazy(() =>
+  import('./BuoyancyLabs').then((m) => ({ default: m.BuoyancySubmarineLab })),
+);
+const BuoyancyBalloonLab = lazy(() =>
+  import('./BuoyancyLabs').then((m) => ({ default: m.BuoyancyBalloonLab })),
+);
+const PressureContactLab = lazy(() =>
+  import('./PressureLabs').then((m) => ({ default: m.PressureContactLab })),
+);
+const PressureShoesLab = lazy(() =>
+  import('./PressureLabs').then((m) => ({ default: m.PressureShoesLab })),
+);
+const PressureLiquidLab = lazy(() =>
+  import('./PressureLabs').then((m) => ({ default: m.PressureLiquidLab })),
+);
+const PressureAirLab = lazy(() =>
+  import('./PressureLabs').then((m) => ({ default: m.PressureAirLab })),
+);
+const PressureStrawLab = lazy(() =>
+  import('./PressureLabs').then((m) => ({ default: m.PressureStrawLab })),
+);
+const PressureSyringeLab = lazy(() =>
+  import('./PressureLabs').then((m) => ({ default: m.PressureSyringeLab })),
+);
+const LightShadowLab = lazy(() =>
+  import('./LightLabs').then((m) => ({ default: m.LightShadowLab })),
+);
+const LightReflectionLab = lazy(() =>
+  import('./LightLabs').then((m) => ({ default: m.LightReflectionLab })),
+);
+const LightMirrorLab = lazy(() =>
+  import('./LightLabs').then((m) => ({ default: m.LightMirrorLab })),
+);
+const LightRefractionLab = lazy(() =>
+  import('./LightLabs').then((m) => ({ default: m.LightRefractionLab })),
+);
+const LightLensLab = lazy(() =>
+  import('./LightLabs').then((m) => ({ default: m.LightLensLab })),
+);
+const LightColourLab = lazy(() =>
+  import('./LightLabs').then((m) => ({ default: m.LightColourLab })),
+);
+const LightEyeLab = lazy(() =>
+  import('./LightLabs').then((m) => ({ default: m.LightEyeLab })),
+);
+const SoundSourceLab = lazy(() =>
+  import('./SoundLabs').then((m) => ({ default: m.SoundSourceLab })),
+);
+const SoundMediumLab = lazy(() =>
+  import('./SoundLabs').then((m) => ({ default: m.SoundMediumLab })),
+);
+const SoundPitchLab = lazy(() =>
+  import('./SoundLabs').then((m) => ({ default: m.SoundPitchLab })),
+);
+const SoundAmplitudeLab = lazy(() =>
+  import('./SoundLabs').then((m) => ({ default: m.SoundAmplitudeLab })),
+);
+const SoundRangingLab = lazy(() =>
+  import('./SoundLabs').then((m) => ({ default: m.SoundRangingLab })),
+);
 const FusionLab = lazy(() =>
   import('./PhaseLabs').then((m) => ({ default: m.FusionLab })),
 );
@@ -618,6 +743,88 @@ function LabContent({
   mode: LanguageMode;
   onExplore?: () => void;
 }) {
+  if (kind === 'electric-charge')
+    return <ChargeTransferLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-interaction')
+    return <ChargeInteractionLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-current')
+    return <ElectricCurrentLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-circuit')
+    return <CompleteCircuitLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-battery')
+    return <BatteryPolarityLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-lamp')
+    return <LampChargeLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-switch')
+    return <SwitchPathLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-materials')
+    return <MaterialContactLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-series')
+    return <SeriesCircuitLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-parallel')
+    return <ParallelCircuitLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'machine-lever')
+    return <LeverLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'machine-turning')
+    return <TurningLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'machine-pulley')
+    return <PulleyLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'machine-gears')
+    return <GearsLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'machine-advantage')
+    return <AdvantageLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'machine-real')
+    return <RealMachineLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'buoyancy-release')
+    return <BuoyancyReleaseLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'buoyancy-pressure')
+    return <BuoyancyPressureLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'buoyancy-displacement')
+    return <BuoyancyDisplacementLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'buoyancy-archimedes')
+    return <BuoyancyArchimedesLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'buoyancy-ship')
+    return <BuoyancyShipLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'buoyancy-submarine')
+    return <BuoyancySubmarineLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'buoyancy-balloon')
+    return <BuoyancyBalloonLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'pressure-contact')
+    return <PressureContactLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'pressure-shoes')
+    return <PressureShoesLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'pressure-liquid')
+    return <PressureLiquidLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'pressure-air')
+    return <PressureAirLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'pressure-straw')
+    return <PressureStrawLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'pressure-syringe')
+    return <PressureSyringeLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'light-shadow')
+    return <LightShadowLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'light-reflection')
+    return <LightReflectionLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'light-mirror')
+    return <LightMirrorLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'light-refraction')
+    return <LightRefractionLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'light-lens')
+    return <LightLensLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'light-colour')
+    return <LightColourLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'light-eye')
+    return <LightEyeLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'sound-source')
+    return <SoundSourceLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'sound-medium')
+    return <SoundMediumLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'sound-pitch')
+    return <SoundPitchLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'sound-amplitude')
+    return <SoundAmplitudeLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'sound-ranging')
+    return <SoundRangingLab mode={mode} onExplore={onExplore} />;
   if (kind === 'phase-fusion')
     return <FusionLab mode={mode} onExplore={onExplore} />;
   if (kind === 'phase-boiling')

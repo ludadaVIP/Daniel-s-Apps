@@ -13,7 +13,13 @@ export type LessonPack =
   | 'energy'
   | 'work'
   | 'thermal'
-  | 'phase';
+  | 'phase'
+  | 'sound'
+  | 'light'
+  | 'pressure'
+  | 'buoyancy'
+  | 'machines'
+  | 'electricity';
 
 export type LessonCatalogEntry = Pick<
   Lesson,

@@ -1,6 +1,6 @@
 # Physics Lab · 物理探索室
 
-A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, fifty-nine complete bilingual lessons, fifty-eight exploration stations and four field projects: Physics Detective, Walking Investigation, Mystery Materials and Stair Power. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
+A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, ninety complete bilingual lessons, eighty-nine exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
 
 ## Use
 
@@ -54,11 +54,11 @@ The foundation path follows Appendix A of the plan:
 38. An irregular shape: can you still find its material clue? / 形状不规则，材料线索还能量出来吗？
 39. Same solid: new water, new outcome? / 同一块材料，换水就不沉了？
 40. The lamp lights up. Where does battery energy go? / 灯亮起来，电池里的能量去哪了？
-41. Look for changes, then follow an energy ledger. / 从变化找能量，从账本找去向。
-42. Double the cart’s speed. Only double its energy? / 小车速度翻倍，动能也只翻倍吗？
-43. Hold one quantity fixed; compare mass and speed. / 保持一个量不变，比较质量与速率。
-44. A book rests on a shelf. Where is its energy clue? / 书在架子上没动，为什么也有能量线索？
-45. Look at the object–Earth pair, height changes and the chosen zero. / 看物体与地球，看高度差和约定的零点。
+41. Double the cart’s speed. Only double its energy? / 小车速度翻倍，动能也只翻倍吗？
+42. A book rests on a shelf. Where is its energy clue? / 书在架子上没动，为什么也有能量线索？
+43. The spring reaches its natural length. Why is the cart moving? / 弹簧回到原长，小车为什么还在动？
+44. At the bottom, what has the lost height become? / 滑到最低处，少掉的高度变成了什么？
+45. A rough patch lowers the return. Where did the energy go? / 加了粗糙垫，没回到原高的能量去哪了？
 
 46. Holding a bag is tiring. Does the lifting force do work on it? / 提着书包很累，提力一定对它做功了吗？
 47. Double the force or extend the distance: how does work change? / 推力翻倍，还是距离加长：功怎样比较？
@@ -76,6 +76,39 @@ The foundation path follows Appendix A of the plan:
 57. The water is boiling. What does more heating change? / 水已经沸腾，再供热会发生什么？
 58. The cup is not leaking. Where do outside droplets come from? / 杯子没漏，外壁水珠从哪里来？
 59. Does a flat heating curve mean energy input has paused? / 加热曲线的平段，能量暂停了吗？
+
+60. What is a rubber band doing when it sounds? / 橡皮筋出声时，它在做什么？
+61. Sound reaches your ear. Did the air travel all the way? / 声音到了耳边，空气也一路跑来了吗？
+62. Two gentle tones. Why is one higher? / 同样轻的两个音，为什么一个更尖？
+63. How can the same tone become more noticeable? / 同一个音，怎样变得更明显？
+64. How can a returning sound tell us distance? / 回来的声音，怎样告诉我们距离？
+
+65. Same hand. Why a bigger shadow? / 手没变大，影子为什么变大？
+66. Where do you aim to turn a light ray? / 把光“转弯”，该瞄准哪里？
+67. Is there really another you behind the mirror? / 镜子后面，真的有另一个你？
+68. Where did the straw in water “break”? / 水里的吸管，在哪里“折断”了？
+69. Why does a magnifier sometimes enlarge and sometimes invert? / 放大镜，为什么有时放大、有时倒过来？
+70. Where were the rainbow colours hiding? / 彩虹的颜色，原本藏在哪里？
+71. Look from far away back to a book. What adjusts? / 从远处看回书本，眼睛调了哪里？
+72. Same backpack. Why might a wider strap help? / 同一个书包，为什么宽带更舒服？
+73. Why are snowshoes so large? / 雪鞋为什么做得那么大？
+74. Why does a lower bottle hole have more push? / 水瓶低处的小孔，为什么更有劲？
+75. How can invisible air push? / 看不见的空气，为什么能推？
+76. Who pushes water up a straw? / 吸管里，是谁把水送上来？
+77. Why is a sealed syringe harder to push? / 封住管口，活塞为什么更难推？
+78. With buoyancy, why can an object still sink? / 有浮力，为什么还会下沉？
+79. Why does water push more from below? / 水为什么从下面托得更多？
+80. Which part does a rising water level measure? / 水位升高，究竟量到哪一部分？
+81. Can displaced water tell us the supporting force? / 排开的水，能告诉我们托力吗？
+82. Same 300 g: why can a box-shaped hull float? / 同样300 g，为什么盒形船体能浮？
+83. How can a submarine rise or dive without growing? / 潜水艇不变大，怎样上浮或下潜？
+84. Can air support a balloon too? / 空气也能托起一个气球吗？
+85. Same box: why does a longer handle need less force? / 同一个盒子，长把手为什么更省力？
+86. Same force: why does pulling along a handle give no turning effect? / 同样的力，为什么沿把手拉不动转轴？
+87. Does adding a pulley always halve the force? / 多一个滑轮，就一定省一半力吗？
+88. Small gear drives big gear: how do speed and torque trade? / 小齿轮带大齿轮，快慢与转动作用怎样交换？
+89. Why does saving three quarters of the force not save work? / 省了四分之三的力，为什么没有省功？
+90. Why does a real pulley need more effort than the ideal model? / 真实滑轮，为什么比理想模型更费力？
 
 Each lesson includes a non-scored prediction, interactive exploration, explanation and misconceptions, a worked example, two or three practice questions, a takeaway, an exit question, and a home experiment. Predictions can be wrong; finishing requires exploration and correct practice/exit answers, with feedback and retries. Lessons are grouped by stage and unit. Counts and next-lesson links follow the content list; stable IDs preserve earlier progress when courses are inserted.
 
@@ -131,11 +164,47 @@ The boiling station starts at 100°C and uses L≈2260 J/g: 20 g receiving 11.30
 
 The sealed-cup station prescribes 25°C air and compares surface/dew-point pairs 8/15, 8/5 and 22/15°C. Only the first supports new net condensation. Dew point is an input, not calculated humidity; initially dry surfaces remain above freezing. Droplet count, animation time and vapour dots are schematic. No amount or condensation time is predicted, and pre-existing droplets are distinguished from new condensation.
 
-Heating curves follow pure ice at −10°C through a 0°C melting plateau to water at 20°C. The 20 g/50 W, 20 g/100 W and 40 g/50 W cases share fixed 0–360 s and −10–20°C axes. Only elapsed curve vertices are drawn; seeking does not replace complete playback. Net absorbed power is prescribed and each model duration is compressed into 2.5 seconds. Three separate energy uses retain a shared 0–17.56 kJ bar scale. Ice/water heat capacities are 2.1/4.2 J/(g·°C). Same-mass doubled power halves all stage times without changing 8.78 kJ total; doubled mass needs 17.56 kJ. These are ideal sample times, not appliance or thawing predictions. A temperature–time area is not treated as energy. All four courses include three practice questions, a transfer exit and a home activity. The learner-entered insulation investigation remains the next field project.
+Heating curves follow pure ice at −10°C through a 0°C melting plateau to water at 20°C. The 20 g/50 W, 20 g/100 W and 40 g/50 W cases share fixed 0–360 s and −10–20°C axes. Only elapsed curve vertices are drawn; seeking does not replace complete playback. Net absorbed power is prescribed and each model duration is compressed into 2.5 seconds. Three separate energy uses retain a shared 0–17.56 kJ bar scale. Ice/water heat capacities are 2.1/4.2 J/(g·°C). Same-mass doubled power halves all stage times without changing 8.78 kJ total; doubled mass needs 17.56 kJ. These are ideal sample times, not appliance or thawing predictions. A temperature–time area is not treated as energy. All four courses include three practice questions, a transfer exit and a home activity. Two-cup Insulation now connects these thermal ideas to the learner’s own measurements.
 
-Lesson bodies and assessments load in thirteen content groups only when opening a course or review card. Home, path and progress use a generated lightweight catalog with titles, order and assessment bounds/answer keys, without importing the bilingual bodies. Completed records are validated before any body loads. Content is cached by group, concurrent readers share a request, and mismatched catalog/content is rejected. Loading/failure states retain saved work; the retry button reopens the current page, allowing browser module failures to recover. Tests enforce catalog/body parity and existing progress invariants.
+Lesson bodies and assessments load in eighteen content groups only when opening a course or review card. Home, path and progress use a generated lightweight catalog with titles, order and assessment bounds/answer keys, without importing the bilingual bodies. Completed records are validated before any body loads. Content is cached by group, concurrent readers share a request, and mismatched catalog/content is rejected. Loading/failure states retain saved work; the retry button reopens the current page, allowing browser module failures to recover. Tests enforce catalog/body parity and existing progress invariants.
 
-The standalone initial JavaScript is about 428 kB (previously 581 kB), and the Study Physics entry about 166 kB (previously 318 kB). Body groups are about 18–36 kB. These are minified build output sizes, not measured device loading times. Physics no longer triggers the standalone 500 kB warning; Chemistry’s existing warning remains.
+Two-cup Insulation (`/physics/project/insulation`) follows Unit 2.3 with four steps: prepare, starting point, shared clock, and explanation/report. Record each cup’s water mass and initial temperature plus room temperature; later pairs share an elapsed-time clock (minutes). At least three checked later time points, a checked baseline, a plan, resolved entered records and explanations support the complete-record badge. Labels fix A as bare and B as wrapped. The child’s data start empty; the constructed example is read-only. Comfortably warm water and a helper keep the project practical without heating or boiling.
+
+Up to twelve original paired readings retain values, optional later room temperatures, checks and procedure notes. Reasoned exclusions are reversible; pending exclusions remain used when valid/checked and block completeness. Used times must strictly increase in original entry order. Duplicate or reversed used times suppress connections and latest-drop summaries. Temperature reversals are retained rather than forced into a model cooling curve. Both cups share a 0–60°C plot; solid dots show checked used data and hollow dots show plottable unused originals. Dashed connections approximate between measured points, not a fitted or continuous measurement.
+
+Each temperature drop is its own T₀−T at the latest used time; negative drops mean warming. Unequal starting masses/temperatures and non-warm starts produce comparison cautions without deleting evidence or pretending to verify the experiment. Changing starting quantities, conditions or procedure clears confirmations and preserves originals. Different times are not averaged as repeat trials; no winner, heat-transfer parameter or energy is inferred from temperature alone. The bilingual report retains original invalid/excluded entries and limitations, with the existing shared export and preview controls. Path, notebook and the insulation lesson link to the saved project.
+
+Five sound courses connect Unit 2.4’s ten introductory topics through one core question each: vibrating sources; medium/local longitudinal motion; frequency/pitch; amplitude/loudness; and echo/ultrasound ranging. A finite source pulse vibrates twice at 200 Hz over 0–10 ms; at 6.86 m in air the first arrival is 20 ms, after the source has stopped. Source amplitudes 0.10/0.20 mm have the same arrival. A never-started source produces no signal, rather than deleting a previously emitted wave. Enlarged markers represent local organised medium motion about grey equilibrium points, not molecular thermal motion or bulk transport. Air and fresh water near 20°C use prescribed 343/1480 m/s, giving 20.00/4.64 ms for the same 6.86 m; vacuum has no mechanical propagation, rather than zero travel time.
+
+Pitch/amplitude workbenches (`sound-pitch`, `sound-amplitude`) show full 0–10 ms previews of ideal relative pressure at a fixed place, with a green time probe. Sliders update the curve immediately. Required frequencies 200/400/800 Hz retain 2/4/8 cycles and 5/2.5/1.25 ms periods at fixed amplitude 0.50; amplitude cases 0.25/0.50/1.00 retain four cycles and 2.5 ms at 400 Hz. Frequency can be adjusted in 50 Hz steps and relative amplitude in 0.05 steps. Three complete 2.5-second visual observations are required per station; previewing, seeking, listening and custom intermediate settings do not count as the prescribed comparisons.
+
+Optional explicit-button Web Audio playback generates 0.7-second sine tones with smoothed starts/ends and live slider changes. Output gain is bounded at 0.015; nothing autoplays, and contexts close after playback or unmounting. Device volume begins low; actual output is not calibrated to plotted pressure or decibels. Different ears, frequencies, speakers and rooms can produce different perceived loudness. Unsupported/failed audio shows a bilingual fallback and does not block graphical learning. This is not a hearing test.
+
+Ranging follows a pulse front, not an air particle or complete carrier waveform: 17.15/34.30 m at 2 kHz give 100/200 ms echoes, and 34.30 m at 40 kHz retains 200 ms. Emitter/receiver share a position, obstacles are fixed, air speed is 343 m/s and loss/dispersion/detection delay are omitted. Ultrasound conventionally exceeds 20 kHz; no ultrasonic tone is played, and these paths do not predict a real sensor’s range. Pressure–time graphs are not particle paths, and greater amplitude/frequency does not imply higher sound speed. All five courses include three practice questions, a transfer exit and a practical home observation.
+
+Sound reference checks: [OpenStax sound waves](https://openstax.org/books/college-physics-2e/pages/17-1-sound), [speed/frequency/wavelength and medium table](https://openstax.org/books/college-physics-2e/pages/17-2-speed-of-sound-frequency-and-wavelength), and [sound intensity/level](https://openstax.org/books/college-physics-2e/pages/17-3-sound-intensity-and-sound-level). The app uses original SVGs and original bilingual explanations, without downloaded illustrations or new runtime dependencies.
+
+Seven light courses connect Unit 2.5’s twelve introductory topics through shadows, reflection angles, plane mirrors, air–water refraction, lens images, colour/dispersion and eye focusing. Each includes three required path traces, three practice questions, a transfer exit and a home observation. The saved periscope field project is available below; deeper optical/wave treatment remains in Stage 6. New labs reuse comparison controls, metrics, animation, bilingual text and lesson flow, without added runtime dependencies.
+
+Point-source shadows share a fixed screen at 6 m; 1 m at 2 m, 1 m at 3 m and 2 m at 3 m give shadow heights 3/2/4 m. Reflection angles 20/45/60° are measured from a perpendicular normal, with complementary surface angles shown separately. Plane mirrors retain 0.4/0.6/0.8 m object and image distances and 0.8/1.2/1.6 m separations. Real reflected paths stay in front; backward dashed extensions locate virtual images. Ray arrows show direction, and moving green markers are construction guides rather than photons or measured flight times.
+
+Refraction uses one flat interface, air n=1 and water n=1.333: normal entry keeps direction; 45° air→water gives 32.04°, and 30° water→air gives 41.80°. Free incident-angle adjustment includes total internal reflection above about 48.61° water→air, with no fabricated transmitted ray. Medium speed ratios describe material properties, even when transmission is absent; faint reflected lines do not predict intensity.
+
+Converging thin-lens cases at f=1 use dₒ=3/2/0.75, giving signed dᵢ=1.5/2/−3 and magnifications −0.5/−1/+4. Principal-ray paths and image arrows share one coordinate scale. The eye model keeps its intercepting retina at 1.5: changing dₒ=3→2 at f=1 shifts the ideal lens image behind it; f=6/7 restores focus. Actual tracing stops at the retina, while dashed forward constructions indicate where rays would meet without an intercepting screen. An enlarged cue compares the same point’s two retinal intersections; this is not a measured blur diameter or vision test. Cornea/lens anatomy and brain processing are explained separately from the single-lens approximation.
+
+The dispersion station traces a single 60° prism at 45° incidence, using prescribed three-band RGB indices 1.51/1.52/1.53 and two Snell refractions. The three represented paths share entry point, incoming direction and actual prism geometry, with a larger blue deviation. White light is explicitly a broad spectrum, not literally three rays. Ideal red/blue filters only transmit present bands; red-only through blue gives no transmitted band. Additive light and pigment mixing are distinguished. A natural rainbow includes droplet refraction, internal reflection and dispersion; the prism drawing does not claim to trace a whole raindrop. Required unfiltered source comparisons remain separate from custom filter explorations.
+
+Light reference checks: [OpenStax ray model](https://openstax.org/books/college-physics-2e/pages/25-1-the-ray-aspect-of-light), [reflection](https://openstax.org/books/college-physics-2e/pages/25-2-the-law-of-reflection), [refraction](https://openstax.org/books/college-physics-2e/pages/25-3-the-law-of-refraction), [dispersion](https://openstax.org/books/college-physics-2e/pages/25-5-dispersion-the-rainbow-and-prisms), [thin lenses](https://openstax.org/books/college-physics-2e/pages/25-6-image-formation-by-lenses), and [eye accommodation](https://openstax.org/books/college-physics-2e/pages/26-1-physics-of-the-eye). Course wording, cases, SVG art and assessments are original.
+
+Periscope (`/physics/project/periscope`) completes Unit 2.5’s build project through prepare → build/trace → own trials → explanation/report. Use cardboard, two small plastic craft mirrors, tape and an ordinary room-lit paper target, with a helper for openings. Start with parallel 45° mirror planes and inward facing reflective surfaces. Compare lower tilt while holding the upper mirror, target, viewpoint and lighting fixed; revisit the starting setting. Children’s fields begin empty, and model settings are never copied into observations.
+
+The original SVG preview applies vector reflection twice. Upper tilt stays 45°; lower tilt is 30–60° from horizontal. At lower 35°/45°/55°, a representative ray exits at −20°/0°/+20° and misses/reaches/misses the fixed eye aperture. The barrier blocks the direct target-to-eye line. Mirrors have distinct reflective faces/backing; rays pass through the specified tube openings. The moving green marker indicates construction order, not light speed. One ideal point ray reaching an aperture does not establish a clear full image or a successful real build.
+
+Three blank trial cards can grow to eight retained originals. Each records a setting, optional decimal tilt (0–90° from horizontal), visible/partly visible/not visible outcome and specific observation. Only valid checked records without a reasoned exclusion are used. Pending exclusion reasons block completeness; justified exclusions are reversible and preserve originals. Changes to materials, procedure or construction clear build/condition and trial confirmations. Evidence edits clear only that trial’s confirmation. Completion requires a plan, checked build/conditions, at least three used trials across two setting labels, resolved entered records and explanations; it certifies record completeness rather than scientific correctness, fairness, device success or understanding. No score, visibility average or automatic success rate is calculated. Path, notebook and the reflection/plane-mirror takeaway link to the project; the shared report preview/export retains original invalid and excluded evidence.
+
+Build references: [Science Museum Group activity](https://www.sciencemuseumgroup.org.uk/sites/default/files/2025-12/SMG-Learning-Activities-360-Periscope.pdf), [Science Foundation Ireland guide](https://www.sfi.ie/site-files/primary-science/media/pdfs/col/make_a_periscope.pdf). Instructions, examples and SVG graphics are original; no activity templates or images were copied.
+
+The standalone initial JavaScript is about 462 kB (previously 581 kB), and the Study Physics entry about 201 kB (previously 318 kB). Body groups are about 18–39 kB. These are minified build output sizes, not measured device loading times. Physics no longer triggers the standalone 500 kB warning; Chemistry’s existing warning remains.
 
 Interactive station groups and the field projects also load on demand; the hub separately lazy-loads Physics. Bilingual preparation states appear while content is loading.
 
@@ -147,7 +216,7 @@ Reuses Chemistry's existing React 19, React Router, TypeScript, Vite and Vitest 
 
 ## Local data
 
-`study-physics-progress-v1` stores course position, prediction, exploration, answers, completion/review times, up to 100 notebook entries, the Physics Detective draft, the bounded Walking Investigation draft, the bounded Mystery Materials draft, and the bounded Stair Power draft. `study-language` is the shared language preference. Storage is validated on loading, and unavailable storage produces a visible message. Data stays in the browser profile; clearing site data removes it, and it does not sync to another device/browser. Wrong answers remain in the review queue until reviewed; completed lessons become due 24 hours after completion or the last review.
+`study-physics-progress-v1` stores course position, prediction, exploration, answers, completion/review times, up to 100 notebook entries, the Physics Detective draft, the bounded Walking Investigation draft, the bounded Mystery Materials draft, the bounded Stair Power draft, the bounded Two-cup Insulation draft, and the bounded Periscope draft. `study-language` is the shared language preference. Storage is validated on loading, and unavailable storage produces a visible message. Data stays in the browser profile; clearing site data removes it, and it does not sync to another device/browser. Wrong answers remain in the review queue until reviewed; completed lessons become due 24 hours after completion or the last review.
 
 ## Extend
 
@@ -170,6 +239,15 @@ Reuses Chemistry's existing React 19, React Router, TypeScript, Vite and Vitest 
 - `apps/web/src/interactive/WorkLabs.tsx`, `WorkArt.tsx` and `workModels.ts`: five SVG stations, course art and validated work/power calculations.
 - `apps/web/src/content/thermal.ts`: Stage 2 temperature, internal energy, heating, transfer paths, insulation and evaporation.
 - `apps/web/src/interactive/ThermalLabs.tsx`, `ThermalArt.tsx` and `thermalModels.ts`: five SVG stations, card art and validated thermal calculations.
+- `apps/web/src/content/light.ts`: seven optical investigations from shadow boundaries to eye accommodation.
+- `apps/web/src/interactive/LightLabs.tsx`, `LightArt.tsx` and `lightModels.ts`: shared-scale ray constructions, Snell/prism geometry, thin-lens images and fixed-retina focusing.
+- `apps/web/src/content/machines.ts`: six Stage 3 simple-machine investigations.
+- `apps/web/src/interactive/MachineLabs.tsx`, `MachineArt.tsx`, `machineModels.ts` and `machineGeometry.ts`: controlled levers, perpendicular moment arms, continuous ropes, external gears and ideal/lossy energy ledgers.
+- `apps/web/src/LiftingProject.tsx`, `lifting.ts`, `liftingDesign.ts`, `liftingReport.ts` and `LiftingCard.tsx`: saved four-step lever design, bounded physical evidence and bilingual report; the full project and machine calculations load on demand.
+- `apps/web/src/content/buoyancy.ts`: seven complete Stage 3 buoyancy investigations.
+- `apps/web/src/interactive/BuoyancyLabs.tsx`, `BuoyancyArt.tsx` and `buoyancyModels.ts`: displaced-fluid forces, controlled immersion, force-meter accounting, sealed hulls, ballast and vented-air mass budgets.
+- `apps/web/src/content/sound.ts`: five sound courses from vibrating sources to echo/ultrasound transfer.
+- `apps/web/src/interactive/SoundLabs.tsx`, `SoundArt.tsx` and `soundModels.ts`: finite local pulses, medium arrivals, live pressure previews, explicit short-tone playback and round-trip ranging.
 - `apps/web/src/content/phase.ts`: melting/freezing, boiling, condensation and complete heating curves.
 - `apps/web/src/interactive/PhaseLabs.tsx`, `PhaseArt.tsx` and `phaseModels.ts`: four phase-change stations, distinct card art, latent-transfer calculations and exact elapsed curve vertices.
 - `apps/web/src/interactive/EnergyBars.tsx`: common fixed-scale joule bars for energy, work and water heating.
@@ -181,6 +259,8 @@ Reuses Chemistry's existing React 19, React Router, TypeScript, Vite and Vitest 
 - `apps/web/src/WalkingProject.tsx`, `WalkingCard.tsx` and `walking.ts`: walking records, summaries, checkpoint graphs, validation and bilingual reports.
 - `apps/web/src/MaterialsProject.tsx`, `MaterialsCard.tsx` and `materials.ts`: specimen records, paired mass/volume summaries, condition checks, validation and bilingual reports.
 - `apps/web/src/PowerProject.tsx`, `PowerCard.tsx` and `power.ts`: own stair rise/mass/time records, raw/used summaries, bounded persistence, independent-ascent bars and bilingual reports.
+- `apps/web/src/InsulationProject.tsx`, `InsulationCard.tsx` and `insulation.ts`: matched-time cup records, own baselines, retained exclusions, strictly ordered measured curves, bounded persistence and bilingual reports.
+- `apps/web/src/PeriscopeProject.tsx`, `PeriscopeCard.tsx`, `periscope.ts`, `periscopeReport.ts` and `interactive/periscopeModel.ts`: own build/observations, two-reflection preview, retained exclusions, bounded persistence and lazy bilingual report copy.
 - `apps/web/src/ProjectReport.tsx`: shared local Markdown report link and read-only preview.
 - `apps/web/src/content/experiments.ts`: exploration-station catalog.
 - `apps/web/src/interactive/`: physical models and interactive SVG labs.
@@ -204,3 +284,41 @@ npm run format:check
 ```
 
 Physics tests cover corrupted storage, mastery gates, review timing, model calculations, equivalent units, repeated timing, consistent graph/table/track data, course ordering, preserved V1 completions, and bilingual content integrity. The interface also supports reduced motion and keyboard controls.
+
+Six pressure courses open Stage 3 Unit 3.1, covering its eight foundation topics by pairing force/area with the pressure formula and liquid pressure with depth. Backpack straps, snowshoe patches, a bottle-depth probe, atmospheric opposing forces, static straw columns and trapped-air syringes each have three prescribed comparisons, retained model tables, free exploration where meaningful, three practice questions, a transfer exit and a home observation. Original SVG cards and diagrams use existing React, localization, lab controls and progress infrastructure; no runtime dependencies were added.
+
+Contact pressure converts cm² to m². Equal 1 cm² cells conserve force; both-foot rectangle areas and forces stay matched. Uniform stationary liquid uses Δp=ρgh with g≈10 N/kg and a 101 kPa prescribed surface pressure; probe orientation and vessel width do not change the same-depth reading. Total pressure is distinct from the liquid increment. A flat atmospheric piston compares both nonzero opposing forces, with net force (p_out−p_in)A. Straw comparisons show stationary height relative to the cup surface and distinguish a later sealed-headspace balance from initial outflow. The syringe uses absolute pV at fixed gas amount and temperature, and separates vented gas from sealed gas and ideal extra holding force from friction. Inspection markers indicate reading order, not fluid motion, piston travel or physical time. Seeking or arbitrary settings do not replace the three prescribed inspections.
+
+Pressure reference checks: OpenStax [force per area](https://openstax.org/books/college-physics-2e/pages/11-3-pressure), [pressure with depth](https://openstax.org/books/college-physics-2e/pages/11-4-variation-of-pressure-with-depth-in-a-fluid), [absolute and gauge pressure](https://openstax.org/books/college-physics-2e/pages/11-6-gauge-pressure-absolute-pressure-and-pressure-measurement), and [constant-temperature gas relations](https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law). Wording, diagrams and cases are original. Stage 3 electricity, magnetism and Earth/space remain to be developed.
+
+## Buoyancy investigations
+
+Seven courses follow Stage 3 Unit 3.2 in plan order: buoyancy versus floating, the pressure-force origin, displaced volume, Archimedes’ principle, ships, submarines and hot-air balloons. Each has three prescribed comparisons, retained results, three practice questions, a transfer exit and a home observation. Models reuse the pressure calculations and existing React/SVG, bilingual controls, animation, progress and lazy-loading infrastructure. No new runtime dependency was added.
+
+Initial fully submerged release compares upward buoyancy with downward weight; it does not animate a calculated trajectory. Surface floating reduces actual displacement until buoyancy matches weight. The pressure model uses equal horizontal faces and matched-depth cancelling side forces; increased depth changes both large opposing forces, while their difference stays fixed in a uniform liquid for a rigid fully submerged body. Controlled lowering is the animated exception: a held block and rising waterline agree with the instantaneous submerged volume, preserving vessel/body geometry. Animation duration is illustrative, not a measurement.
+
+The force-meter ledger uses equal-mass prescribed bodies with different volumes, and balances tension plus buoyancy against weight. A rigid sealed box distinguishes actual floating support from maximum fully submerged capacity and retains its excluded volume when overloaded; this is not a flooding model or safe-load rating. The rigid submarine changes internal ballast mass while preserving external displacement. The vented balloon counts inside-air mass and equipment together: reducing internal density can leave the total weight greater than buoyancy. Its assigned densities do not compute temperatures or flight heights. Six static inspection markers show reading order, not physical motion; seeking/custom cases do not count as prescribed runs.
+
+Reference checks: OpenStax [Archimedes’ principle](https://openstax.org/books/college-physics-2e/pages/11-7-archimedes-principle), [density](https://openstax.org/books/college-physics-2e/pages/11-2-density) and [gas state relations](https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law). Wording, examples and SVG diagrams are original.
+
+## Simple-machine investigations
+
+Six complete bilingual courses follow every lesson in Stage 3 Unit 3.3: levers, turning effect, pulleys, gears, mechanical advantage and real machines. Each includes three prescribed comparisons, retained endpoint results, three practice questions, a transfer exit and home observations. The saved design project named in the plan is now available alongside the six previous field projects.
+
+The hinged lever animates an operator-controlled 0–15° quasistatic stroke with opposed vertical forces on a light bar. Both moment arms include cosθ, so force balance, support reaction and input/output work remain consistent through the stroke. The turning bench is an instantaneous fixed pose: torque depends on the perpendicular distance to the line of action, with no inferred motion rate. Its green marker indicates inspection order.
+
+Continuous rope diagrams show fixed redirectors and one or two moving wheels as a shared assembly. One, two and four vertical supporting strands conserve illustrated total rope length as the free end descends n times the load rise. Target height changes actual distances/work while the illustration retains its framing; diagrams are not dimensional device drawings. Direct external gears show opposite rotations at the tooth-count ratio; ideal steady torque and power are separate from the illustrated one-input-turn count, whose playback is not the displayed rpm’s real clock. Teeth are illustrative and not manufacturing profiles.
+
+Mechanical advantage compares force, while efficiency compares useful output energy with input. The ideal force/distance bench conserves work; the real-machine bench uses an assigned aggregate efficiency with fixed travel ratio and explicitly separates load-rise gain from other energy transfers. It does not infer individual frictional strand tensions, heating temperatures or safe-load ratings. Models, art and labs reuse React, SVG, the shared energy bars, bilingual controls, animation, progress and lazy loading without new runtime dependencies.
+
+Reference checks: OpenStax [turning equilibrium and torque](https://openstax.org/books/college-physics-2e/pages/9-2-the-second-condition-for-equilibrium), [force equilibrium](https://openstax.org/books/college-physics-2e/pages/9-1-the-first-condition-for-equilibrium), and [simple machines](https://openstax.org/books/college-physics-2e/pages/9-5-simple-machines). Text, examples and SVG illustrations are original.
+
+## Saved lifting design · Unit 3.3
+
+Lifting Design (`/physics/project/lifting`) adds four steps: design goal, small physical build, own trials, and explanation/report. Compare 10/20/40 cm hand marks around a fixed 10 cm load mark. The preview assumes a light lever, vertical forces, slow motion and one 0–15° stroke; assigned efficiency combines losses. Force, available hand travel and maximum stroke must all fit before playback is enabled. The default 40 N virtual load rising 2 cm at 80% efficiency needs 12.5 N and 8 cm hand travel in the 40 cm design, with 1 J input, 0.8 J useful output and 0.2 J other transfers. Model changes are saved separately from physical evidence and never fill the child's readings.
+
+The original build sketch uses a stiff ruler, fixed eraser, small cup and a few coins, at most 200 g including the cup. A low tabletop and cloth keep the lift small. Mark two hand positions, keep the pivot, cup and load mark fixed, and repeat one setting. Force, mass and travel readings are optional and fold away; children without instruments can complete a qualitative investigation. No measured force ratio or efficiency is inferred. Ruler weight, force direction, friction and subjective effort belong in the child's uncertainty explanation.
+
+Three blank trials can grow to eight. Completion needs a plan, checked physical construction and comparison conditions, at least three checked used trials at one numerically normalized load mark with two hand settings and a repeat, resolved entered rows, and the child's explanations. Failed lifts are valid evidence. Pending exclusions need reasons; reasoned exclusions preserve originals and are reversible. Editing measurements clears that trial's check; changing materials, procedure or construction clears build and all trial checks. Model redesign does not erase physical evidence. Bilingual report preview/export retain the model plan, missing readings, invalid originals, exclusions and own explanations. Empty default drafts cannot export. Path, notebook and lever/real-machine takeaway links open the project; no runtime dependency was added.
+
+Activity references: [NASA Tiny Levers](https://www.grc.nasa.gov/WWW/K-12/Summer_Training/KaeAvenueES/Tiny_Lever.html) and [Science Buddies' lever activity](https://www.sciencebuddies.org/stem-activities/give-it-a-lift-with-a-lever). Instructions, drawings and the saved evidence workflow are original. Introductory electricity in Unit 3.4 is next; the full junior/high-school roadmap is still in progress.

@@ -2046,4 +2046,1439 @@ export const lessonCatalog: LessonCatalogEntry[] = [
       },
     ],
   },
+  {
+    id: 'sound-vibrating-source',
+    title: {
+      zh: '橡皮筋出声时，它在做什么？',
+      en: 'What is a rubber band doing when it sounds?',
+    },
+    subtitle: {
+      zh: '从来回运动找到声源，再追踪一小段信号。',
+      en: 'Find the vibrating source, then follow a brief signal.',
+    },
+    minutes: 17,
+    stage: 2,
+    unit: 'sound',
+    kind: 'sound-source',
+    pack: 'sound',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'sound-medium-local-motion',
+    title: {
+      zh: '声音到了耳边，空气也一路跑来了吗？',
+      en: 'Sound reaches your ear. Did the air travel all the way?',
+    },
+    subtitle: {
+      zh: '追踪一个有颜色的标记，比较空气、水与真空。',
+      en: 'Track a coloured marker in air, water and vacuum.',
+    },
+    minutes: 19,
+    stage: 2,
+    unit: 'sound',
+    kind: 'sound-medium',
+    pack: 'sound',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'sound-frequency-and-pitch',
+    title: {
+      zh: '同样轻的两个音，为什么一个更尖？',
+      en: 'Two gentle tones. Why is one higher?',
+    },
+    subtitle: {
+      zh: '在相同时间里数振动次数，调整频率并试听。',
+      en: 'Count cycles over equal time, adjust frequency and listen.',
+    },
+    minutes: 18,
+    stage: 2,
+    unit: 'sound',
+    kind: 'sound-pitch',
+    pack: 'sound',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'sound-amplitude-and-loudness',
+    title: {
+      zh: '同一个音，怎样变得更明显？',
+      en: 'How can the same tone become more noticeable?',
+    },
+    subtitle: {
+      zh: '固定频率，只改振幅；把音调和响度分开。',
+      en: 'Keep frequency fixed and change amplitude; separate pitch and loudness.',
+    },
+    minutes: 18,
+    stage: 2,
+    unit: 'sound',
+    kind: 'sound-amplitude',
+    pack: 'sound',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'sound-echo-distance-ultrasound',
+    title: {
+      zh: '回来的声音，怎样告诉我们距离？',
+      en: 'How can a returning sound tell us distance?',
+    },
+    subtitle: {
+      zh: '追踪往返路径，比较远近与超声脉冲。',
+      en: 'Follow the round trip; compare distance and an ultrasonic pulse.',
+    },
+    minutes: 20,
+    stage: 2,
+    unit: 'sound',
+    kind: 'sound-ranging',
+    pack: 'sound',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'light-rays-and-shadows',
+    title: {
+      zh: '手没变大，影子为什么变大？',
+      en: 'Same hand. Why a bigger shadow?',
+    },
+    subtitle: {
+      zh: '用两条边界光线，预测屏幕上的影子。',
+      en: 'Predict a shadow using two boundary rays.',
+    },
+    minutes: 18,
+    stage: 2,
+    unit: 'light',
+    kind: 'light-shadow',
+    pack: 'light',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'light-reflection-from-normal',
+    title: {
+      zh: '把光“转弯”，该瞄准哪里？',
+      en: 'Where do you aim to turn a light ray?',
+    },
+    subtitle: {
+      zh: '先画法线，再让两侧的角度说话。',
+      en: 'Draw a normal, then compare the angles.',
+    },
+    minutes: 17,
+    stage: 2,
+    unit: 'light',
+    kind: 'light-reflection',
+    pack: 'light',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'light-plane-mirror-image',
+    title: {
+      zh: '镜子后面，真的有另一个你？',
+      en: 'Is there really another you behind the mirror?',
+    },
+    subtitle: {
+      zh: '追踪反射，再把方向向后延长。',
+      en: 'Follow reflection, then extend directions backward.',
+    },
+    minutes: 18,
+    stage: 2,
+    unit: 'light',
+    kind: 'light-mirror',
+    pack: 'light',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'light-water-refraction',
+    title: {
+      zh: '水里的吸管，在哪里“折断”了？',
+      en: 'Where did the straw in water “break”?',
+    },
+    subtitle: {
+      zh: '改变介质，看光的方向如何改变。',
+      en: 'Change the medium and follow the direction.',
+    },
+    minutes: 20,
+    stage: 2,
+    unit: 'light',
+    kind: 'light-refraction',
+    pack: 'light',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'light-lens-real-and-virtual',
+    title: {
+      zh: '放大镜，为什么有时放大、有时倒过来？',
+      en: 'Why does a magnifier sometimes enlarge and sometimes invert?',
+    },
+    subtitle: {
+      zh: '沿两条主光线，分清能接到屏幕的像。',
+      en: 'Use two principal rays to find images a screen can collect.',
+    },
+    minutes: 20,
+    stage: 2,
+    unit: 'light',
+    kind: 'light-lens',
+    pack: 'light',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'light-colour-white-and-rainbow',
+    title: {
+      zh: '彩虹的颜色，原本藏在哪里？',
+      en: 'Where were the rainbow colours hiding?',
+    },
+    subtitle: {
+      zh: '用棱镜分开已有的光，再试一个滤光片。',
+      en: 'Separate existing light with a prism, then try a filter.',
+    },
+    minutes: 20,
+    stage: 2,
+    unit: 'light',
+    kind: 'light-colour',
+    pack: 'light',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'light-eye-focus-on-retina',
+    title: {
+      zh: '从远处看回书本，眼睛调了哪里？',
+      en: 'Look from far away back to a book. What adjusts?',
+    },
+    subtitle: {
+      zh: '视网膜不搬家，改变会聚能力来对焦。',
+      en: 'Keep the retina fixed and change focusing strength.',
+    },
+    minutes: 19,
+    stage: 2,
+    unit: 'light',
+    kind: 'light-eye',
+    pack: 'light',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'pressure-force-over-area',
+    title: {
+      zh: '同一个书包，为什么宽带更舒服？',
+      en: 'Same backpack. Why might a wider strap help?',
+    },
+    subtitle: {
+      zh: '先把力分给小方格，再认识压强。',
+      en: 'Share the force across little squares, then meet pressure.',
+    },
+    minutes: 17,
+    stage: 3,
+    unit: 'pressure',
+    kind: 'pressure-contact',
+    pack: 'pressure',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'pressure-shoes-contact',
+    title: {
+      zh: '雪鞋为什么做得那么大？',
+      en: 'Why are snowshoes so large?',
+    },
+    subtitle: {
+      zh: '站着不动的人，同样重量，三种接触面积。',
+      en: 'Same stationary person and load. Three contact areas.',
+    },
+    minutes: 16,
+    stage: 3,
+    unit: 'pressure',
+    kind: 'pressure-shoes',
+    pack: 'pressure',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'pressure-liquid-depth',
+    title: {
+      zh: '水瓶低处的小孔，为什么更有劲？',
+      en: 'Why does a lower bottle hole have more push?',
+    },
+    subtitle: {
+      zh: '从水面量深度，再转动同一点的小探头。',
+      en: 'Measure depth from the surface, then turn a tiny probe at one point.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'pressure',
+    kind: 'pressure-liquid',
+    pack: 'pressure',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'pressure-atmosphere-difference',
+    title: {
+      zh: '看不见的空气，为什么能推？',
+      en: 'How can invisible air push?',
+    },
+    subtitle: {
+      zh: '同时看外面与里面，不把“吸住”当作新力量。',
+      en: 'Look outside and inside together; “suction” is not an extra force.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'pressure',
+    kind: 'pressure-air',
+    pack: 'pressure',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'pressure-drinking-straw',
+    title: {
+      zh: '吸管里，是谁把水送上来？',
+      en: 'Who pushes water up a straw?',
+    },
+    subtitle: {
+      zh: '嘴让管口压强降低，杯面上的空气还在推。',
+      en: 'Lower pressure at the top; air still pushes on the cup surface.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'pressure',
+    kind: 'pressure-straw',
+    pack: 'pressure',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'pressure-syringe-trapped-air',
+    title: {
+      zh: '封住管口，活塞为什么更难推？',
+      en: 'Why is a sealed syringe harder to push?',
+    },
+    subtitle: {
+      zh: '一小团空气没走，体积变了，压力怎样变？',
+      en: 'The trapped air stays. How does its pressure change with volume?',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'pressure',
+    kind: 'pressure-syringe',
+    pack: 'pressure',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'buoyancy-more-than-floating',
+    title: {
+      zh: '有浮力，为什么还会下沉？',
+      en: 'With buoyancy, why can an object still sink?',
+    },
+    subtitle: {
+      zh: '把水的托力、物体重量与合力分开。',
+      en: 'Separate water’s support, weight and net force.',
+    },
+    minutes: 17,
+    stage: 3,
+    unit: 'buoyancy',
+    kind: 'buoyancy-release',
+    pack: 'buoyancy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'buoyancy-pressure-from-below',
+    title: {
+      zh: '水为什么从下面托得更多？',
+      en: 'Why does water push more from below?',
+    },
+    subtitle: {
+      zh: '把上一单元的压强差，变成一个向上的力。',
+      en: 'Turn a pressure difference into an upward force.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'buoyancy',
+    kind: 'buoyancy-pressure',
+    pack: 'buoyancy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'buoyancy-displaced-water',
+    title: {
+      zh: '水位升高，究竟量到哪一部分？',
+      en: 'Which part does a rising water level measure?',
+    },
+    subtitle: {
+      zh: '同一个物体，露在水外的部分不算排水。',
+      en: 'The part above water does not displace water.',
+    },
+    minutes: 17,
+    stage: 3,
+    unit: 'buoyancy',
+    kind: 'buoyancy-displacement',
+    pack: 'buoyancy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'buoyancy-weight-of-displaced-fluid',
+    title: {
+      zh: '排开的水，能告诉我们托力吗？',
+      en: 'Can displaced water tell us the supporting force?',
+    },
+    subtitle: {
+      zh: '一杯排开的水，连接体积、质量与重量。',
+      en: 'Connect displaced volume, mass and weight.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'buoyancy',
+    kind: 'buoyancy-archimedes',
+    pack: 'buoyancy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'buoyancy-sealed-hull-and-cargo',
+    title: {
+      zh: '同样300 g，为什么盒形船体能浮？',
+      en: 'Same 300 g: why can a box-shaped hull float?',
+    },
+    subtitle: {
+      zh: '增加能排水的体积，再看载荷怎样改变吃水。',
+      en: 'Increase water-excluding volume, then follow cargo and draft.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'buoyancy',
+    kind: 'buoyancy-ship',
+    pack: 'buoyancy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'buoyancy-submarine-ballast',
+    title: {
+      zh: '潜水艇不变大，怎样上浮或下潜？',
+      en: 'How can a submarine rise or dive without growing?',
+    },
+    subtitle: {
+      zh: '外部体积不变，改变压载水的质量。',
+      en: 'Keep external volume fixed and change ballast-water mass.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'buoyancy',
+    kind: 'buoyancy-submarine',
+    pack: 'buoyancy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'buoyancy-hot-air-balloon',
+    title: {
+      zh: '空气也能托起一个气球吗？',
+      en: 'Can air support a balloon too?',
+    },
+    subtitle: {
+      zh: '别漏算气球里的空气，也别漏算吊篮与载荷。',
+      en: 'Count enclosed air as well as equipment and payload.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'buoyancy',
+    kind: 'buoyancy-balloon',
+    pack: 'buoyancy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'machines-longer-handle',
+    title: {
+      zh: '同一个盒子，长把手为什么更省力？',
+      en: 'Same box: why does a longer handle need less force?',
+    },
+    subtitle: {
+      zh: '找支点、看两边，让一根杆成为搬运助手。',
+      en: 'Find the pivot and compare the two sides of a lifting bar.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'machines',
+    kind: 'machine-lever',
+    pack: 'machines',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'machines-turning-direction',
+    title: {
+      zh: '同样的力，为什么沿把手拉不动转轴？',
+      en: 'Same force: why does pulling along a handle give no turning effect?',
+    },
+    subtitle: {
+      zh: '从门把手和扳手，找到真正的力臂。',
+      en: 'Find the true moment arm in a door handle or wrench.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'machines',
+    kind: 'machine-turning',
+    pack: 'machines',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'machines-rope-and-pulleys',
+    title: {
+      zh: '多一个滑轮，就一定省一半力吗？',
+      en: 'Does adding a pulley always halve the force?',
+    },
+    subtitle: {
+      zh: '数托住活动部分的绳段，而不是数轮子。',
+      en: 'Count rope strands supporting the moving assembly, not wheels.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'machines',
+    kind: 'machine-pulley',
+    pack: 'machines',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'machines-gears-trade-speed',
+    title: {
+      zh: '小齿轮带大齿轮，快慢与转动作用怎样交换？',
+      en: 'Small gear drives big gear: how do speed and torque trade?',
+    },
+    subtitle: {
+      zh: '同一处咬合，数齿、数圈、看方向。',
+      en: 'At one mesh, count teeth and turns and watch direction.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'machines',
+    kind: 'machine-gears',
+    pack: 'machines',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'machines-force-distance-bargain',
+    title: {
+      zh: '省了四分之三的力，为什么没有省功？',
+      en: 'Why does saving three quarters of the force not save work?',
+    },
+    subtitle: {
+      zh: '把力和距离写进同一张账本。',
+      en: 'Put force and distance in the same ledger.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'machines',
+    kind: 'machine-advantage',
+    pack: 'machines',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'machines-friction-energy-ledger',
+    title: {
+      zh: '真实滑轮，为什么比理想模型更费力？',
+      en: 'Why does a real pulley need more effort than the ideal model?',
+    },
+    subtitle: {
+      zh: '把摩擦、输入功与有用输出放进同一本账。',
+      en: 'Include friction, input work and useful output in one ledger.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'machines',
+    kind: 'machine-real',
+    pack: 'machines',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-charge-transfer',
+    title: {
+      zh: '衣服粘在一起，电荷是新造出来的吗？',
+      en: 'Clinging clothes: was new charge created?',
+    },
+    subtitle: {
+      zh: '追踪一小部分电子，给两个物体一起记账。',
+      en: 'Follow a few electrons and account for both objects.',
+    },
+    minutes: 16,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-charge',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'electric-attract-repel-neutral',
+    title: {
+      zh: '吸过来，就一定带相反电荷吗？',
+      en: 'Attraction: must the charges be opposite?',
+    },
+    subtitle: {
+      zh: '同号、异号与中性物体，三种情况分开看。',
+      en: 'Distinguish like signs, unlike signs and a neutral object.',
+    },
+    minutes: 16,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-interaction',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-current-counts-charge',
+    title: {
+      zh: '同样的电荷，慢慢通过和快速通过一样吗？',
+      en: 'Same charge: does passing slowly or quickly matter?',
+    },
+    subtitle: {
+      zh: '在导线的一处数电荷，把“多少”和“多快”分开。',
+      en: 'Count charge at one wire section: how much versus how quickly.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-current',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'electric-complete-loop',
+    title: {
+      zh: '灯泡接到电池，为什么还不亮？',
+      en: 'Connected to a battery: why is the lamp still off?',
+    },
+    subtitle: {
+      zh: '别只找一根线，沿整个回路走一圈。',
+      en: 'Trace the whole loop, not just one wire.',
+    },
+    minutes: 16,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-circuit',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-battery-energy-push',
+    title: {
+      zh: '电池换个方向，电荷还是原来的那些吗？',
+      en: 'Reverse a cell: are the charges still there?',
+    },
+    subtitle: {
+      zh: '电池改变驱动方向和能量转移，不制造导线里的电荷。',
+      en: 'A cell changes driving direction and energy transfer, not the wire’s charge supply.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-battery',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'electric-lamp-keeps-charge',
+    title: {
+      zh: '灯泡吃掉的是电流，还是转移能量？',
+      en: 'Does a lamp eat current, or transfer energy?',
+    },
+    subtitle: {
+      zh: '进出电荷相同，光与热的账本可以不同。',
+      en: 'Equal charge in and out; different light and heat accounts.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-lamp',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-switch-breaks-loop',
+    title: {
+      zh: '开关在灯前或灯后，真的有区别吗？',
+      en: 'A switch before or after the lamp: does it matter?',
+    },
+    subtitle: {
+      zh: '一个小缺口，改变的是整个闭合路径。',
+      en: 'One small gap changes the whole closed path.',
+    },
+    minutes: 15,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-switch',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-material-and-contact',
+    title: {
+      zh: '有一根“桥”，为什么电流还是过不去？',
+      en: 'A bridge is there: why can current still not pass?',
+    },
+    subtitle: {
+      zh: '材料能不能导电，接触有没有连好，分别检查。',
+      en: 'Check material conduction and contact separately.',
+    },
+    minutes: 17,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-materials',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-series-one-path',
+    title: {
+      zh: '两盏灯排成一条路，谁拿走了电流？',
+      en: 'Two lamps in one path: who takes the current?',
+    },
+    subtitle: {
+      zh: '串联只有一条通路，电流相同，能量按元件分配。',
+      en: 'Series has one path: same current, energy shared by the loads.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-series',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'electric-parallel-branch-choice',
+    title: {
+      zh: '关掉一盏灯，另一盏为什么还亮？',
+      en: 'Switch one lamp off: why can the other stay on?',
+    },
+    subtitle: {
+      zh: '沿分叉追踪电流，先找共同的两个节点。',
+      en: 'Follow currents through a fork and find the two shared nodes.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-parallel',
+    pack: 'electricity',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
 ];

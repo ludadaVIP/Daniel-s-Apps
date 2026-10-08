@@ -8,6 +8,12 @@ import { densityLessons } from './density';
 import { energyLessons } from './energy';
 import { workLessons } from './work';
 import { thermalLessons } from './thermal';
+import { soundLessons } from './sound';
+import { lightLessons } from './light';
+import { pressureLessons } from './pressure';
+import { buoyancyLessons } from './buoyancy';
+import { machineLessons } from './machines';
+import { electricityLessons } from './electricity';
 import { phaseLessons } from './phase';
 import { measurementSkillsLessons } from './measurementSkills';
 import { measurementLessons } from './measurement';
@@ -34,6 +40,12 @@ export const lessons: Lesson[] = [
   ...workLessons,
   ...thermalLessons,
   ...phaseLessons,
+  ...soundLessons,
+  ...lightLessons,
+  ...pressureLessons,
+  ...buoyancyLessons,
+  ...machineLessons,
+  ...electricityLessons,
 ];
 // Used by catalog generation and integrity tests, never by the app's entry.
 export const lessonCollections = {
@@ -50,4 +62,10 @@ export const lessonCollections = {
   work: workLessons,
   thermal: thermalLessons,
   phase: phaseLessons,
+  sound: soundLessons,
+  light: lightLessons,
+  pressure: pressureLessons,
+  buoyancy: buoyancyLessons,
+  machines: machineLessons,
+  electricity: electricityLessons,
 };

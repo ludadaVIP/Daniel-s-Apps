@@ -24,7 +24,7 @@ export const subjects: Subject[] = [
       zh: '为什么月亮不会掉下来？',
       en: 'Why does the Moon not fall?',
     },
-    status: { zh: '59 节探索课已开放', en: '59 discovery lessons open' },
+    status: { zh: '90 节探索课已开放', en: '90 discovery lessons open' },
     available: true,
     path: '/physics',
   },

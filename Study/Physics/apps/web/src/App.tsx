@@ -13,6 +13,14 @@ import { ProjectPage, ProjectCard } from './ProjectPage';
 import { WalkingCard } from './WalkingCard';
 import { MaterialsCard } from './MaterialsCard';
 import { PowerCard } from './PowerCard';
+import { InsulationCard } from './InsulationCard';
+import { PeriscopeCard } from './PeriscopeCard';
+import { LiftingCard } from './LiftingCard';
+const LiftingProject = lazy(() => import('./LiftingProject'));
+const PeriscopeProject = lazy(() => import('./PeriscopeProject'));
+const InsulationProject = lazy(() =>
+  import('./InsulationProject').then((m) => ({ default: m.InsulationProject })),
+);
 const PowerProject = lazy(() =>
   import('./PowerProject').then((m) => ({ default: m.PowerProject })),
 );
@@ -491,6 +499,9 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
             {stageIndex === 1 && <WalkingCard mode={mode} store={store} />}
             {stageIndex === 1 && <MaterialsCard mode={mode} store={store} />}
             {stageIndex === 2 && <PowerCard mode={mode} store={store} />}
+            {stageIndex === 2 && <InsulationCard mode={mode} store={store} />}
+            {stageIndex === 2 && <PeriscopeCard mode={mode} store={store} />}
+            {stageIndex === 3 && <LiftingCard mode={mode} store={store} />}
           </section>
         );
       })}
@@ -637,6 +648,9 @@ function Notebook({
       <WalkingCard mode={mode} store={store} />
       <MaterialsCard mode={mode} store={store} />
       <PowerCard mode={mode} store={store} />
+      <InsulationCard mode={mode} store={store} />
+      <PeriscopeCard mode={mode} store={store} />
+      <LiftingCard mode={mode} store={store} />
       <form
         className="phy-note-form"
         onSubmit={(e) => {
@@ -1041,6 +1055,60 @@ export function App() {
                   }
                 >
                   <PowerProject mode={mode} store={store} />
+                </Suspense>
+              }
+            />
+            <Route
+              path="project/insulation"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="phy-page">
+                      <B
+                        zh="保温调查台准备中…"
+                        en="Preparing your insulation investigation…"
+                        mode={mode}
+                      />
+                    </div>
+                  }
+                >
+                  <InsulationProject mode={mode} store={store} />
+                </Suspense>
+              }
+            />
+            <Route
+              path="project/periscope"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="phy-page">
+                      <B
+                        zh="潜望镜工作台准备中…"
+                        en="Preparing your periscope workshop…"
+                        mode={mode}
+                      />
+                    </div>
+                  }
+                >
+                  <PeriscopeProject mode={mode} store={store} />
+                </Suspense>
+              }
+            />
+            <Route
+              path="project/lifting"
+              element={
+                <Suspense
+                  fallback={
+                    <div className="phy-page">
+                      <B
+                        zh="抬升设计工作台准备中…"
+                        en="Preparing your lifting design workshop…"
+                        mode={mode}
+                      />
+                    </div>
+                  }
+                >
+                  <LiftingProject mode={mode} store={store} />
                 </Suspense>
               }
             />

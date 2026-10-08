@@ -2,6 +2,46 @@ import { t, type Lesson } from './schema';
 export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
   [
     {
+      id: 'electric-charge',
+      name: t('电荷转移总账', 'Charge-transfer account'),
+    },
+    {
+      id: 'electric-interaction',
+      name: t('电荷符号与极化', 'Charge signs and polarization'),
+    },
+    {
+      id: 'electric-current',
+      name: t('过截面的电荷计数', 'Charge crossing a section'),
+    },
+    {
+      id: 'electric-circuit',
+      name: t('闭合路径检查', 'Closed-path inspection'),
+    },
+    {
+      id: 'electric-battery',
+      name: t('极性与电池能量', 'Polarity and cell energy'),
+    },
+    {
+      id: 'electric-lamp',
+      name: t('电荷与能量两本账', 'Separate charge and energy accounts'),
+    },
+    {
+      id: 'electric-switch',
+      name: t('不同位置的缺口', 'Gaps at different positions'),
+    },
+    {
+      id: 'electric-materials',
+      name: t('材料与接触对照', 'Material and contact comparisons'),
+    },
+    {
+      id: 'electric-series',
+      name: t('一条通路，两只灯', 'One path, two lamps'),
+    },
+    {
+      id: 'electric-parallel',
+      name: t('分叉处的电流账本', 'Current account at a junction'),
+    },
+    {
       id: 'energy-lamp',
       name: t('电池与灯的能量账本', 'Battery–lamp energy ledger'),
     },
@@ -118,5 +158,96 @@ export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
     {
       id: 'phase-curve',
       name: t('冰到水加热曲线', 'Ice-to-water heating curves'),
+    },
+    {
+      id: 'sound-source',
+      name: t('振动声源与信号', 'Vibrating source and signal'),
+    },
+    {
+      id: 'sound-medium',
+      name: t('介质与局部振动', 'Medium and local oscillations'),
+    },
+    {
+      id: 'sound-pitch',
+      name: t('频率与音调工作台', 'Frequency and pitch bench'),
+    },
+    {
+      id: 'sound-amplitude',
+      name: t('振幅与响度工作台', 'Amplitude and loudness bench'),
+    },
+    {
+      id: 'sound-ranging',
+      name: t('回波与超声测距', 'Echo and ultrasonic ranging'),
+    },
+    { id: 'light-shadow', name: t('影子边界光路', 'Shadow boundary rays') },
+    {
+      id: 'light-reflection',
+      name: t('镜面反射角', 'Mirror reflection angles'),
+    },
+    {
+      id: 'light-mirror',
+      name: t('平面镜虚像室', 'Plane-mirror virtual image'),
+    },
+    { id: 'light-refraction', name: t('空气与水折射', 'Air–water refraction') },
+    { id: 'light-lens', name: t('透镜成像工作台', 'Lens image bench') },
+    { id: 'light-colour', name: t('棱镜与滤光片', 'Prism and filters') },
+    { id: 'light-eye', name: t('眼睛对焦模型', 'Eye focusing model') },
+    {
+      id: 'pressure-contact',
+      name: t('书包接触分力板', 'Backpack contact-force board'),
+    },
+    {
+      id: 'pressure-shoes',
+      name: t('雪鞋承力工作台', 'Snowshoe contact bench'),
+    },
+    { id: 'pressure-liquid', name: t('液体深度探针', 'Liquid-depth probe') },
+    {
+      id: 'pressure-air',
+      name: t('大气两侧力账本', 'Atmospheric opposing-force ledger'),
+    },
+    { id: 'pressure-straw', name: t('吸管静止液柱', 'Static straw column') },
+    { id: 'pressure-syringe', name: t('封口空气注射器', 'Sealed-air syringe') },
+    {
+      id: 'buoyancy-release',
+      name: t('浮沉受力比较', 'Floating and sinking forces'),
+    },
+    {
+      id: 'buoyancy-pressure',
+      name: t('上下压力差工作台', 'Top–bottom pressure-force bench'),
+    },
+    {
+      id: 'buoyancy-displacement',
+      name: t('受控放入与排水', 'Controlled lowering and displacement'),
+    },
+    {
+      id: 'buoyancy-archimedes',
+      name: t('排水与测力计', 'Displacement and force meter'),
+    },
+    { id: 'buoyancy-ship', name: t('密封船体与载荷', 'Sealed hull and cargo') },
+    {
+      id: 'buoyancy-submarine',
+      name: t('潜艇压载工作台', 'Submarine ballast bench'),
+    },
+    {
+      id: 'buoyancy-balloon',
+      name: t('热气球质量账本', 'Hot-air balloon mass ledger'),
+    },
+    { id: 'machine-lever', name: t('杠杆抬升工作台', 'Lever lift bench') },
+    {
+      id: 'machine-turning',
+      name: t('转动作用与力臂', 'Turning effect and moment arm'),
+    },
+    {
+      id: 'machine-pulley',
+      name: t('连续绳路滑轮组', 'Continuous-rope pulley blocks'),
+    },
+    { id: 'machine-gears', name: t('齿轮数圈与力矩', 'Gear turns and torque') },
+    {
+      id: 'machine-advantage',
+      name: t('机械优势行程账本', 'Mechanical advantage travel ledger'),
+    },
+    {
+      id: 'machine-real',
+      name: t('真实机械能量账本', 'Real-machine energy ledger'),
     },
   ];

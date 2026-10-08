@@ -3355,6 +3355,261 @@
   gap: 24px;
   align-items: start;
 }
+.phy-electric-lab .phy-lab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 15px;
+}
+.phy-electric-lab .phy-lab-progress {
+  padding: 12px;
+  background: #eef3eb;
+  color: #789180;
+  border-radius: 8px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+.phy-electric-lab > svg {
+  max-height: 350px;
+}
+.phy-electric-lab > svg text {
+  fill: #957ea4;
+  font-family: inherit;
+  font-size: 22px;
+}
+.phy-electric-table {
+  margin-top: 16px;
+  max-width: 100%;
+  overflow-x: auto;
+}
+.phy-electric-table .phy-data-table {
+  width: 100%;
+  table-layout: fixed;
+}
+.phy-electric-table th,
+.phy-electric-table td {
+  overflow-wrap: anywhere;
+  padding: 10px 8px;
+}
+@media (max-width: 600px) {
+  .phy-electric-lab > svg text {
+    font-size: 25px;
+  }
+  .phy-electric-lab .phy-lab-actions .phy-button {
+    width: 100%;
+    justify-content: center;
+  }
+  .phy-electric-table th,
+  .phy-electric-table td {
+    padding: 8px 4px;
+    font-size: 10px;
+  }
+}
+.phy-lifting-goals,
+.phy-lifting-metrics,
+.phy-lifting-numbers {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.phy-lifting-goals label {
+  margin: 0;
+  padding: 12px;
+  background: #fffcf8;
+  border-radius: 9px;
+  min-width: 0;
+}
+.phy-lifting-goals strong {
+  display: block;
+  color: #6f8e80;
+  margin-top: 5px;
+}
+.phy-lifting-goals input[type='range'] {
+  padding: 0;
+  accent-color: #82a293;
+}
+.phy-lifting-options {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin-top: 18px;
+}
+.phy-lifting-options button {
+  min-width: 0;
+  border: 1px solid #ddd3e5;
+  border-radius: 10px;
+  padding: 12px 8px;
+  background: #fffcf8;
+  color: #826d92;
+  font: inherit;
+  font-size: 11px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.phy-lifting-options button > strong,
+.phy-lifting-options button > span {
+  display: block;
+  margin: 5px 0;
+}
+.phy-lifting-options button > strong {
+  font-size: 20px;
+}
+.phy-lifting-options button .phy-en {
+  display: block;
+  margin: 3px 0 0;
+}
+.phy-lifting-options button[aria-pressed='true'] {
+  background: #edf3ed;
+  border-color: #91af9e;
+  color: #648775;
+  box-shadow: inset 0 0 0 1px #91af9e;
+}
+.phy-lifting-diagram {
+  margin: 16px 0;
+}
+.phy-lifting-diagram svg {
+  width: 100%;
+  display: block;
+}
+.phy-lifting-diagram figcaption {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #95839f;
+}
+.phy-lifting-diagram figcaption .phy-en {
+  display: block;
+  margin: 6px 0;
+}
+.phy-lifting-metrics > span {
+  padding: 12px;
+  min-width: 0;
+  background: #fffcf8;
+  border-radius: 8px;
+  font-size: 12px;
+}
+.phy-lifting-metrics strong {
+  display: block;
+  margin-top: 8px;
+  font-size: 18px;
+  color: #6f8e80;
+}
+.phy-lifting-metrics .phy-en {
+  display: block;
+  margin: 4px 0;
+}
+.phy-lifting-fit,
+.phy-lifting-build {
+  padding: 16px;
+  border-radius: 10px;
+  background: #eef3eb;
+  color: #779081;
+  font-size: 12px;
+  line-height: 1.9;
+}
+.phy-lifting-build h3 {
+  margin-top: 0;
+}
+.phy-lifting-build ol {
+  padding-left: 20px;
+}
+.phy-lifting-build li {
+  margin: 12px 0;
+}
+.phy-lifting-build .phy-en {
+  display: block;
+  margin-top: 4px;
+}
+.phy-lifting-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+.phy-lifting-page select {
+  max-width: 100%;
+  width: 100%;
+  background: #f9f6fc;
+  color: #796583;
+  border: 1px solid #dcd1e3;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 7px;
+  font: inherit;
+}
+.phy-lifting-numbers label {
+  margin-top: 8px;
+  min-width: 0;
+}
+.phy-lifting-optional {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #8c7899;
+}
+.phy-lifting-optional summary {
+  cursor: pointer;
+  line-height: 1.8;
+}
+.phy-lifting-optional summary .phy-en {
+  display: block;
+  margin-top: 3px;
+}
+@media (max-width: 600px) {
+  .phy-lifting-metrics,
+  .phy-lifting-numbers {
+    grid-template-columns: 1fr;
+  }
+  .phy-lifting-page .phy-lifting-workbench {
+    padding: 10px;
+  }
+  .phy-lifting-goals {
+    gap: 8px;
+  }
+  .phy-lifting-goals label {
+    padding: 8px;
+    font-size: 11px;
+  }
+  .phy-lifting-goals label:last-child {
+    grid-column: 1 / -1;
+  }
+  .phy-lifting-options {
+    grid-template-columns: 1fr;
+    gap: 7px;
+  }
+  .phy-lifting-options button {
+    display: grid;
+    grid-template-columns: 75px minmax(0, 1fr);
+    gap: 0 8px;
+    padding: 9px 10px;
+    text-align: left;
+  }
+  .phy-lifting-options button > strong {
+    grid-column: 1;
+    grid-row: 1;
+    font-size: 18px;
+    white-space: nowrap;
+  }
+  .phy-lifting-options button > span:nth-child(2) {
+    grid-column: 1;
+    grid-row: 2;
+    font-size: 10px;
+  }
+  .phy-lifting-options button > span:nth-child(3) {
+    grid-column: 2;
+    grid-row: 1;
+    align-self: center;
+    font-size: 13px;
+  }
+  .phy-lifting-options button > span:nth-child(4) {
+    grid-column: 2;
+    grid-row: 2;
+  }
+  .phy-lifting-diagram svg text {
+    font-size: 27px;
+  }
+  .phy-lifting-actions .phy-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
 .phy-project-section {
   border: 1px solid #e0d8e5;
   border-radius: 12px;
@@ -5276,4 +5531,389 @@
   .phy-phase-lab .phy-data-table td {
     font-size: 9px;
   }
+}
+.phy-insulation-card {
+  background: #eef1e9;
+}
+.phy-insulation-chart {
+  margin: 20px 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: #f6f1f8;
+}
+.phy-insulation-chart svg {
+  display: block;
+  width: 100%;
+  font-size: 20px;
+  fill: #927b9d;
+}
+.phy-insulation-chart figcaption {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #9982a4;
+  margin-top: 10px;
+}
+.phy-insulation-legend {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+  font-size: 12px;
+  color: #9b7cb0;
+}
+.phy-insulation-legend > span + span {
+  color: #a3885c;
+}
+.phy-insulation-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.phy-insulation-inputs label {
+  margin-top: 8px;
+  min-width: 0;
+}
+@media (max-width: 560px) {
+  .phy-insulation-chart {
+    padding: 6px;
+  }
+  .phy-insulation-chart svg {
+    font-size: 27px;
+  }
+  .phy-insulation-inputs {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}
+.phy-sound-lab svg {
+  width: 100%;
+  display: block;
+  font-size: 19px;
+  fill: #947aa3;
+}
+.phy-sound-audio {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin: 16px 0;
+}
+.phy-sound-audio p {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #937ba0;
+  margin: 0;
+}
+.phy-sound-audio .phy-button {
+  flex-shrink: 0;
+}
+.phy-sound-lab td {
+  white-space: nowrap;
+}
+@media (max-width: 560px) {
+  .phy-sound-lab svg {
+    font-size: 26px;
+  }
+  .phy-sound-audio {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+  .phy-sound-lab .phy-data-table td {
+    padding-inline: 3px;
+  }
+}
+.phy-sound-lab input[type='range'] {
+  box-sizing: border-box;
+  display: block;
+  margin-inline: 0;
+}
+.phy-sound-lab svg {
+  max-height: 260px;
+}
+@media (min-width: 760px) {
+  .phy-sound-lab .phy-thermal-metrics:has(> div:nth-child(4)) {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+.phy-light-lab > svg,
+.phy-pressure-lab > svg {
+  display: block;
+  width: 100%;
+  max-height: 340px;
+  font-size: 18px;
+  fill: #9379a1;
+  margin-block: 10px;
+}
+.phy-light-lab .phy-energy-probe input {
+  display: block;
+  box-sizing: border-box;
+  margin-inline: 0;
+}
+.phy-pressure-lab > svg {
+  font-size: 27px;
+  max-height: 300px;
+}
+.phy-pressure-lab .phy-energy-probe input {
+  display: block;
+  box-sizing: border-box;
+  margin-inline: 0;
+}
+.phy-pressure-lab .phy-thermal-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.phy-pressure-inspection {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 20px;
+  margin: 15px 8px 4px;
+  padding-inline: 4%;
+}
+.phy-pressure-inspection::before {
+  position: absolute;
+  content: '';
+  height: 2px;
+  inset-inline: 4%;
+  background: #ded1e6;
+}
+.phy-pressure-inspection i {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #aa91bb;
+  z-index: 1;
+}
+.phy-pressure-inspection > span {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: #739f8d;
+  transform: translateX(-50%);
+  z-index: 2;
+}
+.phy-pressure-lab .phy-data-table td {
+  white-space: nowrap;
+}
+@media (max-width: 600px) {
+  .phy-pressure-lab .phy-thermal-metrics {
+    grid-template-columns: 1fr;
+  }
+  .phy-pressure-lab .phy-data-table th,
+  .phy-pressure-lab .phy-data-table td {
+    padding-inline: 4px;
+    font-size: 11px;
+  }
+}
+.phy-light-bands {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  font-size: 12px;
+  padding: 12px 16px;
+  border-block: 1px solid #e5dfea;
+}
+.phy-light-lab .phy-data-table td {
+  white-space: nowrap;
+}
+@media (min-width: 760px) {
+  .phy-light-lab .phy-thermal-metrics {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .phy-light-lab > svg {
+    font-size: 23px;
+  }
+  .phy-light-lab .phy-data-table th,
+  .phy-light-lab .phy-data-table td {
+    padding-inline: 4px;
+  }
+  .phy-light-lab .phy-thermal-metrics > div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+.phy-periscope-card {
+  background: #edf2ee;
+  border-color: #cbd9cd;
+}
+.phy-periscope-workbench {
+  margin-bottom: 24px;
+  border: 1px solid #ddd2e4;
+  border-radius: 14px;
+  background: #faf7fc;
+  padding: 16px;
+}
+.phy-periscope-model-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+.phy-periscope-model-heading h3 {
+  font-size: 16px;
+  line-height: 1.6;
+  margin: 5px 0;
+  color: #80668d;
+}
+.phy-periscope-diagram {
+  margin: 12px 0;
+}
+.phy-periscope-diagram svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.phy-periscope-diagram figcaption {
+  font-size: 11px;
+  line-height: 1.8;
+  color: #8b7796;
+}
+.phy-periscope-controls label {
+  margin-top: 8px;
+}
+.phy-periscope-controls input[type='range'] {
+  padding: 0;
+  accent-color: #9676a9;
+}
+.phy-periscope-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 12px;
+}
+.phy-periscope-presets .phy-button {
+  min-height: 38px;
+  padding: 8px 12px;
+}
+.phy-periscope-presets button[aria-pressed='true'] {
+  background: #e1d3eb;
+  border-color: #ab8fbd;
+}
+.phy-periscope-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 14px;
+}
+.phy-periscope-metrics > div {
+  min-width: 0;
+  padding: 12px;
+  border-radius: 8px;
+  background: #efe8f4;
+  color: #937d9c;
+  font-size: 11px;
+  line-height: 1.7;
+}
+.phy-periscope-metrics strong {
+  display: block;
+  color: #80668d;
+  font-size: 18px;
+  margin-top: 5px;
+}
+.phy-periscope-metrics strong .phy-en {
+  display: block;
+  margin-left: 0;
+}
+.phy-periscope-build {
+  padding-left: 22px;
+  font-size: 13px;
+  color: #796583;
+  line-height: 1.9;
+}
+.phy-periscope-build li {
+  margin-bottom: 12px;
+}
+.phy-periscope-page select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px;
+  margin-top: 8px;
+  border: 1px solid #dcd1e3;
+  border-radius: 7px;
+  color: #635271;
+  background: #f9f6fc;
+  font: inherit;
+}
+.phy-periscope-page select:focus {
+  outline: 2px solid #b49bc7;
+  outline-offset: 2px;
+}
+.phy-periscope-evidence {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.phy-periscope-evidence article {
+  min-width: 0;
+  padding: 14px;
+  background: #f3eef7;
+  border-radius: 9px;
+  font-size: 12px;
+  color: #796583;
+  overflow-wrap: anywhere;
+}
+.phy-periscope-evidence article > strong {
+  display: block;
+  margin-bottom: 7px;
+}
+.phy-periscope-evidence p {
+  white-space: pre-wrap;
+  line-height: 1.8;
+}
+.phy-periscope-page .phy-power-ledger a {
+  color: #80668d;
+  font-size: 12px;
+  line-height: 1.8;
+}
+@media (max-width: 560px) {
+  .phy-periscope-workbench {
+    padding: 10px;
+    margin-inline: -6px;
+  }
+  .phy-periscope-model-heading {
+    flex-direction: column;
+    gap: 5px;
+  }
+  .phy-periscope-metrics {
+    grid-template-columns: 1fr;
+  }
+  .phy-periscope-metrics > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+  .phy-periscope-metrics strong {
+    font-size: 16px;
+    margin-top: 0;
+    text-align: right;
+  }
+  .phy-periscope-evidence {
+    grid-template-columns: 1fr;
+  }
+}
+.phy-periscope-mobile-key {
+  display: none;
+}
+@media (max-width: 560px) {
+  .phy-periscope-diagram svg text {
+    font-size: 30px;
+  }
+  .phy-periscope-diagram .phy-periscope-svg-key {
+    display: none;
+  }
+  .phy-periscope-mobile-key {
+    display: block;
+    margin-bottom: 8px;
+  }
+}
+.phy-periscope-diagram svg {
+  max-height: 340px;
+}
+.phy-periscope-page .phy-power-ledger a {
+  display: block;
+  padding-block: 8px;
 }

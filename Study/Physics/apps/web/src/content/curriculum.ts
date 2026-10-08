@@ -26,6 +26,21 @@ export const units = {
     '温度与热：追踪能量传递',
     'Temperature & heat: follow energy transfers',
   ),
+  sound: t('声音：从振动到回波', 'Sound: from vibration to echoes'),
+  light: t('光：沿光路寻找答案', 'Light: follow rays to answers'),
+  pressure: t('压强：力分散到哪里？', 'Pressure: where is the force spread?'),
+  buoyancy: t(
+    '浮力：水和空气怎样托起物体？',
+    'Buoyancy: how do water and air support objects?',
+  ),
+  machines: t(
+    '简单机械：用距离交换力',
+    'Simple machines: trade distance for force',
+  ),
+  electricity: t(
+    '电学：电荷、能量与回路',
+    'Electricity: charge, energy and circuits',
+  ),
 };
 export const stages = [
   {
@@ -53,8 +68,8 @@ export const stages = [
     title: t('初中物理 III', 'Junior physics III'),
     age: '12–14',
     topics: t(
-      '电路 · 磁 · 压强 · 浮力',
-      'Circuits · Magnetism · Pressure · Buoyancy',
+      '压强 · 浮力 · 机械 · 电路 · 磁',
+      'Pressure · Buoyancy · Machines · Circuits · Magnetism',
     ),
   },
   {

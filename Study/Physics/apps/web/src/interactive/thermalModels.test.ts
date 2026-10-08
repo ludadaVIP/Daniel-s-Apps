@@ -197,7 +197,9 @@ describe('thermal comparisons and energy balances', () => {
       thermalLessons.map((l) => l.id),
     );
     expect(new Set(lessons.slice(0, 55).map((l) => l.id)).size).toBe(55);
-    expect(Object.keys(units).at(-1)).toBe('thermal');
+    expect(Object.keys(units).indexOf('thermal')).toBe(
+      Object.keys(units).indexOf('work') + 1,
+    );
     for (const l of thermalLessons) {
       expect(l.stage).toBe(2);
       expect(l.unit).toBe('thermal');

@@ -17,4 +17,10 @@ export const lessonPacks: Record<LessonPack, () => Promise<Lesson[]>> = {
   work: () => import('./work').then((m) => m.workLessons),
   thermal: () => import('./thermal').then((m) => m.thermalLessons),
   phase: () => import('./phase').then((m) => m.phaseLessons),
+  sound: () => import('./sound').then((m) => m.soundLessons),
+  light: () => import('./light').then((m) => m.lightLessons),
+  pressure: () => import('./pressure').then((m) => m.pressureLessons),
+  buoyancy: () => import('./buoyancy').then((m) => m.buoyancyLessons),
+  machines: () => import('./machines').then((m) => m.machineLessons),
+  electricity: () => import('./electricity').then((m) => m.electricityLessons),
 };

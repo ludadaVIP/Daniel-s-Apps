@@ -6,6 +6,12 @@ import { ForceArt } from './interactive/ForceArt';
 import { GravityArt } from './interactive/GravityArt';
 import { EnergyArt } from './interactive/EnergyArt';
 import { WorkArt } from './interactive/WorkArt';
+import { SoundArt } from './interactive/SoundArt';
+import { LightArt } from './interactive/LightArt';
+import { PressureArt } from './interactive/PressureArt';
+import { MachineArt } from './interactive/MachineArt';
+import { ElectricArt } from './interactive/ElectricArt';
+import { BuoyancyArt } from './interactive/BuoyancyArt';
 import { PhaseArt } from './interactive/PhaseArt';
 import { ThermalArt } from './interactive/ThermalArt';
 import { DensityArt } from './interactive/DensityArt';
@@ -99,7 +105,19 @@ export function LessonArt({
         </pattern>
       </defs>
       <rect width="300" height="150" fill={`url(#dots-${kind})`} />
-      {kind.startsWith('phase-') ? (
+      {kind.startsWith('electric-') ? (
+        <ElectricArt kind={kind} />
+      ) : kind.startsWith('machine-') ? (
+        <MachineArt kind={kind} />
+      ) : kind.startsWith('buoyancy-') ? (
+        <BuoyancyArt kind={kind} />
+      ) : kind.startsWith('pressure-') ? (
+        <PressureArt kind={kind} />
+      ) : kind.startsWith('light-') ? (
+        <LightArt kind={kind} />
+      ) : kind.startsWith('sound-') ? (
+        <SoundArt kind={kind} />
+      ) : kind.startsWith('phase-') ? (
         <PhaseArt kind={kind} />
       ) : kind.startsWith('thermal-') ? (
         <ThermalArt kind={kind} />

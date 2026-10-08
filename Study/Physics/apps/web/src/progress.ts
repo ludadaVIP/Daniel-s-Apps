@@ -4,6 +4,9 @@ import { decodeProjects, type ProjectDraft } from './projects';
 import { decodeWalking, type WalkingDraft } from './walking';
 import { decodeMaterials, type MaterialsDraft } from './materials';
 import { decodePower, type PowerDraft } from './power';
+import { decodeInsulation, type InsulationDraft } from './insulation';
+import { decodePeriscope, type PeriscopeDraft } from './periscope';
+import { decodeLifting, type LiftingDraft } from './lifting';
 export const STORAGE_KEY = 'study-physics-progress-v1';
 export type LessonProgress = {
   step: number;
@@ -28,6 +31,9 @@ export type Progress = {
   walkingProject?: WalkingDraft;
   materialsProject?: MaterialsDraft;
   powerProject?: PowerDraft;
+  insulationProject?: InsulationDraft;
+  periscopeProject?: PeriscopeDraft;
+  liftingProject?: LiftingDraft;
 };
 export const freshLesson = (): LessonProgress => ({
   step: 0,
@@ -108,6 +114,12 @@ export function decodeProgress(raw: string | null): Progress {
     if (materialsProject) empty.materialsProject = materialsProject;
     const powerProject = decodePower(data.powerProject);
     if (powerProject) empty.powerProject = powerProject;
+    const insulationProject = decodeInsulation(data.insulationProject);
+    if (insulationProject) empty.insulationProject = insulationProject;
+    const periscopeProject = decodePeriscope(data.periscopeProject);
+    if (periscopeProject) empty.periscopeProject = periscopeProject;
+    const liftingProject = decodeLifting(data.liftingProject);
+    if (liftingProject) empty.liftingProject = liftingProject;
     return empty;
   } catch {
     return empty;
