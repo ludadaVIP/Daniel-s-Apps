@@ -16,7 +16,121 @@ export function ElectricArt({ kind }: { kind: string }) {
       strokeLinecap="round"
       strokeLinejoin="round"
     >
-      {kind === 'electric-charge' ? (
+      {['electric-ammeter', 'electric-voltmeter'].includes(kind) ? (
+        <>
+          <path
+            d={
+              kind === 'electric-ammeter'
+                ? 'M45 57V25H137m36 0h77v28m0 26v41H45V80'
+                : 'M45 57V25H130m50 0h70v95H45V80'
+            }
+          />
+          <path d="M32 57h26m-20 23h14" stroke={gold} />
+          {kind === 'electric-ammeter' ? (
+            <rect
+              x="237"
+              y="53"
+              width="26"
+              height="26"
+              rx="4"
+              fill="#eee1c7"
+              stroke={gold}
+            />
+          ) : (
+            <>
+              <rect
+                x="130"
+                y="12"
+                width="50"
+                height="26"
+                rx="4"
+                fill="#eee1c7"
+                stroke={gold}
+              />
+              <path d="M115 25v60h22m36 0h22V25" stroke={blue} />
+            </>
+          )}
+          <circle
+            cx="155"
+            cy={kind === 'electric-ammeter' ? 25 : 85}
+            r="18"
+            fill="#dce8ee"
+            stroke={blue}
+          />
+          <text
+            x="155"
+            y={kind === 'electric-ammeter' ? 32 : 92}
+            textAnchor="middle"
+            fill={blue}
+            stroke="none"
+            fontSize="22"
+          >
+            {kind === 'electric-ammeter' ? 'A' : 'V'}
+          </text>
+          {kind === 'electric-ammeter' && (
+            <path
+              d="M95 74h110m-100 0v7m30-7v7m30-7v7m30-7v7M147 53v18"
+              stroke={gold}
+            />
+          )}
+        </>
+      ) : ['electric-ohm', 'electric-power'].includes(kind) ? (
+        <>
+          <path d="M60 25v100h190" />
+          <path d="M60 125l170-90M60 125l170-50" stroke={blue} />
+          {[115, 170, 225].map((x, i) => (
+            <circle
+              key={x}
+              cx={x}
+              cy={96 - i * 29}
+              r="5"
+              fill={gold}
+              stroke="none"
+            />
+          ))}
+        </>
+      ) : kind === 'electric-voltage' ? (
+        <>
+          <rect
+            x="70"
+            y="38"
+            width="160"
+            height="23"
+            rx="7"
+            fill="#dce8ee"
+            stroke={blue}
+          />
+          <rect
+            x="70"
+            y="90"
+            width="110"
+            height="23"
+            rx="7"
+            fill="#ead7b4"
+            stroke={gold}
+          />
+          <text x="45" y="55" fill={blue} stroke="none" fontSize="20">
+            C
+          </text>
+          <text x="45" y="108" fill={gold} stroke="none" fontSize="20">
+            J
+          </text>
+        </>
+      ) : kind === 'electric-resistance' ? (
+        <>
+          <path d="M55 40h95M55 77h190" stroke={blue} strokeWidth="9" />
+          <path d="M55 118h95" stroke={gold} strokeWidth="17" />
+        </>
+      ) : kind === 'electric-safety' ? (
+        <>
+          <path
+            d="m150 25 57 18v34c0 25-28 41-57 53-29-12-57-28-57-53V43Z"
+            fill="#e5ede2"
+            stroke={blue}
+          />
+          <path d="m140 50 25 0-17 25h15l-27 31 7-28h-13Z" stroke={gold} />
+        </>
+      ) : kind === 'electric-charge' ? (
         <>
           <rect x="40" y="40" width="75" height="75" rx="18" fill="#e8def0" />
           <rect

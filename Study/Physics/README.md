@@ -1,6 +1,6 @@
 # Physics Lab · 物理探索室
 
-A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, ninety complete bilingual lessons, eighty-nine exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
+A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 123 complete bilingual lessons, 122 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
 
 ## Use
 
@@ -109,6 +109,42 @@ The foundation path follows Appendix A of the plan:
 88. Small gear drives big gear: how do speed and torque trade? / 小齿轮带大齿轮，快慢与转动作用怎样交换？
 89. Why does saving three quarters of the force not save work? / 省了四分之三的力，为什么没有省功？
 90. Why does a real pulley need more effort than the ideal model? / 真实滑轮，为什么比理想模型更费力？
+91. Clinging clothes: was new charge created? / 衣服粘在一起，电荷是新造出来的吗？
+92. Attraction: must the charges be opposite? / 吸过来，就一定带相反电荷吗？
+93. Same charge: does passing slowly or quickly matter? / 同样的电荷，慢慢通过和快速通过一样吗？
+94. Connected to a battery: why is the lamp still off? / 灯泡接到电池，为什么还不亮？
+95. Reverse a cell: are the charges still there? / 电池换个方向，电荷还是原来的那些吗？
+96. Does a lamp eat current, or transfer energy? / 灯泡吃掉的是电流，还是转移能量？
+97. A switch before or after the lamp: does it matter? / 开关在灯前或灯后，真的有区别吗？
+98. A bridge is there: why can current still not pass? / 有一根“桥”，为什么电流还是过不去？
+99. Two lamps in one path: who takes the current? / 两盏灯排成一条路，谁拿走了电流？
+100. Switch one lamp off: why can the other stay on? / 关掉一盏灯，另一盏为什么还亮？
+
+101. A different scale position: did the current change? / 指针换了位置，电流真的变了吗？
+102. What is a cell’s 3 V label telling us? / 电池上的3 V，到底在说什么？
+103. Where should two probes go to measure voltage? / 测电压，要把两根表笔放在哪里？
+104. Same metal: what changes when it is longer or thicker? / 同一种金属，长一点或粗一点会怎样？
+105. When does doubling voltage double current? / 电压翻倍，电流什么时候才翻倍？
+106. Same watts: must the transferred energy be the same? / 瓦数相同，用掉的能量也相同吗？
+107. All lamps went off: switching or fault protection? / 灯都灭了，是正常开关还是故障保护？
+
+108. Why does a fridge magnet not stick to every metal? / 冰箱磁贴，为什么不粘住所有金属？
+109. Turn a magnet around: why does pulling become pushing? / 翻个方向，磁铁怎么从拉变成推？
+110. Without touching a magnet, how does a compass find its direction? / 没有碰到磁铁，指南针怎么知道朝哪边？
+111. The map stayed still. Why did the compass turn? / 地图没转，指南针为什么偏了？
+112. No extra magnet: how can current turn a needle? / 没有新增磁铁，通电怎么让磁针转向？
+113. A switchable magnet: how can we compare its strength fairly? / 电磁铁能开关，怎样公平比较它的强弱？
+114. The battery does not spin. How does a small fan turn? / 电池没转，小风扇为什么能转？
+115. A hand-powered light: where does the energy come from? / 手摇灯没装电池，能量从哪里来？
+
+116. The Sun crosses the sky each day. What is turning? / 太阳每天走过天空，是谁在转？
+117. The same June: why are the hemispheres in opposite seasons? / 同一个六月，为什么两边季节相反？
+118. A crescent Moon: what made the bright part shrink? / 月亮变成弯弯的一片，是谁遮住了它？
+119. If Earth’s solar distance is 10 cm, where does Neptune go? / 把地日距离缩成10厘米，海王星放在哪里？
+120. A satellite stays up. Is gravity absent there? / 卫星没掉下来，是因为那里没有重力？
+121. A brighter-looking star: must it emit more light? / 看起来更亮，恒星就一定更会发光？
+122. Write Earth’s address. What comes after the solar system? / 给地球写地址，太阳系之后该写什么？
+123. Starlight travels for years. Which moment do we see? / 星光走了几年，我们看到的是哪一刻？
 
 Each lesson includes a non-scored prediction, interactive exploration, explanation and misconceptions, a worked example, two or three practice questions, a takeaway, an exit question, and a home experiment. Predictions can be wrong; finishing requires exploration and correct practice/exit answers, with feedback and retries. Lessons are grouped by stage and unit. Counts and next-lesson links follow the content list; stable IDs preserve earlier progress when courses are inserted.
 
@@ -204,11 +240,29 @@ Three blank trial cards can grow to eight retained originals. Each records a set
 
 Build references: [Science Museum Group activity](https://www.sciencemuseumgroup.org.uk/sites/default/files/2025-12/SMG-Learning-Activities-360-Periscope.pdf), [Science Foundation Ireland guide](https://www.sfi.ie/site-files/primary-science/media/pdfs/col/make_a_periscope.pdf). Instructions, examples and SVG graphics are original; no activity templates or images were copied.
 
-The standalone initial JavaScript is about 462 kB (previously 581 kB), and the Study Physics entry about 201 kB (previously 318 kB). Body groups are about 18–39 kB. These are minified build output sizes, not measured device loading times. Physics no longer triggers the standalone 500 kB warning; Chemistry’s existing warning remains.
+Course bodies load in twenty groups. The electric foundation and quantitative bodies and their seventeen experiment exports load on demand; the lightweight catalog keeps progress validation synchronous. Build sizes are recorded for each verified batch in CONTENT_PROGRESS.md; they are not measurements of device loading time.
 
 Interactive station groups and the field projects also load on demand; the hub separately lazy-loads Physics. Bilingual preparation states appear while content is loading.
 
 For completed content, plan mapping, and remaining work, see [CONTENT_PROGRESS.md](CONTENT_PROGRESS.md).
+
+## Electricity foundation
+
+Ten courses cover Unit 3.4 topics 1–13 through clothes/comb charge, torch contacts, remote-cell polarity and independent room lighting. The lessons preserve prediction → three full model comparisons → explanation → practice → transfer exit. Seeking and free settings do not count as required comparisons. Retained tables are clearly labelled model results, separate from the child’s measurements.
+
+The charge animation counts electrons in transit in the conserved total. A held neutral partner can polarize while remaining net neutral; qualitative arrows do not predict motion. Current uses Q/Δt over the assigned physical window, independent of the 2.4 s display. Circuit models use an ideal fixed DC source, ideal wires and constant resistive loads. Negative current indicates reversal of the reference direction. Series carries the same current; parallel branch currents sum. The lamp separates conserved charge from light/thermal energy transfer. No real filament, LED, switching transient, battery internal resistance or household installation is simulated.
+
+References used to check concepts: [OpenStax charge conservation](https://openstax.org/books/college-physics-2e/pages/18-1-static-electricity-and-charge-conservation-of-charge), [conductors and insulators](https://openstax.org/books/college-physics-2e/pages/18-2-conductors-and-insulators), [current](https://openstax.org/books/college-physics-2e/pages/20-1-current), [resistance and simple circuits](https://openstax.org/books/college-physics-2e/pages/20-2-ohms-law-resistance-and-simple-circuits), [power and energy](https://openstax.org/books/college-physics-2e/pages/20-4-electric-power-and-energy), [series and parallel](https://openstax.org/books/college-physics-2e/pages/21-1-resistors-in-series-and-parallel). Text, examples, diagrams and activities are original. Seven further courses now cover topics 14–20, described below.
+
+## Electrical measurement, relationships and safety
+
+Seven original bilingual courses complete Unit 3.4’s twenty introductory topics across seventeen courses. Thirty-division scales compare unchanged 0.3 A on two current ranges; wrong across-cell current-meter wiring is blocked and has no fabricated zero reading. Ideal voltmeters compare 1/2/3 V across series loads/source without changing the 0.1 A loop current. Red/black order changes signed readings; scale magnitude and range resolution remain separate.
+
+An energy/charge ledger establishes voltage as J/C, including an empty inspection start without dividing 0/0. Fixed-material, fixed-temperature wire cases isolate length and area (10/20/5 Ω). U–I sweeps compare two constant resistors with an explicitly assigned changing-resistance curve; the latter illustrates why Ohm’s law needs conditions and does not claim a measured filament response. Electrical power compares steady watts with accumulated joules over assigned physical intervals, independently of animation speed.
+
+The fault detective distinguishes added-load overload from a low-resistance bypass. Its 3 V model includes 0.5 Ω source internal resistance and a prescribed 0.8 A isolation threshold. Prospective unprotected currents and protected currents are separate; fault diagrams remain open with zero protected current. These numbers are model conditions rather than household ratings, and the station does not energise faults or simulate shock/trip time. Home activities use paper, labels or adult-assisted external observation of unplugged equipment.
+
+Reference checks: OpenStax [potential difference](https://openstax.org/books/college-physics-2e/pages/19-1-electric-potential-energy-potential-difference), [DC voltmeters and ammeters](https://openstax.org/books/college-physics-2e/pages/21-4-dc-voltmeters-and-ammeters), [resistance and resistivity](https://openstax.org/books/college-physics-2e/pages/20-3-resistance-and-resistivity), [electric hazards](https://openstax.org/books/college-physics-2e/pages/20-6-electric-hazards-and-the-human-body), and WorkSafe NZ [cords and leads](https://www.worksafe.govt.nz/managing-health-and-safety/consumers/safe-living-with-electricity/cords-and-leads/) and [electrical equipment and appliances](https://www.worksafe.govt.nz/managing-health-and-safety/consumers/safe-living-with-electricity/electrical-equipment-and-appliances/). Wording, cases, SVG diagrams and assessments are original. Magnetism and the remaining full curriculum are still planned.
 
 ## Shared infrastructure
 
@@ -262,6 +316,10 @@ Reuses Chemistry's existing React 19, React Router, TypeScript, Vite and Vitest 
 - `apps/web/src/InsulationProject.tsx`, `InsulationCard.tsx` and `insulation.ts`: matched-time cup records, own baselines, retained exclusions, strictly ordered measured curves, bounded persistence and bilingual reports.
 - `apps/web/src/PeriscopeProject.tsx`, `PeriscopeCard.tsx`, `periscope.ts`, `periscopeReport.ts` and `interactive/periscopeModel.ts`: own build/observations, two-reflection preview, retained exclusions, bounded persistence and lazy bilingual report copy.
 - `apps/web/src/ProjectReport.tsx`: shared local Markdown report link and read-only preview.
+- `apps/web/src/content/magnetism.ts`: eight Stage 3 magnetic investigations representing all ten Unit 3.5 topics.
+- `apps/web/src/interactive/MagneticLabs.tsx`, `MagneticArt.tsx` and `magneticModels.ts`: direction maps, field superposition, controlled coil comparisons, motor torque and AC generation.
+- `apps/web/src/content/space.ts`: eight Earth/space investigations covering all twelve Unit 3.6 topics.
+- `apps/web/src/interactive/SpaceLabs.tsx`, `SpaceArt.tsx` and `spaceModels.ts`: solar orientation, tilted-season geometry, spherical moon phases, shared rulers, analytic orbit paths and light travel.
 - `apps/web/src/content/experiments.ts`: exploration-station catalog.
 - `apps/web/src/interactive/`: physical models and interactive SVG labs.
 - `apps/web/src/progress.ts`: validated persistence and review scheduling.
@@ -289,7 +347,7 @@ Six pressure courses open Stage 3 Unit 3.1, covering its eight foundation topics
 
 Contact pressure converts cm² to m². Equal 1 cm² cells conserve force; both-foot rectangle areas and forces stay matched. Uniform stationary liquid uses Δp=ρgh with g≈10 N/kg and a 101 kPa prescribed surface pressure; probe orientation and vessel width do not change the same-depth reading. Total pressure is distinct from the liquid increment. A flat atmospheric piston compares both nonzero opposing forces, with net force (p_out−p_in)A. Straw comparisons show stationary height relative to the cup surface and distinguish a later sealed-headspace balance from initial outflow. The syringe uses absolute pV at fixed gas amount and temperature, and separates vented gas from sealed gas and ideal extra holding force from friction. Inspection markers indicate reading order, not fluid motion, piston travel or physical time. Seeking or arbitrary settings do not replace the three prescribed inspections.
 
-Pressure reference checks: OpenStax [force per area](https://openstax.org/books/college-physics-2e/pages/11-3-pressure), [pressure with depth](https://openstax.org/books/college-physics-2e/pages/11-4-variation-of-pressure-with-depth-in-a-fluid), [absolute and gauge pressure](https://openstax.org/books/college-physics-2e/pages/11-6-gauge-pressure-absolute-pressure-and-pressure-measurement), and [constant-temperature gas relations](https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law). Wording, diagrams and cases are original. Stage 3 electricity, magnetism and Earth/space remain to be developed.
+Pressure reference checks: OpenStax [force per area](https://openstax.org/books/college-physics-2e/pages/11-3-pressure), [pressure with depth](https://openstax.org/books/college-physics-2e/pages/11-4-variation-of-pressure-with-depth-in-a-fluid), [absolute and gauge pressure](https://openstax.org/books/college-physics-2e/pages/11-6-gauge-pressure-absolute-pressure-and-pressure-measurement), and [constant-temperature gas relations](https://openstax.org/books/college-physics-2e/pages/13-3-the-ideal-gas-law). Wording, diagrams and cases are original. Stage 3 magnetism and Earth/space are now available; the mathematics bridge and high-school stages remain in progress.
 
 ## Buoyancy investigations
 
@@ -321,4 +379,32 @@ The original build sketch uses a stiff ruler, fixed eraser, small cup and a few 
 
 Three blank trials can grow to eight. Completion needs a plan, checked physical construction and comparison conditions, at least three checked used trials at one numerically normalized load mark with two hand settings and a repeat, resolved entered rows, and the child's explanations. Failed lifts are valid evidence. Pending exclusions need reasons; reasoned exclusions preserve originals and are reversible. Editing measurements clears that trial's check; changing materials, procedure or construction clears build and all trial checks. Model redesign does not erase physical evidence. Bilingual report preview/export retain the model plan, missing readings, invalid originals, exclusions and own explanations. Empty default drafts cannot export. Path, notebook and lever/real-machine takeaway links open the project; no runtime dependency was added.
 
-Activity references: [NASA Tiny Levers](https://www.grc.nasa.gov/WWW/K-12/Summer_Training/KaeAvenueES/Tiny_Lever.html) and [Science Buddies' lever activity](https://www.sciencebuddies.org/stem-activities/give-it-a-lift-with-a-lever). Instructions, drawings and the saved evidence workflow are original. Introductory electricity in Unit 3.4 is next; the full junior/high-school roadmap is still in progress.
+Activity references: [NASA Tiny Levers](https://www.grc.nasa.gov/WWW/K-12/Summer_Training/KaeAvenueES/Tiny_Lever.html) and [Science Buddies' lever activity](https://www.sciencebuddies.org/stem-activities/give-it-a-lift-with-a-lever). Instructions, drawings and the saved evidence workflow are original. Introductory electricity in Unit 3.4 is now available; the full junior/high-school roadmap is still in progress.
+
+## Magnetism investigations
+
+Eight original bilingual courses represent Unit 3.5’s ten topics: magnetic materials; poles and attraction/repulsion; fields and field lines; Earth’s field; current-generated fields; electromagnets; motors; generators. Fridge magnets, compasses, powered coils, fans and hand-powered lights connect the ideas to everyday observations. Each has three complete required inspections, retained model comparisons, three practice questions, a transfer exit and a home observation. Existing React/SVG, Chemistry language controls, Physics progress, animation and lazy-loading infrastructure are reused without a new runtime dependency.
+
+Materials are prescribed qualitative samples rather than composition tests or force predictions. Splitting a magnet leaves poles on both pieces. The direction map uses an exterior normalized point dipole at a fixed probe radius; curves and compass needles share the same vector field. The shaded interior is schematic and represents the S→N return, rather than extending a point-source calculation inside a bar. Field lines form closed paths; the gold inspection marker is not a moving charge. Earth/nearby-field and wire-field benches show the needle responding to the vector sum, with north at zero bearing and east positive. Nearby-source position is schematic, while the distance dependence is prescribed. Geographic north and north-seeking magnetic names are distinguished.
+
+Coil comparisons regulate current and keep geometry matched; relative field follows turns × current with an assigned soft-iron multiplier of three. The model omits saturation and remanence and predicts no lifted-object count. Free changes and endpoint seeking do not satisfy required comparisons. The motor shows a controlled coil pose, opposed conductor currents and forces, ideal half-turn commutation and moment arms. Dead-point contact breaks give zero instantaneous torque; the model does not solve speed or predict an immediate stop when supply is removed.
+
+The generator uses a changing flux linkage with 20 turns, 0.4 T field, 0.01 m² area and a 10 Ω ideal closed load. Slip rings preserve alternating voltage. The 1.25-turn assigned window uses physical-time axes but is inspected in 2.4 seconds. Voltage, current, load power and integrated energy share the same model. Open circuit retains voltage with zero ideal load current/energy; mechanical input supplies closed-load output. These numbers do not rate a real hand-powered product, which may rectify and store energy. Home activities use paper reasoning, an ordinary covered magnet or existing intact devices rather than building battery-powered bare coils.
+
+Reference checks: OpenStax [magnets and poles](https://openstax.org/books/college-physics-2e/pages/22-1-magnets), [ferromagnets and electromagnets](https://openstax.org/books/college-physics-2e/pages/22-2-ferromagnets-and-electromagnets), [field directions and lines](https://openstax.org/books/college-physics-2e/pages/22-3-magnetic-fields-and-magnetic-field-lines), [fields produced by currents](https://openstax.org/books/college-physics-2e/pages/22-9-magnetic-fields-produced-by-currents-amperes-law), [motor torque](https://openstax.org/books/college-physics-2e/pages/22-8-torque-on-a-current-loop-motors-and-meters), and [AC generators](https://openstax.org/books/college-physics-2e/pages/23-5-electric-generators). Wording, diagrams and cases are original; no source images or activity templates were copied.
+
+## Earth and space investigations
+
+Eight original bilingual courses represent all twelve Unit 3.6 topics: rotation/day and night; revolution/seasons; Moon/phases; solar system; gravity/orbits; stars; galaxies; cosmic scales/light-year. Questions start with dinner in different countries, opposite June seasons, crescent Moon observations, a paper-strip solar system, satellites, faint stars, a cosmic address and delayed messages. Each includes three required observations, retained model comparisons, three practice questions, a transfer exit and a home activity. Native planetarium diagrams and distinct card art reuse React/SVG, bilingual controls, progress, animation and lazy loading without new runtime dependencies.
+
+Daily orientation uses a simplified equatorial equinox solar day, with fixed parallel sunlight and local solar hours. It does not predict clock time zones or every latitude’s day length. Seasonal geometry uses a circular 1-AU orbit, a fixed spatial axis with 23.5° tilt and paired opposite latitudes. Day duration uses the geometric horizon without refraction or solar-disc corrections; local-noon altitude and ground projection follow the same declination. Removing tilt gives twelve-hour days but retains latitude-dependent noon altitude. Body sizes and the oblique orbit drawing are schematic; illumination rotates to face the Sun at every position. Seasons are not weather forecasts.
+
+Moon position and the bright spherical-disc patch share one parallel-light geometry. The mean 29.53-day phase cycle differs from the roughly 27.3-day sidereal orbit. Bright-patch area matches visible illumination; first quarter means a quarter of the cycle and approximately half a bright disc. A chosen northern-up convention is labelled rather than assumed for every observer. Orbital inclination is omitted; phases do not calculate eclipses. Sightline inspection markers are not light emitted by Earth.
+
+All eight planets use one solar reference and linear 0–31 AU rulers. Approximate semimajor axes are not current aligned positions or Earth-to-planet separation. A single cm/AU scale controls paper-strip distances while symbol diameters remain unscaled. Neptune is not the system’s boundary. The orbit bench uses central μ=1 and surface radius=1 in normalized units. Circular and imagined no-gravity paths share the same initial tangent speed; radial fall starts without sideways velocity. Analytic paths share a 4τ observation window, ending radial motion at first contact. No impact, support, atmosphere or multi-body trajectory is inferred; velocity and inward acceleration are distinct, not balanced forces.
+
+The star bench separates relative isotropic luminosity from fixed-area irradiance using L/r², with common wavefront-radius and reception-indicator scales. It is not perceived brightness, exposure or stellar magnitude. The galaxy bench separates planetary systems, the Milky Way and several other galaxies; symbols are neither a census nor a scale map, and the frame is not a universe boundary.
+
+Light travel uses vacuum c=299792.458 km/s, AU=149597870.7 km and a Julian year of 365.25 days. Distances of 4.25 light-years and a 100,000-light-year galactic diameter are approximate teaching scales. A new signal follows a static one-way path, rescaled for each case; full travel is compressed into 2.4 seconds. Arrival differs from emission, processing and round-trip delays. Moving-spacecraft paths and cosmological distance definitions are not calculated. Home activities use lamps/balls, paper reasoning and safe unaided Moon observations; they never require looking at the Sun.
+
+Reference checks: NASA [seasons](https://spaceplace.nasa.gov/seasons/en/), [Moon phases](https://science.nasa.gov/moon/moon-phases/), [solar-system reference distances](https://science.nasa.gov/learn/basics-of-space-flight/chapter1-1/), [orbits](https://spaceplace.nasa.gov/orbits/en/), [stars](https://science.nasa.gov/universe/stars/), [inverse-square light](https://www.nasa.gov/stem-content/the-inverse-square-law-of-light/), [galaxies](https://science.nasa.gov/universe/galaxies/) and [cosmic distances](https://science.nasa.gov/universe/cosmic-distances/). Text, examples, diagrams and interactions are original; no NASA image or activity template was copied.

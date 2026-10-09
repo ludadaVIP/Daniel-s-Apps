@@ -583,7 +583,7 @@ function ElectricBench({
           <B mode={mode} zh="回到起点" en="Back to start" />
         </button>
       </div>
-      <p className="phy-lab-progress">
+      <p className="phy-lab-progress" role="status">
         <B
           mode={mode}
           zh={`已完成 ${gate.count}/3 个规定比较；拖动或自由设置不替代完整播放。`}

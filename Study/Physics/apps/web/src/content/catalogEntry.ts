@@ -19,7 +19,10 @@ export type LessonPack =
   | 'pressure'
   | 'buoyancy'
   | 'machines'
-  | 'electricity';
+  | 'electricity'
+  | 'electricQuant'
+  | 'magnetism'
+  | 'space';
 
 export type LessonCatalogEntry = Pick<
   Lesson,

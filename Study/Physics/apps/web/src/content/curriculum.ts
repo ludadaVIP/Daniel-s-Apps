@@ -41,6 +41,14 @@ export const units = {
     '电学：电荷、能量与回路',
     'Electricity: charge, energy and circuits',
   ),
+  magnetism: t(
+    '磁学：方向、控制与能量',
+    'Magnetism: direction, control and energy',
+  ),
+  space: t(
+    '地球与宇宙：换视角，换尺度',
+    'Earth & space: viewpoints and scales',
+  ),
 };
 export const stages = [
   {
@@ -68,8 +76,8 @@ export const stages = [
     title: t('初中物理 III', 'Junior physics III'),
     age: '12–14',
     topics: t(
-      '压强 · 浮力 · 机械 · 电路 · 磁',
-      'Pressure · Buoyancy · Machines · Circuits · Magnetism',
+      '压强 · 浮力 · 机械 · 电路 · 磁 · 宇宙',
+      'Pressure · Buoyancy · Machines · Circuits · Magnetism · Space',
     ),
   },
   {

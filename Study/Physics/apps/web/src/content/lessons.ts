@@ -13,6 +13,9 @@ import { lightLessons } from './light';
 import { pressureLessons } from './pressure';
 import { buoyancyLessons } from './buoyancy';
 import { machineLessons } from './machines';
+import { electricQuantLessons } from './electricQuant';
+import { magnetismLessons } from './magnetism';
+import { spaceLessons } from './space';
 import { electricityLessons } from './electricity';
 import { phaseLessons } from './phase';
 import { measurementSkillsLessons } from './measurementSkills';
@@ -46,6 +49,9 @@ export const lessons: Lesson[] = [
   ...buoyancyLessons,
   ...machineLessons,
   ...electricityLessons,
+  ...electricQuantLessons,
+  ...magnetismLessons,
+  ...spaceLessons,
 ];
 // Used by catalog generation and integrity tests, never by the app's entry.
 export const lessonCollections = {
@@ -68,4 +74,7 @@ export const lessonCollections = {
   buoyancy: buoyancyLessons,
   machines: machineLessons,
   electricity: electricityLessons,
+  electricQuant: electricQuantLessons,
+  magnetism: magnetismLessons,
+  space: spaceLessons,
 };

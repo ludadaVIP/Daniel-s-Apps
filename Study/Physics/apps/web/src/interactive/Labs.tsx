@@ -4,6 +4,55 @@ import type { LanguageMode } from '@study/shared';
 import { B, Icon } from '../ui';
 import { rollingMotion, raceTime } from './physics';
 import type { Lesson } from '../content/schema';
+import type { SpaceKind } from './spaceModels';
+const SpaceLab = lazy(() =>
+  import('./SpaceLabs').then((m) => ({ default: m.SpaceLab })),
+);
+const MagneticMaterialsLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.MagneticMaterialsLab })),
+);
+const MagneticPolesLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.MagneticPolesLab })),
+);
+const MagneticFieldLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.MagneticFieldLab })),
+);
+const EarthCompassLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.EarthCompassLab })),
+);
+const WireFieldLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.WireFieldLab })),
+);
+const ElectromagnetLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.ElectromagnetLab })),
+);
+const MotorLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.MotorLab })),
+);
+const GeneratorLab = lazy(() =>
+  import('./MagneticLabs').then((m) => ({ default: m.GeneratorLab })),
+);
+const AmmeterLab = lazy(() =>
+  import('./ElectricQuantLabs').then((m) => ({ default: m.AmmeterLab })),
+);
+const VoltageAccountLab = lazy(() =>
+  import('./ElectricQuantLabs').then((m) => ({ default: m.VoltageAccountLab })),
+);
+const VoltmeterLab = lazy(() =>
+  import('./ElectricQuantLabs').then((m) => ({ default: m.VoltmeterLab })),
+);
+const ResistanceWireLab = lazy(() =>
+  import('./ElectricQuantLabs').then((m) => ({ default: m.ResistanceWireLab })),
+);
+const OhmSweepLab = lazy(() =>
+  import('./ElectricQuantLabs').then((m) => ({ default: m.OhmSweepLab })),
+);
+const ElectricPowerLab = lazy(() =>
+  import('./ElectricQuantLabs').then((m) => ({ default: m.ElectricPowerLab })),
+);
+const ElectricSafetyLab = lazy(() =>
+  import('./ElectricQuantLabs').then((m) => ({ default: m.ElectricSafetyLab })),
+);
 const ChargeTransferLab = lazy(() =>
   import('./ElectricLabs').then((m) => ({ default: m.ChargeTransferLab })),
 );
@@ -743,6 +792,44 @@ function LabContent({
   mode: LanguageMode;
   onExplore?: () => void;
 }) {
+  if (kind.startsWith('space-'))
+    return (
+      <SpaceLab
+        kind={kind.slice(6) as SpaceKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind === 'electric-ammeter')
+    return <AmmeterLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-materials')
+    return <MagneticMaterialsLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-poles')
+    return <MagneticPolesLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-field')
+    return <MagneticFieldLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-earth')
+    return <EarthCompassLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-wire')
+    return <WireFieldLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-coil')
+    return <ElectromagnetLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-motor')
+    return <MotorLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'magnetic-generator')
+    return <GeneratorLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-voltage')
+    return <VoltageAccountLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-voltmeter')
+    return <VoltmeterLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-resistance')
+    return <ResistanceWireLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-ohm')
+    return <OhmSweepLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-power')
+    return <ElectricPowerLab mode={mode} onExplore={onExplore} />;
+  if (kind === 'electric-safety')
+    return <ElectricSafetyLab mode={mode} onExplore={onExplore} />;
   if (kind === 'electric-charge')
     return <ChargeTransferLab mode={mode} onExplore={onExplore} />;
   if (kind === 'electric-interaction')

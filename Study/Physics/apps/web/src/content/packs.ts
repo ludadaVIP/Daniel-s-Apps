@@ -23,4 +23,8 @@ export const lessonPacks: Record<LessonPack, () => Promise<Lesson[]>> = {
   buoyancy: () => import('./buoyancy').then((m) => m.buoyancyLessons),
   machines: () => import('./machines').then((m) => m.machineLessons),
   electricity: () => import('./electricity').then((m) => m.electricityLessons),
+  electricQuant: () =>
+    import('./electricQuant').then((m) => m.electricQuantLessons),
+  magnetism: () => import('./magnetism').then((m) => m.magnetismLessons),
+  space: () => import('./space').then((m) => m.spaceLessons),
 };

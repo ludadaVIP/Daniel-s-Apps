@@ -59,6 +59,7 @@ export function currentWindow(charge: number, seconds: number, progress = 1) {
   progressCheck(progress);
   if (charge <= 0 || seconds <= 0 || charge > 10 || seconds > 60)
     throw new RangeError('Invalid counting window');
+  finite(charge / seconds);
   const packets = Math.max(1, Math.round(charge / 0.25)),
     passed = Math.min(packets, Math.floor(packets * progress + 1e-9));
   return {

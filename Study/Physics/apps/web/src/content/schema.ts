@@ -29,8 +29,26 @@ export type Lesson = {
     | 'pressure'
     | 'buoyancy'
     | 'machines'
-    | 'electricity';
+    | 'electricity'
+    | 'magnetism'
+    | 'space';
   kind:
+    | 'space-day'
+    | 'space-seasons'
+    | 'space-moon'
+    | 'space-system'
+    | 'space-orbit'
+    | 'space-stars'
+    | 'space-galaxies'
+    | 'space-distance'
+    | 'magnetic-materials'
+    | 'magnetic-poles'
+    | 'magnetic-field'
+    | 'magnetic-earth'
+    | 'magnetic-wire'
+    | 'magnetic-coil'
+    | 'magnetic-motor'
+    | 'magnetic-generator'
     | 'friction'
     | 'variables'
     | 'observation'
@@ -130,7 +148,14 @@ export type Lesson = {
     | 'electric-switch'
     | 'electric-materials'
     | 'electric-series'
-    | 'electric-parallel';
+    | 'electric-parallel'
+    | 'electric-ammeter'
+    | 'electric-voltage'
+    | 'electric-voltmeter'
+    | 'electric-resistance'
+    | 'electric-ohm'
+    | 'electric-power'
+    | 'electric-safety';
   hook: LocalizedText;
   prediction: LocalizedText;
   predictions: LocalizedText[];

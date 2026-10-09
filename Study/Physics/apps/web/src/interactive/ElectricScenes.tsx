@@ -467,30 +467,30 @@ export function CircuitScene({
           )}
           {c.material ? (
             <>
-              <rect
-                x="518"
-                y="145"
-                width="24"
-                height="40"
-                rx="4"
-                fill={
-                  c.material === 'metal'
-                    ? '#cfdae0'
-                    : c.material === 'plastic'
-                      ? '#dfcfe9'
-                      : '#faf7fc'
-                }
-                stroke={c.material === 'metal' ? blue : ink}
-                strokeWidth="2"
-              />
-              {c.material === 'gap' && (
-                <path
-                  d="M520 160h20m-20 9h20"
-                  stroke="#faf7fc"
-                  strokeWidth="5"
+              {c.material === 'gap' ? (
+                <g fill="#cfdae0" stroke={blue} strokeWidth="2">
+                  <rect x="518" y="145" width="24" height="12" rx="3" />
+                  <rect x="518" y="173" width="24" height="12" rx="3" />
+                </g>
+              ) : (
+                <rect
+                  x="518"
+                  y="145"
+                  width="24"
+                  height="40"
+                  rx="4"
+                  fill={
+                    c.material === 'metal'
+                      ? '#cfdae0'
+                      : c.material === 'plastic'
+                        ? '#dfcfe9'
+                        : '#faf7fc'
+                  }
+                  stroke={c.material === 'metal' ? blue : ink}
+                  strokeWidth="2"
                 />
               )}
-              <text x="575" y="228" textAnchor="middle" fontSize="19">
+              <text x="570" y="228" textAnchor="middle" fontSize="19">
                 {word(
                   mode,
                   c.material === 'metal'

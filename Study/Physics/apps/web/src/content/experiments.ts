@@ -1,6 +1,55 @@
 import { t, type Lesson } from './schema';
 export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
   [
+    { id: 'space-day', name: t('自转与昼夜', 'Rotation and daylight') },
+    {
+      id: 'space-seasons',
+      name: t('倾斜与两半球光照', 'Tilt and hemispheric sunlight'),
+    },
+    {
+      id: 'space-moon',
+      name: t('月相的两个视角', 'Two views of lunar phases'),
+    },
+    {
+      id: 'space-system',
+      name: t('太阳系共用比例尺', 'Shared solar-system rulers'),
+    },
+    {
+      id: 'space-orbit',
+      name: t('向前运动与引力', 'Forward motion and gravity'),
+    },
+    {
+      id: 'space-stars',
+      name: t('恒星输出与接收', 'Stellar output and reception'),
+    },
+    { id: 'space-galaxies', name: t('宇宙地址层级', 'Cosmic address levels') },
+    {
+      id: 'space-distance',
+      name: t('光信号的旅行时间', 'Light-signal travel time'),
+    },
+    {
+      id: 'magnetic-materials',
+      name: t('磁性材料比较', 'Magnetic-material comparison'),
+    },
+    {
+      id: 'magnetic-poles',
+      name: t('相对磁极与分段', 'Facing poles and split pieces'),
+    },
+    { id: 'magnetic-field', name: t('磁针方向地图', 'Needle-direction map') },
+    {
+      id: 'magnetic-earth',
+      name: t('指南针与附近干扰', 'Compass and nearby interference'),
+    },
+    { id: 'magnetic-wire', name: t('导线周围的磁场', 'Field around a wire') },
+    {
+      id: 'magnetic-coil',
+      name: t('受控电流电磁铁', 'Regulated-current electromagnet'),
+    },
+    { id: 'magnetic-motor', name: t('电动机转动作用', 'Motor turning effect') },
+    {
+      id: 'magnetic-generator',
+      name: t('手摇发电能量账', 'Hand-powered generator account'),
+    },
     {
       id: 'electric-charge',
       name: t('电荷转移总账', 'Charge-transfer account'),
@@ -40,6 +89,28 @@ export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
     {
       id: 'electric-parallel',
       name: t('分叉处的电流账本', 'Current account at a junction'),
+    },
+    {
+      id: 'electric-ammeter',
+      name: t('电流表接线与量程', 'Ammeter wiring and range'),
+    },
+    { id: 'electric-voltage', name: t('每库仑的能量账', 'Energy per coulomb') },
+    {
+      id: 'electric-voltmeter',
+      name: t('电压表的两个连接点', 'Two voltmeter connection points'),
+    },
+    {
+      id: 'electric-resistance',
+      name: t('导线形状公平比较', 'Fair wire-shape comparisons'),
+    },
+    { id: 'electric-ohm', name: t('U–I关系扫描', 'U–I relationship sweep') },
+    {
+      id: 'electric-power',
+      name: t('瓦数与累计能量', 'Watts and accumulated energy'),
+    },
+    {
+      id: 'electric-safety',
+      name: t('电路故障侦探', 'Circuit fault detective'),
     },
     {
       id: 'energy-lamp',

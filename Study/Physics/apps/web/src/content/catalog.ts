@@ -3481,4 +3481,809 @@ export const lessonCatalog: LessonCatalogEntry[] = [
       },
     ],
   },
+  {
+    id: 'electric-ammeter-reading',
+    title: {
+      zh: '指针换了位置，电流真的变了吗？',
+      en: 'A different scale position: did the current change?',
+    },
+    subtitle: {
+      zh: '先接对通路，再把格数换成安培。',
+      en: 'Connect the right path, then turn divisions into amperes.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-ammeter',
+    pack: 'electricQuant',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-voltage-per-charge',
+    title: {
+      zh: '电池上的3 V，到底在说什么？',
+      en: 'What is a cell’s 3 V label telling us?',
+    },
+    subtitle: {
+      zh: '把每库仑对应的能量，和每秒通过的电荷分开。',
+      en: 'Separate energy per coulomb from charge per second.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-voltage',
+    pack: 'electricQuant',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'electric-voltmeter-two-points',
+    title: {
+      zh: '测电压，要把两根表笔放在哪里？',
+      en: 'Where should two probes go to measure voltage?',
+    },
+    subtitle: {
+      zh: '跨两点测差值，把表笔顺序也记下来。',
+      en: 'Measure a difference across two points, recording probe order.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-voltmeter',
+    pack: 'electricQuant',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-resistance-wire-shape',
+    title: {
+      zh: '同一种金属，长一点或粗一点会怎样？',
+      en: 'Same metal: what changes when it is longer or thicker?',
+    },
+    subtitle: {
+      zh: '保持电源、材料和温度，单独比较导线形状。',
+      en: 'Keep source, material and temperature fixed while comparing wire shape.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-resistance',
+    pack: 'electricQuant',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'electric-ohm-conditions',
+    title: {
+      zh: '电压翻倍，电流什么时候才翻倍？',
+      en: 'When does doubling voltage double current?',
+    },
+    subtitle: {
+      zh: '从一组U–I数据判断关系，也检查公式的条件。',
+      en: 'Use a set of U–I data and check the equation’s conditions.',
+    },
+    minutes: 21,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-ohm',
+    pack: 'electricQuant',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'electric-power-energy-time',
+    title: {
+      zh: '瓦数相同，用掉的能量也相同吗？',
+      en: 'Same watts: must the transferred energy be the same?',
+    },
+    subtitle: {
+      zh: '把功率、时间和能量写在三栏里。',
+      en: 'Keep power, time and energy in separate columns.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-power',
+    pack: 'electricQuant',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'electric-safety-fault-detective',
+    title: {
+      zh: '灯都灭了，是正常开关还是故障保护？',
+      en: 'All lamps went off: switching or fault protection?',
+    },
+    subtitle: {
+      zh: '识别过载与短路，理解保护不能代替安全习惯。',
+      en: 'Recognise overload and shorts; protection does not replace safe habits.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'electricity',
+    kind: 'electric-safety',
+    pack: 'electricQuant',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-material-clues',
+    title: {
+      zh: '冰箱磁贴，为什么不粘住所有金属？',
+      en: 'Why does a fridge magnet not stick to every metal?',
+    },
+    subtitle: {
+      zh: '同一磁铁、同一距离，让材料来回答。',
+      en: 'Keep magnet and distance fixed; let the material answer.',
+    },
+    minutes: 17,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-materials',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-pole-pairs',
+    title: {
+      zh: '翻个方向，磁铁怎么从拉变成推？',
+      en: 'Turn a magnet around: why does pulling become pushing?',
+    },
+    subtitle: {
+      zh: '看相对的磁极，也看分段后留下什么。',
+      en: 'Compare facing poles and what remains after an imagined split.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-poles',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-field-map',
+    title: {
+      zh: '没有碰到磁铁，指南针怎么知道朝哪边？',
+      en: 'Without touching a magnet, how does a compass find its direction?',
+    },
+    subtitle: {
+      zh: '用小磁针做地图，磁感线只是画法。',
+      en: 'Map with a small needle; field lines are a drawing tool.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-field',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-earth-compass',
+    title: {
+      zh: '地图没转，指南针为什么偏了？',
+      en: 'The map stayed still. Why did the compass turn?',
+    },
+    subtitle: {
+      zh: '地磁背景与附近磁源共同决定朝向。',
+      en: 'Earth’s background and nearby sources together set direction.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-earth',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-current-around-wire',
+    title: {
+      zh: '没有新增磁铁，通电怎么让磁针转向？',
+      en: 'No extra magnet: how can current turn a needle?',
+    },
+    subtitle: {
+      zh: '同一导线，比较断电、正向、反向。',
+      en: 'Compare no current, forward current and reversed current in one wire.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-wire',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-controlled-coil',
+    title: {
+      zh: '电磁铁能开关，怎样公平比较它的强弱？',
+      en: 'A switchable magnet: how can we compare its strength fairly?',
+    },
+    subtitle: {
+      zh: '把电流、匝数、铁芯分开改变。',
+      en: 'Change current, turns and core separately.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-coil',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-motor-turning',
+    title: {
+      zh: '电池没转，小风扇为什么能转？',
+      en: 'The battery does not spin. How does a small fan turn?',
+    },
+    subtitle: {
+      zh: '看两侧相反的力，追踪换向与能量。',
+      en: 'Inspect opposite side forces, commutation and energy.',
+    },
+    minutes: 21,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-motor',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'magnetic-generator-energy',
+    title: {
+      zh: '手摇灯没装电池，能量从哪里来？',
+      en: 'A hand-powered light: where does the energy come from?',
+    },
+    subtitle: {
+      zh: '改变磁通情况，再区分电压与闭合电流。',
+      en: 'Change flux conditions, then distinguish voltage from closed-circuit current.',
+    },
+    minutes: 21,
+    stage: 3,
+    unit: 'magnetism',
+    kind: 'magnetic-generator',
+    pack: 'magnetism',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'space-turning-day',
+    title: {
+      zh: '太阳每天走过天空，是谁在转？',
+      en: 'The Sun crosses the sky each day. What is turning?',
+    },
+    subtitle: {
+      zh: '把自己放在转动的地球上，追踪光照。',
+      en: 'Put yourself on a rotating Earth and follow sunlight.',
+    },
+    minutes: 17,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-day',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'space-tilted-seasons',
+    title: {
+      zh: '同一个六月，为什么两边季节相反？',
+      en: 'The same June: why are the hemispheres in opposite seasons?',
+    },
+    subtitle: {
+      zh: '保持距离，改变倾斜地轴与太阳的关系。',
+      en: 'Hold distance fixed and compare the tilted axis relative to the Sun.',
+    },
+    minutes: 21,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-seasons',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'space-moon-views',
+    title: {
+      zh: '月亮变成弯弯的一片，是谁遮住了它？',
+      en: 'A crescent Moon: what made the bright part shrink?',
+    },
+    subtitle: {
+      zh: '同时看空间位置和从地球看到的亮面。',
+      en: 'Compare space positions with the illuminated face seen from Earth.',
+    },
+    minutes: 19,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-moon',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'space-solar-ruler',
+    title: {
+      zh: '把地日距离缩成10厘米，海王星放在哪里？',
+      en: 'If Earth’s solar distance is 10 cm, where does Neptune go?',
+    },
+    subtitle: {
+      zh: '一把共用尺，把太阳系从名单变成空间。',
+      en: 'Use one shared ruler to turn a list into a spatial system.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-system',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'space-falling-around',
+    title: {
+      zh: '卫星没掉下来，是因为那里没有重力？',
+      en: 'A satellite stays up. Is gravity absent there?',
+    },
+    subtitle: {
+      zh: '比较向前运动与向中心的引力。',
+      en: 'Compare forward motion with attraction toward the centre.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-orbit',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'space-star-brightness',
+    title: {
+      zh: '看起来更亮，恒星就一定更会发光？',
+      en: 'A brighter-looking star: must it emit more light?',
+    },
+    subtitle: {
+      zh: '把恒星输出与接收到的光分开。',
+      en: 'Separate stellar output from light received.',
+    },
+    minutes: 18,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-stars',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'space-cosmic-address',
+    title: {
+      zh: '给地球写地址，太阳系之后该写什么？',
+      en: 'Write Earth’s address. What comes after the solar system?',
+    },
+    subtitle: {
+      zh: '区分行星系统、星系和更大的宇宙。',
+      en: 'Distinguish a planetary system, a galaxy and the wider universe.',
+    },
+    minutes: 17,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-galaxies',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'space-light-message',
+    title: {
+      zh: '星光走了几年，我们看到的是哪一刻？',
+      en: 'Starlight travels for years. Which moment do we see?',
+    },
+    subtitle: {
+      zh: '用光的旅行时间理解距离与过去。',
+      en: 'Use light-travel time to understand distance and the past.',
+    },
+    minutes: 20,
+    stage: 3,
+    unit: 'space',
+    kind: 'space-distance',
+    pack: 'space',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
 ];
