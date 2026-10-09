@@ -1,6 +1,63 @@
 import { t, type Lesson } from './schema';
 export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
   [
+    { id: 'graphs-axes', name: t('坐标轴与单位窗口', 'Axes and unit window') },
+    {
+      id: 'graphs-reading',
+      name: t('位置图与返回故事', 'Position graph and return story'),
+    },
+    {
+      id: 'graphs-gradient',
+      name: t('带单位的斜率三角形', 'Unit-bearing gradient triangles'),
+    },
+    {
+      id: 'graphs-area',
+      name: t('速度面积与行程账', 'Velocity area and trip ledger'),
+    },
+    {
+      id: 'graphs-linear',
+      name: t('初温与升温直线', 'Initial temperature and heating lines'),
+    },
+    {
+      id: 'graphs-curve',
+      name: t('曲线与变换变量', 'Curves and transformed variables'),
+    },
+    {
+      id: 'graphs-experiment',
+      name: t('重复读数与拟合证据', 'Repeats and fitting evidence'),
+    },
+    {
+      id: 'algebra-variables',
+      name: t('机器人变量工作台', 'Robot variable bench'),
+    },
+    {
+      id: 'algebra-substitution',
+      name: t('灯的单位代入账', 'Lamp substitution ledger'),
+    },
+    {
+      id: 'algebra-rearrange',
+      name: t('等式两边一起变', 'Equal operations on both sides'),
+    },
+    {
+      id: 'algebra-ratio',
+      name: t('地图与真实路线尺', 'Map and real-route rulers'),
+    },
+    {
+      id: 'algebra-direct',
+      name: t('原长与伸长对照', 'Rest length and extension'),
+    },
+    {
+      id: 'algebra-inverse',
+      name: t('固定力的反比曲线', 'Inverse relation at fixed force'),
+    },
+    {
+      id: 'algebra-square',
+      name: t('速率平方与能量格', 'Speed squares and energy tiles'),
+    },
+    {
+      id: 'algebra-notation',
+      name: t('十的幂与单位窗口', 'Powers-of-ten and unit window'),
+    },
     { id: 'space-day', name: t('自转与昼夜', 'Rotation and daylight') },
     {
       id: 'space-seasons',

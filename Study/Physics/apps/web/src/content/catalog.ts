@@ -4286,4 +4286,529 @@ export const lessonCatalog: LessonCatalogEntry[] = [
       },
     ],
   },
+  {
+    id: 'algebra-robot-letters',
+    title: {
+      zh: '机器人说明书里的字母，能替我们做什么？',
+      en: 'What can letters in a robot’s instructions do for us?',
+    },
+    subtitle: {
+      zh: '给量起名字，把一个答案变成一条可重复使用的规则。',
+      en: 'Name quantities and turn one answer into a reusable rule.',
+    },
+    minutes: 18,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-variables',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'algebra-lamp-substitution',
+    title: {
+      zh: '小灯亮了半分钟，2×0.5为什么不对？',
+      en: 'A lamp runs for half a minute. Why is 2×0.5 wrong?',
+    },
+    subtitle: {
+      zh: '代入前，把数字和单位一起搬进公式。',
+      en: 'Bring both numbers and units into the equation.',
+    },
+    minutes: 19,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-substitution',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'algebra-find-the-time',
+    title: {
+      zh: '知道书架有多远，怎样反过来找时间？',
+      en: 'You know the shelf’s distance. How can you find time?',
+    },
+    subtitle: {
+      zh: '等式两边做同一件事，让未知量独立。',
+      en: 'Apply the same operation to both sides to isolate the unknown.',
+    },
+    minutes: 20,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-rearrange',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'algebra-paper-map',
+    title: {
+      zh: '纸上3厘米，怎么变成公园里的300米？',
+      en: 'How do 3 paper centimetres become 300 park metres?',
+    },
+    subtitle: {
+      zh: '先把比例两端说清楚，再决定放大多少。',
+      en: 'Define both sides of a ratio before choosing its scale factor.',
+    },
+    minutes: 18,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-ratio',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'algebra-spring-proportion',
+    title: {
+      zh: '弹簧变长了，哪一个长度与力成正比？',
+      en: 'A spring gets longer. Which length is proportional to force?',
+    },
+    subtitle: {
+      zh: '找到恒定比值，也检查图线是否经过原点。',
+      en: 'Find the constant ratio and check whether the line passes through the origin.',
+    },
+    minutes: 20,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-direct',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'algebra-area-inverse',
+    title: {
+      zh: '鞋底面积翻倍，压强为什么反而减半？',
+      en: 'Double the sole area. Why does pressure halve?',
+    },
+    subtitle: {
+      zh: '固定总力，追踪乘积恒定的反比关系。',
+      en: 'Keep total force fixed and follow the constant product.',
+    },
+    minutes: 19,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-inverse',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'algebra-speed-squared',
+    title: {
+      zh: '速度翻倍，为什么能量要数四格？',
+      en: 'Double the speed. Why do you need four energy tiles?',
+    },
+    subtitle: {
+      zh: '把平方关系画成方阵，再用比值推理。',
+      en: 'Draw a square array and reason with ratios.',
+    },
+    minutes: 20,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-square',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'algebra-powers-of-ten',
+    title: {
+      zh: '六个零的小数，怎样写得不容易看错？',
+      en: 'How can you write a number with many zeros clearly?',
+    },
+    subtitle: {
+      zh: '十的幂负责尺度，单位负责所量的是什么。',
+      en: 'Powers of ten describe scale; units identify the quantity.',
+    },
+    minutes: 19,
+    stage: 4,
+    unit: 'algebra',
+    kind: 'algebra-notation',
+    pack: 'algebra',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'graphs-read-the-axes',
+    title: {
+      zh: '同一机器人，换了坐标单位，运动也变了吗？',
+      en: 'One robot, new axis units. Did its motion change?',
+    },
+    subtitle: {
+      zh: '先读量、单位与刻度，再读图上的一个点。',
+      en: 'Read quantities, units and ticks before reading a point.',
+    },
+    minutes: 18,
+    stage: 4,
+    unit: 'graphs',
+    kind: 'graphs-axes',
+    pack: 'graphs',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'graphs-the-returning-walk',
+    title: {
+      zh: '图线停在高处，人是在半空停着吗？',
+      en: 'A line rests high on a graph. Is the walker suspended?',
+    },
+    subtitle: {
+      zh: '让位置、时刻和累积路程讲同一个故事。',
+      en: 'Let position, time and accumulated distance tell one story.',
+    },
+    minutes: 19,
+    stage: 4,
+    unit: 'graphs',
+    kind: 'graphs-reading',
+    pack: 'graphs',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'graphs-slope-has-units',
+    title: {
+      zh: '屏幕上更陡，就一定走得更快吗？',
+      en: 'A steeper line on screen: always faster motion?',
+    },
+    subtitle: {
+      zh: '用纵向变化除以横向变化，而不是量屏幕角度。',
+      en: 'Divide vertical change by horizontal change rather than measuring screen angle.',
+    },
+    minutes: 20,
+    stage: 4,
+    unit: 'graphs',
+    kind: 'graphs-gradient',
+    pack: 'graphs',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'graphs-area-tells-a-trip',
+    title: {
+      zh: '速度图上的一块面积，怎么变成走过的米数？',
+      en: 'How does an area on a velocity graph become metres?',
+    },
+    subtitle: {
+      zh: '正负面积给位移，绝对面积给路程。',
+      en: 'Signed area gives displacement; absolute area gives distance.',
+    },
+    minutes: 22,
+    stage: 4,
+    unit: 'graphs',
+    kind: 'graphs-area',
+    pack: 'graphs',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'graphs-lines-and-starts',
+    title: {
+      zh: '两块材料升温线平行，起点为什么可以不同？',
+      en: 'Two heating lines are parallel. Why can their starts differ?',
+    },
+    subtitle: {
+      zh: '分开读截距与斜率，把直线写成一条模型。',
+      en: 'Read intercept and gradient separately and express a line as a model.',
+    },
+    minutes: 20,
+    stage: 4,
+    unit: 'graphs',
+    kind: 'graphs-linear',
+    pack: 'graphs',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'graphs-curves-change-rate',
+    title: {
+      zh: '同样过一秒，图线为什么越走越陡？',
+      en: 'Each interval lasts one second. Why does the curve grow steeper?',
+    },
+    subtitle: {
+      zh: '比较区间斜率，再换一个横轴寻找规律。',
+      en: 'Compare interval gradients, then change the horizontal quantity to find a pattern.',
+    },
+    minutes: 22,
+    stage: 4,
+    unit: 'graphs',
+    kind: 'graphs-curve',
+    pack: 'graphs',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'graphs-evidence-not-decoration',
+    title: {
+      zh: '散点不在直线上，怎样留下可信的规律？',
+      en: 'Scattered points: how can you retain a trustworthy pattern?',
+    },
+    subtitle: {
+      zh: '保留重复读数，区分散布、零点与拟合假设。',
+      en: 'Retain repeats and distinguish scatter, zero offset and fitting assumptions.',
+    },
+    minutes: 23,
+    stage: 4,
+    unit: 'graphs',
+    kind: 'graphs-experiment',
+    pack: 'graphs',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
 ];

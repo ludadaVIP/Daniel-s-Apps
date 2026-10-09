@@ -27,4 +27,6 @@ export const lessonPacks: Record<LessonPack, () => Promise<Lesson[]>> = {
     import('./electricQuant').then((m) => m.electricQuantLessons),
   magnetism: () => import('./magnetism').then((m) => m.magnetismLessons),
   space: () => import('./space').then((m) => m.spaceLessons),
+  algebra: () => import('./algebra').then((m) => m.algebraLessons),
+  graphs: () => import('./graphs').then((m) => m.graphLessons),
 };

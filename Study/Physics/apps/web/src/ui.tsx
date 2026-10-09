@@ -13,6 +13,10 @@ import { MachineArt } from './interactive/MachineArt';
 import { ElectricArt } from './interactive/ElectricArt';
 import { MagneticArt } from './interactive/MagneticArt';
 import { SpaceArt } from './interactive/SpaceArt';
+import { GraphArt } from './interactive/GraphArt';
+import type { GraphKind } from './interactive/graphModels';
+import { AlgebraArt } from './interactive/AlgebraArt';
+import type { AlgebraKind } from './interactive/algebraModels';
 import { BuoyancyArt } from './interactive/BuoyancyArt';
 import { PhaseArt } from './interactive/PhaseArt';
 import { ThermalArt } from './interactive/ThermalArt';
@@ -107,7 +111,11 @@ export function LessonArt({
         </pattern>
       </defs>
       <rect width="300" height="150" fill={`url(#dots-${kind})`} />
-      {kind.startsWith('space-') ? (
+      {kind.startsWith('graphs-') ? (
+        <GraphArt kind={kind.slice(7) as GraphKind} />
+      ) : kind.startsWith('algebra-') ? (
+        <AlgebraArt kind={kind.slice(8) as AlgebraKind} />
+      ) : kind.startsWith('space-') ? (
         <SpaceArt kind={kind} />
       ) : kind.startsWith('magnetic-') ? (
         <MagneticArt kind={kind} />

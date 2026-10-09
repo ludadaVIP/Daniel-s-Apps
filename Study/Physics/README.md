@@ -1,6 +1,6 @@
 # Physics Lab · 物理探索室
 
-A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 123 complete bilingual lessons, 122 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
+A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 138 complete bilingual lessons, 137 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
 
 ## Use
 
@@ -145,6 +145,22 @@ The foundation path follows Appendix A of the plan:
 121. A brighter-looking star: must it emit more light? / 看起来更亮，恒星就一定更会发光？
 122. Write Earth’s address. What comes after the solar system? / 给地球写地址，太阳系之后该写什么？
 123. Starlight travels for years. Which moment do we see? / 星光走了几年，我们看到的是哪一刻？
+124. What can letters in a robot’s instructions do for us? / 机器人说明书里的字母，能替我们做什么？
+125. A lamp runs for half a minute. Why is 2×0.5 wrong? / 小灯亮了半分钟，2×0.5为什么不对？
+126. You know the shelf’s distance. How can you find time? / 知道书架有多远，怎样反过来找时间？
+127. How do 3 paper centimetres become 300 park metres? / 纸上3厘米，怎么变成公园里的300米？
+128. A spring gets longer. Which length is proportional to force? / 弹簧变长了，哪一个长度与力成正比？
+129. Double the sole area. Why does pressure halve? / 鞋底面积翻倍，压强为什么反而减半？
+130. Double the speed. Why do you need four energy tiles? / 速度翻倍，为什么能量要数四格？
+131. How can you write a number with many zeros clearly? / 六个零的小数，怎样写得不容易看错？
+
+132. One robot, new axis units. Did its motion change? / 同一机器人，换了坐标单位，运动也变了吗？
+133. A line rests high on a graph. Is the walker suspended? / 图线停在高处，人是在半空停着吗？
+134. A steeper line on screen: always faster motion? / 屏幕上更陡，就一定走得更快吗？
+135. How does an area on a velocity graph become metres? / 速度图上的一块面积，怎么变成走过的米数？
+136. Two heating lines are parallel. Why can their starts differ? / 两块材料升温线平行，起点为什么可以不同？
+137. Each interval lasts one second. Why does the curve grow steeper? / 同样过一秒，图线为什么越走越陡？
+138. Scattered points: how can you retain a trustworthy pattern? / 散点不在直线上，怎样留下可信的规律？
 
 Each lesson includes a non-scored prediction, interactive exploration, explanation and misconceptions, a worked example, two or three practice questions, a takeaway, an exit question, and a home experiment. Predictions can be wrong; finishing requires exploration and correct practice/exit answers, with feedback and retries. Lessons are grouped by stage and unit. Counts and next-lesson links follow the content list; stable IDs preserve earlier progress when courses are inserted.
 
@@ -408,3 +424,18 @@ The star bench separates relative isotropic luminosity from fixed-area irradianc
 Light travel uses vacuum c=299792.458 km/s, AU=149597870.7 km and a Julian year of 365.25 days. Distances of 4.25 light-years and a 100,000-light-year galactic diameter are approximate teaching scales. A new signal follows a static one-way path, rescaled for each case; full travel is compressed into 2.4 seconds. Arrival differs from emission, processing and round-trip delays. Moving-spacecraft paths and cosmological distance definitions are not calculated. Home activities use lamps/balls, paper reasoning and safe unaided Moon observations; they never require looking at the Sun.
 
 Reference checks: NASA [seasons](https://spaceplace.nasa.gov/seasons/en/), [Moon phases](https://science.nasa.gov/moon/moon-phases/), [solar-system reference distances](https://science.nasa.gov/learn/basics-of-space-flight/chapter1-1/), [orbits](https://spaceplace.nasa.gov/orbits/en/), [stars](https://science.nasa.gov/universe/stars/), [inverse-square light](https://www.nasa.gov/stem-content/the-inverse-square-law-of-light/), [galaxies](https://science.nasa.gov/universe/galaxies/) and [cosmic distances](https://science.nasa.gov/universe/cosmic-distances/). Text, examples, diagrams and interactions are original; no NASA image or activity template was copied.
+
+## Algebra bridge investigations
+
+Stage 4 Unit 4.1 now has eight original bilingual courses, in the plan’s order: variables, substitution, rearrangement, ratios, direct proportion, inverse proportion, squares and scientific notation. Robot instructions, a lamp energy account, arrival planning, paper maps, spring calibration, contact areas and energy tiles make each mathematical operation visible. All eight stations retain three completed prescribed comparisons and provide free controls; seeking or changed conditions cannot stand in for the prescribed checks.
+
+The pure models are in `apps/web/src/interactive/algebraModels.ts`, SVG stations in `AlgebraLabs.tsx`, card art in `AlgebraArt.tsx` and the lazy body pack in `apps/web/src/content/algebra.ts`. Each station includes units, substitution/checking steps and its assumptions. Unit-bearing map conversion rates are distinct from dimensionless ratios; total spring length is distinct from extension; zero speed is handled without dividing by zero. m/mm notation switches preserve length. Only the robot station animates a physical journey; other playbacks inspect calculations or graph readings and are labeled accordingly. Vectors and the full problem-solving bridge remain planned.
+
+
+## Graph bridge investigations
+
+Stage 4 Unit 4.2 has seven original bilingual courses following all seven plan topics: axes, graph reading, gradients, area, linear relations, curves and experimental graphs. Linked ground rulers and position plots distinguish coordinates, displacement and distance. Gradient triangles use quantity differences and units, with a freely changeable frame showing why screen angle is not a physical rate. Signed velocity areas distinguish net displacement from accumulated distance. Heating lines separate initial temperature from the gradient P/C under constant heat capacity and ideal insulation.
+
+Accelerated motion uses x = ½t² with a = 1 m/s². The 1–2 s and 4–5 s secants give 1.5 and 4.5 m/s; plotting the same positions against t² gives 0.5 m/s², equal to ½a rather than velocity. The experimental station retains fifteen supplied teaching readings, three per force, plus raw/processed tables, means and repeat ranges. Least-squares fits to the five means give 2.0333 cm intercept and 4.9967 cm/N gradient; a documented 2 cm zero correction shifts the intercept without shrinking scatter. Rounding to 1 cm can conceal scatter while keeping zero bias. Free origin constraints are labeled added assumptions; range bars are not statistical confidence intervals.
+
+Models live in `apps/web/src/interactive/graphModels.ts`, stations in `GraphLabs.tsx`, card illustrations in `GraphArt.tsx` and lazy course bodies in `apps/web/src/content/graphs.ts`. Each station has three prescribed comparisons, a free quantity control, units, checking steps and retained model records. Motion/heating clocks compress selected model durations into 2.4 seconds; gradient, curve and fitting playbacks inspect readings rather than simulate a new physical clock. Seeking and altered conditions do not satisfy prescribed observation gates. Stage 4 now offers fifteen courses; vectors, problem solving and later high-school stages remain under construction.

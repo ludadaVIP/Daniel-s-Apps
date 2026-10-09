@@ -22,7 +22,9 @@ export type LessonPack =
   | 'electricity'
   | 'electricQuant'
   | 'magnetism'
-  | 'space';
+  | 'space'
+  | 'algebra'
+  | 'graphs';
 
 export type LessonCatalogEntry = Pick<
   Lesson,

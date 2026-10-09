@@ -1,5 +1,10 @@
 import { t } from './schema';
 export const units = {
+  algebra: t(
+    '物理中的代数：把规律变成工具',
+    'Algebra for physics: turn patterns into tools',
+  ),
+  graphs: t('图像：把线读成物理故事', 'Graphs: read lines as physical stories'),
   curiosity: t('从好奇开始', 'Start with curiosity'),
   measurement: t(
     '测量，把感觉变成证据',

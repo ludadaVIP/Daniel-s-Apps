@@ -16,6 +16,8 @@ import { machineLessons } from './machines';
 import { electricQuantLessons } from './electricQuant';
 import { magnetismLessons } from './magnetism';
 import { spaceLessons } from './space';
+import { algebraLessons } from './algebra';
+import { graphLessons } from './graphs';
 import { electricityLessons } from './electricity';
 import { phaseLessons } from './phase';
 import { measurementSkillsLessons } from './measurementSkills';
@@ -52,6 +54,8 @@ export const lessons: Lesson[] = [
   ...electricQuantLessons,
   ...magnetismLessons,
   ...spaceLessons,
+  ...algebraLessons,
+  ...graphLessons,
 ];
 // Used by catalog generation and integrity tests, never by the app's entry.
 export const lessonCollections = {
@@ -77,4 +81,6 @@ export const lessonCollections = {
   electricQuant: electricQuantLessons,
   magnetism: magnetismLessons,
   space: spaceLessons,
+  algebra: algebraLessons,
+  graphs: graphLessons,
 };

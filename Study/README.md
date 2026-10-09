@@ -4,7 +4,7 @@ Study is a hub for three independent learning apps: Physics, Chemistry, and Biol
 
 ## Current milestone
 
-The bilingual Study hub has separate entries for Physics, Chemistry, and Biology. Physics now has a working foundation release: 123 bilingual discovery lessons, 122 interactive labs, local progress, a review queue, a discovery notebook, and seven field projects (Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design) with saved drafts and bilingual reports. Its nine-stage curriculum roadmap follows `Physics/Plan.md`; later courses are marked as planned. See [Physics/README.md](Physics/README.md) for implementation and content-extension notes. Chemistry retains its existing courses and experiments; Biology remains a preview.
+The bilingual Study hub has separate entries for Physics, Chemistry, and Biology. Physics now has a working foundation release: 138 bilingual discovery lessons, 137 interactive labs, local progress, a review queue, a discovery notebook, and seven field projects (Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design) with saved drafts and bilingual reports. Its nine-stage curriculum roadmap follows `Physics/Plan.md`; later courses are marked as planned. See [Physics/README.md](Physics/README.md) for implementation and content-extension notes. Chemistry retains its existing courses and experiments; Biology remains a preview.
 
 ## Run locally
 

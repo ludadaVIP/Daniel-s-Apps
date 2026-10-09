@@ -5,6 +5,14 @@ import { B, Icon } from '../ui';
 import { rollingMotion, raceTime } from './physics';
 import type { Lesson } from '../content/schema';
 import type { SpaceKind } from './spaceModels';
+import type { GraphKind } from './graphModels';
+const GraphLab = lazy(() =>
+  import('./GraphLabs').then((m) => ({ default: m.GraphLab })),
+);
+import type { AlgebraKind } from './algebraModels';
+const AlgebraLab = lazy(() =>
+  import('./AlgebraLabs').then((m) => ({ default: m.AlgebraLab })),
+);
 const SpaceLab = lazy(() =>
   import('./SpaceLabs').then((m) => ({ default: m.SpaceLab })),
 );
@@ -796,6 +804,24 @@ function LabContent({
     return (
       <SpaceLab
         kind={kind.slice(6) as SpaceKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('graphs-'))
+    return (
+      <GraphLab
+        key={kind}
+        kind={kind.slice(7) as GraphKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('algebra-'))
+    return (
+      <AlgebraLab
+        key={kind}
+        kind={kind.slice(8) as AlgebraKind}
         mode={mode}
         onExplore={onExplore}
       />

@@ -5979,6 +5979,59 @@
   fill: #e9e6ef;
   stroke: none;
 }
+.phy-algebra-lab > svg text {
+  fill: #ecebdc;
+  stroke: none;
+}
+.phy-algebra-free {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+  margin: 18px;
+}
+.phy-algebra-free output {
+  color: var(--phy-purple);
+  font-weight: 600;
+}
+.phy-algebra-free input {
+  flex: 1 0 100%;
+  width: 100%;
+  min-width: 0;
+  accent-color: #8a79ae;
+}
+.phy-algebra-steps {
+  list-style: none;
+  counter-reset: algebra-step;
+  margin: 18px;
+  padding: 0;
+  display: grid;
+  gap: 6px;
+}
+.phy-algebra-steps li {
+  counter-increment: algebra-step;
+  display: flex;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 8px;
+  background: #f0ede5;
+  overflow-wrap: anywhere;
+}
+.phy-algebra-steps li::before {
+  content: counter(algebra-step, decimal-leading-zero);
+  color: #847b6a;
+  font-size: 12px;
+}
+.phy-algebra-steps li.inspected {
+  background: #e6eee8;
+}
+.phy-algebra-lab .phy-thermal-metrics strong {
+  font-size: 22px;
+  overflow-wrap: anywhere;
+}
+.phy-algebra-lab .phy-thermal-metrics sup {
+  font-size: 0.65em;
+}
 .phy-space-lab .phy-lab-controls > label {
   flex: 1 1 220px;
   min-width: 0;
@@ -5990,5 +6043,17 @@
 .phy-space-galaxies .phy-thermal-metrics strong {
   font-size: 15px;
   line-height: 1.6;
+  overflow-wrap: anywhere;
+}
+
+.phy-graph-lab > svg text {
+  fill: #eeece0;
+  stroke: none;
+}
+.phy-graph-extra {
+  margin: 0 18px 18px;
+}
+.phy-graph-lab .phy-thermal-metrics strong {
+  font-size: 22px;
   overflow-wrap: anywhere;
 }
