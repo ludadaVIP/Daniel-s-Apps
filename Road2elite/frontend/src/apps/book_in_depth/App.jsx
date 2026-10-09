@@ -19,7 +19,8 @@ import {
 } from "lucide-react";
 
 import "./styles.css";
-import BookMarkdown, { BookInlineMarkdown, bookHeadingId } from "../shared/BookMarkdown";
+import BookMarkdown, { BookInlineMarkdown } from "../shared/BookMarkdown";
+import { extractBookToc } from "../shared/bookMarkdownModel.js";
 import ReaderFontSelect, { readReaderFont, readerFontFamily } from "../shared/ReaderFontSelect";
 import BookLibraryHome from "../shared/BookLibraryHome";
 import ShelfManager, { ShelfManagerDialog } from "../shared/ShelfManager";
@@ -102,34 +103,6 @@ function MindMapView({ markdown }) {
       {tree.map((node, idx) => <MindMapNode key={idx} node={node} depth={0} />)}
     </ul>
   );
-}
-
-// --------- Narration TOC ---------
-
-function extractToc(markdown) {
-  const lines = (markdown || "").replace(/\r\n?/g, "\n").split("\n");
-  const items = [];
-  let headingIndex = 0;
-  let fence = null;
-  for (const line of lines) {
-    const marker = line.match(/^\s*(`{3,}|~{3,})/);
-    if (marker) {
-      if (!fence) fence = { char: marker[1][0], length: marker[1].length };
-      else if (marker[1][0] === fence.char && marker[1].length >= fence.length) fence = null;
-      continue;
-    }
-    if (fence) continue;
-    const match = line.match(/^ {0,3}(#{1,6})\s+(.+)$/);
-    if (!match) continue;
-    const level = match[1].length;
-    items.push({
-      level,
-      text: match[2],
-      id: bookHeadingId(headingIndex),
-    });
-    headingIndex += 1;
-  }
-  return items;
 }
 
 function countCharacters(text) {
@@ -428,9 +401,42 @@ function InfoCard({ book, onPatch }) {
 // --------- TOC sidebar for narration (only shown on narration tab) ---------
 
 function NarrationTOC({ items, onJump }) {
+  const tocRef = useRef(null);
+  useLayoutEffect(() => {
+    const toc = tocRef.current;
+    const workspace = toc?.closest(".bid-workspace");
+    if (!workspace) return undefined;
+    let frame;
+    const updateHeight = () => {
+      if (window.matchMedia("(max-width: 1100px)").matches) {
+        toc.style.removeProperty("--bid-toc-height");
+        return;
+      }
+      const bounds = workspace.getBoundingClientRect();
+      const top = Math.max(bounds.top, toc.getBoundingClientRect().top);
+      const bottom = Math.min(bounds.bottom, window.innerHeight);
+      toc.style.setProperty("--bid-toc-height", `${Math.max(0, bottom - top)}px`);
+    };
+    const scheduleUpdate = () => {
+      window.cancelAnimationFrame(frame);
+      frame = window.requestAnimationFrame(updateHeight);
+    };
+    const observer = new ResizeObserver(scheduleUpdate);
+    observer.observe(workspace);
+    observer.observe(toc.parentElement);
+    workspace.addEventListener("scroll", scheduleUpdate, { passive: true });
+    window.addEventListener("resize", scheduleUpdate);
+    updateHeight();
+    return () => {
+      observer.disconnect();
+      workspace.removeEventListener("scroll", scheduleUpdate);
+      window.removeEventListener("resize", scheduleUpdate);
+      window.cancelAnimationFrame(frame);
+    };
+  }, [items]);
   if (!items.length) return null;
   return (
-    <aside className="bid-toc">
+    <aside className="bid-toc" ref={tocRef}>
       <header>目录</header>
       <ol>
         {items.map((item) => (
@@ -769,7 +775,7 @@ export default function BookInDepthApp() {
 
   const tocItems = useMemo(() => {
     if (activeTab !== "narration") return [];
-    return extractToc(tabDraft);
+    return extractBookToc(tabDraft);
   }, [tabDraft, activeTab]);
 
   const charCount = useMemo(() => countCharacters(tabDraft), [tabDraft]);
