@@ -1,6 +1,6 @@
 # Physics Lab · 物理探索室
 
-A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 138 complete bilingual lessons, 137 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
+A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 153 complete bilingual lessons, 152 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
 
 ## Use
 
@@ -161,6 +161,23 @@ The foundation path follows Appendix A of the plan:
 136. Two heating lines are parallel. Why can their starts differ? / 两块材料升温线平行，起点为什么可以不同？
 137. Each interval lasts one second. Why does the curve grow steeper? / 同样过一秒，图线为什么越走越陡？
 138. Scattered points: how can you retain a trustworthy pattern? / 散点不在直线上，怎样留下可信的规律？
+
+139. Seven metres walked. Why only five metres from the start? / 走了7米，为什么离起点只有5米？
+140. Both robots travel at 3 m/s. Do they have the same velocity? / 两个机器人都3 m/s，速度相同吗？
+141. Draw a wind arrow twice as long. Did the wind change? / 把风的箭头画长一倍，风就变了吗？
+142. The bow points east. Why does the boat travel northeast? / 船头向东，为什么小船却漂向东北？
+143. One slanted rope. How can its force act rightward and upward? / 一根斜绳的拉力，怎么同时向右又向上？
+144. When will the robot reach the door? Sketch before equations. / 机器人几时到门口？先画路，再碰公式。
+145. How long can the reading lamp run? Separate energy from its rate. / 阅读灯能亮多久？把能量和每秒速率分开。
+146. How much longer is the spring? Separate weight, extension and total length. / 弹簧多长了？先分清重量、伸长和总长。
+147. A density number is calculable. Why can the conclusion still fail? / 密度算得出，为什么答案仍可能不成立？
+
+148. One cart. Why can it have three position answers? / 同一辆车，为什么有三个位置答案？
+149. The cart returns smoothly. Why does its distance ledger stay nonzero? / 小车平滑返回，里程账为什么没有归零？
+150. After velocity passes through zero, why does speed grow again? / 速度经过零以后，速率为什么又变大？
+151. One journey. Why are there three average velocities? / 同一趟路，平均速度为什么有三个答案？
+152. Does negative acceleration always mean slowing down? / 加速度为负，车一定越来越慢吗？
+153. The same 4 m/s increase takes different times. How rapid is the change? / 同样增加4 m/s，用时不同，改变有多急？
 
 Each lesson includes a non-scored prediction, interactive exploration, explanation and misconceptions, a worked example, two or three practice questions, a takeaway, an exit question, and a home experiment. Predictions can be wrong; finishing requires exploration and correct practice/exit answers, with feedback and retries. Lessons are grouped by stage and unit. Counts and next-lesson links follow the content list; stable IDs preserve earlier progress when courses are inserted.
 
@@ -429,8 +446,7 @@ Reference checks: NASA [seasons](https://spaceplace.nasa.gov/seasons/en/), [Moon
 
 Stage 4 Unit 4.1 now has eight original bilingual courses, in the plan’s order: variables, substitution, rearrangement, ratios, direct proportion, inverse proportion, squares and scientific notation. Robot instructions, a lamp energy account, arrival planning, paper maps, spring calibration, contact areas and energy tiles make each mathematical operation visible. All eight stations retain three completed prescribed comparisons and provide free controls; seeking or changed conditions cannot stand in for the prescribed checks.
 
-The pure models are in `apps/web/src/interactive/algebraModels.ts`, SVG stations in `AlgebraLabs.tsx`, card art in `AlgebraArt.tsx` and the lazy body pack in `apps/web/src/content/algebra.ts`. Each station includes units, substitution/checking steps and its assumptions. Unit-bearing map conversion rates are distinct from dimensionless ratios; total spring length is distinct from extension; zero speed is handled without dividing by zero. m/mm notation switches preserve length. Only the robot station animates a physical journey; other playbacks inspect calculations or graph readings and are labeled accordingly. Vectors and the full problem-solving bridge remain planned.
-
+The pure models are in `apps/web/src/interactive/algebraModels.ts`, SVG stations in `AlgebraLabs.tsx`, card art in `AlgebraArt.tsx` and the lazy body pack in `apps/web/src/content/algebra.ts`. Each station includes units, substitution/checking steps and its assumptions. Unit-bearing map conversion rates are distinct from dimensionless ratios; total spring length is distinct from extension; zero speed is handled without dividing by zero. m/mm notation switches preserve length. Only the robot station animates a physical journey; other playbacks inspect calculations or graph readings and are labeled accordingly. Unit 4.4 now applies the eight-step framework in four connected problem-solving courses.
 
 ## Graph bridge investigations
 
@@ -438,4 +454,32 @@ Stage 4 Unit 4.2 has seven original bilingual courses following all seven plan t
 
 Accelerated motion uses x = ½t² with a = 1 m/s². The 1–2 s and 4–5 s secants give 1.5 and 4.5 m/s; plotting the same positions against t² gives 0.5 m/s², equal to ½a rather than velocity. The experimental station retains fifteen supplied teaching readings, three per force, plus raw/processed tables, means and repeat ranges. Least-squares fits to the five means give 2.0333 cm intercept and 4.9967 cm/N gradient; a documented 2 cm zero correction shifts the intercept without shrinking scatter. Rounding to 1 cm can conceal scatter while keeping zero bias. Free origin constraints are labeled added assumptions; range bars are not statistical confidence intervals.
 
-Models live in `apps/web/src/interactive/graphModels.ts`, stations in `GraphLabs.tsx`, card illustrations in `GraphArt.tsx` and lazy course bodies in `apps/web/src/content/graphs.ts`. Each station has three prescribed comparisons, a free quantity control, units, checking steps and retained model records. Motion/heating clocks compress selected model durations into 2.4 seconds; gradient, curve and fitting playbacks inspect readings rather than simulate a new physical clock. Seeking and altered conditions do not satisfy prescribed observation gates. Stage 4 now offers fifteen courses; vectors, problem solving and later high-school stages remain under construction.
+Models live in `apps/web/src/interactive/graphModels.ts`, stations in `GraphLabs.tsx`, card illustrations in `GraphArt.tsx` and lazy course bodies in `apps/web/src/content/graphs.ts`. Each station has three prescribed comparisons, a free quantity control, units, checking steps and retained model records. Motion/heating clocks compress selected model durations into 2.4 seconds; gradient, curve and fitting playbacks inspect readings rather than simulate a new physical clock. Seeking and altered conditions do not satisfy prescribed observation gates. Stage 4 now offers twenty-four courses; later high-school stages remain under construction.
+
+## Vector bridge investigations
+
+Five original bilingual courses cover all seven Unit 4.3 topics: scalar/vector quantities, direction, arrow representations, addition, and components with simple trigonometry. Corner and direct shelf routes have distances 7 and 5 m but share displacement (4,3) m; the 8 m out-and-back route ends at zero displacement with no unique direction. Fixed east/north references remain visible while freely rotated axes change coordinate components, not physical velocity. Wind arrow scales and translated representations retain their physical meaning; the lessons distinguish this from moving a real force application point.
+
+The boat station composes boat/water velocity 3 m/s east with water/bank velocity 4 m/s north, 4 m/s west or 3 m/s west. Ground velocities are (3,4), (−1,0) and (0,0) m/s; 4 s ground positions are (12,16), (−4,0) and (0,0) m. A fixed bow still points east during westward ground drift. The left panel shows static velocity addition at 25 pixels/(m/s); the right follows simultaneous bank-relative motion at 5 pixels/m. Both panels use equal scales on their own axes; the head-to-tail velocity triangle is not a sequential path.
+
+The rope station resolves a 10 N pull using an angle measured from horizontal. Its 0°, atan(3/4)≈36.87° and 90° cases retain (Fx,Fy)=(10,0), (8,6) and (0,10) N. A frictionless cart stays in contact with a horizontal surface, weight 20 N; normal forces 20,14 and 10 N keep vertical net force zero. Components represent the one rope force and are not counted as two additional forces. The angle slider accepts the exact prescribed noninteger angle. Playback inspects the diagram rather than simulating acceleration.
+
+Models, interactive stations, card art and course bodies live in `apps/web/src/interactive/vectorModels.ts`, `VectorLabs.tsx`, `VectorArt.tsx` and `apps/web/src/content/vectors.ts`. All five stations have three prescribed comparisons, a free control, unit-bearing readings, checked model notes and retained comparison tables. Only route and boat playbacks represent physical motion, compressed to 2.4 seconds; representation inspections and seeking do not bypass learning evidence. Unit 4.4 follows with four eight-step reasoning workbenches.
+
+## Eight-step problem-solving bridge
+
+Four original bilingual courses apply all eight Unit 4.4 steps to a robot arrival plan, a reading-lamp energy budget, a hanging spring and density evidence. Each workbench requires describing the event, choosing a labeled sketch, retaining givens, defining the unknown, choosing a conditional model, entering a numerical calculation, checking units and judging the result. Three prescribed scenarios must each pass all eight steps before the lesson’s exploration gate opens. Choice positions vary; numeric input accepts decimals/scientific notation with 0.1% rounding tolerance, while blank, unit-bearing and nonfinite strings do not count.
+
+Arrival cases give 60 s, 60 s after converting 0.24 km to 240 m, and no finite arrival at zero speed. Usable delivered-energy budgets give 600/300/1200 s at fixed power. Spring force balance kx=mg gives 10/20/1.6 cm extension, distinct from total lengths 30/40/21.6 cm; g is specified as 10 or 1.6 N/kg. Density uses original 50→70/90/62 mL readings: full immersion validates 2.7 g/cm³ for two differently sized pieces; partial immersion retains the apparent 4.5 g/cm³ result but rejects it as whole-solid density. Model conditions and schematic diagram scales are explicit.
+
+Local drafts are separate for each kind and case under `study-physics-reasoning-<kind>-v1`. Restoration rechecks every answer and clears unsupported later steps. Revising an answer also invalidates later checks. Restart has an immediate undo. Verified cases can be downloaded as an eight-step bilingual Markdown record with original quantities, assumptions and procedural limitations. These supplied reasoning scenarios are distinct from the seven field projects containing the child’s own measurements. Models, workbenches, card art and the lazy course pack live in `solvingModels.ts`, `SolvingLabs.tsx`, `SolvingArt.tsx` and `content/solving.ts`.
+
+## High-school kinematics: position and change
+
+Six original Stage 5 courses cover Unit 5.1 topics 1–8 in order: position; displacement with distance; speed with velocity; mean velocity; acceleration; and Δv/Δt. Earlier bridge skills now describe one continuous motion rather than disconnected definitions. Three prescribed comparisons per station require full observation; free controls and seeking never bypass the gate. Shared animation, bilingual controls, metrics and retained tables reuse existing Study/Physics components without new runtime dependencies.
+
+Position uses the same world path X=3+2t over 6 s under fixed origins 0/10/10 m and right/right/left positive directions. Endpoint coordinates 15/5/−5 m and displacements 12/12/−12 m all describe 12 m physical distance. The smooth return model is x=3+4t−½t², v=4−t and a=−1 (SI) over 0–8 s, with a continuous turn at 4 s. Endpoint probes 2/4/8 s retain displacement 6/8/0 m and distance 6/8/16 m. Current-velocity probes 2/4/6 s retain +2/0/−2 m/s and nonnegative speed 2/0/2 m/s. Zero velocity at the turn retains nonzero acceleration.
+
+Selected windows 0–4/4–8/0–8 s yield mean velocities +2/−2/0 m/s and mean speeds 2/2/2 m/s. Zero-duration averages remain undefined. Acceleration cases (u,a)=(+1,+0.5),(+4,−0.5),(−1,−0.5) over 6 s yield velocities +4/+1/−4 m/s; negative acceleration can slow rightward motion or speed leftward motion. Rate cases 2→6 m/s over 2/4 s and 6→2 over 2 s yield +2/+1/−2 m/s². Free duration preserves endpoint velocities while changing displacement; the fixed-acceleration assumption is explicit.
+
+Models are in `interactive/kinematicsModels.ts`, SVG stations in `KinematicsLabs.tsx`, card illustrations in `KinematicsArt.tsx` and lazy course bodies in `content/kinematics.ts`. Distance integrates |v| by splitting at smooth turns; all readouts, curves and track positions share the same motion model. Graphs show a faint model preview and a gold observed segment on fixed per-station scales; playback compresses the chosen physical duration into 2.4 seconds. The cart arrow indicates physical direction, not magnitude or force. Unit 5.1 graph, uniform-acceleration, SUVAT, free-fall and projectile topics remain for the next batches.

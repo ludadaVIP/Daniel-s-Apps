@@ -4811,4 +4811,529 @@ export const lessonCatalog: LessonCatalogEntry[] = [
       },
     ],
   },
+  {
+    id: 'vectors-two-journey-accounts',
+    title: {
+      zh: '走了7米，为什么离起点只有5米？',
+      en: 'Seven metres walked. Why only five metres from the start?',
+    },
+    subtitle: {
+      zh: '一趟取书路，两本账：路程与位移。',
+      en: 'One library trip, two accounts: distance and displacement.',
+    },
+    minutes: 20,
+    stage: 4,
+    unit: 'vectors',
+    kind: 'vectors-quantities',
+    pack: 'vectors',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'vectors-name-a-direction',
+    title: {
+      zh: '两个机器人都3 m/s，速度相同吗？',
+      en: 'Both robots travel at 3 m/s. Do they have the same velocity?',
+    },
+    subtitle: {
+      zh: '约定参考方向，再解释正负分量。',
+      en: 'Choose reference directions before interpreting signed components.',
+    },
+    minutes: 19,
+    stage: 4,
+    unit: 'vectors',
+    kind: 'vectors-direction',
+    pack: 'vectors',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'vectors-arrows-need-a-scale',
+    title: {
+      zh: '把风的箭头画长一倍，风就变了吗？',
+      en: 'Draw a wind arrow twice as long. Did the wind change?',
+    },
+    subtitle: {
+      zh: '箭头表达大小和方向，先约定每格代表多少。',
+      en: 'Arrows express magnitude and direction; define the scale first.',
+    },
+    minutes: 18,
+    stage: 4,
+    unit: 'vectors',
+    kind: 'vectors-arrows',
+    pack: 'vectors',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'vectors-a-boat-two-velocities',
+    title: {
+      zh: '船头向东，为什么小船却漂向东北？',
+      en: 'The bow points east. Why does the boat travel northeast?',
+    },
+    subtitle: {
+      zh: '先说明相对谁运动，再把同种向量首尾相接。',
+      en: 'Name the reference frame, then connect like vectors head to tail.',
+    },
+    minutes: 22,
+    stage: 4,
+    unit: 'vectors',
+    kind: 'vectors-addition',
+    pack: 'vectors',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'vectors-one-rope-two-components',
+    title: {
+      zh: '一根斜绳的拉力，怎么同时向右又向上？',
+      en: 'One slanted rope. How can its force act rightward and upward?',
+    },
+    subtitle: {
+      zh: '分量是同一个力的两份描述，从直角三角形读sin与cos。',
+      en: 'Components describe one force; read sine and cosine from a right triangle.',
+    },
+    minutes: 23,
+    stage: 4,
+    unit: 'vectors',
+    kind: 'vectors-components',
+    pack: 'vectors',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'solving-before-the-door',
+    title: {
+      zh: '机器人几时到门口？先画路，再碰公式。',
+      en: 'When will the robot reach the door? Sketch before equations.',
+    },
+    subtitle: {
+      zh: '八步解题，把已知、未知和条件连起来。',
+      en: 'Eight reasoning steps connect given quantities, unknowns and conditions.',
+    },
+    minutes: 23,
+    stage: 4,
+    unit: 'solving',
+    kind: 'solving-arrival',
+    pack: 'solving',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'solving-the-lamp-budget',
+    title: {
+      zh: '阅读灯能亮多久？把能量和每秒速率分开。',
+      en: 'How long can the reading lamp run? Separate energy from its rate.',
+    },
+    subtitle: {
+      zh: '把功率读成每秒能量，用八步检验预算。',
+      en: 'Read power as energy per second and test a budget through eight steps.',
+    },
+    minutes: 24,
+    stage: 4,
+    unit: 'solving',
+    kind: 'solving-energy',
+    pack: 'solving',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'solving-a-spring-with-a-reason',
+    title: {
+      zh: '弹簧多长了？先分清重量、伸长和总长。',
+      en: 'How much longer is the spring? Separate weight, extension and total length.',
+    },
+    subtitle: {
+      zh: '一张力图、两条关系和一次长度换算。',
+      en: 'One force diagram, two relations and a length conversion.',
+    },
+    minutes: 25,
+    stage: 4,
+    unit: 'solving',
+    kind: 'solving-spring',
+    pack: 'solving',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'solving-a-number-with-evidence',
+    title: {
+      zh: '密度算得出，为什么答案仍可能不成立？',
+      en: 'A density number is calculable. Why can the conclusion still fail?',
+    },
+    subtitle: {
+      zh: '让操作记录进入八步，而不只检查算术。',
+      en: 'Include procedure evidence in eight steps, not just arithmetic.',
+    },
+    minutes: 26,
+    stage: 4,
+    unit: 'solving',
+    kind: 'solving-density',
+    pack: 'solving',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'kinematics-one-track-three-addresses',
+    title: {
+      zh: '同一辆车，为什么有三个位置答案？',
+      en: 'One cart. Why can it have three position answers?',
+    },
+    subtitle: {
+      zh: '先约定原点、正方向和单位，再报告位置。',
+      en: 'Choose an origin, positive direction and unit before reporting position.',
+    },
+    minutes: 21,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'kinematics-position',
+    pack: 'kinematics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'kinematics-a-smooth-return',
+    title: {
+      zh: '小车平滑返回，里程账为什么没有归零？',
+      en: 'The cart returns smoothly. Why does its distance ledger stay nonzero?',
+    },
+    subtitle: {
+      zh: '用连续转向模型分开位置、位移与累计路程。',
+      en: 'Separate position, displacement and distance through a continuous turn.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'kinematics-journey',
+    pack: 'kinematics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'kinematics-speed-has-no-minus',
+    title: {
+      zh: '速度经过零以后，速率为什么又变大？',
+      en: 'After velocity passes through zero, why does speed grow again?',
+    },
+    subtitle: {
+      zh: '同一时刻的快慢与方向，分开报告。',
+      en: 'Report an instant’s rate of motion separately from its direction.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'kinematics-velocity',
+    pack: 'kinematics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'kinematics-choose-your-time-window',
+    title: {
+      zh: '同一趟路，平均速度为什么有三个答案？',
+      en: 'One journey. Why are there three average velocities?',
+    },
+    subtitle: {
+      zh: '先圈定时间区间，再选择位移或路程。',
+      en: 'Choose the time interval before choosing displacement or distance.',
+    },
+    minutes: 23,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'kinematics-average',
+    pack: 'kinematics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'kinematics-negative-does-not-mean-slower',
+    title: {
+      zh: '加速度为负，车一定越来越慢吗？',
+      en: 'Does negative acceleration always mean slowing down?',
+    },
+    subtitle: {
+      zh: '把速度方向与变化方向放在一起看。',
+      en: 'Compare velocity direction with the direction of its change.',
+    },
+    minutes: 23,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'kinematics-acceleration',
+    pack: 'kinematics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'kinematics-a-change-per-second',
+    title: {
+      zh: '同样增加4 m/s，用时不同，改变有多急？',
+      en: 'The same 4 m/s increase takes different times. How rapid is the change?',
+    },
+    subtitle: {
+      zh: '从两个速度读数构造Δv/Δt，而不是只除末速度。',
+      en: 'Build Δv/Δt from two readings instead of dividing final velocity alone.',
+    },
+    minutes: 24,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'kinematics-rate',
+    pack: 'kinematics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
 ];

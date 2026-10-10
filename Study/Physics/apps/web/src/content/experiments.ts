@@ -1,6 +1,75 @@
 import { t, type Lesson } from './schema';
 export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
   [
+    {
+      id: 'kinematics-position',
+      name: t(
+        '同一轨道，三个坐标约定',
+        'One track, three coordinate conventions',
+      ),
+    },
+    {
+      id: 'kinematics-journey',
+      name: t('平滑往返的两本行程账', 'Two ledgers for a smooth return trip'),
+    },
+    {
+      id: 'kinematics-velocity',
+      name: t('一个时刻，速率与速度', 'One instant, speed and velocity'),
+    },
+    {
+      id: 'kinematics-average',
+      name: t(
+        '改变区间，改变平均量',
+        'Change the interval, change the averages',
+      ),
+    },
+    {
+      id: 'kinematics-acceleration',
+      name: t('速度箭头怎样改变', 'How the velocity arrow changes'),
+    },
+    {
+      id: 'kinematics-rate',
+      name: t(
+        '同一速度变化，不同所需时间',
+        'Same velocity change, different durations',
+      ),
+    },
+    {
+      id: 'solving-arrival',
+      name: t('到门口的时间规划', 'Plan the arrival time'),
+    },
+    {
+      id: 'solving-energy',
+      name: t('阅读灯的能量预算', 'A reading-lamp energy budget'),
+    },
+    {
+      id: 'solving-spring',
+      name: t('悬挂弹簧的伸长账', 'Hanging-spring extension account'),
+    },
+    {
+      id: 'solving-density',
+      name: t('密度数字与操作证据', 'Density numbers and procedure evidence'),
+    },
+    {
+      id: 'vectors-quantities',
+      name: t('一趟路，两本账', 'One trip, two accounts'),
+    },
+    {
+      id: 'vectors-direction',
+      name: t('方向与转动的坐标轴', 'Direction and rotated coordinates'),
+    },
+    {
+      id: 'vectors-arrows',
+      name: t('箭头的比例与表示', 'Arrow scales and representations'),
+    },
+    {
+      id: 'vectors-addition',
+      name: t('水流中的两份速度', 'Two velocities in a current'),
+    },
+    {
+      id: 'vectors-components',
+      name: t('一根绳，两份分量', 'One rope, two components'),
+    },
     { id: 'graphs-axes', name: t('坐标轴与单位窗口', 'Axes and unit window') },
     {
       id: 'graphs-reading',

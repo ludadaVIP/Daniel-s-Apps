@@ -24,7 +24,10 @@ export type LessonPack =
   | 'magnetism'
   | 'space'
   | 'algebra'
-  | 'graphs';
+  | 'graphs'
+  | 'vectors'
+  | 'solving'
+  | 'kinematics';
 
 export type LessonCatalogEntry = Pick<
   Lesson,

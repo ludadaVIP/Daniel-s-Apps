@@ -1,10 +1,19 @@
 import { t } from './schema';
 export const units = {
+  kinematics: t(
+    '运动学：追踪位置、方向与变化',
+    'Kinematics: follow position, direction and change',
+  ),
   algebra: t(
     '物理中的代数：把规律变成工具',
     'Algebra for physics: turn patterns into tools',
   ),
   graphs: t('图像：把线读成物理故事', 'Graphs: read lines as physical stories'),
+  vectors: t('向量：给物理量一个方向', 'Vectors: give quantities a direction'),
+  solving: t(
+    '八步解题：让答案有依据',
+    'Eight-step reasoning: support your answers',
+  ),
   curiosity: t('从好奇开始', 'Start with curiosity'),
   measurement: t(
     '测量，把感觉变成证据',

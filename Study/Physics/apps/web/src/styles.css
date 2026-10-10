@@ -6057,3 +6057,220 @@
   font-size: 22px;
   overflow-wrap: anywhere;
 }
+
+.phy-vector-lab > svg text {
+  fill: #efeee3;
+  stroke: none;
+}
+.phy-vector-lab .phy-thermal-metrics strong {
+  font-size: 22px;
+  overflow-wrap: anywhere;
+}
+.phy-vector-lab > svg path[stroke] {
+  fill: none;
+}
+.phy-reason-lab {
+  background: #faf9ff;
+}
+.phy-reason-story {
+  margin: 18px;
+  line-height: 1.75;
+}
+.phy-reason-scene {
+  display: block;
+  width: min(100%, 620px);
+  height: auto;
+  margin: 0 auto;
+}
+.phy-reason-lab svg text {
+  fill: #eeeee3;
+  stroke: none;
+}
+.phy-reason-nav {
+  margin: 18px;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 6px;
+}
+.phy-reason-nav button {
+  border: 1px solid #e0dceb;
+  border-radius: 8px;
+  background: transparent;
+  padding: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-align: left;
+  color: #756f80;
+}
+.phy-reason-nav button span {
+  font-size: 12px;
+}
+.phy-reason-nav button.active {
+  background: #ebe5f4;
+  color: #655082;
+  border-color: #b9a7ce;
+}
+.phy-reason-nav button.checked {
+  background: #e8efe9;
+  color: #4b6a59;
+}
+.phy-reason-nav button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.phy-reason-current {
+  margin: 18px;
+  padding: 18px;
+  border: 1px solid #e3ddec;
+  border-radius: 12px;
+  background: #fffdf9;
+}
+.phy-reason-kicker {
+  letter-spacing: 0.12em;
+  font-size: 11px;
+  color: #8a7b99;
+}
+.phy-reason-current h3 {
+  font-size: 22px;
+  margin: 10px 0 18px;
+}
+.phy-reason-options {
+  display: grid;
+  gap: 8px;
+}
+.phy-reason-options button {
+  background: #f8f5ef;
+  border: 1px solid #e4ded2;
+  border-radius: 8px;
+  padding: 13px;
+  text-align: left;
+  color: #3d4041;
+  line-height: 1.65;
+}
+.phy-reason-options button.correct {
+  background: #e5efe7;
+  border-color: #9eb7a3;
+}
+.phy-reason-options button.incorrect {
+  background: #f4e7e1;
+  border-color: #cfaaa0;
+}
+.phy-reason-options.sketches {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.phy-reason-options svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+  font-size: 14px;
+}
+.phy-reason-options svg text {
+  fill: #eeeee3;
+}
+.phy-reason-calc {
+  display: flex;
+  align-items: end;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.phy-reason-calc label {
+  flex: 1 1 170px;
+  display: grid;
+  gap: 8px;
+}
+.phy-reason-calc input {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #cfc5dc;
+  border-radius: 8px;
+  padding: 12px;
+  font: inherit;
+  background: white;
+  color: #34343d;
+}
+.phy-reason-calc strong {
+  padding: 12px 0;
+}
+.phy-reason-rounding {
+  color: #857d8b;
+  font-size: 12px;
+  line-height: 1.7;
+}
+.phy-reason-feedback {
+  margin-top: 14px;
+  padding: 12px;
+  border-radius: 8px;
+  display: grid;
+  gap: 8px;
+  line-height: 1.7;
+}
+.phy-reason-feedback.correct {
+  background: #e5efe7;
+}
+.phy-reason-feedback.incorrect {
+  background: #f4e7e1;
+}
+.phy-reason-next {
+  margin-top: 16px;
+}
+.phy-reason-case-status {
+  padding: 12px;
+  border-radius: 8px;
+  background: #eef1e8;
+  line-height: 1.7;
+}
+.phy-reason-footer {
+  margin: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+.phy-reason-footer > span {
+  flex: 1 1 100%;
+  color: #837889;
+  font-size: 12px;
+}
+.phy-reason-export {
+  margin: 0 18px 18px;
+}
+.phy-reason-current,
+.phy-reason-footer,
+.phy-reason-options button {
+  overflow-wrap: anywhere;
+}
+@media (max-width: 600px) {
+  .phy-reason-nav {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .phy-reason-current {
+    padding: 12px;
+  }
+  .phy-reason-options.sketches {
+    grid-template-columns: 1fr;
+  }
+  .phy-reason-options.sketches button {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .phy-reason-options.sketches svg {
+    flex: 0 0 40%;
+    width: 40%;
+    margin-bottom: 0;
+  }
+  .phy-reason-calc .phy-button {
+    width: 100%;
+  }
+}
+
+.phy-kinematics-lab svg text {
+  fill: #eeece0;
+  stroke: none;
+}
+.phy-kinematics-lab .phy-thermal-metrics strong {
+  overflow-wrap: anywhere;
+}
