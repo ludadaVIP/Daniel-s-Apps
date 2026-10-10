@@ -1,3 +1,5 @@
+import { KinematicsArt } from './interactive/KinematicsArt';
+import type { KinematicsKind } from './interactive/kinematicsModels';
 import { MeasurementArt } from './interactive/MeasurementArt';
 import { MysteryArt } from './interactive/MysteryArt';
 import { DiscoveryArt } from './interactive/DiscoveryArt';
@@ -13,6 +15,10 @@ import { MachineArt } from './interactive/MachineArt';
 import { ElectricArt } from './interactive/ElectricArt';
 import { MagneticArt } from './interactive/MagneticArt';
 import { SpaceArt } from './interactive/SpaceArt';
+import { SolvingArt } from './interactive/SolvingArt';
+import type { SolvingKind } from './interactive/solvingModels';
+import { VectorArt } from './interactive/VectorArt';
+import type { VectorKind } from './interactive/vectorModels';
 import { GraphArt } from './interactive/GraphArt';
 import type { GraphKind } from './interactive/graphModels';
 import { AlgebraArt } from './interactive/AlgebraArt';
@@ -111,7 +117,13 @@ export function LessonArt({
         </pattern>
       </defs>
       <rect width="300" height="150" fill={`url(#dots-${kind})`} />
-      {kind.startsWith('graphs-') ? (
+      {kind.startsWith('kinematics-') ? (
+        <KinematicsArt kind={kind.slice(11) as KinematicsKind} />
+      ) : kind.startsWith('solving-') ? (
+        <SolvingArt kind={kind.slice(8) as SolvingKind} />
+      ) : kind.startsWith('vectors-') ? (
+        <VectorArt kind={kind.slice(8) as VectorKind} />
+      ) : kind.startsWith('graphs-') ? (
         <GraphArt kind={kind.slice(7) as GraphKind} />
       ) : kind.startsWith('algebra-') ? (
         <AlgebraArt kind={kind.slice(8) as AlgebraKind} />

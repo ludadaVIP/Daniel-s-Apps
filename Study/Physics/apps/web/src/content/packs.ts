@@ -29,4 +29,7 @@ export const lessonPacks: Record<LessonPack, () => Promise<Lesson[]>> = {
   space: () => import('./space').then((m) => m.spaceLessons),
   algebra: () => import('./algebra').then((m) => m.algebraLessons),
   graphs: () => import('./graphs').then((m) => m.graphLessons),
+  vectors: () => import('./vectors').then((m) => m.vectorLessons),
+  solving: () => import('./solving').then((m) => m.solvingLessons),
+  kinematics: () => import('./kinematics').then((m) => m.kinematicsLessons),
 };

@@ -1,10 +1,22 @@
+import type { KinematicsKind } from './kinematicsModels';
 import { useState, lazy, Suspense } from 'react';
+const KinematicsLab = lazy(() =>
+  import('./KinematicsLabs').then((m) => ({ default: m.KinematicsLab })),
+);
 import { useAnimation } from './useSimulation';
 import type { LanguageMode } from '@study/shared';
 import { B, Icon } from '../ui';
 import { rollingMotion, raceTime } from './physics';
 import type { Lesson } from '../content/schema';
 import type { SpaceKind } from './spaceModels';
+import type { SolvingKind } from './solvingModels';
+const SolvingLab = lazy(() =>
+  import('./SolvingLabs').then((m) => ({ default: m.SolvingLab })),
+);
+import type { VectorKind } from './vectorModels';
+const VectorLab = lazy(() =>
+  import('./VectorLabs').then((m) => ({ default: m.VectorLab })),
+);
 import type { GraphKind } from './graphModels';
 const GraphLab = lazy(() =>
   import('./GraphLabs').then((m) => ({ default: m.GraphLab })),
@@ -804,6 +816,33 @@ function LabContent({
     return (
       <SpaceLab
         kind={kind.slice(6) as SpaceKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('kinematics-'))
+    return (
+      <KinematicsLab
+        key={kind}
+        kind={kind.slice(11) as KinematicsKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('solving-'))
+    return (
+      <SolvingLab
+        key={kind}
+        kind={kind.slice(8) as SolvingKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('vectors-'))
+    return (
+      <VectorLab
+        key={kind}
+        kind={kind.slice(8) as VectorKind}
         mode={mode}
         onExplore={onExplore}
       />

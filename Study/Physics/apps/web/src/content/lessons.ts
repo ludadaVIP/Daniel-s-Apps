@@ -1,3 +1,4 @@
+import { kinematicsLessons } from './kinematics';
 import type { Lesson } from './schema';
 import { originalLessons } from './foundations';
 export { units, stages } from './curriculum';
@@ -18,6 +19,8 @@ import { magnetismLessons } from './magnetism';
 import { spaceLessons } from './space';
 import { algebraLessons } from './algebra';
 import { graphLessons } from './graphs';
+import { vectorLessons } from './vectors';
+import { solvingLessons } from './solving';
 import { electricityLessons } from './electricity';
 import { phaseLessons } from './phase';
 import { measurementSkillsLessons } from './measurementSkills';
@@ -56,6 +59,9 @@ export const lessons: Lesson[] = [
   ...spaceLessons,
   ...algebraLessons,
   ...graphLessons,
+  ...vectorLessons,
+  ...solvingLessons,
+  ...kinematicsLessons,
 ];
 // Used by catalog generation and integrity tests, never by the app's entry.
 export const lessonCollections = {
@@ -83,4 +89,7 @@ export const lessonCollections = {
   space: spaceLessons,
   algebra: algebraLessons,
   graphs: graphLessons,
+  vectors: vectorLessons,
+  solving: solvingLessons,
+  kinematics: kinematicsLessons,
 };
