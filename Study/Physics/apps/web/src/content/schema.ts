@@ -41,8 +41,13 @@ export type Lesson = {
     | 'momentum'
     | 'mechanicalEnergy'
     | 'circular'
-    | 'gravitation';
+    | 'gravitation'
+    | 'waves';
   kind:
+    | 'waves-pulse'
+    | 'waves-transverse'
+    | 'waves-longitudinal'
+    | 'waves-wavelength'
     | 'gravitation-pair'
     | 'gravitation-inverse'
     | 'gravitation-field'

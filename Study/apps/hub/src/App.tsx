@@ -6,8 +6,21 @@ import { subjects, type Subject } from './subjects';
 
 const ChemistryPage = lazy(() => import('./ChemistryPage'));
 const PhysicsPage = lazy(() => import('./PhysicsPage'));
+const PinyinPage = lazy(() => import('./PinyinPage'));
 
 function subjectIcon(id: SubjectId) {
+  if (id === 'pinyin') {
+    return (
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path
+          d="M8 8h16M12 4l8 0M10 17c0-5 12-5 12 0v8M22 19c-2 9-14 8-12 2 1-4 8-4 12-4"
+          stroke="currentColor"
+          strokeWidth="2"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
+  }
   if (id === 'physics') {
     return (
       <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -100,7 +113,7 @@ function Header({
           className="study-language"
         />
         <span className="study-count">
-          3 {mode === 'en' ? 'SUBJECTS' : '学科'}
+          4 {mode === 'en' ? 'APPS' : '学习应用'}
         </span>
       </div>
     </header>
@@ -153,7 +166,11 @@ function Hub() {
         ))}
       </main>
       <footer className="study-footer">
-        {words(mode, '物理 · 化学 · 生物', 'Physics · Chemistry · Biology')}
+        {words(
+          mode,
+          '物理 · 化学 · 生物 · 拼音',
+          'Physics · Chemistry · Biology · Pinyin',
+        )}
       </footer>
     </div>
   );
@@ -219,6 +236,16 @@ export function App() {
         }
       />
       <Route path="/biology" element={<ComingSoon subject={subjects[2]!} />} />
+      <Route
+        path="/pinyin/*"
+        element={
+          <Suspense
+            fallback={<div className="study-loading">正在打开拼音侦探…</div>}
+          >
+            <PinyinPage />
+          </Suspense>
+        }
+      />
       <Route path="*" element={<Navigate to="/" replace />} />
     </Routes>
   );

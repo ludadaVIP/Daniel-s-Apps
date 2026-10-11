@@ -1,0 +1,256 @@
+[
+  {
+    "id": "L07-Q01",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「丝」写作 sī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "si1",
+    "transfer": false
+  },
+  {
+    "id": "L07-Q02",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「诗」写作 shī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "shi1",
+    "transfer": false
+  },
+  {
+    "id": "L07-Q03",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「资」写作 zī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "zi1",
+    "transfer": false
+  },
+  {
+    "id": "L07-Q04",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「知」写作 zhī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "zhi1",
+    "transfer": false
+  },
+  {
+    "id": "L07-Q05",
+    "lessonId": "L07",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["zhī"],
+    "skillIds": ["whole-first"],
+    "errorTag": "initial_confusion",
+    "feedback": "「知」的拼音是 zhī。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "zhi1",
+    "options": [
+      {
+        "label": "zī",
+        "value": "zī"
+      },
+      {
+        "label": "jī",
+        "value": "jī"
+      },
+      {
+        "label": "zhī",
+        "value": "zhī"
+      }
+    ]
+  },
+  {
+    "id": "L07-Q06",
+    "lessonId": "L07",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["rì"],
+    "skillIds": ["whole-first"],
+    "errorTag": "initial_confusion",
+    "feedback": "「日」的拼音是 rì。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "ri",
+    "options": [
+      {
+        "label": "rì",
+        "value": "rì"
+      },
+      {
+        "label": "sì",
+        "value": "sì"
+      },
+      {
+        "label": "shì",
+        "value": "shì"
+      }
+    ]
+  },
+  {
+    "id": "L07-Q07",
+    "lessonId": "L07",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "shī 中的 i，能直接照「衣」的韵母读吗？",
+    "acceptedAnswers": ["不能，先整体认读 shi"],
+    "skillIds": ["whole-first"],
+    "errorTag": "final_confusion",
+    "feedback": "zhi/chi/shi/ri 与 zi/ci/si 中的 i 不等同于 yī 的 i 音，先按真实完整音节认读。",
+    "options": [
+      {
+        "label": "不能，先整体认读 shi",
+        "value": "不能，先整体认读 shi"
+      },
+      {
+        "label": "能，把 sh 和衣随意相加",
+        "value": "能，把 sh 和衣随意相加"
+      }
+    ]
+  },
+  {
+    "id": "L07-Q08",
+    "lessonId": "L07",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "yú 表示哪个基本韵母的声音？",
+    "acceptedAnswers": ["ü"],
+    "skillIds": ["yw-first"],
+    "errorTag": "final_confusion",
+    "feedback": "yu 是 ü 开头音节的对应写法，不能按 y + 普通 u 拼读。",
+    "options": [
+      {
+        "label": "u",
+        "value": "u"
+      },
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      }
+    ]
+  },
+  {
+    "id": "L07-Q09",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「字」写作 zì。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "zi4",
+    "transfer": true
+  },
+  {
+    "id": "L07-Q10",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「是」写作 shì。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "shi4",
+    "transfer": true
+  },
+  {
+    "id": "L07-Q11",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「次」写作 cì。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ci4",
+    "transfer": true
+  },
+  {
+    "id": "L07-Q12",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「纸」写作 zhǐ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "zhi3",
+    "transfer": true
+  },
+  {
+    "id": "L07-Q13",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["yw-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「衣」写作 yī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yi",
+    "transfer": false
+  },
+  {
+    "id": "L07-Q14",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["yw-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「五」写作 wǔ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "wu3",
+    "transfer": false
+  },
+  {
+    "id": "L07-Q15",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["yw-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「鱼」写作 yú。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yu",
+    "transfer": false
+  },
+  {
+    "id": "L07-Q16",
+    "lessonId": "L07",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["yw-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「雨」写作 yǔ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yu3",
+    "transfer": true
+  }
+]

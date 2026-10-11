@@ -1,0 +1,1797 @@
+.py-app {
+  --py-ink: #253d35;
+  --py-muted: #79847a;
+  --py-green: #456551;
+  --py-line: #e3e6dd;
+  --py-paper: #fffefa;
+  --py-orange: #ae694b;
+  min-height: 100vh;
+  display: flex;
+  background: #f5f6f0;
+  color: var(--py-ink);
+  font-family: 'Inter', 'PingFang SC', 'Microsoft YaHei', system-ui, sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+}
+.py-app * {
+  box-sizing: border-box;
+}
+.py-app h1,
+.py-app h2,
+.py-app h3,
+.py-app p {
+  margin: 0;
+}
+.py-app button,
+.py-app input,
+.py-app select,
+.py-app textarea {
+  font: inherit;
+}
+.py-app button,
+.py-app select {
+  cursor: pointer;
+}
+.py-app button:disabled {
+  cursor: default;
+  opacity: 0.55;
+}
+.py-app a {
+  text-decoration: none;
+  color: inherit;
+}
+.py-app button {
+  color: inherit;
+}
+.py-app button:focus-visible,
+.py-app a:focus-visible,
+.py-app select:focus-visible,
+.py-app textarea:focus-visible,
+.py-app input:focus-visible {
+  outline: 3px solid #ae694b;
+  outline-offset: 4px;
+}
+.py-sidebar {
+  width: 232px;
+  flex: 0 0 232px;
+  border-right: 1px solid var(--py-line);
+  background: #fafbf6;
+  padding: 35px 23px 22px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  display: flex;
+  flex-direction: column;
+}
+.py-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+.py-brand-symbol {
+  width: 43px;
+  height: 43px;
+  background: var(--py-ink);
+  color: #f7f4e8;
+  display: grid;
+  place-items: center;
+  font:
+    italic 24px Georgia,
+    serif;
+  border-radius: 13px;
+}
+.py-brand strong {
+  font-size: 19px;
+  font-weight: 750;
+  letter-spacing: -0.5px;
+}
+.py-brand small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: var(--py-muted);
+}
+.py-sidebar-label {
+  display: block;
+  margin: 49px 12px 13px;
+  color: #939b90;
+  font-size: 11px;
+  letter-spacing: 1px;
+}
+.py-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+}
+.py-nav a {
+  padding: 12px 13px;
+  display: flex;
+  gap: 13px;
+  align-items: center;
+  border-radius: 8px;
+  color: #7c8579;
+  font-size: 13px;
+}
+.py-nav a:hover {
+  background: #f0f2e9;
+}
+.py-nav a.active {
+  color: var(--py-green);
+  background: #e9eedf;
+  font-weight: 700;
+}
+.py-sidebar-bottom {
+  margin-top: auto;
+  padding-top: 40px;
+}
+.py-sidebar-motto {
+  padding: 25px 12px;
+}
+.py-sidebar-motto > span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #959d8d;
+}
+.py-sidebar-motto p {
+  margin-top: 11px;
+  font-size: 21px;
+  line-height: 1.65;
+  color: #71806a;
+  font-weight: 500;
+}
+.py-motto-line {
+  display: block;
+  width: 34px;
+  height: 2px;
+  background: #b3bf9f;
+  margin-top: 24px;
+}
+.py-study-back {
+  border-top: 1px solid var(--py-line);
+  display: flex;
+  gap: 10px;
+  padding: 21px 10px 0;
+  font-size: 11px;
+  color: var(--py-muted) !important;
+}
+.py-study-back span {
+  margin-left: auto;
+}
+.py-main-wrap {
+  width: calc(100% - 232px);
+  min-width: 0;
+}
+.py-main {
+  max-width: 1260px;
+  margin: 0 auto;
+  padding: 32px clamp(22px, 3.2vw, 52px) 45px;
+  min-height: calc(100vh - 68px);
+}
+.py-mobile-brand {
+  display: none;
+}
+.py-topline {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 27px;
+}
+.py-eyebrow {
+  font-size: 10px;
+  letter-spacing: 1.6px;
+  color: #879080;
+  font-weight: 650;
+}
+.py-date {
+  font-size: 11px;
+  color: var(--py-muted);
+}
+.py-pill {
+  display: inline-block;
+  font-size: 10px;
+  color: #697756;
+  background: #eaf0df;
+  padding: 5px 10px;
+  border-radius: 5px;
+  letter-spacing: 0.7px;
+}
+.py-hero {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 35px;
+  margin-bottom: 31px;
+  padding: 15px 0 24px;
+}
+.py-hero h1 {
+  font-size: clamp(31px, 3vw, 46px);
+  letter-spacing: -1.5px;
+  line-height: 1.45;
+  font-weight: 750;
+  margin: 15px 0 14px;
+}
+.py-hero h1 em {
+  font-style: normal;
+  color: #769052;
+}
+.py-hero p {
+  font-size: 13px;
+  line-height: 1.9;
+  color: var(--py-muted);
+  margin-bottom: 23px;
+}
+.py-button {
+  border: 1px solid var(--py-green);
+  background: var(--py-green);
+  color: #fff !important;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  border-radius: 7px;
+  padding: 11px 19px;
+  font-size: 12px;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    background 0.15s,
+    transform 0.15s;
+}
+.py-button:hover {
+  background: #344f3e;
+}
+.py-button:active {
+  transform: translateY(1px);
+}
+.py-secondary {
+  background: transparent;
+  border-color: #d2d9c9;
+  color: var(--py-green) !important;
+}
+.py-secondary:hover {
+  background: #edf1e5;
+}
+.py-hero-note {
+  display: block;
+  margin-top: 10px;
+  color: #939b8b;
+  font-size: 10px;
+}
+.py-tone-art {
+  background: #ebefdf;
+  border: 1px solid #e2e7d3;
+  border-radius: 13px;
+  padding: 25px 26px 18px;
+  position: relative;
+  overflow: hidden;
+  transform: rotate(-1deg);
+}
+.py-art-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 12px;
+  color: #697b56;
+}
+.py-art-label span {
+  font-size: 8px;
+  letter-spacing: 1.8px;
+  color: #98a386;
+}
+.py-art-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 32px 0 27px;
+}
+.py-art-grid > div {
+  text-align: center;
+  color: #5c7c58;
+}
+.py-art-grid > div:nth-child(2) {
+  color: #a98258;
+}
+.py-art-grid > div:nth-child(3) {
+  color: #b26e50;
+}
+.py-art-grid > div:nth-child(4) {
+  color: #6e8690;
+}
+.py-art-grid svg {
+  width: 100%;
+  height: auto;
+}
+.py-art-grid strong {
+  display: block;
+  font-family: Georgia, serif;
+  font-size: clamp(22px, 2.5vw, 36px);
+  font-weight: 400;
+  margin-top: 7px;
+}
+.py-art-grid small {
+  display: block;
+  font-size: 9px;
+  margin-top: 3px;
+  opacity: 0.8;
+}
+.py-art-footer {
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #d9e0c9;
+  padding-top: 13px;
+  color: #91a07d;
+  font-size: 9px;
+  letter-spacing: 1.1px;
+}
+.py-dashboard-strip {
+  display: grid;
+  grid-template-columns: 0.8fr 1.15fr 1.25fr;
+  padding: 23px 25px;
+  border: 1px solid var(--py-line);
+  background: var(--py-paper);
+  border-radius: 11px;
+  margin-bottom: 38px;
+}
+.py-dashboard-strip > * {
+  padding: 0 21px;
+  border-right: 1px solid var(--py-line);
+}
+.py-dashboard-strip > :first-child {
+  padding-left: 0;
+}
+.py-dashboard-strip > :last-child {
+  padding-right: 0;
+  border: 0;
+}
+.py-small-label {
+  display: block;
+  color: var(--py-muted);
+  font-size: 10px;
+  margin-bottom: 7px;
+}
+.py-dashboard-strip strong {
+  display: block;
+  font-size: 24px;
+  line-height: 1.3;
+  font-weight: 650;
+}
+.py-dashboard-strip strong small {
+  font-size: 12px;
+  color: #9da391;
+  font-weight: 400;
+}
+.py-dashboard-strip small {
+  display: block;
+  font-size: 9px;
+  color: #99a08f;
+  margin-top: 7px;
+}
+.py-dashboard-strip strong small {
+  display: inline;
+}
+.py-dashboard-strip .py-next-title {
+  font-size: 13px;
+  padding-top: 5px;
+  line-height: 1.6;
+}
+.py-progress-track {
+  height: 4px;
+  background: #e9edde;
+  border-radius: 8px;
+  overflow: hidden;
+  margin-top: 12px;
+}
+.py-progress-track span {
+  display: block;
+  height: 100%;
+  background: #829763;
+  border-radius: 8px;
+  transition: width 0.2s;
+}
+.py-review-link {
+  display: flex;
+  align-items: center;
+  gap: 13px;
+}
+.py-review-icon {
+  width: 39px;
+  height: 39px;
+  border-radius: 50%;
+  background: #f3ede1;
+  color: #b18a53;
+  flex: 0 0 39px;
+  display: grid;
+  place-items: center;
+}
+.py-review-link strong {
+  font-size: 12px;
+}
+.py-review-link > svg {
+  margin-left: auto;
+  width: 16px;
+  color: #98a38b;
+}
+.py-section-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+  gap: 20px;
+  margin-bottom: 19px;
+}
+.py-section-heading h2 {
+  font-size: 19px;
+  font-weight: 650;
+  margin-top: 6px;
+  letter-spacing: -0.5px;
+}
+.py-muted {
+  color: var(--py-muted);
+  font-size: 11px;
+  line-height: 1.8;
+}
+.py-week-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 17px;
+}
+.py-week {
+  border: 1px solid var(--py-line);
+  border-radius: 10px;
+  background: #fafbf6;
+  padding: 20px;
+}
+.py-week-live {
+  background: var(--py-paper);
+  border-color: #b5c49b;
+}
+.py-week-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid var(--py-line);
+}
+.py-week-number {
+  font-size: 26px;
+  line-height: 1;
+  color: #b7c0a6;
+  font-family: Georgia, serif;
+  padding-right: 2px;
+}
+.py-week-live .py-week-number {
+  color: #718a53;
+}
+.py-week-header .py-eyebrow {
+  font-size: 8px;
+  letter-spacing: 1px;
+}
+.py-week h3 {
+  font-size: 15px;
+  font-weight: 650;
+  margin-top: 4px;
+}
+.py-week-header p {
+  color: #939b8b;
+  font-size: 10px;
+  margin-top: 3px;
+}
+.py-week-status {
+  margin-left: auto;
+  align-self: start;
+  color: #9a9f8e;
+  font-size: 9px;
+  flex-shrink: 0;
+}
+.py-week-live .py-week-status {
+  color: #6d844c;
+  background: #edf2e3;
+  border-radius: 4px;
+  padding: 2px 6px;
+}
+.py-lesson-list {
+  padding-top: 10px;
+}
+.py-lesson-list > a,
+.py-planned-lesson {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-height: 42px;
+  font-size: 11px;
+  border-radius: 6px;
+}
+.py-lesson-list > a {
+  padding: 3px 5px;
+}
+.py-lesson-list > a:hover {
+  background: #f0f4e7;
+}
+.py-lesson-list > a > small {
+  margin-left: auto;
+  font-size: 9px;
+  color: #9ca58e;
+  white-space: nowrap;
+}
+.py-lesson-list > a > span:last-child {
+  color: #a6b292;
+}
+.py-lesson-dot {
+  width: 23px;
+  height: 23px;
+  flex: 0 0 23px;
+  border: 1px solid #e2e7d8;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 8px;
+  color: #859772;
+}
+.py-lesson-dot.done {
+  background: #6e8751;
+  color: #fff;
+  border-color: #6e8751;
+}
+.py-planned-lesson {
+  color: #939b8b;
+}
+.py-planned-lesson > span:first-child {
+  color: #b1b9a4;
+  font-size: 9px;
+  padding: 0 5px;
+}
+.py-planned-lesson small {
+  font-size: 9px;
+  margin-left: auto;
+  color: #b7bda9;
+}
+.py-home-bottom {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 18px;
+  margin-top: 22px;
+}
+.py-lab-teaser {
+  display: flex;
+  gap: 18px;
+  align-items: center;
+  border: 1px solid #e8ddcd;
+  background: #f5eee3;
+  border-radius: 10px;
+  padding: 22px;
+  color: #947554 !important;
+}
+.py-lab-teaser h3 {
+  font-size: 14px;
+  color: #6b583e;
+  margin: 5px 0;
+}
+.py-lab-teaser p {
+  font-size: 10px;
+  color: #a18c71;
+}
+.py-lab-teaser .py-eyebrow {
+  color: #a99274;
+  font-size: 8px;
+}
+.py-lab-teaser > svg:last-child {
+  margin-left: auto;
+  flex-shrink: 0;
+}
+.py-error-teaser {
+  border: 1px solid var(--py-line);
+  border-radius: 10px;
+  padding: 20px;
+}
+.py-error-teaser h3 {
+  font-size: 12px;
+  margin-bottom: 8px;
+}
+.py-error-teaser p,
+.py-error-teaser a {
+  font-size: 10px;
+  color: #8a957d;
+}
+.py-error-teaser a {
+  display: inline-block;
+  margin-top: 10px;
+}
+.py-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin: 12px 0;
+}
+.py-footer {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  border-top: 1px solid var(--py-line);
+  margin: 0 clamp(22px, 3.2vw, 52px);
+  padding: 20px 0;
+  color: #a0a794;
+  font-size: 8px;
+  letter-spacing: 0.8px;
+}
+.py-local-dot {
+  display: inline-block;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: #84956e;
+  margin: 0 6px 2px 17px;
+}
+.py-page-heading {
+  margin: 13px 0 26px;
+}
+.py-page-heading h1 {
+  font-size: clamp(26px, 2.6vw, 35px);
+  line-height: 1.5;
+  letter-spacing: -1px;
+  margin: 10px 0 9px;
+  font-weight: 700;
+}
+.py-page-heading p {
+  font-size: 12px;
+  color: var(--py-muted);
+  max-width: 740px;
+}
+.py-breadcrumb {
+  display: flex;
+  gap: 12px;
+  font-size: 10px;
+  color: #939c87;
+  margin-bottom: 13px;
+}
+.py-lesson-heading {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  align-items: center;
+}
+.py-pause {
+  font-size: 10px;
+  color: #8e997f !important;
+  white-space: nowrap;
+  padding: 10px 0;
+}
+.py-steps {
+  display: flex;
+  gap: 6px;
+  padding: 13px 0 23px;
+  margin-bottom: 22px;
+  border-bottom: 1px solid var(--py-line);
+}
+.py-steps > div {
+  flex: 1;
+  display: flex;
+  gap: 9px;
+  align-items: center;
+  color: #a5ad99;
+  font-size: 11px;
+}
+.py-steps span {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1px solid #dce2d1;
+  display: grid;
+  place-items: center;
+  font-size: 9px;
+}
+.py-steps .active {
+  font-weight: 650;
+  color: #597541;
+}
+.py-steps .active span {
+  background: #597541;
+  color: #fff;
+  border-color: #597541;
+}
+.py-steps .past {
+  color: #8ca774;
+}
+.py-learning-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 235px;
+  gap: 24px;
+  align-items: start;
+}
+.py-learning-main {
+  background: var(--py-paper);
+  border: 1px solid var(--py-line);
+  border-radius: 12px;
+  padding: 27px;
+}
+.py-card-counter,
+.py-question-counter {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  font-size: 10px;
+  color: #96a087;
+}
+.py-question-counter strong {
+  flex-shrink: 0;
+}
+.py-card-counter {
+  margin-bottom: 30px;
+}
+.py-markdown {
+  min-height: 260px;
+  line-height: 1.95;
+  font-size: 14px;
+}
+.py-markdown h2 {
+  font-size: 24px;
+  margin-bottom: 22px;
+  line-height: 1.5;
+  letter-spacing: -0.7px;
+}
+.py-markdown p {
+  margin: 15px 0;
+}
+.py-markdown strong {
+  font-weight: 650;
+}
+.py-markdown code,
+.py-reference-table code,
+.py-keyboard-hint code {
+  color: #b47952;
+  background: #f6efe1;
+  border-radius: 4px;
+  padding: 3px 6px;
+  font:
+    19px Georgia,
+    serif;
+}
+.py-markdown table,
+.py-reference-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 19px 0;
+  text-align: left;
+  font-size: 12px;
+}
+.py-markdown th,
+.py-markdown td,
+.py-reference-table th,
+.py-reference-table td {
+  border-bottom: 1px solid var(--py-line);
+  padding: 9px 8px;
+}
+.py-markdown th,
+.py-reference-table th {
+  color: #8b987c;
+  font-weight: 500;
+  background: #f4f6ed;
+}
+.py-course-actions {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 35px;
+}
+.py-side-note {
+  border: 1px solid #e1e7d4;
+  background: #edf2e3;
+  border-radius: 8px;
+  padding: 20px;
+  color: #6f8459;
+}
+.py-side-note h3 {
+  font-size: 12px;
+  margin: 9px 0 7px;
+}
+.py-side-note p {
+  font-size: 11px;
+  line-height: 1.85;
+}
+.py-card-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 12px;
+  font-size: 10px;
+  color: #8b977c;
+  margin: 16px 0;
+}
+.py-card-controls label,
+.py-toggle {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  cursor: pointer;
+}
+.py-app input[type='checkbox'] {
+  accent-color: var(--py-green);
+}
+.py-word-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.py-word {
+  border: 1px solid var(--py-line);
+  border-radius: 7px;
+  background: #fafbf4;
+  padding: 15px 9px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+.py-word-pinyin {
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 25px;
+  line-height: 1.6;
+}
+.py-word-hanzi {
+  font-size: 11px;
+  color: #939d86;
+  margin: 2px 0 10px;
+}
+.py-sound-wrap {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+}
+.py-sound {
+  border: 1px solid #dfe5d4;
+  border-radius: 6px;
+  background: #f4f7ed;
+  padding: 7px 10px;
+  font-size: 10px !important;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  color: #7e916b !important;
+}
+.py-sound:hover {
+  background: #e8efdc;
+}
+.py-sound-wrap small {
+  font-size: 8px;
+  color: #9ba98a;
+}
+.py-side-reminder {
+  margin: 20px 0 0;
+  padding: 15px 6px;
+  border-top: 1px solid var(--py-line);
+}
+.py-side-reminder p {
+  margin: 10px 0;
+  font-size: 13px;
+  line-height: 1.9;
+  color: #7c8a6d;
+}
+.py-side-reminder small {
+  font-size: 9px;
+  color: #a0a991;
+}
+.py-question {
+  padding-top: 22px;
+}
+.py-question h2 {
+  font-size: 20px;
+  letter-spacing: -0.5px;
+  margin: 15px 0 22px;
+  font-weight: 650;
+  line-height: 1.6;
+}
+.py-question-word {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  border: 1px dashed var(--py-line);
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 25px;
+}
+.py-question-word strong {
+  font-size: 32px;
+  font-weight: 500;
+}
+.py-large-pinyin {
+  font:
+    55px/1.8 Georgia,
+    'Times New Roman',
+    serif;
+  text-align: center;
+  color: #4f6c42;
+  margin: 17px 0;
+}
+.py-options {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 20px 0;
+}
+.py-option-wrap {
+  border: 1px solid #e1e6d7;
+  border-radius: 8px;
+  overflow: hidden;
+}
+.py-option-wrap > button {
+  border: 0;
+  background: #fafbf5;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 13px;
+  width: 100%;
+  min-height: 62px;
+  font-size: 18px;
+}
+.py-option-wrap > button > span:last-child {
+  margin-left: auto;
+}
+.py-option-wrap > button:hover {
+  background: #edf3e4;
+}
+.py-option-letter {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #dce3cf;
+  border-radius: 5px;
+  font-size: 10px;
+  flex-shrink: 0;
+  color: #a0ad8e;
+  display: grid;
+  place-items: center;
+}
+.py-option-wrap.is-correct {
+  border-color: #8ba46b;
+  background: #eef5e5;
+}
+.py-option-wrap.is-wrong {
+  border-color: #d2a98f;
+  background: #fbf0e8;
+}
+.py-audio-options .py-option-wrap {
+  text-align: center;
+  padding-top: 12px;
+}
+.py-audio-options .py-option-wrap > button {
+  font-size: 12px;
+  margin-top: 10px;
+  min-height: 47px;
+}
+.py-read {
+  text-align: center;
+  padding: 10px 0;
+}
+.py-read p {
+  font-size: 11px;
+  color: #929d83;
+  margin: 16px 0 25px;
+}
+.py-revealed {
+  font-size: 24px;
+  margin-bottom: 12px;
+}
+.py-self-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 25px;
+}
+.py-feedback {
+  margin-top: 28px;
+  border: 1px solid #d5e2c6;
+  background: #f0f6e9;
+  border-radius: 8px;
+  padding: 20px;
+}
+.py-feedback.is-wrong {
+  border-color: #e7d0bb;
+  background: #faf1e6;
+}
+.py-feedback strong {
+  display: block;
+  font-size: 15px;
+  margin-bottom: 10px;
+}
+.py-feedback p {
+  font-size: 12px;
+  line-height: 1.9;
+  margin: 8px 0;
+}
+.py-feedback .py-button {
+  margin-top: 14px;
+}
+.py-assemble {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin: 25px 0;
+}
+.py-assemble label {
+  color: #939e85;
+  font-size: 11px;
+}
+.py-assemble select {
+  display: block;
+  padding: 12px;
+  background: #f6f8f0;
+  border: 1px solid #dce4cf;
+  border-radius: 7px;
+  width: 100%;
+  margin-top: 8px;
+}
+.py-input-area {
+  margin: 20px 0;
+}
+.py-input-area label,
+.py-parent > label {
+  display: block;
+  font-size: 11px;
+  color: #859573;
+  margin-bottom: 8px;
+}
+.py-app textarea {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #d6dfc7;
+  background: #fbfcf7;
+  border-radius: 8px;
+  resize: vertical;
+  line-height: 1.7;
+  color: var(--py-ink);
+}
+.py-input-area textarea {
+  font-size: 23px;
+}
+.py-input-area small {
+  display: block;
+  font-size: 10px;
+  line-height: 1.8;
+  color: #9aa58b;
+  margin-top: 8px;
+}
+.py-result {
+  text-align: center;
+  padding: 25px 5px;
+}
+.py-result-icon {
+  width: 65px;
+  height: 65px;
+  border-radius: 50%;
+  background: #ecf2df;
+  color: #849b65;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 20px;
+}
+.py-result h2 {
+  font-size: 25px;
+  margin: 15px 0;
+}
+.py-result p {
+  margin: 12px 0;
+}
+.py-result .py-tags {
+  justify-content: center;
+}
+.py-result-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: center;
+  margin: 27px 0 15px;
+}
+.py-text-button {
+  border: 0;
+  background: transparent;
+  color: #83956b !important;
+  font-size: 11px;
+  padding: 8px 0;
+}
+.py-empty-panel {
+  background: var(--py-paper);
+  border: 1px solid var(--py-line);
+  border-radius: 12px;
+  text-align: center;
+  padding: 50px 30px;
+}
+.py-empty-panel > svg {
+  color: #a1b383;
+  margin: 0 auto 20px;
+}
+.py-empty-panel h2 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+.py-empty-panel p {
+  font-size: 12px;
+  color: #98a185;
+  max-width: 550px;
+  margin: 10px auto;
+}
+.py-lab-guide {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 19px;
+  margin: 27px 0;
+}
+.py-lab-guide > div {
+  border: 1px solid #e1e5d7;
+  border-radius: 9px;
+  padding: 20px;
+  background: #f9faf5;
+}
+.py-lab-guide span {
+  font:
+    22px Georgia,
+    serif;
+  color: #adb99a;
+}
+.py-lab-guide h3 {
+  font-size: 14px;
+  margin: 12px 0 8px;
+}
+.py-lab-guide p {
+  font-size: 11px;
+  color: #8b977c;
+}
+.py-practice-panel {
+  max-width: 740px;
+  padding: 30px;
+  background: var(--py-paper);
+  border: 1px solid var(--py-line);
+  border-radius: 12px;
+  margin: 0 auto;
+}
+.py-keyboard-hint {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 25px;
+  justify-content: center;
+  padding: 17px;
+  background: #f2f5e9;
+  border-radius: 6px;
+  margin-top: 23px;
+  color: #8a9a74;
+  font-size: 11px;
+}
+.py-keyboard-hint strong {
+  font-size: 16px;
+  color: #597744;
+  font-weight: 500;
+}
+.py-toolkit-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 23px;
+  align-items: start;
+}
+.py-toolkit-card {
+  padding: 25px;
+  border: 1px solid var(--py-line);
+  background: var(--py-paper);
+  border-radius: 10px;
+}
+.py-toolkit-card h2 {
+  font-size: 17px;
+  font-weight: 650;
+  margin-bottom: 17px;
+}
+.py-toolkit-card p {
+  font-size: 11px;
+  color: var(--py-muted);
+  margin: 14px 0;
+}
+.py-toolkit-card .py-section-heading h2 {
+  margin-bottom: 0;
+}
+.py-toggle {
+  font-size: 10px;
+  color: #8b987a;
+}
+.py-vowels {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.py-vowels > div > strong {
+  display: block;
+  font:
+    33px Georgia,
+    serif;
+  text-align: center;
+  color: #879c66;
+  margin-bottom: 11px;
+}
+.py-initials {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.py-initials span {
+  font:
+    26px Georgia,
+    serif;
+  background: #f0f4e7;
+  border-radius: 6px;
+  padding: 12px;
+  min-width: 47px;
+  text-align: center;
+}
+.py-reference-table code {
+  font-size: 15px;
+}
+.py-report-summary {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px;
+  margin: 28px 0;
+}
+.py-report-summary > div {
+  border: 1px solid var(--py-line);
+  border-radius: 9px;
+  background: var(--py-paper);
+  padding: 24px;
+}
+.py-report-summary strong {
+  font-size: 35px;
+  font-weight: 600;
+  line-height: 1.9;
+}
+.py-report-summary small {
+  font-size: 14px;
+  color: #a1ac8f;
+  font-weight: 400;
+}
+.py-report-summary p {
+  font-size: 10px;
+  color: #98a388;
+}
+.py-report-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 23px;
+  align-items: start;
+}
+.py-report-grid > div > section + section {
+  margin-top: 20px;
+}
+.py-skill-list > div {
+  margin-top: 23px;
+}
+.py-skill-list > div > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+}
+.py-skill-list small {
+  font-size: 9px;
+  color: #a3ae92;
+}
+.py-error-row {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+  border-bottom: 1px solid #edf0e5;
+  font-size: 11px;
+}
+.py-error-row strong {
+  color: #b0845c;
+  font-size: 10px;
+  font-weight: 500;
+}
+.py-parent .py-toggle {
+  display: flex;
+}
+.py-parent-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-top: 17px;
+}
+.py-danger-button {
+  border: 0;
+  background: transparent;
+  color: #a5917b !important;
+  padding: 6px 0;
+  font-size: 10px !important;
+}
+.py-report-footnote {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  color: #98a687;
+  padding: 25px 0;
+  font-size: 10px;
+}
+.py-report-footnote svg {
+  flex-shrink: 0;
+}
+.py-storage-error,
+.py-parent-banner {
+  padding: 12px 25px;
+  background: #fae9d4;
+  color: #a06539;
+  font-size: 12px;
+}
+.py-storage-error a {
+  margin-left: 15px;
+  text-decoration: underline;
+}
+.py-parent-banner {
+  display: flex;
+  justify-content: space-between;
+  background: #eaf0dc;
+  color: #72914c;
+}
+.py-parent-banner button {
+  border: 0;
+  background: transparent;
+}
+@media (min-width: 1600px) {
+  .py-main {
+    padding-top: 48px;
+  }
+  .py-hero {
+    padding: 25px 0 40px;
+  }
+}
+@media (max-width: 1100px) {
+  .py-sidebar {
+    width: 194px;
+    flex-basis: 194px;
+    padding: 30px 17px 20px;
+  }
+  .py-brand strong {
+    font-size: 16px;
+  }
+  .py-brand small {
+    font-size: 7px;
+  }
+  .py-main-wrap {
+    width: calc(100% - 194px);
+  }
+  .py-hero {
+    gap: 20px;
+  }
+  .py-tone-art {
+    padding: 20px 18px 15px;
+  }
+  .py-dashboard-strip {
+    padding: 20px;
+    grid-template-columns: 0.65fr 1fr 1.15fr;
+  }
+  .py-dashboard-strip > * {
+    padding: 0 15px;
+  }
+  .py-review-icon {
+    display: none;
+  }
+  .py-learning-layout {
+    grid-template-columns: minmax(0, 1fr) 200px;
+    gap: 17px;
+  }
+  .py-learning-main {
+    padding: 24px;
+  }
+  .py-option-wrap > button {
+    font-size: 15px;
+  }
+  .py-week {
+    padding: 16px;
+  }
+}
+@media (max-width: 850px) {
+  .py-app {
+    display: block;
+  }
+  .py-sidebar {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    z-index: 5;
+    padding: 10px 16px;
+    border-right: 0;
+    border-bottom: 1px solid var(--py-line);
+  }
+  .py-brand,
+  .py-sidebar-label,
+  .py-sidebar-bottom {
+    display: none;
+  }
+  .py-nav {
+    flex-direction: row;
+    justify-content: center;
+    gap: 6px;
+  }
+  .py-nav a {
+    padding: 8px 12px;
+    font-size: 11px;
+    gap: 7px;
+  }
+  .py-nav svg {
+    width: 16px;
+  }
+  .py-main-wrap {
+    width: 100%;
+  }
+  .py-main {
+    padding: 22px 25px 32px;
+  }
+  .py-mobile-brand {
+    display: flex;
+    justify-content: space-between;
+    padding: 19px 25px 0;
+    font-size: 11px;
+    color: #879775;
+  }
+  .py-toolkit-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .py-hero h1 {
+    font-size: 35px;
+  }
+}
+@media (max-width: 600px) {
+  .py-nav {
+    justify-content: space-between;
+    gap: 2px;
+  }
+  .py-nav a {
+    flex-direction: column;
+    padding: 6px 5px;
+    gap: 3px;
+    font-size: 9px;
+  }
+  .py-sidebar {
+    padding: 7px 10px;
+  }
+  .py-main {
+    padding: 25px 17px;
+  }
+  .py-mobile-brand {
+    padding: 16px 17px 0;
+  }
+  .py-topline {
+    margin-bottom: 15px;
+  }
+  .py-date {
+    font-size: 9px;
+  }
+  .py-topline .py-eyebrow {
+    font-size: 8px;
+  }
+  .py-hero {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: 6px 0 15px;
+  }
+  .py-hero h1 {
+    font-size: 36px;
+  }
+  .py-hero p {
+    font-size: 12px;
+  }
+  .py-tone-art {
+    transform: none;
+    padding: 22px;
+  }
+  .py-art-grid {
+    padding: 15px 0;
+  }
+  .py-art-grid strong {
+    font-size: 32px;
+  }
+  .py-art-grid svg {
+    max-height: 60px;
+  }
+  .py-dashboard-strip {
+    grid-template-columns: 0.6fr 1fr;
+    gap: 20px;
+    padding: 20px;
+    margin-bottom: 27px;
+  }
+  .py-dashboard-strip > :nth-child(2) {
+    padding: 0;
+    border: 0;
+  }
+  .py-dashboard-strip > :last-child {
+    grid-column: span 2;
+    border-top: 1px solid var(--py-line);
+    padding: 17px 0 0;
+  }
+  .py-dashboard-strip .py-review-icon {
+    display: grid;
+  }
+  .py-week-grid,
+  .py-home-bottom,
+  .py-toolkit-grid,
+  .py-report-grid {
+    grid-template-columns: 1fr;
+  }
+  .py-section-heading {
+    gap: 12px;
+    flex-wrap: wrap;
+  }
+  .py-section-heading h2 {
+    font-size: 18px;
+  }
+  .py-section-heading > .py-muted {
+    display: none;
+  }
+  .py-week {
+    padding: 20px;
+  }
+  .py-lesson-heading {
+    display: block;
+  }
+  .py-pause {
+    display: inline-block;
+    margin-bottom: 20px;
+  }
+  .py-page-heading {
+    margin-bottom: 14px;
+  }
+  .py-steps {
+    gap: 9px;
+    justify-content: space-between;
+  }
+  .py-steps > div {
+    flex-direction: column;
+    gap: 7px;
+    font-size: 9px;
+  }
+  .py-learning-layout {
+    grid-template-columns: 1fr;
+  }
+  .py-learning-main {
+    padding: 20px;
+  }
+  .py-learning-aside {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+  .py-learning-aside .py-word-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+  .py-question h2 {
+    font-size: 18px;
+  }
+  .py-options {
+    gap: 8px;
+  }
+  .py-option-wrap > button {
+    font-size: 14px;
+    padding: 13px 10px;
+  }
+  .py-option-letter {
+    width: 19px;
+    height: 19px;
+  }
+  .py-lab-guide {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+  .py-lab-guide > div {
+    padding: 16px;
+  }
+  .py-lab-guide h3 {
+    display: inline;
+    margin-left: 15px;
+  }
+  .py-lab-guide p {
+    margin-top: 7px;
+  }
+  .py-practice-panel {
+    padding: 20px;
+  }
+  .py-report-summary {
+    gap: 9px;
+  }
+  .py-report-summary > div {
+    padding: 15px 10px;
+  }
+  .py-report-summary strong {
+    font-size: 25px;
+  }
+  .py-report-summary p {
+    font-size: 9px;
+  }
+  .py-report-summary .py-small-label {
+    font-size: 9px;
+  }
+  .py-report-summary small {
+    font-size: 10px;
+  }
+  .py-result h2 {
+    font-size: 22px;
+  }
+  .py-empty-panel {
+    padding: 35px 20px;
+  }
+  .py-empty-panel h2 {
+    font-size: 21px;
+  }
+  .py-lab-teaser {
+    padding: 20px;
+    gap: 12px;
+  }
+  .py-lab-teaser h3 {
+    font-size: 13px;
+  }
+  .py-lab-teaser > svg:first-child {
+    width: 23px;
+    flex-shrink: 0;
+  }
+  .py-footer {
+    margin: 0 17px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .py-app * {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+.py-assessments {
+  margin: 38px 0;
+}
+.py-assessment-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+.py-assessment-grid > a {
+  display: block;
+  padding: 22px;
+  border: 1px solid var(--py-line);
+  border-radius: 14px;
+  background: var(--py-paper);
+  text-decoration: none;
+  color: inherit;
+}
+.py-assessment-grid > a:hover {
+  border-color: var(--py-green);
+}
+.py-assessment-grid h3 {
+  margin: 12px 0;
+  font-size: 19px;
+}
+.py-assessment-grid p {
+  font-size: 13px;
+  line-height: 1.8;
+  color: var(--py-muted);
+}
+.py-assessment-grid small {
+  color: var(--py-green);
+}
+.py-reading-items {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin-bottom: 22px;
+}
+.py-reading-item {
+  padding: 20px;
+  border: 1px solid var(--py-line);
+  border-radius: 12px;
+}
+.py-batch-pinyin {
+  font-size: 27px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+  color: var(--py-green);
+}
+.py-reading-passage {
+  margin-bottom: 24px;
+}
+.py-reading-controls {
+  display: flex;
+  gap: 8px;
+  margin-top: 14px;
+}
+.py-reading-controls button {
+  padding: 9px 16px;
+  border: 1px solid var(--py-line);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+.py-reading-controls .selected {
+  background: #d8e9d9;
+  border-color: #32634d;
+}
+.py-reading-count {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+  margin: 20px 0;
+}
+.py-reading-count input {
+  width: 90px;
+  padding: 12px;
+  border: 1px solid var(--py-line);
+  border-radius: 7px;
+  font: inherit;
+}
+.py-question-word.py-long-target {
+  display: block;
+}
+.py-long-target strong {
+  display: block;
+  font-size: 21px;
+  line-height: 1.9;
+  margin-bottom: 16px;
+}
+.py-read .py-large-pinyin {
+  overflow-wrap: anywhere;
+}
+.py-rule-links {
+  display: grid;
+  gap: 14px;
+}
+.py-rule-links a {
+  color: var(--py-green);
+}
+.py-ability-chart {
+  display: grid;
+  gap: 22px;
+  margin: 24px 0;
+}
+.py-ability-chart > div > div:first-child {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 9px;
+}
+.py-ability-chart small {
+  display: block;
+  margin-top: 7px;
+  color: var(--py-muted);
+}
+.py-certificate {
+  margin: 30px 0;
+  padding: 28px;
+  border: 2px solid #32634d;
+  border-radius: 12px;
+  background: #faf6ee;
+}
+.py-certificate label {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 15px;
+}
+.py-certificate input {
+  padding: 12px;
+  max-width: 100%;
+  border: 1px solid #b7bcae;
+  border-radius: 8px;
+  font: inherit;
+}
+@media (max-width: 900px) {
+  .py-assessment-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 600px) {
+  .py-assessment-grid,
+  .py-reading-items {
+    grid-template-columns: 1fr;
+  }
+  .py-batch-pinyin {
+    font-size: 23px;
+  }
+}
+
+.py-diagnosis-link {
+  display: block;
+  margin-top: 12px;
+  font-size: 13px;
+  color: var(--py-green);
+}

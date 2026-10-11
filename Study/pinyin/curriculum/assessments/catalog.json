@@ -1,0 +1,260 @@
+[
+  {
+    "id": "A00",
+    "title": "开始前的小侦查",
+    "description": "认识哪些声音、字母和键盘？记录现状，不贴“中文初学者”标签，也不锁课程。",
+    "minutes": 7,
+    "afterLesson": null,
+    "groups": [
+      {
+        "id": "observe",
+        "label": "现有基础",
+        "questionIds": [
+          "A00-Q01",
+          "A00-Q02",
+          "A00-Q03",
+          "A00-Q04",
+          "A00-Q05",
+          "A00-Q06",
+          "A00-Q07",
+          "A00-Q08",
+          "A00-Q09",
+          "A00-Q10",
+          "A00-Q11",
+          "A00-Q12"
+        ],
+        "minAccuracy": 0
+      }
+    ],
+    "questionIds": [
+      "A00-Q01",
+      "A00-Q02",
+      "A00-Q03",
+      "A00-Q04",
+      "A00-Q05",
+      "A00-Q06",
+      "A00-Q07",
+      "A00-Q08",
+      "A00-Q09",
+      "A00-Q10",
+      "A00-Q11",
+      "A00-Q12"
+    ],
+    "questionCount": 12
+  },
+  {
+    "id": "A01",
+    "title": "第一周声音地图挑战",
+    "description": "读 12 个已学音节，再给 6 个熟悉汉字找到拼音。",
+    "minutes": 8,
+    "afterLesson": 4,
+    "groups": [
+      {
+        "id": "syllables",
+        "label": "12 个已学音节",
+        "questionIds": ["A01-Q01", "A01-Q02", "A01-Q03"],
+        "minAccuracy": 0.85
+      },
+      {
+        "id": "matching",
+        "label": "6 组汉字与拼音",
+        "questionIds": [
+          "A01-Q04",
+          "A01-Q05",
+          "A01-Q06",
+          "A01-Q07",
+          "A01-Q08",
+          "A01-Q09"
+        ],
+        "minAccuracy": 0.85
+      }
+    ],
+    "questionIds": [
+      "A01-Q01",
+      "A01-Q02",
+      "A01-Q03",
+      "A01-Q04",
+      "A01-Q05",
+      "A01-Q06",
+      "A01-Q07",
+      "A01-Q08",
+      "A01-Q09"
+    ],
+    "questionCount": 9
+  },
+  {
+    "id": "A02",
+    "title": "声母侦探挑战",
+    "description": "听辨容易混的开头，读 10 个已学音节，再准确敲 zh/ch/sh。",
+    "minutes": 8,
+    "afterLesson": 8,
+    "groups": [
+      {
+        "id": "syllables",
+        "label": "10 个音节",
+        "questionIds": ["A02-Q01", "A02-Q02"],
+        "minAccuracy": 0.85
+      },
+      {
+        "id": "contrast",
+        "label": "4 组声母辨音",
+        "questionIds": ["A02-Q03", "A02-Q04", "A02-Q05", "A02-Q06"],
+        "minAccuracy": 0.85
+      },
+      {
+        "id": "typing",
+        "label": "双字母声母键入",
+        "questionIds": ["A02-Q07", "A02-Q08", "A02-Q09"],
+        "minAccuracy": 1
+      }
+    ],
+    "questionIds": [
+      "A02-Q01",
+      "A02-Q02",
+      "A02-Q03",
+      "A02-Q04",
+      "A02-Q05",
+      "A02-Q06",
+      "A02-Q07",
+      "A02-Q08",
+      "A02-Q09"
+    ],
+    "questionCount": 9
+  },
+  {
+    "id": "A03",
+    "title": "拼音密码挑战",
+    "description": "把复韵母和鼻韵母放进六个真实词语；先读，后看汉字验证。",
+    "minutes": 6,
+    "afterLesson": 12,
+    "groups": [
+      {
+        "id": "words",
+        "label": "6 个拼音词语",
+        "questionIds": ["A03-Q01", "A03-Q02"],
+        "minAccuracy": 0.85
+      }
+    ],
+    "questionIds": ["A03-Q01", "A03-Q02"],
+    "questionCount": 2
+  },
+  {
+    "id": "A04",
+    "title": "第四周认读检查",
+    "description": "20 个混合音节、10 个词、2–3 句短文。没达标的音组继续复习，也能体验真实输入法。",
+    "minutes": 15,
+    "afterLesson": 16,
+    "groups": [
+      {
+        "id": "syllables",
+        "label": "20 个带调音节",
+        "questionIds": ["A04-Q01", "A04-Q02", "A04-Q03", "A04-Q04"],
+        "minAccuracy": 0.85
+      },
+      {
+        "id": "words",
+        "label": "10 个两音节词",
+        "questionIds": ["A04-Q05", "A04-Q06"],
+        "minAccuracy": 0.85
+      },
+      {
+        "id": "passage",
+        "label": "拼音短文",
+        "questionIds": ["A04-Q07"],
+        "minAccuracy": 0.85
+      }
+    ],
+    "questionIds": [
+      "A04-Q01",
+      "A04-Q02",
+      "A04-Q03",
+      "A04-Q04",
+      "A04-Q05",
+      "A04-Q06",
+      "A04-Q07"
+    ],
+    "questionCount": 7
+  },
+  {
+    "id": "A05",
+    "title": "给朋友的一条消息",
+    "description": "使用系统中文拼音输入法完成 30–50 字消息，自己检查候选词和标点。",
+    "minutes": 8,
+    "afterLesson": 20,
+    "groups": [
+      {
+        "id": "message",
+        "label": "真实中文消息",
+        "questionIds": ["A05-Q01"],
+        "minAccuracy": 0.9
+      }
+    ],
+    "questionIds": ["A05-Q01"],
+    "questionCount": 1
+  },
+  {
+    "id": "A06",
+    "title": "我的拼音使用挑战",
+    "description": "30 个音节、12 个词、40–60 字短文，加 60–100 字真实中文输入和四项基本操作。可中途保存。",
+    "minutes": 20,
+    "afterLesson": 24,
+    "groups": [
+      {
+        "id": "syllables",
+        "label": "30 个音节",
+        "questionIds": [
+          "A06-Q01",
+          "A06-Q02",
+          "A06-Q03",
+          "A06-Q04",
+          "A06-Q05",
+          "A06-Q06"
+        ],
+        "minCorrect": 26
+      },
+      {
+        "id": "words",
+        "label": "12 个词语",
+        "questionIds": ["A06-Q07", "A06-Q08", "A06-Q09", "A06-Q10"],
+        "minAccuracy": 0.85
+      },
+      {
+        "id": "passage",
+        "label": "40–60 字对应的拼音短文",
+        "questionIds": ["A06-Q11"],
+        "minAccuracy": 0.85
+      },
+      {
+        "id": "operations",
+        "label": "4 项独立输入操作",
+        "questionIds": ["A06-Q12", "A06-Q13", "A06-Q14", "A06-Q15"],
+        "minAccuracy": 1
+      },
+      {
+        "id": "input",
+        "label": "60–100 字真实中文输入",
+        "questionIds": ["A06-Q16"],
+        "minAccuracy": 0.9
+      }
+    ],
+    "questionIds": [
+      "A06-Q01",
+      "A06-Q02",
+      "A06-Q03",
+      "A06-Q04",
+      "A06-Q05",
+      "A06-Q06",
+      "A06-Q07",
+      "A06-Q08",
+      "A06-Q09",
+      "A06-Q10",
+      "A06-Q11",
+      "A06-Q12",
+      "A06-Q13",
+      "A06-Q14",
+      "A06-Q15",
+      "A06-Q16"
+    ],
+    "questionCount": 16
+  }
+]

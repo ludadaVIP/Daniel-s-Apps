@@ -1,0 +1,86 @@
+[
+  {
+    "id": "LAB-Q01",
+    "lessonId": "LAB",
+    "type": "type_pinyin",
+    "phase": "guided",
+    "prompt": "切到英文键盘，输入这个词的无调全拼字母。",
+    "acceptedAnswers": ["nihao"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "规范拼音：nǐ hǎo；常见全拼键入：nihao。键盘拼写通常不输入调号。",
+    "wordId": "nihao"
+  },
+  {
+    "id": "LAB-Q02",
+    "lessonId": "LAB",
+    "type": "type_pinyin",
+    "phase": "guided",
+    "prompt": "切到英文键盘，输入这个词的无调全拼字母。",
+    "acceptedAnswers": ["nv"],
+    "skillIds": ["umlaut"],
+    "errorTag": "spelling_rule",
+    "feedback": "规范拼音：nǚ；常见全拼键入：nv。ü 在支持该规则的输入法中用 v 键入。",
+    "wordId": "nv"
+  },
+  {
+    "id": "LAB-Q03",
+    "lessonId": "LAB",
+    "type": "type_pinyin",
+    "phase": "guided",
+    "prompt": "切到英文键盘，输入这个词的无调全拼字母。",
+    "acceptedAnswers": ["lv"],
+    "skillIds": ["umlaut"],
+    "errorTag": "spelling_rule",
+    "feedback": "规范拼音：lǜ；常见全拼键入：lv。ü 在支持该规则的输入法中用 v 键入。",
+    "wordId": "lv"
+  },
+  {
+    "id": "LAB-Q04",
+    "lessonId": "LAB",
+    "type": "type_pinyin",
+    "phase": "guided",
+    "prompt": "切到英文键盘，输入这个词的无调全拼字母。",
+    "acceptedAnswers": ["xuexiao"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "规范拼音：xuéxiào；常见全拼键入：xuexiao。键盘拼写通常不输入调号。",
+    "wordId": "school"
+  },
+  {
+    "id": "LAB-Q05",
+    "lessonId": "LAB",
+    "type": "type_hanzi_ime",
+    "phase": "guided",
+    "prompt": "切到系统中文拼音输入法，输入目标汉字。",
+    "acceptedAnswers": ["你好"],
+    "skillIds": ["ime"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 nihao，从系统候选词选出「你好」。只检查最终汉字，不按候选顺序评分。",
+    "wordId": "nihao"
+  },
+  {
+    "id": "LAB-Q06",
+    "lessonId": "LAB",
+    "type": "type_hanzi_ime",
+    "phase": "guided",
+    "prompt": "切到系统中文拼音输入法，输入目标汉字。",
+    "acceptedAnswers": ["学校"],
+    "skillIds": ["ime"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 xuexiao，从系统候选词选出「学校」。只检查最终汉字，不按候选顺序评分。",
+    "wordId": "school"
+  },
+  {
+    "id": "LAB-Q07",
+    "lessonId": "LAB",
+    "type": "type_hanzi_ime",
+    "phase": "guided",
+    "prompt": "切到系统中文拼音输入法，输入目标汉字。",
+    "acceptedAnswers": ["我喜欢科学。"],
+    "skillIds": ["ime"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 woxihuankexue，从系统候选词选出「我喜欢科学。」。只检查最终汉字，不按候选顺序评分。",
+    "wordId": "science"
+  }
+]

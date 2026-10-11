@@ -1,0 +1,257 @@
+[
+  {
+    "id": "L04-Q01",
+    "lessonId": "L04",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "快速复习：认出声调再读。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "一声高平，三声先降，四声落下。",
+    "wordId": "ma1"
+  },
+  {
+    "id": "L04-Q02",
+    "lessonId": "L04",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "快速复习：认出声调再读。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "一声高平，三声先降，四声落下。",
+    "wordId": "ma3"
+  },
+  {
+    "id": "L04-Q03",
+    "lessonId": "L04",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "快速复习：认出声调再读。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "一声高平，三声先降，四声落下。",
+    "wordId": "ma4"
+  },
+  {
+    "id": "L04-Q04",
+    "lessonId": "L04",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听词，留意开头是否明显送气。",
+    "acceptedAnswers": ["bā"],
+    "skillIds": ["initial-bp"],
+    "errorTag": "initial_confusion",
+    "feedback": "p、t 的送气更明显；b、d 不送气。可以把小纸条放嘴前感受，不用用力吹。",
+    "options": [
+      {
+        "label": "bā",
+        "value": "bā"
+      },
+      {
+        "label": "pā",
+        "value": "pā"
+      }
+    ],
+    "wordId": "ba1"
+  },
+  {
+    "id": "L04-Q05",
+    "lessonId": "L04",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听词，留意开头是否明显送气。",
+    "acceptedAnswers": ["pà"],
+    "skillIds": ["initial-bp"],
+    "errorTag": "initial_confusion",
+    "feedback": "p、t 的送气更明显；b、d 不送气。可以把小纸条放嘴前感受，不用用力吹。",
+    "options": [
+      {
+        "label": "pà",
+        "value": "pà"
+      },
+      {
+        "label": "bà",
+        "value": "bà"
+      }
+    ],
+    "wordId": "pa4"
+  },
+  {
+    "id": "L04-Q06",
+    "lessonId": "L04",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听词，留意开头是否明显送气。",
+    "acceptedAnswers": ["dà"],
+    "skillIds": ["initial-dt"],
+    "errorTag": "initial_confusion",
+    "feedback": "p、t 的送气更明显；b、d 不送气。可以把小纸条放嘴前感受，不用用力吹。",
+    "options": [
+      {
+        "label": "tà",
+        "value": "tà"
+      },
+      {
+        "label": "dà",
+        "value": "dà"
+      }
+    ],
+    "wordId": "da4"
+  },
+  {
+    "id": "L04-Q07",
+    "lessonId": "L04",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听词，留意开头是否明显送气。",
+    "acceptedAnswers": ["tā"],
+    "skillIds": ["initial-dt"],
+    "errorTag": "initial_confusion",
+    "feedback": "p、t 的送气更明显；b、d 不送气。可以把小纸条放嘴前感受，不用用力吹。",
+    "options": [
+      {
+        "label": "tā",
+        "value": "tā"
+      },
+      {
+        "label": "dā",
+        "value": "dā"
+      }
+    ],
+    "wordId": "ta1"
+  },
+  {
+    "id": "L04-Q08",
+    "lessonId": "L04",
+    "type": "assemble_syllable",
+    "phase": "challenge",
+    "prompt": "把「八」拆成声母、韵母、声调。",
+    "acceptedAnswers": ["b|a|1"],
+    "skillIds": ["blend"],
+    "errorTag": "spelling_rule",
+    "feedback": "b + a + 1 → bā。调号落在韵母上。",
+    "wordId": "ba1",
+    "parts": {
+      "initial": ["b", "p", "m", "f", "d", "t", "n", "l"],
+      "final": ["a", "i", "e", "u"],
+      "tone": ["1", "2", "3", "4"]
+    }
+  },
+  {
+    "id": "L04-Q09",
+    "lessonId": "L04",
+    "type": "assemble_syllable",
+    "phase": "challenge",
+    "prompt": "把「怕」拆成声母、韵母、声调。",
+    "acceptedAnswers": ["p|a|4"],
+    "skillIds": ["blend"],
+    "errorTag": "spelling_rule",
+    "feedback": "p + a + 4 → pà。调号落在韵母上。",
+    "wordId": "pa4",
+    "parts": {
+      "initial": ["b", "p", "m", "f", "d", "t", "n", "l"],
+      "final": ["a", "i", "e", "u"],
+      "tone": ["1", "2", "3", "4"]
+    }
+  },
+  {
+    "id": "L04-Q10",
+    "lessonId": "L04",
+    "type": "assemble_syllable",
+    "phase": "challenge",
+    "prompt": "把「你」拆成声母、韵母、声调。",
+    "acceptedAnswers": ["n|i|3"],
+    "skillIds": ["blend"],
+    "errorTag": "spelling_rule",
+    "feedback": "n + i + 3 → nǐ。调号落在韵母上。",
+    "wordId": "ni",
+    "parts": {
+      "initial": ["b", "p", "m", "f", "d", "t", "n", "l"],
+      "final": ["a", "i", "e", "u"],
+      "tone": ["1", "2", "3", "4"]
+    }
+  },
+  {
+    "id": "L04-Q11",
+    "lessonId": "L04",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听完整的示范词，辨认指定字的拼音。",
+    "acceptedAnswers": ["fā"],
+    "skillIds": ["initial-other"],
+    "errorTag": "initial_confusion",
+    "feedback": "发出中的「发」读 fā；快乐中的「乐」读 lè。多音字要结合语境。",
+    "options": [
+      {
+        "label": "mā",
+        "value": "mā"
+      },
+      {
+        "label": "fā",
+        "value": "fā"
+      }
+    ],
+    "wordId": "fa1"
+  },
+  {
+    "id": "L04-Q12",
+    "lessonId": "L04",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听完整的示范词，辨认指定字的拼音。",
+    "acceptedAnswers": ["lè"],
+    "skillIds": ["initial-other"],
+    "errorTag": "initial_confusion",
+    "feedback": "发出中的「发」读 fā；快乐中的「乐」读 lè。多音字要结合语境。",
+    "options": [
+      {
+        "label": "nè",
+        "value": "nè"
+      },
+      {
+        "label": "lè",
+        "value": "lè"
+      }
+    ],
+    "wordId": "le4"
+  },
+  {
+    "id": "L04-Q13",
+    "lessonId": "L04",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "新的组合，用已学规则自己读。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "spelling_rule",
+    "feedback": "bà 读「爸」。声母、韵母、声调都学过，可以把规则用到新组合。",
+    "wordId": "ba4"
+  },
+  {
+    "id": "L04-Q14",
+    "lessonId": "L04",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "新的组合，用已学规则自己读。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "spelling_rule",
+    "feedback": "pā 读「趴」。声母、韵母、声调都学过，可以把规则用到新组合。",
+    "wordId": "pa1"
+  },
+  {
+    "id": "L04-Q15",
+    "lessonId": "L04",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "新的组合，用已学规则自己读。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "spelling_rule",
+    "feedback": "mǐ 读「米」。声母、韵母、声调都学过，可以把规则用到新组合。",
+    "wordId": "mi3"
+  }
+]

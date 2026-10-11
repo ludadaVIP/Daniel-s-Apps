@@ -1,0 +1,153 @@
+[
+  {
+    "id": "A02-Q01",
+    "lessonId": "A02",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "不看汉字，读出五个音节。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex", "initial-gkh", "initial-jqx"],
+    "errorTag": "reading_decode",
+    "feedback": "先读整组，再逐条核对。按刚才独立读的情况记录每条：读对或需要再练；不要把核对后的跟读当成第一次就会。",
+    "wordIds": ["ge", "ke", "ji", "qu", "xi"]
+  },
+  {
+    "id": "A02-Q02",
+    "lessonId": "A02",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "不看汉字，读出五个音节。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex", "initial-gkh", "initial-jqx"],
+    "errorTag": "reading_decode",
+    "feedback": "先读整组，再逐条核对。按刚才独立读的情况记录每条：读对或需要再练；不要把核对后的跟读当成第一次就会。",
+    "wordIds": ["zhi1", "chi1", "shi1", "ri", "zi4"]
+  },
+  {
+    "id": "A02-Q03",
+    "lessonId": "A02",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["sī"],
+    "skillIds": ["retroflex", "initial-jqx", "initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「丝」的拼音是 sī。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "si1",
+    "options": [
+      {
+        "label": "shī",
+        "value": "shī"
+      },
+      {
+        "label": "sī",
+        "value": "sī"
+      }
+    ]
+  },
+  {
+    "id": "A02-Q04",
+    "lessonId": "A02",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["zhī"],
+    "skillIds": ["retroflex", "initial-jqx", "initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「知」的拼音是 zhī。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "zhi1",
+    "options": [
+      {
+        "label": "zhī",
+        "value": "zhī"
+      },
+      {
+        "label": "zī",
+        "value": "zī"
+      }
+    ]
+  },
+  {
+    "id": "A02-Q05",
+    "lessonId": "A02",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["jī"],
+    "skillIds": ["retroflex", "initial-jqx", "initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「鸡」的拼音是 jī。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "ji",
+    "options": [
+      {
+        "label": "qī",
+        "value": "qī"
+      },
+      {
+        "label": "jī",
+        "value": "jī"
+      }
+    ]
+  },
+  {
+    "id": "A02-Q06",
+    "lessonId": "A02",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["kě"],
+    "skillIds": ["retroflex", "initial-jqx", "initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「可」的拼音是 kě。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "ke",
+    "options": [
+      {
+        "label": "gě",
+        "value": "gě"
+      },
+      {
+        "label": "kě",
+        "value": "kě"
+      }
+    ]
+  },
+  {
+    "id": "A02-Q07",
+    "lessonId": "A02",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["shu"],
+    "skillIds": ["keyboard", "retroflex"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：shū；全拼键入：shu。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "shu",
+    "transfer": false
+  },
+  {
+    "id": "A02-Q08",
+    "lessonId": "A02",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["chi"],
+    "skillIds": ["keyboard", "retroflex"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：chī；全拼键入：chi。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "chi1",
+    "transfer": false
+  },
+  {
+    "id": "A02-Q09",
+    "lessonId": "A02",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["zhi"],
+    "skillIds": ["keyboard", "retroflex"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：zhī；全拼键入：zhi。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "zhi1",
+    "transfer": false
+  }
+]

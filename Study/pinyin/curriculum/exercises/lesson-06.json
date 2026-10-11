@@ -1,0 +1,312 @@
+[
+  {
+    "id": "L06-Q01",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「哥」写作 gē。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ge",
+    "transfer": false
+  },
+  {
+    "id": "L06-Q02",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「可」写作 kě。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ke",
+    "transfer": false
+  },
+  {
+    "id": "L06-Q03",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "「鸡」写作 jī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ji",
+    "transfer": false
+  },
+  {
+    "id": "L06-Q04",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "「去」写作 qù。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "qu",
+    "transfer": false
+  },
+  {
+    "id": "L06-Q05",
+    "lessonId": "L06",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["zī"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "z/c/s 的舌尖靠前；zh/ch/sh 的舌尖稍抬起。h 是组合的一部分，不能漏掉。",
+    "wordId": "zi1",
+    "options": [
+      {
+        "label": "zhī",
+        "value": "zhī"
+      },
+      {
+        "label": "zī",
+        "value": "zī"
+      },
+      {
+        "label": "sī",
+        "value": "sī"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q06",
+    "lessonId": "L06",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["zhī"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "z/c/s 的舌尖靠前；zh/ch/sh 的舌尖稍抬起。h 是组合的一部分，不能漏掉。",
+    "wordId": "zhi1",
+    "options": [
+      {
+        "label": "zhī",
+        "value": "zhī"
+      },
+      {
+        "label": "jī",
+        "value": "jī"
+      },
+      {
+        "label": "zī",
+        "value": "zī"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q07",
+    "lessonId": "L06",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["sī"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "z/c/s 的舌尖靠前；zh/ch/sh 的舌尖稍抬起。h 是组合的一部分，不能漏掉。",
+    "wordId": "si1",
+    "options": [
+      {
+        "label": "shī",
+        "value": "shī"
+      },
+      {
+        "label": "sī",
+        "value": "sī"
+      },
+      {
+        "label": "xī",
+        "value": "xī"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q08",
+    "lessonId": "L06",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["shī"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "z/c/s 的舌尖靠前；zh/ch/sh 的舌尖稍抬起。h 是组合的一部分，不能漏掉。",
+    "wordId": "shi1",
+    "options": [
+      {
+        "label": "chī",
+        "value": "chī"
+      },
+      {
+        "label": "shī",
+        "value": "shī"
+      },
+      {
+        "label": "sī",
+        "value": "sī"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q09",
+    "lessonId": "L06",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["chī"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「吃」的拼音是 chī。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "chi1",
+    "options": [
+      {
+        "label": "qī",
+        "value": "qī"
+      },
+      {
+        "label": "chī",
+        "value": "chī"
+      },
+      {
+        "label": "cī",
+        "value": "cī"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q10",
+    "lessonId": "L06",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["rì"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「日」的拼音是 rì。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "ri",
+    "options": [
+      {
+        "label": "shì",
+        "value": "shì"
+      },
+      {
+        "label": "sì",
+        "value": "sì"
+      },
+      {
+        "label": "rì",
+        "value": "rì"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q11",
+    "lessonId": "L06",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "zh、ch、sh 各是怎样的开头？",
+    "acceptedAnswers": ["各是一个声母，写两个字母"],
+    "skillIds": ["retroflex"],
+    "errorTag": "spelling_rule",
+    "feedback": "zh/ch/sh 各表示一个声母。字母有两个，声音开头只有一组。",
+    "options": [
+      {
+        "label": "只读 z、c、s 就够了",
+        "value": "只读 z、c、s 就够了"
+      },
+      {
+        "label": "两个声母要分开读",
+        "value": "两个声母要分开读"
+      },
+      {
+        "label": "各是一个声母，写两个字母",
+        "value": "各是一个声母，写两个字母"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q12",
+    "lessonId": "L06",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "shī 的开头写哪两个字母？",
+    "acceptedAnswers": ["sh"],
+    "skillIds": ["retroflex"],
+    "errorTag": "spelling_rule",
+    "feedback": "shī 的声母是 sh，不能省掉 h。",
+    "options": [
+      {
+        "label": "ch",
+        "value": "ch"
+      },
+      {
+        "label": "sh",
+        "value": "sh"
+      },
+      {
+        "label": "s",
+        "value": "s"
+      }
+    ]
+  },
+  {
+    "id": "L06-Q13",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「知」写作 zhī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "zhi1",
+    "transfer": false
+  },
+  {
+    "id": "L06-Q14",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「吃」写作 chī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "chi1",
+    "transfer": false
+  },
+  {
+    "id": "L06-Q15",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「茶」写作 chá。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "cha",
+    "transfer": true
+  },
+  {
+    "id": "L06-Q16",
+    "lessonId": "L06",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "「沙」写作 shā。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "sha",
+    "transfer": true
+  }
+]

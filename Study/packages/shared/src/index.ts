@@ -1,6 +1,6 @@
 export type LocalizedText = { en: string; zh: string };
 export type LanguageMode = 'zh' | 'en' | 'bilingual';
-export type SubjectId = 'chemistry' | 'physics' | 'biology';
+export type SubjectId = 'chemistry' | 'physics' | 'biology' | 'pinyin';
 
 export type LessonStatus =
   'not-started' | 'learning' | 'practicing' | 'mastered' | 'review-due';

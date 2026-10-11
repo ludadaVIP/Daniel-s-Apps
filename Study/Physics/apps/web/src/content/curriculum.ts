@@ -1,5 +1,6 @@
 import { t } from './schema';
 export const units = {
+  waves: t('波：从局部振动到传播', 'Waves: from local oscillation to propagation'),
   kinematics: t(
     '运动学：追踪位置、方向与变化',
     'Kinematics: follow position, direction and change',

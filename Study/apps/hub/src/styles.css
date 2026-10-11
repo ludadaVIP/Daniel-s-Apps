@@ -97,7 +97,7 @@ a:focus-visible {
 }
 .study-grid {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 14px;
 }
 .study-card {
@@ -129,6 +129,9 @@ a:focus-visible {
 }
 .study-card-biology {
   --card-accent: #7a6a3a;
+}
+.study-card-pinyin {
+  --card-accent: #6551b4;
 }
 .study-card-top {
   display: flex;

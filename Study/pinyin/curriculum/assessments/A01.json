@@ -1,0 +1,188 @@
+[
+  {
+    "id": "A01-Q01",
+    "lessonId": "A01",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，独立读四个音节。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "reading_decode",
+    "feedback": "先读整组，再逐条核对。按刚才独立读的情况记录每条：读对或需要再练；不要把核对后的跟读当成第一次就会。",
+    "wordIds": ["ni", "ma1", "ba1", "pa4"]
+  },
+  {
+    "id": "A01-Q02",
+    "lessonId": "A01",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，独立读四个音节。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "reading_decode",
+    "feedback": "先读整组，再逐条核对。按刚才独立读的情况记录每条：读对或需要再练；不要把核对后的跟读当成第一次就会。",
+    "wordIds": ["da4", "ta1", "yi", "wu"]
+  },
+  {
+    "id": "A01-Q03",
+    "lessonId": "A01",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，独立读四个音节。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "reading_decode",
+    "feedback": "先读整组，再逐条核对。按刚才独立读的情况记录每条：读对或需要再练；不要把核对后的跟读当成第一次就会。",
+    "wordIds": ["yu", "ba4", "pa1", "mi3"]
+  },
+  {
+    "id": "A01-Q04",
+    "lessonId": "A01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "给「你」找到拼音。",
+    "acceptedAnswers": ["nǐ"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "正确名片是 nǐ。看清字母和声调。",
+    "options": [
+      {
+        "label": "shū",
+        "value": "shū"
+      },
+      {
+        "label": "nǐ",
+        "value": "nǐ"
+      },
+      {
+        "label": "hǎo",
+        "value": "hǎo"
+      }
+    ]
+  },
+  {
+    "id": "A01-Q05",
+    "lessonId": "A01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "给「八」找到拼音。",
+    "acceptedAnswers": ["bā"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "正确名片是 bā。看清字母和声调。",
+    "options": [
+      {
+        "label": "shū",
+        "value": "shū"
+      },
+      {
+        "label": "pà",
+        "value": "pà"
+      },
+      {
+        "label": "bā",
+        "value": "bā"
+      }
+    ]
+  },
+  {
+    "id": "A01-Q06",
+    "lessonId": "A01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "给「妈」找到拼音。",
+    "acceptedAnswers": ["mā"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "正确名片是 mā。看清字母和声调。",
+    "options": [
+      {
+        "label": "shū",
+        "value": "shū"
+      },
+      {
+        "label": "pà",
+        "value": "pà"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      }
+    ]
+  },
+  {
+    "id": "A01-Q07",
+    "lessonId": "A01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "给「大」找到拼音。",
+    "acceptedAnswers": ["dà"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "正确名片是 dà。看清字母和声调。",
+    "options": [
+      {
+        "label": "pà",
+        "value": "pà"
+      },
+      {
+        "label": "dà",
+        "value": "dà"
+      },
+      {
+        "label": "shū",
+        "value": "shū"
+      }
+    ]
+  },
+  {
+    "id": "A01-Q08",
+    "lessonId": "A01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "给「衣」找到拼音。",
+    "acceptedAnswers": ["yī"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "正确名片是 yī。看清字母和声调。",
+    "options": [
+      {
+        "label": "pà",
+        "value": "pà"
+      },
+      {
+        "label": "shū",
+        "value": "shū"
+      },
+      {
+        "label": "yī",
+        "value": "yī"
+      }
+    ]
+  },
+  {
+    "id": "A01-Q09",
+    "lessonId": "A01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "给「鱼」找到拼音。",
+    "acceptedAnswers": ["yú"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "正确名片是 yú。看清字母和声调。",
+    "options": [
+      {
+        "label": "yú",
+        "value": "yú"
+      },
+      {
+        "label": "pà",
+        "value": "pà"
+      },
+      {
+        "label": "shū",
+        "value": "shū"
+      }
+    ]
+  }
+]

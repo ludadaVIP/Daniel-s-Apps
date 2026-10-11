@@ -1,0 +1,308 @@
+[
+  {
+    "id": "L01-Q01",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "review",
+    "prompt": "找到「你」的声音名片。",
+    "acceptedAnswers": ["nǐ"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "汉字和拼音可以记录同一个中文声音。先读熟悉的字，再认它的拼音。",
+    "options": [
+      {
+        "label": "hǎo",
+        "value": "hǎo"
+      },
+      {
+        "label": "nǐ",
+        "value": "nǐ"
+      },
+      {
+        "label": "shū",
+        "value": "shū"
+      }
+    ],
+    "wordId": "ni"
+  },
+  {
+    "id": "L01-Q02",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "review",
+    "prompt": "找到「好」的声音名片。",
+    "acceptedAnswers": ["hǎo"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "汉字和拼音可以记录同一个中文声音。先读熟悉的字，再认它的拼音。",
+    "options": [
+      {
+        "label": "hǎo",
+        "value": "hǎo"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      },
+      {
+        "label": "shū",
+        "value": "shū"
+      }
+    ],
+    "wordId": "hao"
+  },
+  {
+    "id": "L01-Q03",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "review",
+    "prompt": "找到「书」的声音名片。",
+    "acceptedAnswers": ["shū"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "汉字和拼音可以记录同一个中文声音。先读熟悉的字，再认它的拼音。",
+    "options": [
+      {
+        "label": "shū",
+        "value": "shū"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      },
+      {
+        "label": "nǐ",
+        "value": "nǐ"
+      }
+    ],
+    "wordId": "shu"
+  },
+  {
+    "id": "L01-Q04",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "拼音主要帮我们记录什么？",
+    "acceptedAnswers": ["中文的读音"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "拼音记录中文的声音；不是汉字笔画，也不用念英语字母名称。",
+    "options": [
+      {
+        "label": "中文的读音",
+        "value": "中文的读音"
+      },
+      {
+        "label": "英文字母名称",
+        "value": "英文字母名称"
+      },
+      {
+        "label": "汉字的笔画",
+        "value": "汉字的笔画"
+      }
+    ]
+  },
+  {
+    "id": "L01-Q05",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "shū 应该怎样读？",
+    "acceptedAnswers": ["像「书」的中文读音"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "把 shū 当作完整的中文声音「书」。",
+    "options": [
+      {
+        "label": "逐个念英语字母 S、H、U",
+        "value": "逐个念英语字母 S、H、U"
+      },
+      {
+        "label": "像「书」的中文读音",
+        "value": "像「书」的中文读音"
+      }
+    ],
+    "wordId": "shu"
+  },
+  {
+    "id": "L01-Q06",
+    "lessonId": "L01",
+    "type": "read_aloud",
+    "phase": "guided",
+    "prompt": "先读这张声音名片，再核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "mā 读「妈」。先自己读，然后用示范音核对。",
+    "wordId": "ma1"
+  },
+  {
+    "id": "L01-Q07",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "mā 上面的横线是什么？",
+    "acceptedAnswers": ["声调符号"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "横线是声调符号，下一课会继续观察，第三课正式辨调。",
+    "options": [
+      {
+        "label": "声调符号",
+        "value": "声调符号"
+      },
+      {
+        "label": "英语重音",
+        "value": "英语重音"
+      },
+      {
+        "label": "装饰线",
+        "value": "装饰线"
+      }
+    ]
+  },
+  {
+    "id": "L01-Q08",
+    "lessonId": "L01",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，尝试读出来。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "nǐ 是「你」的读音。",
+    "wordId": "ni"
+  },
+  {
+    "id": "L01-Q09",
+    "lessonId": "L01",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，尝试读出来。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "shū 是「书」的读音。",
+    "wordId": "shu"
+  },
+  {
+    "id": "L01-Q10",
+    "lessonId": "L01",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，尝试读出来。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "hǎo 是「好」的读音。",
+    "wordId": "hao"
+  },
+  {
+    "id": "L01-Q11",
+    "lessonId": "L01",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，尝试读出来。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "mā 是「妈」的读音。",
+    "wordId": "ma1"
+  },
+  {
+    "id": "L01-Q12",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "用常见电脑全拼输入「书」，通常敲哪一串？",
+    "acceptedAnswers": ["shu"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "阅读用 shū；电脑全拼通常键入 shu，再选择「书」。",
+    "options": [
+      {
+        "label": "shu",
+        "value": "shu"
+      },
+      {
+        "label": "shū",
+        "value": "shū"
+      },
+      {
+        "label": "书",
+        "value": "书"
+      }
+    ]
+  },
+  {
+    "id": "L01-Q13",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "阅读「你」的规范拼音是哪张？",
+    "acceptedAnswers": ["nǐ"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "阅读时，nǐ 的调号告诉你怎么读。无调 ni 常用在键盘输入。",
+    "options": [
+      {
+        "label": "nǐ",
+        "value": "nǐ"
+      },
+      {
+        "label": "NI",
+        "value": "NI"
+      },
+      {
+        "label": "ni",
+        "value": "ni"
+      }
+    ]
+  },
+  {
+    "id": "L01-Q14",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "拼音和汉字有什么关系？",
+    "acceptedAnswers": ["拼音提示读音，汉字表达意思"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "你已有中文能力，拼音是新增的声音工具。",
+    "options": [
+      {
+        "label": "拼音提示读音，汉字表达意思",
+        "value": "拼音提示读音，汉字表达意思"
+      },
+      {
+        "label": "学拼音必须重新学说中文",
+        "value": "学拼音必须重新学说中文"
+      },
+      {
+        "label": "拼音就是英文",
+        "value": "拼音就是英文"
+      }
+    ]
+  },
+  {
+    "id": "L01-Q15",
+    "lessonId": "L01",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "还不认识拼音时，最有用的第一步是？",
+    "acceptedAnswers": ["听熟悉的中文词，再看声音名片"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "用你已有的中文声音认识拼音，不需要从英语发音猜。",
+    "options": [
+      {
+        "label": "听熟悉的中文词，再看声音名片",
+        "value": "听熟悉的中文词，再看声音名片"
+      },
+      {
+        "label": "按英语字母名称猜读音",
+        "value": "按英语字母名称猜读音"
+      }
+    ]
+  }
+]

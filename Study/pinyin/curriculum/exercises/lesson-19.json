@@ -1,0 +1,240 @@
+[
+  {
+    "id": "L19-Q01",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "review",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["电影"],
+    "skillIds": ["ime-words"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 dianying，根据意思选择「电影」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "dianying"
+  },
+  {
+    "id": "L19-Q02",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "review",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["图书馆"],
+    "skillIds": ["ime-words"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 tushuguan，根据意思选择「图书馆」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "tushuguan"
+  },
+  {
+    "id": "L19-Q03",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "review",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["机器人"],
+    "skillIds": ["ime-words"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 jiqiren，根据意思选择「机器人」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "jiqiren"
+  },
+  {
+    "id": "L19-Q04",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "review",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["科学"],
+    "skillIds": ["ime-words"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 kexue，根据意思选择「科学」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "kexue"
+  },
+  {
+    "id": "L19-Q05",
+    "lessonId": "L19",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "表示“我处在学校这个地点”，在/再应选哪个？",
+    "acceptedAnswers": ["在"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "在说明位置或状态；再表示又一次、之后。它们同读 zài，要按意思选字。",
+    "options": [
+      {
+        "label": "再",
+        "value": "再"
+      },
+      {
+        "label": "在",
+        "value": "在"
+      }
+    ]
+  },
+  {
+    "id": "L19-Q06",
+    "lessonId": "L19",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "表示“明天又见面”，在/再应选哪个？",
+    "acceptedAnswers": ["再"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "再见里的再表示又一次。读音相同，不能仅凭听音决定是哪一个汉字。",
+    "options": [
+      {
+        "label": "再",
+        "value": "再"
+      },
+      {
+        "label": "在",
+        "value": "在"
+      }
+    ]
+  },
+  {
+    "id": "L19-Q07",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "guided",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["我在学校。"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 wozaixuexiao，根据意思选择「我在学校。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "at-school"
+  },
+  {
+    "id": "L19-Q08",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "guided",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["明天再见。"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 mingtianzaijian，根据意思选择「明天再见。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "see-tomorrow"
+  },
+  {
+    "id": "L19-Q09",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["我有时间。"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 woyoushijian，根据意思选择「我有时间。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "have-time"
+  },
+  {
+    "id": "L19-Q10",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["我们做实验。"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 womenzuoshiyan，根据意思选择「我们做实验。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "lab-small"
+  },
+  {
+    "id": "L19-Q11",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["时间"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 shijian，根据意思选择「时间」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "shijian"
+  },
+  {
+    "id": "L19-Q12",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["事情"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 shiqing，根据意思选择「事情」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "shiqing"
+  },
+  {
+    "id": "L19-Q13",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["下次再见。"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 xiacizaijian，根据意思选择「下次再见。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "next-see",
+    "transfer": true
+  },
+  {
+    "id": "L19-Q14",
+    "lessonId": "L19",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["他在看书。"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 tazaikanshu，根据意思选择「他在看书。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "he-reading",
+    "transfer": true
+  },
+  {
+    "id": "L19-Q15",
+    "lessonId": "L19",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "shi 能对应“是、时、事”，输入句子时最可靠的方法是？",
+    "acceptedAnswers": ["结合上下文检查候选词"],
+    "skillIds": ["ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "词库和候选顺序因输入法、使用习惯而不同，最终汉字必须符合句子的意思。",
+    "options": [
+      {
+        "label": "用同音字也总能表达同样意思",
+        "value": "用同音字也总能表达同样意思"
+      },
+      {
+        "label": "永远只选第一个候选",
+        "value": "永远只选第一个候选"
+      },
+      {
+        "label": "结合上下文检查候选词",
+        "value": "结合上下文检查候选词"
+      }
+    ]
+  },
+  {
+    "id": "L19-Q16",
+    "lessonId": "L19",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "“实验”和“时间”都打不对，首先比较什么？",
+    "acceptedAnswers": ["shiyan / shijian 的字母差异"],
+    "skillIds": ["ime-context", "keyboard"],
+    "errorTag": "typo",
+    "feedback": "实验 shíyàn 是 shiyan，时间 shíjiān 是 shijian；先分清拼写错误，再查选词。",
+    "options": [
+      {
+        "label": "shiyan / shijian 的字母差异",
+        "value": "shiyan / shijian 的字母差异"
+      },
+      {
+        "label": "只能换一个输入法",
+        "value": "只能换一个输入法"
+      },
+      {
+        "label": "把所有候选都点一遍",
+        "value": "把所有候选都点一遍"
+      }
+    ]
+  }
+]

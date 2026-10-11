@@ -1,0 +1,254 @@
+[
+  {
+    "id": "L13-Q01",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-back"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「星」写作 xīng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xing",
+    "transfer": false
+  },
+  {
+    "id": "L13-Q02",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-back"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「京」写作 jīng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "jing",
+    "transfer": false
+  },
+  {
+    "id": "L13-Q03",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「林」写作 lín。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "lin",
+    "transfer": false
+  },
+  {
+    "id": "L13-Q04",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「水」写作 shuǐ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "shui",
+    "transfer": false
+  },
+  {
+    "id": "L13-Q05",
+    "lessonId": "L13",
+    "type": "assemble_syllable",
+    "phase": "guided",
+    "prompt": "拆开目标音节，找出正确的声母、书写韵母与声调。",
+    "acceptedAnswers": ["j|ia|1"],
+    "skillIds": ["three-part"],
+    "errorTag": "spelling_rule",
+    "feedback": "j + ia + 1 声 → jiā。这里按经过核对的完整音节判定。",
+    "wordId": "jia",
+    "parts": {
+      "initial": ["j", "q", "x"],
+      "final": ["ia", "iao", "ian"],
+      "tone": ["1", "2", "3", "4"]
+    }
+  },
+  {
+    "id": "L13-Q06",
+    "lessonId": "L13",
+    "type": "assemble_syllable",
+    "phase": "guided",
+    "prompt": "拆开目标音节，找出正确的声母、书写韵母与声调。",
+    "acceptedAnswers": ["g|uo|2"],
+    "skillIds": ["three-part"],
+    "errorTag": "spelling_rule",
+    "feedback": "g + uo + 2 声 → guó。这里按经过核对的完整音节判定。",
+    "wordId": "guo",
+    "parts": {
+      "initial": ["g", "k", "h"],
+      "final": ["ua", "uo", "uan"],
+      "tone": ["1", "2", "3", "4"]
+    }
+  },
+  {
+    "id": "L13-Q07",
+    "lessonId": "L13",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "xiōng 的书写韵母是哪一组？",
+    "acceptedAnswers": ["iong"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "xiōng 的书写韵母是 iong，整组连读，不遗漏开头 i。",
+    "options": [
+      {
+        "label": "ing",
+        "value": "ing"
+      },
+      {
+        "label": "ong",
+        "value": "ong"
+      },
+      {
+        "label": "iong",
+        "value": "iong"
+      }
+    ]
+  },
+  {
+    "id": "L13-Q08",
+    "lessonId": "L13",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "yuǎn 的韵母声音对应哪一组？",
+    "acceptedAnswers": ["üan"],
+    "skillIds": ["three-part"],
+    "errorTag": "spelling_rule",
+    "feedback": "yuǎn 对应 üan；ü 开头没有普通声母时用 yuan 的写法，不按 y + 普通 u 拼。",
+    "options": [
+      {
+        "label": "an",
+        "value": "an"
+      },
+      {
+        "label": "üan",
+        "value": "üan"
+      },
+      {
+        "label": "uan",
+        "value": "uan"
+      }
+    ]
+  },
+  {
+    "id": "L13-Q09",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「前」写作 qián。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "qian",
+    "transfer": true
+  },
+  {
+    "id": "L13-Q10",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「光」写作 guāng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "guang",
+    "transfer": true
+  },
+  {
+    "id": "L13-Q11",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「宽」写作 kuān。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "kuan",
+    "transfer": true
+  },
+  {
+    "id": "L13-Q12",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「下」写作 xià。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xia",
+    "transfer": true
+  },
+  {
+    "id": "L13-Q13",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「秒」写作 miǎo。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "miao",
+    "transfer": true
+  },
+  {
+    "id": "L13-Q14",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「窗」写作 chuāng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "chuang",
+    "transfer": true
+  },
+  {
+    "id": "L13-Q15",
+    "lessonId": "L13",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-words", "three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「熊猫」写作 xióngmāo。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xiongmao",
+    "transfer": true
+  },
+  {
+    "id": "L13-Q16",
+    "lessonId": "L13",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "看到 liǎng，最有用的拆读方式是什么？",
+    "acceptedAnswers": ["l + iang，再连成 liǎng"],
+    "skillIds": ["three-part"],
+    "errorTag": "spelling_rule",
+    "feedback": "liǎng 里有 iang 的完整组合。介音连接得快，末尾 ng 是一个鼻音韵尾。",
+    "options": [
+      {
+        "label": "把 ng 分成两个声音",
+        "value": "把 ng 分成两个声音"
+      },
+      {
+        "label": "分别念五个英语字母",
+        "value": "分别念五个英语字母"
+      },
+      {
+        "label": "l + iang，再连成 liǎng",
+        "value": "l + iang，再连成 liǎng"
+      }
+    ]
+  }
+]

@@ -1,0 +1,318 @@
+[
+  {
+    "id": "L02-Q01",
+    "lessonId": "L02",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先回想上一课的声音名片。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "先读，再核对示范音。",
+    "wordId": "ni"
+  },
+  {
+    "id": "L02-Q02",
+    "lessonId": "L02",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先回想上一课的声音名片。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "先读，再核对示范音。",
+    "wordId": "shu"
+  },
+  {
+    "id": "L02-Q03",
+    "lessonId": "L02",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先回想上一课的声音名片。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "先读，再核对示范音。",
+    "wordId": "ma1"
+  },
+  {
+    "id": "L02-Q04",
+    "lessonId": "L02",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听示范词，找到它的基本韵母。",
+    "acceptedAnswers": ["a"],
+    "skillIds": ["final-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「阿」的基本韵母是 a。听后面的韵母，不要按英文字母名称读。",
+    "options": [
+      {
+        "label": "a",
+        "value": "a"
+      },
+      {
+        "label": "e",
+        "value": "e"
+      },
+      {
+        "label": "o",
+        "value": "o"
+      }
+    ],
+    "wordId": "a"
+  },
+  {
+    "id": "L02-Q05",
+    "lessonId": "L02",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听示范词，找到它的基本韵母。",
+    "acceptedAnswers": ["o"],
+    "skillIds": ["final-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「波」的基本韵母是 o。听后面的韵母，不要按英文字母名称读。",
+    "options": [
+      {
+        "label": "o",
+        "value": "o"
+      },
+      {
+        "label": "a",
+        "value": "a"
+      },
+      {
+        "label": "e",
+        "value": "e"
+      }
+    ],
+    "wordId": "bo"
+  },
+  {
+    "id": "L02-Q06",
+    "lessonId": "L02",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听示范词，找到它的基本韵母。",
+    "acceptedAnswers": ["e"],
+    "skillIds": ["final-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「饿」的基本韵母是 e。听后面的韵母，不要按英文字母名称读。",
+    "options": [
+      {
+        "label": "e",
+        "value": "e"
+      },
+      {
+        "label": "o",
+        "value": "o"
+      },
+      {
+        "label": "a",
+        "value": "a"
+      }
+    ],
+    "wordId": "e"
+  },
+  {
+    "id": "L02-Q07",
+    "lessonId": "L02",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听示范词，找到它的基本韵母。",
+    "acceptedAnswers": ["i"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "「衣」的基本韵母是 i。听后面的韵母，不要按英文字母名称读。",
+    "options": [
+      {
+        "label": "ü",
+        "value": "ü"
+      },
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      }
+    ],
+    "wordId": "yi"
+  },
+  {
+    "id": "L02-Q08",
+    "lessonId": "L02",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听示范词，找到它的基本韵母。",
+    "acceptedAnswers": ["u"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "「乌」的基本韵母是 u。听后面的韵母，不要按英文字母名称读。",
+    "options": [
+      {
+        "label": "ü",
+        "value": "ü"
+      },
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      }
+    ],
+    "wordId": "wu"
+  },
+  {
+    "id": "L02-Q09",
+    "lessonId": "L02",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听示范词，找到它的基本韵母。",
+    "acceptedAnswers": ["ü"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "「鱼」的基本韵母是 ü。yú 的 u 表示 ü 音，完整拼音的书写规则后面再学。",
+    "options": [
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      }
+    ],
+    "wordId": "yu"
+  },
+  {
+    "id": "L02-Q10",
+    "lessonId": "L02",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "ü 上的两点表示什么？",
+    "acceptedAnswers": ["属于字母本身"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "两点属于 ü 字母本身。ü 与 u 是不同的韵母。",
+    "options": [
+      {
+        "label": "属于字母本身",
+        "value": "属于字母本身"
+      },
+      {
+        "label": "轻声",
+        "value": "轻声"
+      },
+      {
+        "label": "第二声",
+        "value": "第二声"
+      }
+    ]
+  },
+  {
+    "id": "L02-Q11",
+    "lessonId": "L02",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "「衣」的基本韵母是什么？",
+    "acceptedAnswers": ["i"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "衣 yī 的基本韵母是 i，嘴角展开。",
+    "options": [
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      }
+    ]
+  },
+  {
+    "id": "L02-Q12",
+    "lessonId": "L02",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "「乌」的基本韵母是什么？",
+    "acceptedAnswers": ["u"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "乌 wū 的基本韵母是 u，嘴唇拢圆。",
+    "options": [
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      }
+    ]
+  },
+  {
+    "id": "L02-Q13",
+    "lessonId": "L02",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "「鱼」的基本韵母是什么？",
+    "acceptedAnswers": ["ü"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "鱼 yú 的基本韵母是 ü：先摆 i 的舌位，再拢圆嘴唇。",
+    "options": [
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      }
+    ]
+  },
+  {
+    "id": "L02-Q14",
+    "lessonId": "L02",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "自己读出这张完整的声音名片。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "yī 读「衣」。yī 对应 i 音，yú 对应 ü 音。",
+    "wordId": "yi"
+  },
+  {
+    "id": "L02-Q15",
+    "lessonId": "L02",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "自己读出这张完整的声音名片。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "yú 读「鱼」。yī 对应 i 音，yú 对应 ü 音。",
+    "wordId": "yu"
+  }
+]

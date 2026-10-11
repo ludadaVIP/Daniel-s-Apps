@@ -1,0 +1,258 @@
+[
+  {
+    "id": "L15-Q01",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "reading_decode",
+    "feedback": "「九」写作 jiǔ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "jiu",
+    "transfer": false
+  },
+  {
+    "id": "L15-Q02",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "reading_decode",
+    "feedback": "「推」写作 tuī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "tui",
+    "transfer": false
+  },
+  {
+    "id": "L15-Q03",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["umlaut-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「女」写作 nǚ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "nv",
+    "transfer": false
+  },
+  {
+    "id": "L15-Q04",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["umlaut-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「去」写作 qù。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "qu",
+    "transfer": false
+  },
+  {
+    "id": "L15-Q05",
+    "lessonId": "L15",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "没有普通声母时，üan 对应哪个写法？",
+    "acceptedAnswers": ["yuan"],
+    "skillIds": ["yw-rule"],
+    "errorTag": "spelling_rule",
+    "feedback": "üan 开头的音节写 yuan；ü 的两点省略。",
+    "options": [
+      {
+        "label": "uan",
+        "value": "uan"
+      },
+      {
+        "label": "yuan",
+        "value": "yuan"
+      },
+      {
+        "label": "yan",
+        "value": "yan"
+      }
+    ]
+  },
+  {
+    "id": "L15-Q06",
+    "lessonId": "L15",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "没有普通声母时，u 开头的 uo 常写成？",
+    "acceptedAnswers": ["wo"],
+    "skillIds": ["yw-rule"],
+    "errorTag": "spelling_rule",
+    "feedback": "u 单独成音节写 wu；uo/ua/uai/uan/uang 前面的 u 常改为 w，得到 wo/wa/wai/wan/wang。",
+    "options": [
+      {
+        "label": "yo",
+        "value": "yo"
+      },
+      {
+        "label": "wo",
+        "value": "wo"
+      },
+      {
+        "label": "uo",
+        "value": "uo"
+      }
+    ]
+  },
+  {
+    "id": "L15-Q07",
+    "lessonId": "L15",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "yǒu 的完整韵母来源是哪组？",
+    "acceptedAnswers": ["iou"],
+    "skillIds": ["yw-rule"],
+    "errorTag": "spelling_rule",
+    "feedback": "无声母的 iou 写 you；接声母缩写为 iu。两种写法要结合开头情况。",
+    "options": [
+      {
+        "label": "iu",
+        "value": "iu"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      },
+      {
+        "label": "iou",
+        "value": "iou"
+      }
+    ]
+  },
+  {
+    "id": "L15-Q08",
+    "lessonId": "L15",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "西安 Xī'ān 为什么需要隔音符号？",
+    "acceptedAnswers": ["分开 xi 和 an，避免当成 xian"],
+    "skillIds": ["boundary"],
+    "errorTag": "syllable_boundary",
+    "feedback": "a/o/e 开头音节接在其他音节后，必要时用隔音符号标清边界；Xī'ān 是 xi + an。",
+    "options": [
+      {
+        "label": "分开 xi 和 an，避免当成 xian",
+        "value": "分开 xi 和 an，避免当成 xian"
+      },
+      {
+        "label": "表示英语所有格",
+        "value": "表示英语所有格"
+      },
+      {
+        "label": "表示声调",
+        "value": "表示声调"
+      }
+    ]
+  },
+  {
+    "id": "L15-Q09",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-second"],
+    "errorTag": "reading_decode",
+    "feedback": "「夜」写作 yè。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ye",
+    "transfer": true
+  },
+  {
+    "id": "L15-Q10",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-second"],
+    "errorTag": "reading_decode",
+    "feedback": "「音」写作 yīn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yin",
+    "transfer": true
+  },
+  {
+    "id": "L15-Q11",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-second"],
+    "errorTag": "reading_decode",
+    "feedback": "「英」写作 yīng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ying",
+    "transfer": true
+  },
+  {
+    "id": "L15-Q12",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["boundary"],
+    "errorTag": "reading_decode",
+    "feedback": "「西安」写作 Xī'ān。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xian-city",
+    "transfer": true
+  },
+  {
+    "id": "L15-Q13",
+    "lessonId": "L15",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["xi'an"],
+    "skillIds": ["boundary", "keyboard"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：Xī'ān；全拼键入：xi'an。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "xian-city",
+    "transfer": true
+  },
+  {
+    "id": "L15-Q14",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["yw-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「用」写作 yòng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yong",
+    "transfer": true
+  },
+  {
+    "id": "L15-Q15",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["yw-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「外」写作 wài。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "wai",
+    "transfer": true
+  },
+  {
+    "id": "L15-Q16",
+    "lessonId": "L15",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["yw-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「弯」写作 wān。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "wan",
+    "transfer": true
+  }
+]

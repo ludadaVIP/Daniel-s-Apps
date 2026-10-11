@@ -1,0 +1,286 @@
+[
+  {
+    "id": "L09-Q01",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「是」写作 shì。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "shi4",
+    "transfer": false
+  },
+  {
+    "id": "L09-Q02",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「去」写作 qù。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "qu",
+    "transfer": false
+  },
+  {
+    "id": "L09-Q03",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-first"],
+    "errorTag": "reading_decode",
+    "feedback": "「木鱼」写作 mùyú。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "muyu",
+    "transfer": false
+  },
+  {
+    "id": "L09-Q04",
+    "lessonId": "L09",
+    "type": "type_pinyin",
+    "phase": "review",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["ni"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：nǐ；全拼键入：ni。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "ni",
+    "transfer": false
+  },
+  {
+    "id": "L09-Q05",
+    "lessonId": "L09",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["ài"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "ai/ei/ao/ou 各是一个复韵母。声音从前一个元音自然滑向后一个，中间不要断开。",
+    "wordId": "ai",
+    "options": [
+      {
+        "label": "èi",
+        "value": "èi"
+      },
+      {
+        "label": "ài",
+        "value": "ài"
+      },
+      {
+        "label": "ǎi",
+        "value": "ǎi"
+      }
+    ]
+  },
+  {
+    "id": "L09-Q06",
+    "lessonId": "L09",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["méi"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "ai/ei/ao/ou 各是一个复韵母。声音从前一个元音自然滑向后一个，中间不要断开。",
+    "wordId": "mei",
+    "options": [
+      {
+        "label": "méi",
+        "value": "méi"
+      },
+      {
+        "label": "móu",
+        "value": "móu"
+      },
+      {
+        "label": "mái",
+        "value": "mái"
+      }
+    ]
+  },
+  {
+    "id": "L09-Q07",
+    "lessonId": "L09",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["hǎo"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "ai/ei/ao/ou 各是一个复韵母。声音从前一个元音自然滑向后一个，中间不要断开。",
+    "wordId": "hao",
+    "options": [
+      {
+        "label": "hǒu",
+        "value": "hǒu"
+      },
+      {
+        "label": "hào",
+        "value": "hào"
+      },
+      {
+        "label": "hǎo",
+        "value": "hǎo"
+      }
+    ]
+  },
+  {
+    "id": "L09-Q08",
+    "lessonId": "L09",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["tóu"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "ai/ei/ao/ou 各是一个复韵母。声音从前一个元音自然滑向后一个，中间不要断开。",
+    "wordId": "tou",
+    "options": [
+      {
+        "label": "tǒu",
+        "value": "tǒu"
+      },
+      {
+        "label": "tóu",
+        "value": "tóu"
+      },
+      {
+        "label": "táo",
+        "value": "táo"
+      }
+    ]
+  },
+  {
+    "id": "L09-Q09",
+    "lessonId": "L09",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "hǎo 的韵母是哪一组？",
+    "acceptedAnswers": ["ao"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "好 hǎo 的韵母是 ao；o 在这里不是单独再念一次。",
+    "options": [
+      {
+        "label": "ao",
+        "value": "ao"
+      },
+      {
+        "label": "ou",
+        "value": "ou"
+      },
+      {
+        "label": "ai",
+        "value": "ai"
+      }
+    ]
+  },
+  {
+    "id": "L09-Q10",
+    "lessonId": "L09",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "「头」tóu 与「桃」táo，不同在哪里？",
+    "acceptedAnswers": ["韵母 ou / ao"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "tóu 与 táo 声母和声调相同，韵母分别是 ou、ao。",
+    "options": [
+      {
+        "label": "韵母 ou / ao",
+        "value": "韵母 ou / ao"
+      },
+      {
+        "label": "声调不同",
+        "value": "声调不同"
+      },
+      {
+        "label": "声母完全不同",
+        "value": "声母完全不同"
+      }
+    ]
+  },
+  {
+    "id": "L09-Q11",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「海」写作 hǎi。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "hai",
+    "transfer": true
+  },
+  {
+    "id": "L09-Q12",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「飞」写作 fēi。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "fei",
+    "transfer": true
+  },
+  {
+    "id": "L09-Q13",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「猫」写作 māo。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "mao",
+    "transfer": true
+  },
+  {
+    "id": "L09-Q14",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「狗」写作 gǒu。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "gou",
+    "transfer": true
+  },
+  {
+    "id": "L09-Q15",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「宝贝」写作 bǎobèi。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "baobei",
+    "transfer": true
+  },
+  {
+    "id": "L09-Q16",
+    "lessonId": "L09",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「老」写作 lǎo。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "lao",
+    "transfer": false
+  }
+]

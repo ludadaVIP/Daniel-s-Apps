@@ -1,0 +1,286 @@
+[
+  {
+    "id": "L10-Q01",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「海」写作 hǎi。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "hai",
+    "transfer": false
+  },
+  {
+    "id": "L10-Q02",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「飞」写作 fēi。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "fei",
+    "transfer": false
+  },
+  {
+    "id": "L10-Q03",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「猫」写作 māo。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "mao",
+    "transfer": false
+  },
+  {
+    "id": "L10-Q04",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a"],
+    "errorTag": "final_confusion",
+    "feedback": "「狗」写作 gǒu。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "gou",
+    "transfer": false
+  },
+  {
+    "id": "L10-Q05",
+    "lessonId": "L10",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["shuǐ"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "水 shuǐ 的书写韵母是 ui。注意 sh 开头和 ui 结尾；ui 的来源在第 14 课讲。",
+    "wordId": "shui",
+    "options": [
+      {
+        "label": "shǔ",
+        "value": "shǔ"
+      },
+      {
+        "label": "shuǐ",
+        "value": "shuǐ"
+      },
+      {
+        "label": "suǐ",
+        "value": "suǐ"
+      }
+    ]
+  },
+  {
+    "id": "L10-Q06",
+    "lessonId": "L10",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["niú"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「牛」的拼音是 niú。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "niu",
+    "options": [
+      {
+        "label": "niú",
+        "value": "niú"
+      },
+      {
+        "label": "nǚ",
+        "value": "nǚ"
+      },
+      {
+        "label": "ní",
+        "value": "ní"
+      }
+    ]
+  },
+  {
+    "id": "L10-Q07",
+    "lessonId": "L10",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["xiě"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「写」的拼音是 xiě。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "xie",
+    "options": [
+      {
+        "label": "xiě",
+        "value": "xiě"
+      },
+      {
+        "label": "xǐ",
+        "value": "xǐ"
+      },
+      {
+        "label": "xuě",
+        "value": "xuě"
+      }
+    ]
+  },
+  {
+    "id": "L10-Q08",
+    "lessonId": "L10",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["xuě"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "雪 xuě 中的 ue 对应 üe 音，x 后 ü 的两点省略；不是普通 u + e。",
+    "wordId": "xue",
+    "options": [
+      {
+        "label": "xiě",
+        "value": "xiě"
+      },
+      {
+        "label": "xuě",
+        "value": "xuě"
+      },
+      {
+        "label": "xǔ",
+        "value": "xǔ"
+      }
+    ]
+  },
+  {
+    "id": "L10-Q09",
+    "lessonId": "L10",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "月 yuè 和雪 xuě，后面对应哪个韵母？",
+    "acceptedAnswers": ["üe"],
+    "skillIds": ["compound-b"],
+    "errorTag": "spelling_rule",
+    "feedback": "yuè/xuě 中省略 ü 上的两点，读 üe；n/l 后的 ü 保留两点。",
+    "options": [
+      {
+        "label": "üe",
+        "value": "üe"
+      },
+      {
+        "label": "ui",
+        "value": "ui"
+      },
+      {
+        "label": "ie",
+        "value": "ie"
+      }
+    ]
+  },
+  {
+    "id": "L10-Q10",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「耳」写作 ěr。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "er",
+    "transfer": false
+  },
+  {
+    "id": "L10-Q11",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「归」写作 guī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "gui",
+    "transfer": true
+  },
+  {
+    "id": "L10-Q12",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「六」写作 liù。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "liu",
+    "transfer": true
+  },
+  {
+    "id": "L10-Q13",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「铁」写作 tiě。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "tie",
+    "transfer": true
+  },
+  {
+    "id": "L10-Q14",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「略（略微）」写作 lüè。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "lv4",
+    "transfer": true
+  },
+  {
+    "id": "L10-Q15",
+    "lessonId": "L10",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-a", "initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "「飞机」写作 fēijī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "feiji",
+    "transfer": true
+  },
+  {
+    "id": "L10-Q16",
+    "lessonId": "L10",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "niú 和 shuǐ 的标调位置有什么不同？",
+    "acceptedAnswers": ["niu 标 u，shui 标 i"],
+    "skillIds": ["compound-b"],
+    "errorTag": "tone_error",
+    "feedback": "先记熟这些词：iu/ui 同时出现时，调号标在后一个元音。第 16 课系统练标调。",
+    "options": [
+      {
+        "label": "niu 标 u，shui 标 i",
+        "value": "niu 标 u，shui 标 i"
+      },
+      {
+        "label": "都标第一个元音",
+        "value": "都标第一个元音"
+      },
+      {
+        "label": "都没有声调",
+        "value": "都没有声调"
+      }
+    ]
+  }
+]

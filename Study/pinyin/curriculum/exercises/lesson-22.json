@@ -1,0 +1,260 @@
+[
+  {
+    "id": "L22-Q01",
+    "lessonId": "L22",
+    "type": "type_pinyin",
+    "phase": "review",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["shu"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：shū；全拼键入：shu。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "shu",
+    "transfer": false
+  },
+  {
+    "id": "L22-Q02",
+    "lessonId": "L22",
+    "type": "type_pinyin",
+    "phase": "review",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["ting"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：tīng；全拼键入：ting。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "ting",
+    "transfer": false
+  },
+  {
+    "id": "L22-Q03",
+    "lessonId": "L22",
+    "type": "type_pinyin",
+    "phase": "review",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["lv"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：lǜ；全拼键入：lv。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "lv",
+    "transfer": false
+  },
+  {
+    "id": "L22-Q04",
+    "lessonId": "L22",
+    "type": "type_pinyin",
+    "phase": "review",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["xi'an"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：Xī'ān；全拼键入：xi'an。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "xian-city",
+    "transfer": false
+  },
+  {
+    "id": "L22-Q05",
+    "lessonId": "L22",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "想输入“书”，却把 shu 敲成 su，问题发生在哪一步？",
+    "acceptedAnswers": ["拼音声母漏了 h"],
+    "skillIds": ["keyboard-repair", "retroflex"],
+    "errorTag": "initial_confusion",
+    "feedback": "sh 和 s 是不同声母；字母串本身错了，应先补 h，再选候选词。",
+    "options": [
+      {
+        "label": "拼音声母漏了 h",
+        "value": "拼音声母漏了 h"
+      },
+      {
+        "label": "汉字笔画太多",
+        "value": "汉字笔画太多"
+      },
+      {
+        "label": "候选词顺序改变",
+        "value": "候选词顺序改变"
+      }
+    ]
+  },
+  {
+    "id": "L22-Q06",
+    "lessonId": "L22",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "想输入“京”，却敲 jin，应该补哪一个字母？",
+    "acceptedAnswers": ["g"],
+    "skillIds": ["keyboard-repair", "nasal-back"],
+    "errorTag": "front_back_nasal",
+    "feedback": "jīng 末尾是 ng，按键 jing；jīn 是另一个音节。",
+    "options": [
+      {
+        "label": "h",
+        "value": "h"
+      },
+      {
+        "label": "g",
+        "value": "g"
+      },
+      {
+        "label": "v",
+        "value": "v"
+      }
+    ]
+  },
+  {
+    "id": "L22-Q07",
+    "lessonId": "L22",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "输入 zai 后选出“再”，但句子需要“我在学校”，错误属于？",
+    "acceptedAnswers": ["同音候选字选择错误"],
+    "skillIds": ["keyboard-repair", "ime-context"],
+    "errorTag": "ime_candidate",
+    "feedback": "在/再的全拼都是 zai；应按语境重新选在，不必乱改正确拼音。",
+    "options": [
+      {
+        "label": "同音候选字选择错误",
+        "value": "同音候选字选择错误"
+      },
+      {
+        "label": "zai 的字母必然拼错",
+        "value": "zai 的字母必然拼错"
+      },
+      {
+        "label": "声调一定输错",
+        "value": "声调一定输错"
+      }
+    ]
+  },
+  {
+    "id": "L22-Q08",
+    "lessonId": "L22",
+    "type": "type_hanzi_ime",
+    "phase": "guided",
+    "prompt": "编辑错误的候选字，表达“我处在学校”。",
+    "acceptedAnswers": ["我在学校。"],
+    "skillIds": ["keyboard-repair"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 wozaixuexiao，根据意思选择「我在学校。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "at-school",
+    "initialText": "我再学校。"
+  },
+  {
+    "id": "L22-Q09",
+    "lessonId": "L22",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["lvsezhiwu"],
+    "skillIds": ["keyboard-repair", "umlaut"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：lǜsè zhíwù；全拼键入：lvsezhiwu。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "lvseshiwu",
+    "transfer": true
+  },
+  {
+    "id": "L22-Q10",
+    "lessonId": "L22",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["xing"],
+    "skillIds": ["keyboard-repair"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：xīng；全拼键入：xing。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "xing",
+    "transfer": false
+  },
+  {
+    "id": "L22-Q11",
+    "lessonId": "L22",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["shu"],
+    "skillIds": ["keyboard-repair"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：shū；全拼键入：shu。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "shu",
+    "transfer": false
+  },
+  {
+    "id": "L22-Q12",
+    "lessonId": "L22",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "只更正这句话里的同音错字。",
+    "acceptedAnswers": ["我在学校。"],
+    "skillIds": ["keyboard-repair"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 wozaixuexiao，根据意思选择「我在学校。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "at-school",
+    "initialText": "我再学校。"
+  },
+  {
+    "id": "L22-Q13",
+    "lessonId": "L22",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "表达明天又来，检查在/再并更正。",
+    "acceptedAnswers": ["明天再来。"],
+    "skillIds": ["keyboard-repair"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 mingtianzailai，根据意思选择「明天再来。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "rewrite-zai",
+    "initialText": "明天在来。",
+    "transfer": true
+  },
+  {
+    "id": "L22-Q14",
+    "lessonId": "L22",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "把“录色”改成正确的颜色词，再检查整句。",
+    "acceptedAnswers": ["这片叶子是绿色的。"],
+    "skillIds": ["keyboard-repair", "umlaut"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 zhepianyezishilvsede，根据意思选择「这片叶子是绿色的。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "green-leaf",
+    "initialText": "这片叶子是录色的。"
+  },
+  {
+    "id": "L22-Q15",
+    "lessonId": "L22",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "把地点问句中的候选错字改正确。",
+    "acceptedAnswers": ["学校在哪里？"],
+    "skillIds": ["keyboard-repair"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 xuexiaozainali，根据意思选择「学校在哪里？」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "where-school",
+    "initialText": "学校在那李？",
+    "transfer": true
+  },
+  {
+    "id": "L22-Q16",
+    "lessonId": "L22",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "遇到一直输入不对的词，最有效的检查顺序是？",
+    "acceptedAnswers": ["先检查拼音字母，再检查最终候选字"],
+    "skillIds": ["keyboard-repair"],
+    "errorTag": "spelling_rule",
+    "feedback": "正确的拼音串和正确的汉字是两次检查；分清错误来源才能修好。",
+    "options": [
+      {
+        "label": "先检查拼音字母，再检查最终候选字",
+        "value": "先检查拼音字母，再检查最终候选字"
+      },
+      {
+        "label": "反复按空格，不看结果",
+        "value": "反复按空格，不看结果"
+      },
+      {
+        "label": "把全部词都改成同音字",
+        "value": "把全部词都改成同音字"
+      }
+    ]
+  }
+]

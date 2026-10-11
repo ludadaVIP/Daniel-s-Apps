@@ -1,0 +1,17 @@
+[
+  {
+    "id": "A05-Q01",
+    "lessonId": "A05",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": [
+      "今天我和朋友在学校看了一本机器人的书。我们想做一个实验，先写下步骤，再用电脑记录结果。"
+    ],
+    "skillIds": ["ime-sentences"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 jintianwohepengyouzaixuexiaokanleyibenjiqirendeshuwomenxiangzuoyigeshiyanxianxiexiabuzhouzaiyongdiannaojilujieguo，根据意思选择「今天我和朋友在学校看了一本机器人的书。我们想做一个实验，先写下步骤，再用电脑记录结果。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "message-week5",
+    "minAccuracy": 0.9
+  }
+]

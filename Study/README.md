@@ -1,10 +1,10 @@
 # Study
 
-Study is a hub for three independent learning apps: Physics, Chemistry, and Biology. Chemistry is the first app. Its product plan is [chemistry/Plan.md](chemistry/Plan.md).
+Study is a hub for four learning apps: Physics, Chemistry, Biology, and Pinyin Detective. Chemistry is the first app. Its product plan is [chemistry/Plan.md](chemistry/Plan.md).
 
 ## Current milestone
 
-The bilingual Study hub has separate entries for Physics, Chemistry, and Biology. Physics now has a working foundation release: 199 bilingual discovery lessons, 198 interactive labs, local progress, a review queue, a discovery notebook, and seven field projects (Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design) with saved drafts and bilingual reports. Its nine-stage curriculum roadmap follows `Physics/Plan.md`; later courses are marked as planned. See [Physics/README.md](Physics/README.md) for implementation and content-extension notes. Chemistry retains its existing courses and experiments; Biology remains a preview.
+The bilingual Study hub has separate entries for Physics, Chemistry, Biology, and Pinyin Detective. Physics now has a working foundation release: 199 bilingual discovery lessons, 198 interactive labs, local progress, a review queue, a discovery notebook, and seven field projects (Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design) with saved drafts and bilingual reports. Its nine-stage curriculum roadmap follows `Physics/Plan.md`; later courses are marked as planned. See [Physics/README.md](Physics/README.md) for implementation and content-extension notes. Chemistry retains its existing courses and experiments; Biology remains a preview. Pinyin Detective now includes a six-week roadmap, four complete Markdown lessons, seven exercise types, local review scheduling, a real IME keyboard lab, and parent reports. See [pinyin/README.md](pinyin/README.md) for acceptance steps and content maintenance.
 
 ## Run locally
 
@@ -17,7 +17,7 @@ pnpm install
 pnpm dev
 ```
 
-Open `http://localhost:3456` for the hub, or `http://localhost:3456/chemistry` for Chemistry, or `http://localhost:3456/physics` for Physics. The browser port is fixed. The API health endpoint is `http://localhost:3001/health` (also proxied as `/api/health` from the hub).
+Open `http://localhost:3456` for the hub, or `http://localhost:3456/chemistry` for Chemistry, or `http://localhost:3456/physics` for Physics, or `http://localhost:3456/pinyin` for Pinyin Detective. The browser port is fixed. The API health endpoint is `http://localhost:3001/health` (also proxied as `/api/health` from the hub).
 
 Quality checks:
 
@@ -41,8 +41,11 @@ chemistry/Plan.md     Chemistry product and curriculum plan
 Physics/apps/web     Physics learner app (also independent on port 3458)
 Physics/Plan.md       Physics curriculum plan
 biology/              Future independent biology app
+pinyin/apps/web       Pinyin Detective learner app (standalone port 3459)
+pinyin/curriculum     Markdown lessons, JSON exercises and reviewed vocabulary
+pinyin/plan.md        Pinyin curriculum plan
 ```
 
-The shared packages contain only mechanisms that can serve all three subjects. In Phase 1, a common content package should own validated bilingual content loading and safe Markdown rendering. Reusable diagram primitives can go in a shared visuals package once chemistry has a concrete use case; chemistry-specific particle, atom, and periodic-table interactions stay in Chemistry. This keeps each app independent without duplicating the learning infrastructure.
+The shared packages contain only mechanisms that can serve multiple learning apps. In Phase 1, a common content package should own validated bilingual content loading and safe Markdown rendering. Reusable diagram primitives can go in a shared visuals package once chemistry has a concrete use case; chemistry-specific particle, atom, and periodic-table interactions stay in Chemistry. This keeps each app independent without duplicating the learning infrastructure.
 
 The app does not currently use a database, accounts, cloud sync, or AI services.

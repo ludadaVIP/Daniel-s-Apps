@@ -1,0 +1,274 @@
+[
+  {
+    "id": "L11-Q01",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「水」写作 shuǐ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "shui",
+    "transfer": false
+  },
+  {
+    "id": "L11-Q02",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「牛」写作 niú。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "niu",
+    "transfer": false
+  },
+  {
+    "id": "L11-Q03",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「写」写作 xiě。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xie",
+    "transfer": false
+  },
+  {
+    "id": "L11-Q04",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["compound-b"],
+    "errorTag": "final_confusion",
+    "feedback": "「雪」写作 xuě。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xue",
+    "transfer": false
+  },
+  {
+    "id": "L11-Q05",
+    "lessonId": "L11",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["lán"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "final_confusion",
+    "feedback": "前鼻韵母结尾是 n；舌尖接近上齿龈收尾。不要丢掉最后的鼻音。",
+    "wordId": "lan",
+    "options": [
+      {
+        "label": "lán",
+        "value": "lán"
+      },
+      {
+        "label": "láo",
+        "value": "láo"
+      },
+      {
+        "label": "lái",
+        "value": "lái"
+      }
+    ]
+  },
+  {
+    "id": "L11-Q06",
+    "lessonId": "L11",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["mén"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "final_confusion",
+    "feedback": "前鼻韵母结尾是 n；舌尖接近上齿龈收尾。不要丢掉最后的鼻音。",
+    "wordId": "men",
+    "options": [
+      {
+        "label": "mén",
+        "value": "mén"
+      },
+      {
+        "label": "méi",
+        "value": "méi"
+      },
+      {
+        "label": "móu",
+        "value": "móu"
+      }
+    ]
+  },
+  {
+    "id": "L11-Q07",
+    "lessonId": "L11",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["xīn"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "final_confusion",
+    "feedback": "前鼻韵母结尾是 n；舌尖接近上齿龈收尾。不要丢掉最后的鼻音。",
+    "wordId": "xin",
+    "options": [
+      {
+        "label": "xī",
+        "value": "xī"
+      },
+      {
+        "label": "xǐ",
+        "value": "xǐ"
+      },
+      {
+        "label": "xīn",
+        "value": "xīn"
+      }
+    ]
+  },
+  {
+    "id": "L11-Q08",
+    "lessonId": "L11",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["lún"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "final_confusion",
+    "feedback": "前鼻韵母结尾是 n；舌尖接近上齿龈收尾。不要丢掉最后的鼻音。",
+    "wordId": "lun",
+    "options": [
+      {
+        "label": "lún",
+        "value": "lún"
+      },
+      {
+        "label": "lǔ",
+        "value": "lǔ"
+      },
+      {
+        "label": "lùn",
+        "value": "lùn"
+      }
+    ]
+  },
+  {
+    "id": "L11-Q09",
+    "lessonId": "L11",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "云 yún 的韵母对应哪组声音？",
+    "acceptedAnswers": ["ün"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "spelling_rule",
+    "feedback": "yún 对应 ün，写法里 ü 的两点省略。它不是普通 u 的 un 音。",
+    "options": [
+      {
+        "label": "un",
+        "value": "un"
+      },
+      {
+        "label": "ün",
+        "value": "ün"
+      },
+      {
+        "label": "in",
+        "value": "in"
+      }
+    ]
+  },
+  {
+    "id": "L11-Q10",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「山」写作 shān。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "shan",
+    "transfer": true
+  },
+  {
+    "id": "L11-Q11",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「本」写作 běn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ben",
+    "transfer": true
+  },
+  {
+    "id": "L11-Q12",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「金」写作 jīn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "jin",
+    "transfer": true
+  },
+  {
+    "id": "L11-Q13",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「群」写作 qún。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "qun",
+    "transfer": true
+  },
+  {
+    "id": "L11-Q14",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front", "compound-a"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「轮胎」写作 lúntāi。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "luntai",
+    "transfer": true
+  },
+  {
+    "id": "L11-Q15",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「信心」写作 xìnxīn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xinxin",
+    "transfer": true
+  },
+  {
+    "id": "L11-Q16",
+    "lessonId": "L11",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-front"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「云」写作 yún。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yun",
+    "transfer": false
+  }
+]

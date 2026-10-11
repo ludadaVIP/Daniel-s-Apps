@@ -1,0 +1,258 @@
+[
+  {
+    "id": "L14-Q01",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「家」写作 jiā。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "jia",
+    "transfer": false
+  },
+  {
+    "id": "L14-Q02",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「国」写作 guó。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "guo",
+    "transfer": false
+  },
+  {
+    "id": "L14-Q03",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「兄」写作 xiōng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xiong",
+    "transfer": false
+  },
+  {
+    "id": "L14-Q04",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["three-part"],
+    "errorTag": "final_confusion",
+    "feedback": "「远」写作 yuǎn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yuan",
+    "transfer": false
+  },
+  {
+    "id": "L14-Q05",
+    "lessonId": "L14",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "iou 接声母后，常写成哪组？",
+    "acceptedAnswers": ["iu"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "spelling_rule",
+    "feedback": "iou 接声母后缩写为 iu，例如 niú；缩写后不要漏敲 u。",
+    "options": [
+      {
+        "label": "iu",
+        "value": "iu"
+      },
+      {
+        "label": "ui",
+        "value": "ui"
+      },
+      {
+        "label": "ou",
+        "value": "ou"
+      }
+    ]
+  },
+  {
+    "id": "L14-Q06",
+    "lessonId": "L14",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "uei 接声母后，常写成哪组？",
+    "acceptedAnswers": ["ui"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "spelling_rule",
+    "feedback": "uei 接声母后缩写为 ui，例如 guī、shuǐ。",
+    "options": [
+      {
+        "label": "iu",
+        "value": "iu"
+      },
+      {
+        "label": "ei",
+        "value": "ei"
+      },
+      {
+        "label": "ui",
+        "value": "ui"
+      }
+    ]
+  },
+  {
+    "id": "L14-Q07",
+    "lessonId": "L14",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "uen 接声母后，常写成哪组？",
+    "acceptedAnswers": ["un"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "spelling_rule",
+    "feedback": "uen 接声母后缩写为 un，例如 lún。这里的 u 是普通 u 音。",
+    "options": [
+      {
+        "label": "en",
+        "value": "en"
+      },
+      {
+        "label": "un",
+        "value": "un"
+      },
+      {
+        "label": "uan",
+        "value": "uan"
+      }
+    ]
+  },
+  {
+    "id": "L14-Q08",
+    "lessonId": "L14",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "j q x 后的 ü 两点什么时候省略？",
+    "acceptedAnswers": ["拼写中省略，但仍读 ü 音"],
+    "skillIds": ["umlaut-rule"],
+    "errorTag": "spelling_rule",
+    "feedback": "jū/qù/xǔ 的 u 表示 ü 音；nǚ/lǜ 后 ü 两点要保留。",
+    "options": [
+      {
+        "label": "拼写中省略，但仍读 ü 音",
+        "value": "拼写中省略，但仍读 ü 音"
+      },
+      {
+        "label": "省略后改读普通 u 音",
+        "value": "省略后改读普通 u 音"
+      },
+      {
+        "label": "任何声母后都省略",
+        "value": "任何声母后都省略"
+      }
+    ]
+  },
+  {
+    "id": "L14-Q09",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "reading_decode",
+    "feedback": "「九」写作 jiǔ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "jiu",
+    "transfer": true
+  },
+  {
+    "id": "L14-Q10",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "reading_decode",
+    "feedback": "「推」写作 tuī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "tui",
+    "transfer": true
+  },
+  {
+    "id": "L14-Q11",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["abbreviation"],
+    "errorTag": "reading_decode",
+    "feedback": "「吨」写作 dūn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "dun",
+    "transfer": true
+  },
+  {
+    "id": "L14-Q12",
+    "lessonId": "L14",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["nv"],
+    "skillIds": ["umlaut"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：nǚ；全拼键入：nv。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "nv",
+    "transfer": false
+  },
+  {
+    "id": "L14-Q13",
+    "lessonId": "L14",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["lv"],
+    "skillIds": ["umlaut"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：lǜ；全拼键入：lv。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "lv",
+    "transfer": false
+  },
+  {
+    "id": "L14-Q14",
+    "lessonId": "L14",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["lvse"],
+    "skillIds": ["umlaut"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：lǜsè；全拼键入：lvse。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "lvse",
+    "transfer": true
+  },
+  {
+    "id": "L14-Q15",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["umlaut-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「女儿」写作 nǚ'ér。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "nver",
+    "transfer": true
+  },
+  {
+    "id": "L14-Q16",
+    "lessonId": "L14",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["umlaut-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「取」写作 qǔ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "qu4",
+    "transfer": true
+  }
+]

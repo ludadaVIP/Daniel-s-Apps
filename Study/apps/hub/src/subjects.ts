@@ -57,4 +57,20 @@ export const subjects: Subject[] = [
     available: false,
     path: '/biology',
   },
+  {
+    id: 'pinyin',
+    number: '04',
+    name: { zh: '拼音侦探', en: 'Pinyin' },
+    phrase: {
+      zh: '解码中文的声音，把想法打出来。',
+      en: 'Decode Chinese sounds. Type your ideas.',
+    },
+    question: {
+      zh: '你会说的中文，怎样用字母写出来？',
+      en: 'How do letters unlock the Chinese you know?',
+    },
+    status: { zh: '前四课已开放', en: 'First four lessons open' },
+    available: true,
+    path: '/pinyin',
+  },
 ];

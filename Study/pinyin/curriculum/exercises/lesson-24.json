@@ -1,0 +1,256 @@
+[
+  {
+    "id": "L24-Q01",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["nasal-back"],
+    "errorTag": "front_back_nasal",
+    "feedback": "「京」写作 jīng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "jing",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q02",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-second"],
+    "errorTag": "reading_decode",
+    "feedback": "「远」写作 yuǎn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yuan",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q03",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["umlaut-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「女」写作 nǚ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "nv",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q04",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-second"],
+    "errorTag": "reading_decode",
+    "feedback": "「英」写作 yīng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ying",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q05",
+    "lessonId": "L24",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "综合测评中的 30 个音节，建议至少读对多少个？",
+    "acceptedAnswers": ["26 个"],
+    "skillIds": ["reading-words"],
+    "errorTag": "spelling_rule",
+    "feedback": "目标是30个中至少26个，允许自我纠正，不以速度施压。",
+    "options": [
+      {
+        "label": "必须每秒读一个",
+        "value": "必须每秒读一个"
+      },
+      {
+        "label": "26 个",
+        "value": "26 个"
+      },
+      {
+        "label": "只读对 10 个就够",
+        "value": "只读对 10 个就够"
+      }
+    ]
+  },
+  {
+    "id": "L24-Q06",
+    "lessonId": "L24",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "真实输入任务关注的是？",
+    "acceptedAnswers": ["最终汉字正确、能自己选词和更正"],
+    "skillIds": ["independent"],
+    "errorTag": "spelling_rule",
+    "feedback": "实际使用拼音的能力比输入速度更重要，候选排名因系统而异。",
+    "options": [
+      {
+        "label": "每分钟必须达到固定字数",
+        "value": "每分钟必须达到固定字数"
+      },
+      {
+        "label": "候选词永远排第一",
+        "value": "候选词永远排第一"
+      },
+      {
+        "label": "最终汉字正确、能自己选词和更正",
+        "value": "最终汉字正确、能自己选词和更正"
+      }
+    ]
+  },
+  {
+    "id": "L24-Q07",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "guided",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-words"],
+    "errorTag": "reading_decode",
+    "feedback": "「熊猫」写作 xióngmāo。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xiongmao",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q08",
+    "lessonId": "L24",
+    "type": "type_hanzi_ime",
+    "phase": "guided",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["请把我的发现记下来。"],
+    "skillIds": ["ime-sentences"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 qingbawodefaxianjixialai，根据意思选择「请把我的发现记下来。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "outside-msg"
+  },
+  {
+    "id": "L24-Q09",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-passage"],
+    "errorTag": "reading_decode",
+    "feedback": "「你在看书吗？」写作 Nǐ zài kàn shū ma?。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "you-reading",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q10",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-words"],
+    "errorTag": "reading_decode",
+    "feedback": "「机器人」写作 jīqìrén。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "jiqiren",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q11",
+    "lessonId": "L24",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-words"],
+    "errorTag": "reading_decode",
+    "feedback": "「图书馆」写作 túshūguǎn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "tushuguan",
+    "transfer": false
+  },
+  {
+    "id": "L24-Q12",
+    "lessonId": "L24",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["你今天想看什么书？"],
+    "skillIds": ["ime-sentences"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 nijintianxiangkanshenmeshu，根据意思选择「你今天想看什么书？」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "book-question"
+  },
+  {
+    "id": "L24-Q13",
+    "lessonId": "L24",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["nver"],
+    "skillIds": ["keyboard", "umlaut"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：nǚ'ér；全拼键入：nver。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "nver",
+    "transfer": true
+  },
+  {
+    "id": "L24-Q14",
+    "lessonId": "L24",
+    "type": "type_hanzi_ime",
+    "phase": "challenge",
+    "prompt": "用系统中文拼音输入法，输入目标文字。",
+    "acceptedAnswers": ["请先检查记录，再告诉我结果。"],
+    "skillIds": ["independent"],
+    "errorTag": "ime_candidate",
+    "feedback": "可键入 qingxianjianchajiluzaigaosuwojieguo，根据意思选择「请先检查记录，再告诉我结果。」。检查最终汉字和标点，不要求候选词排在固定位置。",
+    "wordId": "check-report",
+    "transfer": true
+  },
+  {
+    "id": "L24-Q15",
+    "lessonId": "L24",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "课后怎样保持拼音的使用能力？",
+    "acceptedAnswers": ["每周两次：一次读短文，一次用全拼写真实消息"],
+    "skillIds": ["independent"],
+    "errorTag": "spelling_rule",
+    "feedback": "每次5–10分钟，把拼音自然用在中文读写表达里。",
+    "options": [
+      {
+        "label": "每周两次：一次读短文，一次用全拼写真实消息",
+        "value": "每周两次：一次读短文，一次用全拼写真实消息"
+      },
+      {
+        "label": "只反复点熟悉的四选一",
+        "value": "只反复点熟悉的四选一"
+      },
+      {
+        "label": "以后不用读，也不用打字",
+        "value": "以后不用读，也不用打字"
+      }
+    ]
+  },
+  {
+    "id": "L24-Q16",
+    "lessonId": "L24",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "遇到不会读的规范音节，已经学会的策略是？",
+    "acceptedAnswers": ["找声韵母、调号和特殊写法，再连读"],
+    "skillIds": ["reading-words"],
+    "errorTag": "spelling_rule",
+    "feedback": "先解码再核对，把规则带到新的音节和真实场景。",
+    "options": [
+      {
+        "label": "只按英文字母名称念",
+        "value": "只按英文字母名称念"
+      },
+      {
+        "label": "任何词都凭汉字猜",
+        "value": "任何词都凭汉字猜"
+      },
+      {
+        "label": "找声韵母、调号和特殊写法，再连读",
+        "value": "找声韵母、调号和特殊写法，再连读"
+      }
+    ]
+  }
+]

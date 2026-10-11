@@ -1,0 +1,402 @@
+[
+  {
+    "id": "L03-Q01",
+    "lessonId": "L03",
+    "type": "audio_to_pinyin",
+    "phase": "review",
+    "prompt": "回顾：听词，找到基本韵母。",
+    "acceptedAnswers": ["i"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "这个词的基本韵母是 i。",
+    "options": [
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      }
+    ],
+    "wordId": "yi"
+  },
+  {
+    "id": "L03-Q02",
+    "lessonId": "L03",
+    "type": "audio_to_pinyin",
+    "phase": "review",
+    "prompt": "回顾：听词，找到基本韵母。",
+    "acceptedAnswers": ["u"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "这个词的基本韵母是 u。",
+    "options": [
+      {
+        "label": "ü",
+        "value": "ü"
+      },
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      }
+    ],
+    "wordId": "wu"
+  },
+  {
+    "id": "L03-Q03",
+    "lessonId": "L03",
+    "type": "audio_to_pinyin",
+    "phase": "review",
+    "prompt": "回顾：听词，找到基本韵母。",
+    "acceptedAnswers": ["ü"],
+    "skillIds": ["final-iu"],
+    "errorTag": "final_confusion",
+    "feedback": "这个词的基本韵母是 ü。",
+    "options": [
+      {
+        "label": "i",
+        "value": "i"
+      },
+      {
+        "label": "u",
+        "value": "u"
+      },
+      {
+        "label": "ü",
+        "value": "ü"
+      }
+    ],
+    "wordId": "yu"
+  },
+  {
+    "id": "L03-Q04",
+    "lessonId": "L03",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听声音，选出带对调号的拼音。",
+    "acceptedAnswers": ["mā"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "一声 mā 高平；二声 má 上扬；三声 mǎ 先降后升；四声 mà 快速下降。",
+    "options": [
+      {
+        "label": "má",
+        "value": "má"
+      },
+      {
+        "label": "mǎ",
+        "value": "mǎ"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      },
+      {
+        "label": "mà",
+        "value": "mà"
+      }
+    ],
+    "wordId": "ma1"
+  },
+  {
+    "id": "L03-Q05",
+    "lessonId": "L03",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听声音，选出带对调号的拼音。",
+    "acceptedAnswers": ["má"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "一声 mā 高平；二声 má 上扬；三声 mǎ 先降后升；四声 mà 快速下降。",
+    "options": [
+      {
+        "label": "mǎ",
+        "value": "mǎ"
+      },
+      {
+        "label": "mà",
+        "value": "mà"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      },
+      {
+        "label": "má",
+        "value": "má"
+      }
+    ],
+    "wordId": "ma2"
+  },
+  {
+    "id": "L03-Q06",
+    "lessonId": "L03",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听声音，选出带对调号的拼音。",
+    "acceptedAnswers": ["mǎ"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "一声 mā 高平；二声 má 上扬；三声 mǎ 先降后升；四声 mà 快速下降。",
+    "options": [
+      {
+        "label": "má",
+        "value": "má"
+      },
+      {
+        "label": "mǎ",
+        "value": "mǎ"
+      },
+      {
+        "label": "mà",
+        "value": "mà"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      }
+    ],
+    "wordId": "ma3"
+  },
+  {
+    "id": "L03-Q07",
+    "lessonId": "L03",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听声音，选出带对调号的拼音。",
+    "acceptedAnswers": ["mà"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "一声 mā 高平；二声 má 上扬；三声 mǎ 先降后升；四声 mà 快速下降。",
+    "options": [
+      {
+        "label": "mà",
+        "value": "mà"
+      },
+      {
+        "label": "má",
+        "value": "má"
+      },
+      {
+        "label": "mǎ",
+        "value": "mǎ"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      }
+    ],
+    "wordId": "ma4"
+  },
+  {
+    "id": "L03-Q08",
+    "lessonId": "L03",
+    "type": "pinyin_to_audio",
+    "phase": "challenge",
+    "prompt": "看调号，试听并选出对应的读音。",
+    "acceptedAnswers": ["ma3"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "mǎ 对应「马」。把注意力放在声音的走向。",
+    "display": "mǎ",
+    "options": [
+      {
+        "label": "声音 1",
+        "value": "ma4",
+        "wordId": "ma4"
+      },
+      {
+        "label": "声音 2",
+        "value": "ma3",
+        "wordId": "ma3"
+      },
+      {
+        "label": "声音 3",
+        "value": "ma1",
+        "wordId": "ma1"
+      },
+      {
+        "label": "声音 4",
+        "value": "ma2",
+        "wordId": "ma2"
+      }
+    ]
+  },
+  {
+    "id": "L03-Q09",
+    "lessonId": "L03",
+    "type": "pinyin_to_audio",
+    "phase": "challenge",
+    "prompt": "看调号，试听并选出对应的读音。",
+    "acceptedAnswers": ["ma2"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "má 对应「麻」。把注意力放在声音的走向。",
+    "display": "má",
+    "options": [
+      {
+        "label": "声音 1",
+        "value": "ma1",
+        "wordId": "ma1"
+      },
+      {
+        "label": "声音 2",
+        "value": "ma3",
+        "wordId": "ma3"
+      },
+      {
+        "label": "声音 3",
+        "value": "ma4",
+        "wordId": "ma4"
+      },
+      {
+        "label": "声音 4",
+        "value": "ma2",
+        "wordId": "ma2"
+      }
+    ]
+  },
+  {
+    "id": "L03-Q10",
+    "lessonId": "L03",
+    "type": "pinyin_to_audio",
+    "phase": "challenge",
+    "prompt": "看调号，试听并选出对应的读音。",
+    "acceptedAnswers": ["ma4"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "mà 对应「骂」。把注意力放在声音的走向。",
+    "display": "mà",
+    "options": [
+      {
+        "label": "声音 1",
+        "value": "ma4",
+        "wordId": "ma4"
+      },
+      {
+        "label": "声音 2",
+        "value": "ma1",
+        "wordId": "ma1"
+      },
+      {
+        "label": "声音 3",
+        "value": "ma2",
+        "wordId": "ma2"
+      },
+      {
+        "label": "声音 4",
+        "value": "ma3",
+        "wordId": "ma3"
+      }
+    ]
+  },
+  {
+    "id": "L03-Q11",
+    "lessonId": "L03",
+    "type": "pinyin_to_audio",
+    "phase": "challenge",
+    "prompt": "看调号，试听并选出对应的读音。",
+    "acceptedAnswers": ["ma1"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "mā 对应「妈」。把注意力放在声音的走向。",
+    "display": "mā",
+    "options": [
+      {
+        "label": "声音 1",
+        "value": "ma3",
+        "wordId": "ma3"
+      },
+      {
+        "label": "声音 2",
+        "value": "ma4",
+        "wordId": "ma4"
+      },
+      {
+        "label": "声音 3",
+        "value": "ma1",
+        "wordId": "ma1"
+      },
+      {
+        "label": "声音 4",
+        "value": "ma2",
+        "wordId": "ma2"
+      }
+    ]
+  },
+  {
+    "id": "L03-Q12",
+    "lessonId": "L03",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "「好吗？」的「吗」是轻声，怎么写？",
+    "acceptedAnswers": ["ma"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "轻声不标调号，写 ma。听「好吗？」里的最后一个字，轻而短。",
+    "options": [
+      {
+        "label": "mā",
+        "value": "mā"
+      },
+      {
+        "label": "má",
+        "value": "má"
+      },
+      {
+        "label": "mǎ",
+        "value": "mǎ"
+      },
+      {
+        "label": "ma",
+        "value": "ma"
+      }
+    ],
+    "wordId": "ma0"
+  },
+  {
+    "id": "L03-Q13",
+    "lessonId": "L03",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，先读再核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "先看调号，读完整音节。三声单读时先降再升，连读时可能只降。",
+    "wordId": "ma1"
+  },
+  {
+    "id": "L03-Q14",
+    "lessonId": "L03",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，先读再核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "先看调号，读完整音节。三声单读时先降再升，连读时可能只降。",
+    "wordId": "ma3"
+  },
+  {
+    "id": "L03-Q15",
+    "lessonId": "L03",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "只看拼音，先读再核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tones"],
+    "errorTag": "tone_error",
+    "feedback": "先看调号，读完整音节。三声单读时先降再升，连读时可能只降。",
+    "wordId": "ma4"
+  }
+]

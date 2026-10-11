@@ -1,0 +1,304 @@
+[
+  {
+    "id": "L05-Q01",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "reading_decode",
+    "feedback": "「八」写作 bā。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ba1",
+    "transfer": false
+  },
+  {
+    "id": "L05-Q02",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "reading_decode",
+    "feedback": "「怕」写作 pà。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "pa4",
+    "transfer": false
+  },
+  {
+    "id": "L05-Q03",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "reading_decode",
+    "feedback": "「大」写作 dà。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "da4",
+    "transfer": false
+  },
+  {
+    "id": "L05-Q04",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["blend"],
+    "errorTag": "reading_decode",
+    "feedback": "「你」写作 nǐ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ni",
+    "transfer": false
+  },
+  {
+    "id": "L05-Q05",
+    "lessonId": "L05",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["gē"],
+    "skillIds": ["initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "gē 的开头是 g；k 的送气更明显，h 有摩擦声。",
+    "wordId": "ge",
+    "options": [
+      {
+        "label": "kē",
+        "value": "kē"
+      },
+      {
+        "label": "hē",
+        "value": "hē"
+      },
+      {
+        "label": "gē",
+        "value": "gē"
+      }
+    ]
+  },
+  {
+    "id": "L05-Q06",
+    "lessonId": "L05",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["kě"],
+    "skillIds": ["initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "kě 的 k 要送气。先听「可以」，再注意开头的气流。",
+    "wordId": "ke",
+    "options": [
+      {
+        "label": "gě",
+        "value": "gě"
+      },
+      {
+        "label": "hě",
+        "value": "hě"
+      },
+      {
+        "label": "kě",
+        "value": "kě"
+      }
+    ]
+  },
+  {
+    "id": "L05-Q07",
+    "lessonId": "L05",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["jī"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "jī 不是英语字母 J 的名字。j 是短开头，和 i 连成「鸡」。",
+    "wordId": "ji",
+    "options": [
+      {
+        "label": "qī",
+        "value": "qī"
+      },
+      {
+        "label": "jī",
+        "value": "jī"
+      },
+      {
+        "label": "xī",
+        "value": "xī"
+      }
+    ]
+  },
+  {
+    "id": "L05-Q08",
+    "lessonId": "L05",
+    "type": "audio_to_pinyin",
+    "phase": "guided",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["qù"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "去 qù 是四声；q 后的 u 表示 ü 音，不读普通 u。省略两点的完整规则在第 14 课。",
+    "wordId": "qu",
+    "options": [
+      {
+        "label": "xù",
+        "value": "xù"
+      },
+      {
+        "label": "qǔ",
+        "value": "qǔ"
+      },
+      {
+        "label": "qù",
+        "value": "qù"
+      }
+    ]
+  },
+  {
+    "id": "L05-Q09",
+    "lessonId": "L05",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["hē"],
+    "skillIds": ["initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「喝」的拼音是 hē。比较选项不同的字母或调号，再听一遍。",
+    "wordId": "he",
+    "options": [
+      {
+        "label": "hē",
+        "value": "hē"
+      },
+      {
+        "label": "kē",
+        "value": "kē"
+      },
+      {
+        "label": "gē",
+        "value": "gē"
+      }
+    ]
+  },
+  {
+    "id": "L05-Q10",
+    "lessonId": "L05",
+    "type": "audio_to_pinyin",
+    "phase": "challenge",
+    "prompt": "听中文声音，选出第一个音节的拼音。",
+    "acceptedAnswers": ["xǐ"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "xǐ 读「洗」，留意 x 的摩擦声。不要读成英语 X。",
+    "wordId": "xi",
+    "options": [
+      {
+        "label": "jǐ",
+        "value": "jǐ"
+      },
+      {
+        "label": "xǐ",
+        "value": "xǐ"
+      },
+      {
+        "label": "qǐ",
+        "value": "qǐ"
+      }
+    ]
+  },
+  {
+    "id": "L05-Q11",
+    "lessonId": "L05",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "j q x 后的 u，在 qù 中表示什么声音？",
+    "acceptedAnswers": ["ü 音"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "spelling_rule",
+    "feedback": "qù 里的 u 是 ü 去掉两点的写法。先会读这个真实音节，后面再总结规则。",
+    "options": [
+      {
+        "label": "ü 音",
+        "value": "ü 音"
+      },
+      {
+        "label": "英语 U 的字母名",
+        "value": "英语 U 的字母名"
+      },
+      {
+        "label": "普通 u 音",
+        "value": "普通 u 音"
+      }
+    ]
+  },
+  {
+    "id": "L05-Q12",
+    "lessonId": "L05",
+    "type": "assemble_syllable",
+    "phase": "challenge",
+    "prompt": "拆开目标音节，找出正确的声母、书写韵母与声调。",
+    "acceptedAnswers": ["g|e|1"],
+    "skillIds": ["initial-gkh", "blend"],
+    "errorTag": "spelling_rule",
+    "feedback": "g + e + 1 声 → gē。这里按经过核对的完整音节判定。",
+    "wordId": "ge",
+    "parts": {
+      "initial": ["g", "k", "h"],
+      "final": ["a", "e", "i"],
+      "tone": ["1", "2", "3", "4"]
+    }
+  },
+  {
+    "id": "L05-Q13",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「嘎」写作 gā。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ga",
+    "transfer": true
+  },
+  {
+    "id": "L05-Q14",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-gkh"],
+    "errorTag": "initial_confusion",
+    "feedback": "「哈」写作 hā。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ha",
+    "transfer": true
+  },
+  {
+    "id": "L05-Q15",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "「七」写作 qī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "qi",
+    "transfer": true
+  },
+  {
+    "id": "L05-Q16",
+    "lessonId": "L05",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["initial-jqx"],
+    "errorTag": "initial_confusion",
+    "feedback": "「许」写作 xǔ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xu",
+    "transfer": true
+  }
+]

@@ -1,0 +1,283 @@
+[
+  {
+    "id": "L16-Q01",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-second"],
+    "errorTag": "reading_decode",
+    "feedback": "「远」写作 yuǎn。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "yuan",
+    "transfer": false
+  },
+  {
+    "id": "L16-Q02",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["whole-second"],
+    "errorTag": "reading_decode",
+    "feedback": "「英」写作 yīng。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "ying",
+    "transfer": false
+  },
+  {
+    "id": "L16-Q03",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["boundary"],
+    "errorTag": "reading_decode",
+    "feedback": "「西安」写作 Xī'ān。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "xian-city",
+    "transfer": false
+  },
+  {
+    "id": "L16-Q04",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "review",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["umlaut-rule"],
+    "errorTag": "reading_decode",
+    "feedback": "「绿」写作 lǜ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "lv",
+    "transfer": false
+  },
+  {
+    "id": "L16-Q05",
+    "lessonId": "L16",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "hǎo 的调号为什么标在 a？",
+    "acceptedAnswers": ["有 a，先标 a"],
+    "skillIds": ["tone-placement"],
+    "errorTag": "tone_error",
+    "feedback": "标调先找 a；没有 a 再找 o/e；iu/ui 并列时标后一个。",
+    "options": [
+      {
+        "label": "总标第一个字母",
+        "value": "总标第一个字母"
+      },
+      {
+        "label": "因为 o 不会带调号",
+        "value": "因为 o 不会带调号"
+      },
+      {
+        "label": "有 a，先标 a",
+        "value": "有 a，先标 a"
+      }
+    ]
+  },
+  {
+    "id": "L16-Q06",
+    "lessonId": "L16",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "liú 和 guī 的标调位置是哪组？",
+    "acceptedAnswers": ["liú / guī"],
+    "skillIds": ["tone-placement"],
+    "errorTag": "tone_error",
+    "feedback": "iu 标 u，ui 标 i：有 a 不放过，无 a 找 o/e，iu/ui 标后一个。",
+    "options": [
+      {
+        "label": "líu / gūi",
+        "value": "líu / gūi"
+      },
+      {
+        "label": "liu / gui",
+        "value": "liu / gui"
+      },
+      {
+        "label": "liú / guī",
+        "value": "liú / guī"
+      }
+    ]
+  },
+  {
+    "id": "L16-Q07",
+    "lessonId": "L16",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "朋友 péngyou 的第二个音节怎么写？",
+    "acceptedAnswers": ["you，不标调号"],
+    "skillIds": ["connected-speech"],
+    "errorTag": "tone_error",
+    "feedback": "这里的朋友通常读轻声 péngyou；轻声不标调号，读轻而短。",
+    "options": [
+      {
+        "label": "yǒu，必须都带调",
+        "value": "yǒu，必须都带调"
+      },
+      {
+        "label": "you，不标调号",
+        "value": "you，不标调号"
+      },
+      {
+        "label": "yōu，一律用一声",
+        "value": "yōu，一律用一声"
+      }
+    ]
+  },
+  {
+    "id": "L16-Q08",
+    "lessonId": "L16",
+    "type": "contrast_pairs",
+    "phase": "guided",
+    "prompt": "「你好」连读时，书面拼音通常保留什么？",
+    "acceptedAnswers": ["nǐ hǎo"],
+    "skillIds": ["connected-speech"],
+    "errorTag": "tone_error",
+    "feedback": "两个三声相连，第一个常读得像二声；规范书面拼音一般保留原调 nǐ hǎo。",
+    "options": [
+      {
+        "label": "nǐ hǎo",
+        "value": "nǐ hǎo"
+      },
+      {
+        "label": "必须去掉所有调号",
+        "value": "必须去掉所有调号"
+      },
+      {
+        "label": "必须写 ní hǎo",
+        "value": "必须写 ní hǎo"
+      }
+    ]
+  },
+  {
+    "id": "L16-Q09",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tone-placement"],
+    "errorTag": "tone_error",
+    "feedback": "「柳」写作 liǔ。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "liu3",
+    "transfer": true
+  },
+  {
+    "id": "L16-Q10",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["tone-placement", "reading-words"],
+    "errorTag": "tone_error",
+    "feedback": "「手机」写作 shǒujī。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "shouji",
+    "transfer": true
+  },
+  {
+    "id": "L16-Q11",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-passage"],
+    "errorTag": "reading_decode",
+    "feedback": "「我们看书。」写作 Wǒmen kàn shū.。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "we-read",
+    "transfer": true
+  },
+  {
+    "id": "L16-Q12",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-passage", "connected-speech"],
+    "errorTag": "tone_error",
+    "feedback": "「你在看书吗？」写作 Nǐ zài kàn shū ma?。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "you-reading",
+    "transfer": true
+  },
+  {
+    "id": "L16-Q13",
+    "lessonId": "L16",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "「不是」自然连读时，「不」常听起来是哪种调？",
+    "acceptedAnswers": ["二声，因后面是四声"],
+    "skillIds": ["connected-speech"],
+    "errorTag": "tone_error",
+    "feedback": "不在四声前常读二声，如口语 bú shì；常规书面注音可保留 bù shì。不要混淆发音与字面标调。",
+    "options": [
+      {
+        "label": "轻声，不发完整音",
+        "value": "轻声，不发完整音"
+      },
+      {
+        "label": "始终只能是四声",
+        "value": "始终只能是四声"
+      },
+      {
+        "label": "二声，因后面是四声",
+        "value": "二声，因后面是四声"
+      }
+    ]
+  },
+  {
+    "id": "L16-Q14",
+    "lessonId": "L16",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "「一个」口语里，一常听起来是哪种调？",
+    "acceptedAnswers": ["二声，后面个是四声"],
+    "skillIds": ["connected-speech"],
+    "errorTag": "tone_error",
+    "feedback": "一在四声前常读二声，如口语 yí gè；在一、二、三声前常读四声。常规书写可保留 yī。",
+    "options": [
+      {
+        "label": "二声，后面个是四声",
+        "value": "二声，后面个是四声"
+      },
+      {
+        "label": "只会是原来的一声",
+        "value": "只会是原来的一声"
+      },
+      {
+        "label": "没有发音",
+        "value": "没有发音"
+      }
+    ]
+  },
+  {
+    "id": "L16-Q15",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-passage", "connected-speech"],
+    "errorTag": "tone_error",
+    "feedback": "「你好，朋友！」写作 Nǐ hǎo, péngyou!。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "good-friend",
+    "transfer": true
+  },
+  {
+    "id": "L16-Q16",
+    "lessonId": "L16",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先独立读拼音，再揭示汉字核对。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["reading-passage"],
+    "errorTag": "reading_decode",
+    "feedback": "「晚上，我看见窗外有一颗星。小猫走到窗前，安静地看着天空。我把这个发现记在本子上。」写作 Wǎnshang, wǒ kànjiàn chuāngwài yǒu yī kē xīng. Xiǎomāo zǒu dào chuāng qián, ānjìng de kànzhe tiānkōng. Wǒ bǎ zhège fāxiàn jì zài běnzi shàng.。先按已学规则拆音节，再连起来读；遇到轻声要轻而短。",
+    "wordId": "story-w4",
+    "transfer": true,
+    "readingTotal": 35
+  }
+]

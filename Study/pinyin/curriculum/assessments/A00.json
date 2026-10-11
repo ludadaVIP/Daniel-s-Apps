@@ -1,0 +1,253 @@
+[
+  {
+    "id": "A00-Q01",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "看到「你」，你认识它对应的拼音吗？",
+    "acceptedAnswers": ["nǐ"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "这是课前观察，答案是 nǐ。不会可以从第一课开始。",
+    "options": [
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      },
+      {
+        "label": "nǐ",
+        "value": "nǐ"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q02",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "看到「好」，你认识它对应的拼音吗？",
+    "acceptedAnswers": ["hǎo"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "这是课前观察，答案是 hǎo。不会可以从第一课开始。",
+    "options": [
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      },
+      {
+        "label": "hǎo",
+        "value": "hǎo"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q03",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "看到「书」，你认识它对应的拼音吗？",
+    "acceptedAnswers": ["shū"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "这是课前观察，答案是 shū。不会可以从第一课开始。",
+    "options": [
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      },
+      {
+        "label": "shū",
+        "value": "shū"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q04",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "看到「妈」，你认识它对应的拼音吗？",
+    "acceptedAnswers": ["mā"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "这是课前观察，答案是 mā。不会可以从第一课开始。",
+    "options": [
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      },
+      {
+        "label": "mā",
+        "value": "mā"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q05",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "看到「衣」，你认识它对应的拼音吗？",
+    "acceptedAnswers": ["yī"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "这是课前观察，答案是 yī。不会可以从第一课开始。",
+    "options": [
+      {
+        "label": "yī",
+        "value": "yī"
+      },
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q06",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "看到「鱼」，你认识它对应的拼音吗？",
+    "acceptedAnswers": ["yú"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "这是课前观察，答案是 yú。不会可以从第一课开始。",
+    "options": [
+      {
+        "label": "yú",
+        "value": "yú"
+      },
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q07",
+    "lessonId": "A00",
+    "type": "read_aloud",
+    "phase": "challenge",
+    "prompt": "先试着读六张拼音名片；不会的也如实记录。",
+    "acceptedAnswers": ["self"],
+    "skillIds": ["map"],
+    "errorTag": "reading_decode",
+    "feedback": "先读整组，再逐条核对。按刚才独立读的情况记录每条：读对或需要再练；不要把核对后的跟读当成第一次就会。",
+    "wordIds": ["ni", "ma1", "shu", "xue", "hao", "yu"]
+  },
+  {
+    "id": "A00-Q08",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "书的开头是哪组？",
+    "acceptedAnswers": ["sh"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "本题只记录你已经认识哪些声母；还不会的内容会按课程逐步学习。",
+    "options": [
+      {
+        "label": "s",
+        "value": "s"
+      },
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      },
+      {
+        "label": "sh",
+        "value": "sh"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q09",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "八的开头是哪组？",
+    "acceptedAnswers": ["b"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "本题只记录你已经认识哪些声母；还不会的内容会按课程逐步学习。",
+    "options": [
+      {
+        "label": "b",
+        "value": "b"
+      },
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      },
+      {
+        "label": "p",
+        "value": "p"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q10",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "鸡的开头是哪组？",
+    "acceptedAnswers": ["j"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "本题只记录你已经认识哪些声母；还不会的内容会按课程逐步学习。",
+    "options": [
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      },
+      {
+        "label": "j",
+        "value": "j"
+      },
+      {
+        "label": "q",
+        "value": "q"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q11",
+    "lessonId": "A00",
+    "type": "contrast_pairs",
+    "phase": "challenge",
+    "prompt": "字的开头是哪组？",
+    "acceptedAnswers": ["z"],
+    "skillIds": ["map"],
+    "errorTag": "spelling_rule",
+    "feedback": "本题只记录你已经认识哪些声母；还不会的内容会按课程逐步学习。",
+    "options": [
+      {
+        "label": "zh",
+        "value": "zh"
+      },
+      {
+        "label": "z",
+        "value": "z"
+      },
+      {
+        "label": "还不认识",
+        "value": "还不认识"
+      }
+    ]
+  },
+  {
+    "id": "A00-Q12",
+    "lessonId": "A00",
+    "type": "type_pinyin",
+    "phase": "challenge",
+    "prompt": "切到英文键盘，用无调全拼写出目标词。",
+    "acceptedAnswers": ["zhongwen"],
+    "skillIds": ["keyboard"],
+    "errorTag": "typo",
+    "feedback": "阅读拼音：Zhōngwén；全拼键入：zhongwen。逐音节检查字母，ü 的常见按键是 v。",
+    "wordId": "zhongwen",
+    "transfer": false
+  }
+]
