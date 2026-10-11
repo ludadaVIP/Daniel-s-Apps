@@ -1,6 +1,6 @@
 # Physics Lab · 物理探索室
 
-A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 153 complete bilingual lessons, 152 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
+A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 199 complete bilingual lessons, 198 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
 
 ## Use
 
@@ -178,6 +178,33 @@ The foundation path follows Appendix A of the plan:
 151. One journey. Why are there three average velocities? / 同一趟路，平均速度为什么有三个答案？
 152. Does negative acceleration always mean slowing down? / 加速度为负，车一定越来越慢吗？
 153. The same 4 m/s increase takes different times. How rapid is the change? / 同样增加4 m/s，用时不同，改变有多急？
+
+154. Why is the cart motionless at the highest point of its curve? / 小车在曲线最高处，为什么反而不动？
+155. Why subtract the return area under a velocity graph? / 速度图里，回程的面积为什么要扣掉？
+156. Why does the cart keep moving when its acceleration graph becomes zero? / 加速度图变成零，小车为什么还在走？
+157. Does speeding up every second guarantee uniform acceleration? / 每秒都在变快，就一定是匀加速吗？
+158. How do you choose one useful motion equation from three? / 三个运动公式，怎样挑一个有用的？
+159. Does two seconds of free fall mean only twice the drop? / 自由下落2秒，比1秒只多落一倍吗？
+160. Why doesn’t faster horizontal flight keep a ball airborne longer? / 球向前飞得更快，为什么不多待在空中？
+
+161. Must a cart slow down when you stop pushing? / 不再推，小车一定会慢下来吗？
+162. When both sides pull, which force belongs in the equation? / 两边都在拉，应该把哪个力放进公式？
+163. Does doubling force necessarily double a cart’s velocity? / 推力加倍，小车的速度一定加倍吗？
+164. Why does the loaded cart gain speed more slowly under the same force? / 同样的推力，满载小车为什么起步更慢？
+165. Whom should you circle before drawing a force diagram? / 画受力图前，先给谁画一个圈？
+166. Why does the lighter cart change motion more when two carts push each other? / 两车互相推，为什么轻车改变得更多？
+167. A push did not move it. Is friction already at its maximum? / 推了一下没动，摩擦力已经到最大了吗？
+168. Same weight: why does a shape that catches more air fall more slowly? / 同样重，为什么更“兜风”的形状掉得慢？
+169. A fall stops getting faster. Has gravity disappeared? / 下落不再变快，是重力消失了吗？
+170. The elevator is still going up. Why can the scale reading get smaller? / 电梯还向上，为什么秤的读数反而变小？
+171. The engine is inside the car. Who supplies the external forward force? / 发动机在车内，谁给整辆车向前的外力？
+172. With no surrounding air, can a thruster still move a craft? / 周围没有空气，喷气飞行器还能前进吗？
+173. Empty and full shopping carts: does equal speed mean equal momentum? / 空购物车和满购物车：同速就一样吗？
+174. Two carts stick together. Where did the momentum go? / 两车黏住后，动量去哪了？
+175. Bounce or stick: does conserved momentum also mean conserved kinetic energy? / 弹开和黏住：动量守恒，动能也守恒吗？
+176. Release a spring: how can two resting carts both move? / 放开弹簧：静止的两车怎么都动了？
+177. Catch the same ball: can peak force differ? / 接住同一个球，峰值力可以不同吗？
+178. Belts and airbags: what else does a longer stop require? / 安全带和气囊：多一点停止时间，还需要什么？
 
 Each lesson includes a non-scored prediction, interactive exploration, explanation and misconceptions, a worked example, two or three practice questions, a takeaway, an exit question, and a home experiment. Predictions can be wrong; finishing requires exploration and correct practice/exit answers, with feedback and retries. Lessons are grouped by stage and unit. Counts and next-lesson links follow the content list; stable IDs preserve earlier progress when courses are inserted.
 
@@ -482,4 +509,84 @@ Position uses the same world path X=3+2t over 6 s under fixed origins 0/10/10 m 
 
 Selected windows 0–4/4–8/0–8 s yield mean velocities +2/−2/0 m/s and mean speeds 2/2/2 m/s. Zero-duration averages remain undefined. Acceleration cases (u,a)=(+1,+0.5),(+4,−0.5),(−1,−0.5) over 6 s yield velocities +4/+1/−4 m/s; negative acceleration can slow rightward motion or speed leftward motion. Rate cases 2→6 m/s over 2/4 s and 6→2 over 2 s yield +2/+1/−2 m/s². Free duration preserves endpoint velocities while changing displacement; the fixed-acceleration assumption is explicit.
 
-Models are in `interactive/kinematicsModels.ts`, SVG stations in `KinematicsLabs.tsx`, card illustrations in `KinematicsArt.tsx` and lazy course bodies in `content/kinematics.ts`. Distance integrates |v| by splitting at smooth turns; all readouts, curves and track positions share the same motion model. Graphs show a faint model preview and a gold observed segment on fixed per-station scales; playback compresses the chosen physical duration into 2.4 seconds. The cart arrow indicates physical direction, not magnitude or force. Unit 5.1 graph, uniform-acceleration, SUVAT, free-fall and projectile topics remain for the next batches.
+Models are in `interactive/kinematicsModels.ts`, SVG stations in `KinematicsLabs.tsx`, card illustrations in `KinematicsArt.tsx` and lazy course bodies in `content/kinematics.ts`. Distance integrates |v| by splitting at smooth turns; all readouts, curves and track positions share the same motion model. Graphs show a faint model preview and a gold observed segment on fixed per-station scales; playback compresses the chosen physical duration into 2.4 seconds. The cart arrow indicates physical direction, not magnitude or force. The following seven courses now cover Unit 5.1 topics 9–15.
+
+## High-school kinematics: graphs and flight
+
+Seven further Stage 5 courses connect x–t, v–t and a–t graphs to uniform acceleration, SUVAT, free fall and horizontal projectiles. Unit 5.1 now has thirteen connected courses covering all fifteen planned introductory topics; Twelve Newton-law foundation/application courses now follow; six momentum courses now follow, with work/energy/power and later mechanics still planned. Each station keeps three full prescribed observations separate from free exploration and endpoint seeking.
+
+The same smooth return model yields secant slopes +2/0/−2 m/s and endpoint tangent velocities 0/−2/−4 m/s over 0–4/2–6/4–8 s. Its velocity areas retain signed displacements +8/−8/0 m and absolute distances 8/8/16 m. A separate three-stage acceleration program begins at 1 m/s and uses +1/0/−1 m/s² for successive 2 s segments. Its velocity changes +2/0/−2 m/s produce final velocities 3/3/1 m/s and displacements 4/6/4 m. Acceleration switches are explicit idealizations; positions and velocities stay continuous and graph steps are drawn exactly.
+
+The uniform-acceleration bench reveals whole-second checkpoints. Constant a=1 and varying a=t/2 both end at 5 m/s from 1 m/s after 4 s, but travel 12 and 9.3333 m. This counterexample prevents treating endpoint mean acceleration as proof of constant acceleration. The calculation bench asks the learner to choose a direct equation using provided quantities and enter a numeric result before observation. Blank answers, wrong equations and wrong results block recording; correct values are 6 m/s, 16 m and 16 m. Unit/sign checks and graphical derivations accompany all five common SUVAT relations, including the end-velocity form s=vt−½at².
+
+Free fall uses a virtual 5–20 m height, release from rest, downward positive and constant g with air omitted. At 20 m, 0.1 and 0.5 kg masses both take 2 s with g=10; the 0.5 kg g=1.6 case takes 5 s. Readings stop at the instant just before contact, without extending free-fall acceleration into collisions. Horizontal launches from 20 m share a 2 s clock and identical vertical motion at 0/4/8 m/s horizontal velocity, with ranges 0/8/16 m. A white outlined drop reference remains at matching height; spatial x/y scales match. Oblique launches, drag and spin lift are outside this introductory model.
+
+Pure motion functions are in `interactive/trajectoryModels.ts`; original synchronized SVG tracks, selectable x/v/a graphs, signed areas, worksheets and retained model tables are in `TrajectoryLabs.tsx`. `TrajectoryArt.tsx` supplies seven course-card illustrations and `content/trajectories.ts` the lazy bilingual pack. Shared language controls, animation and comparison gates are reused without new runtime dependencies. No demonstration readings are written into the child’s field-project records.
+
+## Newton’s laws: interactions and boundaries
+
+Six Stage 5 courses begin Unit 5.2: inertia/first law; signed net force; fixed-mass force comparisons; fixed-force mass comparisons; free-body diagrams/multiple forces; and third-law interaction pairs. These cover topics 1–7 and 11–12 as a connected foundation. The six application courses described below add topics 8–10 and 13–15. Stage 5 now has fifty-two courses including thirteen motion courses, twelve Newton courses, six momentum courses, six work/energy/power courses, seven circular-motion courses and eight gravitation courses.
+
+The inertia bench retains velocities 0/+2/−2 m/s under zero net force, including two balanced nonzero pulls. The two-rope cart starts at +1 m/s with mass 2 kg and net forces 0/+4/−4 N, ending after 2 s at +1/+5/−3 m/s. Negative net force first slows rightward motion and produces a continuous turn at 0.5 s. Its dashed resultant is a calculation, not a third interaction. Under fixed 2 kg mass, net forces 0/2/4 N give accelerations 0/1/2 m/s². Fixed 4 N and masses 1/2/4 kg give accelerations 4/2/1 m/s². A worked nonzero-initial-velocity counterexample prevents confusing proportional acceleration with proportional final velocity.
+
+The force-card workbench makes the learner choose the receiver and system boundary before drawing. Smooth cart, rough cruising cart and combined cart/load scenarios require exactly three/four/three external-force cards. Outgoing cart-on-hand forces, internal cart/load contacts and an extra “ma force” are excluded. A correct diagram is required before full playback; changing selected cards invalidates its check. Horizontal net forces 6/0/6 N and masses 2/2/4 kg yield accelerations 3/0/1.5 m/s²; weight/support balance vertically with classroom g=10. The rough case prescribes existing sliding and 6 N kinetic friction, without claiming a static-friction model.
+
+The third-law bench uses an explicitly ideal light telescoping actuator sustaining a 4 N interaction for 2 s, with no external horizontal force. A/B masses 2/2, 2/4 and 4/2 kg receive −4/+4 N, giving accelerations (−2,+2), (−2,+1) and (−1,+2) m/s². Selecting A, B or A+B changes the force ledger and linked velocity graph. Individual carts accelerate while combined net external force, center acceleration and center velocity are zero; the mass-weighted center stays at 8, 8.3333 or 7.6667 m. The sustained actuator model is not a brief push that continues after contact ends. Vertical weight/support and actuator mass are explicitly treated as balanced/omitted.
+
+Pure force functions and force-card checks live in `interactive/newtonModels.ts`, original synchronized SVG stations and sorting workbench in `NewtonLabs.tsx`, course-card art in `NewtonArt.tsx` and bilingual lazy bodies in `content/newton.ts`. Existing Study language components, animations, comparison gates and tables are reused. No runtime dependency was added, and demonstration models never populate the child’s field-project measurements.
+
+## Everyday force applications
+
+Six further Stage 5 courses represent Unit 5.2 topics 8–10 and 13–15, completing its fifteen planned introductory topics across twelve connected courses. Static/kinetic friction, square-law air resistance, terminal speed, elevator support, road traction/braking and variable-mass cold-gas propulsion use separate original SVG stations. Six momentum courses now follow; later mechanics remain in progress.
+
+Static friction adapts up to μsN; sliding uses μkN and rechecks the rest stage at zero speed. The square-drag model uses D=kv² with fixed g/density/shape, analytic trajectories valid below, at and above terminal speed, and no ground impact. Elevator support N=m(g+a) follows a four-second start/cruise/brake trip, with a separate steady segment that remains moving at its end. Road forces are capped by prescribed grip; braking cannot reverse a stopped vehicle. Rocket thrust T=qve, remaining onboard mass and instantaneous acceleration share one ideal no-gravity/no-air solution. Nozzle pressure and actual launch physics are deliberately outside that cold-gas scenario.
+
+Pure functions live in `interactive/dynamicsModels.ts`, stations in `DynamicsLabs.tsx`, card illustrations in `DynamicsArt.tsx`, and complete bilingual bodies in `content/dynamics.ts`. Three full prescribed observations, practice and a transfer exit remain required. Seeking, elevator key-instant inspection and custom parameters do not replace observations. Original home evidence stays separate from model records. Air/terminal/propulsion stations link to NASA principle explanations; no media download or runtime dependency is needed.
+
+## Momentum: collisions, exchange and cushioning
+
+Six connected Stage 5 courses represent Unit 5.3 topics 1–9: signed p=mv; boundary and external-impulse checks; elastic/partial/sticky collisions; spring-driven separation as an explosion model; force–time area and mean/peak force; and restraint time/space/contact-area tradeoffs. Total momentum and kinetic energy have separate ledgers. Original SVG figures share the current time with analytic positions, velocities, forces and impulse. The contact pulse explicitly represents a deformable connector, not realistic body geometry; kinetic energy temporarily stored during contact is distinguished from final losses. A moving separation example retains nonzero total momentum and identifies stored internal energy as the source of extra kinetic energy.
+
+The catch station compares rectangular and triangular force histories with equal impulse; changing duration affects both mean force and stopping distance. A 1 kg slider introduces belt/airbag concepts without presenting a simulated occupant, measured device force or injury prediction. Full prescribed observations, retained bilingual tables and free controls reuse the existing Study infrastructure, with no new dependency. Functions live in `interactive/momentumModels.ts`, stations in `MomentumLabs.tsx`, card illustrations in `MomentumArt.tsx` and lazy bodies in `content/momentum.ts`. OpenStax primary text links provide optional deeper reading.
+
+## High-school work, energy and power
+
+Courses 179–184 add luggage-handle work, speed-squared braking, path and potential-energy zero, a spring’s varying-force area, the downhill system ledger, and lifting power/efficiency. These six bilingual courses cover Unit 5.4 topics 1–10 through connected living contexts. Every station includes three recorded observations, a free control, physical-time inspection, coupled SVG scenes and force–displacement work areas. Existing IDs and saved mastery are preserved.
+
+179. Does a more upright handle move the case faster? / 拉杆越竖，箱子就走得越快吗？
+180. Twice the speed: only twice the braking distance? / 快一倍，刹车只多一倍距离吗？
+181. Does a gentler path save work as well as force? / 走斜坡更省力，也更省功吗？
+182. Twice the compression: twice the stored energy? / 弹簧压两倍，藏进两倍能量吗？
+183. Slower at the bottom: where did the energy go? / 滑到底更慢，能量去了哪里？
+184. Does a faster lifting machine necessarily use less energy? / 更快的搬运机，一定更省电吗？
+
+Models reuse `energyModels.ts` and `workModels.ts`. Ground-frame work retains sign; net work is checked against ΔK; reference shifts preserve ΔU; spring force follows first-crossing analytic motion; ramp dissipation includes the Earth/track system. Constant-speed lifts omit start/stop acceleration ramps. Braking excludes reaction time and real-road behaviour. New bodies and labs load lazily without added runtime dependencies. Circular motion and later units remain unfinished.
+
+## Circular motion and contact conditions
+
+Courses 185–191 follow Unit 5.5 topics 1–7: circular distance/period, tangent velocity/release, inward acceleration/vector differences, actual force sources, limited lateral-force turning, circular satellite conditions, and a vertical loop that can lose contact. They reuse the bilingual lesson/assessment/progress flow and shared animation/comparison controls; no runtime dependency is added.
+
+185. Back at the start: why does distance keep growing? / 绕回起点，为什么路程还在增加？
+186. Release the string: does the ball leave radially? / 绳子放开，小球沿半径飞走吗？
+187. Speed unchanged: why is there acceleration? / 速率没变，为什么还有加速度？
+188. With tension present, do we add another centripetal force? / 有了拉力，还要再加一个向心力吗？
+189. A little faster: why does the same turn become wider? / 快一点，为什么同一个弯转得更宽？
+190. Always falling: why does the satellite miss the ground? / 卫星一直在落，为什么没落到地面？
+191. Enough energy to reach the top: enough to stay on the loop? / 能到环顶，就一定能贴着轨道绕一圈吗？
+
+`circularModels.ts` couples positions, velocities and accelerations on the physical clock. `CircularLabs.tsx` provides three synchronized original SVGs, three full recorded comparisons, free controls and time inspection. Scene arrows show direction only; velocity components and force ledgers have declared common scales. The steering model caps a constant force normal to velocity and changes actual curvature radius; it does not predict real tyre slip or road crashes. Satellite parameters describe a fictional small-scale system, with speed tied to the circular-orbit condition. The unrestrained, frictionless vertical-loop cart can only receive a pushing track normal. Time follows an integrated energy trajectory; loss of contact changes to gravity-only flight and playback ends at first bottom-height contact, before impact. Real coaster wheel assemblies are distinct. Expandable assumptions and primary OpenStax sources keep the compact lab usable on phones. The gravitation courses below add Unit 5.6; Stages 6–8 remain unfinished.
+
+## Gravitation: from the ground to orbit
+
+Courses 192–199 follow all eight Unit 5.6 topics, extending the earlier junior gravity and circular-motion lessons. Stage 5 now has fifty-two courses representing its six planned units. Deeper applications can continue later; Stages 6–8 remain in progress.
+
+192. You attract Earth. Does Earth attract you too? / 你吸引地球，地球也吸引你吗？
+193. Twice as far: only half the attraction? / 离远两倍，引力只剩一半吗？
+194. A heavier probe: did g at that location change? / 换一个更重的探测器，同一地点的g变了吗？
+195. A little higher: why only a little change in g? / 爬高一点，g为什么只变一点？
+196. Different launch speed: still a circular orbit? / 卫星初速变了，轨道还会是圆吗？
+197. A satellite stays in one sky position. Is it motionless? / 卫星在天上不动，真的没有运动吗？
+198. Already flying outward: why might it return? / 已经向外飞，为什么还可能回来？
+199. An astronaut floats. Did gravity disappear? / 航天员浮起来，是引力消失了吗？
+
+The isolated spherical pair uses rounded SI G=6.67×10⁻¹¹, a fixed mass centre and exact radial relative fall. Other source stations use explicitly fictional radius-1 bodies with μ=8 or16. Apparatus scans distinguish gravitational field from actual net acceleration. Ellipse trajectories solve Kepler’s equation from the selected initial tangent speed, preserving energy and angular momentum on the physical clock. Satellite comparisons connect equatorial prograde circular periods with a rotating surface marker. Radial escape uses exact bound/parabolic/hyperbolic energy trajectories; a negative-energy probe can still move outward during the finite observation window. Bound returns end before first surface impact with nonzero velocity. Shared-fall and shared-orbit scales measure normal force, while gravity and mass remain. Original SVGs, compact bilingual readouts, three recorded comparisons, free controls and expandable conditions reuse existing components; no dependency is added.

@@ -1,5 +1,35 @@
-import type { KinematicsKind } from './kinematicsModels';
 import { useState, lazy, Suspense } from 'react';
+import type { GravitationKind } from './gravitationModels';
+const GravitationLab = lazy(() =>
+  import('./GravitationLabs').then((m) => ({ default: m.GravitationLab })),
+);
+import type { KinematicsKind } from './kinematicsModels';
+import type { CircularKind } from './circularModels';
+const CircularLab = lazy(() =>
+  import('./CircularLabs').then((m) => ({ default: m.CircularLab })),
+);
+import type { MechanicalEnergyKind } from './mechanicalEnergyModels';
+const MechanicalEnergyLab = lazy(() =>
+  import('./MechanicalEnergyLabs').then((m) => ({
+    default: m.MechanicalEnergyLab,
+  })),
+);
+import type { MomentumKind } from './momentumModels';
+const MomentumLab = lazy(() =>
+  import('./MomentumLabs').then((m) => ({ default: m.MomentumLab })),
+);
+import type { DynamicsKind } from './dynamicsModels';
+const DynamicsLab = lazy(() =>
+  import('./DynamicsLabs').then((m) => ({ default: m.DynamicsLab })),
+);
+import type { NewtonKind } from './newtonModels';
+const NewtonLab = lazy(() =>
+  import('./NewtonLabs').then((m) => ({ default: m.NewtonLab })),
+);
+import type { TrajectoryKind } from './trajectoryModels';
+const TrajectoryLab = lazy(() =>
+  import('./TrajectoryLabs').then((m) => ({ default: m.TrajectoryLab })),
+);
 const KinematicsLab = lazy(() =>
   import('./KinematicsLabs').then((m) => ({ default: m.KinematicsLab })),
 );
@@ -816,6 +846,69 @@ function LabContent({
     return (
       <SpaceLab
         kind={kind.slice(6) as SpaceKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('gravitation-'))
+    return (
+      <GravitationLab
+        key={kind}
+        kind={kind.slice(12) as GravitationKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('circular-'))
+    return (
+      <CircularLab
+        key={kind}
+        kind={kind.slice(9) as CircularKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('mechanical-energy-'))
+    return (
+      <MechanicalEnergyLab
+        key={kind}
+        kind={kind.slice(18) as MechanicalEnergyKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('momentum-'))
+    return (
+      <MomentumLab
+        key={kind}
+        kind={kind.slice(9) as MomentumKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('dynamics-'))
+    return (
+      <DynamicsLab
+        key={kind}
+        kind={kind.slice(9) as DynamicsKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('newton-'))
+    return (
+      <NewtonLab
+        key={kind}
+        kind={kind.slice(7) as NewtonKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('trajectory-'))
+    return (
+      <TrajectoryLab
+        key={kind}
+        kind={kind.slice(11) as TrajectoryKind}
         mode={mode}
         onExplore={onExplore}
       />

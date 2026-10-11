@@ -1,3 +1,10 @@
+import { gravitationLessons } from './gravitation';
+import { circularLessons } from './circular';
+import { mechanicalEnergyLessons } from './mechanicalEnergy';
+import { momentumLessons } from './momentum';
+import { dynamicsLessons } from './dynamics';
+import { newtonLessons } from './newton';
+import { trajectoryLessons } from './trajectories';
 import { kinematicsLessons } from './kinematics';
 import type { Lesson } from './schema';
 import { originalLessons } from './foundations';
@@ -62,6 +69,13 @@ export const lessons: Lesson[] = [
   ...vectorLessons,
   ...solvingLessons,
   ...kinematicsLessons,
+  ...trajectoryLessons,
+  ...newtonLessons,
+  ...dynamicsLessons,
+  ...momentumLessons,
+  ...mechanicalEnergyLessons,
+  ...circularLessons,
+  ...gravitationLessons,
 ];
 // Used by catalog generation and integrity tests, never by the app's entry.
 export const lessonCollections = {
@@ -92,4 +106,11 @@ export const lessonCollections = {
   vectors: vectorLessons,
   solving: solvingLessons,
   kinematics: kinematicsLessons,
+  trajectories: trajectoryLessons,
+  newton: newtonLessons,
+  dynamics: dynamicsLessons,
+  momentum: momentumLessons,
+  mechanicalEnergy: mechanicalEnergyLessons,
+  circular: circularLessons,
+  gravitation: gravitationLessons,
 };

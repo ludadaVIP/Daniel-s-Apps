@@ -4,6 +4,23 @@ export const units = {
     '运动学：追踪位置、方向与变化',
     'Kinematics: follow position, direction and change',
   ),
+  newton: t('牛顿定律：谁作用在谁上', 'Newton’s laws: who acts on whom'),
+  momentum: t(
+    '动量：碰撞、交换与缓冲',
+    'Momentum: collisions, exchange and cushioning',
+  ),
+  mechanicalEnergy: t(
+    '功、能与功率：给运动做能量账',
+    'Work, energy and power: account for motion',
+  ),
+  circular: t(
+    '圆周运动：方向、转弯与轨道',
+    'Circular motion: direction, turning and orbits',
+  ),
+  gravitation: t(
+    '万有引力：从地面到轨道',
+    'Gravitation: from the ground to orbit',
+  ),
   algebra: t(
     '物理中的代数：把规律变成工具',
     'Algebra for physics: turn patterns into tools',
@@ -106,8 +123,8 @@ export const stages = [
     title: t('高中力学', 'High school mechanics'),
     age: '14+',
     topics: t(
-      '运动学 · 牛顿定律 · 动量 · 引力',
-      'Kinematics · Newton’s laws · Momentum · Gravitation',
+      '运动学 · 牛顿定律 · 动量 · 能量 · 圆周 · 引力',
+      'Kinematics · Newton’s laws · Momentum · Energy · Circular motion · Gravitation',
     ),
   },
   {

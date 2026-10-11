@@ -6274,3 +6274,319 @@
 .phy-kinematics-lab .phy-thermal-metrics strong {
   overflow-wrap: anywhere;
 }
+
+.phy-trajectory-lab > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 480px;
+}
+.phy-trajectory-lab svg text {
+  font-size: 24px;
+  fill: #eeece0;
+  stroke: none;
+}
+.phy-trajectory-lab .phy-thermal-metrics strong {
+  overflow-wrap: anywhere;
+}
+.phy-trajectory-work {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #ccd4cb;
+  border-radius: 14px;
+  background: #f4f1e8;
+}
+.phy-trajectory-work legend {
+  padding: 0 8px;
+}
+.phy-trajectory-work label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 14px 0;
+}
+.phy-trajectory-work input {
+  width: 110px;
+  padding: 10px;
+  border: 1px solid #aab9b3;
+  border-radius: 8px;
+  background: #fff;
+  font: inherit;
+}
+@media (max-width: 600px) {
+  .phy-trajectory-lab svg text {
+    font-size: 28px;
+  }
+}
+
+.phy-newton-lab > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+}
+.phy-newton-lab svg text {
+  fill: #eeece0;
+  stroke: none;
+  font-size: 23px;
+}
+.phy-newton-lab .phy-thermal-metrics strong {
+  overflow-wrap: anywhere;
+}
+.phy-newton-cards {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 14px;
+}
+.phy-newton-cards button {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 12px;
+  text-align: left;
+  font: inherit;
+  color: inherit;
+  border: 1px solid #ccd4cb;
+  border-radius: 10px;
+  background: #fffefa;
+}
+.phy-newton-cards button[aria-pressed='true'] {
+  border-color: #8b72a5;
+  background: #eee6f3;
+}
+@media (max-width: 600px) {
+  .phy-newton-lab svg text {
+    font-size: 26px;
+  }
+}
+
+.phy-dynamics-lab > svg,
+.phy-dynamics-scenes > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+}
+.phy-dynamics-lab svg text {
+  fill: #eeece0;
+  stroke: none;
+  font-size: 23px;
+}
+.phy-dynamics-lab .phy-thermal-metrics strong {
+  overflow-wrap: anywhere;
+}
+.phy-dynamics-scenes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 12px;
+  margin: 16px 18px;
+}
+.phy-dynamics-scenes > svg {
+  margin: 0;
+}
+.phy-dynamics-lab .phy-thermal-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+@media (max-width: 600px) {
+  .phy-dynamics-scenes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .phy-dynamics-lab svg text {
+    font-size: 26px;
+  }
+}
+
+.phy-momentum-scenes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: center;
+  gap: 12px;
+  margin: 16px 18px;
+}
+.phy-momentum-lab > svg,
+.phy-momentum-scenes > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+}
+.phy-momentum-scenes > svg {
+  margin: 0;
+}
+.phy-momentum-lab svg text {
+  fill: #eeece0;
+  stroke: none;
+  font-size: 23px;
+}
+.phy-momentum-lab .phy-thermal-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.phy-momentum-lab .phy-thermal-metrics strong {
+  overflow-wrap: anywhere;
+}
+.phy-momentum-lab .phy-data-table td {
+  white-space: normal;
+  vertical-align: top;
+}
+.phy-momentum-lab .phy-data-table th:first-child {
+  width: 40%;
+}
+@media (max-width: 600px) {
+  .phy-momentum-scenes {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .phy-momentum-lab svg text {
+    font-size: 26px;
+  }
+}
+
+.phy-mechanical-energy-scenes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.phy-mechanical-energy-lab > svg,
+.phy-mechanical-energy-scenes > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+.phy-mechanical-energy-lab > svg {
+  max-height: 330px;
+}
+.phy-mechanical-energy-lab svg text {
+  fill: #e5e8dd;
+  font-size: 23px;
+  font-family: system-ui, sans-serif;
+}
+.phy-mechanical-energy-lab .phy-thermal-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.phy-mechanical-energy-lab .phy-thermal-metrics strong {
+  font-size: 1.18rem;
+}
+.phy-mechanical-energy-lab .phy-data-table td {
+  white-space: normal;
+  vertical-align: top;
+}
+.phy-mechanical-energy-lab .phy-data-table th:first-child {
+  width: 40%;
+}
+@media (max-width: 600px) {
+  .phy-mechanical-energy-scenes {
+    grid-template-columns: 1fr;
+  }
+  .phy-mechanical-energy-lab svg text {
+    font-size: 26px;
+  }
+}
+
+.phy-energy-details {
+  margin: 12px 18px;
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.phy-energy-details summary {
+  cursor: pointer;
+  color: var(--purple);
+  font-weight: 600;
+}
+.phy-energy-details .phy-model-note {
+  padding: 0;
+}
+@media (max-width: 600px) {
+  .phy-mechanical-energy-lab .phy-thermal-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .phy-mechanical-energy-lab .phy-thermal-metrics > div {
+    min-width: 0;
+    padding: 12px;
+  }
+  .phy-mechanical-energy-lab .phy-thermal-metrics strong {
+    font-size: 1.12rem;
+  }
+}
+
+.phy-circular-scenes {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.phy-circular-lab > svg,
+.phy-circular-scenes > svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 18px;
+}
+.phy-circular-lab > svg {
+  max-height: 330px;
+}
+.phy-circular-lab svg text {
+  fill: #e5e8dd;
+  font-size: 23px;
+  font-family: system-ui, sans-serif;
+}
+.phy-circular-lab .phy-thermal-metrics {
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+.phy-circular-lab .phy-thermal-metrics strong {
+  font-size: 1.12rem;
+}
+.phy-circular-lab .phy-data-table td {
+  white-space: normal;
+  vertical-align: top;
+}
+.phy-circular-lab .phy-data-table th:first-child {
+  width: 38%;
+}
+.phy-circular-phase {
+  margin: 12px 18px;
+  color: var(--purple);
+  font-weight: 600;
+}
+.phy-circular-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 10px 18px;
+  font-size: 12px;
+}
+.phy-circular-legend > span {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.phy-circular-legend i {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+@media (max-width: 600px) {
+  .phy-circular-scenes {
+    grid-template-columns: 1fr;
+  }
+  .phy-circular-lab svg text {
+    font-size: 26px;
+  }
+  .phy-circular-lab .phy-thermal-metrics {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+  .phy-circular-lab .phy-thermal-metrics > div {
+    min-width: 0;
+    padding: 12px;
+  }
+}
+
+.phy-gravitation-lab .phy-thermal-metrics strong {
+  white-space: normal;
+  line-height: 1.35;
+}

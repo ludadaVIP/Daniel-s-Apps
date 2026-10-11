@@ -2,6 +2,211 @@ import { t, type Lesson } from './schema';
 export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
   [
     {
+      id: 'gravitation-pair',
+      name: t('两球互相吸引', 'Mutual attraction of two spheres'),
+    },
+    {
+      id: 'gravitation-inverse',
+      name: t('质量与中心距引力账', 'Mass and centre-distance gravity ledger'),
+    },
+    {
+      id: 'gravitation-field',
+      name: t('引力场与探测质量', 'Gravitational field and test mass'),
+    },
+    { id: 'gravitation-g', name: t('高度与局部g', 'Height and local g') },
+    {
+      id: 'gravitation-orbit',
+      name: t('初速与椭圆轨道', 'Initial speed and elliptical orbits'),
+    },
+    {
+      id: 'gravitation-satellite',
+      name: t('卫星与地面经度', 'Satellites and ground longitude'),
+    },
+    {
+      id: 'gravitation-escape',
+      name: t('径向发射与逃逸能量', 'Radial launch and escape energy'),
+    },
+    {
+      id: 'gravitation-weightless',
+      name: t('失重与秤支持力', 'Weightlessness and scale support'),
+    },
+    {
+      id: 'circular-path',
+      name: t('圆周的路程与周期', 'Circular distance and period'),
+    },
+    {
+      id: 'circular-tangent',
+      name: t('切线释放与速度分量', 'Tangent release and velocity components'),
+    },
+    {
+      id: 'circular-acceleration',
+      name: t('速率与向心加速度', 'Speed and centripetal acceleration'),
+    },
+    {
+      id: 'circular-force',
+      name: t('向心合力的真实来源', 'Actual sources of centripetal force'),
+    },
+    {
+      id: 'circular-turning',
+      name: t('受限横向力与转弯', 'Limited lateral force and turning'),
+    },
+    {
+      id: 'circular-orbit',
+      name: t('引力与圆轨道条件', 'Gravity and circular-orbit conditions'),
+    },
+    {
+      id: 'circular-loop',
+      name: t('圆环的能量与接触', 'Loop energy and contact'),
+    },
+    {
+      id: 'mechanical-energy-angle',
+      name: t('斜拉箱子的功账', 'Angled-pull work ledger'),
+    },
+    {
+      id: 'mechanical-energy-braking',
+      name: t('速度平方与制动距离', 'Speed squared and braking distance'),
+    },
+    {
+      id: 'mechanical-energy-height',
+      name: t('同一山顶与势能零点', 'One summit and potential-energy zero'),
+    },
+    {
+      id: 'mechanical-energy-spring',
+      name: t('弹簧变力面积', 'Spring work area'),
+    },
+    {
+      id: 'mechanical-energy-conservation',
+      name: t('滑坡的完整能量账', 'Complete downhill energy ledger'),
+    },
+    {
+      id: 'mechanical-energy-power',
+      name: t('搬运功率与效率', 'Lifting power and efficiency'),
+    },
+    {
+      id: 'momentum-quantity',
+      name: t('同速小车的动量账', 'Same-speed momentum ledgers'),
+    },
+    {
+      id: 'momentum-conservation',
+      name: t('两车系统与外冲量', 'Two-cart system and external impulse'),
+    },
+    {
+      id: 'momentum-collisions',
+      name: t('回弹、黏住与动能', 'Rebound, sticking and kinetic energy'),
+    },
+    {
+      id: 'momentum-separation',
+      name: t('弹簧释放，两车分离', 'Spring release and cart separation'),
+    },
+    {
+      id: 'momentum-impulse',
+      name: t('接球的力与时间面积', 'Force–time area in a catch'),
+    },
+    {
+      id: 'momentum-restraints',
+      name: t('缓冲的时间与空间', 'Cushioning time and space'),
+    },
+    {
+      id: 'dynamics-friction',
+      name: { zh: '先不动，再滑动，最后停下', en: 'Hold, slide, then stop' },
+    },
+    {
+      id: 'dynamics-drag',
+      name: {
+        zh: '同质量，改变空气作用',
+        en: 'Same mass, different air effects',
+      },
+    },
+    {
+      id: 'dynamics-terminal',
+      name: {
+        zh: '从两侧靠近同一个速度',
+        en: 'Approach one speed from both sides',
+      },
+    },
+    {
+      id: 'dynamics-elevator',
+      name: {
+        zh: '电梯运动与秤的读数',
+        en: 'Elevator motion and scale readings',
+      },
+    },
+    {
+      id: 'dynamics-cars',
+      name: {
+        zh: '地面对车的驱动与制动',
+        en: 'Driving and braking from the road',
+      },
+    },
+    {
+      id: 'dynamics-rockets',
+      name: {
+        zh: '真空里喷出质量，改变速度',
+        en: 'Eject mass in vacuum, change velocity',
+      },
+    },
+    {
+      id: 'newton-inertia',
+      name: t(
+        '没有合力，还会继续走吗',
+        'Will motion continue with zero net force?',
+      ),
+    },
+    {
+      id: 'newton-net',
+      name: t('同一辆车的合力账', 'A net-force ledger for one cart'),
+    },
+    {
+      id: 'newton-force',
+      name: t('同质量，改变合力', 'Same mass, different net force'),
+    },
+    {
+      id: 'newton-mass',
+      name: t('同合力，改变质量', 'Same net force, different mass'),
+    },
+    {
+      id: 'newton-diagram',
+      name: t('只收集目标受到的力', 'Collect forces acting on the target'),
+    },
+    {
+      id: 'newton-pairs',
+      name: t('两个物体，两个受力账', 'Two objects, two force ledgers'),
+    },
+    {
+      id: 'trajectory-position',
+      name: t('曲线的高度与倾斜', 'Height and slope of a curve'),
+    },
+    {
+      id: 'trajectory-velocity',
+      name: t(
+        '速度图下的两种面积账',
+        'Two area ledgers under a velocity graph',
+      ),
+    },
+    {
+      id: 'trajectory-acceleration',
+      name: t('加速度图积累什么', 'What an acceleration graph accumulates'),
+    },
+    {
+      id: 'trajectory-uniform',
+      name: t('每秒的速度增量', 'Velocity gains each second'),
+    },
+    {
+      id: 'trajectory-equations',
+      name: t('先选条件，再选公式', 'Choose conditions before an equation'),
+    },
+    {
+      id: 'trajectory-fall',
+      name: t(
+        '同高释放，改变质量或重力',
+        'Same release height, different mass or gravity',
+      ),
+    },
+    {
+      id: 'trajectory-projectile',
+      name: t('水平飞行，竖直下落', 'Horizontal travel, vertical fall'),
+    },
+    {
       id: 'kinematics-position',
       name: t(
         '同一轨道，三个坐标约定',

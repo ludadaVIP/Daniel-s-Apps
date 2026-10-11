@@ -32,4 +32,12 @@ export const lessonPacks: Record<LessonPack, () => Promise<Lesson[]>> = {
   vectors: () => import('./vectors').then((m) => m.vectorLessons),
   solving: () => import('./solving').then((m) => m.solvingLessons),
   kinematics: () => import('./kinematics').then((m) => m.kinematicsLessons),
+  trajectories: () => import('./trajectories').then((m) => m.trajectoryLessons),
+  newton: () => import('./newton').then((m) => m.newtonLessons),
+  dynamics: () => import('./dynamics').then((m) => m.dynamicsLessons),
+  momentum: () => import('./momentum').then((m) => m.momentumLessons),
+  mechanicalEnergy: () =>
+    import('./mechanicalEnergy').then((m) => m.mechanicalEnergyLessons),
+  circular: () => import('./circular').then((m) => m.circularLessons),
+  gravitation: () => import('./gravitation').then((m) => m.gravitationLessons),
 };

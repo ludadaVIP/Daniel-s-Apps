@@ -1,3 +1,17 @@
+import { GravitationArt } from './interactive/GravitationArt';
+import type { GravitationKind } from './interactive/gravitationModels';
+import { CircularArt } from './interactive/CircularArt';
+import type { CircularKind } from './interactive/circularModels';
+import { MechanicalEnergyArt } from './interactive/MechanicalEnergyArt';
+import type { MechanicalEnergyKind } from './interactive/mechanicalEnergyModels';
+import { MomentumArt } from './interactive/MomentumArt';
+import type { MomentumKind } from './interactive/momentumModels';
+import { DynamicsArt } from './interactive/DynamicsArt';
+import type { DynamicsKind } from './interactive/dynamicsModels';
+import { NewtonArt } from './interactive/NewtonArt';
+import type { NewtonKind } from './interactive/newtonModels';
+import { TrajectoryArt } from './interactive/TrajectoryArt';
+import type { TrajectoryKind } from './interactive/trajectoryModels';
 import { KinematicsArt } from './interactive/KinematicsArt';
 import type { KinematicsKind } from './interactive/kinematicsModels';
 import { MeasurementArt } from './interactive/MeasurementArt';
@@ -117,7 +131,21 @@ export function LessonArt({
         </pattern>
       </defs>
       <rect width="300" height="150" fill={`url(#dots-${kind})`} />
-      {kind.startsWith('kinematics-') ? (
+      {kind.startsWith('gravitation-') ? (
+        <GravitationArt kind={kind.slice(12) as GravitationKind} />
+      ) : kind.startsWith('circular-') ? (
+        <CircularArt kind={kind.slice(9) as CircularKind} />
+      ) : kind.startsWith('mechanical-energy-') ? (
+        <MechanicalEnergyArt kind={kind.slice(18) as MechanicalEnergyKind} />
+      ) : kind.startsWith('momentum-') ? (
+        <MomentumArt kind={kind.slice(9) as MomentumKind} />
+      ) : kind.startsWith('dynamics-') ? (
+        <DynamicsArt kind={kind.slice(9) as DynamicsKind} />
+      ) : kind.startsWith('newton-') ? (
+        <NewtonArt kind={kind.slice(7) as NewtonKind} />
+      ) : kind.startsWith('trajectory-') ? (
+        <TrajectoryArt kind={kind.slice(11) as TrajectoryKind} />
+      ) : kind.startsWith('kinematics-') ? (
         <KinematicsArt kind={kind.slice(11) as KinematicsKind} />
       ) : kind.startsWith('solving-') ? (
         <SolvingArt kind={kind.slice(8) as SolvingKind} />

@@ -27,7 +27,14 @@ export type LessonPack =
   | 'graphs'
   | 'vectors'
   | 'solving'
-  | 'kinematics';
+  | 'kinematics'
+  | 'trajectories'
+  | 'newton'
+  | 'dynamics'
+  | 'momentum'
+  | 'mechanicalEnergy'
+  | 'circular'
+  | 'gravitation';
 
 export type LessonCatalogEntry = Pick<
   Lesson,

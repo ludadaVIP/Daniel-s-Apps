@@ -5336,4 +5336,1614 @@ export const lessonCatalog: LessonCatalogEntry[] = [
       },
     ],
   },
+  {
+    id: 'trajectory-read-the-slope',
+    title: {
+      zh: '小车在曲线最高处，为什么反而不动？',
+      en: 'Why is the cart motionless at the highest point of its curve?',
+    },
+    subtitle: {
+      zh: '用位置图的斜率读速度，分开割线平均与切线瞬时。',
+      en: 'Read velocity from a position graph, separating secant averages from tangent instants.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'trajectory-position',
+    pack: 'trajectories',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'trajectory-area-has-a-sign',
+    title: {
+      zh: '速度图里，回程的面积为什么要扣掉？',
+      en: 'Why subtract the return area under a velocity graph?',
+    },
+    subtitle: {
+      zh: '让带符号面积给位移，让绝对面积给路程。',
+      en: 'Use signed area for displacement and absolute area for distance.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'trajectory-velocity',
+    pack: 'trajectories',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'trajectory-acceleration-adds-velocity',
+    title: {
+      zh: '加速度图变成零，小车为什么还在走？',
+      en: 'Why does the cart keep moving when its acceleration graph becomes zero?',
+    },
+    subtitle: {
+      zh: '把加速度图面积接到速度账，保留初速度。',
+      en: 'Add acceleration-graph area to the velocity ledger, keeping initial velocity.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'trajectory-acceleration',
+    pack: 'trajectories',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'trajectory-equal-time-equal-change',
+    title: {
+      zh: '每秒都在变快，就一定是匀加速吗？',
+      en: 'Does speeding up every second guarantee uniform acceleration?',
+    },
+    subtitle: {
+      zh: '用相等时间的速度增量检验恒定加速度。',
+      en: 'Test constant acceleration with velocity gains over equal times.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'trajectory-uniform',
+    pack: 'trajectories',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'trajectory-choose-the-missing-quantity',
+    title: {
+      zh: '三个运动公式，怎样挑一个有用的？',
+      en: 'How do you choose one useful motion equation from three?',
+    },
+    subtitle: {
+      zh: '先列已知与未知，从图形推导SUVAT，再计算核对。',
+      en: 'List knowns and unknowns, derive SUVAT from graphs, then calculate and check.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'trajectory-equations',
+    pack: 'trajectories',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'trajectory-falling-with-a-clock',
+    title: {
+      zh: '自由下落2秒，比1秒只多落一倍吗？',
+      en: 'Does two seconds of free fall mean only twice the drop?',
+    },
+    subtitle: {
+      zh: '从静止释放，用重力匀加速模型预测时间与距离。',
+      en: 'Release from rest and predict time and distance with constant gravity.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'trajectory-fall',
+    pack: 'trajectories',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'trajectory-two-directions-one-clock',
+    title: {
+      zh: '球向前飞得更快，为什么不多待在空中？',
+      en: 'Why doesn’t faster horizontal flight keep a ball airborne longer?',
+    },
+    subtitle: {
+      zh: '同一时钟连接水平匀速与竖直自由落体。',
+      en: 'Use one clock for horizontal constant velocity and vertical free fall.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'kinematics',
+    kind: 'trajectory-projectile',
+    pack: 'trajectories',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'newton-motion-needs-no-maintenance',
+    title: {
+      zh: '不再推，小车一定会慢下来吗？',
+      en: 'Must a cart slow down when you stop pushing?',
+    },
+    subtitle: {
+      zh: '在理想轨道上区分保持运动与改变运动。',
+      en: 'Separate maintaining motion from changing motion on an ideal track.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'newton',
+    kind: 'newton-inertia',
+    pack: 'newton',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'newton-add-forces-on-one-cart',
+    title: {
+      zh: '两边都在拉，应该把哪个力放进公式？',
+      en: 'When both sides pull, which force belongs in the equation?',
+    },
+    subtitle: {
+      zh: '在同一物体上把带方向的力相加，再连接运动变化。',
+      en: 'Add signed forces on one body before predicting its motion change.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'newton',
+    kind: 'newton-net',
+    pack: 'newton',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'newton-force-changes-the-velocity',
+    title: {
+      zh: '推力加倍，小车的速度一定加倍吗？',
+      en: 'Does doubling force necessarily double a cart’s velocity?',
+    },
+    subtitle: {
+      zh: '用等时速度变化找出F_net=ma，分清速度与加速度。',
+      en: 'Discover F_net=ma through equal-time velocity changes, separating velocity from acceleration.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'newton',
+    kind: 'newton-force',
+    pack: 'newton',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'newton-mass-resists-change',
+    title: {
+      zh: '同样的推力，满载小车为什么起步更慢？',
+      en: 'Why does the loaded cart gain speed more slowly under the same force?',
+    },
+    subtitle: {
+      zh: '控制合力，改变质量，检验加速度的反比关系。',
+      en: 'Keep net force fixed, change mass, and test inverse acceleration scaling.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'newton',
+    kind: 'newton-mass',
+    pack: 'newton',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'newton-choose-the-force-receiver',
+    title: {
+      zh: '画受力图前，先给谁画一个圈？',
+      en: 'Whom should you circle before drawing a force diagram?',
+    },
+    subtitle: {
+      zh: '先选研究对象，再筛选外力；系统内部的力另记。',
+      en: 'Choose the target before external forces; keep internal interactions separate.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'newton',
+    kind: 'newton-diagram',
+    pack: 'newton',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'newton-equal-forces-different-motions',
+    title: {
+      zh: '两车互相推，为什么轻车改变得更多？',
+      en: 'Why does the lighter cart change motion more when two carts push each other?',
+    },
+    subtitle: {
+      zh: '同一相互作用给等大反向力，不同质量给不同加速度。',
+      en: 'One interaction gives equal opposite forces; different masses give different accelerations.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'newton',
+    kind: 'newton-pairs',
+    pack: 'newton',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 2,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'dynamics-friction-waits-then-slides',
+    title: {
+      zh: '推了一下没动，摩擦力已经到最大了吗？',
+      en: 'A push did not move it. Is friction already at its maximum?',
+    },
+    subtitle: {
+      zh: '把保持静止、开始滑动和停稳分成不同阶段。',
+      en: 'Separate holding at rest, starting to slide and coming to rest.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'newton',
+    kind: 'dynamics-friction',
+    pack: 'dynamics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'dynamics-air-shape-changes-the-fall',
+    title: {
+      zh: '同样重，为什么更“兜风”的形状掉得慢？',
+      en: 'Same weight: why does a shape that catches more air fall more slowly?',
+    },
+    subtitle: {
+      zh: '把空气作用与重力分开，跟随随速度变化的阻力。',
+      en: 'Separate air effects from gravity and follow speed-dependent drag.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'newton',
+    kind: 'dynamics-drag',
+    pack: 'dynamics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'dynamics-terminal-is-balance-not-rest',
+    title: {
+      zh: '下落不再变快，是重力消失了吗？',
+      en: 'A fall stops getting faster. Has gravity disappeared?',
+    },
+    subtitle: {
+      zh: '从慢于、等于和快于终端速度的两侧检查平衡。',
+      en: 'Inspect balance from below, exactly at and above terminal speed.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'newton',
+    kind: 'dynamics-terminal',
+    pack: 'dynamics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'dynamics-elevator-scale-follows-acceleration',
+    title: {
+      zh: '电梯还向上，为什么秤的读数反而变小？',
+      en: 'The elevator is still going up. Why can the scale reading get smaller?',
+    },
+    subtitle: {
+      zh: '用同一趟起步、匀速、刹车解释“变重”和“变轻”。',
+      en: 'Explain heavier and lighter readings through one start, cruise and brake trip.',
+    },
+    minutes: 24,
+    stage: 5,
+    unit: 'newton',
+    kind: 'dynamics-elevator',
+    pack: 'dynamics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'dynamics-car-road-force-and-stopping',
+    title: {
+      zh: '发动机在车内，谁给整辆车向前的外力？',
+      en: 'The engine is inside the car. Who supplies the external forward force?',
+    },
+    subtitle: {
+      zh: '研究整车、轮胎抓地和刹车后的阶段边界。',
+      en: 'Study the whole vehicle, tyre grip and the stopping boundary.',
+    },
+    minutes: 24,
+    stage: 5,
+    unit: 'newton',
+    kind: 'dynamics-cars',
+    pack: 'dynamics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'dynamics-rocket-does-not-push-air',
+    title: {
+      zh: '周围没有空气，喷气飞行器还能前进吗？',
+      en: 'With no surrounding air, can a thruster still move a craft?',
+    },
+    subtitle: {
+      zh: '把排气、机上质量与瞬时加速度放在同一张账上。',
+      en: 'Connect expelled gas, onboard mass and instantaneous acceleration.',
+    },
+    minutes: 24,
+    stage: 5,
+    unit: 'newton',
+    kind: 'dynamics-rockets',
+    pack: 'dynamics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'momentum-same-speed-different-ledger',
+    title: {
+      zh: '空购物车和满购物车：同速就一样吗？',
+      en: 'Empty and full shopping carts: does equal speed mean equal momentum?',
+    },
+    subtitle: {
+      zh: '给运动记一笔带方向的质量×速度账。',
+      en: 'Keep a directional mass × velocity ledger for motion.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'momentum',
+    kind: 'momentum-quantity',
+    pack: 'momentum',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'momentum-boundary-before-conservation',
+    title: {
+      zh: '两车黏住后，动量去哪了？',
+      en: 'Two carts stick together. Where did the momentum go?',
+    },
+    subtitle: {
+      zh: '先圈系统，再检查外力冲量。',
+      en: 'Choose the system before checking external impulse.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'momentum',
+    kind: 'momentum-conservation',
+    pack: 'momentum',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'momentum-bounce-stick-energy',
+    title: {
+      zh: '弹开和黏住：动量守恒，动能也守恒吗？',
+      en: 'Bounce or stick: does conserved momentum also mean conserved kinetic energy?',
+    },
+    subtitle: {
+      zh: '相同初态，比较三种碰撞终态。',
+      en: 'Compare three collision outcomes from the same initial state.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'momentum',
+    kind: 'momentum-collisions',
+    pack: 'momentum',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'momentum-spring-separates-carts',
+    title: {
+      zh: '放开弹簧：静止的两车怎么都动了？',
+      en: 'Release a spring: how can two resting carts both move?',
+    },
+    subtitle: {
+      zh: '用内部储能释放理解爆炸模型。',
+      en: 'Use stored internal energy to understand a separation model.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'momentum',
+    kind: 'momentum-separation',
+    pack: 'momentum',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'momentum-catch-force-time-area',
+    title: {
+      zh: '接住同一个球，峰值力可以不同吗？',
+      en: 'Catch the same ball: can peak force differ?',
+    },
+    subtitle: {
+      zh: '把力—时间图的面积读成动量改变。',
+      en: 'Read force–time area as momentum change.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'momentum',
+    kind: 'momentum-impulse',
+    pack: 'momentum',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'momentum-restraints-time-space',
+    title: {
+      zh: '安全带和气囊：多一点停止时间，还需要什么？',
+      en: 'Belts and airbags: what else does a longer stop require?',
+    },
+    subtitle: {
+      zh: '同一动量改变，连接平均力、距离与接触面积。',
+      en: 'Connect mean force, distance and contact area for one momentum change.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'momentum',
+    kind: 'momentum-restraints',
+    pack: 'momentum',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'energy-angle-luggage-handle',
+    title: {
+      zh: '拉杆越竖，箱子就走得越快吗？',
+      en: 'Does a more upright handle move the case faster?',
+    },
+    subtitle: {
+      zh: '把拉力投影到位移方向，再算它做的功。',
+      en: 'Project the pull onto displacement before calculating its work.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'mechanicalEnergy',
+    kind: 'mechanical-energy-angle',
+    pack: 'mechanicalEnergy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'energy-braking-speed-squared',
+    title: {
+      zh: '快一倍，刹车只多一倍距离吗？',
+      en: 'Twice the speed: only twice the braking distance?',
+    },
+    subtitle: {
+      zh: '把速度平方变成一段能量必须转移的距离。',
+      en: 'Turn speed squared into the distance needed to transfer energy.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'mechanicalEnergy',
+    kind: 'mechanical-energy-braking',
+    pack: 'mechanicalEnergy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'energy-summit-path-zero',
+    title: {
+      zh: '走斜坡更省力，也更省功吗？',
+      en: 'Does a gentler path save work as well as force?',
+    },
+    subtitle: {
+      zh: '同一山顶，换路线与势能零点，哪些量会变？',
+      en: 'Same summit: what changes with path and potential-energy zero?',
+    },
+    minutes: 21,
+    stage: 5,
+    unit: 'mechanicalEnergy',
+    kind: 'mechanical-energy-height',
+    pack: 'mechanicalEnergy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'energy-spring-changing-force',
+    title: {
+      zh: '弹簧压两倍，藏进两倍能量吗？',
+      en: 'Twice the compression: twice the stored energy?',
+    },
+    subtitle: {
+      zh: '从力—位移图的三角形，追踪弹簧把能量交给小车。',
+      en: 'Follow the force–displacement triangle as a spring transfers energy to a cart.',
+    },
+    minutes: 23,
+    stage: 5,
+    unit: 'mechanicalEnergy',
+    kind: 'mechanical-energy-spring',
+    pack: 'mechanicalEnergy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'energy-downhill-complete-ledger',
+    title: {
+      zh: '滑到底更慢，能量去了哪里？',
+      en: 'Slower at the bottom: where did the energy go?',
+    },
+    subtitle: {
+      zh: '给系统画边界，把机械能减少和总能量守恒放在一起。',
+      en: 'Choose a system boundary and reconcile mechanical-energy loss with total conservation.',
+    },
+    minutes: 23,
+    stage: 5,
+    unit: 'mechanicalEnergy',
+    kind: 'mechanical-energy-conservation',
+    pack: 'mechanicalEnergy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'energy-power-efficiency-delivery',
+    title: {
+      zh: '更快的搬运机，一定更省电吗？',
+      en: 'Does a faster lifting machine necessarily use less energy?',
+    },
+    subtitle: {
+      zh: '同一提升任务，分别比较输入功、功率与效率。',
+      en: 'Compare input work, power and efficiency for one lifting task.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'mechanicalEnergy',
+    kind: 'mechanical-energy-power',
+    pack: 'mechanicalEnergy',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'circular-one-lap-two-ledgers',
+    title: {
+      zh: '绕回起点，为什么路程还在增加？',
+      en: 'Back at the start: why does distance keep growing?',
+    },
+    subtitle: {
+      zh: '用一个圆连接路程、位移、周期与频率。',
+      en: 'Connect distance, displacement, period and frequency with one circle.',
+    },
+    minutes: 20,
+    stage: 5,
+    unit: 'circular',
+    kind: 'circular-path',
+    pack: 'circular',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'circular-release-along-tangent',
+    title: {
+      zh: '绳子放开，小球沿半径飞走吗？',
+      en: 'Release the string: does the ball leave radially?',
+    },
+    subtitle: {
+      zh: '沿切线读速度，把撤去的力与保留的运动分开。',
+      en: 'Read tangent velocity and separate removed force from retained motion.',
+    },
+    minutes: 21,
+    stage: 5,
+    unit: 'circular',
+    kind: 'circular-tangent',
+    pack: 'circular',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'circular-speed-with-acceleration',
+    title: {
+      zh: '速率没变，为什么还有加速度？',
+      en: 'Speed unchanged: why is there acceleration?',
+    },
+    subtitle: {
+      zh: '把速度变化画出来，区分瞬时与区间平均。',
+      en: 'Draw velocity change and distinguish instantaneous from interval-average acceleration.',
+    },
+    minutes: 23,
+    stage: 5,
+    unit: 'circular',
+    kind: 'circular-acceleration',
+    pack: 'circular',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'circular-force-is-a-role',
+    title: {
+      zh: '有了拉力，还要再加一个向心力吗？',
+      en: 'With tension present, do we add another centripetal force?',
+    },
+    subtitle: {
+      zh: '向心描述合力的作用，先找真实相互作用。',
+      en: 'Centripetal describes the net force’s role; identify actual interactions first.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'circular',
+    kind: 'circular-force',
+    pack: 'circular',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'circular-turning-grip-limit',
+    title: {
+      zh: '快一点，为什么同一个弯转得更宽？',
+      en: 'A little faster: why does the same turn become wider?',
+    },
+    subtitle: {
+      zh: '把需要的横向力与可用上限放在同一张图。',
+      en: 'Compare required lateral force and the available limit on one plot.',
+    },
+    minutes: 24,
+    stage: 5,
+    unit: 'circular',
+    kind: 'circular-turning',
+    pack: 'circular',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'circular-satellite-gravity-turns',
+    title: {
+      zh: '卫星一直在落，为什么没落到地面？',
+      en: 'Always falling: why does the satellite miss the ground?',
+    },
+    subtitle: {
+      zh: '把引力与圆轨道条件接在一起，不把任意速率画成圆。',
+      en: 'Connect gravity with circular-orbit conditions instead of drawing any speed as a circle.',
+    },
+    minutes: 23,
+    stage: 5,
+    unit: 'circular',
+    kind: 'circular-orbit',
+    pack: 'circular',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'circular-loop-energy-and-contact',
+    title: {
+      zh: '能到环顶，就一定能贴着轨道绕一圈吗？',
+      en: 'Enough energy to reach the top: enough to stay on the loop?',
+    },
+    subtitle: {
+      zh: '把能量条件与“轨道只能推”的接触条件同时检查。',
+      en: 'Check energy and the contact condition that the track can only push.',
+    },
+    minutes: 26,
+    stage: 5,
+    unit: 'circular',
+    kind: 'circular-loop',
+    pack: 'circular',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-two-masses-one-interaction',
+    title: {
+      zh: '你吸引地球，地球也吸引你吗？',
+      en: 'You attract Earth. Does Earth attract you too?',
+    },
+    subtitle: {
+      zh: '从两个孤立球体，读懂引力的相互性。',
+      en: 'Use an isolated pair to understand mutual gravity.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-pair',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-distance-has-a-square',
+    title: {
+      zh: '离远两倍，引力只剩一半吗？',
+      en: 'Twice as far: only half the attraction?',
+    },
+    subtitle: {
+      zh: '用中心距与质量，建立平方反比的工具。',
+      en: 'Build inverse-square reasoning with centre distance and mass.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-inverse',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-field-before-test-mass',
+    title: {
+      zh: '换一个更重的探测器，同一地点的g变了吗？',
+      en: 'A heavier probe: did g at that location change?',
+    },
+    subtitle: {
+      zh: '把空间中的场，与物体受到的力分开。',
+      en: 'Separate a field in space from force on an object.',
+    },
+    minutes: 23,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-field',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-height-is-not-radius',
+    title: {
+      zh: '爬高一点，g为什么只变一点？',
+      en: 'A little higher: why only a little change in g?',
+    },
+    subtitle: {
+      zh: '把R+h带进公式，理解近地近似。',
+      en: 'Use R+h to understand the near-surface approximation.',
+    },
+    minutes: 22,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-g',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-speed-shapes-an-orbit',
+    title: {
+      zh: '卫星初速变了，轨道还会是圆吗？',
+      en: 'Different launch speed: still a circular orbit?',
+    },
+    subtitle: {
+      zh: '用同一个出发点，连接能量、角动量与椭圆。',
+      en: 'Connect energy, angular momentum and ellipses from one start.',
+    },
+    minutes: 26,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-orbit',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-stay-over-one-longitude',
+    title: {
+      zh: '卫星在天上不动，真的没有运动吗？',
+      en: 'A satellite stays in one sky position. Is it motionless?',
+    },
+    subtitle: {
+      zh: '把绕行和自转放在同一时钟上。',
+      en: 'Put orbit and body rotation on one clock.',
+    },
+    minutes: 24,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-satellite',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-escape-needs-an-energy-ledger',
+    title: {
+      zh: '已经向外飞，为什么还可能回来？',
+      en: 'Already flying outward: why might it return?',
+    },
+    subtitle: {
+      zh: '从有限动画走向能量判断的逃逸概念。',
+      en: 'Use energy to judge escape beyond a finite animation.',
+    },
+    minutes: 27,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-escape',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'gravitation-weightless-still-attracted',
+    title: {
+      zh: '航天员浮起来，是引力消失了吗？',
+      en: 'An astronaut floats. Did gravity disappear?',
+    },
+    subtitle: {
+      zh: '把引力、支持力和共同自由落体分开。',
+      en: 'Separate gravity, support and shared free fall.',
+    },
+    minutes: 24,
+    stage: 5,
+    unit: 'gravitation',
+    kind: 'gravitation-weightless',
+    pack: 'gravitation',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
 ];
