@@ -8,7 +8,12 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
-import { LanguageSwitcher, StudyHeader, useLanguageMode } from '@study/ui';
+import {
+  LanguageSwitcher,
+  StudyShell,
+  StudyIcon,
+  useLanguageMode,
+} from '@study/ui';
 import type { LanguageMode } from '@study/shared';
 import { lessons, questions, section, t, type Question } from './content';
 import curriculum from '../../../curriculum/index.json';
@@ -1163,37 +1168,115 @@ export function App() {
     document.title = `${words(mode, '生命探索', 'Biology Explorer')} · Study`;
     window.scrollTo(0, 0);
   }, [location.pathname, mode]);
+  const directory = curriculum.map((stage, i) => ({
+    id: stage.id,
+    title: `${String(i + 1).padStart(2, '0')} · ${words(mode, stageTitles[i]!.zh, stageTitles[i]!.en)}`,
+    children: stage.units.map((unit) => ({
+      id: `${stage.id}-${unit.id}`,
+      title: mode === 'en' ? unit.id : unit.title,
+      children: unit.lessons.map((lesson) => ({
+        id: lesson.id,
+        title: words(mode, lesson.zh, lesson.en),
+        href:
+          lesson.status === 'available'
+            ? `/biology/lesson/${lesson.id}`
+            : undefined,
+        badge:
+          lesson.status === 'available'
+            ? store.progress.sessions[lesson.id]?.completedAt
+              ? '✓'
+              : undefined
+            : words(mode, '规划中', 'Planned'),
+      })),
+    })),
+  }));
   return (
     <div className="bio-app study-learning-app">
-      <div className="bio-main-wrap">
-        <StudyHeader
-          brand={
-            <Link to="/biology">
-              <span className="bio-brand-icon">❧</span>
-              <div>
-                <strong>{words(mode, '生命探索', 'Biology Explorer')}</strong>
-                <small>Biology · Study</small>
-              </div>
-            </Link>
-          }
-          navigation={
-            <>
-              <NavLink to="/biology" end>
+      <StudyShell
+        brand={
+          <Link to="/biology">
+            <span className="bio-brand-icon">❧</span>
+            <div>
+              <strong>{words(mode, '生命探索', 'Biology Explorer')}</strong>
+              <small>Biology · Study</small>
+            </div>
+          </Link>
+        }
+        navigation={
+          <>
+            <NavLink
+              to="/biology"
+              end
+              title={words(mode, '探索首页', 'Discover')}
+              aria-label={words(mode, '探索首页', 'Discover')}
+            >
+              <StudyIcon name="home" size={19} />
+              <span className="study-nav-label">
                 {words(mode, '探索首页', 'Discover')}
-              </NavLink>
-              <NavLink to="/biology/review">
+              </span>
+            </NavLink>
+            <NavLink
+              to="/biology/review"
+              title={words(mode, '温故知新', 'Review')}
+              aria-label={words(mode, '温故知新', 'Review')}
+            >
+              <StudyIcon name="review" size={19} />
+              <span className="study-nav-label">
                 {words(mode, '温故知新', 'Review')}
-                {review > 0 && <b>{review}</b>}
-              </NavLink>
-              <NavLink to="/biology/notebook">
+              </span>
+              {review > 0 && <b>{review}</b>}
+            </NavLink>
+            <NavLink
+              to="/biology/notebook"
+              title={words(mode, '发现手帐', 'Notebook')}
+              aria-label={words(mode, '发现手帐', 'Notebook')}
+            >
+              <StudyIcon name="notebook" size={19} />
+              <span className="study-nav-label">
                 {words(mode, '发现手帐', 'Notebook')}
-              </NavLink>
-            </>
-          }
-          controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
-          home={<Link to="/">← Study</Link>}
-          label={words(mode, '生物学习导航', 'Biology navigation')}
-        />
+              </span>
+            </NavLink>
+          </>
+        }
+        controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
+        home={
+          <Link to="/" title={words(mode, '返回 Study', 'Back to Study')}>
+            <StudyIcon name="back" size={18} />
+            <span>Study</span>
+          </Link>
+        }
+        title={words(
+          mode,
+          location.pathname.includes('/lesson/')
+            ? '课程学习'
+            : location.pathname.endsWith('/review')
+              ? '温故知新'
+              : location.pathname.endsWith('/notebook')
+                ? '发现手帐'
+                : '探索首页',
+          location.pathname.includes('/lesson/')
+            ? 'Learning workspace'
+            : location.pathname.endsWith('/review')
+              ? 'Review'
+              : location.pathname.endsWith('/notebook')
+                ? 'Notebook'
+                : 'Discover',
+        )}
+        subject={words(mode, '生命探索', 'Biology Explorer')}
+        mode={mode}
+        directory={directory}
+        activePath={location.pathname + location.search}
+        renderLink={(href, content, className, active) => (
+          <Link
+            to={href}
+            className={className}
+            aria-current={active ? 'page' : undefined}
+          >
+            {content}
+          </Link>
+        )}
+        label={words(mode, '生物学习导航', 'Biology navigation')}
+      >
         {store.error && (
           <div className="bio-storage-error" role="alert">
             {store.error}
@@ -1236,7 +1319,7 @@ export function App() {
             )}
           </span>
         </footer>
-      </div>
+      </StudyShell>
     </div>
   );
 }

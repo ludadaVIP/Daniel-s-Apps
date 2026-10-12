@@ -6610,401 +6610,558 @@
   }
 }
 
-/* Compact laptop layout: readable type, small gutters, task-first content. */
+/* Subject details within the shared, collapsible learning workspace. */
 
 .phy-app {
-  --study-accent: #70538f;
-  --study-tint: #ece7f2;
-  --study-border: #ded6e7;
-  --study-muted: #64576f;
-  --study-header-bg: #fcfbf8;
-  --muted: #685e73;
+  --study-accent: #765b98;
+  --study-tint: #eee8f4;
+  --study-border: #e5e0eb;
+  --study-muted: #6e637b;
+  --study-ink: #332e40;
+  --study-sidebar-bg: #fcfbf9;
+  --study-header-bg: #faf9f6;
+  --study-hover: #f4f1f7;
+  --muted: #756b80;
   display: block;
   font-size: 16px;
 }
-.phy-app .phy-main-shell {
-  margin-left: 0;
-  width: 100%;
-}
 .phy-app .phy-main {
   max-width: var(--study-content-width);
-  padding: 16px var(--study-gutter) 24px;
-  min-height: calc(100vh - 112px);
+  width: 100%;
+  padding: 24px var(--study-gutter) 32px;
   margin: auto;
+  min-height: calc(100vh - 130px);
+  container-type: inline-size;
 }
 .phy-app .phy-footer {
   max-width: var(--study-content-width);
-  padding: 10px var(--study-gutter);
-  color: #6b6075;
+  padding: 16px var(--study-gutter);
+  margin: auto;
+  color: #867c90;
+  font-size: 12px;
+}
+.phy-app .phy-footer > span:first-child {
+  font-size: 11px;
 }
 .phy-app .phy-en {
-  opacity: 0.85;
-  margin-top: 2px;
+  opacity: 0.8;
+  line-height: 1.5;
+  margin-top: 4px;
+}
+.phy-app h1 {
+  font-size: 30px;
+  letter-spacing: -0.04em;
+}
+.phy-app h1 .phy-en {
+  font-size: 15px;
+  margin-top: 6px;
+}
+.phy-app .phy-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  color: #887d94;
 }
 .phy-app .phy-greeting {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
+  gap: 16px;
 }
 .phy-app .phy-greeting h1 {
   font-size: 24px;
 }
+.phy-app .phy-age {
+  font-size: 12px;
+  color: #847b90;
+}
 .phy-app .phy-hero {
-  min-height: 0;
-  grid-template-columns: minmax(0, 1.8fr) minmax(220px, 0.7fr);
+  min-height: 260px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(230px, 0.8fr);
+  border-radius: 16px;
+  background: #75628f;
+  border: 0;
 }
 .phy-app .phy-hero-copy {
-  padding: 18px 22px;
+  padding: 24px 28px;
 }
 .phy-app .phy-hero h2 {
-  font-size: 30px;
-  margin: 8px 0;
+  font-size: 32px;
   white-space: normal;
+  margin: 12px 0;
+  line-height: 1.3;
 }
 .phy-app .phy-hero h2 .phy-en {
-  margin-top: 4px;
   font-size: 16px;
+  margin-top: 8px;
 }
-.phy-app .phy-hero .phy-button {
-  margin-top: 12px;
+.phy-app .phy-hero p {
+  font-size: 15px;
+  line-height: 1.65;
 }
-.phy-app .phy-hero-foot {
-  margin-top: 6px;
+.phy-app .phy-hero p .phy-en {
+  font-size: 14px;
+  margin-top: 4px;
 }
-.phy-app .phy-orbit {
-  padding: 0;
+.phy-app .phy-hero-tag {
+  font-size: 12px;
+  letter-spacing: 0.05em;
 }
-.phy-app .phy-orbit svg {
-  max-height: 220px;
-}
-.phy-app .phy-orbit-caption {
+.phy-app .phy-hero-tag .phy-en,
+.phy-app .phy-hero-foot .phy-en {
   display: none;
 }
-.phy-app .phy-dashboard-grid {
+.phy-app .phy-hero-foot {
+  font-size: 12px;
+  margin-top: 10px;
+}
+.phy-app .phy-orbit svg {
+  max-height: 260px;
+}
+.phy-app .phy-orbit-caption {
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+.phy-app .phy-button {
+  min-height: 44px;
+  padding: 10px 16px;
+  font-size: 15px;
+  border-radius: 8px;
+  gap: 12px;
+}
+.phy-app .phy-button .phy-en {
+  font-size: 13px;
+  margin-top: 3px;
+}
+.phy-app .phy-button-peach {
   margin-top: 16px;
-  gap: 16px;
-  grid-template-columns: minmax(0, 1fr) 290px;
+}
+.phy-app .phy-dashboard-grid {
+  grid-template-columns: minmax(0, 1fr) 250px;
+  gap: 20px;
+  margin-top: 24px;
 }
 .phy-app .phy-section-heading {
-  margin-bottom: 10px;
+  margin-bottom: 14px;
+  gap: 12px;
 }
 .phy-app .phy-section-heading h2 {
   font-size: 20px;
 }
+.phy-app .phy-section-heading h2 .phy-en {
+  display: block;
+  margin: 3px 0 0;
+  font-size: 13px;
+}
+.phy-app .phy-section-heading > a {
+  font-size: 13px;
+}
+.phy-app .phy-home-lessons {
+  gap: 14px;
+}
+.phy-app .phy-lesson-card {
+  border-radius: 12px;
+  border-color: #e7e2eb;
+  box-shadow: 0 2px 6px #34224503;
+}
 .phy-app .phy-card-art {
-  height: 82px;
+  height: 104px;
 }
 .phy-app .phy-card-copy {
-  padding: 12px;
-}
-.phy-app .phy-card-copy h3 {
-  font-size: 18px;
-}
-.phy-app .phy-card-copy :is(p, .phy-en),
-.phy-app .phy-card-bottom {
-  color: #685a74;
-}
-.phy-app .phy-card-copy p {
-  margin-top: 6px;
-}
-.phy-app .phy-card-bottom {
-  padding-top: 8px;
-}
-.phy-app .phy-button {
-  font-size: 16px;
-  min-height: 44px;
-  padding: 8px 14px;
-}
-.phy-app .phy-lab-invite {
-  margin-top: 12px;
-  padding: 12px;
-  gap: 12px;
-}
-.phy-app .phy-today-card {
   padding: 16px;
 }
+.phy-app .phy-card-copy h3 {
+  font-size: 17px;
+  line-height: 1.45;
+}
+.phy-app .phy-card-copy h3 .phy-en {
+  font-size: 13px;
+  color: #756882;
+}
+.phy-app .phy-card-copy p {
+  font-size: 14px;
+  margin-top: 8px;
+  color: #756b80;
+}
+.phy-app .phy-card-copy p .phy-en {
+  font-size: 13px;
+}
+.phy-app .phy-card-num,
+.phy-app .phy-card-status {
+  font-size: 11px;
+}
+.phy-app .phy-card-status .phy-en {
+  display: none;
+}
+.phy-app .phy-card-bottom {
+  padding-top: 12px;
+  font-size: 13px;
+}
+.phy-app .phy-card-bottom .phy-en {
+  display: none;
+}
+.phy-app .phy-lab-invite {
+  padding: 16px 18px;
+  gap: 14px;
+  margin-top: 16px;
+}
+.phy-app .phy-lab-invite h3 .phy-en {
+  display: block;
+  margin-left: 0;
+}
+.phy-app .phy-lab-invite .phy-eyebrow {
+  font-size: 10px;
+}
+.phy-app .phy-today-card {
+  padding: 20px;
+}
 .phy-app .phy-today-card h3 {
-  margin-top: 12px;
+  font-size: 20px;
+  margin-top: 18px;
+}
+.phy-app .phy-today-card > p {
+  font-size: 14px;
+  color: #756b80;
 }
 .phy-app .phy-today-progress {
-  margin-top: 12px;
+  margin-top: 18px;
+  font-size: 12px;
+}
+.phy-app .phy-today-progress .phy-en,
+.phy-app .phy-tag .phy-en {
+  display: none;
+}
+.phy-app .phy-tag {
+  font-size: 12px;
 }
 .phy-app .phy-review-card {
-  padding: 12px 0;
+  padding: 16px 0;
+}
+.phy-app .phy-review-card h3 {
+  font-size: 15px;
+}
+.phy-app .phy-review-card h3 .phy-en {
+  font-size: 13px;
+}
+.phy-app .phy-review-card p {
+  font-size: 13px;
 }
 .phy-app .phy-page-heading {
-  margin: 8px 0 12px;
-  gap: 12px;
+  margin: 4px 0 20px;
+  gap: 16px;
 }
 .phy-app .phy-lead {
-  font-size: 18px;
-  line-height: 1.6;
-  margin: 8px 0 12px !important;
-  color: #66596f;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #756980;
+  margin: 10px 0 18px !important;
 }
-.phy-app :is(.phy-soft, .phy-eyebrow, .phy-breadcrumb, .phy-age) {
-  color: #6d6078;
+.phy-app .phy-lead .phy-en {
+  font-size: 14px;
+  margin-top: 6px;
+}
+.phy-app .phy-soft {
+  font-size: 14px;
+  color: #80738b;
 }
 .phy-app .phy-path-heading {
-  padding: 12px 0;
-  gap: 12px;
+  gap: 14px;
+  padding: 18px 0;
+}
+.phy-app .phy-path-heading h2 {
+  font-size: 22px;
+}
+.phy-app .phy-path-heading p {
+  font-size: 13px;
+  color: #82748e;
+}
+.phy-app .phy-path-heading p .phy-en {
+  display: none;
 }
 .phy-app .phy-path-lessons {
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 10px;
-}
-.phy-app .phy-path-lessons .phy-lesson-card {
-  flex-direction: row;
-}
-.phy-app .phy-path-lessons .phy-card-art {
-  width: 130px;
-  height: auto;
-  min-height: 140px;
-  flex-shrink: 0;
-}
-.phy-app .phy-path-lessons .phy-card-copy {
-  padding: 12px;
-}
-.phy-app .phy-course-unit {
-  margin-bottom: 16px;
-}
-.phy-app .phy-unit-title {
-  margin-bottom: 10px;
-}
-.phy-app .phy-roadmap-title {
-  margin-top: 18px;
-}
-.phy-app .phy-lesson-layout {
-  grid-template-columns: minmax(0, 1fr) 240px;
   gap: 16px;
 }
-.phy-app .phy-step-nav {
-  padding: 4px;
+.phy-app .phy-path-lessons .phy-card-art {
+  height: 110px;
 }
-.phy-app .phy-step-nav > button {
-  min-height: 44px;
-  padding: 7px 5px;
-  font-size: 16px;
-  color: #655471;
+.phy-app .phy-path-lessons .phy-card-copy {
+  padding: 18px;
 }
-.phy-app .phy-step-nav > button > span:first-child {
-  width: 24px;
-  height: 24px;
+.phy-app .phy-unit-title {
+  font-size: 18px !important;
+  color: #655376;
+  margin-bottom: 16px !important;
 }
-.phy-app .phy-lesson-body {
-  min-height: 0;
-  margin-top: 12px;
-  padding: 20px;
-  font-size: 18px;
-}
-.phy-app .phy-lesson-body h2 {
-  font-size: 24px;
-  margin-bottom: 10px;
-}
-.phy-app .phy-predict {
-  margin: 12px 0;
-  gap: 8px;
-}
-.phy-app .phy-predict button {
-  padding: 10px 14px;
-  font-size: 18px;
-  color: #675472;
-}
-.phy-app .phy-lesson-bottom,
-.phy-app .phy-lesson-footer {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  padding: 10px 12px;
-  background: #fcfbf8f5;
-  border-top: 1px solid #ded6e7;
-  border-radius: 8px;
-}
-.phy-app .phy-text-button {
-  font-size: 16px !important;
-  min-height: 40px;
-}
-.phy-app .phy-lesson-aside {
-  padding-top: 4px;
-}
-.phy-app .phy-vocab {
-  padding: 8px 0;
-  color: #665275;
-}
-.phy-app .phy-vocab > span {
-  color: #6c5f75;
-}
-.phy-app .phy-aside-tip {
-  padding: 12px;
-  margin-top: 12px;
-  color: #6c6749;
-}
-.phy-app .phy-aside-back {
-  margin-top: 12px;
-  color: #6c5d77 !important;
-}
-.phy-app .phy-concept {
-  font-size: 18px;
-  line-height: 1.65;
-  color: #665472;
-}
-.phy-app .phy-example {
-  margin-top: 12px;
-  padding-top: 12px;
-  font-size: 18px;
-  line-height: 1.65;
-  color: #68576f;
-}
-.phy-app .phy-example h3 {
-  font-size: 18px;
-  margin-bottom: 6px;
-}
-.phy-app .phy-misconception,
-.phy-app .phy-formula {
-  padding: 14px;
-  margin: 12px 0;
-}
-.phy-app .phy-question {
-  margin-top: 12px;
-}
-.phy-app .phy-options button {
-  padding: 10px 12px;
-  font-size: 18px;
-}
-.phy-app .phy-lab {
-  padding: 14px;
-}
-.phy-app .phy-lab-controls {
-  gap: 12px;
-  margin: 10px 0;
-}
-.phy-app .phy-lab > svg {
-  max-height: 280px;
-}
-.phy-app .phy-lab-actions {
-  margin-top: 10px;
-}
-.phy-app .phy-lab-select {
-  margin: 12px 0;
-}
-.phy-app .phy-project-section {
-  margin-top: 12px;
-  padding: 16px;
-}
-@media (max-width: 900px) {
-  .phy-app .phy-dashboard-grid,
-  .phy-app .phy-lesson-layout {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .phy-app .phy-lesson-aside {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 10px;
-  }
-  .phy-app .phy-step-nav > button {
-    flex-wrap: wrap;
-  }
-}
-@media (max-width: 600px) {
-  .phy-app .phy-hero {
-    grid-template-columns: 1fr;
-  }
-  .phy-app .phy-orbit {
-    display: none;
-  }
-  .phy-app .phy-home-lessons,
-  .phy-app .phy-path-lessons {
-    grid-template-columns: 1fr;
-  }
-  .phy-app .phy-lesson-body {
-    padding: 14px;
-  }
-  .phy-app .phy-step-nav > button {
-    font-size: 14px;
-  }
-  .phy-app .phy-breadcrumb {
-    flex-wrap: wrap;
-  }
-  .phy-app .phy-greeting {
-    align-items: start;
-    flex-wrap: wrap;
-  }
+.phy-app .phy-unit-title .phy-en {
+  font-size: 14px;
 }
 .phy-app .phy-project-card {
-  padding: 14px;
-  margin-top: 12px;
-  gap: 12px;
+  padding: 20px;
+  gap: 16px;
+  margin-top: 20px;
 }
 .phy-app .phy-project-card h3 {
-  margin: 6px 0;
   font-size: 18px;
 }
-.phy-app .phy-project-card p {
-  margin: 4px 0;
+.phy-app .phy-project-card .phy-eyebrow {
+  font-size: 10px;
 }
 .phy-app .phy-future-roadmap {
-  margin-top: 12px;
+  margin-top: 24px;
+  padding-top: 16px;
   border-top: 1px solid var(--line);
 }
 .phy-app .phy-future-roadmap > summary {
   cursor: pointer;
-  padding: 12px 0;
-  color: #665472;
-  font-size: 16px;
+  font-size: 14px;
+  color: #7c6d89;
 }
-.phy-app .phy-future-roadmap .phy-en {
+.phy-app .phy-future-roadmap > summary .phy-en {
   display: inline;
   margin-left: 8px;
+}
+.phy-app .phy-breadcrumb {
+  font-size: 13px;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: #8b7b99;
+  margin-bottom: 14px;
+}
+.phy-app .phy-breadcrumb .phy-en {
+  display: none;
 }
 .phy-app .phy-page:has(.phy-lesson-layout) .phy-page-heading .phy-eyebrow {
   display: none;
 }
-.phy-app .phy-page:has(.phy-lesson-layout) .phy-page-heading h1 .phy-en {
-  display: inline;
-  margin-left: 12px;
+.phy-app .phy-lesson-layout {
+  grid-template-columns: minmax(0, 1fr) 200px;
+  gap: 22px;
+  align-items: start;
 }
-.phy-app .phy-page:has(.phy-lesson-layout) .phy-breadcrumb .phy-en {
-  display: none;
+.phy-app .phy-step-nav {
+  padding: 5px;
+  border-radius: 10px;
+  gap: 3px;
+}
+.phy-app .phy-step-nav > button {
+  font-size: 14px;
+  min-height: 44px;
+  padding: 9px 5px;
+  color: #85728f;
+  gap: 6px;
 }
 .phy-app .phy-step-nav .phy-en {
   display: none;
 }
+.phy-app .phy-step-nav > button > span:first-child {
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
+}
 .phy-app .phy-lesson-body {
-  padding: 16px;
+  padding: 24px;
+  margin-top: 18px;
+  min-height: 0;
+  border-radius: 14px;
+  box-shadow: 0 4px 16px #3d2c5103;
+  font-size: 18px;
+}
+.phy-app .phy-lesson-body h2 {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 14px;
 }
 .phy-app .phy-lesson-body h2 .phy-en {
-  margin-top: 3px;
+  font-size: 15px;
+  margin-top: 6px;
 }
-.phy-app .phy-lab {
-  padding: 0;
-  margin: 10px 0;
+.phy-app .phy-predict {
+  margin: 18px 0;
+  gap: 10px;
 }
-.phy-app .phy-lab-toolbar {
-  padding: 10px 12px;
+.phy-app .phy-predict button,
+.phy-app .phy-options button {
+  padding: 13px 16px;
+  font-size: 17px;
+  color: #6d597b;
+  border-radius: 9px;
 }
-.phy-app .phy-simulation {
-  max-height: 190px;
+.phy-app .phy-predict button > span:first-child {
+  flex: none;
 }
-.phy-app .phy-lab-controls {
-  padding: 10px 12px;
-  margin: 0;
-  flex-wrap: wrap;
-}
-.phy-app .phy-model-note {
-  padding: 8px 12px;
-}
-.phy-app .phy-lab-controls button {
-  min-height: 40px;
+.phy-app .phy-lesson-bottom {
+  position: static;
+  padding: 18px 0 0;
+  gap: 12px;
 }
 .phy-app .phy-lesson-bottom .phy-en {
   display: none;
 }
-.phy-app .phy-lab > .phy-simulation {
-  max-height: 190px;
+.phy-app .phy-text-button {
+  font-size: 14px !important;
+  padding: 8px 0;
+  color: #8a719b;
 }
-.phy-app .phy-lesson-bottom,
-.phy-app .phy-lesson-footer {
-  background: #fcfbf8;
+.phy-app .phy-lesson-aside {
+  padding-top: 14px;
+}
+.phy-app .phy-lesson-aside h3 {
+  font-size: 15px;
+  margin: 8px 0 14px;
+}
+.phy-app .phy-vocab {
+  padding: 10px 0;
+  font-size: 14px;
+  color: #7e678e;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.phy-app .phy-vocab > span {
+  font-size: 13px;
+  color: #8b7c98;
+}
+.phy-app .phy-aside-tip {
+  padding: 16px;
+  margin-top: 20px;
+  font-size: 14px;
+  color: #827c59;
+}
+.phy-app .phy-aside-tip p {
+  line-height: 1.65;
+}
+.phy-app .phy-aside-back {
+  margin-top: 20px;
+  font-size: 13px;
+}
+.phy-app .phy-concept {
+  font-size: 18px;
+  line-height: 1.8;
+  color: #6e5b7c;
+}
+.phy-app .phy-concept .phy-en {
+  font-size: 15px;
+  margin-top: 8px;
+}
+.phy-app .phy-example {
+  font-size: 17px;
+  line-height: 1.75;
+  margin-top: 20px;
+  padding-top: 18px;
+  color: #796682;
+}
+.phy-app .phy-example h3 {
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+.phy-app .phy-formula,
+.phy-app .phy-misconception {
+  margin: 18px 0;
+  padding: 18px;
+  border-radius: 10px;
+}
+.phy-app .phy-question {
+  margin-top: 18px;
+}
+.phy-app .phy-lab {
+  margin: 18px 0;
+  border-radius: 12px;
+}
+.phy-app .phy-lab-toolbar {
+  padding: 12px 16px;
+  gap: 10px;
+  font-size: 13px;
+}
+.phy-app .phy-lab-label {
+  font-size: 11px;
+  letter-spacing: 0.08em;
+}
+.phy-app .phy-lab-toolbar .phy-en {
+  display: none;
+}
+.phy-app .phy-simulation {
+  max-height: 240px;
 }
 .phy-app .phy-simulation text[font-size='11'],
 .phy-app .phy-simulation text[font-size='13'] {
   font-size: 14px;
+}
+.phy-app .phy-lab-controls {
+  padding: 14px 16px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.phy-app .phy-model-note {
+  padding: 12px 16px;
+  font-size: 13px;
+}
+.phy-app .phy-model-note .phy-en {
+  font-size: 13px;
+}
+.phy-app .phy-lab-picker {
+  margin: 20px 0;
+}
+.phy-app .phy-lab-picker label {
+  min-width: 0;
+}
+.phy-app .phy-lab-picker select {
+  max-width: 100%;
+}
+@container (max-width:960px) {
+  .phy-dashboard-grid {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .phy-dashboard-right {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    gap: 20px;
+  }
+  .phy-lesson-layout {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .phy-lesson-aside {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    column-gap: 24px;
+  }
+  .phy-lesson-aside > h3,
+  .phy-lesson-aside > .phy-eyebrow {
+    grid-column: 1 / -1;
+  }
+  .phy-aside-tip,
+  .phy-aside-back {
+    display: none !important;
+  }
+}
+@container (max-width:650px) {
+  .phy-hero {
+    grid-template-columns: minmax(0, 1fr) !important;
+  }
+  .phy-orbit {
+    display: none;
+  }
+  .phy-home-lessons,
+  .phy-path-lessons {
+    grid-template-columns: 1fr !important;
+  }
+  .phy-dashboard-right {
+    grid-template-columns: 1fr;
+  }
+  .phy-step-nav > button {
+    flex-direction: column;
+    font-size: 13px !important;
+  }
+}
+@media (max-width: 600px) {
+  .phy-app .phy-main {
+    padding: 20px 16px 28px;
+  }
+  .phy-app .phy-lesson-body {
+    padding: 18px;
+  }
+  .phy-app .phy-greeting {
+    align-items: start;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .phy-app h1 {
+    font-size: 26px;
+  }
 }

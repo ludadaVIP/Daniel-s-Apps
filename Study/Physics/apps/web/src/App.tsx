@@ -9,7 +9,12 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
-import { LanguageSwitcher, StudyHeader, useLanguageMode } from '@study/ui';
+import {
+  LanguageSwitcher,
+  StudyShell,
+  StudyIcon,
+  useLanguageMode,
+} from '@study/ui';
 import { ProjectPage, ProjectCard } from './ProjectPage';
 import { WalkingCard } from './WalkingCard';
 import { MaterialsCard } from './MaterialsCard';
@@ -423,7 +428,7 @@ function Home({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
   );
 }
 function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const defaultStage = (
     lessons.find((l) => !store.progress.lessons[l.id]?.completedAt) ??
     lessons[0]!
@@ -464,46 +469,6 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
             />
           </p>
         </div>
-      </div>
-      <label className="study-curriculum-selector">
-        <B zh="选择学习阶段" en="Choose a stage" mode={mode} />
-        <select
-          value={stageIndex}
-          onChange={(event) => {
-            setParams({ stage: event.target.value }, { replace: true });
-          }}
-        >
-          {stages.map(
-            (stage, i) =>
-              lessons.some((l) => l.stage === i) && (
-                <option key={i} value={i}>
-                  {i.toString().padStart(2, '0')} ·{' '}
-                  {mode === 'en' ? stage.title.en : stage.title.zh}
-                </option>
-              ),
-          )}
-        </select>
-      </label>
-      <div
-        className="study-stage-picker"
-        role="group"
-        aria-label={mode === 'en' ? 'Course units' : '课程单元'}
-      >
-        {stageUnits.map(([id, title]) => (
-          <button
-            key={id}
-            aria-pressed={id === selectedUnit}
-            onClick={() =>
-              setParams(
-                { stage: String(stageIndex), unit: id },
-                { replace: true },
-              )
-            }
-          >
-            {mode === 'en' ? title.en : title.zh} ·{' '}
-            {available.filter((l) => l.unit === id).length}
-          </button>
-        ))}
       </div>
       {stages.map((stage, stageIndex) => {
         if (stageIndex !== selectedStage) return null;
@@ -967,7 +932,7 @@ export function App() {
   useEffect(() => {
     document.title = 'Physics Lab · 物理探索室';
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
   const count = lessons.filter(
     (l) => store.progress.lessons[l.id]?.completedAt,
   ).length;
@@ -979,35 +944,177 @@ export function App() {
     { to: '/physics/review', icon: 'review', name: t('温故知新', 'Review') },
     { to: '/physics/notebook', icon: 'book', name: t('发现手帐', 'Notebook') },
   ];
+  const directory = [
+    ...stages.flatMap((stage, stageIndex) => {
+      const available = lessons.filter((lesson) => lesson.stage === stageIndex);
+      if (!available.length) return [];
+      return [
+        {
+          id: `stage-${stageIndex}`,
+          title: `${String(stageIndex).padStart(2, '0')} · ${mode === 'en' ? stage.title.en : stage.title.zh}`,
+          href: `/physics/path?stage=${stageIndex}`,
+          children: Object.entries(units).flatMap(([unit, title]) => {
+            const group = available.filter((lesson) => lesson.unit === unit);
+            return group.length
+              ? [
+                  {
+                    id: `unit-${stageIndex}-${unit}`,
+                    title: mode === 'en' ? title.en : title.zh,
+                    href: `/physics/path?stage=${stageIndex}&unit=${unit}`,
+                    children: group.map((lesson) => ({
+                      id: lesson.id,
+                      title: mode === 'en' ? lesson.title.en : lesson.title.zh,
+                      href: `/physics/lesson/${lesson.id}`,
+                      badge: store.progress.lessons[lesson.id]?.completedAt
+                        ? '✓'
+                        : undefined,
+                    })),
+                  },
+                ]
+              : [];
+          }),
+        },
+      ];
+    }),
+    {
+      id: 'field-projects',
+      title: mode === 'en' ? 'Field projects' : '实践项目',
+      children: [
+        {
+          id: 'detective',
+          title: mode === 'en' ? 'Physics Detective' : '物理侦探',
+          href: '/physics/project/detective',
+        },
+        {
+          id: 'walking',
+          title: mode === 'en' ? 'Walking Investigation' : '步行调查',
+          href: '/physics/project/walking',
+        },
+        {
+          id: 'materials',
+          title: mode === 'en' ? 'Mystery Materials' : '材料调查',
+          href: '/physics/project/materials',
+        },
+        {
+          id: 'power',
+          title: mode === 'en' ? 'Stair Power' : '上楼功率',
+          href: '/physics/project/power',
+        },
+        {
+          id: 'insulation',
+          title: mode === 'en' ? 'Two-cup Insulation' : '双杯保温',
+          href: '/physics/project/insulation',
+        },
+        {
+          id: 'periscope',
+          title: mode === 'en' ? 'Periscope Workshop' : '潜望镜工作台',
+          href: '/physics/project/periscope',
+        },
+        {
+          id: 'lifting',
+          title: mode === 'en' ? 'Lifting Design' : '抬升设计',
+          href: '/physics/project/lifting',
+        },
+      ],
+    },
+  ];
+  const browseParams = new URLSearchParams(location.search);
+  const nextLesson =
+    lessons.find((lesson) => !store.progress.lessons[lesson.id]?.completedAt) ??
+    lessons[0]!;
+  const browseStage =
+    browseParams.has('stage') &&
+    lessons.some((lesson) => lesson.stage === Number(browseParams.get('stage')))
+      ? Number(browseParams.get('stage'))
+      : nextLesson.stage;
+  const stageLessons = lessons.filter((lesson) => lesson.stage === browseStage);
+  const browseUnit = stageLessons.some(
+    (lesson) => lesson.unit === browseParams.get('unit'),
+  )
+    ? browseParams.get('unit')!
+    : (stageLessons.find(
+        (lesson) => !store.progress.lessons[lesson.id]?.completedAt,
+      )?.unit ?? stageLessons[0]!.unit);
+  const directoryPath =
+    location.pathname === '/physics/path'
+      ? `/physics/path?stage=${browseStage}&unit=${browseUnit}`
+      : location.pathname + location.search;
   return (
     <div className="phy-app study-learning-app">
-      <div className="phy-main-shell">
-        <StudyHeader
-          brand={
-            <Link to="/physics">
-              <span className="phy-brand-symbol">
-                p<span>·</span>
-              </span>
-              <div>
-                <strong>{mode === 'en' ? 'Physics Lab' : '物理探索室'}</strong>
-                <small>
-                  {count} / {lessons.length}{' '}
-                  {mode === 'en' ? 'discovered' : '已探索'}
-                </small>
-              </div>
-            </Link>
-          }
-          navigation={nav.map((n) => (
-            <NavLink end={n.to === '/physics'} key={n.to} to={n.to}>
-              <Icon name={n.icon} size={18} />
+      <StudyShell
+        brand={
+          <Link to="/physics">
+            <span className="phy-brand-symbol">
+              p<span>·</span>
+            </span>
+            <div>
+              <strong>{mode === 'en' ? 'Physics Lab' : '物理探索室'}</strong>
+              <small>
+                {count} / {lessons.length}{' '}
+                {mode === 'en' ? 'discovered' : '已探索'}
+              </small>
+            </div>
+          </Link>
+        }
+        navigation={nav.map((n) => (
+          <NavLink
+            end={n.to === '/physics'}
+            key={n.to}
+            to={n.to}
+            title={mode === 'en' ? n.name.en : n.name.zh}
+            aria-label={mode === 'en' ? n.name.en : n.name.zh}
+            className={({ isActive }) =>
+              isActive ||
+              (n.to === '/physics/path' &&
+                location.pathname.includes('/lesson/'))
+                ? 'active'
+                : ''
+            }
+          >
+            <Icon name={n.icon} size={18} />
+            <span className="study-nav-label">
               {mode === 'en' ? n.name.en : n.name.zh}
-              {n.icon === 'review' && due > 0 && <b>{due}</b>}
-            </NavLink>
-          ))}
-          controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
-          home={<Link to="/">← Study</Link>}
-          label={mode === 'en' ? 'Physics navigation' : '物理学习导航'}
-        />
+            </span>
+            {n.icon === 'review' && due > 0 && <b>{due}</b>}
+          </NavLink>
+        ))}
+        controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
+        home={
+          <Link to="/" title={mode === 'en' ? 'Back to Study' : '返回 Study'}>
+            <StudyIcon name="back" size={18} />
+            <span>Study</span>
+          </Link>
+        }
+        title={
+          mode === 'en'
+            ? location.pathname.includes('/lesson/')
+              ? 'Learning workspace'
+              : location.pathname.includes('/project/')
+                ? 'Field project'
+                : (nav.find((n) => n.to === location.pathname)?.name.en ??
+                  'Discover')
+            : location.pathname.includes('/lesson/')
+              ? '课程学习'
+              : location.pathname.includes('/project/')
+                ? '实践项目'
+                : (nav.find((n) => n.to === location.pathname)?.name.zh ??
+                  '探索首页')
+        }
+        subject={mode === 'en' ? 'Physics Lab' : '物理探索室'}
+        mode={mode}
+        directory={directory}
+        activePath={directoryPath}
+        renderLink={(href, content, className, active) => (
+          <Link
+            to={href}
+            className={className}
+            aria-current={active ? 'page' : undefined}
+          >
+            {content}
+          </Link>
+        )}
+        label={mode === 'en' ? 'Physics navigation' : '物理学习导航'}
+      >
         {!store.storageAvailable && (
           <p className="phy-storage-message" role="status">
             <B
@@ -1161,7 +1268,7 @@ export function App() {
             mode={mode}
           />
         </footer>
-      </div>
+      </StudyShell>
     </div>
   );
 }

@@ -11603,323 +11603,446 @@ a:focus-visible {
   }
 }
 
-/* Compact laptop layout: readable type, small gutters, task-first content. */
+/* Subject details within the shared, collapsible learning workspace. */
 
 .app-shell {
-  --study-accent: #286e68;
-  --study-tint: #e2eeea;
-  --study-border: #cbded7;
-  --study-muted: #4e7069;
-  --study-header-bg: #f5f7f6;
+  --study-accent: #347d73;
+  --study-tint: #e7f0ec;
+  --study-border: #e0e9e4;
+  --study-muted: #607d73;
+  --study-ink: #24413f;
+  --study-sidebar-bg: #fafcf9;
+  --study-header-bg: #fcfdfb;
+  --study-hover: #eef5f1;
   padding: 0;
+  display: block;
   font-size: 16px;
 }
 .app-shell .main-content {
-  width: 100%;
   max-width: var(--study-content-width);
+  width: 100%;
+  padding: 24px var(--study-gutter) 32px;
   margin: auto;
-  padding: 16px var(--study-gutter) 24px;
+  min-height: calc(100vh - 130px);
+  container-type: inline-size;
 }
 .app-shell .site-footer {
-  padding: 10px var(--study-gutter);
-  margin: 0;
+  max-width: var(--study-content-width);
+  padding: 16px var(--study-gutter);
+  margin: auto;
+  font-size: 12px;
+}
+.app-shell .eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.11em;
+  margin-bottom: 16px;
+}
+.app-shell .small-kicker {
+  font-size: 12px;
 }
 .app-shell .hero-grid {
-  grid-template-columns: minmax(0, 1.8fr) minmax(260px, 0.7fr);
-  gap: 20px;
+  grid-template-columns: minmax(0, 1.25fr) minmax(250px, 0.8fr);
+  gap: 28px;
 }
-.app-shell .hero-title {
-  font-size: 34px;
-  margin: 10px 0;
+.app-shell .hero-copy h1 {
+  font-size: 36px;
+  line-height: 1.25;
+  letter-spacing: -0.045em;
+  white-space: pre-line;
+}
+.app-shell .hero-copy h1 > span > span:last-child {
+  font-size: 16px;
+  margin-top: 10px;
 }
 .app-shell .hero-description {
-  font-size: 18px;
-  line-height: 1.65;
+  font-size: 16px;
+  line-height: 1.75;
+  margin: 18px 0 22px;
+  color: #607d73;
+}
+.app-shell .primary-button {
+  min-height: 44px;
+  padding: 12px 18px;
+  font-size: 15px;
+  border-radius: 9px;
 }
 .app-shell .particle-illustration {
   min-height: 0;
-  padding: 12px;
+  padding: 20px;
+  border-radius: 16px;
 }
 .app-shell .particle-svg {
-  max-height: 230px;
+  max-height: 280px;
+}
+.app-shell .illustration-label {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+.app-shell .diagram-note {
+  font-size: 11px;
 }
 .app-shell .bottom-grid {
-  margin-top: 14px;
-  gap: 12px;
+  margin-top: 24px;
+  gap: 20px;
 }
 .app-shell .first-card,
 .app-shell .rhythm-card {
-  padding: 14px 18px;
+  padding: 22px;
   min-height: 0;
+  border-radius: 14px;
 }
-.app-shell .path-heading {
-  margin-bottom: 12px;
-  gap: 16px;
+.app-shell .card-topline {
+  font-size: 11px;
+  letter-spacing: 0.08em;
 }
-.app-shell .path-heading h1 {
-  font-size: 30px;
-}
-.app-shell .level-card {
-  padding: 16px;
-  gap: 16px;
-}
-.app-shell .topic-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-}
-.app-shell .topic-list a {
-  padding: 10px 12px;
-  min-height: 54px;
-  font-size: 16px;
-}
-.app-shell .lesson-page {
-  max-width: 1320px;
-}
-.app-shell .lesson-topbar {
-  margin-bottom: 8px;
-}
-.app-shell .lesson-hero {
-  display: block;
-  padding: 0;
-  margin-bottom: 12px;
-}
-.app-shell .lesson-hero h1 {
-  font-size: 28px;
-  margin: 6px 0;
-}
-.app-shell .lesson-hook {
-  font-size: 18px;
-  line-height: 1.55;
-  margin: 6px 0;
-}
-.app-shell .lesson-title-en {
-  font-size: 16px;
-  margin-top: 4px;
-}
-.app-shell .lesson-eyebrow {
-  margin: 0;
-}
-.app-shell .big-idea {
-  padding: 14px 18px;
-  margin: 12px 0;
-}
-.app-shell .big-idea h2 {
-  font-size: 22px;
-}
-.app-shell .lesson-section {
-  padding: 16px;
-  margin: 12px 0;
-  gap: 12px;
-}
-.app-shell .lesson-section h2 {
-  font-size: 24px;
-}
-.app-shell .example-grid {
-  gap: 12px;
-}
-.app-shell .example-grid article {
-  padding: 14px;
-}
-.app-shell .example-grid p,
-.app-shell .step-list p {
-  font-size: 18px;
+.app-shell .first-card p,
+.app-shell .rhythm-card p {
+  font-size: 14px;
   line-height: 1.65;
 }
-.app-shell .step-list {
-  margin-top: 12px;
-  gap: 12px;
+.app-shell .card-bottom {
+  font-size: 12px;
 }
-.app-shell .step-list article {
-  padding: 12px 0;
+.app-shell .path-heading {
+  align-items: start;
+  gap: 24px;
+  margin-bottom: 24px;
 }
-.app-shell .interactive-section {
-  margin-top: 12px;
-  padding: 16px;
-}
-.app-shell .quiz-section {
-  margin-top: 12px;
-  padding: 16px;
-}
-.app-shell .chem-lesson-steps {
-  display: flex;
-  gap: 4px;
-  padding: 4px;
-  border: 1px solid #cbded7;
-  border-radius: 9px;
-  background: #e2eeea;
-}
-.app-shell .chem-lesson-steps button {
-  font: inherit;
-  font-size: 16px;
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  min-height: 44px;
-  border: 0;
-  border-radius: 6px;
-  background: transparent;
-  color: #4e7069;
-  cursor: pointer;
-}
-.app-shell .chem-lesson-steps button.active {
-  color: #245d59;
-  background: #fff;
-  font-weight: 700;
-}
-.app-shell .chem-lesson-steps button > span {
-  display: grid;
-  place-items: center;
-  border: 1px solid #bbd2c9;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  font-size: 14px;
-}
-.app-shell .chem-lesson-steps button.active > span {
-  color: white;
-  background: #286e68;
-}
-.app-shell .chem-step-actions {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-top: 1px solid #cbded7;
-  background: #f5f7f6f5;
-  padding: 10px 12px;
-  border-radius: 8px;
-  margin-top: 12px;
-}
-.app-shell .chem-step-actions :is(button, a) {
-  font: inherit;
-  font-size: 16px;
-  min-height: 44px;
-  padding: 8px 14px;
-  border: 1px solid #cbded7;
-  border-radius: 7px;
-  color: #286e68;
-  cursor: pointer;
-}
-.app-shell .chem-step-actions button:disabled {
-  opacity: 0.5;
-  cursor: default;
-}
-.app-shell .chem-step-actions .chem-step-continue {
-  background: #286e68;
-  color: white;
-}
-.app-shell .lesson-next {
-  margin: 14px 0 0;
-  padding: 12px 0;
-}
-.app-shell span.block[class*='text-[0.'] {
-  font-size: max(14px, 0.8em);
-  opacity: 0.85;
-}
-@media (max-width: 700px) {
-  .app-shell .hero-grid,
-  .app-shell .topic-list {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .app-shell .particle-illustration {
-    display: none;
-  }
-  .app-shell .level-card {
-    padding: 12px;
-  }
-  .app-shell .chem-lesson-steps button {
-    font-size: 14px;
-    flex-wrap: wrap;
-    gap: 4px;
-    padding: 6px 3px;
-  }
-  .app-shell .lesson-section {
-    padding: 12px;
-  }
-  .app-shell .example-grid {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-.app-shell .hero-copy h1 {
+.app-shell .path-heading h1 {
   font-size: 32px;
-  white-space: normal;
 }
-.app-shell .lesson-panel {
-  padding: 16px;
-  margin: 12px 0;
-  gap: 12px;
-}
-.app-shell .lesson-panel h2 {
-  font-size: 24px;
-}
-.app-shell .quiz-question {
-  padding: 14px;
-}
-.app-shell .quiz-options button {
-  padding: 10px 14px;
-  font-size: 18px;
-  min-height: 48px;
-}
-.app-shell .question-feedback {
-  padding: 12px;
-  margin-top: 10px;
-}
-.app-shell .quiz-finish {
-  margin-top: 10px;
-}
-.app-shell .big-idea h2 > span > span:last-child,
-.app-shell .lesson-section :is(h3, p) > span > span:last-child,
-.app-shell .quiz-panel :is(h3, p) > span > span:last-child {
-  font-size: max(14px, 0.8em);
+.app-shell .path-heading p {
+  width: 45%;
+  font-size: 15px;
 }
 .app-shell .levels {
-  grid-template-columns: minmax(0, 1fr);
+  grid-template-columns: 1fr;
+}
+.app-shell .level-card {
+  padding: 24px;
+  gap: 20px;
+  border-radius: 14px;
 }
 .app-shell .level-main {
   min-width: 0;
 }
+.app-shell .level-main h2 {
+  font-size: 24px;
+}
+.app-shell .level-main > p {
+  font-size: 16px;
+  line-height: 1.7;
+}
+.app-shell .topic-label {
+  font-size: 12px;
+}
+.app-shell .topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.app-shell .topic-list a {
+  padding: 14px;
+  font-size: 16px;
+  min-height: 64px;
+  border-radius: 9px;
+}
+.app-shell .level-count {
+  font-size: 12px;
+}
 .app-shell .lesson-page {
-  width: min(1320px, 100%);
+  width: 100%;
+  max-width: 1120px;
+  margin: auto;
+}
+.app-shell .lesson-topbar {
+  font-size: 13px;
+  margin-bottom: 16px;
 }
 .app-shell .lesson-hero {
+  display: block;
   min-height: 0;
-  padding: 14px 18px;
-  border-radius: 10px;
+  padding: 24px 28px;
+  border-radius: 14px;
+}
+.app-shell .lesson-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin: 0 0 12px;
+}
+.app-shell .lesson-eyebrow > span > span:last-child {
+  display: none;
 }
 .app-shell .lesson-hero h1 {
+  font-size: 32px;
+  line-height: 1.3;
   max-width: none;
+}
+.app-shell .lesson-title-en {
+  font-size: 16px;
+  margin-top: 8px;
 }
 .app-shell .lesson-hook {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 16px 0 0;
   max-width: none;
 }
-.app-shell .lesson-hero .lesson-eyebrow > span > span:last-child {
-  display: none;
+.app-shell .lesson-hook > span > span:last-child {
+  font-size: 14px;
+  margin-top: 6px;
+}
+.app-shell .chem-lesson-steps {
+  display: flex;
+  align-items: stretch;
+  gap: 4px;
+  margin: 20px 0;
+  padding: 5px;
+  background: #e8f0ec;
+  border: 1px solid #dce8e2;
+  border-radius: 10px;
+}
+.app-shell .chem-lesson-steps button {
+  font: inherit;
+  font-size: 14px;
+  flex: 1;
+  min-height: 44px;
+  padding: 8px 6px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 7px;
+  background: transparent;
+  color: #76968b;
+  cursor: pointer;
+}
+.app-shell .chem-lesson-steps button > span {
+  width: 22px;
+  height: 22px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border: 1px solid #c7dcd2;
+  border-radius: 50%;
+  font-size: 11px;
+}
+.app-shell .chem-lesson-steps button.active {
+  background: #fff;
+  color: #32766c;
+  font-weight: 650;
+  box-shadow: 0 1px 5px #34574408;
+}
+.app-shell .chem-lesson-steps button.active > span {
+  background: #347d73;
+  color: #fff;
+  border-color: #347d73;
+}
+.app-shell .big-idea {
+  margin: 0 0 24px;
+  padding: 20px 24px;
+  border-radius: 12px;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: 24px;
+}
+.app-shell .big-idea > span {
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  line-height: 1.65;
+}
+.app-shell .big-idea h2 {
+  font-size: 22px;
+  line-height: 1.5;
 }
 .app-shell .lesson-section,
 .app-shell .lesson-panel {
-  padding: 12px 0;
+  padding: 22px 0;
+  margin: 0;
+  grid-template-columns: 36px minmax(0, 1fr);
+  gap: 12px 18px;
+}
+.app-shell .section-kicker {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  margin-bottom: 10px;
+}
+.app-shell .lesson-section h2,
+.app-shell .lesson-panel h2 {
+  font-size: 24px;
+  line-height: 1.45;
+}
+.app-shell .section-number {
+  font-size: 22px;
+}
+.app-shell .example-grid {
+  gap: 16px;
+  margin-top: 16px;
+}
+.app-shell .example-grid article {
+  padding: 20px;
+  border-radius: 12px;
+}
+.app-shell .example-grid h3,
+.app-shell .step-list h3 {
+  font-size: 18px;
+}
+.app-shell .example-grid p,
+.app-shell .step-list p {
+  font-size: 17px;
+  line-height: 1.75;
+}
+.app-shell .step-list {
+  margin-top: 14px;
+  gap: 16px;
+}
+.app-shell .step-list article {
+  padding: 14px 0;
 }
 .app-shell .quiz-panel > .study-question-navigation {
   grid-column: 2;
+  margin: 12px 0;
 }
 .app-shell .quiz-list {
-  margin-top: 6px;
+  margin-top: 8px;
 }
-.app-shell .lesson-hero h1 .lesson-title-en {
-  display: inline;
-  margin-left: 12px;
+.app-shell .quiz-question {
+  padding: 22px;
+  border-radius: 12px;
+  margin: 0;
 }
-@media (max-width: 600px) {
-  .app-shell .quiz-panel > .study-question-navigation {
-    grid-column: 1 / -1;
-  }
+.app-shell .quiz-question h3 {
+  font-size: 18px;
+  line-height: 1.6;
+  margin-bottom: 18px;
+}
+.app-shell .quiz-options {
+  gap: 10px;
+  padding-left: 0;
+}
+.app-shell .quiz-options button {
+  font-size: 17px;
+  padding: 12px 16px;
+  min-height: 48px;
+  border-radius: 9px;
+}
+.app-shell .question-feedback {
+  margin: 18px 0 0;
+  padding: 16px;
+}
+.app-shell .quiz-explanation {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.app-shell .quiz-finish {
+  margin-top: 16px;
 }
 .app-shell .chem-step-actions {
-  background: #f5f7f6;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin-top: 24px;
+  padding: 18px 0 0;
+  border-top: 1px solid #dce7e1;
+}
+.app-shell .chem-step-actions :is(button, a) {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font: inherit;
+  font-size: 14px;
+  min-height: 44px;
+  padding: 10px 16px;
+  border: 1px solid #d6e5dd;
+  border-radius: 8px;
+  background: #fafcf9;
+  color: #4c857a;
+  cursor: pointer;
+}
+.app-shell .chem-step-actions button:disabled {
+  opacity: 0.45;
+  cursor: default;
+}
+.app-shell .chem-step-actions .chem-step-continue {
+  background: #347d73;
+  border-color: #347d73;
+  color: #fff;
+}
+.app-shell .lesson-next {
+  margin-top: 24px;
+  padding: 18px 0;
+}
+.app-shell span.block[class*='text-[0.'] {
+  font-size: max(14px, 0.8em);
+  opacity: 0.8;
+}
+.app-shell .lesson-section :is(h3, p) > span > span:last-child,
+.app-shell .quiz-panel :is(h3, p) > span > span:last-child,
+.app-shell .big-idea h2 > span > span:last-child {
+  font-size: max(14px, 0.8em);
+}
+@container (max-width:750px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .particle-illustration {
+    display: none;
+  }
+  .bottom-grid,
+  .topic-list {
+    grid-template-columns: 1fr !important;
+  }
+  .path-heading {
+    flex-direction: column;
+  }
+  .path-heading p {
+    width: 100% !important;
+  }
+  .level-card {
+    grid-template-columns: 36px minmax(0, 1fr) !important;
+  }
+  .level-count {
+    display: none;
+  }
+  .example-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+@media (max-width: 600px) {
+  .app-shell .main-content {
+    padding: 20px 16px 28px;
+  }
+  .app-shell .lesson-hero {
+    padding: 20px;
+  }
+  .app-shell .lesson-hero h1 {
+    font-size: 28px;
+  }
+  .app-shell .chem-lesson-steps button {
+    font-size: 13px;
+    flex-direction: column;
+    gap: 5px;
+  }
+  .app-shell .lesson-section,
+  .app-shell .lesson-panel {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-shell .section-number {
+    display: none;
+  }
+  .app-shell .quiz-panel > .study-question-navigation {
+    grid-column: 1;
+  }
+  .app-shell .quiz-list,
+  .app-shell .quiz-finish {
+    grid-column: 1;
+  }
+  .app-shell .quiz-question {
+    padding: 18px;
+  }
+  .app-shell .big-idea {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
 }

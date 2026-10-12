@@ -1,4 +1,4 @@
-import { StudyHeader } from '@study/ui';
+import { StudyShell, StudyIcon } from '@study/ui';
 import { useEffect, useState } from 'react';
 import {
   Link,
@@ -138,7 +138,7 @@ function Home({ store }: { store: ProgressStore }) {
   const current =
     lessons.find((l) => l.available && !mastered(store, l)) ??
     lessons[lessons.length - 1]!;
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const requestedWeek = Number(params.get('week'));
   const selectedWeek =
     Number.isInteger(requestedWeek) && requestedWeek >= 1 && requestedWeek <= 6
@@ -232,23 +232,6 @@ function Home({ store }: { store: ProgressStore }) {
             <h2>六周，解锁拼音的使用方式</h2>
           </div>
           <span className="py-muted">24 个小任务 · 认读 + 打字</span>
-        </div>
-        <div
-          className="study-stage-picker"
-          role="group"
-          aria-label="选择学习周"
-        >
-          {weeks.map((week, i) => (
-            <button
-              key={week.code}
-              aria-pressed={selectedWeek === i + 1}
-              onClick={() =>
-                setParams({ week: String(i + 1) }, { replace: true })
-              }
-            >
-              第 {i + 1} 周 · {week.title}
-            </button>
-          ))}
         </div>
         <div className="py-week-grid">
           {weeks.map(
@@ -1218,48 +1201,119 @@ export function App() {
   useEffect(() => {
     document.title = '拼音侦探 · Study';
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
   const [parent, setParent] = useState(false);
+  const directory = [
+    ...weeks.map((week, i) => ({
+      id: week.code,
+      title: `第 ${i + 1} 周 · ${week.title}`,
+      href: `/pinyin?week=${i + 1}`,
+      children: lessons
+        .filter((lesson) => lesson.week === i + 1)
+        .map((lesson) => ({
+          id: lesson.id,
+          title: `${String(lesson.number).padStart(2, '0')} · ${lesson.title}`,
+          href: `/pinyin/lesson/${lesson.id}`,
+          badge: mastered(store, lesson) ? '✓' : undefined,
+        })),
+    })),
+    {
+      id: 'assessments',
+      title: '阶段检查',
+      children: assessments.map((assessment) => ({
+        id: assessment.id,
+        title: assessment.title,
+        href: `/pinyin/assessment/${assessment.id}`,
+      })),
+    },
+  ];
+  const currentWeek = (
+    lessons.find((lesson) => lesson.available && !mastered(store, lesson)) ??
+    lessons[lessons.length - 1]!
+  ).week;
   return (
     <div className="py-app study-learning-app">
-      <div className="py-main-wrap">
-        <StudyHeader
-          brand={
-            <Link to="/pinyin">
-              <span className="py-brand-symbol">pī</span>
-              <div>
-                <strong>拼音侦探</strong>
-                <small>Pinyin · Study</small>
-              </div>
-            </Link>
-          }
-          navigation={
-            <>
-              <NavLink to="/pinyin" end>
-                <Icon name="map" size={18} />
-                任务首页
-              </NavLink>
-              <NavLink to="/pinyin/review">
-                <Icon name="clock" size={18} />
-                今日复习
-              </NavLink>
-              <NavLink to="/pinyin/toolkit">
-                <Icon name="book" size={18} />
-                拼音工具箱
-              </NavLink>
-              <NavLink to="/pinyin/lab">
-                <Icon name="keyboard" size={18} />
-                键盘实验室
-              </NavLink>
-              <NavLink to="/pinyin/report">
-                <Icon name="chart" size={18} />
-                学习报告
-              </NavLink>
-            </>
-          }
-          home={<Link to="/">← Study</Link>}
-          label="拼音学习导航"
-        />
+      <StudyShell
+        brand={
+          <Link to="/pinyin">
+            <span className="py-brand-symbol">pī</span>
+            <div>
+              <strong>拼音侦探</strong>
+              <small>Pinyin · Study</small>
+            </div>
+          </Link>
+        }
+        navigation={
+          <>
+            <NavLink to="/pinyin" end title="任务首页" aria-label="任务首页">
+              <Icon name="map" size={18} />
+              <span className="study-nav-label">任务首页</span>
+            </NavLink>
+            <NavLink to="/pinyin/review" title="今日复习" aria-label="今日复习">
+              <Icon name="clock" size={18} />
+              <span className="study-nav-label">今日复习</span>
+            </NavLink>
+            <NavLink
+              to="/pinyin/toolkit"
+              title="拼音工具箱"
+              aria-label="拼音工具箱"
+            >
+              <Icon name="book" size={18} />
+              <span className="study-nav-label">拼音工具箱</span>
+            </NavLink>
+            <NavLink
+              to="/pinyin/lab"
+              title="键盘实验室"
+              aria-label="键盘实验室"
+            >
+              <Icon name="keyboard" size={18} />
+              <span className="study-nav-label">键盘实验室</span>
+            </NavLink>
+            <NavLink to="/pinyin/report" title="学习报告" aria-label="学习报告">
+              <Icon name="chart" size={18} />
+              <span className="study-nav-label">学习报告</span>
+            </NavLink>
+          </>
+        }
+        home={
+          <Link to="/" title="返回 Study">
+            <StudyIcon name="back" size={18} />
+            <span>Study</span>
+          </Link>
+        }
+        title={
+          location.pathname.includes('/lesson/')
+            ? '课程学习'
+            : location.pathname.includes('/assessment/')
+              ? '阶段检查'
+              : location.pathname.endsWith('/review')
+                ? '今日复习'
+                : location.pathname.endsWith('/toolkit')
+                  ? '拼音工具箱'
+                  : location.pathname.endsWith('/lab')
+                    ? '键盘实验室'
+                    : location.pathname.endsWith('/report')
+                      ? '学习报告'
+                      : '任务首页'
+        }
+        subject="拼音侦探"
+        directory={directory}
+        activePath={
+          location.pathname === '/pinyin' && !location.search
+            ? `/pinyin?week=${currentWeek}`
+            : location.pathname + location.search
+        }
+        renderLink={(href, content, className, active) => (
+          <Link
+            to={href}
+            className={className}
+            aria-current={active ? 'page' : undefined}
+          >
+            {content}
+          </Link>
+        )}
+        label="拼音学习导航"
+      >
         {store.error && (
           <div className="py-storage-error" role="alert">
             {store.error}
@@ -1308,7 +1362,7 @@ export function App() {
             <span className="py-local-dot" /> 本地保存
           </span>
         </footer>
-      </div>
+      </StudyShell>
     </div>
   );
 }

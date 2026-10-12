@@ -1862,361 +1862,434 @@
   flex: none;
 }
 
-/* Compact laptop layout: readable type, small gutters, task-first content. */
+/* Subject details within the shared, collapsible learning workspace. */
 
 .bio-app {
-  --study-accent: #285847;
-  --study-tint: #e5edda;
-  --study-border: #d8dfce;
-  --study-muted: #52644f;
-  --study-header-bg: #f8f9f3;
-  --muted: #54644f;
+  --study-accent: #3c6149;
+  --study-tint: #e8eedf;
+  --study-border: #e0e5d8;
+  --study-muted: #687760;
+  --study-ink: #24453b;
+  --study-sidebar-bg: #f6f8ef;
+  --study-header-bg: #fbfcf7;
+  --study-hover: #eef2e7;
+  --muted: #74816b;
   font-size: 16px;
-}
-.bio-app .bio-main-wrap {
-  margin-left: 0;
 }
 .bio-app .bio-main {
   max-width: var(--study-content-width);
-  padding: 16px var(--study-gutter) 24px;
-  min-height: calc(100vh - 112px);
+  width: 100%;
+  padding: 24px var(--study-gutter) 32px;
+  min-height: calc(100vh - 130px);
+  margin: auto;
+  container-type: inline-size;
 }
 .bio-app .bio-footer {
-  padding: 10px var(--study-gutter);
+  padding: 16px var(--study-gutter);
+  margin: auto;
+  max-width: var(--study-content-width);
+  font-size: 12px;
 }
 .bio-app .bio-en {
   font-size: max(14px, 0.8em);
+  line-height: 1.5;
+  opacity: 0.8;
+  margin-top: 4px;
+}
+.bio-app h1 {
+  font-size: 32px;
+  letter-spacing: -0.04em;
+  line-height: 1.35;
+}
+.bio-app h2 {
+  font-size: 24px;
   line-height: 1.45;
-  margin-top: 2px;
-  opacity: 0.85;
+}
+.bio-app h3 {
+  font-size: 18px;
 }
 .bio-app p {
-  line-height: 1.65;
+  line-height: 1.7;
+}
+.bio-app .bio-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.1em;
 }
 .bio-app .bio-page-heading {
-  margin-bottom: 10px;
+  margin-bottom: 18px;
+}
+.bio-app .bio-pilot {
+  font-size: 12px;
 }
 .bio-app .bio-hero {
-  min-height: 0;
-  grid-template-columns: minmax(0, 1.8fr) minmax(240px, 0.7fr);
+  min-height: 280px;
+  border-radius: 16px;
+  grid-template-columns: minmax(0, 1.3fr) minmax(230px, 0.85fr);
+  background: #eaf0df;
 }
 .bio-app .bio-hero-copy {
-  padding: 18px 22px;
+  padding: 26px 0 24px 28px;
+}
+.bio-app .bio-kicker {
+  font-size: 11px;
+  letter-spacing: 0.08em;
 }
 .bio-app .bio-hero h1 {
-  font-size: 30px;
+  font-size: 32px;
   white-space: normal;
-  margin: 8px 0;
+  margin: 12px 0 14px;
+}
+.bio-app .bio-hero h1 .bio-en {
+  font-size: 16px;
+  white-space: normal;
+  margin-top: 8px;
 }
 .bio-app .bio-hero-copy > p {
-  max-width: 650px;
-  font-size: 16px;
-  color: #516444;
-}
-.bio-app .bio-hero .bio-button {
-  margin-top: 12px;
+  font-size: 15px;
+  max-width: 470px;
+  color: #637953;
 }
 .bio-app .bio-hero-meta {
-  margin-top: 8px;
-  gap: 14px;
+  font-size: 11px;
+  margin-top: 16px;
+  gap: 16px;
+  letter-spacing: 0;
 }
 .bio-app .bio-hero-art svg {
-  max-height: 230px;
+  max-height: 270px;
 }
-.bio-app .bio-art-note,
+.bio-app .bio-art-note {
+  font-size: 11px;
+}
+.bio-app .bio-art-note.top {
+  top: 38px;
+}
+.bio-app .bio-art-note.bottom {
+  bottom: 60px;
+}
 .bio-app .bio-art-index {
-  display: none;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+  bottom: 16px;
 }
 .bio-app .bio-button {
   min-height: 44px;
-  padding: 8px 14px;
-  font-size: 16px;
-  gap: 12px;
+  padding: 11px 16px;
+  border-radius: 8px;
+  font-size: 15px;
+  gap: 14px;
+}
+.bio-app .bio-button .bio-en {
+  font-size: 13px;
+}
+.bio-app .bio-hero .bio-button {
+  margin-top: 18px;
 }
 .bio-app .bio-path {
-  margin-top: 16px;
+  margin-top: 26px;
 }
 .bio-app .bio-section-heading {
-  margin-bottom: 12px;
-  gap: 12px;
+  margin-bottom: 18px;
+  gap: 14px;
+}
+.bio-app .bio-section-heading h2 {
+  font-size: 22px;
+  margin-top: 5px;
+}
+.bio-app .bio-section-heading h2 .bio-en {
+  font-size: 14px;
+}
+.bio-app .bio-progress-label > span {
+  font-size: 12px;
+}
+.bio-app .bio-lessons {
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 .bio-app .bio-lesson-card {
-  padding: 12px;
+  padding: 18px;
+  border-radius: 12px;
+}
+.bio-app .bio-card-top,
+.bio-app .bio-card-status {
+  font-size: 12px;
 }
 .bio-app .bio-card-symbol {
-  width: 38px;
-  height: 38px;
+  width: 40px;
+  height: 40px;
   font-size: 26px;
-  margin: 10px 0;
+  margin: 14px 0;
 }
-.bio-app .bio-lesson-card p {
-  margin: 8px 0;
-  color: #52674a;
+.bio-app .bio-lesson-card h3 {
+  font-size: 18px;
 }
 .bio-app .bio-lesson-card h3 .bio-en {
+  font-size: 14px;
   min-height: 0;
 }
+.bio-app .bio-lesson-card p {
+  font-size: 14px;
+  margin: 10px 0 14px;
+  color: #7b8a6e;
+}
+.bio-app .bio-lesson-card p .bio-en {
+  font-size: 13px;
+}
+.bio-app .bio-card-bottom {
+  font-size: 12px;
+  padding-top: 12px;
+}
 .bio-app .bio-home-bottom {
-  margin-top: 12px;
-  gap: 12px;
+  margin-top: 20px;
+  gap: 16px;
 }
 .bio-app .bio-mission-card,
 .bio-app .bio-review-card {
-  padding: 14px;
-}
-.bio-app .bio-lesson-heading {
-  margin: 8px 0 12px;
-}
-.bio-app h1 {
-  font-size: 28px;
-}
-.bio-app .bio-steps {
-  margin: 10px 0 14px;
-  padding: 8px;
-  gap: 8px;
-}
-.bio-app .bio-steps li {
-  font-size: 16px;
-}
-.bio-app .bio-predict {
-  gap: 20px;
-  padding: 18px;
-  grid-template-columns: minmax(180px, 0.6fr) minmax(0, 1.4fr);
-}
-.bio-app .bio-predict-art svg {
-  max-height: 270px;
-}
-.bio-app .bio-options {
-  gap: 8px;
-  margin: 12px 0;
-}
-.bio-app .bio-options button {
-  padding: 10px 12px;
-  font-size: 18px;
-  min-height: 48px;
-}
-.bio-app .bio-objectives {
-  margin-bottom: 12px;
-  padding: 12px 16px;
-}
-.bio-app .bio-objectives p {
-  margin-top: 4px;
-}
-.bio-app .bio-explore-grid {
-  gap: 14px;
-  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-}
-.bio-app .bio-diagram {
-  top: 80px;
-  padding: 14px;
-}
-.bio-app .bio-diagram svg {
-  max-height: 250px;
-  margin: 8px 0;
-}
-.bio-app .bio-explanation {
-  padding: 16px;
-  margin-top: 12px;
-  font-size: 18px;
-}
-.bio-app .bio-markdown {
-  font-size: 18px;
-  line-height: 1.65;
-}
-.bio-app .bio-bottom-actions {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  background: #f8f9f3f5;
-  border-top: 1px solid var(--line);
-  padding: 10px 12px;
-  margin-top: 12px;
-}
-.bio-app .bio-challenge-wrap {
-  max-width: 1050px;
-}
-.bio-app .bio-finish {
-  padding: 18px;
-}
-.bio-app .bio-terms {
-  gap: 12px;
-  margin: 12px 0;
-}
-@media (max-width: 900px) {
-  .bio-app .bio-lessons {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-}
-@media (max-width: 600px) {
-  .bio-app .bio-hero,
-  .bio-app .bio-predict,
-  .bio-app .bio-explore-grid,
-  .bio-app .bio-home-bottom {
-    grid-template-columns: minmax(0, 1fr);
-  }
-  .bio-app .bio-hero-art {
-    display: none;
-  }
-  .bio-app .bio-predict-art svg {
-    max-height: 150px;
-  }
-  .bio-app .bio-diagram {
-    position: static;
-  }
-  .bio-app .bio-steps li {
-    font-size: 14px;
-    flex-wrap: wrap;
-  }
-  .bio-app .bio-section-heading {
-    flex-wrap: wrap;
-  }
-}
-.bio-app .bio-hero h1 .bio-en {
-  white-space: normal;
-  margin-top: 4px;
-  font-size: 16px;
-}
-.bio-app .bio-hero .bio-kicker {
-  display: none;
-}
-.bio-app .bio-hero-copy {
-  padding: 16px 20px;
-}
-.bio-app .bio-hero-meta {
-  margin-top: 6px;
-}
-.bio-app .bio-card-symbol {
-  width: 28px;
-  height: 28px;
-  font-size: 22px;
-  margin: 6px 0;
-}
-.bio-app .bio-home-bottom .bio-eyebrow {
-  display: none;
+  padding: 20px;
+  border-radius: 12px;
 }
 .bio-app .bio-roadmap {
-  margin-top: 12px;
+  margin-top: 24px;
+}
+.bio-app .bio-back {
+  margin-bottom: 14px;
+  font-size: 13px;
+}
+.bio-app .bio-lesson-heading {
+  margin: 0 0 20px;
 }
 .bio-app .bio-lesson-heading .bio-eyebrow {
-  display: none;
+  font-size: 11px;
+}
+.bio-app .bio-lesson-heading h1 {
+  font-size: 30px;
+  margin-top: 8px;
 }
 .bio-app .bio-lesson-heading h1 .bio-en {
-  display: inline;
-  margin-left: 12px;
-  font-size: 16px;
+  font-size: 15px;
+  margin-top: 6px;
+}
+.bio-app .bio-steps {
+  padding: 8px;
+  margin: 0 0 20px;
+  background: #edf1e7;
+  border: 1px solid #e0e5d8;
+  border-radius: 10px;
+  gap: 5px;
+}
+.bio-app .bio-steps li {
+  font-size: 14px;
+  min-height: 42px;
 }
 .bio-app .bio-steps .bio-en {
   display: none;
 }
+.bio-app .bio-predict {
+  grid-template-columns: minmax(180px, 0.7fr) minmax(0, 1.3fr);
+  gap: 26px;
+  padding: 24px;
+  border-radius: 14px;
+}
+.bio-app .bio-predict h2 {
+  font-size: 23px;
+  margin: 10px 0 14px;
+}
+.bio-app .bio-predict-art svg {
+  max-height: 260px;
+}
+.bio-app .bio-options {
+  gap: 10px;
+  margin: 18px 0;
+}
+.bio-app .bio-options button {
+  font-size: 17px;
+  padding: 12px 15px;
+  min-height: 48px;
+  border-radius: 9px;
+}
+.bio-app .bio-options .bio-en {
+  font-size: 14px;
+}
 .bio-app .bio-objectives {
+  padding: 16px 18px;
+  margin-bottom: 18px;
+  border-radius: 0 10px 10px 0;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 4px 14px;
-  padding: 8px 12px;
+  gap: 6px 16px;
+  font-size: 15px;
 }
 .bio-app .bio-objectives > .bio-eyebrow {
   grid-column: 1 / -1;
 }
+.bio-app .bio-explore-grid {
+  grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+  gap: 20px;
+  align-items: start;
+}
 .bio-app .bio-diagram {
-  padding: 12px;
+  padding: 18px;
+  border-radius: 12px;
+  top: 20px;
 }
 .bio-app .bio-diagram svg {
-  max-height: 180px;
+  max-height: 220px;
+  margin: 14px 0;
 }
 .bio-app .bio-diagram figcaption {
+  font-size: 15px;
   min-height: 0;
-  font-size: 16px;
 }
 .bio-app .bio-diagram > small {
-  margin-top: 8px;
+  font-size: 11px;
+  margin-top: 14px;
 }
 .bio-app .bio-lab {
-  padding: 12px;
-}
-.bio-app .bio-lab-top {
-  margin-bottom: 6px;
+  padding: 20px;
+  border-radius: 12px;
 }
 .bio-app .bio-lab h3 {
-  margin-top: 4px;
+  font-size: 18px;
+  margin-top: 12px;
+}
+.bio-app .bio-lab-top .bio-eyebrow {
+  font-size: 11px;
+}
+.bio-app .bio-model-tag {
+  font-size: 11px;
 }
 .bio-app .bio-objects {
-  margin: 10px 0;
-  gap: 8px;
+  margin: 18px 0;
+  gap: 10px;
 }
 .bio-app .bio-objects button {
-  padding: 8px;
-  font-size: 16px;
-  min-height: 44px;
+  padding: 12px 6px;
+  min-height: 48px;
+  font-size: 15px;
 }
 .bio-app .bio-objects button > span:first-child {
-  font-size: 22px;
-  margin-bottom: 2px;
+  font-size: 26px;
 }
 .bio-app .bio-evidence {
   min-height: 0;
-  padding: 10px 12px;
-  font-size: 16px;
+  padding: 16px;
+  font-size: 15px;
 }
 .bio-app .bio-evidence p {
-  font-size: 16px;
-  margin-top: 4px;
+  font-size: 15px;
 }
 .bio-app .bio-animation {
-  height: 170px;
+  height: 200px;
 }
 .bio-app .bio-seed-demo {
-  margin-top: 10px;
+  margin-top: 18px;
   border-top: 1px solid var(--line);
 }
 .bio-app .bio-seed-demo > summary {
+  padding: 14px 0 0;
+  font-size: 14px;
+  color: #6b8557;
   cursor: pointer;
-  padding: 10px 0;
-  font-size: 16px;
-  color: #42653b;
-}
-.bio-app .bio-prose {
-  font-size: 18px;
-  line-height: 1.65;
-}
-.bio-app .bio-prose p {
-  margin: 10px 0;
 }
 .bio-app .bio-controls {
-  margin-top: 10px;
-  gap: 8px;
+  margin-top: 18px;
+  gap: 12px;
 }
 .bio-app .bio-caption {
   min-height: 0;
-  margin-top: 8px !important;
+  font-size: 14px;
 }
-@media (max-width: 600px) {
-  .bio-app .bio-objectives {
-    grid-template-columns: 1fr;
-  }
+.bio-app .bio-static {
+  font-size: 12px;
+  margin-top: 18px;
+  padding-top: 14px;
 }
-.bio-app .bio-back {
-  margin-bottom: 4px;
+.bio-app .bio-explanation {
+  margin-top: 8px;
+  padding: 20px;
+  background: #fffefa;
+  border: 1px solid var(--line);
+  border-radius: 12px;
 }
-.bio-app .bio-lesson-heading h1 {
-  margin-top: 0;
+.bio-app .bio-prose {
+  font-size: 18px;
+  line-height: 1.75;
 }
-.bio-app .bio-objectives > .bio-eyebrow {
-  display: none;
+.bio-app .bio-prose p {
+  margin: 12px 0;
+}
+.bio-app .bio-terms {
+  gap: 16px;
+  margin-top: 8px;
+}
+.bio-app .bio-terms > div {
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: #fffefa;
+}
+.bio-app .bio-terms strong {
+  font-size: 16px;
 }
 .bio-app .bio-bottom-actions {
-  background: #f8f9f3;
-}
-.bio-app .bio-bottom-actions > div {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 12px;
+  position: static;
+  margin-top: 20px;
+  padding: 18px 0 0;
+  border-top: 1px solid var(--line);
+  gap: 16px;
 }
 .bio-app .bio-bottom-actions p {
-  margin: 0;
+  font-size: 13px;
+}
+.bio-app .bio-challenge-wrap {
+  max-width: 900px;
+  margin: auto;
+}
+.bio-app .bio-finish {
+  padding: 24px;
+}
+@container (min-width:960px) {
+  .bio-lessons {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+}
+@container (max-width:750px) {
+  .bio-explore-grid,
+  .bio-predict {
+    grid-template-columns: 1fr !important;
+  }
+  .bio-diagram {
+    position: static !important;
+  }
+  .bio-predict-art {
+    max-width: 220px;
+    margin: auto;
+    width: 100%;
+  }
+  .bio-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .bio-hero-art {
+    display: none;
+  }
+  .bio-home-bottom {
+    grid-template-columns: 1fr !important;
+  }
 }
 @media (max-width: 600px) {
-  .bio-app .bio-bottom-actions > div {
+  .bio-app .bio-main {
+    padding: 20px 16px 28px;
+  }
+  .bio-app .bio-predict {
+    padding: 18px;
+  }
+  .bio-app .bio-objectives,
+  .bio-app .bio-lessons {
+    grid-template-columns: 1fr;
+  }
+  .bio-app .bio-steps li {
+    font-size: 13px;
+  }
+  .bio-app .bio-section-heading {
     flex-wrap: wrap;
   }
 }

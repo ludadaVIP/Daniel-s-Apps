@@ -1798,194 +1798,438 @@
   color: var(--py-green);
 }
 
-/* Compact laptop layout: readable type, small gutters, task-first content. */
+/* Subject details within the shared, collapsible learning workspace. */
 
 .py-app {
-  --study-accent: #456551;
-  --study-tint: #e9eedf;
-  --study-border: #d7dfcd;
-  --study-muted: #56634f;
-  --study-header-bg: #fafbf6;
-  --py-muted: #56634f;
+  --study-accent: #506b48;
+  --study-tint: #eaf0e2;
+  --study-border: #e2e7db;
+  --study-muted: #68755f;
+  --study-ink: #2d4033;
+  --study-sidebar-bg: #fbfcf7;
+  --study-header-bg: #fcfdf8;
+  --study-hover: #f1f4ec;
+  --py-muted: #68755f;
   display: block;
   font-size: 16px;
 }
-.py-app .py-main-wrap {
-  width: 100%;
-}
 .py-app .py-main {
   max-width: var(--study-content-width);
-  padding: 16px var(--study-gutter) 24px;
-  min-height: calc(100vh - 112px);
+  width: 100%;
+  padding: 24px var(--study-gutter) 32px;
+  min-height: calc(100vh - 130px);
+  margin: auto;
+  container-type: inline-size;
 }
 .py-app .py-footer {
-  padding: 10px var(--study-gutter);
+  max-width: var(--study-content-width);
+  padding: 16px var(--study-gutter);
+  margin: auto;
+  font-size: 12px;
+  letter-spacing: 0.03em;
 }
 .py-app .py-topline {
-  margin-bottom: 10px;
+  margin-bottom: 20px;
+}
+.py-app .py-eyebrow {
+  font-size: 11px;
+  letter-spacing: 0.1em;
+}
+.py-app .py-date {
+  font-size: 12px;
 }
 .py-app .py-hero {
-  margin-bottom: 14px;
-  padding: 0;
-  gap: 18px;
-  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(260px, 0.8fr);
+  gap: 24px;
+  margin-bottom: 24px;
+  padding: 4px 0 12px;
 }
 .py-app .py-hero h1 {
-  font-size: 30px;
-  margin: 8px 0;
+  font-size: 34px;
+  line-height: 1.4;
+  letter-spacing: -0.04em;
+  margin: 12px 0 14px;
+  max-width: 460px;
 }
 .py-app .py-hero p {
-  font-size: 16px;
-  line-height: 1.65;
-  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.75;
+  margin-bottom: 18px;
+  max-width: 460px;
 }
-.py-app .py-art {
-  padding: 14px;
+.py-app .py-hero-note {
+  margin-top: 12px;
+  font-size: 12px;
+}
+.py-app .py-diagnosis-link {
+  margin-top: 12px;
+  font-size: 13px;
+}
+.py-app .py-tone-art {
+  padding: 22px;
+  border-radius: 14px;
+  transform: none;
+}
+.py-app .py-art-label {
+  font-size: 12px;
+}
+.py-app .py-art-label span {
+  font-size: 10px;
 }
 .py-app .py-art-grid {
-  gap: 8px;
-}
-.py-app .py-art-grid > div {
-  padding: 8px;
+  gap: 10px;
 }
 .py-app .py-art-grid svg {
-  height: 44px;
+  height: 42px;
 }
-.py-app .py-art-footer {
+.py-app .py-art-grid strong {
+  font-size: 32px;
   margin-top: 8px;
 }
+.py-app .py-art-grid small {
+  font-size: 12px;
+}
+.py-app .py-art-footer {
+  font-size: 11px;
+  margin-top: 16px;
+  letter-spacing: 0.05em;
+}
 .py-app .py-button {
-  font-size: 16px;
+  font-size: 15px;
   min-height: 44px;
-  padding: 8px 14px;
+  padding: 10px 16px;
+  border-radius: 8px;
+}
+.py-app .py-pill {
+  font-size: 12px;
+  letter-spacing: 0.03em;
+}
+.py-app .py-dashboard-strip {
+  padding: 20px;
+  margin-bottom: 26px;
+  border-radius: 12px;
+}
+.py-app .py-dashboard-strip > * {
+  padding: 0 18px;
+}
+.py-app .py-dashboard-strip strong {
+  font-size: 24px;
+}
+.py-app .py-dashboard-strip .py-next-title,
+.py-app .py-review-link strong {
+  font-size: 15px;
+}
+.py-app .py-dashboard-strip small,
+.py-app .py-small-label {
+  font-size: 12px;
+}
+.py-app .py-section-heading {
+  gap: 16px;
+  margin-bottom: 16px;
+}
+.py-app .py-section-heading h2 {
+  font-size: 22px;
+}
+.py-app .py-section-heading > .py-muted {
+  font-size: 13px;
 }
 .py-app .py-week-grid {
-  gap: 12px;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: 1fr;
 }
-.py-app .py-week-card {
-  padding: 14px;
+.py-app .py-week {
+  padding: 20px;
+  border-radius: 12px;
+}
+.py-app .py-week-header {
+  padding-bottom: 14px;
+  gap: 14px;
+}
+.py-app .py-week-header h3 {
+  font-size: 18px;
+  margin-top: 4px;
+}
+.py-app .py-week-header p {
+  font-size: 13px;
+  margin-top: 6px;
+}
+.py-app .py-week-status {
+  font-size: 12px;
+}
+.py-app .py-week-header .py-eyebrow {
+  font-size: 11px;
+}
+.py-app .py-lesson-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+  padding-top: 14px;
+}
+.py-app .py-lesson-list > a {
+  font-size: 15px;
+  padding: 14px 12px;
+  border: 1px solid var(--py-line);
+  border-radius: 9px;
+  gap: 10px;
+  background: #fafbf6;
+}
+.py-app .py-lesson-list > a > small {
+  font-size: 12px;
+}
+.py-app .py-lesson-dot {
+  min-width: 24px;
+  flex: none;
 }
 .py-app .py-home-bottom {
-  margin-top: 12px;
-  gap: 12px;
+  margin-top: 20px;
+  gap: 16px;
 }
 .py-app .py-lab-teaser {
-  padding: 14px;
+  padding: 20px;
+  border-radius: 12px;
+}
+.py-app .py-extra-challenges {
+  border-top: 1px solid var(--py-line);
+  margin-top: 24px;
+}
+.py-app .py-extra-challenges > summary {
+  padding: 16px 0;
+  cursor: pointer;
+  font-size: 14px;
+  color: #718363;
+}
+.py-app .py-assessments {
+  margin: 16px 0;
+}
+.py-app .py-assessment-grid {
+  gap: 16px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.py-app .py-assessment-grid > a {
+  padding: 20px;
 }
 .py-app .py-page-heading {
-  margin-bottom: 10px;
+  margin: 0 0 20px;
 }
 .py-app .py-page-heading h1 {
-  font-size: 28px;
+  font-size: 30px;
+  margin: 8px 0 10px;
 }
 .py-app .py-page-heading p {
-  margin-top: 4px;
   font-size: 16px;
 }
 .py-app .py-breadcrumb {
-  margin-bottom: 8px;
+  font-size: 13px;
+  gap: 8px;
+  margin-bottom: 18px;
+}
+.py-app .py-lesson-heading {
+  gap: 16px;
+  align-items: center;
+}
+.py-app .py-pause {
+  font-size: 12px;
 }
 .py-app .py-steps {
   padding: 8px;
-  background: #e9eedf;
-  border-radius: 9px;
-  gap: 8px;
-  margin: 8px 0 14px;
+  margin: 0 0 20px;
+  background: #eef2e7;
+  border: 1px solid var(--py-line);
+  border-radius: 10px;
+  gap: 6px;
 }
 .py-app .py-steps > div {
-  font-size: 16px;
-  min-height: 40px;
+  font-size: 14px;
+  min-height: 42px;
+  gap: 7px;
+}
+.py-app .py-steps > div > span {
+  flex: none;
+  width: 22px;
+  height: 22px;
+  font-size: 11px;
 }
 .py-app .py-learning-layout {
-  grid-template-columns: minmax(0, 1fr) 280px;
-  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 230px;
+  gap: 22px;
 }
 .py-app .py-learning-main {
-  padding: 18px;
+  padding: 24px;
+  border-radius: 14px;
+}
+.py-app .py-card-counter,
+.py-app .py-question-counter {
+  font-size: 13px;
+  gap: 14px;
 }
 .py-app .py-card-counter {
-  margin-bottom: 12px;
+  margin-bottom: 20px;
 }
 .py-app .py-markdown {
-  min-height: 0;
   font-size: 18px;
-  line-height: 1.65;
+  line-height: 1.75;
+  min-height: 0;
 }
 .py-app .py-markdown h2 {
-  margin-bottom: 12px;
+  margin-bottom: 18px;
+  font-size: 24px;
 }
 .py-app .py-markdown p {
-  margin: 10px 0;
+  margin: 12px 0;
+}
+.py-app .py-question {
+  padding-top: 16px;
 }
 .py-app .py-question h2 {
-  font-size: 24px;
-  margin: 12px 0;
+  font-size: 23px;
+  line-height: 1.55;
+  margin: 12px 0 18px;
 }
 .py-app .py-question-word {
-  margin: 12px 0;
-  padding: 12px;
+  padding: 16px;
+  margin: 0 0 18px;
+  gap: 18px;
 }
 .py-app .py-options {
-  gap: 8px;
+  gap: 10px;
+  margin: 16px 0;
 }
 .py-app .py-options button {
-  min-height: 48px;
-  padding: 10px 14px;
+  padding: 12px 14px;
+  min-height: 50px;
   font-size: 18px;
 }
-.py-app .py-course-actions,
-.py-app .py-question-actions {
-  position: sticky;
-  bottom: 0;
-  z-index: 10;
-  background: #fffefaf5;
-  padding: 10px 0;
-  margin-top: 12px;
-  border-top: 1px solid var(--py-line);
-}
 .py-app .py-side-note {
-  padding: 12px;
+  padding: 16px;
+  border-radius: 10px;
 }
 .py-app .py-side-note h3 {
-  margin-top: 8px;
+  font-size: 15px;
+  margin: 10px 0 8px;
 }
-.py-app .py-word-grid {
-  gap: 8px;
+.py-app .py-side-note p {
+  font-size: 14px;
+  line-height: 1.7;
 }
 .py-app .py-card-controls {
+  font-size: 13px;
+  gap: 8px 10px;
+  margin: 16px 0;
+}
+.py-app .py-word-grid {
+  gap: 10px;
+}
+.py-app .py-word {
+  padding: 12px 8px;
+}
+.py-app .py-word-pinyin {
+  font-size: 25px;
+}
+.py-app .py-word-hanzi {
+  font-size: 14px;
+  margin: 3px 0 8px;
+}
+.py-app .py-sound {
+  font-size: 13px !important;
+  padding: 7px 9px;
+}
+.py-app .py-side-reminder {
+  margin-top: 18px;
+  padding-top: 14px;
+}
+.py-app .py-side-reminder p {
+  font-size: 14px;
+  line-height: 1.65;
   margin: 10px 0;
-  gap: 8px;
 }
-.py-app .py-lab-guide {
-  gap: 12px;
+.py-app .py-side-reminder small {
+  font-size: 11px;
 }
-.py-app .py-toolkit-grid {
-  gap: 12px;
+.py-app .py-course-actions {
+  position: static;
+  margin-top: 24px;
+  padding-top: 18px;
+  border-top: 1px solid var(--py-line);
 }
+.py-app .py-feedback {
+  margin-top: 20px;
+  padding: 18px;
+  border-radius: 10px;
+}
+.py-app .py-feedback p {
+  line-height: 1.7;
+}
+.py-app .py-read p {
+  margin: 14px 0;
+}
+.py-app .py-self-buttons {
+  margin-top: 18px;
+}
+.py-app .py-toolkit-grid,
 .py-app .py-report-grid {
-  gap: 16px;
+  gap: 20px;
 }
-@media (max-width: 900px) {
-  .py-app .py-week-grid {
+@container (max-width:900px) {
+  .py-learning-layout {
+    grid-template-columns: 1fr !important;
+  }
+  .py-learning-aside {
+    display: grid;
+    grid-template-columns: 230px minmax(0, 1fr);
+    column-gap: 20px;
+    align-items: start;
+  }
+  .py-learning-aside .py-side-reminder {
+    display: none;
+  }
+  .py-learning-aside .py-card-controls {
+    grid-column: 2;
+    margin-top: 0 !important;
+  }
+  .py-learning-aside .py-word-grid {
+    grid-column: 2;
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-  .py-app .py-learning-layout {
-    grid-template-columns: minmax(0, 1fr);
+  .py-learning-aside .py-side-note {
+    grid-row: 1 / 3;
+  }
+}
+@container (max-width:650px) {
+  .py-hero {
+    grid-template-columns: 1fr !important;
+  }
+  .py-tone-art {
+    display: none;
+  }
+  .py-dashboard-strip {
+    grid-template-columns: 1fr !important;
+    gap: 18px;
+  }
+  .py-dashboard-strip > * {
+    border-right: 0 !important;
+    padding: 0 !important;
+  }
+  .py-lesson-list {
+    grid-template-columns: 1fr !important;
+  }
+  .py-learning-aside {
+    display: block;
+  }
+  .py-learning-aside .py-card-controls {
+    margin-top: 16px !important;
   }
 }
 @media (max-width: 600px) {
-  .py-app .py-hero,
-  .py-app .py-week-grid {
-    grid-template-columns: minmax(0, 1fr);
+  .py-app .py-main {
+    padding: 20px 16px 28px;
   }
-  .py-app .py-hero-art {
-    display: none;
+  .py-app .py-learning-main {
+    padding: 18px;
   }
   .py-app .py-steps > div {
-    font-size: 14px;
-    flex-wrap: wrap;
-    gap: 4px;
+    font-size: 13px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   }
   .py-app .py-lesson-heading {
     flex-wrap: wrap;
@@ -1994,144 +2238,7 @@
   .py-app .py-pause {
     white-space: normal;
   }
-  .py-app .py-learning-main {
-    padding: 14px;
-  }
-}
-.py-app .py-week-grid {
-  grid-template-columns: minmax(0, 1fr);
-}
-.py-app .py-week {
-  padding: 14px;
-}
-.py-app .py-lesson-list {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 8px;
-}
-.py-app .py-lesson-list > a {
-  padding: 10px;
-  border: 1px solid var(--py-line);
-  border-radius: 8px;
-}
-.py-app .py-tone-art {
-  padding: 14px;
-}
-@media (max-width: 600px) {
-  .py-app .py-lesson-list {
-    grid-template-columns: minmax(0, 1fr);
-  }
-}
-.py-app .py-hero {
-  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.7fr);
-}
-.py-app .py-hero h1 {
-  font-size: 28px;
-}
-.py-app .py-hero .py-pill {
-  display: none;
-}
-.py-app .py-hero p {
-  max-width: 740px;
-}
-.py-app .py-tone-art {
-  transform: none;
-}
-.py-app .py-art-grid svg {
-  height: 30px;
-}
-.py-app .py-art-grid strong {
-  font-size: 30px;
-}
-.py-app .py-dashboard-strip {
-  padding: 12px 16px;
-  margin-bottom: 14px;
-}
-.py-app .py-dashboard-strip strong {
-  font-size: 20px;
-}
-.py-app .py-dashboard-strip .py-next-title,
-.py-app .py-review-link strong {
-  font-size: 16px;
-}
-.py-app .py-section-heading {
-  margin-bottom: 10px;
-}
-.py-app .py-week-header {
-  padding-bottom: 8px;
-}
-.py-app .py-extra-challenges {
-  margin-top: 12px;
-  border-top: 1px solid var(--py-line);
-}
-.py-app .py-extra-challenges > summary {
-  cursor: pointer;
-  padding: 12px 0;
-  color: #456551;
-  font-size: 16px;
-}
-.py-app .py-assessments {
-  margin-top: 10px;
-}
-.py-app .py-assessment-grid > a {
-  padding: 14px;
-}
-@media (max-width: 600px) {
-  .py-app .py-hero {
+  .py-app .py-assessment-grid {
     grid-template-columns: 1fr;
   }
-  .py-app .py-tone-art {
-    display: none;
-  }
-}
-.py-app .py-lesson-heading .py-eyebrow {
-  display: none;
-}
-.py-app .py-lesson-heading .py-page-heading {
-  padding: 0;
-}
-.py-app .py-side-reminder {
-  margin-top: 10px;
-  padding-top: 10px;
-}
-.py-app .py-side-reminder p {
-  line-height: 1.5;
-  margin: 6px 0;
-}
-.py-app .py-word {
-  padding: 8px;
-}
-.py-app .py-word-pinyin {
-  font-size: 24px;
-}
-.py-app .py-word-hanzi {
-  margin: 3px 0;
-}
-.py-app .py-feedback {
-  margin-top: 12px;
-  padding: 12px;
-}
-.py-app .py-feedback p {
-  line-height: 1.6;
-}
-.py-app .py-read p {
-  margin: 10px 0;
-}
-.py-app .py-self-buttons {
-  margin-top: 12px;
-}
-.py-app .py-word .py-sound {
-  margin-top: 4px;
-}
-.py-app .py-side-note {
-  padding: 10px;
-}
-.py-app .py-side-note p {
-  line-height: 1.55;
-}
-.py-app .py-side-reminder {
-  padding: 8px 0;
-}
-.py-app .py-page-heading h1 {
-  margin: 4px 0;
 }

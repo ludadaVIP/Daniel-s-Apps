@@ -11,7 +11,8 @@ import type { LanguageMode, LocalizedText } from '@study/shared';
 import {
   LanguageSwitcher,
   Localized,
-  StudyHeader,
+  StudyShell,
+  StudyIcon,
   useLanguageMode,
 } from '@study/ui';
 import { pathLevels } from './content/path';
@@ -247,7 +248,7 @@ function Home({ mode }: { mode: LanguageMode }) {
 }
 
 function Path({ mode }: { mode: LanguageMode }) {
-  const [params, setParams] = useSearchParams();
+  const [params] = useSearchParams();
   const levelId = pathLevels.some((level) => level.id === params.get('level'))
     ? params.get('level')!
     : pathLevels[0]!.id;
@@ -269,22 +270,6 @@ function Path({ mode }: { mode: LanguageMode }) {
           <Localized text={copy.pathBody} mode={mode} />
         </p>
       </div>
-      <label className="study-curriculum-selector">
-        {mode === 'en' ? 'Choose a stage' : '选择学习阶段'}
-        <select
-          value={levelId}
-          onChange={(event) =>
-            setParams({ level: event.target.value }, { replace: true })
-          }
-        >
-          {pathLevels.map((level) => (
-            <option key={level.id} value={level.id}>
-              {level.number} · {mode === 'en' ? level.title.en : level.title.zh}{' '}
-              · {level.lessonCount} {mode === 'en' ? 'lessons' : '课'}
-            </option>
-          ))}
-        </select>
-      </label>
       <div className="levels">
         {pathLevels
           .filter((level) => level.id === levelId)
@@ -351,11 +336,45 @@ export function App() {
   useEffect(() => {
     document.title = 'Chemistry Path · 化学学习路径';
     window.scrollTo({ top: 0, behavior: 'instant' });
-  }, [location.pathname]);
+  }, [location.pathname, location.search]);
 
+  const levelDirectory = pathLevels.map((level) => ({
+    id: level.id,
+    title: `${level.number} · ${mode === 'en' ? level.title.en : level.title.zh}`,
+    href: `/chemistry/path?level=${level.id}`,
+    children: lessons
+      .filter((lesson) => lesson.levelId === level.id)
+      .map((lesson) => ({
+        id: lesson.id,
+        title: mode === 'en' ? lesson.title.en : lesson.title.zh,
+        href: `/chemistry/lesson/${lesson.id}`,
+      })),
+  }));
+  const directory = [
+    {
+      id: 'chem-foundations',
+      title: mode === 'en' ? 'Matter & structure' : '物质与结构',
+      children: levelDirectory.slice(0, 6),
+    },
+    {
+      id: 'chem-reactions',
+      title: mode === 'en' ? 'Reactions & changes' : '反应与变化',
+      children: levelDirectory.slice(6, 9),
+    },
+    {
+      id: 'chem-quantitative',
+      title: mode === 'en' ? 'Quantity & patterns' : '定量与规律',
+      children: levelDirectory.slice(9, 15),
+    },
+    {
+      id: 'chem-applications',
+      title: mode === 'en' ? 'Applications & synthesis' : '应用与综合',
+      children: levelDirectory.slice(15),
+    },
+  ];
   return (
     <div className="app-shell study-learning-app">
-      <StudyHeader
+      <StudyShell
         brand={
           <Link to="/chemistry">
             <Wordmark />
@@ -369,32 +388,91 @@ export function App() {
         }
         navigation={
           <>
-            <NavLink to="/chemistry" end>
-              {mode === 'en' ? 'Discover' : '探索首页'}
+            <NavLink
+              to="/chemistry"
+              end
+              title={mode === 'en' ? 'Discover' : '探索首页'}
+              aria-label={mode === 'en' ? 'Discover' : '探索首页'}
+            >
+              <StudyIcon name="home" size={19} />
+              <span className="study-nav-label">
+                {mode === 'en' ? 'Discover' : '探索首页'}
+              </span>
             </NavLink>
-            <NavLink to="/chemistry/path">
-              {mode === 'en' ? 'Learning path' : '学习路线'}
+            <NavLink
+              to="/chemistry/path"
+              title={mode === 'en' ? 'Learning path' : '学习路线'}
+              aria-label={mode === 'en' ? 'Learning path' : '学习路线'}
+              className={({ isActive }) =>
+                isActive || location.pathname.includes('/lesson/')
+                  ? 'active'
+                  : ''
+              }
+            >
+              <StudyIcon name="path" size={19} />
+              <span className="study-nav-label">
+                {mode === 'en' ? 'Learning path' : '学习路线'}
+              </span>
             </NavLink>
           </>
         }
         controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
-        home={<Link to="/">← Study</Link>}
+        home={
+          <Link to="/" title={mode === 'en' ? 'Back to Study' : '返回 Study'}>
+            <StudyIcon name="back" size={18} />
+            <span>Study</span>
+          </Link>
+        }
+        title={
+          mode === 'en'
+            ? location.pathname.includes('/lesson/')
+              ? 'Learning workspace'
+              : location.pathname.includes('/path')
+                ? 'Learning path'
+                : 'Discover'
+            : location.pathname.includes('/lesson/')
+              ? '课程学习'
+              : location.pathname.includes('/path')
+                ? '学习路线'
+                : '探索首页'
+        }
+        subject={mode === 'en' ? 'Chemistry Path' : '化学学习路径'}
+        mode={mode}
+        directory={directory}
+        activePath={
+          location.pathname === '/chemistry/path' && !location.search
+            ? '/chemistry/path?level=matter'
+            : location.pathname + location.search
+        }
+        renderLink={(href, content, className, active) => (
+          <Link
+            to={href}
+            className={className}
+            aria-current={active ? 'page' : undefined}
+          >
+            {content}
+          </Link>
+        )}
         label={mode === 'en' ? 'Chemistry navigation' : '化学学习导航'}
-      />
-      <main className="main-content">
-        <Routes>
-          <Route index element={<Home mode={mode} />} />
-          <Route path="path" element={<Path mode={mode} />} />
-          <Route path="lesson/:lessonId" element={<LessonPage mode={mode} />} />
-          <Route path="*" element={<Home mode={mode} />} />
-        </Routes>
-      </main>
-      <footer className="site-footer">
-        <span>CHEMISTRY PATH / 01</span>
-        <span>
-          <Localized text={copy.footer} mode={mode} />
-        </span>
-      </footer>
+      >
+        <main className="main-content">
+          <Routes>
+            <Route index element={<Home mode={mode} />} />
+            <Route path="path" element={<Path mode={mode} />} />
+            <Route
+              path="lesson/:lessonId"
+              element={<LessonPage mode={mode} />}
+            />
+            <Route path="*" element={<Home mode={mode} />} />
+          </Routes>
+        </main>
+        <footer className="site-footer">
+          <span>CHEMISTRY PATH / 01</span>
+          <span>
+            <Localized text={copy.footer} mode={mode} />
+          </span>
+        </footer>
+      </StudyShell>
     </div>
   );
 }
