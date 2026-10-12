@@ -20,6 +20,11 @@ import { lessons, questions, section, t, type Question } from './content';
 import curriculum from '../../../curriculum/index.json';
 import { Diagram, Explore, Sprout } from './Explore';
 import { MicroDiagram, MicroHookArt } from './MicroWorld';
+import { PlantDiagram, PlantHookArt } from './PlantWorld';
+import { BodyDiagram, BodyHookArt } from './BodyWorld';
+import { EcoDiagram, EcoHookArt } from './EcoWorld';
+import { InquiryDiagram, InquiryHookArt } from './InquiryWorld';
+import { FieldProject } from './FieldProject';
 import { units, unitForLesson } from './units';
 import {
   newSession,
@@ -223,6 +228,27 @@ function Home({ store, mode }: PageProps) {
           </section>
         );
       })}
+      <Link to="/biology/project/S01" className="bio-stage-project-link">
+        <span className="bio-eyebrow">
+          S01 / <Text mode={mode} text={t('阶段作品', 'STAGE PROJECT')} />
+        </span>
+        <h2>
+          <Text
+            mode={mode}
+            text={t('生命侦探野外笔记', 'Life Detective field notebook')}
+          />
+        </h2>
+        <p>
+          <Text
+            mode={mode}
+            text={t(
+              '记录5种生物、环境和疑问，留下两句双语总结。可用屏幕内虚拟场景。',
+              'Record five kinds of organisms, habitats and questions with two bilingual summary sentences. A fictional scene is available.',
+            )}
+          />
+        </p>
+        <span>→</span>
+      </Link>
       <div className="bio-home-bottom">
         <Link to="/biology/notebook" className="bio-mission-card">
           <span className="bio-mission-icon">▤</span>
@@ -289,8 +315,8 @@ function Home({ store, mode }: PageProps) {
           <Text
             mode={mode}
             text={t(
-              '六阶段路线覆盖初中核心概念并衔接高中。目前开放上面8课，其余内容尚在制作；按能力探索，不按年龄锁课。',
-              'Six stages cover secondary-school concepts and build towards senior biology. The eight lessons above are open; later lessons are planned. Explore by ability, without age locks.',
+              `六阶段路线覆盖初中核心概念并衔接高中。目前开放上面${lessons.length}课，其余内容尚在制作；按能力探索，不按年龄锁课。`,
+              `Six stages cover secondary-school concepts and build towards senior biology. The ${lessons.length} lessons above are open; later lessons are planned. Explore by ability, without age locks.`,
             )}
           />
         </p>
@@ -532,7 +558,15 @@ function LessonBody({
       {s.step === 0 && (
         <section className="bio-predict">
           <div className="bio-predict-art">
-            {unit.id === 'U02' ? (
+            {unit.id === 'U06' ? (
+              <InquiryHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U05' ? (
+              <EcoHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U04' ? (
+              <BodyHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U03' ? (
+              <PlantHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U02' ? (
               <MicroHookArt id={lesson.id} mode={mode} />
             ) : lesson.id === 'L004' ? (
               <svg
@@ -1082,6 +1116,35 @@ function Notebook({ store, mode }: PageProps) {
               <MicroDiagram id="L008" mode={mode} />
             </div>
           )}
+          {unit.id === 'U06' && (
+            <div className="bio-mission-diagram">
+              <InquiryDiagram id="L022" mode={mode} />
+              <Link className="bio-button" to="/biology/project/S01">
+                <Text
+                  mode={mode}
+                  text={t(
+                    '开启生命侦探野外笔记 →',
+                    'Open the Life Detective field notebook →',
+                  )}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U05' && (
+            <div className="bio-mission-diagram">
+              <EcoDiagram id="L020" mode={mode} />
+            </div>
+          )}
+          {unit.id === 'U04' && (
+            <div className="bio-mission-diagram">
+              <BodyDiagram id="L015" mode={mode} />
+            </div>
+          )}
+          {unit.id === 'U03' && (
+            <div className="bio-mission-diagram">
+              <PlantDiagram id="L010" mode={mode} />
+            </div>
+          )}
           <span className="bio-unit-status">
             {words(
               mode,
@@ -1107,17 +1170,27 @@ function Notebook({ store, mode }: PageProps) {
               ['object', unit.claimLabel],
               [
                 'evidence',
-                t(
-                  '② 我的证据：我实际观察到了什么？',
-                  '② Evidence: what did I actually observe?',
-                ),
+                unit.id === 'U06'
+                  ? t(
+                      '② 我的方案：测什么、保持什么、用几株、何时测？',
+                      '② Plan: what to measure and control, how many plants, and when?',
+                    )
+                  : t(
+                      '② 我的证据：我实际观察到了什么？',
+                      '② Evidence: what did I actually observe?',
+                    ),
               ],
               [
                 'reasoning',
-                t(
-                  '③ 我的推理：证据如何支持判断？还缺什么？',
-                  '③ Reasoning: how does it support the claim? What is missing?',
-                ),
+                unit.id === 'U06'
+                  ? t(
+                      '③ 我的推理：怎样分离光的影响？还要核对什么？',
+                      '③ Reasoning: how will light’s effect be isolated, and what needs checking?',
+                    )
+                  : t(
+                      '③ 我的推理：证据如何支持判断？还缺什么？',
+                      '③ Reasoning: how does it support the claim? What is missing?',
+                    ),
               ],
             ] as const
           ).map(([key, text]) => (
@@ -1333,6 +1406,10 @@ export function App() {
             <Route
               path="notebook"
               element={<Notebook store={store} mode={mode} />}
+            />
+            <Route
+              path="project/S01"
+              element={<FieldProject store={store} mode={mode} />}
             />
             <Route path="*" element={<Navigate to="/biology" replace />} />
           </Routes>

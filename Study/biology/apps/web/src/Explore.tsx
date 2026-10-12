@@ -4,6 +4,10 @@ import { t } from './content';
 import { Text } from './ui';
 import { seedModel, virusCopies, type Water } from './models';
 import { MicroDiagram, MicroExplore } from './MicroWorld';
+import { PlantDiagram, PlantExplore } from './PlantWorld';
+import { BodyDiagram, BodyExplore } from './BodyWorld';
+import { EcoDiagram, EcoExplore } from './EcoWorld';
+import { InquiryDiagram, InquiryExplore } from './InquiryWorld';
 type Props = { id: string; mode: LanguageMode; onExplore: () => void };
 const label = (mode: LanguageMode, zh: string, en: string) =>
   mode === 'en' ? en : mode === 'zh' ? zh : `${zh} · ${en}`;
@@ -96,6 +100,14 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  if (['L021', 'L022', 'L023', 'L024'].includes(id))
+    return <InquiryDiagram id={id} mode={mode} />;
+  if (['L017', 'L018', 'L019', 'L020'].includes(id))
+    return <EcoDiagram id={id} mode={mode} />;
+  if (['L013', 'L014', 'L015', 'L016'].includes(id))
+    return <BodyDiagram id={id} mode={mode} />;
+  if (['L009', 'L010', 'L011', 'L012'].includes(id))
+    return <PlantDiagram id={id} mode={mode} />;
   return ['L005', 'L006', 'L007', 'L008'].includes(id) ? (
     <MicroDiagram id={id} mode={mode} />
   ) : (
@@ -375,6 +387,14 @@ const evidence = [
   },
 ];
 export function Explore(props: Props) {
+  if (['L021', 'L022', 'L023', 'L024'].includes(props.id))
+    return <InquiryExplore {...props} />;
+  if (['L017', 'L018', 'L019', 'L020'].includes(props.id))
+    return <EcoExplore {...props} />;
+  if (['L013', 'L014', 'L015', 'L016'].includes(props.id))
+    return <BodyExplore {...props} />;
+  if (['L009', 'L010', 'L011', 'L012'].includes(props.id))
+    return <PlantExplore {...props} />;
   return ['L005', 'L006', 'L007', 'L008'].includes(props.id) ? (
     <MicroExplore {...props} />
   ) : (

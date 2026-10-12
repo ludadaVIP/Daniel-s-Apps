@@ -1,0 +1,80 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original text and SVG; no external assets copied",
+  "checked": "2026-10-12",
+  "status": "pilot; child trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L017-D01",
+      "component": "EcoDiagram",
+      "kind": "What is a habitat?",
+      "scale": "Schematic, not to scale; exaggerated organisms and particles"
+    },
+    {
+      "id": "L018-D01",
+      "component": "EcoDiagram",
+      "kind": "Who eats whom?",
+      "scale": "Schematic, not to scale; exaggerated organisms and particles"
+    },
+    {
+      "id": "L019-D01",
+      "component": "EcoDiagram",
+      "kind": "Nature’s recyclers",
+      "scale": "Schematic, not to scale; exaggerated organisms and particles"
+    },
+    {
+      "id": "L020-D01",
+      "component": "EcoDiagram",
+      "kind": "What if a species disappears?",
+      "scale": "Schematic, not to scale; exaggerated organisms and particles"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L017-I01",
+      "component": "HabitatLab",
+      "assumptions": "Virtual shaded damp leaf patch vs sunny drier paving. Fixed illustrative snail, food and cover; no measurements, presence/absence prediction, survival, habitat manipulation or universal snail rule."
+    },
+    {
+      "id": "L018-I01",
+      "component": "WebLab",
+      "assumptions": "Five-node selected feeding web: plant→aphid, plant→leaf-eating caterpillar, aphid→one aphid-eating ladybird species, aphid→insect-eating bird, caterpillar→bird. Evidence cards are virtual observations. Feeding arrows show food-to-feeder energy transfer, not pursuit or causal effect direction. No abundance/transfer percentage; decomposers and other diets omitted."
+    },
+    {
+      "id": "L019-I01",
+      "component": "RecycleLab",
+      "assumptions": "Tracks one mineral element from leaf through microbial decomposition/release into soil inorganic nutrients and root uptake; other matter routes including CO2 omitted. Energy route tracks a portion of chemical energy used in microbial respiration/activity and eventually dispersed as heat, not all energy instantly. No rates/days."
+    },
+    {
+      "id": "L020-I01",
+      "component": "CascadeLab",
+      "assumptions": "Toggle local presence of one aphid-eating ladybird and whether the selected bird eats aphids. Graph connectivity describes surviving predation links. Qualitative possible effects only; no numerical population forecast, guaranteed compensation, immediate extinction or real species manipulation."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/44-1-the-scope-of-ecology",
+      "use": "What is a habitat?"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems",
+      "use": "Who eats whom?"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles",
+      "use": "Nature’s recyclers"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/45-6-community-ecology",
+      "use": "What if a species disappears?"
+    },
+    {
+      "url": "https://www.rhs.org.uk/biodiversity/ladybirds",
+      "use": "Some ladybirds feed on aphids; others on fungi/plants, so selected feeding role is not universal."
+    },
+    {
+      "url": "https://www.doc.govt.nz/nature/native-animals/birds/birds-a-z/silvereye-or-wax-eye/",
+      "use": "Optional familiar New Zealand garden comparison: silvereyes eat insects, fruit and nectar. Diagram uses a generic insect-eating bird rather than a species-specific full diet."
+    }
+  ]
+}

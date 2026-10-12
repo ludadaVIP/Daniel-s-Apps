@@ -1,0 +1,88 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original text, SVG and fictional dataset; no external assets copied",
+  "checked": "2026-10-12",
+  "status": "pilot; child trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L021-D01",
+      "component": "InquiryDiagram",
+      "kind": "Observation and inference",
+      "scale": "Schematic, not to scale; height readings are labelled fictional records, not pixels"
+    },
+    {
+      "id": "L022-D01",
+      "component": "InquiryDiagram",
+      "kind": "Variables in a light comparison",
+      "scale": "Schematic, not to scale; height readings are labelled fictional records, not pixels"
+    },
+    {
+      "id": "L023-D01",
+      "component": "InquiryDiagram",
+      "kind": "Individual gains and group means",
+      "scale": "Schematic, not to scale; height readings are labelled fictional records, not pixels"
+    },
+    {
+      "id": "L024-D01",
+      "component": "InquiryDiagram",
+      "kind": "Scoped claims, additional colour records and limits",
+      "scale": "Schematic, not to scale; height readings are labelled fictional records, not pixels"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L021-I01",
+      "component": "ObservationLab"
+    },
+    {
+      "id": "L022-I01",
+      "component": "FairTestLab"
+    },
+    {
+      "id": "L023-I01",
+      "component": "DataLab"
+    },
+    {
+      "id": "L024-I01",
+      "component": "EvidenceLab"
+    }
+  ],
+  "assumptions": [
+    "All six seedling records are authored fictional data, not real measurements or predictions. A1–A3: start4, end10/11/12cm; B1–B3: start4, end7/8/9cm over seven days. Gains6/7/8 and3/4/5; means7 and4.",
+    "Weak/strong refer to relative light intensity; exposure duration is held similar. Variety, age, starting condition, pots, soil, timing and method are comparable; important actual conditions are monitored. Random assignment and replicates improve interpretation, not certainty.",
+    "Matching watering plans does not establish equal soil moisture. Light intensity may change moisture/temperature; actual conditions need monitoring. FairTestLab flags only three listed confounders and produces no growth outcomes.",
+    "Chart uses common zero-based0–10cm axis and raw-table-derived values; no statistical significance, health, mass, sugar or daily rate inference.",
+    "Additional pale-leaf and slender-stem records are fictional qualitative clues. Placeholder green before reveal is not a measurement. Low-light elongation is a possible mechanism, not unique diagnosis.",
+    "S01 original virtual scene provides appearance and habitat clues only; species names, diets and abundance changes are not established. Five record fields are checked for structure only; child/family reviews scientific content."
+  ],
+  "stageProject": {
+    "id": "S01-P01",
+    "diagram": "S01-P01-D01",
+    "component": "FieldProject / FieldScene",
+    "records": 5,
+    "summaries": [
+      "zh",
+      "en"
+    ],
+    "understandingCheck": 5,
+    "completion": "24 lessons + 6 unit missions + saved structurally complete portfolio + answered five checks with at least four correct. English not auto-graded."
+  },
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology",
+      "use": "Observation, testable explanations, descriptive and experimental inquiry"
+    },
+    {
+      "url": "https://www.sciencebuddies.org/science-fair-projects/science-fair/doing-a-fair-test-variables-for-beginners",
+      "use": "Fair comparisons and confounded factors"
+    },
+    {
+      "url": "https://www.sciencelearn.org.nz/collections/shared/99edda4d-b33a-45bf-aa00-3d0cf677e1ac",
+      "use": "New Zealand science education: fair testing, related inquiry approaches"
+    },
+    {
+      "url": "https://www.rhs.org.uk/get-involved/grow-with-it/pdfs/grow-to-eat-zine",
+      "use": "Seedling section: low light can cause leggy growth"
+    }
+  ]
+}

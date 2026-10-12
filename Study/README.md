@@ -4,7 +4,7 @@ Study is a hub for four learning apps: Physics, Chemistry, Biology, and Pinyin D
 
 ## Current milestone
 
-The bilingual Study hub has separate entries for Physics, Chemistry, Biology, and Pinyin Detective. Physics now has a working foundation release: 235 bilingual discovery lessons, 234 interactive labs, local progress, a review queue, a discovery notebook, and seven field projects (Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design) with saved drafts and bilingual reports. Its nine-stage curriculum roadmap follows `Physics/Plan.md`; later courses are marked as planned. See [Physics/README.md](Physics/README.md) for implementation and content-extension notes. Chemistry retains its existing courses and experiments; Biology now offers an eight-lesson bilingual pilot across “What is life?” and “Into the microscopic world”, interactive life, scale, microscopy and cell models, local progress and recall, and a discovery notebook. Its six-stage roadmap retains 144 planned lesson IDs; the first eight are available. See [biology/README.md](biology/README.md) for trial steps. Pinyin Detective now includes a six-week roadmap, four complete Markdown lessons, seven exercise types, local review scheduling, a real IME keyboard lab, and parent reports. See [pinyin/README.md](pinyin/README.md) for acceptance steps and content maintenance.
+The bilingual Study hub has separate entries for Physics, Chemistry, Biology, and Pinyin Detective. Physics now has a working foundation release: 235 bilingual discovery lessons, 234 interactive labs, local progress, a review queue, a discovery notebook, and seven field projects (Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design) with saved drafts and bilingual reports. Its nine-stage curriculum roadmap follows `Physics/Plan.md`; later courses are marked as planned. See [Physics/README.md](Physics/README.md) for implementation and content-extension notes. Chemistry retains its existing courses and experiments; Biology now offers a twenty-lesson bilingual pilot across “What is life?”, “Into the microscopic world”, “Plants and their secrets” “Animals and our bodies” and “An ecosystem at your doorstep”, interactive life, scale, microscopy, cell, plant, body and ecology models, local progress and recall, and a discovery notebook. Its six-stage roadmap retains 144 planned lesson IDs; the first twenty are available. See [biology/README.md](biology/README.md) for trial steps. Pinyin Detective now includes a six-week roadmap, four complete Markdown lessons, seven exercise types, local review scheduling, a real IME keyboard lab, and parent reports. See [pinyin/README.md](pinyin/README.md) for acceptance steps and content maintenance.
 
 ## Run locally
 
@@ -41,7 +41,7 @@ chemistry/Plan.md     Chemistry product and curriculum plan
 Physics/apps/web     Physics learner app (also independent on port 3458)
 Physics/Plan.md       Physics curriculum plan
 biology/apps/web      Biology Explorer (standalone port 3460)
-biology/curriculum    Eight pilot Markdown lessons and the six-stage roadmap
+biology/curriculum    Twenty pilot Markdown lessons and the six-stage roadmap
 biology/plan.md       Biology curriculum plan
 pinyin/apps/web       Pinyin Detective learner app (standalone port 3459)
 pinyin/curriculum     Markdown lessons, JSON exercises and reviewed vocabulary

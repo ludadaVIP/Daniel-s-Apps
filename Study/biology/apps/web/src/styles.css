@@ -2348,6 +2348,27 @@
   margin-top: 20px;
   max-width: 440px;
 }
+.bio-app .bio-plant-diagram svg {
+  max-height: 300px;
+}
+.bio-app .bio-plant-choice {
+  margin: 12px 0;
+}
+.bio-app .bio-plant-choice button {
+  min-height: 44px;
+}
+.bio-app .bio-plant-diagram .bio-hotspots button {
+  min-width: 44px;
+  height: 44px;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-plant-diagram {
+    display: block;
+  }
+  .bio-app .bio-plant-diagram .bio-hotspots {
+    justify-content: center;
+  }
+}
 .bio-app .bio-mission-diagram .bio-diagram {
   position: static;
   display: block;
@@ -2429,5 +2450,287 @@
   .bio-app .bio-dots-demo button {
     font-size: 11px;
     padding: 8px;
+  }
+}
+
+/* Body cooperation maps and compact, consistent two-choice labs. */
+.bio-app .bio-body-diagram svg {
+  max-height: 300px;
+  width: 100%;
+}
+.bio-body-choice {
+  margin: 12px 0;
+}
+.bio-body-choice button {
+  min-height: 44px;
+}
+.bio-body-choice .bio-en {
+  font-size: 11px;
+}
+.bio-body-diagram .bio-body-choice {
+  justify-content: center;
+}
+.bio-organ-target {
+  cursor: pointer;
+}
+.bio-organ-target:focus {
+  outline: none;
+}
+.bio-organ-focus-ring {
+  opacity: 0;
+}
+.bio-organ-target:focus-visible {
+  opacity: 1;
+}
+.bio-organ-target:focus-visible .bio-organ-focus-ring {
+  opacity: 1;
+}
+.bio-body-diagram figcaption small {
+  display: block;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-body-diagram {
+    display: block;
+  }
+  .bio-body-choice button {
+    flex: 0 1 auto;
+  }
+}
+
+.bio-app .bio-eco-diagram svg {
+  max-height: 300px;
+  width: 100%;
+}
+.bio-eco-choice {
+  margin: 12px 0;
+}
+.bio-eco-choice button {
+  min-height: 44px;
+}
+.bio-eco-evidence button {
+  flex: 1 1 170px;
+  text-align: left;
+}
+.bio-eco-choice .bio-en {
+  font-size: 11px;
+}
+.bio-eco-diagram .bio-eco-choice {
+  justify-content: center;
+}
+.bio-eco-diagram figcaption small {
+  display: block;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+.bio-eco-legend {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 10px 0;
+}
+.bio-eco-result {
+  line-height: 1.8;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-eco-diagram {
+    display: block;
+  }
+  .bio-eco-choice button {
+    flex: 0 1 auto;
+  }
+  .bio-eco-evidence button {
+    flex: 1 1 100%;
+  }
+}
+
+.bio-app .bio-inquiry-diagram svg {
+  width: 100%;
+  max-height: 300px;
+  color: var(--ink);
+}
+.bio-app .bio-inquiry-diagram small {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+}
+.bio-app .bio-inquiry-choices {
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.bio-app .bio-inquiry-choices button {
+  min-height: 44px;
+  overflow-wrap: anywhere;
+}
+.bio-app .bio-inquiry-factors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.bio-app .bio-inquiry-factors button {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 14px;
+  background: #fffdf6;
+  color: var(--ink);
+  text-align: left;
+}
+.bio-app .bio-inquiry-factors button[aria-pressed='true'] {
+  background: #e6eed8;
+  border-color: #9db384;
+}
+.bio-app .bio-inquiry-factors strong,
+.bio-app .bio-inquiry-factors small {
+  display: block;
+  margin-top: 10px;
+}
+.bio-app .bio-inquiry-result {
+  margin: 14px 0;
+  padding: 14px;
+  border-left: 3px solid #9db384;
+  background: #eef2e7;
+  line-height: 1.8;
+}
+.bio-app .bio-inquiry-result a,
+.bio-app .bio-inquiry-result button {
+  display: block;
+  margin-top: 12px;
+}
+.bio-app .bio-inquiry-result button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  color: var(--ink);
+  padding: 8px 14px;
+}
+.bio-app .bio-inquiry-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  margin: 12px 0;
+}
+.bio-app .bio-inquiry-table th,
+.bio-app .bio-inquiry-table td {
+  padding: 8px 4px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.bio-app .bio-inquiry-table caption {
+  text-align: left;
+  margin-bottom: 8px;
+}
+.bio-app .bio-stage-project-link {
+  display: block;
+  margin: 24px 0;
+  padding: 28px;
+  border: 1px solid #cad6bc;
+  border-radius: 15px;
+  background: #edf1e3;
+}
+.bio-app .bio-stage-project-link h2 {
+  margin: 10px 0;
+}
+.bio-app .bio-project-intro {
+  margin: 16px 0;
+  max-width: 820px;
+}
+.bio-app .bio-project-scene {
+  border: 1px solid var(--line);
+  padding: 20px;
+  border-radius: 14px;
+  background: #fffdf7;
+  margin: 24px 0;
+}
+.bio-app .bio-project-scene summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+.bio-app .bio-project-scene-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 14px;
+}
+.bio-app .bio-project-scene-grid svg {
+  width: 100%;
+  max-height: 380px;
+}
+.bio-app .bio-project-scene-grid p {
+  margin: 12px 0;
+}
+.bio-app .bio-project-scene-grid [role='button'] {
+  cursor: pointer;
+  outline: none;
+}
+.bio-app .bio-project-scene-grid [role='button']:focus-visible circle {
+  stroke: #b79443;
+  stroke-width: 4px;
+}
+.bio-app .bio-project-writing {
+  border: 1px solid var(--line);
+  padding: 24px;
+  border-radius: 14px;
+  background: white;
+  max-width: 860px;
+  margin: 24px 0;
+}
+.bio-app .bio-project-writing label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: 600;
+}
+.bio-app .bio-project-writing textarea {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  min-height: 72px;
+  resize: vertical;
+  border: 1px solid #cdd5c5;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fcfcf7;
+  color: var(--ink);
+  font-weight: 400;
+}
+.bio-app .bio-project-writing p {
+  margin: 14px 0;
+}
+.bio-app .bio-project-status {
+  margin: 24px 0;
+  padding: 24px;
+  background: #edf1e3;
+  border-radius: 14px;
+}
+.bio-app .bio-project-status p {
+  margin: 10px 0;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-inquiry-factors,
+  .bio-app .bio-project-scene-grid {
+    grid-template-columns: 1fr;
+  }
+  .bio-app .bio-project-writing,
+  .bio-app .bio-project-scene,
+  .bio-app .bio-project-status {
+    padding: 16px;
+  }
+  .bio-app .bio-inquiry-chart svg {
+    max-height: none;
+  }
+}
+.bio-app .bio-frame-caption {
+  margin: 14px 0;
+  line-height: 1.8;
+}
+.bio-app .bio-project-writing .bio-options button[aria-pressed='true'] {
+  background: #e6eed8;
+  border-color: #9db384;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-inquiry-diagram {
+    display: block;
   }
 }
