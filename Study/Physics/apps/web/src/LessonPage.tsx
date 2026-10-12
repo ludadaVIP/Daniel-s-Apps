@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { QuestionNavigator } from '@study/ui';
+import { useEffect, useState } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
 import { lessonCatalog as lessons } from './content/catalog';
@@ -85,7 +86,9 @@ export function LessonPage({
     return <Navigate to="/physics/path" replace />;
   return (
     <LessonContentGate id={lessonId} mode={mode}>
-      {(lesson) => <LessonView lesson={lesson} mode={mode} store={store} />}
+      {(lesson) => (
+        <LessonView key={lesson.id} lesson={lesson} mode={mode} store={store} />
+      )}
     </LessonContentGate>
   );
 }
@@ -98,6 +101,7 @@ function LessonView({
   mode: LanguageMode;
   store: ProgressStore;
 }) {
+  const [questionIndex, setQuestionIndex] = useState(0);
   const lessonId = lesson.id;
   const index = lessons.findIndex((l) => l.id === lessonId);
   const p = store.progress.lessons[lesson.id] || freshLesson();
@@ -301,15 +305,23 @@ function LessonView({
                     mode={mode}
                   />
                 </p>
+                <QuestionNavigator
+                  index={questionIndex}
+                  count={lesson.questions.length}
+                  onChange={setQuestionIndex}
+                  mode={mode}
+                />
                 {lesson.questions.map((q, i) => (
-                  <QuestionCard
-                    key={i}
-                    question={q}
-                    mode={mode}
-                    number={`0${i + 1}`}
-                    answer={p.answers[i]}
-                    onAnswer={(v) => answer(i, v)}
-                  />
+                  <div key={i} hidden={questionIndex !== i}>
+                    <QuestionCard
+                      key={i}
+                      question={q}
+                      mode={mode}
+                      number={`0${i + 1}`}
+                      answer={p.answers[i]}
+                      onAnswer={(v) => answer(i, v)}
+                    />
+                  </div>
                 ))}
               </>
             )}

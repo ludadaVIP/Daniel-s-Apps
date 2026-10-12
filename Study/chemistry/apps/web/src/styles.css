@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import '@study/ui/styles.css';
 
 .app-shell {
   font-family:
@@ -158,7 +159,7 @@ a:focus-visible {
   border: 0;
   background: none;
   color: #6c8783;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 680;
   padding: 8px 12px;
   border-radius: 8px;
@@ -208,7 +209,7 @@ a:focus-visible {
   gap: 11px;
   text-transform: uppercase;
   letter-spacing: 0.17em;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 750;
   color: #6b928c;
   margin-bottom: 13px;
@@ -229,7 +230,7 @@ a:focus-visible {
 }
 .small-kicker {
   display: inline-block;
-  font-size: 12px;
+  font-size: 14px;
   color: #4c8b86;
   font-weight: 750;
   letter-spacing: 0.12em;
@@ -262,7 +263,7 @@ a:focus-visible {
   color: white;
   background: #286e68;
   border-radius: 9px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.25;
   font-weight: 730;
   box-shadow: 0 12px 28px #367c7424;
@@ -323,7 +324,7 @@ a:focus-visible {
   top: 20px;
   left: 22px;
   color: #6b928c;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 750;
   letter-spacing: 0.17em;
 }
@@ -331,7 +332,7 @@ a:focus-visible {
   position: absolute;
   z-index: 2;
   color: #5b817c;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 650;
   letter-spacing: 0.035em;
 }
@@ -373,7 +374,7 @@ a:focus-visible {
   justify-content: space-between;
   align-items: center;
   color: #86a09b;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 720;
   letter-spacing: 0.12em;
 }
@@ -386,7 +387,7 @@ a:focus-visible {
 }
 .first-card p {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: #78918d;
   line-height: 1.55;
 }
@@ -394,7 +395,7 @@ a:focus-visible {
   margin-top: 13px;
   border-top: 1px solid #ebf0ee;
   padding-top: 11px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 650;
   color: #9aaea9;
   display: flex;
@@ -439,7 +440,7 @@ a:focus-visible {
   font-weight: 740;
 }
 .rhythm-card p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.55;
   color: #628681;
   margin: 0;
@@ -469,7 +470,7 @@ a:focus-visible {
   gap: 20px;
   padding: 14px 0 17px;
   color: #91a9a4;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.11em;
   font-weight: 690;
 }
@@ -523,7 +524,7 @@ a:focus-visible {
 }
 .level-main p {
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   color: #7a918d;
   line-height: 1.55;
 }
@@ -531,7 +532,7 @@ a:focus-visible {
   margin-top: 11px;
   color: #98ada9;
   text-transform: uppercase;
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 0.13em;
   font-weight: 750;
 }
@@ -542,7 +543,7 @@ a:focus-visible {
   margin-top: 6px;
 }
 .topic-list > span {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.4;
   color: #5c827d;
   background: #edf4f1;
@@ -560,7 +561,7 @@ a:focus-visible {
   border: 1px solid transparent;
   border-radius: 9px;
   padding: 8px 9px;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.35;
   transition:
     background 0.18s ease,
@@ -572,10 +573,10 @@ a:focus-visible {
 }
 .topic-list > a > b {
   color: #e5886d;
-  font-size: 10px;
+  font-size: 14px;
 }
 .topic-list > a > span > span:last-child {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.35;
   opacity: 0.72;
 }
@@ -590,7 +591,7 @@ a:focus-visible {
   align-items: center;
   justify-content: space-between;
   color: #77918d;
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 14px;
 }
 .lesson-topbar a {
@@ -619,7 +620,7 @@ a:focus-visible {
 .lesson-eyebrow,
 .section-kicker {
   margin: 0 0 10px;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.4;
   font-weight: 800;
   letter-spacing: 0.18em;
@@ -756,7 +757,7 @@ a:focus-visible {
 }
 .big-idea > span {
   color: #a96552;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.17em;
 }
@@ -894,11 +895,11 @@ a:focus-visible {
   padding: 8px 10px;
   cursor: pointer;
   font-weight: 700;
-  font-size: 13px;
+  font-size: 14px;
 }
 .mini-result {
   grid-column: 1 / -1;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 .mini-result.correct {
@@ -984,7 +985,7 @@ a:focus-visible {
   top: 14px;
   right: 15px;
   color: #477871;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .state-solid .particle-field i {
@@ -1045,7 +1046,7 @@ a:focus-visible {
   justify-content: space-between;
   align-items: center;
   color: #477972;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.05em;
 }
@@ -1084,7 +1085,7 @@ a:focus-visible {
   position: absolute;
   top: 12px;
   color: #77948f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 750;
 }
 .phase-track > span:before {
@@ -1119,7 +1120,7 @@ a:focus-visible {
 }
 .phase-controls small {
   color: #829b97;
-  font-size: 12px;
+  font-size: 14px;
 }
 .detective-lab {
   display: grid;
@@ -1186,7 +1187,7 @@ a:focus-visible {
   background: #fff;
   color: #3c716b;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
 }
 .case-result {
@@ -1195,7 +1196,7 @@ a:focus-visible {
   padding-top: 9px;
   border-top: 1px solid #dbe6e3;
   color: #577b76;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.55;
 }
 .case-result.correct b {
@@ -1221,7 +1222,7 @@ a:focus-visible {
 .formula-stage > span,
 .particle-card > span {
   color: #79958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.15em;
 }
@@ -1272,7 +1273,7 @@ a:focus-visible {
   color: #356e68;
   padding: 10px 12px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   transition:
     border-color 0.16s ease,
@@ -1323,7 +1324,7 @@ a:focus-visible {
 }
 .element-tile > span {
   grid-column: 2;
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.75;
 }
 .element-tile > strong {
@@ -1357,7 +1358,7 @@ a:focus-visible {
   place-items: center;
   border-radius: 50%;
   color: #fff;
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
   box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.25);
@@ -1366,7 +1367,7 @@ a:focus-visible {
   display: block;
   margin-top: 11px;
   color: #6e8b86;
-  font-size: 12px;
+  font-size: 14px;
 }
 .element-tabs {
   grid-column: 1 / -1;
@@ -1419,7 +1420,7 @@ a:focus-visible {
   border: 3px solid rgba(255, 255, 255, 0.82);
   border-radius: 50%;
   color: #fff;
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
   box-shadow: 0 4px 12px rgba(35, 79, 75, 0.15);
@@ -1482,7 +1483,7 @@ a:focus-visible {
 .particle-token .atom-dot {
   width: 38px;
   height: 38px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .classifier-answer > strong {
   display: block;
@@ -1500,7 +1501,7 @@ a:focus-visible {
   padding: 11px 13px;
   border-radius: 9px;
   color: #557a75;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.55;
 }
 .classifier-answer > p.correct {
@@ -1556,7 +1557,7 @@ a:focus-visible {
   bottom: 15px;
   left: 16px;
   color: #4f766f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .in-atom .zoom-label {
@@ -1592,7 +1593,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #f0a083;
   color: #6a3328;
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
 }
@@ -1640,7 +1641,7 @@ a:focus-visible {
   color: #48766f;
   padding: 8px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 750;
 }
 .zoom-stops button.active {
@@ -1685,7 +1686,7 @@ a:focus-visible {
   background: #e68a6d;
   color: #fff;
   box-shadow: inset 3px 3px 0 rgba(255, 255, 255, 0.27);
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
 }
@@ -1702,7 +1703,7 @@ a:focus-visible {
 .identity-card > span {
   grid-column: 1 / -1;
   color: #7e9994;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.16em;
 }
@@ -1721,7 +1722,7 @@ a:focus-visible {
   align-self: start;
   margin: 0;
   color: #67837e;
-  font-size: 13px;
+  font-size: 14px;
 }
 .identity-card.unknown > b {
   color: #93aaa5;
@@ -1760,7 +1761,7 @@ a:focus-visible {
   place-items: center;
   border-radius: 50%;
   color: #fff;
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
   box-shadow: inset 2px 2px 0 rgba(255, 255, 255, 0.3);
@@ -1782,7 +1783,7 @@ a:focus-visible {
   font-size: 26px;
 }
 .isotope-name strong {
-  font-size: 13px;
+  font-size: 14px;
 }
 .isotope-controls > label,
 .charge-controls > label {
@@ -1809,7 +1810,7 @@ a:focus-visible {
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.7);
   color: #4d7771;
-  font-size: 13px;
+  font-size: 14px;
 }
 .nuclear-stat > strong,
 .charge-row > b {
@@ -1818,7 +1819,7 @@ a:focus-visible {
 }
 .nuclear-stat > small {
   color: #829c97;
-  font-size: 11px;
+  font-size: 14px;
 }
 .charge-row > em {
   color: #dc7b60;
@@ -1837,7 +1838,7 @@ a:focus-visible {
   background: #fff;
   border: 1px solid #c9ded9;
   color: #527a75;
-  font-size: 13px;
+  font-size: 14px;
 }
 .mass-equation > span,
 .charge-result > span {
@@ -1909,7 +1910,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #4a918a;
   color: #fff;
-  font-size: 9px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
   transform: translate(-50%, -50%);
@@ -1960,7 +1961,7 @@ a:focus-visible {
 .map-caption,
 .mass-card > span {
   color: #77958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.14em;
 }
@@ -1997,7 +1998,7 @@ a:focus-visible {
   position: absolute;
   top: 9px;
   left: 10px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
 }
 .number-tiles b {
@@ -2026,7 +2027,7 @@ a:focus-visible {
 .number-decoder > p:first-child {
   margin: 0 0 8px;
   color: #78958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.14em;
 }
@@ -2064,7 +2065,7 @@ a:focus-visible {
   border-radius: 10px;
   background: #eaf3f0;
   color: #49736d;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 760;
 }
 .number-chain i {
@@ -2118,7 +2119,7 @@ a:focus-visible {
 .mass-card > p {
   margin: 13px 0 0;
   color: #5b7b76;
-  font-size: 13px;
+  font-size: 14px;
   text-align: center;
 }
 .mass-counts {
@@ -2134,7 +2135,7 @@ a:focus-visible {
   display: grid;
   gap: 3px;
   color: #708b86;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
 }
 .mass-counts span b,
@@ -2175,7 +2176,7 @@ a:focus-visible {
   color: #5c7d77;
 }
 .mass-answer > span {
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
 }
 .mass-answer > b {
@@ -2185,7 +2186,7 @@ a:focus-visible {
 .mass-answer > p {
   grid-column: 1 / -1;
   margin: 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .isotope-detective-lab {
@@ -2228,7 +2229,7 @@ a:focus-visible {
   border-radius: 12px;
   background: rgba(255, 255, 255, 0.76);
   color: #5c7b76;
-  font-size: 12px;
+  font-size: 14px;
 }
 .isotope-id-grid article > b {
   grid-column: 1 / -1;
@@ -2271,7 +2272,7 @@ a:focus-visible {
   color: #41756f;
   padding: 9px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .isotope-choice button.correct {
@@ -2287,7 +2288,7 @@ a:focus-visible {
 .isotope-choice > p {
   margin: 10px 0 0;
   color: #557973;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .isotope-choice > p.correct {
@@ -2340,14 +2341,14 @@ a:focus-visible {
   font-size: 24px;
 }
 .ion-atom > small {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 700;
 }
 .ion-symbol {
   position: absolute;
   top: -25px;
   color: #62817b;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .electron-flight {
@@ -2362,7 +2363,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #f0a085;
   color: #6f372b;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   transition:
     transform 0.65s cubic-bezier(0.44, 0.03, 0.3, 1.3),
@@ -2426,7 +2427,7 @@ a:focus-visible {
 }
 .ion-explanation > span {
   color: #79958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.12em;
 }
@@ -2452,7 +2453,7 @@ a:focus-visible {
   display: flex;
   justify-content: space-between;
   color: #78958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
   letter-spacing: 0.08em;
 }
@@ -2486,7 +2487,7 @@ a:focus-visible {
   position: absolute;
   top: 5px;
   left: 6px;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 850;
 }
 .periodic-map button strong {
@@ -2517,7 +2518,7 @@ a:focus-visible {
 .periodic-legend span {
   padding: 4px 8px;
   border-radius: 999px;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 750;
 }
 .periodic-legend .metal {
@@ -2535,7 +2536,7 @@ a:focus-visible {
 .element-inspector > p:first-child {
   margin: 0 0 8px;
   color: #78958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.13em;
 }
@@ -2552,7 +2553,7 @@ a:focus-visible {
   align-self: start;
   grid-row: 1 / -1;
   padding-top: 5px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .inspector-symbol > b {
@@ -2591,13 +2592,13 @@ a:focus-visible {
   border-radius: 8px;
   background: #f5f9f8;
   color: #77928d;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 700;
   text-align: center;
 }
 .element-position b {
   color: #3f736d;
-  font-size: 13px;
+  font-size: 14px;
 }
 .element-use {
   min-height: 45px;
@@ -2625,7 +2626,7 @@ a:focus-visible {
 }
 .family-card > span {
   color: #79968f;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.13em;
 }
@@ -2642,13 +2643,13 @@ a:focus-visible {
 .family-card > p {
   margin: 5px 0 0;
   color: #da7c60;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .family-card > small {
   margin-top: 12px;
   color: #5e7d77;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.45;
 }
 .family-choices {
@@ -2671,7 +2672,7 @@ a:focus-visible {
   color: #3e746d;
   padding: 12px 8px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .family-choices button.correct {
@@ -2690,7 +2691,7 @@ a:focus-visible {
   padding: 11px 13px;
   border-radius: 9px;
   color: #557a74;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .family-choices > p.correct {
@@ -2763,7 +2764,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #4e968d;
   color: #fff;
-  font-size: 8px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
   transform: translate(-50%, -50%);
@@ -2807,7 +2808,7 @@ a:focus-visible {
 }
 .period-shell-controls > span {
   color: #78958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.12em;
 }
@@ -2854,7 +2855,7 @@ a:focus-visible {
   border-left: 3px solid #df8065;
   background: rgba(255, 255, 255, 0.65);
   color: #5a7c76;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .metal-property-lab {
@@ -2876,7 +2877,7 @@ a:focus-visible {
   color: #4a766f;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 750;
 }
 .metal-job-tabs button.active {
@@ -2909,7 +2910,7 @@ a:focus-visible {
 .metal-job-card p {
   margin: 0 0 3px;
   color: #77948e;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.12em;
 }
@@ -2934,7 +2935,7 @@ a:focus-visible {
   color: #40756e;
   padding: 10px 7px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .metal-choice button.correct {
@@ -2953,7 +2954,7 @@ a:focus-visible {
   padding: 10px 12px;
   border-radius: 8px;
   color: #587a75;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .metal-choice > p.correct {
@@ -2998,7 +2999,7 @@ a:focus-visible {
   max-width: 220px;
   margin: 5px 0 0;
   color: #5b7d77;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .evidence-sample.metal {
@@ -3039,7 +3040,7 @@ a:focus-visible {
   color: #40756e;
   padding: 10px 6px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .evidence-controls button.correct {
@@ -3058,7 +3059,7 @@ a:focus-visible {
   padding: 10px 12px;
   border-radius: 8px;
   color: #577a75;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .evidence-controls > p.correct {
@@ -3166,7 +3167,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #4e968d;
   color: #fff;
-  font-size: 9px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
 }
@@ -3180,7 +3181,7 @@ a:focus-visible {
   align-items: center;
   gap: 8px;
   color: #76938d;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 800;
 }
 .electron-distance > i {
@@ -3217,7 +3218,7 @@ a:focus-visible {
 .reactivity-meter > span {
   display: block;
   color: #78958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
 }
 .reactivity-meter > i {
@@ -3237,14 +3238,14 @@ a:focus-visible {
 }
 .reactivity-meter > strong {
   color: #36736c;
-  font-size: 13px;
+  font-size: 14px;
 }
 .group1-safe-note {
   padding: 10px 12px;
   border-left: 3px solid #e08468;
   background: #fff5ef;
   color: #8c503e !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .group17-lab {
   display: grid;
@@ -3339,7 +3340,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #e48a6d;
   color: #fff;
-  font-size: 8px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
   transform: translate(-50%, -50%);
@@ -3431,7 +3432,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #f1b19a;
   color: #773d2d;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 850;
   transition:
     opacity 0.2s ease,
@@ -3459,7 +3460,7 @@ a:focus-visible {
   color: #fff;
   padding: 10px 13px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .group17-meter {
@@ -3472,7 +3473,7 @@ a:focus-visible {
 .group17-meter > span {
   display: block;
   color: #78958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
 }
 .group17-meter > i {
@@ -3492,14 +3493,14 @@ a:focus-visible {
 }
 .group17-meter > strong {
   color: #36736c;
-  font-size: 13px;
+  font-size: 14px;
 }
 .group17-safe-note {
   padding: 10px 12px;
   border-left: 3px solid #e08468;
   background: #fff5ef;
   color: #8c503e !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .noble-glow-lab {
   display: grid;
@@ -3616,7 +3617,7 @@ a:focus-visible {
   border-radius: 50%;
   background: var(--gas-colour);
   color: #fff;
-  font-size: 8px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
   transform: translate(-50%, -50%);
@@ -3709,7 +3710,7 @@ a:focus-visible {
   border-radius: 999px;
   background: #fff;
   color: #61517d;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   box-shadow: 0 4px 16px rgba(85, 71, 124, 0.13);
 }
@@ -3731,7 +3732,7 @@ a:focus-visible {
   color: #fff;
   padding: 10px 13px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .noble-use {
@@ -3746,7 +3747,7 @@ a:focus-visible {
   border-left: 3px solid #dd977b;
   background: #fff5ef;
   color: #8c503e !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .bond-choice-lab {
   display: grid;
@@ -3822,7 +3823,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #f4bd6e;
   color: #684d26;
-  font-size: 8px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
 }
@@ -3859,14 +3860,14 @@ a:focus-visible {
   height: 24px;
   background: #f4bd6e;
   color: #684d26;
-  font-size: 9px;
+  font-size: 14px;
   animation: bond-transfer 1.45s ease-in-out infinite;
 }
 .shared-electrons {
   padding: 4px 6px;
   background: #eef6e8;
   color: #54734a;
-  font-size: 9px;
+  font-size: 14px;
 }
 .no-link {
   width: 28px;
@@ -3887,7 +3888,7 @@ a:focus-visible {
   border-radius: 999px;
   background: #fff;
   color: #5f7553;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   box-shadow: 0 4px 16px rgba(78, 107, 67, 0.12);
 }
@@ -3937,7 +3938,7 @@ a:focus-visible {
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 850;
   transition:
     left 0.45s ease,
@@ -3989,7 +3990,7 @@ a:focus-visible {
   width: 31px;
   height: 31px;
   transform: translate(-50%, -50%);
-  font-size: 9px;
+  font-size: 14px;
   animation: ion-float 2.8s ease-in-out infinite alternate;
 }
 .ionic-lattice-scene.dissolved .ionic-grid > span:nth-child(3n) {
@@ -4008,7 +4009,7 @@ a:focus-visible {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
   color: #3d7a83;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
 }
 .ionic-lattice-readout > strong {
@@ -4035,7 +4036,7 @@ a:focus-visible {
   color: #517a75;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .lattice-actions button.active {
@@ -4124,7 +4125,7 @@ a:focus-visible {
 }
 .lone-pair text {
   fill: #796c87;
-  font-size: 8px;
+  font-size: 14px;
   font-weight: 750;
 }
 .covalent-atom text {
@@ -4165,7 +4166,7 @@ a:focus-visible {
   border-radius: 10px;
   background: #f7fafc;
   color: #687e91;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .shared-pair-count b {
@@ -4183,7 +4184,7 @@ a:focus-visible {
   border-left: 3px solid #e2a260;
   background: #fff8ee;
   color: #805e39 !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .metallic-bonding-lab {
   display: grid;
@@ -4225,7 +4226,7 @@ a:focus-visible {
   box-shadow:
     inset 0 0 0 2px rgba(255, 255, 255, 0.28),
     0 4px 9px rgba(72, 92, 105, 0.15);
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   transition: transform 0.4s ease;
 }
@@ -4252,7 +4253,7 @@ a:focus-visible {
   background: #f3bd68;
   color: #65491f;
   box-shadow: 0 0 0 3px rgba(243, 189, 104, 0.14);
-  font-size: 8px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   animation: metal-electron-jitter 1.8s ease-in-out infinite alternate;
@@ -4278,7 +4279,7 @@ a:focus-visible {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
   color: #526b79;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   box-shadow: 0 4px 14px rgba(62, 82, 94, 0.12);
 }
@@ -4295,7 +4296,7 @@ a:focus-visible {
   color: #577080;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .metallic-actions button.active {
@@ -4326,7 +4327,7 @@ a:focus-visible {
   border-left: 3px solid #de9873;
   background: #fff6ef;
   color: #86523b !important;
-  font-size: 12px !important;
+  font-size: 14px !important;
 }
 .structure-detective-lab {
   display: grid;
@@ -4348,7 +4349,7 @@ a:focus-visible {
   color: #697053;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .detective-tabs button.active {
@@ -4383,7 +4384,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #7f8b70;
   color: #fff;
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.28);
@@ -4440,7 +4441,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #f0c367;
   color: #62491f;
-  font-size: 7px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   animation: detective-electron 1.7s ease-in-out infinite alternate;
@@ -4489,7 +4490,7 @@ a:focus-visible {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   color: #646c50;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 850;
   box-shadow: 0 4px 14px rgba(74, 79, 57, 0.12);
 }
@@ -4509,7 +4510,7 @@ a:focus-visible {
   border-radius: 8px;
   background: #f3f5ec;
   color: #667056;
-  font-size: 13px;
+  font-size: 14px;
 }
 .detective-console > ul li::before {
   content: '✓';
@@ -4520,7 +4521,7 @@ a:focus-visible {
 .detective-console > p {
   margin: 0 0 8px;
   color: #65705a;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .detective-answers {
@@ -4535,7 +4536,7 @@ a:focus-visible {
   color: #667054;
   padding: 8px 9px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .detective-answers button.correct {
@@ -4552,7 +4553,7 @@ a:focus-visible {
   margin-top: 10px;
   padding: 10px 12px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .detective-feedback.correct {
@@ -4658,7 +4659,7 @@ a:focus-visible {
   border-radius: 50%;
   background: var(--formula-atom);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
   box-shadow: 0 5px 10px rgba(63, 81, 89, 0.16);
 }
@@ -4676,7 +4677,7 @@ a:focus-visible {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   color: #577581;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 850;
 }
 .formula-readout > strong {
@@ -4699,7 +4700,7 @@ a:focus-visible {
 .coefficient-control > span {
   margin-right: auto;
   color: #728993;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .coefficient-control button {
@@ -4737,7 +4738,7 @@ a:focus-visible {
   border-radius: 999px;
   background: #eef4f6;
   color: #58727e;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
 }
 .formula-counts i {
@@ -4837,11 +4838,11 @@ a:focus-visible {
   justify-content: space-between;
   align-items: center;
   color: #7b8576;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .charge-meter-labels b {
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 0.05em;
   text-transform: uppercase;
 }
@@ -4896,7 +4897,7 @@ a:focus-visible {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.92);
   color: #687262;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
   transform: translateX(-50%);
   white-space: nowrap;
@@ -4904,7 +4905,7 @@ a:focus-visible {
 .ionic-formula-console > p:first-child {
   margin: 0 0 11px;
   color: #68735f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .ion-count-controls {
@@ -4922,7 +4923,7 @@ a:focus-visible {
 .ion-count-control > span {
   margin-right: auto;
   color: #65715d;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .ion-count-control > div {
@@ -4971,7 +4972,7 @@ a:focus-visible {
 }
 .ionic-formula-result span {
   margin-right: auto;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.09em;
 }
@@ -5042,7 +5043,7 @@ a:focus-visible {
 }
 .naming-machine-label {
   color: #7a8971;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.09em;
 }
@@ -5076,7 +5077,7 @@ a:focus-visible {
   font-size: 18px;
 }
 .naming-ion-parts small {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
 }
 .naming-ion-parts > i {
@@ -5100,7 +5101,7 @@ a:focus-visible {
 }
 .naming-language-rails > div > span {
   color: #859187;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.07em;
 }
@@ -5110,7 +5111,7 @@ a:focus-visible {
   gap: 5px;
   margin: 0;
   color: #718076;
-  font-size: 13px;
+  font-size: 14px;
 }
 .naming-language-rails p i {
   font-style: normal;
@@ -5181,7 +5182,7 @@ a:focus-visible {
   padding-left: 10px;
   border-left: 3px solid #d38c70;
   color: #687461;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.5;
 }
 .roman-charge-lab {
@@ -5232,7 +5233,7 @@ a:focus-visible {
 }
 .roman-case-label {
   color: #78928d;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.11em;
 }
@@ -5275,7 +5276,7 @@ a:focus-visible {
   position: absolute;
   top: 5px;
   right: 5px;
-  font-size: 8px;
+  font-size: 14px;
 }
 .roman-ion-cloud > i {
   color: #748985;
@@ -5355,7 +5356,7 @@ a:focus-visible {
 }
 .roman-result > span {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.1em;
 }
@@ -5427,7 +5428,7 @@ a:focus-visible {
 }
 .polyatomic-scene-label {
   color: #7a8870;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.1em;
 }
@@ -5462,7 +5463,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #71919a;
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   box-shadow: 0 5px 12px rgba(55, 73, 68, 0.15);
 }
@@ -5481,7 +5482,7 @@ a:focus-visible {
   color: #955740;
 }
 .poly-package > b {
-  font-size: 13px;
+  font-size: 14px;
 }
 .poly-package > div {
   display: flex;
@@ -5497,7 +5498,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #d98b70;
   color: #fff;
-  font-size: 8px;
+  font-size: 14px;
   font-weight: 900;
 }
 .poly-package > div span:first-child {
@@ -5519,7 +5520,7 @@ a:focus-visible {
   border-radius: 999px;
   background: #e6f2e3;
   color: #4c7448;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .poly-charge-line i {
@@ -5636,7 +5637,7 @@ a:focus-visible {
 }
 .molecular-scene-label {
   color: #748d97;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.1em;
 }
@@ -5682,7 +5683,7 @@ a:focus-visible {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.9);
   color: #647f89;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .molecular-counts b {
@@ -5704,11 +5705,11 @@ a:focus-visible {
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.78);
   color: #687e86;
-  font-size: 11px;
+  font-size: 14px;
 }
 .prefix-blueprint p > span {
   color: #8a9ba1;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 900;
 }
 .prefix-blueprint p > b {
@@ -5721,7 +5722,7 @@ a:focus-visible {
 }
 .prefix-blueprint p > strong {
   color: #526f7a;
-  font-size: 13px;
+  font-size: 14px;
 }
 .molecular-prefix-console > p:first-child {
   margin: 0 0 10px;
@@ -5841,7 +5842,7 @@ a:focus-visible {
 }
 .reaction-scene-label {
   color: #7a8970;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-align: center;
@@ -5904,7 +5905,7 @@ a:focus-visible {
   position: absolute;
   bottom: -21px;
   color: #778379;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
 }
 .reaction-atom {
@@ -5916,7 +5917,7 @@ a:focus-visible {
   border: 2px solid rgba(255, 255, 255, 0.78);
   border-radius: 50%;
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   box-shadow: 0 4px 10px rgba(62, 79, 72, 0.16);
 }
@@ -5958,7 +5959,7 @@ a:focus-visible {
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.91);
   color: #637168;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   text-align: center;
   transform: translateX(-50%);
@@ -6011,7 +6012,7 @@ a:focus-visible {
   text-align: center;
 }
 .reaction-count-card > div span {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.05em;
 }
@@ -6055,7 +6056,7 @@ a:focus-visible {
 }
 .equation-reader-label {
   color: #778977;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.1em;
 }
@@ -6232,7 +6233,7 @@ a:focus-visible {
 }
 .balance-label {
   color: #7c8c77;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.1em;
   text-align: center;
@@ -6322,7 +6323,7 @@ a:focus-visible {
 }
 .balance-ledger span {
   color: #829891;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.04em;
 }
@@ -6368,7 +6369,7 @@ a:focus-visible {
   color: #47766e;
   cursor: pointer;
   padding: 2px 0;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .ph-scale-lab {
@@ -6397,7 +6398,7 @@ a:focus-visible {
 }
 .ph-scene-label {
   color: #849084;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-align: center;
@@ -6430,12 +6431,12 @@ a:focus-visible {
   top: 39px;
   transform: translateX(-50%);
   color: #81918a;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 800;
 }
 .ph-scale > span.active {
   color: #355f58;
-  font-size: 11px;
+  font-size: 14px;
 }
 .ph-scale > i {
   width: 31px;
@@ -6448,7 +6449,7 @@ a:focus-visible {
   border-radius: 50%;
   background: var(--ph-colour);
   color: #fff;
-  font-size: 13px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   box-shadow: 0 3px 9px rgba(62, 73, 67, 0.25);
@@ -6522,7 +6523,7 @@ a:focus-visible {
   color: #4f776f;
   padding: 9px 9px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   text-align: left;
 }
@@ -6569,7 +6570,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #edf3f0;
   color: #56756f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -6599,7 +6600,7 @@ a:focus-visible {
 }
 .neutral-scene-label {
   color: #849187;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.09em;
 }
@@ -6647,7 +6648,7 @@ a:focus-visible {
 .neutral-liquid i {
   position: absolute;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   animation: neutral-float 2.3s ease-in-out infinite alternate;
@@ -6713,7 +6714,7 @@ a:focus-visible {
 }
 .neutral-ledger span {
   color: #718b85;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .neutral-ledger b {
@@ -6772,7 +6773,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #fff1eb;
   color: #875945;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -6802,7 +6803,7 @@ a:focus-visible {
 }
 .carbonate-label {
   color: #859187;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.09em;
 }
@@ -6864,7 +6865,7 @@ a:focus-visible {
   background: #e9e4d4;
   color: #6f756a;
   padding: 10px 4px;
-  font-size: 9px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   box-shadow: 0 3px 5px rgba(70, 83, 76, 0.12);
@@ -6886,7 +6887,7 @@ a:focus-visible {
   font-weight: 900;
 }
 .carbonate-products span {
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.92;
 }
 .co2-bubbles {
@@ -6908,7 +6909,7 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.68);
   color: #548079;
   padding: 5px 3px;
-  font-size: 8px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   animation: co2-rise linear infinite;
@@ -6922,7 +6923,7 @@ a:focus-visible {
 .carbonate-scene > p {
   margin: 0;
   color: #607f79;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.45;
   text-align: center;
@@ -6989,7 +6990,7 @@ a:focus-visible {
   border-radius: 10px;
   background: #f9fcfb;
   color: #5a7974;
-  font-size: 12px;
+  font-size: 14px;
 }
 .carbonate-ledger.revealed {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -7004,12 +7005,12 @@ a:focus-visible {
 }
 .carbonate-ledger span {
   color: #819791;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
 }
 .carbonate-ledger b {
   color: #3d6c64;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.35;
 }
 .carbonate-ledger i {
@@ -7029,7 +7030,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #fff1eb;
   color: #875945;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -7057,7 +7058,7 @@ a:focus-visible {
   padding: 8px 10px;
   cursor: pointer;
   font-family: ui-rounded, 'Avenir Next', system-ui, sans-serif;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .salt-tabs button span {
@@ -7117,7 +7118,7 @@ a:focus-visible {
   right: 2px;
   bottom: -21px;
   color: #6d877f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
 }
 .salt-formula-card {
@@ -7132,7 +7133,7 @@ a:focus-visible {
 }
 .salt-formula-card > span {
   color: #80958e;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.09em;
 }
@@ -7143,12 +7144,12 @@ a:focus-visible {
 }
 .salt-formula-card b {
   color: #577a73;
-  font-size: 13px;
+  font-size: 14px;
 }
 .salt-readout > p:first-child {
   margin: 0 0 5px;
   color: #82948e;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -7169,7 +7170,7 @@ a:focus-visible {
 }
 .salt-ratio-reading span {
   color: #739087;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .salt-ratio-reading b {
@@ -7189,7 +7190,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #fff1eb;
   color: #875945;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -7213,7 +7214,7 @@ a:focus-visible {
   color: #4f766f;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .metal-reaction-tabs button.active {
@@ -7241,7 +7242,7 @@ a:focus-visible {
 }
 .metal-reaction-label {
   color: #849087;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.09em;
 }
@@ -7284,7 +7285,7 @@ a:focus-visible {
   font-size: 16px;
 }
 .metal-reaction-liquid span {
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 800;
 }
 .metal-strip {
@@ -7300,7 +7301,7 @@ a:focus-visible {
   border-radius: 4px;
   background: var(--metal-colour);
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   box-shadow: 0 3px 6px rgba(63, 76, 70, 0.2);
@@ -7324,7 +7325,7 @@ a:focus-visible {
   background: rgba(255, 255, 255, 0.73);
   color: #507b74;
   padding: 4px 3px;
-  font-size: 8px;
+  font-size: 14px;
   animation: h2-rise 1.8s linear infinite;
 }
 @keyframes h2-rise {
@@ -7336,7 +7337,7 @@ a:focus-visible {
 .metal-reaction-scene > p {
   margin: 0;
   color: #607d78;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
   text-align: center;
@@ -7374,7 +7375,7 @@ a:focus-visible {
 }
 .metal-speed-card span {
   color: #79918b;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.04em;
 }
@@ -7414,7 +7415,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #fff1eb;
   color: #875945;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -7444,7 +7445,7 @@ a:focus-visible {
 }
 .rust-scene-label {
   color: #849187;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.09em;
 }
@@ -7468,7 +7469,7 @@ a:focus-visible {
   left: 47px;
   background: #b7d9dc;
   color: #39757a;
-  font-size: 12px;
+  font-size: 14px;
   animation: oxygen-drift 2.1s ease-in-out infinite alternate;
 }
 .water-drop {
@@ -7546,7 +7547,7 @@ a:focus-visible {
   right: 9px;
   bottom: 6px;
   color: rgba(255, 255, 255, 0.92);
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 850;
 }
@@ -7572,7 +7573,7 @@ a:focus-visible {
   color: #4d766f;
   padding: 9px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .rust-controls button.active {
@@ -7619,7 +7620,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #edf3f0;
   color: #718b84;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .rust-rule b {
@@ -7633,7 +7634,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #edf3f0;
   color: #56756f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -7663,7 +7664,7 @@ a:focus-visible {
 }
 .displacement-label {
   color: #839087;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -7712,7 +7713,7 @@ a:focus-visible {
 .copper-solution i {
   position: absolute;
   color: rgba(255, 255, 255, 0.84);
-  font-size: 9px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   animation: ion-sway 2s ease-in-out infinite alternate;
@@ -7736,7 +7737,7 @@ a:focus-visible {
   border-radius: 4px;
   background: #808f96;
   color: #fff;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
   transition: background 0.4s ease;
 }
@@ -7763,7 +7764,7 @@ a:focus-visible {
 .displacement-scene > p {
   margin: 0;
   color: #607f78;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.4;
   text-align: center;
@@ -7786,7 +7787,7 @@ a:focus-visible {
   color: #4b766f;
   padding: 9px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .displacement-controls button:first-child {
@@ -7830,7 +7831,7 @@ a:focus-visible {
   border-radius: 10px;
   background: #f8fbfa;
   color: #5e7d77;
-  font-size: 12px;
+  font-size: 14px;
 }
 .electron-story.revealed {
   grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
@@ -7846,11 +7847,11 @@ a:focus-visible {
 .electron-story b {
   color: #3f7168;
   font-family: ui-rounded, 'Avenir Next', system-ui, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
 }
 .electron-story span {
   color: #7b938d;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 800;
 }
 .electron-story > i {
@@ -7870,7 +7871,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #fff1eb;
   color: #875945;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -7900,7 +7901,7 @@ a:focus-visible {
 }
 .galvanising-label {
   color: #849087;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.09em;
 }
@@ -7949,11 +7950,11 @@ a:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.65);
   border-radius: 50%;
   font-family: ui-rounded, 'Avenir Next', system-ui, sans-serif;
-  font-size: 12px;
+  font-size: 14px;
 }
 .zinc-layer span,
 .steel-layer span {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 850;
 }
 .galvanising-scratch {
@@ -7977,7 +7978,7 @@ a:focus-visible {
   left: 109px;
   z-index: 5;
   color: #ffeca4;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   text-shadow: 0 1px 2px rgba(52, 67, 63, 0.45);
@@ -7997,7 +7998,7 @@ a:focus-visible {
   border-radius: 8px;
   background: #b76948;
   color: #fff;
-  font-size: 11px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
 }
@@ -8007,7 +8008,7 @@ a:focus-visible {
   top: 45px;
   z-index: 6;
   color: #3c7994;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
 }
 .galvanising-scene > strong {
@@ -8034,7 +8035,7 @@ a:focus-visible {
   color: #4d766f;
   padding: 9px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .galvanising-controls button.active {
@@ -8096,7 +8097,7 @@ a:focus-visible {
 }
 .galvanising-rule span {
   color: #67827c;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 750;
 }
 .galvanising-safety {
@@ -8105,7 +8106,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #edf3f0;
   color: #56756f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -8129,7 +8130,7 @@ a:focus-visible {
   color: #4e766e;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .mole-tabs button.active {
@@ -8156,7 +8157,7 @@ a:focus-visible {
 }
 .mole-scene > span {
   color: #839087;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
   text-align: center;
@@ -8182,7 +8183,7 @@ a:focus-visible {
 }
 .mole-package small {
   color: #708981;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
 }
 .mole-package.mole {
@@ -8192,14 +8193,14 @@ a:focus-visible {
 .mole-scene > p {
   margin: 0;
   color: #607e78;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   text-align: center;
 }
 .mole-readout > p:first-child {
   margin: 0 0 5px;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8221,7 +8222,7 @@ a:focus-visible {
 }
 .mole-readout > div span {
   color: #78918a;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .mole-readout > div b {
@@ -8234,7 +8235,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #eef3f1;
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -8278,7 +8279,7 @@ a:focus-visible {
 }
 .molar-mass-scene > span {
   color: #839087;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8307,13 +8308,13 @@ a:focus-visible {
 .molar-mass-scene p {
   margin: 0;
   color: #607e78;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 .molar-mass-readout > p:first-child {
   margin: 0 0 5px;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8348,7 +8349,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #eef3f1;
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -8418,7 +8419,7 @@ a:focus-visible {
   right: 10px;
   top: 8px;
   color: #5d9191;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
 }
 .solution-dot {
@@ -8442,7 +8443,7 @@ a:focus-visible {
 .solution-readout p {
   margin: 0;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8482,7 +8483,7 @@ a:focus-visible {
   top: 8px;
   z-index: 3;
   color: #618d8d;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
 }
 .concentration-cup > b {
@@ -8492,7 +8493,7 @@ a:focus-visible {
   bottom: 8px;
   z-index: 3;
   color: #3b7470;
-  font-size: 12px;
+  font-size: 14px;
   text-align: center;
 }
 .concentration-water {
@@ -8516,7 +8517,7 @@ a:focus-visible {
 .concentration-readout > p:first-child {
   margin: 0 0 5px;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8560,7 +8561,7 @@ a:focus-visible {
   color: #4e766e;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .concentration-controls button:hover {
@@ -8589,7 +8590,7 @@ a:focus-visible {
   color: #4e766e;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .solubility-tabs button.active,
@@ -8623,7 +8624,7 @@ a:focus-visible {
   top: 8px;
   z-index: 3;
   color: #608e9e;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
 }
 .solubility-vessel.is-warm > span {
@@ -8636,7 +8637,7 @@ a:focus-visible {
   bottom: 8px;
   left: 0;
   color: #3d7270;
-  font-size: 11px;
+  font-size: 14px;
   text-align: center;
 }
 .solubility-water {
@@ -8671,7 +8672,7 @@ a:focus-visible {
 .solubility-readout > p {
   margin: 0;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8682,7 +8683,7 @@ a:focus-visible {
 }
 .solubility-readout > span {
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -8763,7 +8764,7 @@ a:focus-visible {
   bottom: 6px;
   z-index: 5;
   color: #3c7272;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 900;
 }
 @keyframes piston-bounce {
@@ -8779,7 +8780,7 @@ a:focus-visible {
 .piston-readout > p:first-child {
   margin: 0;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8790,7 +8791,7 @@ a:focus-visible {
 }
 .piston-readout > span {
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -8806,7 +8807,7 @@ a:focus-visible {
   color: #4e766e;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .piston-controls button:hover {
@@ -8820,7 +8821,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #eef3f1;
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -8853,7 +8854,7 @@ a:focus-visible {
 .temperature-chamber > b {
   position: absolute;
   z-index: 3;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
 }
 .temperature-chamber > span {
@@ -8897,7 +8898,7 @@ a:focus-visible {
 .temperature-readout > p:first-child {
   margin: 0;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -8908,7 +8909,7 @@ a:focus-visible {
 }
 .temperature-readout > span {
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -8924,7 +8925,7 @@ a:focus-visible {
   color: #4e766e;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .temperature-controls button.active,
@@ -8939,7 +8940,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #fff0ea;
   color: #805746;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -8963,7 +8964,7 @@ a:focus-visible {
   color: #637775;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .energy-tabs button.active,
@@ -9007,12 +9008,12 @@ a:focus-visible {
 }
 .energy-surroundings span,
 .energy-system b {
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
 .energy-surroundings b {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.35;
 }
 .energy-arrow {
@@ -9039,7 +9040,7 @@ a:focus-visible {
 .energy-readout > p:first-child {
   margin: 0;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9050,7 +9051,7 @@ a:focus-visible {
 }
 .energy-readout > span {
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -9060,7 +9061,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #eef3f1;
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -9105,7 +9106,7 @@ a:focus-visible {
 }
 .hill-chart text {
   fill: #58746e;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
 }
 .hill-legend {
@@ -9114,7 +9115,7 @@ a:focus-visible {
   align-items: center;
   gap: 6px 8px;
   color: #638078;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
 }
 .hill-legend span {
@@ -9139,7 +9140,7 @@ a:focus-visible {
 .hill-readout > p:first-child {
   margin: 0;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9150,7 +9151,7 @@ a:focus-visible {
 }
 .hill-readout > span {
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -9162,7 +9163,7 @@ a:focus-visible {
   color: #4e766e;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .hill-readout button:hover {
@@ -9176,7 +9177,7 @@ a:focus-visible {
   border-radius: 9px;
   background: #eef3f1;
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.5;
 }
@@ -9256,7 +9257,7 @@ a:focus-visible {
   right: 9px;
   top: 9px;
   color: #5b8582;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
 }
 .rate-readout {
@@ -9267,7 +9268,7 @@ a:focus-visible {
 .rate-readout > p:first-child {
   margin: 0;
   color: #83958f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9346,7 +9347,7 @@ a:focus-visible {
   color: #a05b42;
 }
 .equilibrium-room span {
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.07em;
 }
@@ -9355,7 +9356,7 @@ a:focus-visible {
   line-height: 1;
 }
 .equilibrium-room small {
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 800;
 }
 .equilibrium-flow {
@@ -9372,7 +9373,7 @@ a:focus-visible {
   animation: equilibrium-pulse 1.3s ease-in-out infinite alternate;
 }
 .equilibrium-flow span {
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   white-space: nowrap;
 }
@@ -9390,7 +9391,7 @@ a:focus-visible {
 .equilibrium-readout > p:first-child {
   margin: 0;
   color: #83958f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9401,7 +9402,7 @@ a:focus-visible {
 }
 .equilibrium-readout > span {
   color: #5e7b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -9413,7 +9414,7 @@ a:focus-visible {
   color: #4e766e;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .equilibrium-readout button:hover {
@@ -9515,7 +9516,7 @@ a:focus-visible {
   color: #6b7253;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .carbon-tabs button.active,
@@ -9569,14 +9570,14 @@ a:focus-visible {
   right: 5px;
   bottom: 2px;
   color: #486121;
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 950;
 }
 .carbon-scene p {
   margin: 0 14px;
   color: #65733e;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   text-align: center;
 }
@@ -9588,7 +9589,7 @@ a:focus-visible {
 .carbon-readout > p {
   margin: 0;
   color: #899376;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9599,12 +9600,12 @@ a:focus-visible {
 }
 .carbon-readout > span {
   color: #728344;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
 }
 .carbon-readout small {
   color: #637455;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
 }
@@ -9627,7 +9628,7 @@ a:focus-visible {
   color: #8a6238;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .combustion-tabs button.active,
@@ -9655,7 +9656,7 @@ a:focus-visible {
 .combustion-air i {
   position: absolute;
   color: #678caf;
-  font-size: 12px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 900;
   opacity: 0.85;
@@ -9724,7 +9725,7 @@ a:focus-visible {
 .combustion-readout > p {
   margin: 0;
   color: #9b8d79;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9735,13 +9736,13 @@ a:focus-visible {
 }
 .combustion-readout > span {
   color: #756958;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 800;
   line-height: 1.55;
 }
 .combustion-readout small {
   color: #a1573b;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   line-height: 1.5;
 }
@@ -9764,7 +9765,7 @@ a:focus-visible {
   color: #6d5a86;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .functional-tabs button.active,
@@ -9787,7 +9788,7 @@ a:focus-visible {
 .functional-scene p {
   margin: 0;
   color: #837593;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 850;
 }
 .functional-scene strong {
@@ -9807,7 +9808,7 @@ a:focus-visible {
   background: #efe6fa;
   color: #684d8e;
   padding: 6px 10px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
 }
 .functional-readout {
@@ -9818,7 +9819,7 @@ a:focus-visible {
 .functional-readout > p {
   margin: 0;
   color: #9a8fa8;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9828,12 +9829,12 @@ a:focus-visible {
 }
 .functional-readout > span {
   color: #8064a0;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
 }
 .functional-readout small {
   color: #6b6277;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
 }
@@ -9857,7 +9858,7 @@ a:focus-visible {
 .polymer-scene > p {
   margin: 0;
   color: #66857c;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 850;
 }
 .polymer-chain {
@@ -9878,7 +9879,7 @@ a:focus-visible {
   border-radius: 7px;
   background: #8bc9b9;
   color: #174f48;
-  font-size: 10px;
+  font-size: 14px;
   font-style: normal;
   font-weight: 950;
 }
@@ -9906,7 +9907,7 @@ a:focus-visible {
 }
 .polymer-scene > span {
   color: #4d756c;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 900;
 }
 .polymer-readout {
@@ -9917,7 +9918,7 @@ a:focus-visible {
 .polymer-readout > p {
   margin: 0;
   color: #829990;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -9928,7 +9929,7 @@ a:focus-visible {
 }
 .polymer-readout > span {
   color: #637b75;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -9944,7 +9945,7 @@ a:focus-visible {
   color: #3d7569;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .polymer-controls button:hover:not(:disabled) {
@@ -9989,7 +9990,7 @@ a:focus-visible {
   left: 25%;
   width: 50%;
   color: #8b847a;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 850;
   letter-spacing: 0.03em;
 }
@@ -10032,7 +10033,7 @@ a:focus-visible {
   left: 50%;
   width: 78px;
   color: #70675d;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 850;
   text-align: center;
   transform: translateX(-50%);
@@ -10045,7 +10046,7 @@ a:focus-visible {
 .chromatography-readout > p {
   margin: 0;
   color: #9a8d81;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -10056,7 +10057,7 @@ a:focus-visible {
 }
 .chromatography-readout > span {
   color: #746b61;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
 }
@@ -10068,7 +10069,7 @@ a:focus-visible {
   color: #806041;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .chromatography-readout button:hover {
@@ -10094,7 +10095,7 @@ a:focus-visible {
   color: #4e7480;
   padding: 8px 11px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .calibration-tabs button.active,
@@ -10141,19 +10142,19 @@ a:focus-visible {
 }
 .calibration-graph text {
   fill: #6e7e80;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 800;
 }
 .calibration-graph .axis-label {
   fill: #68828a;
-  font-size: 9px;
+  font-size: 14px;
 }
 .calibration-standard-key {
   position: absolute;
   right: 11px;
   bottom: 9px;
   color: #668087;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 850;
 }
 .calibration-standard-key i {
@@ -10171,7 +10172,7 @@ a:focus-visible {
 .calibration-readout > p {
   margin: 0;
   color: #859a9f;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -10182,7 +10183,7 @@ a:focus-visible {
 }
 .calibration-readout > span {
   color: #62797e;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.55;
 }
@@ -10214,7 +10215,7 @@ a:focus-visible {
 .titration-burette span,
 .titration-flask > span {
   color: #827a91;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.06em;
 }
@@ -10271,7 +10272,7 @@ a:focus-visible {
   left: 11px;
   margin: 0;
   color: #8a8394;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 800;
   text-align: center;
 }
@@ -10283,7 +10284,7 @@ a:focus-visible {
 .titration-readout > p {
   margin: 0;
   color: #9990a4;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -10294,12 +10295,12 @@ a:focus-visible {
 }
 .titration-readout > span {
   color: #756b80;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .titration-readout small {
   color: #746a7d;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -10315,7 +10316,7 @@ a:focus-visible {
   color: #72558d;
   padding: 8px 10px;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 850;
 }
 .titration-controls button:hover:not(:disabled) {
@@ -10361,7 +10362,7 @@ a:focus-visible {
   background: #84a8c3;
   color: #f7fcff;
   padding: 4px 0;
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 950;
   text-align: center;
 }
@@ -10418,7 +10419,7 @@ a:focus-visible {
   left: 14px;
   margin: 0;
   color: #58748a;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 850;
   text-align: center;
 }
@@ -10430,7 +10431,7 @@ a:focus-visible {
 .soda-readout > p {
   margin: 0;
   color: #8295a2;
-  font-size: 11px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -10448,7 +10449,7 @@ a:focus-visible {
   background: #eef6fa;
   color: #617b8d;
   padding: 6px 8px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 750;
   line-height: 1.38;
 }
@@ -10468,7 +10469,7 @@ a:focus-visible {
   color: #4e758e;
   padding: 8px 9px;
   cursor: pointer;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 850;
 }
 .soda-controls button:hover {
@@ -10477,7 +10478,7 @@ a:focus-visible {
 }
 .soda-readout small {
   color: #9a6047;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 800;
   line-height: 1.45;
 }
@@ -10521,7 +10522,7 @@ a:focus-visible {
   background: #b65f39;
   color: #ffe7b2;
   padding-top: 19px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 950;
   text-align: center;
 }
@@ -10582,7 +10583,7 @@ a:focus-visible {
 .heat-loss-readout > p {
   margin: 0;
   color: #a08d7b;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -10593,7 +10594,7 @@ a:focus-visible {
 }
 .heat-loss-readout > span {
   color: #75685b;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
   line-height: 1.5;
 }
@@ -10920,7 +10921,7 @@ a:focus-visible {
 }
 .recovery-particles > small {
   color: #667e81;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.4;
 }
 .recovery-console {
@@ -10991,7 +10992,7 @@ a:focus-visible {
 }
 .recovery-ledger small {
   color: #708387;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.4;
 }
 .recovery-ledger > p {
@@ -11032,7 +11033,7 @@ a:focus-visible {
 .battery-readout > p:first-child {
   margin: 0;
   color: #83958f;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 900;
   letter-spacing: 0.08em;
 }
@@ -11134,7 +11135,7 @@ a:focus-visible {
   border: 1px solid #d5e3e0;
   border-radius: 999px;
   color: #78908c;
-  font-size: 13px;
+  font-size: 14px;
 }
 .vocabulary-row b {
   color: #326d67;
@@ -11171,7 +11172,7 @@ a:focus-visible {
   border-radius: 50%;
   background: #e1efec;
   color: #34746e;
-  font-size: 13px;
+  font-size: 14px;
 }
 .quiz-options {
   display: grid;
@@ -11259,7 +11260,7 @@ a:focus-visible {
 }
 .quiz-progress {
   color: #718c87;
-  font-size: 13px;
+  font-size: 14px;
 }
 .lesson-next {
   display: flex;
@@ -11270,7 +11271,7 @@ a:focus-visible {
 }
 .lesson-next a {
   color: #477a74;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 700;
 }
 .lesson-next a:last-child {
@@ -11281,7 +11282,7 @@ a:focus-visible {
 }
 .lesson-next a:last-child > span {
   color: #91a6a2;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 0.16em;
 }
 .lesson-next a:last-child > strong {
@@ -11300,7 +11301,7 @@ a:focus-visible {
   align-items: end;
   gap: 3px;
   color: #9eafab;
-  font-size: 11px;
+  font-size: 14px;
 }
 .level-count strong {
   color: #497f79;
@@ -11471,7 +11472,7 @@ a:focus-visible {
   }
   .language-switch button {
     padding: 7px 8px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .hero-copy h1 {
     font-size: 40px;
@@ -11600,4 +11601,325 @@ a:focus-visible {
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+}
+
+/* Compact laptop layout: readable type, small gutters, task-first content. */
+
+.app-shell {
+  --study-accent: #286e68;
+  --study-tint: #e2eeea;
+  --study-border: #cbded7;
+  --study-muted: #4e7069;
+  --study-header-bg: #f5f7f6;
+  padding: 0;
+  font-size: 16px;
+}
+.app-shell .main-content {
+  width: 100%;
+  max-width: var(--study-content-width);
+  margin: auto;
+  padding: 16px var(--study-gutter) 24px;
+}
+.app-shell .site-footer {
+  padding: 10px var(--study-gutter);
+  margin: 0;
+}
+.app-shell .hero-grid {
+  grid-template-columns: minmax(0, 1.8fr) minmax(260px, 0.7fr);
+  gap: 20px;
+}
+.app-shell .hero-title {
+  font-size: 34px;
+  margin: 10px 0;
+}
+.app-shell .hero-description {
+  font-size: 18px;
+  line-height: 1.65;
+}
+.app-shell .particle-illustration {
+  min-height: 0;
+  padding: 12px;
+}
+.app-shell .particle-svg {
+  max-height: 230px;
+}
+.app-shell .bottom-grid {
+  margin-top: 14px;
+  gap: 12px;
+}
+.app-shell .first-card,
+.app-shell .rhythm-card {
+  padding: 14px 18px;
+  min-height: 0;
+}
+.app-shell .path-heading {
+  margin-bottom: 12px;
+  gap: 16px;
+}
+.app-shell .path-heading h1 {
+  font-size: 30px;
+}
+.app-shell .level-card {
+  padding: 16px;
+  gap: 16px;
+}
+.app-shell .topic-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.app-shell .topic-list a {
+  padding: 10px 12px;
+  min-height: 54px;
+  font-size: 16px;
+}
+.app-shell .lesson-page {
+  max-width: 1320px;
+}
+.app-shell .lesson-topbar {
+  margin-bottom: 8px;
+}
+.app-shell .lesson-hero {
+  display: block;
+  padding: 0;
+  margin-bottom: 12px;
+}
+.app-shell .lesson-hero h1 {
+  font-size: 28px;
+  margin: 6px 0;
+}
+.app-shell .lesson-hook {
+  font-size: 18px;
+  line-height: 1.55;
+  margin: 6px 0;
+}
+.app-shell .lesson-title-en {
+  font-size: 16px;
+  margin-top: 4px;
+}
+.app-shell .lesson-eyebrow {
+  margin: 0;
+}
+.app-shell .big-idea {
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+.app-shell .big-idea h2 {
+  font-size: 22px;
+}
+.app-shell .lesson-section {
+  padding: 16px;
+  margin: 12px 0;
+  gap: 12px;
+}
+.app-shell .lesson-section h2 {
+  font-size: 24px;
+}
+.app-shell .example-grid {
+  gap: 12px;
+}
+.app-shell .example-grid article {
+  padding: 14px;
+}
+.app-shell .example-grid p,
+.app-shell .step-list p {
+  font-size: 18px;
+  line-height: 1.65;
+}
+.app-shell .step-list {
+  margin-top: 12px;
+  gap: 12px;
+}
+.app-shell .step-list article {
+  padding: 12px 0;
+}
+.app-shell .interactive-section {
+  margin-top: 12px;
+  padding: 16px;
+}
+.app-shell .quiz-section {
+  margin-top: 12px;
+  padding: 16px;
+}
+.app-shell .chem-lesson-steps {
+  display: flex;
+  gap: 4px;
+  padding: 4px;
+  border: 1px solid #cbded7;
+  border-radius: 9px;
+  background: #e2eeea;
+}
+.app-shell .chem-lesson-steps button {
+  font: inherit;
+  font-size: 16px;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 44px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #4e7069;
+  cursor: pointer;
+}
+.app-shell .chem-lesson-steps button.active {
+  color: #245d59;
+  background: #fff;
+  font-weight: 700;
+}
+.app-shell .chem-lesson-steps button > span {
+  display: grid;
+  place-items: center;
+  border: 1px solid #bbd2c9;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 14px;
+}
+.app-shell .chem-lesson-steps button.active > span {
+  color: white;
+  background: #286e68;
+}
+.app-shell .chem-step-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  border-top: 1px solid #cbded7;
+  background: #f5f7f6f5;
+  padding: 10px 12px;
+  border-radius: 8px;
+  margin-top: 12px;
+}
+.app-shell .chem-step-actions :is(button, a) {
+  font: inherit;
+  font-size: 16px;
+  min-height: 44px;
+  padding: 8px 14px;
+  border: 1px solid #cbded7;
+  border-radius: 7px;
+  color: #286e68;
+  cursor: pointer;
+}
+.app-shell .chem-step-actions button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.app-shell .chem-step-actions .chem-step-continue {
+  background: #286e68;
+  color: white;
+}
+.app-shell .lesson-next {
+  margin: 14px 0 0;
+  padding: 12px 0;
+}
+.app-shell span.block[class*='text-[0.'] {
+  font-size: max(14px, 0.8em);
+  opacity: 0.85;
+}
+@media (max-width: 700px) {
+  .app-shell .hero-grid,
+  .app-shell .topic-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .app-shell .particle-illustration {
+    display: none;
+  }
+  .app-shell .level-card {
+    padding: 12px;
+  }
+  .app-shell .chem-lesson-steps button {
+    font-size: 14px;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 6px 3px;
+  }
+  .app-shell .lesson-section {
+    padding: 12px;
+  }
+  .app-shell .example-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.app-shell .hero-copy h1 {
+  font-size: 32px;
+  white-space: normal;
+}
+.app-shell .lesson-panel {
+  padding: 16px;
+  margin: 12px 0;
+  gap: 12px;
+}
+.app-shell .lesson-panel h2 {
+  font-size: 24px;
+}
+.app-shell .quiz-question {
+  padding: 14px;
+}
+.app-shell .quiz-options button {
+  padding: 10px 14px;
+  font-size: 18px;
+  min-height: 48px;
+}
+.app-shell .question-feedback {
+  padding: 12px;
+  margin-top: 10px;
+}
+.app-shell .quiz-finish {
+  margin-top: 10px;
+}
+.app-shell .big-idea h2 > span > span:last-child,
+.app-shell .lesson-section :is(h3, p) > span > span:last-child,
+.app-shell .quiz-panel :is(h3, p) > span > span:last-child {
+  font-size: max(14px, 0.8em);
+}
+.app-shell .levels {
+  grid-template-columns: minmax(0, 1fr);
+}
+.app-shell .level-main {
+  min-width: 0;
+}
+.app-shell .lesson-page {
+  width: min(1320px, 100%);
+}
+.app-shell .lesson-hero {
+  min-height: 0;
+  padding: 14px 18px;
+  border-radius: 10px;
+}
+.app-shell .lesson-hero h1 {
+  max-width: none;
+}
+.app-shell .lesson-hook {
+  max-width: none;
+}
+.app-shell .lesson-hero .lesson-eyebrow > span > span:last-child {
+  display: none;
+}
+.app-shell .lesson-section,
+.app-shell .lesson-panel {
+  padding: 12px 0;
+}
+.app-shell .quiz-panel > .study-question-navigation {
+  grid-column: 2;
+}
+.app-shell .quiz-list {
+  margin-top: 6px;
+}
+.app-shell .lesson-hero h1 .lesson-title-en {
+  display: inline;
+  margin-left: 12px;
+}
+@media (max-width: 600px) {
+  .app-shell .quiz-panel > .study-question-navigation {
+    grid-column: 1 / -1;
+  }
+}
+.app-shell .chem-step-actions {
+  background: #f5f7f6;
 }

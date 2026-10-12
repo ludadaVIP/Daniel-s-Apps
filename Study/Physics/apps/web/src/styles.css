@@ -1,3 +1,5 @@
+@import '@study/ui/styles.css';
+
 .phy-app {
   --ink: #332e40;
   --muted: #8a8492;
@@ -116,13 +118,13 @@
   display: block;
 }
 .phy-brand div > span {
-  font-size: 10px;
+  font-size: 14px;
   color: var(--muted);
   letter-spacing: 2px;
 }
 .phy-sidebar-label {
   color: #a19aa7;
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 1.9px;
   margin: 44px 12px 14px !important;
   font-weight: 650;
@@ -139,7 +141,7 @@
   padding: 13px 13px;
   border-radius: 8px;
   color: #807a89;
-  font-size: 13px;
+  font-size: 14px;
   transition: background 0.2s;
 }
 .phy-sidebar nav > a:hover {
@@ -151,7 +153,7 @@
   font-weight: 650;
 }
 .phy-sidebar nav .phy-en {
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 1px;
 }
 .phy-nav-count {
@@ -163,7 +165,7 @@
   display: grid;
   place-items: center;
   border-radius: 50%;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-sidebar-bottom {
   margin-top: auto;
@@ -176,7 +178,7 @@
 }
 .phy-sidebar-progress > span {
   color: #8f829d;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-sidebar-progress > strong {
   display: block;
@@ -194,7 +196,7 @@
   gap: 10px;
   padding: 22px 10px 0;
   color: #8b8492 !important;
-  font-size: 11px;
+  font-size: 14px;
   align-items: center;
 }
 .phy-study-back > span:last-child {
@@ -216,7 +218,7 @@
   gap: 20px;
 }
 .phy-header > div:first-child {
-  font-size: 11px;
+  font-size: 14px;
   color: #918794;
   display: flex;
   align-items: center;
@@ -225,7 +227,7 @@
 .phy-header > div:first-child .phy-en {
   display: inline;
   margin-left: 8px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-header-dot {
   width: 5px;
@@ -246,7 +248,7 @@
   background: transparent;
   color: #9a90a2;
   padding: 5px 10px;
-  font-size: 10px;
+  font-size: 14px;
   border-radius: 4px;
 }
 .phy-language button.selected {
@@ -264,7 +266,7 @@
   animation: phy-appear 0.3s ease;
 }
 .phy-eyebrow {
-  font-size: 9px;
+  font-size: 14px;
   font-weight: 650;
   letter-spacing: 1.8px;
   color: #a198a8;
@@ -285,7 +287,7 @@
   letter-spacing: -0.7px;
 }
 .phy-greeting h1 .phy-en {
-  font-size: 13px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-age {
@@ -293,7 +295,7 @@
   align-items: center;
   gap: 8px;
   color: #99919f;
-  font-size: 10px;
+  font-size: 14px;
   text-align: right;
   flex-shrink: 0;
 }
@@ -322,14 +324,14 @@
   display: flex;
   align-items: center;
   gap: 7px;
-  font-size: 10px;
+  font-size: 14px;
   color: #e0d5ed;
   letter-spacing: 1px;
 }
 .phy-hero-tag .phy-en {
   display: inline;
   margin-left: 7px;
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-hero-tag > span:first-child {
   width: 5px;
@@ -356,12 +358,12 @@
 }
 .phy-hero p {
   white-space: pre-line;
-  font-size: 11px;
+  font-size: 14px;
   color: #e6dfef;
   line-height: 1.8;
 }
 .phy-hero p .phy-en {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.6;
   margin-top: 6px;
   opacity: 0.68;
@@ -377,7 +379,7 @@
   border-radius: 7px;
   padding: 10px 16px;
   font-weight: 600;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.3;
   transition:
     background 0.18s,
@@ -385,7 +387,7 @@
   min-height: 41px;
 }
 .phy-button .phy-en {
-  font-size: 9px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-button:hover:not(:disabled) {
@@ -396,7 +398,7 @@
   background: #f0cead;
   color: #5c4254 !important;
   margin-top: 19px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-button-peach:hover {
   background: #f9dcbd !important;
@@ -411,14 +413,14 @@
 }
 .phy-hero-foot {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
   color: #c8b9d8;
   margin-top: 12px;
 }
 .phy-hero-foot .phy-en {
   display: inline;
   margin-left: 7px;
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-orbit {
   align-self: center;
@@ -437,7 +439,7 @@
   transform: translateX(-50%);
   white-space: nowrap;
   font-family: monospace;
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1px;
   color: #c9b8dd;
 }
@@ -465,7 +467,7 @@
 .phy-section-heading h2 .phy-en {
   display: inline;
   margin-left: 9px;
-  font-size: 10px;
+  font-size: 14px;
   color: #8f8498;
 }
 .phy-section-heading > a {
@@ -473,14 +475,14 @@
   align-items: center;
   gap: 9px;
   color: #98899f;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-section-heading > a .phy-en {
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-section-heading > span {
   color: #9a90a1;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-home-lessons {
   display: grid;
@@ -531,7 +533,7 @@
   position: absolute;
   top: 10px;
   left: 13px;
-  font-size: 10px;
+  font-size: 14px;
   font-family: monospace;
   z-index: 1;
   opacity: 0.6;
@@ -551,12 +553,12 @@
   backdrop-filter: blur(3px);
   padding: 3px 6px;
   border-radius: 4px;
-  font-size: 8px;
+  font-size: 14px;
   color: #89778f;
 }
 .phy-card-status .phy-en {
   display: inline;
-  font-size: 7px;
+  font-size: 14px;
   margin: 0;
 }
 .phy-card-copy {
@@ -571,18 +573,18 @@
   font-weight: 650;
 }
 .phy-card-copy h3 .phy-en {
-  font-size: 10px;
+  font-size: 14px;
   color: #95879e;
   margin-top: 4px;
 }
 .phy-card-copy p {
-  font-size: 10px;
+  font-size: 14px;
   color: #a19aa7;
   line-height: 1.6;
   margin-top: 8px;
 }
 .phy-card-copy p .phy-en {
-  font-size: 9px;
+  font-size: 14px;
   line-height: 1.4;
   margin-top: 4px;
 }
@@ -591,13 +593,13 @@
   align-items: center;
   justify-content: space-between;
   color: #8a739e;
-  font-size: 9px;
+  font-size: 14px;
   padding-top: 13px;
   margin-top: auto;
 }
 .phy-card-bottom .phy-en {
   display: inline;
-  font-size: 8px;
+  font-size: 14px;
   margin-left: 5px;
 }
 .phy-lab-invite {
@@ -622,7 +624,7 @@
 }
 .phy-lab-invite .phy-eyebrow {
   color: #929375;
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1.5px;
 }
 .phy-lab-invite h3 {
@@ -632,16 +634,16 @@
 }
 .phy-lab-invite h3 .phy-en {
   display: inline;
-  font-size: 10px;
+  font-size: 14px;
   margin-left: 8px;
 }
 .phy-lab-invite p:last-child {
-  font-size: 10px;
+  font-size: 14px;
   color: #919079;
   margin-top: 4px;
 }
 .phy-lab-invite p:last-child .phy-en {
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-round-arrow {
   display: grid;
@@ -665,15 +667,15 @@
   align-items: center;
   gap: 7px;
   color: #8f799e;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-card-heading > .phy-tag {
   margin-left: auto;
-  font-size: 8px;
+  font-size: 14px;
   padding: 4px 6px;
 }
 .phy-card-heading .phy-en {
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-tag {
   display: inline-flex;
@@ -685,12 +687,12 @@
   border-radius: 5px;
   border: 1px solid #e7dfec;
   padding: 6px 9px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-tag .phy-en {
   display: inline;
   margin: 0;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-today-card h3 {
   margin-top: 21px;
@@ -698,22 +700,22 @@
   font-weight: 650;
 }
 .phy-today-card h3 .phy-en {
-  font-size: 11px;
+  font-size: 14px;
   margin-top: 6px;
   color: #9b8aa5;
 }
 .phy-today-card > p {
-  font-size: 11px;
+  font-size: 14px;
   color: #a095a5;
   margin-top: 10px;
 }
 .phy-today-card > p .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-today-progress {
   display: flex;
   justify-content: space-between;
-  font-size: 9px;
+  font-size: 14px;
   color: #a296a9;
   margin-top: 23px;
   margin-bottom: 8px;
@@ -721,7 +723,7 @@
 .phy-today-progress .phy-en {
   display: inline;
   margin-left: 5px;
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-today-progress strong {
   font-weight: 500;
@@ -747,13 +749,13 @@
   border-top: 1px solid #e9e2ed;
   margin-top: 18px;
   padding-top: 13px;
-  font-size: 10px;
+  font-size: 14px;
   color: #947ba6 !important;
 }
 .phy-today-link .phy-en {
   display: inline;
   margin-left: 6px;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-review-card {
   display: flex;
@@ -763,14 +765,14 @@
   color: #a087ac !important;
 }
 .phy-review-card h3 {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
 }
 .phy-review-card h3 .phy-en {
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-review-card p {
-  font-size: 9px;
+  font-size: 14px;
   color: #a89cab;
   margin-top: 5px;
 }
@@ -797,14 +799,14 @@
   color: #baa0c6;
 }
 .phy-daily-note p {
-  font-size: 11px;
+  font-size: 14px;
   white-space: pre-line;
 }
 .phy-daily-note .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-daily-note > span:last-child {
-  font-size: 7px;
+  font-size: 14px;
   letter-spacing: 1.3px;
   margin-left: 39px;
 }
@@ -817,10 +819,10 @@
   justify-content: space-between;
   color: #b4a9b9;
   gap: 15px;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-footer > span:first-child {
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1.3px;
 }
 .phy-footer i {
@@ -831,7 +833,7 @@
 .phy-footer .phy-en {
   display: inline;
   margin-left: 8px;
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-page-heading {
   display: flex;
@@ -845,13 +847,13 @@
 }
 .phy-lead {
   color: #958b9c;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
   margin: 15px 0 22px !important;
   max-width: 800px;
 }
 .phy-lead .phy-en {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.6;
   margin-top: 6px;
 }
@@ -868,17 +870,17 @@
 .phy-path-heading h2 .phy-en {
   display: inline;
   margin-left: 12px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-path-heading p {
-  font-size: 11px;
+  font-size: 14px;
   color: #a08ba9;
   margin-top: 5px;
 }
 .phy-path-heading p .phy-en {
   display: inline;
   margin-left: 8px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-stage-number {
   width: 44px;
@@ -910,18 +912,18 @@
   font-size: 17px;
 }
 .phy-path-lessons .phy-card-copy p {
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-roadmap-title {
   margin-top: 42px;
 }
 .phy-soft {
   color: #a396ad;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .phy-soft .phy-en {
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 5px;
 }
 .phy-roadmap {
@@ -949,10 +951,10 @@
   font-weight: 600;
 }
 .phy-roadmap h3 .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-roadmap p {
-  font-size: 10px;
+  font-size: 14px;
   color: #a39aa9;
   margin-top: 7px;
 }
@@ -960,24 +962,24 @@
   margin-left: auto;
   text-align: right;
   flex-shrink: 0;
-  font-size: 8px;
+  font-size: 14px;
   color: #b3a5bd;
 }
 .phy-roadmap-meta > span:first-child {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   margin-bottom: 7px;
 }
 .phy-breadcrumb {
   display: flex;
   gap: 10px;
   color: #a294ad;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-breadcrumb .phy-en {
   display: inline;
   margin-left: 5px;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-lesson-layout {
   display: grid;
@@ -1003,7 +1005,7 @@
   background: transparent;
   color: #a292ae;
   border-radius: 6px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-step-nav > button > span:first-child {
   display: grid;
@@ -1012,11 +1014,11 @@
   height: 18px;
   border: 1px solid #d4c8df;
   border-radius: 50%;
-  font-size: 8px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 .phy-step-nav > button .phy-en {
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-step-nav > button.active {
   background: #fff;
@@ -1069,10 +1071,10 @@
   align-items: center;
   text-align: left;
   color: #8b7a96;
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-predict button > span:first-child {
-  font-size: 10px;
+  font-size: 14px;
   border: 1px solid #dfd4e8;
   border-radius: 50%;
   width: 26px;
@@ -1096,20 +1098,20 @@
   gap: 14px;
 }
 .phy-lesson-bottom > span {
-  font-size: 10px;
+  font-size: 14px;
   color: #b09cbd;
 }
 .phy-text-button {
   border: 0;
   background: transparent;
-  font-size: 10px !important;
+  font-size: 14px !important;
   color: #9f86b1;
   padding: 5px;
 }
 .phy-text-button .phy-en {
   display: inline;
   margin-left: 6px;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-lesson-aside {
   padding-top: 13px;
@@ -1120,7 +1122,7 @@
   margin: 10px 0 22px;
 }
 .phy-lesson-aside h3 .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-vocab {
   display: flex;
@@ -1129,14 +1131,14 @@
   align-items: center;
   border-bottom: 1px solid #e4dcea;
   padding: 12px 0;
-  font-size: 11px;
+  font-size: 14px;
   color: #957ca6;
 }
 .phy-vocab strong {
   font-weight: 500;
 }
 .phy-vocab > span {
-  font-size: 10px;
+  font-size: 14px;
   color: #aaa0b3;
 }
 .phy-aside-tip {
@@ -1145,7 +1147,7 @@
   padding: 18px;
   color: #9c9877;
   margin-top: 27px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-aside-tip p {
   margin-top: 9px;
@@ -1153,14 +1155,14 @@
 }
 .phy-aside-tip a {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 15px;
   color: #898364;
 }
 .phy-aside-back {
   display: block;
   margin-top: 26px;
-  font-size: 10px;
+  font-size: 14px;
   color: #af9abc !important;
   line-height: 1.7;
 }
@@ -1170,7 +1172,7 @@
   color: #7c6c88;
 }
 .phy-concept .phy-en {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   margin-top: 12px;
 }
@@ -1185,31 +1187,31 @@
   line-height: 1.6;
 }
 .phy-formula .phy-en {
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-example {
   border-top: 1px solid #e8dfef;
   padding-top: 20px;
   margin-top: 24px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.85;
   color: #908096;
 }
 .phy-example h3 {
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 12px;
   color: #7d658e;
   font-weight: 650;
 }
 .phy-example .phy-en {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.7;
   margin-top: 7px;
 }
 .phy-example h3 .phy-en {
   display: inline;
   margin-left: 8px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-misconception {
   display: flex;
@@ -1220,21 +1222,21 @@
   border-radius: 8px;
   padding: 18px;
   margin: 23px 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-misconception > svg {
   flex-shrink: 0;
 }
 .phy-misconception h3 {
-  font-size: 13px;
+  font-size: 14px;
   color: #927450;
   margin-bottom: 9px;
 }
 .phy-misconception h3 .phy-en {
   display: inline;
   margin-left: 8px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-question {
   margin-top: 25px;
@@ -1247,7 +1249,7 @@
 }
 .phy-question-title > span {
   font-family: monospace;
-  font-size: 11px;
+  font-size: 14px;
   color: #b19ac1;
   margin-top: 3px;
 }
@@ -1258,7 +1260,7 @@
   line-height: 1.7;
 }
 .phy-question-title .phy-en {
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-options {
   display: flex;
@@ -1275,7 +1277,7 @@
   border-radius: 7px;
   background: #fcfafc;
   color: #9783a3;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-options button > span:first-child {
   font-family: monospace;
@@ -1298,7 +1300,7 @@
   margin-top: 12px;
   padding: 14px;
   border-radius: 7px;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-feedback strong {
@@ -1315,7 +1317,7 @@
   color: #aa8b68;
 }
 .phy-feedback .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-takeaway {
   background: #f0e9f5;
@@ -1332,7 +1334,7 @@
   margin: 0;
 }
 .phy-takeaway h2 .phy-en {
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-completion {
   display: flex;
@@ -1343,7 +1345,7 @@
   border-radius: 8px;
   margin-top: 22px;
   color: #739371;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-completion strong {
   display: block;
@@ -1353,7 +1355,7 @@
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 11px;
+  font-size: 14px;
   color: #8ea081;
   margin-top: 16px !important;
 }
@@ -1371,18 +1373,18 @@
   align-items: center;
   gap: 12px;
   color: #a18dad;
-  font-size: 10px;
+  font-size: 14px;
   border-bottom: 1px solid #ede5f2;
 }
 .phy-lab-label {
   font-family: monospace;
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 1.4px;
 }
 .phy-lab-toolbar .phy-en {
   display: inline;
   margin-left: 7px;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-simulation {
   display: block;
@@ -1399,7 +1401,7 @@
   padding: 18px;
   border-top: 1px solid #ede5f2;
   color: #9c84ac;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-segment {
   display: flex;
@@ -1413,7 +1415,7 @@
   background: transparent;
   color: #a48eaf;
   border-radius: 5px;
-  font-size: 11px;
+  font-size: 14px;
   padding: 8px 12px;
 }
 .phy-segment button.selected {
@@ -1422,17 +1424,17 @@
   color: #86629f;
 }
 .phy-segment .phy-en {
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-model-note {
   border-top: 1px solid #ede5f2;
-  font-size: 9px;
+  font-size: 14px;
   line-height: 1.7;
   color: #b29ec0;
   padding: 12px 18px;
 }
 .phy-model-note .phy-en {
-  font-size: 9px;
+  font-size: 14px;
   line-height: 1.6;
 }
 .phy-trials {
@@ -1442,7 +1444,7 @@
   flex-wrap: wrap;
 }
 .phy-trials > span {
-  font-size: 9px;
+  font-size: 14px;
   display: flex;
   align-items: center;
   gap: 7px;
@@ -1454,7 +1456,7 @@
 .phy-trials .phy-en {
   display: inline;
   margin-left: 5px;
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-trials strong {
   font-weight: 600;
@@ -1469,7 +1471,7 @@
   display: flex;
   align-items: center;
   gap: 12px;
-  font-size: 11px;
+  font-size: 14px;
   color: #9c85ac;
 }
 .phy-slider-row label > span:first-child {
@@ -1484,7 +1486,7 @@
 .phy-slider-row strong {
   white-space: nowrap;
   font-weight: 500;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-speed-slider {
   display: flex;
@@ -1504,7 +1506,7 @@
   background: #efebf7;
   padding: 13px 18px;
   color: #9e80b4;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-lab-tabs {
   display: flex;
@@ -1518,7 +1520,7 @@
   padding: 13px 19px;
   border-radius: 8px;
   color: #a28aac;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-lab-tabs button.active {
   background: #ece3f3;
@@ -1526,7 +1528,7 @@
   color: #8c66a6;
 }
 .phy-lab-tabs .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-lab-notes {
   background: #f0eedf;
@@ -1543,7 +1545,7 @@
   margin-bottom: 7px;
 }
 .phy-lab-notes p {
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-lab-notes > .phy-button {
   margin-left: auto;
@@ -1559,12 +1561,12 @@
 .phy-note-form label {
   display: block;
   color: #9a80ae;
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 20px;
 }
 .phy-note-form label .phy-en {
   display: inline;
-  font-size: 10px;
+  font-size: 14px;
   margin-left: 9px;
 }
 .phy-note-form textarea {
@@ -1579,7 +1581,7 @@
   resize: vertical;
   min-height: 100px;
   line-height: 1.8;
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-note-form textarea::placeholder {
   color: #c1afcb;
@@ -1607,7 +1609,7 @@
   justify-content: space-between;
   align-items: center;
   color: #b4a0bf;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-notes p {
   white-space: pre-wrap;
@@ -1624,7 +1626,7 @@
   color: #b09ab9;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-empty {
   padding: 60px 25px;
@@ -1645,12 +1647,12 @@
   margin-bottom: 17px;
 }
 .phy-empty p {
-  font-size: 12px;
+  font-size: 14px;
   margin: 17px 0 25px;
 }
 .phy-empty > a:not(.phy-button) {
   display: inline-block;
-  font-size: 11px;
+  font-size: 14px;
   color: #ac8abe;
 }
 .phy-review-lesson {
@@ -1667,7 +1669,7 @@
   background: #faedd7;
   color: #9c793e;
   padding: 10px 38px;
-  font-size: 11px;
+  font-size: 14px;
 }
 @keyframes phy-appear {
   from {
@@ -1713,7 +1715,7 @@
     padding: 25px;
   }
   .phy-card-copy p {
-    font-size: 12px;
+    font-size: 14px;
   }
 }
 @media (max-width: 1200px) {
@@ -1744,7 +1746,7 @@
     padding: 12px;
   }
   .phy-card-copy h3 {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-hero h2 {
     font-size: 32px;
@@ -1756,7 +1758,7 @@
     font-size: 23px;
   }
   .phy-age {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-card-art {
     height: 95px;
@@ -1776,7 +1778,7 @@
     font-size: 21px;
   }
   .phy-step-nav > button {
-    font-size: 9px;
+    font-size: 14px;
     gap: 5px;
   }
 }
@@ -1801,15 +1803,15 @@
     font-size: 30px;
   }
   .phy-brand div > span {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-sidebar nav > a {
     padding: 12px 8px;
     gap: 8px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-sidebar-label {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-dashboard-grid {
     grid-template-columns: 1fr;
@@ -1900,7 +1902,7 @@
     font-size: 14px;
   }
   .phy-brand div > span {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-sidebar-label,
   .phy-sidebar-bottom {
@@ -1919,14 +1921,14 @@
     gap: 3px;
     position: relative;
     text-align: center;
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-sidebar nav > a svg {
     width: 16px;
     height: 16px;
   }
   .phy-sidebar nav .phy-en {
-    font-size: 7px;
+    font-size: 14px;
   }
   .phy-nav-count {
     position: absolute;
@@ -1934,7 +1936,7 @@
     right: 7px;
     width: 13px;
     height: 13px;
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-main-shell {
     margin-left: 0;
@@ -1953,7 +1955,7 @@
   }
   .phy-language button {
     padding: 4px 8px;
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-main {
     padding: 23px 17px 30px;
@@ -1962,10 +1964,10 @@
     font-size: 21px;
   }
   .phy-greeting h1 .phy-en {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-eyebrow {
-    font-size: 8px;
+    font-size: 14px;
     letter-spacing: 1.4px;
   }
   .phy-greeting {
@@ -1985,11 +1987,11 @@
     font-size: 15px;
   }
   .phy-hero p {
-    font-size: 11px;
+    font-size: 14px;
     max-width: 265px;
   }
   .phy-hero p .phy-en {
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-orbit {
     position: absolute;
@@ -2008,11 +2010,11 @@
     z-index: 1;
   }
   .phy-hero-foot {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-hero-foot .phy-en {
     display: block;
-    font-size: 8px;
+    font-size: 14px;
     margin: 4px 0 0;
   }
   .phy-section-heading h2 {
@@ -2021,7 +2023,7 @@
   .phy-section-heading h2 .phy-en {
     display: block;
     margin-left: 0;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-home-lessons {
     grid-template-columns: 1fr;
@@ -2046,18 +2048,18 @@
     font-size: 14px;
   }
   .phy-home-lessons .phy-card-copy p {
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-home-lessons .phy-card-copy p .phy-en {
     display: none;
   }
   .phy-card-status {
-    font-size: 7px;
+    font-size: 14px;
     right: 6px;
     bottom: 6px;
   }
   .phy-card-copy p .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-dashboard-grid {
     margin-top: 24px;
@@ -2071,7 +2073,7 @@
     padding: 15px;
   }
   .phy-card-heading {
-    font-size: 9px;
+    font-size: 14px;
     gap: 5px;
   }
   .phy-card-heading > svg {
@@ -2085,19 +2087,19 @@
     margin-top: 17px;
   }
   .phy-today-card h3 .phy-en {
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-today-card > p {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-today-card > p .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-daily-note p {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-daily-note .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-daily-note {
     padding: 13px 0;
@@ -2105,17 +2107,17 @@
   }
   .phy-daily-note > span:last-child {
     margin-left: 0;
-    font-size: 6px;
+    font-size: 14px;
   }
   .phy-review-card {
     gap: 7px;
     padding: 12px 0;
   }
   .phy-review-card h3 {
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-review-card p {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-review-card > svg:last-child {
     display: none;
@@ -2128,13 +2130,13 @@
     gap: 12px;
   }
   .phy-lab-invite h3 {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-lab-invite h3 .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-lab-invite p:last-child {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-invite-icon {
     width: 36px;
@@ -2148,22 +2150,22 @@
   .phy-footer {
     padding: 17px;
     align-items: center;
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-footer .phy-en {
     display: block;
     margin-left: 0;
-    font-size: 7px;
+    font-size: 14px;
   }
   .phy-footer > span:first-child {
-    font-size: 6px;
+    font-size: 14px;
     letter-spacing: 0.9px;
   }
   .phy-app h1 {
     font-size: 24px;
   }
   .phy-app h1 .phy-en {
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-page-heading {
     gap: 12px;
@@ -2171,10 +2173,10 @@
     margin: 10px 0 20px;
   }
   .phy-page-heading .phy-tag {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-lead {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-path-heading {
     gap: 10px;
@@ -2184,16 +2186,16 @@
   }
   .phy-path-heading h2 .phy-en {
     display: block;
-    font-size: 11px;
+    font-size: 14px;
     margin-left: 0;
   }
   .phy-path-heading p {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-path-heading p .phy-en {
     display: block;
     margin-left: 0;
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-stage-number {
     width: 35px;
@@ -2210,31 +2212,31 @@
     padding: 13px;
   }
   .phy-path-lessons .phy-card-copy h3 {
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-path-lessons .phy-card-copy h3 .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-path-lessons .phy-card-copy p {
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-path-lessons .phy-card-copy p .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-card-bottom {
-    font-size: 8px;
+    font-size: 14px;
     gap: 5px;
   }
   .phy-card-bottom .phy-en {
     display: block;
     margin-left: 0;
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-roadmap-title {
     align-items: flex-start;
   }
   .phy-roadmap-title > span {
-    font-size: 9px;
+    font-size: 14px;
     text-align: right;
   }
   .phy-roadmap article {
@@ -2242,22 +2244,22 @@
     gap: 11px;
   }
   .phy-roadmap h3 {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-roadmap p {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-step-nav {
     padding: 4px;
   }
   .phy-step-nav > button {
     padding: 8px 2px;
-    font-size: 8px;
+    font-size: 14px;
     flex-direction: column;
     gap: 4px;
   }
   .phy-step-nav > button .phy-en {
-    font-size: 7px;
+    font-size: 14px;
   }
   .phy-lesson-body {
     padding: 21px 17px;
@@ -2267,22 +2269,22 @@
     font-size: 20px;
   }
   .phy-lesson-body h2 .phy-en {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-lesson-body .phy-lead {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-predict button {
     padding: 13px;
-    font-size: 12px;
+    font-size: 14px;
     gap: 10px;
   }
   .phy-lesson-bottom .phy-button {
     padding: 10px 13px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-lesson-bottom .phy-text-button {
-    font-size: 9px !important;
+    font-size: 14px !important;
   }
   .phy-lesson-bottom .phy-text-button .phy-en {
     display: block;
@@ -2291,15 +2293,15 @@
   .phy-lab-toolbar {
     padding: 12px;
     align-items: flex-start;
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-lab-toolbar .phy-en {
     display: block;
     margin: 2px 0 0;
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-lab-label {
-    font-size: 8px;
+    font-size: 14px;
     letter-spacing: 0.8px;
   }
   .phy-lab-controls {
@@ -2309,19 +2311,19 @@
   }
   .phy-lab-controls .phy-button {
     padding: 9px 12px;
-    font-size: 10px;
+    font-size: 14px;
     gap: 7px;
   }
   .phy-segment button {
     padding: 6px 8px;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-model-note {
     padding: 10px 12px;
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-model-note .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-slider-row {
     flex-direction: column;
@@ -2337,12 +2339,12 @@
   }
   .phy-lab-tabs button {
     padding: 10px 12px;
-    font-size: 10px;
+    font-size: 14px;
     flex: 1;
     min-width: 40%;
   }
   .phy-lab-tabs .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-lab-notes {
     padding: 20px;
@@ -2366,7 +2368,7 @@
     font-size: 14px;
   }
   .phy-lab-notes p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-note-form {
     padding: 18px;
@@ -2376,14 +2378,14 @@
     gap: 10px;
   }
   .phy-note-form > div .phy-soft {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-note-form > div .phy-soft .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-note-form .phy-button {
     flex-shrink: 0;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-notes {
     grid-template-columns: 1fr;
@@ -2409,7 +2411,7 @@
     font-size: 17px;
   }
   .phy-takeaway h2 .phy-en {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 @media (prefers-reduced-motion: reduce) {
@@ -2452,11 +2454,11 @@
   line-height: 1.3;
 }
 .phy-hero p {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.65;
 }
 .phy-hero p .phy-en {
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.5;
   margin-top: 4px;
 }
@@ -2468,7 +2470,7 @@
   margin-top: 10px;
 }
 .phy-hero-foot .phy-en {
-  font-size: 8px;
+  font-size: 14px;
 }
 .phy-card-copy p {
   color: #817489;
@@ -2493,7 +2495,7 @@
   font-size: 16px;
 }
 .phy-concept .phy-en {
-  font-size: 13px;
+  font-size: 14px;
   opacity: 0.85;
 }
 .phy-example {
@@ -2501,7 +2503,7 @@
   font-size: 14px;
 }
 .phy-example .phy-en {
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.85;
 }
 .phy-example h3 {
@@ -2512,7 +2514,7 @@
   font-size: 15px;
 }
 .phy-question-title .phy-en {
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.85;
 }
 .phy-options button {
@@ -2521,7 +2523,7 @@
   padding: 14px 16px;
 }
 .phy-options button .phy-en {
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.85;
 }
 .phy-predict button {
@@ -2529,7 +2531,7 @@
   font-size: 14px;
 }
 .phy-predict button .phy-en {
-  font-size: 12px;
+  font-size: 14px;
   opacity: 0.85;
 }
 .phy-soft {
@@ -2537,13 +2539,13 @@
 }
 .phy-misconception {
   color: #8e6d45;
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-feedback {
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-feedback .phy-en {
-  font-size: 11px;
+  font-size: 14px;
   opacity: 0.9;
 }
 .phy-feedback.correct {
@@ -2589,7 +2591,7 @@
   fill: #766180;
 }
 .phy-orbit svg text {
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-completion {
   color: #527650;
@@ -2598,11 +2600,11 @@
   color: #79754f;
 }
 .phy-lesson-body .phy-model-note {
-  font-size: 10px;
+  font-size: 14px;
   color: #9a80aa;
 }
 .phy-lesson-body .phy-model-note .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-today-card h3 .phy-en {
   color: #887291;
@@ -2635,34 +2637,34 @@
     font-size: 14px;
   }
   .phy-card-copy p {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-concept {
     font-size: 15px;
   }
   .phy-concept .phy-en {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-example {
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-example .phy-en {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-question-title h3 {
     font-size: 14px;
   }
   .phy-options button,
   .phy-predict button {
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-options button .phy-en,
   .phy-predict button .phy-en {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-lesson-body .phy-model-note,
   .phy-lesson-body .phy-model-note .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
 }
 @media (max-width: 700px) {
@@ -2753,7 +2755,7 @@
   .phy-greeting h1 .phy-en {
     display: inline-block;
     margin: 0 0 0 13px;
-    font-size: 12px;
+    font-size: 14px;
     vertical-align: middle;
   }
   .phy-home-lessons .phy-card-art {
@@ -2793,18 +2795,18 @@
   font-weight: 500;
 }
 .phy-unit-title > .phy-en {
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-unit-title > span:first-child .phy-en {
   display: inline;
   margin-left: 10px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-unit-title > span:last-child {
   display: flex;
   align-items: center;
   gap: 5px;
-  font-size: 9px;
+  font-size: 14px;
   flex-shrink: 0;
   color: #a08eac;
 }
@@ -2825,7 +2827,7 @@
 .phy-lab-picker > label {
   display: block;
   min-width: 290px;
-  font-size: 12px;
+  font-size: 14px;
   color: #8b6c9f;
 }
 .phy-lab-picker > label > .phy-en {
@@ -2846,7 +2848,7 @@
 }
 .phy-lab-picker > span {
   color: #a58db5;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-tool-tasks {
   padding: 8px 22px;
@@ -2867,7 +2869,7 @@
   margin-bottom: 14px;
 }
 .phy-tool-tasks h3 > span:first-child {
-  font-size: 10px;
+  font-size: 14px;
   color: #b098c0;
   font-family: monospace;
 }
@@ -2883,7 +2885,7 @@
   padding: 11px;
   color: #9a7ab0;
   background: #faf6fd;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-tool-buttons button.selected {
   background: #ece0f5;
@@ -2892,7 +2894,7 @@
 }
 .phy-good-reading,
 .phy-retry-reading {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 12px !important;
   line-height: 1.7;
 }
@@ -2909,14 +2911,14 @@
 .phy-data-table {
   border-collapse: collapse;
   width: 100%;
-  font-size: 12px;
+  font-size: 14px;
   color: #8b6b9f;
   text-align: left;
 }
 .phy-data-table caption {
   text-align: left;
   margin-bottom: 17px;
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
 }
 .phy-data-table th,
@@ -2926,18 +2928,18 @@
 }
 .phy-data-table th {
   font-weight: 500;
-  font-size: 11px;
+  font-size: 14px;
   color: #a082b2;
 }
 .phy-data-table .phy-en {
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-data-table tbody tr:last-child th,
 .phy-data-table tbody tr:last-child td {
   border-bottom: 0;
 }
 .phy-unit-equivalence {
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 500;
   color: #9c7bad;
 }
@@ -2957,14 +2959,14 @@
   padding: 13px;
   text-align: center;
   color: #9772b0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-weight-controls strong {
   display: block;
   font-weight: 500;
 }
 .phy-weight-controls > div > span {
-  font-size: 10px;
+  font-size: 14px;
   color: #ad92bf;
   display: block;
   margin: 5px;
@@ -3023,14 +3025,14 @@
   font-weight: 500;
 }
 .phy-temperature-cards p {
-  font-size: 11px;
+  font-size: 14px;
   margin: 13px 0;
   min-height: 42px;
   line-height: 1.8;
 }
 .phy-temperature-cards .phy-button {
   margin-top: 15px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-temperature-cards output {
   display: block;
@@ -3046,7 +3048,7 @@
   padding: 20px;
 }
 .phy-graph-pair p {
-  font-size: 10px;
+  font-size: 14px;
   color: #9e81af;
   margin-bottom: 8px;
 }
@@ -3085,7 +3087,7 @@
   border: 1px solid #e5d7ef;
   padding: 7px 9px;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-mini-table > span.selected {
   background: #eee1c9;
@@ -3105,12 +3107,12 @@
 }
 @media (max-width: 700px) {
   .phy-unit-title {
-    font-size: 12px !important;
+    font-size: 14px !important;
   }
   .phy-unit-title > span:first-child .phy-en {
     display: block;
     margin: 4px 0 0;
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-lab-picker {
     display: block;
@@ -3121,7 +3123,7 @@
   }
   .phy-lab-picker > span {
     display: block;
-    font-size: 9px;
+    font-size: 14px;
     margin-top: 7px;
   }
   .phy-tool-tasks {
@@ -3131,11 +3133,11 @@
     gap: 7px;
   }
   .phy-tool-buttons button {
-    font-size: 11px;
+    font-size: 14px;
     padding: 9px 7px;
   }
   .phy-tool-tasks h3 {
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-data-table-wrap {
     padding: 12px;
@@ -3143,16 +3145,16 @@
   .phy-data-table th,
   .phy-data-table td {
     padding: 10px 5px;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-data-table .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-data-table caption {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-unit-equivalence {
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-weight-controls {
     gap: 8px;
@@ -3160,7 +3162,7 @@
   }
   .phy-weight-controls > div {
     padding: 9px 5px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-weight-controls button {
     min-height: 35px;
@@ -3173,16 +3175,16 @@
     padding: 18px 9px;
   }
   .phy-temperature-cards h3 {
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-temperature-cards p {
-    font-size: 10px;
+    font-size: 14px;
     min-height: 60px;
   }
   .phy-temperature-cards .phy-button {
     padding: 9px 10px;
     min-height: 43px;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-material-block {
     width: 57px;
@@ -3204,12 +3206,12 @@
     flex: 1;
   }
   .phy-graph-pair p {
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-graph-pair p .phy-en {
     display: inline;
     margin-left: 6px;
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-data-table-wrap + .phy-lab-controls > .phy-button {
     flex: 1;
@@ -3226,7 +3228,7 @@
   padding: 18px 20px 0;
 }
 .phy-mystery-controls > span {
-  font-size: 11px;
+  font-size: 14px;
   color: #897995;
 }
 .phy-mystery-controls .phy-segment {
@@ -3246,7 +3248,7 @@
 }
 .phy-mystery-readings > div > span {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.6;
   min-height: 36px;
   color: #887595;
@@ -3259,7 +3261,7 @@
   font-variant-numeric: tabular-nums;
 }
 .phy-mystery-readings .phy-en {
-  font-size: 9px;
+  font-size: 14px;
   display: block;
 }
 .phy-art-floating .phy-card-art,
@@ -3278,12 +3280,12 @@
     gap: 9px;
   }
   .phy-mystery-controls .phy-segment button {
-    font-size: 10px;
+    font-size: 14px;
     min-height: 40px;
     padding: 8px;
   }
   .phy-mystery-controls .phy-segment .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-mystery-readings {
     grid-template-columns: 1fr;
@@ -3299,7 +3301,7 @@
   }
   .phy-mystery-readings > div > span {
     min-height: 0;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-mystery-readings strong {
     font-size: 18px;
@@ -3309,7 +3311,7 @@
 }
 .phy-discovery-checklist {
   padding: 0 20px 16px;
-  font-size: 11px;
+  font-size: 14px;
   color: #9379a6;
 }
 .phy-project-card {
@@ -3340,17 +3342,17 @@
 .phy-project-card h3 .phy-en {
   display: block;
   margin: 5px 0 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-project-card p {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
   color: #8d846f;
 }
 .phy-project-card p .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin: 4px 0 0;
 }
 .phy-project-card:hover {
@@ -3393,7 +3395,7 @@
   background: #eef3eb;
   color: #789180;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-electric-lab > svg {
@@ -3429,10 +3431,10 @@
 }
 .phy-electric-lab .phy-model-note {
   color: #80618f;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-electric-lab .phy-model-note .phy-en {
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-electric-table {
   margin-top: 16px;
@@ -3459,7 +3461,7 @@
   .phy-electric-table th,
   .phy-electric-table td {
     padding: 8px 4px;
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 .phy-lifting-goals,
@@ -3499,7 +3501,7 @@
   background: #fffcf8;
   color: #826d92;
   font: inherit;
-  font-size: 11px;
+  font-size: 14px;
   cursor: pointer;
   overflow-wrap: anywhere;
 }
@@ -3529,7 +3531,7 @@
   display: block;
 }
 .phy-lifting-diagram figcaption {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
   color: #95839f;
 }
@@ -3542,7 +3544,7 @@
   min-width: 0;
   background: #fffcf8;
   border-radius: 8px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-lifting-metrics strong {
   display: block;
@@ -3560,7 +3562,7 @@
   border-radius: 10px;
   background: #eef3eb;
   color: #779081;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
 }
 .phy-lifting-build h3 {
@@ -3598,7 +3600,7 @@
 }
 .phy-lifting-optional {
   margin-top: 16px;
-  font-size: 12px;
+  font-size: 14px;
   color: #8c7899;
 }
 .phy-lifting-optional summary {
@@ -3622,7 +3624,7 @@
   }
   .phy-lifting-goals label {
     padding: 8px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-lifting-goals label:last-child {
     grid-column: 1 / -1;
@@ -3647,13 +3649,13 @@
   .phy-lifting-options button > span:nth-child(2) {
     grid-column: 1;
     grid-row: 2;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-lifting-options button > span:nth-child(3) {
     grid-column: 2;
     grid-row: 1;
     align-self: center;
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-lifting-options button > span:nth-child(4) {
     grid-column: 2;
@@ -3682,12 +3684,12 @@
 .phy-project-section h2 .phy-en {
   display: block;
   margin: 5px 0 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-project-section label {
   display: block;
   margin-top: 20px;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
   color: #796583;
 }
@@ -3715,14 +3717,14 @@
 }
 .phy-project-section small {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.6;
   color: #a091a6;
   margin-top: 7px;
 }
 .phy-project-section small .phy-en {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-project-guide {
   position: sticky;
@@ -3730,7 +3732,7 @@
   background: #eee9df;
   border-radius: 12px;
   padding: 22px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: #8b806b;
 }
@@ -3741,7 +3743,7 @@
 }
 .phy-project-guide h2 .phy-en {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-project-guide ol {
   padding-left: 20px;
@@ -3751,7 +3753,7 @@
 }
 .phy-project-guide .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-project-guide .phy-button {
   width: 100%;
@@ -3789,14 +3791,14 @@
   padding: 12px;
   color: #90779f;
   background: #f0eaf6;
-  font-size: 12px;
+  font-size: 14px;
   text-decoration: none;
   border-radius: 7px;
   line-height: 1.7;
 }
 .phy-project-inspiration a .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 5px;
 }
 .phy-art-mirror .phy-card-art,
@@ -3834,7 +3836,7 @@
     grid-template-columns: 1fr;
   }
   .phy-project-section label {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-project-section input,
   .phy-project-section textarea {
@@ -3842,7 +3844,7 @@
   }
   .phy-discovery-checklist {
     padding: 0 12px 14px;
-    font-size: 10px;
+    font-size: 14px;
   }
 }
 
@@ -3851,7 +3853,7 @@
   padding: 12px 20px;
   margin: 0;
   color: #7b618c;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-repeat-prompt,
 .phy-repeat-log {
@@ -3861,7 +3863,7 @@
   border-radius: 9px;
   background: #f4eff8;
   color: #745b83;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .phy-repeat-log .phy-button {
@@ -3876,7 +3878,7 @@
 }
 .phy-skill-readouts > div {
   min-width: 0;
-  font-size: 12px;
+  font-size: 14px;
   color: #7a618c;
 }
 .phy-skill-readouts strong {
@@ -3936,7 +3938,7 @@
   align-items: center;
   padding: 18px;
   color: #806391;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-motion-time input {
   width: 100%;
@@ -3975,7 +3977,7 @@
 }
 .phy-walking-demo > summary .phy-en {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-walking-card h3 {
@@ -3996,13 +3998,13 @@
     monospace;
 }
 .phy-walking-hint {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: #86738f;
 }
 .phy-walking-hint .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 4px;
 }
 .phy-walking-distance {
@@ -4016,14 +4018,14 @@
   justify-content: space-between;
   gap: 12px;
   color: #866299;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-walking-distance-title > strong {
   font-size: 26px;
 }
 .phy-walking-distance-title .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-walking-trials {
   display: grid;
@@ -4040,23 +4042,23 @@
 }
 .phy-walking-trial label {
   margin-top: 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-walking-trial label .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-walking-trial input {
   background: #fffcf8;
 }
 .phy-walking-speed {
-  font-size: 11px;
+  font-size: 14px;
   color: #887293;
   margin: 12px 0;
 }
 .phy-walking-speed .phy-en {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-walking-speed strong {
   display: block;
@@ -4065,7 +4067,7 @@
   font-size: 18px;
 }
 .phy-walking-warning {
-  font-size: 11px;
+  font-size: 14px;
   color: #96622f;
   line-height: 1.7;
   padding: 9px;
@@ -4074,12 +4076,12 @@
 }
 .phy-walking-warning .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-walking-evidence {
   border-top: 1px solid #e4dbea;
   padding-top: 10px;
-  font-size: 11px;
+  font-size: 14px;
   color: #82678e;
 }
 .phy-walking-evidence summary {
@@ -4088,7 +4090,7 @@
 }
 .phy-walking-evidence summary .phy-en {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-walking-evidence label {
@@ -4117,11 +4119,11 @@
 }
 .phy-walking-metrics > div {
   min-width: 0;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-walking-metrics .phy-en {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-walking-metrics strong {
@@ -4219,7 +4221,7 @@
   }
   .phy-walking-route {
     padding: 17px 12px;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-walking-chart svg text {
     font-size: 28px;
@@ -4238,10 +4240,10 @@
   display: block;
   margin-bottom: 8px;
   color: #876696;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-force-options > span .phy-en {
-  font-size: 9px;
+  font-size: 14px;
   margin-left: 6px;
 }
 .phy-force-options .phy-segment {
@@ -4253,7 +4255,7 @@
 .phy-force-record {
   padding: 16px 18px;
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: #80618f;
   border-top: 1px solid #e8dff0;
@@ -4261,12 +4263,12 @@
 .phy-force-record .phy-en,
 .phy-force-legend .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-force-legend {
   padding: 0 18px 14px;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.7;
   color: #947e9e;
 }
@@ -4281,7 +4283,7 @@
   }
   .phy-force-options .phy-segment button {
     padding: 10px 9px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-force-svg text {
     font-size: 24px;
@@ -4293,12 +4295,12 @@
 }
 .phy-gravity-status {
   color: #8d719a;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-gravity-status .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-gravity-calibration {
   margin: 0;
@@ -4308,12 +4310,12 @@
   color: #94794e;
 }
 .phy-gravity-calibration > span {
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-gravity-calibration .phy-en {
   display: block;
   margin-top: 4px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-gravity-calibration strong {
   display: block;
@@ -4323,7 +4325,7 @@
 }
 .phy-gravity-calibration p {
   margin: 0;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-gravity-scrub label {
@@ -4365,7 +4367,7 @@
   padding: 18px 10px;
   text-align: center;
   color: #8a6d9c;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-materials-art svg {
   width: 100%;
@@ -4382,7 +4384,7 @@
 .phy-materials-art .phy-en {
   display: block;
   margin-top: 4px;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-materials-cases {
   display: flex;
@@ -4404,7 +4406,7 @@
   display: flex;
   justify-content: space-between;
   gap: 10px;
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 .phy-materials-cases i {
@@ -4412,7 +4414,7 @@
 }
 .phy-materials-cases strong {
   display: block;
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 8px;
   overflow-wrap: anywhere;
 }
@@ -4427,39 +4429,39 @@
   text-align: center;
   background: transparent;
   border-style: dashed;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-materials-add .phy-en {
   display: block;
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-materials-steps {
   margin-bottom: 20px;
 }
 .phy-materials-steps > button {
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-materials-steps > button .phy-en {
   display: block;
   margin-top: 4px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-materials-note {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
   color: #8e7b99;
 }
 .phy-materials-note .phy-en {
   display: block;
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-materials-example {
   border-top: 1px solid #e6ddea;
   margin-top: 22px;
   padding-top: 17px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   color: #8b709a;
 }
@@ -4468,7 +4470,7 @@
 }
 .phy-materials-example .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-materials-trials {
   display: grid;
@@ -4489,20 +4491,20 @@
   align-items: flex-start;
   gap: 10px;
   color: #876497;
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-materials-trial header > span {
   text-align: right;
   color: #839075;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-materials-trial .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-materials-trial label {
   margin-top: 14px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-materials-trial input:not([type='checkbox']),
 .phy-materials-trial select {
@@ -4530,7 +4532,7 @@
   border-block: 1px solid #e5dcec;
   padding: 13px 0;
   margin-top: 18px;
-  font-size: 12px;
+  font-size: 14px;
   color: #917d9d;
   overflow-wrap: anywhere;
 }
@@ -4543,14 +4545,14 @@
 .phy-materials-trial-result strong > span,
 .phy-materials-trial-result strong .phy-en {
   display: inline;
-  font-size: 11px;
+  font-size: 14px;
   margin-right: 5px;
 }
 .phy-materials-trial .phy-materials-check {
   display: flex;
   align-items: flex-start;
   gap: 8px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-materials-check input[type='checkbox'] {
   width: 16px;
@@ -4565,14 +4567,14 @@
   background: #f5eee4;
   padding: 10px;
   border-radius: 7px;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-materials-evidence {
   border-top: 1px dashed #d6c9df;
   margin-top: 18px;
   padding-top: 12px;
-  font-size: 11px;
+  font-size: 14px;
   color: #99829f;
 }
 .phy-materials-evidence summary {
@@ -4580,7 +4582,7 @@
 }
 .phy-materials-help {
   margin: 12px 0 18px;
-  font-size: 12px;
+  font-size: 14px;
   color: #917d9d;
   line-height: 1.8;
 }
@@ -4632,7 +4634,7 @@
   border-radius: 10px;
   padding: 22px;
   color: #8d739e;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-work-result > div:first-child > strong {
@@ -4644,19 +4646,19 @@
 .phy-work-result .phy-en,
 .phy-work-fixed .phy-en {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-work-small-metrics {
   display: flex;
   gap: 22px;
   padding: 14px 0;
-  font-size: 11px;
+  font-size: 14px;
   color: #9b83a9;
 }
 .phy-work-small-metrics .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-work-small-metrics strong {
@@ -4670,7 +4672,7 @@
   border-radius: 8px;
   color: #9a825e;
   line-height: 1.7;
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-work-power-cards {
   display: grid;
@@ -4682,7 +4684,7 @@
   border: 1px solid #e2d7e9;
   padding: 16px;
   border-radius: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: #9b83a9;
   line-height: 1.7;
 }
@@ -4703,7 +4705,7 @@
 }
 .phy-work-power-cards .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-work-calculation {
   display: flex;
@@ -4765,7 +4767,7 @@
     padding: 10px 4px;
   }
   .phy-work-table .phy-data-table {
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 .phy-energy-svg {
@@ -4782,7 +4784,7 @@
 .phy-energy-bars > p {
   margin: 0 0 16px;
   color: #a48caf;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-energy-bars > p .phy-en {
   display: inline;
@@ -4796,14 +4798,14 @@
   justify-content: space-between;
   gap: 14px;
   align-items: center;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--energy-ink);
   margin-bottom: 7px;
 }
 .phy-energy-bar-row .phy-en {
   display: block;
   margin-top: 3px;
-  font-size: 11px;
+  font-size: 14px;
 }
 .phy-energy-bar-row strong {
   font-size: 17px;
@@ -4830,14 +4832,14 @@
 }
 .phy-energy-total .phy-en {
   display: inline;
-  font-size: 11px;
+  font-size: 14px;
   margin: 0 5px;
 }
 .phy-energy-probe {
   display: block;
   margin: 18px 0;
   color: #9d83ab;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-energy-probe > span {
   display: block;
@@ -4845,7 +4847,7 @@
 }
 .phy-energy-probe .phy-en {
   display: inline;
-  font-size: 11px;
+  font-size: 14px;
   margin-left: 6px;
 }
 .phy-energy-probe input {
@@ -4859,21 +4861,21 @@
   background: #eee9dc;
   color: #94815c;
   line-height: 1.8;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-energy-task strong {
   font-size: 14px;
 }
 .phy-energy-task .phy-en {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-energy-assumptions {
   margin-top: 22px;
   padding-top: 14px;
   border-top: 1px dashed #ddd1e4;
-  font-size: 12px;
+  font-size: 14px;
   color: #a18aaa;
 }
 .phy-energy-assumptions summary {
@@ -4906,7 +4908,7 @@
     padding: 13px;
   }
   .phy-energy-bar-row > div:first-child {
-    font-size: 12px;
+    font-size: 14px;
   }
   .phy-energy-bar-row strong {
     font-size: 15px;
@@ -4931,14 +4933,14 @@
   background: #eee7f4;
   border-radius: 9px;
   padding: 15px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.6;
   color: #8b7599;
   min-width: 0;
 }
 .phy-materials-metrics .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-materials-metrics strong {
   display: block;
@@ -4960,7 +4962,7 @@
   padding: 14px 10px;
   text-align: center;
   color: #8b7499;
-  font-size: 11px;
+  font-size: 14px;
   min-width: 0;
   overflow-wrap: anywhere;
 }
@@ -4971,12 +4973,12 @@
 }
 .phy-materials-references strong {
   display: block;
-  font-size: 13px;
+  font-size: 14px;
   margin-bottom: 9px;
 }
 .phy-materials-references .phy-en {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .phy-materials-references small {
@@ -4993,7 +4995,7 @@
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  font-size: 12px;
+  font-size: 14px;
   color: #9d8aaa;
   margin-bottom: 25px;
 }
@@ -5033,17 +5035,17 @@
   }
   .phy-materials-steps > button {
     flex-direction: column;
-    font-size: 10px;
+    font-size: 14px;
     padding-inline: 2px;
   }
   .phy-materials-steps > button .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-materials-trial {
     padding: 13px;
   }
   .phy-materials-numbers label {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-materials-metrics {
     grid-template-columns: 1fr;
@@ -5056,7 +5058,7 @@
     margin-top: 6px;
   }
   .phy-materials-page .phy-lesson-footer .phy-button {
-    font-size: 11px;
+    font-size: 14px;
     padding-inline: 12px;
   }
   .phy-materials-guide {
@@ -5076,7 +5078,7 @@
   margin: 0;
   padding: 17px 18px;
   line-height: 1.8;
-  font-size: 12px;
+  font-size: 14px;
   color: #967d58;
   background: #f6efe5;
 }
@@ -5087,17 +5089,17 @@
 .phy-density-condition .phy-en {
   display: block;
   margin-top: 4px;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-density-validity {
   display: block;
   margin-top: 5px;
-  font-size: 10px;
+  font-size: 14px;
   color: #947ca0;
 }
 .phy-density-validity .phy-en {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
 }
 .phy-density-lab .phy-skill-readouts strong {
   font-size: 22px;
@@ -5108,17 +5110,17 @@
     font-size: 28px;
   }
   .phy-density-equation {
-    font-size: 13px;
+    font-size: 14px;
   }
   .phy-density-lab .phy-data-table th,
   .phy-density-lab .phy-data-table td {
     padding: 12px 6px;
   }
   .phy-density-lab .phy-data-table {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-density-lab .phy-data-table .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
 }
 
@@ -5153,7 +5155,7 @@
   min-width: 0;
 }
 .phy-power-note {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   color: #8b7796;
   background: #f7f3f9;
@@ -5164,7 +5166,7 @@
   margin: 20px 0;
   border-top: 1px dashed #d6c9df;
   padding-top: 14px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   color: #8b7796;
 }
@@ -5194,17 +5196,17 @@
   justify-content: space-between;
   gap: 10px;
   margin-bottom: 14px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-power-trial-heading > span {
-  font-size: 10px;
+  font-size: 14px;
   color: #9b879f;
 }
 .phy-power-page label.phy-power-check {
   display: flex;
   align-items: flex-start;
   gap: 9px;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .phy-power-check input[type='checkbox'] {
@@ -5216,7 +5218,7 @@
   accent-color: #9676a9;
 }
 .phy-power-trial-value {
-  font-size: 11px;
+  font-size: 14px;
   color: #937d9c;
   border-block: 1px dashed #e2d9e8;
   padding: 12px 0;
@@ -5229,14 +5231,14 @@
 }
 .phy-power-trial-value small {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
 }
 .phy-power-alert {
   background: #f6eee1;
   color: #8f7144;
   padding: 10px;
   border-radius: 8px;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .phy-power-readings + .phy-button {
@@ -5253,7 +5255,7 @@
   background: #f3edf7;
   padding: 14px;
   border-radius: 10px;
-  font-size: 11px;
+  font-size: 14px;
   color: #9c87a7;
 }
 .phy-power-series strong {
@@ -5282,7 +5284,7 @@
   border-bottom: 1px solid #e4dbe9;
 }
 .phy-power-ledger dt {
-  font-size: 12px;
+  font-size: 14px;
   color: #9a85a4;
 }
 .phy-power-ledger dd {
@@ -5292,10 +5294,10 @@
   overflow-wrap: anywhere;
 }
 .phy-power-ledger dd small {
-  font-size: 13px;
+  font-size: 14px;
 }
 .phy-power-ledger > p:not(.phy-eyebrow) {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.9;
   color: #9b88a5;
 }
@@ -5316,7 +5318,7 @@
   display: block;
 }
 .phy-power-chart figcaption {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
   color: #9982a4;
   margin-top: 10px;
@@ -5339,10 +5341,10 @@
   }
   .phy-power-steps > button {
     padding: 9px 4px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-power-steps .phy-en {
-    font-size: 9px;
+    font-size: 14px;
   }
   .phy-power-numbers {
     grid-template-columns: 1fr;
@@ -5367,7 +5369,7 @@
   }
 }
 .phy-power-chart-scale {
-  font-size: 11px;
+  font-size: 14px;
   color: #957da0;
   margin: 0 0 10px;
 }
@@ -5403,7 +5405,7 @@
   margin-top: 8px;
 }
 .phy-thermal-readout > p {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.9;
   color: #9c87a9;
 }
@@ -5419,7 +5421,7 @@
   border-radius: 11px;
   background: #f3edf7;
   padding: 16px;
-  font-size: 12px;
+  font-size: 14px;
   color: #9b86a6;
 }
 .phy-thermal-metrics strong {
@@ -5430,10 +5432,10 @@
   overflow-wrap: anywhere;
 }
 .phy-thermal-metrics strong .phy-en {
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-thermal-note {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.9;
   color: #9b85a7;
   margin: 14px 0;
@@ -5443,7 +5445,7 @@
   gap: 18px;
   flex-wrap: wrap;
   margin: 20px 0 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-thermal-legend > span {
   border-bottom: 3px solid currentColor;
@@ -5473,7 +5475,7 @@
   }
   .phy-thermal-metrics > div {
     padding: 10px;
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-thermal-metrics strong {
     font-size: 15px;
@@ -5491,7 +5493,7 @@
   }
   .phy-thermal-legend {
     gap: 12px;
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 
@@ -5499,13 +5501,13 @@
   display: flex;
   gap: 24px;
   padding: 12px 0 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-phase-balance {
   padding: 14px 16px;
   border-radius: 9px;
   background: #f0e9f5;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   color: #8f749f;
   overflow-wrap: anywhere;
@@ -5515,7 +5517,7 @@
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 8px;
   margin: 18px 0;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-phase-stages > span {
   padding: 10px;
@@ -5539,7 +5541,7 @@
   grid-template-columns: 130px minmax(0, 1fr) 94px;
   gap: 12px;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   color: #9b85a7;
 }
 .phy-phase-ledger strong {
@@ -5560,33 +5562,33 @@
 }
 @media (max-width: 560px) {
   .phy-phase-stages {
-    font-size: 10px;
+    font-size: 14px;
     gap: 5px;
   }
   .phy-phase-stages > span {
     padding: 9px 5px;
   }
   .phy-phase-stages .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-phase-balance {
-    font-size: 11px;
+    font-size: 14px;
     padding: 12px;
   }
   .phy-phase-ledger > div {
     grid-template-columns: 74px minmax(0, 1fr) 65px;
     gap: 7px;
-    font-size: 10px;
+    font-size: 14px;
   }
   .phy-phase-ledger .phy-en {
-    font-size: 8px;
+    font-size: 14px;
   }
   .phy-phase-ledger strong {
-    font-size: 11px;
+    font-size: 14px;
   }
   .phy-phase-lab .phy-data-table th,
   .phy-phase-lab .phy-data-table td {
-    font-size: 9px;
+    font-size: 14px;
   }
 }
 .phy-insulation-card {
@@ -5605,7 +5607,7 @@
   fill: #927b9d;
 }
 .phy-insulation-chart figcaption {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
   color: #9982a4;
   margin-top: 10px;
@@ -5614,7 +5616,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
-  font-size: 12px;
+  font-size: 14px;
   color: #9b7cb0;
 }
 .phy-insulation-legend > span + span {
@@ -5654,7 +5656,7 @@
   margin: 16px 0;
 }
 .phy-sound-audio p {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
   color: #937ba0;
   margin: 0;
@@ -5760,14 +5762,14 @@
   .phy-pressure-lab .phy-data-table th,
   .phy-pressure-lab .phy-data-table td {
     padding-inline: 4px;
-    font-size: 11px;
+    font-size: 14px;
   }
 }
 .phy-light-bands {
   display: flex;
   flex-wrap: wrap;
   gap: 14px;
-  font-size: 12px;
+  font-size: 14px;
   padding: 12px 16px;
   border-block: 1px solid #e5dfea;
 }
@@ -5824,7 +5826,7 @@
   height: auto;
 }
 .phy-periscope-diagram figcaption {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
   color: #8b7796;
 }
@@ -5861,7 +5863,7 @@
   border-radius: 8px;
   background: #efe8f4;
   color: #937d9c;
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .phy-periscope-metrics strong {
@@ -5876,7 +5878,7 @@
 }
 .phy-periscope-build {
   padding-left: 22px;
-  font-size: 13px;
+  font-size: 14px;
   color: #796583;
   line-height: 1.9;
 }
@@ -5908,7 +5910,7 @@
   padding: 14px;
   background: #f3eef7;
   border-radius: 9px;
-  font-size: 12px;
+  font-size: 14px;
   color: #796583;
   overflow-wrap: anywhere;
 }
@@ -5922,7 +5924,7 @@
 }
 .phy-periscope-page .phy-power-ledger a {
   color: #80668d;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.8;
 }
 @media (max-width: 560px) {
@@ -6020,7 +6022,7 @@
 .phy-algebra-steps li::before {
   content: counter(algebra-step, decimal-leading-zero);
   color: #847b6a;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-algebra-steps li.inspected {
   background: #e6eee8;
@@ -6104,7 +6106,7 @@
   color: #756f80;
 }
 .phy-reason-nav button span {
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-reason-nav button.active {
   background: #ebe5f4;
@@ -6128,7 +6130,7 @@
 }
 .phy-reason-kicker {
   letter-spacing: 0.12em;
-  font-size: 11px;
+  font-size: 14px;
   color: #8a7b99;
 }
 .phy-reason-current h3 {
@@ -6196,7 +6198,7 @@
 }
 .phy-reason-rounding {
   color: #857d8b;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.7;
 }
 .phy-reason-feedback {
@@ -6232,7 +6234,7 @@
 .phy-reason-footer > span {
   flex: 1 1 100%;
   color: #837889;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-reason-export {
   margin: 0 18px 18px;
@@ -6556,7 +6558,7 @@
   flex-wrap: wrap;
   gap: 12px;
   padding: 10px 18px;
-  font-size: 12px;
+  font-size: 14px;
 }
 .phy-circular-legend > span {
   display: flex;
@@ -6606,4 +6608,403 @@
   .phy-wave-lab svg text {
     font-size: 22px;
   }
+}
+
+/* Compact laptop layout: readable type, small gutters, task-first content. */
+
+.phy-app {
+  --study-accent: #70538f;
+  --study-tint: #ece7f2;
+  --study-border: #ded6e7;
+  --study-muted: #64576f;
+  --study-header-bg: #fcfbf8;
+  --muted: #685e73;
+  display: block;
+  font-size: 16px;
+}
+.phy-app .phy-main-shell {
+  margin-left: 0;
+  width: 100%;
+}
+.phy-app .phy-main {
+  max-width: var(--study-content-width);
+  padding: 16px var(--study-gutter) 24px;
+  min-height: calc(100vh - 112px);
+  margin: auto;
+}
+.phy-app .phy-footer {
+  max-width: var(--study-content-width);
+  padding: 10px var(--study-gutter);
+  color: #6b6075;
+}
+.phy-app .phy-en {
+  opacity: 0.85;
+  margin-top: 2px;
+}
+.phy-app .phy-greeting {
+  margin-bottom: 12px;
+}
+.phy-app .phy-greeting h1 {
+  font-size: 24px;
+}
+.phy-app .phy-hero {
+  min-height: 0;
+  grid-template-columns: minmax(0, 1.8fr) minmax(220px, 0.7fr);
+}
+.phy-app .phy-hero-copy {
+  padding: 18px 22px;
+}
+.phy-app .phy-hero h2 {
+  font-size: 30px;
+  margin: 8px 0;
+  white-space: normal;
+}
+.phy-app .phy-hero h2 .phy-en {
+  margin-top: 4px;
+  font-size: 16px;
+}
+.phy-app .phy-hero .phy-button {
+  margin-top: 12px;
+}
+.phy-app .phy-hero-foot {
+  margin-top: 6px;
+}
+.phy-app .phy-orbit {
+  padding: 0;
+}
+.phy-app .phy-orbit svg {
+  max-height: 220px;
+}
+.phy-app .phy-orbit-caption {
+  display: none;
+}
+.phy-app .phy-dashboard-grid {
+  margin-top: 16px;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) 290px;
+}
+.phy-app .phy-section-heading {
+  margin-bottom: 10px;
+}
+.phy-app .phy-section-heading h2 {
+  font-size: 20px;
+}
+.phy-app .phy-card-art {
+  height: 82px;
+}
+.phy-app .phy-card-copy {
+  padding: 12px;
+}
+.phy-app .phy-card-copy h3 {
+  font-size: 18px;
+}
+.phy-app .phy-card-copy :is(p, .phy-en),
+.phy-app .phy-card-bottom {
+  color: #685a74;
+}
+.phy-app .phy-card-copy p {
+  margin-top: 6px;
+}
+.phy-app .phy-card-bottom {
+  padding-top: 8px;
+}
+.phy-app .phy-button {
+  font-size: 16px;
+  min-height: 44px;
+  padding: 8px 14px;
+}
+.phy-app .phy-lab-invite {
+  margin-top: 12px;
+  padding: 12px;
+  gap: 12px;
+}
+.phy-app .phy-today-card {
+  padding: 16px;
+}
+.phy-app .phy-today-card h3 {
+  margin-top: 12px;
+}
+.phy-app .phy-today-progress {
+  margin-top: 12px;
+}
+.phy-app .phy-review-card {
+  padding: 12px 0;
+}
+.phy-app .phy-page-heading {
+  margin: 8px 0 12px;
+  gap: 12px;
+}
+.phy-app .phy-lead {
+  font-size: 18px;
+  line-height: 1.6;
+  margin: 8px 0 12px !important;
+  color: #66596f;
+}
+.phy-app :is(.phy-soft, .phy-eyebrow, .phy-breadcrumb, .phy-age) {
+  color: #6d6078;
+}
+.phy-app .phy-path-heading {
+  padding: 12px 0;
+  gap: 12px;
+}
+.phy-app .phy-path-lessons {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+}
+.phy-app .phy-path-lessons .phy-lesson-card {
+  flex-direction: row;
+}
+.phy-app .phy-path-lessons .phy-card-art {
+  width: 130px;
+  height: auto;
+  min-height: 140px;
+  flex-shrink: 0;
+}
+.phy-app .phy-path-lessons .phy-card-copy {
+  padding: 12px;
+}
+.phy-app .phy-course-unit {
+  margin-bottom: 16px;
+}
+.phy-app .phy-unit-title {
+  margin-bottom: 10px;
+}
+.phy-app .phy-roadmap-title {
+  margin-top: 18px;
+}
+.phy-app .phy-lesson-layout {
+  grid-template-columns: minmax(0, 1fr) 240px;
+  gap: 16px;
+}
+.phy-app .phy-step-nav {
+  padding: 4px;
+}
+.phy-app .phy-step-nav > button {
+  min-height: 44px;
+  padding: 7px 5px;
+  font-size: 16px;
+  color: #655471;
+}
+.phy-app .phy-step-nav > button > span:first-child {
+  width: 24px;
+  height: 24px;
+}
+.phy-app .phy-lesson-body {
+  min-height: 0;
+  margin-top: 12px;
+  padding: 20px;
+  font-size: 18px;
+}
+.phy-app .phy-lesson-body h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+.phy-app .phy-predict {
+  margin: 12px 0;
+  gap: 8px;
+}
+.phy-app .phy-predict button {
+  padding: 10px 14px;
+  font-size: 18px;
+  color: #675472;
+}
+.phy-app .phy-lesson-bottom,
+.phy-app .phy-lesson-footer {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  padding: 10px 12px;
+  background: #fcfbf8f5;
+  border-top: 1px solid #ded6e7;
+  border-radius: 8px;
+}
+.phy-app .phy-text-button {
+  font-size: 16px !important;
+  min-height: 40px;
+}
+.phy-app .phy-lesson-aside {
+  padding-top: 4px;
+}
+.phy-app .phy-vocab {
+  padding: 8px 0;
+  color: #665275;
+}
+.phy-app .phy-vocab > span {
+  color: #6c5f75;
+}
+.phy-app .phy-aside-tip {
+  padding: 12px;
+  margin-top: 12px;
+  color: #6c6749;
+}
+.phy-app .phy-aside-back {
+  margin-top: 12px;
+  color: #6c5d77 !important;
+}
+.phy-app .phy-concept {
+  font-size: 18px;
+  line-height: 1.65;
+  color: #665472;
+}
+.phy-app .phy-example {
+  margin-top: 12px;
+  padding-top: 12px;
+  font-size: 18px;
+  line-height: 1.65;
+  color: #68576f;
+}
+.phy-app .phy-example h3 {
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+.phy-app .phy-misconception,
+.phy-app .phy-formula {
+  padding: 14px;
+  margin: 12px 0;
+}
+.phy-app .phy-question {
+  margin-top: 12px;
+}
+.phy-app .phy-options button {
+  padding: 10px 12px;
+  font-size: 18px;
+}
+.phy-app .phy-lab {
+  padding: 14px;
+}
+.phy-app .phy-lab-controls {
+  gap: 12px;
+  margin: 10px 0;
+}
+.phy-app .phy-lab > svg {
+  max-height: 280px;
+}
+.phy-app .phy-lab-actions {
+  margin-top: 10px;
+}
+.phy-app .phy-lab-select {
+  margin: 12px 0;
+}
+.phy-app .phy-project-section {
+  margin-top: 12px;
+  padding: 16px;
+}
+@media (max-width: 900px) {
+  .phy-app .phy-dashboard-grid,
+  .phy-app .phy-lesson-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .phy-app .phy-lesson-aside {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 10px;
+  }
+  .phy-app .phy-step-nav > button {
+    flex-wrap: wrap;
+  }
+}
+@media (max-width: 600px) {
+  .phy-app .phy-hero {
+    grid-template-columns: 1fr;
+  }
+  .phy-app .phy-orbit {
+    display: none;
+  }
+  .phy-app .phy-home-lessons,
+  .phy-app .phy-path-lessons {
+    grid-template-columns: 1fr;
+  }
+  .phy-app .phy-lesson-body {
+    padding: 14px;
+  }
+  .phy-app .phy-step-nav > button {
+    font-size: 14px;
+  }
+  .phy-app .phy-breadcrumb {
+    flex-wrap: wrap;
+  }
+  .phy-app .phy-greeting {
+    align-items: start;
+    flex-wrap: wrap;
+  }
+}
+.phy-app .phy-project-card {
+  padding: 14px;
+  margin-top: 12px;
+  gap: 12px;
+}
+.phy-app .phy-project-card h3 {
+  margin: 6px 0;
+  font-size: 18px;
+}
+.phy-app .phy-project-card p {
+  margin: 4px 0;
+}
+.phy-app .phy-future-roadmap {
+  margin-top: 12px;
+  border-top: 1px solid var(--line);
+}
+.phy-app .phy-future-roadmap > summary {
+  cursor: pointer;
+  padding: 12px 0;
+  color: #665472;
+  font-size: 16px;
+}
+.phy-app .phy-future-roadmap .phy-en {
+  display: inline;
+  margin-left: 8px;
+}
+.phy-app .phy-page:has(.phy-lesson-layout) .phy-page-heading .phy-eyebrow {
+  display: none;
+}
+.phy-app .phy-page:has(.phy-lesson-layout) .phy-page-heading h1 .phy-en {
+  display: inline;
+  margin-left: 12px;
+}
+.phy-app .phy-page:has(.phy-lesson-layout) .phy-breadcrumb .phy-en {
+  display: none;
+}
+.phy-app .phy-step-nav .phy-en {
+  display: none;
+}
+.phy-app .phy-lesson-body {
+  padding: 16px;
+}
+.phy-app .phy-lesson-body h2 .phy-en {
+  margin-top: 3px;
+}
+.phy-app .phy-lab {
+  padding: 0;
+  margin: 10px 0;
+}
+.phy-app .phy-lab-toolbar {
+  padding: 10px 12px;
+}
+.phy-app .phy-simulation {
+  max-height: 190px;
+}
+.phy-app .phy-lab-controls {
+  padding: 10px 12px;
+  margin: 0;
+  flex-wrap: wrap;
+}
+.phy-app .phy-model-note {
+  padding: 8px 12px;
+}
+.phy-app .phy-lab-controls button {
+  min-height: 40px;
+}
+.phy-app .phy-lesson-bottom .phy-en {
+  display: none;
+}
+.phy-app .phy-lab > .phy-simulation {
+  max-height: 190px;
+}
+.phy-app .phy-lesson-bottom,
+.phy-app .phy-lesson-footer {
+  background: #fcfbf8;
+}
+.phy-app .phy-simulation text[font-size='11'],
+.phy-app .phy-simulation text[font-size='13'] {
+  font-size: 14px;
 }

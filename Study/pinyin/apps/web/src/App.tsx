@@ -1,3 +1,4 @@
+import { StudyHeader } from '@study/ui';
 import { useEffect, useState } from 'react';
 import {
   Link,
@@ -6,6 +7,8 @@ import {
   Route,
   Routes,
   useParams,
+  useLocation,
+  useSearchParams,
 } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
@@ -135,6 +138,12 @@ function Home({ store }: { store: ProgressStore }) {
   const current =
     lessons.find((l) => l.available && !mastered(store, l)) ??
     lessons[lessons.length - 1]!;
+  const [params, setParams] = useSearchParams();
+  const requestedWeek = Number(params.get('week'));
+  const selectedWeek =
+    Number.isInteger(requestedWeek) && requestedWeek >= 1 && requestedWeek <= 6
+      ? requestedWeek
+      : current.week;
   const due = Object.values(store.progress.cards).filter(
     (c) => Date.parse(c.due) <= Date.now(),
   ).length;
@@ -159,14 +168,10 @@ function Home({ store }: { store: ProgressStore }) {
         <div>
           <div className="py-pill">PINYIN DETECTIVE / 拼音侦探</div>
           <h1>
-            你会说的中文，
-            <br />
-            现在，<em>也会拼。</em>
+            你会说的中文，现在，<em>也会拼。</em>
           </h1>
           <p>
-            用你熟悉的声音，解开字母的线索。
-            <br />
-            从读出一个音节，到用键盘表达自己的想法。
+            用熟悉的声音解开字母的线索，从读出一个音节，到用键盘表达自己的想法。
           </p>
           <Link className="py-button" to={`/pinyin/lesson/${current.id}`}>
             {complete === lessons.length
@@ -228,66 +233,89 @@ function Home({ store }: { store: ProgressStore }) {
           </div>
           <span className="py-muted">24 个小任务 · 认读 + 打字</span>
         </div>
-        <div className="py-week-grid">
+        <div
+          className="study-stage-picker"
+          role="group"
+          aria-label="选择学习周"
+        >
           {weeks.map((week, i) => (
-            <article className="py-week py-week-live" key={week.code}>
-              <div className="py-week-header">
-                <span className="py-week-number">0{i + 1}</span>
-                <div>
-                  <span className="py-eyebrow">
-                    WEEK 0{i + 1} / {week.code}
-                  </span>
-                  <h3>{week.title}</h3>
-                  <p>{week.detail}</p>
-                </div>
-                <span className="py-week-status">
-                  {
-                    lessons.filter(
-                      (l) => l.week === i + 1 && mastered(store, l),
-                    ).length
-                  }{' '}
-                  / 4 掌握
-                </span>
-              </div>
-              <div className="py-lesson-list">
-                {lessons
-                  .filter((l) => l.week === i + 1)
-                  .map((l) =>
-                    l.available ? (
-                      <Link to={`/pinyin/lesson/${l.id}`} key={l.id}>
-                        <span
-                          className={`py-lesson-dot ${mastered(store, l) ? 'done' : ''}`}
-                        >
-                          {mastered(store, l)
-                            ? '✓'
-                            : String(l.number).padStart(2, '0')}
-                        </span>
-                        <span>{l.title}</span>
-                        <small>
-                          {mastered(store, l)
-                            ? '已掌握'
-                            : store.progress.sessions[l.id]?.finishedAt
-                              ? '再巩固'
-                              : store.progress.sessions[l.id]
-                                ? '继续'
-                                : `${l.minutes} 分钟`}
-                        </small>
-                        <span aria-hidden="true">↗</span>
-                      </Link>
-                    ) : (
-                      <div key={l.id} className="py-planned-lesson">
-                        <span>{String(l.number).padStart(2, '0')}</span>
-                        <span>{l.title}</span>
-                        <small>未发布</small>
-                      </div>
-                    ),
-                  )}
-              </div>
-            </article>
+            <button
+              key={week.code}
+              aria-pressed={selectedWeek === i + 1}
+              onClick={() =>
+                setParams({ week: String(i + 1) }, { replace: true })
+              }
+            >
+              第 {i + 1} 周 · {week.title}
+            </button>
           ))}
         </div>
+        <div className="py-week-grid">
+          {weeks.map(
+            (week, i) =>
+              selectedWeek === i + 1 && (
+                <article className="py-week py-week-live" key={week.code}>
+                  <div className="py-week-header">
+                    <span className="py-week-number">0{i + 1}</span>
+                    <div>
+                      <span className="py-eyebrow">
+                        WEEK 0{i + 1} / {week.code}
+                      </span>
+                      <h3>{week.title}</h3>
+                      <p>{week.detail}</p>
+                    </div>
+                    <span className="py-week-status">
+                      {
+                        lessons.filter(
+                          (l) => l.week === i + 1 && mastered(store, l),
+                        ).length
+                      }{' '}
+                      / 4 掌握
+                    </span>
+                  </div>
+                  <div className="py-lesson-list">
+                    {lessons
+                      .filter((l) => l.week === i + 1)
+                      .map((l) =>
+                        l.available ? (
+                          <Link to={`/pinyin/lesson/${l.id}`} key={l.id}>
+                            <span
+                              className={`py-lesson-dot ${mastered(store, l) ? 'done' : ''}`}
+                            >
+                              {mastered(store, l)
+                                ? '✓'
+                                : String(l.number).padStart(2, '0')}
+                            </span>
+                            <span>{l.title}</span>
+                            <small>
+                              {mastered(store, l)
+                                ? '已掌握'
+                                : store.progress.sessions[l.id]?.finishedAt
+                                  ? '再巩固'
+                                  : store.progress.sessions[l.id]
+                                    ? '继续'
+                                    : `${l.minutes} 分钟`}
+                            </small>
+                            <span aria-hidden="true">↗</span>
+                          </Link>
+                        ) : (
+                          <div key={l.id} className="py-planned-lesson">
+                            <span>{String(l.number).padStart(2, '0')}</span>
+                            <span>{l.title}</span>
+                            <small>未发布</small>
+                          </div>
+                        ),
+                      )}
+                  </div>
+                </article>
+              ),
+          )}
+        </div>
       </section>
-      <AssessmentLinks store={store} />
+      <details className="py-extra-challenges">
+        <summary>周末挑战与综合检查 · 展开查看</summary>
+        <AssessmentLinks store={store} />
+      </details>
       <section className="py-home-bottom">
         <Link className="py-lab-teaser" to="/pinyin/lab">
           <Icon name="keyboard" size={29} />
@@ -1186,61 +1214,52 @@ function Report({
 
 export function App() {
   const store = useProgress();
+  const location = useLocation();
+  useEffect(() => {
+    document.title = '拼音侦探 · Study';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [location.pathname]);
   const [parent, setParent] = useState(false);
   return (
-    <div className="py-app">
-      <aside className="py-sidebar">
-        <Link className="py-brand" to="/pinyin">
-          <span className="py-brand-symbol">pī</span>
-          <div>
-            <strong>拼音侦探</strong>
-            <small>PINYIN DETECTIVE</small>
-          </div>
-        </Link>
-        <span className="py-sidebar-label">你的探索空间</span>
-        <nav className="py-nav" aria-label="拼音应用导航">
-          <NavLink to="/pinyin" end>
-            <Icon name="map" />
-            任务首页
-          </NavLink>
-          <NavLink to="/pinyin/review">
-            <Icon name="clock" />
-            今日复习
-          </NavLink>
-          <NavLink to="/pinyin/toolkit">
-            <Icon name="book" />
-            拼音工具箱
-          </NavLink>
-          <NavLink to="/pinyin/lab">
-            <Icon name="keyboard" />
-            键盘实验室
-          </NavLink>
-          <NavLink to="/pinyin/report">
-            <Icon name="chart" />
-            学习报告
-          </NavLink>
-        </nav>
-        <div className="py-sidebar-bottom">
-          <div className="py-sidebar-motto">
-            <span>一步一个发现</span>
-            <p>
-              读懂声音，
-              <br />
-              打出你的世界。
-            </p>
-            <span className="py-motto-line" />
-          </div>
-          <Link to="/" className="py-study-back">
-            <Icon name="home" size={17} />
-            返回 Study<span>↗</span>
-          </Link>
-        </div>
-      </aside>
+    <div className="py-app study-learning-app">
       <div className="py-main-wrap">
-        <header className="py-mobile-brand">
-          <Link to="/pinyin">拼音侦探</Link>
-          <Link to="/">Study ↗</Link>
-        </header>
+        <StudyHeader
+          brand={
+            <Link to="/pinyin">
+              <span className="py-brand-symbol">pī</span>
+              <div>
+                <strong>拼音侦探</strong>
+                <small>Pinyin · Study</small>
+              </div>
+            </Link>
+          }
+          navigation={
+            <>
+              <NavLink to="/pinyin" end>
+                <Icon name="map" size={18} />
+                任务首页
+              </NavLink>
+              <NavLink to="/pinyin/review">
+                <Icon name="clock" size={18} />
+                今日复习
+              </NavLink>
+              <NavLink to="/pinyin/toolkit">
+                <Icon name="book" size={18} />
+                拼音工具箱
+              </NavLink>
+              <NavLink to="/pinyin/lab">
+                <Icon name="keyboard" size={18} />
+                键盘实验室
+              </NavLink>
+              <NavLink to="/pinyin/report">
+                <Icon name="chart" size={18} />
+                学习报告
+              </NavLink>
+            </>
+          }
+          home={<Link to="/">← Study</Link>}
+          label="拼音学习导航"
+        />
         {store.error && (
           <div className="py-storage-error" role="alert">
             {store.error}

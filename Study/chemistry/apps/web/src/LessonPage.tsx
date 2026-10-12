@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState, type CSSProperties } from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
-import { Localized } from '@study/ui';
+import { Localized, QuestionNavigator } from '@study/ui';
 import { getLesson, lessons, type Lesson } from './content/lessons';
 import { SeparationRecoveryLab } from './interactive/SeparationRecoveryLab';
 import {
@@ -7883,6 +7883,7 @@ function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
 }
 
 function Quiz({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
+  const [questionIndex, setQuestionIndex] = useState(0);
   const [answers, setAnswers] = useState<Record<string, number>>({});
   const correct = useMemo(
     () => lesson.questions.filter((q) => answers[q.id] === q.answer).length,
@@ -7924,11 +7925,21 @@ function Quiz({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
           {mode === 'en' ? 'Can you use the idea?' : '你能把这个想法用起来吗？'}
         </h2>
       </div>
+      <QuestionNavigator
+        index={questionIndex}
+        count={lesson.questions.length}
+        onChange={setQuestionIndex}
+        mode={mode}
+      />
       <div className="quiz-list">
-        {lesson.questions.map((question, questionIndex) => (
-          <article className="quiz-question" key={question.id}>
+        {lesson.questions.map((question, index) => (
+          <article
+            className="quiz-question"
+            key={question.id}
+            hidden={index !== questionIndex}
+          >
             <h3>
-              <span>{questionIndex + 1}</span>
+              <span>{index + 1}</span>
               <Localized text={question.prompt} mode={mode} />
             </h3>
             <div className="quiz-options">
@@ -8017,10 +8028,25 @@ function Quiz({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
 export function LessonPage({ mode }: { mode: LanguageMode }) {
   const { lessonId } = useParams();
   const lesson = getLesson(lessonId);
-  useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }, [lessonId]);
   if (!lesson) return <Navigate to="/chemistry/path" replace />;
+  return <ChemistryLesson key={lesson.id} lesson={lesson} mode={mode} />;
+}
+
+function ChemistryLesson({
+  lesson,
+  mode,
+}: {
+  lesson: Lesson;
+  mode: LanguageMode;
+}) {
+  const [step, setStep] = useState(0);
+  const stepNames =
+    mode === 'en'
+      ? ['Discover', 'Understand', 'Explore', 'Takeaway', 'Practice']
+      : ['生活线索', '弄明白', '动手探索', '带走发现', '试试身手'];
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [step]);
   const next = lessons.find((item) => item.order === lesson.order + 1);
 
   return (
@@ -8048,159 +8074,182 @@ export function LessonPage({ mode }: { mode: LanguageMode }) {
           <p className="lesson-hook">
             <Localized text={lesson.hook} mode={mode} />
           </p>
-          <div className="hook-clue">
-            <span>?</span>
-            <Localized text={lesson.hookHint} mode={mode} />
-          </div>
-        </div>
-        <div
-          className="hero-orbit"
-          aria-label={
-            mode === 'en' ? 'Animated particle model' : '动态粒子模型'
-          }
-        >
-          <span className="orbit orbit-one">
-            <i />
-          </span>
-          <span className="orbit orbit-two">
-            <i />
-          </span>
-          <span className="orbit-core" />
-          <b>{lesson.order.toString().padStart(2, '0')}</b>
         </div>
       </header>
 
-      <section className="big-idea">
-        <span>
-          {mode === 'en' ? 'THE ONE IDEA TO KEEP' : '今天最值得带走的一句话'}
-        </span>
-        <h2>
-          <Localized text={lesson.bigIdea} mode={mode} />
-        </h2>
-      </section>
-
-      <section className="lesson-section">
-        <div className="section-number">01</div>
-        <div>
-          <p className="section-kicker">
-            {mode === 'en' ? 'FIND IT IN REAL LIFE' : '先在生活里找到它'}
-          </p>
+      <nav
+        className="chem-lesson-steps"
+        aria-label={mode === 'en' ? 'Lesson steps' : '学习步骤'}
+      >
+        {stepNames.map((name, index) => (
+          <button
+            key={name}
+            aria-current={step === index ? 'step' : undefined}
+            className={step === index ? 'active' : ''}
+            onClick={() => setStep(index)}
+          >
+            <span>{index + 1}</span>
+            {name}
+          </button>
+        ))}
+      </nav>
+      <div hidden={step !== 0}>
+        <section className="big-idea">
+          <span>
+            {mode === 'en' ? 'THE ONE IDEA TO KEEP' : '今天最值得带走的一句话'}
+          </span>
           <h2>
-            {mode === 'en'
-              ? 'Chemistry was already around you.'
-              : '原来化学一直就在你身边。'}
+            <Localized text={lesson.bigIdea} mode={mode} />
           </h2>
-        </div>
-        <div className="example-grid">
-          {lesson.everydayExamples.map((example) => (
-            <article key={example.title.en}>
-              <span>{example.icon}</span>
-              <h3>
-                <Localized text={example.title} mode={mode} />
-              </h3>
-              <p>
-                <Localized text={example.body} mode={mode} />
-              </p>
-            </article>
-          ))}
-        </div>
-      </section>
+        </section>
 
-      <section className="lesson-section explanation-section">
-        <div className="section-number">02</div>
-        <div>
-          <p className="section-kicker">
-            {mode === 'en' ? 'BUILD THE IDEA' : '一步步建立模型'}
-          </p>
-          <h2>
-            {mode === 'en'
-              ? 'Three steps, one useful model.'
-              : '三个台阶，搭起一个有用的模型。'}
-          </h2>
-        </div>
-        <div className="step-list">
-          {lesson.steps.map((step, index) => (
-            <article key={step.title.en}>
-              <b>{index + 1}</b>
-              <div>
+        <section className="lesson-section">
+          <div className="section-number">01</div>
+          <div>
+            <p className="section-kicker">
+              {mode === 'en' ? 'FIND IT IN REAL LIFE' : '先在生活里找到它'}
+            </p>
+            <h2>
+              {mode === 'en'
+                ? 'Chemistry was already around you.'
+                : '原来化学一直就在你身边。'}
+            </h2>
+          </div>
+          <div className="example-grid">
+            {lesson.everydayExamples.map((example) => (
+              <article key={example.title.en}>
+                <span>{example.icon}</span>
                 <h3>
-                  <Localized text={step.title} mode={mode} />
+                  <Localized text={example.title} mode={mode} />
                 </h3>
                 <p>
-                  <Localized text={step.body} mode={mode} />
+                  <Localized text={example.body} mode={mode} />
                 </p>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
-      <Interactive lesson={lesson} mode={mode} />
-
-      <section className="lesson-section remember-section">
-        <div className="section-number">04</div>
-        <div>
-          <p className="section-kicker">
-            {mode === 'en' ? 'AVOID THE TRAP' : '绕开一个常见误区'}
-          </p>
-          <h2>
-            {mode === 'en'
-              ? 'A tempting idea—but not quite.'
-              : '这个想法很自然，但不准确。'}
-          </h2>
-        </div>
-        <div className="misconception">
-          <span>!</span>
-          <p>
-            <Localized text={lesson.misconception} mode={mode} />
-          </p>
-        </div>
-        <div className="home-mission">
-          <span>🏠</span>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+      <div hidden={step !== 1}>
+        <section className="lesson-section explanation-section">
+          <div className="section-number">02</div>
           <div>
-            <strong>
-              {mode === 'en' ? 'Tiny mission after class' : '下课后的微型任务'}
-            </strong>
+            <p className="section-kicker">
+              {mode === 'en' ? 'BUILD THE IDEA' : '一步步建立模型'}
+            </p>
+            <h2>
+              {mode === 'en'
+                ? 'Three steps, one useful model.'
+                : '三个台阶，搭起一个有用的模型。'}
+            </h2>
+          </div>
+          <div className="step-list">
+            {lesson.steps.map((step, index) => (
+              <article key={step.title.en}>
+                <b>{index + 1}</b>
+                <div>
+                  <h3>
+                    <Localized text={step.title} mode={mode} />
+                  </h3>
+                  <p>
+                    <Localized text={step.body} mode={mode} />
+                  </p>
+                </div>
+              </article>
+            ))}
+          </div>
+        </section>
+      </div>
+      <div hidden={step !== 2}>
+        <Interactive lesson={lesson} mode={mode} />
+      </div>
+      <div hidden={step !== 3}>
+        <section className="lesson-section remember-section">
+          <div className="section-number">04</div>
+          <div>
+            <p className="section-kicker">
+              {mode === 'en' ? 'AVOID THE TRAP' : '绕开一个常见误区'}
+            </p>
+            <h2>
+              {mode === 'en'
+                ? 'A tempting idea—but not quite.'
+                : '这个想法很自然，但不准确。'}
+            </h2>
+          </div>
+          <div className="misconception">
+            <span>!</span>
             <p>
-              <Localized text={lesson.mission} mode={mode} />
+              <Localized text={lesson.misconception} mode={mode} />
             </p>
           </div>
-        </div>
-        <div className="vocabulary-row">
-          {lesson.vocabulary.map((word) => (
-            <span key={word.en}>
-              <b>{word.en}</b>
-              {word.zh}
-            </span>
-          ))}
-        </div>
-        {lesson.resources && (
-          <aside
-            className="lesson-resources"
-            aria-label={mode === 'en' ? 'Optional reading' : '可选拓展阅读'}
-          >
-            <p>
-              {mode === 'en'
-                ? 'Optional reading · not needed for the quiz'
-                : '可选拓展 · 不影响本课做题'}
-            </p>
-            {lesson.resources.map((resource) => (
-              <a
-                key={resource.url}
-                href={resource.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <Localized text={resource.title} mode={mode} /> ↗
-              </a>
+          <div className="home-mission">
+            <span>🏠</span>
+            <div>
+              <strong>
+                {mode === 'en'
+                  ? 'Tiny mission after class'
+                  : '下课后的微型任务'}
+              </strong>
+              <p>
+                <Localized text={lesson.mission} mode={mode} />
+              </p>
+            </div>
+          </div>
+          <div className="vocabulary-row">
+            {lesson.vocabulary.map((word) => (
+              <span key={word.en}>
+                <b>{word.en}</b>
+                {word.zh}
+              </span>
             ))}
-          </aside>
+          </div>
+          {lesson.resources && (
+            <aside
+              className="lesson-resources"
+              aria-label={mode === 'en' ? 'Optional reading' : '可选拓展阅读'}
+            >
+              <p>
+                {mode === 'en'
+                  ? 'Optional reading · not needed for the quiz'
+                  : '可选拓展 · 不影响本课做题'}
+              </p>
+              {lesson.resources.map((resource) => (
+                <a
+                  key={resource.url}
+                  href={resource.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <Localized text={resource.title} mode={mode} /> ↗
+                </a>
+              ))}
+            </aside>
+          )}
+        </section>
+      </div>
+      <div hidden={step !== 4}>
+        <Quiz key={lesson.id} lesson={lesson} mode={mode} />
+      </div>
+      <div className="chem-step-actions">
+        <button disabled={step === 0} onClick={() => setStep(step - 1)}>
+          ← {mode === 'en' ? 'Back' : '上一步'}
+        </button>
+        <span>{step + 1} / 5</span>
+        {step < 4 ? (
+          <button
+            className="chem-step-continue"
+            onClick={() => setStep(step + 1)}
+          >
+            {mode === 'en' ? 'Continue' : '继续探索'} →
+          </button>
+        ) : (
+          <Link to="/chemistry/path">
+            {mode === 'en' ? 'All lessons' : '全部课程'} →
+          </Link>
         )}
-      </section>
+      </div>
 
-      <Quiz key={lesson.id} lesson={lesson} mode={mode} />
-
-      <nav className="lesson-next">
+      <nav className="lesson-next" hidden={step !== 4}>
         <Link to="/chemistry/path">
           ← {mode === 'en' ? 'All lessons' : '全部课程'}
         </Link>

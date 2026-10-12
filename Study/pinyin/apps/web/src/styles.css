@@ -1,3 +1,5 @@
+@import '@study/ui/styles.css';
+
 .py-app {
   --py-ink: #253d35;
   --py-muted: #79847a;
@@ -87,7 +89,7 @@
 }
 .py-brand small {
   display: block;
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1.8px;
   color: var(--py-muted);
 }
@@ -95,7 +97,7 @@
   display: block;
   margin: 49px 12px 13px;
   color: #939b90;
-  font-size: 11px;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 .py-nav {
@@ -110,7 +112,7 @@
   align-items: center;
   border-radius: 8px;
   color: #7c8579;
-  font-size: 13px;
+  font-size: 14px;
 }
 .py-nav a:hover {
   background: #f0f2e9;
@@ -128,7 +130,7 @@
   padding: 25px 12px;
 }
 .py-sidebar-motto > span {
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 2px;
   color: #959d8d;
 }
@@ -151,7 +153,7 @@
   display: flex;
   gap: 10px;
   padding: 21px 10px 0;
-  font-size: 11px;
+  font-size: 14px;
   color: var(--py-muted) !important;
 }
 .py-study-back span {
@@ -178,18 +180,18 @@
   margin-bottom: 27px;
 }
 .py-eyebrow {
-  font-size: 10px;
+  font-size: 14px;
   letter-spacing: 1.6px;
   color: #879080;
   font-weight: 650;
 }
 .py-date {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--py-muted);
 }
 .py-pill {
   display: inline-block;
-  font-size: 10px;
+  font-size: 14px;
   color: #697756;
   background: #eaf0df;
   padding: 5px 10px;
@@ -216,7 +218,7 @@
   color: #769052;
 }
 .py-hero p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.9;
   color: var(--py-muted);
   margin-bottom: 23px;
@@ -231,7 +233,7 @@
   gap: 14px;
   border-radius: 7px;
   padding: 11px 19px;
-  font-size: 12px;
+  font-size: 14px;
   font-weight: 650;
   text-decoration: none;
   transition:
@@ -256,7 +258,7 @@
   display: block;
   margin-top: 10px;
   color: #939b8b;
-  font-size: 10px;
+  font-size: 14px;
 }
 .py-tone-art {
   background: #ebefdf;
@@ -271,11 +273,11 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 12px;
+  font-size: 14px;
   color: #697b56;
 }
 .py-art-label span {
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1.8px;
   color: #98a386;
 }
@@ -311,7 +313,7 @@
 }
 .py-art-grid small {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
   margin-top: 3px;
   opacity: 0.8;
 }
@@ -321,7 +323,7 @@
   border-top: 1px solid #d9e0c9;
   padding-top: 13px;
   color: #91a07d;
-  font-size: 9px;
+  font-size: 14px;
   letter-spacing: 1.1px;
 }
 .py-dashboard-strip {
@@ -347,7 +349,7 @@
 .py-small-label {
   display: block;
   color: var(--py-muted);
-  font-size: 10px;
+  font-size: 14px;
   margin-bottom: 7px;
 }
 .py-dashboard-strip strong {
@@ -357,13 +359,13 @@
   font-weight: 650;
 }
 .py-dashboard-strip strong small {
-  font-size: 12px;
+  font-size: 14px;
   color: #9da391;
   font-weight: 400;
 }
 .py-dashboard-strip small {
   display: block;
-  font-size: 9px;
+  font-size: 14px;
   color: #99a08f;
   margin-top: 7px;
 }
@@ -371,7 +373,7 @@
   display: inline;
 }
 .py-dashboard-strip .py-next-title {
-  font-size: 13px;
+  font-size: 14px;
   padding-top: 5px;
   line-height: 1.6;
 }
@@ -405,7 +407,7 @@
   place-items: center;
 }
 .py-review-link strong {
-  font-size: 12px;
+  font-size: 14px;
 }
 .py-review-link > svg {
   margin-left: auto;
@@ -427,7 +429,7 @@
 }
 .py-muted {
   color: var(--py-muted);
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.8;
 }
 .py-week-grid {
@@ -463,7 +465,7 @@
   color: #718a53;
 }
 .py-week-header .py-eyebrow {
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 1px;
 }
 .py-week h3 {
@@ -473,14 +475,14 @@
 }
 .py-week-header p {
   color: #939b8b;
-  font-size: 10px;
+  font-size: 14px;
   margin-top: 3px;
 }
 .py-week-status {
   margin-left: auto;
   align-self: start;
   color: #9a9f8e;
-  font-size: 9px;
+  font-size: 14px;
   flex-shrink: 0;
 }
 .py-week-live .py-week-status {
@@ -498,7 +500,7 @@
   align-items: center;
   gap: 10px;
   min-height: 42px;
-  font-size: 11px;
+  font-size: 14px;
   border-radius: 6px;
 }
 .py-lesson-list > a {
@@ -509,7 +511,7 @@
 }
 .py-lesson-list > a > small {
   margin-left: auto;
-  font-size: 9px;
+  font-size: 14px;
   color: #9ca58e;
   white-space: nowrap;
 }
@@ -524,7 +526,7 @@
   border-radius: 50%;
   display: grid;
   place-items: center;
-  font-size: 8px;
+  font-size: 14px;
   color: #859772;
 }
 .py-lesson-dot.done {
@@ -537,11 +539,11 @@
 }
 .py-planned-lesson > span:first-child {
   color: #b1b9a4;
-  font-size: 9px;
+  font-size: 14px;
   padding: 0 5px;
 }
 .py-planned-lesson small {
-  font-size: 9px;
+  font-size: 14px;
   margin-left: auto;
   color: #b7bda9;
 }
@@ -567,12 +569,12 @@
   margin: 5px 0;
 }
 .py-lab-teaser p {
-  font-size: 10px;
+  font-size: 14px;
   color: #a18c71;
 }
 .py-lab-teaser .py-eyebrow {
   color: #a99274;
-  font-size: 8px;
+  font-size: 14px;
 }
 .py-lab-teaser > svg:last-child {
   margin-left: auto;
@@ -584,12 +586,12 @@
   padding: 20px;
 }
 .py-error-teaser h3 {
-  font-size: 12px;
+  font-size: 14px;
   margin-bottom: 8px;
 }
 .py-error-teaser p,
 .py-error-teaser a {
-  font-size: 10px;
+  font-size: 14px;
   color: #8a957d;
 }
 .py-error-teaser a {
@@ -611,7 +613,7 @@
   margin: 0 clamp(22px, 3.2vw, 52px);
   padding: 20px 0;
   color: #a0a794;
-  font-size: 8px;
+  font-size: 14px;
   letter-spacing: 0.8px;
 }
 .py-local-dot {
@@ -633,14 +635,14 @@
   font-weight: 700;
 }
 .py-page-heading p {
-  font-size: 12px;
+  font-size: 14px;
   color: var(--py-muted);
   max-width: 740px;
 }
 .py-breadcrumb {
   display: flex;
   gap: 12px;
-  font-size: 10px;
+  font-size: 14px;
   color: #939c87;
   margin-bottom: 13px;
 }
@@ -651,7 +653,7 @@
   align-items: center;
 }
 .py-pause {
-  font-size: 10px;
+  font-size: 14px;
   color: #8e997f !important;
   white-space: nowrap;
   padding: 10px 0;
@@ -669,7 +671,7 @@
   gap: 9px;
   align-items: center;
   color: #a5ad99;
-  font-size: 11px;
+  font-size: 14px;
 }
 .py-steps span {
   width: 24px;
@@ -678,7 +680,7 @@
   border: 1px solid #dce2d1;
   display: grid;
   place-items: center;
-  font-size: 9px;
+  font-size: 14px;
 }
 .py-steps .active {
   font-weight: 650;
@@ -709,7 +711,7 @@
   display: flex;
   justify-content: space-between;
   gap: 20px;
-  font-size: 10px;
+  font-size: 14px;
   color: #96a087;
 }
 .py-question-counter strong {
@@ -752,7 +754,7 @@
   width: 100%;
   margin: 19px 0;
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
 }
 .py-markdown th,
 .py-markdown td,
@@ -781,18 +783,18 @@
   color: #6f8459;
 }
 .py-side-note h3 {
-  font-size: 12px;
+  font-size: 14px;
   margin: 9px 0 7px;
 }
 .py-side-note p {
-  font-size: 11px;
+  font-size: 14px;
   line-height: 1.85;
 }
 .py-card-controls {
   display: flex;
   flex-wrap: wrap;
   gap: 8px 12px;
-  font-size: 10px;
+  font-size: 14px;
   color: #8b977c;
   margin: 16px 0;
 }
@@ -827,7 +829,7 @@
   line-height: 1.6;
 }
 .py-word-hanzi {
-  font-size: 11px;
+  font-size: 14px;
   color: #939d86;
   margin: 2px 0 10px;
 }
@@ -841,7 +843,7 @@
   border-radius: 6px;
   background: #f4f7ed;
   padding: 7px 10px;
-  font-size: 10px !important;
+  font-size: 14px !important;
   display: inline-flex;
   align-items: center;
   gap: 5px;
@@ -851,7 +853,7 @@
   background: #e8efdc;
 }
 .py-sound-wrap small {
-  font-size: 8px;
+  font-size: 14px;
   color: #9ba98a;
 }
 .py-side-reminder {
@@ -861,12 +863,12 @@
 }
 .py-side-reminder p {
   margin: 10px 0;
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.9;
   color: #7c8a6d;
 }
 .py-side-reminder small {
-  font-size: 9px;
+  font-size: 14px;
   color: #a0a991;
 }
 .py-question {
@@ -935,7 +937,7 @@
   height: 22px;
   border: 1px solid #dce3cf;
   border-radius: 5px;
-  font-size: 10px;
+  font-size: 14px;
   flex-shrink: 0;
   color: #a0ad8e;
   display: grid;
@@ -954,7 +956,7 @@
   padding-top: 12px;
 }
 .py-audio-options .py-option-wrap > button {
-  font-size: 12px;
+  font-size: 14px;
   margin-top: 10px;
   min-height: 47px;
 }
@@ -963,7 +965,7 @@
   padding: 10px 0;
 }
 .py-read p {
-  font-size: 11px;
+  font-size: 14px;
   color: #929d83;
   margin: 16px 0 25px;
 }
@@ -994,7 +996,7 @@
   margin-bottom: 10px;
 }
 .py-feedback p {
-  font-size: 12px;
+  font-size: 14px;
   line-height: 1.9;
   margin: 8px 0;
 }
@@ -1009,7 +1011,7 @@
 }
 .py-assemble label {
   color: #939e85;
-  font-size: 11px;
+  font-size: 14px;
 }
 .py-assemble select {
   display: block;
@@ -1026,7 +1028,7 @@
 .py-input-area label,
 .py-parent > label {
   display: block;
-  font-size: 11px;
+  font-size: 14px;
   color: #859573;
   margin-bottom: 8px;
 }
@@ -1045,7 +1047,7 @@
 }
 .py-input-area small {
   display: block;
-  font-size: 10px;
+  font-size: 14px;
   line-height: 1.8;
   color: #9aa58b;
   margin-top: 8px;
@@ -1086,7 +1088,7 @@
   border: 0;
   background: transparent;
   color: #83956b !important;
-  font-size: 11px;
+  font-size: 14px;
   padding: 8px 0;
 }
 .py-empty-panel {
@@ -1105,7 +1107,7 @@
   margin-bottom: 14px;
 }
 .py-empty-panel p {
-  font-size: 12px;
+  font-size: 14px;
   color: #98a185;
   max-width: 550px;
   margin: 10px auto;
@@ -1133,7 +1135,7 @@
   margin: 12px 0 8px;
 }
 .py-lab-guide p {
-  font-size: 11px;
+  font-size: 14px;
   color: #8b977c;
 }
 .py-practice-panel {
@@ -1154,7 +1156,7 @@
   border-radius: 6px;
   margin-top: 23px;
   color: #8a9a74;
-  font-size: 11px;
+  font-size: 14px;
 }
 .py-keyboard-hint strong {
   font-size: 16px;
@@ -1179,7 +1181,7 @@
   margin-bottom: 17px;
 }
 .py-toolkit-card p {
-  font-size: 11px;
+  font-size: 14px;
   color: var(--py-muted);
   margin: 14px 0;
 }
@@ -1187,7 +1189,7 @@
   margin-bottom: 0;
 }
 .py-toggle {
-  font-size: 10px;
+  font-size: 14px;
   color: #8b987a;
 }
 .py-vowels {
@@ -1245,7 +1247,7 @@
   font-weight: 400;
 }
 .py-report-summary p {
-  font-size: 10px;
+  font-size: 14px;
   color: #98a388;
 }
 .py-report-grid {
@@ -1263,10 +1265,10 @@
 .py-skill-list > div > div:first-child {
   display: flex;
   justify-content: space-between;
-  font-size: 12px;
+  font-size: 14px;
 }
 .py-skill-list small {
-  font-size: 9px;
+  font-size: 14px;
   color: #a3ae92;
 }
 .py-error-row {
@@ -1274,11 +1276,11 @@
   justify-content: space-between;
   padding: 10px 0;
   border-bottom: 1px solid #edf0e5;
-  font-size: 11px;
+  font-size: 14px;
 }
 .py-error-row strong {
   color: #b0845c;
-  font-size: 10px;
+  font-size: 14px;
   font-weight: 500;
 }
 .py-parent .py-toggle {
@@ -1296,7 +1298,7 @@
   background: transparent;
   color: #a5917b !important;
   padding: 6px 0;
-  font-size: 10px !important;
+  font-size: 14px !important;
 }
 .py-report-footnote {
   display: flex;
@@ -1304,7 +1306,7 @@
   gap: 15px;
   color: #98a687;
   padding: 25px 0;
-  font-size: 10px;
+  font-size: 14px;
 }
 .py-report-footnote svg {
   flex-shrink: 0;
@@ -1314,7 +1316,7 @@
   padding: 12px 25px;
   background: #fae9d4;
   color: #a06539;
-  font-size: 12px;
+  font-size: 14px;
 }
 .py-storage-error a {
   margin-left: 15px;
@@ -1348,7 +1350,7 @@
     font-size: 16px;
   }
   .py-brand small {
-    font-size: 7px;
+    font-size: 14px;
   }
   .py-main-wrap {
     width: calc(100% - 194px);
@@ -1408,7 +1410,7 @@
   }
   .py-nav a {
     padding: 8px 12px;
-    font-size: 11px;
+    font-size: 14px;
     gap: 7px;
   }
   .py-nav svg {
@@ -1424,7 +1426,7 @@
     display: flex;
     justify-content: space-between;
     padding: 19px 25px 0;
-    font-size: 11px;
+    font-size: 14px;
     color: #879775;
   }
   .py-toolkit-grid {
@@ -1443,7 +1445,7 @@
     flex-direction: column;
     padding: 6px 5px;
     gap: 3px;
-    font-size: 9px;
+    font-size: 14px;
   }
   .py-sidebar {
     padding: 7px 10px;
@@ -1458,10 +1460,10 @@
     margin-bottom: 15px;
   }
   .py-date {
-    font-size: 9px;
+    font-size: 14px;
   }
   .py-topline .py-eyebrow {
-    font-size: 8px;
+    font-size: 14px;
   }
   .py-hero {
     grid-template-columns: 1fr;
@@ -1472,7 +1474,7 @@
     font-size: 36px;
   }
   .py-hero p {
-    font-size: 12px;
+    font-size: 14px;
   }
   .py-tone-art {
     transform: none;
@@ -1541,7 +1543,7 @@
   .py-steps > div {
     flex-direction: column;
     gap: 7px;
-    font-size: 9px;
+    font-size: 14px;
   }
   .py-learning-layout {
     grid-template-columns: 1fr;
@@ -1597,13 +1599,13 @@
     font-size: 25px;
   }
   .py-report-summary p {
-    font-size: 9px;
+    font-size: 14px;
   }
   .py-report-summary .py-small-label {
-    font-size: 9px;
+    font-size: 14px;
   }
   .py-report-summary small {
-    font-size: 10px;
+    font-size: 14px;
   }
   .py-result h2 {
     font-size: 22px;
@@ -1619,7 +1621,7 @@
     gap: 12px;
   }
   .py-lab-teaser h3 {
-    font-size: 13px;
+    font-size: 14px;
   }
   .py-lab-teaser > svg:first-child {
     width: 23px;
@@ -1661,7 +1663,7 @@
   font-size: 19px;
 }
 .py-assessment-grid p {
-  font-size: 13px;
+  font-size: 14px;
   line-height: 1.8;
   color: var(--py-muted);
 }
@@ -1792,6 +1794,344 @@
 .py-diagnosis-link {
   display: block;
   margin-top: 12px;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--py-green);
+}
+
+/* Compact laptop layout: readable type, small gutters, task-first content. */
+
+.py-app {
+  --study-accent: #456551;
+  --study-tint: #e9eedf;
+  --study-border: #d7dfcd;
+  --study-muted: #56634f;
+  --study-header-bg: #fafbf6;
+  --py-muted: #56634f;
+  display: block;
+  font-size: 16px;
+}
+.py-app .py-main-wrap {
+  width: 100%;
+}
+.py-app .py-main {
+  max-width: var(--study-content-width);
+  padding: 16px var(--study-gutter) 24px;
+  min-height: calc(100vh - 112px);
+}
+.py-app .py-footer {
+  padding: 10px var(--study-gutter);
+}
+.py-app .py-topline {
+  margin-bottom: 10px;
+}
+.py-app .py-hero {
+  margin-bottom: 14px;
+  padding: 0;
+  gap: 18px;
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.8fr);
+}
+.py-app .py-hero h1 {
+  font-size: 30px;
+  margin: 8px 0;
+}
+.py-app .py-hero p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 12px;
+}
+.py-app .py-art {
+  padding: 14px;
+}
+.py-app .py-art-grid {
+  gap: 8px;
+}
+.py-app .py-art-grid > div {
+  padding: 8px;
+}
+.py-app .py-art-grid svg {
+  height: 44px;
+}
+.py-app .py-art-footer {
+  margin-top: 8px;
+}
+.py-app .py-button {
+  font-size: 16px;
+  min-height: 44px;
+  padding: 8px 14px;
+}
+.py-app .py-week-grid {
+  gap: 12px;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.py-app .py-week-card {
+  padding: 14px;
+}
+.py-app .py-home-bottom {
+  margin-top: 12px;
+  gap: 12px;
+}
+.py-app .py-lab-teaser {
+  padding: 14px;
+}
+.py-app .py-page-heading {
+  margin-bottom: 10px;
+}
+.py-app .py-page-heading h1 {
+  font-size: 28px;
+}
+.py-app .py-page-heading p {
+  margin-top: 4px;
+  font-size: 16px;
+}
+.py-app .py-breadcrumb {
+  margin-bottom: 8px;
+}
+.py-app .py-steps {
+  padding: 8px;
+  background: #e9eedf;
+  border-radius: 9px;
+  gap: 8px;
+  margin: 8px 0 14px;
+}
+.py-app .py-steps > div {
+  font-size: 16px;
+  min-height: 40px;
+}
+.py-app .py-learning-layout {
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 16px;
+}
+.py-app .py-learning-main {
+  padding: 18px;
+}
+.py-app .py-card-counter {
+  margin-bottom: 12px;
+}
+.py-app .py-markdown {
+  min-height: 0;
+  font-size: 18px;
+  line-height: 1.65;
+}
+.py-app .py-markdown h2 {
+  margin-bottom: 12px;
+}
+.py-app .py-markdown p {
+  margin: 10px 0;
+}
+.py-app .py-question h2 {
+  font-size: 24px;
+  margin: 12px 0;
+}
+.py-app .py-question-word {
+  margin: 12px 0;
+  padding: 12px;
+}
+.py-app .py-options {
+  gap: 8px;
+}
+.py-app .py-options button {
+  min-height: 48px;
+  padding: 10px 14px;
+  font-size: 18px;
+}
+.py-app .py-course-actions,
+.py-app .py-question-actions {
+  position: sticky;
+  bottom: 0;
+  z-index: 10;
+  background: #fffefaf5;
+  padding: 10px 0;
+  margin-top: 12px;
+  border-top: 1px solid var(--py-line);
+}
+.py-app .py-side-note {
+  padding: 12px;
+}
+.py-app .py-side-note h3 {
+  margin-top: 8px;
+}
+.py-app .py-word-grid {
+  gap: 8px;
+}
+.py-app .py-card-controls {
+  margin: 10px 0;
+  gap: 8px;
+}
+.py-app .py-lab-guide {
+  gap: 12px;
+}
+.py-app .py-toolkit-grid {
+  gap: 12px;
+}
+.py-app .py-report-grid {
+  gap: 16px;
+}
+@media (max-width: 900px) {
+  .py-app .py-week-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .py-app .py-learning-layout {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .py-app .py-hero,
+  .py-app .py-week-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .py-app .py-hero-art {
+    display: none;
+  }
+  .py-app .py-steps > div {
+    font-size: 14px;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .py-app .py-lesson-heading {
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+  .py-app .py-pause {
+    white-space: normal;
+  }
+  .py-app .py-learning-main {
+    padding: 14px;
+  }
+}
+.py-app .py-week-grid {
+  grid-template-columns: minmax(0, 1fr);
+}
+.py-app .py-week {
+  padding: 14px;
+}
+.py-app .py-lesson-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+.py-app .py-lesson-list > a {
+  padding: 10px;
+  border: 1px solid var(--py-line);
+  border-radius: 8px;
+}
+.py-app .py-tone-art {
+  padding: 14px;
+}
+@media (max-width: 600px) {
+  .py-app .py-lesson-list {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+.py-app .py-hero {
+  grid-template-columns: minmax(0, 1.7fr) minmax(260px, 0.7fr);
+}
+.py-app .py-hero h1 {
+  font-size: 28px;
+}
+.py-app .py-hero .py-pill {
+  display: none;
+}
+.py-app .py-hero p {
+  max-width: 740px;
+}
+.py-app .py-tone-art {
+  transform: none;
+}
+.py-app .py-art-grid svg {
+  height: 30px;
+}
+.py-app .py-art-grid strong {
+  font-size: 30px;
+}
+.py-app .py-dashboard-strip {
+  padding: 12px 16px;
+  margin-bottom: 14px;
+}
+.py-app .py-dashboard-strip strong {
+  font-size: 20px;
+}
+.py-app .py-dashboard-strip .py-next-title,
+.py-app .py-review-link strong {
+  font-size: 16px;
+}
+.py-app .py-section-heading {
+  margin-bottom: 10px;
+}
+.py-app .py-week-header {
+  padding-bottom: 8px;
+}
+.py-app .py-extra-challenges {
+  margin-top: 12px;
+  border-top: 1px solid var(--py-line);
+}
+.py-app .py-extra-challenges > summary {
+  cursor: pointer;
+  padding: 12px 0;
+  color: #456551;
+  font-size: 16px;
+}
+.py-app .py-assessments {
+  margin-top: 10px;
+}
+.py-app .py-assessment-grid > a {
+  padding: 14px;
+}
+@media (max-width: 600px) {
+  .py-app .py-hero {
+    grid-template-columns: 1fr;
+  }
+  .py-app .py-tone-art {
+    display: none;
+  }
+}
+.py-app .py-lesson-heading .py-eyebrow {
+  display: none;
+}
+.py-app .py-lesson-heading .py-page-heading {
+  padding: 0;
+}
+.py-app .py-side-reminder {
+  margin-top: 10px;
+  padding-top: 10px;
+}
+.py-app .py-side-reminder p {
+  line-height: 1.5;
+  margin: 6px 0;
+}
+.py-app .py-word {
+  padding: 8px;
+}
+.py-app .py-word-pinyin {
+  font-size: 24px;
+}
+.py-app .py-word-hanzi {
+  margin: 3px 0;
+}
+.py-app .py-feedback {
+  margin-top: 12px;
+  padding: 12px;
+}
+.py-app .py-feedback p {
+  line-height: 1.6;
+}
+.py-app .py-read p {
+  margin: 10px 0;
+}
+.py-app .py-self-buttons {
+  margin-top: 12px;
+}
+.py-app .py-word .py-sound {
+  margin-top: 4px;
+}
+.py-app .py-side-note {
+  padding: 10px;
+}
+.py-app .py-side-note p {
+  line-height: 1.55;
+}
+.py-app .py-side-reminder {
+  padding: 8px 0;
+}
+.py-app .py-page-heading h1 {
+  margin: 4px 0;
 }

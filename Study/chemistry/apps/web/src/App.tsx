@@ -1,6 +1,19 @@
-import { Link, NavLink, Route, Routes } from 'react-router-dom';
+import { useEffect } from 'react';
+import {
+  Link,
+  NavLink,
+  Route,
+  Routes,
+  useLocation,
+  useSearchParams,
+} from 'react-router-dom';
 import type { LanguageMode, LocalizedText } from '@study/shared';
-import { LanguageSwitcher, Localized, useLanguageMode } from '@study/ui';
+import {
+  LanguageSwitcher,
+  Localized,
+  StudyHeader,
+  useLanguageMode,
+} from '@study/ui';
 import { pathLevels } from './content/path';
 import { lessons } from './content/lessons';
 import { LessonPage } from './LessonPage';
@@ -54,20 +67,6 @@ function Wordmark() {
       <span className="wordmark-dot wordmark-dot-three" />
       <span className="wordmark-center" />
     </span>
-  );
-}
-
-function HomeIcon() {
-  return (
-    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-      <path
-        d="m4 10 8-6 8 6v9a1 1 0 0 1-1 1h-5v-6h-4v6H5a1 1 0 0 1-1-1v-9Z"
-        stroke="currentColor"
-        strokeWidth="1.8"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      />
-    </svg>
   );
 }
 
@@ -248,6 +247,10 @@ function Home({ mode }: { mode: LanguageMode }) {
 }
 
 function Path({ mode }: { mode: LanguageMode }) {
+  const [params, setParams] = useSearchParams();
+  const levelId = pathLevels.some((level) => level.id === params.get('level'))
+    ? params.get('level')!
+    : pathLevels[0]!.id;
   return (
     <div className="page-enter path-page">
       <div className="eyebrow">
@@ -266,59 +269,77 @@ function Path({ mode }: { mode: LanguageMode }) {
           <Localized text={copy.pathBody} mode={mode} />
         </p>
       </div>
+      <label className="study-curriculum-selector">
+        {mode === 'en' ? 'Choose a stage' : '选择学习阶段'}
+        <select
+          value={levelId}
+          onChange={(event) =>
+            setParams({ level: event.target.value }, { replace: true })
+          }
+        >
+          {pathLevels.map((level) => (
+            <option key={level.id} value={level.id}>
+              {level.number} · {mode === 'en' ? level.title.en : level.title.zh}{' '}
+              · {level.lessonCount} {mode === 'en' ? 'lessons' : '课'}
+            </option>
+          ))}
+        </select>
+      </label>
       <div className="levels">
-        {pathLevels.map((level) => (
-          <article className="level-card" key={level.id}>
-            <div className="level-number">{level.number}</div>
-            <div className="level-main">
-              <h2>
-                <Localized
-                  text={level.title}
-                  mode={mode}
-                  secondaryClassName="block text-[0.76em] text-[#6f8e8b] font-normal mt-1"
-                />
-              </h2>
-              <p>
-                <Localized text={level.description} mode={mode} />
-              </p>
-              <div className="topic-label">
-                <Localized text={copy.topics} mode={mode} />
-              </div>
-              <div className="topic-list">
-                {lessons.some((lesson) => lesson.levelId === level.id)
-                  ? lessons
-                      .filter((lesson) => lesson.levelId === level.id)
-                      .map((lesson) => (
-                        <Link
-                          key={lesson.id}
-                          to={`/chemistry/lesson/${lesson.id}`}
-                        >
-                          <b>{lesson.order.toString().padStart(2, '0')}</b>
+        {pathLevels
+          .filter((level) => level.id === levelId)
+          .map((level) => (
+            <article className="level-card" key={level.id}>
+              <div className="level-number">{level.number}</div>
+              <div className="level-main">
+                <h2>
+                  <Localized
+                    text={level.title}
+                    mode={mode}
+                    secondaryClassName="block text-[0.76em] text-[#6f8e8b] font-normal mt-1"
+                  />
+                </h2>
+                <p>
+                  <Localized text={level.description} mode={mode} />
+                </p>
+                <div className="topic-label">
+                  <Localized text={copy.topics} mode={mode} />
+                </div>
+                <div className="topic-list">
+                  {lessons.some((lesson) => lesson.levelId === level.id)
+                    ? lessons
+                        .filter((lesson) => lesson.levelId === level.id)
+                        .map((lesson) => (
+                          <Link
+                            key={lesson.id}
+                            to={`/chemistry/lesson/${lesson.id}`}
+                          >
+                            <b>{lesson.order.toString().padStart(2, '0')}</b>
+                            <Localized
+                              text={lesson.title}
+                              mode={mode}
+                              secondaryClassName="block text-[0.82em] opacity-70"
+                            />
+                            <span aria-hidden="true">→</span>
+                          </Link>
+                        ))
+                    : level.topics.map((topic) => (
+                        <span key={topic.en}>
                           <Localized
-                            text={lesson.title}
+                            text={topic}
                             mode={mode}
                             secondaryClassName="block text-[0.82em] opacity-70"
                           />
-                          <span aria-hidden="true">→</span>
-                        </Link>
-                      ))
-                  : level.topics.map((topic) => (
-                      <span key={topic.en}>
-                        <Localized
-                          text={topic}
-                          mode={mode}
-                          secondaryClassName="block text-[0.82em] opacity-70"
-                        />
-                      </span>
-                    ))}
+                        </span>
+                      ))}
+                </div>
               </div>
-            </div>
-            <div className="level-count">
-              <strong>{level.lessonCount.toString().padStart(2, '0')}</strong>
-              <Localized text={copy.lessonUnit} mode={mode} />
-            </div>
-          </article>
-        ))}
+              <div className="level-count">
+                <strong>{level.lessonCount.toString().padStart(2, '0')}</strong>
+                <Localized text={copy.lessonUnit} mode={mode} />
+              </div>
+            </article>
+          ))}
       </div>
     </div>
   );
@@ -326,70 +347,40 @@ function Path({ mode }: { mode: LanguageMode }) {
 
 export function App() {
   const [mode, setMode] = useLanguageMode();
+  const location = useLocation();
+  useEffect(() => {
+    document.title = 'Chemistry Path · 化学学习路径';
+    window.scrollTo({ top: 0, behavior: 'instant' });
+  }, [location.pathname]);
 
   return (
-    <div className="app-shell">
-      <header className="site-header">
-        <Link
-          to="/chemistry"
-          className="brand"
-          aria-label={
-            mode === 'en' ? 'Chemistry Path home' : '化学学习路径首页'
-          }
-        >
-          <Wordmark />
-          <span className="brand-name">
-            <Localized
-              text={copy.brand}
-              mode={mode}
-              secondaryClassName="block text-[0.7em] font-normal tracking-[.1em] opacity-70"
-            />
-          </span>
-        </Link>
-        <nav
-          className="main-nav"
-          aria-label={mode === 'en' ? 'Main navigation' : '主导航'}
-        >
-          <NavLink
-            to="/chemistry"
-            end
-            className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
-            }
-          >
-            <Localized
-              text={copy.home}
-              mode={mode}
-              secondaryClassName="block text-[0.82em] font-normal opacity-70"
-            />
-          </NavLink>
-          <NavLink
-            to="/chemistry/path"
-            className={({ isActive }) =>
-              isActive ? 'nav-link active' : 'nav-link'
-            }
-          >
-            <Localized
-              text={copy.path}
-              mode={mode}
-              secondaryClassName="block text-[0.82em] font-normal opacity-70"
-            />
-          </NavLink>
-          <Link
-            className="chemistry-hub-button"
-            to="/"
-            aria-label={mode === 'en' ? 'Back to Study hub' : '返回 Study 首页'}
-            title={mode === 'en' ? 'Back to Study hub' : '返回 Study 首页'}
-          >
-            <HomeIcon />
+    <div className="app-shell study-learning-app">
+      <StudyHeader
+        brand={
+          <Link to="/chemistry">
+            <Wordmark />
+            <div>
+              <strong>
+                {mode === 'en' ? 'Chemistry Path' : '化学学习路径'}
+              </strong>
+              <small>Chemistry · Study</small>
+            </div>
           </Link>
-        </nav>
-        <LanguageSwitcher
-          mode={mode}
-          onChange={setMode}
-          className="language-switch"
-        />
-      </header>
+        }
+        navigation={
+          <>
+            <NavLink to="/chemistry" end>
+              {mode === 'en' ? 'Discover' : '探索首页'}
+            </NavLink>
+            <NavLink to="/chemistry/path">
+              {mode === 'en' ? 'Learning path' : '学习路线'}
+            </NavLink>
+          </>
+        }
+        controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
+        home={<Link to="/">← Study</Link>}
+        label={mode === 'en' ? 'Chemistry navigation' : '化学学习导航'}
+      />
       <main className="main-content">
         <Routes>
           <Route index element={<Home mode={mode} />} />
