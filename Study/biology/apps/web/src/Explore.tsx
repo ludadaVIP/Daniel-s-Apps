@@ -495,51 +495,60 @@ export function Explore({ id, mode, onExplore }: Props) {
               <Text mode={mode} text={evidence[object]!.detail} />
             </p>
           </div>
-          <div className="bio-animation bio-seed-sequence">
-            <Sprout step={frame} />
-          </div>
-          <div className="bio-playback">
-            <button
-              onClick={() => {
-                if (frame === 3) setFrame(0);
-                setPlaying(!playing);
-                onExplore();
-              }}
-            >
+          <details className="bio-seed-demo">
+            <summary>
               {label(
                 mode,
-                playing ? 'Ⅱ 暂停' : '▷ 看种子生长',
-                playing ? 'Ⅱ Pause' : '▷ Watch a seed grow',
+                '种子生长 · 展开动画演示',
+                'Seed growth · Show animation',
               )}
-            </button>
-            <button
-              disabled={frame === 3 || playing}
-              onClick={() => {
-                setFrame((v) => v + 1);
-                onExplore();
-              }}
-            >
-              {label(mode, '下一步', 'Next step')}
-            </button>
-            <button
-              onClick={() => {
-                reset();
-                onExplore();
-              }}
-            >
-              {label(mode, '↺ 重播', '↺ Replay')}
-            </button>
-            <span>{frame + 1} / 4</span>
-          </div>
-          <p className="bio-caption">
-            <Text
-              mode={mode}
-              text={t(
-                '有活力的种子：由细胞构成，在适宜条件下萌发、生长。模型压缩了真实时间；这些证据比“有没有移动”更有用。',
-                'A viable seed has cells and can germinate and grow under suitable conditions. Time is compressed; this is more useful than asking whether it moves.',
-              )}
-            />
-          </p>
+            </summary>
+            <div className="bio-animation bio-seed-sequence">
+              <Sprout step={frame} />
+            </div>
+            <div className="bio-playback">
+              <button
+                onClick={() => {
+                  if (frame === 3) setFrame(0);
+                  setPlaying(!playing);
+                  onExplore();
+                }}
+              >
+                {label(
+                  mode,
+                  playing ? 'Ⅱ 暂停' : '▷ 看种子生长',
+                  playing ? 'Ⅱ Pause' : '▷ Watch a seed grow',
+                )}
+              </button>
+              <button
+                disabled={frame === 3 || playing}
+                onClick={() => {
+                  setFrame((v) => v + 1);
+                  onExplore();
+                }}
+              >
+                {label(mode, '下一步', 'Next step')}
+              </button>
+              <button
+                onClick={() => {
+                  reset();
+                  onExplore();
+                }}
+              >
+                {label(mode, '↺ 重播', '↺ Replay')}
+              </button>
+              <span>{frame + 1} / 4</span>
+            </div>
+            <p className="bio-caption">
+              <Text
+                mode={mode}
+                text={t(
+                  '有活力的种子：由细胞构成，在适宜条件下萌发、生长。模型压缩了真实时间；这些证据比“有没有移动”更有用。',
+                  'A viable seed has cells and can germinate and grow under suitable conditions. Time is compressed; this is more useful than asking whether it moves.',
+                )}
+              />
+            </p>
+          </details>
         </>
       ) : (
         <>

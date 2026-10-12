@@ -8,7 +8,7 @@ import {
   useLocation,
   useParams,
 } from 'react-router-dom';
-import { LanguageSwitcher, useLanguageMode } from '@study/ui';
+import { LanguageSwitcher, StudyHeader, useLanguageMode } from '@study/ui';
 import type { LanguageMode } from '@study/shared';
 import { lessons, questions, section, t, type Question } from './content';
 import curriculum from '../../../curriculum/index.json';
@@ -455,6 +455,7 @@ function LessonBody({
       lesson.questions.findIndex((q) => !store.progress.answers[q.id]),
     ),
   );
+  const [explorePanel, setExplorePanel] = useState(0);
   const result = outcome(lesson, store.progress);
   const next = lessons[lessons.indexOf(lesson) + 1];
   function move(step: number) {
@@ -576,27 +577,48 @@ function LessonBody({
       )}
       {s.step === 1 && (
         <>
-          <div className="bio-objectives">
-            <span className="bio-eyebrow">
-              {words(mode, '这次你会发现', 'YOU WILL DISCOVER')}
-            </span>
-            {lesson.objectives.map((o) => (
-              <p key={o.en}>
-                ✦ <Text mode={mode} text={o} />
-              </p>
+          <div
+            className="study-stage-picker"
+            role="group"
+            aria-label={words(mode, '探索内容', 'Exploration panels')}
+          >
+            {[
+              t('操作模型', 'Interactive model'),
+              t('理解线索', 'Explanation'),
+              t('小词典', 'Glossary'),
+            ].map((panel, i) => (
+              <button
+                key={panel.en}
+                aria-pressed={explorePanel === i}
+                onClick={() => setExplorePanel(i)}
+              >
+                {words(mode, panel.zh, panel.en)}
+              </button>
             ))}
           </div>
-          <div className="bio-explore-grid">
-            <Diagram id={lesson.id} mode={mode} />
-            <Explore
-              id={lesson.id}
-              mode={mode}
-              onExplore={() => {
-                if (!s.explored) store.session(lesson.id, { explored: true });
-              }}
-            />
+          <div hidden={explorePanel !== 0}>
+            <div className="bio-objectives">
+              <span className="bio-eyebrow">
+                {words(mode, '这次你会发现', 'YOU WILL DISCOVER')}
+              </span>
+              {lesson.objectives.map((o) => (
+                <p key={o.en}>
+                  ✦ <Text mode={mode} text={o} />
+                </p>
+              ))}
+            </div>
+            <div className="bio-explore-grid">
+              <Diagram id={lesson.id} mode={mode} />
+              <Explore
+                id={lesson.id}
+                mode={mode}
+                onExplore={() => {
+                  if (!s.explored) store.session(lesson.id, { explored: true });
+                }}
+              />
+            </div>
           </div>
-          <div className="bio-explanation">
+          <div className="bio-explanation" hidden={explorePanel !== 1}>
             <span className="bio-eyebrow">
               {words(mode, '把线索连起来', 'CONNECT THE CLUES')}
             </span>
@@ -621,7 +643,7 @@ function LessonBody({
               <Markdown mode={mode} text={section(lesson.id, 'Depth')} />
             </details>
           </div>
-          <div className="bio-terms">
+          <div className="bio-terms" hidden={explorePanel !== 2}>
             {lesson.terms.map((term) => (
               <div key={term.word.en}>
                 <strong>
@@ -1142,61 +1164,36 @@ export function App() {
     window.scrollTo(0, 0);
   }, [location.pathname, mode]);
   return (
-    <div className="bio-app">
-      <aside className="bio-sidebar">
-        <Link to="/biology" className="bio-brand">
-          <span className="bio-brand-icon">❧</span>
-          <div>
-            <strong>{words(mode, '生命探索', 'Biology Explorer')}</strong>
-            <small>BIOLOGY / STUDY</small>
-          </div>
-        </Link>
-        <span className="bio-nav-label">
-          {words(mode, '我的探索空间', 'MY EXPLORATION SPACE')}
-        </span>
-        <nav aria-label={words(mode, '生物学习导航', 'Biology navigation')}>
-          <NavLink to="/biology" end>
-            <span>◫</span>
-            {words(mode, '探索地图', 'Explore')}
-          </NavLink>
-          <NavLink to="/biology/review">
-            <span>↺</span>
-            {words(mode, '回顾线索', 'Review')}
-            {review > 0 && <b>{review}</b>}
-          </NavLink>
-          <NavLink to="/biology/notebook">
-            <span>▤</span>
-            {words(mode, '发现笔记', 'Notebook')}
-          </NavLink>
-        </nav>
-        <div className="bio-sidebar-bottom">
-          <p>
-            <Text
-              mode={mode}
-              text={t(
-                '保持好奇。\n生命有很多答案。',
-                'Stay curious.\nLife has many answers.',
-              )}
-            />
-          </p>
-          <span className="bio-sidebar-rule" />
-          <Link to="/">← {words(mode, '返回 Study', 'Back to Study')}</Link>
-        </div>
-      </aside>
+    <div className="bio-app study-learning-app">
       <div className="bio-main-wrap">
-        <header className="bio-header">
-          <Link to="/biology" className="bio-mobile-title">
-            {words(mode, '生命探索', 'Biology Explorer')}
-          </Link>
-          <span className="bio-header-label">
-            {words(mode, '观察 · 提问 · 发现', 'OBSERVE · WONDER · DISCOVER')}
-          </span>
-          <LanguageSwitcher
-            mode={mode}
-            onChange={setMode}
-            className="bio-language"
-          />
-        </header>
+        <StudyHeader
+          brand={
+            <Link to="/biology">
+              <span className="bio-brand-icon">❧</span>
+              <div>
+                <strong>{words(mode, '生命探索', 'Biology Explorer')}</strong>
+                <small>Biology · Study</small>
+              </div>
+            </Link>
+          }
+          navigation={
+            <>
+              <NavLink to="/biology" end>
+                {words(mode, '探索首页', 'Discover')}
+              </NavLink>
+              <NavLink to="/biology/review">
+                {words(mode, '温故知新', 'Review')}
+                {review > 0 && <b>{review}</b>}
+              </NavLink>
+              <NavLink to="/biology/notebook">
+                {words(mode, '发现手帐', 'Notebook')}
+              </NavLink>
+            </>
+          }
+          controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
+          home={<Link to="/">← Study</Link>}
+          label={words(mode, '生物学习导航', 'Biology navigation')}
+        />
         {store.error && (
           <div className="bio-storage-error" role="alert">
             {store.error}

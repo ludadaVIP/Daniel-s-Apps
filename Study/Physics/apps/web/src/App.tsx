@@ -6,9 +6,10 @@ import {
   Route,
   Routes,
   useLocation,
+  useSearchParams,
 } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
-import { LanguageSwitcher, useLanguageMode } from '@study/ui';
+import { LanguageSwitcher, StudyHeader, useLanguageMode } from '@study/ui';
 import { ProjectPage, ProjectCard } from './ProjectPage';
 import { WalkingCard } from './WalkingCard';
 import { MaterialsCard } from './MaterialsCard';
@@ -422,6 +423,27 @@ function Home({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
   );
 }
 function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
+  const [params, setParams] = useSearchParams();
+  const defaultStage = (
+    lessons.find((l) => !store.progress.lessons[l.id]?.completedAt) ??
+    lessons[0]!
+  ).stage;
+  const requestedStage = Number(params.get('stage'));
+  const stageIndex =
+    params.has('stage') && lessons.some((l) => l.stage === requestedStage)
+      ? requestedStage
+      : defaultStage;
+  const unitId = params.get('unit') ?? '';
+  const available = lessons.filter((l) => l.stage === stageIndex);
+  const stageUnits = Object.entries(units).filter(([id]) =>
+    available.some((l) => l.unit === id),
+  );
+  const selectedStage = stageIndex;
+  const selectedUnit = stageUnits.some(([id]) => id === unitId)
+    ? unitId
+    : (available.find(
+        (lesson) => !store.progress.lessons[lesson.id]?.completedAt,
+      )?.unit ?? stageUnits[0]?.[0]);
   return (
     <div className="phy-page">
       <div className="phy-page-heading">
@@ -443,7 +465,48 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
           </p>
         </div>
       </div>
+      <label className="study-curriculum-selector">
+        <B zh="选择学习阶段" en="Choose a stage" mode={mode} />
+        <select
+          value={stageIndex}
+          onChange={(event) => {
+            setParams({ stage: event.target.value }, { replace: true });
+          }}
+        >
+          {stages.map(
+            (stage, i) =>
+              lessons.some((l) => l.stage === i) && (
+                <option key={i} value={i}>
+                  {i.toString().padStart(2, '0')} ·{' '}
+                  {mode === 'en' ? stage.title.en : stage.title.zh}
+                </option>
+              ),
+          )}
+        </select>
+      </label>
+      <div
+        className="study-stage-picker"
+        role="group"
+        aria-label={mode === 'en' ? 'Course units' : '课程单元'}
+      >
+        {stageUnits.map(([id, title]) => (
+          <button
+            key={id}
+            aria-pressed={id === selectedUnit}
+            onClick={() =>
+              setParams(
+                { stage: String(stageIndex), unit: id },
+                { replace: true },
+              )
+            }
+          >
+            {mode === 'en' ? title.en : title.zh} ·{' '}
+            {available.filter((l) => l.unit === id).length}
+          </button>
+        ))}
+      </div>
       {stages.map((stage, stageIndex) => {
+        if (stageIndex !== selectedStage) return null;
         const available = lessons.filter((l) => l.stage === stageIndex);
         if (!available.length) return null;
         return (
@@ -468,7 +531,7 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
             </div>
             {Object.entries(units).map(([unit, title]) => {
               const group = available.filter((l) => l.unit === unit);
-              if (!group.length) return null;
+              if (!group.length || unit !== selectedUnit) return null;
               return (
                 <div key={unit} className="phy-course-unit">
                   <h3 className="phy-unit-title">
@@ -505,49 +568,58 @@ function Path({ mode, store }: { mode: LanguageMode; store: ProgressStore }) {
           </section>
         );
       })}
-      <div className="phy-section-heading phy-roadmap-title">
-        <h2>
-          <B zh="接下来，世界更大。" en="A bigger world ahead." mode={mode} />
-        </h2>
-        <span>
+      <details className="phy-future-roadmap">
+        <summary>
           <B
-            zh="长期课程地图 · 后续开放"
-            en="Long-term roadmap · Coming later"
+            zh="接下来的课程地图 · 展开查看"
+            en="Future roadmap · Show more"
             mode={mode}
           />
-        </span>
-      </div>
-      <p className="phy-soft">
-        <B
-          zh="先把观察、测量和数据读懂，再走向运动、力、能量与电磁。已有课程可以自由探索，后续按这个顺序逐步展开。"
-          en="Build observation, measurement and data skills before motion, forces, energy and electromagnetism. Explore available lessons freely; later content will follow this progression."
-          mode={mode}
-        />
-      </p>
-      <div className="phy-roadmap">
-        {stages.map(
-          (s, i) =>
-            !lessons.some((l) => l.stage === i) && (
-              <article key={s.title.en}>
-                <span className="phy-roadmap-number">
-                  {String(i).padStart(2, '0')}
-                </span>
-                <div>
-                  <h3>
-                    <Text value={s.title} mode={mode} />
-                  </h3>
-                  <p>
-                    <Text value={s.topics} mode={mode} />
-                  </p>
-                </div>
-                <div className="phy-roadmap-meta">
-                  <span>{s.age}</span>
-                  <B zh="规划中" en="Planned" mode={mode} />
-                </div>
-              </article>
-            ),
-        )}
-      </div>
+        </summary>
+        <div className="phy-section-heading phy-roadmap-title">
+          <h2>
+            <B zh="接下来，世界更大。" en="A bigger world ahead." mode={mode} />
+          </h2>
+          <span>
+            <B
+              zh="长期课程地图 · 后续开放"
+              en="Long-term roadmap · Coming later"
+              mode={mode}
+            />
+          </span>
+        </div>
+        <p className="phy-soft">
+          <B
+            zh="先把观察、测量和数据读懂，再走向运动、力、能量与电磁。已有课程可以自由探索，后续按这个顺序逐步展开。"
+            en="Build observation, measurement and data skills before motion, forces, energy and electromagnetism. Explore available lessons freely; later content will follow this progression."
+            mode={mode}
+          />
+        </p>
+        <div className="phy-roadmap">
+          {stages.map(
+            (s, i) =>
+              !lessons.some((l) => l.stage === i) && (
+                <article key={s.title.en}>
+                  <span className="phy-roadmap-number">
+                    {String(i).padStart(2, '0')}
+                  </span>
+                  <div>
+                    <h3>
+                      <Text value={s.title} mode={mode} />
+                    </h3>
+                    <p>
+                      <Text value={s.topics} mode={mode} />
+                    </p>
+                  </div>
+                  <div className="phy-roadmap-meta">
+                    <span>{s.age}</span>
+                    <B zh="规划中" en="Planned" mode={mode} />
+                  </div>
+                </article>
+              ),
+          )}
+        </div>
+      </details>
     </div>
   );
 }
@@ -908,74 +980,34 @@ export function App() {
     { to: '/physics/notebook', icon: 'book', name: t('发现手帐', 'Notebook') },
   ];
   return (
-    <div className="phy-app">
-      <aside className="phy-sidebar">
-        <Link to="/physics" className="phy-brand">
-          <span className="phy-brand-symbol">
-            p<span>·</span>
-          </span>
-          <div>
-            <strong>Physics Lab</strong>
-            <span>物理探索室</span>
-          </div>
-        </Link>
-        <p className="phy-sidebar-label">LET’S EXPLORE</p>
-        <nav aria-label={mode === 'en' ? 'Main navigation' : '主导航'}>
-          {nav.map((n) => (
-            <NavLink
-              end={n.to === '/physics'}
-              key={n.to}
-              to={n.to}
-              className={({ isActive }) => (isActive ? 'active' : '')}
-            >
-              <Icon name={n.icon} />
-              <Text value={n.name} mode={mode} />
-              {n.icon === 'review' && due > 0 && (
-                <span className="phy-nav-count">{due}</span>
-              )}
+    <div className="phy-app study-learning-app">
+      <div className="phy-main-shell">
+        <StudyHeader
+          brand={
+            <Link to="/physics">
+              <span className="phy-brand-symbol">
+                p<span>·</span>
+              </span>
+              <div>
+                <strong>{mode === 'en' ? 'Physics Lab' : '物理探索室'}</strong>
+                <small>
+                  {count} / {lessons.length}{' '}
+                  {mode === 'en' ? 'discovered' : '已探索'}
+                </small>
+              </div>
+            </Link>
+          }
+          navigation={nav.map((n) => (
+            <NavLink end={n.to === '/physics'} key={n.to} to={n.to}>
+              <Icon name={n.icon} size={18} />
+              {mode === 'en' ? n.name.en : n.name.zh}
+              {n.icon === 'review' && due > 0 && <b>{due}</b>}
             </NavLink>
           ))}
-        </nav>
-        <div className="phy-sidebar-bottom">
-          <div className="phy-sidebar-progress">
-            <span>
-              <B
-                zh="一点点，走得很远。"
-                en="Small steps go a long way."
-                mode={mode}
-              />
-            </span>
-            <strong>
-              {count}
-              <small> / {lessons.length}</small>
-            </strong>
-            <div className="phy-progress-bar">
-              <i style={{ width: `${(count / lessons.length) * 100}%` }} />
-            </div>
-          </div>
-          <Link className="phy-study-back" to="/">
-            <Icon name="globe" size={18} />
-            <B zh="返回 Study" en="Back to Study" mode={mode} />
-            <span>↗</span>
-          </Link>
-        </div>
-      </aside>
-      <div className="phy-main-shell">
-        <header className="phy-header">
-          <div>
-            <span className="phy-header-dot" />
-            <B
-              zh="观察世界，保持好奇"
-              en="Observe the world. Stay curious."
-              mode={mode}
-            />
-          </div>
-          <LanguageSwitcher
-            mode={mode}
-            onChange={setMode}
-            className="phy-language"
-          />
-        </header>
+          controls={<LanguageSwitcher mode={mode} onChange={setMode} />}
+          home={<Link to="/">← Study</Link>}
+          label={mode === 'en' ? 'Physics navigation' : '物理学习导航'}
+        />
         {!store.storageAvailable && (
           <p className="phy-storage-message" role="status">
             <B
