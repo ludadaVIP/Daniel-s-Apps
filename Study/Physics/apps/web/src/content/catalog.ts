@@ -6946,4 +6946,1474 @@ export const lessonCatalog: LessonCatalogEntry[] = [
       },
     ],
   },
+  {
+    id: 'waves-a-pulse-without-a-passenger',
+    title: {
+      zh: '绳上的小山走了，标记也走了吗？',
+      en: 'A bump travels along a rope. Does its marker travel too?',
+    },
+    subtitle: {
+      zh: '跟踪一个标记，把介质运动与扰动传播分开。',
+      en: 'Track one marker to separate medium motion from a travelling disturbance.',
+    },
+    minutes: 21,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-pulse',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-two-directions-on-one-string',
+    title: {
+      zh: '波向右走，绳为什么上下动？',
+      en: 'The wave travels right. Why does the string move up and down?',
+    },
+    subtitle: {
+      zh: '用两条方向线认识横波，不把“横”当屏幕横向。',
+      en: 'Read transverse waves through two directions, not the screen’s horizontal edge.',
+    },
+    minutes: 22,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-transverse',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-a-compression-not-a-courier',
+    title: {
+      zh: '挤密的地方向前走，弹簧圈也一路向前吗？',
+      en: 'Compressions travel. Do the spring coils travel all the way?',
+    },
+    subtitle: {
+      zh: '从相邻间距看纵波，正确读懂位移图。',
+      en: 'Read longitudinal waves through neighbour spacing and displacement graphs.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-longitudinal',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-a-ruler-for-the-same-phase',
+    title: {
+      zh: '两个波峰之间，尺子量的是什么？',
+      en: 'What does a ruler between two crests measure?',
+    },
+    subtitle: {
+      zh: '冻结同一时刻，分清波长、振幅和峰谷间距。',
+      en: 'Freeze one instant to distinguish wavelength, amplitude and crest–trough separation.',
+    },
+    minutes: 22,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-wavelength',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-one-marker-two-clocks',
+    title: {
+      zh: '一秒两次，和一次两秒，是一回事吗？',
+      en: 'Two cycles per second, or two seconds per cycle?',
+    },
+    subtitle: {
+      zh: '同一个标记，把频率与周期放在两本时间账里。',
+      en: 'One marker, two time ledgers: frequency and period.',
+    },
+    minutes: 22,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-clock',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-a-bigger-motion-not-a-faster-clock',
+    title: {
+      zh: '甩得更高，波就更快了吗？',
+      en: 'A bigger flick: does the wave travel faster?',
+    },
+    subtitle: {
+      zh: '只改振幅，对照峰谷差与理想弦的能量传递。',
+      en: 'Change only amplitude; compare peak-to-trough span and ideal-string power.',
+    },
+    minutes: 23,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-amplitude',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-the-medium-sets-the-speed',
+    title: {
+      zh: '同样的节奏，换一根弦，波速会一样吗？',
+      en: 'Same rhythm, different string: same wave speed?',
+    },
+    subtitle: {
+      zh: '控制张力与每米质量，从传播证据找波速。',
+      en: 'Control tension and mass per metre to investigate propagation speed.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-speed',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-one-period-one-wavelength',
+    title: {
+      zh: '每秒振动更多，波就一定跑更快吗？',
+      en: 'More cycles each second: must the wave travel faster?',
+    },
+    subtitle: {
+      zh: '同一介质，把一个周期与一个波长接起来。',
+      en: 'One medium: connect one period with one wavelength.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'waves',
+    kind: 'waves-relation',
+    pack: 'waves',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-an-end-sends-a-pulse-back',
+    title: {
+      zh: '绳子的尽头，怎样把一个隆起送回来？',
+      en: 'How does a rope end return a bump?',
+    },
+    subtitle: {
+      zh: '只换终端：翻转、不翻转，还是吸收？',
+      en: 'Change only the termination: inverted, upright or absorbed?',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'waves',
+    kind: 'wave-interactions-reflection',
+    pack: 'waveInteractions',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-one-rhythm-across-a-boundary',
+    title: {
+      zh: '跨过边界，波为什么转弯却不换节奏？',
+      en: 'Why does a wave turn at a boundary but keep its rhythm?',
+    },
+    subtitle: {
+      zh: '从同一个频率，读出新的方向与波长。',
+      en: 'Use one frequency to read a new direction and wavelength.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'waves',
+    kind: 'wave-interactions-refraction',
+    pack: 'waveInteractions',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-an-opening-is-not-a-ray-tunnel',
+    title: {
+      zh: '声音能绕过门缝，为什么光看起来更直？',
+      en: 'Why can sound spread around a doorway while light seems straight?',
+    },
+    subtitle: {
+      zh: '不只问缝有多宽，还要问它有几个波长宽。',
+      en: 'Ask how many wavelengths fit across an opening.',
+    },
+    minutes: 25,
+    stage: 6,
+    unit: 'waves',
+    kind: 'wave-interactions-diffraction',
+    pack: 'waveInteractions',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-a-flat-string-still-has-energy',
+    title: {
+      zh: '隆起与凹陷相遇，波和能量都消失了吗？',
+      en: 'When a bump meets a dip, do the waves and energy disappear?',
+    },
+    subtitle: {
+      zh: '把位移相加，再追踪相遇后的波和完整能量。',
+      en: 'Add displacements, then follow the waves and the full energy ledger.',
+    },
+    minutes: 25,
+    stage: 6,
+    unit: 'waves',
+    kind: 'wave-interactions-interference',
+    pack: 'waveInteractions',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'waves-nodes-stay-while-the-string-moves',
+    title: {
+      zh: '琴弦上的波节不走，弦就没有动吗？',
+      en: 'If nodes stay in place, is the string still?',
+    },
+    subtitle: {
+      zh: '两列相向行波，形成固定波节与振动波腹。',
+      en: 'Opposing travelling waves make stationary nodes and moving antinodes.',
+    },
+    minutes: 25,
+    stage: 6,
+    unit: 'waves',
+    kind: 'wave-interactions-standing',
+    pack: 'waveInteractions',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-air-stays-sound-arrives',
+    title: {
+      zh: '隔着房间听见拍手，空气跟着跑过来了吗？',
+      en: 'When a clap crosses the room, does the air follow?',
+    },
+    subtitle: {
+      zh: '跟住一小团介质，再跟住一段扰动。',
+      en: 'Follow a small parcel of medium, then a travelling disturbance.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-propagation',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-one-window-count-the-cycles',
+    title: {
+      zh: '同样长的一声，为什么有的听起来更尖？',
+      en: 'Why can equally long tones sound higher?',
+    },
+    subtitle: {
+      zh: '共同时间窗里，周期、频率和波长一起读。',
+      en: 'Read period, frequency and wavelength in a common window.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-pitch',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-pressure-intensity-and-decibels',
+    title: {
+      zh: '振幅翻倍，分贝也翻倍吗？',
+      en: 'Does doubling amplitude double decibels?',
+    },
+    subtitle: {
+      zh: '用一把对数尺，比较同频率的声压与能量。',
+      en: 'Use a logarithmic ruler for same-frequency pressure and energy.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-level',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-a-rhythm-that-builds-motion',
+    title: {
+      zh: '轻推秋千，为什么节奏比力气更关键？',
+      en: 'Why can timing matter more than strength when pushing a swing?',
+    },
+    subtitle: {
+      zh: '相同推力，观察暂态建立和稳态幅度。',
+      en: 'Hold force fixed; observe build-up and steady amplitude.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-resonance',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-two-ends-two-constraints',
+    title: {
+      zh: '同样长的管，堵住一端为什么改变音高？',
+      en: 'Why does closing one end change a tube’s pitch?',
+    },
+    subtitle: {
+      zh: '声压波节与空气位移波节，不在同一处。',
+      en: 'Pressure nodes and air-displacement nodes differ.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-columns',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-a-moving-source-changes-arrivals',
+    title: {
+      zh: '驶过的警笛，换了音符还是换了到达节奏？',
+      en: 'Does a passing siren change its note or the arrival rhythm?',
+    },
+    subtitle: {
+      zh: '源仍400 Hz，固定接收点却数到不同节奏。',
+      en: 'The source stays 400 Hz; a fixed receiver counts a different rhythm.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-doppler',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-a-return-time-and-a-blind-window',
+    title: {
+      zh: '机器人离墙很近，为什么反而测不到？',
+      en: 'Why might a robot fail to measure a very close wall?',
+    },
+    subtitle: {
+      zh: '超声往返测距，加上发射后的接收盲窗。',
+      en: 'Combine ultrasonic round-trip ranging with receiver blanking.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-echo',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'acoustics-depth-detail-and-a-weaker-return',
+    title: {
+      zh: '超声图像想看得更细，为什么回波可能更弱？',
+      en: 'Why can finer ultrasound detail come with weaker echoes?',
+    },
+    subtitle: {
+      zh: '用虚构两层界面，连接时间、深度和分辨率。',
+      en: 'Use two fictional interfaces to connect time, depth and resolution.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'acoustics',
+    kind: 'acoustics-imaging',
+    pack: 'acoustics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'optics-a-small-mirror-turn-a-large-ray-turn',
+    title: {
+      zh: '镜子只转一点，反射光为什么转得更多？',
+      en: 'Why does a small mirror turn swing the reflected ray farther?',
+    },
+    subtitle: {
+      zh: '入射方向保持，用转动法线追踪出射方向。',
+      en: 'Hold the incoming direction and follow the rotating normal.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'optics-reflection',
+    pack: 'optics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'optics-two-observers-one-virtual-image',
+    title: {
+      zh: '你换个位置，镜子里的物体也换地方了吗？',
+      en: 'Does a mirror image move when you change viewpoint?',
+    },
+    subtitle: {
+      zh: '用两条真实反射光路，定位同一个虚像。',
+      en: 'Use two real reflected paths to locate one virtual image.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'optics-mirror',
+    pack: 'optics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'optics-a-boundary-changes-direction-and-speed',
+    title: {
+      zh: '同一束光进出玻璃，为什么转弯方向不同？',
+      en: 'Why does the same ray bend differently entering and leaving glass?',
+    },
+    subtitle: {
+      zh: '从哪种介质到哪种介质，必须先说清楚。',
+      en: 'Name the incident and transmitting media first.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'optics-refraction',
+    pack: 'optics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'optics-sines-reveal-the-rule',
+    title: {
+      zh: '角度不成正比，怎样从折射数据找规律？',
+      en: 'How can refraction reveal a rule when angles are not proportional?',
+    },
+    subtitle: {
+      zh: '把角换成正弦，再让一条直线说话。',
+      en: 'Transform angles to sines and let a straight line reveal the relation.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'optics-snell',
+    pack: 'optics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'optics-a-straight-path-can-still-take-longer',
+    title: {
+      zh: '光路没有转弯，穿过玻璃也会多用时间吗？',
+      en: 'Can a straight ray still take longer through glass?',
+    },
+    subtitle: {
+      zh: '方向不变时，用行时与波长认识折射率。',
+      en: 'Use transit time and wavelength when direction stays fixed.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'optics-index',
+    pack: 'optics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'optics-the-last-transmitted-direction',
+    title: {
+      zh: '从水下向上看，什么时候界面像一面镜子？',
+      en: 'When can a surface look like a mirror from underwater?',
+    },
+    subtitle: {
+      zh: '临界角是边界；超过它才没有传播折射线。',
+      en: 'The critical angle is a boundary beyond which no transmitted ray propagates.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'optics-critical',
+    pack: 'optics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'optics-keep-the-core-and-leakage-in-one-ledger',
+    title: {
+      zh: '透明光纤怎样把光留在芯里？',
+      en: 'How does a transparent fibre keep light in its core?',
+    },
+    subtitle: {
+      zh: '从芯内角度到包层漏光，把每次分流记完整。',
+      en: 'Connect internal angles with cladding leakage and account for every split.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'optics-fibre',
+    pack: 'optics',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'imaging-one-lens-two-kinds-of-image',
+    title: {
+      zh: '放大镜能放大，为什么也能把像投到纸上？',
+      en: 'How can a magnifier also project an image onto paper?',
+    },
+    subtitle: {
+      zh: '先移动物体，再决定是实像还是虚像。',
+      en: 'Move the object before deciding whether the image is real or virtual.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-convex',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'imaging-diverging-light-a-visible-image',
+    title: {
+      zh: '光线越走越散，为什么凹透镜里仍能看见像？',
+      en: 'Why can you see an image through a lens whose rays spread apart?',
+    },
+    subtitle: {
+      zh: '追踪真实方向，再定位正立缩小的虚像。',
+      en: 'Trace real directions to locate a smaller upright virtual image.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-concave',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'imaging-many-rays-one-object-point',
+    title: {
+      zh: '只画两条光线，怎么能代表整幅图像？',
+      en: 'How can two drawn rays describe a whole image?',
+    },
+    subtitle: {
+      zh: '先定位一个物点，再把同样方法用于其他点。',
+      en: 'Locate one object point, then repeat for other points.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-rays',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'imaging-reciprocals-locate-the-image',
+    title: {
+      zh: '像距忽然很远，公式真的“坏了”吗？',
+      en: 'Does the lens equation fail when the image suddenly moves far away?',
+    },
+    subtitle: {
+      zh: '用带单位的倒数理解焦点边界。',
+      en: 'Use unit-bearing reciprocals to understand the focal boundary.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-equation',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'imaging-size-and-orientation-have-separate-clues',
+    title: {
+      zh: '倍率有负号，是不是像“变少了”？',
+      en: 'Does a negative magnification mean less image?',
+    },
+    subtitle: {
+      zh: '用高度比例看大小，用符号看倒正。',
+      en: 'Use the ratio for size and its sign for orientation.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-magnification',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'imaging-fixed-retina-changing-power',
+    title: {
+      zh: '看远处再看书，眼睛为什么不用移动视网膜？',
+      en: 'How can eyes refocus without moving the retina?',
+    },
+    subtitle: {
+      zh: '固定接收面，用等效屈光力改变交会位置。',
+      en: 'Hold the receiving plane and change equivalent optical power.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-eye',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'imaging-a-sensor-needs-the-right-plane',
+    title: {
+      zh: '像已经形成，为什么照片还是模糊？',
+      en: 'If a lens forms an image, why can a photo still be blurred?',
+    },
+    subtitle: {
+      zh: '让感光面到交会位置，再区分孔径与对焦。',
+      en: 'Place the sensor at focus, then distinguish aperture from focusing.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-camera',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'imaging-two-lenses-an-intermediate-image',
+    title: {
+      zh: '望远镜和显微镜，两片透镜怎么接力？',
+      en: 'How do two lenses work together in telescopes and microscopes?',
+    },
+    subtitle: {
+      zh: '先看中间像，再看目镜改变的视角。',
+      en: 'Find the intermediate image, then follow the eyepiece’s angular effect.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'optics',
+    kind: 'imaging-instruments',
+    pack: 'imaging',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+    ],
+  },
+  {
+    id: 'heat-still-air-moving-particles',
+    title: {
+      zh: '房间里没有风，空气分子就不动了吗？',
+      en: 'If there is no wind, do air molecules stop?',
+    },
+    subtitle: {
+      zh: '把平均速度与平均动能分开。',
+      en: 'Separate mean velocity from mean kinetic energy.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'heat',
+    kind: 'heat-particles',
+    pack: 'heat',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'heat-same-temperature-different-total',
+    title: {
+      zh: '一杯与一桶同温的水，能量一样多吗？',
+      en: 'Do a cup and a bucket at the same temperature hold equal energy?',
+    },
+    subtitle: {
+      zh: '温度关联平均，内能记整个体系。',
+      en: 'Temperature relates to a mean; internal energy accounts for a system.',
+    },
+    minutes: 24,
+    stage: 6,
+    unit: 'heat',
+    kind: 'heat-internal',
+    pack: 'heat',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'heat-contact-sets-the-direction',
+    title: {
+      zh: '小杯更烫，大杯能量更多，热往哪边走？',
+      en: 'A small cup is hotter, a large cup holds more energy: which way does heat flow?',
+    },
+    subtitle: {
+      zh: '传热方向看温差，最终温度还看热容量。',
+      en: 'Temperature difference sets direction; capacities set the final temperature.',
+    },
+    minutes: 25,
+    stage: 6,
+    unit: 'heat',
+    kind: 'heat-temperature',
+    pack: 'heat',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'heat-the-same-joules-different-warming',
+    title: {
+      zh: '同样加热，为什么水升温慢，金属升温快？',
+      en: 'Why can water warm more slowly than metal under the same heating?',
+    },
+    subtitle: {
+      zh: '把Q、m、c与ΔT放进一张账。',
+      en: 'Connect Q, m, c and ΔT in one account.',
+    },
+    minutes: 25,
+    stage: 6,
+    unit: 'heat',
+    kind: 'heat-capacity',
+    pack: 'heat',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
+  {
+    id: 'heat-energy-enters-temperature-pauses',
+    title: {
+      zh: '一直吸热，温度为什么停在0°C？',
+      en: 'Why can temperature stay at 0°C while heat keeps entering?',
+    },
+    subtitle: {
+      zh: '平台不是没变化：冰正在变成水。',
+      en: 'A plateau is not inactivity: ice is becoming water.',
+    },
+    minutes: 26,
+    stage: 6,
+    unit: 'heat',
+    kind: 'heat-phase',
+    pack: 'heat',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+    ],
+  },
+  {
+    id: 'heat-changing-phase-has-a-heat-budget',
+    title: {
+      zh: '同样20 kJ，能融化多少冰、汽化多少水？',
+      en: 'With the same 20 kJ, how much ice melts or water vaporizes?',
+    },
+    subtitle: {
+      zh: '相变热量看L与转变质量，凝固还要记负号。',
+      en: 'Transition heat depends on L and converted mass; freezing requires a sign.',
+    },
+    minutes: 26,
+    stage: 6,
+    unit: 'heat',
+    kind: 'heat-latent',
+    pack: 'heat',
+    predictionCount: 3,
+    assessments: [
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+      {
+        optionCount: 3,
+        correct: 0,
+      },
+      {
+        optionCount: 3,
+        correct: 2,
+      },
+      {
+        optionCount: 3,
+        correct: 1,
+      },
+    ],
+  },
 ];

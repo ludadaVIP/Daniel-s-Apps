@@ -7,6 +7,7 @@ import { subjects, type Subject } from './subjects';
 const ChemistryPage = lazy(() => import('./ChemistryPage'));
 const PhysicsPage = lazy(() => import('./PhysicsPage'));
 const PinyinPage = lazy(() => import('./PinyinPage'));
+const BiologyPage = lazy(() => import('./BiologyPage'));
 
 function subjectIcon(id: SubjectId) {
   if (id === 'pinyin') {
@@ -176,41 +177,6 @@ function Hub() {
   );
 }
 
-function ComingSoon({ subject }: { subject: Subject }) {
-  const [mode, setMode] = useLanguageMode();
-  useEffect(() => {
-    document.title = `${subject.name.en} · Study`;
-  }, [subject]);
-  return (
-    <div className="study-hub">
-      <Header mode={mode} setMode={setMode} />
-      <main className="study-preview">
-        <Link to="/" className="study-back">
-          ← {words(mode, '全部学科', 'All subjects')}
-        </Link>
-        <div className={`study-preview-icon study-card-${subject.id}`}>
-          {subjectIcon(subject.id)}
-        </div>
-        <p className="study-preview-kind">{subject.name.en}</p>
-        <h1>{words(mode, subject.name.zh, subject.name.en)}</h1>
-        <p className="study-preview-description">
-          {words(mode, subject.phrase.zh, subject.phrase.en)}
-        </p>
-        <p className="study-preview-status">
-          {words(
-            mode,
-            '课程正在规划中。',
-            'This subject path is being planned.',
-          )}
-        </p>
-        <Link to="/chemistry" className="study-preview-link">
-          {words(mode, '先看看化学 →', 'Explore chemistry →')}
-        </Link>
-      </main>
-    </div>
-  );
-}
-
 export function App() {
   return (
     <Routes>
@@ -235,7 +201,20 @@ export function App() {
           </Suspense>
         }
       />
-      <Route path="/biology" element={<ComingSoon subject={subjects[2]!} />} />
+      <Route
+        path="/biology/*"
+        element={
+          <Suspense
+            fallback={
+              <div className="study-loading">
+                正在打开生命探索 / Opening Biology…
+              </div>
+            }
+          >
+            <BiologyPage />
+          </Suspense>
+        }
+      />
       <Route
         path="/pinyin/*"
         element={

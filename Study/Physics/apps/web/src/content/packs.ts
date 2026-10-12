@@ -40,4 +40,11 @@ export const lessonPacks: Record<LessonPack, () => Promise<Lesson[]>> = {
     import('./mechanicalEnergy').then((m) => m.mechanicalEnergyLessons),
   circular: () => import('./circular').then((m) => m.circularLessons),
   gravitation: () => import('./gravitation').then((m) => m.gravitationLessons),
+  acoustics: () => import('./acoustics').then((m) => m.acousticLessons),
+  optics: () => import('./optics').then((m) => m.opticsLessons),
+  imaging: () => import('./imaging').then((m) => m.imagingLessons),
+  heat: () => import('./heat').then((m) => m.heatLessons),
+  waves: () => import('./waves').then((m) => m.waveLessons),
+  waveInteractions: () =>
+    import('./waveInteractions').then((m) => m.waveInteractionLessons),
 };

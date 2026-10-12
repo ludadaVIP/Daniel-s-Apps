@@ -1,6 +1,6 @@
 # Physics Lab · 物理探索室
 
-A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 199 complete bilingual lessons, 198 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
+A local bilingual physics learning app for ages 10–15, integrated into Study. The current version has a compact interface, 235 complete bilingual lessons, 234 exploration stations and seven field projects: Physics Detective, Walking Investigation, Mystery Materials, Stair Power, Two-cup Insulation, Periscope and Lifting Design. The nine-stage roadmap follows [Plan.md](Plan.md); future stages are clearly marked as planned.
 
 ## Use
 
@@ -590,3 +590,92 @@ Courses 192–199 follow all eight Unit 5.6 topics, extending the earlier junior
 199. An astronaut floats. Did gravity disappear? / 航天员浮起来，是引力消失了吗？
 
 The isolated spherical pair uses rounded SI G=6.67×10⁻¹¹, a fixed mass centre and exact radial relative fall. Other source stations use explicitly fictional radius-1 bodies with μ=8 or16. Apparatus scans distinguish gravitational field from actual net acceleration. Ellipse trajectories solve Kepler’s equation from the selected initial tangent speed, preserving energy and angular momentum on the physical clock. Satellite comparisons connect equatorial prograde circular periods with a rotating surface marker. Radial escape uses exact bound/parabolic/hyperbolic energy trajectories; a negative-energy probe can still move outward during the finite observation window. Bound returns end before first surface impact with nonzero velocity. Shared-fall and shared-orbit scales measure normal force, while gravity and mass remain. Original SVGs, compact bilingual readouts, three recorded comparisons, free controls and expandable conditions reuse existing components; no dependency is added.
+
+## Stage 6 wave foundations
+
+Courses 200–207 cover Unit 6.1 topics 1–9, pairing frequency and period in one lesson. Courses 208–212 extend this unit through reflection, refraction, diffraction, interference and standing waves. Unit 6.2 is covered by courses 213–220 below. Later Stage 6 units and Stages 7–8 remain unfinished.
+
+200. A bump travels along a rope. Does its marker travel too? / 绳上的小山走了，标记也走了吗？
+201. The wave travels right. Why does the string move up and down? / 波向右走，绳为什么上下动？
+202. Compressions travel. Do the spring coils travel all the way? / 挤密的地方向前走，弹簧圈也一路向前吗？
+203. What does a ruler between two crests measure? / 两个波峰之间，尺子量的是什么？
+204. Two cycles per second, or two seconds per cycle? / 一秒两次，和一次两秒，是一回事吗？
+205. A bigger flick: does the wave travel faster? / 甩得更高，波就更快了吗？
+206. Same rhythm, different string: same wave speed? / 同样的节奏，换一根弦，波速会一样吗？
+207. More cycles each second: must the wave travel faster? / 每秒振动更多，波就一定跑更快吗？
+
+Three synchronized original SVGs compare material markers, fixed-position time records and parameter relationships. A smooth compact pulse has no artificial frequency. Transverse motion includes both propagation directions and separately tracked same-phase crests. Longitudinal particles use actual X=x+u; neighbour spacing determines compression, with the geometry-based density ratio 1/(1+∂u/∂x). It is an enlarged continuum illustration, not a real-air pressure solver.
+
+Ideal-string amplitudes are physically small (0.005–0.02 m) and displayed with declared vertical magnification. Physical slope bounds stay below 0.13. Frequency and period are reciprocal; fractional cycle counts remain distinct from completed returns. One period transports the pattern by one wavelength. Fixed-medium changes couple frequency to wavelength, while changed tension/linear density couple speed to wavelength at fixed source frequency. Mean sinusoidal string power follows A² under stated fixed conditions, with scientific notation retaining small nonzero values. Comparison gates, progress, bilingual rendering and animation reuse existing code without new dependencies.
+
+## Stage 6 wave interactions
+
+Courses 208–212 cover Unit 6.1 topics 10–14. The full introductory wave unit now has thirteen connected courses covering fourteen planned topics.
+
+208. How does a rope end return a bump? / 绳子的尽头，怎样把一个隆起送回来？
+209. Why does a wave turn at a boundary but keep its rhythm? / 跨过边界，波为什么转弯却不换节奏？
+210. Why can sound spread around a doorway while light seems straight? / 声音能绕过门缝，为什么光看起来更直？
+211. When a bump meets a dip, do the waves and energy disappear? / 隆起与凹陷相遇，波和能量都消失了吗？
+212. If nodes stay in place, is the string still? / 琴弦上的波节不走，弦就没有动吗？
+
+Smooth compact pulses satisfy fixed/free/matched-absorber conditions on a physical string. Returned amplitude and reflected energy remain distinct. Refraction uses equal tangential phase gradients, a common source frequency, equal spatial scale and angles from the normal; controls remain below the critical domain. Single-slit Fraunhofer diffraction compares normalized angular intensity with an independently integrated aperture response, distinguishing nonexistent minima from out-of-view minima. It does not model doorway acoustics or compare total transmitted energy across separately normalized curves.
+
+Counterpropagating pulses add displacement and pass through each other. Full kinetic and strain energy accounts retain energy during a flat cancellation snapshot. Fixed-end standing modes show nodes across time, local antinode motion, and coupled length/frequency/wavelength. Fictional slow strings and prepared pure modes make the patterns inspectable without claiming to simulate driven resonance or actual instrument audio. Shared comparison gates, 2.4-second animation, records, progress and bilingual UI are reused, with no added dependency.
+
+## Sound: local air motion to ultrasonic echoes
+
+Courses 213–220 cover all eight Unit 6.2 topics, extending the five Stage 2 sound introductions with quantitative investigations:
+
+213. When a clap crosses the room, does the air follow? / 隔着房间听见拍手，空气跟着跑过来了吗？
+214. Why can equally long tones sound higher? / 同样长的一声，为什么有的听起来更尖？
+215. Does doubling amplitude double decibels? / 振幅翻倍，分贝也翻倍吗？
+216. Why can timing matter more than strength when pushing a swing? / 轻推秋千，为什么节奏比力气更关键？
+217. Why does closing one end change a tube’s pitch? / 同样长的管，堵住一端为什么改变音高？
+218. Does a passing siren change its note or the arrival rhythm? / 驶过的警笛，换了音符还是换了到达节奏？
+219. Why might a robot fail to measure a very close wall? / 机器人离墙很近，为什么反而测不到？
+220. Why can finer ultrasound detail come with weaker echoes? / 超声图像想看得更细，为什么回波可能更弱？
+
+Three synchronized SVG views connect apparatus, a time record and a quantitative relation. Shared scales distinguish parcel displacement from travelling sound, period from duration, SPL from perceived loudness, transient motion from steady amplitude, pressure nodes from displacement nodes, emitted from received frequency, known geometry from measurable range, and axial blur from attenuation. Every bench retains three fully observed model records; seeking, free controls and listening do not satisfy those comparisons.
+
+One-dimensional sound uses 343 m/s air and 1480 m/s fresh water; vacuum has no mechanical sound. Pitch holds RMS pressure fixed; the shared ShortTone control emits only a user-requested 0.7-second low-gain sine, stops on leaving and is not SPL-calibrated. SPL explicitly uses 20 µPa; intensity uses p_RMS²/(ρc). The driven damped oscillator includes an exact initial-rest transient with m=1 kg, f₀=2 Hz, ζ=0.15 and F₀=0.1 N; its displacement peak is near 1.954 Hz rather than exactly f₀. Ideal fundamental air columns impose p′=0 at open ends and u=0 at closed ends and use effective length without end corrections.
+
+Doppler fronts retain their emission centres; a fixed receiver at 5 m receives a 400 Hz source shifted by subsonic source motion through still air. The 40 kHz ranging bench rejects echoes starting during a prescribed 0.5 ms blanking window; measured range stays empty before receipt or inside the 85.75 mm blind region. Fictional soft-tissue A-lines use c=1540 m/s, two weak interfaces, effective four-cycle Gaussian envelopes and prescribed 0.5 dB/(cm·MHz) attenuation. Fixed gain shows finer axial detail with weaker higher-frequency returns. Envelope FWHM is distinguished from a physical pulse front, and no patient image or diagnosis is simulated.
+
+Original bilingual bodies live in content/acoustics.ts; models, diagrams and card art in interactive/acousticModels.ts, AcousticLabs.tsx and AcousticArt.tsx. React, SVG, existing animation/comparison gates, shared language/progress and Chemistry/Study workspace dependencies are reused; no dependency was added. Optional primary references link to OpenStax and NIH/NIBIB. Unit 6.3 topics 1–7 follow below; the imaging section completes topics 8–15.
+
+## Geometric optics: from paths to images
+
+Courses 221–227 follow Unit 6.3 topics 1–7. These seven foundations lead into lenses and instruments below; later thermal units and Stages 7–8 remain in progress.
+
+221. Why does a small mirror turn swing the reflected ray farther? / 镜子只转一点，反射光为什么转得更多？
+222. Does a mirror image move when you change viewpoint? / 你换个位置，镜子里的物体也换地方了吗？
+223. Why does the same ray bend differently entering and leaving glass? / 同一束光进出玻璃，为什么转弯方向不同？
+224. How can refraction reveal a rule when angles are not proportional? / 角度不成正比，怎样从折射数据找规律？
+225. Can a straight ray still take longer through glass? / 光路没有转弯，穿过玻璃也会多用时间吗？
+226. When can a surface look like a mirror from underwater? / 从水下向上看，什么时候界面像一面镜子？
+227. How does a transparent fibre keep light in its core? / 透明光纤怎样把光留在芯里？
+
+Mirror rotation uses reflected vectors and equal spatial scales. Two observers locate the same plane-mirror virtual image; dashed extensions carry no animated light or extra travel time. Reversible refraction measures angles from the normal; sine plots infer index only when nonzero data permit it. Normal slab propagation holds frequency while changing wavelength and physical transit time. Inspection cursors use each segment’s c₀/n, slowing nanosecond paths to 2.4 seconds.
+
+The critical-angle bench distinguishes transmitted, exactly grazing and total-reflection states with lossless Fresnel energy fractions. At the boundary no normal energy flux is assigned to the dashed grazing construction. A straight enlarged 2D core/cladding guide keeps separate s/p polarization weights through repeated leakage, preserving core plus escaped energy. Its internal axial limit is distinct from external acceptance angle; real fibre size, modes, bending, interference and absorption are outside this model. Weak retained energy uses scientific notation. Original SVGs, comparison gates, bilingual feedback and saved progress reuse existing React/shared components without dependencies. Expandable primary sources link to OpenStax and MIT OCW.
+
+Content is in content/optics.ts; pure models and checks in interactive/opticsModels.ts and opticsModels.test.ts; diagrams and card illustrations in OpticsLabs.tsx and OpticsArt.tsx. Both content and stations load on demand.
+
+## Lenses and imaging: a receiving plane matters
+
+Courses 228–235 cover all eight remaining Unit 6.3 topics. Together with 221–227, fifteen original courses represent the full geometric-optics unit. Stage 6 has thirty-six courses across Units 6.1–6.3; Unit 6.4 thermal physics and Stages 7–8 are next.
+
+228. How can a magnifier also project an image onto paper? / 放大镜能放大，为什么也能把像投到纸上？
+229. Why can you see an image through a lens whose rays spread apart? / 光线越走越散，为什么凹透镜里仍能看见像？
+230. How can two drawn rays describe a whole image? / 只画两条光线，怎么能代表整幅图像？
+231. Does the lens equation fail when the image suddenly moves far away? / 像距忽然很远，公式真的“坏了”吗？
+232. Does a negative magnification mean less image? / 倍率有负号，是不是像“变少了”？
+233. How can eyes refocus without moving the retina? / 看远处再看书，眼睛为什么不用移动视网膜？
+234. If a lens forms an image, why can a photo still be blurred? / 像已经形成，为什么照片还是模糊？
+235. How do two lenses work together in telescopes and microscopes? / 望远镜和显微镜，两片透镜怎么接力？
+
+A shared paraxial ray transfer changes slope by −H/f and advances height by distance times slope. General rays independently verify principal constructions and signed thin-lens images. Focal objects have parallel output and no finite v or linear M. Long paths are clipped for display while out-of-view image positions remain in readings; reciprocal curves never connect across a pole. Virtual extensions carry no light. Three synchronized diagrams distinguish image position, receiving-plane spread, signed height ratio and angular magnification. Declared vertical enlargement aids visibility without implying equal screen-pixel scales.
+
+The reduced-eye example holds a 1.7 cm retina and changes combined cornea/lens equivalent power. The camera holds f and moves the sensor, with a separate smaller entrance pupil: narrowing geometric defocus preserves ideal image position and centroid. Actual received paths stop at the receiving plane; I* and dashed continuation predict where rays would meet if it were removed. Zero geometric spread omits diffraction, aberration and biological limits. Two ideal instruments form an intermediate real image and use a collimating eyepiece. Telescope angular M is a focal-length ratio; microscope M combines objective linear M with a declared 25 cm unaided angular reference, rather than claiming resolving power.
+
+Original bodies and stations load on demand from content/imaging.ts and interactive/ImagingLabs.tsx. Models, physical checks and illustrations are in imagingModels.ts, imagingModels.test.ts and ImagingArt.tsx. Existing React/SVG components, comparison gates, language, progress and workspace dependencies are reused without additions. Expandable primary references link to OpenStax thin lenses, eye, camera and optical instruments.

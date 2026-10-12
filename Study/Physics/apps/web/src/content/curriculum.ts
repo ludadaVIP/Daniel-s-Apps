@@ -1,6 +1,15 @@
 import { t } from './schema';
 export const units = {
-  waves: t('波：从局部振动到传播', 'Waves: from local oscillation to propagation'),
+  waves: t(
+    '波：从局部振动到传播',
+    'Waves: from local oscillation to propagation',
+  ),
+  acoustics: t(
+    '声学：从空气振动到超声回波',
+    'Acoustics: from air motion to ultrasound echoes',
+  ),
+  optics: t('几何光学：从光路到图像', 'Geometric optics: from rays to images'),
+  heat: t('热学：从粒子到热量账', 'Thermal physics: particles and energy'),
   kinematics: t(
     '运动学：追踪位置、方向与变化',
     'Kinematics: follow position, direction and change',

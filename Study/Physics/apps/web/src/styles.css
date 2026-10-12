@@ -6590,3 +6590,20 @@
   white-space: normal;
   line-height: 1.35;
 }
+
+.phy-wave-lab > svg,
+.phy-wave-lab .phy-circular-scenes > svg {
+  background: #28313a;
+}
+.phy-wave-lab svg text {
+  font-size: 20px;
+}
+.phy-wave-lab .phy-thermal-metrics strong {
+  white-space: normal;
+  line-height: 1.35;
+}
+@media (max-width: 600px) {
+  .phy-wave-lab svg text {
+    font-size: 22px;
+  }
+}

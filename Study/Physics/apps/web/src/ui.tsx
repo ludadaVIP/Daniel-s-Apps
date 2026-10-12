@@ -1,3 +1,15 @@
+import type { HeatKind } from './interactive/heatModels';
+import { HeatArt } from './interactive/HeatArt';
+import { ImagingArt } from './interactive/ImagingArt';
+import type { ImagingKind } from './interactive/imagingModels';
+import { OpticsArt } from './interactive/OpticsArt';
+import type { OpticsKind } from './interactive/opticsModels';
+import { AcousticArt } from './interactive/AcousticArt';
+import type { AcousticKind } from './interactive/acousticModels';
+import { WaveArt } from './interactive/WaveArt';
+import { WaveInteractionArt } from './interactive/WaveInteractionArt';
+import type { InteractionKind } from './interactive/waveInteractionModels';
+import type { WaveKind } from './interactive/waveModels';
 import { GravitationArt } from './interactive/GravitationArt';
 import type { GravitationKind } from './interactive/gravitationModels';
 import { CircularArt } from './interactive/CircularArt';
@@ -131,7 +143,19 @@ export function LessonArt({
         </pattern>
       </defs>
       <rect width="300" height="150" fill={`url(#dots-${kind})`} />
-      {kind.startsWith('gravitation-') ? (
+      {kind.startsWith('heat-') ? (
+        <HeatArt kind={kind.slice(5) as HeatKind} />
+      ) : kind.startsWith('imaging-') ? (
+        <ImagingArt kind={kind.slice(8) as ImagingKind} />
+      ) : kind.startsWith('optics-') ? (
+        <OpticsArt kind={kind.slice(7) as OpticsKind} />
+      ) : kind.startsWith('acoustics-') ? (
+        <AcousticArt kind={kind.slice(10) as AcousticKind} />
+      ) : kind.startsWith('wave-interactions-') ? (
+        <WaveInteractionArt kind={kind.slice(18) as InteractionKind} />
+      ) : kind.startsWith('waves-') ? (
+        <WaveArt kind={kind.slice(6) as WaveKind} />
+      ) : kind.startsWith('gravitation-') ? (
         <GravitationArt kind={kind.slice(12) as GravitationKind} />
       ) : kind.startsWith('circular-') ? (
         <CircularArt kind={kind.slice(9) as CircularKind} />

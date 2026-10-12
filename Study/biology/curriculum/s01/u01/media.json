@@ -1,0 +1,74 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original project assets; no external image assets copied",
+  "checked": "2026-10-12",
+  "status": "pilot; external science review and child trial pending",
+  "diagrams": [
+    {
+      "id": "L001-D01",
+      "component": "Diagram",
+      "kind": "animal-cell schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L002-D01",
+      "component": "Diagram",
+      "kind": "plant structure and energy labels",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L003-D01",
+      "component": "Diagram",
+      "kind": "bean seed cutaway",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L004-D01",
+      "component": "Diagram",
+      "kind": "bacterial cell and non-enveloped virus comparison",
+      "scale": "not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L001-I01",
+      "component": "Explore",
+      "kind": "evidence cards and seed-growth sequence"
+    },
+    {
+      "id": "L002-I01",
+      "component": "Explore",
+      "kind": "light-direction response model"
+    },
+    {
+      "id": "L003-I01",
+      "component": "Explore",
+      "kind": "water, oxygen and temperature model",
+      "assumptions": "Viable healthy bean seeds, dormancy broken; 15–30C is an illustrative model range, not a universal germination rule; no quantitative time prediction"
+    },
+    {
+      "id": "L004-I01",
+      "component": "Explore",
+      "kind": "suitable-host replication model",
+      "assumptions": "Simplified stages; four copies are illustrative, not a biological yield"
+    }
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology",
+      "use": "Observation, inference and evidence"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/1-2-themes-and-concepts-of-biology",
+      "use": "Properties of life, cells and responses"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/32-2-pollination-and-fertilization",
+      "use": "Seeds, dormancy and germination"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/21-1-viral-evolution-morphology-and-classification",
+      "use": "Viral structure, genetic material and host dependence"
+    }
+  ]
+}

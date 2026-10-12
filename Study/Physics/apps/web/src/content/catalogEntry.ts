@@ -34,7 +34,13 @@ export type LessonPack =
   | 'momentum'
   | 'mechanicalEnergy'
   | 'circular'
-  | 'gravitation';
+  | 'gravitation'
+  | 'waves'
+  | 'waveInteractions'
+  | 'acoustics'
+  | 'optics'
+  | 'imaging'
+  | 'heat';
 
 export type LessonCatalogEntry = Pick<
   Lesson,

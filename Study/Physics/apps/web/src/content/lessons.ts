@@ -1,3 +1,9 @@
+import { heatLessons } from './heat';
+import { imagingLessons } from './imaging';
+import { opticsLessons } from './optics';
+import { acousticLessons } from './acoustics';
+import { waveLessons } from './waves';
+import { waveInteractionLessons } from './waveInteractions';
 import { gravitationLessons } from './gravitation';
 import { circularLessons } from './circular';
 import { mechanicalEnergyLessons } from './mechanicalEnergy';
@@ -76,6 +82,12 @@ export const lessons: Lesson[] = [
   ...mechanicalEnergyLessons,
   ...circularLessons,
   ...gravitationLessons,
+  ...waveLessons,
+  ...waveInteractionLessons,
+  ...acousticLessons,
+  ...opticsLessons,
+  ...imagingLessons,
+  ...heatLessons,
 ];
 // Used by catalog generation and integrity tests, never by the app's entry.
 export const lessonCollections = {
@@ -113,4 +125,10 @@ export const lessonCollections = {
   mechanicalEnergy: mechanicalEnergyLessons,
   circular: circularLessons,
   gravitation: gravitationLessons,
+  acoustics: acousticLessons,
+  optics: opticsLessons,
+  imaging: imagingLessons,
+  heat: heatLessons,
+  waves: waveLessons,
+  waveInteractions: waveInteractionLessons,
 };

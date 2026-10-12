@@ -1,4 +1,30 @@
+import type { HeatKind } from './heatModels';
 import { useState, lazy, Suspense } from 'react';
+import type { ImagingKind } from './imagingModels';
+const HeatLab = lazy(() =>
+  import('./HeatLabs').then((m) => ({ default: m.HeatLab })),
+);
+const ImagingLab = lazy(() =>
+  import('./ImagingLabs').then((m) => ({ default: m.ImagingLab })),
+);
+import type { OpticsKind } from './opticsModels';
+const OpticsLab = lazy(() =>
+  import('./OpticsLabs').then((m) => ({ default: m.OpticsLab })),
+);
+import type { AcousticKind } from './acousticModels';
+const AcousticLab = lazy(() =>
+  import('./AcousticLabs').then((m) => ({ default: m.AcousticLab })),
+);
+import type { InteractionKind } from './waveInteractionModels';
+const WaveInteractionLab = lazy(() =>
+  import('./WaveInteractionLabs').then((m) => ({
+    default: m.WaveInteractionLab,
+  })),
+);
+import type { WaveKind } from './waveModels';
+const WaveLab = lazy(() =>
+  import('./WaveLabs').then((m) => ({ default: m.WaveLab })),
+);
 import type { GravitationKind } from './gravitationModels';
 const GravitationLab = lazy(() =>
   import('./GravitationLabs').then((m) => ({ default: m.GravitationLab })),
@@ -846,6 +872,59 @@ function LabContent({
     return (
       <SpaceLab
         kind={kind.slice(6) as SpaceKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('heat-'))
+    return (
+      <HeatLab
+        kind={kind.slice(5) as HeatKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('imaging-'))
+    return (
+      <ImagingLab
+        key={kind}
+        kind={kind.slice(8) as ImagingKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('optics-'))
+    return (
+      <OpticsLab
+        key={kind}
+        kind={kind.slice(7) as OpticsKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('acoustics-'))
+    return (
+      <AcousticLab
+        key={kind}
+        kind={kind.slice(10) as AcousticKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('wave-interactions-'))
+    return (
+      <WaveInteractionLab
+        key={kind}
+        kind={kind.slice(18) as InteractionKind}
+        mode={mode}
+        onExplore={onExplore}
+      />
+    );
+  if (kind.startsWith('waves-'))
+    return (
+      <WaveLab
+        key={kind}
+        kind={kind.slice(6) as WaveKind}
         mode={mode}
         onExplore={onExplore}
       />

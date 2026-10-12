@@ -2,6 +2,174 @@ import { t, type Lesson } from './schema';
 export const experiments: { id: Lesson['kind']; name: ReturnType<typeof t> }[] =
   [
     {
+      id: 'heat-particles',
+      name: t('安静空气的粒子', 'Particles in still air'),
+    },
+    {
+      id: 'heat-internal',
+      name: t('平均与总内能', 'Mean and total internal energy'),
+    },
+    {
+      id: 'heat-temperature',
+      name: t('温差驱动热流', 'Temperature drives heat flow'),
+    },
+    {
+      id: 'heat-capacity',
+      name: t('同热量不同温升', 'Equal heat, different warming'),
+    },
+    {
+      id: 'heat-phase',
+      name: t('融化平台的质量变化', 'Mass change on a melting plateau'),
+    },
+    {
+      id: 'heat-latent',
+      name: t('潜热与转变质量', 'Latent heat and converted mass'),
+    },
+    {
+      id: 'imaging-convex',
+      name: t('凸透镜的两种成像', 'Two image types of a converging lens'),
+    },
+    {
+      id: 'imaging-concave',
+      name: t('凹透镜与虚像', 'Diverging lens and virtual image'),
+    },
+    {
+      id: 'imaging-rays',
+      name: t('同一物点的光路', 'Rays from one object point'),
+    },
+    {
+      id: 'imaging-equation',
+      name: t('透镜倒数与像距', 'Lens reciprocals and image distance'),
+    },
+    {
+      id: 'imaging-magnification',
+      name: t('像高与方向倍率', 'Image height and signed magnification'),
+    },
+    {
+      id: 'imaging-eye',
+      name: t('视网膜与等效屈光力', 'Retina and equivalent optical power'),
+    },
+    {
+      id: 'imaging-camera',
+      name: t('感光面与几何点像', 'Sensor plane and geometric point spread'),
+    },
+    {
+      id: 'imaging-instruments',
+      name: t('两镜与中间像', 'Two lenses and intermediate images'),
+    },
+    {
+      id: 'optics-reflection',
+      name: t('镜面转角与出射方向', 'Mirror rotation and outgoing direction'),
+    },
+    {
+      id: 'optics-mirror',
+      name: t('反射光路与虚像位置', 'Reflected paths and virtual images'),
+    },
+    {
+      id: 'optics-refraction',
+      name: t('介质顺序与折射方向', 'Media order and refraction direction'),
+    },
+    {
+      id: 'optics-snell',
+      name: t('正弦图与折射率反推', 'Sine plots and inferred index'),
+    },
+    {
+      id: 'optics-index',
+      name: t('光程、行时与波长', 'Optical path, time and wavelength'),
+    },
+    {
+      id: 'optics-critical',
+      name: t('临界条件与全反射', 'Critical conditions and total reflection'),
+    },
+    {
+      id: 'optics-fibre',
+      name: t('光导芯与包层漏光', 'Guide core and cladding leakage'),
+    },
+    {
+      id: 'acoustics-propagation',
+      name: t('介质声压与传播', 'Medium pressure and propagation'),
+    },
+    {
+      id: 'acoustics-pitch',
+      name: t('纯音的周期与波长', 'Pure-tone period and wavelength'),
+    },
+    {
+      id: 'acoustics-level',
+      name: t('声压与分贝对数尺', 'Pressure and decibel ruler'),
+    },
+    {
+      id: 'acoustics-resonance',
+      name: t('受迫振动与共振', 'Driven motion and resonance'),
+    },
+    {
+      id: 'acoustics-columns',
+      name: t('空气柱与端点条件', 'Air columns and end conditions'),
+    },
+    {
+      id: 'acoustics-doppler',
+      name: t('移动波源与到达节奏', 'Moving source and arrival rhythm'),
+    },
+    {
+      id: 'acoustics-echo',
+      name: t('超声量程与盲窗', 'Ultrasonic range and blanking'),
+    },
+    {
+      id: 'acoustics-imaging',
+      name: t('超声回波与轴向细节', 'Ultrasound echoes and axial detail'),
+    },
+    {
+      id: 'wave-interactions-reflection',
+      name: t('边界与脉冲返回', 'Boundary and returning pulse'),
+    },
+    {
+      id: 'wave-interactions-refraction',
+      name: t('跨界面的节奏与方向', 'Rhythm and direction across a boundary'),
+    },
+    {
+      id: 'wave-interactions-diffraction',
+      name: t('缝宽与远场角分布', 'Opening width and far-field angles'),
+    },
+    {
+      id: 'wave-interactions-interference',
+      name: t('脉冲相遇与完整能量', 'Meeting pulses and complete energy'),
+    },
+    {
+      id: 'wave-interactions-standing',
+      name: t('固定端的波节与模态', 'Fixed-end nodes and normal modes'),
+    },
+    {
+      id: 'waves-pulse',
+      name: t('脉冲与材料标记', 'Pulse and material marker'),
+    },
+    {
+      id: 'waves-transverse',
+      name: t('横波的两种方向', 'Two directions in transverse waves'),
+    },
+    {
+      id: 'waves-longitudinal',
+      name: t('纵波疏密与位移', 'Longitudinal spacing and displacement'),
+    },
+    {
+      id: 'waves-wavelength',
+      name: t('同一时刻的波长尺', 'Wavelength ruler at one instant'),
+    },
+    {
+      id: 'waves-clock',
+      name: t('频率与周期时间账', 'Frequency and period time ledgers'),
+    },
+    {
+      id: 'waves-amplitude',
+      name: t('振幅与弦波功率', 'Amplitude and string-wave power'),
+    },
+    {
+      id: 'waves-speed',
+      name: t('弦张力与传播速率', 'String tension and propagation speed'),
+    },
+    {
+      id: 'waves-relation',
+      name: t('一个周期，一个波长', 'One period, one wavelength'),
+    },
+    {
       id: 'gravitation-pair',
       name: t('两球互相吸引', 'Mutual attraction of two spheres'),
     },
