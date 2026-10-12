@@ -3,6 +3,7 @@ import type { LanguageMode } from '@study/shared';
 import { t } from './content';
 import { Text } from './ui';
 import { seedModel, virusCopies, type Water } from './models';
+import { MicroDiagram, MicroExplore } from './MicroWorld';
 type Props = { id: string; mode: LanguageMode; onExplore: () => void };
 const label = (mode: LanguageMode, zh: string, en: string) =>
   mode === 'en' ? en : mode === 'zh' ? zh : `${zh} · ${en}`;
@@ -95,6 +96,13 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  return ['L005', 'L006', 'L007', 'L008'].includes(id) ? (
+    <MicroDiagram id={id} mode={mode} />
+  ) : (
+    <LifeDiagram id={id} mode={mode} />
+  );
+}
+function LifeDiagram({ id, mode }: { id: string; mode: LanguageMode }) {
   const parts =
     id === 'L003'
       ? [
@@ -366,7 +374,14 @@ const evidence = [
     ),
   },
 ];
-export function Explore({ id, mode, onExplore }: Props) {
+export function Explore(props: Props) {
+  return ['L005', 'L006', 'L007', 'L008'].includes(props.id) ? (
+    <MicroExplore {...props} />
+  ) : (
+    <LifeExplore {...props} />
+  );
+}
+function LifeExplore({ id, mode, onExplore }: Props) {
   const [object, setObject] = useState(0);
   const [frame, setFrame] = useState(0);
   const [playing, setPlaying] = useState(false);

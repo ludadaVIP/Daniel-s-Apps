@@ -6,10 +6,18 @@ import {
   emptyProgress,
   outcome,
   reviewQueue,
+  missionForUnit,
+  withMission,
 } from './progress';
-import { seedModel, virusCopies } from './models';
+import {
+  seedModel,
+  virusCopies,
+  microscopeView,
+  particlePosition,
+} from './models';
+import { units } from './units';
 describe('pilot curriculum contract', () => {
-  it('offers only the four complete lessons out of the 144-lesson roadmap', () => {
+  it('offers complete units within the 144-lesson roadmap', () => {
     const list = curriculum.flatMap((s) => s.units.flatMap((u) => u.lessons));
     expect(curriculum).toHaveLength(6);
     expect(list).toHaveLength(144);
@@ -17,14 +25,36 @@ describe('pilot curriculum contract', () => {
     expect(
       list.filter((l) => l.status === 'available').map((l) => l.id),
     ).toEqual(lessons.map((l) => l.id));
+    expect(units.flatMap((u) => u.lessonIds)).toEqual(lessons.map((l) => l.id));
+    expect(
+      new Set(lessons.flatMap((l) => l.questions.map((q) => q.id))).size,
+    ).toBe(lessons.length * 4);
     for (const l of lessons) {
       expect(l.questions).toHaveLength(4);
       expect(l.questions.filter((q) => q.skill === 'reasoning')).toHaveLength(
         1,
       );
-      for (const name of ['Explain', 'Misconception', 'Depth']) {
-        expect(section(l.id, name).zh.length).toBeGreaterThan(30);
-        expect(section(l.id, name).en.length).toBeGreaterThan(30);
+      for (const name of [
+        'Hook',
+        'Predict',
+        'See',
+        'Explore',
+        'Explain',
+        'Misconception',
+        'Depth',
+        'Apply',
+        'Vocabulary',
+        'Check',
+        'Mission',
+      ]) {
+        expect(
+          section(l.id, name).zh.trim(),
+          `${l.id} ${name} zh`,
+        ).toBeTruthy();
+        expect(
+          section(l.id, name).en.trim(),
+          `${l.id} ${name} en`,
+        ).toBeTruthy();
       }
       for (const q of l.questions) {
         expect(q.options[q.correct]).toBeDefined();
@@ -35,6 +65,34 @@ describe('pilot curriculum contract', () => {
   });
 });
 describe('understanding and recall', () => {
+  it('preserves first-release records and saves unit missions independently', () => {
+    const old = {
+      version: 1,
+      sessions: {
+        L001: { step: 3, note: '旧笔记 / old note', completedAt: 10 },
+      },
+      answers: {},
+      mission: {
+        object: '种子',
+        evidence: '萌芽',
+        reasoning: '生长',
+        savedAt: 10,
+      },
+    };
+    const restored = decodeProgress(JSON.stringify(old));
+    expect(restored.sessions.L001?.note).toBe('旧笔记 / old note');
+    expect(missionForUnit(restored, 'U01')).toEqual(old.mission);
+    const updated = withMission(restored, 'U02', {
+      object: '酵母',
+      evidence: '一个细胞',
+      reasoning: '可独立完成生命活动',
+      savedAt: 20,
+    });
+    const reloaded = decodeProgress(JSON.stringify(updated));
+    expect(missionForUnit(reloaded, 'U01')).toEqual(old.mission);
+    expect(missionForUnit(reloaded, 'U02').savedAt).toBe(20);
+    expect(missionForUnit(restored, 'U02').object).toBe('');
+  });
   it('puts mistakes before overdue correct answers', () => {
     const l = lessons[0]!,
       p = emptyProgress();
@@ -110,6 +168,32 @@ describe('understanding and recall', () => {
   });
 });
 describe('simplified biological models', () => {
+  it('increases magnification while shrinking the same specimen field', () => {
+    const low = microscopeView(4),
+      medium = microscopeView(10),
+      high = microscopeView(40);
+    expect([
+      low.magnification,
+      medium.magnification,
+      high.magnification,
+    ]).toEqual([40, 100, 400]);
+    expect([
+      low.fieldMicrometres,
+      medium.fieldMicrometres,
+      high.fieldMicrometres,
+    ]).toEqual([2000, 800, 200]);
+    expect(low.magnification * low.fieldMm).toBe(
+      high.magnification * high.fieldMm,
+    );
+  });
+  it('allows only the preset permeable particle across the membrane', () => {
+    for (let step = 0; step < 3; step++)
+      expect(particlePosition(step, true)).toBe(particlePosition(step, false));
+    expect(particlePosition(3, true)).toBeGreaterThan(120);
+    expect(particlePosition(3, false)).toBe(120);
+    expect(particlePosition(99, false)).toBe(120);
+    expect(particlePosition(-1, true)).toBe(40);
+  });
   it('requires water, oxygen and a suitable temperature; excess water is not always better', () => {
     expect(seedModel('moist', 20, true).grows).toBe(true);
     expect(seedModel('dry', 20, true).reason).toBe('dry');

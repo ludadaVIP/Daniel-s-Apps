@@ -1,41 +1,9 @@
 import type { LocalizedText } from '@study/shared';
-export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
-export type Skill = 'concept' | 'reasoning' | 'vocabulary';
-export type Question = {
-  id: string;
-  skill: Skill;
-  prompt: LocalizedText;
-  options: LocalizedText[];
-  correct: number;
-  feedback: LocalizedText;
-  revisit: LocalizedText;
-};
-export type Lesson = {
-  id: string;
-  title: LocalizedText;
-  hook: LocalizedText;
-  minutes: number;
-  icon: string;
-  objectives: LocalizedText[];
-  prediction: LocalizedText[];
-  terms: { word: LocalizedText; meaning: LocalizedText }[];
-  questions: Question[];
-  mission: LocalizedText;
-};
-const q = (
-  id: string,
-  skill: Skill,
-  prompt: LocalizedText,
-  options: LocalizedText[],
-  correct: number,
-  feedback: LocalizedText,
-  revisit: LocalizedText,
-): Question => ({ id, skill, prompt, options, correct, feedback, revisit });
-const term = (zh: string, en: string, a: string, b: string) => ({
-  word: t(zh, en),
-  meaning: t(a, b),
-});
-export const lessons: Lesson[] = [
+import { t, q, term, type Lesson } from './schema';
+import { microLessons } from './content/micro';
+export { t } from './schema';
+export type { Skill, Question, Lesson } from './schema';
+const lifeLessons: Lesson[] = [
   {
     id: 'L001',
     title: t('它是活的吗？', 'Living or not?'),
@@ -662,8 +630,9 @@ export const lessons: Lesson[] = [
     ],
   },
 ];
+export const lessons: Lesson[] = [...lifeLessons, ...microLessons];
 export const questions = lessons.flatMap((lesson) => lesson.questions);
-const files = import.meta.glob('../../../curriculum/s01/u01/l*.md', {
+const files = import.meta.glob('../../../curriculum/**/l*.md', {
   query: '?raw',
   import: 'default',
   eager: true,

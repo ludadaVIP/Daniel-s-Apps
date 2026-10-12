@@ -1,0 +1,76 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original SVG assets; no external image assets copied",
+  "checked": "2026-10-12",
+  "status": "pilot; learner trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L005-D01",
+      "component": "MicroDiagram",
+      "kind": "organism-organ-tissue-cell hierarchy",
+      "scale": "schematic"
+    },
+    {
+      "id": "L006-D01",
+      "component": "MicroDiagram",
+      "kind": "lens multiplication, magnification and resolution",
+      "scale": "schematic"
+    },
+    {
+      "id": "L007-D01",
+      "component": "MicroDiagram",
+      "kind": "onion cell wall, membrane, cytoplasm and nucleus",
+      "scale": "schematic; organelles omitted"
+    },
+    {
+      "id": "L008-D01",
+      "component": "MicroDiagram",
+      "kind": "yeast organisms and onion tissue",
+      "scale": "schematic; colours explanatory"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L005-I01",
+      "component": "ScaleLab",
+      "assumptions": "Assumed 5cm leaf, 50µm cells, 500µm tissue region; bars calibrated to model panels only. Leaf schematic, real cells vary."
+    },
+    {
+      "id": "L006-I01",
+      "component": "MicroscopeLab",
+      "assumptions": "10× eyepiece, objectives 4/10/40×, assumed field diameters 2/0.8/0.2mm; 50µm model cells. Focus midpoint preset. Dot comparison is geometric, not a diffraction simulation."
+    },
+    {
+      "id": "L007-I01",
+      "component": "CellLab",
+      "assumptions": "Hypothetical A can cross and B cannot under preset conditions. No diffusion, osmosis, protein transport or energy simulation. Bacterium with wall selected; DNA not enclosed by nucleus."
+    },
+    {
+      "id": "L008-I01",
+      "component": "CommunityLab",
+      "assumptions": "Baking yeast budding and plant cooperation are compressed schematic stages, not real-time microscopy. Yeast bud is not an organ. No culturing task."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/4-1-studying-cells",
+      "use": "Cell scale, microscopy, magnification and resolution"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells",
+      "use": "Membrane, wall, cytoplasm, nucleus and plant cells"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/1-2-themes-and-concepts-of-biology",
+      "use": "Organisation from cells to organisms"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/24-1-characteristics-of-fungi",
+      "use": "Yeast as unicellular fungi and budding"
+    },
+    {
+      "url": "https://vml.cad.rit.edu/microscopes/onionepidermis.html",
+      "use": "Onion bulb epidermis lacks chloroplasts; real microscopy comparison"
+    }
+  ]
+}

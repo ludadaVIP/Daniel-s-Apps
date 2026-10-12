@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { lessons, questions, type Lesson } from './content';
+import { units } from './units';
 export const STORAGE_KEY = 'study-biology-v1';
 export type Answer = { choice: number; first: number; at: number };
 export type Session = {
@@ -9,22 +10,30 @@ export type Session = {
   note: string;
   completedAt?: number;
 };
+export type Mission = {
+  object: string;
+  evidence: string;
+  reasoning: string;
+  savedAt?: number;
+};
+export const emptyMission = (): Mission => ({
+  object: '',
+  evidence: '',
+  reasoning: '',
+});
 export type Progress = {
   version: 1;
   sessions: Record<string, Session>;
   answers: Record<string, Answer>;
-  mission: {
-    object: string;
-    evidence: string;
-    reasoning: string;
-    savedAt?: number;
-  };
+  mission: Mission;
+  missions: Record<string, Mission>;
 };
 export const emptyProgress = (): Progress => ({
   version: 1,
   sessions: {},
   answers: {},
   mission: { object: '', evidence: '', reasoning: '' },
+  missions: {},
 });
 export const newSession = (): Session => ({ step: 0, note: '' });
 export function decodeProgress(raw: string): Progress {
@@ -68,14 +77,39 @@ export function decodeProgress(raw: string): Progress {
       throw new Error('Invalid answer');
     clean.answers[q.id] = { choice: a.choice, first: a.first, at: a.at };
   }
-  for (const key of ['object', 'evidence', 'reasoning'] as const) {
-    if (typeof data.mission[key] !== 'string')
-      throw new Error('Invalid mission');
-    clean.mission[key] = data.mission[key].slice(0, 2000);
+  clean.mission = decodeMission(data.mission);
+  for (const unit of units.filter((u) => u.id !== 'U01')) {
+    if (data.missions?.[unit.id])
+      clean.missions[unit.id] = decodeMission(data.missions[unit.id]);
   }
-  if (Number.isFinite(data.mission.savedAt) && data.mission.savedAt > 0)
-    clean.mission.savedAt = data.mission.savedAt;
   return clean;
+}
+function decodeMission(data: Mission): Mission {
+  const result = emptyMission();
+  for (const key of ['object', 'evidence', 'reasoning'] as const) {
+    if (typeof data?.[key] !== 'string') throw new Error('Invalid mission');
+    result[key] = data[key].slice(0, 2000);
+  }
+  if (
+    Number.isFinite(data.savedAt) &&
+    data.savedAt! > 0 &&
+    [result.object, result.evidence, result.reasoning].every((s) => s.trim())
+  )
+    result.savedAt = data.savedAt;
+  return result;
+}
+export function missionForUnit(p: Progress, id: string): Mission {
+  return id === 'U01' ? p.mission : (p.missions[id] ?? emptyMission());
+}
+export function withMission(
+  p: Progress,
+  id: string,
+  patch: Partial<Mission>,
+): Progress {
+  const mission = { ...missionForUnit(p, id), ...patch };
+  return id === 'U01'
+    ? { ...p, mission }
+    : { ...p, missions: { ...p.missions, [id]: mission } };
 }
 export function outcome(lesson: Lesson, progress: Progress) {
   const result = (skill: string) => {

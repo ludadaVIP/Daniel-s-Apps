@@ -2293,3 +2293,141 @@
     flex-wrap: wrap;
   }
 }
+
+/* Unit investigations and reusable microscopic-world models. */
+.bio-app .bio-section-heading .bio-eyebrow > span {
+  display: inline-block;
+}
+.bio-app .bio-unit-mission {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  background: #f0f3e8;
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 16px 20px;
+  margin-top: 14px;
+  font-size: 15px;
+}
+.bio-app .bio-unit-mission > span {
+  font-size: 27px;
+  color: #80946e;
+}
+.bio-app .bio-unit-mission small {
+  display: block;
+  font-size: 10px;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+  margin-bottom: 5px;
+}
+.bio-app .bio-unit-mission > b {
+  margin-left: auto;
+  font-weight: 400;
+}
+.bio-app .bio-unit-switch {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: 24px 0;
+}
+.bio-app .bio-unit-switch a {
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fffefa;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.bio-app .bio-unit-switch a[aria-current='page'] {
+  border-color: #88a076;
+  background: #e8f0dd;
+}
+.bio-app .bio-mission-diagram {
+  margin-top: 20px;
+  max-width: 440px;
+}
+.bio-app .bio-mission-diagram .bio-diagram {
+  position: static;
+  display: block;
+}
+.bio-app .bio-micro-window {
+  margin: 14px 0;
+  display: grid;
+  place-items: center;
+  background: #f7f9f1;
+  border: 1px solid #d8e2cb;
+  border-radius: 9px;
+  overflow: hidden;
+}
+.bio-app .bio-micro-window > svg {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  max-height: 300px;
+}
+.bio-app .bio-micro-choice {
+  margin: 18px 0 12px;
+}
+.bio-app .bio-micro-range {
+  margin-top: 18px;
+  font-size: 13px;
+}
+.bio-app .bio-micro-range > strong {
+  min-width: 45px;
+}
+.bio-app .bio-resolution {
+  border-top: 1px solid #d1dfc1;
+  padding-top: 15px;
+  font-size: 13px;
+  margin-top: 17px;
+}
+.bio-app .bio-resolution .bio-choice-row {
+  margin-top: 13px;
+}
+.bio-app .bio-dots-demo {
+  display: flex;
+  align-items: center;
+  margin-top: 14px;
+  gap: 10px;
+}
+.bio-app .bio-dots-demo svg {
+  width: 60%;
+  min-width: 0;
+}
+.bio-app .bio-dots-demo button {
+  font-size: 12px;
+  background: #fbfdf7;
+  border: 1px solid #d0dcc0;
+  border-radius: 7px;
+  padding: 8px 12px;
+  color: #55744e;
+}
+.bio-app .bio-choice-row .bio-en,
+.bio-app .bio-playback .bio-en {
+  font-size: 10px;
+  margin-top: 2px;
+}
+.bio-app .bio-lab > .bio-caption {
+  margin-bottom: 16px !important;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-unit-mission {
+    padding: 13px;
+    font-size: 13px;
+    gap: 12px;
+  }
+  .bio-app .bio-unit-switch a {
+    padding: 10px;
+    font-size: 12px;
+    flex: 1;
+  }
+  .bio-app .bio-micro-window svg {
+    max-height: 260px;
+  }
+  .bio-app .bio-dots-demo button {
+    font-size: 11px;
+    padding: 8px;
+  }
+}
