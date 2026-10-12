@@ -441,7 +441,7 @@ function RecyclePicture({
           <path d="m0 0 10 5-10 5Z" fill={energy ? gold : blue} />
         </marker>
       </defs>
-      {['M190 80h96', 'M370 139v29', 'M290 225h-96'].map((d, i) => (
+      {['M190 80h96', 'M370 139v29', 'M290 225h-96'].map((d) => (
         <path
           key={d}
           d={d}
@@ -1040,9 +1040,9 @@ function CascadeLab({ mode, onExplore }: Props) {
         ].map((v, i) => (
           <button
             key={v.en}
-            aria-pressed={ladybird === !Boolean(i)}
+            aria-pressed={ladybird === (i === 0)}
             onClick={() => {
-              setLadybird(!Boolean(i));
+              setLadybird(i === 0);
               flow.reset();
               onExplore();
             }}
@@ -1061,9 +1061,9 @@ function CascadeLab({ mode, onExplore }: Props) {
         ].map((v, i) => (
           <button
             key={v.en}
-            aria-pressed={birdLink === !Boolean(i)}
+            aria-pressed={birdLink === (i === 0)}
             onClick={() => {
-              setBirdLink(!Boolean(i));
+              setBirdLink(i === 0);
               flow.reset();
               onExplore();
             }}

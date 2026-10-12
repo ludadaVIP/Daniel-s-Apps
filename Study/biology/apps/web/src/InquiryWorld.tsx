@@ -22,12 +22,14 @@ export function NotebookPlant({
   height?: number;
   pale?: boolean;
 }) {
-  const top = 240 - height * 8;
+  const top = 240 - height * 8,
+    upperLeaf = top + Math.min(17, height * 8 * 0.45),
+    lowerLeaf = top + Math.min(35, height * 8 * 0.7);
   return (
     <g>
       <path d={`M120 240V${top}`} stroke={green} strokeWidth="4" fill="none" />
       <path
-        d={`M120 ${top + 17}q-34-26-42-9q4 25 42 9M120 ${top + 35}q34-26 42-9q-4 25-42 9`}
+        d={`M120 ${upperLeaf}q-34-26-42-9q4 25 42 9M120 ${lowerLeaf}q34-26 42-9q-4 25-42 9`}
         fill={pale ? '#e2d69a' : '#a8c28f'}
         stroke={green}
       />
@@ -295,7 +297,10 @@ export function InquiryDiagram({
             ? [t('原始值', 'Raw values'), t('平均', 'Mean'), t('范围', 'Scope')]
             : [t('主张', 'Claim'), t('证据', 'Evidence'), t('局限', 'Limits')];
   return (
-    <figure className="bio-diagram bio-inquiry-diagram">
+    <figure
+      className="bio-diagram bio-inquiry-diagram"
+      data-resource-id={`${id}-D01`}
+    >
       <span className="bio-eyebrow">
         <Text mode={mode} text={t('窗台调查站', 'WINDOWSILL INVESTIGATION')} />
       </span>

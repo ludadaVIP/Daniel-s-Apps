@@ -2734,3 +2734,480 @@
     display: block;
   }
 }
+
+.bio-app .bio-cell-diagram {
+  display: block;
+}
+.bio-app .bio-cell-diagram > svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  max-height: none;
+  margin: 12px auto;
+}
+.bio-app .bio-cell-diagram figcaption {
+  margin-top: 16px;
+}
+.bio-app .bio-cell-diagram small {
+  display: block;
+  margin-top: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.bio-app .bio-cell-window {
+  display: grid;
+  place-items: center;
+  margin: 16px 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8f9f3;
+}
+.bio-app .bio-cell-window > svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+}
+.bio-app .bio-cell-circuit > svg {
+  max-width: 460px;
+}
+.bio-app .bio-cell-hotspot {
+  cursor: pointer;
+}
+.bio-app .bio-cell-hotspot:focus-visible {
+  outline: 3px solid #b79443;
+  outline-offset: 4px;
+}
+.bio-app .bio-cell-turn {
+  transition: transform 350ms ease;
+}
+.bio-app .bio-cell-parts button,
+.bio-app .bio-cell-kinds button,
+.bio-app .bio-cell-levels button {
+  min-height: 44px;
+}
+.bio-app .bio-cell-clue {
+  padding: 15px;
+  border-left: 3px solid #708a58;
+  background: #eff3e8;
+  margin: 15px 0;
+}
+.bio-app .bio-cell-clue p {
+  margin-top: 8px;
+}
+.bio-app .bio-cell-job-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin: 15px 0;
+}
+.bio-app .bio-cell-job-cards article {
+  padding: 13px;
+  border: 1px solid #d8ded3;
+  border-radius: 9px;
+  background: #f5f3ec;
+  font-size: 13px;
+}
+.bio-app .bio-cell-job-cards article.active {
+  border-color: #bdcda6;
+  background: #edf3e3;
+}
+.bio-app .bio-cell-job-cards p {
+  margin-top: 7px;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-cell-job-cards {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bio-app .bio-cell-turn {
+    transition: none;
+  }
+}
+
+.bio-app .bio-exchange-diagram {
+  display: block;
+}
+.bio-app .bio-exchange-diagram > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 12px auto;
+}
+.bio-app .bio-exchange-diagram figcaption {
+  margin: 14px 0;
+  line-height: 1.8;
+}
+.bio-app .bio-exchange-diagram small {
+  display: block;
+  color: var(--bio-muted);
+  line-height: 1.8;
+}
+.bio-app .bio-exchange-window {
+  background: #f6f6ed;
+  border-radius: 20px;
+  padding: 12px;
+  margin: 16px 0;
+}
+.bio-app .bio-exchange-window > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-exchange-choices button,
+.bio-app .bio-exchange-toggle {
+  min-height: 44px;
+}
+.bio-app .bio-exchange-toggle {
+  border: 1px solid #c4cfb1;
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: #edf0e5;
+  color: #405937;
+  cursor: pointer;
+  margin: 7px 0;
+  font: inherit;
+  font-size: 14px;
+}
+.bio-app .bio-exchange-toggle[aria-pressed='true'] {
+  background: #dce5c7;
+  border-color: #708a58;
+}
+.bio-app .bio-exchange-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin: 14px 0;
+}
+.bio-app .bio-exchange-metrics article {
+  padding: 12px;
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  background: #f5f6ec;
+  min-width: 0;
+}
+.bio-app .bio-exchange-metrics span {
+  font-size: 12px;
+  color: #577047;
+  line-height: 1.5;
+}
+.bio-app .bio-exchange-metrics strong {
+  display: block;
+  font-size: 24px;
+  color: #405937;
+  margin-top: 7px;
+}
+.bio-app .bio-exchange-result {
+  background: #edf0e5;
+  padding: 12px;
+  border-radius: 12px;
+  line-height: 1.8;
+  font-weight: 600;
+}
+.bio-app .bio-exchange-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.bio-app .bio-exchange-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.bio-app .bio-exchange-table th,
+.bio-app .bio-exchange-table td {
+  padding: 7px 4px;
+  text-align: center;
+  border-bottom: 1px solid #d6dfc9;
+}
+.bio-app .bio-exchange-table tr[aria-current] {
+  background: #dce5c7;
+}
+.bio-app .bio-exchange-table caption {
+  text-align: left;
+  line-height: 1.7;
+  padding: 10px 0;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-exchange-window {
+    padding: 4px;
+  }
+  .bio-app .bio-exchange-metrics strong {
+    font-size: 21px;
+  }
+}
+
+.bio-app .bio-exchange-window ~ .bio-playback button {
+  min-height: 44px;
+}
+
+.bio-app .bio-energy-lab {
+  min-width: 0;
+}
+.bio-app .bio-energy-diagram {
+  display: block;
+}
+.bio-app .bio-energy-diagram > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 12px auto;
+}
+.bio-app .bio-energy-diagram figcaption {
+  line-height: 1.8;
+  margin: 14px 0;
+}
+.bio-app .bio-energy-diagram small {
+  display: block;
+  line-height: 1.8;
+  color: #66745b;
+}
+.bio-app .bio-energy-window {
+  background: #f6f6ed;
+  border-radius: 20px;
+  padding: 12px;
+  margin: 16px 0;
+}
+.bio-app .bio-energy-window > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-energy-choices button,
+.bio-app .bio-energy-window ~ .bio-playback button {
+  min-height: 44px;
+}
+.bio-app .bio-energy-key {
+  padding: 12px;
+  background: #edf0e5;
+  border-radius: 12px;
+  line-height: 1.8;
+  font-weight: 600;
+}
+.bio-app .bio-energy-light {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 12px 0;
+  color: #405937;
+  font-size: 14px;
+}
+.bio-app .bio-energy-light input {
+  width: 100%;
+  min-height: 44px;
+  accent-color: #708a58;
+  cursor: pointer;
+}
+.bio-app .bio-energy-light output {
+  color: #577047;
+}
+.bio-app .bio-energy-status {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin: 16px 0;
+}
+.bio-app .bio-energy-status article {
+  padding: 12px;
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  background: #f5f6ec;
+}
+.bio-app .bio-energy-status article.active {
+  background: #e3ebd4;
+  border-color: #9fb881;
+}
+.bio-app .bio-energy-status p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.bio-app .bio-energy-bars {
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  padding: 12px;
+}
+.bio-app .bio-energy-bars > div {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) 62px;
+  align-items: center;
+  gap: 9px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+.bio-app .bio-energy-bars strong {
+  line-height: 1.6;
+  font-weight: 500;
+}
+.bio-app .bio-energy-bars span {
+  text-align: right;
+  white-space: nowrap;
+  color: #405937;
+}
+.bio-app .bio-energy-bar-track {
+  height: 18px;
+  background: #e8eadf;
+  border-left: 1px solid #708a58;
+}
+.bio-app .bio-energy-bar-track > div {
+  background: #b59a52;
+  height: 100%;
+}
+.bio-app .bio-energy-bars p {
+  line-height: 1.7;
+  font-size: 12px;
+  color: #66745b;
+  margin: 10px 0 0;
+}
+.bio-app .bio-energy-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.bio-app .bio-energy-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.bio-app .bio-energy-table th,
+.bio-app .bio-energy-table td {
+  padding: 7px 4px;
+  text-align: center;
+  border-bottom: 1px solid #d6dfc9;
+}
+.bio-app .bio-energy-table caption {
+  text-align: left;
+  line-height: 1.7;
+  padding: 10px 0;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-energy-window {
+    padding: 4px;
+  }
+  .bio-app .bio-energy-bars > div {
+    grid-template-columns: 82px minmax(0, 1fr) 55px;
+    gap: 7px;
+  }
+}
+
+.bio-app .bio-systems-lab {
+  min-width: 0;
+}
+.bio-app .bio-systems-diagram {
+  display: block;
+}
+.bio-app .bio-systems-diagram > svg {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  max-height: 260px;
+  margin: 20px auto;
+}
+.bio-app .bio-systems-diagram figcaption {
+  margin-top: 14px;
+  line-height: 1.7;
+}
+.bio-app .bio-systems-diagram small {
+  display: block;
+  margin-top: 12px;
+}
+.bio-app .bio-systems-window {
+  padding: 12px;
+  border-radius: 18px;
+  background: #f5f5ed;
+  margin: 16px 0;
+}
+.bio-app .bio-systems-window > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-systems-choices button,
+.bio-app .bio-systems-lab .bio-playback button,
+.bio-app .bio-systems-stations button {
+  min-height: 44px;
+}
+.bio-app .bio-systems-spheres {
+  border: 1px solid #d6dfc9;
+  border-radius: 14px;
+  padding: 10px;
+  margin: 12px 0 20px;
+}
+.bio-app .bio-systems-spheres svg {
+  max-width: 420px;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-systems-spheres p,
+.bio-app .bio-systems-stage {
+  background: #edf0e5;
+  padding: 12px;
+  border-radius: 12px;
+  line-height: 1.7;
+}
+.bio-app .bio-systems-stage {
+  font-weight: 600;
+}
+.bio-app .bio-systems-carrier {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #d6dfc9;
+  border-radius: 14px;
+  margin: 14px 0;
+}
+.bio-app .bio-systems-carrier svg {
+  width: 100px;
+  flex-shrink: 0;
+}
+.bio-app .bio-systems-carrier p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+.bio-app .bio-systems-stations {
+  padding-left: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 24px;
+}
+.bio-app .bio-systems-stations button {
+  font: inherit;
+  width: 100%;
+  border: 1px solid #c4cfb1;
+  border-radius: 9px;
+  padding: 8px;
+  background: #f5f6ec;
+  color: #405937;
+  cursor: pointer;
+  text-align: left;
+}
+.bio-app .bio-systems-stations button[aria-pressed='true'] {
+  background: #dce5c7;
+  border-color: #708a58;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-systems-window {
+    padding: 4px;
+  }
+  .bio-app .bio-systems-carrier {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .bio-app .bio-systems-carrier svg {
+    align-self: center;
+  }
+  .bio-app .bio-systems-stations {
+    grid-template-columns: 1fr;
+  }
+}

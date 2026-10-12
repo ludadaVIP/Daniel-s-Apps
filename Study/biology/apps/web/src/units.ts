@@ -132,6 +132,91 @@ export const units = [
       '① Question and prediction: what changes, and what might happen?',
     ),
   },
+  {
+    id: 'U07',
+    stage: 'S02',
+    title: t('细胞内部大冒险', 'An adventure inside cells'),
+    question: t(
+      '看见一个细胞，怎样理解整个生命的合作？',
+      'How does one cell help explain cooperation in a whole organism?',
+    ),
+    lessonIds: ['L025', 'L026', 'L027', 'L028'],
+    missionTitle: t('两格细胞的比较地图。', 'A two-cell comparison map.'),
+    missionPrompt: t(
+      '从典型动物、绿色叶肉、地下洋葱鳞叶表皮模型中选两格。标至少三种共有结构、一个差异和两种工作；写一个英文比较句。区分模型线索与直接观察，解释壁不代替膜、叶绿体不是植物细胞通用特征。纸上图或文字都可以，无需采样或设备。',
+      'Choose two typical animal, green mesophyll or underground onion bulb epidermal models. Mark three shared parts, one difference and two jobs, adding one simple English comparison. Distinguish model clues from direct observations; explain why walls do not replace membranes and chloroplasts are not universal. Sketch or describe without sampling or equipment.',
+    ),
+    claimLabel: t(
+      '① 我的比较：哪两格细胞，有什么共性与差异？',
+      '① Comparison: which two cells, and what is shared or different?',
+    ),
+  },
+  {
+    id: 'U08',
+    stage: 'S02',
+    title: t('细胞怎样交换物质', 'How cells exchange substances'),
+    question: t(
+      '一粒随机移动，为什么整群有方向？',
+      'Why can random individuals produce a collective direction?',
+    ),
+    lessonIds: ['L029', 'L030', 'L031', 'L032'],
+    missionTitle: t(
+      '给扩散写一份数据解释。',
+      'Explain diffusion with records.',
+    ),
+    missionPrompt: t(
+      '打开L030记录表，选两帧，记模型步、左右数量和两个方向的穿越次数。用相减解释净变化，写一句英文，并换一段轨迹检查波动。明确等体积和模型记录，生活果汁观察另列；不把模型当作真实时间或速率。无需实验或设备。',
+      'Open the L030 record table and choose two snapshots. Record model steps, left/right counts and crossing events in both directions. Subtract to explain net change, add an English sentence and compare another trace for fluctuations. State equal volumes and model data; separate real juice observations. No real time/rate or experiment is implied.',
+    ),
+    claimLabel: t(
+      '① 我的主张：哪种起始条件、哪一段，整体怎样变？',
+      '① Claim: which starting conditions and interval, and what changed?',
+    ),
+  },
+  {
+    id: 'U09',
+    stage: 'S02',
+    title: t('生命需要能量', 'Life needs energy'),
+    question: t(
+      '早餐与阳光，怎样联系细胞工作？',
+      'How do breakfast and sunlight connect to cellular work?',
+    ),
+    lessonIds: ['L033', 'L034', 'L035', 'L036'],
+    missionTitle: t(
+      '追踪阳光到动物活动。',
+      'Trace sunlight to animal activity.',
+    ),
+    missionPrompt: t(
+      '画或描述阳光→叶片制糖→食物→细胞呼吸/ATP→动物活动与热，再加枯落物→分解者支路。另画CO₂的碳进入糖、又可经呼吸返回空气的物质路线。写一句英文比较，标明模型条件/假设比例与直接生活观察，不把光当碳、不把热变回阳光。无需实验或设备。',
+      'Sketch or describe sunlight → leaf sugar-making → food → respiration/ATP → animal activity and heat, with detritus → decomposers. Separately trace CO₂ carbon into sugar and potentially back to air through respiration. Add an English comparison and separate model assumptions from everyday observations. Light is not carbon and heat does not return as sunlight. No experiment needed.',
+    ),
+    claimLabel: t(
+      '① 我的路线：从哪种食物到哪些活动？物质与能量如何分开？',
+      '① Route: which food and activities? How are matter and energy separated?',
+    ),
+  },
+  {
+    id: 'U10',
+    stage: 'S02',
+    title: t('人体是合作系统', 'Body systems cooperate'),
+    question: t(
+      '食物与空气，怎样会合在身体细胞？',
+      'How do food and air meet at body cells?',
+    ),
+    lessonIds: ['L037', 'L038', 'L039', 'L040'],
+    missionTitle: t(
+      '氧分子从肺泡到细胞的旅程。',
+      'An oxygen journey from alveolus to cell.',
+    ),
+    missionPrompt: t(
+      '画或描述肺泡空气→肺毛细血管→肺静脉→左心→体动脉→肌肉毛细血管→组织间液→细胞，标两次跨边界与血红蛋白运输。加葡萄糖的肠与肝来源、CO₂碳经右心到肺的回程。写一句英文合作解释与一个模型缺省，区分模型和直接观察。不需实验、运动或身体测量。',
+      'Sketch or describe alveolar air → lung capillary → pulmonary vein → left heart → systemic artery → muscle capillary → tissue fluid → cell. Mark two boundary crossings and haemoglobin carriage. Add gut/liver glucose supply and carbon return via right heart to lung. Explain cooperation in one English sentence and state an omission, distinguishing model clues from observation. No experiment, exercise or body measurements needed.',
+    ),
+    claimLabel: t(
+      '① 我的路线：氧怎样从肺泡到细胞？哪些环节各做什么？',
+      '① Route: how does oxygen reach a cell, and what does each link do?',
+    ),
+  },
 ];
 export function unitForLesson(id: string) {
   return units.find((unit) => unit.lessonIds.includes(id))!;

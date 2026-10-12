@@ -1,0 +1,71 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original text and SVG; no external artwork copied",
+  "checked": "2026-10-13",
+  "status": "pilot; child trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L029-D01",
+      "component": "ExchangeDiagram",
+      "kind": "Selective routes"
+    },
+    {
+      "id": "L030-D01",
+      "component": "ExchangeDiagram",
+      "kind": "Random motion and net change"
+    },
+    {
+      "id": "L031-D01",
+      "component": "ExchangeDiagram",
+      "kind": "Initial water tendency"
+    },
+    {
+      "id": "L032-D01",
+      "component": "ExchangeDiagram",
+      "kind": "Equal-volume geometry"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L029-I01",
+      "component": "MembraneLab"
+    },
+    {
+      "id": "L030-I01",
+      "component": "DiffusionLab"
+    },
+    {
+      "id": "L031-I01",
+      "component": "OsmosisLab"
+    },
+    {
+      "id": "L032-I01",
+      "component": "ShapeLab"
+    }
+  ],
+  "assumptions": [
+    "Membrane tracer illustrates a possible passive inward route under suitable driving conditions, not a stochastic trajectory or calculated ion voltage. Only lipid and a specific sodium channel are shown; other carriers, pumps and endocytosis omitted. Icons not molecular sizes.",
+    "Diffusion uses 16 independent point walkers on a 24x12 lattice. Each random proposal chooses four cardinal directions with equal probability, independent of concentration. At outer edges proposals stay put. Equal-volume halves have an imaginary count boundary, no membrane. Point overlaps allowed. Seven snapshots at 32-step intervals; no thermal, solvent-flow or physical-time/rate calculation. Seeded replay repeats a trace. Crossing events include repeated returns and conserve counts.",
+    "Osmosis illustrates initial net water tendency at equal temperature/pressure with relatively impermeant solutes and an optionally water-permeable membrane. Both directions occur if water passage exists. Shape changes are qualitative, not calculated endpoints. Initial relative solute concentrations are 1/4/8 outside versus 4 inside. No pressure feedback, final volume/concentration or real time is calculated. Wall support/turgor can limit later net influx.",
+    "Geometric boxes have total volume 8 invented units cubed. All six exposed faces counted, including unseen faces. Eight small cubes are separated, not a touching cluster. Centre-to-nearest-face distance is one geometric measure, not all diffusion paths or time. No exchange rate, survival or actual cell dimensions predicted.",
+    "Juice can also mix by currents; salted vegetables can be affected by tissue damage. Familiar appearances do not independently establish a sole mechanism. No cutting, chemicals, sampling or changed plant care needed."
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/5-1-components-and-structure",
+      "use": "Bilayer and membrane proteins"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport",
+      "use": "Passive routes, diffusion, osmosis and plant turgor"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/4-2-prokaryotic-cells",
+      "use": "Cell size and surface-area/volume relationship"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells",
+      "use": "Microvilli and increased exchange area"
+    }
+  ]
+}

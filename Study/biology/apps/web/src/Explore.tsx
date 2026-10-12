@@ -8,6 +8,10 @@ import { PlantDiagram, PlantExplore } from './PlantWorld';
 import { BodyDiagram, BodyExplore } from './BodyWorld';
 import { EcoDiagram, EcoExplore } from './EcoWorld';
 import { InquiryDiagram, InquiryExplore } from './InquiryWorld';
+import { CellDiagram, CellExplore } from './CellWorld';
+import { ExchangeDiagram, ExchangeExplore } from './ExchangeWorld';
+import { EnergyDiagram, EnergyExplore } from './EnergyWorld';
+import { SystemsDiagram, SystemsExplore } from './SystemsWorld';
 type Props = { id: string; mode: LanguageMode; onExplore: () => void };
 const label = (mode: LanguageMode, zh: string, en: string) =>
   mode === 'en' ? en : mode === 'zh' ? zh : `${zh} · ${en}`;
@@ -100,6 +104,14 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  if (['L037', 'L038', 'L039', 'L040'].includes(id))
+    return <SystemsDiagram id={id} mode={mode} />;
+  if (['L033', 'L034', 'L035', 'L036'].includes(id))
+    return <EnergyDiagram id={id} mode={mode} />;
+  if (['L029', 'L030', 'L031', 'L032'].includes(id))
+    return <ExchangeDiagram id={id} mode={mode} />;
+  if (['L025', 'L026', 'L027', 'L028'].includes(id))
+    return <CellDiagram id={id} mode={mode} />;
   if (['L021', 'L022', 'L023', 'L024'].includes(id))
     return <InquiryDiagram id={id} mode={mode} />;
   if (['L017', 'L018', 'L019', 'L020'].includes(id))
@@ -387,6 +399,14 @@ const evidence = [
   },
 ];
 export function Explore(props: Props) {
+  if (['L037', 'L038', 'L039', 'L040'].includes(props.id))
+    return <SystemsExplore {...props} />;
+  if (['L033', 'L034', 'L035', 'L036'].includes(props.id))
+    return <EnergyExplore {...props} />;
+  if (['L029', 'L030', 'L031', 'L032'].includes(props.id))
+    return <ExchangeExplore {...props} />;
+  if (['L025', 'L026', 'L027', 'L028'].includes(props.id))
+    return <CellExplore {...props} />;
   if (['L021', 'L022', 'L023', 'L024'].includes(props.id))
     return <InquiryExplore {...props} />;
   if (['L017', 'L018', 'L019', 'L020'].includes(props.id))

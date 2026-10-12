@@ -1,0 +1,73 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original text and SVG; no external illustrations or micrographs copied",
+  "checked": "2026-10-13",
+  "status": "pilot; child trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L025-D01",
+      "component": "CellDiagram / CellCanvas",
+      "kind": "Interactive cell structure comparison"
+    },
+    {
+      "id": "L026-D01",
+      "component": "CellDiagram / CellCanvas",
+      "kind": "Interactive cell structure comparison"
+    },
+    {
+      "id": "L027-D01",
+      "component": "CellDiagram / CellCanvas",
+      "kind": "Information and energy cooperation"
+    },
+    {
+      "id": "L028-D01",
+      "component": "CellDiagram / LevelsCanvas",
+      "kind": "Two organisation routes"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L025-I01",
+      "component": "CellInspector"
+    },
+    {
+      "id": "L026-I01",
+      "component": "CellInspector"
+    },
+    {
+      "id": "L027-I01",
+      "component": "CellJobs"
+    },
+    {
+      "id": "L028-I01",
+      "component": "CellLevels"
+    }
+  ],
+  "assumptions": [
+    "All diagrams original qualitative schematics; colours, counts, geometry and positions chosen for teaching. No true three-dimensional section, measured size, activity rate or cell photograph. Rotation changes 2D orientation only.",
+    "Representative viable animal epithelial, green mesophyll and typical underground bulb epidermal cells. All three retain nucleus, membrane, cytoplasm, mitochondria and ribosomes; plant profiles include wall and central vacuole. Only this green mesophyll profile includes chloroplasts. Not all cell types follow the profiles.",
+    "Mature human red blood cells are an animal exception: no nucleus or mitochondria. A typical animal schematic cannot describe every specialised cell.",
+    "CellJobs assumes oxygen, existing sugar, amino acids and other suitable conditions. Mesophyll photosynthesis additionally needs light; no water/CO2 limitation, substrate depletion, temperature or rate simulation. Respiration and protein assembly are possible in these profiles by day and night.",
+    "DNA mostly remains in the nucleus; an RNA information copy guides ribosomes. Energy-support arrows are distinct from information and material arrows. Mitochondria perform major aerobic respiration stages; some respiration occurs in cytoplasm. ER/Golgi and many regulation steps omitted.",
+    "Tissue diagrams show only representative parts, not a complete leaf section or intestinal wall. Four-level cell/tissue/organ/organism route omits the intermediate organ-system level deliberately without denying it. Stomata belong to epidermis rather than a separate tissue.",
+    "Cell structures/function cards reflect biological knowledge, not what an ordinary light micrograph alone establishes. Structural completeness of a notebook is not scientific verification."
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/4-3-eukaryotic-cells",
+      "use": "Core eukaryotic structures, common and differing jobs; not copied graphics"
+    },
+    {
+      "url": "https://www.genome.gov/genetics-glossary/Organelle",
+      "use": "Specialised intracellular function structures and mitochondria/chloroplasts"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/30-1-the-plant-body",
+      "use": "Leaf tissue cooperation and organ/system organisation"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/33-2-animal-primary-tissues",
+      "use": "Epithelium, muscle, connective and nervous tissues in organs"
+    }
+  ]
+}

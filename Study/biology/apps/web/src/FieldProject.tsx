@@ -25,11 +25,11 @@ export function FieldScene({
   onSelect: (i: number) => void;
 }) {
   const positions = [
-    [65, 220],
-    [180, 210],
-    [85, 315],
-    [285, 245],
-    [325, 90],
+    [45, 150],
+    [220, 155],
+    [38, 307],
+    [360, 225],
+    [300, 47],
   ];
   return (
     <svg
@@ -42,10 +42,15 @@ export function FieldScene({
           'Five fictional organism observations; select a number',
         ),
       )}
+      data-resource-id="S01-P01-D01"
     >
       <rect x="8" y="8" width="404" height="356" rx="22" fill="#eef2e3" />
       <circle cx="360" cy="50" r="22" fill="#e8d195" />
       <path d="M30 339q190-36 355 0" fill="#dce4cf" />
+      <g fill="#c6b793" stroke="#a39670">
+        <path d="M165 337q5-26 33-20q-5 27-33 20m0 0 24-14" />
+        <path d="M214 344q-2-22 24-26q2 23-24 26m0 0 17-18" />
+      </g>
       <path
         d="M305 195V70m0 32 64 14m-64-14-40-25"
         stroke="#94a17a"
@@ -105,6 +110,11 @@ export function FieldScene({
       </g>
       <g transform="translate(350 94)">
         <ellipse rx="25" ry="15" fill="#bad097" stroke="#708a58" />
+        <path
+          d="M-15-5q17-3 22 9q-20 10-22-9m3 6 16 7m-9-2 8 0"
+          fill="#a7bf84"
+          stroke="#708a58"
+        />
         <circle cx="17" cy="-13" r="12" fill="#bad097" stroke="#708a58" />
         <path
           d="m29-13 12 3-12 3M-24 0l-17-10 8 16m22 9-2 10m13-10-1 10"

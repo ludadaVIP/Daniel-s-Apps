@@ -5,6 +5,10 @@ import { plantLessons } from './content/plants';
 import { bodyLessons } from './content/body';
 import { ecologyLessons } from './content/ecology';
 import { inquiryLessons } from './content/inquiry';
+import { cellLessons } from './content/cells';
+import { exchangeLessons } from './content/exchange';
+import { energyLessons } from './content/energy';
+import { systemsLessons } from './content/systems';
 export { t } from './schema';
 export type { Skill, Question, Lesson } from './schema';
 const lifeLessons: Lesson[] = [
@@ -641,6 +645,10 @@ export const lessons: Lesson[] = [
   ...bodyLessons,
   ...ecologyLessons,
   ...inquiryLessons,
+  ...cellLessons,
+  ...exchangeLessons,
+  ...energyLessons,
+  ...systemsLessons,
 ];
 export const questions = lessons.flatMap((lesson) => lesson.questions);
 const files = import.meta.glob('../../../curriculum/**/l*.md', {

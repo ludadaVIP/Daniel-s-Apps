@@ -28,6 +28,66 @@ import {
 } from './models';
 import { units } from './units';
 import { emptyProject, stageQuestions } from './project';
+import { cellParts, cellActivity, type CellKind } from './cellModel';
+
+describe('representative cell models', () => {
+  it('separates shared structures from cell-type-specific structures', () => {
+    for (const kind of ['animal', 'leaf', 'onion'] as CellKind[]) {
+      const parts = cellParts(kind);
+      expect(new Set(parts).size).toBe(parts.length);
+      for (const shared of [
+        'membrane',
+        'cytoplasm',
+        'nucleus',
+        'mitochondria',
+        'ribosomes',
+      ])
+        expect(parts).toContain(shared);
+      expect(parts.includes('wall')).toBe(kind !== 'animal');
+      expect(parts.includes('vacuole')).toBe(kind !== 'animal');
+      expect(parts.includes('chloroplasts')).toBe(kind === 'leaf');
+    }
+    const copy = cellParts('leaf');
+    copy.pop();
+    expect(cellParts('leaf')).toContain('chloroplasts');
+  });
+  it('limits photosynthesis by chloroplast profile and light while preserving day/night respiration', () => {
+    for (const kind of ['animal', 'leaf', 'onion'] as CellKind[])
+      for (const light of [false, true]) {
+        const state = cellActivity(kind, light);
+        expect(state.photosynthesis).toBe(kind === 'leaf' && light);
+        expect(state.respiration).toBe(true);
+        expect(state.proteinAssembly).toBe(true);
+      }
+  });
+  it('restores S02 notes without changing S01 stage completion', () => {
+    let progress = emptyProgress();
+    progress = withMission(progress, 'U06', {
+      object: '旧方案',
+      evidence: '控制条件',
+      reasoning: '比较',
+      savedAt: 10,
+    });
+    progress = withMission(progress, 'U07', {
+      object: '叶肉与洋葱',
+      evidence: '共同膜，不同叶绿体',
+      reasoning: '分工',
+      savedAt: 20,
+    });
+    progress.sessions.L028 = {
+      step: 3,
+      note: '组织不等于器官',
+      completedAt: 20,
+    };
+    const restored = decodeProgress(JSON.stringify(progress));
+    expect(missionForUnit(restored, 'U07').object).toBe('叶肉与洋葱');
+    expect(missionForUnit(restored, 'U06').object).toBe('旧方案');
+    expect(restored.sessions.L028?.note).toBe('组织不等于器官');
+    expect(stageOutcome(restored).lessons).toBe(0);
+    expect(stageOutcome(restored).missions).toBe(1);
+    expect(stageOutcome(restored).complete).toBe(false);
+  });
+});
 describe('pilot curriculum contract', () => {
   it('offers complete units within the 144-lesson roadmap', () => {
     const list = curriculum.flatMap((s) => s.units.flatMap((u) => u.lessons));

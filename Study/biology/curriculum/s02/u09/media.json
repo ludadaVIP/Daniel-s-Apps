@@ -1,0 +1,80 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original text and SVG; no external artwork or textbook prose copied",
+  "checked": "2026-10-13",
+  "status": "pilot; child trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L033-D01",
+      "component": "EnergyDiagram",
+      "kind": "Energy/matter relay"
+    },
+    {
+      "id": "L034-D01",
+      "component": "EnergyDiagram",
+      "kind": "Six-carbon photosynthesis trace"
+    },
+    {
+      "id": "L035-D01",
+      "component": "EnergyDiagram",
+      "kind": "Respiration carbon/energy trace"
+    },
+    {
+      "id": "L036-D01",
+      "component": "EnergyDiagram",
+      "kind": "Energy flow versus carbon cycle"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L033-I01",
+      "component": "EnergyRelay"
+    },
+    {
+      "id": "L034-I01",
+      "component": "PhotosynthesisLab"
+    },
+    {
+      "id": "L035-I01",
+      "component": "RespirationLab"
+    },
+    {
+      "id": "L036-I01",
+      "component": "FoodEnergyLab"
+    }
+  ],
+  "assumptions": [
+    "All illustrations original schematics, not actual cell geometry, photon/atom colours, measurements or calibrated timing. Gold wavy arrows represent energy transfer, blue dots carbon matter. Energy is not a kind of atom.",
+    "EnergyRelay compares representative toast/body and leaf/plant routes. Food digestion/absorption/circulation and carbon retained in biomass are explained, not quantified. One respired carbon path can return to CO2; not every carbon atom instantly returns. Other chemical-energy-supported ecosystems acknowledged.",
+    "Photosynthesis uses shared plantSugar qualitative prerequisites: representative viable mesophyll chloroplasts, suitable enzymes/temperature and available materials, with no reserve sustaining the depicted sugar-making route when prerequisites are absent. Light values 0/1/2 do not compute a rate, yield or high-light response. No net photosynthesis-minus-respiration quantity is calculated. When usable CO2 is supplied, six carbon tracer identities are retained; without usable CO2 no carbon tracers are supplied; hydrogen/oxygen intermediates omitted, water/oxygen icons not molecule counts, sugar point cluster not a structural formula. Actual sugars arise through multi-step pathways.",
+    "Respiration profiles represent mesophyll, root and muscle with existing usable sugar and suitable other conditions. Day/night does not switch aerobic respiration off; only depicted oxygen absence removes the aerobic route. Cytoplasmic initial steps and mitochondrial later steps distinguished. Missing oxygen does not imply no ATP from reserves or glycolysis/fermentation-related pathways. No ATP count, death time or real rate predicted.",
+    "FoodEnergy uses initial plant organic chemical energy 1000 invented E units, not incident sunlight. Two feeding links share an assumed transfer fraction 5/10/20%, not universal measured efficiency. Each level assigns 20% to detritus and the remainder after transfer to eventual heat after respiration/work; terminal predator has no onward feeder. Input = onward + detritus + heat at each level; summed heat and retained detritus = 1000E. Detritus still contains chemical energy; decomposition rate/time not calculated. All energy bars share one zero-based scale. Neither bars nor budget predict organism count/size/population.",
+    "Carbon view represents possible atmospheric CO2→plant organic matter→feeding/detritus→respiration→CO2 routes, not a full carbon inventory or a guarantee for every atom. Decomposers link multiple levels. New photosynthesis needs new energy input; dispersed heat is not recycled into sunlight. No chemical experiments, breath-holding, diet ranking or changed plant care."
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis",
+      "use": "Energy/material distinction, sugar carbon and multi-step photosynthesis"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/6-4-atp-adenosine-triphosphate",
+      "use": "ATP coupling to work; original wording avoids bond-breaking-alone misconception"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/7-1-energy-in-living-systems",
+      "use": "Respiration, ATP and energy transfer"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/7-5-metabolism-without-oxygen",
+      "use": "Glycolysis/fermentation scope when aerobic route is unavailable"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems",
+      "use": "Trophic energy transfer and detrital routes"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles",
+      "use": "Carbon cycling distinct from energy flow"
+    }
+  ]
+}
