@@ -1,6 +1,16 @@
 import type { LocalizedText } from '@study/shared';
 import { t, q, term, type Lesson } from './schema';
 import { microLessons } from './content/micro';
+import { plantLessons } from './content/plants';
+import { bodyLessons } from './content/body';
+import { ecologyLessons } from './content/ecology';
+import { inquiryLessons } from './content/inquiry';
+import { cellLessons } from './content/cells';
+import { exchangeLessons } from './content/exchange';
+import { energyLessons } from './content/energy';
+import { systemsLessons } from './content/systems';
+import { vascularLessons } from './content/vascular';
+import { diversityLessons } from './content/diversity';
 export { t } from './schema';
 export type { Skill, Question, Lesson } from './schema';
 const lifeLessons: Lesson[] = [
@@ -630,7 +640,20 @@ const lifeLessons: Lesson[] = [
     ],
   },
 ];
-export const lessons: Lesson[] = [...lifeLessons, ...microLessons];
+export const lessons: Lesson[] = [
+  ...lifeLessons,
+  ...microLessons,
+  ...plantLessons,
+  ...bodyLessons,
+  ...ecologyLessons,
+  ...inquiryLessons,
+  ...cellLessons,
+  ...exchangeLessons,
+  ...energyLessons,
+  ...systemsLessons,
+  ...vascularLessons,
+  ...diversityLessons,
+];
 export const questions = lessons.flatMap((lesson) => lesson.questions);
 const files = import.meta.glob('../../../curriculum/**/l*.md', {
   query: '?raw',

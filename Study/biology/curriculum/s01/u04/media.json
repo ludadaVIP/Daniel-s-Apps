@@ -1,0 +1,80 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original text and SVG; no external assets copied",
+  "checked": "2026-10-12",
+  "status": "pilot; child trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L013-D01",
+      "component": "BodyDiagram",
+      "kind": "Clickable organ cooperation map",
+      "scale": "Not to scale; organ shapes and positions schematic"
+    },
+    {
+      "id": "L014-D01",
+      "component": "BodyDiagram",
+      "kind": "Clickable organ cooperation map",
+      "scale": "Not to scale; organ shapes and positions schematic"
+    },
+    {
+      "id": "L015-D01",
+      "component": "BodyDiagram",
+      "kind": "Clickable organ cooperation map",
+      "scale": "Not to scale; organ shapes and positions schematic"
+    },
+    {
+      "id": "L016-D01",
+      "component": "BodyDiagram",
+      "kind": "Clickable organ cooperation map",
+      "scale": "Not to scale; organ shapes and positions schematic"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L013-I01",
+      "component": "FoodLab",
+      "assumptions": "Tracks only starch in rice or protein in tofu. Real foods are mixtures; enzyme action, gut transit and blood route through liver compressed. Glucose/amino-acid blood route does not model lipid lymph route; no rates."
+    },
+    {
+      "id": "L014-I01",
+      "component": "ArmLab",
+      "assumptions": "Fixed bone lengths, teaching angles 0–90 degrees of flexion. One schematic flexor and extensor with simplified attachments. No personal movement range, muscle force, all-or-none activation, injury or diagnostic model."
+    },
+    {
+      "id": "L015-I01",
+      "component": "GasLab",
+      "assumptions": "Oxygen air-lungs-left heart-body cells; CO2 body cells-right heart-lungs-air. Gas diffusion and circulation distinct; a connected double circulation with chambers/vessels omitted. Colours denote route, not real blood colour. No body measurement or rates."
+    },
+    {
+      "id": "L016-I01",
+      "component": "SensesLab",
+      "assumptions": "Written rustle cue, optional visual curtain movement, no sound playback. Four-stage summary of stimulus-receptor-neural propagation-interpretation. Added cue supports a possible source, not certainty. Does not measure perception or simulate disability."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/34-3-digestive-system-processes",
+      "use": "Digestion and absorption"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/38-3-joints-and-skeletal-movement",
+      "use": "Bone and joint motion"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/38-4-muscle-contraction-and-locomotion",
+      "use": "Muscle contraction and energy"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/39-2-gas-exchange-across-respiratory-surfaces",
+      "use": "Gas exchange"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/40-3-mammalian-heart-and-blood-vessels",
+      "use": "Left/right heart and circulation"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/36-1-sensory-processes",
+      "use": "Stimulus transduction and interpretation"
+    }
+  ]
+}

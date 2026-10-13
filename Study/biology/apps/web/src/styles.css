@@ -2348,6 +2348,27 @@
   margin-top: 20px;
   max-width: 440px;
 }
+.bio-app .bio-plant-diagram svg {
+  max-height: 300px;
+}
+.bio-app .bio-plant-choice {
+  margin: 12px 0;
+}
+.bio-app .bio-plant-choice button {
+  min-height: 44px;
+}
+.bio-app .bio-plant-diagram .bio-hotspots button {
+  min-width: 44px;
+  height: 44px;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-plant-diagram {
+    display: block;
+  }
+  .bio-app .bio-plant-diagram .bio-hotspots {
+    justify-content: center;
+  }
+}
 .bio-app .bio-mission-diagram .bio-diagram {
   position: static;
   display: block;
@@ -2429,5 +2450,961 @@
   .bio-app .bio-dots-demo button {
     font-size: 11px;
     padding: 8px;
+  }
+}
+
+/* Body cooperation maps and compact, consistent two-choice labs. */
+.bio-app .bio-body-diagram svg {
+  max-height: 300px;
+  width: 100%;
+}
+.bio-body-choice {
+  margin: 12px 0;
+}
+.bio-body-choice button {
+  min-height: 44px;
+}
+.bio-body-choice .bio-en {
+  font-size: 11px;
+}
+.bio-body-diagram .bio-body-choice {
+  justify-content: center;
+}
+.bio-organ-target {
+  cursor: pointer;
+}
+.bio-organ-target:focus {
+  outline: none;
+}
+.bio-organ-focus-ring {
+  opacity: 0;
+}
+.bio-organ-target:focus-visible {
+  opacity: 1;
+}
+.bio-organ-target:focus-visible .bio-organ-focus-ring {
+  opacity: 1;
+}
+.bio-body-diagram figcaption small {
+  display: block;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-body-diagram {
+    display: block;
+  }
+  .bio-body-choice button {
+    flex: 0 1 auto;
+  }
+}
+
+.bio-app .bio-eco-diagram svg {
+  max-height: 300px;
+  width: 100%;
+}
+.bio-eco-choice {
+  margin: 12px 0;
+}
+.bio-eco-choice button {
+  min-height: 44px;
+}
+.bio-eco-evidence button {
+  flex: 1 1 170px;
+  text-align: left;
+}
+.bio-eco-choice .bio-en {
+  font-size: 11px;
+}
+.bio-eco-diagram .bio-eco-choice {
+  justify-content: center;
+}
+.bio-eco-diagram figcaption small {
+  display: block;
+  margin-top: 10px;
+  opacity: 0.75;
+}
+.bio-eco-legend {
+  font-size: 13px;
+  line-height: 1.7;
+  color: var(--muted);
+  margin: 10px 0;
+}
+.bio-eco-result {
+  line-height: 1.8;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-eco-diagram {
+    display: block;
+  }
+  .bio-eco-choice button {
+    flex: 0 1 auto;
+  }
+  .bio-eco-evidence button {
+    flex: 1 1 100%;
+  }
+}
+
+.bio-app .bio-inquiry-diagram svg {
+  width: 100%;
+  max-height: 300px;
+  color: var(--ink);
+}
+.bio-app .bio-inquiry-diagram small {
+  display: block;
+  margin-top: 10px;
+  color: var(--muted);
+}
+.bio-app .bio-inquiry-choices {
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+.bio-app .bio-inquiry-choices button {
+  min-height: 44px;
+  overflow-wrap: anywhere;
+}
+.bio-app .bio-inquiry-factors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin: 14px 0;
+}
+.bio-app .bio-inquiry-factors button {
+  border: 1px solid var(--line);
+  border-radius: 9px;
+  padding: 14px;
+  background: #fffdf6;
+  color: var(--ink);
+  text-align: left;
+}
+.bio-app .bio-inquiry-factors button[aria-pressed='true'] {
+  background: #e6eed8;
+  border-color: #9db384;
+}
+.bio-app .bio-inquiry-factors strong,
+.bio-app .bio-inquiry-factors small {
+  display: block;
+  margin-top: 10px;
+}
+.bio-app .bio-inquiry-result {
+  margin: 14px 0;
+  padding: 14px;
+  border-left: 3px solid #9db384;
+  background: #eef2e7;
+  line-height: 1.8;
+}
+.bio-app .bio-inquiry-result a,
+.bio-app .bio-inquiry-result button {
+  display: block;
+  margin-top: 12px;
+}
+.bio-app .bio-inquiry-result button {
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: white;
+  color: var(--ink);
+  padding: 8px 14px;
+}
+.bio-app .bio-inquiry-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+  margin: 12px 0;
+}
+.bio-app .bio-inquiry-table th,
+.bio-app .bio-inquiry-table td {
+  padding: 8px 4px;
+  text-align: center;
+  border-bottom: 1px solid var(--line);
+}
+.bio-app .bio-inquiry-table caption {
+  text-align: left;
+  margin-bottom: 8px;
+}
+.bio-app .bio-stage-project-link {
+  display: block;
+  margin: 24px 0;
+  padding: 28px;
+  border: 1px solid #cad6bc;
+  border-radius: 15px;
+  background: #edf1e3;
+}
+.bio-app .bio-stage-project-link h2 {
+  margin: 10px 0;
+}
+.bio-app .bio-project-intro {
+  margin: 16px 0;
+  max-width: 820px;
+}
+.bio-app .bio-project-scene {
+  border: 1px solid var(--line);
+  padding: 20px;
+  border-radius: 14px;
+  background: #fffdf7;
+  margin: 24px 0;
+}
+.bio-app .bio-project-scene summary {
+  cursor: pointer;
+  min-height: 44px;
+}
+.bio-app .bio-project-scene-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  margin-top: 14px;
+}
+.bio-app .bio-project-scene-grid svg {
+  width: 100%;
+  max-height: 380px;
+}
+.bio-app .bio-project-scene-grid p {
+  margin: 12px 0;
+}
+.bio-app .bio-project-scene-grid [role='button'] {
+  cursor: pointer;
+  outline: none;
+}
+.bio-app .bio-project-scene-grid [role='button']:focus-visible circle {
+  stroke: #b79443;
+  stroke-width: 4px;
+}
+.bio-app .bio-project-writing {
+  border: 1px solid var(--line);
+  padding: 24px;
+  border-radius: 14px;
+  background: white;
+  max-width: 860px;
+  margin: 24px 0;
+}
+.bio-app .bio-project-writing label {
+  display: block;
+  margin: 20px 0 8px;
+  font-weight: 600;
+}
+.bio-app .bio-project-writing textarea {
+  display: block;
+  margin-top: 8px;
+  width: 100%;
+  min-height: 72px;
+  resize: vertical;
+  border: 1px solid #cdd5c5;
+  border-radius: 8px;
+  padding: 12px;
+  background: #fcfcf7;
+  color: var(--ink);
+  font-weight: 400;
+}
+.bio-app .bio-project-writing p {
+  margin: 14px 0;
+}
+.bio-app .bio-project-status {
+  margin: 24px 0;
+  padding: 24px;
+  background: #edf1e3;
+  border-radius: 14px;
+}
+.bio-app .bio-project-status p {
+  margin: 10px 0;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-inquiry-factors,
+  .bio-app .bio-project-scene-grid {
+    grid-template-columns: 1fr;
+  }
+  .bio-app .bio-project-writing,
+  .bio-app .bio-project-scene,
+  .bio-app .bio-project-status {
+    padding: 16px;
+  }
+  .bio-app .bio-inquiry-chart svg {
+    max-height: none;
+  }
+}
+.bio-app .bio-frame-caption {
+  margin: 14px 0;
+  line-height: 1.8;
+}
+.bio-app .bio-project-writing .bio-options button[aria-pressed='true'] {
+  background: #e6eed8;
+  border-color: #9db384;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-inquiry-diagram {
+    display: block;
+  }
+}
+
+.bio-app .bio-cell-diagram {
+  display: block;
+}
+.bio-app .bio-cell-diagram > svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+  max-height: none;
+  margin: 12px auto;
+}
+.bio-app .bio-cell-diagram figcaption {
+  margin-top: 16px;
+}
+.bio-app .bio-cell-diagram small {
+  display: block;
+  margin-top: 15px;
+  color: var(--muted);
+  line-height: 1.7;
+}
+.bio-app .bio-cell-window {
+  display: grid;
+  place-items: center;
+  margin: 16px 0;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #f8f9f3;
+}
+.bio-app .bio-cell-window > svg {
+  display: block;
+  width: 100%;
+  max-width: 360px;
+}
+.bio-app .bio-cell-circuit > svg {
+  max-width: 460px;
+}
+.bio-app .bio-cell-hotspot {
+  cursor: pointer;
+}
+.bio-app .bio-cell-hotspot:focus-visible {
+  outline: 3px solid #b79443;
+  outline-offset: 4px;
+}
+.bio-app .bio-cell-turn {
+  transition: transform 350ms ease;
+}
+.bio-app .bio-cell-parts button,
+.bio-app .bio-cell-kinds button,
+.bio-app .bio-cell-levels button {
+  min-height: 44px;
+}
+.bio-app .bio-cell-clue {
+  padding: 15px;
+  border-left: 3px solid #708a58;
+  background: #eff3e8;
+  margin: 15px 0;
+}
+.bio-app .bio-cell-clue p {
+  margin-top: 8px;
+}
+.bio-app .bio-cell-job-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 9px;
+  margin: 15px 0;
+}
+.bio-app .bio-cell-job-cards article {
+  padding: 13px;
+  border: 1px solid #d8ded3;
+  border-radius: 9px;
+  background: #f5f3ec;
+  font-size: 13px;
+}
+.bio-app .bio-cell-job-cards article.active {
+  border-color: #bdcda6;
+  background: #edf3e3;
+}
+.bio-app .bio-cell-job-cards p {
+  margin-top: 7px;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-cell-job-cards {
+    grid-template-columns: 1fr;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bio-app .bio-cell-turn {
+    transition: none;
+  }
+}
+
+.bio-app .bio-exchange-diagram {
+  display: block;
+}
+.bio-app .bio-exchange-diagram > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 12px auto;
+}
+.bio-app .bio-exchange-diagram figcaption {
+  margin: 14px 0;
+  line-height: 1.8;
+}
+.bio-app .bio-exchange-diagram small {
+  display: block;
+  color: var(--bio-muted);
+  line-height: 1.8;
+}
+.bio-app .bio-exchange-window {
+  background: #f6f6ed;
+  border-radius: 20px;
+  padding: 12px;
+  margin: 16px 0;
+}
+.bio-app .bio-exchange-window > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-exchange-choices button,
+.bio-app .bio-exchange-toggle {
+  min-height: 44px;
+}
+.bio-app .bio-exchange-toggle {
+  border: 1px solid #c4cfb1;
+  border-radius: 12px;
+  padding: 8px 12px;
+  background: #edf0e5;
+  color: #405937;
+  cursor: pointer;
+  margin: 7px 0;
+  font: inherit;
+  font-size: 14px;
+}
+.bio-app .bio-exchange-toggle[aria-pressed='true'] {
+  background: #dce5c7;
+  border-color: #708a58;
+}
+.bio-app .bio-exchange-metrics {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin: 14px 0;
+}
+.bio-app .bio-exchange-metrics article {
+  padding: 12px;
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  background: #f5f6ec;
+  min-width: 0;
+}
+.bio-app .bio-exchange-metrics span {
+  font-size: 12px;
+  color: #577047;
+  line-height: 1.5;
+}
+.bio-app .bio-exchange-metrics strong {
+  display: block;
+  font-size: 24px;
+  color: #405937;
+  margin-top: 7px;
+}
+.bio-app .bio-exchange-result {
+  background: #edf0e5;
+  padding: 12px;
+  border-radius: 12px;
+  line-height: 1.8;
+  font-weight: 600;
+}
+.bio-app .bio-exchange-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.bio-app .bio-exchange-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.bio-app .bio-exchange-table th,
+.bio-app .bio-exchange-table td {
+  padding: 7px 4px;
+  text-align: center;
+  border-bottom: 1px solid #d6dfc9;
+}
+.bio-app .bio-exchange-table tr[aria-current] {
+  background: #dce5c7;
+}
+.bio-app .bio-exchange-table caption {
+  text-align: left;
+  line-height: 1.7;
+  padding: 10px 0;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-exchange-window {
+    padding: 4px;
+  }
+  .bio-app .bio-exchange-metrics strong {
+    font-size: 21px;
+  }
+}
+
+.bio-app .bio-exchange-window ~ .bio-playback button {
+  min-height: 44px;
+}
+
+.bio-app .bio-energy-lab {
+  min-width: 0;
+}
+.bio-app .bio-energy-diagram {
+  display: block;
+}
+.bio-app .bio-energy-diagram > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: 12px auto;
+}
+.bio-app .bio-energy-diagram figcaption {
+  line-height: 1.8;
+  margin: 14px 0;
+}
+.bio-app .bio-energy-diagram small {
+  display: block;
+  line-height: 1.8;
+  color: #66745b;
+}
+.bio-app .bio-energy-window {
+  background: #f6f6ed;
+  border-radius: 20px;
+  padding: 12px;
+  margin: 16px 0;
+}
+.bio-app .bio-energy-window > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-energy-choices button,
+.bio-app .bio-energy-window ~ .bio-playback button {
+  min-height: 44px;
+}
+.bio-app .bio-energy-key {
+  padding: 12px;
+  background: #edf0e5;
+  border-radius: 12px;
+  line-height: 1.8;
+  font-weight: 600;
+}
+.bio-app .bio-energy-light {
+  display: grid;
+  gap: 8px;
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  padding: 12px;
+  margin: 12px 0;
+  color: #405937;
+  font-size: 14px;
+}
+.bio-app .bio-energy-light input {
+  width: 100%;
+  min-height: 44px;
+  accent-color: #708a58;
+  cursor: pointer;
+}
+.bio-app .bio-energy-light output {
+  color: #577047;
+}
+.bio-app .bio-energy-status {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 9px;
+  margin: 16px 0;
+}
+.bio-app .bio-energy-status article {
+  padding: 12px;
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  background: #f5f6ec;
+}
+.bio-app .bio-energy-status article.active {
+  background: #e3ebd4;
+  border-color: #9fb881;
+}
+.bio-app .bio-energy-status p {
+  font-size: 13px;
+  line-height: 1.7;
+}
+.bio-app .bio-energy-bars {
+  border: 1px solid #d6dfc9;
+  border-radius: 12px;
+  padding: 12px;
+}
+.bio-app .bio-energy-bars > div {
+  display: grid;
+  grid-template-columns: 90px minmax(0, 1fr) 62px;
+  align-items: center;
+  gap: 9px;
+  margin: 10px 0;
+  font-size: 13px;
+}
+.bio-app .bio-energy-bars strong {
+  line-height: 1.6;
+  font-weight: 500;
+}
+.bio-app .bio-energy-bars span {
+  text-align: right;
+  white-space: nowrap;
+  color: #405937;
+}
+.bio-app .bio-energy-bar-track {
+  height: 18px;
+  background: #e8eadf;
+  border-left: 1px solid #708a58;
+}
+.bio-app .bio-energy-bar-track > div {
+  background: #b59a52;
+  height: 100%;
+}
+.bio-app .bio-energy-bars p {
+  line-height: 1.7;
+  font-size: 12px;
+  color: #66745b;
+  margin: 10px 0 0;
+}
+.bio-app .bio-energy-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.bio-app .bio-energy-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+}
+.bio-app .bio-energy-table th,
+.bio-app .bio-energy-table td {
+  padding: 7px 4px;
+  text-align: center;
+  border-bottom: 1px solid #d6dfc9;
+}
+.bio-app .bio-energy-table caption {
+  text-align: left;
+  line-height: 1.7;
+  padding: 10px 0;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-energy-window {
+    padding: 4px;
+  }
+  .bio-app .bio-energy-bars > div {
+    grid-template-columns: 82px minmax(0, 1fr) 55px;
+    gap: 7px;
+  }
+}
+
+.bio-app .bio-systems-lab {
+  min-width: 0;
+}
+.bio-app .bio-systems-diagram {
+  display: block;
+}
+.bio-app .bio-systems-diagram > svg {
+  display: block;
+  width: 100%;
+  max-width: 420px;
+  height: auto;
+  max-height: 260px;
+  margin: 20px auto;
+}
+.bio-app .bio-systems-diagram figcaption {
+  margin-top: 14px;
+  line-height: 1.7;
+}
+.bio-app .bio-systems-diagram small {
+  display: block;
+  margin-top: 12px;
+}
+.bio-app .bio-systems-window {
+  padding: 12px;
+  border-radius: 18px;
+  background: #f5f5ed;
+  margin: 16px 0;
+}
+.bio-app .bio-systems-window > svg {
+  width: 100%;
+  max-width: 480px;
+  height: auto;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-systems-choices button,
+.bio-app .bio-systems-lab .bio-playback button,
+.bio-app .bio-systems-stations button {
+  min-height: 44px;
+}
+.bio-app .bio-systems-spheres {
+  border: 1px solid #d6dfc9;
+  border-radius: 14px;
+  padding: 10px;
+  margin: 12px 0 20px;
+}
+.bio-app .bio-systems-spheres svg {
+  max-width: 420px;
+  width: 100%;
+  display: block;
+  margin: auto;
+}
+.bio-app .bio-systems-spheres p,
+.bio-app .bio-systems-stage {
+  background: #edf0e5;
+  padding: 12px;
+  border-radius: 12px;
+  line-height: 1.7;
+}
+.bio-app .bio-systems-stage {
+  font-weight: 600;
+}
+.bio-app .bio-systems-carrier {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border: 1px solid #d6dfc9;
+  border-radius: 14px;
+  margin: 14px 0;
+}
+.bio-app .bio-systems-carrier svg {
+  width: 100px;
+  flex-shrink: 0;
+}
+.bio-app .bio-systems-carrier p {
+  font-size: 14px;
+  line-height: 1.7;
+  margin: 0;
+}
+.bio-app .bio-systems-stations {
+  padding-left: 24px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px 24px;
+}
+.bio-app .bio-systems-stations button {
+  font: inherit;
+  width: 100%;
+  border: 1px solid #c4cfb1;
+  border-radius: 9px;
+  padding: 8px;
+  background: #f5f6ec;
+  color: #405937;
+  cursor: pointer;
+  text-align: left;
+}
+.bio-app .bio-systems-stations button[aria-pressed='true'] {
+  background: #dce5c7;
+  border-color: #708a58;
+}
+@media (max-width: 600px) {
+  .bio-app .bio-systems-window {
+    padding: 4px;
+  }
+  .bio-app .bio-systems-carrier {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  .bio-app .bio-systems-carrier svg {
+    align-self: center;
+  }
+  .bio-app .bio-systems-stations {
+    grid-template-columns: 1fr;
+  }
+}
+
+.bio-vascular-lab {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.bio-vascular-lab h3,
+.bio-vascular-lab p {
+  margin: 0;
+}
+.bio-vascular-window {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #f4f5eb;
+  padding: 5px;
+}
+.bio-vascular-window svg {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  margin: auto;
+}
+.bio-vascular-choices button {
+  min-height: 44px;
+}
+.bio-vascular-readouts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+}
+.bio-vascular-readouts p {
+  padding: 12px;
+  background: #f1f3e9;
+  border-radius: 14px;
+  font-size: 0.92rem;
+}
+.bio-vascular-diagram {
+  display: block;
+  margin: 0;
+  min-width: 0;
+}
+.bio-vascular-diagram > svg {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  margin: auto;
+}
+.bio-vascular-diagram .bio-choice-row {
+  margin-top: 10px;
+}
+.bio-vascular-diagram figcaption {
+  margin-top: 10px;
+  line-height: 1.65;
+}
+@media (max-width: 600px) {
+  .bio-vascular-readouts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.bio-app .bio-vascular-lab .bio-playback button {
+  min-height: 44px;
+}
+
+.bio-diversity-lab {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.bio-diversity-lab h3,
+.bio-diversity-lab p {
+  margin: 0;
+}
+.bio-diversity-window {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--bio-line);
+  border-radius: 20px;
+  background: #fafbf5;
+}
+.bio-diversity-window svg {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+}
+.bio-diversity-choices button,
+.bio-app .bio-diversity-lab .bio-playback button {
+  min-height: 44px;
+}
+.bio-diversity-state {
+  border-left: 3px solid #6e855a;
+  border-radius: 10px;
+  padding: 12px 15px;
+  background: #edf2e5;
+}
+.bio-diversity-question {
+  font-weight: 700;
+}
+.bio-diversity-key {
+  padding-left: 24px;
+}
+.bio-diversity-key li {
+  margin: 10px 0;
+}
+.bio-diversity-diagram {
+  display: block;
+  min-width: 0;
+}
+.bio-diversity-diagram > svg {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+}
+.bio-diversity-diagram .bio-choice-row {
+  margin-top: 12px;
+}
+.bio-diversity-diagram figcaption {
+  margin-top: 12px;
+}
+.bio-diversity-window [role='button'] {
+  cursor: pointer;
+}
+.bio-diversity-window [role='button']:focus-visible circle {
+  stroke: #263e33;
+  stroke-width: 4px;
+}
+
+.bio-leaf-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin: 24px 0;
+}
+.bio-leaf-visual,
+.bio-leaf-svg,
+.bio-leaf-editor {
+  min-width: 0;
+}
+.bio-leaf-svg svg {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+}
+.bio-leaf-visual .bio-caption {
+  margin: 16px 0;
+}
+.bio-app .bio-leaf-editor {
+  margin: 0;
+}
+.bio-leaf-tags {
+  border: 0;
+  padding: 0;
+  margin: 20px 0;
+  min-width: 0;
+}
+.bio-leaf-tags legend {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.bio-leaf-choices button,
+.bio-app .bio-leaf-visual .bio-playback button {
+  min-height: 44px;
+}
+.bio-leaf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.bio-leaf-overview article {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.bio-leaf-overview article p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.bio-leaf-feedback {
+  border-left: 3px solid #819566;
+  background: #eef3e4;
+  padding: 16px;
+  border-radius: 12px;
+}
+@media (max-width: 800px) {
+  .bio-leaf-workbench {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .bio-leaf-routes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
   }
 }

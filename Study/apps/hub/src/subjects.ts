@@ -53,7 +53,10 @@ export const subjects: Subject[] = [
       zh: '一粒种子如何长成树？',
       en: 'How does a seed become a tree?',
     },
-    status: { zh: '8 节生命探索课已开放', en: '8 life discovery lessons open' },
+    status: {
+      zh: '48 节生命探索课已开放',
+      en: '48 life discovery lessons open',
+    },
     available: true,
     path: '/biology',
   },

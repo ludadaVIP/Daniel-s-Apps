@@ -1,0 +1,72 @@
+{
+  "author": "Study Biology Explorer",
+  "license": "Original SVG and teaching text; no external assets copied",
+  "checked": "2026-10-12",
+  "status": "pilot; child trial and external science review pending",
+  "diagrams": [
+    {
+      "id": "L009-D01",
+      "component": "PlantDiagram",
+      "kind": "light energy, water, CO2, sugars and oxygen",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L010-D01",
+      "component": "PlantDiagram",
+      "kind": "root-stem-leaf-bud cooperation",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L011-D01",
+      "component": "PlantDiagram",
+      "kind": "flower cutaway and pea pod with seeds",
+      "scale": "schematic; three ovules and seeds illustrate possible development, not fixed yield"
+    },
+    {
+      "id": "L012-D01",
+      "component": "PlantDiagram",
+      "kind": "cactus reduced leaves, green stem and water-lily floating leaves",
+      "scale": "schematic common forms; not every species"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L009-I01",
+      "component": "NeedsLab",
+      "assumptions": "Binary light, water and CO2 availability govern depiction of new sugar production. Healthy green plant, suitable temperature, minerals, oxygen and stored sugars assumed. Respiration remains possible with reserves. No rates, growth, wilting or lifespan predictions."
+    },
+    {
+      "id": "L010-I01",
+      "component": "TransportLab",
+      "assumptions": "Blue water route root-stem-leaf; gold sugars from a leaf to roots and growing buds. Sources and sinks can change; arrows not universal direction rules. Driving pressures and velocities omitted."
+    },
+    {
+      "id": "L011-I01",
+      "component": "SeedJourney",
+      "assumptions": "Pea flower-pollination-fertilisation-pod; tracks one of three ovules, assumes successful development of all three. Not every flower sets fruit. Dandelion fruit and hooked animal-carried fruit are independent examples, not transformations of peas. Time and distance schematic."
+    },
+    {
+      "id": "L012-I01",
+      "component": "HabitatLab",
+      "assumptions": "Qualitative comparison of common cactus and water-lily structures in dry open land and water-surface conditions. Switching habitat does not transform species. No survival or water-loss predictions; benefits and constraints depend on species and conditions."
+    }
+  ],
+  "references": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis",
+      "use": "Photosynthesis materials and light-energy roles"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/30-5-transport-of-water-and-solutes-in-plants",
+      "use": "Water and sugar transport; sources and sinks"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/32-2-pollination-and-fertilization",
+      "use": "Pollination versus fertilisation, fruit/seed development and dispersal"
+    },
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/30-4-leaves",
+      "use": "Reduced leaves, cactus stems and floating-leaf adaptations"
+    }
+  ]
+}

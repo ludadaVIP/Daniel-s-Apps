@@ -4,6 +4,16 @@ import { t } from './content';
 import { Text } from './ui';
 import { seedModel, virusCopies, type Water } from './models';
 import { MicroDiagram, MicroExplore } from './MicroWorld';
+import { PlantDiagram, PlantExplore } from './PlantWorld';
+import { BodyDiagram, BodyExplore } from './BodyWorld';
+import { EcoDiagram, EcoExplore } from './EcoWorld';
+import { InquiryDiagram, InquiryExplore } from './InquiryWorld';
+import { CellDiagram, CellExplore } from './CellWorld';
+import { ExchangeDiagram, ExchangeExplore } from './ExchangeWorld';
+import { EnergyDiagram, EnergyExplore } from './EnergyWorld';
+import { SystemsDiagram, SystemsExplore } from './SystemsWorld';
+import { VascularDiagram, VascularExplore } from './VascularWorld';
+import { DiversityDiagram, DiversityExplore } from './DiversityWorld';
 type Props = { id: string; mode: LanguageMode; onExplore: () => void };
 const label = (mode: LanguageMode, zh: string, en: string) =>
   mode === 'en' ? en : mode === 'zh' ? zh : `${zh} · ${en}`;
@@ -96,6 +106,26 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  if (['L045', 'L046', 'L047', 'L048'].includes(id))
+    return <DiversityDiagram id={id} mode={mode} />;
+  if (['L041', 'L042', 'L043', 'L044'].includes(id))
+    return <VascularDiagram id={id} mode={mode} />;
+  if (['L037', 'L038', 'L039', 'L040'].includes(id))
+    return <SystemsDiagram id={id} mode={mode} />;
+  if (['L033', 'L034', 'L035', 'L036'].includes(id))
+    return <EnergyDiagram id={id} mode={mode} />;
+  if (['L029', 'L030', 'L031', 'L032'].includes(id))
+    return <ExchangeDiagram id={id} mode={mode} />;
+  if (['L025', 'L026', 'L027', 'L028'].includes(id))
+    return <CellDiagram id={id} mode={mode} />;
+  if (['L021', 'L022', 'L023', 'L024'].includes(id))
+    return <InquiryDiagram id={id} mode={mode} />;
+  if (['L017', 'L018', 'L019', 'L020'].includes(id))
+    return <EcoDiagram id={id} mode={mode} />;
+  if (['L013', 'L014', 'L015', 'L016'].includes(id))
+    return <BodyDiagram id={id} mode={mode} />;
+  if (['L009', 'L010', 'L011', 'L012'].includes(id))
+    return <PlantDiagram id={id} mode={mode} />;
   return ['L005', 'L006', 'L007', 'L008'].includes(id) ? (
     <MicroDiagram id={id} mode={mode} />
   ) : (
@@ -375,6 +405,26 @@ const evidence = [
   },
 ];
 export function Explore(props: Props) {
+  if (['L045', 'L046', 'L047', 'L048'].includes(props.id))
+    return <DiversityExplore {...props} />;
+  if (['L041', 'L042', 'L043', 'L044'].includes(props.id))
+    return <VascularExplore {...props} />;
+  if (['L037', 'L038', 'L039', 'L040'].includes(props.id))
+    return <SystemsExplore {...props} />;
+  if (['L033', 'L034', 'L035', 'L036'].includes(props.id))
+    return <EnergyExplore {...props} />;
+  if (['L029', 'L030', 'L031', 'L032'].includes(props.id))
+    return <ExchangeExplore {...props} />;
+  if (['L025', 'L026', 'L027', 'L028'].includes(props.id))
+    return <CellExplore {...props} />;
+  if (['L021', 'L022', 'L023', 'L024'].includes(props.id))
+    return <InquiryExplore {...props} />;
+  if (['L017', 'L018', 'L019', 'L020'].includes(props.id))
+    return <EcoExplore {...props} />;
+  if (['L013', 'L014', 'L015', 'L016'].includes(props.id))
+    return <BodyExplore {...props} />;
+  if (['L009', 'L010', 'L011', 'L012'].includes(props.id))
+    return <PlantExplore {...props} />;
   return ['L005', 'L006', 'L007', 'L008'].includes(props.id) ? (
     <MicroExplore {...props} />
   ) : (

@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Fragment, useEffect, useState } from 'react';
 import {
   Link,
   NavLink,
@@ -20,6 +20,18 @@ import { lessons, questions, section, t, type Question } from './content';
 import curriculum from '../../../curriculum/index.json';
 import { Diagram, Explore, Sprout } from './Explore';
 import { MicroDiagram, MicroHookArt } from './MicroWorld';
+import { PlantDiagram, PlantHookArt } from './PlantWorld';
+import { BodyDiagram, BodyHookArt } from './BodyWorld';
+import { EcoDiagram, EcoHookArt } from './EcoWorld';
+import { InquiryDiagram, InquiryHookArt } from './InquiryWorld';
+import { CellDiagram, CellHookArt } from './CellWorld';
+import { ExchangeDiagram, ExchangeHookArt } from './ExchangeWorld';
+import { EnergyDiagram, EnergyHookArt } from './EnergyWorld';
+import { SystemsDiagram, SystemsHookArt } from './SystemsWorld';
+import { VascularDiagram, VascularHookArt } from './VascularWorld';
+import { DiversityDiagram, DiversityHookArt } from './DiversityWorld';
+import { FieldProject } from './FieldProject';
+import { LeafProject } from './LeafJourney';
 import { units, unitForLesson } from './units';
 import {
   newSession,
@@ -42,6 +54,54 @@ const stageTitles = [
   t('中学生物核心', 'Biology Core'),
   t('高中生物桥梁', 'Senior Biology Bridge'),
 ];
+function StageOneProject({ mode }: { mode: LanguageMode }) {
+  return (
+    <Link to="/biology/project/S01" className="bio-stage-project-link">
+      <span className="bio-eyebrow">
+        S01 / <Text mode={mode} text={t('阶段作品', 'STAGE PROJECT')} />
+      </span>
+      <h2>
+        <Text
+          mode={mode}
+          text={t('生命侦探野外笔记', 'Life Detective field notebook')}
+        />
+      </h2>
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '记录5种生物、环境和疑问，留下两句双语总结。可用屏幕内虚拟场景。',
+            'Record five kinds of organisms, habitats and questions with two bilingual summary sentences. A fictional scene is available.',
+          )}
+        />
+      </p>
+      <span>→</span>
+    </Link>
+  );
+}
+function StageTwoProject({ mode }: { mode: LanguageMode }) {
+  return (
+    <Link to="/biology/project/S02" className="bio-stage-project-link">
+      <span className="bio-eyebrow">
+        S02 / <Text mode={mode} text={t('阶段作品', 'STAGE PROJECT')} />
+      </span>
+      <h2>
+        <Text mode={mode} text={t('一片叶子的旅程', 'A leaf’s journey')} />
+      </h2>
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '标出水、CO₂、光与糖的路线，把物质与能量分清，保存自己的双语图解。',
+            'Label water, CO₂, light and sugar routes, distinguish matter and energy, and save your bilingual diagram.',
+          )}
+        />
+      </p>
+      <span>→</span>
+    </Link>
+  );
+}
+
 function Home({ store, mode }: PageProps) {
   const { progress } = store;
   const completed = lessons.filter(
@@ -135,94 +195,100 @@ function Home({ store, mode }: PageProps) {
           (l) => progress.sessions[l.id]?.completedAt,
         ).length;
         return (
-          <section className="bio-path" key={unit.id} id={unit.id}>
-            <div className="bio-section-heading">
-              <div>
-                <span className="bio-eyebrow">
-                  {unit.id} / <Text mode={mode} text={unit.title} />
-                </span>
-                <h2>
-                  <Text mode={mode} text={unit.question} />
-                </h2>
-              </div>
-              <div className="bio-progress-label">
-                {done}
-                <span>
-                  {' '}
-                  / {courses.length} {words(mode, '已探索', 'explored')}
-                </span>
-                <div className="bio-progress-track">
-                  <i style={{ width: `${(done / courses.length) * 100}%` }} />
+          <Fragment key={unit.id}>
+            <section className="bio-path" id={unit.id}>
+              <div className="bio-section-heading">
+                <div>
+                  <span className="bio-eyebrow">
+                    {unit.stage} / {unit.id} /{' '}
+                    <Text mode={mode} text={unit.title} />
+                  </span>
+                  <h2>
+                    <Text mode={mode} text={unit.question} />
+                  </h2>
+                </div>
+                <div className="bio-progress-label">
+                  {done}
+                  <span>
+                    {' '}
+                    / {courses.length} {words(mode, '已探索', 'explored')}
+                  </span>
+                  <div className="bio-progress-track">
+                    <i style={{ width: `${(done / courses.length) * 100}%` }} />
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="bio-lessons">
-              {courses.map((lesson, i) => {
-                const session = progress.sessions[lesson.id];
-                return (
-                  <Link
-                    key={lesson.id}
-                    to={`/biology/lesson/${lesson.id}`}
-                    className={`bio-lesson-card ${session?.completedAt ? 'complete' : ''}`}
-                  >
-                    <div className="bio-card-top">
-                      <span>{lesson.id}</span>
-                      <span className="bio-card-status">
-                        {session?.completedAt
-                          ? '✓ ' + words(mode, '已探索', 'Explored')
-                          : session
-                            ? words(mode, '继续', 'Continue')
-                            : words(mode, '可学习', 'Ready')}
-                      </span>
-                    </div>
-                    <span
-                      className={`bio-card-symbol symbol-${i}`}
-                      aria-hidden="true"
+              <div className="bio-lessons">
+                {courses.map((lesson, i) => {
+                  const session = progress.sessions[lesson.id];
+                  return (
+                    <Link
+                      key={lesson.id}
+                      to={`/biology/lesson/${lesson.id}`}
+                      className={`bio-lesson-card ${session?.completedAt ? 'complete' : ''}`}
                     >
-                      {lesson.icon}
-                    </span>
-                    <h3>
-                      <Text mode={mode} text={lesson.title} />
-                    </h3>
-                    <p>
-                      <Text
-                        mode={mode}
-                        text={
-                          lesson.summary ??
-                          t(
-                            lesson.hook.zh.split('。')[0] + '。',
-                            lesson.hook.en.split('.')[0] + '.',
-                          )
-                        }
-                      />
-                    </p>
-                    <div className="bio-card-bottom">
-                      <span>
-                        {lesson.minutes}{' '}
-                        {words(mode, '分钟 · 互动探索', 'min · Interactive')}
+                      <div className="bio-card-top">
+                        <span>{lesson.id}</span>
+                        <span className="bio-card-status">
+                          {session?.completedAt
+                            ? '✓ ' + words(mode, '已探索', 'Explored')
+                            : session
+                              ? words(mode, '继续', 'Continue')
+                              : words(mode, '可学习', 'Ready')}
+                        </span>
+                      </div>
+                      <span
+                        className={`bio-card-symbol symbol-${i}`}
+                        aria-hidden="true"
+                      >
+                        {lesson.icon}
                       </span>
-                      <span>↗</span>
-                    </div>
-                  </Link>
-                );
-              })}
-            </div>
-            <Link
-              to={`/biology/notebook?unit=${unit.id}`}
-              className="bio-unit-mission"
-            >
-              <span>⌕</span>
-              <div>
-                <small>
-                  {words(mode, '单元探究任务', 'UNIT INVESTIGATION')}
-                </small>
-                <Text mode={mode} text={unit.missionTitle} />
+                      <h3>
+                        <Text mode={mode} text={lesson.title} />
+                      </h3>
+                      <p>
+                        <Text
+                          mode={mode}
+                          text={
+                            lesson.summary ??
+                            t(
+                              lesson.hook.zh.split('。')[0] + '。',
+                              lesson.hook.en.split('.')[0] + '.',
+                            )
+                          }
+                        />
+                      </p>
+                      <div className="bio-card-bottom">
+                        <span>
+                          {lesson.minutes}{' '}
+                          {words(mode, '分钟 · 互动探索', 'min · Interactive')}
+                        </span>
+                        <span>↗</span>
+                      </div>
+                    </Link>
+                  );
+                })}
               </div>
-              <b>→</b>
-            </Link>
-          </section>
+              <Link
+                to={`/biology/notebook?unit=${unit.id}`}
+                className="bio-unit-mission"
+              >
+                <span>⌕</span>
+                <div>
+                  <small>
+                    {words(mode, '单元探究任务', 'UNIT INVESTIGATION')}
+                  </small>
+                  <Text mode={mode} text={unit.missionTitle} />
+                </div>
+                <b>→</b>
+              </Link>
+            </section>
+            {unit.id === 'U06' && <StageOneProject mode={mode} />}
+            {unit.id === 'U12' && <StageTwoProject mode={mode} />}
+          </Fragment>
         );
       })}
+
       <div className="bio-home-bottom">
         <Link to="/biology/notebook" className="bio-mission-card">
           <span className="bio-mission-icon">▤</span>
@@ -289,8 +355,8 @@ function Home({ store, mode }: PageProps) {
           <Text
             mode={mode}
             text={t(
-              '六阶段路线覆盖初中核心概念并衔接高中。目前开放上面8课，其余内容尚在制作；按能力探索，不按年龄锁课。',
-              'Six stages cover secondary-school concepts and build towards senior biology. The eight lessons above are open; later lessons are planned. Explore by ability, without age locks.',
+              `六阶段路线覆盖初中核心概念并衔接高中。目前开放上面${lessons.length}课，其余内容尚在制作；按能力探索，不按年龄锁课。`,
+              `Six stages cover secondary-school concepts and build towards senior biology. The ${lessons.length} lessons above are open; later lessons are planned. Explore by ability, without age locks.`,
             )}
           />
         </p>
@@ -532,7 +598,27 @@ function LessonBody({
       {s.step === 0 && (
         <section className="bio-predict">
           <div className="bio-predict-art">
-            {unit.id === 'U02' ? (
+            {unit.id === 'U12' ? (
+              <DiversityHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U11' ? (
+              <VascularHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U10' ? (
+              <SystemsHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U09' ? (
+              <EnergyHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U08' ? (
+              <ExchangeHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U07' ? (
+              <CellHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U06' ? (
+              <InquiryHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U05' ? (
+              <EcoHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U04' ? (
+              <BodyHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U03' ? (
+              <PlantHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U02' ? (
               <MicroHookArt id={lesson.id} mode={mode} />
             ) : lesson.id === 'L004' ? (
               <svg
@@ -1077,9 +1163,117 @@ function Notebook({ store, mode }: PageProps) {
           <p>
             <Text mode={mode} text={unit.missionPrompt} />
           </p>
+          {unit.id === 'U12' && (
+            <p>
+              <Link className="bio-button" to="/biology/project/S02">
+                <Text
+                  mode={mode}
+                  text={t(
+                    '去做第二阶段作品 →',
+                    'Try the second-stage project →',
+                  )}
+                />
+              </Link>
+            </p>
+          )}
+          {unit.id === 'U12' && (
+            <div className="bio-mission-diagram">
+              <DiversityDiagram id="L045" mode={mode} />
+              <Link className="bio-button" to="/biology/lesson/L045">
+                <Text
+                  mode={mode}
+                  text={t('打开六样本检索表 →', 'Open six-sample key →')}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U11' && (
+            <div className="bio-mission-diagram">
+              <VascularDiagram id="L043" mode={mode} />
+              <Link className="bio-button" to="/biology/lesson/L043">
+                <Text
+                  mode={mode}
+                  text={t('打开叶片交换模型 →', 'Open leaf-exchange model →')}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U10' && (
+            <div className="bio-mission-diagram">
+              <SystemsDiagram id="L039" mode={mode} />
+              <Link className="bio-button" to="/biology/lesson/L039">
+                <Text
+                  mode={mode}
+                  text={t('打开血液路线模型 →', 'Open blood-route model →')}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U09' && (
+            <div className="bio-mission-diagram">
+              <EnergyDiagram id="L036" mode={mode} />
+              <Link className="bio-button" to="/biology/lesson/L036">
+                <Text
+                  mode={mode}
+                  text={t(
+                    '打开物质与能量模型 →',
+                    'Open matter & energy model →',
+                  )}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U08' && (
+            <div className="bio-mission-diagram">
+              <ExchangeDiagram id="L030" mode={mode} />
+              <Link className="bio-button" to="/biology/lesson/L030">
+                <Text
+                  mode={mode}
+                  text={t(
+                    '打开扩散模型与记录表 →',
+                    'Open diffusion model & records →',
+                  )}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U07' && (
+            <div className="bio-mission-diagram">
+              <CellDiagram id="L026" mode={mode} />
+            </div>
+          )}
           {unit.id === 'U02' && (
             <div className="bio-mission-diagram">
               <MicroDiagram id="L008" mode={mode} />
+            </div>
+          )}
+          {unit.id === 'U06' && (
+            <div className="bio-mission-diagram">
+              <InquiryDiagram id="L022" mode={mode} />
+              <Link className="bio-button" to="/biology/project/S01">
+                <Text
+                  mode={mode}
+                  text={t(
+                    '开启生命侦探野外笔记 →',
+                    'Open the Life Detective field notebook →',
+                  )}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U05' && (
+            <div className="bio-mission-diagram">
+              <EcoDiagram id="L020" mode={mode} />
+            </div>
+          )}
+          {unit.id === 'U04' && (
+            <div className="bio-mission-diagram">
+              <BodyDiagram id="L015" mode={mode} />
+            </div>
+          )}
+          {unit.id === 'U03' && (
+            <div className="bio-mission-diagram">
+              <PlantDiagram id="L010" mode={mode} />
             </div>
           )}
           <span className="bio-unit-status">
@@ -1107,17 +1301,32 @@ function Notebook({ store, mode }: PageProps) {
               ['object', unit.claimLabel],
               [
                 'evidence',
-                t(
-                  '② 我的证据：我实际观察到了什么？',
-                  '② Evidence: what did I actually observe?',
-                ),
+                unit.id === 'U06'
+                  ? t(
+                      '② 我的方案：测什么、保持什么、用几株、何时测？',
+                      '② Plan: what to measure and control, how many plants, and when?',
+                    )
+                  : ['U07', 'U08', 'U09', 'U10', 'U11', 'U12'].includes(unit.id)
+                    ? t(
+                        '② 我的证据：模型线索与直接观察，分别是什么？',
+                        '② Evidence: what are model clues, and what was directly observed?',
+                      )
+                    : t(
+                        '② 我的证据：我实际观察到了什么？',
+                        '② Evidence: what did I actually observe?',
+                      ),
               ],
               [
                 'reasoning',
-                t(
-                  '③ 我的推理：证据如何支持判断？还缺什么？',
-                  '③ Reasoning: how does it support the claim? What is missing?',
-                ),
+                unit.id === 'U06'
+                  ? t(
+                      '③ 我的推理：怎样分离光的影响？还要核对什么？',
+                      '③ Reasoning: how will light’s effect be isolated, and what needs checking?',
+                    )
+                  : t(
+                      '③ 我的推理：证据如何支持判断？还缺什么？',
+                      '③ Reasoning: how does it support the claim? What is missing?',
+                    ),
               ],
             ] as const
           ).map(([key, text]) => (
@@ -1290,14 +1499,18 @@ export function App() {
               ? '温故知新'
               : location.pathname.endsWith('/notebook')
                 ? '发现手帐'
-                : '探索首页',
+                : location.pathname.includes('/project/')
+                  ? '阶段作品'
+                  : '探索首页',
           location.pathname.includes('/lesson/')
             ? 'Learning workspace'
             : location.pathname.endsWith('/review')
               ? 'Review'
               : location.pathname.endsWith('/notebook')
                 ? 'Notebook'
-                : 'Discover',
+                : location.pathname.includes('/project/')
+                  ? 'Stage project'
+                  : 'Discover',
         )}
         subject={words(mode, '生命探索', 'Biology Explorer')}
         mode={mode}
@@ -1333,6 +1546,14 @@ export function App() {
             <Route
               path="notebook"
               element={<Notebook store={store} mode={mode} />}
+            />
+            <Route
+              path="project/S01"
+              element={<FieldProject store={store} mode={mode} />}
+            />
+            <Route
+              path="project/S02"
+              element={<LeafProject store={store} mode={mode} />}
             />
             <Route path="*" element={<Navigate to="/biology" replace />} />
           </Routes>

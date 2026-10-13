@@ -1,6 +1,21 @@
 import { useState } from 'react';
 import { lessons, questions, type Lesson } from './content';
 import { units } from './units';
+import {
+  emptyProject,
+  projectTextReady,
+  projectCheck,
+  stageQuestions,
+  type ProjectDraft,
+} from './project';
+import {
+  emptyLeafProject,
+  decodeLeafProject,
+  leafTextReady,
+  leafLabelCheck,
+  leafUnderstanding,
+  type LeafDraft,
+} from './leafProject';
 export const STORAGE_KEY = 'study-biology-v1';
 export type Answer = { choice: number; first: number; at: number };
 export type Session = {
@@ -27,6 +42,7 @@ export type Progress = {
   answers: Record<string, Answer>;
   mission: Mission;
   missions: Record<string, Mission>;
+  projects: { S01?: ProjectDraft; S02?: LeafDraft };
 };
 export const emptyProgress = (): Progress => ({
   version: 1,
@@ -34,6 +50,7 @@ export const emptyProgress = (): Progress => ({
   answers: {},
   mission: { object: '', evidence: '', reasoning: '' },
   missions: {},
+  projects: {},
 });
 export const newSession = (): Session => ({ step: 0, note: '' });
 export function decodeProgress(raw: string): Progress {
@@ -82,8 +99,129 @@ export function decodeProgress(raw: string): Progress {
     if (data.missions?.[unit.id])
       clean.missions[unit.id] = decodeMission(data.missions[unit.id]);
   }
+  if (data.projects?.S01) clean.projects.S01 = decodeProject(data.projects.S01);
+  if (data.projects?.S02)
+    clean.projects.S02 = decodeLeafProject(data.projects.S02);
   return clean;
 }
+function decodeProject(data: ProjectDraft): ProjectDraft {
+  if (
+    !Array.isArray(data.records) ||
+    data.records.length !== 5 ||
+    typeof data.zh !== 'string' ||
+    typeof data.en !== 'string' ||
+    !data.answers ||
+    typeof data.answers !== 'object'
+  )
+    throw new Error('Invalid project');
+  const draft = emptyProject();
+  draft.records = data.records.map((row) => {
+    if (
+      !row ||
+      !['real', 'virtual'].includes(row.source) ||
+      ![row.name, row.evidence, row.habitat, row.question].every(
+        (v) => typeof v === 'string',
+      )
+    )
+      throw new Error('Invalid field record');
+    return {
+      name: row.name.slice(0, 500),
+      evidence: row.evidence.slice(0, 500),
+      habitat: row.habitat.slice(0, 500),
+      question: row.question.slice(0, 500),
+      source: row.source,
+    };
+  });
+  draft.zh = data.zh.slice(0, 1000);
+  draft.en = data.en.slice(0, 1000);
+  for (const q of stageQuestions) {
+    const choice = data.answers[q.id];
+    if (choice === undefined) continue;
+    if (!Number.isInteger(choice) || choice < 0 || choice >= q.options.length)
+      throw new Error('Invalid project answer');
+    draft.answers[q.id] = choice;
+  }
+  if (
+    Number.isFinite(data.savedAt) &&
+    data.savedAt! > 0 &&
+    projectTextReady(draft)
+  )
+    draft.savedAt = data.savedAt;
+  return draft;
+}
+export function withProject(
+  p: Progress,
+  id: 'S01',
+  patch: Partial<ProjectDraft>,
+): Progress {
+  return {
+    ...p,
+    projects: {
+      ...p.projects,
+      [id]: { ...(p.projects[id] ?? emptyProject()), ...patch },
+    },
+  };
+}
+export function stageOutcome(p: Progress) {
+  const draft = p.projects.S01 ?? emptyProject(),
+    check = projectCheck(draft);
+  const lessonCount = Array.from(
+    { length: 24 },
+    (_, i) => `L${String(i + 1).padStart(3, '0')}`,
+  ).filter((id) => p.sessions[id]?.completedAt).length;
+  const missionCount = Array.from(
+    { length: 6 },
+    (_, i) => `U${String(i + 1).padStart(2, '0')}`,
+  ).filter((id) => missionForUnit(p, id).savedAt).length;
+  return {
+    lessons: lessonCount,
+    missions: missionCount,
+    complete:
+      lessonCount === 24 &&
+      missionCount === 6 &&
+      projectTextReady(draft) &&
+      !!draft.savedAt &&
+      check.answered === 5 &&
+      check.correct >= 4,
+  };
+}
+export function withLeafProject(
+  p: Progress,
+  patch: Partial<LeafDraft>,
+): Progress {
+  return {
+    ...p,
+    projects: {
+      ...p.projects,
+      S02: { ...(p.projects.S02 ?? emptyLeafProject()), ...patch },
+    },
+  };
+}
+export function leafStageOutcome(p: Progress) {
+  const draft = p.projects.S02 ?? emptyLeafProject(),
+    check = leafUnderstanding(draft);
+  const lessonCount = lessons.filter(
+    (l) =>
+      units.find((u) => u.stage === 'S02' && u.lessonIds.includes(l.id)) &&
+      p.sessions[l.id]?.completedAt,
+  ).length;
+  const missionCount = units.filter(
+    (u) => u.stage === 'S02' && missionForUnit(p, u.id).savedAt,
+  ).length;
+  return {
+    lessons: lessonCount,
+    missions: missionCount,
+    complete:
+      lessonCount === 24 &&
+      missionCount === 6 &&
+      leafTextReady(draft) &&
+      leafLabelCheck(draft) === 4 &&
+      !!draft.savedAt &&
+      check.answered === 5 &&
+      check.correct >= 4,
+  };
+}
+
 function decodeMission(data: Mission): Mission {
   const result = emptyMission();
   for (const key of ['object', 'evidence', 'reasoning'] as const) {
