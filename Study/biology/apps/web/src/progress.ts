@@ -8,6 +8,14 @@ import {
   stageQuestions,
   type ProjectDraft,
 } from './project';
+import {
+  emptyLeafProject,
+  decodeLeafProject,
+  leafTextReady,
+  leafLabelCheck,
+  leafUnderstanding,
+  type LeafDraft,
+} from './leafProject';
 export const STORAGE_KEY = 'study-biology-v1';
 export type Answer = { choice: number; first: number; at: number };
 export type Session = {
@@ -34,7 +42,7 @@ export type Progress = {
   answers: Record<string, Answer>;
   mission: Mission;
   missions: Record<string, Mission>;
-  projects: Record<string, ProjectDraft>;
+  projects: { S01?: ProjectDraft; S02?: LeafDraft };
 };
 export const emptyProgress = (): Progress => ({
   version: 1,
@@ -92,6 +100,8 @@ export function decodeProgress(raw: string): Progress {
       clean.missions[unit.id] = decodeMission(data.missions[unit.id]);
   }
   if (data.projects?.S01) clean.projects.S01 = decodeProject(data.projects.S01);
+  if (data.projects?.S02)
+    clean.projects.S02 = decodeLeafProject(data.projects.S02);
   return clean;
 }
 function decodeProject(data: ProjectDraft): ProjectDraft {
@@ -141,7 +151,7 @@ function decodeProject(data: ProjectDraft): ProjectDraft {
 }
 export function withProject(
   p: Progress,
-  id: string,
+  id: 'S01',
   patch: Partial<ProjectDraft>,
 ): Progress {
   return {
@@ -175,6 +185,43 @@ export function stageOutcome(p: Progress) {
       check.correct >= 4,
   };
 }
+export function withLeafProject(
+  p: Progress,
+  patch: Partial<LeafDraft>,
+): Progress {
+  return {
+    ...p,
+    projects: {
+      ...p.projects,
+      S02: { ...(p.projects.S02 ?? emptyLeafProject()), ...patch },
+    },
+  };
+}
+export function leafStageOutcome(p: Progress) {
+  const draft = p.projects.S02 ?? emptyLeafProject(),
+    check = leafUnderstanding(draft);
+  const lessonCount = lessons.filter(
+    (l) =>
+      units.find((u) => u.stage === 'S02' && u.lessonIds.includes(l.id)) &&
+      p.sessions[l.id]?.completedAt,
+  ).length;
+  const missionCount = units.filter(
+    (u) => u.stage === 'S02' && missionForUnit(p, u.id).savedAt,
+  ).length;
+  return {
+    lessons: lessonCount,
+    missions: missionCount,
+    complete:
+      lessonCount === 24 &&
+      missionCount === 6 &&
+      leafTextReady(draft) &&
+      leafLabelCheck(draft) === 4 &&
+      !!draft.savedAt &&
+      check.answered === 5 &&
+      check.correct >= 4,
+  };
+}
+
 function decodeMission(data: Mission): Mission {
   const result = emptyMission();
   for (const key of ['object', 'evidence', 'reasoning'] as const) {

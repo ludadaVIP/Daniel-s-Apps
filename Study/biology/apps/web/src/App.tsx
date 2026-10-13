@@ -28,7 +28,10 @@ import { CellDiagram, CellHookArt } from './CellWorld';
 import { ExchangeDiagram, ExchangeHookArt } from './ExchangeWorld';
 import { EnergyDiagram, EnergyHookArt } from './EnergyWorld';
 import { SystemsDiagram, SystemsHookArt } from './SystemsWorld';
+import { VascularDiagram, VascularHookArt } from './VascularWorld';
+import { DiversityDiagram, DiversityHookArt } from './DiversityWorld';
 import { FieldProject } from './FieldProject';
+import { LeafProject } from './LeafJourney';
 import { units, unitForLesson } from './units';
 import {
   newSession,
@@ -76,6 +79,29 @@ function StageOneProject({ mode }: { mode: LanguageMode }) {
     </Link>
   );
 }
+function StageTwoProject({ mode }: { mode: LanguageMode }) {
+  return (
+    <Link to="/biology/project/S02" className="bio-stage-project-link">
+      <span className="bio-eyebrow">
+        S02 / <Text mode={mode} text={t('阶段作品', 'STAGE PROJECT')} />
+      </span>
+      <h2>
+        <Text mode={mode} text={t('一片叶子的旅程', 'A leaf’s journey')} />
+      </h2>
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '标出水、CO₂、光与糖的路线，把物质与能量分清，保存自己的双语图解。',
+            'Label water, CO₂, light and sugar routes, distinguish matter and energy, and save your bilingual diagram.',
+          )}
+        />
+      </p>
+      <span>→</span>
+    </Link>
+  );
+}
+
 function Home({ store, mode }: PageProps) {
   const { progress } = store;
   const completed = lessons.filter(
@@ -258,6 +284,7 @@ function Home({ store, mode }: PageProps) {
               </Link>
             </section>
             {unit.id === 'U06' && <StageOneProject mode={mode} />}
+            {unit.id === 'U12' && <StageTwoProject mode={mode} />}
           </Fragment>
         );
       })}
@@ -571,7 +598,11 @@ function LessonBody({
       {s.step === 0 && (
         <section className="bio-predict">
           <div className="bio-predict-art">
-            {unit.id === 'U10' ? (
+            {unit.id === 'U12' ? (
+              <DiversityHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U11' ? (
+              <VascularHookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U10' ? (
               <SystemsHookArt id={lesson.id} mode={mode} />
             ) : unit.id === 'U09' ? (
               <EnergyHookArt id={lesson.id} mode={mode} />
@@ -1132,6 +1163,41 @@ function Notebook({ store, mode }: PageProps) {
           <p>
             <Text mode={mode} text={unit.missionPrompt} />
           </p>
+          {unit.id === 'U12' && (
+            <p>
+              <Link className="bio-button" to="/biology/project/S02">
+                <Text
+                  mode={mode}
+                  text={t(
+                    '去做第二阶段作品 →',
+                    'Try the second-stage project →',
+                  )}
+                />
+              </Link>
+            </p>
+          )}
+          {unit.id === 'U12' && (
+            <div className="bio-mission-diagram">
+              <DiversityDiagram id="L045" mode={mode} />
+              <Link className="bio-button" to="/biology/lesson/L045">
+                <Text
+                  mode={mode}
+                  text={t('打开六样本检索表 →', 'Open six-sample key →')}
+                />
+              </Link>
+            </div>
+          )}
+          {unit.id === 'U11' && (
+            <div className="bio-mission-diagram">
+              <VascularDiagram id="L043" mode={mode} />
+              <Link className="bio-button" to="/biology/lesson/L043">
+                <Text
+                  mode={mode}
+                  text={t('打开叶片交换模型 →', 'Open leaf-exchange model →')}
+                />
+              </Link>
+            </div>
+          )}
           {unit.id === 'U10' && (
             <div className="bio-mission-diagram">
               <SystemsDiagram id="L039" mode={mode} />
@@ -1240,7 +1306,7 @@ function Notebook({ store, mode }: PageProps) {
                       '② 我的方案：测什么、保持什么、用几株、何时测？',
                       '② Plan: what to measure and control, how many plants, and when?',
                     )
-                  : ['U07', 'U08', 'U09', 'U10'].includes(unit.id)
+                  : ['U07', 'U08', 'U09', 'U10', 'U11', 'U12'].includes(unit.id)
                     ? t(
                         '② 我的证据：模型线索与直接观察，分别是什么？',
                         '② Evidence: what are model clues, and what was directly observed?',
@@ -1484,6 +1550,10 @@ export function App() {
             <Route
               path="project/S01"
               element={<FieldProject store={store} mode={mode} />}
+            />
+            <Route
+              path="project/S02"
+              element={<LeafProject store={store} mode={mode} />}
             />
             <Route path="*" element={<Navigate to="/biology" replace />} />
           </Routes>

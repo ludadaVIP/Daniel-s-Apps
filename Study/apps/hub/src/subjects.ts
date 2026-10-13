@@ -54,8 +54,8 @@ export const subjects: Subject[] = [
       en: 'How does a seed become a tree?',
     },
     status: {
-      zh: '40 节生命探索课已开放',
-      en: '40 life discovery lessons open',
+      zh: '48 节生命探索课已开放',
+      en: '48 life discovery lessons open',
     },
     available: true,
     path: '/biology',

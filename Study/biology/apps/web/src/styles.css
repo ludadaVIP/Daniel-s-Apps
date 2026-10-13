@@ -3211,3 +3211,200 @@
     grid-template-columns: 1fr;
   }
 }
+
+.bio-vascular-lab {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.bio-vascular-lab h3,
+.bio-vascular-lab p {
+  margin: 0;
+}
+.bio-vascular-window {
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: 22px;
+  background: #f4f5eb;
+  padding: 5px;
+}
+.bio-vascular-window svg {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+  margin: auto;
+}
+.bio-vascular-choices button {
+  min-height: 44px;
+}
+.bio-vascular-readouts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  min-width: 0;
+}
+.bio-vascular-readouts p {
+  padding: 12px;
+  background: #f1f3e9;
+  border-radius: 14px;
+  font-size: 0.92rem;
+}
+.bio-vascular-diagram {
+  display: block;
+  margin: 0;
+  min-width: 0;
+}
+.bio-vascular-diagram > svg {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+  margin: auto;
+}
+.bio-vascular-diagram .bio-choice-row {
+  margin-top: 10px;
+}
+.bio-vascular-diagram figcaption {
+  margin-top: 10px;
+  line-height: 1.65;
+}
+@media (max-width: 600px) {
+  .bio-vascular-readouts {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+.bio-app .bio-vascular-lab .bio-playback button {
+  min-height: 44px;
+}
+
+.bio-diversity-lab {
+  display: grid;
+  gap: 14px;
+  min-width: 0;
+}
+.bio-diversity-lab h3,
+.bio-diversity-lab p {
+  margin: 0;
+}
+.bio-diversity-window {
+  min-width: 0;
+  padding: 8px;
+  border: 1px solid var(--bio-line);
+  border-radius: 20px;
+  background: #fafbf5;
+}
+.bio-diversity-window svg {
+  display: block;
+  width: 100%;
+  max-height: 440px;
+}
+.bio-diversity-choices button,
+.bio-app .bio-diversity-lab .bio-playback button {
+  min-height: 44px;
+}
+.bio-diversity-state {
+  border-left: 3px solid #6e855a;
+  border-radius: 10px;
+  padding: 12px 15px;
+  background: #edf2e5;
+}
+.bio-diversity-question {
+  font-weight: 700;
+}
+.bio-diversity-key {
+  padding-left: 24px;
+}
+.bio-diversity-key li {
+  margin: 10px 0;
+}
+.bio-diversity-diagram {
+  display: block;
+  min-width: 0;
+}
+.bio-diversity-diagram > svg {
+  display: block;
+  width: 100%;
+  max-height: 260px;
+}
+.bio-diversity-diagram .bio-choice-row {
+  margin-top: 12px;
+}
+.bio-diversity-diagram figcaption {
+  margin-top: 12px;
+}
+.bio-diversity-window [role='button'] {
+  cursor: pointer;
+}
+.bio-diversity-window [role='button']:focus-visible circle {
+  stroke: #263e33;
+  stroke-width: 4px;
+}
+
+.bio-leaf-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 24px;
+  align-items: start;
+  margin: 24px 0;
+}
+.bio-leaf-visual,
+.bio-leaf-svg,
+.bio-leaf-editor {
+  min-width: 0;
+}
+.bio-leaf-svg svg {
+  display: block;
+  width: 100%;
+  max-height: 560px;
+}
+.bio-leaf-visual .bio-caption {
+  margin: 16px 0;
+}
+.bio-app .bio-leaf-editor {
+  margin: 0;
+}
+.bio-leaf-tags {
+  border: 0;
+  padding: 0;
+  margin: 20px 0;
+  min-width: 0;
+}
+.bio-leaf-tags legend {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.bio-leaf-choices button,
+.bio-app .bio-leaf-visual .bio-playback button {
+  min-height: 44px;
+}
+.bio-leaf-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.bio-leaf-overview article {
+  padding: 12px 0;
+  border-top: 1px solid var(--line);
+}
+.bio-leaf-overview article p {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.bio-leaf-feedback {
+  border-left: 3px solid #819566;
+  background: #eef3e4;
+  padding: 16px;
+  border-radius: 12px;
+}
+@media (max-width: 800px) {
+  .bio-leaf-workbench {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 600px) {
+  .bio-leaf-routes {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+}

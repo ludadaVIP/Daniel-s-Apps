@@ -12,6 +12,8 @@ import { CellDiagram, CellExplore } from './CellWorld';
 import { ExchangeDiagram, ExchangeExplore } from './ExchangeWorld';
 import { EnergyDiagram, EnergyExplore } from './EnergyWorld';
 import { SystemsDiagram, SystemsExplore } from './SystemsWorld';
+import { VascularDiagram, VascularExplore } from './VascularWorld';
+import { DiversityDiagram, DiversityExplore } from './DiversityWorld';
 type Props = { id: string; mode: LanguageMode; onExplore: () => void };
 const label = (mode: LanguageMode, zh: string, en: string) =>
   mode === 'en' ? en : mode === 'zh' ? zh : `${zh} · ${en}`;
@@ -104,6 +106,10 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  if (['L045', 'L046', 'L047', 'L048'].includes(id))
+    return <DiversityDiagram id={id} mode={mode} />;
+  if (['L041', 'L042', 'L043', 'L044'].includes(id))
+    return <VascularDiagram id={id} mode={mode} />;
   if (['L037', 'L038', 'L039', 'L040'].includes(id))
     return <SystemsDiagram id={id} mode={mode} />;
   if (['L033', 'L034', 'L035', 'L036'].includes(id))
@@ -399,6 +405,10 @@ const evidence = [
   },
 ];
 export function Explore(props: Props) {
+  if (['L045', 'L046', 'L047', 'L048'].includes(props.id))
+    return <DiversityExplore {...props} />;
+  if (['L041', 'L042', 'L043', 'L044'].includes(props.id))
+    return <VascularExplore {...props} />;
   if (['L037', 'L038', 'L039', 'L040'].includes(props.id))
     return <SystemsExplore {...props} />;
   if (['L033', 'L034', 'L035', 'L036'].includes(props.id))

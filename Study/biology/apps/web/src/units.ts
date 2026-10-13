@@ -217,6 +217,50 @@ export const units = [
       '① Route: how does oxygen reach a cell, and what does each link do?',
     ),
   },
+  {
+    id: 'U11',
+    stage: 'S02',
+    title: t('植物的内部交通', 'Transport inside plants'),
+    question: t(
+      '一片叶子怎样连起土壤、空气和新生长？',
+      'How does one leaf connect soil, air and new growth?',
+    ),
+    lessonIds: ['L041', 'L042', 'L043', 'L044'],
+    missionTitle: t(
+      '解释一片叶子的三条路线。',
+      'Explain three routes for a leaf.',
+    ),
+    missionPrompt: t(
+      '选已有叶片或课程模型，画土壤→根→木质部/茎→叶的水路线，补上蒸发与气孔失水。加空气CO₂进叶、光供能制造有机物、韧皮部糖从源到库。解释较窄孔的取舍，写一句英文与一个模型条件。直接观察和机制解释分开；不需实验或改变照料。',
+      'Choose an existing leaf or lesson model. Trace soil → root → xylem/stem → leaf water, then evaporation and stomatal vapour loss. Add air CO₂ entry, light supporting organic-material production, and phloem sugars from source to sink. Explain a narrow-pore trade-off, adding an English sentence and one model condition. Separate observation and mechanism; no experiment or changed care needed.',
+    ),
+    claimLabel: t(
+      '① 我的路线：叶片需要什么，从哪来、往哪去？',
+      '① Routes: what does the leaf need, where from, and where to?',
+    ),
+  },
+  {
+    id: 'U12',
+    stage: 'S02',
+    title: t('分类与环境', 'Classification and environment'),
+    question: t(
+      '从一个名字，怎样走到它在环境中的生活？',
+      'How does a name connect to life in its environment?',
+    ),
+    lessonIds: ['L045', 'L046', 'L047', 'L048'],
+    missionTitle: t(
+      '设计六种本地生物的检索表。',
+      'Design a key for six local organisms.',
+    ),
+    missionPrompt: t(
+      '用课程六张图：卷心菜树、银蕨、tūī、kererū、惠灵顿树wētā与成年雌katipō。设计每步两个可检查特征的文字或纸上检索表，测试两条样本路线，保留“看不清/表外”的未知出口。写一句英文，说明仅辨认这六幅已标定图；检索顺序不是演化树，不需采样。',
+      'Use six lesson illustrations: cabbage tree, silver fern, tūī, kererū, Wellington tree wētā and adult-female katipō. Write or sketch paired checkable choices, test two sample routes and include an unclear/out-of-scope exit. Add an English sentence explaining the six-picture scope; key order is not an evolutionary tree. No collecting needed.',
+    ),
+    claimLabel: t(
+      '① 我的检索表：哪些成对特征，把谁分开？',
+      '① My key: which paired traits separate which samples?',
+    ),
+  },
 ];
 export function unitForLesson(id: string) {
   return units.find((unit) => unit.lessonIds.includes(id))!;
