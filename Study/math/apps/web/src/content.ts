@@ -10,6 +10,11 @@ import {
   b01ReviewQuestion,
   b01CheckQuestions,
 } from './content/B01';
+import {
+  b02Lessons,
+  b02ReviewQuestion,
+  b02CheckQuestions,
+} from './content/B02';
 import { t, type Lesson, type Question } from './model';
 import {
   p52Lessons,
@@ -24,6 +29,7 @@ import {
 export const curriculum = curriculumData;
 export const lessons: Lesson[] = [
   ...b01Lessons,
+  ...b02Lessons,
   ...b04Lessons.map((l) => ({
     ...l,
     stage: 'B00',
@@ -54,6 +60,9 @@ export const reviewQuestions: Record<string, Question> = {
     b01Lessons.map((l) => [l.id, b01ReviewQuestion(l.id, 0)]),
   ),
   ...Object.fromEntries(
+    b02Lessons.map((l) => [l.id, b02ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
     p52Lessons.map((l) => [l.id, p52ReviewQuestion(l.id, 0)]),
   ),
   ...Object.fromEntries(
@@ -62,6 +71,7 @@ export const reviewQuestions: Record<string, Question> = {
 };
 export function reviewQuestionFor(id: string, round: number): Question {
   if (id.startsWith('B01-')) return b01ReviewQuestion(id, round);
+  if (id.startsWith('B02-')) return b02ReviewQuestion(id, round);
   if (id.startsWith('P52-')) return p52ReviewQuestion(id, round);
   if (id.startsWith('P53-')) return p53ReviewQuestion(id, round);
   return b04ReviewQuestionFor(id, round);
@@ -73,6 +83,13 @@ export const unitChecks = {
     title: t('数感小回顾', 'A small number-sense review'),
     questions: b01CheckQuestions,
     bridge: 'B01-L01',
+  },
+  B02: {
+    id: 'B02-CHECK',
+    unit: 'B02',
+    title: t('运算意义小回顾', 'A small operation-meaning review'),
+    questions: b02CheckQuestions,
+    bridge: 'B02-L01',
   },
   P52: {
     id: 'P52-CHECK',

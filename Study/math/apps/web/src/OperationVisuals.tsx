@@ -69,15 +69,17 @@ export function PartCounters({
             label={t(`原有 ${model.total}`, `Start with ${model.total}`)}
             mode={mode}
           />
-          <p className="math-muted">
-            <Text
-              mode={mode}
-              text={t(
-                `划去 ${b} 个，留下 ${a} 个；划线与文字共同表示取走。`,
-                `Cross out ${b}, leaving ${a}; crossing marks and text both identify removal.`,
-              )}
-            />
-          </p>
+          {explain && (
+            <p className="math-muted">
+              <Text
+                mode={mode}
+                text={t(
+                  `划去 ${b} 个，留下 ${a} 个；划线与文字共同表示取走。`,
+                  `Cross out ${b}, leaving ${a}; crossing marks and text both identify removal.`,
+                )}
+              />
+            </p>
+          )}
         </>
       ) : (
         <>
@@ -121,11 +123,13 @@ export function GroupCounters({
   perGroup,
   mode,
   array = false,
+  explain = true,
 }: {
   groups: number;
   perGroup: number;
   mode: LanguageMode;
   array?: boolean;
+  explain?: boolean;
 }) {
   const m = equalGroups(groups, perGroup);
   return (
@@ -134,8 +138,8 @@ export function GroupCounters({
       role="img"
       aria-label={
         mode === 'en'
-          ? `${groups} equal groups of ${perGroup}; total ${m.total}`
-          : `${groups} 个等组，每组 ${perGroup} 个，合计 ${m.total} 个`
+          ? `${groups} equal groups of ${perGroup}${explain ? `; total ${m.total}` : ''}`
+          : `${groups} 个等组，每组 ${perGroup} 个${explain ? `，合计 ${m.total} 个` : ''}`
       }
     >
       {array ? (
@@ -185,11 +189,13 @@ export function SharedCounters({
   divisor,
   kind,
   mode,
+  explain = true,
 }: {
   total: number;
   divisor: number;
   kind: 'share' | 'group';
   mode: LanguageMode;
+  explain?: boolean;
 }) {
   const m = divideObjects(total, divisor, kind);
   return (
@@ -198,9 +204,17 @@ export function SharedCounters({
         className={`math-op-groups ${m.perGroup === 1 ? 'is-singles' : ''}`}
         role="img"
         aria-label={
-          mode === 'en'
-            ? `${total} counters; ${m.groupCount} groups of ${m.perGroup}; ${m.remainder} left outside`
-            : `${total} 个小球；${m.groupCount} 组，每组 ${m.perGroup} 个；外面余下 ${m.remainder} 个`
+          explain
+            ? mode === 'en'
+              ? `${total} counters; ${m.groupCount} groups of ${m.perGroup}; ${m.remainder} left outside`
+              : `${total} 个小球；${m.groupCount} 组，每组 ${m.perGroup} 个；外面余下 ${m.remainder} 个`
+            : mode === 'en'
+              ? kind === 'share'
+                ? `${total} counters shared equally among ${divisor} recipients; find the amount per recipient.`
+                : `${total} counters packed ${divisor} per group; find the group count.`
+              : kind === 'share'
+                ? `${total} 个小球平均分给 ${divisor} 人，求每人量。`
+                : `${total} 个小球，每组 ${divisor} 个，求组数。`
         }
       >
         {Array.from({ length: m.groupCount }, (_, i) => (

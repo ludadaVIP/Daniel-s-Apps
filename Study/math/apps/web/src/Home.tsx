@@ -13,6 +13,13 @@ const fractionArt: Record<string, string> = {
   'fraction-simplify': '12/18 → 2/3',
   'fraction-compare': '3/4 > 2/3',
 };
+const operationArt: Record<string, string> = {
+  'operation-parts': '8 + 5 = 13',
+  'operation-array': '3 × 4 = 12',
+  'operation-division': '24 ÷ 6 = 4',
+  'operation-inverse': '12 ÷ 3 ↔ 3 × 4',
+  'operation-choose': '+ − × ÷ ?',
+};
 function LessonCards({ mode, store, unitId }: Props & { unitId: string }) {
   return (
     <div className="math-lesson-grid">
@@ -33,6 +40,8 @@ function LessonCards({ mode, store, unitId }: Props & { unitId: string }) {
             <div className={`math-mini-art art-${l.lab}`} aria-hidden="true">
               {fractionArt[l.lab] ? (
                 <span>{fractionArt[l.lab]}</span>
+              ) : operationArt[l.lab] ? (
+                <span>{operationArt[l.lab]}</span>
               ) : l.lab === 'decimal-place' ? (
                 <span>0.307</span>
               ) : l.lab === 'decimal-compare' ? (
@@ -159,8 +168,8 @@ export function Home({ mode, store }: Props) {
             <Text
               mode={mode}
               text={t(
-                '每次 12–15 分钟 · 按自己的节奏',
-                '12–15 MIN · AT YOUR OWN PACE',
+                '每次约 12–20 分钟 · 按自己的节奏',
+                'ABOUT 12–20 MIN · AT YOUR OWN PACE',
               )}
             />
           </div>

@@ -1148,8 +1148,8 @@ export const b02Lessons: Lesson[] = [
       'Describe both relationships, explain why four kits cannot be subtracted directly from thirty dollars, and check with units and inverse relationships.',
     ),
     familyChallenge: T(
-      '家庭挑战：用家里已有纸卡，设计一次假想新西兰文具采购，预算 NZ$30。为两种物品写出整数单价与数量，先画等组图求各自成本，再求合计与余额；还可以把卡片平均装袋，记录每袋量或袋数及余量。保留每一步的单位和检查式，不计分，也不需要购买。',
-      'Family challenge: use paper cards to design an imaginary New Zealand stationery purchase with an NZ$30 budget. Choose whole-dollar prices and counts for two items. Draw equal groups for each cost, then find total and balance. Also share the cards into bags, recording amount per bag or bag count and any remainder. Keep units and checking expressions. No score or purchase is needed.',
+      '家庭挑战：用家里已有纸卡，设计一次假想新西兰文具采购，预算 NZ$30。为两种物品写出整数单价与数量，先估计合计不超过预算；若超出，调整数量或单价。画等组图求各自成本，再求合计与余额；还可以把卡片平均装袋，记录每袋量或袋数及余量。保留每一步的单位和检查式，不计分，也不需要购买。',
+      'Family challenge: use paper cards to design an imaginary New Zealand stationery purchase with an NZ$30 budget. Choose whole-dollar prices and counts for two items. Estimate that the combined cost fits the budget; if it exceeds it, adjust counts or prices. Draw equal groups for each cost, then find total and balance. Also share the cards into bags, recording amount per bag or bag count and any remainder. Keep units and checking expressions. No score or purchase is needed.',
     ),
     parent: {
       goal: T(

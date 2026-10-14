@@ -155,6 +155,18 @@ export function b02Lesson(lesson: Lesson): Lesson {
     skillTags: [...new Set(lesson.questions.map((q) => q.skill))],
     nzYearHints: [3, 4, 5, 6],
     cnGradeHints: [2, 3, 4, 5],
+    contentStatus: 'ready',
+  };
+}
+export function b03Lesson(lesson: Lesson): Lesson {
+  return {
+    ...lesson,
+    stage: 'B00',
+    unit: 'B03',
+    order: Number(lesson.id.slice(-2)),
+    skillTags: [...new Set(lesson.questions.map((q) => q.skill))],
+    nzYearHints: [4, 5, 6],
+    cnGradeHints: [3, 4, 5],
     contentStatus: 'draft',
   };
 }

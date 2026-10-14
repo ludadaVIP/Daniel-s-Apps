@@ -38,7 +38,7 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
       '你的答案（千位逗号可省略）',
       'Your answer (grouping commas are optional)',
     );
-  if (lessonId?.startsWith('B02-'))
+  if (lessonId?.startsWith('B02-') || lessonId?.startsWith('B03-'))
     return t(
       '你的答案（填写数量，注意题目单位）',
       'Your answer (enter the quantity and check units)',

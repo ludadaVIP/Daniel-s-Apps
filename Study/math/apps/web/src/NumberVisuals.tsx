@@ -3,6 +3,7 @@ import { t, type NumberDiagram } from './model';
 import { axisPosition, placeValues, type Blocks } from './numberModels';
 import { DecimalPlaceChart } from './DecimalVisuals';
 import { FractionDiagram } from './FractionVisuals';
+import { ProductArea } from './CalculationVisuals';
 import {
   PartCounters,
   GroupCounters,
@@ -204,6 +205,8 @@ export function NumberDiagramView({
   diagram: NumberDiagram;
   mode: LanguageMode;
 }) {
+  if (diagram.kind === 'calculation-area')
+    return <ProductArea a={diagram.a} b={diagram.b} mode={mode} />;
   if (diagram.kind === 'decimal-place')
     return <DecimalPlaceChart milli={diagram.milli} mode={mode} />;
   if (diagram.kind === 'fraction-bars')
@@ -225,6 +228,7 @@ export function NumberDiagramView({
         perGroup={diagram.perGroup}
         mode={mode}
         array
+        explain={false}
       />
     );
   if (diagram.kind === 'operation-sharing')
@@ -234,6 +238,7 @@ export function NumberDiagramView({
         divisor={diagram.divisor}
         kind={diagram.mode}
         mode={mode}
+        explain={false}
       />
     );
   return diagram.kind === 'place' ? (
