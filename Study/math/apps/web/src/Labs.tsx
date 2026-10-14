@@ -6,6 +6,7 @@ import { NumberLab, isNumberLab } from './NumberLabs';
 import { DecimalLab, isDecimalLab } from './DecimalLabs';
 import { FractionLab, isFractionLab } from './FractionLabs';
 import { OperationLab, isOperationLab } from './OperationLabs';
+import { CalculationLab, isCalculationLab } from './CalculationLabs';
 export function HeroArt() {
   return (
     <div className="math-hero-art" aria-hidden="true">
@@ -337,6 +338,8 @@ export function Lab({
     <FractionLab kind={kind} mode={mode} />
   ) : isOperationLab(kind) ? (
     <OperationLab kind={kind} mode={mode} />
+  ) : isCalculationLab(kind) ? (
+    <CalculationLab kind={kind} mode={mode} />
   ) : (
     <LegacyLab kind={kind} mode={mode} />
   );

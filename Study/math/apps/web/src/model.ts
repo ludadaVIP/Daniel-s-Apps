@@ -12,6 +12,7 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | { kind: 'calculation-area'; a: number; b: number }
   | {
       kind: 'operation-counters';
       a: number;
@@ -94,7 +95,12 @@ export type Lesson = {
     | 'operation-array'
     | 'operation-division'
     | 'operation-inverse'
-    | 'operation-choose';
+    | 'operation-choose'
+    | 'calculation-regroup'
+    | 'calculation-split'
+    | 'calculation-area'
+    | 'calculation-division'
+    | 'calculation-estimate';
   stage?: string;
   unit?: string;
   order?: number;

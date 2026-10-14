@@ -2278,6 +2278,9 @@
   background: #f1edf8;
   color: #7b69a2;
 }
+.math-mini-art[class*='art-operation-'] {
+  font-size: clamp(22px, 3cqw, 28px);
+}
 
 .math-op-lab > .math-row {
   flex-wrap: wrap;
@@ -2401,6 +2404,111 @@
   background: #f7f4fa;
   color: var(--accent);
   font-size: 14px;
+}
+.math-calc-lab > .math-row {
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+.math-calc-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.math-calc-picture svg {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  margin: 16px auto;
+}
+.math-calc-area svg {
+  display: block;
+  width: 100%;
+  margin: 16px 0;
+}
+.math-calc-partials,
+.math-calc-bounds {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin: 18px 0;
+}
+.math-calc-partials > div,
+.math-calc-bounds > div {
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #f5f1fa;
+  color: var(--accent);
+  font-size: 13px;
+}
+.math-calc-partials strong,
+.math-calc-bounds strong {
+  display: block;
+  font-size: 19px;
+  font-variant-numeric: tabular-nums;
+}
+.math-calc-table-wrap {
+  overflow-x: auto;
+  margin: 20px 0;
+}
+.math-calc-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+  font-variant-numeric: tabular-nums;
+}
+.math-calc-table caption {
+  text-align: left;
+  font-size: 12px;
+  color: var(--muted);
+  padding-bottom: 10px;
+}
+.math-calc-table th,
+.math-calc-table td {
+  border: 1px solid var(--line);
+  padding: 9px 5px;
+  text-align: center;
+}
+.math-calc-table th {
+  font-size: 12px;
+  background: #f7f4fa;
+}
+.math-calc-table td {
+  font-size: 21px;
+}
+.math-calc-table td.is-exchanged {
+  background: #f9f0d6;
+  color: #80651e;
+}
+.math-calc-steps {
+  padding-left: 24px;
+  margin: 20px 0;
+}
+.math-calc-steps li {
+  padding: 12px 14px;
+  margin: 10px 0;
+  background: #f7f4fa;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  font-size: 13px;
+}
+.math-calc-steps strong {
+  display: block;
+  margin-bottom: 7px;
+  color: var(--accent);
+  font-size: 17px;
+}
+@container (max-width:410px) {
+  .math-calc-controls,
+  .math-calc-partials {
+    grid-template-columns: 1fr;
+  }
+  .math-calc-table td {
+    font-size: 18px;
+  }
+  .math-calc-table th {
+    font-size: 10px;
+  }
 }
 @container (max-width:410px) {
   .math-op-role-cards,

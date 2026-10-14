@@ -9,6 +9,7 @@ import { NumberHookArt, isNumberLab } from './NumberLabs';
 import { DecimalHookArt, isDecimalLab } from './DecimalLabs';
 import { FractionHookArt, isFractionLab } from './FractionLabs';
 import { OperationHookArt, isOperationLab } from './OperationLabs';
+import { CalculationHookArt, isCalculationLab } from './CalculationLabs';
 import { Question } from './Question';
 import { Intro, words, statuses, stepLabels, type Props } from './pageSupport';
 const markdown = import.meta.glob('../../../content/lessons/*.md', {
@@ -132,6 +133,8 @@ function LessonWorkspace({
                 <FractionHookArt kind={l.lab} mode={mode} />
               ) : isOperationLab(l.lab) ? (
                 <OperationHookArt kind={l.lab} mode={mode} />
+              ) : isCalculationLab(l.lab) ? (
+                <CalculationHookArt kind={l.lab} mode={mode} />
               ) : (
                 <HeroArt />
               )}
