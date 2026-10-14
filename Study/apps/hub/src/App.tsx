@@ -8,9 +8,21 @@ const ChemistryPage = lazy(() => import('./ChemistryPage'));
 const PhysicsPage = lazy(() => import('./PhysicsPage'));
 const PinyinPage = lazy(() => import('./PinyinPage'));
 const BiologyPage = lazy(() => import('./BiologyPage'));
+const MathPage = lazy(() => import('./MathPage'));
 const GeographyPage = lazy(() => import('./GeographyPage'));
 
 function subjectIcon(id: SubjectId) {
+  if (id === 'math')
+    return (
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path
+          d="M5 5h22M5 27h22M13 6l-7 10 7 10M20 10v12M15 16h10"
+          stroke="currentColor"
+          strokeWidth="1.8"
+          strokeLinecap="round"
+        />
+      </svg>
+    );
   if (id === 'geography') {
     return (
       <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -196,8 +208,8 @@ function Hub() {
       <footer className="study-footer">
         {words(
           mode,
-          '物理 · 化学 · 生物 · 拼音 · 地理',
-          'Physics · Chemistry · Biology · Pinyin · Geography',
+          '物理 · 化学 · 生物 · 拼音 · 地理 · 数学',
+          'Physics · Chemistry · Biology · Pinyin · Geography · Maths',
         )}
       </footer>
     </div>
@@ -263,6 +275,20 @@ export function App() {
             }
           >
             <GeographyPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/math/*"
+        element={
+          <Suspense
+            fallback={
+              <div className="study-loading">
+                正在打开数学探索 / Opening Maths…
+              </div>
+            }
+          >
+            <MathPage />
           </Suspense>
         }
       />
