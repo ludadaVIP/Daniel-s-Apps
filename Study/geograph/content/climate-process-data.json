@@ -1,0 +1,184 @@
+{
+  "period": "1991–2020",
+  "monthDays": [
+    31.0, 28.266666666666666, 31.0, 30.0, 31.0, 30.0, 31.0, 31.0, 30.0, 31.0,
+    30.0, 31.0
+  ],
+  "precipitationSource": {
+    "name": "GPCP V2.3 satellite-gauge combined precipitation; data provided by NOAA PSL, Boulder, Colorado, USA",
+    "url": "https://psl.noaa.gov/thredds/fileServer/Datasets/gpcp/precip.mon.ltm.1991-2020.nc",
+    "sha256": "e72475e6687f1a6f940ce89e6645b80c241a47515b03e56d0009d3aa0cf6281c",
+    "shape": [12, 72, 144],
+    "inputUnits": "mm/day",
+    "outputUnits": "mm/month; mm/year",
+    "method": "Rate multiplied by mean month length across1991–2020; annual sum before rounding. All valid-year counts30; original2.5° cells, no interpolation."
+  },
+  "temperatureSource": {
+    "name": "NCEP/NCAR Reanalysis1, NOAA PSL",
+    "url": "https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis.derived/surface_gauss/air.2m.mon.ltm.1991-2020.nc",
+    "sha256": "c86a3c575010ca2c9414b24022361c43be6966dcdc62c821c1918e9c44ca9be9",
+    "shape": [12, 94, 192],
+    "units": "°C at2 m above model surface",
+    "method": "Kelvin−273.15; day-weighted annual mean. Separate nearest Gaussian cells; not the same cells as precipitation."
+  },
+  "points": [
+    {
+      "id": "india-west",
+      "zh": "印度西岸附近",
+      "en": "West India vicinity",
+      "kind": "monsoon",
+      "requested": {
+        "lat": 19,
+        "lon": 73
+      },
+      "rainGrid": {
+        "lat": 18.75,
+        "lon": 73.75
+      },
+      "temperatureGrid": {
+        "lat": 18.095,
+        "lon": 73.125
+      },
+      "monthlyRain": [
+        2.8, 1.7, 4.3, 5.3, 24.6, 277.6, 489.8, 330.9, 250.2, 99.4, 21.5, 5.3
+      ],
+      "annualRain": 1513,
+      "monthlyTemperature": [
+        24.8, 26.7, 29.1, 30.8, 31.0, 26.9, 24.9, 24.5, 24.8, 25.8, 26.0, 24.6
+      ],
+      "annualTemperature": 26.6
+    },
+    {
+      "id": "india-southeast",
+      "zh": "印度东南海岸附近",
+      "en": "SE India coast vicinity",
+      "kind": "monsoon",
+      "requested": {
+        "lat": 13.08,
+        "lon": 80.26999999999998
+      },
+      "rainGrid": {
+        "lat": 13.75,
+        "lon": 81.25
+      },
+      "temperatureGrid": {
+        "lat": 12.3808,
+        "lon": 80.625
+      },
+      "monthlyRain": [
+        13.4, 8.4, 9.4, 20.7, 54.4, 98.8, 152.9, 173.9, 161.0, 267.2, 249.1,
+        111.6
+      ],
+      "annualRain": 1321,
+      "monthlyTemperature": [
+        24.5, 25.3, 27.0, 28.8, 30.1, 29.9, 29.1, 28.7, 28.4, 27.6, 26.5, 25.3
+      ],
+      "annualTemperature": 27.6
+    },
+    {
+      "id": "sahara",
+      "zh": "撒哈拉样点",
+      "en": "Sahara sample",
+      "kind": "desert",
+      "requested": {
+        "lat": 24,
+        "lon": 15
+      },
+      "rainGrid": {
+        "lat": 23.75,
+        "lon": 13.75
+      },
+      "temperatureGrid": {
+        "lat": 23.8092,
+        "lon": 15.0
+      },
+      "monthlyRain": [
+        2.5, 1.3, 1.4, 0.7, 2.5, 1.3, 2.1, 3.5, 0.7, 1.3, 0.6, 1.6
+      ],
+      "annualRain": 19,
+      "monthlyTemperature": [
+        9.8, 12.5, 17.7, 23.3, 27.6, 29.9, 29.6, 29.3, 27.3, 22.0, 15.3, 10.7
+      ],
+      "annualTemperature": 21.3
+    },
+    {
+      "id": "gobi",
+      "zh": "戈壁样点",
+      "en": "Gobi sample",
+      "kind": "desert",
+      "requested": {
+        "lat": 43,
+        "lon": 105
+      },
+      "rainGrid": {
+        "lat": 43.75,
+        "lon": 103.75
+      },
+      "temperatureGrid": {
+        "lat": 42.8564,
+        "lon": 105.0
+      },
+      "monthlyRain": [
+        5.2, 2.1, 5.1, 5.1, 10.7, 20.9, 33.1, 29.1, 11.9, 5.8, 4.5, 3.3
+      ],
+      "annualRain": 137,
+      "monthlyTemperature": [
+        -19.2, -12.7, -3.2, 7.3, 15.7, 22.2, 25.0, 21.5, 12.7, 1.9, -8.9, -17.3
+      ],
+      "annualTemperature": 3.8
+    },
+    {
+      "id": "atacama",
+      "zh": "阿塔卡马附近样点",
+      "en": "Atacama vicinity sample",
+      "kind": "desert",
+      "requested": {
+        "lat": -24,
+        "lon": -70
+      },
+      "rainGrid": {
+        "lat": -23.75,
+        "lon": -71.25
+      },
+      "temperatureGrid": {
+        "lat": -23.8092,
+        "lon": -69.375
+      },
+      "monthlyRain": [
+        0.7, 0.8, 3.7, 2.6, 1.7, 2.6, 1.6, 1.3, 1.3, 2.4, 3.2, 1.4
+      ],
+      "annualRain": 23,
+      "monthlyTemperature": [
+        12.7, 12.3, 11.3, 8.5, 5.6, 4.4, 4.0, 4.9, 6.5, 8.2, 9.9, 11.5
+      ],
+      "annualTemperature": 8.3
+    },
+    {
+      "id": "antarctica",
+      "zh": "南极内陆样点",
+      "en": "Antarctic interior sample",
+      "kind": "desert",
+      "requested": {
+        "lat": -80,
+        "lon": 0
+      },
+      "rainGrid": {
+        "lat": -81.25,
+        "lon": 1.25
+      },
+      "temperatureGrid": {
+        "lat": -80.9473,
+        "lon": 0.0
+      },
+      "monthlyRain": [
+        1.1, 1.2, 1.7, 3.7, 5.5, 7.2, 7.9, 9.6, 7.1, 5.0, 5.2, 1.9
+      ],
+      "annualRain": 57,
+      "monthlyTemperature": [
+        -22.1, -35.8, -49.1, -55.7, -56.3, -56.6, -58.8, -59.0, -57.9, -46.6,
+        -30.6, -20.1
+      ],
+      "annualTemperature": -45.7
+    }
+  ]
+}

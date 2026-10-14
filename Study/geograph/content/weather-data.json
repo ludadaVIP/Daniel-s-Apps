@@ -1,0 +1,82 @@
+{
+  "source": "NCEP/NCAR Reanalysis 1; data provided by NOAA PSL, Boulder, Colorado, USA",
+  "period": "1991–2020",
+  "dailyPeriod": "2020 UTC",
+  "temperatureUnits": "°C",
+  "rainUnits": "mm/day liquid-water equivalent",
+  "method": "Original Gaussian grid, nearest cell, no interpolation. Kelvin minus 273.15; precipitation rate kg/m²/s multiplied by 86400. Climatology monthly mean daily rate, not monthly precipitation total. All climatology valid_yr_count=30. Reanalysis estimates, not station observations or forecasts.",
+  "sources": [
+    {
+      "url": "https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis/Dailies/surface_gauss/air.2m.gauss.2020.nc",
+      "sha256": "ad609a18207190968f10b59cb9332233164de28c1820086410a952130aaea40d",
+      "shape": [366, 94, 192]
+    },
+    {
+      "url": "https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis/Dailies/surface_gauss/prate.sfc.gauss.2020.nc",
+      "sha256": "0ea8f05e7dcca55d285dce276a0d42788bce5df2885b2dc0bc4768c1408318a1",
+      "shape": [366, 94, 192]
+    },
+    {
+      "url": "https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis.derived/surface_gauss/air.2m.mon.ltm.1991-2020.nc",
+      "sha256": "c86a3c575010ca2c9414b24022361c43be6966dcdc62c821c1918e9c44ca9be9",
+      "shape": [12, 94, 192]
+    },
+    {
+      "url": "https://psl.noaa.gov/thredds/fileServer/Datasets/ncep.reanalysis.derived/surface_gauss/prate.sfc.mon.ltm.1991-2020.nc",
+      "sha256": "35c390d9b82128925f960b8189992f3f617d131d8f4af4051dcd216d40825798",
+      "shape": [12, 94, 192]
+    }
+  ],
+  "points": [
+    {
+      "id": "nz",
+      "zh": "南岛附近网格",
+      "en": "South Island vicinity cell",
+      "lat": -42.8564,
+      "lon": 172.5,
+      "temperature": [
+        15.2, 15.5, 14.0, 11.8, 9.7, 7.0, 5.9, 6.6, 7.5, 9.2, 10.5, 12.8
+      ],
+      "rain": [
+        2.06, 2.15, 1.65, 1.79, 1.54, 2.22, 1.75, 2.02, 2.15, 2.65, 2.33, 2.73
+      ],
+      "days": [
+        {
+          "date": "2020-01-11",
+          "temperature": 16.0,
+          "rain": 1.04
+        },
+        {
+          "date": "2020-01-15",
+          "temperature": 13.2,
+          "rain": 0.0
+        }
+      ]
+    },
+    {
+      "id": "europe",
+      "zh": "欧洲中纬度网格",
+      "en": "European midlatitude cell",
+      "lat": 50.4752,
+      "lon": 11.25,
+      "temperature": [
+        -1.5, -0.6, 3.4, 8.6, 13.5, 16.6, 17.9, 17.5, 13.3, 8.8, 3.3, -0.1
+      ],
+      "rain": [
+        2.58, 2.37, 2.56, 2.43, 3.6, 4.18, 4.99, 3.92, 2.19, 1.51, 1.84, 2.43
+      ],
+      "days": [
+        {
+          "date": "2020-01-11",
+          "temperature": 1.0,
+          "rain": 1.81
+        },
+        {
+          "date": "2020-01-15",
+          "temperature": 6.3,
+          "rain": 0.04
+        }
+      ]
+    }
+  ]
+}

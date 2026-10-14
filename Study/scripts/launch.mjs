@@ -80,6 +80,7 @@ function dependenciesNeedInstall() {
     'Physics/apps/web/package.json',
     'pinyin/apps/web/package.json',
     'biology/apps/web/package.json',
+    'geograph/apps/web/package.json',
     'chemistry/apps/server/package.json',
   ];
   return manifests.some(

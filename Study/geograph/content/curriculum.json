@@ -1,0 +1,1214 @@
+[
+  {
+    "id": "S1",
+    "title": {
+      "zh": "地球探险家",
+      "en": "Earth Explorer"
+    },
+    "age": "11–12",
+    "lessons": [
+      {
+        "id": "GEO-001",
+        "title": {
+          "zh": "从太空看家园",
+          "en": "Our Planet from Space"
+        },
+        "question": "地球看起来为什么是蓝色的？",
+        "outline": "地球卫星全景与陆海图；放大寻找陆地、云和海洋；能区分地球表层的主要组成。",
+        "status": "available",
+        "prerequisites": [],
+        "project": false
+      },
+      {
+        "id": "GEO-002",
+        "title": {
+          "zh": "七大洲和五大洋？",
+          "en": "Continents & Oceans"
+        },
+        "question": "为什么不同地图对“大洲”划分有不同说法？",
+        "outline": "可旋转世界地图与洲/洋标注拼图；认识常见七大洲、五大洋划分，同时知道分类有约定性。",
+        "status": "available",
+        "prerequisites": ["GEO-001"],
+        "project": false
+      },
+      {
+        "id": "GEO-003",
+        "title": {
+          "zh": "地图为什么不是照片",
+          "en": "Maps Tell Stories"
+        },
+        "question": "地图上的颜色和符号是谁决定的？",
+        "outline": "卫星图、街道图、地形图三图切换；能说明地图目的、图例和信息取舍。",
+        "status": "available",
+        "prerequisites": ["GEO-002"],
+        "project": false
+      },
+      {
+        "id": "GEO-004",
+        "title": {
+          "zh": "北在哪里",
+          "en": "Finding Direction"
+        },
+        "question": "如果手机没有信号，你怎么判断方向？",
+        "outline": "指南针动图、简化地图；旋转地图完成方向任务（安全场景，不替代真实导航）。",
+        "status": "available",
+        "prerequisites": ["GEO-003"],
+        "project": false
+      },
+      {
+        "id": "GEO-005",
+        "title": {
+          "zh": "地图能装下多大的世界",
+          "en": "Scale & Distance"
+        },
+        "question": "两厘米为什么可能代表二十公里？",
+        "outline": "地图缩放互动和线段尺；用简单比例尺估计两地距离。",
+        "status": "available",
+        "prerequisites": ["GEO-004"],
+        "project": false
+      },
+      {
+        "id": "GEO-006",
+        "title": {
+          "zh": "地球上的神秘坐标",
+          "en": "Latitude & Longitude"
+        },
+        "question": "为什么地球上任何地方都能有一组坐标？",
+        "outline": "经纬线地球仪；按给定经纬度找到大致位置。",
+        "status": "available",
+        "prerequisites": ["GEO-005"],
+        "project": false
+      },
+      {
+        "id": "GEO-007",
+        "title": {
+          "zh": "为什么各地时间不同",
+          "en": "Time Zones"
+        },
+        "question": "我们吃晚饭时，伦敦的人可能在做什么？",
+        "outline": "地球昼夜分界动画和时区带；比较两座城市的当地时间（说明夏令时例外）。",
+        "status": "available",
+        "prerequisites": ["GEO-006"],
+        "project": false
+      },
+      {
+        "id": "GEO-008",
+        "title": {
+          "zh": "白天、黑夜与四季",
+          "en": "Day, Night & Seasons"
+        },
+        "question": "冬天是不是因为地球离太阳更远？",
+        "outline": "自转、公转、地轴倾角动画；区别昼夜和季节形成原因。",
+        "status": "available",
+        "prerequisites": ["GEO-007"],
+        "project": false
+      },
+      {
+        "id": "GEO-009",
+        "title": {
+          "zh": "世界的高低起伏",
+          "en": "Mountains & Plains"
+        },
+        "question": "山、盆地、平原从地图上怎么看出来？",
+        "outline": "阴影地形图与照片；给三种地貌配对，建立地形直觉。",
+        "status": "available",
+        "prerequisites": ["GEO-008"],
+        "project": false
+      },
+      {
+        "id": "GEO-010",
+        "title": {
+          "zh": "会说话的等高线",
+          "en": "Contour Lines"
+        },
+        "question": "一张平面地图能看出山有多陡吗？",
+        "outline": "山体剖面/等高线切换；选出陡坡和缓坡。",
+        "status": "available",
+        "prerequisites": ["GEO-009"],
+        "project": false
+      },
+      {
+        "id": "GEO-011",
+        "title": {
+          "zh": "河流要去哪里",
+          "en": "Rivers on a Map"
+        },
+        "question": "为什么很多河流最终流入海洋？",
+        "outline": "流域示意与真实河网地图；沿分水岭和河道追踪水的方向。",
+        "status": "available",
+        "prerequisites": ["GEO-010"],
+        "project": false
+      },
+      {
+        "id": "GEO-012",
+        "title": {
+          "zh": "地图上的热与冷",
+          "en": "Reading Climate Maps"
+        },
+        "question": "赤道附近为什么通常比极地暖？",
+        "outline": "全球温度分布图；找出纬度趋势并指出高海拔例外。",
+        "status": "available",
+        "prerequisites": ["GEO-011"],
+        "project": false
+      },
+      {
+        "id": "GEO-013",
+        "title": {
+          "zh": "城市和乡村",
+          "en": "Cities and Countryside"
+        },
+        "question": "一张航拍图能告诉你人们如何生活吗？",
+        "outline": "城市、郊区、农田航拍比较；识别几种土地使用方式。",
+        "status": "available",
+        "prerequisites": ["GEO-012"],
+        "project": false
+      },
+      {
+        "id": "GEO-014",
+        "title": {
+          "zh": "我的国家：新西兰",
+          "en": "Discover Aotearoa New Zealand"
+        },
+        "question": "南北岛的自然环境有哪些差异？",
+        "outline": "新西兰地形图、河流/山脉/城市定位；能用地图描述所在国家主要地形。",
+        "status": "available",
+        "prerequisites": ["GEO-013"],
+        "project": false
+      },
+      {
+        "id": "GEO-015",
+        "title": {
+          "zh": "地理侦探的一天",
+          "en": "A Day as a Geographer"
+        },
+        "question": "看到一张陌生照片，你能推测这里在哪里吗？",
+        "outline": "四张不同地区照片 + 线索卡；用气候、地形、建筑给出有根据的猜测。",
+        "status": "available",
+        "prerequisites": ["GEO-014"],
+        "project": false
+      },
+      {
+        "id": "GEO-016",
+        "title": {
+          "zh": "阶段任务：我的地球探险地图",
+          "en": "My Explorer Atlas"
+        },
+        "question": "如何向朋友介绍我们生活的世界？",
+        "outline": "创作一张个人世界地图：大陆海洋、所在位置、方向、图例与三条“我发现了”；双语口头介绍。",
+        "status": "available",
+        "prerequisites": ["GEO-015"],
+        "project": true
+      }
+    ]
+  },
+  {
+    "id": "S2",
+    "title": {
+      "zh": "地球如何塑形",
+      "en": "Shaping the Earth"
+    },
+    "age": "11–12",
+    "lessons": [
+      {
+        "id": "GEO-017",
+        "title": {
+          "zh": "地球里面有什么",
+          "en": "Inside the Earth"
+        },
+        "question": "如果把地球切开，会看到什么？",
+        "outline": "地壳—地幔—地核剖面图；拼装地球内部结构，认识模型而非亲眼观察的事实。",
+        "status": "available",
+        "prerequisites": ["GEO-016"],
+        "project": false
+      },
+      {
+        "id": "GEO-018",
+        "title": {
+          "zh": "地球的拼图",
+          "en": "Tectonic Plates"
+        },
+        "question": "大陆为什么会慢慢移动？",
+        "outline": "全球板块图与大陆漂移动画；拼图重建古大陆并解释板块边界。",
+        "status": "available",
+        "prerequisites": ["GEO-017"],
+        "project": false
+      },
+      {
+        "id": "GEO-019",
+        "title": {
+          "zh": "地震从哪里来",
+          "en": "Why Earthquakes Happen"
+        },
+        "question": "地面为什么会突然摇晃？",
+        "outline": "断层示意与震中分布图；把地震分布与板块边界关联，学习安全原则而非预测地震。",
+        "status": "available",
+        "prerequisites": ["GEO-018"],
+        "project": false
+      },
+      {
+        "id": "GEO-020",
+        "title": {
+          "zh": "火山是怎样形成的",
+          "en": "Volcanoes"
+        },
+        "question": "火山为什么常常出现在特定区域？",
+        "outline": "火山剖面与全球火山带地图；匹配俯冲带、裂谷和热点案例。",
+        "status": "available",
+        "prerequisites": ["GEO-019"],
+        "project": false
+      },
+      {
+        "id": "GEO-021",
+        "title": {
+          "zh": "山脉诞生记",
+          "en": "Building Mountains"
+        },
+        "question": "南阿尔卑斯山为什么这么高？",
+        "outline": "板块挤压示意 + 南岛地形图；用示意模型解释造山作用。",
+        "status": "available",
+        "prerequisites": ["GEO-020"],
+        "project": false
+      },
+      {
+        "id": "GEO-022",
+        "title": {
+          "zh": "石头的旅行",
+          "en": "The Rock Cycle"
+        },
+        "question": "石头会“变身”吗？",
+        "outline": "三大岩石类型照片与循环图；拖拽说明熔融、冷却、沉积、变质。",
+        "status": "available",
+        "prerequisites": ["GEO-021"],
+        "project": false
+      },
+      {
+        "id": "GEO-023",
+        "title": {
+          "zh": "雨和风是雕刻师",
+          "en": "Weathering & Erosion"
+        },
+        "question": "岩石不动，为什么山会改变样子？",
+        "outline": "风化/侵蚀前后照片；区分“岩石分解”和“物质搬走”。",
+        "status": "available",
+        "prerequisites": ["GEO-022"],
+        "project": false
+      },
+      {
+        "id": "GEO-024",
+        "title": {
+          "zh": "河流的上中下游",
+          "en": "River Journeys"
+        },
+        "question": "为什么有的河谷很窄，有的河道弯弯曲曲？",
+        "outline": "V 形谷、曲流、平原图；按河流旅程给图排序，说明变化条件。",
+        "status": "available",
+        "prerequisites": ["GEO-023"],
+        "project": false
+      },
+      {
+        "id": "GEO-025",
+        "title": {
+          "zh": "河流转弯的秘密",
+          "en": "Meanders & Floodplains"
+        },
+        "question": "河流为什么不总走直线？",
+        "outline": "曲流动画；在示意图上辨认侵蚀侧、沉积侧和洪泛平原。",
+        "status": "available",
+        "prerequisites": ["GEO-024"],
+        "project": false
+      },
+      {
+        "id": "GEO-026",
+        "title": {
+          "zh": "冰川是一条慢河",
+          "en": "Glaciers"
+        },
+        "question": "冰怎么能把山谷磨成 U 形？",
+        "outline": "冰川与 U 形谷对照图；用两个剖面比较冰川谷和河谷。",
+        "status": "available",
+        "prerequisites": ["GEO-025"],
+        "project": false
+      },
+      {
+        "id": "GEO-027",
+        "title": {
+          "zh": "海浪也会造地形",
+          "en": "Coasts & Waves"
+        },
+        "question": "为什么有的海滩宽广，有的海岸是悬崖？",
+        "outline": "海蚀崖、沙滩、海蚀柱对照；解释侵蚀、搬运、沉积的不同作用。",
+        "status": "available",
+        "prerequisites": ["GEO-026"],
+        "project": false
+      },
+      {
+        "id": "GEO-028",
+        "title": {
+          "zh": "土壤从哪里来",
+          "en": "Soil & Life"
+        },
+        "question": "没有土壤，农作物会怎样？",
+        "outline": "土壤剖面与植被图；搭建简单土层模型，区分土壤与纯碎石。",
+        "status": "available",
+        "prerequisites": ["GEO-027"],
+        "project": false
+      },
+      {
+        "id": "GEO-029",
+        "title": {
+          "zh": "地球的水循环",
+          "en": "The Water Cycle"
+        },
+        "question": "雨下到地上以后去哪儿了？",
+        "outline": "蒸发—凝结—降水—下渗—径流交互图；追踪一滴水的多种路径。",
+        "status": "available",
+        "prerequisites": ["GEO-028"],
+        "project": false
+      },
+      {
+        "id": "GEO-030",
+        "title": {
+          "zh": "海洋不是静止的",
+          "en": "Ocean Currents"
+        },
+        "question": "海水为什么会流动？",
+        "outline": "洋流地图及海表温度图；比较洋流对周边气候的影响。",
+        "status": "available",
+        "prerequisites": ["GEO-029"],
+        "project": false
+      },
+      {
+        "id": "GEO-031",
+        "title": {
+          "zh": "新西兰为何多山多震",
+          "en": "New Zealand on the Plate Boundary"
+        },
+        "question": "为什么新西兰的地形和地震有关？",
+        "outline": "新西兰板块边界、南阿尔卑斯山、地震带综合图；根据证据解释空间分布。",
+        "status": "available",
+        "prerequisites": ["GEO-030"],
+        "project": false
+      },
+      {
+        "id": "GEO-032",
+        "title": {
+          "zh": "阶段任务：地貌侦探报告",
+          "en": "Landscape Detective"
+        },
+        "question": "一处山谷、火山或海岸是怎样形成的？",
+        "outline": "自选新西兰或世界地貌，提交位置地图 + 形成过程分步图 + 2 条证据 + 双语讲解。",
+        "status": "available",
+        "prerequisites": ["GEO-031"],
+        "project": true
+      }
+    ]
+  },
+  {
+    "id": "S3",
+    "title": {
+      "zh": "天气、气候与生命",
+      "en": "Climate & Living Planet"
+    },
+    "age": "12–13",
+    "lessons": [
+      {
+        "id": "GEO-033",
+        "title": {
+          "zh": "天气还是气候",
+          "en": "Weather vs Climate"
+        },
+        "question": "今天下雨，是否说明这里是多雨气候？",
+        "outline": "单日天气图与长期月平均图；用时间尺度分类现象。",
+        "status": "available",
+        "prerequisites": ["GEO-032"],
+        "project": false
+      },
+      {
+        "id": "GEO-034",
+        "title": {
+          "zh": "大气像一层被子吗",
+          "en": "The Atmosphere"
+        },
+        "question": "空气看不见，怎么知道它在起作用？",
+        "outline": "大气分层与地表能量示意；给常见现象匹配高度/作用。",
+        "status": "available",
+        "prerequisites": ["GEO-033"],
+        "project": false
+      },
+      {
+        "id": "GEO-035",
+        "title": {
+          "zh": "空气为什么会流动",
+          "en": "Wind & Pressure"
+        },
+        "question": "风是从哪里来的？",
+        "outline": "高低压概念动画；比较压力差与风向，明确地球自转会改变大尺度运动。",
+        "status": "available",
+        "prerequisites": ["GEO-034"],
+        "project": false
+      },
+      {
+        "id": "GEO-036",
+        "title": {
+          "zh": "云朵的秘密",
+          "en": "Clouds & Rain"
+        },
+        "question": "云是怎么形成的？",
+        "outline": "云的照片与水汽凝结示意；比较上升、冷却与降水条件。",
+        "status": "available",
+        "prerequisites": ["GEO-035"],
+        "project": false
+      },
+      {
+        "id": "GEO-037",
+        "title": {
+          "zh": "山的两面不同天",
+          "en": "Relief Rainfall"
+        },
+        "question": "为什么南岛西海岸多雨，东侧较干？",
+        "outline": "南阿尔卑斯山迎风坡/背风坡剖面；模拟湿空气遇山抬升。",
+        "status": "available",
+        "prerequisites": ["GEO-036"],
+        "project": false
+      },
+      {
+        "id": "GEO-038",
+        "title": {
+          "zh": "地球的气候带",
+          "en": "Climate Zones"
+        },
+        "question": "为什么热带、温带和极地差异大？",
+        "outline": "纬度分带地图和世界温度图；挑出季节、海拔和洋流造成的修正。",
+        "status": "available",
+        "prerequisites": ["GEO-037"],
+        "project": false
+      },
+      {
+        "id": "GEO-039",
+        "title": {
+          "zh": "季风为什么转向",
+          "en": "Monsoons"
+        },
+        "question": "亚洲的雨季从哪里来？",
+        "outline": "季风季节图；拖动陆海冷热对比，解释主要机制。",
+        "status": "available",
+        "prerequisites": ["GEO-038"],
+        "project": false
+      },
+      {
+        "id": "GEO-040",
+        "title": {
+          "zh": "沙漠不一定热",
+          "en": "Deserts"
+        },
+        "question": "为什么有些沙漠很冷？",
+        "outline": "热带与寒冷沙漠照片、全球干旱区地图；推断少雨的不同原因。",
+        "status": "available",
+        "prerequisites": ["GEO-039"],
+        "project": false
+      },
+      {
+        "id": "GEO-041",
+        "title": {
+          "zh": "雨林为什么多样",
+          "en": "Tropical Rainforests"
+        },
+        "question": "为什么雨林里有这么多种生物？",
+        "outline": "雨林垂直层次图；连接气候、植物和生物多样性。",
+        "status": "planned",
+        "prerequisites": ["GEO-040"],
+        "project": false
+      },
+      {
+        "id": "GEO-042",
+        "title": {
+          "zh": "草原森林与苔原",
+          "en": "Biomes"
+        },
+        "question": "温度与降雨改变了什么？",
+        "outline": "生物群系拼贴及气候图；为不同地区匹配植物类型。",
+        "status": "planned",
+        "prerequisites": ["GEO-041"],
+        "project": false
+      },
+      {
+        "id": "GEO-043",
+        "title": {
+          "zh": "极地与高山的生存",
+          "en": "Extreme Environments"
+        },
+        "question": "在很冷的地方，生命如何适应？",
+        "outline": "南极、高山图与生物适应卡；区别地理环境与适应策略。",
+        "status": "planned",
+        "prerequisites": ["GEO-042"],
+        "project": false
+      },
+      {
+        "id": "GEO-044",
+        "title": {
+          "zh": "风暴如何形成",
+          "en": "Storms & Extreme Weather"
+        },
+        "question": "为什么有些风暴会迅速增强？",
+        "outline": "飓风/热带气旋卫星图与能量条件示意；区分天气危险与具体灾害风险，不做危险实验。",
+        "status": "planned",
+        "prerequisites": ["GEO-043"],
+        "project": false
+      },
+      {
+        "id": "GEO-045",
+        "title": {
+          "zh": "厄尔尼诺与拉尼娜",
+          "en": "El Niño & La Niña"
+        },
+        "question": "太平洋海水变暖，为什么会影响远处的天气？",
+        "outline": "热带太平洋海温异常图；关联海洋、大气与气候异常（强调并非决定单次天气）。",
+        "status": "planned",
+        "prerequisites": ["GEO-044"],
+        "project": false
+      },
+      {
+        "id": "GEO-046",
+        "title": {
+          "zh": "气候为什么会变化",
+          "en": "Climate Change"
+        },
+        "question": "气候变化如何从数据中被发现？",
+        "outline": "长期温度时间序列与温室效应示意；分辨长期趋势、短期波动和人类影响。",
+        "status": "planned",
+        "prerequisites": ["GEO-045"],
+        "project": false
+      },
+      {
+        "id": "GEO-047",
+        "title": {
+          "zh": "让城市更凉快",
+          "en": "Urban Microclimates"
+        },
+        "question": "树荫为什么让街道感觉凉快？",
+        "outline": "绿地与硬化地表温度示意；设计安全的阴凉路线，比较遮阴与材料。",
+        "status": "planned",
+        "prerequisites": ["GEO-046"],
+        "project": false
+      },
+      {
+        "id": "GEO-048",
+        "title": {
+          "zh": "阶段任务：我的气象站",
+          "en": "My Weather Story"
+        },
+        "question": "两周的观察可以告诉我们什么？",
+        "outline": "在家记录 7–14 天云量/温度/降水（可用公开天气数据），绘图，区分观察结果与气候结论。",
+        "status": "planned",
+        "prerequisites": ["GEO-047"],
+        "project": true
+      }
+    ]
+  },
+  {
+    "id": "S4",
+    "title": {
+      "zh": "人类地理世界",
+      "en": "People & Places"
+    },
+    "age": "13–14",
+    "lessons": [
+      {
+        "id": "GEO-049",
+        "title": {
+          "zh": "人住在哪里",
+          "en": "Population Distribution"
+        },
+        "question": "世界人口为什么不是均匀分布的？",
+        "outline": "人口密度点图与地形图；寻找河谷、海岸、城市聚集的模式和例外。",
+        "status": "planned",
+        "prerequisites": ["GEO-048"],
+        "project": false
+      },
+      {
+        "id": "GEO-050",
+        "title": {
+          "zh": "人口金字塔会说话",
+          "en": "Population Pyramids"
+        },
+        "question": "为什么不同国家的人口年龄形状不同？",
+        "outline": "可切换人口金字塔；解释儿童比例、老龄化与公共服务需求。",
+        "status": "planned",
+        "prerequisites": ["GEO-049"],
+        "project": false
+      },
+      {
+        "id": "GEO-051",
+        "title": {
+          "zh": "人们为什么搬家",
+          "en": "Migration"
+        },
+        "question": "一个人为什么会离开家乡？",
+        "outline": "区域迁移流向示意；用推力/拉力/障碍整理多种原因，注意真实人的故事。",
+        "status": "planned",
+        "prerequisites": ["GEO-050"],
+        "project": false
+      },
+      {
+        "id": "GEO-052",
+        "title": {
+          "zh": "城市是如何长大的",
+          "en": "Urbanisation"
+        },
+        "question": "村庄怎样变成城市？",
+        "outline": "城市遥感时序图；比较扩张、密度与基础设施变化。",
+        "status": "planned",
+        "prerequisites": ["GEO-051"],
+        "project": false
+      },
+      {
+        "id": "GEO-053",
+        "title": {
+          "zh": "住在哪里更方便",
+          "en": "Settlement Patterns"
+        },
+        "question": "为什么道路、水源附近常有聚落？",
+        "outline": "聚落与交通、水源叠加图；为虚构村镇选择位置并说明利弊。",
+        "status": "planned",
+        "prerequisites": ["GEO-052"],
+        "project": false
+      },
+      {
+        "id": "GEO-054",
+        "title": {
+          "zh": "城市为什么会堵车",
+          "en": "Urban Transport"
+        },
+        "question": "为什么路变宽不一定让交通更好？",
+        "outline": "不同交通方式占地对比图；设计步行、自行车与公交组合路线。",
+        "status": "planned",
+        "prerequisites": ["GEO-053"],
+        "project": false
+      },
+      {
+        "id": "GEO-055",
+        "title": {
+          "zh": "一顿饭的地理旅程",
+          "en": "Food Geography"
+        },
+        "question": "早餐里的食物从哪里来？",
+        "outline": "食物产地地图及运输线；追踪 3 种食物的自然条件和供应链。",
+        "status": "planned",
+        "prerequisites": ["GEO-054"],
+        "project": false
+      },
+      {
+        "id": "GEO-056",
+        "title": {
+          "zh": "农田的不同面孔",
+          "en": "Agriculture"
+        },
+        "question": "为什么有些地方种水稻，有些地方养羊？",
+        "outline": "水稻梯田、牧场、小麦田；匹配气候、水源、土壤与市场。",
+        "status": "planned",
+        "prerequisites": ["GEO-055"],
+        "project": false
+      },
+      {
+        "id": "GEO-057",
+        "title": {
+          "zh": "电从哪里来",
+          "en": "Energy Geography"
+        },
+        "question": "同样是发电，不同方式为什么适合不同地区？",
+        "outline": "风能/水能/太阳能/地热分布示意；讨论地点、天气、土地与稳定供电。",
+        "status": "planned",
+        "prerequisites": ["GEO-056"],
+        "project": false
+      },
+      {
+        "id": "GEO-058",
+        "title": {
+          "zh": "一部手机跨越多少国家",
+          "en": "Global Supply Chains"
+        },
+        "question": "一部手机为什么不是一个国家“独自制造”的？",
+        "outline": "简化供应链地图；区分原料、零件、组装、设计和运输。",
+        "status": "planned",
+        "prerequisites": ["GEO-057"],
+        "project": false
+      },
+      {
+        "id": "GEO-059",
+        "title": {
+          "zh": "世界的贸易路线",
+          "en": "Trade & Ports"
+        },
+        "question": "为什么港口与航道如此重要？",
+        "outline": "主要航线与港口照片；在地形、距离、货运需要间做路线选择。",
+        "status": "planned",
+        "prerequisites": ["GEO-058"],
+        "project": false
+      },
+      {
+        "id": "GEO-060",
+        "title": {
+          "zh": "旅游让地方发生什么变化",
+          "en": "Tourism"
+        },
+        "question": "游客增多一定是好事吗？",
+        "outline": "旅游区前后变化图；整理经济、环境、居民生活三类影响。",
+        "status": "planned",
+        "prerequisites": ["GEO-059"],
+        "project": false
+      },
+      {
+        "id": "GEO-061",
+        "title": {
+          "zh": "文化与地方",
+          "en": "Culture & Place"
+        },
+        "question": "地名、语言、建筑为什么有地理意义？",
+        "outline": "多地地名、传统建筑与景观图；观察文化与自然环境的联系，避免把文化归因于气候。",
+        "status": "planned",
+        "prerequisites": ["GEO-060"],
+        "project": false
+      },
+      {
+        "id": "GEO-062",
+        "title": {
+          "zh": "富裕与发展的不同",
+          "en": "Development & Wellbeing"
+        },
+        "question": "只看收入就知道一个地方生活好吗？",
+        "outline": "收入、健康、教育指标小仪表盘；比较指标局限与生活质量。",
+        "status": "planned",
+        "prerequisites": ["GEO-061"],
+        "project": false
+      },
+      {
+        "id": "GEO-063",
+        "title": {
+          "zh": "我们社区的空间",
+          "en": "Our Neighbourhood"
+        },
+        "question": "公园、学校和商店放哪里才方便？",
+        "outline": "以虚构或公共社区地图为底图；发现服务覆盖与可达性差异。",
+        "status": "planned",
+        "prerequisites": ["GEO-062"],
+        "project": false
+      },
+      {
+        "id": "GEO-064",
+        "title": {
+          "zh": "阶段任务：设计一座好城市",
+          "en": "Design a Liveable City"
+        },
+        "question": "如何让一座城市便利、宜居又有韧性？",
+        "outline": "绘制含住宅、绿地、公共交通、水源与避险空间的规划图，解释至少 3 个取舍。",
+        "status": "planned",
+        "prerequisites": ["GEO-063"],
+        "project": true
+      }
+    ]
+  },
+  {
+    "id": "S5",
+    "title": {
+      "zh": "环球区域与环境挑战",
+      "en": "Regions & Challenges"
+    },
+    "age": "14–15",
+    "lessons": [
+      {
+        "id": "GEO-065",
+        "title": {
+          "zh": "新西兰南岛的地理故事",
+          "en": "Canterbury & South Island"
+        },
+        "question": "为什么坎特伯雷平原和西海岸差异这么大？",
+        "outline": "南岛地形+降雨+土地利用三图叠加；解释山脉、风和农业。",
+        "status": "planned",
+        "prerequisites": ["GEO-064"],
+        "project": false
+      },
+      {
+        "id": "GEO-066",
+        "title": {
+          "zh": "地震之后的城市",
+          "en": "Christchurch as a Case Study"
+        },
+        "question": "为什么相同强度的地震，对不同社区影响可能不同？",
+        "outline": "2010–2011 坎特伯雷地震案例地图与城市重建图；理解暴露度、建筑条件与韧性。",
+        "status": "planned",
+        "prerequisites": ["GEO-065"],
+        "project": false
+      },
+      {
+        "id": "GEO-067",
+        "title": {
+          "zh": "澳大利亚：干旱大陆？",
+          "en": "Australia’s Contrasts"
+        },
+        "question": "澳大利亚为什么也有湿润热带和高山地区？",
+        "outline": "降雨、植被、人口图；寻找“干旱大陆”概括之外的复杂性。",
+        "status": "planned",
+        "prerequisites": ["GEO-066"],
+        "project": false
+      },
+      {
+        "id": "GEO-068",
+        "title": {
+          "zh": "太平洋岛屿的未来",
+          "en": "Pacific Islands"
+        },
+        "question": "岛屿为什么格外重视海平面、淡水和海岸管理？",
+        "outline": "环礁剖面与岛国地图；讨论不同岛屿之间的差异与应对。",
+        "status": "planned",
+        "prerequisites": ["GEO-067"],
+        "project": false
+      },
+      {
+        "id": "GEO-069",
+        "title": {
+          "zh": "东亚的人与自然",
+          "en": "East Asia"
+        },
+        "question": "为什么东亚不同区域有不同的耕作和聚落？",
+        "outline": "中国、日本、韩国等区域地形气候图；比较季风、地形与城市化。",
+        "status": "planned",
+        "prerequisites": ["GEO-068"],
+        "project": false
+      },
+      {
+        "id": "GEO-070",
+        "title": {
+          "zh": "东南亚的水与城市",
+          "en": "Southeast Asia"
+        },
+        "question": "季风、河流与海运如何影响生活？",
+        "outline": "湄公河三角洲与城市图；比较水稻、洪水风险和港口经济。",
+        "status": "planned",
+        "prerequisites": ["GEO-069"],
+        "project": false
+      },
+      {
+        "id": "GEO-071",
+        "title": {
+          "zh": "南亚：大河与季风",
+          "en": "South Asia"
+        },
+        "question": "为什么同一场季风雨既重要也可能造成风险？",
+        "outline": "季风降水图与恒河流域示意；辨别收益、洪涝风险及管理。",
+        "status": "planned",
+        "prerequisites": ["GEO-070"],
+        "project": false
+      },
+      {
+        "id": "GEO-072",
+        "title": {
+          "zh": "西亚与北非：水的价值",
+          "en": "Water in Dry Regions"
+        },
+        "question": "缺水地区如何管理农业、城市和生态？",
+        "outline": "干旱区河流、地下水、灌溉图；比较多种节水方案和限制。",
+        "status": "planned",
+        "prerequisites": ["GEO-071"],
+        "project": false
+      },
+      {
+        "id": "GEO-073",
+        "title": {
+          "zh": "欧洲：河流与城市网络",
+          "en": "Europe’s Connected Regions"
+        },
+        "question": "为什么铁路、河流和港口塑造了城市网络？",
+        "outline": "欧洲交通/河网地图；解释枢纽城市与跨境联系。",
+        "status": "planned",
+        "prerequisites": ["GEO-072"],
+        "project": false
+      },
+      {
+        "id": "GEO-074",
+        "title": {
+          "zh": "北美：地形与经济带",
+          "en": "North America"
+        },
+        "question": "地形、资源与运输怎样影响产业布局？",
+        "outline": "落基山脉、中央平原、大湖区图；连接区域条件与经济活动。",
+        "status": "planned",
+        "prerequisites": ["GEO-073"],
+        "project": false
+      },
+      {
+        "id": "GEO-075",
+        "title": {
+          "zh": "拉丁美洲：雨林与高山",
+          "en": "Latin America"
+        },
+        "question": "保护雨林和发展经济如何同时考虑？",
+        "outline": "亚马孙森林变化与安第斯地形图；比较社区、生态与产业视角。",
+        "status": "planned",
+        "prerequisites": ["GEO-074"],
+        "project": false
+      },
+      {
+        "id": "GEO-076",
+        "title": {
+          "zh": "非洲不是一种地理",
+          "en": "Africa’s Diverse Regions"
+        },
+        "question": "非洲大陆为何不能用单一气候或文化概括？",
+        "outline": "撒哈拉、萨赫勒、刚果盆地、东非高地对比；说明多样性和地域差异。",
+        "status": "planned",
+        "prerequisites": ["GEO-075"],
+        "project": false
+      },
+      {
+        "id": "GEO-077",
+        "title": {
+          "zh": "两极与海洋",
+          "en": "Poles & Global Oceans"
+        },
+        "question": "冰层和海洋变化为什么与全球有关？",
+        "outline": "南北极海冰/冰盖对照图；区分海冰与陆地冰，认识全球联系。",
+        "status": "planned",
+        "prerequisites": ["GEO-076"],
+        "project": false
+      },
+      {
+        "id": "GEO-078",
+        "title": {
+          "zh": "风险是怎样形成的",
+          "en": "Hazards, Exposure & Vulnerability"
+        },
+        "question": "有地震就一定有灾难吗？",
+        "outline": "“危险过程×暴露×脆弱性”图解；针对虚构地区设计减灾策略。",
+        "status": "planned",
+        "prerequisites": ["GEO-077"],
+        "project": false
+      },
+      {
+        "id": "GEO-079",
+        "title": {
+          "zh": "气候适应与资源选择",
+          "en": "Adaptation & Resources"
+        },
+        "question": "面对更频繁的风险，哪些方案值得优先实施？",
+        "outline": "海岸保护、绿地、基础设施案例卡；比较成本、收益和公平。",
+        "status": "planned",
+        "prerequisites": ["GEO-078"],
+        "project": false
+      },
+      {
+        "id": "GEO-080",
+        "title": {
+          "zh": "阶段任务：两地对照地理档案",
+          "en": "Compare Two Regions"
+        },
+        "question": "两个不同地方为什么面临不同选择？",
+        "outline": "自选两区域，提交定位图、自然/人文资料、至少 2 张图表、利弊与建议。",
+        "status": "planned",
+        "prerequisites": ["GEO-079"],
+        "project": true
+      }
+    ]
+  },
+  {
+    "id": "S6",
+    "title": {
+      "zh": "高中地理研究",
+      "en": "Geographic Inquiry & GIS"
+    },
+    "age": "15–16",
+    "lessons": [
+      {
+        "id": "GEO-081",
+        "title": {
+          "zh": "问一个好问题",
+          "en": "Geographic Inquiry"
+        },
+        "question": "“城市很热”如何变成可调查的问题？",
+        "outline": "好/模糊研究问题卡；形成有地区、变量、时间和可获取证据的问题。",
+        "status": "planned",
+        "prerequisites": ["GEO-080"],
+        "project": false
+      },
+      {
+        "id": "GEO-082",
+        "title": {
+          "zh": "地图也会“变形”",
+          "en": "Map Projections"
+        },
+        "question": "世界地图上的格陵兰真的那么大吗？",
+        "outline": "墨卡托等投影与等面积图对照；解释不同投影的取舍。",
+        "status": "planned",
+        "prerequisites": ["GEO-081"],
+        "project": false
+      },
+      {
+        "id": "GEO-083",
+        "title": {
+          "zh": "高级地形图技能",
+          "en": "Advanced Topographic Maps"
+        },
+        "question": "从等高线能算出坡度吗？",
+        "outline": "等高线图与剖面生成器；计算高差/简单坡度、识别可能的流向。",
+        "status": "planned",
+        "prerequisites": ["GEO-082"],
+        "project": false
+      },
+      {
+        "id": "GEO-084",
+        "title": {
+          "zh": "GIS：叠加地图看世界",
+          "en": "GIS Layers"
+        },
+        "question": "为什么单看一张地图常常不够？",
+        "outline": "图层开关：坡度、道路、洪泛区、人口；提出位置关系。",
+        "status": "planned",
+        "prerequisites": ["GEO-083"],
+        "project": false
+      },
+      {
+        "id": "GEO-085",
+        "title": {
+          "zh": "选址挑战",
+          "en": "Site Selection"
+        },
+        "question": "一所新学校应该建在哪里？",
+        "outline": "用简单 GIS 条件筛选候选地；解释安全、交通、服务覆盖取舍。",
+        "status": "planned",
+        "prerequisites": ["GEO-084"],
+        "project": false
+      },
+      {
+        "id": "GEO-086",
+        "title": {
+          "zh": "卫星为什么能“看”植被",
+          "en": "Remote Sensing"
+        },
+        "question": "怎样从太空看到森林的变化？",
+        "outline": "卫星可见光/假彩色对照与植被指数示例；认识遥感解释需要校验。",
+        "status": "planned",
+        "prerequisites": ["GEO-085"],
+        "project": false
+      },
+      {
+        "id": "GEO-087",
+        "title": {
+          "zh": "读懂数据的陷阱",
+          "en": "Geography & Data"
+        },
+        "question": "两张图都正确，为什么结论可能不同？",
+        "outline": "不同分级/色阶地图与不同纵轴图；识别可视化误导与单位问题。",
+        "status": "planned",
+        "prerequisites": ["GEO-086"],
+        "project": false
+      },
+      {
+        "id": "GEO-088",
+        "title": {
+          "zh": "人口、气候和时间序列",
+          "en": "Time-Series Analysis"
+        },
+        "question": "变化趋势和某一年的异常有什么区别？",
+        "outline": "月/年数据图与移动平均示意；说明时间跨度与趋势局限。",
+        "status": "planned",
+        "prerequisites": ["GEO-087"],
+        "project": false
+      },
+      {
+        "id": "GEO-089",
+        "title": {
+          "zh": "如何做一次可靠调查",
+          "en": "Fieldwork Design"
+        },
+        "question": "观察十个地点，怎样避免只挑喜欢的地方？",
+        "outline": "采样示意、观察表、匿名记录；设计合理的家长陪同实地调查。",
+        "status": "planned",
+        "prerequisites": ["GEO-088"],
+        "project": false
+      },
+      {
+        "id": "GEO-090",
+        "title": {
+          "zh": "地理中的关系不等于因果",
+          "en": "Correlation vs Causation"
+        },
+        "question": "两个数字一起上升，就能说一个导致另一个吗？",
+        "outline": "散点图和混杂变量卡片；区分相关、假设与因果证据。",
+        "status": "planned",
+        "prerequisites": ["GEO-089"],
+        "project": false
+      },
+      {
+        "id": "GEO-091",
+        "title": {
+          "zh": "地理系统与反馈",
+          "en": "Systems & Feedback"
+        },
+        "question": "城市扩张、交通和温度会怎样互相影响？",
+        "outline": "因果回路图；绘制至少一条反馈回路并指出不确定性。",
+        "status": "planned",
+        "prerequisites": ["GEO-090"],
+        "project": false
+      },
+      {
+        "id": "GEO-092",
+        "title": {
+          "zh": "谁承担风险",
+          "en": "Inequality & Vulnerability"
+        },
+        "question": "为什么同一场洪水对不同群体影响不同？",
+        "outline": "虚构社区的地势、住房、收入、设施图；讨论公平和韧性。",
+        "status": "planned",
+        "prerequisites": ["GEO-091"],
+        "project": false
+      },
+      {
+        "id": "GEO-093",
+        "title": {
+          "zh": "气候情景不是预言",
+          "en": "Scenarios & Uncertainty"
+        },
+        "question": "未来地图为什么有多个版本？",
+        "outline": "情景范围图；区别情景、预测和不确定性，避免单一数字断言。",
+        "status": "planned",
+        "prerequisites": ["GEO-092"],
+        "project": false
+      },
+      {
+        "id": "GEO-094",
+        "title": {
+          "zh": "共享资源如何决策",
+          "en": "Water, Land & Stakeholders"
+        },
+        "question": "上游建水坝，下游会发生什么？",
+        "outline": "流域与利益相关者卡片；比较生态、农业、居民需求，尊重不同视角。",
+        "status": "planned",
+        "prerequisites": ["GEO-093"],
+        "project": false
+      },
+      {
+        "id": "GEO-095",
+        "title": {
+          "zh": "把证据变成论证",
+          "en": "Geographical Argument"
+        },
+        "question": "怎样写出不只是个人观点的地理结论？",
+        "outline": "论点—证据—推理示例卡；指出反证、数据局限与可执行建议。",
+        "status": "planned",
+        "prerequisites": ["GEO-094"],
+        "project": false
+      },
+      {
+        "id": "GEO-096",
+        "title": {
+          "zh": "最终项目：我是一名地理研究者",
+          "en": "My Geography Investigation"
+        },
+        "question": "我家周边或世界某处最值得研究的地理问题是什么？",
+        "outline": "完成独立地理报告：研究问题、位置图、数据/图片、方法、2 个以上图表、分析、局限、建议和中英文摘要。",
+        "status": "planned",
+        "prerequisites": ["GEO-095"],
+        "project": true
+      }
+    ]
+  }
+]

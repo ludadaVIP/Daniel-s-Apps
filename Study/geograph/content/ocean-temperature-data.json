@@ -1,0 +1,60 @@
+{
+  "source": "NOAA Optimum Interpolation (OI) SST V2 via NOAA PSL",
+  "period": "1991–2020",
+  "sourcePeriod": "1991/01/01 - 2020/12/31",
+  "units": "°C",
+  "variable": "sea_surface_temperature",
+  "shape": [
+    12,
+    180,
+    360
+  ],
+  "months": [
+    1,
+    7
+  ],
+  "extent": {
+    "west": -85,
+    "east": 20,
+    "south": 0,
+    "north": 65
+  },
+  "method": "Original 1° grid cells; January/July long-term monthly mean; no interpolation or annual averaging. NOAA land-sea mask, 1=sea. Points retain 30 valid years.",
+  "sourceUrl": "https://downloads.psl.noaa.gov/Datasets/noaa.oisst.v2/sst.ltm.nc",
+  "maskUrl": "https://downloads.psl.noaa.gov/Datasets/noaa.oisst.v2/lsmask.nc",
+  "sha256": "16f54e4717a949a8e8ddd143cadfed308a1cc0ea4a2be43c522d899543932b34",
+  "maskSha256": "7f5a9e7459a42c29ec5658e1458f71205034de1a01fc30f8225d5905a8fe2078",
+  "colours": [
+    "#4e709f",
+    "#729db1",
+    "#a6c4c7",
+    "#cdd8b0",
+    "#dfcb8e",
+    "#dca46d",
+    "#b9664f"
+  ],
+  "cuts": [
+    5,
+    10,
+    15,
+    20,
+    25,
+    30
+  ],
+  "points": [
+    {
+      "id": "A",
+      "lat": 34.5,
+      "lon": -70.5,
+      "jan": 20.3,
+      "jul": 26.4
+    },
+    {
+      "id": "B",
+      "lat": 34.5,
+      "lon": -14.5,
+      "jan": 17.9,
+      "jul": 21.4
+    }
+  ]
+}

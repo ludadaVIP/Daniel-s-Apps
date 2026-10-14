@@ -1,0 +1,57 @@
+{
+  "source": "NCEP/NCAR Reanalysis 1, NOAA PSL",
+  "period": "1991–2020",
+  "units": "°C",
+  "level": "2 m above model surface",
+  "method": "Day-weighted mean of 12 long-term monthly means; exact calendar days for 1991–2020 (Feb 28.2666667 days). Original Gaussian grid, no interpolation.",
+  "sourceUrl": "https://downloads.psl.noaa.gov/Datasets/ncep.reanalysis.derived/surface_gauss/air.2m.mon.ltm.1991-2020.nc",
+  "sha256": "c86a3c575010ca2c9414b24022361c43be6966dcdc62c821c1918e9c44ca9be9",
+  "shape": [12, 94, 192],
+  "sourcePeriod": "1991/01/01 - 2020/12/31",
+  "monthWeights": [
+    31.0, 28.266666666666666, 31.0, 30.0, 31.0, 30.0, 31.0, 31.0, 30.0, 31.0,
+    30.0, 31.0
+  ],
+  "points": [
+    {
+      "id": "tropical",
+      "zh": "热带低地",
+      "lat": 0.952,
+      "lon": 22.5,
+      "celsius": 23.8,
+      "terrain": "low"
+    },
+    {
+      "id": "temperate",
+      "zh": "温带低地",
+      "lat": 50.475,
+      "lon": 11.25,
+      "celsius": 8.4,
+      "terrain": "low"
+    },
+    {
+      "id": "polar",
+      "zh": "格陵兰高纬度",
+      "lat": 75.235,
+      "lon": -41.25,
+      "celsius": -25.4,
+      "terrain": "high"
+    },
+    {
+      "id": "plateau",
+      "zh": "青藏高原",
+      "lat": 31.428,
+      "lon": 86.25,
+      "celsius": -7.6,
+      "terrain": "high"
+    },
+    {
+      "id": "lowland",
+      "zh": "相近纬度低地",
+      "lat": 31.428,
+      "lon": 116.25,
+      "celsius": 15.3,
+      "terrain": "low"
+    }
+  ]
+}

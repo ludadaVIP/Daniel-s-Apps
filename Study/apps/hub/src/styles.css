@@ -339,3 +339,12 @@ a:focus-visible {
     flex-wrap: wrap;
   }
 }
+
+.study-card-geography {
+  --card-accent: #315f69;
+}
+@media (min-width: 761px) {
+  .study-grid {
+    grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  }
+}

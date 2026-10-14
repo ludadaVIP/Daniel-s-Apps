@@ -1,4 +1,8 @@
 import type { LocalizedText, SubjectId } from '@study/shared';
+import geographyCurriculum from '../../../geograph/content/curriculum.json';
+const geographyCount = geographyCurriculum
+  .flatMap((s) => s.lessons)
+  .filter((l) => l.status === 'available').length;
 
 export type Subject = {
   id: SubjectId;
@@ -75,5 +79,24 @@ export const subjects: Subject[] = [
     status: { zh: '前四课已开放', en: 'First four lessons open' },
     available: true,
     path: '/pinyin',
+  },
+  {
+    id: 'geography',
+    number: '05',
+    name: { zh: '地理', en: 'Geography' },
+    phrase: {
+      zh: '从地图与证据，探索人与世界。',
+      en: 'Follow maps and evidence. Explore our world.',
+    },
+    question: {
+      zh: '地图转过来，北也改变了吗？',
+      en: 'When a map turns, does north change?',
+    },
+    status: {
+      zh: `${geographyCount} 节双语探索课已开放`,
+      en: `${geographyCount} bilingual lessons open`,
+    },
+    available: true,
+    path: '/geography',
   },
 ];

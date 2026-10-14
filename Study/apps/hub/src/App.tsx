@@ -8,8 +8,35 @@ const ChemistryPage = lazy(() => import('./ChemistryPage'));
 const PhysicsPage = lazy(() => import('./PhysicsPage'));
 const PinyinPage = lazy(() => import('./PinyinPage'));
 const BiologyPage = lazy(() => import('./BiologyPage'));
+const GeographyPage = lazy(() => import('./GeographyPage'));
 
 function subjectIcon(id: SubjectId) {
+  if (id === 'geography') {
+    return (
+      <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <circle
+          cx="16"
+          cy="16"
+          r="12"
+          stroke="currentColor"
+          strokeWidth="1.8"
+        />
+        <ellipse
+          cx="16"
+          cy="16"
+          rx="5"
+          ry="12"
+          stroke="currentColor"
+          strokeWidth="1.6"
+        />
+        <path
+          d="M4 16h24M7 9h18M7 23h18"
+          stroke="currentColor"
+          strokeWidth="1.4"
+        />
+      </svg>
+    );
+  }
   if (id === 'pinyin') {
     return (
       <svg viewBox="0 0 32 32" fill="none" aria-hidden="true">
@@ -114,7 +141,7 @@ function Header({
           className="study-language"
         />
         <span className="study-count">
-          4 {mode === 'en' ? 'APPS' : '学习应用'}
+          {subjects.length} {mode === 'en' ? 'APPS' : '学习应用'}
         </span>
       </div>
     </header>
@@ -169,8 +196,8 @@ function Hub() {
       <footer className="study-footer">
         {words(
           mode,
-          '物理 · 化学 · 生物 · 拼音',
-          'Physics · Chemistry · Biology · Pinyin',
+          '物理 · 化学 · 生物 · 拼音 · 地理',
+          'Physics · Chemistry · Biology · Pinyin · Geography',
         )}
       </footer>
     </div>
@@ -222,6 +249,20 @@ export function App() {
             fallback={<div className="study-loading">正在打开拼音侦探…</div>}
           >
             <PinyinPage />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/geography/*"
+        element={
+          <Suspense
+            fallback={
+              <div className="study-loading">
+                正在打开地理探索 / Opening Geography…
+              </div>
+            }
+          >
+            <GeographyPage />
           </Suspense>
         }
       />
