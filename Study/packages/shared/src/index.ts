@@ -1,7 +1,7 @@
 export type LocalizedText = { en: string; zh: string };
 export type LanguageMode = 'zh' | 'en' | 'bilingual';
 export type SubjectId =
-  'chemistry' | 'physics' | 'biology' | 'pinyin' | 'geography';
+  'chemistry' | 'physics' | 'biology' | 'pinyin' | 'geography' | 'math';
 
 export type LessonStatus =
   'not-started' | 'learning' | 'practicing' | 'mastered' | 'review-due';

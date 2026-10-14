@@ -99,4 +99,23 @@ export const subjects: Subject[] = [
     available: true,
     path: '/geography',
   },
+  {
+    id: 'math',
+    number: '06',
+    name: { zh: '数学', en: 'Maths' },
+    phrase: {
+      zh: '先看见，再算懂。发现数学的美。',
+      en: 'See it. Make sense of it. Discover maths.',
+    },
+    question: {
+      zh: '一半和二分之一，是同一件事吗？',
+      en: 'Can different fractions show the same amount?',
+    },
+    status: {
+      zh: '5 节微课与起点诊断已开放',
+      en: '5 micro-lessons and a starting-point check',
+    },
+    available: true,
+    path: '/math',
+  },
 ];
