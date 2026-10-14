@@ -7,6 +7,15 @@ import { DecimalLab, isDecimalLab } from './DecimalLabs';
 import { FractionLab, isFractionLab } from './FractionLabs';
 import { OperationLab, isOperationLab } from './OperationLabs';
 import { CalculationLab, isCalculationLab } from './CalculationLabs';
+import { MeasurementLab, isMeasurementLab } from './MeasurementLabs';
+import { ProblemLab, isProblemLab } from './ProblemLabs';
+import { IntegerLab, isIntegerLab } from './IntegerLabs';
+import { EquationLab, isEquationLab } from './EquationLabs';
+import { GeometryLab, isGeometryLab } from './GeometryLabs';
+import {
+  FractionOperationLab,
+  isFractionOperationLab,
+} from './FractionOperationLabs';
 export function HeroArt() {
   return (
     <div className="math-hero-art" aria-hidden="true">
@@ -334,12 +343,24 @@ export function Lab({
     <NumberLab kind={kind} mode={mode} />
   ) : isDecimalLab(kind) ? (
     <DecimalLab kind={kind} mode={mode} />
+  ) : isGeometryLab(kind) ? (
+    <GeometryLab kind={kind} mode={mode} />
+  ) : isEquationLab(kind) ? (
+    <EquationLab kind={kind} mode={mode} />
+  ) : isFractionOperationLab(kind) ? (
+    <FractionOperationLab kind={kind} mode={mode} />
   ) : isFractionLab(kind) ? (
     <FractionLab kind={kind} mode={mode} />
   ) : isOperationLab(kind) ? (
     <OperationLab kind={kind} mode={mode} />
   ) : isCalculationLab(kind) ? (
     <CalculationLab kind={kind} mode={mode} />
+  ) : isMeasurementLab(kind) ? (
+    <MeasurementLab kind={kind} mode={mode} />
+  ) : isProblemLab(kind) ? (
+    <ProblemLab kind={kind} mode={mode} />
+  ) : isIntegerLab(kind) ? (
+    <IntegerLab kind={kind} mode={mode} />
   ) : (
     <LegacyLab kind={kind} mode={mode} />
   );

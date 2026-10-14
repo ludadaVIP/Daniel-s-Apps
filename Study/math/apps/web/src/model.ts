@@ -4,7 +4,28 @@ export type AnswerSpec =
   | {
       kind: 'number';
       value: string;
-      unit?: 'NZD' | 'cm²' | 'm' | 'L' | 'km';
+      unit?:
+        | 'NZD'
+        | 'dm'
+        | 'dm²'
+        | 'cm³'
+        | 'dm³'
+        | 'm³'
+        | 'mL'
+        | 'cm²'
+        | 'm²'
+        | 'mm'
+        | 'cm'
+        | 'm'
+        | 'L'
+        | 'km'
+        | '°'
+        | 'people'
+        | 'cards'
+        | 'bags'
+        | 'pencils'
+        | 'min'
+        | 'sticks';
       formats?: ('decimal' | 'fraction' | 'percent')[];
       fractionRule?: 'unit' | 'improper' | 'mixed' | 'simplest';
       requiredDenominator?: number;
@@ -12,6 +33,62 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | { kind: 'geo-rectangle'; w: number; h: number }
+  | { kind: 'geo-triangle'; b: number; h: number; apex: number }
+  | { kind: 'geo-parallel'; b: number; h: number; shift: number }
+  | { kind: 'geo-trapezoid'; a: number; b: number; h: number; shift: number }
+  | { kind: 'geo-prism'; w: number; d: number; h: number; unit?: 'cm' | 'dm' }
+  | { kind: 'geo-net'; w: number; d: number; h: number; lid: boolean }
+  | {
+      kind: 'equation-board';
+      equation: {
+        kind: 'add' | 'subtract' | 'subtract-from' | 'multiply' | 'divide';
+        a: string;
+        b: string;
+        reversed?: boolean;
+      };
+      symbol?: 'x' | '□';
+    }
+  | { kind: 'growing-pattern'; pattern: 'squares' | 'counters'; n: number }
+  | {
+      kind: 'fraction-operation';
+      left: { n: number; d: number };
+      right: { n: number; d: number };
+      operation: '+' | '−';
+    }
+  | { kind: 'integer-array'; n: number; rows: number; hideColumns?: boolean }
+  | {
+      kind: 'integer-common';
+      a: number;
+      b: number;
+      mode: 'factors' | 'multiples';
+    }
+  | {
+      kind: 'problem-bars';
+      relation: 'parts' | 'comparison' | 'groups';
+      a: number;
+      b: number;
+      unknown: 'result' | 'component';
+      unit: LocalizedText;
+    }
+  | {
+      kind: 'measurement-ruler';
+      startMm: number;
+      endMm: number;
+      unit: 'cm' | 'mm';
+    }
+  | {
+      kind: 'measurement-grid';
+      width: number;
+      height: number;
+      selected: number[];
+    }
+  | {
+      kind: 'measurement-bars';
+      values: { label: LocalizedText; count: number }[];
+      max: number;
+      step: number;
+    }
   | { kind: 'calculation-area'; a: number; b: number }
   | {
       kind: 'operation-counters';
@@ -91,6 +168,22 @@ export type Lesson = {
     | 'fraction-equivalent'
     | 'fraction-simplify'
     | 'fraction-compare'
+    | 'fraction-add-like'
+    | 'fraction-subtract-like'
+    | 'fraction-add-unlike'
+    | 'fraction-subtract-unlike'
+    | 'fraction-story'
+    | 'equation-box'
+    | 'equation-balance'
+    | 'equation-pattern'
+    | 'equation-one-step'
+    | 'equation-story'
+    | 'geo-units'
+    | 'geo-rectangle'
+    | 'geo-triangle'
+    | 'geo-parallel-trapezoid'
+    | 'geo-volume'
+    | 'geo-surface'
     | 'operation-parts'
     | 'operation-array'
     | 'operation-division'
@@ -100,7 +193,22 @@ export type Lesson = {
     | 'calculation-split'
     | 'calculation-area'
     | 'calculation-division'
-    | 'calculation-estimate';
+    | 'calculation-estimate'
+    | 'measurement-length'
+    | 'measurement-perimeter'
+    | 'measurement-area'
+    | 'measurement-angle'
+    | 'measurement-bars'
+    | 'problem-information'
+    | 'problem-represent'
+    | 'problem-two-step'
+    | 'problem-relevance'
+    | 'problem-explain'
+    | 'integer-mixed'
+    | 'integer-order'
+    | 'integer-factors'
+    | 'integer-prime'
+    | 'integer-common';
   stage?: string;
   unit?: string;
   order?: number;
@@ -177,7 +285,7 @@ export const newSession = (): Session => ({
 });
 const gcd = (a: bigint, b: bigint): bigint =>
   b === 0n ? (a < 0n ? -a : a) : gcd(b, a % b);
-function rational(raw: string): [bigint, bigint] | null {
+export function exactRational(raw: string): [bigint, bigint] | null {
   const text = raw.trim().replace(/−/g, '-').replace(/／/g, '/');
   if (text.length > 60) return null;
   const mixed = text.match(/^(\d+)\s+(\d+)\s*\/\s*(\d+)$/);
@@ -212,11 +320,61 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
   if (spec.unit === 'NZD')
     clean = clean
       .replace(/^(?:NZ\$|\$)\s*/i, '')
-      .replace(/\s*(?:NZD|dollars?)$/i, '');
-  if (spec.unit === 'km') clean = clean.replace(/\s*(?:km|kilometres?)$/i, '');
-  if (spec.unit === 'm') clean = clean.replace(/\s*(?:m|metres?)$/i, '');
-  if (spec.unit === 'L') clean = clean.replace(/\s*(?:l|litres?)$/i, '');
-  if (spec.unit === 'cm²') clean = clean.replace(/\s*cm(?:²|\^2|2)$/i, '');
+      .replace(/\s*(?:NZD|dollars?|新西兰元|纽元)$/i, '');
+  if (spec.unit === 'km')
+    clean = clean.replace(/\s*(?:km|kilometres?|kilometers?|千米|公里)$/i, '');
+  if (spec.unit === 'm')
+    clean = clean.replace(/\s*(?:m|metres?|meters?|米)$/i, '');
+  if (spec.unit === 'L')
+    clean = clean.replace(/\s*(?:l|litres?|liters?|升)$/i, '');
+  if (spec.unit === 'dm')
+    clean = clean.replace(/\s*(?:dm|decimetres?|decimeters?|分米)$/i, '');
+  if (spec.unit === 'dm²')
+    clean = clean.replace(
+      /\s*(?:dm(?:²|\^2|2)|square decimetres?|square decimeters?|平方分米)$/i,
+      '',
+    );
+  if (spec.unit === 'mL')
+    clean = clean.replace(/\s*(?:ml|millilitres?|milliliters?|毫升)$/i, '');
+  if (spec.unit === 'cm³')
+    clean = clean.replace(
+      /\s*(?:cm(?:³|\^3|3)|cubic centimetres?|cubic centimeters?|立方厘米)$/i,
+      '',
+    );
+  if (spec.unit === 'dm³')
+    clean = clean.replace(
+      /\s*(?:dm(?:³|\^3|3)|cubic decimetres?|cubic decimeters?|立方分米)$/i,
+      '',
+    );
+  if (spec.unit === 'm³')
+    clean = clean.replace(
+      /\s*(?:m(?:³|\^3|3)|cubic metres?|cubic meters?|立方米)$/i,
+      '',
+    );
+  if (spec.unit === 'cm²')
+    clean = clean.replace(
+      /\s*(?:cm(?:²|\^2|2)|square centimetres?|平方厘米)$/i,
+      '',
+    );
+  if (spec.unit === 'm²')
+    clean = clean.replace(/\s*(?:m(?:²|\^2|2)|square metres?|平方米)$/i, '');
+  if (spec.unit === 'mm')
+    clean = clean.replace(/\s*(?:mm|millimetres?|毫米)$/i, '');
+  if (spec.unit === 'cm')
+    clean = clean.replace(/\s*(?:cm|centimetres?|厘米)$/i, '');
+  if (spec.unit === '°')
+    clean = clean.replace(/\s*(?:°|degrees?|deg|度)$/i, '');
+  if (spec.unit === 'people')
+    clean = clean.replace(/\s*(?:people|persons?|人)$/i, '');
+  if (spec.unit === 'cards')
+    clean = clean.replace(/\s*(?:cards?|张(?:卡片|卡)?)$/i, '');
+  if (spec.unit === 'bags') clean = clean.replace(/\s*(?:bags?|袋)$/i, '');
+  if (spec.unit === 'pencils')
+    clean = clean.replace(/\s*(?:pencils?|支(?:铅笔)?)$/i, '');
+  if (spec.unit === 'sticks')
+    clean = clean.replace(/\s*(?:sticks?|matchsticks?|根(?:小棒)?)$/i, '');
+  if (spec.unit === 'min')
+    clean = clean.replace(/\s*(?:mins?|minutes?|分钟)$/i, '');
   clean = clean.replace(/−/g, '-').replace(/／/g, '/');
   if (spec.fractionRule || spec.requiredDenominator !== undefined) {
     if (clean.length > 60) return false;
@@ -265,8 +423,8 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
   // Permit correctly grouped thousands; never silently turn a misplaced comma into a different number.
   if (/^[+-]?\d{1,3}(?:,\d{3})+(?:\.\d+)?$/.test(clean))
     clean = clean.replace(/,/g, '');
-  const actual = rational(clean),
-    expected = rational(spec.value);
+  const actual = exactRational(clean),
+    expected = exactRational(spec.value);
   return (
     !!actual &&
     !!expected &&

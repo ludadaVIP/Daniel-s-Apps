@@ -38,7 +38,15 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
       '你的答案（千位逗号可省略）',
       'Your answer (grouping commas are optional)',
     );
-  if (lessonId?.startsWith('B02-') || lessonId?.startsWith('B03-'))
+  if (
+    lessonId?.startsWith('B02-') ||
+    lessonId?.startsWith('B03-') ||
+    lessonId?.startsWith('B05-') ||
+    lessonId?.startsWith('B06-') ||
+    lessonId?.startsWith('P51-') ||
+    lessonId?.startsWith('P55-') ||
+    lessonId?.startsWith('P56-')
+  )
     return t(
       '你的答案（填写数量，注意题目单位）',
       'Your answer (enter the quantity and check units)',
@@ -184,7 +192,25 @@ export function Question({
               }}
               disabled={a.checked && a.correct}
             />
-            {q.answer.unit && <span>{q.answer.unit}</span>}
+            {q.answer.unit && (
+              <span>
+                {q.answer.unit === 'people' ? (
+                  <Text mode={mode} text={t('人', 'people')} />
+                ) : q.answer.unit === 'cards' ? (
+                  <Text mode={mode} text={t('张卡', 'cards')} />
+                ) : q.answer.unit === 'bags' ? (
+                  <Text mode={mode} text={t('袋', 'bags')} />
+                ) : q.answer.unit === 'pencils' ? (
+                  <Text mode={mode} text={t('支铅笔', 'pencils')} />
+                ) : q.answer.unit === 'sticks' ? (
+                  <Text mode={mode} text={t('根小棒', 'sticks')} />
+                ) : q.answer.unit === 'min' ? (
+                  <Text mode={mode} text={t('分钟', 'min')} />
+                ) : (
+                  q.answer.unit
+                )}
+              </span>
+            )}
           </div>
         </label>
       )}

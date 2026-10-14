@@ -10,6 +10,15 @@ import { DecimalHookArt, isDecimalLab } from './DecimalLabs';
 import { FractionHookArt, isFractionLab } from './FractionLabs';
 import { OperationHookArt, isOperationLab } from './OperationLabs';
 import { CalculationHookArt, isCalculationLab } from './CalculationLabs';
+import { MeasurementHookArt, isMeasurementLab } from './MeasurementLabs';
+import { ProblemHookArt, isProblemLab } from './ProblemLabs';
+import { IntegerHookArt, isIntegerLab } from './IntegerLabs';
+import {
+  FractionOperationHookArt,
+  isFractionOperationLab,
+} from './FractionOperationLabs';
+import { EquationHookArt, isEquationLab } from './EquationLabs';
+import { GeometryHookArt, isGeometryLab } from './GeometryLabs';
 import { Question } from './Question';
 import { Intro, words, statuses, stepLabels, type Props } from './pageSupport';
 const markdown = import.meta.glob('../../../content/lessons/*.md', {
@@ -129,12 +138,24 @@ function LessonWorkspace({
                 <NumberHookArt kind={l.lab} mode={mode} />
               ) : isDecimalLab(l.lab) ? (
                 <DecimalHookArt kind={l.lab} mode={mode} />
+              ) : isGeometryLab(l.lab) ? (
+                <GeometryHookArt kind={l.lab} mode={mode} />
+              ) : isEquationLab(l.lab) ? (
+                <EquationHookArt kind={l.lab} mode={mode} />
+              ) : isFractionOperationLab(l.lab) ? (
+                <FractionOperationHookArt kind={l.lab} mode={mode} />
               ) : isFractionLab(l.lab) ? (
                 <FractionHookArt kind={l.lab} mode={mode} />
               ) : isOperationLab(l.lab) ? (
                 <OperationHookArt kind={l.lab} mode={mode} />
               ) : isCalculationLab(l.lab) ? (
                 <CalculationHookArt kind={l.lab} mode={mode} />
+              ) : isMeasurementLab(l.lab) ? (
+                <MeasurementHookArt kind={l.lab} mode={mode} />
+              ) : isProblemLab(l.lab) ? (
+                <ProblemHookArt kind={l.lab} mode={mode} />
+              ) : isIntegerLab(l.lab) ? (
+                <IntegerHookArt kind={l.lab} mode={mode} />
               ) : (
                 <HeroArt />
               )}

@@ -820,8 +820,8 @@ export const diagnosticGroups = [
     id: 'D03',
     title: t('图形与测量', 'Geometry & measurement'),
     bridge: t(
-      '图形、测量与读图 B05（后续开放）',
-      'Shapes, measurement and charts B05 (planned)',
+      '先探索 B05 的长度、周长、面积、角与读图；平均数在后续统计课继续。',
+      'Explore B05 length, perimeter, area, angles and charts; continue means in later statistics lessons.',
     ),
     questions: [
       q(
@@ -898,8 +898,8 @@ export const diagnosticGroups = [
     id: 'D04',
     title: t('关系与推理', 'Relationships & reasoning'),
     bridge: t(
-      '问题解决 B06 / 初步方程 P55（后续开放）',
-      'Problem solving B06 / early equations P55 (planned)',
+      '先探索 B06 的数量关系与问题解决；规律和方程在后续课继续。',
+      'Explore B06 quantitative relationships and problem solving; patterns and equations continue in later lessons.',
     ),
     questions: [
       q(

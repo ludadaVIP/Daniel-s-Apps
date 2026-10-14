@@ -81,26 +81,44 @@ export function Diagnostic({ mode, store }: Props) {
                         : g.bridge
                     }
                   />
-                  {['D01', 'D02'].includes(g.id) && summary.independent < 4 && (
-                    <Link
-                      className="math-button secondary"
-                      to={
-                        g.id === 'D01'
-                          ? '/math/lesson/B01-L01'
-                          : '/math/lesson/B04-L01'
-                      }
-                    >
-                      <Text
-                        mode={mode}
-                        text={
+                  {['D01', 'D02', 'D03', 'D04'].includes(g.id) &&
+                    summary.independent < 4 && (
+                      <Link
+                        className="math-button secondary"
+                        to={
                           g.id === 'D01'
-                            ? t('从位值开始探索', 'Explore place value first')
-                            : t('从等份开始探索', 'Explore equal parts first')
+                            ? '/math/lesson/B01-L01'
+                            : g.id === 'D02'
+                              ? '/math/lesson/B04-L01'
+                              : g.id === 'D03'
+                                ? '/math/lesson/B05-L01'
+                                : '/math/lesson/B06-L01'
                         }
-                      />{' '}
-                      →
-                    </Link>
-                  )}
+                      >
+                        <Text
+                          mode={mode}
+                          text={
+                            g.id === 'D01'
+                              ? t('从位值开始探索', 'Explore place value first')
+                              : g.id === 'D02'
+                                ? t(
+                                    '从等份开始探索',
+                                    'Explore equal parts first',
+                                  )
+                                : g.id === 'D03'
+                                  ? t(
+                                      '从测量与图形开始探索',
+                                      'Explore measurement and shapes first',
+                                    )
+                                  : t(
+                                      '从问题的数量关系开始探索',
+                                      'Explore problem-solving relationships first',
+                                    )
+                          }
+                        />{' '}
+                        →
+                      </Link>
+                    )}
                 </div>
               )}
             </section>

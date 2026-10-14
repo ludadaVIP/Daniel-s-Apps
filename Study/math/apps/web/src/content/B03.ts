@@ -40,6 +40,12 @@ function q(
     item.type = 'word_problem';
     item.difficulty = 'transfer';
   }
+  item.misconceptionTags = [
+    skill,
+    'calculation',
+    ...(diagram ? ['representation'] : []),
+    ...(unit ? ['reading-units'] : []),
+  ];
   return item;
 }
 function c(
@@ -51,7 +57,7 @@ function c(
   hints: [Pair, Pair],
   steps: Pair[],
 ) {
-  return choice(
+  const item = choice(
     id,
     text(stem),
     correct,
@@ -60,6 +66,8 @@ function c(
     hints.map(text),
     steps.map(text),
   );
+  item.misconceptionTags = [skill, 'concept', 'representation'];
+  return item;
 }
 function r(
   id: string,
@@ -68,7 +76,9 @@ function r(
   rubric: Pair,
   hints: [Pair, Pair],
 ) {
-  return reasoning(id, text(stem), skill, text(rubric), hints.map(text));
+  const item = reasoning(id, text(stem), skill, text(rubric), hints.map(text));
+  item.misconceptionTags = [skill, 'concept', 'representation'];
+  return item;
 }
 export const b03Lessons: Lesson[] = [
   b03Lesson({

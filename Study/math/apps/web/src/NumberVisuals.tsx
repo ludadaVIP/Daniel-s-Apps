@@ -2,8 +2,14 @@ import type { LanguageMode } from '@study/shared';
 import { t, type NumberDiagram } from './model';
 import { axisPosition, placeValues, type Blocks } from './numberModels';
 import { DecimalPlaceChart } from './DecimalVisuals';
+import { EquationBoard, GrowingPatternView } from './EquationVisuals';
+import { FractionOperands } from './FractionOperationVisuals';
+import { GeometryDiagram } from './GeometryVisuals';
 import { FractionDiagram } from './FractionVisuals';
 import { ProductArea } from './CalculationVisuals';
+import { Ruler, TileGrid, BarChart } from './MeasurementVisuals';
+import { ProblemBars } from './ProblemVisuals';
+import { FactorArray, CommonLists } from './IntegerVisuals';
 import {
   PartCounters,
   GroupCounters,
@@ -205,8 +211,35 @@ export function NumberDiagramView({
   diagram: NumberDiagram;
   mode: LanguageMode;
 }) {
+  if (isGeometryDiagram(diagram))
+    return <GeometryDiagram diagram={diagram} mode={mode} />;
+  if (diagram.kind === 'equation-board')
+    return <EquationBoard {...diagram} mode={mode} />;
+  if (diagram.kind === 'growing-pattern')
+    return <GrowingPatternView {...diagram} mode={mode} />;
+  if (diagram.kind === 'fraction-operation')
+    return <FractionOperands {...diagram} mode={mode} />;
+  if (diagram.kind === 'integer-array')
+    return <FactorArray {...diagram} mode={mode} />;
+  if (diagram.kind === 'integer-common')
+    return (
+      <CommonLists
+        a={diagram.a}
+        b={diagram.b}
+        kind={diagram.mode}
+        mode={mode}
+      />
+    );
+  if (diagram.kind === 'problem-bars')
+    return <ProblemBars {...diagram} mode={mode} />;
   if (diagram.kind === 'calculation-area')
     return <ProductArea a={diagram.a} b={diagram.b} mode={mode} />;
+  if (diagram.kind === 'measurement-ruler')
+    return <Ruler {...diagram} mode={mode} />;
+  if (diagram.kind === 'measurement-grid')
+    return <TileGrid {...diagram} mode={mode} />;
+  if (diagram.kind === 'measurement-bars')
+    return <BarChart {...diagram} mode={mode} />;
   if (diagram.kind === 'decimal-place')
     return <DecimalPlaceChart milli={diagram.milli} mode={mode} />;
   if (diagram.kind === 'fraction-bars')
@@ -257,4 +290,10 @@ export function NumberDiagramView({
       mode={mode}
     />
   );
+}
+
+function isGeometryDiagram(
+  diagram: NumberDiagram,
+): diagram is Extract<NumberDiagram, { kind: `geo-${string}` }> {
+  return diagram.kind.startsWith('geo-');
 }

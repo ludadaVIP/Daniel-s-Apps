@@ -6,6 +6,7 @@ import { ProductArea, SplitArray } from './CalculationVisuals';
 import {
   columnCalculation,
   splitProduct,
+  areaProduct,
   longDivision,
   estimateCalculation,
   estimateCases,

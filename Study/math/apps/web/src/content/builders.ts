@@ -167,6 +167,42 @@ export function b03Lesson(lesson: Lesson): Lesson {
     skillTags: [...new Set(lesson.questions.map((q) => q.skill))],
     nzYearHints: [4, 5, 6],
     cnGradeHints: [3, 4, 5],
-    contentStatus: 'draft',
+    contentStatus: 'ready',
+  };
+}
+export function b05Lesson(lesson: Lesson): Lesson {
+  return {
+    ...lesson,
+    stage: 'B00',
+    unit: 'B05',
+    order: Number(lesson.id.slice(-2)),
+    skillTags: [...new Set(lesson.questions.map((q) => q.skill))],
+    nzYearHints: [4, 5, 6],
+    cnGradeHints: [3, 4, 5],
+    contentStatus: 'ready',
+  };
+}
+export function b06Lesson(lesson: Lesson): Lesson {
+  return {
+    ...lesson,
+    stage: 'B00',
+    unit: 'B06',
+    order: Number(lesson.id.slice(-2)),
+    skillTags: [...new Set(lesson.questions.map((q) => q.skill))],
+    nzYearHints: [4, 5, 6],
+    cnGradeHints: [3, 4, 5],
+    contentStatus: 'ready',
+  };
+}
+export function p51Lesson(lesson: Lesson): Lesson {
+  return {
+    ...lesson,
+    stage: 'P05',
+    unit: 'P51',
+    order: Number(lesson.id.slice(-2)),
+    skillTags: [...new Set(lesson.questions.map((q) => q.skill))],
+    nzYearHints: [5, 6],
+    cnGradeHints: [5],
+    contentStatus: 'ready',
   };
 }

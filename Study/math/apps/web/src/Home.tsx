@@ -6,6 +6,22 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'geo-units': 'cm · cm² · cm³',
+  'geo-rectangle': '6 × 4 cm²',
+  'geo-triangle': 'b × h ÷ 2',
+  'geo-parallel-trapezoid': '(a+b)h ÷ 2',
+  'geo-volume': '4 × 3 × 2',
+  'geo-surface': '6 faces · cm²',
+  'equation-box': '□ + 7 = 19',
+  'equation-balance': '8 + 4 = □ + 5',
+  'equation-pattern': '3n + 1',
+  'equation-one-step': '4x = 5',
+  'equation-story': 'x · NZ$ · m',
+  'fraction-add-like': '3/8 + 2/8',
+  'fraction-subtract-like': '7/8 − 3/8',
+  'fraction-add-unlike': '2/3 + 1/4',
+  'fraction-subtract-unlike': '3/4 − 1/6',
+  'fraction-story': 'L · m · NZ$',
   'fraction-whole': '1/8 · 1/6',
   'fraction-kind': '7/4 > 1',
   'fraction-mixed': '2 ¾ = 11/4',
@@ -19,6 +35,34 @@ const operationArt: Record<string, string> = {
   'operation-division': '24 ÷ 6 = 4',
   'operation-inverse': '12 ÷ 3 ↔ 3 × 4',
   'operation-choose': '+ − × ÷ ?',
+};
+const calculationArt: Record<string, string> = {
+  'calculation-regroup': '10 × 1 ↔ 1 × 10',
+  'calculation-split': '6 × (5 + 3)',
+  'calculation-area': '23 × 14',
+  'calculation-division': '936 ÷ 12',
+  'calculation-estimate': '23 × 19 ≈ 400',
+};
+const measurementArt: Record<string, string> = {
+  'measurement-length': '7 cm = 70 mm',
+  'measurement-perimeter': '8 + 5 + 8 + 5',
+  'measurement-area': '24 cm²',
+  'measurement-angle': '45° · 90° · 120°',
+  'measurement-bars': '0 · 2 · 4 · 6 …',
+};
+const problemArt: Record<string, string> = {
+  'problem-information': '18 = 7 + ?',
+  'problem-represent': '9 + ? = 24',
+  'problem-two-step': '4 × 6 − 5',
+  'problem-relevance': 'NZ$30 − 4×5',
+  'problem-explain': '17 + 3 = 20',
+};
+const integerArt: Record<string, string> = {
+  'integer-mixed': '1200 + 36×25',
+  'integer-order': '(24 + 36) ÷ 6',
+  'integer-factors': '4 × 6 = 24',
+  'integer-prime': '49 = 7 × 7',
+  'integer-common': 'GCF 6 · LCM 72',
 };
 function LessonCards({ mode, store, unitId }: Props & { unitId: string }) {
   return (
@@ -42,6 +86,14 @@ function LessonCards({ mode, store, unitId }: Props & { unitId: string }) {
                 <span>{fractionArt[l.lab]}</span>
               ) : operationArt[l.lab] ? (
                 <span>{operationArt[l.lab]}</span>
+              ) : calculationArt[l.lab] ? (
+                <span>{calculationArt[l.lab]}</span>
+              ) : measurementArt[l.lab] ? (
+                <span>{measurementArt[l.lab]}</span>
+              ) : problemArt[l.lab] ? (
+                <span>{problemArt[l.lab]}</span>
+              ) : integerArt[l.lab] ? (
+                <span>{integerArt[l.lab]}</span>
               ) : l.lab === 'decimal-place' ? (
                 <span>0.307</span>
               ) : l.lab === 'decimal-compare' ? (
@@ -152,26 +204,30 @@ export function Home({ mode, store }: Props) {
               )}
             />
           </p>
-          <Link className="math-button" to={`/math/lesson/${next.id}`}>
-            <Text
-              mode={mode}
-              text={t(
-                store.progress.sessions[next.id] ? '继续我的探索' : '开始探索',
-                store.progress.sessions[next.id]
-                  ? 'Continue exploring'
-                  : 'Start exploring',
-              )}
-            />
-            <span>↗</span>
-          </Link>
-          <div className="math-hero-meta">
-            <Text
-              mode={mode}
-              text={t(
-                '每次约 12–20 分钟 · 按自己的节奏',
-                'ABOUT 12–20 MIN · AT YOUR OWN PACE',
-              )}
-            />
+          <div className="math-hero-actions">
+            <Link className="math-button" to={`/math/lesson/${next.id}`}>
+              <Text
+                mode={mode}
+                text={t(
+                  store.progress.sessions[next.id]
+                    ? '继续我的探索'
+                    : '开始探索',
+                  store.progress.sessions[next.id]
+                    ? 'Continue exploring'
+                    : 'Start exploring',
+                )}
+              />
+              <span>↗</span>
+            </Link>
+            <div className="math-hero-meta">
+              <Text
+                mode={mode}
+                text={t(
+                  '每次约 12–20 分钟 · 按自己的节奏',
+                  'ABOUT 12–20 MIN · AT YOUR OWN PACE',
+                )}
+              />
+            </div>
           </div>
         </div>
         <HeroArt />

@@ -79,14 +79,14 @@ export function ProductArea({
             : `长方形两边为 ${a} 与 ${b} 个长度单位，两轴使用同一单位标尺。宽拆为 ${m.aTens} 与 ${m.aOnes}，高拆为 ${m.bTens} 与 ${m.bOnes}。`
         }
       >
-        <text x="300" y="25" textAnchor="middle" fill="#5954a3" fontSize="17">
+        <text x="300" y="30" textAnchor="middle" fill="#5954a3" fontSize="17">
           {m.aTens} + {m.aOnes} = {a}
         </text>
         <text
-          x="19"
+          x="30"
           y="185"
           textAnchor="middle"
-          transform="rotate(-90 19 185)"
+          transform="rotate(-90 30 185)"
           fill="#5954a3"
           fontSize="17"
         >
