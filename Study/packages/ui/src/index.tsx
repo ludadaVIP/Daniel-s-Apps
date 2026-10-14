@@ -426,7 +426,20 @@ export function StudyShell({
             {directoryOpen && (
               <>
                 <label className="study-directory-search">
-                  <span aria-hidden="true">⌕</span>
+                  <span aria-hidden="true">
+                    <svg
+                      width="16"
+                      height="16"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="1.8"
+                      strokeLinecap="round"
+                    >
+                      <circle cx="10.5" cy="10.5" r="6" />
+                      <path d="m15 15 5 5" />
+                    </svg>
+                  </span>
                   <input
                     type="search"
                     aria-label={word('查找课程', 'Find a lesson')}

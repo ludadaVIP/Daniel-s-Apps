@@ -561,17 +561,21 @@ body:has(.study-learning-app) {
 }
 .study-directory-search > span {
   position: absolute;
-  left: 10px;
-  top: 7px;
+  left: 11px;
+  top: 50%;
+  width: 16px;
+  height: 16px;
+  display: grid;
+  place-items: center;
+  transform: translateY(-50%);
   color: var(--shell-muted);
-  font-size: 18px;
-  line-height: 1.2;
+  pointer-events: none;
 }
 .study-shell .study-directory-search input {
   width: 100%;
   min-width: 0;
   min-height: 36px;
-  padding: 7px 10px 7px 30px;
+  padding: 8px 12px 8px 36px;
   background: #ffffffb0;
   color: var(--study-ink);
   border: 1px solid var(--shell-line);

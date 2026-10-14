@@ -94,15 +94,15 @@ export function Home({ mode, store }: Props) {
           <h1>
             <Text
               mode={mode}
-              text={t('先看见，\n再算懂。', 'See it.\nMake sense of it.')}
+              text={t('先看见，再算懂。', 'See it. Make sense of it.')}
             />
           </h1>
           <p>
             <Text
               mode={mode}
               text={t(
-                '把抽象的数字，变成可以触摸的发现。\n从一块巧克力开始，找到数学里的“为什么”。',
-                'Turn abstract numbers into discoveries you can explore.\nStart with a chocolate bar. Find the “why” in maths.',
+                '把抽象的数字，变成可以触摸的发现。从一块巧克力开始，找到数学里的“为什么”。',
+                'Turn abstract numbers into discoveries you can explore. Start with a chocolate bar. Find the “why” in maths.',
               )}
             />
           </p>

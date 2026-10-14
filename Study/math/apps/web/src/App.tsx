@@ -69,7 +69,17 @@ export function App() {
       <StudyShell
         brand={
           <Link to="/math">
-            <span className="math-brand-icon">∑</span>
+            <span className="math-brand-icon" aria-hidden="true">
+              <svg viewBox="0 0 32 32" fill="none">
+                <path
+                  d="M24 6H8l10 10L8 26h16"
+                  stroke="currentColor"
+                  strokeWidth="2.4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </span>
             <div>
               <strong>{words(mode, '数学探索', 'Math Explorer')}</strong>
               <small>Maths · Study</small>
