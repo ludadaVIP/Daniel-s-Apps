@@ -106,7 +106,7 @@ describe('Math Explorer learning experience', () => {
   });
   it('lets a parent review reasoning and keeps understanding visible when review is due', () => {
     const p = emptyProgress(),
-      l = lessons[0]!,
+      l = lessons.find((l) => l.id === 'B04-L01')!,
       s = newSession();
     s.completedAt = new Date().toISOString();
     s.nextReview = new Date(Date.now() - 1000).toISOString();
@@ -137,7 +137,7 @@ describe('Math Explorer learning experience', () => {
   });
   it('starts a due review with new numbers and without the previous correct answer', () => {
     const p = emptyProgress(),
-      l = lessons[0]!,
+      l = lessons.find((l) => l.id === 'B04-L01')!,
       s = newSession();
     s.nextReview = new Date(Date.now() - 1000).toISOString();
     p.sessions[l.id] = s;

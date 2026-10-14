@@ -1,5 +1,9 @@
 import type { LocalizedText, SubjectId } from '@study/shared';
 import geographyCurriculum from '../../../geograph/content/curriculum.json';
+import mathCurriculum from '../../../math/content/curriculum.json';
+const mathCount = mathCurriculum
+  .flatMap((s) => s.units.flatMap((u) => u.lessons))
+  .filter((l) => l.available).length;
 const geographyCount = geographyCurriculum
   .flatMap((s) => s.lessons)
   .filter((l) => l.status === 'available').length;
@@ -112,8 +116,8 @@ export const subjects: Subject[] = [
       en: 'Can different fractions show the same amount?',
     },
     status: {
-      zh: '5 节微课与起点诊断已开放',
-      en: '5 micro-lessons and a starting-point check',
+      zh: `${mathCount} 节微课与起点诊断已开放`,
+      en: `${mathCount} micro-lessons and a starting-point check`,
     },
     available: true,
     path: '/math',

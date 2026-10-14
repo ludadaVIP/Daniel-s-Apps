@@ -3,9 +3,53 @@ import {
   checkAnswer,
   t,
   type Attempt,
+  type AnswerSpec,
   type Question as QuestionData,
 } from './model';
 import { Strip, Text } from './ui';
+import { NumberDiagramView } from './NumberVisuals';
+function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'number') {
+    if (spec.fractionRule === 'unit')
+      return t(
+        '请写单位分数，分子为 1',
+        'Use a unit fraction with numerator one',
+      );
+    if (spec.fractionRule === 'mixed')
+      return t(
+        '请写带分数，如 2 1/3；整数结果直接写整数',
+        'Use a mixed number such as 2 1/3; an integer result can use an integer',
+      );
+    if (spec.fractionRule === 'simplest')
+      return t(
+        '请写最简分数；整数结果可直接写整数',
+        'Use a simplest fraction; an integer result can use an integer',
+      );
+    if (spec.requiredDenominator)
+      return t(
+        `请写分母为 ${spec.requiredDenominator} 的${spec.fractionRule === 'improper' ? '假' : ''}分数`,
+        `Use ${spec.fractionRule === 'improper' ? 'an improper fraction' : 'a fraction'} with denominator ${spec.requiredDenominator}`,
+      );
+    if (spec.fractionRule === 'improper')
+      return t('请写假分数', 'Use an improper fraction');
+  }
+  if (lessonId?.startsWith('B01-'))
+    return t(
+      '你的答案（千位逗号可省略）',
+      'Your answer (grouping commas are optional)',
+    );
+  if (lessonId?.startsWith('B02-'))
+    return t(
+      '你的答案（填写数量，注意题目单位）',
+      'Your answer (enter the quantity and check units)',
+    );
+  if (lessonId?.startsWith('P52-'))
+    return t(
+      '你的答案（写小数或整数，单位可省略）',
+      'Your answer (use a decimal or whole number; units are optional)',
+    );
+  return t('你的答案（分数可用 3/8）', 'Your answer (fractions can use 3/8)');
+}
 export function Question({
   question: q,
   mode,
@@ -45,6 +89,16 @@ export function Question({
       independent: correct && a.tries === 0 && a.hints === 0,
     });
   };
+  const formMismatch =
+    a.checked &&
+    !a.correct &&
+    q.answer.kind === 'number' &&
+    checkAnswer(a.input, {
+      ...q.answer,
+      fractionRule: undefined,
+      requiredDenominator: undefined,
+      formats: undefined,
+    }) === true;
   return (
     <div className="math-question">
       <span className="math-eyebrow">
@@ -69,6 +123,7 @@ export function Question({
         <Text mode={mode} text={q.stem} />
       </h3>
       {q.visual && <Strip n={q.visual.n} d={q.visual.d} />}
+      {q.diagram && <NumberDiagramView diagram={q.diagram} mode={mode} />}
       {q.answer.kind === 'choice' ? (
         <div
           className="math-options"
@@ -110,13 +165,7 @@ export function Question({
       ) : (
         <label className="math-answer">
           <span>
-            <Text
-              mode={mode}
-              text={t(
-                '你的答案（分数可用 3/8）',
-                'Your answer (fractions can use 3/8)',
-              )}
-            />
+            <Text mode={mode} text={answerHint(q.answer, q.lessonId)} />
           </span>
           <div className="math-input-row">
             <input
@@ -187,24 +236,39 @@ export function Question({
                         ? '✓ You found it independently.'
                         : '✓ Completed with support. Your understanding is growing.',
                     )
-                  : t(
-                      '↳ 还差一点，换个角度试试。',
-                      '↳ Nearly there. Try another perspective.',
-                    )
+                  : formMismatch
+                    ? t(
+                        '↳ 数量已等值，还需按题目要求完成写法。',
+                        '↳ The value matches; finish the requested form.',
+                      )
+                    : t(
+                        '↳ 还差一点，换个角度试试。',
+                        '↳ Nearly there. Try another perspective.',
+                      )
               }
             />
           </strong>
-          <p>
-            <Text
-              mode={mode}
-              text={
-                a.correct || a.tries >= 3
-                  ? q.solution
-                  : (q.options?.find((o) => o.id === a.input)?.feedback ??
-                    q.hints[Math.min(a.tries - 1, q.hints.length - 1)]!)
-              }
-            />
-          </p>
+          {(a.correct || a.tries >= 3) && q.solutionSteps ? (
+            <ol className="math-solution-steps">
+              {q.solutionSteps.map((step, i) => (
+                <li key={i}>
+                  <Text mode={mode} text={step} />
+                </li>
+              ))}
+            </ol>
+          ) : (
+            <p>
+              <Text
+                mode={mode}
+                text={
+                  a.correct || a.tries >= 3
+                    ? q.solution
+                    : (q.options?.find((o) => o.id === a.input)?.feedback ??
+                      q.hints[Math.min(a.tries - 1, q.hints.length - 1)]!)
+                }
+              />
+            </p>
+          )}
         </div>
       )}
       {q.answer.kind === 'explain' && (

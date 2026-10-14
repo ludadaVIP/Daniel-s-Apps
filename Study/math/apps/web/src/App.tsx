@@ -24,6 +24,7 @@ import { LessonPage } from './LessonPage';
 import { Diagnostic } from './Diagnostic';
 import { Review } from './Review';
 import { Parent } from './Parent';
+import { UnitCheck } from './UnitCheck';
 export function App() {
   const [mode, setMode] = useLanguageMode(),
     store = useProgress(),
@@ -156,6 +157,10 @@ export function App() {
             <Route
               path="lesson/:lessonId"
               element={<LessonPage mode={mode} store={store} />}
+            />
+            <Route
+              path="unit/:unitId/check"
+              element={<UnitCheck mode={mode} store={store} />}
             />
             <Route
               path="review"

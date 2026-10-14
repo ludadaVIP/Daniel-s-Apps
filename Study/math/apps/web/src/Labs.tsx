@@ -2,6 +2,10 @@ import { useState } from 'react';
 import type { LanguageMode } from '@study/shared';
 import { t, type Lesson } from './model';
 import { Fraction, Strip, Text } from './ui';
+import { NumberLab, isNumberLab } from './NumberLabs';
+import { DecimalLab, isDecimalLab } from './DecimalLabs';
+import { FractionLab, isFractionLab } from './FractionLabs';
+import { OperationLab, isOperationLab } from './OperationLabs';
 export function HeroArt() {
   return (
     <div className="math-hero-art" aria-hidden="true">
@@ -24,7 +28,7 @@ export function HeroArt() {
     </div>
   );
 }
-export function Lab({
+function LegacyLab({
   kind,
   mode,
 }: {
@@ -315,5 +319,25 @@ export function Lab({
         />
       </div>
     </section>
+  );
+}
+
+export function Lab({
+  kind,
+  mode,
+}: {
+  kind: Lesson['lab'];
+  mode: LanguageMode;
+}) {
+  return isNumberLab(kind) ? (
+    <NumberLab kind={kind} mode={mode} />
+  ) : isDecimalLab(kind) ? (
+    <DecimalLab kind={kind} mode={mode} />
+  ) : isFractionLab(kind) ? (
+    <FractionLab kind={kind} mode={mode} />
+  ) : isOperationLab(kind) ? (
+    <OperationLab kind={kind} mode={mode} />
+  ) : (
+    <LegacyLab kind={kind} mode={mode} />
   );
 }

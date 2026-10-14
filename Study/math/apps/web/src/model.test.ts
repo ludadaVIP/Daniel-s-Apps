@@ -70,7 +70,7 @@ describe('exact maths answers', () => {
     ).toBeNull());
 });
 describe('curriculum and question integrity', () => {
-  it('retains the full plan with just five available lessons', () => {
+  it('retains every planned ID with exactly the reviewed lessons open', () => {
     const all = curriculum.flatMap((s) => s.units.flatMap((u) => u.lessons));
     expect(curriculum).toHaveLength(9);
     expect(all).toHaveLength(358);

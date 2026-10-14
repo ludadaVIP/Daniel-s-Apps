@@ -81,14 +81,22 @@ export function Diagnostic({ mode, store }: Props) {
                         : g.bridge
                     }
                   />
-                  {g.id === 'D02' && summary.independent < 4 && (
+                  {['D01', 'D02'].includes(g.id) && summary.independent < 4 && (
                     <Link
                       className="math-button secondary"
-                      to="/math/lesson/B04-L01"
+                      to={
+                        g.id === 'D01'
+                          ? '/math/lesson/B01-L01'
+                          : '/math/lesson/B04-L01'
+                      }
                     >
                       <Text
                         mode={mode}
-                        text={t('从等份开始探索', 'Explore equal parts first')}
+                        text={
+                          g.id === 'D01'
+                            ? t('从位值开始探索', 'Explore place value first')
+                            : t('从等份开始探索', 'Explore equal parts first')
+                        }
                       />{' '}
                       →
                     </Link>

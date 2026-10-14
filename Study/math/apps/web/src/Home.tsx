@@ -1,59 +1,93 @@
 import { Link } from 'react-router-dom';
-import { lessons, lessonById } from './content';
+import { lessons, lessonById, openUnits, unitChecks } from './content';
 import { reviewQueue } from './progress';
 import { HeroArt } from './Labs';
 import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
-function LessonCards({ mode, store }: Props) {
+const fractionArt: Record<string, string> = {
+  'fraction-whole': '1/8 · 1/6',
+  'fraction-kind': '7/4 > 1',
+  'fraction-mixed': '2 ¾ = 11/4',
+  'fraction-equivalent': '2/3 = 4/6',
+  'fraction-simplify': '12/18 → 2/3',
+  'fraction-compare': '3/4 > 2/3',
+};
+function LessonCards({ mode, store, unitId }: Props & { unitId: string }) {
   return (
     <div className="math-lesson-grid">
-      {lessons.map((l, i) => (
-        <Link
-          to={`/math/lesson/${l.id}`}
-          className="math-lesson-card"
-          key={l.id}
-        >
-          <div className="math-row">
-            <span className="math-lesson-number">0{i + 1}</span>
-            <span className={`math-status ${status(l.id, store)}`}>
-              <Text mode={mode} text={statuses[status(l.id, store)]} />
-            </span>
-          </div>
-          <div className={`math-mini-art art-${l.lab}`} aria-hidden="true">
-            {l.lab === 'parts' ? (
-              <span>▰ ▰ ▰ ▱</span>
-            ) : l.lab === 'fractions' ? (
-              <span>
-                ½ <i>=</i> ²⁄₄
+      {lessons
+        .filter((l) => l.unit === unitId)
+        .map((l, i) => (
+          <Link
+            to={`/math/lesson/${l.id}`}
+            className="math-lesson-card"
+            key={l.id}
+          >
+            <div className="math-row">
+              <span className="math-lesson-number">0{i + 1}</span>
+              <span className={`math-status ${status(l.id, store)}`}>
+                <Text mode={mode} text={statuses[status(l.id, store)]} />
               </span>
-            ) : l.lab === 'line' ? (
-              <span>0 ─ ● ─ 1</span>
-            ) : l.lab === 'decimal' ? (
+            </div>
+            <div className={`math-mini-art art-${l.lab}`} aria-hidden="true">
+              {fractionArt[l.lab] ? (
+                <span>{fractionArt[l.lab]}</span>
+              ) : l.lab === 'decimal-place' ? (
+                <span>0.307</span>
+              ) : l.lab === 'decimal-compare' ? (
+                <span>0.805 &gt; 0.8</span>
+              ) : l.lab === 'decimal-add' ? (
+                <span>1.2 + 0.45</span>
+              ) : l.lab === 'decimal-multiply' ? (
+                <span>0.325 × 4</span>
+              ) : l.lab === 'decimal-divide' ? (
+                <span>1.5 ÷ 4</span>
+              ) : l.lab === 'decimal-application' ? (
+                <span>NZ$1.25 × 3</span>
+              ) : l.lab === 'number-reader' ? (
+                <span>10,005</span>
+              ) : l.lab === 'place-value' ? (
+                <span>6 × 1,000</span>
+              ) : l.lab === 'whole-line' ? (
+                <span>500 ─ ● ─ 600</span>
+              ) : l.lab === 'rounding' ? (
+                <span>3,465 ≈ 3,500</span>
+              ) : l.lab === 'regroup' ? (
+                <span>100 = 10 × 10</span>
+              ) : l.lab === 'parts' ? (
+                <span>▰ ▰ ▰ ▱</span>
+              ) : l.lab === 'fractions' ? (
+                <span>
+                  ½ <i>=</i> ²⁄₄
+                </span>
+              ) : l.lab === 'line' ? (
+                <span>0 ─ ● ─ 1</span>
+              ) : l.lab === 'decimal' ? (
+                <span>
+                  .01 <i>→</i> .10
+                </span>
+              ) : (
+                <span>
+                  $ <i>2.50</i>
+                </span>
+              )}
+            </div>
+            <span className="math-eyebrow">{l.id}</span>
+            <h3>
+              <Text mode={mode} text={l.title} />
+            </h3>
+            <div className="math-card-footer">
               <span>
-                .01 <i>→</i> .10
+                <Text
+                  mode={mode}
+                  text={t(`约 ${l.minutes} 分钟`, `${l.minutes} min`)}
+                />
               </span>
-            ) : (
-              <span>
-                $ <i>2.50</i>
-              </span>
-            )}
-          </div>
-          <span className="math-eyebrow">{l.id}</span>
-          <h3>
-            <Text mode={mode} text={l.title} />
-          </h3>
-          <div className="math-card-footer">
-            <span>
-              <Text
-                mode={mode}
-                text={t(`约 ${l.minutes} 分钟`, `${l.minutes} min`)}
-              />
-            </span>
-            <span>↗</span>
-          </div>
-        </Link>
-      ))}
+              <span>↗</span>
+            </div>
+          </Link>
+        ))}
     </div>
   );
 }
@@ -84,7 +118,10 @@ export function Home({ mode, store }: Props) {
         <span className="math-badge">
           <Text
             mode={mode}
-            text={t('首个单元 · 5 节微课', 'FIRST UNIT · 5 MICRO-LESSONS')}
+            text={t(
+              `${openUnits.length} 个单元 · ${lessons.length} 节微课`,
+              `${openUnits.length} UNITS · ${lessons.length} MICRO-LESSONS`,
+            )}
           />
         </span>
       </div>
@@ -134,7 +171,9 @@ export function Home({ mode, store }: Props) {
         <div>
           <span className="math-overview-icon">◷</span>
           <div>
-            <strong>{done} / 5</strong>
+            <strong>
+              {done} / {lessons.length}
+            </strong>
             <Text
               mode={mode}
               text={t('已留下学习记录', 'lessons with reflections')}
@@ -194,24 +233,60 @@ export function Home({ mode, store }: Props) {
           →
         </span>
       </Link>
-      <div className="math-section-heading">
-        <div>
-          <span className="math-eyebrow">B04 / FIRST FRACTIONS & DECIMALS</span>
-          <h2>
-            <Text
-              mode={mode}
-              text={t(
-                '从一个整体，走进分数与小数。',
-                'One whole. A world of fractions and decimals.',
+      {openUnits.map((unit) => (
+        <section key={unit.id} id={unit.id}>
+          <div className="math-section-heading">
+            <div>
+              <span className="math-eyebrow">
+                {unit.id} / {unit.title.en.toUpperCase()}
+              </span>
+              <h2>
+                <Text
+                  mode={mode}
+                  text={
+                    unit.id === 'B01'
+                      ? t(
+                          '把数看清楚，才能算得稳。',
+                          'See numbers clearly. Build solid understanding.',
+                        )
+                      : unit.id === 'B04'
+                        ? t(
+                            '从一个整体，走进分数与小数。',
+                            'One whole. A world of fractions and decimals.',
+                          )
+                        : unit.id === 'P52'
+                          ? t(
+                              '看清小单位，算懂小数。',
+                              'Small units. Clear decimal thinking.',
+                            )
+                          : unit.id === 'P53'
+                            ? t(
+                                '同一整体，不同分法。',
+                                'Same whole. Different ways to count.',
+                              )
+                            : unit.title
+                  }
+                />
+              </h2>
+            </div>
+            <div className="math-unit-heading-links">
+              {unit.id in unitChecks && (
+                <Link to={`/math/unit/${unit.id}/check`}>
+                  <Text mode={mode} text={t('单元小回顾', 'Unit review')} /> ↗
+                </Link>
               )}
-            />
-          </h2>
-        </div>
-        <Link to="/math/path">
-          <Text mode={mode} text={t('完整学习路线', 'Full learning path')} /> ↗
-        </Link>
-      </div>
-      <LessonCards mode={mode} store={store} />
+              <Link to={`/math/path?stage=${unit.stage}`}>
+                <Text
+                  mode={mode}
+                  text={t('完整学习路线', 'Full learning path')}
+                />{' '}
+                ↗
+              </Link>
+            </div>
+          </div>
+          <LessonCards mode={mode} store={store} unitId={unit.id} />
+        </section>
+      ))}
       <div className="math-bottom-note">
         <span>✦</span>
         <Text

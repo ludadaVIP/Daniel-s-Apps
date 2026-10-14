@@ -1,10 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { QuestionNavigator } from '@study/ui';
-import { lessons, lessonById } from './content';
+import { lessons, lessonById, unitChecks } from './content';
 import { t, lessonOutcome, newSession, type Attempt } from './model';
 import { Text, Markdown } from './ui';
 import { HeroArt, Lab } from './Labs';
+import { NumberHookArt, isNumberLab } from './NumberLabs';
+import { DecimalHookArt, isDecimalLab } from './DecimalLabs';
+import { FractionHookArt, isFractionLab } from './FractionLabs';
+import { OperationHookArt, isOperationLab } from './OperationLabs';
 import { Question } from './Question';
 import { Intro, words, statuses, stepLabels, type Props } from './pageSupport';
 const markdown = import.meta.glob('../../../content/lessons/*.md', {
@@ -24,8 +28,8 @@ export function LessonPage(props: Props) {
         kicker="COMING LATER"
         title={t('这节课还在准备中。', 'This lesson is being prepared.')}
         body={t(
-          '先试试已开放的 5 节课。',
-          'Try one of the five available lessons.',
+          `先试试已开放的 ${lessons.length} 节课。`,
+          `Try one of the ${lessons.length} available lessons.`,
         )}
       />
       <Link className="math-button" to="/math">
@@ -50,7 +54,9 @@ function LessonWorkspace({
     nextParams.delete('step');
     setParams(nextParams, { replace: true });
   }, [l.id, params, setParams, update]);
-  const [index, setIndex] = useState(s.practiceIndex ?? 0);
+  const [index, setIndex] = useState(
+    Math.min(s.practiceIndex ?? 0, l.questions.length - 1),
+  );
   const setAnswer = (id: string, a: Attempt) =>
     update(l.id, (old) => ({ ...old, answers: { ...old.answers, [id]: a } }));
   const outcome = lessonOutcome(l, s);
@@ -68,7 +74,9 @@ function LessonWorkspace({
       </Link>
       <div className="math-lesson-heading">
         <div>
-          <span className="math-eyebrow">{l.id} / B04</span>
+          <span className="math-eyebrow">
+            {l.id} / {l.unit ?? l.id.split('-')[0]}
+          </span>
           <h1>
             <Text mode={mode} text={l.title} />
           </h1>
@@ -116,7 +124,17 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              <HeroArt />
+              {isNumberLab(l.lab) ? (
+                <NumberHookArt kind={l.lab} mode={mode} />
+              ) : isDecimalLab(l.lab) ? (
+                <DecimalHookArt kind={l.lab} mode={mode} />
+              ) : isFractionLab(l.lab) ? (
+                <FractionHookArt kind={l.lab} mode={mode} />
+              ) : isOperationLab(l.lab) ? (
+                <OperationHookArt kind={l.lab} mode={mode} />
+              ) : (
+                <HeroArt />
+              )}
               <p className="math-muted">
                 <Text
                   mode={mode}
@@ -279,6 +297,31 @@ function LessonWorkspace({
                     />
                   </Link>
                 </div>
+              )}
+            </section>
+          )}
+          {s.step === 5 && l.familyChallenge && (
+            <section className="math-family-challenge">
+              <h4>
+                <Text
+                  mode={mode}
+                  text={t('家庭数学挑战', 'Family maths challenge')}
+                />
+              </h4>
+              <p>
+                <Text mode={mode} text={l.familyChallenge} />
+              </p>
+              {l.unit && l.unit in unitChecks && (
+                <Link to={`/math/unit/${l.unit}/check`}>
+                  <Text
+                    mode={mode}
+                    text={t(
+                      '准备好时，做一次单元小回顾',
+                      'When ready, try the small unit review',
+                    )}
+                  />{' '}
+                  ↗
+                </Link>
               )}
             </section>
           )}
