@@ -654,6 +654,7 @@ function Surface({ mode }: { mode: LanguageMode }) {
     [lid, setLid] = useState(true),
     [selected, setSelected] = useState<NetFaceId>('front'),
     [faceChecked, setFaceChecked] = useState(false),
+    [showBounds, setShowBounds] = useState(false),
     [totalChecked, setTotalChecked] = useState(false);
   const m = cuboidNet(w, d, h, lid),
     face = m.faces.find((f) => f.id === selected)!;
@@ -719,7 +720,40 @@ function Surface({ mode }: { mode: LanguageMode }) {
           text={t('有盖，计顶面', 'Include a lid and its top face')}
         />
       </label>
-      <SurfaceNet w={w} d={d} h={h} lid={lid} selected={selected} mode={mode} />
+      <label>
+        <input
+          type="checkbox"
+          checked={showBounds}
+          onChange={(e) => setShowBounds(e.target.checked)}
+        />
+        <Text
+          mode={mode}
+          text={t(
+            '显示这张网的纸张外接框',
+            'Show this net’s bounding-sheet frame',
+          )}
+        />
+      </label>
+      <SurfaceNet
+        w={w}
+        d={d}
+        h={h}
+        lid={lid}
+        selected={selected}
+        mode={mode}
+        showBounds={showBounds}
+      />
+      {showBounds && (
+        <p>
+          <Text
+            mode={mode}
+            text={t(
+              `本排版的外接矩形 ${m.bounds.width}×${m.bounds.height}=${m.bounds.area} cm²，包含空白裁切区；不是所有排版的最小用纸量，也未计接缝。`,
+              `This layout’s bounding rectangle is ${m.bounds.width}×${m.bounds.height}=${m.bounds.area} cm², including blank cutting regions. This is not a universal minimum and excludes seams.`,
+            )}
+          />
+        </p>
+      )}
       <div className="math-geometry-face-buttons">
         {m.faces.map((f) => (
           <button

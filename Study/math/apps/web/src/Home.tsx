@@ -6,6 +6,17 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'product-repeat': '3 × 3/4',
+  'product-area': '2/3 × 3/4',
+  'product-amount': '12 L × 2/3',
+  'product-share': '3/4 ÷ 2',
+  'product-whole-divide': '2 ÷ 3/4',
+  'product-fraction-divide': '3/4 ÷ 2/3',
+  'data-frequency': 'RECORD → COUNT',
+  'data-mean': 'TOTAL ÷ COUNT',
+  'data-line': 'TIME → CHANGE',
+  'data-chart': '40 · 44 · SCALE',
+  'data-recipe': 'g · mL · NZ$',
   'geo-units': 'cm · cm² · cm³',
   'geo-rectangle': '6 × 4 cm²',
   'geo-triangle': 'b × h ÷ 2',

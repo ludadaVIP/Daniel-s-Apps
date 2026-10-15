@@ -456,6 +456,7 @@ export function SurfaceNet({
   lid,
   mode,
   selected = 'front',
+  showBounds = false,
 }: {
   w: number;
   d: number;
@@ -463,6 +464,7 @@ export function SurfaceNet({
   lid: boolean;
   mode: LanguageMode;
   selected?: NetFaceId;
+  showBounds?: boolean;
 }) {
   const m = cuboidNet(w, d, h, lid),
     width = m.width * 22 + 90,
@@ -486,6 +488,16 @@ export function SurfaceNet({
             : `${w}×${d}×${h} cm 盒的展开图，${lid ? '有盖' : '无盖'}，当前选中${faceNames[selected].zh}。`
         }
       >
+        {showBounds && (
+          <rect
+            data-sheet-bounds="true"
+            className="geometry-sheet-bounds"
+            x={40 + m.bounds.x * 22}
+            y={25 + m.bounds.y * 22}
+            width={m.bounds.width * 22}
+            height={m.bounds.height * 22}
+          />
+        )}
         {m.faces.map((f) => (
           <g key={f.id} data-net-face={f.id}>
             {Array.from({ length: f.w * f.h }, (_, i) => (
@@ -516,7 +528,7 @@ export function SurfaceNet({
             </text>
           </g>
         ))}
-        {!lid && (
+        {!lid && !showBounds && (
           <rect
             className="geometry-ghost"
             x={40 + d * 22}

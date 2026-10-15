@@ -6,6 +6,8 @@ export type AnswerSpec =
       value: string;
       unit?:
         | 'NZD'
+        | 'g'
+        | '°C'
         | 'dm'
         | 'dm²'
         | 'cm³'
@@ -22,6 +24,7 @@ export type AnswerSpec =
         | '°'
         | 'people'
         | 'cards'
+        | 'groups'
         | 'bags'
         | 'pencils'
         | 'min'
@@ -33,6 +36,29 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | { kind: 'product-repeat'; count: number; part: { n: number; d: number } }
+  | {
+      kind: 'product-share';
+      amount: { n: number; d: number };
+      people: number;
+      stage?: number;
+    }
+  | {
+      kind: 'product-area';
+      left: { n: number; d: number };
+      right: { n: number; d: number };
+    }
+  | {
+      kind: 'product-groups';
+      amount: { n: number; d: number };
+      group: { n: number; d: number };
+    }
+  | {
+      kind: 'data-line';
+      points: { time: number; value: number | null }[];
+      maxY: number;
+    }
+  | { kind: 'data-mean'; values: number[] }
   | { kind: 'geo-rectangle'; w: number; h: number }
   | { kind: 'geo-triangle'; b: number; h: number; apex: number }
   | { kind: 'geo-parallel'; b: number; h: number; shift: number }
@@ -184,6 +210,17 @@ export type Lesson = {
     | 'geo-parallel-trapezoid'
     | 'geo-volume'
     | 'geo-surface'
+    | 'data-frequency'
+    | 'data-mean'
+    | 'data-line'
+    | 'data-chart'
+    | 'data-recipe'
+    | 'product-repeat'
+    | 'product-area'
+    | 'product-amount'
+    | 'product-share'
+    | 'product-whole-divide'
+    | 'product-fraction-divide'
     | 'operation-parts'
     | 'operation-array'
     | 'operation-division'
@@ -317,6 +354,11 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
   if (spec.kind === 'explain') return null;
   if (spec.kind === 'choice') return input === spec.value;
   let clean = input.trim();
+  if (spec.unit === 'groups')
+    clean = clean.replace(/\s*(?:groups?|份|组)$/i, '');
+  if (spec.unit === 'g') clean = clean.replace(/\s*(?:g|grams?|克)$/i, '');
+  if (spec.unit === '°C')
+    clean = clean.replace(/\s*(?:°\s*c|℃|degrees?\s*celsius|摄氏度)$/i, '');
   if (spec.unit === 'NZD')
     clean = clean
       .replace(/^(?:NZ\$|\$)\s*/i, '')

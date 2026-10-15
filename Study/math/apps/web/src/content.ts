@@ -56,6 +56,21 @@ import {
   p55CheckQuestions,
   p55ReviewQuestion,
 } from './content/P55';
+import {
+  p56Lessons,
+  p56CheckQuestions,
+  p56ReviewQuestion,
+} from './content/P56';
+import {
+  p57Lessons,
+  p57CheckQuestions,
+  p57ReviewQuestion,
+} from './content/P57';
+import {
+  p61Lessons,
+  p61CheckQuestions,
+  p61ReviewQuestion,
+} from './content/P61';
 export const curriculum = curriculumData;
 export const lessons: Lesson[] = [
   ...b01Lessons,
@@ -78,6 +93,9 @@ export const lessons: Lesson[] = [
   ...p53Lessons,
   ...p54Lessons,
   ...p55Lessons,
+  ...p56Lessons,
+  ...p57Lessons,
+  ...p61Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -91,6 +109,15 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    p61Lessons.map((l) => [l.id, p61ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    p57Lessons.map((l) => [l.id, p57ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    p56Lessons.map((l) => [l.id, p56ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     p55Lessons.map((l) => [l.id, p55ReviewQuestion(l.id, 0)]),
   ),
@@ -124,6 +151,9 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('P61-')) return p61ReviewQuestion(id, round);
+  if (id.startsWith('P57-')) return p57ReviewQuestion(id, round);
+  if (id.startsWith('P56-')) return p56ReviewQuestion(id, round);
   if (id.startsWith('B01-')) return b01ReviewQuestion(id, round);
   if (id.startsWith('B02-')) return b02ReviewQuestion(id, round);
   if (id.startsWith('B03-')) return b03ReviewQuestion(id, round);
@@ -137,6 +167,30 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  P61: {
+    id: 'P61-CHECK',
+    unit: 'P61',
+    title: t(
+      '分数乘除小回顾',
+      'A small fraction multiplication and division review',
+    ),
+    questions: p61CheckQuestions,
+    bridge: 'P61-L01',
+  },
+  P57: {
+    id: 'P57-CHECK',
+    unit: 'P57',
+    title: t('数据与购物小回顾', 'A small data and shopping review'),
+    questions: p57CheckQuestions,
+    bridge: 'P57-L01',
+  },
+  P56: {
+    id: 'P56-CHECK',
+    unit: 'P56',
+    title: t('面积与体积小回顾', 'A small area and volume review'),
+    questions: p56CheckQuestions,
+    bridge: 'P56-L01',
+  },
   P55: {
     id: 'P55-CHECK',
     unit: 'P55',

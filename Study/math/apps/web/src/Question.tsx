@@ -45,7 +45,9 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
     lessonId?.startsWith('B06-') ||
     lessonId?.startsWith('P51-') ||
     lessonId?.startsWith('P55-') ||
-    lessonId?.startsWith('P56-')
+    lessonId?.startsWith('P56-') ||
+    lessonId?.startsWith('P57-') ||
+    lessonId?.startsWith('P61-')
   )
     return t(
       '你的答案（填写数量，注意题目单位）',

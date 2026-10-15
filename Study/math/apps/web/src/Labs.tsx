@@ -12,6 +12,11 @@ import { ProblemLab, isProblemLab } from './ProblemLabs';
 import { IntegerLab, isIntegerLab } from './IntegerLabs';
 import { EquationLab, isEquationLab } from './EquationLabs';
 import { GeometryLab, isGeometryLab } from './GeometryLabs';
+import { DataLab, isDataLab } from './DataLabs';
+import {
+  FractionProductLab,
+  isFractionProductLab,
+} from './FractionProductLabs';
 import {
   FractionOperationLab,
   isFractionOperationLab,
@@ -339,7 +344,11 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isNumberLab(kind) ? (
+  return isFractionProductLab(kind) ? (
+    <FractionProductLab kind={kind} mode={mode} />
+  ) : isDataLab(kind) ? (
+    <DataLab kind={kind} mode={mode} />
+  ) : isNumberLab(kind) ? (
     <NumberLab kind={kind} mode={mode} />
   ) : isDecimalLab(kind) ? (
     <DecimalLab kind={kind} mode={mode} />

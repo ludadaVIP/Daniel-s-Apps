@@ -197,7 +197,7 @@ const lesson = (l: Lesson): Lesson => ({
   skillTags: [...new Set(l.questions.map((q) => q.skill))],
   nzYearHints: [5, 6],
   cnGradeHints: [5],
-  contentStatus: 'draft',
+  contentStatus: 'ready',
 });
 export const p56Lessons: Lesson[] = [
   lesson({
@@ -807,8 +807,8 @@ export const p56Lessons: Lesson[] = [
     ),
     parent: {
       goal: t(
-        '孩子能说每一步复制、旋转或平移为何保留面积。',
-        'The child explains why copying, rotating and translating retain area.',
+        '孩子能说旋转和平移保留每份面积，另复制一份则让总面积加倍。',
+        'The child explains that rotating and translating retain each copy’s area, while adding a copy doubles the total.',
       ),
       misconception: t(
         '斜边当高；忘除二；高在外侧就说公式失效；小数面积截断。',
@@ -1648,7 +1648,7 @@ export function p56ReviewQuestion(id: string, round: number): Question {
       R,
       hints.R,
       [[`${w}×${d}=${w * d} cm²。`, `${w}×${d}=${w * d} cm².`]],
-      [String(2*(w+d) === w*d ? w*d+1 : 2*(w+d)), '0/0'],
+      [String(2 * (w + d) === w * d ? w * d + 1 : 2 * (w + d)), '0/0'],
       'cm²',
       rect(w, d),
     );

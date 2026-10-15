@@ -5,6 +5,13 @@ import { DecimalPlaceChart } from './DecimalVisuals';
 import { EquationBoard, GrowingPatternView } from './EquationVisuals';
 import { FractionOperands } from './FractionOperationVisuals';
 import { GeometryDiagram } from './GeometryVisuals';
+import { MeanPiles, TimeLine } from './DataVisuals';
+import {
+  ProductArea,
+  GroupedMeasure,
+  RepeatedFraction,
+  SharedFraction,
+} from './FractionProductVisuals';
 import { FractionDiagram } from './FractionVisuals';
 import { ProductArea } from './CalculationVisuals';
 import { Ruler, TileGrid, BarChart } from './MeasurementVisuals';
@@ -213,6 +220,18 @@ export function NumberDiagramView({
 }) {
   if (isGeometryDiagram(diagram))
     return <GeometryDiagram diagram={diagram} mode={mode} />;
+  if (diagram.kind === 'product-repeat')
+    return <RepeatedFraction {...diagram} mode={mode} />;
+  if (diagram.kind === 'product-share')
+    return <SharedFraction {...diagram} mode={mode} />;
+  if (diagram.kind === 'product-area')
+    return <ProductArea {...diagram} mode={mode} />;
+  if (diagram.kind === 'product-groups')
+    return <GroupedMeasure {...diagram} mode={mode} />;
+  if (diagram.kind === 'data-mean')
+    return <MeanPiles {...diagram} mode={mode} />;
+  if (diagram.kind === 'data-line')
+    return <TimeLine {...diagram} mode={mode} />;
   if (diagram.kind === 'equation-board')
     return <EquationBoard {...diagram} mode={mode} />;
   if (diagram.kind === 'growing-pattern')
