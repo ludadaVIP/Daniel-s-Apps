@@ -1,6 +1,37 @@
 import type { LocalizedText } from '@study/shared';
+import { equivalentExpression } from './algebraModels';
+import { checkPiMultiple } from './circleModels';
+import { checkNumberSet } from './numberSetAnswers';
+import { equalPolynomial, isCollectedPolynomial } from './polynomialModels';
+import { checkLinearEquation, checkSolutionClass } from './linearModels';
+import { checkGeometryClass, type GeometryClass } from './planeModels';
+import { checkOutcomeSet } from './inferenceModels';
+import {
+  checkCoordinate,
+  type PlotBounds,
+  type PlotPoint,
+} from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'outcome-set'; values: string[]; value: string }
+  | { kind: 'coordinate'; value: string }
+  | { kind: 'geometry-class'; value: GeometryClass }
+  | { kind: 'linear-equation'; value: string; model?: boolean }
+  | { kind: 'solution-class'; value: 'none' | 'all' }
+  | {
+      kind: 'polynomial';
+      value: string;
+      variables: string[];
+      collected?: boolean;
+    }
+  | { kind: 'number-set'; values: string[]; value: string }
+  | {
+      kind: 'pi-multiple';
+      coefficient: string;
+      value: string;
+      unit: 'cm' | 'cm²' | 'cm³';
+    }
+  | { kind: 'expression'; value: string; variable: 'n' | 'x' }
   | { kind: 'ratio'; value: string; simplest?: boolean }
   | {
       kind: 'number';
@@ -24,11 +55,15 @@ export type AnswerSpec =
         | 'km'
         | '°'
         | 'people'
+        | 'visits'
         | 'cards'
         | 'groups'
         | 'bags'
         | 'pencils'
         | 'min'
+        | 'h'
+        | 'years'
+        | 'km/h'
         | 'sticks';
       formats?: ('decimal' | 'fraction' | 'percent')[];
       fractionRule?: 'unit' | 'improper' | 'mixed' | 'simplest';
@@ -37,6 +72,37 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | {
+      kind: 'dot-distribution';
+      values: number[];
+      max?: number;
+      step?: number;
+      name: string;
+    }
+  | {
+      kind: 'cartesian';
+      bounds: PlotBounds;
+      points: PlotPoint[];
+      xLabel?: string;
+      yLabel?: string;
+    }
+  | { kind: 'plane-object'; object: 'point' | 'line' | 'ray' | 'segment' }
+  | { kind: 'plane-intersection'; angle: number; rotation?: number }
+  | { kind: 'plane-parallel'; top: number; bottom: number; parallel: boolean }
+  | { kind: 'plane-triangle'; a: number; b: number }
+  | { kind: 'rational-line'; points: { value: string; label: string }[] }
+  | {
+      kind: 'stats-order';
+      values: number[];
+      sorted?: boolean;
+      highlight?: boolean;
+    }
+  | { kind: 'chance-spinner'; labels: string[]; weights: number[] }
+  | { kind: 'chance-tokens'; counts: number[]; selected: number[] }
+  | { kind: 'circle-parts'; r: number; angle?: number; offset?: number }
+  | { kind: 'circle-sectors'; r: number; count: number; rearranged?: boolean }
+  | { kind: 'cylinder-net'; r: number; h: number; lids: 0 | 1 | 2 }
+  | { kind: 'algebra-groups'; n: number; inside: boolean }
   | { kind: 'signed-thermometer'; value: number; interval?: number }
   | {
       kind: 'signed-axis';
@@ -206,6 +272,59 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'infer-sample'
+    | 'infer-distribution'
+    | 'infer-outlier'
+    | 'infer-space'
+    | 'infer-tree'
+    | 'cart-plane'
+    | 'cart-plot'
+    | 'cart-table'
+    | 'cart-linear'
+    | 'cart-context'
+    | 'plane-objects'
+    | 'plane-intersect'
+    | 'plane-parallel'
+    | 'plane-sum'
+    | 'plane-classify'
+    | 'plane-reasons'
+    | 'linear-check'
+    | 'linear-balance'
+    | 'linear-brackets'
+    | 'linear-fractions'
+    | 'linear-model'
+    | 'linear-context'
+    | 'poly-substitute'
+    | 'poly-like'
+    | 'poly-distribute'
+    | 'poly-sum'
+    | 'poly-story'
+    | 'rational-sign'
+    | 'rational-distance'
+    | 'rational-add'
+    | 'rational-subtract'
+    | 'rational-scale'
+    | 'rational-mixed'
+    | 'applied-travel'
+    | 'applied-work'
+    | 'applied-budget'
+    | 'applied-chart'
+    | 'applied-trip'
+    | 'chance-order'
+    | 'chance-summary'
+    | 'chance-equal'
+    | 'chance-event'
+    | 'chance-frequency'
+    | 'circle-parts'
+    | 'circle-pi'
+    | 'circle-circumference'
+    | 'circle-area'
+    | 'circle-cylinder'
+    | 'algebra-letter'
+    | 'algebra-nth'
+    | 'algebra-expression'
+    | 'algebra-balance'
+    | 'algebra-brackets'
     | 'signed-temperature'
     | 'signed-line'
     | 'signed-compare'
@@ -416,6 +535,24 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'outcome-set') return checkOutcomeSet(input, spec.values);
+  if (spec.kind === 'coordinate') return checkCoordinate(input, spec.value);
+  if (spec.kind === 'geometry-class')
+    return checkGeometryClass(input, spec.value);
+  if (spec.kind === 'linear-equation')
+    return checkLinearEquation(input, spec.value, spec.model !== false);
+  if (spec.kind === 'solution-class')
+    return checkSolutionClass(input, spec.value);
+  if (spec.kind === 'polynomial')
+    return (
+      equalPolynomial(input, spec.value, spec.variables) &&
+      (!spec.collected || isCollectedPolynomial(input, spec.variables))
+    );
+  if (spec.kind === 'number-set') return checkNumberSet(input, spec.values);
+  if (spec.kind === 'pi-multiple')
+    return checkPiMultiple(input, spec.coefficient, spec.unit);
+  if (spec.kind === 'expression')
+    return equivalentExpression(input, spec.value, spec.variable);
   if (spec.kind === 'explain') return null;
   if (spec.kind === 'choice') return input === spec.value;
   if (spec.kind === 'ratio') {
@@ -443,6 +580,14 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
     );
   }
   let clean = input.trim();
+  if (spec.unit === 'years')
+    clean = clean.replace(/\s*(?:years?|yrs?|岁|年)$/i, '');
+  if (spec.unit === 'h') clean = clean.replace(/\s*(?:h|hours?|小时)$/i, '');
+  if (spec.unit === 'km/h')
+    clean = clean.replace(
+      /\s*(?:km\s*\/\s*h|kilometres? per hour|kilometers? per hour|千米\s*\/\s*小时|公里\s*\/\s*小时)$/i,
+      '',
+    );
   if (spec.unit === 'groups')
     clean = clean.replace(/\s*(?:groups?|份|组)$/i, '');
   if (spec.unit === 'g') clean = clean.replace(/\s*(?:g|grams?|克)$/i, '');
@@ -497,6 +642,8 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
     clean = clean.replace(/\s*(?:°|degrees?|deg|度)$/i, '');
   if (spec.unit === 'people')
     clean = clean.replace(/\s*(?:people|persons?|人)$/i, '');
+  if (spec.unit === 'visits')
+    clean = clean.replace(/\s*(?:visits?|人次)$/i, '');
   if (spec.unit === 'cards')
     clean = clean.replace(/\s*(?:cards?|张(?:卡片|卡)?)$/i, '');
   if (spec.unit === 'bags') clean = clean.replace(/\s*(?:bags?|袋)$/i, '');

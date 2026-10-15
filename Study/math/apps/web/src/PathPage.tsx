@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
-import { curriculum } from './content';
+import { curriculum, lessons } from './content';
 import { t } from './model';
 import { Text } from './ui';
 import { Intro, words, status, statuses, type Props } from './pageSupport';
@@ -26,8 +26,8 @@ export function PathPage({ mode, store }: Props) {
         kicker="YOUR LEARNING MAP"
         title={t('一条路线，很多种起点。', 'One map. Many starting points.')}
         body={t(
-          '按技能学习，不用年级定义自己。先开放 B04 的 5 节微课，后续内容会在体验验收后逐步加入。',
-          'Learn by skill, not a grade label. Five B04 lessons are open; more content follows after the app trial.',
+          `按技能选择起点。目前 ${lessons.length} 节课可学习，完整路线 ${curriculum.flatMap((s) => s.units.flatMap((u) => u.lessons)).length} 节；其余内容继续逐单元加入。`,
+          `Choose a starting point by skill. ${lessons.length} lessons are available across a ${curriculum.flatMap((s) => s.units.flatMap((u) => u.lessons)).length}-lesson roadmap; further units are being added.`,
         )}
       />
       <div

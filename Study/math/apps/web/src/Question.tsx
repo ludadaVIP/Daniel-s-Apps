@@ -9,6 +9,91 @@ import {
 import { Strip, Text } from './ui';
 import { NumberDiagramView } from './NumberVisuals';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'outcome-set')
+    return t(
+      '用题设结果代码、逗号分隔，可加大括号，如 {HH,HT,TH,TT}。条目次序可变，不重复、不遗漏；HT 与 TH 是不同有序结果。编号球用 R1-B1 这种先后代码。',
+      'Use the supplied outcome codes separated by commas, optionally in braces, such as {HH,HT,TH,TT}. Entry order may vary; omit nothing and repeat nothing. HT and TH differ. Use codes such as R1-B1 for ordered numbered-token draws.',
+    );
+  if (lessonId?.startsWith('J75-') && spec.kind === 'expression')
+    return t(
+      '只写 y 或总量等号右侧的一般式，用 x；不附 y=。精确等值形式、常数和零均可，某次代入数值不代替一般关系。',
+      'Write only the general right-side expression in x, without y=. Exact equivalent forms, constants and zero are allowed; a value at one input cannot replace a general relationship.',
+    );
+  if (spec.kind === 'coordinate')
+    return t(
+      '按先 x 后 y 写有序数对，如 (−2,3)；两数用逗号分隔，可用分数或精确小数。不要附单位、交换坐标或只写一个数。',
+      'Write the ordered pair (x,y), such as (−2,3), with a comma. Fractions and exact decimals are accepted. Do not add units, swap coordinates or give only one number.',
+    );
+  if (spec.kind === 'geometry-class')
+    return t(
+      '按题意写几何对象、分类或“无法确定”；可用中文或对应英文名称。名称判对不代替理由，解释仍由家长核对。',
+      'Enter the requested object, classification or “undetermined”, using a Chinese or English name. Matching a name does not replace a reason; explanations need parent review.',
+    );
+  if (lessonId?.startsWith('J74-') && spec.kind === 'number')
+    return t(
+      '写题目所求数值，角度可附 °；先核对图中字母与条件，再说明依据。',
+      'Enter the requested value, optionally using ° for angles. Check labels and givens, then explain the reason.',
+    );
+  if (spec.kind === 'linear-equation')
+    return t(
+      '用 x 写一个等式，只用一个等号；按题干把两种原数量分别保留在两边，可展开或交换左右。不要先移项或只写最后的解。',
+      'Write an equation in x with one equal sign. Retain the two original quantities on opposite sides; expansion or swapping sides is allowed. Do not transpose first or submit only the solved equation.',
+    );
+  if (spec.kind === 'solution-class')
+    return t(
+      '无解写“无解”（或 no solution）；恒成立写“任意有理数”（或 all）。零若是唯一解，应在数值题写 0，不能当作无解。',
+      'Write “no solution” for none or “all” for all rational numbers. A unique zero solution belongs as 0 in a numerical question; zero does not mean no solution.',
+    );
+  if (lessonId?.startsWith('J73-') && spec.kind === 'number')
+    return t(
+      '写 x 的精确值，保留负号和分数；代回原方程并核对情境条件。不要把近似值当精确解。',
+      'Enter the exact value of x, keeping its sign or fraction. Substitute into the original equation and check context conditions. A rounded approximation is not an exact solution.',
+    );
+  if (spec.kind === 'polynomial')
+    return t(
+      `可用字母 ${spec.variables.join('、')} 写代数式，结果也可为常数，全部抵消写 0；平方可写 x^2 或 x²。不写等号、单位或当前代入数值。${spec.collected ? '完成去括号和合并，每种字母部分只保留一个非零项。' : '接受展开或因式形式的等值写法。'}`,
+      `Allowed letters: ${spec.variables.join(', ')}. The result may be constant; write 0 if all terms cancel. Use x^2 or x² for squares. Omit equal signs, units and the current numerical value. ${spec.collected ? 'Finish distribution and collection, retaining one nonzero term per variable part.' : 'Equivalent expanded or factored forms are accepted.'}`,
+    );
+  if (lessonId?.startsWith('J71-') && spec.kind === 'number')
+    return t(
+      '写所求的有理数，保留必要负号；可用 -3/2 或 -1.5。不用算式、近似值或百分数代替结果。',
+      'Enter the requested rational number, keeping its sign; use -3/2 or -1.5. Do not replace the result with an expression, approximation or percentage.',
+    );
+  if (lessonId?.startsWith('P68-') && spec.kind === 'number')
+    return t(
+      '写所求数量，核对单位、时间范围和百分比基数。金额用 NZD，不填百分比；精确分数可保留。',
+      'Enter the requested quantity. Check units, included time and percentage base. Money is in NZD, not a percentage; exact fractions are allowed.',
+    );
+  if (spec.kind === 'number-set')
+    return t(
+      '写全部众数，多个用逗号或顿号分隔，不重复、不用千位逗号；没有时写“无众数”。',
+      'Enter all modes separated by commas, without duplicates or grouping commas. If none, write “no mode”.',
+    );
+  if (lessonId?.startsWith('P67-') && spec.kind === 'number')
+    return t(
+      '写题目所求的统计量或比例；可用精确分数，概率和频率不能填成次数。',
+      'Enter the requested summary or proportion. Exact fractions are allowed; do not replace a probability or frequency by a count.',
+    );
+  if (spec.kind === 'pi-multiple')
+    return t(
+      '保留 π 的精确倍数，可用 π 或 pi，接受等值分数系数；单位可省略，不写等号。',
+      'Keep an exact multiple of π, written π or pi. Equivalent fractional coefficients are accepted; units are optional. Omit an equal sign.',
+    );
+  if (lessonId?.startsWith('P66-') && spec.kind === 'number')
+    return t(
+      '按题目要求写数值，核对半径、直径、近似约定与单位。',
+      'Enter the requested value; check radius versus diameter, the approximation convention and units.',
+    );
+  if (spec.kind === 'expression')
+    return t(
+      `用字母 ${spec.variable} 写一次式；可用加减、乘除常数与括号。接受等值写法，不写等号。`,
+      `Write a linear expression in ${spec.variable}, using sums, constant factors or divisors, and brackets. Equivalent forms are accepted; omit an equal sign.`,
+    );
+  if (lessonId?.startsWith('P65-') && spec.kind === 'number')
+    return t(
+      '写所求的数；保留负号，分数可用 -1/3。',
+      'Enter the requested number; keep any minus sign. Fractions can use -1/3.',
+    );
   if (lessonId?.startsWith('P64-') && spec.kind === 'number')
     return spec.unit === '°C'
       ? t(
@@ -138,6 +223,16 @@ export function Question({
   const formMismatch =
     (a.checked &&
       !a.correct &&
+      q.answer.kind === 'linear-equation' &&
+      q.answer.model !== false &&
+      checkAnswer(a.input, { ...q.answer, model: false }) === true) ||
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'polynomial' &&
+      q.answer.collected &&
+      checkAnswer(a.input, { ...q.answer, collected: false }) === true) ||
+    (a.checked &&
+      !a.correct &&
       q.answer.kind === 'ratio' &&
       q.answer.simplest &&
       checkAnswer(a.input, { ...q.answer, simplest: false }) === true) ||
@@ -235,25 +330,26 @@ export function Question({
               }}
               disabled={a.checked && a.correct}
             />
-            {q.answer.kind === 'number' && q.answer.unit && (
-              <span>
-                {q.answer.unit === 'people' ? (
-                  <Text mode={mode} text={t('人', 'people')} />
-                ) : q.answer.unit === 'cards' ? (
-                  <Text mode={mode} text={t('张卡', 'cards')} />
-                ) : q.answer.unit === 'bags' ? (
-                  <Text mode={mode} text={t('袋', 'bags')} />
-                ) : q.answer.unit === 'pencils' ? (
-                  <Text mode={mode} text={t('支铅笔', 'pencils')} />
-                ) : q.answer.unit === 'sticks' ? (
-                  <Text mode={mode} text={t('根小棒', 'sticks')} />
-                ) : q.answer.unit === 'min' ? (
-                  <Text mode={mode} text={t('分钟', 'min')} />
-                ) : (
-                  q.answer.unit
-                )}
-              </span>
-            )}
+            {(q.answer.kind === 'number' || q.answer.kind === 'pi-multiple') &&
+              q.answer.unit && (
+                <span>
+                  {q.answer.unit === 'people' ? (
+                    <Text mode={mode} text={t('人', 'people')} />
+                  ) : q.answer.unit === 'cards' ? (
+                    <Text mode={mode} text={t('张卡', 'cards')} />
+                  ) : q.answer.unit === 'bags' ? (
+                    <Text mode={mode} text={t('袋', 'bags')} />
+                  ) : q.answer.unit === 'pencils' ? (
+                    <Text mode={mode} text={t('支铅笔', 'pencils')} />
+                  ) : q.answer.unit === 'sticks' ? (
+                    <Text mode={mode} text={t('根小棒', 'sticks')} />
+                  ) : q.answer.unit === 'min' ? (
+                    <Text mode={mode} text={t('分钟', 'min')} />
+                  ) : (
+                    q.answer.unit
+                  )}
+                </span>
+              )}
           </div>
         </label>
       )}
@@ -306,10 +402,15 @@ export function Question({
                         : '✓ Completed with support. Your understanding is growing.',
                     )
                   : formMismatch
-                    ? t(
-                        '↳ 数量已等值，还需按题目要求完成写法。',
-                        '↳ The value matches; finish the requested form.',
-                      )
+                    ? q.answer.kind === 'linear-equation'
+                      ? t(
+                          '↳ 解集相同；本题还需保留题干两种原数量的建模关系。',
+                          '↳ The solution set matches; retain the two original quantities in the modelling equation.',
+                        )
+                      : t(
+                          '↳ 数量已等值，还需按题目要求完成写法。',
+                          '↳ The value matches; finish the requested form.',
+                        )
                     : t(
                         '↳ 还差一点，换个角度试试。',
                         '↳ Nearly there. Try another perspective.',
