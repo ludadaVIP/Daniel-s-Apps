@@ -9,7 +9,41 @@ import {
 import { Strip, Text } from './ui';
 import { NumberDiagramView } from './NumberVisuals';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (lessonId?.startsWith('P64-') && spec.kind === 'number')
+    return spec.unit === '°C'
+      ? t(
+          '读数保留所需负号；可写 −4°C 或 −4℃，单位可省略',
+          'Keep any required minus sign; for example −4°C or −4℃. Units are optional.',
+        )
+      : t(
+          '写题目所求的数并保留所需负号；可用 −4、-4、0 或 +3',
+          'Keep any required minus sign; for example −4, -4, 0 or +3. Enter the requested number.',
+        );
+  if (spec.kind === 'ratio')
+    return spec.simplest
+      ? t(
+          '统一单位后写最简整数比，如 2:3；可用全角冒号',
+          'Use a simplest integer ratio after matching units, such as 2:3',
+        )
+      : t(
+          '按题目顺序写比，如 2:3；分数或小数项也可以',
+          'Write the ratio in the requested order, such as 2:3; fractional or decimal terms are allowed',
+        );
   if (spec.kind === 'number') {
+    if (spec.formats?.length === 1 && spec.formats[0] === 'percent')
+      return t(
+        '请用百分数作答，包含 %；如 37.5% 或 33 1/3%',
+        'Use a percentage including %; for example 37.5% or 33 1/3%',
+      );
+    if (
+      lessonId?.startsWith('P62-') &&
+      spec.formats?.length === 1 &&
+      spec.formats[0] === 'decimal'
+    )
+      return t(
+        '请写小数或整数，不加百分号',
+        'Use a decimal or whole number without a percent sign',
+      );
     if (spec.fractionRule === 'unit')
       return t(
         '请写单位分数，分子为 1',
@@ -47,7 +81,9 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
     lessonId?.startsWith('P55-') ||
     lessonId?.startsWith('P56-') ||
     lessonId?.startsWith('P57-') ||
-    lessonId?.startsWith('P61-')
+    lessonId?.startsWith('P61-') ||
+    lessonId?.startsWith('P62-') ||
+    lessonId?.startsWith('P63-')
   )
     return t(
       '你的答案（填写数量，注意题目单位）',
@@ -100,15 +136,20 @@ export function Question({
     });
   };
   const formMismatch =
-    a.checked &&
-    !a.correct &&
-    q.answer.kind === 'number' &&
-    checkAnswer(a.input, {
-      ...q.answer,
-      fractionRule: undefined,
-      requiredDenominator: undefined,
-      formats: undefined,
-    }) === true;
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'ratio' &&
+      q.answer.simplest &&
+      checkAnswer(a.input, { ...q.answer, simplest: false }) === true) ||
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'number' &&
+      checkAnswer(a.input, {
+        ...q.answer,
+        fractionRule: undefined,
+        requiredDenominator: undefined,
+        formats: undefined,
+      }) === true);
   return (
     <div className="math-question">
       <span className="math-eyebrow">
@@ -194,7 +235,7 @@ export function Question({
               }}
               disabled={a.checked && a.correct}
             />
-            {q.answer.unit && (
+            {q.answer.kind === 'number' && q.answer.unit && (
               <span>
                 {q.answer.unit === 'people' ? (
                   <Text mode={mode} text={t('人', 'people')} />

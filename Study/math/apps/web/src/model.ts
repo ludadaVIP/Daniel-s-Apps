@@ -1,6 +1,7 @@
 import type { LocalizedText } from '@study/shared';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'ratio'; value: string; simplest?: boolean }
   | {
       kind: 'number';
       value: string;
@@ -36,6 +37,38 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | { kind: 'signed-thermometer'; value: number; interval?: number }
+  | {
+      kind: 'signed-axis';
+      points: { value: number; label: string }[];
+      min?: number;
+      max?: number;
+      interval?: number;
+      segments?: { from: number; to: number; arrow?: boolean }[];
+    }
+  | { kind: 'ratio-counters'; a: number; b: number }
+  | { kind: 'ratio-shares'; total: number; a: number; b: number }
+  | {
+      kind: 'ratio-map';
+      horizontal: number;
+      vertical: number;
+      scale: number;
+      zoom?: number;
+    }
+  | {
+      kind: 'ratio-graph';
+      curve: 'direct' | 'fee' | 'square';
+      rate: number;
+      wide?: boolean;
+    }
+  | { kind: 'percent-grid'; value: { n: number; d: number } }
+  | { kind: 'percent-source'; selected: number; total: number }
+  | {
+      kind: 'percent-axis';
+      rate: number;
+      wholeLabel: string;
+      partLabel: string;
+    }
   | { kind: 'product-repeat'; count: number; part: { n: number; d: number } }
   | {
       kind: 'product-share';
@@ -146,6 +179,7 @@ export type Question = {
   lessonId?: string;
   type?:
     | 'numeric'
+    | 'ratio'
     | 'single_choice'
     | 'visual_select'
     | 'error_spotting'
@@ -172,6 +206,23 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'signed-temperature'
+    | 'signed-line'
+    | 'signed-compare'
+    | 'signed-move'
+    | 'signed-absolute'
+    | 'ratio-compare'
+    | 'ratio-simplify'
+    | 'ratio-share'
+    | 'ratio-table'
+    | 'ratio-map'
+    | 'ratio-graph'
+    | 'percent-hundred'
+    | 'percent-decimal'
+    | 'percent-fraction'
+    | 'percent-amount'
+    | 'percent-whole'
+    | 'percent-change'
     | 'parts'
     | 'fractions'
     | 'line'
@@ -323,8 +374,22 @@ export const newSession = (): Session => ({
 const gcd = (a: bigint, b: bigint): bigint =>
   b === 0n ? (a < 0n ? -a : a) : gcd(b, a % b);
 export function exactRational(raw: string): [bigint, bigint] | null {
-  const text = raw.trim().replace(/−/g, '-').replace(/／/g, '/');
+  const text = raw
+    .trim()
+    .replace(/[−－]/g, '-')
+    .replace(/＋/g, '+')
+    .replace(/／/g, '/')
+    .replace(/％/g, '%');
   if (text.length > 60) return null;
+  if (text.endsWith('%')) {
+    const base = text.slice(0, -1).trim();
+    if (base.includes('%')) return null;
+    const parsed = exactRational(base);
+    if (!parsed) return null;
+    const d = parsed[1] * 100n,
+      factor = gcd(parsed[0], d);
+    return [parsed[0] / factor, d / factor];
+  }
   const mixed = text.match(/^(\d+)\s+(\d+)\s*\/\s*(\d+)$/);
   if (mixed) {
     const whole = BigInt(mixed[1]!),
@@ -353,6 +418,30 @@ export function exactRational(raw: string): [bigint, bigint] | null {
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
   if (spec.kind === 'explain') return null;
   if (spec.kind === 'choice') return input === spec.value;
+  if (spec.kind === 'ratio') {
+    const parse = (raw: string) => {
+      const terms = raw.trim().replace(/：/g, ':').split(':');
+      if (terms.length !== 2 || terms.some((s) => /[%％]/.test(s))) return null;
+      const a = exactRational(terms[0]!),
+        b = exactRational(terms[1]!);
+      return a && b && a[0] >= 0n && a[1] > 0n && b[0] > 0n && b[1] > 0n
+        ? { a, b, terms }
+        : null;
+    };
+    const actual = parse(input),
+      expected = parse(spec.value);
+    if (!actual || !expected) return false;
+    if (
+      spec.simplest &&
+      (!actual.terms.every((s) => /^\d+$/.test(s.trim())) ||
+        gcd(actual.a[0], actual.b[0]) !== 1n)
+    )
+      return false;
+    return (
+      actual.a[0] * actual.b[1] * expected.b[0] * expected.a[1] ===
+      expected.a[0] * expected.b[1] * actual.b[0] * actual.a[1]
+    );
+  }
   let clean = input.trim();
   if (spec.unit === 'groups')
     clean = clean.replace(/\s*(?:groups?|份|组)$/i, '');
@@ -417,7 +506,11 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
     clean = clean.replace(/\s*(?:sticks?|matchsticks?|根(?:小棒)?)$/i, '');
   if (spec.unit === 'min')
     clean = clean.replace(/\s*(?:mins?|minutes?|分钟)$/i, '');
-  clean = clean.replace(/−/g, '-').replace(/／/g, '/');
+  clean = clean
+    .replace(/[−－]/g, '-')
+    .replace(/＋/g, '+')
+    .replace(/／/g, '/')
+    .replace(/％/g, '%');
   if (spec.fractionRule || spec.requiredDenominator !== undefined) {
     if (clean.length > 60) return false;
     if (
@@ -456,10 +549,10 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
     )
       return false;
   }
-  const format = clean.includes('/')
-    ? 'fraction'
-    : clean.includes('%')
-      ? 'percent'
+  const format = clean.includes('%')
+    ? 'percent'
+    : clean.includes('/')
+      ? 'fraction'
       : 'decimal';
   if (spec.formats && !spec.formats.includes(format)) return false;
   // Permit correctly grouped thousands; never silently turn a misplaced comma into a different number.

@@ -13,6 +13,9 @@ import { IntegerLab, isIntegerLab } from './IntegerLabs';
 import { EquationLab, isEquationLab } from './EquationLabs';
 import { GeometryLab, isGeometryLab } from './GeometryLabs';
 import { DataLab, isDataLab } from './DataLabs';
+import { PercentLab, isPercentLab } from './PercentLabs';
+import { RatioLab, isRatioLab } from './RatioLabs';
+import { SignedLab, isSignedLab } from './SignedLabs';
 import {
   FractionProductLab,
   isFractionProductLab,
@@ -344,7 +347,13 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isFractionProductLab(kind) ? (
+  return isSignedLab(kind) ? (
+    <SignedLab kind={kind} mode={mode} />
+  ) : isRatioLab(kind) ? (
+    <RatioLab kind={kind} mode={mode} />
+  ) : isPercentLab(kind) ? (
+    <PercentLab kind={kind} mode={mode} />
+  ) : isFractionProductLab(kind) ? (
     <FractionProductLab kind={kind} mode={mode} />
   ) : isDataLab(kind) ? (
     <DataLab kind={kind} mode={mode} />

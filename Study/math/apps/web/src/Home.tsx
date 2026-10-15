@@ -6,6 +6,23 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'signed-temperature': '−4°C · 0°C · +4°C',
+  'signed-line': '← −2 · −1 · 0 · 1 · 2 →',
+  'signed-compare': '−8 < −3',
+  'signed-move': '−3 + 5 → 2',
+  'signed-absolute': '|−6| = |6| = 6',
+  'ratio-compare': 'A : B ≠ A : TOTAL',
+  'ratio-simplify': '6 : 9 ↔ 2 : 3',
+  'ratio-share': '25 L → 2 + 3 PARTS',
+  'ratio-table': '2 : 3 → 4 : 6',
+  'ratio-map': '1 : 50,000',
+  'ratio-graph': 'y = kx · (0, 0)',
+  'percent-hundred': '25 / 100 ↔ 25%',
+  'percent-decimal': '0.375 ↔ 37.5%',
+  'percent-fraction': '3/8 ↔ 37.5%',
+  'percent-amount': '80 L × 35%',
+  'percent-whole': '30% ↔ 18 L',
+  'percent-change': '100% → 80% → 96%',
   'product-repeat': '3 × 3/4',
   'product-area': '2/3 × 3/4',
   'product-amount': '12 L × 2/3',

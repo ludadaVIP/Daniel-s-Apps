@@ -7,7 +7,6 @@ import {
 } from '../model';
 import { numeric, choice, reasoning } from './builders';
 type Pair = [string, string];
-type F = { n: number; d: number };
 type Unit = Extract<AnswerSpec, { kind: 'number' }>['unit'];
 const T = (p: Pair) => t(...p);
 const skills = [

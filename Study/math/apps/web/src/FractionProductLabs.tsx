@@ -523,7 +523,7 @@ function Divide({
                 mode={mode}
                 text={t(
                   `精确商 ${m.total}/${m.perGroup}=${fractionText(m.result)} 份；可装满 ${m.fullGroups} 份，剩 ${fractionText(m.remainder)} L，这部分占一份的 ${fractionText(m.fractionOfGroup)}。份数与剩余升数不能混写。`,
-                  `Exact quotient ${m.total}/${m.perGroup}=${fractionText(m.result)} groups; ${m.fullGroups} complete groups, with ${fractionText(m.remainder)} L left, equal to ${fractionText(m.fractionOfGroup)} of one group. Group count and remaining litres are different quantities.`,
+                  `Exact quotient ${m.total}/${m.perGroup}=${fractionText(m.result)} groups; ${m.fullGroups} complete ${m.fullGroups === 1 ? 'group' : 'groups'}, with ${fractionText(m.remainder)} L left, equal to ${fractionText(m.fractionOfGroup)} of one group. Group count and remaining litres are different quantities.`,
                 )}
               />
             </p>

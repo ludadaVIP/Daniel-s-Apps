@@ -213,22 +213,33 @@ export function SharedFraction({
         }
       >
         {Array.from({ length: wholes * d }, (_, i) => (
-          <rect
-            key={i}
-            data-share-cell={i}
-            data-owner={i < n && stage >= 2 ? i % people : undefined}
-            className={
-              i < n
-                ? stage >= 2
-                  ? `product-owner owner-${i % people}`
-                  : 'product-selected'
-                : 'product-empty'
-            }
-            x={40 + i * step}
-            y="25"
-            width={step}
-            height="42"
-          />
+          <g key={i}>
+            <rect
+              data-share-cell={i}
+              data-owner={i < n && stage >= 2 ? i % people : undefined}
+              className={
+                i < n
+                  ? stage >= 2
+                    ? `product-owner owner-${i % people}`
+                    : 'product-selected'
+                  : 'product-empty'
+              }
+              x={40 + i * step}
+              y="25"
+              width={step}
+              height="42"
+            />
+            {i < n && stage >= 2 && (
+              <text
+                x={40 + (i + 0.5) * step}
+                y="51"
+                textAnchor="middle"
+                style={{ fontSize: 10 }}
+              >
+                {(i % people) + 1}
+              </text>
+            )}
+          </g>
         ))}
         {Array.from({ length: wholes }, (_, i) => (
           <rect
@@ -242,8 +253,8 @@ export function SharedFraction({
         ))}
         <text x="40" y="112">
           {mode === 'en'
-            ? 'Each thick frame = 1 L; colour identifies a person'
-            : '每个粗框 = 1 L；颜色区分接收者'}
+            ? 'Each thick frame = 1 L; numbers identify people'
+            : '每个粗框 = 1 L；数字区分接收者'}
         </text>
       </svg>
     </ProductFrame>

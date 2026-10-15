@@ -71,6 +71,21 @@ import {
   p61CheckQuestions,
   p61ReviewQuestion,
 } from './content/P61';
+import {
+  p62Lessons,
+  p62CheckQuestions,
+  p62ReviewQuestion,
+} from './content/P62';
+import {
+  p63Lessons,
+  p63CheckQuestions,
+  p63ReviewQuestion,
+} from './content/P63';
+import {
+  p64Lessons,
+  p64CheckQuestions,
+  p64ReviewQuestion,
+} from './content/P64';
 export const curriculum = curriculumData;
 export const lessons: Lesson[] = [
   ...b01Lessons,
@@ -96,6 +111,9 @@ export const lessons: Lesson[] = [
   ...p56Lessons,
   ...p57Lessons,
   ...p61Lessons,
+  ...p62Lessons,
+  ...p63Lessons,
+  ...p64Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -109,6 +127,15 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    p64Lessons.map((l) => [l.id, p64ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    p63Lessons.map((l) => [l.id, p63ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    p62Lessons.map((l) => [l.id, p62ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     p61Lessons.map((l) => [l.id, p61ReviewQuestion(l.id, 0)]),
   ),
@@ -151,6 +178,9 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('P64-')) return p64ReviewQuestion(id, round);
+  if (id.startsWith('P63-')) return p63ReviewQuestion(id, round);
+  if (id.startsWith('P62-')) return p62ReviewQuestion(id, round);
   if (id.startsWith('P61-')) return p61ReviewQuestion(id, round);
   if (id.startsWith('P57-')) return p57ReviewQuestion(id, round);
   if (id.startsWith('P56-')) return p56ReviewQuestion(id, round);
@@ -167,6 +197,33 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  P64: {
+    id: 'P64-CHECK',
+    unit: 'P64',
+    title: t(
+      '负数与距离小回顾',
+      'A small negative numbers and distance review',
+    ),
+    questions: p64CheckQuestions,
+    bridge: 'P64-L01',
+  },
+  P63: {
+    id: 'P63-CHECK',
+    unit: 'P63',
+    title: t('比与比例小回顾', 'A small ratios and proportion review'),
+    questions: p63CheckQuestions,
+    bridge: 'P63-L01',
+  },
+  P62: {
+    id: 'P62-CHECK',
+    unit: 'P62',
+    title: t(
+      '百分数与参照整体小回顾',
+      'A small percentages and reference wholes review',
+    ),
+    questions: p62CheckQuestions,
+    bridge: 'P62-L01',
+  },
   P61: {
     id: 'P61-CHECK',
     unit: 'P61',

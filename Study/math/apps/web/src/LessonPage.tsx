@@ -20,6 +20,9 @@ import {
 import { EquationHookArt, isEquationLab } from './EquationLabs';
 import { GeometryHookArt, isGeometryLab } from './GeometryLabs';
 import { DataHookArt, isDataLab } from './DataLabs';
+import { PercentHookArt, isPercentLab } from './PercentLabs';
+import { RatioHookArt, isRatioLab } from './RatioLabs';
+import { SignedHookArt, isSignedLab } from './SignedLabs';
 import {
   FractionProductHookArt,
   isFractionProductLab,
@@ -139,7 +142,13 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isFractionProductLab(l.lab) ? (
+              {isSignedLab(l.lab) ? (
+                <SignedHookArt kind={l.lab} mode={mode} />
+              ) : isRatioLab(l.lab) ? (
+                <RatioHookArt kind={l.lab} mode={mode} />
+              ) : isPercentLab(l.lab) ? (
+                <PercentHookArt kind={l.lab} mode={mode} />
+              ) : isFractionProductLab(l.lab) ? (
                 <FractionProductHookArt kind={l.lab} mode={mode} />
               ) : isDataLab(l.lab) ? (
                 <DataHookArt kind={l.lab} mode={mode} />

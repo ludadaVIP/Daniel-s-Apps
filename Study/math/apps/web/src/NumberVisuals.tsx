@@ -1,4 +1,12 @@
 import type { LanguageMode } from '@study/shared';
+import { PercentGrid, PercentSource, PercentAxis } from './PercentVisuals';
+import { Thermometer, SignedAxis } from './SignedVisuals';
+import {
+  RatioCounters,
+  RatioShares,
+  RatioMap,
+  ProportionGraph,
+} from './RatioVisuals';
 import { t, type NumberDiagram } from './model';
 import { axisPosition, placeValues, type Blocks } from './numberModels';
 import { DecimalPlaceChart } from './DecimalVisuals';
@@ -7,7 +15,7 @@ import { FractionOperands } from './FractionOperationVisuals';
 import { GeometryDiagram } from './GeometryVisuals';
 import { MeanPiles, TimeLine } from './DataVisuals';
 import {
-  ProductArea,
+  ProductArea as FractionProductArea,
   GroupedMeasure,
   RepeatedFraction,
   SharedFraction,
@@ -220,12 +228,37 @@ export function NumberDiagramView({
 }) {
   if (isGeometryDiagram(diagram))
     return <GeometryDiagram diagram={diagram} mode={mode} />;
+  if (diagram.kind === 'signed-thermometer')
+    return <Thermometer {...diagram} mode={mode} />;
+  if (diagram.kind === 'signed-axis')
+    return <SignedAxis {...diagram} mode={mode} />;
+  if (diagram.kind === 'ratio-counters')
+    return <RatioCounters {...diagram} mode={mode} />;
+  if (diagram.kind === 'ratio-shares')
+    return <RatioShares {...diagram} mode={mode} />;
+  if (diagram.kind === 'ratio-map')
+    return <RatioMap {...diagram} mode={mode} />;
+  if (diagram.kind === 'ratio-graph')
+    return (
+      <ProportionGraph
+        kind={diagram.curve}
+        rate={diagram.rate}
+        wide={diagram.wide}
+        mode={mode}
+      />
+    );
+  if (diagram.kind === 'percent-grid')
+    return <PercentGrid value={diagram.value} mode={mode} />;
+  if (diagram.kind === 'percent-source')
+    return <PercentSource {...diagram} mode={mode} />;
+  if (diagram.kind === 'percent-axis')
+    return <PercentAxis {...diagram} mode={mode} />;
   if (diagram.kind === 'product-repeat')
     return <RepeatedFraction {...diagram} mode={mode} />;
   if (diagram.kind === 'product-share')
     return <SharedFraction {...diagram} mode={mode} />;
   if (diagram.kind === 'product-area')
-    return <ProductArea {...diagram} mode={mode} />;
+    return <FractionProductArea {...diagram} mode={mode} />;
   if (diagram.kind === 'product-groups')
     return <GroupedMeasure {...diagram} mode={mode} />;
   if (diagram.kind === 'data-mean')
