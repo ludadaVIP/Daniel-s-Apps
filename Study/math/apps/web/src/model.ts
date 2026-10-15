@@ -1,6 +1,17 @@
 import type { LocalizedText } from '@study/shared';
+import { equivalentExpression } from './algebraModels';
+import { checkPiMultiple } from './circleModels';
+import { checkNumberSet } from './numberSetAnswers';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'number-set'; values: string[]; value: string }
+  | {
+      kind: 'pi-multiple';
+      coefficient: string;
+      value: string;
+      unit: 'cm' | 'cm²' | 'cm³';
+    }
+  | { kind: 'expression'; value: string; variable: 'n' | 'x' }
   | { kind: 'ratio'; value: string; simplest?: boolean }
   | {
       kind: 'number';
@@ -37,6 +48,18 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | {
+      kind: 'stats-order';
+      values: number[];
+      sorted?: boolean;
+      highlight?: boolean;
+    }
+  | { kind: 'chance-spinner'; labels: string[]; weights: number[] }
+  | { kind: 'chance-tokens'; counts: number[]; selected: number[] }
+  | { kind: 'circle-parts'; r: number; angle?: number; offset?: number }
+  | { kind: 'circle-sectors'; r: number; count: number; rearranged?: boolean }
+  | { kind: 'cylinder-net'; r: number; h: number; lids: 0 | 1 | 2 }
+  | { kind: 'algebra-groups'; n: number; inside: boolean }
   | { kind: 'signed-thermometer'; value: number; interval?: number }
   | {
       kind: 'signed-axis';
@@ -206,6 +229,21 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'chance-order'
+    | 'chance-summary'
+    | 'chance-equal'
+    | 'chance-event'
+    | 'chance-frequency'
+    | 'circle-parts'
+    | 'circle-pi'
+    | 'circle-circumference'
+    | 'circle-area'
+    | 'circle-cylinder'
+    | 'algebra-letter'
+    | 'algebra-nth'
+    | 'algebra-expression'
+    | 'algebra-balance'
+    | 'algebra-brackets'
     | 'signed-temperature'
     | 'signed-line'
     | 'signed-compare'
@@ -416,6 +454,11 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'number-set') return checkNumberSet(input, spec.values);
+  if (spec.kind === 'pi-multiple')
+    return checkPiMultiple(input, spec.coefficient, spec.unit);
+  if (spec.kind === 'expression')
+    return equivalentExpression(input, spec.value, spec.variable);
   if (spec.kind === 'explain') return null;
   if (spec.kind === 'choice') return input === spec.value;
   if (spec.kind === 'ratio') {

@@ -9,6 +9,36 @@ import {
 import { Strip, Text } from './ui';
 import { NumberDiagramView } from './NumberVisuals';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'number-set')
+    return t(
+      '写全部众数，多个用逗号或顿号分隔，不重复、不用千位逗号；没有时写“无众数”。',
+      'Enter all modes separated by commas, without duplicates or grouping commas. If none, write “no mode”.',
+    );
+  if (lessonId?.startsWith('P67-') && spec.kind === 'number')
+    return t(
+      '写题目所求的统计量或比例；可用精确分数，概率和频率不能填成次数。',
+      'Enter the requested summary or proportion. Exact fractions are allowed; do not replace a probability or frequency by a count.',
+    );
+  if (spec.kind === 'pi-multiple')
+    return t(
+      '保留 π 的精确倍数，可用 π 或 pi，接受等值分数系数；单位可省略，不写等号。',
+      'Keep an exact multiple of π, written π or pi. Equivalent fractional coefficients are accepted; units are optional. Omit an equal sign.',
+    );
+  if (lessonId?.startsWith('P66-') && spec.kind === 'number')
+    return t(
+      '按题目要求写数值，核对半径、直径、近似约定与单位。',
+      'Enter the requested value; check radius versus diameter, the approximation convention and units.',
+    );
+  if (spec.kind === 'expression')
+    return t(
+      `用字母 ${spec.variable} 写一次式；可用加减、乘除常数与括号。接受等值写法，不写等号。`,
+      `Write a linear expression in ${spec.variable}, using sums, constant factors or divisors, and brackets. Equivalent forms are accepted; omit an equal sign.`,
+    );
+  if (lessonId?.startsWith('P65-') && spec.kind === 'number')
+    return t(
+      '写所求的数；保留负号，分数可用 -1/3。',
+      'Enter the requested number; keep any minus sign. Fractions can use -1/3.',
+    );
   if (lessonId?.startsWith('P64-') && spec.kind === 'number')
     return spec.unit === '°C'
       ? t(
@@ -235,25 +265,26 @@ export function Question({
               }}
               disabled={a.checked && a.correct}
             />
-            {q.answer.kind === 'number' && q.answer.unit && (
-              <span>
-                {q.answer.unit === 'people' ? (
-                  <Text mode={mode} text={t('人', 'people')} />
-                ) : q.answer.unit === 'cards' ? (
-                  <Text mode={mode} text={t('张卡', 'cards')} />
-                ) : q.answer.unit === 'bags' ? (
-                  <Text mode={mode} text={t('袋', 'bags')} />
-                ) : q.answer.unit === 'pencils' ? (
-                  <Text mode={mode} text={t('支铅笔', 'pencils')} />
-                ) : q.answer.unit === 'sticks' ? (
-                  <Text mode={mode} text={t('根小棒', 'sticks')} />
-                ) : q.answer.unit === 'min' ? (
-                  <Text mode={mode} text={t('分钟', 'min')} />
-                ) : (
-                  q.answer.unit
-                )}
-              </span>
-            )}
+            {(q.answer.kind === 'number' || q.answer.kind === 'pi-multiple') &&
+              q.answer.unit && (
+                <span>
+                  {q.answer.unit === 'people' ? (
+                    <Text mode={mode} text={t('人', 'people')} />
+                  ) : q.answer.unit === 'cards' ? (
+                    <Text mode={mode} text={t('张卡', 'cards')} />
+                  ) : q.answer.unit === 'bags' ? (
+                    <Text mode={mode} text={t('袋', 'bags')} />
+                  ) : q.answer.unit === 'pencils' ? (
+                    <Text mode={mode} text={t('支铅笔', 'pencils')} />
+                  ) : q.answer.unit === 'sticks' ? (
+                    <Text mode={mode} text={t('根小棒', 'sticks')} />
+                  ) : q.answer.unit === 'min' ? (
+                    <Text mode={mode} text={t('分钟', 'min')} />
+                  ) : (
+                    q.answer.unit
+                  )}
+                </span>
+              )}
           </div>
         </label>
       )}

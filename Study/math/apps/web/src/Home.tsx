@@ -6,7 +6,22 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'chance-order': 'ORDER · MIDDLE · FREQUENCY',
+  'chance-summary': 'MEAN · MEDIAN · MODE',
+  'chance-equal': 'IMPOSSIBLE ↔ CERTAIN',
+  'chance-event': 'P = FAVOURABLE / TOTAL',
+  'chance-frequency': 'THEORY ≠ ONE BATCH',
+  'circle-parts': 'O · r · d=2r',
+  'circle-pi': 'C ÷ d ≈ 3.14',
+  'circle-circumference': 'C = πd = 2πr',
+  'circle-area': 'A = πr²',
+  'circle-cylinder': '2πrh · πr²h',
   'signed-temperature': '−4°C · 0°C · +4°C',
+  'algebra-letter': 'n + n = 2n',
+  'algebra-nth': '3n + 2 · STAGE n',
+  'algebra-expression': '3(n + 2) = 3n + 6',
+  'algebra-balance': '2x = 10 ↔ x = 5',
+  'algebra-brackets': '3(x + 2) = 15',
   'signed-line': '← −2 · −1 · 0 · 1 · 2 →',
   'signed-compare': '−8 < −3',
   'signed-move': '−3 + 5 → 2',

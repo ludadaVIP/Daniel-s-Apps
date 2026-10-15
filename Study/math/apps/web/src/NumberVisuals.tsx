@@ -1,4 +1,7 @@
 import type { LanguageMode } from '@study/shared';
+import { AlgebraGroups } from './AlgebraVisuals';
+import { CircleParts, CircleSectors, CylinderNet } from './CircleVisuals';
+import { OrderedCards, Spinner, ChanceTokens } from './ChanceVisuals';
 import { PercentGrid, PercentSource, PercentAxis } from './PercentVisuals';
 import { Thermometer, SignedAxis } from './SignedVisuals';
 import {
@@ -226,6 +229,20 @@ export function NumberDiagramView({
   diagram: NumberDiagram;
   mode: LanguageMode;
 }) {
+  if (diagram.kind === 'stats-order')
+    return <OrderedCards {...diagram} mode={mode} />;
+  if (diagram.kind === 'chance-spinner')
+    return <Spinner {...diagram} mode={mode} />;
+  if (diagram.kind === 'chance-tokens')
+    return <ChanceTokens {...diagram} mode={mode} />;
+  if (diagram.kind === 'circle-parts')
+    return <CircleParts {...diagram} mode={mode} />;
+  if (diagram.kind === 'circle-sectors')
+    return <CircleSectors {...diagram} mode={mode} />;
+  if (diagram.kind === 'cylinder-net')
+    return <CylinderNet {...diagram} mode={mode} />;
+  if (diagram.kind === 'algebra-groups')
+    return <AlgebraGroups {...diagram} mode={mode} />;
   if (isGeometryDiagram(diagram))
     return <GeometryDiagram diagram={diagram} mode={mode} />;
   if (diagram.kind === 'signed-thermometer')

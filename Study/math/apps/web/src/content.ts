@@ -86,6 +86,21 @@ import {
   p64CheckQuestions,
   p64ReviewQuestion,
 } from './content/P64';
+import {
+  p65Lessons,
+  p65CheckQuestions,
+  p65ReviewQuestion,
+} from './content/P65';
+import {
+  p66Lessons,
+  p66CheckQuestions,
+  p66ReviewQuestion,
+} from './content/P66';
+import {
+  p67Lessons,
+  p67CheckQuestions,
+  p67ReviewQuestion,
+} from './content/P67';
 export const curriculum = curriculumData;
 export const lessons: Lesson[] = [
   ...b01Lessons,
@@ -114,6 +129,9 @@ export const lessons: Lesson[] = [
   ...p62Lessons,
   ...p63Lessons,
   ...p64Lessons,
+  ...p65Lessons,
+  ...p66Lessons,
+  ...p67Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -128,7 +146,18 @@ export const openUnits = curriculum
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
   ...Object.fromEntries(
-    p64Lessons.map((l) => [l.id, p64ReviewQuestion(l.id, 0)]),
+    p67Lessons.map((l) => [l.id, p67ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    p66Lessons.map((l) => [l.id, p66ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    [...p64Lessons, ...p65Lessons].map((l) => [
+      l.id,
+      l.unit === 'P65'
+        ? p65ReviewQuestion(l.id, 0)
+        : p64ReviewQuestion(l.id, 0),
+    ]),
   ),
   ...Object.fromEntries(
     p63Lessons.map((l) => [l.id, p63ReviewQuestion(l.id, 0)]),
@@ -178,6 +207,9 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('P67-')) return p67ReviewQuestion(id, round);
+  if (id.startsWith('P66-')) return p66ReviewQuestion(id, round);
+  if (id.startsWith('P65-')) return p65ReviewQuestion(id, round);
   if (id.startsWith('P64-')) return p64ReviewQuestion(id, round);
   if (id.startsWith('P63-')) return p63ReviewQuestion(id, round);
   if (id.startsWith('P62-')) return p62ReviewQuestion(id, round);
@@ -197,6 +229,30 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  P67: {
+    id: 'P67-CHECK',
+    unit: 'P67',
+    title: t('统计量与概率小回顾', 'A small summaries and probability review'),
+    questions: p67CheckQuestions,
+    bridge: 'P67-L01',
+  },
+  P66: {
+    id: 'P66-CHECK',
+    unit: 'P66',
+    title: t(
+      '圆与空间测量小回顾',
+      'A small circles and spatial measurement review',
+    ),
+    questions: p66CheckQuestions,
+    bridge: 'P66-L01',
+  },
+  P65: {
+    id: 'P65-CHECK',
+    unit: 'P65',
+    title: t('字母与等价关系小回顾', 'A small letters and equivalence review'),
+    questions: p65CheckQuestions,
+    bridge: 'P65-L01',
+  },
   P64: {
     id: 'P64-CHECK',
     unit: 'P64',

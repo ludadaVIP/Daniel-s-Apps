@@ -4106,3 +4106,469 @@
   stroke: #9676b2;
   stroke-width: 3;
 }
+/* P65: retain group structure, symbolic values and locally scrollable figures. */
+.math-app .math-algebra-figure {
+  margin: 20px 0;
+  max-width: 100%;
+  min-width: 0;
+}
+.math-app .math-algebra-scroll {
+  overflow-x: auto;
+  padding: 12px;
+  border: 1px solid #ddd8ee;
+  border-radius: 16px;
+  background: #faf9ff;
+}
+.math-app .math-algebra-scroll:focus-visible {
+  outline: 3px solid #7658b6;
+  outline-offset: 2px;
+}
+.math-app .math-algebra-scroll svg {
+  display: block;
+  width: 460px;
+  height: 240px;
+  max-width: none;
+}
+.math-app .math-algebra-scroll text {
+  fill: #322749;
+  font-size: 16px;
+}
+.math-app .algebra-group {
+  fill: #f0ebfa;
+  stroke: #8e74b2;
+}
+.math-app .algebra-variable {
+  fill: #66519b;
+}
+.math-app .algebra-fixed {
+  fill: #f1cc82;
+  stroke: #76522e;
+}
+.math-app .math-algebra-figure figcaption {
+  font-size: 14px;
+  line-height: 1.7;
+  margin-top: 12px;
+  color: #6c627c;
+}
+.math-app .math-algebra-substitution {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+  padding: 24px;
+  border-radius: 18px;
+  background: #f2eef9;
+  font-size: 24px;
+}
+.math-app .math-algebra-board {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 24px minmax(0, 1fr);
+  gap: 8px;
+  align-items: center;
+}
+.math-app .math-algebra-board > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 8px;
+  background: #f2eef9;
+  border: 1px solid #d9d0e9;
+  border-radius: 14px;
+  overflow-wrap: anywhere;
+  min-width: 0;
+}
+.math-app .math-algebra-board strong {
+  font-size: 20px;
+  text-align: center;
+}
+.math-app .math-algebra-board output {
+  font-size: 24px;
+  color: #58428b;
+}
+.math-app .math-algebra-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+.math-app .math-algebra-lab label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 18px 0;
+  min-width: 0;
+}
+.math-app .math-algebra-lab input:not([type='range']),
+.math-app .math-algebra-lab select {
+  padding: 10px;
+  border: 1px solid #bdb2cd;
+  background: white;
+  border-radius: 10px;
+  min-height: 44px;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  font-size: 16px;
+}
+.math-app .math-algebra-controls label {
+  flex: 1 1 130px;
+}
+.math-app .math-algebra-lab button {
+  min-height: 44px;
+}
+.math-app .math-algebra-lab .math-quiet {
+  border: 1px solid #bdb2cd;
+  border-radius: 12px;
+  background: #f5f1fc;
+  color: #4d3679;
+  padding: 12px;
+  cursor: pointer;
+}
+.math-app .math-algebra-history {
+  overflow-wrap: anywhere;
+  padding-left: 20px;
+}
+.math-app .math-algebra-hook {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  padding: 32px 20px;
+  border-radius: 20px;
+  background: #efe9fa;
+}
+.math-app .math-algebra-hook b {
+  font-size: clamp(19px, 4vw, 32px);
+}
+.math-app .math-circle-figure {
+  margin: 20px 0;
+  max-width: 100%;
+  min-width: 0;
+}
+.math-app .math-circle-scroll {
+  overflow-x: auto;
+  padding: 12px;
+  border: 1px solid #d8d6e9;
+  border-radius: 14px;
+  background: #faf9ff;
+  max-width: 100%;
+  min-width: 0;
+}
+.math-app .math-circle-scroll:focus-visible {
+  outline: 3px solid #7562ac;
+  outline-offset: 2px;
+}
+.math-app .math-circle-scroll svg {
+  display: block;
+  max-width: none;
+  flex-shrink: 0;
+}
+.math-app .math-circle-scroll text {
+  font-size: 16px;
+  fill: #342a47;
+}
+.math-app .math-circle-figure figcaption {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6c627b;
+  margin-top: 12px;
+}
+.math-app .circle-boundary {
+  fill: #f1edf9;
+  stroke: #5c4a8b;
+  stroke-width: 2;
+}
+.math-app .circle-radius {
+  stroke: #7853b0;
+  stroke-width: 5;
+  fill: none;
+}
+.math-app .circle-diameter {
+  stroke: #3e788b;
+  stroke-width: 3;
+  fill: none;
+}
+.math-app .circle-chord {
+  stroke: #a2692c;
+  stroke-width: 3;
+  stroke-dasharray: 7 4;
+  fill: none;
+}
+.math-app .circle-centre {
+  fill: #412557;
+}
+.math-app .circle-guide {
+  stroke: #6c627b;
+  stroke-width: 1.5;
+  stroke-dasharray: 5 4;
+  fill: none;
+}
+.math-app .circle-sector-a {
+  fill: #bcb0df;
+  stroke: #645183;
+  stroke-width: 1;
+}
+.math-app .circle-sector-b {
+  fill: #f0d29b;
+  stroke: #826338;
+  stroke-width: 1;
+}
+.math-app .circle-net-side {
+  fill: #ebe5f7;
+  stroke: #685191;
+  stroke-width: 2;
+}
+.math-app .math-circle-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.math-app .math-circle-controls label {
+  flex: 1 1 120px;
+}
+.math-app .math-circle-lab label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 18px 0;
+  min-width: 0;
+}
+.math-app .math-circle-lab input:not([type='range']),
+.math-app .math-circle-lab select {
+  font-size: 16px;
+  padding: 10px;
+  min-height: 44px;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #bcb3cc;
+  border-radius: 10px;
+  background: white;
+}
+.math-app .math-circle-lab button {
+  min-height: 44px;
+}
+.math-app .math-circle-lab .math-quiet {
+  padding: 12px;
+  border: 1px solid #bcb3cc;
+  border-radius: 12px;
+  background: #f3effb;
+  color: #513b7a;
+  cursor: pointer;
+}
+.math-app .math-circle-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+}
+.math-app .math-circle-table th,
+.math-app .math-circle-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ded9e8;
+  text-align: center;
+}
+.math-app .math-circle-table caption {
+  text-align: left;
+  line-height: 1.6;
+  padding-bottom: 12px;
+}
+.math-app .math-circle-hook {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  background: #efeafa;
+  border-radius: 18px;
+  padding: 28px 20px;
+}
+.math-app .math-circle-hook b {
+  font-size: clamp(20px, 4vw, 32px);
+}
+.math-app .math-chance-figure {
+  margin: 20px 0;
+  max-width: 100%;
+  min-width: 0;
+}
+.math-app .math-chance-scroll {
+  overflow-x: auto;
+  padding: 12px;
+  background: #faf9ff;
+  border: 1px solid #ddd6e9;
+  border-radius: 14px;
+  max-width: 100%;
+  min-width: 0;
+}
+.math-app .math-chance-scroll:focus-visible {
+  outline: 3px solid #7661ad;
+  outline-offset: 2px;
+}
+.math-app .math-chance-scroll svg {
+  display: block;
+  max-width: none;
+  flex-shrink: 0;
+}
+.math-app .math-chance-scroll text {
+  fill: #352a48;
+  font-size: 16px;
+}
+.math-app .math-chance-figure figcaption {
+  font-size: 14px;
+  line-height: 1.7;
+  color: #6e637c;
+  margin-top: 12px;
+}
+.math-app .math-chance-cards {
+  display: flex;
+  gap: 9px;
+  list-style: none;
+  padding: 8px;
+  margin: 0;
+  width: max-content;
+}
+.math-app .math-chance-cards li {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  align-items: center;
+  justify-content: center;
+  min-width: 50px;
+  min-height: 80px;
+  border: 1px solid #b9accb;
+  border-radius: 10px;
+  background: white;
+  padding: 8px;
+  box-sizing: border-box;
+}
+.math-app .math-chance-cards small {
+  color: #746782;
+  font-size: 12px;
+}
+.math-app .math-chance-cards strong {
+  font-size: 22px;
+}
+.math-app .math-chance-cards [data-middle='true'] {
+  border: 3px solid #6b4e99;
+  background: #ede5f8;
+}
+.math-app .math-chance-tokens {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  min-width: 240px;
+  min-height: 60px;
+}
+.math-app .math-chance-tokens > span {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 2px solid #b8adc7;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3px;
+}
+.math-app .math-chance-tokens [data-selected='true'] {
+  border: 3px solid #62458f;
+  background: #eadff7;
+}
+.math-app .math-chance-tokens small {
+  font-size: 11px;
+}
+.math-app .chance-sector {
+  stroke: #63516f;
+  stroke-width: 1.5;
+}
+.math-app .math-chance-scroll .chance-id {
+  font-size: 11px;
+}
+.math-app .chance-pointer {
+  stroke: #332040;
+  stroke-width: 4;
+  stroke-linecap: round;
+}
+.math-app .chance-axis {
+  stroke: #50455c;
+  stroke-width: 2;
+  fill: none;
+}
+.math-app .chance-grid {
+  stroke: #e1dbea;
+  stroke-width: 1;
+}
+.math-app .chance-theory {
+  stroke: #a06a26;
+  stroke-dasharray: 7 5;
+  stroke-width: 2;
+}
+.math-app .chance-trace {
+  stroke: #654b99;
+  stroke-width: 2;
+  fill: none;
+}
+.math-app .math-chance-controls,
+.math-app .math-chance-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+.math-app .math-chance-controls label {
+  flex: 1 1 150px;
+}
+.math-app .math-chance-lab label {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 18px 0;
+  min-width: 0;
+}
+.math-app .math-chance-lab input:not([type='range']),
+.math-app .math-chance-lab select {
+  font-size: 16px;
+  min-height: 44px;
+  padding: 10px;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  border: 1px solid #bfb2cf;
+  border-radius: 10px;
+  background: white;
+}
+.math-app .math-chance-lab button {
+  min-height: 44px;
+}
+.math-app .math-chance-lab .math-quiet {
+  padding: 12px;
+  border: 1px solid #bfb2cf;
+  border-radius: 12px;
+  background: #f1ebfa;
+  color: #513b76;
+  cursor: pointer;
+}
+.math-app .math-chance-lab .math-quiet:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.math-app .math-chance-history {
+  padding: 0;
+  list-style-position: inside;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 16px;
+}
+.math-app .math-chance-frequency {
+  padding: 16px;
+  background: #f1edf9;
+  border-radius: 12px;
+  line-height: 1.7;
+  overflow-wrap: anywhere;
+}
+.math-app .math-chance-hook {
+  padding: 28px 20px;
+  background: #efe9fa;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+.math-app .math-chance-hook b {
+  font-size: clamp(18px, 4vw, 30px);
+}
