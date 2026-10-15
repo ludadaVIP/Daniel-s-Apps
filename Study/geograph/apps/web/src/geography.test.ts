@@ -37,7 +37,7 @@ describe('published curriculum and assets', () => {
         s.lessons.filter((l) => l.status === 'available').map((l) => l.id),
       ),
     ).toEqual(lessons.map((l) => l.id));
-    expect(lessons).toHaveLength(40);
+    expect(lessons).toHaveLength(44);
     expect(
       curriculum.flatMap((s) =>
         s.lessons.filter((l) => l.project).map((l) => l.id),
