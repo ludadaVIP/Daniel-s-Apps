@@ -12,6 +12,13 @@ import { OperationHookArt, isOperationLab } from './OperationLabs';
 import { AlgebraHookArt, isAlgebraLab } from './AlgebraLabs';
 import { CircleHookArt, isCircleLab } from './CircleLabs';
 import { ChanceHookArt, isChanceLab } from './ChanceLabs';
+import { AppliedHookArt, isAppliedLab } from './AppliedLabs';
+import { RationalHookArt, isRationalLab } from './RationalLabs';
+import { PolynomialHookArt, isPolynomialLab } from './PolynomialLabs';
+import { LinearHookArt, isLinearLab } from './LinearLabs';
+import { PlaneHookArt, isPlaneLab } from './PlaneLabs';
+import { CartesianHookArt, isCartesianLab } from './CartesianLabs';
+import { InferenceHookArt, isInferenceLab } from './InferenceLabs';
 import { CalculationHookArt, isCalculationLab } from './CalculationLabs';
 import { MeasurementHookArt, isMeasurementLab } from './MeasurementLabs';
 import { ProblemHookArt, isProblemLab } from './ProblemLabs';
@@ -145,7 +152,21 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isChanceLab(l.lab) ? (
+              {isInferenceLab(l.lab) ? (
+                <InferenceHookArt kind={l.lab} mode={mode} />
+              ) : isCartesianLab(l.lab) ? (
+                <CartesianHookArt kind={l.lab} mode={mode} />
+              ) : isPlaneLab(l.lab) ? (
+                <PlaneHookArt kind={l.lab} mode={mode} />
+              ) : isLinearLab(l.lab) ? (
+                <LinearHookArt kind={l.lab} mode={mode} />
+              ) : isPolynomialLab(l.lab) ? (
+                <PolynomialHookArt kind={l.lab} mode={mode} />
+              ) : isRationalLab(l.lab) ? (
+                <RationalHookArt kind={l.lab} mode={mode} />
+              ) : isAppliedLab(l.lab) ? (
+                <AppliedHookArt kind={l.lab} mode={mode} />
+              ) : isChanceLab(l.lab) ? (
                 <ChanceHookArt kind={l.lab} mode={mode} />
               ) : isCircleLab(l.lab) ? (
                 <CircleHookArt kind={l.lab} mode={mode} />

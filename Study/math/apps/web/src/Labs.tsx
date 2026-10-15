@@ -19,6 +19,13 @@ import { SignedLab, isSignedLab } from './SignedLabs';
 import { AlgebraLab, isAlgebraLab } from './AlgebraLabs';
 import { CircleLab, isCircleLab } from './CircleLabs';
 import { ChanceLab, isChanceLab } from './ChanceLabs';
+import { AppliedLab, isAppliedLab } from './AppliedLabs';
+import { RationalLab, isRationalLab } from './RationalLabs';
+import { PolynomialLab, isPolynomialLab } from './PolynomialLabs';
+import { LinearLab, isLinearLab } from './LinearLabs';
+import { PlaneLab, isPlaneLab } from './PlaneLabs';
+import { CartesianLab, isCartesianLab } from './CartesianLabs';
+import { InferenceLab, isInferenceLab } from './InferenceLabs';
 import {
   FractionProductLab,
   isFractionProductLab,
@@ -350,7 +357,21 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isChanceLab(kind) ? (
+  return isInferenceLab(kind) ? (
+    <InferenceLab key={kind} kind={kind} mode={mode} />
+  ) : isCartesianLab(kind) ? (
+    <CartesianLab key={kind} kind={kind} mode={mode} />
+  ) : isPlaneLab(kind) ? (
+    <PlaneLab key={kind} kind={kind} mode={mode} />
+  ) : isLinearLab(kind) ? (
+    <LinearLab key={kind} kind={kind} mode={mode} />
+  ) : isPolynomialLab(kind) ? (
+    <PolynomialLab key={kind} kind={kind} mode={mode} />
+  ) : isRationalLab(kind) ? (
+    <RationalLab key={kind} kind={kind} mode={mode} />
+  ) : isAppliedLab(kind) ? (
+    <AppliedLab kind={kind} mode={mode} />
+  ) : isChanceLab(kind) ? (
     <ChanceLab kind={kind} mode={mode} />
   ) : isCircleLab(kind) ? (
     <CircleLab kind={kind} mode={mode} />

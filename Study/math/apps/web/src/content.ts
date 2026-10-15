@@ -101,6 +101,41 @@ import {
   p67CheckQuestions,
   p67ReviewQuestion,
 } from './content/P67';
+import {
+  p68Lessons,
+  p68CheckQuestions,
+  p68ReviewQuestion,
+} from './content/P68';
+import {
+  j71Lessons,
+  j71CheckQuestions,
+  j71ReviewQuestion,
+} from './content/J71';
+import {
+  j72Lessons,
+  j72CheckQuestions,
+  j72ReviewQuestion,
+} from './content/J72';
+import {
+  j73Lessons,
+  j73CheckQuestions,
+  j73ReviewQuestion,
+} from './content/J73';
+import {
+  j74Lessons,
+  j74CheckQuestions,
+  j74ReviewQuestion,
+} from './content/J74';
+import {
+  j75Lessons,
+  j75CheckQuestions,
+  j75ReviewQuestion,
+} from './content/J75';
+import {
+  j76Lessons,
+  j76CheckQuestions,
+  j76ReviewQuestion,
+} from './content/J76';
 export const curriculum = curriculumData;
 export const lessons: Lesson[] = [
   ...b01Lessons,
@@ -132,6 +167,13 @@ export const lessons: Lesson[] = [
   ...p65Lessons,
   ...p66Lessons,
   ...p67Lessons,
+  ...p68Lessons,
+  ...j71Lessons,
+  ...j72Lessons,
+  ...j73Lessons,
+  ...j74Lessons,
+  ...j75Lessons,
+  ...j76Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -145,6 +187,27 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    j76Lessons.map((l) => [l.id, j76ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j75Lessons.map((l) => [l.id, j75ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j74Lessons.map((l) => [l.id, j74ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j73Lessons.map((l) => [l.id, j73ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j72Lessons.map((l) => [l.id, j72ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j71Lessons.map((l) => [l.id, j71ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    p68Lessons.map((l) => [l.id, p68ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     p67Lessons.map((l) => [l.id, p67ReviewQuestion(l.id, 0)]),
   ),
@@ -207,6 +270,13 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('J76-')) return j76ReviewQuestion(id, round);
+  if (id.startsWith('J75-')) return j75ReviewQuestion(id, round);
+  if (id.startsWith('J74-')) return j74ReviewQuestion(id, round);
+  if (id.startsWith('J73-')) return j73ReviewQuestion(id, round);
+  if (id.startsWith('J72-')) return j72ReviewQuestion(id, round);
+  if (id.startsWith('J71-')) return j71ReviewQuestion(id, round);
+  if (id.startsWith('P68-')) return p68ReviewQuestion(id, round);
   if (id.startsWith('P67-')) return p67ReviewQuestion(id, round);
   if (id.startsWith('P66-')) return p66ReviewQuestion(id, round);
   if (id.startsWith('P65-')) return p65ReviewQuestion(id, round);
@@ -229,6 +299,58 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  J76: {
+    id: 'J76-CHECK',
+    unit: 'J76',
+    title: t(
+      '数据与概率推理小回顾',
+      'A small data and probability reasoning review',
+    ),
+    questions: j76CheckQuestions,
+    bridge: 'J76-L01',
+  },
+  J75: {
+    id: 'J75-CHECK',
+    unit: 'J75',
+    title: t('坐标与规律小回顾', 'A small coordinates and patterns review'),
+    questions: j75CheckQuestions,
+    bridge: 'J75-L01',
+  },
+  J74: {
+    id: 'J74-CHECK',
+    unit: 'J74',
+    title: t('平面几何小回顾', 'A small plane-geometry review'),
+    questions: j74CheckQuestions,
+    bridge: 'J74-L01',
+  },
+  J73: {
+    id: 'J73-CHECK',
+    unit: 'J73',
+    title: t('一元一次方程小回顾', 'A small linear-equation review'),
+    questions: j73CheckQuestions,
+    bridge: 'J73-L01',
+  },
+  J72: {
+    id: 'J72-CHECK',
+    unit: 'J72',
+    title: t('整式与代数小回顾', 'A small expressions and algebra review'),
+    questions: j72CheckQuestions,
+    bridge: 'J72-L01',
+  },
+  J71: {
+    id: 'J71-CHECK',
+    unit: 'J71',
+    title: t('有理数小回顾', 'A small rational number review'),
+    questions: j71CheckQuestions,
+    bridge: 'J71-L01',
+  },
+  P68: {
+    id: 'P68-CHECK',
+    unit: 'P68',
+    title: t('应用问题小回顾', 'A small applied problem review'),
+    questions: p68CheckQuestions,
+    bridge: 'P68-L01',
+  },
   P67: {
     id: 'P67-CHECK',
     unit: 'P67',

@@ -4572,3 +4572,568 @@
 .math-app .math-chance-hook b {
   font-size: clamp(18px, 4vw, 30px);
 }
+.math-app .math-applied-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 200px), 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.math-app .math-applied-lab label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.math-app .math-applied-lab input[type='range'] {
+  width: 100%;
+}
+.math-app .math-applied-lab input[type='text'],
+.math-app .math-applied-lab select,
+.math-app .math-applied-lab textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #8c9a91;
+  border-radius: 8px;
+  background: #fffcf5;
+  color: #203f3c;
+  font: inherit;
+}
+.math-app .math-applied-lab textarea {
+  min-height: 120px;
+}
+.math-app .math-applied-figure {
+  margin: 24px 0;
+  min-width: 0;
+  max-width: 100%;
+}
+.math-app .math-applied-figure > div {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid #d2c9b8;
+  border-radius: 12px;
+  background: #fffcf5;
+}
+.math-app .math-applied-figure > div:focus-visible {
+  outline: 3px solid #b45226;
+  outline-offset: 2px;
+}
+.math-app .math-applied-figure figcaption {
+  margin-top: 10px;
+  line-height: 1.65;
+}
+.math-app .math-applied-figure svg {
+  display: block;
+  max-width: none;
+}
+.math-app .math-applied-figure table {
+  min-width: 430px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.math-app .math-applied-figure th,
+.math-app .math-applied-figure td {
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #d2c9b8;
+}
+.math-app .math-applied-ledger {
+  background: #eee9dc;
+  padding: 12px 20px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+.math-app .math-applied-predict {
+  display: grid;
+  gap: 12px;
+}
+.math-app .math-applied-timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  min-width: 410px;
+}
+.math-app .math-applied-timeline li {
+  display: grid;
+  grid-template-columns: 150px 1fr 70px;
+  gap: 12px;
+  padding: 12px;
+  border-bottom: 1px solid #d2c9b8;
+}
+.math-app .math-applied-hook {
+  border: 1px solid #d2c9b8;
+  background: #eee9dc;
+  border-radius: 16px;
+  padding: 28px;
+  overflow-wrap: anywhere;
+}
+.math-app .math-applied-hook strong {
+  font-size: clamp(20px, 4vw, 38px);
+  color: #156a66;
+}
+.math-app .math-rational-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.math-app .math-rational-lab label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.math-app .math-rational-lab input[type='range'] {
+  width: 100%;
+}
+.math-app .math-rational-lab input[type='text'],
+.math-app .math-rational-lab select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  font: inherit;
+  padding: 12px;
+  border: 1px solid #9491b3;
+  border-radius: 10px;
+  background: #fffcf5;
+  color: #302f49;
+}
+.math-app .math-rational-check {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+.math-app .math-rational-formula {
+  font-size: clamp(18px, 3vw, 26px);
+  overflow-wrap: anywhere;
+  line-height: 1.7;
+}
+.math-app .math-rational-hook {
+  border: 1px solid #d2cbe5;
+  border-radius: 16px;
+  padding: 24px;
+  background: #f0edf8;
+  overflow-wrap: anywhere;
+}
+.math-app .math-rational-hook strong {
+  font-size: clamp(20px, 3vw, 32px);
+  color: #5954a3;
+}
+.math-app .math-rational-trace {
+  padding-left: 24px;
+}
+.math-app .math-rational-trace li {
+  padding: 8px 0;
+  border-bottom: 1px solid #d2cbe5;
+}
+.math-app .math-poly-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 16px;
+  margin: 20px 0;
+}
+.math-app .math-poly-lab label {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+.math-app .math-poly-lab input[type='range'] {
+  width: 100%;
+}
+.math-app .math-poly-lab input[type='text'],
+.math-app .math-poly-lab select {
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  padding: 12px;
+  font: inherit;
+  color: #302f49;
+  background: #fffcf5;
+  border: 1px solid #9491b3;
+  border-radius: 10px;
+}
+.math-app .math-poly-task {
+  display: grid;
+  gap: 12px;
+  margin: 20px 0;
+}
+.math-app .math-poly-formula {
+  font-size: clamp(18px, 3vw, 26px);
+  overflow-wrap: anywhere;
+  line-height: 1.75;
+}
+.math-app .math-poly-hook {
+  padding: 24px;
+  border: 1px solid #d2cbe5;
+  border-radius: 16px;
+  background: #f0edf8;
+  overflow-wrap: anywhere;
+}
+.math-app .math-poly-hook strong {
+  font-size: clamp(20px, 3vw, 32px);
+  color: #5954a3;
+}
+.math-app .math-poly-figure {
+  margin: 24px 0;
+  max-width: 100%;
+  min-width: 0;
+}
+.math-app .math-poly-figure > div {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid #d2cbe5;
+  border-radius: 12px;
+  background: #fffcf5;
+}
+.math-app .math-poly-figure > div:focus-visible {
+  outline: 3px solid #5954a3;
+  outline-offset: 2px;
+}
+.math-app .math-poly-figure figcaption {
+  margin-top: 10px;
+  line-height: 1.65;
+}
+.math-app .math-poly-figure svg {
+  display: block;
+  max-width: none;
+}
+.math-app .math-poly-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  padding: 16px;
+}
+.math-app .math-poly-card {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid #9491b3;
+  border-radius: 10px;
+  font-size: 20px;
+  background: #f0edf8;
+}
+.math-app .math-poly-bucket {
+  border: 1px dashed #9491b3;
+  padding: 10px;
+  border-radius: 12px;
+}
+.math-app .math-poly-bucket p {
+  margin: 8px 0;
+}
+.math-linear-lab,
+.math-linear-controls,
+.math-linear-task,
+.math-linear-candidate {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.math-linear-task,
+.math-linear-candidate {
+  border: 1px solid var(--border, #c7c1af);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.math-linear-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-linear-lab input,
+.math-linear-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-linear-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-linear-formula,
+.math-linear-steps li,
+.math-linear-hook {
+  overflow-wrap: anywhere;
+  font-variant-numeric: tabular-nums;
+}
+.math-linear-formula {
+  font-size: 1.15rem;
+  font-weight: 700;
+}
+.math-linear-steps {
+  padding-left: 1.3rem;
+}
+.math-linear-steps li {
+  margin-bottom: 0.8rem;
+}
+.math-linear-steps li[data-safe='false'] {
+  border-left: 3px solid #a14532;
+  padding-left: 0.6rem;
+}
+.math-linear-hook {
+  padding: 1.3rem;
+  background: #f5efdf;
+  border-radius: 12px;
+}
+.math-linear-hook strong {
+  display: block;
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+.math-plane-lab,
+.math-plane-controls,
+.math-plane-task {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.math-plane-task,
+.math-plane-lab fieldset {
+  border: 1px solid var(--line, #e5e3eb);
+  border-radius: 12px;
+  padding: 1rem;
+  min-width: 0;
+}
+.math-plane-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-plane-lab input:not([type='checkbox']),
+.math-plane-lab select,
+.math-plane-lab textarea {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-plane-lab textarea {
+  min-height: 8rem;
+}
+.math-plane-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-plane-lab .math-plane-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  margin: 0.7rem 0;
+}
+.math-plane-check input {
+  flex: 0 0 auto;
+  margin-top: 0.4rem;
+}
+.math-plane-scroll {
+  overflow: auto;
+  max-width: 100%;
+}
+.math-plane-figure {
+  margin: 0;
+  min-width: 0;
+}
+.math-plane-figure svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.math-plane-scroll svg {
+  min-width: 400px;
+}
+.math-plane-figure text {
+  fill: currentColor;
+  font-family: inherit;
+  font-size: 15px;
+}
+.math-plane-figure figcaption {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 0.6rem;
+}
+.math-plane-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #eeeaf8;
+  overflow-wrap: anywhere;
+}
+.math-plane-hook strong {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+.math-cart-lab,
+.math-cart-controls,
+.math-cart-task {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.math-cart-task {
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+.math-cart-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-cart-lab input,
+.math-cart-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-cart-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-cart-lab table {
+  border-collapse: collapse;
+  width: 100%;
+}
+.math-cart-lab th,
+.math-cart-lab td {
+  border: 1px solid var(--line);
+  padding: 0.5rem;
+  text-align: center;
+}
+.math-cart-figure {
+  margin: 0;
+  min-width: 0;
+}
+.math-cart-scroll {
+  max-width: 100%;
+  overflow: auto;
+}
+.math-cart-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 460px;
+  height: auto;
+}
+.math-cart-figure svg:focus-visible {
+  outline: 3px solid #a88835;
+  outline-offset: -3px;
+}
+.math-cart-figure text {
+  fill: currentColor;
+  font-size: 14px;
+  font-family: inherit;
+}
+.math-cart-figure figcaption {
+  margin-top: 0.6rem;
+  color: var(--muted);
+  font-size: 0.88rem;
+}
+.math-cart-hook {
+  background: #eeedf7;
+  border-radius: 12px;
+  padding: 1.3rem;
+  overflow-wrap: anywhere;
+}
+.math-cart-hook strong {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+.math-inference-lab,
+.math-inference-controls,
+.math-inference-task {
+  display: grid;
+  gap: 0.8rem;
+  min-width: 0;
+}
+.math-inference-task {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.math-inference-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-inference-lab input:not([type='checkbox']),
+.math-inference-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-inference-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-inference-records,
+.math-inference-outcomes {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.math-inference-records span,
+.math-inference-outcomes span {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+  font-variant-numeric: tabular-nums;
+}
+.math-inference-outcomes [data-event-hit='true'] {
+  border: 2px solid var(--accent);
+  background: #eeeaf8;
+}
+.math-inference-figure {
+  margin: 0;
+  min-width: 0;
+}
+.math-inference-scroll {
+  max-width: 100%;
+  overflow: auto;
+}
+.math-inference-scroll svg {
+  width: 100%;
+  min-width: 480px;
+  display: block;
+  height: auto;
+}
+.math-inference-figure text {
+  fill: currentColor;
+  font-size: 15px;
+  font-family: inherit;
+}
+.math-inference-figure figcaption {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0.5rem 0;
+}
+.math-inference-lab table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.math-inference-lab th,
+.math-inference-lab td {
+  border: 1px solid var(--line);
+  padding: 0.4rem;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.math-inference-lab .math-inference-check {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+}
+.math-inference-check input {
+  margin-top: 0.5rem;
+  flex: 0 0 auto;
+}
+.math-inference-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #eeeaf8;
+  overflow-wrap: anywhere;
+}
+.math-inference-hook strong {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}

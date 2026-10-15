@@ -1,5 +1,14 @@
 import type { LanguageMode } from '@study/shared';
 import { AlgebraGroups } from './AlgebraVisuals';
+import { RationalLine } from './RationalVisuals';
+import { DotDistribution } from './InferenceVisuals';
+import { CartesianPlot } from './CartesianVisuals';
+import {
+  ObjectView,
+  IntersectionView,
+  ParallelView,
+  TriangleView,
+} from './PlaneVisuals';
 import { CircleParts, CircleSectors, CylinderNet } from './CircleVisuals';
 import { OrderedCards, Spinner, ChanceTokens } from './ChanceVisuals';
 import { PercentGrid, PercentSource, PercentAxis } from './PercentVisuals';
@@ -229,6 +238,20 @@ export function NumberDiagramView({
   diagram: NumberDiagram;
   mode: LanguageMode;
 }) {
+  if (diagram.kind === 'cartesian')
+    return <CartesianPlot {...diagram} mode={mode} />;
+  if (diagram.kind === 'dot-distribution')
+    return <DotDistribution {...diagram} mode={mode} />;
+  if (diagram.kind === 'plane-object')
+    return <ObjectView kind={diagram.object} mode={mode} />;
+  if (diagram.kind === 'plane-intersection')
+    return <IntersectionView {...diagram} mode={mode} />;
+  if (diagram.kind === 'plane-parallel')
+    return <ParallelView {...diagram} mode={mode} />;
+  if (diagram.kind === 'plane-triangle')
+    return <TriangleView {...diagram} mode={mode} />;
+  if (diagram.kind === 'rational-line')
+    return <RationalLine points={diagram.points} mode={mode} />;
   if (diagram.kind === 'stats-order')
     return <OrderedCards {...diagram} mode={mode} />;
   if (diagram.kind === 'chance-spinner')
