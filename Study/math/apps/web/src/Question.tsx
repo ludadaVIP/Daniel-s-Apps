@@ -11,6 +11,82 @@ import { NumberDiagramView } from './NumberVisuals';
 import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'similarity-class')
+    return t(
+      '写相似/不相似，或 similar / not similar；旋转和反射不改变相似性。',
+      'Enter similar or not similar; rotation and reflection preserve similarity.',
+    );
+  if (spec.kind === 'similarity-rule')
+    return t(
+      '写 AA / SAS / SSS 或条件不足；SAS须夹角，SSS须三对边同倍率，理由另核。',
+      'Enter AA, SAS, SSS or insufficient. SAS needs the included angle; SSS needs three equal corresponding-side ratios. Explain the evidence separately.',
+    );
+  if (lessonId?.startsWith('J94-') && spec.kind === 'proof-verdict')
+    return t(
+      '写充分/条件不足，或 sufficient / insufficient；只用明确给定的相似、比例或建模前提。',
+      'Enter sufficient or insufficient, using only supplied similarity, ratio or modelling premises.',
+    );
+  if (spec.kind === 'parabola-class')
+    return t(
+      '按a的符号写向上/向下/非二次函数，或 up / down / not-quadratic；先确认a≠0。',
+      'Use up, down or not-quadratic according to a; check a≠0 first.',
+    );
+  if (spec.kind === 'quadratic-form')
+    return t(
+      '只写y右侧，用x及有理系数；函数须完全等价，还须完成指定形式。一般式合并同类项，顶点式保留单个移位平方，因式形式保留两个一次因子的乘积或重因子的平方。',
+      'Enter only the right side in x with rational coefficients. Match the entire function and requested form: collected standard terms, one shifted square for vertex form, or a product of two linear factors (possibly repeated).',
+    );
+  if (lessonId?.startsWith('J93-L05') && spec.kind === 'quadratic-roots')
+    return t(
+      '写全部达到指定最值的允许输入，多个用逗号分隔、不重复、不附单位；不要把最大/最小输出当作输入。',
+      'List every allowed input attaining the specified extremum, comma-separated, without duplicates or units. Do not submit the maximum/minimum output as an input.',
+    );
+  if (spec.kind === 'quadratic-roots')
+    return t(
+      '写全部不同精确根，用逗号分隔或 (3±√5)/2；重根只写一次。没有符合题意的解写 ∅、无实数解或 no real solutions；应用题须按题设范围筛选，无可行值可写 ∅ 或 no feasible solutions。',
+      'Enter every distinct exact root, comma-separated or as (3±√5)/2. List a repeated root once. Use ∅ or no real solutions when none meet the question; apply its stated domain and use ∅ or no feasible solutions if none remain.',
+    );
+  if (spec.kind === 'quadratic-kind')
+    return t(
+      '先合并，再写二次方程/一次方程/恒等式/矛盾/高次方程，或 quadratic / linear / identity / contradiction / higher。',
+      'Collect first, then enter quadratic, linear, identity, contradiction or higher.',
+    );
+  if (spec.kind === 'quadratic-equation')
+    return t(
+      '用 x 保留两种原数量在等号两边；可展开或交换两边。不要先移到零边或只写根。',
+      'Write the two original quantities on opposite sides using x. Expansion and swapping sides are allowed; do not transpose to zero or submit only roots.',
+    );
+  if (spec.kind === 'root-set')
+    return t(
+      '写全部实数平方根，逗号分隔，可写 -3,3 或 ±3；零只需 0，没有写“无实数根”或 no real roots。只给正根不算完整。',
+      'Enter every real square root separated by commas, such as -3,3 or ±3. Zero needs only 0; for none use no real roots. A positive root alone is incomplete.',
+    );
+  if (spec.kind === 'radical')
+    return t(
+      spec.simplified
+        ? '写已化简的精确数值式，例 3√2、√2/2、√3−√2；提出平方因子，根号内无分母，分母无根号，同类项合并并省零项。'
+        : '写精确数值根式，可用 √ 或 sqrt(...)，保留符号，不以近似小数或 ± 代替单值。',
+      'Write an exact numerical radical using √ or sqrt(...), retaining signs. ' +
+        (spec.simplified
+          ? 'Extract square factors, remove fractional radicands and radical denominators, collect like terms and omit zero terms. '
+          : 'Do not replace it by an approximation or ± for a single value. ') +
+        'Letters and denominators with more than two terms are unsupported.',
+    );
+  if (spec.kind === 'real-class')
+    return t(
+      '写有理数 / 无理数 / 非实数，或 rational / irrational / not-real；不只根据屏幕小数外观判断。',
+      'Enter rational, irrational or not-real; do not infer the class from a finite decimal display alone.',
+    );
+  if (spec.kind === 'root-rounded')
+    return t(
+      `按题目四舍五入为恰好 ${spec.places} 位小数，保留所需尾零；零位只写整数，不写分数或根式。`,
+      `Round to exactly ${spec.places} decimal places, keeping required trailing zeros. At zero places enter an integer, not a fraction or radical.`,
+    );
+  if (lessonId?.startsWith('J91-') && spec.kind === 'proof-verdict')
+    return t(
+      '按题意写条件充分或条件不足，或 sufficient / insufficient；负被开方数与零分母要分别说明。',
+      'Enter sufficient or insufficient as requested, explaining negative radicands and zero denominators separately.',
+    );
   if (spec.kind === 'association')
     return t(
       '写正相关、负相关、无明显线性关联或弯曲关联；可用 positive / negative / no-clear-linear / curved。只描述此图，不由相关推因果。',
@@ -288,6 +364,20 @@ export function Question({
   const formMismatch =
     (a.checked &&
       !a.correct &&
+      q.answer.kind === 'quadratic-form' &&
+      checkAnswer(a.input, { ...q.answer, form: undefined }) === true) ||
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'radical' &&
+      q.answer.simplified &&
+      checkAnswer(a.input, { ...q.answer, simplified: false }) === true) ||
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'root-rounded' &&
+      checkAnswer(a.input, { kind: 'number', value: q.answer.value }) ===
+        true) ||
+    (a.checked &&
+      !a.correct &&
       q.answer.kind === 'linear-system' &&
       !!parseLinearSystem(a.input) &&
       sameSystemSolutions(
@@ -300,7 +390,8 @@ export function Question({
       equalPolynomial(a.input, q.answer.value, q.answer.variables)) ||
     (a.checked &&
       !a.correct &&
-      q.answer.kind === 'linear-equation' &&
+      (q.answer.kind === 'linear-equation' ||
+        q.answer.kind === 'quadratic-equation') &&
       q.answer.model !== false &&
       checkAnswer(a.input, { ...q.answer, model: false }) === true) ||
     (a.checked &&
@@ -488,7 +579,8 @@ export function Question({
                           '↳ 解集相同；本题需保留两条原数量关系。',
                           '↳ The solution set matches; retain both original quantity relationships.',
                         )
-                      : q.answer.kind === 'linear-equation'
+                      : q.answer.kind === 'linear-equation' ||
+                          q.answer.kind === 'quadratic-equation'
                         ? t(
                             '↳ 解集相同；本题还需保留题干两种原数量的建模关系。',
                             '↳ The solution set matches; retain the two original quantities in the modelling equation.',

@@ -1,4 +1,17 @@
 import type { LanguageMode } from '@study/shared';
+import {
+  SimilarityPair,
+  NestedSimilarity,
+  ScaleAreaView,
+} from './SimilarityVisuals';
+import {
+  baseSimilarTriangle,
+  similarityImage,
+  similarityNumericPoints,
+} from './similarityModels';
+import { ParabolaGraph } from './ParabolaVisuals';
+import { QuadraticGraph, CompletingArea } from './QuadraticVisuals';
+import { RadicalTiles, RootBoundsView } from './RadicalVisuals';
 import { ResearchBoxes, ResearchScatter } from './ResearchVisuals';
 import { AlgebraGroups } from './AlgebraVisuals';
 import {
@@ -256,6 +269,32 @@ export function NumberDiagramView({
     return <PythagoreanTriangleView {...diagram} mode={mode} />;
   if (diagram.kind === 'pythagorean-dissection')
     return <DissectionView {...diagram} mode={mode} />;
+  if (diagram.kind === 'similarity-pair')
+    return (
+      <SimilarityPair
+        mode={mode}
+        source={similarityNumericPoints(baseSimilarTriangle)}
+        target={similarityNumericPoints(
+          similarityImage(baseSimilarTriangle, diagram.factor),
+        )}
+        turns={1}
+        mirror
+      />
+    );
+  if (diagram.kind === 'similarity-nested')
+    return <NestedSimilarity mode={mode} />;
+  if (diagram.kind === 'similarity-area')
+    return <ScaleAreaView mode={mode} sx={diagram.sx} sy={diagram.sy} />;
+  if (diagram.kind === 'parabola')
+    return <ParabolaGraph {...diagram} mode={mode} />;
+  if (diagram.kind === 'quadratic-graph')
+    return <QuadraticGraph {...diagram} mode={mode} />;
+  if (diagram.kind === 'completing-area')
+    return <CompletingArea {...diagram} mode={mode} />;
+  if (diagram.kind === 'radical-tiles')
+    return <RadicalTiles {...diagram} mode={mode} />;
+  if (diagram.kind === 'root-bounds')
+    return <RootBoundsView {...diagram} mode={mode} />;
   if (diagram.kind === 'research-boxes')
     return <ResearchBoxes {...diagram} mode={mode} />;
   if (diagram.kind === 'research-scatter')

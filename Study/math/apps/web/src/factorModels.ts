@@ -28,7 +28,7 @@ const normalise = (raw: string) =>
     .replace(/（/g, '(')
     .replace(/）/g, ')')
     .replace(/[²³⁴]/g, (c) => `^${c === '²' ? 2 : c === '³' ? 3 : 4}`);
-function factorTree(
+export function factorTree(
   raw: string,
   variables: readonly string[],
 ): FactorNode | null {

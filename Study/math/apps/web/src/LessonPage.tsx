@@ -20,6 +20,10 @@ import { PlaneHookArt, isPlaneLab } from './PlaneLabs';
 import { CartesianHookArt, isCartesianLab } from './CartesianLabs';
 import { SystemHookArt, isSystemLab } from './SystemLabs';
 import { FunctionHookArt, isFunctionLab } from './FunctionLabs';
+import { SimilarityHookArt, isSimilarityLab } from './SimilarityLabs';
+import { ParabolaHookArt, isParabolaLab } from './ParabolaLabs';
+import { QuadraticHookArt, isQuadraticLab } from './QuadraticLabs';
+import { RadicalHookArt, isRadicalLab } from './RadicalLabs';
 import { ResearchHookArt, isResearchLab } from './ResearchLabs';
 import { PythagoreanHookArt, isPythagoreanLab } from './PythagoreanLabs';
 import { CongruenceHookArt, isCongruenceLab } from './CongruenceLabs';
@@ -160,7 +164,15 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isResearchLab(l.lab) ? (
+              {isSimilarityLab(l.lab) ? (
+                <SimilarityHookArt kind={l.lab} mode={mode} />
+              ) : isParabolaLab(l.lab) ? (
+                <ParabolaHookArt kind={l.lab} mode={mode} />
+              ) : isQuadraticLab(l.lab) ? (
+                <QuadraticHookArt kind={l.lab} mode={mode} />
+              ) : isRadicalLab(l.lab) ? (
+                <RadicalHookArt kind={l.lab} mode={mode} />
+              ) : isResearchLab(l.lab) ? (
                 <ResearchHookArt kind={l.lab} mode={mode} />
               ) : isPythagoreanLab(l.lab) ? (
                 <PythagoreanHookArt kind={l.lab} mode={mode} />

@@ -27,6 +27,10 @@ import { PlaneLab, isPlaneLab } from './PlaneLabs';
 import { CartesianLab, isCartesianLab } from './CartesianLabs';
 import { SystemLab, isSystemLab } from './SystemLabs';
 import { FunctionLab, isFunctionLab } from './FunctionLabs';
+import { SimilarityLab, isSimilarityLab } from './SimilarityLabs';
+import { ParabolaLab, isParabolaLab } from './ParabolaLabs';
+import { QuadraticLab, isQuadraticLab } from './QuadraticLabs';
+import { RadicalLab, isRadicalLab } from './RadicalLabs';
 import { ResearchLab, isResearchLab } from './ResearchLabs';
 import { PythagoreanLab, isPythagoreanLab } from './PythagoreanLabs';
 import { CongruenceLab, isCongruenceLab } from './CongruenceLabs';
@@ -365,7 +369,15 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isResearchLab(kind) ? (
+  return isSimilarityLab(kind) ? (
+    <SimilarityLab key={kind} kind={kind} mode={mode} />
+  ) : isParabolaLab(kind) ? (
+    <ParabolaLab key={kind} kind={kind} mode={mode} />
+  ) : isQuadraticLab(kind) ? (
+    <QuadraticLab key={kind} kind={kind} mode={mode} />
+  ) : isRadicalLab(kind) ? (
+    <RadicalLab key={kind} kind={kind} mode={mode} />
+  ) : isResearchLab(kind) ? (
     <ResearchLab key={kind} kind={kind} mode={mode} />
   ) : isPythagoreanLab(kind) ? (
     <PythagoreanLab key={kind} kind={kind} mode={mode} />

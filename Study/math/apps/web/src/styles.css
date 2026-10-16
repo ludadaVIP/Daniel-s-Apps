@@ -5714,3 +5714,171 @@
   background: #ece7f6;
   border-color: #5954a3;
 }
+
+.math-app .math-radical-lab {
+  min-width: 0;
+}
+.math-app .math-radical-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+.math-app .math-radical-lab label {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.math-app .math-radical-lab input,
+.math-app .math-radical-lab select {
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem;
+  border: 1px solid #d8d2e2;
+  border-radius: 0.55rem;
+  font: inherit;
+  background: #fff;
+  color: #292439;
+}
+.math-app .math-radical-lab input[type='checkbox'] {
+  width: auto;
+  justify-self: start;
+}
+.math-app .math-radical-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.math-app .math-radical-task {
+  border: 1px solid #ded8e7;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.math-app .math-radical-figure {
+  margin: 1.5rem 0;
+  min-width: 0;
+}
+.math-app .math-radical-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.math-app .math-radical-scroll svg {
+  display: block;
+  min-width: 600px;
+  width: 100%;
+  height: auto;
+}
+.math-app .math-radical-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.math-quadratic-lab {
+  min-width: 0;
+}
+.math-quadratic-lab label,
+.math-quadratic-task label {
+  display: grid;
+  gap: 0.4rem;
+  margin: 0.75rem 0;
+}
+.math-quadratic-lab input:not([type='range']),
+.math-quadratic-lab select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  padding: 0.65rem;
+  border: 1px solid #b9b3c9;
+  border-radius: 0.5rem;
+  font: inherit;
+  background: var(--math-card, #fff);
+  color: inherit;
+}
+.math-quadratic-controls,
+.math-quadratic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+}
+.math-quadratic-controls label {
+  flex: 1 1 160px;
+}
+.math-quadratic-task {
+  margin: 1rem 0;
+  padding: 1rem;
+  background: #f4f0f8;
+  border-radius: 0.7rem;
+  overflow-wrap: anywhere;
+}
+.math-quadratic-figure {
+  margin: 1rem 0;
+  min-width: 0;
+  max-width: 100%;
+}
+.math-quadratic-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid #ded8e8;
+  border-radius: 0.6rem;
+}
+.math-quadratic-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 600px;
+  color: #393348;
+}
+.math-quadratic-scroll:focus-visible {
+  outline: 3px solid #5954a3;
+}
+.math-quadratic-figure figcaption,
+.math-quadratic-legend {
+  padding: 0.6rem;
+  font-size: 0.9rem;
+  overflow-wrap: anywhere;
+}
+.math-quadratic-actions .math-button {
+  white-space: normal;
+}
+
+.math-similarity-figure {
+  margin: 1rem 0;
+  min-width: 0;
+}
+.math-similarity-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid var(--math-line, #dedbd5);
+  border-radius: 12px;
+  background: #faf9f5;
+}
+.math-similarity-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+}
+.math-similarity-scroll:focus-visible {
+  outline: 3px solid #6355ac;
+  outline-offset: 3px;
+}
+.math-similarity-figure figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.math-similarity-lab input[type='checkbox'] {
+  width: 1.1rem;
+  min-height: 1.1rem;
+  height: 1.1rem;
+  flex: 0 0 auto;
+}
+.math-similarity-toggle {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+}

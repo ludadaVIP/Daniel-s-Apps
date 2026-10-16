@@ -1,3 +1,28 @@
+import {
+  checkSimilarityClass,
+  checkSimilarityRule,
+  type SimilarityClass,
+  type SimilarityRule,
+} from './similarityModels';
+import {
+  checkParabolaOpening,
+  checkQuadraticForm,
+  type ParabolaOpening,
+  type QuadraticForm,
+} from './parabolaModels';
+import {
+  checkRadicalSet,
+  checkQuadraticEquation,
+  checkQuadraticKind,
+  type QuadraticKind,
+} from './quadraticModels';
+import {
+  checkRadical,
+  checkRootSet,
+  checkRealClass,
+  checkRoundedRoot,
+  type RealClass,
+} from './radicalModels';
 import type { LocalizedText } from '@study/shared';
 import { equivalentExpression } from './algebraModels';
 import { checkPiMultiple } from './circleModels';
@@ -34,6 +59,21 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'similarity-class'; value: SimilarityClass }
+  | {
+      kind: 'similarity-rule';
+      value: SimilarityRule;
+      alternatives?: SimilarityRule[];
+    }
+  | { kind: 'parabola-class'; value: ParabolaOpening }
+  | { kind: 'quadratic-form'; value: string; form?: QuadraticForm }
+  | { kind: 'quadratic-roots'; values: string[]; value: string }
+  | { kind: 'quadratic-equation'; value: string; model?: boolean }
+  | { kind: 'quadratic-kind'; value: QuadraticKind }
+  | { kind: 'radical'; value: string; simplified?: boolean }
+  | { kind: 'root-set'; radicand: string; value: string }
+  | { kind: 'real-class'; value: RealClass }
+  | { kind: 'root-rounded'; radicand: string; places: number; value: string }
   | { kind: 'association'; value: Association }
   | { kind: 'root-length'; value: string; square: string }
   | { kind: 'geometry-code'; value: string; reversible?: boolean }
@@ -108,6 +148,20 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | { kind: 'similarity-pair'; factor: string }
+  | { kind: 'similarity-nested' }
+  | { kind: 'similarity-area'; sx: number; sy?: number }
+  | {
+      kind: 'parabola';
+      source: string;
+      level?: string;
+      wide?: boolean;
+      domain?: { lower: string; upper: string; whole?: boolean };
+    }
+  | { kind: 'quadratic-graph'; source: string; wide?: boolean }
+  | { kind: 'completing-area'; source: string; xValue?: number }
+  | { kind: 'radical-tiles'; radicand: string }
+  | { kind: 'root-bounds'; radicand: string; places: number }
   | {
       kind: 'research-boxes';
       groups: { name: string; values: string[] }[];
@@ -354,6 +408,27 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'similarity-meaning'
+    | 'similarity-tests'
+    | 'similarity-sides'
+    | 'similarity-area'
+    | 'similarity-applications'
+    | 'parabola-opening'
+    | 'parabola-vertex'
+    | 'parabola-forms'
+    | 'parabola-intersections'
+    | 'parabola-maximum'
+    | 'quadratic-meaning'
+    | 'quadratic-factor'
+    | 'quadratic-complete'
+    | 'quadratic-formula'
+    | 'quadratic-discriminant'
+    | 'quadratic-apply'
+    | 'radical-meaning'
+    | 'radical-real'
+    | 'radical-simplify'
+    | 'radical-operations'
+    | 'radical-estimate'
     | 'research-quartiles'
     | 'research-spread'
     | 'research-scatter'
@@ -659,6 +734,26 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'similarity-class')
+    return checkSimilarityClass(input, spec.value);
+  if (spec.kind === 'similarity-rule')
+    return checkSimilarityRule(input, spec.value, spec.alternatives);
+  if (spec.kind === 'parabola-class')
+    return checkParabolaOpening(input, spec.value);
+  if (spec.kind === 'quadratic-form')
+    return checkQuadraticForm(input, spec.value, spec.form);
+  if (spec.kind === 'quadratic-roots')
+    return checkRadicalSet(input, spec.values);
+  if (spec.kind === 'quadratic-equation')
+    return checkQuadraticEquation(input, spec.value, spec.model !== false);
+  if (spec.kind === 'quadratic-kind')
+    return checkQuadraticKind(input, spec.value);
+  if (spec.kind === 'radical')
+    return checkRadical(input, spec.value, spec.simplified);
+  if (spec.kind === 'root-set') return checkRootSet(input, spec.radicand);
+  if (spec.kind === 'real-class') return checkRealClass(input, spec.value);
+  if (spec.kind === 'root-rounded')
+    return checkRoundedRoot(input, spec.radicand, spec.places);
   if (spec.kind === 'association') return checkAssociation(input, spec.value);
   if (spec.kind === 'root-length') return checkRootLength(input, spec.square);
   if (spec.kind === 'geometry-code')

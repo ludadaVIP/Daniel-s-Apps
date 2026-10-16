@@ -1,4 +1,24 @@
 import {
+  j94Lessons,
+  j94ReviewQuestion,
+  j94CheckQuestions,
+} from './content/J94';
+import {
+  j93Lessons,
+  j93ReviewQuestion,
+  j93CheckQuestions,
+} from './content/J93';
+import {
+  j92Lessons,
+  j92ReviewQuestion,
+  j92CheckQuestions,
+} from './content/J92';
+import {
+  j91Lessons,
+  j91ReviewQuestion,
+  j91CheckQuestions,
+} from './content/J91';
+import {
   j88Lessons,
   j88ReviewQuestion,
   j88CheckQuestions,
@@ -222,6 +242,10 @@ export const lessons: Lesson[] = [
   ...j86Lessons,
   ...j87Lessons,
   ...j88Lessons,
+  ...j91Lessons,
+  ...j92Lessons,
+  ...j93Lessons,
+  ...j94Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -235,6 +259,15 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    j94Lessons.map((l) => [l.id, j94ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j93Lessons.map((l) => [l.id, j93ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j92Lessons.map((l) => [l.id, j92ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     j76Lessons.map((l) => [l.id, j76ReviewQuestion(l.id, 0)]),
   ),
@@ -318,6 +351,10 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('J94-')) return j94ReviewQuestion(id, round);
+  if (id.startsWith('J93-')) return j93ReviewQuestion(id, round);
+  if (id.startsWith('J92-')) return j92ReviewQuestion(id, round);
+  if (id.startsWith('J91-')) return j91ReviewQuestion(id, round);
   if (id.startsWith('J88-')) return j88ReviewQuestion(id, round);
   if (id.startsWith('J87-')) return j87ReviewQuestion(id, round);
   if (id.startsWith('J86-')) return j86ReviewQuestion(id, round);
@@ -355,6 +392,34 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  J94: {
+    id: 'J94-CHECK',
+    unit: 'J94',
+    title: t('相似图形小回顾', 'A small similarity review'),
+    questions: j94CheckQuestions,
+    bridge: 'J94-L01',
+  },
+  J93: {
+    id: 'J93-CHECK',
+    unit: 'J93',
+    title: t('二次函数小回顾', 'A small quadratic-functions review'),
+    questions: j93CheckQuestions,
+    bridge: 'J93-L01',
+  },
+  J92: {
+    id: 'J92-CHECK',
+    unit: 'J92',
+    title: t('一元二次方程小回顾', 'A small quadratic-equations review'),
+    questions: j92CheckQuestions,
+    bridge: 'J92-L01',
+  },
+  J91: {
+    id: 'J91-CHECK',
+    unit: 'J91',
+    title: t('根式与实数小回顾', 'A small radicals and real-numbers review'),
+    questions: j91CheckQuestions,
+    bridge: 'J91-L01',
+  },
   J88: {
     id: 'J88-CHECK',
     unit: 'J88',
