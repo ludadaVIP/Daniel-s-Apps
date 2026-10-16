@@ -19,6 +19,10 @@ import { LinearHookArt, isLinearLab } from './LinearLabs';
 import { PlaneHookArt, isPlaneLab } from './PlaneLabs';
 import { CartesianHookArt, isCartesianLab } from './CartesianLabs';
 import { SystemHookArt, isSystemLab } from './SystemLabs';
+import { FunctionHookArt, isFunctionLab } from './FunctionLabs';
+import { ResearchHookArt, isResearchLab } from './ResearchLabs';
+import { PythagoreanHookArt, isPythagoreanLab } from './PythagoreanLabs';
+import { CongruenceHookArt, isCongruenceLab } from './CongruenceLabs';
 import { InequalityHookArt, isInequalityLab } from './InequalityLabs';
 import { FactorHookArt, isFactorLab } from './FactorLabs';
 import { IdentityHookArt, isIdentityLab } from './IdentityLabs';
@@ -156,7 +160,17 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isInequalityLab(l.lab) ? (<InequalityHookArt kind={l.lab} mode={mode} />) : isSystemLab(l.lab) ? (
+              {isResearchLab(l.lab) ? (
+                <ResearchHookArt kind={l.lab} mode={mode} />
+              ) : isPythagoreanLab(l.lab) ? (
+                <PythagoreanHookArt kind={l.lab} mode={mode} />
+              ) : isCongruenceLab(l.lab) ? (
+                <CongruenceHookArt kind={l.lab} mode={mode} />
+              ) : isFunctionLab(l.lab) ? (
+                <FunctionHookArt kind={l.lab} mode={mode} />
+              ) : isInequalityLab(l.lab) ? (
+                <InequalityHookArt kind={l.lab} mode={mode} />
+              ) : isSystemLab(l.lab) ? (
                 <SystemHookArt kind={l.lab} mode={mode} />
               ) : isFactorLab(l.lab) ? (
                 <FactorHookArt kind={l.lab} mode={mode} />

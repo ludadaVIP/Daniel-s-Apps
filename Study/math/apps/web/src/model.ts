@@ -12,7 +12,21 @@ import { checkGeometryClass, type GeometryClass } from './planeModels';
 import { checkOutcomeSet } from './inferenceModels';
 import { checkFactorisation } from './factorModels';
 import { checkSystemModel, checkSystemClass } from './systemModels';
+import {
+  checkGeometryCode,
+  checkCongruenceRule,
+  checkProofVerdict,
+  type CongruenceRule,
+  type ProofVerdict,
+} from './congruenceModels';
+import {
+  checkAssociation,
+  type Association,
+  type PairedRecord,
+} from './researchModels';
+import { checkRootLength } from './pythagoreanModels';
 import { checkRealSet } from './inequalityModels';
+import { checkFunctionClass, type FunctionClass } from './functionModels';
 import {
   checkCoordinate,
   type PlotBounds,
@@ -20,6 +34,16 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'association'; value: Association }
+  | { kind: 'root-length'; value: string; square: string }
+  | { kind: 'geometry-code'; value: string; reversible?: boolean }
+  | {
+      kind: 'congruence-rule';
+      value: CongruenceRule;
+      alternatives?: CongruenceRule[];
+    }
+  | { kind: 'proof-verdict'; value: ProofVerdict }
+  | { kind: 'function-class'; value: FunctionClass }
   | { kind: 'real-set'; value: string }
   | { kind: 'linear-system'; value: string }
   | { kind: 'system-class'; value: 'none' | 'infinite' }
@@ -84,6 +108,44 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | {
+      kind: 'research-boxes';
+      groups: { name: string; values: string[] }[];
+      min?: number;
+      max?: number;
+      step?: number;
+    }
+  | {
+      kind: 'research-scatter';
+      records: PairedRecord[];
+      xLabel?: string;
+      yLabel?: string;
+    }
+  | {
+      kind: 'pythagorean-triangle';
+      a: string;
+      b: string;
+      unknown?: 'b' | 'c';
+      right?: boolean;
+      rectangle?: boolean;
+    }
+  | {
+      kind: 'pythagorean-dissection';
+      a: number;
+      b: number;
+      rearranged?: boolean;
+    }
+  | {
+      kind: 'congruence-triangles';
+      source: 'SSS' | 'SAS' | 'SSA' | 'ASA' | 'AAS' | 'AAA';
+    }
+  | { kind: 'congruence-isosceles'; apex: number }
+  | {
+      kind: 'congruence-quadrilateral';
+      shear?: number;
+      height?: number;
+      diagonal?: boolean;
+    }
   | { kind: 'inequality-line'; source: string; wide?: boolean }
   | {
       kind: 'dot-distribution';
@@ -292,6 +354,28 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'research-quartiles'
+    | 'research-spread'
+    | 'research-scatter'
+    | 'research-cause'
+    | 'research-investigate'
+    | 'pyth-translate'
+    | 'pyth-rotate'
+    | 'pyth-proof'
+    | 'pyth-apply'
+    | 'pyth-converse'
+    | 'congruence-meaning'
+    | 'congruence-sides'
+    | 'congruence-angles'
+    | 'congruence-isosceles'
+    | 'congruence-parallelogram'
+    | 'congruence-proof'
+    | 'function-form'
+    | 'function-slope'
+    | 'function-intercept'
+    | 'function-points'
+    | 'function-compare'
+    | 'function-context'
     | 'inequality-meaning'
     | 'inequality-step'
     | 'inequality-reverse'
@@ -575,6 +659,16 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'association') return checkAssociation(input, spec.value);
+  if (spec.kind === 'root-length') return checkRootLength(input, spec.square);
+  if (spec.kind === 'geometry-code')
+    return checkGeometryCode(input, spec.value, spec.reversible);
+  if (spec.kind === 'congruence-rule')
+    return checkCongruenceRule(input, spec.value, spec.alternatives);
+  if (spec.kind === 'proof-verdict')
+    return checkProofVerdict(input, spec.value);
+  if (spec.kind === 'function-class')
+    return checkFunctionClass(input, spec.value);
   if (spec.kind === 'real-set') return checkRealSet(input, spec.value);
   if (spec.kind === 'linear-system') return checkSystemModel(input, spec.value);
   if (spec.kind === 'system-class') return checkSystemClass(input, spec.value);

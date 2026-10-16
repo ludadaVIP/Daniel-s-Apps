@@ -1,5 +1,12 @@
 import type { LanguageMode } from '@study/shared';
+import { ResearchBoxes, ResearchScatter } from './ResearchVisuals';
 import { AlgebraGroups } from './AlgebraVisuals';
+import {
+  CongruenceDiagram,
+  IsoscelesView,
+  QuadrilateralView,
+} from './CongruenceVisuals';
+import { DissectionView, PythagoreanTriangleView } from './PythagoreanVisuals';
 import { InequalityDiagram } from './InequalityVisuals';
 import { RationalLine } from './RationalVisuals';
 import { DotDistribution } from './InferenceVisuals';
@@ -239,6 +246,20 @@ export function NumberDiagramView({
   diagram: NumberDiagram;
   mode: LanguageMode;
 }) {
+  if (diagram.kind === 'congruence-triangles')
+    return <CongruenceDiagram {...diagram} mode={mode} />;
+  if (diagram.kind === 'congruence-isosceles')
+    return <IsoscelesView {...diagram} mode={mode} />;
+  if (diagram.kind === 'congruence-quadrilateral')
+    return <QuadrilateralView {...diagram} mode={mode} />;
+  if (diagram.kind === 'pythagorean-triangle')
+    return <PythagoreanTriangleView {...diagram} mode={mode} />;
+  if (diagram.kind === 'pythagorean-dissection')
+    return <DissectionView {...diagram} mode={mode} />;
+  if (diagram.kind === 'research-boxes')
+    return <ResearchBoxes {...diagram} mode={mode} />;
+  if (diagram.kind === 'research-scatter')
+    return <ResearchScatter {...diagram} mode={mode} />;
   if (diagram.kind === 'cartesian')
     return <CartesianPlot {...diagram} mode={mode} />;
   if (diagram.kind === 'dot-distribution')
@@ -251,7 +272,8 @@ export function NumberDiagramView({
     return <ParallelView {...diagram} mode={mode} />;
   if (diagram.kind === 'plane-triangle')
     return <TriangleView {...diagram} mode={mode} />;
-  if (diagram.kind === 'inequality-line') return <InequalityDiagram {...diagram} mode={mode} />;
+  if (diagram.kind === 'inequality-line')
+    return <InequalityDiagram {...diagram} mode={mode} />;
   if (diagram.kind === 'rational-line')
     return <RationalLine points={diagram.points} mode={mode} />;
   if (diagram.kind === 'stats-order')

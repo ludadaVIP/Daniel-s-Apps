@@ -1,4 +1,28 @@
-import { j84Lessons, j84ReviewQuestion, j84CheckQuestions } from './content/J84';
+import {
+  j88Lessons,
+  j88ReviewQuestion,
+  j88CheckQuestions,
+} from './content/J88';
+import {
+  j84Lessons,
+  j84ReviewQuestion,
+  j84CheckQuestions,
+} from './content/J84';
+import {
+  j85Lessons,
+  j85ReviewQuestion,
+  j85CheckQuestions,
+} from './content/J85';
+import {
+  j86Lessons,
+  j86ReviewQuestion,
+  j86CheckQuestions,
+} from './content/J86';
+import {
+  j87Lessons,
+  j87ReviewQuestion,
+  j87CheckQuestions,
+} from './content/J87';
 import curriculumData from '../../../content/curriculum.json';
 import {
   lessons as b04Lessons,
@@ -194,6 +218,10 @@ export const lessons: Lesson[] = [
   ...j82Lessons,
   ...j83Lessons,
   ...j84Lessons,
+  ...j85Lessons,
+  ...j86Lessons,
+  ...j87Lessons,
+  ...j88Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -290,6 +318,10 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('J88-')) return j88ReviewQuestion(id, round);
+  if (id.startsWith('J87-')) return j87ReviewQuestion(id, round);
+  if (id.startsWith('J86-')) return j86ReviewQuestion(id, round);
+  if (id.startsWith('J85-')) return j85ReviewQuestion(id, round);
   if (id.startsWith('J84-')) return j84ReviewQuestion(id, round);
   if (id.startsWith('J83-')) return j83ReviewQuestion(id, round);
   if (id.startsWith('J82-')) return j82ReviewQuestion(id, round);
@@ -323,7 +355,44 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
-  J84: { id: 'J84-CHECK', unit: 'J84', title: t('不等式与数轴小回顾', 'A small inequalities review'), questions: j84CheckQuestions, bridge: 'J84-L01' },
+  J88: {
+    id: 'J88-CHECK',
+    unit: 'J88',
+    title: t('初中数据研究小回顾', 'A small secondary-data review'),
+    questions: j88CheckQuestions,
+    bridge: 'J88-L01',
+  },
+  J87: {
+    id: 'J87-CHECK',
+    unit: 'J87',
+    title: t(
+      '变换与勾股小回顾',
+      'A small transformations and Pythagoras review',
+    ),
+    questions: j87CheckQuestions,
+    bridge: 'J87-L01',
+  },
+  J86: {
+    id: 'J86-CHECK',
+    unit: 'J86',
+    title: t('全等与证明小回顾', 'A small congruence and proof review'),
+    questions: j86CheckQuestions,
+    bridge: 'J86-L01',
+  },
+  J85: {
+    id: 'J85-CHECK',
+    unit: 'J85',
+    title: t('一次函数小回顾', 'A small linear functions review'),
+    questions: j85CheckQuestions,
+    bridge: 'J85-L01',
+  },
+  J84: {
+    id: 'J84-CHECK',
+    unit: 'J84',
+    title: t('不等式与数轴小回顾', 'A small inequalities review'),
+    questions: j84CheckQuestions,
+    bridge: 'J84-L01',
+  },
   J83: {
     id: 'J83-CHECK',
     unit: 'J83',

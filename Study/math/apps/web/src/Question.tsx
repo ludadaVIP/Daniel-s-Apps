@@ -11,7 +11,46 @@ import { NumberDiagramView } from './NumberVisuals';
 import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
-  if (spec.kind === 'real-set') return t('写完整实数解集，如 x<2、−1≤x<4、x=2、无解或所有实数。两条件可用分号表示且；也支持区间 (−inf,2]、[−1,4) 与单点 {2}。方向和端点都要准确；保留精确分数，不只写边界或有限样本。','Write the complete real set, such as x<2, -1≤x<4, x=2, no solution or all reals. A semicolon means AND. Interval forms (-inf,2], [-1,4) and singletons {2} are also supported. Keep exact direction, endpoints and fractions; a boundary or finite sample list is insufficient.');
+  if (spec.kind === 'association')
+    return t(
+      '写正相关、负相关、无明显线性关联或弯曲关联；可用 positive / negative / no-clear-linear / curved。只描述此图，不由相关推因果。',
+      'Enter positive, negative, no-clear-linear or curved. Describe this plot; association alone does not establish causation.',
+    );
+  if (lessonId?.startsWith('J88-') && spec.kind === 'proof-verdict')
+    return t(
+      '按题意判断证据是否充分：充分 / 条件不足，或 sufficient / insufficient；理由另由家长核验。',
+      'Judge whether the supplied evidence is sufficient: sufficient or insufficient. A parent reviews the reasoning separately.',
+    );
+  if (spec.kind === 'root-length')
+    return t(
+      '只填非负精确长度，不附单位。可写 √13、2√2、sqrt(13)、√(1/2)、√8/2 或 5/4；支持一个根式的有理数倍。根号内先算成数值，截断小数不能代替精确根式；负根不是长度。',
+      'Enter a nonnegative exact length without units, such as √13, 2√2, sqrt(13), √(1/2), √8/2 or 5/4. One root times a rational factor is supported. Evaluate the radicand first; truncated decimals and negative roots do not give the exact length.',
+    );
+  if (spec.kind === 'geometry-code')
+    return t(
+      '只写所求字母：顶点、边或对应三角形。边端点可反写；三角形须按题设顺序对应，可附 △，不写整条等式。',
+      'Enter only the requested vertex, side or corresponding triangle letters, optionally with △. A side may reverse its endpoints; a triangle must retain the supplied correspondence order. Omit the full equality.',
+    );
+  if (spec.kind === 'congruence-rule')
+    return t(
+      '用 SSS、SAS、ASA、AAS 或条件不足。只用已给及有依据推导的条件；两个对应角可用内角和推出第三角，换用 ASA/AAS 时须解释。名称判对不代替证明。',
+      'Enter SSS, SAS, ASA, AAS or insufficient. Use givens and justified deductions; two corresponding angles determine the third, allowing ASA/AAS conversion with an explanation. A criterion name does not replace a proof.',
+    );
+  if (spec.kind === 'proof-verdict')
+    return t(
+      '按题意写全等/不全等，或充分/条件不足；可用 congruent / not congruent / sufficient / insufficient。实际大小相同与已知条件保证结论是两种问题，理由另由家长核对。',
+      'Enter congruent/not congruent or sufficient/insufficient as requested. Actual shapes and the sufficiency of givens are different questions; a parent reviews the reason.',
+    );
+  if (spec.kind === 'function-class')
+    return t(
+      '按本单元 m≠0 约定，写题目要求的分类：正比例、一次但非正比例、常函数、非线性函数、竖直线或无法唯一确定；可用对应英文 direct proportion / linear but not direct / constant / nonlinear / vertical line / undetermined。',
+      'Under this unit’s m≠0 convention, enter the requested class: direct proportion, linear but not direct, constant, nonlinear, vertical line or undetermined. Explain the conditions separately.',
+    );
+  if (spec.kind === 'real-set')
+    return t(
+      '写完整实数解集，如 x<2、−1≤x<4、x=2、无解或所有实数。两条件可用分号表示且；也支持区间 (−inf,2]、[−1,4) 与单点 {2}。方向和端点都要准确；保留精确分数，不只写边界或有限样本。',
+      'Write the complete real set, such as x<2, -1≤x<4, x=2, no solution or all reals. A semicolon means AND. Interval forms (-inf,2], [-1,4) and singletons {2} are also supported. Keep exact direction, endpoints and fractions; a boundary or finite sample list is insufficient.',
+    );
   if (spec.kind === 'linear-system')
     return t(
       '用 x、y 写两条原数量关系，中间用分号或换行，如 x+y=8;3x+y=14。方程次序、换边及两边同乘非零常数可变；不要直接用最后的 x、y 解替代两条原关系。',
@@ -32,7 +71,10 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
       '用题设结果代码、逗号分隔，可加大括号，如 {HH,HT,TH,TT}。条目次序可变，不重复、不遗漏；HT 与 TH 是不同有序结果。编号球用 R1-B1 这种先后代码。',
       'Use the supplied outcome codes separated by commas, optionally in braces, such as {HH,HT,TH,TT}. Entry order may vary; omit nothing and repeat nothing. HT and TH differ. Use codes such as R1-B1 for ordered numbered-token draws.',
     );
-  if (lessonId?.startsWith('J75-') && spec.kind === 'expression')
+  if (
+    (lessonId?.startsWith('J75-') || lessonId?.startsWith('J85-')) &&
+    spec.kind === 'expression'
+  )
     return t(
       '只写 y 或总量等号右侧的一般式，用 x；不附 y=。精确等值形式、常数和零均可，某次代入数值不代替一般关系。',
       'Write only the general right-side expression in x, without y=. Exact equivalent forms, constants and zero are allowed; a value at one input cannot replace a general relationship.',

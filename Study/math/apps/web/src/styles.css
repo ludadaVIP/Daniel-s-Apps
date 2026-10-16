@@ -5432,3 +5432,285 @@
   overflow-wrap: anywhere;
   font-size: 0.9rem;
 }
+
+.math-function-lab,
+.math-function-task {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.math-function-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-function-lab input,
+.math-function-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-function-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-function-task {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.math-function-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 0.8rem;
+}
+.math-function-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.math-function-lab table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+.math-function-lab th,
+.math-function-lab td {
+  border-bottom: 1px solid var(--line);
+  padding: 0.45rem;
+  overflow-wrap: anywhere;
+}
+.math-function-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #eeeaf8;
+}
+
+.math-congruence-lab,
+.math-congruence-task {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.math-congruence-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-congruence-lab input:not([type='checkbox']),
+.math-congruence-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-congruence-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-congruence-task,
+.math-congruence-givens {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.math-congruence-givens,
+.math-congruence-hook {
+  background: #eeeaf8;
+}
+.math-congruence-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+}
+.math-congruence-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 0.8rem;
+}
+.math-congruence-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.math-congruence-figure {
+  min-width: 0;
+  margin: 0;
+}
+.math-congruence-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.math-congruence-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 600px;
+  font: 16px sans-serif;
+}
+.math-congruence-figure figcaption {
+  font-size: 0.9rem;
+}
+
+.math-pyth-lab,
+.math-pyth-task {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.math-pyth-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-pyth-lab input,
+.math-pyth-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-pyth-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-pyth-task {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.math-pyth-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 0.8rem;
+}
+.math-pyth-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.math-pyth-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #eeeaf8;
+}
+.math-pyth-figure {
+  min-width: 0;
+  margin: 0;
+}
+.math-pyth-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.math-pyth-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 600px;
+  font: 16px sans-serif;
+}
+.math-pyth-figure figcaption {
+  font-size: 0.9rem;
+}
+
+.math-app .math-research-lab {
+  min-width: 0;
+}
+.math-app .math-research-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+  gap: 1rem;
+}
+.math-app .math-research-lab label {
+  display: grid;
+  gap: 0.5rem;
+  min-width: 0;
+}
+.math-app .math-research-lab input,
+.math-app .math-research-lab select,
+.math-app .math-research-lab textarea {
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 0.7rem;
+  border: 1px solid #d8d2e2;
+  border-radius: 0.55rem;
+  font: inherit;
+  background: #fff;
+  color: #292439;
+}
+.math-app .math-research-lab input[type='checkbox'] {
+  width: auto;
+  justify-self: start;
+}
+.math-app .math-research-lab textarea {
+  min-height: 10rem;
+}
+.math-app .math-research-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem 0;
+}
+.math-app .math-research-task {
+  border: 1px solid #ded8e7;
+  border-radius: 1rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  display: grid;
+  gap: 0.75rem;
+}
+.math-app .math-research-figure {
+  margin: 1.5rem 0;
+  min-width: 0;
+}
+.math-app .math-research-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.math-app .math-research-scroll svg {
+  display: block;
+  min-width: 600px;
+  width: 100%;
+  height: auto;
+}
+.math-app .math-research-figure figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+.math-app .math-research-table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1rem 0;
+  font-variant-numeric: tabular-nums;
+}
+.math-app .math-research-table th,
+.math-app .math-research-table td {
+  padding: 0.35rem;
+  border-bottom: 1px solid #ded8e7;
+  text-align: left;
+}
+.math-app .math-research-table .math-button {
+  padding: 0.3rem 0.65rem;
+}
+.math-app .math-research-stages {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+}
+.math-app .math-research-stages li {
+  padding: 0.5rem;
+  border: 1px solid #ded8e7;
+  border-radius: 0.5rem;
+}
+.math-app .math-research-stages [aria-current] {
+  background: #ece7f6;
+  border-color: #5954a3;
+}
