@@ -9,7 +9,12 @@ import {
   type PlotBounds,
   type PlotPoint,
 } from './cartesianModels';
-export type PlotCurve = { points: PlotPoint[]; name: string; color?: string };
+export type PlotCurve = {
+  points: PlotPoint[];
+  name: string;
+  color?: string;
+  dash?: string;
+};
 export function CartesianPlot({
   bounds,
   points = [],
@@ -173,6 +178,7 @@ export function CartesianPlot({
               fill="none"
               stroke={curve.color ?? '#5954a3'}
               strokeWidth="2.5"
+              strokeDasharray={curve.dash}
             />
           ))}
           {onPick &&

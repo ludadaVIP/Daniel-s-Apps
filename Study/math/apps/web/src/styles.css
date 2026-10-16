@@ -5137,3 +5137,298 @@
 .math-inference-hook strong {
   font-size: clamp(1.1rem, 3vw, 1.8rem);
 }
+
+.math-identity-lab,
+.math-identity-task {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+.math-identity-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-identity-lab label:has(input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+}
+.math-identity-lab input:not([type='checkbox']),
+.math-identity-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-identity-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-identity-task {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.math-identity-table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.math-identity-table td,
+.math-identity-table th {
+  border: 1px solid var(--line);
+  padding: 0.35rem;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.math-identity-table button {
+  width: 100%;
+  min-width: 0;
+  padding: 0.5rem 0.2rem;
+}
+.math-identity-expression {
+  font-size: 1.25rem;
+  overflow-wrap: anywhere;
+}
+.math-identity-figure {
+  margin: 0;
+  min-width: 0;
+}
+.math-identity-figure > div {
+  max-width: 100%;
+  overflow: auto;
+}
+.math-identity-figure svg {
+  display: block;
+  width: 100%;
+  min-width: 480px;
+  height: auto;
+}
+.math-identity-figure text {
+  fill: currentColor;
+  font-family: inherit;
+  font-size: 15px;
+}
+.math-identity-figure figcaption {
+  font-size: 0.88rem;
+  color: var(--muted);
+  margin: 0.5rem 0;
+}
+.math-identity-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #eeeaf8;
+  overflow-wrap: anywhere;
+}
+.math-identity-hook strong {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+.math-factor-lab,
+.math-factor-task {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+.math-factor-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-factor-lab input:not([type='checkbox']),
+.math-factor-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-factor-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-factor-task {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.math-factor-lab table {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+}
+.math-factor-lab td,
+.math-factor-lab th {
+  border: 1px solid var(--line);
+  padding: 0.4rem;
+  overflow-wrap: anywhere;
+  text-align: center;
+}
+.math-factor-candidates {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.math-factor-records {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.5rem 0.8rem;
+  overflow-wrap: anywhere;
+}
+.math-factor-expression {
+  font-size: 1.2rem;
+  overflow-wrap: anywhere;
+}
+.math-factor-lab [data-pair-hit='true'] {
+  background: #eeeaf8;
+}
+.math-factor-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #eeeaf8;
+  overflow-wrap: anywhere;
+}
+.math-factor-hook strong {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+.math-system-lab,
+.math-system-task {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+}
+.math-system-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-system-lab input:not([type='checkbox']),
+.math-system-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-system-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-system-task {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 1rem;
+}
+.math-system-source,
+.math-system-history {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.6rem 0.8rem;
+  overflow-wrap: anywhere;
+}
+.math-system-source {
+  background: #f2eff8;
+}
+.math-system-pairs,
+.math-system-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.math-system-pairs span {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.4rem 0.6rem;
+}
+.math-system-pairs [data-both-rows='true'] {
+  background: #eeeaf8;
+  border: 2px solid var(--accent);
+}
+.math-system-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+  background: #eeeaf8;
+  overflow-wrap: anywhere;
+}
+.math-system-hook strong {
+  font-size: clamp(1.1rem, 3vw, 1.8rem);
+}
+
+.math-inequality-lab,
+.math-inequality-task {
+  display: grid;
+  gap: 0.85rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.math-inequality-lab label {
+  display: grid;
+  gap: 0.4rem;
+  min-width: 0;
+}
+.math-inequality-lab input:not([type='checkbox']),
+.math-inequality-lab select {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.65rem;
+  font: inherit;
+}
+.math-inequality-lab button {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.math-inequality-task,
+.math-inequality-source {
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 0.8rem;
+}
+.math-inequality-source,
+.math-inequality-hook {
+  background: #f2eff8;
+}
+.math-inequality-hook {
+  padding: 1.3rem;
+  border-radius: 12px;
+}
+.math-inequality-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 180px), 1fr));
+  gap: 0.8rem;
+}
+.math-inequality-actions,
+.math-inequality-samples {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+.math-inequality-samples span {
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 0.4rem;
+}
+.math-inequality-samples [data-pass='true'] {
+  border: 2px solid var(--accent);
+  background: #eeeaf8;
+}
+.math-inequality-figure {
+  margin: 0;
+  min-width: 0;
+}
+.math-inequality-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+}
+.math-inequality-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 480px;
+  font: 16px sans-serif;
+}
+.math-inequality-figure figcaption {
+  overflow-wrap: anywhere;
+  font-size: 0.9rem;
+}

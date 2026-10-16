@@ -1,5 +1,6 @@
 import type { LanguageMode } from '@study/shared';
 import { AlgebraGroups } from './AlgebraVisuals';
+import { InequalityDiagram } from './InequalityVisuals';
 import { RationalLine } from './RationalVisuals';
 import { DotDistribution } from './InferenceVisuals';
 import { CartesianPlot } from './CartesianVisuals';
@@ -250,6 +251,7 @@ export function NumberDiagramView({
     return <ParallelView {...diagram} mode={mode} />;
   if (diagram.kind === 'plane-triangle')
     return <TriangleView {...diagram} mode={mode} />;
+  if (diagram.kind === 'inequality-line') return <InequalityDiagram {...diagram} mode={mode} />;
   if (diagram.kind === 'rational-line')
     return <RationalLine points={diagram.points} mode={mode} />;
   if (diagram.kind === 'stats-order')

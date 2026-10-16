@@ -1,3 +1,4 @@
+import { j84Lessons, j84ReviewQuestion, j84CheckQuestions } from './content/J84';
 import curriculumData from '../../../content/curriculum.json';
 import {
   lessons as b04Lessons,
@@ -137,6 +138,21 @@ import {
   j76ReviewQuestion,
 } from './content/J76';
 export const curriculum = curriculumData;
+import {
+  j81Lessons,
+  j81ReviewQuestion,
+  j81CheckQuestions,
+} from './content/J81';
+import {
+  j82Lessons,
+  j82ReviewQuestion,
+  j82CheckQuestions,
+} from './content/J82';
+import {
+  j83Lessons,
+  j83ReviewQuestion,
+  j83CheckQuestions,
+} from './content/J83';
 export const lessons: Lesson[] = [
   ...b01Lessons,
   ...b02Lessons,
@@ -174,6 +190,10 @@ export const lessons: Lesson[] = [
   ...j74Lessons,
   ...j75Lessons,
   ...j76Lessons,
+  ...j81Lessons,
+  ...j82Lessons,
+  ...j83Lessons,
+  ...j84Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -270,6 +290,10 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('J84-')) return j84ReviewQuestion(id, round);
+  if (id.startsWith('J83-')) return j83ReviewQuestion(id, round);
+  if (id.startsWith('J82-')) return j82ReviewQuestion(id, round);
+  if (id.startsWith('J81-')) return j81ReviewQuestion(id, round);
   if (id.startsWith('J76-')) return j76ReviewQuestion(id, round);
   if (id.startsWith('J75-')) return j75ReviewQuestion(id, round);
   if (id.startsWith('J74-')) return j74ReviewQuestion(id, round);
@@ -299,6 +323,31 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  J84: { id: 'J84-CHECK', unit: 'J84', title: t('不等式与数轴小回顾', 'A small inequalities review'), questions: j84CheckQuestions, bridge: 'J84-L01' },
+  J83: {
+    id: 'J83-CHECK',
+    unit: 'J83',
+    title: t('二元一次方程组小回顾', 'A small linear systems review'),
+    questions: j83CheckQuestions,
+    bridge: 'J83-L01',
+  },
+  J82: {
+    id: 'J82-CHECK',
+    unit: 'J82',
+    title: t('因式分解小回顾', 'A small factorisation review'),
+    questions: j82CheckQuestions,
+    bridge: 'J82-L01',
+  },
+  J81: {
+    id: 'J81-CHECK',
+    unit: 'J81',
+    title: t(
+      '整式乘法与恒等式小回顾',
+      'A small polynomial multiplication and identities review',
+    ),
+    questions: j81CheckQuestions,
+    bridge: 'J81-L01',
+  },
   J76: {
     id: 'J76-CHECK',
     unit: 'J76',

@@ -18,6 +18,10 @@ import { PolynomialHookArt, isPolynomialLab } from './PolynomialLabs';
 import { LinearHookArt, isLinearLab } from './LinearLabs';
 import { PlaneHookArt, isPlaneLab } from './PlaneLabs';
 import { CartesianHookArt, isCartesianLab } from './CartesianLabs';
+import { SystemHookArt, isSystemLab } from './SystemLabs';
+import { InequalityHookArt, isInequalityLab } from './InequalityLabs';
+import { FactorHookArt, isFactorLab } from './FactorLabs';
+import { IdentityHookArt, isIdentityLab } from './IdentityLabs';
 import { InferenceHookArt, isInferenceLab } from './InferenceLabs';
 import { CalculationHookArt, isCalculationLab } from './CalculationLabs';
 import { MeasurementHookArt, isMeasurementLab } from './MeasurementLabs';
@@ -152,7 +156,13 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isInferenceLab(l.lab) ? (
+              {isInequalityLab(l.lab) ? (<InequalityHookArt kind={l.lab} mode={mode} />) : isSystemLab(l.lab) ? (
+                <SystemHookArt kind={l.lab} mode={mode} />
+              ) : isFactorLab(l.lab) ? (
+                <FactorHookArt kind={l.lab} mode={mode} />
+              ) : isIdentityLab(l.lab) ? (
+                <IdentityHookArt kind={l.lab} mode={mode} />
+              ) : isInferenceLab(l.lab) ? (
                 <InferenceHookArt kind={l.lab} mode={mode} />
               ) : isCartesianLab(l.lab) ? (
                 <CartesianHookArt kind={l.lab} mode={mode} />

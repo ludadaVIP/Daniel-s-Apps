@@ -25,6 +25,10 @@ import { PolynomialLab, isPolynomialLab } from './PolynomialLabs';
 import { LinearLab, isLinearLab } from './LinearLabs';
 import { PlaneLab, isPlaneLab } from './PlaneLabs';
 import { CartesianLab, isCartesianLab } from './CartesianLabs';
+import { SystemLab, isSystemLab } from './SystemLabs';
+import { InequalityLab, isInequalityLab } from './InequalityLabs';
+import { FactorLab, isFactorLab } from './FactorLabs';
+import { IdentityLab, isIdentityLab } from './IdentityLabs';
 import { InferenceLab, isInferenceLab } from './InferenceLabs';
 import {
   FractionProductLab,
@@ -357,7 +361,13 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isInferenceLab(kind) ? (
+  return isInequalityLab(kind) ? (<InequalityLab key={kind} kind={kind} mode={mode} />) : isSystemLab(kind) ? (
+    <SystemLab key={kind} kind={kind} mode={mode} />
+  ) : isFactorLab(kind) ? (
+    <FactorLab key={kind} kind={kind} mode={mode} />
+  ) : isIdentityLab(kind) ? (
+    <IdentityLab key={kind} kind={kind} mode={mode} />
+  ) : isInferenceLab(kind) ? (
     <InferenceLab key={kind} kind={kind} mode={mode} />
   ) : isCartesianLab(kind) ? (
     <CartesianLab key={kind} kind={kind} mode={mode} />

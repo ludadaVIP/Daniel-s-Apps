@@ -2,10 +2,17 @@ import type { LocalizedText } from '@study/shared';
 import { equivalentExpression } from './algebraModels';
 import { checkPiMultiple } from './circleModels';
 import { checkNumberSet } from './numberSetAnswers';
-import { equalPolynomial, isCollectedPolynomial } from './polynomialModels';
+import {
+  equalPolynomial,
+  isCollectedPolynomial,
+  isFinishedPolynomialProduct,
+} from './polynomialModels';
 import { checkLinearEquation, checkSolutionClass } from './linearModels';
 import { checkGeometryClass, type GeometryClass } from './planeModels';
 import { checkOutcomeSet } from './inferenceModels';
+import { checkFactorisation } from './factorModels';
+import { checkSystemModel, checkSystemClass } from './systemModels';
+import { checkRealSet } from './inequalityModels';
 import {
   checkCoordinate,
   type PlotBounds,
@@ -13,6 +20,10 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'real-set'; value: string }
+  | { kind: 'linear-system'; value: string }
+  | { kind: 'system-class'; value: 'none' | 'infinite' }
+  | { kind: 'factorisation'; value: string; variables: string[] }
   | { kind: 'outcome-set'; values: string[]; value: string }
   | { kind: 'coordinate'; value: string }
   | { kind: 'geometry-class'; value: GeometryClass }
@@ -23,6 +34,7 @@ export type AnswerSpec =
       value: string;
       variables: string[];
       collected?: boolean;
+      finishedProduct?: boolean;
     }
   | { kind: 'number-set'; values: string[]; value: string }
   | {
@@ -72,6 +84,7 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | { kind: 'inequality-line'; source: string; wide?: boolean }
   | {
       kind: 'dot-distribution';
       values: number[];
@@ -83,6 +96,13 @@ export type NumberDiagram =
       kind: 'cartesian';
       bounds: PlotBounds;
       points: PlotPoint[];
+      curves?: {
+        points: PlotPoint[];
+        name: string;
+        color?: string;
+        dash?: string;
+      }[];
+      caption?: LocalizedText;
       xLabel?: string;
       yLabel?: string;
     }
@@ -272,6 +292,26 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'inequality-meaning'
+    | 'inequality-step'
+    | 'inequality-reverse'
+    | 'inequality-linear'
+    | 'inequality-intersection'
+    | 'system-relations'
+    | 'system-substitute'
+    | 'system-eliminate'
+    | 'system-graph'
+    | 'system-model'
+    | 'factor-common'
+    | 'factor-difference'
+    | 'factor-square'
+    | 'factor-quadratic'
+    | 'factor-check'
+    | 'identity-monomial'
+    | 'identity-distribute'
+    | 'identity-binomial'
+    | 'identity-square'
+    | 'identity-difference'
     | 'infer-sample'
     | 'infer-distribution'
     | 'infer-outlier'
@@ -535,6 +575,11 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'real-set') return checkRealSet(input, spec.value);
+  if (spec.kind === 'linear-system') return checkSystemModel(input, spec.value);
+  if (spec.kind === 'system-class') return checkSystemClass(input, spec.value);
+  if (spec.kind === 'factorisation')
+    return checkFactorisation(input, spec.value, spec.variables);
   if (spec.kind === 'outcome-set') return checkOutcomeSet(input, spec.values);
   if (spec.kind === 'coordinate') return checkCoordinate(input, spec.value);
   if (spec.kind === 'geometry-class')
@@ -546,7 +591,9 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
   if (spec.kind === 'polynomial')
     return (
       equalPolynomial(input, spec.value, spec.variables) &&
-      (!spec.collected || isCollectedPolynomial(input, spec.variables))
+      (!spec.collected || isCollectedPolynomial(input, spec.variables)) &&
+      (!spec.finishedProduct ||
+        isFinishedPolynomialProduct(input, spec.variables))
     );
   if (spec.kind === 'number-set') return checkNumberSet(input, spec.values);
   if (spec.kind === 'pi-multiple')

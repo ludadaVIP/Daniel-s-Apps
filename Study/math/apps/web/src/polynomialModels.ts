@@ -215,6 +215,60 @@ export function equalPolynomial(
     [...x].every(([key, c]) => y.has(key) && sameR(c, y.get(key)!))
   );
 }
+// Optional final-product form for multiplication lessons. Existing collection tasks
+// retain their original grammar; this only rejects pending products in the new tasks.
+export function isFinishedPolynomialProduct(
+  raw: string,
+  variables: readonly string[] = ['x'],
+) {
+  if (!isCollectedPolynomial(raw, variables)) return false;
+  let s = raw
+    .replace(/\s/g, '')
+    .replace(/[−－]/g, '-')
+    .replace(/＋/g, '+')
+    .replace(/[×·]/g, '*')
+    .replace(/[÷／]/g, '/')
+    .replace(/（/g, '(')
+    .replace(/）/g, ')')
+    .replace(/[²³⁴]/g, (c) => `^${c === '²' ? 2 : c === '³' ? 3 : 4}`);
+  const wraps = (source: string) => {
+    if (!source.startsWith('(') || !source.endsWith(')')) return false;
+    let depth = 0;
+    for (let i = 0; i < source.length; i++) {
+      if (source[i] === '(') depth++;
+      if (source[i] === ')') depth--;
+      if (depth === 0 && i < source.length - 1) return false;
+    }
+    return depth === 0;
+  };
+  while (wraps(s)) s = s.slice(1, -1);
+  const parts: string[] = [];
+  let start = 0,
+    depth = 0;
+  for (let i = 0; i < s.length; i++) {
+    if (s[i] === '(') depth++;
+    if (s[i] === ')') depth--;
+    if (i > start && depth === 0 && (s[i] === '+' || s[i] === '-')) {
+      parts.push(s.slice(start, i));
+      start = i;
+    }
+  }
+  parts.push(s.slice(start));
+  const number = '(?:\\d+(?:\\.\\d*)?|\\.\\d+)',
+    coefficient = `(?:${number}(?:/${number})?|\\([+-]?${number}(?:/${number})?\\))`;
+  const constant = new RegExp(`^${coefficient}$`),
+    monomial = new RegExp(
+      `^(?:${coefficient}\\*?)?([a-z](?:\\^[1-4])?(?:\\*?[a-z](?:\\^[1-4])?)*)(?:/${number})?$`,
+    );
+  return parts.every((part) => {
+    const body = part.replace(/^[+-]/, '');
+    if (constant.test(body)) return true;
+    const match = monomial.exec(body);
+    if (!match) return false;
+    const letters = match[1]!.match(/[a-z]/g)!;
+    return new Set(letters).size === letters.length;
+  });
+}
 export function monomialText(key: string) {
   return [...new Set(key)]
     .map((v) => {

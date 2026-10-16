@@ -8,7 +8,25 @@ import {
 } from './model';
 import { Strip, Text } from './ui';
 import { NumberDiagramView } from './NumberVisuals';
+import { equalPolynomial } from './polynomialModels';
+import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'real-set') return t('写完整实数解集，如 x<2、−1≤x<4、x=2、无解或所有实数。两条件可用分号表示且；也支持区间 (−inf,2]、[−1,4) 与单点 {2}。方向和端点都要准确；保留精确分数，不只写边界或有限样本。','Write the complete real set, such as x<2, -1≤x<4, x=2, no solution or all reals. A semicolon means AND. Interval forms (-inf,2], [-1,4) and singletons {2} are also supported. Keep exact direction, endpoints and fractions; a boundary or finite sample list is insufficient.');
+  if (spec.kind === 'linear-system')
+    return t(
+      '用 x、y 写两条原数量关系，中间用分号或换行，如 x+y=8;3x+y=14。方程次序、换边及两边同乘非零常数可变；不要直接用最后的 x、y 解替代两条原关系。',
+      'Write both original quantity relationships in x,y, separated by a semicolon or newline, such as x+y=8;3x+y=14. Reorder equations, rearrange sides or scale each by a nonzero constant. Do not replace the original relationships with the solved values.',
+    );
+  if (spec.kind === 'system-class')
+    return t(
+      '按题目范围写“无解”或“无穷多解”，可用 no solution / infinitely many solutions。重合直线的无穷多解不等于所有数对；实际情境还需另外核条件。',
+      'Enter no solution or infinitely many solutions within the stated scope. Infinitely many points on a coincident line do not mean every ordered pair; context restrictions need a separate check.',
+    );
+  if (spec.kind === 'factorisation')
+    return t(
+      `在整数系数范围内分解完整，数公因子提出，各非恒定因式系数不再有整数公因数。只用 ${spec.variables.join('、')}，写乘积或因式幂；可交换因式次序、成对改号。不写等号、零点或数值代入答案。`,
+      `Factor completely over integer coefficients: extract numerical content and leave primitive nonconstant factors. Use ${spec.variables.join(', ')} and a product or powers of factors. Factor order and balanced signs may vary. Omit equal signs, roots and substituted values.`,
+    );
   if (spec.kind === 'outcome-set')
     return t(
       '用题设结果代码、逗号分隔，可加大括号，如 {HH,HT,TH,TT}。条目次序可变，不重复、不遗漏；HT 与 TH 是不同有序结果。编号球用 R1-B1 这种先后代码。',
@@ -48,6 +66,11 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
     return t(
       '写 x 的精确值，保留负号和分数；代回原方程并核对情境条件。不要把近似值当精确解。',
       'Enter the exact value of x, keeping its sign or fraction. Substitute into the original equation and check context conditions. A rounded approximation is not an exact solution.',
+    );
+  if (spec.kind === 'polynomial' && spec.finishedProduct)
+    return t(
+      `用 ${spec.variables.join('、')} 写展开合并式：系数写前，每个字母用一个幂表示，如 6x^3 或 (1/4)x²。完成数与数、字母与字母的乘积，省略零项；不附等号或单位。`,
+      `Write an expanded and collected expression in ${spec.variables.join(', ')}: coefficient first, each letter as one power, such as 6x^3 or (1/4)x². Finish numerical and letter products, omit zero terms, and omit equal signs and units.`,
     );
   if (spec.kind === 'polynomial')
     return t(
@@ -223,6 +246,18 @@ export function Question({
   const formMismatch =
     (a.checked &&
       !a.correct &&
+      q.answer.kind === 'linear-system' &&
+      !!parseLinearSystem(a.input) &&
+      sameSystemSolutions(
+        parseLinearSystem(a.input)!,
+        parseLinearSystem(q.answer.value)!,
+      )) ||
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'factorisation' &&
+      equalPolynomial(a.input, q.answer.value, q.answer.variables)) ||
+    (a.checked &&
+      !a.correct &&
       q.answer.kind === 'linear-equation' &&
       q.answer.model !== false &&
       checkAnswer(a.input, { ...q.answer, model: false }) === true) ||
@@ -230,7 +265,11 @@ export function Question({
       !a.correct &&
       q.answer.kind === 'polynomial' &&
       q.answer.collected &&
-      checkAnswer(a.input, { ...q.answer, collected: false }) === true) ||
+      checkAnswer(a.input, {
+        ...q.answer,
+        collected: false,
+        finishedProduct: false,
+      }) === true) ||
     (a.checked &&
       !a.correct &&
       q.answer.kind === 'ratio' &&
@@ -402,15 +441,20 @@ export function Question({
                         : '✓ Completed with support. Your understanding is growing.',
                     )
                   : formMismatch
-                    ? q.answer.kind === 'linear-equation'
+                    ? q.answer.kind === 'linear-system'
                       ? t(
-                          '↳ 解集相同；本题还需保留题干两种原数量的建模关系。',
-                          '↳ The solution set matches; retain the two original quantities in the modelling equation.',
+                          '↳ 解集相同；本题需保留两条原数量关系。',
+                          '↳ The solution set matches; retain both original quantity relationships.',
                         )
-                      : t(
-                          '↳ 数量已等值，还需按题目要求完成写法。',
-                          '↳ The value matches; finish the requested form.',
-                        )
+                      : q.answer.kind === 'linear-equation'
+                        ? t(
+                            '↳ 解集相同；本题还需保留题干两种原数量的建模关系。',
+                            '↳ The solution set matches; retain the two original quantities in the modelling equation.',
+                          )
+                        : t(
+                            '↳ 数量已等值，还需按题目要求完成写法。',
+                            '↳ The value matches; finish the requested form.',
+                          )
                     : t(
                         '↳ 还差一点，换个角度试试。',
                         '↳ Nearly there. Try another perspective.',
