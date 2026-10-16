@@ -1,5 +1,10 @@
 import { climateLessonIds, climateFinished } from './climateModels';
 import { ClimateExplorer } from './ClimateActivities';
+import {
+  livingPlanetFinished,
+  livingPlanetLessonIds,
+} from './livingPlanetModels';
+import { LivingPlanetExplorer } from './LivingPlanetActivities';
 import { useState } from 'react';
 import type { LanguageMode } from '@study/shared';
 import { assets, t, words } from './content';
@@ -30,6 +35,8 @@ import { WeatherExplorer } from './WeatherActivities';
 import { reportFinished } from './landformReport';
 
 export function activityFinished(id: string, a: ActivityState) {
+  if (livingPlanetLessonIds.includes(id))
+    return livingPlanetFinished(id, a.decisions);
   if (climateLessonIds.includes(id)) return climateFinished(id, a.decisions);
   if (weatherLessonIds.includes(id)) return weatherFinished(id, a.decisions);
   if (id === 'GEO-032')
@@ -128,6 +135,16 @@ export function Activity({
   if (climateLessonIds.includes(id))
     return (
       <ClimateExplorer
+        id={id}
+        mode={mode}
+        state={state}
+        onChange={onChange}
+        mission
+      />
+    );
+  if (livingPlanetLessonIds.includes(id))
+    return (
+      <LivingPlanetExplorer
         id={id}
         mode={mode}
         state={state}

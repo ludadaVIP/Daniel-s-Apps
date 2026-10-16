@@ -8784,5 +8784,146 @@
         }
       }
     ]
+  },
+  {
+    "id": "GEO-041",
+    "title": { "zh": "雨林为什么多样", "en": "Tropical Rainforests" },
+    "question": { "zh": "为什么雨林里有这么多种生物？", "en": "Why are tropical rainforests so diverse?" },
+    "hero": "rainforest-layers-model",
+    "icon": "✦",
+    "minutes": 35,
+    "assetIds": ["rainforest-layers-model", "rainforest-resources-model", "rainforest-web-model"],
+    "outcomes": [
+      { "zh": "描述雨林从林地到突出层的垂直层次，以及光照和栖息位置的变化。", "en": "Describe rainforest layers from forest floor to emergent trees and changes in light and living space." },
+      { "zh": "用气候、资源组合和生态位解释多样性，避免把相关说成单一原因。", "en": "Use climate, resource combinations and niches to explain diversity without claiming one single cause." },
+      { "zh": "区分一张照片的线索与完整的物种调查。", "en": "Distinguish clues in one image from a complete species survey." }
+    ],
+    "prediction": [
+      { "zh": "雨多，所以每个地方的生物都完全相同", "en": "Rain means every place has exactly the same life" },
+      { "zh": "温暖、水分和多层环境会创造多种不同机会", "en": "Warmth, water and layered environments can create different opportunities" },
+      { "zh": "一张绿树照片能数清全部物种", "en": "One green-tree photo can count every species" }
+    ],
+    "terms": [
+      { "name": { "zh": "林冠层", "en": "Canopy" }, "meaning": { "zh": "森林中较连续的树冠层，常接收较多阳光。", "en": "The relatively continuous tree roof of a forest, often receiving much sunlight." } },
+      { "name": { "zh": "生态位", "en": "Niche" }, "meaning": { "zh": "一种生物使用资源、适应条件并与其他生物发生关系的方式和位置。", "en": "The way and place an organism uses resources, fits conditions and relates to other organisms." } },
+      { "name": { "zh": "生物多样性", "en": "Biodiversity" }, "meaning": { "zh": "生命在基因、物种和生态系统层面的多样性；不是一张照片里颜色的数量。", "en": "Variety of life across genes, species and ecosystems; not the number of colours in one photo." } },
+      { "name": { "zh": "微环境", "en": "Micro-environment" }, "meaning": { "zh": "大环境内较小、条件可能不同的地点，例如阴湿林地或受光树冠。", "en": "A smaller place within a larger environment with different conditions, such as shaded floor or sunny canopy." } }
+    ],
+    "explanationPrompt": { "zh": "指着层次图说明一种资源怎样变化、为什么这会创造不同生态位；再说清一张照片不能证明什么。", "en": "Point to a layer and explain how one resource changes, why that can create niches, and what one photo cannot prove." },
+    "recall": [
+      { "id": "GEO-041-R1", "prompt": { "zh": "为什么林冠层通常比林地得到更多阳光？", "en": "Why does the canopy usually receive more sunlight than the forest floor?" }, "options": [{ "zh": "它较高，较少被上方叶片遮挡", "en": "It is higher and less shaded by leaves above" }, { "zh": "阳光只会照树", "en": "Sunlight only shines on trees" }, { "zh": "林地没有空气", "en": "The forest floor has no air" }], "answer": 0, "explanation": { "zh": "这是位置和遮挡的关系；实际光照仍随时间、云和空隙改变。", "en": "This is about position and shading; actual light also changes with time, cloud and gaps." }, "hint": { "zh": "比较太阳到每一层要穿过多少叶片。", "en": "Compare how many leaves sunlight passes through to reach each layer." } },
+      { "id": "GEO-041-R2", "prompt": { "zh": "下列哪句话最谨慎？", "en": "Which statement is most careful?" }, "options": [{ "zh": "温暖潮湿可能支持多种生态位，但还要调查具体地点", "en": "Warmth and moisture can support many niches, but the site still needs investigation" }, { "zh": "所有雨林物种数量一样", "en": "All rainforests have the same number of species" }, { "zh": "只要下雨就一定有最多物种", "en": "Rain alone always guarantees the most species" }], "answer": 0, "explanation": { "zh": "多样性由多个条件和历史共同形成。", "en": "Diversity emerges from multiple conditions and histories." }, "hint": { "zh": "避免“所有”“一定”这样的扩大结论。", "en": "Be cautious with enlarged claims such as “all” and “always”." } }
+    ],
+    "transfer": { "id": "GEO-041-T", "prompt": { "zh": "一片森林被开出一小块空隙，下一步更合适的调查是什么？", "en": "A small gap opens in a forest. What is the most useful next investigation?" }, "options": [{ "zh": "比较空隙和林下的光、幼苗与时间变化", "en": "Compare light, seedlings and change over time in gap and understorey" }, { "zh": "宣布那里必定没有生命", "en": "Declare there can be no life there" }, { "zh": "只拍一张照片后停止观察", "en": "Take one photo then stop observing" }], "answer": 0, "explanation": { "zh": "比较条件与重复观察比单一印象更能检验解释。", "en": "Comparing conditions and repeated observations tests an explanation better than one impression." }, "hint": { "zh": "把“我猜”变成可比较的证据。", "en": "Turn “I guess” into comparable evidence." } },
+    "sources": [
+      { "title": "Smithsonian Tropical Research Institute — Forest Canopy", "url": "https://stri.si.edu/what-we-do/forest-canopy", "note": { "zh": "用于核对林冠是重要但难观察的森林层次；没有复用照片。", "en": "Used to check canopy as an important, difficult-to-observe forest layer; no photos reused." } },
+      { "title": "Convention on Biological Diversity — Biodiversity", "url": "https://www.cbd.int/convention/articles/?a=cbd-02", "note": { "zh": "用于多样性不是单一物种清单的框架；课程图为原创示意。", "en": "Used for the framework that biodiversity is more than one species list; diagrams are original." } }
+    ]
+  },
+  {
+    "id": "GEO-042",
+    "title": { "zh": "草原森林与苔原", "en": "Biomes" },
+    "question": { "zh": "温度与降雨改变了什么？", "en": "What changes when temperature and rainfall change?" },
+    "hero": "biome-climate-model",
+    "icon": "◒",
+    "minutes": 35,
+    "assetIds": ["biome-climate-model", "biome-factors-model", "biome-inference-model"],
+    "outcomes": [
+      { "zh": "用温度、水分与生长季比较森林、草原、苔原等概念性群系。", "en": "Compare conceptual forest, grassland and tundra biomes using temperature, water and growing season." },
+      { "zh": "说明土壤、火、食草动物、海拔和土地利用也会影响植被。", "en": "Explain that soils, fire, grazers, altitude and land use also affect vegetation." },
+      { "zh": "把气候图当作调查假设，而不是给每块土地贴永久标签。", "en": "Treat a climate graph as an investigation hypothesis, not a permanent label for each patch of land." }
+    ],
+    "prediction": [
+      { "zh": "气温是唯一重要条件", "en": "Temperature is the only important condition" },
+      { "zh": "温度和水分常重要，但还要看当地过程", "en": "Temperature and water often matter, but local processes matter too" },
+      { "zh": "一张气候图能替代实地观察", "en": "One climate graph replaces field observation" }
+    ],
+    "terms": [
+      { "name": { "zh": "生物群系", "en": "Biome" }, "meaning": { "zh": "由长期气候、植被和生物关系概括出的较大生态类型；边界不是硬线。", "en": "A broad ecological type summarized from long-term climate, vegetation and living relationships; boundaries are not hard lines." } },
+      { "name": { "zh": "生长季", "en": "Growing season" }, "meaning": { "zh": "温度、光照和水分较适合植物生长的一段时期。", "en": "A period when temperature, light and moisture are more suitable for plant growth." } },
+      { "name": { "zh": "扰动", "en": "Disturbance" }, "meaning": { "zh": "会改变生态系统结构的事件或过程，例如火、洪水、放牧或砍伐。", "en": "An event or process changing ecosystem structure, such as fire, flood, grazing or clearing." } },
+      { "name": { "zh": "植被", "en": "Vegetation" }, "meaning": { "zh": "一个地点生长的植物及其覆盖形式。", "en": "The plants growing in a place and their pattern of cover." } }
+    ],
+    "explanationPrompt": { "zh": "用“水分＋温度＋另一个当地因素”解释一个群系匹配，并说气候图还需要什么证据。", "en": "Use “water + temperature + one local factor” to explain one biome match and say what evidence a climate graph still needs." },
+    "recall": [
+      { "id": "GEO-042-R1", "prompt": { "zh": "为什么同样温暖的地方不一定都有高大森林？", "en": "Why do equally warm places not necessarily all have tall forest?" }, "options": [{ "zh": "水分、土壤、火和土地利用等也可能不同", "en": "Water, soils, fire and land use can also differ" }, { "zh": "树只会在地图上生长", "en": "Trees only grow on maps" }, { "zh": "温暖永远阻止植物生长", "en": "Warmth always prevents plant growth" }], "answer": 0, "explanation": { "zh": "温度很重要，但不能单独解释景观。", "en": "Temperature matters, but cannot explain landscape alone." }, "hint": { "zh": "回看第二幅图的五种因素。", "en": "Revisit the five factors in the second diagram." } },
+      { "id": "GEO-042-R2", "prompt": { "zh": "苔原的入门线索更接近哪一组？", "en": "Which set is the best introductory clue for tundra?" }, "options": [{ "zh": "寒冷、短生长季、低矮植被", "en": "Cold, short growing season and low vegetation" }, { "zh": "全年炎热、树冠多层", "en": "Hot year-round with layered canopy" }, { "zh": "任何有雪的停车场", "en": "Any snowy car park" }], "answer": 0, "explanation": { "zh": "不要用一次下雪或单张照片定义一个群系。", "en": "Do not define a biome from one snowfall or a single image." }, "hint": { "zh": "同时看长期条件与植被结构。", "en": "Read long-term conditions alongside vegetation structure." } }
+    ],
+    "transfer": { "id": "GEO-042-T", "prompt": { "zh": "你在新西兰山坡上看到灌丛，最好的下一步是什么？", "en": "You see shrubland on a New Zealand slope. What is the best next step?" }, "options": [{ "zh": "记录海拔、坡向、土壤、水分、火史和土地利用，再比较邻近地点", "en": "Record altitude, aspect, soil, water, fire history and land use, then compare nearby places" }, { "zh": "仅凭颜色宣布是某一群系", "en": "Declare a biome from colour alone" }, { "zh": "假定全岛条件相同", "en": "Assume the whole island has identical conditions" }], "answer": 0, "explanation": { "zh": "地理解释需要把大尺度线索和本地证据连接起来。", "en": "Geographic explanation links broad-scale clues with local evidence." }, "hint": { "zh": "选择能比较多个条件与地点的做法。", "en": "Choose the approach that compares multiple conditions and places." } },
+    "sources": [
+      { "title": "NASA Earth Observatory — Mission: Biomes", "url": "https://earthobservatory.nasa.gov/features/Biome", "note": { "zh": "用于气候与植被的入门关系核对；未复用图像或地图。", "en": "Used to check introductory climate–vegetation relationships; no images or maps reused." } },
+      { "title": "NIWA — New Zealand's Native Vegetation", "url": "https://niwa.co.nz/climate/information-and-resources/climate-and-vegetation", "note": { "zh": "用于提醒新西兰植被受地形、气候和人类活动共同影响。", "en": "Used to emphasize that NZ vegetation is affected by terrain, climate and human activity together." } }
+    ]
+  },
+  {
+    "id": "GEO-043",
+    "title": { "zh": "极地与高山的生存", "en": "Extreme Environments" },
+    "question": { "zh": "在很冷的地方，生命如何适应？", "en": "How does life adapt in very cold places?" },
+    "hero": "extreme-conditions-model",
+    "icon": "△",
+    "minutes": 35,
+    "assetIds": ["extreme-conditions-model", "extreme-adaptations-model", "extreme-tradeoffs-model"],
+    "outcomes": [
+      { "zh": "比较极地和高山的共同寒冷与不同条件。", "en": "Compare shared cold and different conditions in polar and alpine environments." },
+      { "zh": "把一种适应解释为特定生物在特定条件下的特征与作用。", "en": "Explain an adaptation as a feature and function of a particular organism in particular conditions." },
+      { "zh": "避免把适应讲成无代价、所有生物都相同的超级能力。", "en": "Avoid describing adaptation as a cost-free superpower shared by all organisms." }
+    ],
+    "prediction": [
+      { "zh": "所有寒冷地方的条件完全相同", "en": "All cold places have identical conditions" },
+      { "zh": "适应与环境条件、好处和代价有关", "en": "Adaptation relates to environmental conditions, benefits and costs" },
+      { "zh": "一种适应能预测明天的天气", "en": "One adaptation predicts tomorrow's weather" }
+    ],
+    "terms": [
+      { "name": { "zh": "适应", "en": "Adaptation" }, "meaning": { "zh": "能提高生物在特定环境下生存和繁殖机会的遗传特征或行为；需说明条件。", "en": "An inherited feature or behaviour that can improve survival/reproduction in a particular environment; conditions matter." } },
+      { "name": { "zh": "高山环境", "en": "Alpine environment" }, "meaning": { "zh": "高海拔地区的环境，除低温外常有较稀薄空气、强辐射和陡坡等因素。", "en": "A high-altitude environment that may include thin air, strong radiation and steep slopes as well as cold." } },
+      { "name": { "zh": "取舍", "en": "Trade-off" }, "meaning": { "zh": "一种特征带来好处时，也可能有能量、速度、活动范围或其他代价。", "en": "When a feature brings a benefit, it can also involve costs in energy, speed, range or something else." } },
+      { "name": { "zh": "辐射", "en": "Radiation" }, "meaning": { "zh": "能量以波的形式传播；高海拔紫外线暴露可较强，仍受天气和地表反射影响。", "en": "Energy travelling as waves; UV exposure can be stronger at high altitude but also varies with weather and reflection." } }
+    ],
+    "explanationPrompt": { "zh": "选择一种特征，按“环境条件→特征→好处→可能代价”讲解；再比较高山和极地的一项差异。", "en": "Choose one trait and explain “condition → trait → benefit → possible cost”; then compare one alpine/polar difference." },
+    "recall": [
+      { "id": "GEO-043-R1", "prompt": { "zh": "为什么不能把高山和极地简单说成同一种环境？", "en": "Why cannot alpine and polar places simply be called the same environment?" }, "options": [{ "zh": "都可能很冷，但高海拔还涉及空气稀薄、坡度和辐射等条件", "en": "Both can be cold, but altitude also brings thin air, slopes and radiation conditions" }, { "zh": "因为地图不允许比较", "en": "Because maps do not allow comparison" }, { "zh": "因为高山没有天气", "en": "Because mountains have no weather" }], "answer": 0, "explanation": { "zh": "共同点不应抹掉关键差异。", "en": "A shared feature should not erase important differences." }, "hint": { "zh": "找一个随海拔改变、但不只由纬度决定的条件。", "en": "Find a condition that changes with altitude, not latitude alone." } },
+      { "id": "GEO-043-R2", "prompt": { "zh": "哪一句最能表达“适应”的科学含义？", "en": "Which statement best expresses the scientific meaning of adaptation?" }, "options": [{ "zh": "特征在特定条件下可能提高生存机会，也有局限", "en": "A trait can improve survival in particular conditions and has limits" }, { "zh": "每个个体都能随意决定长出新特征", "en": "Every individual can choose any new trait" }, { "zh": "适应保证永远不会有风险", "en": "Adaptation guarantees no risk ever" }], "answer": 0, "explanation": { "zh": "课程用的是条件化解释，不把自然选择简化为意愿或保证。", "en": "The lesson uses conditional explanation rather than reducing natural selection to choice or certainty." }, "hint": { "zh": "留意“特定条件”和“取舍”两个词。", "en": "Notice “particular conditions” and “trade-offs”." } }
+    ],
+    "transfer": { "id": "GEO-043-T", "prompt": { "zh": "一张山地动物照片显示厚毛，最严谨的说明是哪句？", "en": "A mountain-animal photo shows thick fur. Which is the most rigorous statement?" }, "options": [{ "zh": "厚毛可能减少散热；还需知道物种、季节和行为来判断完整作用", "en": "Thick fur may reduce heat loss; species, season and behaviour are still needed to judge its full role" }, { "zh": "厚毛证明所有高山动物都相同", "en": "Thick fur proves all alpine animals are identical" }, { "zh": "厚毛能预测下一场暴风雪", "en": "Thick fur predicts the next blizzard" }], "answer": 0, "explanation": { "zh": "从照片得到线索后，要提出可查证的问题。", "en": "After getting a clue from a photo, ask questions that can be checked." }, "hint": { "zh": "不要让一个可见特征证明过多事情。", "en": "Do not make one visible trait prove too much." } },
+    "sources": [
+      { "title": "Antarctica New Zealand — Antarctic Ecosystems", "url": "https://www.antarcticanz.govt.nz/science/antarctica-environment/", "note": { "zh": "用于南极环境并不处处相同的事实核对；没有复用图像。", "en": "Used to check that Antarctic conditions are not identical everywhere; no images reused." } },
+      { "title": "USGS — Mountain Environments", "url": "https://www.usgs.gov/programs/climate-adaptation-science-centers/science/mountain-ecosystems", "note": { "zh": "用于高海拔生态系统受多个气候与地形条件影响的框架。", "en": "Used for the framework that mountain ecosystems are shaped by multiple climate and terrain conditions." } }
+    ]
+  },
+  {
+    "id": "GEO-044",
+    "title": { "zh": "风暴如何形成", "en": "Storms & Extreme Weather" },
+    "question": { "zh": "为什么有些风暴会迅速增强？", "en": "Why can some storms intensify quickly?" },
+    "hero": "storm-energy-model",
+    "icon": "≋",
+    "minutes": 40,
+    "assetIds": ["storm-energy-model", "storm-conditions-model", "storm-risk-model"],
+    "outcomes": [
+      { "zh": "用暖海、湿空气上升、凝结释热解释热带气旋的概念能量链。", "en": "Use warm ocean, rising moist air and condensation heat to explain a conceptual tropical-cyclone energy chain." },
+      { "zh": "识别多个支持或削弱强度的条件，而不是用单一原因解释每次风暴。", "en": "Identify multiple conditions that support or weaken intensity rather than one cause for every storm." },
+      { "zh": "区分天气危险性、暴露度、脆弱性和实际灾害风险。", "en": "Distinguish weather hazard, exposure, vulnerability and actual disaster risk." }
+    ],
+    "prediction": [
+      { "zh": "海水温暖就一定会有气旋", "en": "Warm sea always guarantees a cyclone" },
+      { "zh": "强度要看多个海洋和大气条件", "en": "Intensity depends on multiple ocean and atmosphere conditions" },
+      { "zh": "同样风速在任何地方风险相同", "en": "The same wind speed has equal risk everywhere" }
+    ],
+    "terms": [
+      { "name": { "zh": "热带气旋", "en": "Tropical cyclone" }, "meaning": { "zh": "在热带或副热带海洋上形成的旋转低压风暴系统；不同地区名称不同。", "en": "A rotating low-pressure storm system forming over tropical/subtropical oceans; regional names differ." } },
+      { "name": { "zh": "风切变", "en": "Wind shear" }, "meaning": { "zh": "不同高度风速或风向的变化；强垂直风切变可扰乱热带气旋结构。", "en": "A change in wind speed or direction with height; strong vertical shear can disrupt tropical-cyclone structure." } },
+      { "name": { "zh": "危险性", "en": "Hazard" }, "meaning": { "zh": "可能造成伤害或破坏的过程，例如强风、暴雨或风暴潮。", "en": "A potentially harmful process such as strong wind, intense rain or storm surge." } },
+      { "name": { "zh": "脆弱性", "en": "Vulnerability" }, "meaning": { "zh": "人或地点更容易受害、较难准备和恢复的条件。", "en": "Conditions that make people or places more likely to be harmed and less able to prepare or recover." } }
+    ],
+    "explanationPrompt": { "zh": "画或指着能量链，说一个增强条件、一个削弱条件，并解释为什么同样危险性在不同地点风险不同。", "en": "Draw or point through the energy chain, name one strengthening and one weakening condition, then explain why equal hazard can mean different risk." },
+    "recall": [
+      { "id": "GEO-044-R1", "prompt": { "zh": "为什么“暖海会形成气旋”不够准确？", "en": "Why is “warm ocean makes a cyclone” incomplete?" }, "options": [{ "zh": "暖海是支持条件之一，还要看湿度、风切变、结构和其他条件", "en": "Warm ocean is one support; moisture, shear, structure and other conditions also matter" }, { "zh": "因为海水从不温暖", "en": "Because ocean water is never warm" }, { "zh": "因为气旋只在陆地上形成", "en": "Because cyclones form only over land" }], "answer": 0, "explanation": { "zh": "科学解释常需要一组条件，不能把相关变成保证。", "en": "Scientific explanations often need a set of conditions; correlation is not a guarantee." }, "hint": { "zh": "回到中心周围的四个条件。", "en": "Return to the four conditions around the centre." } },
+      { "id": "GEO-044-R2", "prompt": { "zh": "为何同一强度风暴经过两处地方，后果可能不同？", "en": "Why can one storm intensity have different consequences in two places?" }, "options": [{ "zh": "暴露的人和设施、建筑条件、警报和资源不同", "en": "Exposed people/infrastructure, buildings, warnings and resources differ" }, { "zh": "风暴只选择某种国家", "en": "Storms choose one kind of country" }, { "zh": "因为风险只由名字决定", "en": "Because risk is set only by a name" }], "answer": 0, "explanation": { "zh": "风险把危险性与社会和地点条件联系起来。", "en": "Risk connects hazard with social and place conditions." }, "hint": { "zh": "把天气过程和人的处境分别考虑。", "en": "Consider the weather process and people’s circumstances separately." } }
+    ],
+    "transfer": { "id": "GEO-044-T", "prompt": { "zh": "看到社交媒体上的风暴图，最安全负责的下一步是什么？", "en": "After seeing a storm graphic on social media, what is the safest responsible next step?" }, "options": [{ "zh": "查看当地官方气象与应急服务的最新警报，按家庭安全计划行动", "en": "Check current alerts from local official weather/emergency services and follow the family safety plan" }, { "zh": "自行去海边拍摄巨浪", "en": "Go to the coast to film large waves" }, { "zh": "用课程概念图代替实时预报", "en": "Use the course concept diagram instead of a live forecast" }], "answer": 0, "explanation": { "zh": "课程模型解释机制，不能提供实时地点预警；安全决定应以权威服务为准。", "en": "The model explains mechanisms and cannot give live place warnings; safety decisions need official services." }, "hint": { "zh": "找既能获得最新信息又不增加暴露的选项。", "en": "Choose the option that gets current information without increasing exposure." } },
+    "sources": [
+      { "title": "NOAA Ocean Service — Hurricanes", "url": "https://oceanservice.noaa.gov/facts/hurricanes.html", "note": { "zh": "用于热带气旋海洋热量和形成条件的入门核对；没有复用卫星图。", "en": "Used to check introductory tropical-cyclone ocean heat and formation conditions; no satellite image reused." } },
+      { "title": "WMO — Tropical Cyclone Programme", "url": "https://community.wmo.int/en/activity-areas/tropical-cyclones", "note": { "zh": "用于说明真实预报和警报需要官方气象服务；课程不作预报。", "en": "Used to state that official services are needed for real forecasts/warnings; this course does not forecast." } },
+      { "title": "UNDRR — Terminology: Disaster Risk", "url": "https://www.undrr.org/terminology/disaster-risk", "note": { "zh": "用于危险性、暴露度、脆弱性与风险的区分。", "en": "Used to distinguish hazard, exposure, vulnerability and risk." } }
+    ]
   }
 ]

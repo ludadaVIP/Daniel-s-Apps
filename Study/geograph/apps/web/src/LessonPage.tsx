@@ -1,5 +1,7 @@
 import { climateLessonIds } from './climateModels';
 import { ClimateExplorer } from './ClimateActivities';
+import { livingPlanetLessonIds } from './livingPlanetModels';
+import { LivingPlanetExplorer } from './LivingPlanetActivities';
 import { weatherLessonIds } from './weatherModels';
 import { WeatherExplorer } from './WeatherActivities';
 import { useEffect, useState } from 'react';
@@ -123,6 +125,16 @@ function Hero({
   session: Session;
   store: Store;
 }) {
+  if (livingPlanetLessonIds.includes(lesson.id))
+    return (
+      <LivingPlanetExplorer
+        mystery
+        id={lesson.id}
+        mode={mode}
+        state={session.activity}
+        onChange={(activity) => store.patch(lesson.id, { activity })}
+      />
+    );
   if (climateLessonIds.includes(lesson.id))
     return (
       <ClimateExplorer
@@ -259,7 +271,15 @@ function Story({
   store: Store;
 }) {
   const [panel, setPanel] = useState(0);
-  const art = climateLessonIds.includes(lesson.id) ? (
+  const art = livingPlanetLessonIds.includes(lesson.id) ? (
+    <LivingPlanetExplorer
+      id={lesson.id}
+      mode={mode}
+      state={session.activity}
+      panel={panel}
+      onChange={(activity) => store.patch(lesson.id, { activity })}
+    />
+  ) : climateLessonIds.includes(lesson.id) ? (
     <ClimateExplorer
       id={lesson.id}
       mode={mode}
