@@ -26,6 +26,10 @@ import { LinearLab, isLinearLab } from './LinearLabs';
 import { PlaneLab, isPlaneLab } from './PlaneLabs';
 import { CartesianLab, isCartesianLab } from './CartesianLabs';
 import { SystemLab, isSystemLab } from './SystemLabs';
+import { FunctionLab, isFunctionLab } from './FunctionLabs';
+import { ResearchLab, isResearchLab } from './ResearchLabs';
+import { PythagoreanLab, isPythagoreanLab } from './PythagoreanLabs';
+import { CongruenceLab, isCongruenceLab } from './CongruenceLabs';
 import { InequalityLab, isInequalityLab } from './InequalityLabs';
 import { FactorLab, isFactorLab } from './FactorLabs';
 import { IdentityLab, isIdentityLab } from './IdentityLabs';
@@ -361,7 +365,17 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isInequalityLab(kind) ? (<InequalityLab key={kind} kind={kind} mode={mode} />) : isSystemLab(kind) ? (
+  return isResearchLab(kind) ? (
+    <ResearchLab key={kind} kind={kind} mode={mode} />
+  ) : isPythagoreanLab(kind) ? (
+    <PythagoreanLab key={kind} kind={kind} mode={mode} />
+  ) : isCongruenceLab(kind) ? (
+    <CongruenceLab key={kind} kind={kind} mode={mode} />
+  ) : isFunctionLab(kind) ? (
+    <FunctionLab key={kind} kind={kind} mode={mode} />
+  ) : isInequalityLab(kind) ? (
+    <InequalityLab key={kind} kind={kind} mode={mode} />
+  ) : isSystemLab(kind) ? (
     <SystemLab key={kind} kind={kind} mode={mode} />
   ) : isFactorLab(kind) ? (
     <FactorLab key={kind} kind={kind} mode={mode} />

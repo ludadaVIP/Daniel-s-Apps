@@ -6,76 +6,908 @@ import { readRational } from './rationalModels';
 import { mulR, textR } from './algebraModels';
 import { SignedAxis } from './SignedVisuals';
 import { InequalityLine } from './InequalityVisuals';
-import { relationInequalities, oneStepInequalities, multiStepInequalities, intersectionInequalities, inequalityAt, inequalityText, solveInequality, parseRealSet, sameInterval, auditInequality, transformInequality, inequalityTrace, relationHolds, type InequalityOperation } from './inequalityModels';
+import {
+  relationInequalities,
+  oneStepInequalities,
+  multiStepInequalities,
+  intersectionInequalities,
+  inequalityAt,
+  inequalityText,
+  solveInequality,
+  parseRealSet,
+  sameInterval,
+  auditInequality,
+  transformInequality,
+  inequalityTrace,
+  relationHolds,
+  type InequalityOperation,
+} from './inequalityModels';
 export type InequalityLabKind = Extract<Lesson['lab'], `inequality-${string}`>;
-export const isInequalityLab = (kind: Lesson['lab']): kind is InequalityLabKind => kind.startsWith('inequality-');
-const label = (mode: LanguageMode, text: LocalizedText) => mode === 'en' ? text.en : text.zh;
-function Field({ name, value, onChange, mode }: { name: LocalizedText; value: string; onChange: (s: string) => void; mode: LanguageMode }) { return <label><Text mode={mode} text={name}/><input aria-label={label(mode, name)} type="text" value={value} onChange={e => onChange(e.target.value)}/></label>; }
+export const isInequalityLab = (
+  kind: Lesson['lab'],
+): kind is InequalityLabKind => kind.startsWith('inequality-');
+const label = (mode: LanguageMode, text: LocalizedText) =>
+  mode === 'en' ? text.en : text.zh;
+function Field({
+  name,
+  value,
+  onChange,
+  mode,
+}: {
+  name: LocalizedText;
+  value: string;
+  onChange: (s: string) => void;
+  mode: LanguageMode;
+}) {
+  return (
+    <label>
+      <Text mode={mode} text={name} />
+      <input
+        aria-label={label(mode, name)}
+        type="text"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      />
+    </label>
+  );
+}
 function Task({ source, mode }: { source: string; mode: LanguageMode }) {
-  const [input, setInput] = useState(''), [checked, setChecked] = useState(false);
-  return <div className="math-inequality-task" role="group" aria-label={label(mode,t('我的完整解集','My complete solution set'))}>
-    <Field mode={mode} name={t('我的完整解集','My complete solution set')} value={input} onChange={s => {setInput(s);setChecked(false);}}/>
-    <p><Text mode={mode} text={t('用 x<2、−1≤x<4、x=2、无解或所有实数这类写法；可写两条件用分号连接，表示同时满足。保留精确分数，不只填边界数。','Use forms such as x<2, -1≤x<4, x=2, no solution or all reals. Separate two simultaneous conditions with a semicolon. Keep exact fractions; a boundary alone is not a set.')}/></p>
-    <button className="math-button" onClick={() => setChecked(true)}><Text mode={mode} text={t('核对解集','Check solution set')}/></button>
-    {checked && <p role="status" aria-label={label(mode,t('不等式反馈','Inequality feedback'))}><Text mode={mode} text={checkAnswer(input,{kind:'real-set',value:source}) ? t('解集相符。再解释端点、方向和原条件。','The solution set matches. Explain endpoints, direction and original conditions.') : t('再核完整范围、端点是否包含、负数乘除的方向及是否同时满足各条件；一个边界或几个样本不代表完整解集。','Recheck the full range, endpoint inclusion, negative scaling and simultaneous conditions. A boundary or a few samples do not give the full set.')}/></p>}
-  </div>;
-}
-function Source({ rows, mode }: { rows: string[]; mode: LanguageMode }) { return <div className="math-inequality-source" role="group" aria-label={label(mode,t('保留的原条件','Original conditions retained'))}>{rows.map((r,i) => <p key={i} data-original-inequality={i}>{i+1}. {r}</p>)}</div>; }
-function SelectExperiment({ rows, index, onChange, name, mode }: { rows: string[]; index: number; onChange: (n: number) => void; name: LocalizedText; mode: LanguageMode }) { return <label><Text mode={mode} text={name}/><select aria-label={label(mode,name)} value={index} onChange={e => onChange(Number(e.target.value))}>{rows.map((r,i) => <option value={i} key={i}>{r}</option>)}</select></label>; }
-function Candidate({ rows, mode }: { rows: string[]; mode: LanguageMode }) {
-  const [value,setValue] = useState('3'),[checked,setChecked] = useState(false), results=rows.map(r=>auditInequality(inequalityAt(r),value));
-  return <div className="math-inequality-task"><Field mode={mode} name={t('待核候选数','Candidate value')} value={value} onChange={s=>{setValue(s);setChecked(false);}}/><button className="math-button" onClick={()=>setChecked(true)}><Text mode={mode} text={t('代入所有原条件','Check all original conditions')}/></button>{checked && <div role="status" aria-label={label(mode,t('候选核验','Candidate audit'))}>{results.some(r=>!r) ? <Text mode={mode} text={t('输入有效的精确数值或分数。','Enter a valid exact number or fraction.')}/> : <>{results.map((r,i)=><p key={i} data-candidate-pass={r!.pass}>{r!.left} {inequalityAt(rows[i]!).sign} {r!.right}: <Text mode={mode} text={r!.pass?t('成立','true'):t('不成立','false')}/></p>)}<Text mode={mode} text={results.every(r=>r!.pass)?t('同一个数符合全部原条件；这只证明它是一个解。','The same number passes every condition; this proves one solution only.'):t('至少一条未通过，不是共同解。','At least one condition fails, so this is not a shared solution.')}/></>}</div>}</div>;
-}
-function MeaningExperiment({ source, mode }: { source: string; mode: LanguageMode }) {
-  const [edge,setEdge]=useState('0'),[direction,setDirection]=useState('<'),[closed,setClosed]=useState(false),[checked,setChecked]=useState(false),[samples,setSamples]=useState(false),e=inequalityAt(source),expected=solveInequality(e),preview=parseRealSet(`x${direction}${closed?'=':''}${edge}`);
-  return <><Source rows={[source]} mode={mode}/><Candidate rows={[source]} mode={mode}/>
-    <div className="math-inequality-controls"><Field mode={mode} name={t('绘图边界','Drawing boundary')} value={edge} onChange={s=>{setEdge(s);setChecked(false);}}/>
-      <label><Text mode={mode} text={t('涂色方向','Shading direction')}/><select aria-label={label(mode,t('涂色方向','Shading direction'))} value={direction} onChange={ev=>{setDirection(ev.target.value);setChecked(false);}}><option value="<">←</option><option value=">">→</option></select></label>
-      <label><input type="checkbox" checked={closed} onChange={ev=>{setClosed(ev.target.checked);setChecked(false);}}/><Text mode={mode} text={t('包含边界','Include boundary')}/></label>
+  const [input, setInput] = useState(''),
+    [checked, setChecked] = useState(false);
+  return (
+    <div
+      className="math-inequality-task"
+      role="group"
+      aria-label={label(mode, t('我的完整解集', 'My complete solution set'))}
+    >
+      <Field
+        mode={mode}
+        name={t('我的完整解集', 'My complete solution set')}
+        value={input}
+        onChange={(s) => {
+          setInput(s);
+          setChecked(false);
+        }}
+      />
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '用 x<2、−1≤x<4、x=2、无解或所有实数这类写法；可写两条件用分号连接，表示同时满足。保留精确分数，不只填边界数。',
+            'Use forms such as x<2, -1≤x<4, x=2, no solution or all reals. Separate two simultaneous conditions with a semicolon. Keep exact fractions; a boundary alone is not a set.',
+          )}
+        />
+      </p>
+      <button className="math-button" onClick={() => setChecked(true)}>
+        <Text mode={mode} text={t('核对解集', 'Check solution set')} />
+      </button>
+      {checked && (
+        <p
+          role="status"
+          aria-label={label(mode, t('不等式反馈', 'Inequality feedback'))}
+        >
+          <Text
+            mode={mode}
+            text={
+              checkAnswer(input, { kind: 'real-set', value: source })
+                ? t(
+                    '解集相符。再解释端点、方向和原条件。',
+                    'The solution set matches. Explain endpoints, direction and original conditions.',
+                  )
+                : t(
+                    '再核完整范围、端点是否包含、负数乘除的方向及是否同时满足各条件；一个边界或几个样本不代表完整解集。',
+                    'Recheck the full range, endpoint inclusion, negative scaling and simultaneous conditions. A boundary or a few samples do not give the full set.',
+                  )
+            }
+          />
+        </p>
+      )}
     </div>
-    {preview ? <InequalityLine set={preview} mode={mode} name={label(mode,t('我的数轴草图','My number-line sketch'))}/> : <p><Text mode={mode} text={t('边界须为有效数值。','The boundary must be a valid number.')}/></p>}
-    <button className="math-button" onClick={()=>setChecked(true)}><Text mode={mode} text={t('核对数轴草图','Check number-line sketch')}/></button>
-    {checked&&<p role="status" aria-label={label(mode,t('草图反馈','Sketch feedback'))}><Text mode={mode} text={preview&&sameInterval(preview,expected)?t('边界、方向及端点都符合。','Boundary, direction and endpoint match.'):t('分别检查边界位置、左/右方向和空心/实心。','Check the boundary, left/right direction and open/filled endpoint separately.')}/></p>}
-    <button className="math-button" onClick={()=>setSamples(!samples)}><Text mode={mode} text={t('查看十个整数样本','Inspect ten integer samples')}/></button>
-    {samples&&<div><p><Text mode={mode} text={t('仅列 −4 到 5 十个整数，不是全部实数解；分数与视窗外数也可能成立。','Only ten integers from -4 to 5 are listed, not every real solution. Fractions and off-window numbers may also work.')}/></p><div className="math-inequality-samples">{Array.from({length:10},(_,i)=>i-4).map(v=><span key={v} data-inequality-sample={v} data-pass={auditInequality(e,String(v))!.pass}>{v}: {auditInequality(e,String(v))!.pass?'✓':'×'}</span>)}</div></div>}
-    <Task source={source} mode={mode}/></>;
+  );
 }
-function OperationExperiment({ source, mode }: { source: string; mode: LanguageMode }) {
-  const original=inequalityAt(source),[history,setHistory]=useState([original]),[op,setOp]=useState<InequalityOperation>('−'),[amount,setAmount]=useState('3'),[side,setSide]=useState<'both'|'left'>('both'),[reverse,setReverse]=useState(false),[attempt,setAttempt]=useState<ReturnType<typeof transformInequality>|null>(null), current=history.at(-1)!;
-  const clear=()=>setAttempt(null);
-  const messages = {invalid:t('请输入有效的一次式或常数。','Enter a valid affine expression or constant.'),'unknown-sign':t('字母因子的符号未知，本实验不作统一乘除；需先分类讨论。','A variable factor has unknown sign; no universal scaling is applied. Cases would be needed.'),'zero-factor':t('乘零抹去大小信息，不能作为可逆步骤。','Multiplying by zero erases order information and is not reversible.'),'zero-divisor':t('不能除以零。','Division by zero is undefined.'),'one-sided':t('只改一边不是通用等价规则，原不等式保留。','A one-sided change is not a general equivalence rule; the original remains.'),direction:t('同加减不反向；同乘除正数不反向，同乘除负数须反向。','Addition/subtraction keeps direction; positive scaling keeps it and negative scaling reverses it.'),reversible:t('这是可逆等价步骤，已保留到变形记录。','This reversible step is retained in the transformation history.')};
-  return <><Source rows={[source]} mode={mode}/><p data-current-inequality>{inequalityText(current)}</p><div className="math-inequality-controls">
-    <label><Text mode={mode} text={t('两边操作','Operation')}/><select aria-label={label(mode,t('两边操作','Operation'))} value={op} onChange={ev=>{setOp(ev.target.value as InequalityOperation);clear();}}>{(['+','−','×','÷'] as const).map(o=><option key={o}>{o}</option>)}</select></label>
-    <Field name={t('操作量','Operation amount')} value={amount} mode={mode} onChange={s=>{setAmount(s);clear();}}/>
-    <label><Text mode={mode} text={t('操作哪边','Sides changed')}/><select aria-label={label(mode,t('操作哪边','Sides changed'))} value={side} onChange={ev=>{setSide(ev.target.value as 'both'|'left');clear();}}><option value="both">{label(mode,t('两边','Both'))}</option><option value="left">{label(mode,t('仅左边','Left only'))}</option></select></label>
-    <label><input type="checkbox" checked={reverse} onChange={ev=>{setReverse(ev.target.checked);clear();}}/><Text mode={mode} text={t('改变不等号方向','Reverse comparison')}/></label></div>
-    <div className="math-inequality-actions"><button className="math-button" onClick={()=>{const r=transformInequality(current,op,amount,side,reverse);setAttempt(r);if(r.next&&r.safeRule&&r.preserves)setHistory([...history,r.next]);}}><Text mode={mode} text={t('核对并尝试步骤','Check and try step')}/></button><button className="math-button" disabled={history.length===1} onClick={()=>{setHistory(history.slice(0,-1));clear();}}><Text mode={mode} text={t('撤回上一步','Undo last step')}/></button></div>
-    {attempt&&<div role="status" aria-label={label(mode,t('步骤规则反馈','Step rule feedback'))}><Text mode={mode} text={messages[attempt.reason]}/>{attempt.next&&!attempt.safeRule&&<p><Text mode={mode} text={t('未采用的试写：','Unadopted trial: ')}/>{inequalityText(attempt.next)}; <Text mode={mode} text={attempt.preserves?t('本例解集碰巧相同，仍不能证明通用规则。','The sets happen to match here; this does not establish a general rule.'):t('本例解集已改变。','The solution set has changed in this example.')}/></p>}</div>}
-    <ol>{history.map((r,i)=><li key={i} data-inequality-history>{inequalityText(r)}</li>)}</ol><Task source={source} mode={mode}/></>;
+function Source({ rows, mode }: { rows: string[]; mode: LanguageMode }) {
+  return (
+    <div
+      className="math-inequality-source"
+      role="group"
+      aria-label={label(
+        mode,
+        t('保留的原条件', 'Original conditions retained'),
+      )}
+    >
+      {rows.map((r, i) => (
+        <p key={i} data-original-inequality={i}>
+          {i + 1}. {r}
+        </p>
+      ))}
+    </div>
+  );
+}
+function SelectExperiment({
+  rows,
+  index,
+  onChange,
+  name,
+  mode,
+}: {
+  rows: string[];
+  index: number;
+  onChange: (n: number) => void;
+  name: LocalizedText;
+  mode: LanguageMode;
+}) {
+  return (
+    <label>
+      <Text mode={mode} text={name} />
+      <select
+        aria-label={label(mode, name)}
+        value={index}
+        onChange={(e) => onChange(Number(e.target.value))}
+      >
+        {rows.map((r, i) => (
+          <option value={i} key={i}>
+            {r}
+          </option>
+        ))}
+      </select>
+    </label>
+  );
+}
+function Candidate({ rows, mode }: { rows: string[]; mode: LanguageMode }) {
+  const [value, setValue] = useState('3'),
+    [checked, setChecked] = useState(false),
+    results = rows.map((r) => auditInequality(inequalityAt(r), value));
+  return (
+    <div className="math-inequality-task">
+      <Field
+        mode={mode}
+        name={t('待核候选数', 'Candidate value')}
+        value={value}
+        onChange={(s) => {
+          setValue(s);
+          setChecked(false);
+        }}
+      />
+      <button className="math-button" onClick={() => setChecked(true)}>
+        <Text
+          mode={mode}
+          text={t('代入所有原条件', 'Check all original conditions')}
+        />
+      </button>
+      {checked && (
+        <div
+          role="status"
+          aria-label={label(mode, t('候选核验', 'Candidate audit'))}
+        >
+          {results.some((r) => !r) ? (
+            <Text
+              mode={mode}
+              text={t(
+                '输入有效的精确数值或分数。',
+                'Enter a valid exact number or fraction.',
+              )}
+            />
+          ) : (
+            <>
+              {results.map((r, i) => (
+                <p key={i} data-candidate-pass={r!.pass}>
+                  {r!.left} {inequalityAt(rows[i]!).sign} {r!.right}:{' '}
+                  <Text
+                    mode={mode}
+                    text={r!.pass ? t('成立', 'true') : t('不成立', 'false')}
+                  />
+                </p>
+              ))}
+              <Text
+                mode={mode}
+                text={
+                  results.every((r) => r!.pass)
+                    ? t(
+                        '同一个数符合全部原条件；这只证明它是一个解。',
+                        'The same number passes every condition; this proves one solution only.',
+                      )
+                    : t(
+                        '至少一条未通过，不是共同解。',
+                        'At least one condition fails, so this is not a shared solution.',
+                      )
+                }
+              />
+            </>
+          )}
+        </div>
+      )}
+    </div>
+  );
+}
+function MeaningExperiment({
+  source,
+  mode,
+}: {
+  source: string;
+  mode: LanguageMode;
+}) {
+  const [edge, setEdge] = useState('0'),
+    [direction, setDirection] = useState('<'),
+    [closed, setClosed] = useState(false),
+    [checked, setChecked] = useState(false),
+    [samples, setSamples] = useState(false),
+    e = inequalityAt(source),
+    expected = solveInequality(e),
+    preview = parseRealSet(`x${direction}${closed ? '=' : ''}${edge}`);
+  return (
+    <>
+      <Source rows={[source]} mode={mode} />
+      <Candidate rows={[source]} mode={mode} />
+      <div className="math-inequality-controls">
+        <Field
+          mode={mode}
+          name={t('绘图边界', 'Drawing boundary')}
+          value={edge}
+          onChange={(s) => {
+            setEdge(s);
+            setChecked(false);
+          }}
+        />
+        <label>
+          <Text mode={mode} text={t('涂色方向', 'Shading direction')} />
+          <select
+            aria-label={label(mode, t('涂色方向', 'Shading direction'))}
+            value={direction}
+            onChange={(ev) => {
+              setDirection(ev.target.value);
+              setChecked(false);
+            }}
+          >
+            <option value="<">←</option>
+            <option value=">">→</option>
+          </select>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={closed}
+            onChange={(ev) => {
+              setClosed(ev.target.checked);
+              setChecked(false);
+            }}
+          />
+          <Text mode={mode} text={t('包含边界', 'Include boundary')} />
+        </label>
+      </div>
+      {preview ? (
+        <InequalityLine
+          set={preview}
+          mode={mode}
+          name={label(mode, t('我的数轴草图', 'My number-line sketch'))}
+        />
+      ) : (
+        <p>
+          <Text
+            mode={mode}
+            text={t(
+              '边界须为有效数值。',
+              'The boundary must be a valid number.',
+            )}
+          />
+        </p>
+      )}
+      <button className="math-button" onClick={() => setChecked(true)}>
+        <Text
+          mode={mode}
+          text={t('核对数轴草图', 'Check number-line sketch')}
+        />
+      </button>
+      {checked && (
+        <p
+          role="status"
+          aria-label={label(mode, t('草图反馈', 'Sketch feedback'))}
+        >
+          <Text
+            mode={mode}
+            text={
+              preview && sameInterval(preview, expected)
+                ? t(
+                    '边界、方向及端点都符合。',
+                    'Boundary, direction and endpoint match.',
+                  )
+                : t(
+                    '分别检查边界位置、左/右方向和空心/实心。',
+                    'Check the boundary, left/right direction and open/filled endpoint separately.',
+                  )
+            }
+          />
+        </p>
+      )}
+      <button className="math-button" onClick={() => setSamples(!samples)}>
+        <Text
+          mode={mode}
+          text={t('查看十个整数样本', 'Inspect ten integer samples')}
+        />
+      </button>
+      {samples && (
+        <div>
+          <p>
+            <Text
+              mode={mode}
+              text={t(
+                '仅列 −4 到 5 十个整数，不是全部实数解；分数与视窗外数也可能成立。',
+                'Only ten integers from -4 to 5 are listed, not every real solution. Fractions and off-window numbers may also work.',
+              )}
+            />
+          </p>
+          <div className="math-inequality-samples">
+            {Array.from({ length: 10 }, (_, i) => i - 4).map((v) => (
+              <span
+                key={v}
+                data-inequality-sample={v}
+                data-pass={auditInequality(e, String(v))!.pass}
+              >
+                {v}: {auditInequality(e, String(v))!.pass ? '✓' : '×'}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
+      <Task source={source} mode={mode} />
+    </>
+  );
+}
+function OperationExperiment({
+  source,
+  mode,
+}: {
+  source: string;
+  mode: LanguageMode;
+}) {
+  const original = inequalityAt(source),
+    [history, setHistory] = useState([original]),
+    [op, setOp] = useState<InequalityOperation>('−'),
+    [amount, setAmount] = useState('3'),
+    [side, setSide] = useState<'both' | 'left'>('both'),
+    [reverse, setReverse] = useState(false),
+    [attempt, setAttempt] = useState<ReturnType<
+      typeof transformInequality
+    > | null>(null),
+    current = history.at(-1)!;
+  const clear = () => setAttempt(null);
+  const messages = {
+    invalid: t(
+      '请输入有效的一次式或常数。',
+      'Enter a valid affine expression or constant.',
+    ),
+    'unknown-sign': t(
+      '字母因子的符号未知，本实验不作统一乘除；需先分类讨论。',
+      'A variable factor has unknown sign; no universal scaling is applied. Cases would be needed.',
+    ),
+    'zero-factor': t(
+      '乘零抹去大小信息，不能作为可逆步骤。',
+      'Multiplying by zero erases order information and is not reversible.',
+    ),
+    'zero-divisor': t('不能除以零。', 'Division by zero is undefined.'),
+    'one-sided': t(
+      '只改一边不是通用等价规则，原不等式保留。',
+      'A one-sided change is not a general equivalence rule; the original remains.',
+    ),
+    direction: t(
+      '同加减不反向；同乘除正数不反向，同乘除负数须反向。',
+      'Addition/subtraction keeps direction; positive scaling keeps it and negative scaling reverses it.',
+    ),
+    reversible: t(
+      '这是可逆等价步骤，已保留到变形记录。',
+      'This reversible step is retained in the transformation history.',
+    ),
+  };
+  return (
+    <>
+      <Source rows={[source]} mode={mode} />
+      <p data-current-inequality>{inequalityText(current)}</p>
+      <div className="math-inequality-controls">
+        <label>
+          <Text mode={mode} text={t('两边操作', 'Operation')} />
+          <select
+            aria-label={label(mode, t('两边操作', 'Operation'))}
+            value={op}
+            onChange={(ev) => {
+              setOp(ev.target.value as InequalityOperation);
+              clear();
+            }}
+          >
+            {(['+', '−', '×', '÷'] as const).map((o) => (
+              <option key={o}>{o}</option>
+            ))}
+          </select>
+        </label>
+        <Field
+          name={t('操作量', 'Operation amount')}
+          value={amount}
+          mode={mode}
+          onChange={(s) => {
+            setAmount(s);
+            clear();
+          }}
+        />
+        <label>
+          <Text mode={mode} text={t('操作哪边', 'Sides changed')} />
+          <select
+            aria-label={label(mode, t('操作哪边', 'Sides changed'))}
+            value={side}
+            onChange={(ev) => {
+              setSide(ev.target.value as 'both' | 'left');
+              clear();
+            }}
+          >
+            <option value="both">{label(mode, t('两边', 'Both'))}</option>
+            <option value="left">
+              {label(mode, t('仅左边', 'Left only'))}
+            </option>
+          </select>
+        </label>
+        <label>
+          <input
+            type="checkbox"
+            checked={reverse}
+            onChange={(ev) => {
+              setReverse(ev.target.checked);
+              clear();
+            }}
+          />
+          <Text mode={mode} text={t('改变不等号方向', 'Reverse comparison')} />
+        </label>
+      </div>
+      <div className="math-inequality-actions">
+        <button
+          className="math-button"
+          onClick={() => {
+            const r = transformInequality(current, op, amount, side, reverse);
+            setAttempt(r);
+            if (r.next && r.safeRule && r.preserves)
+              setHistory([...history, r.next]);
+          }}
+        >
+          <Text mode={mode} text={t('核对并尝试步骤', 'Check and try step')} />
+        </button>
+        <button
+          className="math-button"
+          disabled={history.length === 1}
+          onClick={() => {
+            setHistory(history.slice(0, -1));
+            clear();
+          }}
+        >
+          <Text mode={mode} text={t('撤回上一步', 'Undo last step')} />
+        </button>
+      </div>
+      {attempt && (
+        <div
+          role="status"
+          aria-label={label(mode, t('步骤规则反馈', 'Step rule feedback'))}
+        >
+          <Text mode={mode} text={messages[attempt.reason]} />
+          {attempt.next && !attempt.safeRule && (
+            <p>
+              <Text
+                mode={mode}
+                text={t('未采用的试写：', 'Unadopted trial: ')}
+              />
+              {inequalityText(attempt.next)};{' '}
+              <Text
+                mode={mode}
+                text={
+                  attempt.preserves
+                    ? t(
+                        '本例解集碰巧相同，仍不能证明通用规则。',
+                        'The sets happen to match here; this does not establish a general rule.',
+                      )
+                    : t(
+                        '本例解集已改变。',
+                        'The solution set has changed in this example.',
+                      )
+                }
+              />
+            </p>
+          )}
+        </div>
+      )}
+      <ol>
+        {history.map((r, i) => (
+          <li key={i} data-inequality-history>
+            {inequalityText(r)}
+          </li>
+        ))}
+      </ol>
+      <Task source={source} mode={mode} />
+    </>
+  );
 }
 function Reflection({ mode }: { mode: LanguageMode }) {
-  const [a,setA]=useState(-2),[b,setB]=useState(3),[k,setK]=useState(-2),[prediction,setPrediction]=useState('keep'),[shown,setShown]=useState(false),rA=readRational(String(a)),rB=readRational(String(b)),left=mulR(rA,readRational(String(k))),right=mulR(rB,readRational(String(k))), base=a<b?'<':a>b?'>':'=',sign=relationHolds(left,'<',right)?'<':relationHolds(left,'>',right)?'>':'=',correct=prediction===(k===0||a===b?'equal':k<0?'reverse':'keep');
-  return <><p><Text mode={mode} text={t('先预测同乘 k 后的方向，再显示乘积。非零负数把数轴反射并缩放；零使不同位置重合。','Predict before revealing products. A nonzero negative factor reflects and scales the axis; zero collapses different positions.')}/></p><p>{a} {base} {b}</p><div className="math-inequality-controls">{[{name:'a',value:a,set:setA},{name:'b',value:b,set:setB},{name:'k',value:k,set:setK}].map(c=><label key={c.name}>{c.name}: {c.value}<input aria-label={c.name} type="range" min="-4" max="4" value={c.value} onChange={e=>{c.set(Number(e.target.value));setShown(false);}}/></label>)}<label><Text mode={mode} text={t('预测乘后比较','Predicted comparison')}/><select aria-label={label(mode,t('预测乘后比较','Predicted comparison'))} value={prediction} onChange={e=>{setPrediction(e.target.value);setShown(false);}}><option value="keep">{label(mode,t('保持方向','Keep direction'))}</option><option value="reverse">{label(mode,t('方向相反','Reverse direction'))}</option><option value="equal">{label(mode,t('两积相等','Equal products'))}</option></select></label></div>
-    <button className="math-button" onClick={()=>setShown(true)}><Text mode={mode} text={t('显示乘积并核预测','Reveal products and check prediction')}/></button>
-    {shown&&<div role="status" aria-label={label(mode,t('反射观察','Reflection observation'))}><p>{k} × ({a}) = {textR(left)}; {k} × ({b}) = {textR(right)}; {textR(left)} {sign} {textR(right)}</p><Text mode={mode} text={correct?t('预测符合。','The prediction matches.'):t('预测需修改。','Revise the prediction.')}/><Text mode={mode} text={k===0?t('同乘零得到相等，丢失原大小，不能由结果恢复原不等式。','Zero makes products equal and loses order, so the original comparison cannot be recovered.'):a===b?t('原两数相等，同乘任何常数仍相等。','The original numbers are equal, so any common constant keeps equality.'):k<0?t('负数把顺序反转；除以负数等于乘其负倒数，也反向。','A negative factor reverses order. Division by a negative is multiplication by its negative reciprocal, so also reverses.'):t('正数缩放保持顺序。','Positive scaling preserves order.')}/><SignedAxis points={[{value:a,label:'a'},{value:b,label:'b'}]} min={-20} max={20} interval={4} mode={mode}/><SignedAxis points={[{value:a*k,label:'ka'},{value:b*k,label:'kb'}]} min={-20} max={20} interval={4} mode={mode}/></div>}
-  </>;
+  const [a, setA] = useState(-2),
+    [b, setB] = useState(3),
+    [k, setK] = useState(-2),
+    [prediction, setPrediction] = useState('keep'),
+    [shown, setShown] = useState(false),
+    rA = readRational(String(a)),
+    rB = readRational(String(b)),
+    left = mulR(rA, readRational(String(k))),
+    right = mulR(rB, readRational(String(k))),
+    base = a < b ? '<' : a > b ? '>' : '=',
+    sign = relationHolds(left, '<', right)
+      ? '<'
+      : relationHolds(left, '>', right)
+        ? '>'
+        : '=',
+    correct =
+      prediction ===
+      (k === 0 || a === b ? 'equal' : k < 0 ? 'reverse' : 'keep');
+  return (
+    <>
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '先预测同乘 k 后的方向，再显示乘积。非零负数把数轴反射并缩放；零使不同位置重合。',
+            'Predict before revealing products. A nonzero negative factor reflects and scales the axis; zero collapses different positions.',
+          )}
+        />
+      </p>
+      <p>
+        {a} {base} {b}
+      </p>
+      <div className="math-inequality-controls">
+        {[
+          { name: 'a', value: a, set: setA },
+          { name: 'b', value: b, set: setB },
+          { name: 'k', value: k, set: setK },
+        ].map((c) => (
+          <label key={c.name}>
+            {c.name}: {c.value}
+            <input
+              aria-label={c.name}
+              type="range"
+              min="-4"
+              max="4"
+              value={c.value}
+              onChange={(e) => {
+                c.set(Number(e.target.value));
+                setShown(false);
+              }}
+            />
+          </label>
+        ))}
+        <label>
+          <Text mode={mode} text={t('预测乘后比较', 'Predicted comparison')} />
+          <select
+            aria-label={label(mode, t('预测乘后比较', 'Predicted comparison'))}
+            value={prediction}
+            onChange={(e) => {
+              setPrediction(e.target.value);
+              setShown(false);
+            }}
+          >
+            <option value="keep">
+              {label(mode, t('保持方向', 'Keep direction'))}
+            </option>
+            <option value="reverse">
+              {label(mode, t('方向相反', 'Reverse direction'))}
+            </option>
+            <option value="equal">
+              {label(mode, t('两积相等', 'Equal products'))}
+            </option>
+          </select>
+        </label>
+      </div>
+      <button className="math-button" onClick={() => setShown(true)}>
+        <Text
+          mode={mode}
+          text={t('显示乘积并核预测', 'Reveal products and check prediction')}
+        />
+      </button>
+      {shown && (
+        <div
+          role="status"
+          aria-label={label(mode, t('反射观察', 'Reflection observation'))}
+        >
+          <p>
+            {k} × ({a}) = {textR(left)}; {k} × ({b}) = {textR(right)};{' '}
+            {textR(left)} {sign} {textR(right)}
+          </p>
+          <Text
+            mode={mode}
+            text={
+              correct
+                ? t('预测符合。', 'The prediction matches.')
+                : t('预测需修改。', 'Revise the prediction.')
+            }
+          />
+          <Text
+            mode={mode}
+            text={
+              k === 0
+                ? t(
+                    '同乘零得到相等，丢失原大小，不能由结果恢复原不等式。',
+                    'Zero makes products equal and loses order, so the original comparison cannot be recovered.',
+                  )
+                : a === b
+                  ? t(
+                      '原两数相等，同乘任何常数仍相等。',
+                      'The original numbers are equal, so any common constant keeps equality.',
+                    )
+                  : k < 0
+                    ? t(
+                        '负数把顺序反转；除以负数等于乘其负倒数，也反向。',
+                        'A negative factor reverses order. Division by a negative is multiplication by its negative reciprocal, so also reverses.',
+                      )
+                    : t(
+                        '正数缩放保持顺序。',
+                        'Positive scaling preserves order.',
+                      )
+            }
+          />
+          <SignedAxis
+            points={[
+              { value: a, label: 'a' },
+              { value: b, label: 'b' },
+            ]}
+            min={-20}
+            max={20}
+            interval={4}
+            mode={mode}
+          />
+          <SignedAxis
+            points={[
+              { value: a * k, label: 'ka' },
+              { value: b * k, label: 'kb' },
+            ]}
+            min={-20}
+            max={20}
+            interval={4}
+            mode={mode}
+          />
+        </div>
+      )}
+    </>
+  );
 }
-const stepReason = {collect:t('展开括号并合并每边；只改写同值式，不反向。','Expand and collect each side without changing values or direction.'),'gather-x':t('两边同减右侧的 x 项。','Subtract the right-side x term from both sides.'),'gather-constants':t('两边同减左侧常数。','Subtract the left constant from both sides.'),divide:t('同除 x 系数：负数反向、正数不反向，端点包含性保留。','Divide by the x coefficient: reverse for negative, keep for positive; retain endpoint inclusion.'),constant:t('x 项消失，直接判断常数关系；真为所有实数，假为空集。','The x terms vanish. A true constant relation gives all reals; a false one gives the empty set.')};
-function TraceExperiment({ source, mode }: { source: string; mode: LanguageMode }) {
-  const [stage,setStage]=useState(0),[wide,setWide]=useState(false),[shown,setShown]=useState(false),rows=inequalityTrace(inequalityAt(source));
-  return <><Source rows={[source]} mode={mode}/><div className="math-inequality-actions"><button className="math-button" disabled={stage===rows.length} onClick={()=>setStage(stage+1)}><Text mode={mode} text={t('下一步及理由','Next step with reason')}/></button><button className="math-button" disabled={!stage} onClick={()=>setStage(stage-1)}><Text mode={mode} text={t('退一步','Undo one step')}/></button></div><ol>{rows.slice(0,stage).map((r,i)=><li key={i} data-inequality-step={i+1}><p>{r.text}</p><Text mode={mode} text={stepReason[r.reason]}/></li>)}</ol><Task source={source} mode={mode}/><div className="math-inequality-actions"><button className="math-button" onClick={()=>setShown(!shown)}><Text mode={mode} text={t('显示或隐藏解集图','Show or hide solution graph')}/></button><button className="math-button" onClick={()=>setWide(!wide)}><Text mode={mode} text={t('改变数轴视窗','Change number-line window')}/></button></div>{shown&&<InequalityLine set={solveInequality(inequalityAt(source))} mode={mode} wide={wide}/>}<p><Text mode={mode} text={t('视窗只显示一部分，不改变解集；箭头继续，窗内没涂色也不自动表示无解。','A window shows only part of the set. Arrows continue; no shading in a window does not automatically mean no solution.')}/></p></>;
+const stepReason = {
+  collect: t(
+    '展开括号并合并每边；只改写同值式，不反向。',
+    'Expand and collect each side without changing values or direction.',
+  ),
+  'gather-x': t(
+    '两边同减右侧的 x 项。',
+    'Subtract the right-side x term from both sides.',
+  ),
+  'gather-constants': t(
+    '两边同减左侧常数。',
+    'Subtract the left constant from both sides.',
+  ),
+  divide: t(
+    '同除 x 系数：负数反向、正数不反向，端点包含性保留。',
+    'Divide by the x coefficient: reverse for negative, keep for positive; retain endpoint inclusion.',
+  ),
+  constant: t(
+    'x 项消失，直接判断常数关系；真为所有实数，假为空集。',
+    'The x terms vanish. A true constant relation gives all reals; a false one gives the empty set.',
+  ),
+};
+function TraceExperiment({
+  source,
+  mode,
+}: {
+  source: string;
+  mode: LanguageMode;
+}) {
+  const [stage, setStage] = useState(0),
+    [wide, setWide] = useState(false),
+    [shown, setShown] = useState(false),
+    rows = inequalityTrace(inequalityAt(source));
+  return (
+    <>
+      <Source rows={[source]} mode={mode} />
+      <div className="math-inequality-actions">
+        <button
+          className="math-button"
+          disabled={stage === rows.length}
+          onClick={() => setStage(stage + 1)}
+        >
+          <Text mode={mode} text={t('下一步及理由', 'Next step with reason')} />
+        </button>
+        <button
+          className="math-button"
+          disabled={!stage}
+          onClick={() => setStage(stage - 1)}
+        >
+          <Text mode={mode} text={t('退一步', 'Undo one step')} />
+        </button>
+      </div>
+      <ol>
+        {rows.slice(0, stage).map((r, i) => (
+          <li key={i} data-inequality-step={i + 1}>
+            <p>{r.text}</p>
+            <Text mode={mode} text={stepReason[r.reason]} />
+          </li>
+        ))}
+      </ol>
+      <Task source={source} mode={mode} />
+      <div className="math-inequality-actions">
+        <button className="math-button" onClick={() => setShown(!shown)}>
+          <Text
+            mode={mode}
+            text={t('显示或隐藏解集图', 'Show or hide solution graph')}
+          />
+        </button>
+        <button className="math-button" onClick={() => setWide(!wide)}>
+          <Text
+            mode={mode}
+            text={t('改变数轴视窗', 'Change number-line window')}
+          />
+        </button>
+      </div>
+      {shown && (
+        <InequalityLine
+          set={solveInequality(inequalityAt(source))}
+          mode={mode}
+          wide={wide}
+        />
+      )}
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '视窗只显示一部分，不改变解集；箭头继续，窗内没涂色也不自动表示无解。',
+            'A window shows only part of the set. Arrows continue; no shading in a window does not automatically mean no solution.',
+          )}
+        />
+      </p>
+    </>
+  );
 }
-function IntersectionExperiment({ rows, mode }: { rows: string[]; mode: LanguageMode }) {
-  const [shown,setShown]=useState(false),[wide,setWide]=useState(false),source=rows.join(';'),set=parseRealSet(source)!;
-  return <><Source rows={rows} mode={mode}/><p><Text mode={mode} text={t('先预测同时通过的部分。两条图各自代表一个条件，不能把“且”改成“或”。','Predict the shared part. Each graph represents one condition; AND cannot be replaced by OR.')}/></p>{rows.map((r,i)=><InequalityLine key={i} set={solveInequality(inequalityAt(r))} mode={mode} wide={wide} name={`${i+1}: ${r}`}/>)}<Candidate rows={rows} mode={mode}/><Task source={source} mode={mode}/><div className="math-inequality-actions"><button className="math-button" onClick={()=>setShown(!shown)}><Text mode={mode} text={t('显示或隐藏共同部分','Show or hide intersection')}/></button><button className="math-button" onClick={()=>setWide(!wide)}><Text mode={mode} text={t('改变数轴视窗','Change number-line window')}/></button></div>{shown&&<div role="group" aria-label={label(mode,t('共同解集','Shared solution set'))}><InequalityLine set={set} mode={mode} wide={wide}/></div>}<p><Text mode={mode} text={t('同向取更严格的界；两界相遇时，只有两边都包含才留一个点。有限图窗不是全体实数。','For bounds in the same direction, use the stricter bound. Touching bounds leave one point only if both include it. A finite viewing window is not the real line.')}/></p></>;
+function IntersectionExperiment({
+  rows,
+  mode,
+}: {
+  rows: string[];
+  mode: LanguageMode;
+}) {
+  const [shown, setShown] = useState(false),
+    [wide, setWide] = useState(false),
+    source = rows.join(';'),
+    set = parseRealSet(source)!;
+  return (
+    <>
+      <Source rows={rows} mode={mode} />
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '先预测同时通过的部分。两条图各自代表一个条件，不能把“且”改成“或”。',
+            'Predict the shared part. Each graph represents one condition; AND cannot be replaced by OR.',
+          )}
+        />
+      </p>
+      {rows.map((r, i) => (
+        <InequalityLine
+          key={i}
+          set={solveInequality(inequalityAt(r))}
+          mode={mode}
+          wide={wide}
+          name={`${i + 1}: ${r}`}
+        />
+      ))}
+      <Candidate rows={rows} mode={mode} />
+      <Task source={source} mode={mode} />
+      <div className="math-inequality-actions">
+        <button className="math-button" onClick={() => setShown(!shown)}>
+          <Text
+            mode={mode}
+            text={t('显示或隐藏共同部分', 'Show or hide intersection')}
+          />
+        </button>
+        <button className="math-button" onClick={() => setWide(!wide)}>
+          <Text
+            mode={mode}
+            text={t('改变数轴视窗', 'Change number-line window')}
+          />
+        </button>
+      </div>
+      {shown && (
+        <div
+          role="group"
+          aria-label={label(mode, t('共同解集', 'Shared solution set'))}
+        >
+          <InequalityLine set={set} mode={mode} wide={wide} />
+        </div>
+      )}
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '同向取更严格的界；两界相遇时，只有两边都包含才留一个点。有限图窗不是全体实数。',
+            'For bounds in the same direction, use the stricter bound. Touching bounds leave one point only if both include it. A finite viewing window is not the real line.',
+          )}
+        />
+      </p>
+    </>
+  );
 }
-export function InequalityLab({ kind, mode }: { kind: InequalityLabKind; mode: LanguageMode }) {
-  const [index,setIndex]=useState(0);
-  if(kind==='inequality-reverse')return <section className="math-inequality-lab"><Reflection mode={mode}/></section>;
-  const sources=kind==='inequality-meaning'?relationInequalities:kind==='inequality-step'?oneStepInequalities:kind==='inequality-linear'?multiStepInequalities:intersectionInequalities.map(r=>r.join(';'));
-  return <section className="math-inequality-lab"><SelectExperiment rows={sources} index={index} onChange={setIndex} name={t('不等式实验','Inequality experiment')} mode={mode}/>{kind==='inequality-meaning'?<MeaningExperiment key={index} source={sources[index]!} mode={mode}/>:kind==='inequality-step'?<OperationExperiment key={index} source={sources[index]!} mode={mode}/>:kind==='inequality-linear'?<TraceExperiment key={index} source={sources[index]!} mode={mode}/>:<IntersectionExperiment key={index} rows={intersectionInequalities[index]!} mode={mode}/>}</section>;
+export function InequalityLab({
+  kind,
+  mode,
+}: {
+  kind: InequalityLabKind;
+  mode: LanguageMode;
+}) {
+  const [index, setIndex] = useState(0);
+  if (kind === 'inequality-reverse')
+    return (
+      <section className="math-inequality-lab">
+        <Reflection mode={mode} />
+      </section>
+    );
+  const sources =
+    kind === 'inequality-meaning'
+      ? relationInequalities
+      : kind === 'inequality-step'
+        ? oneStepInequalities
+        : kind === 'inequality-linear'
+          ? multiStepInequalities
+          : intersectionInequalities.map((r) => r.join(';'));
+  return (
+    <section className="math-inequality-lab">
+      <SelectExperiment
+        rows={sources}
+        index={index}
+        onChange={setIndex}
+        name={t('不等式实验', 'Inequality experiment')}
+        mode={mode}
+      />
+      {kind === 'inequality-meaning' ? (
+        <MeaningExperiment key={index} source={sources[index]!} mode={mode} />
+      ) : kind === 'inequality-step' ? (
+        <OperationExperiment key={index} source={sources[index]!} mode={mode} />
+      ) : kind === 'inequality-linear' ? (
+        <TraceExperiment key={index} source={sources[index]!} mode={mode} />
+      ) : (
+        <IntersectionExperiment
+          key={index}
+          rows={intersectionInequalities[index]!}
+          mode={mode}
+        />
+      )}
+    </section>
+  );
 }
-export function InequalityHookArt({ kind, mode }: { kind: InequalityLabKind; mode: LanguageMode }) {
-  const prompts: Record<InequalityLabKind, LocalizedText> = {'inequality-meaning':t('x<3 与 x≤3 只差一个符号，数轴上哪一点不同？','x<3 and x≤3 differ by one sign. Which point changes on the line?'),'inequality-step':t('两个数同时加三，原来的左右顺序会变吗？','If both numbers increase by three, does their order change?'),'inequality-reverse':t('−2<3；同乘 −2 后，4 与 −6 谁在右边？','-2<3. After multiplying by -2, which lies farther right: 4 or -6?'),'inequality-linear':t('括号、两边的 x、负系数，哪一步才需要反向？','With brackets, x on both sides and a negative coefficient, which step reverses direction?'),'inequality-intersection':t('两个门槛同时要求，哪些数通过两条涂色？','Two restrictions apply together. Which numbers pass both shaded conditions?')};
-  return <p className="math-inequality-hook"><Text mode={mode} text={prompts[kind]}/></p>;
+export function InequalityHookArt({
+  kind,
+  mode,
+}: {
+  kind: InequalityLabKind;
+  mode: LanguageMode;
+}) {
+  const prompts: Record<InequalityLabKind, LocalizedText> = {
+    'inequality-meaning': t(
+      'x<3 与 x≤3 只差一个符号，数轴上哪一点不同？',
+      'x<3 and x≤3 differ by one sign. Which point changes on the line?',
+    ),
+    'inequality-step': t(
+      '两个数同时加三，原来的左右顺序会变吗？',
+      'If both numbers increase by three, does their order change?',
+    ),
+    'inequality-reverse': t(
+      '−2<3；同乘 −2 后，4 与 −6 谁在右边？',
+      '-2<3. After multiplying by -2, which lies farther right: 4 or -6?',
+    ),
+    'inequality-linear': t(
+      '括号、两边的 x、负系数，哪一步才需要反向？',
+      'With brackets, x on both sides and a negative coefficient, which step reverses direction?',
+    ),
+    'inequality-intersection': t(
+      '两个门槛同时要求，哪些数通过两条涂色？',
+      'Two restrictions apply together. Which numbers pass both shaded conditions?',
+    ),
+  };
+  return (
+    <p className="math-inequality-hook">
+      <Text mode={mode} text={prompts[kind]} />
+    </p>
+  );
 }
