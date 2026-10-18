@@ -11,7 +11,6 @@ import {
   representationAt,
   propertyModel,
   auditOrderedPair,
-  familyAt,
   transformModel,
   transformedAt,
   defaultTransform,
@@ -28,7 +27,6 @@ import {
   type InverseKind,
   type PieceKind,
 } from './functionConceptModels';
-import { readRational } from './rationalModels';
 import {
   ConceptPlot,
   MappingView,
@@ -689,7 +687,7 @@ function Transformations({ mode }: { mode: LanguageMode }) {
         change={setSource}
       />
       <Task
-        key={`${JSON.stringify(p)}-${source}`}
+        key={`point-${JSON.stringify(p)}-${source}`}
         mode={mode}
         name={t('变换后坐标', 'Transformed coordinates')}
         prompt={t(
@@ -711,7 +709,7 @@ function Transformations({ mode }: { mode: LanguageMode }) {
         change={setQuery}
       />
       <Task
-        key={`${JSON.stringify(p)}-${query}`}
+        key={`value-${JSON.stringify(p)}-${query}`}
         mode={mode}
         name={t('变换后的函数值', 'Transformed function value')}
         prompt={t(
@@ -905,7 +903,7 @@ function Piecewise({ mode }: { mode: LanguageMode }) {
         change={setQuery}
       />
       <Task
-        key={`${kind}-${query}`}
+        key={`charge-${kind}-${query}`}
         mode={mode}
         name={t('当前收费预测', 'Current charge prediction')}
         prompt={t(
@@ -927,7 +925,7 @@ function Piecewise({ mode }: { mode: LanguageMode }) {
         change={setBudget}
       />
       <Task
-        key={`${kind}-${budget}`}
+        key={`budget-${kind}-${budget}`}
         mode={mode}
         name={t('满足预算的输入集合', 'Inputs meeting the budget')}
         prompt={t(

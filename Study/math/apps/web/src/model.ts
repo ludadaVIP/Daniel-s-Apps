@@ -1,3 +1,11 @@
+import { checkSolidCode, type SolidCode } from './solidModels';
+import { checkVectorCode, type VectorCode } from './vectorModels';
+import {
+  checkAngle,
+  checkAngleSet,
+  checkCircularValue,
+  checkCircleIdentity,
+} from './circularModels';
 import { checkFunctionCode, type FunctionCode } from './functionConceptModels';
 import {
   checkFiniteSet,
@@ -78,6 +86,12 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'solid-code'; value: SolidCode }
+  | { kind: 'vector-code'; value: VectorCode }
+  | { kind: 'radian'; coefficient: string; value: string }
+  | { kind: 'radian-set'; values: string[]; value: string }
+  | { kind: 'circle-trig'; value: string }
+  | { kind: 'trig-identity'; value: string; only?: 's' | 'c' | 'constant' }
   | { kind: 'function-code'; value: FunctionCode }
   | { kind: 'finite-set'; value: string }
   | { kind: 'logic-code'; value: LogicCode }
@@ -163,6 +177,7 @@ export type AnswerSpec =
         | 'L'
         | 'km'
         | '°'
+        | 'rad'
         | 'people'
         | 'visits'
         | 'cards'
@@ -172,6 +187,7 @@ export type AnswerSpec =
         | 'min'
         | 'h'
         | 'years'
+        | 'days'
         | 'km/h'
         | 'sticks';
       formats?: ('decimal' | 'fraction' | 'percent')[];
@@ -507,6 +523,29 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'solid-relations'
+    | 'solid-types'
+    | 'solid-sections'
+    | 'solid-distances'
+    | 'solid-composite'
+    | 'vector-meaning'
+    | 'vector-addition'
+    | 'vector-scaling'
+    | 'vector-components'
+    | 'vector-dot'
+    | 'vector-geometry'
+    | 'circular-radians'
+    | 'circular-unit'
+    | 'circular-graphs'
+    | 'circular-transform'
+    | 'circular-identities'
+    | 'circular-equations'
+    | 'exp-integers'
+    | 'exp-rational'
+    | 'exp-growth'
+    | 'exp-log'
+    | 'exp-laws'
+    | 'exp-model'
     | 'concept-mapping'
     | 'concept-representations'
     | 'concept-properties'
@@ -864,6 +903,13 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'solid-code') return checkSolidCode(input, spec.value);
+  if (spec.kind === 'vector-code') return checkVectorCode(input, spec.value);
+  if (spec.kind === 'radian') return checkAngle(input, spec.coefficient);
+  if (spec.kind === 'radian-set') return checkAngleSet(input, spec.values);
+  if (spec.kind === 'circle-trig') return checkCircularValue(input, spec.value);
+  if (spec.kind === 'trig-identity')
+    return checkCircleIdentity(input, spec.value, spec.only);
   if (spec.kind === 'function-code')
     return checkFunctionCode(input, spec.value);
   if (spec.kind === 'finite-set') return checkFiniteSet(input, spec.value);
@@ -959,8 +1005,11 @@ export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
     );
   }
   let clean = input.trim();
+  if (spec.unit === 'rad')
+    clean = clean.replace(/\s*(?:radians?|rad|弧度)$/i, '');
   if (spec.unit === 'years')
     clean = clean.replace(/\s*(?:years?|yrs?|岁|年)$/i, '');
+  if (spec.unit === 'days') clean = clean.replace(/\s*(?:days?|d|天|日)$/i, '');
   if (spec.unit === 'h') clean = clean.replace(/\s*(?:h|hours?|小时)$/i, '');
   if (spec.unit === 'km/h')
     clean = clean.replace(

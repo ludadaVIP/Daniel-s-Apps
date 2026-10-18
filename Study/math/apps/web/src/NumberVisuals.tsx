@@ -4,6 +4,7 @@ import {
   PiecewiseView,
 } from './FunctionConceptVisuals';
 import { piecewiseAt, rationalNumber } from './functionConceptModels';
+import { readRational } from './rationalModels';
 import { SetRegions, UnionLine } from './LogicVisuals';
 import { absoluteSolution } from './logicModels';
 import {
@@ -298,7 +299,7 @@ export function NumberDiagramView({
         query={
           at
             ? {
-                x: Number(diagram.query),
+                x: rationalNumber(readRational(diagram.query)),
                 y: rationalNumber(at.value),
                 label: 'P',
               }
