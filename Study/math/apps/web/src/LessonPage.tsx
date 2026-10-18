@@ -1,3 +1,7 @@
+import { SolidHookArt, isSolidLab } from './SolidLabs';
+import { ExponentialHookArt, isExponentialLab } from './ExponentialLabs';
+import { VectorHookArt, isVectorLab } from './VectorLabs';
+import { CircularHookArt, isCircularLab } from './CircularLabs';
 import {
   FunctionConceptHookArt,
   isFunctionConceptLab,
@@ -176,7 +180,15 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isFunctionConceptLab(l.lab) ? (
+              {isSolidLab(l.lab) ? (
+                <SolidHookArt kind={l.lab} mode={mode} />
+              ) : isVectorLab(l.lab) ? (
+                <VectorHookArt kind={l.lab} mode={mode} />
+              ) : isCircularLab(l.lab) ? (
+                <CircularHookArt kind={l.lab} mode={mode} />
+              ) : isExponentialLab(l.lab) ? (
+                <ExponentialHookArt kind={l.lab} mode={mode} />
+              ) : isFunctionConceptLab(l.lab) ? (
                 <FunctionConceptHookArt kind={l.lab} mode={mode} />
               ) : isLogicLab(l.lab) ? (
                 <LogicHookArt kind={l.lab} mode={mode} />

@@ -1,4 +1,24 @@
 import {
+  h06Lessons,
+  h06ReviewQuestion,
+  h06CheckQuestions,
+} from './content/H06';
+import {
+  h05Lessons,
+  h05ReviewQuestion,
+  h05CheckQuestions,
+} from './content/H05';
+import {
+  h04Lessons,
+  h04ReviewQuestion,
+  h04CheckQuestions,
+} from './content/H04';
+import {
+  h03Lessons,
+  h03ReviewQuestion,
+  h03CheckQuestions,
+} from './content/H03';
+import {
   h02Lessons,
   h02ReviewQuestion,
   h02CheckQuestions,
@@ -282,6 +302,10 @@ export const lessons: Lesson[] = [
   ...j98Lessons,
   ...h01Lessons,
   ...h02Lessons,
+  ...h03Lessons,
+  ...h04Lessons,
+  ...h05Lessons,
+  ...h06Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -295,6 +319,18 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h06Lessons.map((l) => [l.id, h06ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h05Lessons.map((l) => [l.id, h05ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h04Lessons.map((l) => [l.id, h04ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h03Lessons.map((l) => [l.id, h03ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h02Lessons.map((l) => [l.id, h02ReviewQuestion(l.id, 0)]),
   ),
@@ -405,6 +441,10 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H06-')) return h06ReviewQuestion(id, round);
+  if (id.startsWith('H05-')) return h05ReviewQuestion(id, round);
+  if (id.startsWith('H04-')) return h04ReviewQuestion(id, round);
+  if (id.startsWith('H03-')) return h03ReviewQuestion(id, round);
   if (id.startsWith('H02-')) return h02ReviewQuestion(id, round);
   if (id.startsWith('H01-')) return h01ReviewQuestion(id, round);
   if (id.startsWith('J98-')) return j98ReviewQuestion(id, round);
@@ -452,6 +492,34 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H06: {
+    id: 'H06-CHECK',
+    unit: 'H06',
+    title: t('立体几何小回顾', 'A small solid geometry review'),
+    questions: h06CheckQuestions,
+    bridge: 'H06-L01',
+  },
+  H05: {
+    id: 'H05-CHECK',
+    unit: 'H05',
+    title: t('平面向量小回顾', 'A small plane vector review'),
+    questions: h05CheckQuestions,
+    bridge: 'H05-L01',
+  },
+  H04: {
+    id: 'H04-CHECK',
+    unit: 'H04',
+    title: t('三角函数扩展小回顾', 'A small circular functions review'),
+    questions: h04CheckQuestions,
+    bridge: 'H04-L01',
+  },
+  H03: {
+    id: 'H03-CHECK',
+    unit: 'H03',
+    title: t('指数与对数小回顾', 'A small exponents and logarithms review'),
+    questions: h03CheckQuestions,
+    bridge: 'H03-L01',
+  },
   H02: {
     id: 'H02-CHECK',
     unit: 'H02',

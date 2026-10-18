@@ -1,3 +1,7 @@
+import { SolidLab, isSolidLab } from './SolidLabs';
+import { VectorLab, isVectorLab } from './VectorLabs';
+import { CircularLab, isCircularLab } from './CircularLabs';
+import { ExponentialLab, isExponentialLab } from './ExponentialLabs';
 import {
   FunctionConceptLab,
   isFunctionConceptLab,
@@ -378,7 +382,15 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isFunctionConceptLab(kind) ? (
+  return isSolidLab(kind) ? (
+    <SolidLab key={kind} kind={kind} mode={mode} />
+  ) : isVectorLab(kind) ? (
+    <VectorLab key={kind} kind={kind} mode={mode} />
+  ) : isCircularLab(kind) ? (
+    <CircularLab key={kind} kind={kind} mode={mode} />
+  ) : isExponentialLab(kind) ? (
+    <ExponentialLab key={kind} kind={kind} mode={mode} />
+  ) : isFunctionConceptLab(kind) ? (
     <FunctionConceptLab key={kind} kind={kind} mode={mode} />
   ) : isLogicLab(kind) ? (
     <LogicLab key={kind} kind={kind} mode={mode} />
