@@ -6209,3 +6209,80 @@
   margin-top: 0.65rem;
   overflow-wrap: anywhere;
 }
+
+.math-concept-lab {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+.math-concept-lab label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.math-concept-lab input,
+.math-concept-lab select {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  padding: 0.6rem;
+  border: 1px solid #bdb9cb;
+  border-radius: 0.6rem;
+  background: white;
+  color: #282436;
+}
+.math-concept-task {
+  display: grid;
+  gap: 0.7rem;
+  padding: 1rem;
+  border: 1px solid #c9c2d9;
+  border-radius: 0.8rem;
+  background: #f8f6fc;
+}
+.math-concept-figure {
+  margin: 1rem 0;
+  max-width: 100%;
+  min-width: 0;
+}
+.math-concept-scroll,
+.math-concept-table {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.math-concept-scroll:focus-visible,
+.math-concept-table:focus-visible {
+  outline: 3px solid #6553a1;
+  outline-offset: 2px;
+}
+.math-concept-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  font-size: 16px;
+  font-family: inherit;
+}
+.math-concept-figure figcaption {
+  margin-top: 0.7rem;
+  overflow-wrap: anywhere;
+}
+.math-concept-table table {
+  min-width: 390px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.math-concept-table th,
+.math-concept-table td {
+  padding: 0.6rem;
+  border: 1px solid #c9c2d9;
+  text-align: center;
+}
+.math-concept-table [data-selected='true'],
+.math-concept-lab [data-active-branch='true'] {
+  background: #e8e2f3;
+  box-shadow: inset 3px 0 #6553a1;
+}
+.math-concept-lab li {
+  padding: 0.45rem;
+}

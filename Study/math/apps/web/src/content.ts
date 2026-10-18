@@ -1,4 +1,9 @@
 import {
+  h02Lessons,
+  h02ReviewQuestion,
+  h02CheckQuestions,
+} from './content/H02';
+import {
   h01Lessons,
   h01ReviewQuestion,
   h01CheckQuestions,
@@ -276,6 +281,7 @@ export const lessons: Lesson[] = [
   ...j97Lessons,
   ...j98Lessons,
   ...h01Lessons,
+  ...h02Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -289,6 +295,9 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h02Lessons.map((l) => [l.id, h02ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h01Lessons.map((l) => [l.id, h01ReviewQuestion(l.id, 0)]),
   ),
@@ -396,6 +405,7 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H02-')) return h02ReviewQuestion(id, round);
   if (id.startsWith('H01-')) return h01ReviewQuestion(id, round);
   if (id.startsWith('J98-')) return j98ReviewQuestion(id, round);
   if (id.startsWith('J97-')) return j97ReviewQuestion(id, round);
@@ -442,6 +452,13 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H02: {
+    id: 'H02-CHECK',
+    unit: 'H02',
+    title: t('函数语言小回顾', 'A small function language review'),
+    questions: h02CheckQuestions,
+    bridge: 'H02-L01',
+  },
   H01: {
     id: 'H01-CHECK',
     unit: 'H01',

@@ -1,6 +1,6 @@
 # 数学探索实验室 · Math Explorer Lab
 
-Study 的第六个子应用。按 [plan.md](plan.md) 目前完成 B01–B06、P51–P57、P61–P68、J71–J76、J81–J88、J91–J98、H01 四十四个单元，共 **232 节双语微课**。推荐首批 20 课已覆盖，并扩展了 212 课；B00/P05/P06/J07/J08/J09 前六阶段共 227 课全部覆盖，H10 开放首个单元5课。教学试用仍待家长与孩子反馈。本批新增 H01「集合、逻辑与不等式」五课：确定的集合、交并补、命题反例、充分必要条件与绝对值不等式。五个工作台分别核对象、全集、范围、双向箭头与完整解集；十项解释保留人工审核。完整路线保留 358 课，其余 126 课继续逐单元创作；下一步是 H02「函数语言与图像」六课。
+Study 的第六个子应用。按 [plan.md](plan.md) 目前完成 B01–B06、P51–P57、P61–P68、J71–J76、J81–J88、J91–J98、H01–H02 四十五个单元，共 **238 节双语微课**。推荐首批 20 课已覆盖，并扩展了 218 课；前六阶段227课全部覆盖，H10现开放11课。教学试用仍待家长与孩子反馈。本批新增 H02「函数语言与图像」六课：定义域/值域/对应、多种表示、单调性与奇偶性、图像变换、反函数、分段规则。六个工作台核对应唯一性、证据边界、性质范围、源点、反向分支和分段端点；十二项解释保留人工审核。完整路线保留 358 课，其余 120 课继续逐单元创作；下一步 H03「指数与对数」六课。
 
 ## 启动
 
@@ -58,7 +58,9 @@ Study 的第六个子应用。按 [plan.md](plan.md) 目前完成 B01–B06、P5
 
 - H01-L01–L05：集合与元素、交并补、命题反例、充分必要条件、绝对值不等式。5 个工作台、48 项题目、400 轮复习和8题回顾；10项解释人工审核。集合去重不丢原始数据概念，反例先核范围，蕴含逐向检查，绝对值保留双射线及退化情况。
 
-- 完整 9 阶段 / 67 单元 / 358 节路线。232 节可学习，其余 126 节明确标为「规划中」。
+- H02-L01–L06：对应与域、联动表图、严格性质、源点变换、逆对应分支、分段规则。6工作台、56项题目、480轮复习、8题回顾与12项人工解释；不将有限观测当连续规则，不将倒数当反函数，分段预算集合按原域精确合并。
+
+- 完整 9 阶段 / 67 单元 / 358 节路线。238 节可学习，其余 120 节明确标为「规划中」。
 - 共用 StudyShell、分层课程目录、LanguageSwitcher 和 Study 语言偏好。学科样式限定在 `.math-app` 内。
 - 精确有理数判定；接受等值分数、小数和百分数，题目明确指定小数时限制表示方式。金额、长度、面积、角度与人数题在输入旁显示单位，附加错误单位不予接受。B05 的普通数量题允许小数/分数表达，不把百分数当作长度或人数单位；支持 mm、cm、cm²、m²、° 和人数的中英写法。B06 另接受张卡、袋与铅笔支数的中英单位；P51 的时长接受 min/mins/minutes/分钟，长度与时长不能混用。P54 补齐升、米、千米/公里、新西兰元/纽元及常见英美单位写法；P55 小棒计数另接受 sticks/matchsticks/根/根小棒；长度单位不能替代棒数。错误对象仍拒绝。
 - P61 的精确份数另接受 groups/group/份/组；数量为升、克或米时继续按该题单位检查。剩余 1/2 L 不等于标准份的 1/2；2 L ÷ 3/4 L 的精确商为 8/3 份，不能用完整份数二或近似 2.67 代替。
@@ -198,7 +200,7 @@ Study 的第六个子应用。按 [plan.md](plan.md) 目前完成 B01–B06、P5
 - `PythagoreanLabs.tsx` / `PythagoreanVisuals.tsx` / `pythagoreanModels.ts`：五个变换与勾股工作台，精确有理变换、原生等单位网格、可逆四块面积重排、受限单根式精确判题、前提敏感的边长与三边检验。极薄三角形超出绘图分辨率时保留精确检验并明确说明。
 - `ResearchLabs.tsx` / `ResearchVisuals.tsx` / `researchModels.ts`：五个数据研究工作台；精确有理四分位、可切换分半规则、同轴箱线/原始点、保身份散点、合并/分组反例和有来源纠错的 PPDAC 报告。下载草稿不自动理解文字或授予完成状态。
 - `RadicalLabs.tsx` / `RadicalVisuals.tsx` / `radicalModels.ts`：五个根式工作台，带边界的数值语法树、精确根式系数运算与一/两项分母有理化；等价与完成化简分别核验。根集合支持±与零/空集，实数分类基于精确对象，舍入依精确平方及中点而非显示截断；字母证明与无理性理由保人工。
-- `content/qa/B01.md` / `content/qa/B02.md` / `content/qa/B03.md` / `content/qa/B05.md` / `content/qa/B06.md` / `content/qa/P51.md` / `content/qa/P52.md` / `content/qa/P53.md` / `content/qa/P54.md` / `content/qa/P55.md` / `content/qa/P56.md` / `content/qa/P57.md` / `content/qa/P61.md` / `content/qa/P62.md` / `content/qa/P63.md` / `content/qa/P64.md` / `content/qa/P65.md` / `content/qa/P66.md` / `content/qa/P67.md` / `content/qa/P68.md` / `content/qa/J71.md` / `content/qa/J72.md` / `content/qa/J73.md` / `content/qa/J74.md` / `content/qa/J75.md` / `content/qa/J76.md` / `content/qa/J81.md` / `content/qa/J82.md` / `content/qa/J83.md` / `content/qa/J84.md` / `content/qa/J85.md` / `content/qa/J86.md` / `content/qa/J87.md` / `content/qa/J88.md` / `content/qa/J91.md` / `content/qa/J92.md` / `content/qa/J93.md` / `content/qa/J94.md` / `content/qa/J95.md` / `content/qa/J96.md` / `content/qa/J97.md` / `content/qa/J98.md` / `content/qa/H01.md`：逐单元质量核验记录与下一步内容路线。
+- `content/qa/B01.md` / `content/qa/B02.md` / `content/qa/B03.md` / `content/qa/B05.md` / `content/qa/B06.md` / `content/qa/P51.md` / `content/qa/P52.md` / `content/qa/P53.md` / `content/qa/P54.md` / `content/qa/P55.md` / `content/qa/P56.md` / `content/qa/P57.md` / `content/qa/P61.md` / `content/qa/P62.md` / `content/qa/P63.md` / `content/qa/P64.md` / `content/qa/P65.md` / `content/qa/P66.md` / `content/qa/P67.md` / `content/qa/P68.md` / `content/qa/J71.md` / `content/qa/J72.md` / `content/qa/J73.md` / `content/qa/J74.md` / `content/qa/J75.md` / `content/qa/J76.md` / `content/qa/J81.md` / `content/qa/J82.md` / `content/qa/J83.md` / `content/qa/J84.md` / `content/qa/J85.md` / `content/qa/J86.md` / `content/qa/J87.md` / `content/qa/J88.md` / `content/qa/J91.md` / `content/qa/J92.md` / `content/qa/J93.md` / `content/qa/J94.md` / `content/qa/J95.md` / `content/qa/J96.md` / `content/qa/J97.md` / `content/qa/J98.md` / `content/qa/H01.md` / `content/qa/H02.md`：逐单元质量核验记录与下一步内容路线。
 - 各页面拆分为独立模块，未来课程可以增加自己的模型、题型和内容文件，不需要修改 Study 其他学科。
 
 扩充时一次增加一个单元，保留稳定 ID；检查先修课程、双语内容、单位、等值答案、图数一致与家长评分依据。题库不能只增加单选，开放解释继续使用人工 rubric。
@@ -278,3 +280,11 @@ corepack pnpm --filter @study/hub build
 - `apps/web/src/content/H01.ts`：五课48项、两层提示、逐选项反馈、32构造答案、6选择、10人工解释与400轮复习。
 - `apps/web/src/logicModels.ts`：有理数有限集合、双向条件、合域反例、规范化实区间并集与绝对值精确原像；保持既有单区间解析器语义。
 - `apps/web/src/LogicLabs.tsx` / `LogicVisuals.tsx`：五个预测工作台、四区图与同轴双射线；图形局部滚动。正文在`content/lessons/H01-L01.md`–`H01-L05.md`；质量记录见 [H01](content/qa/H01.md)。
+
+### H02 试用与维护
+
+从 [H02-L01](http://localhost:3456/math/lesson/H02-L01) 开始，比较多对一、漏箭头和一对多，区分陪域9与实际值域。表图页用同一输入3/2核1/4与坐标；半整数在离散域为域外，在仅观测模式中是规则不足。性质页换研究区间保留原奇偶性，换原域后重算；零函数既奇又偶但非严格单调。变换页追踪(1,1)到(4,1)，内部倍率2使横向缩半，限制域同步变换。反函数页比较平方全域与正/负支，逆域取原实际值域。分段页对比停车累计、整件档价和开始小时，预算集合逐段核端点；改变查询与预算只重置对应任务。最后完成 [8题函数回顾](http://localhost:3456/math/unit/H02/check)。
+
+- `apps/web/src/content/H02.ts`：六课56项，37构造答案、7选择、12人工解释；两层提示、逐选项反馈与480轮复习。
+- `apps/web/src/functionConceptModels.ts`：精确对应、性质前提、源点与给定域、逆分支、分段规则及预算集合。
+- `apps/web/src/FunctionConceptLabs.tsx` / `FunctionConceptVisuals.tsx`：六工作台、箭头、同尺度坐标、镜像与不跨跳跃的分支图；正文在`content/lessons/H02-L01.md`–`H02-L06.md`；质量边界与验收见 [H02](content/qa/H02.md)。

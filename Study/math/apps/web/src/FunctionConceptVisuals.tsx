@@ -62,12 +62,57 @@ export function ConceptPlot({
           ...p,
           label: points
             .filter((q) => q.x === p.x && q.y === p.y)
-            .map((q) => q.label ?? 'P')
+            .map((q) => q.label ?? '')
+            .filter(Boolean)
             .join('/'),
         },
       ]),
     ).values(),
   ];
+  const occupied: {
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  }[] = [
+    {
+      left: 605 - xLabel.length * 10,
+      top: py(0) + 2,
+      width: xLabel.length * 10,
+      height: 22,
+    },
+  ];
+  const labelBoxes = new Map<
+    string,
+    { left: number; top: number; width: number; height: number }
+  >();
+  for (const p of grouped.filter((p) => inside(p) && p.label)) {
+    const width = p.label!.length * 10 + 4,
+      height = 22;
+    const candidates = [
+      [px(p.x) + 10, py(p.y) - 28],
+      [px(p.x) + 10, py(p.y) + 10],
+      [px(p.x) - 10 - width, py(p.y) - 28],
+      [px(p.x) - 10 - width, py(p.y) + 10],
+    ].map(([left, top]) => ({
+      left: Math.max(70, Math.min(570 - width, left!)),
+      top: Math.max(50, Math.min(518, top!)),
+      width,
+      height,
+    }));
+    const box =
+      candidates.find((a) =>
+        occupied.every(
+          (b) =>
+            a.left >= b.left + b.width + 3 ||
+            b.left >= a.left + a.width + 3 ||
+            a.top >= b.top + b.height + 3 ||
+            b.top >= a.top + a.height + 3,
+        ),
+      ) ?? candidates[0]!;
+    occupied.push(box);
+    labelBoxes.set(`${p.x},${p.y}`, box);
+  }
   return (
     <figure className="math-concept-figure">
       <div
@@ -100,7 +145,7 @@ export function ConceptPlot({
           ).map((v) => (
             <g key={v}>
               <path d={`M${px(v)} 40V540M70 ${py(v)}H570`} stroke="#e1ddea" />
-              <text x={px(v)} y="565" textAnchor="middle">
+              <text x={px(v)} y="577" textAnchor="middle">
                 {v}
               </text>
               {v !== 0 && (
@@ -154,13 +199,22 @@ export function ConceptPlot({
               data-coordinate={`${p.x},${p.y}`}
             >
               <circle cx={px(p.x)} cy={py(p.y)} r="5" fill="#a14532" />
-              <text
-                x={px(p.x) + (p.x > bound - 1 ? -10 : 10)}
-                y={py(p.y) - 10}
-                textAnchor={p.x > bound - 1 ? 'end' : 'start'}
-              >
-                {p.label}
-              </text>
+              {p.label &&
+                (() => {
+                  const box = labelBoxes.get(`${p.x},${p.y}`)!;
+                  return (
+                    <>
+                      <path
+                        d={`M${px(p.x)} ${py(p.y)}L${box.left + box.width / 2} ${box.top + box.height / 2}`}
+                        stroke="#b6a4a0"
+                        fill="none"
+                      />
+                      <text x={box.left} y={box.top + 16}>
+                        {p.label}
+                      </text>
+                    </>
+                  );
+                })()}
             </g>
           ))}
         </svg>
