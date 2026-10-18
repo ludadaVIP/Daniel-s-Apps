@@ -1,0 +1,226 @@
+import { test } from "node:test";
+import assert from "node:assert/strict";
+import fs from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
+import { createHoldingsApp } from "./index.js";
+const research = {
+  identity: {
+    name: "微软",
+    symbol: "MSFT",
+    exchange: "NASDAQ",
+    currency: "USD",
+    sector: "软件",
+  },
+  title: "验证报告 <script>",
+  summary: "摘要",
+  details: "持仓分析",
+  risks: ["波动"],
+  catalysts: ["待核实"],
+  sources: [{ label: "官方", url: "https://example.com/" }],
+  uncertainty: "日期未知",
+};
+async function setup(t, options = {}) {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "holdings-test-"));
+  const app = await createHoldingsApp({ dataDirectory: dir, ...options });
+  const server = app.listen(0, "127.0.0.1");
+  await new Promise((r) => server.once("listening", r));
+  t.after(async () => {
+    await new Promise((r) => server.close(r));
+    await fs.rm(dir, { recursive: true, force: true });
+  });
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const call = async (url, body, method) => {
+    const r = await fetch(base + url, {
+      method: method || (body ? "POST" : "GET"),
+      headers: body ? { "Content-Type": "application/json" } : {},
+      ...(body ? { body: JSON.stringify(body) } : {}),
+    });
+    return { status: r.status, data: await r.json() };
+  };
+  return { dir, base, call };
+}
+test("CRUD persistence, revision conflicts and backup recovery reject invalid financial data", async (t) => {
+  const { call, dir } = await setup(t);
+  const a = (await call("/api/state")).data;
+  assert.equal(a.holdings.length, 7);
+  const stale = structuredClone(a);
+  a.holdings.push({
+    ...a.holdings[0],
+    id: "test",
+    symbol: "TEST",
+    marketValue: 100,
+  });
+  const saved = await call("/api/state", a, "PUT");
+  assert.equal(saved.status, 200);
+  assert.equal(saved.data.holdings.length, 8);
+  assert.equal(saved.data.revision, 1);
+  assert.equal((await call("/api/state", stale, "PUT")).status, 409);
+  const invalid = structuredClone(saved.data);
+  invalid.holdings[0].cost = -1;
+  assert.equal((await call("/api/state", invalid, "PUT")).status, 400);
+  const edited = structuredClone(saved.data);
+  edited.holdings[0].thesis = "理由";
+  const r = await call("/api/state", edited, "PUT");
+  assert.equal(r.status, 200);
+  const removed = structuredClone(r.data);
+  removed.holdings = removed.holdings.filter((h) => h.id !== "test");
+  assert.equal(
+    (await call("/api/state", removed, "PUT")).data.holdings.length,
+    7,
+  );
+  const backups = await fs.readdir(path.join(dir, "backups"));
+  assert.equal(backups.length, 3);
+  const restored = await call("/api/restore", { revision: 3, state: stale });
+  assert.equal(restored.status, 200);
+  assert.equal(restored.data.holdings[0].thesis, "");
+});
+test("HTML import preserves bytes, discovers nested folders, blocks overwrite and path traversal", async (t) => {
+  const { call, base } = await setup(t);
+  const html =
+    "<!doctype html><html><title>研究档案</title><body><h1>研究</h1><script>console.log(1)</script></body></html>";
+  assert.equal(
+    (
+      await call("/api/reports/import", {
+        name: "研究.html",
+        folder: "market",
+        html,
+      })
+    ).status,
+    201,
+  );
+  assert.equal(
+    (
+      await call("/api/reports/import", {
+        name: "研究.html",
+        folder: "market",
+        html,
+      })
+    ).status,
+    409,
+  );
+  assert.equal(
+    (
+      await call("/api/reports/import", {
+        name: "../escape.html",
+        folder: "market",
+        html,
+      })
+    ).status,
+    400,
+  );
+  const docs = await call("/library/api/documents?refresh=1");
+  assert.equal(docs.data.items.length, 1);
+  const r = await fetch(`${base}/library/document/${docs.data.items[0].id}`);
+  assert.equal(await r.text(), html);
+  assert.ok(
+    r.headers.get("content-security-policy").includes("sandbox allow-scripts"),
+  );
+  assert.ok(
+    !r.headers.get("content-security-policy").includes("allow-same-origin"),
+  );
+});
+test("asynchronous AI merges into latest state and safely renders escaped report text", async (t) => {
+  let finish;
+  const { call, base } = await setup(t, {
+    aiRunner: () =>
+      new Promise((resolve) => {
+        finish = resolve;
+      }),
+  });
+  let s = (await call("/api/state")).data;
+  s.watchlist.push({
+    id: "watch1",
+    name: "微软",
+    symbol: "",
+    status: "观察中",
+    note: "",
+    trigger: "",
+  });
+  s = (await call("/api/state", s, "PUT")).data;
+  const job = await call("/api/ai", { kind: "watch", watchId: "watch1" });
+  assert.equal(job.status, 202);
+  assert.equal((await call("/api/ai", { kind: "portfolio" })).status, 409);
+  s = job.data.state;
+  s.goals.notes = "生成期间编辑";
+  assert.equal((await call("/api/state", s, "PUT")).status, 200);
+  finish(research);
+  for (let i = 0; i < 100; i++) {
+    await new Promise((r) => setTimeout(r, 10));
+    s = (await call("/api/state")).data;
+    if (s.jobs[0].status === "done") break;
+  }
+  assert.equal(s.jobs[0].status, "done");
+  assert.equal(s.goals.notes, "生成期间编辑");
+  assert.equal(s.watchlist[0].research.title, research.title);
+  assert.equal(s.watchlist[0].symbol, "MSFT");
+  assert.equal(s.analyses.length, 1);
+  const docs = (await call("/library/api/documents?refresh=1")).data;
+  const html = await (
+    await fetch(`${base}/library/document/${docs.items[0].id}`)
+  ).text();
+  assert.ok(html.includes("&lt;script&gt;"));
+  assert.ok(!html.includes("<script>"));
+});
+test("failed AI tasks remain actionable and no fake results appear", async (t) => {
+  const { call } = await setup(t, {
+    aiRunner: async () => {
+      throw new Error("模拟网络不可用");
+    },
+  });
+  await call("/api/ai", { kind: "portfolio" });
+  let s;
+  for (let i = 0; i < 100; i++) {
+    await new Promise((r) => setTimeout(r, 10));
+    s = (await call("/api/state")).data;
+    if (s.jobs[0].status === "failed") break;
+  }
+  assert.equal(s.jobs[0].status, "failed");
+  assert.equal(s.jobs[0].error, "模拟网络不可用");
+  assert.equal(s.analyses.length, 0);
+});
+test("external research import validates sources and auto-creates a report", async (t) => {
+  const { call } = await setup(t);
+  const invalid = {
+    ...research,
+    sources: [{ label: "bad", url: "javascript:alert(1)" }],
+  };
+  assert.equal(
+    (await call("/api/research/import", { research: invalid })).status,
+    400,
+  );
+  const result = await call("/api/research/import", { research });
+  assert.equal(result.status, 200);
+  assert.equal(result.data.analyses.length, 1);
+  assert.equal(
+    (await call("/library/api/documents?refresh=1")).data.items.length,
+    1,
+  );
+});
+test("cross-origin mutations are refused", async (t) => {
+  const { base } = await setup(t);
+  const r = await fetch(base + "/api/restore", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "https://example.com",
+    },
+    body: "{}",
+  });
+  assert.equal(r.status, 403);
+});
+
+test("the known Vite origin can save through the API proxy", async (t) => {
+  const { base, call } = await setup(t);
+  const s = (await call("/api/state")).data;
+  const r = await fetch(base + "/api/state", {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Origin: "http://127.0.0.1:5888",
+      "Sec-Fetch-Site": "same-origin",
+    },
+    body: JSON.stringify(s),
+  });
+  assert.equal(r.status, 200);
+});

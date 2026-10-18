@@ -39,6 +39,10 @@ function lazyMount(load) {
 app.get('/api/health', (_request, response) => response.json({ ok: true, service: 'NodeApps' }));
 
 const appMounts = {
+  'my-holdings': lazyMount(async () => {
+    const { createHoldingsApp } = await import('../apps/my_holdings/server/index.js');
+    return createHoldingsApp();
+  }),
   'belief-qa': lazyMount(async () => {
     const module = await import('../apps/BeliefQandA/server/index.js');
     await module.initializeBeliefQA();

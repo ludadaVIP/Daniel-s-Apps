@@ -4,6 +4,7 @@ import tailwindcss from '@tailwindcss/vite';
 import { waitForDevApi } from './server/wait-for-dev-api.js';
 
 const proxy = {
+  '/my-holdings': 'http://127.0.0.1:5889',
   '/api': 'http://127.0.0.1:5889',
   '/insight': 'http://127.0.0.1:5889',
   '/notebook': 'http://127.0.0.1:5889',
@@ -32,7 +33,7 @@ export default defineConfig({
     watch: {
       // Bible Devotion writes notes and its index here on every autosave.
       // These are runtime data, so changes must not trigger a page reload.
-      ignored: ['**/apps/bible/devotion-data/**'],
+      ignored: ['**/apps/bible/devotion-data/**', '**/apps/my_holdings/data/**'],
     },
   },
   build: { outDir: 'dist', emptyOutDir: true },

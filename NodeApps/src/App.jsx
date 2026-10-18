@@ -4,6 +4,15 @@ import ThemeControl, { useWorkspaceTheme } from '../shared/theme/ThemeControl.js
 
 const APPS = [
   {
+    id: 'my-holdings',
+    name: 'My Holdings',
+    kind: 'PORTFOLIO · RESEARCH',
+    description: '两个账户，一处掌握。持仓、关注、弹药与 AI 投资研究。',
+    Icon: ChartNoAxesCombined,
+    color: '#387b64',
+    load: () => import('../apps/my_holdings/entry.jsx'),
+  },
+  {
     id: 'world-qa',
     name: 'World Q&A',
     kind: 'WORLD · QUESTIONS',
@@ -139,6 +148,7 @@ function reorderApps(apps, sourceId, targetId) {
 }
 
 const APP_STYLE_LOADERS = {
+  'my-holdings': () => import('../apps/my_holdings/src/styles.css?inline'),
   'world-qa': () => import('../apps/WorldQandA/src/styles.css?inline'),
   'belief-qa': () => import('../apps/BeliefQandA/src/styles.css?inline'),
   investment: () => import('../apps/investment/src/styles.css?inline'),
@@ -154,6 +164,7 @@ const APP_STYLE_LOADERS = {
 };
 
 const APP_DARK_STYLE_LOADERS = {
+  'my-holdings': () => import('../apps/my_holdings/src/dark.generated.css?inline'),
   'world-qa': () => import('../apps/WorldQandA/src/dark.generated.css?inline'),
   'belief-qa': () => import('../apps/BeliefQandA/src/dark.generated.css?inline'),
   investment: () => import('../apps/investment/src/dark.generated.css?inline'),
@@ -169,6 +180,7 @@ const APP_DARK_STYLE_LOADERS = {
 };
 
 const API_BACKED_APPS = new Set([
+  'my-holdings',
   'world-qa',
   'belief-qa',
   'investment',
