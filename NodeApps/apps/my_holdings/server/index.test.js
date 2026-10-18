@@ -120,14 +120,8 @@ test("HTML import preserves bytes, discovers nested folders, blocks overwrite an
     !r.headers.get("content-security-policy").includes("allow-same-origin"),
   );
 });
-test("asynchronous AI merges into latest state and safely renders escaped report text", async (t) => {
-  let finish;
-  const { call, base } = await setup(t, {
-    aiRunner: () =>
-      new Promise((resolve) => {
-        finish = resolve;
-      }),
-  });
+test("watch and portfolio work are queued until explicitly handed to Codex, then linked to HTML", async (t) => {
+  const { call, dir } = await setup(t);
   let s = (await call("/api/state")).data;
   s.watchlist.push({
     id: "watch1",
@@ -138,46 +132,57 @@ test("asynchronous AI merges into latest state and safely renders escaped report
     trigger: "",
   });
   s = (await call("/api/state", s, "PUT")).data;
-  const job = await call("/api/ai", { kind: "watch", watchId: "watch1" });
-  assert.equal(job.status, 202);
-  assert.equal((await call("/api/ai", { kind: "portfolio" })).status, 409);
-  s = job.data.state;
-  s.goals.notes = "生成期间编辑";
-  assert.equal((await call("/api/state", s, "PUT")).status, 200);
-  finish(research);
-  for (let i = 0; i < 100; i++) {
-    await new Promise((r) => setTimeout(r, 10));
-    s = (await call("/api/state")).data;
-    if (s.jobs[0].status === "done") break;
-  }
+  const job = await call("/api/jobs", { kind: "watch", watchId: "watch1" });
+  assert.equal(job.status, 201);
+  assert.equal(job.data.state.jobs[0].status, "waiting");
+  assert.equal((await call("/api/jobs", { kind: "watch", watchId: "watch1" })).status, 409);
+  assert.equal((await call("/api/jobs", { kind: "portfolio" })).status, 201);
+  const queue = await call("/api/codex/queue");
+  assert.equal(queue.data.jobs.length, 2);
+  assert.ok(queue.data.context.includes("5924.23"));
+  const todo = await fs.readFile(path.join(dir, "CODEX_TODO.md"), "utf8");
+  assert.match(todo, /微软/);
+  assert.match(todo, /等待 Codex/);
+
+  await call("/api/reports/import", { name: "watch.html", folder: "research", html: "<!doctype html><html><body>研究</body></html>" });
+  s = await call(`/api/jobs/${job.data.job.id}/complete`, { report: "research/watch.html", research });
+  assert.equal(s.status, 200);
+  s = s.data;
   assert.equal(s.jobs[0].status, "done");
-  assert.equal(s.goals.notes, "生成期间编辑");
   assert.equal(s.watchlist[0].research.title, research.title);
   assert.equal(s.watchlist[0].symbol, "MSFT");
   assert.equal(s.analyses.length, 1);
-  const docs = (await call("/library/api/documents?refresh=1")).data;
-  const html = await (
-    await fetch(`${base}/library/document/${docs.items[0].id}`)
-  ).text();
-  assert.ok(html.includes("&lt;script&gt;"));
-  assert.ok(!html.includes("<script>"));
+  assert.equal(s.analyses[0].report, "research/watch.html");
 });
-test("failed AI tasks remain actionable and no fake results appear", async (t) => {
+test("failed Codex tasks retain an explicit not-done status", async (t) => {
+  const { call } = await setup(t);
+  const created = await call("/api/jobs", { kind: "portfolio" });
+  const failed = await call(`/api/jobs/${created.data.job.id}/fail`, { reason: "尚未找到可靠来源" });
+  assert.equal(failed.status, 200);
+  assert.equal(failed.data.jobs[0].status, "failed");
+  assert.equal(failed.data.jobs[0].error, "尚未找到可靠来源");
+});
+test("market refresh updates only successfully fetched completed closes and preserves average cost", async (t) => {
   const { call } = await setup(t, {
-    aiRunner: async () => {
-      throw new Error("模拟网络不可用");
+    quoteFetcher: async (symbol) => {
+      if (symbol === "SMH") throw new Error("fixture unavailable");
+      return { price: 123.45, date: "2026-10-16", source: "test feed" };
     },
   });
-  await call("/api/ai", { kind: "portfolio" });
-  let s;
-  for (let i = 0; i < 100; i++) {
-    await new Promise((r) => setTimeout(r, 10));
-    s = (await call("/api/state")).data;
-    if (s.jobs[0].status === "failed") break;
-  }
-  assert.equal(s.jobs[0].status, "failed");
-  assert.equal(s.jobs[0].error, "模拟网络不可用");
-  assert.equal(s.analyses.length, 0);
+  const before = (await call("/api/state")).data;
+  const result = await call("/api/market/refresh", {});
+  assert.equal(result.status, 200);
+  const voo = result.data.state.holdings.find((h) => h.symbol === "VOO");
+  const oldVoo = before.holdings.find((h) => h.id === voo.id);
+  assert.equal(voo.price, 123.45);
+  assert.equal(voo.priceDate, "2026-10-16");
+  assert.equal(voo.priceSource, "test feed");
+  assert.equal(voo.marketValue, Math.round(voo.quantity * 123.45 * 100) / 100);
+  assert.equal(voo.averagePrice, oldVoo.averagePrice);
+  assert.equal(voo.cost, oldVoo.cost);
+  const smh = result.data.state.holdings.find((h) => h.symbol === "SMH");
+  assert.equal(smh.price, before.holdings.find((h) => h.id === smh.id).price);
+  assert.equal(result.data.quotes.find((q) => q.symbol === "SMH").error, "fixture unavailable");
 });
 test("external research import validates sources and auto-creates a report", async (t) => {
   const { call } = await setup(t);

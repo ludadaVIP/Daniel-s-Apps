@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import { X, Save, RefreshCw } from "lucide-react";
-import { CURRENCIES, id } from "./model.js";
+import { X, Save } from "lucide-react";
+import { id } from "./model.js";
 import { localDate } from "./api.js";
 export function Modal({ title, children, onClose, wide = false }) {
   const ref = useRef();
@@ -78,11 +78,11 @@ export function Field({ label, children, hint }) {
     </label>
   );
 }
-export function HoldingForm({ item, accounts, onSave, busy }) {
+export function HoldingForm({ item, accounts, defaultAccountId, onSave, busy }) {
   const [v, set] = useState(
     item || {
       id: id(),
-      accountId: accounts[0].id,
+      accountId: defaultAccountId || accounts[0].id,
       symbol: "",
       name: "",
       quantity: 0,
@@ -109,6 +109,16 @@ export function HoldingForm({ item, accounts, onSave, busy }) {
           ...v,
           symbol: v.symbol.trim().toUpperCase(),
           name: v.name.trim() || v.symbol.trim().toUpperCase(),
+        cost:
+          item &&
+          Number(v.quantity) === Number(item.quantity) &&
+          Number(v.averagePrice) === Number(item.averagePrice)
+            ? v.cost
+            : Math.round(Number(v.averagePrice) * Number(v.quantity) * 100) / 100,
+        marketValue:
+          item && Number(v.quantity) === Number(item.quantity)
+            ? v.marketValue
+            : Math.round(Number(v.quantity) * Number(v.price) * 100) / 100,
         });
       }}
     >
@@ -134,7 +144,7 @@ export function HoldingForm({ item, accounts, onSave, busy }) {
             placeholder="例如 VOO"
           />
         </Field>
-        <Field label="公司 / 基金名称">
+        <Field label="名称（可选）">
           <input
             maxLength={300}
             value={v.name}
@@ -142,22 +152,9 @@ export function HoldingForm({ item, accounts, onSave, busy }) {
             placeholder="可留空，使用代码"
           />
         </Field>
-        <Field label="币种">
-          <select
-            value={v.currency}
-            onChange={(e) => change("currency", e.target.value)}
-          >
-            {CURRENCIES.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
-        </Field>
         {[
           ["quantity", "持有股数"],
-          ["price", "参考股价"],
-          ["cost", "总成本"],
-          ["marketValue", "总市值"],
-          ["averagePrice", "平均成本价"],
+          ["averagePrice", "成本均价 · USD"],
         ].map(([k, label]) => (
           <Field key={k} label={label}>
             <input
@@ -203,39 +200,7 @@ export function HoldingForm({ item, accounts, onSave, busy }) {
           />
         </Field>
       </div>
-      <button
-        className="mh-text-button"
-        type="button"
-        onClick={() =>
-          set((s) => ({
-            ...s,
-            marketValue:
-              Math.round(Number(s.quantity) * Number(s.price) * 100) / 100,
-            averagePrice: s.quantity
-              ? Math.round((Number(s.cost) / Number(s.quantity)) * 10000) /
-                10000
-              : 0,
-          }))
-        }
-      >
-        <RefreshCw size={14} /> 按股数和参考价重算市值 / 均价
-      </button>
-      <Field label="持有理由">
-        <textarea
-          value={v.thesis}
-          maxLength={12000}
-          onChange={(e) => change("thesis", e.target.value)}
-          placeholder="为什么持有？哪些证据支持？"
-        />
-      </Field>
-      <Field label="重新评估 / 退出条件">
-        <textarea
-          value={v.exitRule}
-          maxLength={12000}
-          onChange={(e) => change("exitRule", e.target.value)}
-          placeholder="什么变化会让你改变判断？"
-        />
-      </Field>
+      <p className="mh-help">当前价格由「刷新收盘价」更新；市值随最新收盘价和股数自动计算。</p>
       <SaveButton busy={busy} />
     </form>
   );
@@ -263,64 +228,31 @@ export function WatchForm({ item, onSave, busy }) {
     },
   );
   const change = (k, value) => set((s) => ({ ...s, [k]: value }));
+  const input = v.name || v.symbol;
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
         onSave({
           ...v,
-          name: v.name.trim(),
-          symbol: v.symbol.trim().toUpperCase(),
+          name: input.trim(),
+          symbol: /^[A-Za-z][A-Za-z0-9.-]{0,14}$/.test(input.trim())
+            ? input.trim().toUpperCase()
+            : v.symbol.trim().toUpperCase(),
         });
       }}
     >
-      <Field label="只填一个公司名或代码，就可以开始">
+      <Field label="公司名称或股票代码">
         <input
           required
           maxLength={300}
-          placeholder="例如：微软 / MSFT"
-          value={v.name}
-          onChange={(e) => change("name", e.target.value)}
+          placeholder="例如：Microsoft 或 MSFT"
+          value={input}
+          onChange={(e) => set((s) => ({ ...s, name: e.target.value, symbol: "" }))}
         />
       </Field>
-      <div className="mh-form-grid">
-        <Field label="证券代码（可选）">
-          <input
-            maxLength={40}
-            value={v.symbol}
-            onChange={(e) => change("symbol", e.target.value)}
-          />
-        </Field>
-        <Field label="研究状态">
-          <select
-            value={v.status}
-            onChange={(e) => change("status", e.target.value)}
-          >
-            {["观察中", "等待价格", "等待验证", "已放弃"].map((s) => (
-              <option key={s}>{s}</option>
-            ))}
-          </select>
-        </Field>
-      </div>
-      <Field label="关注原因（可选）">
-        <textarea
-          value={v.note}
-          onChange={(e) => change("note", e.target.value)}
-          placeholder="我想了解这家公司的长期竞争力…"
-        />
-      </Field>
-      <Field label="入场条件（可选）">
-        <textarea
-          value={v.trigger}
-          onChange={(e) => change("trigger", e.target.value)}
-          placeholder="估值、业绩证据、价格区间，或继续等待的条件"
-        />
-      </Field>
-      <p className="mh-help">
-        新增后自动请求 Codex 研究。研究会发送到本机 Codex
-        登录所连接的服务；失败时保留关注记录，可重试或导入外部 AI 结果。
-      </p>
-      <SaveButton busy={busy} label={item ? "保存关注" : "添加并生成研究"} />
+      <p className="mh-help">保存后会加入「等待 Codex」队列；不会在后台自动启动研究。</p>
+      <SaveButton busy={busy} label={item ? "保存关注" : "添加并排入待办"} />
     </form>
   );
 }
@@ -350,6 +282,7 @@ export function CashForm({ item, onSave, busy }) {
         const { direction, ...row } = v;
         onSave({
           ...row,
+          currency: "USD",
           amount: Number(v.amount) * (direction === "out" ? -1 : 1),
         });
       }}
@@ -364,7 +297,7 @@ export function CashForm({ item, onSave, busy }) {
             <option value="out">支出 / 投资拨款</option>
           </select>
         </Field>
-        <Field label="金额">
+        <Field label="金额（USD）">
           <input
             required
             type="number"
@@ -373,16 +306,6 @@ export function CashForm({ item, onSave, busy }) {
             value={v.amount}
             onChange={(e) => change("amount", e.target.value)}
           />
-        </Field>
-        <Field label="币种">
-          <select
-            value={v.currency}
-            onChange={(e) => change("currency", e.target.value)}
-          >
-            {CURRENCIES.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
         </Field>
         <Field label="日期">
           <input
@@ -418,117 +341,35 @@ export function CashForm({ item, onSave, busy }) {
   );
 }
 export function GoalsForm({ state, onSave, busy }) {
-  const [g, set] = useState(state.goals),
-    [fx, setFx] = useState(state.fx);
-  const change = (k, v) => set((s) => ({ ...s, [k]: v }));
+  const [objective, setObjective] = useState(
+    state.goals.objective || state.goals.notes || "",
+  );
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onSave({ goals: { ...g, configured: true }, fx });
+        onSave({
+          goals: {
+            ...state.goals,
+            currency: "USD",
+            reserve: 0,
+            objective,
+            notes: objective,
+            configured: false,
+          },
+        });
       }}
     >
-      <div className="mh-form-grid">
-        <Field label="目标币种">
-          <select
-            value={g.currency}
-            onChange={(e) => change("currency", e.target.value)}
-          >
-            {CURRENCIES.map((c) => (
-              <option key={c}>{c}</option>
-            ))}
-          </select>
-        </Field>
-        <Field label="目标资产金额（可留空）">
-          <input
-            type="number"
-            min="0.01"
-            step="any"
-            value={g.target ?? ""}
-            onChange={(e) =>
-              change("target", e.target.value ? Number(e.target.value) : null)
-            }
-          />
-        </Field>
-        <Field label="应急 / 暂不投资的预留金额">
-          <input
-            required
-            type="number"
-            min="0"
-            step="any"
-            value={g.reserve}
-            onChange={(e) => change("reserve", Number(e.target.value))}
-          />
-        </Field>
-        <Field label="目标日期（可选）">
-          <input
-            type="date"
-            value={g.date}
-            onChange={(e) => change("date", e.target.value)}
-          />
-        </Field>
-        <Field label="单一证券占比提醒线 %">
-          <input
-            required
-            type="number"
-            min="1"
-            max="100"
-            value={g.maxPosition}
-            onChange={(e) => change("maxPosition", Number(e.target.value))}
-          />
-        </Field>
-        <Field label="可承受的回撤 %">
-          <input
-            required
-            type="number"
-            min="0"
-            max="100"
-            value={g.maxDrawdown}
-            onChange={(e) => change("maxDrawdown", Number(e.target.value))}
-          />
-        </Field>
-      </div>
-      <Field label="投资期限">
-        <input
-          maxLength={300}
-          placeholder="例如 10 年；未来 3 年可能买房"
-          value={g.horizon}
-          onChange={(e) => change("horizon", e.target.value)}
-        />
-      </Field>
-      <Field label="个人约束与目标">
+      <Field label="你希望这笔投资最终帮你实现什么？">
         <textarea
-          value={g.notes}
-          onChange={(e) => change("notes", e.target.value)}
-          placeholder="税务居民地、家庭开支、未来资金需求、希望实现的生活目标"
+          rows={5}
+          maxLength={5000}
+          value={objective}
+          onChange={(e) => setObjective(e.target.value)}
+          placeholder="例如：长期积累退休资产，同时保留未来几年买房所需的资金。"
         />
       </Field>
-      <p className="mh-help">
-        首次预填的 80% 占比线与 20%
-        回撤仅供设置参考，请改为符合自己实际情况的数值。
-      </p>
-      <h3>手动汇率</h3>
-      <p className="mh-help">
-        每 1 单位外币 = 多少 USD。留空的币种不计入美元合计。
-      </p>
-      <div className="mh-form-grid">
-        {CURRENCIES.filter((c) => c !== "USD").map((c) => (
-          <Field key={c} label={`1 ${c} → USD`}>
-            <input
-              type="number"
-              min="0.00000001"
-              step="any"
-              value={fx[c] ?? ""}
-              onChange={(e) =>
-                setFx((s) => ({
-                  ...s,
-                  [c]: e.target.value ? Number(e.target.value) : null,
-                }))
-              }
-            />
-          </Field>
-        ))}
-      </div>
+      <p className="mh-help">弹药与目标统一使用 USD；目标可以随时修改，不设复杂进度规则。</p>
       <SaveButton busy={busy} />
     </form>
   );

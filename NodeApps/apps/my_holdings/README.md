@@ -1,39 +1,33 @@
 # My Holdings · 持仓室
 
-在 NodeApps 首页选择 **My Holdings**，或打开 http://127.0.0.1:5888/#/app/my-holdings 。沿用工作区的 `npm run dev` / `start.command` / `start.bat`，不需要新装依赖、数据库或额外端口。
+NodeApps 中的个人投资记录工具。运行 NodeApps 的 `npm run dev` / `start.command` / `start.bat`，在首页选择 **My Holdings**。
 
-## 日常使用
+## 设计与功能
 
-- **我的持仓**：两个账户可改名，持仓可增删改。保留截图股数、成本、市值、均价及报价；按代码和币种合并配置。更新股价后可手动重算市值，避免静默覆盖截图原值。截图没有报价日期，不当作实时行情。
-- **近期关注**：只填公司名或代码，保存后自动启动本机 Codex 研究。简要卡片用 More 展开详细研究、风险、催化因素、待核实项与来源。允许编辑关注条件、复制资料包给外部 AI、导入 JSON 回填卡片。
-- **组合分析**：根据实际保存数据计算集中度、数据缺口与统一跌幅压力情景，并支持 AI 分析。压力测试不是预测或 VaR，不推算没有来源的 ETF 穿透权重。
-- **弹药与目标**：多币种收入 / 支出流水、应急预留、目标资产、期限、回撤承受范围、集中度提醒线。汇率手工录入，每 1 单位外币兑换的 USD；未知汇率不折算。资金池独立于券商现金余额。买入后应更新持仓，同时记一笔投资拨款，避免重复计入资产。
-- **行情与档案**：复用 VisualShelf 索引、安全读取和隔离预览。支持 HTML 文件导入、粘贴源码、文件夹子目录扫描、分类和搜索。文件放入 `data/reports/` 后点击刷新。
-- **AI 工作台**：一键复制完整背景给 ChatGPT、Claude、Gemini、Codex 等 AI；复制只写剪贴板，不自动向网站发送。AI 返回独立 HTML 后导回本应用。也可以直接让本机 Codex 生成结构化研究，由应用转换成独立 HTML 并保存。
-- **决策日志**：记录行动、理由、反证与复盘，后续 AI 资料包自动带上。
-- 左右栏独立折叠，窄屏默认收起右栏。明暗模式复用 NodeApps，布局偏好保存在浏览器。
+- **持仓**：两个账户同时展示并用不同颜色区分；可新增、编辑、删除。编辑只保留账户、代码、名称、数量、成本均价等核心字段。成本均价来自截图里的 IBKR 平均价格，总成本保留截图值。
+- **收盘价**：点击「刷新收盘价」后，服务端读取 Yahoo Finance 日线，选取最近一个已完成的美国交易日收盘价。刷新成功时按收盘价 × 股数更新市值；成本均价和总成本不变。每笔报价保留日期与来源。行情端点并非 Yahoo 官方公开 API，偶尔可能限流或不可用；失败的代码会保留原报价并显示错误。
+- **近期关注**：输入公司名或代码即可保存。应用只把研究请求写进 waiting 队列，不会启动 Codex CLI、自动联网或占用额度；More 展示已有完整研究，也能复制资料给其他 AI。
+- **组合分析 / 行情研究**：点击请求后加入待办，界面显示等待、完成或未完成。选择「复制待办给 Codex」后，把提示粘贴给 Codex；Codex 可读取队列、联网研究、生成 HTML 并回写结果。
+- **弹药与目标**：资金流水只使用 USD；目标用一段自由文本记录。资金是个人手工台账，不等于券商实时余额。
+- **行情与档案**：把独立 HTML 保存到 `data/reports/market/`、`portfolio/` 或 `research/`。点击档案卡片会在新的浏览器标签页打开 HTML 原件，不在应用中预览。
+- **其他**：组合集中度和压力情景本地计算、跨 AI 复制背景、导入 AI 研究 JSON/HTML、决策日志、左右侧栏独立折叠。
 
-## Codex 研究
+## 数据与 GitHub 同步
 
-需要本机已安装并登录 Codex CLI（`codex login`）。服务端自动从 PATH 或 macOS 应用目录发现；也可设置环境变量 `HOLDINGS_CODEX_BIN` 为 CLI 路径。Windows 支持 PATH 中的 codex.cmd / codex.exe。沿用本机已配置的模型与登录，不在本应用保存 API key。
+所有业务数据都保存在本目录文件里，不存在浏览器 `localStorage`：
 
-点击生成会将持仓、资金、目标、关注和日志发送给本机 Codex 所连接的服务。CLI 运行在临时目录、只读沙箱，关闭 shell 工具，使用联网研究与结构化 JSON 输出；JSON 校验后才回填，HTML 由应用转义渲染。超时 4 分钟；任务进行时可继续编辑，完成时合并最新数据。失败显示错误且不会伪造结果；重启时未完成任务标记中断，可重试。
+- `data/state.json`：持仓、关注、资金、目标、Codex 待办和研究摘要。保存时创建 revision 并原子写入。
+- `data/CODEX_TODO.md`：由应用维护的待办说明，适合 Codex 读取，也会随 Git 同步。
+- `data/backups/`：最近 30 次修改前的 JSON 备份。
+- `data/reports/`：HTML 研究报告原件和 VisualShelf 目录。
+- `data/initial-state.json`：首次启动的种子数据，不覆盖日常状态。
+- `account1.jpg`、`account2.jpg` 与 `holdings-transcription.md`：原始截图和逐字段转录。
 
-Codex 安装检测与登录不保证模型/网络可用。未连接时，完整资料复制与研究导入仍可使用。CLI 接口参考：[OpenAI 官方非交互执行文档](https://developers.openai.com/codex/noninteractive)。
+这些文件在 NodeApps 仓库中跟踪，正常 Git 提交与 GitHub 同步即可在不同电脑间迁移。切换电脑前先同步提交，另一台先拉取再打开应用；避免两台电脑同时修改同一个 `state.json`，以免产生 Git 文件冲突。浏览器只记住左右栏展开偏好，不存持仓等业务数据。
 
-## 数据与迁移
+## Codex 待办的执行方式
 
-- `account1.jpg`、`account2.jpg`：原始截图。
-- `holdings-transcription.md`：逐字段文字档和口径说明。
-- `data/initial-state.json`：仅首次启动使用的原始持仓种子。
-- `data/state.json`：日常数据；原子写入，revision 防止多窗口静默覆盖。
-- `data/backups/`：最近 30 次修改前的完整 JSON。可通过「账户与数据 → 恢复 JSON」恢复。
-- `data/reports/market/`：市场 / 行情 HTML。
-- `data/reports/portfolio/`：持仓分析 HTML。
-- `data/reports/research/`：关注公司研究 HTML。
-- `data/report-catalog.json`：VisualShelf 的目录元数据。
-
-迁移时复制整个 `apps/my_holdings` 文件夹；应用内 JSON 导出包含结构化资料和研究文字，HTML 原文件与图片需另行一起备份。不提供自动下单，不自动获取或伪造实时行情。
+关注或分析请求会记录在 `state.json` 的 `jobs` 中，状态为 `waiting`；`data/CODEX_TODO.md` 也列出等待任务。应用不会自动调用 Codex。需要时在 Codex 中粘贴应用复制的待办指令；Codex 完成后将 HTML 放进对应报告目录，并调用 `/my-holdings/api/jobs/{id}/complete` 回写完成状态；无法完成则回写 `fail`。若本地应用没运行，Codex 应更新 `state.json` 并说明无法自动刷新页面。
 
 ## 校验
 
@@ -41,5 +35,3 @@ Codex 安装检测与登录不保证模型/网络可用。未连接时，完整�
 node --test apps/my_holdings/server/index.test.js apps/my_holdings/src/model.test.js
 npm run build
 ```
-
-覆盖截图金额、跨账户合并、缺失汇率、预留、数据校验、保存/编辑/删除/恢复、版本冲突、AI 任务并发合并与失败、HTML 原文保存和隔离预览。

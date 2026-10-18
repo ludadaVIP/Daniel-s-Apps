@@ -69,7 +69,7 @@ test("AI context contains full records and unknown-date constraints without inve
     "5924.23",
     "priceDate",
     "cashLedger",
-    "税务居民地如未提供则为未知",
+    "税务居民地或未来资金需求未提供时标明未知",
     "UTF-8",
   ])
     assert.ok(p.includes(x), x);

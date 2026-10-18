@@ -6,50 +6,10 @@ import {
   Plus,
   RefreshCw,
   Search,
-  X,
 } from "lucide-react";
 import { BASE, request, localDate } from "./api.js";
 import { Modal, Field } from "./Forms.jsx";
-export function ReportPreview({ report, onClose }) {
-  const docId =
-    report.id ||
-    btoa(unescape(encodeURIComponent(report.path)))
-      .replaceAll("+", "-")
-      .replaceAll("/", "_")
-      .replaceAll("=", "");
-  const url = `${BASE}/library/document/${encodeURIComponent(docId)}`;
-  return (
-    <div
-      className="mh-reader"
-      role="dialog"
-      aria-modal="true"
-      aria-label="HTML 报告阅读"
-    >
-      <header>
-        <FileCode2 size={19} />
-        <strong>{report.title || report.path}</strong>
-        <a
-          href={url}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="mh-button"
-        >
-          新窗口 <ArrowUpRight size={15} />
-        </a>
-        <button className="mh-icon" aria-label="关闭报告" onClick={onClose}>
-          <X size={20} />
-        </button>
-      </header>
-      <iframe
-        title={report.title || "研究报告"}
-        src={url}
-        sandbox="allow-scripts allow-forms allow-modals allow-popups allow-downloads"
-      />
-      <footer>独立 HTML · 复用 VisualShelf 阅读引擎 · 文件保存在本机</footer>
-    </div>
-  );
-}
-export function Reports({ notify, onOpen, revision }) {
+export function Reports({ notify, revision }) {
   const [items, set] = useState([]),
     [query, setQuery] = useState(""),
     [folder, setFolder] = useState("all"),
@@ -123,10 +83,7 @@ export function Reports({ notify, onOpen, revision }) {
         <FolderOpen size={22} />
         <div>
           <strong>你的投资 VisualShelf</strong>
-          <p>
-            把独立 HTML 放入 <code>apps/my_holdings/data/reports/</code>
-            ，点击刷新即可阅读。支持子文件夹。
-          </p>
+          <p>HTML 文件保存在工作区并随 GitHub 同步；点击档案卡片后会在新标签页直接打开原文件。</p>
         </div>
         <button
           className="mh-button"
@@ -177,23 +134,17 @@ export function Reports({ notify, onOpen, revision }) {
         </button>
       </div>
       <div className="mh-report-grid">
-        {visible.map((r, i) => (
-          <button
+        {visible.map((r) => {
+          const docId = r.id || btoa(unescape(encodeURIComponent(r.relativePath)))
+            .replaceAll("+", "-").replaceAll("/", "_").replaceAll("=", "");
+          return <a
             className="mh-report-card"
             key={r.id}
-            onClick={() => onOpen(r)}
+            href={`${BASE}/library/document/${encodeURIComponent(docId)}`}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            <div className={`mh-report-cover tone-${i % 3}`}>
-              <span>
-                {r.folder === "market"
-                  ? "MARKET OUTLOOK"
-                  : r.folder === "portfolio"
-                    ? "PORTFOLIO REVIEW"
-                    : "RESEARCH NOTE"}
-              </span>
-              <FileCode2 size={46} strokeWidth={1} />
-              <small>MY HOLDINGS / RESEARCH</small>
-            </div>
+            <FileCode2 size={18} />
             <div>
               <small>
                 {r.folder || "研究"} ·{" "}
@@ -202,11 +153,11 @@ export function Reports({ notify, onOpen, revision }) {
               <h3>{r.title}</h3>
               <p>{r.summary.slice(0, 115)}</p>
               <span className="mh-text-button">
-                阅读报告 <ArrowUpRight size={14} />
+                新标签页打开 <ArrowUpRight size={14} />
               </span>
             </div>
-          </button>
-        ))}
+          </a>;
+        })}
       </div>
       {!loading && !visible.length && (
         <div className="mh-empty">

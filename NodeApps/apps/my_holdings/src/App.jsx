@@ -57,7 +57,7 @@ import {
   JournalForm,
   SaveButton,
 } from "./Forms.jsx";
-import { Reports, ReportPreview } from "./Reports.jsx";
+import { Reports } from "./Reports.jsx";
 const NAV = [
   ["overview", "总览", LayoutDashboard],
   ["holdings", "我的持仓", Wallet],
@@ -223,18 +223,16 @@ export default function HoldingsApp() {
     [right, setRight] = useState(() =>
       readPanel("mh-right", matchMedia("(min-width: 1001px)").matches),
     ),
-    [account, setAccount] = useState("all"),
     [query, setQuery] = useState(""),
     [modal, setModal] = useState(null),
     [busy, setBusy] = useState(false),
     [toast, setToast] = useState(null),
     [selected, setSelected] = useState(null),
-    [preview, setPreview] = useState(null),
-    [aiStatus, setAiStatus] = useState(null),
     [question, setQuestion] = useState(""),
     [aiKind, setAiKind] = useState("portfolio"),
     [provider, setProvider] = useState("ChatGPT"),
     [stress, setStress] = useState(20),
+    [marketRefreshing, setMarketRefreshing] = useState(false),
     [importText, setImportText] = useState(""),
     [accountNames, setAccountNames] = useState(null);
   const stateRef = useRef(state),
@@ -258,32 +256,27 @@ export default function HoldingsApp() {
   };
   useEffect(() => {
     refresh();
-    request("/api/ai/status")
-      .then(setAiStatus)
-      .catch(() => {});
     return () => clearTimeout(timer.current);
   }, []);
-  const running = state?.jobs.find((j) => j.status === "running");
   useEffect(() => {
-    if (!running) return;
     let active = true;
     const poll = setInterval(async () => {
       try {
         const s = await request("/api/state");
-        if (active && !busyRef.current) setState(s);
+        if (
+          active &&
+          !busyRef.current &&
+          s.revision !== stateRef.current?.revision
+        ) {
+          setState(s);
+          stateRef.current = s;
+        }
       } catch {}
-    }, 2200);
+    }, 6000);
     return () => {
       active = false;
       clearInterval(poll);
     };
-  }, [running?.id]);
-  useEffect(() => {
-    const key = (e) => {
-      if (e.key === "Escape") setPreview(null);
-    };
-    addEventListener("keydown", key);
-    return () => removeEventListener("keydown", key);
   }, []);
   const toggle = (side) => {
     if (side === "left")
@@ -330,17 +323,49 @@ export default function HoldingsApp() {
       else s[key].push(value);
     });
   const remove = (key, item) => setModal({ type: "delete", key, item });
-  const openReport = (path, title) => setPreview({ path, title });
-  const generate = async (kind = "portfolio", watchId) => {
+  const openReport = (path) => {
+    if (!path) return;
+    const id = btoa(unescape(encodeURIComponent(path)))
+      .replaceAll("+", "-")
+      .replaceAll("/", "_")
+      .replaceAll("=", "");
+    window.open(`${BASE}/library/document/${encodeURIComponent(id)}`, "_blank", "noopener,noreferrer");
+  };
+  const queueTask = async (kind = "portfolio", watchId, prompt = question) => {
     try {
-      const r = await request("/api/ai", { kind, watchId, question });
+      const r = await request("/api/jobs", { kind, watchId, question: prompt });
       setState(r.state);
       stateRef.current = r.state;
-      notify("Codex 已开始研究，可继续使用应用");
+      notify("已加入 Codex 待办；你下次明确交代执行时再处理");
       return true;
     } catch (e) {
+      if (e.message.includes("已经在待办队列")) {
+        notify("这项任务已在等待 Codex 的队列里");
+        return true;
+      }
       notify(e.message, true);
       return false;
+    }
+  };
+  const refreshPrices = async () => {
+    if (marketRefreshing) return;
+    setMarketRefreshing(true);
+    try {
+      const r = await request("/api/market/refresh", {});
+      setState(r.state);
+      stateRef.current = r.state;
+      const updated = r.quotes.filter((q) => Number.isFinite(q.price)).length;
+      const failed = r.quotes.filter((q) => q.error);
+      notify(
+        failed.length
+          ? `已更新 ${updated} 个代码；${failed.length} 个暂时未能获取 (${failed.map((x) => x.symbol).join(", ")})`
+          : `已更新 ${updated} 个代码的最近完整收盘价`,
+        failed.length === r.quotes.length,
+      );
+    } catch (e) {
+      notify(e.message, true);
+    } finally {
+      setMarketRefreshing(false);
     }
   };
   const copy = async (kind = aiKind, focus) => {
@@ -348,6 +373,17 @@ export default function HoldingsApp() {
     try {
       await navigator.clipboard.writeText(prompt);
       notify(`完整资料包已复制，可粘贴给 ${provider}`);
+    } catch {
+      setImportText(prompt);
+      setModal({ type: "copy" });
+    }
+  };
+  const copyQueue = async () => {
+    const pending = stateRef.current.jobs.filter((j) => j.status === "waiting");
+    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务，不要使用 Codex CLI。\n\n先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，按文件中的 waiting 任务工作。核实最新事实和行情来源，为每项任务生成一份自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录。完成后将每项标为 done，并通过本地应用 API 回写（POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 必须包含 report 相对路径和完整 research 对象，才能更新关注卡片或组合分析）。无法完成时说明原因，并调用 /my-holdings/api/jobs/{任务ID}/fail。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "请依据待办队列中等待的任务完成研究。")}`;
+    try {
+      await navigator.clipboard.writeText(prompt);
+      notify("待办与持仓背景已复制；粘贴给 Codex 后由它处理并回写结果");
     } catch {
       setImportText(prompt);
       setModal({ type: "copy" });
@@ -371,11 +407,10 @@ export default function HoldingsApp() {
       </div>
     );
   const m = calculate(state),
-    view = calculate(state, account),
     notes = observations(state),
     focus = state.holdings.find((h) => h.id === selected),
     latest = state.analyses.find((a) => a.kind === "portfolio"),
-    visibleHoldings = view.holdings.filter((h) =>
+    visibleHoldings = state.holdings.filter((h) =>
       `${h.symbol} ${h.name} ${h.sector}`
         .toLowerCase()
         .includes(query.toLowerCase()),
@@ -418,32 +453,29 @@ export default function HoldingsApp() {
         icon={CircleDollarSign}
       />
       <Stat
-        label="目标完成度"
-        value={m.progress == null ? "待设定" : pct(m.progress)}
-        sub={
-          m.target
-            ? `${money(m.total)} / ${money(m.target)}`
-            : "给你的长期目标一个坐标"
-        }
+        label="投资目标"
+        value={(state.goals.objective || state.goals.notes || "").trim() ? "已记录" : "待填写"}
+        sub={(state.goals.objective || state.goals.notes || "").trim() || "写下一句话，给组合分析一个方向"}
         icon={Target}
       />
     </div>
   );
-  const holdingsTable = (limit) => (
+  const holdingsTable = (rows = visibleHoldings, limit) => (
     <div className="mh-table-wrap">
       <table className="mh-table">
         <thead>
           <tr>
-            <th>标的 / 账户</th>
+            <th>标的</th>
             <th>持有数量</th>
-            <th>参考价格</th>
-            <th>成本 / 市值</th>
+            <th>当前价格</th>
+            <th>成本均价</th>
+            <th>市值 / 总成本</th>
             <th>浮动盈亏</th>
             <th aria-label="操作"></th>
           </tr>
         </thead>
         <tbody>
-          {visibleHoldings.slice(0, limit).map((h) => (
+          {rows.slice(0, limit).map((h) => (
             <tr
               key={h.id}
               className={selected === h.id ? "selected" : ""}
@@ -472,13 +504,14 @@ export default function HoldingsApp() {
               </td>
               <td>
                 {money(h.price, h.currency)}
-                <small>{h.priceDate || "日期待确认"}</small>
+                <small>{h.priceDate ? `${h.priceDate} · ${h.priceSource || "收盘"}` : "点击刷新收盘价"}</small>
               </td>
               <td>
-                <span className="mh-muted">{money(h.cost, h.currency)}</span>
-                <small className="mh-value">
-                  {money(h.marketValue, h.currency)}
-                </small>
+                {money(h.averagePrice, h.currency)}
+              </td>
+              <td>
+                <span className="mh-value">{money(h.marketValue, h.currency)}</span>
+                <small>成本 {money(h.cost, h.currency)}</small>
               </td>
               <td
                 className={h.marketValue - h.cost < 0 ? "mh-loss" : "mh-gain"}
@@ -518,7 +551,7 @@ export default function HoldingsApp() {
           ))}
         </tbody>
       </table>
-      {!visibleHoldings.length && (
+      {!rows.length && (
         <Empty
           title="这里还没有持仓"
           text="添加第一条持仓，或者调整搜索条件。"
@@ -656,7 +689,7 @@ export default function HoldingsApp() {
                 <span>
                   <i /> 当前保存快照
                 </span>
-                <span>截图报价日期未知 · 非实时行情</span>
+                <span>{state.marketUpdatedAt ? `最近收盘价刷新 · ${when(state.marketUpdatedAt)}` : "截图价格尚未刷新 · 点击刷新获取最近完整收盘价"}</span>
                 <button onClick={() => page("holdings")}>
                   核对数据 <ArrowRight size={13} />
                 </button>
@@ -715,7 +748,7 @@ export default function HoldingsApp() {
                     管理全部 <ArrowRight size={14} />
                   </button>
                 </div>
-                {holdingsTable(7)}
+                {holdingsTable(visibleHoldings, 7)}
               </section>
               <div className="mh-bottom-note">
                 <ShieldCheck size={14} /> 无虚构收益曲线 · 无自动交易 ·
@@ -728,97 +761,44 @@ export default function HoldingsApp() {
               {heading(
                 "THE POSITIONS YOU OWN",
                 "我的持仓",
-                "分账户记录，合并后看清真正的配置。",
-                <button
-                  className="mh-primary"
-                  onClick={() => setModal({ type: "holding" })}
-                >
-                  <Plus size={17} /> 新增持仓
-                </button>,
-              )}
-              {stats(view)}
-              <section className="mh-panel">
-                <div className="mh-toolbar">
-                  <div className="mh-tabs">
-                    {[{ id: "all", name: "全部账户" }, ...state.accounts].map(
-                      (a) => (
-                        <button
-                          key={a.id}
-                          className={account === a.id ? "active" : ""}
-                          onClick={() => setAccount(a.id)}
-                        >
-                          {a.name}
-                        </button>
-                      ),
-                    )}
-                  </div>
-                  <label className="mh-search">
-                    <Search size={16} />
-                    <input
-                      aria-label="搜索持仓"
-                      placeholder="代码、名称、分类"
-                      value={query}
-                      onChange={(e) => setQuery(e.target.value)}
-                    />
-                  </label>
-                </div>
-                {holdingsTable()}
-                <div className="mh-panel-bottom">
-                  <span>
-                    市值和价格可分别编辑；截图“变动%”周期未知，不作累计收益。
-                  </span>
-                  <button
-                    className="mh-text-button"
-                    onClick={() =>
-                      download(
-                        "my-holdings.csv",
-                        "\uFEFF" +
-                          [
-                            [
-                              "账户",
-                              "代码",
-                              "名称",
-                              "币种",
-                              "股数",
-                              "参考价格",
-                              "报价日期",
-                              "总成本",
-                              "总市值",
-                              "浮盈亏",
-                            ].join(","),
-                            ...view.holdings.map((h) =>
-                              [
-                                state.accounts.find((a) => a.id === h.accountId)
-                                  ?.name,
-                                h.symbol,
-                                h.name,
-                                h.currency,
-                                h.quantity,
-                                h.price,
-                                h.priceDate,
-                                h.cost,
-                                h.marketValue,
-                                h.marketValue - h.cost,
-                              ]
-                                .map(
-                                  (v) =>
-                                    '"' +
-                                    String(v ?? "")
-                                      .replace(/^[=+@-]/, "'")
-                                      .replaceAll('"', '""') +
-                                    '"',
-                                )
-                                .join(","),
-                            ),
-                          ].join("\r\n"),
-                        "text/csv;charset=utf-8",
-                      )
-                    }
-                  >
-                    导出 CSV <Download size={14} />
+                "两个账户同时展开、颜色区分；按刷新获取最近一个完整交易日的收盘价。",
+                <div className="mh-heading-actions">
+                  <button className="mh-button" onClick={refreshPrices} disabled={marketRefreshing}>
+                    <RefreshCw size={15} className={marketRefreshing ? "mh-spin" : ""} />
+                    {marketRefreshing ? "正在刷新…" : "刷新收盘价"}
                   </button>
-                </div>
-              </section>
+                  <button className="mh-primary" onClick={() => setModal({ type: "holding" })}>
+                    <Plus size={17} /> 新增持仓
+                  </button>
+                </div>,
+              )}
+              {stats(m)}
+              <div className="mh-toolbar holdings-toolbar">
+                <span className="mh-muted">成本均价来自 IBKR 平均价格；总成本沿用截图记录。</span>
+                <label className="mh-search">
+                  <Search size={16} />
+                  <input aria-label="搜索持仓" placeholder="代码、名称、分类" value={query} onChange={(e) => setQuery(e.target.value)} />
+                </label>
+              </div>
+              <div className="mh-account-stack">
+                {state.accounts.map((a, index) => {
+                  const rows = visibleHoldings.filter((h) => h.accountId === a.id);
+                  const total = rows.reduce((sum, h) => sum + (h.marketValue || 0), 0);
+                  return (
+                    <section className={`mh-panel mh-account-section account-tone-${index % 2}`} key={a.id}>
+                      <div className="mh-account-heading">
+                        <div><span className="mh-account-mark" /><div><span className="mh-eyebrow">ACCOUNT {index + 1}</span><h2>{a.name}</h2></div><span className="mh-tag">{rows.length} 项</span></div>
+                        <div className="mh-account-total"><small>当前市值</small><strong>{money(total)}</strong><button className="mh-text-button" onClick={() => setModal({ type: "holding", accountId: a.id })}><Plus size={14} /> 添加到此账户</button></div>
+                      </div>
+                      {holdingsTable(rows)}
+                    </section>
+                  );
+                })}
+              </div>
+              <div className="mh-panel-bottom holdings-export">
+                <span>盈亏按券商截图总成本计算；刷新后市值按最近完整收盘价 × 股数更新。</span>
+                <button className="mh-text-button" onClick={() => download("my-holdings.csv", "\uFEFF" + [["账户","代码","名称","币种","股数","当前价格","成本均价","报价日期","总成本","总市值","浮盈亏"].join(","), ...m.holdings.map((h) => [state.accounts.find((a) => a.id === h.accountId)?.name,h.symbol,h.name,h.currency,h.quantity,h.price,h.averagePrice,h.priceDate,h.cost,h.marketValue,h.marketValue-h.cost].map((v) => '"'+String(v ?? "").replace(/^[=+@-]/,"'").replaceAll('"','""')+'"').join(","))].join("\r\n"), "text/csv;charset=utf-8")}>导出 CSV <Download size={14} /></button>
+              </div>
             </>
           )}
           {tab === "watch" && (
@@ -837,15 +817,12 @@ export default function HoldingsApp() {
               <div className="mh-banner">
                 <Sparkles size={22} />
                 <div>
-                  <strong>一个名字，开启一份研究</strong>
+                  <strong>先排队，等你下一次交给 Codex</strong>
                   <p>
-                    输入公司名或代码，Codex 自动生成研究卡片。点击 More
-                    展开逻辑、风险与来源。
+                    新增标的只保存任务，不会占用额度或在后台自动运行；点击 More 查看详细研究或复制资料。
                   </p>
                 </div>
-                <span className="mh-tag">
-                  {aiStatus?.available ? "Codex CLI 已检测" : "外部 AI 可用"}
-                </span>
+                <span className="mh-tag">{state.jobs.filter((j) => j.status === "waiting").length} 项等待中</span>
               </div>
               <div className="mh-toolbar">
                 <span className="mh-muted">
@@ -878,8 +855,9 @@ export default function HoldingsApp() {
                           </span>
                           <div>
                             <h3>{w.name}</h3>
-                            <small>{w.symbol || "代码待核实"}</small>
+                            <small>{w.symbol || "待核实代码"} · {w.status || "关注中"}</small>
                           </div>
+                          <span className={`mh-queue-pill ${job?.status || "waiting"}`}>{job?.status === "done" ? "研究完成" : job?.status === "failed" ? "未完成" : "等待 Codex"}</span>
                           <button
                             className="mh-icon"
                             aria-label={`编辑关注 ${w.name}`}
@@ -895,21 +873,11 @@ export default function HoldingsApp() {
                             <Trash2 size={15} />
                           </button>
                         </header>
-                        <span className="mh-tag">{w.status}</span>
                         <p>
                           {w.research?.summary ||
-                            w.note ||
-                            "研究尚未完成。保留这个想法，等证据更加清晰。"}
+                            w.note || "研究已排队，待 Codex 执行后这里会显示摘要。"}
                         </p>
-                        {w.trigger && (
-                          <div className="mh-watch-trigger">
-                            <Target size={15} />
-                            <span>{w.trigger}</span>
-                          </div>
-                        )}
-                        {job?.status === "failed" && (
-                          <p className="mh-error-text">{job.error}</p>
-                        )}
+                        {job?.status === "failed" && <small className="mh-error-text">{job.error}</small>}
                         <footer>
                           <button
                             className="mh-text-button"
@@ -920,22 +888,7 @@ export default function HoldingsApp() {
                           >
                             More <ArrowUpRight size={14} />
                           </button>
-                          <button
-                            className="mh-button"
-                            disabled={Boolean(running)}
-                            onClick={() => generate("watch", w.id)}
-                          >
-                            {job?.status === "running" ? (
-                              <LoaderCircle className="mh-spin" size={14} />
-                            ) : (
-                              <Sparkles size={14} />
-                            )}{" "}
-                            {job?.status === "running"
-                              ? "研究中…"
-                              : w.research
-                                ? "更新研究"
-                                : "生成研究"}
-                          </button>
+                          {job?.report && <button className="mh-button" onClick={() => openReport(job.report)}><FileCode2 size={14} /> 打开 HTML</button>}
                         </footer>
                       </article>
                     );
@@ -963,16 +916,25 @@ export default function HoldingsApp() {
               {heading(
                 "UNDERSTAND BEFORE YOU ACT",
                 "组合分析",
-                "先读懂风险，再决定是否行动。",
+                "分析先排队；等你下次明确交给 Codex，再联网研究并更新 HTML 档案。",
                 <button
                   className="mh-primary"
-                  disabled={Boolean(running)}
-                  onClick={() => generate("portfolio")}
+                  disabled={state.jobs.some((j) => j.kind === "portfolio" && j.status === "waiting")}
+                  onClick={() => queueTask("portfolio", null, question || "分析当前组合集中度、风险来源、现金弹药与目标，核实最新资料，给出保持不动等条件方案并生成 HTML。")}
                 >
                   <Sparkles size={17} />
-                  {running ? "研究进行中…" : "生成 AI 持仓分析"}
+                  {state.jobs.some((j) => j.kind === "portfolio" && j.status === "waiting") ? "组合分析已排队" : "请求 Codex 分析"}
                 </button>,
               )}
+              <section className="mh-panel mh-queue-summary">
+                <div><span className="mh-eyebrow">CODEX QUEUE</span><h2>待办状态</h2><p>应用保存任务和资料；是否执行由你下次给 Codex 的指令决定。</p></div>
+                <div className="mh-queue-counts">
+                  <span><strong>{state.jobs.filter((j) => j.status === "waiting").length}</strong>等待做</span>
+                  <span><strong>{state.jobs.filter((j) => j.status === "done").length}</strong>已完成</span>
+                  <span><strong>{state.jobs.filter((j) => j.status === "failed").length}</strong>未完成</span>
+                </div>
+                <button className="mh-button" onClick={copyQueue}><Copy size={15} /> 复制待办给 Codex</button>
+              </section>
               <div className="mh-overview-grid">
                 <section className="mh-panel">
                   <div className="mh-section-heading">
@@ -1025,16 +987,9 @@ export default function HoldingsApp() {
                       </strong>
                     </div>
                     <p>
-                      {state.goals.configured ? (
-                        <>
-                          可承受回撤：{state.goals.maxDrawdown}% ·{" "}
-                          {stress > state.goals.maxDrawdown
-                            ? "该情景超过你填写的承受范围。"
-                            : "该跌幅在你填写的承受范围内。"}
-                        </>
-                      ) : (
-                        "尚未填写回撤承受范围；当前滑块仅用于情景演示。"
-                      )}
+                      {state.goals.objective || state.goals.notes
+                        ? `你的目标：${(state.goals.objective || state.goals.notes).slice(0, 100)}`
+                        : "尚未填写目标；当前滑块仅用于情景演示。"}
                       这是假设情景，不是损失概率或最大风险估计。
                     </p>
                   </div>
@@ -1066,7 +1021,7 @@ export default function HoldingsApp() {
                     research={latest.research}
                     date={latest.date}
                     onReport={() =>
-                      openReport(latest.report, latest.research.title)
+                      openReport(latest.report)
                     }
                   />
                 </section>
@@ -1075,13 +1030,9 @@ export default function HoldingsApp() {
                   <Sparkles size={24} />
                   <div>
                     <strong>让 AI 看见整个组合</strong>
-                    <p>
-                      结合两个账户、资金池、投资目标和关注清单，生成一份带来源的分析报告。
-                    </p>
+                    <p>组合分析会先进入待办；你下次把待办交给 Codex 后，结果会保存为 HTML 并回填这里。</p>
                   </div>
-                  <button className="mh-button" onClick={() => page("ai")}>
-                    打开 AI 工作台 <ArrowRight size={15} />
-                  </button>
+                  <button className="mh-button" onClick={copyQueue}><Copy size={15} /> 复制待办给 Codex</button>
                 </div>
               )}
             </>
@@ -1106,60 +1057,30 @@ export default function HoldingsApp() {
                   <strong>
                     {state.cash.length ? money(m.available) : "待录入"}
                   </strong>
-                  <p>
-                    已折算资金 {money(m.cash)} − 应急预留 {money(m.reserve)}
-                  </p>
-                  <div>
-                    {Object.entries(m.cashByCurrency).map(([c, n]) => (
-                      <span key={c}>
-                        {c}
-                        <b>{money(n, c)}</b>
-                      </span>
-                    ))}
-                  </div>
-                  <small>
-                    独立资金池，非券商实时现金余额；缺少汇率的资金暂不计入美元合计。
-                  </small>
+                  <p>已记录的 USD 可投资金</p>
+                  <small>工资或其他收入随到随记；这是手工资金池，不是券商实时余额。</small>
                 </section>
                 <section className="mh-panel">
                   <div className="mh-section-heading">
                     <div>
                       <h2>我的目标</h2>
-                      <p>{state.goals.horizon || "期限尚未填写"}</p>
+                      <p>用一段话说明资金要支持什么</p>
                     </div>
                     <button
                       className="mh-icon"
-                      aria-label="编辑目标与汇率"
+                      aria-label="编辑投资目标"
                       onClick={() => setModal({ type: "goals" })}
                     >
                       <Pencil size={17} />
                     </button>
                   </div>
                   <div className="mh-goal">
-                    <strong>
-                      {state.goals.target
-                        ? money(state.goals.target, state.goals.currency)
-                        : "给未来一个数字"}
-                    </strong>
-                    <div className="mh-progress">
-                      <span
-                        style={{
-                          width: `${Math.min(100, Math.max(0, m.progress || 0))}%`,
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <span>当前持仓 + 已折算资金</span>
-                      <strong>
-                        {m.progress == null ? "待设定" : pct(m.progress)}
-                      </strong>
-                    </div>
-                    <p>{state.goals.notes}</p>
+                    <p className="mh-objective-text">{state.goals.objective || state.goals.notes || "还没有写下目标。点击编辑，用自己的话记录这笔投资想支持的生活计划。"}</p>
                     <button
                       className="mh-text-button"
                       onClick={() => setModal({ type: "goals" })}
                     >
-                      设置目标、预留与汇率 <ArrowRight size={15} />
+                      编辑目标 <ArrowRight size={15} />
                     </button>
                   </div>
                 </section>
@@ -1247,7 +1168,6 @@ export default function HoldingsApp() {
           {tab === "reports" && (
             <Reports
               notify={notify}
-              onOpen={setPreview}
               revision={state.analyses.length}
             />
           )}
@@ -1256,7 +1176,7 @@ export default function HoldingsApp() {
               {heading(
                 "A BETTER SECOND OPINION",
                 "AI 工作台",
-                "带着完整背景提问，把研究成果留在自己的档案里。",
+                "收好完整背景和待办；你交给 Codex 后，它再联网研究并保存 HTML。",
               )}
               <div className="mh-ai-flow">
                 <span>
@@ -1279,7 +1199,7 @@ export default function HoldingsApp() {
                 <div className="mh-section-heading">
                   <div>
                     <h2>把背景交给 AI</h2>
-                    <p>包含两个账户、关注清单、资金流水、目标与决策日志。</p>
+                    <p>持仓与任务保存为工作区文件，可随 NodeApps GitHub 同步到其他电脑。</p>
                   </div>
                   <Sparkles size={23} />
                 </div>
@@ -1318,37 +1238,29 @@ export default function HoldingsApp() {
                 <div className="mh-ai-actions">
                   <button
                     className="mh-primary"
-                    disabled={Boolean(running)}
-                    onClick={() => generate(aiKind)}
+                    onClick={() => queueTask(aiKind, null, question || "请结合当前持仓、资金与目标完成研究，并生成带来源的 HTML。")}
                   >
-                    {running ? (
-                      <LoaderCircle size={17} className="mh-spin" />
-                    ) : (
-                      <Sparkles size={17} />
-                    )}{" "}
-                    {running ? "Codex 正在研究…" : "让 Codex 生成研究"}
+                    <Sparkles size={17} /> 排入 Codex 待办
                   </button>
                   <button className="mh-button" onClick={() => copy()}>
                     <Copy size={16} /> 复制完整资料给 {provider}
+                  </button>
+                  <button className="mh-button" onClick={copyQueue}>
+                    <Copy size={16} /> 复制全部待办给 Codex
                   </button>
                   <button className="mh-button" onClick={() => page("reports")}>
                     <Upload size={16} /> 保存 AI 返回的 HTML
                   </button>
                 </div>
                 <p className="mh-help">
-                  {aiStatus?.available
-                    ? "已检测到本机 Codex CLI；登录与模型可用性以实际生成结果为准。"
-                    : "未检测到本机 Codex CLI，可先复制资料给你常用的 AI。"}
-                  点击生成会把上述资料交给本机 Codex
-                  连接的服务；生成结果自动转成 HTML
-                  存入本地。复制按钮只复制文本。
+                  待办不会自行运行。复制给不同 AI 只在你点击时复制文本；返回的 HTML 可导入档案，Codex 完成任务后也会回写状态。
                 </p>
               </section>
               <section className="mh-panel">
                 <div className="mh-section-heading">
                   <div>
                     <h2>研究任务与成果</h2>
-                    <p>生成可能需要数分钟；可以切换页面，结果会自动保存。</p>
+                    <p>状态清楚显示等待、完成或未完成；所有任务随工作区文件同步。</p>
                   </div>
                 </div>
                 {state.jobs
@@ -1357,12 +1269,12 @@ export default function HoldingsApp() {
                   .map((j) => (
                     <div className="mh-job" key={j.id}>
                       <span className={`mh-job-icon ${j.status}`}>
-                        {j.status === "running" ? (
-                          <LoaderCircle size={18} className="mh-spin" />
-                        ) : j.status === "done" ? (
+                        {j.status === "done" ? (
                           <CheckCircle2 size={18} />
-                        ) : (
+                        ) : j.status === "failed" ? (
                           <X size={18} />
+                        ) : (
+                          <LoaderCircle size={18} />
                         )}
                       </span>
                       <div>
@@ -1375,18 +1287,18 @@ export default function HoldingsApp() {
                         </strong>
                         <small>
                           {when(j.date)} ·{" "}
-                          {j.status === "running"
-                            ? "正在研究"
-                            : j.status === "done"
-                              ? "已完成并保存"
-                              : "生成失败"}
+                          {j.status === "done"
+                            ? "已完成并保存"
+                            : j.status === "failed"
+                              ? "未完成"
+                              : "等待你交给 Codex"}
                           {j.error && ` · ${j.error}`}
                         </small>
                       </div>
                       {j.report && (
                         <button
                           className="mh-text-button"
-                          onClick={() => openReport(j.report, "AI 研究报告")}
+                          onClick={() => openReport(j.report)}
                         >
                           阅读 <ArrowUpRight size={14} />
                         </button>
@@ -1397,7 +1309,7 @@ export default function HoldingsApp() {
                   <Empty
                     icon={Sparkles}
                     title="一份完整背景，换一个更好的问题"
-                    text="直接生成，或复制给你习惯使用的 AI。"
+                    text="关注股票或请求组合分析后，等待任务会显示在这里。"
                   />
                 )}
               </section>
@@ -1411,7 +1323,7 @@ export default function HoldingsApp() {
                     <button
                       className="mh-history"
                       key={a.id}
-                      onClick={() => openReport(a.report, a.research.title)}
+                      onClick={() => openReport(a.report)}
                     >
                       <FileCode2 size={20} />
                       <span>
@@ -1516,19 +1428,19 @@ export default function HoldingsApp() {
                 </span>
                 <strong>{money(focus.marketValue, focus.currency)}</strong>
                 <small>
-                  已保存市值 · {focus.priceDate || "行情日期待确认"}
+                  持有 {focus.quantity} 股 · {focus.priceDate || "点击刷新收盘价"}
                 </small>
+                <div className="mh-focus-prices">
+                  <span>当前价格<strong>{money(focus.price, focus.currency)}</strong></span>
+                  <span>成本均价<strong>{money(focus.averagePrice, focus.currency)}</strong></span>
+                </div>
               </div>
               <section>
-                <h3>持有理由</h3>
-                <p>{focus.thesis || "还没有写下这笔持仓的理由。"}</p>
-                <h3>重新评估条件</h3>
-                <p>{focus.exitRule || "写下什么变化会让你重新判断。"}</p>
                 <button
                   className="mh-button"
                   onClick={() => setModal({ type: "holding", item: focus })}
                 >
-                  <Pencil size={14} /> 完善这笔持仓
+                  <Pencil size={14} /> 编辑核心数据
                 </button>
                 <button
                   className="mh-text-button"
@@ -1562,7 +1474,7 @@ export default function HoldingsApp() {
                   <span className="mh-tag">CHECK IN</span>
                 </div>
                 {[
-                  [state.goals.target, "设定你的投资目标", "goals"],
+                  [state.goals.objective || state.goals.notes, "写下你的投资目标", "goals"],
                   [state.cash.length, "记下可投资的弹药", "cash"],
                   [state.watchlist.length, "放入一个关注标的", "watch"],
                 ].map(([done, label, type]) => (
@@ -1583,25 +1495,10 @@ export default function HoldingsApp() {
           )}
           <section>
             <div className="mh-section-heading">
-              <h3>你的资金坐标</h3>
+              <h3>你的投资目标</h3>
               <Target size={16} />
             </div>
-            <div className="mh-right-metric">
-              <span>持仓 + 已折算资金</span>
-              <strong>{money(m.total)}</strong>
-            </div>
-            <div className="mh-progress">
-              <span
-                style={{
-                  width: `${Math.min(100, Math.max(0, m.progress || 0))}%`,
-                }}
-              />
-            </div>
-            <small>
-              {m.progress == null
-                ? "长期目标尚未设定"
-                : `已走过目标的 ${pct(m.progress)}`}
-            </small>
+            <p className="mh-sidebar-objective">{state.goals.objective || state.goals.notes || "还没有写下目标"}</p>
           </section>
           <section className="mh-right-ai">
             <Sparkles size={22} />
@@ -1618,11 +1515,6 @@ export default function HoldingsApp() {
             <span className="mh-dot" /> 数据留在本机 · 研究由你掌握
           </footer>
         </aside>
-      )}
-      {running && (
-        <button className="mh-running" onClick={() => page("ai")}>
-          <LoaderCircle size={15} className="mh-spin" /> AI 研究中 · 可继续使用
-        </button>
       )}
       {toast && (
         <div
@@ -1643,7 +1535,7 @@ export default function HoldingsApp() {
               holding: modal.item ? "编辑持仓" : "记录一笔持仓",
               watch: modal.item ? "编辑关注" : "添加一个关注",
               cash: modal.item ? "编辑资金流水" : "记一笔资金",
-              goals: "目标、预留与汇率",
+              goals: "投资目标",
               journal: modal.item ? "编辑决策" : "写下一个判断",
               delete: "删除这条记录",
               research: "标的研究",
@@ -1668,6 +1560,7 @@ export default function HoldingsApp() {
             <HoldingForm
               item={modal.item}
               accounts={state.accounts}
+              defaultAccountId={modal.accountId}
               busy={busy}
               onSave={(v) => upsert("holdings", v)}
             />
@@ -1678,7 +1571,10 @@ export default function HoldingsApp() {
               busy={busy}
               onSave={async (v) => {
                 const success = await upsert("watchlist", v);
-                if (success && !modal.item) await generate("watch", v.id);
+                if (success && !modal.item) {
+                  const queued = await queueTask("watch", v.id, `研究关注标的：${v.name} ${v.symbol}`);
+                  if (!queued) await refresh();
+                }
               }}
             />
           )}
@@ -1725,6 +1621,13 @@ export default function HoldingsApp() {
                       s[modal.key] = s[modal.key].filter(
                         (r) => r.id !== modal.item.id,
                       );
+                      if (modal.key === "watchlist") {
+                        for (const job of s.jobs)
+                          if (job.watchId === modal.item.id && job.status === "waiting") {
+                            job.status = "failed";
+                            job.error = "关注标的已删除，任务已取消。";
+                          }
+                      }
                     })
                   }
                 >
@@ -1741,7 +1644,7 @@ export default function HoldingsApp() {
                   date={modal.item.researchedAt}
                   onReport={
                     modal.item.report
-                      ? () => openReport(modal.item.report, modal.item.name)
+                      ? () => openReport(modal.item.report)
                       : null
                   }
                 />
@@ -1749,7 +1652,7 @@ export default function HoldingsApp() {
                 <Empty
                   icon={Sparkles}
                   title={modal.item.name}
-                  text="尚无已保存研究。点击生成，或复制给其他 AI 后导入结果。"
+                  text="此标的已保存为待办；执行研究后，摘要和报告会回填到这里。"
                 />
               )}
               <div className="mh-ai-actions">
@@ -1770,10 +1673,9 @@ export default function HoldingsApp() {
                 </button>
                 <button
                   className="mh-primary"
-                  disabled={Boolean(running)}
-                  onClick={() => generate("watch", modal.item.id)}
+                  onClick={() => queueTask("watch", modal.item.id, `研究关注标的：${modal.item.name} ${modal.item.symbol}`)}
                 >
-                  <Sparkles size={15} /> 生成 / 更新
+                  <Sparkles size={15} /> 加入 / 重新加入待办
                 </button>
               </div>
             </>
@@ -1960,9 +1862,6 @@ export default function HoldingsApp() {
             </>
           )}
         </Modal>
-      )}
-      {preview && (
-        <ReportPreview report={preview} onClose={() => setPreview(null)} />
       )}
     </div>
   );

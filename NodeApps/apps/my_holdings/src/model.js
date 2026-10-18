@@ -96,7 +96,7 @@ export function observations(state) {
     out.push({
       tone: m.groups[0].weight > state.goals.maxPosition ? "amber" : "blue",
       title: `${m.groups[0].symbol} 占持仓 ${pct(m.groups[0].weight)}`,
-      text: `按代码合并两个账户。${state.goals.configured ? "你设置的单一标的提醒线为" : "默认占比提醒线（可修改）为"} ${state.goals.maxPosition}%；ETF 占比不等同于单一公司占比。`,
+      text: `按代码合并两个账户。${state.goals.configured ? `历史记录的提示线为 ${state.goals.maxPosition}%。` : `${state.goals.maxPosition}% 只是界面默认观察线，不代表你的风险上限。`} ETF 占比不等同于单一公司占比。`,
     });
   if (
     state.holdings.some((h) => h.symbol === "SMH") &&
@@ -111,8 +111,8 @@ export function observations(state) {
   if (unknown)
     out.push({
       tone: "amber",
-      title: `${unknown} 条持仓的行情日期待确认`,
-      text: "录入日期不等于行情日期。分析基于已保存快照，更新股价时请同时填写报价日期。",
+      title: `${unknown} 条持仓尚未刷新收盘价`,
+      text: "当前价格仍是截图时记录的值；点击「刷新收盘价」后，市值会按最近完整交易日收盘价重算。",
     });
   const mismatch = state.holdings.filter(
     (h) => Math.abs(h.quantity * h.price - h.marketValue) > 0.05,
@@ -121,7 +121,7 @@ export function observations(state) {
     out.push({
       tone: "blue",
       title: `${mismatch.length} 条市值与股数 × 价格有差异`,
-      text: "保留原始市值；可能来自报价时点、四舍五入或截图显示差异。可在编辑时重新计算。",
+      text: "截图的报价时点与市值可能不同，也可能来自四舍五入。刷新最近收盘价后，市值会自动按股数重算。",
     });
   if (m.unconverted || m.pendingCash.length)
     out.push({
@@ -129,15 +129,26 @@ export function observations(state) {
       title: "存在未折算的币种",
       text: "请填写每 1 单位外币兑换的 USD 金额；美元合计暂不包含缺少汇率的部分。",
     });
-  if (!state.goals.target || !state.goals.horizon)
+  if (!(state.goals.objective || state.goals.notes || "").trim())
     out.push({
       tone: "blue",
-      title: "先让投资目标有一个坐标",
-      text: "补齐目标金额、投资期限和应急预留后，AI 才能判断新增资金与现有组合是否匹配。",
+      title: "先写下你的投资目标",
+      text: "用自己的话说明资金要支持什么，后续组合分析就能围绕这个目标展开。",
     });
   return out;
 }
 export function contextPack(state, task = "portfolio", question = "") {
   const m = calculate(state);
-  return `你是我的投资研究助手。请用中文，以事实、推断、情景假设、待核实项分别标明。当前日期：${new Date().toISOString()}。\n任务：${task === "watch" ? "对关注标的开展研究" : task === "market" ? "市场环境与我的组合适配性" : "分析我的持仓与下一步资金安排"}\n我的问题：${question || "请先识别风险与缺失信息，再给出有条件的行动方案。"}\n\n数据为本地人工录入快照，并非实时行情；截图未显示行情日期，变动百分比周期未知。总市值、浮盈亏不含分红、交易费用、税费与已实现收益；可用资金不是券商余额。cashLedger 为空表示未录入现金，不能据此断定现金为零。汇率为用户手工填写，不得默认为实时。goals.configured 为 false 或缺失时，maxPosition/maxDrawdown 只是界面预填值，不能当成用户风险偏好。\n\n${JSON.stringify({ accounts: state.accounts, holdings: state.holdings, watchlist: state.watchlist, cashLedger: state.cash, goals: state.goals, fxUsdPerUnit: state.fx, journal: state.journal, summary: { valueUSD: m.value, costUSD: m.cost, unrealizedUSD: m.pnl, cashRecorded: state.cash.length > 0, cashUSD: state.cash.length ? m.cash : null, availableUSD: state.cash.length ? m.available : null, unconvertedHoldings: m.unconverted, unconvertedCash: m.pendingCash } }, null, 2)}\n\n研究要求：查证公司名称和证券代码、交易所、币种；结构化输出 identity 对象（name、symbol、exchange、currency、sector），无法确认的值留空，名称歧义时不得猜测证券代码；给出商业模式、竞争力、估值方法、主要风险、催化因素、适合关注的条件与反证条件。核实最新官方资料和财报；报价与统计必须附日期及可点击来源，无法核实明确写未知。不要编造目标价、实时价格、ETF 穿透权重、新闻或回报承诺。分析跨账户重复、行业/因子集中、流动性、资金需求、汇率与可能的税务信息缺口（税务居民地如未提供则为未知）。至少包含保持不动的方案和压力情景，解释哪些额外信息会改变结论。\n\n请交付一份独立、自包含的 UTF-8 HTML 中文研究报告（内联 CSS、移动端可读、来源链接和生成日期，不需要外部脚本），我会保存到 apps/my_holdings/data/reports/${task === "watch" ? "research" : task === "market" ? "market" : "portfolio"}/。如需回填关注卡片，也给出 JSON：{"title":"公司研究","summary":"简述","details":"完整研究","risks":["风险"],"catalysts":["催化因素"],"sources":[{"label":"来源名","url":"https://..."}],"uncertainty":"待核实项"}。`;
+  const objective = state.goals.objective || state.goals.notes || "";
+  const quotes = state.holdings.map((h) => ({
+    symbol: h.symbol,
+    price: h.price,
+    priceDate: h.priceDate || "未知（仍为截图记录）",
+    priceSource: h.priceSource || (h.priceDate ? "未记录来源" : "截图"),
+    averageCostPerShare: h.averagePrice,
+    screenshotTotalCost: h.cost,
+    marketValue: h.marketValue,
+    quantity: h.quantity,
+  }));
+  return `你是我的投资研究助手。用中文回答，清楚区分已查证事实、推断、情景假设和待核实项。当前日期：${new Date().toISOString()}。\n任务：${task === "watch" ? "研究近期关注的公司或证券" : task === "market" ? "分析近期市场环境与组合适配性" : "分析我的持仓与下一步资金安排"}\n我的问题：${question || "先识别风险和缺失信息，再给出有条件、可复核的下一步方案。"}\n\n重要口径：持仓的 price 是用户最近一次点击刷新后取得的最近完整美股交易日收盘价；priceDate 为空表示仍是截图中的旧值，不可称为当前行情。priceSource 标明报价来源。averagePrice 是 IBKR 截图的每股平均成本；cost 是截图总成本。marketValue 在报价刷新后按收盘价 × 股数更新，未刷新前是截图市值。变动百分比周期未知，不用于累计收益。浮动盈亏不含分红、费用、税费或已实现收益。弹药只记 USD，是个人手工记录，不是券商余额；空流水表示尚未录入。目标是用户自己写的文字；旧字段 maxPosition/maxDrawdown 是历史默认值，不代表用户风险偏好。\n\n当前报价与成本：\n${JSON.stringify(quotes, null, 2)}\n\n投资目标：${objective || "尚未填写"}\n\n${JSON.stringify({ accounts: state.accounts, holdings: state.holdings, watchlist: state.watchlist, cashLedgerUsd: state.cash, goals: { objective }, pendingTasks: (state.jobs || []).filter((j) => j.status === "waiting"), journal: state.journal, summary: { valueUSD: m.value, costUSD: m.cost, unrealizedUSD: m.pnl, cashRecorded: state.cash.length > 0, cashUSD: state.cash.length ? m.cash : null, availableUSD: state.cash.length ? m.available : null } }, null, 2)}\n\n研究要求：核实代码、名称、交易所、币种，优先使用公司公告、监管文件、基金发行方与交易所资料；需要最新市场数据时联网查证并注明时间与来源。说明商业模式、关键竞争力、估值思路、主要风险、可能的催化因素、支持与反证条件。分析账户间重复、组合集中和主题重叠；没有最新成分数据时不得编造 ETF 穿透权重。税务居民地或未来资金需求未提供时标明未知。给出保持不动与条件式备选方案，说明什么新信息会改变结论；不代替用户下单，不作收益承诺，不虚构目标价或实时价格。\n\n完成待办时，请把独立、自包含的 UTF-8 中文 HTML（内联 CSS、来源链接、日期、无需外部脚本）保存到 apps/my_holdings/data/reports/${task === "watch" ? "research" : task === "market" ? "market" : "portfolio"}/。若有结构化研究，另附 research JSON：{"identity":{"name":"","symbol":"","exchange":"","currency":"","sector":""},"title":"研究标题","summary":"简述","details":"完整研究","risks":["风险"],"catalysts":["催化因素"],"sources":[{"label":"来源名","url":"https://..."}],"uncertainty":"待核实项"}。完成或无法完成时，通过本机应用 API 回写任务状态。`;
 }
