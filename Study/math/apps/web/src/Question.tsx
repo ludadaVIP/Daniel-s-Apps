@@ -10,7 +10,69 @@ import { Strip, Text } from './ui';
 import { NumberDiagramView } from './NumberVisuals';
 import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
+import { trigQuantityMatches } from './trigModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'function-code')
+    return t(
+      '按题意写function/not-function、outside-domain/undetermined、increasing/decreasing/neither-strict、even/odd/both/neither，或invertible/not-invertible。递增/递减在本题指严格，奇偶性须核定义域。',
+      'Use the requested code: function/not-function, outside-domain/undetermined, increasing/decreasing/neither-strict, even/odd/both/neither, or invertible/not-invertible. Increase/decrease here are strict; parity requires the domain check.',
+    );
+  if (spec.kind === 'finite-set')
+    return t(
+      '写有理数集合，如{1,2,3}或1,2,3；空集写∅或{}。顺序和重复不改变集合，{0}不等于∅。',
+      'Enter a rational-number set such as {1,2,3} or 1,2,3; use ∅ or {} for empty. Order and repetition do not change a set; {0} is not ∅.',
+    );
+  if (spec.kind === 'logic-code')
+    return t(
+      '按题意输入∈/∉、⊆/⊈；真/假/不是命题；或充分不必要/必要不充分/充要/既不充分也不必要。也可用题中英文代码。',
+      'Use in/out, subset/not-subset, true/false/not-statement, or sufficient-only/necessary-only/both/neither as requested.',
+    );
+  if (spec.kind === 'real-union')
+    return t(
+      '写完整实数解集，如−1<x<5、[-1,5]、x<−1 or x>5；也接受∪、或、∅、ℝ。且用and/且/分号，或用or/或/∪。',
+      'Enter the complete real set: −1<x<5, [-1,5], or x<−1 or x>5. ∪, ∅ and ℝ are accepted. Use and or a semicolon for simultaneous bounds; use or/∪ for union.',
+    );
+  if (spec.kind === 'integration-verdict')
+    return t(
+      '按题意写valid/已核验、invalid/错误、insufficient/证据不足，或outside-domain/不在定义域；证据不足不是必假，输入域外不是规则未知。',
+      'Enter valid, invalid, insufficient or outside-domain as requested. Insufficient evidence does not mean false; domain exclusion differs from an unknown rule.',
+    );
+  if (spec.kind === 'independence')
+    return t(
+      '写独立/不独立，或independent/dependent；比较交集概率与边际概率的乘积，互斥不是独立的同义词。',
+      'Enter independent or dependent; compare intersection probability with the product of marginals. Disjointness does not mean independence.',
+    );
+  if (lessonId?.startsWith('J97-') && spec.kind === 'proof-verdict')
+    return t(
+      '按条件是否足够或量是否有定义写充分/条件不足，或sufficient/insufficient；核覆盖、未回答和零分母。',
+      'Enter sufficient or insufficient as requested, checking coverage, missing responses and zero denominators.',
+    );
+
+  if (spec.kind === 'trig-function')
+    return t(
+      '写sin/正弦、cos/余弦或tan/正切；先按参照锐角匹配边。',
+      'Enter sin, cos or tan after matching sides to the reference acute angle.',
+    );
+  if (spec.kind === 'trig-rounded')
+    return t(
+      `按题目用${spec.unit ?? '无单位比值'}，四舍五入为恰好${spec.places}位小数，保留尾零；近似题按此格式，不交分数或根式。`,
+      `Use ${spec.unit ?? 'a dimensionless ratio'} and round to exactly ${spec.places} decimal places, retaining trailing zeros; this approximation task requires a decimal, rather than a fraction or radical.`,
+    );
+  if (lessonId?.startsWith('J96-') && spec.kind === 'proof-verdict')
+    return t(
+      '写充分/条件不足，或sufficient/insufficient；核直角、锐角定义域、零分母及测量模型前提。',
+      'Enter sufficient or insufficient, checking the right-angle premise, acute domain, zero denominators and measurement-model premises.',
+    );
+  if (spec.kind === 'circle-line')
+    return t(
+      '把整条直线分类为割线/切线/不相交，或secant/tangent/disjoint；先比较圆心垂距与半径。',
+      'Classify the infinite line as secant, tangent or disjoint by comparing perpendicular centre distance with radius.',
+    );
+  if (lessonId?.startsWith('J95-') && spec.kind === 'proof-verdict')
+    return t(
+      '写充分/条件不足，或sufficient/insufficient；核同圆、顶点在圆上、直径或切点前提。',
+      'Enter sufficient or insufficient; check the common circle, on-circle vertex, diameter or contact premises.',
+    );
   if (spec.kind === 'similarity-class')
     return t(
       '写相似/不相似，或 similar / not similar；旋转和反射不改变相似性。',
@@ -315,6 +377,11 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
       '你的答案（填写数量，注意题目单位）',
       'Your answer (enter the quantity and check units)',
     );
+  if (lessonId?.startsWith('J96-'))
+    return t(
+      '你的答案（核对边比、单位及指定精度）',
+      'Your answer (check ratios, units and requested precision)',
+    );
   if (lessonId?.startsWith('P52-'))
     return t(
       '你的答案（写小数或整数，单位可省略）',
@@ -371,6 +438,10 @@ export function Question({
       q.answer.kind === 'radical' &&
       q.answer.simplified &&
       checkAnswer(a.input, { ...q.answer, simplified: false }) === true) ||
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'trig-rounded' &&
+      trigQuantityMatches(a.input, q.answer.value, q.answer.unit)) ||
     (a.checked &&
       !a.correct &&
       q.answer.kind === 'root-rounded' &&

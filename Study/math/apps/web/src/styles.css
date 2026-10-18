@@ -5882,3 +5882,330 @@
   align-items: center;
   gap: 0.6rem;
 }
+
+.math-cyclic-figure {
+  margin: 1rem 0;
+  min-width: 0;
+}
+.math-cyclic-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dedbd5;
+  border-radius: 12px;
+  background: #faf9f5;
+}
+.math-cyclic-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+}
+.math-cyclic-scroll:focus-visible {
+  outline: 3px solid #6355ac;
+  outline-offset: 3px;
+}
+.math-cyclic-figure figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.math-cyclic-lab textarea {
+  width: 100%;
+  min-height: 6rem;
+}
+
+.math-trig-figure {
+  margin: 1rem 0;
+  min-width: 0;
+}
+.math-trig-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #dedbd5;
+  border-radius: 12px;
+  background: #faf9f5;
+}
+.math-trig-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+}
+.math-trig-scroll:focus-visible {
+  outline: 3px solid #6355ac;
+  outline-offset: 3px;
+}
+.math-trig-figure figcaption {
+  margin-top: 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+}
+.math-trig-lab input[type='checkbox'] {
+  width: 1.1rem;
+  min-height: 1.1rem;
+  height: 1.1rem;
+  padding: 0;
+  flex: 0 0 auto;
+}
+.math-trig-toggle {
+  display: flex !important;
+  align-items: center;
+  gap: 0.6rem;
+}
+.math-probability-lab {
+  min-width: 0;
+}
+.math-probability-figure {
+  margin: 1rem 0;
+  min-width: 0;
+}
+.math-probability-figure figcaption {
+  line-height: 1.65;
+  font-size: 0.85rem;
+  margin-top: 0.7rem;
+}
+.math-probability-scroll {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid var(--math-line, #dedbd4);
+  border-radius: 12px;
+  padding: 12px;
+}
+.math-probability-scroll:focus-visible {
+  outline: 3px solid #6651a2;
+  outline-offset: 3px;
+}
+.math-probability-scroll > svg {
+  width: 680px;
+  min-width: 680px;
+  display: block;
+}
+.math-probability-scroll > table {
+  min-width: 480px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.math-probability-scroll th,
+.math-probability-scroll td {
+  border: 1px solid #d9d5e3;
+  padding: 12px;
+  text-align: center;
+}
+.math-probability-scroll caption {
+  padding: 8px;
+  line-height: 1.6;
+  text-align: left;
+}
+.math-probability-scroll .math-probability-grid {
+  min-width: 640px;
+  width: max-content;
+}
+.math-probability-grid td {
+  white-space: nowrap;
+  font-size: 0.8rem;
+}
+.math-probability-grid .is-hit {
+  background: #e5f2ee;
+  color: #175b4c;
+}
+.math-probability-grid [data-pair-possible='false'] {
+  background: #f1eeee;
+  color: #796363;
+}
+.math-probability-records {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 8px;
+  margin: 1rem 0;
+}
+.math-probability-records > div {
+  padding: 10px;
+  border: 1px solid #dedbd4;
+  border-radius: 8px;
+  display: grid;
+  gap: 5px;
+}
+.math-probability-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin: 1rem 0;
+}
+.math-probability-hook {
+  padding: 1.5rem;
+  background: #eeebf5;
+  border-radius: 14px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.math-probability-lab [role='status'] {
+  overflow-wrap: anywhere;
+}
+.math-integration-lab {
+  min-width: 0;
+}
+.math-integration-figure {
+  margin: 1rem 0;
+  min-width: 0;
+}
+.math-integration-scroll {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid #dedbd4;
+  border-radius: 12px;
+}
+.math-integration-scroll:focus-visible {
+  outline: 3px solid #6651a2;
+  outline-offset: 3px;
+}
+.math-integration-scroll > svg {
+  width: 720px;
+  min-width: 720px;
+  display: block;
+}
+.math-integration-figure figcaption {
+  font-size: 0.85rem;
+  line-height: 1.65;
+  margin-top: 0.7rem;
+}
+.math-integration-lab textarea {
+  width: 100%;
+  min-height: 140px;
+  resize: vertical;
+  padding: 12px;
+  border: 1px solid #d9d5e3;
+  border-radius: 9px;
+  font: inherit;
+  box-sizing: border-box;
+}
+.math-integration-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 1rem 0;
+}
+.math-integration-checks {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+}
+.math-integration-checks th,
+.math-integration-checks td {
+  border: 1px solid #d9d5e3;
+  padding: 10px;
+  text-align: left;
+}
+.math-integration-lab [role='status'] {
+  overflow-wrap: anywhere;
+}
+.math-integration-plan {
+  padding-left: 1.5rem;
+  line-height: 1.8;
+}
+.math-integration-lab blockquote {
+  margin: 1rem 0;
+  border-left: 4px solid #6651a2;
+  padding: 12px;
+  background: #f0edf6;
+}
+.math-integration-hook {
+  padding: 1.5rem;
+  line-height: 1.8;
+  border-radius: 14px;
+  background: #eeebf5;
+  overflow-wrap: anywhere;
+}
+
+.math-logic-lab {
+  display: grid;
+  gap: 1rem;
+  min-width: 0;
+}
+.math-logic-lab label {
+  display: grid;
+  gap: 0.35rem;
+  min-width: 0;
+}
+.math-logic-lab input:not([type='checkbox']),
+.math-logic-lab select {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+  box-sizing: border-box;
+  padding: 0.6rem;
+  border: 1px solid #bdb9cb;
+  border-radius: 0.6rem;
+  background: white;
+  color: #282436;
+}
+.math-logic-task {
+  display: grid;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #c9c2d9;
+  border-radius: 0.8rem;
+  background: #f8f6fc;
+  overflow-wrap: anywhere;
+}
+.math-logic-members {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+.math-logic-members fieldset {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  min-width: 0;
+  border: 1px solid #c9c2d9;
+}
+.math-logic-members label {
+  display: flex;
+  align-items: center;
+  min-height: 44px;
+}
+.math-logic-cards {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.math-logic-cards span {
+  padding: 1rem;
+  border: 1px solid #bdb9cb;
+  border-radius: 0.5rem;
+}
+.math-logic-figure {
+  margin: 1rem 0;
+  min-width: 0;
+  max-width: 100%;
+}
+.math-logic-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.math-logic-scroll:focus-visible {
+  outline: 3px solid #6553a1;
+  outline-offset: 2px;
+}
+.math-logic-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 640px;
+  font-size: 16px;
+  font-family: inherit;
+}
+.math-logic-scroll table {
+  min-width: 440px;
+  width: 100%;
+  border-collapse: collapse;
+}
+.math-logic-scroll th,
+.math-logic-scroll td {
+  padding: 0.6rem;
+  border: 1px solid #c9c2d9;
+  text-align: center;
+}
+.math-logic-figure figcaption {
+  margin-top: 0.65rem;
+  overflow-wrap: anywhere;
+}

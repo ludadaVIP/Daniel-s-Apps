@@ -1,4 +1,29 @@
 import {
+  h01Lessons,
+  h01ReviewQuestion,
+  h01CheckQuestions,
+} from './content/H01';
+import {
+  j98Lessons,
+  j98ReviewQuestion,
+  j98CheckQuestions,
+} from './content/J98';
+import {
+  j97Lessons,
+  j97ReviewQuestion,
+  j97CheckQuestions,
+} from './content/J97';
+import {
+  j96Lessons,
+  j96ReviewQuestion,
+  j96CheckQuestions,
+} from './content/J96';
+import {
+  j95Lessons,
+  j95ReviewQuestion,
+  j95CheckQuestions,
+} from './content/J95';
+import {
   j94Lessons,
   j94ReviewQuestion,
   j94CheckQuestions,
@@ -246,6 +271,11 @@ export const lessons: Lesson[] = [
   ...j92Lessons,
   ...j93Lessons,
   ...j94Lessons,
+  ...j95Lessons,
+  ...j96Lessons,
+  ...j97Lessons,
+  ...j98Lessons,
+  ...h01Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -259,6 +289,21 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h01Lessons.map((l) => [l.id, h01ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j98Lessons.map((l) => [l.id, j98ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j97Lessons.map((l) => [l.id, j97ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j96Lessons.map((l) => [l.id, j96ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    j95Lessons.map((l) => [l.id, j95ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     j94Lessons.map((l) => [l.id, j94ReviewQuestion(l.id, 0)]),
   ),
@@ -351,6 +396,11 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H01-')) return h01ReviewQuestion(id, round);
+  if (id.startsWith('J98-')) return j98ReviewQuestion(id, round);
+  if (id.startsWith('J97-')) return j97ReviewQuestion(id, round);
+  if (id.startsWith('J96-')) return j96ReviewQuestion(id, round);
+  if (id.startsWith('J95-')) return j95ReviewQuestion(id, round);
   if (id.startsWith('J94-')) return j94ReviewQuestion(id, round);
   if (id.startsWith('J93-')) return j93ReviewQuestion(id, round);
   if (id.startsWith('J92-')) return j92ReviewQuestion(id, round);
@@ -392,6 +442,47 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H01: {
+    id: 'H01-CHECK',
+    unit: 'H01',
+    title: t('集合与逻辑小回顾', 'A small sets and logic review'),
+    questions: h01CheckQuestions,
+    bridge: 'H01-L01',
+  },
+  J98: {
+    id: 'J98-CHECK',
+    unit: 'J98',
+    title: t('初中知识联结小回顾', 'A small secondary integration review'),
+    questions: j98CheckQuestions,
+    bridge: 'J98-L01',
+  },
+  J97: {
+    id: 'J97-CHECK',
+    unit: 'J97',
+    title: t(
+      '概率、抽样与模拟小回顾',
+      'A small probability, sampling and simulation review',
+    ),
+    questions: j97CheckQuestions,
+    bridge: 'J97-L01',
+  },
+  J96: {
+    id: 'J96-CHECK',
+    unit: 'J96',
+    title: t(
+      '直角三角函数小回顾',
+      'A small right-triangle trigonometry review',
+    ),
+    questions: j96CheckQuestions,
+    bridge: 'J96-L01',
+  },
+  J95: {
+    id: 'J95-CHECK',
+    unit: 'J95',
+    title: t('圆的性质小回顾', 'A small circle-geometry review'),
+    questions: j95CheckQuestions,
+    bridge: 'J95-L01',
+  },
   J94: {
     id: 'J94-CHECK',
     unit: 'J94',

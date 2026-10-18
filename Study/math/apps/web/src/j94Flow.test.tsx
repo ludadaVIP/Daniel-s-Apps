@@ -290,6 +290,21 @@ describe('J94 interactive similarity and evidence', () => {
       v.container.querySelector('[data-map-route]')!.getAttribute('d'),
     ).toBe('M100 155H190');
   });
+  it('renders bilingual annotations as visible SVG text rather than HTML spans', () => {
+    const v = render(<ScaleAreaView mode="bilingual" sx={3} />);
+    expect(v.container.querySelector('svg span')).toBeNull();
+    expect(
+      [...v.container.querySelectorAll('text tspan')].map((e) => e.textContent),
+    ).toEqual(['横倍率3，纵倍率3', 'Horizontal factor 3, vertical factor 3']);
+    v.rerender(<SimilarityMap mode="bilingual" />);
+    expect(v.container.querySelector('svg span')).toBeNull();
+    expect(
+      [...v.container.querySelectorAll('text tspan')].map((e) => e.textContent),
+    ).toEqual([
+      '原参考图3 cm；实际距离待求',
+      'Reference length 3 cm; find real distance',
+    ]);
+  });
   it('renders five hooks and two worked examples in each language', () => {
     for (const l of j94Lessons) {
       const v = render(

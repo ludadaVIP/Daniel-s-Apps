@@ -1,3 +1,10 @@
+import {
+  FunctionConceptHookArt,
+  isFunctionConceptLab,
+} from './FunctionConceptLabs';
+import { LogicHookArt, isLogicLab } from './LogicLabs';
+import { IntegrationHookArt, isIntegrationLab } from './IntegrationLabs';
+import { ProbabilityHookArt, isProbabilityLab } from './ProbabilityLabs';
 import { useEffect, useState } from 'react';
 import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { QuestionNavigator } from '@study/ui';
@@ -20,6 +27,11 @@ import { PlaneHookArt, isPlaneLab } from './PlaneLabs';
 import { CartesianHookArt, isCartesianLab } from './CartesianLabs';
 import { SystemHookArt, isSystemLab } from './SystemLabs';
 import { FunctionHookArt, isFunctionLab } from './FunctionLabs';
+import { TrigHookArt, isTrigLab } from './TrigLabs';
+import {
+  CircleGeometryHookArt,
+  isCircleGeometryLab,
+} from './CircleGeometryLabs';
 import { SimilarityHookArt, isSimilarityLab } from './SimilarityLabs';
 import { ParabolaHookArt, isParabolaLab } from './ParabolaLabs';
 import { QuadraticHookArt, isQuadraticLab } from './QuadraticLabs';
@@ -164,7 +176,19 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isSimilarityLab(l.lab) ? (
+              {isFunctionConceptLab(l.lab) ? (
+                <FunctionConceptHookArt kind={l.lab} mode={mode} />
+              ) : isLogicLab(l.lab) ? (
+                <LogicHookArt kind={l.lab} mode={mode} />
+              ) : isIntegrationLab(l.lab) ? (
+                <IntegrationHookArt kind={l.lab} mode={mode} />
+              ) : isProbabilityLab(l.lab) ? (
+                <ProbabilityHookArt kind={l.lab} mode={mode} />
+              ) : isTrigLab(l.lab) ? (
+                <TrigHookArt kind={l.lab} mode={mode} />
+              ) : isCircleGeometryLab(l.lab) ? (
+                <CircleGeometryHookArt kind={l.lab} mode={mode} />
+              ) : isSimilarityLab(l.lab) ? (
                 <SimilarityHookArt kind={l.lab} mode={mode} />
               ) : isParabolaLab(l.lab) ? (
                 <ParabolaHookArt kind={l.lab} mode={mode} />

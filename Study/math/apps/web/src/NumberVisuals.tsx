@@ -1,4 +1,30 @@
+import {
+  MappingView,
+  InverseView,
+  PiecewiseView,
+} from './FunctionConceptVisuals';
+import { piecewiseAt, rationalNumber } from './functionConceptModels';
+import { SetRegions, UnionLine } from './LogicVisuals';
+import { absoluteSolution } from './logicModels';
+import {
+  RectangleLinkView,
+  IntegrationGraphView,
+  RampView,
+} from './IntegrationVisuals';
+import { JointView, PairGrid, FrequencyRecord } from './ProbabilityVisuals';
 import type { LanguageMode } from '@study/shared';
+import {
+  TrigTriangleView,
+  TrigAngleView,
+  HeightView,
+  SlopeView,
+} from './TrigVisuals';
+import {
+  InscribedView,
+  TangentsView,
+  SectorGeometryView,
+  CircleProofView,
+} from './CircleGeometryVisuals';
 import {
   SimilarityPair,
   NestedSimilarity,
@@ -259,6 +285,57 @@ export function NumberDiagramView({
   diagram: NumberDiagram;
   mode: LanguageMode;
 }) {
+  if (diagram.kind === 'concept-mapping')
+    return <MappingView mode={mode} kind={diagram.source} />;
+  if (diagram.kind === 'concept-inverse')
+    return <InverseView mode={mode} kind={diagram.source} />;
+  if (diagram.kind === 'concept-piecewise') {
+    const at = piecewiseAt(diagram.source, diagram.query);
+    return (
+      <PiecewiseView
+        mode={mode}
+        kind={diagram.source}
+        query={
+          at
+            ? {
+                x: Number(diagram.query),
+                y: rationalNumber(at.value),
+                label: 'P',
+              }
+            : undefined
+        }
+      />
+    );
+  }
+  if (diagram.kind === 'logic-sets')
+    return <SetRegions mode={mode} u={diagram.u} a={diagram.a} b={diagram.b} />;
+  if (diagram.kind === 'logic-absolute')
+    return (
+      <UnionLine
+        mode={mode}
+        set={absoluteSolution(diagram.a, diagram.b, diagram.c, diagram.sign)}
+      />
+    );
+  if (diagram.kind === 'integration-rectangle')
+    return (
+      <RectangleLinkView mode={mode} x={diagram.x} offset={diagram.offset} />
+    );
+  if (diagram.kind === 'integration-graph')
+    return (
+      <IntegrationGraphView
+        mode={mode}
+        kind={diagram.source}
+        query={diagram.query}
+      />
+    );
+  if (diagram.kind === 'integration-ramp')
+    return <RampView mode={mode} params={diagram} />;
+  if (diagram.kind === 'probability-joint')
+    return <JointView mode={mode} {...diagram} />;
+  if (diagram.kind === 'probability-pairs')
+    return <PairGrid mode={mode} {...diagram} />;
+  if (diagram.kind === 'probability-record')
+    return <FrequencyRecord mode={mode} {...diagram} />;
   if (diagram.kind === 'congruence-triangles')
     return <CongruenceDiagram {...diagram} mode={mode} />;
   if (diagram.kind === 'congruence-isosceles')
@@ -269,6 +346,22 @@ export function NumberDiagramView({
     return <PythagoreanTriangleView {...diagram} mode={mode} />;
   if (diagram.kind === 'pythagorean-dissection')
     return <DissectionView {...diagram} mode={mode} />;
+  if (diagram.kind === 'trig-triangle')
+    return <TrigTriangleView mode={mode} {...diagram} />;
+  if (diagram.kind === 'trig-angle')
+    return <TrigAngleView mode={mode} {...diagram} />;
+  if (diagram.kind === 'trig-height')
+    return <HeightView mode={mode} {...diagram} />;
+  if (diagram.kind === 'trig-slope')
+    return <SlopeView mode={mode} {...diagram} />;
+  if (diagram.kind === 'cyclic-inscribed')
+    return <InscribedView mode={mode} {...diagram} />;
+  if (diagram.kind === 'cyclic-tangents')
+    return <TangentsView mode={mode} {...diagram} />;
+  if (diagram.kind === 'cyclic-sector')
+    return <SectorGeometryView mode={mode} {...diagram} />;
+  if (diagram.kind === 'cyclic-proof')
+    return <CircleProofView mode={mode} {...diagram} />;
   if (diagram.kind === 'similarity-pair')
     return (
       <SimilarityPair

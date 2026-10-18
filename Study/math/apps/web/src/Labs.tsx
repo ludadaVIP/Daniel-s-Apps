@@ -1,3 +1,10 @@
+import {
+  FunctionConceptLab,
+  isFunctionConceptLab,
+} from './FunctionConceptLabs';
+import { LogicLab, isLogicLab } from './LogicLabs';
+import { IntegrationLab, isIntegrationLab } from './IntegrationLabs';
+import { ProbabilityLab, isProbabilityLab } from './ProbabilityLabs';
 import { useState } from 'react';
 import type { LanguageMode } from '@study/shared';
 import { t, type Lesson } from './model';
@@ -27,6 +34,8 @@ import { PlaneLab, isPlaneLab } from './PlaneLabs';
 import { CartesianLab, isCartesianLab } from './CartesianLabs';
 import { SystemLab, isSystemLab } from './SystemLabs';
 import { FunctionLab, isFunctionLab } from './FunctionLabs';
+import { TrigLab, isTrigLab } from './TrigLabs';
+import { CircleGeometryLab, isCircleGeometryLab } from './CircleGeometryLabs';
 import { SimilarityLab, isSimilarityLab } from './SimilarityLabs';
 import { ParabolaLab, isParabolaLab } from './ParabolaLabs';
 import { QuadraticLab, isQuadraticLab } from './QuadraticLabs';
@@ -369,7 +378,19 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isSimilarityLab(kind) ? (
+  return isFunctionConceptLab(kind) ? (
+    <FunctionConceptLab key={kind} kind={kind} mode={mode} />
+  ) : isLogicLab(kind) ? (
+    <LogicLab key={kind} kind={kind} mode={mode} />
+  ) : isIntegrationLab(kind) ? (
+    <IntegrationLab key={kind} kind={kind} mode={mode} />
+  ) : isProbabilityLab(kind) ? (
+    <ProbabilityLab key={kind} kind={kind} mode={mode} />
+  ) : isTrigLab(kind) ? (
+    <TrigLab key={kind} kind={kind} mode={mode} />
+  ) : isCircleGeometryLab(kind) ? (
+    <CircleGeometryLab key={kind} kind={kind} mode={mode} />
+  ) : isSimilarityLab(kind) ? (
     <SimilarityLab key={kind} kind={kind} mode={mode} />
   ) : isParabolaLab(kind) ? (
     <ParabolaLab key={kind} kind={kind} mode={mode} />

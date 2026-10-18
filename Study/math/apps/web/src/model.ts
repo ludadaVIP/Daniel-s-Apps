@@ -1,3 +1,22 @@
+import { checkFunctionCode, type FunctionCode } from './functionConceptModels';
+import {
+  checkFiniteSet,
+  checkLogicCode,
+  checkRealUnion,
+  type LogicCode,
+} from './logicModels';
+import {
+  checkIntegrationVerdict,
+  type IntegrationVerdict,
+} from './integrationModels';
+import { checkIndependence, type Independence } from './probabilityModels';
+import {
+  checkTrigFunction,
+  checkTrigRounded,
+  type TrigFunction,
+  type TrigRoundedUnit,
+} from './trigModels';
+import { checkCircleLine, type CircleLineClass } from './circleGeometryModels';
 import {
   checkSimilarityClass,
   checkSimilarityRule,
@@ -59,6 +78,20 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'function-code'; value: FunctionCode }
+  | { kind: 'finite-set'; value: string }
+  | { kind: 'logic-code'; value: LogicCode }
+  | { kind: 'real-union'; value: string }
+  | { kind: 'integration-verdict'; value: IntegrationVerdict }
+  | { kind: 'independence'; value: Independence }
+  | { kind: 'trig-function'; value: TrigFunction }
+  | {
+      kind: 'trig-rounded';
+      value: string;
+      places: number;
+      unit?: TrigRoundedUnit;
+    }
+  | { kind: 'circle-line'; value: CircleLineClass }
   | { kind: 'similarity-class'; value: SimilarityClass }
   | {
       kind: 'similarity-rule';
@@ -148,6 +181,72 @@ export type AnswerSpec =
   | { kind: 'choice'; value: string }
   | { kind: 'explain'; rubric: LocalizedText };
 export type NumberDiagram =
+  | {
+      kind: 'concept-mapping';
+      source: 'finite' | 'interval' | 'missing' | 'split';
+    }
+  | {
+      kind: 'concept-inverse';
+      source: 'affine' | 'square-full' | 'square-positive' | 'square-negative';
+    }
+  | {
+      kind: 'concept-piecewise';
+      source: 'parking' | 'parcel' | 'started-hour';
+      query: string;
+    }
+  | { kind: 'logic-sets'; u: string[]; a: string[]; b: string[] }
+  | {
+      kind: 'logic-absolute';
+      a: string;
+      b: string;
+      c: string;
+      sign: '<' | '<=' | '>' | '>=';
+    }
+  | { kind: 'integration-rectangle'; x: string; offset: number }
+  | {
+      kind: 'integration-graph';
+      source: 'affine' | 'drain' | 'count' | 'observations';
+      query: string;
+    }
+  | {
+      kind: 'integration-ramp';
+      riseCm: number;
+      runCm: number;
+      widthCm: number;
+      budget: number;
+    }
+  | { kind: 'probability-joint'; cells: number[] }
+  | { kind: 'probability-pairs'; red: number; blue: number; replace: boolean }
+  | { kind: 'probability-record'; hits: number; total: number }
+  | {
+      kind: 'trig-triangle';
+      adjacent: string;
+      opposite: string;
+      reference?: 'A' | 'B';
+      scale?: string;
+      only?: ('AB' | 'BC' | 'AC')[];
+      unknown?: 'AB' | 'BC' | 'AC';
+    }
+  | { kind: 'trig-angle'; degrees: number }
+  | {
+      kind: 'trig-height';
+      distance: number;
+      degrees: number;
+      eye: number;
+      distanceKind?: 'horizontal' | 'sight';
+      baseElevation?: number;
+      knownLevel?: boolean;
+    }
+  | { kind: 'trig-slope'; rise: number; run: number }
+  | { kind: 'cyclic-inscribed'; sweep: number; side?: 'selected' | 'other' }
+  | {
+      kind: 'cyclic-tangents';
+      radius: number;
+      distance: number;
+      given?: boolean;
+    }
+  | { kind: 'cyclic-sector'; radius: number; sweep: number }
+  | { kind: 'cyclic-proof'; index: number }
   | { kind: 'similarity-pair'; factor: string }
   | { kind: 'similarity-nested' }
   | { kind: 'similarity-area'; sx: number; sy?: number }
@@ -408,6 +507,37 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'concept-mapping'
+    | 'concept-representations'
+    | 'concept-properties'
+    | 'concept-transformations'
+    | 'concept-inverse'
+    | 'concept-piecewise'
+    | 'logic-elements'
+    | 'logic-operations'
+    | 'logic-statements'
+    | 'logic-conditions'
+    | 'logic-absolute'
+    | 'integration-geometry'
+    | 'integration-graph'
+    | 'integration-strategy'
+    | 'integration-audit'
+    | 'integration-ramp'
+    | 'probability-independent'
+    | 'probability-tree'
+    | 'probability-without'
+    | 'probability-bias'
+    | 'probability-simulation'
+    | 'trig-sine'
+    | 'trig-cos-tan'
+    | 'trig-variation'
+    | 'trig-inverse'
+    | 'trig-height'
+    | 'cyclic-elements'
+    | 'cyclic-inscribed'
+    | 'cyclic-tangents'
+    | 'cyclic-sector'
+    | 'cyclic-proof'
     | 'similarity-meaning'
     | 'similarity-tests'
     | 'similarity-sides'
@@ -734,6 +864,19 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'function-code')
+    return checkFunctionCode(input, spec.value);
+  if (spec.kind === 'finite-set') return checkFiniteSet(input, spec.value);
+  if (spec.kind === 'logic-code') return checkLogicCode(input, spec.value);
+  if (spec.kind === 'real-union') return checkRealUnion(input, spec.value);
+  if (spec.kind === 'integration-verdict')
+    return checkIntegrationVerdict(input, spec.value);
+  if (spec.kind === 'independence') return checkIndependence(input, spec.value);
+  if (spec.kind === 'trig-function')
+    return checkTrigFunction(input, spec.value);
+  if (spec.kind === 'trig-rounded')
+    return checkTrigRounded(input, spec.value, spec.places, spec.unit);
+  if (spec.kind === 'circle-line') return checkCircleLine(input, spec.value);
   if (spec.kind === 'similarity-class')
     return checkSimilarityClass(input, spec.value);
   if (spec.kind === 'similarity-rule')

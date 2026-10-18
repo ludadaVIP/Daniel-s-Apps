@@ -15,6 +15,26 @@ import {
 } from './similarityModels';
 import { textR } from './algebraModels';
 const pts = (p: GeoPoint[]) => p.map((p) => `${p.x},${p.y}`).join(' ');
+function SvgLabel({
+  mode,
+  text,
+  x,
+}: {
+  mode: LanguageMode;
+  text: LocalizedText;
+  x: number;
+}) {
+  return (
+    <>
+      <tspan x={x}>{mode === 'en' ? text.en : text.zh}</tspan>
+      {mode === 'bilingual' && (
+        <tspan x={x} dy="18">
+          {text.en}
+        </tspan>
+      )}
+    </>
+  );
+}
 export function SimilarityFrame({
   mode,
   children,
@@ -232,7 +252,8 @@ export function SimilarityPair({
           △DEF
         </text>
         <text x="340" y="393" textAnchor="middle" fontSize="13">
-          <Text
+          <SvgLabel
+            x={340}
             mode={mode}
             text={t(
               '标注尺寸是已知；未标的边角不增加条件。',
@@ -417,7 +438,8 @@ export function ScaleAreaView({
           {shown ? `; A=${textR(m.targetArea)}` : ''}
         </text>
         <text x="30" y="40">
-          <Text
+          <SvgLabel
+            x={30}
             mode={mode}
             text={t(
               `横倍率${sx}，纵倍率${sy}`,
@@ -480,7 +502,8 @@ export function SimilarityMap({
           B
         </text>
         <text x="95" y="230">
-          <Text
+          <SvgLabel
+            x={95}
             mode={mode}
             text={t(
               '原参考图3 cm；实际距离待求',
