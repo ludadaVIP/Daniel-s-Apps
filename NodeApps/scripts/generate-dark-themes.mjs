@@ -8,7 +8,7 @@ const root = resolve(import.meta.dirname, '..');
 const apps = [
   'BeliefQandA', 'bible', 'bible-parallel', 'html-library', 'industry',
   'insight', 'InvestMaster', 'investment', 'notebook', 'Philosophy',
-  'recall-verses', 'WorldQandA',
+  'recall-verses', 'WorldQandA', 'my_holdings',
 ];
 const colorPattern = /#[\da-f]{3,8}\b|rgba?\(\s*[\d.]+(?:\s*,\s*|\s+)[\d.]+(?:\s*,\s*|\s+)[\d.]+(?:\s*[,/]\s*[\d.]+)?\s*\)|\b(?:white|black)\b/gi;
 
