@@ -86,6 +86,14 @@ export function validateState(s) {
       !text(w.status, 40)
     )
       throw error("关注记录无效。");
+    if (
+      !(w.targetPrice === undefined || w.targetPrice === null || num(w.targetPrice, 0.000001)) ||
+      !(w.price === undefined || w.price === null || num(w.price, 0.000001)) ||
+      !(w.priceDate === undefined || date(w.priceDate)) ||
+      !(w.priceSource === undefined || text(w.priceSource, 200)) ||
+      !(w.priceSourceUrl === undefined || (text(w.priceSourceUrl, 1000) && (!w.priceSourceUrl || /^https?:\/\//.test(w.priceSourceUrl))))
+    )
+      throw error("关注标的的价格或日期无效。");
     if (w.research) validateResearch(w.research);
   }
   for (const c of s.cash)
@@ -180,9 +188,13 @@ export async function createHoldingsApp({
         `- 状态：等待 Codex · 任务 ID：${job.id}`,
         `- 创建时间：${job.date}`,
         `- 关注记录 ID：${job.watchId || "无"}`,
+        job.question ? `- 本次请求：${job.question}` : "",
+        watch?.targetPrice ? `- 用户等待价格：${watch.targetPrice} ${watch.research?.quote?.currency || "USD"}` : "",
         job.kind === "quotes"
           ? "- 更新所有持仓标的最近一个完整美股交易日的收盘价，注明交易日期与来源；完成时通过本地 API 回写 quotes 数组，不生成 HTML。"
-          : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
+          : job.kind === "watch"
+            ? "- 只在用户明确要求时执行；核对最近完整交易日收盘价、财报与重要新闻。研究 JSON 必须带 quote：{price,date,currency,source,sourceUrl}，使用已核验的行情来源；报告保存为独立 HTML，再回写结构化研究。"
+            : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
         "",
       );
     }
@@ -366,6 +378,12 @@ export async function createHoldingsApp({
           if (w) {
             w.research = research;
             if (!w.symbol && research.identity?.symbol) w.symbol = research.identity.symbol.slice(0, 40);
+            if (research.quote) {
+              w.price = research.quote.price;
+              w.priceDate = research.quote.date;
+              w.priceSource = research.quote.source;
+              w.priceSourceUrl = research.quote.sourceUrl;
+            }
             w.researchedAt = job.completedAt;
             w.report = report;
           }
@@ -472,6 +490,12 @@ export async function createHoldingsApp({
             w.research = research;
             if (!w.symbol && research.identity?.symbol)
               w.symbol = research.identity.symbol.slice(0, 40);
+            if (research.quote) {
+              w.price = research.quote.price;
+              w.priceDate = research.quote.date;
+              w.priceSource = research.quote.source;
+              w.priceSourceUrl = research.quote.sourceUrl;
+            }
             w.researchedAt = finishedAt;
             w.report = report;
           }

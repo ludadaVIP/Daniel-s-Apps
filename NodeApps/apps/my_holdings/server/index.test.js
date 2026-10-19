@@ -130,6 +130,7 @@ test("watch and portfolio work are queued until explicitly handed to Codex, then
     status: "观察中",
     note: "",
     trigger: "",
+    targetPrice: 300,
   });
   s = (await call("/api/state", s, "PUT")).data;
   const job = await call("/api/jobs", { kind: "watch", watchId: "watch1" });
@@ -145,12 +146,20 @@ test("watch and portfolio work are queued until explicitly handed to Codex, then
   assert.match(todo, /等待 Codex/);
 
   await call("/api/reports/import", { name: "watch.html", folder: "research", html: "<!doctype html><html><body>研究</body></html>" });
-  s = await call(`/api/jobs/${job.data.job.id}/complete`, { report: "research/watch.html", research });
+  const watchResearch = {
+    ...research,
+    quote: { price: 298.5, date: "2026-10-16", currency: "USD", source: "Exchange history", sourceUrl: "https://example.com/quotes" },
+  };
+  s = await call(`/api/jobs/${job.data.job.id}/complete`, { report: "research/watch.html", research: watchResearch });
   assert.equal(s.status, 200);
   s = s.data;
   assert.equal(s.jobs[0].status, "done");
   assert.equal(s.watchlist[0].research.title, research.title);
   assert.equal(s.watchlist[0].symbol, "MSFT");
+  assert.equal(s.watchlist[0].price, 298.5);
+  assert.equal(s.watchlist[0].priceDate, "2026-10-16");
+  assert.equal(s.watchlist[0].priceSource, "Exchange history");
+  assert.equal(s.watchlist[0].targetPrice, 300);
   assert.equal(s.analyses.length, 1);
   assert.equal(s.analyses[0].report, "research/watch.html");
 });
@@ -221,6 +230,11 @@ test("external research import validates sources and auto-creates a report", asy
     (await call("/api/research/import", { research: invalid })).status,
     400,
   );
+  const invalidQuote = {
+    ...research,
+    quote: { price: 10, date: "2026-10-16", currency: "USD", source: "bad", sourceUrl: "javascript:alert(1)" },
+  };
+  assert.equal((await call("/api/research/import", { research: invalidQuote })).status, 400);
   const result = await call("/api/research/import", { research });
   assert.equal(result.status, 200);
   assert.equal(result.data.analyses.length, 1);

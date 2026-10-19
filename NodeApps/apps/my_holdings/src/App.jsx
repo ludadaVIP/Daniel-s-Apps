@@ -215,6 +215,140 @@ function ResearchBody({ research, date, onReport }) {
     </div>
   );
 }
+function RightPanel({
+  tab,
+  state,
+  portfolio,
+  reports,
+  allAnalyses,
+  notes,
+  holding,
+  watch,
+  onClose,
+  onNavigate,
+  onOpenReport,
+  onEdit,
+  onRefreshPrices,
+  onQueueTask,
+  onCopyQueue,
+}) {
+  const cash = state.cash.reduce((sum, row) => sum + Number(row.amount || 0), 0);
+  const watchCurrency = watch?.research?.quote?.currency || watch?.research?.identity?.currency || "USD";
+  const title = {
+    overview: "今日摘要",
+    holdings: holding ? "持仓详情" : "账户摘要",
+    watch: "关注详情",
+    analysis: "体检档案",
+    cash: "资金与目标",
+    reports: "档案索引",
+    ai: "任务状态",
+    journal: "最近决策",
+  }[tab];
+  const reportLinks = (items, emptyText) => items.length ? items.map((a) => (
+    <button className="mh-side-history" key={a.id} onClick={() => onOpenReport(a.report)}>
+      <FileCode2 size={15} />
+      <span><strong>{a.research.title}</strong><small>{when(a.date)}</small></span>
+      <ArrowUpRight size={13} />
+    </button>
+  )) : <p className="mh-side-empty">{emptyText}</p>;
+  return (
+    <aside className="mh-rightbar">
+      <header>
+        <span>{title}</span>
+        <button className="mh-icon" aria-label="关闭右栏" onClick={onClose}><PanelRightClose size={17} /></button>
+      </header>
+      {tab === "overview" && <>
+        <section className="mh-side-summary">
+          <span className="mh-eyebrow">PORTFOLIO SNAPSHOT</span>
+          <strong>{money(portfolio.value)}</strong>
+          <div><span>总成本</span><b>{money(portfolio.cost)}</b></div>
+          <div><span>浮动盈亏</span><b className={portfolio.pnl < 0 ? "mh-loss" : "mh-gain"}>{money(portfolio.pnl)}</b></div>
+          <div><span>持仓记录</span><b>{portfolio.holdings.length} 条 · {state.accounts.length} 个账户</b></div>
+        </section>
+        <section>
+          <div className="mh-section-heading"><h3>数据快照</h3><ShieldCheck size={15} /></div>
+          <p className="mh-sidebar-objective">{state.marketUpdatedAt ? `收盘价最近更新于 ${when(state.marketUpdatedAt)}` : "当前显示初始截图价格"}</p>
+          <button className="mh-text-button" onClick={() => onNavigate("holdings")}>核对持仓 <ArrowRight size={13} /></button>
+        </section>
+        <section>
+          <div className="mh-section-heading"><h3>最近一次持仓体检</h3></div>
+          {reports[0] ? <>{reportLinks(reports.slice(0, 1), "暂无体检报告")}<p className="mh-side-summary-text">{reports[0].research.summary}</p></> : <p className="mh-side-empty">体检结果会保存在这里</p>}
+          <button className="mh-text-button" onClick={() => onNavigate("analysis")}>打开组合分析 <ArrowRight size={13} /></button>
+        </section>
+        <section>
+          <div className="mh-section-heading"><h3>需要留意</h3><span className="mh-tag">{notes.length}</span></div>
+          {notes.slice(0, 3).map((n) => <p className="mh-side-note" key={n.title}><i className={n.tone === "amber" ? "amber" : ""} />{n.title}</p>)}
+        </section>
+      </>}
+      {tab === "holdings" && (holding ? <>
+        <div className="mh-focus">
+          <span className="mh-ticker">{holding.symbol.slice(0, 2)}</span>
+          <h2>{holding.symbol}</h2><p>{holding.name}</p>
+          <span className="mh-tag">{state.accounts.find((a) => a.id === holding.accountId)?.name}</span>
+          <strong>{money(holding.marketValue, holding.currency)}</strong>
+          <small>持有 {holding.quantity} 股 · {holding.priceDate || "尚未刷新收盘价"}</small>
+          <div className="mh-focus-prices">
+            <span>当前价格<strong>{money(holding.price, holding.currency)}</strong></span>
+            <span>成本均价<strong>{money(holding.averagePrice, holding.currency)}</strong></span>
+          </div>
+        </div>
+        <section><button className="mh-button" onClick={() => onEdit({ type: "holding", item: holding })}><Pencil size={14} /> 编辑核心数据</button><button className="mh-text-button" onClick={() => onRefreshPrices()}><RefreshCw size={13} /> 请求更新收盘价</button></section>
+      </> : <>
+        <section className="mh-side-summary">
+          <span className="mh-eyebrow">ACCOUNTS</span>
+          <strong>{money(portfolio.value)}</strong>
+          {state.accounts.map((a, index) => {
+            const value = state.holdings.filter((h) => h.accountId === a.id).reduce((sum, h) => sum + Number(h.marketValue || 0), 0);
+            return <div className="mh-side-account" key={a.id}><i className={`tone-${index % 2}`} /><span>{a.name}</span><b>{money(value)}</b></div>;
+          })}
+        </section>
+        <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次收盘价更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 加入收盘价更新待办</button></section>
+      </>)}
+      {tab === "watch" && (watch ? <>
+        <div className="mh-watch-focus">
+          <span className="mh-ticker">{(watch.symbol || watch.name).slice(0, 2)}</span>
+          <span className="mh-queue-pill">{watch.price != null ? `报价 ${watch.priceDate || "已更新"}` : "等待更新"}</span>
+          <h2>{watch.symbol || watch.name}</h2><p>{watch.name}</p>
+          <strong>{watch.price == null ? "等待更新" : money(watch.price, watch.research?.quote?.currency || "USD")}</strong>
+          <small>{watch.priceSourceUrl ? <a href={watch.priceSourceUrl} target="_blank" rel="noopener noreferrer">{watch.priceSource || "行情来源"} · {watch.priceDate}</a> : watch.priceSource || "尚无来源"}</small>
+          <div className="mh-watch-focus-target"><span>等待股价</span><b>{watch.targetPrice > 0 ? money(watch.targetPrice, watchCurrency) : "尚未设置"}</b></div>
+          {watch.targetPrice > 0 && watch.price > 0 && <div className={`mh-watch-focus-gap ${watch.price <= watch.targetPrice ? "touched" : ""}`}>
+            {watch.price <= watch.targetPrice ? <><CheckCircle2 size={15} /> 已触及等待价</> : <>距离等待价 {(((watch.targetPrice / watch.price) - 1) * 100).toFixed(2)}%</>}
+          </div>}
+        </div>
+        <section>
+          <h3>研究摘要</h3>
+          <p className="mh-side-summary-text">{watch.research?.summary || "研究请求已排队，结果完成后会显示在这里。"}</p>
+          {watch.report && <button className="mh-button" onClick={() => onOpenReport(watch.report)}><FileCode2 size={14} /> 打开完整研究</button>}
+          <button className="mh-text-button" onClick={() => onQueueTask("watch", watch.id, `刷新关注标的 ${watch.name} ${watch.symbol}：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；并更新近期财报、新闻、展望和风险，生成带来源 HTML。`)}><RefreshCw size={13} /> 请求更新这个标的</button>
+        </section>
+      </> : <section className="mh-side-empty"><Star size={19} /><p>添加关注标的后，这里会显示等待价格、当前价格与研究摘要。</p><button className="mh-primary" onClick={() => onNavigate("watch")}>添加关注</button></section>)}
+      {tab === "analysis" && <>
+        <section className="mh-side-summary"><span className="mh-eyebrow">AUTOMATIC CHECKS</span><strong>{notes.length} 项观察</strong><p className="mh-side-summary-text">本地按保存的持仓、报价和目标计算；AI 体检需手动加入 Codex 待办。</p><button className="mh-primary" onClick={() => onQueueTask("portfolio", null, "今日持仓体检：结合当前两个账户的全部持仓、最新可核实行情与公司信息，复核集中度、重叠风险、宏观和个股风险、现金弹药与目标，给出支持与反证、观察触发条件和保持不动方案，生成完整 HTML 报告。")}>今日持仓体检</button></section>
+        <section><div className="mh-section-heading"><h3>过往体检</h3><span className="mh-tag">{reports.length}</span></div>{reportLinks(reports.slice(0, 8), "还没有历史体检")}</section>
+        <section><h3>本地观察</h3>{notes.slice(0, 4).map((n) => <p className="mh-side-note" key={n.title}><i className={n.tone === "amber" ? "amber" : ""} />{n.title}</p>)}</section>
+      </>}
+      {tab === "cash" && <>
+        <section className="mh-side-summary"><span className="mh-eyebrow">USD AMMUNITION</span><strong>{state.cash.length ? money(portfolio.available) : "待录入"}</strong><div><span>资金流水合计</span><b>{money(cash)}</b></div><button className="mh-text-button" onClick={() => onEdit({ type: "cash" })}><Plus size={13} /> 记录一笔资金</button></section>
+        <section><div className="mh-section-heading"><h3>目标状态</h3></div><p className="mh-sidebar-objective">{(state.goals.objective || state.goals.notes || "").trim() ? "投资目标已记录" : "尚未设置投资目标"}</p></section>
+        <section><h3>最近资金记录</h3>{state.cash.length ? state.cash.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map((row) => <div className="mh-side-cash" key={row.id}><strong className={row.amount >= 0 ? "mh-gain" : "mh-loss"}>{row.amount > 0 ? "+" : ""}{money(row.amount)}</strong><span>{row.kind} · {row.date}</span></div>) : <p className="mh-side-empty">暂无资金流水</p>}</section>
+      </>}
+      {tab === "reports" && <>
+        <section className="mh-side-summary"><span className="mh-eyebrow">SAVED RESEARCH</span><strong>{allAnalyses.length} 份报告</strong><div><span>公司研究</span><b>{allAnalyses.filter((a) => a.kind === "watch").length}</b></div><div><span>持仓体检</span><b>{allAnalyses.filter((a) => a.kind === "portfolio").length}</b></div><div><span>行情研究</span><b>{allAnalyses.filter((a) => a.kind === "market").length}</b></div><button className="mh-text-button" onClick={() => onNavigate("ai")}>查看任务状态 <ArrowRight size={13} /></button></section>
+        <section><h3>最近保存</h3>{reportLinks(allAnalyses.slice(0, 5), "尚无研究报告")}</section>
+      </>}
+      {tab === "ai" && <>
+        <section className="mh-side-summary"><span className="mh-eyebrow">CODEX QUEUE</span><strong>{state.jobs.filter((j) => j.status === "waiting").length} 项待办</strong><div><span>已完成</span><b>{state.jobs.filter((j) => j.status === "done").length}</b></div><div><span>未完成</span><b>{state.jobs.filter((j) => j.status === "failed").length}</b></div><button className="mh-button" onClick={onCopyQueue}><Copy size={14} /> 复制待办给 Codex</button></section>
+        <section><h3>最近完成</h3>{reportLinks(allAnalyses.slice(0, 4), "完成的研究会保存在这里")}</section>
+      </>}
+      {tab === "journal" && <>
+        <section className="mh-side-summary"><span className="mh-eyebrow">DECISION LOG</span><strong>{state.journal.length} 条记录</strong><button className="mh-primary" onClick={() => onEdit({ type: "journal" })}><Plus size={14} /> 写一条决策</button></section>
+        <section><h3>最近记录</h3>{state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map((j) => <button className="mh-side-history" key={j.id} onClick={() => onEdit({ type: "journal", item: j })}><BookOpen size={15} /><span><strong>{j.title}</strong><small>{j.date}</small></span><Pencil size={13} /></button>)}</section>
+      </>}
+      <footer><span className="mh-dot" /> 数据留在本机 · 研究由你掌握</footer>
+    </aside>
+  );
+}
 export default function HoldingsApp() {
   const [state, setState] = useState(null),
     [fatal, setFatal] = useState(""),
@@ -228,6 +362,9 @@ export default function HoldingsApp() {
     [busy, setBusy] = useState(false),
     [toast, setToast] = useState(null),
     [selected, setSelected] = useState(null),
+    [selectedWatchId, setSelectedWatchId] = useState(null),
+    [watchTargetDrafts, setWatchTargetDrafts] = useState({}),
+    [showAllResearch, setShowAllResearch] = useState(false),
     [question, setQuestion] = useState(""),
     [aiKind, setAiKind] = useState("portfolio"),
     [provider, setProvider] = useState("ChatGPT"),
@@ -236,6 +373,7 @@ export default function HoldingsApp() {
     [accountNames, setAccountNames] = useState(null);
   const stateRef = useRef(state),
     busyRef = useRef(false),
+    priceAlertKeys = useRef(new Set()),
     timer = useRef();
   stateRef.current = state;
   const notify = (text, error = false) => {
@@ -257,6 +395,17 @@ export default function HoldingsApp() {
     refresh();
     return () => clearTimeout(timer.current);
   }, []);
+  useEffect(() => {
+    if (!state || modal) return;
+    const alerts = state.watchlist.filter((w) => {
+      const reached = w.price != null && Number.isFinite(Number(w.price)) && Number(w.targetPrice) > 0 && Number(w.price) <= Number(w.targetPrice);
+      const key = `${w.id}:${w.targetPrice}:${w.priceDate}:${w.price}`;
+      if (!reached || priceAlertKeys.current.has(key)) return false;
+      priceAlertKeys.current.add(key);
+      return true;
+    });
+    if (alerts.length) setModal({ type: "priceAlerts", items: alerts });
+  }, [state, modal]);
   useEffect(() => {
     let active = true;
     const poll = setInterval(async () => {
@@ -330,12 +479,12 @@ export default function HoldingsApp() {
       .replaceAll("=", "");
     window.open(`${BASE}/library/document/${encodeURIComponent(id)}`, "_blank", "noopener,noreferrer");
   };
-  const queueTask = async (kind = "portfolio", watchId, prompt = question) => {
+  const queueTask = async (kind = "portfolio", watchId, prompt = question, { quiet = false } = {}) => {
     try {
       const r = await request("/api/jobs", { kind, watchId, question: prompt });
       setState(r.state);
       stateRef.current = r.state;
-      notify(kind === "quotes" ? "收盘价更新已加入待办" : "已加入待办");
+      if (!quiet) notify(kind === "quotes" ? "收盘价更新已加入待办" : "已加入待办");
       return true;
     } catch (e) {
       if (e.message.includes("已经在待办队列")) {
@@ -352,6 +501,35 @@ export default function HoldingsApp() {
       null,
       "更新全部持仓标的最近一个已完成美股交易日的收盘价，并记录交易日期与数据来源。",
     );
+  const refreshWatchlist = async () => {
+    const current = stateRef.current;
+    if (!current?.watchlist.length) return notify("先添加关注标的", true);
+    const pending = new Set(
+      current.jobs.filter((j) => j.kind === "watch" && j.status === "waiting").map((j) => j.watchId),
+    );
+    const targets = current.watchlist.filter((w) => !pending.has(w.id));
+    if (!targets.length) return notify("关注标的更新已在待办队列中");
+    let queued = 0;
+    for (const w of targets) {
+      const ok = await queueTask(
+        "watch",
+        w.id,
+        `刷新关注标的 ${w.name} ${w.symbol}：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。`,
+        { quiet: true },
+      );
+      if (ok) queued++;
+    }
+    await refresh();
+    notify(`已将 ${queued} 个关注更新请求加入待办`);
+  };
+  const saveWatchTarget = (watchId, rawValue) => {
+    const value = rawValue === "" ? null : Number(rawValue);
+    if (value !== null && (!Number.isFinite(value) || value < 0)) return notify("等待价格需要是大于 0 的数字", true);
+    mutate((s) => {
+      const item = s.watchlist.find((w) => w.id === watchId);
+      if (item) item.targetPrice = value;
+    }, { close: false });
+  };
   const copy = async (kind = aiKind, focus) => {
     const prompt = `请按适合 ${provider} 的深度研究方式完成以下任务。\n${contextPack(stateRef.current, kind, focus ? `优先研究：${focus.name} ${focus.symbol}；${focus.note}；关注条件：${focus.trigger}` : question)}`;
     try {
@@ -364,7 +542,7 @@ export default function HoldingsApp() {
   };
   const copyQueue = async () => {
     const pending = stateRef.current.jobs.filter((j) => j.status === "waiting");
-    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n收盘价任务（kind=quotes）：联网核对全部持仓代码最近一个已完成的美股交易日收盘价。每个代码都要有价格、交易日期与来源；若来源无法核实，就将任务标记为未完成。不要生成 HTML，也不要改动平均成本或总成本。完成后 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 格式为 {"quotes":[{"symbol":"VOO","price":700.12,"date":"2026-10-16","source":"来源名称"}],"summary":"更新说明"}。\n\n研究任务（kind=watch、portfolio、market）：联网核实最新资料，生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
+    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n收盘价任务（kind=quotes）：联网核对全部持仓代码最近一个已完成的美股交易日收盘价。每个代码都要有价格、交易日期与来源；若来源无法核实，就将任务标记为未完成。不要生成 HTML，也不要改动平均成本或总成本。完成后 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 格式为 {"quotes":[{"symbol":"VOO","price":700.12,"date":"2026-10-16","source":"来源名称"}],"summary":"更新说明"}。\n\n研究任务（kind=watch、portfolio、market）：联网核实最新资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。关注标的任务必须在 research.quote 中返回最近完整交易日收盘价：{"price":123.45,"date":"2026-10-16","currency":"USD","source":"来源名称","sourceUrl":"https://来源页面"}，并在报告中注明日期与来源。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
     try {
       await navigator.clipboard.writeText(prompt);
       notify("待办与持仓背景已复制；粘贴给 Codex 后由它处理并回写结果");
@@ -393,7 +571,12 @@ export default function HoldingsApp() {
   const m = calculate(state),
     notes = observations(state),
     focus = state.holdings.find((h) => h.id === selected),
-    latest = state.analyses.find((a) => a.kind === "portfolio"),
+    portfolioReports = state.analyses.filter((a) => a.kind === "portfolio").sort((a, b) => b.date.localeCompare(a.date)),
+    latest = portfolioReports[0],
+    allAnalyses = state.analyses.slice().sort((a, b) => b.date.localeCompare(a.date)),
+    watchFocus = state.watchlist.find((w) => w.id === selectedWatchId) || state.watchlist[0],
+    waitingJobs = state.jobs.filter((j) => j.status === "waiting" || j.status === "failed"),
+    completedJobs = state.jobs.filter((j) => j.status === "done").sort((a, b) => (b.completedAt || b.date).localeCompare(a.completedAt || a.date)),
     visibleHoldings = state.holdings.filter((h) =>
       `${h.symbol} ${h.name} ${h.sector}`
         .toLowerCase()
@@ -405,10 +588,12 @@ export default function HoldingsApp() {
   };
   const heading = (eyebrow, title, subtitle, action) => (
     <div className="mh-page-heading">
-      <div>
-        <span className="mh-eyebrow">{eyebrow}</span>
-        <h1>{title}</h1>
-        {subtitle && <p>{subtitle}</p>}
+      <div className="mh-heading-copy">
+        <div className="mh-heading-line">
+          <h1>{title}</h1>
+          {eyebrow && <span className="mh-eyebrow">{eyebrow}</span>}
+          {subtitle && <p>{subtitle}</p>}
+        </div>
       </div>
       {action}
     </div>
@@ -548,28 +733,30 @@ export default function HoldingsApp() {
       className={`mh-app ${left ? "" : "left-closed"} ${right ? "" : "right-closed"}`}
     >
       <aside className="mh-sidebar">
-        <a
-          className="mh-brand"
-          href="#/app/my-holdings"
-          onClick={() => page("overview")}
-        >
-          <span>
-            <Sprout size={23} />
-          </span>
-          {left && (
-            <div>
-              <strong>My Holdings</strong>
-              <small>我的持仓室</small>
-            </div>
-          )}
-        </a>
-        <button
-          className="mh-side-toggle"
-          aria-label={left ? "折叠左栏" : "展开左栏"}
-          onClick={() => toggle("left")}
-        >
-          {left ? <PanelLeftClose size={17} /> : <PanelLeftOpen size={17} />}
-        </button>
+        <div className="mh-brand-row">
+          <a
+            className="mh-brand"
+            href="#/app/my-holdings"
+            onClick={() => page("overview")}
+          >
+            <span>
+              <Sprout size={23} />
+            </span>
+            {left && (
+              <div>
+                <strong>My Holdings</strong>
+                <small>我的持仓室</small>
+              </div>
+            )}
+          </a>
+          <button
+            className="mh-side-toggle"
+            aria-label={left ? "折叠左栏" : "展开左栏"}
+            onClick={() => toggle("left")}
+          >
+            {left ? <PanelLeftClose size={17} /> : <PanelLeftOpen size={17} />}
+          </button>
+        </div>
         <div className="mh-nav-label">{left ? "投资工作空间" : "···"}</div>
         <nav>
           {NAV.map(([key, label, Icon]) => (
@@ -669,15 +856,6 @@ export default function HoldingsApp() {
                   <Plus size={17} /> 记录持仓
                 </button>,
               )}
-              <div className="mh-snapshot">
-                <span>
-                  <i /> 当前保存快照
-                </span>
-                <span>{state.marketUpdatedAt ? `最近收盘价刷新 · ${when(state.marketUpdatedAt)}` : "截图价格尚未刷新 · 点击刷新获取最近完整收盘价"}</span>
-                <button onClick={() => page("holdings")}>
-                  核对数据 <ArrowRight size={13} />
-                </button>
-              </div>
               {stats()}
               <div className="mh-overview-grid">
                 <section className="mh-panel">
@@ -795,6 +973,13 @@ export default function HoldingsApp() {
                   <button className="mh-primary" onClick={() => setModal({ type: "watch" })}>
                     <Plus size={17} /> 添加关注
                   </button>
+                  <button
+                    className="mh-button"
+                    onClick={refreshWatchlist}
+                    disabled={!state.watchlist.length || state.watchlist.every((w) => state.jobs.some((j) => j.watchId === w.id && j.status === "waiting"))}
+                  >
+                    <RefreshCw size={15} /> 刷新关注
+                  </button>
                 </div>,
               )}
               <div className="mh-watch-grid">
@@ -806,16 +991,21 @@ export default function HoldingsApp() {
                   )
                   .map((w) => {
                     const job = state.jobs.findLast((j) => j.watchId === w.id);
+                    const price = Number.isFinite(Number(w.price)) && w.price != null ? Number(w.price) : null;
+                    const targetPrice = w.targetPrice == null ? null : Number(w.targetPrice);
+                    const distance = price != null && targetPrice > 0 ? ((targetPrice / price) - 1) * 100 : null;
+                    const targetDraft = watchTargetDrafts[w.id] ?? (targetPrice ?? "");
+                    const quoteCurrency = w.research?.quote?.currency || w.research?.identity?.currency || "USD";
                     return (
-                      <article className="mh-watch-card" key={w.id}>
+                      <article className={`mh-watch-card ${watchFocus?.id === w.id ? "selected" : ""}`} key={w.id}>
                         <header>
                           <span className="mh-ticker">
                             {(w.symbol || w.name).slice(0, 2)}
                           </span>
-                          <div>
+                          <button className="mh-watch-identity" onClick={() => { setSelectedWatchId(w.id); if (matchMedia("(min-width: 1001px)").matches) setRight(true); }}>
                             <h3>{w.name}</h3>
                             <small>{w.symbol || "待核实代码"} · {w.status || "关注中"}</small>
-                          </div>
+                          </button>
                           <span className={`mh-queue-pill ${job?.status || "waiting"}`}>{job?.status === "done" ? "已更新" : job?.status === "failed" ? "未完成" : "等待更新中"}</span>
                           <button
                             className="mh-icon"
@@ -832,20 +1022,42 @@ export default function HoldingsApp() {
                             <Trash2 size={15} />
                           </button>
                         </header>
-                        <p className="mh-watch-summary">
-                          {w.research?.summary || (job?.status === "failed" ? "未完成" : "等待更新中")}
-                        </p>
+                        <div className="mh-watch-prices">
+                          <div>
+                            <small>当前股价</small>
+                            <strong>{price == null ? "等待更新" : money(price, quoteCurrency)}</strong>
+                            <small>{w.priceDate || "尚无报价日期"}</small>
+                          </div>
+                          <label>
+                            <small>等待股价 · {quoteCurrency}</small>
+                            <input
+                              type="number"
+                              min="0.01"
+                              step="any"
+                              aria-label={`${w.symbol || w.name} 等待股价`}
+                              placeholder="输入价格"
+                              value={targetDraft}
+                              onChange={(e) => setWatchTargetDrafts((d) => ({ ...d, [w.id]: e.target.value }))}
+                              onBlur={() => {
+                                const draft = watchTargetDrafts[w.id];
+                                if (draft === undefined) return;
+                                setWatchTargetDrafts((d) => { const next = { ...d }; delete next[w.id]; return next; });
+                                if ((draft === "" ? null : Number(draft)) !== (targetPrice ?? null)) saveWatchTarget(w.id, draft);
+                              }}
+                              onKeyDown={(e) => { if (e.key === "Enter") e.currentTarget.blur(); }}
+                            />
+                          </label>
+                          <div className={`mh-watch-distance ${distance != null && distance < 0 ? "below" : ""}`}>
+                            <small>等待价差</small>
+                            <strong>{distance == null ? "—" : `${distance > 0 ? "+" : ""}${distance.toFixed(2)}%`}</strong>
+                            {price != null && targetPrice > 0 && price <= targetPrice && <span>已触及</span>}
+                          </div>
+                        </div>
                         <footer>
-                          <button
-                            className="mh-text-button"
-                            onClick={() => {
-                              setImportText("");
-                              setModal({ type: "research", item: w });
-                            }}
-                          >
-                            More <ArrowUpRight size={14} />
-                          </button>
-                          {job?.report && <button className="mh-button" onClick={() => openReport(job.report)}><FileCode2 size={14} /> 打开 HTML</button>}
+                          <span className="mh-watch-quote-source">
+                            {w.priceSourceUrl ? <a href={w.priceSourceUrl} target="_blank" rel="noopener noreferrer">{w.priceSource || "行情来源"}</a> : w.priceSource || "价格与研究由更新任务回填"}
+                          </span>
+                          {w.report && <button className="mh-text-button" onClick={() => openReport(w.report)}><FileCode2 size={14} /> 打开完整研究</button>}
                         </footer>
                       </article>
                     );
@@ -873,14 +1085,14 @@ export default function HoldingsApp() {
               {heading(
                 "UNDERSTAND BEFORE YOU ACT",
                 "组合分析",
-                "分析先排队；等你下次明确交给 Codex，再联网研究并更新 HTML 档案。",
+                "当前风险体检 · Codex 深度研究",
                 <button
                   className="mh-primary"
                   disabled={state.jobs.some((j) => j.kind === "portfolio" && j.status === "waiting")}
-                  onClick={() => queueTask("portfolio", null, question || "分析当前组合集中度、风险来源、现金弹药与目标，核实最新资料，给出保持不动等条件方案并生成 HTML。")}
+                  onClick={() => queueTask("portfolio", null, question || "今日持仓体检：结合当前两个账户的全部持仓、最新可核实行情和公司信息，复核集中度、重叠风险、宏观与个股风险、现金弹药及我的目标；给出支持与反证、需要观察的触发条件和保持不动的方案，生成完整 HTML 报告。")}
                 >
                   <Sparkles size={17} />
-                  {state.jobs.some((j) => j.kind === "portfolio" && j.status === "waiting") ? "组合分析已排队" : "请求 Codex 分析"}
+                  {state.jobs.some((j) => j.kind === "portfolio" && j.status === "waiting") ? "体检已排队" : "今日持仓体检"}
                 </button>,
               )}
               <section className="mh-panel mh-queue-summary">
@@ -973,24 +1185,21 @@ export default function HoldingsApp() {
                 </div>
               </section>
               {latest ? (
-                <section className="mh-panel">
-                  <ResearchBody
-                    research={latest.research}
-                    date={latest.date}
-                    onReport={() =>
-                      openReport(latest.report)
-                    }
-                  />
+                <section className="mh-panel mh-report-synopsis">
+                  <div className="mh-section-heading">
+                    <div>
+                      <span className="mh-eyebrow">最近一次持仓体检 · {when(latest.date)}</span>
+                      <h2>{latest.research.title}</h2>
+                    </div>
+                    <button className="mh-button" onClick={() => openReport(latest.report)}><FileCode2 size={15} /> 打开完整报告</button>
+                  </div>
+                  <p>{latest.research.summary}</p>
                 </section>
               ) : (
-                <div className="mh-banner">
-                  <Sparkles size={24} />
-                  <div>
-                    <strong>让 AI 看见整个组合</strong>
-                    <p>组合分析会先进入待办；你下次把待办交给 Codex 后，结果会保存为 HTML 并回填这里。</p>
-                  </div>
-                  <button className="mh-button" onClick={copyQueue}><Copy size={15} /> 复制待办给 Codex</button>
-                </div>
+                <section className="mh-panel mh-report-synopsis empty">
+                  <div><Sparkles size={19} /><strong>还没有持仓体检报告</strong><span>点击「今日持仓体检」后，报告会排入 Codex 待办。</span></div>
+                  <button className="mh-text-button" onClick={copyQueue}><Copy size={14} /> 复制待办给 Codex</button>
+                </section>
               )}
             </>
           )}
@@ -999,7 +1208,7 @@ export default function HoldingsApp() {
               {heading(
                 "CAPITAL WITH A PURPOSE",
                 "弹药与目标",
-                "收入有去处，长期目标有进度。",
+                "",
                 <button
                   className="mh-primary"
                   onClick={() => setModal({ type: "cash" })}
@@ -1021,7 +1230,6 @@ export default function HoldingsApp() {
                   <div className="mh-section-heading">
                     <div>
                       <h2>我的目标</h2>
-                      <p>用一段话说明资金要支持什么</p>
                     </div>
                     <button
                       className="mh-icon"
@@ -1032,13 +1240,7 @@ export default function HoldingsApp() {
                     </button>
                   </div>
                   <div className="mh-goal">
-                    <p className="mh-objective-text">{state.goals.objective || state.goals.notes || "还没有写下目标。点击编辑，用自己的话记录这笔投资想支持的生活计划。"}</p>
-                    <button
-                      className="mh-text-button"
-                      onClick={() => setModal({ type: "goals" })}
-                    >
-                      编辑目标 <ArrowRight size={15} />
-                    </button>
+                    <p className="mh-objective-text">{state.goals.objective || state.goals.notes || "尚未填写目标"}</p>
                   </div>
                 </section>
               </div>
@@ -1217,66 +1419,48 @@ export default function HoldingsApp() {
                 <div className="mh-section-heading">
                   <div>
                     <h2>研究任务与成果</h2>
-                    <p>状态清楚显示等待、完成或未完成；所有任务随工作区文件同步。</p>
                   </div>
                 </div>
-                {state.jobs
-                  .slice()
-                  .reverse()
-                  .map((j) => (
-                    <div className="mh-job" key={j.id}>
-                      <span className={`mh-job-icon ${j.status}`}>
-                        {j.status === "done" ? (
-                          <CheckCircle2 size={18} />
-                        ) : j.status === "failed" ? (
-                          <X size={18} />
-                        ) : (
-                          <LoaderCircle size={18} />
-                        )}
-                      </span>
-                      <div>
-                        <strong>
-                          {j.kind === "watch"
-                            ? "关注标的研究"
-                            : j.kind === "market"
-                              ? "行情研究"
-                              : "持仓分析"}
-                        </strong>
-                        <small>
-                          {when(j.date)} ·{" "}
-                          {j.status === "done"
-                            ? "已完成并保存"
-                            : j.status === "failed"
-                              ? "未完成"
-                              : "等待你交给 Codex"}
-                          {j.error && ` · ${j.error}`}
-                        </small>
+                <div className="mh-job-columns">
+                  <section className="mh-job-column">
+                    <h3>待办</h3>
+                    {waitingJobs.length ? waitingJobs.slice().reverse().map((j) => (
+                      <div className="mh-job" key={j.id}>
+                        <span className={`mh-job-icon ${j.status}`}>
+                          {j.status === "failed" ? <X size={17} /> : <LoaderCircle size={17} />}
+                        </span>
+                        <div>
+                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : "持仓分析"}</strong>
+                          <small>{when(j.date)} · {j.status === "failed" ? `未完成${j.error ? ` · ${j.error}` : ""}` : "等待交给 Codex"}</small>
+                        </div>
                       </div>
-                      {j.report && (
-                        <button
-                          className="mh-text-button"
-                          onClick={() => openReport(j.report)}
-                        >
-                          阅读 <ArrowUpRight size={14} />
-                        </button>
-                      )}
-                    </div>
-                  ))}
-                {!state.jobs.length && (
-                  <Empty
-                    icon={Sparkles}
-                    title="一份完整背景，换一个更好的问题"
-                    text="关注股票或请求组合分析后，等待任务会显示在这里。"
-                  />
-                )}
+                    )) : <p className="mh-job-empty">当前没有待办</p>}
+                  </section>
+                  <section className="mh-job-column">
+                    <h3>最近完成</h3>
+                    {completedJobs.length ? completedJobs.slice(0, 4).map((j) => (
+                      <div className="mh-job" key={j.id}>
+                        <span className="mh-job-icon done"><CheckCircle2 size={17} /></span>
+                        <div>
+                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : "持仓分析"}</strong>
+                          <small>{when(j.completedAt || j.date)} · 已完成并保存</small>
+                        </div>
+                        {j.report && <button className="mh-icon" aria-label="打开报告" onClick={() => openReport(j.report)}><ArrowUpRight size={15} /></button>}
+                      </div>
+                    )) : <p className="mh-job-empty">完成的任务会出现在这里</p>}
+                  </section>
+                </div>
               </section>
-              {state.analyses.length > 0 && (
+              {allAnalyses.length > 0 && (
                 <section className="mh-panel">
-                  <div className="mh-section-heading">
-                    <h2>全部研究记录</h2>
-                    <span className="mh-tag">{state.analyses.length} 份</span>
+                  <div className="mh-section-heading mh-history-heading">
+                    <h2>研究记录</h2>
+                    <span className="mh-tag">{allAnalyses.length} 份</span>
+                    <button className="mh-text-button" onClick={() => setShowAllResearch((v) => !v)}>
+                      {showAllResearch ? "收起" : `展开全部 ${allAnalyses.length} 份`} <ChevronDown size={14} className={showAllResearch ? "rotated" : ""} />
+                    </button>
                   </div>
-                  {state.analyses.map((a) => (
+                  {(showAllResearch ? allAnalyses : allAnalyses.slice(0, 3)).map((a) => (
                     <button
                       className="mh-history"
                       key={a.id}
@@ -1292,6 +1476,7 @@ export default function HoldingsApp() {
                       <ArrowUpRight size={16} />
                     </button>
                   ))}
+                  {!showAllResearch && allAnalyses.length > 3 && <p className="mh-history-more">其余 {allAnalyses.length - 3} 份已折叠</p>}
                 </section>
               )}
             </>
@@ -1363,115 +1548,23 @@ export default function HoldingsApp() {
         </main>
       </div>
       {right && (
-        <aside className="mh-rightbar">
-          <header>
-            <span>{focus ? "持仓详情" : "投资罗盘"}</span>
-            <button
-              className="mh-icon"
-              aria-label="关闭右栏"
-              onClick={() => toggle("right")}
-            >
-              <PanelRightClose size={17} />
-            </button>
-          </header>
-          {focus ? (
-            <>
-              <div className="mh-focus">
-                <span className="mh-ticker">{focus.symbol.slice(0, 2)}</span>
-                <h2>{focus.symbol}</h2>
-                <p>{focus.name}</p>
-                <span className="mh-tag">
-                  {state.accounts.find((a) => a.id === focus.accountId)?.name}
-                </span>
-                <strong>{money(focus.marketValue, focus.currency)}</strong>
-                <small>
-                  持有 {focus.quantity} 股 · {focus.priceDate || "点击刷新收盘价"}
-                </small>
-                <div className="mh-focus-prices">
-                  <span>当前价格<strong>{money(focus.price, focus.currency)}</strong></span>
-                  <span>成本均价<strong>{money(focus.averagePrice, focus.currency)}</strong></span>
-                </div>
-              </div>
-              <section>
-                <button
-                  className="mh-button"
-                  onClick={() => setModal({ type: "holding", item: focus })}
-                >
-                  <Pencil size={14} /> 编辑核心数据
-                </button>
-                <button
-                  className="mh-text-button"
-                  onClick={() => setSelected(null)}
-                >
-                  返回投资罗盘
-                </button>
-              </section>
-            </>
-          ) : (
-            <>
-              <div className="mh-compass-card">
-                <span className="mh-orbit">
-                  <Sprout size={33} strokeWidth={1.1} />
-                </span>
-                <span className="mh-eyebrow">STAY THE COURSE</span>
-                <h2>
-                  先有计划，
-                  <br />
-                  再有行动。
-                </h2>
-                <p>
-                  比下一次涨跌更重要的，
-                  <br />
-                  是你知道自己为什么持有。
-                </p>
-              </div>
-              <section>
-                <div className="mh-section-heading">
-                  <h3>下一步，可以很小</h3>
-                  <span className="mh-tag">CHECK IN</span>
-                </div>
-                {[
-                  [state.goals.objective || state.goals.notes, "写下你的投资目标", "goals"],
-                  [state.cash.length, "记下可投资的弹药", "cash"],
-                  [state.watchlist.length, "放入一个关注标的", "watch"],
-                ].map(([done, label, type]) => (
-                  <button
-                    className="mh-check-item"
-                    key={type}
-                    onClick={() => setModal({ type })}
-                  >
-                    <span className={done ? "done" : ""}>
-                      {done ? <Check size={13} /> : <span />}
-                    </span>
-                    {label}
-                    <ChevronRight size={13} />
-                  </button>
-                ))}
-              </section>
-            </>
-          )}
-          <section>
-            <div className="mh-section-heading">
-              <h3>你的投资目标</h3>
-              <Target size={16} />
-            </div>
-            <p className="mh-sidebar-objective">{state.goals.objective || state.goals.notes || "还没有写下目标"}</p>
-          </section>
-          <section className="mh-right-ai">
-            <Sparkles size={22} />
-            <h3>让判断，多一个视角</h3>
-            <p>
-              完整的持仓背景，
-              <br />让 AI 给出更贴近你的研究。
-            </p>
-            <button className="mh-button" onClick={() => page("ai")}>
-              打开 AI 工作台 <ArrowRight size={14} />
-            </button>
-          </section>
-          <footer>
-            <span className="mh-dot" /> 数据留在本机 · 研究由你掌握
-          </footer>
-        </aside>
+        <RightPanel
+          tab={tab}
+          state={state}
+          portfolio={m}
+          reports={portfolioReports}
+          allAnalyses={allAnalyses}
+          notes={notes}
+          holding={tab === "holdings" ? focus : null}
+          watch={watchFocus}
+          onClose={() => toggle("right")}
+          onNavigate={page}
+          onOpenReport={openReport}
+          onEdit={(form) => setModal(form)}
+          onRefreshPrices={refreshPrices}
+          onQueueTask={queueTask}
+          onCopyQueue={copyQueue}
+        />
       )}
       {toast && (
         <div
@@ -1497,6 +1590,7 @@ export default function HoldingsApp() {
               delete: "删除这条记录",
               research: "标的研究",
               importResearch: "导入 AI 研究",
+              priceAlerts: "等待股价触发",
               settings: "账户与数据",
               restore: "恢复数据备份",
               copy: "复制研究资料",
@@ -1513,6 +1607,19 @@ export default function HoldingsApp() {
             "importResearch",
           ].includes(modal.type)}
         >
+          {modal.type === "priceAlerts" && (
+            <div className="mh-price-alerts">
+              <p>以下关注标的的最近保存价格已达到或低于等待股价。</p>
+              {modal.items.map((w) => (
+                <div className="mh-price-alert" key={w.id}>
+                  <span className="mh-ticker">{(w.symbol || w.name).slice(0, 2)}</span>
+                  <div><strong>{w.symbol || w.name}</strong><small>当前 {money(w.price, w.research?.quote?.currency || "USD")} · 等待 {money(w.targetPrice, w.research?.quote?.currency || "USD")} · 报价日期 {w.priceDate || "未知"}</small></div>
+                  <button className="mh-text-button" onClick={() => { setSelectedWatchId(w.id); setModal(null); page("watch"); }}>查看 <ArrowRight size={13} /></button>
+                </div>
+              ))}
+              <p className="mh-help">这是最近一次保存的收盘价触发提醒；需要最新报价时，请在「近期关注」点击更新。</p>
+            </div>
+          )}
           {modal.type === "holding" && (
             <HoldingForm
               item={modal.item}
@@ -1529,7 +1636,7 @@ export default function HoldingsApp() {
               onSave={async (v) => {
                 const success = await upsert("watchlist", v);
                 if (success && !modal.item) {
-                  const queued = await queueTask("watch", v.id, `研究关注标的：${v.name} ${v.symbol}`);
+                  const queued = await queueTask("watch", v.id, `研究并更新关注标的：${v.name} ${v.symbol}。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。`);
                   if (!queued) await refresh();
                 }
               }}

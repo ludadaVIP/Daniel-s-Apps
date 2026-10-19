@@ -70,10 +70,12 @@ export function Reports({ notify, revision }) {
   return (
     <>
       <div className="mh-page-heading">
-        <div>
-          <span className="mh-eyebrow">A LIBRARY OF PERSPECTIVES</span>
-          <h1>行情与研究档案</h1>
-          <p>让每一次分析，都成为下一次决策的底稿。</p>
+        <div className="mh-heading-copy">
+          <div className="mh-heading-line">
+            <h1>行情与研究档案</h1>
+            <span className="mh-eyebrow">A LIBRARY OF PERSPECTIVES</span>
+            <p>让每一次分析，都成为下一次决策的底稿。</p>
+          </div>
         </div>
         <button className="mh-primary" onClick={() => setImport(true)}>
           <Plus size={17} /> 导入 HTML

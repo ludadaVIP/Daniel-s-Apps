@@ -572,3 +572,48 @@
   color: #c5d8ba;
 }
 
+/* Compact, page-aware three-column workspace */
+:root[data-theme="dark"] .mh-report-synopsis > p { color: #c0c9bd; }
+:root[data-theme="dark"] .mh-report-synopsis.empty > div { color: #c3cebc; }
+:root[data-theme="dark"] .mh-report-synopsis.empty > div span { color: #bec6b9; }
+:root[data-theme="dark"] .mh-rightbar .mh-section-heading h3, :root[data-theme="dark"] .mh-rightbar section > h3 { color: #c3cfbe; }
+:root[data-theme="dark"] .mh-side-summary > strong { color: #bfd3c3; }
+:root[data-theme="dark"] .mh-side-summary > div:not(.mh-side-account) { border-top: 1px solid #4c593b; color: #bfc6bb; }
+:root[data-theme="dark"] .mh-side-summary > div b { color: #c4d1c0; }
+:root[data-theme="dark"] .mh-side-summary-text { color: #c1c8bd; }
+:root[data-theme="dark"] .mh-sidebar-objective.large { color: #c4d1c1; }
+:root[data-theme="dark"] .mh-side-account { border-top: 1px solid #4c593b; }
+:root[data-theme="dark"] .mh-side-account i.tone-1 { background: #2c3444; }
+:root[data-theme="dark"] .mh-side-account span { color: #c0c7bc; }
+:root[data-theme="dark"] .mh-side-account b { color: #c4d1bf; }
+:root[data-theme="dark"] .mh-side-note { color: #c1c9bd; }
+:root[data-theme="dark"] .mh-side-note i { background: #31422e; }
+:root[data-theme="dark"] .mh-side-note i.amber { background: #886a3a; }
+:root[data-theme="dark"] .mh-side-history { color: #bfc7ba !important; border-bottom: 1px solid #4e5a3a; }
+:root[data-theme="dark"] .mh-side-history strong { color: #c3d0be; }
+:root[data-theme="dark"] .mh-side-empty { color: #bec5b9; }
+:root[data-theme="dark"] .mh-side-cash span { color: #bfc6bb; }
+:root[data-theme="dark"] .mh-watch-focus h2 { color: #c3d4c0; }
+:root[data-theme="dark"] .mh-watch-focus > p { color: #bfc6bb; }
+:root[data-theme="dark"] .mh-watch-focus > strong { color: #bed3c2; }
+:root[data-theme="dark"] .mh-watch-focus-target { border-top: 1px solid #4d5b39; color: #bfc6bb; }
+:root[data-theme="dark"] .mh-watch-focus-target b { color: #c3d0bf; }
+:root[data-theme="dark"] .mh-watch-focus-gap { color: #c7cbb7; }
+:root[data-theme="dark"] .mh-watch-focus-gap.touched { color: #d8b9a9; }
+:root[data-theme="dark"] .mh-watch-card.selected { border-color: #485a39; }
+:root[data-theme="dark"] .mh-watch-identity small { color: #bec5bb; }
+:root[data-theme="dark"] .mh-watch-prices { border-top: 1px solid #525a3a; }
+:root[data-theme="dark"] .mh-watch-prices small { color: #bec5ba; }
+:root[data-theme="dark"] .mh-watch-prices strong { color: #c2d2c0; }
+:root[data-theme="dark"] .mh-watch-prices input { border: 1px solid #4a593b; background: #1f2318; color: #c2d2c0; }
+:root[data-theme="dark"] .mh-watch-distance.below strong { color: #d6b0a7; }
+:root[data-theme="dark"] .mh-watch-distance > span { color: #d6b0a7; }
+:root[data-theme="dark"] .mh-watch-card > footer { border-top: 1px solid #525a3a; }
+:root[data-theme="dark"] .mh-watch-card .mh-watch-quote-source { color: #bec5ba; }
+:root[data-theme="dark"] .mh-job-column > h3 { border-bottom: 1px solid #4e5a3a; color: #c2cbbd; }
+:root[data-theme="dark"] .mh-job-empty { color: #bec5b9; }
+:root[data-theme="dark"] .mh-history-more { color: #bfc5bb; }
+:root[data-theme="dark"] .mh-price-alerts > p:first-child { color: #c0c9be; }
+:root[data-theme="dark"] .mh-price-alert { border-top: 1px solid #4c593b; }
+:root[data-theme="dark"] .mh-price-alert strong { color: #c3d3be; }
+
