@@ -200,7 +200,7 @@ export function HoldingForm({ item, accounts, defaultAccountId, onSave, busy }) 
           />
         </Field>
       </div>
-      <p className="mh-help">当前价格由「刷新收盘价」更新；市值随最新收盘价和股数自动计算。</p>
+      <p className="mh-help">市值按当前价格和股数自动计算。</p>
       <SaveButton busy={busy} />
     </form>
   );
@@ -251,7 +251,6 @@ export function WatchForm({ item, onSave, busy }) {
           onChange={(e) => set((s) => ({ ...s, name: e.target.value, symbol: "" }))}
         />
       </Field>
-      <p className="mh-help">保存后会加入「等待 Codex」队列；不会在后台自动启动研究。</p>
       <SaveButton busy={busy} label={item ? "保存关注" : "添加并排入待办"} />
     </form>
   );

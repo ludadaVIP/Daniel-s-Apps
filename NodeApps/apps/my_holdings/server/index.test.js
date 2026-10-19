@@ -162,27 +162,54 @@ test("failed Codex tasks retain an explicit not-done status", async (t) => {
   assert.equal(failed.data.jobs[0].status, "failed");
   assert.equal(failed.data.jobs[0].error, "尚未找到可靠来源");
 });
-test("market refresh updates only successfully fetched completed closes and preserves average cost", async (t) => {
-  const { call } = await setup(t, {
-    quoteFetcher: async (symbol) => {
-      if (symbol === "SMH") throw new Error("fixture unavailable");
-      return { price: 123.45, date: "2026-10-16", source: "test feed" };
-    },
-  });
+test("close price refresh only queues locally; Codex completion updates closes and preserves cost", async (t) => {
+  const { call, dir } = await setup(t);
   const before = (await call("/api/state")).data;
-  const result = await call("/api/market/refresh", {});
-  assert.equal(result.status, 200);
-  const voo = result.data.state.holdings.find((h) => h.symbol === "VOO");
-  const oldVoo = before.holdings.find((h) => h.id === voo.id);
-  assert.equal(voo.price, 123.45);
-  assert.equal(voo.priceDate, "2026-10-16");
-  assert.equal(voo.priceSource, "test feed");
-  assert.equal(voo.marketValue, Math.round(voo.quantity * 123.45 * 100) / 100);
-  assert.equal(voo.averagePrice, oldVoo.averagePrice);
-  assert.equal(voo.cost, oldVoo.cost);
-  const smh = result.data.state.holdings.find((h) => h.symbol === "SMH");
-  assert.equal(smh.price, before.holdings.find((h) => h.id === smh.id).price);
-  assert.equal(result.data.quotes.find((q) => q.symbol === "SMH").error, "fixture unavailable");
+  const queued = await call("/api/jobs", { kind: "quotes", question: "更新全部持仓收盘价" });
+  assert.equal(queued.status, 201);
+  assert.equal(queued.data.state.holdings[0].price, before.holdings[0].price);
+  assert.equal((await call("/api/jobs", { kind: "quotes" })).status, 409);
+  const todoWhileWaiting = await fs.readFile(path.join(dir, "CODEX_TODO.md"), "utf8");
+  assert.match(todoWhileWaiting, /收盘价更新/);
+  const symbols = [...new Set(before.holdings.map((h) => h.symbol))];
+  const quotes = symbols.map((symbol) => ({ symbol, price: 123.45, date: "2026-10-16", source: "测试行情来源" }));
+  const completed = await call(`/api/jobs/${queued.data.job.id}/complete`, {
+    quotes,
+    summary: "全部持仓收盘价已更新",
+  });
+  assert.equal(completed.status, 200);
+  assert.equal(completed.data.jobs.find((j) => j.id === queued.data.job.id).status, "done");
+  for (const h of completed.data.holdings) {
+    const old = before.holdings.find((x) => x.id === h.id);
+    assert.equal(h.price, 123.45);
+    assert.equal(h.priceDate, "2026-10-16");
+    assert.equal(h.priceSource, "测试行情来源");
+    assert.equal(h.marketValue, Math.round(h.quantity * 123.45 * 100) / 100);
+    assert.equal(h.averagePrice, old.averagePrice);
+    assert.equal(h.cost, old.cost);
+  }
+  assert.equal((await call("/api/market/refresh", {})).status, 404);
+  const todo = await fs.readFile(path.join(dir, "CODEX_TODO.md"), "utf8");
+  assert.match(todo, /当前没有等待中的任务/);
+});
+
+test("legacy Codex CLI failures return to the waiting queue", async (t) => {
+  const dir = await fs.mkdtemp(path.join(os.tmpdir(), "holdings-legacy-"));
+  const state = JSON.parse(await fs.readFile(new URL("../data/initial-state.json", import.meta.url), "utf8"));
+  state.watchlist.push({ id: "legacy-watch", name: "测试标的", symbol: "TEST", status: "观察中", note: "", trigger: "" });
+  state.jobs.push({ id: "legacy-cli", kind: "watch", watchId: "legacy-watch", status: "failed", error: "未找到 Codex CLI。请安装并登录 Codex。", date: new Date().toISOString() });
+  await fs.writeFile(path.join(dir, "state.json"), JSON.stringify(state));
+  const app = await createHoldingsApp({ dataDirectory: dir });
+  const server = app.listen(0, "127.0.0.1");
+  await new Promise((r) => server.once("listening", r));
+  t.after(async () => { await new Promise((r) => server.close(r)); await fs.rm(dir, { recursive: true, force: true }); });
+  const base = `http://127.0.0.1:${server.address().port}`;
+  const result = await (await fetch(base + "/api/state")).json();
+  assert.equal(result.jobs.find((j) => j.id === "legacy-cli").status, "waiting");
+  assert.equal(result.jobs.find((j) => j.id === "legacy-cli").error, "");
+  assert.equal(result.watchlist.find((w) => w.id === "legacy-watch").symbol, "TEST");
+  const todo = await fs.readFile(path.join(dir, "CODEX_TODO.md"), "utf8");
+  assert.match(todo, /标的研究/);
 });
 test("external research import validates sources and auto-creates a report", async (t) => {
   const { call } = await setup(t);

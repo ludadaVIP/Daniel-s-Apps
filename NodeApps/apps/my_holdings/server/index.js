@@ -18,57 +18,6 @@ const num = (v, min = 0, max = 1e14) =>
 const date = (v) =>
   text(v, 10) &&
   (v === "" || (/^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(v))));
-const nyParts = (dateValue = new Date()) => {
-  const p = Object.fromEntries(
-    new Intl.DateTimeFormat("en-US", {
-      timeZone: "America/New_York",
-      year: "numeric",
-      month: "2-digit",
-      day: "2-digit",
-      hour: "2-digit",
-      minute: "2-digit",
-      hourCycle: "h23",
-    })
-      .formatToParts(dateValue)
-      .map((x) => [x.type, x.value]),
-  );
-  return { date: `${p.year}-${p.month}-${p.day}`, hour: Number(p.hour), minute: Number(p.minute) };
-};
-export async function fetchDailyClose(symbol) {
-  if (!/^[A-Z0-9.^-]{1,24}$/.test(symbol)) throw error("股票代码格式无效。");
-  const url = new URL(
-    `https://query1.finance.yahoo.com/v8/finance/chart/${encodeURIComponent(symbol)}`,
-  );
-  url.searchParams.set("range", "10d");
-  url.searchParams.set("interval", "1d");
-  const response = await fetch(url, {
-    headers: { "User-Agent": "Mozilla/5.0 MyHoldings/1.0" },
-    signal: AbortSignal.timeout(12000),
-  });
-  if (!response.ok) throw error(`行情服务返回 ${response.status}。`, 502);
-  const body = await response.json();
-  const chart = body.chart?.result?.[0];
-  if (!chart?.timestamp?.length) throw error(`没有找到 ${symbol} 的日收盘行情。`, 404);
-  const zone = chart.meta?.exchangeTimezoneName || "America/New_York";
-  const now = nyParts();
-  const afterClose = now.hour > 16 || (now.hour === 16 && now.minute >= 10);
-  const closes = chart.indicators?.quote?.[0]?.close || [];
-  const rows = chart.timestamp
-    .map((stamp, i) => ({
-      date: new Intl.DateTimeFormat("en-CA", {
-        timeZone: zone,
-        year: "numeric",
-        month: "2-digit",
-        day: "2-digit",
-      }).format(new Date(stamp * 1000)),
-      price: closes[i],
-    }))
-    .filter((row) => Number.isFinite(row.price))
-    .filter((row) => row.date < now.date || (row.date === now.date && afterClose));
-  const latest = rows.at(-1);
-  if (!latest) throw error(`尚無 ${symbol} 已完成的交易日收盘价。`, 404);
-  return { ...latest, source: "Yahoo Finance" };
-}
 export function validateState(s) {
   if (!s || s.version !== 1) throw error("备份版本无效。");
   for (const k of [
@@ -182,7 +131,6 @@ export function validateState(s) {
 }
 export async function createHoldingsApp({
   dataDirectory = path.join(root, "data"),
-  quoteFetcher = fetchDailyClose,
 } = {}) {
   await fs.mkdir(dataDirectory, { recursive: true });
   await fs.mkdir(path.join(dataDirectory, "backups"), { recursive: true });
@@ -219,7 +167,7 @@ export async function createHoldingsApp({
       "# My Holdings · Codex 待办",
       "",
       "> 这是本地排队文件，会随 `state.json` 一起通过 GitHub 同步。应用不会启动 Codex CLI 或后台任务。",
-      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`，完成后将报告保存到 `reports/`，并通过应用的本地 API 回写状态。",
+      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`；研究任务保存 HTML，收盘价任务只回写报价数据。",
       "",
       `最近同步：${s.updatedAt || "尚未保存"}`,
       "",
@@ -228,11 +176,13 @@ export async function createHoldingsApp({
     for (const job of waiting) {
       const watch = s.watchlist.find((w) => w.id === job.watchId);
       lines.push(
-        `## ${job.kind === "watch" ? "标的研究" : job.kind === "market" ? "行情分析" : "组合分析"} · ${watch?.name || job.question || "持仓组合"}`,
+        `## ${job.kind === "watch" ? "标的研究" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "收盘价更新" : "组合分析"} · ${watch?.name || job.question || "持仓组合"}`,
         `- 状态：等待 Codex · 任务 ID：${job.id}`,
         `- 创建时间：${job.date}`,
         `- 关注记录 ID：${job.watchId || "无"}`,
-        "- 运行方式：只在用户明确要求时执行；联网核对数据日期与来源；报告保存为独立 HTML。",
+        job.kind === "quotes"
+          ? "- 更新所有持仓标的最近一个完整美股交易日的收盘价，注明交易日期与来源；完成时通过本地 API 回写 quotes 数组，不生成 HTML。"
+          : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
         "",
       );
     }
@@ -266,6 +216,17 @@ export async function createHoldingsApp({
   await serial(async () => {
     const s = await read();
     let changed = false;
+    for (const w of s.watchlist)
+      if (!w.symbol && /^[A-Z][A-Z0-9.-]{0,14}$/.test(w.name)) {
+        w.symbol = w.name;
+        changed = true;
+      }
+    for (const j of s.jobs)
+      if (j.status === "failed" && /未找到 Codex CLI/.test(j.error || "")) {
+        j.status = "waiting";
+        j.error = "";
+        changed = true;
+      }
     for (const j of s.jobs)
       if (j.status === "running") {
         j.status = "waiting";
@@ -311,7 +272,7 @@ export async function createHoldingsApp({
   });
   app.post("/api/jobs", async (req, res, next) => {
     try {
-      const kind = ["watch", "portfolio", "market"].includes(req.body.kind)
+      const kind = ["watch", "portfolio", "market", "quotes"].includes(req.body.kind)
         ? req.body.kind
         : "portfolio";
       const result = await serial(async () => {
@@ -343,6 +304,42 @@ export async function createHoldingsApp({
   });
   app.post("/api/jobs/:id/complete", async (req, res, next) => {
     try {
+      const quoteResult = await serial(async () => {
+        const s = await read();
+        const job = s.jobs.find((j) => j.id === req.params.id);
+        if (!job) throw error("待办任务不存在。", 404);
+        if (job.kind === "quotes") {
+          if (!Array.isArray(req.body.quotes) || req.body.quotes.length > 1000)
+            throw error("收盘价任务需要提供 quotes 数组。" );
+          const expected = new Set(s.holdings.map((h) => h.symbol.toUpperCase()));
+          const received = new Set();
+          for (const q of req.body.quotes) {
+            if (!q || !text(q.symbol, 40) || !q.symbol.trim()) throw error("股票代码无效。");
+            const symbol = q.symbol.trim().toUpperCase();
+            if (!expected.has(symbol) || received.has(symbol) || !num(q.price, 0.000001) || !date(q.date) || !q.date || !text(q.source, 200) || !q.source.trim())
+              throw error(`收盘价数据无效：${symbol}。`);
+            received.add(symbol);
+          }
+          const missing = [...expected].filter((symbol) => !received.has(symbol));
+          if (missing.length) throw error(`尚未提供这些持仓的收盘价：${missing.join(", " )}`);
+          const bySymbol = new Map(req.body.quotes.map((q) => [q.symbol.trim().toUpperCase(), q]));
+          for (const h of s.holdings) {
+            const q = bySymbol.get(h.symbol.toUpperCase());
+            h.price = q.price;
+            h.priceDate = q.date;
+            h.priceSource = q.source.trim().slice(0, 100);
+            h.marketValue = Math.round(h.quantity * h.price * 100) / 100;
+          }
+          job.status = "done";
+          job.summary = text(req.body.summary || "", 1000) ? req.body.summary : "已更新全部持仓的最近完整收盘价。";
+          job.error = "";
+          job.completedAt = new Date().toISOString();
+          s.marketUpdatedAt = job.completedAt;
+          return write(s);
+        }
+        return null;
+      });
+      if (quoteResult) return res.json(quoteResult);
       if (!text(req.body.report, 500) || !req.body.report.toLowerCase().endsWith(".html"))
         throw error("请提供 reports 文件夹中的 HTML 相对路径。");
       let relative = req.body.report.replaceAll("\\", "/");
@@ -458,33 +455,6 @@ export async function createHoldingsApp({
     );
     return `${folder}/${name}`;
   };
-  app.post("/api/market/refresh", async (_req, res, next) => {
-    try {
-      const before = await read();
-      const symbols = [...new Set(before.holdings.map((h) => h.symbol.toUpperCase()))];
-      const quotes = await Promise.all(symbols.map(async (symbol) => {
-        try { return { symbol, ...(await quoteFetcher(symbol)) }; }
-        catch (e) { return { symbol, error: e.message || "行情获取失败" }; }
-      }));
-      const result = await serial(async () => {
-        const s = await read();
-        const bySymbol = new Map(quotes.filter((q) => Number.isFinite(q.price) && q.price > 0).map((q) => [q.symbol, q]));
-        for (const h of s.holdings) {
-          const q = bySymbol.get(h.symbol.toUpperCase());
-          if (!q) continue;
-          h.price = q.price;
-          h.priceDate = q.date;
-          h.priceSource = q.source || "Yahoo Finance";
-          h.marketValue = Math.round(h.quantity * h.price * 100) / 100;
-        }
-        s.marketUpdatedAt = new Date().toISOString();
-        return { state: await write(s), quotes };
-      });
-      res.json(result);
-    } catch (e) {
-      next(e);
-    }
-  });
   app.post("/api/research/import", async (req, res, next) => {
     try {
       const research = validateResearch(req.body.research);

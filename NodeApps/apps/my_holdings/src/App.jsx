@@ -232,7 +232,6 @@ export default function HoldingsApp() {
     [aiKind, setAiKind] = useState("portfolio"),
     [provider, setProvider] = useState("ChatGPT"),
     [stress, setStress] = useState(20),
-    [marketRefreshing, setMarketRefreshing] = useState(false),
     [importText, setImportText] = useState(""),
     [accountNames, setAccountNames] = useState(null);
   const stateRef = useRef(state),
@@ -336,7 +335,7 @@ export default function HoldingsApp() {
       const r = await request("/api/jobs", { kind, watchId, question: prompt });
       setState(r.state);
       stateRef.current = r.state;
-      notify("已加入 Codex 待办；你下次明确交代执行时再处理");
+      notify(kind === "quotes" ? "收盘价更新已加入待办" : "已加入待办");
       return true;
     } catch (e) {
       if (e.message.includes("已经在待办队列")) {
@@ -347,27 +346,12 @@ export default function HoldingsApp() {
       return false;
     }
   };
-  const refreshPrices = async () => {
-    if (marketRefreshing) return;
-    setMarketRefreshing(true);
-    try {
-      const r = await request("/api/market/refresh", {});
-      setState(r.state);
-      stateRef.current = r.state;
-      const updated = r.quotes.filter((q) => Number.isFinite(q.price)).length;
-      const failed = r.quotes.filter((q) => q.error);
-      notify(
-        failed.length
-          ? `已更新 ${updated} 个代码；${failed.length} 个暂时未能获取 (${failed.map((x) => x.symbol).join(", ")})`
-          : `已更新 ${updated} 个代码的最近完整收盘价`,
-        failed.length === r.quotes.length,
-      );
-    } catch (e) {
-      notify(e.message, true);
-    } finally {
-      setMarketRefreshing(false);
-    }
-  };
+  const refreshPrices = () =>
+    queueTask(
+      "quotes",
+      null,
+      "更新全部持仓标的最近一个已完成美股交易日的收盘价，并记录交易日期与数据来源。",
+    );
   const copy = async (kind = aiKind, focus) => {
     const prompt = `请按适合 ${provider} 的深度研究方式完成以下任务。\n${contextPack(stateRef.current, kind, focus ? `优先研究：${focus.name} ${focus.symbol}；${focus.note}；关注条件：${focus.trigger}` : question)}`;
     try {
@@ -380,7 +364,7 @@ export default function HoldingsApp() {
   };
   const copyQueue = async () => {
     const pending = stateRef.current.jobs.filter((j) => j.status === "waiting");
-    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务，不要使用 Codex CLI。\n\n先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，按文件中的 waiting 任务工作。核实最新事实和行情来源，为每项任务生成一份自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录。完成后将每项标为 done，并通过本地应用 API 回写（POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 必须包含 report 相对路径和完整 research 对象，才能更新关注卡片或组合分析）。无法完成时说明原因，并调用 /my-holdings/api/jobs/{任务ID}/fail。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "请依据待办队列中等待的任务完成研究。")}`;
+    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n收盘价任务（kind=quotes）：联网核对全部持仓代码最近一个已完成的美股交易日收盘价。每个代码都要有价格、交易日期与来源；若来源无法核实，就将任务标记为未完成。不要生成 HTML，也不要改动平均成本或总成本。完成后 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 格式为 {"quotes":[{"symbol":"VOO","price":700.12,"date":"2026-10-16","source":"来源名称"}],"summary":"更新说明"}。\n\n研究任务（kind=watch、portfolio、market）：联网核实最新资料，生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
     try {
       await navigator.clipboard.writeText(prompt);
       notify("待办与持仓背景已复制；粘贴给 Codex 后由它处理并回写结果");
@@ -424,7 +408,7 @@ export default function HoldingsApp() {
       <div>
         <span className="mh-eyebrow">{eyebrow}</span>
         <h1>{title}</h1>
-        <p>{subtitle}</p>
+        {subtitle && <p>{subtitle}</p>}
       </div>
       {action}
     </div>
@@ -761,11 +745,15 @@ export default function HoldingsApp() {
               {heading(
                 "THE POSITIONS YOU OWN",
                 "我的持仓",
-                "两个账户同时展开、颜色区分；按刷新获取最近一个完整交易日的收盘价。",
+                "",
                 <div className="mh-heading-actions">
-                  <button className="mh-button" onClick={refreshPrices} disabled={marketRefreshing}>
-                    <RefreshCw size={15} className={marketRefreshing ? "mh-spin" : ""} />
-                    {marketRefreshing ? "正在刷新…" : "刷新收盘价"}
+                  <label className="mh-search">
+                    <Search size={16} />
+                    <input aria-label="搜索持仓" placeholder="代码、名称、分类" value={query} onChange={(e) => setQuery(e.target.value)} />
+                  </label>
+                  <button className="mh-button" onClick={refreshPrices} disabled={state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting")}>
+                    <RefreshCw size={15} />
+                    {state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting") ? "收盘价已排队" : "刷新收盘价"}
                   </button>
                   <button className="mh-primary" onClick={() => setModal({ type: "holding" })}>
                     <Plus size={17} /> 新增持仓
@@ -773,13 +761,6 @@ export default function HoldingsApp() {
                 </div>,
               )}
               {stats(m)}
-              <div className="mh-toolbar holdings-toolbar">
-                <span className="mh-muted">成本均价来自 IBKR 平均价格；总成本沿用截图记录。</span>
-                <label className="mh-search">
-                  <Search size={16} />
-                  <input aria-label="搜索持仓" placeholder="代码、名称、分类" value={query} onChange={(e) => setQuery(e.target.value)} />
-                </label>
-              </div>
               <div className="mh-account-stack">
                 {state.accounts.map((a, index) => {
                   const rows = visibleHoldings.filter((h) => h.accountId === a.id);
@@ -796,7 +777,6 @@ export default function HoldingsApp() {
                 })}
               </div>
               <div className="mh-panel-bottom holdings-export">
-                <span>盈亏按券商截图总成本计算；刷新后市值按最近完整收盘价 × 股数更新。</span>
                 <button className="mh-text-button" onClick={() => download("my-holdings.csv", "\uFEFF" + [["账户","代码","名称","币种","股数","当前价格","成本均价","报价日期","总成本","总市值","浮盈亏"].join(","), ...m.holdings.map((h) => [state.accounts.find((a) => a.id === h.accountId)?.name,h.symbol,h.name,h.currency,h.quantity,h.price,h.averagePrice,h.priceDate,h.cost,h.marketValue,h.marketValue-h.cost].map((v) => '"'+String(v ?? "").replace(/^[=+@-]/,"'").replaceAll('"','""')+'"').join(","))].join("\r\n"), "text/csv;charset=utf-8")}>导出 CSV <Download size={14} /></button>
               </div>
             </>
@@ -806,38 +786,17 @@ export default function HoldingsApp() {
               {heading(
                 "GOOD IDEAS CAN WAIT",
                 "近期关注",
-                "先研究，再等待属于自己的机会。",
-                <button
-                  className="mh-primary"
-                  onClick={() => setModal({ type: "watch" })}
-                >
-                  <Plus size={17} /> 添加关注
-                </button>,
+                "",
+                <div className="mh-heading-actions">
+                  <label className="mh-search">
+                    <Search size={16} />
+                    <input aria-label="搜索关注标的" placeholder="搜索关注…" value={query} onChange={(e) => setQuery(e.target.value)} />
+                  </label>
+                  <button className="mh-primary" onClick={() => setModal({ type: "watch" })}>
+                    <Plus size={17} /> 添加关注
+                  </button>
+                </div>,
               )}
-              <div className="mh-banner">
-                <Sparkles size={22} />
-                <div>
-                  <strong>先排队，等你下一次交给 Codex</strong>
-                  <p>
-                    新增标的只保存任务，不会占用额度或在后台自动运行；点击 More 查看详细研究或复制资料。
-                  </p>
-                </div>
-                <span className="mh-tag">{state.jobs.filter((j) => j.status === "waiting").length} 项等待中</span>
-              </div>
-              <div className="mh-toolbar">
-                <span className="mh-muted">
-                  {state.watchlist.length} 个关注标的
-                </span>
-                <label className="mh-search">
-                  <Search size={16} />
-                  <input
-                    aria-label="搜索关注标的"
-                    placeholder="搜索关注…"
-                    value={query}
-                    onChange={(e) => setQuery(e.target.value)}
-                  />
-                </label>
-              </div>
               <div className="mh-watch-grid">
                 {state.watchlist
                   .filter((w) =>
@@ -857,7 +816,7 @@ export default function HoldingsApp() {
                             <h3>{w.name}</h3>
                             <small>{w.symbol || "待核实代码"} · {w.status || "关注中"}</small>
                           </div>
-                          <span className={`mh-queue-pill ${job?.status || "waiting"}`}>{job?.status === "done" ? "研究完成" : job?.status === "failed" ? "未完成" : "等待 Codex"}</span>
+                          <span className={`mh-queue-pill ${job?.status || "waiting"}`}>{job?.status === "done" ? "已更新" : job?.status === "failed" ? "未完成" : "等待更新中"}</span>
                           <button
                             className="mh-icon"
                             aria-label={`编辑关注 ${w.name}`}
@@ -873,11 +832,9 @@ export default function HoldingsApp() {
                             <Trash2 size={15} />
                           </button>
                         </header>
-                        <p>
-                          {w.research?.summary ||
-                            w.note || "研究已排队，待 Codex 执行后这里会显示摘要。"}
+                        <p className="mh-watch-summary">
+                          {w.research?.summary || (job?.status === "failed" ? "未完成" : "等待更新中")}
                         </p>
-                        {job?.status === "failed" && <small className="mh-error-text">{job.error}</small>}
                         <footer>
                           <button
                             className="mh-text-button"
