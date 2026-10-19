@@ -545,6 +545,12 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'counting-principles'
+    | 'counting-permutations'
+    | 'counting-combinations'
+    | 'counting-binomial'
+    | 'counting-conditional'
+    | 'counting-bayes'
     | 'spatial-coordinates'
     | 'spatial-operations'
     | 'spatial-dot'
