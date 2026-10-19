@@ -6,6 +6,12 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'counting-principles': 'IDENTITY · ALTERNATIVES · STAGES',
+  'counting-permutations': 'LABELLED POSITIONS · REPETITION',
+  'counting-combinations': 'MEMBERSHIP · EQUAL MULTIPLICITY',
+  'counting-binomial': 'FACTOR POSITIONS · PASCAL · FREQUENCY',
+  'counting-conditional': 'CONDITION · INTERSECTION · DENOMINATOR',
+  'counting-bayes': 'BASE RATE · FORWARD BRANCHES · REVERSE',
   'spatial-coordinates': 'POINT · DISPLACEMENT · THREE COMPONENTS',
   'spatial-operations': 'HEAD TO TAIL · SCALAR · ALL THREE COMPONENTS',
   'spatial-dot': 'DOT PRODUCT · ANGLE · NONZERO CONDITION',

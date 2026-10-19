@@ -1,3 +1,4 @@
+import { CountingLab, isCountingLab } from './CountingLabs';
 import { SpaceVectorLab, isSpaceVectorLab } from './SpaceVectorLabs';
 import { ConicLab, isConicLab } from './ConicLabs';
 import { ComplexLab, isComplexLab } from './ComplexLabs';
@@ -387,7 +388,9 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isSpaceVectorLab(kind) ? (
+  return isCountingLab(kind) ? (
+    <CountingLab key={kind} kind={kind} mode={mode} />
+  ) : isSpaceVectorLab(kind) ? (
     <SpaceVectorLab key={kind} kind={kind} mode={mode} />
   ) : isConicLab(kind) ? (
     <ConicLab key={kind} kind={kind} mode={mode} />

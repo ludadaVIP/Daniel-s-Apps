@@ -1,3 +1,4 @@
+import { CountingHookArt, isCountingLab } from './CountingLabs';
 import { SpaceVectorHookArt, isSpaceVectorLab } from './SpaceVectorLabs';
 import { ConicHookArt, isConicLab } from './ConicLabs';
 import { ComplexHookArt, isComplexLab } from './ComplexLabs';
@@ -185,7 +186,9 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isSpaceVectorLab(l.lab) ? (
+              {isCountingLab(l.lab) ? (
+                <CountingHookArt kind={l.lab} mode={mode} />
+              ) : isSpaceVectorLab(l.lab) ? (
                 <SpaceVectorHookArt kind={l.lab} mode={mode} />
               ) : isConicLab(l.lab) ? (
                 <ConicHookArt kind={l.lab} mode={mode} />

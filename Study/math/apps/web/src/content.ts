@@ -1,4 +1,9 @@
 import {
+  h24Lessons,
+  h24ReviewQuestion,
+  h24CheckQuestions,
+} from './content/H24';
+import {
   h23Lessons,
   h23ReviewQuestion,
   h23CheckQuestions,
@@ -336,6 +341,7 @@ export const lessons: Lesson[] = [
   ...h21Lessons,
   ...h22Lessons,
   ...h23Lessons,
+  ...h24Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -349,6 +355,9 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h24Lessons.map((l) => [l.id, h24ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h23Lessons.map((l) => [l.id, h23ReviewQuestion(l.id, 0)]),
   ),
@@ -486,6 +495,7 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H24-')) return h24ReviewQuestion(id, round);
   if (id.startsWith('H23-')) return h23ReviewQuestion(id, round);
   if (id.startsWith('H22-')) return h22ReviewQuestion(id, round);
   if (id.startsWith('H21-')) return h21ReviewQuestion(id, round);
@@ -542,6 +552,16 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H24: {
+    id: 'H24-CHECK',
+    unit: 'H24',
+    title: t(
+      '计数与条件概率小回顾',
+      'A small counting and conditional probability review',
+    ),
+    questions: h24CheckQuestions,
+    bridge: 'H24-L01',
+  },
   H23: {
     id: 'H23-CHECK',
     unit: 'H23',
