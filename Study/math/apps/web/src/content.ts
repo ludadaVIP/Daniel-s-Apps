@@ -1,4 +1,14 @@
 import {
+  h08Lessons,
+  h08ReviewQuestion,
+  h08CheckQuestions,
+} from './content/H08';
+import {
+  h07Lessons,
+  h07ReviewQuestion,
+  h07CheckQuestions,
+} from './content/H07';
+import {
   h06Lessons,
   h06ReviewQuestion,
   h06CheckQuestions,
@@ -306,6 +316,8 @@ export const lessons: Lesson[] = [
   ...h04Lessons,
   ...h05Lessons,
   ...h06Lessons,
+  ...h07Lessons,
+  ...h08Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -319,6 +331,12 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h08Lessons.map((l) => [l.id, h08ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h07Lessons.map((l) => [l.id, h07ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h06Lessons.map((l) => [l.id, h06ReviewQuestion(l.id, 0)]),
   ),
@@ -441,6 +459,8 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H08-')) return h08ReviewQuestion(id, round);
+  if (id.startsWith('H07-')) return h07ReviewQuestion(id, round);
   if (id.startsWith('H06-')) return h06ReviewQuestion(id, round);
   if (id.startsWith('H05-')) return h05ReviewQuestion(id, round);
   if (id.startsWith('H04-')) return h04ReviewQuestion(id, round);
@@ -492,6 +512,20 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H08: {
+    id: 'H08-CHECK',
+    unit: 'H08',
+    title: t('数据建模小回顾', 'A small data modelling review'),
+    questions: h08CheckQuestions,
+    bridge: 'H08-L01',
+  },
+  H07: {
+    id: 'H07-CHECK',
+    unit: 'H07',
+    title: t('数列小回顾', 'A small sequences review'),
+    questions: h07CheckQuestions,
+    bridge: 'H07-L01',
+  },
   H06: {
     id: 'H06-CHECK',
     unit: 'H06',

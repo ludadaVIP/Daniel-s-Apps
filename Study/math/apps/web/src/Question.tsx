@@ -12,6 +12,67 @@ import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 import { trigQuantityMatches } from './trigModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'data-code') {
+    if (['nominal', 'ordinal', 'discrete', 'continuous'].includes(spec.value))
+      return t(
+        '写nominal（无序类别）、ordinal（有序类别）、discrete（离散数值）或continuous（连续数值）。编码数字不自动变成数值变量。',
+        'Use nominal, ordinal, discrete or continuous. Numerical category codes do not turn labels into numerical quantities.',
+      );
+    if (
+      ['right-skew', 'left-skew', 'symmetric', 'asymmetric'].includes(
+        spec.value,
+      )
+    )
+      return t(
+        '按原始点的尾部与镜像写right-skew、left-skew、symmetric或asymmetric。不要仅凭均值与中位数相等判断对称。',
+        'Use right-skew, left-skew, symmetric or asymmetric from tails and mirror pairs. Equal mean and median alone do not prove symmetry.',
+      );
+    if (spec.value === 'undefined')
+      return t(
+        '分母为0时写undefined或无定义，不把0/0规定为0。',
+        'With a zero denominator, enter undefined or 无定义; 0/0 is not zero.',
+      );
+    if (spec.value === 'not-identified')
+      return t(
+        '条件不能唯一确定所求模型参数或预测时写not-identified或不能唯一确定。',
+        'Use not-identified when the conditions do not uniquely determine the requested parameter or prediction.',
+      );
+    return t(
+      '查询x在观测x的最小至最大范围内写interpolation（内插），范围外写extrapolation（外推）；这不保证模型可靠。',
+      'Use interpolation within the observed x range and extrapolation beyond it; neither label guarantees reliability.',
+    );
+  }
+  if (spec.kind === 'sequence-code') {
+    if (['outside-domain', 'insufficient', 'inconsistent'].includes(spec.value))
+      return t(
+        '按条件区分域外outside-domain、条件不足insufficient与条件矛盾inconsistent。先核序号是否允许，再核是否给了完整规则及一致的初始条件。',
+        'Distinguish outside-domain, insufficient and inconsistent. Check allowed indices, a complete rule and consistent initial conditions.',
+      );
+    if (spec.value === 'undefined')
+      return t(
+        '先检查所求比值的分母；若分母为0，写无定义或undefined，不能给0/0指定公比。',
+        'Check the requested denominator. If it is zero, enter undefined or 无定义; do not assign a ratio to0/0.',
+      );
+    if (spec.value === 'not-reached')
+      return t(
+        '只在题目指定的整期范围内核对。范围内未达到写not-reached，不表示永远无法达到。',
+        'Check only the stated whole-period window. Use not-reached for a bounded miss; it does not mean never.',
+      );
+    return t(
+      '按题意写等差arithmetic、等比geometric、两者都是both、两者都不是neither或非等比not-geometric；等比分类采用本单元各项非零的定义。',
+      'Use arithmetic, geometric, both, neither or not-geometric as requested. Geometric classification here uses the unit’s nonzero-term definition.',
+    );
+  }
+  if (spec.kind === 'solid-code')
+    return spec.value === 'valid-net' || spec.value === 'invalid-net'
+      ? t(
+          '写有效展开图 / 无效展开图，或valid-net / invalid-net；保留每块面的身份，检查折后是否重叠。',
+          'Enter valid-net or invalid-net, or the Chinese equivalent. Track face identity and check for overlapping folded faces.',
+        )
+      : t(
+          '按题意写相交、平行、异面、重合或在平面内，也可用intersecting / parallel / skew / coincident / contained。先核对完整直线、平面与共面条件。',
+          'Use intersecting, parallel, skew, coincident or contained as requested; Chinese equivalents are accepted. Check full lines, planes and coplanarity first.',
+        );
   if (spec.kind === 'function-code')
     return t(
       '按题意写function/not-function、outside-domain/undetermined、increasing/decreasing/neither-strict、even/odd/both/neither，或invertible/not-invertible。递增/递减在本题指严格，奇偶性须核定义域。',

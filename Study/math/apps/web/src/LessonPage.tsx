@@ -1,3 +1,5 @@
+import { DataModellingHookArt, isDataModellingLab } from './DataModellingLabs';
+import { SequenceHookArt, isSequenceLab } from './SequenceLabs';
 import { SolidHookArt, isSolidLab } from './SolidLabs';
 import { ExponentialHookArt, isExponentialLab } from './ExponentialLabs';
 import { VectorHookArt, isVectorLab } from './VectorLabs';
@@ -180,7 +182,11 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isSolidLab(l.lab) ? (
+              {isDataModellingLab(l.lab) ? (
+                <DataModellingHookArt kind={l.lab} mode={mode} />
+              ) : isSequenceLab(l.lab) ? (
+                <SequenceHookArt kind={l.lab} mode={mode} />
+              ) : isSolidLab(l.lab) ? (
                 <SolidHookArt kind={l.lab} mode={mode} />
               ) : isVectorLab(l.lab) ? (
                 <VectorHookArt kind={l.lab} mode={mode} />

@@ -6,6 +6,17 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'data-cleaning': 'IDENTITY · UNITS · AUDIT TRAIL',
+  'data-shape': 'OBSERVATIONS · BINS · TAILS',
+  'data-spread': 'DEVIATION · SQUARE · DIVISOR',
+  'data-standard': 'REFERENCE · SIGN · STANDARD UNITS',
+  'data-regression': 'PAIRS · RESIDUALS · SQUARED ERROR',
+  'sequence-rules': 'INTEGER INDEX · RULE · EVIDENCE',
+  'sequence-arithmetic': 'INDEX GAPS · CONSTANT DIFFERENCE',
+  'sequence-arithmetic-sum': 'TWO COPIES · SIGNED SUM',
+  'sequence-geometric': 'FIXED MULTIPLIER · NONZERO RATIO',
+  'sequence-geometric-sum': 'SHIFT · CANCEL · FINITE TAIL',
+  'sequence-savings': 'TIMING · POSTING · WHOLE PERIODS',
   'solid-relations': 'COPLANAR · SKEW · INCIDENCE',
   'solid-types': 'FACES · PERPENDICULAR HEIGHT',
   'solid-sections': 'INTERSECTIONS · FACE IDENTITY',

@@ -93,6 +93,17 @@ function Prediction({
     <div className="math-concept-task">
       <label>
         <Text mode={mode} text={name} />
+        {answer.kind === 'radical' && (
+          <small>
+            <Text
+              mode={mode}
+              text={t(
+                '只填精确数值，不附单位；根式可用sqrt(...)。',
+                'Enter only the exact numerical value without a unit suffix; use sqrt(...) for radicals.',
+              )}
+            />
+          </small>
+        )}
         <input
           aria-label={word(mode, name)}
           value={input}
@@ -704,11 +715,15 @@ function CutsLab({ mode }: { mode: LanguageMode }) {
           ['net', t('展开与折面', 'Nets and folding')],
         ]}
       />
-      <section hidden={part !== 'section'}>
-        <SectionsLab mode={mode} />
+      <section hidden={part !== 'section'} style={{ minWidth: 0 }}>
+        <div className="math-concept-lab">
+          <SectionsLab mode={mode} />
+        </div>
       </section>
-      <section hidden={part !== 'net'}>
-        <NetsLab mode={mode} />
+      <section hidden={part !== 'net'} style={{ minWidth: 0 }}>
+        <div className="math-concept-lab">
+          <NetsLab mode={mode} />
+        </div>
       </section>
     </>
   );

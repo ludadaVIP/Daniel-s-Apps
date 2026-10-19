@@ -1,3 +1,5 @@
+import { DataModellingLab, isDataModellingLab } from './DataModellingLabs';
+import { SequenceLab, isSequenceLab } from './SequenceLabs';
 import { SolidLab, isSolidLab } from './SolidLabs';
 import { VectorLab, isVectorLab } from './VectorLabs';
 import { CircularLab, isCircularLab } from './CircularLabs';
@@ -382,7 +384,11 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isSolidLab(kind) ? (
+  return isDataModellingLab(kind) ? (
+    <DataModellingLab key={kind} kind={kind} mode={mode} />
+  ) : isSequenceLab(kind) ? (
+    <SequenceLab key={kind} kind={kind} mode={mode} />
+  ) : isSolidLab(kind) ? (
     <SolidLab key={kind} kind={kind} mode={mode} />
   ) : isVectorLab(kind) ? (
     <VectorLab key={kind} kind={kind} mode={mode} />

@@ -1,3 +1,5 @@
+import { checkDataCode, type DataCode } from './dataModellingModels';
+import { checkSequenceCode, type SequenceCode } from './sequenceModels';
 import { checkSolidCode, type SolidCode } from './solidModels';
 import { checkVectorCode, type VectorCode } from './vectorModels';
 import {
@@ -86,6 +88,8 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'data-code'; value: DataCode }
+  | { kind: 'sequence-code'; value: SequenceCode }
   | { kind: 'solid-code'; value: SolidCode }
   | { kind: 'vector-code'; value: VectorCode }
   | { kind: 'radian'; coefficient: string; value: string }
@@ -523,6 +527,17 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'data-cleaning'
+    | 'data-shape'
+    | 'data-spread'
+    | 'data-standard'
+    | 'data-regression'
+    | 'sequence-rules'
+    | 'sequence-arithmetic'
+    | 'sequence-arithmetic-sum'
+    | 'sequence-geometric'
+    | 'sequence-geometric-sum'
+    | 'sequence-savings'
     | 'solid-relations'
     | 'solid-types'
     | 'solid-sections'
@@ -903,6 +918,9 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'data-code') return checkDataCode(input, spec.value);
+  if (spec.kind === 'sequence-code')
+    return checkSequenceCode(input, spec.value);
   if (spec.kind === 'solid-code') return checkSolidCode(input, spec.value);
   if (spec.kind === 'vector-code') return checkVectorCode(input, spec.value);
   if (spec.kind === 'radian') return checkAngle(input, spec.coefficient);

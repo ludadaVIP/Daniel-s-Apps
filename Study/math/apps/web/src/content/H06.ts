@@ -59,7 +59,7 @@ const specs: Spec[] = [
       '长方体ABCD-EFGH中，底棱AB与竖棱CG没有交点，它们一定平行吗？',
       'In cuboid ABCD-EFGH, base edge AB and vertical edge CG do not meet. Must their full lines be parallel?',
     ],
-    prerequisites: ['J86-L05', 'J75-L01', 'H05-L04'],
+    prerequisites: ['P56-L05', 'J75-L01', 'H05-L04'],
     keywords: [
       ['共面', 'coplanar'],
       ['异面直线', 'skew lines'],
@@ -426,7 +426,7 @@ const specs: Spec[] = [
         ],
         [
           'z=0与一个底面重合，交集是边长4的正方形，面积16。x+y=0在x,y非负时只可能x=y=0，所以交集是z从0到4的一条棱，面积0。更极端x+y+z=0只有一个顶点；在边界不能伪造二维多边形。',
-          'z=0 coincides with a square base face of area16. With nonnegative x,y, x+y=0 forces x=y=0, so the intersection is one full edge, 0≤z≤4, of area zero. At x+y+z=0 it is just one vertex. Boundary intersections need not be two-dimensional polygons.',
+          'z=0 coincides with a square base face of area 16. With nonnegative x,y, x+y=0 forces x=y=0, so the intersection is one full edge, 0≤z≤4, of area zero. At x+y+z=0 it is just one vertex. Boundary intersections need not be two-dimensional polygons.',
         ],
       ),
     ],
@@ -480,7 +480,7 @@ const specs: Spec[] = [
     ],
     hook: [
       '长方体长3、宽4、高12，从A到G沿三条棱走19 cm，为何直线距离只有13 cm？',
-      'In a 3×4×12 cuboid, a three-edge route A to G travels19 cm. Why is the direct distance only13 cm?',
+      'In a 3×4×12 cuboid, a three-edge route A to G travels 19 cm. Why is the direct distance only 13 cm?',
     ],
     prerequisites: ['H06-L01', 'H05-L05', 'J87-L04', 'J96-L01'],
     keywords: [
@@ -570,7 +570,7 @@ const specs: Spec[] = [
         ],
         [
           '路线沿三条棱长3+4+12=19 cm；两点最短直线段AG=13 cm；点面距离为垂直段GC=12 cm。三者所问对象与允许路径不同，不能因为都用cm就混为一谈。',
-          'The edge route has length3+4+12=19 cm; the shortest segment between A and G is AG=13 cm; point-plane distance is perpendicular GC=12 cm. They use different objects and permitted paths, despite sharing centimetre units.',
+          'The edge route has length 3+4+12=19 cm; the shortest segment between A and G is AG=13 cm; point-plane distance is perpendicular GC=12 cm. They use different objects and permitted paths, despite sharing centimetre units.',
         ],
       ),
     ],
@@ -601,8 +601,8 @@ const specs: Spec[] = [
       correct: 0,
     },
     reason: [
-      '有人给AG与底面夹角的cos写12/13。指出它对应什么，并给出正确投影解释。',
-      'Someone gives12/13 as the cosine of the angle between AG and the base. Identify that ratio and explain the correct projection.',
+      '长方体ABCD-EFGH底边AB=3 cm、BC=4 cm，竖棱CG=12 cm。有人给AG与底面夹角的cos写12/13。指出它对应什么，并给出正确投影解释。',
+      'In cuboid ABCD-EFGH, AB=3 cm, BC=4 cm and vertical CG=12 cm. Someone gives 12/13 as the cosine of the angle between AG and the base. Identify that ratio and explain the correct projection.',
     ],
     rubric: [
       '底面正投影AC=5、AG=13、垂直高GC=12。线面角θ=∠GAC，cosθ=5/13，sinθ=12/13；12/13也可作为AG与竖直方向锐角的余弦。必须先指定角的两边，不能用投影图量角。',
@@ -623,7 +623,7 @@ const specs: Spec[] = [
       '6×4×2 cm底块上放3×2×2 cm小块，两个完整表面积直接相加就是涂色面积吗？',
       'Place a3×2×2 cm block on a6×4×2 cm base block. Does adding their full surface areas give the painted area?',
     ],
-    prerequisites: ['H06-L02', 'H06-L03', 'P56-L06', 'P63-L04'],
+    prerequisites: ['H06-L02', 'H06-L03', 'P56-L06', 'P63-L05'],
     keywords: [
       ['接触面', 'contact face'],
       ['外露面积', 'exposed area'],
@@ -650,7 +650,7 @@ const specs: Spec[] = [
         '60',
         [
           '底块48、小块12，体积和60 cm³。接触面积不是要减去的体积。',
-          'The blocks have volumes48 and12, totaling60 cm³. Contact area is not volume to subtract.',
+          'The blocks have volumes 48 and 12, totaling 60 cm³. Contact area is not volume to subtract.',
         ],
         ['48', '54'],
         'cm³',
@@ -658,7 +658,7 @@ const specs: Spec[] = [
       N(
         [
           '同一拼合体，接触片为3×2 cm。两块完整表面积分别88、32 cm²，求外露总面积。',
-          'For the same assembly the contact patch is3×2 cm. Full surface areas are88 and32 cm². Find exposed total area.',
+          'For the same assembly the contact patch is 3×2 cm. Full surface areas are 88 and 32 cm². Find exposed total area.',
         ],
         '108',
         [
@@ -676,7 +676,7 @@ const specs: Spec[] = [
         '6',
         [
           '小块底面完全落在大块顶面内，交叠片3×2=6 cm²，不是整个大块顶面24。',
-          'The smaller base lies fully within the large top, so the shared patch is3×2=6 cm², not the entire24 cm² top.',
+          'The smaller base lies fully within the large top, so the shared patch is 3×2=6 cm², not the entire 24 cm² top.',
         ],
         ['12', '24'],
         'cm²',
@@ -684,12 +684,12 @@ const specs: Spec[] = [
       N(
         [
           '单独一个无盖长方体盒，底6×4 cm、垂直高2 cm，忽略厚度和接缝。材料面片总面积是多少cm²？',
-          'A separate open-top cuboid box has base6×4 cm and height2 cm. Ignore thickness and tabs. Find material face area in cm².',
+          'A separate open-top cuboid box has base 6×4 cm and height 2 cm. Ignore thickness and tabs. Find material face area in cm².',
         ],
         '64',
         [
           '保留底24与四侧2×6×2+2×4×2=40，合计64 cm²；只去顶24。',
-          'Retain bottom24 and four walls2×6×2+2×4×2=40, totaling64 cm². Remove only the top24.',
+          'Retain bottom 24 and four walls 2×6×2+2×4×2=40, totaling 64 cm². Remove only the top 24.',
         ],
         ['88', '40'],
         'cm²',
@@ -697,24 +697,24 @@ const specs: Spec[] = [
       N(
         [
           '将原体积60 cm³拼合体的所有长度放大为2倍，总体积是多少cm³？',
-          'Scale every length of the original60 cm³ assembly by two. Find the new volume in cm³.',
+          'Scale every length of the original 60 cm³ assembly by two. Find the new volume in cm³.',
         ],
         '480',
         [
           '体积乘2³=8，60×8=480 cm³；原外露面积108则乘4得432 cm²。',
-          'Volume scales by2³=8, so60×8=480 cm³; exposed area108 instead scales by four to432 cm².',
+          'Volume scales by 2³=8, so 60×8=480 cm³; exposed area 108 instead scales by four to 432 cm².',
         ],
         ['120', '240'],
         'cm³',
       ),
       E(
         [
-          '纸上展示台模型为本课拼合体，每1 cm模型长度代表实际10 cm。求实际体积与外露面积；每张涂色材料覆盖0.5 m²，须买几整张？说明。',
-          'Use this assembly as a paper display-plinth model:1 cm represents10 cm. Find actual volume and exposed area. Covering sheets each cover0.5 m²; how many whole sheets are needed? Explain.',
+          '纸上展示台模型由6×4×2 cm底块与平放其上的3×2×2 cm顶块拼成，接触片3×2 cm，内部不重叠。每1 cm模型长度代表实际10 cm。求实际体积与外露面积；每张材料覆盖0.5 m²，须买几整张？说明模型假设。',
+          'A paper display-plinth model has a 6×4×2 cm base and a 3×2×2 cm top block, flush over a 3×2 cm contact patch with disjoint interiors. Each model centimetre represents 10 cm. Find actual volume and exposed area. Sheets cover 0.5 m² each; how many whole sheets are needed? State assumptions.',
         ],
         [
           '长度乘10，体积60×1000=60000 cm³=60 L，外露面积108×100=10800 cm²=1.08 m²。1.08/0.5=2.16，须3整张；已假设零厚度、无内部重叠、忽略裁切损耗，不把精确面积份额当整张采购数。',
-          'Lengths scale by ten: volume60×1000=60000 cm³=60 L and exposed area108×100=10800 cm²=1.08 m². The fraction1.08/0.5=2.16 requires three whole sheets. State zero thickness, disjoint interiors and no cutting loss; the exact area quotient differs from the whole purchase count.',
+          'Lengths scale by ten: volume 60×1000=60000 cm³=60 L and exposed area 108×100=10800 cm²=1.08 m². The fraction 1.08/0.5=2.16 requires three whole sheets. State zero thickness, disjoint interiors and no cutting loss; the exact area quotient differs from the whole purchase count.',
         ],
       ),
     ],
@@ -752,11 +752,11 @@ const specs: Spec[] = [
     },
     reason: [
       '有人算外露面积为88+32−6=114 cm²。指出漏掉哪一片，并核对正确结果。',
-      'Someone calculates exposed area as88+32−6=114 cm². Identify the omitted removal and check the result.',
+      'Someone calculates exposed area as 88+32−6=114 cm². Identify the omitted removal and check the result.',
     ],
     rubric: [
       '88包含大块顶面接触区，32包含小块底面接触区；这两份面积6都不外露，故应120−12=108 cm²。虽然几何接触片只有一个位置，原表面积和把它的两个面身份各算过一次。',
-      'The88 includes the large top patch and the32 includes the small bottom patch. Both6 cm² copies are buried, giving120−12=108 cm². One geometric contact location was counted twice in the sum of separate surface areas, once for each face identity.',
+      'The 88 includes the large top patch and the 32 includes the small bottom patch. Both 6 cm² copies are buried, giving 120−12=108 cm². One geometric contact location was counted twice in the sum of separate surface areas, once for each face identity.',
     ],
     misconception: [
       '把体积和表面积混算、只扣一次接触、去掉整个大面，或把长度倍率用于所有量。',
@@ -813,7 +813,7 @@ export const h06Lessons: Lesson[] = specs.map((s, i) => {
     order: i + 1,
     nzYearHints: [10, 11, 12],
     cnGradeHints: [10],
-    contentStatus: 'draft',
+    contentStatus: 'ready',
     skillTags: [s.skill],
     guided: q(`${id}-G`, i, s.items[0]!),
     questions: [
@@ -906,7 +906,7 @@ export function h06ReviewQuestion(id: string, round: number): Question {
         ? N(
             [
               `${n}棱${kind === 'prism' ? '柱' : '锥'}底面积12 cm²，垂直高${height} cm，求体积cm³。`,
-              `An ${n}-gonal ${kind} has base area12 cm² and perpendicular height${height} cm. Find volume in cm³.`,
+              `An ${n}-gonal ${kind} has base area 12 cm² and perpendicular height ${height} cm. Find volume in cm³.`,
             ],
             textR(solidVolume(kind, 12, height)),
             [
@@ -919,7 +919,7 @@ export function h06ReviewQuestion(id: string, round: number): Question {
         : N(
             [
               `${n}棱${kind === 'prism' ? '柱' : '锥'}，垂直高${height} cm，求${ask === 0 ? '平面面数' : '棱数'}。`,
-              `For an ${n}-gonal ${kind} with height${height} cm, find ${ask === 0 ? 'flat face count' : 'edge count'}.`,
+              `For an ${n}-gonal ${kind} with height ${height} cm, find ${ask === 0 ? 'flat face count' : 'edge count'}.`,
             ],
             String(ask === 0 ? m.faces : m.edges),
             [
@@ -950,7 +950,7 @@ export function h06ReviewQuestion(id: string, round: number): Question {
       item = C(
         [
           `边长${side} cm的六格排布：${labels[key][0]}。判断valid-net/invalid-net。`,
-          `Six squares of side${side} cm form ${labels[key][1]}. Classify valid-net/invalid-net.`,
+          `Six squares of side ${side} cm form ${labels[key][1]}. Classify valid-net/invalid-net.`,
         ],
         m.valid ? 'valid-net' : 'invalid-net',
         [
@@ -978,7 +978,7 @@ export function h06ReviewQuestion(id: string, round: number): Question {
       item = N(
         [
           `0≤x,y,z≤${side}的正方体与${diagonal ? 'x+y+z' : 'z'}=${d}相交，数不同顶点/端点，空集记0。`,
-          `Intersect cube 0≤x,y,z≤${side} with ${diagonal ? 'x+y+z' : 'z'}=${d}. Count distinct vertices/endpoints; use0 for empty.`,
+          `Intersect cube 0≤x,y,z≤${side} with ${diagonal ? 'x+y+z' : 'z'}=${d}. Count distinct vertices/endpoints; use 0 for empty.`,
         ],
         String(m.points.length),
         [
