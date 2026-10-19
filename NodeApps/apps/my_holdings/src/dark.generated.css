@@ -559,6 +559,7 @@
 :root[data-theme="dark"] .mh-account-heading .mh-tag { border-color: color-mix(in srgb, var(--account-color) 16%, #4a4a4a); }
 :root[data-theme="dark"] .mh-account-total strong { color: #c4d5c8; }
 :root[data-theme="dark"] .mh-queue-pill { background: #27251b; color: #d7cdb5; }
+:root[data-theme="dark"] .mh-queue-pill.idle { background: #20241e; color: #c1c5c1; }
 :root[data-theme="dark"] .mh-queue-pill.done { background: #1b271b; color: #bcd1be; }
 :root[data-theme="dark"] .mh-queue-pill.failed { background: #261e1b; color: #d8b7b0; }
 :root[data-theme="dark"] .mh-queue-summary p { color: #c0c6bd; }
@@ -616,4 +617,61 @@
 :root[data-theme="dark"] .mh-price-alerts > p:first-child { color: #c0c9be; }
 :root[data-theme="dark"] .mh-price-alert { border-top: 1px solid #4c593b; }
 :root[data-theme="dark"] .mh-price-alert strong { color: #c3d3be; }
+
+/* Recent watchlist: compact sorting controls stay inside the page heading. */
+:root[data-theme="dark"] .mh-watch-sort-switch {
+  border: 1px solid #4b583c;
+  background: #22271b;
+}
+:root[data-theme="dark"] .mh-watch-sort-indicator {
+  border: 1px solid #475b39;
+  background: #1c1c1c;
+}
+:root[data-theme="dark"] .mh-watch-sort-switch button {
+  color: #bfc5bb;
+}
+:root[data-theme="dark"] .mh-watch-sort-switch button[aria-pressed="true"] { color: #c1d2bf; }
+:root[data-theme="dark"] .mh-watch-category > header {
+  border-bottom: 1px solid #4a573d;
+}
+:root[data-theme="dark"] .mh-watch-category > header h2 { color: #c3d1c1; }
+:root[data-theme="dark"] .mh-watch-category > header > span { color: #bbc4b7; }
+:root[data-theme="dark"] .mh-watch-category-meta > span { color: #bbc4b7; }
+:root[data-theme="dark"] .mh-watch-category-mark { background: #333f31; }
+:root[data-theme="dark"] .mh-watch-category-funds .mh-watch-category-mark { background: #2f3e41; }
+:root[data-theme="dark"] .mh-watch-category-empty { color: #bbc2b8; }
+:root[data-theme="dark"] .mh-watch-card:hover { border-color: #465a3a; }
+:root[data-theme="dark"] .mh-watch-card.selected { border-color: #43573d; }
+:root[data-theme="dark"] .mh-watch-distance.touched strong { color: #bdcfbb; }
+:root[data-theme="dark"] .mh-watch-priority-heading h3 { color: #c3d1c1; }
+:root[data-theme="dark"] .mh-watch-priority-intro { color: #bcc3bc; }
+:root[data-theme="dark"] .mh-watch-priority-row {
+  border-top: 1px solid #4c583c;
+}
+:root[data-theme="dark"] .mh-watch-priority-row:hover .mh-priority-copy strong { color: #bfd1bd; }
+:root[data-theme="dark"] .mh-priority-rank {
+  background: #21271b;
+  color: #c0cfbc;
+}
+:root[data-theme="dark"] .mh-watch-priority-row:first-child .mh-priority-rank { background: #222a1d; color: #bfd4bd; }
+:root[data-theme="dark"] .mh-priority-copy strong { color: #c4d4c7; }
+:root[data-theme="dark"] .mh-priority-copy em { background: #20251a; color: #bdc5ba; }
+:root[data-theme="dark"] .mh-priority-copy small { color: #bbc1b8; }
+:root[data-theme="dark"] .mh-priority-gap strong { color: #c1cbbc; }
+:root[data-theme="dark"] .mh-priority-gap.touched strong { color: #bad1bc; }
+:root[data-theme="dark"] .mh-priority-gap small { color: #bbc1b8; }
+:root[data-theme="dark"] .mh-watch-priority-empty { border: 1px dashed #495c38; background: #1f2318; color: #bec8ba; }
+:root[data-theme="dark"] .mh-watch-priority-empty strong { color: #c2cebf; }
+:root[data-theme="dark"] .mh-watch-priority-empty p { color: #bdc4b9; }
+:root[data-theme="dark"] .mh-watch-priority-footnote { border-top: 1px solid #4c583c; color: #bbc2b6; }
+:root[data-theme="dark"] .mh-watch-detail-prices > div { border: 1px solid #4a573d; background: #1f2318; }
+:root[data-theme="dark"] .mh-watch-detail-prices small { color: #bdc4b9; }
+:root[data-theme="dark"] .mh-watch-detail-prices strong { color: #c2d2c0; }
+:root[data-theme="dark"] .mh-watch-detail-prices .touched strong { color: #bad0ba; }
+:root[data-theme="dark"] .mh-watch-detail-source { color: #bbc1b8; }
+:root[data-theme="dark"] .mh-watch-detail-source a { text-decoration-color: #46563e; }
+:root[data-theme="dark"] .mh-watch-gap-explainer { color: #bcc4bb; }
+:root[data-theme="dark"] .mh-watch-detail-section { border-top: 1px solid #4c583c; }
+:root[data-theme="dark"] .mh-watch-detail-section h3 { color: #c3cec0; }
+:root[data-theme="dark"] .mh-watch-detail-actions { border-top: 1px solid #4c583c; }
 

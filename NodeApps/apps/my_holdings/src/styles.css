@@ -2277,6 +2277,7 @@
 .mh-account-section .mh-table th { padding-top: 8px; }
 .holdings-export { margin-top: 8px; }
 .mh-queue-pill { display: inline-flex; flex-shrink: 0; padding: 2px 7px; border-radius: 20px; background: #f3f0e5; color: #8b774a; font-size: 9px; }
+.mh-queue-pill.idle { background: #eef0ed; color: #747d75; }
 .mh-queue-pill.done { background: #e9f2e9; color: #547b57; }
 .mh-queue-pill.failed { background: #f7ece8; color: #9b5b4d; }
 .mh-queue-summary { padding: 15px 18px; display: flex; align-items: center; gap: 20px; }
@@ -2535,4 +2536,139 @@
   .mh-watch-prices { grid-template-columns: minmax(0,1fr) minmax(72px,.8fr) auto; }
   .mh-watch-card .mh-queue-pill { max-width: 64px; overflow: hidden; text-overflow: ellipsis; }
   .mh-report-synopsis.empty { align-items: flex-start; flex-direction: column; }
+}
+
+/* Recent watchlist: compact sorting controls stay inside the page heading. */
+.mh-watch-heading-actions { gap: 6px; }
+.mh-watch-heading-actions .mh-search { max-width: 145px; }
+.mh-watch-sort-switch {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(48px, 1fr));
+  gap: 2px;
+  flex: 0 0 auto;
+  padding: 4px;
+  border: 1px solid #e3e8dd;
+  border-radius: 9px;
+  background: #edf1e8;
+}
+.mh-watch-sort-indicator {
+  position: absolute;
+  z-index: 0;
+  top: 4px;
+  bottom: 4px;
+  left: 4px;
+  width: calc((100% - 8px) / 3);
+  border: 1px solid #dce5d6;
+  border-radius: 6px;
+  background: #fff;
+  box-shadow: 0 1px 3px #31472b12;
+  transition: transform 180ms ease;
+}
+.mh-watch-sort-switch[data-active="price"] .mh-watch-sort-indicator { transform: translateX(calc(100% + 4px)); }
+.mh-watch-sort-switch[data-active="gap"] .mh-watch-sort-indicator { transform: translateX(calc(200% + 8px)); }
+.mh-watch-sort-switch button {
+  position: relative;
+  z-index: 1;
+  min-height: 29px;
+  padding: 4px 6px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: #879280;
+  font-size: 9px;
+  white-space: nowrap;
+}
+.mh-watch-sort-switch button[aria-pressed="true"] { color: #4e6c4c; font-weight: 600; }
+.mh-watch-sort-switch button:focus-visible { outline-offset: 1px; }
+.mh-watch-categories { display: grid; gap: 21px; }
+.mh-watch-category { min-width: 0; }
+.mh-watch-category > header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 0 0 9px;
+  padding: 0 1px 7px;
+  border-bottom: 1px solid #e8ece4;
+}
+.mh-watch-category > header > div { display: flex; align-items: center; gap: 8px; }
+.mh-watch-category > header h2 { color: #536a4f; font-size: 13px; }
+.mh-watch-category > header > span { color: #93a08c; font-size: 10px; font-variant-numeric: tabular-nums; }
+.mh-watch-category-meta { display: flex; align-items: center; gap: 9px; }
+.mh-watch-category-meta > span { color: #93a08c; font-size: 10px; font-variant-numeric: tabular-nums; }
+.mh-watch-category-mark { width: 4px; height: 17px; border-radius: 4px; background: #789274; }
+.mh-watch-category-funds .mh-watch-category-mark { background: #7d9aa0; }
+.mh-watch-category-empty { padding: 12px 2px; color: #97a191; font-size: 10px; }
+.mh-watch-card { cursor: pointer; transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease; }
+.mh-watch-card:hover { border-color: #cbd8c3; box-shadow: 0 4px 13px #30452d0b; transform: translateY(-1px); }
+.mh-watch-card.selected { border-color: #92ad89; box-shadow: inset 2px 0 #608164, 0 2px 9px #30452d0a; }
+.mh-watch-identity { border: 0; background: transparent; color: inherit; cursor: pointer; }
+.mh-watch-expand { display: flex; justify-content: center; margin: 0; font-size: 10px !important; }
+.mh-watch-expand svg { transition: transform 160ms ease; }
+.mh-watch-expand svg.is-expanded { transform: rotate(180deg); }
+.mh-watch-distance.touched strong { color: #62845d; }
+.mh-watch-priority { padding: 6px 0; }
+.mh-watch-priority-heading { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+.mh-watch-priority-heading h3 { margin-top: 2px; color: #52694f; font-size: 15px; }
+.mh-watch-priority-intro { margin: 10px 0 13px !important; color: #849183; font-size: 10px; line-height: 1.65; }
+.mh-watch-priority-list { display: grid; }
+.mh-watch-priority-row {
+  display: grid;
+  grid-template-columns: 24px minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 10px 2px;
+  border: 0;
+  border-top: 1px solid #edf0e9;
+  background: transparent;
+  text-align: left;
+}
+.mh-watch-priority-row:hover .mh-priority-copy strong { color: #587854; }
+.mh-priority-rank {
+  display: grid;
+  width: 22px;
+  height: 22px;
+  place-items: center;
+  border-radius: 7px;
+  background: #eef3e9;
+  color: #64805c;
+  font-size: 10px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+.mh-watch-priority-row:first-child .mh-priority-rank { background: #e2ecdc; color: #4e714b; }
+.mh-priority-copy, .mh-priority-copy > span { display: grid; min-width: 0; }
+.mh-priority-copy > span { grid-template-columns: auto 1fr; align-items: center; gap: 6px; }
+.mh-priority-copy strong { overflow: hidden; color: #405744; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.mh-priority-copy em { justify-self: start; padding: 1px 5px; border-radius: 4px; background: #f2f5ef; color: #879582; font-size: 8px; font-style: normal; white-space: nowrap; }
+.mh-priority-copy small { overflow: hidden; margin-top: 2px; color: #98a194; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.mh-priority-gap { display: grid; justify-items: end; gap: 2px; text-align: right; }
+.mh-priority-gap strong { color: #718567; font-size: 11px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mh-priority-gap.touched strong { color: #57835b; }
+.mh-priority-gap small { color: #98a194; font-size: 8px; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.mh-watch-priority-empty { display: grid; justify-items: start; gap: 7px; padding: 18px 12px; border: 1px dashed #dfe7d8; border-radius: 8px; background: #fafbf8; color: #7f9277; }
+.mh-watch-priority-empty strong { color: #60765b; font-size: 11px; }
+.mh-watch-priority-empty p { color: #8d9987; font-size: 9px; line-height: 1.6; }
+.mh-watch-priority-footnote { display: flex; align-items: center; gap: 7px; margin-top: 13px; padding-top: 9px; border-top: 1px solid #edf0e9; color: #9aa493; font-size: 9px; }
+.mh-watch-detail-prices { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; margin: 15px 0 8px; }
+.mh-watch-detail-prices > div { display: grid; gap: 4px; min-width: 0; padding: 8px 7px; border: 1px solid #e9ede5; border-radius: 7px; background: #fafbf8; }
+.mh-watch-detail-prices small { color: #8d9987; font-size: 8px; }
+.mh-watch-detail-prices strong { overflow: hidden; color: #506b4d; font-size: 11px; text-overflow: ellipsis; white-space: nowrap; }
+.mh-watch-detail-prices .touched strong { color: #59845a; }
+.mh-watch-detail-source { display: block; margin: 6px 0; color: #98a194; font-size: 9px; }
+.mh-watch-detail-source a { text-decoration: underline; text-decoration-color: #cad5c4; text-underline-offset: 2px; }
+.mh-watch-gap-explainer { margin-top: 7px !important; color: #869384; font-size: 9px; line-height: 1.6; }
+.mh-watch-detail-section { padding: 13px 0; border-top: 1px solid #edf0e9; }
+.mh-watch-detail-section h3 { margin-bottom: 7px; color: #5e725a; font-size: 11px; }
+.mh-watch-detail-section .mh-side-summary-text { font-size: 10px; line-height: 1.65; }
+.mh-watch-detail-actions { display: grid; gap: 4px; padding-top: 11px; border-top: 1px solid #edf0e9; }
+@media (max-width: 760px) {
+  .mh-watch-heading-actions .mh-search { max-width: 130px; }
+  .mh-watch-sort-switch { grid-template-columns: repeat(3, minmax(44px, 1fr)); }
+}
+@media (max-width: 620px) {
+  .mh-watch-heading-actions .mh-search { max-width: none; }
+  .mh-watch-heading-actions .mh-watch-sort-switch { flex: 1 1 100%; }
 }

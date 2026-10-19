@@ -314,6 +314,73 @@ export async function createHoldingsApp({
       next(e);
     }
   });
+  app.post("/api/jobs/batch-watch", async (req, res, next) => {
+    try {
+      const requests = req.body?.jobs;
+      if (!Array.isArray(requests) || requests.length > 1000 || requests.some((item) =>
+        !item || !text(item.watchId, 100) || !item.watchId || !text(item.question, 4000) || !item.question.trim(),
+      )) throw error("批量关注更新列表无效。");
+      const result = await serial(async () => {
+        const s = await read();
+        const waitingIds = new Set(
+          s.jobs.filter((job) => job.kind === "watch" && job.status === "waiting").map((job) => job.watchId),
+        );
+        const seenIds = new Set();
+        const createdJobs = [];
+        for (const item of requests) {
+          const watch = s.watchlist.find((row) => row.id === item.watchId);
+          if (!watch) throw error("批量关注更新中有标的已不存在，请刷新页面后重试。", 404);
+          if (waitingIds.has(watch.id) || seenIds.has(watch.id)) continue;
+          seenIds.add(watch.id);
+          createdJobs.push({
+            id: randomUUID(),
+            kind: "watch",
+            watchId: watch.id,
+            question: item.question,
+            status: "waiting",
+            date: new Date().toISOString(),
+            error: "",
+          });
+        }
+        if (!createdJobs.length) return { state: s, jobs: createdJobs };
+        s.jobs = [...s.jobs, ...createdJobs];
+        if (s.jobs.length > 10000) {
+          const pendingJobs = s.jobs.filter((job) => job.status === "waiting" || job.status === "running");
+          if (pendingJobs.length > 10000) throw error("待办数量已达上限，请先处理现有待办。", 409);
+          const historyLimit = 10000 - pendingJobs.length;
+          const history = s.jobs.filter((job) => job.status !== "waiting" && job.status !== "running");
+          const historyJobs = historyLimit ? history.slice(-historyLimit) : [];
+          s.jobs = [...historyJobs, ...pendingJobs];
+        }
+        return { state: await write(s), jobs: createdJobs };
+      });
+      res.status(result.jobs.length ? 201 : 200).json(result);
+    } catch (e) {
+      next(e);
+    }
+  });
+  app.post("/api/jobs/cancel", async (req, res, next) => {
+    try {
+      const jobIds = req.body?.jobIds;
+      if (!Array.isArray(jobIds) || jobIds.length > 1000 || jobIds.some((jobId) => !text(jobId, 100) || !jobId))
+        throw error("待撤销的任务列表无效。");
+      const result = await serial(async () => {
+        const s = await read();
+        const cancelIds = new Set(
+          s.jobs
+            .filter((job) => jobIds.includes(job.id) && job.kind === "watch" && job.status === "waiting")
+            .map((job) => job.id),
+        );
+        const cancelledIds = [...cancelIds];
+        if (!cancelledIds.length) return { state: s, cancelledIds };
+        s.jobs = s.jobs.filter((job) => !cancelIds.has(job.id));
+        return { state: await write(s), cancelledIds };
+      });
+      res.json(result);
+    } catch (e) {
+      next(e);
+    }
+  });
   app.post("/api/jobs/:id/complete", async (req, res, next) => {
     try {
       const quoteResult = await serial(async () => {
