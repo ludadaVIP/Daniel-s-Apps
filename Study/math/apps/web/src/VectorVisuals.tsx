@@ -25,6 +25,7 @@ export function VectorPlot({
   polygon,
   wide = false,
   reveal = false,
+  complexPlane = false,
   caption,
 }: {
   mode: LanguageMode;
@@ -34,11 +35,12 @@ export function VectorPlot({
   polygon?: Vector[];
   wide?: boolean;
   reveal?: boolean;
+  complexPlane?: boolean;
   caption: LocalizedText;
 }) {
   const id = useId().replace(/:/g, ''),
-    bound = wide ? 16 : 10,
-    step = wide ? 4 : 2,
+    bound = complexPlane ? (wide ? 10 : 5) : wide ? 16 : 10,
+    step = complexPlane ? (wide ? 2 : 1) : wide ? 4 : 2,
     scale = 500 / (2 * bound),
     px = (x: number) => 70 + (x + bound) * scale,
     py = (y: number) => 540 - (y + bound) * scale;
@@ -109,18 +111,26 @@ export function VectorPlot({
         role="region"
         tabIndex={0}
         aria-label={
-          mode === 'en'
-            ? 'Vector grid; scroll within plot'
-            : '向量网格；需要时在图内滚动'
+          complexPlane
+            ? mode === 'en'
+              ? 'Complex plane; scroll within plot'
+              : '复平面；需要时在图内滚动'
+            : mode === 'en'
+              ? 'Vector grid; scroll within plot'
+              : '向量网格；需要时在图内滚动'
         }
       >
         <svg
           viewBox="0 0 640 610"
           role="img"
           aria-label={
-            mode === 'en'
-              ? `Vector grid, equal axis units, window ±${bound}`
-              : `向量网格，两轴同单位标尺，视窗±${bound}`
+            complexPlane
+              ? mode === 'en'
+                ? `Complex plane, Re and Im axes use equal units, window ±${bound}`
+                : `复平面，实轴和虚轴同单位标尺，视窗±${bound}`
+              : mode === 'en'
+                ? `Vector grid, equal axis units, window ±${bound}`
+                : `向量网格，两轴同单位标尺，视窗±${bound}`
           }
         >
           <defs>
@@ -164,10 +174,10 @@ export function VectorPlot({
             fill="none"
           />
           <text x="610" y={py(0) + 20}>
-            x
+            {complexPlane ? 'Re' : 'x'}
           </text>
           <text x={px(0) + 12} y="22">
-            y
+            {complexPlane ? 'Im' : 'y'}
           </text>
           <g clipPath={`url(#clip-${id})`}>
             {polygon && (

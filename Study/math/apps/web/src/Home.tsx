@@ -6,6 +6,22 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'spatial-coordinates': 'POINT · DISPLACEMENT · THREE COMPONENTS',
+  'spatial-operations': 'HEAD TO TAIL · SCALAR · ALL THREE COMPONENTS',
+  'spatial-dot': 'DOT PRODUCT · ANGLE · NONZERO CONDITION',
+  'spatial-relations': 'DIRECTION · NORMAL · POSITION',
+  'spatial-distance': 'PERPENDICULAR FOOT · NORMAL PROJECTION',
+  'conic-line': 'POINT · DIRECTION · VERTICAL LINE',
+  'conic-distance': 'PERPENDICULAR FOOT · SHORTEST DISTANCE',
+  'conic-circle': 'CENTRE · RADIUS · LOCUS',
+  'conic-parabola': 'FOCUS · DIRECTRIX · EQUAL DISTANCES',
+  'conic-ellipse': 'TWO FOCI · CONSTANT DISTANCE SUM',
+  'conic-hyperbola': 'TWO BRANCHES · ABSOLUTE DIFFERENCE',
+  'complex-roots': 'NUMBER DOMAIN · TWO ROOTS · POWERS OF i',
+  'complex-components': 'REAL PART · IMAGINARY COEFFICIENT',
+  'complex-operations': 'DISTRIBUTE · i² = −1 · COLLECT',
+  'complex-conjugate': 'REFLECT · CONJUGATE · MODULUS',
+  'complex-geometry': 'ORIGIN · CENTRE · QUARTER-TURN',
   'data-cleaning': 'IDENTITY · UNITS · AUDIT TRAIL',
   'data-shape': 'OBSERVATIONS · BINS · TAILS',
   'data-spread': 'DEVIATION · SQUARE · DIVISOR',

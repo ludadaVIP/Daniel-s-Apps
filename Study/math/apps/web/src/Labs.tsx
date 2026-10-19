@@ -1,3 +1,6 @@
+import { SpaceVectorLab, isSpaceVectorLab } from './SpaceVectorLabs';
+import { ConicLab, isConicLab } from './ConicLabs';
+import { ComplexLab, isComplexLab } from './ComplexLabs';
 import { DataModellingLab, isDataModellingLab } from './DataModellingLabs';
 import { SequenceLab, isSequenceLab } from './SequenceLabs';
 import { SolidLab, isSolidLab } from './SolidLabs';
@@ -384,7 +387,13 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isDataModellingLab(kind) ? (
+  return isSpaceVectorLab(kind) ? (
+    <SpaceVectorLab key={kind} kind={kind} mode={mode} />
+  ) : isConicLab(kind) ? (
+    <ConicLab key={kind} kind={kind} mode={mode} />
+  ) : isComplexLab(kind) ? (
+    <ComplexLab key={kind} kind={kind} mode={mode} />
+  ) : isDataModellingLab(kind) ? (
     <DataModellingLab key={kind} kind={kind} mode={mode} />
   ) : isSequenceLab(kind) ? (
     <SequenceLab key={kind} kind={kind} mode={mode} />

@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import type { LocalizedText, LanguageMode } from '@study/shared';
 import { t } from './model';
 import { Text } from './ui';
@@ -17,6 +18,7 @@ export type SpaceSegment = {
   name?: string;
   color?: string;
   dashed?: boolean;
+  arrow?: boolean;
 };
 export function projectSpace(
   p: SpacePoint,
@@ -49,6 +51,7 @@ export function SolidScene({
   reveal?: boolean;
   caption: LocalizedText;
 }) {
+  const markerId = useId().replace(/:/g, '');
   const all = [
       ...points.map((p) => p.point),
       ...segments.flatMap((s) => [s.a, s.b]),
@@ -132,6 +135,19 @@ export function SolidScene({
               : '空间正投影模型；投影长度与角不能直接量读'
           }
         >
+          <defs>
+            <marker
+              id={`spatial-arrow-${markerId}`}
+              viewBox="0 0 10 10"
+              refX="9"
+              refY="5"
+              markerWidth="5"
+              markerHeight="5"
+              orient="auto-start-reverse"
+            >
+              <path d="M0 0L10 5L0 10Z" fill="context-stroke" />
+            </marker>
+          </defs>
           {faces.map((f, i) => (
             <polygon
               key={i}
@@ -159,11 +175,17 @@ export function SolidScene({
               data-space-segment={s.name ?? String(i)}
               data-space-start={s.a.join(',')}
               data-space-end={s.b.join(',')}
+              data-space-arrow={s.arrow ? 'true' : undefined}
               d={line(s.a, s.b)}
               stroke={s.color ?? '#70677e'}
               strokeWidth={s.color ? 4 : 1.8}
               strokeDasharray={s.dashed ? '7 5' : undefined}
               fill="none"
+              markerEnd={
+                s.arrow && s.a.some((n, i) => n !== s.b[i])
+                  ? `url(#spatial-arrow-${markerId})`
+                  : undefined
+              }
             />
           ))}
           {labels.map((p) => {

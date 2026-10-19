@@ -12,6 +12,62 @@ import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 import { trigQuantityMatches } from './trigModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'coordinate3')
+    return t(
+      '按(x,y,z)顺序填三个有理分量，如(1,−2,3/2)；不要漏掉z，也不要填写向量长度代替坐标。',
+      'Enter three rational components in (x,y,z) order, such as (1,−2,3/2). Retain z and do not substitute a vector length for coordinates.',
+    );
+  if (spec.kind === 'plane-equation')
+    return t(
+      '用x、y写一个等号的方程；允许只含一个变量，如x=2。接受移项、展开、分数和非零常数倍。幂可用^2或²；除数仅限非零常数，不写变量分母或sqrt。',
+      'Enter an equation using x and y with one equals sign; a single-variable form such as x=2 is allowed. Rearrangement, expansion, fractions and nonzero constant multiples are accepted. Use ^2 or ²; divisors must be nonzero constants, without variable denominators or sqrt.',
+    );
+  if (spec.kind === 'conic-code')
+    return spec.value === 'undefined'
+      ? t(
+          '竖直线斜率无定义，写undefined或无定义；它仍是有效直线。',
+          'A vertical line has undefined slope; enter undefined. It is still a valid line.',
+        )
+      : ['circle', 'point', 'empty'].includes(spec.value)
+        ? t(
+            '按正半径圆、单点或空集写circle、point、empty。',
+            'Use circle, point or empty for a positive-radius circle, a singleton or no real points.',
+          )
+        : t(
+            '用on、inside、outside或empty表示在曲线上、内部、外部或无实轨迹。',
+            'Use on, inside, outside or empty for on the locus, inside, outside or no real locus.',
+          );
+  if (spec.kind === 'complex')
+    return spec.standard
+      ? t(
+          '只填a+bi形式的结果，如3−2i、i、−i或实数0，不写z=；实部和虚部系数可用分数。乘积、未合并的同类项或i²尚未完成化简。',
+          'Enter only the a+bi result, such as 3−2i, i, −i or the real number zero, without z=. Rational coefficients are accepted; an unexpanded product, repeated terms or i² is unfinished.',
+        )
+      : t(
+          '输入用i表示的复数表达式；支持有理系数、括号和加减乘除，除数须非零。',
+          'Enter a complex expression using i, rational coefficients, parentheses and arithmetic; divisors must be nonzero.',
+        );
+  if (spec.kind === 'complex-set')
+    return t(
+      '写全部不同的根，如{i,−i}、i,−i或±i；零只有一个根，无解写∅或{}。先检查本题允许的数域。',
+      'Give all distinct roots, for example {i,−i}, i,−i or ±i. Zero is one root; use ∅ or {} for no solutions. Check the stated number domain.',
+    );
+  if (spec.kind === 'complex-code') {
+    if (spec.value === 'undefined')
+      return t(
+        '零相对位移没有方向或夹角，写undefined或无定义；变换本身仍可有定义。',
+        'For zero relative displacement the direction or angle is undefined; the transformation itself can still be defined.',
+      );
+    if (spec.value === 'pure-imaginary' || spec.value === 'not-pure-imaginary')
+      return t(
+        '写pure-imaginary或not-pure-imaginary；本单元纯虚数要求实部0、虚部非0，零不算纯虚数。',
+        'Use pure-imaginary or not-pure-imaginary. Here purely imaginary requires real part zero and imaginary coefficient nonzero; zero is excluded.',
+      );
+    return t(
+      '按虚部系数是否为0写real（实数）或nonreal（非实数），不能只看实部。',
+      'Use real or nonreal according to whether the imaginary coefficient is zero; the real part alone does not decide.',
+    );
+  }
   if (spec.kind === 'data-code') {
     if (['nominal', 'ordinal', 'discrete', 'continuous'].includes(spec.value))
       return t(
@@ -490,6 +546,11 @@ export function Question({
     });
   };
   const formMismatch =
+    (a.checked &&
+      !a.correct &&
+      q.answer.kind === 'complex' &&
+      q.answer.standard &&
+      checkAnswer(a.input, { ...q.answer, standard: false }) === true) ||
     (a.checked &&
       !a.correct &&
       q.answer.kind === 'quadratic-form' &&

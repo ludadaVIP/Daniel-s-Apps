@@ -1,4 +1,19 @@
 import {
+  h23Lessons,
+  h23ReviewQuestion,
+  h23CheckQuestions,
+} from './content/H23';
+import {
+  h22Lessons,
+  h22ReviewQuestion,
+  h22CheckQuestions,
+} from './content/H22';
+import {
+  h21Lessons,
+  h21ReviewQuestion,
+  h21CheckQuestions,
+} from './content/H21';
+import {
   h08Lessons,
   h08ReviewQuestion,
   h08CheckQuestions,
@@ -318,6 +333,9 @@ export const lessons: Lesson[] = [
   ...h06Lessons,
   ...h07Lessons,
   ...h08Lessons,
+  ...h21Lessons,
+  ...h22Lessons,
+  ...h23Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -331,6 +349,15 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h23Lessons.map((l) => [l.id, h23ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h22Lessons.map((l) => [l.id, h22ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h21Lessons.map((l) => [l.id, h21ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h08Lessons.map((l) => [l.id, h08ReviewQuestion(l.id, 0)]),
   ),
@@ -459,6 +486,9 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H23-')) return h23ReviewQuestion(id, round);
+  if (id.startsWith('H22-')) return h22ReviewQuestion(id, round);
+  if (id.startsWith('H21-')) return h21ReviewQuestion(id, round);
   if (id.startsWith('H08-')) return h08ReviewQuestion(id, round);
   if (id.startsWith('H07-')) return h07ReviewQuestion(id, round);
   if (id.startsWith('H06-')) return h06ReviewQuestion(id, round);
@@ -512,6 +542,27 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H23: {
+    id: 'H23-CHECK',
+    unit: 'H23',
+    title: t('空间向量小回顾', 'A small 3D vector review'),
+    questions: h23CheckQuestions,
+    bridge: 'H23-L01',
+  },
+  H22: {
+    id: 'H22-CHECK',
+    unit: 'H22',
+    title: t('解析几何小回顾', 'A small analytic geometry review'),
+    questions: h22CheckQuestions,
+    bridge: 'H22-L01',
+  },
+  H21: {
+    id: 'H21-CHECK',
+    unit: 'H21',
+    title: t('复数小回顾', 'A small complex numbers review'),
+    questions: h21CheckQuestions,
+    bridge: 'H21-L01',
+  },
   H08: {
     id: 'H08-CHECK',
     unit: 'H08',

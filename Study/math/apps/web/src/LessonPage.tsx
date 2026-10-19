@@ -1,3 +1,6 @@
+import { SpaceVectorHookArt, isSpaceVectorLab } from './SpaceVectorLabs';
+import { ConicHookArt, isConicLab } from './ConicLabs';
+import { ComplexHookArt, isComplexLab } from './ComplexLabs';
 import { DataModellingHookArt, isDataModellingLab } from './DataModellingLabs';
 import { SequenceHookArt, isSequenceLab } from './SequenceLabs';
 import { SolidHookArt, isSolidLab } from './SolidLabs';
@@ -182,7 +185,13 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isDataModellingLab(l.lab) ? (
+              {isSpaceVectorLab(l.lab) ? (
+                <SpaceVectorHookArt kind={l.lab} mode={mode} />
+              ) : isConicLab(l.lab) ? (
+                <ConicHookArt kind={l.lab} mode={mode} />
+              ) : isComplexLab(l.lab) ? (
+                <ComplexHookArt kind={l.lab} mode={mode} />
+              ) : isDataModellingLab(l.lab) ? (
                 <DataModellingHookArt kind={l.lab} mode={mode} />
               ) : isSequenceLab(l.lab) ? (
                 <SequenceHookArt kind={l.lab} mode={mode} />

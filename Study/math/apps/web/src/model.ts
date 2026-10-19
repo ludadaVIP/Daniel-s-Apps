@@ -1,3 +1,15 @@
+import { checkVec3 } from './spaceVectorModels';
+import {
+  checkPlaneEquation,
+  checkConicCode,
+  type ConicCode,
+} from './conicModels';
+import {
+  checkComplex,
+  checkComplexSet,
+  checkComplexCode,
+  type ComplexCode,
+} from './complexModels';
 import { checkDataCode, type DataCode } from './dataModellingModels';
 import { checkSequenceCode, type SequenceCode } from './sequenceModels';
 import { checkSolidCode, type SolidCode } from './solidModels';
@@ -88,6 +100,12 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'coordinate3'; value: string }
+  | { kind: 'plane-equation'; value: string }
+  | { kind: 'conic-code'; value: ConicCode }
+  | { kind: 'complex'; value: string; standard?: boolean }
+  | { kind: 'complex-set'; value: string; values: string[] }
+  | { kind: 'complex-code'; value: ComplexCode }
   | { kind: 'data-code'; value: DataCode }
   | { kind: 'sequence-code'; value: SequenceCode }
   | { kind: 'solid-code'; value: SolidCode }
@@ -527,6 +545,22 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'spatial-coordinates'
+    | 'spatial-operations'
+    | 'spatial-dot'
+    | 'spatial-relations'
+    | 'spatial-distance'
+    | 'conic-line'
+    | 'conic-distance'
+    | 'conic-circle'
+    | 'conic-parabola'
+    | 'conic-ellipse'
+    | 'conic-hyperbola'
+    | 'complex-roots'
+    | 'complex-components'
+    | 'complex-operations'
+    | 'complex-conjugate'
+    | 'complex-geometry'
     | 'data-cleaning'
     | 'data-shape'
     | 'data-spread'
@@ -918,6 +952,14 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'coordinate3') return checkVec3(input, spec.value);
+  if (spec.kind === 'plane-equation')
+    return checkPlaneEquation(input, spec.value);
+  if (spec.kind === 'conic-code') return checkConicCode(input, spec.value);
+  if (spec.kind === 'complex')
+    return checkComplex(input, spec.value, spec.standard);
+  if (spec.kind === 'complex-set') return checkComplexSet(input, spec.values);
+  if (spec.kind === 'complex-code') return checkComplexCode(input, spec.value);
   if (spec.kind === 'data-code') return checkDataCode(input, spec.value);
   if (spec.kind === 'sequence-code')
     return checkSequenceCode(input, spec.value);
