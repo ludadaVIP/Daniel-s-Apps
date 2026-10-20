@@ -1,3 +1,5 @@
+import { checkAnalysisCode, type AnalysisCode } from './functionAnalysisModels';
+import { checkCalculusCode, type CalculusCode } from './calculusModels';
 import { checkVec3 } from './spaceVectorModels';
 import {
   checkPlaneEquation,
@@ -100,6 +102,8 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'analysis-code'; value: AnalysisCode }
+  | { kind: 'calculus-code'; value: CalculusCode }
   | { kind: 'coordinate3'; value: string }
   | { kind: 'plane-equation'; value: string }
   | { kind: 'conic-code'; value: ConicCode }
@@ -545,6 +549,17 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'analysis-sign'
+    | 'analysis-extrema'
+    | 'analysis-product'
+    | 'analysis-chain'
+    | 'analysis-rates'
+    | 'calculus-average'
+    | 'calculus-secant'
+    | 'calculus-limit'
+    | 'calculus-instant'
+    | 'calculus-rules'
+    | 'calculus-tangent'
     | 'counting-principles'
     | 'counting-permutations'
     | 'counting-combinations'
@@ -958,6 +973,10 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'analysis-code')
+    return checkAnalysisCode(input, spec.value);
+  if (spec.kind === 'calculus-code')
+    return checkCalculusCode(input, spec.value);
   if (spec.kind === 'coordinate3') return checkVec3(input, spec.value);
   if (spec.kind === 'plane-equation')
     return checkPlaneEquation(input, spec.value);

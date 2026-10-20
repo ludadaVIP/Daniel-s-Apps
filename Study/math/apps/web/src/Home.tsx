@@ -6,6 +6,17 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'analysis-sign': 'DERIVATIVE SIGN · INTERVAL · BEHAVIOUR',
+  'analysis-extrema': 'CANDIDATE · SIGN CHANGE · ENDPOINT',
+  'analysis-product': 'TWO CHANGES · TWO TERMS · VERIFY',
+  'analysis-chain': 'INNER INPUT · OUTER RATE · COMPOSE',
+  'analysis-rates': 'QUANTITY · RATE · UNIT · DOMAIN',
+  'calculus-average': 'OUTPUT CHANGE · INPUT CHANGE · INTERVAL',
+  'calculus-secant': 'NONZERO INCREMENT · SECANT · LIMIT',
+  'calculus-limit': 'LEFT · RIGHT · POINT VALUE',
+  'calculus-instant': 'SIGNED RATE · FINITE DERIVATIVE · CORNER',
+  'calculus-rules': 'FUNCTION · DERIVATIVE · EVALUATION',
+  'calculus-tangent': 'CONTACT POINT · SLOPE · EQUATION',
   'counting-principles': 'IDENTITY · ALTERNATIVES · STAGES',
   'counting-permutations': 'LABELLED POSITIONS · REPETITION',
   'counting-combinations': 'MEMBERSHIP · EQUAL MULTIPLICITY',

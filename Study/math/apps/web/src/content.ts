@@ -1,4 +1,14 @@
 import {
+  h26Lessons,
+  h26ReviewQuestion,
+  h26CheckQuestions,
+} from './content/H26';
+import {
+  h25Lessons,
+  h25ReviewQuestion,
+  h25CheckQuestions,
+} from './content/H25';
+import {
   h24Lessons,
   h24ReviewQuestion,
   h24CheckQuestions,
@@ -342,6 +352,8 @@ export const lessons: Lesson[] = [
   ...h22Lessons,
   ...h23Lessons,
   ...h24Lessons,
+  ...h25Lessons,
+  ...h26Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -355,6 +367,12 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h26Lessons.map((l) => [l.id, h26ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h25Lessons.map((l) => [l.id, h25ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h24Lessons.map((l) => [l.id, h24ReviewQuestion(l.id, 0)]),
   ),
@@ -495,6 +513,8 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H26-')) return h26ReviewQuestion(id, round);
+  if (id.startsWith('H25-')) return h25ReviewQuestion(id, round);
   if (id.startsWith('H24-')) return h24ReviewQuestion(id, round);
   if (id.startsWith('H23-')) return h23ReviewQuestion(id, round);
   if (id.startsWith('H22-')) return h22ReviewQuestion(id, round);
@@ -552,6 +572,20 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H26: {
+    id: 'H26-CHECK',
+    unit: 'H26',
+    title: t('函数分析回顾', 'Analysing functions review'),
+    questions: h26CheckQuestions,
+    bridge: 'H26-L01',
+  },
+  H25: {
+    id: 'H25-CHECK',
+    unit: 'H25',
+    title: t('导数概念小回顾', 'A small derivative review'),
+    questions: h25CheckQuestions,
+    bridge: 'H25-L01',
+  },
   H24: {
     id: 'H24-CHECK',
     unit: 'H24',

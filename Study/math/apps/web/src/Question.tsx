@@ -12,6 +12,16 @@ import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 import { trigQuantityMatches } from './trigModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'analysis-code')
+    return t(
+      '增减填increasing、decreasing、constant；严格局部极值填local-max、local-min或neither。先说明区间和两侧符号。',
+      'Enter increasing, decreasing or constant for behaviour; local-max, local-min or neither for strict local extrema. Check the interval and signs on both sides.',
+    );
+  if (spec.kind === 'calculus-code')
+    return t(
+      '值或有限导数未定义写undefined/未定义；双侧极限不存在写does-not-exist/DNE/不存在。左右极限、点值和导数分别检查。',
+      'Enter undefined for an undefined value or finite derivative; use does-not-exist or DNE for a missing two-sided limit. Check one-sided limits, point value and derivative separately.',
+    );
   if (spec.kind === 'coordinate3')
     return t(
       '按(x,y,z)顺序填三个有理分量，如(1,−2,3/2)；不要漏掉z，也不要填写向量长度代替坐标。',
