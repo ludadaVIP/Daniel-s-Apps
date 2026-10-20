@@ -1,3 +1,10 @@
+import {
+  checkAdvancedDerivative,
+  checkAdvancedCode,
+  type AdvancedForm,
+  type AdvancedCode,
+} from './optimisationModels';
+import { checkProblemWitness, type WitnessClaim } from './problemSolvingModels';
 import { checkAnalysisCode, type AnalysisCode } from './functionAnalysisModels';
 import { checkCalculusCode, type CalculusCode } from './calculusModels';
 import { checkVec3 } from './spaceVectorModels';
@@ -102,6 +109,21 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | {
+      kind: 'advanced-derivative';
+      value: string;
+      family: AdvancedForm;
+      rate?: string;
+      base?: number;
+    }
+  | { kind: 'advanced-code'; value: AdvancedCode }
+  | {
+      kind: 'problem-witness';
+      claim: WitnessClaim;
+      value: string;
+      shift?: number;
+      spacing?: number;
+    }
   | { kind: 'analysis-code'; value: AnalysisCode }
   | { kind: 'calculus-code'; value: CalculusCode }
   | { kind: 'coordinate3'; value: string }
@@ -549,6 +571,22 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'optimisation-review'
+    | 'optimisation-trig'
+    | 'optimisation-implicit'
+    | 'optimisation-extrema'
+    | 'optimisation-fence'
+    | 'optimisation-motion'
+    | 'problem-decompose'
+    | 'problem-represent'
+    | 'problem-boundaries'
+    | 'problem-counterexample'
+    | 'problem-report'
+    | 'stats-correlation'
+    | 'stats-least-squares'
+    | 'stats-residuals'
+    | 'stats-sampling'
+    | 'stats-limits'
     | 'analysis-sign'
     | 'analysis-extrema'
     | 'analysis-product'
@@ -973,6 +1011,18 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'advanced-derivative')
+    return checkAdvancedDerivative(
+      input,
+      spec.value,
+      spec.family,
+      spec.rate,
+      spec.base,
+    );
+  if (spec.kind === 'advanced-code')
+    return checkAdvancedCode(input, spec.value);
+  if (spec.kind === 'problem-witness')
+    return checkProblemWitness(input, spec.claim, spec.shift, spec.spacing);
   if (spec.kind === 'analysis-code')
     return checkAnalysisCode(input, spec.value);
   if (spec.kind === 'calculus-code')

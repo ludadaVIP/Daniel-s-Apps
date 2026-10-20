@@ -6,6 +6,22 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'optimisation-review': 'POWERS · EXPONENTIALS · EXACT RULES',
+  'optimisation-trig': 'RADIANS · INNER RATE · DOMAIN',
+  'optimisation-implicit': 'LOCAL BRANCHES · TANGENTS · SINGULARITIES',
+  'optimisation-extrema': 'CANDIDATES · ENDPOINTS · ATTAINMENT',
+  'optimisation-fence': 'FEASIBLE DOMAIN · CONSTRAINTS · INTEGER TIES',
+  'optimisation-motion': 'POSITION · VELOCITY · ACCELERATION · DISTANCE',
+  'problem-decompose': 'TARGET · DEPENDENCIES · WHOLE PACKETS',
+  'problem-represent': 'WORDS · TABLE · INTEGER GRAPH · EQUATION',
+  'problem-boundaries': 'ZERO · THRESHOLD · CAPACITY · PROOF',
+  'problem-counterexample': 'DOMAIN · TRUE PREMISE · FALSE CONCLUSION',
+  'problem-report': 'ASSUMPTIONS · RANGE · RESULTS · SENSITIVITY',
+  'stats-correlation': 'PAIRS · CENTRED PRODUCTS · LINEAR STRENGTH',
+  'stats-least-squares': 'VERTICAL ERRORS · SQUARES · GLOBAL MINIMUM',
+  'stats-residuals': 'OBSERVED − PREDICTED · PATTERN · CHECK',
+  'stats-sampling': 'MEMBER ID · SAMPLE SIZE · REPEATED MEANS',
+  'stats-limits': 'OBSERVED UNITS · DESIGN · UNKNOWN OUTCOMES',
   'analysis-sign': 'DERIVATIVE SIGN · INTERVAL · BEHAVIOUR',
   'analysis-extrema': 'CANDIDATE · SIGN CHANGE · ENDPOINT',
   'analysis-product': 'TWO CHANGES · TWO TERMS · VERIFY',

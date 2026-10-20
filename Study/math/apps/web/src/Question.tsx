@@ -12,6 +12,21 @@ import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 import { trigQuantityMatches } from './trigModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'advanced-derivative')
+    return t(
+      '输入导函数表达式；支持有理系数与括号，用e^(2x)、exp(2x)、sin(2x)、cos(2x)、ln(2)*2^x等规范写法，保留题中参数；不填f′(x)=或近似小数。',
+      'Enter the derivative expression with rational coefficients and brackets, using e^(2x), exp(2x), sin(2x), cos(2x) or ln(2)*2^x with the stated parameters. Omit f′(x)= and rounded approximations.',
+    );
+  if (spec.kind === 'advanced-code')
+    return t(
+      '按题意用vertical（竖直）、singular（奇点）、off-curve（不在曲线）、not-attained（未取到）、empty-domain（无可行解），或运动代码speeding-up、slowing-down、instant-rest、neither。',
+      'Use the requested code: vertical, singular, off-curve, not-attained, empty-domain, or motion codes speeding-up, slowing-down, instant-rest, neither.',
+    );
+  if (spec.kind === 'problem-witness')
+    return t(
+      '自行构造：平方和及同周长题填(a,b)，约分题与有限表题填一个x。每个有理分量绝对值≤20、分母≤100；反例必须满足前提并推翻结论，不只匹配示例。',
+      'Construct your own witness: enter (a,b) for square-sum and equal-perimeter claims, or one x for cancellation and finite-table claims. Rational components need magnitude ≤20 and denominator ≤100. A counterexample must satisfy the premise and falsify the conclusion.',
+    );
   if (spec.kind === 'analysis-code')
     return t(
       '增减填increasing、decreasing、constant；严格局部极值填local-max、local-min或neither。先说明区间和两侧符号。',
