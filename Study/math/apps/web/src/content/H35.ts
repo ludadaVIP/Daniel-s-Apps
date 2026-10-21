@@ -903,7 +903,7 @@ export const h35Lessons: Lesson[] = specs.map((s, i) => {
     order: i + 1,
     nzYearHints: [12, 13],
     cnGradeHints: [12],
-    contentStatus: 'draft',
+    contentStatus: 'ready',
     skillTags: [`advanced-equation-${i + 1}`],
     guided: question(`${id}-G`, i, s.items[0]!),
     questions: [

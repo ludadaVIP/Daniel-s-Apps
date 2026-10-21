@@ -1,5 +1,6 @@
 import { rational, textR } from './algebraModels';
 import { circularAt } from './circularModels';
+import { radicalText, readRadical } from './radicalModels';
 
 const integer = (n: number, lo: number, hi: number) => {
   if (!Number.isSafeInteger(n) || n < lo || n > hi)
@@ -128,8 +129,8 @@ export function identityAudit(kind: IdentityCase, coefficient: string) {
       : kind === 'tangent'
         ? p.cos === '0'
         : p.sin === '0';
-  const simplified = kind === 'quotient' ? textR(rational(1n)) : p.sin;
-  // 1+cos θ can include radicals, so keep an exact symbolic expression instead of rounding it.
+  const simplified =
+    kind === 'quotient' ? radicalText(readRadical(`1+(${p.cos})`)!) : p.sin;
   return {
     kind,
     coefficient,
@@ -143,7 +144,7 @@ export function identityAudit(kind: IdentityCase, coefficient: string) {
           : '(1−c²)/s',
     rewrite: kind === 'quotient' ? '1+c' : 's',
     only: kind === 'quotient' ? ('c' as const) : ('s' as const),
-    value: kind === 'quotient' ? `1+(${p.cos})` : simplified,
+    value: simplified,
     excluded:
       kind === 'quotient'
         ? ['0', '2']

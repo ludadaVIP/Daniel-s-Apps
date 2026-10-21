@@ -1,3 +1,19 @@
+import { b04CheckQuestions } from './content/B04Review';
+import {
+  h38Lessons,
+  h38ReviewQuestion,
+  h38CheckQuestions,
+} from './content/H38';
+import {
+  h37Lessons,
+  h37ReviewQuestion,
+  h37CheckQuestions,
+} from './content/H37';
+import {
+  h36Lessons,
+  h36ReviewQuestion,
+  h36CheckQuestions,
+} from './content/H36';
 import {
   h35Lessons,
   h35ReviewQuestion,
@@ -396,6 +412,9 @@ export const lessons: Lesson[] = [
   ...h33Lessons,
   ...h34Lessons,
   ...h35Lessons,
+  ...h36Lessons,
+  ...h37Lessons,
+  ...h38Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -409,6 +428,15 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h38Lessons.map((l) => [l.id, h38ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h37Lessons.map((l) => [l.id, h37ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h36Lessons.map((l) => [l.id, h36ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h35Lessons.map((l) => [l.id, h35ReviewQuestion(l.id, 0)]),
   ),
@@ -576,6 +604,9 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H38-')) return h38ReviewQuestion(id, round);
+  if (id.startsWith('H37-')) return h37ReviewQuestion(id, round);
+  if (id.startsWith('H36-')) return h36ReviewQuestion(id, round);
   if (id.startsWith('H35-')) return h35ReviewQuestion(id, round);
   if (id.startsWith('H34-')) return h34ReviewQuestion(id, round);
   if (id.startsWith('H33-')) return h33ReviewQuestion(id, round);
@@ -642,6 +673,37 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  B04: {
+    id: 'B04-CHECK',
+    unit: 'B04',
+    title: t('分数与小数小回顾', 'A small fractions and decimals review'),
+    questions: b04CheckQuestions,
+    bridge: 'B04-L01',
+  },
+  H38: {
+    id: 'H38-CHECK',
+    unit: 'H38',
+    title: t(
+      '最终项目与数学表达回顾',
+      'Final projects and communication review',
+    ),
+    questions: h38CheckQuestions,
+    bridge: 'H38-L01',
+  },
+  H37: {
+    id: 'H37-CHECK',
+    unit: 'H37',
+    title: t('拓展选学回顾', 'Enrichment review'),
+    questions: h37CheckQuestions,
+    bridge: 'H37-L01',
+  },
+  H36: {
+    id: 'H36-CHECK',
+    unit: 'H36',
+    title: t('解析几何深化回顾', 'Advanced analytic geometry review'),
+    questions: h36CheckQuestions,
+    bridge: 'H36-L01',
+  },
   H35: {
     id: 'H35-CHECK',
     unit: 'H35',

@@ -1,4 +1,10 @@
 import {
+  checkGraphRoute,
+  checkMatrix2,
+  type GraphSpec,
+} from './extensionModels';
+import { checkPointSet } from './analyticGeometryModels';
+import {
   checkInferenceCode,
   type InferenceCode,
 } from './statisticalInferenceModels';
@@ -121,6 +127,9 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'graph-route'; value: string; graph: GraphSpec }
+  | { kind: 'matrix2'; value: string }
+  | { kind: 'plane-point-set'; value: string }
   | { kind: 'inference-code'; value: InferenceCode }
   | { kind: 'distribution-table'; value: string }
   | { kind: 'distribution-rounded'; value: string }
@@ -593,6 +602,21 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'capstone-model'
+    | 'capstone-validation'
+    | 'capstone-efficiency'
+    | 'capstone-argument'
+    | 'capstone-project'
+    | 'extension-induction'
+    | 'extension-recurrence'
+    | 'extension-graphs'
+    | 'extension-matrices'
+    | 'extension-numerical'
+    | 'analytic-intersections'
+    | 'analytic-locus'
+    | 'analytic-parameter'
+    | 'analytic-vectors'
+    | 'analytic-modelling'
     | 'equation-composition'
     | 'equation-logarithms'
     | 'equation-identities'
@@ -1055,6 +1079,9 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'graph-route') return checkGraphRoute(input, spec.graph);
+  if (spec.kind === 'matrix2') return checkMatrix2(input, spec.value);
+  if (spec.kind === 'plane-point-set') return checkPointSet(input, spec.value);
   if (spec.kind === 'inference-code')
     return checkInferenceCode(input, spec.value);
   if (spec.kind === 'distribution-table')

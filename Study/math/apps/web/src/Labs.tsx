@@ -1,3 +1,9 @@
+import { CapstoneLab, isCapstoneLab } from './CapstoneLabs';
+import { ExtensionLab, isExtensionLab } from './ExtensionLabs';
+import {
+  AnalyticGeometryLab,
+  isAnalyticGeometryLab,
+} from './AnalyticGeometryLabs';
 import {
   AdvancedEquationLab,
   isAdvancedEquationLab,
@@ -403,7 +409,13 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isAdvancedEquationLab(kind) ? (
+  return isCapstoneLab(kind) ? (
+    <CapstoneLab key={kind} kind={kind} mode={mode} />
+  ) : isExtensionLab(kind) ? (
+    <ExtensionLab key={kind} kind={kind} mode={mode} />
+  ) : isAnalyticGeometryLab(kind) ? (
+    <AnalyticGeometryLab key={kind} kind={kind} mode={mode} />
+  ) : isAdvancedEquationLab(kind) ? (
     <AdvancedEquationLab key={kind} kind={kind} mode={mode} />
   ) : isStatisticalInferenceLab(kind) ? (
     <StatisticalInferenceLab key={kind} kind={kind} mode={mode} />

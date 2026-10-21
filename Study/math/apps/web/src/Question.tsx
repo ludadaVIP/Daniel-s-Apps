@@ -12,6 +12,21 @@ import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 import { trigQuantityMatches } from './trigModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'graph-route')
+    return t(
+      '按顺序写顶点，如A-D-F；接受所有并列最短简单路径。不可达写unreachable，不用∞冒充路线。',
+      'Enter vertices in order, such as A-D-F. All tied shortest simple paths are accepted. Use unreachable if no route exists.',
+    );
+  if (spec.kind === 'matrix2')
+    return t(
+      '按行写二阶矩阵：[a,b;c,d]，分号换行；各项可用精确分数，如[1/2,0;0,-2]。',
+      'Enter a two-by-two matrix by rows as [a,b;c,d], using a semicolon between rows. Entries may be exact fractions, e.g. [1/2,0;0,-2].',
+    );
+  if (spec.kind === 'plane-point-set')
+    return t(
+      '写全部不同的点，如{(0,1/2);(sqrt(2),0)}；可用精确分数与根式，空集写∅或{}。点内为x,y，点间用分号；不把重根当成两个点。',
+      'Enter all distinct points, such as {(0,1/2);(sqrt(2),0)}. Exact fractions and radicals are accepted; use ∅ or {} for empty. Separate coordinates by a comma and points by semicolons; a repeated root is one point.',
+    );
   if (spec.kind === 'inference-code')
     return t(
       '检验填reject（拒绝）、do-not-reject（不拒绝）或not-justified（条件不足）；区间比较填meets-target（全达目标）、below-target（全低于目标）、uncertain（跨阈值）。不拒绝不是证明H0真。',
@@ -489,11 +504,7 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
         '请用百分数作答，包含 %；如 37.5% 或 33 1/3%',
         'Use a percentage including %; for example 37.5% or 33 1/3%',
       );
-    if (
-      lessonId?.startsWith('P62-') &&
-      spec.formats?.length === 1 &&
-      spec.formats[0] === 'decimal'
-    )
+    if (spec.formats?.length === 1 && spec.formats[0] === 'decimal')
       return t(
         '请写小数或整数，不加百分号',
         'Use a decimal or whole number without a percent sign',
@@ -553,7 +564,15 @@ function answerHint(spec: AnswerSpec, lessonId?: string) {
       '你的答案（写小数或整数，单位可省略）',
       'Your answer (use a decimal or whole number; units are optional)',
     );
-  return t('你的答案（分数可用 3/8）', 'Your answer (fractions can use 3/8)');
+  const example = ['3/8', '2/5', '5/12'].find(
+    (value) => checkAnswer(value, spec) !== true,
+  );
+  return example
+    ? t(
+        `你的答案（分数可用 ${example}）`,
+        `Your answer (fractions can use ${example})`,
+      )
+    : t('你的答案（分数使用斜线）', 'Your answer (use / for fractions)');
 }
 export function Question({
   question: q,

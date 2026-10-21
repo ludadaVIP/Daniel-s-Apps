@@ -1,3 +1,9 @@
+import { CapstoneHookArt, isCapstoneLab } from './CapstoneLabs';
+import { ExtensionHookArt, isExtensionLab } from './ExtensionLabs';
+import {
+  AnalyticGeometryHookArt,
+  isAnalyticGeometryLab,
+} from './AnalyticGeometryLabs';
 import {
   AdvancedEquationHookArt,
   isAdvancedEquationLab,
@@ -204,7 +210,13 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isAdvancedEquationLab(l.lab) ? (
+              {isCapstoneLab(l.lab) ? (
+                <CapstoneHookArt kind={l.lab} mode={mode} />
+              ) : isExtensionLab(l.lab) ? (
+                <ExtensionHookArt kind={l.lab} mode={mode} />
+              ) : isAnalyticGeometryLab(l.lab) ? (
+                <AnalyticGeometryHookArt kind={l.lab} mode={mode} />
+              ) : isAdvancedEquationLab(l.lab) ? (
                 <AdvancedEquationHookArt kind={l.lab} mode={mode} />
               ) : isStatisticalInferenceLab(l.lab) ? (
                 <StatisticalInferenceHookArt kind={l.lab} mode={mode} />
