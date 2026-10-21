@@ -8,6 +8,11 @@ import {
   initializeHtmlLibrary,
 } from "../../html-library/server/index.js";
 import { contextPack, CURRENCIES } from "../src/model.js";
+import {
+  CONVERSION_PAIRS,
+  createInitialConverterState,
+  ratioStats,
+} from "../src/converter.js";
 import { validateResearch, researchHtml } from "./ai.js";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const error = (message, status = 400) =>
@@ -18,6 +23,36 @@ const num = (v, min = 0, max = 1e14) =>
 const date = (v) =>
   text(v, 10) &&
   (v === "" || (/^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(v))));
+const timestamp = (v) =>
+  text(v, 40) && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/.test(v) &&
+  Number.isFinite(Date.parse(v));
+const nearLondonClose = (value, tradingDate, precise = false) => {
+  if (!timestamp(value) || value.slice(0, 10) !== tradingDate) return false;
+  const parts = new Intl.DateTimeFormat("en-GB", {
+    timeZone: "Europe/London",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit",
+    hourCycle: "h23",
+  }).formatToParts(new Date(value));
+  const hour = Number(parts.find((part) => part.type === "hour")?.value);
+  const minute = Number(parts.find((part) => part.type === "minute")?.value);
+  const second = Number(parts.find((part) => part.type === "second")?.value);
+  const localSeconds = hour * 3600 + minute * 60 + second;
+  const targetSeconds = 16 * 3600 + 25 * 60;
+  return precise
+    ? Math.abs(localSeconds - targetSeconds) <= 30
+    : localSeconds >= 16 * 3600 + 20 * 60 && localSeconds <= 16 * 3600 + 30 * 60;
+};
+const synchronizedPair = (baseAt, targetAt, sampleType, precise = false) => {
+  const base = Date.parse(baseAt);
+  const target = Date.parse(targetAt);
+  if (!Number.isFinite(base) || !Number.isFinite(target)) return false;
+  if (!precise) return Math.abs(base - target) <= 60_000;
+  if (sampleType === "midquote") return Math.abs(base - target) <= 15_000;
+  const barMs = sampleType === "five_minute_close" ? 300_000 : 60_000;
+  return Math.floor(base / barMs) === Math.floor(target / barMs);
+};
 export function validateState(s) {
   if (!s || s.version !== 1) throw error("备份版本无效。");
   for (const k of [
@@ -135,6 +170,85 @@ export function validateState(s) {
     CURRENCIES.some((c) => s.fx[c] !== null && !num(s.fx[c], 0.00000001, 1e8))
   )
     throw error("汇率格式无效；请填写每单位外币兑换的美元数。");
+  if (s.converter !== undefined) {
+    const converter = s.converter;
+    if (
+      !converter ||
+      typeof converter !== "object" ||
+      !Array.isArray(converter.calibrations) ||
+      converter.calibrations.length !== CONVERSION_PAIRS.length ||
+      !text(converter.updatedAt, 40) ||
+      !converter.updatedAt
+    )
+      throw error("换算公式数据无效。");
+    const seenPairs = new Set();
+    for (const calibration of converter.calibrations) {
+      const pair = CONVERSION_PAIRS.find((item) => item.id === calibration?.pairId);
+      if (!pair || seenPairs.has(calibration.pairId))
+        throw error("换算公式缺少唯一的产品配对。");
+      seenPairs.add(calibration.pairId);
+      const method = calibration.method || "daily_ohlc";
+      if (
+        !["daily_ohlc", "synchronized_intraday"].includes(method) ||
+        (method === "synchronized_intraday" && !["midquote", "minute_close", "five_minute_close"].includes(calibration.sampleType)) ||
+        !num(calibration.ratio, 0.00000001) ||
+        !num(calibration.lowRatio, 0.00000001) ||
+        !num(calibration.highRatio, 0.00000001) ||
+        calibration.lowRatio > calibration.ratio ||
+        calibration.ratio > calibration.highRatio ||
+        (method === "daily_ohlc"
+          ? calibration.observationCount !== 5
+          : ![5, 10].includes(calibration.observationCount)) ||
+        !date(calibration.asOf) ||
+        !calibration.asOf ||
+        !text(calibration.updatedAt, 40) ||
+        !calibration.updatedAt ||
+        !Array.isArray(calibration.observations) ||
+        calibration.observations.length !== calibration.observationCount ||
+        !calibration.sources ||
+        ![calibration.sources.base, calibration.sources.target].every(
+          (url) => text(url, 1000) && /^https?:\/\//.test(url),
+        )
+      )
+        throw error(`换算公式字段无效：${pair.id}。`);
+      const dates = new Set();
+      for (const row of calibration.observations) {
+        const validPrices = method === "synchronized_intraday"
+          ? timestamp(row?.baseAt) &&
+            timestamp(row?.targetAt) &&
+            nearLondonClose(row.baseAt, row.date, calibration.observationCount === 10) &&
+            nearLondonClose(row.targetAt, row.date, calibration.observationCount === 10) &&
+            synchronizedPair(row.baseAt, row.targetAt, calibration.sampleType, calibration.observationCount === 10) &&
+            num(row?.basePrice, 0.000001) &&
+            num(row?.targetPrice, 0.000001)
+          : num(row?.baseOpen, 0.000001) &&
+            num(row?.baseClose, 0.000001) &&
+            num(row?.targetOpen, 0.000001) &&
+            num(row?.targetClose, 0.000001);
+        if (
+          !row ||
+          !date(row.date) ||
+          !row.date ||
+          dates.has(row.date) ||
+          !validPrices
+        )
+          throw error(`换算公式观测值无效：${pair.id}。`);
+        dates.add(row.date);
+      }
+      const stats = ratioStats(calibration.observations, method, {
+        robustBand: calibration.observationCount === 10,
+      });
+      const observedThrough = [...dates].sort().at(-1);
+      if (
+        calibration.sampleCount !== stats.sampleCount ||
+        Math.abs(calibration.ratio - stats.ratio) > 1e-10 ||
+        Math.abs(calibration.lowRatio - stats.lowRatio) > 1e-10 ||
+        Math.abs(calibration.highRatio - stats.highRatio) > 1e-10 ||
+        calibration.asOf !== observedThrough
+      )
+        throw error(`换算公式与原始观测值不一致：${pair.id}。`);
+    }
+  }
   return s;
 }
 export async function createHoldingsApp({
@@ -175,7 +289,7 @@ export async function createHoldingsApp({
       "# My Holdings · Codex 待办",
       "",
       "> 这是本地排队文件，会随 `state.json` 一起通过 GitHub 同步。应用不会启动 Codex CLI 或后台任务。",
-      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`；研究任务保存 HTML，收盘价任务只回写报价数据。",
+      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`；研究任务保存 HTML，收盘价任务只回写报价数据，换算任务回写配对日线观测。",
       "",
       `最近同步：${s.updatedAt || "尚未保存"}`,
       "",
@@ -183,8 +297,11 @@ export async function createHoldingsApp({
     if (!waiting.length) lines.push("当前没有等待中的任务。", "");
     for (const job of waiting) {
       const watch = s.watchlist.find((w) => w.id === job.watchId);
+      const title = job.kind === "converter"
+        ? "VOO / SPYL · QQQM / CNDX"
+        : watch?.name || job.question || "持仓组合";
       lines.push(
-        `## ${job.kind === "watch" ? "标的研究" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "收盘价更新" : "组合分析"} · ${watch?.name || job.question || "持仓组合"}`,
+        `## ${job.kind === "watch" ? "标的研究" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "收盘价更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
         `- 状态：等待 Codex · 任务 ID：${job.id}`,
         `- 创建时间：${job.date}`,
         `- 关注记录 ID：${job.watchId || "无"}`,
@@ -192,9 +309,11 @@ export async function createHoldingsApp({
         watch?.targetPrice ? `- 用户等待价格：${watch.targetPrice} ${watch.research?.quote?.currency || "USD"}` : "",
         job.kind === "quotes"
           ? "- 更新所有持仓标的最近一个完整美股交易日的收盘价，注明交易日期与来源；完成时通过本地 API 回写 quotes 数组，不生成 HTML。"
-          : job.kind === "watch"
-            ? "- 只在用户明确要求时执行；核对最近完整交易日收盘价、财报与重要新闻。研究 JSON 必须带 quote：{price,date,currency,source,sourceUrl}，使用已核验的行情来源；报告保存为独立 HTML，再回写结构化研究。"
-            : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
+          : job.kind === "converter"
+            ? "- 核对 VOO/SPYL 与 QQQM/CNDX 的 USD 挂牌代码，取最近 10 个共同交易日伦敦时间 16:25:00±30 秒的同步盘中价；同一组 10 天统一使用盘口中间价（两边相差≤15秒）、同一 UTC 分钟的一分钟收盘价，或同一 UTC 五分钟区间且在 16:25 收盘的五分钟线。通过本地 API 回写 calibrations 与来源；系数取配对比值中位数，参考带取 P25–P75。无法找到可核验的同步数据就标记未完成并保留旧公式，不生成 HTML、不改持仓。"
+            : job.kind === "watch"
+              ? "- 只在用户明确要求时执行；核对最近完整交易日收盘价、财报与重要新闻。研究 JSON 必须带 quote：{price,date,currency,source,sourceUrl}，使用已核验的行情来源；报告保存为独立 HTML，再回写结构化研究。"
+              : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
         "",
       );
     }
@@ -228,6 +347,17 @@ export async function createHoldingsApp({
   await serial(async () => {
     const s = await read();
     let changed = false;
+    if (!s.converter) {
+      s.converter = createInitialConverterState();
+      changed = true;
+    } else {
+      for (const calibration of s.converter.calibrations) {
+        if (!calibration.method) {
+          calibration.method = "daily_ohlc";
+          changed = true;
+        }
+      }
+    }
     for (const w of s.watchlist)
       if (!w.symbol && /^[A-Z][A-Z0-9.-]{0,14}$/.test(w.name)) {
         w.symbol = w.name;
@@ -284,7 +414,7 @@ export async function createHoldingsApp({
   });
   app.post("/api/jobs", async (req, res, next) => {
     try {
-      const kind = ["watch", "portfolio", "market", "quotes"].includes(req.body.kind)
+      const kind = ["watch", "portfolio", "market", "quotes", "converter"].includes(req.body.kind)
         ? req.body.kind
         : "portfolio";
       const result = await serial(async () => {
@@ -416,6 +546,81 @@ export async function createHoldingsApp({
           s.marketUpdatedAt = job.completedAt;
           return write(s);
         }
+        if (job.kind === "converter") {
+          const submitted = req.body?.calibrations;
+          if (!Array.isArray(submitted) || submitted.length !== CONVERSION_PAIRS.length)
+            throw error("换算公式任务需要提交两组 calibrations。");
+          const now = new Date().toISOString();
+          const seenPairs = new Set();
+          const calibrations = submitted.map((input) => {
+            const pair = CONVERSION_PAIRS.find((item) => item.id === input?.pairId);
+            if (!pair || seenPairs.has(pair.id)) throw error("换算公式必须包含且只包含两组已配置产品。");
+            seenPairs.add(pair.id);
+            if (input.method !== "synchronized_intraday")
+              throw error(`${pair.baseSymbol}/${pair.targetSymbol} 更新必须使用两边同一时点的盘中价格。`);
+            if (!["midquote", "minute_close", "five_minute_close"].includes(input.sampleType))
+              throw error(`${pair.baseSymbol}/${pair.targetSymbol} 必须为 10 天样本统一选择盘口中间价、一分钟收盘价或五分钟收盘价。`);
+            if (!Array.isArray(input.observations) || input.observations.length !== 10)
+              throw error(`${pair.baseSymbol}/${pair.targetSymbol} 必须提供最近 10 个共同交易日的同步样本。`);
+            if (
+              !input.sources ||
+              ![input.sources.base, input.sources.target].every(
+                (url) => text(url, 1000) && /^https:\/\//i.test(url),
+              )
+            )
+              throw error(`${pair.baseSymbol}/${pair.targetSymbol} 缺少 HTTPS 行情来源链接。`);
+            const observations = input.observations
+              .map((row) => ({
+                date: row?.date,
+                baseAt: row?.baseAt,
+                targetAt: row?.targetAt,
+                basePrice: row?.basePrice,
+                targetPrice: row?.targetPrice,
+              }))
+              .sort((a, b) => String(a.date).localeCompare(String(b.date)));
+            const dates = new Set();
+            for (const row of observations) {
+              if (
+                !row ||
+                !date(row.date) ||
+                !row.date ||
+                dates.has(row.date) ||
+                !nearLondonClose(row.baseAt, row.date, true) ||
+                !nearLondonClose(row.targetAt, row.date, true) ||
+                !synchronizedPair(row.baseAt, row.targetAt, input.sampleType, true) ||
+                !num(row.basePrice, 0.000001) ||
+                !num(row.targetPrice, 0.000001)
+              )
+                throw error(`${pair.baseSymbol}/${pair.targetSymbol} 的同步时间或价格无效；盘口报价须相差不超过 15 秒，分钟线必须来自同一 UTC 分钟或五分钟线必须来自同一 UTC 五分钟区间。`);
+              dates.add(row.date);
+            }
+            const stats = ratioStats(observations, "synchronized_intraday");
+            return {
+              pairId: pair.id,
+              method: "synchronized_intraday",
+              sampleType: input.sampleType,
+              ...stats,
+              observationCount: observations.length,
+              asOf: observations.at(-1).date,
+              updatedAt: now,
+              observations,
+              sources: {
+                base: input.sources.base.trim(),
+                target: input.sources.target.trim(),
+              },
+            };
+          });
+          if (seenPairs.size !== CONVERSION_PAIRS.length)
+            throw error("换算公式必须包含 VOO/SPYL 与 QQQM/CNDX 两组数据。");
+          s.converter = { updatedAt: now, calibrations };
+          job.status = "done";
+          job.summary = text(req.body.summary || "", 1000)
+            ? req.body.summary
+            : "已更新两组基金的短期价格换算系数。";
+          job.error = "";
+          job.completedAt = now;
+          return write(s);
+        }
         return null;
       });
       if (quoteResult) return res.json(quoteResult);
@@ -489,6 +694,7 @@ export async function createHoldingsApp({
           const candidate = validateState(req.body);
           candidate.jobs = current.jobs;
           candidate.analyses = current.analyses;
+          candidate.converter = candidate.converter || current.converter || createInitialConverterState();
           for (const w of candidate.watchlist) {
             const existing = current.watchlist.find((row) => row.id === w.id);
             if (existing?.research) {
@@ -518,6 +724,7 @@ export async function createHoldingsApp({
           const candidate = structuredClone(validateState(req.body.state));
           candidate.revision = current.revision;
           candidate.jobs = [];
+          candidate.converter = candidate.converter || current.converter || createInitialConverterState();
           return write(candidate);
         }),
       );

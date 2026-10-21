@@ -2,6 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import {
   ArrowDownLeft,
   ArrowRight,
+  ArrowRightLeft,
   ArrowUpRight,
   BarChart3,
   Check,
@@ -59,10 +60,15 @@ import {
   SaveButton,
 } from "./Forms.jsx";
 import { Reports } from "./Reports.jsx";
+import {
+  CONVERSION_PAIRS,
+  INITIAL_CONVERTER_STATE,
+} from "./converter.js";
 const NAV = [
   ["overview", "总览", LayoutDashboard],
   ["holdings", "我的持仓", Wallet],
   ["watch", "近期关注", Star],
+  ["converter", "换算工具", ArrowRightLeft],
   ["analysis", "组合分析", BarChart3],
   ["cash", "弹药与目标", Target],
   ["reports", "行情与档案", FileCode2],
@@ -94,6 +100,8 @@ const when = (d) =>
         minute: "2-digit",
       })
     : "尚未生成";
+const preciseUSD = (value) =>
+  Number.isFinite(Number(value)) ? `US$${Number(value).toFixed(4)}` : "—";
 const WATCH_SORT_OPTIONS = [
   { id: "name", label: "名称", title: "按名称排序" },
   { id: "price", label: "报价", title: "按当前报价从低到高排序" },
@@ -308,14 +316,18 @@ function RightPanel({
   onEdit,
   onRefreshPrices,
   onQueueTask,
+  onRefreshConverter,
+  converterPending,
   onCopyQueue,
 }) {
   const cash = state.cash.reduce((sum, row) => sum + Number(row.amount || 0), 0);
   const watchCurrency = watch?.research?.quote?.currency || watch?.research?.identity?.currency || "USD";
+  const converter = state.converter || INITIAL_CONVERTER_STATE;
   const title = {
     overview: "今日摘要",
     holdings: holding ? "持仓详情" : "账户摘要",
     watch: watch ? "关注详情" : "价差优先榜",
+    converter: "换算公式",
     analysis: "体检档案",
     cash: "资金与目标",
     reports: "档案索引",
@@ -444,6 +456,28 @@ function RightPanel({
         </div> : <div className="mh-watch-priority-empty"><Target size={21} /><strong>还没有可排序的等待价</strong><p>填写等待价并确保有最新报价后，标的会自动出现在这里。没有等待价的标的仍保留在左侧分类列表。</p></div>}
         <div className="mh-watch-priority-footnote"><span className="mh-dot" /> 价差越小，越接近你的等待价</div>
       </section>)}
+      {tab === "converter" && <>
+        <section className="mh-side-summary">
+          <span className="mh-eyebrow">PAIRED PRICE RATIOS</span>
+          <strong>2 组换算</strong>
+          {CONVERSION_PAIRS.map((pair) => {
+            const calibration = converter.calibrations.find((row) => row.pairId === pair.id);
+            return <div className="mh-converter-side-row" key={pair.id}>
+              <span>{pair.baseSymbol} → {pair.targetSymbol}</span>
+              <b>{calibration ? calibration.ratio.toFixed(6) : "待校准"}</b>
+              <small>{calibration ? `截至 ${calibration.asOf}` : "请求首次校准"}</small>
+            </div>;
+          })}
+        </section>
+        <section>
+          <div className="mh-section-heading"><h3>公式口径</h3><ArrowRightLeft size={15} /></div>
+          <p className="mh-sidebar-objective">{converter.calibrations.every((row) => row.method === "synchronized_intraday") ? "使用最近 10 个共同交易日、伦敦 16:25 同一时点的配对价格；参考带取比值 P25–P75。" : "当前只有不同收市时点的日线样本，系数仅为临时估算且不显示误差带。更新时改取最近 10 个共同交易日、伦敦 16:25 的同步配对价。"} 两组都按 USD 价格配对。</p>
+          <button className="mh-button" onClick={onRefreshConverter} disabled={converterPending}>
+            {converterPending ? <LoaderCircle size={14} className="mh-spin" /> : <RefreshCw size={14} />}
+            {converterPending ? "公式更新已排队" : "请求更新公式"}
+          </button>
+        </section>
+      </>}
       {tab === "analysis" && <>
         <section className="mh-side-summary"><span className="mh-eyebrow">AUTOMATIC CHECKS</span><strong>{notes.length} 项观察</strong><p className="mh-side-summary-text">本地按保存的持仓、报价和目标计算；AI 体检需手动加入 Codex 待办。</p><button className="mh-primary" onClick={() => onQueueTask("portfolio", null, "今日持仓体检：结合当前两个账户的全部持仓、最新可核实行情与公司信息，复核集中度、重叠风险、宏观和个股风险、现金弹药与目标，给出支持与反证、观察触发条件和保持不动方案，生成完整 HTML 报告。")}>今日持仓体检</button></section>
         <section><div className="mh-section-heading"><h3>过往体检</h3><span className="mh-tag">{reports.length}</span></div>{reportLinks(reports.slice(0, 8), "还没有历史体检")}</section>
@@ -468,6 +502,194 @@ function RightPanel({
       </>}
       <footer><span className="mh-dot" /> 数据留在本机 · 研究由你掌握</footer>
     </aside>
+  );
+}
+const CONVERTER_TASK_GUIDANCE = "利用伦敦与美国常规交易时段重叠，在最近 10 个共同交易日分别采集伦敦时间 16:25:00±30 秒的同一时点价格；每组 10 天必须统一取价方法。优先取双方可核验的买卖盘中间价（baseAt 与 targetAt 相差不超过 15 秒）；其次用同一 UTC 分钟的一分钟收盘价；若数据源只提供五分钟线，可用同一 UTC 五分钟区间、在 16:25 收盘的配对价格。时间戳为价格实际对应的 UTC 时点、伦敦当地日期一致，不能以两地各自收盘价或不同时间的日线价代替，也不能混用 GBP/EUR。保存全部原始价格、精确时间戳和 HTTPS 来源 URL。无法核验完整同步样本就调用 fail，保留旧公式，不要猜测或补造价格。提交 method=synchronized_intraday、sampleType=midquote、minute_close 或 five_minute_close、10 条 observations（date、baseAt、targetAt、basePrice、targetPrice）及 sources.base / sources.target。API 检查每组 10 个日期和时间匹配，以 10 个配对比值的中位数计算中心系数，以 P25–P75 计算近期典型参考带。无需 HTML，不改持仓。";
+
+function converterSeedValues(calibrations) {
+  return Object.fromEntries(CONVERSION_PAIRS.map((pair) => {
+    const calibration = calibrations?.find((row) => row.pairId === pair.id);
+    const latest = calibration?.observations?.slice().sort((a, b) => a.date.localeCompare(b.date)).at(-1);
+    const base = Number.isFinite(latest?.basePrice) ? latest.basePrice : latest?.baseClose;
+    return [pair.id, {
+      base: Number.isFinite(base) ? base.toFixed(2) : "",
+      target: Number.isFinite(base) && calibration?.ratio ? (base * calibration.ratio).toFixed(4) : "",
+      driver: "base",
+    }];
+  }));
+}
+function ConverterPage({ converter }) {
+  const current = converter || INITIAL_CONVERTER_STATE;
+  const [values, setValues] = useState(() => converterSeedValues(current.calibrations));
+  useEffect(() => {
+    setValues((previous) => Object.fromEntries(CONVERSION_PAIRS.map((pair) => {
+      const calibration = current.calibrations.find((row) => row.pairId === pair.id);
+      const prior = previous[pair.id] || {};
+      const ratio = Number(calibration?.ratio);
+      if (!Number.isFinite(ratio) || ratio <= 0) return [pair.id, prior];
+      const driver = prior.driver || "base";
+      if (driver === "target" && prior.target !== undefined && prior.target !== "") {
+        const target = Number(prior.target);
+        return [pair.id, { ...prior, base: Number.isFinite(target) ? (target / ratio).toFixed(4) : "" }];
+      }
+      const base = Number(prior.base);
+      if (prior.base !== undefined && prior.base !== "")
+        return [pair.id, { ...prior, target: Number.isFinite(base) ? (base * ratio).toFixed(4) : "" }];
+      return [pair.id, converterSeedValues(current.calibrations)[pair.id]];
+    })));
+  }, [current.updatedAt]);
+  const updatePrice = (pair, side, raw) => {
+    const calibration = current.calibrations.find((row) => row.pairId === pair.id);
+    const ratio = Number(calibration?.ratio);
+    setValues((previous) => {
+      const next = { ...previous[pair.id], driver: side };
+      if (raw === "") {
+        next[side] = "";
+        next[side === "base" ? "target" : "base"] = "";
+        return { ...previous, [pair.id]: next };
+      }
+      const value = Number(raw);
+      next[side] = raw;
+      if (!Number.isFinite(value) || value <= 0 || !Number.isFinite(ratio) || ratio <= 0) {
+        next[side === "base" ? "target" : "base"] = "";
+      } else {
+        next[side === "base" ? "target" : "base"] =
+          side === "base" ? (value * ratio).toFixed(4) : (value / ratio).toFixed(4);
+      }
+      return { ...previous, [pair.id]: next };
+    });
+  };
+  return (
+    <div className="mh-converter-page">
+      <div className="mh-converter-intro">
+        <span className="mh-eyebrow">SHORT-TERM PRICE REFERENCE</span>
+        <p>输入任一边的价格，另一边即时估算。只有同一交易时刻的配对样本才会显示参考带；不同时间的日线数据不用于伪造误差区间。</p>
+      </div>
+      <div className="mh-converter-grid">
+        {CONVERSION_PAIRS.map((pair) => {
+          const calibration = current.calibrations.find((row) => row.pairId === pair.id);
+          const ratio = Number(calibration?.ratio);
+          const pairValues = values[pair.id] || {};
+          const driver = pairValues.driver || "base";
+          const sourceValue = Number(pairValues[driver]);
+          const hasEstimate = Number.isFinite(sourceValue) && sourceValue > 0 && Number.isFinite(ratio) && ratio > 0;
+          const synchronized = calibration?.method === "synchronized_intraday";
+          const outputLow = hasEstimate && synchronized
+            ? driver === "base" ? sourceValue * calibration.lowRatio : sourceValue / calibration.highRatio
+            : null;
+          const outputHigh = hasEstimate && synchronized
+            ? driver === "base" ? sourceValue * calibration.highRatio : sourceValue / calibration.lowRatio
+            : null;
+          const outputSymbol = driver === "base" ? pair.targetSymbol : pair.baseSymbol;
+          const outputEstimate = hasEstimate
+            ? driver === "base" ? sourceValue * ratio : sourceValue / ratio
+            : null;
+          const rangeSpanPct = hasEstimate && synchronized && outputEstimate > 0
+            ? ((outputHigh - outputLow) / outputEstimate) * 100
+            : null;
+          return (
+            <section className="mh-panel mh-converter-card" key={pair.id}>
+              <header className="mh-converter-card-head">
+                <div><span className="mh-eyebrow">INDEX PAIR</span><h2>{pair.title}</h2></div>
+                <span className="mh-tag">USD · USD</span>
+              </header>
+              <div className="mh-converter-fields">
+                <label className={driver === "base" ? "mh-converter-field active" : "mh-converter-field"}>
+                  <span><strong>{pair.baseSymbol}</strong><small>{pair.baseVenue} · USD</small></span>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputMode="decimal"
+                    aria-label={`${pair.baseSymbol} 价格`}
+                    value={pairValues.base ?? ""}
+                    onChange={(event) => updatePrice(pair, "base", event.target.value)}
+                    placeholder="输入价格"
+                  />
+                  <small>{pair.baseName}</small>
+                </label>
+                <span className="mh-converter-link" aria-hidden="true"><ArrowRightLeft size={18} /></span>
+                <label className={driver === "target" ? "mh-converter-field active target" : "mh-converter-field target"}>
+                  <span><strong>{pair.targetSymbol}</strong><small>{pair.targetVenue} · USD</small></span>
+                  <input
+                    type="number"
+                    min="0"
+                    step="0.01"
+                    inputMode="decimal"
+                    aria-label={`${pair.targetSymbol} 价格`}
+                    value={pairValues.target ?? ""}
+                    onChange={(event) => updatePrice(pair, "target", event.target.value)}
+                    placeholder="输入价格"
+                  />
+                  <small>{pair.targetName}</small>
+                </label>
+              </div>
+              <div className="mh-converter-ratio">
+                <span>{pair.targetSymbol} ÷ {pair.baseSymbol}</span>
+                <strong>{Number.isFinite(ratio) && ratio > 0 ? ratio.toFixed(8) : "待校准"}</strong>
+                <small>{calibration ? synchronized ? `${calibration.observationCount} 个共同交易日 · 16:25 同步${calibration.sampleType === "midquote" ? "盘口中间价" : calibration.sampleType === "five_minute_close" ? "5 分钟线收盘价" : "1 分钟线收盘价"}` : `${calibration.observationCount} 个交易日 · 日线临时系数（时点未同步）` : "请求更新公式以生成首个系数"}</small>
+              </div>
+              <div className="mh-converter-range">
+                <span>{synchronized ? calibration.observationCount === 10 ? "近期配对比值中间 50%（P25–P75）" : "五日同步样本范围" : "同步参考带"}</span>
+                <strong>{!hasEstimate ? "输入一个价格后显示" : synchronized ? `${outputSymbol} ${preciseUSD(outputLow)} – ${preciseUSD(outputHigh)}` : "同步校准后显示"}</strong>
+                <small>{!hasEstimate ? "" : synchronized ? `${calibration.observationCount} 个同一时点配对样本；${calibration.observationCount === 10 ? `P25–P75 带宽 ${rangeSpanPct.toFixed(2)}%，仅表示近期典型范围` : `样本极值跨度 ${rangeSpanPct.toFixed(2)}%`}，不是预测或保证` : "旧日线样本时点不一致，已隐藏其宽幅区间；当前中心值仅供粗略参考"}</small>
+              </div>
+              <footer className="mh-converter-meta">
+                <span>{calibration ? `数据截至 ${calibration.asOf}` : "公式尚未校准"}</span>
+                <span>
+                  <a href={pair.issuerUrl} target="_blank" rel="noopener noreferrer">发行方资料</a>
+                  <a href={calibration?.sources?.base || pair.baseUrl} target="_blank" rel="noopener noreferrer">{pair.baseSymbol} 行情源</a>
+                  <a href={calibration?.sources?.target || pair.targetUrl} target="_blank" rel="noopener noreferrer">{pair.targetSymbol} 行情源</a>
+                </span>
+              </footer>
+            </section>
+          );
+        })}
+      </div>
+      <div className="mh-converter-caveat">
+        <ShieldCheck size={16} />
+        <p>{current.calibrations.some((row) => row.method !== "synchronized_intraday") ? "标注“日线临时系数”的配对仍是粗略估算，误差带已隐藏。点击“请求更新公式”后，会采集最近 10 个共同交易日伦敦时间 16:25 附近的同步配对价；双边盘口报价相差不得超过 15 秒，分钟线须来自相同 UTC 分钟或五分钟区间，最终中心值取比值中位数，参考带取 P25–P75。" : `当前系数来自同一时点的历史配对价格（${Math.min(...current.calibrations.map((row) => row.observationCount))}–${Math.max(...current.calibrations.map((row) => row.observationCount))} 日）；中心值取比值中位数，参考带是 P25–P75 的近期典型范围，不是预测或保证。`} 四位小数只是计算显示精度，不代表可成交精度；基金跟踪同一指数也可能因费用、股息处理和买卖价差而不同。下单前请核对 IBKR 实时报价并使用限价单。</p>
+      </div>
+      <section className="mh-converter-principle" aria-labelledby="mh-converter-principle-title">
+        <header className="mh-converter-principle-head">
+          <span className="mh-eyebrow">HOW THE CONVERSION WORKS</span>
+          <h2 id="mh-converter-principle-title">换算原理｜同一指数、同期价格、比例换算</h2>
+          <p>这不是把两只 ETF 的价格当成相同，而是用它们近期同步的“每份价格比例”做短期估算。</p>
+        </header>
+        <div className="mh-converter-principle-grid">
+          <article>
+            <span className="mh-converter-principle-step">01 · 共同基准</span>
+            <h3>它们跟踪同一个指数</h3>
+            <p><strong>VOO ↔ SPYL</strong> 都跟踪 S&amp;P 500；<strong>QQQM ↔ CNDX</strong> 都跟踪 Nasdaq-100。四个页面报价均为美元，因此这两组换算不需要再乘汇率。</p>
+            <p>同一指数的涨跌会让两只基金的每份净值同向、近似同比例变化，因此价格比例短期通常较稳定。每份净资产基数不同，股价尺度也不同；例如 CNDX 单份价格高于 QQQM，不表示它跟踪的指数涨得更多。</p>
+          </article>
+          <article>
+            <span className="mh-converter-principle-step">02 · 同时点配对</span>
+            <h3>先算出每一天的比例</h3>
+            <p>在双方共同交易的时段，取同一 UTC 时刻（或同一根分钟线）的两边价格，计算：</p>
+            <div className="mh-converter-formula"><code>当日比例 = 目标 ETF 价格 ÷ 基准 ETF 价格</code></div>
+            <p>必须对齐时刻，因为指数在盘中持续变化；拿不同时间的价格相除，会把行情涨跌误当成基金比例变化。</p>
+          </article>
+          <article>
+            <span className="mh-converter-principle-step">03 · 得出估算</span>
+            <h3>用近期比例中位数换算</h3>
+            <div className="mh-converter-formula"><code>目标价 ≈ 输入价 × 近期比例中位数</code></div>
+            <div className="mh-converter-formula"><code>反向估算 ≈ 输入价 ÷ 近期比例中位数</code></div>
+            <p>多日比例的中位数不容易被某一天的异常报价带偏；它代表近期中心关系，不是永久固定的公式。</p>
+          </article>
+        </div>
+        <div className="mh-converter-principle-bottom">
+          <div>
+            <h3>参考区间怎么看</h3>
+            <p>同步样本达到 10 个时，页面用比例的 P25–P75（中间一半样本）作为近期典型波动带。它帮助判断估值大约落在哪一段，不是预测区间，也不保证成交价一定落在其中；样本不足时会显示样本范围或暂不显示。</p>
+          </div>
+          <div>
+            <h3>为什么比例仍会变</h3>
+            <p>管理费和跟踪误差、分红与累积方式、基金资产和每份份额的设定，以及买卖价差或短时溢折价，都会让两边比例缓慢漂移。因此它适合给熟悉的 VOO/QQQM 价格找一个 SPYL/CNDX 的短期参考，实际下单仍应核对同一时刻的实时报价。</p>
+          </div>
+        </div>
+      </section>
+    </div>
   );
 }
 export default function HoldingsApp() {
@@ -651,7 +873,7 @@ export default function HoldingsApp() {
       const r = await request("/api/jobs", { kind, watchId, question: prompt });
       setState(r.state);
       stateRef.current = r.state;
-      if (!quiet) notify(kind === "quotes" ? "收盘价更新已加入待办" : "已加入待办");
+      if (!quiet) notify(kind === "quotes" ? "收盘价更新已加入待办" : kind === "converter" ? "换算公式更新已加入待办" : "已加入待办");
       return true;
     } catch (e) {
       if (/已经在.*待办队列/.test(e.message)) {
@@ -668,6 +890,11 @@ export default function HoldingsApp() {
       null,
       "更新全部持仓标的最近一个已完成美股交易日的收盘价，并记录交易日期与数据来源。",
     );
+  const refreshConverter = () => queueTask(
+    "converter",
+    null,
+    `提高两组价格换算的精度：VOO→SPYL（pairId=sp500）与 QQQM→CNDX（pairId=nasdaq100）。先核实发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE}`,
+  );
   const refreshWatchlist = async () => {
     if (watchRefreshBusy) return;
     setWatchRefreshBusy(true);
@@ -734,7 +961,7 @@ export default function HoldingsApp() {
   };
   const copyQueue = async () => {
     const pending = stateRef.current.jobs.filter((j) => j.status === "waiting");
-    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n收盘价任务（kind=quotes）：联网核对全部持仓代码最近一个已完成的美股交易日收盘价。每个代码都要有价格、交易日期与来源；若来源无法核实，就将任务标记为未完成。不要生成 HTML，也不要改动平均成本或总成本。完成后 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 格式为 {"quotes":[{"symbol":"VOO","price":700.12,"date":"2026-10-16","source":"来源名称"}],"summary":"更新说明"}。\n\n研究任务（kind=watch、portfolio、market）：联网核实最新资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。关注标的任务必须在 research.quote 中返回最近完整交易日收盘价：{"price":123.45,"date":"2026-10-16","currency":"USD","source":"来源名称","sourceUrl":"https://来源页面"}，并在报告中注明日期与来源。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
+    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n收盘价任务（kind=quotes）：联网核对全部持仓代码最近一个已完成的美股交易日收盘价。每个代码都要有价格、交易日期与来源；若来源无法核实，就将任务标记为未完成。不要生成 HTML，也不要改动平均成本或总成本。完成后 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 格式为 {"quotes":[{"symbol":"VOO","price":700.12,"date":"2026-10-16","source":"来源名称"}],"summary":"更新说明"}。\n\n换算公式任务（kind=converter）：先核对 VOO/SPYL 与 QQQM/CNDX 的发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE} 完成时 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，提交包含两组 calibrations 的 JSON。\n\n研究任务（kind=watch、portfolio、market）：联网核实最新资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。关注标的任务必须在 research.quote 中返回最近完整交易日收盘价：{"price":123.45,"date":"2026-10-16","currency":"USD","source":"来源名称","sourceUrl":"https://来源页面"}，并在报告中注明日期与来源。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
     try {
       await navigator.clipboard.writeText(prompt);
       notify("待办与持仓背景已复制；粘贴给 Codex 后由它处理并回写结果");
@@ -1340,6 +1567,28 @@ export default function HoldingsApp() {
               )}
             </>
           )}
+          {tab === "converter" && (
+            <>
+              {heading(
+                "PRICE PAIR ESTIMATOR",
+                "换算工具",
+                "VOO 与 QQQM 的美元参考价，换算成对应的爱尔兰 UCITS ETF 价格。",
+                <button
+                  className="mh-primary"
+                  onClick={refreshConverter}
+                  disabled={state.jobs.some((job) => job.kind === "converter" && job.status === "waiting")}
+                >
+                  {state.jobs.some((job) => job.kind === "converter" && job.status === "waiting")
+                    ? <LoaderCircle size={15} className="mh-spin" />
+                    : <RefreshCw size={15} />}
+                  {state.jobs.some((job) => job.kind === "converter" && job.status === "waiting")
+                    ? "公式更新已排队"
+                    : "请求更新公式"}
+                </button>,
+              )}
+              <ConverterPage converter={state.converter} />
+            </>
+          )}
           {tab === "analysis" && (
             <>
               {heading(
@@ -1690,7 +1939,7 @@ export default function HoldingsApp() {
                           {j.status === "failed" ? <X size={17} /> : <LoaderCircle size={17} />}
                         </span>
                         <div>
-                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : "持仓分析"}</strong>
+                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                           <small>{when(j.date)} · {j.status === "failed" ? `未完成${j.error ? ` · ${j.error}` : ""}` : "等待交给 Codex"}</small>
                         </div>
                       </div>
@@ -1702,7 +1951,7 @@ export default function HoldingsApp() {
                       <div className="mh-job" key={j.id}>
                         <span className="mh-job-icon done"><CheckCircle2 size={17} /></span>
                         <div>
-                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : "持仓分析"}</strong>
+                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                           <small>{when(j.completedAt || j.date)} · 已完成并保存</small>
                         </div>
                         {j.report && <button className="mh-icon" aria-label="打开报告" onClick={() => openReport(j.report)}><ArrowUpRight size={15} /></button>}
@@ -1825,6 +2074,8 @@ export default function HoldingsApp() {
           onEdit={(form) => setModal(form)}
           onRefreshPrices={refreshPrices}
           onQueueTask={queueTask}
+          onRefreshConverter={refreshConverter}
+          converterPending={state.jobs.some((job) => job.kind === "converter" && job.status === "waiting")}
           onCopyQueue={copyQueue}
         />
       )}
