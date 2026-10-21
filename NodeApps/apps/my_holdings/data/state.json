@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 291,
-  "updatedAt": "2026-10-21T04:49:28.714Z",
+  "revision": 335,
+  "updatedAt": "2026-10-21T10:19:46.881Z",
   "accounts": [
     {
       "id": "a1",
@@ -1501,60 +1501,6 @@
       "targetPrice": 64
     },
     {
-      "id": "17877243-93c9-4ec4-b335-ece79a6a4542",
-      "name": "Adobe",
-      "symbol": "ADBE",
-      "note": "Moomoo 导入；行业：应用软件",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Adobe Inc.",
-          "symbol": "ADBE",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "创意软件、文档与数字体验"
-        },
-        "title": "ADBE｜创意软件、文档与数字体验：经营进展、风险与跟踪要点",
-        "summary": "资料截至 2026-10-21；最近完整美股交易日（2026-10-20）收盘价为 $256.70。最新公开经营资料：Adobe 通过 Creative Cloud、Document Cloud 和 Experience Cloud 提供订阅软件及企业营销工具。Q3 FY2026 GAAP EPS $4.62、非 GAAP EPS $6.13；AI-first 年度经常性收入同比增长 150%，月活用户达 10 亿。公司上调全年收入及 EPS 目标。关注 AI 功能变现和其对既有订阅的增量贡献。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Adobe 通过 Creative Cloud、Document Cloud 和 Experience Cloud 提供订阅软件及企业营销工具。Q3 FY2026 GAAP EPS $4.62、非 GAAP EPS $6.13；AI-first 年度经常性收入同比增长 150%，月活用户达 10 亿。公司上调全年收入及 EPS 目标。关注 AI 功能变现和其对既有订阅的增量贡献。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。",
-        "risks": [
-          "生成式 AI 降低内容制作门槛，也可能削弱传统创意软件定价或吸引力。",
-          "企业营销预算、订阅续约和新产品转化影响增长。",
-          "AI 计算成本、知识产权与数据来源争议可能增加成本或监管风险。"
-        ],
-        "catalysts": [
-          "核对 AI 功能付费转化、净新增 ARR 和续订情况。",
-          "观察全年上调后的收入及利润目标能否兑现。"
-        ],
-        "sources": [
-          {
-            "label": "最近收盘价：ChartExchange 历史日线（2026-10-19）",
-            "url": "https://chartexchange.com/symbol/nasdaq-adbe/historical/"
-          },
-          {
-            "label": "Adobe Q3 FY2026 SEC 业绩公告",
-            "url": "https://www.sec.gov/Archives/edgar/data/796343/000079634326000147/adbeex991q326.htm"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
-        "quote": {
-          "price": 256.7,
-          "date": "2026-10-20",
-          "currency": "USD",
-          "source": "ChartExchange",
-          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-adbe/historical/"
-        }
-      },
-      "price": 256.7,
-      "priceDate": "2026-10-20",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-adbe/historical/",
-      "researchedAt": "2026-10-20T21:29:38.288Z",
-      "report": "research/20261020-adbe.html",
-      "targetPrice": 220
-    },
-    {
       "id": "a458efd6-1dde-44d5-8737-63854d7a5e63",
       "name": "标普全球",
       "symbol": "SPGI",
@@ -2732,7 +2678,7 @@
       "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-avgo/historical/",
       "researchedAt": "2026-10-20T21:29:38.759Z",
       "report": "research/20261020-avgo.html",
-      "targetPrice": 320
+      "targetPrice": 305
     },
     {
       "id": "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
@@ -2895,6 +2841,693 @@
       "researchedAt": "2026-10-20T21:29:38.825Z",
       "report": "research/20261020-tsla.html",
       "targetPrice": 220
+    },
+    {
+      "id": "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
+      "name": "SOUN",
+      "symbol": "SOUN",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "SoundHound AI, Inc.",
+          "symbol": "SOUN",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "语音人工智能与对话式AI"
+        },
+        "title": "SOUN｜语音AI商业化和收购扩张并行，整合与现金消耗待验证",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘价为 $4.70。Q2 FY2026 收入同比增长 45% 至 $61.9M；完成 LivePerson 收购后产品和客户范围扩大，但旧的收购前收入指引不能直接视为当前指引，整合、毛利和现金消耗是主要观察点。",
+        "details": "SoundHound AI 销售语音识别、对话式AI及代理式语音解决方案，服务汽车、餐饮和企业客户。公司 2026 财年第二季度（截至 6 月 30 日）收入 $61.9M，同比增长 45%；GAAP 毛利率 45.1%，非 GAAP 毛利率 58.4%；调整后 EBITDA 亏损 $9.6M，GAAP 净亏损 $42.8M；季末现金约 $203M、无债务。公司当时发布的 $230–260M FY2026 收入指引是在 LivePerson 收购前给出的，不能不加调整地当作收购后的最新合并指引。\n\n公司于 2026-09-04 完成 LivePerson 收购，扩大了客户服务自动化产品与企业客户基础，并任命新 CFO。9 月底，公司介绍 OASYS Edge 嵌入式代理式语音 AI；10 月的 Kia Sorento India 部署公告展示了生成式语音功能的应用。但产品发布和客户部署公告本身并不等于披露了可重复的收入规模。\n\n后续应重点核对收购后收入贡献、续约/交叉销售、毛利率、现金消耗及管理层更新后的年度指引。2026-10-20 的 $4.70 是第三方历史行情页面所示收盘价。",
+        "risks": [
+          "LivePerson 收购整合可能带来产品迁移、客户留存、成本协同和无形资产摊销等风险；收购后的合并指引尚需以新公告核实。",
+          "公司仍有显著 GAAP 亏损，收入增长尚未证明能稳定转化为自由现金流。",
+          "语音AI市场竞争激烈，汽车项目周期长；客户部署或试点不能自动转化为大规模经常性收入。",
+          "非 GAAP 指标排除了部分费用，需与 GAAP 结果、现金流和股权薪酬一起观察。"
+        ],
+        "catalysts": [
+          "下一次业绩公告：核实并购后的收入、毛利、现金流和更新后的全年指引。",
+          "跟踪 LivePerson 客户留存、交叉销售以及产品整合带来的可量化收入和成本协同。",
+          "观察 OASYS Edge 与汽车/餐饮部署是否形成重复付费合同，而不只停留在产品发布或试点。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange SOUN 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-soun/historical/"
+          },
+          {
+            "label": "SoundHound：Q2 FY2026 业绩",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-reports-record-q2-and-all-time-high-revenue-619"
+          },
+          {
+            "label": "SoundHound：完成 LivePerson 收购",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-completes-acquisition-liveperson-creating-world"
+          },
+          {
+            "label": "SoundHound：OASYS Edge 公告",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-introduces-oasys-edge-bringing-fully-embedded"
+          },
+          {
+            "label": "SoundHound：Kia Sorento India 部署公告",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-powers-next-generation-voice-assistant-real-time"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据；行情供应商可能有小幅差异。部分经营数据来自截至 2026-06-30 的最近已发布季度；收购后的指引应以公司下一次正式更新为准。本资料不是估值或买卖建议。",
+        "quote": {
+          "price": 4.7,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-soun/historical/"
+        }
+      },
+      "price": 4.7,
+      "priceDate": "2026-10-20",
+      "priceSource": "ChartExchange",
+      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-soun/historical/",
+      "researchedAt": "2026-10-21T08:02:20.270Z",
+      "report": "research/20261021-soun.html",
+      "targetPrice": 3.4
+    },
+    {
+      "id": "c024e517-2f19-429e-9330-e49566ba2537",
+      "name": "APLD",
+      "symbol": "APLD",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "Applied Digital Corporation",
+          "symbol": "APLD",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "AI数据中心与高性能计算基础设施"
+        },
+        "title": "APLD｜数据中心租赁快速扩张，建设融资和高杠杆是核心风险",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $19.34。Q1 FY2027 收入同比增长 322% 至 $341.9M，主要受数据中心业务推动；公司披露大规模多年期租赁和园区建设计划，但债务、建设进度及资本开支会决定合同能否兑现为现金流。",
+        "details": "Applied Digital 为高性能计算及 AI 客户建设和运营数据中心。Q1 FY2027（截至 2026-08-31）收入 $341.9M，同比增长 322%；GAAP 净亏损 $221M，调整后净亏损 $4.1M，调整后 EBITDA $64.4M。季末现金及受限现金约 $3.7B，债务约 $6.4B。净亏损与调整后指标差异较大，应查看利息、折旧、融资及其他非现金项目的构成。\n\n公司称已签约约 1.41GW IT 容量，基础合同期潜在合同收入约 $36B（包含续约选项则更高，但续约不是确定收入）。Polaris Forge 1 已有约 250MW 投运，并预期 2026 年末达到约 300MW。Delta Forge 2 的 210MW、15 年租约对应约 $5.2B 基础合同收入。公司通过发行 $1.59B、票息 7% 的票据为后续建设和偿还过桥贷款提供资金。芬兰项目的潜在电力容量仍属于开发计划，不应当作已投运容量。\n\n评估重点是已交付并可计费的 IT 容量、客户验收和上架时间、项目成本与融资成本，以及租赁收入转化为经营现金流的速度。2026-10-20 的 $19.34 收盘价来自第三方历史行情页。",
+        "risks": [
+          "建设与投运需要巨额资本；利率、融资可得性、设备交付、电力接入或施工延误都可能增加成本并推迟收入。",
+          "债务约 $6.4B，利息与再融资风险较高；调整后 EBITDA 不能替代债务偿付和自由现金流。",
+          "长期租约金额是合同期名义收入，不等同于当前收入、利润或现金；客户验收和实际容量交付仍是兑现条件。",
+          "业务和客户集中于少数大型 AI/HPC 租户，行业供需变化或客户资本计划调整会产生显著影响。"
+        ],
+        "catalysts": [
+          "跟踪 Polaris Forge 1 的实际投运/计费容量是否按公司时间表提升。",
+          "核对 Delta Forge 2 建设、融资和客户交付节点，以及其他园区的租赁披露。",
+          "后续财报重点看数据中心经常性收入、利息费用、资本开支、债务到期安排和经营现金流。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange APLD 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-apld/historical/"
+          },
+          {
+            "label": "Applied Digital：Q1 FY2027 业绩公告",
+            "url": "https://ir.applieddigital.com/sec-filings/all-sec-filings/content/0001144879-26-000057/apldq127earningsrelease.htm"
+          },
+          {
+            "label": "Applied Digital：投资者关系与 SEC 文件",
+            "url": "https://ir.applieddigital.com/financials/sec-filings/default.aspx"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据。合同收入、续约选项、计划容量和预计投运时间均为公司披露的前瞻性项目数据，实际确认受建设、验收和客户运营影响。未据此推导目标价。",
+        "quote": {
+          "price": 19.34,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-apld/historical/"
+        }
+      },
+      "price": 19.34,
+      "priceDate": "2026-10-20",
+      "priceSource": "ChartExchange",
+      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-apld/historical/",
+      "researchedAt": "2026-10-21T08:02:20.324Z",
+      "report": "research/20261021-apld.html",
+      "targetPrice": 14
+    },
+    {
+      "id": "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
+      "name": "AMPX",
+      "symbol": "AMPX",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "Amprius Technologies, Inc.",
+          "symbol": "AMPX",
+          "exchange": "NYSE",
+          "currency": "USD",
+          "sector": "硅负极高能量密度电池"
+        },
+        "title": "AMPX｜高能量密度电池订单带动放量，规模化制造仍待验证",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $7.58。Q2 2026 收入同比增长 126% 至 $34.0M，毛利率 27%；全年收入和盈利展望上调。无人机及电动摩托车合同带来需求机会，但生产良率、供应能力、客户集中和持续盈利仍是观察重点。",
+        "details": "Amprius 开发硅负极锂离子电池，目标应用包括无人机、航空航天、轻型电动车及高性能移动设备。Q2 2026 收入 $34.0M，同比增长 126%；毛利 $9.3M，毛利率 27%；GAAP 净亏损 $5.1M，其中包括约 $1.9M 非现金权证修改费用，调整后净亏损约 $3.2M，调整后 EBITDA 亏损约 $1.0M。\n\n管理层将 2026 年展望上调为收入至少 $140M、毛利率至少 28%、净亏损低于 $10M、调整后 EBITDA 至少 $4M、资本开支低于 $10M。该指引仍依赖订单交付、产品组合和成本表现。公司披露欧洲无人机客户约 $24M 订单；Stark Future 多年期协议存在超过 $100M 的潜在收入机会，主要从 2027 年起，属于机会估计而非已实现收入。Amprius 还与 Redwire 合作供应 SiCore 电芯，并计划扩大美国试产能力、使用韩国合作产能。\n\n观察重点是订单从公告到实际发货的转化、毛利率提升能否持续、外部合作产能的质量控制与交期，以及管理层全年 EBITDA 指引能否实现。2026-10-20 的 $7.58 收盘价来自第三方历史行情页。",
+        "risks": [
+          "订单增长必须经过稳定良率、质量认证和规模交付验证；产能扩张或合作制造可能带来执行风险。",
+          "收入可能受少数无人机与电动交通客户的采购节奏影响，订单或项目延迟会使季度结果波动。",
+          "公司仍处于盈利转折阶段；若毛利率、成本或营运资金表现弱于预期，调整后盈利指引可能落空。",
+          "潜在多年合同额和市场机会不是已确认收入，需留意实际出货、回款和合同约束。"
+        ],
+        "catalysts": [
+          "后续季度核对收入、毛利率与调整后 EBITDA 是否达到 2026 指引。",
+          "关注欧洲无人机订单交付及 Stark Future 合同自 2027 年开始后的实际节奏。",
+          "跟踪韩国伙伴产能、Fremont 试产线以及 Redwire 合作对单位成本和交期的影响。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：MarketMinute / WSIL AMPX 历史行情",
+            "url": "https://wsil.marketminute.com/quote/NY%3AAMPX/historical"
+          },
+          {
+            "label": "Amprius：Q2 2026 财报和业务更新",
+            "url": "https://ir.amprius.com/news-events/press-releases/detail/172/amprius-technologies-reports-second-quarter-2026-financial-results-and-recent-business-highlights"
+          },
+          {
+            "label": "Amprius：投资者关系",
+            "url": "https://ir.amprius.com/"
+          }
+        ],
+        "uncertainty": "行情来自第三方历史行情页面，标注为 2026-10-20 收盘。财务和展望为公司已发布数据；潜在合同价值与未来目标尚未实现。本资料不构成买卖建议。",
+        "quote": {
+          "price": 7.58,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "MarketMinute / WSIL",
+          "sourceUrl": "https://wsil.marketminute.com/quote/NY%3AAMPX/historical"
+        }
+      },
+      "price": 7.58,
+      "priceDate": "2026-10-20",
+      "priceSource": "MarketMinute / WSIL",
+      "priceSourceUrl": "https://wsil.marketminute.com/quote/NY%3AAMPX/historical",
+      "researchedAt": "2026-10-21T08:02:20.379Z",
+      "report": "research/20261021-ampx.html",
+      "targetPrice": 5
+    },
+    {
+      "id": "5ffc01e1-e876-459c-828d-3f28dc5548d8",
+      "name": "Planet Labs",
+      "symbol": "PL",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "Planet Labs PBC",
+          "symbol": "PL",
+          "exchange": "NYSE",
+          "currency": "USD",
+          "sector": "地球观测卫星与地理空间数据"
+        },
+        "title": "PL｜卫星数据订阅和政府需求扩张，盈利质量与资本需求需跟踪",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $13.41。Q2 FY2027 收入同比增长 58% 至 $116.1M，调整后 EBITDA 转正至 $13.9M；FY2027 收入指引为 $430–441M。政府合同和高分辨率数据需求提供增长机会，但仍有 GAAP 亏损、卫星资本开支和股权融资稀释风险。",
+        "details": "Planet Labs 运营地球观测卫星群，向商业、政府和科研客户出售影像、监测数据及分析服务。最近公布的 Q2 FY2027（截至 2026-07-31）收入 $116.1M，同比增长 58%；GAAP 净亏损约 $9.4M，调整后 EBITDA 盈利 $13.9M。剩余履约义务约 $753.1M，其中约 46% 预计在未来 12 个月确认；积压约 $814.9M。FY2027 收入指引为 $430–441M，调整后 EBITDA $3–10M，资本开支 $100–115M。收入、积压和指引口径不同，不能直接相加。\n\n近期进展包括 2026-10-13 欧洲航天局选择 Planet 支持斯洛文尼亚空间韧性节点，10 月初发射 Suncatcher、Tanager-2 和 SuperDove 卫星；此前德国政府推进专用卫星能力采购。政府及商业需求可能提高数据合同的可见度，但预算周期、合同签署和交付进度会影响确认时间。公司本季度还通过 ATM 发行净募资约 $120M，披露平均净发行价格约 $31.95；融资支持投资，也带来稀释。\n\n观察指标包括订阅类收入与续约、剩余履约义务转收入速度、卫星可用性和资本开支，以及调整后盈利向 GAAP 盈利和现金流的转化。2026-10-20 的 $13.41 收盘价为第三方历史行情数据。",
+        "risks": [
+          "卫星制造、发射、在轨运行和数据处理需要持续投资；发射失败或卫星故障可能影响覆盖能力和服务承诺。",
+          "调整后 EBITDA 转正不代表 GAAP 已盈利；资本开支和股权融资可能持续影响自由现金流与每股权益。",
+          "政府采购受预算和政策周期影响，合同签署、履约与收入确认可能延后；积压不等于已收现金。",
+          "ATM 增发会稀释现有股东；对少数大型政府客户的依赖可能加大季度波动。"
+        ],
+        "catalysts": [
+          "核对 Q3 FY2027 收入、订阅增长、积压转化和 FY2027 指引变化。",
+          "观察 ESA、德国政府和 NGA 等项目是否转化为已签合同、交付里程碑及可确认收入。",
+          "跟踪卫星发射与在轨部署、资本开支、融资和现金流。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange PL 历史日线",
+            "url": "https://chartexchange.com/symbol/nyse-pl/historical/"
+          },
+          {
+            "label": "Planet Labs：季度业绩、积压和 FY2027 指引",
+            "url": "https://investors.planet.com/financials/quarterly-results/default.aspx"
+          },
+          {
+            "label": "Planet Labs：投资者新闻与 2026 年 10 月公告",
+            "url": "https://investors.planet.com/overview/default.aspx"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据；公司季度财务及指引来自最近已发布的 Q2 FY2027 资料。政府合同公告的金额或收入确认时间未必全部公开；ATM 融资与后续股数变化需查看正式文件。",
+        "quote": {
+          "price": 13.41,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nyse-pl/historical/"
+        }
+      },
+      "price": 13.41,
+      "priceDate": "2026-10-20",
+      "priceSource": "ChartExchange",
+      "priceSourceUrl": "https://chartexchange.com/symbol/nyse-pl/historical/",
+      "researchedAt": "2026-10-21T08:02:20.426Z",
+      "report": "research/20261021-pl.html",
+      "targetPrice": 11
+    },
+    {
+      "id": "5614a582-5385-49a4-a89f-2a0661942e35",
+      "name": "IREN",
+      "symbol": "IREN",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "IREN Limited",
+          "symbol": "IREN",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "AI云基础设施与比特币挖矿"
+        },
+        "title": "IREN｜从比特币挖矿转向 AI 云，已签算力规模大但兑现周期长",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $26.62。FY2026 收入约 $707M，其中 AI Cloud 约 $128.8M；公司公布多项 AI 客户和 GPU 扩张合同。挖矿业务仍贡献大部分收入，AI 合同额和 ARR 不能等同于当期收入，建设、融资及客户部署进度是核心风险。",
+        "details": "IREN 经营比特币挖矿业务，并建设面向 AI/HPC 的数据中心与 GPU 云服务。FY2026（截至 2026-06-30）收入约 $707M，其中 AI Cloud 收入约 $128.8M、比特币挖矿收入约 $578.2M；GAAP 净亏损约 $702.6M。净亏损受大额资产减值、矿机退役及转型等项目显著影响，需结合 10-K 的现金流和非现金项目阅读。\n\n公司披露 2026 年 AI 容量相关合同 ARR 约 $4B，并称约 $1B ARR 已进入运营口径；ARR 是年度化合同收入指标，不代表已经全部确认或收款。公司还公布与领先前沿 AI 实验室的多年合同，以及与 Cohere、Prometheus、Perplexity、Figure、Fal 和 Higgsfield 等客户的合作/业务关系。GPU 融资安排约 $2.8B，报道所述融资覆盖大部分相关 GPU 资本支出，但仍有执行、成本和资本结构风险。\n\n评估转型应逐季检查已安装 GPU 数、客户上线和实际计费、AI Cloud 毛利及现金回收，同时单独评估比特币挖矿盈利性、矿机折旧和退役节奏。2026-10-20 的 $26.62 收盘价来自第三方历史行情页。",
+        "risks": [
+          "AI ARR 和合同容量是前瞻指标；数据中心、电力、网络、GPU交付和客户上线延迟都会推迟收入确认。",
+          "业务转型需要大额资本投入和融资；GPU资产、债务、利率与再融资会影响现金流和每股价值。",
+          "FY2026 GAAP 净亏损巨大，矿机减值与退役显示传统挖矿资产可能快速过时；比特币价格、网络难度和能源成本也会影响挖矿业务。",
+          "AI 客户与大型合同可能集中；未披露的定价、利用率和实际回款限制了对合同经济性的判断。"
+        ],
+        "catalysts": [
+          "逐季核对 AI Cloud 实际收入、已投运 GPU 容量、利用率、毛利和现金回款。",
+          "跟踪大型 AI 客户项目的建设、部署和 ARR 转收入进度，以及相关融资是否按计划落地。",
+          "观察挖矿业务占比下降是否伴随整体现金流改善，而非只出现收入结构变化。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange IREN 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-iren/historical/"
+          },
+          {
+            "label": "IREN：FY2026 业绩公告",
+            "url": "https://irisenergy.gcs-web.com/news-releases/news-release-details/iren-reports-fy26-results"
+          },
+          {
+            "label": "SEC：IREN FY2026 Form 10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm"
+          },
+          {
+            "label": "SEC：IREN Q3 FY2026 业绩文件",
+            "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000025/irenreportsq3fy26results.htm"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据。财务数据截至 2026-06-30；ARR、客户合作和规划算力不等于同期已确认收入。部分公司新闻页面可能存在访问限制，SEC 申报文件是核对正式财务数字的主要依据。",
+        "quote": {
+          "price": 26.62,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-iren/historical/"
+        }
+      },
+      "price": 26.62,
+      "priceDate": "2026-10-20",
+      "priceSource": "ChartExchange",
+      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-iren/historical/",
+      "researchedAt": "2026-10-21T08:02:20.471Z",
+      "report": "research/20261021-iren.html",
+      "targetPrice": 17
+    },
+    {
+      "id": "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
+      "name": "TEM",
+      "symbol": "TEM",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "Tempus AI, Inc.",
+          "symbol": "TEM",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "精准医疗、基因组检测与医疗数据AI"
+        },
+        "title": "TEM｜基因检测和数据授权同步增长，盈利与估值质量需拆开看",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $66.75。Q2 2026 收入同比增长 22% 至 $382.5M，Diagnostics 和 Data & Apps 均增长；GAAP 净利润受投资公允价值收益影响，调整后 EBITDA 为 $8M。医疗数据合作扩展需求，但盈利质量、股权薪酬、并购及临床验证是观察重点。",
+        "details": "Tempus AI 将基因检测、临床数据和 AI 分析用于精准医疗，重点服务肿瘤等疾病领域。Q2 2026 收入 $382.5M，同比增长 22%；Diagnostics 收入 $289.3M、同比增长 20%，肿瘤检测量同比增长 31%；Data & Apps 收入 $93.2M、同比增长 28%，其中 Insights 增长 36%。公司报告 GAAP 净利润 $5.6M，但当季包含约 $98.5M 未实现证券收益，另有约 $55.6M 股权薪酬；调整后 EBITDA 为 $8M。现金及有价证券约 $820.7M。\n\n公司披露约 $200M 的数据/应用授权签约金额，并与 Moderna、Merck 签订多年合作，向其提供样本及下一代测序物流支持；合作的具体财务条款未公开。10 月 19 日发布的肺癌病理AI预筛研究覆盖超过 60,000 例 NSCLC 病例，报告 12 种生物标志物的敏感度超过 80%；研究结果仍需结合同行评审、外部验证和实际临床效用判断。公司 2026 年收入展望为 $1.595–1.605B，调整后 EBITDA 约 $65M。\n\n后续重点是有机增长与收购贡献拆分、Diagnostics 毛利和检测报销、数据授权的重复性、GAAP 利润是否摆脱投资估值波动，以及 Personalis 收购的审批/交割状态和整合成本。2026-10-20 的 $66.75 收盘价来自第三方历史行情页。",
+        "risks": [
+          "GAAP 净利润受到证券公允价值变动影响，未实现投资收益不能视为主营业务盈利；股权薪酬仍然显著。",
+          "临床AI模型需要外部验证、监管合规和临床采用；研究敏感度指标不等于改善患者结局或形成收入。",
+          "基因检测依赖医疗报销、实验室运营、患者样本和数据授权；隐私、监管、竞争和客户续约会影响业务。",
+          "并购和快速扩张带来整合、商誉、资本配置和稀释风险；合作金额与收入确认节奏未完全公开。"
+        ],
+        "catalysts": [
+          "核对下一季度 Diagnostics 与 Data & Apps 的收入、毛利和现金流，以及全年指引。",
+          "观察 Moderna/Merck 合作、数据授权签约能否转化为持续收入并披露商业贡献。",
+          "跟踪肺癌病理AI研究的外部验证、监管进展与临床采用；核实 Personalis 交易状态。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：StockAnalysis TEM 历史行情",
+            "url": "https://stockanalysis.com/stocks/tem/history/"
+          },
+          {
+            "label": "SEC：Tempus Q2 2026 业绩公告",
+            "url": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526326083/tem-ex99_1.htm"
+          },
+          {
+            "label": "Tempus：与 Moderna、Merck 多年合作公告",
+            "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-announces-multi-year-collaboration-moderna-and-merck"
+          },
+          {
+            "label": "Tempus：投资者新闻",
+            "url": "https://investors.tempus.com/"
+          }
+        ],
+        "uncertainty": "行情来自第三方历史行情页面，标注为 2026-10-20 收盘。公司季度财务数据和展望截至最近发布的 Q2 2026；合作条款未完全公开。临床研究和AI性能指标仍需独立验证。本资料不构成买卖建议。",
+        "quote": {
+          "price": 66.75,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "StockAnalysis",
+          "sourceUrl": "https://stockanalysis.com/stocks/tem/history/"
+        }
+      },
+      "price": 66.75,
+      "priceDate": "2026-10-20",
+      "priceSource": "StockAnalysis",
+      "priceSourceUrl": "https://stockanalysis.com/stocks/tem/history/",
+      "researchedAt": "2026-10-21T08:02:20.512Z",
+      "report": "research/20261021-tem.html",
+      "targetPrice": 52
+    },
+    {
+      "id": "546ba81c-c7b1-4636-8537-23d861ee0bc3",
+      "name": "SP500 指数 ETF - SPYL",
+      "symbol": "SPYL",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "State Street SPDR S&P 500 UCITS ETF (Acc)",
+          "symbol": "SPYL",
+          "exchange": "LSE",
+          "currency": "USD",
+          "sector": "美国大盘股指数ETF"
+        },
+        "title": "SPYL｜爱尔兰注册的累积型标普500 UCITS ETF",
+        "summary": "资料截至 2026-10-21；伦敦证券交易所 SPYL 美元交易线 2026-10-20 收盘约 $19.12；基金官方同日美元 NAV 约 $19.10。该基金追踪 S&P 500、爱尔兰注册、累积型，TER 为 0.03%；交易价和 NAV 是不同口径，短暂存在溢折价。",
+        "details": "SPYL 是 State Street SPDR S&P 500 UCITS ETF 的累积份额类别，爱尔兰注册，目标追踪 S&P 500 指数，采用实物复制，股息在基金内累积再投资。官方产品资料列示总费用率（TER）0.03%，伦敦证券交易所美元交易线代码为 SPYL。基金有约 505 个持仓，覆盖美国大型公司；科技股权重较高，基金页面所示信息技术板块约占 37.9%（权重会随市场变化）。\n\n2026-10-20 官方基金页面美元 NAV 约为 $19.10；第三方 LSE 历史行情页显示 SPYL 美元交易线收盘约 $19.12。NAV 是基金净资产折算到每份额的价值，交易所收盘价是买卖双方成交价格，两者因交易时间、流动性和供求可短暂不同。若用于与 VOO 换算，应确保比较的是相同时间窗口的成交价格；在伦敦交易时段与美国市场重叠期间同步取样，通常比拿不同时区的日收盘直接相除更可比。\n\n这是基金而非单一公司，因此没有公司季度财报；应定期查看官方 factsheet、指数跟踪差异、基金规模、持仓、费用及 NAV/交易价格。累积型表示分红留在基金内，不意味着消除标的公司的股息税或投资风险。美元交易线也不消除基金持有的美国股票的市场与汇率风险。",
+        "risks": [
+          "基金集中于美国大型股，市值加权指数中少数大型科技公司权重较高，市场回撤时可能同步下跌。",
+          "交易价格可能相对 NAV 出现溢价或折价；伦敦时段的流动性、点差和美英交易时段错位会影响实际成交。",
+          "美元计价只是交易货币；底层公司和资产仍承担市场与汇率风险。",
+          "TER 是基金费用指标，实际跟踪差异还受现金、交易、税费和指数调整影响；过往表现不保证未来结果。"
+        ],
+        "catalysts": [
+          "查看最新官方 factsheet 的 NAV、资产规模、持仓、行业权重和跟踪表现。",
+          "若用于与 VOO 对照，优先使用伦敦与纽约共同交易时段的同一时间戳价格，并留意买卖价差。",
+          "跟踪 S&P 500 成分变化、集中度和官方费用/基金结构文件更新。"
+        ],
+        "sources": [
+          {
+            "label": "官方产品页：SPDR S&P 500 UCITS ETF（SPYL）",
+            "url": "https://www.ssga.com/ie/en_gb/institutional/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy"
+          },
+          {
+            "label": "LSE 美元交易线收盘：EODData SPYL",
+            "url": "https://www.eoddata.com/stockquote/LSE/SPYL.htm"
+          },
+          {
+            "label": "LSE SPYL 历史行情：Twelve Data",
+            "url": "https://twelvedata.com/markets/998214/etf/lse/spyl/historical-data"
+          }
+        ],
+        "uncertainty": "2026-10-20 官方 NAV 与第三方 LSE 收盘价分别约为 $19.10 和 $19.12，口径不同，不能将其差异理解为确定的套利空间。收盘行情可能受数据供应商、时区和成交记录影响。基金风险及投资价值不由单日价格比较确定。",
+        "quote": {
+          "price": 19.12,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "EODData（LSE）",
+          "sourceUrl": "https://www.eoddata.com/stockquote/LSE/SPYL.htm"
+        }
+      },
+      "price": 19.12,
+      "priceDate": "2026-10-20",
+      "priceSource": "EODData（LSE）",
+      "priceSourceUrl": "https://www.eoddata.com/stockquote/LSE/SPYL.htm",
+      "researchedAt": "2026-10-21T08:02:20.552Z",
+      "report": "research/20261021-spyl.html"
+    },
+    {
+      "id": "e73995fd-501a-485c-9822-14fc610ef524",
+      "name": "纳斯达克 指数 ETF - CNDX",
+      "symbol": "CNDX",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "iShares NASDAQ 100 UCITS ETF USD (Acc)",
+          "symbol": "CNDX",
+          "exchange": "LSE",
+          "currency": "USD",
+          "sector": "纳斯达克100指数ETF"
+        },
+        "title": "CNDX｜爱尔兰注册的累积型 Nasdaq-100 UCITS ETF",
+        "summary": "资料截至 2026-10-21；伦敦证券交易所 CNDX 美元交易线 2026-10-20 收盘约 $1,696.60。基金追踪 Nasdaq-100、爱尔兰注册、实物复制、累积型，TER 为 0.30%；成分股集中于大型非金融科技与成长公司，波动和集中度高于宽基标普500。",
+        "details": "CNDX 是 iShares NASDAQ 100 UCITS ETF USD (Acc)，爱尔兰注册的 UCITS 基金，追踪 Nasdaq-100 指数，实物复制并将股息累积再投资。官方资料列示 TER 0.30%、约 101 个持仓；伦敦证券交易所美元交易代码为 CNDX，另有其他交易所/币种的上市代码，比较价格时必须确认交易所和币种一致。基金价格较高，最小交易单位、券商支持的碎股能力和买卖点差会影响实际下单金额。\n\nNasdaq-100 包括在纳斯达克上市的大型非金融公司，不等同于纯科技指数，但权重高度集中于大型科技、通信和消费成长公司。其行业与个股集中度通常高于 S&P 500；两者可能持有相同的大型公司，因此同时持有并不会完全分散风险。累积型会把现金分红留在基金净值内。\n\n2026-10-20 CNDX 美元交易线收盘约 $1,696.60（第三方 LSE 行情）；基金本身不发布公司财报，应跟踪官方 factsheet、指数成分、基金 NAV、跟踪差异、交易点差和费用。用于与 QQQM 对照时，采用伦敦和美国共同交易时段内的同步价格更有意义；单日收盘价或不同时间戳可能造成假性比例偏差。",
+        "risks": [
+          "指数对大型成长与科技相关公司有较高集中度，利率变化、估值收缩或少数权重股下跌可能显著影响基金。",
+          "基金不是对全部 Nasdaq 上市公司的广泛分散配置；与 QQQM 等相近指数产品同时持有仍有较大重叠。",
+          "伦敦交易时段的点差、流动性及相对 NAV 的溢折价会影响实际成交；第三方单日收盘价不一定等于可成交价格。",
+          "TER 0.30% 之外还可能存在跟踪差异、税务、交易及券商费用；美元交易线不消除底层资产的市场和汇率风险。"
+        ],
+        "catalysts": [
+          "查看 iShares 最新 factsheet 的持仓、集中度、基金规模、NAV 与跟踪表现。",
+          "若与 QQQM 做价格换算，使用共同交易时段的同一 UTC 分钟/五分钟价格，并检查样本是否有时点错配。",
+          "观察指数季度再平衡、成分股变化和大型权重股集中度。"
+        ],
+        "sources": [
+          {
+            "label": "官方产品页：iShares NASDAQ 100 UCITS ETF",
+            "url": "https://www.ishares.com/uk/individual/en/products/253741/ishares-nasdaq-100-ucits-etf?locale=en_GB"
+          },
+          {
+            "label": "CNDX 历史价格：StockInvest（LSE）",
+            "url": "https://stockinvest.us/stock-price/CNDX.L"
+          },
+          {
+            "label": "CNDX LSE 行情：SharePrices",
+            "url": "https://shareprices.com/lse/cndx/"
+          }
+        ],
+        "uncertainty": "收盘价格 $1,696.60 来自第三方 LSE 行情页面；需核对具体交易线和数据供应商，执行交易时以券商实时报价、买卖盘和官方 NAV 为准。基金持仓及行业权重会变动。此资料用于了解基金，不构成投资建议。",
+        "quote": {
+          "price": 1696.6,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "StockInvest（LSE）",
+          "sourceUrl": "https://stockinvest.us/stock-price/CNDX.L"
+        }
+      },
+      "price": 1696.6,
+      "priceDate": "2026-10-20",
+      "priceSource": "StockInvest（LSE）",
+      "priceSourceUrl": "https://stockinvest.us/stock-price/CNDX.L",
+      "researchedAt": "2026-10-21T08:02:20.593Z",
+      "report": "research/20261021-cndx.html"
+    },
+    {
+      "id": "bda18e13-8398-4db5-9b96-d9fc8c7ba07b",
+      "name": "红利股 ETF - SCHD",
+      "symbol": "SCHD",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "Schwab U.S. Dividend Equity ETF",
+          "symbol": "SCHD",
+          "exchange": "NYSE Arca",
+          "currency": "USD",
+          "sector": "美国股息与价值股票ETF"
+        },
+        "title": "SCHD｜筛选高质量股息股，季度现金分配并非固定收益",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘约 $34.69。SCHD 追踪 Dow Jones U.S. Dividend 100 Index，年费率 0.06%，季度分配。它侧重股息记录和基本面质量筛选，不等同于广泛市场指数或保本收益产品。",
+        "details": "SCHD 是被动管理的美国股票 ETF，目标追踪 Dow Jones U.S. Dividend 100 Index。该指数从美国股息公司中筛选并按规则加权，结合股息记录与财务质量指标；目标是提供股息收入和股票总回报，不承诺固定收益。基金总费用率为 0.06%，通常按季度分配。Schwab 官方资料显示 2026-09-23 的每股季度收入分配为 $0.2665；单季金额会变动，不能直接年化成保证收益率。\n\n截至 2026-10-19，官方持仓页列出 102 项基金持仓。较大持仓包括 Texas Instruments（4.37%）、Procter & Gamble（4.33%）、Chevron（4.28%）、ConocoPhillips（4.26%）和 Coca-Cola（4.25%）。组合行业分布与筛选结果可能偏向金融、能源、消费必需品、医疗和成熟科技公司，和市值加权 S&P 500 的结构不同。\n\n2026-10-20 收盘价按 StockInvest 历史报价记录约 $34.69；ChartExchange 同日记录为 $34.68，属于行情源一美分的差异。ETF没有单家公司季度财报，后续更值得查看指数调整、基金持仓、季度分配、分配收益来源及相对宽基指数的总回报。",
+        "risks": [
+          "股息不保证且可能减少；基金净值会随股票市场波动，季度现金分配不是存款利息。",
+          "筛选和行业结构可能使 SCHD 在某些市场周期落后于成长股或市值加权宽基指数。",
+          "高股息股票可能因经营前景转弱而出现股价下跌或削减分红；历史股息记录不能保证未来持续。",
+          "指数定期重构会带来持仓变化和交易成本，0.06% 费用之外仍会有跟踪误差。"
+        ],
+        "catalysts": [
+          "查看 Schwab 最新 factsheet、指数构成和完整持仓，留意权重与行业集中度变化。",
+          "跟踪后续季度每股分配金额及其来源，不把单季分配简单外推成确定年收益。",
+          "用包含分红再投资的总回报比较 SCHD、S&P 500 与其他股息策略，区分策略差异和短期行情。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：StockInvest SCHD 历史行情",
+            "url": "https://stockinvest.us/stock-price/SCHD"
+          },
+          {
+            "label": "官方基金页：费用、基准与分配记录",
+            "url": "https://www.schwabassetmanagement.com/products/schd"
+          },
+          {
+            "label": "官方持仓：SCHD（截至 2026-10-19）",
+            "url": "https://www.schwabassetmanagement.com/allholdings/schd"
+          },
+          {
+            "label": "官方基金文件与 factsheet",
+            "url": "https://www.schwabassetmanagement.com/products/schd/documents"
+          }
+        ],
+        "uncertainty": "2026-10-20 的第三方收盘报价在不同供应商间约为 $34.68–$34.69，卡片采用 StockInvest 的 $34.69。持仓与季度分配会持续变化；分配金额不是承诺收益，也未针对个人税务情况分析。",
+        "quote": {
+          "price": 34.69,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "StockInvest",
+          "sourceUrl": "https://stockinvest.us/stock-price/SCHD"
+        }
+      },
+      "price": 34.69,
+      "priceDate": "2026-10-20",
+      "priceSource": "StockInvest",
+      "priceSourceUrl": "https://stockinvest.us/stock-price/SCHD",
+      "researchedAt": "2026-10-21T09:01:33.748Z",
+      "report": "research/20261021-schd.html"
+    },
+    {
+      "id": "03f8d44b-0da7-42c4-b731-0bffc6c67b9f",
+      "name": "全世界 ETF - VXUS",
+      "symbol": "VXUS",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "Vanguard Total International Stock ETF",
+          "symbol": "VXUS",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "美国以外全球股票指数ETF"
+        },
+        "title": "VXUS｜覆盖美国以外发达与新兴市场，提供广泛地域分散",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘约 $83.74。VXUS 追踪 FTSE Global All Cap ex US Index，涵盖美国以外的发达与新兴市场大中小型股票，费用率 0.05%。它扩大地域分散，但仍是股票基金并承担外币和海外市场风险。",
+        "details": "VXUS 是 Vanguard Total International Stock ETF，跟踪 FTSE Global All Cap ex US Index，覆盖美国以外的发达市场与新兴市场，包含大、中、小型公司。它的用途是补充美国股票配置、降低单一国家集中度，不会消除全球股票市场的系统性风险。Vanguard 页面列示费用率 0.05%；截至 2026-08-31，VXUS 份额净资产约 $164.9B，股息收益率约 2.33%（该指标为当时资料，随价格及分红变化）。基金通常按季度分配。\n\n组合持有多个国家、行业与货币的股票。美国投资者看到的报价以美元显示，但底层资产以当地货币计价，因此美元相对其他货币升贬会影响美元回报。发达市场和新兴市场占比按指数市值权重变化；单一国家、地区政策、资本流动、公司治理及市场流动性风险均可能造成差异。\n\n2026-10-20 的美元收盘报价以 MarketMinute/YCharts 等历史行情页面约 $83.74 为参考；ChartExchange 同日显示约 $83.71。因供应商成交汇总和收盘价记录略有差异，卡片采用 $83.74，并在下单时应以券商可成交价格为准。ETF没有公司财报，宜查看 Vanguard 最新 factsheet、基金持仓、费用、分配记录及指数地区权重。",
+        "risks": [
+          "VXUS是全股票基金，全球股市下跌时仍可能显著回撤，地域分散不等于资本保全。",
+          "底层资产涉及多种外币，汇率变化会放大或抵消当地市场回报；美元交易价格不构成货币对冲。",
+          "新兴市场面临政策、监管、资本管制、治理、流动性和地缘政治风险；不同市场的披露标准也不同。",
+          "与美国股票相比，地区权重、行业结构和货币暴露不同，表现可能长时间落后于美国市场。"
+        ],
+        "catalysts": [
+          "查看 Vanguard 最新基金资料，核对指数定义、持仓覆盖、地区分布、费用率和季度分配。",
+          "跟踪美元走势、发达/新兴市场权重和全球公司盈利变化，以理解回报来源。",
+          "比较组合整体的美国与非美国股票权重，判断 VXUS 在资产配置中提供的实际分散程度。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：MarketMinute VXUS 历史行情",
+            "url": "https://kxlt.marketminute.com/quote/NQ%3AVXUS/historical"
+          },
+          {
+            "label": "Vanguard 官方基金页：基准、费用和基金资料",
+            "url": "https://advisors.vanguard.com/investments/products/vxus/vanguard-total-international-stock-etf"
+          },
+          {
+            "label": "Vanguard：2026 年分配日期安排",
+            "url": "https://investor.vanguard.com/content/dam/retail/publicsite/en/documents/taxes/DIVDAT_2026.pdf"
+          },
+          {
+            "label": "交叉核对：ChartExchange VXUS 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-vxus/historical/"
+          }
+        ],
+        "uncertainty": "2026-10-20 收盘价在第三方数据源之间约为 $83.71–$83.74，卡片采用 MarketMinute 的 $83.74。费用率、基金规模和收益率取自标明日期的 Vanguard 资料，未来会变化。未对用户税务或组合比例作个性化判断。",
+        "quote": {
+          "price": 83.74,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "MarketMinute",
+          "sourceUrl": "https://kxlt.marketminute.com/quote/NQ%3AVXUS/historical"
+        }
+      },
+      "price": 83.74,
+      "priceDate": "2026-10-20",
+      "priceSource": "MarketMinute",
+      "priceSourceUrl": "https://kxlt.marketminute.com/quote/NQ%3AVXUS/historical",
+      "researchedAt": "2026-10-21T09:01:33.796Z",
+      "report": "research/20261021-vxus.html"
+    },
+    {
+      "id": "fefb602a-2cf8-46e3-bc9b-94173a2a867f",
+      "name": "递增股利 ETF - VIG",
+      "symbol": "VIG",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "research": {
+        "identity": {
+          "name": "Vanguard Dividend Appreciation ETF",
+          "symbol": "VIG",
+          "exchange": "NYSE Arca",
+          "currency": "USD",
+          "sector": "美国股息增长股票ETF"
+        },
+        "title": "VIG｜关注持续提高股息的美国公司，不以最高当前股息率为目标",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘价 $243.07。VIG 追踪 S&P U.S. Dividend Growers Index，费用率 0.04%；截至 2026-08-31 持有 333 只股票，股息增长筛选不等同于高股息策略，当前收益率通常低于专门追求高股息的基金。",
+        "details": "VIG 是 Vanguard Dividend Appreciation ETF，采用指数化投资，目标跟踪 S&P U.S. Dividend Growers Index。基金关注具有持续股息增长记录的美国公司，方法侧重股息增长和企业特征，而非单纯按当前股息率挑选最高派息公司。官方页面列示费用率 0.04%；截至 2026-08-31，基金持有 333 只股票，净资产约 $112.7B；同一资料期的股息收益率约 1.54%，30 日 SEC yield 约 1.44%。收益率会随股价和派息变化，且两种收益率定义不同。\n\nVIG 的组合以美国大型公司为主，持仓会随指数筛选和市值变化而调整。它与 SCHD 都关注股息，但策略不同：SCHD 的指数强调股息水平及质量筛选，VIG 更强调股息增长记录；与纯高收益策略相比，VIG 的现金分配率可能较低，但成分股的增长与行业结构也不同。持有 VIG 不代表股息一定会继续增长或本金不会下跌。\n\n2026-10-20 收盘价 $243.07 来自 ChartExchange 历史日线，并可由 MarketBeat 交叉核对。后续应关注官方 factsheet 的基准和持仓变化、分红增长是否延续、估值与行业集中，以及含分配再投资的总回报，而不只比较名义股息率。",
+        "risks": [
+          "股息增长记录不是未来增长的保证；公司可暂停、削减或停止分红。",
+          "VIG以股票为主，市场和估值回撤仍会造成本金损失；股息收入无法抵消所有价格下跌。",
+          "相对高股息基金，VIG的当前现金收益率可能较低；若投资目标是即时收入，需区分增长策略与收益策略。",
+          "指数筛选和市值加权会造成行业或大型持仓集中，基金也可能在特定市场周期落后于整体市场。"
+        ],
+        "catalysts": [
+          "核对 Vanguard 最新 factsheet 的指数、持仓、费用、分红收益率和跟踪表现。",
+          "观察后续年度成分公司能否继续提高每股股息，同时核对盈利和现金流对分红的支持。",
+          "与 SCHD 比较时使用含分红再投资的总回报、行业权重及波动，而非仅比较某一时点的股息率。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange VIG 历史日线",
+            "url": "https://chartexchange.com/symbol/nyse-vig/historical/"
+          },
+          {
+            "label": "Vanguard 官方基金页：基准、费用与持仓",
+            "url": "https://advisors.vanguard.com/investments/products/vig/vanguard-dividend-appreciation-etf"
+          },
+          {
+            "label": "Vanguard 官方基金事实表",
+            "url": "https://workplace.vanguard.com/assets/corp/fund_communications/pdf_publish/us-products/fact-sheet/F0920.pdf"
+          },
+          {
+            "label": "Vanguard：2026 费用率调整公告",
+            "url": "https://investor.vanguard.com/investor-resources-education/news/vanguard-lowers-expense-ratios-long-term-investing"
+          },
+          {
+            "label": "交叉核对：MarketBeat VIG 行情",
+            "url": "https://www.marketbeat.com/stocks/NYSEARCA/VIG/chart/"
+          }
+        ],
+        "uncertainty": "收盘价为第三方历史日线数据。费用、收益率、持仓数与基金规模均标有统计日期，基金组合与分红会继续变化。本文介绍基金结构和风险，不代表未来收益预测或个人投资建议。",
+        "quote": {
+          "price": 243.07,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nyse-vig/historical/"
+        }
+      },
+      "price": 243.07,
+      "priceDate": "2026-10-20",
+      "priceSource": "ChartExchange",
+      "priceSourceUrl": "https://chartexchange.com/symbol/nyse-vig/historical/",
+      "researchedAt": "2026-10-21T09:01:33.836Z",
+      "report": "research/20261021-vig.html"
     }
   ],
   "cash": [
@@ -2909,6 +3542,599 @@
   ],
   "journal": [],
   "analyses": [
+    {
+      "id": "fa78288e-d409-4d7f-af79-8c84b5e0a556",
+      "kind": "watch",
+      "date": "2026-10-21T09:01:33.836Z",
+      "research": {
+        "identity": {
+          "name": "Vanguard Dividend Appreciation ETF",
+          "symbol": "VIG",
+          "exchange": "NYSE Arca",
+          "currency": "USD",
+          "sector": "美国股息增长股票ETF"
+        },
+        "title": "VIG｜关注持续提高股息的美国公司，不以最高当前股息率为目标",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘价 $243.07。VIG 追踪 S&P U.S. Dividend Growers Index，费用率 0.04%；截至 2026-08-31 持有 333 只股票，股息增长筛选不等同于高股息策略，当前收益率通常低于专门追求高股息的基金。",
+        "details": "VIG 是 Vanguard Dividend Appreciation ETF，采用指数化投资，目标跟踪 S&P U.S. Dividend Growers Index。基金关注具有持续股息增长记录的美国公司，方法侧重股息增长和企业特征，而非单纯按当前股息率挑选最高派息公司。官方页面列示费用率 0.04%；截至 2026-08-31，基金持有 333 只股票，净资产约 $112.7B；同一资料期的股息收益率约 1.54%，30 日 SEC yield 约 1.44%。收益率会随股价和派息变化，且两种收益率定义不同。\n\nVIG 的组合以美国大型公司为主，持仓会随指数筛选和市值变化而调整。它与 SCHD 都关注股息，但策略不同：SCHD 的指数强调股息水平及质量筛选，VIG 更强调股息增长记录；与纯高收益策略相比，VIG 的现金分配率可能较低，但成分股的增长与行业结构也不同。持有 VIG 不代表股息一定会继续增长或本金不会下跌。\n\n2026-10-20 收盘价 $243.07 来自 ChartExchange 历史日线，并可由 MarketBeat 交叉核对。后续应关注官方 factsheet 的基准和持仓变化、分红增长是否延续、估值与行业集中，以及含分配再投资的总回报，而不只比较名义股息率。",
+        "risks": [
+          "股息增长记录不是未来增长的保证；公司可暂停、削减或停止分红。",
+          "VIG以股票为主，市场和估值回撤仍会造成本金损失；股息收入无法抵消所有价格下跌。",
+          "相对高股息基金，VIG的当前现金收益率可能较低；若投资目标是即时收入，需区分增长策略与收益策略。",
+          "指数筛选和市值加权会造成行业或大型持仓集中，基金也可能在特定市场周期落后于整体市场。"
+        ],
+        "catalysts": [
+          "核对 Vanguard 最新 factsheet 的指数、持仓、费用、分红收益率和跟踪表现。",
+          "观察后续年度成分公司能否继续提高每股股息，同时核对盈利和现金流对分红的支持。",
+          "与 SCHD 比较时使用含分红再投资的总回报、行业权重及波动，而非仅比较某一时点的股息率。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange VIG 历史日线",
+            "url": "https://chartexchange.com/symbol/nyse-vig/historical/"
+          },
+          {
+            "label": "Vanguard 官方基金页：基准、费用与持仓",
+            "url": "https://advisors.vanguard.com/investments/products/vig/vanguard-dividend-appreciation-etf"
+          },
+          {
+            "label": "Vanguard 官方基金事实表",
+            "url": "https://workplace.vanguard.com/assets/corp/fund_communications/pdf_publish/us-products/fact-sheet/F0920.pdf"
+          },
+          {
+            "label": "Vanguard：2026 费用率调整公告",
+            "url": "https://investor.vanguard.com/investor-resources-education/news/vanguard-lowers-expense-ratios-long-term-investing"
+          },
+          {
+            "label": "交叉核对：MarketBeat VIG 行情",
+            "url": "https://www.marketbeat.com/stocks/NYSEARCA/VIG/chart/"
+          }
+        ],
+        "uncertainty": "收盘价为第三方历史日线数据。费用、收益率、持仓数与基金规模均标有统计日期，基金组合与分红会继续变化。本文介绍基金结构和风险，不代表未来收益预测或个人投资建议。",
+        "quote": {
+          "price": 243.07,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nyse-vig/historical/"
+        }
+      },
+      "report": "research/20261021-vig.html"
+    },
+    {
+      "id": "ee4653cc-5cc8-400c-ae6b-0d001e5a6b96",
+      "kind": "watch",
+      "date": "2026-10-21T09:01:33.796Z",
+      "research": {
+        "identity": {
+          "name": "Vanguard Total International Stock ETF",
+          "symbol": "VXUS",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "美国以外全球股票指数ETF"
+        },
+        "title": "VXUS｜覆盖美国以外发达与新兴市场，提供广泛地域分散",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘约 $83.74。VXUS 追踪 FTSE Global All Cap ex US Index，涵盖美国以外的发达与新兴市场大中小型股票，费用率 0.05%。它扩大地域分散，但仍是股票基金并承担外币和海外市场风险。",
+        "details": "VXUS 是 Vanguard Total International Stock ETF，跟踪 FTSE Global All Cap ex US Index，覆盖美国以外的发达市场与新兴市场，包含大、中、小型公司。它的用途是补充美国股票配置、降低单一国家集中度，不会消除全球股票市场的系统性风险。Vanguard 页面列示费用率 0.05%；截至 2026-08-31，VXUS 份额净资产约 $164.9B，股息收益率约 2.33%（该指标为当时资料，随价格及分红变化）。基金通常按季度分配。\n\n组合持有多个国家、行业与货币的股票。美国投资者看到的报价以美元显示，但底层资产以当地货币计价，因此美元相对其他货币升贬会影响美元回报。发达市场和新兴市场占比按指数市值权重变化；单一国家、地区政策、资本流动、公司治理及市场流动性风险均可能造成差异。\n\n2026-10-20 的美元收盘报价以 MarketMinute/YCharts 等历史行情页面约 $83.74 为参考；ChartExchange 同日显示约 $83.71。因供应商成交汇总和收盘价记录略有差异，卡片采用 $83.74，并在下单时应以券商可成交价格为准。ETF没有公司财报，宜查看 Vanguard 最新 factsheet、基金持仓、费用、分配记录及指数地区权重。",
+        "risks": [
+          "VXUS是全股票基金，全球股市下跌时仍可能显著回撤，地域分散不等于资本保全。",
+          "底层资产涉及多种外币，汇率变化会放大或抵消当地市场回报；美元交易价格不构成货币对冲。",
+          "新兴市场面临政策、监管、资本管制、治理、流动性和地缘政治风险；不同市场的披露标准也不同。",
+          "与美国股票相比，地区权重、行业结构和货币暴露不同，表现可能长时间落后于美国市场。"
+        ],
+        "catalysts": [
+          "查看 Vanguard 最新基金资料，核对指数定义、持仓覆盖、地区分布、费用率和季度分配。",
+          "跟踪美元走势、发达/新兴市场权重和全球公司盈利变化，以理解回报来源。",
+          "比较组合整体的美国与非美国股票权重，判断 VXUS 在资产配置中提供的实际分散程度。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：MarketMinute VXUS 历史行情",
+            "url": "https://kxlt.marketminute.com/quote/NQ%3AVXUS/historical"
+          },
+          {
+            "label": "Vanguard 官方基金页：基准、费用和基金资料",
+            "url": "https://advisors.vanguard.com/investments/products/vxus/vanguard-total-international-stock-etf"
+          },
+          {
+            "label": "Vanguard：2026 年分配日期安排",
+            "url": "https://investor.vanguard.com/content/dam/retail/publicsite/en/documents/taxes/DIVDAT_2026.pdf"
+          },
+          {
+            "label": "交叉核对：ChartExchange VXUS 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-vxus/historical/"
+          }
+        ],
+        "uncertainty": "2026-10-20 收盘价在第三方数据源之间约为 $83.71–$83.74，卡片采用 MarketMinute 的 $83.74。费用率、基金规模和收益率取自标明日期的 Vanguard 资料，未来会变化。未对用户税务或组合比例作个性化判断。",
+        "quote": {
+          "price": 83.74,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "MarketMinute",
+          "sourceUrl": "https://kxlt.marketminute.com/quote/NQ%3AVXUS/historical"
+        }
+      },
+      "report": "research/20261021-vxus.html"
+    },
+    {
+      "id": "07bfc084-729f-462f-9a7c-6f9935843468",
+      "kind": "watch",
+      "date": "2026-10-21T09:01:33.748Z",
+      "research": {
+        "identity": {
+          "name": "Schwab U.S. Dividend Equity ETF",
+          "symbol": "SCHD",
+          "exchange": "NYSE Arca",
+          "currency": "USD",
+          "sector": "美国股息与价值股票ETF"
+        },
+        "title": "SCHD｜筛选高质量股息股，季度现金分配并非固定收益",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘约 $34.69。SCHD 追踪 Dow Jones U.S. Dividend 100 Index，年费率 0.06%，季度分配。它侧重股息记录和基本面质量筛选，不等同于广泛市场指数或保本收益产品。",
+        "details": "SCHD 是被动管理的美国股票 ETF，目标追踪 Dow Jones U.S. Dividend 100 Index。该指数从美国股息公司中筛选并按规则加权，结合股息记录与财务质量指标；目标是提供股息收入和股票总回报，不承诺固定收益。基金总费用率为 0.06%，通常按季度分配。Schwab 官方资料显示 2026-09-23 的每股季度收入分配为 $0.2665；单季金额会变动，不能直接年化成保证收益率。\n\n截至 2026-10-19，官方持仓页列出 102 项基金持仓。较大持仓包括 Texas Instruments（4.37%）、Procter & Gamble（4.33%）、Chevron（4.28%）、ConocoPhillips（4.26%）和 Coca-Cola（4.25%）。组合行业分布与筛选结果可能偏向金融、能源、消费必需品、医疗和成熟科技公司，和市值加权 S&P 500 的结构不同。\n\n2026-10-20 收盘价按 StockInvest 历史报价记录约 $34.69；ChartExchange 同日记录为 $34.68，属于行情源一美分的差异。ETF没有单家公司季度财报，后续更值得查看指数调整、基金持仓、季度分配、分配收益来源及相对宽基指数的总回报。",
+        "risks": [
+          "股息不保证且可能减少；基金净值会随股票市场波动，季度现金分配不是存款利息。",
+          "筛选和行业结构可能使 SCHD 在某些市场周期落后于成长股或市值加权宽基指数。",
+          "高股息股票可能因经营前景转弱而出现股价下跌或削减分红；历史股息记录不能保证未来持续。",
+          "指数定期重构会带来持仓变化和交易成本，0.06% 费用之外仍会有跟踪误差。"
+        ],
+        "catalysts": [
+          "查看 Schwab 最新 factsheet、指数构成和完整持仓，留意权重与行业集中度变化。",
+          "跟踪后续季度每股分配金额及其来源，不把单季分配简单外推成确定年收益。",
+          "用包含分红再投资的总回报比较 SCHD、S&P 500 与其他股息策略，区分策略差异和短期行情。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：StockInvest SCHD 历史行情",
+            "url": "https://stockinvest.us/stock-price/SCHD"
+          },
+          {
+            "label": "官方基金页：费用、基准与分配记录",
+            "url": "https://www.schwabassetmanagement.com/products/schd"
+          },
+          {
+            "label": "官方持仓：SCHD（截至 2026-10-19）",
+            "url": "https://www.schwabassetmanagement.com/allholdings/schd"
+          },
+          {
+            "label": "官方基金文件与 factsheet",
+            "url": "https://www.schwabassetmanagement.com/products/schd/documents"
+          }
+        ],
+        "uncertainty": "2026-10-20 的第三方收盘报价在不同供应商间约为 $34.68–$34.69，卡片采用 StockInvest 的 $34.69。持仓与季度分配会持续变化；分配金额不是承诺收益，也未针对个人税务情况分析。",
+        "quote": {
+          "price": 34.69,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "StockInvest",
+          "sourceUrl": "https://stockinvest.us/stock-price/SCHD"
+        }
+      },
+      "report": "research/20261021-schd.html"
+    },
+    {
+      "id": "54e59291-16eb-4456-90ef-9b9644bf86e1",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.593Z",
+      "research": {
+        "identity": {
+          "name": "iShares NASDAQ 100 UCITS ETF USD (Acc)",
+          "symbol": "CNDX",
+          "exchange": "LSE",
+          "currency": "USD",
+          "sector": "纳斯达克100指数ETF"
+        },
+        "title": "CNDX｜爱尔兰注册的累积型 Nasdaq-100 UCITS ETF",
+        "summary": "资料截至 2026-10-21；伦敦证券交易所 CNDX 美元交易线 2026-10-20 收盘约 $1,696.60。基金追踪 Nasdaq-100、爱尔兰注册、实物复制、累积型，TER 为 0.30%；成分股集中于大型非金融科技与成长公司，波动和集中度高于宽基标普500。",
+        "details": "CNDX 是 iShares NASDAQ 100 UCITS ETF USD (Acc)，爱尔兰注册的 UCITS 基金，追踪 Nasdaq-100 指数，实物复制并将股息累积再投资。官方资料列示 TER 0.30%、约 101 个持仓；伦敦证券交易所美元交易代码为 CNDX，另有其他交易所/币种的上市代码，比较价格时必须确认交易所和币种一致。基金价格较高，最小交易单位、券商支持的碎股能力和买卖点差会影响实际下单金额。\n\nNasdaq-100 包括在纳斯达克上市的大型非金融公司，不等同于纯科技指数，但权重高度集中于大型科技、通信和消费成长公司。其行业与个股集中度通常高于 S&P 500；两者可能持有相同的大型公司，因此同时持有并不会完全分散风险。累积型会把现金分红留在基金净值内。\n\n2026-10-20 CNDX 美元交易线收盘约 $1,696.60（第三方 LSE 行情）；基金本身不发布公司财报，应跟踪官方 factsheet、指数成分、基金 NAV、跟踪差异、交易点差和费用。用于与 QQQM 对照时，采用伦敦和美国共同交易时段内的同步价格更有意义；单日收盘价或不同时间戳可能造成假性比例偏差。",
+        "risks": [
+          "指数对大型成长与科技相关公司有较高集中度，利率变化、估值收缩或少数权重股下跌可能显著影响基金。",
+          "基金不是对全部 Nasdaq 上市公司的广泛分散配置；与 QQQM 等相近指数产品同时持有仍有较大重叠。",
+          "伦敦交易时段的点差、流动性及相对 NAV 的溢折价会影响实际成交；第三方单日收盘价不一定等于可成交价格。",
+          "TER 0.30% 之外还可能存在跟踪差异、税务、交易及券商费用；美元交易线不消除底层资产的市场和汇率风险。"
+        ],
+        "catalysts": [
+          "查看 iShares 最新 factsheet 的持仓、集中度、基金规模、NAV 与跟踪表现。",
+          "若与 QQQM 做价格换算，使用共同交易时段的同一 UTC 分钟/五分钟价格，并检查样本是否有时点错配。",
+          "观察指数季度再平衡、成分股变化和大型权重股集中度。"
+        ],
+        "sources": [
+          {
+            "label": "官方产品页：iShares NASDAQ 100 UCITS ETF",
+            "url": "https://www.ishares.com/uk/individual/en/products/253741/ishares-nasdaq-100-ucits-etf?locale=en_GB"
+          },
+          {
+            "label": "CNDX 历史价格：StockInvest（LSE）",
+            "url": "https://stockinvest.us/stock-price/CNDX.L"
+          },
+          {
+            "label": "CNDX LSE 行情：SharePrices",
+            "url": "https://shareprices.com/lse/cndx/"
+          }
+        ],
+        "uncertainty": "收盘价格 $1,696.60 来自第三方 LSE 行情页面；需核对具体交易线和数据供应商，执行交易时以券商实时报价、买卖盘和官方 NAV 为准。基金持仓及行业权重会变动。此资料用于了解基金，不构成投资建议。",
+        "quote": {
+          "price": 1696.6,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "StockInvest（LSE）",
+          "sourceUrl": "https://stockinvest.us/stock-price/CNDX.L"
+        }
+      },
+      "report": "research/20261021-cndx.html"
+    },
+    {
+      "id": "0f69bb45-0610-41b9-987d-5fae8e62e68f",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.552Z",
+      "research": {
+        "identity": {
+          "name": "State Street SPDR S&P 500 UCITS ETF (Acc)",
+          "symbol": "SPYL",
+          "exchange": "LSE",
+          "currency": "USD",
+          "sector": "美国大盘股指数ETF"
+        },
+        "title": "SPYL｜爱尔兰注册的累积型标普500 UCITS ETF",
+        "summary": "资料截至 2026-10-21；伦敦证券交易所 SPYL 美元交易线 2026-10-20 收盘约 $19.12；基金官方同日美元 NAV 约 $19.10。该基金追踪 S&P 500、爱尔兰注册、累积型，TER 为 0.03%；交易价和 NAV 是不同口径，短暂存在溢折价。",
+        "details": "SPYL 是 State Street SPDR S&P 500 UCITS ETF 的累积份额类别，爱尔兰注册，目标追踪 S&P 500 指数，采用实物复制，股息在基金内累积再投资。官方产品资料列示总费用率（TER）0.03%，伦敦证券交易所美元交易线代码为 SPYL。基金有约 505 个持仓，覆盖美国大型公司；科技股权重较高，基金页面所示信息技术板块约占 37.9%（权重会随市场变化）。\n\n2026-10-20 官方基金页面美元 NAV 约为 $19.10；第三方 LSE 历史行情页显示 SPYL 美元交易线收盘约 $19.12。NAV 是基金净资产折算到每份额的价值，交易所收盘价是买卖双方成交价格，两者因交易时间、流动性和供求可短暂不同。若用于与 VOO 换算，应确保比较的是相同时间窗口的成交价格；在伦敦交易时段与美国市场重叠期间同步取样，通常比拿不同时区的日收盘直接相除更可比。\n\n这是基金而非单一公司，因此没有公司季度财报；应定期查看官方 factsheet、指数跟踪差异、基金规模、持仓、费用及 NAV/交易价格。累积型表示分红留在基金内，不意味着消除标的公司的股息税或投资风险。美元交易线也不消除基金持有的美国股票的市场与汇率风险。",
+        "risks": [
+          "基金集中于美国大型股，市值加权指数中少数大型科技公司权重较高，市场回撤时可能同步下跌。",
+          "交易价格可能相对 NAV 出现溢价或折价；伦敦时段的流动性、点差和美英交易时段错位会影响实际成交。",
+          "美元计价只是交易货币；底层公司和资产仍承担市场与汇率风险。",
+          "TER 是基金费用指标，实际跟踪差异还受现金、交易、税费和指数调整影响；过往表现不保证未来结果。"
+        ],
+        "catalysts": [
+          "查看最新官方 factsheet 的 NAV、资产规模、持仓、行业权重和跟踪表现。",
+          "若用于与 VOO 对照，优先使用伦敦与纽约共同交易时段的同一时间戳价格，并留意买卖价差。",
+          "跟踪 S&P 500 成分变化、集中度和官方费用/基金结构文件更新。"
+        ],
+        "sources": [
+          {
+            "label": "官方产品页：SPDR S&P 500 UCITS ETF（SPYL）",
+            "url": "https://www.ssga.com/ie/en_gb/institutional/etfs/state-street-spdr-sp-500-ucits-etf-acc-spyl-gy"
+          },
+          {
+            "label": "LSE 美元交易线收盘：EODData SPYL",
+            "url": "https://www.eoddata.com/stockquote/LSE/SPYL.htm"
+          },
+          {
+            "label": "LSE SPYL 历史行情：Twelve Data",
+            "url": "https://twelvedata.com/markets/998214/etf/lse/spyl/historical-data"
+          }
+        ],
+        "uncertainty": "2026-10-20 官方 NAV 与第三方 LSE 收盘价分别约为 $19.10 和 $19.12，口径不同，不能将其差异理解为确定的套利空间。收盘行情可能受数据供应商、时区和成交记录影响。基金风险及投资价值不由单日价格比较确定。",
+        "quote": {
+          "price": 19.12,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "EODData（LSE）",
+          "sourceUrl": "https://www.eoddata.com/stockquote/LSE/SPYL.htm"
+        }
+      },
+      "report": "research/20261021-spyl.html"
+    },
+    {
+      "id": "220ae5c7-d7c7-472d-a374-f835719401ce",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.512Z",
+      "research": {
+        "identity": {
+          "name": "Tempus AI, Inc.",
+          "symbol": "TEM",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "精准医疗、基因组检测与医疗数据AI"
+        },
+        "title": "TEM｜基因检测和数据授权同步增长，盈利与估值质量需拆开看",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $66.75。Q2 2026 收入同比增长 22% 至 $382.5M，Diagnostics 和 Data & Apps 均增长；GAAP 净利润受投资公允价值收益影响，调整后 EBITDA 为 $8M。医疗数据合作扩展需求，但盈利质量、股权薪酬、并购及临床验证是观察重点。",
+        "details": "Tempus AI 将基因检测、临床数据和 AI 分析用于精准医疗，重点服务肿瘤等疾病领域。Q2 2026 收入 $382.5M，同比增长 22%；Diagnostics 收入 $289.3M、同比增长 20%，肿瘤检测量同比增长 31%；Data & Apps 收入 $93.2M、同比增长 28%，其中 Insights 增长 36%。公司报告 GAAP 净利润 $5.6M，但当季包含约 $98.5M 未实现证券收益，另有约 $55.6M 股权薪酬；调整后 EBITDA 为 $8M。现金及有价证券约 $820.7M。\n\n公司披露约 $200M 的数据/应用授权签约金额，并与 Moderna、Merck 签订多年合作，向其提供样本及下一代测序物流支持；合作的具体财务条款未公开。10 月 19 日发布的肺癌病理AI预筛研究覆盖超过 60,000 例 NSCLC 病例，报告 12 种生物标志物的敏感度超过 80%；研究结果仍需结合同行评审、外部验证和实际临床效用判断。公司 2026 年收入展望为 $1.595–1.605B，调整后 EBITDA 约 $65M。\n\n后续重点是有机增长与收购贡献拆分、Diagnostics 毛利和检测报销、数据授权的重复性、GAAP 利润是否摆脱投资估值波动，以及 Personalis 收购的审批/交割状态和整合成本。2026-10-20 的 $66.75 收盘价来自第三方历史行情页。",
+        "risks": [
+          "GAAP 净利润受到证券公允价值变动影响，未实现投资收益不能视为主营业务盈利；股权薪酬仍然显著。",
+          "临床AI模型需要外部验证、监管合规和临床采用；研究敏感度指标不等于改善患者结局或形成收入。",
+          "基因检测依赖医疗报销、实验室运营、患者样本和数据授权；隐私、监管、竞争和客户续约会影响业务。",
+          "并购和快速扩张带来整合、商誉、资本配置和稀释风险；合作金额与收入确认节奏未完全公开。"
+        ],
+        "catalysts": [
+          "核对下一季度 Diagnostics 与 Data & Apps 的收入、毛利和现金流，以及全年指引。",
+          "观察 Moderna/Merck 合作、数据授权签约能否转化为持续收入并披露商业贡献。",
+          "跟踪肺癌病理AI研究的外部验证、监管进展与临床采用；核实 Personalis 交易状态。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：StockAnalysis TEM 历史行情",
+            "url": "https://stockanalysis.com/stocks/tem/history/"
+          },
+          {
+            "label": "SEC：Tempus Q2 2026 业绩公告",
+            "url": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526326083/tem-ex99_1.htm"
+          },
+          {
+            "label": "Tempus：与 Moderna、Merck 多年合作公告",
+            "url": "https://investors.tempus.com/news-releases/news-release-details/tempus-announces-multi-year-collaboration-moderna-and-merck"
+          },
+          {
+            "label": "Tempus：投资者新闻",
+            "url": "https://investors.tempus.com/"
+          }
+        ],
+        "uncertainty": "行情来自第三方历史行情页面，标注为 2026-10-20 收盘。公司季度财务数据和展望截至最近发布的 Q2 2026；合作条款未完全公开。临床研究和AI性能指标仍需独立验证。本资料不构成买卖建议。",
+        "quote": {
+          "price": 66.75,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "StockAnalysis",
+          "sourceUrl": "https://stockanalysis.com/stocks/tem/history/"
+        }
+      },
+      "report": "research/20261021-tem.html"
+    },
+    {
+      "id": "899a0110-5555-4cf4-a4ce-4d07fdb46fa1",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.471Z",
+      "research": {
+        "identity": {
+          "name": "IREN Limited",
+          "symbol": "IREN",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "AI云基础设施与比特币挖矿"
+        },
+        "title": "IREN｜从比特币挖矿转向 AI 云，已签算力规模大但兑现周期长",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $26.62。FY2026 收入约 $707M，其中 AI Cloud 约 $128.8M；公司公布多项 AI 客户和 GPU 扩张合同。挖矿业务仍贡献大部分收入，AI 合同额和 ARR 不能等同于当期收入，建设、融资及客户部署进度是核心风险。",
+        "details": "IREN 经营比特币挖矿业务，并建设面向 AI/HPC 的数据中心与 GPU 云服务。FY2026（截至 2026-06-30）收入约 $707M，其中 AI Cloud 收入约 $128.8M、比特币挖矿收入约 $578.2M；GAAP 净亏损约 $702.6M。净亏损受大额资产减值、矿机退役及转型等项目显著影响，需结合 10-K 的现金流和非现金项目阅读。\n\n公司披露 2026 年 AI 容量相关合同 ARR 约 $4B，并称约 $1B ARR 已进入运营口径；ARR 是年度化合同收入指标，不代表已经全部确认或收款。公司还公布与领先前沿 AI 实验室的多年合同，以及与 Cohere、Prometheus、Perplexity、Figure、Fal 和 Higgsfield 等客户的合作/业务关系。GPU 融资安排约 $2.8B，报道所述融资覆盖大部分相关 GPU 资本支出，但仍有执行、成本和资本结构风险。\n\n评估转型应逐季检查已安装 GPU 数、客户上线和实际计费、AI Cloud 毛利及现金回收，同时单独评估比特币挖矿盈利性、矿机折旧和退役节奏。2026-10-20 的 $26.62 收盘价来自第三方历史行情页。",
+        "risks": [
+          "AI ARR 和合同容量是前瞻指标；数据中心、电力、网络、GPU交付和客户上线延迟都会推迟收入确认。",
+          "业务转型需要大额资本投入和融资；GPU资产、债务、利率与再融资会影响现金流和每股价值。",
+          "FY2026 GAAP 净亏损巨大，矿机减值与退役显示传统挖矿资产可能快速过时；比特币价格、网络难度和能源成本也会影响挖矿业务。",
+          "AI 客户与大型合同可能集中；未披露的定价、利用率和实际回款限制了对合同经济性的判断。"
+        ],
+        "catalysts": [
+          "逐季核对 AI Cloud 实际收入、已投运 GPU 容量、利用率、毛利和现金回款。",
+          "跟踪大型 AI 客户项目的建设、部署和 ARR 转收入进度，以及相关融资是否按计划落地。",
+          "观察挖矿业务占比下降是否伴随整体现金流改善，而非只出现收入结构变化。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange IREN 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-iren/historical/"
+          },
+          {
+            "label": "IREN：FY2026 业绩公告",
+            "url": "https://irisenergy.gcs-web.com/news-releases/news-release-details/iren-reports-fy26-results"
+          },
+          {
+            "label": "SEC：IREN FY2026 Form 10-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000052/iren-20260630.htm"
+          },
+          {
+            "label": "SEC：IREN Q3 FY2026 业绩文件",
+            "url": "https://www.sec.gov/Archives/edgar/data/1878848/000187884826000025/irenreportsq3fy26results.htm"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据。财务数据截至 2026-06-30；ARR、客户合作和规划算力不等于同期已确认收入。部分公司新闻页面可能存在访问限制，SEC 申报文件是核对正式财务数字的主要依据。",
+        "quote": {
+          "price": 26.62,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-iren/historical/"
+        }
+      },
+      "report": "research/20261021-iren.html"
+    },
+    {
+      "id": "4a808d88-8740-4b29-9350-953fac693498",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.426Z",
+      "research": {
+        "identity": {
+          "name": "Planet Labs PBC",
+          "symbol": "PL",
+          "exchange": "NYSE",
+          "currency": "USD",
+          "sector": "地球观测卫星与地理空间数据"
+        },
+        "title": "PL｜卫星数据订阅和政府需求扩张，盈利质量与资本需求需跟踪",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $13.41。Q2 FY2027 收入同比增长 58% 至 $116.1M，调整后 EBITDA 转正至 $13.9M；FY2027 收入指引为 $430–441M。政府合同和高分辨率数据需求提供增长机会，但仍有 GAAP 亏损、卫星资本开支和股权融资稀释风险。",
+        "details": "Planet Labs 运营地球观测卫星群，向商业、政府和科研客户出售影像、监测数据及分析服务。最近公布的 Q2 FY2027（截至 2026-07-31）收入 $116.1M，同比增长 58%；GAAP 净亏损约 $9.4M，调整后 EBITDA 盈利 $13.9M。剩余履约义务约 $753.1M，其中约 46% 预计在未来 12 个月确认；积压约 $814.9M。FY2027 收入指引为 $430–441M，调整后 EBITDA $3–10M，资本开支 $100–115M。收入、积压和指引口径不同，不能直接相加。\n\n近期进展包括 2026-10-13 欧洲航天局选择 Planet 支持斯洛文尼亚空间韧性节点，10 月初发射 Suncatcher、Tanager-2 和 SuperDove 卫星；此前德国政府推进专用卫星能力采购。政府及商业需求可能提高数据合同的可见度，但预算周期、合同签署和交付进度会影响确认时间。公司本季度还通过 ATM 发行净募资约 $120M，披露平均净发行价格约 $31.95；融资支持投资，也带来稀释。\n\n观察指标包括订阅类收入与续约、剩余履约义务转收入速度、卫星可用性和资本开支，以及调整后盈利向 GAAP 盈利和现金流的转化。2026-10-20 的 $13.41 收盘价为第三方历史行情数据。",
+        "risks": [
+          "卫星制造、发射、在轨运行和数据处理需要持续投资；发射失败或卫星故障可能影响覆盖能力和服务承诺。",
+          "调整后 EBITDA 转正不代表 GAAP 已盈利；资本开支和股权融资可能持续影响自由现金流与每股权益。",
+          "政府采购受预算和政策周期影响，合同签署、履约与收入确认可能延后；积压不等于已收现金。",
+          "ATM 增发会稀释现有股东；对少数大型政府客户的依赖可能加大季度波动。"
+        ],
+        "catalysts": [
+          "核对 Q3 FY2027 收入、订阅增长、积压转化和 FY2027 指引变化。",
+          "观察 ESA、德国政府和 NGA 等项目是否转化为已签合同、交付里程碑及可确认收入。",
+          "跟踪卫星发射与在轨部署、资本开支、融资和现金流。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange PL 历史日线",
+            "url": "https://chartexchange.com/symbol/nyse-pl/historical/"
+          },
+          {
+            "label": "Planet Labs：季度业绩、积压和 FY2027 指引",
+            "url": "https://investors.planet.com/financials/quarterly-results/default.aspx"
+          },
+          {
+            "label": "Planet Labs：投资者新闻与 2026 年 10 月公告",
+            "url": "https://investors.planet.com/overview/default.aspx"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据；公司季度财务及指引来自最近已发布的 Q2 FY2027 资料。政府合同公告的金额或收入确认时间未必全部公开；ATM 融资与后续股数变化需查看正式文件。",
+        "quote": {
+          "price": 13.41,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nyse-pl/historical/"
+        }
+      },
+      "report": "research/20261021-pl.html"
+    },
+    {
+      "id": "9064efc8-db04-4b9b-aa02-a71f6cbcee8b",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.379Z",
+      "research": {
+        "identity": {
+          "name": "Amprius Technologies, Inc.",
+          "symbol": "AMPX",
+          "exchange": "NYSE",
+          "currency": "USD",
+          "sector": "硅负极高能量密度电池"
+        },
+        "title": "AMPX｜高能量密度电池订单带动放量，规模化制造仍待验证",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $7.58。Q2 2026 收入同比增长 126% 至 $34.0M，毛利率 27%；全年收入和盈利展望上调。无人机及电动摩托车合同带来需求机会，但生产良率、供应能力、客户集中和持续盈利仍是观察重点。",
+        "details": "Amprius 开发硅负极锂离子电池，目标应用包括无人机、航空航天、轻型电动车及高性能移动设备。Q2 2026 收入 $34.0M，同比增长 126%；毛利 $9.3M，毛利率 27%；GAAP 净亏损 $5.1M，其中包括约 $1.9M 非现金权证修改费用，调整后净亏损约 $3.2M，调整后 EBITDA 亏损约 $1.0M。\n\n管理层将 2026 年展望上调为收入至少 $140M、毛利率至少 28%、净亏损低于 $10M、调整后 EBITDA 至少 $4M、资本开支低于 $10M。该指引仍依赖订单交付、产品组合和成本表现。公司披露欧洲无人机客户约 $24M 订单；Stark Future 多年期协议存在超过 $100M 的潜在收入机会，主要从 2027 年起，属于机会估计而非已实现收入。Amprius 还与 Redwire 合作供应 SiCore 电芯，并计划扩大美国试产能力、使用韩国合作产能。\n\n观察重点是订单从公告到实际发货的转化、毛利率提升能否持续、外部合作产能的质量控制与交期，以及管理层全年 EBITDA 指引能否实现。2026-10-20 的 $7.58 收盘价来自第三方历史行情页。",
+        "risks": [
+          "订单增长必须经过稳定良率、质量认证和规模交付验证；产能扩张或合作制造可能带来执行风险。",
+          "收入可能受少数无人机与电动交通客户的采购节奏影响，订单或项目延迟会使季度结果波动。",
+          "公司仍处于盈利转折阶段；若毛利率、成本或营运资金表现弱于预期，调整后盈利指引可能落空。",
+          "潜在多年合同额和市场机会不是已确认收入，需留意实际出货、回款和合同约束。"
+        ],
+        "catalysts": [
+          "后续季度核对收入、毛利率与调整后 EBITDA 是否达到 2026 指引。",
+          "关注欧洲无人机订单交付及 Stark Future 合同自 2027 年开始后的实际节奏。",
+          "跟踪韩国伙伴产能、Fremont 试产线以及 Redwire 合作对单位成本和交期的影响。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：MarketMinute / WSIL AMPX 历史行情",
+            "url": "https://wsil.marketminute.com/quote/NY%3AAMPX/historical"
+          },
+          {
+            "label": "Amprius：Q2 2026 财报和业务更新",
+            "url": "https://ir.amprius.com/news-events/press-releases/detail/172/amprius-technologies-reports-second-quarter-2026-financial-results-and-recent-business-highlights"
+          },
+          {
+            "label": "Amprius：投资者关系",
+            "url": "https://ir.amprius.com/"
+          }
+        ],
+        "uncertainty": "行情来自第三方历史行情页面，标注为 2026-10-20 收盘。财务和展望为公司已发布数据；潜在合同价值与未来目标尚未实现。本资料不构成买卖建议。",
+        "quote": {
+          "price": 7.58,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "MarketMinute / WSIL",
+          "sourceUrl": "https://wsil.marketminute.com/quote/NY%3AAMPX/historical"
+        }
+      },
+      "report": "research/20261021-ampx.html"
+    },
+    {
+      "id": "3b45d121-ca43-4452-b8a2-449b38c9d8b2",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.324Z",
+      "research": {
+        "identity": {
+          "name": "Applied Digital Corporation",
+          "symbol": "APLD",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "AI数据中心与高性能计算基础设施"
+        },
+        "title": "APLD｜数据中心租赁快速扩张，建设融资和高杠杆是核心风险",
+        "summary": "资料截至 2026-10-21；2026-10-20 收盘价 $19.34。Q1 FY2027 收入同比增长 322% 至 $341.9M，主要受数据中心业务推动；公司披露大规模多年期租赁和园区建设计划，但债务、建设进度及资本开支会决定合同能否兑现为现金流。",
+        "details": "Applied Digital 为高性能计算及 AI 客户建设和运营数据中心。Q1 FY2027（截至 2026-08-31）收入 $341.9M，同比增长 322%；GAAP 净亏损 $221M，调整后净亏损 $4.1M，调整后 EBITDA $64.4M。季末现金及受限现金约 $3.7B，债务约 $6.4B。净亏损与调整后指标差异较大，应查看利息、折旧、融资及其他非现金项目的构成。\n\n公司称已签约约 1.41GW IT 容量，基础合同期潜在合同收入约 $36B（包含续约选项则更高，但续约不是确定收入）。Polaris Forge 1 已有约 250MW 投运，并预期 2026 年末达到约 300MW。Delta Forge 2 的 210MW、15 年租约对应约 $5.2B 基础合同收入。公司通过发行 $1.59B、票息 7% 的票据为后续建设和偿还过桥贷款提供资金。芬兰项目的潜在电力容量仍属于开发计划，不应当作已投运容量。\n\n评估重点是已交付并可计费的 IT 容量、客户验收和上架时间、项目成本与融资成本，以及租赁收入转化为经营现金流的速度。2026-10-20 的 $19.34 收盘价来自第三方历史行情页。",
+        "risks": [
+          "建设与投运需要巨额资本；利率、融资可得性、设备交付、电力接入或施工延误都可能增加成本并推迟收入。",
+          "债务约 $6.4B，利息与再融资风险较高；调整后 EBITDA 不能替代债务偿付和自由现金流。",
+          "长期租约金额是合同期名义收入，不等同于当前收入、利润或现金；客户验收和实际容量交付仍是兑现条件。",
+          "业务和客户集中于少数大型 AI/HPC 租户，行业供需变化或客户资本计划调整会产生显著影响。"
+        ],
+        "catalysts": [
+          "跟踪 Polaris Forge 1 的实际投运/计费容量是否按公司时间表提升。",
+          "核对 Delta Forge 2 建设、融资和客户交付节点，以及其他园区的租赁披露。",
+          "后续财报重点看数据中心经常性收入、利息费用、资本开支、债务到期安排和经营现金流。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange APLD 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-apld/historical/"
+          },
+          {
+            "label": "Applied Digital：Q1 FY2027 业绩公告",
+            "url": "https://ir.applieddigital.com/sec-filings/all-sec-filings/content/0001144879-26-000057/apldq127earningsrelease.htm"
+          },
+          {
+            "label": "Applied Digital：投资者关系与 SEC 文件",
+            "url": "https://ir.applieddigital.com/financials/sec-filings/default.aspx"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据。合同收入、续约选项、计划容量和预计投运时间均为公司披露的前瞻性项目数据，实际确认受建设、验收和客户运营影响。未据此推导目标价。",
+        "quote": {
+          "price": 19.34,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-apld/historical/"
+        }
+      },
+      "report": "research/20261021-apld.html"
+    },
+    {
+      "id": "e63b902e-4a43-4fd1-86be-c57fd3eaa166",
+      "kind": "watch",
+      "date": "2026-10-21T08:02:20.270Z",
+      "research": {
+        "identity": {
+          "name": "SoundHound AI, Inc.",
+          "symbol": "SOUN",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "语音人工智能与对话式AI"
+        },
+        "title": "SOUN｜语音AI商业化和收购扩张并行，整合与现金消耗待验证",
+        "summary": "资料截至 2026-10-21；最近完整交易日（2026-10-20）收盘价为 $4.70。Q2 FY2026 收入同比增长 45% 至 $61.9M；完成 LivePerson 收购后产品和客户范围扩大，但旧的收购前收入指引不能直接视为当前指引，整合、毛利和现金消耗是主要观察点。",
+        "details": "SoundHound AI 销售语音识别、对话式AI及代理式语音解决方案，服务汽车、餐饮和企业客户。公司 2026 财年第二季度（截至 6 月 30 日）收入 $61.9M，同比增长 45%；GAAP 毛利率 45.1%，非 GAAP 毛利率 58.4%；调整后 EBITDA 亏损 $9.6M，GAAP 净亏损 $42.8M；季末现金约 $203M、无债务。公司当时发布的 $230–260M FY2026 收入指引是在 LivePerson 收购前给出的，不能不加调整地当作收购后的最新合并指引。\n\n公司于 2026-09-04 完成 LivePerson 收购，扩大了客户服务自动化产品与企业客户基础，并任命新 CFO。9 月底，公司介绍 OASYS Edge 嵌入式代理式语音 AI；10 月的 Kia Sorento India 部署公告展示了生成式语音功能的应用。但产品发布和客户部署公告本身并不等于披露了可重复的收入规模。\n\n后续应重点核对收购后收入贡献、续约/交叉销售、毛利率、现金消耗及管理层更新后的年度指引。2026-10-20 的 $4.70 是第三方历史行情页面所示收盘价。",
+        "risks": [
+          "LivePerson 收购整合可能带来产品迁移、客户留存、成本协同和无形资产摊销等风险；收购后的合并指引尚需以新公告核实。",
+          "公司仍有显著 GAAP 亏损，收入增长尚未证明能稳定转化为自由现金流。",
+          "语音AI市场竞争激烈，汽车项目周期长；客户部署或试点不能自动转化为大规模经常性收入。",
+          "非 GAAP 指标排除了部分费用，需与 GAAP 结果、现金流和股权薪酬一起观察。"
+        ],
+        "catalysts": [
+          "下一次业绩公告：核实并购后的收入、毛利、现金流和更新后的全年指引。",
+          "跟踪 LivePerson 客户留存、交叉销售以及产品整合带来的可量化收入和成本协同。",
+          "观察 OASYS Edge 与汽车/餐饮部署是否形成重复付费合同，而不只停留在产品发布或试点。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange SOUN 历史日线",
+            "url": "https://chartexchange.com/symbol/nasdaq-soun/historical/"
+          },
+          {
+            "label": "SoundHound：Q2 FY2026 业绩",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-reports-record-q2-and-all-time-high-revenue-619"
+          },
+          {
+            "label": "SoundHound：完成 LivePerson 收购",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-completes-acquisition-liveperson-creating-world"
+          },
+          {
+            "label": "SoundHound：OASYS Edge 公告",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-introduces-oasys-edge-bringing-fully-embedded"
+          },
+          {
+            "label": "SoundHound：Kia Sorento India 部署公告",
+            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-powers-next-generation-voice-assistant-real-time"
+          }
+        ],
+        "uncertainty": "行情为第三方页面的 2026-10-20 收盘数据；行情供应商可能有小幅差异。部分经营数据来自截至 2026-06-30 的最近已发布季度；收购后的指引应以公司下一次正式更新为准。本资料不是估值或买卖建议。",
+        "quote": {
+          "price": 4.7,
+          "date": "2026-10-20",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-soun/historical/"
+        }
+      },
+      "report": "research/20261021-soun.html"
+    },
     {
       "id": "eab0a267-fa84-46a3-a358-581f2fc7e8e4",
       "kind": "watch",
@@ -7870,138 +9096,6 @@
   },
   "jobs": [
     {
-      "id": "4679ea40-91ad-420e-920f-4ca22588673d",
-      "kind": "watch",
-      "watchId": "10e1793d-640e-443f-aac7-fe0290c204c3",
-      "question": "联网核实 特斯拉 (TSLA) 最近一个已完成美股交易日的收盘报价，并查阅最新官方公司/基金报告、财务结果、展望和主要风险；回写 research.quote 与结构化研究，生成独立自包含中文 HTML。Moomoo 导入价格仅为历史导入快照，不可作为当前价。",
-      "status": "done",
-      "date": "2026-10-19T21:52:18.377Z",
-      "error": "",
-      "report": "research/20261020-tsla.html",
-      "completedAt": "2026-10-19T21:58:08.856Z"
-    },
-    {
-      "id": "3d49a61f-e16f-4bd6-86ef-74b3fcae3909",
-      "kind": "quotes",
-      "watchId": null,
-      "question": "更新全部持仓标的最近一个已完成美股交易日的收盘价，并记录交易日期与数据来源。",
-      "status": "done",
-      "date": "2026-10-20T21:24:18.970Z",
-      "error": "",
-      "summary": "已更新 5 个唯一持仓标的的 2026-10-20 美股收盘价，并同步刷新重复持仓的市值。报价来源为 ChartExchange 和 StockAnalysis 历史日线。",
-      "completedAt": "2026-10-20T21:29:38.845Z"
-    },
-    {
-      "id": "61e9433d-5b5f-4ac2-9b23-4d529e911c80",
-      "kind": "watch",
-      "watchId": "6688d084-15c1-4d89-a450-a7b8d67b6616",
-      "question": "刷新关注标的 RKLB RKLB：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-rklb.html",
-      "completedAt": "2026-10-20T21:29:37.820Z"
-    },
-    {
-      "id": "91a607d3-95c5-4c5c-b38d-bf276a848e74",
-      "kind": "watch",
-      "watchId": "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
-      "question": "刷新关注标的 OUST OUST：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-oust.html",
-      "completedAt": "2026-10-20T21:29:37.839Z"
-    },
-    {
-      "id": "85fbc634-070c-4385-97b8-01844bad1dbc",
-      "kind": "watch",
-      "watchId": "9c572b68-64fb-4e7d-9692-74f569040195",
-      "question": "刷新关注标的 TMDX TMDX：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-tmdx.html",
-      "completedAt": "2026-10-20T21:29:37.870Z"
-    },
-    {
-      "id": "1ee2a25e-d69a-4e45-a036-2c64969b4ed6",
-      "kind": "watch",
-      "watchId": "e8839fb8-b14b-4f60-bc6b-f01909376529",
-      "question": "刷新关注标的 LUNR LUNR：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-lunr.html",
-      "completedAt": "2026-10-20T21:29:37.886Z"
-    },
-    {
-      "id": "ef52356b-9126-45f4-aef9-4fd2efcce2cd",
-      "kind": "watch",
-      "watchId": "68ac1738-90e2-44ce-aaa8-83967958e168",
-      "question": "刷新关注标的 PLTR PLTR：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-pltr.html",
-      "completedAt": "2026-10-20T21:29:37.928Z"
-    },
-    {
-      "id": "505e2d0e-28f8-4818-a808-fde9e09f02ec",
-      "kind": "watch",
-      "watchId": "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
-      "question": "刷新关注标的 TSM TSM：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-tsm.html",
-      "completedAt": "2026-10-20T21:29:37.944Z"
-    },
-    {
-      "id": "0eca4bea-be4f-4351-b08a-ce568ee2a56e",
-      "kind": "watch",
-      "watchId": "73ea6652-e30d-4b72-878c-115502e4b72d",
-      "question": "刷新关注标的 亚马逊 AMZN：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-amzn.html",
-      "completedAt": "2026-10-20T21:29:37.975Z"
-    },
-    {
-      "id": "1fe77877-1d5c-45cf-be70-85b6c3fcaf1f",
-      "kind": "watch",
-      "watchId": "990ad5a3-7a56-45e9-a914-78424558e749",
-      "question": "刷新关注标的 Aehr Test Systems AEHR：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-aehr.html",
-      "completedAt": "2026-10-20T21:29:37.995Z"
-    },
-    {
-      "id": "e1e88f2b-3bf0-4a76-9ddd-f275f9eb8f20",
-      "kind": "watch",
-      "watchId": "64078460-ed3a-42f4-803e-60d32e8df85d",
-      "question": "刷新关注标的 纳微半导体 NVTS：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-nvts.html",
-      "completedAt": "2026-10-20T21:29:38.011Z"
-    },
-    {
-      "id": "4094e610-0b61-4b02-919b-a8e69f2772b4",
-      "kind": "watch",
-      "watchId": "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
-      "question": "刷新关注标的 Enovix ENVX：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "done",
-      "date": "2026-10-20T21:24:51.896Z",
-      "error": "",
-      "report": "research/20261020-envx.html",
-      "completedAt": "2026-10-20T21:29:38.028Z"
-    },
-    {
       "id": "cc6c1399-ee3b-43a3-9e95-46d8a3dbdfde",
       "kind": "watch",
       "watchId": "bda9b130-0a99-46c8-b943-f01dd6992ebd",
@@ -8429,6 +9523,127 @@
       "error": "",
       "report": "research/20261020-tsla.html",
       "completedAt": "2026-10-20T21:29:38.825Z"
+    },
+    {
+      "id": "f112851b-9f96-483c-90ed-9e8de7d10775",
+      "kind": "watch",
+      "watchId": "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
+      "question": "研究并更新关注标的：SOUN SOUN。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:54:41.965Z",
+      "error": "",
+      "report": "research/20261021-soun.html",
+      "completedAt": "2026-10-21T08:02:20.270Z"
+    },
+    {
+      "id": "cdf92787-705c-4723-905c-dbe790266ee0",
+      "kind": "watch",
+      "watchId": "c024e517-2f19-429e-9330-e49566ba2537",
+      "question": "研究并更新关注标的：APLD APLD。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:54:52.244Z",
+      "error": "",
+      "report": "research/20261021-apld.html",
+      "completedAt": "2026-10-21T08:02:20.324Z"
+    },
+    {
+      "id": "291fca98-567a-4ad0-97ea-85ace13abc37",
+      "kind": "watch",
+      "watchId": "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
+      "question": "研究并更新关注标的：AMPX AMPX。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:55:00.779Z",
+      "error": "",
+      "report": "research/20261021-ampx.html",
+      "completedAt": "2026-10-21T08:02:20.379Z"
+    },
+    {
+      "id": "c12e69c9-217a-4fc3-bd23-3f54066ea975",
+      "kind": "watch",
+      "watchId": "5ffc01e1-e876-459c-828d-3f28dc5548d8",
+      "question": "研究并更新关注标的：Planet Labs 。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:55:18.291Z",
+      "error": "",
+      "report": "research/20261021-pl.html",
+      "completedAt": "2026-10-21T08:02:20.426Z"
+    },
+    {
+      "id": "46112acf-8dc6-4b0b-9c58-62086bd0f4c8",
+      "kind": "watch",
+      "watchId": "5614a582-5385-49a4-a89f-2a0661942e35",
+      "question": "研究并更新关注标的：IREN IREN。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:55:28.037Z",
+      "error": "",
+      "report": "research/20261021-iren.html",
+      "completedAt": "2026-10-21T08:02:20.471Z"
+    },
+    {
+      "id": "8b8bffb3-0a0f-42de-b7d3-6e6cdf51b005",
+      "kind": "watch",
+      "watchId": "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
+      "question": "研究并更新关注标的：TEM TEM。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:55:39.081Z",
+      "error": "",
+      "report": "research/20261021-tem.html",
+      "completedAt": "2026-10-21T08:02:20.512Z"
+    },
+    {
+      "id": "4f560bb4-8b7b-4e6f-911a-13bb611b7f5d",
+      "kind": "watch",
+      "watchId": "546ba81c-c7b1-4636-8537-23d861ee0bc3",
+      "question": "研究并更新关注标的：SPYL SPYL。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:57:47.439Z",
+      "error": "",
+      "report": "research/20261021-spyl.html",
+      "completedAt": "2026-10-21T08:02:20.552Z"
+    },
+    {
+      "id": "1c96c227-bb30-4525-a17d-8789b12effd1",
+      "kind": "watch",
+      "watchId": "e73995fd-501a-485c-9822-14fc610ef524",
+      "question": "研究并更新关注标的：CNDX CNDX。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T07:58:05.995Z",
+      "error": "",
+      "report": "research/20261021-cndx.html",
+      "completedAt": "2026-10-21T08:02:20.593Z"
+    },
+    {
+      "id": "f99ef3a1-56d2-44f8-b149-c5433c2e2a4c",
+      "kind": "watch",
+      "watchId": "bda18e13-8398-4db5-9b96-d9fc8c7ba07b",
+      "question": "研究并更新关注标的：SCHD SCHD。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T08:32:55.965Z",
+      "error": "",
+      "report": "research/20261021-schd.html",
+      "completedAt": "2026-10-21T09:01:33.748Z"
+    },
+    {
+      "id": "64520d9c-77f1-4ffc-946f-abfbdcb75940",
+      "kind": "watch",
+      "watchId": "03f8d44b-0da7-42c4-b731-0bffc6c67b9f",
+      "question": "研究并更新关注标的：全世界 ETF - VXUS 。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T08:50:09.512Z",
+      "error": "",
+      "report": "research/20261021-vxus.html",
+      "completedAt": "2026-10-21T09:01:33.796Z"
+    },
+    {
+      "id": "896d815e-473a-4ea7-9c6f-7855d0aa4d9c",
+      "kind": "watch",
+      "watchId": "fefb602a-2cf8-46e3-bc9b-94173a2a867f",
+      "question": "研究并更新关注标的：递增股利 ETF - VIG 。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。",
+      "status": "done",
+      "date": "2026-10-21T08:50:57.357Z",
+      "error": "",
+      "report": "research/20261021-vig.html",
+      "completedAt": "2026-10-21T09:01:33.836Z"
     }
   ],
   "marketUpdatedAt": "2026-10-20T21:29:38.845Z",

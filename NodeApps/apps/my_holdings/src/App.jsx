@@ -434,7 +434,7 @@ function RightPanel({
       </> : <section className="mh-watch-priority">
         <div className="mh-watch-priority-heading">
           <div><span className="mh-eyebrow">NEAREST TO YOUR PRICE</span><h3>等待价差最低</h3></div>
-          <span className="mh-tag">{watchPriorities.length} / 10</span>
+          <span className="mh-tag">{watchPriorities.length} 项</span>
         </div>
         <p className="mh-watch-priority-intro">按当前收盘价到等待价的比例，从近到远排列。只有已填等待价且有报价的标的会进入这里。</p>
         {watchPriorities.length ? <div className="mh-watch-priority-list">
@@ -997,8 +997,7 @@ export default function HoldingsApp() {
     watchPriorities = state.watchlist
       .map((item) => ({ item, gap: watchGapPct(item) }))
       .filter(({ gap }) => gap !== null)
-      .sort((a, b) => a.gap - b.gap || (a.item.name || a.item.symbol || "").localeCompare(b.item.name || b.item.symbol || "", "zh-CN", { numeric: true }))
-      .slice(0, 10),
+      .sort((a, b) => a.gap - b.gap || (a.item.name || a.item.symbol || "").localeCompare(b.item.name || b.item.symbol || "", "zh-CN", { numeric: true })),
     waitingJobs = state.jobs.filter((j) => j.status === "waiting" || j.status === "failed"),
     completedJobs = state.jobs.filter((j) => j.status === "done").sort((a, b) => (b.completedAt || b.date).localeCompare(a.completedAt || a.date)),
     visibleHoldings = state.holdings.filter((h) =>
