@@ -1,3 +1,9 @@
+import { OptimisationHookArt, isOptimisationLab } from './OptimisationLabs';
+import {
+  ProblemSolvingHookArt,
+  isProblemSolvingLab,
+} from './ProblemSolvingLabs';
+import { StatisticsHookArt, isStatisticsLab } from './StatisticsLabs';
 import { AnalysisHookArt, isAnalysisLab } from './FunctionAnalysisLabs';
 import { CalculusHookArt, isCalculusLab } from './CalculusLabs';
 import { CountingHookArt, isCountingLab } from './CountingLabs';
@@ -188,7 +194,13 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isAnalysisLab(l.lab) ? (
+              {isOptimisationLab(l.lab) ? (
+                <OptimisationHookArt kind={l.lab} mode={mode} />
+              ) : isProblemSolvingLab(l.lab) ? (
+                <ProblemSolvingHookArt kind={l.lab} mode={mode} />
+              ) : isStatisticsLab(l.lab) ? (
+                <StatisticsHookArt kind={l.lab} mode={mode} />
+              ) : isAnalysisLab(l.lab) ? (
                 <AnalysisHookArt kind={l.lab} mode={mode} />
               ) : isCalculusLab(l.lab) ? (
                 <CalculusHookArt kind={l.lab} mode={mode} />

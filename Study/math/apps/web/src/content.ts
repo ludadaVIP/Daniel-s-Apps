@@ -1,4 +1,19 @@
 import {
+  h31Lessons,
+  h31ReviewQuestion,
+  h31CheckQuestions,
+} from './content/H31';
+import {
+  h28Lessons,
+  h28ReviewQuestion,
+  h28CheckQuestions,
+} from './content/H28';
+import {
+  h27Lessons,
+  h27ReviewQuestion,
+  h27CheckQuestions,
+} from './content/H27';
+import {
   h26Lessons,
   h26ReviewQuestion,
   h26CheckQuestions,
@@ -354,6 +369,9 @@ export const lessons: Lesson[] = [
   ...h24Lessons,
   ...h25Lessons,
   ...h26Lessons,
+  ...h27Lessons,
+  ...h28Lessons,
+  ...h31Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -367,6 +385,15 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h31Lessons.map((l) => [l.id, h31ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h28Lessons.map((l) => [l.id, h28ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h27Lessons.map((l) => [l.id, h27ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h26Lessons.map((l) => [l.id, h26ReviewQuestion(l.id, 0)]),
   ),
@@ -513,6 +540,9 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H31-')) return h31ReviewQuestion(id, round);
+  if (id.startsWith('H28-')) return h28ReviewQuestion(id, round);
+  if (id.startsWith('H27-')) return h27ReviewQuestion(id, round);
   if (id.startsWith('H26-')) return h26ReviewQuestion(id, round);
   if (id.startsWith('H25-')) return h25ReviewQuestion(id, round);
   if (id.startsWith('H24-')) return h24ReviewQuestion(id, round);
@@ -572,6 +602,27 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H31: {
+    id: 'H31-CHECK',
+    unit: 'H31',
+    title: t('导数与优化回顾', 'Derivatives and optimisation review'),
+    questions: h31CheckQuestions,
+    bridge: 'H31-L01',
+  },
+  H28: {
+    id: 'H28-CHECK',
+    unit: 'H28',
+    title: t('综合问题解题回顾', 'Integrated problem-solving review'),
+    questions: h28CheckQuestions,
+    bridge: 'H28-L01',
+  },
+  H27: {
+    id: 'H27-CHECK',
+    unit: 'H27',
+    title: t('统计与回归回顾', 'Statistics and regression review'),
+    questions: h27CheckQuestions,
+    bridge: 'H27-L01',
+  },
   H26: {
     id: 'H26-CHECK',
     unit: 'H26',

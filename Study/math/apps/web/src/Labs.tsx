@@ -1,3 +1,6 @@
+import { OptimisationLab, isOptimisationLab } from './OptimisationLabs';
+import { ProblemSolvingLab, isProblemSolvingLab } from './ProblemSolvingLabs';
+import { StatisticsLab, isStatisticsLab } from './StatisticsLabs';
 import { AnalysisLab, isAnalysisLab } from './FunctionAnalysisLabs';
 import { CalculusLab, isCalculusLab } from './CalculusLabs';
 import { CountingLab, isCountingLab } from './CountingLabs';
@@ -390,7 +393,13 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isAnalysisLab(kind) ? (
+  return isOptimisationLab(kind) ? (
+    <OptimisationLab key={kind} kind={kind} mode={mode} />
+  ) : isProblemSolvingLab(kind) ? (
+    <ProblemSolvingLab key={kind} kind={kind} mode={mode} />
+  ) : isStatisticsLab(kind) ? (
+    <StatisticsLab key={kind} kind={kind} mode={mode} />
+  ) : isAnalysisLab(kind) ? (
     <AnalysisLab key={kind} kind={kind} mode={mode} />
   ) : isCalculusLab(kind) ? (
     <CalculusLab key={kind} kind={kind} mode={mode} />
