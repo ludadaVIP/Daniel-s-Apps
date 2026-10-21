@@ -12,6 +12,30 @@ import { equalPolynomial } from './polynomialModels';
 import { parseLinearSystem, sameSystemSolutions } from './systemModels';
 import { trigQuantityMatches } from './trigModels';
 function answerHint(spec: AnswerSpec, lessonId?: string) {
+  if (spec.kind === 'inference-code')
+    return t(
+      '检验填reject（拒绝）、do-not-reject（不拒绝）或not-justified（条件不足）；区间比较填meets-target（全达目标）、below-target（全低于目标）、uncertain（跨阈值）。不拒绝不是证明H0真。',
+      'For tests use reject, do-not-reject or not-justified. For interval comparisons use meets-target, below-target or uncertain. Non-rejection does not establish H0.',
+    );
+  if (spec.kind === 'distribution-table')
+    return t(
+      '填完整分布表：取值:概率；取值:概率。取值可重排行，但不能重复、漏行；概率须非负且总和1。',
+      'Enter the full table as value:probability;value:probability. Row order may vary; do not repeat or omit values. Masses must be nonnegative and sum to one.',
+    );
+  if (spec.kind === 'distribution-rounded')
+    return t(
+      '这是近似概率，请填四位小数，如0.1234；不填百分号或分数。先算完整表达式，再舍入。',
+      'Enter this approximate probability with four decimal places, such as0.1234, without a percent sign or fraction. Round after the full calculation.',
+    );
+  if (spec.kind === 'integral-primitive')
+    return t(
+      spec.family
+        ? '输入完整原函数族，含任意实常数C；支持有理系数、多项式与非零一次C。只填表达式。'
+        : '输入一个多项式原函数；有初值时须同时满足初值，不填未定常数C。只填表达式。',
+      spec.family
+        ? 'Enter the full primitive family, including arbitrary real C. Rational coefficients, polynomials and nonzero affine C are supported. Enter only the expression.'
+        : 'Enter one polynomial primitive, satisfying the initial condition if supplied. Use a numerical constant, without undetermined C. Enter only the expression.',
+    );
   if (spec.kind === 'advanced-derivative')
     return t(
       '输入导函数表达式；支持有理系数与括号，用e^(2x)、exp(2x)、sin(2x)、cos(2x)、ln(2)*2^x等规范写法，保留题中参数；不填f′(x)=或近似小数。',

@@ -1,3 +1,13 @@
+import {
+  AdvancedEquationHookArt,
+  isAdvancedEquationLab,
+} from './AdvancedEquationLabs';
+import {
+  StatisticalInferenceHookArt,
+  isStatisticalInferenceLab,
+} from './StatisticalInferenceLabs';
+import { DistributionHookArt, isDistributionLab } from './DistributionLabs';
+import { IntegralHookArt, isIntegralLab } from './IntegralLabs';
 import { OptimisationHookArt, isOptimisationLab } from './OptimisationLabs';
 import {
   ProblemSolvingHookArt,
@@ -194,7 +204,15 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isOptimisationLab(l.lab) ? (
+              {isAdvancedEquationLab(l.lab) ? (
+                <AdvancedEquationHookArt kind={l.lab} mode={mode} />
+              ) : isStatisticalInferenceLab(l.lab) ? (
+                <StatisticalInferenceHookArt kind={l.lab} mode={mode} />
+              ) : isDistributionLab(l.lab) ? (
+                <DistributionHookArt kind={l.lab} mode={mode} />
+              ) : isIntegralLab(l.lab) ? (
+                <IntegralHookArt kind={l.lab} mode={mode} />
+              ) : isOptimisationLab(l.lab) ? (
                 <OptimisationHookArt kind={l.lab} mode={mode} />
               ) : isProblemSolvingLab(l.lab) ? (
                 <ProblemSolvingHookArt kind={l.lab} mode={mode} />

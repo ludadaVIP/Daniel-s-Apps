@@ -1,4 +1,16 @@
 import {
+  checkInferenceCode,
+  type InferenceCode,
+} from './statisticalInferenceModels';
+import {
+  checkDistributionTable,
+  checkDistributionRounded,
+} from './distributionModels';
+import {
+  checkIntegralPrimitive,
+  type PrimitiveCondition,
+} from './integralModels';
+import {
   checkAdvancedDerivative,
   checkAdvancedCode,
   type AdvancedForm,
@@ -109,6 +121,16 @@ import {
 } from './cartesianModels';
 export const t = (zh: string, en: string): LocalizedText => ({ zh, en });
 export type AnswerSpec =
+  | { kind: 'inference-code'; value: InferenceCode }
+  | { kind: 'distribution-table'; value: string }
+  | { kind: 'distribution-rounded'; value: string }
+  | {
+      kind: 'integral-primitive';
+      integrand: string;
+      value: string;
+      family: boolean;
+      initial?: PrimitiveCondition;
+    }
   | {
       kind: 'advanced-derivative';
       value: string;
@@ -571,6 +593,28 @@ export type Lesson = {
   keywords: LocalizedText[];
   minutes: number;
   lab:
+    | 'equation-composition'
+    | 'equation-logarithms'
+    | 'equation-identities'
+    | 'equation-parameters'
+    | 'equation-solutions'
+    | 'stat-inference-population'
+    | 'stat-inference-sampling'
+    | 'stat-inference-confidence'
+    | 'stat-inference-test'
+    | 'stat-inference-importance'
+    | 'distribution-table'
+    | 'distribution-expectation'
+    | 'distribution-spread'
+    | 'distribution-binomial'
+    | 'distribution-normal'
+    | 'distribution-standard'
+    | 'integral-accumulation'
+    | 'integral-riemann'
+    | 'integral-primitive'
+    | 'integral-signed'
+    | 'integral-ftc'
+    | 'integral-applications'
     | 'optimisation-review'
     | 'optimisation-trig'
     | 'optimisation-implicit'
@@ -1011,6 +1055,19 @@ export function exactRational(raw: string): [bigint, bigint] | null {
   return [n / factor, d / factor];
 }
 export function checkAnswer(input: string, spec: AnswerSpec): boolean | null {
+  if (spec.kind === 'inference-code')
+    return checkInferenceCode(input, spec.value);
+  if (spec.kind === 'distribution-table')
+    return checkDistributionTable(input, spec.value);
+  if (spec.kind === 'distribution-rounded')
+    return checkDistributionRounded(input, spec.value);
+  if (spec.kind === 'integral-primitive')
+    return checkIntegralPrimitive(
+      input,
+      spec.integrand,
+      spec.family,
+      spec.initial,
+    );
   if (spec.kind === 'advanced-derivative')
     return checkAdvancedDerivative(
       input,

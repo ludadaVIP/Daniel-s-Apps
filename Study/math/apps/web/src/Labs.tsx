@@ -1,3 +1,13 @@
+import {
+  AdvancedEquationLab,
+  isAdvancedEquationLab,
+} from './AdvancedEquationLabs';
+import {
+  StatisticalInferenceLab,
+  isStatisticalInferenceLab,
+} from './StatisticalInferenceLabs';
+import { DistributionLab, isDistributionLab } from './DistributionLabs';
+import { IntegralLab, isIntegralLab } from './IntegralLabs';
 import { OptimisationLab, isOptimisationLab } from './OptimisationLabs';
 import { ProblemSolvingLab, isProblemSolvingLab } from './ProblemSolvingLabs';
 import { StatisticsLab, isStatisticsLab } from './StatisticsLabs';
@@ -393,7 +403,15 @@ export function Lab({
   kind: Lesson['lab'];
   mode: LanguageMode;
 }) {
-  return isOptimisationLab(kind) ? (
+  return isAdvancedEquationLab(kind) ? (
+    <AdvancedEquationLab key={kind} kind={kind} mode={mode} />
+  ) : isStatisticalInferenceLab(kind) ? (
+    <StatisticalInferenceLab key={kind} kind={kind} mode={mode} />
+  ) : isDistributionLab(kind) ? (
+    <DistributionLab key={kind} kind={kind} mode={mode} />
+  ) : isIntegralLab(kind) ? (
+    <IntegralLab key={kind} kind={kind} mode={mode} />
+  ) : isOptimisationLab(kind) ? (
     <OptimisationLab key={kind} kind={kind} mode={mode} />
   ) : isProblemSolvingLab(kind) ? (
     <ProblemSolvingLab key={kind} kind={kind} mode={mode} />
