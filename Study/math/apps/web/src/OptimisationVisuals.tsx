@@ -15,7 +15,7 @@ export function FenceFigure({
   m: ReturnType<typeof fenceAudit>;
 }) {
   const xmax = m.length / 2,
-    ymax = (m.length * m.length) / 8,
+    ymax = 20 * Math.ceil((m.length * m.length) / 160),
     px = (x: number) => 60 + (x / xmax) * 540,
     py = (y: number) => 330 - (y / ymax) * 260,
     curve = (lo: number, hi: number) =>
@@ -57,7 +57,7 @@ export function FenceFigure({
                 stroke="#d5e1e8"
               />
               <text x="48" y={py(ymax * q) + 4} textAnchor="end" fontSize="12">
-                {Number((ymax * q).toFixed(2))}
+                {ymax * q}
               </text>
               <text x={px(xmax * q)} y="352" textAnchor="middle" fontSize="13">
                 {xmax * q}

@@ -1,4 +1,24 @@
 import {
+  h35Lessons,
+  h35ReviewQuestion,
+  h35CheckQuestions,
+} from './content/H35';
+import {
+  h34Lessons,
+  h34ReviewQuestion,
+  h34CheckQuestions,
+} from './content/H34';
+import {
+  h33Lessons,
+  h33ReviewQuestion,
+  h33CheckQuestions,
+} from './content/H33';
+import {
+  h32Lessons,
+  h32ReviewQuestion,
+  h32CheckQuestions,
+} from './content/H32';
+import {
   h31Lessons,
   h31ReviewQuestion,
   h31CheckQuestions,
@@ -372,6 +392,10 @@ export const lessons: Lesson[] = [
   ...h27Lessons,
   ...h28Lessons,
   ...h31Lessons,
+  ...h32Lessons,
+  ...h33Lessons,
+  ...h34Lessons,
+  ...h35Lessons,
 ];
 export { diagnosticGroups };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
@@ -385,6 +409,18 @@ export const openUnits = curriculum
   )
   .filter((unit) => unit.openLessons.length);
 export const reviewQuestions: Record<string, Question> = {
+  ...Object.fromEntries(
+    h35Lessons.map((l) => [l.id, h35ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h34Lessons.map((l) => [l.id, h34ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h33Lessons.map((l) => [l.id, h33ReviewQuestion(l.id, 0)]),
+  ),
+  ...Object.fromEntries(
+    h32Lessons.map((l) => [l.id, h32ReviewQuestion(l.id, 0)]),
+  ),
   ...Object.fromEntries(
     h31Lessons.map((l) => [l.id, h31ReviewQuestion(l.id, 0)]),
   ),
@@ -540,6 +576,10 @@ export const reviewQuestions: Record<string, Question> = {
   ),
 };
 export function reviewQuestionFor(id: string, round: number): Question {
+  if (id.startsWith('H35-')) return h35ReviewQuestion(id, round);
+  if (id.startsWith('H34-')) return h34ReviewQuestion(id, round);
+  if (id.startsWith('H33-')) return h33ReviewQuestion(id, round);
+  if (id.startsWith('H32-')) return h32ReviewQuestion(id, round);
   if (id.startsWith('H31-')) return h31ReviewQuestion(id, round);
   if (id.startsWith('H28-')) return h28ReviewQuestion(id, round);
   if (id.startsWith('H27-')) return h27ReviewQuestion(id, round);
@@ -602,6 +642,34 @@ export function reviewQuestionFor(id: string, round: number): Question {
   return b04ReviewQuestionFor(id, round);
 }
 export const unitChecks = {
+  H35: {
+    id: 'H35-CHECK',
+    unit: 'H35',
+    title: t('高级函数与方程回顾', 'Advanced functions and equations review'),
+    questions: h35CheckQuestions,
+    bridge: 'H35-L01',
+  },
+  H34: {
+    id: 'H34-CHECK',
+    unit: 'H34',
+    title: t('统计推断入门回顾', 'Introduction to inference review'),
+    questions: h34CheckQuestions,
+    bridge: 'H34-L01',
+  },
+  H33: {
+    id: 'H33-CHECK',
+    unit: 'H33',
+    title: t('随机变量与分布回顾', 'Random variables and distributions review'),
+    questions: h33CheckQuestions,
+    bridge: 'H33-L01',
+  },
+  H32: {
+    id: 'H32-CHECK',
+    unit: 'H32',
+    title: t('积分基础回顾', 'Introduction to integration review'),
+    questions: h32CheckQuestions,
+    bridge: 'H32-L01',
+  },
   H31: {
     id: 'H31-CHECK',
     unit: 'H31',
