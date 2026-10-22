@@ -657,9 +657,9 @@
 :root[data-theme="dark"] .mh-priority-copy strong { color: #c4d4c7; }
 :root[data-theme="dark"] .mh-priority-copy em { background: #20251a; color: #bdc5ba; }
 :root[data-theme="dark"] .mh-priority-copy small { color: #bbc1b8; }
-:root[data-theme="dark"] .mh-priority-gap strong { color: #c1cbbc; }
+:root[data-theme="dark"] .mh-priority-gap strong { color: #c3d1bd; }
 :root[data-theme="dark"] .mh-priority-gap.touched strong { color: #bad1bc; }
-:root[data-theme="dark"] .mh-priority-gap small { color: #bbc1b8; }
+:root[data-theme="dark"] .mh-priority-gap small { color: #c0c8be; }
 :root[data-theme="dark"] .mh-watch-priority-empty { border: 1px dashed #495c38; background: #1f2318; color: #bec8ba; }
 :root[data-theme="dark"] .mh-watch-priority-empty strong { color: #c2cebf; }
 :root[data-theme="dark"] .mh-watch-priority-empty p { color: #bdc4b9; }
@@ -709,4 +709,28 @@
 :root[data-theme="dark"] .mh-converter-side-row > span { color: #c0c8bd; }
 :root[data-theme="dark"] .mh-converter-side-row > b { color: #c2d2bf; }
 :root[data-theme="dark"] .mh-converter-side-row > small { color: #bbc2b7; }
+
+:root[data-theme="dark"] .mh-stat.mh-stat-goal > strong {
+  color: #c4d4c7;
+}
+:root[data-theme="dark"] .mh-watch-card.attention-4 { background: #231a18; border-color: #68372c; border-left: 3px solid #b85851; }
+:root[data-theme="dark"] .mh-watch-card.attention-3 { background: #181d23; border-color: #2f4965; border-left: 3px solid #5884b1; }
+:root[data-theme="dark"] .mh-watch-card.attention-2 { background: #202519; border-color: #455a3a; }
+:root[data-theme="dark"] .mh-watch-card.attention-1 { background: #1d201d; border-color: #464e48; border-left: 3px solid #808a86; }
+:root[data-theme="dark"] .mh-watch-symbol { color: #bfccbd; }
+:root[data-theme="dark"] .mh-watch-symbol.missing { color: #bdc2b7; }
+:root[data-theme="dark"] .mh-watch-attention-trigger:hover, :root[data-theme="dark"] .mh-watch-attention-trigger:focus-visible { background: #1c1c1ca8; outline: 1px solid #47553f; }
+:root[data-theme="dark"] .mh-watch-attention-swatch { border: 1px solid #47474712; color: #ffffff; }
+:root[data-theme="dark"] .mh-watch-attention-swatch.attention-4 { background: #8f3932; }
+:root[data-theme="dark"] .mh-watch-attention-swatch.attention-3 { background: #3d6084; }
+:root[data-theme="dark"] .mh-watch-attention-swatch.attention-2 { background: #324030; }
+:root[data-theme="dark"] .mh-watch-attention-swatch.attention-1 { background: #363a39; }
+:root[data-theme="dark"] .mh-watch-attention-menu {
+  border: 1px solid #49583c;
+  background: #1c1c1c;
+}
+:root[data-theme="dark"] .mh-watch-attention-menu button:hover, :root[data-theme="dark"] .mh-watch-attention-menu button:focus-visible, :root[data-theme="dark"] .mh-watch-attention-menu button.selected { border-color: #46573d; background: #20251a; }
+:root[data-theme="dark"] .mh-priority-movement.up { background: #1b271d; color: #b6dbbf; }
+:root[data-theme="dark"] .mh-priority-movement.down { background: #261c1b; color: #dcaca8; }
+:root[data-theme="dark"] .mh-priority-movement.flat { background: #20251c; color: #bec3bc; }
 

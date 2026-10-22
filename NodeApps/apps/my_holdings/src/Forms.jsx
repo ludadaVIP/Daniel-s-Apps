@@ -225,6 +225,7 @@ export function WatchForm({ item, onSave, busy }) {
       note: "",
       trigger: "",
       status: "观察中",
+      attention: 2,
     },
   );
   const change = (k, value) => set((s) => ({ ...s, [k]: value }));

@@ -106,7 +106,18 @@ const WATCH_SORT_OPTIONS = [
   { id: "name", label: "名称", title: "按名称排序" },
   { id: "price", label: "报价", title: "按当前报价从低到高排序" },
   { id: "gap", label: "价差 ↑", title: "等待价差比例从低到高排序" },
+  { id: "attention", label: "关注", title: "按关注度从高到低排序：4、3、2、1" },
 ];
+const WATCH_ATTENTION_OPTIONS = [
+  { level: 4, label: "最关注" },
+  { level: 3, label: "中等关注" },
+  { level: 2, label: "留着看看" },
+  { level: 1, label: "留着以后再说" },
+];
+const watchAttention = (watch) =>
+  WATCH_ATTENTION_OPTIONS.some(({ level }) => level === watch?.attention)
+    ? watch.attention
+    : 2;
 function watchGapPct(watch) {
   const price = watch?.price == null ? NaN : Number(watch.price);
   const target = watch?.targetPrice == null ? NaN : Number(watch.targetPrice);
@@ -163,6 +174,8 @@ function sortWatchlist(rows, mode) {
     }) || (a.symbol || "").localeCompare(b.symbol || "");
   return rows.slice().sort((a, b) => {
     if (mode === "name") return byName(a, b);
+    if (mode === "attention")
+      return watchAttention(b) - watchAttention(a) || byName(a, b);
     if (mode === "price") {
       const aPrice = a.price == null ? NaN : Number(a.price);
       const bPrice = b.price == null ? NaN : Number(b.price);
@@ -177,6 +190,24 @@ function sortWatchlist(rows, mode) {
     return aGap == null ? byName(a, b) : aGap - bGap || byName(a, b);
   });
 }
+function rankWatchPriorities(rows) {
+  return rows
+    .map((item) => ({ item, gap: watchGapPct(item) }))
+    .filter(({ gap }) => gap !== null)
+    .sort((a, b) =>
+      a.gap - b.gap ||
+      (a.item.name || a.item.symbol || "").localeCompare(
+        b.item.name || b.item.symbol || "",
+        "zh-CN",
+        { numeric: true },
+      ),
+    );
+}
+function previousLocalDate(date) {
+  const previous = new Date(`${date}T00:00:00.000Z`);
+  previous.setUTCDate(previous.getUTCDate() - 1);
+  return previous.toISOString().slice(0, 10);
+}
 function Empty({ icon: Icon = Sprout, title, text, action }) {
   return (
     <div className="mh-empty">
@@ -187,9 +218,9 @@ function Empty({ icon: Icon = Sprout, title, text, action }) {
     </div>
   );
 }
-function Stat({ label, value, sub, negative = false, icon: Icon }) {
+function Stat({ label, value, sub, negative = false, icon: Icon, variant = "" }) {
   return (
-    <article className="mh-stat">
+    <article className={`mh-stat${variant ? ` mh-stat-${variant}` : ""}`}>
       <div>
         <span>{label}</span>
         {Icon && <Icon size={17} />}
@@ -309,6 +340,7 @@ function RightPanel({
   holding,
   watch,
   watchPriorities,
+  yesterdayWatchRanks,
   onClose,
   onNavigate,
   onSelectWatch,
@@ -441,10 +473,18 @@ function RightPanel({
           {watchPriorities.map(({ item, gap }, index) => {
             const currency = item.research?.quote?.currency || item.research?.identity?.currency || "USD";
             const touched = gap === 0;
-            return <button className="mh-watch-priority-row" key={item.id} onClick={() => onSelectWatch(item.id)} aria-label={"查看 " + (item.symbol || item.name) + "，等待价差 " + gap.toFixed(2) + "%"}>
+            const previousRank = yesterdayWatchRanks.get(item.id);
+            const movement = previousRank == null ? 0 : previousRank - index - 1;
+            const movementLabel = movement > 0 ? `↑ ${movement}名` : movement < 0 ? `↓ ${Math.abs(movement)}名` : "持平";
+            const movementText = movement > 0 ? `上升 ${movement} 名` : movement < 0 ? `下降 ${Math.abs(movement)} 名` : "排名持平";
+            return <button className="mh-watch-priority-row" key={item.id} onClick={() => onSelectWatch(item.id)} aria-label={"查看 " + (item.symbol || item.name) + "，等待价差 " + gap.toFixed(2) + "%，" + movementText}>
               <span className="mh-priority-rank">{index + 1}</span>
               <span className="mh-priority-copy">
-                <span><strong>{item.symbol || item.name}</strong><em>{isIndexOrEtf(item) ? "指数 / ETF" : "个股"}</em></span>
+                <span>
+                  <strong>{item.symbol || item.name}</strong>
+                  <em>{isIndexOrEtf(item) ? "指数 / ETF" : "个股"}</em>
+                  <small className={`mh-priority-movement ${movement > 0 ? "up" : movement < 0 ? "down" : "flat"}`}>{movementLabel}</small>
+                </span>
                 <small>{item.name}</small>
               </span>
               <span className={"mh-priority-gap " + (touched ? "touched" : "")}>
@@ -724,9 +764,12 @@ export default function HoldingsApp() {
       }
     }),
     [watchTargetDrafts, setWatchTargetDrafts] = useState({}),
+    [attentionPickerId, setAttentionPickerId] = useState(null),
     [showAllWatchStocks, setShowAllWatchStocks] = useState(false),
     [watchStockColumnCount, setWatchStockColumnCount] = useState(1),
     [showAllResearch, setShowAllResearch] = useState(false),
+    [showAllWaitingJobs, setShowAllWaitingJobs] = useState(false),
+    [showAllCompletedJobs, setShowAllCompletedJobs] = useState(false),
     [question, setQuestion] = useState(""),
     [aiKind, setAiKind] = useState("portfolio"),
     [provider, setProvider] = useState("ChatGPT"),
@@ -765,6 +808,41 @@ export default function HoldingsApp() {
     refresh();
     return () => clearTimeout(timer.current);
   }, []);
+  useEffect(() => {
+    if (!state) return;
+    let active = true;
+    const saveDailyRank = async () => {
+      try {
+        const result = await request("/api/watchlist/rank-snapshot", {
+          date: localDate(),
+          watchIds: rankWatchPriorities(state.watchlist).map(({ item }) => item.id),
+        });
+        if (active && result.state.revision !== stateRef.current?.revision) {
+          setState(result.state);
+          stateRef.current = result.state;
+        }
+      } catch (error) {
+        if (active) console.error("无法保存关注榜单的每日名次。", error);
+      }
+    };
+    saveDailyRank();
+    const now = new Date();
+    const nextDay = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1, 0, 0, 1);
+    const rollover = setTimeout(saveDailyRank, Math.max(1000, nextDay.getTime() - now.getTime()));
+    return () => {
+      active = false;
+      clearTimeout(rollover);
+    };
+  }, [state?.watchlist]);
+  useEffect(() => {
+    if (!attentionPickerId) return;
+    const closeAttentionPicker = (event) => {
+      if (!(event.target instanceof Element) || !event.target.closest(".mh-watch-attention-control"))
+        setAttentionPickerId(null);
+    };
+    document.addEventListener("pointerdown", closeAttentionPicker);
+    return () => document.removeEventListener("pointerdown", closeAttentionPicker);
+  }, [attentionPickerId]);
   useEffect(() => {
     if (!state || modal) return;
     const alerts = state.watchlist.filter((w) => {
@@ -831,7 +909,7 @@ export default function HoldingsApp() {
         return !v;
       });
   };
-  const mutate = async (fn, { close = true } = {}) => {
+  const mutate = async (fn, { close = true, successMessage = "已保存到本地" } = {}) => {
     if (busyRef.current) return false;
     busyRef.current = true;
     setBusy(true);
@@ -842,7 +920,7 @@ export default function HoldingsApp() {
       setState(saved);
       stateRef.current = saved;
       if (close) setModal(null);
-      notify("已保存到本地");
+      if (successMessage) notify(successMessage);
       return true;
     } catch (e) {
       notify(e.message, true);
@@ -859,6 +937,11 @@ export default function HoldingsApp() {
       if (i >= 0) s[key][i] = value;
       else s[key].push(value);
     });
+  const saveWatchAttention = (watchId, attention) =>
+    mutate((s) => {
+      const watch = s.watchlist.find((row) => row.id === watchId);
+      if (watch) watch.attention = attention;
+    }, { close: false, successMessage: "关注等级已更新" });
   const remove = (key, item) => setModal({ type: "delete", key, item });
   const openReport = (path) => {
     if (!path) return;
@@ -994,17 +1077,24 @@ export default function HoldingsApp() {
     latest = portfolioReports[0],
     allAnalyses = state.analyses.slice().sort((a, b) => b.date.localeCompare(a.date)),
     watchFocus = state.watchlist.find((w) => w.id === selectedWatchId) || null,
-    watchPriorities = state.watchlist
-      .map((item) => ({ item, gap: watchGapPct(item) }))
-      .filter(({ gap }) => gap !== null)
-      .sort((a, b) => a.gap - b.gap || (a.item.name || a.item.symbol || "").localeCompare(b.item.name || b.item.symbol || "", "zh-CN", { numeric: true })),
+    watchPriorities = rankWatchPriorities(state.watchlist),
     waitingJobs = state.jobs.filter((j) => j.status === "waiting" || j.status === "failed"),
-    completedJobs = state.jobs.filter((j) => j.status === "done").sort((a, b) => (b.completedAt || b.date).localeCompare(a.completedAt || a.date)),
+    completedJobs = state.jobs.filter((j) => {
+      if (j.status !== "done") return false;
+      const completedAt = Date.parse(j.completedAt || j.date);
+      return Number.isFinite(completedAt) && completedAt >= Date.now() - 2 * 24 * 60 * 60 * 1000;
+    }).sort((a, b) => (b.completedAt || b.date).localeCompare(a.completedAt || a.date)),
     visibleHoldings = state.holdings.filter((h) =>
       `${h.symbol} ${h.name} ${h.sector}`
         .toLowerCase()
         .includes(query.toLowerCase()),
     );
+  const yesterday = previousLocalDate(localDate());
+  const yesterdayWatchRanks = new Map(
+    (state.watchRankHistory || [])
+      .find((snapshot) => snapshot.date === yesterday)
+      ?.watchIds.map((watchId, index) => [watchId, index + 1]) || [],
+  );
   const watchRefreshPending = undoableWatchRefreshIds(state, watchRefreshBatchIds).length > 0;
   const page = (id) => {
     setTab(id);
@@ -1071,9 +1161,10 @@ export default function HoldingsApp() {
       />
       <Stat
         label="投资目标"
-        value={(state.goals.objective || state.goals.notes || "").trim() ? "已记录" : "待填写"}
-        sub={(state.goals.objective || state.goals.notes || "").trim() || "写下一句话，给组合分析一个方向"}
+        value={(state.goals.objective || state.goals.notes || "").trim() || "写下一句话，给组合分析一个方向"}
+        sub={(state.goals.objective || state.goals.notes || "").trim() ? "已设置" : "尚未设置"}
         icon={Target}
+        variant="goal"
       />
     </div>
   );
@@ -1185,15 +1276,30 @@ export default function HoldingsApp() {
           ? "未完成"
           : job?.status === "waiting"
             ? "等待更新中"
-            : "未排队";
+            : w.researchedAt || w.report || w.research
+              ? "已有研究"
+              : "未排队";
+    const queueStatus = job?.status || (w.researchedAt || w.report || w.research ? "done" : "idle");
     const price = w.price == null || !Number.isFinite(Number(w.price)) ? null : Number(w.price);
     const targetPrice = w.targetPrice == null ? null : Number(w.targetPrice);
     const distance = watchGapPct(w);
     const targetDraft = watchTargetDrafts[w.id] ?? (targetPrice ?? "");
     const quoteCurrency = w.research?.quote?.currency || w.research?.identity?.currency || "USD";
+    const attention = watchAttention(w);
+    const attentionOpen = attentionPickerId === w.id;
+    const cardName = (w.name || w.symbol || "").trim();
+    const cardSymbol = (w.symbol || "").trim();
+    const nameBeforeSymbol = cardName.slice(0, cardName.length - cardSymbol.length);
+    const alreadyIncludesSymbol = cardSymbol &&
+      cardName.slice(-cardSymbol.length).toUpperCase() === cardSymbol.toUpperCase() &&
+      /[-–—]\s*$/.test(nameBeforeSymbol);
+    const displayName = alreadyIncludesSymbol
+      ? nameBeforeSymbol.replace(/[-–—]\s*$/, "").trim() || cardName
+      : cardName;
+    const showCardSymbol = cardSymbol && displayName.toUpperCase() !== cardSymbol.toUpperCase();
     return (
       <article
-        className={`mh-watch-card ${watchFocus?.id === w.id ? "selected" : ""}`}
+        className={`mh-watch-card attention-${attention} ${watchFocus?.id === w.id ? "selected" : ""} ${attentionOpen ? "priority-picker-open" : ""}`}
         key={w.id}
         onClick={(event) => {
           if (event.target.closest("button, input, a, label")) return;
@@ -1201,12 +1307,51 @@ export default function HoldingsApp() {
         }}
       >
         <header>
-          <span className="mh-ticker">{(w.symbol || w.name).slice(0, 2)}</span>
           <button className="mh-watch-identity" onClick={() => selectWatch(w.id)}>
-            <h3>{w.name}</h3>
-            <small>{w.symbol || "待核实代码"} · {w.status || "关注中"}</small>
+            <h3>
+              <span className="mh-watch-name">{displayName}</span>
+              {showCardSymbol && <span className="mh-watch-symbol">- {cardSymbol}</span>}
+              {!cardSymbol && <span className="mh-watch-symbol missing">- 代码待核实</span>}
+            </h3>
           </button>
-          <span className={`mh-queue-pill ${job?.status || "idle"}`}>{jobLabel}</span>
+          <div
+            className="mh-watch-attention-control"
+            onBlur={(event) => {
+              if (!event.currentTarget.contains(event.relatedTarget)) setAttentionPickerId(null);
+            }}
+          >
+            <button
+              type="button"
+              className="mh-watch-attention-trigger"
+              aria-label={`当前关注度 ${attention}，点击更改`}
+              aria-haspopup="true"
+              aria-expanded={attentionOpen}
+              title={`关注度 ${attention} · ${WATCH_ATTENTION_OPTIONS.find((option) => option.level === attention)?.label}`}
+              onClick={() => setAttentionPickerId((openId) => openId === w.id ? null : w.id)}
+            >
+              <span className={`mh-watch-attention-swatch attention-${attention}`} aria-hidden="true" />
+            </button>
+            {attentionOpen && <div className="mh-watch-attention-menu" role="group" aria-label="选择关注度">
+              {WATCH_ATTENTION_OPTIONS.map((option) => (
+                <button
+                  key={option.level}
+                  type="button"
+                  className={attention === option.level ? "selected" : ""}
+                  aria-label={`${option.level}，${option.label}`}
+                  aria-pressed={attention === option.level}
+                  title={`${option.level} · ${option.label}`}
+                  disabled={busy}
+                  onClick={() => {
+                    setAttentionPickerId(null);
+                    if (attention !== option.level) saveWatchAttention(w.id, option.level);
+                  }}
+                >
+                  <span className={`mh-watch-attention-swatch attention-${option.level}`}>{option.level}</span>
+                </button>
+              ))}
+            </div>}
+          </div>
+          <span className={`mh-queue-pill ${queueStatus}`}>{jobLabel}</span>
           <button
             className="mh-icon"
             aria-label={`编辑关注 ${w.name}`}
@@ -1931,31 +2076,49 @@ export default function HoldingsApp() {
                 </div>
                 <div className="mh-job-columns">
                   <section className="mh-job-column">
-                    <h3>待办</h3>
-                    {waitingJobs.length ? waitingJobs.slice().reverse().map((j) => (
-                      <div className="mh-job" key={j.id}>
-                        <span className={`mh-job-icon ${j.status}`}>
-                          {j.status === "failed" ? <X size={17} /> : <LoaderCircle size={17} />}
-                        </span>
-                        <div>
-                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
-                          <small>{when(j.date)} · {j.status === "failed" ? `未完成${j.error ? ` · ${j.error}` : ""}` : "等待交给 Codex"}</small>
+                    <div className="mh-job-column-heading">
+                      <h3>待办</h3>
+                      {waitingJobs.length > 5 && (
+                        <button className="mh-job-toggle" type="button" aria-expanded={showAllWaitingJobs} aria-controls="mh-waiting-jobs" onClick={() => setShowAllWaitingJobs((value) => !value)}>
+                          {showAllWaitingJobs ? "收起" : `展开其余 ${waitingJobs.length - 5} 项`} <ChevronDown size={13} />
+                        </button>
+                      )}
+                    </div>
+                    <div id="mh-waiting-jobs">
+                      {waitingJobs.length ? waitingJobs.slice().reverse().slice(0, showAllWaitingJobs ? waitingJobs.length : 5).map((j) => (
+                        <div className="mh-job" key={j.id}>
+                          <span className={`mh-job-icon ${j.status}`}>
+                            {j.status === "failed" ? <X size={17} /> : <LoaderCircle size={17} />}
+                          </span>
+                          <div>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <small>{when(j.date)} · {j.status === "failed" ? `未完成${j.error ? ` · ${j.error}` : ""}` : "等待交给 Codex"}</small>
+                          </div>
                         </div>
-                      </div>
-                    )) : <p className="mh-job-empty">当前没有待办</p>}
+                      )) : <p className="mh-job-empty">当前没有待办</p>}
+                    </div>
                   </section>
                   <section className="mh-job-column">
-                    <h3>最近完成</h3>
-                    {completedJobs.length ? completedJobs.slice(0, 4).map((j) => (
-                      <div className="mh-job" key={j.id}>
-                        <span className="mh-job-icon done"><CheckCircle2 size={17} /></span>
-                        <div>
-                          <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
-                          <small>{when(j.completedAt || j.date)} · 已完成并保存</small>
+                    <div className="mh-job-column-heading">
+                      <h3>最近完成</h3>
+                      {completedJobs.length > 5 && (
+                        <button className="mh-job-toggle" type="button" aria-expanded={showAllCompletedJobs} aria-controls="mh-completed-jobs" onClick={() => setShowAllCompletedJobs((value) => !value)}>
+                          {showAllCompletedJobs ? "收起" : `展开其余 ${completedJobs.length - 5} 项`} <ChevronDown size={13} />
+                        </button>
+                      )}
+                    </div>
+                    <div id="mh-completed-jobs">
+                      {completedJobs.length ? completedJobs.slice(0, showAllCompletedJobs ? completedJobs.length : 5).map((j) => (
+                        <div className="mh-job" key={j.id}>
+                          <span className="mh-job-icon done"><CheckCircle2 size={17} /></span>
+                          <div>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <small>{when(j.completedAt || j.date)} · 已完成并保存</small>
+                          </div>
+                          {j.report && <button className="mh-icon" aria-label="打开报告" onClick={() => openReport(j.report)}><ArrowUpRight size={15} /></button>}
                         </div>
-                        {j.report && <button className="mh-icon" aria-label="打开报告" onClick={() => openReport(j.report)}><ArrowUpRight size={15} /></button>}
-                      </div>
-                    )) : <p className="mh-job-empty">完成的任务会出现在这里</p>}
+                      )) : <p className="mh-job-empty">完成的任务会出现在这里</p>}
+                    </div>
                   </section>
                 </div>
               </section>
@@ -2066,6 +2229,7 @@ export default function HoldingsApp() {
           holding={tab === "holdings" ? focus : null}
           watch={watchFocus}
           watchPriorities={watchPriorities}
+          yesterdayWatchRanks={yesterdayWatchRanks}
           onClose={() => toggle("right")}
           onNavigate={page}
           onSelectWatch={selectWatch}

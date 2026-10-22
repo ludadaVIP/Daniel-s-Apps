@@ -26,6 +26,17 @@ const date = (v) =>
 const timestamp = (v) =>
   text(v, 40) && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/.test(v) &&
   Number.isFinite(Date.parse(v));
+const pruneExpiredCompletedJobs = (s, now = Date.now()) => {
+  const cutoff = now - 2 * 24 * 60 * 60 * 1000;
+  const retained = s.jobs.filter((job) => {
+    if (job.status !== "done") return true;
+    const completedAt = Date.parse(job.completedAt || job.date);
+    return !Number.isFinite(completedAt) || completedAt >= cutoff;
+  });
+  if (retained.length === s.jobs.length) return false;
+  s.jobs = retained;
+  return true;
+};
 const nearLondonClose = (value, tradingDate, precise = false) => {
   if (!timestamp(value) || value.slice(0, 10) !== tradingDate) return false;
   const parts = new Intl.DateTimeFormat("en-GB", {
@@ -126,11 +137,27 @@ export function validateState(s) {
       !(w.price === undefined || w.price === null || num(w.price, 0.000001)) ||
       !(w.priceDate === undefined || date(w.priceDate)) ||
       !(w.priceSource === undefined || text(w.priceSource, 200)) ||
+      !(w.attention === undefined || [1, 2, 3, 4].includes(w.attention)) ||
       !(w.priceSourceUrl === undefined || (text(w.priceSourceUrl, 1000) && (!w.priceSourceUrl || /^https?:\/\//.test(w.priceSourceUrl))))
     )
       throw error("关注标的的价格或日期无效。");
     if (w.research) validateResearch(w.research);
   }
+  if (
+    s.watchRankHistory !== undefined &&
+    (!Array.isArray(s.watchRankHistory) ||
+      s.watchRankHistory.length > 2 ||
+      s.watchRankHistory.some((snapshot) =>
+        !snapshot ||
+        !date(snapshot.date) ||
+        !snapshot.date ||
+        !Array.isArray(snapshot.watchIds) ||
+        snapshot.watchIds.length > 10000 ||
+        snapshot.watchIds.some((id) => !text(id, 100) || !id) ||
+        new Set(snapshot.watchIds).size !== snapshot.watchIds.length,
+      ))
+  )
+    throw error("关注榜单的每日名次数据无效。");
   for (const c of s.cash)
     if (
       !num(c.amount, -1e14) ||
@@ -320,6 +347,7 @@ export async function createHoldingsApp({
     await fs.writeFile(todoFile, lines.join("\n"));
   };
   const write = async (s) => {
+    pruneExpiredCompletedJobs(s);
     validateState(s);
     const previous = await fs.readFile(file, "utf8");
     const stamp = `${Date.now()}-${randomUUID().slice(0, 8)}`;
@@ -358,11 +386,20 @@ export async function createHoldingsApp({
         }
       }
     }
-    for (const w of s.watchlist)
+    for (const w of s.watchlist) {
+      if (w.attention === undefined) {
+        w.attention = 2;
+        changed = true;
+      }
       if (!w.symbol && /^[A-Z][A-Z0-9.-]{0,14}$/.test(w.name)) {
         w.symbol = w.name;
         changed = true;
       }
+    }
+    if (!Array.isArray(s.watchRankHistory)) {
+      s.watchRankHistory = [];
+      changed = true;
+    }
     for (const j of s.jobs)
       if (j.status === "failed" && /未找到 Codex CLI/.test(j.error || "")) {
         j.status = "waiting";
@@ -396,7 +433,54 @@ export async function createHoldingsApp({
   });
   app.get("/api/state", async (_req, res, next) => {
     try {
-      res.set("Cache-Control", "no-store").json(await read());
+      const state = await serial(async () => {
+        const s = await read();
+        return pruneExpiredCompletedJobs(s) ? write(s) : s;
+      });
+      res.set("Cache-Control", "no-store").json(state);
+    } catch (e) {
+      next(e);
+    }
+  });
+  app.post("/api/watchlist/rank-snapshot", async (req, res, next) => {
+    try {
+      const snapshotDate = req.body?.date;
+      const watchIds = req.body?.watchIds;
+      if (
+        !date(snapshotDate) ||
+        !snapshotDate ||
+        !Array.isArray(watchIds) ||
+        watchIds.length > 10000 ||
+        watchIds.some((id) => !text(id, 100) || !id) ||
+        new Set(watchIds).size !== watchIds.length
+      )
+        throw error("关注榜单的每日名次数据无效。");
+      const result = await serial(async () => {
+        const s = await read();
+        const knownIds = new Set(s.watchlist.map((watch) => watch.id));
+        if (watchIds.some((id) => !knownIds.has(id)))
+          throw error("关注榜单包含已不存在的标的，请刷新页面后重试。", 409);
+        const previousDate = new Date(`${snapshotDate}T00:00:00.000Z`);
+        previousDate.setUTCDate(previousDate.getUTCDate() - 1);
+        const yesterday = previousDate.toISOString().slice(0, 10);
+        const history = s.watchRankHistory || [];
+        const retained = history.filter((snapshot) =>
+          snapshot.date === snapshotDate || snapshot.date === yesterday,
+        );
+        const existing = retained.find((snapshot) => snapshot.date === snapshotDate);
+        const unchanged =
+          existing &&
+          existing.watchIds.length === watchIds.length &&
+          existing.watchIds.every((id, index) => id === watchIds[index]) &&
+          retained.length === history.length;
+        if (unchanged) return { state: s, changed: false };
+        s.watchRankHistory = [
+          ...retained.filter((snapshot) => snapshot.date !== snapshotDate),
+          { date: snapshotDate, watchIds },
+        ].sort((a, b) => a.date.localeCompare(b.date));
+        return { state: await write(s), changed: true };
+      });
+      res.json(result);
     } catch (e) {
       next(e);
     }
