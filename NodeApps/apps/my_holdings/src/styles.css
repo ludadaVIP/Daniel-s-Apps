@@ -2774,14 +2774,14 @@
 
 .mh-watch-card { position: relative; }
 .mh-watch-card.priority-picker-open { z-index: 5; }
-.mh-watch-card.attention-4 { background: #fff7f5; border-color: #ead3ce; border-left: 3px solid #c7665f; }
-.mh-watch-card.attention-3 { background: #f5f8fc; border-color: #d0dce9; border-left: 3px solid #668eb8; }
-.mh-watch-card.attention-2 { background: #f5f8f1; border-color: #d5e0cf; border-left: 3px solid #668361; }
-.mh-watch-card.attention-1 { background: #f5f6f5; border-color: #d9ddda; border-left: 3px solid #8e9794; }
-.mh-watch-card.attention-4.selected { box-shadow: inset 3px 0 #c7665f, 0 2px 9px #30452d0a; }
-.mh-watch-card.attention-3.selected { box-shadow: inset 3px 0 #668eb8, 0 2px 9px #30452d0a; }
-.mh-watch-card.attention-2.selected { box-shadow: inset 3px 0 #668361, 0 2px 9px #30452d0a; }
-.mh-watch-card.attention-1.selected { box-shadow: inset 3px 0 #8e9794, 0 2px 9px #30452d0a; }
+.mh-watch-card.attention-4 { background: #fbf0ee; border-color: #e6c4bd; border-left: 3px solid #bd5d56; }
+.mh-watch-card.attention-3 { background: #edf3f9; border-color: #bfd0e1; border-left: 3px solid #527faa; }
+.mh-watch-card.attention-2 { background: #eef4eb; border-color: #c4d3bb; border-left: 3px solid #55774e; }
+.mh-watch-card.attention-1 { background: #edf0ee; border-color: #c7cfcb; border-left: 3px solid #727c78; }
+.mh-watch-card.attention-4.selected { box-shadow: inset 3px 0 #bd5d56, 0 2px 9px #30452d0a; }
+.mh-watch-card.attention-3.selected { box-shadow: inset 3px 0 #527faa, 0 2px 9px #30452d0a; }
+.mh-watch-card.attention-2.selected { box-shadow: inset 3px 0 #55774e, 0 2px 9px #30452d0a; }
+.mh-watch-card.attention-1.selected { box-shadow: inset 3px 0 #727c78, 0 2px 9px #30452d0a; }
 .mh-watch-identity h3 { display: flex; align-items: baseline; gap: 4px; min-width: 0; }
 .mh-watch-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
 .mh-watch-symbol { flex: 0 0 auto; color: #688163; font-size: 10px; font-weight: 600; white-space: nowrap; }
@@ -2800,10 +2800,10 @@
 .mh-watch-attention-trigger:hover,
 .mh-watch-attention-trigger:focus-visible { background: #ffffffa8; outline: 1px solid #bfcbb8; }
 .mh-watch-attention-swatch { display: grid; width: 14px; height: 14px; place-items: center; border: 1px solid #00000012; border-radius: 4px; color: #fff; font-size: 9px; font-weight: 700; line-height: 1; }
-.mh-watch-attention-swatch.attention-4 { background: #c7665f; }
-.mh-watch-attention-swatch.attention-3 { background: #668eb8; }
-.mh-watch-attention-swatch.attention-2 { background: #668361; }
-.mh-watch-attention-swatch.attention-1 { background: #8e9794; }
+.mh-watch-attention-swatch.attention-4 { background: #bd5d56; }
+.mh-watch-attention-swatch.attention-3 { background: #527faa; }
+.mh-watch-attention-swatch.attention-2 { background: #55774e; }
+.mh-watch-attention-swatch.attention-1 { background: #727c78; }
 .mh-watch-attention-menu {
   position: absolute;
   top: calc(100% + 4px);

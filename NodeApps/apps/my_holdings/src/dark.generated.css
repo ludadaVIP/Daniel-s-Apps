@@ -611,8 +611,12 @@
 :root[data-theme="dark"] .mh-watch-distance > span { color: #d6b0a7; }
 :root[data-theme="dark"] .mh-watch-card > footer { border-top: 1px solid #525a3a; }
 :root[data-theme="dark"] .mh-watch-card .mh-watch-quote-source { color: #bec5ba; }
-:root[data-theme="dark"] .mh-job-column > h3 { border-bottom: 1px solid #4e5a3a; color: #c2cbbd; }
+:root[data-theme="dark"] .mh-job-column-heading { border-bottom: 1px solid #4e5a3a; }
+:root[data-theme="dark"] .mh-job-column-heading > h3 { color: #c2cbbd; }
 :root[data-theme="dark"] .mh-job-empty { color: #bec5b9; }
+:root[data-theme="dark"] .mh-job-toggle { color: #c2cbbd; }
+:root[data-theme="dark"] .mh-job-toggle:hover { color: #c6d4c0; }
+:root[data-theme="dark"] .mh-job-toggle:focus-visible { outline: 2px solid #7e9c6d; }
 :root[data-theme="dark"] .mh-history-more { color: #bfc5bb; }
 :root[data-theme="dark"] .mh-price-alerts > p:first-child { color: #c0c9be; }
 :root[data-theme="dark"] .mh-price-alert { border-top: 1px solid #4c593b; }
