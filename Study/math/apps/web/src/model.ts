@@ -568,6 +568,7 @@ export type NumberDiagram =
       divisions: number;
       point: number;
       label?: string;
+      labelMode?: 'all' | 'endpoints';
     };
 export type Question = {
   id: string;

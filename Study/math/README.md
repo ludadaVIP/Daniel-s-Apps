@@ -470,4 +470,16 @@ corepack pnpm --filter @study/hub build
 - `apps/web/src/content/H38.ts`、`content/lessons/H38-*.md`：48项双语任务、两语各两完整例题、120种数学参数复习变式；完整报告需人工核验。
 - `apps/web/src/curriculumCompletion.test.ts`：逐项连接plan.md的358身份、全部正文、67单元回顾、先修、主动答案与人工题，另核4×6诊断；不把工程测试当作孩子理解证据。
 - `apps/web/src/content/B04Review.ts`、`b04Review.test.tsx`：补齐 [B04回顾](http://localhost:3456/math/unit/B04/check) 的六主动答案与两人工解释，保留同一整体、数轴、小数形式与元分位值，刷新后独立恢复。
-- `content/qa/H38.md`、`content/qa/B04.md`：本批数学、双语、先修、浏览器与回归记录。下一步按 [家庭试用记录](content/qa/FAMILY_TRIAL.md) 收集真实反馈，再修改具体教学问题。
+- `content/qa/H38.md`、`content/qa/B04.md`：H38批次数学、双语、先修、浏览器与回归记录。该版本完整回归151文件、1711项通过，数学应用与Study Hub构建通过；后续跨单元维护的验证另见下文。2026-10-22用户确认尚未试用；按 [家庭试用记录](content/qa/FAMILY_TRIAL.md) 保留真实教学验收待办，后续依据实际观察修改具体问题。
+
+### 跨单元维护：B01数感在B03、B05中复现
+
+完成相应后续单元后，可从原单元回顾进入[B03五题维护](http://localhost:3456/math/unit/B03/maintenance)和[B05五题维护](http://localhost:3456/math/unit/B05/maintenance)。每组另选10–15分钟，可拆两次：主动读写大数、解释位值、按刻度定位与排序，再用完整理由核验舍入和十进制换组。两道人审解释不按关键词自动通过；维护题单独保存，不覆盖原单元回顾及B01各课记录，也不增加358个正式课号。
+
+[跨单元复现审查](content/qa/SKILL_RECURRENCE.md)给出技能的后续任务ID、数学核对、家长观察重点及分批验证记录。[全路线清单](content/qa/SKILL_RECURRENCE.json)盘点361个现有技能标签，区分同标签候选与作者已核验的语义证据；B01及B02共11项有内容证据，其余350项继续审查，真实学习表现仍待家庭试用。
+
+### 跨单元维护：B02的运算意义与家长卡入口
+
+B02五课的六项技能已连接到六个后续单元、16个已有任务，涵盖整体与部分、比较差、等组阵列、平均分/包含、乘除互逆及按关系选运算。内容与两语理由详见[B02复现记录](content/qa/B02_RECURRENCE.md)。
+
+从[B02-L01](http://localhost:3456/math/lesson/B02-L01)或[B02-L03](http://localhost:3456/math/lesson/B02-L03)的家长卡展开“以后换个情境再试”，学到对应后续单元、具备先修后再选一题。链接直接打开指定引导、练习或出口，也支持B01的独立维护组；已有作答、提示和审核记录保留，源课不会因打开链接自动判为掌握。

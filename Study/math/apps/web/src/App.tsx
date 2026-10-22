@@ -163,6 +163,10 @@ export function App() {
               element={<UnitCheck mode={mode} store={store} />}
             />
             <Route
+              path="unit/:unitId/maintenance"
+              element={<UnitCheck mode={mode} store={store} maintenance />}
+            />
+            <Route
               path="review"
               element={<Review mode={mode} store={store} />}
             />

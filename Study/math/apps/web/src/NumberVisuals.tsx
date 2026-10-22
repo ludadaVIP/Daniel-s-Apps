@@ -158,6 +158,7 @@ export function NumberAxis({
   divisions,
   point,
   label,
+  labelMode = 'all',
   mode,
 }: {
   start: number;
@@ -165,6 +166,7 @@ export function NumberAxis({
   divisions: number;
   point: number;
   label?: string;
+  labelMode?: 'all' | 'endpoints';
   mode: LanguageMode;
 }) {
   const position = axisPosition(point, start, end),
@@ -188,15 +190,17 @@ export function NumberAxis({
               stroke="#625b92"
               strokeWidth="2"
             />
-            <text
-              x={35 + (i / divisions) * 570}
-              y="91"
-              textAnchor="middle"
-              fontSize="17"
-              fill="#625b92"
-            >
-              {start + i * step}
-            </text>
+            {(labelMode === 'all' || i === 0 || i === divisions) && (
+              <text
+                x={35 + (i / divisions) * 570}
+                y="91"
+                textAnchor="middle"
+                fontSize="17"
+                fill="#625b92"
+              >
+                {start + i * step}
+              </text>
+            )}
           </g>
         ))}
         <circle cx={35 + position * 570} cy="55" r="8" fill="#5954a3" />
@@ -536,6 +540,7 @@ export function NumberDiagramView({
       divisions={diagram.divisions}
       point={diagram.point}
       label={diagram.label ?? 'P'}
+      labelMode={diagram.labelMode}
       mode={mode}
     />
   );

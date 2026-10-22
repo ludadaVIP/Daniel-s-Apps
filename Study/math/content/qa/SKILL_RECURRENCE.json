@@ -1,0 +1,6774 @@
+{
+  "schema": 1,
+  "scope": "Lesson-level skill tags and explicit task-level semantic recurrence evidence; not a complete taxonomy of every subskill and not learner trial evidence.",
+  "counts": {
+    "lessons": 358,
+    "units": 67,
+    "skills": 361,
+    "reviewedSkills": 11,
+    "pendingSkills": 350
+  },
+  "records": [
+    {
+      "skill": "whole-number-reading",
+      "firstLesson": "B01-L01",
+      "firstUnit": "B01",
+      "sourceTasks": [
+        "B01-L01-G",
+        "B01-L01-Q1",
+        "B01-L01-Q2",
+        "B01-L01-Q3",
+        "B01-L01-Q4",
+        "B01-L01-Q5",
+        "B01-L01-Q6",
+        "B01-L01-X"
+      ],
+      "laterExactTagCandidates": {
+        "B03": ["B03-MAINT-B01-Q1"],
+        "B05": ["B05-MAINT-B01-Q1"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "whole-number-reading",
+          "focus": {
+            "zh": "大数读写",
+            "en": "Reading and writing larger numbers"
+          },
+          "sourceLesson": "B01-L01",
+          "sourceTask": "B01-L01-Q2",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q1",
+              "taskSkill": "whole-number-reading"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q1",
+              "taskSkill": "whole-number-reading"
+            }
+          ],
+          "rationale": {
+            "zh": "两处都把新的大数读法写成数字并保留内部或末尾占位零；不是抄写已给数字。",
+            "en": "Both require generating new larger numerals from number names while retaining internal or final zeros, rather than copying printed digits."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "place-value",
+      "firstLesson": "B01-L02",
+      "firstUnit": "B01",
+      "sourceTasks": [
+        "B01-L02-G",
+        "B01-L02-Q1",
+        "B01-L02-Q2",
+        "B01-L02-Q3",
+        "B01-L02-Q4",
+        "B01-L02-Q5",
+        "B01-L02-Q6",
+        "B01-L02-X"
+      ],
+      "laterExactTagCandidates": {
+        "B03": ["B03-MAINT-B01-Q2"],
+        "B05": ["B05-MAINT-B01-Q2"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "place-value",
+          "focus": { "zh": "位值与展开", "en": "Place value and expansion" },
+          "sourceLesson": "B01-L02",
+          "sourceTask": "B01-L02-Q2",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q2",
+              "taskSkill": "place-value"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q2",
+              "taskSkill": "place-value"
+            }
+          ],
+          "rationale": {
+            "zh": "两处都把数字所在位置解释为百或千的值，并补全展开式。",
+            "en": "Both interpret a digit as hundreds or thousands and complete the corresponding expanded form."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "whole-number-line",
+      "firstLesson": "B01-L03",
+      "firstUnit": "B01",
+      "sourceTasks": [
+        "B01-L03-G",
+        "B01-L03-Q1",
+        "B01-L03-Q2",
+        "B01-L03-Q3",
+        "B01-L03-Q4",
+        "B01-L03-Q5",
+        "B01-L03-Q6",
+        "B01-L03-X"
+      ],
+      "laterExactTagCandidates": {
+        "B03": ["B03-MAINT-B01-Q3"],
+        "B05": ["B05-MAINT-B01-Q3"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "whole-number-line",
+          "focus": {
+            "zh": "数轴、比较与排序",
+            "en": "Number lines, comparison and ordering"
+          },
+          "sourceLesson": "B01-L03",
+          "sourceTask": "B01-L03-Q3",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q3",
+              "taskSkill": "whole-number-line"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q3",
+              "taskSkill": "whole-number-line"
+            }
+          ],
+          "rationale": {
+            "zh": "两处都从非零起点按相等区间定位，再比较和排序；刻度与区间数均改变。",
+            "en": "Both locate a value from a nonzero origin using equal intervals, then compare and order; scales and interval counts change."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "rounding",
+      "firstLesson": "B01-L04",
+      "firstUnit": "B01",
+      "sourceTasks": [
+        "B01-L04-G",
+        "B01-L04-Q1",
+        "B01-L04-Q2",
+        "B01-L04-Q3",
+        "B01-L04-Q4",
+        "B01-L04-Q5",
+        "B01-L04-Q6",
+        "B01-L04-X"
+      ],
+      "laterExactTagCandidates": {
+        "B03": ["B03-MAINT-B01-Q4"],
+        "B05": ["B05-MAINT-B01-Q4"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "rounding",
+          "focus": {
+            "zh": "直接舍入与估算",
+            "en": "Direct rounding and estimation"
+          },
+          "sourceLesson": "B01-L04",
+          "sourceTask": "B01-L04-Q6",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q4",
+              "taskSkill": "rounding"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q4",
+              "taskSkill": "rounding"
+            }
+          ],
+          "rationale": {
+            "zh": "两处都须用原数与相邻目标倍数的距离解释舍入；分别迁移到检查二次舍入及区分估数与足量约束。",
+            "en": "Both explain rounding from the original number using distances to adjacent target multiples, transferring to repeated-rounding errors and sufficient-quantity constraints."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "base-ten-model",
+      "firstLesson": "B01-L05",
+      "firstUnit": "B01",
+      "sourceTasks": [
+        "B01-L05-G",
+        "B01-L05-Q1",
+        "B01-L05-Q2",
+        "B01-L05-Q3",
+        "B01-L05-Q4",
+        "B01-L05-Q5",
+        "B01-L05-Q6",
+        "B01-L05-X"
+      ],
+      "laterExactTagCandidates": {
+        "B03": ["B03-MAINT-B01-Q5"],
+        "B05": ["B05-MAINT-B01-Q5"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "base-ten-model",
+          "focus": {
+            "zh": "十进制换组守恒",
+            "en": "Conserved value in base-ten exchanges"
+          },
+          "sourceLesson": "B01-L05",
+          "sourceTask": "B01-L05-Q6",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q5",
+              "taskSkill": "base-ten-model"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q5",
+              "taskSkill": "base-ten-model"
+            }
+          ],
+          "rationale": {
+            "zh": "两处都要求画或写十进制换组并证明数量守恒，分别用于退位减法与读图中的单位值。",
+            "en": "Both require drawing or writing a base-ten exchange and demonstrating conserved value, in regrouping subtraction and represented chart counts."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "part-whole-operation",
+      "firstLesson": "B02-L01",
+      "firstUnit": "B02",
+      "sourceTasks": [
+        "B02-L01-G",
+        "B02-L01-Q1",
+        "B02-L01-Q2",
+        "B02-L01-Q4",
+        "B02-L01-Q5",
+        "B02-L01-Q6",
+        "B02-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [
+        {
+          "skill": "part-whole-operation",
+          "focus": { "zh": "整体与部分", "en": "Wholes and parts" },
+          "sourceLesson": "B02-L01",
+          "sourceTask": "B02-L01-Q2",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-L01-Q5",
+              "taskSkill": "whole-regroup"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-L02-Q6",
+              "taskSkill": "bar-relationships"
+            }
+          ],
+          "rationale": {
+            "zh": "B03把原有书与新增书合成整体；B06保持9+未知部分=24的关系，解释问号位置改变时为何用加或减。两处都要求重新生成结果或理由，保留整体、部分及逆向核查。",
+            "en": "B03 combines existing and newly received books into a whole. B06 keeps 9+unknown part=24 and explains why moving the unknown changes the required operation. Both regenerate an answer or argument using whole-part structure and an inverse check."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "comparison-difference",
+      "firstLesson": "B02-L01",
+      "firstUnit": "B02",
+      "sourceTasks": ["B02-L01-Q3"],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [
+        {
+          "skill": "comparison-difference",
+          "focus": { "zh": "比较中的差", "en": "Differences in comparisons" },
+          "sourceLesson": "B02-L01",
+          "sourceTask": "B02-L01-Q3",
+          "targets": [
+            {
+              "unit": "B05",
+              "task": "B05-L05-Q3",
+              "taskSkill": "chart-scale-reading"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-L02-Q3",
+              "taskSkill": "bar-relationships"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-L02-Q5",
+              "taskSkill": "bar-relationships"
+            }
+          ],
+          "rationale": {
+            "zh": "B05从同一人数图读出公交10与步行8的差2；B06比较17m与9m得差8，并由Mina有9张且比Noah多4张反求Noah的5张。比较不要求拿走物体，“多”也不能机械触发加法。",
+            "en": "B05 reads a difference of two between bus count ten and walking count eight on one chart. B06 compares 17m with 9m, then works backwards from Mina having nine cards, four more than Noah, to Noah having five. Comparison need not remove objects, and the word more does not mechanically imply addition."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "equal-groups-array",
+      "firstLesson": "B02-L02",
+      "firstUnit": "B02",
+      "sourceTasks": [
+        "B02-L02-G",
+        "B02-L02-Q1",
+        "B02-L02-Q2",
+        "B02-L02-Q3",
+        "B02-L02-Q4",
+        "B02-L02-Q5",
+        "B02-L02-Q6",
+        "B02-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [
+        {
+          "skill": "equal-groups-array",
+          "focus": { "zh": "等组与阵列", "en": "Equal groups and arrays" },
+          "sourceLesson": "B02-L02",
+          "sourceTask": "B02-L02-Q6",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-L02-Q6",
+              "taskSkill": "multiplication-decompose"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-L05-Q4",
+              "taskSkill": "explain-and-check"
+            }
+          ],
+          "rationale": {
+            "zh": "B03纠正6×(5+3)只给一行加3的错误，须把余下的3重复六行；B06把4cm×3cm的区域解释为三行、每行四个1cm²方格，共12cm²。两处把等组或阵列连接到乘法，而不是把组数与每组量相加。",
+            "en": "B03 repairs counting the remaining three only once in 6×(5+3), instead of repeating them across six rows. B06 interprets a 4cm by 3cm region as three rows of four 1cm² cells, totalling 12cm². Both connect equal groups or arrays to multiplication rather than adding group count and group size."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "sharing-grouping",
+      "firstLesson": "B02-L03",
+      "firstUnit": "B02",
+      "sourceTasks": [
+        "B02-L03-G",
+        "B02-L03-Q1",
+        "B02-L03-Q2",
+        "B02-L03-Q3",
+        "B02-L03-Q4",
+        "B02-L03-Q5",
+        "B02-L03-Q6",
+        "B02-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [
+        {
+          "skill": "sharing-grouping",
+          "focus": { "zh": "平均分与包含", "en": "Sharing and grouping" },
+          "sourceLesson": "B02-L03",
+          "sourceTask": "B02-L03-Q6",
+          "targets": [
+            {
+              "unit": "P51",
+              "task": "P51-L03-G",
+              "taskSkill": "factor-multiple"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-L03-Q5",
+              "taskSkill": "factor-multiple"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-L04-G",
+              "taskSkill": "fraction-sharing"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-L05-Q6",
+              "taskSkill": "fraction-measurement-division"
+            }
+          ],
+          "rationale": {
+            "zh": "P51先把24张卡分四行求每行6张，再将25张按每袋6张核查四满袋余1张，复现平均分与包含两种未知角色。P61把3/4L平均给两人得每人3/8L，再区分2L按每份3/4L的8/3份、两满份和余1/2L。两个后续单元都含两种除法意义；完整卡片与可分液体的范围及“份”“升”不能混淆。",
+            "en": "P51 shares 24 cards into four rows to find six per row, then groups 25 cards six per bag to check four full bags and one card left. P61 shares 3/4L between two people to get 3/8L each, then distinguishes 8/3 portions of size 3/4L from two full portions and 1/2L left. Both later units use sharing and grouping; respect indivisible cards versus divisible liquid and distinguish portion counts from litres."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "inverse-multiplication",
+      "firstLesson": "B02-L04",
+      "firstUnit": "B02",
+      "sourceTasks": [
+        "B02-L04-G",
+        "B02-L04-Q1",
+        "B02-L04-Q2",
+        "B02-L04-Q3",
+        "B02-L04-Q4",
+        "B02-L04-Q5",
+        "B02-L04-Q6",
+        "B02-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [
+        {
+          "skill": "inverse-multiplication",
+          "focus": {
+            "zh": "用乘法核查除法",
+            "en": "Checking division with multiplication"
+          },
+          "sourceLesson": "B02-L04",
+          "sourceTask": "B02-L04-Q6",
+          "targets": [
+            {
+              "unit": "B03",
+              "task": "B03-L04-Q6",
+              "taskSkill": "long-division-place"
+            },
+            {
+              "unit": "P55",
+              "task": "P55-L04-Q3",
+              "taskSkill": "one-step-equation"
+            },
+            {
+              "unit": "P55",
+              "task": "P55-L04-Q6",
+              "taskSkill": "one-step-equation"
+            }
+          ],
+          "rationale": {
+            "zh": "B03用201×5=1005及21×5=105检查商的占位零；P55从4x=5求精确因数5/4，又解释0x=0不能唯一确定x、0x=5无解。两处用乘法关系核查逆向恢复因数，后者明确保留非零除数条件，不能由乘回成立就允许除零。",
+            "en": "B03 checks quotient placeholders with 201×5=1005 and 21×5=105. P55 recovers exact factor 5/4 from 4x=5 and explains why 0x=0 does not determine a unique x while 0x=5 has no solution. Both use multiplication to check recovered factors; the latter explicitly retains the nonzero-divisor condition rather than treating a multiplication check as permission to divide by zero."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "operation-relationship",
+      "firstLesson": "B02-L05",
+      "firstUnit": "B02",
+      "sourceTasks": [
+        "B02-L05-G",
+        "B02-L05-Q1",
+        "B02-L05-Q2",
+        "B02-L05-Q3",
+        "B02-L05-Q4",
+        "B02-L05-Q5",
+        "B02-L05-Q6",
+        "B02-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [
+        {
+          "skill": "operation-relationship",
+          "focus": {
+            "zh": "按数量关系选运算",
+            "en": "Choosing operations from relationships"
+          },
+          "sourceLesson": "B02-L05",
+          "sourceTask": "B02-L05-Q6",
+          "targets": [
+            {
+              "unit": "B06",
+              "task": "B06-L03-Q6",
+              "taskSkill": "two-step-plan"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-L01-Q5",
+              "taskSkill": "whole-mixed-calculation"
+            }
+          ],
+          "rationale": {
+            "zh": "B06解释四盒每盒6张、合计送出5张应为4×6−5，4×(6−5)改变送出对象；P51从预算3000与十八套每套125生成3000−18×125=750。两处按数量角色决定先求等组总量，再从整体扣除，而不是见数就加减或按关键词猜。",
+            "en": "B06 explains why four boxes of six cards with five given away in total requires 4×6−5, while 4×(6−5) changes what is removed. P51 constructs 3000−18×125=750 from a budget and eighteen identically priced sets. Both choose operations from quantity roles: form an equal-group total, then subtract from a whole."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
+    },
+    {
+      "skill": "whole-regroup",
+      "firstLesson": "B03-L01",
+      "firstUnit": "B03",
+      "sourceTasks": [
+        "B03-L01-G",
+        "B03-L01-Q1",
+        "B03-L01-Q2",
+        "B03-L01-Q3",
+        "B03-L01-Q4",
+        "B03-L01-Q5",
+        "B03-L01-Q6",
+        "B03-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "multiplication-decompose",
+      "firstLesson": "B03-L02",
+      "firstUnit": "B03",
+      "sourceTasks": [
+        "B03-L02-G",
+        "B03-L02-Q1",
+        "B03-L02-Q2",
+        "B03-L02-Q3",
+        "B03-L02-Q4",
+        "B03-L02-Q5",
+        "B03-L02-Q6",
+        "B03-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "two-digit-area",
+      "firstLesson": "B03-L03",
+      "firstUnit": "B03",
+      "sourceTasks": [
+        "B03-L03-G",
+        "B03-L03-Q1",
+        "B03-L03-Q2",
+        "B03-L03-Q3",
+        "B03-L03-Q4",
+        "B03-L03-Q5",
+        "B03-L03-Q6",
+        "B03-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "long-division-place",
+      "firstLesson": "B03-L04",
+      "firstUnit": "B03",
+      "sourceTasks": [
+        "B03-L04-G",
+        "B03-L04-Q1",
+        "B03-L04-Q2",
+        "B03-L04-Q3",
+        "B03-L04-Q4",
+        "B03-L04-Q5",
+        "B03-L04-Q6",
+        "B03-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "estimate-check",
+      "firstLesson": "B03-L05",
+      "firstUnit": "B03",
+      "sourceTasks": [
+        "B03-L05-G",
+        "B03-L05-Q1",
+        "B03-L05-Q2",
+        "B03-L05-Q3",
+        "B03-L05-Q4",
+        "B03-L05-Q5",
+        "B03-L05-Q6",
+        "B03-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction",
+      "firstLesson": "B04-L01",
+      "firstUnit": "B04",
+      "sourceTasks": [
+        "L01-G",
+        "L01-Q1",
+        "L01-Q2",
+        "L01-Q3",
+        "L01-Q4",
+        "L01-X",
+        "L02-Q2"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "equal-parts",
+      "firstLesson": "B04-L01",
+      "firstUnit": "B04",
+      "sourceTasks": ["L01-Q5"],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "unit-fraction",
+      "firstLesson": "B04-L02",
+      "firstUnit": "B04",
+      "sourceTasks": ["L02-G", "L02-Q1", "L02-Q3", "L02-Q4", "L02-Q5", "L02-X"],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "number-line",
+      "firstLesson": "B04-L03",
+      "firstUnit": "B04",
+      "sourceTasks": [
+        "L03-G",
+        "L03-Q1",
+        "L03-Q2",
+        "L03-Q3",
+        "L03-Q4",
+        "L03-Q5",
+        "L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal",
+      "firstLesson": "B04-L04",
+      "firstUnit": "B04",
+      "sourceTasks": [
+        "L04-G",
+        "L04-Q1",
+        "L04-Q2",
+        "L04-Q3",
+        "L04-Q4",
+        "L04-Q5",
+        "L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "money",
+      "firstLesson": "B04-L05",
+      "firstUnit": "B04",
+      "sourceTasks": [
+        "L05-G",
+        "L05-Q1",
+        "L05-Q2",
+        "L05-Q3",
+        "L05-Q4",
+        "L05-Q5",
+        "L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "length-units",
+      "firstLesson": "B05-L01",
+      "firstUnit": "B05",
+      "sourceTasks": [
+        "B05-L01-G",
+        "B05-L01-Q1",
+        "B05-L01-Q2",
+        "B05-L01-Q3",
+        "B05-L01-Q4",
+        "B05-L01-Q5",
+        "B05-L01-Q6",
+        "B05-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "boundary-length",
+      "firstLesson": "B05-L02",
+      "firstUnit": "B05",
+      "sourceTasks": [
+        "B05-L02-G",
+        "B05-L02-Q1",
+        "B05-L02-Q2",
+        "B05-L02-Q3",
+        "B05-L02-Q4",
+        "B05-L02-Q5",
+        "B05-L02-Q6",
+        "B05-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "unit-square-cover",
+      "firstLesson": "B05-L03",
+      "firstUnit": "B05",
+      "sourceTasks": [
+        "B05-L03-G",
+        "B05-L03-Q1",
+        "B05-L03-Q2",
+        "B05-L03-Q3",
+        "B05-L03-Q4",
+        "B05-L03-Q5",
+        "B05-L03-Q6",
+        "B05-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "angle-shape-properties",
+      "firstLesson": "B05-L04",
+      "firstUnit": "B05",
+      "sourceTasks": [
+        "B05-L04-G",
+        "B05-L04-Q1",
+        "B05-L04-Q2",
+        "B05-L04-Q3",
+        "B05-L04-Q4",
+        "B05-L04-Q5",
+        "B05-L04-Q6",
+        "B05-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "chart-scale-reading",
+      "firstLesson": "B05-L05",
+      "firstUnit": "B05",
+      "sourceTasks": [
+        "B05-L05-G",
+        "B05-L05-Q1",
+        "B05-L05-Q2",
+        "B05-L05-Q3",
+        "B05-L05-Q4",
+        "B05-L05-Q5",
+        "B05-L05-Q6",
+        "B05-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "known-unknown-units",
+      "firstLesson": "B06-L01",
+      "firstUnit": "B06",
+      "sourceTasks": [
+        "B06-L01-G",
+        "B06-L01-Q1",
+        "B06-L01-Q2",
+        "B06-L01-Q3",
+        "B06-L01-Q4",
+        "B06-L01-Q5",
+        "B06-L01-Q6",
+        "B06-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "bar-relationships",
+      "firstLesson": "B06-L02",
+      "firstUnit": "B06",
+      "sourceTasks": [
+        "B06-L02-G",
+        "B06-L02-Q1",
+        "B06-L02-Q2",
+        "B06-L02-Q3",
+        "B06-L02-Q4",
+        "B06-L02-Q5",
+        "B06-L02-Q6",
+        "B06-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "two-step-plan",
+      "firstLesson": "B06-L03",
+      "firstUnit": "B06",
+      "sourceTasks": [
+        "B06-L03-G",
+        "B06-L03-Q1",
+        "B06-L03-Q2",
+        "B06-L03-Q3",
+        "B06-L03-Q4",
+        "B06-L03-Q5",
+        "B06-L03-Q6",
+        "B06-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "relevant-information",
+      "firstLesson": "B06-L04",
+      "firstUnit": "B06",
+      "sourceTasks": [
+        "B06-L04-G",
+        "B06-L04-Q1",
+        "B06-L04-Q2",
+        "B06-L04-Q3",
+        "B06-L04-Q4",
+        "B06-L04-Q5",
+        "B06-L04-Q6",
+        "B06-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "explain-and-check",
+      "firstLesson": "B06-L05",
+      "firstUnit": "B06",
+      "sourceTasks": [
+        "B06-L05-G",
+        "B06-L05-Q1",
+        "B06-L05-Q2",
+        "B06-L05-Q3",
+        "B06-L05-Q4",
+        "B06-L05-Q5",
+        "B06-L05-Q6",
+        "B06-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "whole-mixed-calculation",
+      "firstLesson": "P51-L01",
+      "firstUnit": "P51",
+      "sourceTasks": [
+        "P51-L01-G",
+        "P51-L01-Q1",
+        "P51-L01-Q2",
+        "P51-L01-Q3",
+        "P51-L01-Q4",
+        "P51-L01-Q5",
+        "P51-L01-Q6",
+        "P51-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "operation-order",
+      "firstLesson": "P51-L02",
+      "firstUnit": "P51",
+      "sourceTasks": [
+        "P51-L02-G",
+        "P51-L02-Q1",
+        "P51-L02-Q2",
+        "P51-L02-Q3",
+        "P51-L02-Q4",
+        "P51-L02-Q5",
+        "P51-L02-Q6",
+        "P51-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "factor-multiple",
+      "firstLesson": "P51-L03",
+      "firstUnit": "P51",
+      "sourceTasks": [
+        "P51-L03-G",
+        "P51-L03-Q1",
+        "P51-L03-Q2",
+        "P51-L03-Q3",
+        "P51-L03-Q4",
+        "P51-L03-Q5",
+        "P51-L03-Q6",
+        "P51-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "prime-composite",
+      "firstLesson": "P51-L04",
+      "firstUnit": "P51",
+      "sourceTasks": [
+        "P51-L04-G",
+        "P51-L04-Q1",
+        "P51-L04-Q2",
+        "P51-L04-Q3",
+        "P51-L04-Q4",
+        "P51-L04-Q5",
+        "P51-L04-Q6",
+        "P51-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "common-factors-multiples",
+      "firstLesson": "P51-L05",
+      "firstUnit": "P51",
+      "sourceTasks": [
+        "P51-L05-G",
+        "P51-L05-Q1",
+        "P51-L05-Q2",
+        "P51-L05-Q3",
+        "P51-L05-Q4",
+        "P51-L05-Q5",
+        "P51-L05-Q6",
+        "P51-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-place-value",
+      "firstLesson": "P52-L01",
+      "firstUnit": "P52",
+      "sourceTasks": [
+        "P52-L01-G",
+        "P52-L01-Q1",
+        "P52-L01-Q2",
+        "P52-L01-Q3",
+        "P52-L01-Q4",
+        "P52-L01-Q5",
+        "P52-L01-Q6",
+        "P52-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-comparison",
+      "firstLesson": "P52-L02",
+      "firstUnit": "P52",
+      "sourceTasks": [
+        "P52-L02-G",
+        "P52-L02-Q1",
+        "P52-L02-Q2",
+        "P52-L02-Q3",
+        "P52-L02-Q4",
+        "P52-L02-Q5",
+        "P52-L02-Q6",
+        "P52-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-addition",
+      "firstLesson": "P52-L03",
+      "firstUnit": "P52",
+      "sourceTasks": [
+        "P52-L03-G",
+        "P52-L03-Q1",
+        "P52-L03-Q2",
+        "P52-L03-Q4",
+        "P52-L03-Q6"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-subtraction",
+      "firstLesson": "P52-L03",
+      "firstUnit": "P52",
+      "sourceTasks": ["P52-L03-Q3", "P52-L03-Q5", "P52-L03-X"],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-whole-multiplication",
+      "firstLesson": "P52-L04",
+      "firstUnit": "P52",
+      "sourceTasks": [
+        "P52-L04-G",
+        "P52-L04-Q1",
+        "P52-L04-Q2",
+        "P52-L04-Q3",
+        "P52-L04-Q4",
+        "P52-L04-Q5",
+        "P52-L04-Q6",
+        "P52-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-whole-division",
+      "firstLesson": "P52-L05",
+      "firstUnit": "P52",
+      "sourceTasks": [
+        "P52-L05-G",
+        "P52-L05-Q1",
+        "P52-L05-Q2",
+        "P52-L05-Q3",
+        "P52-L05-Q4",
+        "P52-L05-Q5",
+        "P52-L05-Q6",
+        "P52-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-modelling",
+      "firstLesson": "P52-L06",
+      "firstUnit": "P52",
+      "sourceTasks": [
+        "P52-L06-G",
+        "P52-L06-Q1",
+        "P52-L06-Q2",
+        "P52-L06-Q3",
+        "P52-L06-Q4",
+        "P52-L06-Q5",
+        "P52-L06-Q6",
+        "P52-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "unit-fraction-whole",
+      "firstLesson": "P53-L01",
+      "firstUnit": "P53",
+      "sourceTasks": [
+        "P53-L01-G",
+        "P53-L01-Q1",
+        "P53-L01-Q2",
+        "P53-L01-Q3",
+        "P53-L01-Q4",
+        "P53-L01-Q5",
+        "P53-L01-Q6",
+        "P53-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "proper-improper",
+      "firstLesson": "P53-L02",
+      "firstUnit": "P53",
+      "sourceTasks": [
+        "P53-L02-G",
+        "P53-L02-Q1",
+        "P53-L02-Q2",
+        "P53-L02-Q3",
+        "P53-L02-Q4",
+        "P53-L02-Q5",
+        "P53-L02-Q6",
+        "P53-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "mixed-fraction",
+      "firstLesson": "P53-L03",
+      "firstUnit": "P53",
+      "sourceTasks": [
+        "P53-L03-G",
+        "P53-L03-Q1",
+        "P53-L03-Q2",
+        "P53-L03-Q3",
+        "P53-L03-Q4",
+        "P53-L03-Q5",
+        "P53-L03-Q6",
+        "P53-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "equivalent-fraction",
+      "firstLesson": "P53-L04",
+      "firstUnit": "P53",
+      "sourceTasks": [
+        "P53-L04-G",
+        "P53-L04-Q1",
+        "P53-L04-Q2",
+        "P53-L04-Q3",
+        "P53-L04-Q4",
+        "P53-L04-Q5",
+        "P53-L04-Q6",
+        "P53-L04-Q7",
+        "P53-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "simplest-fraction",
+      "firstLesson": "P53-L05",
+      "firstUnit": "P53",
+      "sourceTasks": [
+        "P53-L05-G",
+        "P53-L05-Q1",
+        "P53-L05-Q2",
+        "P53-L05-Q3",
+        "P53-L05-Q4",
+        "P53-L05-Q5",
+        "P53-L05-Q6",
+        "P53-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction-comparison",
+      "firstLesson": "P53-L06",
+      "firstUnit": "P53",
+      "sourceTasks": [
+        "P53-L06-G",
+        "P53-L06-Q1",
+        "P53-L06-Q2",
+        "P53-L06-Q3",
+        "P53-L06-Q4",
+        "P53-L06-Q5",
+        "P53-L06-Q6",
+        "P53-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "add-like-fractions",
+      "firstLesson": "P54-L01",
+      "firstUnit": "P54",
+      "sourceTasks": [
+        "P54-L01-G",
+        "P54-L01-Q1",
+        "P54-L01-Q2",
+        "P54-L01-Q3",
+        "P54-L01-Q4",
+        "P54-L01-Q5",
+        "P54-L01-Q6",
+        "P54-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "subtract-like-fractions",
+      "firstLesson": "P54-L02",
+      "firstUnit": "P54",
+      "sourceTasks": [
+        "P54-L02-G",
+        "P54-L02-Q1",
+        "P54-L02-Q2",
+        "P54-L02-Q3",
+        "P54-L02-Q4",
+        "P54-L02-Q5",
+        "P54-L02-Q6",
+        "P54-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "add-unlike-fractions",
+      "firstLesson": "P54-L03",
+      "firstUnit": "P54",
+      "sourceTasks": [
+        "P54-L03-G",
+        "P54-L03-Q1",
+        "P54-L03-Q2",
+        "P54-L03-Q3",
+        "P54-L03-Q4",
+        "P54-L03-Q5",
+        "P54-L03-Q6",
+        "P54-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "subtract-unlike-fractions",
+      "firstLesson": "P54-L04",
+      "firstUnit": "P54",
+      "sourceTasks": [
+        "P54-L04-G",
+        "P54-L04-Q1",
+        "P54-L04-Q2",
+        "P54-L04-Q3",
+        "P54-L04-Q4",
+        "P54-L04-Q5",
+        "P54-L04-Q6",
+        "P54-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction-story-relationship",
+      "firstLesson": "P54-L05",
+      "firstUnit": "P54",
+      "sourceTasks": [
+        "P54-L05-G",
+        "P54-L05-Q1",
+        "P54-L05-Q2",
+        "P54-L05-Q3",
+        "P54-L05-Q4",
+        "P54-L05-Q5",
+        "P54-L05-Q6",
+        "P54-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "box-unknown",
+      "firstLesson": "P55-L01",
+      "firstUnit": "P55",
+      "sourceTasks": [
+        "P55-L01-G",
+        "P55-L01-Q1",
+        "P55-L01-Q2",
+        "P55-L01-Q3",
+        "P55-L01-Q4",
+        "P55-L01-Q5",
+        "P55-L01-Q6",
+        "P55-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "equal-sign-relationship",
+      "firstLesson": "P55-L02",
+      "firstUnit": "P55",
+      "sourceTasks": [
+        "P55-L02-G",
+        "P55-L02-Q1",
+        "P55-L02-Q2",
+        "P55-L02-Q3",
+        "P55-L02-Q4",
+        "P55-L02-Q5",
+        "P55-L02-Q6",
+        "P55-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "pattern-expression",
+      "firstLesson": "P55-L03",
+      "firstUnit": "P55",
+      "sourceTasks": [
+        "P55-L03-G",
+        "P55-L03-Q1",
+        "P55-L03-Q2",
+        "P55-L03-Q3",
+        "P55-L03-Q4",
+        "P55-L03-Q5",
+        "P55-L03-Q6",
+        "P55-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "one-step-equation",
+      "firstLesson": "P55-L04",
+      "firstUnit": "P55",
+      "sourceTasks": [
+        "P55-L04-G",
+        "P55-L04-Q1",
+        "P55-L04-Q2",
+        "P55-L04-Q3",
+        "P55-L04-Q4",
+        "P55-L04-Q5",
+        "P55-L04-Q6",
+        "P55-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "equation-story",
+      "firstLesson": "P55-L05",
+      "firstUnit": "P55",
+      "sourceTasks": [
+        "P55-L05-G",
+        "P55-L05-Q1",
+        "P55-L05-Q2",
+        "P55-L05-Q3",
+        "P55-L05-Q4",
+        "P55-L05-Q5",
+        "P55-L05-Q6",
+        "P55-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "metric-dimension-conversion",
+      "firstLesson": "P56-L01",
+      "firstUnit": "P56",
+      "sourceTasks": [
+        "P56-L01-G",
+        "P56-L01-Q1",
+        "P56-L01-Q2",
+        "P56-L01-Q3",
+        "P56-L01-Q4",
+        "P56-L01-Q5",
+        "P56-L01-Q6",
+        "P56-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "rectangle-area",
+      "firstLesson": "P56-L02",
+      "firstUnit": "P56",
+      "sourceTasks": [
+        "P56-L02-G",
+        "P56-L02-Q1",
+        "P56-L02-Q2",
+        "P56-L02-Q3",
+        "P56-L02-Q4",
+        "P56-L02-Q5",
+        "P56-L02-Q6",
+        "P56-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "triangle-rearrangement",
+      "firstLesson": "P56-L03",
+      "firstUnit": "P56",
+      "sourceTasks": [
+        "P56-L03-G",
+        "P56-L03-Q1",
+        "P56-L03-Q2",
+        "P56-L03-Q3",
+        "P56-L03-Q4",
+        "P56-L03-Q5",
+        "P56-L03-Q6",
+        "P56-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "parallel-base-area",
+      "firstLesson": "P56-L04",
+      "firstUnit": "P56",
+      "sourceTasks": [
+        "P56-L04-G",
+        "P56-L04-Q1",
+        "P56-L04-Q2",
+        "P56-L04-Q3",
+        "P56-L04-Q4",
+        "P56-L04-Q5",
+        "P56-L04-Q6",
+        "P56-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "unit-cube-volume",
+      "firstLesson": "P56-L05",
+      "firstUnit": "P56",
+      "sourceTasks": [
+        "P56-L05-G",
+        "P56-L05-Q1",
+        "P56-L05-Q2",
+        "P56-L05-Q3",
+        "P56-L05-Q4",
+        "P56-L05-Q5",
+        "P56-L05-Q6",
+        "P56-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "box-surface-area",
+      "firstLesson": "P56-L06",
+      "firstUnit": "P56",
+      "sourceTasks": [
+        "P56-L06-G",
+        "P56-L06-Q1",
+        "P56-L06-Q2",
+        "P56-L06-Q3",
+        "P56-L06-Q4",
+        "P56-L06-Q5",
+        "P56-L06-Q6",
+        "P56-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "frequency-and-sample",
+      "firstLesson": "P57-L01",
+      "firstUnit": "P57",
+      "sourceTasks": [
+        "P57-L01-G",
+        "P57-L01-Q1",
+        "P57-L01-Q2",
+        "P57-L01-Q3",
+        "P57-L01-Q4",
+        "P57-L01-Q5",
+        "P57-L01-Q6",
+        "P57-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "mean-as-fair-share",
+      "firstLesson": "P57-L02",
+      "firstUnit": "P57",
+      "sourceTasks": [
+        "P57-L02-G",
+        "P57-L02-Q1",
+        "P57-L02-Q2",
+        "P57-L02-Q3",
+        "P57-L02-Q4",
+        "P57-L02-Q5",
+        "P57-L02-Q6",
+        "P57-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "time-series-reading",
+      "firstLesson": "P57-L03",
+      "firstUnit": "P57",
+      "sourceTasks": [
+        "P57-L03-G",
+        "P57-L03-Q1",
+        "P57-L03-Q2",
+        "P57-L03-Q3",
+        "P57-L03-Q4",
+        "P57-L03-Q5",
+        "P57-L03-Q6",
+        "P57-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "chart-evidence",
+      "firstLesson": "P57-L04",
+      "firstUnit": "P57",
+      "sourceTasks": [
+        "P57-L04-G",
+        "P57-L04-Q1",
+        "P57-L04-Q2",
+        "P57-L04-Q3",
+        "P57-L04-Q4",
+        "P57-L04-Q5",
+        "P57-L04-Q6",
+        "P57-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "recipe-and-pack-budget",
+      "firstLesson": "P57-L05",
+      "firstUnit": "P57",
+      "sourceTasks": [
+        "P57-L05-G",
+        "P57-L05-Q1",
+        "P57-L05-Q2",
+        "P57-L05-Q3",
+        "P57-L05-Q4",
+        "P57-L05-Q5",
+        "P57-L05-Q6",
+        "P57-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "repeat-fraction",
+      "firstLesson": "P61-L01",
+      "firstUnit": "P61",
+      "sourceTasks": [
+        "P61-L01-G",
+        "P61-L01-Q1",
+        "P61-L01-Q2",
+        "P61-L01-Q3",
+        "P61-L01-Q4",
+        "P61-L01-Q5",
+        "P61-L01-Q6",
+        "P61-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction-area-product",
+      "firstLesson": "P61-L02",
+      "firstUnit": "P61",
+      "sourceTasks": [
+        "P61-L02-G",
+        "P61-L02-Q1",
+        "P61-L02-Q2",
+        "P61-L02-Q3",
+        "P61-L02-Q4",
+        "P61-L02-Q5",
+        "P61-L02-Q6",
+        "P61-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction-of-amount",
+      "firstLesson": "P61-L03",
+      "firstUnit": "P61",
+      "sourceTasks": [
+        "P61-L03-G",
+        "P61-L03-Q1",
+        "P61-L03-Q2",
+        "P61-L03-Q3",
+        "P61-L03-Q4",
+        "P61-L03-Q5",
+        "P61-L03-Q6",
+        "P61-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction-sharing",
+      "firstLesson": "P61-L04",
+      "firstUnit": "P61",
+      "sourceTasks": [
+        "P61-L04-G",
+        "P61-L04-Q1",
+        "P61-L04-Q2",
+        "P61-L04-Q3",
+        "P61-L04-Q4",
+        "P61-L04-Q5",
+        "P61-L04-Q6",
+        "P61-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction-measurement-division",
+      "firstLesson": "P61-L05",
+      "firstUnit": "P61",
+      "sourceTasks": [
+        "P61-L05-G",
+        "P61-L05-Q1",
+        "P61-L05-Q2",
+        "P61-L05-Q3",
+        "P61-L05-Q4",
+        "P61-L05-Q5",
+        "P61-L05-Q6",
+        "P61-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "reciprocal-reasoning",
+      "firstLesson": "P61-L06",
+      "firstUnit": "P61",
+      "sourceTasks": [
+        "P61-L06-G",
+        "P61-L06-Q1",
+        "P61-L06-Q2",
+        "P61-L06-Q3",
+        "P61-L06-Q4",
+        "P61-L06-Q5",
+        "P61-L06-Q6",
+        "P61-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "per-hundred-reference",
+      "firstLesson": "P62-L01",
+      "firstUnit": "P62",
+      "sourceTasks": [
+        "P62-L01-G",
+        "P62-L01-Q1",
+        "P62-L01-Q2",
+        "P62-L01-Q3",
+        "P62-L01-Q4",
+        "P62-L01-Q5",
+        "P62-L01-Q6",
+        "P62-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "decimal-percent-equivalence",
+      "firstLesson": "P62-L02",
+      "firstUnit": "P62",
+      "sourceTasks": [
+        "P62-L02-G",
+        "P62-L02-Q1",
+        "P62-L02-Q2",
+        "P62-L02-Q3",
+        "P62-L02-Q4",
+        "P62-L02-Q5",
+        "P62-L02-Q6",
+        "P62-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "fraction-percent-exact",
+      "firstLesson": "P62-L03",
+      "firstUnit": "P62",
+      "sourceTasks": [
+        "P62-L03-G",
+        "P62-L03-Q1",
+        "P62-L03-Q2",
+        "P62-L03-Q3",
+        "P62-L03-Q4",
+        "P62-L03-Q5",
+        "P62-L03-Q6",
+        "P62-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "percent-of-amount",
+      "firstLesson": "P62-L04",
+      "firstUnit": "P62",
+      "sourceTasks": [
+        "P62-L04-G",
+        "P62-L04-Q1",
+        "P62-L04-Q2",
+        "P62-L04-Q3",
+        "P62-L04-Q4",
+        "P62-L04-Q5",
+        "P62-L04-Q6",
+        "P62-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "recover-percent-whole",
+      "firstLesson": "P62-L05",
+      "firstUnit": "P62",
+      "sourceTasks": [
+        "P62-L05-G",
+        "P62-L05-Q1",
+        "P62-L05-Q2",
+        "P62-L05-Q3",
+        "P62-L05-Q4",
+        "P62-L05-Q5",
+        "P62-L05-Q6",
+        "P62-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "percent-change-base",
+      "firstLesson": "P62-L06",
+      "firstUnit": "P62",
+      "sourceTasks": [
+        "P62-L06-G",
+        "P62-L06-Q1",
+        "P62-L06-Q2",
+        "P62-L06-Q3",
+        "P62-L06-Q4",
+        "P62-L06-Q5",
+        "P62-L06-Q6",
+        "P62-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "ratio-order-and-reference",
+      "firstLesson": "P63-L01",
+      "firstUnit": "P63",
+      "sourceTasks": [
+        "P63-L01-G",
+        "P63-L01-Q1",
+        "P63-L01-Q2",
+        "P63-L01-Q3",
+        "P63-L01-Q4",
+        "P63-L01-Q5",
+        "P63-L01-Q6",
+        "P63-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "simplest-integer-ratio",
+      "firstLesson": "P63-L02",
+      "firstUnit": "P63",
+      "sourceTasks": [
+        "P63-L02-G",
+        "P63-L02-Q1",
+        "P63-L02-Q2",
+        "P63-L02-Q3",
+        "P63-L02-Q4",
+        "P63-L02-Q5",
+        "P63-L02-Q6",
+        "P63-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "allocate-by-ratio",
+      "firstLesson": "P63-L03",
+      "firstUnit": "P63",
+      "sourceTasks": [
+        "P63-L03-G",
+        "P63-L03-Q1",
+        "P63-L03-Q2",
+        "P63-L03-Q3",
+        "P63-L03-Q4",
+        "P63-L03-Q5",
+        "P63-L03-Q6",
+        "P63-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "equivalent-ratio-table",
+      "firstLesson": "P63-L04",
+      "firstUnit": "P63",
+      "sourceTasks": [
+        "P63-L04-G",
+        "P63-L04-Q1",
+        "P63-L04-Q2",
+        "P63-L04-Q3",
+        "P63-L04-Q4",
+        "P63-L04-Q5",
+        "P63-L04-Q6",
+        "P63-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "map-scale-units",
+      "firstLesson": "P63-L05",
+      "firstUnit": "P63",
+      "sourceTasks": [
+        "P63-L05-G",
+        "P63-L05-Q1",
+        "P63-L05-Q2",
+        "P63-L05-Q3",
+        "P63-L05-Q4",
+        "P63-L05-Q5",
+        "P63-L05-Q6",
+        "P63-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "direct-proportion-evidence",
+      "firstLesson": "P63-L06",
+      "firstUnit": "P63",
+      "sourceTasks": [
+        "P63-L06-G",
+        "P63-L06-Q1",
+        "P63-L06-Q2",
+        "P63-L06-Q3",
+        "P63-L06-Q4",
+        "P63-L06-Q5",
+        "P63-L06-Q6",
+        "P63-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "signed-temperature-reference",
+      "firstLesson": "P64-L01",
+      "firstUnit": "P64",
+      "sourceTasks": [
+        "P64-L01-G",
+        "P64-L01-Q1",
+        "P64-L01-Q2",
+        "P64-L01-Q3",
+        "P64-L01-Q4",
+        "P64-L01-Q5",
+        "P64-L01-Q6",
+        "P64-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integer-axis-position",
+      "firstLesson": "P64-L02",
+      "firstUnit": "P64",
+      "sourceTasks": [
+        "P64-L02-G",
+        "P64-L02-Q1",
+        "P64-L02-Q2",
+        "P64-L02-Q3",
+        "P64-L02-Q4",
+        "P64-L02-Q5",
+        "P64-L02-Q6",
+        "P64-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "negative-number-order",
+      "firstLesson": "P64-L03",
+      "firstUnit": "P64",
+      "sourceTasks": [
+        "P64-L03-G",
+        "P64-L03-Q1",
+        "P64-L03-Q2",
+        "P64-L03-Q3",
+        "P64-L03-Q4",
+        "P64-L03-Q5",
+        "P64-L03-Q6",
+        "P64-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "signed-cross-zero-movement",
+      "firstLesson": "P64-L04",
+      "firstUnit": "P64",
+      "sourceTasks": [
+        "P64-L04-G",
+        "P64-L04-Q1",
+        "P64-L04-Q2",
+        "P64-L04-Q3",
+        "P64-L04-Q4",
+        "P64-L04-Q5",
+        "P64-L04-Q6",
+        "P64-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "absolute-value-distance",
+      "firstLesson": "P64-L05",
+      "firstUnit": "P64",
+      "sourceTasks": [
+        "P64-L05-G",
+        "P64-L05-Q1",
+        "P64-L05-Q2",
+        "P64-L05-Q3",
+        "P64-L05-Q4",
+        "P64-L05-Q5",
+        "P64-L05-Q6",
+        "P64-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "letter-substitution",
+      "firstLesson": "P65-L01",
+      "firstUnit": "P65",
+      "sourceTasks": [
+        "P65-L01-G",
+        "P65-L01-Q1",
+        "P65-L01-Q2",
+        "P65-L01-Q3",
+        "P65-L01-Q4",
+        "P65-L01-Q5",
+        "P65-L01-Q6",
+        "P65-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "constructed-nth-term",
+      "firstLesson": "P65-L02",
+      "firstUnit": "P65",
+      "sourceTasks": [
+        "P65-L02-G",
+        "P65-L02-Q1",
+        "P65-L02-Q2",
+        "P65-L02-Q3",
+        "P65-L02-Q4",
+        "P65-L02-Q5",
+        "P65-L02-Q6",
+        "P65-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "expression-structure",
+      "firstLesson": "P65-L03",
+      "firstUnit": "P65",
+      "sourceTasks": [
+        "P65-L03-G",
+        "P65-L03-Q1",
+        "P65-L03-Q2",
+        "P65-L03-Q3",
+        "P65-L03-Q4",
+        "P65-L03-Q5",
+        "P65-L03-Q6",
+        "P65-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "equivalent-equation",
+      "firstLesson": "P65-L04",
+      "firstUnit": "P65",
+      "sourceTasks": [
+        "P65-L04-G",
+        "P65-L04-Q1",
+        "P65-L04-Q2",
+        "P65-L04-Q3",
+        "P65-L04-Q4",
+        "P65-L04-Q5",
+        "P65-L04-Q6",
+        "P65-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "bracket-equation",
+      "firstLesson": "P65-L05",
+      "firstUnit": "P65",
+      "sourceTasks": [
+        "P65-L05-G",
+        "P65-L05-Q1",
+        "P65-L05-Q2",
+        "P65-L05-Q3",
+        "P65-L05-Q4",
+        "P65-L05-Q5",
+        "P65-L05-Q6",
+        "P65-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-centre-radius-diameter",
+      "firstLesson": "P66-L01",
+      "firstUnit": "P66",
+      "sourceTasks": [
+        "P66-L01-G",
+        "P66-L01-Q1",
+        "P66-L01-Q2",
+        "P66-L01-Q3",
+        "P66-L01-Q4",
+        "P66-L01-Q5",
+        "P66-L01-Q6",
+        "P66-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "pi-measurement-ratio",
+      "firstLesson": "P66-L02",
+      "firstUnit": "P66",
+      "sourceTasks": [
+        "P66-L02-G",
+        "P66-L02-Q1",
+        "P66-L02-Q2",
+        "P66-L02-Q3",
+        "P66-L02-Q4",
+        "P66-L02-Q5",
+        "P66-L02-Q6",
+        "P66-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-circumference",
+      "firstLesson": "P66-L03",
+      "firstUnit": "P66",
+      "sourceTasks": [
+        "P66-L03-G",
+        "P66-L03-Q1",
+        "P66-L03-Q2",
+        "P66-L03-Q3",
+        "P66-L03-Q4",
+        "P66-L03-Q5",
+        "P66-L03-Q6",
+        "P66-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-area-rearrangement",
+      "firstLesson": "P66-L04",
+      "firstUnit": "P66",
+      "sourceTasks": [
+        "P66-L04-G",
+        "P66-L04-Q1",
+        "P66-L04-Q2",
+        "P66-L04-Q3",
+        "P66-L04-Q4",
+        "P66-L04-Q5",
+        "P66-L04-Q6",
+        "P66-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "cylinder-faces-volume",
+      "firstLesson": "P66-L05",
+      "firstUnit": "P66",
+      "sourceTasks": [
+        "P66-L05-G",
+        "P66-L05-Q1",
+        "P66-L05-Q2",
+        "P66-L05-Q3",
+        "P66-L05-Q4",
+        "P66-L05-Q5",
+        "P66-L05-Q6",
+        "P66-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "median-and-all-modes",
+      "firstLesson": "P67-L01",
+      "firstUnit": "P67",
+      "sourceTasks": [
+        "P67-L01-G",
+        "P67-L01-Q1",
+        "P67-L01-Q2",
+        "P67-L01-Q3",
+        "P67-L01-Q4",
+        "P67-L01-Q5",
+        "P67-L01-Q6",
+        "P67-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "summary-purpose",
+      "firstLesson": "P67-L02",
+      "firstUnit": "P67",
+      "sourceTasks": [
+        "P67-L02-G",
+        "P67-L02-Q1",
+        "P67-L02-Q2",
+        "P67-L02-Q3",
+        "P67-L02-Q4",
+        "P67-L02-Q5",
+        "P67-L02-Q6",
+        "P67-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "likelihood-assumptions",
+      "firstLesson": "P67-L03",
+      "firstUnit": "P67",
+      "sourceTasks": [
+        "P67-L03-G",
+        "P67-L03-Q1",
+        "P67-L03-Q2",
+        "P67-L03-Q3",
+        "P67-L03-Q4",
+        "P67-L03-Q5",
+        "P67-L03-Q6",
+        "P67-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "finite-event-probability",
+      "firstLesson": "P67-L04",
+      "firstUnit": "P67",
+      "sourceTasks": [
+        "P67-L04-G",
+        "P67-L04-Q1",
+        "P67-L04-Q2",
+        "P67-L04-Q3",
+        "P67-L04-Q4",
+        "P67-L04-Q5",
+        "P67-L04-Q6",
+        "P67-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "frequency-versus-probability",
+      "firstLesson": "P67-L05",
+      "firstUnit": "P67",
+      "sourceTasks": [
+        "P67-L05-G",
+        "P67-L05-Q1",
+        "P67-L05-Q2",
+        "P67-L05-Q3",
+        "P67-L05-Q4",
+        "P67-L05-Q5",
+        "P67-L05-Q6",
+        "P67-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "journey-time-scope",
+      "firstLesson": "P68-L01",
+      "firstUnit": "P68",
+      "sourceTasks": [
+        "P68-L01-G",
+        "P68-L01-Q1",
+        "P68-L01-Q2",
+        "P68-L01-Q3",
+        "P68-L01-Q4",
+        "P68-L01-Q5",
+        "P68-L01-Q6",
+        "P68-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "constant-work-rates",
+      "firstLesson": "P68-L02",
+      "firstUnit": "P68",
+      "sourceTasks": [
+        "P68-L02-G",
+        "P68-L02-Q1",
+        "P68-L02-Q2",
+        "P68-L02-Q3",
+        "P68-L02-Q4",
+        "P68-L02-Q5",
+        "P68-L02-Q6",
+        "P68-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "budget-reference-whole",
+      "firstLesson": "P68-L03",
+      "firstUnit": "P68",
+      "sourceTasks": [
+        "P68-L03-G",
+        "P68-L03-Q1",
+        "P68-L03-Q2",
+        "P68-L03-Q3",
+        "P68-L03-Q4",
+        "P68-L03-Q5",
+        "P68-L03-Q6",
+        "P68-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "chart-multistep-evidence",
+      "firstLesson": "P68-L04",
+      "firstUnit": "P68",
+      "sourceTasks": [
+        "P68-L04-G",
+        "P68-L04-Q1",
+        "P68-L04-Q2",
+        "P68-L04-Q3",
+        "P68-L04-Q4",
+        "P68-L04-Q5",
+        "P68-L04-Q6",
+        "P68-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "trip-joint-constraints",
+      "firstLesson": "P68-L05",
+      "firstUnit": "P68",
+      "sourceTasks": [
+        "P68-L05-G",
+        "P68-L05-Q1",
+        "P68-L05-Q2",
+        "P68-L05-Q3",
+        "P68-L05-Q4",
+        "P68-L05-Q5",
+        "P68-L05-Q6",
+        "P68-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "rational-opposite-sign",
+      "firstLesson": "J71-L01",
+      "firstUnit": "J71",
+      "sourceTasks": [
+        "J71-L01-G",
+        "J71-L01-Q1",
+        "J71-L01-Q2",
+        "J71-L01-Q3",
+        "J71-L01-Q4",
+        "J71-L01-Q5",
+        "J71-L01-Q6",
+        "J71-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "rational-absolute-distance",
+      "firstLesson": "J71-L02",
+      "firstUnit": "J71",
+      "sourceTasks": [
+        "J71-L02-G",
+        "J71-L02-Q1",
+        "J71-L02-Q2",
+        "J71-L02-Q3",
+        "J71-L02-Q4",
+        "J71-L02-Q5",
+        "J71-L02-Q6",
+        "J71-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "signed-fraction-addition",
+      "firstLesson": "J71-L03",
+      "firstUnit": "J71",
+      "sourceTasks": [
+        "J71-L03-G",
+        "J71-L03-Q1",
+        "J71-L03-Q2",
+        "J71-L03-Q3",
+        "J71-L03-Q4",
+        "J71-L03-Q5",
+        "J71-L03-Q6",
+        "J71-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "subtraction-as-opposite",
+      "firstLesson": "J71-L04",
+      "firstUnit": "J71",
+      "sourceTasks": [
+        "J71-L04-G",
+        "J71-L04-Q1",
+        "J71-L04-Q2",
+        "J71-L04-Q3",
+        "J71-L04-Q4",
+        "J71-L04-Q5",
+        "J71-L04-Q6",
+        "J71-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "signed-scaling-and-division",
+      "firstLesson": "J71-L05",
+      "firstUnit": "J71",
+      "sourceTasks": [
+        "J71-L05-G",
+        "J71-L05-Q1",
+        "J71-L05-Q2",
+        "J71-L05-Q3",
+        "J71-L05-Q4",
+        "J71-L05-Q5",
+        "J71-L05-Q6",
+        "J71-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "rational-operation-structure",
+      "firstLesson": "J71-L06",
+      "firstUnit": "J71",
+      "sourceTasks": [
+        "J71-L06-G",
+        "J71-L06-Q1",
+        "J71-L06-Q2",
+        "J71-L06-Q3",
+        "J71-L06-Q4",
+        "J71-L06-Q5",
+        "J71-L06-Q6",
+        "J71-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "polynomial-substitution",
+      "firstLesson": "J72-L01",
+      "firstUnit": "J72",
+      "sourceTasks": [
+        "J72-L01-G",
+        "J72-L01-Q1",
+        "J72-L01-Q2",
+        "J72-L01-Q3",
+        "J72-L01-Q4",
+        "J72-L01-Q5",
+        "J72-L01-Q6",
+        "J72-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "like-monomial-coefficients",
+      "firstLesson": "J72-L02",
+      "firstUnit": "J72",
+      "sourceTasks": [
+        "J72-L02-G",
+        "J72-L02-Q1",
+        "J72-L02-Q2",
+        "J72-L02-Q3",
+        "J72-L02-Q4",
+        "J72-L02-Q5",
+        "J72-L02-Q6",
+        "J72-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-every-term",
+      "firstLesson": "J72-L03",
+      "firstUnit": "J72",
+      "sourceTasks": [
+        "J72-L03-G",
+        "J72-L03-Q1",
+        "J72-L03-Q2",
+        "J72-L03-Q3",
+        "J72-L03-Q4",
+        "J72-L03-Q5",
+        "J72-L03-Q6",
+        "J72-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "polynomial-sum-difference",
+      "firstLesson": "J72-L04",
+      "firstUnit": "J72",
+      "sourceTasks": [
+        "J72-L04-G",
+        "J72-L04-Q1",
+        "J72-L04-Q2",
+        "J72-L04-Q3",
+        "J72-L04-Q4",
+        "J72-L04-Q5",
+        "J72-L04-Q6",
+        "J72-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "contextual-polynomial-model",
+      "firstLesson": "J72-L05",
+      "firstUnit": "J72",
+      "sourceTasks": [
+        "J72-L05-G",
+        "J72-L05-Q1",
+        "J72-L05-Q2",
+        "J72-L05-Q3",
+        "J72-L05-Q4",
+        "J72-L05-Q5",
+        "J72-L05-Q6",
+        "J72-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "original-equation-check",
+      "firstLesson": "J73-L01",
+      "firstUnit": "J73",
+      "sourceTasks": [
+        "J73-L01-G",
+        "J73-L01-Q1",
+        "J73-L01-Q2",
+        "J73-L01-Q3",
+        "J73-L01-Q4",
+        "J73-L01-Q5",
+        "J73-L01-Q6",
+        "J73-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "reversible-equation-steps",
+      "firstLesson": "J73-L02",
+      "firstUnit": "J73",
+      "sourceTasks": [
+        "J73-L02-G",
+        "J73-L02-Q1",
+        "J73-L02-Q2",
+        "J73-L02-Q3",
+        "J73-L02-Q4",
+        "J73-L02-Q5",
+        "J73-L02-Q6",
+        "J73-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "bracket-linear-equations",
+      "firstLesson": "J73-L03",
+      "firstUnit": "J73",
+      "sourceTasks": [
+        "J73-L03-G",
+        "J73-L03-Q1",
+        "J73-L03-Q2",
+        "J73-L03-Q3",
+        "J73-L03-Q4",
+        "J73-L03-Q5",
+        "J73-L03-Q6",
+        "J73-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "constant-denominator-equations",
+      "firstLesson": "J73-L04",
+      "firstUnit": "J73",
+      "sourceTasks": [
+        "J73-L04-G",
+        "J73-L04-Q1",
+        "J73-L04-Q2",
+        "J73-L04-Q3",
+        "J73-L04-Q4",
+        "J73-L04-Q5",
+        "J73-L04-Q6",
+        "J73-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "original-quantity-modelling",
+      "firstLesson": "J73-L05",
+      "firstUnit": "J73",
+      "sourceTasks": [
+        "J73-L05-G",
+        "J73-L05-Q1",
+        "J73-L05-Q2",
+        "J73-L05-Q3",
+        "J73-L05-Q4",
+        "J73-L05-Q5",
+        "J73-L05-Q6",
+        "J73-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "context-solution-domain",
+      "firstLesson": "J73-L06",
+      "firstUnit": "J73",
+      "sourceTasks": [
+        "J73-L06-G",
+        "J73-L06-Q1",
+        "J73-L06-Q2",
+        "J73-L06-Q3",
+        "J73-L06-Q4",
+        "J73-L06-Q5",
+        "J73-L06-Q6",
+        "J73-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "geometric-objects-and-angle",
+      "firstLesson": "J74-L01",
+      "firstUnit": "J74",
+      "sourceTasks": [
+        "J74-L01-G",
+        "J74-L01-Q1",
+        "J74-L01-Q2",
+        "J74-L01-Q3",
+        "J74-L01-Q4",
+        "J74-L01-Q5",
+        "J74-L01-Q6",
+        "J74-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "vertical-and-adjacent-angles",
+      "firstLesson": "J74-L02",
+      "firstUnit": "J74",
+      "sourceTasks": [
+        "J74-L02-G",
+        "J74-L02-Q1",
+        "J74-L02-Q2",
+        "J74-L02-Q3",
+        "J74-L02-Q4",
+        "J74-L02-Q5",
+        "J74-L02-Q6",
+        "J74-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "parallel-conditions-and-pairs",
+      "firstLesson": "J74-L03",
+      "firstUnit": "J74",
+      "sourceTasks": [
+        "J74-L03-G",
+        "J74-L03-Q1",
+        "J74-L03-Q2",
+        "J74-L03-Q3",
+        "J74-L03-Q4",
+        "J74-L03-Q5",
+        "J74-L03-Q6",
+        "J74-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "triangle-sum-with-reasons",
+      "firstLesson": "J74-L04",
+      "firstUnit": "J74",
+      "sourceTasks": [
+        "J74-L04-G",
+        "J74-L04-Q1",
+        "J74-L04-Q2",
+        "J74-L04-Q3",
+        "J74-L04-Q4",
+        "J74-L04-Q5",
+        "J74-L04-Q6",
+        "J74-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "triangle-class-and-existence",
+      "firstLesson": "J74-L05",
+      "firstUnit": "J74",
+      "sourceTasks": [
+        "J74-L05-G",
+        "J74-L05-Q1",
+        "J74-L05-Q2",
+        "J74-L05-Q3",
+        "J74-L05-Q4",
+        "J74-L05-Q5",
+        "J74-L05-Q6",
+        "J74-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "linked-geometrical-reasons",
+      "firstLesson": "J74-L06",
+      "firstUnit": "J74",
+      "sourceTasks": [
+        "J74-L06-G",
+        "J74-L06-Q1",
+        "J74-L06-Q2",
+        "J74-L06-Q3",
+        "J74-L06-Q4",
+        "J74-L06-Q5",
+        "J74-L06-Q6",
+        "J74-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "ordered-cartesian-position",
+      "firstLesson": "J75-L01",
+      "firstUnit": "J75",
+      "sourceTasks": [
+        "J75-L01-G",
+        "J75-L01-Q1",
+        "J75-L01-Q2",
+        "J75-L01-Q3",
+        "J75-L01-Q4",
+        "J75-L01-Q5",
+        "J75-L01-Q6",
+        "J75-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "coordinate-plot-and-scale",
+      "firstLesson": "J75-L02",
+      "firstUnit": "J75",
+      "sourceTasks": [
+        "J75-L02-G",
+        "J75-L02-Q1",
+        "J75-L02-Q2",
+        "J75-L02-Q3",
+        "J75-L02-Q4",
+        "J75-L02-Q5",
+        "J75-L02-Q6",
+        "J75-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "same-row-table-points",
+      "firstLesson": "J75-L03",
+      "firstUnit": "J75",
+      "sourceTasks": [
+        "J75-L03-G",
+        "J75-L03-Q1",
+        "J75-L03-Q2",
+        "J75-L03-Q3",
+        "J75-L03-Q4",
+        "J75-L03-Q5",
+        "J75-L03-Q6",
+        "J75-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "affine-rate-and-intercept",
+      "firstLesson": "J75-L04",
+      "firstUnit": "J75",
+      "sourceTasks": [
+        "J75-L04-G",
+        "J75-L04-Q1",
+        "J75-L04-Q2",
+        "J75-L04-Q3",
+        "J75-L04-Q4",
+        "J75-L04-Q5",
+        "J75-L04-Q6",
+        "J75-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "contextual-graph-domain",
+      "firstLesson": "J75-L05",
+      "firstUnit": "J75",
+      "sourceTasks": [
+        "J75-L05-G",
+        "J75-L05-Q1",
+        "J75-L05-Q2",
+        "J75-L05-Q3",
+        "J75-L05-Q4",
+        "J75-L05-Q5",
+        "J75-L05-Q6",
+        "J75-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "sample-population-and-frame",
+      "firstLesson": "J76-L01",
+      "firstUnit": "J76",
+      "sourceTasks": [
+        "J76-L01-G",
+        "J76-L01-Q1",
+        "J76-L01-Q2",
+        "J76-L01-Q3",
+        "J76-L01-Q4",
+        "J76-L01-Q5",
+        "J76-L01-Q6",
+        "J76-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-centre-spread-shape",
+      "firstLesson": "J76-L02",
+      "firstUnit": "J76",
+      "sourceTasks": [
+        "J76-L02-G",
+        "J76-L02-Q1",
+        "J76-L02-Q2",
+        "J76-L02-Q3",
+        "J76-L02-Q4",
+        "J76-L02-Q5",
+        "J76-L02-Q6",
+        "J76-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "mean-and-unusual-record",
+      "firstLesson": "J76-L03",
+      "firstUnit": "J76",
+      "sourceTasks": [
+        "J76-L03-G",
+        "J76-L03-Q1",
+        "J76-L03-Q2",
+        "J76-L03-Q3",
+        "J76-L03-Q4",
+        "J76-L03-Q5",
+        "J76-L03-Q6",
+        "J76-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "complete-equally-likely-space",
+      "firstLesson": "J76-L04",
+      "firstUnit": "J76",
+      "sourceTasks": [
+        "J76-L04-G",
+        "J76-L04-Q1",
+        "J76-L04-Q2",
+        "J76-L04-Q3",
+        "J76-L04-Q4",
+        "J76-L04-Q5",
+        "J76-L04-Q6",
+        "J76-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "conditional-two-step-tree",
+      "firstLesson": "J76-L05",
+      "firstUnit": "J76",
+      "sourceTasks": [
+        "J76-L05-G",
+        "J76-L05-Q1",
+        "J76-L05-Q2",
+        "J76-L05-Q3",
+        "J76-L05-Q4",
+        "J76-L05-Q5",
+        "J76-L05-Q6",
+        "J76-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "monomial-product-factors",
+      "firstLesson": "J81-L01",
+      "firstUnit": "J81",
+      "sourceTasks": [
+        "J81-L01-G",
+        "J81-L01-Q1",
+        "J81-L01-Q2",
+        "J81-L01-Q3",
+        "J81-L01-Q4",
+        "J81-L01-Q5",
+        "J81-L01-Q6",
+        "J81-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "monomial-every-term-product",
+      "firstLesson": "J81-L02",
+      "firstUnit": "J81",
+      "sourceTasks": [
+        "J81-L02-G",
+        "J81-L02-Q1",
+        "J81-L02-Q2",
+        "J81-L02-Q3",
+        "J81-L02-Q4",
+        "J81-L02-Q5",
+        "J81-L02-Q6",
+        "J81-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "all-pairs-polynomial-product",
+      "firstLesson": "J81-L03",
+      "firstUnit": "J81",
+      "sourceTasks": [
+        "J81-L03-G",
+        "J81-L03-Q1",
+        "J81-L03-Q2",
+        "J81-L03-Q3",
+        "J81-L03-Q4",
+        "J81-L03-Q5",
+        "J81-L03-Q6",
+        "J81-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "square-cross-terms",
+      "firstLesson": "J81-L04",
+      "firstUnit": "J81",
+      "sourceTasks": [
+        "J81-L04-G",
+        "J81-L04-Q1",
+        "J81-L04-Q2",
+        "J81-L04-Q3",
+        "J81-L04-Q4",
+        "J81-L04-Q5",
+        "J81-L04-Q6",
+        "J81-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "conjugate-cancellation",
+      "firstLesson": "J81-L05",
+      "firstUnit": "J81",
+      "sourceTasks": [
+        "J81-L05-G",
+        "J81-L05-Q1",
+        "J81-L05-Q2",
+        "J81-L05-Q3",
+        "J81-L05-Q4",
+        "J81-L05-Q5",
+        "J81-L05-Q6",
+        "J81-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integer-common-factor",
+      "firstLesson": "J82-L01",
+      "firstUnit": "J82",
+      "sourceTasks": [
+        "J82-L01-G",
+        "J82-L01-Q1",
+        "J82-L01-Q2",
+        "J82-L01-Q3",
+        "J82-L01-Q4",
+        "J82-L01-Q5",
+        "J82-L01-Q6",
+        "J82-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "complete-square-difference-factors",
+      "firstLesson": "J82-L02",
+      "firstUnit": "J82",
+      "sourceTasks": [
+        "J82-L02-G",
+        "J82-L02-Q1",
+        "J82-L02-Q2",
+        "J82-L02-Q3",
+        "J82-L02-Q4",
+        "J82-L02-Q5",
+        "J82-L02-Q6",
+        "J82-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "perfect-square-factor-pattern",
+      "firstLesson": "J82-L03",
+      "firstUnit": "J82",
+      "sourceTasks": [
+        "J82-L03-G",
+        "J82-L03-Q1",
+        "J82-L03-Q2",
+        "J82-L03-Q3",
+        "J82-L03-Q4",
+        "J82-L03-Q5",
+        "J82-L03-Q6",
+        "J82-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integer-quadratic-product-sum",
+      "firstLesson": "J82-L04",
+      "firstUnit": "J82",
+      "sourceTasks": [
+        "J82-L04-G",
+        "J82-L04-Q1",
+        "J82-L04-Q2",
+        "J82-L04-Q3",
+        "J82-L04-Q4",
+        "J82-L04-Q5",
+        "J82-L04-Q6",
+        "J82-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "factor-expansion-audit",
+      "firstLesson": "J82-L05",
+      "firstUnit": "J82",
+      "sourceTasks": [
+        "J82-L05-G",
+        "J82-L05-Q1",
+        "J82-L05-Q2",
+        "J82-L05-Q3",
+        "J82-L05-Q4",
+        "J82-L05-Q5",
+        "J82-L05-Q6",
+        "J82-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "simultaneous-pair-relations",
+      "firstLesson": "J83-L01",
+      "firstUnit": "J83",
+      "sourceTasks": [
+        "J83-L01-G",
+        "J83-L01-Q1",
+        "J83-L01-Q2",
+        "J83-L01-Q3",
+        "J83-L01-Q4",
+        "J83-L01-Q5",
+        "J83-L01-Q6",
+        "J83-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "whole-expression-substitution",
+      "firstLesson": "J83-L02",
+      "firstUnit": "J83",
+      "sourceTasks": [
+        "J83-L02-G",
+        "J83-L02-Q1",
+        "J83-L02-Q2",
+        "J83-L02-Q3",
+        "J83-L02-Q4",
+        "J83-L02-Q5",
+        "J83-L02-Q6",
+        "J83-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "reversible-row-elimination",
+      "firstLesson": "J83-L03",
+      "firstUnit": "J83",
+      "sourceTasks": [
+        "J83-L03-G",
+        "J83-L03-Q1",
+        "J83-L03-Q2",
+        "J83-L03-Q3",
+        "J83-L03-Q4",
+        "J83-L03-Q5",
+        "J83-L03-Q6",
+        "J83-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "graphical-system-classification",
+      "firstLesson": "J83-L04",
+      "firstUnit": "J83",
+      "sourceTasks": [
+        "J83-L04-G",
+        "J83-L04-Q1",
+        "J83-L04-Q2",
+        "J83-L04-Q3",
+        "J83-L04-Q4",
+        "J83-L04-Q5",
+        "J83-L04-Q6",
+        "J83-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "two-quantity-system-model",
+      "firstLesson": "J83-L05",
+      "firstUnit": "J83",
+      "sourceTasks": [
+        "J83-L05-G",
+        "J83-L05-Q1",
+        "J83-L05-Q2",
+        "J83-L05-Q3",
+        "J83-L05-Q4",
+        "J83-L05-Q5",
+        "J83-L05-Q6",
+        "J83-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "real-inequality-solution-set",
+      "firstLesson": "J84-L01",
+      "firstUnit": "J84",
+      "sourceTasks": [
+        "J84-L01-G",
+        "J84-L01-Q1",
+        "J84-L01-Q2",
+        "J84-L01-Q3",
+        "J84-L01-Q4",
+        "J84-L01-Q5",
+        "J84-L01-Q6",
+        "J84-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "one-step-inequality-equivalence",
+      "firstLesson": "J84-L02",
+      "firstUnit": "J84",
+      "sourceTasks": [
+        "J84-L02-G",
+        "J84-L02-Q1",
+        "J84-L02-Q2",
+        "J84-L02-Q3",
+        "J84-L02-Q4",
+        "J84-L02-Q5",
+        "J84-L02-Q6",
+        "J84-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "negative-order-reversal",
+      "firstLesson": "J84-L03",
+      "firstUnit": "J84",
+      "sourceTasks": [
+        "J84-L03-G",
+        "J84-L03-Q1",
+        "J84-L03-Q2",
+        "J84-L03-Q3",
+        "J84-L03-Q4",
+        "J84-L03-Q5",
+        "J84-L03-Q6",
+        "J84-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "linear-inequality-solving",
+      "firstLesson": "J84-L04",
+      "firstUnit": "J84",
+      "sourceTasks": [
+        "J84-L04-G",
+        "J84-L04-Q1",
+        "J84-L04-Q2",
+        "J84-L04-Q3",
+        "J84-L04-Q4",
+        "J84-L04-Q5",
+        "J84-L04-Q6",
+        "J84-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "intersection-of-inequalities",
+      "firstLesson": "J84-L05",
+      "firstUnit": "J84",
+      "sourceTasks": [
+        "J84-L05-G",
+        "J84-L05-Q1",
+        "J84-L05-Q2",
+        "J84-L05-Q3",
+        "J84-L05-Q4",
+        "J84-L05-Q5",
+        "J84-L05-Q6",
+        "J84-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "affine-rule-parameters",
+      "firstLesson": "J85-L01",
+      "firstUnit": "J85",
+      "sourceTasks": [
+        "J85-L01-G",
+        "J85-L01-Q1",
+        "J85-L01-Q2",
+        "J85-L01-Q3",
+        "J85-L01-Q4",
+        "J85-L01-Q5",
+        "J85-L01-Q6",
+        "J85-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "slope-as-unit-rate",
+      "firstLesson": "J85-L02",
+      "firstUnit": "J85",
+      "sourceTasks": [
+        "J85-L02-G",
+        "J85-L02-Q1",
+        "J85-L02-Q2",
+        "J85-L02-Q3",
+        "J85-L02-Q4",
+        "J85-L02-Q5",
+        "J85-L02-Q6",
+        "J85-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "y-intercept-at-zero",
+      "firstLesson": "J85-L03",
+      "firstUnit": "J85",
+      "sourceTasks": [
+        "J85-L03-G",
+        "J85-L03-Q1",
+        "J85-L03-Q2",
+        "J85-L03-Q3",
+        "J85-L03-Q4",
+        "J85-L03-Q5",
+        "J85-L03-Q6",
+        "J85-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "two-point-function-model",
+      "firstLesson": "J85-L04",
+      "firstUnit": "J85",
+      "sourceTasks": [
+        "J85-L04-G",
+        "J85-L04-Q1",
+        "J85-L04-Q2",
+        "J85-L04-Q3",
+        "J85-L04-Q4",
+        "J85-L04-Q5",
+        "J85-L04-Q6",
+        "J85-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "direct-versus-first-degree",
+      "firstLesson": "J85-L05",
+      "firstUnit": "J85",
+      "sourceTasks": [
+        "J85-L05-G",
+        "J85-L05-Q1",
+        "J85-L05-Q2",
+        "J85-L05-Q3",
+        "J85-L05-Q4",
+        "J85-L05-Q5",
+        "J85-L05-Q6",
+        "J85-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "bounded-linear-context",
+      "firstLesson": "J85-L06",
+      "firstUnit": "J85",
+      "sourceTasks": [
+        "J85-L06-G",
+        "J85-L06-Q1",
+        "J85-L06-Q2",
+        "J85-L06-Q3",
+        "J85-L06-Q4",
+        "J85-L06-Q5",
+        "J85-L06-Q6",
+        "J85-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "ordered-congruence-correspondence",
+      "firstLesson": "J86-L01",
+      "firstUnit": "J86",
+      "sourceTasks": [
+        "J86-L01-G",
+        "J86-L01-Q1",
+        "J86-L01-Q2",
+        "J86-L01-Q3",
+        "J86-L01-Q4",
+        "J86-L01-Q5",
+        "J86-L01-Q6",
+        "J86-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "sss-sas-sufficient-conditions",
+      "firstLesson": "J86-L02",
+      "firstUnit": "J86",
+      "sourceTasks": [
+        "J86-L02-G",
+        "J86-L02-Q1",
+        "J86-L02-Q2",
+        "J86-L02-Q3",
+        "J86-L02-Q4",
+        "J86-L02-Q5",
+        "J86-L02-Q6",
+        "J86-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "asa-aas-angle-side-conditions",
+      "firstLesson": "J86-L03",
+      "firstUnit": "J86",
+      "sourceTasks": [
+        "J86-L03-G",
+        "J86-L03-Q1",
+        "J86-L03-Q2",
+        "J86-L03-Q3",
+        "J86-L03-Q4",
+        "J86-L03-Q5",
+        "J86-L03-Q6",
+        "J86-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "isosceles-properties-and-converse",
+      "firstLesson": "J86-L04",
+      "firstUnit": "J86",
+      "sourceTasks": [
+        "J86-L04-G",
+        "J86-L04-Q1",
+        "J86-L04-Q2",
+        "J86-L04-Q3",
+        "J86-L04-Q4",
+        "J86-L04-Q5",
+        "J86-L04-Q6",
+        "J86-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "parallelogram-properties-and-tests",
+      "firstLesson": "J86-L05",
+      "firstUnit": "J86",
+      "sourceTasks": [
+        "J86-L05-G",
+        "J86-L05-Q1",
+        "J86-L05-Q2",
+        "J86-L05-Q3",
+        "J86-L05-Q4",
+        "J86-L05-Q5",
+        "J86-L05-Q6",
+        "J86-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "short-proof-dependency-chain",
+      "firstLesson": "J86-L06",
+      "firstUnit": "J86",
+      "sourceTasks": [
+        "J86-L06-G",
+        "J86-L06-Q1",
+        "J86-L06-Q2",
+        "J86-L06-Q3",
+        "J86-L06-Q4",
+        "J86-L06-Q5",
+        "J86-L06-Q6",
+        "J86-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "translation-reflection-reference",
+      "firstLesson": "J87-L01",
+      "firstUnit": "J87",
+      "sourceTasks": [
+        "J87-L01-G",
+        "J87-L01-Q1",
+        "J87-L01-Q2",
+        "J87-L01-Q3",
+        "J87-L01-Q4",
+        "J87-L01-Q5",
+        "J87-L01-Q6",
+        "J87-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "rotation-centre-and-direction",
+      "firstLesson": "J87-L02",
+      "firstUnit": "J87",
+      "sourceTasks": [
+        "J87-L02-G",
+        "J87-L02-Q1",
+        "J87-L02-Q2",
+        "J87-L02-Q3",
+        "J87-L02-Q4",
+        "J87-L02-Q5",
+        "J87-L02-Q6",
+        "J87-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "pythagorean-area-dissection",
+      "firstLesson": "J87-L03",
+      "firstUnit": "J87",
+      "sourceTasks": [
+        "J87-L03-G",
+        "J87-L03-Q1",
+        "J87-L03-Q2",
+        "J87-L03-Q3",
+        "J87-L03-Q4",
+        "J87-L03-Q5",
+        "J87-L03-Q6",
+        "J87-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "right-triangle-exact-length",
+      "firstLesson": "J87-L04",
+      "firstUnit": "J87",
+      "sourceTasks": [
+        "J87-L04-G",
+        "J87-L04-Q1",
+        "J87-L04-Q2",
+        "J87-L04-Q3",
+        "J87-L04-Q4",
+        "J87-L04-Q5",
+        "J87-L04-Q6",
+        "J87-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "pythagorean-converse-validity",
+      "firstLesson": "J87-L05",
+      "firstUnit": "J87",
+      "sourceTasks": [
+        "J87-L05-G",
+        "J87-L05-Q1",
+        "J87-L05-Q2",
+        "J87-L05-Q3",
+        "J87-L05-Q4",
+        "J87-L05-Q5",
+        "J87-L05-Q6",
+        "J87-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "quartile-convention",
+      "firstLesson": "J88-L01",
+      "firstUnit": "J88",
+      "sourceTasks": [
+        "J88-L01-G",
+        "J88-L01-Q1",
+        "J88-L01-Q2",
+        "J88-L01-Q3",
+        "J88-L01-Q4",
+        "J88-L01-Q5",
+        "J88-L01-Q6",
+        "J88-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "spread-evidence",
+      "firstLesson": "J88-L02",
+      "firstUnit": "J88",
+      "sourceTasks": [
+        "J88-L02-G",
+        "J88-L02-Q1",
+        "J88-L02-Q2",
+        "J88-L02-Q3",
+        "J88-L02-Q4",
+        "J88-L02-Q5",
+        "J88-L02-Q6",
+        "J88-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "paired-association",
+      "firstLesson": "J88-L03",
+      "firstUnit": "J88",
+      "sourceTasks": [
+        "J88-L03-G",
+        "J88-L03-Q1",
+        "J88-L03-Q2",
+        "J88-L03-Q3",
+        "J88-L03-Q4",
+        "J88-L03-Q5",
+        "J88-L03-Q6",
+        "J88-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "causal-evidence",
+      "firstLesson": "J88-L04",
+      "firstUnit": "J88",
+      "sourceTasks": [
+        "J88-L04-G",
+        "J88-L04-Q1",
+        "J88-L04-Q2",
+        "J88-L04-Q3",
+        "J88-L04-Q4",
+        "J88-L04-Q5",
+        "J88-L04-Q6",
+        "J88-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "statistical-enquiry",
+      "firstLesson": "J88-L05",
+      "firstUnit": "J88",
+      "sourceTasks": [
+        "J88-L05-G",
+        "J88-L05-Q1",
+        "J88-L05-Q2",
+        "J88-L05-Q3",
+        "J88-L05-Q4",
+        "J88-L05-Q5",
+        "J88-L05-Q6",
+        "J88-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "square-root-versus-principal",
+      "firstLesson": "J91-L01",
+      "firstUnit": "J91",
+      "sourceTasks": [
+        "J91-L01-G",
+        "J91-L01-Q1",
+        "J91-L01-Q2",
+        "J91-L01-Q3",
+        "J91-L01-Q4",
+        "J91-L01-Q5",
+        "J91-L01-Q6",
+        "J91-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "irrational-and-real-line",
+      "firstLesson": "J91-L02",
+      "firstUnit": "J91",
+      "sourceTasks": [
+        "J91-L02-G",
+        "J91-L02-Q1",
+        "J91-L02-Q2",
+        "J91-L02-Q3",
+        "J91-L02-Q4",
+        "J91-L02-Q5",
+        "J91-L02-Q6",
+        "J91-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "square-factor-simplification",
+      "firstLesson": "J91-L03",
+      "firstUnit": "J91",
+      "sourceTasks": [
+        "J91-L03-G",
+        "J91-L03-Q1",
+        "J91-L03-Q2",
+        "J91-L03-Q3",
+        "J91-L03-Q4",
+        "J91-L03-Q5",
+        "J91-L03-Q6",
+        "J91-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "radical-operation-domain",
+      "firstLesson": "J91-L04",
+      "firstUnit": "J91",
+      "sourceTasks": [
+        "J91-L04-G",
+        "J91-L04-Q1",
+        "J91-L04-Q2",
+        "J91-L04-Q3",
+        "J91-L04-Q4",
+        "J91-L04-Q5",
+        "J91-L04-Q6",
+        "J91-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "root-bounds-and-rounding",
+      "firstLesson": "J91-L05",
+      "firstUnit": "J91",
+      "sourceTasks": [
+        "J91-L05-G",
+        "J91-L05-Q1",
+        "J91-L05-Q2",
+        "J91-L05-Q3",
+        "J91-L05-Q4",
+        "J91-L05-Q5",
+        "J91-L05-Q6",
+        "J91-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "equation-zero-and-degree",
+      "firstLesson": "J92-L01",
+      "firstUnit": "J92",
+      "sourceTasks": [
+        "J92-L01-G",
+        "J92-L01-Q1",
+        "J92-L01-Q2",
+        "J92-L01-Q3",
+        "J92-L01-Q4",
+        "J92-L01-Q5",
+        "J92-L01-Q6",
+        "J92-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "quadratic-zero-product",
+      "firstLesson": "J92-L02",
+      "firstUnit": "J92",
+      "sourceTasks": [
+        "J92-L02-G",
+        "J92-L02-Q1",
+        "J92-L02-Q2",
+        "J92-L02-Q3",
+        "J92-L02-Q4",
+        "J92-L02-Q5",
+        "J92-L02-Q6",
+        "J92-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "completing-square-equivalence",
+      "firstLesson": "J92-L03",
+      "firstUnit": "J92",
+      "sourceTasks": [
+        "J92-L03-G",
+        "J92-L03-Q1",
+        "J92-L03-Q2",
+        "J92-L03-Q3",
+        "J92-L03-Q4",
+        "J92-L03-Q5",
+        "J92-L03-Q6",
+        "J92-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "quadratic-formula-derivation",
+      "firstLesson": "J92-L04",
+      "firstUnit": "J92",
+      "sourceTasks": [
+        "J92-L04-G",
+        "J92-L04-Q1",
+        "J92-L04-Q2",
+        "J92-L04-Q3",
+        "J92-L04-Q4",
+        "J92-L04-Q5",
+        "J92-L04-Q6",
+        "J92-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "discriminant-distinct-roots",
+      "firstLesson": "J92-L05",
+      "firstUnit": "J92",
+      "sourceTasks": [
+        "J92-L05-G",
+        "J92-L05-Q1",
+        "J92-L05-Q2",
+        "J92-L05-Q3",
+        "J92-L05-Q4",
+        "J92-L05-Q5",
+        "J92-L05-Q6",
+        "J92-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "quadratic-model-domain",
+      "firstLesson": "J92-L06",
+      "firstUnit": "J92",
+      "sourceTasks": [
+        "J92-L06-G",
+        "J92-L06-Q1",
+        "J92-L06-Q2",
+        "J92-L06-Q3",
+        "J92-L06-Q4",
+        "J92-L06-Q5",
+        "J92-L06-Q6",
+        "J92-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "parabola-opening-and-scale",
+      "firstLesson": "J93-L01",
+      "firstUnit": "J93",
+      "sourceTasks": [
+        "J93-L01-G",
+        "J93-L01-Q1",
+        "J93-L01-Q2",
+        "J93-L01-Q3",
+        "J93-L01-Q4",
+        "J93-L01-Q5",
+        "J93-L01-Q6",
+        "J93-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "parabola-vertex-and-symmetry",
+      "firstLesson": "J93-L02",
+      "firstUnit": "J93",
+      "sourceTasks": [
+        "J93-L02-G",
+        "J93-L02-Q1",
+        "J93-L02-Q2",
+        "J93-L02-Q3",
+        "J93-L02-Q4",
+        "J93-L02-Q5",
+        "J93-L02-Q6",
+        "J93-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "quadratic-function-forms",
+      "firstLesson": "J93-L03",
+      "firstUnit": "J93",
+      "sourceTasks": [
+        "J93-L03-G",
+        "J93-L03-Q1",
+        "J93-L03-Q2",
+        "J93-L03-Q3",
+        "J93-L03-Q4",
+        "J93-L03-Q5",
+        "J93-L03-Q6",
+        "J93-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "horizontal-intersection-equivalence",
+      "firstLesson": "J93-L04",
+      "firstUnit": "J93",
+      "sourceTasks": [
+        "J93-L04-G",
+        "J93-L04-Q1",
+        "J93-L04-Q2",
+        "J93-L04-Q3",
+        "J93-L04-Q4",
+        "J93-L04-Q5",
+        "J93-L04-Q6",
+        "J93-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "quadratic-domain-optimum",
+      "firstLesson": "J93-L05",
+      "firstUnit": "J93",
+      "sourceTasks": [
+        "J93-L05-G",
+        "J93-L05-Q1",
+        "J93-L05-Q2",
+        "J93-L05-Q3",
+        "J93-L05-Q4",
+        "J93-L05-Q5",
+        "J93-L05-Q6",
+        "J93-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "similarity-correspondence",
+      "firstLesson": "J94-L01",
+      "firstUnit": "J94",
+      "sourceTasks": [
+        "J94-L01-G",
+        "J94-L01-Q1",
+        "J94-L01-Q2",
+        "J94-L01-Q3",
+        "J94-L01-Q4",
+        "J94-L01-Q5",
+        "J94-L01-Q6",
+        "J94-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "similarity-evidence",
+      "firstLesson": "J94-L02",
+      "firstUnit": "J94",
+      "sourceTasks": [
+        "J94-L02-G",
+        "J94-L02-Q1",
+        "J94-L02-Q2",
+        "J94-L02-Q3",
+        "J94-L02-Q4",
+        "J94-L02-Q5",
+        "J94-L02-Q6",
+        "J94-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "similarity-side-proportion",
+      "firstLesson": "J94-L03",
+      "firstUnit": "J94",
+      "sourceTasks": [
+        "J94-L03-G",
+        "J94-L03-Q1",
+        "J94-L03-Q2",
+        "J94-L03-Q3",
+        "J94-L03-Q4",
+        "J94-L03-Q5",
+        "J94-L03-Q6",
+        "J94-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "similarity-area-square",
+      "firstLesson": "J94-L04",
+      "firstUnit": "J94",
+      "sourceTasks": [
+        "J94-L04-G",
+        "J94-L04-Q1",
+        "J94-L04-Q2",
+        "J94-L04-Q3",
+        "J94-L04-Q4",
+        "J94-L04-Q5",
+        "J94-L04-Q6",
+        "J94-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "similarity-model-premises",
+      "firstLesson": "J94-L05",
+      "firstUnit": "J94",
+      "sourceTasks": [
+        "J94-L05-G",
+        "J94-L05-Q1",
+        "J94-L05-Q2",
+        "J94-L05-Q3",
+        "J94-L05-Q4",
+        "J94-L05-Q5",
+        "J94-L05-Q6",
+        "J94-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-chord-contact",
+      "firstLesson": "J95-L01",
+      "firstUnit": "J95",
+      "sourceTasks": [
+        "J95-L01-G",
+        "J95-L01-Q1",
+        "J95-L01-Q2",
+        "J95-L01-Q3",
+        "J95-L01-Q4",
+        "J95-L01-Q5",
+        "J95-L01-Q6",
+        "J95-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-intercepted-arc",
+      "firstLesson": "J95-L02",
+      "firstUnit": "J95",
+      "sourceTasks": [
+        "J95-L02-G",
+        "J95-L02-Q1",
+        "J95-L02-Q2",
+        "J95-L02-Q3",
+        "J95-L02-Q4",
+        "J95-L02-Q5",
+        "J95-L02-Q6",
+        "J95-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-tangent-premises",
+      "firstLesson": "J95-L03",
+      "firstUnit": "J95",
+      "sourceTasks": [
+        "J95-L03-G",
+        "J95-L03-Q1",
+        "J95-L03-Q2",
+        "J95-L03-Q3",
+        "J95-L03-Q4",
+        "J95-L03-Q5",
+        "J95-L03-Q6",
+        "J95-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-sector-fraction",
+      "firstLesson": "J95-L04",
+      "firstUnit": "J95",
+      "sourceTasks": [
+        "J95-L04-G",
+        "J95-L04-Q1",
+        "J95-L04-Q2",
+        "J95-L04-Q3",
+        "J95-L04-Q4",
+        "J95-L04-Q5",
+        "J95-L04-Q6",
+        "J95-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circle-proof-dependency",
+      "firstLesson": "J95-L05",
+      "firstUnit": "J95",
+      "sourceTasks": [
+        "J95-L05-G",
+        "J95-L05-Q1",
+        "J95-L05-Q2",
+        "J95-L05-Q3",
+        "J95-L05-Q4",
+        "J95-L05-Q5",
+        "J95-L05-Q6",
+        "J95-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "trig-sine-correspondence",
+      "firstLesson": "J96-L01",
+      "firstUnit": "J96",
+      "sourceTasks": [
+        "J96-L01-G",
+        "J96-L01-Q1",
+        "J96-L01-Q2",
+        "J96-L01-Q3",
+        "J96-L01-Q4",
+        "J96-L01-Q5",
+        "J96-L01-Q6",
+        "J96-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "trig-cosine-tangent-sides",
+      "firstLesson": "J96-L02",
+      "firstUnit": "J96",
+      "sourceTasks": [
+        "J96-L02-G",
+        "J96-L02-Q1",
+        "J96-L02-Q2",
+        "J96-L02-Q3",
+        "J96-L02-Q4",
+        "J96-L02-Q5",
+        "J96-L02-Q6",
+        "J96-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "trig-acute-domain-variation",
+      "firstLesson": "J96-L03",
+      "firstUnit": "J96",
+      "sourceTasks": [
+        "J96-L03-G",
+        "J96-L03-Q1",
+        "J96-L03-Q2",
+        "J96-L03-Q3",
+        "J96-L03-Q4",
+        "J96-L03-Q5",
+        "J96-L03-Q6",
+        "J96-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "trig-inverse-degree-precision",
+      "firstLesson": "J96-L04",
+      "firstUnit": "J96",
+      "sourceTasks": [
+        "J96-L04-G",
+        "J96-L04-Q1",
+        "J96-L04-Q2",
+        "J96-L04-Q3",
+        "J96-L04-Q4",
+        "J96-L04-Q5",
+        "J96-L04-Q6",
+        "J96-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "trig-height-gradient-premises",
+      "firstLesson": "J96-L05",
+      "firstUnit": "J96",
+      "sourceTasks": [
+        "J96-L05-G",
+        "J96-L05-Q1",
+        "J96-L05-Q2",
+        "J96-L05-Q3",
+        "J96-L05-Q4",
+        "J96-L05-Q5",
+        "J96-L05-Q6",
+        "J96-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "probability-independence-product",
+      "firstLesson": "J97-L01",
+      "firstUnit": "J97",
+      "sourceTasks": [
+        "J97-L01-G",
+        "J97-L01-Q1",
+        "J97-L01-Q2",
+        "J97-L01-Q3",
+        "J97-L01-Q4",
+        "J97-L01-Q5",
+        "J97-L01-Q6",
+        "J97-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "probability-conditional-product",
+      "firstLesson": "J97-L02",
+      "firstUnit": "J97",
+      "sourceTasks": [
+        "J97-L02-G",
+        "J97-L02-Q1",
+        "J97-L02-Q2",
+        "J97-L02-Q3",
+        "J97-L02-Q4",
+        "J97-L02-Q5",
+        "J97-L02-Q6",
+        "J97-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "probability-without-ordered-pairs",
+      "firstLesson": "J97-L03",
+      "firstUnit": "J97",
+      "sourceTasks": [
+        "J97-L03-G",
+        "J97-L03-Q1",
+        "J97-L03-Q2",
+        "J97-L03-Q3",
+        "J97-L03-Q4",
+        "J97-L03-Q5",
+        "J97-L03-Q6",
+        "J97-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "probability-frame-response-bias",
+      "firstLesson": "J97-L04",
+      "firstUnit": "J97",
+      "sourceTasks": [
+        "J97-L04-G",
+        "J97-L04-Q1",
+        "J97-L04-Q2",
+        "J97-L04-Q3",
+        "J97-L04-Q4",
+        "J97-L04-Q5",
+        "J97-L04-Q6",
+        "J97-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "probability-simulation-theory",
+      "firstLesson": "J97-L05",
+      "firstUnit": "J97",
+      "sourceTasks": [
+        "J97-L05-G",
+        "J97-L05-Q1",
+        "J97-L05-Q2",
+        "J97-L05-Q3",
+        "J97-L05-Q4",
+        "J97-L05-Q5",
+        "J97-L05-Q6",
+        "J97-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-geometry-algebra",
+      "firstLesson": "J98-L01",
+      "firstUnit": "J98",
+      "sourceTasks": [
+        "J98-L01-G",
+        "J98-L01-Q1",
+        "J98-L01-Q2",
+        "J98-L01-Q3",
+        "J98-L01-Q4",
+        "J98-L01-Q5",
+        "J98-L01-Q6",
+        "J98-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-graph-assumptions",
+      "firstLesson": "J98-L02",
+      "firstUnit": "J98",
+      "sourceTasks": [
+        "J98-L02-G",
+        "J98-L02-Q1",
+        "J98-L02-Q2",
+        "J98-L02-Q3",
+        "J98-L02-Q4",
+        "J98-L02-Q5",
+        "J98-L02-Q6",
+        "J98-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-dependent-strategy",
+      "firstLesson": "J98-L03",
+      "firstUnit": "J98",
+      "sourceTasks": [
+        "J98-L03-G",
+        "J98-L03-Q1",
+        "J98-L03-Q2",
+        "J98-L03-Q3",
+        "J98-L03-Q4",
+        "J98-L03-Q5",
+        "J98-L03-Q6",
+        "J98-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-reasonableness-audit",
+      "firstLesson": "J98-L04",
+      "firstUnit": "J98",
+      "sourceTasks": [
+        "J98-L04-G",
+        "J98-L04-Q1",
+        "J98-L04-Q2",
+        "J98-L04-Q3",
+        "J98-L04-Q4",
+        "J98-L04-Q5",
+        "J98-L04-Q6",
+        "J98-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-ramp-constraints",
+      "firstLesson": "J98-L05",
+      "firstUnit": "J98",
+      "sourceTasks": [
+        "J98-L05-G",
+        "J98-L05-Q1",
+        "J98-L05-Q2",
+        "J98-L05-Q3",
+        "J98-L05-Q4",
+        "J98-L05-Q5",
+        "J98-L05-Q6",
+        "J98-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "set-elements-boundaries",
+      "firstLesson": "H01-L01",
+      "firstUnit": "H01",
+      "sourceTasks": [
+        "H01-L01-G",
+        "H01-L01-Q1",
+        "H01-L01-Q2",
+        "H01-L01-Q3",
+        "H01-L01-Q4",
+        "H01-L01-Q5",
+        "H01-L01-Q6",
+        "H01-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "set-boolean-operations",
+      "firstLesson": "H01-L02",
+      "firstUnit": "H01",
+      "sourceTasks": [
+        "H01-L02-G",
+        "H01-L02-Q1",
+        "H01-L02-Q2",
+        "H01-L02-Q3",
+        "H01-L02-Q4",
+        "H01-L02-Q5",
+        "H01-L02-Q6",
+        "H01-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "logic-domain-counterexample",
+      "firstLesson": "H01-L03",
+      "firstUnit": "H01",
+      "sourceTasks": [
+        "H01-L03-G",
+        "H01-L03-Q1",
+        "H01-L03-Q2",
+        "H01-L03-Q3",
+        "H01-L03-Q4",
+        "H01-L03-Q5",
+        "H01-L03-Q6",
+        "H01-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "logic-two-directions",
+      "firstLesson": "H01-L04",
+      "firstUnit": "H01",
+      "sourceTasks": [
+        "H01-L04-G",
+        "H01-L04-Q1",
+        "H01-L04-Q2",
+        "H01-L04-Q3",
+        "H01-L04-Q4",
+        "H01-L04-Q5",
+        "H01-L04-Q6",
+        "H01-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "absolute-complete-real-set",
+      "firstLesson": "H01-L05",
+      "firstUnit": "H01",
+      "sourceTasks": [
+        "H01-L05-G",
+        "H01-L05-Q1",
+        "H01-L05-Q2",
+        "H01-L05-Q3",
+        "H01-L05-Q4",
+        "H01-L05-Q5",
+        "H01-L05-Q6",
+        "H01-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "function-domain-image",
+      "firstLesson": "H02-L01",
+      "firstUnit": "H02",
+      "sourceTasks": [
+        "H02-L01-G",
+        "H02-L01-Q1",
+        "H02-L01-Q2",
+        "H02-L01-Q3",
+        "H02-L01-Q4",
+        "H02-L01-Q5",
+        "H02-L01-Q6",
+        "H02-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "function-linked-representations",
+      "firstLesson": "H02-L02",
+      "firstUnit": "H02",
+      "sourceTasks": [
+        "H02-L02-G",
+        "H02-L02-Q1",
+        "H02-L02-Q2",
+        "H02-L02-Q3",
+        "H02-L02-Q4",
+        "H02-L02-Q5",
+        "H02-L02-Q6",
+        "H02-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "function-domain-properties",
+      "firstLesson": "H02-L03",
+      "firstUnit": "H02",
+      "sourceTasks": [
+        "H02-L03-G",
+        "H02-L03-Q1",
+        "H02-L03-Q2",
+        "H02-L03-Q3",
+        "H02-L03-Q4",
+        "H02-L03-Q5",
+        "H02-L03-Q6",
+        "H02-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "function-point-transform",
+      "firstLesson": "H02-L04",
+      "firstUnit": "H02",
+      "sourceTasks": [
+        "H02-L04-G",
+        "H02-L04-Q1",
+        "H02-L04-Q2",
+        "H02-L04-Q3",
+        "H02-L04-Q4",
+        "H02-L04-Q5",
+        "H02-L04-Q6",
+        "H02-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "function-inverse-correspondence",
+      "firstLesson": "H02-L05",
+      "firstUnit": "H02",
+      "sourceTasks": [
+        "H02-L05-G",
+        "H02-L05-Q1",
+        "H02-L05-Q2",
+        "H02-L05-Q3",
+        "H02-L05-Q4",
+        "H02-L05-Q5",
+        "H02-L05-Q6",
+        "H02-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "function-piecewise-boundaries",
+      "firstLesson": "H02-L06",
+      "firstUnit": "H02",
+      "sourceTasks": [
+        "H02-L06-G",
+        "H02-L06-Q1",
+        "H02-L06-Q2",
+        "H02-L06-Q3",
+        "H02-L06-Q4",
+        "H02-L06-Q5",
+        "H02-L06-Q6",
+        "H02-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "exponent-laws-reciprocal",
+      "firstLesson": "H03-L01",
+      "firstUnit": "H03",
+      "sourceTasks": [
+        "H03-L01-G",
+        "H03-L01-Q1",
+        "H03-L01-Q2",
+        "H03-L01-Q3",
+        "H03-L01-Q4",
+        "H03-L01-Q5",
+        "H03-L01-Q6",
+        "H03-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "exponent-rational-root",
+      "firstLesson": "H03-L02",
+      "firstUnit": "H03",
+      "sourceTasks": [
+        "H03-L02-G",
+        "H03-L02-Q1",
+        "H03-L02-Q2",
+        "H03-L02-Q3",
+        "H03-L02-Q4",
+        "H03-L02-Q5",
+        "H03-L02-Q6",
+        "H03-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "exponential-equal-ratios",
+      "firstLesson": "H03-L03",
+      "firstUnit": "H03",
+      "sourceTasks": [
+        "H03-L03-G",
+        "H03-L03-Q1",
+        "H03-L03-Q2",
+        "H03-L03-Q3",
+        "H03-L03-Q4",
+        "H03-L03-Q5",
+        "H03-L03-Q6",
+        "H03-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "log-inverse-domain",
+      "firstLesson": "H03-L04",
+      "firstUnit": "H03",
+      "sourceTasks": [
+        "H03-L04-G",
+        "H03-L04-Q1",
+        "H03-L04-Q2",
+        "H03-L04-Q3",
+        "H03-L04-Q4",
+        "H03-L04-Q5",
+        "H03-L04-Q6",
+        "H03-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "log-laws-domain",
+      "firstLesson": "H03-L05",
+      "firstUnit": "H03",
+      "sourceTasks": [
+        "H03-L05-G",
+        "H03-L05-Q1",
+        "H03-L05-Q2",
+        "H03-L05-Q3",
+        "H03-L05-Q4",
+        "H03-L05-Q5",
+        "H03-L05-Q6",
+        "H03-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "exponential-model-threshold",
+      "firstLesson": "H03-L06",
+      "firstUnit": "H03",
+      "sourceTasks": [
+        "H03-L06-G",
+        "H03-L06-Q1",
+        "H03-L06-Q2",
+        "H03-L06-Q3",
+        "H03-L06-Q4",
+        "H03-L06-Q5",
+        "H03-L06-Q6",
+        "H03-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "radian-arc-ratio",
+      "firstLesson": "H04-L01",
+      "firstUnit": "H04",
+      "sourceTasks": [
+        "H04-L01-G",
+        "H04-L01-Q1",
+        "H04-L01-Q2",
+        "H04-L01-Q3",
+        "H04-L01-Q4",
+        "H04-L01-Q5",
+        "H04-L01-Q6",
+        "H04-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "unit-circle-signed-coordinates",
+      "firstLesson": "H04-L02",
+      "firstUnit": "H04",
+      "sourceTasks": [
+        "H04-L02-G",
+        "H04-L02-Q1",
+        "H04-L02-Q2",
+        "H04-L02-Q3",
+        "H04-L02-Q4",
+        "H04-L02-Q5",
+        "H04-L02-Q6",
+        "H04-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circular-coordinate-to-wave",
+      "firstLesson": "H04-L03",
+      "firstUnit": "H04",
+      "sourceTasks": [
+        "H04-L03-G",
+        "H04-L03-Q1",
+        "H04-L03-Q2",
+        "H04-L03-Q3",
+        "H04-L03-Q4",
+        "H04-L03-Q5",
+        "H04-L03-Q6",
+        "H04-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circular-inner-angle-transform",
+      "firstLesson": "H04-L04",
+      "firstUnit": "H04",
+      "sourceTasks": [
+        "H04-L04-G",
+        "H04-L04-Q1",
+        "H04-L04-Q2",
+        "H04-L04-Q3",
+        "H04-L04-Q4",
+        "H04-L04-Q5",
+        "H04-L04-Q6",
+        "H04-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circular-identity-with-domain",
+      "firstLesson": "H04-L05",
+      "firstUnit": "H04",
+      "sourceTasks": [
+        "H04-L05-G",
+        "H04-L05-Q1",
+        "H04-L05-Q2",
+        "H04-L05-Q3",
+        "H04-L05-Q4",
+        "H04-L05-Q5",
+        "H04-L05-Q6",
+        "H04-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "circular-complete-finite-roots",
+      "firstLesson": "H04-L06",
+      "firstUnit": "H04",
+      "sourceTasks": [
+        "H04-L06-G",
+        "H04-L06-Q1",
+        "H04-L06-Q2",
+        "H04-L06-Q3",
+        "H04-L06-Q4",
+        "H04-L06-Q5",
+        "H04-L06-Q6",
+        "H04-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "vector-value-not-position",
+      "firstLesson": "H05-L01",
+      "firstUnit": "H05",
+      "sourceTasks": [
+        "H05-L01-G",
+        "H05-L01-Q1",
+        "H05-L01-Q2",
+        "H05-L01-Q3",
+        "H05-L01-Q4",
+        "H05-L01-Q5",
+        "H05-L01-Q6",
+        "H05-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "vector-head-tail-and-difference",
+      "firstLesson": "H05-L02",
+      "firstUnit": "H05",
+      "sourceTasks": [
+        "H05-L02-G",
+        "H05-L02-Q1",
+        "H05-L02-Q2",
+        "H05-L02-Q3",
+        "H05-L02-Q4",
+        "H05-L02-Q5",
+        "H05-L02-Q6",
+        "H05-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "vector-scalar-sign-and-size",
+      "firstLesson": "H05-L03",
+      "firstUnit": "H05",
+      "sourceTasks": [
+        "H05-L03-G",
+        "H05-L03-Q1",
+        "H05-L03-Q2",
+        "H05-L03-Q3",
+        "H05-L03-Q4",
+        "H05-L03-Q5",
+        "H05-L03-Q6",
+        "H05-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "vector-end-minus-start",
+      "firstLesson": "H05-L04",
+      "firstUnit": "H05",
+      "sourceTasks": [
+        "H05-L04-G",
+        "H05-L04-Q1",
+        "H05-L04-Q2",
+        "H05-L04-Q3",
+        "H05-L04-Q4",
+        "H05-L04-Q5",
+        "H05-L04-Q6",
+        "H05-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "vector-dot-angle-with-domain",
+      "firstLesson": "H05-L05",
+      "firstUnit": "H05",
+      "sourceTasks": [
+        "H05-L05-G",
+        "H05-L05-Q1",
+        "H05-L05-Q2",
+        "H05-L05-Q3",
+        "H05-L05-Q4",
+        "H05-L05-Q5",
+        "H05-L05-Q6",
+        "H05-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "vector-geometry-with-premises",
+      "firstLesson": "H05-L06",
+      "firstUnit": "H05",
+      "sourceTasks": [
+        "H05-L06-G",
+        "H05-L06-Q1",
+        "H05-L06-Q2",
+        "H05-L06-Q3",
+        "H05-L06-Q4",
+        "H05-L06-Q5",
+        "H05-L06-Q6",
+        "H05-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "spatial-incidence-and-coplanarity",
+      "firstLesson": "H06-L01",
+      "firstUnit": "H06",
+      "sourceTasks": [
+        "H06-L01-G",
+        "H06-L01-Q1",
+        "H06-L01-Q2",
+        "H06-L01-Q3",
+        "H06-L01-Q4",
+        "H06-L01-Q5",
+        "H06-L01-Q6",
+        "H06-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "solid-structure-and-height",
+      "firstLesson": "H06-L02",
+      "firstUnit": "H06",
+      "sourceTasks": [
+        "H06-L02-G",
+        "H06-L02-Q1",
+        "H06-L02-Q2",
+        "H06-L02-Q3",
+        "H06-L02-Q4",
+        "H06-L02-Q5",
+        "H06-L02-Q6",
+        "H06-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "sections-and-face-identity",
+      "firstLesson": "H06-L03",
+      "firstUnit": "H06",
+      "sourceTasks": [
+        "H06-L03-G",
+        "H06-L03-Q1",
+        "H06-L03-Q2",
+        "H06-L03-Q3",
+        "H06-L03-Q4",
+        "H06-L03-Q5",
+        "H06-L03-Q6",
+        "H06-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "spatial-distance-and-projection",
+      "firstLesson": "H06-L04",
+      "firstUnit": "H06",
+      "sourceTasks": [
+        "H06-L04-G",
+        "H06-L04-Q1",
+        "H06-L04-Q2",
+        "H06-L04-Q3",
+        "H06-L04-Q4",
+        "H06-L04-Q5",
+        "H06-L04-Q6",
+        "H06-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "composite-volume-exposed-area",
+      "firstLesson": "H06-L05",
+      "firstUnit": "H06",
+      "sourceTasks": [
+        "H06-L05-G",
+        "H06-L05-Q1",
+        "H06-L05-Q2",
+        "H06-L05-Q3",
+        "H06-L05-Q4",
+        "H06-L05-Q5",
+        "H06-L05-Q6",
+        "H06-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "sequence-index-rule-evidence",
+      "firstLesson": "H07-L01",
+      "firstUnit": "H07",
+      "sourceTasks": [
+        "H07-L01-G",
+        "H07-L01-Q1",
+        "H07-L01-Q2",
+        "H07-L01-Q3",
+        "H07-L01-Q4",
+        "H07-L01-Q5",
+        "H07-L01-Q6",
+        "H07-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "arithmetic-index-gaps",
+      "firstLesson": "H07-L02",
+      "firstUnit": "H07",
+      "sourceTasks": [
+        "H07-L02-G",
+        "H07-L02-Q1",
+        "H07-L02-Q2",
+        "H07-L02-Q3",
+        "H07-L02-Q4",
+        "H07-L02-Q5",
+        "H07-L02-Q6",
+        "H07-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "arithmetic-sum-two-copies",
+      "firstLesson": "H07-L03",
+      "firstUnit": "H07",
+      "sourceTasks": [
+        "H07-L03-G",
+        "H07-L03-Q1",
+        "H07-L03-Q2",
+        "H07-L03-Q3",
+        "H07-L03-Q4",
+        "H07-L03-Q5",
+        "H07-L03-Q6",
+        "H07-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "geometric-ratio-sign-zero",
+      "firstLesson": "H07-L04",
+      "firstUnit": "H07",
+      "sourceTasks": [
+        "H07-L04-G",
+        "H07-L04-Q1",
+        "H07-L04-Q2",
+        "H07-L04-Q3",
+        "H07-L04-Q4",
+        "H07-L04-Q5",
+        "H07-L04-Q6",
+        "H07-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "finite-geometric-tail-and-unit-ratio",
+      "firstLesson": "H07-L05",
+      "firstUnit": "H07",
+      "sourceTasks": [
+        "H07-L05-G",
+        "H07-L05-Q1",
+        "H07-L05-Q2",
+        "H07-L05-Q3",
+        "H07-L05-Q4",
+        "H07-L05-Q5",
+        "H07-L05-Q6",
+        "H07-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "savings-affine-recurrence-and-timing",
+      "firstLesson": "H07-L06",
+      "firstUnit": "H07",
+      "sourceTasks": [
+        "H07-L06-G",
+        "H07-L06-Q1",
+        "H07-L06-Q2",
+        "H07-L06-Q3",
+        "H07-L06-Q4",
+        "H07-L06-Q5",
+        "H07-L06-Q6",
+        "H07-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "data-type-identity-source",
+      "firstLesson": "H08-L01",
+      "firstUnit": "H08",
+      "sourceTasks": [
+        "H08-L01-G",
+        "H08-L01-Q1",
+        "H08-L01-Q2",
+        "H08-L01-Q3",
+        "H08-L01-Q4",
+        "H08-L01-Q5",
+        "H08-L01-Q6",
+        "H08-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "data-shape-tail-evidence",
+      "firstLesson": "H08-L02",
+      "firstUnit": "H08",
+      "sourceTasks": [
+        "H08-L02-G",
+        "H08-L02-Q1",
+        "H08-L02-Q2",
+        "H08-L02-Q3",
+        "H08-L02-Q4",
+        "H08-L02-Q5",
+        "H08-L02-Q6",
+        "H08-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "data-squared-spread-convention",
+      "firstLesson": "H08-L03",
+      "firstUnit": "H08",
+      "sourceTasks": [
+        "H08-L03-G",
+        "H08-L03-Q1",
+        "H08-L03-Q2",
+        "H08-L03-Q3",
+        "H08-L03-Q4",
+        "H08-L03-Q5",
+        "H08-L03-Q6",
+        "H08-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "data-z-reference-boundary",
+      "firstLesson": "H08-L04",
+      "firstUnit": "H08",
+      "sourceTasks": [
+        "H08-L04-G",
+        "H08-L04-Q1",
+        "H08-L04-Q2",
+        "H08-L04-Q3",
+        "H08-L04-Q4",
+        "H08-L04-Q5",
+        "H08-L04-Q6",
+        "H08-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "data-paired-residual-model",
+      "firstLesson": "H08-L05",
+      "firstUnit": "H08",
+      "sourceTasks": [
+        "H08-L05-G",
+        "H08-L05-Q1",
+        "H08-L05-Q2",
+        "H08-L05-Q3",
+        "H08-L05-Q4",
+        "H08-L05-Q5",
+        "H08-L05-Q6",
+        "H08-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "complex-domain-square-cycle",
+      "firstLesson": "H21-L01",
+      "firstUnit": "H21",
+      "sourceTasks": [
+        "H21-L01-G",
+        "H21-L01-Q1",
+        "H21-L01-Q2",
+        "H21-L01-Q3",
+        "H21-L01-Q4",
+        "H21-L01-Q5",
+        "H21-L01-Q6",
+        "H21-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "complex-coefficients-equality",
+      "firstLesson": "H21-L02",
+      "firstUnit": "H21",
+      "sourceTasks": [
+        "H21-L02-G",
+        "H21-L02-Q1",
+        "H21-L02-Q2",
+        "H21-L02-Q3",
+        "H21-L02-Q4",
+        "H21-L02-Q5",
+        "H21-L02-Q6",
+        "H21-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "complex-distribution-collection",
+      "firstLesson": "H21-L03",
+      "firstUnit": "H21",
+      "sourceTasks": [
+        "H21-L03-G",
+        "H21-L03-Q1",
+        "H21-L03-Q2",
+        "H21-L03-Q3",
+        "H21-L03-Q4",
+        "H21-L03-Q5",
+        "H21-L03-Q6",
+        "H21-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "complex-conjugate-norm",
+      "firstLesson": "H21-L04",
+      "firstUnit": "H21",
+      "sourceTasks": [
+        "H21-L04-G",
+        "H21-L04-Q1",
+        "H21-L04-Q2",
+        "H21-L04-Q3",
+        "H21-L04-Q4",
+        "H21-L04-Q5",
+        "H21-L04-Q6",
+        "H21-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "complex-plane-centre-transform",
+      "firstLesson": "H21-L05",
+      "firstUnit": "H21",
+      "sourceTasks": [
+        "H21-L05-G",
+        "H21-L05-Q1",
+        "H21-L05-Q2",
+        "H21-L05-Q3",
+        "H21-L05-Q4",
+        "H21-L05-Q5",
+        "H21-L05-Q6",
+        "H21-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-1",
+      "firstLesson": "H22-L01",
+      "firstUnit": "H22",
+      "sourceTasks": [
+        "H22-L01-G",
+        "H22-L01-Q1",
+        "H22-L01-Q2",
+        "H22-L01-Q3",
+        "H22-L01-Q4",
+        "H22-L01-Q5",
+        "H22-L01-Q6",
+        "H22-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-2",
+      "firstLesson": "H22-L02",
+      "firstUnit": "H22",
+      "sourceTasks": [
+        "H22-L02-G",
+        "H22-L02-Q1",
+        "H22-L02-Q2",
+        "H22-L02-Q3",
+        "H22-L02-Q4",
+        "H22-L02-Q5",
+        "H22-L02-Q6",
+        "H22-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-3",
+      "firstLesson": "H22-L03",
+      "firstUnit": "H22",
+      "sourceTasks": [
+        "H22-L03-G",
+        "H22-L03-Q1",
+        "H22-L03-Q2",
+        "H22-L03-Q3",
+        "H22-L03-Q4",
+        "H22-L03-Q5",
+        "H22-L03-Q6",
+        "H22-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-4",
+      "firstLesson": "H22-L04",
+      "firstUnit": "H22",
+      "sourceTasks": [
+        "H22-L04-G",
+        "H22-L04-Q1",
+        "H22-L04-Q2",
+        "H22-L04-Q3",
+        "H22-L04-Q4",
+        "H22-L04-Q5",
+        "H22-L04-Q6",
+        "H22-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-5",
+      "firstLesson": "H22-L05",
+      "firstUnit": "H22",
+      "sourceTasks": [
+        "H22-L05-G",
+        "H22-L05-Q1",
+        "H22-L05-Q2",
+        "H22-L05-Q3",
+        "H22-L05-Q4",
+        "H22-L05-Q5",
+        "H22-L05-Q6",
+        "H22-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-6",
+      "firstLesson": "H22-L06",
+      "firstUnit": "H22",
+      "sourceTasks": [
+        "H22-L06-G",
+        "H22-L06-Q1",
+        "H22-L06-Q2",
+        "H22-L06-Q3",
+        "H22-L06-Q4",
+        "H22-L06-Q5",
+        "H22-L06-Q6",
+        "H22-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "space-vector-1",
+      "firstLesson": "H23-L01",
+      "firstUnit": "H23",
+      "sourceTasks": [
+        "H23-L01-G",
+        "H23-L01-Q1",
+        "H23-L01-Q2",
+        "H23-L01-Q3",
+        "H23-L01-Q4",
+        "H23-L01-Q5",
+        "H23-L01-Q6",
+        "H23-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "space-vector-2",
+      "firstLesson": "H23-L02",
+      "firstUnit": "H23",
+      "sourceTasks": [
+        "H23-L02-G",
+        "H23-L02-Q1",
+        "H23-L02-Q2",
+        "H23-L02-Q3",
+        "H23-L02-Q4",
+        "H23-L02-Q5",
+        "H23-L02-Q6",
+        "H23-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "space-vector-3",
+      "firstLesson": "H23-L03",
+      "firstUnit": "H23",
+      "sourceTasks": [
+        "H23-L03-G",
+        "H23-L03-Q1",
+        "H23-L03-Q2",
+        "H23-L03-Q3",
+        "H23-L03-Q4",
+        "H23-L03-Q5",
+        "H23-L03-Q6",
+        "H23-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "space-vector-4",
+      "firstLesson": "H23-L04",
+      "firstUnit": "H23",
+      "sourceTasks": [
+        "H23-L04-G",
+        "H23-L04-Q1",
+        "H23-L04-Q2",
+        "H23-L04-Q3",
+        "H23-L04-Q4",
+        "H23-L04-Q5",
+        "H23-L04-Q6",
+        "H23-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "space-vector-5",
+      "firstLesson": "H23-L05",
+      "firstUnit": "H23",
+      "sourceTasks": [
+        "H23-L05-G",
+        "H23-L05-Q1",
+        "H23-L05-Q2",
+        "H23-L05-Q3",
+        "H23-L05-Q4",
+        "H23-L05-Q5",
+        "H23-L05-Q6",
+        "H23-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "counting-1",
+      "firstLesson": "H24-L01",
+      "firstUnit": "H24",
+      "sourceTasks": [
+        "H24-L01-G",
+        "H24-L01-Q1",
+        "H24-L01-Q2",
+        "H24-L01-Q3",
+        "H24-L01-Q4",
+        "H24-L01-Q5",
+        "H24-L01-Q6",
+        "H24-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "counting-2",
+      "firstLesson": "H24-L02",
+      "firstUnit": "H24",
+      "sourceTasks": [
+        "H24-L02-G",
+        "H24-L02-Q1",
+        "H24-L02-Q2",
+        "H24-L02-Q3",
+        "H24-L02-Q4",
+        "H24-L02-Q5",
+        "H24-L02-Q6",
+        "H24-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "counting-3",
+      "firstLesson": "H24-L03",
+      "firstUnit": "H24",
+      "sourceTasks": [
+        "H24-L03-G",
+        "H24-L03-Q1",
+        "H24-L03-Q2",
+        "H24-L03-Q3",
+        "H24-L03-Q4",
+        "H24-L03-Q5",
+        "H24-L03-Q6",
+        "H24-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "counting-4",
+      "firstLesson": "H24-L04",
+      "firstUnit": "H24",
+      "sourceTasks": [
+        "H24-L04-G",
+        "H24-L04-Q1",
+        "H24-L04-Q2",
+        "H24-L04-Q3",
+        "H24-L04-Q4",
+        "H24-L04-Q5",
+        "H24-L04-Q6",
+        "H24-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "counting-5",
+      "firstLesson": "H24-L05",
+      "firstUnit": "H24",
+      "sourceTasks": [
+        "H24-L05-G",
+        "H24-L05-Q1",
+        "H24-L05-Q2",
+        "H24-L05-Q3",
+        "H24-L05-Q4",
+        "H24-L05-Q5",
+        "H24-L05-Q6",
+        "H24-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "counting-6",
+      "firstLesson": "H24-L06",
+      "firstUnit": "H24",
+      "sourceTasks": [
+        "H24-L06-G",
+        "H24-L06-Q1",
+        "H24-L06-Q2",
+        "H24-L06-Q3",
+        "H24-L06-Q4",
+        "H24-L06-Q5",
+        "H24-L06-Q6",
+        "H24-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "derivative-1",
+      "firstLesson": "H25-L01",
+      "firstUnit": "H25",
+      "sourceTasks": [
+        "H25-L01-G",
+        "H25-L01-Q1",
+        "H25-L01-Q2",
+        "H25-L01-Q3",
+        "H25-L01-Q4",
+        "H25-L01-Q5",
+        "H25-L01-Q6",
+        "H25-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "derivative-2",
+      "firstLesson": "H25-L02",
+      "firstUnit": "H25",
+      "sourceTasks": [
+        "H25-L02-G",
+        "H25-L02-Q1",
+        "H25-L02-Q2",
+        "H25-L02-Q3",
+        "H25-L02-Q4",
+        "H25-L02-Q5",
+        "H25-L02-Q6",
+        "H25-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "derivative-3",
+      "firstLesson": "H25-L03",
+      "firstUnit": "H25",
+      "sourceTasks": [
+        "H25-L03-G",
+        "H25-L03-Q1",
+        "H25-L03-Q2",
+        "H25-L03-Q3",
+        "H25-L03-Q4",
+        "H25-L03-Q5",
+        "H25-L03-Q6",
+        "H25-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "derivative-4",
+      "firstLesson": "H25-L04",
+      "firstUnit": "H25",
+      "sourceTasks": [
+        "H25-L04-G",
+        "H25-L04-Q1",
+        "H25-L04-Q2",
+        "H25-L04-Q3",
+        "H25-L04-Q4",
+        "H25-L04-Q5",
+        "H25-L04-Q6",
+        "H25-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "derivative-5",
+      "firstLesson": "H25-L05",
+      "firstUnit": "H25",
+      "sourceTasks": [
+        "H25-L05-G",
+        "H25-L05-Q1",
+        "H25-L05-Q2",
+        "H25-L05-Q3",
+        "H25-L05-Q4",
+        "H25-L05-Q5",
+        "H25-L05-Q6",
+        "H25-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "derivative-6",
+      "firstLesson": "H25-L06",
+      "firstUnit": "H25",
+      "sourceTasks": [
+        "H25-L06-G",
+        "H25-L06-Q1",
+        "H25-L06-Q2",
+        "H25-L06-Q3",
+        "H25-L06-Q4",
+        "H25-L06-Q5",
+        "H25-L06-Q6",
+        "H25-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analysis-1",
+      "firstLesson": "H26-L01",
+      "firstUnit": "H26",
+      "sourceTasks": [
+        "H26-L01-G",
+        "H26-L01-Q1",
+        "H26-L01-Q2",
+        "H26-L01-Q3",
+        "H26-L01-Q4",
+        "H26-L01-Q5",
+        "H26-L01-Q6",
+        "H26-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analysis-2",
+      "firstLesson": "H26-L02",
+      "firstUnit": "H26",
+      "sourceTasks": [
+        "H26-L02-G",
+        "H26-L02-Q1",
+        "H26-L02-Q2",
+        "H26-L02-Q3",
+        "H26-L02-Q4",
+        "H26-L02-Q5",
+        "H26-L02-Q6",
+        "H26-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analysis-3",
+      "firstLesson": "H26-L03",
+      "firstUnit": "H26",
+      "sourceTasks": [
+        "H26-L03-G",
+        "H26-L03-Q1",
+        "H26-L03-Q2",
+        "H26-L03-Q3",
+        "H26-L03-Q4",
+        "H26-L03-Q5",
+        "H26-L03-Q6",
+        "H26-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analysis-4",
+      "firstLesson": "H26-L04",
+      "firstUnit": "H26",
+      "sourceTasks": [
+        "H26-L04-G",
+        "H26-L04-Q1",
+        "H26-L04-Q2",
+        "H26-L04-Q3",
+        "H26-L04-Q4",
+        "H26-L04-Q5",
+        "H26-L04-Q6",
+        "H26-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analysis-5",
+      "firstLesson": "H26-L05",
+      "firstUnit": "H26",
+      "sourceTasks": [
+        "H26-L05-G",
+        "H26-L05-Q1",
+        "H26-L05-Q2",
+        "H26-L05-Q3",
+        "H26-L05-Q4",
+        "H26-L05-Q5",
+        "H26-L05-Q6",
+        "H26-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "statistics-1",
+      "firstLesson": "H27-L01",
+      "firstUnit": "H27",
+      "sourceTasks": [
+        "H27-L01-G",
+        "H27-L01-Q1",
+        "H27-L01-Q2",
+        "H27-L01-Q3",
+        "H27-L01-Q4",
+        "H27-L01-Q5",
+        "H27-L01-Q6",
+        "H27-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "statistics-2",
+      "firstLesson": "H27-L02",
+      "firstUnit": "H27",
+      "sourceTasks": [
+        "H27-L02-G",
+        "H27-L02-Q1",
+        "H27-L02-Q2",
+        "H27-L02-Q3",
+        "H27-L02-Q4",
+        "H27-L02-Q5",
+        "H27-L02-Q6",
+        "H27-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "statistics-3",
+      "firstLesson": "H27-L03",
+      "firstUnit": "H27",
+      "sourceTasks": [
+        "H27-L03-G",
+        "H27-L03-Q1",
+        "H27-L03-Q2",
+        "H27-L03-Q3",
+        "H27-L03-Q4",
+        "H27-L03-Q5",
+        "H27-L03-Q6",
+        "H27-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "statistics-4",
+      "firstLesson": "H27-L04",
+      "firstUnit": "H27",
+      "sourceTasks": [
+        "H27-L04-G",
+        "H27-L04-Q1",
+        "H27-L04-Q2",
+        "H27-L04-Q3",
+        "H27-L04-Q4",
+        "H27-L04-Q5",
+        "H27-L04-Q6",
+        "H27-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "statistics-5",
+      "firstLesson": "H27-L05",
+      "firstUnit": "H27",
+      "sourceTasks": [
+        "H27-L05-G",
+        "H27-L05-Q1",
+        "H27-L05-Q2",
+        "H27-L05-Q3",
+        "H27-L05-Q4",
+        "H27-L05-Q5",
+        "H27-L05-Q6",
+        "H27-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "problem-solving-1",
+      "firstLesson": "H28-L01",
+      "firstUnit": "H28",
+      "sourceTasks": [
+        "H28-L01-G",
+        "H28-L01-Q1",
+        "H28-L01-Q2",
+        "H28-L01-Q3",
+        "H28-L01-Q4",
+        "H28-L01-Q5",
+        "H28-L01-Q6",
+        "H28-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "problem-solving-2",
+      "firstLesson": "H28-L02",
+      "firstUnit": "H28",
+      "sourceTasks": [
+        "H28-L02-G",
+        "H28-L02-Q1",
+        "H28-L02-Q2",
+        "H28-L02-Q3",
+        "H28-L02-Q4",
+        "H28-L02-Q5",
+        "H28-L02-Q6",
+        "H28-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "problem-solving-3",
+      "firstLesson": "H28-L03",
+      "firstUnit": "H28",
+      "sourceTasks": [
+        "H28-L03-G",
+        "H28-L03-Q1",
+        "H28-L03-Q2",
+        "H28-L03-Q3",
+        "H28-L03-Q4",
+        "H28-L03-Q5",
+        "H28-L03-Q6",
+        "H28-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "problem-solving-4",
+      "firstLesson": "H28-L04",
+      "firstUnit": "H28",
+      "sourceTasks": [
+        "H28-L04-G",
+        "H28-L04-Q1",
+        "H28-L04-Q2",
+        "H28-L04-Q3",
+        "H28-L04-Q4",
+        "H28-L04-Q5",
+        "H28-L04-Q6",
+        "H28-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "problem-solving-5",
+      "firstLesson": "H28-L05",
+      "firstUnit": "H28",
+      "sourceTasks": [
+        "H28-L05-G",
+        "H28-L05-Q1",
+        "H28-L05-Q2",
+        "H28-L05-Q3",
+        "H28-L05-Q4",
+        "H28-L05-Q5",
+        "H28-L05-Q6",
+        "H28-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "optimisation-1",
+      "firstLesson": "H31-L01",
+      "firstUnit": "H31",
+      "sourceTasks": [
+        "H31-L01-G",
+        "H31-L01-Q1",
+        "H31-L01-Q2",
+        "H31-L01-Q3",
+        "H31-L01-Q4",
+        "H31-L01-Q5",
+        "H31-L01-Q6",
+        "H31-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "optimisation-2",
+      "firstLesson": "H31-L02",
+      "firstUnit": "H31",
+      "sourceTasks": [
+        "H31-L02-G",
+        "H31-L02-Q1",
+        "H31-L02-Q2",
+        "H31-L02-Q3",
+        "H31-L02-Q4",
+        "H31-L02-Q5",
+        "H31-L02-Q6",
+        "H31-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "optimisation-3",
+      "firstLesson": "H31-L03",
+      "firstUnit": "H31",
+      "sourceTasks": [
+        "H31-L03-G",
+        "H31-L03-Q1",
+        "H31-L03-Q2",
+        "H31-L03-Q3",
+        "H31-L03-Q4",
+        "H31-L03-Q5",
+        "H31-L03-Q6",
+        "H31-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "optimisation-4",
+      "firstLesson": "H31-L04",
+      "firstUnit": "H31",
+      "sourceTasks": [
+        "H31-L04-G",
+        "H31-L04-Q1",
+        "H31-L04-Q2",
+        "H31-L04-Q3",
+        "H31-L04-Q4",
+        "H31-L04-Q5",
+        "H31-L04-Q6",
+        "H31-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "optimisation-5",
+      "firstLesson": "H31-L05",
+      "firstUnit": "H31",
+      "sourceTasks": [
+        "H31-L05-G",
+        "H31-L05-Q1",
+        "H31-L05-Q2",
+        "H31-L05-Q3",
+        "H31-L05-Q4",
+        "H31-L05-Q5",
+        "H31-L05-Q6",
+        "H31-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "optimisation-6",
+      "firstLesson": "H31-L06",
+      "firstUnit": "H31",
+      "sourceTasks": [
+        "H31-L06-G",
+        "H31-L06-Q1",
+        "H31-L06-Q2",
+        "H31-L06-Q3",
+        "H31-L06-Q4",
+        "H31-L06-Q5",
+        "H31-L06-Q6",
+        "H31-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-1",
+      "firstLesson": "H32-L01",
+      "firstUnit": "H32",
+      "sourceTasks": [
+        "H32-L01-G",
+        "H32-L01-Q1",
+        "H32-L01-Q2",
+        "H32-L01-Q3",
+        "H32-L01-Q4",
+        "H32-L01-Q5",
+        "H32-L01-Q6",
+        "H32-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-2",
+      "firstLesson": "H32-L02",
+      "firstUnit": "H32",
+      "sourceTasks": [
+        "H32-L02-G",
+        "H32-L02-Q1",
+        "H32-L02-Q2",
+        "H32-L02-Q3",
+        "H32-L02-Q4",
+        "H32-L02-Q5",
+        "H32-L02-Q6",
+        "H32-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-3",
+      "firstLesson": "H32-L03",
+      "firstUnit": "H32",
+      "sourceTasks": [
+        "H32-L03-G",
+        "H32-L03-Q1",
+        "H32-L03-Q2",
+        "H32-L03-Q3",
+        "H32-L03-Q4",
+        "H32-L03-Q5",
+        "H32-L03-Q6",
+        "H32-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-4",
+      "firstLesson": "H32-L04",
+      "firstUnit": "H32",
+      "sourceTasks": [
+        "H32-L04-G",
+        "H32-L04-Q1",
+        "H32-L04-Q2",
+        "H32-L04-Q3",
+        "H32-L04-Q4",
+        "H32-L04-Q5",
+        "H32-L04-Q6",
+        "H32-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-5",
+      "firstLesson": "H32-L05",
+      "firstUnit": "H32",
+      "sourceTasks": [
+        "H32-L05-G",
+        "H32-L05-Q1",
+        "H32-L05-Q2",
+        "H32-L05-Q3",
+        "H32-L05-Q4",
+        "H32-L05-Q5",
+        "H32-L05-Q6",
+        "H32-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "integration-6",
+      "firstLesson": "H32-L06",
+      "firstUnit": "H32",
+      "sourceTasks": [
+        "H32-L06-G",
+        "H32-L06-Q1",
+        "H32-L06-Q2",
+        "H32-L06-Q3",
+        "H32-L06-Q4",
+        "H32-L06-Q5",
+        "H32-L06-Q6",
+        "H32-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-1",
+      "firstLesson": "H33-L01",
+      "firstUnit": "H33",
+      "sourceTasks": [
+        "H33-L01-G",
+        "H33-L01-Q1",
+        "H33-L01-Q2",
+        "H33-L01-Q3",
+        "H33-L01-Q4",
+        "H33-L01-Q5",
+        "H33-L01-Q6",
+        "H33-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-2",
+      "firstLesson": "H33-L02",
+      "firstUnit": "H33",
+      "sourceTasks": [
+        "H33-L02-G",
+        "H33-L02-Q1",
+        "H33-L02-Q2",
+        "H33-L02-Q3",
+        "H33-L02-Q4",
+        "H33-L02-Q5",
+        "H33-L02-Q6",
+        "H33-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-3",
+      "firstLesson": "H33-L03",
+      "firstUnit": "H33",
+      "sourceTasks": [
+        "H33-L03-G",
+        "H33-L03-Q1",
+        "H33-L03-Q2",
+        "H33-L03-Q3",
+        "H33-L03-Q4",
+        "H33-L03-Q5",
+        "H33-L03-Q6",
+        "H33-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-4",
+      "firstLesson": "H33-L04",
+      "firstUnit": "H33",
+      "sourceTasks": [
+        "H33-L04-G",
+        "H33-L04-Q1",
+        "H33-L04-Q2",
+        "H33-L04-Q3",
+        "H33-L04-Q4",
+        "H33-L04-Q5",
+        "H33-L04-Q6",
+        "H33-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-5",
+      "firstLesson": "H33-L05",
+      "firstUnit": "H33",
+      "sourceTasks": [
+        "H33-L05-G",
+        "H33-L05-Q1",
+        "H33-L05-Q2",
+        "H33-L05-Q3",
+        "H33-L05-Q4",
+        "H33-L05-Q5",
+        "H33-L05-Q6",
+        "H33-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "distribution-6",
+      "firstLesson": "H33-L06",
+      "firstUnit": "H33",
+      "sourceTasks": [
+        "H33-L06-G",
+        "H33-L06-Q1",
+        "H33-L06-Q2",
+        "H33-L06-Q3",
+        "H33-L06-Q4",
+        "H33-L06-Q5",
+        "H33-L06-Q6",
+        "H33-L06-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "stat-inference-1",
+      "firstLesson": "H34-L01",
+      "firstUnit": "H34",
+      "sourceTasks": [
+        "H34-L01-G",
+        "H34-L01-Q1",
+        "H34-L01-Q2",
+        "H34-L01-Q3",
+        "H34-L01-Q4",
+        "H34-L01-Q5",
+        "H34-L01-Q6",
+        "H34-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "stat-inference-2",
+      "firstLesson": "H34-L02",
+      "firstUnit": "H34",
+      "sourceTasks": [
+        "H34-L02-G",
+        "H34-L02-Q1",
+        "H34-L02-Q2",
+        "H34-L02-Q3",
+        "H34-L02-Q4",
+        "H34-L02-Q5",
+        "H34-L02-Q6",
+        "H34-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "stat-inference-3",
+      "firstLesson": "H34-L03",
+      "firstUnit": "H34",
+      "sourceTasks": [
+        "H34-L03-G",
+        "H34-L03-Q1",
+        "H34-L03-Q2",
+        "H34-L03-Q3",
+        "H34-L03-Q4",
+        "H34-L03-Q5",
+        "H34-L03-Q6",
+        "H34-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "stat-inference-4",
+      "firstLesson": "H34-L04",
+      "firstUnit": "H34",
+      "sourceTasks": [
+        "H34-L04-G",
+        "H34-L04-Q1",
+        "H34-L04-Q2",
+        "H34-L04-Q3",
+        "H34-L04-Q4",
+        "H34-L04-Q5",
+        "H34-L04-Q6",
+        "H34-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "stat-inference-5",
+      "firstLesson": "H34-L05",
+      "firstUnit": "H34",
+      "sourceTasks": [
+        "H34-L05-G",
+        "H34-L05-Q1",
+        "H34-L05-Q2",
+        "H34-L05-Q3",
+        "H34-L05-Q4",
+        "H34-L05-Q5",
+        "H34-L05-Q6",
+        "H34-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "advanced-equation-1",
+      "firstLesson": "H35-L01",
+      "firstUnit": "H35",
+      "sourceTasks": [
+        "H35-L01-G",
+        "H35-L01-Q1",
+        "H35-L01-Q2",
+        "H35-L01-Q3",
+        "H35-L01-Q4",
+        "H35-L01-Q5",
+        "H35-L01-Q6",
+        "H35-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "advanced-equation-2",
+      "firstLesson": "H35-L02",
+      "firstUnit": "H35",
+      "sourceTasks": [
+        "H35-L02-G",
+        "H35-L02-Q1",
+        "H35-L02-Q2",
+        "H35-L02-Q3",
+        "H35-L02-Q4",
+        "H35-L02-Q5",
+        "H35-L02-Q6",
+        "H35-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "advanced-equation-3",
+      "firstLesson": "H35-L03",
+      "firstUnit": "H35",
+      "sourceTasks": [
+        "H35-L03-G",
+        "H35-L03-Q1",
+        "H35-L03-Q2",
+        "H35-L03-Q3",
+        "H35-L03-Q4",
+        "H35-L03-Q5",
+        "H35-L03-Q6",
+        "H35-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "advanced-equation-4",
+      "firstLesson": "H35-L04",
+      "firstUnit": "H35",
+      "sourceTasks": [
+        "H35-L04-G",
+        "H35-L04-Q1",
+        "H35-L04-Q2",
+        "H35-L04-Q3",
+        "H35-L04-Q4",
+        "H35-L04-Q5",
+        "H35-L04-Q6",
+        "H35-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "advanced-equation-5",
+      "firstLesson": "H35-L05",
+      "firstUnit": "H35",
+      "sourceTasks": [
+        "H35-L05-G",
+        "H35-L05-Q1",
+        "H35-L05-Q2",
+        "H35-L05-Q3",
+        "H35-L05-Q4",
+        "H35-L05-Q5",
+        "H35-L05-Q6",
+        "H35-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-geometry-1",
+      "firstLesson": "H36-L01",
+      "firstUnit": "H36",
+      "sourceTasks": [
+        "H36-L01-G",
+        "H36-L01-Q1",
+        "H36-L01-Q2",
+        "H36-L01-Q3",
+        "H36-L01-Q4",
+        "H36-L01-Q5",
+        "H36-L01-Q6",
+        "H36-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-geometry-2",
+      "firstLesson": "H36-L02",
+      "firstUnit": "H36",
+      "sourceTasks": [
+        "H36-L02-G",
+        "H36-L02-Q1",
+        "H36-L02-Q2",
+        "H36-L02-Q3",
+        "H36-L02-Q4",
+        "H36-L02-Q5",
+        "H36-L02-Q6",
+        "H36-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-geometry-3",
+      "firstLesson": "H36-L03",
+      "firstUnit": "H36",
+      "sourceTasks": [
+        "H36-L03-G",
+        "H36-L03-Q1",
+        "H36-L03-Q2",
+        "H36-L03-Q3",
+        "H36-L03-Q4",
+        "H36-L03-Q5",
+        "H36-L03-Q6",
+        "H36-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-geometry-4",
+      "firstLesson": "H36-L04",
+      "firstUnit": "H36",
+      "sourceTasks": [
+        "H36-L04-G",
+        "H36-L04-Q1",
+        "H36-L04-Q2",
+        "H36-L04-Q3",
+        "H36-L04-Q4",
+        "H36-L04-Q5",
+        "H36-L04-Q6",
+        "H36-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "analytic-geometry-5",
+      "firstLesson": "H36-L05",
+      "firstUnit": "H36",
+      "sourceTasks": [
+        "H36-L05-G",
+        "H36-L05-Q1",
+        "H36-L05-Q2",
+        "H36-L05-Q3",
+        "H36-L05-Q4",
+        "H36-L05-Q5",
+        "H36-L05-Q6",
+        "H36-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "extension-1",
+      "firstLesson": "H37-L01",
+      "firstUnit": "H37",
+      "sourceTasks": [
+        "H37-L01-G",
+        "H37-L01-Q1",
+        "H37-L01-Q2",
+        "H37-L01-Q3",
+        "H37-L01-Q4",
+        "H37-L01-Q5",
+        "H37-L01-Q6",
+        "H37-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "extension-2",
+      "firstLesson": "H37-L02",
+      "firstUnit": "H37",
+      "sourceTasks": [
+        "H37-L02-G",
+        "H37-L02-Q1",
+        "H37-L02-Q2",
+        "H37-L02-Q3",
+        "H37-L02-Q4",
+        "H37-L02-Q5",
+        "H37-L02-Q6",
+        "H37-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "extension-3",
+      "firstLesson": "H37-L03",
+      "firstUnit": "H37",
+      "sourceTasks": [
+        "H37-L03-G",
+        "H37-L03-Q1",
+        "H37-L03-Q2",
+        "H37-L03-Q3",
+        "H37-L03-Q4",
+        "H37-L03-Q5",
+        "H37-L03-Q6",
+        "H37-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "extension-4",
+      "firstLesson": "H37-L04",
+      "firstUnit": "H37",
+      "sourceTasks": [
+        "H37-L04-G",
+        "H37-L04-Q1",
+        "H37-L04-Q2",
+        "H37-L04-Q3",
+        "H37-L04-Q4",
+        "H37-L04-Q5",
+        "H37-L04-Q6",
+        "H37-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "extension-5",
+      "firstLesson": "H37-L05",
+      "firstUnit": "H37",
+      "sourceTasks": [
+        "H37-L05-G",
+        "H37-L05-Q1",
+        "H37-L05-Q2",
+        "H37-L05-Q3",
+        "H37-L05-Q4",
+        "H37-L05-Q5",
+        "H37-L05-Q6",
+        "H37-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "capstone-1",
+      "firstLesson": "H38-L01",
+      "firstUnit": "H38",
+      "sourceTasks": [
+        "H38-L01-G",
+        "H38-L01-Q1",
+        "H38-L01-Q2",
+        "H38-L01-Q3",
+        "H38-L01-Q4",
+        "H38-L01-Q5",
+        "H38-L01-Q6",
+        "H38-L01-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "capstone-2",
+      "firstLesson": "H38-L02",
+      "firstUnit": "H38",
+      "sourceTasks": [
+        "H38-L02-G",
+        "H38-L02-Q1",
+        "H38-L02-Q2",
+        "H38-L02-Q3",
+        "H38-L02-Q4",
+        "H38-L02-Q5",
+        "H38-L02-Q6",
+        "H38-L02-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "capstone-3",
+      "firstLesson": "H38-L03",
+      "firstUnit": "H38",
+      "sourceTasks": [
+        "H38-L03-G",
+        "H38-L03-Q1",
+        "H38-L03-Q2",
+        "H38-L03-Q3",
+        "H38-L03-Q4",
+        "H38-L03-Q5",
+        "H38-L03-Q6",
+        "H38-L03-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "capstone-4",
+      "firstLesson": "H38-L04",
+      "firstUnit": "H38",
+      "sourceTasks": [
+        "H38-L04-G",
+        "H38-L04-Q1",
+        "H38-L04-Q2",
+        "H38-L04-Q3",
+        "H38-L04-Q4",
+        "H38-L04-Q5",
+        "H38-L04-Q6",
+        "H38-L04-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    },
+    {
+      "skill": "capstone-5",
+      "firstLesson": "H38-L05",
+      "firstUnit": "H38",
+      "sourceTasks": [
+        "H38-L05-G",
+        "H38-L05-Q1",
+        "H38-L05-Q2",
+        "H38-L05-Q3",
+        "H38-L05-Q4",
+        "H38-L05-Q5",
+        "H38-L05-Q6",
+        "H38-L05-X"
+      ],
+      "laterExactTagCandidates": {},
+      "reviewedEvidence": [],
+      "status": "semantic-review-pending"
+    }
+  ]
+}

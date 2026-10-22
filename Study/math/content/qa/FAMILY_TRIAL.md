@@ -1,6 +1,8 @@
 # 家庭试用记录 / Family trial record
 
-状态：尚未收到可归属于真实家庭试用的反馈。此表是待填写的记录，不是已完成的教学验收。浏览器截图中的Engineering review example与自动化测试不填入真实观察栏。
+状态：2026-10-22用户明确回复“尚未试用”。真实家庭试用尚未进行，下表继续待填写，不是已完成的教学验收。浏览器截图中的Engineering review example与自动化测试不填入真实观察栏。
+
+Status: On 2026-10-22 the user confirmed that the courses have not yet been tried. Family observations and teaching acceptance remain pending; engineering examples are not learner evidence.
 
 ## 选一个适合当前起点的短任务
 
