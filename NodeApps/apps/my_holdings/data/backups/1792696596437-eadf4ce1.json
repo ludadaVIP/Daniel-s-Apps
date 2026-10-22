@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 410,
-  "updatedAt": "2026-10-22T00:59:10.974Z",
+  "revision": 550,
+  "updatedAt": "2026-10-22T19:16:36.403Z",
   "accounts": [
     {
       "id": "a1",
@@ -20,20 +20,24 @@
       "accountId": "a1",
       "symbol": "QQQM",
       "name": "Invesco NASDAQ 100 ETF",
-      "quantity": 20,
-      "price": 298.64,
-      "changePct": -2.58,
-      "cost": 5924.23,
-      "marketValue": 5972.8,
-      "averagePrice": 296.21,
+      "quantity": 70,
+      "cost": 20424.23,
+      "marketValue": 20276.2,
+      "averagePrice": 291.77471428571425,
       "currency": "USD",
       "sector": "成长指数",
       "source": "account1.jpg",
-      "priceDate": "2026-10-21",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Yahoo Finance"
+      "price": 289.66,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "changePct": -2.58,
+      "priceType": "intraday",
+      "priceAsOf": "2026-10-22T19:16:01.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:12.969Z",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/QQQM?range=1d&interval=1m&includePrePost=false"
     },
     {
       "id": "h2",
@@ -41,19 +45,23 @@
       "symbol": "SMH",
       "name": "VanEck Semiconductor ETF",
       "quantity": 1,
-      "price": 556.7,
+      "price": 523.68,
       "changePct": -3.1,
       "cost": 557.04,
-      "marketValue": 556.7,
+      "marketValue": 523.68,
       "averagePrice": 557.04,
       "currency": "USD",
       "sector": "半导体",
       "source": "account1.jpg",
-      "priceDate": "2026-10-21",
+      "priceDate": "2026-10-22",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Yahoo Finance"
+      "priceSource": "Yahoo Finance",
+      "priceType": "intraday",
+      "priceAsOf": "2026-10-22T19:16:09.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:12.969Z",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SMH?range=1d&interval=1m&includePrePost=false"
     },
     {
       "id": "h3",
@@ -61,19 +69,23 @@
       "symbol": "VOO",
       "name": "Vanguard S&P 500 ETF",
       "quantity": 45,
-      "price": 710.72,
+      "price": 700.62,
       "changePct": -1.37,
       "cost": 31920,
-      "marketValue": 31982.4,
+      "marketValue": 31527.9,
       "averagePrice": 709.34,
       "currency": "USD",
       "sector": "宽基指数",
       "source": "account1.jpg",
-      "priceDate": "2026-10-21",
+      "priceDate": "2026-10-22",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Yahoo Finance"
+      "priceSource": "Yahoo Finance",
+      "priceType": "intraday",
+      "priceAsOf": "2026-10-22T19:16:07.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:12.969Z",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VOO?range=1d&interval=1m&includePrePost=false"
     },
     {
       "id": "h4",
@@ -81,19 +93,23 @@
       "symbol": "IBKR",
       "name": "Interactive Brokers Group Class A",
       "quantity": 2.0289,
-      "price": 85.33,
+      "price": 81.94,
       "changePct": -3.92,
       "cost": 190.51,
-      "marketValue": 173.13,
+      "marketValue": 166.25,
       "averagePrice": 93.9,
       "currency": "USD",
       "sector": "金融",
       "source": "account2.jpg",
-      "priceDate": "2026-10-21",
+      "priceDate": "2026-10-22",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Yahoo Finance"
+      "priceSource": "Yahoo Finance",
+      "priceType": "intraday",
+      "priceAsOf": "2026-10-22T19:16:02.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:12.969Z",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/IBKR?range=1d&interval=1m&includePrePost=false"
     },
     {
       "id": "h5",
@@ -101,19 +117,23 @@
       "symbol": "QQQM",
       "name": "Invesco NASDAQ 100 ETF",
       "quantity": 20,
-      "price": 298.64,
+      "price": 289.66,
       "changePct": -2.58,
       "cost": 5860.6,
-      "marketValue": 5972.8,
+      "marketValue": 5793.2,
       "averagePrice": 293.03,
       "currency": "USD",
       "sector": "成长指数",
       "source": "account2.jpg",
-      "priceDate": "2026-10-21",
+      "priceDate": "2026-10-22",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Yahoo Finance"
+      "priceSource": "Yahoo Finance",
+      "priceType": "intraday",
+      "priceAsOf": "2026-10-22T19:16:01.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:12.969Z",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/QQQM?range=1d&interval=1m&includePrePost=false"
     },
     {
       "id": "h6",
@@ -121,19 +141,23 @@
       "symbol": "SOXX",
       "name": "iShares Semiconductor ETF",
       "quantity": 3,
-      "price": 510.36,
+      "price": 475.857,
       "changePct": -4.09,
       "cost": 1495.21,
-      "marketValue": 1531.08,
+      "marketValue": 1427.57,
       "averagePrice": 498.4,
       "currency": "USD",
       "sector": "半导体",
       "source": "account2.jpg",
-      "priceDate": "2026-10-21",
+      "priceDate": "2026-10-22",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Yahoo Finance"
+      "priceSource": "Yahoo Finance",
+      "priceType": "intraday",
+      "priceAsOf": "2026-10-22T19:16:08.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:12.969Z",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SOXX?range=1d&interval=1m&includePrePost=false"
     },
     {
       "id": "h7",
@@ -141,19 +165,23 @@
       "symbol": "VOO",
       "name": "Vanguard S&P 500 ETF",
       "quantity": 70,
-      "price": 710.72,
+      "price": 700.62,
       "changePct": -1.37,
       "cost": 49050,
-      "marketValue": 49750.4,
+      "marketValue": 49043.4,
       "averagePrice": 700.71,
       "currency": "USD",
       "sector": "宽基指数",
       "source": "account2.jpg",
-      "priceDate": "2026-10-21",
+      "priceDate": "2026-10-22",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Yahoo Finance"
+      "priceSource": "Yahoo Finance",
+      "priceType": "intraday",
+      "priceAsOf": "2026-10-22T19:16:07.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:12.969Z",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VOO?range=1d&interval=1m&includePrePost=false"
     }
   ],
   "watchlist": [
@@ -227,12 +255,16 @@
       },
       "researchedAt": "2026-10-22T00:59:10.717Z",
       "report": "research/1792630750716-9cb9a137.html",
-      "price": 53.65,
-      "priceDate": "2026-10-21",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-rklb/historical/",
+      "price": 50.4,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RKLB?range=1d&interval=1m&includePrePost=false",
       "targetPrice": 38,
-      "attention": 4
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:09.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:13.445Z"
     },
     {
       "id": "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
@@ -306,12 +338,16 @@
       },
       "researchedAt": "2026-10-22T00:59:10.788Z",
       "report": "research/1792630750785-db7aa0df.html",
-      "price": 30.31,
-      "priceDate": "2026-10-21",
-      "priceSource": "Public.com",
-      "priceSourceUrl": "https://public.com/stocks/oust/after-hours",
+      "price": 27.77,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/OUST?range=1d&interval=1m&includePrePost=false",
       "targetPrice": 24,
-      "attention": 2
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:08.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:13.910Z"
     },
     {
       "id": "9c572b68-64fb-4e7d-9692-74f569040195",
@@ -362,10 +398,6 @@
           {
             "label": "TransMedics：Q2 2026 财报和 CFO 任命后重申全年展望",
             "url": "https://investors.transmedics.com/news-releases/news-release-details/transmedics-appoints-fernando-araujo-chief-financial-officer-and"
-          },
-          {
-            "label": "SEC：TransMedics Q2 2026 Form 10-Q",
-            "url": "https://www.sec.gov/Archives/edgar/data/1756262/000162828026056821/lunr-20260630.htm"
           }
         ],
         "uncertainty": "使用 ChartExchange 明确标注的美东收盘日线；不同行情供应商可能相差数美分。库存内控整改仍待后续测试与公司披露确认；未做完整估值或个性化组合适配，不构成买卖建议。",
@@ -379,12 +411,16 @@
       },
       "researchedAt": "2026-10-22T00:59:10.851Z",
       "report": "research/1792630750850-6a99af52.html",
-      "price": 72.38,
-      "priceDate": "2026-10-21",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-tmdx/news/",
+      "price": 71.96,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/TMDX?range=1d&interval=1m&includePrePost=false",
       "targetPrice": 65,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:07.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:14.381Z"
     },
     {
       "id": "e8839fb8-b14b-4f60-bc6b-f01909376529",
@@ -456,12 +492,16 @@
       },
       "researchedAt": "2026-10-22T00:59:10.900Z",
       "report": "research/1792630750899-c0398611.html",
-      "price": 10.91,
-      "priceDate": "2026-10-21",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-lunr/historical/",
+      "price": 10.21,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/LUNR?range=1d&interval=1m&includePrePost=false",
       "targetPrice": 9,
-      "attention": 4
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:15:49.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:14.860Z"
     },
     {
       "id": "68ac1738-90e2-44ce-aaa8-83967958e168",
@@ -529,12 +569,16 @@
       },
       "researchedAt": "2026-10-22T00:59:10.964Z",
       "report": "research/1792630750963-60a5a19e.html",
-      "price": 201.66,
-      "priceDate": "2026-10-21",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-pltr/historical/",
+      "price": 195.88,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/PLTR?range=1d&interval=1m&includePrePost=false",
       "targetPrice": 160,
-      "attention": 2
+      "attention": 3,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:07.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:15.322Z"
     },
     {
       "id": "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
@@ -552,8 +596,8 @@
           "sector": "半导体晶圆代工"
         },
         "title": "TSM｜先进制程和 AI/HPC 需求强劲，2nm 与海外扩产拉高投入要求",
-        "summary": "资料截至 2026-10-21；最近完整交易日收盘为 2026-10-20 的 $425.20。TSMC Q3 美元收入 $46.72B、同比增长 41.2%，毛利率 66.4%；公司指引 Q4 收入 $52.3–54.3B、全年资本预算 $60–64B。2nm 和海外厂爬坡将继续稀释毛利。",
-        "details": "TSMC 以纯晶圆代工模式为全球客户制造先进和成熟制程芯片。公司 10 月 15 日发布 Q3 2026 业绩：合并收入 NT$1,494.24B（US$46.72B），美元收入同比增长 41.2%；稀释 EPS 为 NT$29.43（每 ADR US$4.60），毛利率 66.4%，经营利润率 58.7%。HPC 占季度收入 68%，2nm 制程贡献晶圆收入 8%。\n\n管理层预计 Q4 收入 US$52.3–54.3B、毛利率 65%–67%、经营利润率 56.5%–58.5%，重申 2026 年资本预算 US$60–64B。管理层称 Q3 毛利率受 2nm 初期爬坡影响约 1.3 个百分点；海外晶圆厂对 2026 全年毛利率的稀释约 2%，未来几年可能升至 3%–4%。公司仍指出先进制程、AI/HPC 客户需求强劲。\n\n增长由技术领先、规模制造和先进节点需求支撑，但庞大资本开支、良率爬坡和海外制造成本增加了回报兑现要求。台湾制造集中带来的地缘政治、自然灾害、公用事业和供应链中断风险不会因高需求消失。继续关注 Q4 指引、月度销售、2nm 产能与良率、海外厂毛利稀释和资本回报；下次月度销售公告安排在 11 月 10 日。",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）TSM ADR 收盘为 $431.77。Q3 美元收入 $46.72B、同比增长 41.2%，毛利率 66.4%；Q4 收入指引 $52.3–54.3B，2026 全年资本预算 $60–64B。管理层称先进制程需求强劲、2026 美元收入预计增长约 44%，同时对消费及价格敏感市场保持审慎。2nm 爬坡、海外扩产和高资本投入影响回报与毛利率。",
+        "details": "TSMC 以纯晶圆代工模式为全球客户制造先进和成熟制程芯片。公司 10 月 15 日发布 Q3 2026 业绩：合并收入 NT$1,494.24B（US$46.72B），美元收入同比增长 41.2%；稀释 EPS 为 NT$29.43（每 ADR US$4.60），毛利率 66.4%，经营利润率 58.7%。HPC 占季度收入 68%，2nm 制程贡献晶圆收入 8%。\n\n管理层预计 Q4 收入 US$52.3–54.3B、毛利率 65%–67%、经营利润率 56.5%–58.5%，重申 2026 年资本预算 US$60–64B。管理层称 Q3 毛利率受 2nm 初期爬坡影响约 1.3 个百分点；海外晶圆厂对 2026 全年毛利率的稀释约 2%，未来几年可能升至 3%–4%。公司仍指出先进制程、AI/HPC 客户需求强劲。\n\n增长由技术领先、规模制造和先进节点需求支撑，但庞大资本开支、良率爬坡和海外制造成本增加了回报兑现要求。台湾制造集中带来的地缘政治、自然灾害、公用事业和供应链中断风险不会因高需求消失。继续关注 Q4 指引、月度销售、2nm 产能与良率、海外厂毛利稀释和资本回报；下次月度销售公告安排在 11 月 10 日。\n\n【截至 2026-10-22 的最新公开信息】\nTSMC 已于 10 月 15 日发布 Q3 业绩。收入 $46.72B，高于公司此前指引；毛利率 66.4%，经营利润率 58.7%。公司给出 Q4 收入 $52.3–54.3B、毛利率 65%–67% 的指引，重申 2026 资本预算 $60–64B，并预计全年美元收入增长约 44%。管理层指出先进制程需求强，但消费及价格敏感市场承压；这使需求结构与产能回报同样值得跟踪。",
         "risks": [
           "半导体行业具有周期性；客户需求、库存和产能利用率转弱会使高固定成本压低利润率。",
           "2nm 初期爬坡与海外晶圆厂扩张正在稀释毛利，资本预算规模增加了回报与执行压力。",
@@ -561,22 +605,14 @@
           "客户集中、出口管制、汇率和竞争变化可能影响订单、产品组合或跨地区扩张经济性。"
         ],
         "catalysts": [
-          "跟踪 Q4 收入、毛利率和经营利润率相对公司指引的表现。",
-          "观察 2nm 产量占比、良率爬坡、客户需求与海外工厂成本稀释。",
-          "结合月度销售和资本支出，评估 AI/HPC 需求是否继续转化为高回报产能。"
+          "核对 Q4 收入、毛利率和经营利润率相对公司指引的表现。",
+          "跟踪 2nm 量产和良率爬坡、先进封装供需及海外晶圆厂成本对毛利率的影响。",
+          "关注 2026 年约 44% 美元收入增长预期及 $60–64B 资本预算能否兑现为后续回报。"
         ],
         "sources": [
           {
             "label": "收盘价：ChartExchange TSM 历史日线",
             "url": "https://chartexchange.com/symbol/nyse-tsm/historical/"
-          },
-          {
-            "label": "TSMC：Q3 2026 业绩、财务与 Q4 指引",
-            "url": "https://investor.tsmc.com/english/quarterly-results/2026/q3"
-          },
-          {
-            "label": "TSMC：Q3 2026 电话会文字稿",
-            "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/eba4fac72873bf546b669bd2b5d973df5c93215d/TSMC%203Q26%20Transcript.pdf"
           },
           {
             "label": "TSMC：2026 年 9 月月度营收",
@@ -589,78 +625,41 @@
           {
             "label": "TSMC：投资者财务日历",
             "url": "https://investor.tsmc.com/english/financial-calendar"
+          },
+          {
+            "label": "收盘价：ChartExchange TSM ADR（2026-10-21）",
+            "url": "https://chartexchange.com/symbol/nyse-tsm/"
+          },
+          {
+            "label": "TSMC：Q3 2026 业绩、Q4 指引与 2026 资本预算",
+            "url": "https://investor.tsmc.com/english/quarterly-results/2026/q3"
+          },
+          {
+            "label": "TSMC：2026 Q3 电话会文字稿（全年收入增长预期）",
+            "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/eba4fac72873bf546b669bd2b5d973df5c93215d/TSMC%203Q26%20Transcript.pdf"
           }
         ],
         "uncertainty": "使用 ChartExchange 明确标注的美东收盘日线；不同行情供应商可能相差数美分。公司指引为前瞻陈述，估值与组合重叠未在本次更新中重算；不构成买卖建议。",
         "quote": {
-          "price": 425.2,
-          "date": "2026-10-20",
+          "price": 431.77,
+          "date": "2026-10-21",
           "currency": "USD",
           "source": "ChartExchange",
-          "sourceUrl": "https://chartexchange.com/symbol/nyse-tsm/historical/"
+          "sourceUrl": "https://chartexchange.com/symbol/nyse-tsm/"
         }
       },
-      "researchedAt": "2026-10-20T21:29:37.944Z",
-      "report": "research/20261020-tsm.html",
-      "price": 425.2,
-      "priceDate": "2026-10-20",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nyse-tsm/historical/",
+      "researchedAt": "2026-10-22T00:59:11.024Z",
+      "report": "research/1792630751022-223c1623.html",
+      "price": 411.27,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/TSM?range=1d&interval=1m&includePrePost=false",
       "targetPrice": 375,
-      "attention": 2
-    },
-    {
-      "id": "73ea6652-e30d-4b72-878c-115502e4b72d",
-      "name": "亚马逊",
-      "symbol": "AMZN",
-      "note": "Moomoo 导入；行业：互联网零售",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Amazon.com, Inc.",
-          "symbol": "AMZN",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "电商、云计算与数字广告"
-        },
-        "title": "AMZN｜电商、云计算与数字广告：经营进展、风险与跟踪要点",
-        "summary": "资料截至 2026-10-21；最近完整美股交易日（2026-10-20）收盘价为 $262.78。最新公开经营资料：Amazon 同时经营北美与国际零售、AWS 云服务、广告及订阅。Q2 2026 净销售额 $200.6B、同比增长 20%；营业利润 $27.5B、增长 43%；AWS 收入 $42.2B、增长 37%。净利润 $62.6B 中含约 $53.4B 非经营性 Anthropic 投资收益；过去 12 个月自由现金流为 -$7.6B，主要受资本支出增加影响。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Amazon 同时经营北美与国际零售、AWS 云服务、广告及订阅。Q2 2026 净销售额 $200.6B、同比增长 20%；营业利润 $27.5B、增长 43%；AWS 收入 $42.2B、增长 37%。净利润 $62.6B 中含约 $53.4B 非经营性 Anthropic 投资收益；过去 12 个月自由现金流为 -$7.6B，主要受资本支出增加影响。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。",
-        "risks": [
-          "AI 与云基础设施投入巨大，资本开支回报和自由现金流恢复需要持续验证。",
-          "零售利润率、AWS 云竞争及第三方投资公允价值波动会造成业绩差异。"
-        ],
-        "catalysts": [
-          "对照 AWS 增速、营业利润和资本开支观察 AI 投入变现。",
-          "跟踪自由现金流、零售履约成本与广告业务增长。"
-        ],
-        "sources": [
-          {
-            "label": "最近收盘价：ChartExchange 历史日线（2026-10-19）",
-            "url": "https://chartexchange.com/symbol/nasdaq-amzn/historical/"
-          },
-          {
-            "label": "Amazon Q2 2026 官方业绩",
-            "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx?mode=light"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
-        "quote": {
-          "price": 262.78,
-          "date": "2026-10-20",
-          "currency": "USD",
-          "source": "ChartExchange",
-          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-amzn/historical/"
-        }
-      },
-      "price": 262.78,
-      "priceDate": "2026-10-20",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-amzn/historical/",
-      "researchedAt": "2026-10-20T21:29:37.975Z",
-      "report": "research/20261020-amzn.html",
-      "attention": 2
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:13.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:15.774Z"
     },
     {
       "id": "990ad5a3-7a56-45e9-a914-78424558e749",
@@ -678,15 +677,16 @@
           "sector": "半导体测试与老化设备"
         },
         "title": "AEHR｜半导体测试与老化设备：经营进展、风险与跟踪要点",
-        "summary": "资料截至 2026-10-21；最近完整美股交易日（2026-10-20）收盘价为 $61.96。最新公开经营资料：Aehr 提供晶圆级与封装器件 burn-in 测试系统，传统需求来自碳化硅功率器件，近期拓展 AI 处理器、光子器件等市场。FY2026 Q4 公司披露季度订单创纪录、有效积压订单超过 $100M；同日公布一笔超过 $8M 的 SiC 晶圆级 burn-in 订单。订单转收入、客户认证与新应用规模化是关键验证点。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Aehr 提供晶圆级与封装器件 burn-in 测试系统，传统需求来自碳化硅功率器件，近期拓展 AI 处理器、光子器件等市场。FY2026 Q4 公司披露季度订单创纪录、有效积压订单超过 $100M；同日公布一笔超过 $8M 的 SiC 晶圆级 burn-in 订单。订单转收入、客户认证与新应用规模化是关键验证点。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $63.88。Aehr FY2026 Q4 披露季度订单创纪录、有效积压订单超过 $100M，并披露一笔超过 $8M 的 SiC 晶圆级 burn-in 订单。10 月 7 日又收到头部超大规模客户下一代 AI 处理器 Sonoma 的追加生产订单；FY2027 Q1 业绩定于 11 月 2 日发布。订单转收入、客户集中和 AI 产能爬坡仍需验证。",
+        "details": "业务定位与最新报告：Aehr 提供晶圆级与封装器件 burn-in 测试系统，传统需求来自碳化硅功率器件，近期拓展 AI 处理器、光子器件等市场。FY2026 Q4 公司披露季度订单创纪录、有效积压订单超过 $100M；同日公布一笔超过 $8M 的 SiC 晶圆级 burn-in 订单。订单转收入、客户认证与新应用规模化是关键验证点。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\n10 月 7 日 Aehr 宣布为头部超大规模客户的下一代 AI 处理器 Sonoma 项目收到后续生产订单，公告称该订单支持客户第二个 AI 处理器项目。公司将于 11 月 2 日公布 FY2027 Q1（截至 9 月 25 日）业绩。订单和积压提供需求线索，但交付时间、收入确认及重复采购仍需季度数据验证。",
         "risks": [
           "订单集中且确认时间不均，订单积压未必按期转化为收入。",
           "半导体设备周期、客户认证延迟和新市场竞争可能导致经营波动。"
         ],
         "catalysts": [
-          "跟踪 FY2027 Q1（公司安排 11 月 2 日公布）收入、订单与积压变化。",
-          "观察 SiC、AI 处理器和光子客户从验证走向重复采购。"
+          "11 月 2 日 FY2027 Q1 结果：跟踪收入、订单、有效积压和现金消耗。",
+          "验证 Sonoma AI 处理器生产订单以及 SiC、硅光子项目是否转为持续批量出货。",
+          "观察客户与订单集中度、产能扩张和毛利率，避免将设计/生产订单等同已实现收入。"
         ],
         "sources": [
           {
@@ -696,25 +696,41 @@
           {
             "label": "Aehr 官方财务公告",
             "url": "https://www.aehr.com/financial-news/"
+          },
+          {
+            "label": "收盘价：Yahoo Finance AEHR 历史日线（2026-10-21）",
+            "url": "https://au.finance.yahoo.com/quote/AEHR/history/"
+          },
+          {
+            "label": "Aehr：FY2027 Q1 财报日期（11 月 2 日）",
+            "url": "https://www.aehr.com/2026/10/aehr-test-systems-to-announce-first-quarter-fiscal-2027-financial-results-on-november-2-2026/"
+          },
+          {
+            "label": "Aehr：投资者新闻列表（含 10 月 7 日 Sonoma 后续订单）",
+            "url": "https://www.aehr.com/newsroom/"
           }
         ],
         "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
         "quote": {
-          "price": 61.96,
-          "date": "2026-10-20",
+          "price": 63.88,
+          "date": "2026-10-21",
           "currency": "USD",
-          "source": "ChartExchange",
-          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-aehr/historical/"
+          "source": "Yahoo Finance",
+          "sourceUrl": "https://au.finance.yahoo.com/quote/AEHR/history/"
         }
       },
-      "price": 61.96,
-      "priceDate": "2026-10-20",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-aehr/historical/",
-      "researchedAt": "2026-10-20T21:29:37.995Z",
-      "report": "research/20261020-aehr.html",
+      "price": 55.544,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AEHR?range=1d&interval=1m&includePrePost=false",
+      "researchedAt": "2026-10-22T00:59:11.182Z",
+      "report": "research/1792630751181-f1c48259.html",
       "targetPrice": 42,
-      "attention": 2
+      "attention": 3,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:14.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:16.234Z"
     },
     {
       "id": "64078460-ed3a-42f4-803e-60d32e8df85d",
@@ -732,44 +748,55 @@
           "sector": "氮化镓与碳化硅功率半导体"
         },
         "title": "NVTS｜氮化镓与碳化硅功率半导体：经营进展、风险与跟踪要点",
-        "summary": "资料截至 2026-10-21；最近完整美股交易日（2026-10-20）收盘价为 $8.74。最新公开经营资料：Navitas 设计 GaN 与 SiC 功率器件，正从移动和消费电子转向数据中心 AI、电网及工业高功率应用。Q2 2026 收入 $10.5M，毛利率 39.5%，现金 $557M；Q3 收入指引为 $13–14M。管理层预计 2026 全年收入增速为中个位数，并称 AI 基础设施项目将在下半年及 2027 年逐步爬坡。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Navitas 设计 GaN 与 SiC 功率器件，正从移动和消费电子转向数据中心 AI、电网及工业高功率应用。Q2 2026 收入 $10.5M，毛利率 39.5%，现金 $557M；Q3 收入指引为 $13–14M。管理层预计 2026 全年收入增速为中个位数，并称 AI 基础设施项目将在下半年及 2027 年逐步爬坡。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $9.16。Q2 收入 $10.5M、毛利率 39.5%、现金 $557M；Q3 收入指引 $13–14M。10 月 21 日发布 2300V、8mΩ 的超高压 SiC 全桥模块，样品已可提供，目标市场包括固态变压器、储能、太阳能和大功率充电；资格验证尚未完成。转型方向明确，但收入规模、亏损和客户量产转化仍是关键风险。",
+        "details": "业务定位与最新报告：Navitas 设计 GaN 与 SiC 功率器件，正从移动和消费电子转向数据中心 AI、电网及工业高功率应用。Q2 2026 收入 $10.5M，毛利率 39.5%，现金 $557M；Q3 收入指引为 $13–14M。管理层预计 2026 全年收入增速为中个位数，并称 AI 基础设施项目将在下半年及 2027 年逐步爬坡。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\nNavitas 10 月 21 日公布 2300V、8mΩ GeneSiC SiCPAK 全桥模块家族，样品可立即申请，目标场景包括固态变压器、电网储能、太阳能逆变器和兆瓦级充电。公司称后续将按内部 AEC-Plus 流程验证，公告并未表示资格认证已经完成。Q3 业绩定于 11 月 3 日发布；原指引收入 $13–14M，需重点核对收入爬坡和毛利率。",
         "risks": [
-          "目前规模较小且仍有经营亏损，现金消耗与收入爬坡速度需跟踪。",
-          "客户认证、设计导入、产能和订单兑现的时间不确定。",
-          "AI 数据中心业务预期较高，需求或客户集中度变化会放大股价波动。"
+          "公司规模仍小且处于经营亏损阶段；现金余额充足不等于已实现经营自给。",
+          "新产品样品、设计导入和市场空间不等于量产订单；客户资格认证和收入转化时间不确定。"
         ],
         "catalysts": [
-          "核对 Q3 收入是否达到 $13–14M 指引及毛利率变化。",
-          "跟踪数据中心和电网项目从样品/设计导入转化为量产的证据。"
+          "11 月 3 日 Q3 结果：核对 $13–14M 收入指引、毛利率和现金消耗。",
+          "跟踪 2300V SiC 模块验证、美国政府项目与 AI 数据中心/电网相关设计导入是否变为订单和收入。"
         ],
         "sources": [
           {
-            "label": "最近收盘价：ChartExchange 历史日线（2026-10-19）",
+            "label": "Navitas Q2 2026 SEC 业绩公告",
+            "url": "https://www.sec.gov/Archives/edgar/data/1821769/000162828026049795/exhibit991-navitassemicond.htm"
+          },
+          {
+            "label": "收盘价：ChartExchange NVTS 历史日线（2026-10-21）",
             "url": "https://chartexchange.com/symbol/nasdaq-nvts/historical/"
           },
           {
-            "label": "Navitas Q2 2026 SEC 业绩公告",
-            "url": "https://www.sec.gov/Archives/edgar/data/1821769/000162828026049795/exhibit991-navitassemicond.htm"
+            "label": "Navitas：2300V 超高压 SiC 模块公告（2026-10-21）",
+            "url": "https://www.globenewswire.com/news-release/2026/10/21/3385531/0/en/navitas-unveils-next-generation-ultra-high-voltage-sic-power-module-to-advance-energy-and-grid-infrastructure-efficiency.html"
+          },
+          {
+            "label": "Navitas：Q3 2026 业绩日期（11 月 3 日）",
+            "url": "https://ir.navitassemi.com/events/event-details/navitas-semiconductor-q3-2026-earnings"
           }
         ],
         "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
         "quote": {
-          "price": 8.74,
-          "date": "2026-10-20",
+          "price": 9.16,
+          "date": "2026-10-21",
           "currency": "USD",
           "source": "ChartExchange",
           "sourceUrl": "https://chartexchange.com/symbol/nasdaq-nvts/historical/"
         }
       },
-      "price": 8.74,
-      "priceDate": "2026-10-20",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-nvts/historical/",
-      "researchedAt": "2026-10-20T21:29:38.011Z",
-      "report": "research/20261020-nvts.html",
+      "price": 8.44,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVTS?range=1d&interval=1m&includePrePost=false",
+      "researchedAt": "2026-10-22T00:59:11.243Z",
+      "report": "research/1792630751240-a38a079a.html",
       "targetPrice": 5,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:15.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:16.694Z"
     },
     {
       "id": "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
@@ -787,16 +814,17 @@
           "sector": "硅负极锂离子电池"
         },
         "title": "ENVX｜硅负极锂离子电池：经营进展、风险与跟踪要点",
-        "summary": "资料截至 2026-10-21；最近完整美股交易日（2026-10-20）收盘价为 $2.24。最新公开经营资料：Enovix 开发硅负极锂离子电池，目标应用包括消费电子及高性能设备。Q2 2026 收入 $9.0M、同比增长 21%，连续第七个季度实现正毛利，GAAP 毛利率 14.4%；现金、现金等价物和有价证券合计 $552.1M。公司仍处在产线扩张、客户认证和量产转化阶段。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Enovix 开发硅负极锂离子电池，目标应用包括消费电子及高性能设备。Q2 2026 收入 $9.0M、同比增长 21%，连续第七个季度实现正毛利，GAAP 毛利率 14.4%；现金、现金等价物和有价证券合计 $552.1M。公司仍处在产线扩张、客户认证和量产转化阶段。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $2.55。Enovix 已于 10 月 12 日发布 Q3 初步业绩：收入约 $11.0M、同比增长 38%，高于 $9–10M 指引；GAAP 营业亏损约 $39.3M，10 月 4 日现金约 $512M。无人机、国防及工业客户管线约 $216M，但公司说明管线不代表订单、积压或承诺收入；正式 Q3 结果预计 11 月 12 日左右发布。量产、亏损、客户资格和管线转化仍是关键风险。",
+        "details": "业务定位与最新报告：Enovix 开发硅负极锂离子电池，目标应用包括消费电子及高性能设备。Q2 2026 收入 $9.0M、同比增长 21%，连续第七个季度实现正毛利，GAAP 毛利率 14.4%；现金、现金等价物和有价证券合计 $552.1M。公司仍处在产线扩张、客户认证和量产转化阶段。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\nEnovix 10 月 12 日报告 Q3 初步、未经审计收入约 $11.0M（同比增长 38%，高于指引 $9–10M）、GAAP 营业亏损约 $39.3M、非 GAAP 营业亏损约 $29.2M；10 月 4 日现金约 $512M。无人机、国防及工业管线增至约 $216M，Q3 收入约 70% 来自无人机/国防客户；公司明确说明管线不是订单、积压或承诺收入。正式财报与电话会预计约在 11 月 12 日，最终数据可能与初步数据不同。",
         "risks": [
-          "量产良率、产能爬坡和单位成本决定商业模式能否兑现。",
-          "客户认证延期、产品性能或电池安全问题可能推迟收入。",
-          "目前收入规模相对资金投入较小，现金使用效率需要持续检验。"
+          "Q3 数字仍为管理层初步、未经审计数据，最终财报可能调整。",
+          "约 $216M 管线不是订单或承诺收入；设计机会需经历客户认证、采购、产能扩张和出货才可能形成销售。",
+          "公司持续亏损，产线良率、单位成本、电池安全及国防客户集中度均影响商业化与资金需求。"
         ],
         "catalysts": [
-          "跟踪新生产线产能、良率、毛利率及客户批量订单。",
-          "核对旗舰手机客户的寿命测试与认证进展是否转为持续出货。"
+          "核对约 11 月 12 日正式 Q3 财报与初步数字的差异，并关注成本削减和现金变化。",
+          "跟踪 $216M 无人机/国防/工业管线转化为设计胜出、采购订单、出货和收入的证据。",
+          "观察韩国生产能力、良率、客户认证及消费电子项目样品转化。"
         ],
         "sources": [
           {
@@ -806,25 +834,37 @@
           {
             "label": "Enovix Q2 2026 官方业绩",
             "url": "https://ir.enovix.com/news-releases/news-release-details/enovix-reports-second-quarter-2026-results"
+          },
+          {
+            "label": "收盘价：ChartExchange ENVX（2026-10-21）",
+            "url": "https://chartexchange.com/symbol/nasdaq-envx/"
+          },
+          {
+            "label": "Enovix：Q3 2026 初步业绩与业务更新（2026-10-12）",
+            "url": "https://ir.enovix.com/news-releases/news-release-details/q326-revenue-110-million-38-yearyear"
           }
         ],
         "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
         "quote": {
-          "price": 2.24,
-          "date": "2026-10-20",
+          "price": 2.55,
+          "date": "2026-10-21",
           "currency": "USD",
           "source": "ChartExchange",
-          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-envx/historical/"
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-envx/"
         }
       },
-      "price": 2.24,
-      "priceDate": "2026-10-20",
-      "priceSource": "ChartExchange",
-      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-envx/historical/",
-      "researchedAt": "2026-10-20T21:29:38.028Z",
-      "report": "research/20261020-envx.html",
+      "price": 2.485,
+      "priceDate": "2026-10-22",
+      "priceSource": "Yahoo Finance",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ENVX?range=1d&interval=1m&includePrePost=false",
+      "researchedAt": "2026-10-22T00:59:11.342Z",
+      "report": "research/1792630751340-8e399912.html",
       "targetPrice": 1.8,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:08.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:17.136Z"
     },
     {
       "id": "bda9b130-0a99-46c8-b943-f01dd6992ebd",
@@ -872,14 +912,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/ARQT/history/"
         }
       },
-      "price": 31.8700008392334,
-      "priceDate": "2026-10-21",
+      "price": 31.965,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/ARQT/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ARQT?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:25.926Z",
       "report": "research/20261022-arqt.html",
       "targetPrice": 22,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:15:55.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:17.758Z"
     },
     {
       "id": "bcd88ce3-3432-4ebf-bcfe-37fbccab84bc",
@@ -927,14 +971,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/RDW/history/"
         }
       },
-      "price": 8.5600004196167,
-      "priceDate": "2026-10-21",
+      "price": 8.05,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/RDW/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/RDW?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:25.969Z",
       "report": "research/20261022-rdw.html",
       "targetPrice": 5,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:16.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:18.284Z"
     },
     {
       "id": "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
@@ -982,14 +1030,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/INOD/history/"
         }
       },
-      "price": 60.560001373291016,
-      "priceDate": "2026-10-21",
+      "price": 58.61,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/INOD/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/INOD?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.004Z",
       "report": "research/20261022-inod.html",
       "targetPrice": 43,
-      "attention": 4
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:15:21.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:18.814Z"
     },
     {
       "id": "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
@@ -1037,14 +1089,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/ASTS/history/"
         }
       },
-      "price": 40.900001525878906,
-      "priceDate": "2026-10-21",
+      "price": 38.04,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/ASTS/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ASTS?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.041Z",
       "report": "research/20261022-asts.html",
       "targetPrice": 22,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:16.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:19.355Z"
     },
     {
       "id": "e59bec61-4342-46ba-99c5-200542b791d9",
@@ -1092,14 +1148,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/CRDO/history/"
         }
       },
-      "price": 182.27999877929688,
-      "priceDate": "2026-10-21",
+      "price": 162.76,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/CRDO/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/CRDO?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.077Z",
       "report": "research/20261022-crdo.html",
       "targetPrice": 145,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:13.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:19.882Z"
     },
     {
       "id": "5d0a5d34-3866-417c-a996-c1b5991daebb",
@@ -1147,14 +1207,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/HOOD/history/"
         }
       },
-      "price": 101.93000030517578,
-      "priceDate": "2026-10-21",
+      "price": 96.06,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/HOOD/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HOOD?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.112Z",
       "report": "research/20261022-hood.html",
       "targetPrice": 80,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:18.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:20.321Z"
     },
     {
       "id": "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
@@ -1202,14 +1266,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/HIMS/history/"
         }
       },
-      "price": 29.209999084472656,
-      "priceDate": "2026-10-21",
+      "price": 28.315,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/HIMS/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HIMS?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.148Z",
       "report": "research/20261022-hims.html",
       "targetPrice": 24,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:19.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:20.776Z"
     },
     {
       "id": "d6bf7357-8935-4d2d-abef-2250c9e5c418",
@@ -1257,14 +1325,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/UPS/history/"
         }
       },
-      "price": 99.56999969482422,
-      "priceDate": "2026-10-21",
+      "price": 101.59,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/UPS/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/UPS?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.184Z",
       "report": "research/20261022-ups.html",
       "targetPrice": 89,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:18.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:21.233Z"
     },
     {
       "id": "09b92911-f46c-43f7-8308-30622aadb4f4",
@@ -1312,14 +1384,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/ACN/history/"
         }
       },
-      "price": 240.25999450683594,
-      "priceDate": "2026-10-21",
+      "price": 255.39,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/ACN/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ACN?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.237Z",
       "report": "research/20261022-acn.html",
       "targetPrice": 198,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:20.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:21.678Z"
     },
     {
       "id": "ad97bd71-1e64-42b2-ac24-81220317555d",
@@ -1367,14 +1443,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/HSY/history/"
         }
       },
-      "price": 167.80999755859375,
-      "priceDate": "2026-10-21",
+      "price": 174.665,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/HSY/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HSY?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.298Z",
       "report": "research/20261022-hsy.html",
       "targetPrice": 156,
-      "attention": 4
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:15:44.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:22.147Z"
     },
     {
       "id": "9d659e03-df19-4a6c-9534-9045b7747629",
@@ -1422,14 +1502,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/HD/history/"
         }
       },
-      "price": 314.1400146484375,
-      "priceDate": "2026-10-21",
+      "price": 326.81,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/HD/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/HD?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.333Z",
       "report": "research/20261022-hd.html",
       "targetPrice": 275,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:21.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:22.606Z"
     },
     {
       "id": "5b095741-a682-4b22-ad52-2c70e1a4052c",
@@ -1477,14 +1561,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/UNH/history/"
         }
       },
-      "price": 417,
-      "priceDate": "2026-10-21",
+      "price": 425.31,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/UNH/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/UNH?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.369Z",
       "report": "research/20261022-unh.html",
       "targetPrice": 365,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:21.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:23.049Z"
     },
     {
       "id": "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
@@ -1532,14 +1620,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/OTIS/history/"
         }
       },
-      "price": 72.3499984741211,
-      "priceDate": "2026-10-21",
+      "price": 75.295,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/OTIS/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/OTIS?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.402Z",
       "report": "research/20261022-otis.html",
       "targetPrice": 64,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:11.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:23.516Z"
     },
     {
       "id": "a458efd6-1dde-44d5-8737-63854d7a5e63",
@@ -1587,14 +1679,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/SPGI/history/"
         }
       },
-      "price": 443.1600036621094,
-      "priceDate": "2026-10-21",
+      "price": 452.86,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/SPGI/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SPGI?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.440Z",
       "report": "research/20261022-spgi.html",
       "targetPrice": 385,
-      "attention": 2
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:16.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:23.974Z"
     },
     {
       "id": "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
@@ -1642,14 +1738,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/VST/history/"
         }
       },
-      "price": 156.13999938964844,
-      "priceDate": "2026-10-21",
+      "price": 140.44,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/VST/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VST?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.472Z",
       "report": "research/20261022-vst.html",
       "targetPrice": 120,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:22.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:24.423Z"
     },
     {
       "id": "30c526ed-d29c-4e27-a3a6-d08a8f94802f",
@@ -1697,14 +1797,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/BEAM/history/"
         }
       },
-      "price": 24.84000015258789,
-      "priceDate": "2026-10-21",
+      "price": 24.285,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/BEAM/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BEAM?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.507Z",
       "report": "research/20261022-beam.html",
       "targetPrice": 18,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:17.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:24.894Z"
     },
     {
       "id": "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc",
@@ -1752,13 +1856,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/GPCR/history/"
         }
       },
-      "price": 22.010000228881836,
-      "priceDate": "2026-10-21",
+      "price": 22.08,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/GPCR/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/GPCR?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.540Z",
       "report": "research/20261022-gpcr.html",
-      "attention": 2
+      "attention": 2,
+      "targetPrice": 10,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:15:30.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:25.350Z"
     },
     {
       "id": "5774dc3c-1f0d-40e7-b787-d0a45f77c524",
@@ -1806,14 +1915,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/ILMN/history/"
         }
       },
-      "price": 282.8599853515625,
-      "priceDate": "2026-10-21",
+      "price": 263.21,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/ILMN/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/ILMN?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.574Z",
       "report": "research/20261022-ilmn.html",
       "targetPrice": 190,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:15:35.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:26.380Z"
     },
     {
       "id": "28efd446-0de3-4992-b562-7836ceb691ae",
@@ -1861,14 +1974,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/BE/history/"
         }
       },
-      "price": 238.52999877929688,
-      "priceDate": "2026-10-21",
+      "price": 212.5,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/BE/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BE?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.606Z",
       "report": "research/20261022-be.html",
       "targetPrice": 165,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:25.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:26.835Z"
     },
     {
       "id": "01a864b1-0623-4778-9656-0431418803b8",
@@ -1916,14 +2033,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/AXP/history/"
         }
       },
-      "price": 323.6099853515625,
-      "priceDate": "2026-10-21",
+      "price": 324.875,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/AXP/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AXP?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.641Z",
       "report": "research/20261022-axp.html",
       "targetPrice": 295,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:21.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:27.295Z"
     },
     {
       "id": "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
@@ -1971,14 +2092,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/AMD/history/"
         }
       },
-      "price": 552.719970703125,
-      "priceDate": "2026-10-21",
+      "price": 505.31,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/AMD/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AMD?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.673Z",
       "report": "research/20261022-amd.html",
       "targetPrice": 455,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:25.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:27.754Z"
     },
     {
       "id": "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
@@ -2026,14 +2151,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/INTC/history/"
         }
       },
-      "price": 92.95999908447266,
-      "priceDate": "2026-10-21",
+      "price": 85.605,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/INTC/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/INTC?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.719Z",
       "report": "research/20261022-intc.html",
       "targetPrice": 68,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:26.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:28.207Z"
     },
     {
       "id": "1931dbff-edc9-40e0-b082-32f571e994a6",
@@ -2081,14 +2210,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/NVDA/history/"
         }
       },
-      "price": 221.97000122070312,
-      "priceDate": "2026-10-21",
+      "price": 212.107,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/NVDA/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/NVDA?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.751Z",
       "report": "research/20261022-nvda.html",
       "targetPrice": 165,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:26.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:28.721Z"
     },
     {
       "id": "c926f17c-43a8-4e8f-9d78-5498591db5e7",
@@ -2136,14 +2269,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/BRK-B/history/"
         }
       },
-      "price": 538.989990234375,
-      "priceDate": "2026-10-21",
+      "price": 548.495,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/BRK-B/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/BRK-B?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.789Z",
       "report": "research/20261022-brk-b.html",
       "targetPrice": 500,
-      "attention": 3
+      "attention": 3,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:27.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:29.180Z"
     },
     {
       "id": "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
@@ -2191,14 +2328,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/MSFT/history/"
         }
       },
-      "price": 532.9500122070312,
-      "priceDate": "2026-10-21",
+      "price": 521.47,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/MSFT/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/MSFT?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.829Z",
       "report": "research/20261022-msft.html",
       "targetPrice": 480,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:27.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:29.630Z"
     },
     {
       "id": "79730ba5-e176-4362-8ba4-022e0f8f35b9",
@@ -2246,14 +2387,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/V/history/"
         }
       },
-      "price": 407.8500061035156,
-      "priceDate": "2026-10-21",
+      "price": 412.6,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/V/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/V?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.864Z",
       "report": "research/20261022-v.html",
       "targetPrice": 360,
-      "attention": 1
+      "attention": 1,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:25.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:30.083Z"
     },
     {
       "id": "d071d7b1-561e-4478-9dad-d9dc23cf7d11",
@@ -2301,14 +2446,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/AAPL/history/"
         }
       },
-      "price": 343.989990234375,
-      "priceDate": "2026-10-21",
+      "price": 347.035,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/AAPL/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AAPL?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.923Z",
       "report": "research/20261022-aapl.html",
       "targetPrice": 305,
-      "attention": 1
+      "attention": 1,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:28.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:30.556Z"
     },
     {
       "id": "12f7b499-3884-440f-8a0b-0d72617fefe6",
@@ -2356,13 +2505,17 @@
           "sourceUrl": "https://finance.yahoo.com/quote/VTI/history/"
         }
       },
-      "price": 379.1499938964844,
-      "priceDate": "2026-10-21",
+      "price": 374.11,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/VTI/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VTI?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.958Z",
       "report": "research/20261022-vti.html",
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:29.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:31.021Z"
     },
     {
       "id": "054a6cfc-4817-40d6-9079-112189b34d55",
@@ -2410,13 +2563,17 @@
           "sourceUrl": "https://finance.yahoo.com/quote/VT/history/"
         }
       },
-      "price": 158.58999633789062,
-      "priceDate": "2026-10-21",
+      "price": 156.25,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/VT/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VT?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:26.996Z",
       "report": "research/20261022-vt.html",
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:29.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:31.480Z"
     },
     {
       "id": "8d4b2e47-63bd-4981-b75b-e4f2c88392d9",
@@ -2464,13 +2621,17 @@
           "sourceUrl": "https://finance.yahoo.com/quote/VGT/history/"
         }
       },
-      "price": 122.25,
-      "priceDate": "2026-10-21",
+      "price": 118.475,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/VGT/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VGT?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.034Z",
       "report": "research/20261022-vgt.html",
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:29.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:31.938Z"
     },
     {
       "id": "ff73a376-2cdc-4d6e-b2cb-d3877ea03a13",
@@ -2518,13 +2679,17 @@
           "sourceUrl": "https://finance.yahoo.com/quote/SOXX/history/"
         }
       },
-      "price": 510.3599853515625,
-      "priceDate": "2026-10-21",
+      "price": 475.857,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/SOXX/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SOXX?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.093Z",
       "report": "research/20261022-soxx.html",
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:08.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:32.030Z"
     },
     {
       "id": "f6b57ee2-657a-4476-a59a-0239a3bb40d1",
@@ -2572,13 +2737,17 @@
           "sourceUrl": "https://finance.yahoo.com/quote/SMH/history/"
         }
       },
-      "price": 556.7000122070312,
-      "priceDate": "2026-10-21",
+      "price": 523.68,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/SMH/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SMH?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.147Z",
       "report": "research/20261022-smh.html",
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:09.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:32.102Z"
     },
     {
       "id": "df872bc9-4abd-4280-82ca-db85196e020f",
@@ -2626,13 +2795,17 @@
           "sourceUrl": "https://finance.yahoo.com/quote/VOO/history/"
         }
       },
-      "price": 710.719970703125,
-      "priceDate": "2026-10-21",
+      "price": 700.62,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/VOO/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VOO?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.185Z",
       "report": "research/20261022-voo.html",
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:07.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:32.175Z"
     },
     {
       "id": "2016aee7-b4fd-490f-9df0-43114d0238e7",
@@ -2680,13 +2853,17 @@
           "sourceUrl": "https://finance.yahoo.com/quote/QQQM/history/"
         }
       },
-      "price": 298.6400146484375,
-      "priceDate": "2026-10-21",
+      "price": 289.66,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/QQQM/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/QQQM?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.221Z",
       "report": "research/20261022-qqqm.html",
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:01.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:32.248Z"
     },
     {
       "id": "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
@@ -2734,14 +2911,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/AVGO/history/"
         }
       },
-      "price": 337.79998779296875,
-      "priceDate": "2026-10-21",
+      "price": 323.67,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/AVGO/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AVGO?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.266Z",
       "report": "research/20261022-avgo.html",
       "targetPrice": 305,
-      "attention": 4
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:31.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:32.690Z"
     },
     {
       "id": "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
@@ -2789,14 +2970,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/GOOGL/history/"
         }
       },
-      "price": 334.760009765625,
-      "priceDate": "2026-10-21",
+      "price": 322.86,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/GOOGL/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/GOOGL?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.301Z",
       "report": "research/20261022-googl.html",
       "targetPrice": 320,
-      "attention": 4
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:30.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:33.142Z"
     },
     {
       "id": "10e1793d-640e-443f-aac7-fe0290c204c3",
@@ -2853,14 +3038,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/TSLA/history/"
         }
       },
-      "price": 386.4700012207031,
-      "priceDate": "2026-10-21",
+      "price": 377.045,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/TSLA/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/TSLA?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.373Z",
       "report": "research/20261022-tsla.html",
       "targetPrice": 220,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:33.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:33.651Z"
     },
     {
       "id": "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
@@ -2922,14 +3111,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/SOUN/history/"
         }
       },
-      "price": 4.610000133514404,
-      "priceDate": "2026-10-21",
+      "price": 4.505,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/SOUN/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/SOUN?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.418Z",
       "report": "research/20261022-soun.html",
       "targetPrice": 3.4,
-      "attention": 2
+      "attention": 3,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:14.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:34.123Z"
     },
     {
       "id": "c024e517-2f19-429e-9330-e49566ba2537",
@@ -2983,14 +3176,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/APLD/history/"
         }
       },
-      "price": 20.979999542236328,
-      "priceDate": "2026-10-21",
+      "price": 18.955,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/APLD/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/APLD?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.460Z",
       "report": "research/20261022-apld.html",
       "targetPrice": 14,
-      "attention": 2
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:33.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:34.568Z"
     },
     {
       "id": "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
@@ -3044,14 +3241,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/AMPX/history/"
         }
       },
-      "price": 8.3100004196167,
-      "priceDate": "2026-10-21",
+      "price": 7.785,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/AMPX/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/AMPX?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.496Z",
       "report": "research/20261022-ampx.html",
       "targetPrice": 5,
-      "attention": 2
+      "attention": 4,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:33.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:35.021Z"
     },
     {
       "id": "5ffc01e1-e876-459c-828d-3f28dc5548d8",
@@ -3105,14 +3306,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/PL/history/"
         }
       },
-      "price": 13.710000038146973,
-      "priceDate": "2026-10-21",
+      "price": 12.975,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/PL/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/PL?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.534Z",
       "report": "research/20261022-pl.html",
       "targetPrice": 11,
-      "attention": 2
+      "attention": 2,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:33.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:35.463Z"
     },
     {
       "id": "5614a582-5385-49a4-a89f-2a0661942e35",
@@ -3176,14 +3381,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/IREN/history/"
         }
       },
-      "price": 27.84000015258789,
-      "priceDate": "2026-10-21",
+      "price": 25.275,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/IREN/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/IREN?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.569Z",
       "report": "research/20261022-iren.html",
       "targetPrice": 17,
-      "attention": 2
+      "attention": 3,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:35.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:35.932Z"
     },
     {
       "id": "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
@@ -3241,14 +3450,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/TEM/history/"
         }
       },
-      "price": 67.76000213623047,
-      "priceDate": "2026-10-21",
+      "price": 62.525,
+      "priceDate": "2026-10-22",
       "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/TEM/history/",
+      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/TEM?range=1d&interval=1m&includePrePost=false",
       "researchedAt": "2026-10-21T23:39:27.609Z",
       "report": "research/20261022-tem.html",
       "targetPrice": 52,
-      "attention": 2
+      "attention": 3,
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-22T19:16:30.000Z",
+      "priceFetchedAt": "2026-10-22T19:16:36.391Z"
     },
     {
       "id": "546ba81c-c7b1-4636-8537-23d861ee0bc3",
@@ -3584,6 +3797,289 @@
   "journal": [],
   "analyses": [
     {
+      "id": "fdfff75f-6d4b-4fbc-a0f4-5ae3f3236db1",
+      "kind": "watch",
+      "date": "2026-10-22T00:59:11.342Z",
+      "research": {
+        "identity": {
+          "name": "Enovix Corporation",
+          "symbol": "ENVX",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "硅负极锂离子电池"
+        },
+        "title": "ENVX｜硅负极锂离子电池：经营进展、风险与跟踪要点",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $2.55。Enovix 已于 10 月 12 日发布 Q3 初步业绩：收入约 $11.0M、同比增长 38%，高于 $9–10M 指引；GAAP 营业亏损约 $39.3M，10 月 4 日现金约 $512M。无人机、国防及工业客户管线约 $216M，但公司说明管线不代表订单、积压或承诺收入；正式 Q3 结果预计 11 月 12 日左右发布。量产、亏损、客户资格和管线转化仍是关键风险。",
+        "details": "业务定位与最新报告：Enovix 开发硅负极锂离子电池，目标应用包括消费电子及高性能设备。Q2 2026 收入 $9.0M、同比增长 21%，连续第七个季度实现正毛利，GAAP 毛利率 14.4%；现金、现金等价物和有价证券合计 $552.1M。公司仍处在产线扩张、客户认证和量产转化阶段。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\nEnovix 10 月 12 日报告 Q3 初步、未经审计收入约 $11.0M（同比增长 38%，高于指引 $9–10M）、GAAP 营业亏损约 $39.3M、非 GAAP 营业亏损约 $29.2M；10 月 4 日现金约 $512M。无人机、国防及工业管线增至约 $216M，Q3 收入约 70% 来自无人机/国防客户；公司明确说明管线不是订单、积压或承诺收入。正式财报与电话会预计约在 11 月 12 日，最终数据可能与初步数据不同。",
+        "risks": [
+          "Q3 数字仍为管理层初步、未经审计数据，最终财报可能调整。",
+          "约 $216M 管线不是订单或承诺收入；设计机会需经历客户认证、采购、产能扩张和出货才可能形成销售。",
+          "公司持续亏损，产线良率、单位成本、电池安全及国防客户集中度均影响商业化与资金需求。"
+        ],
+        "catalysts": [
+          "核对约 11 月 12 日正式 Q3 财报与初步数字的差异，并关注成本削减和现金变化。",
+          "跟踪 $216M 无人机/国防/工业管线转化为设计胜出、采购订单、出货和收入的证据。",
+          "观察韩国生产能力、良率、客户认证及消费电子项目样品转化。"
+        ],
+        "sources": [
+          {
+            "label": "最近收盘价：ChartExchange 历史日线（2026-10-19）",
+            "url": "https://chartexchange.com/symbol/nasdaq-envx/historical/"
+          },
+          {
+            "label": "Enovix Q2 2026 官方业绩",
+            "url": "https://ir.enovix.com/news-releases/news-release-details/enovix-reports-second-quarter-2026-results"
+          },
+          {
+            "label": "收盘价：ChartExchange ENVX（2026-10-21）",
+            "url": "https://chartexchange.com/symbol/nasdaq-envx/"
+          },
+          {
+            "label": "Enovix：Q3 2026 初步业绩与业务更新（2026-10-12）",
+            "url": "https://ir.enovix.com/news-releases/news-release-details/q326-revenue-110-million-38-yearyear"
+          }
+        ],
+        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
+        "quote": {
+          "price": 2.55,
+          "date": "2026-10-21",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-envx/"
+        }
+      },
+      "report": "research/1792630751340-8e399912.html"
+    },
+    {
+      "id": "087c65cd-a576-4646-a889-d7592c9c37dc",
+      "kind": "watch",
+      "date": "2026-10-22T00:59:11.243Z",
+      "research": {
+        "identity": {
+          "name": "Navitas Semiconductor Corporation",
+          "symbol": "NVTS",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "氮化镓与碳化硅功率半导体"
+        },
+        "title": "NVTS｜氮化镓与碳化硅功率半导体：经营进展、风险与跟踪要点",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $9.16。Q2 收入 $10.5M、毛利率 39.5%、现金 $557M；Q3 收入指引 $13–14M。10 月 21 日发布 2300V、8mΩ 的超高压 SiC 全桥模块，样品已可提供，目标市场包括固态变压器、储能、太阳能和大功率充电；资格验证尚未完成。转型方向明确，但收入规模、亏损和客户量产转化仍是关键风险。",
+        "details": "业务定位与最新报告：Navitas 设计 GaN 与 SiC 功率器件，正从移动和消费电子转向数据中心 AI、电网及工业高功率应用。Q2 2026 收入 $10.5M，毛利率 39.5%，现金 $557M；Q3 收入指引为 $13–14M。管理层预计 2026 全年收入增速为中个位数，并称 AI 基础设施项目将在下半年及 2027 年逐步爬坡。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\nNavitas 10 月 21 日公布 2300V、8mΩ GeneSiC SiCPAK 全桥模块家族，样品可立即申请，目标场景包括固态变压器、电网储能、太阳能逆变器和兆瓦级充电。公司称后续将按内部 AEC-Plus 流程验证，公告并未表示资格认证已经完成。Q3 业绩定于 11 月 3 日发布；原指引收入 $13–14M，需重点核对收入爬坡和毛利率。",
+        "risks": [
+          "公司规模仍小且处于经营亏损阶段；现金余额充足不等于已实现经营自给。",
+          "新产品样品、设计导入和市场空间不等于量产订单；客户资格认证和收入转化时间不确定。"
+        ],
+        "catalysts": [
+          "11 月 3 日 Q3 结果：核对 $13–14M 收入指引、毛利率和现金消耗。",
+          "跟踪 2300V SiC 模块验证、美国政府项目与 AI 数据中心/电网相关设计导入是否变为订单和收入。"
+        ],
+        "sources": [
+          {
+            "label": "Navitas Q2 2026 SEC 业绩公告",
+            "url": "https://www.sec.gov/Archives/edgar/data/1821769/000162828026049795/exhibit991-navitassemicond.htm"
+          },
+          {
+            "label": "收盘价：ChartExchange NVTS 历史日线（2026-10-21）",
+            "url": "https://chartexchange.com/symbol/nasdaq-nvts/historical/"
+          },
+          {
+            "label": "Navitas：2300V 超高压 SiC 模块公告（2026-10-21）",
+            "url": "https://www.globenewswire.com/news-release/2026/10/21/3385531/0/en/navitas-unveils-next-generation-ultra-high-voltage-sic-power-module-to-advance-energy-and-grid-infrastructure-efficiency.html"
+          },
+          {
+            "label": "Navitas：Q3 2026 业绩日期（11 月 3 日）",
+            "url": "https://ir.navitassemi.com/events/event-details/navitas-semiconductor-q3-2026-earnings"
+          }
+        ],
+        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
+        "quote": {
+          "price": 9.16,
+          "date": "2026-10-21",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-nvts/historical/"
+        }
+      },
+      "report": "research/1792630751240-a38a079a.html"
+    },
+    {
+      "id": "4c3abaa1-be10-40ff-b886-4140802554b3",
+      "kind": "watch",
+      "date": "2026-10-22T00:59:11.182Z",
+      "research": {
+        "identity": {
+          "name": "Aehr Test Systems",
+          "symbol": "AEHR",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "半导体测试与老化设备"
+        },
+        "title": "AEHR｜半导体测试与老化设备：经营进展、风险与跟踪要点",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $63.88。Aehr FY2026 Q4 披露季度订单创纪录、有效积压订单超过 $100M，并披露一笔超过 $8M 的 SiC 晶圆级 burn-in 订单。10 月 7 日又收到头部超大规模客户下一代 AI 处理器 Sonoma 的追加生产订单；FY2027 Q1 业绩定于 11 月 2 日发布。订单转收入、客户集中和 AI 产能爬坡仍需验证。",
+        "details": "业务定位与最新报告：Aehr 提供晶圆级与封装器件 burn-in 测试系统，传统需求来自碳化硅功率器件，近期拓展 AI 处理器、光子器件等市场。FY2026 Q4 公司披露季度订单创纪录、有效积压订单超过 $100M；同日公布一笔超过 $8M 的 SiC 晶圆级 burn-in 订单。订单转收入、客户认证与新应用规模化是关键验证点。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\n10 月 7 日 Aehr 宣布为头部超大规模客户的下一代 AI 处理器 Sonoma 项目收到后续生产订单，公告称该订单支持客户第二个 AI 处理器项目。公司将于 11 月 2 日公布 FY2027 Q1（截至 9 月 25 日）业绩。订单和积压提供需求线索，但交付时间、收入确认及重复采购仍需季度数据验证。",
+        "risks": [
+          "订单集中且确认时间不均，订单积压未必按期转化为收入。",
+          "半导体设备周期、客户认证延迟和新市场竞争可能导致经营波动。"
+        ],
+        "catalysts": [
+          "11 月 2 日 FY2027 Q1 结果：跟踪收入、订单、有效积压和现金消耗。",
+          "验证 Sonoma AI 处理器生产订单以及 SiC、硅光子项目是否转为持续批量出货。",
+          "观察客户与订单集中度、产能扩张和毛利率，避免将设计/生产订单等同已实现收入。"
+        ],
+        "sources": [
+          {
+            "label": "最近收盘价：ChartExchange 历史日线（2026-10-19）",
+            "url": "https://chartexchange.com/symbol/nasdaq-aehr/historical/"
+          },
+          {
+            "label": "Aehr 官方财务公告",
+            "url": "https://www.aehr.com/financial-news/"
+          },
+          {
+            "label": "收盘价：Yahoo Finance AEHR 历史日线（2026-10-21）",
+            "url": "https://au.finance.yahoo.com/quote/AEHR/history/"
+          },
+          {
+            "label": "Aehr：FY2027 Q1 财报日期（11 月 2 日）",
+            "url": "https://www.aehr.com/2026/10/aehr-test-systems-to-announce-first-quarter-fiscal-2027-financial-results-on-november-2-2026/"
+          },
+          {
+            "label": "Aehr：投资者新闻列表（含 10 月 7 日 Sonoma 后续订单）",
+            "url": "https://www.aehr.com/newsroom/"
+          }
+        ],
+        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
+        "quote": {
+          "price": 63.88,
+          "date": "2026-10-21",
+          "currency": "USD",
+          "source": "Yahoo Finance",
+          "sourceUrl": "https://au.finance.yahoo.com/quote/AEHR/history/"
+        }
+      },
+      "report": "research/1792630751181-f1c48259.html"
+    },
+    {
+      "id": "1f2c9ecc-4241-4852-a816-81ef7c624d69",
+      "kind": "watch",
+      "date": "2026-10-22T00:59:11.096Z",
+      "research": {
+        "identity": {
+          "name": "Amazon.com, Inc.",
+          "symbol": "AMZN",
+          "exchange": "NASDAQ",
+          "currency": "USD",
+          "sector": "电商、云计算与数字广告"
+        },
+        "title": "AMZN｜电商、云计算与数字广告：经营进展、风险与跟踪要点",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $262.36。Q2 净销售额 $200.6B、同比增长 20%，营业利润 $27.5B、AWS 收入 $42.2B（增长 37%）；净利润包含约 $53.4B 非经营性 Anthropic 投资收益。公司 Q3 销售指引为 $197–202B、营业利润指引为 $22.5–26.5B，业绩电话会定于 10 月 29 日。AI 资本支出对自由现金流的压力仍需评估。",
+        "details": "业务定位与最新报告：Amazon 同时经营北美与国际零售、AWS 云服务、广告及订阅。Q2 2026 净销售额 $200.6B、同比增长 20%；营业利润 $27.5B、增长 43%；AWS 收入 $42.2B、增长 37%。净利润 $62.6B 中含约 $53.4B 非经营性 Anthropic 投资收益；过去 12 个月自由现金流为 -$7.6B，主要受资本支出增加影响。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\nAmazon Q2 净销售额增长 20%，AWS 增长 37%，营业利润增长 43%；净利润 $62.6B 中约 $53.4B 为主要来自 Anthropic 投资的非经营性收益，过去 12 个月自由现金流为 -$7.6B，主要受 AI 资本开支影响。Q3 公司销售额指引为 $197–202B、营业利润指引为 $22.5–26.5B；Amazon 已宣布 10 月 29 日讨论 Q3 业绩。",
+        "risks": [
+          "AI 与云基础设施投入巨大，资本开支回报和自由现金流恢复需要持续验证。",
+          "零售利润率、AWS 云竞争及第三方投资公允价值波动会造成业绩差异。"
+        ],
+        "catalysts": [
+          "10 月 29 日 Q3 结果：对照销售额 $197–202B、营业利润 $22.5–26.5B 指引，重点看 AWS 增速和利润。",
+          "跟踪 AI/数据中心资本开支与 AWS、芯片和广告收入变现之间的关系。",
+          "关注自由现金流、零售履约成本及投资收益对净利润的影响，区分经营利润与非经营性收益。"
+        ],
+        "sources": [
+          {
+            "label": "Amazon Q2 2026 官方业绩",
+            "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx?mode=light"
+          },
+          {
+            "label": "收盘价：ChartExchange AMZN 历史日线（2026-10-21）",
+            "url": "https://chartexchange.com/symbol/nasdaq-amzn/historical/"
+          },
+          {
+            "label": "Amazon：Q2 2026 财报及 Q3 指引",
+            "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Second-Quarter-Results/default.aspx"
+          },
+          {
+            "label": "Amazon：Q3 2026 业绩电话会日期（10 月 29 日）",
+            "url": "https://press.aboutamazon.com/2026/10/amazon-com-to-webcast-third-quarter-2026-financial-results-conference-call"
+          }
+        ],
+        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
+        "quote": {
+          "price": 262.36,
+          "date": "2026-10-21",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-amzn/historical/"
+        }
+      },
+      "report": "research/1792630751094-d7a5c2c1.html"
+    },
+    {
+      "id": "f30bd4c5-b28d-4b34-9776-9aee51a71782",
+      "kind": "watch",
+      "date": "2026-10-22T00:59:11.024Z",
+      "research": {
+        "identity": {
+          "name": "Taiwan Semiconductor Manufacturing Company Limited ADR",
+          "symbol": "TSM",
+          "exchange": "NYSE",
+          "currency": "USD",
+          "sector": "半导体晶圆代工"
+        },
+        "title": "TSM｜先进制程和 AI/HPC 需求强劲，2nm 与海外扩产拉高投入要求",
+        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）TSM ADR 收盘为 $431.77。Q3 美元收入 $46.72B、同比增长 41.2%，毛利率 66.4%；Q4 收入指引 $52.3–54.3B，2026 全年资本预算 $60–64B。管理层称先进制程需求强劲、2026 美元收入预计增长约 44%，同时对消费及价格敏感市场保持审慎。2nm 爬坡、海外扩产和高资本投入影响回报与毛利率。",
+        "details": "TSMC 以纯晶圆代工模式为全球客户制造先进和成熟制程芯片。公司 10 月 15 日发布 Q3 2026 业绩：合并收入 NT$1,494.24B（US$46.72B），美元收入同比增长 41.2%；稀释 EPS 为 NT$29.43（每 ADR US$4.60），毛利率 66.4%，经营利润率 58.7%。HPC 占季度收入 68%，2nm 制程贡献晶圆收入 8%。\n\n管理层预计 Q4 收入 US$52.3–54.3B、毛利率 65%–67%、经营利润率 56.5%–58.5%，重申 2026 年资本预算 US$60–64B。管理层称 Q3 毛利率受 2nm 初期爬坡影响约 1.3 个百分点；海外晶圆厂对 2026 全年毛利率的稀释约 2%，未来几年可能升至 3%–4%。公司仍指出先进制程、AI/HPC 客户需求强劲。\n\n增长由技术领先、规模制造和先进节点需求支撑，但庞大资本开支、良率爬坡和海外制造成本增加了回报兑现要求。台湾制造集中带来的地缘政治、自然灾害、公用事业和供应链中断风险不会因高需求消失。继续关注 Q4 指引、月度销售、2nm 产能与良率、海外厂毛利稀释和资本回报；下次月度销售公告安排在 11 月 10 日。\n\n【截至 2026-10-22 的最新公开信息】\nTSMC 已于 10 月 15 日发布 Q3 业绩。收入 $46.72B，高于公司此前指引；毛利率 66.4%，经营利润率 58.7%。公司给出 Q4 收入 $52.3–54.3B、毛利率 65%–67% 的指引，重申 2026 资本预算 $60–64B，并预计全年美元收入增长约 44%。管理层指出先进制程需求强，但消费及价格敏感市场承压；这使需求结构与产能回报同样值得跟踪。",
+        "risks": [
+          "半导体行业具有周期性；客户需求、库存和产能利用率转弱会使高固定成本压低利润率。",
+          "2nm 初期爬坡与海外晶圆厂扩张正在稀释毛利，资本预算规模增加了回报与执行压力。",
+          "先进制造设施和供应链高度集中在台湾，地缘政治、自然灾害、水电和物流中断可能造成重大影响。",
+          "客户集中、出口管制、汇率和竞争变化可能影响订单、产品组合或跨地区扩张经济性。"
+        ],
+        "catalysts": [
+          "核对 Q4 收入、毛利率和经营利润率相对公司指引的表现。",
+          "跟踪 2nm 量产和良率爬坡、先进封装供需及海外晶圆厂成本对毛利率的影响。",
+          "关注 2026 年约 44% 美元收入增长预期及 $60–64B 资本预算能否兑现为后续回报。"
+        ],
+        "sources": [
+          {
+            "label": "收盘价：ChartExchange TSM 历史日线",
+            "url": "https://chartexchange.com/symbol/nyse-tsm/historical/"
+          },
+          {
+            "label": "TSMC：2026 年 9 月月度营收",
+            "url": "https://investor.tsmc.com/english/monthly-revenue/2026"
+          },
+          {
+            "label": "TSMC：2025 年 Form 20-F",
+            "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm"
+          },
+          {
+            "label": "TSMC：投资者财务日历",
+            "url": "https://investor.tsmc.com/english/financial-calendar"
+          },
+          {
+            "label": "收盘价：ChartExchange TSM ADR（2026-10-21）",
+            "url": "https://chartexchange.com/symbol/nyse-tsm/"
+          },
+          {
+            "label": "TSMC：Q3 2026 业绩、Q4 指引与 2026 资本预算",
+            "url": "https://investor.tsmc.com/english/quarterly-results/2026/q3"
+          },
+          {
+            "label": "TSMC：2026 Q3 电话会文字稿（全年收入增长预期）",
+            "url": "https://investor.tsmc.com/english/encrypt/files/encrypt_file/reports/2026-10/eba4fac72873bf546b669bd2b5d973df5c93215d/TSMC%203Q26%20Transcript.pdf"
+          }
+        ],
+        "uncertainty": "使用 ChartExchange 明确标注的美东收盘日线；不同行情供应商可能相差数美分。公司指引为前瞻陈述，估值与组合重叠未在本次更新中重算；不构成买卖建议。",
+        "quote": {
+          "price": 431.77,
+          "date": "2026-10-21",
+          "currency": "USD",
+          "source": "ChartExchange",
+          "sourceUrl": "https://chartexchange.com/symbol/nyse-tsm/"
+        }
+      },
+      "report": "research/1792630751022-223c1623.html"
+    },
+    {
       "id": "f0fd222b-d639-4759-9903-d328c46793d8",
       "kind": "watch",
       "date": "2026-10-22T00:59:10.964Z",
@@ -3759,10 +4255,6 @@
           {
             "label": "TransMedics：Q2 2026 财报和 CFO 任命后重申全年展望",
             "url": "https://investors.transmedics.com/news-releases/news-release-details/transmedics-appoints-fernando-araujo-chief-financial-officer-and"
-          },
-          {
-            "label": "SEC：TransMedics Q2 2026 Form 10-Q",
-            "url": "https://www.sec.gov/Archives/edgar/data/1756262/000162828026056821/lunr-20260630.htm"
           }
         ],
         "uncertainty": "使用 ChartExchange 明确标注的美东收盘日线；不同行情供应商可能相差数美分。库存内控整改仍待后续测试与公司披露确认；未做完整估值或个性化组合适配，不构成买卖建议。",
@@ -12402,48 +12894,1224 @@
       "kind": "watch",
       "watchId": "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
       "question": "刷新关注标的 TSM TSM：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "waiting",
+      "status": "done",
       "date": "2026-10-22T00:44:38.549Z",
-      "error": ""
+      "error": "",
+      "report": "research/1792630751022-223c1623.html",
+      "completedAt": "2026-10-22T00:59:11.024Z"
     },
     {
       "id": "4494a2b9-b24c-4792-ac52-3a8c8921cf22",
       "kind": "watch",
       "watchId": "73ea6652-e30d-4b72-878c-115502e4b72d",
       "question": "刷新关注标的 亚马逊 AMZN：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "waiting",
+      "status": "done",
       "date": "2026-10-22T00:44:38.549Z",
-      "error": ""
+      "error": "",
+      "report": "research/1792630751094-d7a5c2c1.html",
+      "completedAt": "2026-10-22T00:59:11.096Z"
     },
     {
       "id": "2d1b3c17-04ba-44a8-84c4-575501ee9b7c",
       "kind": "watch",
       "watchId": "990ad5a3-7a56-45e9-a914-78424558e749",
       "question": "刷新关注标的 Aehr Test Systems AEHR：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "waiting",
+      "status": "done",
       "date": "2026-10-22T00:44:38.549Z",
-      "error": ""
+      "error": "",
+      "report": "research/1792630751181-f1c48259.html",
+      "completedAt": "2026-10-22T00:59:11.182Z"
     },
     {
       "id": "977e12d0-fad3-4bab-acf2-513b14513995",
       "kind": "watch",
       "watchId": "64078460-ed3a-42f4-803e-60d32e8df85d",
       "question": "刷新关注标的 纳微半导体 NVTS：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "waiting",
+      "status": "done",
       "date": "2026-10-22T00:44:38.549Z",
-      "error": ""
+      "error": "",
+      "report": "research/1792630751240-a38a079a.html",
+      "completedAt": "2026-10-22T00:59:11.243Z"
     },
     {
       "id": "f751e25d-3854-4928-9721-047ef4c6eb72",
       "kind": "watch",
       "watchId": "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
       "question": "刷新关注标的 Enovix ENVX：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      "status": "waiting",
+      "status": "done",
       "date": "2026-10-22T00:44:38.549Z",
-      "error": ""
+      "error": "",
+      "report": "research/1792630751340-8e399912.html",
+      "completedAt": "2026-10-22T00:59:11.342Z"
+    },
+    {
+      "id": "fda059cc-9265-42c4-bdbb-aac123f200e7",
+      "kind": "quotes",
+      "watchId": null,
+      "question": "更新全部持仓价格：以待办实际执行时间判断，美股常规交易时段取当时可核验的最新盘中价，其余时间取最近已完成交易日收盘价，并记录报价类型、时间与来源。",
+      "status": "done",
+      "date": "2026-10-22T19:13:29.562Z",
+      "error": "",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:10.986Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "summary": "已按实际执行时段更新 QQQM, SMH, VOO, IBKR, SOXX 的盘中报价，保留成本及既有研究。",
+      "completedAt": "2026-10-22T19:16:12.969Z"
+    },
+    {
+      "watchId": "6688d084-15c1-4d89-a450-a7b8d67b6616",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.039Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "50b7fb50-3235-427f-b058-b0226ab46ade",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 RKLB RKLB：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:13.033Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:13.445Z",
+      "summary": "已更新 RKLB 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.039Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "28dcc9d9-f122-432c-a0a7-b4c358557d88",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 OUST OUST：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:13.502Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:13.910Z",
+      "summary": "已更新 OUST 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "9c572b68-64fb-4e7d-9692-74f569040195",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.039Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "3dac28d2-35fc-4bff-b9e5-f2883574625f",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 TMDX TMDX：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:13.972Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:14.381Z",
+      "summary": "已更新 TMDX 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "e8839fb8-b14b-4f60-bc6b-f01909376529",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.039Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "81567995-e97a-42f8-b2a9-c26ba6049c75",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 LUNR LUNR：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:14.443Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:14.860Z",
+      "summary": "已更新 LUNR 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "68ac1738-90e2-44ce-aaa8-83967958e168",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.039Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "92d3675d-7c0e-44f6-8a57-22e0d80f56ad",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 PLTR PLTR：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:14.916Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:15.322Z",
+      "summary": "已更新 PLTR 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.039Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "464d64e2-ee7a-400a-8368-686bde5fa3c1",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 TSM TSM：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:15.360Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:15.774Z",
+      "summary": "已更新 TSM 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "990ad5a3-7a56-45e9-a914-78424558e749",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "dea4346f-6909-415b-8f22-b92cbf74c1f6",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Aehr Test Systems AEHR：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:15.830Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:16.234Z",
+      "summary": "已更新 AEHR 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "64078460-ed3a-42f4-803e-60d32e8df85d",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "a4351c15-c122-4ea5-b7f0-f188d1c61a17",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 纳微半导体 NVTS：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:16.290Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:16.694Z",
+      "summary": "已更新 NVTS 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "ca1e4744-8c54-478e-88c4-2fdae63e9adc",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Enovix ENVX：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:16.731Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:17.136Z",
+      "summary": "已更新 ENVX 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "bda9b130-0a99-46c8-b943-f01dd6992ebd",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "a964271f-a7df-4e91-8352-84537c34a7b4",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Arcutis Biotherapeutics ARQT：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:17.191Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:17.758Z",
+      "summary": "已更新 ARQT 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "bcd88ce3-3432-4ebf-bcfe-37fbccab84bc",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "f79f8a05-c59c-4114-b0c1-c1f5f152a10d",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Redwire RDW：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:17.800Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:18.284Z",
+      "summary": "已更新 RDW 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "49c2dd77-83fe-49ad-a099-02c1dd660f2b",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Innodata INOD：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:18.338Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:18.814Z",
+      "summary": "已更新 INOD 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "d9b45808-caf9-437a-a1d7-c8bbe083ce14",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 AST SpaceMobile ASTS：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:18.859Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:19.355Z",
+      "summary": "已更新 ASTS 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "e59bec61-4342-46ba-99c5-200542b791d9",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "68b9f82a-01c8-41e6-933b-2c9fb9c68a1c",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Credo Technology CRDO：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:19.413Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:19.882Z",
+      "summary": "已更新 CRDO 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5d0a5d34-3866-417c-a996-c1b5991daebb",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "9fef2741-1b5e-4a88-92f1-86d8bf4da230",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Robinhood HOOD：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:19.923Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:20.321Z",
+      "summary": "已更新 HOOD 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "3419c061-e443-4984-aec5-e0ff6ee4ffcd",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Hims & Hers Health HIMS：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:20.371Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:20.776Z",
+      "summary": "已更新 HIMS 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "d6bf7357-8935-4d2d-abef-2250c9e5c418",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "982b2986-77e1-41b5-88e4-0b2ed3174c15",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 联合包裹 UPS：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:20.834Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:21.233Z",
+      "summary": "已更新 UPS 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "09b92911-f46c-43f7-8308-30622aadb4f4",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "5672a35a-5d35-4e58-8b37-68854e4cd9d6",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 埃森哲 ACN：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:21.277Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:21.678Z",
+      "summary": "已更新 ACN 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "ad97bd71-1e64-42b2-ac24-81220317555d",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "b84f1e2b-ff49-4e1f-9d7f-5a2cc8509168",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 好时 HSY：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:21.738Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:22.147Z",
+      "summary": "已更新 HSY 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "9d659e03-df19-4a6c-9534-9045b7747629",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "334f729c-be37-40db-9bfb-1ad857665774",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 家得宝 HD：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:22.204Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:22.606Z",
+      "summary": "已更新 HD 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5b095741-a682-4b22-ad52-2c70e1a4052c",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "60a623fe-dc1c-4889-a654-a9b40250aa14",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 联合健康 UNH：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:22.648Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:23.049Z",
+      "summary": "已更新 UNH 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "f7bc9e91-3bd1-4e9d-b7b9-14ce899ebd1b",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 奥的斯 OTIS：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:23.108Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:23.516Z",
+      "summary": "已更新 OTIS 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "a458efd6-1dde-44d5-8737-63854d7a5e63",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "ba38ea0d-f911-434c-a132-d285159880aa",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 标普全球 SPGI：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:23.575Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:23.974Z",
+      "summary": "已更新 SPGI 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "61f4baf3-5b7a-4d3b-84ee-5e875e23308c",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Vistra Energy VST：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:24.019Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:24.423Z",
+      "summary": "已更新 VST 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "30c526ed-d29c-4e27-a3a6-d08a8f94802f",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "ffcce75d-7291-41e1-82cc-cedd1a7794d6",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Beam Therapeutics BEAM：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:24.486Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:24.894Z",
+      "summary": "已更新 BEAM 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "e2e706e2-03bd-4a2d-bcf9-9de3400dde0d",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 硕迪生物 GPCR：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:24.950Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:25.350Z",
+      "summary": "已更新 GPCR 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5774dc3c-1f0d-40e7-b787-d0a45f77c524",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "1d5e8348-4811-422f-9aad-5c7ffebb0a33",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Illumina ILMN：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:25.390Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:26.380Z",
+      "summary": "已更新 ILMN 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "28efd446-0de3-4992-b562-7836ceb691ae",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "5f81224d-f287-4b5e-8f35-d50465211532",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Bloom Energy BE：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:26.429Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:26.835Z",
+      "summary": "已更新 BE 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "01a864b1-0623-4778-9656-0431418803b8",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "64e0f4d8-4369-4ef7-9543-a03e79fd1149",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 美国运通 AXP：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:26.891Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:27.295Z",
+      "summary": "已更新 AXP 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "694b0825-f542-4710-af2c-94822cfe275e",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 美国超微公司 AMD：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:27.349Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:27.754Z",
+      "summary": "已更新 AMD 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "842bb9b8-d068-4e2d-bfd4-1bc8861c9ee2",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 英特尔 INTC：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:27.793Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:28.207Z",
+      "summary": "已更新 INTC 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "1931dbff-edc9-40e0-b082-32f571e994a6",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "77fb206b-5c08-42de-93b9-3670083a14f4",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 英伟达 NVDA：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:28.269Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:28.721Z",
+      "summary": "已更新 NVDA 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "c926f17c-43a8-4e8f-9d78-5498591db5e7",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "e4af1e4b-7479-4b15-8b4a-040ced0bd4c6",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 伯克希尔-B BRK.B：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:28.779Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:29.180Z",
+      "summary": "已更新 BRK.B 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "44902423-da24-4845-82bd-41ac891241ce",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 微软 MSFT：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:29.224Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:29.630Z",
+      "summary": "已更新 MSFT 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "79730ba5-e176-4362-8ba4-022e0f8f35b9",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "39ee9bb4-2fae-497d-b7c3-839ca5f5fb48",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Visa V：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:29.688Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:30.083Z",
+      "summary": "已更新 V 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "d071d7b1-561e-4478-9dad-d9dc23cf7d11",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "bd7e1039-df29-4427-8733-8bbe794f1b61",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 苹果 AAPL：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:30.141Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:30.556Z",
+      "summary": "已更新 AAPL 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "12f7b499-3884-440f-8a0b-0d72617fefe6",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "0752d05c-2b7d-4fac-8869-b520a17905a0",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 整体股市指数ETF-VTI VTI：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:30.614Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:31.021Z",
+      "summary": "已更新 VTI 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "054a6cfc-4817-40d6-9079-112189b34d55",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "68356541-8ad2-4b90-90f7-50d1db564706",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 全球股市指数ETF - VT VT：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:31.080Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:31.480Z",
+      "summary": "已更新 VT 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "8d4b2e47-63bd-4981-b75b-e4f2c88392d9",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "e7749be9-f908-4d5f-82ec-35bbf96c7714",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 资讯科技ETF-VGT VGT：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:31.525Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:31.938Z",
+      "summary": "已更新 VGT 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "ff73a376-2cdc-4d6e-b2cb-d3877ea03a13",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "0362f29d-19a3-4ee7-bd8f-c2d4edd780e2",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 半导体ETF-SOXX SOXX：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:31.995Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:32.030Z",
+      "summary": "已更新 SOXX 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "f6b57ee2-657a-4476-a59a-0239a3bb40d1",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "71d82607-197d-45fe-b621-a9303659081c",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 半导体指数ETF - SMH SMH：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:32.073Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:32.102Z",
+      "summary": "已更新 SMH 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "df872bc9-4abd-4280-82ca-db85196e020f",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "c03d9a77-a8c8-4652-acde-1dcebb04b285",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 标普500ETF - VOO VOO：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:32.145Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:32.175Z",
+      "summary": "已更新 VOO 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "2016aee7-b4fd-490f-9df0-43114d0238e7",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "140682e6-da87-42d0-84c0-f59f66ddf043",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 NASDAQ指数ETF - QQQM QQQM：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:32.218Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:32.248Z",
+      "summary": "已更新 QQQM 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "7f3fa3e2-f56f-4127-9a4e-ccc573710620",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 博通 AVGO：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:32.290Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:32.690Z",
+      "summary": "已更新 AVGO 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "fba7259f-3721-4c6e-946c-621d20eefda3",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 谷歌-A GOOGL：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:32.738Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:33.142Z",
+      "summary": "已更新 GOOGL 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "10e1793d-640e-443f-aac7-fe0290c204c3",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "3058190b-fafb-4f49-9f60-5060edd6edf1",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 特斯拉 TSLA：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:33.203Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:33.651Z",
+      "summary": "已更新 TSLA 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "fca1e0e5-ceb7-45cc-91a6-94a9efb83f0e",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 SOUN SOUN：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:33.710Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:34.123Z",
+      "summary": "已更新 SOUN 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "c024e517-2f19-429e-9330-e49566ba2537",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "45c64678-758c-4cf8-bf75-93d37cf11f12",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 APLD APLD：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:34.162Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:34.568Z",
+      "summary": "已更新 APLD 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "01528de1-dd6c-4b97-90d7-1c3f96ade4cb",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 AMPX AMPX：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:34.628Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:35.021Z",
+      "summary": "已更新 AMPX 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5ffc01e1-e876-459c-828d-3f28dc5548d8",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "fbe645dd-c0bc-4097-88e0-3cf0d4d3dc86",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 Planet Labs PL：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:35.062Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:35.463Z",
+      "summary": "已更新 PL 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "5614a582-5385-49a4-a89f-2a0661942e35",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "26c81c22-d505-4399-9176-8ddb40d9f344",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 IREN IREN：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:35.522Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:35.932Z",
+      "summary": "已更新 IREN 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
+      "status": "done",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "c00d81ae-6894-4e71-801a-8499f0ece9d0",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 TEM TEM：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-22T19:16:35.992Z",
+        "type": "intraday",
+        "date": "2026-10-22",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-22T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-22T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-22T19:16:36.391Z",
+      "summary": "已更新 TEM 的盘中价；已有研究保留。"
+    },
+    {
+      "watchId": "546ba81c-c7b1-4636-8537-23d861ee0bc3",
+      "status": "waiting",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "f935c30e-3534-4e98-8fb8-a4c39523550c",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 SP500 指数 ETF - SPYL SPYL：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "e73995fd-501a-485c-9822-14fc610ef524",
+      "status": "waiting",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "ff0c52c2-9756-452a-af47-2310361c12b0",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 纳斯达克 指数 ETF - CNDX CNDX：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "bda18e13-8398-4db5-9b96-d9fc8c7ba07b",
+      "status": "waiting",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "ab0786e0-a87d-4025-b4ff-ea2280efc2c8",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 红利股 ETF - SCHD SCHD：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "03f8d44b-0da7-42c4-b731-0bffc6c67b9f",
+      "status": "waiting",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "8f6e7bbb-ff47-4c66-a43a-1b4799e86331",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 全世界 ETF - VXUS VXUS：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "fefb602a-2cf8-46e3-bc9b-94173a2a867f",
+      "status": "waiting",
+      "date": "2026-10-22T19:13:40.040Z",
+      "error": "",
+      "batchId": "c7e1c03e-543c-4a16-bae3-dd46cb19e6f3",
+      "origin": "watch-refresh",
+      "id": "330f2626-fbd9-4f1c-ad66-65bfc6612cc4",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 递增股利 ETF - VIG VIG：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。"
     }
   ],
-  "marketUpdatedAt": "2026-10-21T23:43:21.725Z",
+  "marketUpdatedAt": "2026-10-22T19:16:12.969Z",
   "converter": {
     "updatedAt": "2026-10-21T23:39:27.858Z",
     "calibrations": [
@@ -12635,45 +14303,166 @@
         "01a864b1-0623-4778-9656-0431418803b8",
         "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
         "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
+        "9c572b68-64fb-4e7d-9692-74f569040195",
         "d6bf7357-8935-4d2d-abef-2250c9e5c418",
         "d071d7b1-561e-4478-9dad-d9dc23cf7d11",
         "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
         "79730ba5-e176-4362-8ba4-022e0f8f35b9",
-        "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
         "9d659e03-df19-4a6c-9534-9045b7747629",
         "5b095741-a682-4b22-ad52-2c70e1a4052c",
-        "9c572b68-64fb-4e7d-9692-74f569040195",
         "a458efd6-1dde-44d5-8737-63854d7a5e63",
+        "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
         "e8839fb8-b14b-4f60-bc6b-f01909376529",
-        "68ac1738-90e2-44ce-aaa8-83967958e168",
         "09b92911-f46c-43f7-8308-30622aadb4f4",
         "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
         "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
-        "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
-        "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
         "5ffc01e1-e876-459c-828d-3f28dc5548d8",
         "e59bec61-4342-46ba-99c5-200542b791d9",
+        "68ac1738-90e2-44ce-aaa8-83967958e168",
+        "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
         "5d0a5d34-3866-417c-a996-c1b5991daebb",
         "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
         "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
-        "6688d084-15c1-4d89-a450-a7b8d67b6616",
         "1931dbff-edc9-40e0-b082-32f571e994a6",
         "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
         "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
         "30c526ed-d29c-4e27-a3a6-d08a8f94802f",
         "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
+        "6688d084-15c1-4d89-a450-a7b8d67b6616",
+        "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
         "28efd446-0de3-4992-b562-7836ceb691ae",
         "bda9b130-0a99-46c8-b943-f01dd6992ebd",
-        "990ad5a3-7a56-45e9-a914-78424558e749",
         "5774dc3c-1f0d-40e7-b787-d0a45f77c524",
         "c024e517-2f19-429e-9330-e49566ba2537",
+        "990ad5a3-7a56-45e9-a914-78424558e749",
         "5614a582-5385-49a4-a89f-2a0661942e35",
         "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
         "bcd88ce3-3432-4ebf-bcfe-37fbccab84bc",
-        "64078460-ed3a-42f4-803e-60d32e8df85d",
         "10e1793d-640e-443f-aac7-fe0290c204c3",
-        "90768edf-dad2-47d7-bbb1-e7eed5bc5728"
+        "64078460-ed3a-42f4-803e-60d32e8df85d",
+        "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
+        "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc"
+      ]
+    },
+    {
+      "date": "2026-10-23",
+      "watchIds": [
+        "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
+        "ad97bd71-1e64-42b2-ac24-81220317555d",
+        "c926f17c-43a8-4e8f-9d78-5498591db5e7",
+        "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
+        "01a864b1-0623-4778-9656-0431418803b8",
+        "9c572b68-64fb-4e7d-9692-74f569040195",
+        "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
+        "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
+        "d6bf7357-8935-4d2d-abef-2250c9e5c418",
+        "d071d7b1-561e-4478-9dad-d9dc23cf7d11",
+        "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
+        "79730ba5-e176-4362-8ba4-022e0f8f35b9",
+        "e8839fb8-b14b-4f60-bc6b-f01909376529",
+        "9d659e03-df19-4a6c-9534-9045b7747629",
+        "5b095741-a682-4b22-ad52-2c70e1a4052c",
+        "a458efd6-1dde-44d5-8737-63854d7a5e63",
+        "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
+        "09b92911-f46c-43f7-8308-30622aadb4f4",
+        "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
+        "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
+        "68ac1738-90e2-44ce-aaa8-83967958e168",
+        "5ffc01e1-e876-459c-828d-3f28dc5548d8",
+        "e59bec61-4342-46ba-99c5-200542b791d9",
+        "5d0a5d34-3866-417c-a996-c1b5991daebb",
+        "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
+        "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
+        "990ad5a3-7a56-45e9-a914-78424558e749",
+        "6688d084-15c1-4d89-a450-a7b8d67b6616",
+        "1931dbff-edc9-40e0-b082-32f571e994a6",
+        "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
+        "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
+        "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
+        "30c526ed-d29c-4e27-a3a6-d08a8f94802f",
+        "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
+        "28efd446-0de3-4992-b562-7836ceb691ae",
+        "bda9b130-0a99-46c8-b943-f01dd6992ebd",
+        "5774dc3c-1f0d-40e7-b787-d0a45f77c524",
+        "c024e517-2f19-429e-9330-e49566ba2537",
+        "bcd88ce3-3432-4ebf-bcfe-37fbccab84bc",
+        "5614a582-5385-49a4-a89f-2a0661942e35",
+        "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
+        "64078460-ed3a-42f4-803e-60d32e8df85d",
+        "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
+        "10e1793d-640e-443f-aac7-fe0290c204c3",
+        "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc"
       ]
     }
-  ]
+  ],
+  "holdingTrades": [
+    {
+      "id": "import:h1",
+      "type": "import",
+      "holdingId": "h1",
+      "accountId": "a1",
+      "symbol": "QQQM",
+      "currency": "USD",
+      "quantity": 20,
+      "price": 296.21,
+      "fees": 0,
+      "cost": 5924.23,
+      "date": "2026-10-18",
+      "recordedAt": "2026-10-22T18:52:17.936Z",
+      "originalHolding": {
+        "id": "h1",
+        "accountId": "a1",
+        "symbol": "QQQM",
+        "name": "Invesco NASDAQ 100 ETF",
+        "quantity": 20,
+        "price": 298.64,
+        "changePct": -2.58,
+        "cost": 5924.23,
+        "marketValue": 5972.8,
+        "averagePrice": 296.21,
+        "currency": "USD",
+        "sector": "成长指数",
+        "source": "account1.jpg",
+        "priceDate": "2026-10-21",
+        "recordedAt": "2026-10-18",
+        "thesis": "",
+        "exitRule": "",
+        "priceSource": "Yahoo Finance"
+      }
+    },
+    {
+      "id": "import:9e05307f-acb5-4e9a-8b1b-c8c051a7d02f",
+      "type": "import",
+      "holdingId": "h1",
+      "accountId": "a1",
+      "symbol": "QQQM",
+      "currency": "USD",
+      "quantity": 50,
+      "price": 290,
+      "fees": 0,
+      "cost": 14500,
+      "date": "2026-10-23",
+      "recordedAt": "2026-10-22T18:52:17.936Z",
+      "originalHolding": {
+        "id": "9e05307f-acb5-4e9a-8b1b-c8c051a7d02f",
+        "accountId": "a1",
+        "symbol": "QQQM",
+        "name": "QQQM",
+        "quantity": 50,
+        "price": 0,
+        "cost": 14500,
+        "marketValue": 0,
+        "averagePrice": 290,
+        "changePct": null,
+        "currency": "USD",
+        "sector": "成长指数",
+        "source": "手工录入",
+        "priceDate": "2026-10-23",
+        "recordedAt": "2026-10-23",
+        "thesis": "",
+        "exitRule": ""
+      }
+    }
+  ],
+  "watchlistUpdatedAt": "2026-10-22T19:16:36.391Z"
 }

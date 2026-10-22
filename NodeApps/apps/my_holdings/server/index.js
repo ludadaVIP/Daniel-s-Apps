@@ -8,6 +8,9 @@ import {
   initializeHtmlLibrary,
 } from "../../html-library/server/index.js";
 import { contextPack, CURRENCIES } from "../src/model.js";
+import { PRICE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
+import { quotePolicy } from "./market-session.js";
+import { normalizeSymbol, positionKey, roundMoney, previewBuy, applyHoldingQuote, consolidateHoldings } from "../src/positions.js";
 import {
   CONVERSION_PAIRS,
   createInitialConverterState,
@@ -26,6 +29,41 @@ const date = (v) =>
 const timestamp = (v) =>
   text(v, 40) && /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(?:\.\d{1,3})?Z$/.test(v) &&
   Number.isFinite(Date.parse(v));
+const httpsUrl = (v) => {
+  if (!text(v, 1000)) return false;
+  try {
+    const url = new URL(v);
+    return url.protocol === "https:" && Boolean(url.hostname);
+  } catch { return false; }
+};
+const watchCurrency = (watch) => watch.priceCurrency || watch.research?.quote?.currency || watch.research?.identity?.currency || "";
+function validateMarketQuote(q, policy, fetchedAt) {
+  if (!q || !text(q.symbol, 40) || !q.symbol.trim() || !num(q.price, 0.000001) ||
+      q.date !== policy.date || q.type !== policy.type || !text(q.source, 200) || !q.source.trim() || !httpsUrl(q.sourceUrl))
+    throw error(`价格数据无效：需要 ${policy.date} 的${policy.type === "intraday" ? "盘中价" : "收盘价"}及 HTTPS 来源。`);
+  if (policy.type === "intraday") {
+    const asOf = Date.parse(q.asOf);
+    if (!timestamp(q.asOf) || asOf < Date.parse(policy.sessionOpenAt) || asOf >= Date.parse(policy.sessionCloseAt) || asOf < Date.parse(policy.executedAt) - 20 * 60_000 || asOf > Date.parse(fetchedAt))
+      throw error("盘中报价时间无效或已过期；请核实 asOf，不得使用旧收盘价。");
+  } else if (q.asOf !== undefined && q.asOf !== policy.sessionCloseAt) {
+    throw error(`收盘价 asOf 应为 ${policy.sessionCloseAt}，或省略此字段。`);
+  }
+}
+function appendJobs(s, jobs) {
+  s.jobs.push(...jobs);
+  if (s.jobs.length <= 10000) return;
+  const active = s.jobs.filter((job) => ["waiting", "running"].includes(job.status));
+  if (active.length > 10000) throw error("待办数量已达上限，请先处理现有待办。", 409);
+  const limit = 10000 - active.length;
+  const history = s.jobs.filter((job) => !["waiting", "running"].includes(job.status));
+  s.jobs = [...(limit ? history.slice(-limit) : []), ...active];
+}
+function applyResearchQuote(watch, quote) {
+  // A research report is a dated snapshot; it cannot overwrite a price refresh.
+  if (!quote || watch.priceFetchedAt || (watch.priceDate && watch.priceDate > quote.date)) return;
+  Object.assign(watch, { price: quote.price, priceDate: quote.date, priceType: "close", priceCurrency: quote.currency,
+    priceSource: quote.source, priceSourceUrl: quote.sourceUrl });
+}
 const pruneExpiredCompletedJobs = (s, now = Date.now()) => {
   const cutoff = now - 2 * 24 * 60 * 60 * 1000;
   const retained = s.jobs.filter((job) => {
@@ -64,7 +102,7 @@ const synchronizedPair = (baseAt, targetAt, sampleType, precise = false) => {
   const barMs = sampleType === "five_minute_close" ? 300_000 : 60_000;
   return Math.floor(base / barMs) === Math.floor(target / barMs);
 };
-export function validateState(s) {
+export function validateState(s, { allowDuplicateHoldings = false } = {}) {
   if (!s || s.version !== 1) throw error("备份版本无效。");
   for (const k of [
     "accounts",
@@ -115,6 +153,10 @@ export function validateState(s) {
       !(h.changePct === null || num(h.changePct, -100, 1e8)) ||
       !date(h.priceDate) ||
       !(h.priceSource === undefined || text(h.priceSource, 100)) ||
+      !(h.priceType === undefined || ["intraday", "close", "purchase"].includes(h.priceType)) ||
+      !(h.priceAsOf === undefined || timestamp(h.priceAsOf)) ||
+      !(h.priceFetchedAt === undefined || timestamp(h.priceFetchedAt)) ||
+      !(h.priceSourceUrl === undefined || httpsUrl(h.priceSourceUrl)) ||
       !date(h.recordedAt) ||
       !text(h.sector, 100) ||
       !text(h.source, 200) ||
@@ -122,6 +164,22 @@ export function validateState(s) {
       !text(h.exitRule)
     )
       throw error("持仓数据无效；请检查金额、数量、币种与日期。");
+  if (!allowDuplicateHoldings && new Set(s.holdings.map(positionKey)).size !== s.holdings.length)
+    throw error("同一账户、代码和币种只能有一项持仓；请通过「记录买入」追加股数，或修正已有持仓。");
+  if (s.holdingTrades !== undefined) {
+    if (!Array.isArray(s.holdingTrades) || s.holdingTrades.length > 10000)
+      throw error("买入记录格式无效。");
+    const tradeIds = new Set();
+    for (const trade of s.holdingTrades) {
+      if (!trade || !text(trade.id, 200) || !trade.id || tradeIds.has(trade.id) ||
+          !["buy", "import"].includes(trade.type) || !text(trade.holdingId, 100) || !trade.holdingId ||
+          !text(trade.accountId, 100) || !trade.accountId || !text(trade.symbol, 40) || !trade.symbol.trim() ||
+          !CURRENCIES.includes(trade.currency) || !num(trade.quantity) || !num(trade.price) ||
+          !num(trade.fees) || !num(trade.cost) || !date(trade.date) || !timestamp(trade.recordedAt))
+        throw error("买入记录数据无效。");
+      tradeIds.add(trade.id);
+    }
+  }
   for (const w of s.watchlist) {
     if (
       !text(w.name, 300) ||
@@ -136,6 +194,11 @@ export function validateState(s) {
       !(w.targetPrice === undefined || w.targetPrice === null || num(w.targetPrice, 0.000001)) ||
       !(w.price === undefined || w.price === null || num(w.price, 0.000001)) ||
       !(w.priceDate === undefined || date(w.priceDate)) ||
+      !(w.priceType === undefined || ["intraday", "close"].includes(w.priceType)) ||
+      !(w.priceAsOf === undefined || timestamp(w.priceAsOf)) ||
+      !(w.priceFetchedAt === undefined || timestamp(w.priceFetchedAt)) ||
+      !(w.priceTimeZone === undefined || ["America/New_York", "Europe/London"].includes(w.priceTimeZone)) ||
+      !(w.priceCurrency === undefined || (text(w.priceCurrency, 3) && /^[A-Z]{3}$/.test(w.priceCurrency))) ||
       !(w.priceSource === undefined || text(w.priceSource, 200)) ||
       !(w.attention === undefined || [1, 2, 3, 4].includes(w.attention)) ||
       !(w.priceSourceUrl === undefined || (text(w.priceSourceUrl, 1000) && (!w.priceSourceUrl || /^https?:\/\//.test(w.priceSourceUrl))))
@@ -278,8 +341,25 @@ export function validateState(s) {
   }
   return s;
 }
+function consolidateStateHoldings(s, recordedAt) {
+  const { holdings, merges } = consolidateHoldings(s.holdings);
+  if (!merges.length) return false;
+  s.holdings = holdings;
+  s.holdingTrades ||= [];
+  for (const { holding, originals } of merges) {
+    for (const original of originals) {
+      const id = `import:${original.id}`;
+      if (s.holdingTrades.some((trade) => trade.id === id)) continue;
+      s.holdingTrades.push({ id, type: "import", holdingId: holding.id, accountId: holding.accountId,
+        symbol: holding.symbol, currency: holding.currency, quantity: original.quantity, price: original.averagePrice,
+        fees: 0, cost: original.cost, date: original.recordedAt, recordedAt, originalHolding: original });
+    }
+  }
+  return true;
+}
 export async function createHoldingsApp({
   dataDirectory = path.join(root, "data"),
+  now = () => new Date(),
 } = {}) {
   await fs.mkdir(dataDirectory, { recursive: true });
   await fs.mkdir(path.join(dataDirectory, "backups"), { recursive: true });
@@ -303,7 +383,7 @@ export async function createHoldingsApp({
     );
   }
   const read = async () =>
-    validateState(JSON.parse(await fs.readFile(file, "utf8")));
+    validateState(JSON.parse(await fs.readFile(file, "utf8")), { allowDuplicateHoldings: true });
   let tail = Promise.resolve();
   const serial = (fn) => {
     const p = tail.then(fn, fn);
@@ -316,7 +396,7 @@ export async function createHoldingsApp({
       "# My Holdings · Codex 待办",
       "",
       "> 这是本地排队文件，会随 `state.json` 一起通过 GitHub 同步。应用不会启动 Codex CLI 或后台任务。",
-      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`；研究任务保存 HTML，收盘价任务只回写报价数据，换算任务回写配对日线观测。",
+      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`；研究任务保存 HTML，价格任务按执行时刻取盘中价或最近收盘价，换算任务回写同步配对观测。",
       "",
       `最近同步：${s.updatedAt || "尚未保存"}`,
       "",
@@ -328,18 +408,18 @@ export async function createHoldingsApp({
         ? "VOO / SPYL · QQQM / CNDX"
         : watch?.name || job.question || "持仓组合";
       lines.push(
-        `## ${job.kind === "watch" ? "标的研究" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "收盘价更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
+        `## ${job.kind === "watch" ? "标的研究" : job.kind === "watch-quotes" ? "关注价格更新" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "价格更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
         `- 状态：等待 Codex · 任务 ID：${job.id}`,
         `- 创建时间：${job.date}`,
         `- 关注记录 ID：${job.watchId || "无"}`,
         job.question ? `- 本次请求：${job.question}` : "",
         watch?.targetPrice ? `- 用户等待价格：${watch.targetPrice} ${watch.research?.quote?.currency || "USD"}` : "",
-        job.kind === "quotes"
-          ? "- 更新所有持仓标的最近一个完整美股交易日的收盘价，注明交易日期与来源；完成时通过本地 API 回写 quotes 数组，不生成 HTML。"
+        ["quotes", "watch-quotes"].includes(job.kind)
+          ? `- ${quoteTaskGuidance()}`
           : job.kind === "converter"
             ? "- 核对 VOO/SPYL 与 QQQM/CNDX 的 USD 挂牌代码，取最近 10 个共同交易日伦敦时间 16:25:00±30 秒的同步盘中价；同一组 10 天统一使用盘口中间价（两边相差≤15秒）、同一 UTC 分钟的一分钟收盘价，或同一 UTC 五分钟区间且在 16:25 收盘的五分钟线。通过本地 API 回写 calibrations 与来源；系数取配对比值中位数，参考带取 P25–P75。无法找到可核验的同步数据就标记未完成并保留旧公式，不生成 HTML、不改持仓。"
             : job.kind === "watch"
-              ? "- 只在用户明确要求时执行；核对最近完整交易日收盘价、财报与重要新闻。研究 JSON 必须带 quote：{price,date,currency,source,sourceUrl}，使用已核验的行情来源；报告保存为独立 HTML，再回写结构化研究。"
+              ? `- ${watchResearchQuestion(watch || { name: "标的已删除", symbol: "" }, job.researchMode !== "initial")}`
               : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
         "",
       );
@@ -347,7 +427,7 @@ export async function createHoldingsApp({
     await fs.writeFile(todoFile, lines.join("\n"));
   };
   const write = async (s) => {
-    pruneExpiredCompletedJobs(s);
+    pruneExpiredCompletedJobs(s, now().getTime());
     validateState(s);
     const previous = await fs.readFile(file, "utf8");
     const stamp = `${Date.now()}-${randomUUID().slice(0, 8)}`;
@@ -412,6 +492,23 @@ export async function createHoldingsApp({
         j.error = "等待你下次明确交给 Codex 执行。";
         changed = true;
       }
+    for (const j of s.jobs)
+      if (j.kind === "quotes" && j.status === "waiting" && j.question !== PRICE_REFRESH_QUESTION) {
+        j.question = PRICE_REFRESH_QUESTION;
+        changed = true;
+      }
+    const migratedResearch = [];
+    for (const job of s.jobs) {
+      if (job.kind !== "watch" || job.status !== "waiting" || !job.question?.startsWith("刷新关注标的 ")) continue;
+      const watch = s.watchlist.find((w) => w.id === job.watchId);
+      if (!watch) continue;
+      Object.assign(job, { kind: "watch-quotes", question: watchQuoteQuestion(watch), batchId: "legacy-watch-refresh", origin: "watch-refresh" });
+      if (!hasCompleteResearch(watch) && !s.jobs.some((j) => j.kind === "watch" && j.watchId === watch.id && j.status === "waiting"))
+        migratedResearch.push({ id: randomUUID(), kind: "watch", watchId: watch.id, researchMode: "initial", question: watchResearchQuestion(watch), status: "waiting", date: now().toISOString(), error: "", batchId: job.batchId, origin: job.origin });
+      changed = true;
+    }
+    appendJobs(s, migratedResearch);
+    if (consolidateStateHoldings(s, now().toISOString())) changed = true;
     if (changed) await write(s);
     else await syncCodexTodo(s);
   });
@@ -435,7 +532,7 @@ export async function createHoldingsApp({
     try {
       const state = await serial(async () => {
         const s = await read();
-        return pruneExpiredCompletedJobs(s) ? write(s) : s;
+        return pruneExpiredCompletedJobs(s, now().getTime()) ? write(s) : s;
       });
       res.set("Cache-Control", "no-store").json(state);
     } catch (e) {
@@ -498,29 +595,32 @@ export async function createHoldingsApp({
   });
   app.post("/api/jobs", async (req, res, next) => {
     try {
-      const kind = ["watch", "portfolio", "market", "quotes", "converter"].includes(req.body.kind)
+      const kind = ["watch", "watch-quotes", "portfolio", "market", "quotes", "converter"].includes(req.body.kind)
         ? req.body.kind
         : "portfolio";
       const result = await serial(async () => {
         const s = await read();
-        const watch = kind === "watch"
+        const watch = ["watch", "watch-quotes"].includes(kind)
           ? s.watchlist.find((w) => w.id === req.body.watchId)
           : null;
-        if (kind === "watch" && !watch) throw error("关注标的不存在。", 404);
-        if (kind === "watch" && s.jobs.some((j) => j.status === "waiting" && j.watchId === watch.id))
+        if (["watch", "watch-quotes"].includes(kind) && !watch) throw error("关注标的不存在。", 404);
+        if (watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind && j.watchId === watch.id))
           throw error("这个标的已经在 Codex 待办队列中。", 409);
-        if (kind !== "watch" && s.jobs.some((j) => j.status === "waiting" && j.kind === kind))
+        if (kind === "watch" && hasCompleteResearch(watch) && req.body.refreshResearch !== true)
+          throw error("该标的已有完整研究；日常请刷新价格，需要新研究请点击「更新完整研究」。", 409);
+        if (!watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind))
           throw error("相同类型的任务已经在待办队列中。", 409);
         const job = {
           id: randomUUID(),
           kind,
           watchId: watch?.id || null,
-          question: text(req.body.question || "", 4000) ? req.body.question : "",
+          question: kind === "quotes" ? PRICE_REFRESH_QUESTION : kind === "watch-quotes" ? watchQuoteQuestion(watch) : kind === "watch" ? watchResearchQuestion(watch, req.body.refreshResearch === true) : text(req.body.question || "", 4000) ? req.body.question : "",
+          ...(kind === "watch" ? { researchMode: req.body.refreshResearch === true ? "refresh" : "initial" } : {}),
           status: "waiting",
           date: new Date().toISOString(),
           error: "",
         };
-        s.jobs = [...s.jobs.slice(-49), job];
+        appendJobs(s, [job]);
         return { state: await write(s), job };
       });
       res.status(201).json(result);
@@ -531,41 +631,31 @@ export async function createHoldingsApp({
   app.post("/api/jobs/batch-watch", async (req, res, next) => {
     try {
       const requests = req.body?.jobs;
-      if (!Array.isArray(requests) || requests.length > 1000 || requests.some((item) =>
-        !item || !text(item.watchId, 100) || !item.watchId || !text(item.question, 4000) || !item.question.trim(),
-      )) throw error("批量关注更新列表无效。");
+      if (requests !== undefined && (!Array.isArray(requests) || requests.length > 1000 || requests.some((item) =>
+        !item || !text(item.watchId, 100) || !item.watchId,
+      ))) throw error("批量关注更新列表无效。");
       const result = await serial(async () => {
         const s = await read();
-        const waitingIds = new Set(
-          s.jobs.filter((job) => job.kind === "watch" && job.status === "waiting").map((job) => job.watchId),
+        const waitingKeys = new Set(
+          s.jobs.filter((job) => ["watch", "watch-quotes"].includes(job.kind) && job.status === "waiting").map((job) => `${job.kind}:${job.watchId}`),
         );
         const seenIds = new Set();
         const createdJobs = [];
-        for (const item of requests) {
+        const batchId = randomUUID();
+        const origin = req.body.origin === "watch-add" ? "watch-add" : "watch-refresh";
+        for (const item of requests || s.watchlist.map((watch) => ({ watchId: watch.id }))) {
           const watch = s.watchlist.find((row) => row.id === item.watchId);
           if (!watch) throw error("批量关注更新中有标的已不存在，请刷新页面后重试。", 404);
-          if (waitingIds.has(watch.id) || seenIds.has(watch.id)) continue;
+          if (seenIds.has(watch.id)) continue;
           seenIds.add(watch.id);
-          createdJobs.push({
-            id: randomUUID(),
-            kind: "watch",
-            watchId: watch.id,
-            question: item.question,
-            status: "waiting",
-            date: new Date().toISOString(),
-            error: "",
-          });
+          const common = { watchId: watch.id, status: "waiting", date: now().toISOString(), error: "", batchId, origin };
+          if (!waitingKeys.has(`watch-quotes:${watch.id}`))
+            createdJobs.push({ ...common, id: randomUUID(), kind: "watch-quotes", question: watchQuoteQuestion(watch) });
+          if (!hasCompleteResearch(watch) && !waitingKeys.has(`watch:${watch.id}`))
+            createdJobs.push({ ...common, id: randomUUID(), kind: "watch", researchMode: "initial", question: watchResearchQuestion(watch) });
         }
         if (!createdJobs.length) return { state: s, jobs: createdJobs };
-        s.jobs = [...s.jobs, ...createdJobs];
-        if (s.jobs.length > 10000) {
-          const pendingJobs = s.jobs.filter((job) => job.status === "waiting" || job.status === "running");
-          if (pendingJobs.length > 10000) throw error("待办数量已达上限，请先处理现有待办。", 409);
-          const historyLimit = 10000 - pendingJobs.length;
-          const history = s.jobs.filter((job) => job.status !== "waiting" && job.status !== "running");
-          const historyJobs = historyLimit ? history.slice(-historyLimit) : [];
-          s.jobs = [...historyJobs, ...pendingJobs];
-        }
+        appendJobs(s, createdJobs);
         return { state: await write(s), jobs: createdJobs };
       });
       res.status(result.jobs.length ? 201 : 200).json(result);
@@ -582,7 +672,7 @@ export async function createHoldingsApp({
         const s = await read();
         const cancelIds = new Set(
           s.jobs
-            .filter((job) => jobIds.includes(job.id) && job.kind === "watch" && job.status === "waiting")
+            .filter((job) => jobIds.includes(job.id) && ["watch", "watch-quotes"].includes(job.kind) && job.status === "waiting" && !job.quotePolicy)
             .map((job) => job.id),
         );
         const cancelledIds = [...cancelIds];
@@ -595,38 +685,90 @@ export async function createHoldingsApp({
       next(e);
     }
   });
+  app.post("/api/jobs/:id/quote-policy", async (req, res, next) => {
+    try {
+      const result = await serial(async () => {
+        const s = await read();
+        const job = s.jobs.find((j) => j.id === req.params.id);
+        if (!job) throw error("待办任务不存在。", 404);
+        if (!["quotes", "watch-quotes"].includes(job.kind) || job.status !== "waiting")
+          throw error("只能为等待中的价格任务开始取价。", 409);
+        const watch = job.kind === "watch-quotes" ? s.watchlist.find((w) => w.id === job.watchId) : null;
+        if (job.kind === "watch-quotes" && !watch) throw error("关注标的已不存在。", 404);
+        const market = watch && /\bLSE\b|London/i.test(watch.research?.identity?.exchange || "") ? "LSE" : "US";
+        job.quotePolicy = quotePolicy(now(), market);
+        await write(s);
+        return { policy: job.quotePolicy, symbols: watch ? (watch.symbol ? [normalizeSymbol(watch.symbol)] : []) : [...new Set(s.holdings.map((h) => normalizeSymbol(h.symbol)))],
+          ...(watch ? { target: { watchId: watch.id, name: watch.name, symbol: watch.symbol, currency: watchCurrency(watch), exchange: watch.research?.identity?.exchange || "" } } : {}) };
+      });
+      res.json(result);
+    } catch (e) {
+      next(e);
+    }
+  });
   app.post("/api/jobs/:id/complete", async (req, res, next) => {
     try {
       const quoteResult = await serial(async () => {
         const s = await read();
         const job = s.jobs.find((j) => j.id === req.params.id);
         if (!job) throw error("待办任务不存在。", 404);
-        if (job.kind === "quotes") {
+        if (job.kind === "watch" && job.status !== "waiting") throw error("研究任务已结束；需要新研究时请明确创建更新任务。", 409);
+        if (job.kind === "watch" && !s.watchlist.some((w) => w.id === job.watchId)) throw error("关注标的已不存在。", 404);
+        if (job.kind === "watch" && job.researchMode === "initial" && job.status === "waiting" && hasCompleteResearch(s.watchlist.find((w) => w.id === job.watchId))) {
+          Object.assign(job, { status: "done", completedAt: now().toISOString(), summary: "该标的已有完整研究，已跳过首次研究并保留已有报告。", error: "" });
+          return write(s);
+        }
+        if (["quotes", "watch-quotes"].includes(job.kind)) {
+          if (job.status !== "waiting") throw error("价格任务已结束，请重新创建待办。", 409);
+          if (!timestamp(job.quotePolicy?.executedAt) || req.body.executedAt !== job.quotePolicy.executedAt)
+            throw error("请先调用本任务的 quote-policy，并原样提交 executedAt。", 409);
+          const policy = quotePolicy(job.quotePolicy.executedAt, job.quotePolicy.market || "US");
+          const fetchedAt = now().toISOString();
           if (!Array.isArray(req.body.quotes) || req.body.quotes.length > 1000)
-            throw error("收盘价任务需要提供 quotes 数组。" );
-          const expected = new Set(s.holdings.map((h) => h.symbol.toUpperCase()));
+            throw error("价格任务需要提供 quotes 数组。" );
+          if (job.kind === "watch-quotes") {
+            const watch = s.watchlist.find((w) => w.id === job.watchId);
+            if (!watch) throw error("关注标的已不存在。", 404);
+            if (req.body.research !== undefined || req.body.report !== undefined) throw error("关注价格任务只更新报价，不接受研究或报告。");
+            if (req.body.quotes.length !== 1) throw error("关注价格任务只能提交当前标的一条报价。");
+            const q = req.body.quotes[0];
+            validateMarketQuote(q, policy, fetchedAt);
+            if ((watch.symbol && normalizeSymbol(watch.symbol) !== normalizeSymbol(q.symbol)) ||
+                !text(q.currency, 3) || !/^[A-Z]{3}$/.test(q.currency) || (watchCurrency(watch) && watchCurrency(watch) !== q.currency))
+              throw error("关注报价的证券代码或币种不符，请核实交易所与挂牌币种。");
+            Object.assign(watch, { symbol: normalizeSymbol(q.symbol), price: q.price, priceDate: q.date, priceType: q.type,
+              priceCurrency: q.currency, priceAsOf: q.type === "intraday" ? q.asOf : policy.sessionCloseAt,
+              priceFetchedAt: fetchedAt, priceTimeZone: policy.timeZone, priceSource: q.source.trim(), priceSourceUrl: q.sourceUrl });
+            Object.assign(job, { status: "done", completedAt: fetchedAt, error: "", summary: `已更新 ${watch.symbol} 的${q.type === "intraday" ? "盘中价" : "最近交易日收盘价"}；已有研究保留。` });
+            s.watchlistUpdatedAt = fetchedAt;
+            return write(s);
+          }
+          const expected = new Set(s.holdings.map((h) => h.symbol.trim().toUpperCase()));
           const received = new Set();
           for (const q of req.body.quotes) {
-            if (!q || !text(q.symbol, 40) || !q.symbol.trim()) throw error("股票代码无效。");
+            validateMarketQuote(q, policy, fetchedAt);
             const symbol = q.symbol.trim().toUpperCase();
-            if (!expected.has(symbol) || received.has(symbol) || !num(q.price, 0.000001) || !date(q.date) || !q.date || !text(q.source, 200) || !q.source.trim())
-              throw error(`收盘价数据无效：${symbol}。`);
+            if (!expected.has(symbol) || received.has(symbol)) throw error(`价格代码无效或重复：${symbol}。`);
             received.add(symbol);
           }
           const missing = [...expected].filter((symbol) => !received.has(symbol));
-          if (missing.length) throw error(`尚未提供这些持仓的收盘价：${missing.join(", " )}`);
+          if (missing.length) throw error(`尚未提供这些持仓的价格：${missing.join(", " )}`);
           const bySymbol = new Map(req.body.quotes.map((q) => [q.symbol.trim().toUpperCase(), q]));
           for (const h of s.holdings) {
-            const q = bySymbol.get(h.symbol.toUpperCase());
+            const q = bySymbol.get(h.symbol.trim().toUpperCase());
             h.price = q.price;
             h.priceDate = q.date;
             h.priceSource = q.source.trim().slice(0, 100);
+            h.priceType = policy.type;
+            h.priceAsOf = policy.type === "intraday" ? q.asOf : policy.sessionCloseAt;
+            h.priceFetchedAt = fetchedAt;
+            h.priceSourceUrl = q.sourceUrl;
             h.marketValue = Math.round(h.quantity * h.price * 100) / 100;
           }
           job.status = "done";
-          job.summary = text(req.body.summary || "", 1000) ? req.body.summary : "已更新全部持仓的最近完整收盘价。";
+          job.summary = text(req.body.summary || "", 1000) && req.body.summary?.trim() ? req.body.summary : `已更新全部持仓的${policy.type === "intraday" ? "盘中价格" : "最近交易日收盘价"}。`;
           job.error = "";
-          job.completedAt = new Date().toISOString();
+          job.completedAt = fetchedAt;
           s.marketUpdatedAt = job.completedAt;
           return write(s);
         }
@@ -722,6 +864,11 @@ export async function createHoldingsApp({
         const s = await read();
         const job = s.jobs.find((j) => j.id === req.params.id);
         if (!job) throw error("待办任务不存在。", 404);
+        if (job.kind === "watch" && job.status !== "waiting") throw error("研究任务已结束。", 409);
+        if (job.kind === "watch" && job.researchMode === "initial" && hasCompleteResearch(s.watchlist.find((w) => w.id === job.watchId))) {
+          Object.assign(job, { status: "done", completedAt: now().toISOString(), summary: "该标的已有完整研究，已跳过首次研究并保留已有报告。", error: "" });
+          return write(s);
+        }
         const report = path.relative(reports, reportPath).split(path.sep).join("/");
         job.status = "done";
         job.report = report;
@@ -734,12 +881,7 @@ export async function createHoldingsApp({
           if (w) {
             w.research = research;
             if (!w.symbol && research.identity?.symbol) w.symbol = research.identity.symbol.slice(0, 40);
-            if (research.quote) {
-              w.price = research.quote.price;
-              w.priceDate = research.quote.date;
-              w.priceSource = research.quote.source;
-              w.priceSourceUrl = research.quote.sourceUrl;
-            }
+            applyResearchQuote(w, research.quote);
             w.researchedAt = job.completedAt;
             w.report = report;
           }
@@ -768,6 +910,44 @@ export async function createHoldingsApp({
       next(e);
     }
   });
+  app.post("/api/holdings/buy", async (req, res, next) => {
+    try {
+      const input = req.body;
+      if (!text(input.id, 100) || !input.id || !text(input.accountId, 100) ||
+          !text(input.symbol, 40) || !input.symbol.trim() || !CURRENCIES.includes(input.currency) ||
+          !text(input.name || "", 300) || !text(input.sector || "", 100) ||
+          !num(input.quantity, 0.00000001) || !num(input.price, 0.00000001) ||
+          !num(input.fees ?? 0) || !date(input.date) || !input.date ||
+          !num(roundMoney(input.quantity * input.price + (input.fees || 0))))
+        throw error("买入数据无效；请填写账户、代码、正数股数、买入单价和日期。");
+      const buy = { id: input.id, accountId: input.accountId, symbol: normalizeSymbol(input.symbol), currency: input.currency,
+        quantity: input.quantity, price: input.price, fees: input.fees || 0, date: input.date };
+      const result = await serial(async () => {
+        const s = await read();
+        const previous = s.holdingTrades?.find((trade) => trade.id === buy.id);
+        if (previous) {
+          if (previous.type !== "buy" || Object.keys(buy).some((key) => previous[key] !== buy[key]))
+            throw error("这笔买入的标识已被使用，请关闭表单后重新记录。", 409);
+          return { state: s, holding: s.holdings.find((h) => h.id === previous.holdingId), duplicate: true };
+        }
+        if (input.revision !== s.revision) throw error("数据已更新，请核对刷新后的合并预览再保存；表单已保留。", 409);
+        if (!s.accounts.some((a) => a.id === buy.accountId)) throw error("账户不存在。", 404);
+        const preview = previewBuy(s.holdings, buy);
+        const base = preview.existing || { id: randomUUID(), accountId: buy.accountId, symbol: buy.symbol,
+          name: input.name?.trim() || preview.quote?.name || buy.symbol, currency: buy.currency,
+          sector: input.sector?.trim() || preview.quote?.sector || "其他", source: "手工买入",
+          recordedAt: buy.date, thesis: "", exitRule: "" };
+        const holding = applyHoldingQuote({ ...base, quantity: preview.quantity, cost: preview.cost, averagePrice: preview.averagePrice }, preview.quote, buy.price);
+        const index = s.holdings.findIndex((h) => h.id === holding.id);
+        if (index < 0) s.holdings.push(holding);
+        else s.holdings[index] = holding;
+        s.holdingTrades ||= [];
+        s.holdingTrades.push({ ...buy, type: "buy", holdingId: holding.id, cost: preview.addedCost, recordedAt: now().toISOString() });
+        return { state: await write(s), holding, merged: Boolean(preview.existing) };
+      });
+      res.json(result);
+    } catch (e) { next(e); }
+  });
   app.put("/api/state", async (req, res, next) => {
     try {
       res.json(
@@ -778,6 +958,7 @@ export async function createHoldingsApp({
           const candidate = validateState(req.body);
           candidate.jobs = current.jobs;
           candidate.analyses = current.analyses;
+          candidate.holdingTrades = current.holdingTrades || [];
           candidate.converter = candidate.converter || current.converter || createInitialConverterState();
           for (const w of candidate.watchlist) {
             const existing = current.watchlist.find((row) => row.id === w.id);
@@ -805,7 +986,8 @@ export async function createHoldingsApp({
             throw error("AI 任务进行中，完成后再恢复备份。", 409);
           if (req.body.revision !== current.revision)
             throw error("数据已更新，请刷新后恢复。", 409);
-          const candidate = structuredClone(validateState(req.body.state));
+          const candidate = structuredClone(validateState(req.body.state, { allowDuplicateHoldings: true }));
+          consolidateStateHoldings(candidate, now().toISOString());
           candidate.revision = current.revision;
           candidate.jobs = [];
           candidate.converter = candidate.converter || current.converter || createInitialConverterState();
@@ -848,12 +1030,7 @@ export async function createHoldingsApp({
             w.research = research;
             if (!w.symbol && research.identity?.symbol)
               w.symbol = research.identity.symbol.slice(0, 40);
-            if (research.quote) {
-              w.price = research.quote.price;
-              w.priceDate = research.quote.date;
-              w.priceSource = research.quote.source;
-              w.priceSourceUrl = research.quote.sourceUrl;
-            }
+            applyResearchQuote(w, research.quote);
             w.researchedAt = finishedAt;
             w.report = report;
           }

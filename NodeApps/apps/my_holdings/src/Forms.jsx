@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { X, Save } from "lucide-react";
-import { id } from "./model.js";
+import { id, money, CURRENCIES } from "./model.js";
+import { previewBuy } from "./positions.js";
 import { localDate } from "./api.js";
 export function Modal({ title, children, onClose, wide = false }) {
   const ref = useRef();
@@ -78,6 +79,43 @@ export function Field({ label, children, hint }) {
     </label>
   );
 }
+export function BuyForm({ holding, holdings, accounts, defaultAccountId, onSave, busy }) {
+  const [v, set] = useState(() => ({ id: id(), accountId: holding?.accountId || defaultAccountId || accounts[0].id,
+    symbol: holding?.symbol || "", currency: holding?.currency || "USD", quantity: "", price: "", fees: 0, date: localDate() }));
+  const change = (key, value) => set((current) => ({ ...current, [key]: value }));
+  const preview = previewBuy(holdings, v);
+  const accountName = accounts.find((account) => account.id === v.accountId)?.name;
+  const ready = Number(v.quantity) > 0 && Number(v.price) > 0;
+  const symbols = [...new Map(holdings.map((h) => [h.symbol, h])).values()];
+  return <form onSubmit={(event) => {
+    event.preventDefault();
+    onSave({ ...v, quantity: Number(v.quantity), price: Number(v.price), fees: Number(v.fees || 0) });
+  }}>
+    <p className="mh-help">记录这一次买入的股数和单价。同一账户、同一代码和币种会自动合并，成本均价按总成本重新计算。</p>
+    <div className="mh-form-grid">
+      <Field label="账户"><select value={v.accountId} onChange={(e) => change("accountId", e.target.value)}>{accounts.map((a) => <option value={a.id} key={a.id}>{a.name}</option>)}</select></Field>
+      <Field label="证券代码"><input required autoFocus maxLength={40} list="mh-buy-symbols" placeholder="例如 QQQM" value={v.symbol} onChange={(e) => change("symbol", e.target.value.toUpperCase())} /><datalist id="mh-buy-symbols">{symbols.map((h) => <option key={h.symbol} value={h.symbol}>{h.name}</option>)}</datalist></Field>
+      <Field label="本次买入股数"><input required type="number" min="0.00000001" max="100000000000000" step="any" placeholder="例如 50" value={v.quantity} onChange={(e) => change("quantity", e.target.value)} /></Field>
+      <Field label={`买入单价 · ${v.currency}`}><input required type="number" min="0.00000001" max="100000000000000" step="any" placeholder="例如 290" value={v.price} onChange={(e) => change("price", e.target.value)} /></Field>
+      <Field label={`本次费用 · ${v.currency}`} hint="可留空；计入买入总成本"><input type="number" min="0" max="100000000000000" step="any" value={v.fees} onChange={(e) => change("fees", e.target.value)} /></Field>
+      <Field label="买入日期"><input required type="date" value={v.date} onChange={(e) => change("date", e.target.value)} /></Field>
+      <Field label="交易币种"><select value={v.currency} onChange={(e) => change("currency", e.target.value)}>{CURRENCIES.map((currency) => <option key={currency}>{currency}</option>)}</select></Field>
+    </div>
+    {v.symbol.trim() && <section className="mh-buy-preview" aria-live="polite">
+      <strong>{preview.existing ? `追加到 ${accountName} · ${preview.existing.symbol}` : `在 ${accountName} 建立 ${v.symbol.trim()} 持仓`}</strong>
+      <p>{preview.existing ? `已有 ${preview.existing.quantity} 股 · 总成本 ${money(preview.existing.cost, v.currency)}` : "其他账户的同名证券分别保留。"}</p>
+      {ready && <dl>
+        <div><dt>买入后股数</dt><dd>{preview.quantity} 股</dd></div>
+        <div><dt>本次计入成本</dt><dd>{money(preview.addedCost, v.currency)}</dd></div>
+        <div><dt>买入后总成本</dt><dd>{money(preview.cost, v.currency)}</dd></div>
+        <div><dt>买入后成本均价</dt><dd>{money(preview.averagePrice, v.currency)}</dd></div>
+      </dl>}
+      <p>{preview.quote ? `市值沿用已保存报价 ${money(preview.quote.price, v.currency)}${preview.quote.priceDate ? `（${preview.quote.priceDate}）` : "（截图记录）"}。` : "尚无行情报价，将按买入价暂估市值，并标注待刷新。"}</p>
+    </section>}
+    <p className="mh-help">每笔买入单独留存记录。资金台账由你另行记录。</p>
+    <SaveButton busy={busy} label={preview.existing ? "确认追加买入" : "保存买入"} />
+  </form>;
+}
 export function HoldingForm({ item, accounts, defaultAccountId, onSave, busy }) {
   const [v, set] = useState(
     item || {
@@ -153,7 +191,7 @@ export function HoldingForm({ item, accounts, defaultAccountId, onSave, busy }) 
           />
         </Field>
         {[
-          ["quantity", "持有股数"],
+          ["quantity", "持仓总股数"],
           ["averagePrice", "成本均价 · USD"],
         ].map(([k, label]) => (
           <Field key={k} label={label}>
@@ -200,7 +238,7 @@ export function HoldingForm({ item, accounts, defaultAccountId, onSave, busy }) 
           />
         </Field>
       </div>
-      <p className="mh-help">市值按当前价格和股数自动计算。</p>
+      <p className="mh-help">这里用于修正持仓总数和成本，不会新增买入记录。追加买入请使用「记录买入」。</p>
       <SaveButton busy={busy} />
     </form>
   );

@@ -44,15 +44,18 @@ import {
   calculate,
   observations,
   contextPack,
+  holdingQuoteLabel,
   money,
   pct,
   id,
 } from "./model.js";
 import { BASE, request, download, localDate } from "./api.js";
+import { PRICE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchResearchQuestion, undoableWatchRefreshIds } from "./quotes.js";
 import {
   Modal,
   Field,
   HoldingForm,
+  BuyForm,
   WatchForm,
   CashForm,
   GoalsForm,
@@ -134,37 +137,6 @@ function isIndexOrEtf(watch) {
     watch?.symbol,
   ].filter(Boolean).join(" ");
   return /etf|指数|指数基金|index fund|index/i.test(kind);
-}
-function undoableWatchRefreshIds(state, trackedIds = []) {
-  if (!state) return [];
-  const waitingJobs = state.jobs.filter(
-    (job) => job.kind === "watch" && job.status === "waiting",
-  );
-  const waitingById = new Map(waitingJobs.map((job) => [job.id, job]));
-  const trackedWaitingIds = [...new Set(trackedIds)].filter((jobId) =>
-    waitingById.has(jobId),
-  );
-  if (trackedWaitingIds.length) return trackedWaitingIds;
-
-  // Recover the batch after a reload when its localStorage IDs were lost.
-  // Require a complete, one-job-per-watch batch with the batch-only prompt
-  // suffix so unrelated watch research tasks are never offered for undo.
-  const watchlist = state.watchlist || [];
-  if (!watchlist.length || waitingJobs.length !== watchlist.length) return [];
-  const watchIds = new Set(watchlist.map((watch) => watch.id));
-  if (watchIds.size !== watchlist.length) return [];
-  const batchJobs = waitingJobs.filter(
-    (job) =>
-      watchIds.has(job.watchId) &&
-      job.question?.startsWith("刷新关注标的 ") &&
-      job.question.includes(
-        "生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。",
-      ),
-  );
-  const batchWatchIds = new Set(batchJobs.map((job) => job.watchId));
-  return batchJobs.length === watchlist.length && batchWatchIds.size === watchlist.length
-    ? batchJobs.map((job) => job.id)
-    : [];
 }
 function sortWatchlist(rows, mode) {
   const byName = (a, b) =>
@@ -353,7 +325,7 @@ function RightPanel({
   onCopyQueue,
 }) {
   const cash = state.cash.reduce((sum, row) => sum + Number(row.amount || 0), 0);
-  const watchCurrency = watch?.research?.quote?.currency || watch?.research?.identity?.currency || "USD";
+  const watchCurrency = watch?.priceCurrency || watch?.research?.quote?.currency || watch?.research?.identity?.currency || "USD";
   const converter = state.converter || INITIAL_CONVERTER_STATE;
   const title = {
     overview: "今日摘要",
@@ -391,7 +363,7 @@ function RightPanel({
         </section>
         <section>
           <div className="mh-section-heading"><h3>数据快照</h3><ShieldCheck size={15} /></div>
-          <p className="mh-sidebar-objective">{state.marketUpdatedAt ? `收盘价最近更新于 ${when(state.marketUpdatedAt)}` : "当前显示初始截图价格"}</p>
+          <p className="mh-sidebar-objective">{state.marketUpdatedAt ? `价格最近更新于 ${when(state.marketUpdatedAt)}` : "当前显示初始截图价格"}</p>
           <button className="mh-text-button" onClick={() => onNavigate("holdings")}>核对持仓 <ArrowRight size={13} /></button>
         </section>
         <section>
@@ -410,13 +382,18 @@ function RightPanel({
           <h2>{holding.symbol}</h2><p>{holding.name}</p>
           <span className="mh-tag">{state.accounts.find((a) => a.id === holding.accountId)?.name}</span>
           <strong>{money(holding.marketValue, holding.currency)}</strong>
-          <small>持有 {holding.quantity} 股 · {holding.priceDate || "尚未刷新收盘价"}</small>
+          <small>持有 {holding.quantity} 股 · {holdingQuoteLabel(holding)}</small>
           <div className="mh-focus-prices">
             <span>当前价格<strong>{money(holding.price, holding.currency)}</strong></span>
             <span>成本均价<strong>{money(holding.averagePrice, holding.currency)}</strong></span>
           </div>
         </div>
-        <section><button className="mh-button" onClick={() => onEdit({ type: "holding", item: holding })}><Pencil size={14} /> 编辑核心数据</button><button className="mh-text-button" onClick={() => onRefreshPrices()}><RefreshCw size={13} /> 请求更新收盘价</button></section>
+        <section><button className="mh-primary" onClick={() => onEdit({ type: "holding", buyHolding: holding })}><Plus size={14} /> 追加买入</button><button className="mh-text-button" onClick={() => onEdit({ type: "holding", item: holding })}><Pencil size={14} /> 修正持仓</button><button className="mh-text-button" onClick={() => onRefreshPrices()}><RefreshCw size={13} /> 刷新价格</button></section>
+        {(state.holdingTrades || []).some((trade) => trade.holdingId === holding.id) && <section>
+          <h3>买入与初始记录</h3>
+          {(state.holdingTrades || []).filter((trade) => trade.holdingId === holding.id).slice(-8).reverse().map((trade) => <p className="mh-side-note" key={trade.id}><span><strong>{trade.type === "buy" ? "买入" : "合并前记录"} {trade.quantity} 股 · {money(trade.price, trade.currency)}</strong><br /><small>{trade.date || "日期未知"}{trade.type === "import" ? "（记录日）" : ""} · 成本 {money(trade.cost, trade.currency)}{trade.fees ? ` · 含费用 ${money(trade.fees, trade.currency)}` : ""}</small></span></p>)}
+          <p className="mh-help">按录入顺序显示最近 8 笔；修正持仓不会改写历史记录。</p>
+        </section>}
       </> : <>
         <section className="mh-side-summary">
           <span className="mh-eyebrow">ACCOUNTS</span>
@@ -426,7 +403,7 @@ function RightPanel({
             return <div className="mh-side-account" key={a.id}><i className={`tone-${index % 2}`} /><span>{a.name}</span><b>{money(value)}</b></div>;
           })}
         </section>
-        <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次收盘价更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 加入收盘价更新待办</button></section>
+        <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次价格更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><p className="mh-sidebar-objective">待办执行时，常规交易时段取盘中价，其余时间取最近交易日收盘价。</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 刷新价格</button></section>
       </>)}
       {tab === "watch" && (watch ? <>
         <div className="mh-watch-focus">
@@ -442,8 +419,8 @@ function RightPanel({
             <div><small>等待股价</small><strong>{watch.targetPrice > 0 ? money(watch.targetPrice, watchCurrency) : "尚未设置"}</strong></div>
             <div className={selectedWatchTouched ? "touched" : ""}><small>等待价差比例</small><strong>{selectedWatchGap == null ? "—" : selectedWatchGap.toFixed(2) + "%"}</strong></div>
           </div>
-          <small className="mh-watch-detail-source">{watch.priceSourceUrl ? <a href={watch.priceSourceUrl} target="_blank" rel="noopener noreferrer">{watch.priceSource || "行情来源"} · {watch.priceDate}</a> : watch.priceSource || "尚无报价来源"}</small>
-          {watch.targetPrice > 0 ? <p className="mh-watch-gap-explainer">{selectedWatchTouched ? "当前收盘价已达到或低于你设定的等待价。" : "价差按当前报价相对等待价的距离计算；距离越小，排序越靠前。"}</p> : <p className="mh-watch-gap-explainer">你还没有填写等待价；填写后会自动参加价差排序。</p>}
+          <small className="mh-watch-detail-source">{watch.priceSourceUrl ? <a href={watch.priceSourceUrl} target="_blank" rel="noopener noreferrer">{holdingQuoteLabel(watch)}</a> : holdingQuoteLabel(watch)}</small>
+          {watch.targetPrice > 0 ? <p className="mh-watch-gap-explainer">{selectedWatchTouched ? "最近保存报价已达到或低于你设定的等待价。" : "价差按当前报价相对等待价的距离计算；距离越小，排序越靠前。"}</p> : <p className="mh-watch-gap-explainer">你还没有填写等待价；填写后会自动参加价差排序。</p>}
         </div>
         <section className="mh-watch-detail-section">
           <div className="mh-section-heading"><h3>研究摘要</h3>{watch.report && <button className="mh-icon" aria-label="打开完整研究报告" onClick={() => onOpenReport(watch.report)}><FileCode2 size={15} /></button>}</div>
@@ -461,17 +438,18 @@ function RightPanel({
         <section className="mh-watch-detail-actions">
           <button className="mh-text-button" onClick={() => onSelectWatch(null)}><ArrowDownLeft size={13} /> 返回价差优先榜</button>
           {watch.targetPrice <= 0 && <button className="mh-text-button" onClick={() => onEdit({ type: "watch", item: watch })}><Pencil size={13} /> 填写等待价</button>}
-          <button className="mh-text-button" onClick={() => onQueueTask("watch", watch.id, "刷新关注标的 " + watch.name + " " + watch.symbol + "：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；并更新近期财报、新闻、展望和风险，生成带来源 HTML。")}><RefreshCw size={13} /> 请求更新这个标的</button>
+          <button className="mh-text-button" onClick={() => onQueueTask("watch-quotes", watch.id)}><RefreshCw size={13} /> 仅刷新价格</button>
+          <button className="mh-text-button" onClick={() => onQueueTask("watch", watch.id, watchResearchQuestion(watch, true), { refreshResearch: true })}><Sparkles size={13} /> {hasCompleteResearch(watch) ? "更新完整研究" : "生成完整研究"}</button>
         </section>
       </> : <section className="mh-watch-priority">
         <div className="mh-watch-priority-heading">
           <div><span className="mh-eyebrow">NEAREST TO YOUR PRICE</span><h3>等待价差最低</h3></div>
           <span className="mh-tag">{watchPriorities.length} 项</span>
         </div>
-        <p className="mh-watch-priority-intro">按当前收盘价到等待价的比例，从近到远排列。只有已填等待价且有报价的标的会进入这里。</p>
+        <p className="mh-watch-priority-intro">按最近保存报价到等待价的比例，从近到远排列。只有已填等待价且有报价的标的会进入这里。</p>
         {watchPriorities.length ? <div className="mh-watch-priority-list">
           {watchPriorities.map(({ item, gap }, index) => {
-            const currency = item.research?.quote?.currency || item.research?.identity?.currency || "USD";
+            const currency = item.priceCurrency || item.research?.quote?.currency || item.research?.identity?.currency || "USD";
             const touched = gap === 0;
             const previousRank = yesterdayWatchRanks.get(item.id);
             const movement = previousRank == null ? 0 : previousRank - index - 1;
@@ -889,7 +867,7 @@ export default function HoldingsApp() {
   useEffect(() => {
     if (!state || watchRefreshBusy || !watchRefreshBatchIds.length) return;
     const hasWaitingBatchJob = watchRefreshBatchIds.some((jobId) =>
-      state.jobs.some((job) => job.id === jobId && job.kind === "watch" && job.status === "waiting"),
+      state.jobs.some((job) => job.id === jobId && ["watch", "watch-quotes"].includes(job.kind) && job.status === "waiting"),
     );
     if (!hasWaitingBatchJob) rememberWatchRefreshBatch([]);
   }, [state, watchRefreshBusy, watchRefreshBatchIds]);
@@ -937,6 +915,27 @@ export default function HoldingsApp() {
       if (i >= 0) s[key][i] = value;
       else s[key].push(value);
     });
+  const recordBuy = async (buy) => {
+    if (busyRef.current) return false;
+    busyRef.current = true;
+    setBusy(true);
+    try {
+      const result = await request("/api/holdings/buy", { ...buy, revision: stateRef.current.revision });
+      setState(result.state);
+      stateRef.current = result.state;
+      setSelected(result.holding?.id || null);
+      setModal(null);
+      notify(result.duplicate ? "这笔买入已经保存，未重复计入" : `${result.merged ? "已追加买入" : "已记录买入"}：${result.holding.symbol} 共 ${result.holding.quantity} 股，成本均价 ${money(result.holding.averagePrice, result.holding.currency)}`);
+      return true;
+    } catch (e) {
+      notify(e.message, true);
+      if (e.message.includes("已更新")) await refresh();
+      return false;
+    } finally {
+      busyRef.current = false;
+      setBusy(false);
+    }
+  };
   const saveWatchAttention = (watchId, attention) =>
     mutate((s) => {
       const watch = s.watchlist.find((row) => row.id === watchId);
@@ -951,12 +950,12 @@ export default function HoldingsApp() {
       .replaceAll("=", "");
     window.open(`${BASE}/library/document/${encodeURIComponent(id)}`, "_blank", "noopener,noreferrer");
   };
-  const queueTask = async (kind = "portfolio", watchId, prompt = question, { quiet = false } = {}) => {
+  const queueTask = async (kind = "portfolio", watchId, prompt = question, { quiet = false, refreshResearch = false } = {}) => {
     try {
-      const r = await request("/api/jobs", { kind, watchId, question: prompt });
+      const r = await request("/api/jobs", { kind, watchId, question: prompt, refreshResearch });
       setState(r.state);
       stateRef.current = r.state;
-      if (!quiet) notify(kind === "quotes" ? "收盘价更新已加入待办" : kind === "converter" ? "换算公式更新已加入待办" : "已加入待办");
+      if (!quiet) notify(["quotes", "watch-quotes"].includes(kind) ? "价格更新已加入待办，按实际执行时段取价" : kind === "converter" ? "换算公式更新已加入待办" : "研究已加入待办");
       return true;
     } catch (e) {
       if (/已经在.*待办队列/.test(e.message)) {
@@ -971,7 +970,7 @@ export default function HoldingsApp() {
     queueTask(
       "quotes",
       null,
-      "更新全部持仓标的最近一个已完成美股交易日的收盘价，并记录交易日期与数据来源。",
+      PRICE_REFRESH_QUESTION,
     );
   const refreshConverter = () => queueTask(
     "converter",
@@ -1002,21 +1001,16 @@ export default function HoldingsApp() {
 
       rememberWatchRefreshBatch([]);
       if (!current?.watchlist.length) return notify("先添加关注标的", true);
-      const pending = new Set(
-        current.jobs.filter((job) => job.kind === "watch" && job.status === "waiting").map((job) => job.watchId),
-      );
-      const targets = current.watchlist.filter((watch) => !pending.has(watch.id));
-      if (!targets.length) return notify("关注标的更新已在待办队列中");
-      const jobs = targets.map((watch) => ({
-        watchId: watch.id,
-        question: `刷新关注标的 ${watch.name} ${watch.symbol}：联网核实最近一个已完成交易日的最新收盘价，在 research.quote 返回 price、date、currency、source、sourceUrl；同时更新近期财报、重要新闻、公司展望与风险，生成带来源的自包含中文 HTML。不得编造实时价格或投资建议。`,
-      }));
-      const result = await request("/api/jobs/batch-watch", { jobs });
+      const result = await request("/api/jobs/batch-watch", {});
       setState(result.state);
       stateRef.current = result.state;
       const createdIds = (result.jobs || []).map((job) => job.id);
       rememberWatchRefreshBatch(createdIds);
-      if (createdIds.length) notify(`已将 ${createdIds.length} 个关注更新请求加入待办；再次点击可撤销仍在等待的任务。`);
+      if (createdIds.length) {
+        const prices = result.jobs.filter((job) => job.kind === "watch-quotes").length;
+        const studies = result.jobs.filter((job) => job.kind === "watch").length;
+        notify(`已加入 ${prices} 项价格更新${studies ? `、${studies} 项首次研究` : "；已有完整研究保留"}；再次点击可撤销未开始的任务。`);
+      }
       else notify("没有新增任务：关注更新已在待办队列中。");
     } catch (error) {
       notify(error.message || "关注更新操作失败。", true);
@@ -1044,7 +1038,7 @@ export default function HoldingsApp() {
   };
   const copyQueue = async () => {
     const pending = stateRef.current.jobs.filter((j) => j.status === "waiting");
-    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n收盘价任务（kind=quotes）：联网核对全部持仓代码最近一个已完成的美股交易日收盘价。每个代码都要有价格、交易日期与来源；若来源无法核实，就将任务标记为未完成。不要生成 HTML，也不要改动平均成本或总成本。完成后 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，JSON 格式为 {"quotes":[{"symbol":"VOO","price":700.12,"date":"2026-10-16","source":"来源名称"}],"summary":"更新说明"}。\n\n换算公式任务（kind=converter）：先核对 VOO/SPYL 与 QQQM/CNDX 的发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE} 完成时 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，提交包含两组 calibrations 的 JSON。\n\n研究任务（kind=watch、portfolio、market）：联网核实最新资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。关注标的任务必须在 research.quote 中返回最近完整交易日收盘价：{"price":123.45,"date":"2026-10-16","currency":"USD","source":"来源名称","sourceUrl":"https://来源页面"}，并在报告中注明日期与来源。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
+    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n${quoteTaskGuidance(`${location.origin}${BASE}`)}\n\n换算公式任务（kind=converter）：先核对 VOO/SPYL 与 QQQM/CNDX 的发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE} 完成时 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，提交包含两组 calibrations 的 JSON。\n\n研究任务（kind=watch、portfolio、market）：联网核实资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。watch 的 researchMode=initial 只补缺失研究，执行前若已有完整研究则直接 complete 回写跳过说明；researchMode=refresh 才是用户明确要求更新完整研究。价格任务独立执行；报告中的历史报价不可覆盖最新行情。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
     try {
       await navigator.clipboard.writeText(prompt);
       notify("待办与持仓背景已复制；粘贴给 Codex 后由它处理并回写结果");
@@ -1212,7 +1206,7 @@ export default function HoldingsApp() {
               </td>
               <td>
                 {money(h.price, h.currency)}
-                <small>{h.priceDate ? `${h.priceDate} · ${h.priceSource || "收盘"}` : "点击刷新收盘价"}</small>
+                <small title={h.priceSourceUrl || undefined}>{holdingQuoteLabel(h)}</small>
               </td>
               <td>
                 {money(h.averagePrice, h.currency)}
@@ -1231,6 +1225,10 @@ export default function HoldingsApp() {
               </td>
               <td>
                 <div className="mh-row-actions">
+                  <button className="mh-icon" aria-label={`追加买入 ${h.symbol} ${state.accounts.find((a) => a.id === h.accountId)?.name}`} onClick={(e) => {
+                    e.stopPropagation();
+                    setModal({ type: "holding", buyHolding: h });
+                  }}><Plus size={14} /></button>
                   <button
                     className="mh-icon"
                     aria-label={`编辑 ${h.symbol} ${state.accounts.find((a) => a.id === h.accountId)?.name}`}
@@ -1268,14 +1266,15 @@ export default function HoldingsApp() {
     </div>
   );
   const renderWatchCard = (w) => {
-    const job = state.jobs.findLast((j) => j.kind === "watch" && j.watchId === w.id);
+    const relatedJobs = state.jobs.filter((j) => ["watch", "watch-quotes"].includes(j.kind) && j.watchId === w.id);
+    const job = relatedJobs.findLast((j) => j.status === "waiting") || relatedJobs.at(-1);
     const jobLabel =
       job?.status === "done"
-        ? "已更新"
+        ? job.kind === "watch-quotes" ? "价格已更新" : "研究已完成"
         : job?.status === "failed"
           ? "未完成"
           : job?.status === "waiting"
-            ? "等待更新中"
+            ? job.kind === "watch-quotes" ? "等待价格更新" : "等待研究"
             : w.researchedAt || w.report || w.research
               ? "已有研究"
               : "未排队";
@@ -1284,7 +1283,7 @@ export default function HoldingsApp() {
     const targetPrice = w.targetPrice == null ? null : Number(w.targetPrice);
     const distance = watchGapPct(w);
     const targetDraft = watchTargetDrafts[w.id] ?? (targetPrice ?? "");
-    const quoteCurrency = w.research?.quote?.currency || w.research?.identity?.currency || "USD";
+    const quoteCurrency = w.priceCurrency || w.research?.quote?.currency || w.research?.identity?.currency || "USD";
     const attention = watchAttention(w);
     const attentionOpen = attentionPickerId === w.id;
     const cardName = (w.name || w.symbol || "").trim();
@@ -1367,7 +1366,7 @@ export default function HoldingsApp() {
           <div>
             <small>当前报价</small>
             <strong>{price == null ? "等待更新" : money(price, quoteCurrency)}</strong>
-            <small>{w.priceDate || "尚无报价日期"}</small>
+            <small>{holdingQuoteLabel({ ...w, priceSource: "" })}</small>
           </div>
           <label>
             <small>等待股价 · {quoteCurrency}</small>
@@ -1528,7 +1527,7 @@ export default function HoldingsApp() {
                   className="mh-primary"
                   onClick={() => setModal({ type: "holding" })}
                 >
-                  <Plus size={17} /> 记录持仓
+                  <Plus size={17} /> 记录买入
                 </button>,
               )}
               {stats()}
@@ -1576,7 +1575,7 @@ export default function HoldingsApp() {
                 <div className="mh-section-heading">
                   <div>
                     <h2>我的持仓</h2>
-                    <p>原始市值保留，盈亏按市值减成本计算</p>
+                    <p>按账户分别累计股数与成本；报价保留日期与来源</p>
                   </div>
                   <button
                     className="mh-text-button"
@@ -1604,12 +1603,12 @@ export default function HoldingsApp() {
                     <Search size={16} />
                     <input aria-label="搜索持仓" placeholder="代码、名称、分类" value={query} onChange={(e) => setQuery(e.target.value)} />
                   </label>
-                  <button className="mh-button" onClick={refreshPrices} disabled={state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting")}>
+                  <button className="mh-button" onClick={refreshPrices} title="加入待办；实际执行时，常规交易时段取盘中价，其余时间取最近交易日收盘价" disabled={state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting")}>
                     <RefreshCw size={15} />
-                    {state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting") ? "收盘价已排队" : "刷新收盘价"}
+                    {state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting") ? "价格已排队" : "刷新价格"}
                   </button>
                   <button className="mh-primary" onClick={() => setModal({ type: "holding" })}>
-                    <Plus size={17} /> 新增持仓
+                    <Plus size={17} /> 记录买入
                   </button>
                 </div>,
               )}
@@ -1622,7 +1621,7 @@ export default function HoldingsApp() {
                     <section className={`mh-panel mh-account-section account-tone-${index % 2}`} key={a.id}>
                       <div className="mh-account-heading">
                         <div><span className="mh-account-mark" /><div><span className="mh-eyebrow">ACCOUNT {index + 1}</span><h2>{a.name}</h2></div><span className="mh-tag">{rows.length} 项</span></div>
-                        <div className="mh-account-total"><small>当前市值</small><strong>{money(total)}</strong><button className="mh-text-button" onClick={() => setModal({ type: "holding", accountId: a.id })}><Plus size={14} /> 添加到此账户</button></div>
+                        <div className="mh-account-total"><small>当前市值</small><strong>{money(total)}</strong><button className="mh-text-button" onClick={() => setModal({ type: "holding", accountId: a.id })}><Plus size={14} /> 记录买入</button></div>
                       </div>
                       {holdingsTable(rows)}
                     </section>
@@ -1657,10 +1656,11 @@ export default function HoldingsApp() {
                   <button
                     className="mh-button"
                     onClick={refreshWatchlist}
-                    disabled={watchRefreshBusy || (!watchRefreshPending && (!state.watchlist.length || state.watchlist.every((w) => state.jobs.some((j) => j.watchId === w.id && j.status === "waiting"))))}
+                    title="刷新全部关注价格；交易时段取盘中价，其余时间取最近收盘价。仅缺少完整研究的标的补充首次研究。"
+                    disabled={watchRefreshBusy || !state.watchlist.length}
                   >
                     {watchRefreshBusy ? <LoaderCircle size={15} className="mh-spin" /> : watchRefreshPending ? <Undo2 size={15} /> : <RefreshCw size={15} />}
-                    {watchRefreshBusy ? "处理中…" : watchRefreshPending ? "撤销关注" : "刷新关注"}
+                    {watchRefreshBusy ? "处理中…" : watchRefreshPending ? "撤销本次刷新" : "刷新关注"}
                   </button>
                 </div>,
               )}
@@ -2091,7 +2091,7 @@ export default function HoldingsApp() {
                             {j.status === "failed" ? <X size={17} /> : <LoaderCircle size={17} />}
                           </span>
                           <div>
-                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                             <small>{when(j.date)} · {j.status === "failed" ? `未完成${j.error ? ` · ${j.error}` : ""}` : "等待交给 Codex"}</small>
                           </div>
                         </div>
@@ -2112,7 +2112,7 @@ export default function HoldingsApp() {
                         <div className="mh-job" key={j.id}>
                           <span className="mh-job-icon done"><CheckCircle2 size={17} /></span>
                           <div>
-                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓收盘价更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                             <small>{when(j.completedAt || j.date)} · 已完成并保存</small>
                           </div>
                           {j.report && <button className="mh-icon" aria-label="打开报告" onClick={() => openReport(j.report)}><ArrowUpRight size={15} /></button>}
@@ -2258,7 +2258,7 @@ export default function HoldingsApp() {
         <Modal
           title={
             {
-              holding: modal.item ? "编辑持仓" : "记录一笔持仓",
+              holding: modal.item ? "修正持仓" : "记录买入",
               watch: modal.item ? "编辑关注" : "添加一个关注",
               cash: modal.item ? "编辑资金流水" : "记一笔资金",
               goals: "投资目标",
@@ -2289,14 +2289,14 @@ export default function HoldingsApp() {
               {modal.items.map((w) => (
                 <div className="mh-price-alert" key={w.id}>
                   <span className="mh-ticker">{(w.symbol || w.name).slice(0, 2)}</span>
-                  <div><strong>{w.symbol || w.name}</strong><small>当前 {money(w.price, w.research?.quote?.currency || "USD")} · 等待 {money(w.targetPrice, w.research?.quote?.currency || "USD")} · 报价日期 {w.priceDate || "未知"}</small></div>
+                  <div><strong>{w.symbol || w.name}</strong><small>当前 {money(w.price, w.priceCurrency || w.research?.quote?.currency || "USD")} · 等待 {money(w.targetPrice, w.priceCurrency || w.research?.quote?.currency || "USD")} · 报价日期 {w.priceDate || "未知"}</small></div>
                   <button className="mh-text-button" onClick={() => { setSelectedWatchId(w.id); setModal(null); page("watch"); }}>查看 <ArrowRight size={13} /></button>
                 </div>
               ))}
-              <p className="mh-help">这是最近一次保存的收盘价触发提醒；需要最新报价时，请在「近期关注」点击更新。</p>
+              <p className="mh-help">这是最近一次保存的报价触发提醒；需要最新报价时，请在「近期关注」点击更新。</p>
             </div>
           )}
-          {modal.type === "holding" && (
+          {modal.type === "holding" && (modal.item ? (
             <HoldingForm
               item={modal.item}
               accounts={state.accounts}
@@ -2304,7 +2304,7 @@ export default function HoldingsApp() {
               busy={busy}
               onSave={(v) => upsert("holdings", v)}
             />
-          )}
+          ) : <BuyForm holding={modal.buyHolding} holdings={state.holdings} accounts={state.accounts} defaultAccountId={modal.accountId} busy={busy} onSave={recordBuy} />)}
           {modal.type === "watch" && (
             <WatchForm
               item={modal.item}
@@ -2312,7 +2312,7 @@ export default function HoldingsApp() {
               onSave={async (v) => {
                 const success = await upsert("watchlist", v);
                 if (success && !modal.item) {
-                  const queued = await queueTask("watch", v.id, `研究并更新关注标的：${v.name} ${v.symbol}。核实最近完整交易日收盘价，并在 research.quote 返回 price、date、currency、source、sourceUrl；更新近期财报、重要新闻、业务展望和主要风险，生成带来源的自包含 HTML。`);
+                  const queued = await request("/api/jobs/batch-watch", { jobs: [{ watchId: v.id }], origin: "watch-add" }).then((result) => { setState(result.state); stateRef.current = result.state; notify("已加入价格更新与首次研究待办"); return true; }).catch((error) => { notify(error.message, true); return false; });
                   if (!queued) await refresh();
                 }
               }}
@@ -2413,9 +2413,9 @@ export default function HoldingsApp() {
                 </button>
                 <button
                   className="mh-primary"
-                  onClick={() => queueTask("watch", modal.item.id, `研究关注标的：${modal.item.name} ${modal.item.symbol}`)}
+                  onClick={() => queueTask("watch", modal.item.id, watchResearchQuestion(modal.item, true), { refreshResearch: true })}
                 >
-                  <Sparkles size={15} /> 加入 / 重新加入待办
+                  <Sparkles size={15} /> 更新完整研究
                 </button>
               </div>
             </>

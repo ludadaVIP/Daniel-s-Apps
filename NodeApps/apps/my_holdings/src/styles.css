@@ -2293,6 +2293,18 @@
 .mh-focus-prices span { padding: 8px; border-radius: 6px; background: #f6f8f3; color: #829077; font-size: 9px; }
 .mh-focus-prices strong { display: block; margin-top: 3px; color: #405b47; font-size: 11px; }
 .holdings-export { justify-content: flex-end; padding: 5px 0; }
+.mh-buy-preview {
+  margin: 16px 0;
+  padding: 16px;
+  border: 1px solid currentColor;
+  border-radius: 10px;
+  color: inherit;
+}
+.mh-buy-preview > strong { font-size: 13px; }
+.mh-buy-preview p { font-size: 11px; line-height: 1.7; margin: 8px 0 0; }
+.mh-buy-preview dl { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; margin: 16px 0; }
+.mh-buy-preview dt { font-size: 10px; opacity: .8; }
+.mh-buy-preview dd { margin: 5px 0 0; font-size: 17px; font-weight: 600; font-variant-numeric: tabular-nums; }
 @media (min-width: 2200px) {
   .mh-app { grid-template-columns: 250px minmax(0, 1fr) 330px; }
   .mh-app.left-closed { grid-template-columns: 76px minmax(0, 1fr) 330px; }
