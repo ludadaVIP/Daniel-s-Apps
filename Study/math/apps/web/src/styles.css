@@ -1,4 +1,8 @@
 @import '@study/ui/styles.css';
+/* Account for a classic scrollbar inside a 320px viewport. */
+body:has(.math-app.study-learning-app) {
+  min-width: 0;
+}
 .math-app {
   --ink: #302f49;
   --muted: #727184;
@@ -952,6 +956,7 @@
 }
 .math-step-footer {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
   margin-top: 20px;
   gap: 20px;

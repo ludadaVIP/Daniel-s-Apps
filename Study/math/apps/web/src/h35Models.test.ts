@@ -61,6 +61,8 @@ describe('H35 exact domains, branches and candidate audits', () => {
   });
   it('keeps holes at exact special angles and enforces the requested symbolic representation', () => {
     expect(identityAudit('quotient', '0').hole).toBe(true);
+    expect(identityAudit('quotient', '0').value).toBe('2');
+    expect(identityAudit('quotient', '1').value).toBe('0');
     expect(identityAudit('quotient', '2').hole).toBe(true);
     expect(identityAudit('quotient', '1/6').hole).toBe(false);
     expect(identityAudit('tangent', '1/2').hole).toBe(true);

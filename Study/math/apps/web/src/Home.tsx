@@ -6,6 +6,21 @@ import { t } from './model';
 import { Text } from './ui';
 import { status, statuses, type Props } from './pageSupport';
 const fractionArt: Record<string, string> = {
+  'capstone-model': 'UNITS · ORDER · WATER BALANCE',
+  'capstone-validation': 'CALIBRATE · HOLD OUT · CHECK',
+  'capstone-efficiency': 'CORRECTNESS · MONOTONICITY · CALLS',
+  'capstone-argument': 'NECESSARY · SUFFICIENT · SCOPE',
+  'capstone-project': 'CONSTRAINTS · FEASIBLE SET · REPORT',
+  'extension-induction': 'BASE · ARBITRARY k · PROOF',
+  'extension-recurrence': 'SEEDS · INDEX · RECURRENCE',
+  'extension-graphs': 'WEIGHTS · RELAXATION · ROUTES',
+  'extension-matrices': 'BASIS · COLUMNS · COMPOSITION',
+  'extension-numerical': 'ENCLOSURE · BISECTION · ERROR',
+  'analytic-intersections': 'DEGREE · PARAMETERS · COMPLETE POINT SET',
+  'analytic-locus': 'NECESSITY · RECONSTRUCTION · RESTRICTIONS',
+  'analytic-parameter': 'PARAMETER DOMAIN · INVERSE · OMITTED POINT',
+  'analytic-vectors': 'NONZERO VECTORS · DOT PRODUCT · ENDPOINTS',
+  'analytic-modelling': 'UNITS · UPPER SECTION · FULL WIDTH · FEASIBILITY',
   'equation-composition': 'INNER INPUT · BRANCH · REVERSE ORDER',
   'equation-logarithms': 'BASE · POSITIVE ARGUMENTS · ORIGINAL EQUATION',
   'equation-identities': 'FACTOR · ORIGINAL DOMAIN · HOLES',

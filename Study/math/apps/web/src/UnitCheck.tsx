@@ -1,23 +1,56 @@
-import { Link, useParams } from 'react-router-dom';
+import { useEffect } from 'react';
+import { Link, useParams, useSearchParams } from 'react-router-dom';
 import { QuestionNavigator } from '@study/ui';
 import { unitChecks, type UnitCheckId } from './content';
 import { newSession, t } from './model';
 import { Question } from './Question';
 import { Text } from './ui';
 import { Intro, type Props } from './pageSupport';
-export function UnitCheck(props: Props) {
+import {
+  maintenanceSets,
+  recurrenceEvidence,
+  type MaintenanceUnit,
+} from './content/maintenance';
+export function UnitCheck(props: Props & { maintenance?: boolean }) {
   const { unitId } = useParams();
-  const check = unitChecks[unitId as UnitCheckId];
+  const maintenance =
+    unitId && Object.hasOwn(maintenanceSets, unitId)
+      ? maintenanceSets[unitId as MaintenanceUnit]
+      : undefined;
+  const check = props.maintenance
+    ? maintenance
+    : unitId && Object.hasOwn(unitChecks, unitId)
+      ? unitChecks[unitId as UnitCheckId]
+      : undefined;
+  const [params, setParams] = useSearchParams();
+  const requested = params.get('question');
+  const requestedIndex =
+    check?.questions.findIndex((question) => question.id === requested) ?? -1;
+  const update = props.store.update;
+  useEffect(() => {
+    if (!check || requestedIndex < 0) return;
+    update(check.id, (old) => ({ ...old, practiceIndex: requestedIndex }));
+    const nextParams = new URLSearchParams(params);
+    nextParams.delete('question');
+    setParams(nextParams, { replace: true });
+  }, [check, requestedIndex, params, setParams, update]);
   if (!check)
     return (
       <>
         <Intro
           mode={props.mode}
-          kicker="UNIT REVIEW"
-          title={t(
-            '这个单元回顾还在准备中。',
-            'This unit review is being prepared.',
-          )}
+          kicker={props.maintenance ? 'CROSS-UNIT RETRIEVAL' : 'UNIT REVIEW'}
+          title={
+            props.maintenance
+              ? t(
+                  '这个单元的跨单元维护还在准备中。',
+                  'Cross-unit retrieval for this unit is being prepared.',
+                )
+              : t(
+                  '这个单元回顾还在准备中。',
+                  'This unit review is being prepared.',
+                )
+          }
           body={t(
             '先探索已经开放的单元。',
             'Explore one of the open units first.',
@@ -30,8 +63,15 @@ export function UnitCheck(props: Props) {
     );
   const { mode, store } = props,
     s = store.progress.sessions[check.id] ?? newSession(),
-    index = Math.min(s.practiceIndex ?? 0, check.questions.length - 1),
+    index =
+      requestedIndex >= 0
+        ? requestedIndex
+        : Math.min(s.practiceIndex ?? 0, check.questions.length - 1),
     q = check.questions[index]!;
+  const bridge = props.maintenance
+    ? (recurrenceEvidence.find((e) => e.targets.includes(q.id))?.sourceLesson ??
+      check.bridge)
+    : check.bridge;
   const recorded = check.questions.filter(
       (q) => s.answers[q.id]?.checked,
     ).length,
@@ -45,12 +85,19 @@ export function UnitCheck(props: Props) {
       </Link>
       <Intro
         mode={mode}
-        kicker={`${check.unit} / UNIT REVIEW`}
+        kicker={`${check.unit} / ${props.maintenance ? 'CROSS-UNIT RETRIEVAL' : 'UNIT REVIEW'}`}
         title={check.title}
-        body={t(
-          '把几节课的想法连起来。没有计时；可以分两次做，答案和提示都会保留。解释题仍由家长核对。',
-          'Connect the ideas from several lessons. No timer; split this across two sessions if useful. Answers and hints stay saved, and a parent reviews the explanation.',
-        )}
+        body={
+          props.maintenance
+            ? t(
+                '完成本单元后，可另选一次10–15分钟回看B01的五个想法：先预测，再独立作答或画图。可以分两次、不计时；需要时再展开提示。两道解释由家长核验，不影响正常选课。',
+                'After this unit, optionally revisit five B01 ideas in a separate 10–15 minute session. Predict before answering or drawing; split it into two sessions if useful, without a timer. Open hints when needed. A parent reviews both explanations; this does not restrict lesson choice.',
+              )
+            : t(
+                '把几节课的想法连起来。没有计时；可以分两次做，答案和提示都会保留。解释题仍由家长核对。',
+                'Connect the ideas from several lessons. No timer; split this across two sessions if useful. Answers and hints stay saved, and a parent reviews the explanation.',
+              )
+        }
       />
       <section className="math-panel">
         <QuestionNavigator
@@ -103,34 +150,100 @@ export function UnitCheck(props: Props) {
                       '这次回顾有较好的独立完成证据。请孩子再用图说明一题，再决定下一步；一次表现不代表永久掌握。',
                       'This review gives useful evidence of independent understanding. Ask the learner to explain another answer with a diagram before choosing the next step; one attempt does not mean permanent mastery.',
                     )
-                  : t(
-                      '有些想法还值得再解释。先回到本单元的基础模型，用图重看；不必为了做满题量而赶进度。',
-                      'Some ideas deserve another explanation. Revisit this unit’s foundation model; there is no need to rush for a question count.',
-                    )
+                  : props.maintenance
+                    ? t(
+                        '有些想法还值得再解释。回到当前题对应的B01基础模型，用图重看；不必为了做满题量而赶进度。',
+                        'Some ideas deserve another explanation. Revisit the B01 foundation model for this task; there is no need to rush for a question count.',
+                      )
+                    : t(
+                        '有些想法还值得再解释。先回到本单元的基础模型，用图重看；不必为了做满题量而赶进度。',
+                        'Some ideas deserve another explanation. Revisit this unit’s foundation model; there is no need to rush for a question count.',
+                      )
               }
             />
           </div>
         )}
         <Link
           className="math-button secondary"
-          to={`/math/lesson/${check.bridge}?step=1`}
+          to={`/math/lesson/${bridge}?step=1`}
         >
           <Text
             mode={mode}
-            text={t('回到基础模型', 'Revisit the foundation model')}
+            text={
+              props.maintenance
+                ? t('回看B01数感模型', 'Revisit B01 number models')
+                : t('回到基础模型', 'Revisit the foundation model')
+            }
           />{' '}
           ↗
         </Link>
         <p className="math-muted">
           <Text
             mode={mode}
-            text={t(
-              '单元回顾的记录独立保存，不会修改各课的掌握状态。可以逐题回看方法；每课的复习仍在“温故知新”中继续。',
-              'This review is stored separately and does not alter lesson mastery. Review each method here; lesson retrieval continues in the Review space.',
-            )}
+            text={
+              props.maintenance
+                ? t(
+                    '维护题另存记录，不覆盖本单元回顾或B01各课的掌握状态；做过两次也不等于永久掌握。家长请区分数学提示与英文读题协助，记录孩子自己的解释。',
+                    'Retrieval has its own records and does not overwrite this unit check or B01 lesson mastery. Two attempts do not mean permanent mastery. Distinguish mathematical hints from English reading assistance and listen to the learner’s own explanation.',
+                  )
+                : t(
+                    '单元回顾的记录独立保存，不会修改各课的掌握状态。可以逐题回看方法；每课的复习仍在“温故知新”中继续。',
+                    'This review is stored separately and does not alter lesson mastery. Review each method here; lesson retrieval continues in the Review space.',
+                  )
+            }
           />
         </p>
       </section>
+      {maintenance && (
+        <section className="math-panel">
+          <h3>
+            <Text
+              mode={mode}
+              text={
+                props.maintenance
+                  ? t('回到本单元回顾', 'Return to this unit review')
+                  : t(
+                      '换个情境，回看更早的想法',
+                      'Revisit earlier ideas in a changed context',
+                    )
+              }
+            />
+          </h3>
+          <p>
+            <Text
+              mode={mode}
+              text={
+                props.maintenance
+                  ? t(
+                      '两组记录各自保存，可以随时切换。',
+                      'Both sets keep their own records; switch at any time.',
+                    )
+                  : t(
+                      '另有五道B01跨单元维护题。可以下次再做，不增加本次单元回顾的题量。',
+                      'Five separate B01 cross-unit retrieval tasks are available. Save them for another session if useful; they do not add to this unit check.',
+                    )
+              }
+            />
+          </p>
+          <Link
+            className="math-button secondary"
+            to={`/math/unit/${check.unit}/${props.maintenance ? 'check' : 'maintenance'}`}
+          >
+            <Text
+              mode={mode}
+              text={
+                props.maintenance
+                  ? t('打开单元回顾', 'Open unit review')
+                  : t(
+                      '打开五题跨单元维护',
+                      'Open five cross-unit retrieval tasks',
+                    )
+              }
+            />{' '}
+            ↗
+          </Link>
+        </section>
+      )}
     </>
   );
 }

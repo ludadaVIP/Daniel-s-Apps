@@ -1,3 +1,9 @@
+import { CapstoneHookArt, isCapstoneLab } from './CapstoneLabs';
+import { ExtensionHookArt, isExtensionLab } from './ExtensionLabs';
+import {
+  AnalyticGeometryHookArt,
+  isAnalyticGeometryLab,
+} from './AnalyticGeometryLabs';
 import {
   AdvancedEquationHookArt,
   isAdvancedEquationLab,
@@ -90,6 +96,8 @@ import {
   isFractionProductLab,
 } from './FractionProductLabs';
 import { Question } from './Question';
+import { RecurrenceLinks } from './RecurrenceLinks';
+import { lessonQuestionPosition } from './questionNavigation';
 import { Intro, words, statuses, stepLabels, type Props } from './pageSupport';
 const markdown = import.meta.glob('../../../content/lessons/*.md', {
   query: '?raw',
@@ -127,16 +135,30 @@ function LessonWorkspace({
     s = store.progress.sessions[l.id] ?? newSession();
   const [params, setParams] = useSearchParams();
   const update = store.update;
+  const [index, setIndex] = useState(
+    Math.min(s.practiceIndex ?? 0, l.questions.length - 1),
+  );
   useEffect(() => {
+    const target = lessonQuestionPosition(l, params.get('question'));
+    if (target) {
+      if (target.step === 4) setIndex(target.practiceIndex);
+      update(l.id, (old) => ({
+        ...old,
+        step: target.step,
+        ...(target.step === 4 ? { practiceIndex: target.practiceIndex } : {}),
+      }));
+      const nextParams = new URLSearchParams(params);
+      nextParams.delete('question');
+      nextParams.delete('step');
+      setParams(nextParams, { replace: true });
+      return;
+    }
     if (params.get('step') !== '1') return;
     update(l.id, (old) => ({ ...old, step: 1 }));
     const nextParams = new URLSearchParams(params);
     nextParams.delete('step');
     setParams(nextParams, { replace: true });
-  }, [l.id, params, setParams, update]);
-  const [index, setIndex] = useState(
-    Math.min(s.practiceIndex ?? 0, l.questions.length - 1),
-  );
+  }, [l, params, setParams, update]);
   const setAnswer = (id: string, a: Attempt) =>
     update(l.id, (old) => ({ ...old, answers: { ...old.answers, [id]: a } }));
   const outcome = lessonOutcome(l, s);
@@ -204,7 +226,13 @@ function LessonWorkspace({
               <p>
                 <Text mode={mode} text={l.hook} />
               </p>
-              {isAdvancedEquationLab(l.lab) ? (
+              {isCapstoneLab(l.lab) ? (
+                <CapstoneHookArt kind={l.lab} mode={mode} />
+              ) : isExtensionLab(l.lab) ? (
+                <ExtensionHookArt kind={l.lab} mode={mode} />
+              ) : isAnalyticGeometryLab(l.lab) ? (
+                <AnalyticGeometryHookArt kind={l.lab} mode={mode} />
+              ) : isAdvancedEquationLab(l.lab) ? (
                 <AdvancedEquationHookArt kind={l.lab} mode={mode} />
               ) : isStatisticalInferenceLab(l.lab) ? (
                 <StatisticalInferenceHookArt kind={l.lab} mode={mode} />
@@ -620,6 +648,7 @@ function LessonWorkspace({
               <Text mode={mode} text={t('不会时回到', 'If stuck, revisit')} />{' '}
               {l.parent.bridge} ↗
             </Link>
+            <RecurrenceLinks lessonId={l.id} mode={mode} />
           </details>
           <label className="math-aside-card math-answer">
             <span>
