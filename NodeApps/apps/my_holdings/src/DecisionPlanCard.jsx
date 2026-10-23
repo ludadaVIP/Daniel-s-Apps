@@ -31,6 +31,7 @@ function makeDraft(watch, record) {
 
 export function DecisionPlanCard({
   watch,
+  cardTitle,
   record,
   busy,
   attention,
@@ -130,9 +131,8 @@ export function DecisionPlanCard({
   return (
     <article className={`mh-decision-card attention-${attention}`}>
       <header>
-        <button type="button" className="mh-decision-identity" onClick={onSelect} title="查看近期关注">
-          <strong>{watch.name || watch.symbol}</strong>
-          <span>{watch.symbol || "代码待核实"}</span>
+        <button type="button" className="mh-decision-identity" onClick={onSelect} title={cardTitle || "查看近期关注"}>
+          <strong>{cardTitle || `${watch.symbol || "代码待核实"} - ${watch.name || "公司名称待核实"}`}</strong>
           <ArrowUpRight size={12} />
         </button>
         <div className="mh-decision-actions">

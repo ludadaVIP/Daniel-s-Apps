@@ -178,6 +178,29 @@ function isIndexOrEtf(watch) {
   ].filter(Boolean).join(" ");
   return /etf|指数|指数基金|index fund|index/i.test(kind);
 }
+function watchCardTitle(watch) {
+  const symbol = String(watch?.symbol || "").trim();
+  const name = String(watch?.name || "").trim();
+  const researchName = String(watch?.research?.identity?.name || "").trim();
+  const stripSymbol = (value) => {
+    if (!symbol || !value) return value;
+    const escaped = symbol.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    return value
+      .replace(new RegExp(`^${escaped}\\s*[-–—:]\\s*`, "i"), "")
+      .replace(new RegExp(`\\s*[-–—:]\\s*${escaped}$`, "i"), "")
+      .trim();
+  };
+  let company = stripSymbol(name);
+  if (!company || (symbol && company.toUpperCase() === symbol.toUpperCase())) {
+    const researchedCompany = stripSymbol(researchName);
+    company = researchedCompany && researchedCompany.toUpperCase() !== symbol.toUpperCase()
+      ? researchedCompany
+      : name && name.toUpperCase() !== symbol.toUpperCase()
+        ? name
+        : "公司名称待核实";
+  }
+  return `${symbol || "代码待核实"} - ${company || "公司名称待核实"}`;
+}
 function watchQuoteAsOf(watch) {
   if (!watch?.priceDate || watch.priceType === "purchase") return "";
   const timeZone = watch.priceTimeZone || "America/New_York";
@@ -1528,16 +1551,7 @@ export default function HoldingsApp() {
     const quoteCurrency = w.priceCurrency || w.research?.quote?.currency || w.research?.identity?.currency || "USD";
     const attention = watchAttention(w);
     const attentionOpen = attentionPickerId === w.id;
-    const cardName = (w.name || w.symbol || "").trim();
-    const cardSymbol = (w.symbol || "").trim();
-    const nameBeforeSymbol = cardName.slice(0, cardName.length - cardSymbol.length);
-    const alreadyIncludesSymbol = cardSymbol &&
-      cardName.slice(-cardSymbol.length).toUpperCase() === cardSymbol.toUpperCase() &&
-      /[-–—]\s*$/.test(nameBeforeSymbol);
-    const displayName = alreadyIncludesSymbol
-      ? nameBeforeSymbol.replace(/[-–—]\s*$/, "").trim() || cardName
-      : cardName;
-    const showCardSymbol = cardSymbol && displayName.toUpperCase() !== cardSymbol.toUpperCase();
+    const title = watchCardTitle(w);
     const quoteAsOf = watchQuoteAsOf(w);
     return (
       <article
@@ -1549,11 +1563,9 @@ export default function HoldingsApp() {
         }}
       >
         <header>
-          <button className="mh-watch-identity" onClick={() => selectWatch(w.id)}>
+          <button className="mh-watch-identity" onClick={() => selectWatch(w.id)} title={title}>
             <h3>
-              <span className="mh-watch-name">{displayName}</span>
-              {showCardSymbol && <span className="mh-watch-symbol">- {cardSymbol}</span>}
-              {!cardSymbol && <span className="mh-watch-symbol missing">- 代码待核实</span>}
+              <span className="mh-watch-name">{title}</span>
             </h3>
           </button>
           {w.report && <button
@@ -2553,6 +2565,7 @@ export default function HoldingsApp() {
                       <DecisionPlanCard
                         key={watch.id}
                         watch={watch}
+                        cardTitle={watchCardTitle(watch)}
                         record={decisionPlansByWatchId.get(watch.id)}
                         busy={busy}
                         attention={watchAttention(watch)}
@@ -2726,8 +2739,32 @@ export default function HoldingsApp() {
               item={modal.item}
               busy={busy}
               onSave={async (v) => {
-                const success = await upsert("watchlist", v);
-                if (success && !modal.item) {
+                const isNewWatch = !modal.item;
+                const success = isNewWatch
+                  ? await mutate((s) => {
+                      const existingIndex = s.watchlist.findIndex((watch) => watch.id === v.id);
+                      if (existingIndex >= 0) s.watchlist[existingIndex] = v;
+                      else s.watchlist.push(v);
+                      if (!isIndexOrEtf(v) && !s.journal.some((entry) => entry.kind === "plan" && entry.watchId === v.id)) {
+                        s.journal.push({
+                          id: id(),
+                          date: localDate(),
+                          title: `${v.symbol || v.name} 行动计划`,
+                          body: "",
+                          kind: "plan",
+                          watchId: v.id,
+                          plan: {
+                            allocationPct: null,
+                            safetyLow: null,
+                            safetyHigh: null,
+                            discountLow: null,
+                            discountHigh: null,
+                          },
+                        });
+                      }
+                    }, { successMessage: "已加入近期关注并同步决策计划" })
+                  : await upsert("watchlist", v);
+                if (success && isNewWatch) {
                   const queued = await request("/api/jobs/batch-watch", { jobs: [{ watchId: v.id }], origin: "watch-add" }).then((result) => { setState(result.state); stateRef.current = result.state; notify("已加入价格更新与首次研究待办"); return true; }).catch((error) => { notify(error.message, true); return false; });
                   if (!queued) await refresh();
                 }
