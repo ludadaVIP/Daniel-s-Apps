@@ -583,6 +583,10 @@
 }
 
 /* Compact, page-aware three-column workspace */
+:root[data-theme="dark"] .mh-goal-target { border-top: 1px solid #4e5a3a; }
+:root[data-theme="dark"] .mh-goal-target small { color: #bdc4b7; }
+:root[data-theme="dark"] .mh-goal-target strong { color: #c2cebf; }
+:root[data-theme="dark"] .mh-goal-target-hint { color: #bdc4b7; }
 :root[data-theme="dark"] .mh-report-synopsis > p { color: #c0c9bd; }
 :root[data-theme="dark"] .mh-report-synopsis.empty > div { color: #c3cebc; }
 :root[data-theme="dark"] .mh-report-synopsis.empty > div span { color: #bec6b9; }
@@ -820,4 +824,39 @@
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-job-counts > div { background: #23271b; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-cash-mix-bar > .holdings { background: #324030; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-goal-line, :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-objective-card { background: #23271b; }
+:root[data-theme="dark"] .mh-decision-section-heading { border-bottom: 1px solid #4a573d; }
+:root[data-theme="dark"] .mh-decision-section-heading h2 { color: #c3d1c1; }
+:root[data-theme="dark"] .mh-decision-section-heading p { color: #bdc4ba; }
+:root[data-theme="dark"] .mh-decision-card { border: 1px solid #4b583c; background: #1c1c1c; }
+:root[data-theme="dark"] .mh-decision-card.attention-4 { border-color: #69312b; border-left: 5px solid #a84b45; background: #2d201f; }
+:root[data-theme="dark"] .mh-decision-card.attention-3 { border-color: #2e4a66; border-left: 5px solid #3a668e; background: #20272d; }
+:root[data-theme="dark"] .mh-decision-card.attention-2 { border-color: #44583b; background: #273122; }
+:root[data-theme="dark"] .mh-decision-card.attention-1 { border-color: #454f4a; background: #272e29; }
+:root[data-theme="dark"] .mh-decision-identity { color: #c3d1c1; }
+:root[data-theme="dark"] .mh-decision-identity span { color: #c3ccc0; }
+:root[data-theme="dark"] .mh-decision-identity svg { color: #bbc2b6; }
+:root[data-theme="dark"] .mh-decision-status { background: #1c1c1ca8; color: #c5cbc2; }
+:root[data-theme="dark"] .mh-decision-status.reached { background: #21291c; color: #bfdabb; }
+:root[data-theme="dark"] .mh-decision-actions .mh-decision-save { color: #bed6c0 !important; }
+:root[data-theme="dark"] .mh-decision-quote { color: #c3c9c0; }
+:root[data-theme="dark"] .mh-decision-quote strong { color: #c3d1c1; }
+:root[data-theme="dark"] .mh-decision-field-row > label, :root[data-theme="dark"] .mh-decision-field { border: 1px solid #4747470d; background: #1c1c1c78; }
+:root[data-theme="dark"] .mh-decision-field-row > label { color: #c7d0c2; }
+:root[data-theme="dark"] .mh-decision-field-row > label > span, :root[data-theme="dark"] .mh-decision-field > span { color: #c5ccc1; }
+:root[data-theme="dark"] .mh-decision-field > strong { color: #c4d5c2; }
+:root[data-theme="dark"] .mh-decision-field.computed > strong { color: #c2d2c0; }
+:root[data-theme="dark"] .mh-decision-fields label > div { border: 1px solid #46593b; background: #1c1c1cb8; color: #c4ccc1; }
+:root[data-theme="dark"] .mh-decision-fields input { color: #c4d5c2; }
+:root[data-theme="dark"] .mh-decision-fields input:focus-visible { outline: 1px solid #44573d; }
+:root[data-theme="dark"] .mh-decision-fields label > div:focus-within { border-color: #47553e; background: #1c1c1c; }
+:root[data-theme="dark"] .mh-decision-fields i { color: #c4ccc1; }
+:root[data-theme="dark"] .mh-decision-error { color: #dfafaa; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-card { background: #212121; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-card.attention-4 { border-color: #aa635f; border-left-color: #69302b; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-card.attention-3 { border-left-color: #2c4b68; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-card.attention-2 { border-left-color: #7aa069; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-card.attention-1 { border-left-color: #7c8d83; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-field-row > label, :root[data-theme="dark"][data-theme="dark"] .mh-decision-field { border-color: #4a4a4a18; background: #171d14a3; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-fields label > div { background: #23271b; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-fields label > div:focus-within { border-color: #7e9574; }
 

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 681,
-  "updatedAt": "2026-10-22T23:14:35.458Z",
+  "revision": 705,
+  "updatedAt": "2026-10-23T09:11:56.746Z",
   "accounts": [
     {
       "id": "a1",
@@ -260,7 +260,7 @@
       "priceSource": "ChartExchange",
       "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-rklb/historical/",
       "targetPrice": 38,
-      "attention": 4,
+      "attention": 2,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-22T20:00:00.000Z",
@@ -659,7 +659,7 @@
       "priceDate": "2026-10-22",
       "priceSource": "ChartExchange",
       "priceSourceUrl": "https://chartexchange.com/symbol/nyse-tsm/historical/",
-      "targetPrice": 375,
+      "targetPrice": 390,
       "attention": 4,
       "priceType": "close",
       "priceCurrency": "USD",
@@ -2960,7 +2960,7 @@
       "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-avgo/historical/",
       "researchedAt": "2026-10-21T23:39:27.266Z",
       "report": "research/20261022-avgo.html",
-      "targetPrice": 305,
+      "targetPrice": 310,
       "attention": 4,
       "priceType": "close",
       "priceCurrency": "USD",
@@ -3020,7 +3020,7 @@
       "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-googl/historical/",
       "researchedAt": "2026-10-21T23:39:27.301Z",
       "report": "research/20261022-googl.html",
-      "targetPrice": 305,
+      "targetPrice": 315,
       "attention": 4,
       "priceType": "close",
       "priceCurrency": "USD",
@@ -3362,7 +3362,7 @@
       "researchedAt": "2026-10-21T23:39:27.534Z",
       "report": "research/20261022-pl.html",
       "targetPrice": 11,
-      "attention": 2,
+      "attention": 3,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-22T20:00:00.000Z",
@@ -3774,17 +3774,18 @@
           "sourceUrl": "https://finance.yahoo.com/quote/VXUS/history/"
         }
       },
-      "price": 82.695,
+      "price": 82.73,
       "priceDate": "2026-10-22",
-      "priceSource": "Yahoo Finance",
-      "priceSourceUrl": "https://query1.finance.yahoo.com/v8/finance/chart/VXUS?range=1d&interval=1m&includePrePost=false",
+      "priceSource": "ChartExchange",
+      "priceSourceUrl": "https://chartexchange.com/symbol/nasdaq-vxus/historical/",
       "researchedAt": "2026-10-21T23:39:27.777Z",
       "report": "research/20261022-vxus.html",
       "attention": 2,
-      "priceType": "intraday",
+      "priceType": "close",
       "priceCurrency": "USD",
-      "priceAsOf": "2026-10-22T19:16:36.000Z",
-      "priceFetchedAt": "2026-10-22T19:16:37.299Z"
+      "priceAsOf": "2026-10-22T20:00:00.000Z",
+      "priceFetchedAt": "2026-10-22T23:14:35.502Z",
+      "priceTimeZone": "America/New_York"
     },
     {
       "id": "fefb602a-2cf8-46e3-bc9b-94173a2a867f",
@@ -3863,14 +3864,60 @@
   "cash": [
     {
       "id": "096f1ed3-105e-48b5-877c-3291cdfa6b45",
-      "amount": 130000,
+      "amount": 120000,
       "currency": "USD",
       "date": "2026-10-18",
       "kind": "活期存款",
       "note": ""
     }
   ],
-  "journal": [],
+  "journal": [
+    {
+      "id": "d34cc2d8-dfbe-435b-9849-65ed6c8c8b36",
+      "date": "2026-10-23",
+      "title": "Alphabet - Google",
+      "body": "",
+      "kind": "plan",
+      "watchId": "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
+      "plan": {
+        "allocationPct": 6,
+        "safetyLow": 285,
+        "safetyHigh": 310,
+        "discountLow": 245,
+        "discountHigh": 275
+      }
+    },
+    {
+      "id": "39b63083-cfa1-4c44-9785-1278974f75c9",
+      "date": "2026-10-23",
+      "title": "AVGO 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
+      "plan": {
+        "allocationPct": 6,
+        "safetyLow": 275,
+        "safetyHigh": 305,
+        "discountLow": 235,
+        "discountHigh": 265
+      }
+    },
+    {
+      "id": "9154bc72-376e-4fef-9e9f-357f7136b53d",
+      "date": "2026-10-23",
+      "title": "TSM 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
+      "plan": {
+        "allocationPct": 8,
+        "safetyLow": 350,
+        "safetyHigh": 375,
+        "discountLow": 320,
+        "discountHigh": 350
+      }
+    }
+  ],
   "analyses": [
     {
       "id": "fdfff75f-6d4b-4fbc-a0f4-5ae3f3236db1",
@@ -12342,7 +12389,7 @@
     }
   ],
   "goals": {
-    "target": null,
+    "target": 1000000,
     "currency": "USD",
     "date": "",
     "reserve": 0,
@@ -15470,7 +15517,7 @@
     },
     {
       "watchId": "03f8d44b-0da7-42c4-b731-0bffc6c67b9f",
-      "status": "waiting",
+      "status": "done",
       "date": "2026-10-22T23:05:10.394Z",
       "error": "",
       "batchId": "babfd223-cbc4-4afd-8294-6207a5f563e4",
@@ -15486,7 +15533,9 @@
         "timeZone": "America/New_York",
         "sessionOpenAt": "2026-10-22T13:30:00.000Z",
         "sessionCloseAt": "2026-10-22T20:00:00.000Z"
-      }
+      },
+      "completedAt": "2026-10-22T23:14:35.502Z",
+      "summary": "已更新 VXUS 的最近交易日收盘价；已有研究保留。"
     },
     {
       "watchId": "fefb602a-2cf8-46e3-bc9b-94173a2a867f",
@@ -15747,16 +15796,16 @@
     {
       "date": "2026-10-23",
       "watchIds": [
-        "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
         "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
+        "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
+        "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
         "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
         "c926f17c-43a8-4e8f-9d78-5498591db5e7",
-        "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
         "01a864b1-0623-4778-9656-0431418803b8",
         "9c572b68-64fb-4e7d-9692-74f569040195",
         "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
-        "ad97bd71-1e64-42b2-ac24-81220317555d",
         "e59bec61-4342-46ba-99c5-200542b791d9",
+        "ad97bd71-1e64-42b2-ac24-81220317555d",
         "d6bf7357-8935-4d2d-abef-2250c9e5c418",
         "d071d7b1-561e-4478-9dad-d9dc23cf7d11",
         "79730ba5-e176-4362-8ba4-022e0f8f35b9",
@@ -15765,8 +15814,8 @@
         "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
         "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
         "a458efd6-1dde-44d5-8737-63854d7a5e63",
-        "5ffc01e1-e876-459c-828d-3f28dc5548d8",
         "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
+        "5ffc01e1-e876-459c-828d-3f28dc5548d8",
         "9d659e03-df19-4a6c-9534-9045b7747629",
         "5d0a5d34-3866-417c-a996-c1b5991daebb",
         "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
@@ -15878,5 +15927,5 @@
       "recordedAt": "2026-10-22T20:20:10.283Z"
     }
   ],
-  "watchlistUpdatedAt": "2026-10-22T23:14:35.450Z"
+  "watchlistUpdatedAt": "2026-10-22T23:14:35.502Z"
 }

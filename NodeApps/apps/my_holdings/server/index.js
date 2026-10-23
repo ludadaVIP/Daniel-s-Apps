@@ -235,6 +235,25 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
   for (const j of s.journal)
     if (!date(j.date) || !text(j.title, 300) || !text(j.body, 20000))
       throw error("决策日志无效。");
+  const optionalNumber = (value, min, max = 1e14) =>
+    value === undefined || value === null || num(value, min, max);
+  const validRange = (low, high) =>
+    (low === undefined || low === null) && (high === undefined || high === null) ||
+    num(low, 0.000001) && num(high, 0.000001) && low <= high;
+  const planEntries = s.journal.filter((entry) => entry.kind === "plan");
+  if (new Set(planEntries.map((entry) => entry.watchId)).size !== planEntries.length)
+    throw error("同一关注标的只能有一张个股行动计划。");
+  for (const entry of planEntries) {
+    const plan = entry.plan;
+    if (
+      !text(entry.watchId, 100) || !entry.watchId ||
+      !plan || typeof plan !== "object" || Array.isArray(plan) ||
+      !optionalNumber(plan.allocationPct, 0, 100) ||
+      !validRange(plan.safetyLow, plan.safetyHigh) ||
+      !validRange(plan.discountLow, plan.discountHigh)
+    )
+      throw error("个股行动计划无效；请检查仓位与价格区间。");
+  }
   for (const a of s.analyses) {
     validateResearch(a.research);
     if (!text(a.date, 40) || !text(a.kind, 40) || !text(a.report, 300))

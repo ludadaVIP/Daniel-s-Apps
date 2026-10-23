@@ -16,7 +16,6 @@ import {
   FileCode2,
   Gauge,
   LayoutDashboard,
-  ListFilter,
   LoaderCircle,
   PanelLeftClose,
   PanelLeftOpen,
@@ -63,6 +62,7 @@ import {
   SaveButton,
 } from "./Forms.jsx";
 import { Reports } from "./Reports.jsx";
+import { DecisionPlanCard } from "./DecisionPlanCard.jsx";
 import {
   CONVERSION_PAIRS,
   INITIAL_CONVERTER_STATE,
@@ -146,6 +146,11 @@ const WATCH_SORT_OPTIONS = [
   { id: "gap", label: "价差 ↑", title: "等待价差比例从低到高排序" },
   { id: "attention", label: "关注", title: "按关注度从高到低排序：4、3、2、1" },
 ];
+const DECISION_SORT_OPTIONS = [
+  { id: "name", label: "名称" },
+  { id: "gap", label: "价差 ↑", title: "按等待价差百分比从小到大排序" },
+  { id: "attention", label: "颜色等级 ↓" },
+];
 const WATCH_ATTENTION_OPTIONS = [
   { level: 4, label: "最关注" },
   { level: 3, label: "中等关注" },
@@ -207,6 +212,16 @@ function sortWatchlist(rows, mode) {
     return aGap == null ? byName(a, b) : aGap - bGap || byName(a, b);
   });
 }
+function sortDecisionWatchlist(rows, mode) {
+  const byName = (a, b) =>
+    (a.name || a.symbol || "").localeCompare(b.name || b.symbol || "", "zh-CN", {
+      numeric: true,
+      sensitivity: "base",
+    }) || (a.symbol || "").localeCompare(b.symbol || "");
+  if (mode === "attention") return rows.slice().sort((a, b) => watchAttention(b) - watchAttention(a) || byName(a, b));
+  if (mode === "gap") return sortWatchlist(rows, "gap");
+  return rows.slice().sort(byName);
+}
 function rankWatchPriorities(rows) {
   return rows
     .map((item) => ({ item, gap: watchGapPct(item) }))
@@ -219,6 +234,27 @@ function rankWatchPriorities(rows) {
         { numeric: true },
       ),
     );
+}
+function decisionSummary(entry, watchlist = []) {
+  if (entry?.kind !== "plan") return entry?.body || "";
+  const watch = watchlist.find((item) => item.id === entry.watchId);
+  const plan = entry.plan || {};
+  const parts = [];
+  if (plan.allocationPct != null) parts.push(`仓位 ${plan.allocationPct}%`);
+  if (watch?.targetPrice != null) {
+    const currency = watch.priceCurrency || watch.research?.quote?.currency || "USD";
+    parts.push(`观察 ${money(watch.targetPrice, currency)}`);
+  }
+  if (plan.safetyLow != null && plan.safetyHigh != null)
+    parts.push(`安全边际 ${plan.safetyLow}–${plan.safetyHigh}`);
+  if (plan.discountLow != null && plan.discountHigh != null)
+    parts.push(`折价 ${plan.discountLow}–${plan.discountHigh}`);
+  return parts.join(" · ") || "行动计划尚未填写";
+}
+function decisionTitle(entry, watchlist = []) {
+  if (entry?.kind !== "plan") return entry?.title || "未命名记录";
+  const watch = watchlist.find((item) => item.id === entry.watchId);
+  return `${watch?.symbol || watch?.name || entry.title} 行动计划`;
 }
 function previousLocalDate(date) {
   const previous = new Date(`${date}T00:00:00.000Z`);
@@ -568,8 +604,8 @@ function RightPanel({
         <section><h3>最近完成</h3>{reportLinks(allAnalyses.slice(0, 4), "完成的研究会保存在这里")}</section>
       </>}
       {tab === "journal" && <>
-        <section className="mh-side-summary"><span className="mh-eyebrow">DECISION LOG</span><strong>{state.journal.length} 条记录</strong><button className="mh-primary" onClick={() => onEdit({ type: "journal" })}><Plus size={14} /> 写一条决策</button></section>
-        <section><h3>最近记录</h3>{state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map((j) => <button className="mh-side-history" key={j.id} onClick={() => onEdit({ type: "journal", item: j })}><BookOpen size={15} /><span><strong>{j.title}</strong><small>{j.date}</small></span><Pencil size={13} /></button>)}</section>
+        <section className="mh-side-summary"><span className="mh-eyebrow">DECISION LOG</span><strong>{state.watchlist.filter((watch) => !isIndexOrEtf(watch)).length} 张个股计划 · {state.journal.filter((entry) => entry.kind !== "plan").length} 条复盘</strong><button className="mh-primary" onClick={() => onEdit({ type: "journal" })}><Plus size={14} /> 写一条复盘</button></section>
+        <section><h3>最近记录</h3>{state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map((j) => <button className="mh-side-history" key={j.id} onClick={() => j.kind === "plan" ? onNavigate("journal") : onEdit({ type: "journal", item: j })}><BookOpen size={15} /><span><strong>{decisionTitle(j, state.watchlist)}</strong><small>{j.date}</small></span>{j.kind !== "plan" && <Pencil size={13} />}</button>)}</section>
       </>}
       <footer><span className="mh-dot" /> 数据留在本机 · 研究由你掌握</footer>
     </aside>
@@ -792,6 +828,15 @@ export default function HoldingsApp() {
         return WATCH_SORT_OPTIONS.some((option) => option.id === saved) ? saved : "gap";
       } catch {
         return "gap";
+      }
+    }),
+    [decisionSort, setDecisionSort] = useState(() => {
+      try {
+        const saved = localStorage.getItem("mh-decision-sort");
+        if (saved === "waiting") return "gap";
+        return DECISION_SORT_OPTIONS.some((option) => option.id === saved) ? saved : "name";
+      } catch {
+        return "name";
       }
     }),
     [watchTargetDrafts, setWatchTargetDrafts] = useState({}),
@@ -1159,12 +1204,28 @@ export default function HoldingsApp() {
   };
   const saveWatchTarget = (watchId, rawValue) => {
     const value = rawValue === "" ? null : Number(rawValue);
-    if (value !== null && (!Number.isFinite(value) || value < 0)) return notify("等待价格需要是大于 0 的数字", true);
+    if (value !== null && (!Number.isFinite(value) || value <= 0)) return notify("等待价格需要是大于 0 的数字", true);
     mutate((s) => {
       const item = s.watchlist.find((w) => w.id === watchId);
       if (item) item.targetPrice = value;
-    }, { close: false });
+    }, { close: false, successMessage: "等待价已保存；决策日志中的观察价已同步" });
   };
+  const saveDecisionPlan = (watchId, update) => mutate((s) => {
+    const watch = s.watchlist.find((item) => item.id === watchId);
+    if (!watch) return;
+    watch.targetPrice = update.targetPrice;
+    let entry = s.journal.find((item) => item.kind === "plan" && item.watchId === watchId);
+    if (!entry) {
+      entry = { id: id(), date: localDate(), title: `${watch.symbol || watch.name} 行动计划`, body: "", kind: "plan", watchId };
+      s.journal.push(entry);
+    }
+    entry.date = localDate();
+    entry.title = `${watch.symbol || watch.name} 行动计划`;
+    entry.body = "";
+    entry.kind = "plan";
+    entry.watchId = watchId;
+    entry.plan = update.plan;
+  }, { close: false, successMessage: "行动计划已保存，观察价已同步到近期关注" });
   const copy = async (kind = aiKind, focus) => {
     const prompt = `请按适合 ${provider} 的深度研究方式完成以下任务。\n${contextPack(stateRef.current, kind, focus ? `优先研究：${focus.name} ${focus.symbol}；${focus.note}；关注条件：${focus.trigger}` : question)}`;
     try {
@@ -1243,7 +1304,8 @@ export default function HoldingsApp() {
       { label: "公司研究", item: allAnalyses.find((item) => item.kind === "watch") },
       { label: "行情分析", item: allAnalyses.find((item) => item.kind === "market") },
     ].filter(({ item }) => item),
-    overviewJournal = state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2),
+    overviewJournal = state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2)
+      .map((entry) => ({ ...entry, title: decisionTitle(entry, state.watchlist), body: decisionSummary(entry, state.watchlist) })),
     overviewRecentCash = state.cash.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0] || null,
     overviewJobs = state.jobs.slice().sort((a, b) => (b.completedAt || b.date).localeCompare(a.completedAt || a.date)).slice(0, 2),
     overviewJobCounts = {
@@ -1269,6 +1331,12 @@ export default function HoldingsApp() {
       localStorage.setItem("mh-watch-sort", mode);
     } catch {}
   };
+  const setDecisionSortMode = (mode) => {
+    setDecisionSort(mode);
+    try {
+      localStorage.setItem("mh-decision-sort", mode);
+    } catch {}
+  };
   const selectWatch = (watchId) => {
     setSelectedWatchId(watchId);
     setRight(true);
@@ -1278,6 +1346,9 @@ export default function HoldingsApp() {
   );
   const watchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), watchSort);
   const watchFunds = sortWatchlist(visibleWatchlist.filter(isIndexOrEtf), watchSort);
+  const decisionWatchStocks = sortDecisionWatchlist(state.watchlist.filter((watch) => !isIndexOrEtf(watch)), decisionSort);
+  const decisionPlansByWatchId = new Map(state.journal.filter((entry) => entry.kind === "plan").map((entry) => [entry.watchId, entry]));
+  const freeJournalEntries = state.journal.filter((entry) => entry.kind !== "plan" || !decisionWatchStocks.some((watch) => watch.id === entry.watchId));
   const collapsedWatchStockLimit = watchStockColumnCount * 3;
   const visibleWatchStocks = showAllWatchStocks
     ? watchStocks
@@ -1872,11 +1943,11 @@ export default function HoldingsApp() {
 
                 <section className="mh-panel mh-overview-preview">
                   <div className="mh-section-heading">
-                    <div><h2>决策日志</h2><p>保留买入、持有与等待的理由</p></div>
-                    <button className="mh-icon" aria-label="写一条决策" title="写一条决策" onClick={() => setModal({ type: "journal" })}><Plus size={14} /></button>
+                    <div><h2>决策日志</h2><p>个股行动计划与复盘记录</p></div>
+                    <button className="mh-icon" aria-label="写一条复盘" title="写一条复盘" onClick={() => setModal({ type: "journal" })}><Plus size={14} /></button>
                   </div>
                   {overviewJournal.length ? <div className="mh-overview-journal-list">
-                    {overviewJournal.map((entry) => <button className="mh-overview-journal-row" key={entry.id} onClick={() => setModal({ type: "journal", item: entry })}><span><strong>{entry.title}</strong><small>{entry.date}</small></span><p>{entry.body}</p></button>)}
+                    {overviewJournal.map((entry) => <button className="mh-overview-journal-row" key={entry.id} onClick={() => entry.kind === "plan" ? page("journal") : setModal({ type: "journal", item: entry })}><span><strong>{entry.title}</strong><small>{entry.date}</small></span><p>{entry.body}</p></button>)}
                   </div> : <div className="mh-overview-journal-empty"><BookOpen size={19} /><div><strong>还没有决策记录</strong><p>把一次买入、继续持有或等待的理由留在这里。</p></div></div>}
                 </section>
               </div>
@@ -2455,63 +2526,76 @@ export default function HoldingsApp() {
               {heading(
                 "REMEMBER WHY YOU DECIDED",
                 "决策日志",
-                "记下当时的理由，让未来的自己有据可循。",
-                <button
-                  className="mh-primary"
-                  onClick={() => setModal({ type: "journal" })}
-                >
-                  <Plus size={17} /> 写一条决策
-                </button>,
-              )}
-              {state.journal.length ? (
-                <div className="mh-journal-list">
-                  {[...state.journal]
-                    .sort((a, b) => b.date.localeCompare(a.date))
-                    .map((j) => (
-                      <article className="mh-panel" key={j.id}>
-                        <div className="mh-section-heading">
-                          <div>
-                            <span className="mh-eyebrow">{j.date}</span>
-                            <h2>{j.title}</h2>
-                          </div>
-                          <div className="mh-row-actions">
-                            <button
-                              className="mh-icon"
-                              aria-label={`编辑日志 ${j.title}`}
-                              onClick={() =>
-                                setModal({ type: "journal", item: j })
-                              }
-                            >
-                              <Pencil size={16} />
-                            </button>
-                            <button
-                              className="mh-icon"
-                              aria-label={`删除日志 ${j.title}`}
-                              onClick={() => remove("journal", j)}
-                            >
-                              <Trash2 size={16} />
-                            </button>
-                          </div>
-                        </div>
-                        <div className="mh-prose">{j.body}</div>
-                      </article>
+                "每只个股一张计划卡；观察价与近期关注的等待价共用同一数值。",
+                <div className="mh-heading-actions mh-decision-heading-actions">
+                  <div className="mh-watch-sort-switch mh-decision-sort-switch" role="group" aria-label="决策卡片排序方式" data-active={decisionSort}>
+                    <span className="mh-watch-sort-indicator" aria-hidden="true" />
+                    {DECISION_SORT_OPTIONS.map((option) => (
+                      <button key={option.id} type="button" title={option.title} aria-pressed={decisionSort === option.id} onClick={() => setDecisionSortMode(option.id)}>{option.label}</button>
                     ))}
-                </div>
-              ) : (
-                <Empty
-                  icon={BookOpen}
-                  title="投资，也是认识自己的过程"
-                  text="买入、继续持有、放弃一个机会，都值得留下一句为什么。"
-                  action={
-                    <button
-                      className="mh-primary"
-                      onClick={() => setModal({ type: "journal" })}
-                    >
-                      写下第一条判断
-                    </button>
-                  }
-                />
+                  </div>
+                  <button
+                    className="mh-primary"
+                    onClick={() => setModal({ type: "journal" })}
+                  >
+                    <Plus size={17} /> 写一条复盘
+                  </button>
+                </div>,
               )}
+              {decisionWatchStocks.length ? <>
+                <section className="mh-decision-section">
+                  <div className="mh-decision-section-heading">
+                    <div><h2>个股行动计划</h2><p>观察价与近期关注的等待价共用；只有观察价参与提醒，安全边际和折价区间作计划参考。</p></div>
+                    <span className="mh-tag">{decisionWatchStocks.length} 只个股</span>
+                  </div>
+                  <div className="mh-decision-grid">
+                    {decisionWatchStocks.map((watch) => (
+                      <DecisionPlanCard
+                        key={watch.id}
+                        watch={watch}
+                        record={decisionPlansByWatchId.get(watch.id)}
+                        busy={busy}
+                        attention={watchAttention(watch)}
+                        attentionOptions={WATCH_ATTENTION_OPTIONS}
+                        attentionOpen={attentionPickerId === watch.id}
+                        onToggleAttention={(nextOpen) => setAttentionPickerId((openId) =>
+                          nextOpen === false
+                            ? openId === watch.id ? null : openId
+                            : openId === watch.id ? null : watch.id
+                        )}
+                        onSelectAttention={(level) => {
+                          setAttentionPickerId(null);
+                          if (watchAttention(watch) !== level) saveWatchAttention(watch.id, level);
+                        }}
+                        onSave={saveDecisionPlan}
+                        onSelect={() => { page("watch"); selectWatch(watch.id); }}
+                      />
+                    ))}
+                  </div>
+                </section>
+              </> : <Empty
+                icon={BookOpen}
+                title="近期关注里还没有个股"
+                text="添加个股后，这里会自动生成对应的行动计划卡。指数和 ETF 不会生成个股决策卡。"
+                action={<button className="mh-primary" onClick={() => page("watch")}><Star size={15} /> 前往近期关注</button>}
+              />}
+              {freeJournalEntries.length > 0 && <section className="mh-journal-history">
+                <div className="mh-decision-section-heading"><div><h2>复盘记录</h2><p>独立的判断、理由与后续结果。</p></div><span className="mh-tag">{freeJournalEntries.length} 条</span></div>
+                <div className="mh-journal-list">
+                  {[...freeJournalEntries].sort((a, b) => b.date.localeCompare(a.date)).map((entry) => (
+                    <article className="mh-panel" key={entry.id}>
+                      <div className="mh-section-heading">
+                        <div><span className="mh-eyebrow">{entry.date}</span><h2>{entry.title}</h2></div>
+                        <div className="mh-row-actions">
+                          <button className="mh-icon" aria-label={`编辑日志 ${entry.title}`} onClick={() => setModal({ type: "journal", item: entry })}><Pencil size={14} /></button>
+                          <button className="mh-icon" aria-label={`删除日志 ${entry.title}`} onClick={() => remove("journal", entry)}><Trash2 size={14} /></button>
+                        </div>
+                      </div>
+                      <div className="mh-prose">{entry.body}</div>
+                    </article>
+                  ))}
+                </div>
+              </section>}
             </>
           )}
         </main>
@@ -2594,7 +2678,7 @@ export default function HoldingsApp() {
               watch: modal.item ? "编辑关注" : "添加一个关注",
               cash: modal.item ? "编辑资金流水" : "记一笔资金",
               goals: "投资目标",
-              journal: modal.item ? "编辑决策" : "写下一个判断",
+              journal: modal.item ? "编辑复盘" : "写下一条复盘",
               delete: "删除这条记录",
               research: "标的研究",
               importResearch: "导入 AI 研究",
