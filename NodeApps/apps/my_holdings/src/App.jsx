@@ -86,6 +86,41 @@ function readPanel(key, fallback) {
     return fallback;
   }
 }
+const PANE_WIDTHS_KEY = "mh-pane-widths";
+const PANE_WIDTH_LIMITS = { leftMin: 176, leftMax: 360, rightMin: 220, rightMax: 420, centerMin: 480 };
+function readPaneWidths() {
+  try {
+    const saved = JSON.parse(localStorage.getItem(PANE_WIDTHS_KEY) || "null");
+    if (!saved || !Number.isFinite(Number(saved.left)) || !Number.isFinite(Number(saved.right))) return null;
+    return { left: Number(saved.left), right: Number(saved.right) };
+  } catch {
+    return null;
+  }
+}
+function fitPaneWidths(widths, availableWidth, leftOpen = true, rightOpen = true) {
+  const left = Number.isFinite(Number(widths?.left)) ? Number(widths.left) : 240;
+  const right = Number.isFinite(Number(widths?.right)) ? Number(widths.right) : 286;
+  const requiredWidth = (leftOpen ? PANE_WIDTH_LIMITS.leftMin : 0) +
+    (rightOpen ? PANE_WIDTH_LIMITS.rightMin : 0) + PANE_WIDTH_LIMITS.centerMin;
+  if (!Number.isFinite(availableWidth) || availableWidth < requiredWidth) {
+    return {
+      left: Math.min(PANE_WIDTH_LIMITS.leftMax, Math.max(PANE_WIDTH_LIMITS.leftMin, left)),
+      right: Math.min(PANE_WIDTH_LIMITS.rightMax, Math.max(PANE_WIDTH_LIMITS.rightMin, right)),
+    };
+  }
+  const leftMax = Math.min(PANE_WIDTH_LIMITS.leftMax, availableWidth -
+    (rightOpen ? PANE_WIDTH_LIMITS.rightMin : 0) - PANE_WIDTH_LIMITS.centerMin);
+  const fittedLeft = leftOpen ? Math.min(leftMax, Math.max(PANE_WIDTH_LIMITS.leftMin, left)) : left;
+  const rightMax = Math.min(PANE_WIDTH_LIMITS.rightMax, availableWidth -
+    (leftOpen ? fittedLeft : 0) - PANE_WIDTH_LIMITS.centerMin);
+  const fittedRight = rightOpen ? Math.min(rightMax, Math.max(PANE_WIDTH_LIMITS.rightMin, right)) : right;
+  return { left: fittedLeft, right: fittedRight };
+}
+function defaultPaneWidths() {
+  if (matchMedia("(min-width: 1700px)").matches) return { left: 250, right: 310 };
+  if (matchMedia("(max-width: 1250px)").matches) return { left: 220, right: 255 };
+  return { left: 240, right: 286 };
+}
 const COLORS = [
   "#36735c",
   "#96b598",
@@ -137,6 +172,16 @@ function isIndexOrEtf(watch) {
     watch?.symbol,
   ].filter(Boolean).join(" ");
   return /etf|指数|指数基金|index fund|index/i.test(kind);
+}
+function watchQuoteAsOf(watch) {
+  if (!watch?.priceDate || watch.priceType === "purchase") return "";
+  const timeZone = watch.priceTimeZone || "America/New_York";
+  const timestamp = Date.parse(watch.priceAsOf || "");
+  const time = Number.isFinite(timestamp)
+    ? new Intl.DateTimeFormat("zh-CN", { timeZone, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(timestamp)
+    : "";
+  const zoneLabel = timeZone === "Europe/London" ? "伦敦" : "美东";
+  return `${watch.priceDate}${time ? ` · ${time} ${zoneLabel}` : ""}`;
 }
 function sortWatchlist(rows, mode) {
   const byName = (a, b) =>
@@ -402,6 +447,14 @@ function RightPanel({
             const value = state.holdings.filter((h) => h.accountId === a.id).reduce((sum, h) => sum + Number(h.marketValue || 0), 0);
             return <div className="mh-side-account" key={a.id}><i className={`tone-${index % 2}`} /><span>{a.name}</span><b>{money(value)}</b></div>;
           })}
+        </section>
+        <section className="mh-side-allocation">
+          <div className="mh-section-heading">
+            <h3>组合全景</h3>
+            <button className="mh-text-button" onClick={() => onNavigate("analysis")}>组合分析 <ArrowRight size={12} /></button>
+          </div>
+          <Allocation groups={portfolio.groups} value={portfolio.value} compact />
+          <p className="mh-allocation-caption">跨账户合并 · 按市值占比</p>
         </section>
         <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次价格更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><p className="mh-sidebar-objective">待办执行时，常规交易时段取盘中价，其余时间取最近交易日收盘价。</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 刷新价格</button></section>
       </>)}
@@ -754,12 +807,86 @@ export default function HoldingsApp() {
     [stress, setStress] = useState(20),
     [importText, setImportText] = useState(""),
     [accountNames, setAccountNames] = useState(null);
+  const [paneWidths, setPaneWidths] = useState(readPaneWidths);
+  const [archiveDocuments, setArchiveDocuments] = useState(null);
+  const [resizing, setResizing] = useState(false);
+  const appRef = useRef(null),
+    paneWidthsRef = useRef(paneWidths),
+    panePreferencesRef = useRef(paneWidths),
+    resizeDragRef = useRef(null);
   const stateRef = useRef(state),
     busyRef = useRef(false),
     watchStockGridRef = useRef(null),
     priceAlertKeys = useRef(new Set()),
     timer = useRef();
   stateRef.current = state;
+  const getCurrentPaneWidths = () => {
+    if (paneWidthsRef.current) return paneWidthsRef.current;
+    return defaultPaneWidths();
+  };
+  const applyPaneWidths = (widths) => {
+    paneWidthsRef.current = widths;
+    setPaneWidths(widths);
+  };
+  const savePaneWidths = (widths) => {
+    panePreferencesRef.current = widths;
+    applyPaneWidths(widths);
+    try {
+      localStorage.setItem(PANE_WIDTHS_KEY, JSON.stringify(widths));
+    } catch {}
+  };
+  const startPaneResize = (side, event) => {
+    if (event.button !== 0 || !appRef.current) return;
+    const startWidths = fitPaneWidths(getCurrentPaneWidths(), appRef.current.clientWidth, left, right);
+    resizeDragRef.current = { side, pointerId: event.pointerId, startX: event.clientX, startWidths };
+    applyPaneWidths(startWidths);
+    setResizing(true);
+    event.currentTarget.setPointerCapture(event.pointerId);
+    event.preventDefault();
+  };
+  const movePaneResize = (event) => {
+    const drag = resizeDragRef.current;
+    if (!drag || drag.pointerId !== event.pointerId || !appRef.current) return;
+    const delta = event.clientX - drag.startX;
+    const adjusted = drag.side === "left"
+      ? drag.startWidths.left + delta
+      : drag.startWidths.right - delta;
+    const next = fitPaneWidths({ ...drag.startWidths, [drag.side]: adjusted }, appRef.current.clientWidth, left, right);
+    applyPaneWidths(next);
+    event.preventDefault();
+  };
+  const endPaneResize = (event) => {
+    const drag = resizeDragRef.current;
+    if (!drag || (event && drag.pointerId !== event.pointerId)) return;
+    resizeDragRef.current = null;
+    savePaneWidths(paneWidthsRef.current || drag.startWidths);
+    setResizing(false);
+  };
+  const keyPaneResize = (side, event) => {
+    if (!["ArrowLeft", "ArrowRight", "Home", "End"].includes(event.key)) return;
+    event.preventDefault();
+    const current = getCurrentPaneWidths();
+    const step = event.shiftKey ? 32 : 12;
+    const keyDelta = side === "left"
+      ? event.key === "ArrowRight" ? step : -step
+      : event.key === "ArrowLeft" ? step : -step;
+    const requested = event.key === "Home"
+      ? side === "left" ? PANE_WIDTH_LIMITS.leftMin : PANE_WIDTH_LIMITS.rightMin
+      : event.key === "End"
+        ? side === "left" ? PANE_WIDTH_LIMITS.leftMax : PANE_WIDTH_LIMITS.rightMax
+        : current[side] + keyDelta;
+    savePaneWidths(fitPaneWidths({ ...current, [side]: requested }, appRef.current?.clientWidth || window.innerWidth, left, right));
+  };
+  useLayoutEffect(() => {
+    const fitSavedWidths = () => {
+      const preference = panePreferencesRef.current;
+      if (!preference || resizeDragRef.current) return;
+      applyPaneWidths(fitPaneWidths(preference, appRef.current?.clientWidth || window.innerWidth, left, right));
+    };
+    fitSavedWidths();
+    window.addEventListener("resize", fitSavedWidths);
+    return () => window.removeEventListener("resize", fitSavedWidths);
+  }, [left, right]);
   const notify = (text, error = false) => {
     setToast({ text, error });
     clearTimeout(timer.current);
@@ -786,6 +913,18 @@ export default function HoldingsApp() {
     refresh();
     return () => clearTimeout(timer.current);
   }, []);
+  useEffect(() => {
+    if (!state || tab !== "overview") return;
+    let active = true;
+    request("/library/api/documents")
+      .then((result) => {
+        if (active) setArchiveDocuments(Array.isArray(result.items) ? result.items : []);
+      })
+      .catch(() => {
+        if (active) setArchiveDocuments(null);
+      });
+    return () => { active = false; };
+  }, [state?.revision, tab]);
   useEffect(() => {
     if (!state) return;
     let active = true;
@@ -1099,6 +1238,31 @@ export default function HoldingsApp() {
       setRight(true);
     }
   };
+  const overviewReports = [
+      { label: "组合体检", item: portfolioReports[0] },
+      { label: "公司研究", item: allAnalyses.find((item) => item.kind === "watch") },
+      { label: "行情分析", item: allAnalyses.find((item) => item.kind === "market") },
+    ].filter(({ item }) => item),
+    overviewJournal = state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2),
+    overviewRecentCash = state.cash.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0] || null,
+    overviewJobs = state.jobs.slice().sort((a, b) => (b.completedAt || b.date).localeCompare(a.completedAt || a.date)).slice(0, 2),
+    overviewJobCounts = {
+      waiting: state.jobs.filter((job) => job.status === "waiting").length,
+      failed: state.jobs.filter((job) => job.status === "failed").length,
+      done: state.jobs.filter((job) => job.status === "done").length,
+    },
+    overviewArchiveRows = archiveDocuments === null
+      ? overviewReports.map(({ label, item }) => ({ id: item.id || item.date, label, date: item.date, title: item.research.title, summary: item.research.summary, path: item.report }))
+      : archiveDocuments.slice().sort((a, b) => (b.updatedAt || "").localeCompare(a.updatedAt || "")).slice(0, 3).map((item) => ({
+          id: item.id,
+          label: item.folder?.startsWith("market") ? "行情分析" : item.folder?.startsWith("portfolio") ? "持仓分析" : item.folder?.startsWith("research") ? "公司研究" : "研究档案",
+          date: item.updatedAt,
+          title: item.title,
+          summary: item.summary,
+          path: item.relativePath,
+        })),
+    overviewArchiveCount = archiveDocuments === null ? allAnalyses.length : archiveDocuments.length,
+    latestWatchPriceDate = state.watchlist.reduce((latestDate, item) => item.priceDate && item.priceDate > latestDate ? item.priceDate : latestDate, "");
   const setWatchSortMode = (mode) => {
     setWatchSort(mode);
     try {
@@ -1162,6 +1326,12 @@ export default function HoldingsApp() {
       />
     </div>
   );
+  const holdingRowsQuoteLabel = (rows) => {
+    const quoteLabels = new Set(rows.map(holdingQuoteLabel));
+    return rows.length > 0 && rows.every((h) => h.priceDate && h.priceSource) && quoteLabels.size === 1
+      ? quoteLabels.values().next().value
+      : "";
+  };
   const holdingsTable = (rows = visibleHoldings, limit) => (
     <div className="mh-table-wrap">
       <table className="mh-table">
@@ -1169,7 +1339,9 @@ export default function HoldingsApp() {
           <tr>
             <th>标的</th>
             <th>持有数量</th>
-            <th>当前价格</th>
+            <th className="mh-price-heading">
+              当前价格{holdingRowsQuoteLabel(rows) && <small>（{holdingRowsQuoteLabel(rows)}）</small>}
+            </th>
             <th>成本均价</th>
             <th>市值 / 总成本</th>
             <th>浮动盈亏</th>
@@ -1205,11 +1377,11 @@ export default function HoldingsApp() {
                 <small>股</small>
               </td>
               <td>
-                {money(h.price, h.currency)}
-                <small title={h.priceSourceUrl || undefined}>{holdingQuoteLabel(h)}</small>
+                <strong className="mh-table-price" title={h.priceSourceUrl || undefined}>{money(h.price, h.currency)}</strong>
+                {!holdingRowsQuoteLabel(rows) && <small title={h.priceSourceUrl || undefined}>{holdingQuoteLabel(h)}</small>}
               </td>
               <td>
-                {money(h.averagePrice, h.currency)}
+                <strong className="mh-table-price">{money(h.averagePrice, h.currency)}</strong>
               </td>
               <td>
                 <span className="mh-value">{money(h.marketValue, h.currency)}</span>
@@ -1267,18 +1439,17 @@ export default function HoldingsApp() {
   );
   const renderWatchCard = (w) => {
     const relatedJobs = state.jobs.filter((j) => ["watch", "watch-quotes"].includes(j.kind) && j.watchId === w.id);
-    const job = relatedJobs.findLast((j) => j.status === "waiting") || relatedJobs.at(-1);
+    const waitingQuoteJob = relatedJobs.findLast((j) => j.kind === "watch-quotes" && j.status === "waiting");
+    const job = waitingQuoteJob || relatedJobs.findLast((j) => j.status === "waiting") || relatedJobs.at(-1);
     const jobLabel =
       job?.status === "done"
-        ? job.kind === "watch-quotes" ? "价格已更新" : "研究已完成"
+        ? job.kind === "watch-quotes" ? "已更新" : "研究已完成"
         : job?.status === "failed"
-          ? "未完成"
+          ? job.kind === "watch-quotes" ? "未更新" : "未完成"
           : job?.status === "waiting"
-            ? job.kind === "watch-quotes" ? "等待价格更新" : "等待研究"
-            : w.researchedAt || w.report || w.research
-              ? "已有研究"
-              : "未排队";
-    const queueStatus = job?.status || (w.researchedAt || w.report || w.research ? "done" : "idle");
+            ? job.kind === "watch-quotes" ? "等待中" : "等待研究"
+            : w.priceDate && w.priceType !== "purchase" ? "已更新" : "未更新";
+    const queueStatus = job?.status || (w.priceDate && w.priceType !== "purchase" ? "done" : "idle");
     const price = w.price == null || !Number.isFinite(Number(w.price)) ? null : Number(w.price);
     const targetPrice = w.targetPrice == null ? null : Number(w.targetPrice);
     const distance = watchGapPct(w);
@@ -1296,6 +1467,7 @@ export default function HoldingsApp() {
       ? nameBeforeSymbol.replace(/[-–—]\s*$/, "").trim() || cardName
       : cardName;
     const showCardSymbol = cardSymbol && displayName.toUpperCase() !== cardSymbol.toUpperCase();
+    const quoteAsOf = watchQuoteAsOf(w);
     return (
       <article
         className={`mh-watch-card attention-${attention} ${watchFocus?.id === w.id ? "selected" : ""} ${attentionOpen ? "priority-picker-open" : ""}`}
@@ -1313,6 +1485,13 @@ export default function HoldingsApp() {
               {!cardSymbol && <span className="mh-watch-symbol missing">- 代码待核实</span>}
             </h3>
           </button>
+          {w.report && <button
+            type="button"
+            className="mh-icon mh-watch-report"
+            aria-label={`打开 ${w.symbol || w.name} 的完整研究`}
+            title="打开完整研究"
+            onClick={() => openReport(w.report)}
+          ><FileCode2 size={14} /></button>}
           <div
             className="mh-watch-attention-control"
             onBlur={(event) => {
@@ -1365,8 +1544,8 @@ export default function HoldingsApp() {
         <div className="mh-watch-prices">
           <div>
             <small>当前报价</small>
-            <strong>{price == null ? "等待更新" : money(price, quoteCurrency)}</strong>
-            <small>{holdingQuoteLabel({ ...w, priceSource: "" })}</small>
+            <strong>{price == null ? "未更新" : money(price, quoteCurrency)}</strong>
+            {quoteAsOf && <small className="mh-watch-quote-asof" title={`报价时间：${quoteAsOf}`}>{quoteAsOf}</small>}
           </div>
           <label>
             <small>等待股价 · {quoteCurrency}</small>
@@ -1393,18 +1572,15 @@ export default function HoldingsApp() {
             {distance === 0 && <span>已触及</span>}
           </div>
         </div>
-        <footer>
-          <span className="mh-watch-quote-source">
-            {w.priceSourceUrl ? <a href={w.priceSourceUrl} target="_blank" rel="noopener noreferrer">{w.priceSource || "行情来源"}</a> : w.priceSource || "价格与研究由更新任务回填"}
-          </span>
-          {w.report && <button className="mh-text-button" onClick={() => openReport(w.report)}><FileCode2 size={14} /> 打开完整研究</button>}
-        </footer>
       </article>
     );
   };
+  const visiblePaneWidths = paneWidths || defaultPaneWidths();
   return (
     <div
-      className={`mh-app ${left ? "" : "left-closed"} ${right ? "" : "right-closed"}`}
+      ref={appRef}
+      className={`mh-app ${left ? "" : "left-closed"} ${right ? "" : "right-closed"} ${resizing ? "is-resizing" : ""}`}
+      style={paneWidths ? { "--mh-left-width": `${paneWidths.left}px`, "--mh-right-width": `${paneWidths.right}px` } : undefined}
     >
       <aside className="mh-sidebar">
         <div className="mh-brand-row">
@@ -1520,9 +1696,11 @@ export default function HoldingsApp() {
           {tab === "overview" && (
             <>
               {heading(
-                "YOUR WEALTH, WITH INTENTION",
-                "看清当下，从容向前。",
-                "两个账户，一幅完整的投资图景。",
+                null,
+                "总览",
+                state.marketUpdatedAt
+                  ? `行情快照 ${when(state.marketUpdatedAt)} · ${state.accounts.length} 个账户`
+                  : `${state.accounts.length} 个账户 · 尚无行情更新时间`,
                 <button
                   className="mh-primary"
                   onClick={() => setModal({ type: "holding" })}
@@ -1530,62 +1708,178 @@ export default function HoldingsApp() {
                   <Plus size={17} /> 记录买入
                 </button>,
               )}
-              {stats()}
+              <section className="mh-overview-quickstats" aria-label="账户资产摘要">
+                <article>
+                  <span>账户资产合计</span>
+                  <strong>{money(m.total)}</strong>
+                  <small>{m.unconverted || m.pendingCash.length ? "有未折算币种未计入合计" : `持仓 ${money(m.value)} · 现金 ${money(m.cash)}`}</small>
+                </article>
+                <article>
+                  <span>持仓市值</span>
+                  <strong>{money(m.value)}</strong>
+                  <small>{m.groups.length} 个合并标的 · {m.holdings.length} 条持仓</small>
+                </article>
+                <article>
+                  <span>可用弹药</span>
+                  <strong>{state.cash.length ? money(m.available) : "待录入"}</strong>
+                  <small>预留 {money(m.reserve)} · {state.cash.length} 条资金记录</small>
+                </article>
+                <article>
+                  <span>持仓浮动盈亏</span>
+                  <strong className={m.pnl < 0 ? "mh-loss" : "mh-gain"}>{m.pnl > 0 ? "+" : ""}{money(m.pnl)}</strong>
+                  <small>成本回报 {pct(m.returnPct)}</small>
+                </article>
+              </section>
               <div className="mh-overview-grid">
                 <section className="mh-panel">
                   <div className="mh-section-heading">
                     <div>
                       <h2>组合全景</h2>
-                      <p>跨账户合并 · 按已折算市值</p>
+                      <p>跨账户合并 · 按市值占比</p>
                     </div>
                     <span className="mh-tag">USD</span>
                   </div>
                   <Allocation groups={m.groups} value={m.value} />
                   <div className="mh-panel-bottom">
-                    <span>持仓总成本</span>
-                    <strong>{money(m.cost)}</strong>
+                    <span>持仓成本 {money(m.cost)}</span>
+                    <strong>{state.accounts.length} 个账户 · {m.holdings.length} 条记录</strong>
                   </div>
                 </section>
-                <section className="mh-panel mh-insight-card">
+                <section className="mh-panel mh-overview-attention">
                   <div className="mh-section-heading">
                     <div>
-                      <span className="mh-eyebrow">A LITTLE CLARITY</span>
-                      <h2>今天，先看这几件事</h2>
+                      <h2>需要留意</h2>
                     </div>
-                    <Sparkles size={22} />
+                    <span className="mh-tag">{notes.length} 项</span>
                   </div>
-                  {notes.slice(0, 3).map((n, i) => (
-                    <div className="mh-insight" key={n.title}>
-                      <span>0{i + 1}</span>
-                      <div>
-                        <strong>{n.title}</strong>
-                        <p>{n.text}</p>
-                      </div>
-                    </div>
-                  ))}
-                  <button
-                    className="mh-text-button"
-                    onClick={() => page("analysis")}
-                  >
-                    查看组合分析 <ArrowRight size={15} />
-                  </button>
+                  {notes.length ? <div className="mh-overview-attention-list">
+                    {notes.slice(0, 4).map((n, index) => (
+                      <article className={`mh-overview-attention-item ${n.tone}`} key={n.title}>
+                        <span>{String(index + 1).padStart(2, "0")}</span>
+                        <div><strong>{n.title}</strong><p>{n.text}</p></div>
+                      </article>
+                    ))}
+                  </div> : <div className="mh-overview-attention-empty"><CheckCircle2 size={18} /><strong>暂时没有需要处理的提醒</strong><small>持仓、报价、币种与目标检查正常</small></div>}
+                  <div className="mh-overview-attention-foot"><ShieldCheck size={13} /> 根据已保存的持仓、报价和目标生成</div>
                 </section>
               </div>
-              <section className="mh-panel">
-                <div className="mh-section-heading">
-                  <div>
-                    <h2>我的持仓</h2>
-                    <p>按账户分别累计股数与成本；报价保留日期与来源</p>
+              <div className="mh-overview-preview-grid">
+                <section className="mh-panel mh-overview-preview">
+                  <div className="mh-section-heading">
+                    <div><h2>近期关注</h2><p>{watchPriorities.length} / {state.watchlist.length} 个标的已设等待价 · 按接近程度</p></div>
+                    <Star size={17} />
                   </div>
-                  <button
-                    className="mh-text-button"
-                    onClick={() => page("holdings")}
-                  >
-                    管理全部 <ArrowRight size={14} />
-                  </button>
-                </div>
-                {holdingsTable(visibleHoldings, 7)}
-              </section>
+                  {watchPriorities.length ? <div className="mh-overview-watch-list">
+                    {watchPriorities.slice(0, 4).map(({ item, gap }, index) => {
+                      const currency = item.priceCurrency || item.research?.quote?.currency || item.research?.identity?.currency || "USD";
+                      return <button className="mh-overview-watch-row" key={item.id} onClick={() => { page("watch"); selectWatch(item.id); }}>
+                        <span className="mh-overview-row-rank">{index + 1}</span>
+                        <span className="mh-overview-watch-identity"><strong>{item.symbol || item.name}</strong><small>{item.name}</small></span>
+                        <span className="mh-overview-watch-prices"><strong>{money(item.price, currency)} <i>→</i> {money(item.targetPrice, currency)}</strong><small>等待价差 {gap === 0 ? "已触及" : `${gap.toFixed(2)}%`}</small></span>
+                      </button>;
+                    })}
+                  </div> : <div className="mh-overview-preview-empty">关注列表中还没有带有效报价和等待价的标的。</div>}
+                  <div className="mh-overview-card-foot">最近关注报价：{latestWatchPriceDate || "尚未更新"}</div>
+                </section>
+
+                <section className="mh-panel mh-overview-preview">
+                  <div className="mh-section-heading">
+                    <div><h2>资金与目标</h2><p>账户现金与长期投资方向</p></div>
+                    <div className="mh-overview-heading-actions">
+                      <button className="mh-icon" aria-label="记一笔资金" title="记一笔资金" onClick={() => setModal({ type: "cash" })}><Plus size={14} /></button>
+                      <button className="mh-icon" aria-label={m.target == null ? "设置金额目标" : "编辑投资目标"} title={m.target == null ? "设置金额目标" : "编辑投资目标"} onClick={() => setModal({ type: "goals" })}><Pencil size={14} /></button>
+                    </div>
+                  </div>
+                  <div className="mh-overview-cash-main">
+                    <div><small>可部署弹药</small><strong>{m.available == null ? (state.cash.length ? "汇率待补" : "待录入") : money(m.available)}</strong></div>
+                    <div><small>预留资金</small><strong>{m.reserve == null ? "汇率待补" : money(m.reserve)}</strong></div>
+                  </div>
+                  <div className="mh-overview-cash-mix">
+                    <div className="mh-overview-cash-mix-bar" role="img" aria-label={`持仓占比 ${m.total ? pct((m.value / m.total) * 100) : "0%"}，现金占比 ${m.total ? pct((m.cash / m.total) * 100) : "0%"}`}>
+                      <span className="holdings" style={{ width: `${m.total ? Math.max(0, Math.min(100, (m.value / m.total) * 100)) : 0}%` }} />
+                      <span className="cash" style={{ width: `${m.total ? Math.max(0, Math.min(100, (m.cash / m.total) * 100)) : 0}%` }} />
+                    </div>
+                    <div className="mh-overview-cash-mix-legend">
+                      <span><i className="holdings" />持仓 <strong>{m.total ? pct((m.value / m.total) * 100) : "—"}</strong></span>
+                      <span><i className="cash" />现金 <strong>{m.total ? pct((m.cash / m.total) * 100) : "—"}</strong></span>
+                    </div>
+                  </div>
+                  <div className="mh-overview-goal-line">
+                    <span>金额目标</span>
+                    <strong>{m.target == null ? "尚未设置" : money(m.target)}</strong>
+                    <span>{m.progress != null ? `当前进度 ${pct(m.progress)}` : "尚未设金额目标"}</span>
+                  </div>
+                  <div className="mh-overview-objective-card">
+                    <small>长期方向</small>
+                    <p>{state.goals.objective || state.goals.notes || "尚未写下投资目标"}</p>
+                  </div>
+                  <div className="mh-overview-cash-record">
+                    {overviewRecentCash ? <>
+                      <span><small>最近资金记录</small><strong>{overviewRecentCash.kind || "资金记录"}</strong></span>
+                      <span><strong>{money(overviewRecentCash.amount, overviewRecentCash.currency)}</strong><small>{overviewRecentCash.date} · 共 {state.cash.length} 笔</small></span>
+                    </> : <span><small>最近资金记录</small><strong>尚无资金记录</strong></span>}
+                  </div>
+                </section>
+
+                <section className="mh-panel mh-overview-preview">
+                  <div className="mh-section-heading">
+                    <div><h2>换算参照</h2><p>同步配对报价 · 供短期估算</p></div>
+                    <ArrowRightLeft size={17} />
+                  </div>
+                  <div className="mh-overview-converter-list">
+                    {CONVERSION_PAIRS.map((pair) => {
+                      const calibration = (state.converter || INITIAL_CONVERTER_STATE).calibrations.find((row) => row.pairId === pair.id);
+                      return <div className="mh-overview-converter-row" key={pair.id}>
+                        <span><strong>{pair.baseSymbol} <i>→</i> {pair.targetSymbol}</strong><small>{pair.title} · {calibration ? `${calibration.observationCount} 个共同交易日 · 截至 ${calibration.asOf}` : "尚未校准"}</small></span>
+                        <b>{calibration ? calibration.ratio.toFixed(4) : "—"}</b>
+                      </div>;
+                    })}
+                  </div>
+                  <div className="mh-overview-card-foot">参考系数会随同步样本更新，不是交易报价</div>
+                </section>
+
+                <section className="mh-panel mh-overview-preview">
+                  <div className="mh-section-heading">
+                    <div><h2>最近研究档案</h2><p>最近保存的行情、公司研究与组合报告</p></div>
+                    <span className="mh-tag">{overviewArchiveCount}{archiveDocuments === null ? " 条分析" : " 份档案"}</span>
+                  </div>
+                  {overviewArchiveRows.length ? <div className="mh-overview-report-list">
+                    {overviewArchiveRows.map((item) => <button className="mh-overview-report-row" key={item.id || item.path || item.title} onClick={() => openReport(item.path)}>
+                      <span className="mh-overview-report-meta"><small>{item.label}</small><small>{when(item.date)}</small></span>
+                      <strong>{item.title || "未命名研究档案"}</strong>
+                      <p>{item.summary || "打开查看完整研究内容。"}</p>
+                    </button>)}
+                  </div> : <div className="mh-overview-preview-empty">研究档案还没有内容。</div>}
+                </section>
+
+                <section className="mh-panel mh-overview-preview">
+                  <div className="mh-section-heading">
+                    <div><h2>研究待办</h2><p>任务由 Codex 执行后回写结果</p></div>
+                    <Sparkles size={17} />
+                  </div>
+                  <div className="mh-overview-job-counts">
+                    <div><strong>{overviewJobCounts.waiting}</strong><small>等待执行</small></div>
+                    <div><strong>{overviewJobCounts.done}</strong><small>已完成</small></div>
+                    <div><strong className={overviewJobCounts.failed ? "mh-loss" : ""}>{overviewJobCounts.failed}</strong><small>未完成</small></div>
+                  </div>
+                  {overviewJobs.length ? <div className="mh-overview-job-list">
+                    {overviewJobs.map((job) => {
+                      const name = job.kind === "quotes" ? "持仓价格更新" : job.kind === "watch-quotes" ? `关注价格 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "标的"}` : job.kind === "converter" ? "换算公式更新" : job.kind === "market" ? "行情分析" : job.kind === "portfolio" ? "组合体检" : `公司研究 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "关注标的"}`;
+                      return <div className="mh-overview-job-row" key={job.id}><span className={`mh-overview-job-status ${job.status}`} /><span><strong>{name}</strong><small>{job.status === "done" ? "已完成" : job.status === "failed" ? "未完成" : "等待交给 Codex"} · {when(job.completedAt || job.date)}</small></span></div>;
+                    })}
+                  </div> : <div className="mh-overview-preview-empty">目前没有待办；最近行情更新于 {when(state.marketUpdatedAt)}。</div>}
+                </section>
+
+                <section className="mh-panel mh-overview-preview">
+                  <div className="mh-section-heading">
+                    <div><h2>决策日志</h2><p>保留买入、持有与等待的理由</p></div>
+                    <button className="mh-icon" aria-label="写一条决策" title="写一条决策" onClick={() => setModal({ type: "journal" })}><Plus size={14} /></button>
+                  </div>
+                  {overviewJournal.length ? <div className="mh-overview-journal-list">
+                    {overviewJournal.map((entry) => <button className="mh-overview-journal-row" key={entry.id} onClick={() => setModal({ type: "journal", item: entry })}><span><strong>{entry.title}</strong><small>{entry.date}</small></span><p>{entry.body}</p></button>)}
+                  </div> : <div className="mh-overview-journal-empty"><BookOpen size={19} /><div><strong>还没有决策记录</strong><p>把一次买入、继续持有或等待的理由留在这里。</p></div></div>}
+                </section>
+              </div>
               <div className="mh-bottom-note">
                 <ShieldCheck size={14} /> 无虚构收益曲线 · 无自动交易 ·
                 每一次判断都有据可查
@@ -1885,15 +2179,19 @@ export default function HoldingsApp() {
                       <h2>我的目标</h2>
                     </div>
                     <button
-                      className="mh-icon"
-                      aria-label="编辑投资目标"
+                      className="mh-text-button"
                       onClick={() => setModal({ type: "goals" })}
                     >
-                      <Pencil size={17} />
+                      <Pencil size={14} /> {state.goals.target == null ? "设置金额目标" : "编辑目标"}
                     </button>
                   </div>
                   <div className="mh-goal">
                     <p className="mh-objective-text">{state.goals.objective || state.goals.notes || "尚未填写目标"}</p>
+                    <div className="mh-goal-target">
+                      <span><small>金额目标</small><strong>{m.target == null ? "尚未设置" : money(m.target)}</strong></span>
+                      {m.progress == null ? <span className="mh-goal-target-hint">设置后显示总资产进度</span> : <span><small>当前进度</small><strong>{pct(m.progress)}</strong></span>}
+                    </div>
+                    {m.progress != null && <div className="mh-progress" aria-label={`目标完成度 ${pct(m.progress)}`}><span style={{ width: `${Math.max(0, Math.min(100, m.progress))}%` }} /></div>}
                   </div>
                 </section>
               </div>
@@ -2242,6 +2540,40 @@ export default function HoldingsApp() {
           onCopyQueue={copyQueue}
         />
       )}
+      <button
+        type="button"
+        className="mh-resize-handle mh-resize-left"
+        role="separator"
+        aria-orientation="vertical"
+        aria-label="调整左栏宽度"
+        aria-valuemin={PANE_WIDTH_LIMITS.leftMin}
+        aria-valuemax={PANE_WIDTH_LIMITS.leftMax}
+        aria-valuenow={Math.round(visiblePaneWidths.left)}
+        title="拖动调整左栏宽度，也可用方向键微调"
+        onPointerDown={(event) => startPaneResize("left", event)}
+        onPointerMove={movePaneResize}
+        onPointerUp={endPaneResize}
+        onPointerCancel={endPaneResize}
+        onLostPointerCapture={endPaneResize}
+        onKeyDown={(event) => keyPaneResize("left", event)}
+      />
+      <button
+        type="button"
+        className="mh-resize-handle mh-resize-right"
+        role="separator"
+        aria-orientation="vertical"
+        aria-label="调整右栏宽度"
+        aria-valuemin={PANE_WIDTH_LIMITS.rightMin}
+        aria-valuemax={PANE_WIDTH_LIMITS.rightMax}
+        aria-valuenow={Math.round(visiblePaneWidths.right)}
+        title="拖动调整右栏宽度，也可用方向键微调"
+        onPointerDown={(event) => startPaneResize("right", event)}
+        onPointerMove={movePaneResize}
+        onPointerUp={endPaneResize}
+        onPointerCancel={endPaneResize}
+        onLostPointerCapture={endPaneResize}
+        onKeyDown={(event) => keyPaneResize("right", event)}
+      />
       {toast && (
         <div
           className={`mh-toast ${toast.error ? "error" : ""}`}

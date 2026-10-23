@@ -382,6 +382,9 @@ export function GoalsForm({ state, onSave, busy }) {
   const [objective, setObjective] = useState(
     state.goals.objective || state.goals.notes || "",
   );
+  const [target, setTarget] = useState(
+    state.goals.target == null ? "" : String(state.goals.target),
+  );
   return (
     <form
       onSubmit={(e) => {
@@ -390,14 +393,28 @@ export function GoalsForm({ state, onSave, busy }) {
           goals: {
             ...state.goals,
             currency: "USD",
-            reserve: 0,
+            target: target === "" ? null : Number(target),
             objective,
             notes: objective,
-            configured: false,
           },
         });
       }}
     >
+      <Field
+        label="金额目标（USD）"
+        hint="按账户总资产计算进度；留空保存可取消金额目标。"
+      >
+        <input
+          type="number"
+          min="0.01"
+          max="100000000000000"
+          step="any"
+          inputMode="decimal"
+          value={target}
+          onChange={(e) => setTarget(e.target.value)}
+          placeholder="例如：500000"
+        />
+      </Field>
       <Field label="你希望这笔投资最终帮你实现什么？">
         <textarea
           rows={5}
@@ -407,8 +424,8 @@ export function GoalsForm({ state, onSave, busy }) {
           placeholder="例如：长期积累退休资产，同时保留未来几年买房所需的资金。"
         />
       </Field>
-      <p className="mh-help">弹药与目标统一使用 USD；目标可以随时修改，不设复杂进度规则。</p>
-      <SaveButton busy={busy} />
+      <p className="mh-help">目标可以随时修改；总资产进度会同步显示在总览和本页。</p>
+      <SaveButton busy={busy} label="保存目标" />
     </form>
   );
 }
