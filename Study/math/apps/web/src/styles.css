@@ -565,6 +565,8 @@ body:has(.math-app.study-learning-app) {
   gap: 16px;
 }
 .math-lesson-card {
+  min-width: 0;
+  container-type: inline-size;
   padding: 18px;
   border: 1px solid var(--line);
   border-radius: 12px;
@@ -610,16 +612,25 @@ body:has(.math-app.study-learning-app) {
   border-color: #ebdcbc;
 }
 .math-mini-art {
-  height: 86px;
+  min-height: 86px;
+  flex-shrink: 0;
+  padding: 12px;
   display: grid;
   place-items: center;
   background: #f3f0f8;
   border-radius: 7px;
   margin: 12px 0 14px;
   font-family: Georgia, serif;
-  font-size: 35px;
+  font-size: clamp(20px, 9cqi, 35px);
+  line-height: 1.25;
+  text-align: center;
   color: #8273ad;
-  letter-spacing: 2px;
+  letter-spacing: 0.04em;
+}
+.math-mini-art > span {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
 }
 .math-mini-art i {
   font-size: 25px;
