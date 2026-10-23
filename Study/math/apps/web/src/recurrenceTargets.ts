@@ -1,5 +1,9 @@
 import { lessons, unitChecks } from './content';
-import { maintenanceSets, recurrenceEvidence } from './content/maintenance';
+import {
+  maintenanceSets,
+  maintenanceHref,
+  recurrenceEvidence,
+} from './content/maintenance';
 import { t } from './model';
 import type { LocalizedText } from '@study/shared';
 
@@ -38,7 +42,10 @@ for (const [sets, suffix] of [
       targets.set(question.id, {
         title: set.title,
         label: t(`第${index + 1}题`, `Question ${index + 1}`),
-        href: `/math/unit/${set.unit}/${suffix}?question=${encodeURIComponent(question.id)}`,
+        href:
+          suffix === 'maintenance'
+            ? maintenanceHref(set, question.id)
+            : `/math/unit/${set.unit}/${suffix}?question=${encodeURIComponent(question.id)}`,
       }),
     );
   }

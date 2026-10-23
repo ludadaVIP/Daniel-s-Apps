@@ -56,6 +56,10 @@ try {
       ]),
     ),
   ];
+  for (const evidence of recurrenceEvidence) {
+    if (!skills.includes(evidence.skill))
+      throw new Error(`Unknown source skill in evidence: ${evidence.skill}`);
+  }
   // Exact tags are only search candidates. A reviewed rationale is an author's
   // semantic content audit, never proof of a particular learner's retention.
   const records = skills.map((skill) => {
@@ -78,6 +82,7 @@ try {
         const sourceTask = byId.get(evidence.sourceTask);
         if (
           !origin ||
+          !unitIndex.has(origin.unit) ||
           !sourceTask ||
           sourceTask.lesson !== origin.id ||
           sourceTask.question.skill !== skill
@@ -87,6 +92,7 @@ try {
           const target = byId.get(id);
           if (
             !target ||
+            !unitIndex.has(target.unit) ||
             unitIndex.get(target.unit) <= unitIndex.get(origin.unit)
           )
             throw new Error(`Invalid later-unit evidence: ${id}`);

@@ -701,6 +701,75 @@ export function Question({
       <h3>
         <Text mode={mode} text={q.stem} />
       </h3>
+      {q.contextTable && (
+        <>
+          <p className="math-question-table-help">
+            <Text
+              mode={mode}
+              text={t(
+                '窄屏可左右滚动表格，也可聚焦表格后用方向键查看。',
+                'On a narrow screen, scroll the table sideways or focus it and use arrow keys.',
+              )}
+            />
+          </p>
+          <div
+            className="math-question-table-scroll"
+            role="region"
+            tabIndex={0}
+            aria-label={
+              mode === 'en'
+                ? q.contextTable.caption.en
+                : q.contextTable.caption.zh
+            }
+          >
+            <table className="math-question-table">
+              <caption>
+                <Text mode={mode} text={q.contextTable.caption} />
+              </caption>
+              <thead>
+                <tr>
+                  {q.contextTable.columns.map((column, i) => (
+                    <th scope="col" key={i}>
+                      <Text mode={mode} text={column} />
+                    </th>
+                  ))}
+                </tr>
+              </thead>
+              <tbody>
+                {q.contextTable.rows.map((row, r) => (
+                  <tr key={r}>
+                    {row.map((cell, c) =>
+                      c === 0 ? (
+                        <th scope="row" key={c}>
+                          <Text
+                            mode={
+                              mode === 'bilingual' && cell.zh === cell.en
+                                ? 'en'
+                                : mode
+                            }
+                            text={cell}
+                          />
+                        </th>
+                      ) : (
+                        <td key={c}>
+                          <Text
+                            mode={
+                              mode === 'bilingual' && cell.zh === cell.en
+                                ? 'en'
+                                : mode
+                            }
+                            text={cell}
+                          />
+                        </td>
+                      ),
+                    )}
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
+      )}
       {q.visual && <Strip n={q.visual.n} d={q.visual.d} />}
       {q.diagram && <NumberDiagramView diagram={q.diagram} mode={mode} />}
       {q.answer.kind === 'choice' ? (

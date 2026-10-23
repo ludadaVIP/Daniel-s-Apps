@@ -476,10 +476,66 @@ corepack pnpm --filter @study/hub build
 
 完成相应后续单元后，可从原单元回顾进入[B03五题维护](http://localhost:3456/math/unit/B03/maintenance)和[B05五题维护](http://localhost:3456/math/unit/B05/maintenance)。每组另选10–15分钟，可拆两次：主动读写大数、解释位值、按刻度定位与排序，再用完整理由核验舍入和十进制换组。两道人审解释不按关键词自动通过；维护题单独保存，不覆盖原单元回顾及B01各课记录，也不增加358个正式课号。
 
-[跨单元复现审查](content/qa/SKILL_RECURRENCE.md)给出技能的后续任务ID、数学核对、家长观察重点及分批验证记录。[全路线清单](content/qa/SKILL_RECURRENCE.json)盘点361个现有技能标签，区分同标签候选与作者已核验的语义证据；B01及B02共11项有内容证据，其余350项继续审查，真实学习表现仍待家庭试用。
+[跨单元复现审查](content/qa/SKILL_RECURRENCE.md)给出技能的后续任务ID、数学核对、家长观察重点及分批验证记录。[全路线清单](content/qa/SKILL_RECURRENCE.json)盘点361个现有技能标签，区分同标签候选与作者已核验的语义证据；基础补桥、全部小学及初中段以及H01–H08、H21–H28及H31–H32共330项有内容证据，其余高中31项继续审查，真实学习表现仍待家庭试用。
 
 ### 跨单元维护：B02的运算意义与家长卡入口
 
 B02五课的六项技能已连接到六个后续单元、16个已有任务，涵盖整体与部分、比较差、等组阵列、平均分/包含、乘除互逆及按关系选运算。内容与两语理由详见[B02复现记录](content/qa/B02_RECURRENCE.md)。
 
 从[B02-L01](http://localhost:3456/math/lesson/B02-L01)或[B02-L03](http://localhost:3456/math/lesson/B02-L03)的家长卡展开“以后换个情境再试”，学到对应后续单元、具备先修后再选一题。链接直接打开指定引导、练习或出口，也支持B01的独立维护组；已有作答、提示和审核记录保留，源课不会因打开链接自动判为掌握。
+
+### 跨单元维护：基础与小学起步的33项技能
+
+本批补齐B03–B06、P51、P52的33项课程级语义证据，该基础批结束时累计44/361项。增加[P51九题维护](http://localhost:3456/math/unit/P51/maintenance)、[P52九题维护](http://localhost:3456/math/unit/P52/maintenance)，每次只选一两题、分多次做；另有[P53两题整数结构](http://localhost:3456/math/unit/P53/maintenance)、[P63两题整数结构](http://localhost:3456/math/unit/P63/maintenance)。22道新题都要求过程、图或理由，由家长显式核验；不增加正式课号或原单元回顾题量。
+
+[基础与小学起步复现记录](content/qa/FOUNDATION_RECURRENCE.md)说明数学边界、复用题及补题依据。维护组按当前题回到相应基础课，并修复第九题位置保存后刷新误报损坏的问题。真实家庭试用仍待观察，内容证据不等于教学成效已达成。
+
+[分数参照与代数起步的七项审查](content/qa/EARLY_ALGEBRA_RECURRENCE.md)继续连接P53整体/等值与P55全部五项技能，该批结束时累计51/361项。新增证据使用已有解释题，不增加维护题量。
+
+[分数表示与加减的九项审查](content/qa/FRACTION_RECURRENCE.md)补齐P53、P54的其余课程级标签。新增[P61四题维护](http://localhost:3456/math/unit/P61/maintenance)与[P65四题维护](http://localhost:3456/math/unit/P65/maintenance)，该批结束时累计60/361。
+
+[测量与数据的十一项审查](content/qa/GEOMETRY_DATA_RECURRENCE.md)补齐P56、P57，批末累计71/361。新增[P66七题维护](http://localhost:3456/math/unit/P66/maintenance)、[J87七题维护](http://localhost:3456/math/unit/J87/maintenance)，每次选一两题。
+
+[分数乘除](content/qa/FRACTION_OPERATIONS_RECURRENCE.md)、[百分数](content/qa/PERCENT_RECURRENCE.md)、[比、负数与代数](content/qa/RELATIONS_RECURRENCE.md)和[小学综合维护](content/qa/PRIMARY_CAPSTONE_RECURRENCE.md)进一步覆盖P61–P68共43项，累计114/361。新增八组分次维护，每组5–10题；正式358课、67单元及原回顾题量不变。该批末仍有247项。
+
+[有理数、整式与一元方程](content/qa/CORE_ALGEBRA_RECURRENCE.md)再核17项，新增J83/J84各八道人审维护，累计131/361。该批末仍有230项。
+
+[几何、图像与统计概率](content/qa/GEOMETRY_GRAPH_RECURRENCE.md)再核J74–J76的16项，新增J93/J94各九题，补全理由链、坐标刻度、条件树与频率反例，累计147/361。继续其余214项及宽标签子目标，真实家庭验收仍待试用。
+
+[整式、分解与方程组](content/qa/POLYNOMIAL_SYSTEM_RECURRENCE.md)再核J81–J83的15项，新增J95/J96各十题分次维护，累计162/361。继续J84/J85及其后199项。
+
+[不等式与函数](content/qa/INEQUALITY_FUNCTION_RECURRENCE.md)再核J84/J85的11项，新增H01/H02各十题分次维护，累计173/361，剩余188项。
+
+[全等、变换与勾股](content/qa/CONGRUENCE_MOTION_RECURRENCE.md)再核J86/J87的11项，新增H05/H06各十题分次维护，累计184/361，剩余177项。
+
+[数据探究](content/qa/DATA_ENQUIRY_RECURRENCE.md)再核J88五项，新增H08/H27各四题及双语原记录表，累计189/361，剩余172项。
+
+[根式与二次结构](content/qa/ROOT_QUADRATIC_RECURRENCE.md)再核J91–J93的16项，新增H03/H04各十题分次维护，累计205/361，剩余156项。
+
+[完整试验与模拟](content/qa/PROBABILITY_PROCESS_RECURRENCE.md)核J97五项，补H24/H33各三题并复用H27/H34设计证据，累计210/361，剩余151项。J94–J96及J98继续审查。
+
+[相似、圆与三角比](content/qa/SIMILARITY_CIRCLE_TRIG_RECURRENCE.md)核17项，补H22/H23各十题并复用一般面积/SSA任务，累计227/361。J98还剩三项，高中131项继续。
+
+[综合依据审查](content/qa/INTEGRATION_AUDIT_RECURRENCE.md)补J98最后三项，H28/H38各三题与双语端点完整图，累计230/361。基础、小学和初中段全部现有标签都有后续内容证据，高中131项继续。
+
+[集合逻辑与函数语言](content/qa/LOGIC_FUNCTION_RECURRENCE.md)核H01/H02的11项，补H25/H26各八题，累计241/361，剩余高中120项。
+
+[指数与对数](content/qa/EXPONENTIAL_LOG_RECURRENCE.md)核H03六项，补H31/H35各五题，累计247/361，剩余114项。
+
+[圆周与波形](content/qa/CIRCULAR_RECURRENCE.md)与[向量语言](content/qa/VECTOR_LANGUAGE_RECURRENCE.md)再核12项，累计259/361，剩余102项。H23/H36新增组与原维护可分别进入、保存和恢复。
+
+[空间结构与外露面](content/qa/SPATIAL_STRUCTURE_RECURRENCE.md)再核H06五项，补H23/H36各六题及编号展开图，累计264/361，剩余97项。
+
+[数列与时序](content/qa/SEQUENCE_RECURRENCE.md)核H07六项，补H31/H38各六题，累计270/361，剩余91项。
+
+[数据含义与标准化](content/qa/DATA_LANGUAGE_RECURRENCE.md)核H08五项，补H27/H34各四题及原始颜色表/双峰点图，累计275/361，剩余86项。
+
+[复数定义与旋转](content/qa/COMPLEX_RECURRENCE.md)、[圆锥曲线定义](content/qa/CONIC_DEFINITION_RECURRENCE.md)、[三维向量](content/qa/SPACE_VECTOR_RECURRENCE.md)、[计数与条件空间](content/qa/COUNTING_STRUCTURE_RECURRENCE.md)完成H21–H24共22项审查，新增八组42道分次人审维护题，累计297/361，剩余64项。每组准确题目链接与其他维护组独立；内容供给不代表家庭试用或永久掌握。
+
+[导数含义](content/qa/DERIVATIVE_MEANING_RECURRENCE.md)与[函数分析条件](content/qa/FUNCTION_ANALYSIS_RECURRENCE.md)核H25/H26共11项：新增H31/H32各六题导数维护、H32/H35各四题分析维护，并复用两道已有链式法则出口。累计308/361，余53项。
+
+[配对、拟合与抽样](content/qa/STATISTICS_RECURRENCE.md)和[综合解题与表示保持](content/qa/PROBLEM_SOLVING_RECURRENCE.md)核H27/H28共十项：新增十二题，复用八道实际原推理任务。累计318/361，余43项；正式课号不变。
+
+[导数优化](content/qa/OPTIMISATION_RECURRENCE.md)核H31六项，新增H35/H38各五题，并复用已有H35分析任务。累计324/361，余37项；宽标签细分与末段真实后续维护继续。
+
+2026-10-24续核H32六项，累计330/361、余31，见[积分与累积](content/qa/CALCULUS_INTEGRAL_RECURRENCE.md)。H36/H38各六题重建时间权重、任意常数族、全网格误差、积分与面积、变上限条件及独立量纲模型。
