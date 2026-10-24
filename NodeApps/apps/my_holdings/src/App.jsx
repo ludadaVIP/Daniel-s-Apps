@@ -141,13 +141,13 @@ const when = (d) =>
 const preciseUSD = (value) =>
   Number.isFinite(Number(value)) ? `US$${Number(value).toFixed(4)}` : "—";
 const WATCH_SORT_OPTIONS = [
-  { id: "name", label: "名称", title: "按名称排序" },
+  { id: "name", label: "代码", title: "按股票代码排序" },
   { id: "price", label: "报价", title: "按当前报价从低到高排序" },
   { id: "gap", label: "价差 ↑", title: "等待价差比例从低到高排序" },
   { id: "attention", label: "关注", title: "按关注度从高到低排序：4、3、2、1" },
 ];
 const DECISION_SORT_OPTIONS = [
-  { id: "name", label: "名称" },
+  { id: "name", label: "代码", title: "按股票代码排序" },
   { id: "gap", label: "价差 ↑", title: "按等待价差百分比从小到大排序" },
   { id: "attention", label: "颜色等级 ↓" },
 ];
@@ -212,38 +212,44 @@ function watchQuoteAsOf(watch) {
   return `${watch.priceDate}${time ? ` · ${time} ${zoneLabel}` : ""}`;
 }
 function sortWatchlist(rows, mode) {
-  const byName = (a, b) =>
-    (a.name || a.symbol || "").localeCompare(b.name || b.symbol || "", "zh-CN", {
+  const bySymbol = (a, b) =>
+    (a.symbol || "").localeCompare(b.symbol || "", "en", {
       numeric: true,
       sensitivity: "base",
-    }) || (a.symbol || "").localeCompare(b.symbol || "");
+    }) || (a.name || "").localeCompare(b.name || "", "zh-CN", {
+      numeric: true,
+      sensitivity: "base",
+    });
   return rows.slice().sort((a, b) => {
-    if (mode === "name") return byName(a, b);
+    if (mode === "name") return bySymbol(a, b);
     if (mode === "attention")
-      return watchAttention(b) - watchAttention(a) || byName(a, b);
+      return watchAttention(b) - watchAttention(a) || bySymbol(a, b);
     if (mode === "price") {
       const aPrice = a.price == null ? NaN : Number(a.price);
       const bPrice = b.price == null ? NaN : Number(b.price);
       const aKnown = Number.isFinite(aPrice) && aPrice > 0;
       const bKnown = Number.isFinite(bPrice) && bPrice > 0;
       if (aKnown !== bKnown) return aKnown ? -1 : 1;
-      return aKnown ? aPrice - bPrice || byName(a, b) : byName(a, b);
+      return aKnown ? aPrice - bPrice || bySymbol(a, b) : bySymbol(a, b);
     }
     const aGap = watchGapPct(a);
     const bGap = watchGapPct(b);
     if ((aGap == null) !== (bGap == null)) return aGap == null ? 1 : -1;
-    return aGap == null ? byName(a, b) : aGap - bGap || byName(a, b);
+    return aGap == null ? bySymbol(a, b) : aGap - bGap || bySymbol(a, b);
   });
 }
 function sortDecisionWatchlist(rows, mode) {
-  const byName = (a, b) =>
-    (a.name || a.symbol || "").localeCompare(b.name || b.symbol || "", "zh-CN", {
+  const bySymbol = (a, b) =>
+    (a.symbol || "").localeCompare(b.symbol || "", "en", {
       numeric: true,
       sensitivity: "base",
-    }) || (a.symbol || "").localeCompare(b.symbol || "");
-  if (mode === "attention") return rows.slice().sort((a, b) => watchAttention(b) - watchAttention(a) || byName(a, b));
+    }) || (a.name || "").localeCompare(b.name || "", "zh-CN", {
+      numeric: true,
+      sensitivity: "base",
+    });
+  if (mode === "attention") return rows.slice().sort((a, b) => watchAttention(b) - watchAttention(a) || bySymbol(a, b));
   if (mode === "gap") return sortWatchlist(rows, "gap");
-  return rows.slice().sort(byName);
+  return rows.slice().sort(bySymbol);
 }
 function rankWatchPriorities(rows) {
   return rows
@@ -251,11 +257,13 @@ function rankWatchPriorities(rows) {
     .filter(({ gap }) => gap !== null)
     .sort((a, b) =>
       a.gap - b.gap ||
-      (a.item.name || a.item.symbol || "").localeCompare(
-        b.item.name || b.item.symbol || "",
-        "zh-CN",
-        { numeric: true },
-      ),
+      (a.item.symbol || "").localeCompare(b.item.symbol || "", "en", {
+        numeric: true,
+        sensitivity: "base",
+      }) || (a.item.name || "").localeCompare(b.item.name || "", "zh-CN", {
+        numeric: true,
+        sensitivity: "base",
+      }),
     );
 }
 function decisionSummary(entry, watchlist = []) {
