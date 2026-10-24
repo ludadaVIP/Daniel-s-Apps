@@ -39,7 +39,7 @@ describe('statistics retrieval routes', () => {
       expect(
         screen.getAllByRole('rowheader').map((e) => e.textContent),
       ).toEqual(set.questions[0]!.contextTable!.rows.map((r) => r[0]!.en));
-      expect(screen.getByText(/Recorded 0\/5/)).toBeTruthy();
+      expect(screen.getByText(/Recorded 0\/6/)).toBeTruthy();
       view.unmount();
       const other = mount(maintenanceHref(set, set.questions[2]!.id)),
         plot = screen.getByRole('img');
@@ -48,13 +48,13 @@ describe('statistics retrieval routes', () => {
       const d = set.questions[2]!.diagram!;
       if (d.kind !== 'cartesian') throw Error('Need actual source scatter');
       expect(screen.getByText(d.caption!.en)).toBeTruthy();
-      expect(screen.getByText(/Recorded 0\/5/)).toBeTruthy();
+      expect(screen.getByText(/Recorded 0\/6/)).toBeTruthy();
       other.unmount();
       await new Promise((resolve) => setTimeout(resolve, 0));
     }
   });
   for (const s of Object.values(statisticsRetrieval))
-    it(`${s.unit}: opens all five arguments, requires explicit review and restores its own session`, async () => {
+    it(`${s.unit}: opens all six arguments, requires explicit review and restores its own session`, async () => {
       const p = emptyProgress(),
         original = {
           ...newSession(),
@@ -76,21 +76,21 @@ describe('statistics retrieval routes', () => {
           screen.getByRole('textbox', { name: 'Your reasoning' }),
           { target: { value: `Engineering review example: ${q.solution.en}` } },
         );
-        expect(screen.getByText(new RegExp(`Recorded ${i}/5`))).toBeTruthy();
+        expect(screen.getByText(new RegExp(`Recorded ${i}/6`))).toBeTruthy();
         if (i === 2) click('A little hint');
         fireEvent.click(
           screen.getByText('Parent review · look at the reasoning'),
         );
         click('Parent confirms: reasoning makes sense');
         expect(
-          screen.getByText(new RegExp(`Recorded ${i + 1}/5`)),
+          screen.getByText(new RegExp(`Recorded ${i + 1}/6`)),
         ).toBeTruthy();
         view.unmount();
         await new Promise((resolve) => setTimeout(resolve, 0));
       }
       mount(maintenanceHref(s));
       expect(
-        screen.getByText(/Recorded 5\/5; 4 independently completed/),
+        screen.getByText(/Recorded 6\/6; 5 independently completed/),
       ).toBeTruthy();
       expect(
         (
@@ -98,7 +98,7 @@ describe('statistics retrieval routes', () => {
             name: 'Your reasoning',
           }) as HTMLTextAreaElement
         ).value,
-      ).toBe(`Engineering review example: ${s.questions[4]!.solution.en}`);
+      ).toBe(`Engineering review example: ${s.questions[5]!.solution.en}`);
       expect(saved().sessions[`${s.unit}-CHECK`]).toEqual(original);
       for (const id of Object.values(s.bridgeByQuestion))
         expect(saved().sessions[id]).toBeUndefined();
@@ -111,4 +111,26 @@ describe('statistics retrieval routes', () => {
       ).toBe(true);
       expect(saved().sessions[`${s.unit}-CHECK`]).toEqual(original);
     });
+  it('shows the influential fifth record in both original table and scatter without pre-drawing either requested line', () => {
+    localStorage.setItem('study-language', 'bilingual');
+    for (const s of Object.values(statisticsRetrieval)) {
+      const q = s.questions[5]!,
+        view = mount(maintenanceHref(s, q.id));
+      expect(screen.getByText(q.stem.zh)).toBeTruthy();
+      expect(screen.getByText(q.stem.en)).toBeTruthy();
+      expect(
+        screen.getAllByRole('rowheader').map((e) => e.textContent),
+      ).toEqual(['I1', 'I2', 'I3', 'I4', 'I5']);
+      const plot = screen.getByRole('img');
+      expect(plot.querySelectorAll('circle')).toHaveLength(5);
+      expect(plot.querySelectorAll('polyline')).toHaveLength(0);
+      expect(screen.getByText(/Recorded 0\/6/)).toBeTruthy();
+      expect(saved().sessions[s.id].answers[q.id]).toBeUndefined();
+      expect(saved().sessions[s.unit + '-CHECK']).toBeUndefined();
+      expect(screen.getByText(q.solution.en).closest('details')?.open).toBe(
+        false,
+      );
+      view.unmount();
+    }
+  });
 });

@@ -60,28 +60,80 @@ const makeSet = (unit: 'H34' | 'H38') => {
     se: string,
     hz: string,
     he: string,
+    skill = i,
   ) =>
-    reasoning(id(i), t(z, en), `statistics-${i}`, t(sz, se), [
+    reasoning(id(i), t(z, en), `statistics-${skill}`, t(sz, se), [
       t(hz, he),
       t(
         '保留对象ID、原配对、设计、分母与适用范围；一般恒等或精确枚举支持理论，少量候选、漂亮图形和有限模拟只作检查。',
         'Retain IDs,original pairs,designs,denominators and scope. General identities or exact enumeration support theory;finite candidates,attractive plots and simulations only check it.',
       ),
     ]);
+  const influencePairs = (
+    first
+      ? [
+          [1, 2],
+          [2, 4],
+          [3, 6],
+          [4, 8],
+          [5, 0],
+        ]
+      : [
+          [-2, 2],
+          [-1, 1],
+          [0, 0],
+          [1, -1],
+          [2, 3],
+        ]
+  ).map(([x, y], i) => ({ id: 'I' + (i + 1), x: x!, y: y! }));
+  const influenceCaption = t(
+    '独立虚构五ID原配对；I5只是本题预先指定的敏感性比较对象，不代表已判错。',
+    'Separate fictional five-ID original pairs. I5 is PRESPECIFIED for sensitivity comparison, not established as erroneous.',
+  );
+  const influenceDiagram: NumberDiagram = {
+    kind: 'cartesian',
+    bounds: {
+      xMin: first ? 0 : -3,
+      xMax: first ? 6 : 3,
+      yMin: -2,
+      yMax: first ? 10 : 4,
+      xStep: 1,
+      yStep: first ? 2 : 1,
+    },
+    points: influencePairs.map((p) => ({ x: p.x, y: p.y, label: p.id })),
+    curves: [],
+    caption: t(
+      '原五点；保留I5，不画两条待求拟合线。',
+      'The original five points retain I5. Neither requested fitted line is supplied.',
+    ),
+  };
+  const influenceSolution = t(
+    (first
+      ? '全五点均值(3,4)，Sxx=10、Syy=40、Sxy=0、r=0，OLS为ŷ=4、SSE40；四点分支均值(5/2,5)，Sxx=5、Syy=20、Sxy=10、r=1，OLS为ŷ=2x、SSE0。四点线在原I5预测10、残差−10；原五点线预测4、残差−4。'
+      : '全五点均值(0,1)，Sxx=10、Syy=10、Sxy=0、r=0，OLS为ŷ=1、SSE10；四点分支均值(−1/2,1/2)，Sxx=5、Syy=5、Sxy=−5、r=−1，OLS为ŷ=−x、SSE0。四点线在原I5预测−2、残差5；原五点线预测1、残差2。') +
+      '两幅线在同一原坐标比较，保留五ID原始值并明确列出暂排I5的分支。变化说明结论对I5敏感，不证明它错误；不同样本的SSE不能直接当同一新数据预测比较。查原采集、录入、单位、测量、对象定义和预先排除规则；只有可核查来源理由才考虑更正或排除并记录。若I5真实，就保留并调查结构/范围或改模型，再用独立资料验证。不得为漂亮相关删点，也不由有限样本推出因果、总体或范围外保证。',
+    (first
+      ? 'ALL five: means(3,4), Sxx=10, Syy=40, Sxy=0, r=0; slope=0, intercept=4, fitted y=4, SSE=40. Four-point branch: means(5/2,5), Sxx=5, Syy=20, Sxy=10, r=1; slope=2, intercept=0, fitted y=2x, SSE=0. At ORIGINAL I5 the four-point line predicts 10 with residual -10; the five-point line predicts 4 with residual -4.'
+      : 'ALL five: means(0,1), Sxx=10, Syy=10, Sxy=0, r=0; slope=0, intercept=1, fitted y=1, SSE=10. Four-point branch: means(-1/2,1/2), Sxx=5, Syy=5, Sxy=-5, r=-1; slope=-1, intercept=0, fitted y=-x, SSE=0. At ORIGINAL I5 the four-point line predicts -2 with residual 5; the five-point line predicts 1 with residual 2.') +
+      ' Draw both lines in the SAME original coordinates. Preserve all five original IDs/values and report the I5-omitted branch explicitly. This is sensitivity, not proof of error. SSE on different samples is not a same-new-data predictive comparison. Investigate collection, transcription, units, measurement, object definition and prespecified exclusion rules. A correction/exclusion needs checkable provenance and a recorded reason. If I5 is genuine, retain it, investigate structure/range or revise the model and validate on independent data. Do not delete for a prettier correlation; neither branch establishes causation, population claims or extrapolation guarantees.',
+  );
   return {
     id: `${unit}-MAINT-STATISTICS`,
     unit,
     bridge: 'H27-L01',
     bridgeByQuestion: Object.fromEntries(
-      [1, 2, 3, 4, 5].map((i) => [id(i), `H27-L0${i}`]),
+      [1, 2, 3, 4, 5, 6].map((i) => [
+        id(i),
+        i === 6 ? 'H27-L01' : `H27-L0${i}`,
+      ]),
     ),
     title: t(
       '推断与项目之后，再核统计证据',
       'After inference and projects,recheck statistical evidence',
     ),
     intro: t(
-      '五题分次，每次一题；可将计算、画图和报告再拆开。全部人工核验、不计时，允许纸笔。表、图与成员记录均为虚构数学给定；并非家庭真实试用或调查。',
-      'Choose one of five tasks per sitting;split calculation,plotting and reporting if useful. All are human-reviewed without a timer;use paper. Every table,plot and member record is a fictional mathematical given,not a family trial or actual survey.',
+      '六题分次，每次一题；可将计算、画图和报告再拆开。全部人工核验、不计时，允许纸笔。表、图与成员记录均为虚构数学给定；并非家庭真实试用或调查。',
+      'Choose one of six tasks per sitting;split calculation,plotting and reporting if useful. All are human-reviewed without a timer;use paper. Every table,plot and member record is a fictional mathematical given,not a family trial or actual survey.',
     ),
     questions: [
       {
@@ -174,6 +226,32 @@ const makeSet = (unit: 'H34' | 'H38') => {
             [t('目标合计', 'Target total'), t(String(total), String(total))],
           ],
         },
+      },
+      {
+        ...q(
+          6,
+          '表和图保留五个对象的原配对。先用全部五点重算两列均值、Sxx、Syy、Sxy、r、含截距OLS的斜率、截距与SSE。再仅在独立敏感性分支暂不纳入预先指定I5，用I1–I4重算相同各量；另将这条四点线用于原I5，求预测与残差。把两条线画在同一原坐标中并说明结论怎样变。r或SSE变好是否证明I5录错、允许直接删除，或说明新数据预测更好？保留什么原记录、查哪些来源证据、怎样如实报告两个分析？区分原五点的0与四点分支的±1相关。',
+          'Retain all original object pairs in the table and plot. With ALL five points, rebuild both means, Sxx, Syy, Sxy, r, and intercept-OLS slope, intercept and SSE. In a SEPARATE sensitivity branch temporarily omit the PRESPECIFIED I5 and recompute every quantity using I1–I4. Apply that four-point line to original I5 and calculate its prediction and residual. Draw both lines in the ORIGINAL coordinates and explain how the conclusion changes. Do improved r or SSE establish that I5 is erroneous, authorise its deletion, or prove better new-data prediction? State which original records to preserve, what provenance to investigate and how to report BOTH analyses. Keep the branch coefficient distinct from the original five-point coefficient.',
+          influenceSolution.zh,
+          influenceSolution.en,
+          '先分别写出两个样本的均值与中心差；暂不纳入某点后，剩余点也要重新中心化，不能只从旧交积和删一项。',
+          'Recompute centring for EACH sample. Omitting one record changes the remaining centred deviations; do not just subtract its old cross-product.',
+          1,
+        ),
+        contextTable: {
+          caption: influenceCaption,
+          columns: [
+            t('对象ID', 'Object ID'),
+            t('原x', 'Original x'),
+            t('原y', 'Original y'),
+          ],
+          rows: influencePairs.map((p) => [
+            t(p.id, p.id),
+            t(String(p.x), String(p.x)),
+            t(String(p.y), String(p.y)),
+          ]),
+        },
+        diagram: influenceDiagram,
       },
     ],
   };

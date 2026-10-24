@@ -3,9 +3,21 @@ const e = (i: number, z: string, en: string, rz: string, re: string) => ({
   skill: `statistics-${i}`,
   sourceLesson: `H27-L0${i}`,
   sourceTask: `H27-L0${i}-Q6`,
-  targets: ['H34', 'H38'].map((u) => `${u}-MAINT-STATISTICS-Q${i}`),
+  targets: ['H34', 'H38'].flatMap((u) => [
+    u + '-MAINT-STATISTICS-Q' + i,
+    ...([1, 3].includes(i) ? [u + '-MAINT-STATISTICS-Q6'] : []),
+  ]),
   focus: t(z, en),
-  rationale: t(rz, re),
+  rationale: t(
+    rz +
+      ([1, 3].includes(i)
+        ? ' 另各组Q6从完整五ID表重算含/暂排I5的均值、中心化和、r、OLS和SSE，并将四点线用于原I5；保留原记录，敏感性不当错误证明或删点许可。'
+        : ''),
+    re +
+      ([1, 3].includes(i)
+        ? ' Each Q6 additionally rebuilds means, centred sums, r, OLS and SSE with all five original IDs versus a temporary I5-omitted branch, then applies the four-point line to original I5. Preserve source records; sensitivity is neither proof of error nor deletion authority.'
+        : ''),
+  ),
 });
 export const statisticsRecurrence = [
   e(

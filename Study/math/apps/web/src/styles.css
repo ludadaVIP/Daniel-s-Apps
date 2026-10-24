@@ -775,6 +775,33 @@ body:has(.math-app.study-learning-app) {
 .math-curriculum-list {
   margin-top: 18px;
 }
+.math-retrieval-list {
+  margin-top: 18px;
+}
+.math-retrieval-list > a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #efedf2;
+  padding: 18px 4px;
+  font-size: 15px;
+}
+.math-retrieval-list > a:hover {
+  background: #f5f2fa;
+}
+.math-retrieval-list .math-status {
+  max-width: 160px;
+}
+@media (max-width: 700px) {
+  .math-retrieval-list > a {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .math-retrieval-list .math-status {
+    justify-self: start;
+  }
+}
 .math-curriculum-list > a,
 .math-curriculum-list > div {
   display: grid;

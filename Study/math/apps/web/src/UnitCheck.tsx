@@ -6,6 +6,7 @@ import { newSession, t } from './model';
 import { Question } from './Question';
 import { Text } from './ui';
 import { Intro, type Props } from './pageSupport';
+import { postRouteUnitFor } from './content/retrievalUnits';
 import {
   maintenanceForUnit,
   maintenanceHref,
@@ -15,6 +16,7 @@ import {
 export function UnitCheck(props: Props & { maintenance?: boolean }) {
   const { unitId } = useParams();
   const [params, setParams] = useSearchParams();
+  const postUnit = postRouteUnitFor(unitId);
   const requested = params.get('question');
   const requestedSet = params.get('set');
   const unitMaintenance = maintenanceForUnit(unitId);
@@ -58,23 +60,46 @@ export function UnitCheck(props: Props & { maintenance?: boolean }) {
           mode={props.mode}
           kicker={props.maintenance ? 'CROSS-UNIT RETRIEVAL' : 'UNIT REVIEW'}
           title={
-            props.maintenance
+            postUnit && !props.maintenance
+              ? t('这里是后续维护单元。', 'This unit contains later retrieval.')
+              : props.maintenance
+                ? t(
+                    '这个单元的跨单元维护还在准备中。',
+                    'Cross-unit retrieval for this unit is being prepared.',
+                  )
+                : t(
+                    '这个单元回顾还在准备中。',
+                    'This unit review is being prepared.',
+                  )
+          }
+          body={
+            postUnit && !props.maintenance
               ? t(
-                  '这个单元的跨单元维护还在准备中。',
-                  'Cross-unit retrieval for this unit is being prepared.',
+                  '这里没有正式单元回顾；打开已提供的维护任务组。',
+                  'There is no formal unit check here;open the available retrieval groups.',
                 )
               : t(
-                  '这个单元回顾还在准备中。',
-                  'This unit review is being prepared.',
+                  '先探索已经开放的单元。',
+                  'Explore one of the open units first.',
                 )
           }
-          body={t(
-            '先探索已经开放的单元。',
-            'Explore one of the open units first.',
-          )}
         />
-        <Link className="math-button" to="/math">
-          <Text mode={props.mode} text={t('回到探索', 'Back to Discover')} />
+        <Link
+          className="math-button"
+          to={
+            postUnit && !props.maintenance
+              ? `/math/unit/${postUnit.id}/maintenance`
+              : '/math'
+          }
+        >
+          <Text
+            mode={props.mode}
+            text={
+              postUnit && !props.maintenance
+                ? t('打开这个维护单元', 'Open this retrieval unit')
+                : t('回到探索', 'Back to Discover')
+            }
+          />
         </Link>
       </>
     );
@@ -105,8 +130,19 @@ export function UnitCheck(props: Props & { maintenance?: boolean }) {
     ).length;
   return (
     <>
-      <Link className="math-back" to={`/math#${check.unit}`}>
-        ← <Text mode={mode} text={t('回到这个单元', 'Back to this unit')} />
+      <Link
+        className="math-back"
+        to={postUnit ? '/math/retrieval' : `/math#${check.unit}`}
+      >
+        ←{' '}
+        <Text
+          mode={mode}
+          text={
+            postUnit
+              ? t('回到后续维护', 'Back to later retrieval')
+              : t('回到这个单元', 'Back to this unit')
+          }
+        />
       </Link>
       <Intro
         mode={mode}
@@ -221,56 +257,57 @@ export function UnitCheck(props: Props & { maintenance?: boolean }) {
           />
         </p>
       </section>
-      {maintenance && (
-        <section className="math-panel">
-          <h3>
-            <Text
-              mode={mode}
-              text={
-                props.maintenance
-                  ? t('回到本单元回顾', 'Return to this unit review')
-                  : t(
-                      '换个情境，回看更早的想法',
-                      'Revisit earlier ideas in a changed context',
-                    )
-              }
-            />
-          </h3>
-          <p>
-            <Text
-              mode={mode}
-              text={
-                props.maintenance
-                  ? t(
-                      '两组记录各自保存，可以随时切换。',
-                      'Both sets keep their own records; switch at any time.',
-                    )
-                  : t(
-                      `另有${maintenance.questions.length}道跨单元维护题。可以分次再做，不增加本次单元回顾的题量。`,
-                      `${maintenance.questions.length} separate cross-unit retrieval tasks are available. Save them for other sessions if useful; they do not add to this unit check.`,
-                    )
-              }
-            />
-          </p>
-          <Link
-            className="math-button secondary"
-            to={`/math/unit/${check.unit}/${props.maintenance ? 'check' : 'maintenance'}`}
-          >
-            <Text
-              mode={mode}
-              text={
-                props.maintenance
-                  ? t('打开单元回顾', 'Open unit review')
-                  : t(
-                      `打开${maintenance.questions.length}题跨单元维护`,
-                      `Open ${maintenance.questions.length === 5 ? 'five' : maintenance.questions.length} cross-unit retrieval tasks`,
-                    )
-              }
-            />{' '}
-            ↗
-          </Link>
-        </section>
-      )}
+      {maintenance &&
+        (!props.maintenance || Object.hasOwn(unitChecks, check.unit)) && (
+          <section className="math-panel">
+            <h3>
+              <Text
+                mode={mode}
+                text={
+                  props.maintenance
+                    ? t('回到本单元回顾', 'Return to this unit review')
+                    : t(
+                        '换个情境，回看更早的想法',
+                        'Revisit earlier ideas in a changed context',
+                      )
+                }
+              />
+            </h3>
+            <p>
+              <Text
+                mode={mode}
+                text={
+                  props.maintenance
+                    ? t(
+                        '两组记录各自保存，可以随时切换。',
+                        'Both sets keep their own records; switch at any time.',
+                      )
+                    : t(
+                        `另有${maintenance.questions.length}道跨单元维护题。可以分次再做，不增加本次单元回顾的题量。`,
+                        `${maintenance.questions.length} separate cross-unit retrieval tasks are available. Save them for other sessions if useful; they do not add to this unit check.`,
+                      )
+                }
+              />
+            </p>
+            <Link
+              className="math-button secondary"
+              to={`/math/unit/${check.unit}/${props.maintenance ? 'check' : 'maintenance'}`}
+            >
+              <Text
+                mode={mode}
+                text={
+                  props.maintenance
+                    ? t('打开单元回顾', 'Open unit review')
+                    : t(
+                        `打开${maintenance.questions.length}题跨单元维护`,
+                        `Open ${maintenance.questions.length === 5 ? 'five' : maintenance.questions.length} cross-unit retrieval tasks`,
+                      )
+                }
+              />{' '}
+              ↗
+            </Link>
+          </section>
+        )}
       {maintenance && unitMaintenance.length > 1 && (
         <section className="math-panel">
           <h3>

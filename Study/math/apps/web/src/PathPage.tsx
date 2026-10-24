@@ -1,3 +1,4 @@
+import { PostRouteEntry } from './PostRoute';
 import { useState } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { curriculum, lessons } from './content';
@@ -106,6 +107,7 @@ export function PathPage({ mode, store }: Props) {
           </div>
         </section>
       ))}
+      <PostRouteEntry mode={mode} />
       {!filtered.length && (
         <p className="math-empty">
           <Text

@@ -4,9 +4,11 @@
   "counts": {
     "lessons": 358,
     "units": 67,
+    "maintenanceOnlyUnits": 2,
+    "recurrenceUnits": 69,
     "skills": 361,
-    "reviewedSkills": 330,
-    "pendingSkills": 31
+    "reviewedSkills": 361,
+    "pendingSkills": 0
   },
   "records": [
     {
@@ -14753,8 +14755,8 @@
         "H27-L01-X"
       ],
       "laterExactTagCandidates": {
-        "H34": ["H34-MAINT-STATISTICS-Q1"],
-        "H38": ["H38-MAINT-STATISTICS-Q1"]
+        "H34": ["H34-MAINT-STATISTICS-Q1", "H34-MAINT-STATISTICS-Q6"],
+        "H38": ["H38-MAINT-STATISTICS-Q1", "H38-MAINT-STATISTICS-Q6"]
       },
       "reviewedEvidence": [
         {
@@ -14768,8 +14770,18 @@
               "taskSkill": "statistics-1"
             },
             {
+              "unit": "H34",
+              "task": "H34-MAINT-STATISTICS-Q6",
+              "taskSkill": "statistics-1"
+            },
+            {
               "unit": "H38",
               "task": "H38-MAINT-STATISTICS-Q1",
+              "taskSkill": "statistics-1"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-STATISTICS-Q6",
               "taskSkill": "statistics-1"
             }
           ],
@@ -14778,8 +14790,8 @@
             "en": "Original pairs,scales and undefined correlation"
           },
           "rationale": {
-            "zh": "两张新原ID表给r=1/2或−1/2，整行倒序不变，单列排序造出r1并改变具体配对。中心化通式解释正比例/负反射和零尺度，相关不等同斜率，常数列未定义，不能认证因果或代表性。",
-            "en": "Two actual original-ID tables give r=1/2 or−1/2. Whole-row reversal preserves r;single-column sorting creates r1 by changing object pairs. General centred deviations explain positive scales,reflection and zero-scale boundaries. Correlation differs from slope;constant columns are undefined,and causation/representativeness remain unproved."
+            "zh": "两张新原ID表给r=1/2或−1/2，整行倒序不变，单列排序造出r1并改变具体配对。中心化通式解释正比例/负反射和零尺度，相关不等同斜率，常数列未定义，不能认证因果或代表性。 另各组Q6从完整五ID表重算含/暂排I5的均值、中心化和、r、OLS和SSE，并将四点线用于原I5；保留原记录，敏感性不当错误证明或删点许可。",
+            "en": "Two actual original-ID tables give r=1/2 or−1/2. Whole-row reversal preserves r;single-column sorting creates r1 by changing object pairs. General centred deviations explain positive scales,reflection and zero-scale boundaries. Correlation differs from slope;constant columns are undefined,and causation/representativeness remain unproved. Each Q6 additionally rebuilds means, centred sums, r, OLS and SSE with all five original IDs versus a temporary I5-omitted branch, then applies the four-point line to original I5. Preserve source records; sensitivity is neither proof of error nor deletion authority."
           }
         }
       ],
@@ -14862,9 +14874,19 @@
               "taskSkill": "statistics-3"
             },
             {
+              "unit": "H34",
+              "task": "H34-MAINT-STATISTICS-Q6",
+              "taskSkill": "statistics-1"
+            },
+            {
               "unit": "H38",
               "task": "H38-MAINT-STATISTICS-Q3",
               "taskSkill": "statistics-3"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-STATISTICS-Q6",
+              "taskSkill": "statistics-1"
             }
           ],
           "focus": {
@@ -14872,8 +14894,8 @@
             "en": "Residuals at original x,curvature and diagnostic limits"
           },
           "rationale": {
-            "zh": "两幅实际五ID散点及完整文字坐标要求亲生残差图，r=0、残差和0却SSE14/56及系统U形；原x不排序。另等可能抽ID给X=0/Y=0交集1/5非1/25，显式反驳r=0保证独立；小扇形只提示检查，不证明误差模型或外推。",
-            "en": "Actual five-ID scatter plots with complete textual coordinates require generating residual plots at original x. Zero r/residual sum coexist with SSE14/56 and U-shaped structure. An auxiliary uniform-ID draw has joint zero-events1/5 rather than1/25,explicitly refuting zero-correlation independence. A small fan is a diagnostic clue,not a certified error model or prediction guarantee."
+            "zh": "两幅实际五ID散点及完整文字坐标要求亲生残差图，r=0、残差和0却SSE14/56及系统U形；原x不排序。另等可能抽ID给X=0/Y=0交集1/5非1/25，显式反驳r=0保证独立；小扇形只提示检查，不证明误差模型或外推。 另各组Q6从完整五ID表重算含/暂排I5的均值、中心化和、r、OLS和SSE，并将四点线用于原I5；保留原记录，敏感性不当错误证明或删点许可。",
+            "en": "Actual five-ID scatter plots with complete textual coordinates require generating residual plots at original x. Zero r/residual sum coexist with SSE14/56 and U-shaped structure. An auxiliary uniform-ID draw has joint zero-events1/5 rather than1/25,explicitly refuting zero-correlation independence. A small fan is a diagnostic clue,not a certified error model or prediction guarantee. Each Q6 additionally rebuilds means, centred sums, r, OLS and SSE with all five original IDs versus a temporary I5-omitted branch, then applies the four-point line to original I5. Preserve source records; sensitivity is neither proof of error nor deletion authority."
           }
         }
       ],
@@ -15755,9 +15777,38 @@
         "H33-L01-Q6",
         "H33-L01-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-DISTRIBUTION-Q1"],
+        "H38": ["H38-MAINT-DISTRIBUTION-Q1"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "distribution-1",
+          "sourceLesson": "H33-L01",
+          "sourceTask": "H33-L01-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-DISTRIBUTION-Q1",
+              "taskSkill": "distribution-1"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-DISTRIBUTION-Q1",
+              "taskSkill": "distribution-1"
+            }
+          ],
+          "focus": {
+            "zh": "编号原像与合法质量",
+            "en": "ID preimages and legal mass"
+          },
+          "rationale": {
+            "zh": "完整原编号表先均匀抽ID再映射新X和绝对值Y；重复值对应的编号均保留，用原像概率相加，不按不同取值平分。反查负项/不全和、合法零行及支持，两个后续单元重新生成不同分布。",
+            "en": "Complete ID tables map uniform IDs to new X and absolute-value Y. Equal-valued IDs retain their masses;preimages merge instead of reweighting distinct values equally. Negative/incomplete masses,legal zero rows and support are checked in two later contexts."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "distribution-2",
@@ -15773,9 +15824,38 @@
         "H33-L02-Q6",
         "H33-L02-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-DISTRIBUTION-Q2"],
+        "H38": ["H38-MAINT-DISTRIBUTION-Q2"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "distribution-2",
+          "sourceLesson": "H33-L02",
+          "sourceTask": "H33-L02-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-DISTRIBUTION-Q2",
+              "taskSkill": "distribution-2"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-DISTRIBUTION-Q2",
+              "taskSkill": "distribution-2"
+            }
+          ],
+          "focus": {
+            "zh": "期望、非可取总和与无补偿",
+            "en": "Expectation,unattainable totals and no compensation"
+          },
+          "rationale": {
+            "zh": "两张新非等权偏移表求均值2/11⁄2、期望位置单点率0及仿射期望。十次期望20/55均不在该次总和支持；条件率2/3或3/4不因过去偏小改变，区分有限波动、线性与独立及种子复现。",
+            "en": "New unequal-weight offset laws give means two/11⁄2,zero mass at the expectation and affine expectations. Ten-draw expected totals twenty/fifty-five are unattainable in those runs. Conditional chances2/3,3/4 persist after small outcomes,distinguishing finite fluctuations,linearity,independence and seeded reproducibility."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "distribution-3",
@@ -15791,9 +15871,38 @@
         "H33-L03-Q6",
         "H33-L03-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-DISTRIBUTION-Q3"],
+        "H38": ["H38-MAINT-DISTRIBUTION-Q3"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "distribution-3",
+          "sourceLesson": "H33-L03",
+          "sourceTask": "H33-L03-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-DISTRIBUTION-Q3",
+              "taskSkill": "distribution-3"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-DISTRIBUTION-Q3",
+              "taskSkill": "distribution-3"
+            }
+          ],
+          "focus": {
+            "zh": "加权平方距离与负尺度",
+            "en": "Weighted squared distance and negative scales"
+          },
+          "rationale": {
+            "zh": "新方差8/27⁄4用两式核，负倍率使方差72/27、标准差6√2/3√3；中心化通式证a²与|a|，不是样本n−1。零倍率分布合法而z未定义，保cm²与cm。",
+            "en": "Variances eight/27⁄4 are checked by both formulas. Negative scales give variances seventy-two/twenty-seven and SDs6√2/3√3. The centred identity proves a² and |a|,without a sample n−1 divisor. Zero scaling leaves a valid constant law but undefined z;cm² and cm stay distinct."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "distribution-4",
@@ -15809,9 +15918,38 @@
         "H33-L04-Q6",
         "H33-L04-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-DISTRIBUTION-Q4"],
+        "H38": ["H38-MAINT-DISTRIBUTION-Q4"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "distribution-4",
+          "sourceLesson": "H33-L04",
+          "sourceTask": "H33-L04-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-DISTRIBUTION-Q4",
+              "taskSkill": "distribution-4"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-DISTRIBUTION-Q4",
+              "taskSkill": "distribution-4"
+            }
+          ],
+          "focus": {
+            "zh": "二项前提、序列因子与退化",
+            "en": "Binomial premises,ordered factors and degeneracy"
+          },
+          "rationale": {
+            "zh": "两新固定独立同p模型亲算恰k、补事件及两矩；有序互斥序列解释组合因子。另两袋不放回给1/15与1/10，反驳独立套式；异p、结果停、n0/p0/p1逐项核条件。",
+            "en": "New fixed independent common-p laws require exact-k,complements and moments,with disjoint ordered strings explaining the combination factor. Two without-replacement bags give1/15,1/10,refuting independent formulas. Unequal p,outcome-based stopping and n0/p0/p1 boundaries are audited."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "distribution-5",
@@ -15827,9 +15965,38 @@
         "H33-L05-Q6",
         "H33-L05-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-DISTRIBUTION-Q5"],
+        "H38": ["H38-MAINT-DISTRIBUTION-Q5"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "distribution-5",
+          "sourceLesson": "H33-L05",
+          "sourceTask": "H33-L05-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-DISTRIBUTION-Q5",
+              "taskSkill": "distribution-5"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-DISTRIBUTION-Q5",
+              "taskSkill": "distribution-5"
+            }
+          ],
+          "focus": {
+            "zh": "密度、全轴尾部与形状限制",
+            "en": "Density,whole-line tails and shape limits"
+          },
+          "rationale": {
+            "zh": "实际双正态图明确均值/方差参数，σ加倍峰减半而全实轴面积1；单点0、区间约0.6827及图外非零尾部。另四ID对称分布同均值和σ却闭一σ概率1、开区间0，不将对称/钟形外观或有限频率当正态证明。",
+            "en": "Actual two-normal plots state mean/variance parameters:double SD halves peaks while whole-line areas remain one. Point mass zero,approximate0.6827 intervals and nonzero off-window tails are distinguished. Symmetric four-ID laws have the same moments but closed one-SD probability one,open zero;appearance/frequency does not certify normality."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "distribution-6",
@@ -15845,9 +16012,38 @@
         "H33-L06-Q6",
         "H33-L06-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-DISTRIBUTION-Q6"],
+        "H38": ["H38-MAINT-DISTRIBUTION-Q6"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "distribution-6",
+          "sourceLesson": "H33-L06",
+          "sourceTask": "H33-L06-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-DISTRIBUTION-Q6",
+              "taskSkill": "distribution-6"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-DISTRIBUTION-Q6",
+              "taskSkill": "distribution-6"
+            }
+          ],
+          "focus": {
+            "zh": "左尾表、z参照与非正态反例",
+            "en": "Left-tail tables,z references and nonnormal counterexamples"
+          },
+          "rationale": {
+            "zh": "实际六位左尾表生成0.8664/0.9545区间及0.0228/0.0668右尾，保原界/z界和舍入顺序。另四ID上值z1而左尾1，不是Φ1；零σ不可除，不同测量目标不能仅以同z评优劣。",
+            "en": "Actual six-decimal left-tail tables yield intervals0.8664/0.9545 and right tails0.0228/0.0668,retaining original/z bounds and rounding order. Four-ID upper values have z1 but left-tail probability one,not Φ1. Zero SD precludes division;equal z alone cannot rank different measurement goals."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "stat-inference-1",
@@ -15863,9 +16059,38 @@
         "H34-L01-Q6",
         "H34-L01-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-INFERENCE-Q1"],
+        "H38": ["H38-MAINT-INFERENCE-Q1"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "stat-inference-1",
+          "sourceLesson": "H34-L01",
+          "sourceTask": "H34-L01-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-INFERENCE-Q1",
+              "taskSkill": "stat-inference-1"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INFERENCE-Q1",
+              "taskSkill": "stat-inference-1"
+            }
+          ],
+          "focus": {
+            "zh": "单次误差与设计偏差",
+            "en": "Realised errors and design bias"
+          },
+          "rationale": {
+            "zh": "两张实际完整六ID表，完整框的无放回均值无偏；受限ABCD框均值偏差−2或2 cm，仍可能抽CD恰零误差。框内普查不修遗漏，完整普查不自动修测量/缺失，入样率证明期望而非挑样本认证。",
+            "en": "Actual six-ID tables distinguish zero realised error from unbiasedness. Full-frame pair means are unbiased;ABCD-frame bias is−2 or two cm,yet CD can give zero error. A frame census retains omissions;even a complete census does not repair measurement/missingness. Inclusion probabilities prove expectation instead of choosing one lucky sample."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "stat-inference-2",
@@ -15881,9 +16106,38 @@
         "H34-L02-Q6",
         "H34-L02-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-INFERENCE-Q2"],
+        "H38": ["H38-MAINT-INFERENCE-Q2"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "stat-inference-2",
+          "sourceLesson": "H34-L02",
+          "sourceTask": "H34-L02-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-INFERENCE-Q2",
+              "taskSkill": "stat-inference-2"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INFERENCE-Q2",
+              "taskSkill": "stat-inference-2"
+            }
+          ],
+          "focus": {
+            "zh": "抽样分布与重复的边界",
+            "en": "Sampling laws and repetition limits"
+          },
+          "rationale": {
+            "zh": "两个新总体列全15对及同均值质量，原方差16、两人均值方差32/5、三人16/5、全体0，SE需取根。受限框方差4/3、相对全体MSE16/3，R不改偏差或理论离散分布，n和R作用分开。",
+            "en": "New populations require all fifteen ID pairs and merged mean masses. Original variance sixteen becomes32/5 for pair means,16/5 for triples,and zero for a full census;SE is its root. Restricted-frame variance4/3 and full-target MSE16/3 remain distinct. Repetitions alter neither bias nor the discrete theory;n and R play different roles."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "stat-inference-3",
@@ -15899,9 +16153,38 @@
         "H34-L03-Q6",
         "H34-L03-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-INFERENCE-Q3"],
+        "H38": ["H38-MAINT-INFERENCE-Q3"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "stat-inference-3",
+          "sourceLesson": "H34-L03",
+          "sourceTask": "H34-L03-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-INFERENCE-Q3",
+              "taskSkill": "stat-inference-3"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INFERENCE-Q3",
+              "taskSkill": "stat-inference-3"
+            }
+          ],
+          "focus": {
+            "zh": "区间条件与重复覆盖",
+            "en": "Interval assumptions and repeated coverage"
+          },
+          "rationale": {
+            "zh": "两新已知σ的IID正态模型重算SE、z2/1.96区间、四倍n宽减半；实际四构造均值图不泄区间，端点含真值的三行给3/4，明确非模拟/用户数据，不能替代名义覆盖或给固定μ赋后验率。",
+            "en": "New known-σ IID normal models regenerate SE,z2/1.96 intervals and width halving at fourfold n. Actual four-mean plots do not reveal intervals;three boundary-inclusive covers give3/4 in teaching constructions,explicitly not simulation/user data. This does not calibrate nominal coverage or give fixed μ a posterior probability."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "stat-inference-4",
@@ -15917,9 +16200,38 @@
         "H34-L04-Q6",
         "H34-L04-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-INFERENCE-Q4"],
+        "H38": ["H38-MAINT-INFERENCE-Q4"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "stat-inference-4",
+          "sourceLesson": "H34-L04",
+          "sourceTask": "H34-L04-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-INFERENCE-Q4",
+              "taskSkill": "stat-inference-4"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INFERENCE-Q4",
+              "taskSkill": "stat-inference-4"
+            }
+          ],
+          "focus": {
+            "zh": "预设极端、离散错误率与不拒绝",
+            "en": "Planned extremeness,discrete errors and nonrejection"
+          },
+          "rationale": {
+            "zh": "新5/6试验分别在α1/20或1/8核上侧和预设双侧，p1/32对1/16、7/64对7/32；实际错误率不机械等于α，双侧域可空。不拒绝不证无差异，等效须单独预设范围；换尾/窥看/多重选择保留条件。",
+            "en": "New five/six-trial null laws at α1/20 or1/8 compare planned upper/two-sided p values1/32 versus1/16,and7/64 versus7/32. Actual error need not equal α,and a discrete rejection set may be empty. Nonrejection does not prove no difference;equivalence needs a planned range. Tail switching,peeking and selection retain their limitations."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "stat-inference-5",
@@ -15935,9 +16247,38 @@
         "H34-L05-Q6",
         "H34-L05-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H35": ["H35-MAINT-INFERENCE-Q5"],
+        "H38": ["H38-MAINT-INFERENCE-Q5"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "stat-inference-5",
+          "sourceLesson": "H34-L05",
+          "sourceTask": "H34-L05-Q6",
+          "targets": [
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-INFERENCE-Q5",
+              "taskSkill": "stat-inference-5"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INFERENCE-Q5",
+              "taskSkill": "stat-inference-5"
+            }
+          ],
+          "focus": {
+            "zh": "实际目标、显著方向与设计",
+            "en": "Practical targets,significant direction and design"
+          },
+          "rationale": {
+            "zh": "两张四情境原效应/n表按σ8/6、阈值2/1分钟重算区间与p。同z5同p的A/C效应相差十倍且目标结论不同；B宽且不确定，D显著有害。抽样/分配的推论范围不互换，构造数据不认证真实研究或因果。",
+            "en": "Two actual four-case effect/n tables use σ8/six and target two/one minutes. Equal z5/p in A/C accompanies tenfold effects and different target conclusions. B remains uncertain;D is significantly harmful. Sampling and assignment support different inference scopes,and teaching constructions certify neither real research nor causation."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "advanced-equation-1",
@@ -15953,9 +16294,38 @@
         "H35-L01-Q6",
         "H35-L01-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H36": ["H36-MAINT-ADVANCED-EQUATION-Q1"],
+        "H38": ["H38-MAINT-ADVANCED-EQUATION-Q1"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "advanced-equation-1",
+          "sourceLesson": "H35-L01",
+          "sourceTask": "H35-L01-Q6",
+          "targets": [
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q1",
+              "taskSkill": "advanced-equation-1"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q1",
+              "taskSkill": "advanced-equation-1"
+            }
+          ],
+          "focus": {
+            "zh": "原复合域与分支逆序",
+            "en": "Original composite domains and inverse branch order"
+          },
+          "rationale": {
+            "zh": "新门槛u≥2/≤−2或u≥1/≤−1与平移复合，亲生原域、值域、两逆及双向验回；域外平方多项式值不补定义。全平方非单射、逆复合逆序、a0公共端点和倒数差异均实际要求。",
+            "en": "New thresholds u≥2/≤−2 or u≥1/≤−1 combined with shifts require original domains,ranges,both branch inverses and two-way checks. Polynomial extension values do not restore invalid inputs. Full-square noninjectivity,reverse undoing,a0 endpoints and reciprocal distinctions are required."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "advanced-equation-2",
@@ -15971,9 +16341,38 @@
         "H35-L02-Q6",
         "H35-L02-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H36": ["H36-MAINT-ADVANCED-EQUATION-Q2"],
+        "H38": ["H38-MAINT-ADVANCED-EQUATION-Q2"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "advanced-equation-2",
+          "sourceLesson": "H35-L02",
+          "sourceTask": "H35-L02-Q6",
+          "targets": [
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q2",
+              "taskSkill": "advanced-equation-2"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q2",
+              "taskSkill": "advanced-equation-2"
+            }
+          ],
+          "focus": {
+            "zh": "递减底的等价与原对数条件",
+            "en": "Decreasing-base equivalence and original log conditions"
+          },
+          "rationale": {
+            "zh": "两新半底对数和候选±6/±5仅留正支，分别回两原真数核。半底指数等式仍一对一，不等式翻向生成[3,∞)/(−∞,−2]；b1指数退化而log1未定义，非正底不获全实指数域。",
+            "en": "New half-base log sums have candidates±6/±5 but retain only positive branches after checking BOTH original arguments. Half-base exponent equality remains injective,while inequalities reverse to[3,∞)/(−∞,−2]. Base-one exponent degeneracy differs from undefined log base one;nonpositive bases gain no all-real exponent domain."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "advanced-equation-3",
@@ -15989,9 +16388,38 @@
         "H35-L03-Q6",
         "H35-L03-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H36": ["H36-MAINT-ADVANCED-EQUATION-Q3"],
+        "H38": ["H38-MAINT-ADVANCED-EQUATION-Q3"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "advanced-equation-3",
+          "sourceLesson": "H35-L03",
+          "sourceTask": "H35-L03-Q6",
+          "targets": [
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q3",
+              "taskSkill": "advanced-equation-3"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q3",
+              "taskSkill": "advanced-equation-3"
+            }
+          ],
+          "focus": {
+            "zh": "因式约分与全部周期孔",
+            "en": "Factor cancellation and all periodic holes"
+          },
+          "rationale": {
+            "zh": "新商式cos²/(1+sin)及给定二倍角后的(1−cos2θ)/sin，先因式证明再排−π/2+2kπ或kπ。延拓2/0不当原孔值，不能约加减项；有限试角和窗口不作恒等式证明。",
+            "en": "New quotients cos²/(1+sin) and the supplied double-angle(1−cos2θ)/sin require factor proofs before excluding−π/2+2kπ or kπ. Extension values two/zero are not original hole values. Additive-term cancellation and finite angle/window checks do not prove identities."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "advanced-equation-4",
@@ -16007,9 +16435,38 @@
         "H35-L04-Q6",
         "H35-L04-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H36": ["H36-MAINT-ADVANCED-EQUATION-Q4"],
+        "H38": ["H38-MAINT-ADVANCED-EQUATION-Q4"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "advanced-equation-4",
+          "sourceLesson": "H35-L04",
+          "sourceTask": "H35-L04-Q6",
+          "targets": [
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q4",
+              "taskSkill": "advanced-equation-4"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q4",
+              "taskSkill": "advanced-equation-4"
+            }
+          ],
+          "focus": {
+            "zh": "点身份、反射与零倍率的域",
+            "en": "Point identity,reflection and domains at zero scaling"
+          },
+          "rationale": {
+            "zh": "实际源抛物线及P/Q生成两新变换：目标(0,−5)/(2,−5)或(−6,8)/(2,8)，水平倍率1/2或2。偶对称使图集重合但点映射反转；一般内层原域不因a0恢复，1/u在b0为空域，在a0且b非零仍有孔。",
+            "en": "Actual SOURCE parabola and P/Q require new target points(0,−5)/(2,−5) or(−6,8)/(2,8),with horizontal factors1/2 or two. Even symmetry conceals pointwise reflection. The general inner-input domain is retained at a0:1/u with b0 has empty domain,and with a0/nonzero b still has its hole."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "advanced-equation-5",
@@ -16025,9 +16482,38 @@
         "H35-L05-Q6",
         "H35-L05-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H36": ["H36-MAINT-ADVANCED-EQUATION-Q5"],
+        "H38": ["H38-MAINT-ADVANCED-EQUATION-Q5"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "advanced-equation-5",
+          "sourceLesson": "H35-L05",
+          "sourceTask": "H35-L05-Q6",
+          "targets": [
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q5",
+              "taskSkill": "advanced-equation-5"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q5",
+              "taskSkill": "advanced-equation-5"
+            }
+          ],
+          "focus": {
+            "zh": "完备候选、增根与丢根",
+            "en": "Exhaustive candidates,extraneous and lost roots"
+          },
+          "rationale": {
+            "zh": "每单元四独立方程重建原域与候选；根式域内负候选失败、分式唯一候选落孔给合法空集，零乘积保0，绝对值两支齐全。以包含/等价推出完备而非只代回或看有限图窗。",
+            "en": "Four independent equations per unit rebuild original domains and candidate sets. Negative radical candidates fail within domain;the sole rational candidate is a hole,proving emptiness. Zero products preserve zero and absolute values retain both branches. Inclusion/equivalence proves completeness rather than substitution or finite plots alone."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "analytic-geometry-1",
@@ -16043,9 +16529,38 @@
         "H36-L01-Q6",
         "H36-L01-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H37": ["H37-MAINT-ANALYTIC-GEOMETRY-Q1"],
+        "H38": ["H38-MAINT-ANALYTIC-GEOMETRY-Q1"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "analytic-geometry-1",
+          "sourceLesson": "H36-L01",
+          "sourceTask": "H36-L01-Q6",
+          "targets": [
+            {
+              "unit": "H37",
+              "task": "H37-MAINT-ANALYTIC-GEOMETRY-Q1",
+              "taskSkill": "analytic-geometry-1"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ANALYTIC-GEOMETRY-Q1",
+              "taskSkill": "analytic-geometry-1"
+            }
+          ],
+          "focus": {
+            "zh": "完整交点与次数前提",
+            "en": "Complete intersections and degree premises"
+          },
+          "rationale": {
+            "zh": "两新非零方向参数先求t再还原完整点集(±8,6)/(±3,4)，精确回两式。圆竖切线重根与竖线抛物线一次单交点分开，渐近线代入常数矛盾，不把唯一点自动当切点或只交x根。",
+            "en": "New nonzero-direction parameters require full point sets(±8,6)/(±3,4) and original checks. Repeated circle roots differ from linear vertical-parabola singletons;asymptote substitution is a constant contradiction. A singleton does not automatically prove tangency,nor do x roots finish an intersection."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "analytic-geometry-2",
@@ -16061,9 +16576,38 @@
         "H36-L02-Q6",
         "H36-L02-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H37": ["H37-MAINT-ANALYTIC-GEOMETRY-Q2"],
+        "H38": ["H38-MAINT-ANALYTIC-GEOMETRY-Q2"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "analytic-geometry-2",
+          "sourceLesson": "H36-L02",
+          "sourceTask": "H36-L02-Q6",
+          "targets": [
+            {
+              "unit": "H37",
+              "task": "H37-MAINT-ANALYTIC-GEOMETRY-Q2",
+              "taskSkill": "analytic-geometry-2"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ANALYTIC-GEOMETRY-Q2",
+              "taskSkill": "analytic-geometry-2"
+            }
+          ],
+          "focus": {
+            "zh": "反构可达与半平面孔",
+            "en": "Inverse reachability,half-planes and holes"
+          },
+          "rationale": {
+            "zh": "平移固定端点的新中点轨迹分别上半圆心(2,1)半径3排(5,1)，或下半圆心(−1,2)半径2排(−3,2)。四候选逐一反构唯一P，保另一端点、极点与错误半平面，必要/充分均实际要求。",
+            "en": "Shifted midpoint loci are upper circle centre(2,1),radius three,excluding(5,1),or lower circle centre(−1,2),radius two,excluding(−3,2). Four candidates reconstruct unique sources,distinguishing retained endpoints/poles from holes and wrong half-planes. Necessity and sufficiency are both required."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "analytic-geometry-3",
@@ -16079,9 +16623,38 @@
         "H36-L03-Q6",
         "H36-L03-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H37": ["H37-MAINT-ANALYTIC-GEOMETRY-Q3"],
+        "H38": ["H38-MAINT-ANALYTIC-GEOMETRY-Q3"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "analytic-geometry-3",
+          "sourceLesson": "H36-L03",
+          "sourceTask": "H36-L03-Q6",
+          "targets": [
+            {
+              "unit": "H37",
+              "task": "H37-MAINT-ANALYTIC-GEOMETRY-Q3",
+              "taskSkill": "analytic-geometry-3"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ANALYTIC-GEOMETRY-Q3",
+              "taskSkill": "analytic-geometry-3"
+            }
+          ],
+          "focus": {
+            "zh": "参数像、漏点及非时间",
+            "en": "Parameter images,omissions and no automatic clock"
+          },
+          "rationale": {
+            "zh": "半径6/4的新有理参数在全有限R漏E，反解证明其余全可达。新限制[−1,1]/有限[1,∞)重建不同完整圆弧及端点；三点精确弦长反匀速，导数模2r/(1+t²)也非常数，极限不当有限取值。",
+            "en": "New radius-six/four rational maps omit E for all finite parameters,and inverse reconstruction covers every other point. Restrictions[−1,1]/finite[1,∞) give different complete arcs/endpoints. Exact three-point chords refute uniform motion;derivative magnitude2r/(1+t²) is not constant. A limit is not a finite value."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "analytic-geometry-4",
@@ -16097,9 +16670,38 @@
         "H36-L04-Q6",
         "H36-L04-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H37": ["H37-MAINT-ANALYTIC-GEOMETRY-Q4"],
+        "H38": ["H38-MAINT-ANALYTIC-GEOMETRY-Q4"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "analytic-geometry-4",
+          "sourceLesson": "H36-L04",
+          "sourceTask": "H36-L04-Q6",
+          "targets": [
+            {
+              "unit": "H37",
+              "task": "H37-MAINT-ANALYTIC-GEOMETRY-Q4",
+              "taskSkill": "analytic-geometry-4"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ANALYTIC-GEOMETRY-Q4",
+              "taskSkill": "analytic-geometry-4"
+            }
+          ],
+          "focus": {
+            "zh": "零向量、共线与双向圆周角",
+            "en": "Zero vectors,collinearity and two-way diameter angles"
+          },
+          "rationale": {
+            "zh": "新平移直径端点给点积(x−1)²+(y+2)²−25或(x+2)²+(y−1)²−16，轨迹排A/B。实际源AB/P/C图不泄圆；P/C/Q/T分核普通钝/平/普通锐/零角，点积0与零向量无定义不可混。",
+            "en": "Translated diameter endpoints give dots(x−1)²+(y+2)²−25 or(x+2)²+(y−1)²−16,excluding A/B from the locus. Actual given AB/P/C plots do not reveal the circle. P/C/Q/T separately give obtuse/straight/acute/zero angles;zero-dot endpoint vectors leave angles undefined."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "analytic-geometry-5",
@@ -16115,9 +16717,38 @@
         "H36-L05-Q6",
         "H36-L05-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "H37": ["H37-MAINT-ANALYTIC-GEOMETRY-Q5"],
+        "H38": ["H38-MAINT-ANALYTIC-GEOMETRY-Q5"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "analytic-geometry-5",
+          "sourceLesson": "H36-L05",
+          "sourceTask": "H36-L05-Q6",
+          "targets": [
+            {
+              "unit": "H37",
+              "task": "H37-MAINT-ANALYTIC-GEOMETRY-Q5",
+              "taskSkill": "analytic-geometry-5"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ANALYTIC-GEOMETRY-Q5",
+              "taskSkill": "analytic-geometry-5"
+            }
+          ],
+          "focus": {
+            "zh": "全通道净高与坐标模型",
+            "en": "Whole-passage clearance and coordinate models"
+          },
+          "rationale": {
+            "zh": "新10×5与8×4半轴上屋顶，在两净高算完整区间/两边界/总宽；偏心1的通道即使总宽相等、中心足够，高净高仍失败。一般闭区间全包含证明、H0/顶点零宽/超高空集、上下半与模型限度均保留。",
+            "en": "Upper roofs with semiaxes10×5 and8×4 require full intervals,both boundaries and full widths at two clearances. Off-centre-one passages fail at the higher clearance despite matching total width and adequate central height. Whole-interval containment,H0/apex zero-width/above-roof emptiness,upper-section restrictions and model limits remain explicit."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "extension-1",
@@ -16133,9 +16764,38 @@
         "H37-L01-Q6",
         "H37-L01-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-EXTENSION-Q1"],
+        "R02": ["R02-MAINT-EXTENSION-Q1"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "extension-1",
+          "sourceLesson": "H37-L01",
+          "sourceTask": "H37-L01-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-EXTENSION-Q1",
+              "taskSkill": "extension-1"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-EXTENSION-Q1",
+              "taskSkill": "extension-1"
+            }
+          ],
+          "focus": {
+            "zh": "归纳基例与任意传递",
+            "en": "Induction bases and arbitrary steps"
+          },
+          "rationale": {
+            "zh": "新偶数和/步长5数列和给完整归纳，临时假设用于条件句而非全称；只传递、只基例、有限100次和跳2漏偶数分别反驳。",
+            "en": "New even-number/arithmetic sums require full induction. Temporary hypotheses prove conditionals,not the universal claim. Step-only,base-only,one hundred trials and jump-two omission are separately challenged."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "extension-2",
@@ -16151,9 +16811,38 @@
         "H37-L02-Q6",
         "H37-L02-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-EXTENSION-Q2"],
+        "R02": ["R02-MAINT-EXTENSION-Q2"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "extension-2",
+          "sourceLesson": "H37-L02",
+          "sourceTask": "H37-L02-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-EXTENSION-Q2",
+              "taskSkill": "extension-2"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-EXTENSION-Q2",
+              "taskSkill": "extension-2"
+            }
+          ],
+          "focus": {
+            "zh": "规则、初值与零索引",
+            "en": "Rules,seeds and zero indexing"
+          },
+          "rationale": {
+            "zh": "新3u+2与2u−3规则重建通项、基例和任意k，给相同五项但第六项差120的未声明规则反例；两个不同第二初值证明二阶资料不足，不冒称同一完整规则多解。",
+            "en": "New3u+2 and2u−3 rules regenerate closed forms,bases and arbitrary steps. An undeclared-rule prefix counterexample differs by120 at its sixth term. Different second seeds prove second-order underdetermination,without claiming ambiguity for a fully specified rule."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "extension-3",
@@ -16169,9 +16858,38 @@
         "H37-L03-Q6",
         "H37-L03-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-EXTENSION-Q3"],
+        "R02": ["R02-MAINT-EXTENSION-Q3"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "extension-3",
+          "sourceLesson": "H37-L03",
+          "sourceTask": "H37-L03-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-EXTENSION-Q3",
+              "taskSkill": "extension-3"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-EXTENSION-Q3",
+              "taskSkill": "extension-3"
+            }
+          ],
+          "focus": {
+            "zh": "全局暂定距离与简单路",
+            "en": "Global tentative labels and simple paths"
+          },
+          "rationale": {
+            "zh": "两张完整有向边表分别列全部两条/四条最优简单路，保零边、孤立点与箭头。第二图零环给无限最优游走而非无限简单路；全局最小非局部便宜，非负证明及负边局限齐全。",
+            "en": "Complete directed tables require all two/four optimal simple paths,retaining zero weights,isolated nodes and direction. The second zero cycle yields infinitely many optimal walks,not simple paths. Global-label versus local-edge choice and nonnegative-premise proofs remain explicit."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "extension-4",
@@ -16187,9 +16905,38 @@
         "H37-L04-Q6",
         "H37-L04-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-EXTENSION-Q4"],
+        "R02": ["R02-MAINT-EXTENSION-Q4"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "extension-4",
+          "sourceLesson": "H37-L04",
+          "sourceTask": "H37-L04-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-EXTENSION-Q4",
+              "taskSkill": "extension-4"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-EXTENSION-Q4",
+              "taskSkill": "extension-4"
+            }
+          ],
+          "focus": {
+            "zh": "基像、复合与不可逆",
+            "en": "Basis images,composition and noninvertibility"
+          },
+          "rationale": {
+            "zh": "两组新矩阵从列生成AB/BA及检验向量，两侧验逆；不同压缩给两个同像原向量与det0。一般线性组合解释基像充分，固定平移反例保线性前提。",
+            "en": "New matrices regenerate AB/BA,probe images and two-sided inverses. Distinct collapses exhibit two preimages and determinant zero. General linear combinations justify basis sufficiency;fixed translations preserve the linearity caveat."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "extension-5",
@@ -16205,9 +16952,38 @@
         "H37-L05-Q6",
         "H37-L05-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-EXTENSION-Q5"],
+        "R02": ["R02-MAINT-EXTENSION-Q5"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "extension-5",
+          "sourceLesson": "H37-L05",
+          "sourceTask": "H37-L05-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-EXTENSION-Q5",
+              "taskSkill": "extension-5"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-EXTENSION-Q5",
+              "taskSkill": "extension-5"
+            }
+          ],
+          "focus": {
+            "zh": "包围不变量、试点与残差",
+            "en": "Bracket invariants,trials and residuals"
+          },
+          "rationale": {
+            "zh": "平方根3/立方根2独立二分三次，当前中点27/16或21/16与末试点分开。连续根包围给1/16误差界，异号断点/同号偶根/精确端点与多根另核，缩放残差不缩横误差。",
+            "en": "Three new bisections for sqrt3/cuberoot2 distinguish current midpoints27/16 or21/16 from last trials. Continuous brackets give1/16 bounds. Discontinuous sign changes,even roots,exact endpoints,multiple roots and rescaled residuals retain their distinct roles."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "capstone-1",
@@ -16223,9 +16999,38 @@
         "H38-L01-Q6",
         "H38-L01-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-PROJECT-Q1"],
+        "R02": ["R02-MAINT-PROJECT-Q1"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "capstone-1",
+          "sourceLesson": "H38-L01",
+          "sourceTask": "H38-L01-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-PROJECT-Q1",
+              "taskSkill": "capstone-1"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-PROJECT-Q1",
+              "taskSkill": "capstone-1"
+            }
+          ],
+          "focus": {
+            "zh": "有序水量与守恒",
+            "en": "Ordered water balance and conservation"
+          },
+          "rationale": {
+            "zh": "两新面积/效率与五日表生成七列全账本，容量36/40的第三日缺18/20而总量有余。单位换算、溢流离开、实际供水与非负存量保留，守恒独立核。",
+            "en": "New area/efficiency and five-day tables require seven-column ledgers. Capacities36/40 miss18/20 on day three despite excess totals. Unit conversion,departed overflow,actual service,nonnegative storage and independent balance checks are retained."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "capstone-2",
@@ -16241,9 +17046,38 @@
         "H38-L02-Q6",
         "H38-L02-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-PROJECT-Q2"],
+        "R02": ["R02-MAINT-PROJECT-Q2"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "capstone-2",
+          "sourceLesson": "H38-L02",
+          "sourceTask": "H38-L02-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-PROJECT-Q2",
+              "taskSkill": "capstone-2"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-PROJECT-Q2",
+              "taskSkill": "capstone-2"
+            }
+          ],
+          "focus": {
+            "zh": "开发数据与冻结后验证",
+            "en": "Development data and post-freeze validation"
+          },
+          "rationale": {
+            "zh": "两张三批七行表逐点核实测减预测及含等号容差；B启发改模后不再独立，冻结后C在一组全通过另一组含失败，均不证明全域或溢流因果；再改仍需新数据。",
+            "en": "Seven-row three-batch tables require pointwise observed-minus-predicted residuals and inclusive tolerances. B used in revision is no longer independent. Post-freeze C passes both in one case and includes failure in the other;neither proves universal truth or overflow causation. Further revision needs new data."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "capstone-3",
@@ -16259,9 +17093,38 @@
         "H38-L03-Q6",
         "H38-L03-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-PROJECT-Q3"],
+        "R02": ["R02-MAINT-PROJECT-Q3"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "capstone-3",
+          "sourceLesson": "H38-L03",
+          "sourceTask": "H38-L03-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-PROJECT-Q3",
+              "taskSkill": "capstone-3"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-PROJECT-Q3",
+              "taskSkill": "capstone-3"
+            }
+          ],
+          "focus": {
+            "zh": "公平调用、单调与预算窗口",
+            "en": "Fair calls,monotonicity and budget windows"
+          },
+          "rationale": {
+            "zh": "新供水阈值54/60，在0..100/127按同缓存规则含上界预检，扫描56/62调对二分8调；一般存水归纳证供水单调，预算使联合窗口54..60/60..65，盲预检会误报空集。",
+            "en": "New supply thresholds54/60 on0..100/127 use equal caching rules INCLUDING upper prechecks:scan56/62 versus binary eight calls. Storage induction proves supply monotonicity;budget creates54..60/60..65 windows,where blind upper prechecks would falsely report emptiness."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "capstone-4",
@@ -16277,9 +17140,38 @@
         "H38-L04-Q6",
         "H38-L04-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-PROJECT-Q4"],
+        "R02": ["R02-MAINT-PROJECT-Q4"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "capstone-4",
+          "sourceLesson": "H38-L04",
+          "sourceTask": "H38-L04-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-PROJECT-Q4",
+              "taskSkill": "capstone-4"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-PROJECT-Q4",
+              "taskSkill": "capstone-4"
+            }
+          ],
+          "focus": {
+            "zh": "必要下界与可行充分",
+            "en": "Necessary bounds and sufficient ledgers"
+          },
+          "rationale": {
+            "zh": "新三日无补给前缀给所有整数容量下界54/60，再完整五日账本证该候选可行，小1升缺1交叉核。较大可行不等最优，比较域与固定天气范围写全。",
+            "en": "New three-day prefixes give bounds54/60 for ALL integer capacities;complete ledgers prove those candidates feasible and one-litre-smaller misses one. Larger feasibility differs from optimality;objective/domain and fixed-weather scope remain explicit."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     },
     {
       "skill": "capstone-5",
@@ -16295,9 +17187,38 @@
         "H38-L05-Q6",
         "H38-L05-X"
       ],
-      "laterExactTagCandidates": {},
-      "reviewedEvidence": [],
-      "status": "semantic-review-pending"
+      "laterExactTagCandidates": {
+        "R01": ["R01-MAINT-PROJECT-Q5"],
+        "R02": ["R02-MAINT-PROJECT-Q5"]
+      },
+      "reviewedEvidence": [
+        {
+          "skill": "capstone-5",
+          "sourceLesson": "H38-L05",
+          "sourceTask": "H38-L05-Q6",
+          "targets": [
+            {
+              "unit": "R01",
+              "task": "R01-MAINT-PROJECT-Q5",
+              "taskSkill": "capstone-5"
+            },
+            {
+              "unit": "R02",
+              "task": "R02-MAINT-PROJECT-Q5",
+              "taskSkill": "capstone-5"
+            }
+          ],
+          "focus": {
+            "zh": "目录交集、成本与压力",
+            "en": "Catalogue intersections,costs and stress"
+          },
+          "rationale": {
+            "zh": "新完整目录与两预算列全名义/高用量交集和最低价；长干期前缀至少缺18/20使任何大空箱无解。情景改变不同于原运算错，新增证据后重建与独立验证保留。",
+            "en": "New full catalogues and two budgets require nominal/high-use intersections and least costs. Dry prefixes miss at least18/20 for ANY initially empty tank. Changed scenarios differ from bad arithmetic,and rebuilding after new evidence still requires independent validation."
+          }
+        }
+      ],
+      "status": "reviewed-content-evidence"
     }
   ]
 }

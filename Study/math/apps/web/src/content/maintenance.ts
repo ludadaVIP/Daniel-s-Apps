@@ -71,6 +71,18 @@ import { optimisationRecurrenceRetrieval } from './optimisationRecurrenceRetriev
 import { optimisationRecurrenceEvidence } from './optimisationRecurrenceEvidence';
 import { calculusIntegralRetrieval } from './calculusIntegralRetrieval';
 import { calculusIntegralRecurrence } from './calculusIntegralRecurrence';
+import { distributionRecurrenceRetrieval } from './distributionRecurrenceRetrieval';
+import { distributionRecurrenceEvidence } from './distributionRecurrenceEvidence';
+import { inferenceRecurrenceRetrieval } from './inferenceRecurrenceRetrieval';
+import { inferenceRecurrenceEvidence } from './inferenceRecurrenceEvidence';
+import { advancedEquationRecurrenceRetrieval } from './advancedEquationRecurrenceRetrieval';
+import { advancedEquationRecurrenceEvidence } from './advancedEquationRecurrenceEvidence';
+import { analyticGeometryRecurrenceRetrieval } from './analyticGeometryRecurrenceRetrieval';
+import { analyticGeometryRecurrenceEvidence } from './analyticGeometryRecurrenceEvidence';
+import { postRouteExtensionRetrieval } from './postRouteExtensionRetrieval';
+import { postRouteCapstoneRetrieval } from './postRouteCapstoneRetrieval';
+import { postRouteRecurrenceEvidence } from './postRouteRecurrenceEvidence';
+import { assertMaintenanceOwners } from './retrievalUnits';
 
 export type MaintenanceSet = {
   id: string;
@@ -142,6 +154,12 @@ export const maintenanceSets = {
   ...representationRetrieval,
   ...optimisationRecurrenceRetrieval,
   ...calculusIntegralRetrieval,
+  ...distributionRecurrenceRetrieval,
+  ...inferenceRecurrenceRetrieval,
+  ...advancedEquationRecurrenceRetrieval,
+  ...analyticGeometryRecurrenceRetrieval,
+  ...postRouteExtensionRetrieval,
+  ...postRouteCapstoneRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',
@@ -411,6 +429,8 @@ export const maintenanceSets = {
 };
 
 export type MaintenanceUnit = keyof typeof maintenanceSets;
+assertMaintenanceOwners(Object.values(maintenanceSets));
+
 export const maintenanceForUnit = (
   unit: string | undefined,
 ): MaintenanceSet[] =>
@@ -460,6 +480,11 @@ export const recurrenceEvidence = [
   ...problemSolvingRecurrence,
   ...optimisationRecurrenceEvidence,
   ...calculusIntegralRecurrence,
+  ...distributionRecurrenceEvidence,
+  ...inferenceRecurrenceEvidence,
+  ...advancedEquationRecurrenceEvidence,
+  ...analyticGeometryRecurrenceEvidence,
+  ...postRouteRecurrenceEvidence,
   {
     skill: 'whole-number-reading',
     focus: t('大数读写', 'Reading and writing larger numbers'),
