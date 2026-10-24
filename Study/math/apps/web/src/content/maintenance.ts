@@ -1,5 +1,98 @@
 import { t, type Question } from '../model';
 import { numeric, reasoning } from './builders';
+import { foundationRetrieval } from './foundationRetrieval';
+import { foundationRecurrence } from './foundationRecurrence';
+import { numberTheoryRetrieval } from './numberTheoryRetrieval';
+import { primaryRecurrence } from './primaryRecurrence';
+import { earlyAlgebraRecurrence } from './earlyAlgebraRecurrence';
+import { fractionRetrieval } from './fractionRetrieval';
+import { fractionRecurrence } from './fractionRecurrence';
+import { geometryDataRetrieval } from './geometryDataRetrieval';
+import { geometryDataRecurrence } from './geometryDataRecurrence';
+import { fractionOperationsRetrieval } from './fractionOperationsRetrieval';
+import { fractionOperationsRecurrence } from './fractionOperationsRecurrence';
+import { percentRetrieval } from './percentRetrieval';
+import { percentRecurrence } from './percentRecurrence';
+import { relationsRetrieval } from './relationsRetrieval';
+import { relationsRecurrence } from './relationsRecurrence';
+import { primaryCapstoneRetrieval } from './primaryCapstoneRetrieval';
+import { primaryCapstoneRecurrence } from './primaryCapstoneRecurrence';
+import { coreAlgebraRetrieval } from './coreAlgebraRetrieval';
+import { coreAlgebraRecurrence } from './coreAlgebraRecurrence';
+import { geometryGraphRetrieval } from './geometryGraphRetrieval';
+import { geometryGraphRecurrence } from './geometryGraphRecurrence';
+import { polynomialSystemRetrieval } from './polynomialSystemRetrieval';
+import { polynomialSystemRecurrence } from './polynomialSystemRecurrence';
+import { inequalityFunctionRetrieval } from './inequalityFunctionRetrieval';
+import { inequalityFunctionRecurrence } from './inequalityFunctionRecurrence';
+import { congruenceMotionRetrieval } from './congruenceMotionRetrieval';
+import { congruenceMotionRecurrence } from './congruenceMotionRecurrence';
+import { dataEnquiryRetrieval } from './dataEnquiryRetrieval';
+import { dataEnquiryRecurrence } from './dataEnquiryRecurrence';
+import { rootQuadraticRetrieval } from './rootQuadraticRetrieval';
+import { rootQuadraticRecurrence } from './rootQuadraticRecurrence';
+import { probabilityProcessRetrieval } from './probabilityProcessRetrieval';
+import { probabilityProcessRecurrence } from './probabilityProcessRecurrence';
+import { similarityCircleTrigRetrieval } from './similarityCircleTrigRetrieval';
+import { similarityCircleTrigRecurrence } from './similarityCircleTrigRecurrence';
+import { integrationAuditRetrieval } from './integrationAuditRetrieval';
+import { integrationAuditRecurrence } from './integrationAuditRecurrence';
+import { logicFunctionRetrieval } from './logicFunctionRetrieval';
+import { logicFunctionRecurrence } from './logicFunctionRecurrence';
+import { exponentialLogRetrieval } from './exponentialLogRetrieval';
+import { exponentialLogRecurrence } from './exponentialLogRecurrence';
+import { circularRecurrenceRetrieval } from './circularRecurrenceRetrieval';
+import { circularRecurrenceEvidence } from './circularRecurrenceEvidence';
+import { vectorLanguageRetrieval } from './vectorLanguageRetrieval';
+import { vectorLanguageRecurrence } from './vectorLanguageRecurrence';
+import { spatialStructureRetrieval } from './spatialStructureRetrieval';
+import { spatialStructureRecurrence } from './spatialStructureRecurrence';
+import { sequenceRecurrenceRetrieval } from './sequenceRecurrenceRetrieval';
+import { sequenceRecurrenceEvidence } from './sequenceRecurrenceEvidence';
+import { dataLanguageRetrieval } from './dataLanguageRetrieval';
+import { dataLanguageRecurrence } from './dataLanguageRecurrence';
+import { complexRecurrenceRetrieval } from './complexRecurrenceRetrieval';
+import { complexRecurrenceEvidence } from './complexRecurrenceEvidence';
+import { conicDefinitionRetrieval } from './conicDefinitionRetrieval';
+import { conicDefinitionRecurrence } from './conicDefinitionRecurrence';
+import { spaceVectorRetrieval } from './spaceVectorRetrieval';
+import { spaceVectorRecurrence } from './spaceVectorRecurrence';
+import { countingStructureRetrieval } from './countingStructureRetrieval';
+import { countingStructureRecurrence } from './countingStructureRecurrence';
+import { derivativeMeaningRetrieval } from './derivativeMeaningRetrieval';
+import { derivativeMeaningRecurrence } from './derivativeMeaningRecurrence';
+import { functionAnalysisRetrieval } from './functionAnalysisRetrieval';
+import { functionAnalysisRecurrence } from './functionAnalysisRecurrence';
+import { statisticsRetrieval } from './statisticsRetrieval';
+import { statisticsRecurrence } from './statisticsRecurrence';
+import { representationRetrieval } from './representationRetrieval';
+import { problemSolvingRecurrence } from './problemSolvingRecurrence';
+import { optimisationRecurrenceRetrieval } from './optimisationRecurrenceRetrieval';
+import { optimisationRecurrenceEvidence } from './optimisationRecurrenceEvidence';
+import { calculusIntegralRetrieval } from './calculusIntegralRetrieval';
+import { calculusIntegralRecurrence } from './calculusIntegralRecurrence';
+import { distributionRecurrenceRetrieval } from './distributionRecurrenceRetrieval';
+import { distributionRecurrenceEvidence } from './distributionRecurrenceEvidence';
+import { inferenceRecurrenceRetrieval } from './inferenceRecurrenceRetrieval';
+import { inferenceRecurrenceEvidence } from './inferenceRecurrenceEvidence';
+import { advancedEquationRecurrenceRetrieval } from './advancedEquationRecurrenceRetrieval';
+import { advancedEquationRecurrenceEvidence } from './advancedEquationRecurrenceEvidence';
+import { analyticGeometryRecurrenceRetrieval } from './analyticGeometryRecurrenceRetrieval';
+import { analyticGeometryRecurrenceEvidence } from './analyticGeometryRecurrenceEvidence';
+import { postRouteExtensionRetrieval } from './postRouteExtensionRetrieval';
+import { postRouteCapstoneRetrieval } from './postRouteCapstoneRetrieval';
+import { postRouteRecurrenceEvidence } from './postRouteRecurrenceEvidence';
+import { assertMaintenanceOwners } from './retrievalUnits';
+
+export type MaintenanceSet = {
+  id: string;
+  unit: string;
+  title: ReturnType<typeof t>;
+  bridge: string;
+  intro?: ReturnType<typeof t>;
+  bridgeByQuestion?: Record<string, string>;
+  questions: Question[];
+};
 
 // These are later-unit retrieval tasks, separate from both the unit check and
 // the originating lesson's parameterised SRS. Keep all record IDs stable.
@@ -26,6 +119,47 @@ const numberTask = (
   );
 
 export const maintenanceSets = {
+  ...foundationRetrieval,
+  ...numberTheoryRetrieval,
+  ...fractionRetrieval,
+  ...geometryDataRetrieval,
+  ...fractionOperationsRetrieval,
+  ...percentRetrieval,
+  ...relationsRetrieval,
+  ...primaryCapstoneRetrieval,
+  ...coreAlgebraRetrieval,
+  ...geometryGraphRetrieval,
+  ...polynomialSystemRetrieval,
+  ...inequalityFunctionRetrieval,
+  ...congruenceMotionRetrieval,
+  ...dataEnquiryRetrieval,
+  ...rootQuadraticRetrieval,
+  ...probabilityProcessRetrieval,
+  ...similarityCircleTrigRetrieval,
+  ...integrationAuditRetrieval,
+  ...logicFunctionRetrieval,
+  ...exponentialLogRetrieval,
+  ...circularRecurrenceRetrieval,
+  ...vectorLanguageRetrieval,
+  ...spatialStructureRetrieval,
+  ...sequenceRecurrenceRetrieval,
+  ...dataLanguageRetrieval,
+  ...complexRecurrenceRetrieval,
+  ...conicDefinitionRetrieval,
+  ...spaceVectorRetrieval,
+  ...countingStructureRetrieval,
+  ...derivativeMeaningRetrieval,
+  ...functionAnalysisRetrieval,
+  ...statisticsRetrieval,
+  ...representationRetrieval,
+  ...optimisationRecurrenceRetrieval,
+  ...calculusIntegralRetrieval,
+  ...distributionRecurrenceRetrieval,
+  ...inferenceRecurrenceRetrieval,
+  ...advancedEquationRecurrenceRetrieval,
+  ...analyticGeometryRecurrenceRetrieval,
+  ...postRouteExtensionRetrieval,
+  ...postRouteCapstoneRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',
@@ -295,7 +429,62 @@ export const maintenanceSets = {
 };
 
 export type MaintenanceUnit = keyof typeof maintenanceSets;
+assertMaintenanceOwners(Object.values(maintenanceSets));
+
+export const maintenanceForUnit = (
+  unit: string | undefined,
+): MaintenanceSet[] =>
+  Object.values(maintenanceSets).filter((set) => set.unit === unit);
+
+export function maintenanceHref(set: MaintenanceSet, question?: string) {
+  const params = new URLSearchParams();
+  if (maintenanceForUnit(set.unit)[0]?.id !== set.id) params.set('set', set.id);
+  if (question) params.set('question', question);
+  const query = params.toString();
+  return `/math/unit/${set.unit}/maintenance${query ? `?${query}` : ''}`;
+}
 export const recurrenceEvidence = [
+  ...foundationRecurrence,
+  ...primaryRecurrence,
+  ...earlyAlgebraRecurrence,
+  ...fractionRecurrence,
+  ...geometryDataRecurrence,
+  ...fractionOperationsRecurrence,
+  ...percentRecurrence,
+  ...relationsRecurrence,
+  ...primaryCapstoneRecurrence,
+  ...coreAlgebraRecurrence,
+  ...geometryGraphRecurrence,
+  ...polynomialSystemRecurrence,
+  ...inequalityFunctionRecurrence,
+  ...congruenceMotionRecurrence,
+  ...dataEnquiryRecurrence,
+  ...rootQuadraticRecurrence,
+  ...probabilityProcessRecurrence,
+  ...similarityCircleTrigRecurrence,
+  ...integrationAuditRecurrence,
+  ...logicFunctionRecurrence,
+  ...exponentialLogRecurrence,
+  ...circularRecurrenceEvidence,
+  ...vectorLanguageRecurrence,
+  ...spatialStructureRecurrence,
+  ...sequenceRecurrenceEvidence,
+  ...dataLanguageRecurrence,
+  ...complexRecurrenceEvidence,
+  ...conicDefinitionRecurrence,
+  ...spaceVectorRecurrence,
+  ...countingStructureRecurrence,
+  ...derivativeMeaningRecurrence,
+  ...functionAnalysisRecurrence,
+  ...statisticsRecurrence,
+  ...problemSolvingRecurrence,
+  ...optimisationRecurrenceEvidence,
+  ...calculusIntegralRecurrence,
+  ...distributionRecurrenceEvidence,
+  ...inferenceRecurrenceEvidence,
+  ...advancedEquationRecurrenceEvidence,
+  ...analyticGeometryRecurrenceEvidence,
+  ...postRouteRecurrenceEvidence,
   {
     skill: 'whole-number-reading',
     focus: t('大数读写', 'Reading and writing larger numbers'),

@@ -1,3 +1,4 @@
+import { PostRouteEntry } from './PostRoute';
 import { Link } from 'react-router-dom';
 import { lessons, lessonById, openUnits, unitChecks } from './content';
 import { reviewQueue } from './progress';
@@ -647,6 +648,7 @@ export function Home({ mode, store }: Props) {
           <LessonCards mode={mode} store={store} unitId={unit.id} />
         </section>
       ))}
+      <PostRouteEntry mode={mode} />
       <div className="math-bottom-note">
         <span>✦</span>
         <Text

@@ -588,6 +588,11 @@ export type Question = {
   answerChecks?: { accepted: string[]; rejected: string[] };
   misconceptionTags?: string[];
   diagram?: NumberDiagram;
+  contextTable?: {
+    caption: LocalizedText;
+    columns: LocalizedText[];
+    rows: LocalizedText[][];
+  };
   answer: AnswerSpec;
   options?: { id: string; text: LocalizedText; feedback: LocalizedText }[];
   hints: LocalizedText[];
@@ -1406,7 +1411,10 @@ export function isProgress(value: unknown): value is Progress {
         (s.practiceIndex === undefined ||
           (Number.isInteger(s.practiceIndex) &&
             s.practiceIndex >= 0 &&
-            s.practiceIndex < 8)) &&
+            // Sessions also store unit reviews and retrieval sets (up to ten
+            // tasks), not only lesson practices (up to eight). Each view clamps
+            // the restored index to its own current question count.
+            s.practiceIndex < 10)) &&
         record(s.answers) &&
         typeof s.explanation === 'string' &&
         typeof s.parentChecked === 'boolean' &&

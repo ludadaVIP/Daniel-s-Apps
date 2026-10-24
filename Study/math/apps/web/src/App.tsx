@@ -25,6 +25,7 @@ import { Diagnostic } from './Diagnostic';
 import { Review } from './Review';
 import { Parent } from './Parent';
 import { UnitCheck } from './UnitCheck';
+import { PostRoutePage } from './PostRoute';
 export function App() {
   const [mode, setMode] = useLanguageMode(),
     store = useProgress(),
@@ -64,7 +65,9 @@ export function App() {
   }));
   const title =
     nav.find((n) => n[0] === location.pathname)?.[2] ??
-    t('课程学习', 'Lesson workspace');
+    (location.pathname === '/math/retrieval'
+      ? t('终章后续维护', 'After the capstone')
+      : t('课程学习', 'Lesson workspace'));
   return (
     <div className="math-app study-learning-app">
       <StudyShell
@@ -146,6 +149,10 @@ export function App() {
         <main className="math-main">
           <Routes>
             <Route index element={<Home mode={mode} store={store} />} />
+            <Route
+              path="retrieval"
+              element={<PostRoutePage mode={mode} store={store} />}
+            />
             <Route
               path="path"
               element={<PathPage mode={mode} store={store} />}

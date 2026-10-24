@@ -3,12 +3,16 @@ import { curriculum, lessons, unitChecks } from './content';
 import { maintenanceSets, recurrenceEvidence } from './content/maintenance';
 import { checkAnswer } from './model';
 
+const b01Sets = Object.values(maintenanceSets).filter((set) =>
+  set.id.endsWith('MAINT-B01'),
+);
+
 describe('explicit later-unit retrieval evidence', () => {
   it('maps all five B01 lesson skills to actual tasks in two distinct later units', () => {
     const units = curriculum.flatMap((stage) =>
       stage.units.map((unit) => unit.id),
     );
-    const all = Object.values(maintenanceSets).flatMap((set) =>
+    const all = b01Sets.flatMap((set) =>
       set.questions.map((question) => ({ question, unit: set.unit })),
     );
     const b01Evidence = recurrenceEvidence.filter((e) =>
@@ -44,7 +48,7 @@ describe('explicit later-unit retrieval evidence', () => {
   it('keeps later-unit sessions and canonical unit-check counts separate', () => {
     expect(unitChecks.B03.questions).toHaveLength(8);
     expect(unitChecks.B05.questions).toHaveLength(8);
-    for (const set of Object.values(maintenanceSets)) {
+    for (const set of b01Sets) {
       expect(set.questions).toHaveLength(5);
       expect(
         set.questions.filter((q) => q.answer.kind === 'explain'),
@@ -68,9 +72,7 @@ describe('explicit later-unit retrieval evidence', () => {
     // Fixed place-value cards and physical interval counts are independent of
     // the authored answer values and of the production question builders.
     const byId = new Map(
-      Object.values(maintenanceSets)
-        .flatMap((s) => s.questions)
-        .map((q) => [q.id, q]),
+      b01Sets.flatMap((s) => s.questions).map((q) => [q.id, q]),
     );
     const placeOracle = (digits: number[]) =>
       digits.reduce((n, digit) => 10 * n + digit, 0);
@@ -105,7 +107,7 @@ describe('explicit later-unit retrieval evidence', () => {
     expect(checkAnswer('60,070', byId.get('B05-MAINT-B01-Q1')!.answer)).toBe(
       true,
     );
-    for (const set of Object.values(maintenanceSets)) {
+    for (const set of b01Sets) {
       const axis = set.questions[2]!.diagram!;
       expect(axis.kind).toBe('axis');
       if (axis.kind === 'axis') {
@@ -135,7 +137,7 @@ describe('explicit later-unit retrieval evidence', () => {
     expect(4 * 100 + 12 * 10 + 6).toBe(5 * 100 + 2 * 10 + 6);
     expect(4 + 12 + 6).toBe(22);
     expect(5 + 2 + 6).toBe(13);
-    for (const set of Object.values(maintenanceSets)) {
+    for (const set of b01Sets) {
       for (const q of set.questions.slice(3)) {
         expect(
           checkAnswer('4000 7800 225 526 conserved value', q.answer),

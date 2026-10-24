@@ -775,6 +775,33 @@ body:has(.math-app.study-learning-app) {
 .math-curriculum-list {
   margin-top: 18px;
 }
+.math-retrieval-list {
+  margin-top: 18px;
+}
+.math-retrieval-list > a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 20px;
+  border-top: 1px solid #efedf2;
+  padding: 18px 4px;
+  font-size: 15px;
+}
+.math-retrieval-list > a:hover {
+  background: #f5f2fa;
+}
+.math-retrieval-list .math-status {
+  max-width: 160px;
+}
+@media (max-width: 700px) {
+  .math-retrieval-list > a {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 10px;
+  }
+  .math-retrieval-list .math-status {
+    justify-self: start;
+  }
+}
 .math-curriculum-list > a,
 .math-curriculum-list > div {
   display: grid;
@@ -3534,6 +3561,47 @@ body:has(.math-app.study-learning-app) {
   border-collapse: collapse;
   width: 100%;
   min-width: 340px;
+}
+.math-app .math-question-table {
+  width: 100%;
+  min-width: 26rem;
+  table-layout: fixed;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  overflow-wrap: normal;
+  font-size: 0.875rem;
+}
+.math-app .math-question-table caption {
+  text-align: left;
+  font-weight: 600;
+  padding-bottom: 0.6rem;
+}
+.math-app .math-question-table th,
+.math-app .math-question-table td {
+  padding: 0.6rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #e7e0ed;
+}
+.math-app .math-question-table th:first-child {
+  width: 25%;
+}
+.math-app .math-question-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+}
+.math-app .math-question-table-scroll:focus-visible {
+  outline: 2px solid #75628a;
+  outline-offset: 2px;
+}
+.math-app .math-question-table-help {
+  display: none;
+}
+@media (max-width: 640px) {
+  .math-app .math-question-table-help {
+    display: block;
+    font-size: 0.8rem;
+  }
 }
 .math-app .math-data-table th,
 .math-app .math-data-table td {

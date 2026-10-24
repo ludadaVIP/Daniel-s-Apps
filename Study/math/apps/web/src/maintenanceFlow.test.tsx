@@ -36,7 +36,7 @@ const mount = (path: string) =>
 
 describe('later-unit retrieval through real app routes', () => {
   it('does not print the requested coordinate on either retrieval diagram, while preserving default axis labels', () => {
-    for (const set of Object.values(maintenanceSets)) {
+    for (const set of [maintenanceSets.B03, maintenanceSets.B05]) {
       const q = set.questions[2]!;
       const diagram = q.diagram!;
       if (diagram.kind !== 'axis')
@@ -155,7 +155,7 @@ describe('later-unit retrieval through real app routes', () => {
       expect(screen.getByText(/Recorded 1\/8/)).toBeTruthy();
     });
   }
-  it.each(['H38', 'constructor', '__proto__'])(
+  it.each(['H99', 'constructor', '__proto__'])(
     'shows a clear fallback for unauthored maintenance %s, without making a session',
     (unit) => {
       mount(`/math/unit/${unit}/maintenance`);

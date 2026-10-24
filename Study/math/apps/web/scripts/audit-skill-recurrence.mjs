@@ -19,9 +19,13 @@ try {
   const { maintenanceSets, recurrenceEvidence } = await server.ssrLoadModule(
     '/src/content/maintenance.ts',
   );
-  const units = curriculum.flatMap((stage) =>
+  const formalUnits = curriculum.flatMap((stage) =>
     stage.units.map((unit) => unit.id),
   );
+  const { recurrenceUnitIds, postRouteUnits, assertMaintenanceOwners } =
+    await server.ssrLoadModule('/src/content/retrievalUnits.ts');
+  assertMaintenanceOwners(Object.values(maintenanceSets));
+  const units = recurrenceUnitIds;
   const unitIndex = new Map(units.map((unit, index) => [unit, index]));
   const lessonIndex = new Map(lessons.map((lesson) => [lesson.id, lesson]));
   const tasks = lessons.flatMap((lesson) =>
@@ -56,6 +60,10 @@ try {
       ]),
     ),
   ];
+  for (const evidence of recurrenceEvidence) {
+    if (!skills.includes(evidence.skill))
+      throw new Error(`Unknown source skill in evidence: ${evidence.skill}`);
+  }
   // Exact tags are only search candidates. A reviewed rationale is an author's
   // semantic content audit, never proof of a particular learner's retention.
   const records = skills.map((skill) => {
@@ -78,6 +86,7 @@ try {
         const sourceTask = byId.get(evidence.sourceTask);
         if (
           !origin ||
+          !unitIndex.has(origin.unit) ||
           !sourceTask ||
           sourceTask.lesson !== origin.id ||
           sourceTask.question.skill !== skill
@@ -87,6 +96,7 @@ try {
           const target = byId.get(id);
           if (
             !target ||
+            !unitIndex.has(target.unit) ||
             unitIndex.get(target.unit) <= unitIndex.get(origin.unit)
           )
             throw new Error(`Invalid later-unit evidence: ${id}`);
@@ -139,7 +149,9 @@ try {
       'Lesson-level skill tags and explicit task-level semantic recurrence evidence; not a complete taxonomy of every subskill and not learner trial evidence.',
     counts: {
       lessons: lessons.length,
-      units: units.length,
+      units: formalUnits.length,
+      maintenanceOnlyUnits: postRouteUnits.length,
+      recurrenceUnits: units.length,
       skills: records.length,
       reviewedSkills: reviewedCount,
       pendingSkills: records.length - reviewedCount,

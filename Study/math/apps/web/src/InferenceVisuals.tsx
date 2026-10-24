@@ -36,8 +36,8 @@ export function DotDistribution({
         <Text
           mode={mode}
           text={t(
-            '每个点一条记录，重复值逐个堆叠；两图共用同一数值尺度。',
-            'Each dot is one record, with duplicates stacked individually; both plots share the same numerical scale.',
+            '每个点一条记录，重复值逐个堆叠。',
+            'Each dot is one record, with duplicates stacked individually.',
           )}
         />
       </figcaption>

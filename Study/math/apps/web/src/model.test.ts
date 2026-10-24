@@ -180,4 +180,19 @@ describe('honest progress and local records', () => {
     expect(isProgress({ ...p, sessions: { [l.id]: { step: 0 } } })).toBe(false);
     expect(isProgress({ version: 9 })).toBe(false);
   });
+  it('restores ninth and tenth review positions while rejecting malformed or out-of-contract indexes', () => {
+    const p = emptyProgress();
+    const session = newSession();
+    p.sessions['P51-MAINT-FOUNDATION'] = session;
+    for (const index of [0, 7, 8, 9]) {
+      session.practiceIndex = index;
+      expect(isProgress(JSON.parse(JSON.stringify(p))), String(index)).toBe(
+        true,
+      );
+    }
+    for (const index of [-1, 0.5, 10, 99, NaN, Infinity]) {
+      session.practiceIndex = index;
+      expect(isProgress(p), String(index)).toBe(false);
+    }
+  });
 });

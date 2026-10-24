@@ -1,0 +1,82 @@
+import { t } from '../model';
+const pair = (i: number) =>
+  ['H23', 'H36'].map((u) => `${u}-MAINT-VECTOR-LANGUAGE-Q${i}`);
+const e = (
+  skill: string,
+  i: number,
+  targets: string[],
+  z: string,
+  en: string,
+  rz: string,
+  re: string,
+) => ({
+  skill,
+  sourceLesson: `H05-L0${i}`,
+  sourceTask: `H05-L0${i}-Q6`,
+  targets,
+  focus: t(z, en),
+  rationale: t(rz, re),
+});
+export const vectorLanguageRecurrence = [
+  e(
+    'vector-value-not-position',
+    1,
+    pair(1),
+    '同长反向、平移不变与零方向',
+    'Equal length with opposite directions, translation and zero',
+    '两处从非原点端点生位移，与反向同模但非相等；共同平移逐坐标重算并用一般w抵消解释值不依位置。终点重合给零向量无可指定北向，H23三维、H36二维是不同后续情境。',
+    'Both generate displacement from nonorigin endpoints, compare an equal-length but opposite vector, and recalculate jointly translated endpoints with general w cancellation. Coincident endpoints yield zero with no assignable north direction. H23 uses three dimensions and H36 two.',
+  ),
+  e(
+    'vector-head-tail-and-difference',
+    2,
+    pair(2),
+    '和与两种有向头间差',
+    'Head-to-tail sums versus two directed head differences',
+    'H23三维u/v和(−1,3,2)、差(3,1,−4)，H36二维和(1,2)、差(3,−4)；亲画移动第二箭头并标最初尾/最终头，同尾v头到u头为u−v，反向符号全换，逆加v核回u。',
+    'H23 generates the three-dimensional sum(−1,3,2) and difference(3,1,−4); H36 gives(1,2) and(3,−4). Both draw the translated second arrow and label endpoints, distinguish v-head-to-u-head from its reverse, and verify the difference by adding v back.',
+  ),
+  e(
+    'vector-scalar-sign-and-size',
+    3,
+    pair(3),
+    '负数乘与零源恢复分支',
+    'Negative scaling and zero-source recovery branches',
+    'H23用−3/2乘(2,−4,2)，H36用−2/3乘(−3,6)，逐项核新模与反向；两处解ku0、k0=0、k0=非零为{0}/全实/空，并由某非零分量证明必要前提u≠0，不只报唯一0。',
+    'H23 scales(2,−4,2) by−3/2 and H36 scales(−3,6) by−2/3, checking components, opposite direction and nonnegative length factors. Both distinguish{0},all reals and empty scalar sets for a nonzero source,zero-to-zero and zero-to-nonzero, with a general nonzero-component proof.',
+  ),
+  e(
+    'vector-end-minus-start',
+    4,
+    pair(1),
+    '非原点端点、反向与共同平移',
+    'Nonorigin endpoints, reversal and common translations',
+    'H23端点相减得(3,4,−2)，共同平移后仍此差；H36得(6,−2)并用新端点核同差。两处说明终点位置B只在起点为原点时等于AB，反向BA各分量取负，不能靠屏幕位置或抄B代替终减起。',
+    'H23 obtains(3,4,−2) and H36(6,−2),then checks each using newly translated endpoints. Both explain that position B equals AB only when A is the chosen origin and that reversal negates every component. Screen position or copying B cannot replace end-minus-start.',
+  ),
+  e(
+    'vector-dot-angle-with-domain',
+    5,
+    [
+      'H23-L03-G',
+      'H23-L03-Q2',
+      'H23-L03-X',
+      'H36-L04-G',
+      'H36-L04-Q2',
+      'H36-L04-X',
+    ],
+    '标量点积、两式与非零夹角条件',
+    'Scalar dot products, both formulas and nonzero angle premises',
+    '复用H23实际点积0与余弦1/√6任务、零向量反例，H36由(A−P)·(B−P)展开圆轨迹并排A/B零向量。两单元重新生成分量乘积和及夹角/轨迹理由，标量与箭头区分，点积0本身不能令零向量有直角。',
+    'Reuse H23 scalar-product and exact-cosine tasks plus its zero-vector counterexample. H36 expands(A−P)·(B−P) into a circle locus and excludes endpoint zero vectors. Both regenerate component products and angle or locus arguments; a scalar zero alone cannot assign a right angle to a zero vector.',
+  ),
+  e(
+    'vector-geometry-with-premises',
+    6,
+    pair(4),
+    '等对角线的结构前提与梯形反例',
+    'Structural premises for equal diagonals and trapezoid counterexamples',
+    '两处从已知非退化平行四边形一般展开平方差4u·v，等长才给非零邻边直角与矩形；H23同z平面梯形对角平方29、底6/4，H36平方34、底8/2。实际反例否定漏平行四边形前提的命题，不否定带前提定理，避免循环假定。',
+    'Both derive the general diagonal squared difference4u·v for a GIVEN nondegenerate parallelogram before concluding perpendicular nonzero sides. Counterexamples have squared diagonals29 with bases6/4 in H23 and34 with bases8/2 in H36. They refute the missing-premise quadrilateral claim,not the conditional theorem,without assuming the desired rectangular structure.',
+  ),
+];

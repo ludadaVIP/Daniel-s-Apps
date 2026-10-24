@@ -1,0 +1,39 @@
+  it('recalculates actual five-versus-four ID influence branches without mutating source records or reusing old centring', () => {
+    for (const [index,set] of sets.entries()) {
+      const q=set.questions[5]!, table=q.contextTable!;
+      const rows=table.rows.map(r=>({id:r[0]!.en,x:r[1]!.en,y:r[2]!.en}));
+      const before=JSON.stringify(rows), all=correlationModel(rows), branch=correlationModel(rows.filter(p=>p.id!=='I5'));
+      const numbers=(m:ReturnType<typeof correlationModel>)=>[m.fit.mx,m.fit.my,m.fit.sxx,m.syy,m.fit.sxy,m.fit.slope!,m.fit.intercept!,m.fit.sse].map(textR);
+      const clauses=q.solution.en.split('Four-point branch: ');
+      const read=(s:string)=>{
+        const m=s.match(/means\(([^,]+),([^)]+)\), Sxx=([^,]+), Syy=([^,]+), Sxy=([^,]+), r=([^;]+); slope=([^,]+), intercept=([^,]+), fitted y=[^,]+, SSE=([^.]*)\./)!;
+        expect(m).toBeTruthy();
+        return {numbers:[m[1],m[2],m[3],m[4],m[5],m[7],m[8],m[9]],r:m[6]};
+      };
+      expect(read(clauses[0]!).numbers).toEqual(numbers(all));
+      expect(read(clauses[1]!).numbers).toEqual(numbers(branch));
+      expect(read(clauses[0]!).r).toBe(all.text);
+      expect(read(clauses[1]!).r).toBe(branch.text);
+      expect(all.text).toBe('0');expect(branch.text).toBe(index===0?'1':'-1');
+      const originalFifth=candidateFit(rows, textR(branch.fit.intercept!), textR(branch.fit.slope!)).rows[4]!;
+      const written=q.solution.en.match(/four-point line predicts ([-\d]+) with residual ([-\d]+)/)!;
+      expect(written.slice(1)).toEqual([textR(originalFifth.predicted),textR(originalFifth.residual)]);
+      expect(JSON.stringify(rows)).toBe(before);
+      expect(table.rows.map(r=>r[0]!.en)).toEqual(['I1','I2','I3','I4','I5']);
+      expect(q.solution.en).toContain('not proof of error');
+      expect(q.solution.en).toContain('different samples');
+      expect(q.solution.en).toContain('checkable provenance');
+      expect(q.solution.en).toContain('independent data');
+      expect(q.answer.kind).toBe('manual');
+      const d=q.diagram!;
+      if(d.kind!=='cartesian')throw Error('Original scatter required');
+      expect(()=>plotBounds(d.bounds)).not.toThrow();
+      expect(d.curves).toEqual([]);
+      expect(d.points!.map(p=>[p.label,String(p.x),String(p.y)])).toEqual(table.rows.map(r=>r.map(x=>x.en)));
+      for(const source of ['H27-L01','H27-L03']){
+        const link=recurrenceLinksFor(source).flatMap(g=>g.targets).find(t=>t.id===q.id);
+        expect(link).toBeDefined();
+      }
+    }
+  });
+

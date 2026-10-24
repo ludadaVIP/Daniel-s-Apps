@@ -1,0 +1,75 @@
+import { t } from '../model';
+const pair = (i: number) =>
+  ['P67', 'J74'].map((u) => `${u}-MAINT-FRACTION-OPS-Q${i}`);
+const e = (
+  skill: string,
+  zh: string,
+  en: string,
+  sourceLesson: string,
+  targets: string[],
+  rz: string,
+  re: string,
+) => ({
+  skill,
+  focus: t(zh, en),
+  sourceLesson,
+  sourceTask: `${sourceLesson}-Q6`,
+  targets,
+  rationale: t(rz, re),
+});
+export const fractionOperationsRecurrence = [
+  e(
+    'repeat-fraction',
+    '相同分数量的重复相加',
+    'Repeated equal fractional amounts',
+    'P61-L01',
+    pair(1),
+    'P67四组3/5m与J74五段7/8cm都须在固定单位条内数小份，分别得12/5m与35/8cm，解释把组数乘进分母为何只保留一组量，并主动核零组和一组。',
+    'P67 counts four groups of 3/5m and J74 five segments of 7/8cm on fixed-unit strips, obtaining 12/5m and 35/8cm. Both explain why multiplying the denominator by group count merely preserves one group, and check zero and one groups.',
+  ),
+  e(
+    'fraction-area-product',
+    '固定单位格中的分数乘法',
+    'Fraction multiplication in fixed unit grids',
+    'P61-L02',
+    pair(2),
+    'P67用4×5单位网格重建3/4的2/5=3/10及5/4的2/5=1/2；J74用3×7网格重建2/3的3/7=2/7及4/3的3/7=4/7。两处强制画重叠、保留原整体，并核0与1因子，不是只做乘分子分母。',
+    'P67 uses 4×5 unit grids for 2/5 of 3/4=3/10 and of 5/4=1/2; J74 uses 3×7 grids for 3/7 of 2/3=2/7 and of 4/3=4/7. Both require overlap drawings, an unchanged original whole and zero/one factors, rather than just multiplying numerators and denominators.',
+  ),
+  e(
+    'fraction-of-amount',
+    '求一个量的几分之几',
+    'A fraction of a measured amount',
+    'P61-L03',
+    ['P62-L04-Q6', 'P63-L03-Q6'],
+    'P62将35%=7/20用于80L与40L，重求28L与14L并核部分/整体；P63将7L按2:3的五份分，每权重份7/5L，A取两份14/5L、B取三份21/5L，核总量与比例。两个单元都固定具体整体、先定单位份再取份，不把比例直接当升数。',
+    'P62 applies 35%=7/20 to 80L and 40L, generating 28L and 14L and checking part/whole. P63 splits 7L into five ratio shares, each 7/5L, then takes two for A=14/5L and three for B=21/5L and checks total and ratio. Both fix a measured whole, define the unit share and take the required shares rather than treating a ratio as litres.',
+  ),
+  e(
+    'fraction-sharing',
+    '分数总量平均分给整数份',
+    'Sharing a fractional total among whole-number groups',
+    'P61-L04',
+    pair(3),
+    'P67将3/5L平均给四杯得3/20L，J74将5/6m平均分三段得5/18m；均要求在固定整体内进一步均分小份，乘回恢复总量，并核0总量与正整数份数。不是只从非整数商推断使用了平均分模型。',
+    'P67 shares 3/5L among four cups for 3/20L each; J74 shares 5/6m into three segments for 5/18m each. Both require subdividing fixed-whole shares, inverse checks, zero-total and positive whole-number group conditions, rather than inferring sharing from a non-integer quotient.',
+  ),
+  e(
+    'fraction-measurement-division',
+    '按分数标准量测份数',
+    'Measuring portion counts using fractional standards',
+    'P61-L05',
+    pair(4),
+    'P67以2/5L量3L得15/2标准份，7满份余1/5L=半标准份；J74以3/8m量2m得16/3标准段，5满段余1/8m=1/3标准段。两处画固定单位、核标准大于1的商小于1边界、乘回并区分实际余量与标准份比例。',
+    'P67 measures 3L with 2/5L standards for 15/2 equivalents, seven full portions and 1/5L left, half a standard portion. J74 measures 2m with 3/8m standards for 16/3 equivalents, five full segments and 1/8m left, one third of a standard segment. Both draw fixed units, check standards above one, multiply back and distinguish measured remainders from fractions of a standard.',
+  ),
+  e(
+    'reciprocal-reasoning',
+    '用乘法关系解释倒数除法',
+    'Explaining reciprocal division through multiplication',
+    'P61-L06',
+    [...pair(5), 'J71-L05-Q6'],
+    'P67与J74分别由q×2/3=3/5、q×7/4=5/6推9/10及10/21；J71由含负除数关系推3/2。都要求指出原非零除数、乘它的倒数消成1、反查、拒绝倒被除数，区分零被除数可定义与零除数无解或不唯一。',
+    'P67 and J74 derive 9/10 and 10/21 from q×2/3=3/5 and q×7/4=5/6; J71 derives 3/2 with a negative divisor. Each identifies the original nonzero divisor, cancels it using its reciprocal, checks by multiplication, rejects inverting the dividend and distinguishes a valid zero dividend from no-solution/non-unique zero-divisor cases.',
+  ),
+];

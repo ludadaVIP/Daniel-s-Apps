@@ -1,0 +1,66 @@
+import { t } from '../model';
+const e = (
+  i: number,
+  q: number,
+  z: string,
+  en: string,
+  rz: string,
+  re: string,
+) => ({
+  skill: `counting-${i}`,
+  sourceLesson: `H24-L0${i}`,
+  sourceTask: `H24-L0${i}-Q6`,
+  targets: ['H33', 'H34'].map((u) => `${u}-MAINT-COUNTING-STRUCTURE-Q${q}`),
+  focus: t(z, en),
+  rationale: t(rz, re),
+});
+export const countingStructureRecurrence = [
+  e(
+    1,
+    1,
+    '并集身份与逐支合法结果',
+    'Union identities and legal branch outcomes',
+    '两组有两重叠编号的并集均5；受限有序对逐支完整列出6/3而非机械12。一般∑n_i只在分支数恒定时化乘法；计数与等可能/概率独立分别审查，不混规则。',
+    'Both unions have two overlapping IDs and five distinct outcomes. Complete restricted ordered-pair lists give six/three rather than twelve. General branch sums become a product only with constant continuation counts. Counting is separated from probability independence and equiprobability.',
+  ),
+  e(
+    2,
+    2,
+    '职位、重复与空列表',
+    'Roles,repetition and the empty list',
+    '四/五名不同成员选三职位得24/60，同权4/10；列ABC六序并论证每个不同成员组均六序。允许重复时AAA/AAB/ABC表示次数1/3/6不同，不能统一除6。选0恰一个空结果，r>n无放回为0。',
+    'Four/five members give24/60 role assignments and4/10 equal-status groups. Six ABC orders support a bijection for every distinct-member group. With repetition,AAA/AAB/ABC have one/three/six representations,so uniform division fails. Zero selections give one empty outcome;r>n without repetition gives zero.',
+  ),
+  e(
+    3,
+    2,
+    '统一倍数的双射与实体/字母身份',
+    'Uniform-multiplicity bijection and physical/letter identity',
+    '两组都要求先证明每个无序组恰3!表示才用P=C3!；A1,A2,B1按实体给有序6/无序3，只看字母给AA,AB,BA三个有序与AA,AB两无序，倍数不一致。由实际完整小列表辨认除阶乘所需前提。',
+    'Both require proving exactly3! representations per unordered distinct-member group before dividing. Physical A1,A2,B1 give six ordered/three unordered selections;displayed letters give AA,AB,BA versus AA,AB,with unequal fibre sizes. Complete small lists expose the premises behind factorial division.',
+  ),
+  e(
+    4,
+    3,
+    '选末位置、带符号系数与非等概计数',
+    'Last-position proof,signed coefficients and unequal count masses',
+    '五/六公平独立币完整分组串数及恰2/3概率5/16，位置数不均分。选/不选末位置证明Pascal，展开系数40/−20另乘负系数幂。计数、代数与独立同p概率的条件分列，有限模拟不强配理论。',
+    'Five/six fair independent flips yield complete unequal head-count multiplicities and exactly-two/three probabilities5/16. Including/excluding the final position proves Pascal. Expansion coefficients40/−20 include signed coefficient powers. Counting,algebra and constant-p independence are distinguished;finite simulation is not forced to theory.',
+  ),
+  e(
+    5,
+    4,
+    '四格原分母与零条件空间',
+    'Four-cell denominators and zero conditioning mass',
+    '两张实际四格表分别给4/7对2/3及3/4对2/3，交集概率另算，乘积判据判非独立。等可能编号前提明示；空B普通条件比0/0未定义，不等可能时需概率质量而非仅计数。',
+    'Actual four-cell tables give4/7 versus2/3 and3/4 versus2/3,with separate intersection probabilities and product-based dependence checks. Equally likely IDs are explicit. Empty B gives undefined0/0;unequal IDs require probability masses rather than raw counts.',
+  ),
+  e(
+    6,
+    5,
+    '基础占比、反向标记与退化独立',
+    'Priors,reverse marking and degenerate independence',
+    '1000份虚构质量模型由两来源标记质量重建反向概率：1/4变3/4或3/7变9/11；同条件率不抵消先验。两率均30%以乘积证明独立且后验等先验，零先验/零标记保乘积独立而相应条件比未定义。',
+    'Fictional1000-unit mass models reconstruct posteriors from both sources:1/4→3/4 or3/7→9/11. Retaining likelihoods does not erase prior effects. Equal30% rates give product independence and posterior=prior. Zero-prior/zero-flag cases retain product independence while the relevant conditional ratios are undefined.',
+  ),
+];
