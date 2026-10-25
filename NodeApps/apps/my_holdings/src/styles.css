@@ -2686,6 +2686,7 @@
 }
 .mh-watch-sort-switch button[aria-pressed="true"] { color: #4e6c4c; font-weight: 600; }
 .mh-watch-sort-switch button:focus-visible { outline-offset: 1px; }
+.mh-watch-sort-switch .mh-watch-sort-indicator { pointer-events: none; }
 .mh-watch-categories { display: grid; gap: 21px; }
 .mh-watch-category { min-width: 0; }
 .mh-watch-category > header {
@@ -3029,17 +3030,22 @@
 .mh-overview-journal-empty p { color: #929e89; font-size: 9px; }
 .mh-side-allocation .mh-section-heading { align-items: center; }
 .mh-side-allocation .mh-section-heading .mh-text-button { gap: 3px; margin: 0; font-size: 9px !important; }
-.mh-side-allocation .mh-allocation.compact { justify-content: flex-start; gap: 9px; padding: 8px 0 4px; }
-.mh-side-allocation .mh-allocation.compact .mh-donut { width: 76px; height: 76px; }
+.mh-side-allocation-comparison { display: grid; gap: 7px; padding: 8px 14px 1px; }
+.mh-side-allocation-view { min-width: 0; padding: 7px 8px 5px; border: 1px solid #e7ebe3; border-radius: 8px; background: #fbfcf9; }
+.mh-side-allocation-view-heading { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+.mh-side-allocation-view-heading strong { color: #576e50; font-size: 11px; font-weight: 650; }
+.mh-side-allocation-view-heading small { color: #899582; font-size: 9px; font-variant-numeric: tabular-nums; }
+.mh-side-allocation .mh-allocation.compact { justify-content: flex-start; gap: 11px; padding: 5px 0 0; }
+.mh-side-allocation .mh-allocation.compact .mh-donut { width: 82px; height: 82px; }
 .mh-side-allocation .mh-allocation.compact .mh-donut > div { inset: 10px; }
-.mh-side-allocation .mh-allocation.compact .mh-donut span { font-size: 19px; }
-.mh-side-allocation .mh-allocation.compact .mh-donut small { font-size: 7px; }
-.mh-side-allocation .mh-allocation.compact .mh-legend { flex: 1; min-width: 0; gap: 5px; }
-.mh-side-allocation .mh-allocation.compact .mh-legend > div { min-width: 0; gap: 5px; font-size: 8px; }
-.mh-side-allocation .mh-allocation.compact .mh-legend i { flex: 0 0 auto; width: 5px; height: 5px; }
-.mh-side-allocation .mh-allocation.compact .mh-legend span { min-width: 0; overflow: hidden; font-size: 8px; text-overflow: ellipsis; white-space: nowrap; }
-.mh-side-allocation .mh-allocation.compact .mh-legend strong { padding-left: 4px; font-size: 8px; }
-.mh-allocation-caption { margin-top: 2px; color: #9aa493; font-size: 8px; }
+.mh-side-allocation .mh-allocation.compact .mh-donut span { font-size: 20px; }
+.mh-side-allocation .mh-allocation.compact .mh-donut small { font-size: 8px; }
+.mh-side-allocation .mh-allocation.compact .mh-legend { flex: 1; min-width: 0; gap: 6px; }
+.mh-side-allocation .mh-allocation.compact .mh-legend > div { min-width: 0; gap: 6px; font-size: 10px; }
+.mh-side-allocation .mh-allocation.compact .mh-legend i { flex: 0 0 auto; width: 6px; height: 6px; }
+.mh-side-allocation .mh-allocation.compact .mh-legend span { min-width: 0; overflow: hidden; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
+.mh-side-allocation .mh-allocation.compact .mh-legend strong { padding-left: 5px; font-size: 11px; font-variant-numeric: tabular-nums; }
+.mh-allocation-caption { margin: 4px 14px 0; color: #84907d; font-size: 9px; }
 @media (max-width: 1250px) {
   .mh-overview-grid, .mh-overview-preview-grid { grid-template-columns: 1fr; }
 }
@@ -3101,6 +3107,9 @@
 :root[data-theme="dark"] .mh-app .mh-overview-goal-line strong,
 :root[data-theme="dark"] .mh-app .mh-overview-watch-identity strong,
 :root[data-theme="dark"] .mh-app .mh-overview-watch-prices strong { color: #c2d0bf; }
+:root[data-theme="dark"] .mh-side-allocation-view { border-color: #4b583c; background: #202419; }
+:root[data-theme="dark"] .mh-side-allocation-view-heading strong { color: #c2d0bf; }
+:root[data-theme="dark"] .mh-side-allocation-view-heading small { color: #bbc2b4; }
 :root[data-theme="dark"] .mh-app .mh-overview-job-counts > div { border-color: #4b583c; background: #202419; }
 :root[data-theme="dark"] .mh-app .mh-overview-cash-mix-bar { background: #30372b; }
 :root[data-theme="dark"] .mh-app .mh-overview-cash-mix-bar > .holdings { background: #789775; }
@@ -3118,6 +3127,7 @@
 .mh-decision-heading-actions { gap: 7px; }
 .mh-watch-sort-switch.mh-decision-sort-switch { grid-template-columns: repeat(3, minmax(54px, 1fr)); }
 .mh-decision-sort-switch .mh-watch-sort-indicator { width: calc((100% - 12px) / 3); }
+.mh-watch-sort-switch.mh-decision-sort-switch[data-active="gap"] .mh-watch-sort-indicator { transform: translateX(calc(100% + 2px)); }
 .mh-watch-sort-switch.mh-decision-sort-switch[data-active="waiting"] .mh-watch-sort-indicator { transform: translateX(calc(100% + 2px)); }
 .mh-watch-sort-switch.mh-decision-sort-switch[data-active="attention"] .mh-watch-sort-indicator { transform: translateX(calc(200% + 4px)); }
 .mh-decision-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 7px; }
