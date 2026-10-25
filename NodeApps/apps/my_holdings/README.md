@@ -20,8 +20,8 @@ NodeApps 中的个人投资记录工具。运行 NodeApps 的 `npm run dev` / `s
 
 - `data/state.json`：持仓、关注、资金、目标、Codex 待办和研究摘要。保存时创建 revision 并原子写入。
 - `data/CODEX_TODO.md`：由应用维护的待办说明，适合 Codex 读取，也会随 Git 同步。
-- `data/backups/`：最近 30 次修改前的 JSON 备份。
-- `data/reports/`：HTML 研究报告原件和 VisualShelf 目录。
+- `data/backups/`：最近 30 次修改前的 JSON 备份，文件名包含产品、状态更新时间（UTC）和版本号。
+- `data/reports/`：HTML 研究报告原件和 VisualShelf 目录；自动生成的报告名包含报告类型、代码/主题和生成日期。
 - `data/initial-state.json`：首次启动的种子数据，不覆盖日常状态。
 - `account1.jpg`、`account2.jpg` 与 `holdings-transcription.md`：原始截图和逐字段转录。
 

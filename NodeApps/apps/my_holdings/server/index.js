@@ -23,6 +23,18 @@ const error = (message, status = 400) =>
 const text = (v, max = 12000) => typeof v === "string" && v.length <= max;
 const num = (v, min = 0, max = 1e14) =>
   typeof v === "number" && Number.isFinite(v) && v >= min && v <= max;
+const filenameSlug = (value, fallback = "overview") =>
+  String(value || "")
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .toLowerCase() || fallback;
+const filenameUtcTimestamp = (value) =>
+  new Date(value)
+    .toISOString()
+    .replace(/\.\d{3}Z$/, "Z")
+    .replace(/:/g, "-");
 const date = (v) =>
   text(v, 10) &&
   (v === "" || (/^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(v))));
@@ -449,13 +461,18 @@ export async function createHoldingsApp({
     pruneExpiredCompletedJobs(s, now().getTime());
     validateState(s);
     const previous = await fs.readFile(file, "utf8");
-    const stamp = `${Date.now()}-${randomUUID().slice(0, 8)}`;
+    const previousState = JSON.parse(previous);
+    const savedAt = now().toISOString();
+    const backupTime = previousState.updatedAt || savedAt;
+    const backupRevision = String(previousState.revision || 0).padStart(4, "0");
+    const backupName =
+      `my-holdings-state-backup-${filenameUtcTimestamp(backupTime)}-rev-${backupRevision}.json`;
     await fs.writeFile(
-      path.join(dataDirectory, "backups", stamp + ".json"),
+      path.join(dataDirectory, "backups", backupName),
       previous,
     );
     s.revision = (s.revision || 0) + 1;
-    s.updatedAt = new Date().toISOString();
+    s.updatedAt = savedAt;
     const tmp = file + "." + randomUUID() + ".tmp";
     await fs.writeFile(tmp, JSON.stringify(s, null, 2) + "\n");
     await fs.rename(tmp, file);
@@ -1018,16 +1035,40 @@ export async function createHoldingsApp({
     }
   });
   const saveReport = async (research, kind) => {
-    const name = `${Date.now()}-${randomUUID().slice(0, 8)}.html`,
-      folder =
-        kind === "watch"
-          ? "research"
-          : kind === "market"
-            ? "market"
-            : "portfolio";
+    const generatedAt = new Date().toISOString();
+    const folder =
+      kind === "watch" ? "research" : kind === "market" ? "market" : "portfolio";
+    const reportType =
+      kind === "watch"
+        ? "research"
+        : kind === "market"
+          ? "market-review"
+          : "portfolio-review";
+    const subject = kind === "watch"
+      ? research.identity?.symbol || research.identity?.name || research.title
+      : kind === "market"
+        ? research.identity?.symbol
+        : "";
+    const stem = [
+      "my-holdings",
+      reportType,
+      subject ? filenameSlug(subject) : "",
+      generatedAt.slice(0, 10),
+    ].filter(Boolean).join("-");
+    const directory = path.join(reports, folder);
+    let name = `${stem}.html`;
+    for (let suffix = 2; ; suffix += 1) {
+      try {
+        await fs.access(path.join(directory, name));
+        name = `${stem}-${String(suffix).padStart(2, "0")}.html`;
+      } catch (e) {
+        if (e.code === "ENOENT") break;
+        throw e;
+      }
+    }
     await fs.writeFile(
       path.join(reports, folder, name),
-      researchHtml(research, new Date().toISOString()),
+      researchHtml(research, generatedAt),
       { flag: "wx" },
     );
     return `${folder}/${name}`;

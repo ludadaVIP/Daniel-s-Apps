@@ -238,7 +238,7 @@ function sortWatchlist(rows, mode) {
     return aGap == null ? bySymbol(a, b) : aGap - bGap || bySymbol(a, b);
   });
 }
-function sortDecisionWatchlist(rows, mode) {
+function sortDecisionWatchlist(rows, mode, gapDirection = "asc") {
   const bySymbol = (a, b) =>
     (a.symbol || "").localeCompare(b.symbol || "", "en", {
       numeric: true,
@@ -248,7 +248,13 @@ function sortDecisionWatchlist(rows, mode) {
       sensitivity: "base",
     });
   if (mode === "attention") return rows.slice().sort((a, b) => watchAttention(b) - watchAttention(a) || bySymbol(a, b));
-  if (mode === "gap") return sortWatchlist(rows, "gap");
+  if (mode === "gap") return rows.slice().sort((a, b) => {
+    const aGap = watchGapPct(a);
+    const bGap = watchGapPct(b);
+    if ((aGap == null) !== (bGap == null)) return aGap == null ? 1 : -1;
+    if (aGap == null) return bySymbol(a, b);
+    return (gapDirection === "desc" ? bGap - aGap : aGap - bGap) || bySymbol(a, b);
+  });
   return rows.slice().sort(bySymbol);
 }
 function rankWatchPriorities(rows) {
@@ -437,6 +443,10 @@ function RightPanel({
   onCopyQueue,
 }) {
   const cash = state.cash.reduce((sum, row) => sum + Number(row.amount || 0), 0);
+  const costAllocationGroups = portfolio.groups.map((group) => ({
+    ...group,
+    weight: portfolio.cost > 0 ? (group.cost / portfolio.cost) * 100 : 0,
+  }));
   const watchCurrency = watch?.priceCurrency || watch?.research?.quote?.currency || watch?.research?.identity?.currency || "USD";
   const converter = state.converter || INITIAL_CONVERTER_STATE;
   const title = {
@@ -520,8 +530,17 @@ function RightPanel({
             <h3>组合全景</h3>
             <button className="mh-text-button" onClick={() => onNavigate("analysis")}>组合分析 <ArrowRight size={12} /></button>
           </div>
-          <Allocation groups={portfolio.groups} value={portfolio.value} compact />
-          <p className="mh-allocation-caption">跨账户合并 · 按市值占比</p>
+          <div className="mh-side-allocation-comparison">
+            <div className="mh-side-allocation-view">
+              <div className="mh-side-allocation-view-heading"><strong>按成本均价</strong><small>总成本 {money(portfolio.cost)}</small></div>
+              <Allocation groups={costAllocationGroups} value={portfolio.cost} compact />
+            </div>
+            <div className="mh-side-allocation-view">
+              <div className="mh-side-allocation-view-heading"><strong>按当前市值</strong><small>总市值 {money(portfolio.value)}</small></div>
+              <Allocation groups={portfolio.groups} value={portfolio.value} compact />
+            </div>
+          </div>
+          <p className="mh-allocation-caption">成本均价 × 持仓数量 · 跨账户合并 · 同色为同一产品 · USD</p>
         </section>
         <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次价格更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><p className="mh-sidebar-objective">待办执行时，常规交易时段取盘中价，其余时间取最近交易日收盘价。</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 刷新价格</button></section>
       </>)}
@@ -868,6 +887,14 @@ export default function HoldingsApp() {
         return DECISION_SORT_OPTIONS.some((option) => option.id === saved) ? saved : "name";
       } catch {
         return "name";
+      }
+    }),
+    [decisionGapDirection, setDecisionGapDirection] = useState(() => {
+      try {
+        if (localStorage.getItem("mh-decision-sort") !== "gap") return "asc";
+        return localStorage.getItem("mh-decision-gap-direction") === "desc" ? "desc" : "asc";
+      } catch {
+        return "asc";
       }
     }),
     [watchTargetDrafts, setWatchTargetDrafts] = useState({}),
@@ -1363,6 +1390,20 @@ export default function HoldingsApp() {
     } catch {}
   };
   const setDecisionSortMode = (mode) => {
+    if (mode === "gap") {
+      const nextDirection = decisionSort === "gap"
+        ? (decisionGapDirection === "asc" ? "desc" : "asc")
+        : "asc";
+      setDecisionGapDirection(nextDirection);
+      try {
+        localStorage.setItem("mh-decision-gap-direction", nextDirection);
+      } catch {}
+    } else {
+      setDecisionGapDirection("asc");
+      try {
+        localStorage.setItem("mh-decision-gap-direction", "asc");
+      } catch {}
+    }
     setDecisionSort(mode);
     try {
       localStorage.setItem("mh-decision-sort", mode);
@@ -1377,7 +1418,7 @@ export default function HoldingsApp() {
   );
   const watchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), watchSort);
   const watchFunds = sortWatchlist(visibleWatchlist.filter(isIndexOrEtf), watchSort);
-  const decisionWatchStocks = sortDecisionWatchlist(state.watchlist.filter((watch) => !isIndexOrEtf(watch)), decisionSort);
+  const decisionWatchStocks = sortDecisionWatchlist(state.watchlist.filter((watch) => !isIndexOrEtf(watch)), decisionSort, decisionGapDirection);
   const decisionPlansByWatchId = new Map(state.journal.filter((entry) => entry.kind === "plan").map((entry) => [entry.watchId, entry]));
   const freeJournalEntries = state.journal.filter((entry) => entry.kind !== "plan" || !decisionWatchStocks.some((watch) => watch.id === entry.watchId));
   const collapsedWatchStockLimit = watchStockColumnCount * 3;
@@ -2550,9 +2591,14 @@ export default function HoldingsApp() {
                 <div className="mh-heading-actions mh-decision-heading-actions">
                   <div className="mh-watch-sort-switch mh-decision-sort-switch" role="group" aria-label="决策卡片排序方式" data-active={decisionSort}>
                     <span className="mh-watch-sort-indicator" aria-hidden="true" />
-                    {DECISION_SORT_OPTIONS.map((option) => (
-                      <button key={option.id} type="button" title={option.title} aria-pressed={decisionSort === option.id} onClick={() => setDecisionSortMode(option.id)}>{option.label}</button>
-                    ))}
+                    {DECISION_SORT_OPTIONS.map((option) => {
+                      const gapIsDescending = option.id === "gap" && decisionGapDirection === "desc";
+                      const label = option.id === "gap" ? `价差 ${gapIsDescending ? "↓" : "↑"}` : option.label;
+                      const title = option.id === "gap"
+                        ? `按等待价差百分比从${gapIsDescending ? "大到小" : "小到大"}排序；再次点击切换方向`
+                        : option.title;
+                      return <button key={option.id} type="button" title={title} aria-label={title} aria-pressed={decisionSort === option.id} onClick={() => setDecisionSortMode(option.id)}>{label}</button>;
+                    })}
                   </div>
                   <button
                     className="mh-primary"
@@ -2954,8 +3000,8 @@ export default function HoldingsApp() {
               <h3>数据备份</h3>
               <p className="mh-help">
                 JSON 备份包含持仓、资金、目标、日志和研究文字。HTML
-                原文件与截图需一并复制整个 my_holdings 文件夹；服务端保留最近 30
-                次修改前的 JSON。
+                原文件与截图需一并复制整个 my_holdings 文件夹；自动备份名会标明
+                My Holdings、UTC 时间和状态版本，服务端保留最近 30 次修改前的 JSON。
               </p>
               <div className="mh-ai-actions">
                 <button
