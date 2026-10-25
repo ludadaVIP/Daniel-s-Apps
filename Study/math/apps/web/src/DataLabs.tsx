@@ -20,8 +20,6 @@ export const isDataLab = (kind: Lesson['lab']): kind is DataLabKind =>
     'data-chart',
     'data-recipe',
   ].includes(kind);
-const isDataLab = (kind: Lesson['lab']): kind is DataLabKind =>
-  kind.startsWith('data-');
 const categories = [
   { id: 'walk', name: t('步行', 'Walk') },
   { id: 'bike', name: t('骑车', 'Bike') },

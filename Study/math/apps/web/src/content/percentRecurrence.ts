@@ -43,11 +43,40 @@ const data = [
     'J75 decreases then increases 120 dollars by 25% for 112.50; J76 increases then decreases 200 by 10% for 198, explicitly changing each base. They separately derive fifteen percentage points versus 60% growth from 25% to 40%, and five points versus 50% growth from 10% to 15%, using original-rate denominators.',
   ],
 ];
+const details = [
+  [
+    '新P65/P68-Q1亲画3.75/7.5格中的部分面积、200/400张中一张的低于1%对照，改整体而保标记、逆求同率新张数，并核零/全/空集合及125%的对象范围。',
+    'New P65/P68 Q1s draw partial cells within 3.75/7.5 and one-card rates below 1% in 200/400-card sets, change whole at fixed marked count, recover counts at a fixed rate and distinguish zero/all/empty collections and contexts for 125%.',
+  ],
+  [
+    '新两组Q2补小于1%与超过100%的等值图、反向小数、十分之一位值链及0=0%例外。',
+    'New Q2s add below-one-percent and above-100% equivalent diagrams, reverse decimal forms, tenths chains and the zero exception.',
+  ],
+  [
+    '新两组Q3重画终止与循环结果的部分格、跨整体与0/200%，用等值扩分反驳只改分母，并检完整百分数系数。',
+    'New Q3s draw terminating/recurring partial cells, extended frames and zero/200%, reject denominator-only conversion and check the complete percent coefficient.',
+  ],
+  [
+    '新两组Q4保精确非整数连续量与余量，核125%需求、零整体不可反查占比及不可分卡的限制。',
+    'New Q4s conserve exact nonintegral amounts and remainders, check 125% requirements, reject reverse ratios to zero wholes and respect indivisible cards.',
+  ],
+  [
+    '新两组Q5反求125/150%时更小的正参考、40%的非整数整体，并用自编双见证区分零率/零量三个分支。',
+    'New Q5s recover smaller positive references at 125/150%, nonintegral wholes at 40% and classify three zero cases with two generated positive witnesses.',
+  ],
+  [
+    '新两组Q6补八折/七五折的保留率与减少率、精确恢复25%/33又1/3%的新基数以及0%和全额降价边界。',
+    'New Q6s distinguish retained 80/75% from reductions, recover exact new-base restoration rates of 25%/33 1/3% and check zero-rate/full-discount boundaries.',
+  ],
+];
 export const percentRecurrence = data.map(([skill, zh, en, rz, re], i) => ({
   skill: skill!,
   focus: t(zh!, en!),
   sourceLesson: `P62-L0${i + 1}`,
   sourceTask: `P62-L0${i + 1}-Q6`,
-  targets: ['J75', 'J76'].map((u) => `${u}-MAINT-PERCENT-Q${i + 1}`),
-  rationale: t(rz!, re!),
+  targets: [
+    ...['J75', 'J76'].map((u) => `${u}-MAINT-PERCENT-Q${i + 1}`),
+    ...['P65', 'P68'].map((u) => `${u}-MAINT-PERCENT-MEANING-Q${i + 1}`),
+  ],
+  rationale: t(`${rz!} ${details[i]![0]}`, `${re!} ${details[i]![1]}`),
 }));

@@ -1247,6 +1247,12 @@ body:has(.math-app.study-learning-app) {
 .math-question > .math-eyebrow {
   margin: 20px 0 15px;
 }
+.math-question h3,
+.math-question .math-hint,
+.math-question .math-feedback,
+.math-question .math-parent-card > p {
+  overflow-wrap: anywhere;
+}
 .math-question h3 {
   font-size: 21px;
   margin-bottom: 24px;

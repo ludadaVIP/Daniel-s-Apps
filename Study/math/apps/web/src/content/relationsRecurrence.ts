@@ -17,7 +17,7 @@ const e = (
   targets,
   rationale: t(rz, re),
 });
-export const relationsRecurrence = [
+const originalRelationsRecurrence = [
   e(
     'ratio-order-and-reference',
     '比的顺序与整体参照',
@@ -163,3 +163,45 @@ export const relationsRecurrence = [
     'J73 expands −3(x−2)=2x+1 term by term, transforms both sides to x=1 and checks, retaining the no-division-by-zero boundary after cancellation. J83 substitutes the whole y=7−x to form 2x+(7−x)=11, solves x=4, recovers y=3 and checks both originals. Both require whole-group brackets and original constraints rather than just an answer.',
   ),
 ];
+
+const ratioDetails = [
+  [
+    '新P68/J75-Q1先统一m/cm，重画顺序、合长份额和差，检同倍后差及零前后项的不同域。',
+    'New P68/J75 Q1s match m/cm before reconstructing order, whole share and difference, then compare doubled differences and zero first/second-term domains.',
+  ],
+  [
+    '新两组Q2由十分之一和另一共同小单位计数，重建小数及分数项的最简比、非公因数和零缩放边界。',
+    'New Q2s count tenths and alternative shared units, reconstruct decimal/fractional simplest ratios and check nonfactors and zero scaling.',
+  ],
+  [
+    '新两组Q3给出和正确却比例错误的均分反例，同量加倍权重重画细份，并构造有效整卡总数的分配。',
+    'New Q3s refute equal splits with a correct total, redraw refined doubled weights at fixed supply and construct feasible whole-card allocations.',
+  ],
+  [
+    '新两组Q4主动生成分数倍与反向给B求A的表，核单零行及正确B固定加1后的非恒比。',
+    'New Q4s generate fractional-multiplier rows and recover A from B, checking one-zero rows and varying quotients after a fixed extra litre.',
+  ],
+  [
+    '新两组Q5补非半厘米原图路线、反求、1/2与1/4线性缩印及原图两厘米图示标尺的独立核查。',
+    'New Q5s add non-half-centimetre routes, inverse mapping, half/quarter-size prints and an independent two-centimetre graphic-bar check.',
+  ],
+  [
+    '新两组Q6画同数据不同纵轴范围，换L/mL的常数与定义域，反求连续水量并区别整卡不能任意插值。',
+    'New Q6s plot identical data on different vertical ranges, convert L/mL coefficients and domains, invert continuous quantities and reject automatic interpolation for indivisible cards.',
+  ],
+];
+export const relationsRecurrence = originalRelationsRecurrence.map((entry) => {
+  if (!entry.sourceLesson.startsWith('P63-')) return entry;
+  const i = Number(entry.sourceLesson.slice(-2)) - 1;
+  return {
+    ...entry,
+    targets: [
+      ...entry.targets,
+      ...['P68', 'J75'].map((u) => `${u}-MAINT-RATIO-MEANING-Q${i + 1}`),
+    ],
+    rationale: t(
+      `${entry.rationale.zh} ${ratioDetails[i]![0]}`,
+      `${entry.rationale.en} ${ratioDetails[i]![1]}`,
+    ),
+  };
+});

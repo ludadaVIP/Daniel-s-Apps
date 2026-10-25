@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { curriculum, lessons, lessonById, unitChecks } from './content';
 import { relationsRetrieval } from './content/relationsRetrieval';
 import { relationsRecurrence } from './content/relationsRecurrence';
+import { maintenanceSets } from './content/maintenance';
 import { checkAnswer } from './model';
 import { recurrenceLinksFor } from './recurrenceTargets';
 const sets = Object.values(relationsRetrieval);
@@ -11,7 +12,7 @@ const tasks = new Map([
       (q) => [q.id, { q, unit: l.unit! }] as const,
     ),
   ),
-  ...sets.flatMap((s) =>
+  ...Object.values(maintenanceSets).flatMap((s) =>
     s.questions.map((q) => [q.id, { q, unit: s.unit }] as const),
   ),
 ]);

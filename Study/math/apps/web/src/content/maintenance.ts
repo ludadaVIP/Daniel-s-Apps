@@ -1,3 +1,6 @@
+import { ratioMeaningRetrieval } from './ratioMeaningRetrieval';
+import { percentMeaningRetrieval } from './percentMeaningRetrieval';
+import { fractionMultiplicativeRetrieval } from './fractionMultiplicativeRetrieval';
 import { calculationStructureRetrieval } from './calculationStructureRetrieval';
 import { fractionDecimalMeaningRetrieval } from './fractionDecimalMeaningRetrieval';
 import { measurementMeaningRetrieval } from './measurementMeaningRetrieval';
@@ -8,6 +11,7 @@ import { fractionStructureRetrieval } from './fractionStructureRetrieval';
 import { additiveFractionRetrieval } from './additiveFractionRetrieval';
 import { equationMeaningRetrieval } from './equationMeaningRetrieval';
 import { geometryConservationRetrieval } from './geometryConservationRetrieval';
+import { dataMeaningRetrieval } from './dataMeaningRetrieval';
 import { operationMeaningRetrieval } from './operationMeaningRetrieval';
 import { numberStructureTasks } from './numberStructureTasks';
 import { t, type Question } from '../model';
@@ -183,6 +187,10 @@ export const maintenanceSets = {
   ...additiveFractionRetrieval,
   ...equationMeaningRetrieval,
   ...geometryConservationRetrieval,
+  ...dataMeaningRetrieval,
+  ...fractionMultiplicativeRetrieval,
+  ...percentMeaningRetrieval,
+  ...ratioMeaningRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',

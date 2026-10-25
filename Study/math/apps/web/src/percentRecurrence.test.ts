@@ -2,6 +2,7 @@ import { describe, it, expect } from 'vitest';
 import { curriculum, lessons, lessonById, unitChecks } from './content';
 import { percentRetrieval } from './content/percentRetrieval';
 import { percentRecurrence } from './content/percentRecurrence';
+import { maintenanceSets } from './content/maintenance';
 import { checkAnswer } from './model';
 import { recurrenceLinksFor } from './recurrenceTargets';
 describe('percentage recurrence content', () => {
@@ -21,7 +22,7 @@ describe('percentage recurrence content', () => {
       ).toBe(true);
       const owners = new Set(
         e.targets.map((id) => {
-          const s = Object.values(percentRetrieval).find((s) =>
+          const s = Object.values(maintenanceSets).find((s) =>
             s.questions.some((q) => q.id === id),
           )!;
           expect(units.indexOf(s.unit)).toBeGreaterThan(units.indexOf(l.unit!));
@@ -36,7 +37,7 @@ describe('percentage recurrence content', () => {
           return s.unit;
         }),
       );
-      expect(owners.size).toBe(2);
+      expect(owners.size).toBeGreaterThanOrEqual(2);
       expect(
         e.rationale.zh && e.rationale.en && e.focus.zh && e.focus.en,
       ).toBeTruthy();

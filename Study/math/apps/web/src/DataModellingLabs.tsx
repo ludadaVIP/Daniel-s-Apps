@@ -40,9 +40,6 @@ export const isDataModellingLab = (
     'data-standard',
     'data-regression',
   ].includes(kind);
-const isDataModellingLab = (
-  kind: Lesson['lab'],
-): kind is DataModellingLabKind => kind.startsWith('data-');
 const word = (mode: LanguageMode, s: LocalizedText) =>
   mode === 'en' ? s.en : s.zh;
 const number = (value: string): AnswerSpec => ({ kind: 'number', value });

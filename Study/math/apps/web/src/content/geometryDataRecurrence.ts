@@ -3,6 +3,8 @@ const pair = (i: number) =>
   ['P66', 'J87'].map((u) => `${u}-MAINT-MEASURE-Q${i}`);
 const conservationPair = (i: number) =>
   ['P66', 'J87'].map((u) => `${u}-MAINT-GEOMETRY-CONSERVATION-Q${i}`);
+const meaningPair = (i: number) =>
+  ['P68', 'J76'].map((u) => `${u}-MAINT-DATA-MEANING-Q${i}`);
 const e = (
   skill: string,
   zh: string,
@@ -96,9 +98,10 @@ export const geometryDataRecurrence = [
       'J88-L05-Q5',
       'J88-L05-Q6',
       'H08-L01-X',
+      ...meaningPair(1),
     ],
-    'J76从0、0、6、6数两个6得相对频数1/2，并从八邀五答给5/8回答率、解释抽样框与偏差；J88逐编号保留十二行、A5缺失、有效A五/B六及有依据纠错；H08保不同ID同值、仅合并同次重复，四个有效长度均值21cm。复现计数分母、零与缺失、重复身份和结论范围，而非把无回应当一个数值零。',
-    'J76 counts two sixes among 0,0,6,6 for relative frequency 1/2 and gives response rate 5/8, explaining frames and bias. J88 retains twelve identified rows, missing A5, valid group counts five and six and justified correction. H08 retains distinct equal-valued IDs, merges only a confirmed duplicate and uses four valid lengths for mean 21cm. These retrieve count denominators, zero versus missing, identity and scope.',
+    'J76从0、0、6、6数两个6得相对频数1/2，并从八邀五答给5/8回答率、解释抽样框与偏差；J88逐编号保留十二行、A5缺失、有效A五/B六及有依据纠错；H08保不同ID同值、仅合并同次重复，四个有效长度均值21cm。复现计数分母、零与缺失、重复身份和结论范围，而非把无回应当一个数值零。新Q1逐ID审核原始分类/错录/未录入，保留更正现有行与加入新人的不同动作，主动生成零其他、缺失与结论边界。',
+    'J76 counts two sixes among 0,0,6,6 for relative frequency 1/2 and gives response rate 5/8, explaining frames and bias. J88 retains twelve identified rows, missing A5, valid group counts five and six and justified correction. H08 retains distinct equal-valued IDs, merges only a confirmed duplicate and uses four valid lengths for mean 21cm. These retrieve count denominators, zero versus missing, identity and scope. New Q1s audit source classifications, wrong entries and unentered rows by ID, distinguish correcting an existing record from adding a person, and generate zero-Other, missing and scoped conclusions.',
   ),
   e(
     'mean-as-fair-share',
@@ -113,9 +116,10 @@ export const geometryDataRecurrence = [
       'J76-L03-G',
       'J76-L03-Q3',
       'J76-L03-Q6',
+      ...meaningPair(2),
     ],
-    'P67把2、3、3、4、28的完整40分钟均分五份得8，另保留1、2、2的精确均值5/3，并与实际中位数3区别；J76把末条8改50或0时按完整总量72或22除五，解释异常值与中位数变化。两个单元都使用总量÷有效条数，均值不是每条实际值，不能为结果好看删真实记录。',
-    'P67 shares the full forty minutes in 2,3,3,4,28 into five for mean eight and retains exact 5/3 for 1,2,2, distinguishing the median three. J76 replaces eight by fifty or zero and divides totals seventy-two or twenty-two by five, explaining outliers and median changes. Both use total over valid count, without treating the mean as every actual value or deleting valid observations for a preferred result.',
+    'P67把2、3、3、4、28的完整40分钟均分五份得8，另保留1、2、2的精确均值5/3，并与实际中位数3区别；J76把末条8改50或0时按完整总量72或22除五，解释异常值与中位数变化。两个单元都使用总量÷有效条数，均值不是每条实际值，不能为结果好看删真实记录。新Q2亲移卡保总量、零与条数，分数均值乘回检近似；另区分全零、已观测均值/完整缺失均值，并由总均值主动造不同分布。',
+    'P67 shares the full forty minutes in 2,3,3,4,28 into five for mean eight and retains exact 5/3 for 1,2,2, distinguishing the median three. J76 replaces eight by fifty or zero and divides totals seventy-two or twenty-two by five, explaining outliers and median changes. Both use total over valid count, without treating the mean as every actual value or deleting valid observations for a preferred result. New Q2s move cards while retaining total, zeros and count, multiply exact means back to test approximations, distinguish all-zero and observed-only versus incomplete means, and generate distinct distributions from one summary.',
   ),
   e(
     'time-series-reading',
@@ -123,9 +127,9 @@ export const geometryDataRecurrence = [
     'Actual time spacing, changes and missing observations',
     'P57-L03',
     'P57-L03-Q6',
-    pair(7),
-    'P66由0、1、4、6h的温度记录画图、用1:3:2横向间距，核1到6h经过5h、已测温差2°C；J87由0、2、3、7min画高度图，间距2:1:4，核2到7min增6mm且真零不等于缺测。两处都主动作图并说明示意线不证明未测过程、缺测不填零或无条件插值、末次增加不保证未来。',
-    'P66 plots temperatures at 0,1,4,6h with 1:3:2 spacing and checks five elapsed hours and 2°C endpoint change. J87 plots heights at 0,2,3,7min with 2:1:4 spacing, checking five minutes and a 6mm increase while retaining an observed zero. Both actively construct graphs and reject unlabelled interpolation, zero-filling, inferred unmeasured paths and guaranteed future increase.',
+    ['P66-MAINT-MEASURE-Q7', 'J87-MAINT-MEASURE-Q7', ...meaningPair(3)],
+    'P66由0、1、4、6h的温度记录画图、用1:3:2横向间距，核1到6h经过5h、已测温差2°C；J87由0、2、3、7min画高度图，间距2:1:4，核2到7min增6mm且真零不等于缺测。两处都主动作图并说明示意线不证明未测过程、缺测不填零或无条件插值、末次增加不保证未来。新Q3从实际时刻/温度自画双尺度，完整生成分段有向变化与正降低量；原表、独立缺测分支与实测零分支分别画，造可能路径和未来反例而不冒充实测。',
+    'P66 plots temperatures at 0,1,4,6h with 1:3:2 spacing and checks five elapsed hours and 2°C endpoint change. J87 plots heights at 0,2,3,7min with 2:1:4 spacing, checking five minutes and a 6mm increase while retaining an observed zero. Both actively construct graphs and reject unlabelled interpolation, zero-filling, inferred unmeasured paths and guaranteed future increase. New Q3s draw both scales from actual time/value pairs and generate signed segment changes and positive fall amounts, distinguish original, independent missing and observed-zero branches, and construct possible paths/future counterexamples without treating them as measurements.',
   ),
   e(
     'chart-evidence',
@@ -133,9 +137,9 @@ export const geometryDataRecurrence = [
     'Plot scales, summaries and evidence scope',
     'P57-L04',
     'P57-L04-Q6',
-    ['P68-L04-Q6', 'J75-L05-Q6', 'J88-L01-Q6', 'J88-L02-Q6'],
-    'P68改轴上限仍保原人数，解释缺测与人次范围；J75区分轴比例改变的视觉斜率与带单位变化率；J88解释箱段宽度不直接给人数比例，并在极差与IQR排序不同时限定“更稳定”的指标。多个单元要求回原值、单位、数据范围与摘要定义，不以图形外观直接推广总体或因果。',
-    'P68 retains counts after changing the axis maximum and explains missing data and visit scope. J75 distinguishes visual steepness from unit-based rates. J88 rejects interpreting box widths as head-count proportions and qualifies stability when range and IQR order groups differently. These tasks return to values, units, scope and summary definitions rather than inferring populations or causes from appearance.',
+    ['P68-L04-Q6', 'J75-L05-Q6', 'J88-L01-Q6', 'J88-L02-Q6', ...meaningPair(4)],
+    'P68改轴上限仍保原人数，解释缺测与人次范围；J75区分轴比例改变的视觉斜率与带单位变化率；J88解释箱段宽度不直接给人数比例，并在极差与IQR排序不同时限定“更稳定”的指标。多个单元要求回原值、单位、数据范围与摘要定义，不以图形外观直接推广总体或因果。新Q4亲画零基线与截断图，核原比与显示比、两天人次与不同人数；只给调查作答数不能推出任何回答意见，重写有依据且有范围的事实。',
+    'P68 retains counts after changing the axis maximum and explains missing data and visit scope. J75 distinguishes visual steepness from unit-based rates. J88 rejects interpreting box widths as head-count proportions and qualifies stability when range and IQR order groups differently. These tasks return to values, units, scope and summary definitions rather than inferring populations or causes from appearance. New Q4s construct zero/truncated plots, compare original and displayed ratios and visits versus distinct people, reject inferring any opinions from response counts alone, and rewrite a supported scoped fact.',
   ),
   e(
     'recipe-and-pack-budget',
@@ -143,8 +147,8 @@ export const geometryDataRecurrence = [
     'Recipe scaling and whole-package budgets',
     'P57-L05',
     'P57-L05-Q6',
-    pair(6),
-    'P66按10/4缩放A80/B120mL配方，分别补足整瓶、付款10.80比预算10短0.80；J87按6/4缩放A120/B80，付款11比预算11.50余0.50。两处都核配方比例、零库存、每种最少够用整包装、实际付款与余料，明确不能按只用掉的份额付可拆零价格。',
-    'P66 scales A80/B120mL by 10/4, buys sufficient whole bottles and finds payment 10.80 exceeds budget ten by 0.80. J87 scales A120/B80 by 6/4 and finds payment eleven leaves 0.50 from 11.50. Both check recipe ratios, zero stock, least sufficient whole packages, actual payment and leftovers rather than paying only for the fraction consumed.',
+    ['P66-MAINT-MEASURE-Q6', 'J87-MAINT-MEASURE-Q6', ...meaningPair(5)],
+    'P66按10/4缩放A80/B120mL配方，分别补足整瓶、付款10.80比预算10短0.80；J87按6/4缩放A120/B80，付款11比预算11.50余0.50。两处都核配方比例、零库存、每种最少够用整包装、实际付款与余料，明确不能按只用掉的份额付可拆零价格。新Q5核边界前三个份数的需求、最少整包与台阶付款，含预算刚好/短缺/剩余和独立非零库存分支；余料不是退款，各单位不合并。',
+    'P66 scales A80/B120mL by 10/4, buys sufficient whole bottles and finds payment 10.80 exceeds budget ten by 0.80. J87 scales A120/B80 by 6/4 and finds payment eleven leaves 0.50 from 11.50. Both check recipe ratios, zero stock, least sufficient whole packages, actual payment and leftovers rather than paying only for the fraction consumed. New Q5s check requirements, least sufficient packs and stepwise payment across three serving counts, including exact/short/surplus budgets and an independent nonzero-stock branch, without refunding leftovers or adding unlike units.',
   ),
 ];

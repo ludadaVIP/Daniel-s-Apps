@@ -17,7 +17,7 @@ const e = (
   targets,
   rationale: t(rz, re),
 });
-export const fractionOperationsRecurrence = [
+const originalFractionOperationsRecurrence = [
   e(
     'repeat-fraction',
     '相同分数量的重复相加',
@@ -73,3 +73,44 @@ export const fractionOperationsRecurrence = [
     'P67 and J74 derive 9/10 and 10/21 from q×2/3=3/5 and q×7/4=5/6; J71 derives 3/2 with a negative divisor. Each identifies the original nonzero divisor, cancels it using its reciprocal, checks by multiplication, rejects inverting the dividend and distinguishes a valid zero dividend from no-solution/non-unique zero-divisor cases.',
   ),
 ];
+
+const details = [
+  [
+    '新两组Q1重画假分数每组量与整数组数，先估范围，区分两种零量情形与数值交换后的情境角色。',
+    'New Q1s reconstruct improper per-group quantities, whole group counts, bounds, distinct zero contexts and the roles after swapping factors.',
+  ],
+  [
+    '新两组Q2用两个大于一的因子重画扩展网格、四整体边界、等面积非必正方、正量与零量变化及约分依据。',
+    'New Q2s draw both factors above one, four-whole limits, equal-area nonsquare cells, positive/zero effects and justified cancellation.',
+  ],
+  [
+    '新两组Q3对实际整体和选份数作独立修改，核精确选量与余量、零与全取，并区分连续量和不可分整卡。',
+    'New Q3s independently change whole or selected share count, check exact selected/remainder conservation, zero/all and continuous versus indivisible contexts.',
+  ],
+  [
+    '新两组Q4把超过一米的总带逐小份细分，数全部和每人小份，核一人、零总量、零人数及舍入不守恒。',
+    'New Q4s subdivide improper totals, count total/per-person pieces and check one person, zero total/count and rounding nonconservation.',
+  ],
+  [
+    '新两组Q5补恰好量尽、单位标准、零总量，并与同总量的平均分享对照所求份数和每人量。',
+    'New Q5s add exact exhaustion, unit standards and zero totals, then contrast measured counts with per-person shares of the same total.',
+  ],
+  [
+    '新两组Q6先画共同小份再细分证明非最小公分母也合法，由ad与bc小份推ad/(bc)，连接原除数倒数并区别相反数及零边界。',
+    'New Q6s construct and refine common pieces, allow nonleast denominators, derive ad/(bc) from piece counts and connect the original divisor reciprocal, opposites and zero conditions.',
+  ],
+];
+export const fractionOperationsRecurrence =
+  originalFractionOperationsRecurrence.map((entry, i) => ({
+    ...entry,
+    targets: [
+      ...entry.targets,
+      ...['P63', 'P67'].map(
+        (u) => `${u}-MAINT-FRACTION-MULTIPLICATIVE-Q${i + 1}`,
+      ),
+    ],
+    rationale: t(
+      `${entry.rationale.zh} ${details[i]![0]}`,
+      `${entry.rationale.en} ${details[i]![1]}`,
+    ),
+  }));

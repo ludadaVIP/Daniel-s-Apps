@@ -4000,7 +4000,10 @@
         "P57-L01-Q6",
         "P57-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-DATA-MEANING-Q1"],
+        "J76": ["J76-MAINT-DATA-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "frequency-and-sample",
@@ -4045,11 +4048,21 @@
               "unit": "H08",
               "task": "H08-L01-X",
               "taskSkill": "data-type-identity-source"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-DATA-MEANING-Q1",
+              "taskSkill": "frequency-and-sample"
+            },
+            {
+              "unit": "J76",
+              "task": "J76-MAINT-DATA-MEANING-Q1",
+              "taskSkill": "frequency-and-sample"
             }
           ],
           "rationale": {
-            "zh": "J76从0、0、6、6数两个6得相对频数1/2，并从八邀五答给5/8回答率、解释抽样框与偏差；J88逐编号保留十二行、A5缺失、有效A五/B六及有依据纠错；H08保不同ID同值、仅合并同次重复，四个有效长度均值21cm。复现计数分母、零与缺失、重复身份和结论范围，而非把无回应当一个数值零。",
-            "en": "J76 counts two sixes among 0,0,6,6 for relative frequency 1/2 and gives response rate 5/8, explaining frames and bias. J88 retains twelve identified rows, missing A5, valid group counts five and six and justified correction. H08 retains distinct equal-valued IDs, merges only a confirmed duplicate and uses four valid lengths for mean 21cm. These retrieve count denominators, zero versus missing, identity and scope."
+            "zh": "J76从0、0、6、6数两个6得相对频数1/2，并从八邀五答给5/8回答率、解释抽样框与偏差；J88逐编号保留十二行、A5缺失、有效A五/B六及有依据纠错；H08保不同ID同值、仅合并同次重复，四个有效长度均值21cm。复现计数分母、零与缺失、重复身份和结论范围，而非把无回应当一个数值零。新Q1逐ID审核原始分类/错录/未录入，保留更正现有行与加入新人的不同动作，主动生成零其他、缺失与结论边界。",
+            "en": "J76 counts two sixes among 0,0,6,6 for relative frequency 1/2 and gives response rate 5/8, explaining frames and bias. J88 retains twelve identified rows, missing A5, valid group counts five and six and justified correction. H08 retains distinct equal-valued IDs, merges only a confirmed duplicate and uses four valid lengths for mean 21cm. These retrieve count denominators, zero versus missing, identity and scope. New Q1s audit source classifications, wrong entries and unentered rows by ID, distinguish correcting an existing record from adding a person, and generate zero-Other, missing and scoped conclusions."
           }
         }
       ],
@@ -4069,7 +4082,10 @@
         "P57-L02-Q6",
         "P57-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-DATA-MEANING-Q2"],
+        "J76": ["J76-MAINT-DATA-MEANING-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "mean-as-fair-share",
@@ -4109,11 +4125,21 @@
               "unit": "J76",
               "task": "J76-L03-Q6",
               "taskSkill": "mean-and-unusual-record"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-DATA-MEANING-Q2",
+              "taskSkill": "mean-as-fair-share"
+            },
+            {
+              "unit": "J76",
+              "task": "J76-MAINT-DATA-MEANING-Q2",
+              "taskSkill": "mean-as-fair-share"
             }
           ],
           "rationale": {
-            "zh": "P67把2、3、3、4、28的完整40分钟均分五份得8，另保留1、2、2的精确均值5/3，并与实际中位数3区别；J76把末条8改50或0时按完整总量72或22除五，解释异常值与中位数变化。两个单元都使用总量÷有效条数，均值不是每条实际值，不能为结果好看删真实记录。",
-            "en": "P67 shares the full forty minutes in 2,3,3,4,28 into five for mean eight and retains exact 5/3 for 1,2,2, distinguishing the median three. J76 replaces eight by fifty or zero and divides totals seventy-two or twenty-two by five, explaining outliers and median changes. Both use total over valid count, without treating the mean as every actual value or deleting valid observations for a preferred result."
+            "zh": "P67把2、3、3、4、28的完整40分钟均分五份得8，另保留1、2、2的精确均值5/3，并与实际中位数3区别；J76把末条8改50或0时按完整总量72或22除五，解释异常值与中位数变化。两个单元都使用总量÷有效条数，均值不是每条实际值，不能为结果好看删真实记录。新Q2亲移卡保总量、零与条数，分数均值乘回检近似；另区分全零、已观测均值/完整缺失均值，并由总均值主动造不同分布。",
+            "en": "P67 shares the full forty minutes in 2,3,3,4,28 into five for mean eight and retains exact 5/3 for 1,2,2, distinguishing the median three. J76 replaces eight by fifty or zero and divides totals seventy-two or twenty-two by five, explaining outliers and median changes. Both use total over valid count, without treating the mean as every actual value or deleting valid observations for a preferred result. New Q2s move cards while retaining total, zeros and count, multiply exact means back to test approximations, distinguish all-zero and observed-only versus incomplete means, and generate distinct distributions from one summary."
           }
         }
       ],
@@ -4135,6 +4161,8 @@
       ],
       "laterExactTagCandidates": {
         "P66": ["P66-MAINT-MEASURE-Q7"],
+        "P68": ["P68-MAINT-DATA-MEANING-Q3"],
+        "J76": ["J76-MAINT-DATA-MEANING-Q3"],
         "J87": ["J87-MAINT-MEASURE-Q7"]
       },
       "reviewedEvidence": [
@@ -4156,11 +4184,21 @@
               "unit": "J87",
               "task": "J87-MAINT-MEASURE-Q7",
               "taskSkill": "time-series-reading"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-DATA-MEANING-Q3",
+              "taskSkill": "time-series-reading"
+            },
+            {
+              "unit": "J76",
+              "task": "J76-MAINT-DATA-MEANING-Q3",
+              "taskSkill": "time-series-reading"
             }
           ],
           "rationale": {
-            "zh": "P66由0、1、4、6h的温度记录画图、用1:3:2横向间距，核1到6h经过5h、已测温差2°C；J87由0、2、3、7min画高度图，间距2:1:4，核2到7min增6mm且真零不等于缺测。两处都主动作图并说明示意线不证明未测过程、缺测不填零或无条件插值、末次增加不保证未来。",
-            "en": "P66 plots temperatures at 0,1,4,6h with 1:3:2 spacing and checks five elapsed hours and 2°C endpoint change. J87 plots heights at 0,2,3,7min with 2:1:4 spacing, checking five minutes and a 6mm increase while retaining an observed zero. Both actively construct graphs and reject unlabelled interpolation, zero-filling, inferred unmeasured paths and guaranteed future increase."
+            "zh": "P66由0、1、4、6h的温度记录画图、用1:3:2横向间距，核1到6h经过5h、已测温差2°C；J87由0、2、3、7min画高度图，间距2:1:4，核2到7min增6mm且真零不等于缺测。两处都主动作图并说明示意线不证明未测过程、缺测不填零或无条件插值、末次增加不保证未来。新Q3从实际时刻/温度自画双尺度，完整生成分段有向变化与正降低量；原表、独立缺测分支与实测零分支分别画，造可能路径和未来反例而不冒充实测。",
+            "en": "P66 plots temperatures at 0,1,4,6h with 1:3:2 spacing and checks five elapsed hours and 2°C endpoint change. J87 plots heights at 0,2,3,7min with 2:1:4 spacing, checking five minutes and a 6mm increase while retaining an observed zero. Both actively construct graphs and reject unlabelled interpolation, zero-filling, inferred unmeasured paths and guaranteed future increase. New Q3s draw both scales from actual time/value pairs and generate signed segment changes and positive fall amounts, distinguish original, independent missing and observed-zero branches, and construct possible paths/future counterexamples without treating them as measurements."
           }
         }
       ],
@@ -4180,7 +4218,10 @@
         "P57-L04-Q6",
         "P57-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-DATA-MEANING-Q4"],
+        "J76": ["J76-MAINT-DATA-MEANING-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "chart-evidence",
@@ -4210,11 +4251,21 @@
               "unit": "J88",
               "task": "J88-L02-Q6",
               "taskSkill": "spread-evidence"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-DATA-MEANING-Q4",
+              "taskSkill": "chart-evidence"
+            },
+            {
+              "unit": "J76",
+              "task": "J76-MAINT-DATA-MEANING-Q4",
+              "taskSkill": "chart-evidence"
             }
           ],
           "rationale": {
-            "zh": "P68改轴上限仍保原人数，解释缺测与人次范围；J75区分轴比例改变的视觉斜率与带单位变化率；J88解释箱段宽度不直接给人数比例，并在极差与IQR排序不同时限定“更稳定”的指标。多个单元要求回原值、单位、数据范围与摘要定义，不以图形外观直接推广总体或因果。",
-            "en": "P68 retains counts after changing the axis maximum and explains missing data and visit scope. J75 distinguishes visual steepness from unit-based rates. J88 rejects interpreting box widths as head-count proportions and qualifies stability when range and IQR order groups differently. These tasks return to values, units, scope and summary definitions rather than inferring populations or causes from appearance."
+            "zh": "P68改轴上限仍保原人数，解释缺测与人次范围；J75区分轴比例改变的视觉斜率与带单位变化率；J88解释箱段宽度不直接给人数比例，并在极差与IQR排序不同时限定“更稳定”的指标。多个单元要求回原值、单位、数据范围与摘要定义，不以图形外观直接推广总体或因果。新Q4亲画零基线与截断图，核原比与显示比、两天人次与不同人数；只给调查作答数不能推出任何回答意见，重写有依据且有范围的事实。",
+            "en": "P68 retains counts after changing the axis maximum and explains missing data and visit scope. J75 distinguishes visual steepness from unit-based rates. J88 rejects interpreting box widths as head-count proportions and qualifies stability when range and IQR order groups differently. These tasks return to values, units, scope and summary definitions rather than inferring populations or causes from appearance. New Q4s construct zero/truncated plots, compare original and displayed ratios and visits versus distinct people, reject inferring any opinions from response counts alone, and rewrite a supported scoped fact."
           }
         }
       ],
@@ -4236,6 +4287,8 @@
       ],
       "laterExactTagCandidates": {
         "P66": ["P66-MAINT-MEASURE-Q6"],
+        "P68": ["P68-MAINT-DATA-MEANING-Q5"],
+        "J76": ["J76-MAINT-DATA-MEANING-Q5"],
         "J87": ["J87-MAINT-MEASURE-Q6"]
       },
       "reviewedEvidence": [
@@ -4257,11 +4310,21 @@
               "unit": "J87",
               "task": "J87-MAINT-MEASURE-Q6",
               "taskSkill": "recipe-and-pack-budget"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-DATA-MEANING-Q5",
+              "taskSkill": "recipe-and-pack-budget"
+            },
+            {
+              "unit": "J76",
+              "task": "J76-MAINT-DATA-MEANING-Q5",
+              "taskSkill": "recipe-and-pack-budget"
             }
           ],
           "rationale": {
-            "zh": "P66按10/4缩放A80/B120mL配方，分别补足整瓶、付款10.80比预算10短0.80；J87按6/4缩放A120/B80，付款11比预算11.50余0.50。两处都核配方比例、零库存、每种最少够用整包装、实际付款与余料，明确不能按只用掉的份额付可拆零价格。",
-            "en": "P66 scales A80/B120mL by 10/4, buys sufficient whole bottles and finds payment 10.80 exceeds budget ten by 0.80. J87 scales A120/B80 by 6/4 and finds payment eleven leaves 0.50 from 11.50. Both check recipe ratios, zero stock, least sufficient whole packages, actual payment and leftovers rather than paying only for the fraction consumed."
+            "zh": "P66按10/4缩放A80/B120mL配方，分别补足整瓶、付款10.80比预算10短0.80；J87按6/4缩放A120/B80，付款11比预算11.50余0.50。两处都核配方比例、零库存、每种最少够用整包装、实际付款与余料，明确不能按只用掉的份额付可拆零价格。新Q5核边界前三个份数的需求、最少整包与台阶付款，含预算刚好/短缺/剩余和独立非零库存分支；余料不是退款，各单位不合并。",
+            "en": "P66 scales A80/B120mL by 10/4, buys sufficient whole bottles and finds payment 10.80 exceeds budget ten by 0.80. J87 scales A120/B80 by 6/4 and finds payment eleven leaves 0.50 from 11.50. Both check recipe ratios, zero stock, least sufficient whole packages, actual payment and leftovers rather than paying only for the fraction consumed. New Q5s check requirements, least sufficient packs and stepwise payment across three serving counts, including exact/short/surplus budgets and an independent nonzero-stock branch, without refunding leftovers or adding unlike units."
           }
         }
       ],
@@ -4282,7 +4345,11 @@
         "P61-L01-X"
       ],
       "laterExactTagCandidates": {
-        "P67": ["P67-MAINT-FRACTION-OPS-Q1"],
+        "P63": ["P63-MAINT-FRACTION-MULTIPLICATIVE-Q1"],
+        "P67": [
+          "P67-MAINT-FRACTION-OPS-Q1",
+          "P67-MAINT-FRACTION-MULTIPLICATIVE-Q1"
+        ],
         "J74": ["J74-MAINT-FRACTION-OPS-Q1"]
       },
       "reviewedEvidence": [
@@ -4304,11 +4371,21 @@
               "unit": "J74",
               "task": "J74-MAINT-FRACTION-OPS-Q1",
               "taskSkill": "repeat-fraction"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FRACTION-MULTIPLICATIVE-Q1",
+              "taskSkill": "repeat-fraction"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-FRACTION-MULTIPLICATIVE-Q1",
+              "taskSkill": "repeat-fraction"
             }
           ],
           "rationale": {
-            "zh": "P67四组3/5m与J74五段7/8cm都须在固定单位条内数小份，分别得12/5m与35/8cm，解释把组数乘进分母为何只保留一组量，并主动核零组和一组。",
-            "en": "P67 counts four groups of 3/5m and J74 five segments of 7/8cm on fixed-unit strips, obtaining 12/5m and 35/8cm. Both explain why multiplying the denominator by group count merely preserves one group, and check zero and one groups."
+            "zh": "P67四组3/5m与J74五段7/8cm都须在固定单位条内数小份，分别得12/5m与35/8cm，解释把组数乘进分母为何只保留一组量，并主动核零组和一组。 新两组Q1重画假分数每组量与整数组数，先估范围，区分两种零量情形与数值交换后的情境角色。",
+            "en": "P67 counts four groups of 3/5m and J74 five segments of 7/8cm on fixed-unit strips, obtaining 12/5m and 35/8cm. Both explain why multiplying the denominator by group count merely preserves one group, and check zero and one groups. New Q1s reconstruct improper per-group quantities, whole group counts, bounds, distinct zero contexts and the roles after swapping factors."
           }
         }
       ],
@@ -4329,7 +4406,11 @@
         "P61-L02-X"
       ],
       "laterExactTagCandidates": {
-        "P67": ["P67-MAINT-FRACTION-OPS-Q2"],
+        "P63": ["P63-MAINT-FRACTION-MULTIPLICATIVE-Q2"],
+        "P67": [
+          "P67-MAINT-FRACTION-OPS-Q2",
+          "P67-MAINT-FRACTION-MULTIPLICATIVE-Q2"
+        ],
         "J74": ["J74-MAINT-FRACTION-OPS-Q2"]
       },
       "reviewedEvidence": [
@@ -4351,11 +4432,21 @@
               "unit": "J74",
               "task": "J74-MAINT-FRACTION-OPS-Q2",
               "taskSkill": "fraction-area-product"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FRACTION-MULTIPLICATIVE-Q2",
+              "taskSkill": "fraction-area-product"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-FRACTION-MULTIPLICATIVE-Q2",
+              "taskSkill": "fraction-area-product"
             }
           ],
           "rationale": {
-            "zh": "P67用4×5单位网格重建3/4的2/5=3/10及5/4的2/5=1/2；J74用3×7网格重建2/3的3/7=2/7及4/3的3/7=4/7。两处强制画重叠、保留原整体，并核0与1因子，不是只做乘分子分母。",
-            "en": "P67 uses 4×5 unit grids for 2/5 of 3/4=3/10 and of 5/4=1/2; J74 uses 3×7 grids for 3/7 of 2/3=2/7 and of 4/3=4/7. Both require overlap drawings, an unchanged original whole and zero/one factors, rather than just multiplying numerators and denominators."
+            "zh": "P67用4×5单位网格重建3/4的2/5=3/10及5/4的2/5=1/2；J74用3×7网格重建2/3的3/7=2/7及4/3的3/7=4/7。两处强制画重叠、保留原整体，并核0与1因子，不是只做乘分子分母。 新两组Q2用两个大于一的因子重画扩展网格、四整体边界、等面积非必正方、正量与零量变化及约分依据。",
+            "en": "P67 uses 4×5 unit grids for 2/5 of 3/4=3/10 and of 5/4=1/2; J74 uses 3×7 grids for 3/7 of 2/3=2/7 and of 4/3=4/7. Both require overlap drawings, an unchanged original whole and zero/one factors, rather than just multiplying numerators and denominators. New Q2s draw both factors above one, four-whole limits, equal-area nonsquare cells, positive/zero effects and justified cancellation."
           }
         }
       ],
@@ -4375,7 +4466,10 @@
         "P61-L03-Q6",
         "P61-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P63": ["P63-MAINT-FRACTION-MULTIPLICATIVE-Q3"],
+        "P67": ["P67-MAINT-FRACTION-MULTIPLICATIVE-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "fraction-of-amount",
@@ -4395,11 +4489,21 @@
               "unit": "P63",
               "task": "P63-L03-Q6",
               "taskSkill": "allocate-by-ratio"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FRACTION-MULTIPLICATIVE-Q3",
+              "taskSkill": "fraction-of-amount"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-FRACTION-MULTIPLICATIVE-Q3",
+              "taskSkill": "fraction-of-amount"
             }
           ],
           "rationale": {
-            "zh": "P62将35%=7/20用于80L与40L，重求28L与14L并核部分/整体；P63将7L按2:3的五份分，每权重份7/5L，A取两份14/5L、B取三份21/5L，核总量与比例。两个单元都固定具体整体、先定单位份再取份，不把比例直接当升数。",
-            "en": "P62 applies 35%=7/20 to 80L and 40L, generating 28L and 14L and checking part/whole. P63 splits 7L into five ratio shares, each 7/5L, then takes two for A=14/5L and three for B=21/5L and checks total and ratio. Both fix a measured whole, define the unit share and take the required shares rather than treating a ratio as litres."
+            "zh": "P62将35%=7/20用于80L与40L，重求28L与14L并核部分/整体；P63将7L按2:3的五份分，每权重份7/5L，A取两份14/5L、B取三份21/5L，核总量与比例。两个单元都固定具体整体、先定单位份再取份，不把比例直接当升数。 新两组Q3对实际整体和选份数作独立修改，核精确选量与余量、零与全取，并区分连续量和不可分整卡。",
+            "en": "P62 applies 35%=7/20 to 80L and 40L, generating 28L and 14L and checking part/whole. P63 splits 7L into five ratio shares, each 7/5L, then takes two for A=14/5L and three for B=21/5L and checks total and ratio. Both fix a measured whole, define the unit share and take the required shares rather than treating a ratio as litres. New Q3s independently change whole or selected share count, check exact selected/remainder conservation, zero/all and continuous versus indivisible contexts."
           }
         }
       ],
@@ -4420,7 +4524,11 @@
         "P61-L04-X"
       ],
       "laterExactTagCandidates": {
-        "P67": ["P67-MAINT-FRACTION-OPS-Q3"],
+        "P63": ["P63-MAINT-FRACTION-MULTIPLICATIVE-Q4"],
+        "P67": [
+          "P67-MAINT-FRACTION-OPS-Q3",
+          "P67-MAINT-FRACTION-MULTIPLICATIVE-Q4"
+        ],
         "J74": ["J74-MAINT-FRACTION-OPS-Q3"]
       },
       "reviewedEvidence": [
@@ -4442,11 +4550,21 @@
               "unit": "J74",
               "task": "J74-MAINT-FRACTION-OPS-Q3",
               "taskSkill": "fraction-sharing"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FRACTION-MULTIPLICATIVE-Q4",
+              "taskSkill": "fraction-sharing"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-FRACTION-MULTIPLICATIVE-Q4",
+              "taskSkill": "fraction-sharing"
             }
           ],
           "rationale": {
-            "zh": "P67将3/5L平均给四杯得3/20L，J74将5/6m平均分三段得5/18m；均要求在固定整体内进一步均分小份，乘回恢复总量，并核0总量与正整数份数。不是只从非整数商推断使用了平均分模型。",
-            "en": "P67 shares 3/5L among four cups for 3/20L each; J74 shares 5/6m into three segments for 5/18m each. Both require subdividing fixed-whole shares, inverse checks, zero-total and positive whole-number group conditions, rather than inferring sharing from a non-integer quotient."
+            "zh": "P67将3/5L平均给四杯得3/20L，J74将5/6m平均分三段得5/18m；均要求在固定整体内进一步均分小份，乘回恢复总量，并核0总量与正整数份数。不是只从非整数商推断使用了平均分模型。 新两组Q4把超过一米的总带逐小份细分，数全部和每人小份，核一人、零总量、零人数及舍入不守恒。",
+            "en": "P67 shares 3/5L among four cups for 3/20L each; J74 shares 5/6m into three segments for 5/18m each. Both require subdividing fixed-whole shares, inverse checks, zero-total and positive whole-number group conditions, rather than inferring sharing from a non-integer quotient. New Q4s subdivide improper totals, count total/per-person pieces and check one person, zero total/count and rounding nonconservation."
           }
         }
       ],
@@ -4467,7 +4585,11 @@
         "P61-L05-X"
       ],
       "laterExactTagCandidates": {
-        "P67": ["P67-MAINT-FRACTION-OPS-Q4"],
+        "P63": ["P63-MAINT-FRACTION-MULTIPLICATIVE-Q5"],
+        "P67": [
+          "P67-MAINT-FRACTION-OPS-Q4",
+          "P67-MAINT-FRACTION-MULTIPLICATIVE-Q5"
+        ],
         "J74": ["J74-MAINT-FRACTION-OPS-Q4"]
       },
       "reviewedEvidence": [
@@ -4489,11 +4611,21 @@
               "unit": "J74",
               "task": "J74-MAINT-FRACTION-OPS-Q4",
               "taskSkill": "fraction-measurement-division"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FRACTION-MULTIPLICATIVE-Q5",
+              "taskSkill": "fraction-measurement-division"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-FRACTION-MULTIPLICATIVE-Q5",
+              "taskSkill": "fraction-measurement-division"
             }
           ],
           "rationale": {
-            "zh": "P67以2/5L量3L得15/2标准份，7满份余1/5L=半标准份；J74以3/8m量2m得16/3标准段，5满段余1/8m=1/3标准段。两处画固定单位、核标准大于1的商小于1边界、乘回并区分实际余量与标准份比例。",
-            "en": "P67 measures 3L with 2/5L standards for 15/2 equivalents, seven full portions and 1/5L left, half a standard portion. J74 measures 2m with 3/8m standards for 16/3 equivalents, five full segments and 1/8m left, one third of a standard segment. Both draw fixed units, check standards above one, multiply back and distinguish measured remainders from fractions of a standard."
+            "zh": "P67以2/5L量3L得15/2标准份，7满份余1/5L=半标准份；J74以3/8m量2m得16/3标准段，5满段余1/8m=1/3标准段。两处画固定单位、核标准大于1的商小于1边界、乘回并区分实际余量与标准份比例。 新两组Q5补恰好量尽、单位标准、零总量，并与同总量的平均分享对照所求份数和每人量。",
+            "en": "P67 measures 3L with 2/5L standards for 15/2 equivalents, seven full portions and 1/5L left, half a standard portion. J74 measures 2m with 3/8m standards for 16/3 equivalents, five full segments and 1/8m left, one third of a standard segment. Both draw fixed units, check standards above one, multiply back and distinguish measured remainders from fractions of a standard. New Q5s add exact exhaustion, unit standards and zero totals, then contrast measured counts with per-person shares of the same total."
           }
         }
       ],
@@ -4514,7 +4646,11 @@
         "P61-L06-X"
       ],
       "laterExactTagCandidates": {
-        "P67": ["P67-MAINT-FRACTION-OPS-Q5"],
+        "P63": ["P63-MAINT-FRACTION-MULTIPLICATIVE-Q6"],
+        "P67": [
+          "P67-MAINT-FRACTION-OPS-Q5",
+          "P67-MAINT-FRACTION-MULTIPLICATIVE-Q6"
+        ],
         "J74": ["J74-MAINT-FRACTION-OPS-Q5"]
       },
       "reviewedEvidence": [
@@ -4541,11 +4677,21 @@
               "unit": "J71",
               "task": "J71-L05-Q6",
               "taskSkill": "signed-scaling-and-division"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FRACTION-MULTIPLICATIVE-Q6",
+              "taskSkill": "reciprocal-reasoning"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-FRACTION-MULTIPLICATIVE-Q6",
+              "taskSkill": "reciprocal-reasoning"
             }
           ],
           "rationale": {
-            "zh": "P67与J74分别由q×2/3=3/5、q×7/4=5/6推9/10及10/21；J71由含负除数关系推3/2。都要求指出原非零除数、乘它的倒数消成1、反查、拒绝倒被除数，区分零被除数可定义与零除数无解或不唯一。",
-            "en": "P67 and J74 derive 9/10 and 10/21 from q×2/3=3/5 and q×7/4=5/6; J71 derives 3/2 with a negative divisor. Each identifies the original nonzero divisor, cancels it using its reciprocal, checks by multiplication, rejects inverting the dividend and distinguishes a valid zero dividend from no-solution/non-unique zero-divisor cases."
+            "zh": "P67与J74分别由q×2/3=3/5、q×7/4=5/6推9/10及10/21；J71由含负除数关系推3/2。都要求指出原非零除数、乘它的倒数消成1、反查、拒绝倒被除数，区分零被除数可定义与零除数无解或不唯一。 新两组Q6先画共同小份再细分证明非最小公分母也合法，由ad与bc小份推ad/(bc)，连接原除数倒数并区别相反数及零边界。",
+            "en": "P67 and J74 derive 9/10 and 10/21 from q×2/3=3/5 and q×7/4=5/6; J71 derives 3/2 with a negative divisor. Each identifies the original nonzero divisor, cancels it using its reciprocal, checks by multiplication, rejects inverting the dividend and distinguishes a valid zero dividend from no-solution/non-unique zero-divisor cases. New Q6s construct and refine common pieces, allow nonleast denominators, derive ad/(bc) from piece counts and connect the original divisor reciprocal, opposites and zero conditions."
           }
         }
       ],
@@ -4566,6 +4712,8 @@
         "P62-L01-X"
       ],
       "laterExactTagCandidates": {
+        "P65": ["P65-MAINT-PERCENT-MEANING-Q1"],
+        "P68": ["P68-MAINT-PERCENT-MEANING-Q1"],
         "J75": ["J75-MAINT-PERCENT-Q1"],
         "J76": ["J76-MAINT-PERCENT-Q1"]
       },
@@ -4588,11 +4736,21 @@
               "unit": "J76",
               "task": "J76-MAINT-PERCENT-Q1",
               "taskSkill": "per-hundred-reference"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-PERCENT-MEANING-Q1",
+              "taskSkill": "per-hundred-reference"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-PERCENT-MEANING-Q1",
+              "taskSkill": "per-hundred-reference"
             }
           ],
           "rationale": {
-            "zh": "J75比较9/60与21/140均15%，J76比较14/80与35/200均17.5%；都必须画同长但不同实际总量的条，说明等比例不等实际个数及百分率分母。",
-            "en": "J75 compares 9/60 with 21/140, both 15%; J76 compares 14/80 with 35/200, both 17.5%. Each requires equal-length bars representing different actual totals and an explanation of per-hundred denominators and unequal counts."
+            "zh": "J75比较9/60与21/140均15%，J76比较14/80与35/200均17.5%；都必须画同长但不同实际总量的条，说明等比例不等实际个数及百分率分母。 新P65/P68-Q1亲画3.75/7.5格中的部分面积、200/400张中一张的低于1%对照，改整体而保标记、逆求同率新张数，并核零/全/空集合及125%的对象范围。",
+            "en": "J75 compares 9/60 with 21/140, both 15%; J76 compares 14/80 with 35/200, both 17.5%. Each requires equal-length bars representing different actual totals and an explanation of per-hundred denominators and unequal counts. New P65/P68 Q1s draw partial cells within 3.75/7.5 and one-card rates below 1% in 200/400-card sets, change whole at fixed marked count, recover counts at a fixed rate and distinguish zero/all/empty collections and contexts for 125%."
           }
         }
       ],
@@ -4613,6 +4771,8 @@
         "P62-L02-X"
       ],
       "laterExactTagCandidates": {
+        "P65": ["P65-MAINT-PERCENT-MEANING-Q2"],
+        "P68": ["P68-MAINT-PERCENT-MEANING-Q2"],
         "J75": ["J75-MAINT-PERCENT-Q2"],
         "J76": ["J76-MAINT-PERCENT-Q2"]
       },
@@ -4635,11 +4795,21 @@
               "unit": "J76",
               "task": "J76-MAINT-PERCENT-Q2",
               "taskSkill": "decimal-percent-equivalence"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-PERCENT-MEANING-Q2",
+              "taskSkill": "decimal-percent-equivalence"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-PERCENT-MEANING-Q2",
+              "taskSkill": "decimal-percent-equivalence"
             }
           ],
           "rationale": {
-            "zh": "J75主动生成0.0625=6.25%，并区分0.0625%=0.000625；J76重建0.045=4.5%与错误0.045%=0.00045。两处都解释系数乘100与百分号除100配合，而非只添符号。",
-            "en": "J75 generates 0.0625=6.25% and distinguishes 0.0625%=0.000625. J76 reconstructs 0.045=4.5% versus 0.045%=0.00045. Both explain coefficient scaling together with division by one hundred rather than appending a sign."
+            "zh": "J75主动生成0.0625=6.25%，并区分0.0625%=0.000625；J76重建0.045=4.5%与错误0.045%=0.00045。两处都解释系数乘100与百分号除100配合，而非只添符号。 新两组Q2补小于1%与超过100%的等值图、反向小数、十分之一位值链及0=0%例外。",
+            "en": "J75 generates 0.0625=6.25% and distinguishes 0.0625%=0.000625. J76 reconstructs 0.045=4.5% versus 0.045%=0.00045. Both explain coefficient scaling together with division by one hundred rather than appending a sign. New Q2s add below-one-percent and above-100% equivalent diagrams, reverse decimal forms, tenths chains and the zero exception."
           }
         }
       ],
@@ -4660,6 +4830,8 @@
         "P62-L03-X"
       ],
       "laterExactTagCandidates": {
+        "P65": ["P65-MAINT-PERCENT-MEANING-Q3"],
+        "P68": ["P68-MAINT-PERCENT-MEANING-Q3"],
         "J75": ["J75-MAINT-PERCENT-Q3"],
         "J76": ["J76-MAINT-PERCENT-Q3"]
       },
@@ -4682,11 +4854,21 @@
               "unit": "J76",
               "task": "J76-MAINT-PERCENT-Q3",
               "taskSkill": "fraction-percent-exact"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-PERCENT-MEANING-Q3",
+              "taskSkill": "fraction-percent-exact"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-PERCENT-MEANING-Q3",
+              "taskSkill": "fraction-percent-exact"
             }
           ],
           "rationale": {
-            "zh": "J75把1/6写成16又2/3%，再近似16.7%；J76把2/7写成28又4/7%，再近似28.6%。都须用除100与乘回或交叉乘说明舍入后不再精确，保留等号和约等号区别。",
-            "en": "J75 writes 1/6 as exactly 16 2/3% and approximately 16.7%; J76 writes 2/7 as exactly 28 4/7% and approximately 28.6%. Both require inverse or cross-product checks showing why rounded values are not equal to the original."
+            "zh": "J75把1/6写成16又2/3%，再近似16.7%；J76把2/7写成28又4/7%，再近似28.6%。都须用除100与乘回或交叉乘说明舍入后不再精确，保留等号和约等号区别。 新两组Q3重画终止与循环结果的部分格、跨整体与0/200%，用等值扩分反驳只改分母，并检完整百分数系数。",
+            "en": "J75 writes 1/6 as exactly 16 2/3% and approximately 16.7%; J76 writes 2/7 as exactly 28 4/7% and approximately 28.6%. Both require inverse or cross-product checks showing why rounded values are not equal to the original. New Q3s draw terminating/recurring partial cells, extended frames and zero/200%, reject denominator-only conversion and check the complete percent coefficient."
           }
         }
       ],
@@ -4707,6 +4889,8 @@
         "P62-L04-X"
       ],
       "laterExactTagCandidates": {
+        "P65": ["P65-MAINT-PERCENT-MEANING-Q4"],
+        "P68": ["P68-MAINT-PERCENT-MEANING-Q4"],
         "J75": ["J75-MAINT-PERCENT-Q4"],
         "J76": ["J76-MAINT-PERCENT-Q4"]
       },
@@ -4729,11 +4913,21 @@
               "unit": "J76",
               "task": "J76-MAINT-PERCENT-Q4",
               "taskSkill": "percent-of-amount"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-PERCENT-MEANING-Q4",
+              "taskSkill": "percent-of-amount"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-PERCENT-MEANING-Q4",
+              "taskSkill": "percent-of-amount"
             }
           ],
           "rationale": {
-            "zh": "J75从80L、120L各取12.5%得10L、15L；J76从40kg、100kg各取7.5%得3kg、7.5kg。均画或说单位份、保留量纲、部分除整体核验，并核0%及不同整体。",
-            "en": "J75 takes 12.5% of 80L and 120L for 10L and 15L. J76 takes 7.5% of 40kg and 100kg for 3kg and 7.5kg. Both require unit shares, dimensions, inverse ratios and zero-percent/different-whole checks."
+            "zh": "J75从80L、120L各取12.5%得10L、15L；J76从40kg、100kg各取7.5%得3kg、7.5kg。均画或说单位份、保留量纲、部分除整体核验，并核0%及不同整体。 新两组Q4保精确非整数连续量与余量，核125%需求、零整体不可反查占比及不可分卡的限制。",
+            "en": "J75 takes 12.5% of 80L and 120L for 10L and 15L. J76 takes 7.5% of 40kg and 100kg for 3kg and 7.5kg. Both require unit shares, dimensions, inverse ratios and zero-percent/different-whole checks. New Q4s conserve exact nonintegral amounts and remainders, check 125% requirements, reject reverse ratios to zero wholes and respect indivisible cards."
           }
         }
       ],
@@ -4754,6 +4948,8 @@
         "P62-L05-X"
       ],
       "laterExactTagCandidates": {
+        "P65": ["P65-MAINT-PERCENT-MEANING-Q5"],
+        "P68": ["P68-MAINT-PERCENT-MEANING-Q5"],
         "J75": ["J75-MAINT-PERCENT-Q5"],
         "J76": ["J76-MAINT-PERCENT-Q5"]
       },
@@ -4776,11 +4972,21 @@
               "unit": "J76",
               "task": "J76-MAINT-PERCENT-Q5",
               "taskSkill": "recover-percent-whole"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-PERCENT-MEANING-Q5",
+              "taskSkill": "recover-percent-whole"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-PERCENT-MEANING-Q5",
+              "taskSkill": "recover-percent-whole"
             }
           ],
           "rationale": {
-            "zh": "J75由18L对应12.5%恢复144L，J76由3.6kg对应7.5%恢复48kg。都须建立部分率对应、乘回核验，解释乘百分率会再次取部分，以及0%导致不唯一或条件矛盾。",
-            "en": "J75 recovers 144L from 18L at 12.5%; J76 recovers 48kg from 3.6kg at 7.5%. Both establish the part-rate correspondence, multiply back, explain why multiplication takes another part and distinguish non-unique or inconsistent zero-percent cases."
+            "zh": "J75由18L对应12.5%恢复144L，J76由3.6kg对应7.5%恢复48kg。都须建立部分率对应、乘回核验，解释乘百分率会再次取部分，以及0%导致不唯一或条件矛盾。 新两组Q5反求125/150%时更小的正参考、40%的非整数整体，并用自编双见证区分零率/零量三个分支。",
+            "en": "J75 recovers 144L from 18L at 12.5%; J76 recovers 48kg from 3.6kg at 7.5%. Both establish the part-rate correspondence, multiply back, explain why multiplication takes another part and distinguish non-unique or inconsistent zero-percent cases. New Q5s recover smaller positive references at 125/150%, nonintegral wholes at 40% and classify three zero cases with two generated positive witnesses."
           }
         }
       ],
@@ -4801,6 +5007,8 @@
         "P62-L06-X"
       ],
       "laterExactTagCandidates": {
+        "P65": ["P65-MAINT-PERCENT-MEANING-Q6"],
+        "P68": ["P68-MAINT-PERCENT-MEANING-Q6"],
         "J75": ["J75-MAINT-PERCENT-Q6"],
         "J76": ["J76-MAINT-PERCENT-Q6"]
       },
@@ -4823,11 +5031,21 @@
               "unit": "J76",
               "task": "J76-MAINT-PERCENT-Q6",
               "taskSkill": "percent-change-base"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-PERCENT-MEANING-Q6",
+              "taskSkill": "percent-change-base"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-PERCENT-MEANING-Q6",
+              "taskSkill": "percent-change-base"
             }
           ],
           "rationale": {
-            "zh": "J75以120元先降再涨25%得112.50，J76以200元先涨再降10%得198；都逐步解释基数改变。另分别比较25%到40%的15个百分点/60%相对增长，与10%到15%的5个百分点/50%相对增长，保留原比例分母。",
-            "en": "J75 decreases then increases 120 dollars by 25% for 112.50; J76 increases then decreases 200 by 10% for 198, explicitly changing each base. They separately derive fifteen percentage points versus 60% growth from 25% to 40%, and five points versus 50% growth from 10% to 15%, using original-rate denominators."
+            "zh": "J75以120元先降再涨25%得112.50，J76以200元先涨再降10%得198；都逐步解释基数改变。另分别比较25%到40%的15个百分点/60%相对增长，与10%到15%的5个百分点/50%相对增长，保留原比例分母。 新两组Q6补八折/七五折的保留率与减少率、精确恢复25%/33又1/3%的新基数以及0%和全额降价边界。",
+            "en": "J75 decreases then increases 120 dollars by 25% for 112.50; J76 increases then decreases 200 by 10% for 198, explicitly changing each base. They separately derive fifteen percentage points versus 60% growth from 25% to 40%, and five points versus 50% growth from 10% to 15%, using original-rate denominators. New Q6s distinguish retained 80/75% from reductions, recover exact new-base restoration rates of 25%/33 1/3% and check zero-rate/full-discount boundaries."
           }
         }
       ],
@@ -4847,7 +5065,10 @@
         "P63-L01-Q6",
         "P63-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-RATIO-MEANING-Q1"],
+        "J75": ["J75-MAINT-RATIO-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "ratio-order-and-reference",
@@ -4867,11 +5088,21 @@
               "unit": "J82",
               "task": "J82-MAINT-RELATIONS-Q1",
               "taskSkill": "simplest-integer-ratio"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-RATIO-MEANING-Q1",
+              "taskSkill": "ratio-order-and-reference"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-RATIO-MEANING-Q1",
+              "taskSkill": "ratio-order-and-reference"
             }
           ],
           "rationale": {
-            "zh": "J81从18和30重建A:B=3:5、反向5:3及A占全部3/8；J82从14和35给2:5、5:2及2/7。两处主动区分后项与合并总量、保留量名与顺序。",
-            "en": "J81 reconstructs A:B=3:5, reverse 5:3 and part-of-total 3/8 from eighteen and thirty. J82 gives 2:5,5:2 and 2/7 from fourteen and thirty-five. Both actively distinguish the second quantity from the combined whole and retain names and order."
+            "zh": "J81从18和30重建A:B=3:5、反向5:3及A占全部3/8；J82从14和35给2:5、5:2及2/7。两处主动区分后项与合并总量、保留量名与顺序。 新P68/J75-Q1先统一m/cm，重画顺序、合长份额和差，检同倍后差及零前后项的不同域。",
+            "en": "J81 reconstructs A:B=3:5, reverse 5:3 and part-of-total 3/8 from eighteen and thirty. J82 gives 2:5,5:2 and 2/7 from fourteen and thirty-five. Both actively distinguish the second quantity from the combined whole and retain names and order. New P68/J75 Q1s match m/cm before reconstructing order, whole share and difference, then compare doubled differences and zero first/second-term domains."
           }
         }
       ],
@@ -4892,6 +5123,8 @@
         "P63-L02-X"
       ],
       "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-RATIO-MEANING-Q2"],
+        "J75": ["J75-MAINT-RATIO-MEANING-Q2"],
         "J81": ["J81-MAINT-RELATIONS-Q1"],
         "J82": ["J82-MAINT-RELATIONS-Q1"]
       },
@@ -4914,11 +5147,21 @@
               "unit": "J82",
               "task": "J82-MAINT-RELATIONS-Q1",
               "taskSkill": "simplest-integer-ratio"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-RATIO-MEANING-Q2",
+              "taskSkill": "simplest-integer-ratio"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-RATIO-MEANING-Q2",
+              "taskSkill": "simplest-integer-ratio"
             }
           ],
           "rationale": {
-            "zh": "J81用最大公因数6将18:30约成3:5，否定未最简9:15及同减6；J82用7将14:35约成2:5，否定未最简4:10及同减7。均要求共同非零缩放、互质与交叉乘，不能只认可等值数值。",
-            "en": "J81 reduces 18:30 by greatest common factor six to 3:5, rejecting unfinished 9:15 and subtraction of six. J82 reduces 14:35 by seven to 2:5, rejecting unfinished 4:10 and subtraction of seven. Both require common nonzero scaling, coprime terms and cross-products rather than mere numerical equivalence."
+            "zh": "J81用最大公因数6将18:30约成3:5，否定未最简9:15及同减6；J82用7将14:35约成2:5，否定未最简4:10及同减7。均要求共同非零缩放、互质与交叉乘，不能只认可等值数值。 新两组Q2由十分之一和另一共同小单位计数，重建小数及分数项的最简比、非公因数和零缩放边界。",
+            "en": "J81 reduces 18:30 by greatest common factor six to 3:5, rejecting unfinished 9:15 and subtraction of six. J82 reduces 14:35 by seven to 2:5, rejecting unfinished 4:10 and subtraction of seven. Both require common nonzero scaling, coprime terms and cross-products rather than mere numerical equivalence. New Q2s count tenths and alternative shared units, reconstruct decimal/fractional simplest ratios and check nonfactors and zero scaling."
           }
         }
       ],
@@ -4939,6 +5182,8 @@
         "P63-L03-X"
       ],
       "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-RATIO-MEANING-Q3"],
+        "J75": ["J75-MAINT-RATIO-MEANING-Q3"],
         "J81": ["J81-MAINT-RELATIONS-Q2"],
         "J82": ["J82-MAINT-RELATIONS-Q2"]
       },
@@ -4961,11 +5206,21 @@
               "unit": "J82",
               "task": "J82-MAINT-RELATIONS-Q2",
               "taskSkill": "allocate-by-ratio"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-RATIO-MEANING-Q3",
+              "taskSkill": "allocate-by-ratio"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-RATIO-MEANING-Q3",
+              "taskSkill": "allocate-by-ratio"
             }
           ],
           "rationale": {
-            "zh": "J81把11L按3:5分为33/8与55/8L；J82把13m按2:7分为26/9与91/9m。都画等权重份、核和与原比，再区分连续量、不可拆整数件及零总量的0:0未定义。",
-            "en": "J81 allocates 11L in ratio 3:5 as 33/8 and 55/8L; J82 allocates 13m in ratio 2:7 as 26/9 and 91/9m. Both draw weighted shares, check sum and ratio, then distinguish continuous amounts, indivisible integer objects and undefined actual 0:0 at zero total."
+            "zh": "J81把11L按3:5分为33/8与55/8L；J82把13m按2:7分为26/9与91/9m。都画等权重份、核和与原比，再区分连续量、不可拆整数件及零总量的0:0未定义。 新两组Q3给出和正确却比例错误的均分反例，同量加倍权重重画细份，并构造有效整卡总数的分配。",
+            "en": "J81 allocates 11L in ratio 3:5 as 33/8 and 55/8L; J82 allocates 13m in ratio 2:7 as 26/9 and 91/9m. Both draw weighted shares, check sum and ratio, then distinguish continuous amounts, indivisible integer objects and undefined actual 0:0 at zero total. New Q3s refute equal splits with a correct total, redraw refined doubled weights at fixed supply and construct feasible whole-card allocations."
           }
         }
       ],
@@ -4986,6 +5241,8 @@
         "P63-L04-X"
       ],
       "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-RATIO-MEANING-Q4"],
+        "J75": ["J75-MAINT-RATIO-MEANING-Q4"],
         "J81": ["J81-MAINT-RELATIONS-Q3"],
         "J82": ["J82-MAINT-RELATIONS-Q3"]
       },
@@ -5008,11 +5265,21 @@
               "unit": "J82",
               "task": "J82-MAINT-RELATIONS-Q3",
               "taskSkill": "equivalent-ratio-table"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-RATIO-MEANING-Q4",
+              "taskSkill": "equivalent-ratio-table"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-RATIO-MEANING-Q4",
+              "taskSkill": "equivalent-ratio-table"
             }
           ],
           "rationale": {
-            "zh": "J81主动生成B=(5/3)A的四行表，比较3:5到6:10与6:8；J82生成B=(7/2)A表，比较2:7到4:14与4:9。两处核整对同乘、交叉乘、列名及零行可对应但不可除0。",
-            "en": "J81 generates four rows for B=(5/3)A and contrasts 3:5→6:10 with 6:8; J82 generates B=(7/2)A and contrasts 2:7→4:14 with 4:9. Both require paired scaling, cross-products, named columns and zero-row correspondence without dividing by zero."
+            "zh": "J81主动生成B=(5/3)A的四行表，比较3:5到6:10与6:8；J82生成B=(7/2)A表，比较2:7到4:14与4:9。两处核整对同乘、交叉乘、列名及零行可对应但不可除0。 新两组Q4主动生成分数倍与反向给B求A的表，核单零行及正确B固定加1后的非恒比。",
+            "en": "J81 generates four rows for B=(5/3)A and contrasts 3:5→6:10 with 6:8; J82 generates B=(7/2)A and contrasts 2:7→4:14 with 4:9. Both require paired scaling, cross-products, named columns and zero-row correspondence without dividing by zero. New Q4s generate fractional-multiplier rows and recover A from B, checking one-zero rows and varying quotients after a fixed extra litre."
           }
         }
       ],
@@ -5033,6 +5300,8 @@
         "P63-L05-X"
       ],
       "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-RATIO-MEANING-Q5"],
+        "J75": ["J75-MAINT-RATIO-MEANING-Q5"],
         "J81": ["J81-MAINT-RELATIONS-Q4"],
         "J82": ["J82-MAINT-RELATIONS-Q4"]
       },
@@ -5065,11 +5334,21 @@
               "unit": "J94",
               "task": "J94-L05-Q6",
               "taskSkill": "similarity-model-premises"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-RATIO-MEANING-Q5",
+              "taskSkill": "map-scale-units"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-RATIO-MEANING-Q5",
+              "taskSkill": "map-scale-units"
             }
           ],
           "rationale": {
-            "zh": "J81从1:25000折线6cm得1.5km，二倍印图改1:12500；J82从1:40000折线5cm得2km，四倍改1:10000。都核同单位、指定路线及图示标尺同步缩放；J94另反求2km在1:50000原图为4cm并讨论原图与屏幕条件。",
-            "en": "J81 converts a six-centimetre bent route at 1:25000 to 1.5km and a double-size print to 1:12500. J82 converts five centimetres at 1:40000 to 2km and a quadruple print to 1:10000. Both retain units, route and synchronised graphical scaling. J94 inversely maps 2km at 1:50000 to four centimetres and explains paper/screen conditions."
+            "zh": "J81从1:25000折线6cm得1.5km，二倍印图改1:12500；J82从1:40000折线5cm得2km，四倍改1:10000。都核同单位、指定路线及图示标尺同步缩放；J94另反求2km在1:50000原图为4cm并讨论原图与屏幕条件。 新两组Q5补非半厘米原图路线、反求、1/2与1/4线性缩印及原图两厘米图示标尺的独立核查。",
+            "en": "J81 converts a six-centimetre bent route at 1:25000 to 1.5km and a double-size print to 1:12500. J82 converts five centimetres at 1:40000 to 2km and a quadruple print to 1:10000. Both retain units, route and synchronised graphical scaling. J94 inversely maps 2km at 1:50000 to four centimetres and explains paper/screen conditions. New Q5s add non-half-centimetre routes, inverse mapping, half/quarter-size prints and an independent two-centimetre graphic-bar check."
           }
         }
       ],
@@ -5089,7 +5368,10 @@
         "P63-L06-Q6",
         "P63-L06-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P68": ["P68-MAINT-RATIO-MEANING-Q6"],
+        "J75": ["J75-MAINT-RATIO-MEANING-Q6"]
+      },
       "reviewedEvidence": [
         {
           "skill": "direct-proportion-evidence",
@@ -5114,11 +5396,21 @@
               "unit": "J75",
               "task": "J75-L04-Q6",
               "taskSkill": "affine-rate-and-intercept"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-RATIO-MEANING-Q6",
+              "taskSkill": "direct-proportion-evidence"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-RATIO-MEANING-Q6",
+              "taskSkill": "direct-proportion-evidence"
             }
           ],
           "rationale": {
-            "zh": "两组Q3均从已给完整B=kA规则解释所有正输入的恒比及零对应，另用非零截距直线和平方规则分别否定“直就够”与“过零就够”。J75进一步核y=kx+b及有限试值不能证明恒等。不是从几行偶合点直接宣布整体正比例。",
-            "en": "Both Q3 tasks use a supplied complete B=kA rule to justify constant ratios for every positive input and zero correspondence, contrasting nonzero-intercept lines and squaring. J75 further checks y=kx+b and why finite agreeing trials do not prove an identity. A few coinciding table rows are not treated as proof of the full rule."
+            "zh": "两组Q3均从已给完整B=kA规则解释所有正输入的恒比及零对应，另用非零截距直线和平方规则分别否定“直就够”与“过零就够”。J75进一步核y=kx+b及有限试值不能证明恒等。不是从几行偶合点直接宣布整体正比例。 新两组Q6画同数据不同纵轴范围，换L/mL的常数与定义域，反求连续水量并区别整卡不能任意插值。",
+            "en": "Both Q3 tasks use a supplied complete B=kA rule to justify constant ratios for every positive input and zero correspondence, contrasting nonzero-intercept lines and squaring. J75 further checks y=kx+b and why finite agreeing trials do not prove an identity. A few coinciding table rows are not treated as proof of the full rule. New Q6s plot identical data on different vertical ranges, convert L/mL coefficients and domains, invert continuous quantities and reject automatic interpolation for indivisible cards."
           }
         }
       ],
