@@ -10,8 +10,17 @@ import {
   type TimeObservation,
 } from './dataModels';
 import { MeanPiles, TimeLine, ScaleBars } from './DataVisuals';
-export type DataLabKind = Extract<Lesson['lab'], `data-${string}`>;
+export type DataLabKind =
+  'data-frequency' | 'data-mean' | 'data-line' | 'data-chart' | 'data-recipe';
 export const isDataLab = (kind: Lesson['lab']): kind is DataLabKind =>
+  [
+    'data-frequency',
+    'data-mean',
+    'data-line',
+    'data-chart',
+    'data-recipe',
+  ].includes(kind);
+const isDataLab = (kind: Lesson['lab']): kind is DataLabKind =>
   kind.startsWith('data-');
 const categories = [
   { id: 'walk', name: t('步行', 'Walk') },

@@ -569,6 +569,7 @@ export type NumberDiagram =
       point: number;
       label?: string;
       labelMode?: 'all' | 'endpoints';
+      showIntervalValue?: boolean;
     };
 export type Question = {
   id: string;
@@ -956,11 +957,11 @@ export type Lesson = {
     | 'measurement-area'
     | 'measurement-angle'
     | 'measurement-bars'
-    | 'problem-information'
-    | 'problem-represent'
-    | 'problem-two-step'
-    | 'problem-relevance'
-    | 'problem-explain'
+    | 'word-problem-information'
+    | 'word-problem-represent'
+    | 'word-problem-two-step'
+    | 'word-problem-relevance'
+    | 'word-problem-explain'
     | 'integer-mixed'
     | 'integer-order'
     | 'integer-factors'

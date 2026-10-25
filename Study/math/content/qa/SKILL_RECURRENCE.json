@@ -48,11 +48,21 @@
               "unit": "B05",
               "task": "B05-MAINT-B01-Q1",
               "taskSkill": "whole-number-reading"
+            },
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q6",
+              "taskSkill": "place-value"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q6",
+              "taskSkill": "place-value"
             }
           ],
           "rationale": {
-            "zh": "两处都把新的大数读法写成数字并保留内部或末尾占位零；不是抄写已给数字。",
-            "en": "Both require generating new larger numerals from number names while retaining internal or final zeros, rather than copying printed digits."
+            "zh": "两处Q1由读法生成数字；新Q6反向读回20,305/40,506、展开并解释逗号可省与删除内部零改位。接受熟悉语言或读题协助，不以英文发音评数学。",
+            "en": "Both Q1s generate numerals from names. New Q6s read back20,305/40,506, expand them and distinguish optional commas from value-changing internal-zero deletion. Familiar languages/reading support are accepted without scoring English pronunciation."
           }
         }
       ],
@@ -73,8 +83,8 @@
         "B01-L02-X"
       ],
       "laterExactTagCandidates": {
-        "B03": ["B03-MAINT-B01-Q2"],
-        "B05": ["B05-MAINT-B01-Q2"]
+        "B03": ["B03-MAINT-B01-Q2", "B03-MAINT-B01-Q6"],
+        "B05": ["B05-MAINT-B01-Q2", "B05-MAINT-B01-Q6"]
       },
       "reviewedEvidence": [
         {
@@ -92,11 +102,21 @@
               "unit": "B05",
               "task": "B05-MAINT-B01-Q2",
               "taskSkill": "place-value"
+            },
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q6",
+              "taskSkill": "place-value"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q6",
+              "taskSkill": "place-value"
             }
           ],
           "rationale": {
-            "zh": "两处都把数字所在位置解释为百或千的值，并补全展开式。",
-            "en": "Both interpret a digit as hundreds or thousands and complete the corresponding expanded form."
+            "zh": "两处Q2重建百/千贡献；新Q6各从原数分别移一张数字卡、整数乘10、千位增加1，生成三个新数和变化量，区分一张卡贡献十倍与总数十倍。",
+            "en": "Both Q2s rebuild hundreds/thousands contributions. New Q6s independently move one card, multiply the entire number by ten and increment thousands, generating every result/change and separating card-contribution scaling from whole-number scaling."
           }
         }
       ],
@@ -117,8 +137,8 @@
         "B01-L03-X"
       ],
       "laterExactTagCandidates": {
-        "B03": ["B03-MAINT-B01-Q3"],
-        "B05": ["B05-MAINT-B01-Q3"]
+        "B03": ["B03-MAINT-B01-Q3", "B03-MAINT-B01-Q7"],
+        "B05": ["B05-MAINT-B01-Q3", "B05-MAINT-B01-Q7"]
       },
       "reviewedEvidence": [
         {
@@ -139,11 +159,21 @@
               "unit": "B05",
               "task": "B05-MAINT-B01-Q3",
               "taskSkill": "whole-number-line"
+            },
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q7",
+              "taskSkill": "whole-number-line"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q7",
+              "taskSkill": "whole-number-line"
             }
           ],
           "rationale": {
-            "zh": "两处都从非零起点按相等区间定位，再比较和排序；刻度与区间数均改变。",
-            "en": "Both locate a value from a nonzero origin using equal intervals, then compare and order; scales and interval counts change."
+            "zh": "Q3从非零起点定位；新Q7各判最高不同数位/位数，再从两张完整窗口表重建同P/Q及差，解释改窗不改数值顺序；亲修非统一图距，不以纸上位置当数值。",
+            "en": "Q3s locate from nonzero origins. New Q7s compare the highest differing place/digit lengths, independently reconstruct the SAME P/Q and difference from two complete windows, explain invariant values/order and repair an inconsistently spaced scale."
           }
         }
       ],
@@ -164,8 +194,8 @@
         "B01-L04-X"
       ],
       "laterExactTagCandidates": {
-        "B03": ["B03-MAINT-B01-Q4"],
-        "B05": ["B05-MAINT-B01-Q4"]
+        "B03": ["B03-MAINT-B01-Q4", "B03-MAINT-B01-Q8"],
+        "B05": ["B05-MAINT-B01-Q4", "B05-MAINT-B01-Q8"]
       },
       "reviewedEvidence": [
         {
@@ -186,11 +216,31 @@
               "unit": "B05",
               "task": "B05-MAINT-B01-Q4",
               "taskSkill": "rounding"
+            },
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q8",
+              "taskSkill": "rounding"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q8",
+              "taskSkill": "rounding"
+            },
+            {
+              "unit": "B03",
+              "task": "B03-L05-Q5",
+              "taskSkill": "estimate-check"
+            },
+            {
+              "unit": "P52",
+              "task": "P52-L02-Q5",
+              "taskSkill": "decimal-comparison"
             }
           ],
           "rationale": {
-            "zh": "两处都须用原数与相邻目标倍数的距离解释舍入；分别迁移到检查二次舍入及区分估数与足量约束。",
-            "en": "Both explain rounding from the original number using distances to adjacent target multiples, transferring to repeated-rounding errors and sufficient-quantity constraints."
+            "zh": "Q4核原数直接舍入与足量；新Q8逐行重建邻居、中点、距离与所需精度，19,995到十和99,950到百的中点连续进位亲生成，不以不同精度结果相异判错，原精确值保留。另B03-L05-Q5对199m/302m、P52-L02-Q5对1.24km/2.67km分别先舍入各量再估合计，并区分精确合计，补齐多量估算子目标。",
+            "en": "Q4s audit direct rounding and sufficiency. New Q8s generate neighbours, midpoint, distances and requested precision, including actual halfway carries at19,995/tens and99,950/hundreds, retaining exact inputs and distinguishing valid different precisions. B03-L05-Q5 and P52-L02-Q5 additionally round EACH of199m/302m or1.24km/2.67km before estimating sums, distinguishing approximate from exact totals."
           }
         }
       ],
@@ -211,8 +261,8 @@
         "B01-L05-X"
       ],
       "laterExactTagCandidates": {
-        "B03": ["B03-MAINT-B01-Q5"],
-        "B05": ["B05-MAINT-B01-Q5"]
+        "B03": ["B03-MAINT-B01-Q5", "B03-MAINT-B01-Q9"],
+        "B05": ["B05-MAINT-B01-Q5", "B05-MAINT-B01-Q9"]
       },
       "reviewedEvidence": [
         {
@@ -233,11 +283,21 @@
               "unit": "B05",
               "task": "B05-MAINT-B01-Q5",
               "taskSkill": "base-ten-model"
+            },
+            {
+              "unit": "B03",
+              "task": "B03-MAINT-B01-Q9",
+              "taskSkill": "base-ten-model"
+            },
+            {
+              "unit": "B05",
+              "task": "B05-MAINT-B01-Q9",
+              "taskSkill": "base-ten-model"
             }
           ],
           "rationale": {
-            "zh": "两处都要求画或写十进制换组并证明数量守恒，分别用于退位减法与读图中的单位值。",
-            "en": "Both require drawing or writing a base-ten exchange and demonstrating conserved value, in regrouping subtraction and represented chart counts."
+            "zh": "原Q5保换组守恒；新Q9从单位值100/10/1与实际数量表亲画同块数不同值的320/302或430/403，并双向换1百/10十，核新块数14/16、总值不变与内部零。",
+            "en": "Original Q5s retain exchange conservation. New Q9s use given100/10/1 unit values and type counts to draw equal-block-count but unequal-value320/302 or430/403 diagrams, exchange in BOTH directions and check14/16 new blocks, invariant totals and placeholders."
           }
         }
       ],
@@ -256,7 +316,10 @@
         "B02-L01-Q6",
         "B02-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "B06": ["B06-MAINT-OPERATIONS-Q1"],
+        "P51": ["P51-MAINT-OPERATIONS-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "part-whole-operation",
@@ -273,11 +336,21 @@
               "unit": "B06",
               "task": "B06-L02-Q6",
               "taskSkill": "bar-relationships"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-MAINT-OPERATIONS-Q1",
+              "taskSkill": "part-whole-operation"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-OPERATIONS-Q1",
+              "taskSkill": "part-whole-operation"
             }
           ],
           "rationale": {
-            "zh": "B03把原有书与新增书合成整体；B06保持9+未知部分=24的关系，解释问号位置改变时为何用加或减。两处都要求重新生成结果或理由，保留整体、部分及逆向核查。",
-            "en": "B03 combines existing and newly received books into a whole. B06 keeps 9+unknown part=24 and explains why moving the unknown changes the required operation. Both regenerate an answer or argument using whole-part structure and an inverse check."
+            "zh": "B03把原有书与新增书合成整体；B06保持9+未知部分=24的关系，解释问号位置改变时为何用加或减。两处都要求重新生成结果或理由，保留整体、部分及逆向核查。 新B06/P51各Q1生成合并、拿走、未移物的比较、整体已含已知部分四种图式，并独立预测新增1的变化。",
+            "en": "B03 combines existing and newly received books into a whole. B06 keeps 9+unknown part=24 and explains why moving the unknown changes the required operation. Both regenerate an answer or argument using whole-part structure and an inverse check. New B06/P51 Q1s generate combining, removal, unchanged-object comparison and included-part models, plus an independent one-more prediction."
           }
         }
       ],
@@ -310,11 +383,21 @@
               "unit": "B06",
               "task": "B06-L02-Q5",
               "taskSkill": "bar-relationships"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-MAINT-OPERATIONS-Q1",
+              "taskSkill": "part-whole-operation"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-OPERATIONS-Q1",
+              "taskSkill": "part-whole-operation"
             }
           ],
           "rationale": {
-            "zh": "B05从同一人数图读出公交10与步行8的差2；B06比较17m与9m得差8，并由Mina有9张且比Noah多4张反求Noah的5张。比较不要求拿走物体，“多”也不能机械触发加法。",
-            "en": "B05 reads a difference of two between bus count ten and walking count eight on one chart. B06 compares 17m with 9m, then works backwards from Mina having nine cards, four more than Noah, to Noah having five. Comparison need not remove objects, and the word more does not mechanically imply addition."
+            "zh": "B05从同一人数图读出公交10与步行8的差2；B06比较17m与9m得差8，并由Mina有9张且比Noah多4张反求Noah的5张。比较不要求拿走物体，“多”也不能机械触发加法。 新两组Q1在拿走和未移动两组中分别画同一减法的不同含义，保留两组原量与差/总量区分。",
+            "en": "B05 reads a difference of two between bus count ten and walking count eight on one chart. B06 compares 17m with 9m, then works backwards from Mina having nine cards, four more than Noah, to Noah having five. Comparison need not remove objects, and the word more does not mechanically imply addition. New Q1s draw different meanings of the same subtraction for removal versus two unmoved groups, retaining original amounts and separating difference from combined total."
           }
         }
       ],
@@ -334,7 +417,10 @@
         "B02-L02-Q6",
         "B02-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "B06": ["B06-MAINT-OPERATIONS-Q2"],
+        "P51": ["P51-MAINT-OPERATIONS-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "equal-groups-array",
@@ -351,11 +437,21 @@
               "unit": "B06",
               "task": "B06-L05-Q4",
               "taskSkill": "explain-and-check"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-MAINT-OPERATIONS-Q2",
+              "taskSkill": "equal-groups-array"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-OPERATIONS-Q2",
+              "taskSkill": "equal-groups-array"
             }
           ],
           "rationale": {
-            "zh": "B03纠正6×(5+3)只给一行加3的错误，须把余下的3重复六行；B06把4cm×3cm的区域解释为三行、每行四个1cm²方格，共12cm²。两处把等组或阵列连接到乘法，而不是把组数与每组量相加。",
-            "en": "B03 repairs counting the remaining three only once in 6×(5+3), instead of repeating them across six rows. B06 interprets a 4cm by 3cm region as three rows of four 1cm² cells, totalling 12cm². Both connect equal groups or arrays to multiplication rather than adding group count and group size."
+            "zh": "B03纠正6×(5+3)只给一行加3的错误，须把余下的3重复六行；B06把4cm×3cm的区域解释为三行、每行四个1cm²方格，共12cm²。两处把等组或阵列连接到乘法，而不是把组数与每组量相加。 新两组Q2亲画阵列并说明换行列后的角色，按实际2/4/7或3/5/9修不等组，并区分零组与有组每组零。",
+            "en": "B03 repairs counting the remaining three only once in 6×(5+3), instead of repeating them across six rows. B06 interprets a 4cm by 3cm region as three rows of four 1cm² cells, totalling 12cm². Both connect equal groups or arrays to multiplication rather than adding group count and group size. New Q2s generate arrays and swapped row/column roles, repair unequal 2/4/7 or 3/5/9 groups, and distinguish zero groups from existing empty groups."
           }
         }
       ],
@@ -375,7 +471,10 @@
         "B02-L03-Q6",
         "B02-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "B06": ["B06-MAINT-OPERATIONS-Q3"],
+        "P51": ["P51-MAINT-OPERATIONS-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "sharing-grouping",
@@ -402,11 +501,21 @@
               "unit": "P61",
               "task": "P61-L05-Q6",
               "taskSkill": "fraction-measurement-division"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-MAINT-OPERATIONS-Q3",
+              "taskSkill": "sharing-grouping"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-OPERATIONS-Q3",
+              "taskSkill": "sharing-grouping"
             }
           ],
           "rationale": {
-            "zh": "P51先把24张卡分四行求每行6张，再将25张按每袋6张核查四满袋余1张，复现平均分与包含两种未知角色。P61把3/4L平均给两人得每人3/8L，再区分2L按每份3/4L的8/3份、两满份和余1/2L。两个后续单元都含两种除法意义；完整卡片与可分液体的范围及“份”“升”不能混淆。",
-            "en": "P51 shares 24 cards into four rows to find six per row, then groups 25 cards six per bag to check four full bags and one card left. P61 shares 3/4L between two people to get 3/8L each, then distinguishes 8/3 portions of size 3/4L from two full portions and 1/2L left. Both later units use sharing and grouping; respect indivisible cards versus divisible liquid and distinguish portion counts from litres."
+            "zh": "P51先把24张卡分四行求每行6张，再将25张按每袋6张核查四满袋余1张，复现平均分与包含两种未知角色。P61把3/4L平均给两人得每人3/8L，再区分2L按每份3/4L的8/3份、两满份和余1/2L。两个后续单元都含两种除法意义；完整卡片与可分液体的范围及“份”“升”不能混淆。 新两组Q3用29/6或38/7及整除、零总量分别求分享/满箱/全部容器，余数正才加箱，另可分液体保精确分式及单位。",
+            "en": "P51 shares 24 cards into four rows to find six per row, then groups 25 cards six per bag to check four full bags and one card left. P61 shares 3/4L between two people to get 3/8L each, then distinguishes 8/3 portions of size 3/4L from two full portions and 1/2L left. Both later units use sharing and grouping; respect indivisible cards versus divisible liquid and distinguish portion counts from litres. New Q3s use 29/6 or 38/7, exact-divisibility and zero-total cases to distinguish sharing, full boxes and minimum all-item containers, adding a box only for positive remainder and retaining exact divisible-liquid shares."
           }
         }
       ],
@@ -426,7 +535,10 @@
         "B02-L04-Q6",
         "B02-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "B06": ["B06-MAINT-OPERATIONS-Q4"],
+        "P51": ["P51-MAINT-OPERATIONS-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "inverse-multiplication",
@@ -451,11 +563,21 @@
               "unit": "P55",
               "task": "P55-L04-Q6",
               "taskSkill": "one-step-equation"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-MAINT-OPERATIONS-Q4",
+              "taskSkill": "inverse-multiplication"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-OPERATIONS-Q4",
+              "taskSkill": "inverse-multiplication"
             }
           ],
           "rationale": {
-            "zh": "B03用201×5=1005及21×5=105检查商的占位零；P55从4x=5求精确因数5/4，又解释0x=0不能唯一确定x、0x=5无解。两处用乘法关系核查逆向恢复因数，后者明确保留非零除数条件，不能由乘回成立就允许除零。",
-            "en": "B03 checks quotient placeholders with 201×5=1005 and 21×5=105. P55 recovers exact factor 5/4 from 4x=5 and explains why 0x=0 does not determine a unique x while 0x=5 has no solution. Both use multiplication to check recovered factors; the latter explicitly retains the nonzero-divisor condition rather than treating a multiplication check as permission to divide by zero."
+            "zh": "B03用201×5=1005及21×5=105检查商的占位零；P55从4x=5求精确因数5/4，又解释0x=0不能唯一确定x、0x=5无解。两处用乘法关系核查逆向恢复因数，后者明确保留非零除数条件，不能由乘回成立就允许除零。 新两组Q4逐行核非零、等因数、零组、零每组与双零，保两种商角色及相同字面式，亲自给出两个不同的□值满足0×□=0，说明反推不唯一，不能据此允许除零。",
+            "en": "B03 checks quotient placeholders with 201×5=1005 and 21×5=105. P55 recovers exact factor 5/4 from 4x=5 and explains why 0x=0 does not determine a unique x while 0x=5 has no solution. Both use multiplication to check recovered factors; the latter explicitly retains the nonzero-divisor condition rather than treating a multiplication check as permission to divide by zero. New Q4s audit nonzero, equal-factor, zero-group, zero-size and double-zero rows, retain quotient roles despite identical expressions, and generate distinct zero-product witnesses without authorising zero division."
           }
         }
       ],
@@ -475,7 +597,10 @@
         "B02-L05-Q6",
         "B02-L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "B06": ["B06-MAINT-OPERATIONS-Q5"],
+        "P51": ["P51-MAINT-OPERATIONS-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "operation-relationship",
@@ -495,11 +620,21 @@
               "unit": "P51",
               "task": "P51-L01-Q5",
               "taskSkill": "whole-mixed-calculation"
+            },
+            {
+              "unit": "B06",
+              "task": "B06-MAINT-OPERATIONS-Q5",
+              "taskSkill": "operation-relationship"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-OPERATIONS-Q5",
+              "taskSkill": "operation-relationship"
             }
           ],
           "rationale": {
-            "zh": "B06解释四盒每盒6张、合计送出5张应为4×6−5，4×(6−5)改变送出对象；P51从预算3000与十八套每套125生成3000−18×125=750。两处按数量角色决定先求等组总量，再从整体扣除，而不是见数就加减或按关键词猜。",
-            "en": "B06 explains why four boxes of six cards with five given away in total requires 4×6−5, while 4×(6−5) changes what is removed. P51 constructs 3000−18×125=750 from a budget and eighteen identically priced sets. Both choose operations from quantity roles: form an equal-group total, then subtract from a whole."
+            "zh": "B06解释四盒每盒6张、合计送出5张应为4×6−5，4×(6−5)改变送出对象；P51从预算3000与十八套每套125生成3000−18×125=750。两处按数量角色决定先求等组总量，再从整体扣除，而不是见数就加减或按关键词猜。 新两组Q5依未知量和单位分别选择四种运算，再构造预算内的整数两物品采购修改，核成本、超额与余额，允许多种有效方案。",
+            "en": "B06 explains why four boxes of six cards with five given away in total requires 4×6−5, while 4×(6−5) changes what is removed. P51 constructs 3000−18×125=750 from a budget and eighteen identically priced sets. Both choose operations from quantity roles: form an equal-group total, then subtract from a whole. New Q5s select all four operations from unknown roles/units, then construct integer two-item budget repairs, checking costs, excess and balance while accepting multiple valid plans."
           }
         }
       ],
@@ -520,8 +655,8 @@
         "B03-L01-X"
       ],
       "laterExactTagCandidates": {
-        "P51": ["P51-MAINT-FOUNDATION-Q1"],
-        "P52": ["P52-MAINT-FOUNDATION-Q1"]
+        "P51": ["P51-MAINT-FOUNDATION-Q1", "P51-MAINT-CALCULATION-Q1"],
+        "P52": ["P52-MAINT-FOUNDATION-Q1", "P52-MAINT-CALCULATION-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -542,11 +677,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q1",
               "taskSkill": "whole-regroup"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-CALCULATION-Q1",
+              "taskSkill": "whole-regroup"
+            },
+            {
+              "unit": "P52",
+              "task": "P52-MAINT-CALCULATION-Q1",
+              "taskSkill": "whole-regroup"
             }
           ],
           "rationale": {
-            "zh": "两组分别要求508−279、267+158和602−358、386+247的百十个换组及逆查。跨零退位与连续进位均须解释每次等值交换，不能只交最终数值。",
-            "en": "The two sets require place-value exchanges and inverse checks for 508−279, 267+158 and 602−358, 386+247. Both regrouping across zero and successive carries require conserved-value explanations, not merely final numbers."
+            "zh": "两组分别要求508−279、267+158和602−358、386+247的百十个换组及逆查。跨零退位与连续进位均须解释每次等值交换，不能只交最终数值。新增两组Q1还逐列生成最终进位、千位跨零顶行、零结果及倒减反例的逆查。",
+            "en": "The two sets require place-value exchanges and inverse checks for 508−279, 267+158 and 602−358, 386+247. Both regrouping across zero and successive carries require conserved-value explanations, not merely final numbers. New Q1s also generate the final carry, a thousands-level across-zero row, a zero result and an inverse rejection of column reversal."
           }
         }
       ],
@@ -567,8 +712,8 @@
         "B03-L02-X"
       ],
       "laterExactTagCandidates": {
-        "P51": ["P51-MAINT-FOUNDATION-Q2"],
-        "P52": ["P52-MAINT-FOUNDATION-Q2"]
+        "P51": ["P51-MAINT-FOUNDATION-Q2", "P51-MAINT-CALCULATION-Q2"],
+        "P52": ["P52-MAINT-FOUNDATION-Q2", "P52-MAINT-CALCULATION-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -589,11 +734,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q2",
               "taskSkill": "multiplication-decompose"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-CALCULATION-Q2",
+              "taskSkill": "multiplication-decompose"
+            },
+            {
+              "unit": "P52",
+              "task": "P52-MAINT-CALCULATION-Q2",
+              "taskSkill": "multiplication-decompose"
             }
           ],
           "rationale": {
-            "zh": "P51把九排18拆为九排20减九排2，用10+8再查；P52把七盒16拆为七盒10加七盒6，用20−4再查。两处重新调用乘法事实，说明每组的余部也须重复，保留加法与减法两种拆分。",
-            "en": "P51 decomposes nine rows of eighteen into nine twenties minus nine twos, checked using ten plus eight. P52 decomposes seven sixteens using ten plus six, checked using twenty minus four. Both retrieve multiplication facts and explain why every group repeats both parts, covering additive and subtractive strategies."
+            "zh": "P51把九排18拆为九排20减九排2，用10+8再查；P52把七盒16拆为七盒10加七盒6，用20−4再查。两处重新调用乘法事实，说明每组的余部也须重复，保留加法与减法两种拆分。新增Q2移动同阵列切线含两端空块，区分右块与总量、零行与空行，并亲算只加倍一个因数和两个因数的不同结果。",
+            "en": "P51 decomposes nine rows of eighteen into nine twenties minus nine twos, checked using ten plus eight. P52 decomposes seven sixteens using ten plus six, checked using twenty minus four. Both retrieve multiplication facts and explain why every group repeats both parts, covering additive and subtractive strategies. New Q2s move the same array cut including empty edges, distinguish partial/whole and no/empty rows, and generate one-factor versus two-factor doubling."
           }
         }
       ],
@@ -614,8 +769,8 @@
         "B03-L03-X"
       ],
       "laterExactTagCandidates": {
-        "P51": ["P51-MAINT-FOUNDATION-Q3"],
-        "P52": ["P52-MAINT-FOUNDATION-Q3"]
+        "P51": ["P51-MAINT-FOUNDATION-Q3", "P51-MAINT-CALCULATION-Q3"],
+        "P52": ["P52-MAINT-FOUNDATION-Q3", "P52-MAINT-CALCULATION-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -636,11 +791,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q3",
               "taskSkill": "two-digit-area"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-CALCULATION-Q3",
+              "taskSkill": "two-digit-area"
+            },
+            {
+              "unit": "P52",
+              "task": "P52-MAINT-CALCULATION-Q3",
+              "taskSkill": "two-digit-area"
             }
           ],
           "rationale": {
-            "zh": "两处分别画24×13与32×21的四块面积，标十位所代表的实际边长，求312与672 cm²并反查。必须四块无重叠无缺口，不把十位数字当个位，不能仅靠别的算法算出同一积充当面积模型。",
-            "en": "Both require four labelled area partitions for 24×13 and 32×21, giving 312 and 672 cm² and an inverse check. Tens represent actual side lengths. Complete nonoverlapping coverage and place values are required; a product from an unrelated algorithm is insufficient."
+            "zh": "两处分别画24×13与32×21的四块面积，标十位所代表的实际边长，求312与672 cm²并反查。必须四块无重叠无缺口，不把十位数字当个位，不能仅靠别的算法算出同一积充当面积模型。新增Q3亲画统一比例的四区，合成横带部分积，反推错误高度，另求长度和与周长，并保留两项零宽面积。",
+            "en": "Both require four labelled area partitions for 24×13 and 32×21, giving 312 and 672 cm² and an inverse check. Tens represent actual side lengths. Complete nonoverlapping coverage and place values are required; a product from an unrelated algorithm is insufficient. New Q3s generate four regions with a common scale, horizontal partial products, the erroneous height, side sum and perimeter, including two zero-width regions."
           }
         }
       ],
@@ -661,8 +826,8 @@
         "B03-L04-X"
       ],
       "laterExactTagCandidates": {
-        "P51": ["P51-MAINT-FOUNDATION-Q4"],
-        "P52": ["P52-MAINT-FOUNDATION-Q4"]
+        "P51": ["P51-MAINT-FOUNDATION-Q4", "P51-MAINT-CALCULATION-Q4"],
+        "P52": ["P52-MAINT-FOUNDATION-Q4", "P52-MAINT-CALCULATION-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -683,11 +848,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q4",
               "taskSkill": "long-division-place"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-CALCULATION-Q4",
+              "taskSkill": "long-division-place"
+            },
+            {
+              "unit": "P52",
+              "task": "P52-MAINT-CALCULATION-Q4",
+              "taskSkill": "long-division-place"
             }
           ],
           "rationale": {
-            "zh": "1027按5装袋与1213按6装盒都须在商的十位保留0，解释余量换小单位，给完整组数和余数，并核5×205+2或6×202+1及余数界限。零占位、落位与余数语义在两个单元都重新生成。",
-            "en": "Grouping 1027 by five and 1213 by six both requires a zero tens digit, an exchange into smaller units, full-group counts and remainders. Check 5×205+2 or 6×202+1 and remainder bounds. Both units regenerate placeholder, division-step and remainder meanings."
+            "zh": "1027按5装袋与1213按6装盒都须在商的十位保留0，解释余量换小单位，给完整组数和余数，并核5×205+2或6×202+1及余数界限。零占位、落位与余数语义在两个单元都重新生成。新增Q4逐位核开头零与中间零、少于一盒与零总量，区分满盒/全部最少盒/精确商，并亲造余数过大的恒等式再修复。",
+            "en": "Grouping 1027 by five and 1213 by six both requires a zero tens digit, an exchange into smaller units, full-group counts and remainders. Check 5×205+2 or 6×202+1 and remainder bounds. Both units regenerate placeholder, division-step and remainder meanings. New Q4s generate every unit row, leading/internal zeros, below-one-box and zero totals, full/minimum-all/exact quotients, and an identity with an oversized remainder that must be repaired."
           }
         }
       ],
@@ -708,8 +883,8 @@
         "B03-L05-X"
       ],
       "laterExactTagCandidates": {
-        "P51": ["P51-MAINT-FOUNDATION-Q5"],
-        "P52": ["P52-MAINT-FOUNDATION-Q5"]
+        "P51": ["P51-MAINT-FOUNDATION-Q5", "P51-MAINT-CALCULATION-Q5"],
+        "P52": ["P52-MAINT-FOUNDATION-Q5", "P52-MAINT-CALCULATION-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -730,11 +905,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q5",
               "taskSkill": "estimate-check"
+            },
+            {
+              "unit": "P51",
+              "task": "P51-MAINT-CALCULATION-Q5",
+              "taskSkill": "estimate-check"
+            },
+            {
+              "unit": "P52",
+              "task": "P52-MAINT-CALCULATION-Q5",
+              "taskSkill": "estimate-check"
             }
           ],
           "rationale": {
-            "zh": "P51用200×20估198×21，再用上界排除41580并精确拆分得4158；P52用600−300估602−298，再核304+298=602。都给“接近估数却仍错误”的反例，保留估算不是精确证明的边界。",
-            "en": "P51 estimates 198×21 using 200×20, rejects 41580 with an upper bound, and exactly decomposes to 4158. P52 estimates 602−298 using 600−300 and checks 304+298=602. Both include a nearby but wrong counterexample, distinguishing estimation from exact proof."
+            "zh": "P51用200×20估198×21，再用上界排除41580并精确拆分得4158；P52用600−300估602−298，再核304+298=602。都给“接近估数却仍错误”的反例，保留估算不是精确证明的边界。新增Q5同时生成加乘减的舍入、原数端点与可靠界限（减法交叉），筛外部与近邻候选，保单位；自创并修订50元方案，比较近似与精确余额。",
+            "en": "P51 estimates 198×21 using 200×20, rejects 41580 with an upper bound, and exactly decomposes to 4158. P52 estimates 602−298 using 600−300 and checks 304+298=602. Both include a nearby but wrong counterexample, distinguishing estimation from exact proof. New Q5s generate addition/product/difference rounding and operand bounds, cross subtraction endpoints, screen outside/nearby candidates with units, and invent then repair a fifty-dollar plan with estimated/exact balances."
           }
         }
       ],
@@ -753,7 +938,10 @@
         "L01-X",
         "L02-Q2"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P53": ["P53-MAINT-FIRST-FRACTIONS-Q1"],
+        "P63": ["P63-MAINT-FIRST-FRACTIONS-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "fraction",
@@ -783,11 +971,21 @@
               "unit": "P54",
               "task": "P54-L02-Q5",
               "taskSkill": "subtract-like-fractions"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-FIRST-FRACTIONS-Q1",
+              "taskSkill": "fraction"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FIRST-FRACTIONS-Q1",
+              "taskSkill": "fraction"
             }
           ],
           "rationale": {
-            "zh": "P53从四等份条生成5/4并解释改分母须同步改份数；P54解释小饼与大饼的两个一半不能直接当成一个小饼，又把1m换成5/5m求余3/5m。两单元都保持同一整体、等份单位和所取份数，扩展到一整体边界与超过一。",
-            "en": "P53 generates 5/4 from quarter strips and explains why changing partition size also changes part count. P54 explains why halves of different-sized cakes cannot be called one small cake and rewrites one metre as 5/5m before subtracting 2/5m. Both retain whole, equal-share unit and selected count, including the one-whole boundary and amounts above one."
+            "zh": "P53从四等份条生成5/4并解释改分母须同步改份数；P54解释小饼与大饼的两个一半不能直接当成一个小饼，又把1m换成5/5m求余3/5m。两单元都保持同一整体、等份单位和所取份数，扩展到一整体边界与超过一。新Q1生成取走/剩余互补，含零/全部；分母保原整体，不改成余格数。",
+            "en": "P53 generates 5/4 from quarter strips and explains why changing partition size also changes part count. P54 explains why halves of different-sized cakes cannot be called one small cake and rewrites one metre as 5/5m before subtracting 2/5m. Both retain whole, equal-share unit and selected count, including the one-whole boundary and amounts above one. New Q1s generate removed/remaining complements including zero/all with the original denominator."
           }
         }
       ],
@@ -823,11 +1021,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q8",
               "taskSkill": "unit-fraction"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-FIRST-FRACTIONS-Q1",
+              "taskSkill": "fraction"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FIRST-FRACTIONS-Q1",
+              "taskSkill": "fraction"
             }
           ],
           "rationale": {
-            "zh": "P53纠正三块不等大仍各标1/3；P51、P52都须说明每个整体内部等分，再比较单位分数及不同整体。不是只数块数，也不把不同整体的相同比例当相同实际量。",
-            "en": "P53 repairs labelling three unequal regions as thirds. P51 and P52 require equal partitions within each whole, then compare unit fractions and changed wholes. Piece count alone is insufficient, and equal fractions of different wholes need not be equal amounts."
+            "zh": "P53纠正三块不等大仍各标1/3；P51、P52都须说明每个整体内部等分，再比较单位分数及不同整体。不是只数块数，也不把不同整体的相同比例当相同实际量。新Q1从不等长等宽纸带求各段分数，生成真正四等份修图与长度。",
+            "en": "P53 repairs labelling three unequal regions as thirds. P51 and P52 require equal partitions within each whole, then compare unit fractions and changed wholes. Piece count alone is insufficient, and equal fractions of different wholes need not be equal amounts. New Q1s compute unequal strip shares and generate genuine quarters and lengths."
           }
         }
       ],
@@ -840,7 +1048,9 @@
       "sourceTasks": ["L02-G", "L02-Q1", "L02-Q3", "L02-Q4", "L02-Q5", "L02-X"],
       "laterExactTagCandidates": {
         "P51": ["P51-MAINT-FOUNDATION-Q8"],
-        "P52": ["P52-MAINT-FOUNDATION-Q8"]
+        "P52": ["P52-MAINT-FOUNDATION-Q8"],
+        "P53": ["P53-MAINT-FIRST-FRACTIONS-Q2"],
+        "P63": ["P63-MAINT-FIRST-FRACTIONS-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -861,11 +1071,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q8",
               "taskSkill": "unit-fraction"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-FIRST-FRACTIONS-Q2",
+              "taskSkill": "unit-fraction"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FIRST-FRACTIONS-Q2",
+              "taskSkill": "unit-fraction"
             }
           ],
           "rationale": {
-            "zh": "P51比较同一米的1/2与1/5，P52比较同一升的1/3与1/4；两处都解释等份越多一份越小，再用不同整体下实际相等的例子核查适用条件。",
-            "en": "P51 compares halves and fifths of one metre; P52 compares thirds and quarters of one litre. Both explain why more equal shares make each smaller and check the common-whole condition using equal actual amounts from different wholes."
+            "zh": "P51比较同一米的1/2与1/5，P52比较同一升的1/3与1/4；两处都解释等份越多一份越小，再用不同整体下实际相等的例子核查适用条件。新Q2合成二/四个四分之一，求三种单位份的厘米数；大整体四分之一实际更长不翻转数值1/4<1/2。",
+            "en": "P51 compares halves and fifths of one metre; P52 compares thirds and quarters of one litre. Both explain why more equal shares make each smaller and check the common-whole condition using equal actual amounts from different wholes. New Q2s join two/four quarters and compute half/third/quarter lengths; a longer physical quarter does not reverse numerical 1/4<1/2."
           }
         }
       ],
@@ -884,7 +1104,10 @@
         "L03-Q5",
         "L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P53": ["P53-MAINT-FIRST-FRACTIONS-Q3"],
+        "P63": ["P63-MAINT-FIRST-FRACTIONS-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "number-line",
@@ -904,11 +1127,21 @@
               "unit": "J75",
               "task": "J75-L02-Q6",
               "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-FIRST-FRACTIONS-Q3",
+              "taskSkill": "number-line"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FIRST-FRACTIONS-Q3",
+              "taskSkill": "number-line"
             }
           ],
           "rationale": {
-            "zh": "J71从−3/4按每格1/4向右走两格到−1/4，区分移动与终点；J75用半单位网格描(3/2,−1/2)并投影读回。两处都需由分数单位数区间、定位而非数刻度点；后者在两条轴上迁移。",
-            "en": "J71 moves two quarter-unit intervals from −3/4 to −1/4 and distinguishes movement from endpoint. J75 plots (3/2,−1/2) on half-unit grids and reads back projections. Both count fractional-unit intervals to locate values, not tick marks; the latter transfers the idea to two axes."
+            "zh": "J71从−3/4按每格1/4向右走两格到−1/4，区分移动与终点；J75用半单位网格描(3/2,−1/2)并投影读回。两处都需由分数单位数区间、定位而非数刻度点；后者在两条轴上迁移。新Q3列全刻度与区间数，重等分保同一P，修不均纸尺，并区分1/3与三位显示0.333。",
+            "en": "J71 moves two quarter-unit intervals from −3/4 to −1/4 and distinguishes movement from endpoint. J75 plots (3/2,−1/2) on half-unit grids and reads back projections. Both count fractional-unit intervals to locate values, not tick marks; the latter transfers the idea to two axes. New Q3s enumerate ticks, repartition while preserving P, repair unequal spacing and distinguish exact thirds from a three-place display."
           }
         }
       ],
@@ -927,7 +1160,10 @@
         "L04-Q5",
         "L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P53": ["P53-MAINT-FIRST-FRACTIONS-Q4"],
+        "P63": ["P63-MAINT-FIRST-FRACTIONS-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "decimal",
@@ -957,11 +1193,21 @@
               "unit": "P62",
               "task": "P62-L02-Q6",
               "taskSkill": "decimal-percent-equivalence"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-FIRST-FRACTIONS-Q4",
+              "taskSkill": "decimal"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FIRST-FRACTIONS-Q4",
+              "taskSkill": "decimal"
             }
           ],
           "rationale": {
-            "zh": "P52把4百分之一换40千分之一并解释0.040=0.04；P62须以每百分之一解释0.6=60%，再把0.375与37.5/100连起来。两处都按小份单位保持数量，不能靠添零或添百分号的外观。",
-            "en": "P52 converts four hundredths to forty thousandths and explains 0.040=0.04. P62 explains 0.6=60% using hundredths and connects 0.375 to 37.5/100. Both preserve amount through subunit meaning rather than appending zeros or percent signs by appearance."
+            "zh": "P52把4百分之一换40千分之一并解释0.040=0.04；P62须以每百分之一解释0.6=60%，再把0.375与37.5/100连起来。两处都按小份单位保持数量，不能靠添零或添百分号的外观。新Q4亲画原百格板，生成0/100边界、两种小数单位、占位/尾零的不同删法及同单位比较。",
+            "en": "P52 converts four hundredths to forty thousandths and explains 0.040=0.04. P62 explains 0.6=60% using hundredths and connects 0.375 to 37.5/100. Both preserve amount through subunit meaning rather than appending zeros or percent signs by appearance. New Q4s generate hundred grids including zero/full, decimal units, contrasting zero deletions and common-unit comparison."
           }
         }
       ],
@@ -980,7 +1226,10 @@
         "L05-Q5",
         "L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P53": ["P53-MAINT-FIRST-FRACTIONS-Q5"],
+        "P63": ["P63-MAINT-FIRST-FRACTIONS-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "money",
@@ -1012,11 +1261,21 @@
               "unit": "P57",
               "task": "P57-L05-Q6",
               "taskSkill": "recipe-and-pack-budget"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-FIRST-FRACTIONS-Q5",
+              "taskSkill": "money"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-FIRST-FRACTIONS-Q5",
+              "taskSkill": "money"
             }
           ],
           "rationale": {
-            "zh": "P52由NZ$4.80分四份得1.20，并算5−2.35−1.20=1.45；P57核6−2.40−3=0.60、7.80比7短0.80，且解释整盒实际付款。保留百分之一元的位值、末零等值、合价与找零，模型金额均虚构。",
-            "en": "P52 shares NZ$4.80 into four amounts of 1.20 and calculates change 5−2.35−1.20=1.45. P57 checks change 0.60, a shortfall of 0.80 and full-carton payment. Both retain cent place values, equivalent final zeros, combined costs and change. Prices are fictional."
+            "zh": "P52由NZ$4.80分四份得1.20，并算5−2.35−1.20=1.45；P57核6−2.40−3=0.60、7.80比7短0.80，且解释整盒实际付款。保留百分之一元的位值、末零等值、合价与找零，模型金额均虚构。新Q5分清完整元、小数部分几分与总分，先估价再用整数分精算找零反查，自编有效方案；真实价签以后另记。",
+            "en": "P52 shares NZ$4.80 into four amounts of 1.20 and calculates change 5−2.35−1.20=1.45. P57 checks change 0.60, a shortfall of 0.80 and full-carton payment. Both retain cent place values, equivalent final zeros, combined costs and change. Prices are fictional. New Q5s separate whole dollars, decimal-part cents and total cents, estimate then compute/check exact change and invent valid plans. Real observations remain separate."
           }
         }
       ],
@@ -1038,7 +1297,9 @@
       ],
       "laterExactTagCandidates": {
         "P51": ["P51-MAINT-FOUNDATION-Q6"],
-        "P52": ["P52-MAINT-FOUNDATION-Q6"]
+        "P52": ["P52-MAINT-FOUNDATION-Q6"],
+        "P66": ["P66-MAINT-MEASUREMENT-Q1"],
+        "J87": ["J87-MAINT-MEASUREMENT-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -1059,11 +1320,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q6",
               "taskSkill": "length-units"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-MEASUREMENT-Q1",
+              "taskSkill": "length-units"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-MEASUREMENT-Q1",
+              "taskSkill": "length-units"
             }
           ],
           "rationale": {
-            "zh": "两处都由非零尺起点求端点差，平移到零点核验，并在cm与mm间双向换算；6.5cm=65mm、85mm=8.5cm。明确读的是物理长度而非终点位置或屏幕像素。",
-            "en": "Both subtract nonzero ruler endpoints, translate to zero as a check and convert in opposite directions: 6.5cm=65mm and 85mm=8.5cm. They distinguish physical length from endpoint position and screen pixels."
+            "zh": "两处都由非零尺起点求端点差，平移到零点核验，并在cm与mm间双向换算；6.5cm=65mm、85mm=8.5cm。明确读的是物理长度而非终点位置或屏幕像素。新Q1另核零长度、厘米间隔与刻度点、混合米厘米、毫米到米及米到千米，全部先写单位关系再换回核。",
+            "en": "Both subtract nonzero ruler endpoints, translate to zero as a check and convert in opposite directions: 6.5cm=65mm and 85mm=8.5cm. They distinguish physical length from endpoint position and screen pixels. New Q1s additionally generate zero length, interval/tick counts, mixed metre/centimetre conversion and metre/kilometre equivalents with inverse checks."
           }
         }
       ],
@@ -1083,7 +1354,10 @@
         "B05-L02-Q6",
         "B05-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P66": ["P66-MAINT-MEASUREMENT-Q2"],
+        "J87": ["J87-MAINT-MEASUREMENT-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "boundary-length",
@@ -1103,11 +1377,21 @@
               "unit": "J72",
               "task": "J72-L05-Q6",
               "taskSkill": "contextual-polynomial-model"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-MEASUREMENT-Q2",
+              "taskSkill": "boundary-length"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-MEASUREMENT-Q2",
+              "taskSkill": "boundary-length"
             }
           ],
           "rationale": {
-            "zh": "P56逐边核2×4与3×3矩形的周长均12cm而方格数8与9；J72由长n+2、宽n逐边推出4n+4cm，并与n(n+2)cm²区别。两处都要数完整周界而非两条相邻边或内部格数。",
-            "en": "P56 checks the complete twelve-centimetre boundaries of 2×4 and 3×3 rectangles despite different areas. J72 derives 4n+4cm from all sides of a rectangle of length n+2 and width n, contrasting n(n+2)cm². Both require the full boundary rather than two adjacent sides or interior cells."
+            "zh": "P56逐边核2×4与3×3矩形的周长均12cm而方格数8与9；J72由长n+2、宽n逐边推出4n+4cm，并与n(n+2)cm²区别。两处都要数完整周界而非两条相邻边或内部格数。新Q2逐边生成完整周界，另算正方形、三角形、由半周长反求缺边；用同周长不同面积的实际数值检验。",
+            "en": "P56 checks the complete twelve-centimetre boundaries of 2×4 and 3×3 rectangles despite different areas. J72 derives 4n+4cm from all sides of a rectangle of length n+2 and width n, contrasting n(n+2)cm². Both require the full boundary rather than two adjacent sides or interior cells. New Q2s trace every side, find square/triangle perimeters and a missing rectangle side, and compute equal-perimeter/different-area cases."
           }
         }
       ],
@@ -1127,7 +1411,10 @@
         "B05-L03-Q6",
         "B05-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P66": ["P66-MAINT-MEASUREMENT-Q3"],
+        "J87": ["J87-MAINT-MEASUREMENT-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "unit-square-cover",
@@ -1162,11 +1449,21 @@
               "unit": "P61",
               "task": "P61-L02-Q6",
               "taskSkill": "fraction-area-product"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-MEASUREMENT-Q3",
+              "taskSkill": "unit-square-cover"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-MEASUREMENT-Q3",
+              "taskSkill": "unit-square-cover"
             }
           ],
           "rationale": {
-            "zh": "P56用8与9个单位格区分同周长不同面积，并以不重叠切拼解释三角形覆盖；P61把同一单位框细分成3×4格，只选交叠6格得1/2，解释部分选择而非整框。从单位平方格迁移到单位框分格，均须只计实际覆盖、保留原整体。",
-            "en": "P56 counts eight versus nine unit cells despite equal perimeters and explains triangle area by rearrangement without overlap. P61 partitions the same unit frame into 3×4 cells and selects six overlap cells, giving 1/2, explaining selected coverage rather than the bounding frame. Both retain the whole and count only covered area, transferring from square units to subcells of a unit frame."
+            "zh": "P56用8与9个单位格区分同周长不同面积，并以不重叠切拼解释三角形覆盖；P61把同一单位框细分成3×4格，只选交叠6格得1/2，解释部分选择而非整框。从单位平方格迁移到单位框分格，均须只计实际覆盖、保留原整体。新Q3从原已覆盖列号生成空格、整图旋转后的空格坐标与面积，重排同格数却不同周长；再改变单位格边长亲算实际面积，并核清空与重涂。",
+            "en": "P56 counts eight versus nine unit cells despite equal perimeters and explains triangle area by rearrangement without overlap. P61 partitions the same unit frame into 3×4 cells and selects six overlap cells, giving 1/2, explaining selected coverage rather than the bounding frame. Both retain the whole and count only covered area, transferring from square units to subcells of a unit frame. New Q3s reconstruct holes and rotated coordinates, rearrange the same cells to different perimeters, recompute enlarged-cell areas and check cleared/repainted coverage."
           }
         }
       ],
@@ -1188,7 +1485,9 @@
       ],
       "laterExactTagCandidates": {
         "P51": ["P51-MAINT-FOUNDATION-Q7"],
-        "P52": ["P52-MAINT-FOUNDATION-Q7"]
+        "P52": ["P52-MAINT-FOUNDATION-Q7"],
+        "P66": ["P66-MAINT-MEASUREMENT-Q4"],
+        "J87": ["J87-MAINT-MEASUREMENT-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -1209,11 +1508,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q7",
               "taskSkill": "angle-shape-properties"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-MEASUREMENT-Q4",
+              "taskSkill": "angle-shape-properties"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-MEASUREMENT-Q4",
+              "taskSkill": "angle-shape-properties"
             }
           ],
           "rationale": {
-            "zh": "两处都从四等边四直角判断旋转后的正方形仍属于长方形；分别核四分之一圈90°与半圈180°，并解释60°角延长或缩短线臂仍60°。同时区分圆的曲线边界与0条直边、三角形的3条直边，补足角度、包含式分类和朝向不变性，不能以只算一个角覆盖整个宽标签。",
-            "en": "Both classify a rotated four-equal-sided, four-right-angled shape as both square and rectangle. They check quarter turns of 90° and half turns of 180° and explain why extending or shortening a 60° angle leaves its opening fixed. Both also distinguish a circle’s curved boundary and zero straight sides from a triangle’s three straight sides. Evidence covers angles, inclusive classification and orientation invariance, not merely one angle calculation."
+            "zh": "两处都从四等边四直角判断旋转后的正方形仍属于长方形；分别核四分之一圈90°与半圈180°，并解释60°角延长或缩短线臂仍60°。同时区分圆的曲线边界与0条直边、三角形的3条直边，补足角度、包含式分类和朝向不变性，不能以只算一个角覆盖整个宽标签。新Q4逐个分类0至180的边界，比较整图与单臂转动、同向与反向净转向，给长方形逆命题及三角形全称的反例，不凭图像外观证明。",
+            "en": "Both classify a rotated four-equal-sided, four-right-angled shape as both square and rectangle. They check quarter turns of 90° and half turns of 180° and explain why extending or shortening a 60° angle leaves its opening fixed. Both also distinguish a circle’s curved boundary and zero straight sides from a triangle’s three straight sides. Evidence covers angles, inclusive classification and orientation invariance, not merely one angle calculation. New Q4s classify angle boundaries, distinguish whole/one-arm turns and net directions, and generate rectangle/triangle counterexamples without treating appearance as proof."
           }
         }
       ],
@@ -1233,7 +1542,10 @@
         "B05-L05-Q6",
         "B05-L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P66": ["P66-MAINT-MEASUREMENT-Q5"],
+        "J87": ["J87-MAINT-MEASUREMENT-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "chart-scale-reading",
@@ -1268,11 +1580,21 @@
               "unit": "P68",
               "task": "P68-L04-Q6",
               "taskSkill": "chart-multistep-evidence"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-MEASUREMENT-Q5",
+              "taskSkill": "chart-scale-reading"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-MEASUREMENT-Q5",
+              "taskSkill": "chart-scale-reading"
             }
           ],
           "rationale": {
-            "zh": "P57区分从38起画时40与44的原值和显示高度2与6；P68纵轴上限翻倍仍须读12、18、缺测、24，并求指定两天36人次。两单元都重新使用轴起点、单位与刻度，明确缺测不能当零、显示高度不能直接当人数。",
-            "en": "P57 distinguishes values forty and forty-four from displayed heights two and six above a baseline of thirty-eight. P68 retains records twelve, eighteen, missing and twenty-four after doubling the axis maximum and sums two specified days to thirty-six visits. Both use origin, units and scales; missing is not zero and plotted height is not the count."
+            "zh": "P57区分从38起画时40与44的原值和显示高度2与6；P68纵轴上限翻倍仍须读12、18、缺测、24，并求指定两天36人次。两单元都重新使用轴起点、单位与刻度，明确缺测不能当零、显示高度不能直接当人数。新Q5从原区间数还原互斥类别与零人数，自画两种刻度、合计/指定和/差；另给10张独立ID纸卡自编分类与图，查重并限定结论。",
+            "en": "P57 distinguishes values forty and forty-four from displayed heights two and six above a baseline of thirty-eight. P68 retains records twelve, eighteen, missing and twenty-four after doubling the axis maximum and sums two specified days to thirty-six visits. Both use origin, units and scales; missing is not zero and plotted height is not the count. New Q5s reconstruct exclusive counts including zero, draw both scales and distinct totals/comparisons, then classify ten unique paper-card IDs, draw their charts and check duplicates and inference limits."
           }
         }
       ],
@@ -1292,7 +1614,10 @@
         "B06-L01-Q6",
         "B06-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-WORD-PROBLEMS-Q1"],
+        "P68": ["P68-MAINT-WORD-PROBLEMS-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "known-unknown-units",
@@ -1317,11 +1642,21 @@
               "unit": "P56",
               "task": "P56-L02-Q4",
               "taskSkill": "rectangle-area"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-WORD-PROBLEMS-Q1",
+              "taskSkill": "known-unknown-units"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-WORD-PROBLEMS-Q1",
+              "taskSkill": "known-unknown-units"
             }
           ],
           "rationale": {
-            "zh": "P52区分3瓶与每瓶0.5L，不能把瓶数当升数相加；P55明确定义每袋未知x和袋外已知2支，列3x+2=20；P56面积前先统一4m与50cm。三个单元要求识别量的角色和单位，先确定所求再算，不是见数全相加。",
-            "en": "P52 distinguishes three bottles from 0.5L per bottle. P55 defines unknown x per bag and two known loose items before forming 3x+2=20. P56 unifies four metres and fifty centimetres before finding area. These tasks identify roles, units and the requested quantity before calculation rather than adding every number."
+            "zh": "P52区分3瓶与每瓶0.5L，不能把瓶数当升数相加；P55明确定义每袋未知x和袋外已知2支，列3x+2=20；P56面积前先统一4m与50cm。三个单元要求识别量的角色和单位，先确定所求再算，不是见数全相加。新Q1从原信息卡区分直接读全长与求剩余，统一混合长度、定位问号和重复计入的部分，鸟数改变不改长度关系。",
+            "en": "P52 distinguishes three bottles from 0.5L per bottle. P55 defines unknown x per bag and two known loose items before forming 3x+2=20. P56 unifies four metres and fifty centimetres before finding area. These tasks identify roles, units and the requested quantity before calculation rather than adding every number. New Q1s distinguish reading a given from finding remaining, convert mixed lengths, place the unknown and reject double-counting an included part or adding birds."
           }
         }
       ],
@@ -1343,7 +1678,9 @@
       ],
       "laterExactTagCandidates": {
         "P51": ["P51-MAINT-FOUNDATION-Q9"],
-        "P52": ["P52-MAINT-FOUNDATION-Q9"]
+        "P52": ["P52-MAINT-FOUNDATION-Q9"],
+        "P57": ["P57-MAINT-WORD-PROBLEMS-Q2"],
+        "P68": ["P68-MAINT-WORD-PROBLEMS-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -1364,11 +1701,21 @@
               "unit": "P52",
               "task": "P52-MAINT-FOUNDATION-Q9",
               "taskSkill": "bar-relationships"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-WORD-PROBLEMS-Q2",
+              "taskSkill": "bar-relationships"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-WORD-PROBLEMS-Q2",
+              "taskSkill": "bar-relationships"
             }
           ],
           "rationale": {
-            "zh": "两处均须亲画整体—部分、同起点比较和等组条，标已知未知与单位并反查；P51用42、17、三袋，P52迁移到2.4L、0.9L、三份。相同差值不代表相同故事，等组不能画成不等段。",
-            "en": "Both require drawing whole-part, aligned-comparison and equal-group bars with knowns, unknowns, units and checks. P51 uses forty-two, seventeen and three bags; P52 transfers to 2.4L, 0.9L and three portions. Equal differences need not represent the same story, and equal groups require equal bar sections."
+            "zh": "两处均须亲画整体—部分、同起点比较和等组条，标已知未知与单位并反查；P51用42、17、三袋，P52迁移到2.4L、0.9L、三份。相同差值不代表相同故事，等组不能画成不等段。新Q2移动整体/部分、比较三量与等组的未知，生成各个反向关系及零段、零差、每袋零张图；同图共用尺度，不把像素当实物尺。",
+            "en": "Both require drawing whole-part, aligned-comparison and equal-group bars with knowns, unknowns, units and checks. P51 uses forty-two, seventeen and three bags; P52 transfers to 2.4L, 0.9L and three portions. Equal differences need not represent the same story, and equal groups require equal bar sections. New Q2s move unknowns through whole/parts, all comparison roles and equal groups, reconstruct inverse checks and draw zero parts, gaps and per-bag counts without positive zero widths."
           }
         }
       ],
@@ -1388,7 +1735,10 @@
         "B06-L03-Q6",
         "B06-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-WORD-PROBLEMS-Q3"],
+        "P68": ["P68-MAINT-WORD-PROBLEMS-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "two-step-plan",
@@ -1423,11 +1773,21 @@
               "unit": "P57",
               "task": "P57-L05-Q5",
               "taskSkill": "recipe-and-pack-budget"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-WORD-PROBLEMS-Q3",
+              "taskSkill": "two-step-plan"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-WORD-PROBLEMS-Q3",
+              "taskSkill": "two-step-plan"
             }
           ],
           "rationale": {
-            "zh": "P52先求三条布总长再从4m扣除，以及先合价再找零；P57先求整包购买总量或总价，再求剩料、余额或短缺。两单元都保持中间量的单位与前后依赖，短缺取正量而非把预算负余额写成答案。",
-            "en": "P52 forms the total length of three strips before subtracting from four metres, and combines costs before giving change. P57 forms purchased mass or cost before finding leftovers, balance or shortfall. Both preserve intermediate units and dependencies; a shortfall is reported as a positive amount."
+            "zh": "P52先求三条布总长再从4m扣除，以及先合价再找零；P57先求整包购买总量或总价，再求剩料、余额或短缺。两单元都保持中间量的单位与前后依赖，短缺取正量而非把预算负余额写成答案。新Q3分别重建乘后减、加后乘、减后除与乘后加的中间量和单位，比较总送/每盒送、全部送完与全部留下的已知零；不背所有题先乘。",
+            "en": "P52 forms the total length of three strips before subtracting from four metres, and combines costs before giving change. P57 forms purchased mass or cost before finding leftovers, balance or shortfall. Both preserve intermediate units and dependencies; a shortfall is reported as a positive amount. New Q3s generate intermediates and units for multiply/subtract, add/multiply, subtract/divide and multiply/add plans, distinguish total from per-box removal, and determine zero remaining or zero bags."
           }
         }
       ],
@@ -1447,7 +1807,10 @@
         "B06-L04-Q6",
         "B06-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-WORD-PROBLEMS-Q4"],
+        "P68": ["P68-MAINT-WORD-PROBLEMS-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "relevant-information",
@@ -1482,11 +1845,21 @@
               "unit": "P68",
               "task": "P68-L04-Q6",
               "taskSkill": "chart-multistep-evidence"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-WORD-PROBLEMS-Q4",
+              "taskSkill": "relevant-information"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-WORD-PROBLEMS-Q4",
+              "taskSkill": "relevant-information"
             }
           ],
           "rationale": {
-            "zh": "P56给三角形底8、高5及无关斜边6，解释面积用垂直高；P57区分今天主要方式与最喜欢、样本与全校，并在整包购买前核库存和拆零条件；P68不捏造缺测人数。复现“无关数据可不用”与“缺条件不能乱补”两个子目标。",
-            "en": "P56 uses base eight and perpendicular height five rather than an irrelevant sloping side six. P57 distinguishes observed travel from preference and a sample from the school, and checks stock and whole-pack conditions. P68 refuses to fabricate missing counts. Both ignoring irrelevant inputs and identifying missing conditions recur."
+            "zh": "P56给三角形底8、高5及无关斜边6，解释面积用垂直高；P57区分今天主要方式与最喜欢、样本与全校，并在整包购买前核库存和拆零条件；P68不捏造缺测人数。复现“无关数据可不用”与“缺条件不能乱补”两个子目标。新Q4逐问选择价格/余钱/质量所需卡号，以两个可行质量补全证明原资料不能唯一确定；补质量再计算，改问年份差时原年份变相关，不将缺测当零。",
+            "en": "P56 uses base eight and perpendicular height five rather than an irrelevant sloping side six. P57 distinguishes observed travel from preference and a sample from the school, and checks stock and whole-pack conditions. P68 refuses to fabricate missing counts. Both ignoring irrelevant inputs and identifying missing conditions recur. New Q4s select goal-specific fact IDs, demonstrate underdetermined mass with two compatible completions, calculate only after mass is supplied and make the previously unused year relevant to a changed question."
           }
         }
       ],
@@ -1506,7 +1879,10 @@
         "B06-L05-Q6",
         "B06-L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-WORD-PROBLEMS-Q5"],
+        "P68": ["P68-MAINT-WORD-PROBLEMS-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "explain-and-check",
@@ -1536,11 +1912,21 @@
               "unit": "P56",
               "task": "P56-L02-Q6",
               "taskSkill": "rectangle-area"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-WORD-PROBLEMS-Q5",
+              "taskSkill": "explain-and-check"
+            },
+            {
+              "unit": "P68",
+              "task": "P68-MAINT-WORD-PROBLEMS-Q5",
+              "taskSkill": "explain-and-check"
             }
           ],
           "rationale": {
-            "zh": "P51指出改括号改变乘法作用量并用加回核2750；P52解释不同小数单位不能直接相加，又用0.333×3=0.999检验精确性；P56用实际格数与单位解释同周长不同面积。解释题全部仍须人审，正确末值或关键词不自动证明推理完整。",
-            "en": "P51 explains how inserted brackets change a multiplication quantity and checks 2750 by addition. P52 explains incompatible decimal subunits and checks precision with 0.333×3=0.999. P56 uses actual cells and units to distinguish equal perimeters from equal areas. All explanations remain human-reviewed; a final value or keyword does not establish valid reasoning."
+            "zh": "P51指出改括号改变乘法作用量并用加回核2750；P52解释不同小数单位不能直接相加，又用0.333×3=0.999检验精确性；P56用实际格数与单位解释同周长不同面积。解释题全部仍须人审，正确末值或关键词不自动证明推理完整。新Q5比较裸数、正确末值配错误关系与完整解释，亲算错误式并以反向关系核卡数/钱数，另改送出为收到、用单位格逐行核面积；假想纸卡不作实测。",
+            "en": "P51 explains how inserted brackets change a multiplication quantity and checks 2750 by addition. P52 explains incompatible decimal subunits and checks precision with 0.333×3=0.999. P56 uses actual cells and units to distinguish equal perimeters from equal areas. All explanations remain human-reviewed; a final value or keyword does not establish valid reasoning. New Q5s compare bare answers, invalid reasoning with a correct final value and full explanations; reconstruct inverse card/money checks, change giving to receiving and verify square-unit area by row sums without claiming real observations."
           }
         }
       ],
@@ -1560,7 +1946,10 @@
         "P51-L01-Q6",
         "P51-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P53": ["P53-MAINT-INTEGER-STRUCTURE-Q1"],
+        "P63": ["P63-MAINT-INTEGER-STRUCTURE-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "whole-mixed-calculation",
@@ -1590,11 +1979,21 @@
               "unit": "J71",
               "task": "J71-L06-Q6",
               "taskSkill": "rational-operation-structure"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-INTEGER-STRUCTURE-Q1",
+              "taskSkill": "whole-mixed-calculation"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-INTEGER-STRUCTURE-Q1",
+              "taskSkill": "whole-mixed-calculation"
             }
           ],
           "rationale": {
-            "zh": "P68由整数人数求18×4+10、24÷4×12，并由160−16−100核可用余额；J71扩展到带符号整数的同级乘除次序与分组。都保留每个中间量和原式结构，不能只按出现顺序随意改括号；运算意义扩展不等于跳过原整数运算。",
-            "en": "P68 forms 18×4+10 and 24÷4×12 from integer counts and checks a balance using 160−16−100. J71 extends the same ordered arithmetic and grouping to signed integers. Both preserve intermediate quantities and expression structure; extending signs does not remove the underlying whole-number arithmetic."
+            "zh": "P68由整数人数求18×4+10、24÷4×12，并由160−16−100核可用余额；J71扩展到带符号整数的同级乘除次序与分组。都保留每个中间量和原式结构，不能只按出现顺序随意改括号；运算意义扩展不等于跳过原整数运算。新Q1另生成三条大数完整等值链、两种拆算与位值核查，比较擅改除数分组及零因数/被除数/除数，并以独立预算保单位。",
+            "en": "P68 forms 18×4+10 and 24÷4×12 from integer counts and checks a balance using 160−16−100. J71 extends the same ordered arithmetic and grouping to signed integers. Both preserve intermediate quantities and expression structure; extending signs does not remove the underlying whole-number arithmetic. New Q1s generate full mixed-operation chains, two product strategies, quotient place checks and a budget, distinguishing changed divisor grouping and three different zero roles."
           }
         }
       ],
@@ -1614,7 +2013,10 @@
         "P51-L02-Q6",
         "P51-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P53": ["P53-MAINT-INTEGER-STRUCTURE-Q2"],
+        "P63": ["P63-MAINT-INTEGER-STRUCTURE-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "operation-order",
@@ -1639,11 +2041,21 @@
               "unit": "J71",
               "task": "J71-L06-Q6",
               "taskSkill": "rational-operation-structure"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-INTEGER-STRUCTURE-Q2",
+              "taskSkill": "operation-order"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-INTEGER-STRUCTURE-Q2",
+              "taskSkill": "operation-order"
             }
           ],
           "rationale": {
-            "zh": "P65比较3(n+2)与3n+2，并用3(x+2)=5的两条精确路径保留括号整体；J71用−2²与(−2)²、−6÷2×(−3)说明底数及同级乘除。两个单元都必须说明原式范围，后者显式复现乘除同级从左到右，不能擅改除数。",
-            "en": "P65 distinguishes 3(n+2) from 3n+2 and preserves the bracketed whole along two exact paths for 3(x+2)=5. J71 distinguishes −2² from (−2)² and handles −6÷2×(−3). Both explain scope; the latter explicitly retrieves equal-precedence multiplication and division from left to right without silently changing a divisor."
+            "zh": "P65比较3(n+2)与3n+2，并用3(x+2)=5的两条精确路径保留括号整体；J71用−2²与(−2)²、−6÷2×(−3)说明底数及同级乘除。两个单元都必须说明原式范围，后者显式复现乘除同级从左到右，不能擅改除数。新Q2从原八行亲写括号作用范围、乘除/加减同级、右括号及嵌套链，再把乘数改1比较偶然同值与原反例，不把一次代入当一般证明。",
+            "en": "P65 distinguishes 3(n+2) from 3n+2 and preserves the bracketed whole along two exact paths for 3(x+2)=5. J71 distinguishes −2² from (−2)² and handles −6÷2×(−3). Both explain scope; the latter explicitly retrieves equal-precedence multiplication and division from left to right without silently changing a divisor. New Q2s reconstruct eight whole-expression chains, including right/nested brackets and both same-level pairs, then compare a matching multiplier-one special case with the original counterexample."
           }
         }
       ],
@@ -1663,7 +2075,10 @@
         "P51-L03-Q6",
         "P51-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P53": ["P53-MAINT-INTEGER-STRUCTURE-Q3"],
+        "P63": ["P63-MAINT-INTEGER-STRUCTURE-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "factor-multiple",
@@ -1683,11 +2098,21 @@
               "unit": "P63",
               "task": "P63-MAINT-P51-Q2",
               "taskSkill": "common-factors-multiples"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-INTEGER-STRUCTURE-Q3",
+              "taskSkill": "factor-multiple"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-INTEGER-STRUCTURE-Q3",
+              "taskSkill": "factor-multiple"
             }
           ],
           "rationale": {
-            "zh": "两处都完整列36的九个不同正因数，平方因数6不重计；与另一个数求共同整除，再列不同周期的正倍数求同现。因数和倍数方向、不同因数计数及零倍不等于正倍数均须解释。",
-            "en": "Both list the nine distinct positive factors of thirty-six without counting six twice, find shared divisors with another number, and list positive multiples for coinciding periods. They require factor/multiple direction, distinct counts and the distinction between zero and positive multiples."
+            "zh": "两处都完整列36的九个不同正因数，平方因数6不重计；与另一个数求共同整除，再列不同周期的正倍数求同现。因数和倍数方向、不同因数计数及零倍不等于正倍数均须解释。原36平方去重证据保留；新Q3完整列48/60成对因数、交换阵列、保试装余量与精确商，并从前八正倍数继续到第九/十项，区分有限因数和无限倍数。",
+            "en": "Both list the nine distinct positive factors of thirty-six without counting six twice, find shared divisors with another number, and list positive multiples for coinciding periods. They require factor/multiple direction, distinct counts and the distinction between zero and positive multiples. Earlier square-factor evidence remains. New Q3s generate complete 48/60 factor pairs, swapped arrays, trial remainders and exact quotient relationships, then continue beyond eight displayed positive multiples."
           }
         }
       ],
@@ -1708,8 +2133,8 @@
         "P51-L04-X"
       ],
       "laterExactTagCandidates": {
-        "P53": ["P53-MAINT-P51-Q1"],
-        "P63": ["P63-MAINT-P51-Q1"]
+        "P53": ["P53-MAINT-P51-Q1", "P53-MAINT-INTEGER-STRUCTURE-Q4"],
+        "P63": ["P63-MAINT-P51-Q1", "P63-MAINT-INTEGER-STRUCTURE-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -1730,11 +2155,21 @@
               "unit": "P63",
               "task": "P63-MAINT-P51-Q1",
               "taskSkill": "prime-composite"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-INTEGER-STRUCTURE-Q4",
+              "taskSkill": "prime-composite"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-INTEGER-STRUCTURE-Q4",
+              "taskSkill": "prime-composite"
             }
           ],
           "rationale": {
-            "zh": "两处分类0、1、2及新的奇质数与奇合数，须列正因数并给奇偶规则的反例。17与19的完整性用小因数配对检查说明，不把一次试除失败当质数证明；0、1与偶质数边界都保留。",
-            "en": "Both classify zero, one, two and new odd primes and composites using positive factors and counterexamples to parity claims. Completeness for seventeen and nineteen is explained by small factor pairs, not one failed division. Neither zero nor one is prime or composite, while two remains the even prime."
+            "zh": "两处分类0、1、2及新的奇质数与奇合数，须列正因数并给奇偶规则的反例。17与19的完整性用小因数配对检查说明，不把一次试除失败当质数证明；0、1与偶质数边界都保留。新Q4对47/53逐个排完小因子至6/7并证明界限，对49/25保失败试除与非平凡见证，明确自身整除与1×P矩形不能证明合数。",
+            "en": "Both classify zero, one, two and new odd primes and composites using positive factors and counterexamples to parity claims. Completeness for seventeen and nineteen is explained by small factor pairs, not one failed division. Neither zero nor one is prime or composite, while two remains the even prime. New Q4s exhaust smaller-factor candidates through 6/7 for 47/53 and justify completeness, contrasting failed trials with 49/25 nontrivial witnesses and rejecting self-division or a 1×P rectangle as composite proofs."
           }
         }
       ],
@@ -1755,8 +2190,8 @@
         "P51-L05-X"
       ],
       "laterExactTagCandidates": {
-        "P53": ["P53-MAINT-P51-Q2"],
-        "P63": ["P63-MAINT-P51-Q2"]
+        "P53": ["P53-MAINT-P51-Q2", "P53-MAINT-INTEGER-STRUCTURE-Q5"],
+        "P63": ["P63-MAINT-P51-Q2", "P63-MAINT-INTEGER-STRUCTURE-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -1777,11 +2212,21 @@
               "unit": "P63",
               "task": "P63-MAINT-P51-Q2",
               "taskSkill": "common-factors-multiples"
+            },
+            {
+              "unit": "P53",
+              "task": "P53-MAINT-INTEGER-STRUCTURE-Q5",
+              "taskSkill": "common-factors-multiples"
+            },
+            {
+              "unit": "P63",
+              "task": "P63-MAINT-INTEGER-STRUCTURE-Q5",
+              "taskSkill": "common-factors-multiples"
             }
           ],
           "rationale": {
-            "zh": "P53求36与48最多12袋及6、10分钟周期下一次30min；P63求36与54最多18袋及9、12秒周期下一次36s。两处都证明最大共同整除与首个正共同倍数，不把零起点或任意一个可行候选充当最优值。",
-            "en": "P53 finds twelve identical bags from thirty-six and forty-eight and thirty minutes for periods six and ten. P63 finds eighteen bags from thirty-six and fifty-four and thirty-six seconds for periods nine and twelve. Both justify the greatest shared divisor and first positive shared multiple, not merely any feasible candidate or the zero starting time."
+            "zh": "P53求36与48最多12袋及6、10分钟周期下一次30min；P63求36与54最多18袋及9、12秒周期下一次36s。两处都证明最大共同整除与首个正共同倍数，不把零起点或任意一个可行候选充当最优值。新Q5以20/30或24/40分袋比较可行与最大，13/14或14/15周期从前八倍扩到首个共同点，另算含1、同数与互质三对边界，保正整数输入约定。",
+            "en": "P53 finds twelve identical bags from thirty-six and forty-eight and thirty minutes for periods six and ten. P63 finds eighteen bags from thirty-six and fifty-four and thirty-six seconds for periods nine and twelve. Both justify the greatest shared divisor and first positive shared multiple, not merely any feasible candidate or the zero starting time. New Q5s compare feasible/greatest bag counts for 20/30 or 24/40, extend 13/14 or 14/15 periods beyond eight entries, and audit one, equal-input and coprime boundary pairs."
           }
         }
       ],
@@ -1801,7 +2246,10 @@
         "P52-L01-Q6",
         "P52-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-DECIMAL-STRUCTURE-Q1"],
+        "P65": ["P65-MAINT-DECIMAL-STRUCTURE-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "decimal-place-value",
@@ -1836,11 +2284,21 @@
               "unit": "P62",
               "task": "P62-L02-X",
               "taskSkill": "decimal-percent-equivalence"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-DECIMAL-STRUCTURE-Q1",
+              "taskSkill": "decimal-place-value"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-DECIMAL-STRUCTURE-Q1",
+              "taskSkill": "decimal-place-value"
             }
           ],
           "rationale": {
-            "zh": "P56须把0.003个立方米解释为三个千分之一立方米并换3000cm³，也把0.6L换600cm³；P62由37.5/100恢复0.375、把0.008换0.8%。千分位与内部零在两单元实际参与生成数值，不仅出现相同位值标签。",
-            "en": "P56 interprets 0.003 cubic metres as three thousandths and converts to 3000cm³, also converting 0.6L to 600cm³. P62 recovers 0.375 from 37.5/100 and converts 0.008 to 0.8%. Thousandths and placeholder zeros actively determine answers in both units rather than merely sharing a tag."
+            "zh": "P56须把0.003个立方米解释为三个千分之一立方米并换3000cm³，也把0.6L换600cm³；P62由37.5/100恢复0.375、把0.008换0.8%。千分位与内部零在两单元实际参与生成数值，不仅出现相同位值标签。新Q1从四列重建千分之一总数、零的角色、改单列增量和同画宽不同单位的放大窗，并双向还原米毫米。",
+            "en": "P56 interprets 0.003 cubic metres as three thousandths and converts to 3000cm³, also converting 0.6L to 600cm³. P62 recovers 0.375 from 37.5/100 and converts 0.008 to 0.8%. Thousandths and placeholder zeros actively determine answers in both units rather than merely sharing a tag. New Q1s rebuild four-place contributions, zero roles, one-place changes and labelled zoom windows, then recover metre/millimetre quantities."
           }
         }
       ],
@@ -1860,7 +2318,10 @@
         "P52-L02-Q6",
         "P52-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-DECIMAL-STRUCTURE-Q2"],
+        "P65": ["P65-MAINT-DECIMAL-STRUCTURE-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "decimal-comparison",
@@ -1895,11 +2356,21 @@
               "unit": "J98",
               "task": "J98-L04-X",
               "taskSkill": "integration-reasonableness-audit"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-DECIMAL-STRUCTURE-Q2",
+              "taskSkill": "decimal-comparison"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-DECIMAL-STRUCTURE-Q2",
+              "taskSkill": "decimal-comparison"
             }
           ],
           "rationale": {
-            "zh": "P62比较0.375与错误0.00375，并区分精确1/3与舍入33.3%；J91用相邻百分位及中点平方比较决定√2约1.41与√0.999约1.00，含末零与跨位。J98再核1.41²不等2。保留比较、按目标位舍入及近似相同不证明精确相同。",
-            "en": "P62 distinguishes 0.375 from erroneous 0.00375 and exact one third from rounded 33.3%. J91 compares adjacent hundredths and midpoints to round √2 to 1.41 and √0.999 to 1.00, including a carry and trailing zeros. J98 checks that 1.41² is not two. These retrieve order, specified-place rounding and the distinction between approximate and exact equality."
+            "zh": "P62比较0.375与错误0.00375，并区分精确1/3与舍入33.3%；J91用相邻百分位及中点平方比较决定√2约1.41与√0.999约1.00，含末零与跨位。J98再核1.41²不等2。保留比较、按目标位舍入及近似相同不证明精确相同。新Q2另核位值排序、标尺、跨9中点进位、二次舍入反例、同近似不同精确值及先各量舍入再估合计。",
+            "en": "P62 distinguishes 0.375 from erroneous 0.00375 and exact one third from rounded 33.3%. J91 compares adjacent hundredths and midpoints to round √2 to 1.41 and √0.999 to 1.00, including a carry and trailing zeros. J98 checks that 1.41² is not two. These retrieve order, specified-place rounding and the distinction between approximate and exact equality. New Q2s generate place-based order and scales, halfway carries, double-rounding counterexamples, unequal originals with a shared approximation and separately rounded sum estimates."
           }
         }
       ],
@@ -1916,7 +2387,10 @@
         "P52-L03-Q4",
         "P52-L03-Q6"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-DECIMAL-STRUCTURE-Q3"],
+        "P65": ["P65-MAINT-DECIMAL-STRUCTURE-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "decimal-addition",
@@ -1941,11 +2415,21 @@
               "unit": "J71",
               "task": "J71-L03-Q3",
               "taskSkill": "signed-fraction-addition"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-DECIMAL-STRUCTURE-Q3",
+              "taskSkill": "decimal-addition"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-DECIMAL-STRUCTURE-Q3",
+              "taskSkill": "decimal-addition"
             }
           ],
           "rationale": {
-            "zh": "P57先合2.40+3.00=5.40或2×2.40+3=7.80，再核预算；J71把−0.6+1.1转成−6/10+11/10=5/10。两个单元都按元的百分之一或十分之一对齐相加，后者扩展符号而不改变小数单位。",
-            "en": "P57 combines 2.40+3.00=5.40 or 2×2.40+3=7.80 before checking a budget. J71 rewrites −0.6+1.1 as −6/10+11/10=5/10. Both add common decimal subunits; extending signs does not alter the tenths or hundredths."
+            "zh": "P57先合2.40+3.00=5.40或2×2.40+3=7.80，再核预算；J71把−0.6+1.1转成−6/10+11/10=5/10。两个单元都按元的百分之一或十分之一对齐相加，后者扩展符号而不改变小数单位。新Q3完整对齐四列并逐列生成连续进位、不同小单位计数和逆运算，不能只给钱数合计。",
+            "en": "P57 combines 2.40+3.00=5.40 or 2×2.40+3=7.80 before checking a budget. J71 rewrites −0.6+1.1 as −6/10+11/10=5/10. Both add common decimal subunits; extending signs does not alter the tenths or hundredths. New Q3s generate aligned columns, consecutive carries, matching-unit counts and inverse checks, rather than only a money total."
           }
         }
       ],
@@ -1986,11 +2470,21 @@
               "unit": "J71",
               "task": "J71-L04-Q3",
               "taskSkill": "subtraction-as-opposite"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-DECIMAL-STRUCTURE-Q3",
+              "taskSkill": "decimal-addition"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-DECIMAL-STRUCTURE-Q3",
+              "taskSkill": "decimal-addition"
             }
           ],
           "rationale": {
-            "zh": "P57在5.40与6之间求0.60余额、7.80与7之间求0.80短缺；J74以180−37.5=142.5°求邻补角；J71用−0.4−0.6=−1扩展有向差。不同情境都须同单位对齐，短缺大小与有向负余额不能混写。",
-            "en": "P57 subtracts 5.40 from six for a 0.60 balance and seven from 7.80 for a 0.80 shortfall. J74 calculates 180−37.5=142.5°; J71 extends to directed subtraction −0.4−0.6=−1. Subunits must align, and a positive shortfall is distinct from a signed balance."
+            "zh": "P57在5.40与6之间求0.60余额、7.80与7之间求0.80短缺；J74以180−37.5=142.5°求邻补角；J71用−0.4−0.6=−1扩展有向差。不同情境都须同单位对齐，短缺大小与有向负余额不能混写。同一新Q3还按借位穿过两个0重组原量、逐列相减并加回；等值量相减的确定零与未知分清，题目保两个已有误解标签。",
+            "en": "P57 subtracts 5.40 from six for a 0.60 balance and seven from 7.80 for a 0.80 shortfall. J74 calculates 180−37.5=142.5°; J71 extends to directed subtraction −0.4−0.6=−1. Subunits must align, and a positive shortfall is distinct from a signed balance. The same new Q3s also regroup across two zeros, subtract by columns and add back, distinguishing a determined zero difference from an unknown; both existing misconception tags are retained."
           }
         }
       ],
@@ -2010,7 +2504,10 @@
         "P52-L04-Q6",
         "P52-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-DECIMAL-STRUCTURE-Q4"],
+        "P65": ["P65-MAINT-DECIMAL-STRUCTURE-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "decimal-whole-multiplication",
@@ -2045,11 +2542,21 @@
               "unit": "P57",
               "task": "P57-L05-Q6",
               "taskSkill": "recipe-and-pack-budget"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-DECIMAL-STRUCTURE-Q4",
+              "taskSkill": "decimal-whole-multiplication"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-DECIMAL-STRUCTURE-Q4",
+              "taskSkill": "decimal-whole-multiplication"
             }
           ],
           "rationale": {
-            "zh": "P56用0.003×1000000、0.6×1000换单位，并由三倍0.8m求矩形面积2.4m²；P57将两包各2.40计4.80后加3，区别实际整盒付款与用量比例。既含十进缩放也含等组重复，小数点由单位值确定。",
-            "en": "P56 uses 0.003×1000000 and 0.6×1000 for unit conversion and three times 0.8 for area 2.4m². P57 repeats two costs of 2.40 before adding three and distinguishes full-carton payment from the fraction used. Both decimal scaling and equal-group repetition determine place value."
+            "zh": "P56用0.003×1000000、0.6×1000换单位，并由三倍0.8m求矩形面积2.4m²；P57将两包各2.40计4.80后加3，区别实际整盒付款与用量比例。既含十进缩放也含等组重复，小数点由单位值确定。新Q4亲画同尺度等组，以整数千分之一及重复加法核乘积，比较0组、4空组、1组和整数结果，不说乘法总增大。",
+            "en": "P56 uses 0.003×1000000 and 0.6×1000 for unit conversion and three times 0.8 for area 2.4m². P57 repeats two costs of 2.40 before adding three and distinguishes full-carton payment from the fraction used. Both decimal scaling and equal-group repetition determine place value. New Q4s draw scaled equal groups and check integer thousandths/repeated addition, contrasting no groups, four empty groups, one group and whole-number products."
           }
         }
       ],
@@ -2069,7 +2576,10 @@
         "P52-L05-Q6",
         "P52-L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-DECIMAL-STRUCTURE-Q5"],
+        "P65": ["P65-MAINT-DECIMAL-STRUCTURE-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "decimal-whole-division",
@@ -2099,11 +2609,21 @@
               "unit": "P68",
               "task": "P68-L01-X",
               "taskSkill": "journey-time-scope"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-DECIMAL-STRUCTURE-Q5",
+              "taskSkill": "decimal-whole-division"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-DECIMAL-STRUCTURE-Q5",
+              "taskSkill": "decimal-whole-division"
             }
           ],
           "rationale": {
-            "zh": "P62以37.5÷100生成0.375，并用0.333×3=0.999说明三等份不能把有限近似当精确；P68以7.5÷5求1.5h，另以10÷1.5=20/3保留不能终止的精确商。前者的整数除数与乘回检查、后者原小数除整数均为实际任务，额外小数除数只作边界迁移。",
-            "en": "P62 generates 0.375 by 37.5÷100 and uses 0.333×3=0.999 to distinguish an approximation from exact thirds. P68 computes 7.5÷5=1.5h and retains exact 20/3 for 10÷1.5. Integer-divisor division and multiplication checks recur; the additional decimal divisor is a further transfer, not a replacement for the original operation."
+            "zh": "P62以37.5÷100生成0.375，并用0.333×3=0.999说明三等份不能把有限近似当精确；P68以7.5÷5求1.5h，另以10÷1.5=20/3保留不能终止的精确商。前者的整数除数与乘回检查、后者原小数除整数均为实际任务，额外小数除数只作边界迁移。新Q5给精确份额和三位近似的合计偏差两方向，核零总量/禁止零份数、每份大于1及固定总量份数加倍后减半。",
+            "en": "P62 generates 0.375 by 37.5÷100 and uses 0.333×3=0.999 to distinguish an approximation from exact thirds. P68 computes 7.5÷5=1.5h and retains exact 20/3 for 10÷1.5. Integer-divisor division and multiplication checks recur; the additional decimal divisor is a further transfer, not a replacement for the original operation. New Q5s compare exact fractions with rounded-display totals above and below the original, checking zero total/nonzero divisor, shares above one and halving after doubling share count."
           }
         }
       ],
@@ -2123,7 +2643,10 @@
         "P52-L06-Q6",
         "P52-L06-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-DECIMAL-STRUCTURE-Q6"],
+        "P65": ["P65-MAINT-DECIMAL-STRUCTURE-Q6"]
+      },
       "reviewedEvidence": [
         {
           "skill": "decimal-modelling",
@@ -2158,11 +2681,21 @@
               "unit": "P63",
               "task": "P63-L05-Q6",
               "taskSkill": "map-scale-units"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-DECIMAL-STRUCTURE-Q6",
+              "taskSkill": "decimal-modelling"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-DECIMAL-STRUCTURE-Q6",
+              "taskSkill": "decimal-modelling"
             }
           ],
           "rationale": {
-            "zh": "P57根据整包单价、数量与预算列总价和余额或短缺，不把用掉份额当可拆零付款；P63先按比例把2.4cm放大再由cm换km，且解释路线相加与屏幕缩放的限制。两处先选量与单位、列关系，再计算小数而非随意拼数。",
-            "en": "P57 forms total costs, balances and shortfalls from pack quantities, prices and budgets without assuming fractional payment. P63 scales 2.4cm and converts centimetres to kilometres, explaining route addition and screen-scaling limits. Both choose quantities and units before forming and calculating decimal relationships."
+            "zh": "P57根据整包单价、数量与预算列总价和余额或短缺，不把用掉份额当可拆零付款；P63先按比例把2.4cm放大再由cm换km，且解释路线相加与屏幕缩放的限制。两处先选量与单位、列关系，再计算小数而非随意拼数。新Q6分别选择钱数、剪布、单价与等分关系，比较预算余额/正短缺/恰付，并为三类物品自编10元内正整数方案、估精算和反查，资料均假想。",
+            "en": "P57 forms total costs, balances and shortfalls from pack quantities, prices and budgets without assuming fractional payment. P63 scales 2.4cm and converts centimetres to kilometres, explaining route addition and screen-scaling limits. Both choose quantities and units before forming and calculating decimal relationships. New Q6s choose money, cloth, unit-price and sharing relationships, distinguish surplus/positive shortfall/exact payment, and create checked positive whole-count plans for three fictional items within NZ$10."
           }
         }
       ],
@@ -2182,7 +2715,10 @@
         "P53-L01-Q6",
         "P53-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-FRACTION-STRUCTURE-Q1"],
+        "P65": ["P65-MAINT-FRACTION-STRUCTURE-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "unit-fraction-whole",
@@ -2202,11 +2738,21 @@
               "unit": "P62",
               "task": "P62-L01-Q6",
               "taskSkill": "per-hundred-reference"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-STRUCTURE-Q1",
+              "taskSkill": "unit-fraction-whole"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-FRACTION-STRUCTURE-Q1",
+              "taskSkill": "unit-fraction-whole"
             }
           ],
           "rationale": {
-            "zh": "P61把12L与6L各等分三份，分别生成4L与2L的单位份额，再取两份得8L与4L；P62把10/40与20/80都化成1/4、25/100，实际标记数仍为10与20。两处区分分数单位、参考整体和带单位实际量，不能用相同涂色比例保证相同数量。",
-            "en": "P61 partitions twelve and six litres into thirds, obtaining unit shares of four and two litres before selecting two shares. P62 rewrites 10/40 and 20/80 as 1/4 and 25/100 while actual marked counts remain ten and twenty. Both distinguish fraction unit, reference whole and measured amount; the same shaded proportion does not ensure the same quantity."
+            "zh": "P61把12L与6L各等分三份，分别生成4L与2L的单位份额，再取两份得8L与4L；P62把10/40与20/80都化成1/4、25/100，实际标记数仍为10与20。两处区分分数单位、参考整体和带单位实际量，不能用相同涂色比例保证相同数量。新Q1另用实际格号生成不同形状同面积区域，再转移一格反查等分；绳段的比例、份数与实际米数分别生成，含单位分数形式与零分母条件。",
+            "en": "P61 partitions twelve and six litres into thirds, obtaining unit shares of four and two litres before selecting two shares. P62 rewrites 10/40 and 20/80 as 1/4 and 25/100 while actual marked counts remain ten and twenty. Both distinguish fraction unit, reference whole and measured amount; the same shaded proportion does not ensure the same quantity. New Q1s generate equal-area regions of different shapes from cell IDs and transfer one cell to test equal shares. Rope proportions, counts and metres are generated separately, including unit-fraction form and invalid zero denominators."
           }
         }
       ],
@@ -2227,8 +2773,8 @@
         "P53-L02-X"
       ],
       "laterExactTagCandidates": {
-        "P61": ["P61-MAINT-P53-Q1"],
-        "P65": ["P65-MAINT-P53-Q1"]
+        "P61": ["P61-MAINT-P53-Q1", "P61-MAINT-FRACTION-STRUCTURE-Q2"],
+        "P65": ["P65-MAINT-P53-Q1", "P65-MAINT-FRACTION-STRUCTURE-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -2249,11 +2795,21 @@
               "unit": "P65",
               "task": "P65-MAINT-P53-Q1",
               "taskSkill": "proper-improper"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-STRUCTURE-Q2",
+              "taskSkill": "proper-improper"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-FRACTION-STRUCTURE-Q2",
+              "taskSkill": "proper-improper"
             }
           ],
           "rationale": {
-            "zh": "P61按固定1L画3/4、4/4、5/4，P65按固定1m画2/3、3/3、7/3；都须分类并数完整整体及剩余。两处主动解释分子等于分母也属假分数，“假”不代表量不存在，不能为容纳超过一而换整体。",
-            "en": "P61 draws 3/4,4/4,5/4 against one litre; P65 draws 2/3,3/3,7/3 against one metre. Both classify and count complete wholes and leftovers, explicitly including equality as improper without redefining the whole or calling the quantity unreal."
+            "zh": "P61按固定1L画3/4、4/4、5/4，P65按固定1m画2/3、3/3、7/3；都须分类并数完整整体及剩余。两处主动解释分子等于分母也属假分数，“假”不代表量不存在，不能为容纳超过一而换整体。新Q2逐行生成完整升、余份与最少轮廓数，区分零量的空参考框，并计算只加倍分母导致量减半。",
+            "en": "P61 draws 3/4,4/4,5/4 against one litre; P65 draws 2/3,3/3,7/3 against one metre. Both classify and count complete wholes and leftovers, explicitly including equality as improper without redefining the whole or calling the quantity unreal. New Q2s generate filled litres, remaining shares and minimum outlines for every row, separating a zero-amount guide from a filled whole and calculating the halving caused by changing only a denominator."
           }
         }
       ],
@@ -2274,8 +2830,8 @@
         "P53-L03-X"
       ],
       "laterExactTagCandidates": {
-        "P61": ["P61-MAINT-P53-Q2"],
-        "P65": ["P65-MAINT-P53-Q2"]
+        "P61": ["P61-MAINT-P53-Q2", "P61-MAINT-FRACTION-STRUCTURE-Q3"],
+        "P65": ["P65-MAINT-P53-Q2", "P65-MAINT-FRACTION-STRUCTURE-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -2296,11 +2852,21 @@
               "unit": "P65",
               "task": "P65-MAINT-P53-Q2",
               "taskSkill": "mixed-fraction"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-STRUCTURE-Q3",
+              "taskSkill": "mixed-fraction"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-FRACTION-STRUCTURE-Q3",
+              "taskSkill": "mixed-fraction"
             }
           ],
           "rationale": {
-            "zh": "P61在17/5与3 2/5、2 3/7与17/7之间双向核验；P65在10/3与3 1/3、4 1/5与21/5之间核验。两处都画固定单位，说明整数部分须换成分母个小份，不能只把整数加进分子。",
-            "en": "P61 checks 17/5 against 3 2/5 and 2 3/7 against 17/7 in both directions. P65 checks 10/3 against 3 1/3 and 4 1/5 against 21/5. Fixed-unit drawings explain how whole parts become denominator-sized collections of shares, rather than adding the whole count directly to the numerator."
+            "zh": "P61在17/5与3 2/5、2 3/7与17/7之间双向核验；P65在10/3与3 1/3、4 1/5与21/5之间核验。两处都画固定单位，说明整数部分须换成分母个小份，不能只把整数加进分子。新Q3另生成整除、不足一、零及非最简真余数，修复值等价而余数≥1的候选，区分原分母余数、乘法误读和指定分母形式。",
+            "en": "P61 checks 17/5 against 3 2/5 and 2 3/7 against 17/7 in both directions. P65 checks 10/3 against 3 1/3 and 4 1/5 against 21/5. Fixed-unit drawings explain how whole parts become denominator-sized collections of shares, rather than adding the whole count directly to the numerator. New Q3s generate exact-integer, below-one, zero and unsimplified proper remainders, repair an equal-valued form whose remainder exceeds one, and distinguish remainder units, multiplication misreading and a required denominator."
           }
         }
       ],
@@ -2321,7 +2887,10 @@
         "P53-L04-Q7",
         "P53-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P61": ["P61-MAINT-FRACTION-STRUCTURE-Q4"],
+        "P65": ["P65-MAINT-FRACTION-STRUCTURE-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "equivalent-fraction",
@@ -2351,11 +2920,21 @@
               "unit": "P62",
               "task": "P62-L02-Q6",
               "taskSkill": "decimal-percent-equivalence"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-STRUCTURE-Q4",
+              "taskSkill": "equivalent-fraction"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-FRACTION-STRUCTURE-Q4",
+              "taskSkill": "equivalent-fraction"
             }
           ],
           "rationale": {
-            "zh": "P54须把2/3同时扩为8/12、1/4扩为3/12，并用另一共同分母24解释3/4−1/6的同量结果；P62须说明10/40=20/80=1/4=25/100以及375/1000=37.5/100。分子分母共同缩放、整体与所取量不变在两个单元都由解释任务主动重建，不能只改分母。",
-            "en": "P54 rescales both numerator and denominator of 2/3 and 1/4 to twelfths and explains an alternative denominator of twenty-four for 3/4−1/6. P62 explains 10/40=20/80=1/4=25/100 and 375/1000=37.5/100. Both explanation tasks reconstruct common scaling and conserved amount rather than changing only a denominator."
+            "zh": "P54须把2/3同时扩为8/12、1/4扩为3/12，并用另一共同分母24解释3/4−1/6的同量结果；P62须说明10/40=20/80=1/4=25/100以及375/1000=37.5/100。分子分母共同缩放、整体与所取量不变在两个单元都由解释任务主动重建，不能只改分母。新Q4用原涂色重新细分、分子及分母两类填空、反向分组、1/0倍数条件与开放生成另一等值式；实际整体翻倍时另算升数。",
+            "en": "P54 rescales both numerator and denominator of 2/3 and 1/4 to twelfths and explains an alternative denominator of twenty-four for 3/4−1/6. P62 explains 10/40=20/80=1/4=25/100 and 375/1000=37.5/100. Both explanation tasks reconstruct common scaling and conserved amount rather than changing only a denominator. New Q4s repartition original shading, solve both blank roles, reverse grouping, distinguish factors one and zero and generate another valid equivalent fraction. Doubling the actual whole requires recalculating litres."
           }
         }
       ],
@@ -2376,8 +2955,8 @@
         "P53-L05-X"
       ],
       "laterExactTagCandidates": {
-        "P61": ["P61-MAINT-P53-Q3"],
-        "P65": ["P65-MAINT-P53-Q3"]
+        "P61": ["P61-MAINT-P53-Q3", "P61-MAINT-FRACTION-STRUCTURE-Q5"],
+        "P65": ["P65-MAINT-P53-Q3", "P65-MAINT-FRACTION-STRUCTURE-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -2398,11 +2977,21 @@
               "unit": "P65",
               "task": "P65-MAINT-P53-Q3",
               "taskSkill": "simplest-fraction"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-STRUCTURE-Q5",
+              "taskSkill": "simplest-fraction"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-FRACTION-STRUCTURE-Q5",
+              "taskSkill": "simplest-fraction"
             }
           ],
           "rationale": {
-            "zh": "P61须把18/24L写3/4L，P65把等值候选21/35m写3/5m并乘回原式。两处实际要求最简分数；6/8、6/10等未约尽形式虽等值仍不满足形式要求，小数也不能冒充本题所要求的分数。",
-            "en": "P61 must reduce 18/24L to 3/4L; P65 reduces candidate 21/35m to 3/5m and checks the original equation. Both explicitly require simplest fraction form. Equivalent 6/8 or 6/10 is unfinished, and a decimal does not meet the requested fraction representation."
+            "zh": "P61须把18/24L写3/4L，P65把等值候选21/35m写3/5m并乘回原式。两处实际要求最简分数；6/8、6/10等未约尽形式虽等值仍不满足形式要求，小数也不能冒充本题所要求的分数。新Q5以两种实际分组路径约尽，核非相邻互质与奇数仍可约的反例、同减不等值、整数与零的最简形式；保持升单位。",
+            "en": "P61 must reduce 18/24L to 3/4L; P65 reduces candidate 21/35m to 3/5m and checks the original equation. Both explicitly require simplest fraction form. Equivalent 6/8 or 6/10 is unfinished, and a decimal does not meet the requested fraction representation. New Q5s use two grouping paths, check non-adjacent coprime and reducible odd cases, refute equal subtraction and generate integer/zero simplest forms while retaining litres."
           }
         }
       ],
@@ -2423,8 +3012,8 @@
         "P53-L06-X"
       ],
       "laterExactTagCandidates": {
-        "P61": ["P61-MAINT-P53-Q4"],
-        "P65": ["P65-MAINT-P53-Q4"]
+        "P61": ["P61-MAINT-P53-Q4", "P61-MAINT-FRACTION-STRUCTURE-Q6"],
+        "P65": ["P65-MAINT-P53-Q4", "P65-MAINT-FRACTION-STRUCTURE-Q6"]
       },
       "reviewedEvidence": [
         {
@@ -2445,11 +3034,21 @@
               "unit": "P65",
               "task": "P65-MAINT-P53-Q4",
               "taskSkill": "fraction-comparison"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-STRUCTURE-Q6",
+              "taskSkill": "fraction-comparison"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-FRACTION-STRUCTURE-Q6",
+              "taskSkill": "fraction-comparison"
             }
           ],
           "rationale": {
-            "zh": "P61通分比较7/12与5/8，用24分之一；P65比较5/9与7/12，用36分之一。两处再改整体，实际量排序反转而分数数值排序不变；必须说清共同单位、分子分母共同缩放和参考整体。",
-            "en": "P61 compares 7/12 and 5/8 using twenty-fourths; P65 compares 5/9 and 7/12 using thirty-sixths. Both then change wholes, reversing actual-amount order while fraction-number order remains fixed. Explanations must name the common unit, rescale both numerator and denominator and retain reference wholes."
+            "zh": "P61通分比较7/12与5/8，用24分之一；P65比较5/9与7/12，用36分之一。两处再改整体，实际量排序反转而分数数值排序不变；必须说清共同单位、分子分母共同缩放和参考整体。新Q6列全正倍数核最小共同分母，检验乘积非最小与分母和无效，补单位分数及泛化反例、等值比较；只改右整体并亲造未知整体三种结果，保km/m。",
+            "en": "P61 compares 7/12 and 5/8 using twenty-fourths; P65 compares 5/9 and 7/12 using thirty-sixths. Both then change wholes, reversing actual-amount order while fraction-number order remains fixed. Explanations must name the common unit, rescale both numerator and denominator and retain reference wholes. New Q6s generate complete positive-multiple lists, distinguish a working nonleast product from an invalid sum, test unit/general fraction claims and equality, change only the right whole and construct all three orderings for unknown wholes, retaining km/metre units."
           }
         }
       ],
@@ -2469,7 +3068,10 @@
         "P54-L01-Q6",
         "P54-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P55": ["P55-MAINT-FRACTION-ADDITIVE-Q1"],
+        "P61": ["P61-MAINT-FRACTION-ADDITIVE-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "add-like-fractions",
@@ -2489,11 +3091,21 @@
               "unit": "P63",
               "task": "P63-L03-Q6",
               "taskSkill": "allocate-by-ratio"
+            },
+            {
+              "unit": "P55",
+              "task": "P55-MAINT-FRACTION-ADDITIVE-Q1",
+              "taskSkill": "add-like-fractions"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-ADDITIVE-Q1",
+              "taskSkill": "add-like-fractions"
             }
           ],
           "rationale": {
-            "zh": "P61说明三组各三个四分之一是九个四分之一、9/4L，不是9/12；P63须用14/5L+21/5L=35/5L=7L核总量。两处都以同大小份数合并、保留份单位，结果可超过一整体，不能相加或相乘分母改变每份大小。",
-            "en": "P61 explains that three groups of three quarters give nine quarters, or 9/4L, not 9/12. P63 checks total volume using 14/5L+21/5L=35/5L=7L. Both combine counts of like shares while preserving share size, including totals above one whole; changing the denominator changes the amount."
+            "zh": "P61说明三组各三个四分之一是九个四分之一、9/4L，不是9/12；P63须用14/5L+21/5L=35/5L=7L核总量。两处都以同大小份数合并、保留份单位，结果可超过一整体，不能相加或相乘分母改变每份大小。新Q1另亲画零加数、两整升与超过三升的和，核完整数/轮廓数及不同容量半壶的实际L，保原分母并逐项减回。",
+            "en": "P61 explains that three groups of three quarters give nine quarters, or 9/4L, not 9/12. P63 checks total volume using 14/5L+21/5L=35/5L=7L. Both combine counts of like shares while preserving share size, including totals above one whole; changing the denominator changes the amount. New Q1s draw zero addition, an integer two-litre sum and a sum above three litres, check filled/minimum outlines and actual half-jugs of unequal capacity, retain denominators and subtract back."
           }
         }
       ],
@@ -2513,7 +3125,10 @@
         "P54-L02-Q6",
         "P54-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P55": ["P55-MAINT-FRACTION-ADDITIVE-Q2"],
+        "P61": ["P61-MAINT-FRACTION-ADDITIVE-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "subtract-like-fractions",
@@ -2533,11 +3148,21 @@
               "unit": "J71",
               "task": "J71-L02-Q6",
               "taskSkill": "rational-absolute-distance"
+            },
+            {
+              "unit": "P55",
+              "task": "P55-MAINT-FRACTION-ADDITIVE-Q2",
+              "taskSkill": "subtract-like-fractions"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-ADDITIVE-Q2",
+              "taskSkill": "subtract-like-fractions"
             }
           ],
           "rationale": {
-            "zh": "P55从x+1/4=1反求x=3/4，把整体看作四个四分之一后去一份，并代回；J71同侧点距离由5/4−1/4=4/4=1，避免重叠部分重复计。两处都先保留同单位，再减份数；负点情境不把非负距离误写成有向差。",
-            "en": "P55 recovers x=3/4 from x+1/4=1 by viewing the whole as four quarters and removing one, then checks the equation. J71 obtains same-side distance from 5/4−1/4=1 without double-counting overlap. Both retain a common unit and subtract share counts, distinguishing distance from directed change."
+            "zh": "P55从x+1/4=1反求x=3/4，把整体看作四个四分之一后去一份，并代回；J71同侧点距离由5/4−1/4=4/4=1，避免重叠部分重复计。两处都先保留同单位，再减份数；负点情境不把非负距离误写成有向差。新Q2另核零差、整数换份、原量超过一、减零不变和实物不足，划去不重切；不足不能调换或截成零。",
+            "en": "P55 recovers x=3/4 from x+1/4=1 by viewing the whole as four quarters and removing one, then checks the equation. J71 obtains same-side distance from 5/4−1/4=1 without double-counting overlap. Both retain a common unit and subtract share counts, distinguishing distance from directed change. New Q2s generate zero differences, integer exchanges, originals above one and unchanged subtraction by zero, and refuse impossible removal without reversing or truncating. Crosses remove rather than resize pieces."
           }
         }
       ],
@@ -2557,7 +3182,10 @@
         "P54-L03-Q6",
         "P54-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P55": ["P55-MAINT-FRACTION-ADDITIVE-Q3"],
+        "P61": ["P61-MAINT-FRACTION-ADDITIVE-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "add-unlike-fractions",
@@ -2577,11 +3205,21 @@
               "unit": "J71",
               "task": "J71-L03-Q6",
               "taskSkill": "signed-fraction-addition"
+            },
+            {
+              "unit": "P55",
+              "task": "P55-MAINT-FRACTION-ADDITIVE-Q3",
+              "taskSkill": "add-unlike-fractions"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-ADDITIVE-Q3",
+              "taskSkill": "add-unlike-fractions"
             }
           ],
           "rationale": {
-            "zh": "P65代回精确解时须算−1/3+2=−1/3+6/3=5/3，再乘3为5；J71以四分之一为共同单位算−3/4+1/2=−1/4并解释数轴。两个后续单元把原正分数通分结构延伸到有向量，仍须将整数或二分之一换成相同小份，不直接相加分子分母。",
-            "en": "P65 checks an exact solution using −1/3+2=−1/3+6/3=5/3 before multiplying by three. J71 unifies quarters in −3/4+1/2=−1/4 and explains the number line. Both extend the original positive-fraction structure to signed quantities, converting the integer or half into common shares rather than adding unlike numerators or denominators."
+            "zh": "P65代回精确解时须算−1/3+2=−1/3+6/3=5/3，再乘3为5；J71以四分之一为共同单位算−3/4+1/2=−1/4并解释数轴。两个后续单元把原正分数通分结构延伸到有向量，仍须将整数或二分之一换成相同小份，不直接相加分子分母。新Q3以两个有效分母分别缩放两量，核指定分母与最简差别，亲画132份并计算混合km/m；已修正源Q1中文提示的整除方向。",
+            "en": "P65 checks an exact solution using −1/3+2=−1/3+6/3=5/3 before multiplying by three. J71 unifies quarters in −3/4+1/2=−1/4 and explains the number line. Both extend the original positive-fraction structure to signed quantities, converting the integer or half into common shares rather than adding unlike numerators or denominators. New Q3s independently rescale both amounts using two valid denominators, distinguish required-denominator and simplest forms, generate 132-part counts and convert mixed kilometre/metre quantities. The source Q1 Chinese hint now states the correct divisibility direction."
           }
         }
       ],
@@ -2601,7 +3239,10 @@
         "P54-L04-Q6",
         "P54-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P55": ["P55-MAINT-FRACTION-ADDITIVE-Q4"],
+        "P61": ["P61-MAINT-FRACTION-ADDITIVE-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "subtract-unlike-fractions",
@@ -2621,11 +3262,21 @@
               "unit": "J71",
               "task": "J71-L04-Q6",
               "taskSkill": "subtraction-as-opposite"
+            },
+            {
+              "unit": "P55",
+              "task": "P55-MAINT-FRACTION-ADDITIVE-Q4",
+              "taskSkill": "subtract-unlike-fractions"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-ADDITIVE-Q4",
+              "taskSkill": "subtract-unlike-fractions"
             }
           ],
           "rationale": {
-            "zh": "P65在x+2=5/3中求5/3−2=−1/3，并代回恢复5/3；J71比较−3/4−(−1/2)与−3/4+(−1/2)，通分后分别−1/4与−5/4，再加回原减数。两处保留原被减数、共同分母与原式核查，扩展负号但不改变单位。",
-            "en": "P65 subtracts two from 5/3 to obtain −1/3 and adds back for verification. J71 contrasts −3/4−(−1/2) with −3/4+(−1/2), giving −1/4 and −5/4 after common-unit conversion, then adds back the original subtrahend. Both preserve the minuend, common unit and original check while extending signs."
+            "zh": "P65在x+2=5/3中求5/3−2=−1/3，并代回恢复5/3；J71比较−3/4−(−1/2)与−3/4+(−1/2)，通分后分别−1/4与−5/4，再加回原减数。两处保留原被减数、共同分母与原式核查，扩展负号但不改变单位。新Q4保原先后与两量，另做零差、整数原量、减零、正差超过一及不足量，使用两种共同分母和逐项加回。",
+            "en": "P65 subtracts two from 5/3 to obtain −1/3 and adds back for verification. J71 contrasts −3/4−(−1/2) with −3/4+(−1/2), giving −1/4 and −5/4 after common-unit conversion, then adds back the original subtrahend. Both preserve the minuend, common unit and original check while extending signs. New Q4s retain operand order and amounts while generating zero differences, integer originals, subtraction by zero, a positive result above one and an insufficient-material case, using two common denominators and add-back checks."
           }
         }
       ],
@@ -2645,7 +3296,10 @@
         "P54-L05-Q6",
         "P54-L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P55": ["P55-MAINT-FRACTION-ADDITIVE-Q5"],
+        "P61": ["P61-MAINT-FRACTION-ADDITIVE-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "fraction-story-relationship",
@@ -2665,11 +3319,21 @@
               "unit": "P63",
               "task": "P63-L03-Q6",
               "taskSkill": "allocate-by-ratio"
+            },
+            {
+              "unit": "P55",
+              "task": "P55-MAINT-FRACTION-ADDITIVE-Q5",
+              "taskSkill": "fraction-story-relationship"
+            },
+            {
+              "unit": "P61",
+              "task": "P61-MAINT-FRACTION-ADDITIVE-Q5",
+              "taskSkill": "fraction-story-relationship"
             }
           ],
           "rationale": {
-            "zh": "P61必须区分剩余1/2L与它占标准3/4L一份的2/3，且用2×3/4L+1/2L=2L恢复整体；P63的五个权重份每份是7/5L，按14/5L+21/5L核总量，不能把1/5总量误当1/5L。两处先确定比例的参照及实际单位，再形成部分合整体或整体减部分的关系，回应原课“全程比例与km不能直接混加”的子目标。",
-            "en": "P61 distinguishes 1/2L remaining from its ratio 2/3 of a standard 3/4L portion and reconstructs the whole using 2×3/4L+1/2L=2L. In P63 each of five weight shares is 7/5L, and 14/5L+21/5L checks the total; one fifth of the total is not 1/5L. Both establish ratio reference and measured units before combining parts or subtracting from a whole, retrieving the source lesson’s warning against mixing a route proportion with kilometres."
+            "zh": "P61必须区分剩余1/2L与它占标准3/4L一份的2/3，且用2×3/4L+1/2L=2L恢复整体；P63的五个权重份每份是7/5L，按14/5L+21/5L核总量，不能把1/5总量误当1/5L。两处先确定比例的参照及实际单位，再形成部分合整体或整体减部分的关系，回应原课“全程比例与km不能直接混加”的子目标。新Q5以两步合并后使用、两次使用的两种计划、全程翻倍与实际km/比例、假想钱数及自编十二格活动，实际重建中间量和逆查。",
+            "en": "P61 distinguishes 1/2L remaining from its ratio 2/3 of a standard 3/4L portion and reconstructs the whole using 2×3/4L+1/2L=2L. In P63 each of five weight shares is 7/5L, and 14/5L+21/5L checks the total; one fifth of the total is not 1/5L. Both establish ratio reference and measured units before combining parts or subtracting from a whole, retrieving the source lesson’s warning against mixing a route proportion with kilometres. New Q5s reconstruct intermediates and inverse checks for combining then using, two plans for two uses, a doubled route with actual kilometres and route fractions, fictional money and a generated twelve-cell activity."
           }
         }
       ],
@@ -2689,7 +3353,10 @@
         "P55-L01-Q6",
         "P55-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-EQUATION-MEANING-Q1"],
+        "P65": ["P65-MAINT-EQUATION-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "box-unknown",
@@ -2709,11 +3376,21 @@
               "unit": "J73",
               "task": "J73-L02-Q6",
               "taskSkill": "reversible-equation-steps"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-EQUATION-MEANING-Q1",
+              "taskSkill": "box-unknown"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-EQUATION-MEANING-Q1",
+              "taskSkill": "box-unknown"
             }
           ],
           "rationale": {
-            "zh": "P65解释n+n是两个相同的n，并对n=0、−2分别一致代入；J73处理5x+2=2x+11时两边的x都须为同一值3，代回均17。迁移从方框到字母、从一边重复到等式两边重复；换独立赋值可以换值，同一次代入不能把重复符号各挑一个数。",
-            "en": "P65 explains that n+n contains two copies of the same n and substitutes zero and negative two consistently in separate cases. J73 uses the same x=3 on both sides of 5x+2=2x+11, obtaining seventeen each. The idea transfers from boxes to letters and from repetition on one side to both sides: independent assignments may differ, but repeated symbols within one assignment may not."
+            "zh": "P65解释n+n是两个相同的n，并对n=0、−2分别一致代入；J73处理5x+2=2x+11时两边的x都须为同一值3，代回均17。迁移从方框到字母、从一边重复到等式两边重复；换独立赋值可以换值，同一次代入不能把重复符号各挑一个数。新Q1逐行定义未知对象，生成不同位置、重复符号与零解，画图并核原左右值；同和不同值数对不能替代相同方框。",
+            "en": "P65 explains that n+n contains two copies of the same n and substitutes zero and negative two consistently in separate cases. J73 uses the same x=3 on both sides of 5x+2=2x+11, obtaining seventeen each. The idea transfers from boxes to letters and from repetition on one side to both sides: independent assignments may differ, but repeated symbols within one assignment may not. New Q1s define every unknown object and generate varied positions, repeated symbols and a zero root with diagrams and original side values. A pair with the correct sum cannot replace identical boxes."
           }
         }
       ],
@@ -2733,7 +3410,10 @@
         "P55-L02-Q6",
         "P55-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-EQUATION-MEANING-Q2"],
+        "P65": ["P65-MAINT-EQUATION-MEANING-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "equal-sign-relationship",
@@ -2753,11 +3433,21 @@
               "unit": "J73",
               "task": "J73-L02-Q6",
               "taskSkill": "reversible-equation-steps"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-EQUATION-MEANING-Q2",
+              "taskSkill": "equal-sign-relationship"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-EQUATION-MEANING-Q2",
+              "taskSkill": "equal-sign-relationship"
             }
           ],
           "rationale": {
-            "zh": "P65把2x=10单改为x=10后代回得20≠10，并解释同乘零虽相等却丢约束；J73把“移项”还原为两边同减2x、同减2、同除非零3。两单元都用具体左右值与可逆步骤说明等号的关系含义，不能把它当“接下来算”的箭头。",
-            "en": "P65 rejects changing only 2x=10 to x=10 by checking twenty versus ten, and explains information lost by multiplying both sides by zero. J73 expands transposition into subtracting 2x and two from both sides, then dividing both by nonzero three. Both use actual side values and reversible steps to treat equals as a relationship rather than a next-calculation arrow."
+            "zh": "P65把2x=10单改为x=10后代回得20≠10，并解释同乘零虽相等却丢约束；J73把“移项”还原为两边同减2x、同减2、同除非零3。两单元都用具体左右值与可逆步骤说明等号的关系含义，不能把它当“接下来算”的箭头。新Q2按原两盘和三个候选重算四种同量操作的差，给单边反例、零候选巧合与第二次去框不足，修正不等值连等式。",
+            "en": "P65 rejects changing only 2x=10 to x=10 by checking twenty versus ten, and explains information lost by multiplying both sides by zero. J73 expands transposition into subtracting 2x and two from both sides, then dividing both by nonzero three. Both use actual side values and reversible steps to treat equals as a relationship rather than a next-calculation arrow. New Q2s recompute four common actions for three candidates, compare one-sided counterexamples and a zero-candidate coincidence, refuse a second unavailable box removal and repair unequal chains."
           }
         }
       ],
@@ -2777,7 +3467,10 @@
         "P55-L03-Q6",
         "P55-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-EQUATION-MEANING-Q3"],
+        "P65": ["P65-MAINT-EQUATION-MEANING-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "pattern-expression",
@@ -2802,11 +3495,21 @@
               "unit": "H07",
               "task": "H07-L01-X",
               "taskSkill": "sequence-index-rule-evidence"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-EQUATION-MEANING-Q3",
+              "taskSkill": "pattern-expression"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-EQUATION-MEANING-Q3",
+              "taskSkill": "pattern-expression"
             }
           ],
           "rationale": {
-            "zh": "P65由三行各n与固定两块推出3n+2，解释增长三不足以说明总数；H07由首项1及每步2n+1核(n+1)²−n²，支持通项n²，并给前三项相同却第四项不同的两公式。两单元都区分序号、增长、固定项和一般依据，有限试值不替代完整规则。后者是具备先修后从图形构造到递推结构的远迁移。",
-            "en": "P65 derives 3n+2 from three rows of n and two fixed blocks, explaining why growth of three alone does not give a total. H07 checks (n+1)²−n² against the given increment 2n+1 and first term one, supporting n², and gives formulas agreeing on three terms but differing on the fourth. Both separate index, increment, fixed information and general justification. The latter is a later transfer from construction to recurrence once prerequisites are in place."
+            "zh": "P65由三行各n与固定两块推出3n+2，解释增长三不足以说明总数；H07由首项1及每步2n+1核(n+1)²−n²，支持通项n²，并给前三项相同却第四项不同的两公式。两单元都区分序号、增长、固定项和一般依据，有限试值不替代完整规则。后者是具备先修后从图形构造到递推结构的远迁移。新Q3从实际边集合与两行点写两种一般式，算近远步，核首次偶合与空图边界；有限4/7/10记录另给完整不同续构造。",
+            "en": "P65 derives 3n+2 from three rows of n and two fixed blocks, explaining why growth of three alone does not give a total. H07 checks (n+1)²−n² against the given increment 2n+1 and first term one, supporting n², and gives formulas agreeing on three terms but differing on the fourth. Both separate index, increment, fixed information and general justification. The latter is a later transfer from construction to recurrence once prerequisites are in place. New Q3s derive two expressions from actual edges and two-row counters, evaluate near/far steps, test first-term coincidences and the empty-diagram boundary, and supply different complete continuations of a finite 4,7,10 prefix."
           }
         }
       ],
@@ -2826,7 +3529,10 @@
         "P55-L04-Q6",
         "P55-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-EQUATION-MEANING-Q4"],
+        "P65": ["P65-MAINT-EQUATION-MEANING-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "one-step-equation",
@@ -2856,11 +3562,21 @@
               "unit": "J73",
               "task": "J73-L02-Q6",
               "taskSkill": "reversible-equation-steps"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-EQUATION-MEANING-Q4",
+              "taskSkill": "one-step-equation"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-EQUATION-MEANING-Q4",
+              "taskSkill": "one-step-equation"
             }
           ],
           "rationale": {
-            "zh": "P65在3(x+2)=5中执行同除3、同减2的一步逆操作并代回精确−1/3，另解释乘零不保完整解集；J73通过3x=0、矛盾式、恒等式区分唯一零解、无解和全部允许值，并说明非零除数。两处均核原式，不把除零或−0.33近似数当精确求解。",
-            "en": "P65 performs individual inverse steps of division by three and subtraction of two in 3(x+2)=5 and checks exact −1/3, while explaining information lost by multiplication by zero. J73 distinguishes unique zero, no solution and all allowed values using 3x=0, a contradiction and an identity, retaining nonzero-divisor conditions. Both check the original relationship rather than allowing division by zero or substituting approximate −0.33 for an exact solution."
+            "zh": "P65在3(x+2)=5中执行同除3、同减2的一步逆操作并代回精确−1/3，另解释乘零不保完整解集；J73通过3x=0、矛盾式、恒等式区分唯一零解、无解和全部允许值，并说明非零除数。两处均核原式，不把除零或−0.33近似数当精确求解。新Q4逐种选择有定义的逆操作，精确分数与近似候选代回分开；唯一零、零系数全满足/无解及除零未定义分别说明。",
+            "en": "P65 performs individual inverse steps of division by three and subtraction of two in 3(x+2)=5 and checks exact −1/3, while explaining information lost by multiplication by zero. J73 distinguishes unique zero, no solution and all allowed values using 3x=0, a contradiction and an identity, retaining nonzero-divisor conditions. Both check the original relationship rather than allowing division by zero or substituting approximate −0.33 for an exact solution. New Q4s justify defined inverses and distinguish exact fraction substitution from approximate trials, separating unique zero, zero-coefficient all/none and undefined division."
           }
         }
       ],
@@ -2880,7 +3596,10 @@
         "P55-L05-Q6",
         "P55-L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P57": ["P57-MAINT-EQUATION-MEANING-Q5"],
+        "P65": ["P65-MAINT-EQUATION-MEANING-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "equation-story",
@@ -2900,11 +3619,21 @@
               "unit": "J83",
               "task": "J83-L05-Q6",
               "taskSkill": "two-quantity-system-model"
+            },
+            {
+              "unit": "P57",
+              "task": "P57-MAINT-EQUATION-MEANING-Q5",
+              "taskSkill": "equation-story"
+            },
+            {
+              "unit": "P65",
+              "task": "P65-MAINT-EQUATION-MEANING-Q5",
+              "taskSkill": "equation-story"
             }
           ],
           "rationale": {
-            "zh": "J73定义年龄或每袋数量，写x+(x+8)=30或3x+2=20，并区分原建模关系与最后解；J83定义两类票数或升数，写x+y=7及5x+3y=30，代回9/2、5/2后再核完整票数限制。两处都从量名、单位、固定项和范围建立等式，不把解值等式或擅自取整冒充原模型。",
-            "en": "J73 defines ages or bag quantities and forms x+(x+8)=30 or 3x+2=20, distinguishing original modelling relationships from final solutions. J83 defines ticket counts or litres and forms x+y=7 and 5x+3y=30, then checks 9/2 and 5/2 against whole-ticket restrictions. Both build equations from quantities, units, fixed amounts and domains, not from solution statements or arbitrary rounding."
+            "zh": "J73定义年龄或每袋数量，写x+(x+8)=30或3x+2=20，并区分原建模关系与最后解；J83定义两类票数或升数，写x+y=7及5x+3y=30，代回9/2、5/2后再核完整票数限制。两处都从量名、单位、固定项和范围建立等式，不把解值等式或擅自取整冒充原模型。新Q5从原量、每段长度、钱数与袋外散卡列原模型并核单位，比较同方程的连续长度与不可拆卡数，不用取整改题。",
+            "en": "J73 defines ages or bag quantities and forms x+(x+8)=30 or 3x+2=20, distinguishing original modelling relationships from final solutions. J83 defines ticket counts or litres and forms x+y=7 and 5x+3y=30, then checks 9/2 and 5/2 against whole-ticket restrictions. Both build equations from quantities, units, fixed amounts and domains, not from solution statements or arbitrary rounding. New Q5s form original models for originals, per-piece lengths, money and extras outside bags, then contrast continuous length with indivisible cards under the same algebraic equation rather than rounding away the mismatch."
           }
         }
       ],
@@ -2925,8 +3654,8 @@
         "P56-L01-X"
       ],
       "laterExactTagCandidates": {
-        "P66": ["P66-MAINT-MEASURE-Q1"],
-        "J87": ["J87-MAINT-MEASURE-Q1"]
+        "P66": ["P66-MAINT-MEASURE-Q1", "P66-MAINT-GEOMETRY-CONSERVATION-Q1"],
+        "J87": ["J87-MAINT-MEASURE-Q1", "J87-MAINT-GEOMETRY-CONSERVATION-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -2947,11 +3676,21 @@
               "unit": "J87",
               "task": "J87-MAINT-MEASURE-Q1",
               "taskSkill": "metric-dimension-conversion"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-GEOMETRY-CONSERVATION-Q1",
+              "taskSkill": "metric-dimension-conversion"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-GEOMETRY-CONSERVATION-Q1",
+              "taskSkill": "metric-dimension-conversion"
             }
           ],
           "rationale": {
-            "zh": "P66分别解释2m、2m²、2m³换厘米单位的100、100²、100³因子，另核2L=2000cm³；J87从30cm边长重建0.3m、0.09m²、0.027m³=27L。两个单元都主动解释行、格、层及单位维度，不允许把面积单位改名成长单位。",
-            "en": "P66 explains factors 100,100²,100³ for 2m,2m²,2m³ and checks 2L=2000cm³. J87 reconstructs 0.3m,0.09m²,0.027m³=27L from a thirty-centimetre side. Both actively explain rows, grids, layers and dimensions rather than renaming an area as a length."
+            "zh": "P66分别解释2m、2m²、2m³换厘米单位的100、100²、100³因子，另核2L=2000cm³；J87从30cm边长重建0.3m、0.09m²、0.027m³=27L。两个单元都主动解释行、格、层及单位维度，不允许把面积单位改名成长单位。新Q1另生成经过dm的两级逆向链、分数升与零量，亲画m³/dm³/cm³层级、单子块占整体比例，区分观察层与总体。",
+            "en": "P66 explains factors 100,100²,100³ for 2m,2m²,2m³ and checks 2L=2000cm³. J87 reconstructs 0.3m,0.09m²,0.027m³=27L from a thirty-centimetre side. Both actively explain rows, grids, layers and dimensions rather than renaming an area as a length. New Q1s generate inverse two-stage chains through dm units, fractional litres and zero, drawing the m³/dm³/cm³ hierarchy and a subunit’s fraction of the whole while separating layer observation from total quantity."
           }
         }
       ],
@@ -2971,7 +3710,10 @@
         "P56-L02-Q6",
         "P56-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P66": ["P66-MAINT-GEOMETRY-CONSERVATION-Q2"],
+        "J87": ["J87-MAINT-GEOMETRY-CONSERVATION-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "rectangle-area",
@@ -2996,11 +3738,21 @@
               "unit": "J72",
               "task": "J72-L05-Q6",
               "taskSkill": "contextual-polynomial-model"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-GEOMETRY-CONSERVATION-Q2",
+              "taskSkill": "rectangle-area"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-GEOMETRY-CONSERVATION-Q2",
+              "taskSkill": "rectangle-area"
             }
           ],
           "rationale": {
-            "zh": "P66须逐面标4×3、4×2、3×2的矩形覆盖面积，J87须标六个3×3方形的单面9cm²并合计；两处均用长×宽及实际面数，不把周界或空间量作面积。J72进一步由长n+2、宽n推n(n+2)cm²及不同周长式。",
-            "en": "P66 labels rectangular face areas 4×3,4×2,3×2; J87 labels square face areas 3×3 and counts actual faces. Both use length times width and square units rather than boundary length or volume. J72 further derives n(n+2)cm² and a separate perimeter expression from lengths n+2 and n."
+            "zh": "P66须逐面标4×3、4×2、3×2的矩形覆盖面积，J87须标六个3×3方形的单面9cm²并合计；两处均用长×宽及实际面数，不把周界或空间量作面积。J72进一步由长n+2、宽n推n(n+2)cm²及不同周长式。新Q2以混合边长和明确非单位方格重新覆盖，旋转对应，再逆求一边、主动对照同周长异面积和正方形数值偶合的不同单位。",
+            "en": "P66 labels rectangular face areas 4×3,4×2,3×2; J87 labels square face areas 3×3 and counts actual faces. Both use length times width and square units rather than boundary length or volume. J72 further derives n(n+2)cm² and a separate perimeter expression from lengths n+2 and n. New Q2s cover mixed edge units with explicitly sized cells, match rotated coverage, recover an unknown edge and compare equal-perimeter/different-area shapes and square numerical coincidences with different units."
           }
         }
       ],
@@ -3021,8 +3773,8 @@
         "P56-L03-X"
       ],
       "laterExactTagCandidates": {
-        "P66": ["P66-MAINT-MEASURE-Q2"],
-        "J87": ["J87-MAINT-MEASURE-Q2"]
+        "P66": ["P66-MAINT-MEASURE-Q2", "P66-MAINT-GEOMETRY-CONSERVATION-Q3"],
+        "J87": ["J87-MAINT-MEASURE-Q2", "J87-MAINT-GEOMETRY-CONSERVATION-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -3043,11 +3795,21 @@
               "unit": "J87",
               "task": "J87-MAINT-MEASURE-Q2",
               "taskSkill": "triangle-rearrangement"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-GEOMETRY-CONSERVATION-Q3",
+              "taskSkill": "triangle-rearrangement"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-GEOMETRY-CONSERVATION-Q3",
+              "taskSkill": "triangle-rearrangement"
             }
           ],
           "rationale": {
-            "zh": "P66底10、高4且足点在边外，用两份拼接求20cm²；J87先由10²−6²得垂直高8，再将底9、高8的两份拼接求36m²。两处都须给无损拼接和一半的依据，解释斜边不等高；只代面积公式不满足任务。",
-            "en": "P66 joins two triangles with base ten, height four and an external foot to obtain 20cm² per copy. J87 first derives height eight from 10²−6², then joins copies with base nine for 36m². Both require conserved-area rearrangement and the halving argument, distinguishing sloping side from perpendicular height; formula substitution alone is insufficient."
+            "zh": "P66底10、高4且足点在边外，用两份拼接求20cm²；J87先由10²−6²得垂直高8，再将底9、高8的两份拼接求36m²。两处都须给无损拼接和一半的依据，解释斜边不等高；只代面积公式不满足任务。新Q3亲画外侧垂足与反射，再区分新增副本、保留半格；改选另一底、逆求高及混合单位放大各核对应关系。",
+            "en": "P66 joins two triangles with base ten, height four and an external foot to obtain 20cm² per copy. J87 first derives height eight from 10²−6², then joins copies with base nine for 36m². Both require conserved-area rearrangement and the halving argument, distinguishing sloping side from perpendicular height; formula substitution alone is insufficient. New Q3s draw an external foot and reflection, distinguish adding a copy and retain half cells, then check a changed base, inverse altitude and mixed-unit scaling."
           }
         }
       ],
@@ -3068,8 +3830,8 @@
         "P56-L04-X"
       ],
       "laterExactTagCandidates": {
-        "P66": ["P66-MAINT-MEASURE-Q3"],
-        "J87": ["J87-MAINT-MEASURE-Q3"]
+        "P66": ["P66-MAINT-MEASURE-Q3", "P66-MAINT-GEOMETRY-CONSERVATION-Q4"],
+        "J87": ["J87-MAINT-MEASURE-Q3", "J87-MAINT-GEOMETRY-CONSERVATION-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -3090,11 +3852,21 @@
               "unit": "J87",
               "task": "J87-MAINT-MEASURE-Q3",
               "taskSkill": "parallel-base-area"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-GEOMETRY-CONSERVATION-Q4",
+              "taskSkill": "parallel-base-area"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-GEOMETRY-CONSERVATION-Q4",
+              "taskSkill": "parallel-base-area"
             }
           ],
           "rationale": {
-            "zh": "P66以切拼推平行四边形24cm²、两份梯形推21cm²；J87分别推28m²与26m²。两处都把梯形两底接成和、保留垂直高、还原一份，并核两底相等时与平行四边形公式相容及本课狭义命名约定。",
-            "en": "P66 rearranges a parallelogram for 24cm² and pairs trapezia for 21cm²; J87 gives 28m² and 26m². Both add the parallel bases, retain perpendicular height and return from two copies to one, checking equal-base compatibility with the parallelogram formula and the stated exclusive naming convention."
+            "zh": "P66以切拼推平行四边形24cm²、两份梯形推21cm²；J87分别推28m²与26m²。两处都把梯形两底接成和、保留垂直高、还原一份，并核两底相等时与平行四边形公式相容及本课狭义命名约定。新Q4分别画左/零/右错移与切块对应，核切块和剩余；梯形半平方结果、交换/相等底及逆求底都由具体图与量生成。",
+            "en": "P66 rearranges a parallelogram for 24cm² and pairs trapezia for 21cm²; J87 gives 28m² and 26m². Both add the parallel bases, retain perpendicular height and return from two copies to one, checking equal-base compatibility with the parallelogram formula and the stated exclusive naming convention. New Q4s draw left/zero/right shears with matching cut pieces and retained regions, then derive half-square trapezoid results, exchanged/equal bases and an inverse base from actual quantities."
           }
         }
       ],
@@ -3115,8 +3887,8 @@
         "P56-L05-X"
       ],
       "laterExactTagCandidates": {
-        "P66": ["P66-MAINT-MEASURE-Q4"],
-        "J87": ["J87-MAINT-MEASURE-Q4"]
+        "P66": ["P66-MAINT-MEASURE-Q4", "P66-MAINT-GEOMETRY-CONSERVATION-Q5"],
+        "J87": ["J87-MAINT-MEASURE-Q4", "J87-MAINT-GEOMETRY-CONSERVATION-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -3137,11 +3909,21 @@
               "unit": "J87",
               "task": "J87-MAINT-MEASURE-Q4",
               "taskSkill": "unit-cube-volume"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-GEOMETRY-CONSERVATION-Q5",
+              "taskSkill": "unit-cube-volume"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-GEOMETRY-CONSERVATION-Q5",
+              "taskSkill": "unit-cube-volume"
             }
           ],
           "rationale": {
-            "zh": "P66按3列4行5层数60个1cm³块，并区分内部空两格时材料58cm³与外框60cm³；J87按2×3每层、4层求24m³并换24000L，拒绝用√29m对角线当体积。都须解释相同不重叠单位块的三维计数。",
-            "en": "P66 counts sixty 1cm³ cubes in 3×4×5 layers and distinguishes 58cm³ of material with two empty internal cells from the 60cm³ bounding region. J87 counts four 2×3 layers for 24m³=24000L and rejects diagonal length √29m as volume. Both explain equal nonoverlapping unit-cube counts in three dimensions."
+            "zh": "P66按3列4行5层数60个1cm³块，并区分内部空两格时材料58cm³与外框60cm³；J87按2×3每层、4层求24m³并换24000L，拒绝用√29m对角线当体积。都须解释相同不重叠单位块的三维计数。新Q5另比较同数值内外尺寸的容量条件，按行层解释三棱加倍的八倍体积，再从体积与两边逆求高。",
+            "en": "P66 counts sixty 1cm³ cubes in 3×4×5 layers and distinguishes 58cm³ of material with two empty internal cells from the 60cm³ bounding region. J87 counts four 2×3 layers for 24m³=24000L and rejects diagonal length √29m as volume. Both explain equal nonoverlapping unit-cube counts in three dimensions. New Q5s contrast equal numerical internal/external dimensions and capacity conditions, explain the eightfold effect of doubling three edges through layers, and recover height from volume and two edges."
           }
         }
       ],
@@ -3162,8 +3944,8 @@
         "P56-L06-X"
       ],
       "laterExactTagCandidates": {
-        "P66": ["P66-MAINT-MEASURE-Q5"],
-        "J87": ["J87-MAINT-MEASURE-Q5"]
+        "P66": ["P66-MAINT-MEASURE-Q5", "P66-MAINT-GEOMETRY-CONSERVATION-Q6"],
+        "J87": ["J87-MAINT-MEASURE-Q5", "J87-MAINT-GEOMETRY-CONSERVATION-Q6"]
       },
       "reviewedEvidence": [
         {
@@ -3184,11 +3966,21 @@
               "unit": "J87",
               "task": "J87-MAINT-MEASURE-Q5",
               "taskSkill": "box-surface-area"
+            },
+            {
+              "unit": "P66",
+              "task": "P66-MAINT-GEOMETRY-CONSERVATION-Q6",
+              "taskSkill": "box-surface-area"
+            },
+            {
+              "unit": "J87",
+              "task": "J87-MAINT-GEOMETRY-CONSERVATION-Q6",
+              "taskSkill": "box-surface-area"
             }
           ],
           "rationale": {
-            "zh": "P66画4×3×2无盖盒有效展开图，逐面合40cm²，加盖后52cm²；J87画3cm立方体有效六面网，封闭54cm²、开口45cm²。两处限定单面纸板、忽略厚度与接边，实际每面只计一次，区别内部空间与长度。",
-            "en": "P66 draws a valid net for an open 4×3×2 box, totalling 40cm² or 52cm² with a lid. J87 draws a valid net for a three-centimetre cube, giving 54cm² closed or 45cm² open. Both state one-sided board area, ideal thickness/tab assumptions, count actual faces once and distinguish internal space and lengths."
+            "zh": "P66画4×3×2无盖盒有效展开图，逐面合40cm²，加盖后52cm²；J87画3cm立方体有效六面网，封闭54cm²、开口45cm²。两处限定单面纸板、忽略厚度与接边，实际每面只计一次，区别内部空间与长度。新Q6亲画指定完整网，分别求有盖/无盖外接框和空白，对比同面片面积窄纸的尺寸障碍；接缝预算不当任意纸形保证或全局最优。",
+            "en": "P66 draws a valid net for an open 4×3×2 box, totalling 40cm² or 52cm² with a lid. J87 draws a valid net for a three-centimetre cube, giving 54cm² closed or 45cm² open. Both state one-sided board area, ideal thickness/tab assumptions, count actual faces once and distinguish internal space and lengths. New Q6s draw the specified one-piece net, calculate closed/open bounding frames and blanks, test a narrow equal-panel-area sheet by dimensions, and separate seam budgets from arbitrary-shape guarantees or a global optimum."
           }
         }
       ],

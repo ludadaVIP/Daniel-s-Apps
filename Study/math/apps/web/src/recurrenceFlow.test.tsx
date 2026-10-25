@@ -200,7 +200,7 @@ describe('parent-led recurrence links and exact task navigation', () => {
       'Engineering review example: compare distances 499 and 501 from the original 4499.',
       'Your reasoning',
     );
-    expect(screen.getByText(/Recorded 1\/5/)).toBeTruthy();
+    expect(screen.getByText(/Recorded 1\/9/)).toBeTruthy();
     expect(progress().sessions['B01-L04']).toBeUndefined();
     expect(progress().sessions['B03-CHECK']).toBeUndefined();
   });

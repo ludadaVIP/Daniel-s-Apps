@@ -6,6 +6,7 @@ import { foundationRetrieval } from './content/foundationRetrieval';
 import { numberTheoryRetrieval } from './content/numberTheoryRetrieval';
 import { checkAnswer } from './model';
 import { recurrenceLinksFor } from './recurrenceTargets';
+import { maintenanceSets } from './content/maintenance';
 
 const reviewed = [...foundationRecurrence, ...primaryRecurrence];
 const sets = [
@@ -18,7 +19,7 @@ const tasks = new Map([
       (q) => [q.id, { q, unit: l.unit! }] as const,
     ),
   ),
-  ...sets.flatMap((s) =>
+  ...Object.values(maintenanceSets).flatMap((s) =>
     s.questions.map((q) => [q.id, { q, unit: s.unit }] as const),
   ),
 ]);

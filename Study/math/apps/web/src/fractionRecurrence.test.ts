@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import { curriculum, lessons, lessonById, unitChecks } from './content';
 import { fractionRecurrence } from './content/fractionRecurrence';
 import { fractionRetrieval } from './content/fractionRetrieval';
+import { maintenanceSets } from './content/maintenance';
 import { earlyAlgebraRecurrence } from './content/earlyAlgebraRecurrence';
 import { checkAnswer } from './model';
 import { recurrenceLinksFor } from './recurrenceTargets';
@@ -13,7 +14,7 @@ const tasks = new Map([
       (q) => [q.id, { q, unit: l.unit! }] as const,
     ),
   ),
-  ...sets.flatMap((s) =>
+  ...Object.values(maintenanceSets).flatMap((s) =>
     s.questions.map((q) => [q.id, { q, unit: s.unit }] as const),
   ),
 ]);

@@ -610,7 +610,7 @@ export const p54Lessons: Lesson[] = [
         ],
         [
           [
-            '共同分母必须同时整除两分母。',
+            '共同分母必须同时被两个原分母整除。',
             'Both denominators must divide the common denominator.',
           ],
           [

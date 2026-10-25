@@ -24,9 +24,20 @@ import {
   type BalanceAction,
   type GrowingPattern,
 } from './equationModels';
-export type EquationLabKind = Extract<Lesson['lab'], `equation-${string}`>;
+export type EquationLabKind =
+  | 'equation-box'
+  | 'equation-balance'
+  | 'equation-pattern'
+  | 'equation-one-step'
+  | 'equation-story';
 export const isEquationLab = (kind: Lesson['lab']): kind is EquationLabKind =>
-  kind.startsWith('equation-');
+  [
+    'equation-box',
+    'equation-balance',
+    'equation-pattern',
+    'equation-one-step',
+    'equation-story',
+  ].includes(kind);
 const name = (text: LocalizedText, mode: LanguageMode) =>
   mode === 'en' ? text.en : text.zh;
 function Range({

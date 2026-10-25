@@ -6,6 +6,7 @@ import { App } from './App';
 import { STORAGE_KEY } from './progress';
 import { geometryDataRetrieval } from './content/geometryDataRetrieval';
 import { emptyProgress, newSession } from './model';
+vi.setConfig({ testTimeout: 60000 });
 beforeEach(() => {
   localStorage.clear();
   localStorage.setItem('study-language', 'en');

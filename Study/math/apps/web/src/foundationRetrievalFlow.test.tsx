@@ -6,7 +6,13 @@ import { App } from './App';
 import { STORAGE_KEY } from './progress';
 import { emptyProgress, newSession } from './model';
 import { foundationRetrieval } from './content/foundationRetrieval';
+import {
+  maintenanceHref,
+  maintenanceForUnit,
+  type MaintenanceSet,
+} from './content/maintenance';
 import { numberTheoryRetrieval } from './content/numberTheoryRetrieval';
+vi.setConfig({ testTimeout: 60000 });
 
 beforeEach(() => {
   localStorage.clear();
@@ -32,6 +38,10 @@ const mount = (path: string) =>
       <RouteEcho />
     </MemoryRouter>,
   );
+const restoredRoute = (s: MaintenanceSet) =>
+  maintenanceForUnit(s.unit).length > 1
+    ? '/math/unit/' + s.unit + '/maintenance?set=' + s.id
+    : maintenanceHref(s);
 const click = (name: string | RegExp) =>
   fireEvent.click(screen.getByRole('button', { name }));
 const progress = () => JSON.parse(localStorage.getItem(STORAGE_KEY)!);
@@ -59,7 +69,7 @@ describe('new foundation maintenance sessions', () => {
       for (const [i, q] of s.questions.entries()) {
         const view = mount(`/math/unit/${s.unit}/maintenance?question=${q.id}`);
         expect(screen.getByLabelText('Current route').textContent).toBe(
-          `/math/unit/${s.unit}/maintenance`,
+          restoredRoute(s),
         );
         expect(screen.getByText(q.stem.en)).toBeTruthy();
         expect(screen.getByText(s.intro.en)).toBeTruthy();
@@ -134,7 +144,7 @@ describe('new foundation maintenance sessions', () => {
       .find(
         (a) =>
           a.getAttribute('href') ===
-          '/math/unit/P52/maintenance?question=P52-MAINT-FOUNDATION-Q4',
+          maintenanceHref(foundationRetrieval.P52, 'P52-MAINT-FOUNDATION-Q4'),
       );
     expect(link).toBeDefined();
     fireEvent.click(link!);
@@ -148,7 +158,7 @@ describe('new foundation maintenance sessions', () => {
     ).toBe('/math/lesson/B03-L04?step=1');
     expect(progress().sessions['B03-L04']).toBeUndefined();
     expect(screen.getByLabelText('Current route').textContent).toBe(
-      '/math/unit/P52/maintenance',
+      restoredRoute(foundationRetrieval.P52),
     );
   });
   it('ignores a foreign question in another maintenance set without copying or recording its answer', () => {

@@ -159,6 +159,7 @@ export function NumberAxis({
   point,
   label,
   labelMode = 'all',
+  showIntervalValue = true,
   mode,
 }: {
   start: number;
@@ -167,6 +168,7 @@ export function NumberAxis({
   point: number;
   label?: string;
   labelMode?: 'all' | 'endpoints';
+  showIntervalValue?: boolean;
   mode: LanguageMode;
 }) {
   const position = axisPosition(point, start, end),
@@ -218,7 +220,14 @@ export function NumberAxis({
       <div className="math-axis-scale">
         <span>{start.toLocaleString('en-NZ')}</span>
         <span>
-          <Text mode={mode} text={t(`每格 ${step}`, `${step} per interval`)} />
+          <Text
+            mode={mode}
+            text={
+              showIntervalValue
+                ? t(`每格 ${step}`, `${step} per interval`)
+                : t('等距区间', 'Equal intervals')
+            }
+          />
         </span>
         <span>{end.toLocaleString('en-NZ')}</span>
       </div>
@@ -541,6 +550,7 @@ export function NumberDiagramView({
       point={diagram.point}
       label={diagram.label ?? 'P'}
       labelMode={diagram.labelMode}
+      showIntervalValue={diagram.showIntervalValue}
       mode={mode}
     />
   );

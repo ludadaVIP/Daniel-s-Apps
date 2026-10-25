@@ -293,6 +293,7 @@ function FractionWorkbench({
                 setCandidate(e.target.value);
                 setChecked(false);
                 setStage(0);
+                setSecondStep(false);
               }}
             >
               <option value="">{mode === 'en' ? 'Choose…' : '请选择…'}</option>

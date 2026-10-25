@@ -1,6 +1,8 @@
 import { t } from '../model';
 const pair = (i: number) =>
   ['P66', 'J87'].map((u) => `${u}-MAINT-MEASURE-Q${i}`);
+const conservationPair = (i: number) =>
+  ['P66', 'J87'].map((u) => `${u}-MAINT-GEOMETRY-CONSERVATION-Q${i}`);
 const e = (
   skill: string,
   zh: string,
@@ -26,9 +28,9 @@ export const geometryDataRecurrence = [
     'Unit conversion in one, two and three dimensions',
     'P56-L01',
     'P56-L01-Q6',
-    pair(1),
-    'P66分别解释2m、2m²、2m³换厘米单位的100、100²、100³因子，另核2L=2000cm³；J87从30cm边长重建0.3m、0.09m²、0.027m³=27L。两个单元都主动解释行、格、层及单位维度，不允许把面积单位改名成长单位。',
-    'P66 explains factors 100,100²,100³ for 2m,2m²,2m³ and checks 2L=2000cm³. J87 reconstructs 0.3m,0.09m²,0.027m³=27L from a thirty-centimetre side. Both actively explain rows, grids, layers and dimensions rather than renaming an area as a length.',
+    [...pair(1), ...conservationPair(1)],
+    'P66分别解释2m、2m²、2m³换厘米单位的100、100²、100³因子，另核2L=2000cm³；J87从30cm边长重建0.3m、0.09m²、0.027m³=27L。两个单元都主动解释行、格、层及单位维度，不允许把面积单位改名成长单位。新Q1另生成经过dm的两级逆向链、分数升与零量，亲画m³/dm³/cm³层级、单子块占整体比例，区分观察层与总体。',
+    'P66 explains factors 100,100²,100³ for 2m,2m²,2m³ and checks 2L=2000cm³. J87 reconstructs 0.3m,0.09m²,0.027m³=27L from a thirty-centimetre side. Both actively explain rows, grids, layers and dimensions rather than renaming an area as a length. New Q1s generate inverse two-stage chains through dm units, fractional litres and zero, drawing the m³/dm³/cm³ hierarchy and a subunit’s fraction of the whole while separating layer observation from total quantity.',
   ),
   e(
     'rectangle-area',
@@ -36,9 +38,9 @@ export const geometryDataRecurrence = [
     'Rectangle coverage area and units',
     'P56-L02',
     'P56-L02-Q6',
-    [...pair(5), 'J72-L05-Q6'],
-    'P66须逐面标4×3、4×2、3×2的矩形覆盖面积，J87须标六个3×3方形的单面9cm²并合计；两处均用长×宽及实际面数，不把周界或空间量作面积。J72进一步由长n+2、宽n推n(n+2)cm²及不同周长式。',
-    'P66 labels rectangular face areas 4×3,4×2,3×2; J87 labels square face areas 3×3 and counts actual faces. Both use length times width and square units rather than boundary length or volume. J72 further derives n(n+2)cm² and a separate perimeter expression from lengths n+2 and n.',
+    [...pair(5), 'J72-L05-Q6', ...conservationPair(2)],
+    'P66须逐面标4×3、4×2、3×2的矩形覆盖面积，J87须标六个3×3方形的单面9cm²并合计；两处均用长×宽及实际面数，不把周界或空间量作面积。J72进一步由长n+2、宽n推n(n+2)cm²及不同周长式。新Q2以混合边长和明确非单位方格重新覆盖，旋转对应，再逆求一边、主动对照同周长异面积和正方形数值偶合的不同单位。',
+    'P66 labels rectangular face areas 4×3,4×2,3×2; J87 labels square face areas 3×3 and counts actual faces. Both use length times width and square units rather than boundary length or volume. J72 further derives n(n+2)cm² and a separate perimeter expression from lengths n+2 and n. New Q2s cover mixed edge units with explicitly sized cells, match rotated coverage, recover an unknown edge and compare equal-perimeter/different-area shapes and square numerical coincidences with different units.',
   ),
   e(
     'triangle-rearrangement',
@@ -46,9 +48,9 @@ export const geometryDataRecurrence = [
     'Explaining triangle area by joining two copies',
     'P56-L03',
     'P56-L03-Q6',
-    pair(2),
-    'P66底10、高4且足点在边外，用两份拼接求20cm²；J87先由10²−6²得垂直高8，再将底9、高8的两份拼接求36m²。两处都须给无损拼接和一半的依据，解释斜边不等高；只代面积公式不满足任务。',
-    'P66 joins two triangles with base ten, height four and an external foot to obtain 20cm² per copy. J87 first derives height eight from 10²−6², then joins copies with base nine for 36m². Both require conserved-area rearrangement and the halving argument, distinguishing sloping side from perpendicular height; formula substitution alone is insufficient.',
+    [...pair(2), ...conservationPair(3)],
+    'P66底10、高4且足点在边外，用两份拼接求20cm²；J87先由10²−6²得垂直高8，再将底9、高8的两份拼接求36m²。两处都须给无损拼接和一半的依据，解释斜边不等高；只代面积公式不满足任务。新Q3亲画外侧垂足与反射，再区分新增副本、保留半格；改选另一底、逆求高及混合单位放大各核对应关系。',
+    'P66 joins two triangles with base ten, height four and an external foot to obtain 20cm² per copy. J87 first derives height eight from 10²−6², then joins copies with base nine for 36m². Both require conserved-area rearrangement and the halving argument, distinguishing sloping side from perpendicular height; formula substitution alone is insufficient. New Q3s draw an external foot and reflection, distinguish adding a copy and retain half cells, then check a changed base, inverse altitude and mixed-unit scaling.',
   ),
   e(
     'parallel-base-area',
@@ -56,9 +58,9 @@ export const geometryDataRecurrence = [
     'Parallel bases, perpendicular height and rearrangement',
     'P56-L04',
     'P56-L04-Q6',
-    pair(3),
-    'P66以切拼推平行四边形24cm²、两份梯形推21cm²；J87分别推28m²与26m²。两处都把梯形两底接成和、保留垂直高、还原一份，并核两底相等时与平行四边形公式相容及本课狭义命名约定。',
-    'P66 rearranges a parallelogram for 24cm² and pairs trapezia for 21cm²; J87 gives 28m² and 26m². Both add the parallel bases, retain perpendicular height and return from two copies to one, checking equal-base compatibility with the parallelogram formula and the stated exclusive naming convention.',
+    [...pair(3), ...conservationPair(4)],
+    'P66以切拼推平行四边形24cm²、两份梯形推21cm²；J87分别推28m²与26m²。两处都把梯形两底接成和、保留垂直高、还原一份，并核两底相等时与平行四边形公式相容及本课狭义命名约定。新Q4分别画左/零/右错移与切块对应，核切块和剩余；梯形半平方结果、交换/相等底及逆求底都由具体图与量生成。',
+    'P66 rearranges a parallelogram for 24cm² and pairs trapezia for 21cm²; J87 gives 28m² and 26m². Both add the parallel bases, retain perpendicular height and return from two copies to one, checking equal-base compatibility with the parallelogram formula and the stated exclusive naming convention. New Q4s draw left/zero/right shears with matching cut pieces and retained regions, then derive half-square trapezoid results, exchanged/equal bases and an inverse base from actual quantities.',
   ),
   e(
     'unit-cube-volume',
@@ -66,9 +68,9 @@ export const geometryDataRecurrence = [
     'Counting unit cubes by rows, columns and layers',
     'P56-L05',
     'P56-L05-Q6',
-    pair(4),
-    'P66按3列4行5层数60个1cm³块，并区分内部空两格时材料58cm³与外框60cm³；J87按2×3每层、4层求24m³并换24000L，拒绝用√29m对角线当体积。都须解释相同不重叠单位块的三维计数。',
-    'P66 counts sixty 1cm³ cubes in 3×4×5 layers and distinguishes 58cm³ of material with two empty internal cells from the 60cm³ bounding region. J87 counts four 2×3 layers for 24m³=24000L and rejects diagonal length √29m as volume. Both explain equal nonoverlapping unit-cube counts in three dimensions.',
+    [...pair(4), ...conservationPair(5)],
+    'P66按3列4行5层数60个1cm³块，并区分内部空两格时材料58cm³与外框60cm³；J87按2×3每层、4层求24m³并换24000L，拒绝用√29m对角线当体积。都须解释相同不重叠单位块的三维计数。新Q5另比较同数值内外尺寸的容量条件，按行层解释三棱加倍的八倍体积，再从体积与两边逆求高。',
+    'P66 counts sixty 1cm³ cubes in 3×4×5 layers and distinguishes 58cm³ of material with two empty internal cells from the 60cm³ bounding region. J87 counts four 2×3 layers for 24m³=24000L and rejects diagonal length √29m as volume. Both explain equal nonoverlapping unit-cube counts in three dimensions. New Q5s contrast equal numerical internal/external dimensions and capacity conditions, explain the eightfold effect of doubling three edges through layers, and recover height from volume and two edges.',
   ),
   e(
     'box-surface-area',
@@ -76,9 +78,9 @@ export const geometryDataRecurrence = [
     'Nets, actual faces and board area',
     'P56-L06',
     'P56-L06-Q6',
-    pair(5),
-    'P66画4×3×2无盖盒有效展开图，逐面合40cm²，加盖后52cm²；J87画3cm立方体有效六面网，封闭54cm²、开口45cm²。两处限定单面纸板、忽略厚度与接边，实际每面只计一次，区别内部空间与长度。',
-    'P66 draws a valid net for an open 4×3×2 box, totalling 40cm² or 52cm² with a lid. J87 draws a valid net for a three-centimetre cube, giving 54cm² closed or 45cm² open. Both state one-sided board area, ideal thickness/tab assumptions, count actual faces once and distinguish internal space and lengths.',
+    [...pair(5), ...conservationPair(6)],
+    'P66画4×3×2无盖盒有效展开图，逐面合40cm²，加盖后52cm²；J87画3cm立方体有效六面网，封闭54cm²、开口45cm²。两处限定单面纸板、忽略厚度与接边，实际每面只计一次，区别内部空间与长度。新Q6亲画指定完整网，分别求有盖/无盖外接框和空白，对比同面片面积窄纸的尺寸障碍；接缝预算不当任意纸形保证或全局最优。',
+    'P66 draws a valid net for an open 4×3×2 box, totalling 40cm² or 52cm² with a lid. J87 draws a valid net for a three-centimetre cube, giving 54cm² closed or 45cm² open. Both state one-sided board area, ideal thickness/tab assumptions, count actual faces once and distinguish internal space and lengths. New Q6s draw the specified one-piece net, calculate closed/open bounding frames and blanks, test a narrow equal-panel-area sheet by dimensions, and separate seam budgets from arbitrary-shape guarantees or a global optimum.',
   ),
   e(
     'frequency-and-sample',

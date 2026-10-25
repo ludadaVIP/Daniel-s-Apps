@@ -47,6 +47,34 @@ const mount = (path: string) =>
       </Routes>
     </MemoryRouter>,
   );
+describe('actual data-model dispatch', () => {
+  it('keeps P57 foundational data models distinct from H08 through actual routes', () => {
+    const hooks = [
+      '.math-data-hook',
+      '.math-data-piles',
+      '[data-observation]',
+      '[data-chart-bar]',
+      '.math-data-hook',
+    ];
+    for (let i = 1; i <= 5; i++) {
+      const hook = mount('/math/lesson/P57-L0' + i);
+      expect(hook.container.querySelector(hooks[i - 1]!)).not.toBeNull();
+      hook.unmount();
+      const explore = mount('/math/lesson/P57-L0' + i + '?step=1');
+      expect(explore.container.querySelector('.math-data-lab')).not.toBeNull();
+      expect(explore.container.querySelector('.math-concept-lab')).toBeNull();
+      explore.unmount();
+    }
+    for (let i = 1; i <= 5; i++) {
+      const explore = mount('/math/lesson/H08-L0' + i + '?step=1');
+      expect(explore.container.querySelector('.math-data-lab')).toBeNull();
+      expect(
+        explore.container.querySelector('.math-concept-lab'),
+      ).not.toBeNull();
+      explore.unmount();
+    }
+  }, 60000);
+});
 describe('P57 data workshops', () => {
   it('classifies each raw response once, keeps missing apart from zero and rejects an incorrect category', () => {
     const view = render(<DataLab kind="data-frequency" mode="en" />);

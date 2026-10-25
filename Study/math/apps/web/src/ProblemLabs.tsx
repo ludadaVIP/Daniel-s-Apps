@@ -11,9 +11,9 @@ import {
   type Relation,
   type Unknown,
 } from './problemModels';
-export type ProblemLabKind = Extract<Lesson['lab'], `problem-${string}`>;
+export type ProblemLabKind = Extract<Lesson['lab'], `word-problem-${string}`>;
 export const isProblemLab = (kind: Lesson['lab']): kind is ProblemLabKind =>
-  kind.startsWith('problem-');
+  kind.startsWith('word-problem-');
 const primary = (mode: LanguageMode, text: LocalizedText) =>
   mode === 'en' ? text.en : text.zh;
 const optionText = (mode: LanguageMode, text: LocalizedText) =>
@@ -247,7 +247,7 @@ function Represent({ mode }: { mode: LanguageMode }) {
           value={relation === 'parts' && unknown === 'component' ? m.whole : b}
           min={
             relation === 'groups'
-              ? 1
+              ? 0
               : relation === 'parts' && unknown === 'component'
                 ? a
                 : 0
@@ -751,13 +751,13 @@ export function ProblemLab({
           />
         </span>
       </div>
-      {kind === 'problem-information' ? (
+      {kind === 'word-problem-information' ? (
         <Information mode={mode} />
-      ) : kind === 'problem-represent' ? (
+      ) : kind === 'word-problem-represent' ? (
         <Represent mode={mode} />
-      ) : kind === 'problem-two-step' ? (
+      ) : kind === 'word-problem-two-step' ? (
         <TwoStep mode={mode} />
-      ) : kind === 'problem-relevance' ? (
+      ) : kind === 'word-problem-relevance' ? (
         <Relevance mode={mode} />
       ) : (
         <Explain mode={mode} />
@@ -783,36 +783,37 @@ export function ProblemHookArt({
   mode: LanguageMode;
 }) {
   const groups =
-    kind === 'problem-two-step' ||
-    kind === 'problem-explain' ||
-    kind === 'problem-relevance';
+    kind === 'word-problem-two-step' ||
+    kind === 'word-problem-explain' ||
+    kind === 'word-problem-relevance';
   return (
     <div className="math-number-hook">
       <ProblemBars
         relation={groups ? 'groups' : 'parts'}
         a={
-          kind === 'problem-two-step' || kind === 'problem-relevance'
+          kind === 'word-problem-two-step' || kind === 'word-problem-relevance'
             ? 4
-            : kind === 'problem-explain'
+            : kind === 'word-problem-explain'
               ? 5
-              : kind === 'problem-represent'
+              : kind === 'word-problem-represent'
                 ? 4
                 : 7
         }
         b={
-          kind === 'problem-two-step'
+          kind === 'word-problem-two-step'
             ? 6
-            : kind === 'problem-explain'
+            : kind === 'word-problem-explain'
               ? 4
-              : kind === 'problem-relevance' || kind === 'problem-represent'
+              : kind === 'word-problem-relevance' ||
+                  kind === 'word-problem-represent'
                 ? 5
                 : 11
         }
         unknown={groups ? 'result' : 'component'}
         unit={
-          kind === 'problem-relevance'
+          kind === 'word-problem-relevance'
             ? t('新西兰元', 'NZD')
-            : groups || kind === 'problem-represent'
+            : groups || kind === 'word-problem-represent'
               ? t('张卡', 'cards')
               : t('米', 'metres')
         }

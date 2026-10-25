@@ -16,9 +16,20 @@ import {
   type IdentityCase,
   type EquationAuditCase,
 } from './advancedEquationModels';
-type Kind = Extract<Lesson['lab'], `equation-${string}`>;
+type Kind =
+  | 'equation-composition'
+  | 'equation-logarithms'
+  | 'equation-identities'
+  | 'equation-parameters'
+  | 'equation-solutions';
 export const isAdvancedEquationLab = (kind: Lesson['lab']): kind is Kind =>
-  kind.startsWith('equation-');
+  [
+    'equation-composition',
+    'equation-logarithms',
+    'equation-identities',
+    'equation-parameters',
+    'equation-solutions',
+  ].includes(kind);
 const word = (mode: LanguageMode, p: LocalizedText) =>
   mode === 'en' ? p.en : p.zh;
 function Select({

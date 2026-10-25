@@ -254,6 +254,32 @@ describe('P54 workshop', () => {
     simplify();
     expect(screen.getByText(/Simplest representation 0 L/)).toBeTruthy();
   });
+  it('requires a fresh second-step prediction after changing the common denominator', () => {
+    render(<FractionOperationLab kind="fraction-story" mode="en" />);
+    select('Story operation', '+');
+    click('Check the story relationship');
+    common('12');
+    first();
+    result();
+    simplify();
+    click('I predicted; check the second-step remainder');
+    expect(screen.getByText(/Final remainder: 17\/12 L/)).toBeTruthy();
+    common('24');
+    expect(screen.queryByText(/Final remainder: 17\/12 L/)).toBeNull();
+    first();
+    result();
+    simplify();
+    expect(screen.queryByText(/Final remainder: 17\/12 L/)).toBeNull();
+    expect(
+      screen.getByRole('button', {
+        name: 'I predicted; check the second-step remainder',
+      }),
+    ).toBeTruthy();
+    click('I predicted; check the second-step remainder');
+    expect(
+      screen.getByText(/Final remainder: 17\/12 L−6\/12 L=11\/12 L/),
+    ).toBeTruthy();
+  });
   it('provides bilingual labels and keyboard range bounds without leaking a computed answer in image descriptions', () => {
     render(
       <FractionOperationLab kind="fraction-add-unlike" mode="bilingual" />,

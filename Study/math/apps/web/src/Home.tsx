@@ -347,11 +347,11 @@ const measurementArt: Record<string, string> = {
   'measurement-bars': '0 · 2 · 4 · 6 …',
 };
 const problemArt: Record<string, string> = {
-  'problem-information': '18 = 7 + ?',
-  'problem-represent': '9 + ? = 24',
-  'problem-two-step': '4 × 6 − 5',
-  'problem-relevance': 'NZ$30 − 4×5',
-  'problem-explain': '17 + 3 = 20',
+  'word-problem-information': '18 = 7 + ?',
+  'word-problem-represent': '9 + ? = 24',
+  'word-problem-two-step': '4 × 6 − 5',
+  'word-problem-relevance': 'NZ$30 − 4×5',
+  'word-problem-explain': '17 + 3 = 20',
 };
 const integerArt: Record<string, string> = {
   'integer-mixed': '1200 + 36×25',

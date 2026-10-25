@@ -1,4 +1,5 @@
 import { t, type Lesson, type Question } from '../model';
+import { b04ChoiceFeedback } from './b04ChoiceFeedback';
 const q = (
   id: string,
   zh: string,
@@ -330,7 +331,7 @@ export const lessons: Lesson[] = [
     questions: [
       q(
         'L03-Q1',
-        '0 到 1 分成 5 个等长区间，第二个刻度的值是多少？',
+        '0 到 1 分成 5 个等长区间。从0向右走2个区间，到达的刻度值是多少？',
         'Split 0 to 1 into 5 equal intervals. What is the second mark after 0?',
         '2/5',
         '每格长 1/5。',
@@ -1040,71 +1041,13 @@ export const reviewQuestions: Record<string, Question> = {
 };
 export const lessonById = (id?: string) => lessons.find((l) => l.id === id);
 
-const distractors: Record<string, Record<string, ReturnType<typeof t>>> = {
-  'L01-Q1': {
-    '0': t(
-      '选中的份数由分子表示；分母描述整体的等份数。',
-      'The numerator counts selected parts; the denominator counts all equal parts.',
-    ),
-    '2': t(
-      '人数只有对应到等份时才有关，分母本身表示整体的等份数。',
-      'People matter only when they correspond to equal parts; the denominator counts equal parts.',
-    ),
-  },
-  'L02-G': {
-    '1': t(
-      '四等份比两等份分得更细。同一个整体的一份会更小。',
-      'Four equal parts divide the same whole more finely; each piece is smaller.',
-    ),
-  },
-  'L02-Q3': {
-    '0': t(
-      '两等份的每份较大；比较同一个整体的单位分数时，分母越大每份越小。',
-      'Halves are larger pieces. For unit fractions of the same whole, more parts mean smaller pieces.',
-    ),
-    '1': t(
-      '三等份的一份比六等份的一份大；可用相同长度的分数条检验。',
-      'A third is larger than a sixth. Check with equally long strips.',
-    ),
-  },
-  'L03-Q3': {
-    '0': t(
-      '1/4 小于 1/2，在它左边。',
-      '1/4 is less than 1/2 and lies to its left.',
-    ),
-    '2': t(
-      '1/3 小于 1/2，在它左边。',
-      '1/3 is less than 1/2 and lies to its left.',
-    ),
-  },
-  'L04-Q3': {
-    '1': t(
-      '不能只数小数位数。把 0.5 写成 0.50，再比较 50 和 45 个百分之一。',
-      'Do not just count decimal digits. Write 0.5 as 0.50 and compare 50 and 45 hundredths.',
-    ),
-    '2': t(
-      '0.50 与 0.45 相差 5 个百分之一，并不相等。',
-      '0.50 and 0.45 differ by five hundredths; they are not equal.',
-    ),
-  },
-  'L05-Q3': {
-    '0': t(
-      'NZ$2.05 是 2 元 5 分，不是 50 分。',
-      'NZ$2.05 is two dollars and five cents, not fifty cents.',
-    ),
-    '2': t(
-      '50 分是 50/100 元，不是 5/1000 元。',
-      'Fifty cents is 50/100 of a dollar, not 5/1000.',
-    ),
-  },
-};
 for (const lesson of lessons)
   for (const question of [lesson.guided, ...lesson.questions]) {
     if (question.id === 'L01-G') question.visual = { n: 3, d: 8 };
     if (question.id === 'L01-Q2') question.visual = { n: 2, d: 6 };
     for (const option of question.options ?? [])
       option.feedback =
-        distractors[question.id]?.[option.id] ?? option.feedback;
+        b04ChoiceFeedback[question.id]?.[Number(option.id)] ?? option.feedback;
   }
 
 export function reviewQuestionFor(lessonId: string, round: number): Question {

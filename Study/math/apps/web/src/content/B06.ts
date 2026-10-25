@@ -108,7 +108,7 @@ export const b06Lessons: Lesson[] = [
     prerequisites: ['B02-L01', 'B05-L01'],
     keywords: [t('已知量', 'known'), t('未知量', 'unknown'), t('单位', 'unit')],
     minutes: 15,
-    lab: 'problem-information',
+    lab: 'word-problem-information',
     hook: t(
       '步道长 18 m，已走 7 m，草地上有 4 只鸟。要找剩余长度，三个数字都要用吗？',
       'A track is 18 m long, with 7 m walked and 4 birds on the grass. Must all three numbers be used to find remaining length?',
@@ -359,7 +359,7 @@ export const b06Lessons: Lesson[] = [
       t('差距', 'difference'),
     ],
     minutes: 17,
-    lab: 'problem-represent',
+    lab: 'word-problem-represent',
     hook: t(
       '“多四张”一定要加四吗？Mina 有九张，比 Noah 多四张；问 Noah 的张数，问号该放在哪里？',
       'Does “four more” always mean add four? Mina has nine cards, four more than Noah. Where should the unknown for Noah be placed?',
@@ -598,7 +598,7 @@ export const b06Lessons: Lesson[] = [
       t('核查', 'check'),
     ],
     minutes: 17,
-    lab: 'problem-two-step',
+    lab: 'word-problem-two-step',
     hook: t(
       '四盒每盒六张，送出五张。为什么 4+6−5 不是这件事的正确记录？',
       'Four boxes hold six cards each and five cards are given away. Why does 4+6−5 fail to record the story?',
@@ -832,7 +832,7 @@ export const b06Lessons: Lesson[] = [
       t('信息不足', 'insufficient information'),
     ],
     minutes: 16,
-    lab: 'problem-relevance',
+    lab: 'word-problem-relevance',
     hook: t(
       '笔记本四本、每本五元，铅笔每包三元。只买笔记本时，铅笔价格还要算吗？这些资料能算总质量吗？',
       'Four notebooks cost five dollars each, while pencils cost three dollars per pack. If only notebooks are bought, is pencil price needed? Can these facts determine total mass?',
@@ -1084,7 +1084,7 @@ export const b06Lessons: Lesson[] = [
       t('反向核查', 'inverse check'),
     ],
     minutes: 17,
-    lab: 'problem-explain',
+    lab: 'word-problem-explain',
     hook: t(
       '两份回答都写“17 张”，一份算式却是 5+4−3。相同最后数字，能证明两份解释都对吗？',
       'Two answers both say “17 cards”, but one expression is 5+4−3. Does the same final number prove both explanations are sound?',

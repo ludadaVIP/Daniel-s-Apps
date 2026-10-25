@@ -24,8 +24,23 @@ import {
   StandardFigure,
   RegressionFigure,
 } from './DataModellingVisuals';
-export type DataModellingLabKind = Extract<Lesson['lab'], `data-${string}`>;
+export type DataModellingLabKind =
+  | 'data-cleaning'
+  | 'data-shape'
+  | 'data-spread'
+  | 'data-standard'
+  | 'data-regression';
 export const isDataModellingLab = (
+  kind: Lesson['lab'],
+): kind is DataModellingLabKind =>
+  [
+    'data-cleaning',
+    'data-shape',
+    'data-spread',
+    'data-standard',
+    'data-regression',
+  ].includes(kind);
+const isDataModellingLab = (
   kind: Lesson['lab'],
 ): kind is DataModellingLabKind => kind.startsWith('data-');
 const word = (mode: LanguageMode, s: LocalizedText) =>

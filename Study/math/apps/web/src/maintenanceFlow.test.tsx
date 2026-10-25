@@ -98,10 +98,10 @@ describe('later-unit retrieval through real app routes', () => {
       expect(screen.getByText(/Recorded 1\/8/)).toBeTruthy();
       fireEvent.click(
         screen.getByRole('link', {
-          name: /Open five cross-unit retrieval tasks/,
+          name: /Open 9 cross-unit retrieval tasks/,
         }),
       );
-      expect(screen.getByText(/Recorded 0\/5/)).toBeTruthy();
+      expect(screen.getByText(/Recorded 0\/9/)).toBeTruthy();
       answers.forEach((answer, i) => {
         click(`Question ${i + 1}`);
         expect(
@@ -113,7 +113,7 @@ describe('later-unit retrieval through real app routes', () => {
         enter('Your answer', answer);
         click(/Check answer/);
       });
-      expect(screen.getByText(/Recorded 3\/5/)).toBeTruthy();
+      expect(screen.getByText(/Recorded 3\/9/)).toBeTruthy();
       reports.forEach((report, i) => {
         click(`Question ${i + 4}`);
         expect(
@@ -123,14 +123,14 @@ describe('later-unit retrieval through real app routes', () => {
         ).toBe(`/math/lesson/B01-L0${i + 4}?step=1`);
         enter('Your reasoning', report);
         expect(
-          screen.getByText(new RegExp(`Recorded ${i + 3}/5`)),
+          screen.getByText(new RegExp(`Recorded ${i + 3}/9`)),
         ).toBeTruthy();
         fireEvent.click(
           screen.getByText('Parent review · look at the reasoning'),
         );
         click('Parent confirms: reasoning makes sense');
       });
-      expect(screen.getByText(/Recorded 5\/5/)).toBeTruthy();
+      expect(screen.getByText(/Recorded 5\/9/)).toBeTruthy();
       const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)!);
       expect(
         saved.sessions[`${unit}-CHECK`].answers[`${unit}-CHECK-Q1`].input,
@@ -143,7 +143,7 @@ describe('later-unit retrieval through real app routes', () => {
       expect(saved.sessions['B01-CHECK']).toBeUndefined();
       view.unmount();
       mount(`/math/unit/${unit}/maintenance`);
-      expect(screen.getByText(/Recorded 5\/5/)).toBeTruthy();
+      expect(screen.getByText(/Recorded 5\/9/)).toBeTruthy();
       expect(
         (
           screen.getByRole('textbox', {

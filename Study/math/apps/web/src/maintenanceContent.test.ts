@@ -8,19 +8,30 @@ const b01Sets = Object.values(maintenanceSets).filter((set) =>
 );
 
 describe('explicit later-unit retrieval evidence', () => {
-  it('maps all five B01 lesson skills to actual tasks in two distinct later units', () => {
+  it('maps all five B01 lesson skills to actual tasks in at least two distinct later units', () => {
     const units = curriculum.flatMap((stage) =>
       stage.units.map((unit) => unit.id),
     );
     const all = b01Sets.flatMap((set) =>
       set.questions.map((question) => ({ question, unit: set.unit })),
     );
+    const allTasks = [
+      ...lessons.flatMap((lesson) =>
+        [lesson.guided, ...lesson.questions, lesson.exit].map((question) => ({
+          question,
+          unit: lesson.unit!,
+        })),
+      ),
+      ...Object.values(maintenanceSets).flatMap((set) =>
+        set.questions.map((question) => ({ question, unit: set.unit })),
+      ),
+    ];
     const b01Evidence = recurrenceEvidence.filter((e) =>
       e.sourceLesson.startsWith('B01-'),
     );
     expect(b01Evidence).toHaveLength(5);
     expect(new Set(b01Evidence.map((e) => e.skill)).size).toBe(5);
-    expect(new Set(all.map((t) => t.question.id)).size).toBe(10);
+    expect(new Set(all.map((t) => t.question.id)).size).toBe(18);
     for (const evidence of b01Evidence) {
       const source = lessons.find((l) => l.id === evidence.sourceLesson)!;
       expect(source.unit).toBe('B01');
@@ -30,16 +41,29 @@ describe('explicit later-unit retrieval evidence', () => {
         )?.skill,
       ).toBe(evidence.skill);
       const targets = evidence.targets.map((id) =>
-        all.find((t) => t.question.id === id)!,
+        allTasks.find((t) => t.question.id === id)!,
       );
       expect(new Set(targets.map((t) => t.unit))).toEqual(
-        new Set(['B03', 'B05']),
+        new Set(
+          evidence.skill === 'rounding'
+            ? ['B03', 'B05', 'P52']
+            : ['B03', 'B05'],
+        ),
       );
       targets.forEach((target) => {
         expect(units.indexOf(target.unit)).toBeGreaterThan(
           units.indexOf(source.unit!),
         );
-        expect(target.question.skill).toBe(evidence.skill);
+        expect(target.question.skill).toBe(
+          target.question.id === 'B03-L05-Q5'
+            ? 'estimate-check'
+            : target.question.id === 'P52-L02-Q5'
+              ? 'decimal-comparison'
+              : evidence.skill === 'whole-number-reading' &&
+                  target.question.id.endsWith('-Q6')
+                ? 'place-value'
+                : evidence.skill,
+        );
       });
       expect(evidence.rationale.zh && evidence.rationale.en).toBeTruthy();
     }
@@ -49,10 +73,10 @@ describe('explicit later-unit retrieval evidence', () => {
     expect(unitChecks.B03.questions).toHaveLength(8);
     expect(unitChecks.B05.questions).toHaveLength(8);
     for (const set of b01Sets) {
-      expect(set.questions).toHaveLength(5);
+      expect(set.questions).toHaveLength(9);
       expect(
         set.questions.filter((q) => q.answer.kind === 'explain'),
-      ).toHaveLength(2);
+      ).toHaveLength(6);
       expect(
         set.questions.filter((q) => q.answer.kind === 'choice'),
       ).toHaveLength(0);

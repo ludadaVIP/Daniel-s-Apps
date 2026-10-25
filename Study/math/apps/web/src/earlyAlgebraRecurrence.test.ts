@@ -1,16 +1,20 @@
 import { describe, expect, it } from 'vitest';
 import { curriculum, lessons, lessonById } from './content';
 import { earlyAlgebraRecurrence } from './content/earlyAlgebraRecurrence';
+import { maintenanceSets } from './content/maintenance';
 import { checkAnswer } from './model';
 import { recurrenceLinksFor } from './recurrenceTargets';
 
-const tasks = new Map(
-  lessons.flatMap((l) =>
+const tasks = new Map([
+  ...lessons.flatMap((l) =>
     [l.guided, ...l.questions, l.exit].map(
       (q) => [q.id, { q, unit: l.unit! }] as const,
     ),
   ),
-);
+  ...Object.values(maintenanceSets).flatMap((s) =>
+    s.questions.map((q) => [q.id, { q, unit: s.unit }] as const),
+  ),
+]);
 
 describe('fraction reference and introductory algebra recurrence', () => {
   it('locates both P53 concepts and all five P55 source skills in two different later units', () => {

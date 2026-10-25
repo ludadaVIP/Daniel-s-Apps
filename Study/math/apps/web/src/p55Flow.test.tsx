@@ -56,6 +56,36 @@ const mount = (path: string) =>
       </Routes>
     </MemoryRouter>,
   );
+describe('actual equation-model dispatch', () => {
+  it('keeps foundational P55 models separate from H35 through actual lesson routes', () => {
+    const hookClasses = [
+      '.math-equation-board',
+      '.math-algebra-balance',
+      '.math-growing-pattern',
+      '.math-equation-board',
+      '.math-equation-board',
+    ];
+    for (let i = 1; i <= 5; i++) {
+      const hook = mount('/math/lesson/P55-L0' + i);
+      expect(hook.container.querySelector(hookClasses[i - 1]!)).not.toBeNull();
+      hook.unmount();
+      const explore = mount('/math/lesson/P55-L0' + i + '?step=1');
+      expect(
+        explore.container.querySelector('.math-equation-lab'),
+      ).not.toBeNull();
+      expect(explore.container.querySelector('.math-concept-lab')).toBeNull();
+      explore.unmount();
+    }
+    for (let i = 1; i <= 5; i++) {
+      const explore = mount('/math/lesson/H35-L0' + i + '?step=1');
+      expect(explore.container.querySelector('.math-equation-lab')).toBeNull();
+      expect(
+        explore.container.querySelector('.math-concept-lab'),
+      ).not.toBeNull();
+      explore.unmount();
+    }
+  }, 60000);
+});
 describe('P55 workshop', () => {
   it('keeps the unknown hidden, evaluates candidate substitution exactly and resets on a changed equation', () => {
     render(<EquationLab kind="equation-box" mode="en" />);

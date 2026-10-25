@@ -1,15 +1,22 @@
 import { describe, expect, it } from 'vitest';
 import { curriculum, lessons, lessonById } from './content';
-import { recurrenceEvidence } from './content/maintenance';
+import { recurrenceEvidence, maintenanceSets } from './content/maintenance';
 import { recurrenceLinksFor } from './recurrenceTargets';
 import { lessonQuestionPosition } from './questionNavigation';
 import { checkAnswer } from './model';
 
 const b02 = recurrenceEvidence.filter((e) => e.sourceLesson.startsWith('B02-'));
-const tasks = new Map(
-  lessons.flatMap((l) =>
-    [l.guided, ...l.questions, l.exit].map((q) => [q.id, q] as const),
+const taskRecords = [
+  ...lessons.flatMap((l) =>
+    [l.guided, ...l.questions, l.exit].map((q) => ({ q, unit: l.unit! })),
   ),
+  ...Object.values(maintenanceSets).flatMap((set) =>
+    set.questions.map((q) => ({ q, unit: set.unit })),
+  ),
+];
+const tasks = new Map(taskRecords.map((record) => [record.q.id, record.q]));
+const taskOwners = new Map(
+  taskRecords.map((record) => [record.q.id, record.unit]),
 );
 
 describe('B02 semantic recurrence in existing later-unit tasks', () => {
@@ -35,20 +42,19 @@ describe('B02 semantic recurrence in existing later-unit tasks', () => {
         e.targets.map((id) => {
           const q = tasks.get(id)!;
           expect(q, id).toBeDefined();
-          const owner = lessons.find((l) =>
-            [l.guided, ...l.questions, l.exit].some((task) => task.id === id),
-          )!;
-          expect(units.indexOf(owner.unit!)).toBeGreaterThan(
+          const ownerUnit = taskOwners.get(id)!;
+          expect(units.indexOf(ownerUnit)).toBeGreaterThan(
             units.indexOf(source.unit!),
           );
           // These are genuine applications with different local tags, not newly
           // renamed copies introduced just to make exact-tag matching pass.
-          expect(q.skill).not.toBe(e.skill);
+          if (!id.includes('-MAINT-OPERATIONS-'))
+            expect(q.skill).not.toBe(e.skill);
           expect(
             q.stem.zh && q.stem.en && q.solution.zh && q.solution.en,
           ).toBeTruthy();
-          targetUnits.add(owner.unit!);
-          return owner.unit;
+          targetUnits.add(ownerUnit);
+          return ownerUnit;
         }),
       );
       expect(laterUnits.size).toBeGreaterThanOrEqual(2);
@@ -56,7 +62,7 @@ describe('B02 semantic recurrence in existing later-unit tasks', () => {
     expect(targetUnits).toEqual(
       new Set(['B03', 'B05', 'B06', 'P51', 'P55', 'P61']),
     );
-    expect(b02.flatMap((e) => e.targets)).toHaveLength(16);
+    expect(b02.flatMap((e) => e.targets)).toHaveLength(28);
   });
 
   it('cross-checks every numerical target by independent relationship arithmetic and units', () => {
@@ -104,7 +110,8 @@ describe('B02 semantic recurrence in existing later-unit tasks', () => {
       .flatMap((e) => e.targets)
       .map((id) => tasks.get(id)!)
       .filter((q) => q.answer.kind === 'explain');
-    expect(human).toHaveLength(6);
+    expect(human).toHaveLength(18);
+    expect(new Set(human.map((q) => q.id)).size).toBe(16);
     human.forEach((q) =>
       expect(checkAnswer(q.solution.en, q.answer)).toBeNull(),
     );

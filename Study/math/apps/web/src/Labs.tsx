@@ -293,8 +293,12 @@ function LegacyLab({
                 <Text
                   mode={mode}
                   text={t(
-                    `${Math.floor(hundred / 10)} 个十分之一 + ${hundred % 10} 个百分之一`,
-                    `${Math.floor(hundred / 10)} tenths + ${hundred % 10} hundredths`,
+                    hundred === 100
+                      ? '1个整体 + 0个十分之一 + 0个百分之一（也就是10个十分之一）'
+                      : `${Math.floor(hundred / 10)} 个十分之一 + ${hundred % 10} 个百分之一`,
+                    hundred === 100
+                      ? '1 whole + 0 tenths + 0 hundredths (also 10 tenths)'
+                      : `${Math.floor(hundred / 10)} tenths + ${hundred % 10} hundredths`,
                   )}
                 />
               </p>
@@ -304,7 +308,7 @@ function LegacyLab({
                   aria-label={mode === 'en' ? 'Shaded squares' : '涂色方格'}
                   type="range"
                   min="0"
-                  max="99"
+                  max="100"
                   value={hundred}
                   onChange={(e) => setHundred(Number(e.target.value))}
                 />

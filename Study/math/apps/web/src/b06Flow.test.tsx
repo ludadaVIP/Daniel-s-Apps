@@ -48,7 +48,9 @@ const mount = (path: string) =>
   );
 describe('B06 model workshop', () => {
   it('sorts relevant knowns, the unknown and unused facts without printing the unknown answer', () => {
-    const view = render(<ProblemLab kind="problem-information" mode="en" />);
+    const view = render(
+      <ProblemLab kind="word-problem-information" mode="en" />,
+    );
     click('Check information roles');
     expect(screen.getByText(/Recheck roles/)).toBeTruthy();
     ['0', '0', '1', '2'].forEach((value, i) =>
@@ -66,7 +68,7 @@ describe('B06 model workshop', () => {
     expect(screen.queryByText(/Known full and walked lengths/)).toBeNull();
   });
   it('moves the unknown while preserving bar scale and resets the check when quantities change', () => {
-    const view = render(<ProblemLab kind="problem-represent" mode="en" />);
+    const view = render(<ProblemLab kind="word-problem-represent" mode="en" />);
     const width = view.container
       .querySelector('.problem-part-a')!
       .getAttribute('width');
@@ -127,7 +129,7 @@ describe('B06 model workshop', () => {
     expect(screen.getByText(/3×4=12/)).toBeTruthy();
   });
   it('requires a valid plan, names the intermediate, and clamps removal when the available cards shrink', () => {
-    render(<ProblemLab kind="problem-two-step" mode="en" />);
+    render(<ProblemLab kind="word-problem-two-step" mode="en" />);
     select('First operation', '+');
     select('Second operation', '−');
     click('Check the two-step plan');
@@ -161,7 +163,7 @@ describe('B06 model workshop', () => {
     ).toBeTruthy();
   });
   it('changes necessary facts with the requested quantity and refuses to invent a mass', () => {
-    render(<ProblemLab kind="problem-relevance" mode="en" />);
+    render(<ProblemLab kind="word-problem-relevance" mode="en" />);
     ['Budget NZ$30', 'Buy 4 notebooks', 'NZ$5 per notebook'].forEach(click);
     click('Check whether the information is sufficient');
     expect(screen.getByText(/30−20=NZ\$10/)).toBeTruthy();
@@ -182,7 +184,7 @@ describe('B06 model workshop', () => {
     expect(screen.queryByText('20 kg')).toBeNull();
   });
   it('distinguishes a correct final number from invalid reasoning and leaves learner writing for parent review', () => {
-    render(<ProblemLab kind="problem-explain" mode="en" />);
+    render(<ProblemLab kind="word-problem-explain" mode="en" />);
     select('Explanation check', '0');
     click('Compare with the reasoning guide');
     expect(
@@ -236,7 +238,7 @@ describe('B06 model workshop', () => {
     );
   });
   it('keeps bilingual relationship legends and native controls labelled', () => {
-    render(<ProblemLab kind="problem-information" mode="bilingual" />);
+    render(<ProblemLab kind="word-problem-information" mode="bilingual" />);
     expect(
       screen.getAllByRole('option', {
         name: '相关已知 / Relevant known',
