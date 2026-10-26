@@ -1,3 +1,9 @@
+import { rationalMeaningRetrieval } from './rationalMeaningRetrieval';
+import { appliedMeaningRetrieval } from './appliedMeaningRetrieval';
+import { chanceMeaningRetrieval } from './chanceMeaningRetrieval';
+import { circleMeaningRetrieval } from './circleMeaningRetrieval';
+import { algebraMeaningRetrieval } from './algebraMeaningRetrieval';
+import { signedMeaningRetrieval } from './signedMeaningRetrieval';
 import { ratioMeaningRetrieval } from './ratioMeaningRetrieval';
 import { percentMeaningRetrieval } from './percentMeaningRetrieval';
 import { fractionMultiplicativeRetrieval } from './fractionMultiplicativeRetrieval';
@@ -191,6 +197,12 @@ export const maintenanceSets = {
   ...fractionMultiplicativeRetrieval,
   ...percentMeaningRetrieval,
   ...ratioMeaningRetrieval,
+  ...signedMeaningRetrieval,
+  ...algebraMeaningRetrieval,
+  ...circleMeaningRetrieval,
+  ...chanceMeaningRetrieval,
+  ...appliedMeaningRetrieval,
+  ...rationalMeaningRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',

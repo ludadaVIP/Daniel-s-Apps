@@ -601,8 +601,8 @@ const specs: Spec[] = [
       correct: 1,
     },
     reason: [
-      '从 (x−b)(x−b) 推导平方公式，再解释 x>b>0 时“大正方形减两条再补角块”。为什么 x=0 的一次吻合不足以证明漏中项的公式？',
-      'Derive (x−b)² by distribution and by subtracting two overlapping strips for x>b>0. Why does agreement at x=0 not prove a missing-middle formula?',
+      '从 (x−b)(x−b) 推导平方公式，再解释 x>b>0 时“大正方形减两条再补角块”。另对错误主张 (x−b)²=x²+b²，比较 x=0 的吻合与 b=2、x=1 的反例；区分代数检验与图形正长度条件。',
+      'Derive (x−b)² by distribution and by subtracting two overlapping strips for x>b>0. Separately test the false claim (x−b)²=x²+b²: compare agreement at x=0 with b=2,x=1. Distinguish algebraic tests from the picture’s positive-length conditions.',
     ],
     rubric: [
       '四对 x²、−xb、−bx、b² 合并成 x²−2bx+b²。几何从 x² 减两条各 xb，b² 角块重减一次，须补回一次才能留下 (x−b)²；不是新添面积。图取 x>b>0，代数式对任意实数成立。x=0 时错误式 x²+b² 与原平方均为 b²，这只是一处吻合；b=2,x=1 时原 (1−2)²=1，错式五，不同即可否证。恒等的依据是完整分配，不是若干试数。',

@@ -369,8 +369,8 @@ const specs: Spec[] = [
       correct: 2,
     },
     reason: [
-      '解释不放回RR为何不能用3/5×3/5，以及颜色不同为何还要另一条路径。',
-      'Explain why no-replacement RR is not 3/5×3/5, and why different colours require another path.',
+      '袋中3红2蓝，逐枚编号，每次对余球等可能抽，连续两抽且不放回。解释RR为何不能用3/5×3/5，以及颜色不同为何还要另一条路径。',
+      'A bag has three red and two blue balls, individually identified. Draw twice without replacement, each draw uniform over the remaining balls. Explain why RR is not 3/5×3/5 and why different colours require another path.',
     ],
     rubric: [
       '第一红后剩2红共4，第二步条件概率2/4而非3/5，RR=3/10。RB=3/5×2/4，BR=2/5×3/4，二者各3/10且互斥，相加3/5。颜色路径数量不等概率，不能只数四个字母路径；零分支不当作可能结果。',
@@ -488,8 +488,8 @@ const specs: Spec[] = [
       correct: 0,
     },
     reason: [
-      '比较放回与不放回的编号总数，说明为何不能把RR、RB、BR、BB当四个等可能结果。',
-      'Compare ID totals with and without replacement, and explain why RR,RB,BR,BB are not four equally likely outcomes.',
+      '原袋R1、R2、R3、B1、B2五球，每次对可抽球等可能。两个独立分支各从原袋开始抽两次，分别放回与不放回；比较编号有序对总数，说明为何不能把RR、RB、BR、BB当四个等可能结果。',
+      'The original bag contains R1,R2,R3,B1,B2, with each draw uniform over available balls. TWO INDEPENDENT branches each start from that bag and draw twice, with or without replacement. Compare ordered-ID-pair totals and explain why RR,RB,BR,BB are not four equally likely outcomes.',
     ],
     rubric: [
       '5编号放回有25有序对，不放回有20。3红2蓝不放回颜色类别对应6、6、6、2个编号有序对，因此概率3/10、3/10、3/10、1/10不相等。排除的是同编号对角线，R1R2与R2R1顺序不同都保留。若改用无序对须一致重算分子分母，不能把无序分子除有序分母。',

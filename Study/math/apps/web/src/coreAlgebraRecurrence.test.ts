@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import { curriculum, lessons, lessonById, unitChecks } from './content';
+import { maintenanceSets } from './content/maintenance';
 import { coreAlgebraRetrieval } from './content/coreAlgebraRetrieval';
 import { coreAlgebraRecurrence } from './content/coreAlgebraRecurrence';
 import { checkAnswer } from './model';
@@ -12,7 +13,7 @@ const tasks = new Map([
       (q) => [q.id, { q, unit: l.unit! }] as const,
     ),
   ),
-  ...sets.flatMap((s) =>
+  ...Object.values(maintenanceSets).flatMap((s) =>
     s.questions.map((q) => [q.id, { q, unit: s.unit }] as const),
   ),
 ]);

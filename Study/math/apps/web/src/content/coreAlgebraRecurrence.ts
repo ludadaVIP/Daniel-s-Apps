@@ -17,7 +17,7 @@ const e = (
   targets,
   rationale: t(rz, re),
 });
-export const coreAlgebraRecurrence = [
+const originalCoreAlgebraRecurrence = [
   e(
     'rational-opposite-sign',
     '有理数等值、相反数与倒数',
@@ -172,3 +172,50 @@ export const coreAlgebraRecurrence = [
     'J83’s (9/2,5/2) satisfies both equations but is allowed for continuous litres rather than integer tickets. J92’s exit has −2 passing the equation but failing positive lengths while one passes both; J85 distinguishes nonnegative continuous drainage from integer packs. All check original relations and context separately, without rounding into a false solution or confusing inadmissibility with no algebraic solution.',
   ),
 ];
+
+const rationalDetails = [
+  [
+    '新两组Q1规范负分母、以整数比容纳整数零，重建有限截断/明确无限循环之差1/3000或1/1500，并比较负小数顺序、双相反与等分单位。',
+    'New Q1s normalise negative denominators, include integers/zero as integer ratios, derive finite-versus-infinite-repeat gaps 1/3000 or 1/1500 and check negative-decimal order, double opposites and equal-unit subdivisions.',
+  ],
+  [
+    '新两组Q1由原X/Y求有向差与距离，独立重建重合点、零端点与反射Y后跨零距离，四等分改八等分不改单位。',
+    'New Q1s reconstruct signed differences/distances from X/Y, independently checking coincident/zero endpoints and reflected-Y crossing distances while quarters-to-eighths refinement preserves units.',
+  ],
+  [
+    '新两组Q2用共同十二/二十四份求四种加减，另亲算同号、相反、零与有限小数及两种合法加法交换结合。',
+    'New Q2s use common twelfths/twenty-fourths for four signed sums/differences, then generate same-sign, opposite, zero and finite-decimal cases and two justified addition orders.',
+  ],
+  [
+    '新两组Q2亲算减正、减负、减零、零减与跨零，加回原减数并比较不同减法括号，保首项和精确值。',
+    'New Q2s calculate positive/negative/zero subtrahends, zero minuends and crossing zero, add back ORIGINAL subtrahends and compare changed subtraction brackets while retaining the first term.',
+  ],
+  [
+    '新两组Q3生成七因子映射与正大/负小除数，分数值顺序与幅距，算三负积，并由分配律推负一映射而非背符号。',
+    'New Q3s build seven factor maps, divide by positive-large/negative-small divisors, separate order from magnitude, compute three-negative products and derive the minus-one map by distributivity.',
+  ],
+  [
+    '新两组Q4保完整分数括号乘法、另分配核算、内外减子式、负分数平方/立方及同级加减，外乘零不救内部零除数。',
+    'New Q4s retain complete bracketed fractional products, independently distribute, evaluate nested subtraction, signed fractional squares/cubes and left-to-right subtraction, and reject using an outside zero to rescue internal zero division.',
+  ],
+];
+export const coreAlgebraRecurrence = originalCoreAlgebraRecurrence.map(
+  (entry) => {
+    if (!entry.sourceLesson.startsWith('J71-')) return entry;
+    const i = Number(entry.sourceLesson.slice(-2)) - 1,
+      question = [1, 1, 2, 2, 3, 4][i]!;
+    return {
+      ...entry,
+      targets: [
+        ...entry.targets,
+        ...['J83', 'J84'].map(
+          (u) => `${u}-MAINT-RATIONAL-MEANING-Q${question}`,
+        ),
+      ],
+      rationale: t(
+        `${entry.rationale.zh} ${rationalDetails[i]![0]}`,
+        `${entry.rationale.en} ${rationalDetails[i]![1]}`,
+      ),
+    };
+  },
+);

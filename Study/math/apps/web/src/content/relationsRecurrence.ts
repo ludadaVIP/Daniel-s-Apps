@@ -190,7 +190,79 @@ const ratioDetails = [
     'New Q6s plot identical data on different vertical ranges, convert L/mL coefficients and domains, invert continuous quantities and reject automatic interpolation for indivisible cards.',
   ],
 ];
+const signedDetails = [
+  [
+    '新P67/J75-Q1在稀疏标数的一度刻度自主读−6/−8°C，辨间隔与线、负号和三种零记号，并举窗外合理读数。',
+    'New P67/J75 Q1s independently read −6/−8°C on sparsely labelled one-degree scales, distinguish intervals/ticks, signs and zero notations, and construct a reasonable reading beyond the window.',
+  ],
+  [
+    '新两组Q2从零逐步生成−6/−8及邻数，数6/8间隔与7/9条线，扩窗保单位并举原窗外整数，区分按钮边界与整数范围。',
+    'New Q2s generate −6/−8 and neighbours, count six/eight intervals versus seven/nine ticks, extend the window with fixed units and construct an integer beyond the original button limit.',
+  ],
+  [
+    '新两组Q3同时给大小、相等及跨零关系，生成正数反例，保留“两负数”近零较大的限定及温度负号。',
+    'New Q3s reconstruct larger/smaller, equality and cross-zero order, generate positive counterexamples, and retain the two-negative restriction and signed temperature readings.',
+  ],
+  [
+    '新两组Q4各八独立行，核加减带符号项、向右仍负、两阶段跨零、恰零、不动、扩窗到±18及逆操作，区分终点/变化/距离。',
+    'New Q4s each supply eight independent rows: signed addition/subtraction, rightward yet negative endpoints, staged zero crossing, reaching zero, staying still, expanded windows to ±18 and inverse checks, distinguishing endpoint/change/distance.',
+  ],
+  [
+    '新两组Q5求一般两点同侧和跨零距离、反向变化与原数/相反数/绝对值，并逆构造同距两点、零和负距离边界。',
+    'New Q5s reconstruct arbitrary same-side/cross-zero distances and reversed changes, distinguish value/opposite/absolute value, and generate equal-distance points with zero and negative-distance boundaries.',
+  ],
+];
+const algebraDetails = [
+  [
+    '新J71/J73-Q1逐处同值代入负数/零/半数，构造乘积与拼数反例、不同字母同值、纯数与完整片数域，并区分表达式/赋值/条件。',
+    'New J71/J73 Q1s substitute negatives, zero and halves consistently, construct product/concatenation and equal-value/different-letter examples, distinguish pure-number/count domains and expression/assignment/condition roles.',
+  ],
+  [
+    '新两组Q2从总数反求合法与非法正整数幅号、求超十幅窗口的第17/23幅，并构造两种完整延续检验前缀证据。',
+    'New Q2s invert valid and invalid positive-integer indices, compute beyond the ten-figure display at stages 17/23 and construct two complete continuations to test finite-prefix evidence.',
+  ],
+  [
+    '新两组Q3画零时完整袋框/固定块，生成每袋与袋外总式、两个少量数、减法顺序及两种折半次序，区分通式与当前总值。',
+    'New Q3s draw retained zero-count boxes/extras, construct per-bag/overall expressions, repeated differences, subtraction order and two halving orders, distinguishing a general expression from a current total.',
+  ],
+  [
+    '新两组Q4用负系数精确解，逐枝核四种同做的逆、单边假解、乘零新增候选及三种零系数关系，保全部解而非一次平衡。',
+    'New Q4s solve negative-coefficient equations exactly, check inverses of four equal actions, a one-sided false solution, an additional zero-multiplication candidate and three zero relations, distinguishing full solution preservation from one balance.',
+  ],
+  [
+    '新两组Q5以−2/3、−1/6双路径解及原式代回，精确比较近似3.99/4.98，另解先乘后加分支和唯一零解。',
+    'New Q5s obtain −2/3 and −1/6 through two valid paths, check originals against approximate 3.99/4.98, then solve multiply-before-add inverse branches and unique zero-solution cases.',
+  ],
+];
 export const relationsRecurrence = originalRelationsRecurrence.map((entry) => {
+  if (entry.sourceLesson.startsWith('P65-')) {
+    const i = Number(entry.sourceLesson.slice(-2)) - 1;
+    return {
+      ...entry,
+      targets: [
+        ...entry.targets,
+        ...['J71', 'J73'].map((u) => `${u}-MAINT-ALGEBRA-MEANING-Q${i + 1}`),
+      ],
+      rationale: t(
+        `${entry.rationale.zh} ${algebraDetails[i]![0]}`,
+        `${entry.rationale.en} ${algebraDetails[i]![1]}`,
+      ),
+    };
+  }
+  if (entry.sourceLesson.startsWith('P64-')) {
+    const i = Number(entry.sourceLesson.slice(-2)) - 1;
+    return {
+      ...entry,
+      targets: [
+        ...entry.targets,
+        ...['P67', 'J75'].map((u) => `${u}-MAINT-SIGNED-MEANING-Q${i + 1}`),
+      ],
+      rationale: t(
+        `${entry.rationale.zh} ${signedDetails[i]![0]}`,
+        `${entry.rationale.en} ${signedDetails[i]![1]}`,
+      ),
+    };
+  }
   if (!entry.sourceLesson.startsWith('P63-')) return entry;
   const i = Number(entry.sourceLesson.slice(-2)) - 1;
   return {

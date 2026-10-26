@@ -17,7 +17,7 @@ const e = (
   targets,
   rationale: t(rz, re),
 });
-export const primaryCapstoneRecurrence = [
+const originalPrimaryCapstoneRecurrence = [
   e(
     'circle-centre-radius-diameter',
     '圆心、半径、直径与弦',
@@ -161,3 +161,122 @@ export const primaryCapstoneRecurrence = [
     'Both require a four-plan table for two routes and two activities, including lunch, buffer, return travel and discounts. J91 admits only A/garden 108/200 and A/museum 104/240 under 108 dollars/240min. J92 admits A/garden 108/180 and A/museum 102/210 under 120 dollars/210min. Each requires a feasible choice and a money/time tradeoff rather than cheapest-price selection alone.',
   ),
 ];
+
+const circleDetails = [
+  [
+    '新J91/J92-Q1由直径5/7反求半径2.5/3.5，并以另圆直径2/3反驳跨圆比较，区分弦/直径合类、重合与显示点状不等零。',
+    'New J91/J92 Q1s invert diameters five/seven to radii 2.5/3.5 and refute cross-circle comparisons with separate diameters two/three, retaining chord/diameter inclusion, coincident labels and appearance versus zero.',
+  ],
+  [
+    '新两组Q2由cm/mm原读数双向统一单位、算错误半径商和未换单位小十倍，核零/负长度及半周/拉伸条件。',
+    'New Q2s match cm/mm readings in both common units, reconstruct erroneous radius quotients and tenfold unmatched-unit errors, and check zero/negative lengths and incomplete/stretched wraps.',
+  ],
+  [
+    '新两组Q3反求同3.14约定的21.98/28.26周长，算无滑动多整周并亲描半圆弧与含直径整边框，保混合精确式。',
+    'New Q3s invert calculated circumferences 21.98/28.26 under the same 3.14 convention, compute multiple no-slip turns and distinguish semicircular arcs from complete borders with a diameter, retaining mixed exact expressions.',
+  ],
+  [
+    '新两组Q4由直径6/10求面积、比较实际放大与显示放大，并以8/64原片跟踪保面积和有限辅助界。',
+    'New Q4s derive areas from diameters six/ten, compare actual with display scaling, and track conserved pieces through eight/64 sectors with finite guide limits.',
+  ],
+  [
+    '新两组Q5分开理想薄壁面片与另厚壁容器，量化内外尺寸误差、只加倍高的非二倍封闭面积及cm³/mL，保无底和纸张尺寸限制。',
+    'New Q5s separate ideal thin-wall faces from a thick-walled container, quantify inner/outer errors, height-only changes to closed area, and cm³/mL, retaining baseless and sheet-dimension restrictions.',
+  ],
+];
+const chanceDetails = [
+  [
+    '新J93/J94-Q1保五个ID排序求奇数中位与完整众数，实算两端平均/去重后的错误13/2，并亲造偶数未观察中位例。',
+    'New J93/J94 Q1s order five original IDs for odd medians/all modes, calculate erroneous extremes/deduplicated medians 13/2 and construct an even-count unobserved-median example.',
+  ],
+  [
+    '新两组Q2从无序类别频数求名称众数，反驳任意编码的数值平均；另以0/1/3或0/2/3等待生成精确4/3或5/3均分，保零与不同问题。',
+    'New Q2s report nominal-category modes and reject arbitrary-code numerical means, then reconstruct exact 4/3 or 5/3 equal-share waits from 0/1/3 or 0/2/3, retaining zero and distinct purposes.',
+  ],
+  [
+    '新两组Q4从均匀角度的半圆/三等分条件先重求A/B理论机会，再与完整假想记录分开，零次/零命中和下次不补偿均检查。',
+    'New Q4s first derive A/B theory from uniform-angle half-circle/equal-third assumptions, then separate full fictional records, no trials, zero hits and unchanged next-trial chances.',
+  ],
+  [
+    '新两组Q3按原ID合并A或B与B或C，实查重叠导致5/4或7/5错误，重数交集、非空零事件、空袋与移走一枚A后的条件。',
+    'New Q3s form ID unions of A-or-B and B-or-C, expose overlap sums 5/4 or 7/5, recount intersections, nonempty zero events, empty bags and the bag after one A is removed.',
+  ],
+  [
+    '新两组Q4从十/十二条原记录重数A/B，保末八条累计号3/5不替全批，画前三点与追加变远反例，区分零命中/零次及给定/程序/实测。',
+    'New Q4s recount A/B over ten/twelve records, retain latest-eight starting indices three/five without replacing the full batch, plot initial points and an added-trial counterexample, distinguishing zero hits/no trials and given/software/observed sources.',
+  ],
+];
+export const primaryCapstoneRecurrence = originalPrimaryCapstoneRecurrence.map(
+  (entry) => {
+    if (entry.sourceLesson.startsWith('P68-')) {
+      const i = Number(entry.sourceLesson.slice(-2)) - 1;
+      const question = [1, 2, 4, 3, 4][i]!;
+      const detail = [
+        [
+          '新两组Q1亲画累计路程图，逆求停留35/60min及9/2km，重算往返15/2或56/9km/h，核等时特例、零及净位置不等路程。',
+          'New Q1s construct cumulative-distance plots, invert stops 35/60min and distance 9/2km, recount return-trip averages 15/2 or 56/9km/h, and check equal-time exceptions, zero and displacement versus distance.',
+        ],
+        [
+          '新两组Q2由原率算已装35、剩25/37及追加/总时间，核一泵零、双泵零、零时刻、满后自动停与真实条件改变。',
+          'New Q2s compute 35 filled, 25/37 remaining and additional versus total time from original rates, checking one/both pumps off, time zero, automatic shutoff and changed real conditions.',
+        ],
+        [
+          '复用J75/J76百分数Q6亲算连续同率不同基数；新两组Q4列账户/可用余额，独立核0/100%折扣、零预留与不足一分需舍入约定。',
+          'Existing J75/J76 percent Q6s reconstruct sequential changes on different bases. New Q4s distinguish account balance/headroom and independently check 0/100% discounts, zero reserve and the need for a sub-cent rounding rule.',
+        ],
+        [
+          '新两组Q3保缺测/零、截轴与原值，求原基数增长1/2、撤固定费反求人数、逐日必收费及恰整包/多一人边界。',
+          'New Q3s retain missing/zero, truncated axes and records, derive original-base growth 1/2, undo fixed charges to recover visits and check daily fees plus exact-pack/one-extra boundaries.',
+        ],
+        [
+          '新两组Q4亲画09:00至13:00逐段时刻，缩210min与加一人分支重算，另生成直达步道230min方案，不以单目标或唯一解代两条约束。',
+          'New Q4s construct segment times from 09:00 to 13:00, recheck independent 210min/one-extra-person changes and generate a 230min direct-trail alternative without replacing joint constraints with one goal or a unique-answer claim.',
+        ],
+      ][i]!;
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J91', 'J92'].map(
+            (u) => `${u}-MAINT-APPLIED-MEANING-Q${question}`,
+          ),
+          ...(i === 2 ? ['J75-MAINT-PERCENT-Q6', 'J76-MAINT-PERCENT-Q6'] : []),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${detail[0]}`,
+          `${entry.rationale.en} ${detail[1]}`,
+        ),
+      };
+    }
+    if (entry.sourceLesson.startsWith('P67-')) {
+      const i = Number(entry.sourceLesson.slice(-2)) - 1;
+      const question = [1, 2, 4, 3, 4][i]!;
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J93', 'J94'].map(
+            (u) => `${u}-MAINT-CHANCE-MEANING-Q${question}`,
+          ),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${chanceDetails[i]![0]}`,
+          `${entry.rationale.en} ${chanceDetails[i]![1]}`,
+        ),
+      };
+    }
+    if (!entry.sourceLesson.startsWith('P66-')) return entry;
+    const i = Number(entry.sourceLesson.slice(-2)) - 1;
+    return {
+      ...entry,
+      targets: [
+        ...entry.targets,
+        ...['J91', 'J92'].map((u) => `${u}-MAINT-CIRCLE-MEANING-Q${i + 1}`),
+      ],
+      rationale: t(
+        `${entry.rationale.zh} ${circleDetails[i]![0]}`,
+        `${entry.rationale.en} ${circleDetails[i]![1]}`,
+      ),
+    };
+  },
+);
