@@ -870,3 +870,51 @@
 :root[data-theme="dark"][data-theme="dark"] .mh-decision-fields label > div { background: #23271b; }
 :root[data-theme="dark"][data-theme="dark"] .mh-decision-fields label > div:focus-within { border-color: #7e9574; }
 
+/* Shared column geometry and quote treatment across every account. */
+:root[data-theme="dark"] .mh-column-unit { color: #bbc2be; }
+:root[data-theme="dark"] .mh-holding-quote { color: #bcc4bf; }
+:root[data-theme="dark"] .mh-positions-table .mh-table-price { color: #c0d9cd; }
+:root[data-theme="dark"] .mh-holding-price small, :root[data-theme="dark"] .mh-holding-price a { color: #bcc4bf; }
+:root[data-theme="dark"] .mh-holding-price a:hover { color: #b7dccd; }
+
+/* Company look-through: the colored path shows where each exposure comes from. */
+:root[data-theme="dark"] .mh-lookthrough-heading .mh-eyebrow { color: #bdc7c0; }
+:root[data-theme="dark"] .mh-lookthrough-heading h2 { color: #c3dacf; }
+:root[data-theme="dark"] .mh-lookthrough-heading h2 > span { color: #bcccc2; }
+:root[data-theme="dark"] .mh-lookthrough-heading p { color: #bdc6c0; }
+:root[data-theme="dark"] .mh-lookthrough-controls select { border: 1px solid #41563e; background: #1f2318; color: #bfcfc4; }
+:root[data-theme="dark"] .mh-lookthrough-summary { border-top: 1px solid #45553e; border-bottom: 1px solid #45553e; }
+:root[data-theme="dark"] .mh-lookthrough-summary small { color: #bbc3bd; }
+:root[data-theme="dark"] .mh-lookthrough-summary strong { color: #c1d9cc; }
+:root[data-theme="dark"] .mh-lookthrough-summary strong span { color: #bcc6bf; }
+:root[data-theme="dark"] .mh-lookthrough-legend > span { color: #c0d0c6; }
+:root[data-theme="dark"] .mh-lookthrough-legend small { color: #bac2bb; }
+:root[data-theme="dark"] .mh-lookthrough-legend .inactive { color: #bcc2be; }
+:root[data-theme="dark"] .mh-exposure-table th { border-top: 1px solid #45553e; border-bottom: 1px solid #45553e; background: #1e2419; color: #bcc4bd; }
+:root[data-theme="dark"] .mh-exposure-table td { border-bottom: 1px solid #4a573d; color: #bfd0c6; }
+:root[data-theme="dark"] .mh-exposure-company strong { color: #c1d9cc; }
+:root[data-theme="dark"] .mh-exposure-company small { color: #bac3bc; }
+:root[data-theme="dark"] .mh-exposure-amount { color: #c1d9cc !important; }
+:root[data-theme="dark"] .mh-exposure-amount > small { color: #b8bfb9; }
+:root[data-theme="dark"] .mh-exposure-track { background: #1f271b; }
+:root[data-theme="dark"] .mh-exposure-toggle { color: #bec8c1; }
+:root[data-theme="dark"] .mh-exposure-detail td { background: #1d2419; }
+:root[data-theme="dark"] .mh-exposure-detail small { color: #bac3bc; }
+:root[data-theme="dark"] .mh-lookthrough-tail { background: #202318; color: #bbc3bc; }
+:root[data-theme="dark"] .mh-lookthrough-tail strong { color: #becbc3; }
+:root[data-theme="dark"] .mh-lookthrough .mh-lookthrough-formula, :root[data-theme="dark"] .mh-lookthrough .mh-lookthrough-warning { color: #bcc3bd; }
+:root[data-theme="dark"] .mh-lookthrough-warning { color: #dbcbb0; }
+:root[data-theme="dark"] .mh-lookthrough-method { border-top: 1px solid #45553e; }
+:root[data-theme="dark"] .mh-lookthrough-method summary { color: #bdcbc1; }
+:root[data-theme="dark"] .mh-lookthrough-method p { color: #bcc3bd; }
+:root[data-theme="dark"] .mh-lookthrough-sources strong { color: #bfcfc4; }
+:root[data-theme="dark"] .mh-lookthrough-sources span { color: #bbc3be; }
+:root[data-theme="dark"] .mh-lookthrough-sources em { color: #dbc9aa; }
+:root[data-theme="dark"] .mh-lookthrough-sources a { color: #bccbc2; }
+:root[data-theme="dark"] .mh-lookthrough-dates { color: #b9c0ba; }
+:root[data-theme="dark"] .mh-lookthrough .mh-lookthrough-message { color: #bcc4bf; }
+@media (max-width: 620px) {
+  :root[data-theme="dark"] .mh-exposure-table tbody > tr:not(.mh-exposure-detail) { border-bottom: 1px solid #4a573d; }
+  :root[data-theme="dark"] .mh-exposure-table td:nth-child(3)::before { color: #bac3bc; }
+}
+

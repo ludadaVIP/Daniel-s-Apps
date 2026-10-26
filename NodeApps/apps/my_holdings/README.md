@@ -14,11 +14,24 @@ NodeApps 中的个人投资记录工具。运行 NodeApps 的 `npm run dev` / `s
 - **行情与档案**：把独立 HTML 保存到 `data/reports/market/`、`portfolio/` 或 `research/`。点击档案卡片会在新的浏览器标签页打开 HTML 原件，不在应用中预览。
 - **其他**：组合集中度和压力情景本地计算、跨 AI 复制背景、导入 AI 研究 JSON/HTML、决策日志、左右侧栏独立折叠。
 
+## 个股穿透
+
+「我的持仓」下方展示公司敞口前十名，可查看全部账户或单个账户，展开每家公司可见各基金和直接持股的贡献金额。计算使用**完整基金成分表**后再排序，支持 VOO、QQQM、SOXX、SMH、VGT；未持有 VGT 时不计入结果，未来录入买入后自动参与。GOOG / GOOGL 等同一公司多类股合并，直接持股与 ETF 间接持股也合并。
+
+`公司敞口（USD）= Σ（基金持仓市值折算 USD × 该公司所有股类的基金权重 ÷ 100）+ 直接持股市值折算 USD`。持仓市值按股数 × 当前保存的报价重新计算，逐笔保留到分；比例分母为所选账户全部股票与 ETF 持仓市值，**不含账户现金**。搜索持仓不会截断穿透范围。数量、报价或汇率变化立即在本地重算，不需要联网或重新研究；缺少汇率的持仓会明确列为未计入。
+
+权重快照单独保存在 `data/fund-holdings.json`，通过只读 `GET /my-holdings/api/fund-holdings` 每次进入持仓页读取，无需重启服务或改动 `state.json`；基金全量披露不会重复塞进每次状态备份。完整原始证据位于 `artifacts/my-holdings-lookthrough-2026-10-27/`。初次数据来自 Vanguard 官方接口（VOO、VGT，截至 2026-09-30）、Invesco 官方接口（QQQM，截至 2026-10-23）、BlackRock 官方 CSV（SOXX，截至 2026-10-23）及 VanEck 官方完整持仓表（SMH，截至 2026-10-23）。这些是**披露权重估算**，不是实时基金账本，也不是可直接卖出的个股股数。
+
+股票只计入 `assetType: "equity"` 的持仓。现金、货币基金（例如 SOXX 中的 XTSLA）、保证金、期货、其他衍生品及 CVR 权利单独保存，不分配为普通股票。期货的净值权重与名义敞口不同，本视图未做衍生品底层股票分解。未知权重保留 `null`；发行商权重未经归一化，股票合计可能因负现金或精度略超过 100%。「基金非股票与披露差额」为总持仓减去已识别公司和未穿透基金的余额，包含非股票工具与披露舍入差额。新出现且未提供成分的 ETF 会明确标记未穿透，避免当作一家普通公司。
+
+点击「复制复核任务」后粘贴给 Codex 即可更新权重，应用不会自行联网。复核时保留每只基金真实 `asOf`、`retrievedAt`、官方 HTTPS 来源、`complete: true`、全部成分和原始权重精度；不同日期允许并列，不得把抓取日期当成分日期。新数据必须先通过 `validateFundHoldings` 与 `node --test apps/my_holdings/src/lookthrough.test.js`，再原子替换 JSON 文件并读取 API 确认。获取失败的基金保留旧数据。披露超过 45 天显示「建议复核」。修改后重新进入持仓页即可读取最新快照。
+
 ## 数据与 GitHub 同步
 
 所有业务数据都保存在本目录文件里，不存在浏览器 `localStorage`：
 
 - `data/state.json`：持仓、关注、资金、目标、Codex 待办和研究摘要。有效变更立即创建 revision、刷盘后原子写入；内容未变化时不增加版本。
+- `data/fund-holdings.json`：有日期和官方来源的全量基金成分权重，供个股穿透使用，独立于持仓状态快照。
 - `data/CODEX_TODO.md`：由应用维护的待办说明，适合 Codex 读取，也会随 Git 同步。
 - `data/backups/`：独立可恢复的 `.json.gz` 压缩快照，文件名包含产品、状态更新时间（UTC）和版本号。普通修改每 5 分钟最多建立一个恢复点，只有排名变化不产生备份；持仓、账户、资金、目标和买入记录变化、删除关注/日志以及恢复前立即备份。每次修改仍即时保存到 `state.json`，合并的是备份频率。保留最近 6 份快照、最近 7 个有记录 UTC 日及 4 个有记录 UTC 周的首份快照，重叠只存一份，最多 17 份；每天/每周的起点避免批量误操作挤掉历史。旧 JSON 首次启动时逐份压缩，落盘后解压核对原始字节一致才删除旧文件，再按新规则保留；无法校验的文件保留并记录警告。应用可直接选择 `.json` 或 `.json.gz` 恢复，恢复前的快照带 `before-restore` 标记。
 - `data/reports/`：HTML 研究报告原件和 VisualShelf 目录；自动生成的报告名包含报告类型、代码/主题和生成日期。
@@ -34,6 +47,6 @@ NodeApps 中的个人投资记录工具。运行 NodeApps 的 `npm run dev` / `s
 ## 校验
 
 ```sh
-node --test apps/my_holdings/server/index.test.js apps/my_holdings/server/backups.test.js apps/my_holdings/src/backup-file.test.js apps/my_holdings/src/model.test.js
+node --test apps/my_holdings/server/index.test.js apps/my_holdings/server/backups.test.js apps/my_holdings/src/backup-file.test.js apps/my_holdings/src/model.test.js apps/my_holdings/src/lookthrough.test.js
 npm run build
 ```

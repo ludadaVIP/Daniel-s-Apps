@@ -105,7 +105,7 @@ export function observations(state) {
     out.push({
       tone: "amber",
       title: "半导体敞口需要合并看",
-      text: "SMH 与 SOXX 属于同一行业主题；VOO、QQQM 也可能间接持有相关公司。精确重叠需最新成分股数据，当前未做穿透估算。",
+      text: "SMH 与 SOXX 属于同一行业主题，VOO、QQQM 也可能持有相同公司。可在「我的持仓」下方查看个股穿透，按已披露权重合并估算公司敞口；成分日期与行情日期分别标注。",
     });
   const unknown = state.holdings.filter((h) => !h.priceDate).length;
   if (unknown)

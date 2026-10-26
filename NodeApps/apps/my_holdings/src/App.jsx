@@ -64,6 +64,7 @@ import {
 } from "./Forms.jsx";
 import { Reports } from "./Reports.jsx";
 import { DecisionPlanCard } from "./DecisionPlanCard.jsx";
+import { LookThrough } from "./LookThrough.jsx";
 import {
   CONVERSION_PAIRS,
   INITIAL_CONVERTER_STATE,
@@ -79,6 +80,20 @@ const NAV = [
   ["ai", "AI 工作台", Sparkles],
   ["journal", "决策日志", BookOpen],
 ];
+function HoldingPrice({ holding: h }) {
+  const fullLabel = holdingQuoteLabel(h);
+  const source = /stockanalysis/i.test(h.priceSource || "")
+    ? "StockAnalysis"
+    : h.priceSource;
+  const timing = holdingQuoteLabel({ ...h, priceSource: "" })
+    .replace(/(\d{2}:\d{2}):\d{2}/, "$1").replace(/(收盘|盘中)价 /, "$1 ");
+  return <div className="mh-holding-price">
+    <strong className="mh-table-price">{money(h.price, h.currency)}</strong>
+    <span className="mh-holding-quote" title={fullLabel}><small>{timing}</small>
+      {source && <><span aria-hidden="true">·</span>{h.priceSourceUrl ? <a href={h.priceSourceUrl} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} title={fullLabel}>{source}</a> : <small>{source}</small>}</>}
+    </span>
+  </div>;
+}
 function readPanel(key, fallback) {
   try {
     const saved = localStorage.getItem(key);
@@ -1477,22 +1492,15 @@ export default function HoldingsApp() {
       />
     </div>
   );
-  const holdingRowsQuoteLabel = (rows) => {
-    const quoteLabels = new Set(rows.map(holdingQuoteLabel));
-    return rows.length > 0 && rows.every((h) => h.priceDate && h.priceSource) && quoteLabels.size === 1
-      ? quoteLabels.values().next().value
-      : "";
-  };
   const holdingsTable = (rows = visibleHoldings, limit) => (
     <div className="mh-table-wrap">
-      <table className="mh-table">
+      <table className="mh-table mh-positions-table">
+        <colgroup><col className="mh-col-asset" /><col className="mh-col-quantity" /><col className="mh-col-price" /><col className="mh-col-cost" /><col className="mh-col-value" /><col className="mh-col-pnl" /><col className="mh-col-actions" /></colgroup>
         <thead>
           <tr>
             <th>标的</th>
-            <th>持有数量</th>
-            <th className="mh-price-heading">
-              当前价格{holdingRowsQuoteLabel(rows) && <small>（{holdingRowsQuoteLabel(rows)}）</small>}
-            </th>
+            <th>持有数量 <span className="mh-column-unit">/ 股</span></th>
+            <th>当前价格</th>
             <th>成本均价</th>
             <th>市值 / 总成本</th>
             <th>浮动盈亏</th>
@@ -1525,12 +1533,8 @@ export default function HoldingsApp() {
               </td>
               <td>
                 {h.quantity}
-                <small>股</small>
               </td>
-              <td>
-                <strong className="mh-table-price" title={h.priceSourceUrl || undefined}>{money(h.price, h.currency)}</strong>
-                {!holdingRowsQuoteLabel(rows) && <small title={h.priceSourceUrl || undefined}>{holdingQuoteLabel(h)}</small>}
-              </td>
+              <td><HoldingPrice holding={h} /></td>
               <td>
                 <strong className="mh-table-price">{money(h.averagePrice, h.currency)}</strong>
               </td>
@@ -1719,6 +1723,7 @@ export default function HoldingsApp() {
   return (
     <div
       ref={appRef}
+      data-page={tab}
       className={`mh-app ${left ? "" : "left-closed"} ${right ? "" : "right-closed"} ${resizing ? "is-resizing" : ""}`}
       style={paneWidths ? { "--mh-left-width": `${paneWidths.left}px`, "--mh-right-width": `${paneWidths.right}px` } : undefined}
     >
@@ -2061,6 +2066,15 @@ export default function HoldingsApp() {
               <div className="mh-panel-bottom holdings-export">
                 <button className="mh-text-button" onClick={() => download("my-holdings.csv", "\uFEFF" + [["账户","代码","名称","币种","股数","当前价格","成本均价","报价日期","总成本","总市值","浮盈亏"].join(","), ...m.holdings.map((h) => [state.accounts.find((a) => a.id === h.accountId)?.name,h.symbol,h.name,h.currency,h.quantity,h.price,h.averagePrice,h.priceDate,h.cost,h.marketValue,h.marketValue-h.cost].map((v) => '"'+String(v ?? "").replace(/^[=+@-]/,"'").replaceAll('"','""')+'"').join(","))].join("\r\n"), "text/csv;charset=utf-8")}>导出 CSV <Download size={14} /></button>
               </div>
+              <LookThrough state={state} fundSymbols={state.watchlist.filter(isIndexOrEtf).map(w => w.symbol)} onCopyReview={async (prompt) => {
+                try {
+                  await navigator.clipboard.writeText(prompt);
+                  notify("基金权重复核任务已复制，粘贴给 Codex 即可执行");
+                } catch {
+                  setImportText(prompt);
+                  setModal({ type: "copy" });
+                }
+              }} />
             </>
           )}
           {tab === "watch" && (

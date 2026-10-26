@@ -42,6 +42,20 @@ async function setup(t, options = {}) {
   };
   return { dir, base, call };
 }
+test("fund disclosures are read independently without adding state revisions or backups", async (t) => {
+  const { call, dir, base } = await setup(t);
+  await call("/api/state");
+  const before = await fs.readFile(path.join(dir, "state.json"));
+  const backups = await fs.readdir(path.join(dir, "backups"));
+  const response = await fetch(base + "/api/fund-holdings");
+  assert.equal(response.status, 200);
+  assert.equal(response.headers.get("cache-control"), "no-store");
+  const data = await response.json();
+  assert.equal(data.version, 1);
+  assert.ok(["VOO", "QQQM", "SOXX", "SMH", "VGT"].every(s => data.funds.some(f => f.symbol === s && f.complete)));
+  assert.deepEqual(await fs.readFile(path.join(dir, "state.json")), before);
+  assert.deepEqual(await fs.readdir(path.join(dir, "backups")), backups);
+});
 test("CRUD persistence, revision conflicts and backup recovery reject invalid financial data", async (t) => {
   const { call, dir } = await setup(t);
   const a = (await call("/api/state")).data;

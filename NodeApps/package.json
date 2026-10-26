@@ -13,7 +13,7 @@
     "build": "vite build",
     "theme:generate": "node scripts/generate-dark-themes.mjs",
     "desktop": "npm run build && node server/index.js --production",
-    "test": "node --test server/wait-for-dev-api.test.js apps/html-library/server/index.test.js apps/html-library/src/directory-tree.test.js apps/Philosophy/server/content.test.js shared/markdown/prepare.test.js apps/my_holdings/server/index.test.js apps/my_holdings/server/backups.test.js apps/my_holdings/src/backup-file.test.js apps/my_holdings/src/model.test.js",
+    "test": "node --test server/wait-for-dev-api.test.js apps/html-library/server/index.test.js apps/html-library/src/directory-tree.test.js apps/Philosophy/server/content.test.js shared/markdown/prepare.test.js apps/my_holdings/server/index.test.js apps/my_holdings/server/backups.test.js apps/my_holdings/src/backup-file.test.js apps/my_holdings/src/model.test.js apps/my_holdings/src/lookthrough.test.js",
     "check:belief-qa": "node apps/BeliefQandA/scripts/validate-brief-answers.mjs",
     "validate:philosophy": "node apps/Philosophy/scripts/validate-content.mjs",
     "start": "node server/index.js --production"

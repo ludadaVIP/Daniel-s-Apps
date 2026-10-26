@@ -8,6 +8,7 @@ import {
   initializeHtmlLibrary,
 } from "../../html-library/server/index.js";
 import { contextPack, CURRENCIES } from "../src/model.js";
+import { validateFundHoldings } from "../src/lookthrough.js";
 import { PRICE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
 import { quotePolicy } from "./market-session.js";
 import { normalizeSymbol, positionKey, roundMoney, previewBuy, applyHoldingQuote, consolidateHoldings } from "../src/positions.js";
@@ -557,6 +558,14 @@ export async function createHoldingsApp({
     } catch (e) {
       next(e);
     }
+  });
+  app.get("/api/fund-holdings", async (_req, res, next) => {
+    try {
+      // Disclosures are independent of personal state and read afresh after a Codex review.
+      const file = new URL("../data/fund-holdings.json", import.meta.url);
+      const data = validateFundHoldings(JSON.parse(await fs.readFile(file, "utf8")));
+      res.set("Cache-Control", "no-store").json(data);
+    } catch (e) { next(e); }
   });
   app.post("/api/watchlist/rank-snapshot", async (req, res, next) => {
     try {
