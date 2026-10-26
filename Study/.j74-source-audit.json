@@ -1,0 +1,3859 @@
+{
+  "source": [
+    {
+      "id": "J74-L01",
+      "title": {
+        "zh": "点、线、射线、角",
+        "en": "Points, lines, rays and angles"
+      },
+      "objective": {
+        "zh": "用端点和延伸方向辨对象，用共同端点及射线方向理解角。",
+        "en": "Identify objects by endpoints and extension, and understand an angle through its common vertex and ray directions."
+      },
+      "prerequisites": [
+        "B05-L04"
+      ],
+      "keywords": [
+        {
+          "zh": "端点",
+          "en": "endpoint"
+        },
+        {
+          "zh": "射线",
+          "en": "ray"
+        },
+        {
+          "zh": "顶点",
+          "en": "vertex"
+        }
+      ],
+      "minutes": 20,
+      "lab": "plane-objects",
+      "hook": {
+        "zh": "把角的边画长或把整张图旋转，角会变大吗？射线画在屏幕内就有两个端点吗？",
+        "en": "Does lengthening arms or rotating a picture enlarge an angle? Does a ray gain two endpoints because it is drawn on a screen?"
+      },
+      "stage": "J07",
+      "unit": "J74",
+      "order": 1,
+      "nzYearHints": [
+        7,
+        8
+      ],
+      "cnGradeHints": [
+        7
+      ],
+      "contentStatus": "ready",
+      "skillTags": [
+        "geometric-objects-and-angle"
+      ],
+      "guided": {
+        "id": "J74-L01-G",
+        "lessonId": "J74-L01",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "一条射线有几个端点？屏幕裁切处不算端点。",
+          "en": "How many endpoints does a ray have? The screen edge is not an endpoint."
+        },
+        "answer": {
+          "kind": "number",
+          "value": "1",
+          "formats": [
+            "decimal",
+            "fraction"
+          ]
+        },
+        "skill": "geometric-objects-and-angle",
+        "hints": [
+          {
+            "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+            "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+          },
+          {
+            "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          }
+        ],
+        "solution": {
+          "zh": "射线从一个端点出发沿一个方向无限延伸，只有一个端点。 角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+          "en": "A ray starts at one endpoint and extends indefinitely in one direction. The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+        },
+        "solutionSteps": [
+          {
+            "zh": "射线从一个端点出发沿一个方向无限延伸，只有一个端点。",
+            "en": "A ray starts at one endpoint and extends indefinitely in one direction."
+          },
+          {
+            "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "1"
+          ],
+          "rejected": [
+            "0",
+            "2"
+          ]
+        },
+        "misconceptionTags": [
+          "geometric-objects-and-angle",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-object",
+          "object": "ray"
+        }
+      },
+      "questions": [
+        {
+          "id": "J74-L01-Q1",
+          "lessonId": "J74-L01",
+          "type": "single_choice",
+          "difficulty": "foundation",
+          "stem": {
+            "zh": "∠AOB 的顶点是谁？",
+            "en": "Which point is the vertex of ∠AOB?"
+          },
+          "answer": {
+            "kind": "choice",
+            "value": "1"
+          },
+          "skill": "geometric-objects-and-angle",
+          "hints": [
+            {
+              "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+              "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "options": [
+            {
+              "text": {
+                "zh": "A",
+                "en": "A"
+              },
+              "feedback": {
+                "zh": "A 在一条边上，角名中间才是顶点。",
+                "en": "A lies on an arm; the middle letter is the vertex."
+              },
+              "id": "0"
+            },
+            {
+              "text": {
+                "zh": "O",
+                "en": "O"
+              },
+              "feedback": {
+                "zh": "两射线 OA、OB 的共同端点是 O。",
+                "en": "O is the common endpoint of rays OA and OB."
+              },
+              "id": "1"
+            },
+            {
+              "text": {
+                "zh": "B",
+                "en": "B"
+              },
+              "feedback": {
+                "zh": "B 在另一条边上，不是共同端点。",
+                "en": "B lies on the other arm, not at the common endpoint."
+              },
+              "id": "2"
+            }
+          ],
+          "solution": {
+            "zh": "用三个字母命名角时，顶点必须放中间，∠BOA 表示同一个这里指定的小于平角的角。",
+            "en": "With three-letter naming the vertex belongs in the middle; ∠BOA names the same specified angle here."
+          },
+          "solutionSteps": [
+            {
+              "zh": "用三个字母命名角时，顶点必须放中间，∠BOA 表示同一个这里指定的小于平角的角。",
+              "en": "With three-letter naming the vertex belongs in the middle; ∠BOA names the same specified angle here."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "1"
+            ],
+            "rejected": [
+              "0",
+              "2"
+            ]
+          },
+          "misconceptionTags": [
+            "geometric-objects-and-angle"
+          ]
+        },
+        {
+          "id": "J74-L01-Q2",
+          "lessonId": "J74-L01",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "从 A 出发、经过 B 并继续沿这个方向无限延伸，表示什么对象？",
+            "en": "What object starts at A, passes through B and continues indefinitely in that direction?"
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "ray"
+          },
+          "skill": "geometric-objects-and-angle",
+          "hints": [
+            {
+              "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+              "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "solution": {
+            "zh": "一个端点、一个无限延伸方向，是射线 AB；BA 则从 B 出发，方向不同。 角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "One endpoint and one indefinite direction define ray AB; ray BA starts at B and has a different direction. The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          },
+          "solutionSteps": [
+            {
+              "zh": "一个端点、一个无限延伸方向，是射线 AB；BA 则从 B 出发，方向不同。",
+              "en": "One endpoint and one indefinite direction define ray AB; ray BA starts at B and has a different direction."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "ray"
+            ],
+            "rejected": [
+              "line",
+              "segment"
+            ]
+          },
+          "misconceptionTags": [
+            "geometric-objects-and-angle",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-object",
+            "object": "ray"
+          }
+        },
+        {
+          "id": "J74-L01-Q3",
+          "lessonId": "J74-L01",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "经过 A、B，在两个方向都无限延伸，是什么对象？",
+            "en": "What passes through A and B and extends indefinitely both ways?"
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "line"
+          },
+          "skill": "geometric-objects-and-angle",
+          "hints": [
+            {
+              "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+              "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "solution": {
+            "zh": "直线没有端点，A、B 可以是线上的标记点，并非两端。 角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "A line has no endpoints; A and B can be marked points rather than ends. The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          },
+          "solutionSteps": [
+            {
+              "zh": "直线没有端点，A、B 可以是线上的标记点，并非两端。",
+              "en": "A line has no endpoints; A and B can be marked points rather than ends."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "line"
+            ],
+            "rejected": [
+              "ray",
+              "segment"
+            ]
+          },
+          "misconceptionTags": [
+            "geometric-objects-and-angle",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-object",
+            "object": "line"
+          }
+        },
+        {
+          "id": "J74-L01-Q4",
+          "lessonId": "J74-L01",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "射线 OC 在 ∠AOB 内部，∠AOC=35°、∠COB=25°，求 ∠AOB。",
+            "en": "Ray OC lies inside ∠AOB, with ∠AOC=35° and ∠COB=25°. Find ∠AOB."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "60",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "geometric-objects-and-angle",
+          "hints": [
+            {
+              "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+              "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "solution": {
+            "zh": "内部射线把原角分成不重叠的两个相邻部分，35°+25°=60°。 角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "The inside ray partitions the angle into adjacent non-overlapping parts: 35°+25°=60°. The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          },
+          "solutionSteps": [
+            {
+              "zh": "内部射线把原角分成不重叠的两个相邻部分，35°+25°=60°。",
+              "en": "The inside ray partitions the angle into adjacent non-overlapping parts: 35°+25°=60°."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "60",
+              "60 °"
+            ],
+            "rejected": [
+              "10",
+              "120",
+              "180"
+            ]
+          },
+          "misconceptionTags": [
+            "geometric-objects-and-angle",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L01-Q5",
+          "lessonId": "J74-L01",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "从 A 到 B，两个端点之间的有限部分，是什么对象？",
+            "en": "What is the finite part between the two endpoints A and B?"
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "segment"
+          },
+          "skill": "geometric-objects-and-angle",
+          "hints": [
+            {
+              "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+              "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "solution": {
+            "zh": "线段有两个端点和有限长度，线段 AB 与 BA 表示同一部分。 角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "A segment has two endpoints and finite length; AB and BA name the same segment. The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          },
+          "solutionSteps": [
+            {
+              "zh": "线段有两个端点和有限长度，线段 AB 与 BA 表示同一部分。",
+              "en": "A segment has two endpoints and finite length; AB and BA name the same segment."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "segment"
+            ],
+            "rejected": [
+              "ray",
+              "line"
+            ]
+          },
+          "misconceptionTags": [
+            "geometric-objects-and-angle",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-object",
+            "object": "segment"
+          }
+        },
+        {
+          "id": "J74-L01-Q6",
+          "lessonId": "J74-L01",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "比较点、线段、射线和直线；解释为什么改边长和整体旋转不改变指定角，为什么 AB 与 BA 命名射线时不能随意互换。",
+            "en": "Compare a point, segment, ray and line. Explain why arm length and whole rotation do not change an angle, and why ray AB cannot freely be renamed BA."
+          },
+          "skill": "geometric-objects-and-angle",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "点只有位置没有大小；线段有限且有两端点，射线一端点、一个方向无限，直线无端点、两方向无限。A、B 标点不必是端点，屏幕边缘不是几何边界。角的顶点是共同端点，∠AOB 中 O 居中；同向延长或整体旋转不改变两方向夹角。射线 AB 起点 A，BA 起点 B 且方向相反；线段 AB、BA 则相同。家长核对对象定义、方向及角的不变量，不只看名称。",
+              "en": "A point has position without size; a segment is finite with two ends, a ray has one end and one indefinite direction, and a line has no ends and extends both ways. Marked points need not be endpoints and screen edges are not geometric boundaries. The common endpoint O goes in the middle of ∠AOB. Extending arms or rotating together preserves their relative directions. Ray AB starts at A, while BA starts at B with the opposite direction; segments AB and BA are the same. A parent checks definitions and invariants."
+            }
+          },
+          "solution": {
+            "zh": "点只有位置没有大小；线段有限且有两端点，射线一端点、一个方向无限，直线无端点、两方向无限。A、B 标点不必是端点，屏幕边缘不是几何边界。角的顶点是共同端点，∠AOB 中 O 居中；同向延长或整体旋转不改变两方向夹角。射线 AB 起点 A，BA 起点 B 且方向相反；线段 AB、BA 则相同。家长核对对象定义、方向及角的不变量，不只看名称。",
+            "en": "A point has position without size; a segment is finite with two ends, a ray has one end and one indefinite direction, and a line has no ends and extends both ways. Marked points need not be endpoints and screen edges are not geometric boundaries. The common endpoint O goes in the middle of ∠AOB. Extending arms or rotating together preserves their relative directions. Ray AB starts at A, while BA starts at B with the opposite direction; segments AB and BA are the same. A parent checks definitions and invariants."
+          },
+          "solutionSteps": [
+            {
+              "zh": "点只有位置没有大小；线段有限且有两端点，射线一端点、一个方向无限，直线无端点、两方向无限。A、B 标点不必是端点，屏幕边缘不是几何边界。角的顶点是共同端点，∠AOB 中 O 居中；同向延长或整体旋转不改变两方向夹角。射线 AB 起点 A，BA 起点 B 且方向相反；线段 AB、BA 则相同。家长核对对象定义、方向及角的不变量，不只看名称。",
+              "en": "A point has position without size; a segment is finite with two ends, a ray has one end and one indefinite direction, and a line has no ends and extends both ways. Marked points need not be endpoints and screen edges are not geometric boundaries. The common endpoint O goes in the middle of ∠AOB. Extending arms or rotating together preserves their relative directions. Ray AB starts at A, while BA starts at B with the opposite direction; segments AB and BA are the same. A parent checks definitions and invariants."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+              "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+            },
+            {
+              "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+              "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+            }
+          ],
+          "misconceptionTags": [
+            "geometric-objects-and-angle"
+          ]
+        }
+      ],
+      "exit": {
+        "id": "J74-L01-X",
+        "lessonId": "J74-L01",
+        "type": "numeric",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "OC 在 ∠AOB 内部，∠AOC=17°、∠COB=28°。把整图旋转后，∠AOB 多少度？",
+          "en": "OC lies inside ∠AOB, with parts 17° and 28°. After rotating the whole figure, what is ∠AOB?"
+        },
+        "answer": {
+          "kind": "number",
+          "value": "45",
+          "formats": [
+            "decimal",
+            "fraction"
+          ],
+          "unit": "°"
+        },
+        "skill": "geometric-objects-and-angle",
+        "hints": [
+          {
+            "zh": "看端点、无限延伸箭头和角的顶点，不把画出的长度当作角度。",
+            "en": "Inspect endpoints, extension arrows and the vertex, rather than treating drawn length as angle size."
+          },
+          {
+            "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          }
+        ],
+        "solution": {
+          "zh": "17°+28°=45°，整体旋转保持两射线夹角。 角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+          "en": "17°+28°=45°; whole-figure rotation preserves the angle. The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+        },
+        "solutionSteps": [
+          {
+            "zh": "17°+28°=45°，整体旋转保持两射线夹角。",
+            "en": "17°+28°=45°; whole-figure rotation preserves the angle."
+          },
+          {
+            "zh": "角名中间字母是顶点；分割角要先确认射线在角内部，相邻部分才相加。",
+            "en": "The middle letter names the vertex. Add adjacent parts only after confirming the dividing ray lies inside the angle."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "45",
+            "45 °"
+          ],
+          "rejected": [
+            "11",
+            "90",
+            "180"
+          ]
+        },
+        "misconceptionTags": [
+          "geometric-objects-and-angle",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ]
+      },
+      "exitReason": {
+        "zh": "用端点和延伸方向辨对象，用共同端点及射线方向理解角。",
+        "en": "Identify objects by endpoints and extension, and understand an angle through its common vertex and ray directions."
+      },
+      "parent": {
+        "goal": {
+          "zh": "用端点和延伸方向辨对象，用共同端点及射线方向理解角。",
+          "en": "Identify objects by endpoints and extension, and understand an angle through its common vertex and ray directions."
+        },
+        "misconception": {
+          "zh": "把标记点或屏幕边缘当端点；角名顶点放错；用边的长短猜角。",
+          "en": "Treating marks or screen edges as endpoints, misplacing the vertex in a name, or judging angles by arm length."
+        },
+        "prompts": [
+          {
+            "zh": "哪里是端点，哪个方向可以继续延伸？",
+            "en": "Where is an endpoint, and which direction continues?"
+          },
+          {
+            "zh": "变的是长度、方向还是两方向之间的转角？",
+            "en": "Did length, orientation or the relative turn change?"
+          }
+        ],
+        "bridge": "B05-L04"
+      }
+    },
+    {
+      "id": "J74-L02",
+      "title": {
+        "zh": "相交线与对顶角",
+        "en": "Intersecting lines and vertically opposite angles"
+      },
+      "objective": {
+        "zh": "依据两条直线及角的位置，区分对顶与邻补并推理角度。",
+        "en": "Distinguish vertically opposite and adjacent supplementary pairs from line structure and infer angles."
+      },
+      "prerequisites": [
+        "J74-L01",
+        "J73-L02"
+      ],
+      "keywords": [
+        {
+          "zh": "对顶角",
+          "en": "vertically opposite angles"
+        },
+        {
+          "zh": "邻补角",
+          "en": "adjacent supplementary angles"
+        },
+        {
+          "zh": "平角",
+          "en": "straight angle"
+        }
+      ],
+      "minutes": 20,
+      "lab": "plane-intersect",
+      "hook": {
+        "zh": "四个角围着同一交点，哪些相等，哪些加起来是 180°？共有顶点就算对顶吗？",
+        "en": "Four angles surround an intersection. Which are equal and which sum to 180°? Is a shared vertex enough?"
+      },
+      "stage": "J07",
+      "unit": "J74",
+      "order": 2,
+      "nzYearHints": [
+        7,
+        8
+      ],
+      "cnGradeHints": [
+        7
+      ],
+      "contentStatus": "ready",
+      "skillTags": [
+        "vertical-and-adjacent-angles"
+      ],
+      "guided": {
+        "id": "J74-L02-G",
+        "lessonId": "J74-L02",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "两直线相交，图中 A=42°，求其对顶角 C。",
+          "en": "Two straight lines intersect. A=42°; find vertically opposite C."
+        },
+        "answer": {
+          "kind": "number",
+          "value": "42",
+          "formats": [
+            "decimal",
+            "fraction"
+          ],
+          "unit": "°"
+        },
+        "skill": "vertical-and-adjacent-angles",
+        "hints": [
+          {
+            "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+            "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+          },
+          {
+            "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          }
+        ],
+        "solution": {
+          "zh": "A+B=180°、B+C=180°，同减 B 得 A=C=42°。 对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+          "en": "A+B=180° and B+C=180°; subtract B to get A=C=42°. Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+        },
+        "solutionSteps": [
+          {
+            "zh": "A+B=180°、B+C=180°，同减 B 得 A=C=42°。",
+            "en": "A+B=180° and B+C=180°; subtract B to get A=C=42°."
+          },
+          {
+            "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "42",
+            "42 °"
+          ],
+          "rejected": [
+            "138",
+            "84"
+          ]
+        },
+        "misconceptionTags": [
+          "vertical-and-adjacent-angles",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-intersection",
+          "angle": 42
+        }
+      },
+      "questions": [
+        {
+          "id": "J74-L02-Q1",
+          "lessonId": "J74-L02",
+          "type": "single_choice",
+          "difficulty": "foundation",
+          "stem": {
+            "zh": "哪项足以确认图中 A、C 是对顶角？",
+            "en": "What establishes that A and C are vertically opposite?"
+          },
+          "answer": {
+            "kind": "choice",
+            "value": "2"
+          },
+          "skill": "vertical-and-adjacent-angles",
+          "hints": [
+            {
+              "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+              "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "options": [
+            {
+              "text": {
+                "zh": "两角度数相同",
+                "en": "Their measures are equal"
+              },
+              "feedback": {
+                "zh": "相等也可能来自其他位置。",
+                "en": "Equal angles can occur in other positions."
+              },
+              "id": "0"
+            },
+            {
+              "text": {
+                "zh": "只要共一个顶点",
+                "en": "They merely share a vertex"
+              },
+              "feedback": {
+                "zh": "邻角也共享顶点。",
+                "en": "Adjacent angles also share a vertex."
+              },
+              "id": "1"
+            },
+            {
+              "text": {
+                "zh": "来自同两条相交直线，边分别为反向射线且无公共边",
+                "en": "They come from the same two intersecting lines, with opposite arms and no shared arm"
+              },
+              "feedback": {
+                "zh": "这给出位置结构，不靠碰巧相等。",
+                "en": "This specifies the geometry rather than coincidental equality."
+              },
+              "id": "2"
+            }
+          ],
+          "solution": {
+            "zh": "先由位置辨关系，再用定理求度数；不能倒过来以相等定义对顶。",
+            "en": "Identify the relation from positions, then use the theorem; equality alone does not define vertically opposite angles."
+          },
+          "solutionSteps": [
+            {
+              "zh": "先由位置辨关系，再用定理求度数；不能倒过来以相等定义对顶。",
+              "en": "Identify the relation from positions, then use the theorem; equality alone does not define vertically opposite angles."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "2"
+            ],
+            "rejected": [
+              "0",
+              "1"
+            ]
+          },
+          "misconceptionTags": [
+            "vertical-and-adjacent-angles"
+          ]
+        },
+        {
+          "id": "J74-L02-Q2",
+          "lessonId": "J74-L02",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "同一图 A=42°，求邻补角 B。",
+            "en": "In the diagram A=42°. Find adjacent supplementary B."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "138",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "vertical-and-adjacent-angles",
+          "hints": [
+            {
+              "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+              "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "solution": {
+            "zh": "A、B 的非公共边是反向射线，所以 B=180°−42°=138°。 对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "The non-shared arms are opposite rays: B=180°−42°=138°. Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          },
+          "solutionSteps": [
+            {
+              "zh": "A、B 的非公共边是反向射线，所以 B=180°−42°=138°。",
+              "en": "The non-shared arms are opposite rays: B=180°−42°=138°."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "138",
+              "138 °"
+            ],
+            "rejected": [
+              "42",
+              "48"
+            ]
+          },
+          "misconceptionTags": [
+            "vertical-and-adjacent-angles",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-intersection",
+            "angle": 42
+          }
+        },
+        {
+          "id": "J74-L02-Q3",
+          "lessonId": "J74-L02",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "两直线相交，A=112°，A 与 C 对顶，B 与 A 邻补，求 B。",
+            "en": "Two lines intersect with A=112°. A/C are vertically opposite and A/B adjacent supplementary. Find B."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "68",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "vertical-and-adjacent-angles",
+          "hints": [
+            {
+              "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+              "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "solution": {
+            "zh": "邻补角和 180°，B=68°；C=112°，四角为 112、68、112、68，总和 360。 对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "B=180°−112°=68°. C=112°; the four angles 112,68,112,68 total 360°. Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          },
+          "solutionSteps": [
+            {
+              "zh": "邻补角和 180°，B=68°；C=112°，四角为 112、68、112、68，总和 360。",
+              "en": "B=180°−112°=68°. C=112°; the four angles 112,68,112,68 total 360°."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "68",
+              "68 °"
+            ],
+            "rejected": [
+              "112",
+              "248"
+            ]
+          },
+          "misconceptionTags": [
+            "vertical-and-adjacent-angles",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-intersection",
+            "angle": 112,
+            "rotation": 30
+          }
+        },
+        {
+          "id": "J74-L02-Q4",
+          "lessonId": "J74-L02",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "一对对顶角分别为 (3x+10)° 与 (2x+40)°，求 x。",
+            "en": "Vertically opposite angles measure (3x+10)° and (2x+40)°. Find x."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "30",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "vertical-and-adjacent-angles",
+          "hints": [
+            {
+              "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+              "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "solution": {
+            "zh": "对顶相等：3x+10=2x+40，x=30，两角均 100°；不是把两角加到 180°。 对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "Set 3x+10=2x+40, giving x=30 and both angles 100°. Do not force the opposite pair to sum to 180°. Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          },
+          "solutionSteps": [
+            {
+              "zh": "对顶相等：3x+10=2x+40，x=30，两角均 100°；不是把两角加到 180°。",
+              "en": "Set 3x+10=2x+40, giving x=30 and both angles 100°. Do not force the opposite pair to sum to 180°."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "30",
+              "30 °"
+            ],
+            "rejected": [
+              "26",
+              "100"
+            ]
+          },
+          "misconceptionTags": [
+            "vertical-and-adjacent-angles",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L02-Q5",
+          "lessonId": "J74-L02",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "两直线垂直相交，已知其中一个角 90°，它的邻补角多少度？",
+            "en": "Two perpendicular lines intersect with one angle 90°. What is its adjacent supplementary angle?"
+          },
+          "answer": {
+            "kind": "number",
+            "value": "90",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "vertical-and-adjacent-angles",
+          "hints": [
+            {
+              "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+              "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "solution": {
+            "zh": "180°−90°=90°；垂直时四角均直角，邻补不一定大小不同。 对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "180°−90°=90°. Perpendicular lines give four right angles; adjacent supplementary angles need not differ. Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          },
+          "solutionSteps": [
+            {
+              "zh": "180°−90°=90°；垂直时四角均直角，邻补不一定大小不同。",
+              "en": "180°−90°=90°. Perpendicular lines give four right angles; adjacent supplementary angles need not differ."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "90",
+              "90 °"
+            ],
+            "rejected": [
+              "0",
+              "180"
+            ]
+          },
+          "misconceptionTags": [
+            "vertical-and-adjacent-angles",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-intersection",
+            "angle": 90
+          }
+        },
+        {
+          "id": "J74-L02-Q6",
+          "lessonId": "J74-L02",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "不用量角器，利用两个平角解释对顶角为何相等；说明补角与邻补角的区别，以及相等是否必定对顶。",
+            "en": "Use two straight angles to explain vertically opposite equality without measurement. Distinguish supplementary from adjacent supplementary angles, and explain whether equal angles must be opposite."
+          },
+          "skill": "vertical-and-adjacent-angles",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "两直线相交，A+B=180°、B+C=180°，从相等总量中减同一 B，A=C。邻补角共享顶点和一边、另外两边反向，故互补；任意和 180° 的两角可称补角，却未必相邻。相等不必对顶，例如不同交点的两个直角。家长核对直线、反向射线、相减链和反例，不以“看起来一样”作理由。",
+              "en": "At an intersection A+B=180° and B+C=180°; subtracting the same B gives A=C. Adjacent supplementary angles share a vertex and arm, with the other arms opposite. Any pair summing to 180° is supplementary but need not be adjacent. Equal angles need not be vertically opposite, as two right angles at different vertices show. Check the straight-line givens and linked subtraction."
+            }
+          },
+          "solution": {
+            "zh": "两直线相交，A+B=180°、B+C=180°，从相等总量中减同一 B，A=C。邻补角共享顶点和一边、另外两边反向，故互补；任意和 180° 的两角可称补角，却未必相邻。相等不必对顶，例如不同交点的两个直角。家长核对直线、反向射线、相减链和反例，不以“看起来一样”作理由。",
+            "en": "At an intersection A+B=180° and B+C=180°; subtracting the same B gives A=C. Adjacent supplementary angles share a vertex and arm, with the other arms opposite. Any pair summing to 180° is supplementary but need not be adjacent. Equal angles need not be vertically opposite, as two right angles at different vertices show. Check the straight-line givens and linked subtraction."
+          },
+          "solutionSteps": [
+            {
+              "zh": "两直线相交，A+B=180°、B+C=180°，从相等总量中减同一 B，A=C。邻补角共享顶点和一边、另外两边反向，故互补；任意和 180° 的两角可称补角，却未必相邻。相等不必对顶，例如不同交点的两个直角。家长核对直线、反向射线、相减链和反例，不以“看起来一样”作理由。",
+              "en": "At an intersection A+B=180° and B+C=180°; subtracting the same B gives A=C. Adjacent supplementary angles share a vertex and arm, with the other arms opposite. Any pair summing to 180° is supplementary but need not be adjacent. Equal angles need not be vertically opposite, as two right angles at different vertices show. Check the straight-line givens and linked subtraction."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+              "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+            },
+            {
+              "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+              "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+            }
+          ],
+          "misconceptionTags": [
+            "vertical-and-adjacent-angles"
+          ]
+        }
+      ],
+      "exit": {
+        "id": "J74-L02-X",
+        "lessonId": "J74-L02",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "两直线相交，一个角 37.5°，求与它邻补的角。",
+          "en": "Two lines intersect with one angle 37.5°. Find its adjacent supplementary angle."
+        },
+        "answer": {
+          "kind": "number",
+          "value": "142.5",
+          "formats": [
+            "decimal",
+            "fraction"
+          ],
+          "unit": "°"
+        },
+        "skill": "vertical-and-adjacent-angles",
+        "hints": [
+          {
+            "zh": "先按两条直线与角的位置，找对顶或邻补，而不只是看数值。",
+            "en": "Use the straight lines and angle positions to identify opposite or adjacent supplementary pairs."
+          },
+          {
+            "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          }
+        ],
+        "solution": {
+          "zh": "180°−37.5°=142.5°，小数角度不必舍入。 对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+          "en": "180°−37.5°=142.5°; the decimal angle need not be rounded. Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+        },
+        "solutionSteps": [
+          {
+            "zh": "180°−37.5°=142.5°，小数角度不必舍入。",
+            "en": "180°−37.5°=142.5°; the decimal angle need not be rounded."
+          },
+          {
+            "zh": "对顶角相等；共享一边且另两边反向的邻补角和 180°。用关系列式，再检查四角和 360°。",
+            "en": "Vertically opposite angles are equal. Adjacent pairs whose other arms are opposite sum to 180°. Set up the relation and check the four-angle total of 360°."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "142.5",
+            "142.5 °"
+          ],
+          "rejected": [
+            "37.5",
+            "52.5"
+          ]
+        },
+        "misconceptionTags": [
+          "vertical-and-adjacent-angles",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-intersection",
+          "angle": 37.5
+        }
+      },
+      "exitReason": {
+        "zh": "依据两条直线及角的位置，区分对顶与邻补并推理角度。",
+        "en": "Distinguish vertically opposite and adjacent supplementary pairs from line structure and infer angles."
+      },
+      "parent": {
+        "goal": {
+          "zh": "依据两条直线及角的位置，区分对顶与邻补并推理角度。",
+          "en": "Distinguish vertically opposite and adjacent supplementary pairs from line structure and infer angles."
+        },
+        "misconception": {
+          "zh": "把对顶角加成 180°；相等就认对顶；共享顶点就认邻补。",
+          "en": "Making opposite angles sum to 180°, inferring opposition from equality, or inferring adjacent supplementary structure from a shared vertex alone."
+        },
+        "prompts": [
+          {
+            "zh": "哪两条边是反向射线？",
+            "en": "Which arms are opposite rays?"
+          },
+          {
+            "zh": "你从哪个相等总量减去了什么？",
+            "en": "What was subtracted from which equal totals?"
+          }
+        ],
+        "bridge": "J74-L01"
+      }
+    },
+    {
+      "id": "J74-L03",
+      "title": {
+        "zh": "平行线与角度关系",
+        "en": "Parallel lines and angle relationships"
+      },
+      "objective": {
+        "zh": "核对平行条件与角对位置，使用性质或反向判定并识别条件不足。",
+        "en": "Check parallel premises and angle positions, apply properties or converses and recognise insufficient information."
+      },
+      "prerequisites": [
+        "J74-L02"
+      ],
+      "keywords": [
+        {
+          "zh": "同位角",
+          "en": "corresponding angles"
+        },
+        {
+          "zh": "内错角",
+          "en": "alternate interior angles"
+        },
+        {
+          "zh": "同旁内角",
+          "en": "co-interior angles"
+        }
+      ],
+      "minutes": 20,
+      "lab": "plane-parallel",
+      "hook": {
+        "zh": "图上两条线差不多平行，就能写 A=E 吗？如果只知道一对指定同位角相等，又能推出什么？",
+        "en": "Can nearly parallel-looking lines justify A=E? What follows if a specified corresponding pair is known equal?"
+      },
+      "stage": "J07",
+      "unit": "J74",
+      "order": 3,
+      "nzYearHints": [
+        7,
+        8
+      ],
+      "cnGradeHints": [
+        7
+      ],
+      "contentStatus": "ready",
+      "skillTags": [
+        "parallel-conditions-and-pairs"
+      ],
+      "guided": {
+        "id": "J74-L03-G",
+        "lessonId": "J74-L03",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "图中已知 ℓ∥m，A=65°，A/E 是同位角，求 E。",
+          "en": "Given ℓ∥m, A=65° and A/E correspond. Find E."
+        },
+        "answer": {
+          "kind": "number",
+          "value": "65",
+          "formats": [
+            "decimal",
+            "fraction"
+          ],
+          "unit": "°"
+        },
+        "skill": "parallel-conditions-and-pairs",
+        "hints": [
+          {
+            "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+            "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+          },
+          {
+            "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          }
+        ],
+        "solution": {
+          "zh": "有平行前提，同位角相等，所以 E=65°。 平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+          "en": "With the parallel premise, corresponding angles are equal: E=65°. Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+        },
+        "solutionSteps": [
+          {
+            "zh": "有平行前提，同位角相等，所以 E=65°。",
+            "en": "With the parallel premise, corresponding angles are equal: E=65°."
+          },
+          {
+            "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "65",
+            "65 °"
+          ],
+          "rejected": [
+            "115",
+            "25"
+          ]
+        },
+        "misconceptionTags": [
+          "parallel-conditions-and-pairs",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-parallel",
+          "top": 65,
+          "bottom": 65,
+          "parallel": true
+        }
+      },
+      "questions": [
+        {
+          "id": "J74-L03-Q1",
+          "lessonId": "J74-L03",
+          "type": "single_choice",
+          "difficulty": "foundation",
+          "stem": {
+            "zh": "哪条推理的条件与结论匹配？",
+            "en": "Which argument correctly matches its premise and conclusion?"
+          },
+          "answer": {
+            "kind": "choice",
+            "value": "0"
+          },
+          "skill": "parallel-conditions-and-pairs",
+          "hints": [
+            {
+              "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+              "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "options": [
+            {
+              "text": {
+                "zh": "已知平行，指定内错角相等",
+                "en": "Given parallel lines, the specified alternate interior angles are equal"
+              },
+              "feedback": {
+                "zh": "有平行前提与明确位置。",
+                "en": "The parallel premise and angle positions are specified."
+              },
+              "id": "0"
+            },
+            {
+              "text": {
+                "zh": "两角都锐角，所以两线平行",
+                "en": "Both angles are acute, so the lines are parallel"
+              },
+              "feedback": {
+                "zh": "锐角范围太宽，不提供相等或互补的指定关系。",
+                "en": "Being acute is too broad and supplies no required pair relationship."
+              },
+              "id": "1"
+            },
+            {
+              "text": {
+                "zh": "线看起来平行，所以所有角都相等",
+                "en": "The lines look parallel, so all angles are equal"
+              },
+              "feedback": {
+                "zh": "外观不作已知；即使平行也并非所有角相等。",
+                "en": "Appearance is not a given, and even parallel lines do not make all angles equal."
+              },
+              "id": "2"
+            }
+          ],
+          "solution": {
+            "zh": "性质从平行出发；判定从指定角关系反推平行，方向不能混用。",
+            "en": "Properties start with parallelism; converses start with a specified angle relationship. Keep the directions distinct."
+          },
+          "solutionSteps": [
+            {
+              "zh": "性质从平行出发；判定从指定角关系反推平行，方向不能混用。",
+              "en": "Properties start with parallelism; converses start with a specified angle relationship. Keep the directions distinct."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "0"
+            ],
+            "rejected": [
+              "1",
+              "2"
+            ]
+          },
+          "misconceptionTags": [
+            "parallel-conditions-and-pairs"
+          ]
+        },
+        {
+          "id": "J74-L03-Q2",
+          "lessonId": "J74-L03",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "图中 ℓ∥m，A=65°。D/E 是同旁内角，求 D。",
+            "en": "Given ℓ∥m and A=65°, D/E are co-interior. Find D."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "115",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "parallel-conditions-and-pairs",
+          "hints": [
+            {
+              "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+              "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "solution": {
+            "zh": "先由同位得 E=65°，再由同旁内角互补得 D=115°。 平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "First E=65° by corresponding angles; then D=115° because co-interior angles are supplementary. Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          },
+          "solutionSteps": [
+            {
+              "zh": "先由同位得 E=65°，再由同旁内角互补得 D=115°。",
+              "en": "First E=65° by corresponding angles; then D=115° because co-interior angles are supplementary."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "115",
+              "115 °"
+            ],
+            "rejected": [
+              "65",
+              "180"
+            ]
+          },
+          "misconceptionTags": [
+            "parallel-conditions-and-pairs",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-parallel",
+            "top": 65,
+            "bottom": 65,
+            "parallel": true
+          }
+        },
+        {
+          "id": "J74-L03-Q3",
+          "lessonId": "J74-L03",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "只知 A=65°，没有平行条件，也未给下线方向度数。仅凭题设能确定 E 吗？写“无法确定”或所能确定的关系类别。",
+            "en": "Only A=65° is given, with no parallel premise or lower-line direction. Is E determined by the givens? Write “undetermined” if not."
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "undetermined"
+          },
+          "skill": "parallel-conditions-and-pairs",
+          "hints": [
+            {
+              "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+              "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "solution": {
+            "zh": "保持 A 不变时下线可换不同方向，E 改变；外观不是附加条件。 平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "The lower line can change direction while A stays fixed, changing E. Appearance supplies no extra premise. Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          },
+          "solutionSteps": [
+            {
+              "zh": "保持 A 不变时下线可换不同方向，E 改变；外观不是附加条件。",
+              "en": "The lower line can change direction while A stays fixed, changing E. Appearance supplies no extra premise."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "undetermined"
+            ],
+            "rejected": [
+              "parallel",
+              "65",
+              "115"
+            ]
+          },
+          "misconceptionTags": [
+            "parallel-conditions-and-pairs",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-parallel",
+            "top": 65,
+            "bottom": 45,
+            "parallel": false
+          }
+        },
+        {
+          "id": "J74-L03-Q4",
+          "lessonId": "J74-L03",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "两直线被同一截线截得一对指定同位角，已知两角都 66°。可判两直线有什么关系？",
+            "en": "Two lines cut by one transversal have a specified corresponding pair, both 66°. What relation between the lines follows?"
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "parallel"
+          },
+          "skill": "parallel-conditions-and-pairs",
+          "hints": [
+            {
+              "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+              "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "solution": {
+            "zh": "这是同位角相等判平行的反向判定，不是先假定平行再用性质。 平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "This uses the corresponding-angle converse, rather than assuming parallelism first. Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          },
+          "solutionSteps": [
+            {
+              "zh": "这是同位角相等判平行的反向判定，不是先假定平行再用性质。",
+              "en": "This uses the corresponding-angle converse, rather than assuming parallelism first."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "parallel"
+            ],
+            "rejected": [
+              "undetermined",
+              "right"
+            ]
+          },
+          "misconceptionTags": [
+            "parallel-conditions-and-pairs",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L03-Q5",
+          "lessonId": "J74-L03",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "已知两平行线的同旁内角为 (2x+10)°、(3x−5)°，求 x。",
+            "en": "Co-interior angles on given parallel lines measure (2x+10)° and (3x−5)°. Find x."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "35",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "parallel-conditions-and-pairs",
+          "hints": [
+            {
+              "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+              "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "solution": {
+            "zh": "互补：2x+10+3x−5=180，5x=175，x=35；两角 80°、100°。 平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "Supplementarity gives 5x+5=180, x=35; the angles are 80° and 100°. Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          },
+          "solutionSteps": [
+            {
+              "zh": "互补：2x+10+3x−5=180，5x=175，x=35；两角 80°、100°。",
+              "en": "Supplementarity gives 5x+5=180, x=35; the angles are 80° and 100°."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "35",
+              "35 °"
+            ],
+            "rejected": [
+              "15",
+              "175",
+              "65"
+            ]
+          },
+          "misconceptionTags": [
+            "parallel-conditions-and-pairs",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L03-Q6",
+          "lessonId": "J74-L03",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "说明图中 ℓ∥m 时 A/E、C/E、D/E 各有什么关系；去掉平行条件后哪些结论不能直接用？再给一个有效判平行的反向论证。",
+            "en": "Explain the A/E, C/E and D/E relations when ℓ∥m. What fails without the premise? Give a valid converse argument for parallelism."
+          },
+          "skill": "parallel-conditions-and-pairs",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "已知平行，A/E 同位相等，C/E 内错相等，D/E 同旁内角互补；角对位置必须与图中字母对应。若没有平行前提，不能直接断言跨交点这些关系；同一交点的对顶与邻补仍由直线结构成立。反向可用一对指定同位角相等来判平行，而不是把相等任意两角都当同位。禁止先假设平行再证明平行。家长核对条件、角位置和推理方向。",
+              "en": "With parallel lines, A/E correspond and are equal, C/E alternate inside and are equal, while D/E are co-interior and sum to 180°. Without the premise those cross-intersection conclusions are unavailable; vertically opposite and adjacent straight-angle relations at each intersection remain. A specified equal corresponding pair can establish parallelism. Arbitrary equal angles do not suffice. Do not assume the desired parallel conclusion. Check positions and direction of reasoning."
+            }
+          },
+          "solution": {
+            "zh": "已知平行，A/E 同位相等，C/E 内错相等，D/E 同旁内角互补；角对位置必须与图中字母对应。若没有平行前提，不能直接断言跨交点这些关系；同一交点的对顶与邻补仍由直线结构成立。反向可用一对指定同位角相等来判平行，而不是把相等任意两角都当同位。禁止先假设平行再证明平行。家长核对条件、角位置和推理方向。",
+            "en": "With parallel lines, A/E correspond and are equal, C/E alternate inside and are equal, while D/E are co-interior and sum to 180°. Without the premise those cross-intersection conclusions are unavailable; vertically opposite and adjacent straight-angle relations at each intersection remain. A specified equal corresponding pair can establish parallelism. Arbitrary equal angles do not suffice. Do not assume the desired parallel conclusion. Check positions and direction of reasoning."
+          },
+          "solutionSteps": [
+            {
+              "zh": "已知平行，A/E 同位相等，C/E 内错相等，D/E 同旁内角互补；角对位置必须与图中字母对应。若没有平行前提，不能直接断言跨交点这些关系；同一交点的对顶与邻补仍由直线结构成立。反向可用一对指定同位角相等来判平行，而不是把相等任意两角都当同位。禁止先假设平行再证明平行。家长核对条件、角位置和推理方向。",
+              "en": "With parallel lines, A/E correspond and are equal, C/E alternate inside and are equal, while D/E are co-interior and sum to 180°. Without the premise those cross-intersection conclusions are unavailable; vertically opposite and adjacent straight-angle relations at each intersection remain. A specified equal corresponding pair can establish parallelism. Arbitrary equal angles do not suffice. Do not assume the desired parallel conclusion. Check positions and direction of reasoning."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+              "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+            },
+            {
+              "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+              "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+            }
+          ],
+          "misconceptionTags": [
+            "parallel-conditions-and-pairs"
+          ]
+        }
+      ],
+      "exit": {
+        "id": "J74-L03-X",
+        "lessonId": "J74-L03",
+        "type": "numeric",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "已知两平行线的一对同位角为 (3x+5)° 和 (2x+25)°，求 x。",
+          "en": "A corresponding pair on given parallel lines measures (3x+5)° and (2x+25)°. Find x."
+        },
+        "answer": {
+          "kind": "number",
+          "value": "20",
+          "formats": [
+            "decimal",
+            "fraction"
+          ],
+          "unit": "°"
+        },
+        "skill": "parallel-conditions-and-pairs",
+        "hints": [
+          {
+            "zh": "先找题设有没有平行条件，再确认同位、内错或同旁内角的位置。",
+            "en": "First identify whether parallelism is given, then locate corresponding, alternate interior or co-interior positions."
+          },
+          {
+            "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          }
+        ],
+        "solution": {
+          "zh": "相等：3x+5=2x+25，x=20，两角均 65°。 平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+          "en": "Equality gives 3x+5=2x+25, x=20 and both angles 65°. Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+        },
+        "solutionSteps": [
+          {
+            "zh": "相等：3x+5=2x+25，x=20，两角均 65°。",
+            "en": "Equality gives 3x+5=2x+25, x=20 and both angles 65°."
+          },
+          {
+            "zh": "平行性质要有条件；反向判平行要用指定位置的相等或互补关系。外观不能当条件，无足够条件写“无法确定”。",
+            "en": "Parallel-angle properties need their premise. A converse needs specified equal or supplementary pairs. Appearance is insufficient; write “undetermined” without enough givens."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "20",
+            "20 °"
+          ],
+          "rejected": [
+            "30",
+            "65",
+            "150"
+          ]
+        },
+        "misconceptionTags": [
+          "parallel-conditions-and-pairs",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ]
+      },
+      "exitReason": {
+        "zh": "核对平行条件与角对位置，使用性质或反向判定并识别条件不足。",
+        "en": "Check parallel premises and angle positions, apply properties or converses and recognise insufficient information."
+      },
+      "parent": {
+        "goal": {
+          "zh": "核对平行条件与角对位置，使用性质或反向判定并识别条件不足。",
+          "en": "Check parallel premises and angle positions, apply properties or converses and recognise insufficient information."
+        },
+        "misconception": {
+          "zh": "不看角位置；同旁内角也说相等；把外观当平行已知；循环论证。",
+          "en": "Ignoring positions, claiming co-interior equality, taking appearance as parallel evidence, or circular reasoning."
+        },
+        "prompts": [
+          {
+            "zh": "平行是已知，还是你正要证明的结论？",
+            "en": "Is parallelism given, or is it the target conclusion?"
+          },
+          {
+            "zh": "这对角在截线的哪一侧、两线内部还是外部？",
+            "en": "Which sides of the transversal and lines contain these angles?"
+          }
+        ],
+        "bridge": "J74-L02"
+      }
+    },
+    {
+      "id": "J74-L04",
+      "title": {
+        "zh": "三角形内角和",
+        "en": "Triangle angle sum"
+      },
+      "objective": {
+        "zh": "用平行辅助线解释内角和，区分内角与外角并求未知角。",
+        "en": "Explain the triangle sum using a parallel auxiliary line, distinguish interior/exterior angles and find unknowns."
+      },
+      "prerequisites": [
+        "J74-L03",
+        "P56-L03"
+      ],
+      "keywords": [
+        {
+          "zh": "内角和",
+          "en": "interior angle sum"
+        },
+        {
+          "zh": "辅助线",
+          "en": "auxiliary line"
+        },
+        {
+          "zh": "外角",
+          "en": "exterior angle"
+        }
+      ],
+      "minutes": 20,
+      "lab": "plane-sum",
+      "hook": {
+        "zh": "剪下三个角拼成直线很有说服力，但怎样给出不依赖剪纸精度的理由？",
+        "en": "Three cut-out corners seem to form a straight line. What explains this without depending on cutting precision?"
+      },
+      "stage": "J07",
+      "unit": "J74",
+      "order": 4,
+      "nzYearHints": [
+        7,
+        8
+      ],
+      "cnGradeHints": [
+        7
+      ],
+      "contentStatus": "ready",
+      "skillTags": [
+        "triangle-sum-with-reasons"
+      ],
+      "guided": {
+        "id": "J74-L04-G",
+        "lessonId": "J74-L04",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "平面三角形 A=48°、B=67°，求内角 C。",
+          "en": "A plane triangle has A=48° and B=67°. Find interior C."
+        },
+        "answer": {
+          "kind": "number",
+          "value": "65",
+          "formats": [
+            "decimal",
+            "fraction"
+          ],
+          "unit": "°"
+        },
+        "skill": "triangle-sum-with-reasons",
+        "hints": [
+          {
+            "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+            "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+          },
+          {
+            "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          }
+        ],
+        "solution": {
+          "zh": "三个内角和 180°，C=180°−48°−67°=65°。 未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+          "en": "The interior sum is 180°: C=180°−48°−67°=65°. Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+        },
+        "solutionSteps": [
+          {
+            "zh": "三个内角和 180°，C=180°−48°−67°=65°。",
+            "en": "The interior sum is 180°: C=180°−48°−67°=65°."
+          },
+          {
+            "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "65",
+            "65 °"
+          ],
+          "rejected": [
+            "115",
+            "75"
+          ]
+        },
+        "misconceptionTags": [
+          "triangle-sum-with-reasons",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-triangle",
+          "a": 48,
+          "b": 67
+        }
+      },
+      "questions": [
+        {
+          "id": "J74-L04-Q1",
+          "lessonId": "J74-L04",
+          "type": "single_choice",
+          "difficulty": "foundation",
+          "stem": {
+            "zh": "哪个理由能把内角和猜想变成平面几何论证？",
+            "en": "Which supports a geometrical justification of the triangle sum?"
+          },
+          "answer": {
+            "kind": "choice",
+            "value": "2"
+          },
+          "skill": "triangle-sum-with-reasons",
+          "hints": [
+            {
+              "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+              "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "options": [
+            {
+              "text": {
+                "zh": "量过两个三角形，读数接近 180°",
+                "en": "Two measured triangles were near 180°"
+              },
+              "feedback": {
+                "zh": "测量是证据与探索，不足以说明所有三角形。",
+                "en": "Measurement supports exploration but does not establish the universal result."
+              },
+              "id": "0"
+            },
+            {
+              "text": {
+                "zh": "图画得像正三角形",
+                "en": "The drawing looks equilateral"
+              },
+              "feedback": {
+                "zh": "外观不能提供一般理由。",
+                "en": "Appearance does not supply a general reason."
+              },
+              "id": "1"
+            },
+            {
+              "text": {
+                "zh": "过顶点作底边平行线，用内错角及平角",
+                "en": "Draw a parallel through a vertex and use alternate interior angles and a straight angle"
+              },
+              "feedback": {
+                "zh": "已知与辅助线条件连接成不依赖测量的推理。",
+                "en": "The auxiliary premise connects to a reason independent of measurement."
+              },
+              "id": "2"
+            }
+          ],
+          "solution": {
+            "zh": "平行线把另外两个内角转到顶点两侧，三角共同组成 180°。",
+            "en": "The parallel transfers the other two interior angles to the vertex, where all three form 180°."
+          },
+          "solutionSteps": [
+            {
+              "zh": "平行线把另外两个内角转到顶点两侧，三角共同组成 180°。",
+              "en": "The parallel transfers the other two interior angles to the vertex, where all three form 180°."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "2"
+            ],
+            "rejected": [
+              "0",
+              "1"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-sum-with-reasons"
+          ]
+        },
+        {
+          "id": "J74-L04-Q2",
+          "lessonId": "J74-L04",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "一个直角三角形还有一个角 32°，求第三角。",
+            "en": "A right triangle has another angle 32°. Find the third angle."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "58",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "triangle-sum-with-reasons",
+          "hints": [
+            {
+              "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+              "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "solution": {
+            "zh": "90°+32°+C=180°，C=58°。 未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "90°+32°+C=180°, so C=58°. Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          },
+          "solutionSteps": [
+            {
+              "zh": "90°+32°+C=180°，C=58°。",
+              "en": "90°+32°+C=180°, so C=58°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "58",
+              "58 °"
+            ],
+            "rejected": [
+              "148",
+              "32"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-sum-with-reasons",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-triangle",
+            "a": 90,
+            "b": 32
+          }
+        },
+        {
+          "id": "J74-L04-Q3",
+          "lessonId": "J74-L04",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "等腰三角形顶角 38°，求每一个底角。",
+            "en": "An isosceles triangle has vertex angle 38°. Find each base angle."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "71",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "triangle-sum-with-reasons",
+          "hints": [
+            {
+              "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+              "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "solution": {
+            "zh": "两个底角相等，共 180°−38°=142°，每个 71°。 未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "The equal base angles total 142°, so each is 71°. Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          },
+          "solutionSteps": [
+            {
+              "zh": "两个底角相等，共 180°−38°=142°，每个 71°。",
+              "en": "The equal base angles total 142°, so each is 71°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "71",
+              "71 °"
+            ],
+            "rejected": [
+              "142",
+              "38",
+              "76"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-sum-with-reasons",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L04-Q4",
+          "lessonId": "J74-L04",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "三角形一个外角 124°，与它不相邻的一个内角 49°，求另一个不相邻内角。",
+            "en": "A triangle exterior angle is 124°. One non-adjacent interior is 49°. Find the other non-adjacent interior."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "75",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "triangle-sum-with-reasons",
+          "hints": [
+            {
+              "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+              "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "solution": {
+            "zh": "外角等于两个不相邻内角之和，124°=49°+x，x=75°；邻接内角另为 56°。 未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "The exterior equals the two remote interiors: 124°=49°+x, x=75°. The adjacent interior is separately 56°. Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          },
+          "solutionSteps": [
+            {
+              "zh": "外角等于两个不相邻内角之和，124°=49°+x，x=75°；邻接内角另为 56°。",
+              "en": "The exterior equals the two remote interiors: 124°=49°+x, x=75°. The adjacent interior is separately 56°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "75",
+              "75 °"
+            ],
+            "rejected": [
+              "56",
+              "173",
+              "7"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-sum-with-reasons",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L04-Q5",
+          "lessonId": "J74-L04",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "三角形三个内角为 x°、2x°、3x°，求 x。",
+            "en": "A triangle has interior angles x°, 2x° and 3x°. Find x."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "30",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "triangle-sum-with-reasons",
+          "hints": [
+            {
+              "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+              "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "solution": {
+            "zh": "6x=180，x=30；角分别 30°、60°、90°，正且和 180°。 未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "6x=180 gives x=30; angles 30°,60°,90° are positive and total 180°. Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          },
+          "solutionSteps": [
+            {
+              "zh": "6x=180，x=30；角分别 30°、60°、90°，正且和 180°。",
+              "en": "6x=180 gives x=30; angles 30°,60°,90° are positive and total 180°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "30",
+              "30 °"
+            ],
+            "rejected": [
+              "60",
+              "90",
+              "180"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-sum-with-reasons",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L04-Q6",
+          "lessonId": "J74-L04",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "解释过 C 作 AB 的平行线如何得到三角形内角和；再由内角和及平角推出外角定理。",
+            "en": "Explain how a parallel through C to AB yields the triangle sum, then derive the exterior-angle relation using the sum and a straight angle."
+          },
+          "skill": "triangle-sum-with-reasons",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "过 C 作 ℓ∥AB。由两组内错角相等，C 两侧的角分别等于 A、B，连同内角 C 构成平角，所以 A+B+C=180°。外角 E 与邻接内角 C 和为 180°，再与 A+B+C=180° 比较同减 C，E=A+B。需明确 E 是某边延长形成的外角，A、B 为不相邻内角；剪拼与量角只作探索。家长核对辅助线条件、角位置与相减链。",
+              "en": "Construct ℓ through C parallel to AB. Two alternate-interior equalities copy A and B beside C; the three form a straight angle, so A+B+C=180°. An exterior E formed by extending a side is supplementary to C. Compare E+C=180° with A+B+C=180° and subtract C: E=A+B. A and B are the non-adjacent interiors. Cutting and measurement support exploration, while the parallel relationships justify the result."
+            }
+          },
+          "solution": {
+            "zh": "过 C 作 ℓ∥AB。由两组内错角相等，C 两侧的角分别等于 A、B，连同内角 C 构成平角，所以 A+B+C=180°。外角 E 与邻接内角 C 和为 180°，再与 A+B+C=180° 比较同减 C，E=A+B。需明确 E 是某边延长形成的外角，A、B 为不相邻内角；剪拼与量角只作探索。家长核对辅助线条件、角位置与相减链。",
+            "en": "Construct ℓ through C parallel to AB. Two alternate-interior equalities copy A and B beside C; the three form a straight angle, so A+B+C=180°. An exterior E formed by extending a side is supplementary to C. Compare E+C=180° with A+B+C=180° and subtract C: E=A+B. A and B are the non-adjacent interiors. Cutting and measurement support exploration, while the parallel relationships justify the result."
+          },
+          "solutionSteps": [
+            {
+              "zh": "过 C 作 ℓ∥AB。由两组内错角相等，C 两侧的角分别等于 A、B，连同内角 C 构成平角，所以 A+B+C=180°。外角 E 与邻接内角 C 和为 180°，再与 A+B+C=180° 比较同减 C，E=A+B。需明确 E 是某边延长形成的外角，A、B 为不相邻内角；剪拼与量角只作探索。家长核对辅助线条件、角位置与相减链。",
+              "en": "Construct ℓ through C parallel to AB. Two alternate-interior equalities copy A and B beside C; the three form a straight angle, so A+B+C=180°. An exterior E formed by extending a side is supplementary to C. Compare E+C=180° with A+B+C=180° and subtract C: E=A+B. A and B are the non-adjacent interiors. Cutting and measurement support exploration, while the parallel relationships justify the result."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+              "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+            },
+            {
+              "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+              "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+            }
+          ],
+          "misconceptionTags": [
+            "triangle-sum-with-reasons"
+          ]
+        }
+      ],
+      "exit": {
+        "id": "J74-L04-X",
+        "lessonId": "J74-L04",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "三角形两个内角是 52.5° 和 67°，求第三角。",
+          "en": "Two interior angles are 52.5° and 67°. Find the third."
+        },
+        "answer": {
+          "kind": "number",
+          "value": "60.5",
+          "formats": [
+            "decimal",
+            "fraction"
+          ],
+          "unit": "°"
+        },
+        "skill": "triangle-sum-with-reasons",
+        "hints": [
+          {
+            "zh": "只取非退化平面三角形内部三个角，先写和为 180°。",
+            "en": "Use the three interior angles of a nondegenerate plane triangle and state their sum is 180°."
+          },
+          {
+            "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          }
+        ],
+        "solution": {
+          "zh": "180°−52.5°−67°=60.5°，三个都为内角。 未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+          "en": "180°−52.5°−67°=60.5°, using only interior angles. Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+        },
+        "solutionSteps": [
+          {
+            "zh": "180°−52.5°−67°=60.5°，三个都为内角。",
+            "en": "180°−52.5°−67°=60.5°, using only interior angles."
+          },
+          {
+            "zh": "未知角用 180° 减另外两角；等腰的两个底角相等，外角等于两个不相邻内角之和。解释可用过顶点的平行线。",
+            "en": "Subtract the other two angles from 180°. Isosceles base angles are equal; an exterior angle equals the two non-adjacent interiors. A parallel through a vertex explains the sum."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "60.5",
+            "60.5 °"
+          ],
+          "rejected": [
+            "119.5",
+            "61.5"
+          ]
+        },
+        "misconceptionTags": [
+          "triangle-sum-with-reasons",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-triangle",
+          "a": 52.5,
+          "b": 67
+        }
+      },
+      "exitReason": {
+        "zh": "用平行辅助线解释内角和，区分内角与外角并求未知角。",
+        "en": "Explain the triangle sum using a parallel auxiliary line, distinguish interior/exterior angles and find unknowns."
+      },
+      "parent": {
+        "goal": {
+          "zh": "用平行辅助线解释内角和，区分内角与外角并求未知角。",
+          "en": "Explain the triangle sum using a parallel auxiliary line, distinguish interior/exterior angles and find unknowns."
+        },
+        "misconception": {
+          "zh": "三个角含了一个外角；量图当普遍证明；等腰两个底角不分配。",
+          "en": "Including an exterior among the three interiors, treating measurement as proof, or failing to share the remaining angle sum between equal bases."
+        },
+        "prompts": [
+          {
+            "zh": "辅助线为什么与底边平行？",
+            "en": "What establishes the auxiliary line is parallel to the base?"
+          },
+          {
+            "zh": "这个外角与哪个内角邻补，另外两个在哪里？",
+            "en": "Which interior is adjacent supplementary to the exterior, and where are the other two?"
+          }
+        ],
+        "bridge": "J74-L03"
+      }
+    },
+    {
+      "id": "J74-L05",
+      "title": {
+        "zh": "三角形分类与边的关系",
+        "en": "Classifying triangles and side relationships"
+      },
+      "objective": {
+        "zh": "先判断能否成三角形，再按边或按角分类并保留包含关系。",
+        "en": "Test triangle existence before classifying by sides or angles, keeping inclusive relationships clear."
+      },
+      "prerequisites": [
+        "J74-L04",
+        "P56-L03"
+      ],
+      "keywords": [
+        {
+          "zh": "三角形不等式",
+          "en": "triangle inequality"
+        },
+        {
+          "zh": "等腰",
+          "en": "isosceles"
+        },
+        {
+          "zh": "按角分类",
+          "en": "angle classification"
+        }
+      ],
+      "minutes": 20,
+      "lab": "plane-classify",
+      "hook": {
+        "zh": "两根短杆加起来恰好等于最长杆，能围住一个三角形吗？等边是否也算等腰？",
+        "en": "Can rods close a triangle if the two shorter lengths exactly equal the longest? Is equilateral also isosceles?"
+      },
+      "stage": "J07",
+      "unit": "J74",
+      "order": 5,
+      "nzYearHints": [
+        7,
+        8
+      ],
+      "cnGradeHints": [
+        7
+      ],
+      "contentStatus": "ready",
+      "skillTags": [
+        "triangle-class-and-existence"
+      ],
+      "guided": {
+        "id": "J74-L05-G",
+        "lessonId": "J74-L05",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "三角形内角 35°、55°、90°，按角属于哪类？",
+          "en": "A triangle has interior angles 35°,55°,90°. Classify it by angles."
+        },
+        "answer": {
+          "kind": "geometry-class",
+          "value": "right"
+        },
+        "skill": "triangle-class-and-existence",
+        "hints": [
+          {
+            "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+            "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+          },
+          {
+            "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          }
+        ],
+        "solution": {
+          "zh": "含一个 90°，为直角三角形；不能因还有锐角就叫锐角三角形。 任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+          "en": "It has one right angle, so is right-angled; having some acute angles does not make it an acute triangle. Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+        },
+        "solutionSteps": [
+          {
+            "zh": "含一个 90°，为直角三角形；不能因还有锐角就叫锐角三角形。",
+            "en": "It has one right angle, so is right-angled; having some acute angles does not make it an acute triangle."
+          },
+          {
+            "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "right"
+          ],
+          "rejected": [
+            "acute",
+            "obtuse"
+          ]
+        },
+        "misconceptionTags": [
+          "triangle-class-and-existence",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-triangle",
+          "a": 35,
+          "b": 55
+        }
+      },
+      "questions": [
+        {
+          "id": "J74-L05-Q1",
+          "lessonId": "J74-L05",
+          "type": "single_choice",
+          "difficulty": "foundation",
+          "stem": {
+            "zh": "哪条分类说法正确？",
+            "en": "Which classification statement is correct?"
+          },
+          "answer": {
+            "kind": "choice",
+            "value": "1"
+          },
+          "skill": "triangle-class-and-existence",
+          "hints": [
+            {
+              "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+              "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "options": [
+            {
+              "text": {
+                "zh": "等腰与直角不能同时成立",
+                "en": "A triangle cannot be both isosceles and right"
+              },
+              "feedback": {
+                "zh": "按边与按角是两条分类轴，45°、45°、90° 就同时成立。",
+                "en": "Side and angle categories are separate; 45°,45°,90° gives both."
+              },
+              "id": "0"
+            },
+            {
+              "text": {
+                "zh": "等边属于至少两边相等的等腰特殊情形",
+                "en": "Equilateral is a special isosceles case under the at-least-two definition"
+              },
+              "feedback": {
+                "zh": "三边相等当然至少有两边相等。",
+                "en": "Three equal sides necessarily include at least two equal sides."
+              },
+              "id": "1"
+            },
+            {
+              "text": {
+                "zh": "只要任意两边之和等于第三边也能成形",
+                "en": "Equality of a pair sum to the third still makes a triangle"
+              },
+              "feedback": {
+                "zh": "等号是退化边界，需要严格大于。",
+                "en": "Equality is a degenerate boundary; strict inequality is required."
+              },
+              "id": "2"
+            }
+          ],
+          "solution": {
+            "zh": "先存在，再分别按边与角分类；使用最具体名称不否认包含关系。",
+            "en": "First establish existence, then classify by sides and angles. A most specific name does not deny inclusion."
+          },
+          "solutionSteps": [
+            {
+              "zh": "先存在，再分别按边与角分类；使用最具体名称不否认包含关系。",
+              "en": "First establish existence, then classify by sides and angles. A most specific name does not deny inclusion."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "1"
+            ],
+            "rejected": [
+              "0",
+              "2"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-class-and-existence"
+          ]
+        },
+        {
+          "id": "J74-L05-Q2",
+          "lessonId": "J74-L05",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "三边 5、5、5 cm，按边写最具体名称。等腰按至少两边相等定义。",
+            "en": "Sides are 5,5,5 cm. Give the most specific side classification; isosceles means at least two equal sides."
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "equilateral"
+          },
+          "skill": "triangle-class-and-existence",
+          "hints": [
+            {
+              "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+              "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "solution": {
+            "zh": "三边全相等，最具体是等边；它也属于广义等腰，不因此把两类说成互斥。 任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "All three sides are equal, so equilateral is most specific. It also belongs to the inclusive isosceles class. Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          },
+          "solutionSteps": [
+            {
+              "zh": "三边全相等，最具体是等边；它也属于广义等腰，不因此把两类说成互斥。",
+              "en": "All three sides are equal, so equilateral is most specific. It also belongs to the inclusive isosceles class."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "equilateral"
+            ],
+            "rejected": [
+              "isosceles",
+              "scalene",
+              "impossible"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-class-and-existence",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L05-Q3",
+          "lessonId": "J74-L05",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "三边 5、5、8 cm，判断能成形后按边给最具体名称。",
+            "en": "Sides are 5,5,8 cm. Check existence and give the most specific side name."
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "isosceles"
+          },
+          "skill": "triangle-class-and-existence",
+          "hints": [
+            {
+              "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+              "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "solution": {
+            "zh": "5+5>8 且另外两组也满足，恰两边相等，为非等边的等腰三角形。 任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "5+5>8 and the other inequalities hold. Exactly two equal sides make it isosceles and not equilateral. Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          },
+          "solutionSteps": [
+            {
+              "zh": "5+5>8 且另外两组也满足，恰两边相等，为非等边的等腰三角形。",
+              "en": "5+5>8 and the other inequalities hold. Exactly two equal sides make it isosceles and not equilateral."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "isosceles"
+            ],
+            "rejected": [
+              "equilateral",
+              "scalene",
+              "impossible"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-class-and-existence",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L05-Q4",
+          "lessonId": "J74-L05",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "三段长 2、3、5 cm，能围成非退化三角形吗？不能请写“不能构成三角形”。",
+            "en": "Can segments 2,3,5 cm close a nondegenerate triangle? Write “impossible” if not."
+          },
+          "answer": {
+            "kind": "geometry-class",
+            "value": "impossible"
+          },
+          "skill": "triangle-class-and-existence",
+          "hints": [
+            {
+              "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+              "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "solution": {
+            "zh": "2+3=5，只能拉成共线退化形，必须严格大于才能围成三角形。 任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "2+3=5 gives a collinear degenerate arrangement; a strict inequality is needed. Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          },
+          "solutionSteps": [
+            {
+              "zh": "2+3=5，只能拉成共线退化形，必须严格大于才能围成三角形。",
+              "en": "2+3=5 gives a collinear degenerate arrangement; a strict inequality is needed."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "impossible"
+            ],
+            "rejected": [
+              "scalene",
+              "isosceles",
+              "right"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-class-and-existence",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L05-Q5",
+          "lessonId": "J74-L05",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "两边长 3、5 cm，第三边是正整数厘米。求第三边最大可能值。",
+            "en": "Two sides are 3 and 5 cm. The third is a positive integer number of centimetres. Find its largest possible value."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "7",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "cm"
+          },
+          "skill": "triangle-class-and-existence",
+          "hints": [
+            {
+              "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+              "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "solution": {
+            "zh": "|5−3|<c<5+3，即 2<c<8，最大整数七；八会退化，二也不取。 任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "The strict interval is 2<c<8, so the largest integer is seven; neither endpoint is allowed. Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          },
+          "solutionSteps": [
+            {
+              "zh": "|5−3|<c<5+3，即 2<c<8，最大整数七；八会退化，二也不取。",
+              "en": "The strict interval is 2<c<8, so the largest integer is seven; neither endpoint is allowed."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "7",
+              "7 cm"
+            ],
+            "rejected": [
+              "8",
+              "2",
+              "6"
+            ]
+          },
+          "misconceptionTags": [
+            "triangle-class-and-existence",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L05-Q6",
+          "lessonId": "J74-L05",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "解释三边 2、3、5 为什么失败，3、4、5 为什么可成形；给出同时等腰与直角的角组，说明等边与等腰的包含关系。",
+            "en": "Explain why 2,3,5 fails and 3,4,5 closes. Give angles for an isosceles right triangle and explain equilateral/isosceles inclusion."
+          },
+          "skill": "triangle-class-and-existence",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "2+3=5 不能围成非退化三角形；3+4>5，且 3+5>4、4+5>3，所以可成形。判成形后才谈边分类；3、4、5 为不等边。45°、45°、90° 是等腰直角，按角与按边不冲突。采用至少两边相等定义时，等边属于等腰；问最具体名称时三边全等写等边，并非等腰说法数学上错误。固定两边 a、b，第三边严格在 |a−b| 与 a+b 之间，两个端点都不取。",
+              "en": "2+3=5 cannot enclose a nondegenerate triangle. For 3,4,5 all three pair sums exceed the remaining side, so it exists and is scalene. Angles 45°,45°,90° give an isosceles right triangle: angle and side axes do not conflict. With at least two equal sides as the definition, every equilateral is isosceles. A most-specific-name task asks for equilateral when all three match, without denying inclusion. The third side lies strictly between |a−b| and a+b."
+            }
+          },
+          "solution": {
+            "zh": "2+3=5 不能围成非退化三角形；3+4>5，且 3+5>4、4+5>3，所以可成形。判成形后才谈边分类；3、4、5 为不等边。45°、45°、90° 是等腰直角，按角与按边不冲突。采用至少两边相等定义时，等边属于等腰；问最具体名称时三边全等写等边，并非等腰说法数学上错误。固定两边 a、b，第三边严格在 |a−b| 与 a+b 之间，两个端点都不取。",
+            "en": "2+3=5 cannot enclose a nondegenerate triangle. For 3,4,5 all three pair sums exceed the remaining side, so it exists and is scalene. Angles 45°,45°,90° give an isosceles right triangle: angle and side axes do not conflict. With at least two equal sides as the definition, every equilateral is isosceles. A most-specific-name task asks for equilateral when all three match, without denying inclusion. The third side lies strictly between |a−b| and a+b."
+          },
+          "solutionSteps": [
+            {
+              "zh": "2+3=5 不能围成非退化三角形；3+4>5，且 3+5>4、4+5>3，所以可成形。判成形后才谈边分类；3、4、5 为不等边。45°、45°、90° 是等腰直角，按角与按边不冲突。采用至少两边相等定义时，等边属于等腰；问最具体名称时三边全等写等边，并非等腰说法数学上错误。固定两边 a、b，第三边严格在 |a−b| 与 a+b 之间，两个端点都不取。",
+              "en": "2+3=5 cannot enclose a nondegenerate triangle. For 3,4,5 all three pair sums exceed the remaining side, so it exists and is scalene. Angles 45°,45°,90° give an isosceles right triangle: angle and side axes do not conflict. With at least two equal sides as the definition, every equilateral is isosceles. A most-specific-name task asks for equilateral when all three match, without denying inclusion. The third side lies strictly between |a−b| and a+b."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+              "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+            },
+            {
+              "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+              "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+            }
+          ],
+          "misconceptionTags": [
+            "triangle-class-and-existence"
+          ]
+        }
+      ],
+      "exit": {
+        "id": "J74-L05-X",
+        "lessonId": "J74-L05",
+        "type": "visual_select",
+        "difficulty": "developing",
+        "stem": {
+          "zh": "三角形内角 30°、40°、110°，按角分类。",
+          "en": "A triangle has angles 30°,40°,110°. Classify it by angles."
+        },
+        "answer": {
+          "kind": "geometry-class",
+          "value": "obtuse"
+        },
+        "skill": "triangle-class-and-existence",
+        "hints": [
+          {
+            "zh": "先用严格三角形不等式判断成形，再分清按边还是按角分类。",
+            "en": "Test the strict triangle inequality first, then distinguish classification by sides from classification by angles."
+          },
+          {
+            "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          }
+        ],
+        "solution": {
+          "zh": "有一个大于 90° 的内角，为钝角三角形；两个锐角不能抵消这个分类。 任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+          "en": "One angle exceeds 90°, making it obtuse; the two acute angles do not change that category. Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+        },
+        "solutionSteps": [
+          {
+            "zh": "有一个大于 90° 的内角，为钝角三角形；两个锐角不能抵消这个分类。",
+            "en": "One angle exceeds 90°, making it obtuse; the two acute angles do not change that category."
+          },
+          {
+            "zh": "任意两边之和大于第三边；第三边介于差的绝对值与和之间。按角看最大角，按边写最具体名称；等边也属于广义等腰。",
+            "en": "Any two sides must exceed the third; a third side lies strictly between the difference magnitude and sum. Inspect the largest angle or give the most specific side name. Equilateral is also isosceles inclusively."
+          }
+        ],
+        "answerChecks": {
+          "accepted": [
+            "obtuse"
+          ],
+          "rejected": [
+            "acute",
+            "right"
+          ]
+        },
+        "misconceptionTags": [
+          "triangle-class-and-existence",
+          "given-versus-appearance",
+          "reason-before-conclusion"
+        ],
+        "diagram": {
+          "kind": "plane-triangle",
+          "a": 30,
+          "b": 40
+        }
+      },
+      "exitReason": {
+        "zh": "先判断能否成三角形，再按边或按角分类并保留包含关系。",
+        "en": "Test triangle existence before classifying by sides or angles, keeping inclusive relationships clear."
+      },
+      "parent": {
+        "goal": {
+          "zh": "先判断能否成三角形，再按边或按角分类并保留包含关系。",
+          "en": "Test triangle existence before classifying by sides or angles, keeping inclusive relationships clear."
+        },
+        "misconception": {
+          "zh": "只看两边相等不检查成形；不等式端点也取；把边分类和角分类互斥；否认等边是广义等腰。",
+          "en": "Skipping existence, including strict interval endpoints, making side/angle classes exclusive, or denying inclusive isosceles membership."
+        },
+        "prompts": [
+          {
+            "zh": "最短两边够不够跨过最长边？等号会怎样？",
+            "en": "Do the shorter sides exceed the longest, and what happens at equality?"
+          },
+          {
+            "zh": "你是按边分类，还是按最大角分类？",
+            "en": "Are you classifying by sides or by the largest angle?"
+          }
+        ],
+        "bridge": "J74-L04"
+      }
+    },
+    {
+      "id": "J74-L06",
+      "title": {
+        "zh": "写清楚为什么",
+        "en": "Writing geometrical reasons"
+      },
+      "objective": {
+        "zh": "把已知、关系、理由和结论连成可核查的几何论证，并发现条件缺口。",
+        "en": "Link givens, relationships, reasons and conclusions into a checkable argument and identify missing premises."
+      },
+      "prerequisites": [
+        "J74-L05",
+        "J73-L02"
+      ],
+      "keywords": [
+        {
+          "zh": "已知",
+          "en": "given"
+        },
+        {
+          "zh": "理由",
+          "en": "reason"
+        },
+        {
+          "zh": "结论",
+          "en": "conclusion"
+        }
+      ],
+      "minutes": 20,
+      "lab": "plane-reasons",
+      "hook": {
+        "zh": "“看起来一样”与“由某条关系可推出”差在哪里？一条正确角度数值是否等于一份证明？",
+        "en": "How does “looks the same” differ from a justified inference? Does a correct angle value constitute a proof?"
+      },
+      "stage": "J07",
+      "unit": "J74",
+      "order": 6,
+      "nzYearHints": [
+        7,
+        8
+      ],
+      "cnGradeHints": [
+        7
+      ],
+      "contentStatus": "ready",
+      "skillTags": [
+        "linked-geometrical-reasons"
+      ],
+      "guided": {
+        "id": "J74-L06-G",
+        "lessonId": "J74-L06",
+        "type": "error_spotting",
+        "difficulty": "transfer",
+        "stem": {
+          "zh": "两直线相交，A/B、B/C 分别是邻补角。不直接引用对顶角定理，用两个平角推导 A=C。",
+          "en": "Two lines intersect; A/B and B/C are adjacent supplementary pairs. Derive A=C from two straight angles without citing the theorem being explained."
+        },
+        "skill": "linked-geometrical-reasons",
+        "answer": {
+          "kind": "explain",
+          "rubric": {
+            "zh": "由反向射线得 A+B=180°、B+C=180°；所以 A+B=B+C，同减 B 得 A=C。需指出直线与角的位置来自已知，不能以看起来相等或直接重复待解释定理作为本条推导。家长检查每步所用条件与相减依据。",
+            "en": "Opposite rays give A+B=180° and B+C=180°. Therefore A+B=B+C; subtract the same B to obtain A=C. Identify the line structure from the givens; appearance or repetition of the target theorem does not supply this derivation. A parent checks each link."
+          }
+        },
+        "solution": {
+          "zh": "由反向射线得 A+B=180°、B+C=180°；所以 A+B=B+C，同减 B 得 A=C。需指出直线与角的位置来自已知，不能以看起来相等或直接重复待解释定理作为本条推导。家长检查每步所用条件与相减依据。",
+          "en": "Opposite rays give A+B=180° and B+C=180°. Therefore A+B=B+C; subtract the same B to obtain A=C. Identify the line structure from the givens; appearance or repetition of the target theorem does not supply this derivation. A parent checks each link."
+        },
+        "solutionSteps": [
+          {
+            "zh": "由反向射线得 A+B=180°、B+C=180°；所以 A+B=B+C，同减 B 得 A=C。需指出直线与角的位置来自已知，不能以看起来相等或直接重复待解释定理作为本条推导。家长检查每步所用条件与相减依据。",
+            "en": "Opposite rays give A+B=180° and B+C=180°. Therefore A+B=B+C; subtract the same B to obtain A=C. Identify the line structure from the givens; appearance or repetition of the target theorem does not supply this derivation. A parent checks each link."
+          }
+        ],
+        "hints": [
+          {
+            "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+            "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+          },
+          {
+            "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+            "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+          }
+        ],
+        "misconceptionTags": [
+          "linked-geometrical-reasons"
+        ],
+        "diagram": {
+          "kind": "plane-intersection",
+          "angle": 58
+        }
+      },
+      "questions": [
+        {
+          "id": "J74-L06-Q1",
+          "lessonId": "J74-L06",
+          "type": "single_choice",
+          "difficulty": "foundation",
+          "stem": {
+            "zh": "哪条书写最完整？",
+            "en": "Which written argument is complete?"
+          },
+          "answer": {
+            "kind": "choice",
+            "value": "0"
+          },
+          "skill": "linked-geometrical-reasons",
+          "hints": [
+            {
+              "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+              "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "options": [
+            {
+              "text": {
+                "zh": "已知 ℓ∥m 且 A/E 同位，所以 E=A=62°",
+                "en": "Given ℓ∥m and corresponding A/E, E=A=62°"
+              },
+              "feedback": {
+                "zh": "条件、位置、规则和结论相连。",
+                "en": "Premise, position, rule and conclusion are linked."
+              },
+              "id": "0"
+            },
+            {
+              "text": {
+                "zh": "E=62°，因为看起来如此",
+                "en": "E=62° because it looks so"
+              },
+              "feedback": {
+                "zh": "没有提供能保证结论的条件。",
+                "en": "No condition guarantees the conclusion."
+              },
+              "id": "1"
+            },
+            {
+              "text": {
+                "zh": "要证平行，所以先设两线平行",
+                "en": "Assume parallelism because it is what we want to prove"
+              },
+              "feedback": {
+                "zh": "这是预设待证结论的循环论证。",
+                "en": "This assumes the target conclusion and is circular."
+              },
+              "id": "2"
+            }
+          ],
+          "solution": {
+            "zh": "每条等式需有适用的关系，正确数值只是一部分证据。",
+            "en": "Each equality needs an applicable relationship; a correct value is only part of the evidence."
+          },
+          "solutionSteps": [
+            {
+              "zh": "每条等式需有适用的关系，正确数值只是一部分证据。",
+              "en": "Each equality needs an applicable relationship; a correct value is only part of the evidence."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "0"
+            ],
+            "rejected": [
+              "1",
+              "2"
+            ]
+          },
+          "misconceptionTags": [
+            "linked-geometrical-reasons"
+          ]
+        },
+        {
+          "id": "J74-L06-Q2",
+          "lessonId": "J74-L06",
+          "type": "visual_select",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "平面三角形 A=47°、B=68°，求 C；下一道解释中还需说明所用依据。",
+            "en": "A plane triangle has A=47° and B=68°. Find C; the reasoning tasks also require the supporting reason."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "65",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "linked-geometrical-reasons",
+          "hints": [
+            {
+              "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+              "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "solution": {
+            "zh": "三角形内角和 180°，C=180−47−68=65°，需要明确是三个内角。 关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+            "en": "Use the interior sum: C=180−47−68=65°, with all three identified as interiors. Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+          },
+          "solutionSteps": [
+            {
+              "zh": "三角形内角和 180°，C=180−47−68=65°，需要明确是三个内角。",
+              "en": "Use the interior sum: C=180−47−68=65°, with all three identified as interiors."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "65",
+              "65 °"
+            ],
+            "rejected": [
+              "115",
+              "75"
+            ]
+          },
+          "misconceptionTags": [
+            "linked-geometrical-reasons",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ],
+          "diagram": {
+            "kind": "plane-triangle",
+            "a": 47,
+            "b": 68
+          }
+        },
+        {
+          "id": "J74-L06-Q3",
+          "lessonId": "J74-L06",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "已知 ℓ∥m，A/E 是同位角，E/F 在下交点是邻补角。若 A=62°，写出 F 的度数及每步理由。",
+            "en": "Given ℓ∥m, A/E correspond and E/F are adjacent supplementary at the lower intersection. A=62°. State F and justify each step."
+          },
+          "skill": "linked-geometrical-reasons",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "由已知平行及同位位置，E=A=62°；由反向射线邻补，E+F=180°，故 F=118°。不能省去平行前提，也不能用对顶理由跨不同交点；家长核对两条关系各自来源。",
+              "en": "Given parallelism and corresponding positions give E=A=62°. Opposite rays at the lower intersection give E+F=180°, so F=118°. Retain the parallel premise and do not use vertically opposite reasoning across distinct intersections."
+            }
+          },
+          "solution": {
+            "zh": "由已知平行及同位位置，E=A=62°；由反向射线邻补，E+F=180°，故 F=118°。不能省去平行前提，也不能用对顶理由跨不同交点；家长核对两条关系各自来源。",
+            "en": "Given parallelism and corresponding positions give E=A=62°. Opposite rays at the lower intersection give E+F=180°, so F=118°. Retain the parallel premise and do not use vertically opposite reasoning across distinct intersections."
+          },
+          "solutionSteps": [
+            {
+              "zh": "由已知平行及同位位置，E=A=62°；由反向射线邻补，E+F=180°，故 F=118°。不能省去平行前提，也不能用对顶理由跨不同交点；家长核对两条关系各自来源。",
+              "en": "Given parallelism and corresponding positions give E=A=62°. Opposite rays at the lower intersection give E+F=180°, so F=118°. Retain the parallel premise and do not use vertically opposite reasoning across distinct intersections."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+              "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "misconceptionTags": [
+            "linked-geometrical-reasons"
+          ],
+          "diagram": {
+            "kind": "plane-parallel",
+            "top": 62,
+            "bottom": 62,
+            "parallel": true
+          }
+        },
+        {
+          "id": "J74-L06-Q4",
+          "lessonId": "J74-L06",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "有人说“图上两线差不多平行，所以同位角相等；同位角相等，所以证明两线平行”。找出缺口并修正。",
+            "en": "Someone argues: “The lines look parallel, so corresponding angles are equal; therefore the lines are parallel.” Find and repair the gap."
+          },
+          "skill": "linked-geometrical-reasons",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "第一步把外观当已知并假设待证平行，是循环论证。应有独立给定或证明的一对指定同位角相等，再用判定推出平行；若只有图形外观和一个角数值，则条件不足，应承认无法确定。不能捏造数值或平行标记。",
+              "en": "The first step treats appearance as a premise and assumes the target, making the argument circular. Obtain an independently given or proved equal corresponding pair, then use the converse. With only appearance and one angle, information is insufficient; do not invent measures or marks."
+            }
+          },
+          "solution": {
+            "zh": "第一步把外观当已知并假设待证平行，是循环论证。应有独立给定或证明的一对指定同位角相等，再用判定推出平行；若只有图形外观和一个角数值，则条件不足，应承认无法确定。不能捏造数值或平行标记。",
+            "en": "The first step treats appearance as a premise and assumes the target, making the argument circular. Obtain an independently given or proved equal corresponding pair, then use the converse. With only appearance and one angle, information is insufficient; do not invent measures or marks."
+          },
+          "solutionSteps": [
+            {
+              "zh": "第一步把外观当已知并假设待证平行，是循环论证。应有独立给定或证明的一对指定同位角相等，再用判定推出平行；若只有图形外观和一个角数值，则条件不足，应承认无法确定。不能捏造数值或平行标记。",
+              "en": "The first step treats appearance as a premise and assumes the target, making the argument circular. Obtain an independently given or proved equal corresponding pair, then use the converse. With only appearance and one angle, information is insufficient; do not invent measures or marks."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+              "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "misconceptionTags": [
+            "linked-geometrical-reasons"
+          ]
+        },
+        {
+          "id": "J74-L06-Q5",
+          "lessonId": "J74-L06",
+          "type": "numeric",
+          "difficulty": "developing",
+          "stem": {
+            "zh": "已知平行线的一对同位角为 (2x+10)° 与 (3x−30)°，求 x，并说明等式来自哪里。",
+            "en": "A corresponding pair on given parallel lines measures (2x+10)° and (3x−30)°. Find x and name the source of the equation."
+          },
+          "answer": {
+            "kind": "number",
+            "value": "40",
+            "formats": [
+              "decimal",
+              "fraction"
+            ],
+            "unit": "°"
+          },
+          "skill": "linked-geometrical-reasons",
+          "hints": [
+            {
+              "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+              "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "solution": {
+            "zh": "由平行同位相等列 2x+10=3x−30，x=40；两角都 90°，且在合法角度范围内。 关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+            "en": "Parallel corresponding equality gives 2x+10=3x−30, hence x=40. Both angles are 90°, in the permitted range. Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+          },
+          "solutionSteps": [
+            {
+              "zh": "由平行同位相等列 2x+10=3x−30，x=40；两角都 90°，且在合法角度范围内。",
+              "en": "Parallel corresponding equality gives 2x+10=3x−30, hence x=40. Both angles are 90°, in the permitted range."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "answerChecks": {
+            "accepted": [
+              "40",
+              "40 °"
+            ],
+            "rejected": [
+              "20",
+              "90"
+            ]
+          },
+          "misconceptionTags": [
+            "linked-geometrical-reasons",
+            "given-versus-appearance",
+            "reason-before-conclusion"
+          ]
+        },
+        {
+          "id": "J74-L06-Q6",
+          "lessonId": "J74-L06",
+          "type": "error_spotting",
+          "difficulty": "transfer",
+          "stem": {
+            "zh": "给三边 3、4、8 的图标了“三角形”，又画一条看似平行线后套用角度公式。你应先检查哪些条件，怎样报告无法完成的推理？",
+            "en": "A picture labels sides 3,4,8 as a triangle, then adds a seemingly parallel line and applies angle rules. What should be checked first, and how should the failed reasoning be reported?"
+          },
+          "skill": "linked-geometrical-reasons",
+          "answer": {
+            "kind": "explain",
+            "rubric": {
+              "zh": "先检查存在性，3+4<8，不能围成非退化三角形，因此不能在这些条件下套三角形内角和。平行也要由已知、作图定义或独立判定建立，不能由外观补出。应指出原条件冲突或缺少条件，分别解释，不能凭空改长度、画一个假三角形或假设平行让计算凑成功。家长核对先验条件、规则适用范围和诚实结论。",
+              "en": "Check existence first: 3+4<8, so no nondegenerate triangle can have these sides; the triangle-sum rule cannot be applied under these conditions. Parallelism also requires a given, construction premise or independent converse, not appearance. Report conflicting or insufficient conditions with reasons. Do not change lengths, draw a false triangle or assume parallelism merely to finish a calculation."
+            }
+          },
+          "solution": {
+            "zh": "先检查存在性，3+4<8，不能围成非退化三角形，因此不能在这些条件下套三角形内角和。平行也要由已知、作图定义或独立判定建立，不能由外观补出。应指出原条件冲突或缺少条件，分别解释，不能凭空改长度、画一个假三角形或假设平行让计算凑成功。家长核对先验条件、规则适用范围和诚实结论。",
+            "en": "Check existence first: 3+4<8, so no nondegenerate triangle can have these sides; the triangle-sum rule cannot be applied under these conditions. Parallelism also requires a given, construction premise or independent converse, not appearance. Report conflicting or insufficient conditions with reasons. Do not change lengths, draw a false triangle or assume parallelism merely to finish a calculation."
+          },
+          "solutionSteps": [
+            {
+              "zh": "先检查存在性，3+4<8，不能围成非退化三角形，因此不能在这些条件下套三角形内角和。平行也要由已知、作图定义或独立判定建立，不能由外观补出。应指出原条件冲突或缺少条件，分别解释，不能凭空改长度、画一个假三角形或假设平行让计算凑成功。家长核对先验条件、规则适用范围和诚实结论。",
+              "en": "Check existence first: 3+4<8, so no nondegenerate triangle can have these sides; the triangle-sum rule cannot be applied under these conditions. Parallelism also requires a given, construction premise or independent converse, not appearance. Report conflicting or insufficient conditions with reasons. Do not change lengths, draw a false triangle or assume parallelism merely to finish a calculation."
+            }
+          ],
+          "hints": [
+            {
+              "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+              "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+            },
+            {
+              "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+              "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+            }
+          ],
+          "misconceptionTags": [
+            "linked-geometrical-reasons"
+          ]
+        }
+      ],
+      "exit": {
+        "id": "J74-L06-X",
+        "lessonId": "J74-L06",
+        "type": "error_spotting",
+        "difficulty": "transfer",
+        "stem": {
+          "zh": "不用量角器，写一条三角形内角和论证，再说明一个外角等于哪两个内角之和。",
+          "en": "Without a protractor, give a triangle-sum argument, then state which two interiors sum to an exterior angle."
+        },
+        "skill": "linked-geometrical-reasons",
+        "answer": {
+          "kind": "explain",
+          "rubric": {
+            "zh": "过 C 作 AB 平行线，利用两组内错角把 A、B 放在 C 两旁，与内角 C 构成平角，得到 A+B+C=180°。外角 E 与 C 邻补，E+C=180°，相减得 E=A+B；是两个不相邻内角。必须说明辅助线的平行条件与位置，不能以量过几个三角形代替。家长核对所有推理链接。",
+            "en": "Construct a parallel to AB through C. Two alternate-interior equalities place A and B beside C, forming a straight angle with C; hence A+B+C=180°. An exterior E adjacent to C gives E+C=180°, so subtract C to obtain E=A+B, the two non-adjacent interiors. Explain the auxiliary premise and positions; measuring examples is not a substitute."
+          }
+        },
+        "solution": {
+          "zh": "过 C 作 AB 平行线，利用两组内错角把 A、B 放在 C 两旁，与内角 C 构成平角，得到 A+B+C=180°。外角 E 与 C 邻补，E+C=180°，相减得 E=A+B；是两个不相邻内角。必须说明辅助线的平行条件与位置，不能以量过几个三角形代替。家长核对所有推理链接。",
+          "en": "Construct a parallel to AB through C. Two alternate-interior equalities place A and B beside C, forming a straight angle with C; hence A+B+C=180°. An exterior E adjacent to C gives E+C=180°, so subtract C to obtain E=A+B, the two non-adjacent interiors. Explain the auxiliary premise and positions; measuring examples is not a substitute."
+        },
+        "solutionSteps": [
+          {
+            "zh": "过 C 作 AB 平行线，利用两组内错角把 A、B 放在 C 两旁，与内角 C 构成平角，得到 A+B+C=180°。外角 E 与 C 邻补，E+C=180°，相减得 E=A+B；是两个不相邻内角。必须说明辅助线的平行条件与位置，不能以量过几个三角形代替。家长核对所有推理链接。",
+            "en": "Construct a parallel to AB through C. Two alternate-interior equalities place A and B beside C, forming a straight angle with C; hence A+B+C=180°. An exterior E adjacent to C gives E+C=180°, so subtract C to obtain E=A+B, the two non-adjacent interiors. Explain the auxiliary premise and positions; measuring examples is not a substitute."
+          }
+        ],
+        "hints": [
+          {
+            "zh": "分开写已知、要证明和每条关系的来源，不先假定待证结论。",
+            "en": "Separate givens, the target and the source of each relationship; do not assume the conclusion."
+          },
+          {
+            "zh": "关系→理由→下一关系要连起来。量图与外观可帮助猜想，不能代替条件；文字推理需家长核对。",
+            "en": "Link each relationship to its reason and the next step. Measurement and appearance support conjectures, not missing givens. Written reasoning needs parent review."
+          }
+        ],
+        "misconceptionTags": [
+          "linked-geometrical-reasons"
+        ]
+      },
+      "exitReason": {
+        "zh": "把已知、关系、理由和结论连成可核查的几何论证，并发现条件缺口。",
+        "en": "Link givens, relationships, reasons and conclusions into a checkable argument and identify missing premises."
+      },
+      "parent": {
+        "goal": {
+          "zh": "把已知、关系、理由和结论连成可核查的几何论证，并发现条件缺口。",
+          "en": "Link givens, relationships, reasons and conclusions into a checkable argument and identify missing premises."
+        },
+        "misconception": {
+          "zh": "只报答案没有条件和理由；把测量当证明；使用结论证明自己；对不可能图形继续计算。",
+          "en": "Reporting values without reasons, treating measurement as proof, circularity, or calculating within an impossible figure."
+        },
+        "prompts": [
+          {
+            "zh": "这一行关系用了哪条已知？",
+            "en": "Which given supports this relationship?"
+          },
+          {
+            "zh": "如果删除这个条件，结论还一定成立吗？",
+            "en": "Would the conclusion necessarily hold if this premise were removed?"
+          }
+        ],
+        "bridge": "J74-L05"
+      },
+      "familyChallenge": {
+        "zh": "在纸上设计虚构的新西兰社区花园直线小径图，明确标出平行、相交和一个三角形；先检查给定边长能成形。写三条“已知→关系及理由→结论”，其中一条故意删掉必要条件，交家人找缺口。量图只用于检错，不当作证明；无需外出或真实施工。",
+        "en": "On paper, design a fictional New Zealand community-garden path diagram with explicit parallel/intersecting lines and one triangle. Check that the proposed sides can close. Write three givens–reason–conclusion chains and deliberately remove a necessary premise from one for a family member to find. Measurement checks errors without replacing proof; no visit or real construction is needed."
+      }
+    }
+  ],
+  "evidence": [
+    {
+      "skill": "geometric-objects-and-angle",
+      "focus": {
+        "zh": "点线射线、角与不变量",
+        "en": "Points, lines, rays, angles and invariants"
+      },
+      "sourceLesson": "J74-L01",
+      "sourceTask": "J74-L01-Q6",
+      "targets": [
+        "J93-MAINT-REASONS-Q1",
+        "J94-MAINT-REASONS-Q1"
+      ],
+      "rationale": {
+        "zh": "J93画AB四种对象及∠COD37°，J94画PQ及∠RST128°。两处都标端点、无限方向、射线反序与角中间顶点，解释点无大小、屏幕裁切非端点、同向延长和整体旋转保角，不只认名称。",
+        "en": "J93 draws four AB objects and angle COD37°; J94 uses PQ and RST128°. Both label endpoints, infinite directions, reversed rays and middle-letter vertices, distinguishing geometric points from ink, clipping from endpoints and angle invariance under extension/rotation rather than merely naming objects."
+      }
+    },
+    {
+      "skill": "vertical-and-adjacent-angles",
+      "focus": {
+        "zh": "对顶、邻补与反例",
+        "en": "Vertical/adjacent supplementary angles and counterexamples"
+      },
+      "sourceLesson": "J74-L02",
+      "sourceTask": "J74-L02-Q6",
+      "targets": [
+        "J93-MAINT-REASONS-Q2",
+        "J94-MAINT-REASONS-Q2"
+      ],
+      "rationale": {
+        "zh": "J93从交角42°求138/42/138，J94从57°求123/57/123；都须画两条真直线与反向射线，由两个180°和同减共同角证明对顶相等，并给互补非邻接、相等非对顶反例。",
+        "en": "J93 derives 138/42/138 from a 42° crossing and J94 123/57/123 from 57°. Both draw actual straight lines and opposite rays, prove vertical equality by subtracting a common angle from two 180° sums and give supplementary-nonadjacent and equal-nonvertical counterexamples."
+      }
+    },
+    {
+      "skill": "parallel-conditions-and-pairs",
+      "focus": {
+        "zh": "平行前提、角对与逆判",
+        "en": "Parallel premises, angle pairs and converse criteria"
+      },
+      "sourceLesson": "J74-L03",
+      "sourceTask": "J74-L03-Q6",
+      "targets": [
+        "J93-MAINT-REASONS-Q3",
+        "J94-MAINT-REASONS-Q3"
+      ],
+      "rationale": {
+        "zh": "两组Q3具体定位上右θ、下右α、上左下β、上右下γ，分别从52°或68°核同位、内错、同旁内；删平行后只保同交点对顶/邻补，α不定；反向用指定同位相等判平行并说明不许循环。",
+        "en": "Both Q3 tasks fix upper top-right θ, lower top-right α, upper bottom-left β and bottom-right γ, starting at 52° or 68°. They justify corresponding, alternate and same-side pairs, retain only local vertical/straight relations after removing parallelism and use the specified corresponding equality conversely without circular reasoning."
+      }
+    },
+    {
+      "skill": "triangle-sum-with-reasons",
+      "focus": {
+        "zh": "辅助平行线与三角形内外角",
+        "en": "Auxiliary parallels and triangle interior/exterior angles"
+      },
+      "sourceLesson": "J74-L04",
+      "sourceTask": "J74-L04-Q6",
+      "targets": [
+        "J93-MAINT-REASONS-Q4",
+        "J94-MAINT-REASONS-Q4"
+      ],
+      "rationale": {
+        "zh": "J93由A48、B67推C65、外角115，J94由38、79推C63、外角117。两处强制过C作AB平行线，标内错角组成平角，再比较两个180°和推出外角，不能只代背出的内角和。",
+        "en": "J93 derives C65° and exterior115° from A48°,B67°; J94 derives C63°,exterior117° from 38°,79°. Both construct through C a parallel to AB, identify alternate angles making a straight angle and compare two 180° sums for the exterior theorem, rather than merely substituting a memorised sum."
+      }
+    },
+    {
+      "skill": "triangle-class-and-existence",
+      "focus": {
+        "zh": "严格存在条件与双重分类",
+        "en": "Strict existence and two classification axes"
+      },
+      "sourceLesson": "J74-L05",
+      "sourceTask": "J74-L05-Q6",
+      "targets": [
+        "J93-MAINT-REASONS-Q5",
+        "J94-MAINT-REASONS-Q5"
+      ],
+      "rationale": {
+        "zh": "J93固定4、7给3<c<11，J94固定5、9给4<c<14，都解释端点退化、核三条边不等式、给不等边例，并用45/45/90同时等腰直角及至少两边相等定义解释等边包含。先验存在而非给假三角形贴名称。",
+        "en": "J93 derives 3<c<11 for fixed sides four/seven and J94 4<c<14 for five/nine. Both explain degenerate endpoints, check all inequalities, classify a scalene example and use 45/45/90 for simultaneous isosceles/right classifications and equilateral inclusion under the at-least-two-equal definition. Existence precedes classification."
+      }
+    },
+    {
+      "skill": "linked-geometrical-reasons",
+      "focus": {
+        "zh": "已知、辅助构造与完整理由链",
+        "en": "Givens, auxiliary constructions and linked reasons"
+      },
+      "sourceLesson": "J74-L06",
+      "sourceTask": "J74-L06-Q6",
+      "targets": [
+        "J93-MAINT-REASONS-Q3",
+        "J94-MAINT-REASONS-Q3",
+        "J93-MAINT-REASONS-Q4",
+        "J94-MAINT-REASONS-Q4",
+        "J93-MAINT-REASONS-Q5",
+        "J94-MAINT-REASONS-Q5",
+        "J86-L06-Q6"
+      ],
+      "rationale": {
+        "zh": "两组Q3区分局部条件与缺失的平行前提、明确逆判不循环；Q4必须写辅助平行→内错角→平角→内角和→外角的完整链；Q5先排退化存在失败。J86进一步逐条列公共边、构造、全等判据及对应结论。实际生成论证，不把卡片顺序正确当自由证明完成。",
+        "en": "Both Q3 tasks distinguish local facts from missing parallel premises and prevent circular converses. Q4 requires a full chain from auxiliary parallel through alternate and straight angles to the interior sum and exterior theorem, while Q5 excludes degenerate nonexistence first. J86 further enumerates common sides, constructions, congruence criteria and corresponding conclusions. These generate arguments rather than treating card order as completed free proof."
+      }
+    }
+  ],
+  "targets": [
+    {
+      "id": "J93-MAINT-REASONS-Q1",
+      "lessonId": "J93-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "取不同点A、B，分别画线段AB、射线AB、射线BA和直线AB，标端点及延伸方向；为什么屏幕边缘不是直线的端点？另画∠COD=37°，指出顶点。把两臂同向延长、再旋转整图，角度变吗？画出的点有墨迹大小，几何点也有面积吗？",
+        "en": "Choose distinct points A,B and draw segment AB, ray AB, ray BA and line AB, marking endpoints and extensions. Why is a screen edge not the endpoint of a line? Draw angle COD=37° and identify its vertex. Extend both arms in their original directions and rotate the whole figure: does the angle change? Does a geometric point have area because its ink mark does?"
+      },
+      "skill": "geometric-objects-and-angle",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "几何点只有位置，墨迹是示意。线段AB两端有限，射线AB从A经B向一侧无限，BA从B经A反向无限；直线AB两侧无限、无端点，屏幕裁切不改定义。∠COD顶点O居中，两臂OC、OD的方向夹角37°；同向延长及整体旋转均保夹角，不由臂长或朝向判断。",
+          "en": "A geometric point has position; ink size is only a representation. Segment AB has two endpoints, ray AB starts at A through B, ray BA starts at B in the opposite direction, and line AB extends both ways without endpoints. Screen clipping does not change definitions. Angle COD has vertex O and directions OC,OD separated by 37°. Extending arms in the same directions or rotating the whole preserves the angle."
+        }
+      },
+      "solution": {
+        "zh": "几何点只有位置，墨迹是示意。线段AB两端有限，射线AB从A经B向一侧无限，BA从B经A反向无限；直线AB两侧无限、无端点，屏幕裁切不改定义。∠COD顶点O居中，两臂OC、OD的方向夹角37°；同向延长及整体旋转均保夹角，不由臂长或朝向判断。",
+        "en": "A geometric point has position; ink size is only a representation. Segment AB has two endpoints, ray AB starts at A through B, ray BA starts at B in the opposite direction, and line AB extends both ways without endpoints. Screen clipping does not change definitions. Angle COD has vertex O and directions OC,OD separated by 37°. Extending arms in the same directions or rotating the whole preserves the angle."
+      },
+      "solutionSteps": [
+        {
+          "zh": "几何点只有位置，墨迹是示意。线段AB两端有限，射线AB从A经B向一侧无限，BA从B经A反向无限；直线AB两侧无限、无端点，屏幕裁切不改定义。∠COD顶点O居中，两臂OC、OD的方向夹角37°；同向延长及整体旋转均保夹角，不由臂长或朝向判断。",
+          "en": "A geometric point has position; ink size is only a representation. Segment AB has two endpoints, ray AB starts at A through B, ray BA starts at B in the opposite direction, and line AB extends both ways without endpoints. Screen clipping does not change definitions. Angle COD has vertex O and directions OC,OD separated by 37°. Extending arms in the same directions or rotating the whole preserves the angle."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "先区分标注点与端点，再标每个对象的无限方向。",
+          "en": "Distinguish labelled points from endpoints and mark every infinite extension."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "geometric-objects-and-angle"
+      ]
+    },
+    {
+      "id": "J94-MAINT-REASONS-Q1",
+      "lessonId": "J94-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "取不同P、Q，比较线段PQ、射线PQ、射线QP、直线PQ，画图标端点与无限方向。再画∠RST=128°，指出顶点；同向延长两臂与整体旋转为何不改角？大墨点与屏幕裁切会改变几何点、直线的定义吗？",
+        "en": "For distinct P,Q compare segment PQ, rays PQ and QP, and line PQ, drawing endpoints and infinite directions. Draw angle RST=128° and identify its vertex. Why do extending arms in their original directions and rotating the whole preserve it? Do a large ink dot or screen clipping change the definitions of point and line?"
+      },
+      "skill": "geometric-objects-and-angle",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "线段两端P/Q有限，PQ射线起点P经Q，QP起点Q反向；直线两向无限没有端点。几何点只有位置，墨点大小与屏幕边缘不是几何条件。角RST顶点S，SR与ST方向间128°，同向延长只改臂长，整体旋转保相对方向；不能把顶点认成R或把斜放当角度改变。",
+          "en": "The segment has finite endpoints P,Q; ray PQ starts at P through Q and QP starts at Q in the opposite direction. The line extends both ways without endpoints. A geometric point has position; ink size and screen edges add no geometric conditions. Angle RST has vertex S and directions SR,ST separated by 128°. Extending arms changes lengths and rotating preserves relative directions; R is not the vertex and tilting does not change the angle."
+        }
+      },
+      "solution": {
+        "zh": "线段两端P/Q有限，PQ射线起点P经Q，QP起点Q反向；直线两向无限没有端点。几何点只有位置，墨点大小与屏幕边缘不是几何条件。角RST顶点S，SR与ST方向间128°，同向延长只改臂长，整体旋转保相对方向；不能把顶点认成R或把斜放当角度改变。",
+        "en": "The segment has finite endpoints P,Q; ray PQ starts at P through Q and QP starts at Q in the opposite direction. The line extends both ways without endpoints. A geometric point has position; ink size and screen edges add no geometric conditions. Angle RST has vertex S and directions SR,ST separated by 128°. Extending arms changes lengths and rotating preserves relative directions; R is not the vertex and tilting does not change the angle."
+      },
+      "solutionSteps": [
+        {
+          "zh": "线段两端P/Q有限，PQ射线起点P经Q，QP起点Q反向；直线两向无限没有端点。几何点只有位置，墨点大小与屏幕边缘不是几何条件。角RST顶点S，SR与ST方向间128°，同向延长只改臂长，整体旋转保相对方向；不能把顶点认成R或把斜放当角度改变。",
+          "en": "The segment has finite endpoints P,Q; ray PQ starts at P through Q and QP starts at Q in the opposite direction. The line extends both ways without endpoints. A geometric point has position; ink size and screen edges add no geometric conditions. Angle RST has vertex S and directions SR,ST separated by 128°. Extending arms changes lengths and rotating preserves relative directions; R is not the vertex and tilting does not change the angle."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "射线名字的第一个点是起点，角名字中间点是顶点。",
+          "en": "The first point names a ray’s origin; the middle point names an angle’s vertex."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "geometric-objects-and-angle"
+      ]
+    },
+    {
+      "id": "J93-MAINT-REASONS-Q2",
+      "lessonId": "J93-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "两直线交于O，四射线OX、OY、OZ、OW按顺序环绕，OX/OZ反向，OY/OW反向，∠XOY=42°。画图求另外三个邻接角，用两个平角证明对顶角相等。补角是否一定相邻、相等角是否一定对顶？各说明反例。",
+        "en": "Two lines cross at O with rays OX,OY,OZ,OW in cyclic order, OX opposite OZ and OY opposite OW. Given angle XOY=42°, draw and find the other three consecutive angles. Prove vertical angles equal using two straight angles. Must supplementary angles be adjacent, or equal angles vertical? Give counterexamples."
+      },
+      "skill": "vertical-and-adjacent-angles",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "依次∠YOZ=138°、∠ZOW=42°、∠WOX=138°。设相邻A=42、B=138、C=42，A+B=C+B=180，同减B得A=C；另一对同理，不靠量图。邻补角有共同顶点边且另外两边反向；不同位置的60°与120°也互补却不邻接。不同交点两个直角相等，却不是对顶。",
+          "en": "The remaining angles are 138°,42°,138°. With consecutive A,B,C, A+B=C+B=180°, so subtracting the same B proves A=C; repeat for the other pair without measuring the drawing. Adjacent supplementary angles share vertex and side with the other sides opposite. Separate 60° and 120° angles can be supplementary without adjacency; right angles at distinct intersections can be equal without being vertical."
+        }
+      },
+      "solution": {
+        "zh": "依次∠YOZ=138°、∠ZOW=42°、∠WOX=138°。设相邻A=42、B=138、C=42，A+B=C+B=180，同减B得A=C；另一对同理，不靠量图。邻补角有共同顶点边且另外两边反向；不同位置的60°与120°也互补却不邻接。不同交点两个直角相等，却不是对顶。",
+        "en": "The remaining angles are 138°,42°,138°. With consecutive A,B,C, A+B=C+B=180°, so subtracting the same B proves A=C; repeat for the other pair without measuring the drawing. Adjacent supplementary angles share vertex and side with the other sides opposite. Separate 60° and 120° angles can be supplementary without adjacency; right angles at distinct intersections can be equal without being vertical."
+      },
+      "solutionSteps": [
+        {
+          "zh": "依次∠YOZ=138°、∠ZOW=42°、∠WOX=138°。设相邻A=42、B=138、C=42，A+B=C+B=180，同减B得A=C；另一对同理，不靠量图。邻补角有共同顶点边且另外两边反向；不同位置的60°与120°也互补却不邻接。不同交点两个直角相等，却不是对顶。",
+          "en": "The remaining angles are 138°,42°,138°. With consecutive A,B,C, A+B=C+B=180°, so subtracting the same B proves A=C; repeat for the other pair without measuring the drawing. Adjacent supplementary angles share vertex and side with the other sides opposite. Separate 60° and 120° angles can be supplementary without adjacency; right angles at distinct intersections can be equal without being vertical."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "把两条平角关系都写出来，寻找共同减去的角。",
+          "en": "Write both straight-angle equations and identify the common angle to subtract."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "vertical-and-adjacent-angles"
+      ]
+    },
+    {
+      "id": "J94-MAINT-REASONS-Q2",
+      "lessonId": "J94-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "两直线在O相交，OX、OY、OZ、OW依次环绕且OX/OZ、OY/OW各反向。∠XOY=57°，求其余三个邻接角，并由两个平角证明对顶相等。给互补但不邻接、相等但不对顶的例子，不能用量图作证明。",
+        "en": "Two lines meet at O with rays OX,OY,OZ,OW in cyclic order and opposite pairs OX/OZ,OY/OW. If XOY=57°, find the other three consecutive angles and prove vertical equality using two straight angles. Give supplementary non-adjacent and equal non-vertical examples without treating measurement as proof."
+      },
+      "skill": "vertical-and-adjacent-angles",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "其余依次123°、57°、123°。若A+B=180且B+C=180，同减B得A=C，依据反向射线构成平角。互补只要求和180，分在不同顶点的70°、110°也可；不同位置两直角都90°但不对顶。邻补另需同顶点、共边和另外两边反向，相等本身不推出这些位置关系。",
+          "en": "The remaining angles are 123°,57°,123°. From A+B=180 and B+C=180, subtract B to get A=C, using straight angles formed by opposite rays. Supplementarity requires only sum 180, such as separate 70° and 110° angles; equal right angles at different positions are not vertical. Adjacency needs shared vertex/side and opposite remaining sides, which numerical equality alone does not establish."
+        }
+      },
+      "solution": {
+        "zh": "其余依次123°、57°、123°。若A+B=180且B+C=180，同减B得A=C，依据反向射线构成平角。互补只要求和180，分在不同顶点的70°、110°也可；不同位置两直角都90°但不对顶。邻补另需同顶点、共边和另外两边反向，相等本身不推出这些位置关系。",
+        "en": "The remaining angles are 123°,57°,123°. From A+B=180 and B+C=180, subtract B to get A=C, using straight angles formed by opposite rays. Supplementarity requires only sum 180, such as separate 70° and 110° angles; equal right angles at different positions are not vertical. Adjacency needs shared vertex/side and opposite remaining sides, which numerical equality alone does not establish."
+      },
+      "solutionSteps": [
+        {
+          "zh": "其余依次123°、57°、123°。若A+B=180且B+C=180，同减B得A=C，依据反向射线构成平角。互补只要求和180，分在不同顶点的70°、110°也可；不同位置两直角都90°但不对顶。邻补另需同顶点、共边和另外两边反向，相等本身不推出这些位置关系。",
+          "en": "The remaining angles are 123°,57°,123°. From A+B=180 and B+C=180, subtract B to get A=C, using straight angles formed by opposite rays. Supplementarity requires only sum 180, such as separate 70° and 110° angles; equal right angles at different positions are not vertical. Adjacency needs shared vertex/side and opposite remaining sides, which numerical equality alone does not establish."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "先写位置条件，再用共同总量相减；名称不是只看数值。",
+          "en": "State position conditions before subtracting equal totals; numerical values alone do not determine angle relationships."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "vertical-and-adjacent-angles"
+      ]
+    },
+    {
+      "id": "J93-MAINT-REASONS-Q3",
+      "lessonId": "J93-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "画上下两条水平直线ℓ∥m被向右上倾斜截线相交。上交点右上角θ=52°，标下交点右上角α、上交点左下角β、右下角γ。解释同位、内错、同旁内角关系并求值。删掉平行条件哪些仍确定？反向若仅知θ=α，能用什么判平行？",
+        "en": "Draw upper horizontal line ℓ parallel to lower horizontal m, cut by a transversal rising to the right. The upper intersection’s top-right angle θ=52°. Label lower top-right α, upper bottom-left β and upper bottom-right γ. Explain corresponding, alternate-interior and same-side-interior relations and find values. What remains known without parallelism? Conversely, if only θ=α is known, what parallel criterion applies?"
+      },
+      "skill": "parallel-conditions-and-pairs",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "平行给同位α=θ=52°，内错β=α=52°，同旁内γ+α=180所以γ=128°。同一交点β与θ对顶、γ与θ邻补，即使不平行仍β52、γ128；α无给定数值，不能直接套跨交点关系。反向θ与α是指定同位角，相等可判两线平行；不能先假设平行再证明平行，也非任意相等角都够。",
+          "en": "Parallelism gives corresponding α=θ=52°, alternate-interior β=α=52° and same-side-interior γ+α=180°, hence γ=128°. At the upper intersection, β is vertical to θ and γ adjacent supplementary to θ, so those values remain without parallelism; α does not. Conversely equality of this specified corresponding pair proves parallelism. Do not assume parallelism to prove it or use arbitrary equal angles."
+        }
+      },
+      "solution": {
+        "zh": "平行给同位α=θ=52°，内错β=α=52°，同旁内γ+α=180所以γ=128°。同一交点β与θ对顶、γ与θ邻补，即使不平行仍β52、γ128；α无给定数值，不能直接套跨交点关系。反向θ与α是指定同位角，相等可判两线平行；不能先假设平行再证明平行，也非任意相等角都够。",
+        "en": "Parallelism gives corresponding α=θ=52°, alternate-interior β=α=52° and same-side-interior γ+α=180°, hence γ=128°. At the upper intersection, β is vertical to θ and γ adjacent supplementary to θ, so those values remain without parallelism; α does not. Conversely equality of this specified corresponding pair proves parallelism. Do not assume parallelism to prove it or use arbitrary equal angles."
+      },
+      "solutionSteps": [
+        {
+          "zh": "平行给同位α=θ=52°，内错β=α=52°，同旁内γ+α=180所以γ=128°。同一交点β与θ对顶、γ与θ邻补，即使不平行仍β52、γ128；α无给定数值，不能直接套跨交点关系。反向θ与α是指定同位角，相等可判两线平行；不能先假设平行再证明平行，也非任意相等角都够。",
+          "en": "Parallelism gives corresponding α=θ=52°, alternate-interior β=α=52° and same-side-interior γ+α=180°, hence γ=128°. At the upper intersection, β is vertical to θ and γ adjacent supplementary to θ, so those values remain without parallelism; α does not. Conversely equality of this specified corresponding pair proves parallelism. Do not assume parallelism to prove it or use arbitrary equal angles."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "先把每个角放在指定交点位置，再分同一交点与跨交点依据。",
+          "en": "Locate every angle at the specified intersection, separating local from cross-intersection reasons."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "parallel-conditions-and-pairs"
+      ]
+    },
+    {
+      "id": "J94-MAINT-REASONS-Q3",
+      "lessonId": "J94-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "画上ℓ下m两条水平平行线与右上倾斜截线。上交点右上角θ=68°；下交点右上α、上交点左下β、右下γ。分别用同位、内错和同旁内角关系求值，说明删平行后还能保哪些结论；若反向给θ=α，应怎样判平行而避免循环？",
+        "en": "Draw upper horizontal ℓ parallel to lower horizontal m and a transversal rising right. Upper top-right θ=68°; label lower top-right α, upper bottom-left β and bottom-right γ. Use corresponding, alternate-interior and same-side-interior relations. What survives removal of parallelism? If conversely θ=α is given, how can parallelism be concluded without circular reasoning?"
+      },
+      "skill": "parallel-conditions-and-pairs",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "平行时α=θ=68°，β=α=68°，γ+α=180°所以γ=112°。删平行后，上交点对顶仍β=68°、邻补仍γ=112°，α不能由这些局部条件确定。反向因θ/α为对应位置的同位角，相等可判ℓ∥m；不可先以平行为由推出相等再把同一相等拿回证明平行。任意两相等角不足。",
+          "en": "With parallelism α=θ=68°,β=α=68°, and γ+α=180°, giving γ=112°. Without it, upper vertical and adjacent-straight relations still give β=68°,γ=112°, while α is not determined. Conversely equality of this corresponding pair establishes ℓ∥m; deriving equality from assumed parallelism and using it to prove the same parallelism is circular. Arbitrary equal angles are insufficient."
+        }
+      },
+      "solution": {
+        "zh": "平行时α=θ=68°，β=α=68°，γ+α=180°所以γ=112°。删平行后，上交点对顶仍β=68°、邻补仍γ=112°，α不能由这些局部条件确定。反向因θ/α为对应位置的同位角，相等可判ℓ∥m；不可先以平行为由推出相等再把同一相等拿回证明平行。任意两相等角不足。",
+        "en": "With parallelism α=θ=68°,β=α=68°, and γ+α=180°, giving γ=112°. Without it, upper vertical and adjacent-straight relations still give β=68°,γ=112°, while α is not determined. Conversely equality of this corresponding pair establishes ℓ∥m; deriving equality from assumed parallelism and using it to prove the same parallelism is circular. Arbitrary equal angles are insufficient."
+      },
+      "solutionSteps": [
+        {
+          "zh": "平行时α=θ=68°，β=α=68°，γ+α=180°所以γ=112°。删平行后，上交点对顶仍β=68°、邻补仍γ=112°，α不能由这些局部条件确定。反向因θ/α为对应位置的同位角，相等可判ℓ∥m；不可先以平行为由推出相等再把同一相等拿回证明平行。任意两相等角不足。",
+          "en": "With parallelism α=θ=68°,β=α=68°, and γ+α=180°, giving γ=112°. Without it, upper vertical and adjacent-straight relations still give β=68°,γ=112°, while α is not determined. Conversely equality of this corresponding pair establishes ℓ∥m; deriving equality from assumed parallelism and using it to prove the same parallelism is circular. Arbitrary equal angles are insufficient."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "跨交点的等角要说明平行前提；同交点的对顶不需要它。",
+          "en": "Cross-intersection equalities need the parallel premise; local vertical equality does not."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "parallel-conditions-and-pairs"
+      ]
+    },
+    {
+      "id": "J93-MAINT-REASONS-Q4",
+      "lessonId": "J93-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "非退化△ABC有∠A=48°、∠B=67°。过C作AB平行线，不用量角器，用内错角和平角推内角和、求∠C；把BC过C延长到D，推∠ACD与两个不相邻内角的关系并算值。",
+        "en": "A nondegenerate triangle ABC has A=48° and B=67°. Through C construct a line parallel to AB. Without a protractor, derive the interior-angle sum from alternate-interior angles and a straight angle, then find C. Extend BC beyond C to D and derive angle ACD from the two remote interior angles."
+      },
+      "skill": "triangle-sum-with-reasons",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "辅助线平行AB给C两侧角分别等A、B，它们与C合为平角，故A+B+C=180°，C=65°。CD与CB反向，外角ACD+C=180°；与内角和式同减C，ACD=A+B=115°。先有辅助平行条件与角位置，不能只凭剪拼或看图像相等当一般证明。",
+          "en": "The auxiliary parallel line gives two angles at C equal to A and B; together with C they make a straight angle. Thus A+B+C=180°, giving C=65°. Because CD is opposite CB, exterior ACD+C=180°; subtracting C from both totals gives ACD=A+B=115°. The proof needs the constructed parallelism and correct angle positions rather than a measurement or cutout alone."
+        }
+      },
+      "solution": {
+        "zh": "辅助线平行AB给C两侧角分别等A、B，它们与C合为平角，故A+B+C=180°，C=65°。CD与CB反向，外角ACD+C=180°；与内角和式同减C，ACD=A+B=115°。先有辅助平行条件与角位置，不能只凭剪拼或看图像相等当一般证明。",
+        "en": "The auxiliary parallel line gives two angles at C equal to A and B; together with C they make a straight angle. Thus A+B+C=180°, giving C=65°. Because CD is opposite CB, exterior ACD+C=180°; subtracting C from both totals gives ACD=A+B=115°. The proof needs the constructed parallelism and correct angle positions rather than a measurement or cutout alone."
+      },
+      "solutionSteps": [
+        {
+          "zh": "辅助线平行AB给C两侧角分别等A、B，它们与C合为平角，故A+B+C=180°，C=65°。CD与CB反向，外角ACD+C=180°；与内角和式同减C，ACD=A+B=115°。先有辅助平行条件与角位置，不能只凭剪拼或看图像相等当一般证明。",
+          "en": "The auxiliary parallel line gives two angles at C equal to A and B; together with C they make a straight angle. Thus A+B+C=180°, giving C=65°. Because CD is opposite CB, exterior ACD+C=180°; subtracting C from both totals gives ACD=A+B=115°. The proof needs the constructed parallelism and correct angle positions rather than a measurement or cutout alone."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "先标辅助线上的三角，再比较两个都等180°的和。",
+          "en": "Mark the three angles along the auxiliary line, then compare two sums equal to 180°."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "triangle-sum-with-reasons"
+      ]
+    },
+    {
+      "id": "J94-MAINT-REASONS-Q4",
+      "lessonId": "J94-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "非退化△ABC有A=38°、B=79°。过C作AB平行线，标对应的内错角，用平角推内角和并求C。BC过C延长到D，推外角ACD与A、B的关系并求值；说明量角或剪拼为何只是探索。",
+        "en": "A nondegenerate triangle ABC has A=38°,B=79°. Through C construct a parallel to AB, label alternate-interior angles and derive the sum from a straight angle to find C. Extend BC beyond C to D and derive exterior ACD from A and B. Why are protractor readings or cutouts exploratory rather than a general proof?"
+      },
+      "skill": "triangle-sum-with-reasons",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "辅助平行线使C两侧角各等A、B，加C构成180，C=180−38−79=63°。CD与CB反向，ACD+C=180，与A+B+C=180同减C得ACD=A+B=117°。角等值来自平行与位置，平角来自反向射线；有限量图或剪片有精度与样例范围，不能替代普遍依据。",
+          "en": "The constructed parallel gives angles equal to A and B beside C on a straight line, so C=180−38−79=63°. Because CD and CB are opposite, ACD+C=180; comparing with A+B+C=180 gives ACD=A+B=117°. Parallelism and positions justify equal angles, and opposite rays justify straightness. Finite measurements or cutouts have precision and sample limitations rather than universal force."
+        }
+      },
+      "solution": {
+        "zh": "辅助平行线使C两侧角各等A、B，加C构成180，C=180−38−79=63°。CD与CB反向，ACD+C=180，与A+B+C=180同减C得ACD=A+B=117°。角等值来自平行与位置，平角来自反向射线；有限量图或剪片有精度与样例范围，不能替代普遍依据。",
+        "en": "The constructed parallel gives angles equal to A and B beside C on a straight line, so C=180−38−79=63°. Because CD and CB are opposite, ACD+C=180; comparing with A+B+C=180 gives ACD=A+B=117°. Parallelism and positions justify equal angles, and opposite rays justify straightness. Finite measurements or cutouts have precision and sample limitations rather than universal force."
+      },
+      "solutionSteps": [
+        {
+          "zh": "辅助平行线使C两侧角各等A、B，加C构成180，C=180−38−79=63°。CD与CB反向，ACD+C=180，与A+B+C=180同减C得ACD=A+B=117°。角等值来自平行与位置，平角来自反向射线；有限量图或剪片有精度与样例范围，不能替代普遍依据。",
+          "en": "The constructed parallel gives angles equal to A and B beside C on a straight line, so C=180−38−79=63°. Because CD and CB are opposite, ACD+C=180; comparing with A+B+C=180 gives ACD=A+B=117°. Parallelism and positions justify equal angles, and opposite rays justify straightness. Finite measurements or cutouts have precision and sample limitations rather than universal force."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "写出两个180°关系，并说明它们各来自哪个几何条件。",
+          "en": "Write two 180° relations and identify the condition behind each."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "triangle-sum-with-reasons"
+      ]
+    },
+    {
+      "id": "J93-MAINT-REASONS-Q5",
+      "lessonId": "J93-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "固定两边4、7，第三边c须满足什么严格范围才能成非退化三角形？解释两个端点为何不取。检查4、7、8并按边分类；再用45°、45°、90°说明按边与按角两种分类能否同时成立，等边是否属于等腰。",
+        "en": "Two sides are four and seven. What strict range of third side c permits a nondegenerate triangle, and why exclude both endpoints? Check and classify sides 4,7,8. Use angles 45°,45°,90° to explain simultaneous side and angle classifications and whether equilateral triangles belong to isosceles triangles."
+      },
+      "skill": "triangle-class-and-existence",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "三条不等式给7−4<c<7+4，即3<c<11；端点使两短边和等于长边，只能压成直线。4、7、8满足三条严格不等式且不等边。45、45、90同时等腰与直角，分类轴不同不冲突。按至少两边相等定义，等边属于等腰，最具体名称可报等边。存在性要在分类前，不能给退化图套内角和。",
+          "en": "The three strict inequalities reduce to 3<c<11. At either endpoint two shorter sides sum to the longest and the figure is degenerate. Sides 4,7,8 pass all inequalities and are scalene. Angles 45°,45°,90° describe both isosceles and right classifications. Under the at-least-two-equal-sides definition, equilateral is included in isosceles, while the most specific name is equilateral. Check existence before classifying."
+        }
+      },
+      "solution": {
+        "zh": "三条不等式给7−4<c<7+4，即3<c<11；端点使两短边和等于长边，只能压成直线。4、7、8满足三条严格不等式且不等边。45、45、90同时等腰与直角，分类轴不同不冲突。按至少两边相等定义，等边属于等腰，最具体名称可报等边。存在性要在分类前，不能给退化图套内角和。",
+        "en": "The three strict inequalities reduce to 3<c<11. At either endpoint two shorter sides sum to the longest and the figure is degenerate. Sides 4,7,8 pass all inequalities and are scalene. Angles 45°,45°,90° describe both isosceles and right classifications. Under the at-least-two-equal-sides definition, equilateral is included in isosceles, while the most specific name is equilateral. Check existence before classifying."
+      },
+      "solutionSteps": [
+        {
+          "zh": "三条不等式给7−4<c<7+4，即3<c<11；端点使两短边和等于长边，只能压成直线。4、7、8满足三条严格不等式且不等边。45、45、90同时等腰与直角，分类轴不同不冲突。按至少两边相等定义，等边属于等腰，最具体名称可报等边。存在性要在分类前，不能给退化图套内角和。",
+          "en": "The three strict inequalities reduce to 3<c<11. At either endpoint two shorter sides sum to the longest and the figure is degenerate. Sides 4,7,8 pass all inequalities and are scalene. Angles 45°,45°,90° describe both isosceles and right classifications. Under the at-least-two-equal-sides definition, equilateral is included in isosceles, while the most specific name is equilateral. Check existence before classifying."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "最长边可能是7也可能是c，不能只核其中一条。",
+          "en": "The longest side can be seven or c, so do not check only one inequality."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "triangle-class-and-existence"
+      ]
+    },
+    {
+      "id": "J94-MAINT-REASONS-Q5",
+      "lessonId": "J94-MAINT",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "两边5、9，给第三边c的严格可行范围并解释端点。核5、9、10能否成形及按边类别。自己给一组三角形角同时满足等腰与直角，再说明等边和等腰的包含关系、为什么要先验存在。",
+        "en": "Given sides five and nine, find the strict feasible range for third side c and explain endpoints. Check existence and side classification for 5,9,10. Construct angle values for a triangle both isosceles and right, explain equilateral inclusion and why existence comes before classification."
+      },
+      "skill": "triangle-class-and-existence",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "需9−5<c<9+5，即4<c<14；任一端点两短边和等于长边而退化。5、9、10三条严格不等式都过，三边不同为不等边。45、45、90给等腰直角，同时两种分类不冲突；至少两边相等的等腰定义包含三边全等。若条件不成三角形，不可假画图套内角和或贴锐钝名称。",
+          "en": "The strict range is 4<c<14; at either endpoint two shorter sides sum to the longest and become degenerate. Sides 5,9,10 satisfy all inequalities and are scalene. Angles 45°,45°,90° give an isosceles right triangle, so the classifications coexist. At least two equal sides includes all-three-equal equilateral triangles. If no triangle exists, an invented sketch cannot justify its angle sum or type."
+        }
+      },
+      "solution": {
+        "zh": "需9−5<c<9+5，即4<c<14；任一端点两短边和等于长边而退化。5、9、10三条严格不等式都过，三边不同为不等边。45、45、90给等腰直角，同时两种分类不冲突；至少两边相等的等腰定义包含三边全等。若条件不成三角形，不可假画图套内角和或贴锐钝名称。",
+        "en": "The strict range is 4<c<14; at either endpoint two shorter sides sum to the longest and become degenerate. Sides 5,9,10 satisfy all inequalities and are scalene. Angles 45°,45°,90° give an isosceles right triangle, so the classifications coexist. At least two equal sides includes all-three-equal equilateral triangles. If no triangle exists, an invented sketch cannot justify its angle sum or type."
+      },
+      "solutionSteps": [
+        {
+          "zh": "需9−5<c<9+5，即4<c<14；任一端点两短边和等于长边而退化。5、9、10三条严格不等式都过，三边不同为不等边。45、45、90给等腰直角，同时两种分类不冲突；至少两边相等的等腰定义包含三边全等。若条件不成三角形，不可假画图套内角和或贴锐钝名称。",
+          "en": "The strict range is 4<c<14; at either endpoint two shorter sides sum to the longest and become degenerate. Sides 5,9,10 satisfy all inequalities and are scalene. Angles 45°,45°,90° give an isosceles right triangle, so the classifications coexist. At least two equal sides includes all-three-equal equilateral triangles. If no triangle exists, an invented sketch cannot justify its angle sum or type."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "边分类和角分类回答不同问题，先检查三条严格边不等式。",
+          "en": "Side and angle classifications answer different questions; first check all strict side inequalities."
+        },
+        {
+          "zh": "把每个结论指回已知、定义或前一步；不要用图像外观补条件。",
+          "en": "Trace each conclusion to a given, definition or preceding step; do not add premises from appearance."
+        }
+      ],
+      "misconceptionTags": [
+        "triangle-class-and-existence"
+      ]
+    },
+    {
+      "id": "J86-L06-Q6",
+      "lessonId": "J86-L06",
+      "type": "error_spotting",
+      "difficulty": "transfer",
+      "stem": {
+        "zh": "用一个平行四边形或等腰三角形案例，逐项说明原始已知、辅助构造、全等判据和对应结论，指出一个循环论证。",
+        "en": "Use a parallelogram or isosceles example to distinguish givens, construction, criterion and corresponding conclusion, identifying one circular step."
+      },
+      "skill": "short-proof-dependency-chain",
+      "answer": {
+        "kind": "explain",
+        "rubric": {
+          "zh": "可用两组平行→两组内错角相等，加 AC公共→ASA得ABC≅CDA→AB=CD；或AB=AC与AD角平分、AD公共→SAS得ABD≅ACD→BD=DC。先写所有依赖，再加入结论；公共边自反不需测量，角关系要有平行或构造依据。若先假设AB=CD或BD=DC来证明同一目标，即循环。家长核对应顺序与每一条具体依据，卡片检查不代表自动理解自由证明。",
+          "en": "Use two parallel pairs to obtain alternate-angle pairs plus common AC, then ASA for ABC≅CDA and AB=CD; or equal legs, an apex bisector and common AD for SAS and BD=DC. Establish dependencies before conclusions. Reflexivity needs no measurement; angle equality needs its premise. Assuming AB=CD or BD=DC to prove itself is circular. Review concrete correspondence and reasons; finite-card checking does not understand arbitrary written proofs."
+        }
+      },
+      "solution": {
+        "zh": "可用两组平行→两组内错角相等，加 AC公共→ASA得ABC≅CDA→AB=CD；或AB=AC与AD角平分、AD公共→SAS得ABD≅ACD→BD=DC。先写所有依赖，再加入结论；公共边自反不需测量，角关系要有平行或构造依据。若先假设AB=CD或BD=DC来证明同一目标，即循环。家长核对应顺序与每一条具体依据，卡片检查不代表自动理解自由证明。",
+        "en": "Use two parallel pairs to obtain alternate-angle pairs plus common AC, then ASA for ABC≅CDA and AB=CD; or equal legs, an apex bisector and common AD for SAS and BD=DC. Establish dependencies before conclusions. Reflexivity needs no measurement; angle equality needs its premise. Assuming AB=CD or BD=DC to prove itself is circular. Review concrete correspondence and reasons; finite-card checking does not understand arbitrary written proofs."
+      },
+      "solutionSteps": [
+        {
+          "zh": "可用两组平行→两组内错角相等，加 AC公共→ASA得ABC≅CDA→AB=CD；或AB=AC与AD角平分、AD公共→SAS得ABD≅ACD→BD=DC。先写所有依赖，再加入结论；公共边自反不需测量，角关系要有平行或构造依据。若先假设AB=CD或BD=DC来证明同一目标，即循环。家长核对应顺序与每一条具体依据，卡片检查不代表自动理解自由证明。",
+          "en": "Use two parallel pairs to obtain alternate-angle pairs plus common AC, then ASA for ABC≅CDA and AB=CD; or equal legs, an apex bisector and common AD for SAS and BD=DC. Establish dependencies before conclusions. Reflexivity needs no measurement; angle equality needs its premise. Assuming AB=CD or BD=DC to prove itself is circular. Review concrete correspondence and reasons; finite-card checking does not understand arbitrary written proofs."
+        }
+      ],
+      "hints": [
+        {
+          "zh": "把每个结论的依赖写在前面，先列原始已知与待证。",
+          "en": "State givens and target, then establish each premise before using its conclusion."
+        },
+        {
+          "zh": "列对应边角→全等判据→对应结论。公共边可自反，平行角要有平行前提；测量和循环引用都不是证明。",
+          "en": "List corresponding elements, a congruence criterion, then corresponding conclusions. Common sides are reflexive; parallel-angle facts need parallel premises. Measurement and circular reasoning are not proofs."
+        }
+      ],
+      "misconceptionTags": [
+        "short-proof-dependency-chain"
+      ]
+    }
+  ]
+}

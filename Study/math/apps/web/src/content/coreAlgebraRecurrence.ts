@@ -201,6 +201,86 @@ const rationalDetails = [
 ];
 export const coreAlgebraRecurrence = originalCoreAlgebraRecurrence.map(
   (entry) => {
+    if (entry.sourceLesson.startsWith('J73-')) {
+      const i = Number(entry.sourceLesson.slice(-2)) - 1,
+        question = [1, 2, 3, 0, 4, 4][i]!;
+      if (!question) return entry;
+      const details = [
+        [
+          '新J83/J92第1卡分别重建精确分数原式左右值与近似差，另分唯一零、矛盾和恒等，完整性靠可逆步骤而非单次代入。',
+          'New J83/J92 card ones reconstruct exact fractional original-side values and rounded discrepancies, then distinguish unique zero, contradiction and identity; completeness follows from reversible steps rather than one passing trial.',
+        ],
+        [
+          '新两组第2卡以负分数同乘及逆操作保解，另以零乘新增候选、零除未定义、单侧碰巧同解与另一方程反例、除变量失零分支区分规则与实例。',
+          'New card twos use a negative fractional multiplier and its inverse, then separate zero-multiplication extra candidates, undefined zero division, one-sided coincidental equality versus a counterexample, and a lost variable-zero branch.',
+        ],
+        [
+          '新两组第3卡把负分数连到每个完整项，分别求2/3或−3/4，并对错中间式的−7/3或7/4候选重代最初括号两边给反例。',
+          'New card threes connect a negative fractional factor to every term, solve for 2/3 or −3/4, and refute erroneous-intermediate candidates −7/3 or 7/4 by checking both original bracketed sides.',
+        ],
+        ['', ''],
+        [
+          '新两组第4卡先构造精确年龄和/差、两人同过年数的未来倍数、完整包/散卡及长度/温度/零总量/非负价格的原关系，再求解筛选；另自创不同可行分数年龄与不可行整包模型。',
+          'New card fours construct original age-total/gap, whole future-age multiple, pack/extras and length/temperature/zero-total/nonnegative-price relations before solving/filtering, then invent a different feasible fractional-age and impossible-whole-pack pair.',
+        ],
+        [
+          '新两组第4卡逐情境保代数解、原式检验和域，正分数长度、非负分数年龄、负温与零组可行，分数整包与负价格不行；具体舍入反例不得改原条件。J85直接题已补三个原条件。',
+          'New card fours retain algebraic roots, original checks and contextual domains: positive fractional lengths, nonnegative fractional ages, negative temperatures and zero groups are valid, while fractional packs and negative prices are not. Concrete rounding counterexamples retain the original givens. J85 now supplies its three original condition sets.',
+        ],
+      ][i]!;
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J83', 'J92'].map(
+            (u) => `${u}-MAINT-LINEAR-MEANING-Q${question}`,
+          ),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${details[0]}`,
+          `${entry.rationale.en} ${details[1]}`,
+        ),
+      };
+    }
+    if (entry.sourceLesson.startsWith('J72-')) {
+      const i = Number(entry.sourceLesson.slice(-2)) - 1,
+        question = [1, 2, 3, 2, 4][i]!;
+      const details = [
+        [
+          '新两组Q1保x/y独立分数赋值，完整重代得11/12或−13/36，仅改y后得−5/12或77/36；保外负号并对有限吻合另给反例。',
+          'New Q1s consistently substitute separate fractional x/y assignments for 11/12 or −13/36, then change only y for −5/12 or 77/36, retaining outside minus signs and counterexamples to finite-agreement claims.',
+        ],
+        [
+          '新两组Q2保九原ID与完整字母指数，重建分数系数/xy-yx/同次数异字母类型与零抵消，不靠某次同值分组。',
+          'New Q2s retain nine original IDs and each letter exponent, reconstructing fractional coefficients, xy/yx, equal-degree unlike types and cancellation without grouping by a coincident numerical value.',
+        ],
+        [
+          '新两组Q3把负分数因子连三项，包括常数，另与H合并并核0/1/−1/正反因子；原式等值不代完成展开。',
+          'New Q3s connect negative fractional factors to all three terms including constants, collect with H and check 0/1/−1/opposite factors, distinguishing equivalent originals from finished expansion.',
+        ],
+        [
+          '新两组Q2独立重求分数系数双变量A+B/A−B/嵌套A−(B−C)/A−A，并把差加原B逐类还原，保每项来源。',
+          'New Q2s independently reconstruct fractional two-variable sums, differences, nested A−(B−C) and A−A, adding original B back by type while retaining every source term.',
+        ],
+        [
+          '新两组Q4按原收费/整单与逐本优惠/袋装/正分数长方形亲建一般式，核零价格或组费、不同n域及周长面积的单位和1/2或3/2样例。',
+          'New Q4s derive group charges, order/per-item discounts, bag totals and positive-fraction rectangles, checking zero prices/fees, distinct n domains, perimeter/area units and samples 1/2 or 3/2.',
+        ],
+      ][i]!;
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J83', 'J84'].map(
+            (u) => `${u}-MAINT-POLYNOMIAL-MEANING-Q${question}`,
+          ),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${details[0]}`,
+          `${entry.rationale.en} ${details[1]}`,
+        ),
+      };
+    }
     if (!entry.sourceLesson.startsWith('J71-')) return entry;
     const i = Number(entry.sourceLesson.slice(-2)) - 1,
       question = [1, 1, 2, 2, 3, 4][i]!;

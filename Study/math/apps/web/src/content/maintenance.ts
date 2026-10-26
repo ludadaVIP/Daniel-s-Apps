@@ -1,3 +1,6 @@
+import { planeMeaningRetrieval } from './planeMeaningRetrieval';
+import { linearMeaningRetrieval } from './linearMeaningRetrieval';
+import { polynomialMeaningRetrieval } from './polynomialMeaningRetrieval';
 import { rationalMeaningRetrieval } from './rationalMeaningRetrieval';
 import { appliedMeaningRetrieval } from './appliedMeaningRetrieval';
 import { chanceMeaningRetrieval } from './chanceMeaningRetrieval';
@@ -203,6 +206,9 @@ export const maintenanceSets = {
   ...chanceMeaningRetrieval,
   ...appliedMeaningRetrieval,
   ...rationalMeaningRetrieval,
+  ...polynomialMeaningRetrieval,
+  ...linearMeaningRetrieval,
+  ...planeMeaningRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',

@@ -1187,8 +1187,8 @@ const specs: Spec[] = [
       correct: 1,
     },
     reason: [
-      '比较接送固定费、排空停止与整包卡片：分别解释 m/b 单位、允许域及为何“公式可算”不够。',
-      'Compare transport fees, draining until empty and whole card packs: explain m/b units, allowed domains and why evaluability is insufficient.',
+      '按原条件表分别建立接送、排水、整包卡片的关系，解释 m/b 的单位和允许域。由原量求何时排空；七分钟的代数输出和排空后实际余水有何区别？半包是否允许？解释为什么“公式可算”不够。',
+      'Construct separate transport, draining and whole-pack relationships from the original conditions table. Explain m/b units and domains. Derive the emptying time; distinguish the algebraic output at seven minutes from actual water after the stop. Is half a pack allowed? Explain why evaluability is insufficient.',
     ],
     rubric: [
       '接送 m=2 NZD/km、b=5 NZD，输入公里限定零至八且服务已启动；排水 m=−2 L/min、b=12 L，原式只到六分钟，七分钟负二是域外代数输出，不是允许余水；排空后另用零。卡片 m=3 cards/pack、b=2 cards，输入仅零至四整数，半包即便代数给三点五张也不允许，图只画离散点。现实模型有明确假设，有限数据不证明无限外推；家长核单位、边界和原条件。',
@@ -1212,6 +1212,47 @@ const specs: Spec[] = [
 ];
 export const j85Lessons: Lesson[] = specs.map((s, i) => {
   const id = `J85-L0${i + 1}`;
+  const explanation = reasoning(
+    `${id}-Q6`,
+    T(s.reason),
+    skills[i]!,
+    T(s.rubric),
+    hints[i]!.map(T),
+  );
+  if (i === 5)
+    explanation.contextTable = {
+      caption: t(
+        '三个独立的虚构模型；先由原条件建立关系，不预给排空时间。',
+        'Three independent fictional models; derive relationships and the emptying time from these original conditions.',
+      ),
+      columns: [
+        t('情境', 'Context'),
+        t('原条件与允许输入', 'Original conditions and allowed inputs'),
+      ],
+      rows: [
+        [
+          t('接送', 'Transport'),
+          t(
+            '服务已启动；每km NZ$2，另收一次固定NZ$5；距离0–8km。',
+            'Service has started: NZ$2 per km plus one fixed NZ$5 charge; distance 0–8 km.',
+          ),
+        ],
+        [
+          t('排水', 'Draining'),
+          t(
+            '初有12L，每分钟排2L，排空即停；从非负时间开始，原直线只描述排空前及刚排空。',
+            'Initially 12 L, removing 2 L per minute and stopping when empty; time is nonnegative, and the original line describes only the period up to emptying.',
+          ),
+        ],
+        [
+          t('整包卡片', 'Whole card packs'),
+          t(
+            '每完整包3张，另有固定2张；只许0–4个完整包。',
+            'Three cards per whole pack plus two fixed extra cards; only 0–4 whole packs are allowed.',
+          ),
+        ],
+      ],
+    };
   return {
     id,
     title: T(s.title),
@@ -1232,13 +1273,7 @@ export const j85Lessons: Lesson[] = specs.map((s, i) => {
     questions: [
       pick(`${id}-Q1`, i, s.pick),
       ...s.items.slice(1, 5).map((v, j) => q(`${id}-Q${j + 2}`, i, v)),
-      reasoning(
-        `${id}-Q6`,
-        T(s.reason),
-        skills[i]!,
-        T(s.rubric),
-        hints[i]!.map(T),
-      ),
+      explanation,
     ],
     exit: q(`${id}-X`, i, s.items[5]!),
     exitReason: T(s.objective),
