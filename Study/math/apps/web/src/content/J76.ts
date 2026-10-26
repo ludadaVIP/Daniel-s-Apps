@@ -606,8 +606,8 @@ const specs: Spec[] = [
       ],
     },
     reason: [
-      '比较末条八改五十、改零对均值与中位数的影响；解释为何不能把异常值一律删掉，也不能说中位数永远不变。',
-      'Compare replacing eight by fifty or zero. Explain effects on mean/median, why unusual values cannot be automatically removed and why median is not always unchanged.',
+      '原记录4、5、6、7、8，保留五条。两个独立分支都从原组开始，只将末条8分别改50或0，比较均值与中位数；解释为何不能把异常值一律删掉，也不能说中位数永远不变。',
+      'Original observations are 4,5,6,7,8; retain five records. In TWO INDEPENDENT branches, each starting from the original set, replace only the final eight by fifty or by zero. Compare mean/median and explain why unusual values cannot be automatically removed and why median is not always unchanged.',
     ],
     rubric: [
       '原均值/中位数均六；改五十后均值72/5、中位六，均值增加42/5；改零后均值22/5、中位五。条数保持五，重复与零均计入；中位靠排序位置而非不受任何改动。异常需查原始来源、单位、录入，若真实有效就保留并用全分布与不同摘要说明；若证实错误则有依据记录更正，不偷偷删改。家长核算及检查结论条件。',

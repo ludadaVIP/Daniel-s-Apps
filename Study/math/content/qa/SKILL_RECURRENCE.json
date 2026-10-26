@@ -5430,7 +5430,10 @@
         "P64-L01-Q6",
         "P64-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P67": ["P67-MAINT-SIGNED-MEANING-Q1"],
+        "J75": ["J75-MAINT-SIGNED-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "signed-temperature-reference",
@@ -5470,11 +5473,21 @@
               "unit": "J75",
               "task": "J75-L05-Q6",
               "taskSkill": "contextual-graph-domain"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-SIGNED-MEANING-Q1",
+              "taskSkill": "signed-temperature-reference"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-SIGNED-MEANING-Q1",
+              "taskSkill": "signed-temperature-reference"
             }
           ],
           "rationale": {
-            "zh": "J81与J82须画摄氏零两侧，解释负读数有效、零非最低且每格一度不因稀疏标字改变；J73反求升5到2的原读数−3°C并核允许范围；J75从−4每时升1.5的局部模型重求−1°C并承认负值有效。",
-            "en": "J81 and J82 draw both sides of Celsius zero and explain valid negative readings, zero not being a minimum and unchanged one-degree intervals under sparse labels. J73 recovers −3°C from a rise of five to two and checks its domain. J75 recomputes −1°C from a local −4 plus 1.5-per-hour rule and retains valid negative readings."
+            "zh": "J81与J82须画摄氏零两侧，解释负读数有效、零非最低且每格一度不因稀疏标字改变；J73反求升5到2的原读数−3°C并核允许范围；J75从−4每时升1.5的局部模型重求−1°C并承认负值有效。 新P67/J75-Q1在稀疏标数的一度刻度自主读−6/−8°C，辨间隔与线、负号和三种零记号，并举窗外合理读数。",
+            "en": "J81 and J82 draw both sides of Celsius zero and explain valid negative readings, zero not being a minimum and unchanged one-degree intervals under sparse labels. J73 recovers −3°C from a rise of five to two and checks its domain. J75 recomputes −1°C from a local −4 plus 1.5-per-hour rule and retains valid negative readings. New P67/J75 Q1s independently read −6/−8°C on sparsely labelled one-degree scales, distinguish intervals/ticks, signs and zero notations, and construct a reasonable reading beyond the window."
           }
         }
       ],
@@ -5495,6 +5508,8 @@
         "P64-L02-X"
       ],
       "laterExactTagCandidates": {
+        "P67": ["P67-MAINT-SIGNED-MEANING-Q2"],
+        "J75": ["J75-MAINT-SIGNED-MEANING-Q2"],
         "J81": ["J81-MAINT-RELATIONS-Q6"],
         "J82": ["J82-MAINT-RELATIONS-Q6"]
       },
@@ -5522,11 +5537,21 @@
               "unit": "J75",
               "task": "J75-L02-Q3",
               "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-SIGNED-MEANING-Q2",
+              "taskSkill": "integer-axis-position"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-SIGNED-MEANING-Q2",
+              "taskSkill": "integer-axis-position"
             }
           ],
           "rationale": {
-            "zh": "J81从零向左数七区间至−7，J82数九至−9，都强制标单位、方向与零的整数/非正非负分类，稀疏标签不冒充步数。J75由每格2、向左3格生成−6，进一步区别屏幕格与数值单位。",
-            "en": "J81 counts seven leftward intervals from zero to −7; J82 counts nine to −9. Both label units and direction, classify zero and distinguish sparse labels from movement count. J75 generates −6 from three leftward intervals of two, further distinguishing displayed cells from numerical units."
+            "zh": "J81从零向左数七区间至−7，J82数九至−9，都强制标单位、方向与零的整数/非正非负分类，稀疏标签不冒充步数。J75由每格2、向左3格生成−6，进一步区别屏幕格与数值单位。 新两组Q2从零逐步生成−6/−8及邻数，数6/8间隔与7/9条线，扩窗保单位并举原窗外整数，区分按钮边界与整数范围。",
+            "en": "J81 counts seven leftward intervals from zero to −7; J82 counts nine to −9. Both label units and direction, classify zero and distinguish sparse labels from movement count. J75 generates −6 from three leftward intervals of two, further distinguishing displayed cells from numerical units. New Q2s generate −6/−8 and neighbours, count six/eight intervals versus seven/nine ticks, extend the window with fixed units and construct an integer beyond the original button limit."
           }
         }
       ],
@@ -5546,7 +5571,10 @@
         "P64-L03-Q6",
         "P64-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "P67": ["P67-MAINT-SIGNED-MEANING-Q3"],
+        "J75": ["J75-MAINT-SIGNED-MEANING-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "negative-number-order",
@@ -5571,11 +5599,21 @@
               "unit": "J71",
               "task": "J71-L01-Q5",
               "taskSkill": "rational-opposite-sign"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-SIGNED-MEANING-Q3",
+              "taskSkill": "negative-number-order"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-SIGNED-MEANING-Q3",
+              "taskSkill": "negative-number-order"
             }
           ],
           "rationale": {
-            "zh": "J81排序−7、−2、0、2，J82排序−9、−3、0、3，均须画位置并解释不能只比无符号数码；J71主动在−2.5与−2.05中选更靠右的−2.05。两负数靠零较大与跨零顺序都被重新生成。",
-            "en": "J81 orders −7,−2,0,2 and J82 orders −9,−3,0,3, requiring positions rather than unsigned-digit comparisons. J71 actively selects −2.05 as the rightward larger value over −2.5. Both same-side negative order and order across zero are regenerated."
+            "zh": "J81排序−7、−2、0、2，J82排序−9、−3、0、3，均须画位置并解释不能只比无符号数码；J71主动在−2.5与−2.05中选更靠右的−2.05。两负数靠零较大与跨零顺序都被重新生成。 新两组Q3同时给大小、相等及跨零关系，生成正数反例，保留“两负数”近零较大的限定及温度负号。",
+            "en": "J81 orders −7,−2,0,2 and J82 orders −9,−3,0,3, requiring positions rather than unsigned-digit comparisons. J71 actively selects −2.05 as the rightward larger value over −2.5. Both same-side negative order and order across zero are regenerated. New Q3s reconstruct larger/smaller, equality and cross-zero order, generate positive counterexamples, and retain the two-negative restriction and signed temperature readings."
           }
         }
       ],
@@ -5596,6 +5634,8 @@
         "P64-L04-X"
       ],
       "laterExactTagCandidates": {
+        "P67": ["P67-MAINT-SIGNED-MEANING-Q4"],
+        "J75": ["J75-MAINT-SIGNED-MEANING-Q4"],
         "J81": ["J81-MAINT-RELATIONS-Q7"],
         "J82": ["J82-MAINT-RELATIONS-Q7"]
       },
@@ -5633,11 +5673,21 @@
               "unit": "J75",
               "task": "J75-L02-X",
               "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-SIGNED-MEANING-Q4",
+              "taskSkill": "signed-cross-zero-movement"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-SIGNED-MEANING-Q4",
+              "taskSkill": "signed-cross-zero-movement"
             }
           ],
           "rationale": {
-            "zh": "J81由−4加7或减−7到3，J82由−6加10或减−10到4，都核箭头、逆操作、终点/变化/距离、反向、只到零及加零。J71以分数扩展相同结构，J75从(−2,−1)分别跨零到(3,2)，不把方向直接当终点正负。",
-            "en": "J81 moves from −4 by adding seven or subtracting −7 to three; J82 moves from −6 by adding ten or subtracting −10 to four. Both check arrows, inverse operations, endpoint/change/distance, reversal, merely reaching zero and adding zero. J71 extends the structure to fractions; J75 crosses both coordinate zeros from (−2,−1) to (3,2)."
+            "zh": "J81由−4加7或减−7到3，J82由−6加10或减−10到4，都核箭头、逆操作、终点/变化/距离、反向、只到零及加零。J71以分数扩展相同结构，J75从(−2,−1)分别跨零到(3,2)，不把方向直接当终点正负。 新两组Q4各八独立行，核加减带符号项、向右仍负、两阶段跨零、恰零、不动、扩窗到±18及逆操作，区分终点/变化/距离。",
+            "en": "J81 moves from −4 by adding seven or subtracting −7 to three; J82 moves from −6 by adding ten or subtracting −10 to four. Both check arrows, inverse operations, endpoint/change/distance, reversal, merely reaching zero and adding zero. J71 extends the structure to fractions; J75 crosses both coordinate zeros from (−2,−1) to (3,2). New Q4s each supply eight independent rows: signed addition/subtraction, rightward yet negative endpoints, staged zero crossing, reaching zero, staying still, expanded windows to ±18 and inverse checks, distinguishing endpoint/change/distance."
           }
         }
       ],
@@ -5658,6 +5708,8 @@
         "P64-L05-X"
       ],
       "laterExactTagCandidates": {
+        "P67": ["P67-MAINT-SIGNED-MEANING-Q5"],
+        "J75": ["J75-MAINT-SIGNED-MEANING-Q5"],
         "J81": ["J81-MAINT-RELATIONS-Q8"],
         "J82": ["J82-MAINT-RELATIONS-Q8"]
       },
@@ -5685,11 +5737,21 @@
               "unit": "J71",
               "task": "J71-L02-Q6",
               "taskSkill": "rational-absolute-distance"
+            },
+            {
+              "unit": "P67",
+              "task": "P67-MAINT-SIGNED-MEANING-Q5",
+              "taskSkill": "absolute-value-distance"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-SIGNED-MEANING-Q5",
+              "taskSkill": "absolute-value-distance"
             }
           ],
           "rationale": {
-            "zh": "J81画±5，J82画±8，均解释同距不等位置、正数相反数与绝对值不同、|0|=0；再求同侧−5到−2为3、−8到−3为5，否定一律相加到零距离。J71将同样原则迁移到负分数与反向变化。",
-            "en": "J81 draws ±5 and J82 ±8, distinguishing equal distances from equal positions, opposite from absolute value, and |0|=0. They compute same-side distances three from −5 to −2 and five from −8 to −3, rejecting automatic sums of distances to zero. J71 extends the same principles to negative fractions and reversed changes."
+            "zh": "J81画±5，J82画±8，均解释同距不等位置、正数相反数与绝对值不同、|0|=0；再求同侧−5到−2为3、−8到−3为5，否定一律相加到零距离。J71将同样原则迁移到负分数与反向变化。 新两组Q5求一般两点同侧和跨零距离、反向变化与原数/相反数/绝对值，并逆构造同距两点、零和负距离边界。",
+            "en": "J81 draws ±5 and J82 ±8, distinguishing equal distances from equal positions, opposite from absolute value, and |0|=0. They compute same-side distances three from −5 to −2 and five from −8 to −3, rejecting automatic sums of distances to zero. J71 extends the same principles to negative fractions and reversed changes. New Q5s reconstruct arbitrary same-side/cross-zero distances and reversed changes, distinguish value/opposite/absolute value, and generate equal-distance points with zero and negative-distance boundaries."
           }
         }
       ],
@@ -5709,7 +5771,10 @@
         "P65-L01-Q6",
         "P65-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J71": ["J71-MAINT-ALGEBRA-MEANING-Q1"],
+        "J73": ["J73-MAINT-ALGEBRA-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "letter-substitution",
@@ -5729,11 +5794,21 @@
               "unit": "J82",
               "task": "J82-L05-Q6",
               "taskSkill": "factor-expansion-audit"
+            },
+            {
+              "unit": "J71",
+              "task": "J71-MAINT-ALGEBRA-MEANING-Q1",
+              "taskSkill": "letter-substitution"
+            },
+            {
+              "unit": "J73",
+              "task": "J73-MAINT-ALGEBRA-MEANING-Q1",
+              "taskSkill": "letter-substitution"
             }
           ],
           "rationale": {
-            "zh": "J72把x=−2一致代入x²及−x²并区别底数；J82将x=0、1分别代入原多项式与错误因式，得到0处巧合、1处12与14的反例。都保留每次同字母同值与原运算，不能凭一次吻合宣称恒等。",
-            "en": "J72 consistently substitutes x=−2 into x² and −x² while retaining base scope. J82 substitutes zero and one into a polynomial and proposed factors, finding coincidence at zero but twelve versus fourteen at one. Both preserve the assigned value and operations, rejecting identity claims based on one match."
+            "zh": "J72把x=−2一致代入x²及−x²并区别底数；J82将x=0、1分别代入原多项式与错误因式，得到0处巧合、1处12与14的反例。都保留每次同字母同值与原运算，不能凭一次吻合宣称恒等。 新J71/J73-Q1逐处同值代入负数/零/半数，构造乘积与拼数反例、不同字母同值、纯数与完整片数域，并区分表达式/赋值/条件。",
+            "en": "J72 consistently substitutes x=−2 into x² and −x² while retaining base scope. J82 substitutes zero and one into a polynomial and proposed factors, finding coincidence at zero but twelve versus fourteen at one. Both preserve the assigned value and operations, rejecting identity claims based on one match. New J71/J73 Q1s substitute negatives, zero and halves consistently, construct product/concatenation and equal-value/different-letter examples, distinguish pure-number/count domains and expression/assignment/condition roles."
           }
         }
       ],
@@ -5754,6 +5829,8 @@
         "P65-L02-X"
       ],
       "laterExactTagCandidates": {
+        "J71": ["J71-MAINT-ALGEBRA-MEANING-Q2"],
+        "J73": ["J73-MAINT-ALGEBRA-MEANING-Q2"],
         "J81": ["J81-MAINT-RELATIONS-Q5"],
         "J82": ["J82-MAINT-RELATIONS-Q5"]
       },
@@ -5781,11 +5858,21 @@
               "unit": "H07",
               "task": "H07-L01-Q6",
               "taskSkill": "sequence-index-rule-evidence"
+            },
+            {
+              "unit": "J71",
+              "task": "J71-MAINT-ALGEBRA-MEANING-Q2",
+              "taskSkill": "constructed-nth-term"
+            },
+            {
+              "unit": "J73",
+              "task": "J73-MAINT-ALGEBRA-MEANING-Q2",
+              "taskSkill": "constructed-nth-term"
             }
           ],
           "rationale": {
-            "zh": "J81按三行n加固定2推3n+2，第5幅17；J82按四行n加固定1推4n+1，第6幅25。都画前两幅、指出固定项与幅号正整数，有限给数不唯一；H07用两个明确公式在前三项吻合、第四项不同强化反例。",
-            "en": "J81 derives 3n+2 from three rows of n plus two fixed tiles, giving seventeen in figure five. J82 derives 4n+1 and twenty-five in figure six. Both draw initial figures, identify fixed terms and positive integer indices, and explain non-unique continuations from finite data. H07 provides two explicit formulas agreeing initially but differing at the fourth term."
+            "zh": "J81按三行n加固定2推3n+2，第5幅17；J82按四行n加固定1推4n+1，第6幅25。都画前两幅、指出固定项与幅号正整数，有限给数不唯一；H07用两个明确公式在前三项吻合、第四项不同强化反例。 新两组Q2从总数反求合法与非法正整数幅号、求超十幅窗口的第17/23幅，并构造两种完整延续检验前缀证据。",
+            "en": "J81 derives 3n+2 from three rows of n plus two fixed tiles, giving seventeen in figure five. J82 derives 4n+1 and twenty-five in figure six. Both draw initial figures, identify fixed terms and positive integer indices, and explain non-unique continuations from finite data. H07 provides two explicit formulas agreeing initially but differing at the fourth term. New Q2s invert valid and invalid positive-integer indices, compute beyond the ten-figure display at stages 17/23 and construct two complete continuations to test finite-prefix evidence."
           }
         }
       ],
@@ -5805,7 +5892,10 @@
         "P65-L03-Q6",
         "P65-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J71": ["J71-MAINT-ALGEBRA-MEANING-Q3"],
+        "J73": ["J73-MAINT-ALGEBRA-MEANING-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "expression-structure",
@@ -5825,11 +5915,21 @@
               "unit": "J81",
               "task": "J81-L02-Q6",
               "taskSkill": "monomial-every-term-product"
+            },
+            {
+              "unit": "J71",
+              "task": "J71-MAINT-ALGEBRA-MEANING-Q3",
+              "taskSkill": "expression-structure"
+            },
+            {
+              "unit": "J73",
+              "task": "J73-MAINT-ALGEBRA-MEANING-Q3",
+              "taskSkill": "expression-structure"
             }
           ],
           "rationale": {
-            "zh": "J72须把−2乘3x与−4的每项，解释常数也受外部因子；J81须把−2x乘x与−3，并以正长度2x(x+3)解释两块面积。两处重新解析完整括号与每项重复，核零因子、符号和图示正长度范围，不只比较末值。",
-            "en": "J72 distributes −2 across both 3x and −4, explaining why the constant also receives the factor. J81 distributes −2x across x and −3 and models positive-length 2x(x+3) as two areas. Both actively parse whole groups and repeated terms, checking zero factors, signs and positive-length diagram conditions rather than final values alone."
+            "zh": "J72须把−2乘3x与−4的每项，解释常数也受外部因子；J81须把−2x乘x与−3，并以正长度2x(x+3)解释两块面积。两处重新解析完整括号与每项重复，核零因子、符号和图示正长度范围，不只比较末值。 新两组Q3画零时完整袋框/固定块，生成每袋与袋外总式、两个少量数、减法顺序及两种折半次序，区分通式与当前总值。",
+            "en": "J72 distributes −2 across both 3x and −4, explaining why the constant also receives the factor. J81 distributes −2x across x and −3 and models positive-length 2x(x+3) as two areas. Both actively parse whole groups and repeated terms, checking zero factors, signs and positive-length diagram conditions rather than final values alone. New Q3s draw retained zero-count boxes/extras, construct per-bag/overall expressions, repeated differences, subtraction order and two halving orders, distinguishing a general expression from a current total."
           }
         }
       ],
@@ -5849,7 +5949,10 @@
         "P65-L04-Q6",
         "P65-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J71": ["J71-MAINT-ALGEBRA-MEANING-Q4"],
+        "J73": ["J73-MAINT-ALGEBRA-MEANING-Q4"]
+      },
       "reviewedEvidence": [
         {
           "skill": "equivalent-equation",
@@ -5869,11 +5972,21 @@
               "unit": "J83",
               "task": "J83-L03-Q6",
               "taskSkill": "reversible-row-elimination"
+            },
+            {
+              "unit": "J71",
+              "task": "J71-MAINT-ALGEBRA-MEANING-Q4",
+              "taskSkill": "equivalent-equation"
+            },
+            {
+              "unit": "J73",
+              "task": "J73-MAINT-ALGEBRA-MEANING-Q4",
+              "taskSkill": "equivalent-equation"
             }
           ],
           "rationale": {
-            "zh": "J73还原5x+2=2x+11每步两边操作，说明乘零或单边改变丢解集信息；J83保留一式作可逆行替换，具体展示用零倍原第一式使(1,0)成为新组伪解。两处都要求原式代回、非零可逆条件及反例，不由新式成立倒推原限制。",
-            "en": "J73 restores both-side operations for 5x+2=2x+11 and explains information loss from multiplication by zero or unilateral change. J83 retains one equation for reversible row replacement and explicitly shows a zero coefficient introducing spurious pair (1,0). Both require original checks, nonzero reversibility and counterexamples rather than inferring original validity from a weakened relation."
+            "zh": "J73还原5x+2=2x+11每步两边操作，说明乘零或单边改变丢解集信息；J83保留一式作可逆行替换，具体展示用零倍原第一式使(1,0)成为新组伪解。两处都要求原式代回、非零可逆条件及反例，不由新式成立倒推原限制。 新两组Q4用负系数精确解，逐枝核四种同做的逆、单边假解、乘零新增候选及三种零系数关系，保全部解而非一次平衡。",
+            "en": "J73 restores both-side operations for 5x+2=2x+11 and explains information loss from multiplication by zero or unilateral change. J83 retains one equation for reversible row replacement and explicitly shows a zero coefficient introducing spurious pair (1,0). Both require original checks, nonzero reversibility and counterexamples rather than inferring original validity from a weakened relation. New Q4s solve negative-coefficient equations exactly, check inverses of four equal actions, a one-sided false solution, an additional zero-multiplication candidate and three zero relations, distinguishing full solution preservation from one balance."
           }
         }
       ],
@@ -5893,7 +6006,10 @@
         "P65-L05-Q6",
         "P65-L05-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J71": ["J71-MAINT-ALGEBRA-MEANING-Q5"],
+        "J73": ["J73-MAINT-ALGEBRA-MEANING-Q5"]
+      },
       "reviewedEvidence": [
         {
           "skill": "bracket-equation",
@@ -5913,11 +6029,21 @@
               "unit": "J83",
               "task": "J83-L02-Q6",
               "taskSkill": "whole-expression-substitution"
+            },
+            {
+              "unit": "J71",
+              "task": "J71-MAINT-ALGEBRA-MEANING-Q5",
+              "taskSkill": "bracket-equation"
+            },
+            {
+              "unit": "J73",
+              "task": "J73-MAINT-ALGEBRA-MEANING-Q5",
+              "taskSkill": "bracket-equation"
             }
           ],
           "rationale": {
-            "zh": "J73将−3(x−2)=2x+1逐项展开、两边变形到x=1并代回，核系数抵消时不能除零；J83完整代入y=7−x形成2x+(7−x)=11，再合并求x=4、回代y=3并核两原式。两处必须保留括号整组与原限制，不能只交答案。",
-            "en": "J73 expands −3(x−2)=2x+1 term by term, transforms both sides to x=1 and checks, retaining the no-division-by-zero boundary after cancellation. J83 substitutes the whole y=7−x to form 2x+(7−x)=11, solves x=4, recovers y=3 and checks both originals. Both require whole-group brackets and original constraints rather than just an answer."
+            "zh": "J73将−3(x−2)=2x+1逐项展开、两边变形到x=1并代回，核系数抵消时不能除零；J83完整代入y=7−x形成2x+(7−x)=11，再合并求x=4、回代y=3并核两原式。两处必须保留括号整组与原限制，不能只交答案。 新两组Q5以−2/3、−1/6双路径解及原式代回，精确比较近似3.99/4.98，另解先乘后加分支和唯一零解。",
+            "en": "J73 expands −3(x−2)=2x+1 term by term, transforms both sides to x=1 and checks, retaining the no-division-by-zero boundary after cancellation. J83 substitutes the whole y=7−x to form 2x+(7−x)=11, solves x=4, recovers y=3 and checks both originals. Both require whole-group brackets and original constraints rather than just an answer. New Q5s obtain −2/3 and −1/6 through two valid paths, check originals against approximate 3.99/4.98, then solve multiply-before-add inverse branches and unique zero-solution cases."
           }
         }
       ],
@@ -5938,8 +6064,8 @@
         "P66-L01-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q1"],
-        "J92": ["J92-MAINT-PRIMARY-Q1"]
+        "J91": ["J91-MAINT-PRIMARY-Q1", "J91-MAINT-CIRCLE-MEANING-Q1"],
+        "J92": ["J92-MAINT-PRIMARY-Q1", "J92-MAINT-CIRCLE-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -5960,11 +6086,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q1",
               "taskSkill": "circle-centre-radius-diameter"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-CIRCLE-MEANING-Q1",
+              "taskSkill": "circle-centre-radius-diameter"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-CIRCLE-MEANING-Q1",
+              "taskSkill": "circle-centre-radius-diameter"
             }
           ],
           "rationale": {
-            "zh": "J91以半径5、弦6与直径10区分端点和过圆心；J92用半径13、弦10、直径26换构型。两处须画图解释任意半弦不是半径、旋转保定义，并有合法坐标构型供核对。",
-            "en": "J91 distinguishes endpoints and centre incidence using radius five, chord six and diameter ten; J92 changes to radius thirteen, chord ten and diameter twenty-six. Both require a drawing, explain why half an arbitrary chord is not a radius and retain definitions under rotation, with valid coordinate witnesses."
+            "zh": "J91以半径5、弦6与直径10区分端点和过圆心；J92用半径13、弦10、直径26换构型。两处须画图解释任意半弦不是半径、旋转保定义，并有合法坐标构型供核对。 新J91/J92-Q1由直径5/7反求半径2.5/3.5，并以另圆直径2/3反驳跨圆比较，区分弦/直径合类、重合与显示点状不等零。",
+            "en": "J91 distinguishes endpoints and centre incidence using radius five, chord six and diameter ten; J92 changes to radius thirteen, chord ten and diameter twenty-six. Both require a drawing, explain why half an arbitrary chord is not a radius and retain definitions under rotation, with valid coordinate witnesses. New J91/J92 Q1s invert diameters five/seven to radii 2.5/3.5 and refute cross-circle comparisons with separate diameters two/three, retaining chord/diameter inclusion, coincident labels and appearance versus zero."
           }
         }
       ],
@@ -5985,8 +6121,8 @@
         "P66-L02-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q2"],
-        "J92": ["J92-MAINT-PRIMARY-Q2"]
+        "J91": ["J91-MAINT-PRIMARY-Q2", "J91-MAINT-CIRCLE-MEANING-Q2"],
+        "J92": ["J92-MAINT-PRIMARY-Q2", "J92-MAINT-CIRCLE-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -6007,11 +6143,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q2",
               "taskSkill": "pi-measurement-ratio"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-CIRCLE-MEANING-Q2",
+              "taskSkill": "pi-measurement-ratio"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-CIRCLE-MEANING-Q2",
+              "taskSkill": "pi-measurement-ratio"
             }
           ],
           "rationale": {
-            "zh": "J91生成31.4/10=3.14与62.9/20=3.145，J92生成18.9/6=3.15与25.1/8=3.1375。均解释C/d而非C/r、同单位、误差与近似，区分模拟和实测，有限表不证明π的精确值或无理性。",
-            "en": "J91 generates ratios 3.14 and 3.145 from the given readings; J92 generates 3.15 and 3.1375. Both explain C/d rather than C/r, matching units, errors and approximations, distinguish simulation from measurement and reject exact-value or irrationality claims from a finite table."
+            "zh": "J91生成31.4/10=3.14与62.9/20=3.145，J92生成18.9/6=3.15与25.1/8=3.1375。均解释C/d而非C/r、同单位、误差与近似，区分模拟和实测，有限表不证明π的精确值或无理性。 新两组Q2由cm/mm原读数双向统一单位、算错误半径商和未换单位小十倍，核零/负长度及半周/拉伸条件。",
+            "en": "J91 generates ratios 3.14 and 3.145 from the given readings; J92 generates 3.15 and 3.1375. Both explain C/d rather than C/r, matching units, errors and approximations, distinguish simulation from measurement and reject exact-value or irrationality claims from a finite table. New Q2s match cm/mm readings in both common units, reconstruct erroneous radius quotients and tenfold unmatched-unit errors, and check zero/negative lengths and incomplete/stretched wraps."
           }
         }
       ],
@@ -6032,8 +6178,8 @@
         "P66-L03-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q3"],
-        "J92": ["J92-MAINT-PRIMARY-Q3"]
+        "J91": ["J91-MAINT-PRIMARY-Q3", "J91-MAINT-CIRCLE-MEANING-Q3"],
+        "J92": ["J92-MAINT-PRIMARY-Q3", "J92-MAINT-CIRCLE-MEANING-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -6054,11 +6200,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q3",
               "taskSkill": "circle-circumference"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-CIRCLE-MEANING-Q3",
+              "taskSkill": "circle-circumference"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-CIRCLE-MEANING-Q3",
+              "taskSkill": "circle-circumference"
             }
           ],
           "rationale": {
-            "zh": "J91由半径3/2cm求直径3及精确3πcm，再按3.14近似9.42cm；J92由直径7/2m求半径7/4及精确7π/2m、近似10.99m。都解释漏2或多2错误、边界长度与等号/约等号。",
-            "en": "J91 goes from radius 3/2cm to diameter three and exact 3πcm, approximating 9.42cm. J92 goes from diameter 7/2m to radius 7/4 and exact 7π/2m, approximating 10.99m. Both explain missing/doubled factors, boundary-length units and equality versus approximation."
+            "zh": "J91由半径3/2cm求直径3及精确3πcm，再按3.14近似9.42cm；J92由直径7/2m求半径7/4及精确7π/2m、近似10.99m。都解释漏2或多2错误、边界长度与等号/约等号。 新两组Q3反求同3.14约定的21.98/28.26周长，算无滑动多整周并亲描半圆弧与含直径整边框，保混合精确式。",
+            "en": "J91 goes from radius 3/2cm to diameter three and exact 3πcm, approximating 9.42cm. J92 goes from diameter 7/2m to radius 7/4 and exact 7π/2m, approximating 10.99m. Both explain missing/doubled factors, boundary-length units and equality versus approximation. New Q3s invert calculated circumferences 21.98/28.26 under the same 3.14 convention, compute multiple no-slip turns and distinguish semicircular arcs from complete borders with a diameter, retaining mixed exact expressions."
           }
         }
       ],
@@ -6079,8 +6235,8 @@
         "P66-L04-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q4"],
-        "J92": ["J92-MAINT-PRIMARY-Q4"]
+        "J91": ["J91-MAINT-PRIMARY-Q4", "J91-MAINT-CIRCLE-MEANING-Q4"],
+        "J92": ["J92-MAINT-PRIMARY-Q4", "J92-MAINT-CIRCLE-MEANING-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -6101,11 +6257,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q4",
               "taskSkill": "circle-area-rearrangement"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-CIRCLE-MEANING-Q4",
+              "taskSkill": "circle-area-rearrangement"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-CIRCLE-MEANING-Q4",
+              "taskSkill": "circle-area-rearrangement"
             }
           ],
           "rationale": {
-            "zh": "J91画r3的12片，J92画r5的8片，均须保留真实弧边及每片面积，解释内弦虚线不等于全部材料，有限图非精确矩形；细分时底趋半周πr、高趋r，给9πcm²或25πm²。不是仅代πr²便认作拼接解释。",
-            "en": "J91 sketches twelve sectors at radius three and J92 eight at radius five. Both retain curved pieces, distinguish inner chord guides from all material and explain why finite rearrangements are not exact rectangles. Refinement gives limiting base πr and height r, leading to 9πcm² or 25πm²; formula substitution alone is insufficient."
+            "zh": "J91画r3的12片，J92画r5的8片，均须保留真实弧边及每片面积，解释内弦虚线不等于全部材料，有限图非精确矩形；细分时底趋半周πr、高趋r，给9πcm²或25πm²。不是仅代πr²便认作拼接解释。 新两组Q4由直径6/10求面积、比较实际放大与显示放大，并以8/64原片跟踪保面积和有限辅助界。",
+            "en": "J91 sketches twelve sectors at radius three and J92 eight at radius five. Both retain curved pieces, distinguish inner chord guides from all material and explain why finite rearrangements are not exact rectangles. Refinement gives limiting base πr and height r, leading to 9πcm² or 25πm²; formula substitution alone is insufficient. New Q4s derive areas from diameters six/ten, compare actual with display scaling, and track conserved pieces through eight/64 sectors with finite guide limits."
           }
         }
       ],
@@ -6126,8 +6292,8 @@
         "P66-L05-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q5"],
-        "J92": ["J92-MAINT-PRIMARY-Q5"]
+        "J91": ["J91-MAINT-PRIMARY-Q5", "J91-MAINT-CIRCLE-MEANING-Q5"],
+        "J92": ["J92-MAINT-PRIMARY-Q5", "J92-MAINT-CIRCLE-MEANING-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -6148,11 +6314,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q5",
               "taskSkill": "cylinder-faces-volume"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-CIRCLE-MEANING-Q5",
+              "taskSkill": "cylinder-faces-volume"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-CIRCLE-MEANING-Q5",
+              "taskSkill": "cylinder-faces-volume"
             }
           ],
           "rationale": {
-            "zh": "J91以r3h8画侧面、底，求无盖57πcm²、封闭66πcm²、体积72πcm³；J92以r2h6求28πm²、32πm²、24πm³，并解释侧面积同系数24π不等体积。两处核实际面数、内部尺寸、无底不能直接盛水与薄板假设。",
-            "en": "J91 draws side and base for r3,h8, obtaining open area 57πcm², closed 66πcm² and volume 72πcm³. J92 uses r2,h6 for 28πm²,32πm² and 24πm³, explaining why lateral-area coefficient 24π does not equate area and volume. Both check face counts, internal dimensions, the need for a base to hold water and thin-board assumptions."
+            "zh": "J91以r3h8画侧面、底，求无盖57πcm²、封闭66πcm²、体积72πcm³；J92以r2h6求28πm²、32πm²、24πm³，并解释侧面积同系数24π不等体积。两处核实际面数、内部尺寸、无底不能直接盛水与薄板假设。 新两组Q5分开理想薄壁面片与另厚壁容器，量化内外尺寸误差、只加倍高的非二倍封闭面积及cm³/mL，保无底和纸张尺寸限制。",
+            "en": "J91 draws side and base for r3,h8, obtaining open area 57πcm², closed 66πcm² and volume 72πcm³. J92 uses r2,h6 for 28πm²,32πm² and 24πm³, explaining why lateral-area coefficient 24π does not equate area and volume. Both check face counts, internal dimensions, the need for a base to hold water and thin-board assumptions. New Q5s separate ideal thin-wall faces from a thick-walled container, quantify inner/outer errors, height-only changes to closed area, and cm³/mL, retaining baseless and sheet-dimension restrictions."
           }
         }
       ],
@@ -6174,7 +6350,9 @@
       ],
       "laterExactTagCandidates": {
         "J91": ["J91-MAINT-PRIMARY-Q6"],
-        "J92": ["J92-MAINT-PRIMARY-Q6"]
+        "J92": ["J92-MAINT-PRIMARY-Q6"],
+        "J93": ["J93-MAINT-CHANCE-MEANING-Q1"],
+        "J94": ["J94-MAINT-CHANCE-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -6195,11 +6373,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q6",
               "taskSkill": "median-and-all-modes"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CHANCE-MEANING-Q1",
+              "taskSkill": "median-and-all-modes"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CHANCE-MEANING-Q1",
+              "taskSkill": "median-and-all-modes"
             }
           ],
           "rationale": {
-            "zh": "J91保留2,2,4,6,6,10求中位5、众数2与6；J92保留0,0,3,5,5,11求中位4、众数0与5，改尾值后重算。均须平均中间两条、不去重、全报并列，并区分无众数与众数为0。",
-            "en": "J91 retains 2,2,4,6,6,10 for median five and modes two and six. J92 retains 0,0,3,5,5,11 for median four and modes zero and five, then recomputes after a tail change. Both average the middle pair, retain duplicates, report every tied mode and distinguish no mode from mode zero."
+            "zh": "J91保留2,2,4,6,6,10求中位5、众数2与6；J92保留0,0,3,5,5,11求中位4、众数0与5，改尾值后重算。均须平均中间两条、不去重、全报并列，并区分无众数与众数为0。 新J93/J94-Q1保五个ID排序求奇数中位与完整众数，实算两端平均/去重后的错误13/2，并亲造偶数未观察中位例。",
+            "en": "J91 retains 2,2,4,6,6,10 for median five and modes two and six. J92 retains 0,0,3,5,5,11 for median four and modes zero and five, then recomputes after a tail change. Both average the middle pair, retain duplicates, report every tied mode and distinguish no mode from mode zero. New J93/J94 Q1s order five original IDs for odd medians/all modes, calculate erroneous extremes/deduplicated medians 13/2 and construct an even-count unobserved-median example."
           }
         }
       ],
@@ -6219,7 +6407,10 @@
         "P67-L02-Q6",
         "P67-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J93": ["J93-MAINT-CHANCE-MEANING-Q2"],
+        "J94": ["J94-MAINT-CHANCE-MEANING-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "summary-purpose",
@@ -6244,11 +6435,21 @@
               "unit": "J76",
               "task": "J76-L03-Q6",
               "taskSkill": "mean-and-unusual-record"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CHANCE-MEANING-Q2",
+              "taskSkill": "summary-purpose"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CHANCE-MEANING-Q2",
+              "taskSkill": "summary-purpose"
             }
           ],
           "rationale": {
-            "zh": "J91核尾10改40后均值5变10、中位仍5；J92尾11改41后均值4变9、中位仍4。两处分别解释均分总量、中间位置和常见值，核实异常保留并限制样本结论；J76另给尾改0导致中位也改变的边界。",
-            "en": "J91 changes the tail from ten to forty, moving mean five to ten while median stays five. J92 changes eleven to forty-one, moving mean four to nine while median stays four. Both explain equal sharing, middle position and frequency, retain verified extremes and limit sample conclusions. J76 also changes a tail to zero, showing that the median can change."
+            "zh": "J91核尾10改40后均值5变10、中位仍5；J92尾11改41后均值4变9、中位仍4。两处分别解释均分总量、中间位置和常见值，核实异常保留并限制样本结论；J76另给尾改0导致中位也改变的边界。 新两组Q2从无序类别频数求名称众数，反驳任意编码的数值平均；另以0/1/3或0/2/3等待生成精确4/3或5/3均分，保零与不同问题。",
+            "en": "J91 changes the tail from ten to forty, moving mean five to ten while median stays five. J92 changes eleven to forty-one, moving mean four to nine while median stays four. Both explain equal sharing, middle position and frequency, retain verified extremes and limit sample conclusions. J76 also changes a tail to zero, showing that the median can change. New Q2s report nominal-category modes and reject arbitrary-code numerical means, then reconstruct exact 4/3 or 5/3 equal-share waits from 0/1/3 or 0/2/3, retaining zero and distinct purposes."
           }
         }
       ],
@@ -6299,11 +6500,21 @@
               "task": "J97-L03-Q6",
               "taskSkill": "probability-without-ordered-pairs"
             },
-            { "unit": "H24", "task": "H24-L04-Q6", "taskSkill": "counting-4" }
+            { "unit": "H24", "task": "H24-L04-Q6", "taskSkill": "counting-4" },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CHANCE-MEANING-Q4",
+              "taskSkill": "frequency-versus-probability"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CHANCE-MEANING-Q4",
+              "taskSkill": "frequency-versus-probability"
+            }
           ],
           "rationale": {
-            "zh": "J76须列公平独立硬币/骰子的基本路径，解释合并事件不等可能及零分支；J97须按编号有序对权重比较颜色类别并区分完整模型与有限样本；H24按16等可能串重算恰2正6/16，否定五类正面数等权。机会来自基本机制，不来自类别名称数量或样本巧合。",
-            "en": "J76 lists fair independent coin/die paths, distinguishing unequally weighted grouped events and zero branches. J97 weights colour categories by numbered ordered pairs and distinguishes a full model from a finite sample. H24 recomputes exactly two heads as six of sixteen equiprobable strings, rejecting equal weights for five head-count categories. Mechanisms, not category names or sample coincidence, justify chance."
+            "zh": "J76须列公平独立硬币/骰子的基本路径，解释合并事件不等可能及零分支；J97须按编号有序对权重比较颜色类别并区分完整模型与有限样本；H24按16等可能串重算恰2正6/16，否定五类正面数等权。机会来自基本机制，不来自类别名称数量或样本巧合。 新两组Q4从均匀角度的半圆/三等分条件先重求A/B理论机会，再与完整假想记录分开，零次/零命中和下次不补偿均检查。",
+            "en": "J76 lists fair independent coin/die paths, distinguishing unequally weighted grouped events and zero branches. J97 weights colour categories by numbered ordered pairs and distinguishes a full model from a finite sample. H24 recomputes exactly two heads as six of sixteen equiprobable strings, rejecting equal weights for five head-count categories. Mechanisms, not category names or sample coincidence, justify chance. New Q4s first derive A/B theory from uniform-angle half-circle/equal-third assumptions, then separate full fictional records, no trials, zero hits and unchanged next-trial chances."
           }
         }
       ],
@@ -6323,7 +6534,10 @@
         "P67-L04-Q6",
         "P67-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J93": ["J93-MAINT-CHANCE-MEANING-Q3"],
+        "J94": ["J94-MAINT-CHANCE-MEANING-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "finite-event-probability",
@@ -6354,11 +6568,21 @@
               "task": "J97-L03-Q6",
               "taskSkill": "probability-without-ordered-pairs"
             },
-            { "unit": "H24", "task": "H24-L06-Q6", "taskSkill": "counting-6" }
+            { "unit": "H24", "task": "H24-L06-Q6", "taskSkill": "counting-6" },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CHANCE-MEANING-Q3",
+              "taskSkill": "finite-event-probability"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CHANCE-MEANING-Q3",
+              "taskSkill": "finite-event-probability"
+            }
           ],
           "rationale": {
-            "zh": "J76重建和2的1/36与和7的1/6、两红一蓝放回/不放回概率；J97列3红2蓝不放回20编号有序对，颜色RR/RB/BR/BB权重6/6/6/2。都保等可能非空基本空间及零分支；H24将P(A)=0事件仍有无条件概率与不能以A作普通条件分母区分，强化零事件不等于可除0。",
-            "en": "J76 reconstructs probabilities 1/36 for sum two and 1/6 for sum seven and compares replacement conditions for two red and one blue. J97 counts twenty numbered ordered pairs with colour weights 6,6,6,2. Both retain nonempty equiprobable basic spaces and zero branches. H24 distinguishes a zero-probability event from an invalid ordinary conditional denominator, reinforcing that a zero event does not permit division by zero."
+            "zh": "J76重建和2的1/36与和7的1/6、两红一蓝放回/不放回概率；J97列3红2蓝不放回20编号有序对，颜色RR/RB/BR/BB权重6/6/6/2。都保等可能非空基本空间及零分支；H24将P(A)=0事件仍有无条件概率与不能以A作普通条件分母区分，强化零事件不等于可除0。 新两组Q3按原ID合并A或B与B或C，实查重叠导致5/4或7/5错误，重数交集、非空零事件、空袋与移走一枚A后的条件。",
+            "en": "J76 reconstructs probabilities 1/36 for sum two and 1/6 for sum seven and compares replacement conditions for two red and one blue. J97 counts twenty numbered ordered pairs with colour weights 6,6,6,2. Both retain nonempty equiprobable basic spaces and zero branches. H24 distinguishes a zero-probability event from an invalid ordinary conditional denominator, reinforcing that a zero event does not permit division by zero. New Q3s form ID unions of A-or-B and B-or-C, expose overlap sums 5/4 or 7/5, recount intersections, nonempty zero events, empty bags and the bag after one A is removed."
           }
         }
       ],
@@ -6379,8 +6603,8 @@
         "P67-L05-X"
       ],
       "laterExactTagCandidates": {
-        "J93": ["J93-MAINT-REASONS-Q9"],
-        "J94": ["J94-MAINT-REASONS-Q9"]
+        "J93": ["J93-MAINT-REASONS-Q9", "J93-MAINT-CHANCE-MEANING-Q4"],
+        "J94": ["J94-MAINT-REASONS-Q9", "J94-MAINT-CHANCE-MEANING-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -6421,11 +6645,21 @@
               "unit": "H33",
               "task": "H33-L05-Q6",
               "taskSkill": "distribution-5"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CHANCE-MEANING-Q4",
+              "taskSkill": "frequency-versus-probability"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CHANCE-MEANING-Q4",
+              "taskSkill": "frequency-versus-probability"
             }
           ],
           "rationale": {
-            "zh": "J93由10轮8异色重算4/5，再异色9/11离理论3/5更远；J94由9轮4RR得4/9，再RR得1/2离理论1/3更远，都核完整两抽轮为分母、零轮未定义、独立模型无补偿及来源。J97另生成29/50与追加后61/110，不改成理论或平均批率；H33区分已舍入正态理论68.27%与有限频率。已有较近后续单元的主动反例，不只依靠高中迁移。",
-            "en": "J93 recomputes 4/5 from eight different-colour rounds in ten, then 9/11 farther from theoretical 3/5. J94 recomputes 4/9 then 1/2 farther from theoretical 1/3. Both use complete two-draw rounds as denominators, retain undefined zero-round frequency, independent no-compensation and source conditions. J97 adds 29/50 and 61/110 without replacing records by theory or averaging batch rates; H33 distinguishes rounded normal-theory 68.27% from finite frequencies. Earlier later-unit tasks supply active counterexamples alongside advanced transfer."
+            "zh": "J93由10轮8异色重算4/5，再异色9/11离理论3/5更远；J94由9轮4RR得4/9，再RR得1/2离理论1/3更远，都核完整两抽轮为分母、零轮未定义、独立模型无补偿及来源。J97另生成29/50与追加后61/110，不改成理论或平均批率；H33区分已舍入正态理论68.27%与有限频率。已有较近后续单元的主动反例，不只依靠高中迁移。 新两组Q4从十/十二条原记录重数A/B，保末八条累计号3/5不替全批，画前三点与追加变远反例，区分零命中/零次及给定/程序/实测。",
+            "en": "J93 recomputes 4/5 from eight different-colour rounds in ten, then 9/11 farther from theoretical 3/5. J94 recomputes 4/9 then 1/2 farther from theoretical 1/3. Both use complete two-draw rounds as denominators, retain undefined zero-round frequency, independent no-compensation and source conditions. J97 adds 29/50 and 61/110 without replacing records by theory or averaging batch rates; H33 distinguishes rounded normal-theory 68.27% from finite frequencies. Earlier later-unit tasks supply active counterexamples alongside advanced transfer. New Q4s recount A/B over ten/twelve records, retain latest-eight starting indices three/five without replacing the full batch, plot initial points and an added-trial counterexample, distinguishing zero hits/no trials and given/software/observed sources."
           }
         }
       ],
@@ -6446,8 +6680,8 @@
         "P68-L01-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q7"],
-        "J92": ["J92-MAINT-PRIMARY-Q7"]
+        "J91": ["J91-MAINT-PRIMARY-Q7", "J91-MAINT-APPLIED-MEANING-Q1"],
+        "J92": ["J92-MAINT-PRIMARY-Q7", "J92-MAINT-APPLIED-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -6468,11 +6702,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q7",
               "taskSkill": "journey-time-scope"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-APPLIED-MEANING-Q1",
+              "taskSkill": "journey-time-scope"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-APPLIED-MEANING-Q1",
+              "taskSkill": "journey-time-scope"
             }
           ],
           "rationale": {
-            "zh": "J91去程4km移动40停20，分别6与4km/h，往返8km/80min得6；J92去程6km移动45停15，分别8与6，往返12km/90min得8。均逐个写同范围分子分母、换小时、乘回并否定不同用时的速度直接平均。",
-            "en": "J91 separates moving and elapsed averages six and four for four kilometres with forty moving and twenty stopped minutes, then averages eight kilometres over eighty minutes for six. J92 similarly gives eight and six, then eight for twelve kilometres over ninety minutes. Both state matched scopes, convert hours, multiply back and reject arithmetic means over unequal durations."
+            "zh": "J91去程4km移动40停20，分别6与4km/h，往返8km/80min得6；J92去程6km移动45停15，分别8与6，往返12km/90min得8。均逐个写同范围分子分母、换小时、乘回并否定不同用时的速度直接平均。 新两组Q1亲画累计路程图，逆求停留35/60min及9/2km，重算往返15/2或56/9km/h，核等时特例、零及净位置不等路程。",
+            "en": "J91 separates moving and elapsed averages six and four for four kilometres with forty moving and twenty stopped minutes, then averages eight kilometres over eighty minutes for six. J92 similarly gives eight and six, then eight for twelve kilometres over ninety minutes. Both state matched scopes, convert hours, multiply back and reject arithmetic means over unequal durations. New Q1s construct cumulative-distance plots, invert stops 35/60min and distance 9/2km, recount return-trip averages 15/2 or 56/9km/h, and check equal-time exceptions, zero and displacement versus distance."
           }
         }
       ],
@@ -6493,8 +6737,8 @@
         "P68-L02-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q8"],
-        "J92": ["J92-MAINT-PRIMARY-Q8"]
+        "J91": ["J91-MAINT-PRIMARY-Q8", "J91-MAINT-APPLIED-MEANING-Q2"],
+        "J92": ["J92-MAINT-PRIMARY-Q8", "J92-MAINT-APPLIED-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -6515,11 +6759,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q8",
               "taskSkill": "constant-work-rates"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-APPLIED-MEANING-Q2",
+              "taskSkill": "constant-work-rates"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-APPLIED-MEANING-Q2",
+              "taskSkill": "constant-work-rates"
             }
           ],
           "rationale": {
-            "zh": "J91由同一60L任务的20/30min得3+2L/min、12min，改总恒流4后15min；J92由同一72L的24/18min得3+4L/min、72/7min，改总恒流5后72/5min。均须核各泵供量、精确时间与无干扰条件，不能把用时相加或默认合作就除2。",
-            "en": "J91 derives 3+2L/min and twelve minutes from a sixty-litre job taking twenty/thirty alone, changing to fifteen under a specified total constant rate four. J92 derives 3+4L/min and 72/7min for seventy-two litres, changing to 72/5min under total rate five. Both check individual contributions, exact time and no-interference assumptions rather than adding durations or automatically halving."
+            "zh": "J91由同一60L任务的20/30min得3+2L/min、12min，改总恒流4后15min；J92由同一72L的24/18min得3+4L/min、72/7min，改总恒流5后72/5min。均须核各泵供量、精确时间与无干扰条件，不能把用时相加或默认合作就除2。 新两组Q2由原率算已装35、剩25/37及追加/总时间，核一泵零、双泵零、零时刻、满后自动停与真实条件改变。",
+            "en": "J91 derives 3+2L/min and twelve minutes from a sixty-litre job taking twenty/thirty alone, changing to fifteen under a specified total constant rate four. J92 derives 3+4L/min and 72/7min for seventy-two litres, changing to 72/5min under total rate five. Both check individual contributions, exact time and no-interference assumptions rather than adding durations or automatically halving. New Q2s compute 35 filled, 25/37 remaining and additional versus total time from original rates, checking one/both pumps off, time zero, automatic shutoff and changed real conditions."
           }
         }
       ],
@@ -6559,11 +6813,31 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q10",
               "taskSkill": "trip-joint-constraints"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-APPLIED-MEANING-Q4",
+              "taskSkill": "trip-joint-constraints"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-APPLIED-MEANING-Q4",
+              "taskSkill": "trip-joint-constraints"
+            },
+            {
+              "unit": "J75",
+              "task": "J75-MAINT-PERCENT-Q6",
+              "taskSkill": "percent-change-base"
+            },
+            {
+              "unit": "J76",
+              "task": "J76-MAINT-PERCENT-Q6",
+              "taskSkill": "percent-change-base"
             }
           ],
           "rationale": {
-            "zh": "J91先从120预留12得可用108，只把花园原门票48乘0.75，再加整组往返与午餐；J92从150预留30得可用120，同样辨票价基数与原预算。都逐项核费用、可用不等式与整组/每人，不把预留当打折费用或账户有余额就算满足要求。",
-            "en": "J91 reserves twelve from 120 for spendable 108, discounts only original garden tickets forty-eight by 0.75 and adds group return travel and lunch. J92 reserves thirty from 150 for spendable 120 and distinguishes ticket bases from budget. Both check each cost, spendable inequality and per-group/per-person roles rather than discounting the reserve or treating any account balance as compliance."
+            "zh": "J91先从120预留12得可用108，只把花园原门票48乘0.75，再加整组往返与午餐；J92从150预留30得可用120，同样辨票价基数与原预算。都逐项核费用、可用不等式与整组/每人，不把预留当打折费用或账户有余额就算满足要求。 复用J75/J76百分数Q6亲算连续同率不同基数；新两组Q4列账户/可用余额，独立核0/100%折扣、零预留与不足一分需舍入约定。",
+            "en": "J91 reserves twelve from 120 for spendable 108, discounts only original garden tickets forty-eight by 0.75 and adds group return travel and lunch. J92 reserves thirty from 150 for spendable 120 and distinguishes ticket bases from budget. Both check each cost, spendable inequality and per-group/per-person roles rather than discounting the reserve or treating any account balance as compliance. Existing J75/J76 percent Q6s reconstruct sequential changes on different bases. New Q4s distinguish account balance/headroom and independently check 0/100% discounts, zero reserve and the need for a sub-cent rounding rule."
           }
         }
       ],
@@ -6584,8 +6858,8 @@
         "P68-L04-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q9"],
-        "J92": ["J92-MAINT-PRIMARY-Q9"]
+        "J91": ["J91-MAINT-PRIMARY-Q9", "J91-MAINT-APPLIED-MEANING-Q3"],
+        "J92": ["J92-MAINT-PRIMARY-Q9", "J92-MAINT-APPLIED-MEANING-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -6606,11 +6880,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q9",
               "taskSkill": "chart-multistep-evidence"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-APPLIED-MEANING-Q3",
+              "taskSkill": "chart-multistep-evidence"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-APPLIED-MEANING-Q3",
+              "taskSkill": "chart-multistep-evidence"
             }
           ],
           "rationale": {
-            "zh": "J91由12/缺测/18/0重求3/4/0包及已知三日费51，J92由7/0/缺测/13重求2/0/4包及已知费30。都亲画图、换轴而不换原量、逐日买足整包加固定费、区分人次/不同个体/缺测，并拒绝补零、完整总量与因果外推。",
-            "en": "J91 uses 12/missing/18/0 visits to obtain three/four/zero packs and known-day cost fifty-one. J92 uses 7/0/missing/13 for two/zero/four packs and cost thirty. Both draw charts, rescale without changing data, buy enough whole packs daily, add fixed costs and distinguish visits, people and missing values, rejecting imputed zeros, full totals and causal extrapolation."
+            "zh": "J91由12/缺测/18/0重求3/4/0包及已知三日费51，J92由7/0/缺测/13重求2/0/4包及已知费30。都亲画图、换轴而不换原量、逐日买足整包加固定费、区分人次/不同个体/缺测，并拒绝补零、完整总量与因果外推。 新两组Q3保缺测/零、截轴与原值，求原基数增长1/2、撤固定费反求人数、逐日必收费及恰整包/多一人边界。",
+            "en": "J91 uses 12/missing/18/0 visits to obtain three/four/zero packs and known-day cost fifty-one. J92 uses 7/0/missing/13 for two/zero/four packs and cost thirty. Both draw charts, rescale without changing data, buy enough whole packs daily, add fixed costs and distinguish visits, people and missing values, rejecting imputed zeros, full totals and causal extrapolation. New Q3s retain missing/zero, truncated axes and records, derive original-base growth 1/2, undo fixed charges to recover visits and check daily fees plus exact-pack/one-extra boundaries."
           }
         }
       ],
@@ -6631,8 +6915,8 @@
         "P68-L05-X"
       ],
       "laterExactTagCandidates": {
-        "J91": ["J91-MAINT-PRIMARY-Q10"],
-        "J92": ["J92-MAINT-PRIMARY-Q10"]
+        "J91": ["J91-MAINT-PRIMARY-Q10", "J91-MAINT-APPLIED-MEANING-Q4"],
+        "J92": ["J92-MAINT-PRIMARY-Q10", "J92-MAINT-APPLIED-MEANING-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -6653,11 +6937,21 @@
               "unit": "J92",
               "task": "J92-MAINT-PRIMARY-Q10",
               "taskSkill": "trip-joint-constraints"
+            },
+            {
+              "unit": "J91",
+              "task": "J91-MAINT-APPLIED-MEANING-Q4",
+              "taskSkill": "trip-joint-constraints"
+            },
+            {
+              "unit": "J92",
+              "task": "J92-MAINT-APPLIED-MEANING-Q4",
+              "taskSkill": "trip-joint-constraints"
             }
           ],
           "rationale": {
-            "zh": "两组均要求列两路线×两活动四方案的完整整组价与总时长，含午餐、机动、往返及折扣。J91只有A花园108/200和A展馆104/240满足108元/240min；J92只有A花园108/180和A展馆102/210满足120元/210min。须任选可行并说明钱/时间取舍，不以最低价单目标替代联合可行性。",
-            "en": "Both require a four-plan table for two routes and two activities, including lunch, buffer, return travel and discounts. J91 admits only A/garden 108/200 and A/museum 104/240 under 108 dollars/240min. J92 admits A/garden 108/180 and A/museum 102/210 under 120 dollars/210min. Each requires a feasible choice and a money/time tradeoff rather than cheapest-price selection alone."
+            "zh": "两组均要求列两路线×两活动四方案的完整整组价与总时长，含午餐、机动、往返及折扣。J91只有A花园108/200和A展馆104/240满足108元/240min；J92只有A花园108/180和A展馆102/210满足120元/210min。须任选可行并说明钱/时间取舍，不以最低价单目标替代联合可行性。 新两组Q4亲画09:00至13:00逐段时刻，缩210min与加一人分支重算，另生成直达步道230min方案，不以单目标或唯一解代两条约束。",
+            "en": "Both require a four-plan table for two routes and two activities, including lunch, buffer, return travel and discounts. J91 admits only A/garden 108/200 and A/museum 104/240 under 108 dollars/240min. J92 admits A/garden 108/180 and A/museum 102/210 under 120 dollars/210min. Each requires a feasible choice and a money/time tradeoff rather than cheapest-price selection alone. New Q4s construct segment times from 09:00 to 13:00, recheck independent 210min/one-extra-person changes and generate a 230min direct-trail alternative without replacing joint constraints with one goal or a unique-answer claim."
           }
         }
       ],
@@ -6678,8 +6972,8 @@
         "J71-L01-X"
       ],
       "laterExactTagCandidates": {
-        "J83": ["J83-MAINT-CORE-ALGEBRA-Q1"],
-        "J84": ["J84-MAINT-CORE-ALGEBRA-Q1"]
+        "J83": ["J83-MAINT-CORE-ALGEBRA-Q1", "J83-MAINT-RATIONAL-MEANING-Q1"],
+        "J84": ["J84-MAINT-CORE-ALGEBRA-Q1", "J84-MAINT-RATIONAL-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -6700,11 +6994,21 @@
               "unit": "J84",
               "task": "J84-MAINT-CORE-ALGEBRA-Q1",
               "taskSkill": "rational-opposite-sign"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-RATIONAL-MEANING-Q1",
+              "taskSkill": "rational-opposite-sign"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-RATIONAL-MEANING-Q1",
+              "taskSkill": "rational-opposite-sign"
             }
           ],
           "rationale": {
-            "zh": "J83在同单位轴定位−5/4、−1.25、−10/8，J84定位−7/2、−3.5、−21/6。都重建同点等值、相反数和0、负倒数积1，核零有相反数却无倒数，不靠去负号。",
-            "en": "J83 locates −5/4,−1.25,−10/8 on one fixed-unit axis; J84 uses −7/2,−3.5,−21/6. Both regenerate equivalent positions, opposite/sum-zero and negative-reciprocal/product-one relations, including zero’s opposite but no reciprocal."
+            "zh": "J83在同单位轴定位−5/4、−1.25、−10/8，J84定位−7/2、−3.5、−21/6。都重建同点等值、相反数和0、负倒数积1，核零有相反数却无倒数，不靠去负号。 新两组Q1规范负分母、以整数比容纳整数零，重建有限截断/明确无限循环之差1/3000或1/1500，并比较负小数顺序、双相反与等分单位。",
+            "en": "J83 locates −5/4,−1.25,−10/8 on one fixed-unit axis; J84 uses −7/2,−3.5,−21/6. Both regenerate equivalent positions, opposite/sum-zero and negative-reciprocal/product-one relations, including zero’s opposite but no reciprocal. New Q1s normalise negative denominators, include integers/zero as integer ratios, derive finite-versus-infinite-repeat gaps 1/3000 or 1/1500 and check negative-decimal order, double opposites and equal-unit subdivisions."
           }
         }
       ],
@@ -6747,11 +7051,21 @@
               "unit": "J84",
               "task": "J84-MAINT-CORE-ALGEBRA-Q2",
               "taskSkill": "rational-absolute-distance"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-RATIONAL-MEANING-Q1",
+              "taskSkill": "rational-opposite-sign"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-RATIONAL-MEANING-Q1",
+              "taskSkill": "rational-opposite-sign"
             }
           ],
           "rationale": {
-            "zh": "J83由−7/6到−1/3生成变化±5/6、距离5/6，改+1/3跨零距3/2；J84由−9/8到−1/4生成±7/8、距离7/8，改+1/4距11/8。都画反向与实际路径，解释同侧重叠、同绝对值不等位置、|0|。",
-            "en": "J83 generates changes ±5/6 and distance 5/6 from −7/6 to −1/3, versus 3/2 across zero. J84 generates ±7/8 and 7/8, versus 11/8 across zero. Both draw paths and reversal and explain same-side overlap, equal magnitudes at different positions and |0|."
+            "zh": "J83由−7/6到−1/3生成变化±5/6、距离5/6，改+1/3跨零距3/2；J84由−9/8到−1/4生成±7/8、距离7/8，改+1/4距11/8。都画反向与实际路径，解释同侧重叠、同绝对值不等位置、|0|。 新两组Q1由原X/Y求有向差与距离，独立重建重合点、零端点与反射Y后跨零距离，四等分改八等分不改单位。",
+            "en": "J83 generates changes ±5/6 and distance 5/6 from −7/6 to −1/3, versus 3/2 across zero. J84 generates ±7/8 and 7/8, versus 11/8 across zero. Both draw paths and reversal and explain same-side overlap, equal magnitudes at different positions and |0|. New Q1s reconstruct signed differences/distances from X/Y, independently checking coincident/zero endpoints and reflected-Y crossing distances while quarters-to-eighths refinement preserves units."
           }
         }
       ],
@@ -6772,8 +7086,8 @@
         "J71-L03-X"
       ],
       "laterExactTagCandidates": {
-        "J83": ["J83-MAINT-CORE-ALGEBRA-Q3"],
-        "J84": ["J84-MAINT-CORE-ALGEBRA-Q3"]
+        "J83": ["J83-MAINT-CORE-ALGEBRA-Q3", "J83-MAINT-RATIONAL-MEANING-Q2"],
+        "J84": ["J84-MAINT-CORE-ALGEBRA-Q3", "J84-MAINT-RATIONAL-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -6794,11 +7108,21 @@
               "unit": "J84",
               "task": "J84-MAINT-CORE-ALGEBRA-Q3",
               "taskSkill": "signed-fraction-addition"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-RATIONAL-MEANING-Q2",
+              "taskSkill": "signed-fraction-addition"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-RATIONAL-MEANING-Q2",
+              "taskSkill": "signed-fraction-addition"
             }
           ],
           "rationale": {
-            "zh": "J83用同整体十二分之一和数轴解释−5/6+3/4=−1/12；J84用二十四分之一解释−7/8+5/6=−1/24。两处强制相消与数轴双过程、减回、向右却仍负及同整体单位，不能只交末值。",
-            "en": "J83 explains −5/6+3/4=−1/12 in common-whole twelfths and on an axis; J84 uses twenty-fourths for −7/8+5/6=−1/24. Both require cancellation and axis models, inverse checks and a negative endpoint despite rightward movement, retaining the same whole."
+            "zh": "J83用同整体十二分之一和数轴解释−5/6+3/4=−1/12；J84用二十四分之一解释−7/8+5/6=−1/24。两处强制相消与数轴双过程、减回、向右却仍负及同整体单位，不能只交末值。 新两组Q2用共同十二/二十四份求四种加减，另亲算同号、相反、零与有限小数及两种合法加法交换结合。",
+            "en": "J83 explains −5/6+3/4=−1/12 in common-whole twelfths and on an axis; J84 uses twenty-fourths for −7/8+5/6=−1/24. Both require cancellation and axis models, inverse checks and a negative endpoint despite rightward movement, retaining the same whole. New Q2s use common twelfths/twenty-fourths for four signed sums/differences, then generate same-sign, opposite, zero and finite-decimal cases and two justified addition orders."
           }
         }
       ],
@@ -6841,11 +7165,21 @@
               "unit": "J84",
               "task": "J84-MAINT-CORE-ALGEBRA-Q4",
               "taskSkill": "subtraction-as-opposite"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-RATIONAL-MEANING-Q2",
+              "taskSkill": "signed-fraction-addition"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-RATIONAL-MEANING-Q2",
+              "taskSkill": "signed-fraction-addition"
             }
           ],
           "rationale": {
-            "zh": "J83比较减−3/4得−1/12与加−3/4得−19/12；J84比较减−5/6得−1/24与加−5/6得−41/24。都保首项、改运算并取整个减数相反数，画箭头、差加回原减数，核减0及增大仍负。",
-            "en": "J83 contrasts subtracting −3/4 for −1/12 with adding it for −19/12; J84 contrasts −1/24 with −41/24. Both retain the first term, rewrite the operation and whole subtrahend, draw arrows, add the original subtrahend back and check zero and increased-yet-negative values."
+            "zh": "J83比较减−3/4得−1/12与加−3/4得−19/12；J84比较减−5/6得−1/24与加−5/6得−41/24。都保首项、改运算并取整个减数相反数，画箭头、差加回原减数，核减0及增大仍负。 新两组Q2亲算减正、减负、减零、零减与跨零，加回原减数并比较不同减法括号，保首项和精确值。",
+            "en": "J83 contrasts subtracting −3/4 for −1/12 with adding it for −19/12; J84 contrasts −1/24 with −41/24. Both retain the first term, rewrite the operation and whole subtrahend, draw arrows, add the original subtrahend back and check zero and increased-yet-negative values. New Q2s calculate positive/negative/zero subtrahends, zero minuends and crossing zero, add back ORIGINAL subtrahends and compare changed subtraction brackets while retaining the first term."
           }
         }
       ],
@@ -6866,8 +7200,8 @@
         "J71-L05-X"
       ],
       "laterExactTagCandidates": {
-        "J83": ["J83-MAINT-CORE-ALGEBRA-Q5"],
-        "J84": ["J84-MAINT-CORE-ALGEBRA-Q5"]
+        "J83": ["J83-MAINT-CORE-ALGEBRA-Q5", "J83-MAINT-RATIONAL-MEANING-Q3"],
+        "J84": ["J84-MAINT-CORE-ALGEBRA-Q5", "J84-MAINT-RATIONAL-MEANING-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -6888,11 +7222,21 @@
               "unit": "J84",
               "task": "J84-MAINT-CORE-ALGEBRA-Q5",
               "taskSkill": "signed-scaling-and-division"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-RATIONAL-MEANING-Q3",
+              "taskSkill": "signed-scaling-and-division"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-RATIONAL-MEANING-Q3",
+              "taskSkill": "signed-scaling-and-division"
             }
           ],
           "rationale": {
-            "zh": "J83由5/6乘−2/3反射缩放得−5/9，再由q乘−2/3为−5/6推5/4；J84对应得−21/32与商7/6。都解释数轴缩放不等于负份实物重复、原除数与负倒数、乘回、除法可放大及零除数无解/不唯一。",
-            "en": "J83 reflects/scales 5/6 by −2/3 for −5/9 and solves q×(−2/3)=−5/6 for 5/4. J84 obtains −21/32 and quotient 7/6. Both distinguish numerical scaling from physical copies, divisor from negative reciprocal, inverse checks, enlargement and no-solution/non-unique zero divisors."
+            "zh": "J83由5/6乘−2/3反射缩放得−5/9，再由q乘−2/3为−5/6推5/4；J84对应得−21/32与商7/6。都解释数轴缩放不等于负份实物重复、原除数与负倒数、乘回、除法可放大及零除数无解/不唯一。 新两组Q3生成七因子映射与正大/负小除数，分数值顺序与幅距，算三负积，并由分配律推负一映射而非背符号。",
+            "en": "J83 reflects/scales 5/6 by −2/3 for −5/9 and solves q×(−2/3)=−5/6 for 5/4. J84 obtains −21/32 and quotient 7/6. Both distinguish numerical scaling from physical copies, divisor from negative reciprocal, inverse checks, enlargement and no-solution/non-unique zero divisors. New Q3s build seven factor maps, divide by positive-large/negative-small divisors, separate order from magnitude, compute three-negative products and derive the minus-one map by distributivity."
           }
         }
       ],
@@ -6913,8 +7257,8 @@
         "J71-L06-X"
       ],
       "laterExactTagCandidates": {
-        "J83": ["J83-MAINT-CORE-ALGEBRA-Q6"],
-        "J84": ["J84-MAINT-CORE-ALGEBRA-Q6"]
+        "J83": ["J83-MAINT-CORE-ALGEBRA-Q6", "J83-MAINT-RATIONAL-MEANING-Q4"],
+        "J84": ["J84-MAINT-CORE-ALGEBRA-Q6", "J84-MAINT-RATIONAL-MEANING-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -6935,11 +7279,21 @@
               "unit": "J84",
               "task": "J84-MAINT-CORE-ALGEBRA-Q6",
               "taskSkill": "rational-operation-structure"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-RATIONAL-MEANING-Q4",
+              "taskSkill": "rational-operation-structure"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-RATIONAL-MEANING-Q4",
+              "taskSkill": "rational-operation-structure"
             }
           ],
           "rationale": {
-            "zh": "J83区分−3²与(−3)²，逐步算−8÷2×(−3)+1/2为25/2，错加分母括号变11/6；J84以−4²、(−4)²及另一混合式得17/3、错式7/6。均保每步未算部分、同级从左到右、精确分数及零除数停止。",
-            "en": "J83 distinguishes −3² from (−3)² and calculates −8÷2×(−3)+1/2=25/2 versus an invented-denominator result 11/6. J84 uses −4²,(−4)² and a different mixed expression for 17/3 versus 7/6. Both retain untouched parts, left-to-right equal precedence, exact fractions and stopping on zero divisors."
+            "zh": "J83区分−3²与(−3)²，逐步算−8÷2×(−3)+1/2为25/2，错加分母括号变11/6；J84以−4²、(−4)²及另一混合式得17/3、错式7/6。均保每步未算部分、同级从左到右、精确分数及零除数停止。 新两组Q4保完整分数括号乘法、另分配核算、内外减子式、负分数平方/立方及同级加减，外乘零不救内部零除数。",
+            "en": "J83 distinguishes −3² from (−3)² and calculates −8÷2×(−3)+1/2=25/2 versus an invented-denominator result 11/6. J84 uses −4²,(−4)² and a different mixed expression for 17/3 versus 7/6. Both retain untouched parts, left-to-right equal precedence, exact fractions and stopping on zero divisors. New Q4s retain complete bracketed fractional products, independently distribute, evaluate nested subtraction, signed fractional squares/cubes and left-to-right subtraction, and reject using an outside zero to rescue internal zero division."
           }
         }
       ],

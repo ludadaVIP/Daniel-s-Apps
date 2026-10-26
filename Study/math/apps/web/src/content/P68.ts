@@ -671,7 +671,7 @@ const specs: Spec[] = [
       },
       {
         stem: [
-          '周二 18 人，周四 24 人，增加人数是周二人数的百分之几？请写精确比例，不带百分号。',
+          '周二 18 人，周四 24 人，增加人数占周二人数的几分之几？请写精确比例，不带百分号。',
           'Tuesday has 18 visitors and Thursday 24. What fraction of Tuesday’s count is the increase? Give an exact proportion without a percent sign.',
         ],
         value: '1/3',
@@ -698,8 +698,8 @@ const specs: Spec[] = [
     ],
     pick: {
       stem: [
-        '周三缺测，图能支持哪个结论？',
-        'Wednesday is missing. Which conclusion does the chart support?',
+        '给定假想记录：周一12人次、周二18人次、周三缺测、周四24人次。图能支持哪个结论？',
+        'Given fictional records: Monday 12 visits, Tuesday 18, Wednesday missing, Thursday 24. Which conclusion does the chart support?',
       ],
       correct: 1,
       options: [
@@ -740,8 +740,8 @@ const specs: Spec[] = [
       ],
     },
     reason: [
-      '把纵轴上限三十改六十后柱高减半，人数变了吗？周三缺测会限制哪些结论？',
-      'If the axis maximum changes from thirty to sixty and bars halve in height, have counts changed? What does missing Wednesday prevent us from concluding?',
+      '给定假想记录：周一12人次、周二18人次、周三缺测、周四24人次。把纵轴上限三十改六十后柱高减半，原记录变了吗？周三缺测会限制哪些结论？',
+      'Given fictional records: Monday 12 visits, Tuesday 18, Wednesday missing, Thursday 24. If the axis maximum changes from thirty to sixty and bars halve in height, have the records changed? What does missing Wednesday prevent us from concluding?',
     ],
     rubric: [
       '原人数十二、十八、缺测、二十四没有改变，只是每人占的图上高度减半。三条已知记录合计五十四人次，不是四天完整总量，也不一定五十四个不同个体。周三不能当零或相邻日平均；缺人数时按人收费总额不能确定，仍可说明每人单价和固定费规则。对已知人数分步求费用，整包销售需向上补到整包，不靠金额估算替代可买数量。图只显示关联或记录，不能独自证明天气导致人数变化。家长要求孩子指认单位、原值、未知项和每步理由。',
@@ -821,8 +821,8 @@ const specs: Spec[] = [
       },
       {
         stem: [
-          '四人同样餐费与折扣，改整组往返交通 NZ$24、门票每人 NZ$8。总支出多少 NZD？',
-          'For four with the same lunch and discount, change group return fare to NZ$24 and tickets to NZ$8 each. Find total spending in NZD.',
+          '四人，午餐每人 NZ$6，仅门票原价减25%；整组往返交通 NZ$24、门票原价每人 NZ$8。总支出多少 NZD？',
+          'Four people have lunch at NZ$6 each; only original ticket prices are 25% off. Group return transport is NZ$24 and original tickets are NZ$8 each. Find total spending in NZD.',
         ],
         value: '72',
         unit: 'NZD',
@@ -903,8 +903,8 @@ const specs: Spec[] = [
       ],
     },
     reason: [
-      '给四人、预算八十、预留百分之十、允许四小时的虚构计划选择路线和活动，说明折扣、时间和一个取舍。',
-      'For four people, budget eighty, ten-percent reserve and four allowed hours, choose a fictional route and activity. Explain discount, time and a trade-off.',
+      '按下表给四人、预算NZ$80、预留完整预算的10%、允许四小时的虚构计划选择路线和活动，说明折扣、完整时间表和一个取舍。',
+      'Use the supplied table for four people, budget NZ$80, reserve 10% of the full budget and four allowed hours. Choose a fictional route and activity. Explain discount, the complete timeline and a trade-off.',
     ],
     rubric: [
       '一份可行证据是绕行花园：整组往返二十四，门票四乘八再付百分之七十五得二十四，午餐二十四，总支出七十二；预算八十预留八，可用七十二，恰好满足。去返各六十、花园六十、午餐三十、机动三十，共二百四十分钟，09:00 至 13:00 恰好满足。直达花园八十八超可用十六；绕行展馆八十四也超预算且需二百七十分钟。绕行步道虽更便宜但时间二百七十分钟，不满足四小时。允许其他满足给定两项约束并有完整证据的方案；不能因出现“可行”自动掌握。家长核对人数、每组与每人、折扣基数、往返午餐机动、两条不等式和取舍。',
@@ -926,6 +926,46 @@ const specs: Spec[] = [
     ],
   },
 ];
+const tripContext: NonNullable<Question['contextTable']> = {
+  caption: t(
+    '给定虚构条件，09:00出发；仅门票原价减25%，无其他费用。交通价格均为整组往返价，时间为单程。每方案选一路线和一活动，另含午餐及必须保留的机动时间。',
+    'Given fictional conditions; depart at 09:00. Only original ticket prices are 25% off; no other charges. Transport prices cover the whole group’s RETURN journey; travel times are ONE WAY. Choose one route and one activity, adding lunch and the required buffer.',
+  ),
+  columns: [
+    t('项目', 'Item'),
+    t('时间 / min', 'Time / min'),
+    t('原始价格 / NZD', 'Original price / NZD'),
+  ],
+  rows: [
+    [
+      t('直达', 'Direct'),
+      t('单程40', '40 one way'),
+      t('整组往返40', '40 group return'),
+    ],
+    [
+      t('绕行', 'Scenic'),
+      t('单程60', '60 one way'),
+      t('整组往返24', '24 group return'),
+    ],
+    [
+      t('展馆', 'Museum'),
+      t('90', '90'),
+      t('原门票每人12', '12 original ticket per person'),
+    ],
+    [
+      t('花园', 'Garden'),
+      t('60', '60'),
+      t('原门票每人8', '8 original ticket per person'),
+    ],
+    [t('步道', 'Trail'), t('90', '90'), t('门票0', '0 ticket')],
+    [t('午餐', 'Lunch'), t('30', '30'), t('每人6', '6 per person')],
+    [t('机动', 'Buffer'), t('30', '30'), t('无另收费', 'No extra charge')],
+  ],
+};
+const tripReasoning = (id: string, s: Spec) => ({
+  ...reasoning(id, T(s.reason), skills[4]!, T(s.rubric), hints[4]!.map(T)),
+  contextTable: tripContext,
+});
 export const p68Lessons: Lesson[] = specs.map((s, i) => {
   const id = `P68-L0${i + 1}`;
   return {
@@ -948,13 +988,15 @@ export const p68Lessons: Lesson[] = specs.map((s, i) => {
     questions: [
       pick(`${id}-Q1`, i, s.pick),
       ...s.items.slice(1, 5).map((item, j) => q(`${id}-Q${j + 2}`, i, item)),
-      reasoning(
-        `${id}-Q6`,
-        T(s.reason),
-        skills[i]!,
-        T(s.rubric),
-        hints[i]!.map(T),
-      ),
+      i === 4
+        ? tripReasoning(`${id}-Q6`, s)
+        : reasoning(
+            `${id}-Q6`,
+            T(s.reason),
+            skills[i]!,
+            T(s.rubric),
+            hints[i]!.map(T),
+          ),
     ],
     exit: q(`${id}-X`, i, s.items[5]!),
     exitReason: T(s.objective),
@@ -1156,11 +1198,5 @@ export const p68CheckQuestions: Question[] = [
     step: ['40×2+60+30+30=200。', '40 × 2 + 60 + 30 + 30 = 200.'],
     wrong: ['160', '170'],
   }),
-  reasoning(
-    'P68-CHECK-Q8',
-    T(specs[4]!.reason),
-    skills[4]!,
-    T(specs[4]!.rubric),
-    hints[4]!.map(T),
-  ),
+  tripReasoning('P68-CHECK-Q8', specs[4]!),
 ];

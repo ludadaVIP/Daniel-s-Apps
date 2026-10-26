@@ -862,8 +862,8 @@ const specs: Spec[] = [
       correct: 2,
     },
     reason: [
-      '比较原式 x²+5x+6 与主张 (x+1)(x+6) 在零与一的值，再用展开给一般结论；另解释 2(x²−9) 为何等值但未完成。',
-      'Compare source x²+5x+6 with (x+1)(x+6) at zero and one, then expand for the general conclusion. Explain why 2(x²−9) is equivalent but unfinished.',
+      '比较原式 x²+5x+6 与主张 (x+1)(x+6) 在零与一的值，再用展开给一般结论；另对原式 2x²−18，解释 2(x²−9) 为何等值但未完成整数范围因式分解。',
+      'Compare source x²+5x+6 with (x+1)(x+6) at zero and one, then expand for the general conclusion. Separately take source 2x²−18: explain why 2(x²−9) is equivalent but leaves integer factorisation unfinished.',
     ],
     rubric: [
       'x=0 时都六，不足以证明；x=1 原式十二、主张十四，足以否证。展开主张为 x²+7x+6，中项七而非五，系数比较给一般差异。正确因式为 (x+2)(x+3)。2(x²−9) 展开为 2x²−18 关系正确，但括号仍平方差，要成 2(x−3)(x+3)。本课检查的是恒等与整数范围完整乘积，非解方程的零点列表，也不通过除 x 排除零。家长核对全部项来源、范围和证据强弱。',
