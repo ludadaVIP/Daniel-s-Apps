@@ -7973,8 +7973,8 @@
         "J74-L01-X"
       ],
       "laterExactTagCandidates": {
-        "J93": ["J93-MAINT-REASONS-Q1"],
-        "J94": ["J94-MAINT-REASONS-Q1"]
+        "J93": ["J93-MAINT-REASONS-Q1", "J93-MAINT-PLANE-MEANING-Q1"],
+        "J94": ["J94-MAINT-REASONS-Q1", "J94-MAINT-PLANE-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -7995,11 +7995,21 @@
               "unit": "J94",
               "task": "J94-MAINT-REASONS-Q1",
               "taskSkill": "geometric-objects-and-angle"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q1",
+              "taskSkill": "geometric-objects-and-angle"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q1",
+              "taskSkill": "geometric-objects-and-angle"
             }
           ],
           "rationale": {
-            "zh": "J93画AB四种对象及∠COD37°，J94画PQ及∠RST128°。两处都标端点、无限方向、射线反序与角中间顶点，解释点无大小、屏幕裁切非端点、同向延长和整体旋转保角，不只认名称。",
-            "en": "J93 draws four AB objects and angle COD37°; J94 uses PQ and RST128°. Both label endpoints, infinite directions, reversed rays and middle-letter vertices, distinguishing geometric points from ink, clipping from endpoints and angle invariance under extension/rotation rather than merely naming objects."
+            "zh": "J93画AB四种对象及∠COD37°，J94画PQ及∠RST128°。两处都标端点、无限方向、射线反序与角中间顶点，解释点无大小、屏幕裁切非端点、同向延长和整体旋转保角，不只认名称。 新两组第1卡亲画内部/外部射线，分别由不重叠部分和整角扣部分求60/80与30/40；另构造零/锐/直/钝/平角并解释显示界非数学边界。",
+            "en": "J93 draws four AB objects and angle COD37°; J94 uses PQ and RST128°. Both label endpoints, infinite directions, reversed rays and middle-letter vertices, distinguishing geometric points from ink, clipping from endpoints and angle invariance under extension/rotation rather than merely naming objects. New card ones construct interior/outside rays and derive 60/80 and 30/40 from non-overlapping parts versus whole-minus-part, then construct zero/acute/right/obtuse/straight angles and distinguish display limits from mathematical boundaries."
           }
         }
       ],
@@ -8020,8 +8030,8 @@
         "J74-L02-X"
       ],
       "laterExactTagCandidates": {
-        "J93": ["J93-MAINT-REASONS-Q2"],
-        "J94": ["J94-MAINT-REASONS-Q2"]
+        "J93": ["J93-MAINT-REASONS-Q2", "J93-MAINT-PLANE-MEANING-Q2"],
+        "J94": ["J94-MAINT-REASONS-Q2", "J94-MAINT-PLANE-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -8042,11 +8052,21 @@
               "unit": "J94",
               "task": "J94-MAINT-REASONS-Q2",
               "taskSkill": "vertical-and-adjacent-angles"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q2",
+              "taskSkill": "vertical-and-adjacent-angles"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q2",
+              "taskSkill": "vertical-and-adjacent-angles"
             }
           ],
           "rationale": {
-            "zh": "J93从交角42°求138/42/138，J94从57°求123/57/123；都须画两条真直线与反向射线，由两个180°和同减共同角证明对顶相等，并给互补非邻接、相等非对顶反例。",
-            "en": "J93 derives 138/42/138 from a 42° crossing and J94 123/57/123 from 57°. Both draw actual straight lines and opposite rays, prove vertical equality by subtracting a common angle from two 180° sums and give supplementary-nonadjacent and equal-nonvertical counterexamples."
+            "zh": "J93从交角42°求138/42/138，J94从57°求123/57/123；都须画两条真直线与反向射线，由两个180°和同减共同角证明对顶相等，并给互补非邻接、相等非对顶反例。 新两组第2卡分别从对顶表达式解x22.5或27.5，再求实际97.5/95及邻角82.5/85，核360并画垂直交线的相等邻补反例。",
+            "en": "J93 derives 138/42/138 from a 42° crossing and J94 123/57/123 from 57°. Both draw actual straight lines and opposite rays, prove vertical equality by subtracting a common angle from two 180° sums and give supplementary-nonadjacent and equal-nonvertical counterexamples. New card twos solve vertical-expression parameters 22.5/27.5, reconstruct actual angles 97.5/95 and adjacent 82.5/85, check 360 and construct equal adjacent supplementary angles at perpendicular lines."
           }
         }
       ],
@@ -8136,11 +8156,21 @@
               "unit": "J94",
               "task": "J94-MAINT-REASONS-Q4",
               "taskSkill": "triangle-sum-with-reasons"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q2",
+              "taskSkill": "vertical-and-adjacent-angles"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q2",
+              "taskSkill": "vertical-and-adjacent-angles"
             }
           ],
           "rationale": {
-            "zh": "J93由A48、B67推C65、外角115，J94由38、79推C63、外角117。两处强制过C作AB平行线，标内错角组成平角，再比较两个180°和推出外角，不能只代背出的内角和。",
-            "en": "J93 derives C65° and exterior115° from A48°,B67°; J94 derives C63°,exterior117° from 38°,79°. Both construct through C a parallel to AB, identify alternate angles making a straight angle and compare two 180° sums for the exterior theorem, rather than merely substituting a memorised sum."
+            "zh": "J93由A48、B67推C65、外角115，J94由38、79推C63、外角117。两处强制过C作AB平行线，标内错角组成平角，再比较两个180°和推出外角，不能只代背出的内角和。 新两组第2卡共享独立等腰顶角分配、直角余角与外角逆求：底角71.25/63.75、余角57.5/42.5，另远内72/69.25与邻内59.5/42.5，保各完整条件与理由。",
+            "en": "J93 derives C65° and exterior115° from A48°,B67°; J94 derives C63°,exterior117° from 38°,79°. Both construct through C a parallel to AB, identify alternate angles making a straight angle and compare two 180° sums for the exterior theorem, rather than merely substituting a memorised sum. New shared card twos derive equal bases 71.25/63.75, right-triangle complements 57.5/42.5 and separate exterior targets: remote 72/69.25 versus adjacent 59.5/42.5, retaining each independent premise and reason."
           }
         }
       ],
@@ -8161,8 +8191,8 @@
         "J74-L05-X"
       ],
       "laterExactTagCandidates": {
-        "J93": ["J93-MAINT-REASONS-Q5"],
-        "J94": ["J94-MAINT-REASONS-Q5"]
+        "J93": ["J93-MAINT-REASONS-Q5", "J93-MAINT-PLANE-MEANING-Q3"],
+        "J94": ["J94-MAINT-REASONS-Q5", "J94-MAINT-PLANE-MEANING-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -8183,11 +8213,21 @@
               "unit": "J94",
               "task": "J94-MAINT-REASONS-Q5",
               "taskSkill": "triangle-class-and-existence"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
             }
           ],
           "rationale": {
-            "zh": "J93固定4、7给3<c<11，J94固定5、9给4<c<14，都解释端点退化、核三条边不等式、给不等边例，并用45/45/90同时等腰直角及至少两边相等定义解释等边包含。先验存在而非给假三角形贴名称。",
-            "en": "J93 derives 3<c<11 for fixed sides four/seven and J94 4<c<14 for five/nine. Both explain degenerate endpoints, check all inequalities, classify a scalene example and use 45/45/90 for simultaneous isosceles/right classifications and equilateral inclusion under the at-least-two-equal definition. Existence precedes classification."
+            "zh": "J93固定4、7给3<c<11，J94固定5、9给4<c<14，都解释端点退化、核三条边不等式、给不等边例，并用45/45/90同时等腰直角及至少两边相等定义解释等边包含。先验存在而非给假三角形贴名称。 新两组第3卡分别全列整数第三边4至10或5至13，另验正实3.5/4.5和两等长仍不成形的2/2/5或3/3/7；自构等腰锐/直/钝三组并核正性、180及分类包含。",
+            "en": "J93 derives 3<c<11 for fixed sides four/seven and J94 4<c<14 for five/nine. Both explain degenerate endpoints, check all inequalities, classify a scalene example and use 45/45/90 for simultaneous isosceles/right classifications and equilateral inclusion under the at-least-two-equal definition. Existence precedes classification. New card threes enumerate integer third sides 4–10 or 5–13, check real 3.5/4.5 and impossible equal-length sets (2,2,5)/(3,3,7), then construct acute/right/obtuse isosceles triples with positivity, total and inclusive classifications."
           }
         }
       ],

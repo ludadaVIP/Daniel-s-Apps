@@ -6,7 +6,6 @@ import { App } from './App';
 import { STORAGE_KEY } from './progress';
 import { emptyProgress, newSession } from './model';
 import { planeMeaningRetrieval } from './content/planeMeaningRetrieval';
-import { lessonById } from './content';
 import { recurrenceLinksFor } from './recurrenceTargets';
 import { maintenanceSets, maintenanceHref } from './content/maintenance';
 vi.setConfig({ testTimeout: 60000 });
@@ -108,7 +107,7 @@ describe('J74 plane meaning retrieval through actual routes', () => {
         }
         mount(maintenanceHref(s));
         expect(
-          screen.getByText(/Recorded 4\/3; 2 independently completed/),
+          screen.getByText(/Recorded 3\/3; 2 independently completed/),
         ).toBeTruthy();
         expect(
           (

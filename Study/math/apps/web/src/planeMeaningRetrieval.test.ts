@@ -135,7 +135,7 @@ describe('J74 specific angle objects and real/integer triangle domains', () => {
       expect(triangleSides(a, b, lo + 0.5).valid).toBe(true);
       for (const c of [lo, hi])
         expect(triangleSides(a, b, c).valid).toBe(false);
-      expect(triangleSides(...bad)).toMatchObject({
+      expect(triangleSides(bad[0], bad[1], bad[2])).toMatchObject({
         valid: false,
         kind: 'impossible',
         points: null,
