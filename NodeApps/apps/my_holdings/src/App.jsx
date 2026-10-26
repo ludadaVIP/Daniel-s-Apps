@@ -143,13 +143,8 @@ const preciseUSD = (value) =>
 const WATCH_SORT_OPTIONS = [
   { id: "name", label: "代码", title: "按股票代码排序" },
   { id: "price", label: "报价", title: "按当前报价从低到高排序" },
-  { id: "gap", label: "价差 ↑", title: "等待价差比例从低到高排序" },
-  { id: "attention", label: "关注", title: "按关注度从高到低排序：4、3、2、1" },
-];
-const DECISION_SORT_OPTIONS = [
-  { id: "name", label: "代码", title: "按股票代码排序" },
-  { id: "gap", label: "价差 ↑", title: "按等待价差百分比从小到大排序" },
-  { id: "attention", label: "颜色等级 ↓" },
+  { id: "gap", label: "价差", title: "按等待价差比例排序；再次点击切换顺序" },
+  { id: "attention", label: "关注", title: "按关注等级从高到低排序：4、3、2、1" },
 ];
 const WATCH_ATTENTION_OPTIONS = [
   { level: 4, label: "最关注" },
@@ -211,7 +206,7 @@ function watchQuoteAsOf(watch) {
   const zoneLabel = timeZone === "Europe/London" ? "伦敦" : "美东";
   return `${watch.priceDate}${time ? ` · ${time} ${zoneLabel}` : ""}`;
 }
-function sortWatchlist(rows, mode) {
+function sortWatchlist(rows, mode, gapDirection = "asc") {
   const bySymbol = (a, b) =>
     (a.symbol || "").localeCompare(b.symbol || "", "en", {
       numeric: true,
@@ -235,27 +230,56 @@ function sortWatchlist(rows, mode) {
     const aGap = watchGapPct(a);
     const bGap = watchGapPct(b);
     if ((aGap == null) !== (bGap == null)) return aGap == null ? 1 : -1;
-    return aGap == null ? bySymbol(a, b) : aGap - bGap || bySymbol(a, b);
-  });
-}
-function sortDecisionWatchlist(rows, mode, gapDirection = "asc") {
-  const bySymbol = (a, b) =>
-    (a.symbol || "").localeCompare(b.symbol || "", "en", {
-      numeric: true,
-      sensitivity: "base",
-    }) || (a.name || "").localeCompare(b.name || "", "zh-CN", {
-      numeric: true,
-      sensitivity: "base",
-    });
-  if (mode === "attention") return rows.slice().sort((a, b) => watchAttention(b) - watchAttention(a) || bySymbol(a, b));
-  if (mode === "gap") return rows.slice().sort((a, b) => {
-    const aGap = watchGapPct(a);
-    const bGap = watchGapPct(b);
-    if ((aGap == null) !== (bGap == null)) return aGap == null ? 1 : -1;
     if (aGap == null) return bySymbol(a, b);
     return (gapDirection === "desc" ? bGap - aGap : aGap - bGap) || bySymbol(a, b);
   });
-  return rows.slice().sort(bySymbol);
+}
+function readSharedSortMode() {
+  try {
+    const shared = localStorage.getItem("mh-shared-watch-sort");
+    if (WATCH_SORT_OPTIONS.some((option) => option.id === shared)) return shared;
+    const watch = localStorage.getItem("mh-watch-sort");
+    if (WATCH_SORT_OPTIONS.some((option) => option.id === watch)) return watch;
+    const decision = localStorage.getItem("mh-decision-sort");
+    const migratedDecision = decision === "waiting" ? "gap" : decision;
+    return WATCH_SORT_OPTIONS.some((option) => option.id === migratedDecision) ? migratedDecision : "gap";
+  } catch {
+    return "gap";
+  }
+}
+function readSharedGapDirection() {
+  try {
+    if (readSharedSortMode() !== "gap") return "asc";
+    const shared = localStorage.getItem("mh-shared-gap-direction");
+    if (shared === "asc" || shared === "desc") return shared;
+    const legacyMode = localStorage.getItem("mh-decision-sort");
+    return ["gap", "waiting"].includes(legacyMode) && localStorage.getItem("mh-decision-gap-direction") === "desc"
+      ? "desc"
+      : "asc";
+  } catch {
+    return "asc";
+  }
+}
+function WatchControls({ mode, gapDirection, query, onQueryChange, onSort, searchLabel, searchPlaceholder }) {
+  return (
+    <div className="mh-linked-watch-controls">
+      <label className="mh-search">
+        <Search size={16} />
+        <input aria-label={searchLabel} placeholder={searchPlaceholder} value={query} onChange={(event) => onQueryChange(event.target.value)} />
+      </label>
+      <div className="mh-watch-sort-switch mh-linked-watch-sort-switch" role="group" aria-label="关注标的排序方式" data-active={mode}>
+        <span className="mh-watch-sort-indicator" aria-hidden="true" />
+        {WATCH_SORT_OPTIONS.map((option) => {
+          const gapIsDescending = option.id === "gap" && gapDirection === "desc";
+          const label = option.id === "gap" ? `价差 ${gapIsDescending ? "↓" : "↑"}` : option.label;
+          const title = option.id === "gap"
+            ? `按等待价差比例从${gapIsDescending ? "大到小" : "小到大"}排序；再次点击切换方向`
+            : option.title;
+          return <button key={option.id} type="button" title={title} aria-label={title} aria-pressed={mode === option.id} onClick={() => onSort(option.id)}>{label}</button>;
+        })}
+      </div>
+    </div>
+  );
 }
 function rankWatchPriorities(rows) {
   return rows
@@ -872,31 +896,8 @@ export default function HoldingsApp() {
       }
     }),
     [watchRefreshBusy, setWatchRefreshBusy] = useState(false),
-    [watchSort, setWatchSort] = useState(() => {
-      try {
-        const saved = localStorage.getItem("mh-watch-sort");
-        return WATCH_SORT_OPTIONS.some((option) => option.id === saved) ? saved : "gap";
-      } catch {
-        return "gap";
-      }
-    }),
-    [decisionSort, setDecisionSort] = useState(() => {
-      try {
-        const saved = localStorage.getItem("mh-decision-sort");
-        if (saved === "waiting") return "gap";
-        return DECISION_SORT_OPTIONS.some((option) => option.id === saved) ? saved : "name";
-      } catch {
-        return "name";
-      }
-    }),
-    [decisionGapDirection, setDecisionGapDirection] = useState(() => {
-      try {
-        if (localStorage.getItem("mh-decision-sort") !== "gap") return "asc";
-        return localStorage.getItem("mh-decision-gap-direction") === "desc" ? "desc" : "asc";
-      } catch {
-        return "asc";
-      }
-    }),
+    [sortMode, setSortMode] = useState(readSharedSortMode),
+    [gapDirection, setGapDirection] = useState(readSharedGapDirection),
     [watchTargetDrafts, setWatchTargetDrafts] = useState({}),
     [attentionPickerId, setAttentionPickerId] = useState(null),
     [showAllWatchStocks, setShowAllWatchStocks] = useState(false),
@@ -1350,7 +1351,8 @@ export default function HoldingsApp() {
   const watchRefreshPending = undoableWatchRefreshIds(state, watchRefreshBatchIds).length > 0;
   const page = (id) => {
     setTab(id);
-    setQuery("");
+    const switchingBetweenLinkedViews = ["watch", "journal"].includes(tab) && ["watch", "journal"].includes(id);
+    if (!switchingBetweenLinkedViews) setQuery("");
     if (id === "watch") {
       setShowAllWatchStocks(false);
       setSelectedWatchId(null);
@@ -1383,44 +1385,49 @@ export default function HoldingsApp() {
         })),
     overviewArchiveCount = archiveDocuments === null ? allAnalyses.length : archiveDocuments.length,
     latestWatchPriceDate = state.watchlist.reduce((latestDate, item) => item.priceDate && item.priceDate > latestDate ? item.priceDate : latestDate, "");
-  const setWatchSortMode = (mode) => {
-    setWatchSort(mode);
+  const watchCounts = {
+      total: state.watchlist.length,
+      stocks: state.watchlist.filter((watch) => !isIndexOrEtf(watch)).length,
+      funds: state.watchlist.filter(isIndexOrEtf).length,
+    },
+    pendingTaskCount = state.jobs.filter((job) => ["waiting", "running", "failed"].includes(job.status)).length,
+    completedTaskCount = state.jobs.filter((job) => job.status === "done").length;
+  const setSharedSortMode = (mode) => {
+    const nextDirection = mode === "gap"
+      ? sortMode === "gap" ? (gapDirection === "asc" ? "desc" : "asc") : "asc"
+      : "asc";
+    setSortMode(mode);
+    setGapDirection(nextDirection);
     try {
+      localStorage.setItem("mh-shared-watch-sort", mode);
+      localStorage.setItem("mh-shared-gap-direction", nextDirection);
       localStorage.setItem("mh-watch-sort", mode);
-    } catch {}
-  };
-  const setDecisionSortMode = (mode) => {
-    if (mode === "gap") {
-      const nextDirection = decisionSort === "gap"
-        ? (decisionGapDirection === "asc" ? "desc" : "asc")
-        : "asc";
-      setDecisionGapDirection(nextDirection);
-      try {
-        localStorage.setItem("mh-decision-gap-direction", nextDirection);
-      } catch {}
-    } else {
-      setDecisionGapDirection("asc");
-      try {
-        localStorage.setItem("mh-decision-gap-direction", "asc");
-      } catch {}
-    }
-    setDecisionSort(mode);
-    try {
       localStorage.setItem("mh-decision-sort", mode);
+      localStorage.setItem("mh-decision-gap-direction", nextDirection);
     } catch {}
   };
   const selectWatch = (watchId) => {
     setSelectedWatchId(watchId);
     setRight(true);
   };
+  const searchTerm = query.trim().toLowerCase();
   const visibleWatchlist = state.watchlist.filter((watch) =>
-    `${watch.name} ${watch.symbol}`.toLowerCase().includes(query.toLowerCase()),
+    `${watch.name} ${watch.symbol}`.toLowerCase().includes(searchTerm),
   );
-  const watchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), watchSort);
-  const watchFunds = sortWatchlist(visibleWatchlist.filter(isIndexOrEtf), watchSort);
-  const decisionWatchStocks = sortDecisionWatchlist(state.watchlist.filter((watch) => !isIndexOrEtf(watch)), decisionSort, decisionGapDirection);
+  const allDecisionWatchIds = new Set(state.watchlist.filter((watch) => !isIndexOrEtf(watch)).map((watch) => watch.id));
+  const watchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), sortMode, gapDirection);
+  const watchFunds = sortWatchlist(visibleWatchlist.filter(isIndexOrEtf), sortMode, gapDirection);
+  const decisionWatchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), sortMode, gapDirection);
   const decisionPlansByWatchId = new Map(state.journal.filter((entry) => entry.kind === "plan").map((entry) => [entry.watchId, entry]));
-  const freeJournalEntries = state.journal.filter((entry) => entry.kind !== "plan" || !decisionWatchStocks.some((watch) => watch.id === entry.watchId));
+  const freeJournalEntries = state.journal
+    .filter((entry) => entry.kind !== "plan" || !allDecisionWatchIds.has(entry.watchId))
+    .filter((entry) => {
+      if (!searchTerm) return true;
+      const linkedWatch = state.watchlist.find((watch) => watch.id === entry.watchId);
+      return `${entry.title || ""} ${entry.body || ""} ${linkedWatch?.symbol || ""} ${linkedWatch?.name || ""}`
+        .toLowerCase()
+        .includes(searchTerm);
+    });
   const collapsedWatchStockLimit = watchStockColumnCount * 3;
   const visibleWatchStocks = showAllWatchStocks
     ? watchStocks
@@ -1749,14 +1756,10 @@ export default function HoldingsApp() {
               title={label}
             >
               <Icon size={19} />
-              {left && (
-                <>
-                  <span>{label}</span>
-                  {key === "watch" && state.watchlist.length > 0 && (
-                    <small>{state.watchlist.length}</small>
-                  )}
-                </>
-              )}
+              {left && <span>{label}</span>}
+              {key === "watch" && <small className="mh-nav-count" title={`全部关注标的：${watchCounts.stocks} 只个股 + ${watchCounts.funds} 个指数 / ETF`} aria-label={`全部关注标的 ${watchCounts.total} 个`}>{watchCounts.total}</small>}
+              {key === "journal" && <small className="mh-nav-count" title={`${watchCounts.stocks} 张个股行动计划`} aria-label={`${watchCounts.stocks} 张个股行动计划`}>{watchCounts.stocks}</small>}
+              {key === "ai" && <small className={`mh-nav-count ${pendingTaskCount ? "is-pending" : "is-clear"}`} title={pendingTaskCount ? `${pendingTaskCount} 项待完成任务（含等待、运行和失败）` : completedTaskCount ? `${completedTaskCount} 项任务已完成` : "待办已清空"} aria-label={pendingTaskCount ? `${pendingTaskCount} 项待完成任务` : completedTaskCount ? `${completedTaskCount} 项任务已完成` : "待办已清空"}>{pendingTaskCount || completedTaskCount || "✓"}</small>}
             </button>
           ))}
         </nav>
@@ -2064,18 +2067,9 @@ export default function HoldingsApp() {
               {heading(
                 "GOOD IDEAS CAN WAIT",
                 "近期关注",
-                "",
+                `共 ${watchCounts.total} 个标的 · ${watchCounts.stocks} 只个股 + ${watchCounts.funds} 个指数 / ETF`,
                 <div className="mh-heading-actions mh-watch-heading-actions">
-                  <label className="mh-search">
-                    <Search size={16} />
-                    <input aria-label="搜索关注标的" placeholder="搜索关注…" value={query} onChange={(e) => setQuery(e.target.value)} />
-                  </label>
-                  <div className="mh-watch-sort-switch" role="group" aria-label="关注标的排序方式" data-active={watchSort}>
-                    <span className="mh-watch-sort-indicator" aria-hidden="true" />
-                    {WATCH_SORT_OPTIONS.map((option) => (
-                      <button key={option.id} type="button" title={option.title} aria-pressed={watchSort === option.id} onClick={() => setWatchSortMode(option.id)}>{option.label}</button>
-                    ))}
-                  </div>
+                  <WatchControls mode={sortMode} gapDirection={gapDirection} query={query} onQueryChange={setQuery} onSort={setSharedSortMode} searchLabel="搜索近期关注" searchPlaceholder="搜索代码或名称" />
                   <button className="mh-primary" onClick={() => setModal({ type: "watch" })}>
                     <Plus size={17} /> 添加关注
                   </button>
@@ -2587,19 +2581,9 @@ export default function HoldingsApp() {
               {heading(
                 "REMEMBER WHY YOU DECIDED",
                 "决策日志",
-                "每只个股一张计划卡；观察价与近期关注的等待价共用同一数值。",
+                `共 ${watchCounts.stocks} 张个股行动计划；卡片状态表示报价与观察价的关系，不是 AI 待办。排序和搜索与近期关注共用。`,
                 <div className="mh-heading-actions mh-decision-heading-actions">
-                  <div className="mh-watch-sort-switch mh-decision-sort-switch" role="group" aria-label="决策卡片排序方式" data-active={decisionSort}>
-                    <span className="mh-watch-sort-indicator" aria-hidden="true" />
-                    {DECISION_SORT_OPTIONS.map((option) => {
-                      const gapIsDescending = option.id === "gap" && decisionGapDirection === "desc";
-                      const label = option.id === "gap" ? `价差 ${gapIsDescending ? "↓" : "↑"}` : option.label;
-                      const title = option.id === "gap"
-                        ? `按等待价差百分比从${gapIsDescending ? "大到小" : "小到大"}排序；再次点击切换方向`
-                        : option.title;
-                      return <button key={option.id} type="button" title={title} aria-label={title} aria-pressed={decisionSort === option.id} onClick={() => setDecisionSortMode(option.id)}>{label}</button>;
-                    })}
-                  </div>
+                  <WatchControls mode={sortMode} gapDirection={gapDirection} query={query} onQueryChange={setQuery} onSort={setSharedSortMode} searchLabel="搜索个股计划和复盘" searchPlaceholder="搜索代码、名称或内容" />
                   <button
                     className="mh-primary"
                     onClick={() => setModal({ type: "journal" })}
@@ -2642,9 +2626,11 @@ export default function HoldingsApp() {
                 </section>
               </> : <Empty
                 icon={BookOpen}
-                title="近期关注里还没有个股"
-                text="添加个股后，这里会自动生成对应的行动计划卡。指数和 ETF 不会生成个股决策卡。"
-                action={<button className="mh-primary" onClick={() => page("watch")}><Star size={15} /> 前往近期关注</button>}
+                title={searchTerm ? "没有匹配的个股" : "近期关注里还没有个股"}
+                text={searchTerm ? "调整或清除搜索词，查看对应的行动计划卡。" : "添加个股后，这里会自动生成对应的行动计划卡。指数和 ETF 不会生成个股决策卡。"}
+                action={searchTerm
+                  ? <button className="mh-button" onClick={() => setQuery("")}>清除搜索</button>
+                  : <button className="mh-primary" onClick={() => page("watch")}><Star size={15} /> 前往近期关注</button>}
               />}
               {freeJournalEntries.length > 0 && <section className="mh-journal-history">
                 <div className="mh-decision-section-heading"><div><h2>复盘记录</h2><p>独立的判断、理由与后续结果。</p></div><span className="mh-tag">{freeJournalEntries.length} 条</span></div>

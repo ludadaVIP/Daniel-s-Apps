@@ -65,8 +65,11 @@ export function DecisionPlanCard({
 
   const currency = watch.priceCurrency || watch.research?.quote?.currency || watch.research?.identity?.currency || "USD";
   const quote = Number(watch.price);
+  const hasQuote = Number.isFinite(quote) && quote > 0;
+  const observationTarget = watch.targetPrice == null ? NaN : Number(watch.targetPrice);
+  const hasObservationTarget = Number.isFinite(observationTarget) && observationTarget > 0;
   const waiting = draft.observationPrice.trim() === "" ? NaN : Number(draft.observationPrice);
-  const reached = Number.isFinite(quote) && quote > 0 && Number.isFinite(waiting) && waiting > 0 && quote <= waiting;
+  const reached = hasQuote && hasObservationTarget && quote <= observationTarget;
   const waitGapPct = !Number.isFinite(quote) || quote <= 0 || !Number.isFinite(waiting) || waiting <= 0
     ? null
     : quote <= waiting ? 0 : ((quote - waiting) / quote) * 100;
@@ -125,6 +128,20 @@ export function DecisionPlanCard({
     : `${Number(plan.allocationPct).toLocaleString("zh-CN", { maximumFractionDigits: 2 })}%`;
   const pricePrefix = currency === "USD" ? "$" : `${currency} `;
   const observationText = watch.targetPrice == null ? "—" : money(watch.targetPrice, currency);
+  const statusLabel = !hasObservationTarget
+    ? "未设观察价"
+    : !hasQuote
+      ? "报价待更新"
+      : reached
+        ? "已触及观察价"
+        : "高于观察价";
+  const statusTitle = !hasObservationTarget
+    ? "尚未为此标的设置观察价。"
+    : !hasQuote
+      ? `已设观察价 ${observationText}，但目前没有有效报价。`
+      : reached
+        ? `当前报价 ${money(quote, currency)} 已触及观察价 ${observationText}。`
+        : `当前报价 ${money(quote, currency)} 高于观察价 ${observationText}；这不是工作台待办。`;
   const safetyText = formatRange(plan.safetyLow, plan.safetyHigh) || "—";
   const discountText = formatRange(plan.discountLow, plan.discountHigh) || "—";
 
@@ -136,8 +153,8 @@ export function DecisionPlanCard({
           <ArrowUpRight size={12} />
         </button>
         <div className="mh-decision-actions">
-          <span className={`mh-decision-status ${reached ? "reached" : ""}`}>
-            {watch.targetPrice == null ? "未设观察价" : reached ? "已触及观察价" : "等待中"}
+          <span className={`mh-decision-status ${reached ? "reached" : !hasQuote ? "quote-missing" : !hasObservationTarget ? "no-target" : "above-target"}`} title={statusTitle} aria-label={statusTitle}>
+            {statusLabel}
           </span>
           <div
             className="mh-watch-attention-control"
