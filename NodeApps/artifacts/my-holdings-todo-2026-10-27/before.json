@@ -1,0 +1,50 @@
+{
+  "revision": 1058,
+  "jobs": [
+    {
+      "watchId": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "status": "waiting",
+      "date": "2026-10-26T07:16:59.284Z",
+      "error": "",
+      "batchId": "8c6af34d-70ce-43b9-8007-0bbe94188b7f",
+      "origin": "watch-add",
+      "id": "144a9c14-7f39-48fd-b515-2d0d83053cbe",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 CLPT CLPT：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "status": "waiting",
+      "date": "2026-10-26T07:16:59.284Z",
+      "error": "",
+      "batchId": "8c6af34d-70ce-43b9-8007-0bbe94188b7f",
+      "origin": "watch-add",
+      "id": "b7fd022c-5b5e-41e7-8542-ef57306db06d",
+      "kind": "watch",
+      "researchMode": "initial",
+      "question": "仅在完整研究缺失时补充首次研究：CLPT CLPT。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。"
+    }
+  ],
+  "targets": [
+    {
+      "id": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "name": "CLPT",
+      "symbol": "CLPT",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "attention": 2
+    }
+  ],
+  "hashes": {
+    "accounts": "b9dadd759c4cb35cb3b2d17573751aefa1949bb192b9be0fcbffec85bb8bd191",
+    "holdings": "9c297cfeda78f2636b079d74a6c76baf9785b6e06b28977fb88c9eba3470e1b0",
+    "cash": "e692bc4d7c95c4e54f32de9b5a1a7546e0fc5c74602573ac1386f921daca227b",
+    "journal": "4f3a4fd7f9c9fc14068ee53caf6e90aee29c49a07ca9fdec8ece755bc598b399",
+    "goals": "45d8d78e55e903651d0ab9e6d477beb39ae5ad4a1827e020216e88d14c5c6251",
+    "fx": "7fbf986a1e54042d5a9170ed014a682524e585f848fa66b4ef1099d3df2d5c92",
+    "holdingTrades": "e8afdf301a0f2043b75a8b25ecd39bde62148c2727339bb15b9ea841ab4aa9be",
+    "converter": "c6da9980326e6b343608135732c7c97485fd7924ce33eed4c29a0ae37574a3ed"
+  },
+  "otherWatchlistHash": "442c9fa93d06332796e97654ff81d982e1eb92bc404c72c2feaa16057dde45cf"
+}
