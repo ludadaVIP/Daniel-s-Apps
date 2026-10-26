@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 1041,
-  "updatedAt": "2026-10-26T01:35:44.344Z",
+  "revision": 1055,
+  "updatedAt": "2026-10-26T07:05:30.168Z",
   "accounts": [
     {
       "id": "a1",
@@ -1905,7 +1905,7 @@
       "researchedAt": "2026-10-21T23:39:26.540Z",
       "report": "research/20261022-gpcr.html",
       "attention": 1,
-      "targetPrice": 18,
+      "targetPrice": 15,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-23T20:00:00.000Z",
@@ -3884,7 +3884,7 @@
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 2,
+      "attention": 4,
       "price": 74.63,
       "priceDate": "2026-10-23",
       "priceType": "close",
@@ -4520,7 +4520,8 @@
         "uncertainty": "最新财报为Q2；Q3未发布。最新完全摊薄股数、H2净现金、客户单位经济和独立同业倍数核验未完成；模型股数、净现金桥接与长期利润率均为明示假设。组合适配未完成。"
       },
       "researchedAt": "2026-10-26T01:35:44.199Z",
-      "report": "research/my-holdings-research-cbrs-2026-10-26.html"
+      "report": "research/my-holdings-research-cbrs-2026-10-26.html",
+      "targetPrice": 90
     },
     {
       "id": "f389b712-950c-40f5-a71d-7a777a5458a9",
@@ -4596,7 +4597,8 @@
         "uncertainty": "资料截至2026-10-26，最近财务期为2026-06-30；未使用尚未发布的Q3结果。10月ATM后资产负债表及完整当前稀释股数缺失，模型用500M净现金和100M股做条件试算，实际范围可能更宽，不能给高置信估值。历史仅列2023–2025及最新半年度，未完成5–10年全序列、行业可比倍数与最新代理声明审计；不以不完整资料生成精确ROIC或最终仓位。模型对扩产、终值和利润率特别敏感，极端情况可损失全部本金。行情不在本JSON回写；应用由独立价格任务维护。"
       },
       "researchedAt": "2026-10-26T01:35:44.260Z",
-      "report": "research/my-holdings-research-aaoi-2026-10-26.html"
+      "report": "research/my-holdings-research-aaoi-2026-10-26.html",
+      "targetPrice": 43
     },
     {
       "id": "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
@@ -4678,7 +4680,8 @@
         "uncertainty": "未获得2026第三季度财务结果；现价来自二手历史行情而非交易所直供，研究未覆盖所有监管或临时事件。现金、债务与股数时点不同，不能据粗略EV精确下单。五年DCF仅作假设压力试算，2035年后经济性未核验，未完成真正独立可比估值和精确稀释估值。未纳入税费、汇率、个人组合约束。事实、管理层前瞻和研究假设已分别标示。本报告供研究决策，不保证收益。"
       },
       "researchedAt": "2026-10-26T01:35:44.335Z",
-      "report": "research/my-holdings-research-mp-2026-10-26.html"
+      "report": "research/my-holdings-research-mp-2026-10-26.html",
+      "targetPrice": 30
     }
   ],
   "cash": [
@@ -5285,7 +5288,7 @@
       "kind": "plan",
       "watchId": "71314544-bdc1-4c97-be06-821d7464ef31",
       "plan": {
-        "allocationPct": 2,
+        "allocationPct": 4,
         "safetyLow": 70,
         "safetyHigh": 76,
         "discountLow": 60,
@@ -5408,8 +5411,8 @@
         "allocationPct": 0.75,
         "safetyLow": 18,
         "safetyHigh": 22,
-        "discountLow": null,
-        "discountHigh": null
+        "discountLow": 15,
+        "discountHigh": 18
       }
     },
     {
@@ -5420,9 +5423,9 @@
       "kind": "plan",
       "watchId": "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
       "plan": {
-        "allocationPct": null,
-        "safetyLow": null,
-        "safetyHigh": null,
+        "allocationPct": 1,
+        "safetyLow": 75,
+        "safetyHigh": 90,
         "discountLow": null,
         "discountHigh": null
       }
@@ -5435,9 +5438,9 @@
       "kind": "plan",
       "watchId": "f389b712-950c-40f5-a71d-7a777a5458a9",
       "plan": {
-        "allocationPct": null,
-        "safetyLow": null,
-        "safetyHigh": null,
+        "allocationPct": 0.75,
+        "safetyLow": 35,
+        "safetyHigh": 43,
         "discountLow": null,
         "discountHigh": null
       }
@@ -5450,9 +5453,9 @@
       "kind": "plan",
       "watchId": "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
       "plan": {
-        "allocationPct": null,
-        "safetyLow": null,
-        "safetyHigh": null,
+        "allocationPct": 1.5,
+        "safetyLow": 25,
+        "safetyHigh": 30,
         "discountLow": null,
         "discountHigh": null
       }
@@ -15280,7 +15283,6 @@
         "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
         "db257f43-036f-43ec-acbf-84c4bf91c1ff",
         "ad97bd71-1e64-42b2-ac24-81220317555d",
-        "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc",
         "c024e517-2f19-429e-9330-e49566ba2537",
         "20517359-0ea4-40bc-a51c-d83eb77f75eb",
         "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
@@ -15289,12 +15291,14 @@
         "09b92911-f46c-43f7-8308-30622aadb4f4",
         "5d0a5d34-3866-417c-a996-c1b5991daebb",
         "e59bec61-4342-46ba-99c5-200542b791d9",
+        "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
         "e10a6356-e290-430c-9ca8-d5108019f74e",
         "e8839fb8-b14b-4f60-bc6b-f01909376529",
         "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
         "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
         "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
         "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
+        "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
         "5ffc01e1-e876-459c-828d-3f28dc5548d8",
         "1931dbff-edc9-40e0-b082-32f571e994a6",
         "28efd446-0de3-4992-b562-7836ceb691ae",
@@ -15310,8 +15314,10 @@
         "6688d084-15c1-4d89-a450-a7b8d67b6616",
         "68ac1738-90e2-44ce-aaa8-83967958e168",
         "5774dc3c-1f0d-40e7-b787-d0a45f77c524",
+        "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc",
         "1b0d63b8-bd16-4c7c-8f20-6e8d71c13876",
         "990ad5a3-7a56-45e9-a914-78424558e749",
+        "f389b712-950c-40f5-a71d-7a777a5458a9",
         "10e1793d-640e-443f-aac7-fe0290c204c3",
         "64078460-ed3a-42f4-803e-60d32e8df85d"
       ]
