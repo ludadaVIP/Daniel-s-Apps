@@ -44,6 +44,12 @@
 :root[data-theme="dark"] .mh-sidebar nav small {
   border: 1px solid #44593a;
 }
+:root[data-theme="dark"] .mh-sidebar nav button > .mh-nav-count {
+  background: #21281c;
+  color: #c2cdbf;
+}
+:root[data-theme="dark"] .mh-sidebar nav button > .mh-nav-count.is-pending { background: #7e332f; color: #ffffff; }
+:root[data-theme="dark"] .mh-sidebar nav button > .mh-nav-count.is-clear { background: #1c291f; color: #b7dcc6; }
 :root[data-theme="dark"] .mh-side-quote {
   border-top: 1px solid #49563e;
   color: #bcc6bd;
@@ -815,12 +821,16 @@
 :root[data-theme="dark"] .mh-overview-journal-empty { color: #bdc5b6; }
 :root[data-theme="dark"] .mh-overview-journal-empty strong { color: #c4cebc; }
 :root[data-theme="dark"] .mh-overview-journal-empty p { color: #bdc4b7; }
-:root[data-theme="dark"] .mh-allocation-caption { color: #bbc2b6; }
+:root[data-theme="dark"] .mh-side-allocation-view { border: 1px solid #4a563e; background: #1f2318; }
+:root[data-theme="dark"] .mh-side-allocation-view-heading strong { color: #c4d1c0; }
+:root[data-theme="dark"] .mh-side-allocation-view-heading small { color: #bec5ba; }
+:root[data-theme="dark"] .mh-allocation-caption { color: #bfc5bb; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-quickstats article {
   background: #212121;
 }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-attention { background: #212121; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-attention-item { background: #23271b; }
+:root[data-theme="dark"][data-theme="dark"] .mh-side-allocation-view { background: #23271b; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-job-counts > div { background: #23271b; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-cash-mix-bar > .holdings { background: #324030; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-goal-line, :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-objective-card { background: #23271b; }

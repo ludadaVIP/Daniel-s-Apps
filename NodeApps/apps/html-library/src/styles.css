@@ -129,7 +129,7 @@
 .vs-card-main h3 { display: -webkit-box; margin: 0; overflow: hidden; color: var(--vs-midnight); font-family: Georgia, "Noto Serif SC", "Songti SC", serif; font-size: 18px; font-weight: 700; letter-spacing: -.035em; line-height: 1.23; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .vs-card-main p { display: -webkit-box; min-height: 36px; margin: 8px 0 0; overflow: hidden; color: #5f748a; font-size: 12px; line-height: 1.5; -webkit-box-orient: vertical; -webkit-line-clamp: 2; }
 .vs-card-footer { display: flex; min-width: 0; align-items: center; gap: 6px; padding: 8px 10px 5px 14px; }
-.vs-path { overflow: hidden; flex: 1; color: #8da0b2; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 9px; text-overflow: ellipsis; white-space: nowrap; }
+.vs-path { overflow: hidden; flex: 1; color: #61788f; font-family: ui-monospace, SFMono-Regular, Consolas, monospace; font-size: 12px; font-weight: 600; text-overflow: ellipsis; white-space: nowrap; }
 .vs-card-actions { display: flex; margin-left: auto; }
 .vs-card-actions button { display: grid; width: 27px; height: 27px; place-items: center; border-radius: 5px; color: #71869d; background: transparent; transition: color .14s ease, background .14s ease; }
 .vs-card-actions button:hover { color: #1d5fae; background: #e7f1ff; }.vs-card-actions button.is-favorite, .vs-inspector-top button.is-favorite { color: var(--vs-coral); }
@@ -141,7 +141,7 @@
 .vs-document-grid.is-list { grid-template-columns: 1fr; gap: 8px; }
 .vs-document-grid.is-list .vs-document-card { display: grid; grid-template-columns: 108px minmax(0, 1fr) auto; min-height: 102px; }
 .vs-document-grid.is-list .vs-card-select { display: contents; }.vs-document-grid.is-list .vs-cover { grid-row: 1 / span 2; min-height: 100%; padding: 9px 8px 7px 14px; }.vs-document-grid.is-list .vs-cover-index { font-size: 8px; }.vs-document-grid.is-list .vs-cover strong { font-size: 59px; }.vs-document-grid.is-list .vs-cover-stamp { display: none; }
-.vs-document-grid.is-list .vs-card-main { grid-column: 2; padding: 12px 10px; }.vs-document-grid.is-list .vs-card-main p { min-height: 0; -webkit-line-clamp: 1; }.vs-document-grid.is-list .vs-card-footer { grid-column: 2 / span 2; align-self: end; padding: 4px 9px 7px 10px; }.vs-document-grid.is-list .vs-card-tags { position: absolute; right: 80px; top: 15px; max-width: 160px; padding: 0; }.vs-document-grid.is-list .vs-card-tags span { font-size: 8px; }
+.vs-document-grid.is-list .vs-card-main { grid-column: 2; padding: 12px 10px; }.vs-document-grid.is-list .vs-card-main p { min-height: 0; -webkit-line-clamp: 1; }.vs-document-grid.is-list .vs-card-footer { grid-column: 2 / span 2; align-self: end; padding: 4px 9px 7px 10px; }.vs-document-grid.is-list .vs-path { font-size: 13px; }.vs-document-grid.is-list .vs-card-tags { position: absolute; right: 80px; top: 15px; max-width: 160px; padding: 0; }.vs-document-grid.is-list .vs-card-tags span { font-size: 8px; }
 
 .vs-inspector { min-width: 0; border-left: 1px solid var(--vs-rule); background: rgba(255,255,255,.75); }
 .vs-library-controls { position: sticky; z-index: 10; top: 0; display: grid; gap: 8px; padding: 18px clamp(15px, 2vw, 27px) 13px; border-bottom: 1px solid var(--vs-rule); background: rgba(255,255,255,.94); box-shadow: 0 6px 14px rgba(40, 64, 90, .045); backdrop-filter: blur(10px); }
