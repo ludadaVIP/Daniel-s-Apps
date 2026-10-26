@@ -17,7 +17,7 @@ const e = (
   targets,
   rationale: t(rz, re),
 });
-export const geometryGraphRecurrence = [
+const originalGeometryGraphRecurrence = [
   e(
     'geometric-objects-and-angle',
     '点线射线、角与不变量',
@@ -163,3 +163,43 @@ export const geometryGraphRecurrence = [
     'Both Q8 tasks explicitly draw replacement/no-replacement trees, label conditional denominators, multiply along paths and add disjoint paths to one. J93 obtains no-replacement RR3/10 rather than 9/25; J94 excludes BB after the only blue ball is removed. Both distinguish numbered paths from colour groups, remove within rounds, restore between rounds and reject compensation guarantees.',
   ),
 ];
+
+export const geometryGraphRecurrence = originalGeometryGraphRecurrence.map(
+  (entry) => {
+    if (!entry.sourceLesson.startsWith('J74-')) return entry;
+    const i = Number(entry.sourceLesson.slice(-2)) - 1,
+      n = [1, 2, 0, 2, 3, 0][i]!;
+    if (!n) return entry;
+    const details = [
+      [
+        '新两组第1卡亲画内部/外部射线，分别由不重叠部分和整角扣部分求60/80与30/40；另构造零/锐/直/钝/平角并解释显示界非数学边界。',
+        'New card ones construct interior/outside rays and derive 60/80 and 30/40 from non-overlapping parts versus whole-minus-part, then construct zero/acute/right/obtuse/straight angles and distinguish display limits from mathematical boundaries.',
+      ],
+      [
+        '新两组第2卡分别从对顶表达式解x22.5或27.5，再求实际97.5/95及邻角82.5/85，核360并画垂直交线的相等邻补反例。',
+        'New card twos solve vertical-expression parameters 22.5/27.5, reconstruct actual angles 97.5/95 and adjacent 82.5/85, check 360 and construct equal adjacent supplementary angles at perpendicular lines.',
+      ],
+      ['', ''],
+      [
+        '新两组第2卡共享独立等腰顶角分配、直角余角与外角逆求：底角71.25/63.75、余角57.5/42.5，另远内72/69.25与邻内59.5/42.5，保各完整条件与理由。',
+        'New shared card twos derive equal bases 71.25/63.75, right-triangle complements 57.5/42.5 and separate exterior targets: remote 72/69.25 versus adjacent 59.5/42.5, retaining each independent premise and reason.',
+      ],
+      [
+        '新两组第3卡分别全列整数第三边4至10或5至13，另验正实3.5/4.5和两等长仍不成形的2/2/5或3/3/7；自构等腰锐/直/钝三组并核正性、180及分类包含。',
+        'New card threes enumerate integer third sides 4–10 or 5–13, check real 3.5/4.5 and impossible equal-length sets (2,2,5)/(3,3,7), then construct acute/right/obtuse isosceles triples with positivity, total and inclusive classifications.',
+      ],
+      ['', ''],
+    ][i]!;
+    return {
+      ...entry,
+      targets: [
+        ...entry.targets,
+        ...['J93', 'J94'].map((u) => `${u}-MAINT-PLANE-MEANING-Q${n}`),
+      ],
+      rationale: t(
+        `${entry.rationale.zh} ${details[0]}`,
+        `${entry.rationale.en} ${details[1]}`,
+      ),
+    };
+  },
+);

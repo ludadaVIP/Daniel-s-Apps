@@ -93,8 +93,8 @@ const hints: Pair[][] = [
       'Define x, units and domain, then place the two original quantities on opposite sides.',
     ],
     [
-      '建模可展开或交换两边，但本题先不移项；求解后核对年龄差、总量及整数或非负限制。',
-      'The model may be expanded or reversed, but do not transpose yet. After solving, check differences, totals and integer or non-negative restrictions.',
+      '先按题意辨明要交原数量等式还是精确解值；求解时可作可逆的两边同做，最后核年龄差、总量及整数或非负限制。',
+      'Distinguish a requested original-quantity equation from an exact solution. Solving permits reversible operations on both sides; finally check differences, totals and integer or non-negative restrictions.',
     ],
   ],
   [
@@ -109,6 +109,16 @@ const hints: Pair[][] = [
   ],
 ];
 function q(id: string, i: number, item: Item): Question {
+  const taskHints =
+    i === 4 && item.kind === 'linear-equation'
+      ? [
+          hints[i]![0]!,
+          [
+            '本题要交原数量等式，可展开或交换两边，但先不移项；两侧须能分别对应原数量，不能只交解值。',
+            'This task requests an original-quantity equation: expansion or side reversal is allowed, but do not transpose yet. Each side must retain its original quantity; a solved value alone is insufficient.',
+          ] as Pair,
+        ]
+      : hints[i]!;
   const value = item.kind
     ? item.value
     : exactRational(item.value)!.map(String).join('/');
@@ -136,8 +146,8 @@ function q(id: string, i: number, item: Item): Question {
     T(item.stem),
     value,
     skills[i]!,
-    hints[i]!.map(T),
-    [T(item.step), T(hints[i]![1]!)],
+    taskHints.map(T),
+    [T(item.step), T(taskHints[1]!)],
     { accepted: [...new Set(accepted)], rejected: item.wrong },
   );
   result.answer = answer;
