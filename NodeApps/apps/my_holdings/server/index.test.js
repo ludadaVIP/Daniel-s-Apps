@@ -5,6 +5,7 @@ import os from "node:os";
 import path from "node:path";
 import { createHoldingsApp } from "./index.js";
 import { quotePolicy } from "./market-session.js";
+import { readBackupText } from "../src/backup-file.js";
 const research = {
   identity: {
     name: "微软",
@@ -76,6 +77,68 @@ test("CRUD persistence, revision conflicts and backup recovery reject invalid fi
   const restored = await call("/api/restore", { revision: r.data.revision + 1, state: stale });
   assert.equal(restored.status, 200);
   assert.equal(restored.data.holdings[0].thesis, "");
+});
+
+test("ordinary saves persist immediately, identical saves and rankings do not multiply backups", async (t) => {
+  const { call, dir } = await setup(t, { now: () => new Date("2026-10-26T02:00:00Z") });
+  const initial = (await call("/api/state")).data;
+  const initialBytes = await fs.readFile(path.join(dir, "state.json"), "utf8");
+  const count = async () => (await fs.readdir(path.join(dir, "backups"))).length;
+  const baseline = await count();
+  const unchanged = await call("/api/state", initial, "PUT");
+  assert.equal(unchanged.data.revision, initial.revision);
+  assert.equal(await fs.readFile(path.join(dir, "state.json"), "utf8"), initialBytes);
+  assert.equal(await count(), baseline);
+  const first = structuredClone(initial);
+  first.watchlist.push({ id: "watch-backup", name: "Example", symbol: "EX", note: "", trigger: "", status: "观察中", attention: 2, targetPrice: 101 });
+  const saved = (await call("/api/state", first, "PUT")).data;
+  const next = structuredClone(saved);
+  next.watchlist[0].targetPrice = 102;
+  const result = await call("/api/state", next, "PUT");
+  assert.equal(result.status, 200);
+  assert.equal(result.data.revision, saved.revision + 1);
+  assert.equal(JSON.parse(await fs.readFile(path.join(dir, "state.json"))).watchlist[0].targetPrice, 102);
+  assert(await count() <= baseline + 1);
+  const beforeRank = await count();
+  const ranked = await call("/api/watchlist/rank-snapshot", { date: "2026-10-26", watchIds: [first.watchlist[0].id] });
+  assert.equal(ranked.status, 200);
+  assert.equal(ranked.data.changed, true);
+  assert.equal(await count(), beforeRank);
+});
+
+test("restore always preserves its preimage and browser-decoded gzip restores through the API", async (t) => {
+  const { call, dir } = await setup(t, { now: () => new Date("2026-10-26T02:00:00Z") });
+  const initial = (await call("/api/state")).data;
+  const edited = structuredClone(initial);
+  edited.holdings[0].thesis = "恢复前必须保留的内容";
+  const current = (await call("/api/state", edited, "PUT")).data;
+  const result = await call("/api/restore", { revision: current.revision, state: initial });
+  assert.equal(result.status, 200);
+  const files = await fs.readdir(path.join(dir, "backups"));
+  const file = files.find((name) => name.endsWith("-before-restore.json.gz"));
+  assert(file);
+  const text = await readBackupText(new File([await fs.readFile(path.join(dir, "backups", file))], file));
+  const preimage = JSON.parse(text);
+  assert.deepEqual(preimage, current);
+  const undone = await call("/api/restore", { revision: result.data.revision, state: preimage });
+  assert.equal(undone.status, 200);
+  assert.deepEqual(undone.data.holdings, current.holdings);
+  assert.deepEqual(undone.data.watchlist, current.watchlist);
+});
+
+test("failed pre-restore backup leaves the live state byte-identical", async (t) => {
+  const { call, dir } = await setup(t);
+  const initial = (await call("/api/state")).data;
+  const file = path.join(dir, "state.json");
+  const before = await fs.readFile(file, "utf8");
+  const stamp = initial.updatedAt.replace(/\.\d{3}Z$/, "Z").replaceAll(":", "-");
+  const collision = `my-holdings-state-backup-${stamp}-rev-${String(initial.revision).padStart(4, "0")}-before-restore.json.gz`;
+  await fs.writeFile(path.join(dir, "backups", collision), "damaged compressed file");
+  const candidate = structuredClone(initial);
+  candidate.holdings[0].thesis = "不能在备份失败时写入";
+  const result = await call("/api/restore", { revision: initial.revision, state: candidate });
+  assert.equal(result.status, 500);
+  assert.equal(await fs.readFile(file, "utf8"), before);
 });
 test("recording a buy merges only its account and currency, weights total costs and is safe to retry", async (t) => {
   const { call } = await setup(t);

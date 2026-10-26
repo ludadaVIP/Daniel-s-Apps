@@ -17,6 +17,7 @@ import {
   ratioStats,
 } from "../src/converter.js";
 import { validateResearch, researchHtml } from "./ai.js";
+import { atomicWriteFile, createBackupStore, sameStateContent } from "./backups.js";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const error = (message, status = 400) =>
   Object.assign(new Error(message), { status });
@@ -30,11 +31,6 @@ const filenameSlug = (value, fallback = "overview") =>
     .replace(/[^a-zA-Z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "")
     .toLowerCase() || fallback;
-const filenameUtcTimestamp = (value) =>
-  new Date(value)
-    .toISOString()
-    .replace(/\.\d{3}Z$/, "Z")
-    .replace(/:/g, "-");
 const date = (v) =>
   text(v, 10) &&
   (v === "" || (/^\d{4}-\d{2}-\d{2}$/.test(v) && !Number.isNaN(Date.parse(v))));
@@ -457,35 +453,22 @@ export async function createHoldingsApp({
     }
     await fs.writeFile(todoFile, lines.join("\n"));
   };
-  const write = async (s) => {
+  const backupStore = createBackupStore(path.join(dataDirectory, "backups"), { now });
+  await backupStore.initialize(await fs.readFile(file, "utf8"));
+  const write = async (s, { forceBackup = false } = {}) => {
     pruneExpiredCompletedJobs(s, now().getTime());
     validateState(s);
     const previous = await fs.readFile(file, "utf8");
     const previousState = JSON.parse(previous);
-    const savedAt = now().toISOString();
-    const backupTime = previousState.updatedAt || savedAt;
-    const backupRevision = String(previousState.revision || 0).padStart(4, "0");
-    const backupName =
-      `my-holdings-state-backup-${filenameUtcTimestamp(backupTime)}-rev-${backupRevision}.json`;
-    await fs.writeFile(
-      path.join(dataDirectory, "backups", backupName),
-      previous,
-    );
-    s.revision = (s.revision || 0) + 1;
-    s.updatedAt = savedAt;
-    const tmp = file + "." + randomUUID() + ".tmp";
-    await fs.writeFile(tmp, JSON.stringify(s, null, 2) + "\n");
-    await fs.rename(tmp, file);
+    if (!forceBackup && sameStateContent(previousState, s)) return previousState;
+    const backedUp = await backupStore.beforeWrite(previous, previousState, s, { force: forceBackup });
+    s.revision = (previousState.revision || 0) + 1;
+    s.updatedAt = now().toISOString();
+    await atomicWriteFile(file, JSON.stringify(s, null, 2) + "\n");
     await syncCodexTodo(s);
-    const backups = (await fs.readdir(path.join(dataDirectory, "backups")))
-      .filter((f) => f.endsWith(".json"))
-      .sort()
-      .reverse();
-    await Promise.all(
-      backups
-        .slice(30)
-        .map((f) => fs.unlink(path.join(dataDirectory, "backups", f))),
-    );
+    // Cleanup must not turn a successfully committed financial change into an
+    // apparent failed request (and tempt the caller to repeat the operation).
+    if (backedUp) await backupStore.prune().catch((e) => console.warn(`My Holdings: 备份清理延后: ${e.message}`));
     return s;
   };
   await serial(async () => {
@@ -994,7 +977,8 @@ export async function createHoldingsApp({
           const candidate = validateState(req.body);
           candidate.jobs = current.jobs;
           candidate.analyses = current.analyses;
-          candidate.holdingTrades = current.holdingTrades || [];
+          if (current.holdingTrades) candidate.holdingTrades = current.holdingTrades;
+          else delete candidate.holdingTrades;
           candidate.converter = candidate.converter || current.converter || createInitialConverterState();
           for (const w of candidate.watchlist) {
             const existing = current.watchlist.find((row) => row.id === w.id);
@@ -1027,7 +1011,7 @@ export async function createHoldingsApp({
           candidate.revision = current.revision;
           candidate.jobs = [];
           candidate.converter = candidate.converter || current.converter || createInitialConverterState();
-          return write(candidate);
+          return write(candidate, { forceBackup: true });
         }),
       );
     } catch (e) {

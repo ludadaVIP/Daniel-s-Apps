@@ -49,6 +49,7 @@ import {
   id,
 } from "./model.js";
 import { BASE, request, download, localDate } from "./api.js";
+import { readBackupText } from "./backup-file.js";
 import { PRICE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchResearchQuestion, undoableWatchRefreshIds } from "./quotes.js";
 import {
   Modal,
@@ -2986,8 +2987,9 @@ export default function HoldingsApp() {
               <h3>数据备份</h3>
               <p className="mh-help">
                 JSON 备份包含持仓、资金、目标、日志和研究文字。HTML
-                原文件与截图需一并复制整个 my_holdings 文件夹；自动备份名会标明
-                My Holdings、UTC 时间和状态版本，服务端保留最近 30 次修改前的 JSON。
+                原文件与截图需一并复制整个 my_holdings 文件夹。自动备份使用 gzip 压缩；
+                普通修改每 5 分钟最多建立一个恢复点，交易、删除和恢复前立即备份。
+                保留最近 6 份、7 个有记录日及 4 个有记录周的恢复点，重叠只存一份。
               </p>
               <div className="mh-ai-actions">
                 <button
@@ -3008,7 +3010,7 @@ export default function HoldingsApp() {
                     setModal({ type: "restore" });
                   }}
                 >
-                  <Upload size={15} /> 恢复 JSON
+                  <Upload size={15} /> 恢复备份
                 </button>
               </div>
               <h3>文件位置</h3>
@@ -3046,18 +3048,21 @@ export default function HoldingsApp() {
                 恢复会替换当前记录。当前数据会先存入 backups；HTML
                 原文件不会被替换。
               </p>
-              <Field label="选择 JSON 备份">
+              <Field label="选择 JSON 或 gzip 压缩备份">
                 <input
                   type="file"
-                  accept=".json,application/json"
+                  accept=".json,.gz,application/json,application/gzip"
                   onChange={async (e) => {
                     const f = e.target.files?.[0];
                     if (f) {
-                      if (f.size > 7000000) {
-                        notify("备份文件过大", true);
-                        return;
+                      try {
+                        const text = await readBackupText(f);
+                        JSON.parse(text);
+                        setImportText(text);
+                      } catch (error) {
+                        setImportText("");
+                        notify(error.message, true);
                       }
-                      setImportText(await f.text());
                     }
                   }}
                 />

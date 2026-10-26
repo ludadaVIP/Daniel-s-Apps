@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 1055,
-  "updatedAt": "2026-10-26T07:05:30.168Z",
+  "revision": 1057,
+  "updatedAt": "2026-10-26T07:16:59.298Z",
   "accounts": [
     {
       "id": "a1",
@@ -4682,6 +4682,15 @@
       "researchedAt": "2026-10-26T01:35:44.335Z",
       "report": "research/my-holdings-research-mp-2026-10-26.html",
       "targetPrice": 30
+    },
+    {
+      "id": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "name": "CLPT",
+      "symbol": "CLPT",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "attention": 2
     }
   ],
   "cash": [
@@ -5456,6 +5465,21 @@
         "allocationPct": 1.5,
         "safetyLow": 25,
         "safetyHigh": 30,
+        "discountLow": null,
+        "discountHigh": null
+      }
+    },
+    {
+      "id": "6ad89d45-b5d6-4f89-b527-ab05ecb1ca53",
+      "date": "2026-10-26",
+      "title": "CLPT 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "plan": {
+        "allocationPct": null,
+        "safetyLow": null,
+        "safetyHigh": null,
         "discountLow": null,
         "discountHigh": null
       }
@@ -15027,6 +15051,29 @@
       "question": "仅在完整研究缺失时补充首次研究：MP MP。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。",
       "report": "research/my-holdings-research-mp-2026-10-26.html",
       "completedAt": "2026-10-26T01:35:44.335Z"
+    },
+    {
+      "watchId": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "status": "waiting",
+      "date": "2026-10-26T07:16:59.284Z",
+      "error": "",
+      "batchId": "8c6af34d-70ce-43b9-8007-0bbe94188b7f",
+      "origin": "watch-add",
+      "id": "144a9c14-7f39-48fd-b515-2d0d83053cbe",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 CLPT CLPT：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "status": "waiting",
+      "date": "2026-10-26T07:16:59.284Z",
+      "error": "",
+      "batchId": "8c6af34d-70ce-43b9-8007-0bbe94188b7f",
+      "origin": "watch-add",
+      "id": "b7fd022c-5b5e-41e7-8542-ef57306db06d",
+      "kind": "watch",
+      "researchMode": "initial",
+      "question": "仅在完整研究缺失时补充首次研究：CLPT CLPT。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。"
     }
   ],
   "marketUpdatedAt": "2026-10-23T21:53:53.079Z",

@@ -18,9 +18,9 @@ NodeApps 中的个人投资记录工具。运行 NodeApps 的 `npm run dev` / `s
 
 所有业务数据都保存在本目录文件里，不存在浏览器 `localStorage`：
 
-- `data/state.json`：持仓、关注、资金、目标、Codex 待办和研究摘要。保存时创建 revision 并原子写入。
+- `data/state.json`：持仓、关注、资金、目标、Codex 待办和研究摘要。有效变更立即创建 revision、刷盘后原子写入；内容未变化时不增加版本。
 - `data/CODEX_TODO.md`：由应用维护的待办说明，适合 Codex 读取，也会随 Git 同步。
-- `data/backups/`：最近 30 次修改前的 JSON 备份，文件名包含产品、状态更新时间（UTC）和版本号。
+- `data/backups/`：独立可恢复的 `.json.gz` 压缩快照，文件名包含产品、状态更新时间（UTC）和版本号。普通修改每 5 分钟最多建立一个恢复点，只有排名变化不产生备份；持仓、账户、资金、目标和买入记录变化、删除关注/日志以及恢复前立即备份。每次修改仍即时保存到 `state.json`，合并的是备份频率。保留最近 6 份快照、最近 7 个有记录 UTC 日及 4 个有记录 UTC 周的首份快照，重叠只存一份，最多 17 份；每天/每周的起点避免批量误操作挤掉历史。旧 JSON 首次启动时逐份压缩，落盘后解压核对原始字节一致才删除旧文件，再按新规则保留；无法校验的文件保留并记录警告。应用可直接选择 `.json` 或 `.json.gz` 恢复，恢复前的快照带 `before-restore` 标记。
 - `data/reports/`：HTML 研究报告原件和 VisualShelf 目录；自动生成的报告名包含报告类型、代码/主题和生成日期。
 - `data/initial-state.json`：首次启动的种子数据，不覆盖日常状态。
 - `account1.jpg`、`account2.jpg` 与 `holdings-transcription.md`：原始截图和逐字段转录。
@@ -34,6 +34,6 @@ NodeApps 中的个人投资记录工具。运行 NodeApps 的 `npm run dev` / `s
 ## 校验
 
 ```sh
-node --test apps/my_holdings/server/index.test.js apps/my_holdings/src/model.test.js
+node --test apps/my_holdings/server/index.test.js apps/my_holdings/server/backups.test.js apps/my_holdings/src/backup-file.test.js apps/my_holdings/src/model.test.js
 npm run build
 ```
