@@ -160,10 +160,11 @@ const WATCH_SORT_OPTIONS = [
   { id: "name", label: "代码", title: "按股票代码排序" },
   { id: "price", label: "报价", title: "按当前报价从低到高排序" },
   { id: "gap", label: "价差", title: "按等待价差比例排序；再次点击切换顺序" },
-  { id: "attention", label: "关注", title: "按关注等级从高到低排序：4、3、2、1" },
+  { id: "attention", label: "关注", title: "按关注等级从高到低排序：5、4、3、2、1" },
 ];
 const WATCH_ATTENTION_OPTIONS = [
-  { level: 4, label: "最关注" },
+  { level: 5, label: "最高关注" },
+  { level: 4, label: "高度关注" },
   { level: 3, label: "中等关注" },
   { level: 2, label: "留着看看" },
   { level: 1, label: "留着以后再说" },

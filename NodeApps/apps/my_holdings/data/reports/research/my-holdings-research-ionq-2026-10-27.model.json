@@ -1,0 +1,835 @@
+{
+  "reportDate": "2026-10-27",
+  "price": {
+    "symbol": "IONQ",
+    "price": 30.76,
+    "date": "2026-10-26",
+    "currency": "USD",
+    "type": "close",
+    "sourceUrl": "https://stockanalysis.com/stocks/ionq/history/"
+  },
+  "units": "USD millions except shares (millions) and per-share prices",
+  "shares": {
+    "preOctoberCommon": 408.907678,
+    "newCommon": 20.5,
+    "newPrefunded": 29.5,
+    "newSeriesC": 100,
+    "strikeC": 69.46,
+    "postOfferingLegal": 429.407678,
+    "equivalent": 458.907678
+  },
+  "cash": {
+    "juneCash": 1235.729,
+    "juneShort": 883.24,
+    "juneLong": 840.365,
+    "skywaterCashUse": 1056.4,
+    "octoberNetEstimate": 1988.5,
+    "juneLiquid": 2959.334,
+    "partialBridge": 3891.4339999999997,
+    "unreportedFlowAssumption": -250,
+    "modelLiquid": 3641.4339999999997
+  },
+  "history": [
+    {
+      "period": "2022",
+      "revenue": 11.131,
+      "cfo": -44.698,
+      "ppe": 9.336,
+      "sbc": 31.456,
+      "op": -85.746,
+      "source": [
+        "Q"
+      ],
+      "simpleFcf": -54.034,
+      "sbcRevenue": 2.825981493127302
+    },
+    {
+      "period": "2023",
+      "revenue": 22.042,
+      "cfo": -78.811,
+      "ppe": 13.703,
+      "sbc": 69.743,
+      "op": -157.754,
+      "source": [
+        "A",
+        "B"
+      ],
+      "simpleFcf": -92.51400000000001,
+      "sbcRevenue": 3.1640958170764897
+    },
+    {
+      "period": "2024",
+      "revenue": 43.073,
+      "cfo": -105.683,
+      "ppe": 17.992,
+      "sbc": 106.878,
+      "op": -232.455,
+      "source": [
+        "A",
+        "B"
+      ],
+      "simpleFcf": -123.67500000000001,
+      "sbcRevenue": 2.4813224061477026
+    },
+    {
+      "period": "2025",
+      "revenue": 130.016,
+      "cfo": -283.187,
+      "ppe": 16.417,
+      "sbc": 312.032,
+      "op": -633.715,
+      "source": [
+        "A",
+        "B"
+      ],
+      "simpleFcf": -299.60400000000004,
+      "sbcRevenue": 2.399950775289195
+    },
+    {
+      "period": "2026 H1",
+      "revenue": 144.718,
+      "cfo": -254.781,
+      "ppe": 18.583,
+      "sbc": 270.362,
+      "op": -608.75,
+      "source": [
+        "C",
+        "D"
+      ],
+      "simpleFcf": -273.36400000000003,
+      "sbcRevenue": 1.8681988418855986
+    }
+  ],
+  "revenueAnchor": {
+    "platform": 285,
+    "foundry": 400,
+    "note": "285 is midpoint of superseded ex-SkyWater guidance used only as a research starting anchor. 400 is an assumed normalized full-year foundry revenue, not company segment guidance; combined official CY2026 guidance is450–460."
+  },
+  "scenarios": [
+    {
+      "definition": {
+        "id": "bear",
+        "label": "受阻",
+        "growth": [
+          0.3,
+          0.3,
+          0.25,
+          0.2,
+          0.18,
+          0.15,
+          0.12,
+          0.1,
+          0.08,
+          0.06
+        ],
+        "margin": [
+          -1.8,
+          -1.3,
+          -0.9,
+          -0.6,
+          -0.3,
+          -0.1,
+          0,
+          0.06,
+          0.08,
+          0.1
+        ],
+        "foundryGrowth": 0.03,
+        "foundryMargin": 0.03,
+        "platformCapitalTurn": 1.5,
+        "foundryCapitalTurn": 0.8,
+        "r": 0.17,
+        "g": 0.02,
+        "terminalRoic": 0.1,
+        "exitPlatformSales": 3,
+        "exitFoundrySales": 0.8
+      },
+      "years": [
+        {
+          "t": 1,
+          "platform": 370.5,
+          "foundry": 412,
+          "revenue": 782.5,
+          "ebit": -654.54,
+          "tax": 0,
+          "reinvestment": 72,
+          "fcff": -726.54,
+          "liquidity": 2914.894
+        },
+        {
+          "t": 2,
+          "platform": 481.65000000000003,
+          "foundry": 424.36,
+          "revenue": 906.01,
+          "ebit": -613.4142,
+          "tax": 0,
+          "reinvestment": 89.55000000000004,
+          "fcff": -702.9642000000001,
+          "liquidity": 2211.9298
+        },
+        {
+          "t": 3,
+          "platform": 602.0625,
+          "foundry": 437.0908,
+          "revenue": 1039.1533,
+          "ebit": -528.7435260000001,
+          "tax": 0,
+          "reinvestment": 96.18849999999996,
+          "fcff": -624.9320260000001,
+          "liquidity": 1586.997774
+        },
+        {
+          "t": 4,
+          "platform": 722.475,
+          "foundry": 450.203524,
+          "revenue": 1172.678524,
+          "ebit": -419.97889428,
+          "tax": 0,
+          "reinvestment": 96.66590500000004,
+          "fcff": -516.64479928,
+          "liquidity": 1070.35297472
+        },
+        {
+          "t": 5,
+          "platform": 852.5205,
+          "foundry": 463.70962972,
+          "revenue": 1316.23012972,
+          "ebit": -241.84486110839998,
+          "tax": 0,
+          "reinvestment": 103.57963214999995,
+          "fcff": -345.42449325839993,
+          "liquidity": 724.9284814616001
+        },
+        {
+          "t": 6,
+          "platform": 980.3985749999999,
+          "foundry": 477.6209186116,
+          "revenue": 1458.0194936116,
+          "ebit": -83.711229941652,
+          "tax": 0,
+          "reinvestment": 102.6411611145,
+          "fcff": -186.352391056152,
+          "liquidity": 538.5760904054481
+        },
+        {
+          "t": 7,
+          "platform": 1098.046404,
+          "foundry": 491.949546169948,
+          "revenue": 1589.995950169948,
+          "ebit": 14.75848638509844,
+          "tax": 3.099282140870672,
+          "reinvestment": 96.34267044793499,
+          "fcff": -84.68346620370723,
+          "liquidity": 453.8926242017409
+        },
+        {
+          "t": 8,
+          "platform": 1207.8510444,
+          "foundry": 506.7080325550465,
+          "revenue": 1714.5590769550465,
+          "ebit": 87.67230364065139,
+          "tax": 18.41118376453679,
+          "reinvestment": 91.6512015813732,
+          "fcff": -22.390081705258595,
+          "liquidity": 431.5025424964823
+        },
+        {
+          "t": 9,
+          "platform": 1304.4791279520002,
+          "foundry": 521.9092735316979,
+          "revenue": 1826.388401483698,
+          "ebit": 120.01560844211095,
+          "tax": 25.203277772843297,
+          "reinvestment": 83.42027358881431,
+          "fcff": 11.392057080453341,
+          "liquidity": 442.89459957693566
+        },
+        {
+          "t": 10,
+          "platform": 1382.7478756291202,
+          "foundry": 537.5665517376489,
+          "revenue": 1920.314427366769,
+          "ebit": 154.4017841150415,
+          "tax": 32.42437466415871,
+          "reinvestment": 71.75076287551877,
+          "fcff": 50.226646575364015,
+          "liquidity": 493.1212461522997
+        }
+      ],
+      "pvExplicit": -2051.965779893581,
+      "pvTerminal": 138.0446842865251,
+      "enterprise": -1913.9210956070558,
+      "equityPool": 1727.512904392944,
+      "perEquivalentUpper": 3.7644018333311564,
+      "minCash": 431.5025424964823,
+      "terminalFraction": null,
+      "exitEV": 2928.529203776,
+      "exitUpper": 7.961204094819265,
+      "upperCagr": -0.23687007285865125
+    },
+    {
+      "definition": {
+        "id": "base",
+        "label": "渐进商业化",
+        "growth": [
+          0.5,
+          0.5,
+          0.45,
+          0.4,
+          0.35,
+          0.3,
+          0.25,
+          0.2,
+          0.15,
+          0.1
+        ],
+        "margin": [
+          -1.2,
+          -0.75,
+          -0.4,
+          -0.15,
+          0,
+          0.12,
+          0.2,
+          0.24,
+          0.26,
+          0.27
+        ],
+        "foundryGrowth": 0.07,
+        "foundryMargin": 0.08,
+        "platformCapitalTurn": 3,
+        "foundryCapitalTurn": 1,
+        "r": 0.15,
+        "g": 0.025,
+        "terminalRoic": 0.15,
+        "exitPlatformSales": 8,
+        "exitFoundrySales": 1.5
+      },
+      "years": [
+        {
+          "t": 1,
+          "platform": 427.5,
+          "foundry": 428,
+          "revenue": 855.5,
+          "ebit": -478.76,
+          "tax": 0,
+          "reinvestment": 75.5,
+          "fcff": -554.26,
+          "liquidity": 3087.174
+        },
+        {
+          "t": 2,
+          "platform": 641.25,
+          "foundry": 457.96000000000004,
+          "revenue": 1099.21,
+          "ebit": -444.3007,
+          "tax": 0,
+          "reinvestment": 101.21000000000004,
+          "fcff": -545.5107,
+          "liquidity": 2541.6633
+        },
+        {
+          "t": 3,
+          "platform": 929.8125,
+          "foundry": 490.01720000000006,
+          "revenue": 1419.8297,
+          "ebit": -332.72362400000003,
+          "tax": 0,
+          "reinvestment": 128.24470000000002,
+          "fcff": -460.96832400000005,
+          "liquidity": 2080.694976
+        },
+        {
+          "t": 4,
+          "platform": 1301.7375,
+          "foundry": 524.3184040000001,
+          "revenue": 1826.055904,
+          "ebit": -153.31515267999998,
+          "tax": 0,
+          "reinvestment": 158.276204,
+          "fcff": -311.59135668,
+          "liquidity": 1769.1036193200002
+        },
+        {
+          "t": 5,
+          "platform": 1757.3456250000002,
+          "foundry": 561.0206922800002,
+          "revenue": 2318.36631728,
+          "ebit": 44.88165538240001,
+          "tax": 9.425147630304002,
+          "reinvestment": 188.57166328000014,
+          "fcff": -153.11515552790414,
+          "liquidity": 1615.9884637920961
+        },
+        {
+          "t": 6,
+          "platform": 2284.5493125000003,
+          "foundry": 600.2921407396002,
+          "revenue": 2884.8414532396005,
+          "ebit": 322.169288759168,
+          "tax": 67.65555063942529,
+          "reinvestment": 215.00601095960008,
+          "fcff": 39.50772716014265,
+          "liquidity": 1655.4961909522387
+        },
+        {
+          "t": 7,
+          "platform": 2855.686640625,
+          "foundry": 642.3125905913722,
+          "revenue": 3497.999231216372,
+          "ebit": 622.5223353723098,
+          "tax": 130.72969042818505,
+          "reinvestment": 232.39955922677197,
+          "fcff": 259.39308571735285,
+          "liquidity": 1914.8892766695917
+        },
+        {
+          "t": 8,
+          "platform": 3426.82396875,
+          "foundry": 687.2744719327683,
+          "revenue": 4114.098440682768,
+          "ebit": 877.4197102546215,
+          "tax": 184.2581391534705,
+          "reinvestment": 235.34099071639602,
+          "fcff": 457.82058038475486,
+          "liquidity": 2372.7098570543467
+        },
+        {
+          "t": 9,
+          "platform": 3940.8475640624997,
+          "foundry": 735.3836849680621,
+          "revenue": 4676.231249030562,
+          "ebit": 1083.4510614536948,
+          "tax": 227.5247229052759,
+          "reinvestment": 219.45041147279372,
+          "fcff": 636.4759270756252,
+          "liquidity": 3009.185784129972
+        },
+        {
+          "t": 10,
+          "platform": 4334.93232046875,
+          "foundry": 786.8605429158265,
+          "revenue": 5121.792863384577,
+          "ebit": 1233.3805699598286,
+          "tax": 259.009919691564,
+          "reinvestment": 182.83844341651445,
+          "fcff": 791.5322068517502,
+          "liquidity": 3800.7179909817223
+        }
+      ],
+      "pvExplicit": -810.9835494086115,
+      "pvTerminal": 1645.8050727422706,
+      "enterprise": 834.8215233336591,
+      "equityPool": 4476.255523333659,
+      "perEquivalentUpper": 9.754152606123228,
+      "minCash": 1615.9884637920961,
+      "terminalFraction": 1.9714454248497852,
+      "exitEV": 14900.296038420001,
+      "exitUpper": 35.99042965285078,
+      "upperCagr": 0.03190600563464052
+    },
+    {
+      "definition": {
+        "id": "bull",
+        "label": "大规模兑现",
+        "growth": [
+          0.75,
+          0.7,
+          0.65,
+          0.6,
+          0.5,
+          0.45,
+          0.4,
+          0.3,
+          0.25,
+          0.2
+        ],
+        "margin": [
+          -0.9,
+          -0.5,
+          -0.2,
+          0,
+          0.15,
+          0.23,
+          0.28,
+          0.32,
+          0.34,
+          0.35
+        ],
+        "foundryGrowth": 0.1,
+        "foundryMargin": 0.12,
+        "platformCapitalTurn": 4,
+        "foundryCapitalTurn": 1.2,
+        "r": 0.13,
+        "g": 0.03,
+        "terminalRoic": 0.2,
+        "exitPlatformSales": 12,
+        "exitFoundrySales": 2
+      },
+      "years": [
+        {
+          "t": 1,
+          "platform": 498.75,
+          "foundry": 440.00000000000006,
+          "revenue": 938.75,
+          "ebit": -396.075,
+          "tax": 0,
+          "reinvestment": 86.77083333333339,
+          "fcff": -482.84583333333336,
+          "liquidity": 3158.5881666666664
+        },
+        {
+          "t": 2,
+          "platform": 847.875,
+          "foundry": 484.0000000000001,
+          "revenue": 1331.875,
+          "ebit": -365.85749999999996,
+          "tax": 0,
+          "reinvestment": 123.94791666666671,
+          "fcff": -489.8054166666667,
+          "liquidity": 2668.78275
+        },
+        {
+          "t": 3,
+          "platform": 1398.9937499999999,
+          "foundry": 532.4000000000002,
+          "revenue": 1931.3937500000002,
+          "ebit": -215.91074999999995,
+          "tax": 0,
+          "reinvestment": 178.1130208333334,
+          "fcff": -394.02377083333334,
+          "liquidity": 2274.7589791666664
+        },
+        {
+          "t": 4,
+          "platform": 2238.39,
+          "foundry": 585.6400000000003,
+          "revenue": 2824.03,
+          "ebit": 70.27680000000004,
+          "tax": 14.758128000000006,
+          "reinvestment": 254.2157291666668,
+          "fcff": -198.69705716666675,
+          "liquidity": 2076.061922
+        },
+        {
+          "t": 5,
+          "platform": 3357.585,
+          "foundry": 644.2040000000004,
+          "revenue": 4001.7890000000007,
+          "ebit": 580.94223,
+          "tax": 121.9978683,
+          "reinvestment": 328.60208333333344,
+          "fcff": 130.34227836666656,
+          "liquidity": 2206.4042003666664
+        },
+        {
+          "t": 6,
+          "platform": 4868.49825,
+          "foundry": 708.6244000000005,
+          "revenue": 5577.12265,
+          "ebit": 1204.7895255,
+          "tax": 253.00580035500002,
+          "reinvestment": 431.41197916666664,
+          "fcff": 520.3717459783334,
+          "liquidity": 2726.7759463449997
+        },
+        {
+          "t": 7,
+          "platform": 6815.897549999999,
+          "foundry": 779.4868400000006,
+          "revenue": 7595.384389999999,
+          "ebit": 2001.9897348,
+          "tax": 420.417844308,
+          "reinvestment": 545.9018583333332,
+          "fcff": 1035.6700321586668,
+          "liquidity": 3762.4459785036665
+        },
+        {
+          "t": 8,
+          "platform": 8860.666814999999,
+          "foundry": 857.4355240000008,
+          "revenue": 9718.102339,
+          "ebit": 2938.30564368,
+          "tax": 617.0441851728,
+          "reinvestment": 576.1495529166668,
+          "fcff": 1745.1119055905328,
+          "liquidity": 5507.5578840942
+        },
+        {
+          "t": 9,
+          "platform": 11075.833518749998,
+          "foundry": 943.1790764000009,
+          "revenue": 12019.01259515,
+          "ebit": 3878.9648855429996,
+          "tax": 814.5826259640298,
+          "reinvestment": 625.2446362708332,
+          "fcff": 2439.1376233081364,
+          "liquidity": 7946.695507402336
+        },
+        {
+          "t": 10,
+          "platform": 13291.000222499997,
+          "foundry": 1037.496984040001,
+          "revenue": 14328.497206539998,
+          "ebit": 4776.349715959798,
+          "tax": 1003.0334403515576,
+          "reinvestment": 632.3899323041666,
+          "fcff": 3140.926343304074,
+          "liquidity": 11087.621850706411
+        }
+      ],
+      "pvExplicit": 1948.7550556633782,
+      "pvTerminal": 9731.839200195429,
+      "enterprise": 11680.594255858807,
+      "equityPool": 15322.028255858806,
+      "perEquivalentUpper": 33.388040755027,
+      "minCash": 2076.061922,
+      "terminalFraction": 0.8331630212490334,
+      "exitEV": 41579.42800000001,
+      "exitUpper": 95.41316107673988,
+      "upperCagr": 0.25407754224017953
+    }
+  ],
+  "matrix": [
+    {
+      "r": 0.12,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 12.278448911039836
+        },
+        {
+          "g": 0.025,
+          "value": 12.477540024503677
+        },
+        {
+          "g": 0.035,
+          "value": 12.712752558978677
+        }
+      ]
+    },
+    {
+      "r": 0.135,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 10.796005491129113
+        },
+        {
+          "g": 0.025,
+          "value": 10.887362395233218
+        },
+        {
+          "g": 0.035,
+          "value": 10.989011119303395
+        }
+      ]
+    },
+    {
+      "r": 0.15,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 9.71916379328401
+        },
+        {
+          "g": 0.025,
+          "value": 9.754152606123228
+        },
+        {
+          "g": 0.035,
+          "value": 9.789141418962446
+        }
+      ]
+    },
+    {
+      "r": 0.165,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 8.918709639736232
+        },
+        {
+          "g": 0.025,
+          "value": 8.923868908873237
+        },
+        {
+          "g": 0.035,
+          "value": 8.925093285346014
+        }
+      ]
+    },
+    {
+      "r": 0.18,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 8.313278098972786
+        },
+        {
+          "g": 0.025,
+          "value": 8.302888364361031
+        },
+        {
+          "g": 0.035,
+          "value": 8.287335213337855
+        }
+      ]
+    }
+  ],
+  "reverse": {
+    "growth": 0.5937022701498791,
+    "year10Revenue": 30911.147276451542,
+    "upperPrice": 30.75999999999999
+  },
+  "legalCap": 13208.58017528,
+  "equivalentCap": 14116.00017528,
+  "elisity": {
+    "closeLowShares": 23.180810320499898,
+    "closeHighShares": 34.77472029029332,
+    "allLowShares": 28.22011691191292,
+    "allHighShares": 42.33444209253099
+  },
+  "limitations": [
+    "All per-share values are unallocated equity-pool upper bounds under each operating scenario, not certified common-stock fair values. Existing options/awards and ordinary warrant option claims are not allocated.",
+    "No Elisity financial contribution or future deal share issuance is included; these must be valued together after disclosure.",
+    "Post-June cash bridge omits unreported cash flows, acquired cash/liabilities, contingent claims and financing changes; -250M is an explicit sensitivity assumption, not a current balance.",
+    "Economic EBIT assumes compensation is paid in cash; SBC is not added back again. Existing option/award claims remain a separate, incomplete allocation.",
+    "Terminal reinvestment uses g/ROIC. Explicit reinvestment uses change in segment revenue divided by sales-to-capital; maintenance CapEx and depreciation assumed to offset. No probabilities, tax-loss carryforward assets, dividends or currency/tax investor adjustments are assumed."
+  ],
+  "sources": [
+    {
+      "id": "P",
+      "label": "IONQ 正式日线 Close",
+      "published": "2026-10-26",
+      "url": "https://stockanalysis.com/stocks/ionq/history/",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "A",
+      "label": "2025 10-K · 损益表（2023–2025）",
+      "published": "2026-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526071562/R4.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "B",
+      "label": "2025 10-K · 现金流表",
+      "published": "2026-02",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526071562/R7.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "C",
+      "label": "2026 Q2 10-Q · 损益表",
+      "published": "2026-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R4.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "D",
+      "label": "2026 Q2 10-Q · 现金流表",
+      "published": "2026-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R7.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "E",
+      "label": "2026 Q2 10-Q · 资产负债表",
+      "published": "2026-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R2.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "F",
+      "label": "Q2 业绩公告与非 GAAP 调节表",
+      "published": "2026-08-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526335040/ionq-ex99_1.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "G",
+      "label": "2026 Q2 10-Q · 并购、后续事项及风险",
+      "published": "2026-08",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/ionq-20260630.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "H",
+      "label": "合并 SkyWater 后的最新全年收入指引",
+      "published": "2026-09-08",
+      "url": "https://ionq.com/news/ionq-announces-increased-full-year-2026-financial-outlook-following-skywater-acquisition",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "I",
+      "label": "10 月融资招股补充文件 · 股数与权证",
+      "published": "2026-10-14",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526421074/d165327d424b5.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "J",
+      "label": "融资已交割 · 8-K",
+      "published": "2026-10-16",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526424230/ionq-20261014.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "K",
+      "label": "Elisity 收购协议 · 8-K",
+      "published": "2026-10-09",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526419609/ionq-20261009.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "L",
+      "label": "Superion 产品发布与交付计划",
+      "published": "2026-09-08",
+      "url": "https://www.ionq.com/news/ionq-launches-superion-product-line-industry-leading-upgradeable-platform-designed-to-scale-manufacturable-fault-tolerant-quantum-computing",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "M",
+      "label": "DARPA：Stage C 独立验证及竞争架构",
+      "published": "2026-10-07",
+      "url": "https://www.darpa.mil/news/2026/four-more-teams-enter-quantum-benchmarking-initiative-final-stage",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "N",
+      "label": "IonQ：DARPA 协议的拨款条件",
+      "published": "2026-10-07",
+      "url": "https://www.ionq.com/news/ionq-advances-to-final-stage-of-darpas-quantum-benchmarking-initiative",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "O",
+      "label": "Q3 财报公布日与电话会",
+      "published": "2026-10-22",
+      "url": "https://investors.ionq.com/news/news-details/2026/IonQ-to-Report-Third-Quarter-2026-Financial-Results-on-November-5-2026/default.aspx",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "Q",
+      "label": "2023 10-K（含 2022 对照数据）",
+      "published": "2024-02-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1824920/000095017024022072/ionq-20231231.htm",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "R",
+      "label": "Elisity 拟收购公告",
+      "published": "2026-10-12",
+      "url": "https://ionq.com/news/ionq-to-acquire-elisity-to-accelerate-zero-trust-for-the-quantum-era",
+      "accessed": "2026-10-27"
+    },
+    {
+      "id": "V",
+      "label": "VGT 完整成分披露，供组合对照",
+      "published": "2026-09-30",
+      "url": "https://advisors.vanguard.com/investments/products/api/funds/0958/holdings/latest",
+      "accessed": "2026-10-27"
+    }
+  ]
+}

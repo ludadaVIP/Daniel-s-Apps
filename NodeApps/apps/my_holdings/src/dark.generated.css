@@ -734,6 +734,7 @@
 :root[data-theme="dark"] .mh-stat.mh-stat-goal > strong {
   color: #c4d4c7;
 }
+:root[data-theme="dark"] .mh-watch-card.attention-5 { background: #312e22; border-color: #695e2b; border-left: 5px solid #6b5d2c; }
 :root[data-theme="dark"] .mh-watch-card.attention-4 { background: #2d201f; border-color: #69312b; border-left: 5px solid #a84b45; }
 :root[data-theme="dark"] .mh-watch-card.attention-3 { background: #20272d; border-color: #2e4a66; border-left: 5px solid #3a668e; }
 :root[data-theme="dark"] .mh-watch-card.attention-2 { background: #273122; border-color: #44583b; }
@@ -742,6 +743,7 @@
 :root[data-theme="dark"] .mh-watch-symbol.missing { color: #bdc2b7; }
 :root[data-theme="dark"] .mh-watch-attention-trigger:hover, :root[data-theme="dark"] .mh-watch-attention-trigger:focus-visible { background: #1c1c1ca8; outline: 1px solid #47553f; }
 :root[data-theme="dark"] .mh-watch-attention-swatch { border: 1px solid #47474712; color: #ffffff; }
+:root[data-theme="dark"] .mh-watch-attention-swatch.attention-5 { background: #625423; }
 :root[data-theme="dark"] .mh-watch-attention-swatch.attention-4 { background: #76302b; }
 :root[data-theme="dark"] .mh-watch-attention-swatch.attention-3 { background: #346794; }
 :root[data-theme="dark"] .mh-watch-attention-menu {
@@ -834,10 +836,14 @@
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-job-counts > div { background: #23271b; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-cash-mix-bar > .holdings { background: #324030; }
 :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-goal-line, :root[data-theme="dark"][data-theme="dark"] .mh-app .mh-overview-objective-card { background: #23271b; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-card.attention-5 { border-color: #6f602d; border-left-color: #af9948; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-attention-swatch.attention-5 { background: #705c27; }
 :root[data-theme="dark"] .mh-decision-section-heading { border-bottom: 1px solid #4a573d; }
 :root[data-theme="dark"] .mh-decision-section-heading h2 { color: #c3d1c1; }
 :root[data-theme="dark"] .mh-decision-section-heading p { color: #bdc4ba; }
 :root[data-theme="dark"] .mh-decision-card { border: 1px solid #4b583c; background: #1c1c1c; }
+:root[data-theme="dark"][data-theme="dark"] .mh-decision-card.attention-5 { border-color: #6f602d; border-left-color: #af9948; }
+:root[data-theme="dark"] .mh-decision-card.attention-5 { border-color: #695e2b; border-left: 5px solid #6b5d2c; background: #312e22; }
 :root[data-theme="dark"] .mh-decision-card.attention-4 { border-color: #69312b; border-left: 5px solid #a84b45; background: #2d201f; }
 :root[data-theme="dark"] .mh-decision-card.attention-3 { border-color: #2e4a66; border-left: 5px solid #3a668e; background: #20272d; }
 :root[data-theme="dark"] .mh-decision-card.attention-2 { border-color: #44583b; background: #273122; }

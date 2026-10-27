@@ -2895,10 +2895,12 @@
 
 .mh-watch-card { position: relative; }
 .mh-watch-card.priority-picker-open { z-index: 5; }
+.mh-watch-card.attention-5 { background: #f3e5ab; border-color: #d7c46e; border-left: 5px solid #967500; }
 .mh-watch-card.attention-4 { background: #f1cac6; border-color: #db9f99; border-left: 5px solid #ae463f; }
 .mh-watch-card.attention-3 { background: #c7daec; border-color: #91b0ce; border-left: 5px solid #2f6799; }
 .mh-watch-card.attention-2 { background: #c9ddbf; border-color: #9eb794; border-left: 5px solid #3d6834; }
 .mh-watch-card.attention-1 { background: #c8d0cb; border-color: #9eaaa4; border-left: 5px solid #52615a; }
+.mh-watch-card.attention-5.selected { box-shadow: inset 5px 0 #967500, 0 2px 9px #30452d18; }
 .mh-watch-card.attention-4.selected { box-shadow: inset 5px 0 #ae463f, 0 2px 9px #30452d18; }
 .mh-watch-card.attention-3.selected { box-shadow: inset 5px 0 #2f6799, 0 2px 9px #30452d18; }
 .mh-watch-card.attention-2.selected { box-shadow: inset 5px 0 #3d6834, 0 2px 9px #30452d18; }
@@ -2923,6 +2925,7 @@
 .mh-watch-attention-trigger:hover,
 .mh-watch-attention-trigger:focus-visible { background: #ffffffa8; outline: 1px solid #bfcbb8; }
 .mh-watch-attention-swatch { display: grid; width: 14px; height: 14px; place-items: center; border: 1px solid #00000012; border-radius: 4px; color: #fff; font-size: 9px; font-weight: 700; line-height: 1; }
+.mh-watch-attention-swatch.attention-5 { background: #856700; }
 .mh-watch-attention-swatch.attention-4 { background: #ae463f; }
 .mh-watch-attention-swatch.attention-3 { background: #2f6799; }
 .mh-watch-attention-swatch.attention-2 { background: #3d6834; }
@@ -2933,7 +2936,7 @@
   right: 0;
   z-index: 10;
   display: grid;
-  grid-template-columns: repeat(4, 24px);
+  grid-template-columns: repeat(5, 24px);
   gap: 4px;
   padding: 6px;
   border: 1px solid #e1e7dc;
@@ -3150,6 +3153,9 @@
 :root[data-theme="dark"] .mh-app .mh-overview-objective-card { border-color: #4b583c; background: #202419; }
 :root[data-theme="dark"] .mh-app .mh-overview-attention-foot { border-color: #4b583c; color: #bbc2b4; }
 :root[data-theme="dark"] .mh-app .mh-allocation-caption { color: #bbc2b4; }
+:root[data-theme="dark"] .mh-watch-card.attention-5 { background: #423a1d; border-color: #71612b; border-left-color: #c5a632; }
+:root[data-theme="dark"] .mh-watch-card.attention-5.selected { box-shadow: inset 5px 0 #c5a632, 0 2px 9px #00000038; }
+:root[data-theme="dark"] .mh-watch-attention-swatch.attention-5 { background: #806417; }
 
 .mh-decision-section { margin-top: 10px; }
 .mh-decision-section-heading { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 8px; padding: 0 1px 7px; border-bottom: 1px solid #e8ece4; }
@@ -3158,6 +3164,8 @@
 .mh-decision-heading-actions { gap: 7px; flex-wrap: wrap; justify-content: flex-end; }
 .mh-decision-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 330px), 1fr)); gap: 7px; }
 .mh-decision-card { min-width: 0; padding: 8px 9px 7px; border: 1px solid #e2e7dc; border-radius: 9px; background: #fff; }
+:root[data-theme="dark"] .mh-decision-card.attention-5 { border-color: #71612b; border-left-color: #c5a632; background: #423a1d; }
+.mh-decision-card.attention-5 { border-color: #d7c46e; border-left: 5px solid #967500; background: #f3e5ab; }
 .mh-decision-card.attention-4 { border-color: #db9f99; border-left: 5px solid #ae463f; background: #f1cac6; }
 .mh-decision-card.attention-3 { border-color: #91b0ce; border-left: 5px solid #2f6799; background: #c7daec; }
 .mh-decision-card.attention-2 { border-color: #9eb794; border-left: 5px solid #3d6834; background: #c9ddbf; }

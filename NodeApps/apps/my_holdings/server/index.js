@@ -209,7 +209,7 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
       !(w.priceTimeZone === undefined || ["America/New_York", "Europe/London"].includes(w.priceTimeZone)) ||
       !(w.priceCurrency === undefined || (text(w.priceCurrency, 3) && /^[A-Z]{3}$/.test(w.priceCurrency))) ||
       !(w.priceSource === undefined || text(w.priceSource, 200)) ||
-      !(w.attention === undefined || [1, 2, 3, 4].includes(w.attention)) ||
+      !(w.attention === undefined || [1, 2, 3, 4, 5].includes(w.attention)) ||
       !(w.priceSourceUrl === undefined || (text(w.priceSourceUrl, 1000) && (!w.priceSourceUrl || /^https?:\/\//.test(w.priceSourceUrl))))
     )
       throw error("关注标的的价格或日期无效。");

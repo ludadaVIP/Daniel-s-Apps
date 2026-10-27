@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 1258,
-  "updatedAt": "2026-10-27T01:31:44.416Z",
+  "revision": 1336,
+  "updatedAt": "2026-10-27T09:47:28.196Z",
   "accounts": [
     {
       "id": "a1",
@@ -260,7 +260,7 @@
       "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
       "priceSourceUrl": "https://stockanalysis.com/stocks/rklb/history/",
       "targetPrice": 39,
-      "attention": 2,
+      "attention": 4,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -344,7 +344,7 @@
       "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
       "priceSourceUrl": "https://stockanalysis.com/stocks/oust/history/",
       "targetPrice": 23,
-      "attention": 4,
+      "attention": 5,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -418,7 +418,7 @@
       "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
       "priceSourceUrl": "https://stockanalysis.com/stocks/tmdx/history/",
       "targetPrice": 62,
-      "attention": 3,
+      "attention": 5,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -578,7 +578,7 @@
       "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
       "priceSourceUrl": "https://stockanalysis.com/stocks/pltr/history/",
       "targetPrice": 145,
-      "attention": 3,
+      "attention": 1,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -732,78 +732,11 @@
       "researchedAt": "2026-10-22T00:59:11.182Z",
       "report": "research/my-holdings-research-aehr-2026-10-22.html",
       "targetPrice": 39,
-      "attention": 3,
+      "attention": 1,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
       "priceFetchedAt": "2026-10-26T21:18:31.432Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "64078460-ed3a-42f4-803e-60d32e8df85d",
-      "name": "纳微半导体",
-      "symbol": "NVTS",
-      "note": "Moomoo 导入；行业：半导体",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Navitas Semiconductor Corporation",
-          "symbol": "NVTS",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "氮化镓与碳化硅功率半导体"
-        },
-        "title": "NVTS｜氮化镓与碳化硅功率半导体：经营进展、风险与跟踪要点",
-        "summary": "资料截至 2026-10-22；最近完整交易日（2026-10-21）收盘为 $9.16。Q2 收入 $10.5M、毛利率 39.5%、现金 $557M；Q3 收入指引 $13–14M。10 月 21 日发布 2300V、8mΩ 的超高压 SiC 全桥模块，样品已可提供，目标市场包括固态变压器、储能、太阳能和大功率充电；资格验证尚未完成。转型方向明确，但收入规模、亏损和客户量产转化仍是关键风险。",
-        "details": "业务定位与最新报告：Navitas 设计 GaN 与 SiC 功率器件，正从移动和消费电子转向数据中心 AI、电网及工业高功率应用。Q2 2026 收入 $10.5M，毛利率 39.5%，现金 $557M；Q3 收入指引为 $13–14M。管理层预计 2026 全年收入增速为中个位数，并称 AI 基础设施项目将在下半年及 2027 年逐步爬坡。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。报价是 2026-10-20 美股收盘数据；公司和基金资料截至 2026-10-20 的公开文件。\n\n【截至 2026-10-22 的最新公开信息】\nNavitas 10 月 21 日公布 2300V、8mΩ GeneSiC SiCPAK 全桥模块家族，样品可立即申请，目标场景包括固态变压器、电网储能、太阳能逆变器和兆瓦级充电。公司称后续将按内部 AEC-Plus 流程验证，公告并未表示资格认证已经完成。Q3 业绩定于 11 月 3 日发布；原指引收入 $13–14M，需重点核对收入爬坡和毛利率。",
-        "risks": [
-          "公司规模仍小且处于经营亏损阶段；现金余额充足不等于已实现经营自给。",
-          "新产品样品、设计导入和市场空间不等于量产订单；客户资格认证和收入转化时间不确定。"
-        ],
-        "catalysts": [
-          "11 月 3 日 Q3 结果：核对 $13–14M 收入指引、毛利率和现金消耗。",
-          "跟踪 2300V SiC 模块验证、美国政府项目与 AI 数据中心/电网相关设计导入是否变为订单和收入。"
-        ],
-        "sources": [
-          {
-            "label": "Navitas Q2 2026 SEC 业绩公告",
-            "url": "https://www.sec.gov/Archives/edgar/data/1821769/000162828026049795/exhibit991-navitassemicond.htm"
-          },
-          {
-            "label": "收盘价：ChartExchange NVTS 历史日线（2026-10-21）",
-            "url": "https://chartexchange.com/symbol/nasdaq-nvts/historical/"
-          },
-          {
-            "label": "Navitas：2300V 超高压 SiC 模块公告（2026-10-21）",
-            "url": "https://www.globenewswire.com/news-release/2026/10/21/3385531/0/en/navitas-unveils-next-generation-ultra-high-voltage-sic-power-module-to-advance-energy-and-grid-infrastructure-efficiency.html"
-          },
-          {
-            "label": "Navitas：Q3 2026 业绩日期（11 月 3 日）",
-            "url": "https://ir.navitassemi.com/events/event-details/navitas-semiconductor-q3-2026-earnings"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。",
-        "quote": {
-          "price": 9.16,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "ChartExchange",
-          "sourceUrl": "https://chartexchange.com/symbol/nasdaq-nvts/historical/"
-        }
-      },
-      "price": 8.4,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/nvts/history/",
-      "researchedAt": "2026-10-22T00:59:11.243Z",
-      "report": "research/my-holdings-research-nvts-2026-10-22.html",
-      "targetPrice": 4.8,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:31.548Z",
       "priceTimeZone": "America/New_York"
     },
     {
@@ -876,126 +809,6 @@
       "priceTimeZone": "America/New_York"
     },
     {
-      "id": "bda9b130-0a99-46c8-b943-f01dd6992ebd",
-      "name": "Arcutis Biotherapeutics",
-      "symbol": "ARQT",
-      "note": "Moomoo 导入；行业：生物技术",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Arcutis Biotherapeutics, Inc.",
-          "symbol": "ARQT",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "皮肤病生物制药"
-        },
-        "title": "ARQT｜皮肤病生物制药：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 31.87。最新公开经营资料：Arcutis 是商业化阶段的皮肤病生物制药公司，核心产品 ZORYVE（外用 roflumilast）面向斑块状银屑病、脂溢性皮炎及特应性皮炎等适应症。最新可用季度报告为 Q2 2026；关注处方增长、医保覆盖、续方与销售费用效率，而不只看获批适应症数量。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Arcutis 是商业化阶段的皮肤病生物制药公司，核心产品 ZORYVE（外用 roflumilast）面向斑块状银屑病、脂溢性皮炎及特应性皮炎等适应症。最新可用季度报告为 Q2 2026；关注处方增长、医保覆盖、续方与销售费用效率，而不只看获批适应症数量。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 31.87。",
-        "risks": [
-          "商业表现依赖少数核心产品，报销、处方转化和患者留存会影响增长。",
-          "皮肤科药物竞争、定价压力及新适应症临床/监管结果存在不确定性。",
-          "商业化投入若长期快于销售增长，盈利路径可能延后。"
-        ],
-        "catalysts": [
-          "观察 ZORYVE 各剂型和适应症的处方、覆盖率及净销售趋势。",
-          "关注季度业绩中管理层对商业化投入和现金跑道的更新。"
-        ],
-        "sources": [
-          {
-            "label": "Arcutis 官方季度业绩与业务更新",
-            "url": "https://investors.arcutis.com/financial-information/quarterly-results/"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：ARQT（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/ARQT/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 31.8700008392334,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/ARQT/history/"
-        }
-      },
-      "price": 31.81,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/arqt/history/",
-      "researchedAt": "2026-10-21T23:39:25.926Z",
-      "report": "research/20261022-arqt.html",
-      "targetPrice": 24,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:31.691Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "bcd88ce3-3432-4ebf-bcfe-37fbccab84bc",
-      "name": "Redwire",
-      "symbol": "RDW",
-      "note": "Moomoo 导入；行业：航空航天与国防",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Redwire Corporation",
-          "symbol": "RDW",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "航天与国防技术"
-        },
-        "title": "RDW｜航天与国防技术：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 8.56。最新公开经营资料：Redwire 提供航天基础设施、卫星组件、在轨服务及国防技术。Q2 2026 毛利率为 27.8%，调整后 EBITDA 为 -$3.2M；公司另于 9 月 24 日入选最高金额 $980M 的 NITE-STAR IDIQ 合同框架。框架上限不等于已签订单或已实现收入，实际贡献取决于后续任务下达与执行。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Redwire 提供航天基础设施、卫星组件、在轨服务及国防技术。Q2 2026 毛利率为 27.8%，调整后 EBITDA 为 -$3.2M；公司另于 9 月 24 日入选最高金额 $980M 的 NITE-STAR IDIQ 合同框架。框架上限不等于已签订单或已实现收入，实际贡献取决于后续任务下达与执行。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 8.56。",
-        "risks": [
-          "收购整合、合同成本估计调整和项目执行会使利润及现金流波动。",
-          "政府采购节奏、发射日程和供应链可能推迟收入。",
-          "大型 IDIQ 合同金额是上限，任务量和收入确认仍未确定。"
-        ],
-        "catalysts": [
-          "跟踪 NITE-STAR 实际任务订单、合同价值及转收入情况。",
-          "核对 Q3 毛利率、调整后 EBITDA、现金使用和收购整合进展。"
-        ],
-        "sources": [
-          {
-            "label": "Redwire Q2 2026 SEC 业绩公告",
-            "url": "https://www.sec.gov/Archives/edgar/data/1819810/000181981026000121/exhibit991redwire06302026e.htm"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：RDW（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/RDW/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 8.5600004196167,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/RDW/history/"
-        }
-      },
-      "price": 8.32,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/rdw/history/",
-      "researchedAt": "2026-10-21T23:39:25.969Z",
-      "report": "research/20261022-rdw.html",
-      "targetPrice": 6.2,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:31.810Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
       "id": "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
       "name": "Innodata",
       "symbol": "INOD",
@@ -1048,7 +861,7 @@
       "researchedAt": "2026-10-21T23:39:26.004Z",
       "report": "research/20261022-inod.html",
       "targetPrice": 46,
-      "attention": 4,
+      "attention": 5,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -1168,7 +981,7 @@
       "researchedAt": "2026-10-21T23:39:26.077Z",
       "report": "research/20261022-crdo.html",
       "targetPrice": 120,
-      "attention": 2,
+      "attention": 5,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -1233,426 +1046,6 @@
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
       "priceFetchedAt": "2026-10-26T21:18:32.251Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
-      "name": "Hims & Hers Health",
-      "symbol": "HIMS",
-      "note": "Moomoo 导入；行业：专业与通用药品制造商",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Hims & Hers Health, Inc.",
-          "symbol": "HIMS",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "远程医疗与消费健康"
-        },
-        "title": "HIMS｜远程医疗与消费健康：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 29.21。最新公开经营资料：Hims & Hers 以数字平台连接消费者、医疗专业人员、药房和健康产品，覆盖皮肤、性健康、体重管理及心理健康。Q2 2026 收入约 $753M、同比增长 38%，订阅用户 2.891M、增长 19%；公司给出 Q3 收入 $880–900M、全年收入 $3.1–3.3B 指引。指引不含待完成的 Eucalyptus 收购贡献。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Hims & Hers 以数字平台连接消费者、医疗专业人员、药房和健康产品，覆盖皮肤、性健康、体重管理及心理健康。Q2 2026 收入约 $753M、同比增长 38%，订阅用户 2.891M、增长 19%；公司给出 Q3 收入 $880–900M、全年收入 $3.1–3.3B 指引。指引不含待完成的 Eucalyptus 收购贡献。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 29.21。",
-        "risks": [
-          "复合配制药监管政策与个性化处方合规是重要风险。",
-          "获客成本、续订率、药品供应及产品组合会影响利润率。",
-          "收购整合和海外扩张可能增加执行复杂性。"
-        ],
-        "catalysts": [
-          "核对 Q3 收入和 EBITDA 指引，并观察订阅用户留存及获客效率。",
-          "跟踪体重管理产品的监管变化、供应能力和 Eucalyptus 交易进展。"
-        ],
-        "sources": [
-          {
-            "label": "Hims & Hers 官方季度业绩",
-            "url": "https://investors.hims.com/financials/quarterly-results/default.aspx"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：HIMS（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/HIMS/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 29.209999084472656,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/HIMS/history/"
-        }
-      },
-      "price": 27.59,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/hims/history/",
-      "researchedAt": "2026-10-21T23:39:26.148Z",
-      "report": "research/20261022-hims.html",
-      "targetPrice": 22,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:32.380Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "d6bf7357-8935-4d2d-abef-2250c9e5c418",
-      "name": "联合包裹",
-      "symbol": "UPS",
-      "note": "Moomoo 导入；行业：综合货运与物流",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "United Parcel Service, Inc.",
-          "symbol": "UPS",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "包裹运输与供应链物流"
-        },
-        "title": "UPS｜包裹运输与供应链物流：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 99.57。最新公开经营资料：UPS 经营全球包裹运输、物流和供应链服务。Q2 2026 公司称上半年表现强于预期并提高全年展望；观察重点包括美国国内件量与产品组合、国际业务、医疗物流、劳资成本以及 Amazon 等大客户业务重新平衡。运输网络具有规模优势，但固定成本使件量变化会影响利润率。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：UPS 经营全球包裹运输、物流和供应链服务。Q2 2026 公司称上半年表现强于预期并提高全年展望；观察重点包括美国国内件量与产品组合、国际业务、医疗物流、劳资成本以及 Amazon 等大客户业务重新平衡。运输网络具有规模优势，但固定成本使件量变化会影响利润率。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 99.57。",
-        "risks": [
-          "经济放缓、客户转向低价服务及件量下降会压低网络利用率。",
-          "劳资协议、工资、燃油和航空运力成本影响利润。",
-          "大客户结构调整及国际贸易政策可能造成收入和路线波动。"
-        ],
-        "catalysts": [
-          "核对公司提高后的全年展望、国内件量和单位收入。",
-          "观察降本计划、医疗物流增长及网络调整对利润率的实际贡献。"
-        ],
-        "sources": [
-          {
-            "label": "UPS Q2 2026 官方业绩与全年展望",
-            "url": "https://investors.ups.com/news-events/press-releases/detail/2164/ups-releases-2q-2026-earnings"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：UPS（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/UPS/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 99.56999969482422,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/UPS/history/"
-        }
-      },
-      "price": 100.32,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/ups/history/",
-      "researchedAt": "2026-10-21T23:39:26.184Z",
-      "report": "research/20261022-ups.html",
-      "targetPrice": 89,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:32.495Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "09b92911-f46c-43f7-8308-30622aadb4f4",
-      "name": "埃森哲",
-      "symbol": "ACN",
-      "note": "Moomoo 导入；行业：信息技术服务",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Accenture plc",
-          "symbol": "ACN",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "管理咨询与技术服务"
-        },
-        "title": "ACN｜管理咨询与技术服务：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 240.26。最新公开经营资料：Accenture 为企业和政府提供战略、咨询、技术实施、云迁移与外包服务。FY2026 Q4 收入 $18.7B、按美元计同比增长 6%；全年收入 $74.2B、增长 6%。AI 项目和云转型提供机会，但咨询订单会随客户预算、项目延迟和汇率变化而波动。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Accenture 为企业和政府提供战略、咨询、技术实施、云迁移与外包服务。FY2026 Q4 收入 $18.7B、按美元计同比增长 6%；全年收入 $74.2B、增长 6%。AI 项目和云转型提供机会，但咨询订单会随客户预算、项目延迟和汇率变化而波动。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 240.26。",
-        "risks": [
-          "企业削减可选支出、项目延期会减缓订单和收入转化。",
-          "生成式 AI 可能改变传统交付人力需求，同时需要投入新能力。",
-          "人才成本、汇率和大型项目定价会影响利润率。"
-        ],
-        "catalysts": [
-          "观察 FY2027 订单、收入指引、AI 相关合同及转收入速度。",
-          "跟踪人员利用率、利润率和现金回报是否与增长相匹配。"
-        ],
-        "sources": [
-          {
-            "label": "Accenture FY2026 Q4 与全年业绩",
-            "url": "https://investor.accenture.com/~/media/Files/a/accenture-v4/investors/earnings-reports/2026/accenture-reports-fourth-quarter-and-full-year-fiscal-2026-resultss.pdf"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：ACN（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/ACN/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 240.25999450683594,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/ACN/history/"
-        }
-      },
-      "price": 247.23,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/acn/history/",
-      "researchedAt": "2026-10-21T23:39:26.237Z",
-      "report": "research/20261022-acn.html",
-      "targetPrice": 205,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:32.585Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "ad97bd71-1e64-42b2-ac24-81220317555d",
-      "name": "好时",
-      "symbol": "HSY",
-      "note": "Moomoo 导入；行业：糖果",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "The Hershey Company",
-          "symbol": "HSY",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "糖果、巧克力与零食"
-        },
-        "title": "HSY｜糖果、巧克力与零食：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 167.81。最新公开经营资料：Hershey 的核心业务是北美巧克力糖果，并经营零食与国际业务；销售有节日和季节性。最新可用季度业绩为 Q2 2026。投资者应重点核对可可等原料成本、提价后的销量与产品组合、促销强度，以及公司对年度利润和库存的更新。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Hershey 的核心业务是北美巧克力糖果，并经营零食与国际业务；销售有节日和季节性。最新可用季度业绩为 Q2 2026。投资者应重点核对可可等原料成本、提价后的销量与产品组合、促销强度，以及公司对年度利润和库存的更新。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 167.81。",
-        "risks": [
-          "可可及其他原料价格波动会影响毛利率，提价可能损害销量。",
-          "消费者转向低价产品、零售商议价和促销会压缩定价能力。",
-          "糖果消费季节性及产品召回、食品安全和健康偏好变化带来波动。"
-        ],
-        "catalysts": [
-          "跟踪原料成本回落能否转化为毛利改善，而非被促销或销量侵蚀。",
-          "观察节日销售、市场份额与全年指引更新。"
-        ],
-        "sources": [
-          {
-            "label": "Hershey 官方季度业绩与投资者资料",
-            "url": "https://investors.thehersheycompany.com/financials/quarterly-results/default.aspx"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：HSY（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/HSY/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 167.80999755859375,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/HSY/history/"
-        }
-      },
-      "price": 168.23,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/hsy/history/",
-      "researchedAt": "2026-10-21T23:39:26.298Z",
-      "report": "research/20261022-hsy.html",
-      "targetPrice": 145,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:32.705Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "9d659e03-df19-4a6c-9534-9045b7747629",
-      "name": "家得宝",
-      "symbol": "HD",
-      "note": "Moomoo 导入；行业：家居装修零售",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "The Home Depot, Inc.",
-          "symbol": "HD",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "家居建材零售"
-        },
-        "title": "HD｜家居建材零售：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 314.14。最新公开经营资料：Home Depot 服务 DIY 与专业承包商客户，经营家居建材零售及安装相关服务。FY2026 Q2 销售 $47.9B、同比增长 5.7%，可比销售增长 1.7%（美国增长 1.3%）；调整后 EPS $4.92，公司重申全年展望。需求较多由小型维修项目支撑，大型翻新受房屋交易及融资成本影响。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Home Depot 服务 DIY 与专业承包商客户，经营家居建材零售及安装相关服务。FY2026 Q2 销售 $47.9B、同比增长 5.7%，可比销售增长 1.7%（美国增长 1.3%）；调整后 EPS $4.92，公司重申全年展望。需求较多由小型维修项目支撑，大型翻新受房屋交易及融资成本影响。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 314.14。",
-        "risks": [
-          "高房贷利率、房屋交易低迷和消费者谨慎会压制大型项目。",
-          "木材等商品价格、工资、库存和促销影响销售及毛利。",
-          "并购整合和专业客户支出对经济周期敏感。"
-        ],
-        "catalysts": [
-          "观察美国可比销售、客单价与交易量是否改善。",
-          "跟踪专业客户项目、大型翻新需求和全年指引兑现。"
-        ],
-        "sources": [
-          {
-            "label": "Home Depot FY2026 Q2 官方业绩",
-            "url": "https://ir.homedepot.com/news-releases/2026/08-18-2026-110040463"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：HD（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/HD/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 314.1400146484375,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/HD/history/"
-        }
-      },
-      "price": 319.38,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/hd/history/",
-      "researchedAt": "2026-10-21T23:39:26.333Z",
-      "report": "research/20261022-hd.html",
-      "targetPrice": 280,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:32.786Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "5b095741-a682-4b22-ad52-2c70e1a4052c",
-      "name": "联合健康",
-      "symbol": "UNH",
-      "note": "Moomoo 导入；行业：医疗计划",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "UnitedHealth Group Incorporated",
-          "symbol": "UNH",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "健康保险与医疗服务"
-        },
-        "title": "UNH｜健康保险与医疗服务：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 417.00。最新公开经营资料：UnitedHealth 通过 UnitedHealthcare 提供保险，并由 Optum 经营医疗服务、药品福利和数据业务。Q3 2026 收入 $112.7B，EPS $4.56、调整后 EPS $4.69；医疗成本率 88.4%。公司更新全年 EPS 至至少 $19.50、调整后 EPS 至 $20.50。业务表现同时受医疗利用率、定价和监管影响。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：UnitedHealth 通过 UnitedHealthcare 提供保险，并由 Optum 经营医疗服务、药品福利和数据业务。Q3 2026 收入 $112.7B，EPS $4.56、调整后 EPS $4.69；医疗成本率 88.4%。公司更新全年 EPS 至至少 $19.50、调整后 EPS 至 $20.50。业务表现同时受医疗利用率、定价和监管影响。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 417.00。",
-        "risks": [
-          "医疗服务利用率、药价和医疗成本上升可能超出保费定价。",
-          "政府项目报销规则、调查与合规事项可能影响 Optum 和保险利润。",
-          "会员组合变化、定价调整和医疗网络执行会影响后续利润率。"
-        ],
-        "catalysts": [
-          "对照医疗成本率、会员流失与保险定价观察利润恢复。",
-          "跟踪公司对全年展望、监管调查和 Optum 业务的更新。"
-        ],
-        "sources": [
-          {
-            "label": "UnitedHealth Q3 2026 SEC 业绩公告",
-            "url": "https://www.sec.gov/Archives/edgar/data/731766/000073176626000255/earningsrelease3q26unh.htm"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：UNH（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/UNH/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 417,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/UNH/history/"
-        }
-      },
-      "price": 410.7,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/unh/history/",
-      "researchedAt": "2026-10-21T23:39:26.369Z",
-      "report": "research/20261022-unh.html",
-      "targetPrice": 375,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:32.912Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
-      "name": "奥的斯",
-      "symbol": "OTIS",
-      "note": "Moomoo 导入；行业：专用工业机械",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Otis Worldwide Corporation",
-          "symbol": "OTIS",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "电梯与自动扶梯"
-        },
-        "title": "OTIS｜电梯与自动扶梯：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 72.35。最新公开经营资料：Otis 生产电梯和自动扶梯，并通过庞大的维护网络取得重复性服务收入，同时提供设备现代化改造。最新季度报告为 Q2 2026；分析重点是服务订单与续约、现代化改造、设备新装、价格和中国房地产相关需求。公司已安排 Q3 业绩公告，后续季度数据将更新目前的经营基线。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Otis 生产电梯和自动扶梯，并通过庞大的维护网络取得重复性服务收入，同时提供设备现代化改造。最新季度报告为 Q2 2026；分析重点是服务订单与续约、现代化改造、设备新装、价格和中国房地产相关需求。公司已安排 Q3 业绩公告，后续季度数据将更新目前的经营基线。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 72.35。",
-        "risks": [
-          "新装业务受房地产和商业建设周期影响，尤其是中国需求。",
-          "维修质量、安全事件、人工与零部件成本会影响品牌和利润。",
-          "服务合同续约、客户议价和汇率变化影响经常性收入增长。"
-        ],
-        "catalysts": [
-          "跟踪服务订单、续约率和现代化改造收入。",
-          "比较 Q3 新装订单与服务收入，观察地区需求分化。"
-        ],
-        "sources": [
-          {
-            "label": "Otis 官方季度业绩",
-            "url": "https://otisinvestors.com/financials/quarterly-results/default.aspx"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：OTIS（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/OTIS/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 72.3499984741211,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/OTIS/history/"
-        }
-      },
-      "price": 75.27,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence (daily Close)",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/otis/history/",
-      "researchedAt": "2026-10-21T23:39:26.402Z",
-      "report": "research/20261022-otis.html",
-      "targetPrice": 63,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:32.984Z",
       "priceTimeZone": "America/New_York"
     },
     {
@@ -1724,7 +1117,7 @@
       "priceSourceUrl": "https://stockanalysis.com/stocks/spgi/history/",
       "researchedAt": "2026-10-23T21:56:01.502Z",
       "report": "research/my-holdings-research-spgi-2026-10-23.html",
-      "targetPrice": 390,
+      "targetPrice": null,
       "attention": 4,
       "priceType": "close",
       "priceCurrency": "USD",
@@ -1785,251 +1178,11 @@
       "researchedAt": "2026-10-21T23:39:26.472Z",
       "report": "research/20261022-vst.html",
       "targetPrice": 126,
-      "attention": 2,
+      "attention": 1,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
       "priceFetchedAt": "2026-10-26T21:18:33.201Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "30c526ed-d29c-4e27-a3a6-d08a8f94802f",
-      "name": "Beam Therapeutics",
-      "symbol": "BEAM",
-      "note": "Moomoo 导入；行业：生物技术",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Beam Therapeutics Inc.",
-          "symbol": "BEAM",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "基因编辑生物技术"
-        },
-        "title": "BEAM｜基因编辑生物技术：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 24.84。最新公开经营资料：Beam Therapeutics 开发碱基编辑疗法，目标是在不造成 DNA 双链断裂的情况下精准修改遗传信息。Q2 2026 10-Q 是最新可用财务和管线披露；公司仍处于临床研发阶段，估值更取决于候选疗法的安全性、有效性、临床入组和监管沟通，而非当前产品销售。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Beam Therapeutics 开发碱基编辑疗法，目标是在不造成 DNA 双链断裂的情况下精准修改遗传信息。Q2 2026 10-Q 是最新可用财务和管线披露；公司仍处于临床研发阶段，估值更取决于候选疗法的安全性、有效性、临床入组和监管沟通，而非当前产品销售。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 24.84。",
-        "risks": [
-          "临床试验可能出现安全性问题、疗效不足或入组延期。",
-          "监管审查、制造复杂度和长期随访要求可能推迟商业化。",
-          "研发投入持续，融资需求和现金跑道取决于临床推进速度。"
-        ],
-        "catalysts": [
-          "跟踪主要碱基编辑项目的临床数据和监管沟通。",
-          "关注现金消耗、临床入组与关键试验时间表是否变化。"
-        ],
-        "sources": [
-          {
-            "label": "Beam Therapeutics SEC 文件与 Q2 2026 10-Q",
-            "url": "https://investors.beamtx.com/financials-filings/sec-filings/"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：BEAM（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/BEAM/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 24.84000015258789,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/BEAM/history/"
-        }
-      },
-      "price": 23.79,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/beam/history/",
-      "researchedAt": "2026-10-21T23:39:26.507Z",
-      "report": "research/20261022-beam.html",
-      "targetPrice": 18,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:33.290Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc",
-      "name": "硕迪生物",
-      "symbol": "GPCR",
-      "note": "Moomoo 导入；行业：生物技术",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Structure Therapeutics Inc.",
-          "symbol": "GPCR",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "口服代谢与肥胖症药物研发"
-        },
-        "title": "GPCR｜口服代谢与肥胖症药物研发：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 22.01。最新公开经营资料：Structure Therapeutics 是临床阶段生物制药公司，开发口服小分子代谢和肥胖症疗法。公司已启动口服 GLP-1 候选药 aleniglipron 的 ACCOMPLISH 3 期研究；Q2 2026 现金约 $1.3B，管理层表示资金可支持至 2028 年。临床疗效、耐受性和口服给药便利性是核心观察维度。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Structure Therapeutics 是临床阶段生物制药公司，开发口服小分子代谢和肥胖症疗法。公司已启动口服 GLP-1 候选药 aleniglipron 的 ACCOMPLISH 3 期研究；Q2 2026 现金约 $1.3B，管理层表示资金可支持至 2028 年。临床疗效、耐受性和口服给药便利性是核心观察维度。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 22.01。",
-        "risks": [
-          "临床疗效与耐受性尚未由大规模 3 期数据确立。",
-          "肥胖症领域竞争激烈，注射和口服疗法迭代可能改变商业机会。",
-          "临床失败、监管要求和研发支出可能影响现金跑道及融资。"
-        ],
-        "catalysts": [
-          "跟踪 ACCOMPLISH 入组、试验执行和关键读出时间表。",
-          "核对长期延伸数据中减重幅度、耐受性及停药情况。"
-        ],
-        "sources": [
-          {
-            "label": "Structure Therapeutics Q2 2026 官方业绩与管线",
-            "url": "https://ir.structuretx.com/news-releases/news-release-details/structure-therapeutics-reports-second-quarter-2026-financial"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：GPCR（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/GPCR/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 22.010000228881836,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/GPCR/history/"
-        }
-      },
-      "price": 21.1,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/gpcr/history/",
-      "researchedAt": "2026-10-21T23:39:26.540Z",
-      "report": "research/20261022-gpcr.html",
-      "attention": 1,
-      "targetPrice": 15,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:33.395Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "5774dc3c-1f0d-40e7-b787-d0a45f77c524",
-      "name": "Illumina",
-      "symbol": "ILMN",
-      "note": "Moomoo 导入；行业：诊断与研究",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Illumina, Inc.",
-          "symbol": "ILMN",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "基因测序设备与试剂"
-        },
-        "title": "ILMN｜基因测序设备与试剂：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 282.86。最新公开经营资料：Illumina 销售测序仪、试剂和基因组分析工具，收入与科研及临床实验室设备利用率、耗材复购相关。Q2 2026 收入 $1.159B、同比增长 9.5%，GAAP 经营利润率 21.1%；公司上调全年收入指引至 $4.60–4.64B，并将非 GAAP EPS 指引提高至 $5.30–5.40。NovaSeq X 需求是增长重点。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Illumina 销售测序仪、试剂和基因组分析工具，收入与科研及临床实验室设备利用率、耗材复购相关。Q2 2026 收入 $1.159B、同比增长 9.5%，GAAP 经营利润率 21.1%；公司上调全年收入指引至 $4.60–4.64B，并将非 GAAP EPS 指引提高至 $5.30–5.40。NovaSeq X 需求是增长重点。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 282.86。",
-        "risks": [
-          "科研经费、医院资本开支和实验室使用率影响设备和耗材需求。",
-          "中国监管、地缘政策及国际销售环境可能影响业务。",
-          "测序竞争、产品迭代和耗材价格会影响市场份额与毛利。"
-        ],
-        "catalysts": [
-          "跟踪 NovaSeq X 安装、仪器利用率及试剂复购。",
-          "核对上调后的全年收入和 EPS 指引能否兑现。"
-        ],
-        "sources": [
-          {
-            "label": "Illumina Q2 2026 官方业绩",
-            "url": "https://www.illumina.com/company/news-center/press-releases/2026/29061.html"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：ILMN（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/ILMN/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 282.8599853515625,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/ILMN/history/"
-        }
-      },
-      "price": 271.04,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/ilmn/history/",
-      "researchedAt": "2026-10-21T23:39:26.574Z",
-      "report": "research/20261022-ilmn.html",
-      "targetPrice": 195,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:33.520Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "28efd446-0de3-4992-b562-7836ceb691ae",
-      "name": "Bloom Energy",
-      "symbol": "BE",
-      "note": "Moomoo 导入；行业：电气设备及零件",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Bloom Energy Corporation",
-          "symbol": "BE",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "固体氧化物燃料电池与分布式电力"
-        },
-        "title": "BE｜固体氧化物燃料电池与分布式电力：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 238.53。最新公开经营资料：Bloom Energy 提供现场燃料电池电力系统及相关服务，面对数据中心、商业和工业客户的稳定供电需求。Q2 2026 收入创纪录达 $1.065B、同比增长 165.5%，毛利率 33.4%，经营现金流 $226.4M；公司将全年收入指引提高至 $3.9–4.2B。产能扩张和订单转收入是后续重点。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Bloom Energy 提供现场燃料电池电力系统及相关服务，面对数据中心、商业和工业客户的稳定供电需求。Q2 2026 收入创纪录达 $1.065B、同比增长 165.5%，毛利率 33.4%，经营现金流 $226.4M；公司将全年收入指引提高至 $3.9–4.2B。产能扩张和订单转收入是后续重点。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 238.53。",
-        "risks": [
-          "客户现场部署周期长，施工、电网接入和融资可能延误收入。",
-          "扩产需要资金、供应链和成本控制，需验证增长能否维持盈利及现金流。",
-          "数据中心投资或 AI 电力需求放缓会影响订单；激励政策变化亦有影响。"
-        ],
-        "catalysts": [
-          "观察产能扩充、产品毛利率和经营现金流能否维持。",
-          "核对全年收入指引、积压订单和大客户项目的交付进度。"
-        ],
-        "sources": [
-          {
-            "label": "Bloom Energy Q2 2026 官方业绩与全年指引",
-            "url": "https://investor.bloomenergy.com/press-releases/press-release-details/2026/Bloom-Energy-Reports-Record-Second-Quarter-2026-Financial-Results-and-Raises-Full-Year-2026-Guidance/default.aspx"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：BE（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/BE/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 238.52999877929688,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/BE/history/"
-        }
-      },
-      "price": 203.92,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/be/history/",
-      "researchedAt": "2026-10-21T23:39:26.606Z",
-      "report": "research/20261022-be.html",
-      "targetPrice": 150,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:33.609Z",
       "priceTimeZone": "America/New_York"
     },
     {
@@ -2085,7 +1238,7 @@
       "researchedAt": "2026-10-21T23:39:26.641Z",
       "report": "research/20261022-axp.html",
       "targetPrice": 275,
-      "attention": 2,
+      "attention": 1,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -2144,7 +1297,7 @@
       "priceSourceUrl": "https://stockanalysis.com/stocks/intc/history/",
       "researchedAt": "2026-10-21T23:39:26.719Z",
       "report": "research/20261022-intc.html",
-      "targetPrice": 65,
+      "targetPrice": null,
       "attention": 2,
       "priceType": "close",
       "priceCurrency": "USD",
@@ -2204,7 +1357,7 @@
       "priceSourceUrl": "https://stockanalysis.com/stocks/brk.b/history/",
       "researchedAt": "2026-10-21T23:39:26.789Z",
       "report": "research/20261022-brk-b.html",
-      "targetPrice": 500,
+      "targetPrice": null,
       "attention": 3,
       "priceType": "close",
       "priceCurrency": "USD",
@@ -2264,7 +1417,7 @@
       "priceSourceUrl": "https://stockanalysis.com/stocks/v/history/",
       "researchedAt": "2026-10-21T23:39:26.864Z",
       "report": "research/20261022-v.html",
-      "targetPrice": 360,
+      "targetPrice": null,
       "attention": 1,
       "priceType": "close",
       "priceCurrency": "USD",
@@ -2686,80 +1839,6 @@
       "priceTimeZone": "America/New_York"
     },
     {
-      "id": "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
-      "name": "SOUN",
-      "symbol": "SOUN",
-      "note": "",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "SoundHound AI, Inc.",
-          "symbol": "SOUN",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "语音人工智能与对话式AI"
-        },
-        "title": "SOUN｜语音AI商业化和收购扩张并行，整合与现金消耗待验证",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 4.61。Q2 FY2026 收入同比增长 45% 至 $61.9M；完成 LivePerson 收购后产品和客户范围扩大，但旧的收购前收入指引不能直接视为当前指引，整合、毛利和现金消耗是主要观察点。",
-        "details": "SoundHound AI 销售语音识别、对话式AI及代理式语音解决方案，服务汽车、餐饮和企业客户。公司 2026 财年第二季度（截至 6 月 30 日）收入 $61.9M，同比增长 45%；GAAP 毛利率 45.1%，非 GAAP 毛利率 58.4%；调整后 EBITDA 亏损 $9.6M，GAAP 净亏损 $42.8M；季末现金约 $203M、无债务。公司当时发布的 $230–260M FY2026 收入指引是在 LivePerson 收购前给出的，不能不加调整地当作收购后的最新合并指引。\n\n公司于 2026-09-04 完成 LivePerson 收购，扩大了客户服务自动化产品与企业客户基础，并任命新 CFO。9 月底，公司介绍 OASYS Edge 嵌入式代理式语音 AI；10 月的 Kia Sorento India 部署公告展示了生成式语音功能的应用。但产品发布和客户部署公告本身并不等于披露了可重复的收入规模。\n\n后续应重点核对收购后收入贡献、续约/交叉销售、毛利率、现金消耗及管理层更新后的年度指引。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 4.61。",
-        "risks": [
-          "LivePerson 收购整合可能带来产品迁移、客户留存、成本协同和无形资产摊销等风险；收购后的合并指引尚需以新公告核实。",
-          "公司仍有显著 GAAP 亏损，收入增长尚未证明能稳定转化为自由现金流。",
-          "语音AI市场竞争激烈，汽车项目周期长；客户部署或试点不能自动转化为大规模经常性收入。",
-          "非 GAAP 指标排除了部分费用，需与 GAAP 结果、现金流和股权薪酬一起观察。"
-        ],
-        "catalysts": [
-          "下一次业绩公告：核实并购后的收入、毛利、现金流和更新后的全年指引。",
-          "跟踪 LivePerson 客户留存、交叉销售以及产品整合带来的可量化收入和成本协同。",
-          "观察 OASYS Edge 与汽车/餐饮部署是否形成重复付费合同，而不只停留在产品发布或试点。"
-        ],
-        "sources": [
-          {
-            "label": "SoundHound：Q2 FY2026 业绩",
-            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-reports-record-q2-and-all-time-high-revenue-619"
-          },
-          {
-            "label": "SoundHound：完成 LivePerson 收购",
-            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-completes-acquisition-liveperson-creating-world"
-          },
-          {
-            "label": "SoundHound：OASYS Edge 公告",
-            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-introduces-oasys-edge-bringing-fully-embedded"
-          },
-          {
-            "label": "SoundHound：Kia Sorento India 部署公告",
-            "url": "https://investors.soundhound.com/news-releases/news-release-details/soundhound-ai-powers-next-generation-voice-assistant-real-time"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：SOUN（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/SOUN/history/"
-          }
-        ],
-        "uncertainty": "部分经营数据来自截至 2026-06-30 的最近已发布季度；收购后的指引应以公司下一次正式更新为准。本资料不是估值或买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 4.610000133514404,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/SOUN/history/"
-        }
-      },
-      "price": 4.24,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/soun/history/",
-      "researchedAt": "2026-10-21T23:39:27.418Z",
-      "report": "research/20261022-soun.html",
-      "targetPrice": 3.5,
-      "attention": 3,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:35.710Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
       "id": "c024e517-2f19-429e-9330-e49566ba2537",
       "name": "APLD",
       "symbol": "APLD",
@@ -2884,7 +1963,7 @@
       "researchedAt": "2026-10-21T23:39:27.496Z",
       "report": "research/20261022-ampx.html",
       "targetPrice": 6.6,
-      "attention": 4,
+      "attention": 5,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -3026,7 +2105,7 @@
       "researchedAt": "2026-10-21T23:39:27.569Z",
       "report": "research/20261022-iren.html",
       "targetPrice": 19,
-      "attention": 3,
+      "attention": 5,
       "priceType": "close",
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
@@ -3518,7 +2597,7 @@
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 2,
+      "attention": 4,
       "price": 12.59,
       "priceDate": "2026-10-26",
       "priceType": "close",
@@ -3580,7 +2659,7 @@
       },
       "researchedAt": "2026-10-25T23:11:02.369Z",
       "report": "research/my-holdings-research-nu-2026-10-25.html",
-      "targetPrice": 13
+      "targetPrice": 10
     },
     {
       "id": "db257f43-036f-43ec-acbf-84c4bf91c1ff",
@@ -3589,7 +2668,7 @@
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 2,
+      "attention": 4,
       "price": 14.46,
       "priceDate": "2026-10-26",
       "priceType": "close",
@@ -3660,7 +2739,7 @@
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 4,
+      "attention": 5,
       "targetPrice": 9,
       "price": 11.07,
       "priceDate": "2026-10-26",
@@ -3754,7 +2833,7 @@
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 2,
+      "attention": 1,
       "targetPrice": 15.5,
       "price": 18.88,
       "priceDate": "2026-10-26",
@@ -3835,7 +2914,7 @@
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 1,
+      "attention": 5,
       "targetPrice": 24,
       "price": 33.7,
       "priceDate": "2026-10-26",
@@ -3918,114 +2997,13 @@
       "report": "research/my-holdings-research-zeta-2026-10-26.html"
     },
     {
-      "id": "49065ab0-e060-4cc4-a65a-5d77c50c7c25",
-      "name": "OKLO",
-      "symbol": "OKLO",
-      "note": "",
-      "trigger": "",
-      "status": "观察中",
-      "attention": 2,
-      "targetPrice": 22,
-      "price": 25.94,
-      "priceDate": "2026-10-26",
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:37.717Z",
-      "priceTimeZone": "America/New_York",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/oklo/history/",
-      "research": {
-        "identity": {
-          "name": "Oklo Inc. Class A Common Stock",
-          "symbol": "OKLO",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "先进核能、电力、核燃料与同位素"
-        },
-        "title": "Oklo（NYSE: OKLO）首次研究｜2026-10-26",
-        "summary": "研究状态：观察。2026-10-23正式收盘US$26.35；H1 2026首次收入US$1.21M主要来自工程等服务，尚不能验证Aurora售电经济性。现金证券US$3.006B为6月底快照，9月新增US$1B ATM授权不等于已到账。22美元仅触发重新估值；许可、燃料、成本、融资及当前稀释股数尚需核验，不能认证安全边际。Q3将于11月6日美东盘前公布。",
-        "details": "## 决策摘要：技术有进展，单位经济性仍待证明\n研究状态：观察。Oklo Inc. A类普通股，NYSE: OKLO，币种USD。资料截至2026-10-26；最近完整交易日2026-10-23收盘US$26.35，而非实时或盘后价格。[S3][S10]\n\n研究判断：资金和工程进度提高了继续试错的能力，但还不能验证可复制、可盈利的商业售电。当前不足以计算可信的内在价值区间或安全边际。用户等待价US$22是既有偏好，不能单独形成买入依据。下一步先核验11月6日Q3披露的现金、股数、资本预算与许可里程碑。[S9]\n\n估值结论：历史流动资产参照约US$15.71/股，属于截至6月底的资产敏感性检查；资金会被研发和建设消耗。独立项目DCF／同业估值交叉核验未完成，故不设当前首次介入价或加仓价。组合适配度未完成：尚未评估完整资产、期限、流动性需求及回撤约束。\n\n## 我买的是什么：从资本开支到售电的长链条\n事实：核心计划是建造、拥有并运营Aurora快堆，通过长期购电协议出售电力和热，而非主要出售反应堆设计。燃料加工／回收和同位素是另两条业务线。电力业务尚需先完成设计、许可、燃料、建设、调试，再形成可持续现金收入；小额工程收入无法证明这条链条已闭合。[S1][S2]\n\n事实：Meta协议支持俄亥俄1.2 GW校园开发，并提供预付电力及前期资金机制；公司目标首期最早2030年上线、到2034年逐步扩展。它是需求与资金支持信号，不能把全部1.2 GW直接当作已投运、已确认收入或无风险订单。[S4]\n\n分析：客户购买的是及时、稳定且总成本可接受的能源。先进堆同行、现有核电延寿、燃气发电以及电网与可再生组合都争夺同一预算。监管壁垒与燃料能力可能构成护城河，但此前期壁垒也约束Oklo自身。客户议价能力较强，供应商和监管约束高；替代能源具有现实成本和交期优势。真正护城河要由安全可靠性、可重复建设成本、可融资合同及实际现金回报验证。\n\n## 许可与商业化：不要把三种进展混为一谈\n事实：Groves低功率同位素测试堆于2026年8月实现首次临界；10月Groves-2 Forge入选DOE Launch Pad，规划初步聚焦镥-177。测试堆临界支持工程执行与未来同位素业务，不等同于Aurora商用电站已交付。[S5][S8]\n\n事实：Aurora-INL于6月获得DOE初步安全分析批准。初步安全基础、DOE授权路径、NRC商业许可对应不同环节；公司监管页仍将电站标为建设中及授权推进中。NRC旧申请在2022年因资料不足被无偏见驳回；该历史不能推导为当前项目永久失败，也不能被忽略。[S6][S11][S12]\n\n事实：6月Centrus燃料意向书涉及为Ohio最多五座Aurora支持多年HALEU堆芯供应，可能包含预付款。意向书仍需核验最终合同、交期、价格、燃料制造和资格认证，不能把上游供料意向视为完整燃料链已经消除风险。[S7]\n\n分析：成功路径是连续通过多个约束。许可提前但燃料推迟、建设完成但客户合同融资条件不成立，都能延后股东现金流。技术成功与股票回报之间还隔着资本成本、稀释和买入价格。\n\n## 财务质量：现金充裕与资本消耗同时成立\n下表单位均为百万美元，亏损／流出为负，H1为半年累计，不能直接与全年同比。来源S1／S2。FCF采用CFO减购建固定资产，属于现金消耗观察口径，未扣并购和其他投资，不等同FCFF。\n\n事实：H1 2026的1.210收入主要为工程咨询、制造及其他服务，售电商业化尚不能据此确认。初始小额收入及约40.4%毛利率不具有稳定电厂盈利代表性。净亏损因利息收益而小于经营亏损；不能据此判断经营盈亏已改善。[S2]\n\n分析：现金与有价证券增加主要依赖股权融资。账面净资产并非可返还现金，项目建设会消耗流动性；经营现金流也受利息和营运资金影响。股权薪酬需要纳入每股价值，而非仅因非现金而忽略。ROIC／PE在此阶段不适合作为成熟公用事业指标。\n\n治理与配置：管理层把资金投入电站、燃料与同位素并购和建设，扩大纵向能力也增加同时执行多项目的难度。9月新ATM最多US$1B是出售授权，不能当作已到账现金。应比较每次融资后的每股项目权益和风险削减，而非只看现金总额；现金投资收益更不是电厂投资回报。[S3]\n\n## 估值：能复算的参照，与尚不能验证的价值\n资产视角（历史快照）：6/30现金及有价证券US$3,006.289M，减全部账面负债US$84.325M，再除8/4已披露186.017650M股，得US$15.71/股。它混用相邻披露时点，仅用于粗略参照，不是当前净现金、清算价值或安全底价。未计6月底后的烧钱、ATM、额外股权激励及未来拆建／退役义务；减全部负债为简化保守处理，并非标准EV净债务口径。[S2]\n\n以此旧股数估算，26.35美元对应股权市值约US$4.902B，超过上述历史资产参照约US$1.980B；22美元对应US$4.092B，超出约US$1.170B。差额须由项目、知识产权、同位素及其他未来现金流覆盖。到22美元不意味着只按现金买入。\n\n第二视角：五年所需回报的反推，仅展示“需要实现什么”，不预测2031现金流。假设无分红、美元税费前所需年化15%、2031年末20×股权自由现金流、终点无净现金／净债务。未来FCF必须已经扣除维持和增长性资本开支、燃料、营运资金及融资约束；不能用EBITDA替代。净增股数0%／3%／6%是敏感性假设，涵盖融资与SBC，不另重复扣减。计算式：2031股数=N0×(1+d)^5；所需末价=P0×1.15^5；所需FCF=末价×2031股数÷20。\n\n基准敏感性（年净稀释3%）：26.35美元需要2031年约US$571M股权FCF，22美元需要约US$477M。若假设FCF率20%，对应收入US$2.86B／2.39B。为理解规模，1.2 GW×8760小时×90%利用率×US$100/MWh≈US$946M年售电收入，尚未扣任何成本；这里的电价、利用率与利润率均是研究假设，不是已签合同或公司指引。Ohio还有逐步投运到2034年的时间差，不能提前计入2031全部容量。[S4]\n\n局限：20×、15%及20%利润率都高度主观；若终点仍有净现金，应从所需股权市值扣除，反之加入净债务。无可信的分项目CapEx、融资、实际电价与许可时间，无法可靠构造项目DCF，也无法赋予二元成功概率。未取得合适同业正常化数据，独立估值交叉核验未完成。今天合理价值、未来合理卖价、最高买价及安全边际均暂不认证。\n\n## 六种投资视角：证据如何改变行动\n巴菲特：长期售电合同可能形成可预测收入，但尚无复制电站经济性证据；以未来现金回报验证护城河，不因先进技术直接给成熟公用事业估值。\n\n芒格：最容易毁掉回报的组合是许可延迟、工程超支与低价增发；反向检查每个瓶颈，同时依赖多个成功条件要提高门槛。\n\n彼得·林奇：这是商业化早期的高不确定成长项目，而非已有利润的稳定成长股；重要的是进度与每股资本效率，PE不提供有效答案。\n\n霍华德·马克思：买入价决定风险补偿；大幅回撤和现金余额都不自动构成安全边际。在可信范围无法收窄前，观察优于凭价格锚行动。\n\n索罗斯：高股价有利融资并加快建设，低股价增发则加剧稀释与信心下降；9月ATM使这种反身性仍值得跟踪。[S3]\n\n达里奥：利率影响远期现金流折现和项目融资，电网、电价、国家能源政策与HALEU供给形成多重宏观传导；单一“AI用电增加”叙事无法覆盖这些风险。以上为研究框架应用，不代表这些投资者实际持仓或观点。\n\n## 最强反方与论点失效条件\nDevil’s Advocate：即使快堆技术可行，首台造价、燃料链、工期、维护和融资成本可能使电价缺乏竞争力。届时客户可以转向更快交付的能源，长期需求未必转为有利合同；股东可能在企业扩张中持续被稀释。同位素进展可能有价值，但无法替代商用电厂的经济验证。\n\n市场分歧：历史资产参照与市价的差额，表明价格仍给予开发资产价值；但这并不识别市场唯一共识。当前没有足以量化优于市场的分析优势，不用主观成功概率制造“期望价值”。\n\n研究风险分级为主观定性：许可／燃料／建设延误概率中高、影响高；融资稀释概率中高、影响高；重大安全事件概率难量化、影响极高；电价竞争与客户取消概率中、影响高；估值波动概率高、影响高。汇率会影响非美元投资者，未计算本位币回报。\n\n论文重估触发：公司既定里程碑再次推迟且无可核实修正预算；燃料最终合同／制造条件无法落实；新预算与可用资金出现重大缺口；为维持项目被迫显著低价融资；订单支持未转为可融资经济条款；电厂长期售电现金回报低于资本成本。这些是研究复查触发，不是已发生事实。\n\n## 执行与复查：22美元需要同时满足什么\n价格规划：现价26.35美元及任何高于22美元的报价均维持观察；≤22美元仅触发重新估值，首次介入及加仓区间仍待核验。若许可、燃料、项目资本开支、信用客户合同和完全稀释股数可验证，并能以保守项目价值计算足够安全边际，再讨论学习仓。现阶段不设个人仓位、不加杠杆、不因下跌自动补仓。\n\n下一次资料节点：公司宣布美国东部时间2026-11-06盘前披露Q3，08:30举行电话会（对应新西兰11月7日02:30，届时美东为EST、新西兰为NZDT）。这是核验事件，不等于股价上涨催化。[S9]\n\n未来两季到一年检查五项：①最新现金证券、完全稀释股数与ATM实际销售；②分项目预算、累计投入、剩余资金和可融资条件；③Aurora授权／安全审查到可运营的清单；④HALEU最终供货、制造、装料及资格里程碑；⑤Groves同位素从测试、合规生产到客户收入和现金收款。出现里程碑必须区分技术、许可、商业、财务四类证据。\n\n资料限制：本研究核验了截至截止日可获取的年度／季度申报及官方进展，Q3尚未发布；6月底现金与8月股数并不代表10月底现值。报价来自二手日线Close列。独立估值、实际合同电价、项目融资和个人组合适配仍有缺口。研究记录完成不表示所有价值变量已确定；结论保持观察。\n\n财务（US$M；FY2024/FY2025/H1 2026）：\n收入 / 0 / 0 / 1.21\nGAAP经营利润 / -52.801 / -139.294 / -124.166\nGAAP净利润 / -73.616 / -105.663 / -81.601\n经营现金流 / -38.39 / -82.174 / -65.459\n购建固定资产 / 0.352 / 33.205 / 126.901\nFCF（计算） / -38.742 / -115.379 / -192.36\n股权薪酬 / 12.484 / 41.795 / 29.944\n期末现金及有价证券 / 275.287 / 1412.539 / 3006.289\n\n反推门槛（买价/年稀释/所需2031股权FCF US$M）：\n26.35 / 0% / 492.9\n26.35 / 3% / 571.5\n26.35 / 6% / 659.7\n22 / 0% / 411.6\n22 / 3% / 477.1\n22 / 6% / 550.8",
-        "risks": [
-          "Aurora商业部署仍受许可、安全审查及燃料链约束；DOE初步批准、测试堆临界与NRC商业许可不可混同。",
-          "首台及后续电站造价、工期、实际容量因子、维护与融资成本不确定，需求可能无法变成有吸引力的售电回报。",
-          "现金余额会被研发、建设和多项目执行消耗；9月ATM授权增加未来融资与稀释不确定性。",
-          "H1经营现金流和FCF为负；小额工程服务收入不能验证电厂盈利。",
-          "Meta开发支持与燃料意向需落实具体条件、最终合同和实际交付，不能视为全部已投运订单。",
-          "股权薪酬、增发和资本配置可能使企业规模增长而每股价值不增。",
-          "核安全、责任、退役、监管政策与燃料供应冲击具有极高尾部影响。",
-          "市价依赖远期预期，利率、竞争替代、波动及非美元汇率可能同时损害回报。"
-        ],
-        "catalysts": [
-          "公司公告：2026-11-06美东盘前Q3业绩、08:30 ET电话会；重点核验最新现金、股数、ATM和项目预算。",
-          "Aurora-INL从初步安全分析走向后续授权与可运营里程碑，须逐项核验原始批文。",
-          "Centrus意向书转为可执行供货、燃料制造及资格里程碑。",
-          "Groves及Groves-2从测试与规划走向可合规商业同位素生产、收入与收款。",
-          "Ohio分期开发、资金和客户合同条件实际兑现；2030/2034为公司目标并非保证。"
-        ],
-        "sources": [
-          {
-            "label": "[S1] FY2025 Form 10-K · SEC · 2026-03-17",
-            "url": "https://www.sec.gov/Archives/edgar/data/1849056/000162828026018698/oklo-20251231.htm"
-          },
-          {
-            "label": "[S2] Q2 2026 Form 10-Q · SEC · 2026-08-07",
-            "url": "https://www.sec.gov/Archives/edgar/data/1849056/000162828026054571/oklo-20260630.htm"
-          },
-          {
-            "label": "[S3] 新ATM授权 Form 8-K · SEC · 2026-09-11",
-            "url": "https://www.sec.gov/Archives/edgar/data/1849056/000110465926106897/tm2625056d1_8k.htm"
-          },
-          {
-            "label": "[S4] Meta／1.2 GW Ohio开发协议 · 公司 · 2026-01-09",
-            "url": "https://oklo.com/newsroom/oklo-meta-announce-agreement-in-support-of-1-2-gw-nuclear-energy-development-in-southern-ohio"
-          },
-          {
-            "label": "[S5] Groves首次临界 · 公司 · 2026-08-06",
-            "url": "https://oklo.com/newsroom/oklos-groves-reactor-achieves-first-criticality-in-under-a-year"
-          },
-          {
-            "label": "[S6] Aurora-INL初步安全分析获DOE批准 · 公司 · 2026-06-11",
-            "url": "https://oklo.com/newsroom/u-s-department-of-energy-approves-preliminary-documented-safety-analysis-for-aurora-powerhouse-a"
-          },
-          {
-            "label": "[S7] Centrus燃料意向书 · 公司 · 2026-06-18",
-            "url": "https://oklo.com/newsroom/oklo-centrus-sign-letter-of-intent-to-purchase-nuclear-fuel-for-aurora-powerhouse-deployment-in-"
-          },
-          {
-            "label": "[S8] Groves-2 Forge／DOE Launch Pad入选 · 公司 · 2026-10-13",
-            "url": "https://oklo.com/newsroom/oklo-to-advance-groves-2-forge-as-part-of-u-s-department-of-energys-nuclear-energy-launch-pad-se"
-          },
-          {
-            "label": "[S9] Q3业绩日期公告 · 公司 · 2026-10-23",
-            "url": "https://oklo.com/newsroom/oklo-announces-date-for-third-quarter-2026-financial-results-and-business-update-call"
-          },
-          {
-            "label": "[S10] OKLO日线Close · StockAnalysis · 2026-10-23",
-            "url": "https://stockanalysis.com/stocks/oklo/history/"
-          },
-          {
-            "label": "[S11] Aurora原始申请于2022年被无偏见驳回 · NRC历史档案",
-            "url": "https://www.nrc.gov/facilities-safety/new-reactors/large-light-water-reactors/combined-license-applications-for-new-reactors/aurora-oklo"
-          },
-          {
-            "label": "[S12] 公司监管进展看板 · 访问于2026-10-26",
-            "url": "https://oklo.com/regulatory"
-          }
-        ],
-        "uncertainty": "Q3尚未发布；6月底现金与8月股数不是10月底现值，ATM授权不等于完成募集。项目CapEx、最终电价、燃料成本、融资和许可时间不足以可靠构建项目DCF，独立估值交叉核验未完成。资产参照不是安全底价；反推FCF为假设试算。未评估完整组合、个人期限回撤约束、税费或本位币回报。"
-      },
-      "researchedAt": "2026-10-26T01:35:44.130Z",
-      "report": "research/my-holdings-research-oklo-2026-10-26.html"
-    },
-    {
       "id": "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
       "name": "CBRS",
       "symbol": "CBRS",
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 2,
+      "attention": 1,
       "price": 108.37,
       "priceDate": "2026-10-26",
       "priceType": "close",
@@ -4344,6 +3322,140 @@
       },
       "researchedAt": "2026-10-26T11:10:55.788Z",
       "report": "research/my-holdings-research-clpt-2026-10-27.html"
+    },
+    {
+      "id": "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
+      "name": "IONQ",
+      "symbol": "IONQ",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "attention": 2,
+      "price": 30.76,
+      "priceDate": "2026-10-26",
+      "priceType": "close",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-10-26T20:00:00.000Z",
+      "priceFetchedAt": "2026-10-27T07:05:43.073Z",
+      "priceTimeZone": "America/New_York",
+      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
+      "priceSourceUrl": "https://stockanalysis.com/stocks/ionq/history/",
+      "research": {
+        "identity": {
+          "name": "IonQ, Inc.",
+          "symbol": "IONQ",
+          "exchange": "NYSE",
+          "currency": "USD",
+          "sector": "量子计算 / 量子安全与晶圆制造"
+        },
+        "title": "IonQ（IONQ）｜技术进展、现金筹码与每股价值之间",
+        "summary": "研究状态：观察。IONQ为NYSE普通股，2026-10-26正式收盘$30.76。最新2026合并收入指引450–460M已含SkyWater；10月融资已交割，但H1经营现金流−254.8M、SBC270.4M，Elisity拟收购与大量权证使稀释复杂。经营路径DCF试算的每基本等价股权益上界约$3.76 / $9.75 / $33.39，不是普通股公允价值或买入价。等待11/5 Q3与资本结构复核，不认证执行买价。",
+        "details": "IonQ（IONQ）｜技术进展、现金筹码与每股价值之间 \n MY HOLDINGS / EQUITY RESEARCH / 2026.10.27\n IonQ 技术进展，如何变成每股价值？\n 研究状态：观察。 融资让技术路线有更长跑道，但收入增长、并购扩张与普通股股东回报，仍是三件不同的事。\n 资料截至 2026-10-27 · 市价截至 2026-10-26 16:00 美东正式收盘 · NYSE: IONQ · 普通股 · USD · 默认五年持有视角。最新已发布定期财务为 2026 Q2 / H1；Q3 尚未发布。 [P] [J] [O] \n\n 最近正式收盘 $30.76 10/26；不是盘后 31.07 \n 2026 合并收入指引 $450–460M 9/8 更新，包含 SkyWater \n 今天普通股合理价值 / 买价 未认证 资本结构与合并现金流仍需复核 \n 下一次关键核验 11 月 5 日 美东盘后 Q3；电话会 16:30 ET \n\n 当前判断： 有真实收入、产品迭代与政府独立验证进展；尚不满足以稳定每股现金流为基础的长期复利买入标准。现价需要很强的商业化成功路径。本文不把融资配售价、历史高点或技术宣传当作价格底线。\n\n 判断摘要 业务与护城河 财务与现金 融资及稀释 估值试算 反方与风险 观察与执行条件 来源 \n\n 先看结论与证据\n 问题 核验与投资含义 \n 企业与行业 早期商业化、重研发的量子平台，加上已并购晶圆厂；不能按成熟软件公司的收入质量和利润率直接定价。 \n 护城河 离子阱控制、系统工程与制造协同可能构成技术壁垒，但独立量子实用性验证尚在进行；转换成本和持续超额利润还没有充分财务证据。 \n 生存性 10月融资已关闭，近期资金压力缓解；现金仍会用于研发、并购与制造，充足流动性不等于股价有现金底。 \n 每股价值 普通股、预融资权证、普通认股权证和并购股权支付必须分开。不能用Q2加权平均股数代替现在的经济股数。 \n 估值与行动 完成有来源的财务核验和条件模型；普通股权利分配与第二种市场估值校验仍不完整，因此保持观察，不发布可执行买价。 \n 组合适配 当前无IONQ直接持仓；新增会增加早期科技与情绪风险。投资目标已知，个人承受亏损与流动性约束仍不完整。 \n\n 我买的是什么\n 公司向企业、研究机构与政府提供量子计算硬件和访问服务，并扩展网络、安全、传感及相关基础设施。2026年7月底并入 SkyWater 后还拥有晶圆制造业务；这些业务的周期、资本密度和毛利不同。现阶段盈利引擎仍在建立，增长不能自动转成可分配现金。 [I] [H] \n\n 计算与系统 从实验指标走向客户交付\n Superion 256 已开放订单，首批客户交付计划为 2027；产品发布、原型中的离子俘获与商业验收不是同一里程碑。 [L] \n 制造与供应链 SkyWater 是资产，也是责任\n 自有制造可能缩短迭代并提升供应链安全，同时带来固定成本、产能利用率和资本开支风险。不能把全部新增晶圆收入当作量子算力产品的有机增长。 [H] [G] \n 量子安全与并购 Elisity 还需独立估价\n 拟收购带来 Zero Trust 客户渠道，但交易标的完整财务尚不足以认证协同价值；并购宣布不等于交割，更不等于增厚每股价值。 [K] [R] \n\n 技术证据的边界\n 事实： DARPA 已将 IonQ 列入 QBI Stage C，与多种不同技术路线共同接受验证。官方把这一阶段定位为检验拟议系统能否按设计建造和运行，而不是宣布量子商业化已经成功。 [M] \n 公司披露的最高可达 3 亿美元协议金额还取决于后续拨款，不能把上限一次性计为已收现金或已确认收入。 [N] 门保真度、物理 qubit、算法 qubit 与纠错后的逻辑 qubit 口径不同；局部器件记录不能直接推导整机可处理的商业问题、成本优势或未来销售额。Superion 的成本与交付目标仍应按里程碑验收。 [L] \n\n 竞争与行业经济性\n 客户有采购、云端试用、研究合作和等待其他架构的选择。政府验证名单同时覆盖离子阱、中性原子、超导与硅自旋等路线，说明技术路径仍开放。供应侧人才、制造与控制工程稀缺，有利于领先团队；需求侧尚缺长期重复采购与稳定盈利的充分证据。我的推论是：当前更像高投入的技术商业化，而非已验证的垄断型现金机器。 [M] \n\n 收入也不能只看订单公告。公司 RPO 定义含已获拨款与尚未拨款部分，不含未行权合同选项；意向备忘录、合同上限、待履约收入和已收到现金须分别追踪。本文不把这些数值直接加到年度收入。 [F] \n\n 增长很快，现金与股权成本同样在增加\n 下表单位均为 USD 百万美元。2022–2025 为完整年度，2026 H1 为六个月，不可直接同比全年。损益与现金流采用 GAAP 表列口径；“简化 FCF”仅为 CFO 减固定资产购置现金。\n\n 期间 收入 经营亏损 CFO PPE现金支出 简化FCF SBC加回 \n 2022 [Q] 11.131 -85.746 -44.698 9.336 -54.034 31.456 \n 2023 [A] [B] 22.042 -157.754 -78.811 13.703 -92.514 69.743 \n 2024 [A] [B] 43.073 -232.455 -105.683 17.992 -123.675 106.878 \n 2025 [A] [B] 130.016 -633.715 -283.187 16.417 -299.604 312.032 \n 2026 H1 [C] [D] 144.718 -608.750 -254.781 18.583 -273.364 270.362 \n\n 收入规模：增长成立，但基数与并购边界在变\n\n 单位 USD M；历史实绩。H1 用独立颜色标明，未年化。来源 [A] [C] [Q] 。投资含义：小基数高增长不能直接外推十年，更不能与新合并指引作同口径比较。 \n\n 简化经营现金消耗：规模扩大并未消除资金消耗\n\n 柱高为消耗的绝对额，实际简化 FCF 均为负；不是盈利柱。来源 [B] [D] [Q] 。该口径不含收购、资本化软件和其他无形资产支出，也不等于 FCFF；例如2022/2023资本化软件另有2.179/4.558M，不能据此宣称真实资本需求只有PPE购置。 [Q] \n\n Q2单季收入80.050M；该季1,867.742M归母净亏损很大程度受1,649.115M权证公允价值损失影响，不能直接当成现金消耗。但H1经营亏损仍达608.750M、CFO为−254.781M、SBC为270.362M，不能因非现金调节就把经济成本忽略。 [C] [D] 公司披露的Q2调整EBITDA为−120.275M，仍为亏损，且排除了SBC等项目。 [F] \n\n 6/30商誉2,185.971M及无形资产778.874M不能视为流动性安全垫；稳定ROIC与利息覆盖在持续亏损阶段缺少正向解释力，不给“高资本回报”标签。SkyWater并购后的资产配置、毛利和资本开支需在Q3重新建立可比口径。 [E] \n\n 最新指引应当怎样用\n 9月8日公司将2026年合并收入预期更新到450–460M，包含7月31日起并入的SkyWater，并抵销预计内部交易。旧280–290M是未含SkyWater的指引，不能继续拿它当当前集团指引。 [H] \n 这次指引阶跃包含合并范围变化，不是量子业务在一个月内有机增长约60%的证据。下一份财报要拆开原有业务增长、收购收入、内部抵销和现金流；目前不使用一个混合增长率代表全部业务的长期护城河。\n\n 现金筹码改善，不等于股东无需付代价\n 金额 USD M；已披露时点与研究估计分开。\n\n 项目 数值 / 状态 口径 \n 6/30现金、短期及长期投资 2,959.334 三项合计，尚未发生SkyWater交割 [E] \n 7/31 SkyWater现金用途 −1,056.4 购买对价、债务偿还及其他交易用途，不能只扣741.3M购买现金 [G] \n 10/16 已交割融资 约 +1,988.5 招股文件预计扣费后净款；不是20亿美元全额净款 [I] [J] \n 不完整过桥算术 3,891.434 未纳入7–10月其他现金流、收购取得现金及新增索偿，不是当前报表余额 \n 模型扣减假设 −250.0 纯研究敏感性输入；不冒充已发生的现金流 \n 用于试算的流动资产输入 3,641.434 仍不是认证的最新净现金；另测试3,400–3,900M \n\n 流动资产过桥：先分清已披露与未披露\n\n 来源 [E] [G] [I] [J] ；最后一柱只是部分事件的加减。模型再使用−250M假设缓冲，任何新融资、并购、费用和债务都需Q3对账。现金可能持续用于技术投资，不形成价格底线。 \n\n 股数必须使用当前口径\n 口径 百万股 说明 \n 10/13 已发行普通股 408.907678 融资前文件口径 [I] \n 新增普通股 20.5 10/16已交割 [J] \n 融资后法定普通股计算 429.407678 未假定预融资权证已行权，也未追踪其后小额变动 \n 新增预融资权证对应股 29.5 剩余行权价仅0.0001美元，经济上需纳入分母 [I] \n 基本经济等价分母 458.907678 不是“全部完全摊薄股数”；旧奖励、旧权证与新普通权证另有权利 \n 新增Series C普通认股权证 100.0 行权价69.46美元，期限七年；不可当作已收未来行权款 [I] \n\n 以30.76美元计算，融资后法定普通股的估算市值为13.21B；计入新增预融资权证的经济等价值为14.12B。后者用于本文试算分母，二者不能混叫“准确当前总市值”。6月底EPS加权平均股数更不能替代10月口径。\n\n 已有期权、RSU、PSU和旧权证的存量、归属、行权及剩余权利还需滚动核对。6/30报表中的权证负债3,052.398M是会计公允价值，不是应按面值立即偿付的普通借款；同时它也不是可无视的股东权利。本模型 尚未把全部权益池在普通股、奖励和权证持有人间公允分配 ，因而每股结果只作偏向普通股的条件上界，不能认证为公平买价。 [E] [I] \n\n Elisity：未来潜在稀释还未结束\n 协议约定11.5亿美元交割股票对价，另最多1.5亿美元业绩对价；还设有额外1亿美元员工留任RSU池。换股参考价有33.07–49.61美元上下限。按合同简单除法，初始股票约23.18–34.77M股；若全部业绩及留任额度满足，合计理论约28.22–42.33M股，未计其他调整。这些是未来条件股数，不是现在已发行数。 [K] \n 截至核验材料尚不能认证交割完成和标的完整利润/现金流。本文没有把Elisity收入或未来增发单独塞进模型；资产价值和新增股数应成对估价，不能只算增长好处，也不能只算稀释坏处。 [R] \n\n 估值：能复算的条件上界，而非精确买价\n 关键限定： 下列DCF与五年SOTP均为明确经营假设下的试算。尚未公允分配存量权证/奖励，现金为不完整过桥估计，Elisity未并入；缺少可靠市场可比与完整合并现金流，独立估值交叉认证仍未完成。结论是“观察”，不是声称普通股今天就值某个数。\n\n 起点假设： 非SkyWater平台收入基点285M，采用旧未合并指引中点作为建模锚，并非新集团指引；完整年度晶圆业务收入基点假设400M，不能把新旧指引差额直接年化成已披露分部收入。两条业务线分开增长与投入，未来Y1–Y10约对应2027–2036商业化阶段，仅作年度模型，不预测季度报表。\n\n 参数（均为研究假设） 受阻 渐进商业化 大规模兑现 \n 平台Y1增长 / Y10增长 30.0% / 6.0% 50.0% / 10.0% 75.0% / 20.0% \n 平台Y1 / Y10经济EBIT率 -180.0% / 10.0% -120.0% / 27.0% -90.0% / 35.0% \n 晶圆年增速 / EBIT率 3.0% / 3.0% 7.0% / 8.0% 10.0% / 12.0% \n 平台/晶圆销售资本比 1.5 / 0.8 3 / 1 4 / 1.2 \n 折现率 / 终值增长 17.0% / 2.0% 15.0% / 2.5% 13.0% / 3.0% \n 终值ROIC假设 10.0% 15.0% 20.0% \n Y10集团收入 USD M 1,920 5,122 14,328 \n Y10 FCFF USD M 50 792 3,141 \n 显性期现金流现值 USD M -2,052 -811 1,949 \n 终值现值 USD M 138 1,646 9,732 \n 每基本等价股权益上界 $3.76 $9.75 $33.39 \n 终值现值 / EV EV为负，不适用 197.1% 83.3% \n 模型最低剩余资金 USD M 432 1,616 2,076 \n\n 全部十年路径与可复算公式 名义USD，税率21%，亏损期不给税收资产；经济EBIT率假设已包含按现金支付的人员/SBC替代成本，不再把SBC加回，也不额外假定未来常规SBC增发。维护性资本支出与折旧近似相抵；新增净再投资含净增长CapEx及营运资本，以收入增量÷销售资本比估计。经营租赁成本在EBIT内，未再机械扣一遍租赁负债。\n FCFF = EBIT − max(EBIT,0) × 21% − 净再投资\n净再投资 = Δ平台收入 / 平台销售资本比 + Δ晶圆收入 / 晶圆销售资本比\n终值FCFF = NOPAT_Y10 × (1+g) × (1−g/终值ROIC)\nEV = Σ FCFF_t/(1+r)^t + 终值FCFF/(r−g)/(1+r)^10\n权益池上界 = EV + 流动资产假设\n每基本等价股上界 = max(权益池上界,0) / 458.907678M\n 受阻\n 年 平台增长 平台EBIT率 平台收入M 晶圆收入M FCFF M \n Y1 30.0% -180.0% 371 412 -727 \n Y2 30.0% -130.0% 482 424 -703 \n Y3 25.0% -90.0% 602 437 -625 \n Y4 20.0% -60.0% 722 450 -517 \n Y5 18.0% -30.0% 853 464 -345 \n Y6 15.0% -10.0% 980 478 -186 \n Y7 12.0% 0.0% 1,098 492 -85 \n Y8 10.0% 6.0% 1,208 507 -22 \n Y9 8.0% 8.0% 1,304 522 11 \n Y10 6.0% 10.0% 1,383 538 50 \n\n 渐进商业化\n 年 平台增长 平台EBIT率 平台收入M 晶圆收入M FCFF M \n Y1 50.0% -120.0% 428 428 -554 \n Y2 50.0% -75.0% 641 458 -546 \n Y3 45.0% -40.0% 930 490 -461 \n Y4 40.0% -15.0% 1,302 524 -312 \n Y5 35.0% 0.0% 1,757 561 -153 \n Y6 30.0% 12.0% 2,285 600 40 \n Y7 25.0% 20.0% 2,856 642 259 \n Y8 20.0% 24.0% 3,427 687 458 \n Y9 15.0% 26.0% 3,941 735 636 \n Y10 10.0% 27.0% 4,335 787 792 \n\n 大规模兑现\n 年 平台增长 平台EBIT率 平台收入M 晶圆收入M FCFF M \n Y1 75.0% -90.0% 499 440 -483 \n Y2 70.0% -50.0% 848 484 -490 \n Y3 65.0% -20.0% 1,399 532 -394 \n Y4 60.0% 0.0% 2,238 586 -199 \n Y5 50.0% 15.0% 3,358 644 130 \n Y6 45.0% 23.0% 4,868 709 520 \n Y7 40.0% 28.0% 6,816 779 1,036 \n Y8 30.0% 32.0% 8,861 857 1,745 \n Y9 25.0% 34.0% 11,076 943 2,439 \n Y10 20.0% 35.0% 13,291 1,037 3,141 \n\n 预测损益、税、净再投资和资金余额均保存在同名模型JSON中。普通认股权证未来现金行权款没有提前计入；现有期权/奖励价值也未完成权益分配，所以“上界”不是完全摊薄价值。若仍需外部融资，模型须先重做分母。\n\n 今天的权益上界试算与市价对照\n\n 原创情景模型，不是已核验公允价值。受阻/渐进/大规模三条经营路径分别给约$3.76 / $9.75 / $33.39；大规模情景的十年收入已要求约14.3B，不能把它当确定基准。受阻也不是最坏尾部，资本损失可接近100%。 \n\n 折现率 × 终值增长敏感性\n 固定渐进商业化的经营路径与资本效率，仅改变折现率和终值增速。单位：每基本等价股美元上界。\n 折现率 g = 1.5% g = 2.5% g = 3.5% \n 12.0% $12.28 $12.48 $12.71 \n 13.5% $10.80 $10.89 $10.99 \n 15.0% $9.72 $9.75 $9.79 \n 16.5% $8.92 $8.92 $8.93 \n 18.0% $8.31 $8.30 $8.29 \n\n 基准路径终值现值占EV约197.1%，超过100%是因为显性期现金流现值为负，说明大部分经营价值依赖尚未实现的后期盈利。流动资产假设由3,400变到3,900M，单独就令每股试算变化约$1.09；这仍不是可拿来机械抄底的现金底价。\n\n 第二视角：五年SOTP情景与潜在回报\n 在Y5分别给平台业务EV/收入3/8/12倍、晶圆0.8/1.5/2倍，加Y5模型剩余资金。这是另一种经营定价压力测试， 倍数是研究假设，不是已核验同业中位数 ，不能当作已完成的市场可比认证。为便于复核，保留未分配权益上界口径；若股价进入权证价内区，实际普通股结果可能低于表中上界。\n\n 情景 Y5平台/晶圆收入M Y5权益每等价股上界 从30.76起五年年化上界 相对当前价变动 \n 受阻 853 / 464 $7.96 -23.7% -74.1% \n 渐进商业化 1,757 / 561 $35.99 3.2% 17.0% \n 大规模兑现 3,358 / 644 $95.41 25.4% 210.2% \n\n 年化公式为 (Y5情景价÷当前价)^(1/5)−1，假设无股息、税费与汇率变化；没有把“今天的DCF价值”误当五年卖价。没有给三情景主观概率，也不做伪精确的加权目标价。\n\n 反推现价需要什么\n 固定渐进情景利润率路径、资本效率、折现率15%和终值增长2.5%，若平台收入连续十年采用同一增速，要使 未分配权益上界 接近30.76，所需平台年复合增长约59.4%，第十年集团收入约30.9B。这是固定其余变量后的一个解，并非声称市场一定预测该数字；权证、并购和资金假设改变，结果也会改变。\n\n 最强反方、最强多方与判断边界\n 为多方论证钢人化\n 如果电子控制和自有制造确实同时降低成本、提升良率、加速产品迭代，系统交付与政府项目又带来长期客户，平台可能获得远超当前收入的市场。新融资降低被迫低价融资的概率，技术领先与资金优势也可能正反馈。把它只看成小收入公司，会错过平台化的可能性。反过来，这些收益必须在未来每股现金流中兑现，而非只在总收入和并购数量中兑现。\n\n 为反方论证钢人化\n 硬件交付、经济量子优势和客户投资回报未必在股市愿意等待的时限内成立。产业可能产生巨大社会价值，却由其他架构、客户或新进入者获取利润。管理层还可不断用股票扩大业务版图，使总收入持续增长而普通股每股价值停滞。当前融资包带有长期权证，40美元的配售价不能视为普通股独立价值背书。\n\n 风险 早期信号 研究应对 \n 技术 / 竞争 交付延期；独立验证未达到自定里程碑；客户无法证明较经典方案的成本收益 降级技术兑现假设，停止把产品路线图作为估值事实。 \n 商业 / 客户 重复采购、验收和回款落后于订单宣传；政府后续拨款不确定 看回款和可履约收入，不把MOU或最高合同额当现金。 \n 资金 / 制造 合并现金消耗显著超出预期；晶圆利用率不足、CapEx增加 重做生存性与资本需求，不能仅看现金余额。 \n 会计 / 稀释 SBC与股数持续快增；新交易权利不清；财报控制问题未解决 先分配普通股与其他权益索偿，再讨论每股买价。 \n 并购 / 治理 Elisity完整财务和协同证明不足；继续高价股权收购 用被收购现金流对照所付股权，不把扩张本身当创造价值。 \n 政策 / 地缘 拨款、出口与受限客户变化，安全合规和跨境审批受阻 降低订单确定性与终值，不依靠单一政治叙事。 \n 市场 / 组合 高久期科技资产共同回撤，融资能力与情绪互相强化 普通股不加杠杆；按永久损失与相关性管理，而非被跌幅吸引。 \n\n 六种投资视角如何落到行动\n 视角 判断—证据—投资含义 \n 巴菲特 现金机器尚未形成：收入已商业化，但损益和现金流仍亏损；护城河需要客户留存、定价和资本回报验证，不能仅凭技术名次长期持有。 \n 芒格 反向寻找失败路径：多线并购、会计公允价值与潜在稀释会掩盖每股经济性；先确认普通股的真实权利，再谈低估。 \n 彼得·林奇 属于早期快速成长与技术商业化，不是成熟稳定增长；跟踪同口径收入、交付及现金效率，避免用混合增速机械套PEG。 \n 霍华德·马克思 商业成功与估值收益是两层问题；即使技术进步，现价已包含很强成功预期，也可能缺乏足够风险补偿。 \n 索罗斯 高估值可带来融资、并购与人才，进而增强叙事；反向情绪循环也会加大稀释和整合压力，不能把筹资能力当永久优势。 \n 达里奥 长期远期现金流对折现率敏感，政府资金与政策又影响需求；分散行业与驱动因素比单押量子叙事更重要。 \n 机会成本补充 与已有VOO/QQQM相比，主动研究应证明额外风险值得承担；没有独立估值优势时，维持观察也是一个完整决策。 \n\n 观察与执行：价格条件不能跳过经营条件\n 现价：30.76美元；今天普通股合理价值区间：未认证；首次介入区与加仓区：暂不设。 模型给出的权益上界不能乘一个固定折扣就变成执行价格，原因是当前资本结构、合并现金流和独立估值校验尚不充分。\n\n 阶段 研究条件 现阶段动作 \n 观察 保持对技术交付、Q3合并口径、SBC和权证分配的核验 不因价格跌到某个旧价或低于融资包价格而建立仓位；研究示例仓位0%。 \n 可讨论首次介入 拿到可复核的每股估值；Superion交付及回款证据改善；用户损失预算明确 届时才计算 min(满足所需回报的最高买价,参考价值×安全边际)。可比较15%/20%回报和30%/40%折让，但现在不填入伪精确价格。 \n 可讨论进一步加仓 新增证据提升每股价值、资金需求及稀释仍可控，组合风险允许 每次重估，禁止仅为摊低成本而加仓。 \n 暂停 / 退出研究 独立技术或交付证据反向；现金消耗、治理与稀释使原假设不再成立 撤销旧估值与价格区间；跌价不会自动抵销基本面恶化。 \n\n 现有持仓以VOO、QQQM、SOXX、SMH和IBKR为主；在当前保存的四只已持有基金成分披露中未见IONQ。尚未持有的VGT截至9/30披露权重为0.0742%，若未来配置VGT，应按当时成分重算间接敞口。 [V] 这不是“完全无风险相关性”：早期科技情绪仍可能与现有成长和半导体资产共同下跌。\n\n 你写下的“每3–5年翻倍”相当于年化约14.9%–26.0%，这是目标而非可承受亏损的证明。缺少你的可接受永久损失、资金期限与流动性限制，所以个性化仓位适配仍未完成，不给常规或高确信仓位。\n\n 未来两季到一年，复核这五件事\n Q3财报与现金对账： 11月5日美东盘后，16:30 ET电话会；对应新西兰11月6日10:30。拆开SkyWater并表、内部抵销和非SkyWater业务增长，核对最新现金及股数。 [O] \n 资本结构： 预融资权证、Series A/B/C、奖励与Elisity各项权利的新增、行权和归属；没有这一张表，不升级买价置信度。\n 商业质量： 合同验收、回款、重复采购和政府拨款，而不只看订单新闻或总收入同比。\n 技术交付： 2027 Superion客户交付、整机可用性、纠错和成本证据；使用独立验证而非把器件指标当商业利润。 [L] [M] \n 现金效率： 平台与晶圆业务的经营现金流、CapEx、SBC及每股价值；出现明显偏离模型的亏损或再投资需求时立即重建模型。\n\n 不确定性与资料限制\n 公司研究已覆盖最新可核验定期财务、融资交割、最新收入指引和主要待完成交易；未把未发布Q3结果编入事实。本研究未认证截至10/26的完整完全摊薄股数、最新合并净现金、Elisity财务和权证公允分配；完整同业估值比较与长期稳定ROIC证据亦不足。DCF十年盈利与资本效率假设高度不确定；所有价值区间必须与这些条件一起阅读。\n 历史表选取2022–2025四个完整年度及2026半年；上市早期与后续密集并购的合并范围不同，不把短历史拟合为完整商业周期。源文中管理层的战略、成本和增长目标均未当作已验证结果。估值是研究支持，不是保证收益或个性化买卖指令。没有创建自动监控，也没有执行交易。\n\n 主要来源与可复核入口\n 访问日均为2026-10-27。表内2026年2月/8月为披露月份；各SEC文件的原始索引可进一步核对提交时间。网页仅作来源链接，报告不包含第三方原始脚本、追踪代码或凭据。\n [P] IONQ 正式日线 Close · 2026-10-26\n [A] 2025 10-K · 损益表（2023–2025） · 2026-02\n [B] 2025 10-K · 现金流表 · 2026-02\n [C] 2026 Q2 10-Q · 损益表 · 2026-08\n [D] 2026 Q2 10-Q · 现金流表 · 2026-08\n [E] 2026 Q2 10-Q · 资产负债表 · 2026-08\n [F] Q2 业绩公告与非 GAAP 调节表 · 2026-08-05\n [G] 2026 Q2 10-Q · 并购、后续事项及风险 · 2026-08\n [H] 合并 SkyWater 后的最新全年收入指引 · 2026-09-08\n [I] 10 月融资招股补充文件 · 股数与权证 · 2026-10-14\n [J] 融资已交割 · 8-K · 2026-10-16\n [K] Elisity 收购协议 · 8-K · 2026-10-09\n [L] Superion 产品发布与交付计划 · 2026-09-08\n [M] DARPA：Stage C 独立验证及竞争架构 · 2026-10-07\n [N] IonQ：DARPA 协议的拨款条件 · 2026-10-07\n [O] Q3 财报公布日与电话会 · 2026-10-22\n [Q] 2023 10-K（含 2022 对照数据） · 2024-02-28\n [R] Elisity 拟收购公告 · 2026-10-12\n [V] VGT 完整成分披露，供组合对照 · 2026-09-30\n\n My Holdings · IONQ 首次研究 · 2026-10-27。正文与图表由同一份核验数据及模型生成。可复算附件：my-holdings-research-ionq-2026-10-27.model.json。历史报价与研究快照独立保存，后续研究不得覆盖更新后的行情。",
+        "risks": [
+          "量子商业实用性和2027客户交付仍待验证；局部门保真度不代表大规模纠错计算已商业化。",
+          "H1经营现金流为−254.781M，SBC270.362M；调整后指标不能替代每股现金回报。",
+          "预融资、普通认股权证、员工奖励与潜在Elisity增发共同影响每股权利；完全摊薄价值尚未认证。",
+          "SkyWater制造资本密度、并购整合及内部交易抵销会改变历史可比性。",
+          "现金过桥并非当前报表余额；未来并购与资金消耗可削弱流动性安全垫。",
+          "DARPA协议上限不等于已获拨款收入，竞争路线可能同时成功或商业化推迟。",
+          "条件模型的终值占比高，折现率、增长、利润与再投资假设改变可大幅影响结果。"
+        ],
+        "catalysts": [
+          "11月5日美东盘后Q3及16:30ET电话会：核实并表现金、收入拆分和股数。",
+          "2027 Superion客户交付、验收、回款与独立性能验证。",
+          "DARPA Stage C分阶段验证和后续拨款；催化进程不等于价值保证。",
+          "Elisity交割及完整财务、对价和员工留任稀释披露。",
+          "重复采购、每股现金效率与资本配置纪律改善。"
+        ],
+        "sources": [
+          {
+            "label": "[P] IONQ 正式日线 Close",
+            "url": "https://stockanalysis.com/stocks/ionq/history/"
+          },
+          {
+            "label": "[A] 2025 10-K · 损益表（2023–2025）",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526071562/R4.htm"
+          },
+          {
+            "label": "[B] 2025 10-K · 现金流表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526071562/R7.htm"
+          },
+          {
+            "label": "[C] 2026 Q2 10-Q · 损益表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R4.htm"
+          },
+          {
+            "label": "[D] 2026 Q2 10-Q · 现金流表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R7.htm"
+          },
+          {
+            "label": "[E] 2026 Q2 10-Q · 资产负债表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R2.htm"
+          },
+          {
+            "label": "[F] Q2 业绩公告与非 GAAP 调节表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526335040/ionq-ex99_1.htm"
+          },
+          {
+            "label": "[G] 2026 Q2 10-Q · 并购、后续事项及风险",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/ionq-20260630.htm"
+          },
+          {
+            "label": "[H] 合并 SkyWater 后的最新全年收入指引",
+            "url": "https://ionq.com/news/ionq-announces-increased-full-year-2026-financial-outlook-following-skywater-acquisition"
+          },
+          {
+            "label": "[I] 10 月融资招股补充文件 · 股数与权证",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526421074/d165327d424b5.htm"
+          },
+          {
+            "label": "[J] 融资已交割 · 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526424230/ionq-20261014.htm"
+          },
+          {
+            "label": "[K] Elisity 收购协议 · 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526419609/ionq-20261009.htm"
+          },
+          {
+            "label": "[L] Superion 产品发布与交付计划",
+            "url": "https://www.ionq.com/news/ionq-launches-superion-product-line-industry-leading-upgradeable-platform-designed-to-scale-manufacturable-fault-tolerant-quantum-computing"
+          },
+          {
+            "label": "[M] DARPA：Stage C 独立验证及竞争架构",
+            "url": "https://www.darpa.mil/news/2026/four-more-teams-enter-quantum-benchmarking-initiative-final-stage"
+          },
+          {
+            "label": "[N] IonQ：DARPA 协议的拨款条件",
+            "url": "https://www.ionq.com/news/ionq-advances-to-final-stage-of-darpas-quantum-benchmarking-initiative"
+          },
+          {
+            "label": "[O] Q3 财报公布日与电话会",
+            "url": "https://investors.ionq.com/news/news-details/2026/IonQ-to-Report-Third-Quarter-2026-Financial-Results-on-November-5-2026/default.aspx"
+          },
+          {
+            "label": "[Q] 2023 10-K（含 2022 对照数据）",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000095017024022072/ionq-20231231.htm"
+          },
+          {
+            "label": "[R] Elisity 拟收购公告",
+            "url": "https://ionq.com/news/ionq-to-acquire-elisity-to-accelerate-zero-trust-for-the-quantum-era"
+          },
+          {
+            "label": "[V] VGT 完整成分披露，供组合对照",
+            "url": "https://advisors.vanguard.com/investments/products/api/funds/0958/holdings/latest"
+          }
+        ],
+        "uncertainty": "研究状态：观察。模型输出为未分配权益池上界，普通股公允价值与可执行买价未认证；Q3合并现金流、当前完全摊薄股数、Elisity财务及认股权证权益分配仍需复核。未来盈利、再投资和折现率均为明示研究假设，无保证。",
+        "quote": {
+          "price": 30.76,
+          "date": "2026-10-26",
+          "currency": "USD",
+          "source": "StockAnalysis / S&P Global Market Intelligence",
+          "sourceUrl": "https://stockanalysis.com/stocks/ionq/history/"
+        }
+      },
+      "researchedAt": "2026-10-27T07:22:42.537Z",
+      "report": "research/my-holdings-research-ionq-2026-10-27.html"
     }
   ],
   "cash": [
@@ -4509,7 +3621,7 @@
     },
     {
       "id": "61901558-73ef-4023-9677-624c8f486ceb",
-      "date": "2026-10-24",
+      "date": "2026-10-27",
       "title": "SPGI 行动计划",
       "body": "",
       "kind": "plan",
@@ -4854,7 +3966,7 @@
     },
     {
       "id": "e22f8adb-a890-4711-bc1f-2b6be47853a1",
-      "date": "2026-10-24",
+      "date": "2026-10-27",
       "title": "BRK.B 行动计划",
       "body": "",
       "kind": "plan",
@@ -4869,7 +3981,7 @@
     },
     {
       "id": "65b4b6ed-ef7c-4881-b444-c42d2a2cdf58",
-      "date": "2026-10-24",
+      "date": "2026-10-27",
       "title": "INTC 行动计划",
       "body": "",
       "kind": "plan",
@@ -4899,17 +4011,17 @@
     },
     {
       "id": "3fd0114d-8a56-40b6-80d2-670d6a63c578",
-      "date": "2026-10-26",
+      "date": "2026-10-27",
       "title": "NU 行动计划",
       "body": "",
       "kind": "plan",
       "watchId": "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
       "plan": {
-        "allocationPct": 5,
-        "safetyLow": 13,
-        "safetyHigh": 14,
-        "discountLow": 11.5,
-        "discountHigh": 12.8
+        "allocationPct": 4,
+        "safetyLow": 10,
+        "safetyHigh": 11,
+        "discountLow": 9,
+        "discountHigh": 9.5
       }
     },
     {
@@ -5076,9 +4188,159 @@
         "discountLow": null,
         "discountHigh": null
       }
+    },
+    {
+      "id": "2f5b681c-2f5d-4cd7-a067-a4611bd19af5",
+      "date": "2026-10-27",
+      "title": "IONQ 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
+      "plan": {
+        "allocationPct": null,
+        "safetyLow": null,
+        "safetyHigh": null,
+        "discountLow": null,
+        "discountHigh": null
+      }
+    },
+    {
+      "id": "8396fce9-dce9-451f-afa9-f94d43a6bfe6",
+      "date": "2026-10-27",
+      "title": "V 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "79730ba5-e176-4362-8ba4-022e0f8f35b9",
+      "plan": {
+        "allocationPct": null,
+        "safetyLow": null,
+        "safetyHigh": null,
+        "discountLow": null,
+        "discountHigh": null
+      }
     }
   ],
   "analyses": [
+    {
+      "id": "95d3cf96-d337-4c67-8d01-1cce3622aa03",
+      "kind": "watch",
+      "date": "2026-10-27T07:22:42.537Z",
+      "research": {
+        "identity": {
+          "name": "IonQ, Inc.",
+          "symbol": "IONQ",
+          "exchange": "NYSE",
+          "currency": "USD",
+          "sector": "量子计算 / 量子安全与晶圆制造"
+        },
+        "title": "IonQ（IONQ）｜技术进展、现金筹码与每股价值之间",
+        "summary": "研究状态：观察。IONQ为NYSE普通股，2026-10-26正式收盘$30.76。最新2026合并收入指引450–460M已含SkyWater；10月融资已交割，但H1经营现金流−254.8M、SBC270.4M，Elisity拟收购与大量权证使稀释复杂。经营路径DCF试算的每基本等价股权益上界约$3.76 / $9.75 / $33.39，不是普通股公允价值或买入价。等待11/5 Q3与资本结构复核，不认证执行买价。",
+        "details": "IonQ（IONQ）｜技术进展、现金筹码与每股价值之间 \n MY HOLDINGS / EQUITY RESEARCH / 2026.10.27\n IonQ 技术进展，如何变成每股价值？\n 研究状态：观察。 融资让技术路线有更长跑道，但收入增长、并购扩张与普通股股东回报，仍是三件不同的事。\n 资料截至 2026-10-27 · 市价截至 2026-10-26 16:00 美东正式收盘 · NYSE: IONQ · 普通股 · USD · 默认五年持有视角。最新已发布定期财务为 2026 Q2 / H1；Q3 尚未发布。 [P] [J] [O] \n\n 最近正式收盘 $30.76 10/26；不是盘后 31.07 \n 2026 合并收入指引 $450–460M 9/8 更新，包含 SkyWater \n 今天普通股合理价值 / 买价 未认证 资本结构与合并现金流仍需复核 \n 下一次关键核验 11 月 5 日 美东盘后 Q3；电话会 16:30 ET \n\n 当前判断： 有真实收入、产品迭代与政府独立验证进展；尚不满足以稳定每股现金流为基础的长期复利买入标准。现价需要很强的商业化成功路径。本文不把融资配售价、历史高点或技术宣传当作价格底线。\n\n 判断摘要 业务与护城河 财务与现金 融资及稀释 估值试算 反方与风险 观察与执行条件 来源 \n\n 先看结论与证据\n 问题 核验与投资含义 \n 企业与行业 早期商业化、重研发的量子平台，加上已并购晶圆厂；不能按成熟软件公司的收入质量和利润率直接定价。 \n 护城河 离子阱控制、系统工程与制造协同可能构成技术壁垒，但独立量子实用性验证尚在进行；转换成本和持续超额利润还没有充分财务证据。 \n 生存性 10月融资已关闭，近期资金压力缓解；现金仍会用于研发、并购与制造，充足流动性不等于股价有现金底。 \n 每股价值 普通股、预融资权证、普通认股权证和并购股权支付必须分开。不能用Q2加权平均股数代替现在的经济股数。 \n 估值与行动 完成有来源的财务核验和条件模型；普通股权利分配与第二种市场估值校验仍不完整，因此保持观察，不发布可执行买价。 \n 组合适配 当前无IONQ直接持仓；新增会增加早期科技与情绪风险。投资目标已知，个人承受亏损与流动性约束仍不完整。 \n\n 我买的是什么\n 公司向企业、研究机构与政府提供量子计算硬件和访问服务，并扩展网络、安全、传感及相关基础设施。2026年7月底并入 SkyWater 后还拥有晶圆制造业务；这些业务的周期、资本密度和毛利不同。现阶段盈利引擎仍在建立，增长不能自动转成可分配现金。 [I] [H] \n\n 计算与系统 从实验指标走向客户交付\n Superion 256 已开放订单，首批客户交付计划为 2027；产品发布、原型中的离子俘获与商业验收不是同一里程碑。 [L] \n 制造与供应链 SkyWater 是资产，也是责任\n 自有制造可能缩短迭代并提升供应链安全，同时带来固定成本、产能利用率和资本开支风险。不能把全部新增晶圆收入当作量子算力产品的有机增长。 [H] [G] \n 量子安全与并购 Elisity 还需独立估价\n 拟收购带来 Zero Trust 客户渠道，但交易标的完整财务尚不足以认证协同价值；并购宣布不等于交割，更不等于增厚每股价值。 [K] [R] \n\n 技术证据的边界\n 事实： DARPA 已将 IonQ 列入 QBI Stage C，与多种不同技术路线共同接受验证。官方把这一阶段定位为检验拟议系统能否按设计建造和运行，而不是宣布量子商业化已经成功。 [M] \n 公司披露的最高可达 3 亿美元协议金额还取决于后续拨款，不能把上限一次性计为已收现金或已确认收入。 [N] 门保真度、物理 qubit、算法 qubit 与纠错后的逻辑 qubit 口径不同；局部器件记录不能直接推导整机可处理的商业问题、成本优势或未来销售额。Superion 的成本与交付目标仍应按里程碑验收。 [L] \n\n 竞争与行业经济性\n 客户有采购、云端试用、研究合作和等待其他架构的选择。政府验证名单同时覆盖离子阱、中性原子、超导与硅自旋等路线，说明技术路径仍开放。供应侧人才、制造与控制工程稀缺，有利于领先团队；需求侧尚缺长期重复采购与稳定盈利的充分证据。我的推论是：当前更像高投入的技术商业化，而非已验证的垄断型现金机器。 [M] \n\n 收入也不能只看订单公告。公司 RPO 定义含已获拨款与尚未拨款部分，不含未行权合同选项；意向备忘录、合同上限、待履约收入和已收到现金须分别追踪。本文不把这些数值直接加到年度收入。 [F] \n\n 增长很快，现金与股权成本同样在增加\n 下表单位均为 USD 百万美元。2022–2025 为完整年度，2026 H1 为六个月，不可直接同比全年。损益与现金流采用 GAAP 表列口径；“简化 FCF”仅为 CFO 减固定资产购置现金。\n\n 期间 收入 经营亏损 CFO PPE现金支出 简化FCF SBC加回 \n 2022 [Q] 11.131 -85.746 -44.698 9.336 -54.034 31.456 \n 2023 [A] [B] 22.042 -157.754 -78.811 13.703 -92.514 69.743 \n 2024 [A] [B] 43.073 -232.455 -105.683 17.992 -123.675 106.878 \n 2025 [A] [B] 130.016 -633.715 -283.187 16.417 -299.604 312.032 \n 2026 H1 [C] [D] 144.718 -608.750 -254.781 18.583 -273.364 270.362 \n\n 收入规模：增长成立，但基数与并购边界在变\n\n 单位 USD M；历史实绩。H1 用独立颜色标明，未年化。来源 [A] [C] [Q] 。投资含义：小基数高增长不能直接外推十年，更不能与新合并指引作同口径比较。 \n\n 简化经营现金消耗：规模扩大并未消除资金消耗\n\n 柱高为消耗的绝对额，实际简化 FCF 均为负；不是盈利柱。来源 [B] [D] [Q] 。该口径不含收购、资本化软件和其他无形资产支出，也不等于 FCFF；例如2022/2023资本化软件另有2.179/4.558M，不能据此宣称真实资本需求只有PPE购置。 [Q] \n\n Q2单季收入80.050M；该季1,867.742M归母净亏损很大程度受1,649.115M权证公允价值损失影响，不能直接当成现金消耗。但H1经营亏损仍达608.750M、CFO为−254.781M、SBC为270.362M，不能因非现金调节就把经济成本忽略。 [C] [D] 公司披露的Q2调整EBITDA为−120.275M，仍为亏损，且排除了SBC等项目。 [F] \n\n 6/30商誉2,185.971M及无形资产778.874M不能视为流动性安全垫；稳定ROIC与利息覆盖在持续亏损阶段缺少正向解释力，不给“高资本回报”标签。SkyWater并购后的资产配置、毛利和资本开支需在Q3重新建立可比口径。 [E] \n\n 最新指引应当怎样用\n 9月8日公司将2026年合并收入预期更新到450–460M，包含7月31日起并入的SkyWater，并抵销预计内部交易。旧280–290M是未含SkyWater的指引，不能继续拿它当当前集团指引。 [H] \n 这次指引阶跃包含合并范围变化，不是量子业务在一个月内有机增长约60%的证据。下一份财报要拆开原有业务增长、收购收入、内部抵销和现金流；目前不使用一个混合增长率代表全部业务的长期护城河。\n\n 现金筹码改善，不等于股东无需付代价\n 金额 USD M；已披露时点与研究估计分开。\n\n 项目 数值 / 状态 口径 \n 6/30现金、短期及长期投资 2,959.334 三项合计，尚未发生SkyWater交割 [E] \n 7/31 SkyWater现金用途 −1,056.4 购买对价、债务偿还及其他交易用途，不能只扣741.3M购买现金 [G] \n 10/16 已交割融资 约 +1,988.5 招股文件预计扣费后净款；不是20亿美元全额净款 [I] [J] \n 不完整过桥算术 3,891.434 未纳入7–10月其他现金流、收购取得现金及新增索偿，不是当前报表余额 \n 模型扣减假设 −250.0 纯研究敏感性输入；不冒充已发生的现金流 \n 用于试算的流动资产输入 3,641.434 仍不是认证的最新净现金；另测试3,400–3,900M \n\n 流动资产过桥：先分清已披露与未披露\n\n 来源 [E] [G] [I] [J] ；最后一柱只是部分事件的加减。模型再使用−250M假设缓冲，任何新融资、并购、费用和债务都需Q3对账。现金可能持续用于技术投资，不形成价格底线。 \n\n 股数必须使用当前口径\n 口径 百万股 说明 \n 10/13 已发行普通股 408.907678 融资前文件口径 [I] \n 新增普通股 20.5 10/16已交割 [J] \n 融资后法定普通股计算 429.407678 未假定预融资权证已行权，也未追踪其后小额变动 \n 新增预融资权证对应股 29.5 剩余行权价仅0.0001美元，经济上需纳入分母 [I] \n 基本经济等价分母 458.907678 不是“全部完全摊薄股数”；旧奖励、旧权证与新普通权证另有权利 \n 新增Series C普通认股权证 100.0 行权价69.46美元，期限七年；不可当作已收未来行权款 [I] \n\n 以30.76美元计算，融资后法定普通股的估算市值为13.21B；计入新增预融资权证的经济等价值为14.12B。后者用于本文试算分母，二者不能混叫“准确当前总市值”。6月底EPS加权平均股数更不能替代10月口径。\n\n 已有期权、RSU、PSU和旧权证的存量、归属、行权及剩余权利还需滚动核对。6/30报表中的权证负债3,052.398M是会计公允价值，不是应按面值立即偿付的普通借款；同时它也不是可无视的股东权利。本模型 尚未把全部权益池在普通股、奖励和权证持有人间公允分配 ，因而每股结果只作偏向普通股的条件上界，不能认证为公平买价。 [E] [I] \n\n Elisity：未来潜在稀释还未结束\n 协议约定11.5亿美元交割股票对价，另最多1.5亿美元业绩对价；还设有额外1亿美元员工留任RSU池。换股参考价有33.07–49.61美元上下限。按合同简单除法，初始股票约23.18–34.77M股；若全部业绩及留任额度满足，合计理论约28.22–42.33M股，未计其他调整。这些是未来条件股数，不是现在已发行数。 [K] \n 截至核验材料尚不能认证交割完成和标的完整利润/现金流。本文没有把Elisity收入或未来增发单独塞进模型；资产价值和新增股数应成对估价，不能只算增长好处，也不能只算稀释坏处。 [R] \n\n 估值：能复算的条件上界，而非精确买价\n 关键限定： 下列DCF与五年SOTP均为明确经营假设下的试算。尚未公允分配存量权证/奖励，现金为不完整过桥估计，Elisity未并入；缺少可靠市场可比与完整合并现金流，独立估值交叉认证仍未完成。结论是“观察”，不是声称普通股今天就值某个数。\n\n 起点假设： 非SkyWater平台收入基点285M，采用旧未合并指引中点作为建模锚，并非新集团指引；完整年度晶圆业务收入基点假设400M，不能把新旧指引差额直接年化成已披露分部收入。两条业务线分开增长与投入，未来Y1–Y10约对应2027–2036商业化阶段，仅作年度模型，不预测季度报表。\n\n 参数（均为研究假设） 受阻 渐进商业化 大规模兑现 \n 平台Y1增长 / Y10增长 30.0% / 6.0% 50.0% / 10.0% 75.0% / 20.0% \n 平台Y1 / Y10经济EBIT率 -180.0% / 10.0% -120.0% / 27.0% -90.0% / 35.0% \n 晶圆年增速 / EBIT率 3.0% / 3.0% 7.0% / 8.0% 10.0% / 12.0% \n 平台/晶圆销售资本比 1.5 / 0.8 3 / 1 4 / 1.2 \n 折现率 / 终值增长 17.0% / 2.0% 15.0% / 2.5% 13.0% / 3.0% \n 终值ROIC假设 10.0% 15.0% 20.0% \n Y10集团收入 USD M 1,920 5,122 14,328 \n Y10 FCFF USD M 50 792 3,141 \n 显性期现金流现值 USD M -2,052 -811 1,949 \n 终值现值 USD M 138 1,646 9,732 \n 每基本等价股权益上界 $3.76 $9.75 $33.39 \n 终值现值 / EV EV为负，不适用 197.1% 83.3% \n 模型最低剩余资金 USD M 432 1,616 2,076 \n\n 全部十年路径与可复算公式 名义USD，税率21%，亏损期不给税收资产；经济EBIT率假设已包含按现金支付的人员/SBC替代成本，不再把SBC加回，也不额外假定未来常规SBC增发。维护性资本支出与折旧近似相抵；新增净再投资含净增长CapEx及营运资本，以收入增量÷销售资本比估计。经营租赁成本在EBIT内，未再机械扣一遍租赁负债。\n FCFF = EBIT − max(EBIT,0) × 21% − 净再投资\n净再投资 = Δ平台收入 / 平台销售资本比 + Δ晶圆收入 / 晶圆销售资本比\n终值FCFF = NOPAT_Y10 × (1+g) × (1−g/终值ROIC)\nEV = Σ FCFF_t/(1+r)^t + 终值FCFF/(r−g)/(1+r)^10\n权益池上界 = EV + 流动资产假设\n每基本等价股上界 = max(权益池上界,0) / 458.907678M\n 受阻\n 年 平台增长 平台EBIT率 平台收入M 晶圆收入M FCFF M \n Y1 30.0% -180.0% 371 412 -727 \n Y2 30.0% -130.0% 482 424 -703 \n Y3 25.0% -90.0% 602 437 -625 \n Y4 20.0% -60.0% 722 450 -517 \n Y5 18.0% -30.0% 853 464 -345 \n Y6 15.0% -10.0% 980 478 -186 \n Y7 12.0% 0.0% 1,098 492 -85 \n Y8 10.0% 6.0% 1,208 507 -22 \n Y9 8.0% 8.0% 1,304 522 11 \n Y10 6.0% 10.0% 1,383 538 50 \n\n 渐进商业化\n 年 平台增长 平台EBIT率 平台收入M 晶圆收入M FCFF M \n Y1 50.0% -120.0% 428 428 -554 \n Y2 50.0% -75.0% 641 458 -546 \n Y3 45.0% -40.0% 930 490 -461 \n Y4 40.0% -15.0% 1,302 524 -312 \n Y5 35.0% 0.0% 1,757 561 -153 \n Y6 30.0% 12.0% 2,285 600 40 \n Y7 25.0% 20.0% 2,856 642 259 \n Y8 20.0% 24.0% 3,427 687 458 \n Y9 15.0% 26.0% 3,941 735 636 \n Y10 10.0% 27.0% 4,335 787 792 \n\n 大规模兑现\n 年 平台增长 平台EBIT率 平台收入M 晶圆收入M FCFF M \n Y1 75.0% -90.0% 499 440 -483 \n Y2 70.0% -50.0% 848 484 -490 \n Y3 65.0% -20.0% 1,399 532 -394 \n Y4 60.0% 0.0% 2,238 586 -199 \n Y5 50.0% 15.0% 3,358 644 130 \n Y6 45.0% 23.0% 4,868 709 520 \n Y7 40.0% 28.0% 6,816 779 1,036 \n Y8 30.0% 32.0% 8,861 857 1,745 \n Y9 25.0% 34.0% 11,076 943 2,439 \n Y10 20.0% 35.0% 13,291 1,037 3,141 \n\n 预测损益、税、净再投资和资金余额均保存在同名模型JSON中。普通认股权证未来现金行权款没有提前计入；现有期权/奖励价值也未完成权益分配，所以“上界”不是完全摊薄价值。若仍需外部融资，模型须先重做分母。\n\n 今天的权益上界试算与市价对照\n\n 原创情景模型，不是已核验公允价值。受阻/渐进/大规模三条经营路径分别给约$3.76 / $9.75 / $33.39；大规模情景的十年收入已要求约14.3B，不能把它当确定基准。受阻也不是最坏尾部，资本损失可接近100%。 \n\n 折现率 × 终值增长敏感性\n 固定渐进商业化的经营路径与资本效率，仅改变折现率和终值增速。单位：每基本等价股美元上界。\n 折现率 g = 1.5% g = 2.5% g = 3.5% \n 12.0% $12.28 $12.48 $12.71 \n 13.5% $10.80 $10.89 $10.99 \n 15.0% $9.72 $9.75 $9.79 \n 16.5% $8.92 $8.92 $8.93 \n 18.0% $8.31 $8.30 $8.29 \n\n 基准路径终值现值占EV约197.1%，超过100%是因为显性期现金流现值为负，说明大部分经营价值依赖尚未实现的后期盈利。流动资产假设由3,400变到3,900M，单独就令每股试算变化约$1.09；这仍不是可拿来机械抄底的现金底价。\n\n 第二视角：五年SOTP情景与潜在回报\n 在Y5分别给平台业务EV/收入3/8/12倍、晶圆0.8/1.5/2倍，加Y5模型剩余资金。这是另一种经营定价压力测试， 倍数是研究假设，不是已核验同业中位数 ，不能当作已完成的市场可比认证。为便于复核，保留未分配权益上界口径；若股价进入权证价内区，实际普通股结果可能低于表中上界。\n\n 情景 Y5平台/晶圆收入M Y5权益每等价股上界 从30.76起五年年化上界 相对当前价变动 \n 受阻 853 / 464 $7.96 -23.7% -74.1% \n 渐进商业化 1,757 / 561 $35.99 3.2% 17.0% \n 大规模兑现 3,358 / 644 $95.41 25.4% 210.2% \n\n 年化公式为 (Y5情景价÷当前价)^(1/5)−1，假设无股息、税费与汇率变化；没有把“今天的DCF价值”误当五年卖价。没有给三情景主观概率，也不做伪精确的加权目标价。\n\n 反推现价需要什么\n 固定渐进情景利润率路径、资本效率、折现率15%和终值增长2.5%，若平台收入连续十年采用同一增速，要使 未分配权益上界 接近30.76，所需平台年复合增长约59.4%，第十年集团收入约30.9B。这是固定其余变量后的一个解，并非声称市场一定预测该数字；权证、并购和资金假设改变，结果也会改变。\n\n 最强反方、最强多方与判断边界\n 为多方论证钢人化\n 如果电子控制和自有制造确实同时降低成本、提升良率、加速产品迭代，系统交付与政府项目又带来长期客户，平台可能获得远超当前收入的市场。新融资降低被迫低价融资的概率，技术领先与资金优势也可能正反馈。把它只看成小收入公司，会错过平台化的可能性。反过来，这些收益必须在未来每股现金流中兑现，而非只在总收入和并购数量中兑现。\n\n 为反方论证钢人化\n 硬件交付、经济量子优势和客户投资回报未必在股市愿意等待的时限内成立。产业可能产生巨大社会价值，却由其他架构、客户或新进入者获取利润。管理层还可不断用股票扩大业务版图，使总收入持续增长而普通股每股价值停滞。当前融资包带有长期权证，40美元的配售价不能视为普通股独立价值背书。\n\n 风险 早期信号 研究应对 \n 技术 / 竞争 交付延期；独立验证未达到自定里程碑；客户无法证明较经典方案的成本收益 降级技术兑现假设，停止把产品路线图作为估值事实。 \n 商业 / 客户 重复采购、验收和回款落后于订单宣传；政府后续拨款不确定 看回款和可履约收入，不把MOU或最高合同额当现金。 \n 资金 / 制造 合并现金消耗显著超出预期；晶圆利用率不足、CapEx增加 重做生存性与资本需求，不能仅看现金余额。 \n 会计 / 稀释 SBC与股数持续快增；新交易权利不清；财报控制问题未解决 先分配普通股与其他权益索偿，再讨论每股买价。 \n 并购 / 治理 Elisity完整财务和协同证明不足；继续高价股权收购 用被收购现金流对照所付股权，不把扩张本身当创造价值。 \n 政策 / 地缘 拨款、出口与受限客户变化，安全合规和跨境审批受阻 降低订单确定性与终值，不依靠单一政治叙事。 \n 市场 / 组合 高久期科技资产共同回撤，融资能力与情绪互相强化 普通股不加杠杆；按永久损失与相关性管理，而非被跌幅吸引。 \n\n 六种投资视角如何落到行动\n 视角 判断—证据—投资含义 \n 巴菲特 现金机器尚未形成：收入已商业化，但损益和现金流仍亏损；护城河需要客户留存、定价和资本回报验证，不能仅凭技术名次长期持有。 \n 芒格 反向寻找失败路径：多线并购、会计公允价值与潜在稀释会掩盖每股经济性；先确认普通股的真实权利，再谈低估。 \n 彼得·林奇 属于早期快速成长与技术商业化，不是成熟稳定增长；跟踪同口径收入、交付及现金效率，避免用混合增速机械套PEG。 \n 霍华德·马克思 商业成功与估值收益是两层问题；即使技术进步，现价已包含很强成功预期，也可能缺乏足够风险补偿。 \n 索罗斯 高估值可带来融资、并购与人才，进而增强叙事；反向情绪循环也会加大稀释和整合压力，不能把筹资能力当永久优势。 \n 达里奥 长期远期现金流对折现率敏感，政府资金与政策又影响需求；分散行业与驱动因素比单押量子叙事更重要。 \n 机会成本补充 与已有VOO/QQQM相比，主动研究应证明额外风险值得承担；没有独立估值优势时，维持观察也是一个完整决策。 \n\n 观察与执行：价格条件不能跳过经营条件\n 现价：30.76美元；今天普通股合理价值区间：未认证；首次介入区与加仓区：暂不设。 模型给出的权益上界不能乘一个固定折扣就变成执行价格，原因是当前资本结构、合并现金流和独立估值校验尚不充分。\n\n 阶段 研究条件 现阶段动作 \n 观察 保持对技术交付、Q3合并口径、SBC和权证分配的核验 不因价格跌到某个旧价或低于融资包价格而建立仓位；研究示例仓位0%。 \n 可讨论首次介入 拿到可复核的每股估值；Superion交付及回款证据改善；用户损失预算明确 届时才计算 min(满足所需回报的最高买价,参考价值×安全边际)。可比较15%/20%回报和30%/40%折让，但现在不填入伪精确价格。 \n 可讨论进一步加仓 新增证据提升每股价值、资金需求及稀释仍可控，组合风险允许 每次重估，禁止仅为摊低成本而加仓。 \n 暂停 / 退出研究 独立技术或交付证据反向；现金消耗、治理与稀释使原假设不再成立 撤销旧估值与价格区间；跌价不会自动抵销基本面恶化。 \n\n 现有持仓以VOO、QQQM、SOXX、SMH和IBKR为主；在当前保存的四只已持有基金成分披露中未见IONQ。尚未持有的VGT截至9/30披露权重为0.0742%，若未来配置VGT，应按当时成分重算间接敞口。 [V] 这不是“完全无风险相关性”：早期科技情绪仍可能与现有成长和半导体资产共同下跌。\n\n 你写下的“每3–5年翻倍”相当于年化约14.9%–26.0%，这是目标而非可承受亏损的证明。缺少你的可接受永久损失、资金期限与流动性限制，所以个性化仓位适配仍未完成，不给常规或高确信仓位。\n\n 未来两季到一年，复核这五件事\n Q3财报与现金对账： 11月5日美东盘后，16:30 ET电话会；对应新西兰11月6日10:30。拆开SkyWater并表、内部抵销和非SkyWater业务增长，核对最新现金及股数。 [O] \n 资本结构： 预融资权证、Series A/B/C、奖励与Elisity各项权利的新增、行权和归属；没有这一张表，不升级买价置信度。\n 商业质量： 合同验收、回款、重复采购和政府拨款，而不只看订单新闻或总收入同比。\n 技术交付： 2027 Superion客户交付、整机可用性、纠错和成本证据；使用独立验证而非把器件指标当商业利润。 [L] [M] \n 现金效率： 平台与晶圆业务的经营现金流、CapEx、SBC及每股价值；出现明显偏离模型的亏损或再投资需求时立即重建模型。\n\n 不确定性与资料限制\n 公司研究已覆盖最新可核验定期财务、融资交割、最新收入指引和主要待完成交易；未把未发布Q3结果编入事实。本研究未认证截至10/26的完整完全摊薄股数、最新合并净现金、Elisity财务和权证公允分配；完整同业估值比较与长期稳定ROIC证据亦不足。DCF十年盈利与资本效率假设高度不确定；所有价值区间必须与这些条件一起阅读。\n 历史表选取2022–2025四个完整年度及2026半年；上市早期与后续密集并购的合并范围不同，不把短历史拟合为完整商业周期。源文中管理层的战略、成本和增长目标均未当作已验证结果。估值是研究支持，不是保证收益或个性化买卖指令。没有创建自动监控，也没有执行交易。\n\n 主要来源与可复核入口\n 访问日均为2026-10-27。表内2026年2月/8月为披露月份；各SEC文件的原始索引可进一步核对提交时间。网页仅作来源链接，报告不包含第三方原始脚本、追踪代码或凭据。\n [P] IONQ 正式日线 Close · 2026-10-26\n [A] 2025 10-K · 损益表（2023–2025） · 2026-02\n [B] 2025 10-K · 现金流表 · 2026-02\n [C] 2026 Q2 10-Q · 损益表 · 2026-08\n [D] 2026 Q2 10-Q · 现金流表 · 2026-08\n [E] 2026 Q2 10-Q · 资产负债表 · 2026-08\n [F] Q2 业绩公告与非 GAAP 调节表 · 2026-08-05\n [G] 2026 Q2 10-Q · 并购、后续事项及风险 · 2026-08\n [H] 合并 SkyWater 后的最新全年收入指引 · 2026-09-08\n [I] 10 月融资招股补充文件 · 股数与权证 · 2026-10-14\n [J] 融资已交割 · 8-K · 2026-10-16\n [K] Elisity 收购协议 · 8-K · 2026-10-09\n [L] Superion 产品发布与交付计划 · 2026-09-08\n [M] DARPA：Stage C 独立验证及竞争架构 · 2026-10-07\n [N] IonQ：DARPA 协议的拨款条件 · 2026-10-07\n [O] Q3 财报公布日与电话会 · 2026-10-22\n [Q] 2023 10-K（含 2022 对照数据） · 2024-02-28\n [R] Elisity 拟收购公告 · 2026-10-12\n [V] VGT 完整成分披露，供组合对照 · 2026-09-30\n\n My Holdings · IONQ 首次研究 · 2026-10-27。正文与图表由同一份核验数据及模型生成。可复算附件：my-holdings-research-ionq-2026-10-27.model.json。历史报价与研究快照独立保存，后续研究不得覆盖更新后的行情。",
+        "risks": [
+          "量子商业实用性和2027客户交付仍待验证；局部门保真度不代表大规模纠错计算已商业化。",
+          "H1经营现金流为−254.781M，SBC270.362M；调整后指标不能替代每股现金回报。",
+          "预融资、普通认股权证、员工奖励与潜在Elisity增发共同影响每股权利；完全摊薄价值尚未认证。",
+          "SkyWater制造资本密度、并购整合及内部交易抵销会改变历史可比性。",
+          "现金过桥并非当前报表余额；未来并购与资金消耗可削弱流动性安全垫。",
+          "DARPA协议上限不等于已获拨款收入，竞争路线可能同时成功或商业化推迟。",
+          "条件模型的终值占比高，折现率、增长、利润与再投资假设改变可大幅影响结果。"
+        ],
+        "catalysts": [
+          "11月5日美东盘后Q3及16:30ET电话会：核实并表现金、收入拆分和股数。",
+          "2027 Superion客户交付、验收、回款与独立性能验证。",
+          "DARPA Stage C分阶段验证和后续拨款；催化进程不等于价值保证。",
+          "Elisity交割及完整财务、对价和员工留任稀释披露。",
+          "重复采购、每股现金效率与资本配置纪律改善。"
+        ],
+        "sources": [
+          {
+            "label": "[P] IONQ 正式日线 Close",
+            "url": "https://stockanalysis.com/stocks/ionq/history/"
+          },
+          {
+            "label": "[A] 2025 10-K · 损益表（2023–2025）",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526071562/R4.htm"
+          },
+          {
+            "label": "[B] 2025 10-K · 现金流表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526071562/R7.htm"
+          },
+          {
+            "label": "[C] 2026 Q2 10-Q · 损益表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R4.htm"
+          },
+          {
+            "label": "[D] 2026 Q2 10-Q · 现金流表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R7.htm"
+          },
+          {
+            "label": "[E] 2026 Q2 10-Q · 资产负债表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/R2.htm"
+          },
+          {
+            "label": "[F] Q2 业绩公告与非 GAAP 调节表",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526335040/ionq-ex99_1.htm"
+          },
+          {
+            "label": "[G] 2026 Q2 10-Q · 并购、后续事项及风险",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526341001/ionq-20260630.htm"
+          },
+          {
+            "label": "[H] 合并 SkyWater 后的最新全年收入指引",
+            "url": "https://ionq.com/news/ionq-announces-increased-full-year-2026-financial-outlook-following-skywater-acquisition"
+          },
+          {
+            "label": "[I] 10 月融资招股补充文件 · 股数与权证",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526421074/d165327d424b5.htm"
+          },
+          {
+            "label": "[J] 融资已交割 · 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526424230/ionq-20261014.htm"
+          },
+          {
+            "label": "[K] Elisity 收购协议 · 8-K",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000119312526419609/ionq-20261009.htm"
+          },
+          {
+            "label": "[L] Superion 产品发布与交付计划",
+            "url": "https://www.ionq.com/news/ionq-launches-superion-product-line-industry-leading-upgradeable-platform-designed-to-scale-manufacturable-fault-tolerant-quantum-computing"
+          },
+          {
+            "label": "[M] DARPA：Stage C 独立验证及竞争架构",
+            "url": "https://www.darpa.mil/news/2026/four-more-teams-enter-quantum-benchmarking-initiative-final-stage"
+          },
+          {
+            "label": "[N] IonQ：DARPA 协议的拨款条件",
+            "url": "https://www.ionq.com/news/ionq-advances-to-final-stage-of-darpas-quantum-benchmarking-initiative"
+          },
+          {
+            "label": "[O] Q3 财报公布日与电话会",
+            "url": "https://investors.ionq.com/news/news-details/2026/IonQ-to-Report-Third-Quarter-2026-Financial-Results-on-November-5-2026/default.aspx"
+          },
+          {
+            "label": "[Q] 2023 10-K（含 2022 对照数据）",
+            "url": "https://www.sec.gov/Archives/edgar/data/1824920/000095017024022072/ionq-20231231.htm"
+          },
+          {
+            "label": "[R] Elisity 拟收购公告",
+            "url": "https://ionq.com/news/ionq-to-acquire-elisity-to-accelerate-zero-trust-for-the-quantum-era"
+          },
+          {
+            "label": "[V] VGT 完整成分披露，供组合对照",
+            "url": "https://advisors.vanguard.com/investments/products/api/funds/0958/holdings/latest"
+          }
+        ],
+        "uncertainty": "研究状态：观察。模型输出为未分配权益池上界，普通股公允价值与可执行买价未认证；Q3合并现金流、当前完全摊薄股数、Elisity财务及认股权证权益分配仍需复核。未来盈利、再投资和折现率均为明示研究假设，无保证。",
+        "quote": {
+          "price": 30.76,
+          "date": "2026-10-26",
+          "currency": "USD",
+          "source": "StockAnalysis / S&P Global Market Intelligence",
+          "sourceUrl": "https://stockanalysis.com/stocks/ionq/history/"
+        }
+      },
+      "report": "research/my-holdings-research-ionq-2026-10-27.html"
+    },
     {
       "id": "5e3b908b-3f8a-4731-bcdb-cb77a0c64849",
       "kind": "watch",
@@ -16273,6 +15535,42 @@
       },
       "completedAt": "2026-10-26T21:18:38.228Z",
       "summary": "已更新 CLPT 的最近交易日收盘价；已有研究保留。"
+    },
+    {
+      "watchId": "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
+      "status": "done",
+      "date": "2026-10-27T01:57:55.590Z",
+      "error": "",
+      "batchId": "dfedc732-f144-40c2-99e7-3289265e5a31",
+      "origin": "watch-add",
+      "id": "fa2c2b06-bb4a-4c09-b5ef-eec33cbaa129",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 IONQ IONQ：按实际执行时刻的 quote-policy 取盘中价或最近已完成交易日收盘价，保存报价类型、实际时间、币种与来源。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-10-27T04:14:02.237Z",
+        "type": "close",
+        "date": "2026-10-26",
+        "market": "US",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-10-26T13:30:00.000Z",
+        "sessionCloseAt": "2026-10-26T20:00:00.000Z"
+      },
+      "completedAt": "2026-10-27T07:05:43.073Z",
+      "summary": "已更新 IONQ 的最近交易日收盘价；已有研究保留。"
+    },
+    {
+      "watchId": "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
+      "status": "done",
+      "date": "2026-10-27T01:57:55.590Z",
+      "error": "",
+      "batchId": "dfedc732-f144-40c2-99e7-3289265e5a31",
+      "origin": "watch-add",
+      "id": "ae388f6d-e07d-4e6a-8642-2404680fe5bb",
+      "kind": "watch",
+      "researchMode": "initial",
+      "question": "仅在完整研究缺失时补充首次研究：IONQ IONQ。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。",
+      "report": "research/my-holdings-research-ionq-2026-10-27.html",
+      "completedAt": "2026-10-27T07:22:42.537Z"
     }
   ],
   "marketUpdatedAt": "2026-10-26T21:18:30.634Z",
@@ -16521,33 +15819,21 @@
     {
       "date": "2026-10-27",
       "watchIds": [
-        "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
         "71314544-bdc1-4c97-be06-821d7464ef31",
         "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
-        "5b095741-a682-4b22-ad52-2c70e1a4052c",
-        "c926f17c-43a8-4e8f-9d78-5498591db5e7",
-        "79730ba5-e176-4362-8ba4-022e0f8f35b9",
         "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
-        "d6bf7357-8935-4d2d-abef-2250c9e5c418",
         "9c572b68-64fb-4e7d-9692-74f569040195",
-        "9d659e03-df19-4a6c-9534-9045b7747629",
         "01a864b1-0623-4778-9656-0431418803b8",
         "c024e517-2f19-429e-9330-e49566ba2537",
-        "a458efd6-1dde-44d5-8737-63854d7a5e63",
         "db257f43-036f-43ec-acbf-84c4bf91c1ff",
-        "ad97bd71-1e64-42b2-ac24-81220317555d",
-        "49065ab0-e060-4cc4-a65a-5d77c50c7c25",
         "5d0a5d34-3866-417c-a996-c1b5991daebb",
-        "5ff0deac-fb8d-4917-acbf-c4e7781e4461",
         "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
         "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
-        "09b92911-f46c-43f7-8308-30622aadb4f4",
-        "5b52684c-f92c-4f88-8b09-cc5ea9866b58",
         "e10a6356-e290-430c-9ca8-d5108019f74e",
         "20517359-0ea4-40bc-a51c-d83eb77f75eb",
         "e8839fb8-b14b-4f60-bc6b-f01909376529",
         "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
-        "9fbeaa2e-4c9c-448f-98ef-0dbc04b42f59",
+        "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
         "e59bec61-4342-46ba-99c5-200542b791d9",
         "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
         "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
@@ -16555,20 +15841,12 @@
         "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
         "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
         "5ffc01e1-e876-459c-828d-3f28dc5548d8",
-        "30c526ed-d29c-4e27-a3a6-d08a8f94802f",
-        "bda9b130-0a99-46c8-b943-f01dd6992ebd",
         "5614a582-5385-49a4-a89f-2a0661942e35",
-        "bcd88ce3-3432-4ebf-bcfe-37fbccab84bc",
-        "28efd446-0de3-4992-b562-7836ceb691ae",
         "68ac1738-90e2-44ce-aaa8-83967958e168",
         "6688d084-15c1-4d89-a450-a7b8d67b6616",
-        "5774dc3c-1f0d-40e7-b787-d0a45f77c524",
-        "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
         "1b0d63b8-bd16-4c7c-8f20-6e8d71c13876",
-        "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc",
         "990ad5a3-7a56-45e9-a914-78424558e749",
-        "f389b712-950c-40f5-a71d-7a777a5458a9",
-        "64078460-ed3a-42f4-803e-60d32e8df85d"
+        "f389b712-950c-40f5-a71d-7a777a5458a9"
       ]
     }
   ],
@@ -16655,5 +15933,5 @@
       "recordedAt": "2026-10-22T20:20:10.283Z"
     }
   ],
-  "watchlistUpdatedAt": "2026-10-26T21:18:38.228Z"
+  "watchlistUpdatedAt": "2026-10-27T07:05:43.073Z"
 }
