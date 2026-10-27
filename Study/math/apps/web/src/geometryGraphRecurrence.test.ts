@@ -68,7 +68,16 @@ describe('geometry, coordinates and probability recurrence', () => {
           expect(
             new URL(link.href, 'http://localhost').searchParams.get('question'),
           ).toBe(id);
-          expect(checkAnswer(target.q.solution.en, target.q.answer)).toBeNull();
+          if (target.q.answer.kind === 'number')
+            expect(checkAnswer(target.q.answer.value, target.q.answer)).toBe(
+              true,
+            );
+          else {
+            expect(target.q.answer.kind).toBe('explain');
+            expect(
+              checkAnswer(target.q.solution.en, target.q.answer),
+            ).toBeNull();
+          }
           return target.unit;
         }),
       );

@@ -166,6 +166,109 @@ const originalGeometryGraphRecurrence = [
 
 export const geometryGraphRecurrence = originalGeometryGraphRecurrence.map(
   (entry) => {
+    if (entry.sourceLesson.startsWith('J76-')) {
+      const i = Number(entry.sourceLesson.slice(-2)) - 1;
+      const cards = [1, 2, 2, 3, 3][i]!;
+      const extra =
+        i === 1
+          ? ['H27-MAINT-DATA-LANGUAGE-Q2', 'H34-MAINT-DATA-LANGUAGE-Q2']
+          : i === 4
+            ? ['J97-L03-Q5']
+            : [];
+      if (!cards) return entry;
+      const details = [
+        [
+          '新两Q1分S/R/E独立案例，主动算样本1/6、均值分别5min/6min、未测补全导致不同总体均值；回答率5/8或3/5与回答者是3/5或1/3分开；设计前提下粗估20/30人非普查。',
+          'Both new Q1s separate S/R/E cases, computing sampling fraction 1/6, sample means five/six minutes and distinct population completions; response fractions 5/8 or 3/5 differ from respondent-yes 3/5 or 1/3. Design-based rough estimates twenty/thirty are not census facts.',
+        ],
+        [
+          '新两Q2画原四ID同中心不同分布及原B逐条+3/−1平移，同轴求均值/中位/极差、频数，辨零极差/未观察均值。直接复用H27/H34原Q2四ID图的开闭区间计数，不重复造题。',
+          'Both new Q2s plot four-ID equal-centre distributions and translate original B by +3/−1 on common axes, recomputing mean/median/range/frequency and distinguishing zero range and unobserved means. Reuse the existing H27/H34 four-ID open/closed interval counts without new questions.',
+        ],
+        [
+          '新共享Q2的自创分支保原B四ID，只改一条并主动重算均值/中位数，以总和变化除4核均值变化；既有J91/J92的六条记录与零尾/真实异常任务完整保留。',
+          'Shared new Q2’s creative branch retains four original B IDs, changes one and recomputes mean/median, checking mean change as total change divided by four. Existing J91/J92 six-record zero-tail and verified-extreme tasks remain intact.',
+        ],
+        [
+          '新两Q3各逐条列完整放回/不放回有序编号空间，分别9/6与16/12条，主动生成事件ID子集并核等权基本结果与颜色权重；不以总数代完整列举。',
+          'Both new Q3s list EVERY replacement/no-replacement ordered ID outcome, nine/six or sixteen/twelve, construct favourable ID subsets and distinguish equal basics from colour weights. Totals alone do not meet the listing requirement.',
+        ],
+        [
+          '新共享Q3分别按完整ID、RR补事件与互斥三路径算至少一蓝，并对照恰一次：J93放回8/9与4/9、不放回1与2/3；J94放回3/4与1/2、不放回5/6与2/3。保J97原Q5至少一蓝7/10，旧树Q8继续核完整条件树。',
+          'Shared new Q3s use complete IDs, the RR complement and disjoint paths for at least one blue versus exactly one: J93 replacement 8/9 versus 4/9, no replacement one versus 2/3; J94 replacement 3/4 versus 1/2, no replacement 5/6 versus 2/3. Retain original J97 Q5’s 7/10 and existing Q8s for complete conditional trees.',
+        ],
+      ][i]!;
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J93', 'J94'].map(
+            (u) => `${u}-MAINT-INFERENCE-MEANING-Q${cards}`,
+          ),
+          ...extra,
+          ...(i === 4
+            ? [
+                'J93-MAINT-INFERENCE-MEANING-Q2',
+                'J94-MAINT-INFERENCE-MEANING-Q2',
+              ]
+            : []),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${details[0]}${i === 4 ? ' 新Q2另自创八ID总体/受限框、两组同均值异极差图并改一条记录重算摘要，承接源家庭纸上任务，不当真实调查。' : ''}`,
+          `${entry.rationale.en} ${details[1]}${i === 4 ? ' New Q2 also creates an eight-ID population/restricted frame, equal-mean different-range plots and a one-record summary recalculation, retrieving the source paper family task without claiming a real survey.' : ''}`,
+        ),
+      };
+    }
+    if (entry.sourceLesson.startsWith('J75-')) {
+      const i = Number(entry.sourceLesson.slice(-2)) - 1;
+      if (i === 4)
+        return {
+          ...entry,
+          targets: [
+            ...entry.targets,
+            'J93-MAINT-CARTESIAN-MEANING-Q3',
+            'J94-MAINT-CARTESIAN-MEANING-Q3',
+          ],
+          rationale: t(
+            `${entry.rationale.zh} J93新Q3另给摄氏T=−5+2t、连续0至3h，主动算一小时−3°C、画端点(0,−5)/(3,1)并举域外时刻，解释负摄氏有效而水量负值无效；与J94原Q7共同复现此具体边界。两新Q3另独立自创有限匀速排水与整数卡片费模型，各三行表、标轴图、允许域与域外例，补主动创作而非只读给定模型。`,
+            `${entry.rationale.en} New J93 Q3 separately supplies Celsius T=−5+2t on continuous zero-to-three hours: calculate −3°C at one hour, draw endpoints (0,−5)/(3,1), give an out-of-domain time and explain valid negative Celsius versus invalid negative volume. Together with original J94 Q7 this retrieves that specific boundary. Both new Q3s also require self-created finite-time draining and whole-card cost models, each with three rows, labelled plots, domains and invalid-input examples, retrieving creation as well as interpretation.`,
+          ),
+        };
+      const cards = [[1], [1], [3], [2, 3], []][i]!;
+      const details = [
+        [
+          '新Q1从原点外P分别走横纵/纵横两路，数对槽不交换；保持原位置换m/cm单位则数值换算，只改显示时原数对不变。',
+          'New Q1 starts from non-origin P and constructs both route orders without swapping slots; changing m/cm units converts values for the same location, while display-only changes preserve the pair.',
+        ],
+        [
+          '新Q1分别从原P平移得(−7/2,1)/(−1,7/2)，独立x轴反射得(−6,−3/2)/(−3/2,−6)且二次回原；另生成(200,300)cm并对比只改显示刻度仍(2,3)m。',
+          'New Q1 independently translates original P to (−7/2,1)/(−1,7/2), reflects it in x to (−6,−3/2)/(−3/2,−6) and back, then generates (200,300)cm versus unchanged (2,3)m under display-only rescaling.',
+        ],
+        [
+          '新Q3保乱序C/A/B三ID同行点，整行按x排序、对照分列排序（J93恰好同序须解释不能依此保证配对），用不等输入间隔定位；亲算负输入及两规则在三记录/新输入处，分清点、连续限制线段与四个整数卡片点。',
+          'New Q3 preserves unordered C/A/B paired IDs, sorts whole rows and contrasts separate column sorts (J93’s coincidental common order is explicitly not a guarantee), locates unequal input gaps, computes negative inputs and two rules at observed/new inputs, and distinguishes observations, a restricted continuous segment and four integer card points.',
+        ],
+        [
+          '新Q2由两非零x点精确求k=−1/2、b2/3并倒序差商复核，三行区分固定减半单位与折半、Δy与最终y；另求常数3/−2和零，解释重复不足与冲突无单值。共享Q3亲算三点吻合但新点分离的F/G，并与非零正比例比较。',
+          'New Q2 derives exact k=−1/2,b2/3 from two nonzero-x points and reversed differences; three rows distinguish subtracting half a unit from halving, and Δy from final y. Separate constants three/negative two and zero distinguish duplicate insufficiency from conflicting non-single-valued data. Shared Q3 computes F/G agreement at three observations but divergence at a new input and contrasts nonzero direct proportion.',
+        ],
+        ['', ''],
+      ][i]!;
+      if (!cards.length) return entry;
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J93', 'J94'].flatMap((u) =>
+            cards.map((n) => `${u}-MAINT-CARTESIAN-MEANING-Q${n}`),
+          ),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${details[0]}`,
+          `${entry.rationale.en} ${details[1]}`,
+        ),
+      };
+    }
     if (!entry.sourceLesson.startsWith('J74-')) return entry;
     const i = Number(entry.sourceLesson.slice(-2)) - 1,
       n = [1, 2, 0, 2, 3, 0][i]!;

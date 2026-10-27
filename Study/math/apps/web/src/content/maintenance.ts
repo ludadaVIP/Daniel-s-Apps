@@ -1,3 +1,6 @@
+import { identityMeaningRetrieval } from './identityMeaningRetrieval';
+import { inferenceMeaningRetrieval } from './inferenceMeaningRetrieval';
+import { cartesianMeaningRetrieval } from './cartesianMeaningRetrieval';
 import { planeMeaningRetrieval } from './planeMeaningRetrieval';
 import { linearMeaningRetrieval } from './linearMeaningRetrieval';
 import { polynomialMeaningRetrieval } from './polynomialMeaningRetrieval';
@@ -209,6 +212,9 @@ export const maintenanceSets = {
   ...polynomialMeaningRetrieval,
   ...linearMeaningRetrieval,
   ...planeMeaningRetrieval,
+  ...cartesianMeaningRetrieval,
+  ...inferenceMeaningRetrieval,
+  ...identityMeaningRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',

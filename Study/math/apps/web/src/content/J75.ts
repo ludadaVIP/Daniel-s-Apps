@@ -97,8 +97,8 @@ const hints: Pair[][] = [
       'Read each tick interval instead of assuming every square is one; horizontal before vertical.',
     ],
     [
-      '坐标线与轴平行，两条位置线的交点才是目标。单位或视窗改变不改变原数对，分数可以位于整数之间。',
-      'Coordinate projections run parallel to the axes; their intersection is the point. Units or view changes do not alter the data pair, and fractions can lie between integers.',
+      '坐标线与轴平行，两条位置线的交点才是目标。计量单位不变时，只改显示刻度或视窗不改变原数对；实际把米换成厘米须换算数值。分数可以位于整数之间。',
+      'Coordinate projections run parallel to the axes; their intersection is the point. With measurement units fixed, changing only display scales or the window preserves the pair; converting metres to centimetres requires converting the values. Fractions can lie between integers.',
     ],
   ],
   [
@@ -117,8 +117,8 @@ const hints: Pair[][] = [
       'Under a supplied y=kx+b model, k is change per unit x and b is the output at zero.',
     ],
     [
-      '已知线性时可由两点求变化率及初始量；没有模型假设，几个吻合点不决定一般规律。常数情形 k=0 也要读清。',
-      'Two points determine rate and intercept under the linear premise. Without it, a few matches do not determine a general rule. Include the constant case k=0.',
+      '已知线性时可由横坐标不同的两点求变化率及初始量；没有模型假设，几个吻合点不决定一般规律。常数情形 k=0 也要读清。',
+      'Two points with distinct x-coordinates determine rate and intercept under the linear premise. Without it, a few matches do not determine a general rule. Include the constant case k=0.',
     ],
   ],
   [
@@ -728,7 +728,7 @@ const specs: Spec[] = [
         ],
         '-x/2+2',
         [
-          '每增加一单位 x，y 减半，零输入输出二；−x/2+2。',
+          'x 每增加一单位，y 减少 1/2，不是把原 y 乘 1/2；零输入输出二，规则为 −x/2+2。',
           'Each unit increase in x decreases y by a half; the zero-input output is two: −x/2+2.',
         ],
         ['x/2+2', '-2x+2', '3/2'],
@@ -744,8 +744,8 @@ const specs: Spec[] = [
       options: [
         ['足以证明对全部输入都线性', 'It proves linearity for every input'],
         [
-          '在额外已知线性模型下，两点可确定参数；样本本身不证明模型',
-          'With an additional linear premise they determine parameters; samples alone do not prove the model',
+          '在额外已知线性模型下，横坐标不同的两点可确定参数；样本本身不证明模型',
+          'With an additional linear premise, two points with distinct x-coordinates determine parameters; samples alone do not prove the model',
         ],
         [
           '只要过原点就是正比例直线',
