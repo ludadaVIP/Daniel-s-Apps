@@ -17,7 +17,43 @@ const e = (
   targets,
   rationale: t(rz, re),
 });
-export const polynomialSystemRecurrence = [
+const identityPair = (i: number) =>
+  ['J95', 'J96'].map((u) => `${u}-MAINT-IDENTITY-MEANING-Q${i}`);
+const polynomialMeaningPair = (i: number) =>
+  ['J83', 'J84'].map((u) => `${u}-MAINT-POLYNOMIAL-MEANING-Q${i}`);
+const identityCards: Record<
+  string,
+  { cards: number[]; reuse?: number[]; z: string; en: string }
+> = {
+  'J81-L01': {
+    cards: [1],
+    z: '新Q1逐项完成负分数单项式乘积，用重复因子说明不同字母、负乘负、零外因子与仅一个变量零之别，保精确系数和完成形式。',
+    en: 'New Q1 completes negative fractional monomial products through repeated factors, distinguishing bases, two negative signs, a zero outside factor and a single zero variable, with exact coefficients and finished forms.',
+  },
+  'J81-L02': {
+    cards: [1],
+    reuse: [3],
+    z: '新Q1要求外分数单项式完整覆盖三项与常数。直接复用J83/J84-POLYNOMIAL-MEANING-Q3的原负分数三项、零/一/负一与反因子分支，不重造已有纯数分配任务。',
+    en: 'New Q1 distributes a fractional monomial to three terms including the constant. Reuse J83/J84-POLYNOMIAL-MEANING-Q3 for existing fractional three-term distribution, zero/one/negative-one/opposite-factor branches without duplicating scalar tasks.',
+  },
+  'J81-L03': {
+    cards: [2],
+    reuse: [4],
+    z: '新Q2亲列两行三列六对，保双字母与同类项来源，另自主画正长花园分块一般式；直接复用J83/J84-POLYNOMIAL-MEANING-Q4的完整周长/面积与正分数长度域。',
+    en: 'New Q2 lists all six two-by-three pairs with two bases and term provenance, then independently designs positive garden partitions and a general area. Reuse J83/J84-POLYNOMIAL-MEANING-Q4 for full perimeter/area and positive fractional-length domains.',
+  },
+  'J81-L04': {
+    cards: [3],
+    z: '新Q3完整推和/差平方并代入整个分数单项式，亲画和平方四块；保旧差平方补角/反例任务，不重复造相同图。',
+    en: 'New Q3 derives plus/minus squares, substitutes whole fractional monomials and draws all four sum-square regions. Existing difference-square corner restoration/counterexample tasks remain.',
+  },
+  'J81-L05': {
+    cards: [3, 2],
+    z: '共享新Q3核完整共轭与非共轭全配对、0偶合/1反例及49×51或198×202准确计算；新Q2自主花园分块承接纸上家庭创作，旧Q4保两块刚性重排，不把纸笔作者模拟当真实试用。',
+    en: 'Shared new Q3 compares full conjugate/nonconjugate pairings, zero coincidence/one counterexamples and exact 49×51 or 198×202. New Q2 retrieves the independent paper-garden design; old Q4 retains rigid rearrangement without counting authored paper tasks as household trials.',
+  },
+};
+const originalPolynomialSystemRecurrence = [
   e(
     'monomial-product-factors',
     '单项式的系数与重复因子',
@@ -154,3 +190,20 @@ export const polynomialSystemRecurrence = [
     'J95 generates x+y=9 and 5x+3y=41 from nine whole items and prices five/three, then rejects rounding a fractional pair after price forty. J96 generates x+y=11 and 6x+4y=47 from litres and prices six/four, admitting fractional litres but not whole-item reinterpretations. Both define variables, units and domains and generate original quantity relations before solving, rather than submitting only a pair.',
   ),
 ];
+export const polynomialSystemRecurrence =
+  originalPolynomialSystemRecurrence.map((entry) => {
+    const supplement = identityCards[entry.sourceLesson];
+    if (!supplement) return entry;
+    return {
+      ...entry,
+      targets: [
+        ...entry.targets,
+        ...supplement.cards.flatMap(identityPair),
+        ...(supplement.reuse ?? []).flatMap(polynomialMeaningPair),
+      ],
+      rationale: t(
+        `${entry.rationale.zh} ${supplement.z}`,
+        `${entry.rationale.en} ${supplement.en}`,
+      ),
+    };
+  });

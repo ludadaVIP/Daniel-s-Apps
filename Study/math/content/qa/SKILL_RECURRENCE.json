@@ -8336,11 +8336,21 @@
               "unit": "J94",
               "task": "J94-MAINT-REASONS-Q6",
               "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
             }
           ],
           "rationale": {
-            "zh": "J93主动描P(−6,3/2)、Q(0,−1)，J94描P(−3/2,6)、Q(−1,0)，都说明x先y后、四象限符号、零坐标与原点不属象限，交换P两项变第四象限另点，改变视窗不改数据。",
-            "en": "J93 plots P(−6,3/2),Q(0,−1); J94 plots P(−3/2,6),Q(−1,0). Both explain x-before-y, all quadrant signs, axis/origin exclusions, a distinct quadrant-IV point after swapping entries and unchanged data under window changes."
+            "zh": "J93主动描P(−6,3/2)、Q(0,−1)，J94描P(−3/2,6)、Q(−1,0)，都说明x先y后、四象限符号、零坐标与原点不属象限，交换P两项变第四象限另点，改变视窗不改数据。 新Q1从原点外P分别走横纵/纵横两路，数对槽不交换；保持原位置换m/cm单位则数值换算，只改显示时原数对不变。",
+            "en": "J93 plots P(−6,3/2),Q(0,−1); J94 plots P(−3/2,6),Q(−1,0). Both explain x-before-y, all quadrant signs, axis/origin exclusions, a distinct quadrant-IV point after swapping entries and unchanged data under window changes. New Q1 starts from non-origin P and constructs both route orders without swapping slots; changing m/cm units converts values for the same location, while display-only changes preserve the pair."
           }
         }
       ],
@@ -8361,8 +8371,8 @@
         "J75-L02-X"
       ],
       "laterExactTagCandidates": {
-        "J93": ["J93-MAINT-REASONS-Q6"],
-        "J94": ["J94-MAINT-REASONS-Q6"]
+        "J93": ["J93-MAINT-REASONS-Q6", "J93-MAINT-CARTESIAN-MEANING-Q1"],
+        "J94": ["J94-MAINT-REASONS-Q6", "J94-MAINT-CARTESIAN-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -8383,11 +8393,21 @@
               "unit": "J94",
               "task": "J94-MAINT-REASONS-Q6",
               "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
             }
           ],
           "rationale": {
-            "zh": "J93横格2纵格1/2，P须左3格上3格却坐标−6、3/2；J94横格1/2纵格2，同样格数却坐标−3/2、6。两处亲画投影读回及轴上Q，分格数、单位数与显示像素，不仅说出给定坐标。",
-            "en": "J93 uses horizontal intervals two and vertical halves: three left/three up gives (−6,3/2). J94 reverses scales for (−3/2,6) with the same cell counts. Both explicitly draw, project back and plot an axis point, distinguishing cells, units and pixels rather than copying the supplied pair."
+            "zh": "J93横格2纵格1/2，P须左3格上3格却坐标−6、3/2；J94横格1/2纵格2，同样格数却坐标−3/2、6。两处亲画投影读回及轴上Q，分格数、单位数与显示像素，不仅说出给定坐标。 新Q1分别从原P平移得(−7/2,1)/(−1,7/2)，独立x轴反射得(−6,−3/2)/(−3/2,−6)且二次回原；另生成(200,300)cm并对比只改显示刻度仍(2,3)m。",
+            "en": "J93 uses horizontal intervals two and vertical halves: three left/three up gives (−6,3/2). J94 reverses scales for (−3/2,6) with the same cell counts. Both explicitly draw, project back and plot an axis point, distinguishing cells, units and pixels rather than copying the supplied pair. New Q1 independently translates original P to (−7/2,1)/(−1,7/2), reflects it in x to (−6,−3/2)/(−3/2,−6) and back, then generates (200,300)cm versus unchanged (2,3)m under display-only rescaling."
           }
         }
       ],
@@ -8407,7 +8427,10 @@
         "J75-L03-Q6",
         "J75-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J93": ["J93-MAINT-CARTESIAN-MEANING-Q3"],
+        "J94": ["J94-MAINT-CARTESIAN-MEANING-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "same-row-table-points",
@@ -8432,11 +8455,21 @@
               "unit": "J88",
               "task": "J88-L03-Q6",
               "taskSkill": "paired-association"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
             }
           ],
           "rationale": {
-            "zh": "J93由完整水量规则生成(0,12)/(2.5,7)/(6,0)，J94由摄氏规则生成(0,−3)/(2,0)/(4,3)，都按同行点作图、给定连续规则才域内连线，整卡输入只画整数点。J88进一步解释分列排序毁掉记录配对、缺失不补零、无直线趋势不等于无关系。",
-            "en": "J93 generates paired water rows (0,12),(2.5,7),(6,0); J94 temperature rows (0,−3),(2,0),(4,3). Both graph paired points, justify continuous connections only from supplied rules and restrict card counts to integer points. J88 further explains destroyed pairing after separate sorts, missing values not being zeros and no linear trend not meaning no relationship."
+            "zh": "J93由完整水量规则生成(0,12)/(2.5,7)/(6,0)，J94由摄氏规则生成(0,−3)/(2,0)/(4,3)，都按同行点作图、给定连续规则才域内连线，整卡输入只画整数点。J88进一步解释分列排序毁掉记录配对、缺失不补零、无直线趋势不等于无关系。 新Q3保乱序C/A/B三ID同行点，整行按x排序、对照分列排序（J93恰好同序须解释不能依此保证配对），用不等输入间隔定位；亲算负输入及两规则在三记录/新输入处，分清点、连续限制线段与四个整数卡片点。",
+            "en": "J93 generates paired water rows (0,12),(2.5,7),(6,0); J94 temperature rows (0,−3),(2,0),(4,3). Both graph paired points, justify continuous connections only from supplied rules and restrict card counts to integer points. J88 further explains destroyed pairing after separate sorts, missing values not being zeros and no linear trend not meaning no relationship. New Q3 preserves unordered C/A/B paired IDs, sorts whole rows and contrasts separate column sorts (J93’s coincidental common order is explicitly not a guarantee), locates unequal input gaps, computes negative inputs and two rules at observed/new inputs, and distinguishes observations, a restricted continuous segment and four integer card points."
           }
         }
       ],
@@ -8457,8 +8490,8 @@
         "J75-L04-X"
       ],
       "laterExactTagCandidates": {
-        "J93": ["J93-MAINT-REASONS-Q7"],
-        "J94": ["J94-MAINT-REASONS-Q7"]
+        "J93": ["J93-MAINT-REASONS-Q7", "J93-MAINT-CARTESIAN-MEANING-Q2"],
+        "J94": ["J94-MAINT-REASONS-Q7", "J94-MAINT-CARTESIAN-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -8484,11 +8517,31 @@
               "unit": "J85",
               "task": "J85-L05-Q6",
               "taskSkill": "direct-versus-first-degree"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
             }
           ],
           "rationale": {
-            "zh": "J93解释V=12−2t的−2L/min和12L，J94解释T=−3+1.5t的1.5°C/h和−3°C，非零截距均非正比例；两处解释m=0常数在J75广义与J85一次约定中的区别，有限观测不能证明未给规则。J85另比较2x、2x+3、常数及x²。",
-            "en": "J93 explains −2L/min and twelve litres in V=12−2t; J94 explains 1.5°C/h and −3°C in T=−3+1.5t. Nonzero intercepts prevent direct proportion. Both distinguish zero-slope constants under the J75 and J85 conventions and reject proving an unspecified rule from finite observations; J85 further contrasts 2x,2x+3,constants and x²."
+            "zh": "J93解释V=12−2t的−2L/min和12L，J94解释T=−3+1.5t的1.5°C/h和−3°C，非零截距均非正比例；两处解释m=0常数在J75广义与J85一次约定中的区别，有限观测不能证明未给规则。J85另比较2x、2x+3、常数及x²。 新Q2由两非零x点精确求k=−1/2、b2/3并倒序差商复核，三行区分固定减半单位与折半、Δy与最终y；另求常数3/−2和零，解释重复不足与冲突无单值。共享Q3亲算三点吻合但新点分离的F/G，并与非零正比例比较。",
+            "en": "J93 explains −2L/min and twelve litres in V=12−2t; J94 explains 1.5°C/h and −3°C in T=−3+1.5t. Nonzero intercepts prevent direct proportion. Both distinguish zero-slope constants under the J75 and J85 conventions and reject proving an unspecified rule from finite observations; J85 further contrasts 2x,2x+3,constants and x². New Q2 derives exact k=−1/2,b2/3 from two nonzero-x points and reversed differences; three rows distinguish subtracting half a unit from halving, and Δy from final y. Separate constants three/negative two and zero distinguish duplicate insufficiency from conflicting non-single-valued data. Shared Q3 computes F/G agreement at three observations but divergence at a new input and contrasts nonzero direct proportion."
           }
         }
       ],
@@ -8538,11 +8591,21 @@
               "unit": "J98",
               "task": "J98-L05-Q6",
               "taskSkill": "integration-ramp-constraints"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
             }
           ],
           "rationale": {
-            "zh": "J93核水0至6min连续、排空后负量域外及卡片整数；J94核0至4h摄氏负读数有效与整卡离散。两处给率/初值单位、同一关系的显示变换与有限观测范围。J85核固定费/排空/整包，J98核只改宽与统一缩放各约束是否仍成立，不将代数可算当情境可用。",
-            "en": "J93 checks continuous water time zero to six, negative amounts outside the domain and integer cards. J94 checks valid negative Celsius readings on zero-to-four hours versus discrete cards. Both retain rate/initial units, display-versus-rule changes and finite scope. J85 checks fixed fees, emptying and whole packs; J98 checks constraints under width-only versus uniform scaling, distinguishing algebraic outputs from admissibility."
+            "zh": "J93核水0至6min连续、排空后负量域外及卡片整数；J94核0至4h摄氏负读数有效与整卡离散。两处给率/初值单位、同一关系的显示变换与有限观测范围。J85核固定费/排空/整包，J98核只改宽与统一缩放各约束是否仍成立，不将代数可算当情境可用。 J93新Q3另给摄氏T=−5+2t、连续0至3h，主动算一小时−3°C、画端点(0,−5)/(3,1)并举域外时刻，解释负摄氏有效而水量负值无效；与J94原Q7共同复现此具体边界。两新Q3另独立自创有限匀速排水与整数卡片费模型，各三行表、标轴图、允许域与域外例，补主动创作而非只读给定模型。",
+            "en": "J93 checks continuous water time zero to six, negative amounts outside the domain and integer cards. J94 checks valid negative Celsius readings on zero-to-four hours versus discrete cards. Both retain rate/initial units, display-versus-rule changes and finite scope. J85 checks fixed fees, emptying and whole packs; J98 checks constraints under width-only versus uniform scaling, distinguishing algebraic outputs from admissibility. New J93 Q3 separately supplies Celsius T=−5+2t on continuous zero-to-three hours: calculate −3°C at one hour, draw endpoints (0,−5)/(3,1), give an out-of-domain time and explain valid negative Celsius versus invalid negative volume. Together with original J94 Q7 this retrieves that specific boundary. Both new Q3s also require self-created finite-time draining and whole-card cost models, each with three rows, labelled plots, domains and invalid-input examples, retrieving creation as well as interpretation."
           }
         }
       ],
@@ -8562,7 +8625,10 @@
         "J76-L01-Q6",
         "J76-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J93": ["J93-MAINT-INFERENCE-MEANING-Q1"],
+        "J94": ["J94-MAINT-INFERENCE-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "sample-population-and-frame",
@@ -8587,11 +8653,21 @@
               "unit": "H34",
               "task": "H34-L01-Q6",
               "taskSkill": "stat-inference-1"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q1",
+              "taskSkill": "sample-population-and-frame"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q1",
+              "taskSkill": "sample-population-and-frame"
             }
           ],
           "rationale": {
-            "zh": "J97解释八张卡恰一半不能认证覆盖与每次代表；H27用目标均值2、固定选A/B均值0说明重复便利设计方差0仍有偏；H34明确一次误差0不同于设计期望无偏，并要求目标总体、抽样框、未响应和测量。复现方法、覆盖、样本波动与结论范围，不以大样本或一次接近认证代表性。",
-            "en": "J97 explains why eight cards with exactly half successes do not certify coverage or every realised sample. H27 contrasts target mean two with fixed A/B mean zero: repeated zero-variance selection can stay biased. H34 separates one zero error from design-unbiased expectation and explicitly checks population, frame, nonresponse and measurement. These retrieve method, coverage, sampling variability and scope rather than certifying representativeness from size or one close result."
+            "zh": "J97解释八张卡恰一半不能认证覆盖与每次代表；H27用目标均值2、固定选A/B均值0说明重复便利设计方差0仍有偏；H34明确一次误差0不同于设计期望无偏，并要求目标总体、抽样框、未响应和测量。复现方法、覆盖、样本波动与结论范围，不以大样本或一次接近认证代表性。 新两Q1分S/R/E独立案例，主动算样本1/6、均值分别5min/6min、未测补全导致不同总体均值；回答率5/8或3/5与回答者是3/5或1/3分开；设计前提下粗估20/30人非普查。",
+            "en": "J97 explains why eight cards with exactly half successes do not certify coverage or every realised sample. H27 contrasts target mean two with fixed A/B mean zero: repeated zero-variance selection can stay biased. H34 separates one zero error from design-unbiased expectation and explicitly checks population, frame, nonresponse and measurement. These retrieve method, coverage, sampling variability and scope rather than certifying representativeness from size or one close result. Both new Q1s separate S/R/E cases, computing sampling fraction 1/6, sample means five/six minutes and distinct population completions; response fractions 5/8 or 3/5 differ from respondent-yes 3/5 or 1/3. Design-based rough estimates twenty/thirty are not census facts."
           }
         }
       ],
@@ -8611,7 +8687,10 @@
         "J76-L02-Q6",
         "J76-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J93": ["J93-MAINT-INFERENCE-MEANING-Q2"],
+        "J94": ["J94-MAINT-INFERENCE-MEANING-Q2"]
+      },
       "reviewedEvidence": [
         {
           "skill": "distribution-centre-spread-shape",
@@ -8636,11 +8715,31 @@
               "unit": "H33",
               "task": "H33-L05-Q6",
               "taskSkill": "distribution-5"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-DATA-LANGUAGE-Q2",
+              "taskSkill": "data-shape-tail-evidence"
+            },
+            {
+              "unit": "H34",
+              "task": "H34-MAINT-DATA-LANGUAGE-Q2",
+              "taskSkill": "data-shape-tail-evidence"
             }
           ],
           "rationale": {
-            "zh": "J88在同中位5下比较极差A26>B10而IQR(A)=3/2<IQR(B)=7，必须指明指标、保尾值和共同数轴；H08以0,0,0,4,4,4对称却双峰反驳正态套用；H33说明组距改外观、有限频率和模型假设不同。不能把同中心、对称或好看图形当相同分布或普遍机制。",
-            "en": "J88 compares equal medians five but range A26>B10 and IQR A3/2<B7, requiring named metrics, retained tails and a common axis. H08 uses symmetric yet bimodal 0,0,0,4,4,4 to refute an automatic normal assumption. H33 distinguishes bin-dependent appearance, finite frequencies and model conditions. Equal centres, symmetry or attractive graphs do not establish identical distributions or mechanisms."
+            "zh": "J88在同中位5下比较极差A26>B10而IQR(A)=3/2<IQR(B)=7，必须指明指标、保尾值和共同数轴；H08以0,0,0,4,4,4对称却双峰反驳正态套用；H33说明组距改外观、有限频率和模型假设不同。不能把同中心、对称或好看图形当相同分布或普遍机制。 新两Q2画原四ID同中心不同分布及原B逐条+3/−1平移，同轴求均值/中位/极差、频数，辨零极差/未观察均值。直接复用H27/H34原Q2四ID图的开闭区间计数，不重复造题。",
+            "en": "J88 compares equal medians five but range A26>B10 and IQR A3/2<B7, requiring named metrics, retained tails and a common axis. H08 uses symmetric yet bimodal 0,0,0,4,4,4 to refute an automatic normal assumption. H33 distinguishes bin-dependent appearance, finite frequencies and model conditions. Equal centres, symmetry or attractive graphs do not establish identical distributions or mechanisms. Both new Q2s plot four-ID equal-centre distributions and translate original B by +3/−1 on common axes, recomputing mean/median/range/frequency and distinguishing zero range and unobserved means. Reuse the existing H27/H34 four-ID open/closed interval counts without new questions."
           }
         }
       ],
@@ -8685,11 +8784,21 @@
               "unit": "J88",
               "task": "J88-L02-Q6",
               "taskSkill": "spread-evidence"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
             }
           ],
           "rationale": {
-            "zh": "J91核10改40后均值5到10、中位5，再独立改原尾0后中位3；J92核11改41后均值4到9、中位4，再独立改0后中位3/2、唯一众数0。两处保六条记录，说明核实异常不能为好看删除，中位数并非永不变；J88另核保30的极差/IQR指标差异。",
-            "en": "J91 changes ten to forty for mean five→ten with median five, then separately changes the original tail to zero for median three. J92 changes eleven to forty-one for mean four→nine with median four, then separately to zero for median 3/2 and only mode zero. Both retain six records, reject deleting verified extremes for appearance and show the median can change. J88 further retains thirty while distinguishing range and IQR."
+            "zh": "J91核10改40后均值5到10、中位5，再独立改原尾0后中位3；J92核11改41后均值4到9、中位4，再独立改0后中位3/2、唯一众数0。两处保六条记录，说明核实异常不能为好看删除，中位数并非永不变；J88另核保30的极差/IQR指标差异。 新共享Q2的自创分支保原B四ID，只改一条并主动重算均值/中位数，以总和变化除4核均值变化；既有J91/J92的六条记录与零尾/真实异常任务完整保留。",
+            "en": "J91 changes ten to forty for mean five→ten with median five, then separately changes the original tail to zero for median three. J92 changes eleven to forty-one for mean four→nine with median four, then separately to zero for median 3/2 and only mode zero. Both retain six records, reject deleting verified extremes for appearance and show the median can change. J88 further retains thirty while distinguishing range and IQR. Shared new Q2’s creative branch retains four original B IDs, changes one and recomputes mean/median, checking mean change as total change divided by four. Existing J91/J92 six-record zero-tail and verified-extreme tasks remain intact."
           }
         }
       ],
@@ -8709,7 +8818,10 @@
         "J76-L04-Q6",
         "J76-L04-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "J93": ["J93-MAINT-INFERENCE-MEANING-Q3"],
+        "J94": ["J94-MAINT-INFERENCE-MEANING-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "complete-equally-likely-space",
@@ -8736,11 +8848,21 @@
               "taskSkill": "probability-without-ordered-pairs"
             },
             { "unit": "H24", "task": "H24-L01-Q6", "taskSkill": "counting-1" },
-            { "unit": "H24", "task": "H24-L04-Q6", "taskSkill": "counting-4" }
+            { "unit": "H24", "task": "H24-L04-Q6", "taskSkill": "counting-4" },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q3",
+              "taskSkill": "complete-equally-likely-space"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q3",
+              "taskSkill": "complete-equally-likely-space"
+            }
           ],
           "rationale": {
-            "zh": "J93树任务强制算3红2蓝放回25/不放回20编号有序对及颜色9/6/6/4与6/6/6/2权重；J94用2红1蓝得9/6对及4/2/2/1与2/2/2/0。两处不合并不同编号/先后、不把颜色名数当分母，J97/H24另核受限列举及硬币串等可能而计数类不等权。",
-            "en": "J93 requires twenty-five/twenty numbered ordered pairs with colour weights 9,6,6,4 versus 6,6,6,2 for three red/two blue. J94 uses nine/six pairs with 4,2,2,1 versus 2,2,2,0 for two red/one blue. Both retain identity/order and reject category-count denominators. J97/H24 further check constrained enumeration and equiprobable coin strings versus unequally weighted head-count classes."
+            "zh": "J93树任务强制算3红2蓝放回25/不放回20编号有序对及颜色9/6/6/4与6/6/6/2权重；J94用2红1蓝得9/6对及4/2/2/1与2/2/2/0。两处不合并不同编号/先后、不把颜色名数当分母，J97/H24另核受限列举及硬币串等可能而计数类不等权。 新两Q3各逐条列完整放回/不放回有序编号空间，分别9/6与16/12条，主动生成事件ID子集并核等权基本结果与颜色权重；不以总数代完整列举。",
+            "en": "J93 requires twenty-five/twenty numbered ordered pairs with colour weights 9,6,6,4 versus 6,6,6,2 for three red/two blue. J94 uses nine/six pairs with 4,2,2,1 versus 2,2,2,0 for two red/one blue. Both retain identity/order and reject category-count denominators. J97/H24 further check constrained enumeration and equiprobable coin strings versus unequally weighted head-count classes. Both new Q3s list EVERY replacement/no-replacement ordered ID outcome, nine/six or sixteen/twelve, construct favourable ID subsets and distinguish equal basics from colour weights. Totals alone do not meet the listing requirement."
           }
         }
       ],
@@ -8788,11 +8910,36 @@
               "unit": "J97",
               "task": "J97-L02-Q6",
               "taskSkill": "probability-conditional-product"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q3",
+              "taskSkill": "complete-equally-likely-space"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q3",
+              "taskSkill": "complete-equally-likely-space"
+            },
+            {
+              "unit": "J97",
+              "task": "J97-L03-Q5",
+              "taskSkill": "probability-without-ordered-pairs"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
             }
           ],
           "rationale": {
-            "zh": "两组Q8必须亲画放回/不放回两棵树、逐支写条件分母、沿路乘、互斥路相加核1；J93不放回RR3/10而非9/25，J94抽唯一蓝后BB0不属可发生空间。都区分编号路径与颜色合并，轮内移走、轮间恢复及有限记录不保证补偿。",
-            "en": "Both Q8 tasks explicitly draw replacement/no-replacement trees, label conditional denominators, multiply along paths and add disjoint paths to one. J93 obtains no-replacement RR3/10 rather than 9/25; J94 excludes BB after the only blue ball is removed. Both distinguish numbered paths from colour groups, remove within rounds, restore between rounds and reject compensation guarantees."
+            "zh": "两组Q8必须亲画放回/不放回两棵树、逐支写条件分母、沿路乘、互斥路相加核1；J93不放回RR3/10而非9/25，J94抽唯一蓝后BB0不属可发生空间。都区分编号路径与颜色合并，轮内移走、轮间恢复及有限记录不保证补偿。 新共享Q3分别按完整ID、RR补事件与互斥三路径算至少一蓝，并对照恰一次：J93放回8/9与4/9、不放回1与2/3；J94放回3/4与1/2、不放回5/6与2/3。保J97原Q5至少一蓝7/10，旧树Q8继续核完整条件树。 新Q2另自创八ID总体/受限框、两组同均值异极差图并改一条记录重算摘要，承接源家庭纸上任务，不当真实调查。",
+            "en": "Both Q8 tasks explicitly draw replacement/no-replacement trees, label conditional denominators, multiply along paths and add disjoint paths to one. J93 obtains no-replacement RR3/10 rather than 9/25; J94 excludes BB after the only blue ball is removed. Both distinguish numbered paths from colour groups, remove within rounds, restore between rounds and reject compensation guarantees. Shared new Q3s use complete IDs, the RR complement and disjoint paths for at least one blue versus exactly one: J93 replacement 8/9 versus 4/9, no replacement one versus 2/3; J94 replacement 3/4 versus 1/2, no replacement 5/6 versus 2/3. Retain original J97 Q5’s 7/10 and existing Q8s for complete conditional trees. New Q2 also creates an eight-ID population/restricted frame, equal-mean different-range plots and a one-record summary recalculation, retrieving the source paper family task without claiming a real survey."
           }
         }
       ],
@@ -8832,11 +8979,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q1",
               "taskSkill": "monomial-every-term-product"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-IDENTITY-MEANING-Q1",
+              "taskSkill": "monomial-every-term-product"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-IDENTITY-MEANING-Q1",
+              "taskSkill": "monomial-every-term-product"
             }
           ],
           "rationale": {
-            "zh": "J95由(−3x²y)(2xy²)逐因子数出−6x³y³；J96由(−2ab²)(5a²b)数出−10a³b³。两处解释每个字母次数、系数符号，区分乘法加指数与不同次数相加，明确零变量可代且未除变量。",
-            "en": "J95 counts repeated factors in (−3x²y)(2xy²) for −6x³y³; J96 uses (−2ab²)(5a²b) for −10a³b³. Both justify every exponent and sign, distinguish product exponents from adding unlike terms and retain zero variables because no variable division occurred."
+            "zh": "J95由(−3x²y)(2xy²)逐因子数出−6x³y³；J96由(−2ab²)(5a²b)数出−10a³b³。两处解释每个字母次数、系数符号，区分乘法加指数与不同次数相加，明确零变量可代且未除变量。 新Q1逐项完成负分数单项式乘积，用重复因子说明不同字母、负乘负、零外因子与仅一个变量零之别，保精确系数和完成形式。",
+            "en": "J95 counts repeated factors in (−3x²y)(2xy²) for −6x³y³; J96 uses (−2ab²)(5a²b) for −10a³b³. Both justify every exponent and sign, distinguish product exponents from adding unlike terms and retain zero variables because no variable division occurred. New Q1 completes negative fractional monomial products through repeated factors, distinguishing bases, two negative signs, a zero outside factor and a single zero variable, with exact coefficients and finished forms."
           }
         }
       ],
@@ -8857,8 +9014,8 @@
         "J81-L02-X"
       ],
       "laterExactTagCandidates": {
-        "J95": ["J95-MAINT-POLY-SYSTEM-Q1"],
-        "J96": ["J96-MAINT-POLY-SYSTEM-Q1"]
+        "J95": ["J95-MAINT-POLY-SYSTEM-Q1", "J95-MAINT-IDENTITY-MEANING-Q1"],
+        "J96": ["J96-MAINT-POLY-SYSTEM-Q1", "J96-MAINT-IDENTITY-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -8889,11 +9046,31 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q2",
               "taskSkill": "all-pairs-polynomial-product"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-IDENTITY-MEANING-Q1",
+              "taskSkill": "monomial-every-term-product"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-IDENTITY-MEANING-Q1",
+              "taskSkill": "monomial-every-term-product"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-POLYNOMIAL-MEANING-Q3",
+              "taskSkill": "distribution-every-term"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-POLYNOMIAL-MEANING-Q3",
+              "taskSkill": "distribution-every-term"
             }
           ],
           "rationale": {
-            "zh": "Q1两组把外部单项式分别乘括号两项，得−6x³y³+12x³y或−10a³b³+6a²b²，原字母因子不丢。Q2同时强制正长度面积块对应及负赋值只作代数检查，复现分配的全项覆盖和图形范围，不画负小边。",
-            "en": "Both Q1 tasks multiply the outside monomial into every term for −6x³y³+12x³y or −10a³b³+6a²b², retaining letter factors. Q2 further requires positive-length area pieces and purely algebraic checks for negative assignments, retrieving complete distribution and diagram bounds without negative sublengths."
+            "zh": "Q1两组把外部单项式分别乘括号两项，得−6x³y³+12x³y或−10a³b³+6a²b²，原字母因子不丢。Q2同时强制正长度面积块对应及负赋值只作代数检查，复现分配的全项覆盖和图形范围，不画负小边。 新Q1要求外分数单项式完整覆盖三项与常数。直接复用J83/J84-POLYNOMIAL-MEANING-Q3的原负分数三项、零/一/负一与反因子分支，不重造已有纯数分配任务。",
+            "en": "Both Q1 tasks multiply the outside monomial into every term for −6x³y³+12x³y or −10a³b³+6a²b², retaining letter factors. Q2 further requires positive-length area pieces and purely algebraic checks for negative assignments, retrieving complete distribution and diagram bounds without negative sublengths. New Q1 distributes a fractional monomial to three terms including the constant. Reuse J83/J84-POLYNOMIAL-MEANING-Q3 for existing fractional three-term distribution, zero/one/negative-one/opposite-factor branches without duplicating scalar tasks."
           }
         }
       ],
@@ -8914,8 +9091,8 @@
         "J81-L03-X"
       ],
       "laterExactTagCandidates": {
-        "J95": ["J95-MAINT-POLY-SYSTEM-Q2"],
-        "J96": ["J96-MAINT-POLY-SYSTEM-Q2"]
+        "J95": ["J95-MAINT-POLY-SYSTEM-Q2", "J95-MAINT-IDENTITY-MEANING-Q2"],
+        "J96": ["J96-MAINT-POLY-SYSTEM-Q2", "J96-MAINT-IDENTITY-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -8936,11 +9113,31 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q2",
               "taskSkill": "all-pairs-polynomial-product"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-IDENTITY-MEANING-Q2",
+              "taskSkill": "all-pairs-polynomial-product"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-IDENTITY-MEANING-Q2",
+              "taskSkill": "all-pairs-polynomial-product"
+            },
+            {
+              "unit": "J83",
+              "task": "J83-MAINT-POLYNOMIAL-MEANING-Q4",
+              "taskSkill": "contextual-polynomial-model"
+            },
+            {
+              "unit": "J84",
+              "task": "J84-MAINT-POLYNOMIAL-MEANING-Q4",
+              "taskSkill": "contextual-polynomial-model"
             }
           ],
           "rationale": {
-            "zh": "J95完整展开(2x+3)(x+4)=2x²+11x+12，J96展开(3t+2)(t+5)=3t²+17t+10，均须画四块、保两交叉项并核负1赋值时图的正长条件不适用但代数仍有效。不是只背系数或凭几次代入证明恒等。",
-            "en": "J95 fully expands (2x+3)(x+4)=2x²+11x+12; J96 expands (3t+2)(t+5)=3t²+17t+10. Both draw four pieces, retain both cross terms and check negative-one assignments outside positive-length picture bounds while preserving algebra. Coefficients are derived, not memorised or inferred from finite trials."
+            "zh": "J95完整展开(2x+3)(x+4)=2x²+11x+12，J96展开(3t+2)(t+5)=3t²+17t+10，均须画四块、保两交叉项并核负1赋值时图的正长条件不适用但代数仍有效。不是只背系数或凭几次代入证明恒等。 新Q2亲列两行三列六对，保双字母与同类项来源，另自主画正长花园分块一般式；直接复用J83/J84-POLYNOMIAL-MEANING-Q4的完整周长/面积与正分数长度域。",
+            "en": "J95 fully expands (2x+3)(x+4)=2x²+11x+12; J96 expands (3t+2)(t+5)=3t²+17t+10. Both draw four pieces, retain both cross terms and check negative-one assignments outside positive-length picture bounds while preserving algebra. Coefficients are derived, not memorised or inferred from finite trials. New Q2 lists all six two-by-three pairs with two bases and term provenance, then independently designs positive garden partitions and a general area. Reuse J83/J84-POLYNOMIAL-MEANING-Q4 for full perimeter/area and positive fractional-length domains."
           }
         }
       ],
@@ -8983,11 +9180,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q3",
               "taskSkill": "square-cross-terms"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-IDENTITY-MEANING-Q3",
+              "taskSkill": "square-and-conjugate-whole-terms"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-IDENTITY-MEANING-Q3",
+              "taskSkill": "square-and-conjugate-whole-terms"
             }
           ],
           "rationale": {
-            "zh": "J95推(x−4)²=x²−8x+16，J96推(t−5)²=t²−10t+25，均用四对乘积和两条带重扣角块后补一次的图解释。零处漏中项式巧合不证明，分别代1或2给9与17/29反例，图域与代数全实域分开。",
-            "en": "J95 derives (x−4)²=x²−8x+16 and J96 (t−5)²=t²−10t+25 using four products and strips with the corner restored once. Coincidence at zero does not validate a missing cross term: inputs one or two give nine versus seventeen/twenty-nine. Both separate picture bounds from the real algebraic domain."
+            "zh": "J95推(x−4)²=x²−8x+16，J96推(t−5)²=t²−10t+25，均用四对乘积和两条带重扣角块后补一次的图解释。零处漏中项式巧合不证明，分别代1或2给9与17/29反例，图域与代数全实域分开。 新Q3完整推和/差平方并代入整个分数单项式，亲画和平方四块；保旧差平方补角/反例任务，不重复造相同图。",
+            "en": "J95 derives (x−4)²=x²−8x+16 and J96 (t−5)²=t²−10t+25 using four products and strips with the corner restored once. Coincidence at zero does not validate a missing cross term: inputs one or two give nine versus seventeen/twenty-nine. Both separate picture bounds from the real algebraic domain. New Q3 derives plus/minus squares, substitutes whole fractional monomials and draws all four sum-square regions. Existing difference-square corner restoration/counterexample tasks remain."
           }
         }
       ],
@@ -9027,11 +9234,31 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q4",
               "taskSkill": "complete-square-difference-factors"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-IDENTITY-MEANING-Q3",
+              "taskSkill": "square-and-conjugate-whole-terms"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-IDENTITY-MEANING-Q3",
+              "taskSkill": "square-and-conjugate-whole-terms"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-IDENTITY-MEANING-Q2",
+              "taskSkill": "all-pairs-polynomial-product"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-IDENTITY-MEANING-Q2",
+              "taskSkill": "all-pairs-polynomial-product"
             }
           ],
           "rationale": {
-            "zh": "Q4两组先列A²−AB+AB−B²，明确与差平方−2AB不同；再画去3²或4²角后两块刚性重排成长方形，解释每块面积保留与正长范围，边界代数零仍有效。不是只引用平方差名称。",
-            "en": "Both Q4 tasks list A²−AB+AB−B² and contrast the −2AB in a square. They then draw rigid two-piece rearrangements after removing a 3² or 4² corner, retaining piece areas and positive-length bounds while accepting algebraic zero at the boundary, rather than merely citing a difference-of-squares name."
+            "zh": "Q4两组先列A²−AB+AB−B²，明确与差平方−2AB不同；再画去3²或4²角后两块刚性重排成长方形，解释每块面积保留与正长范围，边界代数零仍有效。不是只引用平方差名称。 共享新Q3核完整共轭与非共轭全配对、0偶合/1反例及49×51或198×202准确计算；新Q2自主花园分块承接纸上家庭创作，旧Q4保两块刚性重排，不把纸笔作者模拟当真实试用。",
+            "en": "Both Q4 tasks list A²−AB+AB−B² and contrast the −2AB in a square. They then draw rigid two-piece rearrangements after removing a 3² or 4² corner, retaining piece areas and positive-length bounds while accepting algebraic zero at the boundary, rather than merely citing a difference-of-squares name. Shared new Q3 compares full conjugate/nonconjugate pairings, zero coincidence/one counterexamples and exact 49×51 or 198×202. New Q2 retrieves the independent paper-garden design; old Q4 retains rigid rearrangement without counting authored paper tasks as household trials."
           }
         }
       ],
