@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 1240,
-  "updatedAt": "2026-10-26T21:18:38.310Z",
+  "revision": 1258,
+  "updatedAt": "2026-10-27T01:31:44.416Z",
   "accounts": [
     {
       "id": "a1",
@@ -2093,66 +2093,6 @@
       "priceTimeZone": "America/New_York"
     },
     {
-      "id": "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
-      "name": "美国超微公司",
-      "symbol": "AMD",
-      "note": "Moomoo 导入；行业：半导体",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Advanced Micro Devices, Inc.",
-          "symbol": "AMD",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "CPU、GPU 与数据中心半导体"
-        },
-        "title": "AMD｜CPU、GPU 与数据中心半导体：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 552.72。最新公开经营资料：AMD 销售服务器和个人电脑 CPU、数据中心 GPU、游戏及嵌入式芯片。Q2 2026 收入 $11.5B、同比增长 50%；数据中心收入 $6.7B、增长 107%；GAAP 摊薄 EPS $1.38、非 GAAP EPS $1.66。管理层预计数据中心销售在 2026 年下半年加速。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：AMD 销售服务器和个人电脑 CPU、数据中心 GPU、游戏及嵌入式芯片。Q2 2026 收入 $11.5B、同比增长 50%；数据中心收入 $6.7B、增长 107%；GAAP 摊薄 EPS $1.38、非 GAAP EPS $1.66。管理层预计数据中心销售在 2026 年下半年加速。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 552.72。",
-        "risks": [
-          "AI 加速器竞争不仅看芯片，也取决于软件生态、系统和供货能力。",
-          "高性能芯片产能、先进封装和出口限制可能限制收入。",
-          "客户集中及高预期意味着产品爬坡、毛利和指引偏差可能引发波动。"
-        ],
-        "catalysts": [
-          "跟踪 AI GPU 客户部署、数据中心收入和软件成熟度。",
-          "核对 Q3 指引及下半年数据中心增长是否兑现。"
-        ],
-        "sources": [
-          {
-            "label": "AMD Q2 2026 官方业绩",
-            "url": "https://ir.amd.com/news-events/press-releases/detail/1295/amd-reports-second-quarter-2026-financial-results"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：AMD（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/AMD/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 552.719970703125,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/AMD/history/"
-        }
-      },
-      "price": 531.28,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/amd/history/",
-      "researchedAt": "2026-10-21T23:39:26.673Z",
-      "report": "research/20261022-amd.html",
-      "targetPrice": 410,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:33.834Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
       "id": "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
       "name": "英特尔",
       "symbol": "INTC",
@@ -2210,66 +2150,6 @@
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
       "priceFetchedAt": "2026-10-26T21:18:33.964Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "1931dbff-edc9-40e0-b082-32f571e994a6",
-      "name": "英伟达",
-      "symbol": "NVDA",
-      "note": "Moomoo 导入；行业：半导体",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "NVIDIA Corporation",
-          "symbol": "NVDA",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "GPU、AI 加速器与数据中心平台"
-        },
-        "title": "NVDA｜GPU、AI 加速器与数据中心平台：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 221.97。最新公开经营资料：NVIDIA 销售 GPU、网络和整套数据中心计算平台，并通过 CUDA 软件生态支持 AI 训练与推理。FY2027 Q2（截至 2026-07-26）收入 $96.2B、同比增长 106%；数据中心收入 $89.0B、增长 117%，毛利率 75%。FY2027 Q3 收入指引为 $108B ±2%，且未假设中国数据中心计算收入。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：NVIDIA 销售 GPU、网络和整套数据中心计算平台，并通过 CUDA 软件生态支持 AI 训练与推理。FY2027 Q2（截至 2026-07-26）收入 $96.2B、同比增长 106%；数据中心收入 $89.0B、增长 117%，毛利率 75%。FY2027 Q3 收入指引为 $108B ±2%，且未假设中国数据中心计算收入。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 221.97。",
-        "risks": [
-          "云服务商和大型客户的 AI 资本开支集中度高，支出回报与持续性未定。",
-          "出口限制、供应链、先进封装和电力供应可能限制可交付规模。",
-          "竞争、定制 ASIC 和高估值提高增长预期兑现要求。"
-        ],
-        "catalysts": [
-          "跟踪 Q3 指引、数据中心收入和毛利率兑现情况。",
-          "观察新平台量产、网络产品销售及客户扩容转化。"
-        ],
-        "sources": [
-          {
-            "label": "NVIDIA FY2027 Q2 官方业绩与展望",
-            "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Announces-Financial-Results-for-Second-Quarter-Fiscal-2027/"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：NVDA（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/NVDA/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 221.97000122070312,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/NVDA/history/"
-        }
-      },
-      "price": 216,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/nvda/history/",
-      "researchedAt": "2026-10-21T23:39:26.751Z",
-      "report": "research/20261022-nvda.html",
-      "targetPrice": 165,
-      "attention": 1,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:34.116Z",
       "priceTimeZone": "America/New_York"
     },
     {
@@ -2333,66 +2213,6 @@
       "priceTimeZone": "America/New_York"
     },
     {
-      "id": "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
-      "name": "微软",
-      "symbol": "MSFT",
-      "note": "Moomoo 导入；行业：软件基础设施",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Microsoft Corporation",
-          "symbol": "MSFT",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "云计算、软件与人工智能"
-        },
-        "title": "MSFT｜云计算、软件与人工智能：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 532.95。最新公开经营资料：Microsoft 通过 Microsoft 365、Azure、Windows、LinkedIn、Dynamics 和游戏业务取得收入。FY2026 Q4 收入 $90.0B、同比增长 18%；Azure 及其他云服务增长 43%，营业利润 $40.6B。GAAP 净利润受到 OpenAI 投资收益影响，评估核心经营时应同时看剔除该影响的非 GAAP 数据。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Microsoft 通过 Microsoft 365、Azure、Windows、LinkedIn、Dynamics 和游戏业务取得收入。FY2026 Q4 收入 $90.0B、同比增长 18%；Azure 及其他云服务增长 43%，营业利润 $40.6B。GAAP 净利润受到 OpenAI 投资收益影响，评估核心经营时应同时看剔除该影响的非 GAAP 数据。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 532.95。",
-        "risks": [
-          "AI 数据中心资本开支大，长期回报、容量利用率和折旧需跟踪。",
-          "云市场竞争、企业 IT 预算和 AI 产品付费转化影响增长。",
-          "反垄断、网络安全与软件服务中断会造成监管和声誉风险。"
-        ],
-        "catalysts": [
-          "观察 Azure 增速、积压合同转化和 AI 产品商业化。",
-          "对照资本支出、云毛利和经营现金流评估 AI 投入回报。"
-        ],
-        "sources": [
-          {
-            "label": "Microsoft FY2026 Q4 官方业绩",
-            "url": "https://news.microsoft.com/source/2026/07/29/microsoft-cloud-and-ai-strength-fuels-fourth-quarter-results-4/"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：MSFT（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/MSFT/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 532.9500122070312,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/MSFT/history/"
-        }
-      },
-      "price": 532.6,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/msft/history/",
-      "researchedAt": "2026-10-21T23:39:26.829Z",
-      "report": "research/20261022-msft.html",
-      "targetPrice": 480,
-      "attention": 2,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:34.385Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
       "id": "79730ba5-e176-4362-8ba4-022e0f8f35b9",
       "name": "Visa",
       "symbol": "V",
@@ -2450,66 +2270,6 @@
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
       "priceFetchedAt": "2026-10-26T21:18:34.525Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "d071d7b1-561e-4478-9dad-d9dc23cf7d11",
-      "name": "苹果",
-      "symbol": "AAPL",
-      "note": "Moomoo 导入；行业：消费电子产品",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Apple Inc.",
-          "symbol": "AAPL",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "消费电子、软件与服务"
-        },
-        "title": "AAPL｜消费电子、软件与服务：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 343.99。最新公开经营资料：Apple 的核心是 iPhone、Mac、iPad、可穿戴设备、操作系统及服务生态。FY2026 Q3（截至 2026-06-27）收入 $109.4B、同比增长 16%，毛利率 50.1%，摊薄 EPS $2.02、增长 29%。公司指出约 2 个百分点毛利率和 $0.11 EPS 来自关税退款；比较基础期时应识别该一次性影响。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Apple 的核心是 iPhone、Mac、iPad、可穿戴设备、操作系统及服务生态。FY2026 Q3（截至 2026-06-27）收入 $109.4B、同比增长 16%，毛利率 50.1%，摊薄 EPS $2.02、增长 29%。公司指出约 2 个百分点毛利率和 $0.11 EPS 来自关税退款；比较基础期时应识别该一次性影响。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 343.99。",
-        "risks": [
-          "iPhone 产品周期、地区竞争和中国市场表现影响硬件收入。",
-          "App Store、默认搜索、隐私和平台规则面临监管审查。",
-          "供应链集中与 AI 功能商业化及用户采用仍需验证。"
-        ],
-        "catalysts": [
-          "跟踪 iPhone 新品需求、服务收入与活跃设备基数。",
-          "评估 AI 功能对换机、订阅和生态留存的实际贡献。"
-        ],
-        "sources": [
-          {
-            "label": "Apple FY2026 Q3 官方业绩",
-            "url": "https://www.apple.com/newsroom/2026/07/apple-reports-third-quarter-results/"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：AAPL（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/AAPL/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 343.989990234375,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/AAPL/history/"
-        }
-      },
-      "price": 343.91,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/aapl/history/",
-      "researchedAt": "2026-10-21T23:39:26.923Z",
-      "report": "research/20261022-aapl.html",
-      "targetPrice": 305,
-      "attention": 1,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:34.658Z",
       "priceTimeZone": "America/New_York"
     },
     {
@@ -2923,195 +2683,6 @@
       "priceCurrency": "USD",
       "priceAsOf": "2026-10-26T20:00:00.000Z",
       "priceFetchedAt": "2026-10-26T21:18:35.357Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
-      "name": "博通",
-      "symbol": "AVGO",
-      "note": "Moomoo 导入；行业：半导体",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Broadcom Inc.",
-          "symbol": "AVGO",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "半导体与基础设施软件"
-        },
-        "title": "AVGO｜半导体与基础设施软件：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 337.80。最新公开经营资料：Broadcom 同时经营半导体解决方案和基础设施软件，业务包括网络、定制芯片、宽带、无线及 VMware 软件。FY2026 Q3 收入 $29.6B、同比增长 86%，GAAP EPS $2.68、非 GAAP EPS $3.32；Q4 收入指引约 $34.8B。近期增长受 AI 网络与定制加速器需求推动。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Broadcom 同时经营半导体解决方案和基础设施软件，业务包括网络、定制芯片、宽带、无线及 VMware 软件。FY2026 Q3 收入 $29.6B、同比增长 86%，GAAP EPS $2.68、非 GAAP EPS $3.32；Q4 收入指引约 $34.8B。近期增长受 AI 网络与定制加速器需求推动。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 337.80。",
-        "risks": [
-          "大型 AI 客户的需求集中、供货周期和定制芯片项目存在风险。",
-          "半导体周期、外包制造及少数供应商影响交付。",
-          "VMware 整合、债务和软件客户迁移可能带来执行与留存风险。"
-        ],
-        "catalysts": [
-          "核对 Q4 收入指引及 AI 半导体收入增长。",
-          "观察 VMware 订阅续约、整合现金流和债务偿还。"
-        ],
-        "sources": [
-          {
-            "label": "Broadcom FY2026 Q3 官方业绩与 Q4 指引",
-            "url": "https://investors.broadcom.com/news-releases/news-release-details/broadcom-inc-announces-third-quarter-fiscal-year-2026-financial"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：AVGO（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/AVGO/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 337.79998779296875,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/AVGO/history/"
-        }
-      },
-      "price": 329.17,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/avgo/history/",
-      "researchedAt": "2026-10-21T23:39:27.266Z",
-      "report": "research/20261022-avgo.html",
-      "targetPrice": 310,
-      "attention": 4,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:35.466Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
-      "name": "谷歌-A",
-      "symbol": "GOOGL",
-      "note": "Moomoo 导入；行业：互联网内容与信息",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Alphabet Inc. Class A",
-          "symbol": "GOOGL",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "数字广告、云计算与人工智能"
-        },
-        "title": "GOOGL｜数字广告、云计算与人工智能：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 334.76。最新公开经营资料：Alphabet 通过 Google 搜索、YouTube、网络广告、Android、订阅和 Google Cloud 取得收入，并投资 AI 与其他长期项目。最新季度报告为 Q2 2026。主要观察广告需求、搜索产品变化、云业务利润和 AI 基础设施资本开支。监管案件及 AI 搜索体验变化可能影响核心广告分发模式。 本报告整理经营事实、风险与后续观察事项，不提供目标价或个性化买卖建议。",
-        "details": "业务定位与最新报告：Alphabet 通过 Google 搜索、YouTube、网络广告、Android、订阅和 Google Cloud 取得收入，并投资 AI 与其他长期项目。最新季度报告为 Q2 2026。主要观察广告需求、搜索产品变化、云业务利润和 AI 基础设施资本开支。监管案件及 AI 搜索体验变化可能影响核心广告分发模式。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 334.76。",
-        "risks": [
-          "AI 搜索可能改变用户流量、广告呈现和搜索商业化。",
-          "反垄断案件、隐私规则和平台分发限制带来结构性风险。",
-          "数据中心投资高，AI 收入增长需要覆盖资本和能源成本。"
-        ],
-        "catalysts": [
-          "跟踪搜索与 YouTube 广告、Cloud 收入和利润率。",
-          "观察 AI 产品使用与商业化、资本开支及监管进展。"
-        ],
-        "sources": [
-          {
-            "label": "Alphabet 官方投资者关系与季度报告",
-            "url": "https://abc.xyz/investor/"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：GOOGL（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/GOOGL/history/"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 334.760009765625,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/GOOGL/history/"
-        }
-      },
-      "price": 316.8,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/googl/history/",
-      "researchedAt": "2026-10-21T23:39:27.301Z",
-      "report": "research/20261022-googl.html",
-      "targetPrice": 315,
-      "attention": 4,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:35.537Z",
-      "priceTimeZone": "America/New_York"
-    },
-    {
-      "id": "10e1793d-640e-443f-aac7-fe0290c204c3",
-      "name": "特斯拉",
-      "symbol": "TSLA",
-      "note": "Moomoo 导入；行业：汽车制造",
-      "trigger": "",
-      "status": "观察中",
-      "research": {
-        "identity": {
-          "name": "Tesla, Inc.",
-          "symbol": "TSLA",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "电动汽车、储能与自动驾驶"
-        },
-        "title": "TSLA｜电动汽车、储能与自动驾驶：经营进展、风险与跟踪要点",
-        "summary": "资料复核截至 2026-10-22；最近完整交易日（2026-10-21）收盘 USD 386.47。Tesla Q3 2026 营收 $28.046B，GAAP 净利润 $804M，归属普通股东净利润 $787M，摊薄 GAAP EPS $0.22；调整后 EBITDA $3.900B，自由现金流 $1.531B。汽车 GAAP 毛利率 18.5%，剔除监管积分后 18.1%；交付 486,532 辆、储能部署 13.7GWh。管理层展望聚焦提升产能利用率、保障产品路线图所需现金及扩大软件和车队服务利润，未给出数值化全年盈利指引。",
-        "details": "业务定位与最新报告：Tesla 经营电动汽车、储能、电池及充电业务，并投资自动驾驶和机器人。最新已披露季度已更新为 Q3 2026。重点观察交付量、汽车毛利率（区分监管积分）、库存、能源储能增长，以及自动驾驶功能商业化进展。\n\n跟踪框架：季度更新时优先比较收入/订单与管理层指引、利润率与现金流，以及报告中列示的风险或商业转化证据。\n\n行情更新：Yahoo Finance 历史日线显示 2026-10-21 收盘 USD 386.47。\n\n最新季度更新（2026-10-21）：Q3 营收 $28.046B，较 Q2 的 $28.236B 略低；GAAP 净利润 $804M（归属普通股东 $787M），摊薄 GAAP EPS $0.22；经营现金流 $6.263B，资本开支 $4.732B，自由现金流 $1.531B。调整后 EBITDA $3.900B，属非 GAAP 指标。汽车 GAAP 毛利率升至 18.5%，剔除监管积分后为 18.1%。Tesla 10 月 2 日公告列出 Q3 交付 486,532 辆及储能部署 13.7GWh。管理层展望强调产能利用率、供应链/电池约束、保持流动性，以及将硬件利润逐步补充为软件和车队服务利润；这是前瞻方向，不是盈利承诺。",
-        "risks": [
-          "电动车价格竞争、需求和产品组合可能压低汽车毛利率。",
-          "自动驾驶商业化、监管批准和安全责任存在较大不确定性。",
-          "新车型、储能扩张和 AI/机器人投入需要资本，项目回报仍需验证。",
-          "Q3 营收环比略降，GAAP 净利润为 $804M；汽车毛利率虽改善，仍需观察定价、产品结构和电池供给能否延续。"
-        ],
-        "catalysts": [
-          "后续跟踪 Q4 交付、汽车毛利（区分监管积分）和自由现金流，核对产能利用率与电池供给。",
-          "跟踪储能部署、自动驾驶付费使用和监管许可进展。"
-        ],
-        "sources": [
-          {
-            "label": "Tesla 官方投资者关系与季度业绩",
-            "url": "https://ir.tesla.com/"
-          },
-          {
-            "label": "Yahoo Finance 历史行情：TSLA（2026-10-21 收盘）",
-            "url": "https://finance.yahoo.com/quote/TSLA/history/"
-          },
-          {
-            "label": "Tesla Q3 2026 Update（SEC 8-K，2026-10-21）",
-            "url": "https://ir.tesla.com/_flysystem/s3/sec/000162828026066738/tsla-20261021-gen.pdf"
-          },
-          {
-            "label": "Tesla Q3 2026 交付与储能部署公告（2026-10-02）",
-            "url": "https://ir.tesla.com/press-release/tesla-third-quarter-2026-production-deliveries-and-deployments"
-          }
-        ],
-        "uncertainty": "报价来源为公开历史日线；不同数据商可能因数据校正或收盘定义出现少量差异。公司报告内容以来源链接中的公开资料为准；如本次资料基线早于最新财报或后续公告，应以公司新披露更新。未进行估值、目标价计算或个人投资组合适配，不构成买卖建议。 报价采用 Yahoo Finance 历史日线最近完整收盘数据。 基本面判断以所列正式公告、监管文件及发行方资料为依据；前瞻信息仍有执行不确定性。",
-        "quote": {
-          "price": 386.4700012207031,
-          "date": "2026-10-21",
-          "currency": "USD",
-          "source": "Yahoo Finance",
-          "sourceUrl": "https://finance.yahoo.com/quote/TSLA/history/"
-        }
-      },
-      "price": 391.62,
-      "priceDate": "2026-10-26",
-      "priceSource": "StockAnalysis / S&P Global Market Intelligence",
-      "priceSourceUrl": "https://stockanalysis.com/stocks/tsla/history/",
-      "researchedAt": "2026-10-21T23:39:27.373Z",
-      "report": "research/20261022-tsla.html",
-      "targetPrice": 220,
-      "attention": 1,
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-10-26T20:00:00.000Z",
-      "priceFetchedAt": "2026-10-26T21:18:35.612Z",
       "priceTimeZone": "America/New_York"
     },
     {
@@ -4787,36 +4358,6 @@
   ],
   "journal": [
     {
-      "id": "d34cc2d8-dfbe-435b-9849-65ed6c8c8b36",
-      "date": "2026-10-23",
-      "title": "Alphabet - Google",
-      "body": "",
-      "kind": "plan",
-      "watchId": "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
-      "plan": {
-        "allocationPct": 6,
-        "safetyLow": 285,
-        "safetyHigh": 310,
-        "discountLow": 245,
-        "discountHigh": 275
-      }
-    },
-    {
-      "id": "39b63083-cfa1-4c44-9785-1278974f75c9",
-      "date": "2026-10-23",
-      "title": "AVGO 行动计划",
-      "body": "",
-      "kind": "plan",
-      "watchId": "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
-      "plan": {
-        "allocationPct": 6,
-        "safetyLow": 275,
-        "safetyHigh": 305,
-        "discountLow": 235,
-        "discountHigh": 265
-      }
-    },
-    {
       "id": "9154bc72-376e-4fef-9e9f-357f7136b53d",
       "date": "2026-10-23",
       "title": "TSM 行动计划",
@@ -4979,21 +4520,6 @@
         "safetyHigh": 410,
         "discountLow": 350,
         "discountHigh": 375
-      }
-    },
-    {
-      "id": "b16825bf-acc8-4d97-88f8-e5d2b8da8143",
-      "date": "2026-10-24",
-      "title": "AMD 行动计划",
-      "body": "",
-      "kind": "plan",
-      "watchId": "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
-      "plan": {
-        "allocationPct": 4,
-        "safetyLow": 370,
-        "safetyHigh": 410,
-        "discountLow": 310,
-        "discountHigh": 350
       }
     },
     {
@@ -5309,21 +4835,6 @@
         "safetyHigh": 136,
         "discountLow": 110,
         "discountHigh": 122
-      }
-    },
-    {
-      "id": "6b2706dc-92ce-48f5-9468-e1958e92b2f9",
-      "date": "2026-10-24",
-      "title": "MSFT 行动计划",
-      "body": "",
-      "kind": "plan",
-      "watchId": "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
-      "plan": {
-        "allocationPct": 10,
-        "safetyLow": 450,
-        "safetyHigh": 475,
-        "discountLow": 400,
-        "discountHigh": 450
       }
     },
     {
@@ -17011,17 +16522,13 @@
       "date": "2026-10-27",
       "watchIds": [
         "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
-        "210633fa-9af6-44d9-bf36-53d78cbb7d2c",
         "71314544-bdc1-4c97-be06-821d7464ef31",
-        "0fcf780f-9fa6-4d15-9f38-7463f0428bf0",
         "3de90f75-58fe-41f2-beaf-2cc60e4275e4",
         "5b095741-a682-4b22-ad52-2c70e1a4052c",
         "c926f17c-43a8-4e8f-9d78-5498591db5e7",
-        "8256eea6-7e64-469a-a3e7-c3a58eaf9e09",
         "79730ba5-e176-4362-8ba4-022e0f8f35b9",
         "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
         "d6bf7357-8935-4d2d-abef-2250c9e5c418",
-        "d071d7b1-561e-4478-9dad-d9dc23cf7d11",
         "9c572b68-64fb-4e7d-9692-74f569040195",
         "9d659e03-df19-4a6c-9534-9045b7747629",
         "01a864b1-0623-4778-9656-0431418803b8",
@@ -17046,9 +16553,7 @@
         "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
         "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
         "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
-        "c2192ccd-85d0-452f-ad50-1e7d46d96c53",
         "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
-        "1931dbff-edc9-40e0-b082-32f571e994a6",
         "5ffc01e1-e876-459c-828d-3f28dc5548d8",
         "30c526ed-d29c-4e27-a3a6-d08a8f94802f",
         "bda9b130-0a99-46c8-b943-f01dd6992ebd",
@@ -17063,8 +16568,7 @@
         "91e3d67e-7d2e-4cee-b93b-7bfd5d9992fc",
         "990ad5a3-7a56-45e9-a914-78424558e749",
         "f389b712-950c-40f5-a71d-7a777a5458a9",
-        "64078460-ed3a-42f4-803e-60d32e8df85d",
-        "10e1793d-640e-443f-aac7-fe0290c204c3"
+        "64078460-ed3a-42f4-803e-60d32e8df85d"
       ]
     }
   ],
