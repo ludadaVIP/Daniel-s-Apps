@@ -1,3 +1,7 @@
+import { functionMeaningRetrieval } from './functionMeaningRetrieval';
+import { inequalityMeaningRetrieval } from './inequalityMeaningRetrieval';
+import { systemMeaningRetrieval } from './systemMeaningRetrieval';
+import { factorMeaningRetrieval } from './factorMeaningRetrieval';
 import { identityMeaningRetrieval } from './identityMeaningRetrieval';
 import { inferenceMeaningRetrieval } from './inferenceMeaningRetrieval';
 import { cartesianMeaningRetrieval } from './cartesianMeaningRetrieval';
@@ -215,6 +219,10 @@ export const maintenanceSets = {
   ...cartesianMeaningRetrieval,
   ...inferenceMeaningRetrieval,
   ...identityMeaningRetrieval,
+  ...factorMeaningRetrieval,
+  ...systemMeaningRetrieval,
+  ...inequalityMeaningRetrieval,
+  ...functionMeaningRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',

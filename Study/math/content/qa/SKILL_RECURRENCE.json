@@ -9301,11 +9301,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q5",
               "taskSkill": "integer-common-factor"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-FACTOR-MEANING-Q1",
+              "taskSkill": "signed-multivariable-common-factor"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-FACTOR-MEANING-Q1",
+              "taskSkill": "signed-multivariable-common-factor"
             }
           ],
           "rationale": {
-            "zh": "J95把12x³+18x²提6x²(2x+3)，J96把20t³−30t²提10t²(2t−3)。都解释系数最大公因数、字母最低次数，比较只提一半系数未完成与多提一次方出现变量分母，乘回及零赋值不因恒等分解被排。",
-            "en": "J95 factors 12x³+18x² as 6x²(2x+3); J96 factors 20t³−30t² as 10t²(2t−3). Both justify numerical GCF and minimum exponent, contrast unfinished smaller coefficients with overfactoring into variable denominators, expand back and retain zero assignments in identities."
+            "zh": "J95把12x³+18x²提6x²(2x+3)，J96把20t³−30t²提10t²(2t−3)。都解释系数最大公因数、字母最低次数，比较只提一半系数未完成与多提一次方出现变量分母，乘回及零赋值不因恒等分解被排。 新两组Q1从双字母三原项逐种最低次数与数GCD提正/负数系数最大因子，保余项±1、逐项乘回、过提反例及零输入，不重造旧单变量两项题。",
+            "en": "J95 factors 12x³+18x² as 6x²(2x+3); J96 factors 20t³−30t² as 10t²(2t−3). Both justify numerical GCF and minimum exponent, contrast unfinished smaller coefficients with overfactoring into variable denominators, expand back and retain zero assignments in identities. New Q1 uses all three original two-base terms for numerical GCD/minimum exponents, both coefficient signs, retained ±1 remainders, reverse expansion, overextraction and zero inputs without duplicating the old one-base tasks."
           }
         }
       ],
@@ -9348,11 +9358,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q4",
               "taskSkill": "complete-square-difference-factors"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-FACTOR-MEANING-Q2",
+              "taskSkill": "whole-square-factor-patterns"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-FACTOR-MEANING-Q2",
+              "taskSkill": "whole-square-factor-patterns"
             }
           ],
           "rationale": {
-            "zh": "J95将x⁴−81继续分成(x−3)(x+3)(x²+9)，J96将t⁴−256分成(t−4)(t+4)(t²+16)。均强制检查每个因式、声明整数范围保留平方和、完整乘回，并区分代数有效与去角图的正边条件。",
-            "en": "J95 continues x⁴−81 to (x−3)(x+3)(x²+9); J96 continues t⁴−256 to (t−4)(t+4)(t²+16). Both recheck every factor, retain the sum of squares within integer coefficients, multiply all factors back and distinguish algebraic validity from positive-side diagram conditions."
+            "zh": "J95将x⁴−81继续分成(x−3)(x+3)(x²+9)，J96将t⁴−256分成(t−4)(t+4)(t²+16)。均强制检查每个因式、声明整数范围保留平方和、完整乘回，并区分代数有效与去角图的正边条件。 共享新两组Q2先提数因子，完整分解双字母平方差与两种中项符号的完全平方，核换序/平衡改号；独立平方和由整数首项1、和0却积正的矛盾给不可分理由，不只说公式失败。",
+            "en": "J95 continues x⁴−81 to (x−3)(x+3)(x²+9); J96 continues t⁴−256 to (t−4)(t+4)(t²+16). Both recheck every factor, retain the sum of squares within integer coefficients, multiply all factors back and distinguish algebraic validity from positive-side diagram conditions. Shared new Q2 extracts content before factoring two-base differences of squares and both signed perfect squares, checking order/balanced signs. A separate sum of squares requires a leading-one, zero-sum/positive-product contradiction rather than merely citing a failed formula."
           }
         }
       ],
@@ -9395,11 +9415,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q6",
               "taskSkill": "perfect-square-factor-pattern"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-FACTOR-MEANING-Q2",
+              "taskSkill": "whole-square-factor-patterns"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-FACTOR-MEANING-Q2",
+              "taskSkill": "whole-square-factor-patterns"
             }
           ],
           "rationale": {
-            "zh": "J95由3x²−18x+27提3再核成3(x−3)²，J96由2t²+20t+50提2再核2(t+5)²；两处逐项核中项双积及符号，拒绝只两端平方的错式，指出未把内部共同整数提外的形式仍未完成。",
-            "en": "J95 removes three from 3x²−18x+27 before obtaining 3(x−3)²; J96 removes two before 2(t+5)². Both check the signed double product, reject end-squares-only claims and identify unfinished forms retaining a common integer inside a factor."
+            "zh": "J95由3x²−18x+27提3再核成3(x−3)²，J96由2t²+20t+50提2再核2(t+5)²；两处逐项核中项双积及符号，拒绝只两端平方的错式，指出未把内部共同整数提外的形式仍未完成。 共享新两组Q2先提数因子，完整分解双字母平方差与两种中项符号的完全平方，核换序/平衡改号；独立平方和由整数首项1、和0却积正的矛盾给不可分理由，不只说公式失败。",
+            "en": "J95 removes three from 3x²−18x+27 before obtaining 3(x−3)²; J96 removes two before 2(t+5)². Both check the signed double product, reject end-squares-only claims and identify unfinished forms retaining a common integer inside a factor. Shared new Q2 extracts content before factoring two-base differences of squares and both signed perfect squares, checking order/balanced signs. A separate sum of squares requires a leading-one, zero-sum/positive-product contradiction rather than merely citing a failed formula."
           }
         }
       ],
@@ -9442,11 +9472,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q7",
               "taskSkill": "integer-quadratic-product-sum"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-FACTOR-MEANING-Q3",
+              "taskSkill": "integer-pairs-and-independent-design"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-FACTOR-MEANING-Q3",
+              "taskSkill": "integer-pairs-and-independent-design"
             }
           ],
           "rationale": {
-            "zh": "J95从和−1积−12筛−4与3，J96从和1积−20筛5与−4，均由完整展开给两条件、乘回、零常数先提变量。x²−2或t²−3无整数配对却有带√2/√3的实数因式，明确限定整数一次目标而不泛称不可分。",
-            "en": "J95 filters −4,3 by sum −1/product −12; J96 filters 5,−4 by sum one/product −20. Both derive both conditions by expansion, multiply back and factor the variable first for zero constants. Although x²−2 and t²−3 have no integer pairs, real factors involving √2/√3 exist, making the integer-linear target explicit rather than universal nonfactorability."
+            "zh": "J95从和−1积−12筛−4与3，J96从和1积−20筛5与−4，均由完整展开给两条件、乘回、零常数先提变量。x²−2或t²−3无整数配对却有带√2/√3的实数因式，明确限定整数一次目标而不泛称不可分。 共享新两组Q3列完整正积整数对及其和，再核正/负中项、纯平方、常数1无匹配与非monic特例界限；独立自创三种花园面积、错乘积的零巧合/反例和等值未完成例，保旧Q7/Q8有效分支。",
+            "en": "J95 filters −4,3 by sum −1/product −12; J96 filters 5,−4 by sum one/product −20. Both derive both conditions by expansion, multiply back and factor the variable first for zero constants. Although x²−2 and t²−3 have no integer pairs, real factors involving √2/√3 exist, making the integer-linear target explicit rather than universal nonfactorability. Shared new Q3 exhausts positive-product integer pairs/sums, checks both middle signs, pure squares, product-one impossibility and a specific nonmonic boundary. Independent three-garden design includes a false product agreeing at zero and an equivalent unfinished example, retaining the original Q7/Q8 branches."
           }
         }
       ],
@@ -9489,11 +9529,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q8",
               "taskSkill": "factor-expansion-audit"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-FACTOR-MEANING-Q3",
+              "taskSkill": "integer-pairs-and-independent-design"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-FACTOR-MEANING-Q3",
+              "taskSkill": "integer-pairs-and-independent-design"
             }
           ],
           "rationale": {
-            "zh": "J95检查(x+1)(x+12)与x²+7x+12在0相同而1处26/20不同；J96检查(t−1)(t−20)与t²−9t+20在0相同、1处0/12不同。都完整展开核中项、给正确因式，并完成5(x²−16)或4(t²−25)，不以一次吻合或根列表替代乘积。",
-            "en": "J95 finds agreement at zero but twenty-six versus twenty at one for a proposed product; J96 finds agreement at zero but zero versus twelve at one. Both fully expand cross terms, supply correct factors and finish 5(x²−16) or 4(t²−25), rejecting single-match evidence or replacing a product with root lists."
+            "zh": "J95检查(x+1)(x+12)与x²+7x+12在0相同而1处26/20不同；J96检查(t−1)(t−20)与t²−9t+20在0相同、1处0/12不同。都完整展开核中项、给正确因式，并完成5(x²−16)或4(t²−25)，不以一次吻合或根列表替代乘积。 共享新两组Q3列完整正积整数对及其和，再核正/负中项、纯平方、常数1无匹配与非monic特例界限；独立自创三种花园面积、错乘积的零巧合/反例和等值未完成例，保旧Q7/Q8有效分支。",
+            "en": "J95 finds agreement at zero but twenty-six versus twenty at one for a proposed product; J96 finds agreement at zero but zero versus twelve at one. Both fully expand cross terms, supply correct factors and finish 5(x²−16) or 4(t²−25), rejecting single-match evidence or replacing a product with root lists. Shared new Q3 exhausts positive-product integer pairs/sums, checks both middle signs, pure squares, product-one impossibility and a specific nonmonic boundary. Independent three-garden design includes a false product agreeing at zero and an equivalent unfinished example, retaining the original Q7/Q8 branches."
           }
         }
       ],
@@ -9543,11 +9593,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q10",
               "taskSkill": "graphical-system-classification"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-SYSTEM-MEANING-Q1",
+              "taskSkill": "same-pair-and-exact-substitution"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-SYSTEM-MEANING-Q1",
+              "taskSkill": "same-pair-and-exact-substitution"
             }
           ],
           "rationale": {
-            "zh": "J95同对(7,2)核数量9与金额41，J96同对(3/2,19/2)核11L与47元；各有只保总量而违原价的伪解。Q10再区分唯一、无解、重合无限沿线与竖直/水平交点，两个方程不是自动独立。",
-            "en": "J95 checks pair (7,2) against count nine and cost forty-one; J96 checks (3/2,19/2) against eleven litres and forty-seven. Each includes a spurious pair passing only retained totals. Q10 then distinguishes unique, none, coincident-line infinity and vertical/horizontal intersections; two equations are not automatically independent."
+            "zh": "J95同对(7,2)核数量9与金额41，J96同对(3/2,19/2)核11L与47元；各有只保总量而违原价的伪解。Q10再区分唯一、无解、重合无限沿线与竖直/水平交点，两个方程不是自动独立。 新两组共享Q1对P/Q/拼接/交换逐原式核，分别孤立x/y完整代入，保精确三分数而不以小数偶合通过；另自给非整数首式反例，有限整数表不穷尽实数。",
+            "en": "J95 checks pair (7,2) against count nine and cost forty-one; J96 checks (3/2,19/2) against eleven litres and forty-seven. Each includes a spurious pair passing only retained totals. Q10 then distinguishes unique, none, coincident-line infinity and vertical/horizontal intersections; two equations are not automatically independent. Shared new Q1 checks original, spliced and reversed pairs in both rows, isolates x/y separately, retains exact thirds against coincidental decimal success, and constructs a noninteger first-row counterexample to finite integer completeness."
           }
         }
       ],
@@ -9597,11 +9657,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q10",
               "taskSkill": "graphical-system-classification"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-SYSTEM-MEANING-Q1",
+              "taskSkill": "same-pair-and-exact-substitution"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-SYSTEM-MEANING-Q1",
+              "taskSkill": "same-pair-and-exact-substitution"
             }
           ],
           "rationale": {
-            "zh": "J95将y=9−x整段替入3y，J96将y=11−x替入4y，各保完整括号、求x再回y并核两原式。Q9零倍替换及Q10同线说明重复条件只剩一条线，不是所有数对，防止把0=0当成丢掉其他原式的理由。",
-            "en": "J95 substitutes the entire y=9−x into 3y and J96 y=11−x into 4y, retaining brackets, solving x, recovering y and checking both originals. Q9’s zero replacement and Q10’s coincident lines retain a line constraint rather than all pairs, preventing 0=0 from discarding other originals."
+            "zh": "J95将y=9−x整段替入3y，J96将y=11−x替入4y，各保完整括号、求x再回y并核两原式。Q9零倍替换及Q10同线说明重复条件只剩一条线，不是所有数对，防止把0=0当成丢掉其他原式的理由。 新两组共享Q1对P/Q/拼接/交换逐原式核，分别孤立x/y完整代入，保精确三分数而不以小数偶合通过；另自给非整数首式反例，有限整数表不穷尽实数。",
+            "en": "J95 substitutes the entire y=9−x into 3y and J96 y=11−x into 4y, retaining brackets, solving x, recovering y and checking both originals. Q9’s zero replacement and Q10’s coincident lines retain a line constraint rather than all pairs, preventing 0=0 from discarding other originals. Shared new Q1 checks original, spliced and reversed pairs in both rows, isolates x/y separately, retains exact thirds against coincidental decimal success, and constructs a noninteger first-row counterexample to finite integer completeness."
           }
         }
       ],
@@ -9641,11 +9711,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q9",
               "taskSkill": "two-quantity-system-model"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-SYSTEM-MEANING-Q2",
+              "taskSkill": "complete-scaling-and-retained-row"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-SYSTEM-MEANING-Q2",
+              "taskSkill": "complete-scaling-and-retained-row"
             }
           ],
           "rationale": {
-            "zh": "J95保总量行、金额行减3倍它得2x=14；J96保总量行、金额行减4倍它得2x=3。两处必须用另一保留行恢复y，并给零倍自身替换后(9,0)或(11,0)过新组却原价45≠41或66≠47的反例，说明可逆所需自身系数非零。",
-            "en": "J95 retains the total row and subtracts three copies from cost for 2x=14; J96 subtracts four for 2x=3. Both recover y using the retained row and show zero-self-coefficient replacements admit (9,0) or (11,0), contradicting original costs forty-five versus forty-one or sixty-six versus forty-seven. Reversibility needs a nonzero coefficient on the replaced row itself."
+            "zh": "J95保总量行、金额行减3倍它得2x=14；J96保总量行、金额行减4倍它得2x=3。两处必须用另一保留行恢复y，并给零倍自身替换后(9,0)或(11,0)过新组却原价45≠41或66≠47的反例，说明可逆所需自身系数非零。 新两组Q2完整倍乘两行所有项与右常数，分别得13x=−13或13x=−26并保第二式，主动给仅留合成式的伪解和一般逆操作；1/1替换同解但y未消，不把未完成策略当关系错误。",
+            "en": "J95 retains the total row and subtracts three copies from cost for 2x=14; J96 subtracts four for 2x=3. Both recover y using the retained row and show zero-self-coefficient replacements admit (9,0) or (11,0), contradicting original costs forty-five versus forty-one or sixty-six versus forty-seven. Reversibility needs a nonzero coefficient on the replaced row itself. New Q2 scales both complete rows and right constants, retains row two with 13x=−13 or −26, constructs a spurious combined-row-only pair and recovers the original generally. A separate 1/1 replacement preserves solutions without eliminating y, distinguishing an unfinished strategy from a false relationship."
           }
         }
       ],
@@ -9688,11 +9768,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q10",
               "taskSkill": "graphical-system-classification"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-REASONS-Q6",
+              "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-REASONS-Q6",
+              "taskSkill": "coordinate-plot-and-scale"
             }
           ],
           "rationale": {
-            "zh": "J95四系统分别(3/2,3/2)、整条x+y=3、无解、(2,−1)；J96分别(7/2,3/2)、整条x+y=5、无解、(−1,2)。都亲画线并原式核，完整有序点不舍入、同线非全平面、竖直线有效、有限图窗不裁原实数解域。",
-            "en": "J95’s four systems give (3/2,3/2), the full line x+y=3, no solution and (2,−1); J96 gives (7/2,3/2), the full line x+y=5, none and (−1,2). Both draw and check originals, retain exact ordered points, exclude the whole plane for coincident lines, accept vertical lines and distinguish display windows from real solution domains."
+            "zh": "J95四系统分别(3/2,3/2)、整条x+y=3、无解、(2,−1)；J96分别(7/2,3/2)、整条x+y=5、无解、(−1,2)。都亲画线并原式核，完整有序点不舍入、同线非全平面、竖直线有效、有限图窗不裁原实数解域。 直接复用J93/J94旧Q6两轴不同每格值与投影读回，不另造相同刻度任务；完整两线共同解仍由原Q10亲画并核验。",
+            "en": "J95’s four systems give (3/2,3/2), the full line x+y=3, no solution and (2,−1); J96 gives (7/2,3/2), the full line x+y=5, none and (−1,2). Both draw and check originals, retain exact ordered points, exclude the whole plane for coincident lines, accept vertical lines and distinguish display windows from real solution domains. Reuse existing J93/J94 Q6 for different axis intervals and projection readback rather than duplicating scale tasks. Original Q10 continues to require both lines and complete shared solutions."
           }
         }
       ],
@@ -9735,11 +9825,21 @@
               "unit": "J96",
               "task": "J96-MAINT-POLY-SYSTEM-Q9",
               "taskSkill": "two-quantity-system-model"
+            },
+            {
+              "unit": "J95",
+              "task": "J95-MAINT-SYSTEM-MEANING-Q3",
+              "taskSkill": "original-models-and-independent-context"
+            },
+            {
+              "unit": "J96",
+              "task": "J96-MAINT-SYSTEM-MEANING-Q3",
+              "taskSkill": "original-models-and-independent-context"
             }
           ],
           "rationale": {
-            "zh": "J95从9整件、单价5/3与总41生成x+y=9、5x+3y=41，改价40时精确分数对不允许取整修复；J96从11L、单价6/4与47生成x+y=11、6x+4y=47，分数升允许但整件解释不允许。两处先定义变量/单位/域，写原数量两侧后求解核验，不只交最终数对。",
-            "en": "J95 generates x+y=9 and 5x+3y=41 from nine whole items and prices five/three, then rejects rounding a fractional pair after price forty. J96 generates x+y=11 and 6x+4y=47 from litres and prices six/four, admitting fractional litres but not whole-item reinterpretations. Both define variables, units and domains and generate original quantity relations before solving, rather than submitting only a pair."
+            "zh": "J95从9整件、单价5/3与总41生成x+y=9、5x+3y=41，改价40时精确分数对不允许取整修复；J96从11L、单价6/4与47生成x+y=11、6x+4y=47，分数升允许但整件解释不允许。两处先定义变量/单位/域，写原数量两侧后求解核验，不只交最终数对。 新两组Q3自主选量价建两原关系，非零逐式改写与最后解值区分；总价加1产生半整数，原两层核验保留。亲画窗外点，另同价构造对照全实线/非负连续线段/有限整票格点，不把工程纸上构造当真实家庭试用。",
+            "en": "J95 generates x+y=9 and 5x+3y=41 from nine whole items and prices five/three, then rejects rounding a fractional pair after price forty. J96 generates x+y=11 and 6x+4y=47 from litres and prices six/four, admitting fractional litres but not whole-item reinterpretations. Both define variables, units and domains and generate original quantity relations before solving, rather than submitting only a pair. New Q3 independently constructs quantities/prices and original relationships, contrasting separate nonzero rewrites with solved values. Cost plus one produces half-integers for domain audits. Own plots and equal-price cases distinguish a full real line, nonnegative segment and finite ticket lattice, without claiming household trial evidence."
           }
         }
       ],
@@ -9782,11 +9882,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q1",
               "taskSkill": "real-inequality-solution-set"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-INEQUALITY-MEANING-Q3",
+              "taskSkill": "complete-intersection-and-designed-constraints"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-INEQUALITY-MEANING-Q3",
+              "taskSkill": "complete-intersection-and-designed-constraints"
             }
           ],
           "rationale": {
-            "zh": "H01从错图重画x≤5/2的实心向左并核9/4、边界与3；H02重画x>−7/3的空心向右并通分核−9/4、边界与−5/2。均说明有限整数列表不能代表包括非整数的完整实数集合。",
-            "en": "H01 corrects a diagram to closed left shading for x≤5/2 and checks 9/4, the boundary and three. H02 corrects x>−7/3 to open right shading and checks −9/4, the boundary and −5/2 by common denominators. Both distinguish finite integer samples from full real sets including nonintegers."
+            "zh": "H01从错图重画x≤5/2的实心向左并核9/4、边界与3；H02重画x>−7/3的空心向右并通分核−9/4、边界与−5/2。均说明有限整数列表不能代表包括非整数的完整实数集合。 共享新Q3从文字列条件，同一候选逐条核AND/OR、同向强界/同界严格与窗外非空；自主造数量下界和预算上界，分连续/整数并造闭闭/一开相遇。旧端点图和原预算单点强题继续保留，自创不计家庭试用。",
+            "en": "H01 corrects a diagram to closed left shading for x≤5/2 and checks 9/4, the boundary and three. H02 corrects x>−7/3 to open right shading and checks −9/4, the boundary and −5/2 by common denominators. Both distinguish finite integer samples from full real sets including nonintegers. Shared new Q3 translates words, checks the same candidates under AND/OR, stronger/equal-direction bounds and off-window nonempty sets. It independently designs lower-amount/upper-budget constraints, continuous/integer domains and closed/open touches. Original graph and budget tasks remain; authored designs are not household trials."
           }
         }
       ],
@@ -9829,11 +9939,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q2",
               "taskSkill": "one-step-inequality-equivalence"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-INEQUALITY-MEANING-Q1",
+              "taskSkill": "operations-order-and-equivalence"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-INEQUALITY-MEANING-Q1",
+              "taskSkill": "operations-order-and-equivalence"
             }
           ],
           "rationale": {
-            "zh": "两组分别同乘正倒数2/5与4/3得x≥−6/5及x<−8/3，必须说明正缩放保序、原式代数核一解一非解与边界包含性，再画完整集合，不能只写边界数或看右侧负号翻转。",
-            "en": "The tasks multiply by positive reciprocals 2/5 and 4/3 for x≥−6/5 and x<−8/3. They require positive order preservation, original checks of a member/nonmember and boundary inclusion, then the full set rather than a boundary number or reversal based on a negative right side."
+            "zh": "两组分别同乘正倒数2/5与4/3得x≥−6/5及x<−8/3，必须说明正缩放保序、原式代数核一解一非解与边界包含性，再画完整集合，不能只写边界数或看右侧负号翻转。 新Q1共享同步操作/负数顺序，实际给单边变形反例与加0巧合同解、负加数平移与负除数反射、一般差证明/原相等保等号，并由负温原文字解全部范围。旧正分数与未知符号强题不改。",
+            "en": "The tasks multiply by positive reciprocals 2/5 and 4/3 for x≥−6/5 and x<−8/3. They require positive order preservation, original checks of a member/nonmember and boundary inclusion, then the full set rather than a boundary number or reversal based on a negative right side. Shared new Q1 constructs a one-sided counterexample and zero-addition coincidence, contrasts negative addition with negative division, proves reversal by differences, retains equality for equal originals and translates a negative-temperature constraint. Original positive-fraction and unknown-sign tasks remain."
           }
         }
       ],
@@ -9876,11 +9996,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q3",
               "taskSkill": "negative-order-reversal"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-INEQUALITY-MEANING-Q1",
+              "taskSkill": "operations-order-and-equivalence"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-INEQUALITY-MEANING-Q1",
+              "taskSkill": "operations-order-and-equivalence"
             }
           ],
           "rationale": {
-            "zh": "H01算(−3/2)(−4)=6与2(−4)=−8，H02算(−2)(−3)=6与(5/2)(−3)=−15/2；均从数轴反射解释反序，分类未知k正/负/零且保留≤中的等号，零缩放丢信息不能作等价逆步。",
-            "en": "H01 compares products six and negative eight; H02 compares six and −15/2. Both explain reversal by number-line reflection, classify unknown k as positive/negative/zero, retain equality inclusion and identify zero scaling as information loss rather than a reversible equivalence."
+            "zh": "H01算(−3/2)(−4)=6与2(−4)=−8，H02算(−2)(−3)=6与(5/2)(−3)=−15/2；均从数轴反射解释反序，分类未知k正/负/零且保留≤中的等号，零缩放丢信息不能作等价逆步。 新Q1共享同步操作/负数顺序，实际给单边变形反例与加0巧合同解、负加数平移与负除数反射、一般差证明/原相等保等号，并由负温原文字解全部范围。旧正分数与未知符号强题不改。",
+            "en": "H01 compares products six and negative eight; H02 compares six and −15/2. Both explain reversal by number-line reflection, classify unknown k as positive/negative/zero, retain equality inclusion and identify zero scaling as information loss rather than a reversible equivalence. Shared new Q1 constructs a one-sided counterexample and zero-addition coincidence, contrasts negative addition with negative division, proves reversal by differences, retains equality for equal originals and translates a negative-temperature constraint. Original positive-fraction and unknown-sign tasks remain."
           }
         }
       ],
@@ -9923,11 +10053,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q4",
               "taskSkill": "linear-inequality-solving"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-INEQUALITY-MEANING-Q2",
+              "taskSkill": "brackets-and-constant-inequalities"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-INEQUALITY-MEANING-Q2",
+              "taskSkill": "brackets-and-constant-inequalities"
             }
           ],
           "rationale": {
-            "zh": "H01解(x−2)/3≥(x+1)/2得x≤−7；H02解(x+3)/4>(2x−1)/3得x<13/5。均标正公分母不翻转、全括号分配、负系数除法翻转，核原式解/非解/边界并画完整实数解集。",
-            "en": "H01 solves (x−2)/3≥(x+1)/2 for x≤−7; H02 solves (x+3)/4>(2x−1)/3 for x<13/5. Both label positive denominator clearing, full-bracket distribution and negative division reversal, then check members, nonmembers and boundaries in the originals and draw full real sets."
+            "zh": "H01解(x−2)/3≥(x+1)/2得x≤−7；H02解(x+3)/4>(2x−1)/3得x<13/5。均标正公分母不翻转、全括号分配、负系数除法翻转，核原式解/非解/边界并画完整实数解集。 新Q2补减整个括号/精确三分数与小数原式反例，以及变量消失的恒真、矛盾、0<0与0≤0全实数/空集。完整分母与正公倍数继续用旧Q4，不以方程退化题代不等式。",
+            "en": "H01 solves (x−2)/3≥(x+1)/2 for x≤−7; H02 solves (x+3)/4>(2x−1)/3 for x<13/5. Both label positive denominator clearing, full-bracket distribution and negative division reversal, then check members, nonmembers and boundaries in the originals and draw full real sets. New Q2 adds complete subtracted brackets, exact thirds versus an original-relation decimal counterexample, and cancelled-variable true/false constants including 0<0 and 0≤0. Original Q4 retains full denominator work; equation degeneracy does not substitute for inequalities."
           }
         }
       ],
@@ -9970,11 +10110,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q5",
               "taskSkill": "intersection-of-inequalities"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-INEQUALITY-MEANING-Q3",
+              "taskSkill": "complete-intersection-and-designed-constraints"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-INEQUALITY-MEANING-Q3",
+              "taskSkill": "complete-intersection-and-designed-constraints"
             }
           ],
           "rationale": {
-            "zh": "两组在3/2或−2处比较闭闭单点与严格/闭端空集；预算2n+1≤8或3n+2≤12与非负求交，再区别可分升数上界7/2或10/3与整袋{0,1,2,3}。进4袋分别花9或14超预算，必须核全部条件而非并集或舍入边界。",
-            "en": "Both compare a closed singleton at 3/2 or −2 with an empty strict/closed intersection. Budgets 2n+1≤8 and 3n+2≤12 intersect nonnegativity, then distinguish divisible-litre maxima 7/2 or 10/3 from whole bags {0,1,2,3}. Four bags cost nine or fourteen, exceeding budget; every condition is checked rather than unioning or rounding boundaries."
+            "zh": "两组在3/2或−2处比较闭闭单点与严格/闭端空集；预算2n+1≤8或3n+2≤12与非负求交，再区别可分升数上界7/2或10/3与整袋{0,1,2,3}。进4袋分别花9或14超预算，必须核全部条件而非并集或舍入边界。 共享新Q3从文字列条件，同一候选逐条核AND/OR、同向强界/同界严格与窗外非空；自主造数量下界和预算上界，分连续/整数并造闭闭/一开相遇。旧端点图和原预算单点强题继续保留，自创不计家庭试用。",
+            "en": "Both compare a closed singleton at 3/2 or −2 with an empty strict/closed intersection. Budgets 2n+1≤8 and 3n+2≤12 intersect nonnegativity, then distinguish divisible-litre maxima 7/2 or 10/3 from whole bags {0,1,2,3}. Four bags cost nine or fourteen, exceeding budget; every condition is checked rather than unioning or rounding boundaries. Shared new Q3 translates words, checks the same candidates under AND/OR, stronger/equal-direction bounds and off-window nonempty sets. It independently designs lower-amount/upper-budget constraints, continuous/integer domains and closed/open touches. Original graph and budget tasks remain; authored designs are not household trials."
           }
         }
       ],

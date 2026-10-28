@@ -192,6 +192,91 @@ const originalPolynomialSystemRecurrence = [
 ];
 export const polynomialSystemRecurrence =
   originalPolynomialSystemRecurrence.map((entry) => {
+    const systemCards: Record<string, number> = {
+      'J83-L01': 1,
+      'J83-L02': 1,
+      'J83-L03': 2,
+      'J83-L05': 3,
+    };
+    if (entry.sourceLesson === 'J83-L04')
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J93', 'J94'].map((u) => `${u}-MAINT-REASONS-Q6`),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} 直接复用J93/J94旧Q6两轴不同每格值与投影读回，不另造相同刻度任务；完整两线共同解仍由原Q10亲画并核验。`,
+          `${entry.rationale.en} Reuse existing J93/J94 Q6 for different axis intervals and projection readback rather than duplicating scale tasks. Original Q10 continues to require both lines and complete shared solutions.`,
+        ),
+      };
+    const systemCard = systemCards[entry.sourceLesson];
+    if (systemCard) {
+      const detail: Record<number, [string, string]> = {
+        1: [
+          '新两组共享Q1对P/Q/拼接/交换逐原式核，分别孤立x/y完整代入，保精确三分数而不以小数偶合通过；另自给非整数首式反例，有限整数表不穷尽实数。',
+          'Shared new Q1 checks original, spliced and reversed pairs in both rows, isolates x/y separately, retains exact thirds against coincidental decimal success, and constructs a noninteger first-row counterexample to finite integer completeness.',
+        ],
+        2: [
+          '新两组Q2完整倍乘两行所有项与右常数，分别得13x=−13或13x=−26并保第二式，主动给仅留合成式的伪解和一般逆操作；1/1替换同解但y未消，不把未完成策略当关系错误。',
+          'New Q2 scales both complete rows and right constants, retains row two with 13x=−13 or −26, constructs a spurious combined-row-only pair and recovers the original generally. A separate 1/1 replacement preserves solutions without eliminating y, distinguishing an unfinished strategy from a false relationship.',
+        ],
+        3: [
+          '新两组Q3自主选量价建两原关系，非零逐式改写与最后解值区分；总价加1产生半整数，原两层核验保留。亲画窗外点，另同价构造对照全实线/非负连续线段/有限整票格点，不把工程纸上构造当真实家庭试用。',
+          'New Q3 independently constructs quantities/prices and original relationships, contrasting separate nonzero rewrites with solved values. Cost plus one produces half-integers for domain audits. Own plots and equal-price cases distinguish a full real line, nonnegative segment and finite ticket lattice, without claiming household trial evidence.',
+        ],
+      };
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J95', 'J96'].map(
+            (u) => `${u}-MAINT-SYSTEM-MEANING-Q${systemCard}`,
+          ),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${detail[systemCard]![0]}`,
+          `${entry.rationale.en} ${detail[systemCard]![1]}`,
+        ),
+      };
+    }
+    const factorCards: Record<string, number> = {
+      'J82-L01': 1,
+      'J82-L02': 2,
+      'J82-L03': 2,
+      'J82-L04': 3,
+      'J82-L05': 3,
+    };
+    const factorCard = factorCards[entry.sourceLesson];
+    if (factorCard) {
+      const details: Record<number, [string, string]> = {
+        1: [
+          '新两组Q1从双字母三原项逐种最低次数与数GCD提正/负数系数最大因子，保余项±1、逐项乘回、过提反例及零输入，不重造旧单变量两项题。',
+          'New Q1 uses all three original two-base terms for numerical GCD/minimum exponents, both coefficient signs, retained ±1 remainders, reverse expansion, overextraction and zero inputs without duplicating the old one-base tasks.',
+        ],
+        2: [
+          '共享新两组Q2先提数因子，完整分解双字母平方差与两种中项符号的完全平方，核换序/平衡改号；独立平方和由整数首项1、和0却积正的矛盾给不可分理由，不只说公式失败。',
+          'Shared new Q2 extracts content before factoring two-base differences of squares and both signed perfect squares, checking order/balanced signs. A separate sum of squares requires a leading-one, zero-sum/positive-product contradiction rather than merely citing a failed formula.',
+        ],
+        3: [
+          '共享新两组Q3列完整正积整数对及其和，再核正/负中项、纯平方、常数1无匹配与非monic特例界限；独立自创三种花园面积、错乘积的零巧合/反例和等值未完成例，保旧Q7/Q8有效分支。',
+          'Shared new Q3 exhausts positive-product integer pairs/sums, checks both middle signs, pure squares, product-one impossibility and a specific nonmonic boundary. Independent three-garden design includes a false product agreeing at zero and an equivalent unfinished example, retaining the original Q7/Q8 branches.',
+        ],
+      };
+      return {
+        ...entry,
+        targets: [
+          ...entry.targets,
+          ...['J95', 'J96'].map(
+            (u) => `${u}-MAINT-FACTOR-MEANING-Q${factorCard}`,
+          ),
+        ],
+        rationale: t(
+          `${entry.rationale.zh} ${details[factorCard]![0]}`,
+          `${entry.rationale.en} ${details[factorCard]![1]}`,
+        ),
+      };
+    }
     const supplement = identityCards[entry.sourceLesson];
     if (!supplement) return entry;
     return {

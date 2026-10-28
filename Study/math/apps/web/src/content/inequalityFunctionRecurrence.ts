@@ -117,4 +117,99 @@ export const inequalityFunctionRecurrence = [
     '两组各比较已启动接送的率/固定费、有界排水后另停为0、整包卡片仅离散输入，核所有端点和域外输出。半包分别给3或5整数张仍输入不许，是比原半张输出更强的输入域反例；明确单位、模型题设与外推范围，不从输出整数倒推输入合法。',
     'Each group compares activated-transport rates/fixed fees, bounded draining followed by a separate zero rule and whole-pack card inputs as discrete points. They check endpoints and outside outputs. Half packs give integer three or five cards but remain inadmissible inputs, a stronger domain example than fractional output alone. Units, given assumptions and extrapolation bounds are explicit; integer outputs cannot validate inputs.',
   ),
-];
+]
+  .map((entry) => {
+    const cards: Record<string, number> = {
+      'J84-L01': 3,
+      'J84-L02': 1,
+      'J84-L03': 1,
+      'J84-L04': 2,
+      'J84-L05': 3,
+    };
+    const card = cards[entry.sourceLesson];
+    if (!card) return entry;
+    const details: Record<number, [string, string]> = {
+      1: [
+        '新Q1共享同步操作/负数顺序，实际给单边变形反例与加0巧合同解、负加数平移与负除数反射、一般差证明/原相等保等号，并由负温原文字解全部范围。旧正分数与未知符号强题不改。',
+        'Shared new Q1 constructs a one-sided counterexample and zero-addition coincidence, contrasts negative addition with negative division, proves reversal by differences, retains equality for equal originals and translates a negative-temperature constraint. Original positive-fraction and unknown-sign tasks remain.',
+      ],
+      2: [
+        '新Q2补减整个括号/精确三分数与小数原式反例，以及变量消失的恒真、矛盾、0<0与0≤0全实数/空集。完整分母与正公倍数继续用旧Q4，不以方程退化题代不等式。',
+        'New Q2 adds complete subtracted brackets, exact thirds versus an original-relation decimal counterexample, and cancelled-variable true/false constants including 0<0 and 0≤0. Original Q4 retains full denominator work; equation degeneracy does not substitute for inequalities.',
+      ],
+      3: [
+        '共享新Q3从文字列条件，同一候选逐条核AND/OR、同向强界/同界严格与窗外非空；自主造数量下界和预算上界，分连续/整数并造闭闭/一开相遇。旧端点图和原预算单点强题继续保留，自创不计家庭试用。',
+        'Shared new Q3 translates words, checks the same candidates under AND/OR, stronger/equal-direction bounds and off-window nonempty sets. It independently designs lower-amount/upper-budget constraints, continuous/integer domains and closed/open touches. Original graph and budget tasks remain; authored designs are not household trials.',
+      ],
+    };
+    return {
+      ...entry,
+      targets: [
+        ...entry.targets,
+        ...['H01', 'H02'].map((u) => `${u}-MAINT-INEQUALITY-MEANING-Q${card}`),
+      ],
+      rationale: t(
+        `${entry.rationale.zh} ${details[card]![0]}`,
+        `${entry.rationale.en} ${details[card]![1]}`,
+      ),
+    };
+  })
+  .map((entry) => {
+    if (!entry.sourceLesson.startsWith('J85-')) return entry;
+    const cards: Record<string, number> = {
+      'J85-L01': 1,
+      'J85-L03': 1,
+      'J85-L02': 2,
+      'J85-L06': 2,
+    };
+    const card = cards[entry.sourceLesson];
+    const reuse = ['J85-L02', 'J85-L04'].includes(entry.sourceLesson)
+      ? 2
+      : entry.sourceLesson === 'J85-L06'
+        ? 3
+        : 0;
+    const extra = [
+      ...(card
+        ? ['H01', 'H02'].map((u) => `${u}-MAINT-FUNCTION-MEANING-Q${card}`)
+        : []),
+      ...(reuse
+        ? ['J93', 'J94'].map((u) => `${u}-MAINT-CARTESIAN-MEANING-Q${reuse}`)
+        : []),
+    ];
+    if (!extra.length) return entry;
+    const detail =
+      card === 1
+        ? t(
+            '共享新Q1主动改变b/m并用一般差证明平移与零输入不变，另判零斜率、原两轴交点及窗外显示。保原点对求参/受限域任务，不重复创作。',
+            'Shared new Q1 changes b/m and proves translation versus a retained zero-input point through general differences, with zero slope, both original intercepts and off-window display. Original point-derived parameters and restricted-domain tasks remain.',
+          )
+        : card === 2
+          ? t(
+              '共享新Q2自创连续服务和整包总张数模型，两非零输入回求参数并核第三行，亲画实际单位变化三角形；真换小时/分币推新率和域，给错保原率的数值反例，显示缩放另分。',
+              'Shared new Q2 designs continuous-service and whole-pack card-count rules, recovers parameters from nonzero inputs, checks a third row and draws a unit-aware change triangle. Hour/cents conversion derives the new rate/domain and a numerical old-rate counterexample, separate from display scaling.',
+            )
+          : t(
+              '直接复用旧双点分数任务，按两个非零输入求精确−1/2与截距、回代两点并反点序，不另造同类题。',
+              'Reuse the existing two-nonzero-input task for exact slope −1/2 and intercept, checking both points and reversed order without duplicating it.',
+            );
+    const reuseDetail =
+      reuse === 2
+        ? t(
+            '另给J93/J94现有Q2精确分数点对入口；原补桥J75-L04保留。',
+            'Also link existing J93/J94 Q2 exact fractional pairs; retain their original J75-L04 bridge.',
+          )
+        : reuse === 3
+          ? t(
+              '自创排空终点/连续与离散图直接复用旧J93/J94-Q3，不再机械加一套排水创作；原补桥保留。',
+              'Reuse existing J93/J94 Q3 for an independently designed emptying boundary and continuous/discrete plots, retaining original bridges instead of duplicating draining design.',
+            )
+          : t('', '');
+    return {
+      ...entry,
+      targets: [...entry.targets, ...extra],
+      rationale: t(
+        `${entry.rationale.zh} ${detail.zh} ${reuseDetail.zh}`,
+        `${entry.rationale.en} ${detail.en} ${reuseDetail.en}`,
+      ),
+    };
+  });
