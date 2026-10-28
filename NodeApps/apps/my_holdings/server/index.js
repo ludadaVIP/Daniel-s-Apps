@@ -73,6 +73,10 @@ function applyResearchQuote(watch, quote) {
   Object.assign(watch, { price: quote.price, priceDate: quote.date, priceType: "close", priceCurrency: quote.currency,
     priceSource: quote.source, priceSourceUrl: quote.sourceUrl });
 }
+function removeOrphanedDecisionPlans(state) {
+  const watchIds = new Set(state.watchlist.map((watch) => watch.id));
+  state.journal = state.journal.filter((entry) => entry.kind !== "plan" || watchIds.has(entry.watchId));
+}
 const pruneExpiredCompletedJobs = (s, now = Date.now()) => {
   const cutoff = now - 2 * 24 * 60 * 60 * 1000;
   const retained = s.jobs.filter((job) => {
@@ -984,6 +988,7 @@ export async function createHoldingsApp({
           if (req.body.revision !== current.revision)
             throw error("数据已更新，请刷新后重试；未保存的表单仍保留。", 409);
           const candidate = validateState(req.body);
+          removeOrphanedDecisionPlans(candidate);
           candidate.jobs = current.jobs;
           candidate.analyses = current.analyses;
           if (current.holdingTrades) candidate.holdingTrades = current.holdingTrades;
@@ -1016,6 +1021,7 @@ export async function createHoldingsApp({
           if (req.body.revision !== current.revision)
             throw error("数据已更新，请刷新后恢复。", 409);
           const candidate = structuredClone(validateState(req.body.state, { allowDuplicateHoldings: true }));
+          removeOrphanedDecisionPlans(candidate);
           consolidateStateHoldings(candidate, now().toISOString());
           candidate.revision = current.revision;
           candidate.jobs = [];
