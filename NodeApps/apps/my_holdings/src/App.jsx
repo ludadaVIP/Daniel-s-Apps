@@ -334,6 +334,9 @@ function decisionTitle(entry, watchlist = []) {
   const watch = watchlist.find((item) => item.id === entry.watchId);
   return `${watch?.symbol || watch?.name || entry.title} 行动计划`;
 }
+function isVisibleDecisionEntry(entry, watchlist = []) {
+  return entry?.kind !== "plan" || watchlist.some((watch) => watch.id === entry.watchId);
+}
 function previousLocalDate(date) {
   const previous = new Date(`${date}T00:00:00.000Z`);
   previous.setUTCDate(previous.getUTCDate() - 1);
@@ -696,7 +699,7 @@ function RightPanel({
       </>}
       {tab === "journal" && <>
         <section className="mh-side-summary"><span className="mh-eyebrow">DECISION LOG</span><strong>{state.watchlist.filter((watch) => !isIndexOrEtf(watch)).length} 张个股计划 · {state.journal.filter((entry) => entry.kind !== "plan").length} 条复盘</strong><button className="mh-primary" onClick={() => onEdit({ type: "journal" })}><Plus size={14} /> 写一条复盘</button></section>
-        <section><h3>最近记录</h3>{state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map((j) => <button className="mh-side-history" key={j.id} onClick={() => j.kind === "plan" ? onNavigate("journal") : onEdit({ type: "journal", item: j })}><BookOpen size={15} /><span><strong>{decisionTitle(j, state.watchlist)}</strong><small>{j.date}</small></span>{j.kind !== "plan" && <Pencil size={13} />}</button>)}</section>
+        <section><h3>最近记录</h3>{state.journal.filter((entry) => isVisibleDecisionEntry(entry, state.watchlist)).slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map((j) => <button className="mh-side-history" key={j.id} onClick={() => j.kind === "plan" ? onNavigate("journal") : onEdit({ type: "journal", item: j })}><BookOpen size={15} /><span><strong>{decisionTitle(j, state.watchlist)}</strong><small>{j.date}</small></span>{j.kind !== "plan" && <Pencil size={13} />}</button>)}</section>
       </>}
       <footer><span className="mh-dot" /> 数据留在本机 · 研究由你掌握</footer>
     </aside>
@@ -1381,7 +1384,7 @@ export default function HoldingsApp() {
       { label: "公司研究", item: allAnalyses.find((item) => item.kind === "watch") },
       { label: "行情分析", item: allAnalyses.find((item) => item.kind === "market") },
     ].filter(({ item }) => item),
-    overviewJournal = state.journal.slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2)
+    overviewJournal = state.journal.filter((entry) => isVisibleDecisionEntry(entry, state.watchlist)).slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 2)
       .map((entry) => ({ ...entry, title: decisionTitle(entry, state.watchlist), body: decisionSummary(entry, state.watchlist) })),
     overviewRecentCash = state.cash.slice().sort((a, b) => (b.date || "").localeCompare(a.date || ""))[0] || null,
     overviewJobs = state.jobs.slice().sort((a, b) => (b.completedAt || b.date).localeCompare(a.completedAt || a.date)).slice(0, 2),
@@ -1431,13 +1434,12 @@ export default function HoldingsApp() {
   const visibleWatchlist = state.watchlist.filter((watch) =>
     `${watch.name} ${watch.symbol}`.toLowerCase().includes(searchTerm),
   );
-  const allDecisionWatchIds = new Set(state.watchlist.filter((watch) => !isIndexOrEtf(watch)).map((watch) => watch.id));
   const watchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), sortMode, gapDirection);
   const watchFunds = sortWatchlist(visibleWatchlist.filter(isIndexOrEtf), sortMode, gapDirection);
   const decisionWatchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), sortMode, gapDirection);
   const decisionPlansByWatchId = new Map(state.journal.filter((entry) => entry.kind === "plan").map((entry) => [entry.watchId, entry]));
   const freeJournalEntries = state.journal
-    .filter((entry) => entry.kind !== "plan" || !allDecisionWatchIds.has(entry.watchId))
+    .filter((entry) => entry.kind !== "plan")
     .filter((entry) => {
       if (!searchTerm) return true;
       const linkedWatch = state.watchlist.find((watch) => watch.id === entry.watchId);
@@ -2856,7 +2858,7 @@ export default function HoldingsApp() {
                   modal.item.name ||
                   modal.item.kind ||
                   modal.item.title}
-                」？每次保存前会自动保留数据备份。
+                」{modal.key === "watchlist" ? "及其关联的个股行动计划" : ""}？每次保存前会自动保留数据备份。
               </p>
               <footer className="mh-form-footer">
                 <button className="mh-button" onClick={() => setModal(null)}>
@@ -2871,6 +2873,9 @@ export default function HoldingsApp() {
                         (r) => r.id !== modal.item.id,
                       );
                       if (modal.key === "watchlist") {
+                        s.journal = s.journal.filter(
+                          (entry) => entry.kind !== "plan" || entry.watchId !== modal.item.id,
+                        );
                         for (const job of s.jobs)
                           if (job.watchId === modal.item.id && job.status === "waiting") {
                             job.status = "failed";
