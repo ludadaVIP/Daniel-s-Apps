@@ -1,3 +1,6 @@
+import { researchMeaningRetrieval } from './researchMeaningRetrieval';
+import { pythagoreanMeaningRetrieval } from './pythagoreanMeaningRetrieval';
+import { congruenceMeaningRetrieval } from './congruenceMeaningRetrieval';
 import { functionMeaningRetrieval } from './functionMeaningRetrieval';
 import { inequalityMeaningRetrieval } from './inequalityMeaningRetrieval';
 import { systemMeaningRetrieval } from './systemMeaningRetrieval';
@@ -223,6 +226,9 @@ export const maintenanceSets = {
   ...systemMeaningRetrieval,
   ...inequalityMeaningRetrieval,
   ...functionMeaningRetrieval,
+  ...congruenceMeaningRetrieval,
+  ...pythagoreanMeaningRetrieval,
+  ...researchMeaningRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',

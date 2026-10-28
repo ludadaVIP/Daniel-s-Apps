@@ -117,4 +117,76 @@ export const congruenceMotionRecurrence = [
     'H05/H06各先审四组无序正长与严格三角不等式，分别由5/12/13、8/15/17的平方相等及另构直角/SSS证明逆定理；退化1/2/3或2/3/5不分类。另用有效锐钝三元组说明不等只先否定直角，角分类还需固定两边夹角/对边比较性质。',
     'Each audits four unordered triples for positivity and strict existence. The 5/12/13 or 8/15/17 case uses exact squares, a constructed right triangle and SSS for the converse. Degenerate 1/2/3 or 2/3/5 is not angle-classified. Further valid acute/obtuse triples show that unequal squares first exclude right angles; classification also needs the fixed-two-sides angle/opposite-side comparison property.',
   ),
-];
+]
+  .map((entry) => {
+    if (!entry.sourceLesson.startsWith('J86-')) return entry;
+    const cards: Record<string, number[]> = {
+      'J86-L01': [1],
+      'J86-L03': [1],
+      'J86-L04': [2],
+      'J86-L05': [3, 4],
+      'J86-L06': [4],
+    };
+    const reuse = ['J86-L02', 'J86-L04'].includes(entry.sourceLesson);
+    const extra = [
+      ...(cards[entry.sourceLesson] ?? []).flatMap((n) =>
+        ['H05', 'H06'].map((u) => `${u}-MAINT-CONGRUENCE-MEANING-Q${n}`),
+      ),
+      ...(reuse
+        ? ['J93', 'J94'].map((u) => `${u}-MAINT-PLANE-MEANING-Q3`)
+        : []),
+    ];
+    return {
+      ...entry,
+      targets: [...entry.targets, ...extra],
+      rationale: t(
+        `${entry.rationale.zh} 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。${reuse ? '另直接复用J93/J94旧Q3的严格三角存在与等腰锐/直/钝自主构造，原J74补桥不改。' : ''}`,
+        `${entry.rationale.en} Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards.${reuse ? ' Reuse existing J93/J94 Q3 for strict existence and self-designed acute/right/obtuse isosceles cases, retaining original J74 bridges.' : ''}`,
+      ),
+    };
+  })
+  .map((entry) => {
+    if (!entry.sourceLesson.startsWith('J87-')) return entry;
+    const cards: Record<string, number[]> = {
+      'J87-L01': [1],
+      'J87-L02': [1, 2],
+      'J87-L04': [3],
+      'J87-L05': [3],
+    };
+    const added = (cards[entry.sourceLesson] ?? []).flatMap((n) =>
+      ['H05', 'H06'].map((u) => `${u}-MAINT-PYTHAGOREAN-MEANING-Q${n}`),
+    );
+    const reuse =
+      entry.sourceLesson === 'J87-L01'
+        ? ['J93', 'J94'].map((u) => `${u}-MAINT-CARTESIAN-MEANING-Q1`)
+        : entry.sourceLesson === 'J87-L04'
+          ? ['H05', 'H06'].map((u) => `${u}-MAINT-CONG-MOTION-Q6`)
+          : [];
+    if (!added.length && !reuse.length) return entry;
+    const detail: Record<string, [string, string]> = {
+      'J87-L01': [
+        '新Q1补y=x与y轴的分数三点、固定身份和等垂距证明，另自主标志连续平移/反射/半转；x轴反射及显示/真单位区别直接复用J93/J94旧Q1，原J75桥不改。',
+        'New Q1 supplies fractional y=x/y-axis images,fixed identities and perpendicular-distance reasoning,plus an independently drawn sign under sequential translation/reflection/half-turn. Reuse existing J93/J94 Q1 for x-axis reflection and display versus real units,retaining J75 bridges.',
+      ],
+      'J87-L02': [
+        '共享新Q1连续半转用上一步像，另Q2从分数点像反求中心、同中心顺逆90°比较等半径不足定方向、反射整轴固定vs半转单中心、重合点像的唯一中心。旧非原点旋转强任务继续保留。',
+        'Shared new Q1 composes a half-turn after the preceding image. Q2 recovers a centre from fractional point/image pairs,compares opposite quarter-turn directions with equal radii,and distinguishes mirror fixed lines from half-turn centres,including coincident point/image data. Retain original nonorigin rotations.',
+      ],
+      'J87-L04': [
+        '新Q3补分数腿/平方分母开方、等值单根式与小数精确差、自主分数矩形及原式核验。坐标距离直接复用原Q6三点中PQ精确差/长度，不再造重复点距题。',
+        'New Q3 adds fractional legs/rooted denominators,equivalent single-root forms with exact decimal differences,and a self-designed fractional rectangle with original-equation checks. Reuse original Q6 for exact coordinate displacement/distance rather than duplicate it.',
+      ],
+      'J87-L05': [
+        '共享新Q3给相差1/100000的近直角两例，算精确正/负平方差而非先舍入；零边虽平方相等仍先排除，自主正长退化数据与矩形正向问题区分。原一般SSS逆定理及锐钝比较保留。',
+        'Shared new Q3 uses near-right data differing by1/100000,requiring exact positive/negative square differences before rounding. A zero-side square equality still fails existence; independently designed positive degenerate data are separated from forward rectangle problems. Retain the original general SSS converse and angle comparison.',
+      ],
+    };
+    return {
+      ...entry,
+      targets: [...entry.targets, ...added, ...reuse],
+      rationale: t(
+        entry.rationale.zh + ' ' + detail[entry.sourceLesson]![0],
+        entry.rationale.en + ' ' + detail[entry.sourceLesson]![1],
+      ),
+    };
+  });

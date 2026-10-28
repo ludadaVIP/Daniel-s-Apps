@@ -10164,11 +10164,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q6",
               "taskSkill": "slope-as-unit-rate"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
             }
           ],
           "rationale": {
-            "zh": "H01从给定仿射水量点求m=3L/min、b=1L与x4输出13L；H02温度点求m=−3°C/h、b=11°C与x2输出5°C。均区分固定参数/改输入/改规则，解释初值不是一次输出；m0常函数不归J85严格一次，题设给仿射性不是两观察证明。",
-            "en": "H01 derives m=3 L/min,b=1 L and thirteen litres at input four; H02 derives m=−3°C/h,b=11°C and five degrees at two. Both distinguish fixed parameters, changed input and changed rules, and initial value from one output. Zero slope is constant outside J85 strict first degree; affine behaviour is given, not proved by two observations."
+            "zh": "H01从给定仿射水量点求m=3L/min、b=1L与x4输出13L；H02温度点求m=−3°C/h、b=11°C与x2输出5°C。均区分固定参数/改输入/改规则，解释初值不是一次输出；m0常函数不归J85严格一次，题设给仿射性不是两观察证明。 共享新Q1主动改变b/m并用一般差证明平移与零输入不变，另判零斜率、原两轴交点及窗外显示。保原点对求参/受限域任务，不重复创作。 ",
+            "en": "H01 derives m=3 L/min,b=1 L and thirteen litres at input four; H02 derives m=−3°C/h,b=11°C and five degrees at two. Both distinguish fixed parameters, changed input and changed rules, and initial value from one output. Zero slope is constant outside J85 strict first degree; affine behaviour is given, not proved by two observations. Shared new Q1 changes b/m and proves translation versus a retained zero-input point through general differences, with zero slope, both original intercepts and off-window display. Original point-derived parameters and restricted-domain tasks remain. "
           }
         }
       ],
@@ -10211,11 +10221,31 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q6",
               "taskSkill": "slope-as-unit-rate"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
             }
           ],
           "rationale": {
-            "zh": "两组分别计算9/3=3L/min与−6/2=−3°C/h，反向同时变两差符号率不变，只反分母错误变号。必须写输出/输入单位并区分坐标变化率与不等轴比例的屏幕倾角，不能只背差商式。",
-            "en": "The two tasks calculate 9/3=3 L/min and −6/2=−3°C/h. Reversing both differences leaves the rate unchanged, while reversing only the denominator wrongly changes its sign. They require output/input units and distinguish coordinate rate from screen angle under unequal axis scales."
+            "zh": "两组分别计算9/3=3L/min与−6/2=−3°C/h，反向同时变两差符号率不变，只反分母错误变号。必须写输出/输入单位并区分坐标变化率与不等轴比例的屏幕倾角，不能只背差商式。 共享新Q2自创连续服务和整包总张数模型，两非零输入回求参数并核第三行，亲画实际单位变化三角形；真换小时/分币推新率和域，给错保原率的数值反例，显示缩放另分。 另给J93/J94现有Q2精确分数点对入口；原补桥J75-L04保留。",
+            "en": "The two tasks calculate 9/3=3 L/min and −6/2=−3°C/h. Reversing both differences leaves the rate unchanged, while reversing only the denominator wrongly changes its sign. They require output/input units and distinguish coordinate rate from screen angle under unequal axis scales. Shared new Q2 designs continuous-service and whole-pack card-count rules, recovers parameters from nonzero inputs, checks a third row and draws a unit-aware change triangle. Hour/cents conversion derives the new rate/domain and a numerical old-rate counterexample, separate from display scaling. Also link existing J93/J94 Q2 exact fractional pairs; retain their original J75-L04 bridge."
           }
         }
       ],
@@ -10258,11 +10288,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q7",
               "taskSkill": "y-intercept-at-zero"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
             }
           ],
           "rationale": {
-            "zh": "H01的2x−5域[1,4]与H02的−3x+8域[1,3]要求区分b数值−5或8、域外延长点(0,−5)/(0,8)与实际x轴交点(5/2,0)/(8/3,0)，亲画闭线段。零输入不在域，不能宣称有实际y轴交点或记录过初值。",
-            "en": "H01 restricts 2x−5 to [1,4] and H02 restricts −3x+8 to [1,3]. They distinguish numerical b values −5/eight, extension points (0,−5)/(0,8) and actual x-axis crossings (5/2,0)/(8/3,0), drawing closed segments. Zero is outside the domain, so no actual y-axis crossing or observed initial value may be claimed."
+            "zh": "H01的2x−5域[1,4]与H02的−3x+8域[1,3]要求区分b数值−5或8、域外延长点(0,−5)/(0,8)与实际x轴交点(5/2,0)/(8/3,0)，亲画闭线段。零输入不在域，不能宣称有实际y轴交点或记录过初值。 共享新Q1主动改变b/m并用一般差证明平移与零输入不变，另判零斜率、原两轴交点及窗外显示。保原点对求参/受限域任务，不重复创作。 ",
+            "en": "H01 restricts 2x−5 to [1,4] and H02 restricts −3x+8 to [1,3]. They distinguish numerical b values −5/eight, extension points (0,−5)/(0,8) and actual x-axis crossings (5/2,0)/(8/3,0), drawing closed segments. Zero is outside the domain, so no actual y-axis crossing or observed initial value may be claimed. Shared new Q1 changes b/m and proves translation versus a retained zero-input point through general differences, with zero slope, both original intercepts and off-window display. Original point-derived parameters and restricted-domain tasks remain. "
           }
         }
       ],
@@ -10305,11 +10345,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q8",
               "taskSkill": "two-point-function-model"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
             }
           ],
           "rationale": {
-            "zh": "H01不同输入给常函数4，H02给2x+4；两组另有同输入不同输出的竖直线及重复一点的无限规则。学习者须给重复点两个不同规则并核回，不把Δx0一概判无解，也不把两观测拟合证明全域直线；候选类明含零斜率。",
-            "en": "Distinct inputs give constant four in H01 and 2x+4 in H02. Each also includes a vertical pair and a repeated point allowing infinitely many rules. Learners supply and check two distinct repeated-point rules, distinguish zero-input-difference cases and avoid claiming that fitting observations proves global linearity; the candidate class explicitly permits zero slope."
+            "zh": "H01不同输入给常函数4，H02给2x+4；两组另有同输入不同输出的竖直线及重复一点的无限规则。学习者须给重复点两个不同规则并核回，不把Δx0一概判无解，也不把两观测拟合证明全域直线；候选类明含零斜率。 直接复用旧双点分数任务，按两个非零输入求精确−1/2与截距、回代两点并反点序，不另造同类题。 另给J93/J94现有Q2精确分数点对入口；原补桥J75-L04保留。",
+            "en": "Distinct inputs give constant four in H01 and 2x+4 in H02. Each also includes a vertical pair and a repeated point allowing infinitely many rules. Learners supply and check two distinct repeated-point rules, distinguish zero-input-difference cases and avoid claiming that fitting observations proves global linearity; the candidate class explicitly permits zero slope. Reuse the existing two-nonzero-input task for exact slope −1/2 and intercept, checking both points and reversed order without duplicating it. Also link existing J93/J94 Q2 exact fractional pairs; retain their original J75-L04 bridge."
           }
         }
       ],
@@ -10352,11 +10402,16 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q9",
               "taskSkill": "direct-versus-first-degree"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
             }
           ],
           "rationale": {
-            "zh": "H01分类3x、3x+2、7、x²、0，H02分类−2x、−2x+5、−4、x²、0；按k/m非零约定说明常数与零例外，正输入1和2核非恒比，0/0不定义。负k仍可正比例；过原点或固定率各自不足，完整式才支持一般分类。",
-            "en": "H01 classifies 3x,3x+2,7,x²,0; H02 uses −2x,−2x+5,−4,x²,0. Both apply nonzero k/m conventions, calculate ratios at positive inputs one/two and reject 0/0. Negative k may still be direct proportion. Origin crossing and fixed rate alone are insufficient; complete formulas support general classification."
+            "zh": "H01分类3x、3x+2、7、x²、0，H02分类−2x、−2x+5、−4、x²、0；按k/m非零约定说明常数与零例外，正输入1和2核非恒比，0/0不定义。负k仍可正比例；过原点或固定率各自不足，完整式才支持一般分类。 H01原Q9只在参考提负系数，未要求主动负比例分类；直接复用J94旧Q3给定P=−3x的实际分类，联合H02原Q9满足两个不同后续单元，不新增重复题。 ",
+            "en": "H01 classifies 3x,3x+2,7,x²,0; H02 uses −2x,−2x+5,−4,x²,0. Both apply nonzero k/m conventions, calculate ratios at positive inputs one/two and reject 0/0. Negative k may still be direct proportion. Origin crossing and fixed rate alone are insufficient; complete formulas support general classification. Original H01 Q9 mentions a negative coefficient only in its reference. Reuse J94 Q3, which actively classifies supplied P=−3x, with original H02 Q9 for two distinct later units, without adding a duplicate task. "
           }
         }
       ],
@@ -10399,11 +10454,31 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q10",
               "taskSkill": "bounded-linear-context"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
             }
           ],
           "rationale": {
-            "zh": "两组各比较已启动接送的率/固定费、有界排水后另停为0、整包卡片仅离散输入，核所有端点和域外输出。半包分别给3或5整数张仍输入不许，是比原半张输出更强的输入域反例；明确单位、模型题设与外推范围，不从输出整数倒推输入合法。",
-            "en": "Each group compares activated-transport rates/fixed fees, bounded draining followed by a separate zero rule and whole-pack card inputs as discrete points. They check endpoints and outside outputs. Half packs give integer three or five cards but remain inadmissible inputs, a stronger domain example than fractional output alone. Units, given assumptions and extrapolation bounds are explicit; integer outputs cannot validate inputs."
+            "zh": "两组各比较已启动接送的率/固定费、有界排水后另停为0、整包卡片仅离散输入，核所有端点和域外输出。半包分别给3或5整数张仍输入不许，是比原半张输出更强的输入域反例；明确单位、模型题设与外推范围，不从输出整数倒推输入合法。 共享新Q2自创连续服务和整包总张数模型，两非零输入回求参数并核第三行，亲画实际单位变化三角形；真换小时/分币推新率和域，给错保原率的数值反例，显示缩放另分。 自创排空终点/连续与离散图直接复用旧J93/J94-Q3，不再机械加一套排水创作；原补桥保留。",
+            "en": "Each group compares activated-transport rates/fixed fees, bounded draining followed by a separate zero rule and whole-pack card inputs as discrete points. They check endpoints and outside outputs. Half packs give integer three or five cards but remain inadmissible inputs, a stronger domain example than fractional output alone. Units, given assumptions and extrapolation bounds are explicit; integer outputs cannot validate inputs. Shared new Q2 designs continuous-service and whole-pack card-count rules, recovers parameters from nonzero inputs, checks a third row and draws a unit-aware change triangle. Hour/cents conversion derives the new rate/domain and a numerical old-rate counterexample, separate from display scaling. Reuse existing J93/J94 Q3 for an independently designed emptying boundary and continuous/discrete plots, retaining original bridges instead of duplicating draining design."
           }
         }
       ],
@@ -10446,11 +10521,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q1",
               "taskSkill": "ordered-congruence-correspondence"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
             }
           ],
           "rationale": {
-            "zh": "H05按ABC≅DFE生成3/4/5对应边，H06生成5/12/13对应边，均逐一列顶点边角，不随反射旋转改点名；保长保角与朝向分别讨论，非一倍缩放不保全等。",
-            "en": "H05 generates corresponding lengths three/four/five and H06 five/twelve/thirteen from ABC≅DFE. Both list vertices, sides and angles without renaming after reflection/rotation, distinguish length/angle preservation from orientation and reject nonunit scaling as congruence."
+            "zh": "H05按ABC≅DFE生成3/4/5对应边，H06生成5/12/13对应边，均逐一列顶点边角，不随反射旋转改点名；保长保角与朝向分别讨论，非一倍缩放不保全等。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "H05 generates corresponding lengths three/four/five and H06 five/twelve/thirteen from ABC≅DFE. Both list vertices, sides and angles without renaming after reflection/rotation, distinguish length/angle preservation from orientation and reject nonunit scaling as congruence. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10493,11 +10578,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q2",
               "taskSkill": "sss-sas-sufficient-conditions"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
             }
           ],
           "rationale": {
-            "zh": "两组写SSS/SAS充分清单，指定AB/BC夹角B；SSA分别固定AB6/BC4与AB10/BC6、A30°，由距离得AC=3√3±√7或5√3±√11，两正非退化值证一般不足，不否定有额外前提的特殊情形。",
-            "en": "Both write corresponding SSS/SAS evidence and locate the included angle of AB/BC at B. For A=30°, lengths AB6/BC4 or AB10/BC6 yield AC=3√3±√7 or 5√3±√11. Two positive nondegenerate possibilities disprove general SSA sufficiency without denying special cases with extra premises."
+            "zh": "两组写SSS/SAS充分清单，指定AB/BC夹角B；SSA分别固定AB6/BC4与AB10/BC6、A30°，由距离得AC=3√3±√7或5√3±√11，两正非退化值证一般不足，不否定有额外前提的特殊情形。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。另直接复用J93/J94旧Q3的严格三角存在与等腰锐/直/钝自主构造，原J74补桥不改。",
+            "en": "Both write corresponding SSS/SAS evidence and locate the included angle of AB/BC at B. For A=30°, lengths AB6/BC4 or AB10/BC6 yield AC=3√3±√7 or 5√3±√11. Two positive nondegenerate possibilities disprove general SSA sufficiency without denying special cases with extra premises. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards. Reuse existing J93/J94 Q3 for strict existence and self-designed acute/right/obtuse isosceles cases, retaining original J74 bridges."
           }
         }
       ],
@@ -10537,11 +10632,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q2",
               "taskSkill": "sss-sas-sufficient-conditions"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
             }
           ],
           "rationale": {
-            "zh": "H05/H06在各自两三角形图上生成ASA及AAS充分清单，说明边是否夹在所列两角之间，用180减两角补第三角支持有效互换；用AAA可任意放大说明角不能固定大小，与同题SSS/SAS和SSA的适用性分开。",
-            "en": "H05/H06 generate ASA/AAS evidence on their own triangle diagrams, identify whether the side is included between the listed angles and derive the third by subtraction from 180° to justify another valid list. Enlargement under AAA exposes missing size information, separate from the SSS/SAS and SSA cases."
+            "zh": "H05/H06在各自两三角形图上生成ASA及AAS充分清单，说明边是否夹在所列两角之间，用180减两角补第三角支持有效互换；用AAA可任意放大说明角不能固定大小，与同题SSS/SAS和SSA的适用性分开。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "H05/H06 generate ASA/AAS evidence on their own triangle diagrams, identify whether the side is included between the listed angles and derive the third by subtraction from 180° to justify another valid list. Enlargement under AAA exposes missing size information, separate from the SSS/SAS and SSA cases. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10584,11 +10689,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q3",
               "taskSkill": "isosceles-properties-and-converse"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q2",
+              "taskSkill": "inverse-isosceles-and-changed-leg-identity"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q2",
+              "taskSkill": "inverse-isosceles-and-changed-leg-identity"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
             }
           ],
           "rationale": {
-            "zh": "两组由等腰及顶角40/70、角平分线和公共AD用SAS证明底角及底边平分，底角70/55；逆向只给底角相等则改AAS证明腰等，必须列不同已知，不先借待证性质或图形对称。",
-            "en": "Both use equal legs, apex forty/seventy, a constructed bisector and common AD for SAS, deriving equal base angles seventy/fifty-five and bisected base. The converse starts only with equal base angles and uses AAS for equal legs, requiring a different premise list without borrowing the goal or visual symmetry."
+            "zh": "两组由等腰及顶角40/70、角平分线和公共AD用SAS证明底角及底边平分，底角70/55；逆向只给底角相等则改AAS证明腰等，必须列不同已知，不先借待证性质或图形对称。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。另直接复用J93/J94旧Q3的严格三角存在与等腰锐/直/钝自主构造，原J74补桥不改。",
+            "en": "Both use equal legs, apex forty/seventy, a constructed bisector and common AD for SAS, deriving equal base angles seventy/fifty-five and bisected base. The converse starts only with equal base angles and uses AAS for equal legs, requiring a different premise list without borrowing the goal or visual symmetry. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards. Reuse existing J93/J94 Q3 for strict existence and self-designed acute/right/obtuse isosceles cases, retaining original J74 bridges."
           }
         }
       ],
@@ -10631,11 +10756,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q4",
               "taskSkill": "parallelogram-properties-and-tests"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q3",
+              "taskSkill": "parallelogram-numerical-properties-and-diagonal-proof"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q3",
+              "taskSkill": "parallelogram-numerical-properties-and-diagonal-proof"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
             }
           ],
           "rationale": {
-            "zh": "H05/H06分别用底6/4与8/4的坐标等腰梯形算AD²=BC²为5/13，反驳一组平行加另一组相等。两处辨两组平行定义、各性质及三类完整逆判，强调同一组平行且等和两对角线互相平分，不能只取半条件。",
-            "en": "H05/H06 calculate isosceles-trapezium examples with bases six/four or eight/four and equal leg squares five/thirteen. They refute mixing a parallel pair with a different equal pair, distinguish definitions and properties from three full converse tests and require the same parallel/equal pair and mutual diagonal bisection."
+            "zh": "H05/H06分别用底6/4与8/4的坐标等腰梯形算AD²=BC²为5/13，反驳一组平行加另一组相等。两处辨两组平行定义、各性质及三类完整逆判，强调同一组平行且等和两对角线互相平分，不能只取半条件。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "H05/H06 calculate isosceles-trapezium examples with bases six/four or eight/four and equal leg squares five/thirteen. They refute mixing a parallel pair with a different equal pair, distinguish definitions and properties from three full converse tests and require the same parallel/equal pair and mutual diagonal bisection. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10678,11 +10823,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q5",
               "taskSkill": "short-proof-dependency-chain"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
             }
           ],
           "rationale": {
-            "zh": "两组仅从AB∥CD、BC∥AD画AC，逐行给BAC=DCA、BCA=DAC的内错角依据、AC公共、ASA的ABC≅CDA与AB=CD，明确顺序。另指出借AB=CD证明自身的SSS句循环且证据未足，卡片合法顺序不替代自己生成完整证明。",
-            "en": "Both start only from opposite parallel sides, draw AC and generate alternate-angle reasons, common AC, ordered ASA congruence ABC≅CDA and AB=CD. They expose a proposed SSS sentence as circular and incomplete and explicitly distinguish valid card order from producing a free proof."
+            "zh": "两组仅从AB∥CD、BC∥AD画AC，逐行给BAC=DCA、BCA=DAC的内错角依据、AC公共、ASA的ABC≅CDA与AB=CD，明确顺序。另指出借AB=CD证明自身的SSS句循环且证据未足，卡片合法顺序不替代自己生成完整证明。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "Both start only from opposite parallel sides, draw AC and generate alternate-angle reasons, common AC, ordered ASA congruence ABC≅CDA and AB=CD. They expose a proposed SSS sentence as circular and incomplete and explicitly distinguish valid card order from producing a free proof. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10725,11 +10880,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q6",
               "taskSkill": "translation-reflection-reference"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
             }
           ],
           "rationale": {
-            "zh": "H05三点同移(−3,2)及另从原图反射x1，H06同移(2,−3)及反射y−2。亲算三像点、PQ差向量/√20长度，点像中点落轴及轴上固定；叉积10变−10或6变−6辨反向，反射规则2−x或−4−y不套原点轴。",
-            "en": "H05 translates three points by (−3,2) and separately reflects the original in x=1; H06 uses (2,−3) and y=−2. Both calculate image points, displacement and √20 length, midpoint-on-axis and fixed-axis conditions. Determinants change ten to negative ten or six to negative six, retrieving orientation reversal and correct nonorigin-axis formulas."
+            "zh": "H05三点同移(−3,2)及另从原图反射x1，H06同移(2,−3)及反射y−2。亲算三像点、PQ差向量/√20长度，点像中点落轴及轴上固定；叉积10变−10或6变−6辨反向，反射规则2−x或−4−y不套原点轴。 新Q1补y=x与y轴的分数三点、固定身份和等垂距证明，另自主标志连续平移/反射/半转；x轴反射及显示/真单位区别直接复用J93/J94旧Q1，原J75桥不改。",
+            "en": "H05 translates three points by (−3,2) and separately reflects the original in x=1; H06 uses (2,−3) and y=−2. Both calculate image points, displacement and √20 length, midpoint-on-axis and fixed-axis conditions. Determinants change ten to negative ten or six to negative six, retrieving orientation reversal and correct nonorigin-axis formulas. New Q1 supplies fractional y=x/y-axis images,fixed identities and perpendicular-distance reasoning,plus an independently drawn sign under sequential translation/reflection/half-turn. Reuse existing J93/J94 Q1 for x-axis reflection and display versus real units,retaining J75 bridges."
           }
         }
       ],
@@ -10772,11 +10947,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q7",
               "taskSkill": "rotation-centre-and-direction"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q2",
+              "taskSkill": "inverse-half-turn-and-fixed-set"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q2",
+              "taskSkill": "inverse-half-turn-and-fixed-set"
             }
           ],
           "rationale": {
-            "zh": "H05以O(1,2)、P(4,3)逆90°得(0,5)，H06以O(−2,1)、P(1,3)顺90°得(0,−2)，都强制先减中心、转相对位移再加中心，核√10/√13距离；另算半转及二次回原位置，解释2O−P和运动转角不加内角。",
-            "en": "H05 rotates P(4,3) anticlockwise about O(1,2) to (0,5); H06 rotates P(1,3) clockwise about O(−2,1) to (0,−2). Both subtract the centre, rotate displacement, add it back and check √10/√13 radius. Separate half-turn calculations return to the original after two turns, explaining 2O−P and why motion angle does not increase interior angles."
+            "zh": "H05以O(1,2)、P(4,3)逆90°得(0,5)，H06以O(−2,1)、P(1,3)顺90°得(0,−2)，都强制先减中心、转相对位移再加中心，核√10/√13距离；另算半转及二次回原位置，解释2O−P和运动转角不加内角。 共享新Q1连续半转用上一步像，另Q2从分数点像反求中心、同中心顺逆90°比较等半径不足定方向、反射整轴固定vs半转单中心、重合点像的唯一中心。旧非原点旋转强任务继续保留。",
+            "en": "H05 rotates P(4,3) anticlockwise about O(1,2) to (0,5); H06 rotates P(1,3) clockwise about O(−2,1) to (0,−2). Both subtract the centre, rotate displacement, add it back and check √10/√13 radius. Separate half-turn calculations return to the original after two turns, explaining 2O−P and why motion angle does not increase interior angles. Shared new Q1 composes a half-turn after the preceding image. Q2 recovers a centre from fractional point/image pairs,compares opposite quarter-turn directions with equal radii,and distinguishes mirror fixed lines from half-turn centres,including coincident point/image data. Retain original nonorigin rotations."
           }
         }
       ],
@@ -10866,11 +11061,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q9",
               "taskSkill": "right-triangle-exact-length"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONG-MOTION-Q6",
+              "taskSkill": "translation-reflection-reference"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONG-MOTION-Q6",
+              "taskSkill": "translation-reflection-reference"
             }
           ],
           "rationale": {
-            "zh": "H05矩形3cm/50mm先化3/5cm得√34cm，H06的40mm/7cm化4/7cm得√65cm；另由斜边13腿5或斜边17腿8减平方得12/15。须给直角依据、平方cm²/开方cm与正根，不能减长度或用图猜直角。",
-            "en": "H05 converts rectangle sides three cm/fifty mm to three/five cm for √34 cm; H06 converts forty mm/seven cm to four/seven cm for √65 cm. Separate given hypotenuse/leg pairs thirteen/five or seventeen/eight yield twelve/fifteen by subtracting squares. Both require right-angle premises, square/root units and positive length, not subtracting lengths or guessing angles."
+            "zh": "H05矩形3cm/50mm先化3/5cm得√34cm，H06的40mm/7cm化4/7cm得√65cm；另由斜边13腿5或斜边17腿8减平方得12/15。须给直角依据、平方cm²/开方cm与正根，不能减长度或用图猜直角。 新Q3补分数腿/平方分母开方、等值单根式与小数精确差、自主分数矩形及原式核验。坐标距离直接复用原Q6三点中PQ精确差/长度，不再造重复点距题。",
+            "en": "H05 converts rectangle sides three cm/fifty mm to three/five cm for √34 cm; H06 converts forty mm/seven cm to four/seven cm for √65 cm. Separate given hypotenuse/leg pairs thirteen/five or seventeen/eight yield twelve/fifteen by subtracting squares. Both require right-angle premises, square/root units and positive length, not subtracting lengths or guessing angles. New Q3 adds fractional legs/rooted denominators,equivalent single-root forms with exact decimal differences,and a self-designed fractional rectangle with original-equation checks. Reuse original Q6 for exact coordinate displacement/distance rather than duplicate it."
           }
         }
       ],
@@ -10913,11 +11128,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q10",
               "taskSkill": "pythagorean-converse-validity"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
             }
           ],
           "rationale": {
-            "zh": "H05/H06各先审四组无序正长与严格三角不等式，分别由5/12/13、8/15/17的平方相等及另构直角/SSS证明逆定理；退化1/2/3或2/3/5不分类。另用有效锐钝三元组说明不等只先否定直角，角分类还需固定两边夹角/对边比较性质。",
-            "en": "Each audits four unordered triples for positivity and strict existence. The 5/12/13 or 8/15/17 case uses exact squares, a constructed right triangle and SSS for the converse. Degenerate 1/2/3 or 2/3/5 is not angle-classified. Further valid acute/obtuse triples show that unequal squares first exclude right angles; classification also needs the fixed-two-sides angle/opposite-side comparison property."
+            "zh": "H05/H06各先审四组无序正长与严格三角不等式，分别由5/12/13、8/15/17的平方相等及另构直角/SSS证明逆定理；退化1/2/3或2/3/5不分类。另用有效锐钝三元组说明不等只先否定直角，角分类还需固定两边夹角/对边比较性质。 共享新Q3给相差1/100000的近直角两例，算精确正/负平方差而非先舍入；零边虽平方相等仍先排除，自主正长退化数据与矩形正向问题区分。原一般SSS逆定理及锐钝比较保留。",
+            "en": "Each audits four unordered triples for positivity and strict existence. The 5/12/13 or 8/15/17 case uses exact squares, a constructed right triangle and SSS for the converse. Degenerate 1/2/3 or 2/3/5 is not angle-classified. Further valid acute/obtuse triples show that unequal squares first exclude right angles; classification also needs the fixed-two-sides angle/opposite-side comparison property. Shared new Q3 uses near-right data differing by1/100000,requiring exact positive/negative square differences before rounding. A zero-side square equality still fails existence; independently designed positive degenerate data are separated from forward rectangle problems. Retain the original general SSS converse and angle comparison."
           }
         }
       ],
@@ -10960,11 +11185,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q1",
               "taskSkill": "quartile-convention"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
             }
           ],
           "rationale": {
-            "zh": "H08/H27各对五项按奇数排除/包含中位数算不同四分位，再对九项保负号与重复，分别画最小最大版和1.5IQR须线版。须端是围栏内实际观测，30/31另标异常候选，围栏不当须端或删值令；箱段宽不是人数比例。",
-            "en": "Each task calculates different quartiles under odd-sample exclusion/inclusion, then retains negative/repeated values in nine-item minimum/maximum and 1.5IQR whisker plots. Whiskers reach actual in-fence observations; thirty/thirty-one are marked separately. Fences are not endpoints or deletion orders, and box-segment widths are not headcounts."
+            "zh": "H08/H27各对五项按奇数排除/包含中位数算不同四分位，再对九项保负号与重复，分别画最小最大版和1.5IQR须线版。须端是围栏内实际观测，30/31另标异常候选，围栏不当须端或删值令；箱段宽不是人数比例。 新N1再算八项负分数偶数分半、闭区间ID人数2/2/3/3与共享边界、全同/两条/单条边界。",
+            "en": "Each task calculates different quartiles under odd-sample exclusion/inclusion, then retains negative/repeated values in nine-item minimum/maximum and 1.5IQR whisker plots. Whiskers reach actual in-fence observations; thirty/thirty-one are marked separately. Fences are not endpoints or deletion orders, and box-segment widths are not headcounts. New N1 computes even signed fractional halves,closed-interval ID counts2/2/3/3 with shared boundaries,and equal/two/single-record cases."
           }
         }
       ],
@@ -11007,11 +11242,41 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q2",
               "taskSkill": "spread-evidence"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
             }
           ],
           "rationale": {
-            "zh": "两处原九项A/B同中位5/6，原极差6/10、IQR2/8；A尾值改30/41后极差29/39而IQR2，说明全跨度与中部可相反。从原A独立重设同尾值0，重排后IQR3，反驳永不受影响；保全部已核记录与同轴同单位，不删出想要的结论。",
-            "en": "Both nine-item A/B pairs share median five/six, with original ranges six/ten and IQRs two/eight. Changing A’s tail to thirty/forty-one yields range twenty-nine/thirty-nine but IQR two, separating total and middle spread. Independently resetting the original tail to zero changes IQR to three, disproving immunity. All verified records remain, with common axes and units rather than deletion to preference."
+            "zh": "两处原九项A/B同中位5/6，原极差6/10、IQR2/8；A尾值改30/41后极差29/39而IQR2，说明全跨度与中部可相反。从原A独立重设同尾值0，重排后IQR3，反驳永不受影响；保全部已核记录与同轴同单位，不删出想要的结论。 新N1实际算平移/正倍缩放四分位与跨度，新N3对照原卡纠错与已核大值保留；另复用J93/J94旧平移卡Q2的逐ID新图/跨度和自主分布。",
+            "en": "Both nine-item A/B pairs share median five/six, with original ranges six/ten and IQRs two/eight. Changing A’s tail to thirty/forty-one yields range twenty-nine/thirty-nine but IQR two, separating total and middle spread. Independently resetting the original tail to zero changes IQR to three, disproving immunity. All verified records remain, with common axes and units rather than deletion to preference. New N1 computes translated/scaled quartiles and spreads;N3 contrasts source correction with retention of verified large values. Existing J93/J94 Q2 adds per-ID translated plots/ranges and independently created distributions."
           }
         }
       ],
@@ -11054,11 +11319,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q4",
               "taskSkill": "paired-association"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
             }
           ],
           "rationale": {
-            "zh": "两组各保五ID数对画U形散点，另有缺失y的ID6只排该项成对分析不造0。分列排序会造原来不存在的(0,0)或(−2,1)，须自己给反例；编号不当路径连接，中心交积和0仍有U形，不误称无关系、独立、总体形状或因果结论。",
-            "en": "Each plots five ID-preserved U-shaped pairs and excludes a missing-y sixth ID only from that paired analysis without zero imputation. Separate sorting invents absent pairs (0,0) or (−2,1), which learners identify. IDs are not a path. Zero centred cross-product sum coexists with a U shape, not proving no relationship, independence, population shape or causation."
+            "zh": "两组各保五ID数对画U形散点，另有缺失y的ID6只排该项成对分析不造0。分列排序会造原来不存在的(0,0)或(−2,1)，须自己给反例；编号不当路径连接，中心交积和0仍有U形，不误称无关系、独立、总体形状或因果结论。 新N2实际画正/负/均衡散点，指出逆整体局部变化，补新ID重合前后行数/完整对数/位置数，区别旧U形。",
+            "en": "Each plots five ID-preserved U-shaped pairs and excludes a missing-y sixth ID only from that paired analysis without zero imputation. Separate sorting invents absent pairs (0,0) or (−2,1), which learners identify. IDs are not a path. Zero centred cross-product sum coexists with a U shape, not proving no relationship, independence, population shape or causation. New N2 plots rising/falling/balanced pairs,identifies opposing local steps,and counts rows/complete pairs/positions around an overlapping new ID,contrasting the old U shape."
           }
         }
       ],
@@ -11098,11 +11373,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q3",
               "taskSkill": "statistical-enquiry"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
             }
           ],
           "rationale": {
-            "zh": "H08/H27飞行资料分别给A60cm/B80cm释放且未随机分配，要求指出高度混杂、更多点/更直趋势/按高度分组不自动证明因果或排尽混杂。下一轮固定条件、随机分配折法、重复记录；区别总体随机抽样和处理随机分配，参与材料因果不自动普推。",
-            "en": "Both flight datasets give unequal release heights A60/B80 cm without random allocation. Learners identify height confounding and explain why more points, straighter trends or height grouping do not automatically establish causation or remove every confounder. They improve conditions, allocation and repeated records while distinguishing random sampling for population scope from random treatment allocation and avoiding automatic generalisation."
+            "zh": "H08/H27飞行资料分别给A60cm/B80cm释放且未随机分配，要求指出高度混杂、更多点/更直趋势/按高度分组不自动证明因果或排尽混杂。下一轮固定条件、随机分配折法、重复记录；区别总体随机抽样和处理随机分配，参与材料因果不自动普推。 新N2画八天合并/天气分组图，核每组低高x的y均值相同而组间同向；自提反向因果/共同因素候选及尚需证据。",
+            "en": "Both flight datasets give unequal release heights A60/B80 cm without random allocation. Learners identify height confounding and explain why more points, straighter trends or height grouping do not automatically establish causation or remove every confounder. They improve conditions, allocation and repeated records while distinguishing random sampling for population scope from random treatment allocation and avoiding automatic generalisation. New N2 plots eight pooled/weather-grouped days and checks equal within-group low/high-x means despite pooled direction,then proposes reverse/common-factor candidates and needed evidence."
           }
         }
       ],
@@ -11145,11 +11430,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q3",
               "taskSkill": "statistical-enquiry"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
             }
           ],
           "rationale": {
-            "zh": "两处从带单位ID表写完整PPDAC：40/50mm转4/5cm留痕，缺A6不补0，只并已核同次重复B3而保不同ID同值。有效A5/B6，排除法中位4/5或5/6、IQR4/2，报告本批B中位较大、中部较窄，列不能回答的因果/总体问题及后续设计，而非只写缩写或导出当通过。",
-            "en": "Each writes connected PPDAC from an ID/unit table: logged conversion of forty/fifty mm to four/five cm, no zero for missing A6, merging only the confirmed same-occasion B3 duplicate while retaining equal values under different IDs. Effective n is five/six; exclusion medians are four/five or five/six and IQRs four/two. Reports bound conclusions to this batch, name unanswerable causal/population questions and improve design rather than only listing initials or treating export as approval."
+            "zh": "两处从带单位ID表写完整PPDAC：40/50mm转4/5cm留痕，缺A6不补0，只并已核同次重复B3而保不同ID同值。有效A5/B6，排除法中位4/5或5/6、IQR4/2，报告本批B中位较大、中部较窄，列不能回答的因果/总体问题及后续设计，而非只写缩写或导出当通过。 新N3保12行/缺A5，原卡纠正A6并日志、重算两组与独立确认大值分支，自己写相连PPDAC和返查版本。纸稿/导出/有限关卡非人工认可。",
+            "en": "Each writes connected PPDAC from an ID/unit table: logged conversion of forty/fifty mm to four/five cm, no zero for missing A6, merging only the confirmed same-occasion B3 duplicate while retaining equal values under different IDs. Effective n is five/six; exclusion medians are four/five or five/six and IQRs four/two. Reports bound conclusions to this batch, name unanswerable causal/population questions and improve design rather than only listing initials or treating export as approval. New N3 retains twelve rows/missing A5,logs source correction of A6,recomputes groups and a separate verified-large-value branch,and writes connected PPDAC with revision provenance. Paper/export/finite gates are not human approval."
           }
         }
       ],

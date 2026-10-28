@@ -1,6 +1,35 @@
 import { t } from '../model';
 const pair = (i: number) =>
   ['H08', 'H27'].map((u) => `${u}-MAINT-DATA-ENQUIRY-Q${i}`);
+const supplements: Record<string, number[]> = {
+  'J88-L01': [1],
+  'J88-L02': [1, 3],
+  'J88-L03': [2],
+  'J88-L04': [2],
+  'J88-L05': [3],
+};
+const extraEvidence: Record<string, ReturnType<typeof t>> = {
+  'J88-L01': t(
+    ' 新N1再算八项负分数偶数分半、闭区间ID人数2/2/3/3与共享边界、全同/两条/单条边界。',
+    ' New N1 computes even signed fractional halves,closed-interval ID counts2/2/3/3 with shared boundaries,and equal/two/single-record cases.',
+  ),
+  'J88-L02': t(
+    ' 新N1实际算平移/正倍缩放四分位与跨度，新N3对照原卡纠错与已核大值保留；另复用J93/J94旧平移卡Q2的逐ID新图/跨度和自主分布。',
+    ' New N1 computes translated/scaled quartiles and spreads;N3 contrasts source correction with retention of verified large values. Existing J93/J94 Q2 adds per-ID translated plots/ranges and independently created distributions.',
+  ),
+  'J88-L03': t(
+    ' 新N2实际画正/负/均衡散点，指出逆整体局部变化，补新ID重合前后行数/完整对数/位置数，区别旧U形。',
+    ' New N2 plots rising/falling/balanced pairs,identifies opposing local steps,and counts rows/complete pairs/positions around an overlapping new ID,contrasting the old U shape.',
+  ),
+  'J88-L04': t(
+    ' 新N2画八天合并/天气分组图，核每组低高x的y均值相同而组间同向；自提反向因果/共同因素候选及尚需证据。',
+    ' New N2 plots eight pooled/weather-grouped days and checks equal within-group low/high-x means despite pooled direction,then proposes reverse/common-factor candidates and needed evidence.',
+  ),
+  'J88-L05': t(
+    ' 新N3保12行/缺A5，原卡纠正A6并日志、重算两组与独立确认大值分支，自己写相连PPDAC和返查版本。纸稿/导出/有限关卡非人工认可。',
+    ' New N3 retains twelve rows/missing A5,logs source correction of A6,recomputes groups and a separate verified-large-value branch,and writes connected PPDAC with revision provenance. Paper/export/finite gates are not human approval.',
+  ),
+};
 const e = (
   skill: string,
   l: string,
@@ -14,8 +43,19 @@ const e = (
   focus: t(z, en),
   sourceLesson: l,
   sourceTask: `${l}-Q6`,
-  targets: pair(i),
-  rationale: t(rz, re),
+  targets: [
+    ...pair(i),
+    ...['H08', 'H27'].flatMap((u) =>
+      (supplements[l] ?? []).map((n) => `${u}-MAINT-RESEARCH-MEANING-Q${n}`),
+    ),
+    ...(l === 'J88-L02'
+      ? ['J93', 'J94'].map((u) => `${u}-MAINT-INFERENCE-MEANING-Q2`)
+      : []),
+  ],
+  rationale: t(
+    rz + (extraEvidence[l]?.zh ?? ''),
+    re + (extraEvidence[l]?.en ?? ''),
+  ),
 });
 export const dataEnquiryRecurrence = [
   e(
