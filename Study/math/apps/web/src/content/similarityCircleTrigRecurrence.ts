@@ -1,6 +1,85 @@
 import { t } from '../model';
 const pair = (i: number) =>
   ['H22', 'H23'].map((u) => `${u}-MAINT-SIM-CIRCLE-TRIG-Q${i}`);
+const supplements: Record<string, number[]> = {
+  'J94-L01': [1, 3],
+  'J94-L02': [2],
+  'J94-L03': [1],
+  'J94-L04': [3],
+  'J94-L05': [4],
+  'J95-L01': [1],
+  'J95-L02': [2],
+  'J95-L03': [3],
+  'J95-L04': [4],
+  'J95-L05': [2, 4],
+  'J96-L01': [1],
+  'J96-L02': [1],
+  'J96-L03': [2],
+  'J96-L04': [2],
+  'J96-L05': [3],
+};
+const extra: Record<string, ReturnType<typeof t>> = {
+  'J96-L01': t(
+    ' 新N1由等边垂高与等腰直角实际推30/45/60度全部精确比、有理化与小数平方区别，再以互余和换腿说明sin/cos互换、tan互为正倒数；原一般AA继续用。',
+    ' New N1 derives all exact 30/45/60-degree ratios from an equilateral altitude and isosceles right triangle, checks rationalisation versus decimal squares, and explains complementary sine/cosine swapping and reciprocal positive tangents. Original general AA remains.',
+  ),
+  'J96-L02': t(
+    ' 共享N1独立cos给斜边求邻腿、tan给对腿反求分母，分数三边完整乘回；两案例不拼接，原O8的全部比与反求斜边保留。',
+    ' Shared N1 independently recovers the adjacent leg from cosine/hypotenuse or tangent/opposite, gives complete fractional side triples and checks back without merging cases. Original O8 ratios and hypotenuse inverses remain.',
+  ),
+  'J96-L03': t(
+    ' 共享N2实算精确1/2/1与指定0.5000/1.0000，给sin或cos倍角非倍值反例；tan85/80窗外数值与仅扩纵窗分开，严格端点和tan=1/6/5合法逐核。',
+    ' Shared N2 distinguishes exact 1/2 or 1 from required four-place forms, gives actual sine/cosine nonlinear-doubling counterexamples, separates off-window tan85/80 from a display-window change, and audits strict endpoints plus valid tangent ratios 1 and 6/5.',
+  ),
+  'J96-L04': t(
+    ' 新N2混m/cm以sin反求，再独立同数cos角和互余核验；实际RAD近似显示乘180/π、反函数与倒数、严格单调唯一性及三个函数0/1/6/5/负比完整审查，不把sin/cos上界套tan。',
+    ' New N2 converts mixed m/cm for inverse sine, independently inverts the same number as cosine and checks complementarity, converts actual approximate RAD displays, and audits inverse/reciprocal, acute uniqueness and ratios 0/1/6/5/negative for all three functions without transferring sine/cosine bounds to tangent.',
+  ),
+  'J96-L05': t(
+    ' 新N3实算同数水平/视线两模型的水平、升高、顶高与含基面树高，保根式至最后舍入；提前tan30取0.6改变答案，撤基面亲画同观测双正高，自主不同测量卡/坡图/失败例；旧约束强题保留。',
+    ' New N3 computes horizontal/rise/top/full-height quantities for equal-number horizontal/sight models with base corrections, retaining radicals until final rounding. Premature tan30 rounding changes the answer. It draws two positive heights with identical observations after removing the base premise, and requires own measurement/slope cards and a failure example; original constraint work remains.',
+  ),
+  'J95-L01': t(
+    ' 新圆几何N1统一分数半径与mm垂距求半/全弦，亲画圆定义与直径包含，实际同斜长半径却有两交点反驳斜距/有限线段误判；分数圆心角求底角及反求、180退化另审。',
+    ' New circle-geometry N1 unifies fractional radius/mm distance for half/full chords, draws the definition and diameter inclusion, and gives actual equal-radius sloping segments on a secant to refute nonperpendicular-distance/finite-segment shortcuts. Fractional central/base-angle inverses and the 180° degeneration are audited separately.',
+  ),
+  'J95-L02': t(
+    ' 新N2用同圆位置分别求等腰底角，以相加/相减两布局推同角；选定大扫角两侧换弧及共圆截弧证明、撤共圆凸菱形反例。直接复用H37/H38解析Q4实际直径角轨迹、内外点及零向量端点，主桥H36-L04不改。',
+    ' New N2 derives the same inscribed angle by equal-radii addition/subtraction layouts, audits major sweeps and proves cyclic supplementation with a convex-rhombus counterexample after removing concyclicity. Reused H37/H38 analytic Q4 requires the diameter-angle locus, actual inside/outside points and zero-vector endpoints; its H36-L04 bridge remains.',
+  ),
+  'J95-L03': t(
+    ' 新N3混mm/cm和分数OP求精确正根、亲核小数平方差；两切点直角推分数P角；三条实际垂线区分切点逆判与错位置割/离线；撤相切保坐标得不同长度，不偷加直角。',
+    ' New N3 converts mm/cm with fractional OP for exact positive roots and decimal-square residuals, derives fractional tangent angles from both contacts, distinguishes three actual perpendicular lines for the contact converse, and computes a different length from retained coordinates after tangency is removed.',
+  ),
+  'J95-L04': t(
+    ' 新N4由精确弧逆求大扫角、面积和互补部分合整圆，独立由面积逆求正半径；同时变半径a和角b推ab/a²b并实算，自主设计纸上圆区而不只抄固定数值。',
+    ' New N4 recovers major sweep from exact arc, computes area/complement checks, independently recovers a positive radius from area, derives and calculates ab/a²b for joint radius/sweep changes, and requires an own paper design rather than copying fixed numbers.',
+  ),
+  'J95-L05': t(
+    ' 共享N2给共圆对角弧证明与撤前提凸菱形；共享N4自主选圆区/切线与直径内垂足合法尺寸，写角依据→AA全对应→比例的自由报告及失败例。原O7完整相似链不重创。',
+    ' Shared N2 proves cyclic opposite-angle supplementation and draws a premise-removed convex rhombus. Shared N4 requires own circular-region/tangent/diameter-altitude data with a complete angle→ordered AA→proportion report and failure example. The original O7 full similarity proof remains.',
+  ),
+  'J94-L01': t(
+    ' 新N1在FDE/EFD对应下统一mm/cm，算2/3或3/4缩小比及全反向、正求/反求边再乘回，分开k1/0/负长度比；共享N3实算非均匀矩形并核两种长宽配对，旧旋转反射与全对应继续用。',
+    ' New N1 converts mm/cm under FDE/EFD matching,computes reduction factors2/3 or3/4 and all inverses,then solves forward/reverse sides and multiplies back. It separates1/zero/negative proposed length factors. Shared N3 computes nonuniform rectangles and audits both side matchings,while original rigid-pose/full-correspondence arguments remain.',
+  ),
+  'J94-L02': t(
+    ' 新N2在非直角两角例主动求第三角/倍率，明确AAA不定大小；实际两边同向比例与夹角SAS、三比SSS、只改第三边的不同倍率逐核，不把判据名称或两条方便比当证明。原两分支SSA继续复用。',
+    ' New N2 computes third angles/scales from nonright AA cases,then audits actual proportional-side/included-angle SAS,all-three-ratio SSS and a changed third ratio. Criterion names or two convenient ratios are insufficient. Original two-branch SSA proofs remain reused.',
+  ),
+  'J94-L03': t(
+    ' 共享N1先由AD+DB补整AB，分数小/大及全反向求AE/DE/EC，比较AD/DB；另撤相似后亲画两目标保同已知却未知边不同，数值不足不假成比例。原平行AA强证明保留。',
+    ' Shared N1 reconstructs whole AB from AD+DB before fractional small/large and inverse ratios for AE,DE,EC. It draws two nondegenerate targets with identical insufficient givens but different unknown sides. The original parallel-AA proof remains.',
+  ),
+  'J94-L04': t(
+    ' 新N3实际数1cm²小格和原面积块，分别算周长/面积/两种倍率；已知相似的分数面积比反求正长度及尺寸，根式小数精确平方审查；非均匀周长另算、自创同面积不同形并核两种矩形配对。',
+    ' New N3 counts unit cells versus original-area blocks and separates perimeters,areas and both factors. It reverses fractional area ratios under similarity,checks radical decimal squares,computes nonuniform perimeter ratios and designs an equal-area nonsimilar rectangle with both matchings audited.',
+  ),
+  'J94-L05': t(
+    ' 新N4自主纸图/逆求图cm与同步像素条，直线/折线路程分开；原框等比/拉伸/裁留三操作算尺寸面积，同一最终框却圆/椭圆不同；混cm/m影长先AA后算高，撤共光亲画同影异高反例，汇成虚构报告。旧单处透视标定证明继续用。',
+    ' New N4 draws a map,recovers map cm and rescales pixel bars,separates straight/bent-route length,and calculates uniform/stretch/crop dimensions and areas. Equal final frames can contain circular versus elliptical retained motifs. Mixed-unit shadows require AA;after removing common light,it draws equal-shadow/different-height counterexamples and reports fictional sources. Original perspective-calibration arguments remain.',
+  ),
+};
 const e = (
   skill: string,
   l: string,
@@ -14,8 +93,19 @@ const e = (
   focus: t(z, en),
   sourceLesson: l,
   sourceTask: `${l}-Q6`,
-  targets,
-  rationale: t(rz, re),
+  targets: [
+    ...targets,
+    ...['H22', 'H23'].flatMap((u) =>
+      (supplements[l] ?? []).map(
+        (n) =>
+          `${u}-MAINT-${l.startsWith('J96-') ? 'TRIG' : l.startsWith('J95-') ? 'CIRCLE-GEOMETRY' : 'SIMILARITY'}-MEANING-Q${n}`,
+      ),
+    ),
+    ...(l === 'J95-L02'
+      ? ['H37-MAINT-ANALYTIC-GEOMETRY-Q4', 'H38-MAINT-ANALYTIC-GEOMETRY-Q4']
+      : []),
+  ],
+  rationale: t(rz + (extra[l]?.zh ?? ''), re + (extra[l]?.en ?? '')),
 });
 export const similarityCircleTrigRecurrence = [
   e(
@@ -172,3 +262,26 @@ export const similarityCircleTrigRecurrence = [
     'H22 starts area10/cost120,width-only three gives15/180,all lengths×2 gives40/480 but violates h6>4,r8>6. H23 starts26/260,width-only four gives52/520,all×3/2 gives117/2 and585 but violates h15/2>6,r18>15. Both track side lengths,unchanged gradient,k² area,area-rate cost and original height/run limits rather than treating unchanged slope as complete feasibility.',
   ),
 ];
+
+for (const entry of similarityCircleTrigRecurrence) {
+  if (entry.sourceLesson === 'J98-L01' || entry.sourceLesson === 'J98-L05') {
+    const n = entry.sourceLesson === 'J98-L01' ? 1 : 2;
+    entry.targets.push(
+      ...['H28', 'H38'].map((u) => `${u}-MAINT-INTEGRATION-MEANING-Q${n}`),
+    );
+    if (n === 1)
+      entry.targets.push(
+        ...['H28', 'H38'].map((u) => `${u}-MAINT-INTEGRATION-AUDIT-Q2`),
+      );
+    entry.rationale = t(
+      entry.rationale.zh +
+        (n === 1
+          ? ' 新N1主动分数矩形自身平方/长条与四外边、展开指定形式/当前值、d0/代数与正长度域、单次吻合的反例及固定d只改x与全长度倍率实算。'
+          : ' 新N2独立坡道三限制先证明侧面被迫唯一，正面积/费用平方精确比较；显示到分恰等限额仍可能真超限，只改宽仍面积合格但预算失败，自主完整满足/近失两报告与模型范围，存取不当审核。'),
+      entry.rationale.en +
+        (n === 1
+          ? ' New N1 generates the fractional rectangle’s own square/strip and four-side rules, requested expansion versus current values, d0 and algebraic/positive-length domains, a counterexample to one-match identity, and actual fixed-d versus whole-length scaling.'
+          : ' New N2 first proves side uniqueness from three restrictions, then compares positive exact squared areas/costs. A cent display equal to budget can hide exact excess; width-only change can pass area but fail budget. Own feasible/near-miss reports retain every constraint and scope; storage is not review.'),
+    );
+  }
+}

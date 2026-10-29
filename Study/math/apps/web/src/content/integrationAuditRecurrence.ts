@@ -46,3 +46,34 @@ export const integrationAuditRecurrence = [
     'Each distinguishes three audits: missing−3 or zero is an actual counterexample to a complete root claim; two matching functions with different predictions prove nonuniqueness,not a known actual alternative output; a given5/12/13 right triangle or3/4/5 rectangle verifies positive length but cm² still fails units. Refutation,remaining uncertainty and this verified case differ; pixels and plausible digits are insufficient.',
   ),
 ];
+
+const bothNew = (n: number) =>
+  ['H28', 'H38'].map((u) => `${u}-MAINT-INTEGRATION-MEANING-Q${n}`);
+for (const entry of integrationAuditRecurrence) {
+  const lesson = entry.sourceLesson;
+  if (lesson === 'J98-L02') {
+    entry.targets.push(
+      ...['H01', 'H02'].map((u) => `${u}-MAINT-FUNCTION-MEANING-Q2`),
+    );
+    entry.rationale = t(
+      entry.rationale.zh +
+        ' 复用H01/H02原FUNCTION-MEANING-Q2：自主连续/整包模型，两个非零输入回求系数后核第三零行，亲画有实际单位/每格值的变化三角形，真换时/分与分币并核完整域；原J85-L06主桥保留。',
+      entry.rationale.en +
+        ' Reuse H01/H02 FUNCTION-MEANING-Q2: own continuous/whole-pack rules, recover coefficients from two nonzero inputs then check a zero third row, draw actual-unit/tick change triangles, convert hours/minutes and cents with full domains. Preserve J85-L06 primary bridges.',
+    );
+  } else {
+    entry.targets.push(...bothNew(1));
+    if (lesson === 'J98-L04')
+      entry.targets.push(
+        ...['H03', 'H04'].map((u) => `${u}-MAINT-ROOT-QUAD-Q3`),
+        ...['H22', 'H23'].map((u) => `${u}-MAINT-SIM-CIRCLE-TRIG-Q10`),
+        ...['H28', 'H38'].map((u) => `${u}-MAINT-INTEGRATION-AUDIT-Q2`),
+      );
+    entry.rationale = t(
+      entry.rationale.zh +
+        ' 共享新N1以完整条件→关系→正长度→原目标核分数矩形与勾股，撤直角给两种合法第三边：原预测未唯一而非必假，全称必然则有反例。L04同时复用H03/H04原精度Q3、H22/H23原坡度/角度Q10和H28/H38原去返依赖Q2，不把合理数量级、近似或部分检查当全通过，旧主桥均保留。',
+      entry.rationale.en +
+        ' Shared new N1 audits fractional geometry and Pythagoras through premises→relation→positive length→target. Removing the right angle permits two legal third sides: the prediction is not unique rather than necessarily false, while a universal necessity claim is refuted. L04 additionally reuses original H03/H04 precision Q3, H22/H23 grade/angle Q10 and H28/H38 journey Q2. Plausibility, approximation and partial checks do not establish complete verification; all original primary bridges remain.',
+    );
+  }
+}

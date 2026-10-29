@@ -1,6 +1,94 @@
 import { t } from '../model';
 const pair = (i: number) =>
   ['H03', 'H04'].map((u) => `${u}-MAINT-ROOT-QUAD-Q${i}`);
+const supplements: Record<string, number[]> = {
+  'J91-L01': [1],
+  'J91-L02': [1],
+  'J91-L03': [2],
+  'J91-L04': [2],
+  'J91-L05': [2, 3],
+};
+const quadraticSupplements: Record<string, number[]> = {
+  'J92-L01': [1],
+  'J92-L02': [1],
+  'J92-L03': [2],
+  'J92-L04': [2],
+  'J92-L05': [1, 3],
+  'J92-L06': [3],
+};
+const parabolaSupplements: Record<string, number[]> = {
+  'J93-L01': [1],
+  'J93-L02': [1, 2],
+  'J93-L03': [2],
+  'J93-L04': [3],
+  'J93-L05': [4],
+};
+const extra: Record<string, ReturnType<typeof t>> = {
+  'J93-L01': t(
+    ' 新N1在共同标尺亲列分数外系数三曲线及高度差倍率，保非零距离前提与平移后的反射水平线；实际抵消成一次/常数，分别核竖轴不存在/不唯一，不把外观当系数。',
+    ' New N1 tabulates three fractional-scale curves on common axes,computes displacement ratios for nonzero distance and locates the translated reflection line. Actual linear/constant cancellation distinguishes absent/nonunique vertical axes without inferring coefficients from appearance.',
+  ),
+  'J93-L02': t(
+    ' 共享N1区分a/h/k改函数与d/图窗只观察；N2从非首一正负系数亲配方得分数顶点，算截距并推c=ah²+k及非零a下相等恰h0，核外倍补偿错误的一般差和具体反例。',
+    ' Shared N1 separates a/h/k function changes from illustrative d/window. N2 completes signed nonmonic functions for fractional vertices,computes intercepts and derives c=ah²+k with equality iff h=0 for nonzero a,then refutes wrong outside compensation generally and numerically.',
+  ),
+  'J93-L03': t(
+    ' 新N2自主生成三形式而非只核给定三式，保分数补偿与同函数/未完成指定形式；零根/重复因子完整保留，亲展开无理实因子，对全实数严格同号函数证无实因子，区别语法限制。',
+    ' New N2 generates all three forms rather than only checking supplied triples,retaining fractional compensation and equivalent-but-unfinished distinctions. It preserves zero/repeated factors,expands irrational real factors and proves no real factors for an always-strict-sign function,separately from field syntax.',
+  ),
+  'J93-L04': t(
+    ' 新N3对平移正/负a函数分别亲求两点/相切/无交的三个水平目标，列原图/差图全部精确有序点及代回；宽窗仍可能漏−9，不把点夹边界，游标/窗口不改问题。原O9无理根和精确小数余差继续用。',
+    ' New N3 solves three horizontal targets for shifted positive/negative-a functions,two/tangent/no intersections,with every exact original/difference ordered point and substitution. A wide window can still hide−9;never clamp to a border. Cursor/window preserve the problem. Original O9 retains irrational roots and exact decimal residuals.',
+  ),
+  'J93-L05': t(
+    ' 新N4由原周长画图/生三形式，双闭区间同时给最大/最小及所有达到尺寸、原目标/自选目标面积双核，自创不同整数得分并给全部并列最高/最低。直接复用H35/H38原OPTIMISATION-Q4的三边围栏整数并列最优与开端点仅下确界，原H31-L05桥保留，不重造其证明。',
+    ' New N4 draws/model-generates from perimeter,finds BOTH extrema/every attaining dimension on two closed intervals,audits given/own target areas,and designs a different integer score with all tied maxima/minima. Existing H35/H38 OPTIMISATION-Q4 supplies integer fence ties and an open-endpoint infimum without attainment,keeping its H31-L05 bridge and proof.',
+  ),
+  'J91-L01': t(
+    ' 新N1分数方程/主根/外负/先后次序逐式代回，区分几何边长；两半轴精确标根与零。',
+    ' New N1 substitutes fractional equation/principal/outside-minus/operation-order cases,distinguishes geometric length,and labels exact roots and zero on both half-axes.',
+  ),
+  'J91-L02': t(
+    ' 新N1实际分类负无理/无实值/有限字面、由100x−x生成循环比，自造同前缀有理/无理延续并证明界限和类别，亲画负根。',
+    ' New N1 classifies negative irrational/undefined real/finite literals,derives recurring ratios by 100x−x,constructs rational/irrational continuations of one prefix with proofs,and plots negative roots.',
+  ),
+  'J91-L03': t(
+    ' 新N2比较分数根四等价形式的完成要求、平方同但负号不等、零/一与自主面积阵列；复用H05/H06旧PYTHAGOREAN-MEANING-Q3的分数腿、三等值根式与精确小数平方差，主桥不改。',
+    ' New N2 audits four equivalent fractional forms,opposite-sign equal squares,zero/one and an own area array. Existing H05/H06 PYTHAGOREAN-MEANING-Q3 supplies fractional legs,three equivalent radicals and exact decimal square discrepancies with unchanged bridges.',
+  ),
+  'J91-L04': t(
+    ' 新N2主动算分数差/异类和/商并乘回，零分子可定义而原化简成零的分母不可救，不能混成同一规则。',
+    ' New N2 computes fractional differences,unlike sums and quotients with multiplication back,contrasting a valid zero numerator with an originally zero denominator that cannot be rescued.',
+  ),
+  'J91-L05': t(
+    ' 新N3实际半格相等、跨整数尾零、完全平方/零、截断误差0.009与最近0.001，自己构造同界跨中点两根和负数保序反例；共享N2自主纸上标牌阵列保家庭挑战数学要求，不冒真实家庭试用。',
+    ' New N3 computes exact ties,integer carries,perfect squares/zero,truncation error0.009 versus nearest error0.001,and designs two roots with shared bounds/opposite midpoint sides plus a negative-order counterexample. Shared N2 adds the fictional sign array promised by the family challenge without claiming a household trial.',
+  ),
+  'J92-L01': t(
+    ' 新N1实际抵消为一次并核原左右，判三次不能套二次公式；复用原Q9亲画非零原图交点与差图零点，保精确两根/两图不同纵坐标，原J93-L04主桥不改。',
+    ' New N1 collects to a linear equation and audits original sides,then identifies a cubic outside the quadratic formula. Existing Q9 supplies actual original intersections/difference zeros,exact opposite roots and different ordinates with unchanged J93-L04 bridge.',
+  ),
+  'J92-L02': t(
+    ' 新N1非零原乘积先验错误候选再移项分解，非首一分数两根与重复因子/常数因子分别核；穷尽整数积对后仍有无理实根，分解形式不当根集。',
+    ' New N1 audits tempting candidates for a nonzero product before collection,then computes nonmonic fractional roots and repeated/constant-factor cases. Exhausted integer pairs coexist with irrational real roots; a factor product is not a root set.',
+  ),
+  'J92-L03': t(
+    ' 新N2实际归一非首一式、带符号分数p及p²，逐步同加取正/零/负平方目标；正图例亲画分数宽长条/角且不删原负根，负p不画负宽正面积。',
+    ' New N2 normalises nonmonic equations,computes signed fractional p/p² and positive/zero/negative square targets,and draws fractional strips/corner without discarding a negative root or fabricating a negative-width positive-area tile.',
+  ),
+  'J92-L04': t(
+    ' 新N2配方/公式双解无理根，审错误整分子括号候选的精确余差，再对原式两边乘−2重算原系数/Δ并匹配反向±支；原一般推导继续复用。',
+    ' New N2 solves irrational roots by completing/formula,audits a wrongly grouped numerator by its exact residual,and recomputes coefficients/Δ after multiplying both sides by −2 to match exchanged branches. The original general derivation remains.',
+  ),
+  'J92-L05': t(
+    ' 新N1实际Δ49但两根均非整数；新N3逐原式算Δ/不同实根数，再与正宽/闭时间域接受数对照，根数不冒可行数。',
+    ' New N1 computes Δ49 yet two noninteger roots. N3 calculates each original discriminant/distinct count before positive-width/closed-time filtering,distinguishing equation count from feasible count.',
+  ),
+  'J92-L06': t(
+    ' 新N3保原矩形面积两数量、两方法全部根/逐根双核与单位，亲画两时间零点图/端点通过与失败；自创矩形及有实根无整数卡阵，不舍入或伪造实测。',
+    ' New N3 retains rectangle area sources,two solution methods,all roots and separate substitution/domain checks with units. It plots two time-zero cases with passing/failing endpoints and designs a rectangle plus real-root/no-integer card model,without rounding or fictional measurements.',
+  ),
+};
 const e = (
   skill: string,
   l: string,
@@ -14,8 +102,30 @@ const e = (
   focus: t(z, en),
   sourceLesson: l,
   sourceTask: `${l}-Q6`,
-  targets: pair(i),
-  rationale: t(rz, re),
+  targets: [
+    ...pair(i),
+    ...['H03', 'H04'].flatMap((u) =>
+      (supplements[l] ?? []).map((n) => `${u}-MAINT-RADICAL-MEANING-Q${n}`),
+    ),
+    ...(l === 'J91-L03'
+      ? ['H05', 'H06'].map((u) => `${u}-MAINT-PYTHAGOREAN-MEANING-Q3`)
+      : []),
+    ...['H03', 'H04'].flatMap((u) =>
+      (quadraticSupplements[l] ?? []).map(
+        (n) => `${u}-MAINT-QUADRATIC-MEANING-Q${n}`,
+      ),
+    ),
+    ...(l === 'J92-L01' ? pair(9) : []),
+    ...['H03', 'H04'].flatMap((u) =>
+      (parabolaSupplements[l] ?? []).map(
+        (n) => `${u}-MAINT-PARABOLA-MEANING-Q${n}`,
+      ),
+    ),
+    ...(l === 'J93-L05'
+      ? ['H35', 'H38'].map((u) => `${u}-MAINT-OPTIMISATION-Q4`)
+      : []),
+  ],
+  rationale: t(rz + (extra[l]?.zh ?? ''), re + (extra[l]?.en ?? '')),
 });
 export const rootQuadraticRecurrence = [
   e(

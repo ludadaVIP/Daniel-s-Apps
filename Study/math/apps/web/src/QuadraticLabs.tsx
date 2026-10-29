@@ -521,8 +521,8 @@ function Complete({ mode }: { mode: LanguageMode }) {
           <Text
             mode={mode}
             text={t(
-              '请按原式依次同加、平方改写、取两分支；不能跳过依据或重复加入。',
-              'Use the original order: add to both sides, rewrite the square, then take branches. Do not skip a premise or add a duplicate step.',
+              '请按原式依次同加、平方改写、取允许的全部实数分支；平方目标正、零、负时分别为两分支、一值、无实数分支。不能跳过依据或重复加入。',
+              'Use the original order: add to both sides, rewrite the square, then take all permitted real branches: two for a positive square target, one value for zero, none for a negative target. Do not skip a premise or add a duplicate step.',
             )}
           />
         </p>

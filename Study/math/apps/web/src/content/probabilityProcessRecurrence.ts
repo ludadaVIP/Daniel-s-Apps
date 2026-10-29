@@ -64,3 +64,44 @@ export const probabilityProcessRecurrence = [
     'Both remove within rounds and restore the original bag between rounds, with theory 3/5 or 2/3. Fictional simulation changes 4/5 to 5/6 or 5/6 to 6/7; exact denominator comparisons show greater distance from theory. Frequencies use complete two-draw rounds, zero rounds are undefined and never restoring changes the repeated process. Labelled finite seeded simulation is neither real-device evidence nor a theory proof.',
   ),
 ];
+
+// Preserve every original task and its primary bridge. Share only genuinely
+// common subskills; supplementary task keys never inherit old checked answers.
+const supplements = [
+  t(
+    '复用H33/H34 COUNTING-STRUCTURE-Q4双方向条件与零条件、Q5零A/零F仍按乘积独立的实际任务，原H24-L05/L06主桥不改。新增两单元N1实际列奇偶交集与正概率乘积，并与原Q3可同时发生的独立模型对照；非同义词须给一般正乘积理由。',
+    'Reuse H33/H34 COUNTING-STRUCTURE-Q4 directional/zero conditionals and Q5 zero-A/zero-F product independence, preserving their H24-L05/L06 primary bridges. New N1 in two units generates even/odd intersection and positive marginal product, contrasted with old Q3 co-occurring independence, with a general positive-product argument.',
+  ),
+  t(
+    '共享N1亲画一红三蓝/四蓝条件树，区分已知首红的次红0与完整RR0、BB1/2或3/5、各可达节点出枝和1；独立全蓝首红不可能时条件未定义而联合0，不写0乘未定义。原Q1完整树继续用。',
+    'Shared N1 draws sole-red/three-or-four-blue trees, distinguishing second red given first red from joint RR, both zero, alongside BB1/2 or3/5 and outgoing sums at reachable nodes. A separate all-blue impossible first-red node has undefined conditional but zero joint mass, never zero times undefined. Retain old Q1 full trees.',
+  ),
+  t(
+    '共享N1由补事件和互斥三路径分别得至少蓝7/10或5/6，区别BB/异色；给同一不放回空间的非平凡A/D实际编号集，交1/12或1/20等于乘积，再与首红/次红不独立对照，不能凭抽取规则判断所有事件。',
+    'Shared N1 obtains at least blue7/10 or5/6 by both complement and three disjoint paths, distinguishing BB/different colours. Explicit nontrivial A/D sets in the same no-replacement space have intersection1/12 or1/20 equal to their product, contrasted with dependent first-red/second-red; the rule alone does not classify every event pair.',
+  ),
+  t(
+    '新增N2实算全体与A框比例、改目标为A后适用普查、完整准确全体普查及范围。独立R分开回应率和回答者是比例，Z的0/3回应率为0但0/0是比例未定义；自主设计覆盖/回应/普查三个案例及偶合反例。旧H27逻辑界和H34设计偏差继续保留。',
+    'New N2 calculates target/A-frame proportions, a census after retargeting to A and an accurate full census with scope. Separate R distinguishes response rate from respondent yes; Z gives response rate0/3=0 but undefined respondent0/0. Own coverage/nonresponse/census designs and a coincidental-match example complement preserved H27 bounds/H34 design-bias work.',
+  ),
+  t(
+    '新增N3给两种子各12轮固定程序ID原表，亲数10+2不等批累计7/12或5/6，错误均值11/20或9/10；实画前三累计点/零轮无点、末十窗不替全批、追加保前缀/同规则重放、两批都报告不挑选；自主另一袋两规则理论和预定两种子各100轮模板，未生成标待生成，模拟与实测分账。',
+    'New N3 supplies fixed twelve-round ID records for each of two seeds: count unequal10+2 batches for7/12 or5/6 rather than wrong averages11/20 or9/10. Draw initial cumulative points, no zero-round point; distinguish latest-ten window/full run, prefix extension/replay and reporting both runs without selection. An own bag requires both-rule theory and two prespecified100-round templates, marking ungenerated data pending and separating simulation from measurements.',
+  ),
+];
+for (const [i, entry] of probabilityProcessRecurrence.entries()) {
+  const n = i < 3 ? 1 : i - 1;
+  entry.targets.push(
+    ...['H24', 'H33'].map((u) => `${u}-MAINT-PROBABILITY-MEANING-Q${n}`),
+  );
+  if (i === 0)
+    entry.targets.push(
+      ...['H33', 'H34'].flatMap((u) =>
+        [4, 5].map((n) => `${u}-MAINT-COUNTING-STRUCTURE-Q${n}`),
+      ),
+    );
+  entry.rationale = t(
+    entry.rationale.zh + ' ' + supplements[i]!.zh,
+    entry.rationale.en + ' ' + supplements[i]!.en,
+  );
+}

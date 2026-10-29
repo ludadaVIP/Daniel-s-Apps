@@ -118,3 +118,92 @@ export const logicFunctionRecurrence = [
     'H25 uses domain [0,6], threshold two, budget five; H26 uses [0,8], threshold three, budget ten. Each input has one table rule. Cumulative feasible sets are [0,3]/[0,7/2]. Whole-shipment tier jumps give [0,5/3]∪(2,5/2] or [0,5/2]∪(3,5]. Learners solve each segment, intersect its domain, then union and check first-tier threshold ownership/endpoints without smoothing or filling gaps.',
   ),
 ];
+
+// Reuse complete later problems for natural domains, inverse branches and
+// square transformations. Their original primary bridges remain unchanged.
+const conceptSupplements = [1, 1, 2, 3, 4, 5];
+const conceptReuse: Record<number, number> = { 1: 5, 4: 4, 5: 1 };
+const conceptReasons = [
+  t(
+    '有限与连续同公式实际像、可达性与真改域另用两新卡；自然根式/分式最大原域直接复用H36/H38四式审核。',
+    'Two new cards compare actual finite/interval images and attainability under an explicit domain change; reuse H36/H38 equation audits for maximal radical/rational domains.',
+  ),
+  t(
+    '另两卡亲生同一输入的精确函数值/表行/图点、全部原像和自主有限规则到连续域；函数记号非乘法或点编号，视图/视窗不改原函数。',
+    'Two cards generate a value,row,point,all preimages and an own finite rule explicitly changed to a continuous domain; notation is not multiplication/point numbering and views do not redefine functions.',
+  ),
+  t(
+    '另两卡一般立方奇/严格增、绝对值分半、x²加常数偶、合法有序对、研究区间与真改原域、f0必要不充分及穿孔域奇函数；保原平方/零函数强证明。',
+    'Two cards audit cube oddness/strict increase,absolute-value halves,nonzero-at-zero even examples,ordered-pair admissibility,study versus original domains,and conditional zero necessity with a punctured odd domain; retain square/zero proofs.',
+  ),
+  t(
+    '另两卡分数立方完整展开/三源点/不对称给定域及源u与查询x、奇函数同图集不同点身份；平方点图/原域直接复用H36/H38现有任务。',
+    'Two cards require a collected fractional cubic,three mapped points,asymmetric domains,source/query separation and coincident odd-function graph sets with different point maps; reuse H36/H38 square graph/domain tasks.',
+  ),
+  t(
+    '另两卡负斜率一次逆域/逆式/往返、倒数零点及精确分数/根式回验；负平方支及双向复合直接复用H36/H38原任务，不再重创。',
+    'Two cards require negative-slope affine inverse domains/rules,round trips,reciprocal zero exclusions and exact fractional/radical recovery; reuse H36/H38 negative-square-branch and two-composition tasks.',
+  ),
+  t(
+    '另两卡完整开始小时分支/比例误纳反例与预算集、自主两完整费率/表/图/域/预算证明；原累计与整件断开集合保留。',
+    'Two cards require all started-hour branches,a proportional-model counterexample,budget sets and two own complete tariffs/tables/graphs/domain/budget proofs; retain the original marginal and disconnected whole-tier tasks.',
+  ),
+];
+for (let n = 1; n <= 6; n++) {
+  const entry = logicFunctionRecurrence.find(
+    (v) => v.sourceLesson === `H02-L0${n}`,
+  )!;
+  entry.targets.push(
+    ...['H25', 'H26'].map(
+      (u) =>
+        `${u}-MAINT-FUNCTION-CONCEPT-MEANING-Q${conceptSupplements[n - 1]}`,
+    ),
+  );
+  if (conceptReuse[n])
+    entry.targets.push(
+      ...['H36', 'H38'].map(
+        (u) => `${u}-MAINT-ADVANCED-EQUATION-Q${conceptReuse[n]}`,
+      ),
+    );
+  entry.rationale = t(
+    entry.rationale.zh + ' ' + conceptReasons[n - 1]!.zh,
+    entry.rationale.en + ' ' + conceptReasons[n - 1]!.en,
+  );
+}
+
+// Retain original task identities and bridges; these independent cards address
+// operations absent from the original proofs, quantifier and threshold tasks.
+for (let n = 1; n <= 5; n++) {
+  const entry = logicFunctionRecurrence.find(
+    (v) => v.sourceLesson === `H01-L0${n}`,
+  )!;
+  entry.targets.push(
+    ...['H25', 'H26'].map((u) => `${u}-MAINT-LOGIC-MEANING-Q${n}`),
+  );
+  const additions = [
+    t(
+      '另两处自主完整整数规则与正/非负边界、等值有理数去重、0/空/单元素及另定义集合的集，实际核对象和包含。',
+      'Two supplements require complete own integer rules, positive/nonnegative bounds, rational-value deduplication, zero/empty/singleton distinctions and separately defined set-valued elements.',
+    ),
+    t(
+      '另两处亲画四区、实际双向差与补的不同起点、缩U同步筛A/B、相等/不交/空边界及自主虚构标签。',
+      'Two supplements require four ID regions, directed differences versus complement, simultaneous membership updates when U shrinks, equal/disjoint/empty cases and own fictional labels.',
+    ),
+    t(
+      '另两处分类未知真值/请求/开语句及指定或量化后的命题，精核域内成功非反例，并分清有理输入入口与实域。',
+      'Two supplements classify unknown truth, requests, open sentences and assigned/quantified statements, audit admissible confirming candidates, and separate rational input limits from the real domain.',
+    ),
+    t(
+      '另两处由完整真值集核充要/交叠两者皆非/空前提，给双向失败见证、两假行与互换主体后的四分类；空蕴含不证明存在。',
+      'Two supplements audit equal, overlapping and empty full truth sets, directional counterexamples, both-false rows and exchanged subjects. Empty-premise implication does not establish existence.',
+    ),
+    t(
+      '另两处正负分数系数等价边界、零系数常数四比较、真非负情境域取交及并集单点桥/缺点，不把视窗或有限代回当完整域证明。',
+      'Two supplements require signed fractional-coefficient bounds, zero-coefficient constant comparisons, intersection with a nonnegative context domain and bridged versus punctured unions, separating display windows and substitutions from full-domain proof.',
+    ),
+  ];
+  entry.rationale = t(
+    entry.rationale.zh + ' ' + additions[n - 1]!.zh,
+    entry.rationale.en + ' ' + additions[n - 1]!.en,
+  );
+}
