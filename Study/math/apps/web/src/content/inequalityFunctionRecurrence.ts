@@ -168,6 +168,7 @@ export const inequalityFunctionRecurrence = [
       : entry.sourceLesson === 'J85-L06'
         ? 3
         : 0;
+    const negativeProportion = entry.sourceLesson === 'J85-L05';
     const extra = [
       ...(card
         ? ['H01', 'H02'].map((u) => `${u}-MAINT-FUNCTION-MEANING-Q${card}`)
@@ -175,6 +176,7 @@ export const inequalityFunctionRecurrence = [
       ...(reuse
         ? ['J93', 'J94'].map((u) => `${u}-MAINT-CARTESIAN-MEANING-Q${reuse}`)
         : []),
+      ...(negativeProportion ? ['J94-MAINT-CARTESIAN-MEANING-Q3'] : []),
     ];
     if (!extra.length) return entry;
     const detail =
@@ -188,10 +190,15 @@ export const inequalityFunctionRecurrence = [
               '共享新Q2自创连续服务和整包总张数模型，两非零输入回求参数并核第三行，亲画实际单位变化三角形；真换小时/分币推新率和域，给错保原率的数值反例，显示缩放另分。',
               'Shared new Q2 designs continuous-service and whole-pack card-count rules, recovers parameters from nonzero inputs, checks a third row and draws a unit-aware change triangle. Hour/cents conversion derives the new rate/domain and a numerical old-rate counterexample, separate from display scaling.',
             )
-          : t(
-              '直接复用旧双点分数任务，按两个非零输入求精确−1/2与截距、回代两点并反点序，不另造同类题。',
-              'Reuse the existing two-nonzero-input task for exact slope −1/2 and intercept, checking both points and reversed order without duplicating it.',
-            );
+          : negativeProportion
+            ? t(
+                'H01原Q9只在参考提负系数，未要求主动负比例分类；直接复用J94旧Q3给定P=−3x的实际分类，联合H02原Q9满足两个不同后续单元，不新增重复题。',
+                'Original H01 Q9 mentions a negative coefficient only in its reference. Reuse J94 Q3, which actively classifies supplied P=−3x, with original H02 Q9 for two distinct later units, without adding a duplicate task.',
+              )
+            : t(
+                '直接复用旧双点分数任务，按两个非零输入求精确−1/2与截距、回代两点并反点序，不另造同类题。',
+                'Reuse the existing two-nonzero-input task for exact slope −1/2 and intercept, checking both points and reversed order without duplicating it.',
+              );
     const reuseDetail =
       reuse === 2
         ? t(

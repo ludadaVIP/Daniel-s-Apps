@@ -147,6 +147,11 @@ describe('J92 six experiments and original equation checks', () => {
     submit();
     expect(feedback()).toContain('matches');
     choose('Completing-square case', '3');
+    click('Take all real branches');
+    expect(
+      screen.getByRole('status', { name: 'Completing dependency feedback' })
+        .textContent,
+    ).toContain('none for a negative target');
     click('Add completing term to both sides');
     click('Rewrite as a complete square');
     click('Take all real branches');

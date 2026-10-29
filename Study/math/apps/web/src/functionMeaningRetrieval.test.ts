@@ -54,7 +54,7 @@ describe('J85 parameter changes, real unit conversions and reused strong models'
       e.sourceLesson.startsWith('J85-'),
     );
     const refs = entries.flatMap((e) => e.targets);
-    expect(refs).toHaveLength(26);
+    expect(refs).toHaveLength(27);
     expect(new Set(refs).size).toBe(18);
     expect(refs.filter((id) => id.includes('-MAINT-ORDER-RULE-'))).toHaveLength(
       12,
@@ -65,7 +65,16 @@ describe('J85 parameter changes, real unit conversions and reused strong models'
     expect(entries[4]!.targets).toEqual([
       'H01-MAINT-ORDER-RULE-Q9',
       'H02-MAINT-ORDER-RULE-Q9',
+      'J94-MAINT-CARTESIAN-MEANING-Q3',
     ]);
+    const negativeTask =
+      cartesianMeaningRetrieval.J94_CARTESIAN_MEANING.questions[2]!;
+    expect(
+      negativeTask.contextTable!.rows.find((r) => r[0]!.en === 'P')![2]!.en,
+    ).toBe('y=−3x');
+    expect(negativeTask.stem.en).toContain(
+      'which is explicitly nonzero direct proportion',
+    );
     for (const s of sets) {
       expect(Object.values(maintenanceSets).find((m) => m.id === s.id)).toBe(s);
       expect(s.questions.map((q) => s.bridgeByQuestion[q.id])).toEqual([

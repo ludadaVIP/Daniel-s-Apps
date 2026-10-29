@@ -241,5 +241,18 @@ describe('J85 function meaning cards through actual routes', () => {
         ).toBe('/math/lesson/' + s.bridgeByQuestion[q.id] + '?step=1');
         view.unmount();
       }
+    const s = cartesianMeaningRetrieval.J94_CARTESIAN_MEANING,
+      q = s.questions[2]!;
+    const view = mount('/math/lesson/J85-L05');
+    fireEvent.click(screen.getByText('A small guide for parents'));
+    const link = screen
+      .getAllByRole('link')
+      .find((l) => l.getAttribute('href') === maintenanceHref(s, q.id))!;
+    expect(link).toBeDefined();
+    fireEvent.click(link);
+    expect(screen.getByText(q.stem.en)).toBeTruthy();
+    expect(screen.getByText(/Recorded 0\/3/)).toBeTruthy();
+    expect(saved().sessions[s.id].answers[q.id]).toBeUndefined();
+    view.unmount();
   });
 });

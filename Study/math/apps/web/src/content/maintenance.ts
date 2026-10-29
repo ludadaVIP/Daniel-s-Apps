@@ -1,3 +1,16 @@
+import { functionConceptMeaningRetrieval } from './functionConceptMeaningRetrieval';
+import { logicMeaningRetrieval } from './logicMeaningRetrieval';
+import { integrationMeaningRetrieval } from './integrationMeaningRetrieval';
+import { probabilityMeaningRetrieval } from './probabilityMeaningRetrieval';
+import { trigMeaningRetrieval } from './trigMeaningRetrieval';
+import { circleGeometryMeaningRetrieval } from './circleGeometryMeaningRetrieval';
+import { similarityMeaningRetrieval } from './similarityMeaningRetrieval';
+import { parabolaMeaningRetrieval } from './parabolaMeaningRetrieval';
+import { quadraticMeaningRetrieval } from './quadraticMeaningRetrieval';
+import { radicalMeaningRetrieval } from './radicalMeaningRetrieval';
+import { researchMeaningRetrieval } from './researchMeaningRetrieval';
+import { pythagoreanMeaningRetrieval } from './pythagoreanMeaningRetrieval';
+import { congruenceMeaningRetrieval } from './congruenceMeaningRetrieval';
 import { functionMeaningRetrieval } from './functionMeaningRetrieval';
 import { inequalityMeaningRetrieval } from './inequalityMeaningRetrieval';
 import { systemMeaningRetrieval } from './systemMeaningRetrieval';
@@ -223,6 +236,19 @@ export const maintenanceSets = {
   ...systemMeaningRetrieval,
   ...inequalityMeaningRetrieval,
   ...functionMeaningRetrieval,
+  ...congruenceMeaningRetrieval,
+  ...pythagoreanMeaningRetrieval,
+  ...researchMeaningRetrieval,
+  ...radicalMeaningRetrieval,
+  ...quadraticMeaningRetrieval,
+  ...parabolaMeaningRetrieval,
+  ...similarityMeaningRetrieval,
+  ...circleGeometryMeaningRetrieval,
+  ...trigMeaningRetrieval,
+  ...probabilityMeaningRetrieval,
+  ...functionConceptMeaningRetrieval,
+  ...logicMeaningRetrieval,
+  ...integrationMeaningRetrieval,
   B03: {
     id: 'B03-MAINT-B01',
     unit: 'B03',

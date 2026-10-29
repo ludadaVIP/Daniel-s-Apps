@@ -10164,11 +10164,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q6",
               "taskSkill": "slope-as-unit-rate"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
             }
           ],
           "rationale": {
-            "zh": "H01从给定仿射水量点求m=3L/min、b=1L与x4输出13L；H02温度点求m=−3°C/h、b=11°C与x2输出5°C。均区分固定参数/改输入/改规则，解释初值不是一次输出；m0常函数不归J85严格一次，题设给仿射性不是两观察证明。",
-            "en": "H01 derives m=3 L/min,b=1 L and thirteen litres at input four; H02 derives m=−3°C/h,b=11°C and five degrees at two. Both distinguish fixed parameters, changed input and changed rules, and initial value from one output. Zero slope is constant outside J85 strict first degree; affine behaviour is given, not proved by two observations."
+            "zh": "H01从给定仿射水量点求m=3L/min、b=1L与x4输出13L；H02温度点求m=−3°C/h、b=11°C与x2输出5°C。均区分固定参数/改输入/改规则，解释初值不是一次输出；m0常函数不归J85严格一次，题设给仿射性不是两观察证明。 共享新Q1主动改变b/m并用一般差证明平移与零输入不变，另判零斜率、原两轴交点及窗外显示。保原点对求参/受限域任务，不重复创作。 ",
+            "en": "H01 derives m=3 L/min,b=1 L and thirteen litres at input four; H02 derives m=−3°C/h,b=11°C and five degrees at two. Both distinguish fixed parameters, changed input and changed rules, and initial value from one output. Zero slope is constant outside J85 strict first degree; affine behaviour is given, not proved by two observations. Shared new Q1 changes b/m and proves translation versus a retained zero-input point through general differences, with zero slope, both original intercepts and off-window display. Original point-derived parameters and restricted-domain tasks remain. "
           }
         }
       ],
@@ -10211,11 +10221,31 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q6",
               "taskSkill": "slope-as-unit-rate"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
             }
           ],
           "rationale": {
-            "zh": "两组分别计算9/3=3L/min与−6/2=−3°C/h，反向同时变两差符号率不变，只反分母错误变号。必须写输出/输入单位并区分坐标变化率与不等轴比例的屏幕倾角，不能只背差商式。",
-            "en": "The two tasks calculate 9/3=3 L/min and −6/2=−3°C/h. Reversing both differences leaves the rate unchanged, while reversing only the denominator wrongly changes its sign. They require output/input units and distinguish coordinate rate from screen angle under unequal axis scales."
+            "zh": "两组分别计算9/3=3L/min与−6/2=−3°C/h，反向同时变两差符号率不变，只反分母错误变号。必须写输出/输入单位并区分坐标变化率与不等轴比例的屏幕倾角，不能只背差商式。 共享新Q2自创连续服务和整包总张数模型，两非零输入回求参数并核第三行，亲画实际单位变化三角形；真换小时/分币推新率和域，给错保原率的数值反例，显示缩放另分。 另给J93/J94现有Q2精确分数点对入口；原补桥J75-L04保留。",
+            "en": "The two tasks calculate 9/3=3 L/min and −6/2=−3°C/h. Reversing both differences leaves the rate unchanged, while reversing only the denominator wrongly changes its sign. They require output/input units and distinguish coordinate rate from screen angle under unequal axis scales. Shared new Q2 designs continuous-service and whole-pack card-count rules, recovers parameters from nonzero inputs, checks a third row and draws a unit-aware change triangle. Hour/cents conversion derives the new rate/domain and a numerical old-rate counterexample, separate from display scaling. Also link existing J93/J94 Q2 exact fractional pairs; retain their original J75-L04 bridge."
           }
         }
       ],
@@ -10258,11 +10288,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q7",
               "taskSkill": "y-intercept-at-zero"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q1",
+              "taskSkill": "changed-parameters-and-intercepts"
             }
           ],
           "rationale": {
-            "zh": "H01的2x−5域[1,4]与H02的−3x+8域[1,3]要求区分b数值−5或8、域外延长点(0,−5)/(0,8)与实际x轴交点(5/2,0)/(8/3,0)，亲画闭线段。零输入不在域，不能宣称有实际y轴交点或记录过初值。",
-            "en": "H01 restricts 2x−5 to [1,4] and H02 restricts −3x+8 to [1,3]. They distinguish numerical b values −5/eight, extension points (0,−5)/(0,8) and actual x-axis crossings (5/2,0)/(8/3,0), drawing closed segments. Zero is outside the domain, so no actual y-axis crossing or observed initial value may be claimed."
+            "zh": "H01的2x−5域[1,4]与H02的−3x+8域[1,3]要求区分b数值−5或8、域外延长点(0,−5)/(0,8)与实际x轴交点(5/2,0)/(8/3,0)，亲画闭线段。零输入不在域，不能宣称有实际y轴交点或记录过初值。 共享新Q1主动改变b/m并用一般差证明平移与零输入不变，另判零斜率、原两轴交点及窗外显示。保原点对求参/受限域任务，不重复创作。 ",
+            "en": "H01 restricts 2x−5 to [1,4] and H02 restricts −3x+8 to [1,3]. They distinguish numerical b values −5/eight, extension points (0,−5)/(0,8) and actual x-axis crossings (5/2,0)/(8/3,0), drawing closed segments. Zero is outside the domain, so no actual y-axis crossing or observed initial value may be claimed. Shared new Q1 changes b/m and proves translation versus a retained zero-input point through general differences, with zero slope, both original intercepts and off-window display. Original point-derived parameters and restricted-domain tasks remain. "
           }
         }
       ],
@@ -10305,11 +10345,21 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q8",
               "taskSkill": "two-point-function-model"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q2",
+              "taskSkill": "affine-rate-and-intercept"
             }
           ],
           "rationale": {
-            "zh": "H01不同输入给常函数4，H02给2x+4；两组另有同输入不同输出的竖直线及重复一点的无限规则。学习者须给重复点两个不同规则并核回，不把Δx0一概判无解，也不把两观测拟合证明全域直线；候选类明含零斜率。",
-            "en": "Distinct inputs give constant four in H01 and 2x+4 in H02. Each also includes a vertical pair and a repeated point allowing infinitely many rules. Learners supply and check two distinct repeated-point rules, distinguish zero-input-difference cases and avoid claiming that fitting observations proves global linearity; the candidate class explicitly permits zero slope."
+            "zh": "H01不同输入给常函数4，H02给2x+4；两组另有同输入不同输出的竖直线及重复一点的无限规则。学习者须给重复点两个不同规则并核回，不把Δx0一概判无解，也不把两观测拟合证明全域直线；候选类明含零斜率。 直接复用旧双点分数任务，按两个非零输入求精确−1/2与截距、回代两点并反点序，不另造同类题。 另给J93/J94现有Q2精确分数点对入口；原补桥J75-L04保留。",
+            "en": "Distinct inputs give constant four in H01 and 2x+4 in H02. Each also includes a vertical pair and a repeated point allowing infinitely many rules. Learners supply and check two distinct repeated-point rules, distinguish zero-input-difference cases and avoid claiming that fitting observations proves global linearity; the candidate class explicitly permits zero slope. Reuse the existing two-nonzero-input task for exact slope −1/2 and intercept, checking both points and reversed order without duplicating it. Also link existing J93/J94 Q2 exact fractional pairs; retain their original J75-L04 bridge."
           }
         }
       ],
@@ -10352,11 +10402,16 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q9",
               "taskSkill": "direct-versus-first-degree"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
             }
           ],
           "rationale": {
-            "zh": "H01分类3x、3x+2、7、x²、0，H02分类−2x、−2x+5、−4、x²、0；按k/m非零约定说明常数与零例外，正输入1和2核非恒比，0/0不定义。负k仍可正比例；过原点或固定率各自不足，完整式才支持一般分类。",
-            "en": "H01 classifies 3x,3x+2,7,x²,0; H02 uses −2x,−2x+5,−4,x²,0. Both apply nonzero k/m conventions, calculate ratios at positive inputs one/two and reject 0/0. Negative k may still be direct proportion. Origin crossing and fixed rate alone are insufficient; complete formulas support general classification."
+            "zh": "H01分类3x、3x+2、7、x²、0，H02分类−2x、−2x+5、−4、x²、0；按k/m非零约定说明常数与零例外，正输入1和2核非恒比，0/0不定义。负k仍可正比例；过原点或固定率各自不足，完整式才支持一般分类。 H01原Q9只在参考提负系数，未要求主动负比例分类；直接复用J94旧Q3给定P=−3x的实际分类，联合H02原Q9满足两个不同后续单元，不新增重复题。 ",
+            "en": "H01 classifies 3x,3x+2,7,x²,0; H02 uses −2x,−2x+5,−4,x²,0. Both apply nonzero k/m conventions, calculate ratios at positive inputs one/two and reject 0/0. Negative k may still be direct proportion. Origin crossing and fixed rate alone are insufficient; complete formulas support general classification. Original H01 Q9 mentions a negative coefficient only in its reference. Reuse J94 Q3, which actively classifies supplied P=−3x, with original H02 Q9 for two distinct later units, without adding a duplicate task. "
           }
         }
       ],
@@ -10399,11 +10454,31 @@
               "unit": "H02",
               "task": "H02-MAINT-ORDER-RULE-Q10",
               "taskSkill": "bounded-linear-context"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q3",
+              "taskSkill": "same-row-table-points"
             }
           ],
           "rationale": {
-            "zh": "两组各比较已启动接送的率/固定费、有界排水后另停为0、整包卡片仅离散输入，核所有端点和域外输出。半包分别给3或5整数张仍输入不许，是比原半张输出更强的输入域反例；明确单位、模型题设与外推范围，不从输出整数倒推输入合法。",
-            "en": "Each group compares activated-transport rates/fixed fees, bounded draining followed by a separate zero rule and whole-pack card inputs as discrete points. They check endpoints and outside outputs. Half packs give integer three or five cards but remain inadmissible inputs, a stronger domain example than fractional output alone. Units, given assumptions and extrapolation bounds are explicit; integer outputs cannot validate inputs."
+            "zh": "两组各比较已启动接送的率/固定费、有界排水后另停为0、整包卡片仅离散输入，核所有端点和域外输出。半包分别给3或5整数张仍输入不许，是比原半张输出更强的输入域反例；明确单位、模型题设与外推范围，不从输出整数倒推输入合法。 共享新Q2自创连续服务和整包总张数模型，两非零输入回求参数并核第三行，亲画实际单位变化三角形；真换小时/分币推新率和域，给错保原率的数值反例，显示缩放另分。 自创排空终点/连续与离散图直接复用旧J93/J94-Q3，不再机械加一套排水创作；原补桥保留。",
+            "en": "Each group compares activated-transport rates/fixed fees, bounded draining followed by a separate zero rule and whole-pack card inputs as discrete points. They check endpoints and outside outputs. Half packs give integer three or five cards but remain inadmissible inputs, a stronger domain example than fractional output alone. Units, given assumptions and extrapolation bounds are explicit; integer outputs cannot validate inputs. Shared new Q2 designs continuous-service and whole-pack card-count rules, recovers parameters from nonzero inputs, checks a third row and draws a unit-aware change triangle. Hour/cents conversion derives the new rate/domain and a numerical old-rate counterexample, separate from display scaling. Reuse existing J93/J94 Q3 for an independently designed emptying boundary and continuous/discrete plots, retaining original bridges instead of duplicating draining design."
           }
         }
       ],
@@ -10446,11 +10521,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q1",
               "taskSkill": "ordered-congruence-correspondence"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
             }
           ],
           "rationale": {
-            "zh": "H05按ABC≅DFE生成3/4/5对应边，H06生成5/12/13对应边，均逐一列顶点边角，不随反射旋转改点名；保长保角与朝向分别讨论，非一倍缩放不保全等。",
-            "en": "H05 generates corresponding lengths three/four/five and H06 five/twelve/thirteen from ABC≅DFE. Both list vertices, sides and angles without renaming after reflection/rotation, distinguish length/angle preservation from orientation and reject nonunit scaling as congruence."
+            "zh": "H05按ABC≅DFE生成3/4/5对应边，H06生成5/12/13对应边，均逐一列顶点边角，不随反射旋转改点名；保长保角与朝向分别讨论，非一倍缩放不保全等。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "H05 generates corresponding lengths three/four/five and H06 five/twelve/thirteen from ABC≅DFE. Both list vertices, sides and angles without renaming after reflection/rotation, distinguish length/angle preservation from orientation and reject nonunit scaling as congruence. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10493,11 +10578,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q2",
               "taskSkill": "sss-sas-sufficient-conditions"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
             }
           ],
           "rationale": {
-            "zh": "两组写SSS/SAS充分清单，指定AB/BC夹角B；SSA分别固定AB6/BC4与AB10/BC6、A30°，由距离得AC=3√3±√7或5√3±√11，两正非退化值证一般不足，不否定有额外前提的特殊情形。",
-            "en": "Both write corresponding SSS/SAS evidence and locate the included angle of AB/BC at B. For A=30°, lengths AB6/BC4 or AB10/BC6 yield AC=3√3±√7 or 5√3±√11. Two positive nondegenerate possibilities disprove general SSA sufficiency without denying special cases with extra premises."
+            "zh": "两组写SSS/SAS充分清单，指定AB/BC夹角B；SSA分别固定AB6/BC4与AB10/BC6、A30°，由距离得AC=3√3±√7或5√3±√11，两正非退化值证一般不足，不否定有额外前提的特殊情形。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。另直接复用J93/J94旧Q3的严格三角存在与等腰锐/直/钝自主构造，原J74补桥不改。",
+            "en": "Both write corresponding SSS/SAS evidence and locate the included angle of AB/BC at B. For A=30°, lengths AB6/BC4 or AB10/BC6 yield AC=3√3±√7 or 5√3±√11. Two positive nondegenerate possibilities disprove general SSA sufficiency without denying special cases with extra premises. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards. Reuse existing J93/J94 Q3 for strict existence and self-designed acute/right/obtuse isosceles cases, retaining original J74 bridges."
           }
         }
       ],
@@ -10537,11 +10632,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q2",
               "taskSkill": "sss-sas-sufficient-conditions"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q1",
+              "taskSkill": "reordered-correspondence-and-angle-domain"
             }
           ],
           "rationale": {
-            "zh": "H05/H06在各自两三角形图上生成ASA及AAS充分清单，说明边是否夹在所列两角之间，用180减两角补第三角支持有效互换；用AAA可任意放大说明角不能固定大小，与同题SSS/SAS和SSA的适用性分开。",
-            "en": "H05/H06 generate ASA/AAS evidence on their own triangle diagrams, identify whether the side is included between the listed angles and derive the third by subtraction from 180° to justify another valid list. Enlargement under AAA exposes missing size information, separate from the SSS/SAS and SSA cases."
+            "zh": "H05/H06在各自两三角形图上生成ASA及AAS充分清单，说明边是否夹在所列两角之间，用180减两角补第三角支持有效互换；用AAA可任意放大说明角不能固定大小，与同题SSS/SAS和SSA的适用性分开。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "H05/H06 generate ASA/AAS evidence on their own triangle diagrams, identify whether the side is included between the listed angles and derive the third by subtraction from 180° to justify another valid list. Enlargement under AAA exposes missing size information, separate from the SSS/SAS and SSA cases. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10584,11 +10689,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q3",
               "taskSkill": "isosceles-properties-and-converse"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q2",
+              "taskSkill": "inverse-isosceles-and-changed-leg-identity"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q2",
+              "taskSkill": "inverse-isosceles-and-changed-leg-identity"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-PLANE-MEANING-Q3",
+              "taskSkill": "triangle-class-and-existence"
             }
           ],
           "rationale": {
-            "zh": "两组由等腰及顶角40/70、角平分线和公共AD用SAS证明底角及底边平分，底角70/55；逆向只给底角相等则改AAS证明腰等，必须列不同已知，不先借待证性质或图形对称。",
-            "en": "Both use equal legs, apex forty/seventy, a constructed bisector and common AD for SAS, deriving equal base angles seventy/fifty-five and bisected base. The converse starts only with equal base angles and uses AAS for equal legs, requiring a different premise list without borrowing the goal or visual symmetry."
+            "zh": "两组由等腰及顶角40/70、角平分线和公共AD用SAS证明底角及底边平分，底角70/55；逆向只给底角相等则改AAS证明腰等，必须列不同已知，不先借待证性质或图形对称。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。另直接复用J93/J94旧Q3的严格三角存在与等腰锐/直/钝自主构造，原J74补桥不改。",
+            "en": "Both use equal legs, apex forty/seventy, a constructed bisector and common AD for SAS, deriving equal base angles seventy/fifty-five and bisected base. The converse starts only with equal base angles and uses AAS for equal legs, requiring a different premise list without borrowing the goal or visual symmetry. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards. Reuse existing J93/J94 Q3 for strict existence and self-designed acute/right/obtuse isosceles cases, retaining original J74 bridges."
           }
         }
       ],
@@ -10631,11 +10756,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q4",
               "taskSkill": "parallelogram-properties-and-tests"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q3",
+              "taskSkill": "parallelogram-numerical-properties-and-diagonal-proof"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q3",
+              "taskSkill": "parallelogram-numerical-properties-and-diagonal-proof"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
             }
           ],
           "rationale": {
-            "zh": "H05/H06分别用底6/4与8/4的坐标等腰梯形算AD²=BC²为5/13，反驳一组平行加另一组相等。两处辨两组平行定义、各性质及三类完整逆判，强调同一组平行且等和两对角线互相平分，不能只取半条件。",
-            "en": "H05/H06 calculate isosceles-trapezium examples with bases six/four or eight/four and equal leg squares five/thirteen. They refute mixing a parallel pair with a different equal pair, distinguish definitions and properties from three full converse tests and require the same parallel/equal pair and mutual diagonal bisection."
+            "zh": "H05/H06分别用底6/4与8/4的坐标等腰梯形算AD²=BC²为5/13，反驳一组平行加另一组相等。两处辨两组平行定义、各性质及三类完整逆判，强调同一组平行且等和两对角线互相平分，不能只取半条件。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "H05/H06 calculate isosceles-trapezium examples with bases six/four or eight/four and equal leg squares five/thirteen. They refute mixing a parallel pair with a different equal pair, distinguish definitions and properties from three full converse tests and require the same parallel/equal pair and mutual diagonal bisection. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10678,11 +10823,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q5",
               "taskSkill": "short-proof-dependency-chain"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONGRUENCE-MEANING-Q4",
+              "taskSkill": "complete-converse-proofs-and-independent-proof-repair"
             }
           ],
           "rationale": {
-            "zh": "两组仅从AB∥CD、BC∥AD画AC，逐行给BAC=DCA、BCA=DAC的内错角依据、AC公共、ASA的ABC≅CDA与AB=CD，明确顺序。另指出借AB=CD证明自身的SSS句循环且证据未足，卡片合法顺序不替代自己生成完整证明。",
-            "en": "Both start only from opposite parallel sides, draw AC and generate alternate-angle reasons, common AC, ordered ASA congruence ABC≅CDA and AB=CD. They expose a proposed SSS sentence as circular and incomplete and explicitly distinguish valid card order from producing a free proof."
+            "zh": "两组仅从AB∥CD、BC∥AD画AC，逐行给BAC=DCA、BCA=DAC的内错角依据、AC公共、ASA的ABC≅CDA与AB=CD，明确顺序。另指出借AB=CD证明自身的SSS句循环且证据未足，卡片合法顺序不替代自己生成完整证明。 补卡按原条件生成六种重排对应/合法角域、等腰逆算和换腰身份、四边形数值与互平分证明、三完整逆判及自主图反例/循环修复；只接本课相应卡。",
+            "en": "Both start only from opposite parallel sides, draw AC and generate alternate-angle reasons, common AC, ordered ASA congruence ABC≅CDA and AB=CD. They expose a proposed SSS sentence as circular and incomplete and explicitly distinguish valid card order from producing a free proof. Supplementary cards generate six reordered correspondences/admissible angles, inverse isosceles calculations with changed leg identities, numerical quadrilateral properties and bisection proofs, and complete converse/independent counterexample/repair chains. Link only the relevant cards."
           }
         }
       ],
@@ -10725,11 +10880,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q6",
               "taskSkill": "translation-reflection-reference"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-CARTESIAN-MEANING-Q1",
+              "taskSkill": "coordinate-plot-and-scale"
             }
           ],
           "rationale": {
-            "zh": "H05三点同移(−3,2)及另从原图反射x1，H06同移(2,−3)及反射y−2。亲算三像点、PQ差向量/√20长度，点像中点落轴及轴上固定；叉积10变−10或6变−6辨反向，反射规则2−x或−4−y不套原点轴。",
-            "en": "H05 translates three points by (−3,2) and separately reflects the original in x=1; H06 uses (2,−3) and y=−2. Both calculate image points, displacement and √20 length, midpoint-on-axis and fixed-axis conditions. Determinants change ten to negative ten or six to negative six, retrieving orientation reversal and correct nonorigin-axis formulas."
+            "zh": "H05三点同移(−3,2)及另从原图反射x1，H06同移(2,−3)及反射y−2。亲算三像点、PQ差向量/√20长度，点像中点落轴及轴上固定；叉积10变−10或6变−6辨反向，反射规则2−x或−4−y不套原点轴。 新Q1补y=x与y轴的分数三点、固定身份和等垂距证明，另自主标志连续平移/反射/半转；x轴反射及显示/真单位区别直接复用J93/J94旧Q1，原J75桥不改。",
+            "en": "H05 translates three points by (−3,2) and separately reflects the original in x=1; H06 uses (2,−3) and y=−2. Both calculate image points, displacement and √20 length, midpoint-on-axis and fixed-axis conditions. Determinants change ten to negative ten or six to negative six, retrieving orientation reversal and correct nonorigin-axis formulas. New Q1 supplies fractional y=x/y-axis images,fixed identities and perpendicular-distance reasoning,plus an independently drawn sign under sequential translation/reflection/half-turn. Reuse existing J93/J94 Q1 for x-axis reflection and display versus real units,retaining J75 bridges."
           }
         }
       ],
@@ -10772,11 +10947,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q7",
               "taskSkill": "rotation-centre-and-direction"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q1",
+              "taskSkill": "fractional-reflections-and-own-composition"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q2",
+              "taskSkill": "inverse-half-turn-and-fixed-set"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q2",
+              "taskSkill": "inverse-half-turn-and-fixed-set"
             }
           ],
           "rationale": {
-            "zh": "H05以O(1,2)、P(4,3)逆90°得(0,5)，H06以O(−2,1)、P(1,3)顺90°得(0,−2)，都强制先减中心、转相对位移再加中心，核√10/√13距离；另算半转及二次回原位置，解释2O−P和运动转角不加内角。",
-            "en": "H05 rotates P(4,3) anticlockwise about O(1,2) to (0,5); H06 rotates P(1,3) clockwise about O(−2,1) to (0,−2). Both subtract the centre, rotate displacement, add it back and check √10/√13 radius. Separate half-turn calculations return to the original after two turns, explaining 2O−P and why motion angle does not increase interior angles."
+            "zh": "H05以O(1,2)、P(4,3)逆90°得(0,5)，H06以O(−2,1)、P(1,3)顺90°得(0,−2)，都强制先减中心、转相对位移再加中心，核√10/√13距离；另算半转及二次回原位置，解释2O−P和运动转角不加内角。 共享新Q1连续半转用上一步像，另Q2从分数点像反求中心、同中心顺逆90°比较等半径不足定方向、反射整轴固定vs半转单中心、重合点像的唯一中心。旧非原点旋转强任务继续保留。",
+            "en": "H05 rotates P(4,3) anticlockwise about O(1,2) to (0,5); H06 rotates P(1,3) clockwise about O(−2,1) to (0,−2). Both subtract the centre, rotate displacement, add it back and check √10/√13 radius. Separate half-turn calculations return to the original after two turns, explaining 2O−P and why motion angle does not increase interior angles. Shared new Q1 composes a half-turn after the preceding image. Q2 recovers a centre from fractional point/image pairs,compares opposite quarter-turn directions with equal radii,and distinguishes mirror fixed lines from half-turn centres,including coincident point/image data. Retain original nonorigin rotations."
           }
         }
       ],
@@ -10866,11 +11061,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q9",
               "taskSkill": "right-triangle-exact-length"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-CONG-MOTION-Q6",
+              "taskSkill": "translation-reflection-reference"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-CONG-MOTION-Q6",
+              "taskSkill": "translation-reflection-reference"
             }
           ],
           "rationale": {
-            "zh": "H05矩形3cm/50mm先化3/5cm得√34cm，H06的40mm/7cm化4/7cm得√65cm；另由斜边13腿5或斜边17腿8减平方得12/15。须给直角依据、平方cm²/开方cm与正根，不能减长度或用图猜直角。",
-            "en": "H05 converts rectangle sides three cm/fifty mm to three/five cm for √34 cm; H06 converts forty mm/seven cm to four/seven cm for √65 cm. Separate given hypotenuse/leg pairs thirteen/five or seventeen/eight yield twelve/fifteen by subtracting squares. Both require right-angle premises, square/root units and positive length, not subtracting lengths or guessing angles."
+            "zh": "H05矩形3cm/50mm先化3/5cm得√34cm，H06的40mm/7cm化4/7cm得√65cm；另由斜边13腿5或斜边17腿8减平方得12/15。须给直角依据、平方cm²/开方cm与正根，不能减长度或用图猜直角。 新Q3补分数腿/平方分母开方、等值单根式与小数精确差、自主分数矩形及原式核验。坐标距离直接复用原Q6三点中PQ精确差/长度，不再造重复点距题。",
+            "en": "H05 converts rectangle sides three cm/fifty mm to three/five cm for √34 cm; H06 converts forty mm/seven cm to four/seven cm for √65 cm. Separate given hypotenuse/leg pairs thirteen/five or seventeen/eight yield twelve/fifteen by subtracting squares. Both require right-angle premises, square/root units and positive length, not subtracting lengths or guessing angles. New Q3 adds fractional legs/rooted denominators,equivalent single-root forms with exact decimal differences,and a self-designed fractional rectangle with original-equation checks. Reuse original Q6 for exact coordinate displacement/distance rather than duplicate it."
           }
         }
       ],
@@ -10913,11 +11128,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q10",
               "taskSkill": "pythagorean-converse-validity"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
             }
           ],
           "rationale": {
-            "zh": "H05/H06各先审四组无序正长与严格三角不等式，分别由5/12/13、8/15/17的平方相等及另构直角/SSS证明逆定理；退化1/2/3或2/3/5不分类。另用有效锐钝三元组说明不等只先否定直角，角分类还需固定两边夹角/对边比较性质。",
-            "en": "Each audits four unordered triples for positivity and strict existence. The 5/12/13 or 8/15/17 case uses exact squares, a constructed right triangle and SSS for the converse. Degenerate 1/2/3 or 2/3/5 is not angle-classified. Further valid acute/obtuse triples show that unequal squares first exclude right angles; classification also needs the fixed-two-sides angle/opposite-side comparison property."
+            "zh": "H05/H06各先审四组无序正长与严格三角不等式，分别由5/12/13、8/15/17的平方相等及另构直角/SSS证明逆定理；退化1/2/3或2/3/5不分类。另用有效锐钝三元组说明不等只先否定直角，角分类还需固定两边夹角/对边比较性质。 共享新Q3给相差1/100000的近直角两例，算精确正/负平方差而非先舍入；零边虽平方相等仍先排除，自主正长退化数据与矩形正向问题区分。原一般SSS逆定理及锐钝比较保留。",
+            "en": "Each audits four unordered triples for positivity and strict existence. The 5/12/13 or 8/15/17 case uses exact squares, a constructed right triangle and SSS for the converse. Degenerate 1/2/3 or 2/3/5 is not angle-classified. Further valid acute/obtuse triples show that unequal squares first exclude right angles; classification also needs the fixed-two-sides angle/opposite-side comparison property. Shared new Q3 uses near-right data differing by1/100000,requiring exact positive/negative square differences before rounding. A zero-side square equality still fails existence; independently designed positive degenerate data are separated from forward rectangle problems. Retain the original general SSS converse and angle comparison."
           }
         }
       ],
@@ -10960,11 +11185,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q1",
               "taskSkill": "quartile-convention"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
             }
           ],
           "rationale": {
-            "zh": "H08/H27各对五项按奇数排除/包含中位数算不同四分位，再对九项保负号与重复，分别画最小最大版和1.5IQR须线版。须端是围栏内实际观测，30/31另标异常候选，围栏不当须端或删值令；箱段宽不是人数比例。",
-            "en": "Each task calculates different quartiles under odd-sample exclusion/inclusion, then retains negative/repeated values in nine-item minimum/maximum and 1.5IQR whisker plots. Whiskers reach actual in-fence observations; thirty/thirty-one are marked separately. Fences are not endpoints or deletion orders, and box-segment widths are not headcounts."
+            "zh": "H08/H27各对五项按奇数排除/包含中位数算不同四分位，再对九项保负号与重复，分别画最小最大版和1.5IQR须线版。须端是围栏内实际观测，30/31另标异常候选，围栏不当须端或删值令；箱段宽不是人数比例。 新N1再算八项负分数偶数分半、闭区间ID人数2/2/3/3与共享边界、全同/两条/单条边界。",
+            "en": "Each task calculates different quartiles under odd-sample exclusion/inclusion, then retains negative/repeated values in nine-item minimum/maximum and 1.5IQR whisker plots. Whiskers reach actual in-fence observations; thirty/thirty-one are marked separately. Fences are not endpoints or deletion orders, and box-segment widths are not headcounts. New N1 computes even signed fractional halves,closed-interval ID counts2/2/3/3 with shared boundaries,and equal/two/single-record cases."
           }
         }
       ],
@@ -11007,11 +11242,41 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q2",
               "taskSkill": "spread-evidence"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q1",
+              "taskSkill": "even-quartiles-counts-and-affine-spread"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
+            },
+            {
+              "unit": "J93",
+              "task": "J93-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
+            },
+            {
+              "unit": "J94",
+              "task": "J94-MAINT-INFERENCE-MEANING-Q2",
+              "taskSkill": "distribution-centre-spread-shape"
             }
           ],
           "rationale": {
-            "zh": "两处原九项A/B同中位5/6，原极差6/10、IQR2/8；A尾值改30/41后极差29/39而IQR2，说明全跨度与中部可相反。从原A独立重设同尾值0，重排后IQR3，反驳永不受影响；保全部已核记录与同轴同单位，不删出想要的结论。",
-            "en": "Both nine-item A/B pairs share median five/six, with original ranges six/ten and IQRs two/eight. Changing A’s tail to thirty/forty-one yields range twenty-nine/thirty-nine but IQR two, separating total and middle spread. Independently resetting the original tail to zero changes IQR to three, disproving immunity. All verified records remain, with common axes and units rather than deletion to preference."
+            "zh": "两处原九项A/B同中位5/6，原极差6/10、IQR2/8；A尾值改30/41后极差29/39而IQR2，说明全跨度与中部可相反。从原A独立重设同尾值0，重排后IQR3，反驳永不受影响；保全部已核记录与同轴同单位，不删出想要的结论。 新N1实际算平移/正倍缩放四分位与跨度，新N3对照原卡纠错与已核大值保留；另复用J93/J94旧平移卡Q2的逐ID新图/跨度和自主分布。",
+            "en": "Both nine-item A/B pairs share median five/six, with original ranges six/ten and IQRs two/eight. Changing A’s tail to thirty/forty-one yields range twenty-nine/thirty-nine but IQR two, separating total and middle spread. Independently resetting the original tail to zero changes IQR to three, disproving immunity. All verified records remain, with common axes and units rather than deletion to preference. New N1 computes translated/scaled quartiles and spreads;N3 contrasts source correction with retention of verified large values. Existing J93/J94 Q2 adds per-ID translated plots/ranges and independently created distributions."
           }
         }
       ],
@@ -11054,11 +11319,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q4",
               "taskSkill": "paired-association"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
             }
           ],
           "rationale": {
-            "zh": "两组各保五ID数对画U形散点，另有缺失y的ID6只排该项成对分析不造0。分列排序会造原来不存在的(0,0)或(−2,1)，须自己给反例；编号不当路径连接，中心交积和0仍有U形，不误称无关系、独立、总体形状或因果结论。",
-            "en": "Each plots five ID-preserved U-shaped pairs and excludes a missing-y sixth ID only from that paired analysis without zero imputation. Separate sorting invents absent pairs (0,0) or (−2,1), which learners identify. IDs are not a path. Zero centred cross-product sum coexists with a U shape, not proving no relationship, independence, population shape or causation."
+            "zh": "两组各保五ID数对画U形散点，另有缺失y的ID6只排该项成对分析不造0。分列排序会造原来不存在的(0,0)或(−2,1)，须自己给反例；编号不当路径连接，中心交积和0仍有U形，不误称无关系、独立、总体形状或因果结论。 新N2实际画正/负/均衡散点，指出逆整体局部变化，补新ID重合前后行数/完整对数/位置数，区别旧U形。",
+            "en": "Each plots five ID-preserved U-shaped pairs and excludes a missing-y sixth ID only from that paired analysis without zero imputation. Separate sorting invents absent pairs (0,0) or (−2,1), which learners identify. IDs are not a path. Zero centred cross-product sum coexists with a U shape, not proving no relationship, independence, population shape or causation. New N2 plots rising/falling/balanced pairs,identifies opposing local steps,and counts rows/complete pairs/positions around an overlapping new ID,contrasting the old U shape."
           }
         }
       ],
@@ -11098,11 +11373,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q3",
               "taskSkill": "statistical-enquiry"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q2",
+              "taskSkill": "scatter-directions-and-causal-alternatives"
             }
           ],
           "rationale": {
-            "zh": "H08/H27飞行资料分别给A60cm/B80cm释放且未随机分配，要求指出高度混杂、更多点/更直趋势/按高度分组不自动证明因果或排尽混杂。下一轮固定条件、随机分配折法、重复记录；区别总体随机抽样和处理随机分配，参与材料因果不自动普推。",
-            "en": "Both flight datasets give unequal release heights A60/B80 cm without random allocation. Learners identify height confounding and explain why more points, straighter trends or height grouping do not automatically establish causation or remove every confounder. They improve conditions, allocation and repeated records while distinguishing random sampling for population scope from random treatment allocation and avoiding automatic generalisation."
+            "zh": "H08/H27飞行资料分别给A60cm/B80cm释放且未随机分配，要求指出高度混杂、更多点/更直趋势/按高度分组不自动证明因果或排尽混杂。下一轮固定条件、随机分配折法、重复记录；区别总体随机抽样和处理随机分配，参与材料因果不自动普推。 新N2画八天合并/天气分组图，核每组低高x的y均值相同而组间同向；自提反向因果/共同因素候选及尚需证据。",
+            "en": "Both flight datasets give unequal release heights A60/B80 cm without random allocation. Learners identify height confounding and explain why more points, straighter trends or height grouping do not automatically establish causation or remove every confounder. They improve conditions, allocation and repeated records while distinguishing random sampling for population scope from random treatment allocation and avoiding automatic generalisation. New N2 plots eight pooled/weather-grouped days and checks equal within-group low/high-x means despite pooled direction,then proposes reverse/common-factor candidates and needed evidence."
           }
         }
       ],
@@ -11145,11 +11430,21 @@
               "unit": "H27",
               "task": "H27-MAINT-DATA-ENQUIRY-Q3",
               "taskSkill": "statistical-enquiry"
+            },
+            {
+              "unit": "H08",
+              "task": "H08-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
+            },
+            {
+              "unit": "H27",
+              "task": "H27-MAINT-RESEARCH-MEANING-Q3",
+              "taskSkill": "source-correction-and-scoped-report"
             }
           ],
           "rationale": {
-            "zh": "两处从带单位ID表写完整PPDAC：40/50mm转4/5cm留痕，缺A6不补0，只并已核同次重复B3而保不同ID同值。有效A5/B6，排除法中位4/5或5/6、IQR4/2，报告本批B中位较大、中部较窄，列不能回答的因果/总体问题及后续设计，而非只写缩写或导出当通过。",
-            "en": "Each writes connected PPDAC from an ID/unit table: logged conversion of forty/fifty mm to four/five cm, no zero for missing A6, merging only the confirmed same-occasion B3 duplicate while retaining equal values under different IDs. Effective n is five/six; exclusion medians are four/five or five/six and IQRs four/two. Reports bound conclusions to this batch, name unanswerable causal/population questions and improve design rather than only listing initials or treating export as approval."
+            "zh": "两处从带单位ID表写完整PPDAC：40/50mm转4/5cm留痕，缺A6不补0，只并已核同次重复B3而保不同ID同值。有效A5/B6，排除法中位4/5或5/6、IQR4/2，报告本批B中位较大、中部较窄，列不能回答的因果/总体问题及后续设计，而非只写缩写或导出当通过。 新N3保12行/缺A5，原卡纠正A6并日志、重算两组与独立确认大值分支，自己写相连PPDAC和返查版本。纸稿/导出/有限关卡非人工认可。",
+            "en": "Each writes connected PPDAC from an ID/unit table: logged conversion of forty/fifty mm to four/five cm, no zero for missing A6, merging only the confirmed same-occasion B3 duplicate while retaining equal values under different IDs. Effective n is five/six; exclusion medians are four/five or five/six and IQRs four/two. Reports bound conclusions to this batch, name unanswerable causal/population questions and improve design rather than only listing initials or treating export as approval. New N3 retains twelve rows/missing A5,logs source correction of A6,recomputes groups and a separate verified-large-value branch,and writes connected PPDAC with revision provenance. Paper/export/finite gates are not human approval."
           }
         }
       ],
@@ -11192,11 +11487,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q1",
               "taskSkill": "square-root-versus-principal"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-RADICAL-MEANING-Q1",
+              "taskSkill": "fractional-root-sets-and-exact-real-objects"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-RADICAL-MEANING-Q1",
+              "taskSkill": "fractional-root-sets-and-exact-real-objects"
             }
           ],
           "rationale": {
-            "zh": "两组分别列16/25、0、负16/25的实数根集，区分√a与外负号；a−4/−5具体给√(a²)=|a|，无实值不当0也不悄改数域。",
-            "en": "Both list real roots for sixteen/twenty-five, zero and the negative value, separating the principal-root symbol from an external minus. Inputs −4/−5 demonstrate √(a²)=|a|. No real value is neither zero nor a silent change of number domain."
+            "zh": "两组分别列16/25、0、负16/25的实数根集，区分√a与外负号；a−4/−5具体给√(a²)=|a|，无实值不当0也不悄改数域。 新N1分数方程/主根/外负/先后次序逐式代回，区分几何边长；两半轴精确标根与零。",
+            "en": "Both list real roots for sixteen/twenty-five, zero and the negative value, separating the principal-root symbol from an external minus. Inputs −4/−5 demonstrate √(a²)=|a|. No real value is neither zero nor a silent change of number domain. New N1 substitutes fractional equation/principal/outside-minus/operation-order cases,distinguishes geometric length,and labels exact roots and zero on both half-axes."
           }
         }
       ],
@@ -11236,11 +11541,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q1",
               "taskSkill": "square-root-versus-principal"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-RADICAL-MEANING-Q1",
+              "taskSkill": "fractional-root-sets-and-exact-real-objects"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-RADICAL-MEANING-Q1",
+              "taskSkill": "fractional-root-sets-and-exact-real-objects"
             }
           ],
           "rationale": {
-            "zh": "两处把√9、√(1/4)、循环小数写整数比，再用最简分数同整除反证√2/√3无理；亲用直角斜边构数轴点，区分精确数与像素，有限小数前缀不证无理。",
-            "en": "Both express √9,√(1/4) and a recurring decimal as integer ratios, then prove √2/√3 irrational by forced common divisors of a reduced fraction. Right-triangle construction locates the positive real point while distinguishing exact values from pixels and finite displays from irrationality proofs."
+            "zh": "两处把√9、√(1/4)、循环小数写整数比，再用最简分数同整除反证√2/√3无理；亲用直角斜边构数轴点，区分精确数与像素，有限小数前缀不证无理。 新N1实际分类负无理/无实值/有限字面、由100x−x生成循环比，自造同前缀有理/无理延续并证明界限和类别，亲画负根。",
+            "en": "Both express √9,√(1/4) and a recurring decimal as integer ratios, then prove √2/√3 irrational by forced common divisors of a reduced fraction. Right-triangle construction locates the positive real point while distinguishing exact values from pixels and finite displays from irrationality proofs. New N1 classifies negative irrational/undefined real/finite literals,derives recurring ratios by 100x−x,constructs rational/irrational continuations of one prefix with proofs,and plots negative roots."
           }
         }
       ],
@@ -11280,11 +11595,31 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q2",
               "taskSkill": "radical-operation-domain"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-RADICAL-MEANING-Q2",
+              "taskSkill": "fractional-radical-form-domain-and-own-area"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-RADICAL-MEANING-Q2",
+              "taskSkill": "fractional-radical-form-domain-and-own-area"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
             }
           ],
           "rationale": {
-            "zh": "H03化√72−√8为4√2、−√75为−5√3，以四块3面积解释2√3；H04化√108−√12为4√3、−√50为−5√2，以九块2面积解释3√2。均用负a核|a|√b并保持外负号与面积/边长区别，完成共轭有理化。",
-            "en": "H03 simplifies √72−√8 to 4√2 and −√75 to −5√3, using four area-three pieces for 2√3. H04 uses √108−√12=4√3 and −√50=−5√2, with nine area-two pieces for 3√2. Both check negative a in |a|√b, retain external signs, separate area from length and complete conjugate rationalisation."
+            "zh": "H03化√72−√8为4√2、−√75为−5√3，以四块3面积解释2√3；H04化√108−√12为4√3、−√50为−5√2，以九块2面积解释3√2。均用负a核|a|√b并保持外负号与面积/边长区别，完成共轭有理化。 新N2比较分数根四等价形式的完成要求、平方同但负号不等、零/一与自主面积阵列；复用H05/H06旧PYTHAGOREAN-MEANING-Q3的分数腿、三等值根式与精确小数平方差，主桥不改。",
+            "en": "H03 simplifies √72−√8 to 4√2 and −√75 to −5√3, using four area-three pieces for 2√3. H04 uses √108−√12=4√3 and −√50=−5√2, with nine area-two pieces for 3√2. Both check negative a in |a|√b, retain external signs, separate area from length and complete conjugate rationalisation. New N2 audits four equivalent fractional forms,opposite-sign equal squares,zero/one and an own area array. Existing H05/H06 PYTHAGOREAN-MEANING-Q3 supplies fractional legs,three equivalent radicals and exact decimal square discrepancies with unchanged bridges."
           }
         }
       ],
@@ -11327,11 +11662,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q2",
               "taskSkill": "radical-operation-domain"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-RADICAL-MEANING-Q2",
+              "taskSkill": "fractional-radical-form-domain-and-own-area"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-RADICAL-MEANING-Q2",
+              "taskSkill": "fractional-radical-form-domain-and-own-area"
             }
           ],
           "rationale": {
-            "zh": "两组根式乘需各被开方数非负，商分母严格正；√1+√1反例否定直接合加，√(−1)不可先合积绕实数域。分别有理化1/(√3+√2)与1/(√5−2)，说明上下同乘及因子、原分母非零并乘回1。",
-            "en": "Both require nonnegative radicands for products and a strictly positive denominator radicand for quotients, refute merged addition with √1+√1 and reject bypassing undefined real √(−1). They rationalise 1/(√3+√2) or 1/(√5−2), checking shared multiplication, nonzero factors/original denominator and product back to one."
+            "zh": "两组根式乘需各被开方数非负，商分母严格正；√1+√1反例否定直接合加，√(−1)不可先合积绕实数域。分别有理化1/(√3+√2)与1/(√5−2)，说明上下同乘及因子、原分母非零并乘回1。 新N2主动算分数差/异类和/商并乘回，零分子可定义而原化简成零的分母不可救，不能混成同一规则。",
+            "en": "Both require nonnegative radicands for products and a strictly positive denominator radicand for quotients, refute merged addition with √1+√1 and reject bypassing undefined real √(−1). They rationalise 1/(√3+√2) or 1/(√5−2), checking shared multiplication, nonzero factors/original denominator and product back to one. New N2 computes fractional differences,unlike sums and quotients with multiplication back,contrasting a valid zero numerator with an originally zero denominator that cannot be rescued."
           }
         }
       ],
@@ -11374,11 +11719,31 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q3",
               "taskSkill": "root-bounds-and-rounding"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-RADICAL-MEANING-Q2",
+              "taskSkill": "fractional-radical-form-domain-and-own-area"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-RADICAL-MEANING-Q3",
+              "taskSkill": "midpoint-ties-carry-and-actual-error"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-RADICAL-MEANING-Q2",
+              "taskSkill": "fractional-radical-form-domain-and-own-area"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-RADICAL-MEANING-Q3",
+              "taskSkill": "midpoint-ties-carry-and-actual-error"
             }
           ],
           "rationale": {
-            "zh": "H03以整数平方夹√2于1.41/1.42，H04夹√3于1.73/1.74，再平方中点决定两位。另√50/√15一位舍入7.1/3.9不同截断7.0/3.8；保1.00格式尾零，√(25/16)=1.25精确与无理近似分开，给误差界及非负前提。",
-            "en": "H03 brackets √2 by 1.41/1.42 and H04 √3 by 1.73/1.74 using integer squares, then squares midpoints to round. Additional √50/√15 rounds to 7.1/3.9 rather than truncated 7.0/3.8. Both retain 1.00 precision, distinguish exact √(25/16)=1.25 from irrational approximations and state error bounds/nonnegative premises."
+            "zh": "H03以整数平方夹√2于1.41/1.42，H04夹√3于1.73/1.74，再平方中点决定两位。另√50/√15一位舍入7.1/3.9不同截断7.0/3.8；保1.00格式尾零，√(25/16)=1.25精确与无理近似分开，给误差界及非负前提。 新N3实际半格相等、跨整数尾零、完全平方/零、截断误差0.009与最近0.001，自己构造同界跨中点两根和负数保序反例；共享N2自主纸上标牌阵列保家庭挑战数学要求，不冒真实家庭试用。",
+            "en": "H03 brackets √2 by 1.41/1.42 and H04 √3 by 1.73/1.74 using integer squares, then squares midpoints to round. Additional √50/√15 rounds to 7.1/3.9 rather than truncated 7.0/3.8. Both retain 1.00 precision, distinguish exact √(25/16)=1.25 from irrational approximations and state error bounds/nonnegative premises. New N3 computes exact ties,integer carries,perfect squares/zero,truncation error0.009 versus nearest error0.001,and designs two roots with shared bounds/opposite midpoint sides plus a negative-order counterexample. Shared N2 adds the fictional sign array promised by the family challenge without claiming a household trial."
           }
         }
       ],
@@ -11418,11 +11783,31 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q4",
               "taskSkill": "quadratic-zero-product"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-QUADRATIC-MEANING-Q1",
+              "taskSkill": "collected-degree-nonzero-product-and-factor-scope"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-QUADRATIC-MEANING-Q1",
+              "taskSkill": "collected-degree-nonzero-product-and-factor-scope"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-ROOT-QUAD-Q9",
+              "taskSkill": "horizontal-intersection-equivalence"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-ROOT-QUAD-Q9",
+              "taskSkill": "horizontal-intersection-equivalence"
             }
           ],
           "rationale": {
-            "zh": "两组逐实数说明左=右等价差0、零点为输入，合并表面二次项后3=0/−4=0无解、0=0全实数，区别非零常数次数0和零多项式无最高非零项，不凭出现x²判二次。",
-            "en": "Both explain pointwise equivalence of equal sides and zero difference, with zeros as inputs. Apparent square terms cancel to impossible 3=0/−4=0 or all-real 0=0. Nonzero constants have degree zero; the zero polynomial has no highest nonzero term. An x² appearance does not determine degree."
+            "zh": "两组逐实数说明左=右等价差0、零点为输入，合并表面二次项后3=0/−4=0无解、0=0全实数，区别非零常数次数0和零多项式无最高非零项，不凭出现x²判二次。 新N1实际抵消为一次并核原左右，判三次不能套二次公式；复用原Q9亲画非零原图交点与差图零点，保精确两根/两图不同纵坐标，原J93-L04主桥不改。",
+            "en": "Both explain pointwise equivalence of equal sides and zero difference, with zeros as inputs. Apparent square terms cancel to impossible 3=0/−4=0 or all-real 0=0. Nonzero constants have degree zero; the zero polynomial has no highest nonzero term. An x² appearance does not determine degree. New N1 collects to a linear equation and audits original sides,then identifies a cubic outside the quadratic formula. Existing Q9 supplies actual original intersections/difference zeros,exact opposite roots and different ordinates with unchanged J93-L04 bridge."
           }
         }
       ],
@@ -11465,11 +11850,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q4",
               "taskSkill": "quadratic-zero-product"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-QUADRATIC-MEANING-Q1",
+              "taskSkill": "collected-degree-nonzero-product-and-factor-scope"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-QUADRATIC-MEANING-Q1",
+              "taskSkill": "collected-degree-nonzero-product-and-factor-scope"
             }
           ],
           "rationale": {
-            "zh": "H03纠正x(x−5)=0除x漏0，完整{0,5}；H04纠正x(x+4)=0，完整{−4,0}。各代原式并用零乘积说明穷尽，若相除须先单列x0分支，非只列几次代入吻合。",
-            "en": "H03 corrects division by x in x(x−5)=0 for complete set {0,5}; H04 uses x(x+4)=0 for {−4,0}. Both check originals and justify exhaustive zero-product branches; division requires a separate zero case rather than relying on finite successful trials."
+            "zh": "H03纠正x(x−5)=0除x漏0，完整{0,5}；H04纠正x(x+4)=0，完整{−4,0}。各代原式并用零乘积说明穷尽，若相除须先单列x0分支，非只列几次代入吻合。 新N1非零原乘积先验错误候选再移项分解，非首一分数两根与重复因子/常数因子分别核；穷尽整数积对后仍有无理实根，分解形式不当根集。",
+            "en": "H03 corrects division by x in x(x−5)=0 for complete set {0,5}; H04 uses x(x+4)=0 for {−4,0}. Both check originals and justify exhaustive zero-product branches; division requires a separate zero case rather than relying on finite successful trials. New N1 audits tempting candidates for a nonzero product before collection,then computes nonmonic fractional roots and repeated/constant-factor cases. Exhausted integer pairs coexist with irrational real roots; a factor product is not a root set."
           }
         }
       ],
@@ -11509,11 +11904,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q5",
               "taskSkill": "quadratic-formula-derivation"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-QUADRATIC-MEANING-Q2",
+              "taskSkill": "fractional-completing-and-grouped-formula"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-QUADRATIC-MEANING-Q2",
+              "taskSkill": "fractional-completing-and-grouped-formula"
             }
           ],
           "rationale": {
-            "zh": "H03解x²+8x=9同加16得{−9,1}，H04解x²−6x=7同加9得{−1,7}。画正长度面积块但明确不添原实数域限制，负解代回；以带符号半系数平方补齐，不画负宽正面积。",
-            "en": "H03 adds sixteen to x²+8x=9 for roots {−9,1}; H04 adds nine to x²−6x=7 for {−1,7}. Both draw positive-length area pieces without importing picture restrictions into the real equation, check negative roots and use the signed half-coefficient square rather than negative geometric widths."
+            "zh": "H03解x²+8x=9同加16得{−9,1}，H04解x²−6x=7同加9得{−1,7}。画正长度面积块但明确不添原实数域限制，负解代回；以带符号半系数平方补齐，不画负宽正面积。 新N2实际归一非首一式、带符号分数p及p²，逐步同加取正/零/负平方目标；正图例亲画分数宽长条/角且不删原负根，负p不画负宽正面积。",
+            "en": "H03 adds sixteen to x²+8x=9 for roots {−9,1}; H04 adds nine to x²−6x=7 for {−1,7}. Both draw positive-length area pieces without importing picture restrictions into the real equation, check negative roots and use the signed half-coefficient square rather than negative geometric widths. New N2 normalises nonmonic equations,computes signed fractional p/p² and positive/zero/negative square targets,and draws fractional strips/corner without discarding a negative root or fabricating a negative-width positive-area tile."
           }
         }
       ],
@@ -11556,11 +11961,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q5",
               "taskSkill": "quadratic-formula-derivation"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-QUADRATIC-MEANING-Q2",
+              "taskSkill": "fractional-completing-and-grouped-formula"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-QUADRATIC-MEANING-Q2",
+              "taskSkill": "fractional-completing-and-grouped-formula"
             }
           ],
           "rationale": {
-            "zh": "两处从非零a逐步除a、移常数、同加(b/2a)²得到Δ/(4a²)，√(4a²)=2|a|后解释负a只交换±完整集，核−2x²+4x+6或−3x²−6x+9两根；不声称|a|=a，保Δ负/零与a0限制。",
-            "en": "Both derive the formula through division by nonzero a, moving the constant and adding (b/2a)². After √(4a²)=2|a|, negative a only exchanges the complete ± branches, checked with −2x²+4x+6 or −3x²−6x+9. They do not assert |a|=a and retain negative/zero Δ and a=0 restrictions."
+            "zh": "两处从非零a逐步除a、移常数、同加(b/2a)²得到Δ/(4a²)，√(4a²)=2|a|后解释负a只交换±完整集，核−2x²+4x+6或−3x²−6x+9两根；不声称|a|=a，保Δ负/零与a0限制。 新N2配方/公式双解无理根，审错误整分子括号候选的精确余差，再对原式两边乘−2重算原系数/Δ并匹配反向±支；原一般推导继续复用。",
+            "en": "Both derive the formula through division by nonzero a, moving the constant and adding (b/2a)². After √(4a²)=2|a|, negative a only exchanges the complete ± branches, checked with −2x²+4x+6 or −3x²−6x+9. They do not assert |a|=a and retain negative/zero Δ and a=0 restrictions. New N2 solves irrational roots by completing/formula,audits a wrongly grouped numerator by its exact residual,and recomputes coefficients/Δ after multiplying both sides by −2 to match exchanged branches. The original general derivation remains."
           }
         }
       ],
@@ -11600,11 +12015,31 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q6",
               "taskSkill": "quadratic-model-domain"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-QUADRATIC-MEANING-Q1",
+              "taskSkill": "collected-degree-nonzero-product-and-factor-scope"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-QUADRATIC-MEANING-Q3",
+              "taskSkill": "original-model-domains-and-own-design"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-QUADRATIC-MEANING-Q1",
+              "taskSkill": "collected-degree-nonzero-product-and-factor-scope"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-QUADRATIC-MEANING-Q3",
+              "taskSkill": "original-model-domains-and-own-design"
             }
           ],
           "rationale": {
-            "zh": "H03用9/11窗外两根、重根3、无实根x²+4，H04用−7/−10、重根−4、x²+9，按Δ正/零/负解释不同根数。a0时改审一次/恒等/矛盾，不凭b²正推两根，视窗[−4,4]不能定全实域。",
-            "en": "H03 uses off-window roots nine/eleven, repeated three and x²+4 with none; H04 uses −7/−10, repeated −4 and x²+9. Both connect distinct counts to Δ signs and separately classify a=0 as linear/identity/impossible, without treating positive b² or a [−4,4] window as a full-domain root count."
+            "zh": "H03用9/11窗外两根、重根3、无实根x²+4，H04用−7/−10、重根−4、x²+9，按Δ正/零/负解释不同根数。a0时改审一次/恒等/矛盾，不凭b²正推两根，视窗[−4,4]不能定全实域。 新N1实际Δ49但两根均非整数；新N3逐原式算Δ/不同实根数，再与正宽/闭时间域接受数对照，根数不冒可行数。",
+            "en": "H03 uses off-window roots nine/eleven, repeated three and x²+4 with none; H04 uses −7/−10, repeated −4 and x²+9. Both connect distinct counts to Δ signs and separately classify a=0 as linear/identity/impossible, without treating positive b² or a [−4,4] window as a full-domain root count. New N1 computes Δ49 yet two noninteger roots. N3 calculates each original discriminant/distinct count before positive-width/closed-time filtering,distinguishing equation count from feasible count."
           }
         }
       ],
@@ -11647,11 +12082,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q6",
               "taskSkill": "quadratic-model-domain"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-QUADRATIC-MEANING-Q3",
+              "taskSkill": "original-model-domains-and-own-design"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-QUADRATIC-MEANING-Q3",
+              "taskSkill": "original-model-domains-and-own-design"
             }
           ],
           "rationale": {
-            "zh": "两组分别画两/三方阵与总7/8张，保2x²=7或3x²=8原数量等式，解±√14/2或±2√6/3再交非负整数，无可行方案却非无实根。输入取1和2时数量分别为2与8或3与12均不合，舍入不能修复原模型。",
-            "en": "Both draw two/three square arrays and totals seven/eight, retaining 2x²=7 or 3x²=8 as original quantity equations. Candidates ±√14/2 or ±2√6/3 intersect no nonnegative integers: infeasible arrays despite real roots. Inputs one/two give counts two/eight or three/twelve, so rounding cannot repair the model."
+            "zh": "两组分别画两/三方阵与总7/8张，保2x²=7或3x²=8原数量等式，解±√14/2或±2√6/3再交非负整数，无可行方案却非无实根。输入取1和2时数量分别为2与8或3与12均不合，舍入不能修复原模型。 新N3保原矩形面积两数量、两方法全部根/逐根双核与单位，亲画两时间零点图/端点通过与失败；自创矩形及有实根无整数卡阵，不舍入或伪造实测。",
+            "en": "Both draw two/three square arrays and totals seven/eight, retaining 2x²=7 or 3x²=8 as original quantity equations. Candidates ±√14/2 or ±2√6/3 intersect no nonnegative integers: infeasible arrays despite real roots. Inputs one/two give counts two/eight or three/twelve, so rounding cannot repair the model. New N3 retains rectangle area sources,two solution methods,all roots and separate substitution/domain checks with units. It plots two time-zero cases with passing/failing endpoints and designs a rectangle plus real-root/no-integer card model,without rounding or fictional measurements."
           }
         }
       ],
@@ -11691,11 +12136,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q7",
               "taskSkill": "parabola-vertex-and-symmetry"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-PARABOLA-MEANING-Q1",
+              "taskSkill": "parabola-scale-and-collected-type"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-PARABOLA-MEANING-Q1",
+              "taskSkill": "parabola-scale-and-collected-type"
             }
           ],
           "rationale": {
-            "zh": "两处2(x−3)²−2与−3(x+2)²+5用平方≥0推开口和值域，单位输入变化2/6或−3/−9证明a不是固定斜率；a0退常数，不能保唯一顶点或二次身份。",
-            "en": "Both use nonnegative squares in 2(x−3)²−2 and −3(x+2)²+5 for opening/range. Unit-input changes two/six or −3/−9 refute a constant slope. At a=0 the rule is constant, losing quadratic identity and a unique vertex."
+            "zh": "两处2(x−3)²−2与−3(x+2)²+5用平方≥0推开口和值域，单位输入变化2/6或−3/−9证明a不是固定斜率；a0退常数，不能保唯一顶点或二次身份。 新N1在共同标尺亲列分数外系数三曲线及高度差倍率，保非零距离前提与平移后的反射水平线；实际抵消成一次/常数，分别核竖轴不存在/不唯一，不把外观当系数。",
+            "en": "Both use nonnegative squares in 2(x−3)²−2 and −3(x+2)²+5 for opening/range. Unit-input changes two/six or −3/−9 refute a constant slope. At a=0 the rule is constant, losing quadratic identity and a unique vertex. New N1 tabulates three fractional-scale curves on common axes,computes displacement ratios for nonzero distance and locates the translated reflection line. Actual linear/constant cancellation distinguishes absent/nonunique vertical axes without inferring coefficients from appearance."
           }
         }
       ],
@@ -11738,11 +12193,31 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q7",
               "taskSkill": "parabola-vertex-and-symmetry"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-PARABOLA-MEANING-Q1",
+              "taskSkill": "parabola-scale-and-collected-type"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-PARABOLA-MEANING-Q2",
+              "taskSkill": "fractional-parabola-forms-and-factor-domains"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-PARABOLA-MEANING-Q1",
+              "taskSkill": "parabola-scale-and-collected-type"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-PARABOLA-MEANING-Q2",
+              "taskSkill": "fractional-parabola-forms-and-factor-domains"
             }
           ],
           "rationale": {
-            "zh": "两组亲解平方0得顶点(3,−2)/(−2,5)与轴x3/x−2，纠括号符号左右误读；一般代h±d均ad²+k说明任意距离对称，a0时不能宣称唯一轴/顶点。",
-            "en": "Both set the square to zero for vertices (3,−2)/(−2,5) and axes x=3/x=−2, correcting bracket-sign shift errors. Substituting h±d yields ad²+k for arbitrary symmetric offsets. At a=0 neither a unique axis nor vertex may be asserted."
+            "zh": "两组亲解平方0得顶点(3,−2)/(−2,5)与轴x3/x−2，纠括号符号左右误读；一般代h±d均ad²+k说明任意距离对称，a0时不能宣称唯一轴/顶点。 共享N1区分a/h/k改函数与d/图窗只观察；N2从非首一正负系数亲配方得分数顶点，算截距并推c=ah²+k及非零a下相等恰h0，核外倍补偿错误的一般差和具体反例。",
+            "en": "Both set the square to zero for vertices (3,−2)/(−2,5) and axes x=3/x=−2, correcting bracket-sign shift errors. Substituting h±d yields ad²+k for arbitrary symmetric offsets. At a=0 neither a unique axis nor vertex may be asserted. Shared N1 separates a/h/k function changes from illustrative d/window. N2 completes signed nonmonic functions for fractional vertices,computes intercepts and derives c=ah²+k with equality iff h=0 for nonzero a,then refutes wrong outside compensation generally and numerically."
           }
         }
       ],
@@ -11785,11 +12260,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q8",
               "taskSkill": "quadratic-function-forms"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-PARABOLA-MEANING-Q2",
+              "taskSkill": "fractional-parabola-forms-and-factor-domains"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-PARABOLA-MEANING-Q2",
+              "taskSkill": "fractional-parabola-forms-and-factor-domains"
             }
           ],
           "rationale": {
-            "zh": "两组三式分别统一系数(1,−6,8)/(2,4,−6)，读截距、顶点轴与根，完整展开证所有输入同。另乘2保根但改零输入输出16/−12，说明同根不代表同函数、外系数不能丢。",
-            "en": "The form triples expand to coefficients (1,−6,8)/(2,4,−6), reading intercepts, vertex/axis and roots while proving identity for all inputs. Doubling preserves roots but changes zero-input outputs to sixteen/−12, showing equal roots do not imply equal functions and outside scale must remain."
+            "zh": "两组三式分别统一系数(1,−6,8)/(2,4,−6)，读截距、顶点轴与根，完整展开证所有输入同。另乘2保根但改零输入输出16/−12，说明同根不代表同函数、外系数不能丢。 新N2自主生成三形式而非只核给定三式，保分数补偿与同函数/未完成指定形式；零根/重复因子完整保留，亲展开无理实因子，对全实数严格同号函数证无实因子，区别语法限制。",
+            "en": "The form triples expand to coefficients (1,−6,8)/(2,4,−6), reading intercepts, vertex/axis and roots while proving identity for all inputs. Doubling preserves roots but changes zero-input outputs to sixteen/−12, showing equal roots do not imply equal functions and outside scale must remain. New N2 generates all three forms rather than only checking supplied triples,retaining fractional compensation and equivalent-but-unfinished distinctions. It preserves zero/repeated factors,expands irrational real factors and proves no real factors for an always-strict-sign function,separately from field syntax."
           }
         }
       ],
@@ -11832,11 +12317,21 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q9",
               "taskSkill": "horizontal-intersection-equivalence"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-PARABOLA-MEANING-Q3",
+              "taskSkill": "shifted-horizontal-targets-and-window-proof"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-PARABOLA-MEANING-Q3",
+              "taskSkill": "shifted-horizontal-targets-and-window-proof"
             }
           ],
           "rationale": {
-            "zh": "H03原x²=3交点纵3而差图纵0，根±√3，1.73平方非3；H04原2x²=5纵5而差图纵0，根±√10/2，1.58给4.9928。均列精确有序点及负根，用零乘积分支证完整，不混两图或凭视窗。",
-            "en": "H03 original x²=3 intersections have output three while the difference graph has zero, roots ±√3, and 1.73 fails exact squaring. H04 uses 2x²=5 with outputs five/zero, roots ±√10/2 and approximation 1.58 giving 4.9928. Both list exact ordered points and negative roots with exhaustive zero-product branches, not mixed graphs or window evidence."
+            "zh": "H03原x²=3交点纵3而差图纵0，根±√3，1.73平方非3；H04原2x²=5纵5而差图纵0，根±√10/2，1.58给4.9928。均列精确有序点及负根，用零乘积分支证完整，不混两图或凭视窗。 新N3对平移正/负a函数分别亲求两点/相切/无交的三个水平目标，列原图/差图全部精确有序点及代回；宽窗仍可能漏−9，不把点夹边界，游标/窗口不改问题。原O9无理根和精确小数余差继续用。",
+            "en": "H03 original x²=3 intersections have output three while the difference graph has zero, roots ±√3, and 1.73 fails exact squaring. H04 uses 2x²=5 with outputs five/zero, roots ±√10/2 and approximation 1.58 giving 4.9928. Both list exact ordered points and negative roots with exhaustive zero-product branches, not mixed graphs or window evidence. New N3 solves three horizontal targets for shifted positive/negative-a functions,two/tangent/no intersections,with every exact original/difference ordered point and substitution. A wide window can still hide−9;never clamp to a border. Cursor/window preserve the problem. Original O9 retains irrational roots and exact decimal residuals."
           }
         }
       ],
@@ -11879,11 +12374,31 @@
               "unit": "H04",
               "task": "H04-MAINT-ROOT-QUAD-Q10",
               "taskSkill": "quadratic-domain-optimum"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-PARABOLA-MEANING-Q4",
+              "taskSkill": "quadratic-minima-attainment-and-own-models"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-PARABOLA-MEANING-Q4",
+              "taskSkill": "quadratic-minima-attainment-and-own-models"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-OPTIMISATION-Q4",
+              "taskSkill": "optimisation-5"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-OPTIMISATION-Q4",
+              "taskSkill": "optimisation-5"
             }
           ],
           "rationale": {
-            "zh": "两组从周长24/28推x(12−x)/x(14−x)，保正边0<x<12/14，配方全域最大36/49。再限1≤x≤5或2≤x≤6，顶点不可用；任意允许x距中心至少1，故最大35/48在右端，核长7/8及cm²，非只试样点。",
-            "en": "Both derive x(12−x) or x(14−x) from perimeter twenty-four/twenty-eight and positive-side domains, then prove global maxima thirty-six/forty-nine. Restrictions [1,5]/[2,6] exclude the vertex; every input is at least one from the centre, proving maxima thirty-five/forty-eight at the right endpoint, with lengths seven/eight and cm², rather than sample trials."
+            "zh": "两组从周长24/28推x(12−x)/x(14−x)，保正边0<x<12/14，配方全域最大36/49。再限1≤x≤5或2≤x≤6，顶点不可用；任意允许x距中心至少1，故最大35/48在右端，核长7/8及cm²，非只试样点。 新N4由原周长画图/生三形式，双闭区间同时给最大/最小及所有达到尺寸、原目标/自选目标面积双核，自创不同整数得分并给全部并列最高/最低。直接复用H35/H38原OPTIMISATION-Q4的三边围栏整数并列最优与开端点仅下确界，原H31-L05桥保留，不重造其证明。",
+            "en": "Both derive x(12−x) or x(14−x) from perimeter twenty-four/twenty-eight and positive-side domains, then prove global maxima thirty-six/forty-nine. Restrictions [1,5]/[2,6] exclude the vertex; every input is at least one from the centre, proving maxima thirty-five/forty-eight at the right endpoint, with lengths seven/eight and cm², rather than sample trials. New N4 draws/model-generates from perimeter,finds BOTH extrema/every attaining dimension on two closed intervals,audits given/own target areas,and designs a different integer score with all tied maxima/minima. Existing H35/H38 OPTIMISATION-Q4 supplies integer fence ties and an open-endpoint infimum without attainment,keeping its H31-L05 bridge and proof."
           }
         }
       ],
@@ -11926,11 +12441,31 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q1",
               "taskSkill": "similarity-correspondence"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-SIMILARITY-MEANING-Q1",
+              "taskSkill": "similarity-reduction-reverse-and-whole-sides"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-SIMILARITY-MEANING-Q3",
+              "taskSkill": "similarity-area-units-inversion-and-counterdesign"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-SIMILARITY-MEANING-Q1",
+              "taskSkill": "similarity-reduction-reverse-and-whole-sides"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-SIMILARITY-MEANING-Q3",
+              "taskSkill": "similarity-area-units-inversion-and-counterdesign"
             }
           ],
           "rationale": {
-            "zh": "两组ABC∼DFE按A/D、B/F、C/E给目标/原图倍率3/2或2，算对应边9/2与6或10与24，再反向全部2/3或1/2。反射旋转不按屏幕重命名，k1允许，比例无单位且不混方向。",
-            "en": "Both order ABC∼DFE by A/D,B/F,C/E and target/original scale 3/2 or two, deriving sides 9/2,six or ten,twenty-four. Reversing every ratio gives 2/3 or 1/2. Rigid poses do not rename points, k=1 is allowed and scale is unitless with consistent direction."
+            "zh": "两组ABC∼DFE按A/D、B/F、C/E给目标/原图倍率3/2或2，算对应边9/2与6或10与24，再反向全部2/3或1/2。反射旋转不按屏幕重命名，k1允许，比例无单位且不混方向。 新N1在FDE/EFD对应下统一mm/cm，算2/3或3/4缩小比及全反向、正求/反求边再乘回，分开k1/0/负长度比；共享N3实算非均匀矩形并核两种长宽配对，旧旋转反射与全对应继续用。",
+            "en": "Both order ABC∼DFE by A/D,B/F,C/E and target/original scale 3/2 or two, deriving sides 9/2,six or ten,twenty-four. Reversing every ratio gives 2/3 or 1/2. Rigid poses do not rename points, k=1 is allowed and scale is unitless with consistent direction. New N1 converts mm/cm under FDE/EFD matching,computes reduction factors2/3 or3/4 and all inverses,then solves forward/reverse sides and multiplies back. It separates1/zero/negative proposed length factors. Shared N3 computes nonuniform rectangles and audits both side matchings,while original rigid-pose/full-correspondence arguments remain."
           }
         }
       ],
@@ -11980,11 +12515,21 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q2",
               "taskSkill": "sss-sas-sufficient-conditions"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-SIMILARITY-MEANING-Q2",
+              "taskSkill": "proportional-triangle-criteria-and-scope"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-SIMILARITY-MEANING-Q2",
+              "taskSkill": "proportional-triangle-criteria-and-scope"
             }
           ],
           "rationale": {
-            "zh": "H22/H23由已知A=D、C=E直角明确AA得相似及第三角；另复用H05/H06的两SSA非退化分支AC=3√3±√7或5√3±√11。固定两边同长却第三边不同，若相似比只能1便矛盾，否定任意SSA充分，不否定另有特殊前提。",
-            "en": "H22/H23 explicitly derive AA from given A=D and right C/E, then the third angle. H05/H06 supply two nondegenerate SSA alternatives AC=3√3±√7 or 5√3±√11. Equal fixed side pairs would force similarity scale one, contradicting unequal third sides. This refutes general SSA sufficiency without denying extra-premise special cases."
+            "zh": "H22/H23由已知A=D、C=E直角明确AA得相似及第三角；另复用H05/H06的两SSA非退化分支AC=3√3±√7或5√3±√11。固定两边同长却第三边不同，若相似比只能1便矛盾，否定任意SSA充分，不否定另有特殊前提。 新N2在非直角两角例主动求第三角/倍率，明确AAA不定大小；实际两边同向比例与夹角SAS、三比SSS、只改第三边的不同倍率逐核，不把判据名称或两条方便比当证明。原两分支SSA继续复用。",
+            "en": "H22/H23 explicitly derive AA from given A=D and right C/E, then the third angle. H05/H06 supply two nondegenerate SSA alternatives AC=3√3±√7 or 5√3±√11. Equal fixed side pairs would force similarity scale one, contradicting unequal third sides. This refutes general SSA sufficiency without denying extra-premise special cases. New N2 computes third angles/scales from nonright AA cases,then audits actual proportional-side/included-angle SAS,all-three-ratio SSS and a changed third ratio. Criterion names or two convenient ratios are insufficient. Original two-branch SSA proofs remain reused."
           }
         }
       ],
@@ -12027,11 +12572,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q2",
               "taskSkill": "similarity-side-proportion"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-SIMILARITY-MEANING-Q1",
+              "taskSkill": "similarity-reduction-reverse-and-whole-sides"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-SIMILARITY-MEANING-Q1",
+              "taskSkill": "similarity-reduction-reverse-and-whole-sides"
             }
           ],
           "rationale": {
-            "zh": "两处D∈AB、E∈AC且DE∥BC，A共角与对应角给ADE∼ABC，完整AD/AB=AE/AC=DE/BC为3/5或4/7，算DE6/8cm并保同向对应，不从外观跳相似。",
-            "en": "Both use D on AB,E on AC and DE∥BC, citing common A and corresponding angles for ADE∼ABC. Full AD/AB=AE/AC=DE/BC ratios 3/5 or 4/7 give DE six/eight cm, retaining direction and angle evidence rather than appearance."
+            "zh": "两处D∈AB、E∈AC且DE∥BC，A共角与对应角给ADE∼ABC，完整AD/AB=AE/AC=DE/BC为3/5或4/7，算DE6/8cm并保同向对应，不从外观跳相似。 共享N1先由AD+DB补整AB，分数小/大及全反向求AE/DE/EC，比较AD/DB；另撤相似后亲画两目标保同已知却未知边不同，数值不足不假成比例。原平行AA强证明保留。",
+            "en": "Both use D on AB,E on AC and DE∥BC, citing common A and corresponding angles for ADE∼ABC. Full AD/AB=AE/AC=DE/BC ratios 3/5 or 4/7 give DE six/eight cm, retaining direction and angle evidence rather than appearance. Shared N1 reconstructs whole AB from AD+DB before fractional small/large and inverse ratios for AE,DE,EC. It draws two nondegenerate targets with identical insufficient givens but different unknown sides. The original parallel-AA proof remains."
           }
         }
       ],
@@ -12071,11 +12626,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q2",
               "taskSkill": "similarity-side-proportion"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-SIMILARITY-MEANING-Q3",
+              "taskSkill": "similarity-area-units-inversion-and-counterdesign"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-SIMILARITY-MEANING-Q3",
+              "taskSkill": "similarity-area-units-inversion-and-counterdesign"
             }
           ],
           "rationale": {
-            "zh": "两组亲作对应垂高，底与高均乘k，面积变9S/25或16S/49；另横2纵3矩形面积6倍不自动保证相似或统一对应比，保前提而不把面积比当长度比。",
-            "en": "Both construct corresponding perpendicular heights, scaling base and height by k for areas 9S/25 or 16S/49. A rectangle with horizontal/vertical factors two/three has sixfold area without automatically guaranteeing similarity or one corresponding scale. Area and length ratios remain distinct."
+            "zh": "两组亲作对应垂高，底与高均乘k，面积变9S/25或16S/49；另横2纵3矩形面积6倍不自动保证相似或统一对应比，保前提而不把面积比当长度比。 新N3实际数1cm²小格和原面积块，分别算周长/面积/两种倍率；已知相似的分数面积比反求正长度及尺寸，根式小数精确平方审查；非均匀周长另算、自创同面积不同形并核两种矩形配对。",
+            "en": "Both construct corresponding perpendicular heights, scaling base and height by k for areas 9S/25 or 16S/49. A rectangle with horizontal/vertical factors two/three has sixfold area without automatically guaranteeing similarity or one corresponding scale. Area and length ratios remain distinct. New N3 counts unit cells versus original-area blocks and separates perimeters,areas and both factors. It reverses fractional area ratios under similarity,checks radical decimal squares,computes nonuniform perimeter ratios and designs an equal-area nonsimilar rectangle with both matchings audited."
           }
         }
       ],
@@ -12115,11 +12680,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q2",
               "taskSkill": "similarity-side-proportion"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-SIMILARITY-MEANING-Q4",
+              "taskSkill": "similarity-map-photo-shadow-and-own-report"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-SIMILARITY-MEANING-Q4",
+              "taskSkill": "similarity-map-photo-shadow-and-own-report"
             }
           ],
           "rationale": {
-            "zh": "H22印图1:25000路线4cm转1km，H23的1:40000路线3cm转6/5km；屏幕放2或3/2倍仍同实长，须同步比例条。若套印图尺错成2或9/5km，斜拍单处尺也不能保证全局各向倍率，说明模型假设而非只套比例。",
-            "en": "H22 converts four cm at 1:25000 to one km; H23 converts three cm at 1:40000 to 6/5 km. Screen zoom two or 3/2 retains real length and requires the synchronous bar. Reusing the printed ruler wrongly gives two or 9/5 km, and one local ruler in perspective cannot certify global directional scale."
+            "zh": "H22印图1:25000路线4cm转1km，H23的1:40000路线3cm转6/5km；屏幕放2或3/2倍仍同实长，须同步比例条。若套印图尺错成2或9/5km，斜拍单处尺也不能保证全局各向倍率，说明模型假设而非只套比例。 新N4自主纸图/逆求图cm与同步像素条，直线/折线路程分开；原框等比/拉伸/裁留三操作算尺寸面积，同一最终框却圆/椭圆不同；混cm/m影长先AA后算高，撤共光亲画同影异高反例，汇成虚构报告。旧单处透视标定证明继续用。",
+            "en": "H22 converts four cm at 1:25000 to one km; H23 converts three cm at 1:40000 to 6/5 km. Screen zoom two or 3/2 retains real length and requires the synchronous bar. Reusing the printed ruler wrongly gives two or 9/5 km, and one local ruler in perspective cannot certify global directional scale. New N4 draws a map,recovers map cm and rescales pixel bars,separates straight/bent-route length,and calculates uniform/stretch/crop dimensions and areas. Equal final frames can contain circular versus elliptical retained motifs. Mixed-unit shadows require AA;after removing common light,it draws equal-shadow/different-height counterexamples and reports fictional sources. Original perspective-calibration arguments remain."
           }
         }
       ],
@@ -12162,11 +12737,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q3",
               "taskSkill": "circle-chord-contact"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-CIRCLE-GEOMETRY-MEANING-Q1",
+              "taskSkill": "circle-definition-distance-and-central-structure"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-CIRCLE-GEOMETRY-MEANING-Q1",
+              "taskSkill": "circle-definition-distance-and-central-structure"
             }
           ],
           "rationale": {
-            "zh": "H22半径5弦6、H23半径13弦10，以公共OM和同圆半径斜边HL证半弦3/5，再求OM4/12。OM0直径直接中点不套退化HL；任意线点OX²=d²+MX²说明d与r比较的0/1/2交点，有向位置和非负距离分开，不依有限图窗。",
-            "en": "H22 uses radius five/chord six and H23 radius thirteen/chord ten. HL from common OM and radius hypotenuses proves half-chords three/five, then OM four/twelve. At OM=0 use the diameter midpoint, not degenerate HL. OX²=d²+MX² gives zero/one/two line intersections from d versus r, separating signed positions from nonnegative distances and finite windows."
+            "zh": "H22半径5弦6、H23半径13弦10，以公共OM和同圆半径斜边HL证半弦3/5，再求OM4/12。OM0直径直接中点不套退化HL；任意线点OX²=d²+MX²说明d与r比较的0/1/2交点，有向位置和非负距离分开，不依有限图窗。 新圆几何N1统一分数半径与mm垂距求半/全弦，亲画圆定义与直径包含，实际同斜长半径却有两交点反驳斜距/有限线段误判；分数圆心角求底角及反求、180退化另审。",
+            "en": "H22 uses radius five/chord six and H23 radius thirteen/chord ten. HL from common OM and radius hypotenuses proves half-chords three/five, then OM four/twelve. At OM=0 use the diameter midpoint, not degenerate HL. OX²=d²+MX² gives zero/one/two line intersections from d versus r, separating signed positions from nonnegative distances and finite windows. New circle-geometry N1 unifies fractional radius/mm distance for half/full chords, draws the definition and diameter inclusion, and gives actual equal-radius sloping segments on a secant to refute nonperpendicular-distance/finite-segment shortcuts. Fractional central/base-angle inverses and the 180° degeneration are audited separately."
           }
         }
       ],
@@ -12209,11 +12794,31 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q4",
               "taskSkill": "circle-intercepted-arc"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-CIRCLE-GEOMETRY-MEANING-Q2",
+              "taskSkill": "circle-isosceles-arc-proof-and-cyclic-counterexample"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-CIRCLE-GEOMETRY-MEANING-Q2",
+              "taskSkill": "circle-isosceles-arc-proof-and-cyclic-counterexample"
+            },
+            {
+              "unit": "H37",
+              "task": "H37-MAINT-ANALYTIC-GEOMETRY-Q4",
+              "taskSkill": "analytic-geometry-4"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ANALYTIC-GEOMETRY-Q4",
+              "taskSkill": "analytic-geometry-4"
             }
           ],
           "rationale": {
-            "zh": "两组小弧100/140、大弧260/220，P/R在大弧得圆周角50/70，Q在小弧得130/110，均先标不含顶点的弧。同侧同弧等角、异侧总180，旋转保身份，顶点离圆或与端点重合不能直接套。",
-            "en": "Minor/major arcs 100/260 or 140/220 give P/R angles fifty/seventy and opposite Q angles 130/110 after labelling arcs excluding vertices. Same-side equality and opposite-side 180° follow from the arcs; rotation preserves identity, while off-circle or endpoint vertices cannot use the rule."
+            "zh": "两组小弧100/140、大弧260/220，P/R在大弧得圆周角50/70，Q在小弧得130/110，均先标不含顶点的弧。同侧同弧等角、异侧总180，旋转保身份，顶点离圆或与端点重合不能直接套。 新N2用同圆位置分别求等腰底角，以相加/相减两布局推同角；选定大扫角两侧换弧及共圆截弧证明、撤共圆凸菱形反例。直接复用H37/H38解析Q4实际直径角轨迹、内外点及零向量端点，主桥H36-L04不改。",
+            "en": "Minor/major arcs 100/260 or 140/220 give P/R angles fifty/seventy and opposite Q angles 130/110 after labelling arcs excluding vertices. Same-side equality and opposite-side 180° follow from the arcs; rotation preserves identity, while off-circle or endpoint vertices cannot use the rule. New N2 derives the same inscribed angle by equal-radii addition/subtraction layouts, audits major sweeps and proves cyclic supplementation with a convex-rhombus counterexample after removing concyclicity. Reused H37/H38 analytic Q4 requires the diameter-angle locus, actual inside/outside points and zero-vector endpoints; its H36-L04 bridge remains."
           }
         }
       ],
@@ -12256,11 +12861,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q5",
               "taskSkill": "circle-tangent-premises"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-CIRCLE-GEOMETRY-MEANING-Q3",
+              "taskSkill": "circle-contact-converse-fractional-tangent-and-angle"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-CIRCLE-GEOMETRY-MEANING-Q3",
+              "taskSkill": "circle-contact-converse-fractional-tangent-and-angle"
             }
           ],
           "rationale": {
-            "zh": "两处同外点P、同圆不同切点T/S先由相切得两直角，共OP斜边、半径相等HL证明PT=PS；r6/OP10得8，r8/OP17得15。缺相切、换圆/外点或P在圆上不保此非退化证明，比较有限线段而非无限直线。",
-            "en": "Both use given same-circle tangency at T/S from one external P for right angles, common OP hypotenuse and equal radii, proving PT=PS by HL. Radius/OP six/ten yields eight; eight/seventeen yields fifteen. Missing tangency, another circle/point or on-circle P removes premises. The comparison concerns segments, not infinite lines."
+            "zh": "两处同外点P、同圆不同切点T/S先由相切得两直角，共OP斜边、半径相等HL证明PT=PS；r6/OP10得8，r8/OP17得15。缺相切、换圆/外点或P在圆上不保此非退化证明，比较有限线段而非无限直线。 新N3混mm/cm和分数OP求精确正根、亲核小数平方差；两切点直角推分数P角；三条实际垂线区分切点逆判与错位置割/离线；撤相切保坐标得不同长度，不偷加直角。",
+            "en": "Both use given same-circle tangency at T/S from one external P for right angles, common OP hypotenuse and equal radii, proving PT=PS by HL. Radius/OP six/ten yields eight; eight/seventeen yields fifteen. Missing tangency, another circle/point or on-circle P removes premises. The comparison concerns segments, not infinite lines. New N3 converts mm/cm with fractional OP for exact positive roots and decimal-square residuals, derives fractional tangent angles from both contacts, distinguishes three actual perpendicular lines for the contact converse, and computes a different length from retained coordinates after tangency is removed."
           }
         }
       ],
@@ -12303,11 +12918,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q6",
               "taskSkill": "circle-sector-fraction"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-CIRCLE-GEOMETRY-MEANING-Q4",
+              "taskSkill": "circle-inverse-sector-joint-change-and-own-proof-report"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-CIRCLE-GEOMETRY-MEANING-Q4",
+              "taskSkill": "circle-inverse-sector-joint-change-and-own-proof-report"
             }
           ],
           "rationale": {
-            "zh": "r6θ150给弧5πcm、面积15πcm²、周长5π+12；r10θ72给4π、20π、4π+20。由θ/360分别乘整圆周长/面积，区分弧弦、扇形弓形；360时半径为内缝不加，0亦退化，l+2r限定0<θ<360。",
-            "en": "Radius six/angle150 gives arc5π cm,area15π cm²,perimeter5π+12; ten/72 gives4π,20π,4π+20. The θ/360 fraction multiplies whole circumference/area separately. Both distinguish arc/chord and sector/segment, omit internal radii for a full circle and restrict l+2r to 0<θ<360, with zero also degenerate."
+            "zh": "r6θ150给弧5πcm、面积15πcm²、周长5π+12；r10θ72给4π、20π、4π+20。由θ/360分别乘整圆周长/面积，区分弧弦、扇形弓形；360时半径为内缝不加，0亦退化，l+2r限定0<θ<360。 新N4由精确弧逆求大扫角、面积和互补部分合整圆，独立由面积逆求正半径；同时变半径a和角b推ab/a²b并实算，自主设计纸上圆区而不只抄固定数值。",
+            "en": "Radius six/angle150 gives arc5π cm,area15π cm²,perimeter5π+12; ten/72 gives4π,20π,4π+20. The θ/360 fraction multiplies whole circumference/area separately. Both distinguish arc/chord and sector/segment, omit internal radii for a full circle and restrict l+2r to 0<θ<360, with zero also degenerate. New N4 recovers major sweep from exact arc, computes area/complement checks, independently recovers a positive radius from area, derives and calculates ab/a²b for joint radius/sweep changes, and requires an own paper design rather than copying fixed numbers."
           }
         }
       ],
@@ -12350,11 +12975,31 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q7",
               "taskSkill": "circle-proof-dependency"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-CIRCLE-GEOMETRY-MEANING-Q2",
+              "taskSkill": "circle-isosceles-arc-proof-and-cyclic-counterexample"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-CIRCLE-GEOMETRY-MEANING-Q4",
+              "taskSkill": "circle-inverse-sector-joint-change-and-own-proof-report"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-CIRCLE-GEOMETRY-MEANING-Q2",
+              "taskSkill": "circle-isosceles-arc-proof-and-cyclic-counterexample"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-CIRCLE-GEOMETRY-MEANING-Q4",
+              "taskSkill": "circle-inverse-sector-joint-change-and-own-proof-report"
             }
           ],
           "rationale": {
-            "zh": "两组BC直径且A在圆上先得A直角，AB/AC6/8或5/12求BC10/13；构造AD垂直、D在BC给AA的ABD∼CBA，再列比求BD、AD、DC及核正量单位。任意E不能无依据加共圆，卡片合法先后不等于完整自由证明。",
-            "en": "Both use diameter BC and on-circle A for the large right angle, then legs six/eight or five/twelve for BC ten/thirteen. Constructed AD and D on BC give ordered AA ABD∼CBA, deriving BD,AD,DC with positive quantities and units. Arbitrary E gains no concyclicity premise; valid card order does not replace a complete free proof."
+            "zh": "两组BC直径且A在圆上先得A直角，AB/AC6/8或5/12求BC10/13；构造AD垂直、D在BC给AA的ABD∼CBA，再列比求BD、AD、DC及核正量单位。任意E不能无依据加共圆，卡片合法先后不等于完整自由证明。 共享N2给共圆对角弧证明与撤前提凸菱形；共享N4自主选圆区/切线与直径内垂足合法尺寸，写角依据→AA全对应→比例的自由报告及失败例。原O7完整相似链不重创。",
+            "en": "Both use diameter BC and on-circle A for the large right angle, then legs six/eight or five/twelve for BC ten/thirteen. Constructed AD and D on BC give ordered AA ABD∼CBA, deriving BD,AD,DC with positive quantities and units. Arbitrary E gains no concyclicity premise; valid card order does not replace a complete free proof. Shared N2 proves cyclic opposite-angle supplementation and draws a premise-removed convex rhombus. Shared N4 requires own circular-region/tangent/diameter-altitude data with a complete angle→ordered AA→proportion report and failure example. The original O7 full similarity proof remains."
           }
         }
       ],
@@ -12394,11 +13039,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q8",
               "taskSkill": "trig-cosine-tangent-sides"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-TRIG-MEANING-Q1",
+              "taskSkill": "trig-special-angle-derivation-and-side-inverses"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-TRIG-MEANING-Q1",
+              "taskSkill": "trig-special-angle-derivation-and-side-inverses"
             }
           ],
           "rationale": {
-            "zh": "两直角三角形同锐角给AA，对应O/A/H同乘正k，三商消k。H22以5/12/13、H23以8/15/17分别换A/B参照，O邻腿互换而H仍对直角，缺直角不能直接套本课边比。",
-            "en": "Two right triangles sharing an acute angle give AA; positive k multiplies O/A/H and cancels from ratios. H22 uses5/12/13 and H23 uses8/15/17 to switch A/B references, swapping opposite/adjacent legs while the hypotenuse remains opposite the right angle. Absent that premise, these side formulas do not apply directly."
+            "zh": "两直角三角形同锐角给AA，对应O/A/H同乘正k，三商消k。H22以5/12/13、H23以8/15/17分别换A/B参照，O邻腿互换而H仍对直角，缺直角不能直接套本课边比。 新N1由等边垂高与等腰直角实际推30/45/60度全部精确比、有理化与小数平方区别，再以互余和换腿说明sin/cos互换、tan互为正倒数；原一般AA继续用。",
+            "en": "Two right triangles sharing an acute angle give AA; positive k multiplies O/A/H and cancels from ratios. H22 uses5/12/13 and H23 uses8/15/17 to switch A/B references, swapping opposite/adjacent legs while the hypotenuse remains opposite the right angle. Absent that premise, these side formulas do not apply directly. New N1 derives all exact 30/45/60-degree ratios from an equilateral altitude and isosceles right triangle, checks rationalisation versus decimal squares, and explains complementary sine/cosine swapping and reciprocal positive tangents. Original general AA remains."
           }
         }
       ],
@@ -12441,11 +13096,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q8",
               "taskSkill": "trig-cosine-tangent-sides"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-TRIG-MEANING-Q1",
+              "taskSkill": "trig-special-angle-derivation-and-side-inverses"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-TRIG-MEANING-Q1",
+              "taskSkill": "trig-special-angle-derivation-and-side-inverses"
             }
           ],
           "rationale": {
-            "zh": "H22生成A的5/13、12/13、5/12和B互换，H23生成8/17、15/17、8/15和互换；邻直角边不包括斜边。新同角对边6/10由sin反求H78/5或85/4，不能固定“乘sin”，保原比例及单位。",
-            "en": "H22 generates sine/cosine/tangent5/13,12/13,5/12 and switched B ratios; H23 uses8/17,15/17,8/15 and switches. Adjacent leg excludes the hypotenuse. New opposite lengths six/ten give hypotenuse78/5 or85/4 by solving the sine denominator, not blindly multiplying, with original ratios and units retained."
+            "zh": "H22生成A的5/13、12/13、5/12和B互换，H23生成8/17、15/17、8/15和互换；邻直角边不包括斜边。新同角对边6/10由sin反求H78/5或85/4，不能固定“乘sin”，保原比例及单位。 共享N1独立cos给斜边求邻腿、tan给对腿反求分母，分数三边完整乘回；两案例不拼接，原O8的全部比与反求斜边保留。",
+            "en": "H22 generates sine/cosine/tangent5/13,12/13,5/12 and switched B ratios; H23 uses8/17,15/17,8/15 and switches. Adjacent leg excludes the hypotenuse. New opposite lengths six/ten give hypotenuse78/5 or85/4 by solving the sine denominator, not blindly multiplying, with original ratios and units retained. Shared N1 independently recovers the adjacent leg from cosine/hypotenuse or tangent/opposite, gives complete fractional side triples and checks back without merging cases. Original O8 ratios and hypotenuse inverses remain."
           }
         }
       ],
@@ -12485,11 +13150,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q9",
               "taskSkill": "trig-inverse-degree-precision"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-TRIG-MEANING-Q2",
+              "taskSkill": "trig-representation-window-and-inverse-domain"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-TRIG-MEANING-Q2",
+              "taskSkill": "trig-representation-window-and-inverse-domain"
             }
           ],
           "rationale": {
-            "zh": "两处固定H以O增/A减说明sin增cos减，并用O2/A2>O1/A2>O1/A1证tan增；tan60=√3>1，90邻边0未定义不钳大数。明确0<θ<90与sin/cos严格0..1，本题锐角域不被H04一般角定义取消，曲线有限采样非一般证明。",
-            "en": "Both use fixed H with increasing O/decreasing A for sine/cosine variation and O2/A2>O1/A2>O1/A1 for increasing tangent. tan60=√3 exceeds one; at90 the adjacent denominator vanishes rather than becoming a large clipped value. Acute restrictions and strict sine/cosine bounds remain despite H04 general-angle definitions; finite curves do not prove the general claim."
+            "zh": "两处固定H以O增/A减说明sin增cos减，并用O2/A2>O1/A2>O1/A1证tan增；tan60=√3>1，90邻边0未定义不钳大数。明确0<θ<90与sin/cos严格0..1，本题锐角域不被H04一般角定义取消，曲线有限采样非一般证明。 共享N2实算精确1/2/1与指定0.5000/1.0000，给sin或cos倍角非倍值反例；tan85/80窗外数值与仅扩纵窗分开，严格端点和tan=1/6/5合法逐核。",
+            "en": "Both use fixed H with increasing O/decreasing A for sine/cosine variation and O2/A2>O1/A2>O1/A1 for increasing tangent. tan60=√3 exceeds one; at90 the adjacent denominator vanishes rather than becoming a large clipped value. Acute restrictions and strict sine/cosine bounds remain despite H04 general-angle definitions; finite curves do not prove the general claim. Shared N2 distinguishes exact 1/2 or 1 from required four-place forms, gives actual sine/cosine nonlinear-doubling counterexamples, separates off-window tan85/80 from a display-window change, and audits strict endpoints plus valid tangent ratios 1 and 6/5."
           }
         }
       ],
@@ -12532,11 +13207,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q9",
               "taskSkill": "trig-inverse-degree-precision"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-TRIG-MEANING-Q2",
+              "taskSkill": "trig-representation-window-and-inverse-domain"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-TRIG-MEANING-Q2",
+              "taskSkill": "trig-representation-window-and-inverse-domain"
             }
           ],
           "rationale": {
-            "zh": "H22对9cm/邻120mm化9/12得tan3/4，H23的50cm/1.2m化0.5/1.2得5/12；DEG反函数角36.9/22.6到0.1°，中途不截断，反函数非倒数。sinθ1.2超界、cosθ0为被排90需审数据，不硬用计算器。",
-            "en": "H22 converts opposite9cm/adjacent120mm to9/12 for tangent3/4; H23 converts50cm/1.2m to0.5/1.2 for5/12. DEG inverse tangent gives36.9/22.6° to0.1° without intermediate truncation, not reciprocal values. A sine ratio1.2 or cosine0 at excluded90° requires a model/data audit."
+            "zh": "H22对9cm/邻120mm化9/12得tan3/4，H23的50cm/1.2m化0.5/1.2得5/12；DEG反函数角36.9/22.6到0.1°，中途不截断，反函数非倒数。sinθ1.2超界、cosθ0为被排90需审数据，不硬用计算器。 新N2混m/cm以sin反求，再独立同数cos角和互余核验；实际RAD近似显示乘180/π、反函数与倒数、严格单调唯一性及三个函数0/1/6/5/负比完整审查，不把sin/cos上界套tan。",
+            "en": "H22 converts opposite9cm/adjacent120mm to9/12 for tangent3/4; H23 converts50cm/1.2m to0.5/1.2 for5/12. DEG inverse tangent gives36.9/22.6° to0.1° without intermediate truncation, not reciprocal values. A sine ratio1.2 or cosine0 at excluded90° requires a model/data audit. New N2 converts mixed m/cm for inverse sine, independently inverts the same number as cosine and checks complementarity, converts actual approximate RAD displays, and audits inverse/reciprocal, acute uniqueness and ratios 0/1/6/5/negative for all three functions without transferring sine/cosine bounds to tangent."
           }
         }
       ],
@@ -12579,11 +13264,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q10",
               "taskSkill": "trig-height-gradient-premises"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-TRIG-MEANING-Q3",
+              "taskSkill": "trig-distance-kind-base-counterexample-and-own-model"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-TRIG-MEANING-Q3",
+              "taskSkill": "trig-distance-kind-base-counterexample-and-own-model"
             }
           ],
           "rationale": {
-            "zh": "两坡3/4/5与5/12/13分别给75%/36.9°/5m、125/3%/22.6°/13m，类别单位分开。另同水平仪器1.2/1.5、水平距4/12及精确tan3/4或5/12求目标4.2/6.5m，独立于坡高；斜距/基面差要改关系，零水平距未定义、200%可为锐坡。",
-            "en": "Ramps3/4/5 and5/12/13 yield75%/36.9°/5m or125/3%/22.6°/13m, keeping quantity types and units separate. Independent level-base height tasks add instruments1.2/1.5 to rises from horizontal4/12 and exact tangents3/4 or5/12 for targets4.2/6.5m. Slanted distance/base differences change the relation; zero run is undefined and200% can be acute."
+            "zh": "两坡3/4/5与5/12/13分别给75%/36.9°/5m、125/3%/22.6°/13m，类别单位分开。另同水平仪器1.2/1.5、水平距4/12及精确tan3/4或5/12求目标4.2/6.5m，独立于坡高；斜距/基面差要改关系，零水平距未定义、200%可为锐坡。 新N3实算同数水平/视线两模型的水平、升高、顶高与含基面树高，保根式至最后舍入；提前tan30取0.6改变答案，撤基面亲画同观测双正高，自主不同测量卡/坡图/失败例；旧约束强题保留。",
+            "en": "Ramps3/4/5 and5/12/13 yield75%/36.9°/5m or125/3%/22.6°/13m, keeping quantity types and units separate. Independent level-base height tasks add instruments1.2/1.5 to rises from horizontal4/12 and exact tangents3/4 or5/12 for targets4.2/6.5m. Slanted distance/base differences change the relation; zero run is undefined and200% can be acute. New N3 computes horizontal/rise/top/full-height quantities for equal-number horizontal/sight models with base corrections, retaining radicals until final rounding. Premature tan30 rounding changes the answer. It draws two positive heights with identical observations after removing the base premise, and requires own measurement/slope cards and a failure example; original constraint work remains."
           }
         }
       ],
@@ -12626,11 +13321,41 @@
               "unit": "H33",
               "task": "H33-MAINT-PROB-PROCESS-Q3",
               "taskSkill": "probability-independence-product"
+            },
+            {
+              "unit": "H24",
+              "task": "H24-MAINT-PROBABILITY-MEANING-Q1",
+              "taskSkill": "probability-disjoint-zero-and-complement"
+            },
+            {
+              "unit": "H33",
+              "task": "H33-MAINT-PROBABILITY-MEANING-Q1",
+              "taskSkill": "probability-disjoint-zero-and-complement"
+            },
+            {
+              "unit": "H33",
+              "task": "H33-MAINT-COUNTING-STRUCTURE-Q4",
+              "taskSkill": "counting-5"
+            },
+            {
+              "unit": "H33",
+              "task": "H33-MAINT-COUNTING-STRUCTURE-Q5",
+              "taskSkill": "counting-6"
+            },
+            {
+              "unit": "H34",
+              "task": "H34-MAINT-COUNTING-STRUCTURE-Q4",
+              "taskSkill": "counting-5"
+            },
+            {
+              "unit": "H34",
+              "task": "H34-MAINT-COUNTING-STRUCTURE-Q5",
+              "taskSkill": "counting-6"
             }
           ],
           "rationale": {
-            "zh": "H24由12等权编号格2/2/4/4算交1/6=1/3×1/2，H33由20格3/2/9/6算3/20=1/4×3/5，四类非等权。另各有限观察表恰吻合乘积仍不证真实独立；一次偏离也不证装置坏，模型全空间与样本/总体身份明确。",
-            "en": "H24 calculates 1/6=1/3×1/2 from twelve equiprobable IDs with category counts 2/2/4/4; H33 calculates 3/20=1/4×3/5 from twenty IDs with counts 3/2/9/6. Categories are not equiprobable. Each also audits a matching finite observed table as insufficient for real independence, while a mismatch alone does not prove a faulty device."
+            "zh": "H24由12等权编号格2/2/4/4算交1/6=1/3×1/2，H33由20格3/2/9/6算3/20=1/4×3/5，四类非等权。另各有限观察表恰吻合乘积仍不证真实独立；一次偏离也不证装置坏，模型全空间与样本/总体身份明确。 复用H33/H34 COUNTING-STRUCTURE-Q4双方向条件与零条件、Q5零A/零F仍按乘积独立的实际任务，原H24-L05/L06主桥不改。新增两单元N1实际列奇偶交集与正概率乘积，并与原Q3可同时发生的独立模型对照；非同义词须给一般正乘积理由。",
+            "en": "H24 calculates 1/6=1/3×1/2 from twelve equiprobable IDs with category counts 2/2/4/4; H33 calculates 3/20=1/4×3/5 from twenty IDs with counts 3/2/9/6. Categories are not equiprobable. Each also audits a matching finite observed table as insufficient for real independence, while a mismatch alone does not prove a faulty device. Reuse H33/H34 COUNTING-STRUCTURE-Q4 directional/zero conditionals and Q5 zero-A/zero-F product independence, preserving their H24-L05/L06 primary bridges. New N1 in two units generates even/odd intersection and positive marginal product, contrasted with old Q3 co-occurring independence, with a general positive-product argument."
           }
         }
       ],
@@ -12670,11 +13395,21 @@
               "unit": "H33",
               "task": "H33-MAINT-PROB-PROCESS-Q1",
               "taskSkill": "probability-without-ordered-pairs"
+            },
+            {
+              "unit": "H24",
+              "task": "H24-MAINT-PROBABILITY-MEANING-Q1",
+              "taskSkill": "probability-disjoint-zero-and-complement"
+            },
+            {
+              "unit": "H33",
+              "task": "H33-MAINT-PROBABILITY-MEANING-Q1",
+              "taskSkill": "probability-disjoint-zero-and-complement"
             }
           ],
           "rationale": {
-            "zh": "两组亲画放回/不放回两层树，3红2蓝给RR3/10、RB/BR各3/10，2红2蓝给RR1/6、RB/BR各1/3。第一颜色后重数第二袋分母与分子，异色为两条互斥顺序之和3/5或2/3，不把四字母串平均或复用放回分母。",
-            "en": "Both draw replacement/no-replacement trees. Three red/two blue gives RR3/10 and RB/BR3/10 each; two red/two blue gives RR1/6 and RB/BR1/3 each. Second-bag counts change after the first colour. Different colours sum two disjoint orders to 3/5 or 2/3 rather than averaging colour strings or retaining replacement denominators."
+            "zh": "两组亲画放回/不放回两层树，3红2蓝给RR3/10、RB/BR各3/10，2红2蓝给RR1/6、RB/BR各1/3。第一颜色后重数第二袋分母与分子，异色为两条互斥顺序之和3/5或2/3，不把四字母串平均或复用放回分母。 共享N1亲画一红三蓝/四蓝条件树，区分已知首红的次红0与完整RR0、BB1/2或3/5、各可达节点出枝和1；独立全蓝首红不可能时条件未定义而联合0，不写0乘未定义。原Q1完整树继续用。",
+            "en": "Both draw replacement/no-replacement trees. Three red/two blue gives RR3/10 and RB/BR3/10 each; two red/two blue gives RR1/6 and RB/BR1/3 each. Second-bag counts change after the first colour. Different colours sum two disjoint orders to 3/5 or 2/3 rather than averaging colour strings or retaining replacement denominators. Shared N1 draws sole-red/three-or-four-blue trees, distinguishing second red given first red from joint RR, both zero, alongside BB1/2 or3/5 and outgoing sums at reachable nodes. A separate all-blue impossible first-red node has undefined conditional but zero joint mass, never zero times undefined. Retain old Q1 full trees."
           }
         }
       ],
@@ -12717,11 +13452,21 @@
               "unit": "H33",
               "task": "H33-MAINT-PROB-PROCESS-Q1",
               "taskSkill": "probability-without-ordered-pairs"
+            },
+            {
+              "unit": "H24",
+              "task": "H24-MAINT-PROBABILITY-MEANING-Q1",
+              "taskSkill": "probability-disjoint-zero-and-complement"
+            },
+            {
+              "unit": "H33",
+              "task": "H33-MAINT-PROBABILITY-MEANING-Q1",
+              "taskSkill": "probability-disjoint-zero-and-complement"
             }
           ],
           "rationale": {
-            "zh": "H24编号格放回25、不放回20，颜色计数9/6/6/4与6/6/6/2；H33为16/12格，颜色4/4/4/4与2/4/4/2。实际生成格并排同编号对角线，R1R2与R2R1各保，不混无序分子和有序分母；H33放回颜色等权只是本袋特例。",
-            "en": "H24 generates twenty-five/twenty ID cells with colour counts 9/6/6/4 and 6/6/6/2; H33 generates sixteen/twelve cells with counts 4/4/4/4 and 2/4/4/2. Same-ID diagonals are removed, reverse orders remain distinct and unordered numerators cannot use ordered denominators. Equal replacement colour weights in H33 are only a special case."
+            "zh": "H24编号格放回25、不放回20，颜色计数9/6/6/4与6/6/6/2；H33为16/12格，颜色4/4/4/4与2/4/4/2。实际生成格并排同编号对角线，R1R2与R2R1各保，不混无序分子和有序分母；H33放回颜色等权只是本袋特例。 共享N1由补事件和互斥三路径分别得至少蓝7/10或5/6，区别BB/异色；给同一不放回空间的非平凡A/D实际编号集，交1/12或1/20等于乘积，再与首红/次红不独立对照，不能凭抽取规则判断所有事件。",
+            "en": "H24 generates twenty-five/twenty ID cells with colour counts 9/6/6/4 and 6/6/6/2; H33 generates sixteen/twelve cells with counts 4/4/4/4 and 2/4/4/2. Same-ID diagonals are removed, reverse orders remain distinct and unordered numerators cannot use ordered denominators. Equal replacement colour weights in H33 are only a special case. Shared N1 obtains at least blue7/10 or5/6 by both complement and three disjoint paths, distinguishing BB/different colours. Explicit nontrivial A/D sets in the same no-replacement space have intersection1/12 or1/20 equal to their product, contrasted with dependent first-red/second-red; the rule alone does not classify every event pair."
           }
         }
       ],
@@ -12762,11 +13507,21 @@
               "unit": "H34",
               "task": "H34-L01-X",
               "taskSkill": "stat-inference-1"
+            },
+            {
+              "unit": "H24",
+              "task": "H24-MAINT-PROBABILITY-MEANING-Q2",
+              "taskSkill": "probability-response-census-and-design"
+            },
+            {
+              "unit": "H33",
+              "task": "H33-MAINT-PROBABILITY-MEANING-Q2",
+              "taskSkill": "probability-response-census-and-design"
             }
           ],
           "rationale": {
-            "zh": "H27对200人20回应15是须报本次75%及总体逻辑界15/200..195/200，未回应不记否，并区分随机抽样/分配与总体范围。H34以六编号0/6模型具体比较本次误差、完整框期望及只A框恒0偏差，框内扩样不补遗漏；偶然恰值不认证设计无偏。",
-            "en": "H27 requires observed 75% from fifteen yes among twenty responses out of two hundred, logical population bounds 15/200..195/200 and no coding nonresponse as no, with sampling/allocation and generalisation separated. H34’s six-ID zero/six model compares single error, full-frame expectation and A-only constant-zero bias; larger within-frame samples cannot repair omissions and one exact result cannot certify unbiased design."
+            "zh": "H27对200人20回应15是须报本次75%及总体逻辑界15/200..195/200，未回应不记否，并区分随机抽样/分配与总体范围。H34以六编号0/6模型具体比较本次误差、完整框期望及只A框恒0偏差，框内扩样不补遗漏；偶然恰值不认证设计无偏。 新增N2实算全体与A框比例、改目标为A后适用普查、完整准确全体普查及范围。独立R分开回应率和回答者是比例，Z的0/3回应率为0但0/0是比例未定义；自主设计覆盖/回应/普查三个案例及偶合反例。旧H27逻辑界和H34设计偏差继续保留。",
+            "en": "H27 requires observed 75% from fifteen yes among twenty responses out of two hundred, logical population bounds 15/200..195/200 and no coding nonresponse as no, with sampling/allocation and generalisation separated. H34’s six-ID zero/six model compares single error, full-frame expectation and A-only constant-zero bias; larger within-frame samples cannot repair omissions and one exact result cannot certify unbiased design. New N2 calculates target/A-frame proportions, a census after retargeting to A and an accurate full census with scope. Separate R distinguishes response rate from respondent yes; Z gives response rate0/3=0 but undefined respondent0/0. Own coverage/nonresponse/census designs and a coincidental-match example complement preserved H27 bounds/H34 design-bias work."
           }
         }
       ],
@@ -12809,11 +13564,21 @@
               "unit": "H33",
               "task": "H33-MAINT-PROB-PROCESS-Q2",
               "taskSkill": "probability-simulation-theory"
+            },
+            {
+              "unit": "H24",
+              "task": "H24-MAINT-PROBABILITY-MEANING-Q3",
+              "taskSkill": "probability-prefix-weighted-frequency-and-records"
+            },
+            {
+              "unit": "H33",
+              "task": "H33-MAINT-PROBABILITY-MEANING-Q3",
+              "taskSkill": "probability-prefix-weighted-frequency-and-records"
             }
           ],
           "rationale": {
-            "zh": "两组轮内移球、轮后恢复原袋，理论异色3/5或2/3；虚构模拟4/5再5/6、5/6再6/7，整数通分比较到理论距离反而增大。分母完整两抽轮而非抽数，0轮未定义；不恢复改变重复模型，标种子有限伪随机不当真实装置资料或理论证明。",
-            "en": "Both remove within rounds and restore the original bag between rounds, with theory 3/5 or 2/3. Fictional simulation changes 4/5 to 5/6 or 5/6 to 6/7; exact denominator comparisons show greater distance from theory. Frequencies use complete two-draw rounds, zero rounds are undefined and never restoring changes the repeated process. Labelled finite seeded simulation is neither real-device evidence nor a theory proof."
+            "zh": "两组轮内移球、轮后恢复原袋，理论异色3/5或2/3；虚构模拟4/5再5/6、5/6再6/7，整数通分比较到理论距离反而增大。分母完整两抽轮而非抽数，0轮未定义；不恢复改变重复模型，标种子有限伪随机不当真实装置资料或理论证明。 新增N3给两种子各12轮固定程序ID原表，亲数10+2不等批累计7/12或5/6，错误均值11/20或9/10；实画前三累计点/零轮无点、末十窗不替全批、追加保前缀/同规则重放、两批都报告不挑选；自主另一袋两规则理论和预定两种子各100轮模板，未生成标待生成，模拟与实测分账。",
+            "en": "Both remove within rounds and restore the original bag between rounds, with theory 3/5 or 2/3. Fictional simulation changes 4/5 to 5/6 or 5/6 to 6/7; exact denominator comparisons show greater distance from theory. Frequencies use complete two-draw rounds, zero rounds are undefined and never restoring changes the repeated process. Labelled finite seeded simulation is neither real-device evidence nor a theory proof. New N3 supplies fixed twelve-round ID records for each of two seeds: count unequal10+2 batches for7/12 or5/6 rather than wrong averages11/20 or9/10. Draw initial cumulative points, no zero-round point; distinguish latest-ten window/full run, prefix extension/replay and reporting both runs without selection. An own bag requires both-rule theory and two prespecified100-round templates, marking ungenerated data pending and separating simulation from measurements."
           }
         }
       ],
@@ -12853,11 +13618,31 @@
               "unit": "H06",
               "task": "H06-MAINT-CONG-MOTION-Q8",
               "taskSkill": "pythagorean-area-dissection"
+            },
+            {
+              "unit": "H28",
+              "task": "H28-MAINT-INTEGRATION-MEANING-Q1",
+              "taskSkill": "integration-structure-domain-and-premise-audit"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INTEGRATION-MEANING-Q1",
+              "taskSkill": "integration-structure-domain-and-premise-audit"
+            },
+            {
+              "unit": "H28",
+              "task": "H28-MAINT-INTEGRATION-AUDIT-Q2",
+              "taskSkill": "integration-dependent-strategy"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INTEGRATION-AUDIT-Q2",
+              "taskSkill": "integration-dependent-strategy"
             }
           ],
           "rationale": {
-            "zh": "复用H05/H06的四同块两种重排：先证明同(a+b)外框、同四块无叠缺及中央角，推出一般c²=a²+b²，再代5/12和8/15核例，并明确几次数值不证明一般式。须把几何块与代数项对应，不只是代入某x碰巧相等。",
-            "en": "H05/H06 reuse four-piece rearrangements: equal(a+b)frames,matching nonoverlapping pieces and central angles establish general c²=a²+b² before5/12 or8/15 numerical checks. Both explicitly reject finite trials as general proof and require geometric pieces to match algebraic terms rather than coincidental substitution."
+            "zh": "复用H05/H06的四同块两种重排：先证明同(a+b)外框、同四块无叠缺及中央角，推出一般c²=a²+b²，再代5/12和8/15核例，并明确几次数值不证明一般式。须把几何块与代数项对应，不只是代入某x碰巧相等。 新N1主动分数矩形自身平方/长条与四外边、展开指定形式/当前值、d0/代数与正长度域、单次吻合的反例及固定d只改x与全长度倍率实算。",
+            "en": "H05/H06 reuse four-piece rearrangements: equal(a+b)frames,matching nonoverlapping pieces and central angles establish general c²=a²+b² before5/12 or8/15 numerical checks. Both explicitly reject finite trials as general proof and require geometric pieces to match algebraic terms rather than coincidental substitution. New N1 generates the fractional rectangle’s own square/strip and four-side rules, requested expansion versus current values, d0 and algebraic/positive-length domains, a counterexample to one-match identity, and actual fixed-d versus whole-length scaling."
           }
         }
       ],
@@ -12900,11 +13685,21 @@
               "unit": "H38",
               "task": "H38-MAINT-INTEGRATION-AUDIT-Q1",
               "taskSkill": "integration-graph-assumptions"
+            },
+            {
+              "unit": "H01",
+              "task": "H01-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
+            },
+            {
+              "unit": "H02",
+              "task": "H02-MAINT-FUNCTION-MEANING-Q2",
+              "taskSkill": "unit-conversion-and-own-affine-models"
             }
           ],
           "rationale": {
-            "zh": "两组实际给完整水量折线，读三段内值7/6/3L或14/12/6L及暂停零率，端点包含、空后域外不延伸。另整包半包虽输出4整数仍不允许；两观测无函数族须给x/x²或2x/2x+(x−1)(x−2)两规则证预测不唯一，坐标率不依图窗。",
-            "en": "Both provide actual complete water polylines,requiring segment queries seven/six/three or fourteen/twelve/six litres and a zero-rate pause,with included endpoints and no post-domain extension. Half-pack input remains invalid despite integer output four. Two observations without a function class need two matching rules,x/x² or2x/2x+(x−1)(x−2),to refute uniqueness. Coordinate rates do not depend on viewport."
+            "zh": "两组实际给完整水量折线，读三段内值7/6/3L或14/12/6L及暂停零率，端点包含、空后域外不延伸。另整包半包虽输出4整数仍不允许；两观测无函数族须给x/x²或2x/2x+(x−1)(x−2)两规则证预测不唯一，坐标率不依图窗。 复用H01/H02原FUNCTION-MEANING-Q2：自主连续/整包模型，两个非零输入回求系数后核第三零行，亲画有实际单位/每格值的变化三角形，真换时/分与分币并核完整域；原J85-L06主桥保留。",
+            "en": "Both provide actual complete water polylines,requiring segment queries seven/six/three or fourteen/twelve/six litres and a zero-rate pause,with included endpoints and no post-domain extension. Half-pack input remains invalid despite integer output four. Two observations without a function class need two matching rules,x/x² or2x/2x+(x−1)(x−2),to refute uniqueness. Coordinate rates do not depend on viewport. Reuse H01/H02 FUNCTION-MEANING-Q2: own continuous/whole-pack rules, recover coefficients from two nonzero inputs then check a zero third row, draw actual-unit/tick change triangles, convert hours/minutes and cents with full domains. Preserve J85-L06 primary bridges."
           }
         }
       ],
@@ -12947,11 +13742,21 @@
               "unit": "H38",
               "task": "H38-MAINT-INTEGRATION-AUDIT-Q2",
               "taskSkill": "integration-dependent-strategy"
+            },
+            {
+              "unit": "H28",
+              "task": "H28-MAINT-INTEGRATION-MEANING-Q1",
+              "taskSkill": "integration-structure-domain-and-premise-audit"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INTEGRATION-MEANING-Q1",
+              "taskSkill": "integration-structure-domain-and-premise-audit"
             }
           ],
           "rationale": {
-            "zh": "H28矩形x(x+2)=24候选−6/4筛正得4×6周20，H38的x(x+3)=28候选−7/4得4×7周22；另去返总时间均5h、独立总路程12/24km后均速12/5或24/5。须说明可独立准备与不能提前用的结论，保原式/单位/根全集，不强制唯一算法或把卡片顺序当完整证明。",
-            "en": "H28 rectangle x(x+2)=24 filters roots−6/four to4×6,perimeter twenty; H38 x(x+3)=28 filters−7/four to4×7,perimeter twenty-two. Separate journeys have total time five hours and independently prepared distances twelve/twenty-four km,giving averages12/5 or24/5. Learners identify independent preparation and conclusions needing inputs,retain originals/units/complete roots,and avoid one mandatory algorithm or card-order-as-proof."
+            "zh": "H28矩形x(x+2)=24候选−6/4筛正得4×6周20，H38的x(x+3)=28候选−7/4得4×7周22；另去返总时间均5h、独立总路程12/24km后均速12/5或24/5。须说明可独立准备与不能提前用的结论，保原式/单位/根全集，不强制唯一算法或把卡片顺序当完整证明。 共享新N1以完整条件→关系→正长度→原目标核分数矩形与勾股，撤直角给两种合法第三边：原预测未唯一而非必假，全称必然则有反例。L04同时复用H03/H04原精度Q3、H22/H23原坡度/角度Q10和H28/H38原去返依赖Q2，不把合理数量级、近似或部分检查当全通过，旧主桥均保留。",
+            "en": "H28 rectangle x(x+2)=24 filters roots−6/four to4×6,perimeter twenty; H38 x(x+3)=28 filters−7/four to4×7,perimeter twenty-two. Separate journeys have total time five hours and independently prepared distances twelve/twenty-four km,giving averages12/5 or24/5. Learners identify independent preparation and conclusions needing inputs,retain originals/units/complete roots,and avoid one mandatory algorithm or card-order-as-proof. Shared new N1 audits fractional geometry and Pythagoras through premises→relation→positive length→target. Removing the right angle permits two legal third sides: the prediction is not unique rather than necessarily false, while a universal necessity claim is refuted. L04 additionally reuses original H03/H04 precision Q3, H22/H23 grade/angle Q10 and H28/H38 journey Q2. Plausibility, approximation and partial checks do not establish complete verification; all original primary bridges remain."
           }
         }
       ],
@@ -12994,11 +13799,51 @@
               "unit": "H38",
               "task": "H38-MAINT-INTEGRATION-AUDIT-Q3",
               "taskSkill": "integration-reasonableness-audit"
+            },
+            {
+              "unit": "H28",
+              "task": "H28-MAINT-INTEGRATION-MEANING-Q1",
+              "taskSkill": "integration-structure-domain-and-premise-audit"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INTEGRATION-MEANING-Q1",
+              "taskSkill": "integration-structure-domain-and-premise-audit"
+            },
+            {
+              "unit": "H03",
+              "task": "H03-MAINT-ROOT-QUAD-Q3",
+              "taskSkill": "root-bounds-and-rounding"
+            },
+            {
+              "unit": "H04",
+              "task": "H04-MAINT-ROOT-QUAD-Q3",
+              "taskSkill": "root-bounds-and-rounding"
+            },
+            {
+              "unit": "H22",
+              "task": "H22-MAINT-SIM-CIRCLE-TRIG-Q10",
+              "taskSkill": "trig-height-gradient-premises"
+            },
+            {
+              "unit": "H23",
+              "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q10",
+              "taskSkill": "trig-height-gradient-premises"
+            },
+            {
+              "unit": "H28",
+              "task": "H28-MAINT-INTEGRATION-AUDIT-Q2",
+              "taskSkill": "integration-dependent-strategy"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INTEGRATION-AUDIT-Q2",
+              "taskSkill": "integration-dependent-strategy"
             }
           ],
           "rationale": {
-            "zh": "两组各自行三种审查：平方方程漏−3或零给实际反例；两观察同过却异预测的两完整函数给不唯一，非已证实际输出不同；已知直角5/12/13或矩形3/4/5正长度平方核验但cm²仍单位错。区分反驳/未知/本例核过，不能凭像素或答案像不像。",
-            "en": "Each distinguishes three audits: missing−3 or zero is an actual counterexample to a complete root claim; two matching functions with different predictions prove nonuniqueness,not a known actual alternative output; a given5/12/13 right triangle or3/4/5 rectangle verifies positive length but cm² still fails units. Refutation,remaining uncertainty and this verified case differ; pixels and plausible digits are insufficient."
+            "zh": "两组各自行三种审查：平方方程漏−3或零给实际反例；两观察同过却异预测的两完整函数给不唯一，非已证实际输出不同；已知直角5/12/13或矩形3/4/5正长度平方核验但cm²仍单位错。区分反驳/未知/本例核过，不能凭像素或答案像不像。 共享新N1以完整条件→关系→正长度→原目标核分数矩形与勾股，撤直角给两种合法第三边：原预测未唯一而非必假，全称必然则有反例。L04同时复用H03/H04原精度Q3、H22/H23原坡度/角度Q10和H28/H38原去返依赖Q2，不把合理数量级、近似或部分检查当全通过，旧主桥均保留。",
+            "en": "Each distinguishes three audits: missing−3 or zero is an actual counterexample to a complete root claim; two matching functions with different predictions prove nonuniqueness,not a known actual alternative output; a given5/12/13 right triangle or3/4/5 rectangle verifies positive length but cm² still fails units. Refutation,remaining uncertainty and this verified case differ; pixels and plausible digits are insufficient. Shared new N1 audits fractional geometry and Pythagoras through premises→relation→positive length→target. Removing the right angle permits two legal third sides: the prediction is not unique rather than necessarily false, while a universal necessity claim is refuted. L04 additionally reuses original H03/H04 precision Q3, H22/H23 grade/angle Q10 and H28/H38 journey Q2. Plausibility, approximation and partial checks do not establish complete verification; all original primary bridges remain."
           }
         }
       ],
@@ -13038,11 +13883,21 @@
               "unit": "H23",
               "task": "H23-MAINT-SIM-CIRCLE-TRIG-Q10",
               "taskSkill": "trig-height-gradient-premises"
+            },
+            {
+              "unit": "H28",
+              "task": "H28-MAINT-INTEGRATION-MEANING-Q2",
+              "taskSkill": "integration-exact-joint-constraints-and-own-report"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-INTEGRATION-MEANING-Q2",
+              "taskSkill": "integration-exact-joint-constraints-and-own-report"
             }
           ],
           "rationale": {
-            "zh": "H22原坡面积10费120，仅宽3得15/180，全长2倍得40/480但h6>4、r8>6；H23原26/260，仅宽4得52/520，全长3/2倍得117/2与585但h15/2>6、r18>15。两处逐项核侧面长度、坡度、面积k²、定单价费及原高度/水平约束，不由坡度不变推一切合规。",
-            "en": "H22 starts area10/cost120,width-only three gives15/180,all lengths×2 gives40/480 but violates h6>4,r8>6. H23 starts26/260,width-only four gives52/520,all×3/2 gives117/2 and585 but violates h15/2>6,r18>15. Both track side lengths,unchanged gradient,k² area,area-rate cost and original height/run limits rather than treating unchanged slope as complete feasibility."
+            "zh": "H22原坡面积10费120，仅宽3得15/180，全长2倍得40/480但h6>4、r8>6；H23原26/260，仅宽4得52/520，全长3/2倍得117/2与585但h15/2>6、r18>15。两处逐项核侧面长度、坡度、面积k²、定单价费及原高度/水平约束，不由坡度不变推一切合规。 新N2独立坡道三限制先证明侧面被迫唯一，正面积/费用平方精确比较；显示到分恰等限额仍可能真超限，只改宽仍面积合格但预算失败，自主完整满足/近失两报告与模型范围，存取不当审核。",
+            "en": "H22 starts area10/cost120,width-only three gives15/180,all lengths×2 gives40/480 but violates h6>4,r8>6. H23 starts26/260,width-only four gives52/520,all×3/2 gives117/2 and585 but violates h15/2>6,r18>15. Both track side lengths,unchanged gradient,k² area,area-rate cost and original height/run limits rather than treating unchanged slope as complete feasibility. New N2 first proves side uniqueness from three restrictions, then compares positive exact squared areas/costs. A cent display equal to budget can hide exact excess; width-only change can pass area but fail budget. Own feasible/near-miss reports retain every constraint and scope; storage is not review."
           }
         }
       ],
@@ -13062,7 +13917,10 @@
         "H01-L01-Q6",
         "H01-L01-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "H25": ["H25-MAINT-LOGIC-MEANING-Q1"],
+        "H26": ["H26-MAINT-LOGIC-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "set-elements-boundaries",
@@ -13082,11 +13940,21 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q1",
               "taskSkill": "set-boolean-operations"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-LOGIC-MEANING-Q1",
+              "taskSkill": "set-elements-boundaries"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-LOGIC-MEANING-Q1",
+              "taskSkill": "set-elements-boundaries"
             }
           ],
           "rationale": {
-            "zh": "两组四个不同ID清单1,1,2,4或2,2,4,6生成三个不同元素，保原观测次数，区分数∈A与单元素集⊆A而非∈A，空集是子集却非该数值集元素。集合顺序/重复不改，但不能据此删除不同ID原记录。",
-            "en": "Each four-ID list, 1,1,2,4 or 2,2,4,6, generates three set elements without deleting observations. Learners distinguish a numerical element from its singleton subset, an empty subset from a numerical element, and set order/multiplicity from original record counts."
+            "zh": "两组四个不同ID清单1,1,2,4或2,2,4,6生成三个不同元素，保原观测次数，区分数∈A与单元素集⊆A而非∈A，空集是子集却非该数值集元素。集合顺序/重复不改，但不能据此删除不同ID原记录。 另两处自主完整整数规则与正/非负边界、等值有理数去重、0/空/单元素及另定义集合的集，实际核对象和包含。",
+            "en": "Each four-ID list, 1,1,2,4 or 2,2,4,6, generates three set elements without deleting observations. Learners distinguish a numerical element from its singleton subset, an empty subset from a numerical element, and set order/multiplicity from original record counts. Two supplements require complete own integer rules, positive/nonnegative bounds, rational-value deduplication, zero/empty/singleton distinctions and separately defined set-valued elements."
           }
         }
       ],
@@ -13107,8 +13975,8 @@
         "H01-L02-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q1"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q1"]
+        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q1", "H25-MAINT-LOGIC-MEANING-Q2"],
+        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q1", "H26-MAINT-LOGIC-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -13129,11 +13997,21 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q1",
               "taskSkill": "set-boolean-operations"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-LOGIC-MEANING-Q2",
+              "taskSkill": "set-boolean-operations"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-LOGIC-MEANING-Q2",
+              "taskSkill": "set-boolean-operations"
             }
           ],
           "rationale": {
-            "zh": "H25在U0..6、H26在U1..8实际生成交并补，核A∩Aᶜ为空及A∪Aᶜ=U，逐元素给既在/不在理由。只扩U到8或10时补集加入7与8或9与10、A不变，不能不声明全集求补。",
-            "en": "H25 uses universe 0..6 and H26 uses 1..8 to generate intersection, union and complement, proving A∩Aᶜ empty and A∪Aᶜ=U elementwise. Expanding only U adds seven/eight or nine/ten to its complement while A stays unchanged; the universe is required."
+            "zh": "H25在U0..6、H26在U1..8实际生成交并补，核A∩Aᶜ为空及A∪Aᶜ=U，逐元素给既在/不在理由。只扩U到8或10时补集加入7与8或9与10、A不变，不能不声明全集求补。 另两处亲画四区、实际双向差与补的不同起点、缩U同步筛A/B、相等/不交/空边界及自主虚构标签。",
+            "en": "H25 uses universe 0..6 and H26 uses 1..8 to generate intersection, union and complement, proving A∩Aᶜ empty and A∪Aᶜ=U elementwise. Expanding only U adds seven/eight or nine/ten to its complement while A stays unchanged; the universe is required. Two supplements require four ID regions, directed differences versus complement, simultaneous membership updates when U shrinks, equal/disjoint/empty cases and own fictional labels."
           }
         }
       ],
@@ -13154,8 +14032,8 @@
         "H01-L03-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q2"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q2"]
+        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q2", "H25-MAINT-LOGIC-MEANING-Q3"],
+        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q2", "H26-MAINT-LOGIC-MEANING-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -13176,11 +14054,21 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q2",
               "taskSkill": "logic-domain-counterexample"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-LOGIC-MEANING-Q3",
+              "taskSkill": "logic-domain-counterexample"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-LOGIC-MEANING-Q3",
+              "taskSkill": "logic-domain-counterexample"
             }
           ],
           "rationale": {
-            "zh": "两处x²≥x或(x−2)²≥x−2在整数域用m≤0或m≥1的一般证明，在实数用1/2或5/2反例；否定全称换存在且保域。存在整数平方2或3的否定是所有整数不等，按|n|≤1或≥2证明；存在一个不等不能否定存在相等。",
-            "en": "Both prove x²≥x or (x−2)²≥x−2 over integers by m≤0/m≥1, then refute over reals at 1/2 or 5/2. Universal negation changes to existence while retaining domain. Negating existence of an integer square two/three requires all integers to differ, proved by |n|≤1 or ≥2; one unequal square is not that negation."
+            "zh": "两处x²≥x或(x−2)²≥x−2在整数域用m≤0或m≥1的一般证明，在实数用1/2或5/2反例；否定全称换存在且保域。存在整数平方2或3的否定是所有整数不等，按|n|≤1或≥2证明；存在一个不等不能否定存在相等。 另两处分类未知真值/请求/开语句及指定或量化后的命题，精核域内成功非反例，并分清有理输入入口与实域。",
+            "en": "Both prove x²≥x or (x−2)²≥x−2 over integers by m≤0/m≥1, then refute over reals at 1/2 or 5/2. Universal negation changes to existence while retaining domain. Negating existence of an integer square two/three requires all integers to differ, proved by |n|≤1 or ≥2; one unequal square is not that negation. Two supplements classify unknown truth, requests, open sentences and assigned/quantified statements, audit admissible confirming candidates, and separate rational input limits from the real domain."
           }
         }
       ],
@@ -13201,8 +14089,8 @@
         "H01-L04-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q3"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q3"]
+        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q3", "H25-MAINT-LOGIC-MEANING-Q4"],
+        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q3", "H26-MAINT-LOGIC-MEANING-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -13223,11 +14111,21 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q3",
               "taskSkill": "logic-two-directions"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-LOGIC-MEANING-Q4",
+              "taskSkill": "logic-two-directions"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-LOGIC-MEANING-Q4",
+              "taskSkill": "logic-two-directions"
             }
           ],
           "rationale": {
-            "zh": "P:x3、Q:x²9或P:x4、Q:x²16逐箭头审，负根反驳Q⇒P，明确谁对谁充分/必要；逆否真而单独否定两边不成立。加x≥0后负反例域外、两方向真，实际重审不是按中文词感判。",
-            "en": "P:x3/Q:x²9 or P:x4/Q:x²16 are audited both ways, using the negative root against Q⇒P and explicitly naming necessity/sufficiency. Contraposition holds but the inverse fails. Restricting x≥0 removes that witness and makes both directions true, requiring a domain-aware re-audit."
+            "zh": "P:x3、Q:x²9或P:x4、Q:x²16逐箭头审，负根反驳Q⇒P，明确谁对谁充分/必要；逆否真而单独否定两边不成立。加x≥0后负反例域外、两方向真，实际重审不是按中文词感判。 另两处由完整真值集核充要/交叠两者皆非/空前提，给双向失败见证、两假行与互换主体后的四分类；空蕴含不证明存在。",
+            "en": "P:x3/Q:x²9 or P:x4/Q:x²16 are audited both ways, using the negative root against Q⇒P and explicitly naming necessity/sufficiency. Contraposition holds but the inverse fails. Restricting x≥0 removes that witness and makes both directions true, requiring a domain-aware re-audit. Two supplements audit equal, overlapping and empty full truth sets, directional counterexamples, both-false rows and exchanged subjects. Empty-premise implication does not establish existence."
           }
         }
       ],
@@ -13248,8 +14146,8 @@
         "H01-L05-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q4"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q4"]
+        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q4", "H25-MAINT-LOGIC-MEANING-Q5"],
+        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q4", "H26-MAINT-LOGIC-MEANING-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -13270,11 +14168,21 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q4",
               "taskSkill": "absolute-complete-real-set"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-LOGIC-MEANING-Q5",
+              "taskSkill": "absolute-complete-real-set"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-LOGIC-MEANING-Q5",
+              "taskSkill": "absolute-complete-real-set"
             }
           ],
           "rationale": {
-            "zh": "两组中心3半径2或中心−1半径4亲画全部<≤>≥解集，内侧且/交、外侧或/并，核两端及中心。另逐项给c0的空/单点/去一点/全实及c−2的空或全实，由距离非负而非盲背内外口诀，不用有限整数表替完整集合。",
-            "en": "Both draw all four comparison sets about centre three/radius two or centre negative one/radius four, distinguish inside AND/intersection from outside OR/union, and test endpoints/centre. They classify c=0 into empty/singleton/punctured/all-real sets and c=−2 into empty or all reals using nonnegative distance, not mnemonics or finite lists."
+            "zh": "两组中心3半径2或中心−1半径4亲画全部<≤>≥解集，内侧且/交、外侧或/并，核两端及中心。另逐项给c0的空/单点/去一点/全实及c−2的空或全实，由距离非负而非盲背内外口诀，不用有限整数表替完整集合。 另两处正负分数系数等价边界、零系数常数四比较、真非负情境域取交及并集单点桥/缺点，不把视窗或有限代回当完整域证明。",
+            "en": "Both draw all four comparison sets about centre three/radius two or centre negative one/radius four, distinguish inside AND/intersection from outside OR/union, and test endpoints/centre. They classify c=0 into empty/singleton/punctured/all-real sets and c=−2 into empty or all reals using nonnegative distance, not mnemonics or finite lists. Two supplements require signed fractional-coefficient bounds, zero-coefficient constant comparisons, intersection with a nonnegative context domain and bridged versus punctured unions, separating display windows and substitutions from full-domain proof."
           }
         }
       ],
@@ -13314,11 +14222,31 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q5",
               "taskSkill": "function-inverse-correspondence"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q1",
+              "taskSkill": "function-linked-representations"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q1",
+              "taskSkill": "function-linked-representations"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q5",
+              "taskSkill": "advanced-equation-5"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q5",
+              "taskSkill": "advanced-equation-5"
             }
           ],
           "rationale": {
-            "zh": "H25给x²域[−2,2]、H26给(x−1)²域[−1,3]，目标[0,9]而实际像[0,4]，亲画多对一仍函数。另同输入两输出及漏一个声明域内输入的关系无效，用每个输入恰一输出说明，不把未达到9当函数失效。",
-            "en": "H25 uses x² on [−2,2] and H26 (x−1)² on [−1,3], with codomain [0,9] but actual image [0,4]. Both draw valid many-to-one maps and invalid double-output/missing-input relations, requiring exactly one output for every declared input rather than demanding output nine be attained."
+            "zh": "H25给x²域[−2,2]、H26给(x−1)²域[−1,3]，目标[0,9]而实际像[0,4]，亲画多对一仍函数。另同输入两输出及漏一个声明域内输入的关系无效，用每个输入恰一输出说明，不把未达到9当函数失效。 有限与连续同公式实际像、可达性与真改域另用两新卡；自然根式/分式最大原域直接复用H36/H38四式审核。",
+            "en": "H25 uses x² on [−2,2] and H26 (x−1)² on [−1,3], with codomain [0,9] but actual image [0,4]. Both draw valid many-to-one maps and invalid double-output/missing-input relations, requiring exactly one output for every declared input rather than demanding output nine be attained. Two new cards compare actual finite/interval images and attainability under an explicit domain change; reuse H36/H38 equation audits for maximal radical/rational domains."
           }
         }
       ],
@@ -13338,7 +14266,10 @@
         "H02-L02-Q6",
         "H02-L02-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "H25": ["H25-MAINT-FUNCTION-CONCEPT-MEANING-Q1"],
+        "H26": ["H26-MAINT-FUNCTION-CONCEPT-MEANING-Q1"]
+      },
       "reviewedEvidence": [
         {
           "skill": "function-linked-representations",
@@ -13358,11 +14289,21 @@
               "unit": "H38",
               "task": "H38-MAINT-INTEGRATION-AUDIT-Q1",
               "taskSkill": "integration-graph-assumptions"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q1",
+              "taskSkill": "function-linked-representations"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q1",
+              "taskSkill": "function-linked-representations"
             }
           ],
           "rationale": {
-            "zh": "复用H28/H38实际完整水量折线及双语全部端点，求三段内分数输入值和变化率，并与整包离散规则、只有两观测的两不同候选函数比较。完整图是给定规则才可插值；有限点不能擅连，离散域不补半包，图窗不改率或域。",
-            "en": "H28/H38 supply actual complete water polylines with all endpoints in bilingual text, requiring fractional-input values and segment rates. They contrast given continuous rules, discrete whole-pack rules and two observations matching different functions. Interpolation needs the given rule; finite points do not authorise joining, discrete domains do not admit half packs, and viewport does not change rates or domains."
+            "zh": "复用H28/H38实际完整水量折线及双语全部端点，求三段内分数输入值和变化率，并与整包离散规则、只有两观测的两不同候选函数比较。完整图是给定规则才可插值；有限点不能擅连，离散域不补半包，图窗不改率或域。 另两卡亲生同一输入的精确函数值/表行/图点、全部原像和自主有限规则到连续域；函数记号非乘法或点编号，视图/视窗不改原函数。",
+            "en": "H28/H38 supply actual complete water polylines with all endpoints in bilingual text, requiring fractional-input values and segment rates. They contrast given continuous rules, discrete whole-pack rules and two observations matching different functions. Interpolation needs the given rule; finite points do not authorise joining, discrete domains do not admit half packs, and viewport does not change rates or domains. Two cards generate a value,row,point,all preimages and an own finite rule explicitly changed to a continuous domain; notation is not multiplication/point numbering and views do not redefine functions."
           }
         }
       ],
@@ -13383,8 +14324,14 @@
         "H02-L03-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q6"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q6"]
+        "H25": [
+          "H25-MAINT-LOGIC-FUNCTION-Q6",
+          "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q2"
+        ],
+        "H26": [
+          "H26-MAINT-LOGIC-FUNCTION-Q6",
+          "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q2"
+        ]
       },
       "reviewedEvidence": [
         {
@@ -13405,11 +14352,21 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q6",
               "taskSkill": "function-domain-properties"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q2",
+              "taskSkill": "function-domain-properties"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q2",
+              "taskSkill": "function-domain-properties"
             }
           ],
           "rationale": {
-            "zh": "两组平方/移位平方给域内反例否定全域严格增，并用两点平方差符号一般证两侧增减。零函数在非退化对称域既奇且偶、非严格增减但非递减且非递增；奇偶先查关于0对称域，x公式在正域或图轴x1不自动满足。",
-            "en": "Both refute whole-domain strict increase for square/shifted-square examples and prove each side by the general difference-of-squares sign. On nondegenerate symmetric domains zero is both odd/even, not strictly monotone but both nondecreasing/nonincreasing. Parity first requires zero-centred domain symmetry; formula x on a positive domain or an x=1 graph axis is insufficient."
+            "zh": "两组平方/移位平方给域内反例否定全域严格增，并用两点平方差符号一般证两侧增减。零函数在非退化对称域既奇且偶、非严格增减但非递减且非递增；奇偶先查关于0对称域，x公式在正域或图轴x1不自动满足。 另两卡一般立方奇/严格增、绝对值分半、x²加常数偶、合法有序对、研究区间与真改原域、f0必要不充分及穿孔域奇函数；保原平方/零函数强证明。",
+            "en": "Both refute whole-domain strict increase for square/shifted-square examples and prove each side by the general difference-of-squares sign. On nondegenerate symmetric domains zero is both odd/even, not strictly monotone but both nondecreasing/nonincreasing. Parity first requires zero-centred domain symmetry; formula x on a positive domain or an x=1 graph axis is insufficient. Two cards audit cube oddness/strict increase,absolute-value halves,nonzero-at-zero even examples,ordered-pair admissibility,study versus original domains,and conditional zero necessity with a punctured odd domain; retain square/zero proofs."
           }
         }
       ],
@@ -13430,8 +14387,14 @@
         "H02-L04-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q7"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q7"]
+        "H25": [
+          "H25-MAINT-LOGIC-FUNCTION-Q7",
+          "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q3"
+        ],
+        "H26": [
+          "H26-MAINT-LOGIC-FUNCTION-Q7",
+          "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q3"
+        ]
       },
       "reviewedEvidence": [
         {
@@ -13452,11 +14415,31 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q7",
               "taskSkill": "function-point-transform"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q3",
+              "taskSkill": "function-point-transform"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q3",
+              "taskSkill": "function-point-transform"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q4",
+              "taskSkill": "advanced-equation-4"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q4",
+              "taskSkill": "advanced-equation-4"
             }
           ],
           "rationale": {
-            "zh": "两处推x=h+u/b、y=k+a f(u)与{x:b(x−h)∈D}；负b−2/−3横反射缩1/2或1/3，亲算三个像点。仅a0保给定复合域；b0必须重查内0：H25的[1,9]不含0无允许输入，H26的[−2,1]含0则常值全实，不能除0或把缩放写无穷。",
-            "en": "Both derive x=h+u/b, y=k+a f(u) and the supplied-domain preimage. Negative b−2/−3 reflects with horizontal factor 1/2 or 1/3, and three image points are calculated. Changing only a=0 retains that domain. At b=0, recheck inner zero: H25 excludes it in [1,9], so no inputs are allowed; H26 includes it in [−2,1], giving an all-real constant. Division by zero or an infinite-scale label is invalid."
+            "zh": "两处推x=h+u/b、y=k+a f(u)与{x:b(x−h)∈D}；负b−2/−3横反射缩1/2或1/3，亲算三个像点。仅a0保给定复合域；b0必须重查内0：H25的[1,9]不含0无允许输入，H26的[−2,1]含0则常值全实，不能除0或把缩放写无穷。 另两卡分数立方完整展开/三源点/不对称给定域及源u与查询x、奇函数同图集不同点身份；平方点图/原域直接复用H36/H38现有任务。",
+            "en": "Both derive x=h+u/b, y=k+a f(u) and the supplied-domain preimage. Negative b−2/−3 reflects with horizontal factor 1/2 or 1/3, and three image points are calculated. Changing only a=0 retains that domain. At b=0, recheck inner zero: H25 excludes it in [1,9], so no inputs are allowed; H26 includes it in [−2,1], giving an all-real constant. Division by zero or an infinite-scale label is invalid. Two cards require a collected fractional cubic,three mapped points,asymmetric domains,source/query separation and coincident odd-function graph sets with different point maps; reuse H36/H38 square graph/domain tasks."
           }
         }
       ],
@@ -13477,8 +14460,14 @@
         "H02-L05-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q5"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q5"]
+        "H25": [
+          "H25-MAINT-LOGIC-FUNCTION-Q5",
+          "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q4"
+        ],
+        "H26": [
+          "H26-MAINT-LOGIC-FUNCTION-Q5",
+          "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q4"
+        ]
       },
       "reviewedEvidence": [
         {
@@ -13499,11 +14488,31 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q5",
               "taskSkill": "function-inverse-correspondence"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q4",
+              "taskSkill": "function-inverse-correspondence"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q4",
+              "taskSkill": "function-inverse-correspondence"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q1",
+              "taskSkill": "advanced-equation-1"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q1",
+              "taskSkill": "advanced-equation-1"
             }
           ],
           "rationale": {
-            "zh": "两组输出0唯一原像0或1不证明可逆；输出4有−2与2或−1与3，水平线两交与交换坐标给同输入双输出。右半域[0,2]/[1,3]才得逆√y/1+√y，逆域为实际像[0,4]，不让原目标9自动进入，明确函数/反函数唯一性方向。",
-            "en": "A unique preimage zero/one for output zero does not certify invertibility. Output four has negative two/two or negative one/three; horizontal lines and coordinate swapping reveal double inverse outputs. Restricting to right halves [0,2]/[1,3] gives inverses √y or 1+√y with domain actual image [0,4], not unused codomain nine. Original and inverse uniqueness directions differ."
+            "zh": "两组输出0唯一原像0或1不证明可逆；输出4有−2与2或−1与3，水平线两交与交换坐标给同输入双输出。右半域[0,2]/[1,3]才得逆√y/1+√y，逆域为实际像[0,4]，不让原目标9自动进入，明确函数/反函数唯一性方向。 另两卡负斜率一次逆域/逆式/往返、倒数零点及精确分数/根式回验；负平方支及双向复合直接复用H36/H38原任务，不再重创。",
+            "en": "A unique preimage zero/one for output zero does not certify invertibility. Output four has negative two/two or negative one/three; horizontal lines and coordinate swapping reveal double inverse outputs. Restricting to right halves [0,2]/[1,3] gives inverses √y or 1+√y with domain actual image [0,4], not unused codomain nine. Original and inverse uniqueness directions differ. Two cards require negative-slope affine inverse domains/rules,round trips,reciprocal zero exclusions and exact fractional/radical recovery; reuse H36/H38 negative-square-branch and two-composition tasks."
           }
         }
       ],
@@ -13524,8 +14533,14 @@
         "H02-L06-X"
       ],
       "laterExactTagCandidates": {
-        "H25": ["H25-MAINT-LOGIC-FUNCTION-Q8"],
-        "H26": ["H26-MAINT-LOGIC-FUNCTION-Q8"]
+        "H25": [
+          "H25-MAINT-LOGIC-FUNCTION-Q8",
+          "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q5"
+        ],
+        "H26": [
+          "H26-MAINT-LOGIC-FUNCTION-Q8",
+          "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q5"
+        ]
       },
       "reviewedEvidence": [
         {
@@ -13546,11 +14561,21 @@
               "unit": "H26",
               "task": "H26-MAINT-LOGIC-FUNCTION-Q8",
               "taskSkill": "function-piecewise-boundaries"
+            },
+            {
+              "unit": "H25",
+              "task": "H25-MAINT-FUNCTION-CONCEPT-MEANING-Q5",
+              "taskSkill": "function-piecewise-boundaries"
+            },
+            {
+              "unit": "H26",
+              "task": "H26-MAINT-FUNCTION-CONCEPT-MEANING-Q5",
+              "taskSkill": "function-piecewise-boundaries"
             }
           ],
           "rationale": {
-            "zh": "H25域[0,6]阈2、预算5，H26域[0,8]阈3、预算10，表中每输入恰一适用规则。累计预算[0,3]/[0,7/2]；整件按档因跳价给[0,5/3]∪(2,5/2]或[0,5/2]∪(3,5]，每段先解后交域再并，核阈值只归第一档及开闭，不擅平滑或补间隙。",
-            "en": "H25 uses domain [0,6], threshold two, budget five; H26 uses [0,8], threshold three, budget ten. Each input has one table rule. Cumulative feasible sets are [0,3]/[0,7/2]. Whole-shipment tier jumps give [0,5/3]∪(2,5/2] or [0,5/2]∪(3,5]. Learners solve each segment, intersect its domain, then union and check first-tier threshold ownership/endpoints without smoothing or filling gaps."
+            "zh": "H25域[0,6]阈2、预算5，H26域[0,8]阈3、预算10，表中每输入恰一适用规则。累计预算[0,3]/[0,7/2]；整件按档因跳价给[0,5/3]∪(2,5/2]或[0,5/2]∪(3,5]，每段先解后交域再并，核阈值只归第一档及开闭，不擅平滑或补间隙。 另两卡完整开始小时分支/比例误纳反例与预算集、自主两完整费率/表/图/域/预算证明；原累计与整件断开集合保留。",
+            "en": "H25 uses domain [0,6], threshold two, budget five; H26 uses [0,8], threshold three, budget ten. Each input has one table rule. Cumulative feasible sets are [0,3]/[0,7/2]. Whole-shipment tier jumps give [0,5/3]∪(2,5/2] or [0,5/2]∪(3,5]. Learners solve each segment, intersect its domain, then union and check first-tier threshold ownership/endpoints without smoothing or filling gaps. Two cards require all started-hour branches,a proportional-model counterexample,budget sets and two own complete tariffs/tables/graphs/domain/budget proofs; retain the original marginal and disconnected whole-tier tasks."
           }
         }
       ],
