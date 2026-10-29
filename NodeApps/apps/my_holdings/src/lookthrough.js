@@ -40,7 +40,7 @@ export function validateFundHoldings(data) {
   return data;
 }
 
-export function lookThrough(holdings, data, { fx = {}, accountId = "all", now = new Date(), fundSymbols = [] } = {}) {
+export function lookThrough(holdings, data, { fx = {}, accountId = "all", cashValue = 0, now = new Date(), fundSymbols = [] } = {}) {
   const funds = new Map((data?.funds || []).map(f => [f.symbol, f]));
   const knownFunds = new Set(fundSymbols.map(normalize));
   const companies = new Map(), usedFunds = new Map(), excluded = [];
@@ -84,15 +84,17 @@ export function lookThrough(holdings, data, { fx = {}, accountId = "all", now = 
     const ticker = normalize(item.symbol), company = companies.get(ISSUERS[ticker]?.[0] || ticker);
     company.contributions.get(fund.symbol).fundWeightPct += item.weightPct;
   }
-  const rows = [...companies.values()].map(c => ({ ...c, symbols: [...c.symbols].sort(), weight: totalValue ? c.value / totalValue * 100 : 0,
+  const includedCash = Number.isFinite(cashValue) ? Math.max(0, cashValue) : 0;
+  const totalAssetValue = totalValue + includedCash;
+  const rows = [...companies.values()].map(c => ({ ...c, symbols: [...c.symbols].sort(), weight: totalAssetValue ? c.value / totalAssetValue * 100 : 0,
     contributions: [...c.contributions.values()].sort((a, b) => b.value - a.value),
     fundCount: [...c.contributions.keys()].filter(s => s !== "direct").length,
   })).sort((a, b) => b.value - a.value || a.key.localeCompare(b.key));
   const equityValue = rows.reduce((sum, r) => sum + r.value, 0);
   const top10 = rows.slice(0, 10), top10Value = top10.reduce((sum, r) => sum + r.value, 0);
-  return { rows, top10, totalValue, fundValue, directValue, equityValue, unclassifiedValue,
+  return { rows, top10, totalValue, cashValue: includedCash, totalAssetValue, fundValue, directValue, equityValue, unclassifiedValue,
     residualValue: totalValue - equityValue - unclassifiedValue,
-    top10Value, top10Weight: totalValue ? top10Value / totalValue * 100 : 0,
+    top10Value, top10Weight: totalAssetValue ? top10Value / totalAssetValue * 100 : 0,
     usedFunds: [...usedFunds.values()].map(f => ({ ...f, stale: (now - new Date(`${f.asOf}T00:00:00Z`)) / 86400000 > 45 })),
     excluded, priceDates: [...new Set(holdings.filter(h => accountId === "all" || h.accountId === accountId).map(h => h.priceDate).filter(Boolean))].sort(),
   };

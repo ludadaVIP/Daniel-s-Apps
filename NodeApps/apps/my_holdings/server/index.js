@@ -9,9 +9,10 @@ import {
 } from "../../html-library/server/index.js";
 import { contextPack, CURRENCIES } from "../src/model.js";
 import { validateFundHoldings } from "../src/lookthrough.js";
-import { PRICE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
+import { PRICE_REFRESH_QUESTION, WATCH_PE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
 import { quotePolicy } from "./market-session.js";
 import { normalizeSymbol, positionKey, roundMoney, previewBuy, applyHoldingQuote, consolidateHoldings } from "../src/positions.js";
+import { cloneDefaultWatchCategories, DEFAULT_WATCH_CATEGORIES, WATCH_UNCLASSIFIED_ID } from "../src/watch-categories.js";
 import {
   CONVERSION_PAIRS,
   createInitialConverterState,
@@ -47,17 +48,36 @@ const httpsUrl = (v) => {
 };
 const watchCurrency = (watch) => watch.priceCurrency || watch.research?.quote?.currency || watch.research?.identity?.currency || "";
 function validateMarketQuote(q, policy, fetchedAt) {
+  const fallbackDate = policy.fallbackDate || policy.date;
+  const fallbackCloseAt = policy.fallbackCloseAt || policy.sessionCloseAt;
+  const usesClose = q?.type === "close";
+  const canUseRequestedLive = q?.type === policy.type && ["intraday", "extended"].includes(policy.type);
   if (!q || !text(q.symbol, 40) || !q.symbol.trim() || !num(q.price, 0.000001) ||
-      q.date !== policy.date || q.type !== policy.type || !text(q.source, 200) || !q.source.trim() || !httpsUrl(q.sourceUrl))
-    throw error(`价格数据无效：需要 ${policy.date} 的${policy.type === "intraday" ? "盘中价" : "收盘价"}及 HTTPS 来源。`);
-  if (policy.type === "intraday") {
-    const asOf = Date.parse(q.asOf);
-    if (!timestamp(q.asOf) || asOf < Date.parse(policy.sessionOpenAt) || asOf >= Date.parse(policy.sessionCloseAt) || asOf < Date.parse(policy.executedAt) - 20 * 60_000 || asOf > Date.parse(fetchedAt))
-      throw error("盘中报价时间无效或已过期；请核实 asOf，不得使用旧收盘价。");
-  } else if (q.asOf !== undefined && q.asOf !== policy.sessionCloseAt) {
-    throw error(`收盘价 asOf 应为 ${policy.sessionCloseAt}，或省略此字段。`);
+      q.date !== (usesClose ? fallbackDate : policy.date) ||
+      !(usesClose ? policy.type === "close" || ["intraday", "extended"].includes(policy.type) : canUseRequestedLive) ||
+      !text(q.source, 200) || !q.source.trim() || !httpsUrl(q.sourceUrl))
+    throw error(`价格数据无效：优先提供 ${policy.session || "常规交易时段"} 的新鲜报价；无法核实时需提供 ${fallbackDate} 的正式收盘价及 HTTPS 来源。`);
+  if (usesClose) {
+    if (q.asOf !== undefined && q.asOf !== fallbackCloseAt)
+      throw error(`收盘价 asOf 应为 ${fallbackCloseAt}，或省略此字段。`);
+    return;
   }
+
+  const expectedSession = q.type === "intraday" ? "regular" : policy.session;
+  const asOf = Date.parse(q.asOf);
+  if ((!policy.legacy && policy.session && q.session !== expectedSession) ||
+      (q.type === "intraday" && policy.session && policy.session !== "regular") ||
+      (q.type === "extended" && !["premarket", "afterhours", "overnight"].includes(policy.session)) ||
+      !timestamp(q.asOf) || asOf < Date.parse(policy.sessionOpenAt) || asOf >= Date.parse(policy.sessionCloseAt) ||
+      asOf < Date.parse(policy.executedAt) - 20 * 60_000 || asOf > Date.parse(fetchedAt))
+    throw error("实时或延长时段报价的时段、UTC 时间戳无效或已过期；没有新鲜报价时请改用最近正式收盘价。");
 }
+const marketQuoteLabel = (quote) => quote.type === "close"
+  ? "最近交易日收盘价"
+  : quote.session === "premarket" ? "盘前价"
+    : quote.session === "afterhours" ? "盘后价"
+      : quote.session === "overnight" ? "夜盘价"
+        : "盘中价";
 function appendJobs(s, jobs) {
   s.jobs.push(...jobs);
   if (s.jobs.length <= 10000) return;
@@ -72,6 +92,44 @@ function applyResearchQuote(watch, quote) {
   if (!quote || watch.priceFetchedAt || (watch.priceDate && watch.priceDate > quote.date)) return;
   Object.assign(watch, { price: quote.price, priceDate: quote.date, priceType: "close", priceCurrency: quote.currency,
     priceSource: quote.source, priceSourceUrl: quote.sourceUrl });
+}
+function isEquityWatch(watch) {
+  const assetLabel = [watch?.assetType, watch?.type, watch?.category, watch?.name, watch?.symbol]
+    .filter(Boolean).join(" ");
+  return !/etf|指数|指数基金|index fund|index/i.test(assetLabel);
+}
+function importScreenshotOrders(watchlist) {
+  const rows = [
+    ["GOOG", "NASDAQ.NMS", 20, 275, "GTC", "09:58", "截图未显示日期；时区未知。"],
+    ["NU", "NYSE", 100, 10, "GTC", "2026/10/28 21:47", ""],
+    ["SE", "NYSE", 20, 66, "GTC", "2026/10/28 12:09", ""],
+    ["TMDX", "NASDAQ.NMS", 20, 55, "GTC", "2026/10/28 11:07", ""],
+    ["INOD", "NASDAQ.NMS", 30, 36, "GTC", "2026/10/28 10:47", ""],
+    ["QQQM", "NASDAQ.NMS", 80, 275, "GTC", "2026/10/23 23:02", ""],
+  ];
+  return rows.map(([symbol, exchange, quantity, limitPrice, timeInForce, submittedAtText, note]) => {
+    const watch = watchlist.find((item) => normalizeSymbol(item.symbol) === symbol);
+    return {
+      id: randomUUID(),
+      watchId: watch?.id || "",
+      symbol,
+      exchange,
+      name: watch?.research?.identity?.name || watch?.name || symbol,
+      side: "buy",
+      orderType: "limit",
+      quantity,
+      filledQuantity: 0,
+      limitPrice,
+      currency: watch?.priceCurrency || watch?.research?.identity?.currency || "USD",
+      timeInForce,
+      status: "working",
+      brokerStatus: "PreSubmitted",
+      submittedAtText,
+      accountId: "",
+      note,
+      source: "IBKR 截图导入",
+    };
+  });
 }
 function removeOrphanedDecisionPlans(state) {
   const watchIds = new Set(state.watchlist.map((watch) => watch.id));
@@ -144,10 +202,52 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
       ids.add(r.id);
     }
   }
+  if (s.orders !== undefined) {
+    if (!Array.isArray(s.orders) || s.orders.length > 10000)
+      throw error("委托单格式无效。");
+    const orderIds = new Set();
+    const watchIds = new Set(s.watchlist.map((watch) => watch.id));
+    const accountIds = new Set(s.accounts.map((account) => account.id));
+    for (const order of s.orders) {
+      if (!order || !text(order.id, 100) || !order.id || orderIds.has(order.id) ||
+          !text(order.symbol, 40) || !order.symbol.trim() ||
+          !text(order.exchange || "", 80) ||
+          !text(order.name, 300) || !order.name.trim() ||
+          !["buy", "sell"].includes(order.side) ||
+          !["limit", "market"].includes(order.orderType) ||
+          !num(order.quantity, 0.00000001) ||
+          !num(order.filledQuantity, 0, order.quantity) ||
+          (order.orderType === "limit" ? !num(order.limitPrice, 0.000001) :
+            !(order.limitPrice === null || order.limitPrice === undefined || num(order.limitPrice, 0.000001))) ||
+          !CURRENCIES.includes(order.currency) ||
+          !["GTC", "DAY", "GTD", "IOC", "FOK"].includes(order.timeInForce) ||
+          !["draft", "working", "partial", "filled", "cancelled", "rejected", "expired"].includes(order.status) ||
+          !text(order.brokerStatus || "", 100) || !text(order.submittedAtText || "", 100) ||
+          !text(order.note || "", 2000) || !text(order.source || "", 100) ||
+          !text(order.watchId || "", 100) || (order.watchId && !watchIds.has(order.watchId)) ||
+          !text(order.accountId || "", 100) || (order.accountId && !accountIds.has(order.accountId)))
+        throw error("委托单字段无效；请检查代码、方向、数量、价格和关联记录。");
+      orderIds.add(order.id);
+    }
+  }
+  if (s.watchCategories !== undefined &&
+      (!Array.isArray(s.watchCategories) || !s.watchCategories.length || s.watchCategories.length > 100))
+    throw error("股票分类格式无效。");
+  const watchCategoryIds = new Set();
+  const watchCategoryNames = new Set();
+  for (const category of s.watchCategories || []) {
+    const normalizedName = typeof category?.name === "string" ? category.name.trim().toLocaleLowerCase() : "";
+    if (!category || !text(category.id, 100) || !category.id || watchCategoryIds.has(category.id) ||
+        !text(category.name, 24) || !normalizedName || watchCategoryNames.has(normalizedName))
+      throw error("股票分类名称不能为空、不能重复，且最多 24 个字。");
+    watchCategoryIds.add(category.id);
+    watchCategoryNames.add(normalizedName);
+  }
   if (
     !s.accounts.length ||
     s.accounts.some(
-      (a) => !text(a.name, 100) || !a.name.trim() || !text(a.note),
+      (a) => !text(a.name, 100) || !a.name.trim() || !text(a.note) ||
+        !(a.cashBalance === undefined || num(a.cashBalance)),
     )
   )
     throw error("账户名称不能为空。");
@@ -166,7 +266,8 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
       !(h.changePct === null || num(h.changePct, -100, 1e8)) ||
       !date(h.priceDate) ||
       !(h.priceSource === undefined || text(h.priceSource, 100)) ||
-      !(h.priceType === undefined || ["intraday", "close", "purchase"].includes(h.priceType)) ||
+      !(h.priceType === undefined || ["intraday", "extended", "close", "purchase", "manual"].includes(h.priceType)) ||
+      !(h.priceSession === undefined || ["regular", "premarket", "afterhours", "overnight"].includes(h.priceSession)) ||
       !(h.priceAsOf === undefined || timestamp(h.priceAsOf)) ||
       !(h.priceFetchedAt === undefined || timestamp(h.priceFetchedAt)) ||
       !(h.priceSourceUrl === undefined || httpsUrl(h.priceSourceUrl)) ||
@@ -207,13 +308,22 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
       !(w.targetPrice === undefined || w.targetPrice === null || num(w.targetPrice, 0.000001)) ||
       !(w.price === undefined || w.price === null || num(w.price, 0.000001)) ||
       !(w.priceDate === undefined || date(w.priceDate)) ||
-      !(w.priceType === undefined || ["intraday", "close"].includes(w.priceType)) ||
+      !(w.priceType === undefined || ["intraday", "extended", "close"].includes(w.priceType)) ||
+      !(w.priceSession === undefined || ["regular", "premarket", "afterhours", "overnight"].includes(w.priceSession)) ||
       !(w.priceAsOf === undefined || timestamp(w.priceAsOf)) ||
       !(w.priceFetchedAt === undefined || timestamp(w.priceFetchedAt)) ||
       !(w.priceTimeZone === undefined || ["America/New_York", "Europe/London"].includes(w.priceTimeZone)) ||
       !(w.priceCurrency === undefined || (text(w.priceCurrency, 3) && /^[A-Z]{3}$/.test(w.priceCurrency))) ||
       !(w.priceSource === undefined || text(w.priceSource, 200)) ||
       !(w.attention === undefined || [1, 2, 3, 4, 5].includes(w.attention)) ||
+      !(w.watchCategoryId === undefined || (text(w.watchCategoryId, 100) && Boolean(w.watchCategoryId) &&
+        (!s.watchCategories || watchCategoryIds.has(w.watchCategoryId)))) ||
+      !(w.pe === undefined || (w.pe && typeof w.pe === "object" && !Array.isArray(w.pe) &&
+        ["available", "unavailable", "unverified"].includes(w.pe.status) && w.pe.basis === "TTM" &&
+        (w.pe.status === "available" ? num(w.pe.value, 0.000001, 1e8) : w.pe.value === null) &&
+        date(w.pe.asOf) && Boolean(w.pe.asOf) && timestamp(w.pe.updatedAt) &&
+        text(w.pe.source, 200) && Boolean(w.pe.source.trim()) && httpsUrl(w.pe.sourceUrl) &&
+        text(w.pe.note || "", 1000))) ||
       !(w.priceSourceUrl === undefined || (text(w.priceSourceUrl, 1000) && (!w.priceSourceUrl || /^https?:\/\//.test(w.priceSourceUrl))))
     )
       throw error("关注标的的价格或日期无效。");
@@ -428,7 +538,7 @@ export async function createHoldingsApp({
       "# My Holdings · Codex 待办",
       "",
       "> 这是本地排队文件，会随 `state.json` 一起通过 GitHub 同步。应用不会启动 Codex CLI 或后台任务。",
-      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`；研究任务保存 HTML，价格任务按执行时刻取盘中价或最近收盘价，换算任务回写同步配对观测。",
+      "> 用户明确交代 Codex 执行待办后，再读取此文件和 `state.json`；研究任务保存 HTML，价格任务优先取新鲜的常规盘/盘前/盘后/可核实夜盘报价，无新鲜报价时回退最近正式收盘价，市盈率任务核实 trailing P/E (TTM)，换算任务回写同步配对观测。",
       "",
       `最近同步：${s.updatedAt || "尚未保存"}`,
       "",
@@ -438,9 +548,11 @@ export async function createHoldingsApp({
       const watch = s.watchlist.find((w) => w.id === job.watchId);
       const title = job.kind === "converter"
         ? "VOO / SPYL · QQQM / CNDX"
+        : job.kind === "watch-pe"
+          ? "近期关注中的全部个股"
         : watch?.name || job.question || "持仓组合";
       lines.push(
-        `## ${job.kind === "watch" ? "标的研究" : job.kind === "watch-quotes" ? "关注价格更新" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "价格更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
+        `## ${job.kind === "watch" ? "标的研究" : job.kind === "watch-quotes" ? "关注价格更新" : job.kind === "watch-pe" ? "关注市盈率刷新" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "价格更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
         `- 状态：等待 Codex · 任务 ID：${job.id}`,
         `- 创建时间：${job.date}`,
         `- 关注记录 ID：${job.watchId || "无"}`,
@@ -452,6 +564,8 @@ export async function createHoldingsApp({
             ? "- 核对 VOO/SPYL 与 QQQM/CNDX 的 USD 挂牌代码，取最近 10 个共同交易日伦敦时间 16:25:00±30 秒的同步盘中价；同一组 10 天统一使用盘口中间价（两边相差≤15秒）、同一 UTC 分钟的一分钟收盘价，或同一 UTC 五分钟区间且在 16:25 收盘的五分钟线。通过本地 API 回写 calibrations 与来源；系数取配对比值中位数，参考带取 P25–P75。无法找到可核验的同步数据就标记未完成并保留旧公式，不生成 HTML、不改持仓。"
             : job.kind === "watch"
               ? `- ${watchResearchQuestion(watch || { name: "标的已删除", symbol: "" }, job.researchMode !== "initial")}`
+              : job.kind === "watch-pe"
+                ? `- ${WATCH_PE_REFRESH_QUESTION}`
               : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
         "",
       );
@@ -461,6 +575,7 @@ export async function createHoldingsApp({
   const backupStore = createBackupStore(path.join(dataDirectory, "backups"), { now });
   await backupStore.initialize(await fs.readFile(file, "utf8"));
   const write = async (s, { forceBackup = false } = {}) => {
+    s.orders ||= [];
     pruneExpiredCompletedJobs(s, now().getTime());
     validateState(s);
     const previous = await fs.readFile(file, "utf8");
@@ -479,6 +594,33 @@ export async function createHoldingsApp({
   await serial(async () => {
     const s = await read();
     let changed = false;
+    if (!Array.isArray(s.orders)) {
+      s.orders = importScreenshotOrders(s.watchlist);
+      changed = true;
+    }
+    const screenshotExchanges = { GOOG: "NASDAQ.NMS", NU: "NYSE", SE: "NYSE", TMDX: "NASDAQ.NMS", INOD: "NASDAQ.NMS", QQQM: "NASDAQ.NMS" };
+    for (const order of s.orders) {
+      if (order.source === "IBKR 截图导入" && !order.exchange && screenshotExchanges[order.symbol]) {
+        order.exchange = screenshotExchanges[order.symbol];
+        changed = true;
+      }
+    }
+    for (const account of s.accounts) {
+      if (account.cashBalance == null) {
+        account.cashBalance = 0;
+        changed = true;
+      }
+    }
+    if (!Array.isArray(s.watchCategories) || !s.watchCategories.length) {
+      s.watchCategories = cloneDefaultWatchCategories();
+      changed = true;
+    }
+    const categoryIds = new Set(s.watchCategories.map((category) => category.id));
+    if (!categoryIds.has(WATCH_UNCLASSIFIED_ID)) {
+      s.watchCategories.push(DEFAULT_WATCH_CATEGORIES.find((category) => category.id === WATCH_UNCLASSIFIED_ID));
+      categoryIds.add(WATCH_UNCLASSIFIED_ID);
+      changed = true;
+    }
     if (!s.converter) {
       s.converter = createInitialConverterState();
       changed = true;
@@ -491,6 +633,10 @@ export async function createHoldingsApp({
       }
     }
     for (const w of s.watchlist) {
+      if (isEquityWatch(w) && !categoryIds.has(w.watchCategoryId)) {
+        w.watchCategoryId = WATCH_UNCLASSIFIED_ID;
+        changed = true;
+      }
       if (w.attention === undefined) {
         w.attention = 2;
         changed = true;
@@ -627,7 +773,7 @@ export async function createHoldingsApp({
   });
   app.post("/api/jobs", async (req, res, next) => {
     try {
-      const kind = ["watch", "watch-quotes", "portfolio", "market", "quotes", "converter"].includes(req.body.kind)
+      const kind = ["watch", "watch-quotes", "watch-pe", "portfolio", "market", "quotes", "converter"].includes(req.body.kind)
         ? req.body.kind
         : "portfolio";
       const result = await serial(async () => {
@@ -646,7 +792,7 @@ export async function createHoldingsApp({
           id: randomUUID(),
           kind,
           watchId: watch?.id || null,
-          question: kind === "quotes" ? PRICE_REFRESH_QUESTION : kind === "watch-quotes" ? watchQuoteQuestion(watch) : kind === "watch" ? watchResearchQuestion(watch, req.body.refreshResearch === true) : text(req.body.question || "", 4000) ? req.body.question : "",
+          question: kind === "quotes" ? PRICE_REFRESH_QUESTION : kind === "watch-quotes" ? watchQuoteQuestion(watch) : kind === "watch" ? watchResearchQuestion(watch, req.body.refreshResearch === true) : kind === "watch-pe" ? WATCH_PE_REFRESH_QUESTION : text(req.body.question || "", 4000) ? req.body.question : "",
           ...(kind === "watch" ? { researchMode: req.body.refreshResearch === true ? "refresh" : "initial" } : {}),
           status: "waiting",
           date: new Date().toISOString(),
@@ -750,11 +896,48 @@ export async function createHoldingsApp({
           Object.assign(job, { status: "done", completedAt: now().toISOString(), summary: "该标的已有完整研究，已跳过首次研究并保留已有报告。", error: "" });
           return write(s);
         }
+        if (job.kind === "watch-pe") {
+          if (job.status !== "waiting") throw error("市盈率刷新任务已结束，请重新创建待办。", 409);
+          const targets = s.watchlist.filter(isEquityWatch);
+          const submitted = req.body?.values;
+          if (!Array.isArray(submitted) || submitted.length !== targets.length)
+            throw error(`市盈率刷新需要提交当前全部 ${targets.length} 只个股的结果。`);
+          const byId = new Map(targets.map((watch) => [watch.id, watch]));
+          const seen = new Set();
+          const updatedAt = now().toISOString();
+          for (const input of submitted) {
+            const watch = byId.get(input?.watchId);
+            if (!watch || seen.has(input.watchId) || !text(input.symbol, 40) || !input.symbol.trim() ||
+                normalizeSymbol(input.symbol) !== normalizeSymbol(watch.symbol) ||
+                !["available", "unavailable", "unverified"].includes(input.status) || input.basis !== "TTM" ||
+                (input.status === "available" ? !num(input.value, 0.000001, 1e8) : input.value !== null) ||
+                !date(input.asOf) || !input.asOf || !text(input.source, 200) || !input.source.trim() ||
+                !httpsUrl(input.sourceUrl) || !text(input.note || "", 1000))
+              throw error(`市盈率数据无效或代码不匹配：${input?.symbol || "未知标的"}。`);
+            seen.add(input.watchId);
+            watch.pe = { value: input.status === "available" ? input.value : null, status: input.status,
+              basis: "TTM", asOf: input.asOf, updatedAt, source: input.source.trim(),
+              sourceUrl: input.sourceUrl, note: (input.note || "").trim() };
+          }
+          Object.assign(job, { status: "done", completedAt: updatedAt, error: "",
+            summary: text(req.body.summary || "", 1000) && req.body.summary.trim()
+              ? req.body.summary.trim()
+              : `已更新 ${targets.length} 只关注个股的 trailing P/E (TTM)。` });
+          return write(s);
+        }
         if (["quotes", "watch-quotes"].includes(job.kind)) {
           if (job.status !== "waiting") throw error("价格任务已结束，请重新创建待办。", 409);
           if (!timestamp(job.quotePolicy?.executedAt) || req.body.executedAt !== job.quotePolicy.executedAt)
             throw error("请先调用本任务的 quote-policy，并原样提交 executedAt。", 409);
-          const policy = quotePolicy(job.quotePolicy.executedAt, job.quotePolicy.market || "US");
+          // Use the policy captured when this task began so an in-flight task
+          // remains valid if quote rules are updated while it is running.
+          const policy = job.quotePolicy.session ? job.quotePolicy : {
+            ...job.quotePolicy,
+            legacy: true,
+            session: job.quotePolicy.type === "intraday" ? "regular" : "closed",
+            fallbackDate: job.quotePolicy.date,
+            fallbackCloseAt: job.quotePolicy.sessionCloseAt,
+          };
           const fetchedAt = now().toISOString();
           if (!Array.isArray(req.body.quotes) || req.body.quotes.length > 1000)
             throw error("价格任务需要提供 quotes 数组。" );
@@ -769,9 +952,10 @@ export async function createHoldingsApp({
                 !text(q.currency, 3) || !/^[A-Z]{3}$/.test(q.currency) || (watchCurrency(watch) && watchCurrency(watch) !== q.currency))
               throw error("关注报价的证券代码或币种不符，请核实交易所与挂牌币种。");
             Object.assign(watch, { symbol: normalizeSymbol(q.symbol), price: q.price, priceDate: q.date, priceType: q.type,
-              priceCurrency: q.currency, priceAsOf: q.type === "intraday" ? q.asOf : policy.sessionCloseAt,
+              priceSession: q.type === "close" ? undefined : q.session,
+              priceCurrency: q.currency, priceAsOf: q.type === "close" ? policy.fallbackCloseAt : q.asOf,
               priceFetchedAt: fetchedAt, priceTimeZone: policy.timeZone, priceSource: q.source.trim(), priceSourceUrl: q.sourceUrl });
-            Object.assign(job, { status: "done", completedAt: fetchedAt, error: "", summary: `已更新 ${watch.symbol} 的${q.type === "intraday" ? "盘中价" : "最近交易日收盘价"}；已有研究保留。` });
+            Object.assign(job, { status: "done", completedAt: fetchedAt, error: "", summary: `已更新 ${watch.symbol} 的${marketQuoteLabel(q)}；已有研究保留。` });
             s.watchlistUpdatedAt = fetchedAt;
             return write(s);
           }
@@ -791,14 +975,16 @@ export async function createHoldingsApp({
             h.price = q.price;
             h.priceDate = q.date;
             h.priceSource = q.source.trim().slice(0, 100);
-            h.priceType = policy.type;
-            h.priceAsOf = policy.type === "intraday" ? q.asOf : policy.sessionCloseAt;
+            h.priceType = q.type;
+            h.priceSession = q.type === "close" ? undefined : q.session;
+            h.priceTimeZone = policy.timeZone;
+            h.priceAsOf = q.type === "close" ? policy.fallbackCloseAt : q.asOf;
             h.priceFetchedAt = fetchedAt;
             h.priceSourceUrl = q.sourceUrl;
             h.marketValue = Math.round(h.quantity * h.price * 100) / 100;
           }
           job.status = "done";
-          job.summary = text(req.body.summary || "", 1000) && req.body.summary?.trim() ? req.body.summary : `已更新全部持仓的${policy.type === "intraday" ? "盘中价格" : "最近交易日收盘价"}。`;
+          job.summary = text(req.body.summary || "", 1000) && req.body.summary?.trim() ? req.body.summary : `已更新全部持仓价格；含 ${req.body.quotes.filter((quote) => quote.type !== "close").length} 项实时或延长时段报价、${req.body.quotes.filter((quote) => quote.type === "close").length} 项收盘价。`;
           job.error = "";
           job.completedAt = fetchedAt;
           s.marketUpdatedAt = job.completedAt;
@@ -989,6 +1175,7 @@ export async function createHoldingsApp({
             throw error("数据已更新，请刷新后重试；未保存的表单仍保留。", 409);
           const candidate = validateState(req.body);
           removeOrphanedDecisionPlans(candidate);
+          candidate.orders = candidate.orders || current.orders || [];
           candidate.jobs = current.jobs;
           candidate.analyses = current.analyses;
           if (current.holdingTrades) candidate.holdingTrades = current.holdingTrades;
@@ -1022,6 +1209,7 @@ export async function createHoldingsApp({
             throw error("数据已更新，请刷新后恢复。", 409);
           const candidate = structuredClone(validateState(req.body.state, { allowDuplicateHoldings: true }));
           removeOrphanedDecisionPlans(candidate);
+          candidate.orders ||= [];
           consolidateStateHoldings(candidate, now().toISOString());
           candidate.revision = current.revision;
           candidate.jobs = [];

@@ -1,4 +1,6 @@
-// Regular US equity sessions, including scheduled holidays and early closes.
+// U.S. regular, extended, and overnight quote windows plus LSE regular sessions.
+// Nasdaq extended hours: https://listingcenter.nasdaq.com/rulebook/nasdaq/rules/nasdaq-equity-4
+// IBKR overnight hours: https://www.interactivebrokers.com/en/trading/us-overnight-trading.php
 // Calendar reference: https://www.nyse.com/trade/hours-calendars
 // Keep exceptional exchange closures here when they are announced.
 const exceptionalClosures = new Set(["2025-01-09"]);
@@ -94,16 +96,74 @@ function sessionTime(date, minute, market = "US") {
 export function quotePolicy(at = new Date(), market = "US") {
   const instant = new Date(at);
   const parts = localParts(instant, market);
-  let date = `${parts.year}-${parts.month}-${parts.day}`;
-  let close = closeMinute(date, market);
+  const date = `${parts.year}-${parts.month}-${parts.day}`;
+  const close = closeMinute(date, market);
   const open = market === "LSE" ? 8 * 60 : 570;
   const minute = Number(parts.hour) * 60 + Number(parts.minute);
-  const type = close !== null && minute >= open && minute < close ? "intraday" : "close";
-  if (close === null || minute < open) {
-    do { date = shiftDay(date, -1); close = closeMinute(date, market); } while (close === null);
+  let session = "closed";
+  let type = "close";
+  let sessionOpenAt;
+  let sessionCloseAt;
+  let sessionDate = date;
+
+  if (market === "LSE") {
+    if (close !== null && minute >= open && minute < close) {
+      session = "regular";
+      type = "intraday";
+      sessionOpenAt = sessionTime(date, open, market);
+      sessionCloseAt = sessionTime(date, close, market);
+    }
+  } else if (close !== null && minute >= open && minute < close) {
+    session = "regular";
+    type = "intraday";
+    sessionOpenAt = sessionTime(date, open, market);
+    sessionCloseAt = sessionTime(date, close, market);
+  } else if (close !== null && minute >= 4 * 60 && minute < open) {
+    session = "premarket";
+    type = "extended";
+    sessionOpenAt = sessionTime(date, 4 * 60, market);
+    sessionCloseAt = sessionTime(date, open, market);
+  } else if (close !== null && minute >= close && minute < 20 * 60) {
+    session = "afterhours";
+    type = "extended";
+    sessionOpenAt = sessionTime(date, close, market);
+    sessionCloseAt = sessionTime(date, 20 * 60, market);
+  } else {
+    const day = weekday(date);
+    const overnightAfterClose = minute >= 20 * 60 && day >= 0 && day <= 4 &&
+      closeMinute(shiftDay(date, 1), market) !== null;
+    const overnightBeforeOpen = minute < 3 * 60 + 50 && close !== null && day >= 1 && day <= 5;
+    if (overnightAfterClose || overnightBeforeOpen) {
+      session = "overnight";
+      type = "extended";
+      if (overnightAfterClose) {
+        sessionDate = shiftDay(date, 1);
+        sessionOpenAt = sessionTime(date, 20 * 60, market);
+        sessionCloseAt = sessionTime(shiftDay(date, 1), 3 * 60 + 50, market);
+      } else {
+        sessionOpenAt = sessionTime(shiftDay(date, -1), 20 * 60, market);
+        sessionCloseAt = sessionTime(date, 3 * 60 + 50, market);
+      }
+    }
+  }
+
+  let fallbackDate = date;
+  if (close === null || minute < close) {
+    do {
+      fallbackDate = shiftDay(fallbackDate, -1);
+    } while (closeMinute(fallbackDate, market) === null);
+  }
+  const fallbackCloseMinute = closeMinute(fallbackDate, market);
+  const fallbackCloseAt = sessionTime(fallbackDate, fallbackCloseMinute, market);
+  if (session === "closed") {
+    const fallbackOpen = market === "LSE" ? 8 * 60 : 570;
+    sessionOpenAt = sessionTime(fallbackDate, fallbackOpen, market);
+    sessionCloseAt = fallbackCloseAt;
+    sessionDate = fallbackDate;
   }
   return {
-    executedAt: instant.toISOString(), type, date, market, timeZone: market === "LSE" ? "Europe/London" : "America/New_York",
-    sessionOpenAt: sessionTime(date, open, market), sessionCloseAt: sessionTime(date, close, market),
+    executedAt: instant.toISOString(), type, date: sessionDate, fallbackDate, fallbackCloseAt,
+    session, market, timeZone: market === "LSE" ? "Europe/London" : "America/New_York",
+    sessionOpenAt, sessionCloseAt,
   };
 }

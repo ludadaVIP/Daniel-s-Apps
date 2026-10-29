@@ -859,6 +859,8 @@
 :root[data-theme="dark"] .mh-decision-field-row > label, :root[data-theme="dark"] .mh-decision-field { border: 1px solid #4747470d; background: #1c1c1c78; }
 :root[data-theme="dark"] .mh-decision-field-row > label { color: #c7d0c2; }
 :root[data-theme="dark"] .mh-decision-field-row > label > span, :root[data-theme="dark"] .mh-decision-field > span { color: #c5ccc1; }
+:root[data-theme="dark"] .mh-decision-pe-link:hover > span { color: #bcd8bf; }
+:root[data-theme="dark"] .mh-decision-pe-link:focus-visible { outline: 2px solid #44583c; }
 :root[data-theme="dark"] .mh-decision-field > strong { color: #c4d5c2; }
 :root[data-theme="dark"] .mh-decision-field.computed > strong { color: #c2d2c0; }
 :root[data-theme="dark"] .mh-decision-fields label > div { border: 1px solid #46593b; background: #1c1c1cb8; color: #c4ccc1; }
@@ -922,5 +924,73 @@
 @media (max-width: 620px) {
   :root[data-theme="dark"] .mh-exposure-table tbody > tr:not(.mh-exposure-detail) { border-bottom: 1px solid #4a573d; }
   :root[data-theme="dark"] .mh-exposure-table td:nth-child(3)::before { color: #bac3bc; }
+}
+
+/* Linked watch and decision views: compact controls, durable category rails. */
+:root[data-theme="dark"] .mh-watch-view-switch {
+  border: 1px solid #4b583c;
+  background: #22271b;
+}
+:root[data-theme="dark"] .mh-watch-view-indicator {
+  border: 1px solid #475b39;
+  background: #1c1c1c;
+}
+:root[data-theme="dark"] .mh-watch-view-switch button {
+  color: #bfc5bb;
+}
+:root[data-theme="dark"] .mh-watch-view-switch button[aria-pressed="true"] { color: #c1d2bf; }
+:root[data-theme="dark"] .mh-watch-category-tabs button {
+  --category-accent: #8fa585;
+  border: 1px solid #4a583c;
+  background: #1e2319;
+  color: #c3cac1;
+}
+:root[data-theme="dark"] .mh-watch-category-tabs button[data-tone="0"] { --category-accent: #87ab7d; }
+:root[data-theme="dark"] .mh-watch-category-tabs button[data-tone="1"] { --category-accent: #8fa4b3; }
+:root[data-theme="dark"] .mh-watch-category-tabs button[data-tone="2"] { --category-accent: #c6a299; }
+:root[data-theme="dark"] .mh-watch-category-tabs button[data-tone="3"] { --category-accent: #acaf9a; }
+:root[data-theme="dark"] .mh-watch-category-tabs button[data-tone="funds"] { --category-accent: #8aa9ad; }
+:root[data-theme="dark"] .mh-watch-category-tabs button:hover { border-color: color-mix(in srgb, var(--category-accent), #4a4a4a 55%); }
+:root[data-theme="dark"] .mh-watch-category-tabs button.selected { border-color: color-mix(in srgb, var(--category-accent), #4a4a4a 52%); background: color-mix(in srgb, var(--category-accent), #1c1c1c 92%); }
+:root[data-theme="dark"] .mh-watch-category-tabs button small { color: #bbc1b8; }
+:root[data-theme="dark"] .mh-watch-category[data-tone="0"] .mh-watch-category-mark, :root[data-theme="dark"] .mh-decision-section[data-tone="0"] .mh-decision-section-heading { --category-accent: #90ae86; }
+:root[data-theme="dark"] .mh-watch-category[data-tone="1"] .mh-watch-category-mark, :root[data-theme="dark"] .mh-decision-section[data-tone="1"] .mh-decision-section-heading { --category-accent: #9cb0bc; }
+:root[data-theme="dark"] .mh-watch-category[data-tone="2"] .mh-watch-category-mark, :root[data-theme="dark"] .mh-decision-section[data-tone="2"] .mh-decision-section-heading { --category-accent: #c9a49a; }
+:root[data-theme="dark"] .mh-watch-category[data-tone="3"] .mh-watch-category-mark, :root[data-theme="dark"] .mh-decision-section[data-tone="3"] .mh-decision-section-heading { --category-accent: #b5b9a3; }
+:root[data-theme="dark"] .mh-watch-category[data-tone="funds"] .mh-watch-category-mark { --category-accent: #9bb3b5; }
+:root[data-theme="dark"] .mh-decision-section[data-tone] .mh-decision-section-heading { border-bottom-color: color-mix(in srgb, var(--category-accent), #4a4a4a 78%); }
+:root[data-theme="dark"] .mh-decision-section[data-tone] .mh-decision-section-heading h2 { color: color-mix(in srgb, var(--category-accent), #ced8cd 30%); }
+:root[data-theme="dark"] .mh-watch-category-select, :root[data-theme="dark"] .mh-decision-category-control { color: #bec4ba; }
+:root[data-theme="dark"] .mh-watch-category-select select, :root[data-theme="dark"] .mh-decision-category-control select {
+  border: 1px solid #49583c;
+  background: #1c1c1ca8;
+  color: #c4ccc0;
+}
+:root[data-theme="dark"] .mh-watch-card.is-list .mh-watch-prices > div:first-child { border-left: 1px solid #49573d; }
+:root[data-theme="dark"] .mh-decision-card.is-list .mh-decision-quote { border-left: 1px solid #49583c; }
+:root[data-theme="dark"] .mh-watch-category-manager-intro, :root[data-theme="dark"] .mh-watch-category-manager-footnote { color: #c1c7bf; }
+:root[data-theme="dark"] .mh-watch-category-add { border: 1px solid #49593b; background: #202419; }
+:root[data-theme="dark"] .mh-watch-category-add label { color: #c3cac0; }
+:root[data-theme="dark"] .mh-watch-category-add input, :root[data-theme="dark"] .mh-watch-category-rename input { border: 1px solid #47583c; background: #1c1c1c; color: #c8d3c5; }
+:root[data-theme="dark"] .mh-watch-category-manager-row { --category-accent: #90ae86; border: 1px solid #4a563e; background: #1c1c1c; }
+:root[data-theme="dark"] .mh-watch-category-manager-row[data-tone="1"] { --category-accent: #9cb0bc; }
+:root[data-theme="dark"] .mh-watch-category-manager-row[data-tone="2"] { --category-accent: #c9a49a; }
+:root[data-theme="dark"] .mh-watch-category-manager-row[data-tone="3"] { --category-accent: #b5b9a3; }
+:root[data-theme="dark"] .mh-watch-category-manager-name strong { color: #c6d2c3; }
+:root[data-theme="dark"] .mh-watch-category-manager-name span, :root[data-theme="dark"] .mh-watch-category-system { color: #bbc2b8; }
+:root[data-theme="dark"] .mh-watch-category-rename small { color: #dfafaa; }
+:root[data-theme="dark"] .mh-watch-category-delete { color: #c0c6be; }
+:root[data-theme="dark"] .mh-watch-category-delete select { border: 1px solid #47583c; background: #1c1c1c; color: #c7d0c4; }
+:root[data-theme="dark"] .mh-watch-category-error { color: #dfafaa; }
+:root[data-theme="dark"] .mh-watch-category-manager-footnote { color: #bbc2b9; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-view-switch { border-color: #454e41; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-category-tabs button { border-color: #454f40; background: #21241f; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-category-tabs button.selected { background: color-mix(in srgb, var(--category-accent), #21241f 83%); }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-category-select select, :root[data-theme="dark"][data-theme="dark"] .mh-decision-category-control select { background: #23271b; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-category-add { border-color: #454e41; background: #21241f; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-category-add input, :root[data-theme="dark"][data-theme="dark"] .mh-watch-category-rename input, :root[data-theme="dark"][data-theme="dark"] .mh-watch-category-delete select { background: #20251e; }
+:root[data-theme="dark"][data-theme="dark"] .mh-watch-category-manager-row { border-color: #454e41; background: #21241e; }
+@media (max-width: 760px) {
+  :root[data-theme="dark"] .mh-watch-card.is-list .mh-watch-prices { border-top: 1px solid #525a3a; }
 }
 

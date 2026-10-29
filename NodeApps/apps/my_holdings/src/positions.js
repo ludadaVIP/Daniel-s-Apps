@@ -1,7 +1,7 @@
 export const normalizeSymbol = (symbol) => symbol.trim().toUpperCase();
 export const positionKey = (holding) => JSON.stringify([holding.accountId, normalizeSymbol(holding.symbol), holding.currency]);
 export const roundMoney = (value) => Math.round((value + Number.EPSILON) * 100) / 100;
-const quoteKeys = ["price", "priceDate", "priceSource", "priceType", "priceAsOf", "priceFetchedAt", "priceSourceUrl", "changePct"];
+const quoteKeys = ["price", "priceDate", "priceSource", "priceSourceUrl", "priceType", "priceSession", "priceTimeZone", "priceAsOf", "priceFetchedAt", "changePct"];
 
 export function latestHoldingQuote(holdings, symbol, currency) {
   return holdings.filter((h) => normalizeSymbol(h.symbol) === normalizeSymbol(symbol) && h.currency === currency && h.price > 0 && h.priceType !== "purchase")

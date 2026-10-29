@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Copy, ChevronDown, ExternalLink, RefreshCw } from "lucide-react";
 import { request } from "./api.js";
-import { money, pct } from "./model.js";
+import { calculate, money, pct } from "./model.js";
 import { fundColor, FUND_REVIEW_PROMPT, lookThrough } from "./lookthrough.js";
 
 export function LookThrough({ state, onCopyReview, fundSymbols = [] }) {
@@ -14,7 +14,9 @@ export function LookThrough({ state, onCopyReview, fundSymbols = [] }) {
     return () => { active = false; };
   }, [reload]);
   const scope = state.accounts.some(a => a.id === accountId) ? accountId : "all";
-  const result = lookThrough(state.holdings, data, { accountId: scope, fx: state.fx, fundSymbols });
+  const portfolio = calculate(state, scope);
+  const cashValue = scope === "all" ? portfolio.totalCash : portfolio.accountCash;
+  const result = lookThrough(state.holdings, data, { accountId: scope, fx: state.fx, cashValue, fundSymbols });
   const activeSymbols = new Set(result.usedFunds.map(f => f.symbol));
   return (
     <section className="mh-panel mh-lookthrough" aria-labelledby="mh-lookthrough-title">
@@ -27,20 +29,20 @@ export function LookThrough({ state, onCopyReview, fundSymbols = [] }) {
       </div>
       {error ? <div className="mh-lookthrough-message" role="alert">成分数据暂不可用：{error} <button className="mh-text-button" onClick={() => setReload(v => v + 1)}><RefreshCw size={13} /> 重试</button></div> : !data ? <p className="mh-lookthrough-message" role="status">正在读取基金成分…</p> : <>
         <div className="mh-lookthrough-summary">
-          <div><small>持仓市值 · USD</small><strong>{money(result.totalValue)}</strong></div>
-          <div><small>前十家公司合计</small><strong>{pct(result.top10Weight)}<span>约 {money(result.top10Value)}</span></strong></div>
+          <div><small>总资产分母 · USD</small><strong>{money(result.totalAssetValue)}<span>证券 {money(result.totalValue)} · 现金 {money(result.cashValue)}</span></strong></div>
+          <div><small>前十家公司占总资产</small><strong>{pct(result.top10Weight)}<span>约 {money(result.top10Value)}</span></strong></div>
           <div><small>已识别公司</small><strong>{result.rows.length}<span>家 · 同公司多类股合并</span></strong></div>
         </div>
         <div className="mh-lookthrough-legend" aria-label="穿透基金">{data.funds.map(f => <span key={f.symbol} className={!activeSymbols.has(f.symbol) ? "inactive" : ""}><i style={{ background: fundColor(f.symbol) }} />{f.symbol}<small>{activeSymbols.has(f.symbol) ? "" : "未持有 · 已支持"}</small></span>)}<span><i style={{ background: fundColor("direct") }} />直接持股</span></div>
         {!result.top10.length ? <p className="mh-lookthrough-message">这个账户暂无可穿透的股票持仓。录入持仓后会自动计算。</p> : <div className="mh-table-wrap"><table className="mh-exposure-table">
           <colgroup><col className="lt-company" /><col className="lt-value" /><col className="lt-weight" /><col className="lt-sources" /></colgroup>
-          <thead><tr><th>公司 / 代码</th><th>估算敞口 · USD</th><th>占持仓市值</th><th>持有路径 <small>点击展开金额</small></th></tr></thead>
+          <thead><tr><th>公司 / 代码</th><th>估算敞口 · USD</th><th>占总资产</th><th>持有路径 <small>点击展开金额</small></th></tr></thead>
           <tbody>{result.top10.map((r, i) => <ExposureRow key={r.key} row={r} rank={i + 1} maxValue={result.top10[0].value} expanded={expanded === r.key} onToggle={() => setExpanded(expanded === r.key ? null : r.key)} />)}</tbody>
         </table></div>}
         <div className="mh-lookthrough-tail"><span>其余公司 <strong>{money(result.equityValue - result.top10Value)}</strong></span><span>基金非股票与披露差额 <strong>{money(result.residualValue)}</strong></span>{result.unclassifiedValue > 0 && <span>未穿透基金 <strong>{money(result.unclassifiedValue)}</strong></span>}</div>
         {result.excluded.length > 0 && <p className="mh-lookthrough-warning">待补齐：{result.excluded.map(x => `${x.symbol}（${x.reason}）`).join("；")}。缺失汇率的持仓不计入分母。</p>}
         <details className="mh-lookthrough-method"><summary>成分日期、来源与估算口径 <ChevronDown size={14} /></summary>
-          <p className="mh-lookthrough-formula">公司敞口 = Σ（各基金持仓市值 × 公司在基金中的权重）+ 直接持股市值。比例分母为所选账户的股票与 ETF 持仓，不含账户现金。持仓数量或价格变化时自动重算。</p>
+          <p className="mh-lookthrough-formula">公司敞口 = Σ（各基金持仓市值 × 公司在基金中的权重）+ 直接持股市值。公司占比以所选范围总资产为分母；全部账户视图计入账户现金与独立可部署弹药，单个账户视图计入该账户现金。持仓数量、价格、现金或汇率变化时自动重算。</p>
           <p>这是按已披露成分权重估算的公司经济敞口，不是直接登记持有的股票数量。权重随基金调仓和行情变化；持仓金额自动更新，基金权重由 Codex 复核后更新。</p>
           <p>股票采用披露原始权重，不强行归一到 100%；基金现金、货币基金、期货及其他衍生品不分配到个股，余额含披露精度差异。GOOG / GOOGL 等同公司多类股合并；各基金的披露日期可能不同。{result.priceDates.length ? `持仓报价日期：${result.priceDates.join("、")}。` : "部分持仓尚无已核实行情日期。"}</p>
           <div className="mh-lookthrough-sources">{data.funds.map(f => <div key={f.symbol}><strong>{f.symbol}</strong><span>成分截至 {f.asOf}{new Date() - new Date(`${f.asOf}T00:00:00Z`) > 45 * 86400000 && <em>建议复核</em>}</span><a href={f.sourceUrl} target="_blank" rel="noreferrer">{f.source} <ExternalLink size={11} /></a></div>)}</div>

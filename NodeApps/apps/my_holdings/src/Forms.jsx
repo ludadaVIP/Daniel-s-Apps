@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { X, Save } from "lucide-react";
 import { id, money, CURRENCIES } from "./model.js";
-import { previewBuy } from "./positions.js";
+import { previewBuy, roundMoney } from "./positions.js";
 import { localDate } from "./api.js";
 export function Modal({ title, children, onClose, wide = false }) {
   const ref = useRef();
@@ -243,6 +243,30 @@ export function HoldingForm({ item, accounts, defaultAccountId, onSave, busy }) 
     </form>
   );
 }
+export function HoldingPriceForm({ holding, onSave, busy }) {
+  const [price, setPrice] = useState(String(holding.price ?? ""));
+  const [priceDate, setPriceDate] = useState(holding.priceDate || localDate());
+  const [basis, setBasis] = useState("盘后参考");
+  return <form onSubmit={(event) => {
+    event.preventDefault();
+    const nextPrice = Number(price);
+    onSave({
+      price: nextPrice,
+      marketValue: roundMoney(Number(holding.quantity) * nextPrice),
+      priceDate,
+      priceType: "manual",
+      priceSource: `手动调整 · ${basis}`,
+    });
+  }}>
+    <p className="mh-help">适合记录盘后波动或临时参考价。保存后会按持仓股数重算市值，成本不变；此价格会标为手动调整，不会伪装成自动行情。</p>
+    <div className="mh-form-grid">
+      <Field label={`当前价格（${holding.currency}）`}><input autoFocus required type="number" min="0.000001" max="100000000000000" step="any" inputMode="decimal" value={price} onChange={(event) => setPrice(event.target.value)} /></Field>
+      <Field label="价格对应日期" hint={holding.priceDate ? "默认保留当前报价日期，请按新价格对应的交易日修改。" : "尚无已知报价日期，请选择新价格对应的交易日。"}><input type="date" required value={priceDate} onChange={(event) => setPriceDate(event.target.value)} /></Field>
+      <Field label="手动价格类型"><select value={basis} onChange={(event) => setBasis(event.target.value)}><option>盘后参考</option><option>盘中手动更新</option><option>手动收盘价</option><option>其他手动价格</option></select></Field>
+    </div>
+    <SaveButton busy={busy} label="保存当前价格" />
+  </form>;
+}
 export function SaveButton({ busy, label = "保存到本地" }) {
   return (
     <footer className="mh-form-footer">
@@ -371,13 +395,98 @@ export function CashForm({ item, onSave, busy }) {
         />
       </Field>
       <p className="mh-help">
-        弹药是你记录的独立资金池。买入证券时，同时新增 /
-        更新持仓，并在这里记一笔投资拨款，以免重复计算资产。
+        资金流水是独立的可部署弹药池。买入时记一笔投资拨款；如果同步维护账户现金快照，也要手动扣减相应余额，以免重复计入资产。
       </p>
       <SaveButton busy={busy} />
     </form>
   );
 }
+export function OrderForm({ item, watchlist, accounts, defaultAccountId, onSave, busy }) {
+  const [v, set] = useState(() => item ? {
+    ...item,
+    accountId: item.accountId || defaultAccountId || accounts[0]?.id || "",
+    quantity: String(item.quantity),
+    filledQuantity: String(item.filledQuantity ?? 0),
+    limitPrice: item.limitPrice == null ? "" : String(item.limitPrice),
+  } : {
+    id: id(), watchId: "", symbol: "", exchange: "", name: "", side: "buy", orderType: "limit",
+    quantity: "", filledQuantity: "0", limitPrice: "", currency: "USD", timeInForce: "GTC",
+    status: "draft", brokerStatus: "", submittedAtText: "", accountId: defaultAccountId || accounts[0]?.id || "", note: "", source: "手工记录",
+  });
+  const change = (key, value) => set((current) => ({ ...current, [key]: value }));
+  const chooseWatch = (watchId) => {
+    const watch = watchlist.find((row) => row.id === watchId);
+    set((current) => ({
+      ...current,
+      watchId,
+      ...(watch ? {
+        symbol: watch.symbol || watch.name || current.symbol,
+        exchange: watch.research?.identity?.exchange || current.exchange,
+        name: watch.research?.identity?.name || watch.name || current.name,
+        currency: watch.priceCurrency || watch.research?.identity?.currency || current.currency || "USD",
+      } : {}),
+    }));
+  };
+  return <form onSubmit={(event) => {
+    event.preventDefault();
+    onSave({ ...v, symbol: v.symbol.trim().toUpperCase(), name: v.name.trim() || v.symbol.trim().toUpperCase(),
+      quantity: Number(v.quantity), filledQuantity: Number(v.filledQuantity || 0),
+      limitPrice: v.orderType === "limit" ? Number(v.limitPrice) : null });
+  }}>
+    <p className="mh-help">仅记录潜在委托与成交进度，不会向券商提交、修改或撤销订单。</p>
+    <div className="mh-form-grid">
+      <Field label="关联近期关注"><select value={v.watchId} onChange={(event) => chooseWatch(event.target.value)}>
+        <option value="">不关联</option>
+        {watchlist.map((watch) => <option key={watch.id} value={watch.id}>{watch.symbol || watch.name} · {watch.name}</option>)}
+      </select></Field>
+      <Field label="证券代码"><input required maxLength={40} value={v.symbol} onChange={(event) => change("symbol", event.target.value.toUpperCase())} placeholder="例如 GOOG" /></Field>
+      <Field label="交易所"><input maxLength={80} value={v.exchange} onChange={(event) => change("exchange", event.target.value)} placeholder="例如 NASDAQ.NMS" /></Field>
+      <Field label="名称"><input maxLength={300} value={v.name} onChange={(event) => change("name", event.target.value)} placeholder="公司或基金名称" /></Field>
+      <Field label="方向"><select value={v.side} onChange={(event) => change("side", event.target.value)}><option value="buy">买入</option><option value="sell">卖出</option></select></Field>
+      <Field label="订单类型"><select value={v.orderType} onChange={(event) => change("orderType", event.target.value)}><option value="limit">限价单</option><option value="market">市价单</option></select></Field>
+      {v.orderType === "limit" && <Field label={`限价（${v.currency}）`}><input required type="number" min="0.000001" max="100000000000000" step="any" value={v.limitPrice} onChange={(event) => change("limitPrice", event.target.value)} placeholder="例如 275" /></Field>}
+      <Field label="委托数量"><input required type="number" min="0.00000001" max="100000000000000" step="any" value={v.quantity} onChange={(event) => change("quantity", event.target.value)} /></Field>
+      <Field label="已成交数量"><input required type="number" min="0" max="100000000000000" step="any" value={v.filledQuantity} onChange={(event) => change("filledQuantity", event.target.value)} /></Field>
+      <Field label="币种"><select value={v.currency} onChange={(event) => change("currency", event.target.value)}>{CURRENCIES.map((currency) => <option key={currency} value={currency}>{currency}</option>)}</select></Field>
+      <Field label="有效期"><select value={v.timeInForce} onChange={(event) => change("timeInForce", event.target.value)}><option value="GTC">GTC · 撤销前有效</option><option value="DAY">DAY · 当日有效</option><option value="GTD">GTD · 指定日期前有效</option><option value="IOC">IOC · 立即成交或取消</option><option value="FOK">FOK · 全部成交或取消</option></select></Field>
+      <Field label="台账状态"><select value={v.status} onChange={(event) => change("status", event.target.value)}><option value="draft">计划中</option><option value="working">委托中</option><option value="partial">部分成交</option><option value="filled">已成交</option><option value="cancelled">已撤销</option><option value="rejected">已拒绝</option><option value="expired">已过期</option></select></Field>
+      <Field label="券商状态"><input maxLength={100} value={v.brokerStatus} onChange={(event) => change("brokerStatus", event.target.value)} placeholder="例如 PreSubmitted" /></Field>
+      <Field label="提交时间（按原始显示记录）"><input maxLength={100} value={v.submittedAtText} onChange={(event) => change("submittedAtText", event.target.value)} placeholder="例如 2026/10/28 21:47" /></Field>
+      <Field label="账户"><select value={v.accountId} onChange={(event) => change("accountId", event.target.value)}><option value="">未指定</option>{accounts.map((account) => <option key={account.id} value={account.id}>{account.name}</option>)}</select></Field>
+      <Field label="记录来源"><input maxLength={100} value={v.source} onChange={(event) => change("source", event.target.value)} placeholder="手工记录或截图导入" /></Field>
+    </div>
+    <Field label="备注"><textarea maxLength={2000} value={v.note} onChange={(event) => change("note", event.target.value)} placeholder="记录计划依据、条件或需核实的信息" /></Field>
+    <SaveButton busy={busy} label={item ? "保存委托记录" : "记录委托"} />
+  </form>;
+}
+export function AccountCashForm({ account, onSave, busy }) {
+  const [amount, setAmount] = useState(String(account?.cashBalance ?? 0));
+  return (
+    <form
+      onSubmit={(e) => {
+        e.preventDefault();
+        onSave(Number(amount));
+      }}
+    >
+      <Field label="当前现金余额（USD）" hint="计入账户资产和现金比例；不影响可部署弹药与资金流水。">
+        <input
+          required
+          type="number"
+          min="0"
+          max="100000000000000"
+          step="0.01"
+          inputMode="decimal"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          placeholder="例如：12500.00"
+        />
+      </Field>
+      <p className="mh-help">这是账户当前现金余额快照。转入股票后，请同步更新现金余额；买卖流水不会自动修改这个数字。</p>
+      <SaveButton busy={busy} label="保存现金余额" />
+    </form>
+  );
+}
+
 export function GoalsForm({ state, onSave, busy }) {
   const [objective, setObjective] = useState(
     state.goals.objective || state.goals.notes || "",
