@@ -179,14 +179,51 @@ function orderRemaining(order) {
   if (!ORDER_OPEN_STATUSES.has(order.status)) return 0;
   return Math.max(0, Number(order.quantity || 0) - Number(order.filledQuantity || 0));
 }
+function summarizeOrderSelection(orders, excludedIds, accounts, defaultAccountId) {
+  const activeOrders = orders.filter((order) => orderRemaining(order) > 0);
+  const selectedOrders = activeOrders.filter((order) => !excludedIds.has(order.id));
+  const currencies = {};
+  const accountsById = {};
+  let unpricedCount = 0;
+  for (const order of selectedOrders) {
+    const accountId = order.accountId || defaultAccountId || accounts[0]?.id || "";
+    const currency = order.currency || "USD";
+    accountsById[accountId] ||= { count: 0, currencies: {}, buyCurrencies: {}, unpricedCount: 0, unpricedBuyCount: 0 };
+    accountsById[accountId].count += 1;
+    if (order.orderType !== "limit" || !(Number(order.limitPrice) > 0)) {
+      unpricedCount += 1;
+      accountsById[accountId].unpricedCount += 1;
+      if (order.side !== "sell") accountsById[accountId].unpricedBuyCount += 1;
+      continue;
+    }
+    const value = orderRemaining(order) * Number(order.limitPrice);
+    currencies[currency] = (currencies[currency] || 0) + value;
+    accountsById[accountId].currencies[currency] = (accountsById[accountId].currencies[currency] || 0) + value;
+    if (order.side !== "sell") {
+      accountsById[accountId].buyCurrencies[currency] = (accountsById[accountId].buyCurrencies[currency] || 0) + value;
+    }
+  }
+  return {
+    activeCount: activeOrders.length,
+    selectedCount: selectedOrders.length,
+    currencies,
+    accountsById,
+    unpricedCount,
+  };
+}
 function orderQuantityText(value) {
   return new Intl.NumberFormat("en-US", { maximumFractionDigits: 8 }).format(Number(value || 0));
 }
 function preferredOrderAccountId(accounts = []) {
   return accounts.find((account) => /^账户\s*d$/i.test(String(account.name || "").trim()))?.id || accounts[0]?.id || "";
 }
-function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, onChangeAccount, onEdit, onDelete, onOpenWatch }) {
+function orderValueText(values) {
+  const entries = Object.entries(values || {}).filter(([, value]) => value > 0);
+  return entries.length ? entries.map(([currency, value]) => money(value, currency)).join(" · ") : "—";
+}
+function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, selected, onToggleSelect, onChangeAccount, onEdit, onDelete, onOpenWatch }) {
   const remaining = orderRemaining(order);
+  const selectable = remaining > 0;
   const accountId = order.accountId || defaultAccountId || accounts[0]?.id || "";
   const orderNote = String(order.note || "").trim();
   const visibleNote = /截图未显示日期.{0,8}时区未知/.test(orderNote) ? "" : orderNote;
@@ -195,8 +232,12 @@ function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, o
   const gap = currentPrice > 0 && order.limitPrice > 0 && quoteCurrency === order.currency
     ? (Number(order.limitPrice) / currentPrice - 1) * 100
     : null;
-  return <article className={`mh-order-card ${viewMode === "list" ? "is-list" : ""}`}>
+  return <article className={`mh-order-card ${viewMode === "list" ? "is-list" : ""} ${selectable && !selected ? "is-excluded" : ""}`}>
     <header>
+      <input className="mh-order-select" type="checkbox" checked={selectable && selected} disabled={!selectable}
+        aria-label={selectable ? `${order.symbol} 纳入订单金额汇总` : `${order.symbol} 已结束，不计入订单金额汇总`}
+        title={selectable ? "纳入或排除金额汇总" : "已结束委托不计入金额汇总"}
+        onChange={() => onToggleSelect(order.id)} />
       <div className="mh-order-identity">
         <span className="mh-ticker">{order.symbol.slice(0, 2)}</span>
         <div><strong>{order.symbol}{order.exchange ? ` @${order.exchange}` : ""}</strong><small>{order.name}</small></div>
@@ -1036,6 +1077,7 @@ export default function HoldingsApp() {
     [gapDirection, setGapDirection] = useState(readSharedGapDirection),
     [watchViewMode, setWatchViewMode] = useState(readSharedWatchView),
     [orderViewMode, setOrderViewMode] = useState(readOrderViewMode),
+    [excludedOrderIds, setExcludedOrderIds] = useState(() => new Set()),
     [watchCategoryFilter, setWatchCategoryFilter] = useState(readSharedWatchCategory),
     [watchTargetDrafts, setWatchTargetDrafts] = useState({}),
     [attentionPickerId, setAttentionPickerId] = useState(null),
@@ -1508,6 +1550,7 @@ export default function HoldingsApp() {
         .includes(query.toLowerCase()),
     );
   const defaultOrderAccountId = preferredOrderAccountId(state.accounts);
+  const orderSelectionSummary = summarizeOrderSelection(orders, excludedOrderIds, state.accounts, defaultOrderAccountId);
   const yesterday = previousLocalDate(localDate());
   const yesterdayWatchRanks = new Map(
     (state.watchRankHistory || [])
@@ -1565,6 +1608,26 @@ export default function HoldingsApp() {
   const setOrderView = (view) => {
     setOrderViewMode(view);
     try { localStorage.setItem("mh-order-view", view); } catch {}
+  };
+  const toggleOrderSelection = (orderId) => {
+    setExcludedOrderIds((current) => {
+      const next = new Set(current);
+      if (next.has(orderId)) next.delete(orderId);
+      else next.add(orderId);
+      return next;
+    });
+  };
+  const toggleAllOrderSelection = () => {
+    const activeIds = orders.filter((order) => orderRemaining(order) > 0).map((order) => order.id);
+    const selectAll = activeIds.some((orderId) => excludedOrderIds.has(orderId));
+    setExcludedOrderIds((current) => {
+      const next = new Set(current);
+      for (const orderId of activeIds) {
+        if (selectAll) next.delete(orderId);
+        else next.add(orderId);
+      }
+      return next;
+    });
   };
   const setSharedSortMode = (mode) => {
     const nextDirection = mode === "gap"
@@ -2623,13 +2686,57 @@ export default function HoldingsApp() {
                     <button type="button" aria-pressed={orderViewMode === "card"} onClick={() => setOrderView("card")}><LayoutGrid size={14} />卡片</button>
                     <button type="button" aria-pressed={orderViewMode === "list"} onClick={() => setOrderView("list")}><List size={14} />列表</button>
                   </div>
-                  <span className="mh-tag">{orders.length} 笔</span>
+                </div>
+                <div className="mh-order-summary" aria-live="polite">
+                  <div className="mh-order-summary-top">
+                    <div className="mh-order-summary-total">
+                      <small>已选委托 · 剩余限价估算</small>
+                      <strong>{orderValueText(orderSelectionSummary.currencies)}</strong>
+                      <span>按剩余数量 × 限价估算</span>
+                    </div>
+                    <div className="mh-order-summary-count">
+                      <strong>{orderSelectionSummary.selectedCount}<span> / {orderSelectionSummary.activeCount}</span></strong>
+                      <small>笔待执行</small>
+                    </div>
+                    <button type="button" className="mh-order-select-all" disabled={!orderSelectionSummary.activeCount}
+                      onClick={toggleAllOrderSelection}>
+                      {orderSelectionSummary.activeCount > 0 && orderSelectionSummary.selectedCount === orderSelectionSummary.activeCount ? "取消全选" : "全选待执行"}
+                    </button>
+                  </div>
+                  {(orderSelectionSummary.unpricedCount > 0 || orderSelectionSummary.accountsById && Object.values(orderSelectionSummary.accountsById).some((item) => Object.keys(item.buyCurrencies).some((currency) => currency !== "USD") || item.unpricedBuyCount > 0)) &&
+                    <p className="mh-order-summary-note">
+                      {orderSelectionSummary.unpricedCount > 0 && `有 ${orderSelectionSummary.unpricedCount} 笔市价或无有效限价的委托，未计入金额估算。`}
+                      {Object.values(orderSelectionSummary.accountsById).some((item) => Object.keys(item.buyCurrencies).some((currency) => currency !== "USD")) && " 外币买单不会与美元现金直接相加。"}
+                    </p>}
+                  {Object.entries(orderSelectionSummary.accountsById).length > 0 &&
+                    <div className="mh-order-account-summaries">
+                      {Object.entries(orderSelectionSummary.accountsById).map(([accountId, summary]) => {
+                        const account = state.accounts.find((item) => item.id === accountId);
+                        const usdBuyEstimate = summary.buyCurrencies.USD || 0;
+                        const hasUsdBuy = usdBuyEstimate > 0 || summary.unpricedBuyCount > 0;
+                        const cashBalance = account?.cashBalance;
+                        const remainingCash = Number(cashBalance || 0) - usdBuyEstimate;
+                        return <div className="mh-order-account-summary" key={accountId || "unassigned"}>
+                          <div className="mh-order-account-title"><strong>{account?.name || "未分配账户"}</strong><small>{summary.count} 笔已选</small></div>
+                          <div className="mh-order-account-values">
+                            <span><small>账面现金</small><strong>{cashBalance == null ? "未记录" : money(cashBalance, "USD")}</strong></span>
+                            <span><small>USD 买入估算</small><strong>{hasUsdBuy ? money(usdBuyEstimate, "USD") : "暂无"}</strong></span>
+                            <span className={cashBalance == null || !hasUsdBuy ? "" : remainingCash < 0 ? "is-short" : "is-covered"}>
+                              <small>{summary.unpricedBuyCount > 0 ? "限价买单后 · 未含市价" : "扣单后预计现金"}</small>
+                              <strong>{cashBalance == null ? "未记录" : !hasUsdBuy ? "暂无 USD 买单" : money(remainingCash, "USD")}</strong>
+                            </span>
+                          </div>
+                          <div className="mh-order-account-order-total">订单价值：{orderValueText(summary.currencies)}{summary.unpricedBuyCount > 0 ? ` · ${summary.unpricedBuyCount} 笔买单未估价` : ""}</div>
+                        </div>;
+                      })}
+                    </div>}
                 </div>
                 {orders.length ? <div className={`mh-orders-grid ${orderViewMode === "list" ? "is-list" : ""}`}>
                   {orders.map((order) => {
                     const linkedWatch = state.watchlist.find((watch) => watch.id === order.watchId);
                     return <OrderCard key={order.id} order={order} watch={linkedWatch} accounts={state.accounts}
                       defaultAccountId={defaultOrderAccountId} viewMode={orderViewMode} busy={busy}
+                      selected={!excludedOrderIds.has(order.id)} onToggleSelect={toggleOrderSelection}
                       onChangeAccount={(accountId) => mutate((s) => {
                         const savedOrder = s.orders.find((row) => row.id === order.id);
                         if (!savedOrder) throw new Error("委托记录不存在，请刷新后重试。");

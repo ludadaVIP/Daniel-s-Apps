@@ -3648,10 +3648,38 @@
 .mh-orders-panel > .mh-section-heading { align-items: flex-start; }
 .mh-orders-panel > .mh-section-heading > div { min-width: 0; }
 .mh-order-controls { display: flex; align-items: center; justify-content: space-between; gap: 7px; margin: 10px 0 12px; }
+.mh-order-summary { margin: 0 0 12px; padding: 13px 14px; border: 1px solid #e3e9dc; border-radius: 11px; background: #f5f8f1; }
+.mh-order-summary-top { display: grid; grid-template-columns: minmax(0, 1fr) auto auto; align-items: center; gap: 14px; }
+.mh-order-summary-total { display: grid; gap: 3px; min-width: 0; }
+.mh-order-summary-total > small, .mh-order-summary-count > small { color: #7c8976; font-size: 11px; }
+.mh-order-summary-total > strong { overflow-wrap: anywhere; color: #334b30; font-size: 22px; font-variant-numeric: tabular-nums; line-height: 1.15; }
+.mh-order-summary-total > span { color: #899384; font-size: 11px; }
+.mh-order-summary-count { display: grid; justify-items: center; gap: 2px; padding-left: 14px; border-left: 1px solid #dfe6d8; white-space: nowrap; }
+.mh-order-summary-count > strong { color: #40543b; font-size: 19px; font-variant-numeric: tabular-nums; }
+.mh-order-summary-count > strong span { color: #85917e; font-size: 13px; font-weight: 500; }
+.mh-order-select-all { padding: 7px 10px; border: 1px solid #d7e0d0; border-radius: 7px; background: #fff; color: #52694b; font: inherit; font-size: 12px; font-weight: 650; cursor: pointer; }
+.mh-order-select-all:hover:not(:disabled) { border-color: #aab99f; background: #edf3e8; }
+.mh-order-select-all:disabled { opacity: .5; cursor: not-allowed; }
+.mh-order-account-summaries { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 270px), 1fr)); gap: 7px; margin-top: 11px; }
+.mh-order-account-summary { min-width: 0; padding: 9px 10px; border: 1px solid #e5eadd; border-radius: 8px; background: rgba(255,255,255,.72); }
+.mh-order-account-title { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+.mh-order-account-title strong { color: #485c42; font-size: 13px; }
+.mh-order-account-title small, .mh-order-account-values small { color: #899384; font-size: 10px; }
+.mh-order-account-values { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 6px; }
+.mh-order-account-values > span { display: grid; align-content: start; gap: 3px; min-width: 0; }
+.mh-order-account-values strong { overflow-wrap: anywhere; color: #52634d; font-size: 12px; font-variant-numeric: tabular-nums; }
+.mh-order-account-values .is-short strong { color: #b54e42; }
+.mh-order-account-values .is-covered strong { color: #527b43; }
+.mh-order-account-order-total { margin-top: 7px; color: #7c8976; font-size: 10px; line-height: 1.4; }
+.mh-order-summary-note { margin: 9px 0 0; color: #7c8976; font-size: 11px; line-height: 1.45; }
 .mh-orders-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 285px), 1fr)); gap: 8px; }
 .mh-orders-grid.is-list { grid-template-columns: minmax(0, 1fr); gap: 5px; }
 .mh-order-card { min-width: 0; padding: 11px 12px; border: 1px solid #e6eae1; border-radius: 9px; background: #fff; }
 .mh-order-card > header { display: flex; align-items: flex-start; gap: 8px; min-width: 0; margin-bottom: 10px; }
+.mh-order-select { flex: 0 0 auto; width: 16px; height: 16px; margin: 3px 0 0; accent-color: #6b875b; cursor: pointer; }
+.mh-order-select:disabled { cursor: default; }
+.mh-order-select:focus-visible { outline: 2px solid #86a374; outline-offset: 2px; }
+.mh-order-card.is-excluded { border-color: #eaede7; background: #fafbf9; }
 .mh-order-identity { display: flex; align-items: center; gap: 7px; flex: 1 1 135px; min-width: 0; }
 .mh-order-identity > div { display: grid; min-width: 0; }
 .mh-order-identity strong { overflow: hidden; color: #384a38; font-size: 16px; text-overflow: ellipsis; white-space: nowrap; }
@@ -3681,10 +3709,35 @@
 :root[data-theme="dark"] .mh-order-card { border-color: #41493d; background: #1e211b; }
 :root[data-theme="dark"] .mh-order-account select { border-color: #41493d; background: #20231e; color: #c3d0bd; }
 :root[data-theme="dark"] .mh-order-note { border-color: #353b31; color: #aab5a3; }
+:root[data-theme="dark"] .mh-order-summary { border-color: #3c4637; background: #22271f; }
+:root[data-theme="dark"] .mh-order-summary-total > strong,
+:root[data-theme="dark"] .mh-order-summary-count > strong,
+:root[data-theme="dark"] .mh-order-account-title strong { color: #c5d4bc; }
+:root[data-theme="dark"] .mh-order-summary-total > small,
+:root[data-theme="dark"] .mh-order-summary-count > small,
+:root[data-theme="dark"] .mh-order-summary-total > span,
+:root[data-theme="dark"] .mh-order-account-title small,
+:root[data-theme="dark"] .mh-order-account-values small,
+:root[data-theme="dark"] .mh-order-account-order-total,
+:root[data-theme="dark"] .mh-order-summary-note { color: #a1ad98; }
+:root[data-theme="dark"] .mh-order-summary-count { border-color: #3c4637; }
+:root[data-theme="dark"] .mh-order-summary-count > strong span { color: #93a08a; }
+:root[data-theme="dark"] .mh-order-select-all,
+:root[data-theme="dark"] .mh-order-account-summary { border-color: #3c4637; background: #282d24; color: #c5d4bc; }
+:root[data-theme="dark"] .mh-order-select-all:hover:not(:disabled) { border-color: #647557; background: #30382b; }
+:root[data-theme="dark"] .mh-order-account-values strong { color: #bac9b1; }
+:root[data-theme="dark"] .mh-order-account-values .is-short strong { color: #ed8c7d; }
+:root[data-theme="dark"] .mh-order-account-values .is-covered strong { color: #9dc487; }
+:root[data-theme="dark"] .mh-order-card.is-excluded { border-color: #363d32; background: #1b1e19; }
 @media (max-width: 620px) {
   .mh-orders-panel > .mh-section-heading { align-items: flex-start; }
   .mh-orders-panel > .mh-section-heading > .mh-primary { flex: 0 0 auto; padding-inline: 9px; }
-  .mh-order-controls > .mh-tag { margin-left: auto; }
+  .mh-order-summary { padding: 11px; }
+  .mh-order-summary-top { grid-template-columns: minmax(0, 1fr) auto; gap: 9px; }
+  .mh-order-summary-total { grid-column: 1; }
+  .mh-order-summary-count { grid-column: 2; grid-row: 1; padding-left: 10px; }
+  .mh-order-select-all { grid-column: 1 / -1; justify-self: start; }
+  .mh-order-account-values { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .mh-order-card.is-list { grid-template-columns: minmax(0, 1fr); gap: 7px; }
   .mh-order-card.is-list > header { grid-column: 1; grid-row: 1; }
   .mh-order-card.is-list .mh-order-identity { flex-basis: 120px; }
