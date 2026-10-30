@@ -18,6 +18,16 @@ export function calculate(state, accountId = "all") {
   const holdings = state.holdings.filter(
     (h) => accountId === "all" || h.accountId === accountId,
   );
+  const accountCashBalances = (state.accounts || []).map((account) => ({
+    id: account.id,
+    name: account.name,
+    amount: Number.isFinite(Number(account.cashBalance))
+      ? Number(account.cashBalance)
+      : 0,
+  }));
+  const accountCash = accountCashBalances
+    .filter((account) => accountId === "all" || account.id === accountId)
+    .reduce((sum, account) => sum + account.amount, 0);
   const groups = new Map();
   let value = 0,
     cost = 0,
@@ -61,12 +71,18 @@ export function calculate(state, accountId = "all") {
   const pendingCash = Object.entries(cashByCurrency).filter(
     ([c, n]) => n !== 0 && usd(n, c, state.fx) == null,
   );
+  const totalCash = accountCash + cash;
+  const total = value + totalCash;
   const sorted = [...groups.values()]
     .sort((a, b) => b.value - a.value)
-    .map((g) => ({ ...g, weight: value ? (g.value / value) * 100 : 0 }));
+    .map((g) => ({
+      ...g,
+      weight: total > 0
+        ? (g.value / total) * 100
+        : 0,
+    }));
   const reserve = usd(state.goals.reserve || 0, state.goals.currency, state.fx);
   const available = reserve == null ? null : Math.max(0, cash - reserve);
-  const total = value + cash;
   const target =
     state.goals.target == null
       ? null
@@ -80,6 +96,9 @@ export function calculate(state, accountId = "all") {
     returnPct: cost ? ((value - cost) / cost) * 100 : 0,
     cashByCurrency,
     cash,
+    accountCashBalances,
+    accountCash,
+    totalCash,
     pendingCash,
     unconverted,
     available,
@@ -95,8 +114,8 @@ export function observations(state) {
   if (m.groups[0])
     out.push({
       tone: m.groups[0].weight > state.goals.maxPosition ? "amber" : "blue",
-      title: `${m.groups[0].symbol} 占持仓 ${pct(m.groups[0].weight)}`,
-      text: `按代码合并两个账户。${state.goals.configured ? `历史记录的提示线为 ${state.goals.maxPosition}%。` : `${state.goals.maxPosition}% 只是界面默认观察线，不代表你的风险上限。`} ETF 占比不等同于单一公司占比。`,
+      title: `${m.groups[0].symbol} 占总资产 ${pct(m.groups[0].weight)}`,
+      text: `按代码合并持仓；证券占比以股票、账户现金和可部署弹药组成的总资产为分母。${state.goals.configured ? `历史记录的提示线为 ${state.goals.maxPosition}%。` : `${state.goals.maxPosition}% 只是界面默认观察线，不代表你的风险上限。`} ETF 占比不等同于单一公司占比。`,
     });
   if (
     state.holdings.some((h) => h.symbol === "SMH") &&
@@ -112,7 +131,7 @@ export function observations(state) {
     out.push({
       tone: "amber",
       title: `${unknown} 条持仓尚未刷新价格`,
-      text: "部分记录仍使用截图价格或买入价暂估；点击「刷新价格」加入待办，执行时在美股常规交易时段取盘中价，其他时间取最近交易日收盘价，并按价格 × 股数重算市值。",
+      text: "部分记录仍使用截图价格或买入价暂估；点击「刷新价格」加入待办，按执行时刻优先核实 Moomoo 的常规盘、盘前、盘后或夜盘报价；若无新鲜夜盘价，用 TradingView BOATS 24/5 实时图表复核，不因常规交易所休市就回退；没有同 session 的新鲜可核实报价时才回退最近已完成交易日收盘价，并按价格 × 股数重算市值。",
     });
   const mismatch = state.holdings.filter(
     (h) => Math.abs(h.quantity * h.price - h.marketValue) > 0.05,
@@ -139,8 +158,12 @@ export function observations(state) {
 }
 export function holdingQuoteLabel(holding) {
   if (holding.priceType === "purchase") return "买入价暂估 · 待刷新行情";
+  if (holding.priceType === "manual") return `${holding.priceDate || "日期未知"} · ${holding.priceSource || "手动价格"}`;
   if (!holding.priceDate) return "尚未刷新价格";
-  const type = holding.priceType === "intraday" ? "盘中价" : holding.priceType === "close" || holding.priceSource ? "收盘价" : "报价";
+  const sessionLabels = { regular: "盘中价", premarket: "盘前价", afterhours: "盘后价", overnight: "夜盘价" };
+  const type = holding.priceType === "extended"
+    ? sessionLabels[holding.priceSession] || "延长时段价"
+    : holding.priceType === "intraday" ? "盘中价" : holding.priceType === "close" || holding.priceSource ? "收盘价" : "报价";
   const timeZone = holding.priceTimeZone || "America/New_York";
   const time = holding.priceAsOf ? new Intl.DateTimeFormat("zh-CN", {
     timeZone, hour: "2-digit", minute: "2-digit", second: "2-digit", hourCycle: "h23",
@@ -156,6 +179,7 @@ export function contextPack(state, task = "portfolio", question = "") {
     priceDate: h.priceDate || (h.priceType === "purchase" ? "未取得行情（买入价暂估）" : "未知（仍为截图记录）"),
     priceSource: h.priceSource || (h.priceDate ? "未记录来源" : "截图"),
     priceType: h.priceType || (h.priceDate && h.priceSource ? "close" : "unknown"),
+    priceSession: h.priceSession || "未记录",
     priceAsOf: h.priceAsOf || "未记录精确报价时间",
     priceFetchedAt: h.priceFetchedAt || "未记录取价时间",
     priceSourceUrl: h.priceSourceUrl || "未记录来源链接",
@@ -164,5 +188,5 @@ export function contextPack(state, task = "portfolio", question = "") {
     marketValue: h.marketValue,
     quantity: h.quantity,
   }));
-  return `你是我的投资研究助手。用中文回答，清楚区分已查证事实、推断、情景假设和待核实项。当前日期：${new Date().toISOString()}。\n任务：${task === "watch" ? "研究近期关注的公司或证券" : task === "market" ? "分析近期市场环境与组合适配性" : "分析我的持仓与下一步资金安排"}\n我的问题：${question || "先识别风险和缺失信息，再给出有条件、可复核的下一步方案。"}\n\n重要口径：持仓的 price 是最近一次待办实际执行后保存的价格快照：执行时处于美股常规交易时段取盘中价，其余时间取最近已完成交易日收盘价（收市后包含当天）。priceType 为 intraday、close 或 purchase；purchase 表示按买入价暂估市值，并非市场报价。旧记录未标类型但有 priceDate 和 priceSource 时按历史收盘价理解；只有手工日期且无来源时类型未知；priceDate 为空表示尚无已核实的行情日期，可能是截图旧值或买入价暂估，不可称为当前行情。priceAsOf 是实际报价时间，priceFetchedAt 是回写时间，priceSource / priceSourceUrl 标明来源。保存的盘中价可能有来源延迟，也不会自动刷新，不可直接称为此刻实时行情。averagePrice 是持仓成本均价；追加买入后按累计 cost / quantity 计算，历史未变动记录保留原始截图均价。cost 是累计录入总成本，新增买入包含已录入费用。holdingTrades 保存买入或合并前记录，并非券商完整成交历史。marketValue 在报价刷新或追加买入后按保存的价格 × 股数更新；无市场报价的新持仓按买入价暂估，未变动的历史记录保留截图市值。变动百分比周期未知，不用于累计收益。浮动盈亏按保存市值减累计录入成本计算，成本包含已录入的买入费用；未录入的分红、费用、税费和已实现收益不在其中。弹药只记 USD，是个人手工记录，不是券商余额；空流水表示尚未录入。目标是用户自己写的文字；旧字段 maxPosition/maxDrawdown 是历史默认值，不代表用户风险偏好。\n\n当前报价与成本：\n${JSON.stringify(quotes, null, 2)}\n\n投资目标：${objective || "尚未填写"}\n\n${JSON.stringify({ accounts: state.accounts, holdings: state.holdings, holdingTrades: state.holdingTrades || [], watchlist: state.watchlist, converter: state.converter, cashLedgerUsd: state.cash, goals: { objective }, pendingTasks: (state.jobs || []).filter((j) => j.status === "waiting"), journal: state.journal, summary: { valueUSD: m.value, costUSD: m.cost, unrealizedUSD: m.pnl, cashRecorded: state.cash.length > 0, cashUSD: state.cash.length ? m.cash : null, availableUSD: state.cash.length ? m.available : null } }, null, 2)}\n\n近期关注的价格与研究分开：watch-quotes 仅更新价格，不生成 HTML 或改写研究；watch 的 researchMode=initial 只在完整研究缺失时补充，researchMode=refresh 才是用户明确要求的新研究。已有完整研究应保留。\n\n研究要求：核实代码、名称、交易所、币种，优先使用公司公告、监管文件、基金发行方与交易所资料；需要最新市场数据时联网查证并注明时间与来源。说明商业模式、关键竞争力、估值思路、主要风险、可能的催化因素、支持与反证条件。分析账户间重复、组合集中和主题重叠；没有最新成分数据时不得编造 ETF 穿透权重。税务居民地或未来资金需求未提供时标明未知。给出保持不动与条件式备选方案，说明什么新信息会改变结论；不代替用户下单，不作收益承诺，不虚构目标价或实时价格。\n\n完成研究类待办时，请把独立、自包含的 UTF-8 中文 HTML（内联 CSS、来源链接、日期、无需外部脚本）保存到 apps/my_holdings/data/reports/${task === "watch" ? "research" : task === "market" ? "market" : "portfolio"}/。若有结构化研究，另附 research JSON：{"identity":{"name":"","symbol":"","exchange":"","currency":"","sector":""},"title":"研究标题","summary":"简述","details":"完整研究","risks":["风险"],"catalysts":["催化因素"],"sources":[{"label":"来源名","url":"https://..."}],"uncertainty":"待核实项"}。完成或无法完成时，通过本机应用 API 回写任务状态。`;
+  return `你是我的投资研究助手。用中文回答，清楚区分已查证事实、推断、情景假设和待核实项。当前日期：${new Date().toISOString()}。\n任务：${task === "watch" ? "研究近期关注的公司或证券" : task === "market" ? "分析近期市场环境与组合适配性" : "分析我的持仓与下一步资金安排"}\n我的问题：${question || "先识别风险和缺失信息，再给出有条件、可复核的下一步方案。"}\n\n重要口径：持仓的 price 是最近保存的价格快照，可能来自用户手工调整或行情待办。行情待办严格按执行时刻 quote-policy 的 market/timeZone/session 取价；美股常规交易所收市不代表没有延长或夜盘交易。新西兰周五白天可能对应美东周四夜盘。优先检查 Moomoo 报价页或已运行的 Moomoo OpenAPI，按 session 读取 last_price、pre_price、after_price 或 overnight_price，并用该证券的 market state 和 update_time 核实；Moomoo 夜盘为美东 20:00–次日 04:00。若 Moomoo 不可读或夜盘报价过期，查 TradingView BOATS 24/5 图表，核对 Blue Ocean Alternative Trade System、Market open、当前价和 UTC 时钟。不要只查 Yahoo 或只看常规交易状态后回退。只有没有同 session 且距执行时刻20分钟内的可核实报价时，才回退最近已完成交易日正式收盘价。priceType 为 intraday、extended、close、purchase 或 manual；extended 用 priceSession 区分 premarket、afterhours、overnight，priceAsOf 为来源实际报价时间；close 是未复权正式收盘价。manual 是用户手工调整参考价，purchase 是买入价暂估，不是市场报价。任何保存报价都只是带来源、时段和时间戳的快照，并非持续推送的实时行情；不得把延迟、旧价或来源不明的价称为当前实时价。旧记录未标类型但有 priceDate 和 priceSource 时按历史收盘价理解；priceDate 为空表示没有已核实行情。priceFetchedAt 是回写时间，priceSource / priceSourceUrl 标明来源。averagePrice 是持仓成本均价；追加买入后按累计 cost / quantity 计算，历史未变动记录保留原始截图均价。cost 是累计录入总成本，新增买入包含已录入费用。holdingTrades 保存买入或合并前记录，并非券商完整成交历史。marketValue 在自动报价刷新、手动改价或追加买入后按保存价格 × 股数更新；无市场报价的新持仓按买入价暂估，未变动的历史记录保留截图市值。变动百分比周期未知，不用于累计收益。浮动盈亏按保存市值减累计录入成本计算，成本包含已录入的买入费用；未录入的分红、费用、税费和已实现收益不在其中。每个账户的 cashBalance 是手工记录的 USD 现金余额快照，计入总资产、组合配置比例和目标进度；账户现金不会自动随买入变动。资金流水是独立的可部署弹药池，只用它计算可部署金额；账户现金与弹药都分别计入总资产，不能把账户现金重复算成可部署弹药。目标是用户自己写的文字；旧字段 maxPosition/maxDrawdown 是历史默认值，不代表用户风险偏好。\n\n当前报价与成本：\n${JSON.stringify(quotes, null, 2)}\n\n投资目标：${objective || "尚未填写"}\n\n${JSON.stringify({ accounts: state.accounts, holdings: state.holdings, holdingTrades: state.holdingTrades || [], watchlist: state.watchlist, orders: state.orders || [], converter: state.converter, cashLedgerUsd: state.cash, goals: { objective }, pendingTasks: (state.jobs || []).filter((j) => j.status === "waiting"), journal: state.journal, summary: { valueUSD: m.value, costUSD: m.cost, unrealizedUSD: m.pnl, cashRecorded: state.cash.length > 0, cashUSD: state.cash.length ? m.cash : null, deployableLedgerUSD: m.cash, accountCashUSD: m.accountCash, totalCashUSD: m.totalCash, totalAssetsUSD: m.total, availableUSD: state.cash.length ? m.available : null } }, null, 2)}\n\n近期关注的价格与研究分开：watch-quotes 仅更新价格，不生成 HTML 或改写研究；watch 的 researchMode=initial 只在完整研究缺失时补充，researchMode=refresh 才是用户明确要求的新研究。已有完整研究应保留。\n\n研究要求：核实代码、名称、交易所、币种，优先使用公司公告、监管文件、基金发行方与交易所资料；需要最新市场数据时联网查证并注明时间与来源。说明商业模式、关键竞争力、估值思路、主要风险、可能的催化因素、支持与反证条件。分析账户间重复、组合集中和主题重叠；没有最新成分数据时不得编造 ETF 穿透权重。税务居民地或未来资金需求未提供时标明未知。给出保持不动与条件式备选方案，说明什么新信息会改变结论；不代替用户下单，不作收益承诺，不虚构目标价或实时价格。\n\n完成研究类待办时，请把独立、自包含的 UTF-8 中文 HTML（内联 CSS、来源链接、日期、无需外部脚本）保存到 apps/my_holdings/data/reports/${task === "watch" ? "research" : task === "market" ? "market" : "portfolio"}/。若有结构化研究，另附 research JSON：{"identity":{"name":"","symbol":"","exchange":"","currency":"","sector":""},"title":"研究标题","summary":"简述","details":"完整研究","risks":["风险"],"catalysts":["催化因素"],"sources":[{"label":"来源名","url":"https://..."}],"uncertainty":"待核实项"}。完成或无法完成时，通过本机应用 API 回写任务状态。`;
 }

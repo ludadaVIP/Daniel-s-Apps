@@ -6,11 +6,13 @@
     {
       "id": "a1",
       "name": "账户 1",
+      "cashBalance": 0,
       "note": "来源 account1.jpg · 可重命名"
     },
     {
       "id": "a2",
       "name": "账户 2",
+      "cashBalance": 0,
       "note": "来源 account2.jpg · 可重命名"
     }
   ],
@@ -150,7 +152,14 @@
     }
   ],
   "watchlist": [],
+  "watchCategories": [
+    { "id": "potential", "name": "潜力股" },
+    { "id": "veteran", "name": "老登股" },
+    { "id": "observe-only", "name": "只看不买股" },
+    { "id": "uncategorized", "name": "未分类" }
+  ],
   "cash": [],
+  "orders": [],
   "journal": [],
   "analyses": [],
   "goals": {

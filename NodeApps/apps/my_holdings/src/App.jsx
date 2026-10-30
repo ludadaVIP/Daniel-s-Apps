@@ -16,6 +16,8 @@ import {
   FileCode2,
   Gauge,
   LayoutDashboard,
+  LayoutGrid,
+  List,
   LoaderCircle,
   PanelLeftClose,
   PanelLeftOpen,
@@ -46,18 +48,23 @@ import {
   holdingQuoteLabel,
   money,
   pct,
+  usd,
   id,
 } from "./model.js";
 import { BASE, request, download, localDate } from "./api.js";
+import { roundMoney } from "./positions.js";
 import { readBackupText } from "./backup-file.js";
-import { PRICE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchResearchQuestion, undoableWatchRefreshIds } from "./quotes.js";
+import { PRICE_REFRESH_QUESTION, WATCH_PE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchResearchQuestion, undoableWatchRefreshIds } from "./quotes.js";
 import {
   Modal,
   Field,
   HoldingForm,
+  HoldingPriceForm,
   BuyForm,
   WatchForm,
   CashForm,
+  OrderForm,
+  AccountCashForm,
   GoalsForm,
   JournalForm,
   SaveButton,
@@ -65,6 +72,9 @@ import {
 import { Reports } from "./Reports.jsx";
 import { DecisionPlanCard } from "./DecisionPlanCard.jsx";
 import { LookThrough } from "./LookThrough.jsx";
+import { WatchCategoryManager } from "./WatchCategoryManager.jsx";
+import { cloneDefaultWatchCategories, DEFAULT_WATCH_CATEGORIES, WATCH_UNCLASSIFIED_ID, watchCategoryId } from "./watch-categories.js";
+import { WATCH_BUSINESS_SUMMARIES } from "./watch-business-summaries.js";
 import {
   CONVERSION_PAIRS,
   INITIAL_CONVERTER_STATE,
@@ -80,15 +90,17 @@ const NAV = [
   ["ai", "AI 工作台", Sparkles],
   ["journal", "决策日志", BookOpen],
 ];
-function HoldingPrice({ holding: h }) {
+function HoldingPrice({ holding: h, onEdit }) {
   const fullLabel = holdingQuoteLabel(h);
   const source = /stockanalysis/i.test(h.priceSource || "")
     ? "StockAnalysis"
     : h.priceSource;
   const timing = holdingQuoteLabel({ ...h, priceSource: "" })
-    .replace(/(\d{2}:\d{2}):\d{2}/, "$1").replace(/(收盘|盘中)价 /, "$1 ");
+    .replace(/(\d{2}:\d{2}):\d{2}/, "$1").replace(/(收盘|盘中|盘前|盘后|夜盘)价 /, "$1 ");
   return <div className="mh-holding-price">
-    <strong className="mh-table-price">{money(h.price, h.currency)}</strong>
+    <button type="button" className="mh-price-edit-button" title={`点击修改 ${h.symbol} 当前价格`} aria-label={`修改 ${h.symbol} 当前价格 ${money(h.price, h.currency)}`} onClick={(event) => { event.stopPropagation(); onEdit?.(); }}>
+      <strong className="mh-table-price">{money(h.price, h.currency)}</strong>
+    </button>
     <span className="mh-holding-quote" title={fullLabel}><small>{timing}</small>
       {source && <><span aria-hidden="true">·</span>{h.priceSourceUrl ? <a href={h.priceSourceUrl} target="_blank" rel="noreferrer" onClick={e => e.stopPropagation()} title={fullLabel}>{source}</a> : <small>{source}</small>}</>}
     </span>
@@ -162,6 +174,52 @@ const WATCH_SORT_OPTIONS = [
   { id: "gap", label: "价差", title: "按等待价差比例排序；再次点击切换顺序" },
   { id: "attention", label: "关注", title: "按关注等级从高到低排序：5、4、3、2、1" },
 ];
+const ORDER_OPEN_STATUSES = new Set(["draft", "working", "partial"]);
+function orderRemaining(order) {
+  if (!ORDER_OPEN_STATUSES.has(order.status)) return 0;
+  return Math.max(0, Number(order.quantity || 0) - Number(order.filledQuantity || 0));
+}
+function orderQuantityText(value) {
+  return new Intl.NumberFormat("en-US", { maximumFractionDigits: 8 }).format(Number(value || 0));
+}
+function preferredOrderAccountId(accounts = []) {
+  return accounts.find((account) => /^账户\s*d$/i.test(String(account.name || "").trim()))?.id || accounts[0]?.id || "";
+}
+function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, onChangeAccount, onEdit, onDelete, onOpenWatch }) {
+  const remaining = orderRemaining(order);
+  const accountId = order.accountId || defaultAccountId || accounts[0]?.id || "";
+  const orderNote = String(order.note || "").trim();
+  const visibleNote = /截图未显示日期.{0,8}时区未知/.test(orderNote) ? "" : orderNote;
+  const currentPrice = watch?.price == null ? null : Number(watch.price);
+  const quoteCurrency = watch?.priceCurrency || watch?.research?.identity?.currency || order.currency;
+  const gap = currentPrice > 0 && order.limitPrice > 0 && quoteCurrency === order.currency
+    ? (Number(order.limitPrice) / currentPrice - 1) * 100
+    : null;
+  return <article className={`mh-order-card ${viewMode === "list" ? "is-list" : ""}`}>
+    <header>
+      <div className="mh-order-identity">
+        <span className="mh-ticker">{order.symbol.slice(0, 2)}</span>
+        <div><strong>{order.symbol}{order.exchange ? ` @${order.exchange}` : ""}</strong><small>{order.name}</small></div>
+      </div>
+      <div className="mh-row-actions">
+        {watch && <button className="mh-icon" aria-label={`查看近期关注 ${order.symbol}`} title="查看近期关注" onClick={onOpenWatch}><ArrowRight size={14} /></button>}
+        <button className="mh-icon" aria-label={`编辑委托 ${order.symbol}`} title="编辑记录" onClick={onEdit}><Pencil size={14} /></button>
+        <button className="mh-icon" aria-label={`删除委托记录 ${order.symbol}`} title="删除本地记录" onClick={onDelete}><Trash2 size={14} /></button>
+      </div>
+    </header>
+    <div className="mh-order-facts">
+      <div><small>限价</small><strong>{order.orderType === "limit" ? money(order.limitPrice, order.currency) : "市价"}</strong></div>
+      <div><small>剩余数量</small><strong>{orderQuantityText(remaining)}</strong></div>
+      <div><small>订单价值</small><strong>{order.orderType === "limit" ? money(Number(order.quantity) * Number(order.limitPrice), order.currency) : "市价单 · 无法估算"}</strong></div>
+      <label className="mh-order-account"><small>账户</small><select aria-label={`${order.symbol} 所属账户`} value={accountId} disabled={busy}
+        onChange={(event) => onChangeAccount(event.target.value)}>
+        {accounts.map((account) => <option key={account.id} value={account.id}>{account.name}</option>)}
+      </select></label>
+      {watch && <div><small>保存报价 · {watch.priceDate || "日期未知"}</small><strong>{currentPrice > 0 ? money(currentPrice, watch.priceCurrency || order.currency) : "暂无保存报价"}{gap !== null && <em className={gap <= 0 ? "mh-gain" : "mh-loss"}> · 限价 {gap <= 0 ? "低于" : "高于"} {Math.abs(gap).toFixed(2)}%</em>}</strong></div>}
+    </div>
+    {visibleNote && <p className="mh-order-note">{visibleNote}</p>}
+  </article>;
+}
 const WATCH_ATTENTION_OPTIONS = [
   { level: 5, label: "最高关注" },
   { level: 4, label: "高度关注" },
@@ -221,7 +279,10 @@ function watchQuoteAsOf(watch) {
     ? new Intl.DateTimeFormat("zh-CN", { timeZone, hour: "2-digit", minute: "2-digit", hourCycle: "h23" }).format(timestamp)
     : "";
   const zoneLabel = timeZone === "Europe/London" ? "伦敦" : "美东";
-  return `${watch.priceDate}${time ? ` · ${time} ${zoneLabel}` : ""}`;
+  const sessionLabel = watch.priceType === "extended"
+    ? ({ premarket: "盘前", afterhours: "盘后", overnight: "夜盘" }[watch.priceSession] || "延长时段")
+    : watch.priceType === "intraday" ? "盘中" : "收盘";
+  return `${watch.priceDate} · ${sessionLabel}${time ? ` ${time} ${zoneLabel}` : ""}`;
 }
 function sortWatchlist(rows, mode, gapDirection = "asc") {
   const bySymbol = (a, b) =>
@@ -277,9 +338,26 @@ function readSharedGapDirection() {
     return "asc";
   }
 }
-function WatchControls({ mode, gapDirection, query, onQueryChange, onSort, searchLabel, searchPlaceholder }) {
+function readSharedWatchView() {
+  try { return localStorage.getItem("mh-linked-watch-view") === "list" ? "list" : "card"; }
+  catch { return "card"; }
+}
+function readOrderViewMode() {
+  try { return localStorage.getItem("mh-order-view") === "list" ? "list" : "card"; }
+  catch { return "card"; }
+}
+function readSharedWatchCategory() {
+  try { return localStorage.getItem("mh-linked-watch-category") || "all"; }
+  catch { return "all"; }
+}
+function WatchControls({ mode, gapDirection, viewMode, onViewChange, query, onQueryChange, onSort, searchLabel, searchPlaceholder }) {
   return (
     <div className="mh-linked-watch-controls">
+      <div className="mh-watch-view-switch" role="group" aria-label="显示方式" data-active={viewMode}>
+        <span className="mh-watch-view-indicator" aria-hidden="true" />
+        <button type="button" aria-pressed={viewMode === "card"} onClick={() => onViewChange("card")}><LayoutGrid size={14} />卡片</button>
+        <button type="button" aria-pressed={viewMode === "list"} onClick={() => onViewChange("list")}><List size={14} />列表</button>
+      </div>
       <label className="mh-search">
         <Search size={16} />
         <input aria-label={searchLabel} placeholder={searchPlaceholder} value={query} onChange={(event) => onQueryChange(event.target.value)} />
@@ -295,6 +373,27 @@ function WatchControls({ mode, gapDirection, query, onQueryChange, onSort, searc
           return <button key={option.id} type="button" title={title} aria-label={title} aria-pressed={mode === option.id} onClick={() => onSort(option.id)}>{label}</button>;
         })}
       </div>
+    </div>
+  );
+}
+function WatchCategoryTabs({ categories, counts, selected, onSelect, showFunds, totalCount, stockCount, fundCount, onManage }) {
+  const tabs = [
+    { id: "all", name: showFunds ? "全部关注" : "全部个股", count: showFunds ? totalCount : stockCount, tone: "all" },
+    ...categories.map((category, index) => ({ ...category, count: counts[category.id] || 0, tone: index % 4 })),
+    ...(showFunds ? [{ id: "funds", name: "指数 / ETF", count: fundCount, tone: "funds" }] : []),
+  ];
+  return (
+    <div className="mh-watch-category-bar">
+      <div className="mh-watch-category-tabs" role="group" aria-label="股票分类">
+        {tabs.map((category) => (
+          <button key={category.id} type="button" aria-pressed={selected === category.id}
+            className={selected === category.id ? "selected" : ""} data-tone={category.tone}
+            onClick={() => onSelect(category.id)}>
+            <span>{category.name}</span><small>{category.count}</small>
+          </button>
+        ))}
+      </div>
+      <button className="mh-button mh-watch-category-manage" type="button" onClick={onManage}><Settings2 size={14} />管理分类</button>
     </div>
   );
 }
@@ -364,24 +463,31 @@ function Stat({ label, value, sub, negative = false, icon: Icon, variant = "" })
     </article>
   );
 }
-function Allocation({ groups, value, compact = false }) {
+function Allocation({ groups, value, cash = 0, compact = false }) {
   let offset = 0;
   const stops = groups.map((g, i) => {
     const start = offset;
     offset += g.weight;
     return `${COLORS[i % COLORS.length]} ${start}% ${offset}%`;
   });
+  const total = value + cash;
+  const cashWeight = total > 0 ? (cash / total) * 100 : 0;
+  if (cashWeight > 0) {
+    const start = offset;
+    offset += cashWeight;
+    stops.push(`#c4d4b9 ${start}% ${offset}%`);
+  }
   return (
     <div className={`mh-allocation ${compact ? "compact" : ""}`}>
       <div
         className="mh-donut"
         style={{
-          background: value ? `conic-gradient(${stops.join(",")})` : "#e6ebe5",
+          background: total ? `conic-gradient(${stops.join(",")})` : "#e6ebe5",
         }}
       >
         <div>
           <span>{groups.length}</span>
-          <small>合并标的</small>
+          <small>{cashWeight > 0 ? "个证券标的" : "合并标的"}</small>
         </div>
       </div>
       <div className="mh-legend">
@@ -395,6 +501,11 @@ function Allocation({ groups, value, compact = false }) {
             <strong>{pct(g.weight)}</strong>
           </div>
         ))}
+        {cashWeight > 0 && <div>
+          <i style={{ background: "#c4d4b9" }} />
+          <span>现金</span>
+          <strong>{pct(cashWeight)}</strong>
+        </div>}
       </div>
     </div>
   );
@@ -522,7 +633,10 @@ function RightPanel({
       {tab === "overview" && <>
         <section className="mh-side-summary">
           <span className="mh-eyebrow">PORTFOLIO SNAPSHOT</span>
-          <strong>{money(portfolio.value)}</strong>
+          <strong>{money(portfolio.total)}</strong>
+          <div><span>证券市值</span><b>{money(portfolio.value)}</b></div>
+          <div><span>账户现金</span><b>{money(portfolio.accountCash)}</b></div>
+          <div><span>可部署弹药</span><b>{money(portfolio.cash)}</b></div>
           <div><span>总成本</span><b>{money(portfolio.cost)}</b></div>
           <div><span>浮动盈亏</span><b className={portfolio.pnl < 0 ? "mh-loss" : "mh-gain"}>{money(portfolio.pnl)}</b></div>
           <div><span>持仓记录</span><b>{portfolio.holdings.length} 条 · {state.accounts.length} 个账户</b></div>
@@ -550,7 +664,7 @@ function RightPanel({
           <strong>{money(holding.marketValue, holding.currency)}</strong>
           <small>持有 {holding.quantity} 股 · {holdingQuoteLabel(holding)}</small>
           <div className="mh-focus-prices">
-            <span>当前价格<strong>{money(holding.price, holding.currency)}</strong></span>
+            <span>当前价格<button type="button" className="mh-price-edit-button" title={`点击修改 ${holding.symbol} 当前价格`} aria-label={`修改 ${holding.symbol} 当前价格 ${money(holding.price, holding.currency)}`} onClick={() => onEdit({ type: "holdingPrice", item: holding })}><strong>{money(holding.price, holding.currency)}</strong></button></span>
             <span>成本均价<strong>{money(holding.averagePrice, holding.currency)}</strong></span>
           </div>
         </div>
@@ -563,11 +677,13 @@ function RightPanel({
       </> : <>
         <section className="mh-side-summary">
           <span className="mh-eyebrow">ACCOUNTS</span>
-          <strong>{money(portfolio.value)}</strong>
+          <strong>{money(portfolio.total)}</strong>
           {state.accounts.map((a, index) => {
-            const value = state.holdings.filter((h) => h.accountId === a.id).reduce((sum, h) => sum + Number(h.marketValue || 0), 0);
-            return <div className="mh-side-account" key={a.id}><i className={`tone-${index % 2}`} /><span>{a.name}</span><b>{money(value)}</b></div>;
+            const accountPortfolio = calculate(state, a.id);
+            const accountTotal = accountPortfolio.value + accountPortfolio.accountCash;
+            return <div className="mh-side-account" key={a.id}><i className={`tone-${index % 2}`} /><span>{a.name}<small>证券 {money(accountPortfolio.value)} · 现金 {money(accountPortfolio.accountCash)}</small></span><b>{money(accountTotal)}</b></div>;
           })}
+          <div><span>独立可部署弹药</span><b>{money(portfolio.cash)}</b></div>
         </section>
         <section className="mh-side-allocation">
           <div className="mh-section-heading">
@@ -580,13 +696,13 @@ function RightPanel({
               <Allocation groups={costAllocationGroups} value={portfolio.cost} compact />
             </div>
             <div className="mh-side-allocation-view">
-              <div className="mh-side-allocation-view-heading"><strong>按当前市值</strong><small>总市值 {money(portfolio.value)}</small></div>
-              <Allocation groups={portfolio.groups} value={portfolio.value} compact />
+              <div className="mh-side-allocation-view-heading"><strong>按当前市值</strong><small>总资产 {money(portfolio.total)}</small></div>
+              <Allocation groups={portfolio.groups} value={portfolio.value} cash={portfolio.totalCash} compact />
             </div>
           </div>
           <p className="mh-allocation-caption">成本均价 × 持仓数量 · 跨账户合并 · 同色为同一产品 · USD</p>
         </section>
-        <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次价格更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><p className="mh-sidebar-objective">待办执行时，常规交易时段取盘中价，其余时间取最近交易日收盘价。</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 刷新价格</button></section>
+        <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次价格更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><p className="mh-sidebar-objective">美股按实际 session 优先核实 Moomoo 实时源；夜盘无新鲜报价时查 TradingView BOATS；常规盘收市后仍可能有盘前、盘后或夜盘交易。无20分钟内可核实的匹配报价时才回退最近收盘价。</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 刷新价格</button></section>
       </>)}
       {tab === "watch" && (watch ? <>
         <div className="mh-watch-focus">
@@ -918,10 +1034,11 @@ export default function HoldingsApp() {
     [watchRefreshBusy, setWatchRefreshBusy] = useState(false),
     [sortMode, setSortMode] = useState(readSharedSortMode),
     [gapDirection, setGapDirection] = useState(readSharedGapDirection),
+    [watchViewMode, setWatchViewMode] = useState(readSharedWatchView),
+    [orderViewMode, setOrderViewMode] = useState(readOrderViewMode),
+    [watchCategoryFilter, setWatchCategoryFilter] = useState(readSharedWatchCategory),
     [watchTargetDrafts, setWatchTargetDrafts] = useState({}),
     [attentionPickerId, setAttentionPickerId] = useState(null),
-    [showAllWatchStocks, setShowAllWatchStocks] = useState(false),
-    [watchStockColumnCount, setWatchStockColumnCount] = useState(1),
     [showAllResearch, setShowAllResearch] = useState(false),
     [showAllWaitingJobs, setShowAllWaitingJobs] = useState(false),
     [showAllCompletedJobs, setShowAllCompletedJobs] = useState(false),
@@ -940,7 +1057,6 @@ export default function HoldingsApp() {
     resizeDragRef = useRef(null);
   const stateRef = useRef(state),
     busyRef = useRef(false),
-    watchStockGridRef = useRef(null),
     priceAlertKeys = useRef(new Set()),
     timer = useRef();
   stateRef.current = state;
@@ -1115,18 +1231,6 @@ export default function HoldingsApp() {
       clearInterval(poll);
     };
   }, []);
-  useLayoutEffect(() => {
-    const grid = watchStockGridRef.current;
-    if (tab !== "watch" || !grid) return;
-    const measureColumns = () => {
-      const columns = getComputedStyle(grid).gridTemplateColumns.split(/\s+/).filter(Boolean).length;
-      setWatchStockColumnCount((current) => current === columns ? current : columns);
-    };
-    measureColumns();
-    const observer = new ResizeObserver(measureColumns);
-    observer.observe(grid);
-    return () => observer.disconnect();
-  }, [tab, state, query]);
   useEffect(() => {
     if (!state || watchRefreshBusy || !watchRefreshBatchIds.length) return;
     const hasWaitingBatchJob = watchRefreshBatchIds.some((jobId) =>
@@ -1174,6 +1278,7 @@ export default function HoldingsApp() {
   };
   const upsert = async (key, value) =>
     mutate((s) => {
+      s[key] ||= [];
       const i = s[key].findIndex((r) => r.id === value.id);
       if (i >= 0) s[key][i] = value;
       else s[key].push(value);
@@ -1204,6 +1309,43 @@ export default function HoldingsApp() {
       const watch = s.watchlist.find((row) => row.id === watchId);
       if (watch) watch.attention = attention;
     }, { close: false, successMessage: "关注等级已更新" });
+  const selectWatchCategory = (categoryId) => {
+    setWatchCategoryFilter(categoryId);
+    try { localStorage.setItem("mh-linked-watch-category", categoryId); } catch {}
+  };
+  const changeWatchCategory = (watchId, categoryId) => mutate((s) => {
+    const watch = s.watchlist.find((row) => row.id === watchId);
+    const categories = s.watchCategories || cloneDefaultWatchCategories();
+    if (!watch || isIndexOrEtf(watch) || !categories.some((category) => category.id === categoryId)) return;
+    s.watchCategories = categories;
+    watch.watchCategoryId = categoryId;
+  }, {
+    close: false,
+    successMessage: `已移入${(stateRef.current?.watchCategories || DEFAULT_WATCH_CATEGORIES).find((category) => category.id === categoryId)?.name || "新分类"}`,
+  });
+  const addWatchCategory = (name) => mutate((s) => {
+    s.watchCategories ||= cloneDefaultWatchCategories();
+    s.watchCategories.push({ id: id(), name });
+  }, { close: false, successMessage: "股票分类已添加" });
+  const renameWatchCategory = (categoryId, name) => mutate((s) => {
+    s.watchCategories ||= cloneDefaultWatchCategories();
+    const category = s.watchCategories.find((item) => item.id === categoryId);
+    if (category && categoryId !== WATCH_UNCLASSIFIED_ID) category.name = name;
+  }, { close: false, successMessage: "分类名称已更新" });
+  const deleteWatchCategory = async (categoryId, destinationId) => {
+    if (categoryId === WATCH_UNCLASSIFIED_ID) return false;
+    const saved = await mutate((s) => {
+      s.watchCategories ||= cloneDefaultWatchCategories();
+      if (!s.watchCategories.some((item) => item.id === destinationId && item.id !== categoryId)) return;
+      for (const watch of s.watchlist) {
+        if (!isIndexOrEtf(watch) && watchCategoryId(watch, s.watchCategories) === categoryId)
+          watch.watchCategoryId = destinationId;
+      }
+      s.watchCategories = s.watchCategories.filter((item) => item.id !== categoryId);
+    }, { close: false, successMessage: "分类已删除，股票已移入所选分类" });
+    if (saved && watchCategoryFilter === categoryId) selectWatchCategory("all");
+    return saved;
+  };
   const remove = (key, item) => setModal({ type: "delete", key, item });
   const openReport = (path) => {
     if (!path) return;
@@ -1218,7 +1360,7 @@ export default function HoldingsApp() {
       const r = await request("/api/jobs", { kind, watchId, question: prompt, refreshResearch });
       setState(r.state);
       stateRef.current = r.state;
-      if (!quiet) notify(["quotes", "watch-quotes"].includes(kind) ? "价格更新已加入待办，按实际执行时段取价" : kind === "converter" ? "换算公式更新已加入待办" : "研究已加入待办");
+      if (!quiet) notify(["quotes", "watch-quotes"].includes(kind) ? "价格更新已加入待办，按实际执行时段取价" : kind === "watch-pe" ? "市盈率刷新已加入 Codex 待办" : kind === "converter" ? "换算公式更新已加入待办" : "研究已加入待办");
       return true;
     } catch (e) {
       if (/已经在.*待办队列/.test(e.message)) {
@@ -1240,6 +1382,7 @@ export default function HoldingsApp() {
     null,
     `提高两组价格换算的精度：VOO→SPYL（pairId=sp500）与 QQQM→CNDX（pairId=nasdaq100）。先核实发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE}`,
   );
+  const refreshWatchPe = () => queueTask("watch-pe", null, WATCH_PE_REFRESH_QUESTION);
   const refreshWatchlist = async () => {
     if (watchRefreshBusy) return;
     setWatchRefreshBusy(true);
@@ -1317,7 +1460,7 @@ export default function HoldingsApp() {
   };
   const copyQueue = async () => {
     const pending = stateRef.current.jobs.filter((j) => j.status === "waiting");
-    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n${quoteTaskGuidance(`${location.origin}${BASE}`)}\n\n换算公式任务（kind=converter）：先核对 VOO/SPYL 与 QQQM/CNDX 的发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE} 完成时 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，提交包含两组 calibrations 的 JSON。\n\n研究任务（kind=watch、portfolio、market）：联网核实资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。watch 的 researchMode=initial 只补缺失研究，执行前若已有完整研究则直接 complete 回写跳过说明；researchMode=refresh 才是用户明确要求更新完整研究。价格任务独立执行；报告中的历史报价不可覆盖最新行情。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
+    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n${quoteTaskGuidance(`${location.origin}${BASE}`)}\n\n市盈率刷新任务（kind=watch-pe）：按 TTM trailing P/E 口径逐只核实当前全部关注个股，优先使用专业行情源直接给出的数值；TTM 亏损写 N/M，数据缺失写“待核实”，不能拿 forward PE 代替。ETF 和指数不处理。通过 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete 回写 values 数组（watchId、symbol、basis、status=available/unavailable/unverified、value、asOf、source、sourceUrl、note）；没有核实完就 POST fail，保留旧数据。\n\n换算公式任务（kind=converter）：先核对 VOO/SPYL 与 QQQM/CNDX 的发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE} 完成时 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，提交包含两组 calibrations 的 JSON。\n\n研究任务（kind=watch、portfolio、market）：联网核实资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。watch 的 researchMode=initial 只补缺失研究，执行前若已有完整研究则直接 complete 回写跳过说明；researchMode=refresh 才是用户明确要求更新完整研究。价格任务独立执行；报告中的历史报价不可覆盖最新行情。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
     try {
       await navigator.clipboard.writeText(prompt);
       notify("待办与持仓背景已复制；粘贴给 Codex 后由它处理并回写结果");
@@ -1344,6 +1487,8 @@ export default function HoldingsApp() {
       </div>
     );
   const m = calculate(state),
+    deployableCashTotal = m.available == null ? null : m.available + m.accountCash,
+    orders = state.orders || [],
     notes = observations(state),
     focus = state.holdings.find((h) => h.id === selected),
     portfolioReports = state.analyses.filter((a) => a.kind === "portfolio").sort((a, b) => b.date.localeCompare(a.date)),
@@ -1362,6 +1507,7 @@ export default function HoldingsApp() {
         .toLowerCase()
         .includes(query.toLowerCase()),
     );
+  const defaultOrderAccountId = preferredOrderAccountId(state.accounts);
   const yesterday = previousLocalDate(localDate());
   const yesterdayWatchRanks = new Map(
     (state.watchRankHistory || [])
@@ -1373,8 +1519,8 @@ export default function HoldingsApp() {
     setTab(id);
     const switchingBetweenLinkedViews = ["watch", "journal"].includes(tab) && ["watch", "journal"].includes(id);
     if (!switchingBetweenLinkedViews) setQuery("");
+    if (id === "journal" && watchCategoryFilter === "funds") selectWatchCategory("all");
     if (id === "watch") {
-      setShowAllWatchStocks(false);
       setSelectedWatchId(null);
       setRight(true);
     }
@@ -1412,6 +1558,14 @@ export default function HoldingsApp() {
     },
     pendingTaskCount = state.jobs.filter((job) => ["waiting", "running", "failed"].includes(job.status)).length,
     completedTaskCount = state.jobs.filter((job) => job.status === "done").length;
+  const setLinkedWatchView = (view) => {
+    setWatchViewMode(view);
+    try { localStorage.setItem("mh-linked-watch-view", view); } catch {}
+  };
+  const setOrderView = (view) => {
+    setOrderViewMode(view);
+    try { localStorage.setItem("mh-order-view", view); } catch {}
+  };
   const setSharedSortMode = (mode) => {
     const nextDirection = mode === "gap"
       ? sortMode === "gap" ? (gapDirection === "asc" ? "desc" : "asc") : "asc"
@@ -1430,27 +1584,47 @@ export default function HoldingsApp() {
     setSelectedWatchId(watchId);
     setRight(true);
   };
+  const watchCategories = state.watchCategories?.length ? state.watchCategories : cloneDefaultWatchCategories();
+  const categoryNameForWatch = (watch) => watchCategories.find((category) => category.id === watchCategoryId(watch, watchCategories))?.name || "未分类";
+  const stockCategoryCounts = Object.fromEntries(watchCategories.map((category) => [
+    category.id,
+    state.watchlist.filter((watch) => !isIndexOrEtf(watch) && watchCategoryId(watch, watchCategories) === category.id).length,
+  ]));
+  const selectedWatchCategory = watchCategoryFilter === "all" || watchCategoryFilter === "funds" || watchCategories.some((category) => category.id === watchCategoryFilter)
+    ? watchCategoryFilter
+    : "all";
   const searchTerm = query.trim().toLowerCase();
   const visibleWatchlist = state.watchlist.filter((watch) =>
-    `${watch.name} ${watch.symbol}`.toLowerCase().includes(searchTerm),
+    `${watch.name} ${watch.symbol} ${categoryNameForWatch(watch)}`.toLowerCase().includes(searchTerm),
   );
-  const watchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), sortMode, gapDirection);
+  const watchStockGroups = watchCategories
+    .filter((category) => selectedWatchCategory === "all" || selectedWatchCategory === category.id)
+    .map((category) => ({
+      category,
+      stocks: sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch) && watchCategoryId(watch, watchCategories) === category.id), sortMode, gapDirection),
+    }))
+    .filter((group) => group.stocks.length > 0 || selectedWatchCategory === group.category.id);
   const watchFunds = sortWatchlist(visibleWatchlist.filter(isIndexOrEtf), sortMode, gapDirection);
-  const decisionWatchStocks = sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch)), sortMode, gapDirection);
+  const showWatchFunds = selectedWatchCategory === "all" || selectedWatchCategory === "funds";
+  const decisionCategoryFilter = selectedWatchCategory === "funds" ? "all" : selectedWatchCategory;
+  const decisionWatchGroups = watchCategories
+    .filter((category) => decisionCategoryFilter === "all" || decisionCategoryFilter === category.id)
+    .map((category) => ({
+      category,
+      stocks: sortWatchlist(visibleWatchlist.filter((watch) => !isIndexOrEtf(watch) && watchCategoryId(watch, watchCategories) === category.id), sortMode, gapDirection),
+    }))
+    .filter((group) => group.stocks.length > 0 || decisionCategoryFilter === group.category.id);
+  const decisionWatchStocks = decisionWatchGroups.flatMap((group) => group.stocks);
   const decisionPlansByWatchId = new Map(state.journal.filter((entry) => entry.kind === "plan").map((entry) => [entry.watchId, entry]));
   const freeJournalEntries = state.journal
     .filter((entry) => entry.kind !== "plan")
     .filter((entry) => {
-      if (!searchTerm) return true;
       const linkedWatch = state.watchlist.find((watch) => watch.id === entry.watchId);
-      return `${entry.title || ""} ${entry.body || ""} ${linkedWatch?.symbol || ""} ${linkedWatch?.name || ""}`
-        .toLowerCase()
-        .includes(searchTerm);
+      if (decisionCategoryFilter !== "all" && linkedWatch && watchCategoryId(linkedWatch, watchCategories) !== decisionCategoryFilter) return false;
+      if (!searchTerm) return true;
+      return `${entry.title || ""} ${entry.body || ""} ${linkedWatch?.symbol || ""} ${linkedWatch?.name || ""} ${linkedWatch ? categoryNameForWatch(linkedWatch) : ""}`.toLowerCase().includes(searchTerm);
     });
-  const collapsedWatchStockLimit = watchStockColumnCount * 3;
-  const visibleWatchStocks = showAllWatchStocks
-    ? watchStocks
-    : watchStocks.slice(0, collapsedWatchStockLimit);
+  const watchHasResults = (showWatchFunds && watchFunds.length > 0) || watchStockGroups.some((group) => group.stocks.length > 0);
   const heading = (eyebrow, title, subtitle, action) => (
     <div className="mh-page-heading">
       <div className="mh-heading-copy">
@@ -1466,9 +1640,9 @@ export default function HoldingsApp() {
   const stats = (scope = m) => (
     <div className="mh-stats">
       <Stat
-        label="持仓市值 · USD"
-        value={money(scope.value)}
-        sub={`${scope.holdings.length} 条记录 · ${scope.groups.length} 个合并标的`}
+        label="账户资产合计 · USD"
+        value={money(scope.total)}
+        sub={`证券 ${money(scope.value)} · 账户现金 ${money(scope.accountCash)} · 弹药 ${money(scope.cash)}`}
         icon={Wallet}
       />
       <Stat
@@ -1537,7 +1711,7 @@ export default function HoldingsApp() {
               <td>
                 {h.quantity}
               </td>
-              <td><HoldingPrice holding={h} /></td>
+              <td><HoldingPrice holding={h} onEdit={() => setModal({ type: "holdingPrice", item: h })} /></td>
               <td>
                 <strong className="mh-table-price">{money(h.averagePrice, h.currency)}</strong>
               </td>
@@ -1617,12 +1791,13 @@ export default function HoldingsApp() {
     const attentionOpen = attentionPickerId === w.id;
     const title = watchCardTitle(w);
     const quoteAsOf = watchQuoteAsOf(w);
+    const businessSummary = WATCH_BUSINESS_SUMMARIES[(w.symbol || "").toUpperCase()] || "";
     return (
       <article
-        className={`mh-watch-card attention-${attention} ${watchFocus?.id === w.id ? "selected" : ""} ${attentionOpen ? "priority-picker-open" : ""}`}
+        className={`mh-watch-card attention-${attention} ${watchFocus?.id === w.id ? "selected" : ""} ${attentionOpen ? "priority-picker-open" : ""} ${watchViewMode === "list" ? "is-list" : "is-card"}`}
         key={w.id}
         onClick={(event) => {
-          if (event.target.closest("button, input, a, label")) return;
+          if (event.target.closest("button, input, select, a, label")) return;
           selectWatch(w.id);
         }}
       >
@@ -1688,6 +1863,17 @@ export default function HoldingsApp() {
             onClick={() => remove("watchlist", w)}
           ><Trash2 size={15} /></button>
         </header>
+        {!isIndexOrEtf(w) && <div className="mh-watch-meta" onClick={(event) => event.stopPropagation()}>
+          <label className="mh-watch-category-select">
+            <span>分类</span>
+            <select aria-label={`${w.symbol || w.name} 所属分类`} value={watchCategoryId(w, watchCategories)} disabled={busy}
+              onChange={(event) => changeWatchCategory(w.id, event.target.value)}>
+              {watchCategories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+            </select>
+          </label>
+          {businessSummary && <span className="mh-watch-business-summary" title={businessSummary}
+            aria-label={`${w.symbol || w.name} 业务：${businessSummary}`}>{businessSummary}</span>}
+        </div>}
         <div className="mh-watch-prices">
           <div>
             <small>当前报价</small>
@@ -1856,7 +2042,7 @@ export default function HoldingsApp() {
                 <article>
                   <span>账户资产合计</span>
                   <strong>{money(m.total)}</strong>
-                  <small>{m.unconverted || m.pendingCash.length ? "有未折算币种未计入合计" : `持仓 ${money(m.value)} · 现金 ${money(m.cash)}`}</small>
+                  <small>{m.unconverted || m.pendingCash.length ? "有未折算币种未计入合计" : `证券 ${money(m.value)} · 账户现金 ${money(m.accountCash)} · 弹药 ${money(m.cash)}`}</small>
                 </article>
                 <article>
                   <span>持仓市值</span>
@@ -1864,9 +2050,9 @@ export default function HoldingsApp() {
                   <small>{m.groups.length} 个合并标的 · {m.holdings.length} 条持仓</small>
                 </article>
                 <article>
-                  <span>可用弹药</span>
+                  <span>活期存款可用</span>
                   <strong>{state.cash.length ? money(m.available) : "待录入"}</strong>
-                  <small>预留 {money(m.reserve)} · {state.cash.length} 条资金记录</small>
+                  <small>扣除预留 {m.reserve == null ? "汇率待补" : money(m.reserve)} · {state.cash.length} 条资金记录</small>
                 </article>
                 <article>
                   <span>持仓浮动盈亏</span>
@@ -1883,9 +2069,9 @@ export default function HoldingsApp() {
                     </div>
                     <span className="mh-tag">USD</span>
                   </div>
-                  <Allocation groups={m.groups} value={m.value} />
+                  <Allocation groups={m.groups} value={m.value} cash={m.totalCash} />
                   <div className="mh-panel-bottom">
-                    <span>持仓成本 {money(m.cost)}</span>
+                    <span>持仓成本 {money(m.cost)} · 现金 {money(m.totalCash)}</span>
                     <strong>{state.accounts.length} 个账户 · {m.holdings.length} 条记录</strong>
                   </div>
                 </section>
@@ -1935,17 +2121,22 @@ export default function HoldingsApp() {
                     </div>
                   </div>
                   <div className="mh-overview-cash-main">
-                    <div><small>可部署弹药</small><strong>{m.available == null ? (state.cash.length ? "汇率待补" : "待录入") : money(m.available)}</strong></div>
-                    <div><small>预留资金</small><strong>{m.reserve == null ? "汇率待补" : money(m.reserve)}</strong></div>
+                    <div className="mh-overview-cash-total"><small>可部署弹药合计</small><strong>{deployableCashTotal == null ? (state.cash.length ? "汇率待补" : "待录入") : money(deployableCashTotal)}</strong></div>
+                    <div className="mh-overview-cash-breakdown">
+                      <div><small>活期存款可用</small><strong>{m.available == null ? (state.cash.length ? "汇率待补" : "待录入") : money(m.available)}</strong></div>
+                      <div><small>持仓现金汇总</small><strong>{money(m.accountCash)}</strong></div>
+                    </div>
                   </div>
                   <div className="mh-overview-cash-mix">
-                    <div className="mh-overview-cash-mix-bar" role="img" aria-label={`持仓占比 ${m.total ? pct((m.value / m.total) * 100) : "0%"}，现金占比 ${m.total ? pct((m.cash / m.total) * 100) : "0%"}`}>
+                    <div className="mh-overview-cash-mix-bar" role="img" aria-label={`证券占比 ${m.total ? pct((m.value / m.total) * 100) : "0%"}，账户现金占比 ${m.total ? pct((m.accountCash / m.total) * 100) : "0%"}，可部署弹药占比 ${m.total ? pct((m.cash / m.total) * 100) : "0%"}`}>
                       <span className="holdings" style={{ width: `${m.total ? Math.max(0, Math.min(100, (m.value / m.total) * 100)) : 0}%` }} />
-                      <span className="cash" style={{ width: `${m.total ? Math.max(0, Math.min(100, (m.cash / m.total) * 100)) : 0}%` }} />
+                      <span className="account-cash" style={{ width: `${m.total ? Math.max(0, Math.min(100, (m.accountCash / m.total) * 100)) : 0}%` }} />
+                      <span className="ammo" style={{ width: `${m.total ? Math.max(0, Math.min(100, (m.cash / m.total) * 100)) : 0}%` }} />
                     </div>
                     <div className="mh-overview-cash-mix-legend">
-                      <span><i className="holdings" />持仓 <strong>{m.total ? pct((m.value / m.total) * 100) : "—"}</strong></span>
-                      <span><i className="cash" />现金 <strong>{m.total ? pct((m.cash / m.total) * 100) : "—"}</strong></span>
+                      <span><i className="holdings" />证券 <strong>{m.total ? pct((m.value / m.total) * 100) : "—"}</strong></span>
+                      <span><i className="account-cash" />账户现金 <strong>{m.total ? pct((m.accountCash / m.total) * 100) : "—"}</strong></span>
+                      <span><i className="ammo" />弹药 <strong>{m.total ? pct((m.cash / m.total) * 100) : "—"}</strong></span>
                     </div>
                   </div>
                   <div className="mh-overview-goal-line">
@@ -2008,7 +2199,7 @@ export default function HoldingsApp() {
                   </div>
                   {overviewJobs.length ? <div className="mh-overview-job-list">
                     {overviewJobs.map((job) => {
-                      const name = job.kind === "quotes" ? "持仓价格更新" : job.kind === "watch-quotes" ? `关注价格 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "标的"}` : job.kind === "converter" ? "换算公式更新" : job.kind === "market" ? "行情分析" : job.kind === "portfolio" ? "组合体检" : `公司研究 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "关注标的"}`;
+                      const name = job.kind === "quotes" ? "持仓价格更新" : job.kind === "watch-quotes" ? `关注价格 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "标的"}` : job.kind === "watch-pe" ? "关注个股市盈率刷新" : job.kind === "converter" ? "换算公式更新" : job.kind === "market" ? "行情分析" : job.kind === "portfolio" ? "组合体检" : `公司研究 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "关注标的"}`;
                       return <div className="mh-overview-job-row" key={job.id}><span className={`mh-overview-job-status ${job.status}`} /><span><strong>{name}</strong><small>{job.status === "done" ? "已完成" : job.status === "failed" ? "未完成" : "等待交给 Codex"} · {when(job.completedAt || job.date)}</small></span></div>;
                     })}
                   </div> : <div className="mh-overview-preview-empty">目前没有待办；最近行情更新于 {when(state.marketUpdatedAt)}。</div>}
@@ -2041,7 +2232,7 @@ export default function HoldingsApp() {
                     <Search size={16} />
                     <input aria-label="搜索持仓" placeholder="代码、名称、分类" value={query} onChange={(e) => setQuery(e.target.value)} />
                   </label>
-                  <button className="mh-button" onClick={refreshPrices} title="加入待办；实际执行时，常规交易时段取盘中价，其余时间取最近交易日收盘价" disabled={state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting")}>
+                  <button className="mh-button" onClick={refreshPrices} title="加入待办；按执行时段核实 Moomoo 实时报价；夜盘可用 TradingView BOATS 24/5 实时数据；覆盖常规盘、盘前、盘后或夜盘报价，不能只查 Yahoo 后回退；无20分钟内可核实的匹配报价时才取最近收盘价" disabled={state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting")}>
                     <RefreshCw size={15} />
                     {state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting") ? "价格已排队" : "刷新价格"}
                   </button>
@@ -2054,12 +2245,15 @@ export default function HoldingsApp() {
               <div className="mh-account-stack">
                 {state.accounts.map((a, index) => {
                   const rows = visibleHoldings.filter((h) => h.accountId === a.id);
-                  const total = rows.reduce((sum, h) => sum + (h.marketValue || 0), 0);
+                  const total = rows.reduce((sum, h) => sum + (usd(h.marketValue, h.currency, state.fx) ?? 0), 0);
                   return (
                     <section className={`mh-panel mh-account-section account-tone-${index % 2}`} key={a.id}>
                       <div className="mh-account-heading">
                         <div><span className="mh-account-mark" /><div><span className="mh-eyebrow">ACCOUNT {index + 1}</span><h2>{a.name}</h2></div><span className="mh-tag">{rows.length} 项</span></div>
-                        <div className="mh-account-total"><small>当前市值</small><strong>{money(total)}</strong><button className="mh-text-button" onClick={() => setModal({ type: "holding", accountId: a.id })}><Plus size={14} /> 记录买入</button></div>
+                        <div className="mh-account-finances">
+                          <div className="mh-account-cash"><small>现金持仓</small><strong>{money(a.cashBalance || 0)}</strong><button className="mh-text-button" aria-label={`编辑${a.name}的现金持仓`} title={`编辑${a.name}的现金持仓`} onClick={() => setModal({ type: "accountCash", accountId: a.id })}><Pencil size={13} /> 编辑</button></div>
+                          <div className="mh-account-total"><small title="证券与 ETF 持仓市值，不含现金">当前市值</small><strong>{money(total)}</strong><button className="mh-text-button" onClick={() => setModal({ type: "holding", accountId: a.id })}><Plus size={14} /> 记录买入</button></div>
+                        </div>
                       </div>
                       {holdingsTable(rows)}
                     </section>
@@ -2087,14 +2281,25 @@ export default function HoldingsApp() {
                 "近期关注",
                 `共 ${watchCounts.total} 个标的 · ${watchCounts.stocks} 只个股 + ${watchCounts.funds} 个指数 / ETF`,
                 <div className="mh-heading-actions mh-watch-heading-actions">
-                  <WatchControls mode={sortMode} gapDirection={gapDirection} query={query} onQueryChange={setQuery} onSort={setSharedSortMode} searchLabel="搜索近期关注" searchPlaceholder="搜索代码或名称" />
+                  <WatchControls mode={sortMode} gapDirection={gapDirection} viewMode={watchViewMode} onViewChange={setLinkedWatchView} query={query} onQueryChange={setQuery} onSort={setSharedSortMode} searchLabel="搜索近期关注" searchPlaceholder="搜索代码、名称或分类" />
                   <button className="mh-primary" onClick={() => setModal({ type: "watch" })}>
                     <Plus size={17} /> 添加关注
                   </button>
                   <button
                     className="mh-button"
+                    onClick={refreshWatchPe}
+                    disabled={!watchCounts.stocks || state.jobs.some((job) => job.kind === "watch-pe" && job.status === "waiting")}
+                    title="把当前全部关注个股的 trailing P/E (TTM) 核实任务加入 Codex 待办。亏损公司标记 N/M；ETF 和指数跳过。"
+                  >
+                    {state.jobs.some((job) => job.kind === "watch-pe" && job.status === "waiting")
+                      ? <LoaderCircle size={15} className="mh-spin" />
+                      : <BarChart3 size={15} />}
+                    {state.jobs.some((job) => job.kind === "watch-pe" && job.status === "waiting") ? "市盈率已排队" : "刷新市盈率"}
+                  </button>
+                  <button
+                    className="mh-button"
                     onClick={refreshWatchlist}
-                    title="刷新全部关注价格；交易时段取盘中价，其余时间取最近收盘价。仅缺少完整研究的标的补充首次研究。"
+                    title="按执行时刻优先核实 Moomoo 和其他支持对应 session 的实时报价；夜盘可查 TradingView BOATS 24/5 实时数据；不能只查 Yahoo 或看常规盘收市后就回退。无20分钟内可核实的匹配报价时才取最近收盘价。仅缺少完整研究的标的补充首次研究。"
                     disabled={watchRefreshBusy || !state.watchlist.length}
                   >
                     {watchRefreshBusy ? <LoaderCircle size={15} className="mh-spin" /> : watchRefreshPending ? <Undo2 size={15} /> : <RefreshCw size={15} />}
@@ -2102,35 +2307,23 @@ export default function HoldingsApp() {
                   </button>
                 </div>,
               )}
-              {visibleWatchlist.length ? <div className="mh-watch-categories">
-                <section className="mh-watch-category mh-watch-category-funds">
+              <WatchCategoryTabs categories={watchCategories} counts={stockCategoryCounts} selected={selectedWatchCategory}
+                onSelect={selectWatchCategory} showFunds totalCount={watchCounts.total} stockCount={watchCounts.stocks} fundCount={watchCounts.funds}
+                onManage={() => setModal({ type: "watchCategories" })} />
+              {watchHasResults ? <div className="mh-watch-categories">
+                {showWatchFunds && (selectedWatchCategory === "funds" || watchCounts.funds > 0) && <section className="mh-watch-category mh-watch-category-funds" data-tone="funds">
                   <header><div><span className="mh-watch-category-mark" /><h2>指数 / ETF</h2></div><span>{watchFunds.length} 项</span></header>
-                  {watchFunds.length ? <div className="mh-watch-grid">{watchFunds.map(renderWatchCard)}</div> : <p className="mh-watch-category-empty">没有匹配的指数或 ETF</p>}
-                </section>
-                <section className="mh-watch-category mh-watch-category-stocks">
+                  {watchFunds.length ? <div className={`mh-watch-grid ${watchViewMode === "list" ? "is-list" : ""}`}>{watchFunds.map(renderWatchCard)}</div> : <p className="mh-watch-category-empty">没有匹配的指数或 ETF</p>}
+                </section>}
+                {watchStockGroups.filter((group) => group.stocks.length > 0).map(({ category, stocks }) => <section className="mh-watch-category mh-watch-category-stocks" key={category.id} data-tone={watchCategories.indexOf(category) % 4}>
                   <header>
-                    <div><span className="mh-watch-category-mark" /><h2>个股</h2></div>
-                    <div className="mh-watch-category-meta">
-                      <span>{watchStocks.length} 项</span>
-                      {watchStocks.length > collapsedWatchStockLimit && <button
-                        type="button"
-                        className="mh-text-button mh-watch-expand"
-                        aria-expanded={showAllWatchStocks}
-                        aria-label={showAllWatchStocks ? "收起个股列表" : "展开个股列表"}
-                        title={showAllWatchStocks ? "收起个股列表" : "展开个股列表"}
-                        onClick={() => setShowAllWatchStocks((expanded) => !expanded)}
-                      >
-                        <ChevronDown size={13} className={showAllWatchStocks ? "is-expanded" : ""} />
-                        {showAllWatchStocks ? "收起" : "展开"}
-                      </button>}
-                    </div>
+                    <div><span className="mh-watch-category-mark" /><h2>{category.name}</h2></div>
+                    <span>{stocks.length} 只个股</span>
                   </header>
-                  {watchStocks.length ? <>
-                    <div className="mh-watch-grid" ref={watchStockGridRef}>{visibleWatchStocks.map(renderWatchCard)}</div>
-                  </> : <p className="mh-watch-category-empty">没有匹配的个股</p>}
-                </section>
+                  <div className={`mh-watch-grid ${watchViewMode === "list" ? "is-list" : ""}`}>{stocks.map(renderWatchCard)}</div>
+                </section>)}
               </div> : state.watchlist.length ? (
-                <Empty icon={Search} title="没有匹配的关注标的" text="调整搜索词后，这里会显示完整分类清单。" />
+                <Empty icon={Search} title={searchTerm ? "没有匹配的关注标的" : selectedWatchCategory === "funds" ? "这个分组还没有指数 / ETF" : "这个分类还没有股票"} text={searchTerm ? "调整搜索词，或切换分类查看其他标的。" : "添加关注后，可在每条股票记录里直接更改分类。"} />
               ) : null}
               {!state.watchlist.length && (
                 <Empty
@@ -2203,7 +2396,7 @@ export default function HoldingsApp() {
                       <p>本地计算 · 非 AI 预测</p>
                     </div>
                   </div>
-                  <Allocation groups={m.groups} value={m.value} />
+                  <Allocation groups={m.groups} value={m.value} cash={m.totalCash} />
                   <div className="mh-panel-bottom">
                     按证券代码统计；未获取 ETF
                     最新成分股，不代表穿透后的行业权重。
@@ -2241,9 +2434,9 @@ export default function HoldingsApp() {
                       <strong>{money(m.value * (1 - stress / 100))}</strong>
                     </div>
                     <div>
-                      <span>含已折算现金的资产</span>
+                      <span>含账户现金与弹药的资产</span>
                       <strong>
-                        {money(m.value * (1 - stress / 100) + m.cash)}
+                        {money(m.value * (1 - stress / 100) + m.totalCash)}
                       </strong>
                     </div>
                     <p>
@@ -2417,6 +2610,36 @@ export default function HoldingsApp() {
                   />
                 )}
               </section>
+              <section className="mh-panel mh-orders-panel">
+                <div className="mh-section-heading">
+                  <div>
+                    <h2>委托单</h2>
+                  </div>
+                  <button className="mh-primary" onClick={() => setModal({ type: "order" })}><Plus size={16} /> 新增委托</button>
+                </div>
+                <div className="mh-order-controls">
+                  <div className="mh-watch-view-switch" role="group" aria-label="委托单显示方式" data-active={orderViewMode}>
+                    <span className="mh-watch-view-indicator" aria-hidden="true" />
+                    <button type="button" aria-pressed={orderViewMode === "card"} onClick={() => setOrderView("card")}><LayoutGrid size={14} />卡片</button>
+                    <button type="button" aria-pressed={orderViewMode === "list"} onClick={() => setOrderView("list")}><List size={14} />列表</button>
+                  </div>
+                  <span className="mh-tag">{orders.length} 笔</span>
+                </div>
+                {orders.length ? <div className={`mh-orders-grid ${orderViewMode === "list" ? "is-list" : ""}`}>
+                  {orders.map((order) => {
+                    const linkedWatch = state.watchlist.find((watch) => watch.id === order.watchId);
+                    return <OrderCard key={order.id} order={order} watch={linkedWatch} accounts={state.accounts}
+                      defaultAccountId={defaultOrderAccountId} viewMode={orderViewMode} busy={busy}
+                      onChangeAccount={(accountId) => mutate((s) => {
+                        const savedOrder = s.orders.find((row) => row.id === order.id);
+                        if (!savedOrder) throw new Error("委托记录不存在，请刷新后重试。");
+                        savedOrder.accountId = accountId;
+                      }, { close: false, successMessage: "委托账户已更新" })}
+                      onEdit={() => setModal({ type: "order", item: order })} onDelete={() => remove("orders", order)}
+                      onOpenWatch={() => { page("watch"); selectWatch(order.watchId); }} />;
+                  })}
+                </div> : <Empty icon={CircleDollarSign} title="记录第一笔潜在委托" text="记下计划中的价格和数量，也可以关联近期关注的标的。" />}
+              </section>
             </>
           )}
           {tab === "reports" && (
@@ -2533,7 +2756,7 @@ export default function HoldingsApp() {
                             {j.status === "failed" ? <X size={17} /> : <LoaderCircle size={17} />}
                           </span>
                           <div>
-                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "watch-pe" ? "关注个股市盈率刷新" : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                             <small>{when(j.date)} · {j.status === "failed" ? `未完成${j.error ? ` · ${j.error}` : ""}` : "等待交给 Codex"}</small>
                           </div>
                         </div>
@@ -2554,7 +2777,7 @@ export default function HoldingsApp() {
                         <div className="mh-job" key={j.id}>
                           <span className="mh-job-icon done"><CheckCircle2 size={17} /></span>
                           <div>
-                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "watch-pe" ? "关注个股市盈率刷新" : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                             <small>{when(j.completedAt || j.date)} · 已完成并保存</small>
                           </div>
                           {j.report && <button className="mh-icon" aria-label="打开报告" onClick={() => openReport(j.report)}><ArrowUpRight size={15} /></button>}
@@ -2599,9 +2822,9 @@ export default function HoldingsApp() {
               {heading(
                 "REMEMBER WHY YOU DECIDED",
                 "决策日志",
-                `共 ${watchCounts.stocks} 张个股行动计划；卡片状态表示报价与观察价的关系，不是 AI 待办。排序和搜索与近期关注共用。`,
+                `共 ${watchCounts.stocks} 张个股行动计划；分类、显示方式和排序与近期关注同步。`,
                 <div className="mh-heading-actions mh-decision-heading-actions">
-                  <WatchControls mode={sortMode} gapDirection={gapDirection} query={query} onQueryChange={setQuery} onSort={setSharedSortMode} searchLabel="搜索个股计划和复盘" searchPlaceholder="搜索代码、名称或内容" />
+                  <WatchControls mode={sortMode} gapDirection={gapDirection} viewMode={watchViewMode} onViewChange={setLinkedWatchView} query={query} onQueryChange={setQuery} onSort={setSharedSortMode} searchLabel="搜索个股计划和复盘" searchPlaceholder="搜索代码、名称或内容" />
                   <button
                     className="mh-primary"
                     onClick={() => setModal({ type: "journal" })}
@@ -2610,18 +2833,25 @@ export default function HoldingsApp() {
                   </button>
                 </div>,
               )}
+              <WatchCategoryTabs categories={watchCategories} counts={stockCategoryCounts} selected={selectedWatchCategory === "funds" ? "all" : selectedWatchCategory}
+                onSelect={selectWatchCategory} showFunds={false} totalCount={watchCounts.total} stockCount={watchCounts.stocks} fundCount={watchCounts.funds}
+                onManage={() => setModal({ type: "watchCategories" })} />
               {decisionWatchStocks.length ? <>
-                <section className="mh-decision-section">
+                {decisionWatchGroups.filter((group) => group.stocks.length > 0).map(({ category, stocks }) => <section className="mh-decision-section" key={category.id} data-tone={watchCategories.indexOf(category) % 4}>
                   <div className="mh-decision-section-heading">
-                    <div><h2>个股行动计划</h2><p>观察价与近期关注的等待价共用；只有观察价参与提醒，安全边际和折价区间作计划参考。</p></div>
-                    <span className="mh-tag">{decisionWatchStocks.length} 只个股</span>
+                    <div><h2>{category.name}</h2><p>观察价与近期关注的等待价共用；只有观察价参与提醒，安全边际和折价区间作计划参考。</p></div>
+                    <span className="mh-tag">{stocks.length} 只个股</span>
                   </div>
-                  <div className="mh-decision-grid">
-                    {decisionWatchStocks.map((watch) => (
+                  <div className={`mh-decision-grid ${watchViewMode === "list" ? "is-list" : ""}`}>
+                    {stocks.map((watch) => (
                       <DecisionPlanCard
                         key={watch.id}
                         watch={watch}
                         cardTitle={watchCardTitle(watch)}
+                        categoryId={watchCategoryId(watch, watchCategories)}
+                        categories={watchCategories}
+                        viewMode={watchViewMode}
+                        onMoveCategory={changeWatchCategory}
                         record={decisionPlansByWatchId.get(watch.id)}
                         busy={busy}
                         attention={watchAttention(watch)}
@@ -2641,11 +2871,11 @@ export default function HoldingsApp() {
                       />
                     ))}
                   </div>
-                </section>
+                </section>)}
               </> : <Empty
                 icon={BookOpen}
-                title={searchTerm ? "没有匹配的个股" : "近期关注里还没有个股"}
-                text={searchTerm ? "调整或清除搜索词，查看对应的行动计划卡。" : "添加个股后，这里会自动生成对应的行动计划卡。指数和 ETF 不会生成个股决策卡。"}
+                title={searchTerm ? "没有匹配的个股" : selectedWatchCategory !== "all" ? "这个分类还没有股票" : "近期关注里还没有个股"}
+                text={searchTerm ? "调整搜索词，或切换分类查看其他行动计划。" : "添加个股后，这里会自动生成对应的行动计划卡。指数和 ETF 不会生成个股决策卡。"}
                 action={searchTerm
                   ? <button className="mh-button" onClick={() => setQuery("")}>清除搜索</button>
                   : <button className="mh-primary" onClick={() => page("watch")}><Star size={15} /> 前往近期关注</button>}
@@ -2746,8 +2976,11 @@ export default function HoldingsApp() {
           title={
             {
               holding: modal.item ? "修正持仓" : "记录买入",
+              holdingPrice: `编辑 ${modal.item?.symbol || "持仓"} 当前价格`,
               watch: modal.item ? "编辑关注" : "添加一个关注",
               cash: modal.item ? "编辑资金流水" : "记一笔资金",
+              order: modal.item ? "编辑委托记录" : "记录潜在委托",
+              accountCash: "编辑账户现金持仓",
               goals: "投资目标",
               journal: modal.item ? "编辑复盘" : "写下一条复盘",
               delete: "删除这条记录",
@@ -2757,6 +2990,7 @@ export default function HoldingsApp() {
               settings: "账户与数据",
               restore: "恢复数据备份",
               copy: "复制研究资料",
+              watchCategories: "管理股票分类",
             }[modal.type]
           }
           onClose={() => {
@@ -2768,6 +3002,8 @@ export default function HoldingsApp() {
             "goals",
             "copy",
             "importResearch",
+            "watchCategories",
+            "order",
           ].includes(modal.type)}
         >
           {modal.type === "priceAlerts" && (
@@ -2783,6 +3019,14 @@ export default function HoldingsApp() {
               <p className="mh-help">这是最近一次保存的报价触发提醒；需要最新报价时，请在「近期关注」点击更新。</p>
             </div>
           )}
+          {modal.type === "watchCategories" && <WatchCategoryManager
+            categories={watchCategories}
+            counts={stockCategoryCounts}
+            busy={busy}
+            onAdd={addWatchCategory}
+            onRename={renameWatchCategory}
+            onDelete={deleteWatchCategory}
+          />}
           {modal.type === "holding" && (modal.item ? (
             <HoldingForm
               item={modal.item}
@@ -2792,25 +3036,44 @@ export default function HoldingsApp() {
               onSave={(v) => upsert("holdings", v)}
             />
           ) : <BuyForm holding={modal.buyHolding} holdings={state.holdings} accounts={state.accounts} defaultAccountId={modal.accountId} busy={busy} onSave={recordBuy} />)}
+          {modal.type === "holdingPrice" && <HoldingPriceForm
+            holding={modal.item}
+            busy={busy}
+            onSave={(value) => mutate((s) => {
+              const holding = s.holdings.find((row) => row.id === modal.item.id);
+              if (!holding) throw new Error("持仓不存在，请刷新后重试。");
+              Object.assign(holding, value);
+              holding.marketValue = roundMoney(holding.quantity * value.price);
+              delete holding.priceAsOf;
+              delete holding.priceFetchedAt;
+              delete holding.priceTimeZone;
+              delete holding.priceSession;
+              delete holding.priceSourceUrl;
+            }, { successMessage: "当前价格已手动更新，市值和组合汇总已重算" })}
+          />}
           {modal.type === "watch" && (
             <WatchForm
               item={modal.item}
               busy={busy}
               onSave={async (v) => {
                 const isNewWatch = !modal.item;
+                const savedWatch = { ...v };
+                if (!isIndexOrEtf(savedWatch))
+                  savedWatch.watchCategoryId = modal.item?.watchCategoryId || savedWatch.watchCategoryId || WATCH_UNCLASSIFIED_ID;
                 const success = isNewWatch
                   ? await mutate((s) => {
-                      const existingIndex = s.watchlist.findIndex((watch) => watch.id === v.id);
-                      if (existingIndex >= 0) s.watchlist[existingIndex] = v;
-                      else s.watchlist.push(v);
-                      if (!isIndexOrEtf(v) && !s.journal.some((entry) => entry.kind === "plan" && entry.watchId === v.id)) {
+                      s.watchCategories ||= cloneDefaultWatchCategories();
+                      const existingIndex = s.watchlist.findIndex((watch) => watch.id === savedWatch.id);
+                      if (existingIndex >= 0) s.watchlist[existingIndex] = savedWatch;
+                      else s.watchlist.push(savedWatch);
+                      if (!isIndexOrEtf(savedWatch) && !s.journal.some((entry) => entry.kind === "plan" && entry.watchId === savedWatch.id)) {
                         s.journal.push({
                           id: id(),
                           date: localDate(),
-                          title: `${v.symbol || v.name} 行动计划`,
+                          title: `${savedWatch.symbol || savedWatch.name} 行动计划`,
                           body: "",
                           kind: "plan",
-                          watchId: v.id,
+                          watchId: savedWatch.id,
                           plan: {
                             allocationPct: null,
                             safetyLow: null,
@@ -2821,9 +3084,9 @@ export default function HoldingsApp() {
                         });
                       }
                     }, { successMessage: "已加入近期关注并同步决策计划" })
-                  : await upsert("watchlist", v);
+                  : await upsert("watchlist", savedWatch);
                 if (success && isNewWatch) {
-                  const queued = await request("/api/jobs/batch-watch", { jobs: [{ watchId: v.id }], origin: "watch-add" }).then((result) => { setState(result.state); stateRef.current = result.state; notify("已加入价格更新与首次研究待办"); return true; }).catch((error) => { notify(error.message, true); return false; });
+                  const queued = await request("/api/jobs/batch-watch", { jobs: [{ watchId: savedWatch.id }], origin: "watch-add" }).then((result) => { setState(result.state); stateRef.current = result.state; notify("已加入价格更新与首次研究待办"); return true; }).catch((error) => { notify(error.message, true); return false; });
                   if (!queued) await refresh();
                 }
               }}
@@ -2834,6 +3097,25 @@ export default function HoldingsApp() {
               item={modal.item}
               busy={busy}
               onSave={(v) => upsert("cash", v)}
+            />
+          )}
+          {modal.type === "order" && <OrderForm
+            item={modal.item}
+            watchlist={state.watchlist}
+            accounts={state.accounts}
+            defaultAccountId={defaultOrderAccountId}
+            busy={busy}
+            onSave={(value) => upsert("orders", value)}
+          />}
+          {modal.type === "accountCash" && (
+            <AccountCashForm
+              account={state.accounts.find((account) => account.id === modal.accountId)}
+              busy={busy}
+              onSave={(cashBalance) => mutate((s) => {
+                const account = s.accounts.find((row) => row.id === modal.accountId);
+                if (!account) throw new Error("账户不存在，请刷新后重试。");
+                account.cashBalance = cashBalance;
+              }, { successMessage: "账户现金持仓已更新" })}
             />
           )}
           {modal.type === "goals" && (
@@ -2858,7 +3140,7 @@ export default function HoldingsApp() {
                   modal.item.name ||
                   modal.item.kind ||
                   modal.item.title}
-                」{modal.key === "watchlist" ? "及其关联的个股行动计划" : ""}？每次保存前会自动保留数据备份。
+                」{modal.key === "watchlist" ? "及其关联的个股行动计划" : modal.key === "orders" ? "这条本地委托记录" : ""}？每次保存前会自动保留数据备份。
               </p>
               <footer className="mh-form-footer">
                 <button className="mh-button" onClick={() => setModal(null)}>
@@ -2873,6 +3155,8 @@ export default function HoldingsApp() {
                         (r) => r.id !== modal.item.id,
                       );
                       if (modal.key === "watchlist") {
+                        for (const order of s.orders || [])
+                          if (order.watchId === modal.item.id) order.watchId = "";
                         s.journal = s.journal.filter(
                           (entry) => entry.kind !== "plan" || entry.watchId !== modal.item.id,
                         );

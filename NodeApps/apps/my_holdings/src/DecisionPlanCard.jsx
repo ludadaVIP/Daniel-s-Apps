@@ -32,6 +32,10 @@ function makeDraft(watch, record) {
 export function DecisionPlanCard({
   watch,
   cardTitle,
+  categoryId,
+  categories = [],
+  viewMode = "card",
+  onMoveCategory,
   record,
   busy,
   attention,
@@ -144,14 +148,30 @@ export function DecisionPlanCard({
         : `当前报价 ${money(quote, currency)} 高于观察价 ${observationText}；这不是工作台待办。`;
   const safetyText = formatRange(plan.safetyLow, plan.safetyHigh) || "—";
   const discountText = formatRange(plan.discountLow, plan.discountHigh) || "—";
+  const trailingPe = watch.pe?.status === "available" && Number.isFinite(Number(watch.pe.value))
+    ? `${Number(watch.pe.value).toLocaleString("zh-CN", { maximumFractionDigits: 2 })}x`
+    : watch.pe?.status === "unavailable" ? "N/M" : watch.pe?.status === "unverified" ? "待核实" : "—";
+  const peTitle = watch.pe
+    ? `Trailing P/E (TTM) · ${watch.pe.asOf || "日期待核实"} · ${watch.pe.source || "来源待核实"}${watch.pe.note ? ` · ${watch.pe.note}` : ""}${watch.pe.sourceUrl ? ` · ${watch.pe.sourceUrl}` : ""}`
+    : "尚未核实市盈率。请在「近期关注」页点击“刷新市盈率”交给 Codex 更新。";
+  const peField = watch.pe?.sourceUrl
+    ? <a className="mh-decision-field mh-decision-pe-link" href={watch.pe.sourceUrl} target="_blank" rel="noreferrer" title={peTitle} aria-label={peTitle}><span>市盈率 (TTM) ↗</span><strong>{trailingPe}</strong></a>
+    : <div className="mh-decision-field" title={peTitle} aria-label={peTitle}><span>市盈率 (TTM)</span><strong>{trailingPe}</strong></div>;
 
   return (
-    <article className={`mh-decision-card attention-${attention}`}>
+    <article className={`mh-decision-card attention-${attention} ${viewMode === "list" ? "is-list" : "is-card"}`}>
       <header>
         <button type="button" className="mh-decision-identity" onClick={onSelect} title={cardTitle || "查看近期关注"}>
           <strong>{cardTitle || `${watch.symbol || "代码待核实"} - ${watch.name || "公司名称待核实"}`}</strong>
           <ArrowUpRight size={12} />
         </button>
+        {categories.length > 0 && <label className="mh-decision-category-control">
+          <span className="mh-sr-only">分类</span>
+          <select aria-label={`${watch.symbol || watch.name} 所属分类`} value={categoryId} disabled={busy}
+            onChange={(event) => onMoveCategory?.(watch.id, event.target.value)}>
+            {categories.map((category) => <option key={category.id} value={category.id}>{category.name}</option>)}
+          </select>
+        </label>}
         <div className="mh-decision-actions">
           <span className={`mh-decision-status ${reached ? "reached" : !hasQuote ? "quote-missing" : !hasObservationTarget ? "no-target" : "above-target"}`} title={statusTitle} aria-label={statusTitle}>
             {statusLabel}
@@ -204,6 +224,7 @@ export function DecisionPlanCard({
       </div>
       <div className={`mh-decision-fields ${editing ? "editing" : ""}`}>
         <div className="mh-decision-field-row primary">
+          {peField}
           {editing ? <>
             <label>
               <span>仓位</span>
@@ -213,17 +234,13 @@ export function DecisionPlanCard({
               <span>观察价</span>
               <div><i>{pricePrefix}</i><input type="number" min="0.01" step="any" inputMode="decimal" value={draft.observationPrice} onChange={(event) => update("observationPrice", event.target.value)} placeholder="—" /></div>
             </label>
-            <div className="mh-decision-field computed">
-              <span>等待价差百分比</span>
-              <strong>{waitGapPct == null ? "—" : `${waitGapPct.toFixed(2)}%`}</strong>
-            </div>
           </> : <>
             <div className="mh-decision-field"><span>仓位</span><strong>{allocationText}</strong></div>
             <div className="mh-decision-field"><span>观察价</span><strong>{observationText}</strong></div>
-            <div className="mh-decision-field computed"><span>等待价差百分比</span><strong>{waitGapPct == null ? "—" : `${waitGapPct.toFixed(2)}%`}</strong></div>
           </>}
         </div>
         <div className="mh-decision-field-row secondary">
+          <div className="mh-decision-field computed"><span>价差</span><strong>{waitGapPct == null ? "—" : `${waitGapPct.toFixed(2)}%`}</strong></div>
           {editing ? <>
             <label>
               <span>安全边际</span>
