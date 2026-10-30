@@ -73,3 +73,49 @@ export const exponentialLogRecurrence = [
     'Growth gives t≥log₂(20/3), checked by12/24 at hours2/3; decay gives t≥log_(1/2)(3/20), checked by20/10 at days2/3, with the decreasing-base comparison reversed. Both give a complete real ray and first integer three without rounding. Time conversions use2²⁴ per day or(1/2)^(1/24) per hour, preserving model and unit scope.',
   ),
 ];
+
+// Original task identities and primary bridges remain unchanged.
+const supplements = [
+  t(
+    '补零指数一般商、分数负底、幂的乘方与积的幂的整数范围。',
+    'Add general zero-power division, negative fractional bases, powers of powers and integer product powers.',
+  ),
+  t(
+    '补等值指数、正有理底精确主根/倒数与合法无理幂；复用两正负支题的√(x²)=|x|和双向回验，以及两精确几何卡的根式/小数非零差，原H35/J87主桥不改。',
+    'Add equivalent exponents, exact positive rational roots/reciprocals and defined irrational powers; reuse both square-branch tasks for √(x²)=|x| and two-way checks, plus both exact-geometry cards for nonzero radical/decimal differences, retaining H35/J87 bridges.',
+  ),
+  t(
+    '补分数倍率恢复/百分比率、一般严格性质/完整像与渐近、有限离散/连续像和确切半步、窗外输出。',
+    'Add fractional multiplier recovery/rates, general strict properties/full image/asymptotes, finite discrete versus continuous images, exact half steps and off-window outputs.',
+  ),
+  t(
+    '补指数/对数同点角色交换和完整域像、合法无理对数与最后近似；复用H36/H38半底等式/不等式及1/非正底的实际退化任务。',
+    'Add exponent/log point-role swaps and full domains/images, defined irrational logs and final approximation; reuse H36/H38 decreasing-base equality/inequality and actual unit/nonpositive-base cases.',
+  ),
+  t(
+    '补一般幂律/全非零域绝对值、换底非零条件/负分母与混用ln/log的实际错误值，复用半底原双真数域任务。',
+    'Add the general power law/full nonzero absolute-value domain, change-of-base nonzero premises/negative denominator and an actual mixed-ln/log error; reuse decreasing-base original-argument tasks.',
+  ),
+  t(
+    '补初始恰等/已严格满足、有限域未达到与全域、精确交点最后舍入及自主升降模型/完整图表/单位转换；不把负等式交点改0伪造相等。',
+    'Add initially equal versus already strictly satisfying targets, finite versus global non-attainment, exact crossings before rounding and own growth/decay models/full graphs/tables/unit conversion; do not clamp a negative equality time to fabricate equality.',
+  ),
+];
+for (const [i, entry] of exponentialLogRecurrence.entries()) {
+  entry.targets.push(
+    ...['H31', 'H35'].map((u) => `${u}-MAINT-EXPONENTIAL-MEANING-Q${i + 1}`),
+  );
+  if (i === 1)
+    entry.targets.push(
+      ...['H05', 'H06'].map((u) => `${u}-MAINT-PYTHAGOREAN-MEANING-Q3`),
+      ...['H36', 'H38'].map((u) => `${u}-MAINT-ADVANCED-EQUATION-Q1`),
+    );
+  if (i === 3 || i === 4)
+    entry.targets.push(
+      ...['H36', 'H38'].map((u) => `${u}-MAINT-ADVANCED-EQUATION-Q2`),
+    );
+  entry.rationale = t(
+    entry.rationale.zh + ' ' + supplements[i]!.zh,
+    entry.rationale.en + ' ' + supplements[i]!.en,
+  );
+}

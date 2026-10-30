@@ -184,8 +184,8 @@ const specs: Spec[] = [
     ],
     pick: {
       stem: [
-        '哪条弧长公式适用于弧度数θ？',
-        'Which arc-length formula uses a radian measure θ?',
+        'θ为非负弧度数时，哪条公式给非负弧长s？',
+        'For a nonnegative radian measure θ, which formula gives nonnegative arc length s?',
       ],
       options: [
         ['s=rθ', 's=rθ'],

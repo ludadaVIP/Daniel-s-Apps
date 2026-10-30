@@ -16,7 +16,7 @@ const e = (
   focus: t(z, en),
   rationale: t(rz, re),
 });
-export const circularRecurrenceEvidence = [
+const originalEvidence = [
   e(
     'radian-arc-ratio',
     1,
@@ -66,3 +66,45 @@ export const circularRecurrenceEvidence = [
     'H32 filters the transformed sine branches to{−5π/12,π/4,7π/12,5π/4}; H36 filters transformed cosine to{−2π/3,−2π/9,0,4π/9}. Both give branch-specific integer ranges and include a left endpoint root while excluding a right endpoint root. Principal inverse values alone omit branches and turns; target two is excluded by the image.',
   ),
 ];
+
+const sharedCards = [[1], [2], [2], [4], [3], [4, 5]];
+export const circularRecurrenceEvidence = originalEvidence.map((entry, i) => ({
+  ...entry,
+  targets: [
+    ...entry.targets,
+    ...sharedCards[i]!.flatMap((n) =>
+      ['H32', 'H36'].map((u) => `${u}-MAINT-CIRCULAR-MEANING-Q${n}`),
+    ),
+    ...(i === 4
+      ? [
+          'H36-MAINT-ADVANCED-EQUATION-Q3',
+          'H38-MAINT-ADVANCED-EQUATION-Q3',
+          'H35-L03-Q3',
+          'H35-L03-Q4',
+          'H35-L03-Q5',
+        ]
+      : []),
+  ],
+  rationale: t(
+    entry.rationale.zh +
+      ' ' +
+      [
+        '独立N1要求混长度单位、纯弧度正逆比和度数最后舍入。',
+        '共享N2先由给定有符号坐标反求原角及交换后的角，核横轴与图点身份。',
+        '共享N2分别生成圆点/正弦图点/余弦图点，从任意反射证奇偶，并论完整定义域和像集。',
+        'N4重新计算虚构高度全表/图/所有极值和中线时刻，推时间单位转换后的角速度及位移。',
+        'N3补平方记号、未知象限两符号/主根与正切平方恒等的原域；直接复用H35-Q3常数交叉项、Q4指定cos形式、Q5原分母sin及H36/H38-A3完整约分域，不重创。',
+        '共享N4补完整时间模型，N5补正切极点、极值两支合并及非特殊角反函数符号全解。',
+      ][i],
+    entry.rationale.en +
+      ' ' +
+      [
+        'Independent N1 requires mixed length units, pure-radian forward/reverse ratios and final degree rounding.',
+        'Shared N2 inverts signed coordinates and their swap to angles, then checks axis and graph-point roles.',
+        'Shared N2 generates circle/sine/cosine points, proves parity by arbitrary reflection and explains full domains/images.',
+        'N4 recomputes complete fictional height tables/graphs/extrema/midline times and derives angular speed and shift after a time-unit change.',
+        'N3 adds square notation, both signs before quadrant information, principal roots and the tangent-square domain. Reuse H35-Q3 constant cross terms,Q4 cosine-only form,Q5 original sine denominator,and H36/H38-A3 complete quotient domains.',
+        'Shared N4 adds a complete time model;N5 adds tangent poles,merged extreme branches and inverse-symbol roots beyond special tables.',
+      ][i],
+  ),
+}));

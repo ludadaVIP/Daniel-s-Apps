@@ -14596,8 +14596,8 @@
         "H03-L01-X"
       ],
       "laterExactTagCandidates": {
-        "H31": ["H31-MAINT-EXP-LOG-Q1"],
-        "H35": ["H35-MAINT-EXP-LOG-Q1"]
+        "H31": ["H31-MAINT-EXP-LOG-Q1", "H31-MAINT-EXPONENTIAL-MEANING-Q1"],
+        "H35": ["H35-MAINT-EXP-LOG-Q1", "H35-MAINT-EXPONENTIAL-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -14614,6 +14614,16 @@
               "unit": "H35",
               "task": "H35-MAINT-EXP-LOG-Q1",
               "taskSkill": "exponent-laws-reciprocal"
+            },
+            {
+              "unit": "H31",
+              "task": "H31-MAINT-EXPONENTIAL-MEANING-Q1",
+              "taskSkill": "exponent-laws-reciprocal"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-EXPONENTIAL-MEANING-Q1",
+              "taskSkill": "exponent-laws-reciprocal"
             }
           ],
           "focus": {
@@ -14621,8 +14631,8 @@
             "en": "Nonzero reciprocals, equal-base operations and parentheses"
           },
           "rationale": {
-            "zh": "H31主动算3⁻²×3⁵、3²+3³及括号正负16；H35算5³÷5⁵、5²+5³与正负9。两处从aⁿa⁻ⁿ=1推倒数和非零底条件，乘回反驳0负指数，明确乘除才加减指数而非加法。",
-            "en": "H31 generates 3⁻²×3⁵,3²+3³ and signed sixteen; H35 generates 5³÷5⁵,5²+5³ and signed nine. Both derive reciprocal powers and the nonzero-base premise from aⁿa⁻ⁿ=1, reject zero negative powers by multiplying back, and distinguish product/quotient laws from addition."
+            "zh": "H31主动算3⁻²×3⁵、3²+3³及括号正负16；H35算5³÷5⁵、5²+5³与正负9。两处从aⁿa⁻ⁿ=1推倒数和非零底条件，乘回反驳0负指数，明确乘除才加减指数而非加法。 补零指数一般商、分数负底、幂的乘方与积的幂的整数范围。",
+            "en": "H31 generates 3⁻²×3⁵,3²+3³ and signed sixteen; H35 generates 5³÷5⁵,5²+5³ and signed nine. Both derive reciprocal powers and the nonzero-base premise from aⁿa⁻ⁿ=1, reject zero negative powers by multiplying back, and distinguish product/quotient laws from addition. Add general zero-power division, negative fractional bases, powers of powers and integer product powers."
           }
         }
       ],
@@ -14643,8 +14653,8 @@
         "H03-L02-X"
       ],
       "laterExactTagCandidates": {
-        "H31": ["H31-MAINT-EXP-LOG-Q2"],
-        "H35": ["H35-MAINT-EXP-LOG-Q2"]
+        "H31": ["H31-MAINT-EXP-LOG-Q2", "H31-MAINT-EXPONENTIAL-MEANING-Q2"],
+        "H35": ["H35-MAINT-EXP-LOG-Q2", "H35-MAINT-EXPONENTIAL-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -14661,6 +14671,36 @@
               "unit": "H35",
               "task": "H35-MAINT-EXP-LOG-Q2",
               "taskSkill": "exponent-rational-root"
+            },
+            {
+              "unit": "H31",
+              "task": "H31-MAINT-EXPONENTIAL-MEANING-Q2",
+              "taskSkill": "exponent-rational-root"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-EXPONENTIAL-MEANING-Q2",
+              "taskSkill": "exponent-rational-root"
+            },
+            {
+              "unit": "H05",
+              "task": "H05-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H06",
+              "task": "H06-MAINT-PYTHAGOREAN-MEANING-Q3",
+              "taskSkill": "fractional-lengths-and-exact-side-audit"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q1",
+              "taskSkill": "advanced-equation-1"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q1",
+              "taskSkill": "advanced-equation-1"
             }
           ],
           "focus": {
@@ -14668,8 +14708,8 @@
             "en": "Positive-root definitions and conflicting negative-base procedures"
           },
           "rationale": {
-            "zh": "H31求16^(−3/4)=1/8并核四次根；H35求81^(−3/4)=1/27。负底分别−27的2/6与−32的2/10，先平方偶根与先约分奇根得相反号，要求指出正底前提及另定义奇分母实根的范围，不宣称负底任何有理指数都不存在。",
-            "en": "H31 derives16^(−3/4)=1/8 and H35 derives81^(−3/4)=1/27 through checked positive fourth roots. Negative-base2/6 of−27 and2/10 of−32 give opposite signs under incompatible procedures. Both identify the lost positive-base premise and distinguish a separately declared reduced odd-denominator convention from a blanket claim that all negative-base rational powers are undefined."
+            "zh": "H31求16^(−3/4)=1/8并核四次根；H35求81^(−3/4)=1/27。负底分别−27的2/6与−32的2/10，先平方偶根与先约分奇根得相反号，要求指出正底前提及另定义奇分母实根的范围，不宣称负底任何有理指数都不存在。 补等值指数、正有理底精确主根/倒数与合法无理幂；复用两正负支题的√(x²)=|x|和双向回验，以及两精确几何卡的根式/小数非零差，原H35/J87主桥不改。",
+            "en": "H31 derives16^(−3/4)=1/8 and H35 derives81^(−3/4)=1/27 through checked positive fourth roots. Negative-base2/6 of−27 and2/10 of−32 give opposite signs under incompatible procedures. Both identify the lost positive-base premise and distinguish a separately declared reduced odd-denominator convention from a blanket claim that all negative-base rational powers are undefined. Add equivalent exponents, exact positive rational roots/reciprocals and defined irrational powers; reuse both square-branch tasks for √(x²)=|x| and two-way checks, plus both exact-geometry cards for nonzero radical/decimal differences, retaining H35/J87 bridges."
           }
         }
       ],
@@ -14689,7 +14729,10 @@
         "H03-L03-Q6",
         "H03-L03-X"
       ],
-      "laterExactTagCandidates": {},
+      "laterExactTagCandidates": {
+        "H31": ["H31-MAINT-EXPONENTIAL-MEANING-Q3"],
+        "H35": ["H35-MAINT-EXPONENTIAL-MEANING-Q3"]
+      },
       "reviewedEvidence": [
         {
           "skill": "exponential-equal-ratios",
@@ -14705,6 +14748,16 @@
               "unit": "H35",
               "task": "H35-MAINT-EXP-LOG-Q3",
               "taskSkill": "exponential-model-threshold"
+            },
+            {
+              "unit": "H31",
+              "task": "H31-MAINT-EXPONENTIAL-MEANING-Q3",
+              "taskSkill": "exponential-equal-ratios"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-EXPONENTIAL-MEANING-Q3",
+              "taskSkill": "exponential-equal-ratios"
             }
           ],
           "focus": {
@@ -14712,8 +14765,8 @@
             "en": "Constant-ratio assumptions versus finite observations"
           },
           "rationale": {
-            "zh": "H31的两点(0,3),(1,6)也被3(1+t)吻合；H35的(0,80),(1,40)也被80/(t+1)吻合且全t≥0正。两例下一时刻与指数不同，需额外指定相等时间恒定倍率与连续延伸，不能由整数记录擅许半时查询或声称现实模型必真。",
-            "en": "The growth observations also fit3(1+t); the decay observations also fit80/(t+1), positive for all t≥0. Different next predictions expose non-identification. Equal-interval constant ratios and continuous extension must be stipulated, not inferred from two integer-time records or treated as proof of the real mechanism."
+            "zh": "H31的两点(0,3),(1,6)也被3(1+t)吻合；H35的(0,80),(1,40)也被80/(t+1)吻合且全t≥0正。两例下一时刻与指数不同，需额外指定相等时间恒定倍率与连续延伸，不能由整数记录擅许半时查询或声称现实模型必真。 补分数倍率恢复/百分比率、一般严格性质/完整像与渐近、有限离散/连续像和确切半步、窗外输出。",
+            "en": "The growth observations also fit3(1+t); the decay observations also fit80/(t+1), positive for all t≥0. Different next predictions expose non-identification. Equal-interval constant ratios and continuous extension must be stipulated, not inferred from two integer-time records or treated as proof of the real mechanism. Add fractional multiplier recovery/rates, general strict properties/full image/asymptotes, finite discrete versus continuous images, exact half steps and off-window outputs."
           }
         }
       ],
@@ -14734,8 +14787,8 @@
         "H03-L04-X"
       ],
       "laterExactTagCandidates": {
-        "H31": ["H31-MAINT-EXP-LOG-Q4"],
-        "H35": ["H35-MAINT-EXP-LOG-Q4"]
+        "H31": ["H31-MAINT-EXP-LOG-Q4", "H31-MAINT-EXPONENTIAL-MEANING-Q4"],
+        "H35": ["H35-MAINT-EXP-LOG-Q4", "H35-MAINT-EXPONENTIAL-MEANING-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -14752,6 +14805,26 @@
               "unit": "H35",
               "task": "H35-MAINT-EXP-LOG-Q4",
               "taskSkill": "log-inverse-domain"
+            },
+            {
+              "unit": "H31",
+              "task": "H31-MAINT-EXPONENTIAL-MEANING-Q4",
+              "taskSkill": "log-inverse-domain"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-EXPONENTIAL-MEANING-Q4",
+              "taskSkill": "log-inverse-domain"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q2",
+              "taskSkill": "advanced-equation-2"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q2",
+              "taskSkill": "advanced-equation-2"
             }
           ],
           "focus": {
@@ -14759,8 +14832,8 @@
             "en": "Existence, uniqueness and decreasing inverses"
           },
           "rationale": {
-            "zh": "两处将log₄(1/8)与log₉(1/27)改写指数并核−3/2，分别说明负真数无解与底1有多解，写正底非1及正真数完整条件；0<b<1虽递减仍一一覆盖正数，不能误判无逆。",
-            "en": "Both rewrite logarithms of1/8 base4 or1/27 base9 into exponent equations and check−3/2. They distinguish no solution for a negative argument from nonunique exponents for base one, state complete real-log domains, and explain why decreasing bases0<b<1 remain one-to-one onto positive values."
+            "zh": "两处将log₄(1/8)与log₉(1/27)改写指数并核−3/2，分别说明负真数无解与底1有多解，写正底非1及正真数完整条件；0<b<1虽递减仍一一覆盖正数，不能误判无逆。 补指数/对数同点角色交换和完整域像、合法无理对数与最后近似；复用H36/H38半底等式/不等式及1/非正底的实际退化任务。",
+            "en": "Both rewrite logarithms of1/8 base4 or1/27 base9 into exponent equations and check−3/2. They distinguish no solution for a negative argument from nonunique exponents for base one, state complete real-log domains, and explain why decreasing bases0<b<1 remain one-to-one onto positive values. Add exponent/log point-role swaps and full domains/images, defined irrational logs and final approximation; reuse H36/H38 decreasing-base equality/inequality and actual unit/nonpositive-base cases."
           }
         }
       ],
@@ -14781,8 +14854,8 @@
         "H03-L05-X"
       ],
       "laterExactTagCandidates": {
-        "H31": ["H31-MAINT-EXP-LOG-Q5"],
-        "H35": ["H35-MAINT-EXP-LOG-Q5"]
+        "H31": ["H31-MAINT-EXP-LOG-Q5", "H31-MAINT-EXPONENTIAL-MEANING-Q5"],
+        "H35": ["H35-MAINT-EXP-LOG-Q5", "H35-MAINT-EXPONENTIAL-MEANING-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -14799,6 +14872,26 @@
               "unit": "H35",
               "task": "H35-MAINT-EXP-LOG-Q5",
               "taskSkill": "log-laws-domain"
+            },
+            {
+              "unit": "H31",
+              "task": "H31-MAINT-EXPONENTIAL-MEANING-Q5",
+              "taskSkill": "log-laws-domain"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-EXPONENTIAL-MEANING-Q5",
+              "taskSkill": "log-laws-domain"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q2",
+              "taskSkill": "advanced-equation-2"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q2",
+              "taskSkill": "advanced-equation-2"
             }
           ],
           "focus": {
@@ -14806,8 +14899,8 @@
             "en": "General laws, a sum counterexample and original arguments"
           },
           "rationale": {
-            "zh": "两处由u=aᵖ、v=aᑫ推乘积和商定律，给拆和精确反例。H31原域x>2求±6筛{6}；H35原域x>1求±√10筛{√10}。负候选虽使乘积正却两原真数负，须核回原式，不能借合并式扩大域。",
-            "en": "Both derive product and quotient laws from inverse exponents, refute splitting sums with exact examples, then solve log equations. H31 filters±6 to{6} on x>2; H35 filters±√10 to{√10} on x>1. Negative candidates have positive products but invalid original arguments, so a merged expression cannot enlarge the original domain."
+            "zh": "两处由u=aᵖ、v=aᑫ推乘积和商定律，给拆和精确反例。H31原域x>2求±6筛{6}；H35原域x>1求±√10筛{√10}。负候选虽使乘积正却两原真数负，须核回原式，不能借合并式扩大域。 补一般幂律/全非零域绝对值、换底非零条件/负分母与混用ln/log的实际错误值，复用半底原双真数域任务。",
+            "en": "Both derive product and quotient laws from inverse exponents, refute splitting sums with exact examples, then solve log equations. H31 filters±6 to{6} on x>2; H35 filters±√10 to{√10} on x>1. Negative candidates have positive products but invalid original arguments, so a merged expression cannot enlarge the original domain. Add the general power law/full nonzero absolute-value domain, change-of-base nonzero premises/negative denominator and an actual mixed-ln/log error; reuse decreasing-base original-argument tasks."
           }
         }
       ],
@@ -14828,8 +14921,8 @@
         "H03-L06-X"
       ],
       "laterExactTagCandidates": {
-        "H31": ["H31-MAINT-EXP-LOG-Q3"],
-        "H35": ["H35-MAINT-EXP-LOG-Q3"]
+        "H31": ["H31-MAINT-EXP-LOG-Q3", "H31-MAINT-EXPONENTIAL-MEANING-Q6"],
+        "H35": ["H35-MAINT-EXP-LOG-Q3", "H35-MAINT-EXPONENTIAL-MEANING-Q6"]
       },
       "reviewedEvidence": [
         {
@@ -14846,6 +14939,16 @@
               "unit": "H35",
               "task": "H35-MAINT-EXP-LOG-Q3",
               "taskSkill": "exponential-model-threshold"
+            },
+            {
+              "unit": "H31",
+              "task": "H31-MAINT-EXPONENTIAL-MEANING-Q6",
+              "taskSkill": "exponential-model-threshold"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-MAINT-EXPONENTIAL-MEANING-Q6",
+              "taskSkill": "exponential-model-threshold"
             }
           ],
           "focus": {
@@ -14853,8 +14956,8 @@
             "en": "Growth/decay thresholds, discrete domains and time units"
           },
           "rationale": {
-            "zh": "H31解3×2ᵗ≥20得t≥log₂(20/3)，相邻2/3小时给12/24；H35解80×(1/2)ᵗ≤12得t≥log_(1/2)(3/20)，相邻2/3天给20/10。均首整数3且实域为半直线，递减比较反向；小时转天倍率2²⁴，天转小时倍率(1/2)^(1/24)，保模型适用及单位边界。",
-            "en": "Growth gives t≥log₂(20/3), checked by12/24 at hours2/3; decay gives t≥log_(1/2)(3/20), checked by20/10 at days2/3, with the decreasing-base comparison reversed. Both give a complete real ray and first integer three without rounding. Time conversions use2²⁴ per day or(1/2)^(1/24) per hour, preserving model and unit scope."
+            "zh": "H31解3×2ᵗ≥20得t≥log₂(20/3)，相邻2/3小时给12/24；H35解80×(1/2)ᵗ≤12得t≥log_(1/2)(3/20)，相邻2/3天给20/10。均首整数3且实域为半直线，递减比较反向；小时转天倍率2²⁴，天转小时倍率(1/2)^(1/24)，保模型适用及单位边界。 补初始恰等/已严格满足、有限域未达到与全域、精确交点最后舍入及自主升降模型/完整图表/单位转换；不把负等式交点改0伪造相等。",
+            "en": "Growth gives t≥log₂(20/3), checked by12/24 at hours2/3; decay gives t≥log_(1/2)(3/20), checked by20/10 at days2/3, with the decreasing-base comparison reversed. Both give a complete real ray and first integer three without rounding. Time conversions use2²⁴ per day or(1/2)^(1/24) per hour, preserving model and unit scope. Add initially equal versus already strictly satisfying targets, finite versus global non-attainment, exact crossings before rounding and own growth/decay models/full graphs/tables/unit conversion; do not clamp a negative equality time to fabricate equality."
           }
         }
       ],
@@ -14875,8 +14978,8 @@
         "H04-L01-X"
       ],
       "laterExactTagCandidates": {
-        "H32": ["H32-MAINT-CIRCULAR-Q1"],
-        "H36": ["H36-MAINT-CIRCULAR-Q1"]
+        "H32": ["H32-MAINT-CIRCULAR-Q1", "H32-MAINT-CIRCULAR-MEANING-Q1"],
+        "H36": ["H36-MAINT-CIRCULAR-Q1", "H36-MAINT-CIRCULAR-MEANING-Q1"]
       },
       "reviewedEvidence": [
         {
@@ -14893,6 +14996,16 @@
               "unit": "H36",
               "task": "H36-MAINT-CIRCULAR-Q1",
               "taskSkill": "radian-arc-ratio"
+            },
+            {
+              "unit": "H32",
+              "task": "H32-MAINT-CIRCULAR-MEANING-Q1",
+              "taskSkill": "radian-arc-ratio"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-CIRCULAR-MEANING-Q1",
+              "taskSkill": "radian-arc-ratio"
             }
           ],
           "focus": {
@@ -14900,8 +15013,8 @@
             "en": "Full winding, signed arc and terminal ray"
           },
           "rationale": {
-            "zh": "H32半径3顺转750°保−25π/6及有向弧−25π/2，H36半径4逆转1110°保37π/6及74π/3；同终边−π/6或π/6不能替代完整转动。两处从s/r说明半径加倍角不变，并保弧长cm与角rad的不同角色。",
-            "en": "H32 retains−25π/6 from a clockwise750° rotation and signed arc−25π/2 at radius3; H36 retains37π/6 and arc74π/3 from1110° at radius4. Coterminal representatives cannot replace the full winding. Both derive radius-scaling invariance from s/r and distinguish arc centimetres from angle radians."
+            "zh": "H32半径3顺转750°保−25π/6及有向弧−25π/2，H36半径4逆转1110°保37π/6及74π/3；同终边−π/6或π/6不能替代完整转动。两处从s/r说明半径加倍角不变，并保弧长cm与角rad的不同角色。 独立N1要求混长度单位、纯弧度正逆比和度数最后舍入。",
+            "en": "H32 retains−25π/6 from a clockwise750° rotation and signed arc−25π/2 at radius3; H36 retains37π/6 and arc74π/3 from1110° at radius4. Coterminal representatives cannot replace the full winding. Both derive radius-scaling invariance from s/r and distinguish arc centimetres from angle radians. Independent N1 requires mixed length units, pure-radian forward/reverse ratios and final degree rounding."
           }
         }
       ],
@@ -14940,6 +15053,16 @@
               "unit": "H36",
               "task": "H36-MAINT-CIRCULAR-Q2",
               "taskSkill": "unit-circle-signed-coordinates"
+            },
+            {
+              "unit": "H32",
+              "task": "H32-MAINT-CIRCULAR-MEANING-Q2",
+              "taskSkill": "circular-coordinate-to-wave"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-CIRCULAR-MEANING-Q2",
+              "taskSkill": "circular-coordinate-to-wave"
             }
           ],
           "focus": {
@@ -14947,8 +15070,8 @@
             "en": "Signed arbitrary-angle coordinates and tangent domains"
           },
           "rationale": {
-            "zh": "H32亲画−5π/6第三象限点，H36画5π/3第四象限点，分别精确生成sin/cos/tan并解释符号；两处以π/2、3π/2横坐标0说明正切无定义，锐角正边长只给参考量级而非全角非负性。",
-            "en": "H32 constructs the quadrant-three point at−5π/6 and H36 the quadrant-four point at5π/3, generating exact sine, cosine and tangent with sign explanations. Both exclude tangent at zero horizontal coordinatesπ/2 and3π/2, rather than extending positive acute side ratios to all angles."
+            "zh": "H32亲画−5π/6第三象限点，H36画5π/3第四象限点，分别精确生成sin/cos/tan并解释符号；两处以π/2、3π/2横坐标0说明正切无定义，锐角正边长只给参考量级而非全角非负性。 共享N2先由给定有符号坐标反求原角及交换后的角，核横轴与图点身份。",
+            "en": "H32 constructs the quadrant-three point at−5π/6 and H36 the quadrant-four point at5π/3, generating exact sine, cosine and tangent with sign explanations. Both exclude tangent at zero horizontal coordinatesπ/2 and3π/2, rather than extending positive acute side ratios to all angles. Shared N2 inverts signed coordinates and their swap to angles, then checks axis and graph-point roles."
           }
         }
       ],
@@ -14969,8 +15092,8 @@
         "H04-L03-X"
       ],
       "laterExactTagCandidates": {
-        "H32": ["H32-MAINT-CIRCULAR-Q3"],
-        "H36": ["H36-MAINT-CIRCULAR-Q3"]
+        "H32": ["H32-MAINT-CIRCULAR-Q3", "H32-MAINT-CIRCULAR-MEANING-Q2"],
+        "H36": ["H36-MAINT-CIRCULAR-Q3", "H36-MAINT-CIRCULAR-MEANING-Q2"]
       },
       "reviewedEvidence": [
         {
@@ -14987,6 +15110,16 @@
               "unit": "H36",
               "task": "H36-MAINT-CIRCULAR-Q3",
               "taskSkill": "circular-coordinate-to-wave"
+            },
+            {
+              "unit": "H32",
+              "task": "H32-MAINT-CIRCULAR-MEANING-Q2",
+              "taskSkill": "circular-coordinate-to-wave"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-CIRCULAR-MEANING-Q2",
+              "taskSkill": "circular-coordinate-to-wave"
             }
           ],
           "focus": {
@@ -14994,8 +15127,8 @@
             "en": "Coordinate-to-graph transfer and two-part least-period proof"
           },
           "rationale": {
-            "zh": "H32搬单位圆纵坐标成正弦波、H36搬横坐标成余弦波。各给π移位反例；任意点转整周证明2π确可用，最高点仅在每整周同一顶/右点再推出任何正周期至少2π，避免只凭零点或样点宣布最小周期。",
-            "en": "H32 transfers circle heights into sine and H36 horizontal coordinates into cosine. Exact half-turn counterexamples rejectπ; full-turn recovery proves2π works for every input, while unique maximum locations force any positive period to be at least2π. Repeated zeros or finite graph samples do not establish the claim."
+            "zh": "H32搬单位圆纵坐标成正弦波、H36搬横坐标成余弦波。各给π移位反例；任意点转整周证明2π确可用，最高点仅在每整周同一顶/右点再推出任何正周期至少2π，避免只凭零点或样点宣布最小周期。 共享N2分别生成圆点/正弦图点/余弦图点，从任意反射证奇偶，并论完整定义域和像集。",
+            "en": "H32 transfers circle heights into sine and H36 horizontal coordinates into cosine. Exact half-turn counterexamples rejectπ; full-turn recovery proves2π works for every input, while unique maximum locations force any positive period to be at least2π. Repeated zeros or finite graph samples do not establish the claim. Shared N2 generates circle/sine/cosine points, proves parity by arbitrary reflection and explains full domains/images."
           }
         }
       ],
@@ -15016,8 +15149,8 @@
         "H04-L04-X"
       ],
       "laterExactTagCandidates": {
-        "H32": ["H32-MAINT-CIRCULAR-Q4"],
-        "H36": ["H36-MAINT-CIRCULAR-Q4"]
+        "H32": ["H32-MAINT-CIRCULAR-Q4", "H32-MAINT-CIRCULAR-MEANING-Q4"],
+        "H36": ["H36-MAINT-CIRCULAR-Q4", "H36-MAINT-CIRCULAR-MEANING-Q4"]
       },
       "reviewedEvidence": [
         {
@@ -15034,6 +15167,16 @@
               "unit": "H36",
               "task": "H36-MAINT-CIRCULAR-Q4",
               "taskSkill": "circular-inner-angle-transform"
+            },
+            {
+              "unit": "H32",
+              "task": "H32-MAINT-CIRCULAR-MEANING-Q4",
+              "taskSkill": "circular-inner-angle-transform"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-CIRCULAR-MEANING-Q4",
+              "taskSkill": "circular-inner-angle-transform"
             }
           ],
           "focus": {
@@ -15041,8 +15184,8 @@
             "en": "Inverse inner angles, nonnegative amplitude and constant boundaries"
           },
           "rationale": {
-            "zh": "H32负外系数−3、内2给振幅3/周期π；H36外2、负内−3给振幅2/周期2π/3。两处从u反解五个精确点并画一周，明确横向倒数倍率、反射、中线像集。另A0及B0分别回定义，常数每个正移位都是周期却没有最小正周期，图不能唯一识别相位。",
-            "en": "H32 uses outer−3 and inner2 for amplitude3 and periodπ; H36 uses outer2 and inner−3 for amplitude2 and period2π/3. Both solve the inner angle to transfer five exact points, explaining reciprocal horizontal scale, reflection, midline and image. They separately evaluate A=0 and B=0: constants admit every positive shift but no least positive period or unique phase identification."
+            "zh": "H32负外系数−3、内2给振幅3/周期π；H36外2、负内−3给振幅2/周期2π/3。两处从u反解五个精确点并画一周，明确横向倒数倍率、反射、中线像集。另A0及B0分别回定义，常数每个正移位都是周期却没有最小正周期，图不能唯一识别相位。 N4重新计算虚构高度全表/图/所有极值和中线时刻，推时间单位转换后的角速度及位移。",
+            "en": "H32 uses outer−3 and inner2 for amplitude3 and periodπ; H36 uses outer2 and inner−3 for amplitude2 and period2π/3. Both solve the inner angle to transfer five exact points, explaining reciprocal horizontal scale, reflection, midline and image. They separately evaluate A=0 and B=0: constants admit every positive shift but no least positive period or unique phase identification. N4 recomputes complete fictional height tables/graphs/extrema/midline times and derives angular speed and shift after a time-unit change."
           }
         }
       ],
@@ -15063,8 +15206,8 @@
         "H04-L05-X"
       ],
       "laterExactTagCandidates": {
-        "H32": ["H32-MAINT-CIRCULAR-Q5"],
-        "H36": ["H36-MAINT-CIRCULAR-Q5"]
+        "H32": ["H32-MAINT-CIRCULAR-Q5", "H32-MAINT-CIRCULAR-MEANING-Q3"],
+        "H36": ["H36-MAINT-CIRCULAR-Q5", "H36-MAINT-CIRCULAR-MEANING-Q3"]
       },
       "reviewedEvidence": [
         {
@@ -15081,6 +15224,41 @@
               "unit": "H36",
               "task": "H36-MAINT-CIRCULAR-Q5",
               "taskSkill": "circular-identity-with-domain"
+            },
+            {
+              "unit": "H32",
+              "task": "H32-MAINT-CIRCULAR-MEANING-Q3",
+              "taskSkill": "circular-identity-with-domain"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-CIRCULAR-MEANING-Q3",
+              "taskSkill": "circular-identity-with-domain"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-ADVANCED-EQUATION-Q3",
+              "taskSkill": "advanced-equation-3"
+            },
+            {
+              "unit": "H38",
+              "task": "H38-MAINT-ADVANCED-EQUATION-Q3",
+              "taskSkill": "advanced-equation-3"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-L03-Q3",
+              "taskSkill": "advanced-equation-3"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-L03-Q4",
+              "taskSkill": "advanced-equation-3"
+            },
+            {
+              "unit": "H35",
+              "task": "H35-L03-Q5",
+              "taskSkill": "advanced-equation-3"
             }
           ],
           "focus": {
@@ -15088,8 +15266,8 @@
             "en": "Arbitrary-point identities with original denominator restrictions"
           },
           "rationale": {
-            "zh": "两处从任意圆点平方和推恒等，再分别约sin²/sin与cos²/cos，保θ≠kπ或θ≠π/2+kπ。右式零值不授权为原0/0补定义；π/4给sin+cos=√2反驳拆平方和为一次和，有限成功不当全称证明。",
-            "en": "Both prove the squared identity from an arbitrary circle point, then cancel sine or cosine only on the original nonzero-denominator domain. A defined zero on the simplified side cannot fill an original0/0 without declaring a new extension. Atπ/4,the sum√2 refutes a false identity; finite successes cannot prove a universal."
+            "zh": "两处从任意圆点平方和推恒等，再分别约sin²/sin与cos²/cos，保θ≠kπ或θ≠π/2+kπ。右式零值不授权为原0/0补定义；π/4给sin+cos=√2反驳拆平方和为一次和，有限成功不当全称证明。 N3补平方记号、未知象限两符号/主根与正切平方恒等的原域；直接复用H35-Q3常数交叉项、Q4指定cos形式、Q5原分母sin及H36/H38-A3完整约分域，不重创。",
+            "en": "Both prove the squared identity from an arbitrary circle point, then cancel sine or cosine only on the original nonzero-denominator domain. A defined zero on the simplified side cannot fill an original0/0 without declaring a new extension. Atπ/4,the sum√2 refutes a false identity; finite successes cannot prove a universal. N3 adds square notation, both signs before quadrant information, principal roots and the tangent-square domain. Reuse H35-Q3 constant cross terms,Q4 cosine-only form,Q5 original sine denominator,and H36/H38-A3 complete quotient domains."
           }
         }
       ],
@@ -15110,8 +15288,8 @@
         "H04-L06-X"
       ],
       "laterExactTagCandidates": {
-        "H32": ["H32-MAINT-CIRCULAR-Q6"],
-        "H36": ["H36-MAINT-CIRCULAR-Q6"]
+        "H32": ["H32-MAINT-CIRCULAR-Q6", "H32-MAINT-CIRCULAR-MEANING-Q5"],
+        "H36": ["H36-MAINT-CIRCULAR-Q6", "H36-MAINT-CIRCULAR-MEANING-Q5"]
       },
       "reviewedEvidence": [
         {
@@ -15128,6 +15306,26 @@
               "unit": "H36",
               "task": "H36-MAINT-CIRCULAR-Q6",
               "taskSkill": "circular-complete-finite-roots"
+            },
+            {
+              "unit": "H32",
+              "task": "H32-MAINT-CIRCULAR-MEANING-Q4",
+              "taskSkill": "circular-inner-angle-transform"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-CIRCULAR-MEANING-Q4",
+              "taskSkill": "circular-inner-angle-transform"
+            },
+            {
+              "unit": "H32",
+              "task": "H32-MAINT-CIRCULAR-MEANING-Q5",
+              "taskSkill": "circular-complete-finite-roots"
+            },
+            {
+              "unit": "H36",
+              "task": "H36-MAINT-CIRCULAR-MEANING-Q5",
+              "taskSkill": "circular-complete-finite-roots"
             }
           ],
           "focus": {
@@ -15135,8 +15333,8 @@
             "en": "Two full real branches and exact finite-interval filtering"
           },
           "rationale": {
-            "zh": "H32解sin(2(x−π/6))=1/2保两支，筛得{−5π/12,π/4,7π/12,5π/4}；H36解cos(−3(x+π/9))=1/2得{−2π/3,−2π/9,0,4π/9}。逐支给整数范围，两个区间均左端根含、右端根不含；反三角主值只返一角，不覆盖另一支/整周，目标改2由像集判空。",
-            "en": "H32 filters the transformed sine branches to{−5π/12,π/4,7π/12,5π/4}; H36 filters transformed cosine to{−2π/3,−2π/9,0,4π/9}. Both give branch-specific integer ranges and include a left endpoint root while excluding a right endpoint root. Principal inverse values alone omit branches and turns; target two is excluded by the image."
+            "zh": "H32解sin(2(x−π/6))=1/2保两支，筛得{−5π/12,π/4,7π/12,5π/4}；H36解cos(−3(x+π/9))=1/2得{−2π/3,−2π/9,0,4π/9}。逐支给整数范围，两个区间均左端根含、右端根不含；反三角主值只返一角，不覆盖另一支/整周，目标改2由像集判空。 共享N4补完整时间模型，N5补正切极点、极值两支合并及非特殊角反函数符号全解。",
+            "en": "H32 filters the transformed sine branches to{−5π/12,π/4,7π/12,5π/4}; H36 filters transformed cosine to{−2π/3,−2π/9,0,4π/9}. Both give branch-specific integer ranges and include a left endpoint root while excluding a right endpoint root. Principal inverse values alone omit branches and turns; target two is excluded by the image. Shared N4 adds a complete time model;N5 adds tangent poles,merged extreme branches and inverse-symbol roots beyond special tables."
           }
         }
       ],

@@ -58,7 +58,14 @@ describe('circular recurrence', () => {
           expect(
             new URL(link.href, 'http://localhost').searchParams.get('question'),
           ).toBe(id);
-          expect(checkAnswer(target.q.solution.en, target.q.answer)).toBeNull();
+          if (target.q.answer.kind === 'explain')
+            expect(
+              checkAnswer(target.q.solution.en, target.q.answer),
+            ).toBeNull();
+          else {
+            for (const value of target.q.answerChecks!.accepted)
+              expect(checkAnswer(value, target.q.answer)).toBe(true);
+          }
           return target.unit;
         }),
       );

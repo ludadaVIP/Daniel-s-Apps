@@ -1,3 +1,5 @@
+import { circularMeaningRetrieval } from './circularMeaningRetrieval';
+import { exponentialMeaningRetrieval } from './exponentialMeaningRetrieval';
 import { functionConceptMeaningRetrieval } from './functionConceptMeaningRetrieval';
 import { logicMeaningRetrieval } from './logicMeaningRetrieval';
 import { integrationMeaningRetrieval } from './integrationMeaningRetrieval';
@@ -184,7 +186,9 @@ export const maintenanceSets = {
   ...integrationAuditRetrieval,
   ...logicFunctionRetrieval,
   ...exponentialLogRetrieval,
+  ...exponentialMeaningRetrieval,
   ...circularRecurrenceRetrieval,
+  ...circularMeaningRetrieval,
   ...vectorLanguageRetrieval,
   ...spatialStructureRetrieval,
   ...sequenceRecurrenceRetrieval,
