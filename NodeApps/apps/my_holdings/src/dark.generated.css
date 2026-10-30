@@ -701,6 +701,14 @@
 :root[data-theme="dark"] .mh-watch-detail-actions { border-top: 1px solid #4c583c; }
 :root[data-theme="dark"] .mh-converter-intro p { color: #bcc3bc; }
 :root[data-theme="dark"] .mh-converter-card-head h2 { color: #c4d4c7; }
+:root[data-theme="dark"] .mh-converter-mode { color: #c0ccbc; }
+:root[data-theme="dark"] .mh-converter-quote-check { border-left: 3px solid #45573d; background: #20251a; }
+:root[data-theme="dark"] .mh-converter-quote-check small { color: #c0c8bc; }
+:root[data-theme="dark"] .mh-converter-quote-check strong { color: #c4d6c2; }
+:root[data-theme="dark"] .mh-converter-quote-check p { color: #bfc6bc; }
+:root[data-theme="dark"] .mh-converter-quote-check .mh-converter-comparison { color: #d5cbb6; }
+:root[data-theme="dark"][data-theme="dark"] .mh-converter-quote-check small, :root[data-theme="dark"][data-theme="dark"] .mh-converter-quote-check p { color: #b9c3b2; }
+:root[data-theme="dark"][data-theme="dark"] .mh-converter-quote-check .mh-converter-comparison { color: #d2c4a6; }
 :root[data-theme="dark"] .mh-converter-field { border: 1px solid #49573d; background: #1f2318; }
 :root[data-theme="dark"] .mh-converter-field.active { border-color: #45573d; background: #202519; }
 :root[data-theme="dark"] .mh-converter-field.target.active { border-color: #3f5455; background: #192522; }
@@ -1007,7 +1015,29 @@
 }
 
 /* Local potential-order ledger on the ammunition and goals page. */
+:root[data-theme="dark"] .mh-order-summary { border: 1px solid #4b5b39; background: #202519; }
+:root[data-theme="dark"] .mh-order-summary-total > small, :root[data-theme="dark"] .mh-order-summary-count > small { color: #c0c6bd; }
+:root[data-theme="dark"] .mh-order-summary-total > strong { color: #c7dac4; }
+:root[data-theme="dark"] .mh-order-summary-total > span { color: #bec4bb; }
+:root[data-theme="dark"] .mh-order-summary-count { border-left: 1px solid #4a5a3a; }
+:root[data-theme="dark"] .mh-order-summary-count > strong { color: #c8d6c4; }
+:root[data-theme="dark"] .mh-order-summary-count > strong span { color: #bfc5bb; }
+:root[data-theme="dark"] .mh-order-select-all { border: 1px solid #48593b; background: #1c1c1c; color: #c5d2c0; }
+:root[data-theme="dark"] .mh-order-select-all:hover:not(:disabled) { border-color: #48563e; background: #20271b; }
+:root[data-theme="dark"] .mh-order-account-group > .mh-order-account-summary { background: #202519; }
+:root[data-theme="dark"] .mh-order-account-empty { border: 1px dashed #4a5a3a; color: #bec4bb; }
+:root[data-theme="dark"] .mh-order-account-summary { border: 1px solid #4e5b38; background: #1c1c1cb8; }
+:root[data-theme="dark"] .mh-order-account-title strong { color: #c7d4c3; }
+:root[data-theme="dark"] .mh-order-account-title small, :root[data-theme="dark"] .mh-order-account-values small { color: #bec4bb; }
+:root[data-theme="dark"] .mh-order-account-values strong { color: #c6d0c3; }
+:root[data-theme="dark"] .mh-order-account-values .is-short strong { color: #dfaca6; }
+:root[data-theme="dark"] .mh-order-account-values .is-covered strong { color: #c1d8b8; }
+:root[data-theme="dark"] .mh-order-account-order-total { color: #c0c6bd; }
+:root[data-theme="dark"] .mh-order-summary-note { color: #c0c6bd; }
 :root[data-theme="dark"] .mh-order-card { border: 1px solid #4b573d; background: #1c1c1c; }
+:root[data-theme="dark"] .mh-order-select { accent-color: #c2d0b9; }
+:root[data-theme="dark"] .mh-order-select:focus-visible { outline: 2px solid #7f9e6c; }
+:root[data-theme="dark"] .mh-order-card.is-excluded { border-color: #4a553f; background: #1d2318; }
 :root[data-theme="dark"] .mh-order-identity strong { color: #c8d5c8; }
 :root[data-theme="dark"] .mh-order-identity small { color: #bec4bb; }
 :root[data-theme="dark"] .mh-order-facts small { color: #bec4bb; }
@@ -1019,4 +1049,13 @@
 :root[data-theme="dark"][data-theme="dark"] .mh-order-card { border-color: #454e41; background: #21241e; }
 :root[data-theme="dark"][data-theme="dark"] .mh-order-account select { border-color: #454e41; background: #21241f; }
 :root[data-theme="dark"][data-theme="dark"] .mh-order-note { border-color: #464e41; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-summary { border-color: #45503f; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-summary-total > small, :root[data-theme="dark"][data-theme="dark"] .mh-order-summary-count > small, :root[data-theme="dark"][data-theme="dark"] .mh-order-summary-total > span, :root[data-theme="dark"][data-theme="dark"] .mh-order-account-title small, :root[data-theme="dark"][data-theme="dark"] .mh-order-account-values small, :root[data-theme="dark"][data-theme="dark"] .mh-order-account-order-total, :root[data-theme="dark"][data-theme="dark"] .mh-order-summary-note { color: #bac3b3; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-summary-count { border-color: #45503f; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-summary-count > strong span { color: #bcc4b7; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-select-all, :root[data-theme="dark"][data-theme="dark"] .mh-order-account-summary { border-color: #45503f; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-account-empty { border-color: #45503f; color: #bac3b3; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-account-values .is-short strong { color: #de978c; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-account-values .is-covered strong { color: #b4d2a3; }
+:root[data-theme="dark"][data-theme="dark"] .mh-order-card.is-excluded { border-color: #454e40; background: #21241e; }
 

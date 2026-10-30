@@ -52,7 +52,7 @@ import {
   id,
 } from "./model.js";
 import { BASE, request, download, localDate } from "./api.js";
-import { roundMoney } from "./positions.js";
+import { roundMoney, latestHoldingQuote } from "./positions.js";
 import { readBackupText } from "./backup-file.js";
 import { PRICE_REFRESH_QUESTION, WATCH_PE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchResearchQuestion, undoableWatchRefreshIds } from "./quotes.js";
 import {
@@ -78,6 +78,8 @@ import { WATCH_BUSINESS_SUMMARIES } from "./watch-business-summaries.js";
 import {
   CONVERSION_PAIRS,
   INITIAL_CONVERTER_STATE,
+  converterInputValues,
+  calibrationAccuracy,
 } from "./converter.js";
 const NAV = [
   ["overview", "总览", LayoutDashboard],
@@ -864,70 +866,35 @@ function RightPanel({
 }
 const CONVERTER_TASK_GUIDANCE = "利用伦敦与美国常规交易时段重叠，在最近 10 个共同交易日分别采集伦敦时间 16:25:00±30 秒的同一时点价格；每组 10 天必须统一取价方法。优先取双方可核验的买卖盘中间价（baseAt 与 targetAt 相差不超过 15 秒）；其次用同一 UTC 分钟的一分钟收盘价；若数据源只提供五分钟线，可用同一 UTC 五分钟区间、在 16:25 收盘的配对价格。时间戳为价格实际对应的 UTC 时点、伦敦当地日期一致，不能以两地各自收盘价或不同时间的日线价代替，也不能混用 GBP/EUR。保存全部原始价格、精确时间戳和 HTTPS 来源 URL。无法核验完整同步样本就调用 fail，保留旧公式，不要猜测或补造价格。提交 method=synchronized_intraday、sampleType=midquote、minute_close 或 five_minute_close、10 条 observations（date、baseAt、targetAt、basePrice、targetPrice）及 sources.base / sources.target。API 检查每组 10 个日期和时间匹配，以 10 个配对比值的中位数计算中心系数，以 P25–P75 计算近期典型参考带。无需 HTML，不改持仓。";
 
-function converterSeedValues(calibrations) {
-  return Object.fromEntries(CONVERSION_PAIRS.map((pair) => {
-    const calibration = calibrations?.find((row) => row.pairId === pair.id);
-    const latest = calibration?.observations?.slice().sort((a, b) => a.date.localeCompare(b.date)).at(-1);
-    const base = Number.isFinite(latest?.basePrice) ? latest.basePrice : latest?.baseClose;
-    return [pair.id, {
-      base: Number.isFinite(base) ? base.toFixed(2) : "",
-      target: Number.isFinite(base) && calibration?.ratio ? (base * calibration.ratio).toFixed(4) : "",
-      driver: "base",
-    }];
-  }));
-}
-function ConverterPage({ converter }) {
+function ConverterPage({ converter, holdings = [], watchlist = [] }) {
   const current = converter || INITIAL_CONVERTER_STATE;
-  const [values, setValues] = useState(() => converterSeedValues(current.calibrations));
+  const [values, setValues] = useState({});
+  const baseQuotes = CONVERSION_PAIRS.map((pair) => latestHoldingQuote(holdings, pair.baseSymbol, pair.baseCurrency));
+  const quoteRevision = JSON.stringify(baseQuotes.map((quote) => quote && [quote.price, quote.priceAsOf, quote.priceFetchedAt]));
   useEffect(() => {
-    setValues((previous) => Object.fromEntries(CONVERSION_PAIRS.map((pair) => {
-      const calibration = current.calibrations.find((row) => row.pairId === pair.id);
-      const prior = previous[pair.id] || {};
-      const ratio = Number(calibration?.ratio);
-      if (!Number.isFinite(ratio) || ratio <= 0) return [pair.id, prior];
-      const driver = prior.driver || "base";
-      if (driver === "target" && prior.target !== undefined && prior.target !== "") {
-        const target = Number(prior.target);
-        return [pair.id, { ...prior, base: Number.isFinite(target) ? (target / ratio).toFixed(4) : "" }];
-      }
-      const base = Number(prior.base);
-      if (prior.base !== undefined && prior.base !== "")
-        return [pair.id, { ...prior, target: Number.isFinite(base) ? (base * ratio).toFixed(4) : "" }];
-      return [pair.id, converterSeedValues(current.calibrations)[pair.id]];
-    })));
-  }, [current.updatedAt]);
+    setValues({});
+  }, [quoteRevision]);
   const updatePrice = (pair, side, raw) => {
-    const calibration = current.calibrations.find((row) => row.pairId === pair.id);
-    const ratio = Number(calibration?.ratio);
-    setValues((previous) => {
-      const next = { ...previous[pair.id], driver: side };
-      if (raw === "") {
-        next[side] = "";
-        next[side === "base" ? "target" : "base"] = "";
-        return { ...previous, [pair.id]: next };
-      }
-      const value = Number(raw);
-      next[side] = raw;
-      if (!Number.isFinite(value) || value <= 0 || !Number.isFinite(ratio) || ratio <= 0) {
-        next[side === "base" ? "target" : "base"] = "";
-      } else {
-        next[side === "base" ? "target" : "base"] =
-          side === "base" ? (value * ratio).toFixed(4) : (value / ratio).toFixed(4);
-      }
-      return { ...previous, [pair.id]: next };
-    });
+    setValues((previous) => ({ ...previous, [pair.id]: { driver: side, value: raw } }));
   };
   return (
     <div className="mh-converter-page">
       <div className="mh-converter-intro">
         <span className="mh-eyebrow">SHORT-TERM PRICE REFERENCE</span>
-        <p>输入任一边的价格，另一边即时估算。只有同一交易时刻的配对样本才会显示参考带；不同时间的日线数据不用于伪造误差区间。</p>
+        <p>默认跟随持仓中 VOO / QQQM 的最新保存价，刷新价格后自动重算。也可输入任一边手动试算，再恢复持仓价。</p>
       </div>
       <div className="mh-converter-grid">
-        {CONVERSION_PAIRS.map((pair) => {
+        {CONVERSION_PAIRS.map((pair, pairIndex) => {
           const calibration = current.calibrations.find((row) => row.pairId === pair.id);
           const ratio = Number(calibration?.ratio);
-          const pairValues = values[pair.id] || {};
+          const baseQuote = baseQuotes[pairIndex];
+          const followsHoldings = !values[pair.id];
+          const pairValues = converterInputValues(calibration, baseQuote, values[pair.id]);
+          const targetQuote = watchlist.find((watch) => watch.symbol === pair.targetSymbol && watch.priceCurrency === pair.targetCurrency && watch.price > 0);
+          const liveEstimate = baseQuote?.price > 0 && ratio > 0 ? baseQuote.price * ratio : null;
+          const comparisonPct = liveEstimate > 0 && targetQuote ? (liveEstimate / targetQuote.price - 1) * 100 : null;
+          const matchedTimes = baseQuote?.priceAsOf && targetQuote?.priceAsOf && Math.abs(Date.parse(baseQuote.priceAsOf) - Date.parse(targetQuote.priceAsOf)) <= 60_000;
+          const accuracy = calibrationAccuracy(calibration);
           const driver = pairValues.driver || "base";
           const sourceValue = Number(pairValues[driver]);
           const hasEstimate = Number.isFinite(sourceValue) && sourceValue > 0 && Number.isFinite(ratio) && ratio > 0;
@@ -951,6 +918,10 @@ function ConverterPage({ converter }) {
                 <div><span className="mh-eyebrow">INDEX PAIR</span><h2>{pair.title}</h2></div>
                 <span className="mh-tag">USD · USD</span>
               </header>
+              <div className="mh-converter-mode">
+                <span>{followsHoldings ? "跟随持仓 · 刷新后自动重算" : "手动试算 · 持仓刷新后自动跟随"}</span>
+                {!followsHoldings && <button type="button" className="mh-text-button" onClick={() => setValues((previous) => { const next = { ...previous }; delete next[pair.id]; return next; })}><RefreshCw size={12} />恢复持仓价</button>}
+              </div>
               <div className="mh-converter-fields">
                 <label className={driver === "base" ? "mh-converter-field active" : "mh-converter-field"}>
                   <span><strong>{pair.baseSymbol}</strong><small>{pair.baseVenue} · USD</small></span>
@@ -962,13 +933,13 @@ function ConverterPage({ converter }) {
                     aria-label={`${pair.baseSymbol} 价格`}
                     value={pairValues.base ?? ""}
                     onChange={(event) => updatePrice(pair, "base", event.target.value)}
-                    placeholder="输入价格"
+                    placeholder={baseQuote ? "输入价格" : "持仓暂无可用报价"}
                   />
                   <small>{pair.baseName}</small>
                 </label>
                 <span className="mh-converter-link" aria-hidden="true"><ArrowRightLeft size={18} /></span>
                 <label className={driver === "target" ? "mh-converter-field active target" : "mh-converter-field target"}>
-                  <span><strong>{pair.targetSymbol}</strong><small>{pair.targetVenue} · USD</small></span>
+                  <span><strong>{pair.targetSymbol}</strong><small>{pair.targetVenue}</small></span>
                   <input
                     type="number"
                     min="0"
@@ -982,6 +953,13 @@ function ConverterPage({ converter }) {
                   <small>{pair.targetName}</small>
                 </label>
               </div>
+              <div className="mh-converter-quote-check">
+                <div><small>按持仓价换算 {pair.targetSymbol}</small><strong>{liveEstimate == null ? "待刷新持仓价格" : preciseUSD(liveEstimate)}</strong></div>
+                <div><small>{pair.targetSymbol} 保存报价</small><strong>{targetQuote ? preciseUSD(targetQuote.price) : "待刷新关注价格"}</strong></div>
+                <p>{baseQuote ? `${pair.baseSymbol}：${holdingQuoteLabel({ ...baseQuote, priceSource: "" })}` : `${pair.baseSymbol} 尚无持仓行情`}</p>
+                <p>{targetQuote ? `${pair.targetSymbol}：${holdingQuoteLabel({ ...targetQuote, priceSource: "" })}` : `${pair.targetSymbol} 尚无关注行情`}</p>
+                {comparisonPct !== null && <p className="mh-converter-comparison">对照价差 {comparisonPct >= 0 ? "+" : ""}{comparisonPct.toFixed(3)}% · {matchedTimes ? "报价在同一分钟内" : "报价时点不同，价差不代表公式误差"}</p>}
+              </div>
               <div className="mh-converter-ratio">
                 <span>{pair.targetSymbol} ÷ {pair.baseSymbol}</span>
                 <strong>{Number.isFinite(ratio) && ratio > 0 ? ratio.toFixed(8) : "待校准"}</strong>
@@ -991,6 +969,7 @@ function ConverterPage({ converter }) {
                 <span>{synchronized ? calibration.observationCount === 10 ? "近期配对比值中间 50%（P25–P75）" : "五日同步样本范围" : "同步参考带"}</span>
                 <strong>{!hasEstimate ? "输入一个价格后显示" : synchronized ? `${outputSymbol} ${preciseUSD(outputLow)} – ${preciseUSD(outputHigh)}` : "同步校准后显示"}</strong>
                 <small>{!hasEstimate ? "" : synchronized ? `${calibration.observationCount} 个同一时点配对样本；${calibration.observationCount === 10 ? `P25–P75 带宽 ${rangeSpanPct.toFixed(2)}%，仅表示近期典型范围` : `样本极值跨度 ${rangeSpanPct.toFixed(2)}%`}，不是预测或保证` : "旧日线样本时点不一致，已隐藏其宽幅区间；当前中心值仅供粗略参考"}</small>
+                {accuracy && <small>历史同步样本绝对偏差：中位数 {accuracy.medianAbsolutePct.toFixed(3)}% · 最大 {accuracy.maxAbsolutePct.toFixed(3)}%</small>}
               </div>
               <footer className="mh-converter-meta">
                 <span>{calibration ? `数据截至 ${calibration.asOf}` : "公式尚未校准"}</span>
@@ -1551,6 +1530,17 @@ export default function HoldingsApp() {
     );
   const defaultOrderAccountId = preferredOrderAccountId(state.accounts);
   const orderSelectionSummary = summarizeOrderSelection(orders, excludedOrderIds, state.accounts, defaultOrderAccountId);
+  const orderAccountGroups = state.accounts.map((account) => ({ account, orders: [] }))
+    .sort((a, b) => Number(b.account.id === defaultOrderAccountId) - Number(a.account.id === defaultOrderAccountId));
+  for (const order of orders) {
+    const accountId = order.accountId || defaultOrderAccountId || state.accounts[0]?.id || "";
+    let group = orderAccountGroups.find((item) => item.account.id === accountId);
+    if (!group) {
+      group = { account: { id: accountId, name: "未分配账户" }, orders: [] };
+      orderAccountGroups.push(group);
+    }
+    group.orders.push(order);
+  }
   const yesterday = previousLocalDate(localDate());
   const yesterdayWatchRanks = new Map(
     (state.watchRankHistory || [])
@@ -2424,7 +2414,7 @@ export default function HoldingsApp() {
                     : "请求更新公式"}
                 </button>,
               )}
-              <ConverterPage converter={state.converter} />
+              <ConverterPage converter={state.converter} holdings={state.holdings} watchlist={state.watchlist} />
             </>
           )}
           {tab === "analysis" && (
@@ -2708,42 +2698,44 @@ export default function HoldingsApp() {
                       {orderSelectionSummary.unpricedCount > 0 && `有 ${orderSelectionSummary.unpricedCount} 笔市价或无有效限价的委托，未计入金额估算。`}
                       {Object.values(orderSelectionSummary.accountsById).some((item) => Object.keys(item.buyCurrencies).some((currency) => currency !== "USD")) && " 外币买单不会与美元现金直接相加。"}
                     </p>}
-                  {Object.entries(orderSelectionSummary.accountsById).length > 0 &&
-                    <div className="mh-order-account-summaries">
-                      {Object.entries(orderSelectionSummary.accountsById).map(([accountId, summary]) => {
-                        const account = state.accounts.find((item) => item.id === accountId);
-                        const usdBuyEstimate = summary.buyCurrencies.USD || 0;
-                        const hasUsdBuy = usdBuyEstimate > 0 || summary.unpricedBuyCount > 0;
-                        const cashBalance = account?.cashBalance;
-                        const remainingCash = Number(cashBalance || 0) - usdBuyEstimate;
-                        return <div className="mh-order-account-summary" key={accountId || "unassigned"}>
-                          <div className="mh-order-account-title"><strong>{account?.name || "未分配账户"}</strong><small>{summary.count} 笔已选</small></div>
+                </div>
+                {orderAccountGroups.length ? <div className="mh-order-account-columns">
+                  {orderAccountGroups.map(({ account, orders: accountOrders }) => {
+                    const summary = orderSelectionSummary.accountsById[account.id] || { count: 0, currencies: {}, buyCurrencies: {}, unpricedBuyCount: 0 };
+                    const usdBuyEstimate = summary.buyCurrencies.USD || 0;
+                    const cashBalance = account.cashBalance;
+                    const remainingCash = Number(cashBalance || 0) - usdBuyEstimate;
+                    return (
+                      <section className="mh-order-account-group" key={account.id || "unassigned"} aria-label={`${account.name}委托单`}>
+                        <div className="mh-order-account-summary" aria-live="polite">
+                          <div className="mh-order-account-title"><strong>{account.name}</strong><small>{accountOrders.length} 笔 · {summary.count} 笔已选</small></div>
                           <div className="mh-order-account-values">
                             <span><small>账面现金</small><strong>{cashBalance == null ? "未记录" : money(cashBalance, "USD")}</strong></span>
-                            <span><small>USD 买入估算</small><strong>{hasUsdBuy ? money(usdBuyEstimate, "USD") : "暂无"}</strong></span>
-                            <span className={cashBalance == null || !hasUsdBuy ? "" : remainingCash < 0 ? "is-short" : "is-covered"}>
+                            <span><small>USD 买入估算</small><strong>{money(usdBuyEstimate, "USD")}</strong></span>
+                            <span className={cashBalance == null ? "" : remainingCash < 0 ? "is-short" : "is-covered"}>
                               <small>{summary.unpricedBuyCount > 0 ? "限价买单后 · 未含市价" : "扣单后预计现金"}</small>
-                              <strong>{cashBalance == null ? "未记录" : !hasUsdBuy ? "暂无 USD 买单" : money(remainingCash, "USD")}</strong>
+                              <strong>{cashBalance == null ? "未记录" : money(remainingCash, "USD")}</strong>
                             </span>
                           </div>
-                          <div className="mh-order-account-order-total">订单价值：{orderValueText(summary.currencies)}{summary.unpricedBuyCount > 0 ? ` · ${summary.unpricedBuyCount} 笔买单未估价` : ""}</div>
-                        </div>;
-                      })}
-                    </div>}
-                </div>
-                {orders.length ? <div className={`mh-orders-grid ${orderViewMode === "list" ? "is-list" : ""}`}>
-                  {orders.map((order) => {
-                    const linkedWatch = state.watchlist.find((watch) => watch.id === order.watchId);
-                    return <OrderCard key={order.id} order={order} watch={linkedWatch} accounts={state.accounts}
-                      defaultAccountId={defaultOrderAccountId} viewMode={orderViewMode} busy={busy}
-                      selected={!excludedOrderIds.has(order.id)} onToggleSelect={toggleOrderSelection}
-                      onChangeAccount={(accountId) => mutate((s) => {
-                        const savedOrder = s.orders.find((row) => row.id === order.id);
-                        if (!savedOrder) throw new Error("委托记录不存在，请刷新后重试。");
-                        savedOrder.accountId = accountId;
-                      }, { close: false, successMessage: "委托账户已更新" })}
-                      onEdit={() => setModal({ type: "order", item: order })} onDelete={() => remove("orders", order)}
-                      onOpenWatch={() => { page("watch"); selectWatch(order.watchId); }} />;
+                          <div className="mh-order-account-order-total">订单价值：{summary.count ? orderValueText(summary.currencies) : money(0, "USD")}{summary.unpricedBuyCount > 0 ? ` · ${summary.unpricedBuyCount} 笔买单未估价` : ""}</div>
+                        </div>
+                        {accountOrders.length ? <div className={`mh-orders-grid ${orderViewMode === "list" ? "is-list" : ""}`}>
+                          {accountOrders.map((order) => {
+                            const linkedWatch = state.watchlist.find((watch) => watch.id === order.watchId);
+                            return <OrderCard key={order.id} order={order} watch={linkedWatch} accounts={state.accounts}
+                              defaultAccountId={defaultOrderAccountId} viewMode={orderViewMode} busy={busy}
+                              selected={!excludedOrderIds.has(order.id)} onToggleSelect={toggleOrderSelection}
+                              onChangeAccount={(accountId) => mutate((s) => {
+                                const savedOrder = s.orders.find((row) => row.id === order.id);
+                                if (!savedOrder) throw new Error("委托记录不存在，请刷新后重试。");
+                                savedOrder.accountId = accountId;
+                              }, { close: false, successMessage: "委托账户已更新" })}
+                              onEdit={() => setModal({ type: "order", item: order })} onDelete={() => remove("orders", order)}
+                              onOpenWatch={() => { page("watch"); selectWatch(order.watchId); }} />;
+                          })}
+                        </div> : <p className="mh-order-account-empty">该账户暂无委托单</p>}
+                      </section>
+                    );
                   })}
                 </div> : <Empty icon={CircleDollarSign} title="记录第一笔潜在委托" text="记下计划中的价格和数量，也可以关联近期关注的标的。" />}
               </section>

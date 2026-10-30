@@ -106,3 +106,23 @@ export function createInitialConverterState() {
 }
 
 export const INITIAL_CONVERTER_STATE = createInitialConverterState();
+
+// Live mode derives its input on every render; historical calibration samples
+// are never a substitute for the current holding quote.
+export function converterInputValues(calibration, holdingQuote, draft) {
+  const driver = draft?.driver || "base";
+  const raw = draft ? draft.value : holdingQuote?.price == null ? "" : String(holdingQuote.price);
+  const ratio = Number(calibration?.ratio);
+  const value = Number(raw);
+  const valid = raw !== "" && Number.isFinite(value) && value > 0 && Number.isFinite(ratio) && ratio > 0;
+  const converted = valid ? (driver === "base" ? value * ratio : value / ratio).toFixed(4) : "";
+  return { driver, base: driver === "base" ? raw : converted, target: driver === "target" ? raw : converted };
+}
+
+export function calibrationAccuracy(calibration) {
+  if (calibration?.method !== "synchronized_intraday" || !(calibration.ratio > 0)) return null;
+  const errors = (calibration.observations || [])
+    .filter((row) => row.basePrice > 0 && row.targetPrice > 0)
+    .map((row) => Math.abs((row.basePrice * calibration.ratio / row.targetPrice - 1) * 100));
+  return errors.length ? { medianAbsolutePct: median(errors), maxAbsolutePct: Math.max(...errors) } : null;
+}
