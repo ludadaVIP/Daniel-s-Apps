@@ -1,9 +1,15 @@
 // U.S. regular, extended, and overnight quote windows plus LSE regular sessions.
 // Nasdaq extended hours: https://listingcenter.nasdaq.com/rulebook/nasdaq/rules/nasdaq-equity-4
 // IBKR overnight hours: https://www.interactivebrokers.com/en/trading/us-overnight-trading.php
+// Moomoo US overnight quote/trading hours are 20:00–04:00 ET:
+// https://www.moomoo.com/us/support/topic4_663
+// Moomoo Quote API returns overnight_price and update_time:
+// https://openapi.moomoo.com/moomoo-api-doc/en/quote/get-market-snapshot.html
 // Calendar reference: https://www.nyse.com/trade/hours-calendars
 // Keep exceptional exchange closures here when they are announced.
 const exceptionalClosures = new Set(["2025-01-09"]);
+const US_OVERNIGHT_OPEN_MINUTE = 20 * 60;
+const US_OVERNIGHT_CLOSE_MINUTE = 4 * 60;
 const eastern = new Intl.DateTimeFormat("en-CA", {
   timeZone: "America/New_York",
   year: "numeric", month: "2-digit", day: "2-digit",
@@ -123,26 +129,26 @@ export function quotePolicy(at = new Date(), market = "US") {
     type = "extended";
     sessionOpenAt = sessionTime(date, 4 * 60, market);
     sessionCloseAt = sessionTime(date, open, market);
-  } else if (close !== null && minute >= close && minute < 20 * 60) {
+  } else if (close !== null && minute >= close && minute < US_OVERNIGHT_OPEN_MINUTE) {
     session = "afterhours";
     type = "extended";
     sessionOpenAt = sessionTime(date, close, market);
     sessionCloseAt = sessionTime(date, 20 * 60, market);
   } else {
     const day = weekday(date);
-    const overnightAfterClose = minute >= 20 * 60 && day >= 0 && day <= 4 &&
+    const overnightAfterClose = minute >= US_OVERNIGHT_OPEN_MINUTE && day >= 0 && day <= 4 &&
       closeMinute(shiftDay(date, 1), market) !== null;
-    const overnightBeforeOpen = minute < 3 * 60 + 50 && close !== null && day >= 1 && day <= 5;
+    const overnightBeforeOpen = minute < US_OVERNIGHT_CLOSE_MINUTE && close !== null && day >= 1 && day <= 5;
     if (overnightAfterClose || overnightBeforeOpen) {
       session = "overnight";
       type = "extended";
       if (overnightAfterClose) {
         sessionDate = shiftDay(date, 1);
-        sessionOpenAt = sessionTime(date, 20 * 60, market);
-        sessionCloseAt = sessionTime(shiftDay(date, 1), 3 * 60 + 50, market);
+        sessionOpenAt = sessionTime(date, US_OVERNIGHT_OPEN_MINUTE, market);
+        sessionCloseAt = sessionTime(shiftDay(date, 1), US_OVERNIGHT_CLOSE_MINUTE, market);
       } else {
-        sessionOpenAt = sessionTime(shiftDay(date, -1), 20 * 60, market);
-        sessionCloseAt = sessionTime(date, 3 * 60 + 50, market);
+        sessionOpenAt = sessionTime(shiftDay(date, -1), US_OVERNIGHT_OPEN_MINUTE, market);
+        sessionCloseAt = sessionTime(date, US_OVERNIGHT_CLOSE_MINUTE, market);
       }
     }
   }

@@ -702,7 +702,7 @@ function RightPanel({
           </div>
           <p className="mh-allocation-caption">成本均价 × 持仓数量 · 跨账户合并 · 同色为同一产品 · USD</p>
         </section>
-        <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次价格更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><p className="mh-sidebar-objective">优先取常规盘、盘前、盘后或可核实夜盘的新鲜报价；无新鲜报价时回退最近交易日收盘价。</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 刷新价格</button></section>
+        <section><h3>价格数据</h3><p className="mh-sidebar-objective">{state.marketUpdatedAt ? `上次价格更新：${when(state.marketUpdatedAt)}` : "当前为导入的截图记录"}</p><p className="mh-sidebar-objective">美股按实际 session 优先核实 Moomoo 实时源；夜盘无新鲜报价时查 TradingView BOATS；常规盘收市后仍可能有盘前、盘后或夜盘交易。无20分钟内可核实的匹配报价时才回退最近收盘价。</p><button className="mh-button" onClick={() => onRefreshPrices()}><RefreshCw size={14} /> 刷新价格</button></section>
       </>)}
       {tab === "watch" && (watch ? <>
         <div className="mh-watch-focus">
@@ -2232,7 +2232,7 @@ export default function HoldingsApp() {
                     <Search size={16} />
                     <input aria-label="搜索持仓" placeholder="代码、名称、分类" value={query} onChange={(e) => setQuery(e.target.value)} />
                   </label>
-                  <button className="mh-button" onClick={refreshPrices} title="加入待办；优先取最新常规盘、盘前、盘后或可核实夜盘报价，无新鲜报价时回退最近收盘价" disabled={state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting")}>
+                  <button className="mh-button" onClick={refreshPrices} title="加入待办；按执行时段核实 Moomoo 实时报价；夜盘可用 TradingView BOATS 24/5 实时数据；覆盖常规盘、盘前、盘后或夜盘报价，不能只查 Yahoo 后回退；无20分钟内可核实的匹配报价时才取最近收盘价" disabled={state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting")}>
                     <RefreshCw size={15} />
                     {state.jobs.some((j) => j.kind === "quotes" && j.status === "waiting") ? "价格已排队" : "刷新价格"}
                   </button>
@@ -2299,7 +2299,7 @@ export default function HoldingsApp() {
                   <button
                     className="mh-button"
                     onClick={refreshWatchlist}
-                    title="刷新全部关注价格；优先取最新常规盘、盘前、盘后或可核实夜盘报价，无新鲜报价时回退最近收盘价。仅缺少完整研究的标的补充首次研究。"
+                    title="按执行时刻优先核实 Moomoo 和其他支持对应 session 的实时报价；夜盘可查 TradingView BOATS 24/5 实时数据；不能只查 Yahoo 或看常规盘收市后就回退。无20分钟内可核实的匹配报价时才取最近收盘价。仅缺少完整研究的标的补充首次研究。"
                     disabled={watchRefreshBusy || !state.watchlist.length}
                   >
                     {watchRefreshBusy ? <LoaderCircle size={15} className="mh-spin" /> : watchRefreshPending ? <Undo2 size={15} /> : <RefreshCw size={15} />}
