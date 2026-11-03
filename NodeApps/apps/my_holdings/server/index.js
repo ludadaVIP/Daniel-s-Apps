@@ -9,7 +9,7 @@ import {
 } from "../../html-library/server/index.js";
 import { contextPack, CURRENCIES } from "../src/model.js";
 import { validateFundHoldings } from "../src/lookthrough.js";
-import { PRICE_REFRESH_QUESTION, WATCH_PE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
+import { PRICE_REFRESH_QUESTION, WATCH_PE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchPeRefreshQuestion, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
 import { quotePolicy } from "./market-session.js";
 import { normalizeSymbol, positionKey, roundMoney, previewBuy, applyHoldingQuote, consolidateHoldings } from "../src/positions.js";
 import { cloneDefaultWatchCategories, DEFAULT_WATCH_CATEGORIES, WATCH_UNCLASSIFIED_ID } from "../src/watch-categories.js";
@@ -549,7 +549,7 @@ export async function createHoldingsApp({
       const title = job.kind === "converter"
         ? "VOO / SPYL · QQQM / CNDX"
         : job.kind === "watch-pe"
-          ? "近期关注中的全部个股"
+          ? watch ? `市盈率 · ${watch.symbol}` : "近期关注中的全部个股"
         : watch?.name || job.question || "持仓组合";
       lines.push(
         `## ${job.kind === "watch" ? "标的研究" : job.kind === "watch-quotes" ? "关注价格更新" : job.kind === "watch-pe" ? "关注市盈率刷新" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "价格更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
@@ -565,7 +565,7 @@ export async function createHoldingsApp({
             : job.kind === "watch"
               ? `- ${watchResearchQuestion(watch || { name: "标的已删除", symbol: "" }, job.researchMode !== "initial")}`
               : job.kind === "watch-pe"
-                ? `- ${WATCH_PE_REFRESH_QUESTION}`
+                ? `- ${watch ? watchPeRefreshQuestion(watch) : WATCH_PE_REFRESH_QUESTION}`
               : "- 只在用户明确要求时执行；联网核对数据日期与来源，生成独立 HTML，并通过本地 API 回写结构化研究。",
         "",
       );
@@ -778,21 +778,25 @@ export async function createHoldingsApp({
         : "portfolio";
       const result = await serial(async () => {
         const s = await read();
-        const watch = ["watch", "watch-quotes"].includes(kind)
+        const watch = ["watch", "watch-quotes", "watch-pe"].includes(kind) && req.body.watchId
           ? s.watchlist.find((w) => w.id === req.body.watchId)
           : null;
         if (["watch", "watch-quotes"].includes(kind) && !watch) throw error("关注标的不存在。", 404);
-        if (watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind && j.watchId === watch.id))
+        if (kind === "watch-pe" && req.body.watchId && !watch) throw error("关注标的不存在。", 404);
+        if (kind === "watch-pe" && watch && !isEquityWatch(watch)) throw error("指数与 ETF 不需要市盈率待办。", 400);
+        if (kind === "watch-pe" && s.jobs.some((j) => j.status === "waiting" && j.kind === kind && (!watch || !j.watchId || j.watchId === watch.id)))
+          throw error("这个标的或全量市盈率刷新已经在 Codex 待办队列中。", 409);
+        if (kind !== "watch-pe" && watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind && j.watchId === watch.id))
           throw error("这个标的已经在 Codex 待办队列中。", 409);
         if (kind === "watch" && hasCompleteResearch(watch) && req.body.refreshResearch !== true)
           throw error("该标的已有完整研究；日常请刷新价格，需要新研究请点击「更新完整研究」。", 409);
-        if (!watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind))
+        if (kind !== "watch-pe" && !watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind))
           throw error("相同类型的任务已经在待办队列中。", 409);
         const job = {
           id: randomUUID(),
           kind,
           watchId: watch?.id || null,
-          question: kind === "quotes" ? PRICE_REFRESH_QUESTION : kind === "watch-quotes" ? watchQuoteQuestion(watch) : kind === "watch" ? watchResearchQuestion(watch, req.body.refreshResearch === true) : kind === "watch-pe" ? WATCH_PE_REFRESH_QUESTION : text(req.body.question || "", 4000) ? req.body.question : "",
+          question: kind === "quotes" ? PRICE_REFRESH_QUESTION : kind === "watch-quotes" ? watchQuoteQuestion(watch) : kind === "watch" ? watchResearchQuestion(watch, req.body.refreshResearch === true) : kind === "watch-pe" ? watch ? watchPeRefreshQuestion(watch) : WATCH_PE_REFRESH_QUESTION : text(req.body.question || "", 4000) ? req.body.question : "",
           ...(kind === "watch" ? { researchMode: req.body.refreshResearch === true ? "refresh" : "initial" } : {}),
           status: "waiting",
           date: new Date().toISOString(),
@@ -815,8 +819,10 @@ export async function createHoldingsApp({
       const result = await serial(async () => {
         const s = await read();
         const waitingKeys = new Set(
-          s.jobs.filter((job) => ["watch", "watch-quotes"].includes(job.kind) && job.status === "waiting").map((job) => `${job.kind}:${job.watchId}`),
+          s.jobs.filter((job) => ["watch", "watch-quotes", "watch-pe"].includes(job.kind) && job.status === "waiting" && job.watchId).map((job) => `${job.kind}:${job.watchId}`),
         );
+        if (s.jobs.some((job) => job.kind === "watch-pe" && job.status === "waiting" && !job.watchId))
+          waitingKeys.add("watch-pe:all");
         const seenIds = new Set();
         const createdJobs = [];
         const batchId = randomUUID();
@@ -831,6 +837,8 @@ export async function createHoldingsApp({
             createdJobs.push({ ...common, id: randomUUID(), kind: "watch-quotes", question: watchQuoteQuestion(watch) });
           if (!hasCompleteResearch(watch) && !waitingKeys.has(`watch:${watch.id}`))
             createdJobs.push({ ...common, id: randomUUID(), kind: "watch", researchMode: "initial", question: watchResearchQuestion(watch) });
+          if (origin === "watch-add" && isEquityWatch(watch) && !watch.pe && !waitingKeys.has("watch-pe:all") && !waitingKeys.has(`watch-pe:${watch.id}`))
+            createdJobs.push({ ...common, id: randomUUID(), kind: "watch-pe", question: watchPeRefreshQuestion(watch) });
         }
         if (!createdJobs.length) return { state: s, jobs: createdJobs };
         appendJobs(s, createdJobs);
@@ -898,10 +906,13 @@ export async function createHoldingsApp({
         }
         if (job.kind === "watch-pe") {
           if (job.status !== "waiting") throw error("市盈率刷新任务已结束，请重新创建待办。", 409);
-          const targets = s.watchlist.filter(isEquityWatch);
+          const targets = job.watchId
+            ? s.watchlist.filter((watch) => watch.id === job.watchId && isEquityWatch(watch))
+            : s.watchlist.filter(isEquityWatch);
+          if (job.watchId && !targets.length) throw error("市盈率待办对应的关注个股已不存在。", 404);
           const submitted = req.body?.values;
           if (!Array.isArray(submitted) || submitted.length !== targets.length)
-            throw error(`市盈率刷新需要提交当前全部 ${targets.length} 只个股的结果。`);
+            throw error(`市盈率刷新需要提交${job.watchId ? "目标" : "当前全部"} ${targets.length} 只个股的结果。`);
           const byId = new Map(targets.map((watch) => [watch.id, watch]));
           const seen = new Set();
           const updatedAt = now().toISOString();

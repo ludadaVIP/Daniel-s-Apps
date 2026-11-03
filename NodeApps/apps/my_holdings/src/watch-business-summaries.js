@@ -55,4 +55,7 @@ export const WATCH_BUSINESS_SUMMARIES = Object.freeze({
   CLBT: "手机取证与数字调查软件",
   ACMR: "半导体晶圆清洗设备",
   UNH: "医疗保险、药房服务与健康管理",
+  INTA: "律所、会计咨询等专业机构的业务管理与合规软件",
+  DOCN: "开发者云计算、GPU 算力与 AI 推理平台",
+  FLYW: "跨境支付网络与教育、医疗、旅行收款软件",
 });

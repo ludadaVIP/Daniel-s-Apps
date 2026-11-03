@@ -1481,7 +1481,7 @@ export default function HoldingsApp() {
   };
   const copyQueue = async () => {
     const pending = stateRef.current.jobs.filter((j) => j.status === "waiting");
-    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n${quoteTaskGuidance(`${location.origin}${BASE}`)}\n\n市盈率刷新任务（kind=watch-pe）：按 TTM trailing P/E 口径逐只核实当前全部关注个股，优先使用专业行情源直接给出的数值；TTM 亏损写 N/M，数据缺失写“待核实”，不能拿 forward PE 代替。ETF 和指数不处理。通过 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete 回写 values 数组（watchId、symbol、basis、status=available/unavailable/unverified、value、asOf、source、sourceUrl、note）；没有核实完就 POST fail，保留旧数据。\n\n换算公式任务（kind=converter）：先核对 VOO/SPYL 与 QQQM/CNDX 的发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE} 完成时 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，提交包含两组 calibrations 的 JSON。\n\n研究任务（kind=watch、portfolio、market）：联网核实资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。watch 的 researchMode=initial 只补缺失研究，执行前若已有完整研究则直接 complete 回写跳过说明；researchMode=refresh 才是用户明确要求更新完整研究。价格任务独立执行；报告中的历史报价不可覆盖最新行情。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
+    const prompt = `请在当前 NodeApps 工作区执行 My Holdings 中等待的任务。先读取 apps/my_holdings/data/CODEX_TODO.md 与 apps/my_holdings/data/state.json，只处理 status 为 waiting 的任务。\n\n${quoteTaskGuidance(`${location.origin}${BASE}`)}\n\n市盈率刷新任务（kind=watch-pe）：如果 job.watchId 有值，只核实该 watchId 对应的单只个股并只提交一条结果；watchId 为空时才核实当前全部关注个股。统一采用 TTM trailing P/E；优先使用专业行情源的 trailing P/E，计算时只用最新四个季度 GAAP 摊薄 EPS 与同一日期的股价。TTM EPS≤0 写 N/M（status=unavailable、value=null），缺失标记 unverified，不得用 forward PE 代替；ETF 和指数不处理。通过 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete 回写 values（watchId、symbol、basis=TTM、status、value、asOf、source、sourceUrl、note）；未能核实则 POST fail，保留旧数据。\n\n换算公式任务（kind=converter）：先核对 VOO/SPYL 与 QQQM/CNDX 的发行方、指数和 USD 挂牌代码。${CONVERTER_TASK_GUIDANCE} 完成时 POST ${location.origin}${BASE}/api/jobs/{任务ID}/complete，提交包含两组 calibrations 的 JSON。\n\n研究任务（kind=watch、portfolio、market）：联网核实资料并生成自包含中文 HTML，保存到 apps/my_holdings/data/reports/ 对应目录；然后调用 complete API，提交 report 相对路径与完整 research 对象。watch 的 researchMode=initial 只补缺失研究，执行前若已有完整研究则直接 complete 回写跳过说明；researchMode=refresh 才是用户明确要求更新完整研究。价格任务独立执行；报告中的历史报价不可覆盖最新行情。无法完成时调用 /my-holdings/api/jobs/{任务ID}/fail 并说明原因。不要做买卖或交易。\n\n当前等待任务：\n${JSON.stringify(pending, null, 2)}\n\n${contextPack(stateRef.current, "portfolio", "仅处理上述待办任务，并回写结果。")}`;
     try {
       await navigator.clipboard.writeText(prompt);
       notify("待办与持仓背景已复制；粘贴给 Codex 后由它处理并回写结果");
@@ -2252,7 +2252,7 @@ export default function HoldingsApp() {
                   </div>
                   {overviewJobs.length ? <div className="mh-overview-job-list">
                     {overviewJobs.map((job) => {
-                      const name = job.kind === "quotes" ? "持仓价格更新" : job.kind === "watch-quotes" ? `关注价格 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "标的"}` : job.kind === "watch-pe" ? "关注个股市盈率刷新" : job.kind === "converter" ? "换算公式更新" : job.kind === "market" ? "行情分析" : job.kind === "portfolio" ? "组合体检" : `公司研究 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "关注标的"}`;
+                      const name = job.kind === "quotes" ? "持仓价格更新" : job.kind === "watch-quotes" ? `关注价格 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "标的"}` : job.kind === "watch-pe" ? `关注个股市盈率 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "全部"}` : job.kind === "converter" ? "换算公式更新" : job.kind === "market" ? "行情分析" : job.kind === "portfolio" ? "组合体检" : `公司研究 · ${state.watchlist.find((item) => item.id === job.watchId)?.symbol || "关注标的"}`;
                       return <div className="mh-overview-job-row" key={job.id}><span className={`mh-overview-job-status ${job.status}`} /><span><strong>{name}</strong><small>{job.status === "done" ? "已完成" : job.status === "failed" ? "未完成" : "等待交给 Codex"} · {when(job.completedAt || job.date)}</small></span></div>;
                     })}
                   </div> : <div className="mh-overview-preview-empty">目前没有待办；最近行情更新于 {when(state.marketUpdatedAt)}。</div>}
@@ -2855,7 +2855,7 @@ export default function HoldingsApp() {
                             {j.status === "failed" ? <X size={17} /> : <LoaderCircle size={17} />}
                           </span>
                           <div>
-                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "watch-pe" ? "关注个股市盈率刷新" : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "watch-pe" ? `市盈率刷新 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "全部"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                             <small>{when(j.date)} · {j.status === "failed" ? `未完成${j.error ? ` · ${j.error}` : ""}` : "等待交给 Codex"}</small>
                           </div>
                         </div>
@@ -2876,7 +2876,7 @@ export default function HoldingsApp() {
                         <div className="mh-job" key={j.id}>
                           <span className="mh-job-icon done"><CheckCircle2 size={17} /></span>
                           <div>
-                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "watch-pe" ? "关注个股市盈率刷新" : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
+                            <strong>{j.kind === "watch" ? `研究 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "关注标的"}` : j.kind === "watch-quotes" ? `关注价格 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "标的"}` : j.kind === "watch-pe" ? `市盈率刷新 ${state.watchlist.find((w) => w.id === j.watchId)?.symbol || "全部"}` : j.kind === "market" ? "行情研究" : j.kind === "quotes" ? "持仓价格更新" : j.kind === "converter" ? "换算公式更新" : "持仓分析"}</strong>
                             <small>{when(j.completedAt || j.date)} · 已完成并保存</small>
                           </div>
                           {j.report && <button className="mh-icon" aria-label="打开报告" onClick={() => openReport(j.report)}><ArrowUpRight size={15} /></button>}
@@ -3185,7 +3185,7 @@ export default function HoldingsApp() {
                     }, { successMessage: "已加入近期关注并同步决策计划" })
                   : await upsert("watchlist", savedWatch);
                 if (success && isNewWatch) {
-                  const queued = await request("/api/jobs/batch-watch", { jobs: [{ watchId: savedWatch.id }], origin: "watch-add" }).then((result) => { setState(result.state); stateRef.current = result.state; notify("已加入价格更新与首次研究待办"); return true; }).catch((error) => { notify(error.message, true); return false; });
+                  const queued = await request("/api/jobs/batch-watch", { jobs: [{ watchId: savedWatch.id }], origin: "watch-add" }).then((result) => { setState(result.state); stateRef.current = result.state; notify("已加入价格与首次研究待办；个股市盈率会单独排队"); return true; }).catch((error) => { notify(error.message, true); return false; });
                   if (!queued) await refresh();
                 }
               }}
