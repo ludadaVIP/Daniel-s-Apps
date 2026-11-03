@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 2877,
-  "updatedAt": "2026-11-03T03:59:56.868Z",
+  "revision": 2901,
+  "updatedAt": "2026-11-03T04:54:58.242Z",
   "accounts": [
     {
       "id": "a1",
@@ -3376,7 +3376,7 @@
       },
       "researchedAt": "2026-10-26T01:35:44.199Z",
       "report": "research/my-holdings-research-cbrs-2026-10-26.html",
-      "targetPrice": 90,
+      "targetPrice": 65,
       "pe": {
         "value": null,
         "status": "unavailable",
@@ -3957,7 +3957,7 @@
       },
       "researchedAt": "2026-10-28T22:11:33.993Z",
       "report": "research/20261028-msft.html",
-      "targetPrice": 480,
+      "targetPrice": null,
       "pe": {
         "status": "available",
         "basis": "TTM",
@@ -4039,7 +4039,7 @@
       },
       "researchedAt": "2026-10-28T22:11:34.448Z",
       "report": "research/20261028-aapl.html",
-      "targetPrice": 300,
+      "targetPrice": null,
       "pe": {
         "status": "available",
         "basis": "TTM",
@@ -4113,7 +4113,7 @@
       },
       "researchedAt": "2026-10-28T22:14:33.968Z",
       "report": "research/20261028-nvda.html",
-      "targetPrice": 190,
+      "targetPrice": null,
       "pe": {
         "status": "available",
         "basis": "TTM",
@@ -4265,7 +4265,7 @@
       },
       "researchedAt": "2026-10-28T22:11:34.523Z",
       "report": "research/20261028-amzn.html",
-      "targetPrice": 225,
+      "targetPrice": null,
       "pe": {
         "status": "available",
         "basis": "TTM",
@@ -4338,7 +4338,7 @@
       },
       "researchedAt": "2026-10-28T22:11:34.606Z",
       "report": "research/20261028-meta.html",
-      "targetPrice": 540,
+      "targetPrice": null,
       "pe": {
         "status": "available",
         "basis": "TTM",
@@ -4422,7 +4422,8 @@
         "source": "Stock Analysis · trailing P/E (TTM)",
         "sourceUrl": "https://stockanalysis.com/stocks/tsla/statistics/",
         "note": "Stock Analysis trailing P/E (TTM)，截至 2026-10-29；仅记录历史市盈率，不代表未来估值。"
-      }
+      },
+      "targetPrice": null
     },
     {
       "id": "d127b1e5-2e54-486d-99cb-9c483b6a623e",
@@ -5932,6 +5933,26 @@
       },
       "researchedAt": "2026-11-02T08:45:37.049Z",
       "report": "research/my-holdings-research-algm-2026-11-02.html"
+    },
+    {
+      "id": "87b54f45-75b7-4302-a53f-385e0767dde9",
+      "name": "GTLB",
+      "symbol": "GTLB",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "attention": 2,
+      "watchCategoryId": "uncategorized"
+    },
+    {
+      "id": "d7f135cb-4a2d-4855-8c50-c8d95ece17f9",
+      "name": "BILL",
+      "symbol": "BILL",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "attention": 2,
+      "watchCategoryId": "uncategorized"
     }
   ],
   "cash": [
@@ -6852,6 +6873,36 @@
       "body": "",
       "kind": "plan",
       "watchId": "f55a9e0e-dec5-4ce2-9a99-7ab21549195d",
+      "plan": {
+        "allocationPct": null,
+        "safetyLow": null,
+        "safetyHigh": null,
+        "discountLow": null,
+        "discountHigh": null
+      }
+    },
+    {
+      "id": "125bcaae-06f3-4789-8428-963b3e772a47",
+      "date": "2026-11-03",
+      "title": "GTLB 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "87b54f45-75b7-4302-a53f-385e0767dde9",
+      "plan": {
+        "allocationPct": null,
+        "safetyLow": null,
+        "safetyHigh": null,
+        "discountLow": null,
+        "discountHigh": null
+      }
+    },
+    {
+      "id": "f6f44606-ff68-4838-8124-c34c95af4d20",
+      "date": "2026-11-03",
+      "title": "BILL 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "d7f135cb-4a2d-4855-8c50-c8d95ece17f9",
       "plan": {
         "allocationPct": null,
         "safetyLow": null,
@@ -21531,6 +21582,74 @@
       },
       "completedAt": "2026-11-03T03:59:56.855Z",
       "summary": "已更新 ALGM 的夜盘价；已有研究保留。"
+    },
+    {
+      "watchId": "87b54f45-75b7-4302-a53f-385e0767dde9",
+      "status": "waiting",
+      "date": "2026-11-03T04:54:44.953Z",
+      "error": "",
+      "batchId": "0b77d6b5-47fc-4d6f-9d5c-8068fe84c28f",
+      "origin": "watch-add",
+      "id": "a96ce305-ebff-43b2-8372-09dd570bddb7",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 GTLB GTLB：先调用实际执行时刻的 quote-policy，按其时区和交易时段取价。美股夜盘时先核对 Moomoo 报价页或本机 Moomoo OpenAPI，Moomoo 不可用或无新鲜夜盘价时立即查 TradingView BOATS 24/5 图表（https://www.tradingview.com/chart/?symbol=BOATS%3AGTLB），确认 Blue Ocean Alternative Trade System、Market open 和当前价格；该源官方说明夜盘实时数据每秒更新。不可只看常规市场是否开市或只查 Yahoo。优先提交与 policy.session 一致、时间戳距执行不超过20分钟的报价；没有任何可核实的新鲜时段报价时，才回退最近已完成交易日未复权正式收盘价。保存价格类型、时段、UTC报价时间、币种与来源链接。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "87b54f45-75b7-4302-a53f-385e0767dde9",
+      "status": "waiting",
+      "date": "2026-11-03T04:54:44.953Z",
+      "error": "",
+      "batchId": "0b77d6b5-47fc-4d6f-9d5c-8068fe84c28f",
+      "origin": "watch-add",
+      "id": "ea7f45ae-b325-4313-9a93-8607ed379f5d",
+      "kind": "watch",
+      "researchMode": "initial",
+      "question": "仅在完整研究缺失时补充首次研究：GTLB GTLB。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。"
+    },
+    {
+      "watchId": "87b54f45-75b7-4302-a53f-385e0767dde9",
+      "status": "waiting",
+      "date": "2026-11-03T04:54:44.953Z",
+      "error": "",
+      "batchId": "0b77d6b5-47fc-4d6f-9d5c-8068fe84c28f",
+      "origin": "watch-add",
+      "id": "09748ae4-fc79-4350-8868-2ac35d82099e",
+      "kind": "watch-pe",
+      "question": "仅刷新这只新加入近期关注的个股市盈率：GTLB GTLB。采用 trailing P/E (TTM，过去12个月 GAAP 摊薄每股收益)；优先使用可信专业行情源直接给出的 trailing P/E，并核对最新股价与财报日期。如自行计算，使用同一币种的当前普通股价格 ÷ 最新四个季度 GAAP 摊薄 EPS 之和，不混入 forward P/E、调整后 EPS 或旧价格。TTM EPS <= 0 时标记 unavailable，value=null，并在 note 写 N/M 与原因；数据无法核实则标记 unverified，不猜值。仅处理并提交本任务的 watchId=87b54f45-75b7-4302-a53f-385e0767dde9、symbol=GTLB 这一只标的，asOf 使用股价日期，sourceUrl 提供可打开的 HTTPS 来源。完成时 POST /my-holdings/api/jobs/{任务ID}/complete，提交 {\"values\":[{\"watchId\":\"87b54f45-75b7-4302-a53f-385e0767dde9\",\"symbol\":\"GTLB\",\"basis\":\"TTM\",\"status\":\"available|unavailable|unverified\",\"value\":123.45 或 null,\"asOf\":\"YYYY-MM-DD\",\"source\":\"来源\",\"sourceUrl\":\"https://...\",\"note\":\"说明\"}],\"summary\":\"...\"}；未能核实则调用 fail，不覆盖旧值。无需 HTML。"
+    },
+    {
+      "watchId": "d7f135cb-4a2d-4855-8c50-c8d95ece17f9",
+      "status": "waiting",
+      "date": "2026-11-03T04:54:58.223Z",
+      "error": "",
+      "batchId": "c2319ad8-7607-4836-8adc-14cf1da47656",
+      "origin": "watch-add",
+      "id": "d2cb7834-302a-434b-8a12-66bf426ac39d",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 BILL BILL：先调用实际执行时刻的 quote-policy，按其时区和交易时段取价。美股夜盘时先核对 Moomoo 报价页或本机 Moomoo OpenAPI，Moomoo 不可用或无新鲜夜盘价时立即查 TradingView BOATS 24/5 图表（https://www.tradingview.com/chart/?symbol=BOATS%3ABILL），确认 Blue Ocean Alternative Trade System、Market open 和当前价格；该源官方说明夜盘实时数据每秒更新。不可只看常规市场是否开市或只查 Yahoo。优先提交与 policy.session 一致、时间戳距执行不超过20分钟的报价；没有任何可核实的新鲜时段报价时，才回退最近已完成交易日未复权正式收盘价。保存价格类型、时段、UTC报价时间、币种与来源链接。保留已有研究、HTML 报告和研究日期，不生成研究。"
+    },
+    {
+      "watchId": "d7f135cb-4a2d-4855-8c50-c8d95ece17f9",
+      "status": "waiting",
+      "date": "2026-11-03T04:54:58.223Z",
+      "error": "",
+      "batchId": "c2319ad8-7607-4836-8adc-14cf1da47656",
+      "origin": "watch-add",
+      "id": "789152fa-0fcb-474d-bd46-2261e5fddc7a",
+      "kind": "watch",
+      "researchMode": "initial",
+      "question": "仅在完整研究缺失时补充首次研究：BILL BILL。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。"
+    },
+    {
+      "watchId": "d7f135cb-4a2d-4855-8c50-c8d95ece17f9",
+      "status": "waiting",
+      "date": "2026-11-03T04:54:58.223Z",
+      "error": "",
+      "batchId": "c2319ad8-7607-4836-8adc-14cf1da47656",
+      "origin": "watch-add",
+      "id": "80b846e2-d0cd-4a86-8055-806fbabcc0b7",
+      "kind": "watch-pe",
+      "question": "仅刷新这只新加入近期关注的个股市盈率：BILL BILL。采用 trailing P/E (TTM，过去12个月 GAAP 摊薄每股收益)；优先使用可信专业行情源直接给出的 trailing P/E，并核对最新股价与财报日期。如自行计算，使用同一币种的当前普通股价格 ÷ 最新四个季度 GAAP 摊薄 EPS 之和，不混入 forward P/E、调整后 EPS 或旧价格。TTM EPS <= 0 时标记 unavailable，value=null，并在 note 写 N/M 与原因；数据无法核实则标记 unverified，不猜值。仅处理并提交本任务的 watchId=d7f135cb-4a2d-4855-8c50-c8d95ece17f9、symbol=BILL 这一只标的，asOf 使用股价日期，sourceUrl 提供可打开的 HTTPS 来源。完成时 POST /my-holdings/api/jobs/{任务ID}/complete，提交 {\"values\":[{\"watchId\":\"d7f135cb-4a2d-4855-8c50-c8d95ece17f9\",\"symbol\":\"BILL\",\"basis\":\"TTM\",\"status\":\"available|unavailable|unverified\",\"value\":123.45 或 null,\"asOf\":\"YYYY-MM-DD\",\"source\":\"来源\",\"sourceUrl\":\"https://...\",\"note\":\"说明\"}],\"summary\":\"...\"}；未能核实则调用 fail，不覆盖旧值。无需 HTML。"
     }
   ],
   "marketUpdatedAt": "2026-11-03T03:59:29.713Z",
@@ -21776,18 +21895,12 @@
       "date": "2026-11-03",
       "watchIds": [
         "38483e90-6472-49f0-b990-4124e9277241",
-        "caf33a87-9f4c-4c26-9bec-e2dec4c4903c",
         "9c572b68-64fb-4e7d-9692-74f569040195",
-        "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
-        "33c480cb-9329-4681-a93c-7b15dbaa4be0",
-        "b03c68c0-833f-47d8-8c5f-ce5647cf080a",
         "51ad04f2-e977-43e6-9f59-3af45199e20f",
         "2636a1a3-86d9-468b-af28-eb16cff86f96",
-        "c9890167-5ede-4e24-b612-1180849004ba",
         "5184a372-c42c-4d2b-b442-3c954b76d836",
         "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
         "c926f17c-43a8-4e8f-9d78-5498591db5e7",
-        "18dc915d-e133-4655-97a3-7521bea58956",
         "9392cfa3-7e7c-4cd4-b14e-c3ca4bcaf009",
         "71314544-bdc1-4c97-be06-821d7464ef31",
         "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
@@ -21823,6 +21936,7 @@
         "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
         "f389b712-950c-40f5-a71d-7a777a5458a9",
         "990ad5a3-7a56-45e9-a914-78424558e749",
+        "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
         "28efd446-0de3-4992-b562-7836ceb691ae",
         "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
         "bcdb53f1-c038-4c1d-93f9-77489dddee7b"
