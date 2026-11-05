@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 3399,
-  "updatedAt": "2026-11-04T23:32:25.152Z",
+  "revision": 3403,
+  "updatedAt": "2026-11-05T03:13:45.624Z",
   "accounts": [
     {
       "id": "a1",
@@ -13,7 +13,7 @@
       "id": "a2",
       "name": "账户 R",
       "note": "来源 account2.jpg · 可重命名",
-      "cashBalance": 67800
+      "cashBalance": 66600
     }
   ],
   "holdings": [
@@ -132,21 +132,21 @@
       "accountId": "a2",
       "symbol": "SOXX",
       "name": "iShares Semiconductor ETF",
-      "quantity": 3,
-      "price": 452,
-      "changePct": null,
-      "cost": 1495.2,
-      "marketValue": 1356,
-      "averagePrice": 498.40000000000003,
+      "quantity": 6,
+      "cost": 2831.19,
+      "marketValue": 2712,
+      "averagePrice": 471.865,
       "currency": "USD",
       "sector": "半导体",
       "source": "account2.jpg",
-      "priceDate": "2026-11-04",
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
+      "price": 452,
+      "priceDate": "2026-11-04",
       "priceSource": "手动调整 · 盘后参考",
-      "priceType": "manual"
+      "priceType": "manual",
+      "changePct": null
     },
     {
       "id": "h7",
@@ -7377,6 +7377,34 @@
       "holdingId": "h5",
       "symbol": "QQQM",
       "name": "Invesco NASDAQ 100 ETF"
+    },
+    {
+      "id": "7f1c9043-77c9-49a4-9254-0863f746f91c",
+      "kind": "trade",
+      "date": "2026-11-05",
+      "time": "14:00",
+      "timeZone": "Pacific/Auckland",
+      "title": "买入 SOXX · 市价单 成交",
+      "body": "近期半导体板块回撤，于是选择买入。类似于 定投。看重它的potential。之前在 498 买了3股，今天在 445 又买了3股。",
+      "side": "buy",
+      "orderType": "market",
+      "status": "filled",
+      "quantity": 3,
+      "filledQuantity": 3,
+      "price": 445.33,
+      "limitPrice": null,
+      "fees": 0,
+      "currency": "USD",
+      "accountId": "a2",
+      "accountName": "账户 R",
+      "watchId": "",
+      "holdingId": "h6",
+      "holdingTradeId": "f2d0a744-93cd-4ce6-a981-c83dd4b394b2",
+      "symbol": "SOXX",
+      "name": "半导体ETF-SOXX",
+      "timeInForce": "DAY",
+      "broker": "",
+      "brokerOrderId": ""
     }
   ],
   "analyses": [
@@ -26720,6 +26748,20 @@
       "holdingId": "h7",
       "cost": 28001.2,
       "recordedAt": "2026-11-04T08:30:56.313Z"
+    },
+    {
+      "id": "f2d0a744-93cd-4ce6-a981-c83dd4b394b2",
+      "accountId": "a2",
+      "symbol": "SOXX",
+      "currency": "USD",
+      "quantity": 3,
+      "price": 445.33,
+      "fees": 0,
+      "date": "2026-11-05",
+      "type": "buy",
+      "holdingId": "h6",
+      "cost": 1335.99,
+      "recordedAt": "2026-11-05T01:08:01.106Z"
     }
   ],
   "watchlistUpdatedAt": "2026-11-04T23:23:35.297Z",
@@ -26967,6 +27009,26 @@
       "brokerStatus": "",
       "submittedAtText": "",
       "accountId": "a2",
+      "note": "",
+      "source": "手工记录"
+    },
+    {
+      "id": "df9c55f1-69dc-4510-86ff-0da23ded9904",
+      "watchId": "f6b57ee2-657a-4476-a59a-0239a3bb40d1",
+      "symbol": "SMH",
+      "exchange": "NASDAQ",
+      "name": "VanEck Semiconductor ETF",
+      "side": "buy",
+      "orderType": "limit",
+      "quantity": 3,
+      "filledQuantity": 0,
+      "limitPrice": 485,
+      "currency": "USD",
+      "timeInForce": "GTC",
+      "status": "draft",
+      "brokerStatus": "",
+      "submittedAtText": "",
+      "accountId": "a1",
       "note": "",
       "source": "手工记录"
     }

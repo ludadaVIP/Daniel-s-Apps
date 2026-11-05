@@ -64,6 +64,7 @@ import {
   WatchForm,
   CashForm,
   OrderForm,
+  OrderFillForm,
   AccountCashForm,
   GoalsForm,
   JournalForm,
@@ -238,7 +239,7 @@ function orderValueText(values) {
   const entries = Object.entries(values || {}).filter(([, value]) => value > 0);
   return entries.length ? entries.map(([currency, value]) => money(value, currency)).join(" · ") : "—";
 }
-function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, selected, onToggleSelect, onChangeAccount, onEdit, onDelete, onOpenWatch, onRecordDecision }) {
+function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, selected, onToggleSelect, onChangeAccount, onEdit, onDelete, onOpenWatch, onRecordDecision, onExecute }) {
   const remaining = orderRemaining(order);
   const selectable = remaining > 0;
   const accountId = order.accountId || defaultAccountId || accounts[0]?.id || "";
@@ -277,6 +278,12 @@ function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, s
       {watch && <div><small>保存报价 · {watch.priceDate || "日期未知"}</small><strong>{currentPrice > 0 ? money(currentPrice, watch.priceCurrency || order.currency) : "暂无保存报价"}{gap !== null && <em className={gap <= 0 ? "mh-gain" : "mh-loss"}> · 限价 {gap <= 0 ? "低于" : "高于"} {Math.abs(gap).toFixed(2)}%</em>}</strong></div>}
     </div>
     {visibleNote && <p className="mh-order-note">{visibleNote}</p>}
+    {order.side === "buy" && selectable && <div className="mh-order-card-footer">
+      <button type="button" className="mh-order-fill-button" disabled={busy} title="确认成交"
+        aria-label={`确认 ${order.symbol} 委托成交并入持仓`} onClick={onExecute}>
+        <Check size={14} />
+      </button>
+    </div>}
   </article>;
 }
 const WATCH_ATTENTION_OPTIONS = [
@@ -1429,6 +1436,35 @@ export default function HoldingsApp() {
     } catch (e) {
       notify(e.message, true);
       if (e.message.includes("已更新")) await refresh();
+      return false;
+    } finally {
+      busyRef.current = false;
+      setBusy(false);
+    }
+  };
+  const executeOrder = async (order, fill) => {
+    if (busyRef.current) return false;
+    busyRef.current = true;
+    setBusy(true);
+    try {
+      const result = await request(`/api/orders/${encodeURIComponent(order.id)}/execute`, {
+        ...fill,
+        revision: stateRef.current.revision,
+      });
+      setState(result.state);
+      stateRef.current = result.state;
+      setSelected(result.holding?.id || null);
+      setModal(null);
+      setExcludedOrderIds((current) => {
+        const next = new Set(current);
+        next.delete(order.id);
+        return next;
+      });
+      notify(`${result.merged ? "已追加到" : "已建立"} ${result.holding.symbol} 持仓：${Number(result.quantity).toLocaleString("en-US", { maximumFractionDigits: 8 })} 股，成交均价 ${money(result.price, result.holding.currency)}；委托已移出待办`);
+      return true;
+    } catch (e) {
+      notify(e.message, true);
+      if (e.message.includes("数据已更新")) await refresh();
       return false;
     } finally {
       busyRef.current = false;
@@ -2923,7 +2959,8 @@ export default function HoldingsApp() {
                               }, { close: false, successMessage: "委托账户已更新" })}
                               onEdit={() => setModal({ type: "order", item: order })} onDelete={() => remove("orders", order)}
                               onOpenWatch={() => { page("watch"); selectWatch(order.watchId); }}
-                              onRecordDecision={() => setModal({ type: "tradeLog", order, instrument: linkedWatch ? { kind: "watch", item: linkedWatch } : linkedHolding ? { kind: "holding", item: linkedHolding } : undefined })} />;
+                              onRecordDecision={() => setModal({ type: "tradeLog", order, instrument: linkedWatch ? { kind: "watch", item: linkedWatch } : linkedHolding ? { kind: "holding", item: linkedHolding } : undefined })}
+                              onExecute={() => setModal({ type: "orderFill", item: order, accountId })} />;
                           })}
                         </div> : <p className="mh-order-account-empty">该账户暂无委托单</p>}
                       </section>
@@ -3337,6 +3374,7 @@ export default function HoldingsApp() {
               journal: modal.item ? "编辑复盘" : "写一条复盘",
               discipline: modal.item ? "编辑决策纪律" : "新增决策纪律",
               tradeLog: modal.item ? "编辑交易日志" : "记录一笔交易",
+              orderFill: "成交并入持仓",
               delete: "删除这条记录",
               research: "标的研究",
               importResearch: "导入 AI 研究",
@@ -3360,6 +3398,7 @@ export default function HoldingsApp() {
             "order",
             "discipline",
             "tradeLog",
+            "orderFill",
           ].includes(modal.type)}
         >
           {modal.type === "priceAlerts" && (
@@ -3460,6 +3499,13 @@ export default function HoldingsApp() {
             defaultAccountId={defaultOrderAccountId}
             busy={busy}
             onSave={(value) => upsert("orders", value)}
+          />}
+          {modal.type === "orderFill" && <OrderFillForm
+            order={modal.item}
+            accounts={state.accounts}
+            defaultAccountId={modal.accountId || defaultOrderAccountId}
+            busy={busy}
+            onSave={(value) => executeOrder(modal.item, value)}
           />}
           {modal.type === "accountCash" && (
             <AccountCashForm

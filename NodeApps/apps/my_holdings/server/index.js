@@ -11,7 +11,7 @@ import { contextPack, CURRENCIES } from "../src/model.js";
 import { validateFundHoldings } from "../src/lookthrough.js";
 import { PRICE_REFRESH_QUESTION, WATCH_PE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchPeRefreshQuestion, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
 import { quotePolicy } from "./market-session.js";
-import { normalizeSymbol, positionKey, roundMoney, previewBuy, applyHoldingQuote, consolidateHoldings } from "../src/positions.js";
+import { normalizeSymbol, positionKey, roundMoney, previewBuy, applyHoldingQuote, consolidateHoldings, latestHoldingQuote } from "../src/positions.js";
 import { cloneDefaultWatchCategories, DEFAULT_WATCH_CATEGORIES, WATCH_UNCLASSIFIED_ID } from "../src/watch-categories.js";
 import {
   CONVERSION_PAIRS,
@@ -1321,11 +1321,100 @@ export async function createHoldingsApp({
             status: "filled", quantity: buy.quantity, filledQuantity: buy.quantity, price: buy.price,
             limitPrice: input.decision.orderType === "limit" ? input.decision.limitPrice : null,
             fees: buy.fees, currency: buy.currency, accountId: buy.accountId, accountName: account?.name || "",
-            watchId: linkedWatch?.id || "", holdingId: holding.id, holdingTradeId: buy.id, symbol: buy.symbol,
+            // A buy is primarily linked to its holding. The watchlist card still
+            // finds this journal entry by symbol; keeping both IDs violates the
+            // journal schema's single-instrument-link rule and rejects the buy.
+            watchId: "", holdingId: holding.id, holdingTradeId: buy.id, symbol: buy.symbol,
             name: linkedWatch?.name || holding.name || buy.symbol, timeInForce: "DAY", broker: "", brokerOrderId: "",
           });
         }
         return { state: await write(s), holding, merged: Boolean(preview.existing) };
+      });
+      res.json(result);
+    } catch (e) { next(e); }
+  });
+  app.post("/api/orders/:id/execute", async (req, res, next) => {
+    try {
+      const input = req.body;
+      if (!text(input.accountId, 100) || !input.accountId ||
+          !num(input.price, 0.000001) || !num(input.fees ?? 0) ||
+          !date(input.date) || !input.date || !text(input.rationale || "", 20000))
+        throw error("成交信息无效；请检查账户、成交均价、费用和成交日期。");
+      const result = await serial(async () => {
+        const s = await read();
+        if (input.revision !== s.revision)
+          throw error("数据已更新，请刷新委托后重新确认；未保存的成交信息仍保留。", 409);
+        const orderIndex = s.orders.findIndex((row) => row.id === req.params.id);
+        if (orderIndex < 0) throw error("委托单已不存在或已处理，请刷新后重试。", 404);
+        const order = s.orders[orderIndex];
+        if (order.side !== "buy") throw error("目前只能将买入委托并入持仓；卖出委托请单独记录成交。");
+        if (!["draft", "working", "partial"].includes(order.status) || order.quantity <= order.filledQuantity)
+          throw error("该委托已结束或没有剩余数量，无法再次并入持仓。", 409);
+        const account = s.accounts.find((row) => row.id === input.accountId);
+        if (!account) throw error("请选择有效的持仓账户。", 404);
+
+        // This action closes the whole order. For orders with earlier partial
+        // fills, the entered price is the weighted average for the full order.
+        const buy = {
+          id: randomUUID(), accountId: account.id, symbol: normalizeSymbol(order.symbol),
+          currency: order.currency, quantity: order.quantity, price: input.price,
+          fees: input.fees ?? 0, date: input.date,
+        };
+        const preview = previewBuy(s.holdings, buy);
+        const linkedWatch = s.watchlist.find((watch) => watch.id === order.watchId) ||
+          s.watchlist.find((watch) => normalizeSymbol(watch.symbol) === buy.symbol);
+        const holdingQuote = latestHoldingQuote(s.holdings, buy.symbol, buy.currency);
+        const watchCurrencyCode = linkedWatch && watchCurrency(linkedWatch);
+        const watchQuote = linkedWatch && linkedWatch.price > 0 && Boolean(linkedWatch.priceDate) &&
+          date(linkedWatch.priceDate) && watchCurrencyCode === buy.currency
+          ? {
+              price: linkedWatch.price, priceDate: linkedWatch.priceDate,
+              priceSource: linkedWatch.priceSource, priceSourceUrl: linkedWatch.priceSourceUrl,
+              priceType: linkedWatch.priceType, priceSession: linkedWatch.priceSession,
+              priceAsOf: linkedWatch.priceAsOf, priceFetchedAt: linkedWatch.priceFetchedAt,
+              changePct: null,
+            }
+          : null;
+        const quoteTime = (quote) => quote && (quote.priceAsOf || quote.priceDate || quote.priceFetchedAt || "");
+        const quote = watchQuote && (!holdingQuote || quoteTime(watchQuote) > quoteTime(holdingQuote))
+          ? watchQuote
+          : holdingQuote;
+        const base = preview.existing || {
+          id: randomUUID(), accountId: buy.accountId, symbol: buy.symbol,
+          name: linkedWatch?.name || order.name || buy.symbol, currency: buy.currency,
+          sector: linkedWatch?.research?.identity?.sector || "其他", source: "委托成交并入",
+          recordedAt: buy.date, thesis: "", exitRule: "",
+        };
+        const holding = applyHoldingQuote({
+          ...base, quantity: preview.quantity, cost: preview.cost, averagePrice: preview.averagePrice,
+        }, quote, buy.price);
+        const holdingIndex = s.holdings.findIndex((row) => row.id === holding.id);
+        if (holdingIndex < 0) s.holdings.push(holding);
+        else s.holdings[holdingIndex] = holding;
+
+        s.holdingTrades ||= [];
+        const lot = {
+          ...buy, type: "buy", holdingId: holding.id,
+          cost: preview.addedCost, recordedAt: now().toISOString(),
+        };
+        s.holdingTrades.push(lot);
+        s.journal.push({
+          id: randomUUID(), kind: "trade", date: buy.date, time: "", timeZone: "",
+          title: `买入 ${buy.symbol} · 委托成交并入持仓`,
+          body: input.rationale.trim() || `用户确认本地委托已全部成交，按 ${buy.quantity} 股、均价 ${buy.price} ${buy.currency} 记入持仓。`,
+          side: "buy", orderType: order.orderType, status: "filled",
+          quantity: buy.quantity, filledQuantity: buy.quantity, price: buy.price,
+          limitPrice: order.orderType === "limit" ? order.limitPrice : null,
+          fees: buy.fees, currency: buy.currency, accountId: account.id, accountName: account.name,
+          watchId: "", holdingId: holding.id, holdingTradeId: lot.id,
+          symbol: buy.symbol, name: linkedWatch?.name || holding.name || order.name || buy.symbol,
+          disciplineId: "", timeInForce: order.timeInForce || "DAY", broker: "", brokerOrderId: "",
+        });
+        s.orders.splice(orderIndex, 1);
+        return {
+          state: await write(s), holding, lot, quantity: buy.quantity,
+          price: buy.price, fees: buy.fees, merged: Boolean(preview.existing),
+        };
       });
       res.json(result);
     } catch (e) { next(e); }

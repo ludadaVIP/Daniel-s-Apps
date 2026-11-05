@@ -389,6 +389,48 @@ export function OrderForm({ item, watchlist, accounts, defaultAccountId, onSave,
     <SaveButton busy={busy} label={item ? "保存委托记录" : "记录委托"} />
   </form>;
 }
+export function OrderFillForm({ order, accounts, defaultAccountId, onSave, busy }) {
+  const [v, set] = useState(() => ({
+    accountId: order.accountId || defaultAccountId || accounts[0]?.id || "",
+    price: order.status === "partial" || order.orderType !== "limit" || order.limitPrice == null
+      ? ""
+      : String(order.limitPrice),
+    fees: "0",
+    date: localDate(),
+    rationale: String(order.note || ""),
+  }));
+  const change = (key, value) => set((current) => ({ ...current, [key]: value }));
+  const quantity = Number(order.quantity || 0);
+  const previouslyFilled = Number(order.filledQuantity || 0);
+  return <form onSubmit={(event) => {
+    event.preventDefault();
+    onSave({ ...v, price: Number(v.price), fees: Number(v.fees || 0) });
+  }}>
+    <p className="mh-help">确认后会把整笔买入委托记成持仓批次，并从待办委托中移除。此操作只更新本地台账。</p>
+    <section className="mh-order-fill-summary">
+      <div><small>委托标的</small><strong>{order.symbol} · {order.name || order.symbol}</strong></div>
+      <div><small>本次并入股数</small><strong>{quantity.toLocaleString("en-US", { maximumFractionDigits: 8 })} 股</strong></div>
+      {previouslyFilled > 0 && <p>委托中已有 {previouslyFilled.toLocaleString("en-US", { maximumFractionDigits: 8 })} 股标为部分成交；本次按整笔 {quantity.toLocaleString("en-US", { maximumFractionDigits: 8 })} 股入账。请填写整笔委托的加权成交均价。</p>}
+    </section>
+    <div className="mh-form-grid">
+      <Field label="计入账户"><select required value={v.accountId} onChange={(event) => change("accountId", event.target.value)}>
+        {accounts.map((account) => <option key={account.id} value={account.id}>{account.name}</option>)}
+      </select></Field>
+      <Field label="实际成交日期"><input required type="date" value={v.date} onChange={(event) => change("date", event.target.value)} /></Field>
+      <Field label={`实际成交均价 · ${order.currency}`} hint={order.status === "partial" ? "填写整笔委托的加权平均成交价。" : order.orderType === "limit" ? "默认使用限价；若成交价不同，请改成实际均价。" : "市价单请填券商成交回报中的均价。"}>
+        <input required type="number" min="0.000001" max="100000000000000" step="any" value={v.price} onChange={(event) => change("price", event.target.value)} placeholder="填写成交均价" />
+      </Field>
+      <Field label={`成交费用 · ${order.currency}`} hint="计入这笔买入批次的总成本。">
+        <input type="number" min="0" max="100000000000000" step="any" value={v.fees} onChange={(event) => change("fees", event.target.value)} />
+      </Field>
+    </div>
+    <Field label="交易理由（可选）">
+      <textarea rows={3} maxLength={20000} value={v.rationale} onChange={(event) => change("rationale", event.target.value)} placeholder="留空时会自动记录为从委托单确认成交。" />
+    </Field>
+    <p className="mh-help">持仓均价与市值会同步重算；账户现金快照和弹药台账仍按原方式单独维护。</p>
+    <SaveButton busy={busy} label="确认成交并入持仓" />
+  </form>;
+}
 export function AccountCashForm({ account, onSave, busy }) {
   const [amount, setAmount] = useState(String(account?.cashBalance ?? 0));
   return (
