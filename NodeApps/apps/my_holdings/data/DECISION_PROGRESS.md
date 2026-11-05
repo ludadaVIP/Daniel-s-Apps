@@ -1,6 +1,6 @@
 # 决策报告目标进度
 
-已完成 9/66；资本基准40万美元，五年视角。
+已完成 10/66；资本基准40万美元，五年视角。
 
 以state.json和DECISION_GOAL.json为准；此表仅为进度索引。已有报告不代表后续刷新任务已完成。
 下一步：按下表顺序研究尚未完成的标的；每支先报告结论，再继续。详细JSON契约见DECISION_REPORTS.md。
@@ -14,7 +14,7 @@
 - [x] ENVX · 已保存 decisions/envx-2026-11-05-b0af9cb6-531e-48f7-a346-9c32651705db.html
 - [x] INOD · 已保存 decisions/inod-2026-11-05-3a648a5a-062d-47bb-ae67-3c87d1ad381f.html
 - [x] ASTS · 已保存 decisions/asts-2026-11-05-9e170ac0-5ee9-4973-915b-ff7d1e808d5a.html
-- [ ] CRDO · waiting · 229ea45c-b26e-40eb-a23b-e78fd7c688f0
+- [x] CRDO · 已保存 decisions/crdo-2026-11-05-229ea45c-b26e-40eb-a23b-e78fd7c688f0.html
 - [ ] HOOD · waiting · 2d05108c-6bc0-42b2-b9b2-b785b6647fbc
 - [ ] SPGI · waiting · 091d97b7-bbad-4045-9759-c4a303e3f977
 - [ ] VST · waiting · aead4714-5806-4b08-b478-426c1d1bec3e

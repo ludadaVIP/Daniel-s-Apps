@@ -1,0 +1,25 @@
+{
+  "passed": true,
+  "checks": 1398,
+  "at": "2026-11-05T03:49:41.002Z",
+  "modelSha256": "baac433d32bbe6f8066d588bac161e9774b2ade6f148321f8a75eaf79a0eaaaf",
+  "originalFinancialAnchors": "crdo-parent-financial-anchors-2026-11-05.json",
+  "method": "Independent JavaScript economic reconstruction and original-statement financial anchors; Python author model not imported or executed by auditor",
+  "scenarios": {
+    "bear": {
+      "today": 15.933589703467279,
+      "future": 26.056079336862826,
+      "crossToday": 23.856214341180966
+    },
+    "base": {
+      "today": 89.47864943940519,
+      "future": 147.62222132210402,
+      "crossToday": 144.79479550982614
+    },
+    "bull": {
+      "today": 204.425016834499,
+      "future": 328.81729167654015,
+      "crossToday": 317.4629812223937
+    }
+  }
+}

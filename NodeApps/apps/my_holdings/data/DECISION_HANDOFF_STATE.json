@@ -1,0 +1,443 @@
+{
+  "version": 1,
+  "createdAt": "2026-11-05T04:02:07.047339+00:00",
+  "purpose": "User requested finish CRDO then stop this computer and hand off; do not start HOOD here.",
+  "sourceGitCommit": "43c0856ac3e726551816aeb30a08967266f9f460",
+  "goalServiceLastObservedStatus": "usageLimited; overall 66-stock objective is not complete; resume using /goal on the new computer.",
+  "stateRevision": 3406,
+  "stateUpdatedAt": "2026-11-05T04:00:40.700Z",
+  "stateSha256": "b3a6763ac1690ae61f2bf459f035ce902d0ea9a4f9404bf8015b5dff4cc7c81d",
+  "goalSha256": "1b0704c825a9a7d0702294e393b36098f13360a195477bf46be369857ef8b9b8",
+  "fundHoldingsSha256": "f6cf0a83697e99fe3cbb6f6a0b2b7bba63ff54fd7eedd10edf9251e44428670c",
+  "capitalUsd": 400000,
+  "horizonYears": 5,
+  "total": 66,
+  "completedCount": 10,
+  "pendingCount": 56,
+  "next": {
+    "watchId": "5d0a5d34-3866-417c-a996-c1b5991daebb",
+    "symbol": "HOOD",
+    "jobId": "2d05108c-6bc0-42b2-b9b2-b785b6647fbc",
+    "status": "waiting"
+  },
+  "completed": [
+    {
+      "watchId": "6688d084-15c1-4d89-a450-a7b8d67b6616",
+      "symbol": "RKLB",
+      "json": "decisions/rklb-2026-11-04-62c5ba3c-18a8-4744-b0e0-121681f1f366.json",
+      "report": "decisions/rklb-2026-11-04-62c5ba3c-18a8-4744-b0e0-121681f1f366.html",
+      "updatedAt": "2026-11-04T05:50:32.817Z",
+      "conclusion": "Rocket Lab已证明Electron发射与卫星系统交付能力，但Neutron首飞延至2027年，Iridium并购又增加了整合、债务和稀释的不确定性。54.43美元收盘价要求的兑现强度远高于本报告基准；即使乐观路径，五年期末56.17美元也只有约0.6%年化。当前新增0%，不追买。基准两种方法的今日参考约12.7–19.1美元；严格按约15%所需回报与安全边际，条件买价为下方三档。卡片上原有39美元观察价仍是手填记录，本报告没有替它背书。"
+    },
+    {
+      "watchId": "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
+      "symbol": "OUST",
+      "json": "decisions/oust-2026-11-04-346778fe-6540-4524-8a14-7fdaf6f4f8ef.json",
+      "report": "decisions/oust-2026-11-04-346778fe-6540-4524-8a14-7fdaf6f4f8ef.html",
+      "updatedAt": "2026-11-04T05:56:32.362Z",
+      "conclusion": "Ouster的数字激光雷达、视觉与计算组合正接近更完整的感知平台，Q3新财报提供了真实增长证据；但27,000多件传感器并非全是lidar，50%同比也不是纯有机增长。单季自由现金流亏损约3,502万美元，4.21亿美元流动性主要来自股权融资，不能据调整EBITDA接近盈亏平衡就认定经营现金已转正。以财报后31.02美元历史盘后价，基准2031期末25.05意味着约-4.2%年化；乐观情景可达85.96美元、约22.6%年化，但需要高增长与利润率共同兑现。当前新增0%。本轮基准今日参考15.1–23.7美元，按约15%所需年回报与安全边际，条件买价为11.4–12.4、9.1–11.3、7–9美元；不是预测股价会跌到那里。"
+    },
+    {
+      "watchId": "9c572b68-64fb-4e7d-9692-74f569040195",
+      "symbol": "TMDX",
+      "json": "decisions/tmdx-2026-11-04-32c769c7-fe51-4934-b902-ada15dcbfee2.json",
+      "report": "decisions/tmdx-2026-11-04-32c769c7-fe51-4934-b902-ada15dcbfee2.html",
+      "updatedAt": "2026-11-04T10:46:16.927Z",
+      "conclusion": "TransMedics不是简单的低PE便宜医疗股，也不是没有商业壁垒的运输商。OCS、临床流程与NOP物流有价值，但Q2收入增长而营业利润下滑，2025净利润又含一次税收收益，必须按正常化现金与全部融资索偿估值。基准两法今天约$57.35–$71.18，68美元盘前快照处在这一区间上部；基准2031期末$103.06，五年年化约8.7%，不足本轮约15%门槛。当前不再新增。条件观察43.1–51.2、安全34.5–43、折价28–34.4美元，全部须等11月5日Q3披露后重核。已有20股×55美元本地买单高于本轮观察上限，不因它已存在就视为已通过研究。"
+    },
+    {
+      "watchId": "e8839fb8-b14b-4f60-bc6b-f01909376529",
+      "symbol": "LUNR",
+      "json": "decisions/lunr-2026-11-05-5e6f0fe7-9b3e-4360-9001-8f0de59e2ba7.json",
+      "report": "decisions/lunr-2026-11-05-5e6f0fe7-9b3e-4360-9001-8f0de59e2ba7.html",
+      "updatedAt": "2026-11-04T11:10:09.560Z",
+      "conclusion": "Lanteris带来了有实际盈利与交付履历的制造业务，但公司并非已经证明高速有机成长的月球公用事业。Q2表面四倍营收主要来自并购，同主体收入仅约+1.3%；固定价任务亏损、应收回收和资金消耗仍重要。基准今日DCF$4.03、较快分部利润恢复校验$5.55，均低于$10.73报价；基准2031期末$8.46，年化约-4.7%。当前新增0%。乐观路径有上行，悲观路径普通股可归零；不编造概率平均。三档条件价2.83–3.39 / 2.02–2.82 / 1.41–2.01美元，必须先核验Q3、至少18个月流动性、任务合同与实际股数；不是股价预测。"
+    },
+    {
+      "watchId": "68ac1738-90e2-44ce-aaa8-83967958e168",
+      "symbol": "PLTR",
+      "json": "decisions/pltr-2026-11-05-73ba98ee-3761-4467-ba06-3bfd63d7065f.json",
+      "report": "decisions/pltr-2026-11-05-73ba98ee-3761-4467-ba06-3bfd63d7065f.html",
+      "updatedAt": "2026-11-04T11:27:52.438Z",
+      "conclusion": "PLTR已证明高速增长、强利润与现金生成可以并存，不能再用‘只有故事、没有利润’解释它。美国商业+148%、政府+96%和NDR165%支持产品真实价值；同时62%调整营业率不能替代47%GAAP利润，合同上限也不是确定收入。基准模型已给2031收入34.16十亿美元、含SBC营业率45%，今日DCF$62.74，独立2031正常化经营盈利倍数校验的15%门槛折现值$77.43。基准2031续存DCF期末$98.25，相对$170.26年化-10.4%；更高倍数校验期末$155.75，两方法差距反映远期估值不确定性。当前新增0%；条件三档40.01–48.00 / 31.01–40.00 / 22.00–31.00美元，目标总敞口2%、上限3%，先扣已有ETF穿透。乐观成功有上行，不能保证五年翻倍。"
+    },
+    {
+      "watchId": "990ad5a3-7a56-45e9-a914-78424558e749",
+      "symbol": "AEHR",
+      "json": "decisions/aehr-2026-11-05-f589e4c8-b4dd-4b16-8250-fb1a4e18349e.json",
+      "report": "decisions/aehr-2026-11-05-f589e4c8-b4dd-4b16-8250-fb1a4e18349e.html",
+      "updatedAt": "2026-11-04T17:20:00.656Z",
+      "conclusion": "AEHR已经从单纯等待SiC复苏走向有真实AI量产订单的多应用测试平台，新Q1收入33.007百万、GAAP营业利润6.047百万、净利7.181百万，不能否认经营转折。但Q1FCF−3.103百万、FY26现金增长主要靠97.395百万ATM，耗材也有周期；新大客户量产验证不等于已锁定多年收入。基准已给2031模型年度收入310百万、含经济SBC营业率24%，今日DCF$14.65、正常化盈利倍数校验$21.41；基准2031期末DCF$24.04，相对$59.62年化-16.6%。乐观2031DCF$69.68、倍数法$104.92均为有条件路径。当前新增0%；三档8.79–10.98 / 6.60–8.78 / 4.40–6.59美元，条件目标1%=$4,000、上限1.5%=$6,000。不是预测股价一定会跌到这些价，也不是保证反弹。"
+    },
+    {
+      "watchId": "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
+      "symbol": "ENVX",
+      "json": "decisions/envx-2026-11-05-b0af9cb6-531e-48f7-a346-9c32651705db.json",
+      "report": "decisions/envx-2026-11-05-b0af9cb6-531e-48f7-a346-9c32651705db.html",
+      "updatedAt": "2026-11-04T17:48:45.180Z",
+      "conclusion": "韩国防务业务与新电池性能有真实进展，但不能把2.16亿美元pipeline、客户样品和手机测试直接当已锁定利润。基准已假设2031手机25百万单位、眼镜6百万单位及韩国收入230百万，总收入588百万；即使如此，前五期仍需约649.35百万未来股本融资，期末约505.08百万股。分配后普通股今日DCF$1.62、独立经营盈利倍数法$1.07；2031相应$3.70 / $2.46。这些融资并未落实，价格更低但融资条件变坏时价值也会下调。当前拟含权报价$2.91，基准两法的普通股价格代理年化约-3.3%至5.0%，并非完整权证收益。乐观和归零路径都保留，不编概率。当前新增0%；条件目标0.5%=$2,000、上限1%=$4,000。三档0.60–0.69 / 0.49–0.59 / 0.33–0.48仅为未来分配后普通股且证据通过的复核范围，须先更新11月12日完整财报及权证协议。"
+    },
+    {
+      "watchId": "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
+      "symbol": "INOD",
+      "json": "decisions/inod-2026-11-05-3a648a5a-062d-47bb-ae67-3c87d1ad381f.json",
+      "report": "decisions/inod-2026-11-05-3a648a5a-062d-47bb-ae67-3c87d1ad381f.html",
+      "updatedAt": "2026-11-04T22:26:44.538Z",
+      "conclusion": "INOD的增长、盈利、可复用数据资产和高难交付是真进展，不应简单视为普通低附加值外包。Q2收入92.142百万、经营EBIT15.860百万、归母净利14.412百万；但两客户约71%收入，巨额报告CFO主要受客户/供应商资金时点影响，不能全额永续。基准今日DCF$40.41、2031经营盈利倍数校验$59.15；2031两法$66.39 / $104.25，当前$43.99五年代理年化约8.6% / 18.8%。较高方法不能当保证回报，行动采用保守端与15%门槛。更严厉项目缩减压力今日$5.13、2031$8.06，无主观概率。当前新增0%；条件三档26.27–30.30 / 22.23–26.26 / 14.15–22.22。目标1%=$4,000、上限1.5%=$6,000，先扣已有30股×36美元的1,080美元买单；36高于新首档上沿，需按明日Q3/项目证据复核，未自动改动。"
+    },
+    {
+      "watchId": "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
+      "symbol": "ASTS",
+      "json": "decisions/asts-2026-11-05-9e170ac0-5ee9-4973-915b-ff7d1e808d5a.json",
+      "report": "decisions/asts-2026-11-05-9e170ac0-5ee9-4973-915b-ff7d1e808d5a.html",
+      "updatedAt": "2026-11-04T22:59:22.629Z",
+      "conclusion": "ASTS的普通手机直连、运营商分销及最新地面/卫星切换验证有价值；但尚无可验证的大众SpaceMobile收费规模，建设、替换与频谱的全寿命成本不能省略。原外生高价融资基准今日$4.50／2031$9.45，依赖投资者以高于该情景内在价值的价格出资，不能据此报价。补算每次按同情景融资后价值增发：基准今日DCF$2.69、独立盈利法$4.39；2031两法$5.65／$9.23，现价$35.88的五年年化约-30.9%／-23.8%。仍需后续融资2.97十亿美元及未来A股授权/替代资本安排。乐观DCF今日$61.23、2031$115.33，但需要远强于基准的用户、收费和利润；悲观0是明确的项目停止、无清算回收压力假设。当前新增0%；三档1.35–1.74 / 0.95–1.34 / 0.54–0.94仅为经营与融资过关后的复核区间，不是当前限价单建议。条件目标0.5%=$2,000，上限1%=$4,000。"
+    },
+    {
+      "watchId": "e59bec61-4342-46ba-99c5-200542b791d9",
+      "symbol": "CRDO",
+      "json": "decisions/crdo-2026-11-05-229ea45c-b26e-40eb-a23b-e78fd7c688f0.json",
+      "report": "decisions/crdo-2026-11-05-229ea45c-b26e-40eb-a23b-e78fd7c688f0.html",
+      "updatedAt": "2026-11-05T03:50:40.512Z",
+      "conclusion": "Credo已经把AI连接需求变成收入、利润和现金：FY26收入1,335.116百万、EBIT445.005；FY27Q1收入479.003、EBIT120.700。但直接买方A/B约71%，最终用户集中度须另看；收购、SBC、库存、产能押金和未来税负都影响每股价值。基准十年DCF今日$89.48，独立2031盈利资本化折回$144.79；2031两法$147.62／$249.53。按夜盘$133.00五年年化约2.1%／13.4%；较高方法不能当保证。当前新增0%；三档58.17–67.10 / 49.22–58.16 / 31.32–49.21以保守价值折让及15%门槛共同推导，仍需核新季报和客户/产品。40万美元条件目标1.5%=$6,000、上限2.5%=$10,000，扣SOXX间接敞口后剩$5,960.40。"
+    }
+  ],
+  "pending": [
+    {
+      "watchId": "5d0a5d34-3866-417c-a996-c1b5991daebb",
+      "symbol": "HOOD",
+      "jobId": "2d05108c-6bc0-42b2-b9b2-b785b6647fbc",
+      "status": "waiting"
+    },
+    {
+      "watchId": "a458efd6-1dde-44d5-8737-63854d7a5e63",
+      "symbol": "SPGI",
+      "jobId": "091d97b7-bbad-4045-9759-c4a303e3f977",
+      "status": "waiting"
+    },
+    {
+      "watchId": "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
+      "symbol": "VST",
+      "jobId": "aead4714-5806-4b08-b478-426c1d1bec3e",
+      "status": "waiting"
+    },
+    {
+      "watchId": "01a864b1-0623-4778-9656-0431418803b8",
+      "symbol": "AXP",
+      "jobId": "3a7b7564-c377-4fed-a9da-b9d38a48246e",
+      "status": "waiting"
+    },
+    {
+      "watchId": "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
+      "symbol": "INTC",
+      "jobId": "b7a0d35d-a0a8-4175-943f-e3b0880dee38",
+      "status": "waiting"
+    },
+    {
+      "watchId": "c926f17c-43a8-4e8f-9d78-5498591db5e7",
+      "symbol": "BRK.B",
+      "jobId": "dd329d3e-8484-4aaf-b067-8cfffd39731a",
+      "status": "waiting"
+    },
+    {
+      "watchId": "79730ba5-e176-4362-8ba4-022e0f8f35b9",
+      "symbol": "V",
+      "jobId": "d0fd558b-67a2-4fa5-a4e9-e52ba29f1609",
+      "status": "waiting"
+    },
+    {
+      "watchId": "c024e517-2f19-429e-9330-e49566ba2537",
+      "symbol": "APLD",
+      "jobId": "af80987d-b818-4198-932b-12ce47707bb7",
+      "status": "waiting"
+    },
+    {
+      "watchId": "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
+      "symbol": "AMPX",
+      "jobId": "5b0cd91a-cbca-4743-83f9-8802fabd54a2",
+      "status": "waiting"
+    },
+    {
+      "watchId": "5ffc01e1-e876-459c-828d-3f28dc5548d8",
+      "symbol": "PL",
+      "jobId": "c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b",
+      "status": "waiting"
+    },
+    {
+      "watchId": "5614a582-5385-49a4-a89f-2a0661942e35",
+      "symbol": "IREN",
+      "jobId": "615075be-650c-4541-aab4-fdb2add3f4a0",
+      "status": "waiting"
+    },
+    {
+      "watchId": "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
+      "symbol": "TEM",
+      "jobId": "675e461c-c136-4bc1-9b7e-28ffa661b6f1",
+      "status": "waiting"
+    },
+    {
+      "watchId": "71314544-bdc1-4c97-be06-821d7464ef31",
+      "symbol": "SE",
+      "jobId": "d3db5cdc-edf6-4035-8ced-812d43429f74",
+      "status": "waiting"
+    },
+    {
+      "watchId": "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
+      "symbol": "NU",
+      "jobId": "85c00166-2416-465b-9119-9ad498db333d",
+      "status": "waiting"
+    },
+    {
+      "watchId": "db257f43-036f-43ec-acbf-84c4bf91c1ff",
+      "symbol": "SOFI",
+      "jobId": "2f28573c-4b09-4e5a-9879-5f8896c20945",
+      "status": "waiting"
+    },
+    {
+      "watchId": "20517359-0ea4-40bc-a51c-d83eb77f75eb",
+      "symbol": "ADMA",
+      "jobId": "07f86b80-aeb9-4361-8e78-b7ee7255e722",
+      "status": "waiting"
+    },
+    {
+      "watchId": "e10a6356-e290-430c-9ca8-d5108019f74e",
+      "symbol": "PGY",
+      "jobId": "046ee2bc-e802-4cdf-b050-28fb7a3d5c78",
+      "status": "waiting"
+    },
+    {
+      "watchId": "1b0d63b8-bd16-4c7c-8f20-6e8d71c13876",
+      "symbol": "ZETA",
+      "jobId": "223eb31e-013d-4048-a90a-faf760620a7f",
+      "status": "waiting"
+    },
+    {
+      "watchId": "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
+      "symbol": "CBRS",
+      "jobId": "28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7",
+      "status": "waiting"
+    },
+    {
+      "watchId": "f389b712-950c-40f5-a71d-7a777a5458a9",
+      "symbol": "AAOI",
+      "jobId": "d69709e4-ba23-4099-999f-e52d5356bfa1",
+      "status": "waiting"
+    },
+    {
+      "watchId": "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
+      "symbol": "MP",
+      "jobId": "29d05244-ab8a-4055-bf59-ee87ea146d2c",
+      "status": "waiting"
+    },
+    {
+      "watchId": "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+      "symbol": "CLPT",
+      "jobId": "e9035dc5-19f0-4401-b17f-f5ffff06d8e3",
+      "status": "waiting"
+    },
+    {
+      "watchId": "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
+      "symbol": "IONQ",
+      "jobId": "0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23",
+      "status": "waiting"
+    },
+    {
+      "watchId": "28efd446-0de3-4992-b562-7836ceb691ae",
+      "symbol": "BE",
+      "jobId": "f78ab352-bd75-4447-90fd-df466596d5ef",
+      "status": "waiting"
+    },
+    {
+      "watchId": "caf33a87-9f4c-4c26-9bec-e2dec4c4903c",
+      "symbol": "MSFT",
+      "jobId": "de0a4b64-f9a7-4a96-b4bb-543fdacede11",
+      "status": "waiting"
+    },
+    {
+      "watchId": "c9890167-5ede-4e24-b612-1180849004ba",
+      "symbol": "AAPL",
+      "jobId": "ca102706-7ca5-4ca6-8d5e-886a236eed13",
+      "status": "waiting"
+    },
+    {
+      "watchId": "33c480cb-9329-4681-a93c-7b15dbaa4be0",
+      "symbol": "NVDA",
+      "jobId": "49c1abfd-2545-4f50-8fce-6afc4cb62ea5",
+      "status": "waiting"
+    },
+    {
+      "watchId": "38483e90-6472-49f0-b990-4124e9277241",
+      "symbol": "GOOG",
+      "jobId": "705d178b-5f48-43d1-b5cd-bc3e19569b69",
+      "status": "waiting"
+    },
+    {
+      "watchId": "b03c68c0-833f-47d8-8c5f-ce5647cf080a",
+      "symbol": "AMZN",
+      "jobId": "0c3f86b6-71bb-4ed3-8e46-6f63484076ce",
+      "status": "waiting"
+    },
+    {
+      "watchId": "18dc915d-e133-4655-97a3-7521bea58956",
+      "symbol": "META",
+      "jobId": "6dbe6abb-0b9b-47f6-b9ce-bf270f73a819",
+      "status": "waiting"
+    },
+    {
+      "watchId": "08e2c734-3f7c-43f9-aa3a-91bea5a7201c",
+      "symbol": "TSLA",
+      "jobId": "1c3a5b0e-2456-4666-a32e-806d9d01c0dc",
+      "status": "waiting"
+    },
+    {
+      "watchId": "d127b1e5-2e54-486d-99cb-9c483b6a623e",
+      "symbol": "AMD",
+      "jobId": "f98c9e58-604c-445d-8e5d-8e8d2f81d07c",
+      "status": "waiting"
+    },
+    {
+      "watchId": "2636a1a3-86d9-468b-af28-eb16cff86f96",
+      "symbol": "TSM",
+      "jobId": "06eec123-edd2-446e-80d0-352eb94f3a44",
+      "status": "waiting"
+    },
+    {
+      "watchId": "109a0c01-73d0-4a75-812d-6a87468db888",
+      "symbol": "SPCX",
+      "jobId": "abc8ce7c-a182-46c7-af72-69629799d4bc",
+      "status": "waiting"
+    },
+    {
+      "watchId": "0fbc5b82-f710-4302-a183-f2d84a768112",
+      "symbol": "UNH",
+      "jobId": "dbaf2e08-49e8-4b6b-be03-3bce243f3861",
+      "status": "waiting"
+    },
+    {
+      "watchId": "efb41df6-a108-4686-999d-da82269b8814",
+      "symbol": "SYM",
+      "jobId": "c51c7182-745d-4f7b-b797-7e77a1db62c6",
+      "status": "waiting"
+    },
+    {
+      "watchId": "9392cfa3-7e7c-4cd4-b14e-c3ca4bcaf009",
+      "symbol": "CGNX",
+      "jobId": "4450a3cb-f3ad-4748-b277-3a4132ae899d",
+      "status": "waiting"
+    },
+    {
+      "watchId": "2eeb0dac-7835-409c-b00b-0eecbbac86e5",
+      "symbol": "PATH",
+      "jobId": "98a7f00e-e070-4b18-990c-842d64de128c",
+      "status": "waiting"
+    },
+    {
+      "watchId": "58e60dd8-b2b1-4b16-9029-98c334e865aa",
+      "symbol": "NOW",
+      "jobId": "1bbbac2d-2e4e-4459-85e8-25ae557b2358",
+      "status": "waiting"
+    },
+    {
+      "watchId": "5b4f94c8-6b06-461a-bcb9-24d2f3fcea89",
+      "symbol": "AMBA",
+      "jobId": "811578d6-4f0a-41a6-8242-becaa83e4c2c",
+      "status": "waiting"
+    },
+    {
+      "watchId": "5184a372-c42c-4d2b-b442-3c954b76d836",
+      "symbol": "TER",
+      "jobId": "d6ba2878-6df5-41cc-9e96-0fe7c1a30a28",
+      "status": "waiting"
+    },
+    {
+      "watchId": "135c4bd8-0130-47fa-bfb3-bcf07b991f67",
+      "symbol": "DLO",
+      "jobId": "1fd660bf-9d5c-4f12-9b8a-b2e42cf43ee7",
+      "status": "waiting"
+    },
+    {
+      "watchId": "0f35461a-583e-4b28-aafb-ba9d673272e6",
+      "symbol": "CLBT",
+      "jobId": "588820ea-7160-4ae1-8517-c5a78b100fa7",
+      "status": "waiting"
+    },
+    {
+      "watchId": "5fc04024-090e-4fc0-85c3-0fc7c8967ea9",
+      "symbol": "ACMR",
+      "jobId": "06bcc337-09c9-4275-97f0-bade2fe3338d",
+      "status": "waiting"
+    },
+    {
+      "watchId": "51ad04f2-e977-43e6-9f59-3af45199e20f",
+      "symbol": "MRVL",
+      "jobId": "3e932aa2-8875-4b84-be3b-fe9f7e1cbb9a",
+      "status": "waiting"
+    },
+    {
+      "watchId": "3576e790-1cf4-436a-8165-de97908a9a8a",
+      "symbol": "ARQT",
+      "jobId": "05c1bc86-d163-4f80-9660-55f3c7d466db",
+      "status": "waiting"
+    },
+    {
+      "watchId": "82ba4f9c-eed4-43f3-b9a3-9d5eb9c72ef9",
+      "symbol": "INTA",
+      "jobId": "8ffc2c0c-44e1-485e-b063-c479f474fe80",
+      "status": "waiting"
+    },
+    {
+      "watchId": "62843ec0-68d9-40dc-a85e-97675c036af2",
+      "symbol": "DOCN",
+      "jobId": "5caebcac-0c90-4cbb-bd93-7434f792c103",
+      "status": "waiting"
+    },
+    {
+      "watchId": "e75e709d-ed63-48e9-85c8-ecd861e6c693",
+      "symbol": "FLYW",
+      "jobId": "9a8677ab-8773-4a7d-86e3-c99c5708b372",
+      "status": "waiting"
+    },
+    {
+      "watchId": "5b5b8fc2-0134-483f-bb7c-7f4484bfea57",
+      "symbol": "CLMB",
+      "jobId": "a520d6e8-8ed9-4058-a546-c7330844d613",
+      "status": "waiting"
+    },
+    {
+      "watchId": "f55a9e0e-dec5-4ce2-9a99-7ab21549195d",
+      "symbol": "ALGM",
+      "jobId": "2ae009e4-fb1e-435b-a99a-d157c0536d3a",
+      "status": "waiting"
+    },
+    {
+      "watchId": "87b54f45-75b7-4302-a53f-385e0767dde9",
+      "symbol": "GTLB",
+      "jobId": "24c94dd9-411c-4934-9635-fb07d54bb826",
+      "status": "waiting"
+    },
+    {
+      "watchId": "d7f135cb-4a2d-4855-8c50-c8d95ece17f9",
+      "symbol": "BILL",
+      "jobId": "bc8420d0-7200-466c-942c-14ae298a2921",
+      "status": "waiting"
+    },
+    {
+      "watchId": "66485a45-719a-4ca3-80b2-934a4853df5f",
+      "symbol": "VTEX",
+      "jobId": "53e9250b-97a6-4653-9b7c-4cc5b55b5fbf",
+      "status": "waiting"
+    },
+    {
+      "watchId": "7657f5a6-8328-45e8-b4c1-6b2eeeb40129",
+      "symbol": "AMPL",
+      "jobId": "cb6b3646-63a5-42c1-bba4-e380d349ffb8",
+      "status": "waiting"
+    },
+    {
+      "watchId": "790b5bb8-bf23-40a2-a5a3-b00014108576",
+      "symbol": "CLFD",
+      "jobId": "b88129fc-0177-435a-b9bf-e2451b89b253",
+      "status": "waiting"
+    }
+  ]
+}
