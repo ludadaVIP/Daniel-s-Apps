@@ -1,0 +1,179 @@
+{
+  "status": "PASS_WITH_ECONOMIC_LIMITATIONS",
+  "auditedAtUtc": "2026-11-05T05:03:27.502Z",
+  "modelVersion": 2,
+  "inputJson": "D:\\Github\\Daniel-s-Apps\\NodeApps\\apps\\my_holdings\\data\\reports\\decisions\\hood-fcfe-evidence-model-2026-11-05.json",
+  "inputJsonSha256": "4b0e1baed825bbe46998a729a7ce2d7782dbc532d0de0ce7883b0ccd93721b4b",
+  "authorPython": "D:\\Github\\Daniel-s-Apps\\NodeApps\\apps\\my_holdings\\data\\reports\\decisions\\hood-build-fcfe-model-2026-11-05.py",
+  "authorPythonSha256": "c5e00b64b457243a59520795e591d9f86fe28663e63c08a41709fbefb74b1cc2",
+  "method": "Independent JavaScript. Reads declared JSON inputs only; reconstructs 10-year cash/capital rows, backwards franchise DCF, terminal, shared dilution, reverse algebraic root, grids and stresses. Never imports or executes author Python.",
+  "numericalChecks": 1825,
+  "booleanChecks": 32,
+  "maxAbsoluteDifference": 1.4551915228366852e-11,
+  "maxRelativeDifference": 1.3860883642365681e-14,
+  "failures": [],
+  "summary": {
+    "bear": {
+      "todayFcfe": 5.008241518786556,
+      "year5Fcfe": 10.073362575547252,
+      "todayEarnings": 11.30953926943472,
+      "year5Earnings": 22.74752309689102,
+      "capital5": 11943.469440000003,
+      "retainedCash5": 2619.7325239879983,
+      "terminalRoe": 0.09392618559014339,
+      "terminalImpliedPe": 6.054360267108532,
+      "terminalValueShare": 0.44238063505606756,
+      "fundingPass": true,
+      "convertiblePass": true
+    },
+    "base": {
+      "todayFcfe": 24.243299520696965,
+      "year5Fcfe": 43.687212933277436,
+      "todayEarnings": 54.973970540392735,
+      "year5Earnings": 99.06487995726472,
+      "capital5": 16414.272,
+      "retainedCash5": 6867.449703199998,
+      "terminalRoe": 0.20434445011688512,
+      "terminalImpliedPe": 8.98093751517468,
+      "terminalValueShare": 0.5763390418054302,
+      "fundingPass": true,
+      "convertiblePass": true
+    },
+    "bull": {
+      "todayFcfe": 63.49144270657038,
+      "year5Fcfe": 106.98677331177089,
+      "todayEarnings": 127.72731702148593,
+      "year5Earnings": 215.22795717609802,
+      "capital5": 21030.36,
+      "retainedCash5": 10095.389262499997,
+      "terminalRoe": 0.2835633864283835,
+      "terminalImpliedPe": 11.687610757705512,
+      "terminalValueShare": 0.6868464945558175,
+      "fundingPass": true,
+      "convertiblePass": true
+    }
+  },
+  "purchase": {
+    "referenceToday": 24.243299520696965,
+    "referenceYear5": 43.687212933277436,
+    "maxByReturn": 21.7202659004481,
+    "entries": [
+      {
+        "tier": "observation",
+        "low": 15.76,
+        "high": 18.18,
+        "budgetSharePct": 25
+      },
+      {
+        "tier": "safety",
+        "low": 13.34,
+        "high": 15.75,
+        "budgetSharePct": 35
+      },
+      {
+        "tier": "discount",
+        "low": 8.49,
+        "high": 13.33,
+        "budgetSharePct": 40
+      }
+    ]
+  },
+  "reverse": {
+    "fixedRevenueAndCapitalPath": true,
+    "requiredUniformPretaxMarginIncrease": 0.7802614003490332,
+    "peakRequiredPreCompPretaxMargin": 1.3002614003490334,
+    "economicallyFeasibleWithin100pctMargin": false,
+    "maxFeasibleUniformShift": 0.48,
+    "todayValueAt100pctPeakPreCompMargin": 63.05287822921649,
+    "todayValueAtUnconstrainedMathematicalRoot": 87.33000000000001,
+    "unfundedEquityNeedAtRoot": 0,
+    "requiredPe5AtKe": 39.28639236211638,
+    "requiredPe5For15pctReturn": 44.078991890438694
+  },
+  "capitalSensitivity": [
+    {
+      "capitalRevenueRatio": 1,
+      "todayValueBeforeFundingAdjustment": 29.292093411817138,
+      "fundingAssumptionPass": true,
+      "unfundedEquityNeed": 0
+    },
+    {
+      "capitalRevenueRatio": 1.3,
+      "todayValueBeforeFundingAdjustment": 26.262817077145034,
+      "fundingAssumptionPass": true,
+      "unfundedEquityNeed": 0
+    },
+    {
+      "capitalRevenueRatio": 1.5,
+      "todayValueBeforeFundingAdjustment": 24.243299520696965,
+      "fundingAssumptionPass": true,
+      "unfundedEquityNeed": 0
+    },
+    {
+      "capitalRevenueRatio": 1.7,
+      "todayValueBeforeFundingAdjustment": 22.223781964248893,
+      "fundingAssumptionPass": true,
+      "unfundedEquityNeed": 0
+    },
+    {
+      "capitalRevenueRatio": 2,
+      "todayValueBeforeFundingAdjustment": 19.19450562957679,
+      "fundingAssumptionPass": false,
+      "unfundedEquityNeed": 382.0290000000002
+    },
+    {
+      "capitalRevenueRatio": 2.2,
+      "todayValueBeforeFundingAdjustment": 17.17498807312872,
+      "fundingAssumptionPass": false,
+      "unfundedEquityNeed": 1994.9527000000014
+    }
+  ],
+  "stressValidity": {
+    "revenueMinus20MarginMinus5pp": {
+      "fundingPass": true,
+      "unfundedEquityNeed": 0,
+      "convertiblePass": true
+    },
+    "futureServiceCompPlus3pp": {
+      "fundingPass": true,
+      "unfundedEquityNeed": 0,
+      "convertiblePass": true
+    },
+    "normalTaxPlus5pp": {
+      "fundingPass": true,
+      "unfundedEquityNeed": 0,
+      "convertiblePass": true
+    },
+    "requiredCapitalPlus25pct": {
+      "fundingPass": true,
+      "unfundedEquityNeed": 0,
+      "convertiblePass": true
+    },
+    "cashCreditOperationalLoss2500": {
+      "fundingPass": false,
+      "unfundedEquityNeed": 1793.2871249999998,
+      "convertiblePass": true
+    }
+  },
+  "coverage": [
+    "all numeric/boolean results under main paths, excluding accepted input parameters",
+    "25 Ke/g sensitivity cases",
+    "6 capital-ratio sensitivity cases",
+    "5 complete stress paths",
+    "entry thresholds/required-return limits",
+    "fixed-route margin reverse algebraic root and required exit P/E",
+    "gross warrant-share denominator sensitivity"
+  ],
+  "notCovered": [
+    "This is independent arithmetic reconstruction and limited economic consistency review, not validation of forecasts, security fair value, legal capital sufficiency, or investment suitability.",
+    "Operating revenue/margins/capital ratios, normal tax, NCI shares, 3.5% lost asset yield, zero-yield retained cash, and research P/E multiples are accepted scenario inputs; the audit does not establish them as economic facts.",
+    "No current/excess corporate cash or customer/platform assets are added, and already recorded debt principal is not subtracted again. This treatment is consistent only with the declared debt-financed-asset release assumption and does not prove parent liquidity in 2029.",
+    "Net warrant reserve is a common current-quote treasury-stock-style approximation, not an independently priced option. Existing award/date overlap and new cash-compensation calibration remain disclosed approximations.",
+    "At terminal transition, the capital floor itself grows at g; this is an explicit change of the preterminal fixed-floor policy and is conservative when the floor remains binding. It is arithmetically coherent under that declared rule.",
+    "A failed funding or capped-call flag invalidates the unadjusted per-share diagnostic as an investable value. No full financing, market option-path or above-cap convertible-premium cash model is validated here.",
+    "P/E and FCFE disagreement reflects different growth-duration and capital assumptions. Taking their minimum is a disclosed action heuristic, not independent corroboration of intrinsic value.",
+    "D&A and capitalized software are not modeled as separate FCFE reinvestment. The use of required total economic capital must implicitly include maintenance/growth reinvestment in nonfinancial operating assets; otherwise NI-minus-capital-growth would overstate cash. Capital coefficients are not a full asset/liability or regulatory capital forecast.",
+    "Retained cash at year 5 is valued at par once. The model implicitly assumes that cash can be valued/realized separately at that horizon; permanent trapped cash, taxes on extraction, and subsidiary distribution constraints are not independently reconstructed.",
+    "Near-12-month research periods are approximations rather than exact quarterly cash dates. The audit accepts the normalized salary/old award allocation convention and does not independently price each existing grant."
+  ]
+}

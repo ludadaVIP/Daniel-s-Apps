@@ -1,0 +1,37 @@
+{
+  "symbol": "HOOD",
+  "currency": "USD",
+  "method": "实际浏览器页面与可见截图核验，非搜索摘要证明报价",
+  "overnight": {
+    "price": 87.33,
+    "source": "TradingView BOATS",
+    "url": "https://www.tradingview.com/chart/?symbol=BOATS%3AHOOD",
+    "observedUtcClock": "2026-11-05T04:43:39Z",
+    "screenshotUtcClock": "2026-11-05T04:43:55Z",
+    "localEst": "2026-11-04 23:43:39 EST",
+    "visibleStatus": "Market open · Data updates once per second · US markets overnight quotes",
+    "visibleInstrument": "Robinhood Markets, Inc. · 1D · BOATS",
+    "limitations": "这是页面观察时的报价快照；未披露最后一笔交易的独立时间戳。页面UTC时钟不是已证明的最后成交时刻。买卖差、流动性与实际成交价可能不同。BOATS涨跌比较基准与Nasdaq正式收盘不同，不混用+2.55%为对正式收盘的涨幅。"
+  },
+  "regularClose": {
+    "price": 87.41,
+    "date": "2026-11-04",
+    "timeEst": "16:00",
+    "utc": "2026-11-04T21:00:00Z",
+    "source": "Moomoo实际页面，Yahoo和金融工具交叉核对",
+    "url": "https://www.moomoo.com/hans/stock/HOOD-US"
+  },
+  "afterHours": {
+    "price": 87.4,
+    "date": "2026-11-04",
+    "timeEst": "19:59",
+    "source": "Moomoo实际页面",
+    "url": "https://www.moomoo.com/hans/stock/HOOD-US",
+    "limitations": "较早盘后时点，不能用它冒充23:43夜盘报价。"
+  },
+  "conflicts": [
+    "StockAnalysis的搜索历史页曾显示87.45收盘，与Moomoo/Yahoo/金融工具87.41不一致；不以聚合搜索摘要覆盖已读取的实际报价页。",
+    "金融工具latest trade time为2026-11-05T00:56:54Z，已不满足当前夜盘时效要求，未当作当前实时。"
+  ],
+  "userData": "报告报价独立保存，不更新用户持仓/关注报价或手填计划。"
+}

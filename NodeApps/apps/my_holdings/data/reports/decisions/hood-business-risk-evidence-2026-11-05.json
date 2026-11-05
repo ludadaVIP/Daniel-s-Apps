@@ -1,0 +1,678 @@
+{
+  "ticker": "HOOD",
+  "issuer": "Robinhood Markets, Inc.",
+  "as_of": "2026-11-05 Asia/Shanghai",
+  "currency": "USD",
+  "scope": "Independent business, governance, regulatory and competitive evidence for the parent HOOD decision report. No state, queue or final report modified.",
+  "encoding": "ASCII-only JSON written as UTF-8. English reconstruction to prevent shell text encoding damage.",
+  "method": "Loaded web-access and investment-analysis skills. Reused parent Node24/Chrome unavailable preflight. Public search only located sources; read SEC filings, official IR material and independent regulator/competitor originals. No browser safety changes or raw CDP UI operations. IR403 responses were handled with skill-permitted Jina text extraction.",
+  "executive_assessment": "Business execution and cross-selling are evidenced; the moat is primarily distribution and product iteration rather than exclusive zero commissions. Avoid treating trading turnover, Trump program metrics, consolidated Rothera revenue and gross Chain fees as independent high-quality growth engines.",
+  "evidence": [
+    {
+      "id": "E01",
+      "topic": "Revenue structure and growth quality",
+      "facts": [
+        "2026Q3 total net revenue was USD1,424m: options399m, event contracts173m, equities121m, crypto120m, other transaction54m, net interest415m, and other revenue142m.",
+        "GAAP consolidated net income was476m; net income attributable to Robinhood was468m after8m attributable to non-controlling interests; diluted EPS was0.51.",
+        "Net deposits were15.7bn, equivalent to17% annualized growth against prior-quarter platform assets, versus20.4bn/29% in2025Q3; trailing12-month deposits were71bn/21%.",
+        "Gold subscribers were5.18m, up34% year over year, and subscription revenue62m. Funded customers were28.7m, up7%; new funded customers were0.6m, down14% year over year."
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "analysis": "Cross-selling and new products support growth, but customer growth is slower than activity and asset growth. More products do not necessarily diversify the underlying macro factor exposures.",
+      "period": "2026Q3"
+    },
+    {
+      "id": "E02",
+      "topic": "Trading breadth versus customer turnover",
+      "facts": [
+        "Options revenue rose31% year over year. Contracts per options trader rose66%, while the number of options traders fell11%. Rebate rates declined because of ticker mix.",
+        "Crypto revenue fell55%. Crypto traders fell37%, average notional volume per trader fell13%, and market-maker rebate rates declined. Chain revenue partly offset these declines.",
+        "Average equities notional volume per trader rose48%; ticker mix and lower rebate rates partly offset the growth."
+      ],
+      "sources": [
+        "S1"
+      ],
+      "analysis": "Record volume can reflect higher turnover among fewer customers. Monitor the breadth of active traders, comparable execution quality, and realized revenue yields.",
+      "period": "2026Q3 year over year"
+    },
+    {
+      "id": "E03",
+      "topic": "Trump Accounts metric boundaries",
+      "facts": [
+        "Beginning July2026, Net Deposits include Trump Account contributions and Treasury seed funding; Total Platform Assets include Trump assets custodied by Robinhood.",
+        "Funded Customers explicitly exclude Trump Accounts. ARPU still uses total company revenue in its numerator, so Trump service revenue can raise ARPU without these program accounts entering the customer denominator.",
+        "Q3 Trump Account service revenue was47m. October net deposits exceeding13bn, disclosed on October27, included6bn of Dell-family contributions. This is customer/program funding, not Robinhood revenue or free corporate cash.",
+        "Nearly70m automatically opened child accounts and25m children receiving250 dollars describe program reach. These figures cannot be added to28.7m Funded Customers or treated as converted ordinary brokerage customers.",
+        "Treasury designated BNY as financial agent. Robinhood provides brokerage and serves as initial trustee; Treasury retains control of the initial account application and operations."
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S6"
+      ],
+      "analysis": "The infrastructure and distribution opportunity is real, but contract margin, retention, permitted cross-selling, data-use rights, and actual customer conversion must be separately demonstrated."
+    },
+    {
+      "id": "E04",
+      "topic": "Customer assets versus corporate liquidity",
+      "facts": [
+        "At September30, cash and equivalents were5,829m, regulatory segregated cash/equivalents/securities13,443m, payables to users18,473m, and securities-loaned liabilities19,480m.",
+        "Committed revolving credit facilities totaled4.450bn, with no borrowings outstanding and compliance with covenants; Trust borrowing capacity was up to1.55bn.",
+        "The February2026 High-Yield Cash update moved the first10,000 dollars of eligible enrolled balances into free credit balances; more than6bn moved from off-balance-sheet sweep balances to the balance sheet to fund margin lending."
+      ],
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "analysis": "Platform assets and segregated customer assets are not distributable equity cash. Even5.829bn corporate cash should be evaluated after debt, operating requirements, regulatory capital, and subsidiary liquidity constraints.",
+      "period": "2026-09-30"
+    },
+    {
+      "id": "E05",
+      "topic": "Prediction markets: federal support and actual state restrictions",
+      "facts": [
+        "CFTC sued Wisconsin on April28,2026, asserting exclusive federal jurisdiction over event contracts on designated contract markets. CFTC also brought related actions against other states.",
+        "Michigan Gaming Control Board announced on September9 that Robinhood would halt new sports contracts and close remaining positions by October9 under a court-approved agreement. Parties preserved their legal positions pending appellate or other court developments.",
+        "Robinhood help-page restrictions updated November2 state that Maryland, Michigan, and Nevada residents cannot trade sports contracts; Ohio cannot open new sports positions; Utah cannot open new sports, culture, election, or political positions. Restrictions can change.",
+        "The10-Q states that event-contract growth was predominantly sports-related. Management said approximately30% was non-sports inQ3, versus15% inQ2.",
+        "The10-Q describes conflicting preliminary appellate outcomes involving New Jersey, Nevada, Ohio, and Tennessee. A petition for Supreme Court certiorari is not a grant of review or a merits victory."
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "analysis": "CFTC backing reduces one source of enforcement pressure but does not settle courts or state law. Model continued expansion, geographic fragmentation, and substantial sports-contract contraction separately."
+    },
+    {
+      "id": "E06",
+      "topic": "Rothera consolidation and minority economic ownership",
+      "facts": [
+        "On January20,2026, the Robinhood/SIG joint venture purchased90% of MIAXdx, later Rothera E&C, for approximately79m cash. SIG contributed41m toward purchase price and expenses; MIAX retained10%.",
+        "Robinhood consolidates Rothera because of its ability to appoint/remove the CEO and designate a board majority. Independent management runs operations, and certain decisions require SIG or other consents. Consolidation does not mean100% ownership.",
+        "MIAX latest filing independently confirms its retained10% and the three-year put/buyer partial purchase rights.",
+        "Q3 event-contract revenue173m already includes Rothera revenue28m. Consolidated net income476m less8m non-controlling income equals468m attributable to Robinhood; nine-month non-controlling income was16m and period-end non-controlling equity77m.",
+        "Rothera volume counts one matched Yes/No pair as one exchange trade and includes non-Robinhood participants; Prediction Markets Hub volume counts bought/sold contracts. The two figures should not be added or directly equated."
+      ],
+      "sources": [
+        "S1",
+        "S3",
+        "S13",
+        "S20"
+      ],
+      "analysis": "Vertical integration can improve products and economics, but value only the ownership-adjusted profits and avoid double counting. The reviewed primary filing sections did not provide a complete JV cap table; do not conflate reported45% look-through exchange ownership with50% JV ownership."
+    },
+    {
+      "id": "E07",
+      "topic": "Crypto.com/OG equity for distribution agreement",
+      "facts": [
+        "The September2026 agreement allows Robinhood to receive up to10% ownership of Crypto.com and certain affiliates over three years in exchange for routing selected event contracts.",
+        "TheQ3 CFO said Robinhood received an initial1% stake without cash outlay and may earn up to10% depending on future cooperation.",
+        "Management expects Rothera to be the primary exchange and Crypto.com/OG the second, with most flow going to those venues by year-end2026 into early2027."
+      ],
+      "sources": [
+        "S1",
+        "S4"
+      ],
+      "analysis": "Distribution can generate equity consideration and financial upside. Maximum contingent ownership is not current ownership; noncash consideration should not automatically be treated as recurring organic cash revenue. Monitor product selection and conflict disclosures."
+    },
+    {
+      "id": "E08",
+      "topic": "Chain gross fees, company revenue, and technical risk",
+      "facts": [
+        "TheQ3 release cited more than80bn DEX volume and more than50m chain fees. On the call the CFO described approximately50m gross revenue, about50% shared with Arbitrum, leaving approximately25m net for Robinhood.",
+        "The10-Q says Chain revenue partly offset falling crypto revenue. Do not add either50m gross or25m net again to reported120m crypto revenue.",
+        "Mainnet launched inJuly2026 as a permissionless Ethereum-compatible Layer2. Third parties can deploy contracts without approval, creating technical, illicit-activity, regulatory, and reputation exposures.",
+        "Management prioritized TVL, developers, and Stock Tokens, and discussed normalized monetization of a few basis points of notional volume. These are objectives and assumptions, not assured economics."
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S4",
+        "S21"
+      ],
+      "analysis": "Distribution may bootstrap network effects, but one-quarter gross fees do not establish durable net margins. The ArbitrumDAO10% protocol-net-revenue AEP description and management commercial50% gross sharing use different layers/denominators and are not interchangeable."
+    },
+    {
+      "id": "E09",
+      "topic": "Stock Tokens and the SEC exemption boundary",
+      "facts": [
+        "New Stock Tokens launched inJuly2026 as tokenized debt securities issued by a Jersey entity, backed by underlying securities as collateral. Classic Stock Tokens launched inJune2025 as bilateral contracts for eligible EEA customers, hedged with underlying securities.",
+        "Neither version gives legal ownership or voting/shareholder rights in the underlying stock. New tokens are restricted in jurisdictions including the United States, Canada, United Kingdom, and Switzerland.",
+        "TheSeptember17 SEC innovation exemption is temporary and conditional, requires tokenized NMS stocks to convey equivalent traditional-stock rights, and includes issuer notice and other conditions.",
+        "Robinhood10-Q explicitly states that its new and Classic Stock Tokens are not eligible under that exemption."
+      ],
+      "sources": [
+        "S1",
+        "S10"
+      ],
+      "analysis": "Support for tokenization generally is not product approval for Robinhood current synthetic/debt products. Competitors using full equity rights may benefit from a different regulatory route. Analyze collateral, redemption, custody, and cross-border risks separately."
+    },
+    {
+      "id": "E10",
+      "topic": "PFOF regulation and execution-quality competition",
+      "facts": [
+        "Options399m plus equities121m equal520m, approximately36.5% ofQ3 net revenue. Not all transaction revenue is PFOF. Citadel Securities accounted for17% of total revenue, versus13% a year earlier.",
+        "New Rule605 execution disclosures applied to RHF/RHS fromAugust1,2026. Odd-lot information became operativeApril27 and may compress quoted spreads and equity PFOF.",
+        "OnJune11,2026, minimum-tick and access-fee-cap compliance dates were further deferred toNovember2027; they were not newly effective inNovember2026."
+      ],
+      "sources": [
+        "S1",
+        "S11",
+        "S12"
+      ],
+      "analysis": "Monitor rebate yields and comparable execution quality, rather than treating a broad PFOF ban as an event already realized. Citadel concentration adds negotiating and counterparty risk."
+    },
+    {
+      "id": "E11",
+      "topic": "Interest-rate transmission",
+      "facts": [
+        "Q3 net interest revenue415m fell9% year over year: margin interest244m rose59%, credit-card net interest50m rose194%, sweep45m fell30%, and net securities lending was negative19m versus positive87m.",
+        "AtSeptember30 margin loans were22.145bn, up59%; total interest-earning assets were76.721bn including off-balance-sheet sweep balances.",
+        "The10-Q static100-basis-point sensitivity is366m in annual pre-tax revenue, income, and cash flows;50bp is183m and150bp548m. It excludes Cash Sweep balances because customer rates can be adjusted and excludes trading-behavior effects."
+      ],
+      "sources": [
+        "S1"
+      ],
+      "analysis": "Rate cuts directly reduce certain spreads but can increase asset prices, trading, and borrowing. Recessionary cuts can simultaneously impair activity, collateral, and card credit; distinguish them from benign cuts."
+    },
+    {
+      "id": "E12",
+      "topic": "Credit-card seasoning, losses, and funding",
+      "facts": [
+        "Q3 total credit-loss provision was71m versus26m; card-related provision61m versus23m; nine-month card provision143m.",
+        "Total card loans were1,841m:1,645m on balance sheet plus196m off balance sheet, versus1,040m at2025 year-end. Past-due loans102m/approximately6% versus49m/approximately5%;90+day past due33m/approximately2%.",
+        "FICO below640 was5% versus3% at year-end; above690 was75% versus78%. On-balance-sheet allowance134m and off-balance-sheet allowance40m.",
+        "The consolidated Credit Card Funding Trust issued500m ABS onJuly23 and another500m onOctober15. Creditors have no general recourse to Robinhood, but residual equity and expected-loss exposure remain.",
+        "AtSeptember30 purchased receivables net carrying value was1.51bn; warehouse borrowing principal/interest839m, with Series2026-1 ABS presented separately as long-term debt."
+      ],
+      "sources": [
+        "S1"
+      ],
+      "analysis": "Card net interest50m alone does not establish product profit, and provision61m alone does not establish total product loss. Include interchange, rewards, funding, servicing, fraud, and vintage loss curves. Rapid growth can mask immature-cohort deterioration."
+    },
+    {
+      "id": "E13",
+      "topic": "Founder control and incentive design",
+      "facts": [
+        "ClassA has one vote, ClassB ten, and ClassC generally none. Founders/affiliates hold allB shares, approximately12% economic ownership but more than50% voting power, with a founders voting agreement.",
+        "CEO2025 Summary Compensation was3.005m, including salary34,248 dollars, security1.723m and personal aircraft use1.248m. No newCEO stock award or annual cash incentive was granted for2025.",
+        "CEO Compensation Actually Paid of1.021bn is an SEC formula-based revaluation of existing equity, not cash received during2025.",
+        "Non-CEO2025 annual cash awards paid177.3% of target: revenue25%, adjusted income25%, net deposits20%, Gold growth20%, international net funded accounts10%. Adjusted income excluded M&A and unplanned tax-rate/CECL effects.",
+        "Q3 SBC was80m, nine-month277m; unrecognized SBC453m expected over1.04years."
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ],
+      "analysis": "Founder control supports a long horizon but limits external correction. Excluding unplanned credit losses from incentive metrics may weaken downside accountability; judge GAAP and normalized per-share earnings, credit outcomes, and net dilution."
+    },
+    {
+      "id": "E14",
+      "topic": "Buybacks and convertible financing",
+      "facts": [
+        "TheMarch2026 repurchase authorization of1.5bn includes rolled-over capacity, with more than1.1bn incremental; approximately1.348bn remained atSeptember30.",
+        "Q3 repurchases were approximately25m for0.238m shares at105.07 dollars average. Program repurchases since2024Q3 totaled1.3bn for27m shares, approximately48 dollars average.",
+        "A separateJune2026 convertible-related repurchase of290m/2.7m shares at105.71 dollars was outside the existing authorization; keep it separate from authorization totals.",
+        "Robinhood issued2.2bn principal of0% convertible notes onJune25, maturingOctober1,2029, initial conversion174.42 dollars. Conversion principal must be cash-settled; excess may be cash or shares. Capped calls cost123.2m with cap237.85 dollars.",
+        "Long-term debt carrying value was2.660bn, including approximately2.17bn convertible and0.49bn ABS. Q3 diluted shares were911m; approximately13m potential convertible shares were excluded as anti-dilutive."
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "analysis": "A zero coupon is not costless financing or immunity from dilution.2029 cash repayment is real. Buybacks add value only below intrinsic value while protecting capital and offsetting SBC; approximately901m basic period-end shares were broadly flat with2025 year-end."
+    },
+    {
+      "id": "E15",
+      "topic": "Compliance, investigations, and information controls",
+      "facts": [
+        "Aggregate contingency accrual was96m atSeptember30 versus71m at2025 year-end; this is not a maximum-loss estimate.",
+        "DOJ announced charges against two Robinhood engineers onSeptember15 alleging misuse of listing information to trade perpetual futures onHyperliquid. The charges concern individuals and are allegations, not convictions.",
+        "The10-Q discloses ongoing NewYorkAG execution-quality matters, FINRA/overnightBOATS matters, and FDIC EFTA matters. Prior2025 settlements do not close every2026 issue."
+      ],
+      "sources": [
+        "S1",
+        "S14"
+      ],
+      "analysis": "Faster product rollout increases information-barrier, surveillance, operational, model, and customer-protection demands. Individual charges do not establish company wrongdoing but warrant review of remediation."
+    },
+    {
+      "id": "E16",
+      "topic": "Competitive prices and the moat test",
+      "facts": [
+        "Schwab official pricing is zero online listed-stock/ETF commissions and0.65dollars per options contract. IBKR Lite is zero for eligibleUS stock trades; Pro begins at0.0035dollars/share tiered with0.35minimum or0.005fixed with1dollar minimum.",
+        "Fidelity official pricing lists zero onlineUS stock/ETF commissions and option contract fees, with low-price buy-to-close exceptions. Do not repeat an unverified historical claim that Fidelity never receives stock PFOF.",
+        "Coinbase One zero trading-fee benefits have restrictions and may retain spread, DEX service charges, or limit execution charges. Advanced has no included spread but maker/taker tier fees.",
+        "Robinhood published margin rates as ofSeptember17: under50k5.25%;50k-100k5.05%;100k-1m4.75%;1m-10m4.5%. Rates may change."
+      ],
+      "sources": [
+        "S15",
+        "S16",
+        "S17",
+        "S18",
+        "S19"
+      ],
+      "analysis": "Robinhood can compete on explicit option fees, margin, usability, and Gold bundling; zero equity commissions are not exclusive. Durable advantages require asset retention, customer economics, execution quality, and full service-cost evidence."
+    },
+    {
+      "id": "E17",
+      "topic": "Acquisition chronology and integration",
+      "facts": [
+        "WonderFi closedJune1,2026 for approximately178m acquisition-date fair-value consideration, entirely cash, supporting Canadian expansion. MIAXdx/Rothera closedJanuary20 for approximately79m cash with41mSIG contribution including expenses.",
+        "TradePMR closedFebruary26,2025 and BitstampJune2,2025. They are not2026 new acquisitions; reported metric growth is affected by acquisition/inclusion timing.",
+        "Robinhood is integrating WonderFi internal controls and expects to exclude it from the2026 management ICFR assessment under permitted rules. This is not a finding that consolidated internal controls are ineffective.",
+        "Goodwill was515m and net intangibles231m atSeptember30, versus385m/168m at2025 year-end.",
+        "RVI was deconsolidatedJune25; relatedQ2 gains andQ3 fair-value losses affect comparability. Seed positions inRVI/RVII and other funds create investment-value and capital-allocation exposure."
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "analysis": "Licenses, geography, and distribution can accelerate through acquisitions, but low absolute purchase prices do not prove high returns. Assess retained customers and per-share earnings after integration costs and SBC."
+    }
+  ],
+  "seven_lenses": [
+    {
+      "lens": "Graham",
+      "judgment": "Separate shareholder capital and normalized earnings from customer assets.",
+      "evidence": [
+        "E04",
+        "E14"
+      ],
+      "investment_implication": "Deduct company debt, required regulatory capital, and minority economics; platform assets are not a margin of safety."
+    },
+    {
+      "lens": "Buffett",
+      "judgment": "Distribution and product breadth are improving; zero commissions alone lack durable pricing power.",
+      "evidence": [
+        "E01",
+        "E03",
+        "E16"
+      ],
+      "investment_implication": "Verify retention, Gold renewal, retirement/banking wallet share, and long-run per-share cash generation."
+    },
+    {
+      "lens": "Munger",
+      "judgment": "Metric overlap and incentive design are major analytical traps.",
+      "evidence": [
+        "E03",
+        "E06",
+        "E08",
+        "E13"
+      ],
+      "investment_implication": "Normalize Trump flows, minority ownership and Chain sharing; investigate CECL exclusions and founder accountability."
+    },
+    {
+      "lens": "Peter Lynch",
+      "judgment": "The company combines fast-growth and financial-cycle characteristics.",
+      "evidence": [
+        "E01",
+        "E02",
+        "E11",
+        "E12"
+      ],
+      "investment_implication": "Model product maturity, trading normalization, spread cycles, and credit vintages; simple PEG is insufficient."
+    },
+    {
+      "lens": "Howard Marks",
+      "judgment": "A likely failure path is simultaneous earnings normalization and valuation compression.",
+      "evidence": [
+        "E02",
+        "E05",
+        "E11"
+      ],
+      "investment_implication": "Require price compensation for weaker trading, rate cuts, and higher losses occurring together."
+    },
+    {
+      "lens": "Soros",
+      "judgment": "Asset prices, engagement, margin borrowing, funding access and valuation form reinforcing feedback loops.",
+      "evidence": [
+        "E02",
+        "E04",
+        "E07",
+        "E14"
+      ],
+      "investment_implication": "Track both positive distribution feedback and negative liquidity/collateral dynamics; isolate genuine deposits from market gains and program funding."
+    },
+    {
+      "lens": "Ray Dalio",
+      "judgment": "Many revenue lines share interest-rate, credit, liquidity and asset-price sensitivities.",
+      "evidence": [
+        "E05",
+        "E08",
+        "E11",
+        "E12"
+      ],
+      "investment_implication": "Separate benign easing, recessionary easing and renewed inflation scenarios; product count is not macro diversification."
+    }
+  ],
+  "strongest_debate": [
+    {
+      "round": 1,
+      "bull": "The app is evolving into a multi-product distribution platform, with Gold, retirement, banking and advisory reducing dependence on any one crypto cycle.",
+      "evidence": [
+        "E01",
+        "E03",
+        "E06",
+        "E08"
+      ],
+      "bear_response": "Options, events, crypto, margin, the chain and asset-based wealth balances still share risk-on drivers.",
+      "resolution_threshold": "For at least two quarters, demonstrate approximately20% annualized core deposits after Trump seeds/large charity flows and M&A adjustments, accompanied by improved retention and normalized per-share earnings."
+    },
+    {
+      "round": 2,
+      "bear": "Platform diversification may conceal higher turnover among fewer traders and immature credit exposure.",
+      "evidence": [
+        "E02",
+        "E11",
+        "E12"
+      ],
+      "bull_response": "Lower costs and broader products can still win market share and retain genuine customer assets; shrinking trader counts alone do not prove revenue contraction.",
+      "resolution_threshold": "If core net deposit growth remains below10% annualized for two quarters while Gold/customer acquisition weaken and fee yields fall, reduce long-term growth and terminal assumptions. This is a research threshold, not company guidance."
+    },
+    {
+      "round": 3,
+      "bull": "Rothera and Crypto/OG equity consideration show that distribution itself can capture venue economics; Chain and Stock Tokens offer infrastructure optionality.",
+      "evidence": [
+        "E06",
+        "E07",
+        "E08",
+        "E09"
+      ],
+      "bear_response": "Minority ownership, routing incentives, gross/net economics, legal eligibility, and subsidies remain material. Successful adoption may compress prices rather than expand margins.",
+      "resolution_threshold": "Require rising externalFCM revenue/retention, attributable Rothera profit after minorities, recurring Chain profit after commercial sharing/security/subsidies, and verifiable token collateral/redemption."
+    },
+    {
+      "round": 4,
+      "bear": "Regulatory restrictions need not threaten solvency to invalidate a premium growth valuation.",
+      "evidence": [
+        "E05",
+        "E09",
+        "E10"
+      ],
+      "bull_response": "Federal support and higher non-sports adoption offer adaptive paths; complete prohibition is not the sole outcome.",
+      "resolution_threshold": "Immediately revalue if final/appellate decisions remove major-state or nationwide sports access with measurable revenue impact, or a key token license fails without a viable replacement. Do not lower the risk discount merely on a filing or petition."
+    }
+  ],
+  "monitoring": [
+    {
+      "when": "2026Q4 and2027Q1 earnings",
+      "metric": "Core deposits and customer breadth",
+      "baseline": "Q3 total deposits15.7bn/17% annualized, new customers0.6m, Gold sequential gain0.34m.",
+      "threshold": "Separate government/charity funding and M&A. Two quarters below10% core annualized inflow with weak Gold/new customers is a research downgrade signal."
+    },
+    {
+      "when": "Monthly metrics and next two quarters",
+      "metric": "Activity breadth and realized trading yields",
+      "baseline": "Options traders down11% with contracts/trader up66%; crypto traders down37%.",
+      "threshold": "Continued trader contraction combined with turnover-led volume and declining comparable fee yields weakens the record-volume thesis."
+    },
+    {
+      "when": "Court orders and state updates, immediately",
+      "metric": "Prediction-market access",
+      "baseline": "Sports limitations inMD/MI/NV, new-position limits inOH/UT; management says approximately30% non-sports inQ3.",
+      "threshold": "Major-market restrictions or a nationwide adverse final outcome trigger immediate event-revenue revaluation. Only durable legal resolution supports lower risk discount."
+    },
+    {
+      "when": "2026Q4 through2027H1",
+      "metric": "Card credit seasoning and contribution profit",
+      "baseline": "Loans1.841bn, past due5.54%, FICO below640 at5%, Q3 card provision61m.",
+      "threshold": "Research alerts: past due above8%,90+days above3%, or FICO below640 above8%. Examine vintages/write-offs and after-reward economics; these are not regulatory limits."
+    },
+    {
+      "when": "Next two quarters",
+      "metric": "Rothera and Chain attributable profits",
+      "baseline": "Rothera28m revenue included in173m event revenue; Chain gross50m/net approximately25m; totalQ3 minority income8m.",
+      "threshold": "Require external revenue mix, comparable volume definitions, minorities, commercial sharing, security and subsidy cost disclosure before assigning infrastructure-monopoly economics."
+    },
+    {
+      "when": "2026Q4 and2027 proxy",
+      "metric": "Per-share value and capital allocation",
+      "baseline": "Q3 SBC80m, diluted shares911m, potential13m convertible shares excluded as anti-dilutive, Q3 repurchase average105.07dollars.",
+      "threshold": "Reassess if net dilution persistently exceeds normalized per-share profit growth, or expensive buybacks coincide with rising credit or capital pressure."
+    }
+  ],
+  "calculations": {
+    "label": "Research calculations from cited figures; not company guidance.",
+    "transaction_revenue_share_pct": 60.884831460674164,
+    "equity_options_revenue_share_pct": 36.51685393258427,
+    "trump_service_revenue_share_pct": 3.300561797752809,
+    "arpu_excluding_trump_service_revenue_approx_usd": 192.92469352014012,
+    "arpu_limitation": "Approximately193dollars; still includes other nonordinary retail services and rounded customer figures. Not a reported company KPI.",
+    "card_loans_ytd_growth_pct": 77.01923076923076,
+    "card_allowance_to_total_loans_pct": 9.451385116784357,
+    "card_past_due_pct": 5.5404671374253125,
+    "event_revenue_per_hub_contract_usd": 0.010548780487804879,
+    "event_ratio_limitation": "Mixed revenue includes Rothera while Hub volume uses a different count; not a pureFCM commission rate.",
+    "rate100bp_to_annualized_q3_revenue_pct": 6.425561797752809,
+    "rate100bp_to_annualized_q3_pretax_income_pct": 14.64
+  },
+  "critical_report_controls": [
+    "Use current amended release Adjusted Net Income542m and AdjustedEPS0.60; the HTML old release says550m.",
+    "Do not add70m Trump accounts to Funded Customers or program cash to corporate revenue/net cash.",
+    "Do not double count Rothera28m or Chain gross50m/net25m on top of reported revenue.",
+    "Tick/access fee implementation was deferred toNovember2027, while Rule605 applied inAugust2026.",
+    "SEC tokenization relief does not cover current Robinhood Stock Tokens; certiorari petitions are not court victories.",
+    "CEO1.021bn SEC Compensation Actually Paid is not annual cash pay; maximumCrypto/OG10% is not current ownership.",
+    "The seven investor lenses are analytical frameworks, not claims about actual investor opinions, holdings, recommendations or quotations."
+  ],
+  "limitations": [
+    "Reviewed primary filing sections did not provide a complete Rothera JV cap table. Do not conflate50% JV ownership with45% look-through exchange ownership. Non-wholly-owned consolidation and minority deductions are directly supported.",
+    "Official IR PDF direct requests sometimes returned403; Jina-rendered official text and SEC/regulator documents cross-checked core facts.",
+    "DOJ was readable with the web tool; local direct/Jina copies sometimes contain blocking responses. Use hood-risk-web-primary-extracts-20261105.json for the official extracted text.",
+    "Company marketing claims such as top-five chain rank and livestream audience were not independently verified and should not drive valuation.",
+    "October month-to-date operating color in theOctober27 call is not the completeOctober result.",
+    "Published pricing pages are current observations as ofNovember5 and can change; do not infer negotiated institutional pricing."
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Robinhood 2026Q3 Form 10-Q",
+      "date": "2026-10-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_file": "hood-risk-2026Q3-10Q.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S2",
+      "title": "Q3 2026 Amended Exhibit 99.1",
+      "date": "2026-10-27; current amended version retrieved 2026-11-05",
+      "url": "https://robinhood.gcs-web.com/static-files/097e3ef5-f1a9-4981-b224-c58d9da67159",
+      "local_file": "hood-risk-amended-results-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S3",
+      "title": "Q3 2026 Earnings Presentation",
+      "date": "2026-10-27",
+      "url": "https://investors.robinhood.com/static-files/fd90f575-5b4c-4cde-a16d-d114c920fb6a",
+      "local_file": "hood-risk-2026Q3-presentation-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S4",
+      "title": "Q3 2026 Earnings Call Transcript",
+      "date": "2026-10-27",
+      "url": "https://investors.robinhood.com/static-files/4e6e17d2-915a-4cb4-b617-d0127c487075",
+      "local_file": "hood-risk-2026Q3-call-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S5",
+      "title": "2026 DEF 14A",
+      "date": "2026-04-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000053/hood-20260422.htm",
+      "local_file": "hood-risk-2026-DEF14A.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S6",
+      "title": "Treasury designates BNY financial agent",
+      "date": "2026-04-06",
+      "url": "https://home.treasury.gov/news/press-releases/sb0433",
+      "local_file": "hood-risk-Treasury-BNY-20260406.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S7",
+      "title": "CFTC sues Wisconsin over prediction-market jurisdiction",
+      "date": "2026-04-28",
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9220-26",
+      "local_file": "hood-risk-CFTC-Wisconsin-20260428.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S8",
+      "title": "Michigan Gaming Control Board: Robinhood halts sports contracts",
+      "date": "2026-09-09",
+      "url": "https://content.govdelivery.com/accounts/MIGCB/bulletins/4293a85",
+      "local_file": "hood-risk-Michigan-20260909.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S9",
+      "title": "Robinhood event contracts: current pricing and state restrictions",
+      "date": "state restriction update 2026-11-02; accessed 2026-11-05",
+      "url": "https://robinhood.com/us/en/support/articles/event-contracts-overview/",
+      "local_file": "hood-risk-event-fees-20261102.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S10",
+      "title": "SEC innovation exemption for tokenized NMS stocks",
+      "date": "2026-09-17",
+      "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+      "local_file": "hood-risk-SEC-innovation-20260917.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S11",
+      "title": "SEC staff Rule 605 FAQ",
+      "date": "2026-04-01; effective 2026-08-01",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms",
+      "local_file": "hood-risk-SEC-605-20260401.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S12",
+      "title": "Nasdaq UTP 2026-18: tick-size delay",
+      "date": "2026-06-17",
+      "url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=UTP2026-18",
+      "local_file": "hood-risk-Nasdaq-tick-delay-20260617.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S13",
+      "title": "Miami International Holdings Q3 note: retained Rothera E&C interest",
+      "date": "period 2026-09-30; current filing read 2026-11-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438472/000162828026068667/R14.htm",
+      "local_file": "hood-risk-MIAX-2026Q3-Rothera.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S14",
+      "title": "DOJ: two Robinhood engineers charged",
+      "date": "2026-09-15",
+      "url": "https://www.justice.gov/usao-sdny/pr/two-robinhood-employees-charged-fraud",
+      "local_file": "hood-risk-web-primary-extracts-20261105.json",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S15",
+      "title": "Schwab official pricing",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://www.schwab.com/pricing",
+      "local_file": "hood-risk-schwab-pricing-20261105-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S16",
+      "title": "IBKR official stocks commissions",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://brokerage.ibkr.com/en/pricing/commissions-stocks.php",
+      "local_file": "hood-risk-ibkr-pricing-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S17",
+      "title": "Fidelity official pricing",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://www.fidelity.com/trading/commissions",
+      "local_file": "hood-risk-fidelity-pricing-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S18",
+      "title": "Coinbase official fees/spread disclosure",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://help.coinbase.com/en/coinbase/trading-and-funding/pricing-and-fees/fees",
+      "local_file": "hood-risk-coinbase-pricing-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S19",
+      "title": "Robinhood margin rate schedule",
+      "date": "rates as of 2026-09-17; accessed 2026-11-05",
+      "url": "https://robinhood.com/us/en/support/articles/margin-rates/",
+      "local_file": "hood-risk-margin-rates-20260917.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S20",
+      "title": "Rothera official company description",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://www.rothera.io/company",
+      "local_file": "hood-risk-rothera-company-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S21",
+      "title": "ArbitrumDAO mainnet factsheet",
+      "date": "2026-07-06",
+      "url": "https://forum.arbitrum.foundation/t/arbitrumdao-factsheet-robinhood-chain-mainnet-launch/31041",
+      "local_file": "hood-risk-Arbitrum-launch-20260706.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S22",
+      "title": "Q2 2026 official earnings call",
+      "date": "2026-07-29",
+      "url": "https://investors.robinhood.com/static-files/f44ea493-9c52-4744-9671-7720e1ac7b2f",
+      "local_file": "hood-risk-2026Q2-call-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    }
+  ]
+}

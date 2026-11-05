@@ -1,0 +1,806 @@
+{
+  "instrument": "Robinhood Markets, Inc. Nasdaq: HOOD Class A",
+  "analysis_date": "2026-11-05",
+  "accessed_at_utc": "2026-11-05T04:50:19.378074+00:00",
+  "units": "USD millions; shares millions unless marked exact; GAAP unless marked adjusted/non-GAAP",
+  "sources": {
+    "q3": {
+      "title": "Robinhood 2026 Q3 Form 10-Q",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "period_end": "2026-09-30",
+      "filed": "2026-10-28",
+      "file": "hood-fin-2026Q3-10Q-jina.txt",
+      "accessed_at_utc": "2026-11-05T04:50:19.378074+00:00",
+      "local_file": "D:\\Github\\Daniel-s-Apps\\NodeApps\\data\\reports\\decisions\\hood-fin-2026Q3-10Q-jina.txt",
+      "sha256": "1bde636689a56546b4de44875f4ccecbec6fe3e469c47b6eede2a626d067e467",
+      "transport": "Public official source, via Jina text preprocessing; selected core tables cross-checked using web source renderer. No browser/CDP/UI used."
+    },
+    "fy25": {
+      "title": "Robinhood 2025 Form 10-K/A",
+      "url": "https://investors.robinhood.com/static-files/36353485-5cd1-4eb2-9eb4-6d266f75374b",
+      "period_end": "2025-12-31",
+      "filed": "2026-02-20",
+      "file": "hood-fin-2025-10KA-jina.txt",
+      "note": "Amends original 2026-02-18 10-K solely for table/header formatting; no reported financial result changes.",
+      "accessed_at_utc": "2026-11-05T04:50:19.378074+00:00",
+      "local_file": "D:\\Github\\Daniel-s-Apps\\NodeApps\\data\\reports\\decisions\\hood-fin-2025-10KA-jina.txt",
+      "sha256": "846c9979da80f989e861ad84ec301612b62ff7d7d26e0199ce5f1fb7f0afb969",
+      "transport": "Public official source, via Jina text preprocessing; selected core tables cross-checked using web source renderer. No browser/CDP/UI used."
+    },
+    "fy23": {
+      "title": "Robinhood 2023 Form 10-K",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387924000054/hood-20231231.htm",
+      "period_end": "2023-12-31",
+      "filed": "2024-02-27",
+      "file": "hood-fin-2023-10K-jina.txt",
+      "accessed_at_utc": "2026-11-05T04:50:19.378074+00:00",
+      "local_file": "D:\\Github\\Daniel-s-Apps\\NodeApps\\data\\reports\\decisions\\hood-fin-2023-10K-jina.txt",
+      "sha256": "dfd236c4ced5085443a7f9170506101d2af8005b3f7415573b31d2c5748dd7d0",
+      "transport": "Public official source, via Jina text preprocessing; selected core tables cross-checked using web source renderer. No browser/CDP/UI used."
+    },
+    "amended": {
+      "title": "2026 Q3 amended earnings release, Exhibit 99.1",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000170/q32026robinhoodamendedex991.htm",
+      "mirror_url": "https://robinhood.gcs-web.com/static-files/097e3ef5-f1a9-4981-b224-c58d9da67159",
+      "period_end": "2026-09-30",
+      "filed": "2026-10-28",
+      "file": "hood-fin-2026Q3-amended-release-jina.txt",
+      "accessed_at_utc": "2026-11-05T04:50:19.378074+00:00",
+      "local_file": "D:\\Github\\Daniel-s-Apps\\NodeApps\\data\\reports\\decisions\\hood-fin-2026Q3-amended-release-jina.txt",
+      "sha256": "7c5228fad5af91dc361c39a9b557e8a1436df57d3c8d41fd4b125055b9ca3ffd",
+      "transport": "Public official source, via Jina text preprocessing; selected core tables cross-checked using web source renderer. No browser/CDP/UI used."
+    },
+    "8ka": {
+      "title": "2026 Q3 8-K/A amendment explanation",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000170/hood-20261027.htm",
+      "period_end": "2026-09-30",
+      "filed": "2026-10-28",
+      "file": "hood-fin-2026Q3-8KA-jina.txt",
+      "accessed_at_utc": "2026-11-05T04:50:19.378074+00:00",
+      "local_file": "D:\\Github\\Daniel-s-Apps\\NodeApps\\data\\reports\\decisions\\hood-fin-2026Q3-8KA-jina.txt",
+      "sha256": "13edb832383a71534ec5d4b92d2c20ec77b3a49e845233bea3d92fb1feb44fa0",
+      "transport": "Public official source, via Jina text preprocessing; selected core tables cross-checked using web source renderer. No browser/CDP/UI used."
+    }
+  },
+  "annual": [
+    {
+      "period": "FY2021",
+      "period_end": "2021-12-31",
+      "net_revenue": 1815,
+      "net_income_consolidated": -3687,
+      "net_income_parent": -3687,
+      "nci_net_income": 0,
+      "operating_expenses": 3456,
+      "pretax_income": -3685,
+      "tax_provision": 2,
+      "CFO": -885,
+      "cash_purchases_PPE_software": 63,
+      "cash_capitalized_internal_software": 20,
+      "cash_capex": 83,
+      "mechanical_CFO_minus_cash_capex": -968,
+      "SBC_expensed": 1572,
+      "weighted_average_basic_shares": 492.38119,
+      "weighted_average_diluted_shares": 492.38119,
+      "period_end_shares": 863.912613,
+      "equity_including_NCI": 7293,
+      "NCI_equity": 0,
+      "parent_equity": 7293,
+      "source_id": "fy23",
+      "operating_profit_calculated": -1641,
+      "operating_margin_calculated": -0.9041322314049587,
+      "net_margin_parent_calculated": -2.031404958677686,
+      "SBC_to_revenue_calculated": 0.8661157024793389,
+      "comparability_note": "2021 IPO/share class conversions make weighted-average share counts incomparable with end-of-period shares. Loss includes 2,045 change in fair value of convertible notes/warrant liability; 2021 IPO recognition included approximately 1,010 SBC."
+    },
+    {
+      "period": "FY2022",
+      "period_end": "2022-12-31",
+      "net_revenue": 1358,
+      "net_income_consolidated": -1028,
+      "net_income_parent": -1028,
+      "nci_net_income": 0,
+      "operating_expenses": 2369,
+      "pretax_income": -1027,
+      "tax_provision": 1,
+      "CFO": -852,
+      "cash_purchases_PPE_software": 28,
+      "cash_capitalized_internal_software": 29,
+      "cash_capex": 57,
+      "mechanical_CFO_minus_cash_capex": -909,
+      "SBC_expensed": 654,
+      "weighted_average_basic_shares": 878.630024,
+      "weighted_average_diluted_shares": 878.630024,
+      "period_end_shares": 892.751571,
+      "equity_including_NCI": 6956,
+      "NCI_equity": 0,
+      "parent_equity": 6956,
+      "source_id": "fy23",
+      "operating_profit_calculated": -1011,
+      "operating_margin_calculated": -0.7444771723122239,
+      "net_margin_parent_calculated": -0.7569955817378498,
+      "SBC_to_revenue_calculated": 0.48159057437407954
+    },
+    {
+      "period": "FY2023",
+      "period_end": "2023-12-31",
+      "net_revenue": 1865,
+      "net_income_consolidated": -541,
+      "net_income_parent": -541,
+      "nci_net_income": 0,
+      "operating_expenses": 2401,
+      "pretax_income": -533,
+      "tax_provision": 8,
+      "CFO": 1181,
+      "cash_purchases_PPE_software": 2,
+      "cash_capitalized_internal_software": 19,
+      "cash_capex": 21,
+      "mechanical_CFO_minus_cash_capex": 1160,
+      "SBC_expensed": 871,
+      "weighted_average_basic_shares": 890.857659,
+      "weighted_average_diluted_shares": 890.857659,
+      "period_end_shares": 872.162664,
+      "equity_including_NCI": 6696,
+      "NCI_equity": 0,
+      "parent_equity": 6696,
+      "source_id": "fy25",
+      "operating_profit_calculated": -536,
+      "operating_margin_calculated": -0.2873994638069705,
+      "net_margin_parent_calculated": -0.2900804289544236,
+      "SBC_to_revenue_calculated": 0.4670241286863271,
+      "comparability_note": "SBC includes 485 charge related to cancellation of 2021 founders market-based RSUs. FY2025 presentation separates credit loss provision from operations; total opex unchanged."
+    },
+    {
+      "period": "FY2024",
+      "period_end": "2024-12-31",
+      "net_revenue": 2951,
+      "net_income_consolidated": 1411,
+      "net_income_parent": 1411,
+      "nci_net_income": 0,
+      "operating_expenses": 1897,
+      "pretax_income": 1064,
+      "tax_provision": -347,
+      "CFO": -157,
+      "cash_purchases_PPE_software": 13,
+      "cash_capitalized_internal_software": 37,
+      "cash_capex": 50,
+      "mechanical_CFO_minus_cash_capex": -207,
+      "SBC_expensed": 304,
+      "weighted_average_basic_shares": 881.113156,
+      "weighted_average_diluted_shares": 906.171504,
+      "period_end_shares": 884.492983,
+      "equity_including_NCI": 7972,
+      "NCI_equity": 0,
+      "parent_equity": 7972,
+      "source_id": "fy25",
+      "operating_profit_calculated": 1054,
+      "operating_margin_calculated": 0.357167062012877,
+      "net_margin_parent_calculated": 0.47814300237207724,
+      "SBC_to_revenue_calculated": 0.10301592680447307,
+      "comparability_note": "2024 GAAP net income includes a 347 tax benefit; deferred-tax valuation allowance release makes headline net margin non-recurring."
+    },
+    {
+      "period": "FY2025",
+      "period_end": "2025-12-31",
+      "net_revenue": 4473,
+      "net_income_consolidated": 1883,
+      "net_income_parent": 1883,
+      "nci_net_income": 0,
+      "operating_expenses": 2379,
+      "pretax_income": 2108,
+      "tax_provision": 225,
+      "CFO": 1638,
+      "cash_purchases_PPE_software": 15,
+      "cash_capitalized_internal_software": 39,
+      "cash_capex": 54,
+      "mechanical_CFO_minus_cash_capex": 1584,
+      "SBC_expensed": 305,
+      "weighted_average_basic_shares": 888.504958,
+      "weighted_average_diluted_shares": 918.781846,
+      "period_end_shares": 901.328432,
+      "equity_including_NCI": 9151,
+      "NCI_equity": 11,
+      "parent_equity": 9140,
+      "source_id": "fy25",
+      "operating_profit_calculated": 2094,
+      "operating_margin_calculated": 0.4681421864520456,
+      "net_margin_parent_calculated": 0.4209702660406886,
+      "SBC_to_revenue_calculated": 0.06818689917281466,
+      "comparability_note": "2025 effective tax rate 10.7%; tax-rate reconciliation includes 184 SBC tax benefit and 66 research/development tax credits."
+    }
+  ],
+  "interim": {
+    "9M2025": {
+      "net_revenue": 3190,
+      "net_income_consolidated": 1278,
+      "net_income_parent": 1278,
+      "nci_net_income": 0,
+      "operating_expenses": 1746,
+      "pretax_income": 1447,
+      "tax_provision": 169,
+      "CFO": 2575,
+      "cash_capex": 41,
+      "SBC_expensed": 229
+    },
+    "9M2026": {
+      "net_revenue": 3799,
+      "net_income_consolidated": 1395,
+      "net_income_parent": 1379,
+      "nci_net_income": 16,
+      "operating_expenses": 2129,
+      "pretax_income": 1745,
+      "tax_provision": 350,
+      "CFO": 3983,
+      "cash_capex": 63,
+      "SBC_expensed": 277
+    },
+    "Q32025": {
+      "net_revenue": 1274,
+      "net_income_consolidated": 556,
+      "net_income_parent": 556,
+      "nci_net_income": 0,
+      "operating_expenses": 639,
+      "pretax_income": 634,
+      "tax_provision": 78,
+      "SBC_expensed": 78,
+      "weighted_average_basic_shares": 889,
+      "weighted_average_diluted_shares": 918
+    },
+    "Q32026": {
+      "net_revenue": 1424,
+      "net_income_consolidated": 476,
+      "net_income_parent": 468,
+      "nci_net_income": 8,
+      "operating_expenses": 739,
+      "pretax_income": 625,
+      "tax_provision": 149,
+      "SBC_expensed": 80,
+      "weighted_average_basic_shares": 898,
+      "weighted_average_diluted_shares": 911
+    }
+  },
+  "ttm": {
+    "net_revenue": 5082,
+    "net_income_consolidated": 2000,
+    "net_income_parent": 1984,
+    "nci_net_income": 16,
+    "operating_expenses": 2762,
+    "pretax_income": 2406,
+    "tax_provision": 406,
+    "CFO": 3046,
+    "cash_capex": 76,
+    "SBC_expensed": 353,
+    "period": "TTM ended 2026-09-30",
+    "method": "FY2025 - 9M2025 + 9M2026",
+    "source_ids": [
+      "fy25",
+      "q3"
+    ],
+    "mechanical_CFO_minus_cash_capex": 2970,
+    "operating_profit_calculated": 2320,
+    "net_margin_parent_calculated": 0.3903974813065722,
+    "operating_margin_calculated": 0.45651318378591105,
+    "effective_tax_rate_calculated": 0.16874480465502908,
+    "ROE_using_average_parent_equity_calculated": 0.2137009909521758,
+    "ROE_equity_comparators": {
+      "2025-09-30": 8567,
+      "2026-09-30": 10001,
+      "source": "q3 equity statements"
+    }
+  },
+  "balance_sheet": {
+    "asof": "2026-09-30",
+    "source_id": "q3",
+    "cash_and_cash_equivalents_consolidated": 5829,
+    "cash_securities_segregated_under_regulations": 13443,
+    "restricted_cash_current": 28,
+    "restricted_cash_noncurrent": 14,
+    "reported_CFS_segregated_cash_equivalents": 8883,
+    "reported_CFS_cash_including_segregated_restricted": 14754,
+    "stablecoin_owned": 164,
+    "deposits_with_clearing_organizations": 1125,
+    "receivables_from_users_net": 23598,
+    "securities_borrowed": 4781,
+    "user_held_fractional_shares": 5123,
+    "total_assets": 58271,
+    "payables_to_users": 18473,
+    "securities_loaned": 19480,
+    "fractional_shares_obligation": 5123,
+    "long_term_borrowings_carrying": 2660,
+    "other_current_liabilities": 1509,
+    "total_liabilities": 48193,
+    "equity_total": 10078,
+    "NCI_equity": 77,
+    "parent_equity": 10001,
+    "parent_equity_formula": "10078 - 77",
+    "goodwill": 515,
+    "intangibles_net": 231,
+    "parent_tangible_equity_simple_calculation": 9255,
+    "parent_cash_free_to_distribute": null,
+    "parent_cash_limitation": "Only consolidated cash is disclosed in selected latest materials; do not relabel 5829 as parent-company freely distributable or excess cash.",
+    "customer_platform_assets": 396000,
+    "customer_platform_assets_treatment": "Customer metric, not an enterprise asset or additive equity value; users own securities. Off-balance sheet customer crypto custody 37900."
+  },
+  "regulatory_capital": {
+    "source_id": "q3",
+    "asof": "2026-09-30",
+    "subsidiaries": [
+      {
+        "entity": "RHS",
+        "net_capital": 4212,
+        "required": 491,
+        "excess_reported": 3721
+      },
+      {
+        "entity": "RHF",
+        "net_capital": 329,
+        "required": 0.25,
+        "excess_reported": 329
+      },
+      {
+        "entity": "RHD",
+        "net_capital": 585,
+        "required": 11,
+        "excess_reported": 574
+      },
+      {
+        "entity": "TradePMR",
+        "net_capital": 18,
+        "required": 0.25,
+        "excess_reported": 18
+      }
+    ],
+    "prior_2025_12_31": [
+      {
+        "entity": "RHS",
+        "net_capital": 3532,
+        "required": 373,
+        "excess_reported": 3159
+      },
+      {
+        "entity": "RHF",
+        "net_capital": 210,
+        "required": 0.25,
+        "excess_reported": 210
+      },
+      {
+        "entity": "RHD",
+        "net_capital": 180,
+        "required": 10,
+        "excess_reported": 170
+      },
+      {
+        "entity": "TradePMR",
+        "net_capital": 13,
+        "required": 0.25,
+        "excess_reported": 13
+      }
+    ],
+    "status": "Disclosed entities compliant at period end; net capital and requirements fluctuate daily.",
+    "interpretation": "Regulatory excess capital is not synonymous with freely withdrawable cash. Clearing collateral, operating liquidity, loan growth, covenant thresholds, other jurisdictions and stress buffers must be provided before any extraction. Do not add this table to B0 or cash."
+  },
+  "debt": {
+    "source_id": "q3",
+    "convertible": {
+      "principal": 2200,
+      "carrying_approx": 2172,
+      "coupon": 0,
+      "maturity": "2029-10-01",
+      "effective_interest_rate": 0.0043,
+      "initial_conversion_price": 174.42,
+      "conversion_rate_shares_per_1000": 5.7332,
+      "potential_shares": 12.6,
+      "conversion_principal_settlement": "cash required up to principal; excess may be cash/shares/combination",
+      "shares_excluded_from_current_diluted_EPS_as_antidilutive": 13,
+      "capped_call_cash_cost": 123.2,
+      "capped_call_strike": 174.4227,
+      "capped_call_cap": 237.8475,
+      "stock_repurchase_from_proceeds": 290,
+      "stock_repurchase_shares": 2.7
+    },
+    "credit_card_ABS_series_2026_1": {
+      "principal": 500,
+      "carrying": 488,
+      "weighted_coupon": 0.0486,
+      "final_maturity": "2031-07",
+      "revolving_period_end": "2029-06",
+      "swap_notional": 500,
+      "swap_liability": 10
+    },
+    "credit_card_warehouse_borrowings_including_interest": 839,
+    "warehouse_classification": "Other current liabilities; separate from 2660 long-term borrowings and separate from ABS.",
+    "credit_card_trust_revolver_commitment": 1550,
+    "credit_card_trust_warehouse_weighted_interest_rate": 0.0506,
+    "credit_card_trust_creditors_recourse": "No recourse to general credit; trust assets settle trust obligations. Exposure includes trust net assets and expected credit losses.",
+    "RHM_revolver_commitment": 1125,
+    "RHM_revolver_maturity": "2028-03-21",
+    "RHS_revolver_commitment": 3325,
+    "RHS_revolver_tenor_days": 364,
+    "RHM_RHS_revolver_drawn_at_period_end": 0,
+    "postperiod_event_2026_10_15": {
+      "ABS_series_2026_2_principal": 500,
+      "weighted_coupon": 0.0558,
+      "final_maturity": "2031-10",
+      "revolving_period_end": "2029-09",
+      "note": "Subsequent event, not included in September 30 balance. Do not add entire amount as net incremental debt without knowing warehouse repayments."
+    },
+    "valuation_treatment": "RIM starts with parent book equity already net of all reported liabilities. Do not again subtract convertible/ABS debt or add consolidated cash. For EV-style analysis, separate financing of earning assets from general corporate debt and exclude customer payables/collateral from ordinary industrial debt. For converts, do not both deduct full debt and add all as-converted shares; model mandatory cash principal and share/capped-call excess consistently."
+  },
+  "shares_and_compensation": {
+    "source_id": "q3",
+    "exact_shares_asof": "2026-10-21",
+    "classA_shares_exact": 793425151,
+    "classB_shares_exact": 107066126,
+    "total_shares_exact": 900491277,
+    "period_end_shares_2026_09_30_rounded_m": 901,
+    "q3_diluted_weighted_average_m": 911,
+    "nine_month_diluted_weighted_average_m": 913,
+    "warrants": {
+      "shares_m": 8.74,
+      "strike": 26.6,
+      "expiry": "2031-02-12",
+      "exercise": "cash or net share settlement"
+    },
+    "unvested_time_based_RSU_m": 6,
+    "unvested_RSU_weighted_grant_value_per_share": 66.19,
+    "PSU_max_shares_m": 0.4,
+    "plan_awards_reserved_m": 9,
+    "shares_available_for_future_grants_m": 348,
+    "unvested_TradePMR_restricted_shares_m": 1,
+    "TradePMR_shares_note": "Already issued/outstanding; do not add again to current issued shares.",
+    "unrecognized_SBC_expense": 453,
+    "unrecognized_SBC_weighted_recognition_years": 1.04,
+    "SBC_expensed_9M2026": 277,
+    "SBC_capitalized_in_software_9M2026": 15,
+    "SBC_total_equity_credit_9M2026": 292,
+    "repurchases_9M2026_program": 399,
+    "repurchases_9M2026_separate_convert_transaction": 290,
+    "repurchases_9M2026_total": 689,
+    "repurchase_shares_program_m": 5.0,
+    "repurchase_shares_convert_m": 2.7,
+    "interpretation": "Recurring SBC is an economic labor expense. Adding it back while ignoring dilution or offsetting repurchase cost overstates per-share value. Current diluted EPS denominator is period-weighted and does not contain antidilutive convert shares; future authorized shares are not all presently issued dilution."
+  },
+  "clean_surplus_bridge": {
+    "source_id": "q3",
+    "period": "9M2026",
+    "items": [
+      {
+        "item": "Opening parent equity, 2025-12-31",
+        "amount": 9140
+      },
+      {
+        "item": "Parent net income",
+        "amount": 1379
+      },
+      {
+        "item": "OCI",
+        "amount": -17
+      },
+      {
+        "item": "Option exercises",
+        "amount": 4
+      },
+      {
+        "item": "ESPP issuance",
+        "amount": 17
+      },
+      {
+        "item": "RSU tax withholding",
+        "amount": -34
+      },
+      {
+        "item": "Capped calls, equity-statement net amount",
+        "amount": -93
+      },
+      {
+        "item": "Share repurchases",
+        "amount": -689
+      },
+      {
+        "item": "SBC including capitalized SBC",
+        "amount": 292
+      },
+      {
+        "item": "RVI deconsolidation APIC adjustment",
+        "amount": 2
+      }
+    ],
+    "closing_parent_equity_calculated": 10001,
+    "closing_parent_equity_reported": 10001,
+    "note": "Capped-call cash payment 123.2 differs from net equity-statement reduction 93; use reported equity bridge, not cash outflow, when reconciling B0. A net-income-only retained-earnings book roll-forward is not actual clean surplus when these direct equity/owner transactions continue. OCI should be zero only as an explicit forecast assumption."
+  },
+  "cashflow_quality": {
+    "source_id": "q3",
+    "period": "9M2026",
+    "noncash_bridge": [
+      {
+        "item": "Net income consolidated",
+        "amount": 1395
+      },
+      {
+        "item": "D&A",
+        "amount": 72
+      },
+      {
+        "item": "Credit-loss provision",
+        "amount": 163
+      },
+      {
+        "item": "Deferred taxes",
+        "amount": 63
+      },
+      {
+        "item": "SBC expensed",
+        "amount": 277
+      },
+      {
+        "item": "Deconsolidation gain",
+        "amount": -107
+      },
+      {
+        "item": "Equity securities realized/unrealized loss",
+        "amount": 46
+      },
+      {
+        "item": "Other noncash",
+        "amount": 26
+      }
+    ],
+    "income_plus_noncash": 1935,
+    "asset_liability_changes": [
+      {
+        "item": "Segregated securities",
+        "amount": -4360
+      },
+      {
+        "item": "Broker receivables",
+        "amount": -111
+      },
+      {
+        "item": "User receivables",
+        "amount": -4939
+      },
+      {
+        "item": "Securities borrowed",
+        "amount": -2373
+      },
+      {
+        "item": "Clearing deposits",
+        "amount": -423
+      },
+      {
+        "item": "Deferred customer match",
+        "amount": -190
+      },
+      {
+        "item": "Other assets/prepaids",
+        "amount": -328
+      },
+      {
+        "item": "Payables/accruals",
+        "amount": 47
+      },
+      {
+        "item": "Payables to users",
+        "amount": 6447
+      },
+      {
+        "item": "Securities loaned",
+        "amount": 7854
+      },
+      {
+        "item": "Other liabilities",
+        "amount": 424
+      }
+    ],
+    "asset_liability_changes_total": 2048,
+    "CFO": 3983,
+    "cash_capex_PPE": 31,
+    "cash_capex_software": 32,
+    "mechanical_CFO_minus_capex": 3920,
+    "credit_card_receivables_purchased_in_investing_CF": 10834,
+    "credit_card_collections_in_investing_CF": 9961,
+    "credit_card_net_cash_investment": 873,
+    "warehouse_borrowing_CF": 757,
+    "warehouse_repayment_CF": 523,
+    "ABS_borrowing_CF": 500,
+    "credit_card_incremental_financing_CF": 734,
+    "credit_card_net_cash_funding_gap_before_other_items": 139,
+    "warning": "These are consolidated cash-accounting flows, not owner earnings. Net customer funding changes and restricted/segregated movements dominate CFO; loan origination purchases are in investing CF, and financing proceeds are not distributable earnings."
+  },
+  "credit_and_capital_needs": {
+    "source_id": "q3",
+    "asof": "2026-09-30",
+    "margin_book": 22100,
+    "margin_book_growth_yoy": 0.59,
+    "purchased_card_receivables_net": 1510,
+    "purchased_card_receivables_net_prior_2025_12_31": 786,
+    "card_loans_on_balance_gross": 1645,
+    "card_loans_off_balance_gross": 196,
+    "card_loans_total_gross": 1841,
+    "card_loans_total_gross_prior": 1040,
+    "past_due_total": 102,
+    "past_due_90plus": 33,
+    "past_due_percent_reported": 0.06,
+    "below640_FICO_share": 0.05,
+    "below640_prior_share": 0.03,
+    "FICO_above690_share": 0.75,
+    "FICO_above690_prior_share": 0.78,
+    "allowance_on_balance": 134,
+    "allowance_off_balance": 40,
+    "nine_month_card_provision_on_balance": 125,
+    "nine_month_card_provision_off_balance": 18,
+    "q3_card_provision_on_balance": 57,
+    "q3_card_provision_off_balance": 4,
+    "card_net_interest_9M2026": 122,
+    "card_net_interest_Q32026": 50,
+    "coastal_bank_funding_capacity": 500,
+    "coastal_bank_off_balance_risk": "Receivables and bank funding are not on the balance sheet; Robinhood bears losses under program terms. Bank legal ownership does not remove Robinhood economic credit risk.",
+    "interpretation": "9M card provisions 143 exceed card net interest 122; Q3 provisions 61 exceed card net interest 50. This comparison excludes card noninterest revenue and operating/rewards/network expenses, so it is a warning about immature earnings and credit cost, not a full segment-profit calculation. Margin lending and customer collateral require liquidity and risk capital; customer collateral itself is not enterprise wealth."
+  },
+  "nonoperating_tax_and_amendment": {
+    "source_ids": [
+      "q3",
+      "fy25",
+      "amended",
+      "8ka"
+    ],
+    "RVI_deconsolidation_gain_9M2026": 106,
+    "RVII_deconsolidation_gain_9M2026": 1,
+    "retained_RVI_value": 361,
+    "retained_RVII_value": 23,
+    "q3_realized_unrealized_fund_losses_adjustment": 67,
+    "nine_month_realized_unrealized_fund_gains_adjustment": 62,
+    "nine_month_other_income_net": 75,
+    "RVI_management_fee": "2% NAV",
+    "RVII_management_fee": "2% NAV plus 20% incentive fee on realized capital gains",
+    "2025_effective_tax_rate": 0.107,
+    "2025_SBC_tax_benefit": 184,
+    "2025_RD_tax_credits": 66,
+    "q3_2026_effective_tax_rate_calculated": 0.2384,
+    "nine_month_2026_effective_tax_rate_calculated": 0.20057306590257878,
+    "amended_adjusted_net_income_Q3": 542,
+    "amended_adjusted_net_income_9M": 1409,
+    "amended_adjusted_earnings_bridge_Q3": "468 + 2 CFO/restructuring SBC + 67 investment losses + 9 acquired-intangible amortization - 4 tax impact = 542",
+    "unamended_HTML_adjusted_net_income_Q3_obsolete": 550,
+    "amendment_reason": "8-K/A solely revises tax effect presentation of non-GAAP adjustments; GAAP unchanged. 550 to 542 is not a new 8 NCI adjustment.",
+    "valuation_interpretation": "Strip nonrecurring investment/deconsolidation effects for normal operating earnings and set a defensible through-cycle tax rate. Retained fund fair values are already in B0; do not add them again in RIM. In sum-of-parts, remove related earnings and capital before adding investment value separately."
+  },
+  "acquisitions": {
+    "source_id": "q3",
+    "TradePMR": {
+      "closed": "2025-02-26",
+      "cash_consideration_final": 169,
+      "postclose_employee_shares_value": 100,
+      "postclose_vesting_years": 4,
+      "goodwill": 105,
+      "intangibles": 81
+    },
+    "Bitstamp": {
+      "closed": "2025-06-02",
+      "cash_consideration_final": 224,
+      "goodwill": 93,
+      "intangibles": 70
+    },
+    "MIAXdx_Rothera": {
+      "closed": "2026-01-20",
+      "acquired_interest": 0.9,
+      "cash_consideration": 79,
+      "SIG_contribution": 41,
+      "goodwill": 23,
+      "intangible_licenses": 47
+    },
+    "WonderFi": {
+      "closed": "2026-06-01",
+      "cash_consideration": 178,
+      "goodwill": 119,
+      "intangibles": 50
+    },
+    "note": "TradePMR 169 cash plus 100 postclose employment compensation must not be mislabeled 269 acquisition consideration; employee service cost is SBC. Business combinations bring customer cash AND offsetting customer obligations. Acquired segregated customer funds are not cash windfalls."
+  },
+  "limitations": [
+    "No independently disclosed current parent-only freely distributable cash figure found in selected latest filings; consolidated cash is not sufficient to infer excess cash.",
+    "Regulatory capital table covers named US entities; other jurisdictions/crypto licenses and business stress buffers may require more capital. Minimum regulatory capital is not a sufficient estimate of optimal operating capital.",
+    "Cash capex does not distinguish maintenance versus growth. Internally developed software capitalization and capitalized SBC should remain explicit.",
+    "TTM and annual values use reported rounded millions. TTM is a derived period, not a management forecast. No share price or investment recommendation is supplied by this evidence file.",
+    "2025 annual cash-flow reconciliation comparative cash balances as rendered via text preprocessing show historical-period values that do not readily reconcile with the 2023 original report. Historical cash-balance series has deliberately not been constructed from that table. Core income/CFO/capex and latest Q3 balance sheet are separately identified; this is not evidence of financial misstatement.",
+    "Latest segregated aggregate includes cash and securities, whereas the CFS reconciliation is cash/equivalents only. Do not treat their difference, or the full segregated aggregate, as excess corporate cash. Selected fair-value tables should not be used as a complete allocation of that aggregate without full ledger detail."
+  ],
+  "exact_source_text_windows": [
+    {
+      "source_id": "fy23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387924000054/hood-20231231.htm",
+      "local_line_start": 2680,
+      "text": "(in millions, except share and per share data)2021 2022 2023\nRevenues:\nTransaction-based revenues$1,402$814$785\nNet interest revenues 256 424 929\nOther revenues 157 120 151\nTotal net revenues 1,815 1,358 1,865\n\nOperating expenses:\nBrokerage and transaction 158 179 146\nTechnology and development 1,234 878 805\nOperations 368 285 159\nMarketing 325 103 122\nGeneral and administrative 1,371 924 1,169\nTotal operating expenses 3,456 2,369 2,401\n\nChange in fair value of convertible notes and warrant liability 2,045——\nOther (income) expense, net(1)16(3)\nLoss before income taxes(3,685)(1,027)(533)\nProvision for income taxes 2 1 8\nNet loss$(3,687)$(1,028)$(541)\nNet loss attributable to common stockholders:\nBasic$(3,687)$(1,028)$(541)\nDiluted$(3,687)$(1,028)$(541)\nNet loss per share attributable to common stockholders:\nBasic$(7.49)$(1.17)$(0.61)\nDiluted$(7.49)$(1.17)$(0.61)\nWeighted-average shares used to compute net loss per share attributable to common stockholders:\nBasic 492,381,190 878,630,024 890,857,659\nDiluted 492,381,190 878,630,024 890,857,659\n\nSee Accompanying Notes to the Consolidated Financial Statements.\n\n108\n\n* * *\n\nROBINHOOD MARKETS, INC.\n"
+    },
+    {
+      "source_id": "fy23",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387924000054/hood-20231231.htm",
+      "local_line_start": 2744,
+      "text": "(in millions)2021 2022 2023\nOperating activities:\nNet loss$(3,687)$(1,028)$(541)\nAdjustments to reconcile net loss to net cash provided by (used in) operating activities:\nDepreciation and amortization 26 61 71\nImpairment of long-lived assets—45 5\nProvision for credit losses 78 36 43\nShare-based compensation 1,572 654 871\nChange in fair value of convertible notes and warrant liability 2,045——\nOther(1)35 3\nChanges in operating assets and liabilities:\nSecurities segregated under federal and other regulations 135——\nReceivables from brokers, dealers, and clearing organizations 36 12(13)\nReceivables from users, net(3,362)3,386(298)\nSecurities borrowed—(517)(1,085)\nDeposits with clearing organizations(102)142(152)\nCurrent and non-current prepaid expenses(135)33 37\nOther current and non-current assets(54)(26)(48)\nAccounts payable and accrued expenses 134(62)134\nPayables to users 578(1,775)396\nSecurities loaned 1,730(1,817)1,713\nOther current and non-current liabilities 122(31)45\nNet cash provided by (used in) operating activities(885)(852)1,181\nInvesting activities:\nPurchases of property, software, and equipment(63)(28)(2)\nCapitalization of internally developed software(20)(29)(19)\nPurchases of available-for-sale investments(27)(25)—\nProceeds from sales and maturities of available-for-sale investments—42 10\nPurchases of held-to-maturity investments——(759)\nProceeds from maturities of held-to-maturity investments——282\nAcquisitions of a business, net of cash and cash equivalents acquired(125)—(93)\nOther(3)(20)(1)\nNet cash used in investing activities(238)(60)(582)\nFinancing activities:\nProceeds from issuance of common stock in connection with initial public offering, net of offering costs 2,052——\nProceeds from issuance of common stock under the Employee Stock Purchase Plan (\"ESPP\")7 16 14\nTaxes paid related to net share settlement of equity awards(422)(12)(12)\nProceeds from issuance of convertible notes and warrants 3,552——\nDraws on credit facilities 1,968 21 20\nRepayments on credit facilities(1,968)(21)(20)\nPayments of debt issuance costs—(10)(10)\nChange in principal collected from customers due to Coastal Bank——1\nProceeds from exercise of stock options, net of repurchases 14 6 5\nRepurchase of common stock——(608)\nNet cash provided by (used in) financing activities 5,203—(610)\nEffect of foreign exchange rate changes on cash and cash equivalents—(1)—\nNet decrease in cash,cash equivalents, segregated cash, and restricted cash 4,080(913)(11)\nCash,cash equivalents, segregated cash, and restricted cash,beginning of the period 6,190 10,270 9,357"
+    },
+    {
+      "source_id": "fy25",
+      "url": "https://investors.robinhood.com/static-files/36353485-5cd1-4eb2-9eb4-6d266f75374b",
+      "local_line_start": 1467,
+      "text": "(in millions, except share and per share data) 2023 2024 2025\n\nRevenues: Transaction-based revenues ............................................................................ $ 785 $ 1,647 $ 2,628 Net interest revenues ......................................................................................... 929 1,109 1,514 Other revenues ................................................................................................... 151 195 331 Total net revenues ......................................................................................... 1,865 2,951 4,473 Operating expenses: Brokerage and transaction ............................................................................... 146 164 211 Technology and development .......................................................................... 805 818 897 Operations ........................................................................................................... 116 112 130 Provision for credit losses ................................................................................. 43 76 114 Marketing ............................................................................................................. 122 272 399 General and administrative ............................................................................... 1,169 455 628 Total operating expenses ............................................................................. 2,401 1,897 2,379 Other income, net .................................................................................................... 3 10 14 Income (loss) before income taxes ...................................................................... (533) 1,064 2,108 Provision for (benefit from) income taxes ............................................................ 8 (347) 225 Net income (loss) .................................................................................................... $ (541) $ 1,411 $ 1,883 Net income (loss) attributable to non-controlling interest ............................. — — —Net income (loss) attributable to Robinhood ....................................................... $ (541) $ 1,411 $ 1,883 Net income (loss) attributable to Robinhood common stockholders: ............. \n\nBasic ..................................................................................................................... $ (541) $ 1,411 $ 1,883 Diluted .................................................................................................................. $ (541) $ 1,411 $ 1,883 Net income (loss) per share attributable to Robinhood common stockholders: ........................................................................................................ \n\nBasic ..................................................................................................................... $ (0.61) $ 1.60 $ 2.12 Diluted .................................................................................................................. $ (0.61) $ 1.56 $ 2.05 Weighted-average shares used to compute net income (loss) per share attributable to Robinhood common stockholders: .......................................... \n\nBasic ..................................................................................................................... 890,857,659 881,113,156 888,504,958 Diluted .................................................................................................................. 890,857,659 906,171,504 918,781,846 \n\nSee Accompanying Notes to the Consolidated Financial Statements. \n\nROBINHOOD MARKETS, INC. CONSOLIDATED STATEMENTS OF OPERATIONS \n"
+    },
+    {
+      "source_id": "fy25",
+      "url": "https://investors.robinhood.com/static-files/36353485-5cd1-4eb2-9eb4-6d266f75374b",
+      "local_line_start": 1495,
+      "text": "Operating activities: \n\nNet income (loss) ............................................................................................................................................................ $ (541) $ 1,411 $ 1,883 Adjustments to reconcile net income (loss) to net cash provided by (used in) operating activities: Depreciation and amortization ............................................................................................................................... 71 77 86 Provision for credit losses ...................................................................................................................................... 43 76 114 Deferred income taxes ............................................................................................................................................ — (369) 181 Share-based compensation ................................................................................................................................... 871 304 305 Other .......................................................................................................................................................................... 8 — 3Changes in operating assets and liabilities: Securities segregated under federal and other regulations .............................................................................. — (397) 197 Receivables from brokers, dealers, and clearing organizations ...................................................................... (13) (382) 62 Receivables from users, net .................................................................................................................................. (298) (4,592) (9,106) Securities borrowed ................................................................................................................................................. (1,085) (1,634) 828 Deposits with clearing organizations .................................................................................................................... (152) (151) (213) Current and non-current prepaid expenses ......................................................................................................... 37 (25) (28) Current and non-current deferred customer match incentives ......................................................................... (30) (265) (318) Other current and non-current assets .................................................................................................................. (18) (415) (152) Accounts payable and accrued expenses ........................................................................................................... 134 (35) (18) Payables to users .................................................................................................................................................... 396 2,351 3,423 Securities loaned ..................................................................................................................................................... 1,713 3,916 4,163 Other current and non-current liabilities ............................................................................................................... 45 (27) 228 Net cash provided by (used in) operating activities ..................................................................................... 1,181 (157) 1,638 \n\nInvesting activities: \n\nPurchases of property, software, and equipment ............................................................................................... (2) (13) (15) Capitalization of internally developed software ................................................................................................... (19) (37) (39) Consideration transferred for business acquisitions and asset acquisitions .................................................. (107) (134) (399) Cash, cash equivalents, and segregated cash acquired in business acquisitions and asset acquisitions ............................................................................................................................................................... 14 125 1,193 Purchases of non-marketable securities .............................................................................................................. (1) (1) (244) Purchases of held-to-maturity investments ......................................................................................................... (759) (556) —Proceeds from maturities of held-to-maturity investments ................................................................................ 282 658 400 Purchases of credit card receivables by Credit Card Funding Trust ............................................................... — (748) (5,195) Collections of purchased credit card receivables ............................................................................................... — 556 4,440 Other .......................................................................................................................................................................... 10 2 —Net cash provided by (used in) investing activities ...................................................................................... (582) (148) 141 \n\nFinancing activities: \n\nProceeds from exercise of stock options ............................................................................................................. 5 18 16 Proceeds from issuance of common stock under the Employee Share Purchase Plan .............................. 14 16 22 Taxes paid related to net share settlement of equity awards ........................................................................... (12) (244) (437) Repurchase of Class A common stock ................................................................................................................ (608) (257) (653) Draws on credit facilities ......................................................................................................................................... 20 22 4,752 Repayments on credit facilities .............................................................................................................................. (20) (22) (4,752) Borrowings by the Credit Card Funding Trust ..................................................................................................... — 132 468 Repayments on borrowings by the Credit Card Funding Trust ........................................................................ — (1) —Change in principal collected from customers due to Coastal Bank ............................................................... 1 6 —Payments of debt issuance costs .......................................................................................................................... (10) (15) (17) Contributions from noncontrolling interests ......................................................................................................... — — 11 Net cash used in financing activities .............................................................................................................. (610) (345) (590) Effect of foreign exchange rate changes on cash and cash equivalents ........................................................ — (1) 9Net increase (decrease) in cash, cash equivalents, segregated cash, and restricted cash ................. (11) (651) 1,198 Cash, cash equivalents, segregated cash, and restricted cash, beginning of the period ................................... 9,357 9,346 8,695 Cash, cash equivalents, segregated cash, and restricted cash, end of the period .............................................. $ 9,346 $ 8,695 $ 9,893 \n\nROBINHOOD MARKETS, INC. CONSOLIDATED STATEMENTS OF CASH FLOWS \n\n132 Table of Contents Reconciliation of cash, cash equivalents, segregated cash, and restricted cash, end of the period: \n\nCash and cash equivalents, end of the period .................................................................................................... $ 4,835 $ 4,332 $ 4,261 Segregated cash and cash equivalents, end of the period ............................................................................... 4,448 4,327 5,549 Restricted cash in other current assets, end of the period ................................................................................ 46 18 66 Restricted cash in other non-current assets, end of the period ........................................................................ 17 18 17 Cash, cash equivalents, segregated cash and restricted cash, end of the period ................................. $ 9,346 $ 8,695 $ 9,893 \n\nSupplemental disclosures: "
+    },
+    {
+      "source_id": "fy25",
+      "url": "https://investors.robinhood.com/static-files/36353485-5cd1-4eb2-9eb4-6d266f75374b",
+      "local_line_start": 1977,
+      "text": "Year Ended December 31, 2025 Amount Percent\n\nFederal tax at statutory rate .................................................................................. $ 443 21.0 % State tax (benefit), net of federal benefit (1) .......................................................... 34 1.6 Foreign tax effects .................................................................................................. (12) (0.6) Effect of cross-border tax laws ............................................................................. 1 0.1 Nontaxable or nondeductible items: ..................................................................... \n\nShare-based compensation ............................................................................. (184) (8.7) Others .................................................................................................................. 5 0.2 Tax credits: ............................................................................................................... \n\nResearch and development credits ................................................................. (66) (3.1) Changes in unrecognized tax benefits ................................................................ — —Change in valuation allowance ............................................................................. 3 0.1 Other adjustments ................................................................................................... 1 0.1 Total provision for (benefit from) income taxes .................................................. $ 225 10.7 %  \n\n> (1) State and local taxes in New York, New Jersey, Pennsylvania and Illinois made up the majority (greater than 50 percent) of the tax effect in this category.\n\nFor the years ended December 31, 2024 and 2023, prior to the adoption of ASU 2023-09, the reconciliation of statutory federal income tax rate and our effective income tax rate was as follows (in percentages):  \n"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 581,
+      "text": "CONDENSED CONSOLIDATED BALANCE SHEETS\n(Unaudited)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t\nDecember 31,\n\t\t\nSeptember 30,\n\n(in millions, except per share data)\t\t2025\t\t2026\nAssets\t\t\t\t\nCurrent assets:\t\t\t\t\nCash and cash equivalents\t\t$\t4,261 \t\t\t$\t5,829 \t\nCash, cash equivalents, and securities segregated under federal and other regulations\t\t5,749 \t\t\t13,443 \t\nReceivables from brokers, dealers, and clearing organizations\t\t426 \t\t\t537 \t\nReceivables from users, net\t\t17,994 \t\t\t23,598 \t\nSecurities borrowed\t\t2,408 \t\t\t4,781 \t\nDeposits with clearing organizations\t\t702 \t\t\t1,125 \t\nUser-held fractional shares\t\t3,782 \t\t\t5,123 \t\nDeferred customer match incentives\t\t185 \t\t\t226 \t\n\n Other current assets, including current prepaid expenses of $127 as of December 31, 2025 and $182 as of September 30, 2026\n\t\t798 \t\t\t1,616 \t\nTotal current assets\t\t36,305 \t\t\t56,278 \t\nProperty, software, and equipment, net\t\t154 \t\t\t187 \t\nGoodwill\t\t385 \t\t\t515 \t\nIntangible assets, net\t\t168 \t\t\t231 \t\nNon-current deferred customer match incentives\t\t428 \t\t\t578 \t\n\n Other non-current assets, including non-current prepaid expenses of $11 as of December 31, 2025 and $22 as of September 30, 2026\n\t\t697 \t\t\t482 \t\nTotal assets\t\t$\t38,137 \t\t\t$\t58,271 \t\nLiabilities and stockholders’ equity\t\t\t\t\nCurrent liabilities:\t\t\t\t\nAccounts payable and accrued expenses\t\t$\t463 \t\t\t$\t658 \t\nPayables to users\t\t11,986 \t\t\t18,473 \t\nSecurities loaned\t\t11,626 \t\t\t19,480 \t\nFractional shares repurchase obligation\t\t3,782 \t\t\t5,123 \t\nOther current liabilities\t\t914 \t\t\t1,509 \t\nTotal current liabilities\t\t28,771 \t\t\t45,243 \t\nLong-term borrowings\t\t— \t\t\t2,660 \t\nOther non-current liabilities\t\t215 \t\t\t290 \t\nTotal liabilities\t\t28,986 \t\t\t48,193 \t\nCommitments and contingencies (Note 16)\t\t\t\t\nStockholders’ equity:\t\t\t\t\n\nPreferred stock, $0.0001 par value. 210 million shares authorized, no shares issued and outstanding as of December 31, 2025 and September 30, 2026.\n\t\t— \t\t\t— \t\n\nClass A common stock, $0.0001 par value. 21 billion shares authorized, 790 million shares issued and outstanding as of December 31, 2025; 21 billion shares authorized, 793 million shares issued and outstanding as of September 30, 2026.\n\t\t— \t\t\t— \t\n\nClass B common stock, $0.0001 par value. 700 million shares authorized, 111 million shares issued and outstanding as of December 31, 2025; 700 million shares authorized, 108 million shares issued and outstanding as of September 30, 2026.\n\t\t— \t\t\t— \t\n\nClass C common stock, $0.0001 par value. 7 billion shares authorized, no shares issued and outstanding as of December 31, 2025 and September 30, 2026.\n\t\t— \t\t\t— \t\nAdditional paid-in capital\t\t11,284 \t\t\t10,783 \t\nAccumulated other comprehensive income (loss)\t\t8 \t\t\t(9)\t\nAccumulated deficit\t\t(2,152)\t\t\t(773)\t\nNon-controlling interests\t\t11 \t\t\t77 \t\n\nTotal stockholders’ equity\n\t\t9,151 \t\t\t10,078 \t\nTotal liabilities and stockholders’ equity\t\t$\t38,137 \t\t\t$\t58,271 \t\nSee Accompanying Notes to the Unaudited Condensed Consolidated Financial Statements.\n11\nTable of Contents\nROBINHOOD MARKETS, INC.\nCONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS\n(Unaudited)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\tThree Months Ended\n September 30,\t\tNine Months Ended\n September 30,\n(in millions, except for per share data)\t2025\t\t2026\t\t2025\t\t2026\nRevenues:\t\t\t\t\t\t\t\nTransaction-based revenues\t$\t730 \t\t\t$\t867 \t\t\t$\t1,852 \t\t\t$\t2,266 \t\nNet interest revenues\t456 \t\t\t415 \t\t\t1,103 \t\t\t1,163 \t\nOther revenues\t88 \t\t\t142 \t\t\t235 \t\t\t370 \t\nTotal net revenues\t1,274 \t\t\t1,424 \t\t\t3,190 \t\t\t3,799 \t\n\t\t\t\t\t\t\t\nOperating expenses:\t\t\t\t\t\t\t\nBrokerage and transaction\t56 \t\t\t68 \t\t\t154 \t\t\t190 \t"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 649,
+      "text": "CONDENSED CONSOLIDATED STATEMENTS OF OPERATIONS\n(Unaudited)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\tThree Months Ended\n September 30,\t\tNine Months Ended\n September 30,\n(in millions, except for per share data)\t2025\t\t2026\t\t2025\t\t2026\nRevenues:\t\t\t\t\t\t\t\nTransaction-based revenues\t$\t730 \t\t\t$\t867 \t\t\t$\t1,852 \t\t\t$\t2,266 \t\nNet interest revenues\t456 \t\t\t415 \t\t\t1,103 \t\t\t1,163 \t\nOther revenues\t88 \t\t\t142 \t\t\t235 \t\t\t370 \t\nTotal net revenues\t1,274 \t\t\t1,424 \t\t\t3,190 \t\t\t3,799 \t\n\t\t\t\t\t\t\t\nOperating expenses:\t\t\t\t\t\t\t\nBrokerage and transaction\t56 \t\t\t68 \t\t\t154 \t\t\t190 \t\nTechnology and development\t237 \t\t\t254 \t\t\t665 \t\t\t751 \t\nOperations\t33 \t\t\t79 \t\t\t93 \t\t\t174 \t\nProvision for credit losses\t26 \t\t\t71 \t\t\t78 \t\t\t163 \t\nMarketing\t102 \t\t\t104 \t\t\t306 \t\t\t315 \t\nGeneral and administrative\t185 \t\t\t163 \t\t\t450 \t\t\t536 \t\nTotal operating expenses\t639 \t\t\t739 \t\t\t1,746 \t\t\t2,129 \t\n\t\t\t\t\t\t\t\nOther income (expense), net\t(1)\t\t\t(60)\t\t\t3 \t\t\t75 \t\nIncome before income taxes\t634 \t\t\t625 \t\t\t1,447 \t\t\t1,745 \t\nProvision for income taxes\t78 \t\t\t149 \t\t\t169 \t\t\t350 \t\nNet income\t$\t556 \t\t\t$\t476 \t\t\t$\t1,278 \t\t\t$\t1,395 \t\nLess: Net income (loss) attributable to non-controlling interests\t— \t\t\t8 \t\t\t— \t\t\t16 \t\nNet income attributable to Robinhood\t$\t556 \t\t\t$\t468 \t\t\t$\t1,278 \t\t\t$\t1,379 \t\nNet income attributable to Robinhood common stockholders:\t\t\t\t\t\t\t\nBasic\t$\t556 \t\t\t$\t468 \t\t\t$\t1,278 \t\t\t$\t1,379 \t\nDiluted\t$\t556 \t\t\t$\t468 \t\t\t$\t1,278 \t\t\t$\t1,379 \t\nNet income per share attributable to Robinhood common stockholders:\t\t\t\t\t\t\t\nBasic\t$\t0.63 \t\t\t$\t0.52 \t\t\t$\t1.44 \t\t\t$\t1.53 \t\nDiluted\t$\t0.61 \t\t\t$\t0.51 \t\t\t$\t1.39 \t\t\t$\t1.51 \t\nWeighted-average shares used to compute net income per share attributable to Robinhood common stockholders:\t\t\t\t\t\t\t\nBasic\t889 \t\t\t898 \t\t\t885 \t\t\t899 \t\nDiluted\t918 \t\t\t911 \t\t\t919 \t\t\t913 \t\nSee Accompanying Notes to the Unaudited Condensed Consolidated Financial Statements.\n12\nTable of Contents\nROBINHOOD MARKETS, INC.\nCONDENSED CONSOLIDATED STATEMENTS OF COMPREHENSIVE INCOME\n(Unaudited)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\tThree Months Ended"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 708,
+      "text": "CONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS\n(Unaudited)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tNine Months Ended\n September 30,\n(in millions)\t\t2025\t\t2026\nOperating activities:\t\t\t\t\nNet income\t\t$\t1,278 \t\t\t$\t1,395 \t\nAdjustments to reconcile net income to net cash (used in) provided by operating activities:\t\t\t\t\nDepreciation and amortization\t\t63 \t\t\t72 \t\nProvision for credit losses\t\t78 \t\t\t163 \t\nDeferred income taxes\t\t— \t\t\t63 \t\nShare-based compensation\t\t229 \t\t\t277 \t\nGain on deconsolidations\t\t— \t\t\t(107)\t\nUnrealized and realized (gain) loss on equity securities, net\t\t— \t\t\t46 \t\nOther\t\t13 \t\t\t26 \t\nChanges in operating assets and liabilities:\t\t\t\t\nSecurities segregated under federal and other regulations\t\t(1,193)\t\t\t(4,360)\t\nReceivables from brokers, dealers, and clearing organizations\t\t19 \t\t\t(111)\t\nReceivables from users, net\t\t(5,814)\t\t\t(4,939)\t\nSecurities borrowed\t\t(3,371)\t\t\t(2,373)\t\nDeposits with clearing organizations\t\t(951)\t\t\t(423)\t\nCurrent and non-current deferred customer match incentives\t\t(226)\t\t\t(190)\t\nOther current and non-current assets and prepaid expenses\t\t395 \t\t\t(328)\t\nAccounts payable and accrued expenses\t\t(75)\t\t\t47 \t\nPayables to users\t\t3,754 \t\t\t6,447 \t\nSecurities loaned\t\t8,203 \t\t\t7,854 \t\nOther current and non-current liabilities\t\t173 \t\t\t424 \t\nNet cash provided by operating activities\t\t2,575 \t\t\t3,983 \t\nInvesting activities:\t\t\t\t\nPurchases of property, software, and equipment\t\t(13)\t\t\t(31)\t\nCapitalization of internally developed software\t\t(28)\t\t\t(32)\t\nConsideration transferred for business acquisitions and asset acquisitions\t\t(399)\t\t\t(249)\t\nCash, cash equivalents, and segregated cash acquired in business acquisitions and asset acquisitions\t\t1,193 \t\t\t95 \t\nPurchases of non-marketable securities\t\t(8)\t\t\t(230)\t\nProceeds from maturities of held-to-maturity investments\t\t347 \t\t\t— \t\nPurchases of credit card receivables by Credit Card Funding Trust\t\t(2,917)\t\t\t(10,834)\t\nCollections of purchased credit card receivables\t\t2,526 \t\t\t9,961 \t\nProceeds from sales of investment in RVI\t\t— \t\t\t40 \t\nCash derecognized upon deconsolidations\t\t— \t\t\t(225)\t\nOther\t\t(2)\t\t\t(28)\t\nNet cash provided by (used in) investing activities\t\t699 \t\t\t(1,533)\t\nFinancing activities:\t\t\t\t\nProceeds from issuance of long-term borrowings\t\t— \t\t\t2,700 \t\nProceeds from exercise of stock options\t\t14 \t\t\t4 \t\nProceeds from issuance of RVI common stock in connection with initial public offering, net of offering costs\t\t— \t\t\t312 \t\nProceeds from issuance of common stock under the Employee Share Purchase Plan\t\t15 \t\t\t17 \t\nTaxes paid related to net share settlement of equity awards\t\t(413)\t\t\t(34)\t\nRepurchase of Class A common stock\t\t(553)\t\t\t(689)\t\nDraws on credit facilities\t\t2,701 \t\t\t2,511 \t\nRepayments on credit facilities\t\t(2,701)\t\t\t(2,511)\t\nBorrowings by the Credit Card Funding Trust\t\t245 \t\t\t757 \t\nRepayments on borrowings by the Credit Card Funding Trust\t\t— \t\t\t(523)\t\nPayments of debt issuance costs\t\t(16)\t\t\t(33)\t\nPurchase of Capped Calls\t\t— \t\t\t(123)\t\nContributions from noncontrolling interests\t\t— \t\t\t49 \t\nOther\t\t— \t\t\t2 \t\nNet cash (used in) provided by financing activities\t\t(708)\t\t\t2,439 \t\nEffect of foreign exchange rate changes on cash and cash equivalents\t\t8 \t\t\t(28)\t\nNet increase in cash, cash equivalents, segregated cash, and restricted cash\t\t2,574 \t\t\t4,861 \t\nCash, cash equivalents, segregated cash, and restricted cash, beginning of the period\t\t8,695 \t\t\t9,893 \t\nCash, cash equivalents, segregated cash, and restricted cash, end of the period\t\t$\t11,269 \t\t\t$\t14,754 \t\n\t\t\t\t\n14\nTable of Contents\nROBINHOOD MARKETS, INC.\nCONDENSED CONSOLIDATED STATEMENTS OF CASH FLOWS\n(Unaudited)\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\nReconciliation of cash, cash equivalents, segregated cash and restricted cash, end of the period:\t\t\t\t\nCash and cash equivalents, end of the period\t\t$\t4,331 \t\t\t$\t5,829 \t\nSegregated cash and cash equivalents, end of the period\t\t6,853 \t\t\t8,883 \t\nRestricted cash in other current assets, end of the period\t\t68 \t\t\t28 \t\nRestricted cash in other non-current assets, end of the period\t\t17 \t\t\t14 \t\nCash, cash equivalents, segregated cash and restricted cash, end of the period\t\t$\t11,269 \t\t\t$\t14,754 \t\nSupplemental disclosures:\t\t\t\t\nCash paid for interest\t\t$\t20 \t\t\t$\t46 \t\nCash paid for income taxes, net of refund received\t\t$\t83 \t\t\t$\t230 \t\nDerecognized assets and liabilities (net)\t\t$\t— \t\t\t$\t376 \t\nRetained RVI and RVII interest at fair value\t\t$\t— \t\t\t$\t461 \t\n\nSee Accompanying Notes to the Unaudited Condensed Consolidated Financial Statements.\n15\nTable of Contents\nROBINHOOD MARKETS, INC.\nCONDENSED CONSOLIDATED STATEMENTS OF STOCKHOLDERS’ EQUITY\n(Unaudited)\n\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\t"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 872,
+      "text": "Balance as of December 31, 2025\t\t901 \t\t\t$\t— \t\t\t$\t11,284 \t\t\t$\t8 \t\t\t$\t(2,152)\t\t\t$\t11 \t\t\t$\t9,151 \t\nNet income\t\t— \t\t\t— \t\t\t— \t\t\t— \t\t\t1,379 \t\t\t16 \t\t\t1,395 \t\nIssuance of common stock in connection with stock option exercises\t\t1 \t\t\t— \t\t\t4 \t\t\t— \t\t\t— \t\t\t— \t\t\t4 \t\n\nIssuance of common stock in connection with Employee Share Purchase Plan\t\t— \t\t\t— \t\t\t17 \t\t\t— \t\t\t— \t\t\t— \t\t\t17 \t\n\nIssuance of common stock upon settlement of RSUs, net of shares withheld\t\t6 \t\t\t— \t\t\t(34)\t\t\t— \t\t\t— \t\t\t— \t\t\t(34)\t\nPurchase of Capped Calls\t\t— \t\t\t— \t\t\t(93)\t\t\t— \t\t\t— \t\t\t— \t\t\t(93)\t\nRepurchase and retirement of Class A common stock\t\t(7)\t\t\t— \t\t\t(689)\t\t\t— \t\t\t— \t\t\t— \t\t\t(689)\t\nChange in other comprehensive loss\t\t— \t\t\t— \t\t\t— \t\t\t(17)\t\t\t— \t\t\t— \t\t\t(17)\t\nShare-based compensation\t\t— \t\t\t— \t\t\t292 \t\t\t— \t\t\t— \t\t\t— \t\t\t292 \t\nIssuance of RVI common stock in connection with initial public offering, net of offering costs\t\t— \t\t\t— \t\t\t— \t\t\t— \t\t\t— \t\t\t312 \t\t\t312 \t\nNon-controlling interests recognized in connection with business combination\t\t— \t\t\t— \t\t\t— \t\t\t— \t\t\t— \t\t\t9 \t\t\t9 \t\nDeconsolidation of RVI\t\t— \t\t\t— \t\t\t2 \t\t\t— \t\t\t— \t\t\t(320)\t\t\t(318)\t\n\nCapital contributions and other changes in noncontrolling interests\t\t— \t\t\t— \t\t\t— \t\t\t— \t\t\t— \t\t\t49 \t\t\t49 \t\nBalance as of September 30, 2026\t\t901 \t\t\t$\t— \t\t\t$\t10,783 \t\t\t$\t(9)\t\t\t$\t(773)\t\t\t$\t77 \t\t\t$\t10,078 \t\n(1)The share amounts listed above combine Class A common stock and Class B common stock.\n\n\nSee Accompanying Notes to the Unaudited Condensed Consolidated Financial Statements.\n17"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 1523,
+      "text": "NOTE 11: FINANCING ACTIVITIES AND OFF-BALANCE SHEET RISK\nConvertible Notes\nOn June 25, 2026, we issued $2.2 billion aggregate principal amount of 0.00% convertible senior notes due 2029 pursuant to an indenture between RHM and U.S. Bank Trust Company, National Association, as trustee, in a private offering pursuant to Rule 144A under the Securities Act. The Convertible Notes are senior unsecured obligations of RHM. The $2.2 billion aggregate principal amount of the Convertible Notes included $200 million in aggregate principal amount of Notes issued pursuant to the initial purchasers’ option to purchase additional Convertible Notes on the same terms and conditions, which the initial purchasers exercised in full on June 23, 2026. The Convertible Notes do not bear regular interest, and the principal amount of the Notes will not accrete. The Convertible Notes will mature on October 1, 2029, unless earlier repurchased, redeemed, or converted. We may pay special interest on the Notes under certain circumstances in accordance with the terms of the Indenture.\nIn connection with the offering of the Convertible Notes, we used approximately $290 million of the net proceeds from the offering of the Convertible Notes to repurchase approximately 2.7 million shares of our Class A common stock in privately negotiated transactions effected with or through one of the initial purchasers of the Convertible Notes or its affiliate at a purchase price per share equal to $105.71, the last reported sale price of our Class A common stock on the Nasdaq Global Select Market on June 22, 2026.\nThe Convertible Notes are carried at amortized cost. Debt issuance costs of approximately $30.6 million, which include underwriter discounts and offering expenses, are presented as a direct deduction from the carrying amount of the Convertible Notes and are amortized to interest expense over the contractual term of the Convertible Notes using the effective interest method. The effective interest rate of the Convertible Notes is 0.43%. The dilution impact was accounted for using the if-converted method; refer to Note 14 - Net Income (Loss) per Share for more information. As of September 30, 2026, the outstanding principal amount is $2.20 billion, and the net carrying amount is $2.17 billion.\n\n\nAs of September 30, 2026, the remaining unamortized debt issuance costs were $28.1 million with a remaining amortization period of approximately 3.01 years. As of September 30, 2026, the Convertible Notes are potentially convertible into 12.6 million shares of Class A common stock, and no shares were actually issued upon conversion.\n\n\nThe Indenture contains customary covenants and events of default, including non-payment of principal or interest when due, breach of other obligations, and cross-acceleration, each subject to grace periods and other terms specified in the Indenture. Upon such an event of default, the Convertible Notes may be declared immediately due and payable. The Indenture also sets forth certain bankruptcy or insolvency events of default involving the Company, after which the Convertible Notes become automatically due and payable. The Indenture also limits mergers, consolidations, and sales of all or substantially all assets of the Company, and imposes certain reporting obligations, among other things.\n\n\nSettlement\nWe are required to settle any conversion by paying cash up to the aggregate principal amount of the Convertible Notes being converted, with any excess settled in cash, shares of our Class A common stock, or a combination thereof, at our election.\n\n\nConversion\nThe Convertible Notes are convertible at the option of the holders, prior to the close of business on the business day immediately preceding July 1, 2029, if certain conditions related to their trading price or our share price are met, certain corporate events or distributions occur, or they are called for redemption.\n38\nTable of Contents\nOn or after July 1, 2029 until the close of business on the second scheduled trading day immediately preceding the maturity date, the Convertible Notes are freely convertible by the holders.\n\n\nThe initial conversion rate of the Convertible Notes is 5.7332 shares of our Class A common stock per $1,000 principal amount, which is equivalent to an initial conversion price of approximately $174.42 per share of Class A common stock (representing a 65% premium to the $105.71 June 22, 2026 closing price).\n\n\nThe conversion rate is subject to adjustment in certain circumstances under the Indenture. In addition, the Company will, in certain circumstances, increase the conversion rate for holders who elect to convert the Convertible Notes in connection with certain corporate events or who convert the Convertible Notes, called for redemption during the related redemption period (as defined in the Indenture).\n\n\nRedemption\nWe may not redeem the Convertible Notes prior to July 1, 2028, except when the aggregate outstanding principal amount of the Convertible Notes is less than $100 million and certain other conditions are satisfied.\n\n\nWe may redeem for cash all or any portion of the Convertible Notes (subject to certain limitations), at our option, on or after July 1, 2028 and prior to the twenty-first scheduled trading day immediately preceding the maturity date, if the last reported sale price of our Class A common stock has been at least 120% of the conversion price for a set period as specified in the Indenture, at a redemption price equal to 100% of the principal amount of the Notes to be redeemed, plus any accrued and unpaid special interest, to, but excluding, the redemption date.\n\n\nIn the event of a fundamental change, holders may require the Company to repurchase the Convertible Notes at a repurchase price equal to 100% of the principal amount, plus accrued and unpaid special interest, if any.\n\n\nCapped Calls Transactions\nOn June 22, 2026, in connection with the pricing of the Convertible Notes, and on June 23, 2026, in connection with the initial purchasers’ exercise in full of their option to purchase additional Convertible Notes, we entered into privately negotiated Capped Calls transactions with certain of the initial purchasers or their respective affiliates and certain other financial institutions at a cost of $123.2 million. The Capped Calls initially cover, subject to customary anti-dilution adjustments, the number of shares initially underlying the notes sold in the offering.\nThe Capped Calls are expected generally to reduce the potential dilution to our Class A common stock upon any conversion of the Convertible Notes and/or offset any potential cash payments we are required to make in excess of the principal amount of converted Convertible Notes, as the case may be, with such reduction and/or offset subject to a cap based on the cap price. The Capped Calls were recorded as a reduction to additional paid-in capital and will not be remeasured.\nThe Capped Calls have an initial strike price of $174.4227 per share of Class A common stock subject to certain adjustments, and an initial cap price of approximately $237.8475 per share of Class A common stock, subject to certain adjustments. Conditions that cause adjustments to the initial cap price mirror conditions that result in corresponding adjustments for the Convertible Notes.\n39\nTable of Contents\n\n\nRevolving Credit Facilities\nRHM March 2026 Credit Agreement\nOn March 9, 2026, RHM entered into the RHM March 2026 Credit Agreement, amending and restating the unsecured revolving line of credit entered into in March 2024 and first amended in March 2025 (refer to Note 11 - Financing Activities and Off-Balance Sheet Risk, of the 2025 Form 10-K for more information). The RHM March 2026 Credit Agreement has a total commitment of $1.125 billion as of September 30, 2026, with a maturity date of March 21, 2028. Under circumstances described in the RHM March 2026 Credit Agreement, the aggregate commitments may be increased from time to time by up to $500 million in the aggregate, for a total commitment of up to $1.50 billion. As of September 30, 2026, remaining incremental capacity under the accordion was $375 million. Borrowings under the RHM March 2026 Credit Agreement will bear interest at a rate per annum equal to the Alternate Base Rate or Adjusted Term SOFR plus an applicable margin rate of 1.50%. For purposes of the RHM March 2026 Credit Agreement, the Alternate Base Rate is the greatest of (i) the prime rate then in effect, (ii) the Federal Reserve Bank of New York rate then in effect plus 0.5% and (iii) the Adjusted Term SOFR for a one month interest period plus 1.0%. The Adjusted Term SOFR Rate is equal to the Term SOFR, published by the Term SOFR Administrator, plus the Term SOFR Adjustment. The Term SOFR Adjustment is 0.10%. If the Adjusted Term SOFR Rate is less than the floor of 0%, such rate shall be deemed to be equal to the floor. RHM is obligated to pay a commitment fee calculated at a per annum rate equal to 0.25% on any unused amount.\nRHS March 2026 Credit Agreement\nOn March 20, 2026, RHS, our wholly-owned subsidiary, entered into the RHS March 2026 Credit Agreement among RHS, as borrower, the lenders party thereto, and JPMorgan Chase Bank, N.A., as administrative agent, amending and restating the $2.65 billion 364-day senior secured revolving credit facility entered into in March 2025 (refer to Note 11 - Financing Activities and Off-Balance Sheet Risk, of the 2025 Form 10-K for more information).\nThe RHS March 2026 Credit Agreement provides for a 364-day senior secured revolving credit facility with a total commitment of $3.325 billion as of September 30, 2026. Under circumstances described in the RHS March 2026 Credit Agreement, the aggregate commitments may be increased from time to time by up to $1.625 billion via an accordion feature, for a total commitment up to $4.875 billion. As of September 30, 2026, remaining incremental capacity under the accordion was $1.550 billion. Borrowings under the credit facility must be specified to be Tranche A, Tranche B, Tranche C or a combination thereof, with each tranche being secured by different assets of RHS as set forth in the RHS March 2026 Credit Agreement. Borrowings under the RHS March 2026 Credit Agreement will bear interest at a rate per annum equal to the greatest of (i) Daily Simple SOFR (as defined in the RHS March 2026 Credit Agreement), (ii) the Federal Funds Effective Rate (as defined in the RHS March 2026 Credit Agreement) and (iii) the Overnight Bank Funding Rate (as defined in the RHS March 2026 Credit Agreement), in each case, as of the day the loan is initiated, plus an applicable margin rate. The applicable margin rate is 1.25% for Tranche A loans and 2.50% for Tranche B and Tranche C loans. Undrawn commitments will accrue commitment fees at a rate per annum equal to 0.45%.\nThe RHS March 2026 Credit Agreement requires RHS to maintain a minimum consolidated tangible net worth and a minimum excess net capital, and subjects RHS to a specified limit on minimum net capital to aggregate debit items. In addition, the RHS March 2026 Credit Agreement contains certain customary affirmative and negative covenants, including limitations with respect to debt, liens, fundamental changes, asset sales, restricted payments, investments and transactions with affiliates, subject to certain exceptions. Amounts due under the RHS March 2026 Credit Agreement may be accelerated upon an “event of default,” as defined in the RHS March 2026 Credit Agreement, such as failure to pay amounts\n40\nTable of Contents\nowed thereunder when due, breach of a covenant, material inaccuracy of a representation, or occurrence of bankruptcy or insolvency, subject in some cases to cure periods.\nAs of December 31, 2025 and September 30, 2026, there were no borrowings outstanding and we were in compliance with all covenants, as applicable, under our revolving credit facilities.\nCredit Card Funding Trust\nUnder terms of the Coastal Bank Program Agreement (discussed below), Robinhood Credit has the ability to purchase credit card receivables originated and held for a period of time by Coastal Bank. Robinhood Credit continues to earn interest from customers and uses these purchased credit card receivables as collateral under a trust structure to access debt financing in the ordinary course of business. To help facilitate these transactions, we created a VIE known as the Trust.\nWe are the primary beneficiary of the Trust as, through our role as the servicer and administrator, we have the power to direct the activities that most significantly affect the Trust’s economic performance and, due to owning all the equity interest in the Trust, have the right to receive benefits or the obligation to absorb losses. As such, we consolidate the Trust in the unaudited condensed consolidated financial statements. Substantially all of the Trust’s assets and liabilities are the purchased credit card receivables, included in Receivable from users, net, the outstanding borrowings, included in Other current liabilities, and the Series 2026-1 asset-backed notes, included in Long-term borrowings, on the unaudited condensed consolidated balance sheets.\nOur exposure to losses in the Trust is limited to the carrying value of net assets held by the Trust, including expected credit losses related to the purchased credit card receivables (Refer to Note 7 - Allowance for Credit Losses). For the Trust, the creditors have no recourse to our general credit and the liabilities of the Trust can only be settled by the Trust’s assets. Additionally, the assets of the Trust can only be used to settle obligations of the Trust.\nAs of September 30, 2026, the Trust maintained six revolving borrowing arrangements (with Barclays, SVB, WF, Truist Bank, Goldman Sachs, and Mizuho) providing an aggregate commitment limit of $1.55 billion. These facilities have revolving periods ending between April 2027 and November 2029. Borrowings generally bear interest at a commercial paper rate, Term SOFR, or Daily Simple SOFR plus applicable margins ranging from 1.20% to 1.50%. Undrawn amounts accrue commitment fees between 0.20% and 0.35%. In October 2026, the Trust amended its revolving borrowing arrangement with Barclays to increase the commitment limit by $100 million and reduce the applicable margin by 0.20%. As of September 30, 2026, the weighted-average interest rate of the active arrangements was 5.06%.\nFor the year ended December 31, 2025 and during the nine months ended September 30, 2026, the Trust purchased $5.2 billion and $10.8 billion of credit card receivables. As of December 31, 2025 and September 30, 2026, the carrying value of purchased credit card receivables that had not been collected, net of provision for credit losses, was $786 million and $1.51 billion, and the outstanding balance of borrowing principal and interest was $602 million and $839 million. For the three and nine months ended September 30, 2025, the net interest revenue of the Trust was $14 million and $26 million. For the three and nine months ended September 30, 2026, the net interest revenue of the Trust was $46 million and $107 million.\nOn July 23, 2026, the Trust issued $500 million aggregate principal amount of Series 2026-1 notes with a weighted average coupon of approximately 4.86%. The Series 2026-1 notes are comprised of $422 million principal amount of 4.80% notes, $48 million principal amount of 4.99% notes, $20 million principal amount of 5.31% notes, and $10 million principal amount of 5.65% notes, all of which have a revolving period ending in June 2029 and a final maturity date in July 2031.\nWe received net cash proceeds of $497 million, in connection with the issuance of the Series 2026-1 notes, which were used primarily to repay outstanding borrowings under the Trust’s existing revolving\n41\nTable of Contents\nwarehouse facilities. The Series 2026-1 notes are carried at amortized cost, adjusted for the fair value hedging adjustment described in Note 12 - Derivatives and Hedging Activities. Debt issuance costs of approximately $2.54 million are presented as a direct deduction from the carrying amount of the Series 2026-1 notes and are amortized to interest expense over the contractual term of the Series 2026-1 notes. As of September 30, 2026, the outstanding principal amount was $500 million, the net carrying amount was $488 million, and the remaining unamortized debt issuance costs were $2.44 million.\nThe indenture governing the Series 2026-1 notes contains a provision that allows the Trust to redeem the notes in full at any time after June 1, 2029, at the full principal amount plus accrued and unpaid interest and fees. The indenture also contains early amortization events, including a servicer default, certain insolvency events, and the three-month average excess spread percentage falling to 0.00% or below. If an early amortization event occurs, the revolving period ends and principal collections on the receivables are used to repay the notes on each monthly payment date until the notes are paid in full. Interest on the notes is payable monthly in arrears.\nOn October 15, 2026, the Trust completed an issuance of $500 million of Series 2026-2 notes, which are secured primarily by a pool of credit card receivables originated by Coastal Bank and part of the Trust collateral. The offering consisted of four classes of fixed-rate notes that were issued to qualified institutional buyers in a private offering pursuant to Rule 144A and Regulation S under the Securities Act. The Series 2026-2 notes have a revolving period ending in September 2029, with a final maturity date in October 2031. The Series 2026-2 notes have a weighted average coupon of approximately 5.58%.\nOff-Balance Sheet Risk\nCoastal Bank Program Agreement\nUnder a program agreement between us and Coastal Bank (the “Program Agreement”) most recently amended in March 2026, Coastal Bank may fund up to $500 million of credit card receivables. Robinhood Credit pays Coastal Bank interest based on the average balance of advances during the month at the Federal Funds Rate plus a margin of 2.65% on the first $300 million and 1.15% on such amounts in excess of $300 million.\n\n\nThe credit card receivables and the funding from Coastal Bank are off-balance sheet, considering Coastal Bank is the legal lender and originator, the party to which the customer has a creditor-borrower relationship, and the legal owner of the receivables. As of September 30, 2026, the off-balance sheet credit card receivables funded under the Program Agreement was $196 million.\n\n\nTransaction Settlement\n\n\nOur users have ownership of the securities they transact on our platforms, including those that collateralize margin loans, and, as a result, such securities are not presented on our unaudited condensed consolidated balance sheets. In the normal course of business, we engage in activities involving settlement and financing of securities transactions. User securities transactions are recorded on a settlement date basis. The settlement date for equities and options is one business day after the trade date. These activities may expose us to off-balance sheet risk in the event that the other party to the transaction is unable to fulfill its contractual obligations. In such events, we may be required to purchase financial instruments at prevailing market prices in order to fulfill our obligations."
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 63,
+      "text": "As of October 21, 2026, the numbers of shares of the issuer’s Class A and Class B common stock outstanding were 793,425,151 and 107,066,126.\n\n"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 2374,
+      "text": "The table below summarizes the net capital, capital requirements, and excess net capital of RHS, RHF, RHD, and TradePMR as of periods presented:\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\t\tSeptember 30, 2026\n(in millions)\t\tNet Capital\t\tRequired Net Capital\t\tNet Capital in Excess of Required Net Capital\nRHS\t\t$\t4,212 \t\t\t$\t491 \t\t\t$\t3,721 \t\nRHF\t\t329 \t\t\t0.25 \t\t\t329 \t\nRHD\t\t585 \t\t\t11 \t\t\t574 \t\n\nTradePMR\n\t\t18 \t\t\t0.25 \t\t\t18 \t\nAs of September 30, 2026, these subsidiaries were in compliance with their respective regulatory capital requirements.\n71"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 1670,
+      "text": "Unvested at December 31, 2025\t8 \t\t\t$\t29.92 \t\nGranted\t7 \t\t\t77.77 \t\nVested\t(6)\t\t\t39.82 \t\nForfeited\t(3)\t\t\t53.31 \t\nUnvested at September 30, 2026\t6 \t\t\t$\t66.19 \t\nPerformance Restricted Stock Units\nWe grant PSUs that generally vest over one to three years upon the satisfaction of performance conditions. There were no unvested PSUs outstanding as of December 31, 2025. During the nine months ended September 30, 2026, we granted 0.4 million PSUs with a weighted-average grant date fair value of $85.92 per unit. The number of PSUs granted represents the aggregate maximum number of shares that may be earned and issued with respect to these awards over their full terms. During the nine months ended September 30, 2026, no shares underlying PSUs vested.\nAcquisition of TradePMR\nIn connection with the acquisition of TradePMR, we issued approximately 2 million unvested shares of Class A common stock, valued at approximately $100 million as of the closing date of the acquisition, that will vest over a four-year period post-acquisition, subject to the terms of a vesting agreement. These shares are not part of the equity incentive plans described above. Shares of unvested restricted stock have the same voting rights as all other Class A common stock and are considered to be issued and outstanding. The following table summarizes the activity for the nine months ended September 30, 2026:\n45\nTable of Contents\n\t\t\t\t\t\t\t\t\t\t\t\n\n(in millions, except for weighted average grant date fair value)\n\tNumber of RSAs\t\tWeighted- average grant date fair value\nUnvested at December 31, 2025\t2 \t\t\t$\t48.85 \t\nIssued\t— \t\t\t— \t\nVested\t(1)\t\t\t48.85 \t\nForfeited\t— \t\t\t— \t\nUnvested at September 30, 2026\t1 \t\t\t$\t48.85 \t\nShare-Based Compensation\nThe following table presents SBC on our unaudited condensed consolidated statements of operations for the periods indicated:\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\tThree Months Ended\nSeptember 30,\t\tNine Months Ended\nSeptember 30,\n(in millions)\t2025\t\t2026\t\t2025\t\t2026\nBrokerage and transaction\t$\t2 \t\t\t$\t3 \t\t\t$\t7 \t\t\t$\t8 \t\nTechnology and development\t40 \t\t\t40 \t\t\t123 \t\t\t128 \t\nOperations\t1 \t\t\t1 \t\t\t4 \t\t\t3 \t\nMarketing\t2 \t\t\t1 \t\t\t6 \t\t\t6 \t\nGeneral and administrative\t33 \t\t\t35 \t\t\t89 \t\t\t132 \t\nTotal\t$\t78 \t\t\t$\t80 \t\t\t$\t229 \t\t\t$\t277 \t\nWe have capitalized SBC expense related to internally developed software of $5 million and $15 million during the three and nine months ended September 30, 2026 compared to $6 million and $17 million for the three and nine months ended September 30, 2025.\nAs of September 30, 2026, there was $453 million of unrecognized SBC expense that is expected to be recognized over a weighted-average period of 1.04 years.\n\n\n46\nTable of Contents\nNOTE 14: NET INCOME (LOSS) PER SHARE\nWe present net income (loss) per share using the two-class method. Class A and Class B common stock have identical liquidation and dividend rights, differing only in voting rights; accordingly, undistributed earnings are allocated proportionately and EPS is the same for both classes on an individual and combined basis. We compute the dilutive effect of shares issuable upon conversion of our Convertible Notes using the if-converted method and the dilutive effect of equity awards under our employee equity incentive plans using the treasury stock method. The following table presents the calculation of basic and diluted EPS:\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\n(in millions, except for per share data)\n\tThree Months Ended September 30,\t\tNine Months Ended September 30,"
+    },
+    {
+      "source_id": "q3",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_line_start": 2314,
+      "text": "Other income (expense), net decreased by $59 million for the three months ended September 30, 2026 primarily due to mark-to-market loss from equity securities related to investments in RVI and RVII.\n68\nTable of Contents\nOther income (expense), net increased $72 million for the nine months ended September 30, 2026 primarily driven by a $106 million gain recognized as a result of the deconsolidation of RVI and a $23 million gain from equity securities primarily related to investments held by RVI during the three months ended June 30, 2026. The gain was partially offset by the loss incurred during the current period due to market fluctuations. Following RVI's March 2026 IPO, we sold shares of RVI through open market and privately negotiated block sales, consistent with our original intention to reduce our ownership interest in RVI over time. In June 2026, sales effected as part of this ongoing program reduced our ownership from approximately 52% to approximately 49%, resulting in the loss of our controlling financial interest and the deconsolidation of RVI. Refer to Note 4 - Deconsolidation of our unaudited condensed consolidated financial statements in this Quarterly Report for more information.\nProvision for Income Taxes\n\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\t\n\tThree Months Ended\nSeptember 30,\t\t\t\tNine Months Ended\nSeptember 30,\t\t\n(in millions)\t2025\t\t2026\t\t% Change\t\t2025\t\t2026\t\t% Change\n\nProvision for income taxes\n\t$\t78 \t\t\t$\t149 \t\t\t91 \t%\t\t$\t169 \t\t\t$\t350 \t\t\t107 \t%\nProvision for income taxes increased by $71 million and $181 million for the three and nine months ended September 30, 2026 primarily due to the growth of the business along with a decrease in excess tax benefits from SBC.\n\n\nLiquidity and Capital Resources"
+    },
+    {
+      "source_id": "amended",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000170/q32026robinhoodamendedex991.htm",
+      "local_line_start": 98,
+      "text": "Net income attributable to Robinhood .............................................. $ 556 $ 468 (16) % $ 561 (17) % \n\nNet income attributable to Robinhood common stockholders: ..... "
+    },
+    {
+      "source_id": "8ka",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000170/hood-20261027.htm",
+      "local_line_start": 76,
+      "text": "This Form 8-K/A is being furnished solely to revise the presentation of income tax effects of non-GAAP adjustments, and the associated impact on Adjusted Net Income and Adjusted EPS, for certain periods presented. The revision does not affect any GAAP financial results.\n\nFinancial Results for the Third Quarter of 2026"
+    }
+  ]
+}

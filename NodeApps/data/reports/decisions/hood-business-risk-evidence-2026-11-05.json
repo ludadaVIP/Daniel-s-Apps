@@ -1,0 +1,669 @@
+{
+  "ticker": "HOOD",
+  "issuer": "Robinhood Markets, Inc.",
+  "as_of": "2026-11-05 Asia/Shanghai",
+  "currency": "USD",
+  "scope": "独立业务、治理、监管与竞争证据；只研究HOOD。未修改state、队列或最终报告；不提供独立价位结论。",
+  "method": "已加载web-access及investment-analysis skill；继承主代理Node24/Chrome未连接检查，未操作浏览器或修改安全配置。公开搜索仅定位来源；以SEC原文、官方IR原文、监管及同业官网核验；静态403的IR PDF使用skill允许的Jina文本预处理并记录限制。",
+  "executive_assessment": "业务扩张和每股盈利能力已有证据，护城河仍偏分销、产品速度和交叉销售，而非难以复制的零佣金。当前主要判断风险是把交易活跃度、Trump资产口径、Rothera合并收入和Chain gross fees同时外推为高质量独占增长。",
+  "evidence": [
+    {
+      "id": "E01",
+      "topic": "收入结构与增长质量",
+      "period": "2026Q3",
+      "unit": "USD million unless noted",
+      "facts": [
+        "净收入1,424；期权399、事件合约173、股票121、crypto120、其他交易54；净利息415；其他收入142。",
+        "归母GAAP净利468、合并净利476、稀释EPS0.51；交易收入占总收入约61%。",
+        "净流入15.7bn，对上季平台资产年化17%，低于2025Q3的20.4bn/29%；TTM71bn/21%。",
+        "Gold订阅5.18m，同比+34%；Gold订阅收入62m；普通Funded Customers28.7m，同比+7%；新Funded Customers0.6m，同比-14%。"
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "inference": "增长具有新品贡献和交叉销售支撑，但用户增长慢于交易量、订阅和平台资产；不能把收入分散误读为宏观风险已分散。"
+    },
+    {
+      "id": "E02",
+      "topic": "交易活动的强反方证据",
+      "period": "2026Q3 yoy",
+      "facts": [
+        "期权收入+31%，每位期权交易者合约数+66%，期权交易用户数-11%，返佣率因ticker组合下降。",
+        "Crypto收入-55%，crypto交易用户-37%，人均名义交易额-13%，market-maker rebate率下降；Chain收入部分抵消。",
+        "股票人均名义量+48%，部分被ticker组合造成的低返佣率抵消。"
+      ],
+      "sources": [
+        "S1"
+      ],
+      "inference": "量增可能来自更少客户更高周转；用户广度、执行质量和单位收入比单看交易纪录更能检验持续性。"
+    },
+    {
+      "id": "E03",
+      "topic": "Trump Accounts口径",
+      "facts": [
+        "2026-07开始Net Deposits纳入Trump账户贡献及Treasury seed funding；Total Platform Assets纳入托管Trump资产。",
+        "Funded Customers明确不含Trump Accounts；ARPU分子仍是总收入，故Trump服务收入增加会推高未含这些账户的ARPU。",
+        "2026Q3 Trump服务收入47m；10月截至10/27的13bn+净流入含Dell家族6bn贡献；不得把这6bn计成HOOD营业收入、自由现金或私人客户有机获客。",
+        "近70m儿童自动开户、25m儿童获得250美元的描述属于program reach，不能加到28.7m Funded Customers或当作已能按普通经纪客户交叉销售。"
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3",
+        "S4",
+        "S6"
+      ],
+      "inference": "政府基础设施与分销机会是真实的，但合同经济、可持续服务毛利、数据使用和实际转化尚不能按普通零售客户估值。Treasury保留初始账户App与运营控制，BNY是政府financial agent，HOOD是初始trustee/broker。"
+    },
+    {
+      "id": "E04",
+      "topic": "客户资金和流动性",
+      "period": "2026-09-30",
+      "unit": "USD million",
+      "facts": [
+        "现金及等价物5,829；监管隔离现金/证券13,443；应付客户18,473；借出证券负债19,480。",
+        "截至2026-09-30循环信用额度合计承诺4.450bn，未提用且符合契约；Trust借款能力最高1.55bn。",
+        "2026-02更新High-Yield Cash方案，符合条件客户首10,000美元转为free credit balances；逾6bn从off-balance sheet sweep移到表内，用于融资margin book。"
+      ],
+      "sources": [
+        "S1",
+        "S3"
+      ],
+      "inference": "13,443m隔离资产、平台395.9bn客户资产都不能加进股东可用净现金。5,829m本身也不应全部视为可分配超额资本；须扣债务和正常经营/监管资本需求。现金增长部分由2026可转债和客户融资结构变化支持。"
+    },
+    {
+      "id": "E05",
+      "topic": "预测市场联邦/州冲突",
+      "facts": [
+        "CFTC 2026-04-28主动起诉Wisconsin，主张对DCM事件合约独占管辖；另对Connecticut、Illinois、New York等提诉。",
+        "Michigan官方9/9称Robinhood同意停止新增体育合约并在10/9前平仓，协议保留双方立场且等待上诉/相关法院后续；这是实际业务限制。",
+        "Robinhood当前帮助页（11/2更新）称Maryland、Michigan、Nevada居民不能交易体育合约；Ohio不能开新体育合约；Utah不能开新体育、文化、选举及政治合约；列表可能变化。",
+        "10-Q称事件合约活动主要来自体育；电话会管理层称Q3约30%非体育，高于Q2约15%。",
+        "10-Q描述第三巡回对New Jersey给予初步保护，第九巡回对Nevada否决初步保护，第六巡回在Ohio/Tennessee案件不利于Kalshi；最高法院certiorari申请不能当作已受理或胜诉。"
+      ],
+      "sources": [
+        "S1",
+        "S4",
+        "S7",
+        "S8",
+        "S9"
+      ],
+      "inference": "CFTC支持降低一种执法风险，但无法替代法院终局判决；州限制、牌照/年龄/税制变化可能减少可服务市场并提高获客与合规成本。情景应同时包含持续扩张、州级碎片化、体育合约大幅收缩。"
+    },
+    {
+      "id": "E06",
+      "topic": "Rothera并表/经济归属",
+      "facts": [
+        "2026-01-20 Robinhood/SIG JV以约79m现金收购MIAXdx（后更名Rothera E&C）90%权益，SIG出资41m含费用；MIAX留10%。",
+        "10-Q以任免CEO权和董事会多数解释控制并表，独立团队运营、部分决定须SIG等同意；并表不等于全资或日常操作均由HOOD控制。",
+        "MIAX最新申报也确认保留10%及三年内sell right/buyer购买其中一半的权利。",
+        "Q3事件合约173m已含Rothera收入28m；不得另加。合并净利476m减非控股净利8m后归母468m；九个月非控股净利16m、期末少数股东权益77m。",
+        "Deck对Rothera量的定义为一对Yes/No撮合记1笔、含HOOD和外部参与者；Hub买卖合约数不能直接相加比较。"
+      ],
+      "sources": [
+        "S1",
+        "S3",
+        "S13",
+        "S20"
+      ],
+      "inference": "垂直整合可增加产品与单位经济控制，外部FCM中性平台是可选增长；估值须扣少数权益并避免两次计算。主要申报未在所读章节给出JV每方精确百分比；外媒45%通常指最终exchange穿透经济权益，不应未经核对写为HOOD全资或将50% JV与45%穿透混用。"
+    },
+    {
+      "id": "E07",
+      "topic": "Crypto.com/OG的权益换路由",
+      "facts": [
+        "2026-09协议规定三年内最高取得Crypto.com及若干关联主体10%权益，作为路由一部分事件合约的对价。",
+        "Q3电话会CFO称无现金支出已取得初始1%权益，可按未来合作扩至10%；并计划Rothera为主要、Crypto/OG为第二交换平台，年底至2027初多数流量流向两者。"
+      ],
+      "sources": [
+        "S1",
+        "S4"
+      ],
+      "inference": "分销能力可换来权益价值，强化多方变现；但未完成10%并非当前持仓，非现金对价不能直接当作经常性有机现金收入。关联场所的经济激励与最佳产品执行、冲突披露需要复核。"
+    },
+    {
+      "id": "E08",
+      "topic": "Chain收入、重复计算与技术尾部",
+      "facts": [
+        "Q3管理层报告80bn+ DEX volume和50m+链费；电话会CFO明确当季gross约50m，与Arbitrum分享约50%，HOOD净约25m。",
+        "10-Q称Chain收入已部分抵消crypto收入下降；不得把gross50m或net25m再次加到报表crypto120m。",
+        "Mainnet于2026-07推出，是permissionless Ethereum-compatible L2，第三方可无批准部署合约；HOOD可能承担第三方非法活动、漏洞、停机和品牌连带后果。",
+        "管理层对Chain的当期目标是TVL、开发者、Stock Tokens，正常环境变现设想为名义交易额几个基点，是目标/假设而非保证。"
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S4",
+        "S21"
+      ],
+      "inference": "分销可为链bootstrap，长线可有网络效应；首季度量与gross费不能证明持久、净高毛利护城河。ArbitrumDAO AEP 10%净协议费与管理层商业安排约50%gross分享的分母/层级不同，不能互换。"
+    },
+    {
+      "id": "E09",
+      "topic": "Stock Tokens与法规",
+      "facts": [
+        "2026-07新版Stock Tokens是Jersey主体发行的tokenized debt securities，须以底层证券作抵押；2025 Classic Stock Tokens是EEA双边合约，买入底层资产用于对冲。",
+        "两类都只提供经济敞口，不提供底层股票法律所有权、股东投票等权利；新产品在美国、加拿大、英国、瑞士等受限制。",
+        "SEC 2026-09-17 innovation exemption要求tokenized NMS stock具备同类传统股票相同权利、发行人通知等，五年临时且附条件。HOOD 10-Q明确自己的新旧Stock Tokens不符合该豁免。"
+      ],
+      "sources": [
+        "S1",
+        "S10"
+      ],
+      "inference": "不能把SEC支持tokenization写成对HOOD现有token产品的许可；竞争者持真正股票权利的token路线可能受益。实体抵押、赎回、跨境监管与智能合约风险应在估值中单列。"
+    },
+    {
+      "id": "E10",
+      "topic": "PFOF与执行质量",
+      "facts": [
+        "Q3期权399m加股票121m合计520m，约占总净收入36.5%；并非所有交易收入都是PFOF。Citadel Securities收入占总收入17%，同比13%。",
+        "Rule605新执行质量披露从2026-08-01适用于RHF/RHS；odd-lot信息从4/27运行，可能压缩spread进而压低股票PFOF。",
+        "tick-size及access-fee-cap规则已于2026-06-11推迟至2027-11，不能写成2026-11已经生效。"
+      ],
+      "sources": [
+        "S1",
+        "S11",
+        "S12"
+      ],
+      "inference": "近端更可检验的风险是单位返佣下降和同口径执行质量比较，全面PFOF禁令应为尾部情景而非已发生事实。Citadel集中度还带来议价与对手风险。"
+    },
+    {
+      "id": "E11",
+      "topic": "利率传导",
+      "facts": [
+        "Q3净利息415m，同比-9%；margin interest244m（+59%）、credit-card net interest50m（+194%）、cash sweep45m（-30%）、securities lending net -19m，对比去年+87m。",
+        "2026-09-30 margin book22.145bn，同比+59%；总interest-earning assets76.721bn（含off-balance-sheet sweep）。",
+        "10-Q静态±100bp敏感性为未来12个月税前净收入、净利及现金流±366m，±50bp为183m，±150bp为548m；排除Cash Sweep余额，因为可调付客利率；不含交易活动行为反应。"
+      ],
+      "sources": [
+        "S1"
+      ],
+      "inference": "降息对存量利差有负面直接作用，但可能提高资产价格/交易和客户借贷，净影响不能只选单向。衰退型降息可能同时打击交易、margin抵押品和信用卡质量。"
+    },
+    {
+      "id": "E12",
+      "topic": "信用卡损失与融资",
+      "facts": [
+        "Q3信用损失总拨备71m，同比26m；信用卡相关61m，同比23m；九个月信用卡拨备143m。",
+        "表内信用卡贷款1,645m、表外196m，合计1,841m，对比2025年末1,040m；总past due102m/约6%，对比49m/约5%；>=90天33m/约2%。",
+        "FICO<640占5%，年末3%；>690占75%，年末78%。表内allowance134m、表外40m。",
+        "Credit Card Funding Trust是合并VIE，其债权人只向Trust资产追索、无HOOD general credit recourse；7/23及10/15各发行500m ABS；不能把非追索视为无信用/残余权益风险。",
+        "2026-09-30 Trust purchased receivable carrying amount净1.51bn；warehouse borrowing本金利息839m，另Series2026-1 ABS long-term约500m。"
+      ],
+      "sources": [
+        "S1"
+      ],
+      "inference": "信用卡净利息50m不能单独证明产品盈利，拨备61m也不能直接等于完整产品亏损，仍须计入interchange、rewards、funding和运营。迅速扩表使组合未充分seasoning，增长可掩盖vintage恶化。"
+    },
+    {
+      "id": "E13",
+      "topic": "管理层控制、激励与报酬",
+      "facts": [
+        "Class A每股1票、Class B10票、Class C原则无票；创始人及关联方拥有全部B股、约12%普通股经济份额，却合计超过50%投票权，并有相互投票安排。",
+        "2025 CEO Summary Compensation3.005m，薪资34,248美元，其余主要安保1.723m和私人飞机1.248m；2025未新授CEO股票奖励或现金激励奖金。",
+        "Pay-versus-performance的CEO Compensation Actually Paid1.021bn由旧股权按SEC公式计价；不是CEO当年现金所得。",
+        "非CEO高管2025现金奖金177.3%目标：收入25%、adjusted NI25%、Net Deposits20%、Gold增长20%、国际新增10%。Adjusted NI剔除并购以及未在计划中的税率变化与CECL。",
+        "2026Q3 SBC80m，九个月277m；未确认SBC453m预计约1.04年确认。"
+      ],
+      "sources": [
+        "S1",
+        "S5"
+      ],
+      "inference": "创始人控制利于长期产品决策但外部股东纠错能力弱。排除计划外CECL可能弱化逆风问责；需用每股GAAP/正常化利润、信用损失和净稀释检验，而非仅看增长或调整后利润。"
+    },
+    {
+      "id": "E14",
+      "topic": "回购和融资",
+      "facts": [
+        "2026-03回购授权1.5bn，含旧额度而非全为新增；增量超过1.1bn；9/30剩余约1.348bn。",
+        "Q3回购约25m/0.238m股/均价105.07美元。授权内自2024Q3累计1.3bn/27m股/均价约48美元。",
+        "2026-06另有可转债交易回购约290m/2.7m股/105.71美元，不属于现回购授权；不能忽略或混入授权累计数。",
+        "6/25发行2.2bn本金0%可转债，2029-10到期，初始conversion约174.42美元；转换时本金须现金偿还，超额可股票或现金；capped calls成本123.2m，cap约237.85美元。",
+        "9/30长期债务账面2.660bn，含可转债约2.17bn与ABS约0.49bn；2026Q3加权稀释股数911m，但13m潜在可转债股因反稀释被排除。"
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "inference": "0%票息不等于无偿资本或永远不稀释；2029现金偿本是实际义务。回购创造价值须低于内在价值并扣SBC；基本股数约901m与年末持平说明毛回购非同幅每股缩减。"
+    },
+    {
+      "id": "E15",
+      "topic": "合规和内控",
+      "facts": [
+        "截至9/30 contingencies aggregate accrual96m，对比年末71m；不能把准备金当最大潜在赔偿。",
+        "DOJ 2026-09-15宣布起诉两名HOOD工程师涉嫌利用上市信息在Hyperliquid交易perpetual futures，指控针对个人且尚非定罪。",
+        "10-Q持续披露New York AG执行质量调查、FINRA/overnight BOATS调查、FDIC EFTA调查；不能把2025 SEC或FINRA和解等同2026全部监管问题消失。"
+      ],
+      "sources": [
+        "S1",
+        "S14"
+      ],
+      "inference": "新产品速度增加后台、信息壁垒、模型、市场监控和客户保护要求；个人被控不等于公司违法，但应追踪组织控制补救。"
+    },
+    {
+      "id": "E16",
+      "topic": "竞争定价与护城河",
+      "facts": [
+        "Schwab美股/ETF在线佣金0，期权每张0.65美元；IBKR Lite美国居民股票0佣金，Pro起始tiered0.0035美元/股、最低0.35美元/单，fixed0.005/股最低1美元。",
+        "Fidelity官方美股ETF在线佣金0；期权有contract fees且低价buy-to-close例外；不得沿用过期口号声称其当前股票从不PFOF。",
+        "Coinbase One零交易费有适用限制，可能仍有spread、DEX service fee、limit execution fee；Advanced无spread但按maker/taker/tier收费。",
+        "HOOD官方9/17 margin rate：<50k为5.25%、50k-100k5.05%、100k-1m4.75%、1m-10m4.5%，均会变动；股票/ETF免费本身已属行业常规。"
+      ],
+      "sources": [
+        "S15",
+        "S16",
+        "S17",
+        "S18",
+        "S19"
+      ],
+      "inference": "HOOD可在期权显性费用、margin、UX和Gold捆绑上胜出；零佣金不是排他护城河。检验真正优势需要资金留存、客户每股价值、执行质量与完整服务成本。"
+    },
+    {
+      "id": "E17",
+      "topic": "2026重大并购、基金和执行风险",
+      "facts": [
+        "WonderFi于2026-06-01完成全股权收购，收购日公允对价约178m美元，全部现金，扩张加拿大市场。MIAXdx/Rothera交易于2026-01-20完成，约79m现金、SIG出资41m含费用。",
+        "TradePMR与Bitstamp完成日期分别是2025-02-26和2025-06-02；不能把它们误写成2026新增并购。2026同比/净流入指标可受到整合或口径纳入时点影响。",
+        "10-Q披露仍在评估、整合WonderFi内控，预期2026管理层ICFR评估将按允许规则排除WonderFi；这不是公司整体内控无效的结论。",
+        "期末goodwill515m、无形资产净231m，对比年末385m和168m；协同与收购回报尚需兑现。",
+        "RVI于2026-06-25失去并表，Q2相关收益显著，Q3又有RVI等投资mark-to-market损失；RVI/RVII等余额种子投资会引入市场公允价值与资金占用风险。"
+      ],
+      "sources": [
+        "S1",
+        "S2",
+        "S3"
+      ],
+      "inference": "并购以小额监管牌照、分销和地域能力为主，能缩短上市时间但不能假设低对价自动代表高回报。核心考核是收购后的净客户留存、扣SBC/整合成本后的每股利润，而非合并平台资产规模。"
+    }
+  ],
+  "calculations": {
+    "labeled": "研究者复算，非公司指引；所有分母/金额见对应证据。",
+    "transaction_share_pct": 60.884831460674164,
+    "equity_options_revenue_share_pct": 36.51685393258427,
+    "trump_revenue_share_pct": 3.300561797752809,
+    "arpu_excluding_trump_service_revenue_approx_usd": 192.92469352014012,
+    "arpu_note": "粗略剔除Trump服务收入后约193美元，仍含其他非普通零售服务收入，非公司公布KPI；所用客户数经过四舍五入。",
+    "credit_card_balance_growth_ytd_pct": 77.01923076923076,
+    "card_allowance_total_to_total_loans_pct": 9.451385116784357,
+    "card_past_due_pct": 5.5404671374253125,
+    "event_revenue_per_hub_contract_usd": 0.010548780487804879,
+    "event_take_note": "173m内含Rothera，16.4bn是Hub交易数；该混合比率约1.05美分只作趋势提示，不能当纯FCM费率。",
+    "rate_100bp_to_q3_annualized_revenue_pct": 6.425561797752809,
+    "rate_100bp_to_q3_annualized_pretax_income_pct": 14.64
+  },
+  "strongest_debate": [
+    {
+      "side": "多头主张",
+      "claim": "它正从散户交易App升级成以分销为核心的多产品平台，Gold/retirement/banking/Strategies降低对单一crypto周期依赖。",
+      "best_evidence": [
+        "Gold5.18m/+34%、retirement36.6bn/+51%、Strategies2bn+、Banking约5bn、Q3收入创纪录",
+        "Rothera首个完整季度28m收入、Chain约25m净收入、Trump服务47m"
+      ],
+      "counter": "增长来自更多不同产品，但期权、事件、crypto、margin、链与财富价格仍共用risk-on因子。",
+      "proof_threshold": "未来至少两季：剔除Trump种子/大额慈善注资和并购后的净流入仍维持约20%年化；新老客户留存与Gold扩展同时改善；每股正常化盈利增长。"
+    },
+    {
+      "side": "空头主张",
+      "claim": "所谓平台多元化可能是把高周转客户、利率与监管敏感业务堆在一起，以高质量金融基础设施叙事包装周期盈利。",
+      "best_evidence": [
+        "期权用户-11%而人均合约+66%；crypto用户-37%；净利息-9%；Q3信用卡拨备61m",
+        "事件增长主要体育；州级限制实际存在；Trump注资抬高净流入与平台资产"
+      ],
+      "counter": "这些事实不证明收入必然下降，低价、多产品和更成熟客户资产确实可扩大市场份额。",
+      "proof_threshold": "若两季剔除特殊因素净流入跌至10%以下、Gold净增明显转弱、交易用户继续收缩且fee yield下滑，需显著下修增长/终值而非只下调倍数。"
+    },
+    {
+      "side": "多头主张",
+      "claim": "Rothera与Crypto/OG合作证明分销本身可变现为交易场所收入和权益；Stock Tokens/Chain有金融基础设施期权。",
+      "best_evidence": [
+        "无现金获初始1% Crypto/OG权益、上限10%",
+        "独立中性Rothera可服务外部FCMs；Chain首季已产生净收入"
+      ],
+      "counter": "经济归属、少数权益、路由激励、法律边界和链补贴质量仍未知；部分场景获客成功也可能让价格/费率下降。",
+      "proof_threshold": "外部FCM收入占比和留存上升，Rothera扣少数权益后的利润可追踪；Chain扣Arbitrum、补贴和安全成本后稳定盈利；token赎回与抵押制度通过独立验证。"
+    },
+    {
+      "side": "空头主张",
+      "claim": "监管改变并不需要公司破产即可令当前估值叙事失效，体育事件合约和合成stock-token路线可同时受到限制。",
+      "best_evidence": [
+        "Michigan现实退场，Nevada/Ohio等限制",
+        "SEC当前豁免不覆盖HOOD新旧stock tokens"
+      ],
+      "counter": "CFTC支持联邦管辖及非体育占比提高提供缓冲；可以适应规则，而非只有全部禁止一种结果。",
+      "proof_threshold": "终局/上诉判决限制主要州或全国体育覆盖、产生明显收入缺口；或stock-token关键牌照失效且无可行替代产品。"
+    }
+  ],
+  "seven_lenses": [
+    {
+      "lens": "Graham",
+      "judgment": "先确认股东可用资产与正常化盈利，客户资产不能充当安全边际。",
+      "evidence": [
+        "E04",
+        "E14"
+      ],
+      "investment_implication": "估值扣公司债务、监管所需资本和少数权益；不用395.9bn平台资产或隔离现金支撑买价。"
+    },
+    {
+      "lens": "Buffett",
+      "judgment": "产品/分销优势正在扩大，零佣金本身没有持久定价权。",
+      "evidence": [
+        "E01",
+        "E03",
+        "E16"
+      ],
+      "investment_implication": "用资金留存、Gold续订、退休/银行钱包份额和每股长期现金流验证，而非把新品数量直接当护城河。"
+    },
+    {
+      "lens": "Munger",
+      "judgment": "最易造成认知错误的是口径叠加与激励扭曲，而非显眼的营收纪录。",
+      "evidence": [
+        "E03",
+        "E06",
+        "E08",
+        "E13"
+      ],
+      "investment_implication": "剔除Trump注资口径、扣Rothera少数权益、净化Chain费用；检查CECL被剔除的奖金激励与外部股东纠错能力。"
+    },
+    {
+      "lens": "Peter Lynch",
+      "judgment": "它同时有快速增长与金融周期股特征，不能按纯订阅软件线性外推。",
+      "evidence": [
+        "E01",
+        "E02",
+        "E11",
+        "E12"
+      ],
+      "investment_implication": "按产品成熟度和vintage拆增长，用正常化交易量、利差和信用损失估值；PEG不足以处理这些变量。"
+    },
+    {
+      "lens": "Howard Marks",
+      "judgment": "最可能的失败路径是盈利周期与市场已付的成长价格同时回落。",
+      "evidence": [
+        "E02",
+        "E05",
+        "E11"
+      ],
+      "investment_implication": "要求估值能承受交易回落+降息+信用损失并发；业务高执行力不能替代买价的风险补偿。"
+    },
+    {
+      "lens": "Soros",
+      "judgment": "市场热度、资产价格、客户交易、margin和融资能力存在正负反馈。",
+      "evidence": [
+        "E02",
+        "E04",
+        "E07",
+        "E14"
+      ],
+      "investment_implication": "上涨可促进获客/融资和新品投资，逆转时低交易和抵押品缩水放大压力；区分真实净流入与涨价/政府注资。"
+    },
+    {
+      "lens": "Ray Dalio",
+      "judgment": "多项收入仍共享利率、信用、流动性和资产价格因子。",
+      "evidence": [
+        "E05",
+        "E08",
+        "E11",
+        "E12"
+      ],
+      "investment_implication": "软着陆降息、衰退降息、再通胀三情景分开；不能把产品数量当作宏观风险分散。"
+    }
+  ],
+  "monitoring": [
+    {
+      "when": "2026Q4及2027Q1业绩",
+      "metric": "核心Net Deposits与Funded Customer广度",
+      "baseline": "Q3总15.7bn/年化17%；新客户0.6m、Gold净增0.34m。",
+      "research_threshold": "要求拆出Trump政府/慈善种子、TradePMR及WonderFi变化；若连续两季核心流入年化<10%且Gold/新客同步弱，降级长期增长。阈值为研究假设。"
+    },
+    {
+      "when": "每月metrics与未来两季",
+      "metric": "单位交易收入及活跃交易者",
+      "baseline": "Q3期权用户-11%、每人合约+66%；crypto用户-37%；Equity/Options返佣率承压。",
+      "research_threshold": "交易人数持续降、量增靠周转且同口径fee yield继续下降，则不能把record volume当可持续盈利增长。"
+    },
+    {
+      "when": "上诉/最高法院公告及各州更新即刻",
+      "metric": "预测市场服务范围",
+      "baseline": "至少MD/MI/NV体育受限，OH/UT开新仓限制；Q3约70%活动体育。",
+      "research_threshold": "一旦限制扩至主要用户州或形成全国性不利终局，立即重估事件合约收入；只有可验证终局/长期立法稳定可降低风险折价。"
+    },
+    {
+      "when": "2026Q4-2027H1",
+      "metric": "信用卡seasoning、贷款质量及净收益",
+      "baseline": "总贷款1.841bn，past due约5.54%、FICO<640占5%、Q3信用拨备61m。",
+      "research_threshold": "研究警戒：past due>8%、>=90天>3%或FICO<640>8%，并观察vintage、write-off及rewards后贡献利润；非监管红线。"
+    },
+    {
+      "when": "未来两季",
+      "metric": "Rothera和Chain归属利润",
+      "baseline": "Rothera28m收入已含173m；Chain gross50m/net约25m；Q3总NCI8m。",
+      "research_threshold": "披露外部收入、交易量可比定义、少数权益、Arbitrum分享、安全/补贴成本。未披露前不为gross volume支付基础设施垄断估值。"
+    },
+    {
+      "when": "2026Q4与2027 proxy",
+      "metric": "每股价值和资本分配",
+      "baseline": "Q3SBC80m、稀释股911m，潜在可转13m反稀释未计；回购均价105.07。",
+      "research_threshold": "回购后净稀释持续高于正常化每股利润增长，或高价回购同时信用风险/资本压力增加，应重新评估资本配置。"
+    }
+  ],
+  "prohibitions_for_final_report": [
+    "不要编造任何投资大师本人对HOOD的持仓、推荐或原话。七种思想是研究问题框架。",
+    "不要将70m Trump儿童加进Funded Customers；不要将program资金当公司收入/净现金。",
+    "不要重复加Rothera28m或Chain gross50m/net25m；总收入已包含。",
+    "不要用未修订HTML的Adjusted NI550m；当前Amended Exhibit为542m归母调整后净利，Adjusted EPS0.60。",
+    "不要把tick-size/access-fee cap写成2026-11已实施；已推迟2027-11。",
+    "不要把SEC tokenization豁免写成HOOD现有stock tokens获批，或将pending certiorari写成胜诉。",
+    "不要用2025 CEO CAP1.021bn写成当年现金薪酬；不要把2026最高10% Crypto/OG写成已持有10%。"
+  ],
+  "limitations": [
+    "Rothera最终穿透45%与JV50%在外部资料常见，但本研究主要申报未完整给出JV cap table；报告可准确说明非全资并表并扣NCI，避免精确产权比例强断言。",
+    "有些公开IR PDF静态直取403；已用Jina读取官方文件文本，并以SEC 10-Q/监管原文交叉验证主要数据。",
+    "DOJ官网经web工具可读，但本地直取/部分Jina返回block页面；可用hood-risk-web-primary-extracts-20261105.json复核，不将本地小体积响应当新闻正文。",
+    "没有单独验证公司对top-five链排名、50m livestream观众等营销排名，故不把它们用作估值核心证据。",
+    "资料截至11/5，电话会的October month-to-date只截至10/27；不等于完整10月结果。"
+  ],
+  "sources": [
+    {
+      "id": "S1",
+      "title": "Robinhood 2026Q3 Form 10-Q",
+      "date": "2026-10-28",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+      "local_file": "hood-risk-2026Q3-10Q.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S2",
+      "title": "Q3 2026 Amended Exhibit 99.1",
+      "date": "2026-10-27; current amended version retrieved 2026-11-05",
+      "url": "https://robinhood.gcs-web.com/static-files/097e3ef5-f1a9-4981-b224-c58d9da67159",
+      "local_file": "hood-risk-amended-results-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S3",
+      "title": "Q3 2026 Earnings Presentation",
+      "date": "2026-10-27",
+      "url": "https://investors.robinhood.com/static-files/fd90f575-5b4c-4cde-a16d-d114c920fb6a",
+      "local_file": "hood-risk-2026Q3-presentation-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S4",
+      "title": "Q3 2026 Earnings Call Transcript",
+      "date": "2026-10-27",
+      "url": "https://investors.robinhood.com/static-files/4e6e17d2-915a-4cb4-b617-d0127c487075",
+      "local_file": "hood-risk-2026Q3-call-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S5",
+      "title": "2026 DEF 14A",
+      "date": "2026-04-22",
+      "url": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000053/hood-20260422.htm",
+      "local_file": "hood-risk-2026-DEF14A.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S6",
+      "title": "Treasury designates BNY financial agent",
+      "date": "2026-04-06",
+      "url": "https://home.treasury.gov/news/press-releases/sb0433",
+      "local_file": "hood-risk-Treasury-BNY-20260406.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S7",
+      "title": "CFTC sues Wisconsin over prediction-market jurisdiction",
+      "date": "2026-04-28",
+      "url": "https://www.cftc.gov/PressRoom/PressReleases/9220-26",
+      "local_file": "hood-risk-CFTC-Wisconsin-20260428.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S8",
+      "title": "Michigan Gaming Control Board: Robinhood halts sports contracts",
+      "date": "2026-09-09",
+      "url": "https://content.govdelivery.com/accounts/MIGCB/bulletins/4293a85",
+      "local_file": "hood-risk-Michigan-20260909.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S9",
+      "title": "Robinhood event contracts: current pricing and state restrictions",
+      "date": "state restriction update 2026-11-02; accessed 2026-11-05",
+      "url": "https://robinhood.com/us/en/support/articles/event-contracts-overview/",
+      "local_file": "hood-risk-event-fees-20261102.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S10",
+      "title": "SEC innovation exemption for tokenized NMS stocks",
+      "date": "2026-09-17",
+      "url": "https://www.sec.gov/newsroom/press-releases/2026-90-sec-issues-innovation-exemption-facilitate-trading-tokenized-nms-stock-request-comment",
+      "local_file": "hood-risk-SEC-innovation-20260917.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S11",
+      "title": "SEC staff Rule 605 FAQ",
+      "date": "2026-04-01; effective 2026-08-01",
+      "url": "https://www.sec.gov/rules-regulations/staff-guidance/trading-markets-frequently-asked-questions/frequently-asked-questions-rule-605-regulation-nms",
+      "local_file": "hood-risk-SEC-605-20260401.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S12",
+      "title": "Nasdaq UTP 2026-18: tick-size delay",
+      "date": "2026-06-17",
+      "url": "https://www.nasdaqtrader.com/TraderNews.aspx?id=UTP2026-18",
+      "local_file": "hood-risk-Nasdaq-tick-delay-20260617.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S13",
+      "title": "Miami International Holdings Q3 note: retained Rothera E&C interest",
+      "date": "period 2026-09-30; current filing read 2026-11-05",
+      "url": "https://www.sec.gov/Archives/edgar/data/1438472/000162828026068667/R14.htm",
+      "local_file": "hood-risk-MIAX-2026Q3-Rothera.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S14",
+      "title": "DOJ: two Robinhood engineers charged",
+      "date": "2026-09-15",
+      "url": "https://www.justice.gov/usao-sdny/pr/two-robinhood-employees-charged-fraud",
+      "local_file": "hood-risk-web-primary-extracts-20261105.json",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S15",
+      "title": "Schwab official pricing",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://www.schwab.com/pricing",
+      "local_file": "hood-risk-schwab-pricing-20261105-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S16",
+      "title": "IBKR official stocks commissions",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://brokerage.ibkr.com/en/pricing/commissions-stocks.php",
+      "local_file": "hood-risk-ibkr-pricing-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S17",
+      "title": "Fidelity official pricing",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://www.fidelity.com/trading/commissions",
+      "local_file": "hood-risk-fidelity-pricing-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S18",
+      "title": "Coinbase official fees/spread disclosure",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://help.coinbase.com/en/coinbase/trading-and-funding/pricing-and-fees/fees",
+      "local_file": "hood-risk-coinbase-pricing-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S19",
+      "title": "Robinhood margin rate schedule",
+      "date": "rates as of 2026-09-17; accessed 2026-11-05",
+      "url": "https://robinhood.com/us/en/support/articles/margin-rates/",
+      "local_file": "hood-risk-margin-rates-20260917.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S20",
+      "title": "Rothera official company description",
+      "date": "current page accessed 2026-11-05",
+      "url": "https://www.rothera.io/company",
+      "local_file": "hood-risk-rothera-company-20261105.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S21",
+      "title": "ArbitrumDAO mainnet factsheet",
+      "date": "2026-07-06",
+      "url": "https://forum.arbitrum.foundation/t/arbitrumdao-factsheet-robinhood-chain-mainnet-launch/31041",
+      "local_file": "hood-risk-Arbitrum-launch-20260706.html",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    },
+    {
+      "id": "S22",
+      "title": "Q2 2026 official earnings call",
+      "date": "2026-07-29",
+      "url": "https://investors.robinhood.com/static-files/f44ea493-9c52-4744-9671-7720e1ac7b2f",
+      "local_file": "hood-risk-2026Q2-call-jina.txt",
+      "accessed": "2026-11-05",
+      "level": "primary"
+    }
+  ]
+}
