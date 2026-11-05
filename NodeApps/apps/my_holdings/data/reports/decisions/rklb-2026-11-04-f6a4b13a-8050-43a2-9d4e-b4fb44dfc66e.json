@@ -1,0 +1,1118 @@
+{
+  "version": 1,
+  "symbol": "RKLB",
+  "name": "Rocket Lab Corporation",
+  "exchange": "NASDAQ",
+  "currency": "USD",
+  "capitalUsd": 400000,
+  "horizonYears": 5,
+  "analysisDate": "2026-11-04",
+  "dataAsOf": "2026-11-04核验；公司实际财报截至2026-06-30，事件截至2026-11-02；并购标的财报截至2026-09-30。正式股价截至美东2026-11-03 16:00。",
+  "financialPeriod": "2026 Q2 / H1；Iridium 2026 Q3",
+  "quote": {
+    "price": 54.43,
+    "date": "2026-11-03",
+    "type": "正式收盘参照",
+    "note": "2026-11-03 16:00 EST（21:00 UTC）正式收盘54.43美元，Moomoo与StockAnalysis历史页相符。[S11][S13] BOATS于11月4日05:28 UTC显示夜盘买卖指示53.61，但无独立最新成交时间戳，不把它认定为可核验实时成交。[S14] 应用已存53.735未被本报告覆盖。",
+    "source": "Moomoo实际页面；StockAnalysis历史页交叉核验",
+    "sourceUrl": "https://www.moomoo.com/stock/RKLB-US"
+  },
+  "verdict": {
+    "stance": "当前不新增；等待估值与兑现条件同时改善",
+    "confidence": "中低：价格过高的方向性判断较强，具体内在价值对远期利润和并购高度敏感",
+    "valueLow": 12.7,
+    "valueHigh": 19.1,
+    "summary": "54.43美元参照价缺乏安全边际；Neutron延期与Iridium并购增加兑现风险。当前新增0%，下方为满足约15%年回报门槛后的条件计划。",
+    "conclusion": "Rocket Lab已证明Electron发射与卫星系统交付能力，但Neutron首飞延至2027年，Iridium并购又增加了整合、债务和稀释的不确定性。54.43美元收盘价要求的兑现强度远高于本报告基准；即使乐观路径，五年期末56.17美元也只有约0.6%年化。当前新增0%，不追买。基准两种方法的今日参考约12.7–19.1美元；严格按约15%所需回报与安全边际，条件买价为下方三档。卡片上原有39美元观察价仍是手填记录，本报告没有替它背书。",
+    "limitations": "这是一组可复算的条件估值，不是预测股价会跌至入场区间；市场可能长期给予未建模的战略选择权溢价。并购尚未完成，2026 Q3尚未披露；当前完全稀释股数和并购后净债务均为桥接假设，不是已报告合并资产负债表。未来选择权、合同利润率、商业发射频率、监管许可及整合成本仍不可精确估计。只使用2023–2025三个完整年度及2026H1趋势，未声称已完成十年历史审计。用户完整流动性需求、可承受回撤、税务和全部外部账户未知，组合适配仍不完整。"
+  },
+  "position": {
+    "currentAdditionalPct": 0,
+    "targetPct": 0.5,
+    "maxPct": 1,
+    "existingExposureUsd": 35.15,
+    "rationale": "当前新增0美元；只有价格与下述经营门槛同时满足后，才讨论0.5%=2,000美元的公司总敞口目标，最高1%=4,000美元。该公司尚未验证中型运载火箭盈利，且面临大额并购；按0.5%仓位假设最坏全损，组合损失为0.5%，上限全损为1%，并非最大回撤保证。无杠杆，不用下跌本身证明便宜。三档分配扣除已知间接敞口后的1,964.85美元，25%/35%/40%；不因股价触及就自动补满。",
+    "portfolioFit": "state.json中RKLB直接持仓为0，本地委托没有RKLB匹配订单。已存QQQM两账户市值合计25,412.40美元；2026-10-23成分表中RKLB权重0.138317%，估计间接敞口35.15美元（不是实时权重），已从目标扣除。VOO/SOXX/SMH/VGT已存成分未见RKLB。组合另有太空、AI、半导体等高波动成长风险，相关性上升时应减小本建议。所有个股目标需共享40万美元预算，并先扣已持仓及其他未成交买单，不能将66只股票上限同时买满。"
+  },
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 9.6,
+      "high": 10.9,
+      "budgetSharePct": 25,
+      "condition": "条件学习仓。上限=min(2031基准21.9268/1.15^5，基准今日12.7108)=10.9015，向下取10.90。先核实Q3财报、Neutron路线与并购资金桥未恶化；这不是当前应提交的买单，也不表示价格会到达。"
+    },
+    {
+      "tier": "safety",
+      "low": 7.7,
+      "high": 9.5,
+      "budgetSharePct": 35,
+      "condition": "基准价值至少25%折让的上限=12.7108×0.75=9.5331，向下取9.50；同时满足约15%年回报上限。必须证明Neutron关键技术里程碑、客户付款和并购后净债务仍支持基准，不能只因价格更低就加仓。"
+    },
+    {
+      "tier": "discount",
+      "low": 6,
+      "high": 7.6,
+      "budgetSharePct": 40,
+      "condition": "基准价值至少40%折让的上限=12.7108×0.60=7.6265，向下取7.60。下沿6美元是本轮研究的重新审查边界，而非价值底；若破位同时伴随事故、订单取消、融资或治理恶化，暂停订单并重建模型。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "bear",
+      "label": "悲观",
+      "todayValue": 4.976661584214069,
+      "year5Price": 8.47491269638946,
+      "assumptions": "独立业务收入2027年11亿→2031年17亿→2036年24.5亿美元；GAAP营业率-18%→4%→14%，WACC14.5%，终值增长2.5%，Neutron迟缓。并购按预期完成；严重事故/再融资断裂另为更差压力情景。"
+    },
+    {
+      "id": "base",
+      "label": "基准",
+      "todayValue": 12.710785276549274,
+      "year5Price": 21.926797894983455,
+      "assumptions": "独立业务收入2027年13.5亿→2031年36亿→2036年70亿美元；GAAP营业率-12%→17%→25%，WACC12%，终值增长3.5%。并购2027年中完成，股数7.35亿、起始净债务10亿美元。"
+    },
+    {
+      "id": "bull",
+      "label": "乐观",
+      "todayValue": 34.109339273173134,
+      "year5Price": 56.17057147445867,
+      "assumptions": "独立业务收入2027年16亿→2031年62亿→2036年145亿美元；GAAP营业率-8%→25%→30%，WACC10.5%，终值增长4%，Neutron商业化、国防与卫星业务共同兑现，终值ROIC22%。"
+    }
+  ],
+  "masters": [
+    {
+      "id": "graham",
+      "name": "格雷厄姆 · 先问本金的保护来自哪里",
+      "judgment": "当前价格缺乏可验证的资产或盈利安全边际；不把高增长潜力当已赚到的钱。",
+      "evidence": "2025收入6.018亿美元，但经营现金流约-1.655亿、CapEx1.563亿；2026H1报告FCF仍-1.875亿。[S1][S2] 并购后股数和净债务须重算，账面现金不能全部当多余现金。",
+      "challenge": "传统净资产或低市盈率方法会错过航空航天平台的无形资产和未来选择权，是否过度保守？",
+      "response": "承认账面价值会低估技术与客户资质，所以使用成长FCFF与SOTP，而不只看清算值。即使乐观模型今日34.11美元，仍低于54.43；无保护就等待，不靠品牌补安全边际。"
+    },
+    {
+      "id": "buffett",
+      "name": "巴菲特 · 好生意必须转成可预测的每股现金",
+      "judgment": "可靠发射履历、航天器部件与客户验证有价值，但公司层面的稳定经济护城河尚未被现金回报完整证明。",
+      "evidence": "Q2卫星系统收入1.895亿美元，占总收入约81%，已不是单纯发射故事；截至11月初Electron完成第99次任务。[S2][S6] 但政府客户约占H1收入42%，现金转换仍弱。",
+      "challenge": "Iridium频谱、卫星网络与经常性服务收入是否把不可预测的项目商变成长期复利平台？",
+      "response": "可能改善收入质量，但必须检验收购支付的总成本、债务和增量ROIC；平台协同是待证假设。2026Q3 Iridium一次性投资重估收益不能当可持续盈利。收购一家好资产，不保证以任何股价买母公司都合理。"
+    },
+    {
+      "id": "munger",
+      "name": "芒格 · 反过来找会毁掉投资的链条",
+      "judgment": "最大的陷阱是把技术成功、融资成功、并购成功与股东回报自动画等号。",
+      "evidence": "Neutron推迟至2027年；9月ATM新增2,930万股；并购还需现金及换股，拟承接的目标债务已随Aireon交易发生变化。[S4][S5][S8][S9]",
+      "challenge": "一体化设计会降低成本，交叉销售和政府客户关系可能同时放大多个优势，这是否是多因素共振？",
+      "response": "正向共振也有反面：技术延期→现金消耗→股本融资→每股稀释，整合负担又挤压工程管理资源。用7.35亿经济股数并显式预留债务，不用合并收入增长掩盖每股价值下降；风险交叠时仓位需小。"
+    },
+    {
+      "id": "lynch",
+      "name": "彼得林奇 · 用公司所处阶段的经济学估值",
+      "judgment": "这是卫星系统成长、发射产能扩张与中型火箭新产品混合体，不能套一个漂亮PEG就结束。",
+      "evidence": "收入2023年2.446亿、2024年4.362亿、2025年6.018亿美元增长很快，但营业亏损分别1.779亿、1.898亿、2.288亿美元；增长没有自动转成利润。[S1]",
+      "challenge": "如果Neutron进入快速成长拐点，等待GAAP盈利后会不会已经涨过头？",
+      "response": "允许在拐点前买，但价格必须为错误留余地。要把发射次数×单次收入×贡献利润、卫星制造毛利和交付现金分别兑现；本轮基准已给2036独立收入70亿美元和25%营业率，仍不支持当前报价。"
+    },
+    {
+      "id": "dalio",
+      "name": "瑞·达利欧 · 资金、政策与周期怎样传导",
+      "judgment": "国防航天需求提供长期支撑，同时财政、利率、监管和融资环境能直接改变订单与估值。",
+      "evidence": "H1政府相关收入42%，大量合同确认时间与拨款周期关联；并购需监管批准并预计2027年中交割。[S2][S10] 目标公司Q3净杠杆约4.2倍，融资成本不可忽略。[S8]",
+      "challenge": "国防预算及国家安全的重要性可能使收入比一般成长公司更抗衰退，为什么仍需12%基准折现率？",
+      "response": "终端需求稳定不等于交付、拨款、工程和并购无风险。12%为研究假设，10%/14%敏感性已列；降低折现率至10%也只约16.37美元，无法独自解释54.43。已有成长主题相关性使仓位宜进一步收缩。"
+    },
+    {
+      "id": "soros",
+      "name": "索罗斯 · 价格如何反过来改变基本面",
+      "judgment": "高估值本身能成为融资优势，但它不是永久护城河；反身性必须双向看。",
+      "evidence": "9月以新增2,930万股筹得19.44亿美元毛额，帮助完成收购融资并取消36亿美元桥贷。[S4] 这是股价支持资本获取、资本又扩大平台叙事的真实反馈。",
+      "challenge": "既然高股价能低成本融资再买现金流，能否创造比保守DCF更快增长的自我实现路径？",
+      "response": "可以，所以不能只因估值高就断言股价会跌。但买入者仍承担未来稀释、收购回报和情绪转向的风险。若价格下跌且工程延期，融资条件与增长预期会一起恶化；保留选择权观察，不用追价作为风险管理。"
+    },
+    {
+      "id": "marks",
+      "name": "霍华德·马克斯 · 市场已相信多少，犯错谁买单",
+      "judgment": "最核心问题不是公司能否增长，而是当前价格还给了多少超预期空间。",
+      "evidence": "54.43美元下，基准2031期末21.93对应约-16.6%年化；乐观56.17对应约+0.6%，尚未形成对执行风险的足够补偿。模型并未给任何情景概率。",
+      "challenge": "模型与市场差距这么大，可能错的是模型，市场是否更懂Neutron选择权与战略稀缺？",
+      "response": "完全可能，因此报告明确未建模选择权与参数风险，并用逆向DCF暴露分歧：固定其他基准参数，十年收入需约47.6%复合增长，2036约492亿美元。若没有支持这种量级与利润兑现的独立证据，宁愿承担错过上涨的机会成本，也不把热度当安全边际。"
+    }
+  ],
+  "debate": [
+    {
+      "question": "优秀航天平台，是否值得现在就付高价？",
+      "bull": "巴菲特与林奇框架看重Electron可靠性、卫星系统扩张、国防客户验证；纵向整合与Iridium经常性收入可能使未来价值高于逐项资产之和。",
+      "bear": "格雷厄姆与马克斯框架指出，商业成功的概率没有自然转成今天的好买价。现金流仍负、Neutron延期，而当前股价连乐观五年路径都几乎只给零实际超额回报。",
+      "resolution": "承认企业竞争力改善，但当前不新增。估值分歧必须由更快现金转正、更高真实合同利润或更低价格解决，不能靠七人平均投票给出买入。"
+    },
+    {
+      "question": "Iridium并购是护城河升级，还是风险叠加？",
+      "bull": "重复服务收入、频谱和网络资产可以补充硬件/项目收入，客户与制造能力协同有可能提高终身价值。9月融资已降低大额桥贷的不确定性。",
+      "bear": "芒格与达利欧框架要求把约22亿美元目标债务、现金收购对价、额外换股、Aireon整合和监管风险同时入账；不能把Rocket Lab现金、Iridium现金流与整个收购价格各算一次好处。",
+      "resolution": "模型只作为2027年中交割的条件情景：2027只计半年度Iridium FCFF，股数约7.35亿、并购后净债务先假设10亿美元；交易落空或资金桥改变则重建，而非把它当无风险确定收益。"
+    },
+    {
+      "question": "高股价融资能否让DCF失效？",
+      "bull": "索罗斯框架认为，成功ATM说明市场价格有现实经营价值。若持续以高估值买入低估现金流资产，内在价值能被价格反馈抬高。",
+      "bear": "马克斯与芒格框架反问：这种反馈依赖资本市场持续开门，且管理层必须买对、整合好；未来股本不能无限扩大而不损害每股收益。",
+      "resolution": "把融资优势作为可观察选择权，不加无依据的巨额期权溢价。新并购、再融资或股数变化触发重新估值；当前研究仓位上限1%，并且只有价格与证据门槛满足才讨论。"
+    },
+    {
+      "question": "DCF与市场差得太远，应相信谁？",
+      "bull": "市场可能相信更大的可服务市场、更高发射频次、制造规模效应或战略收购溢价，十年模型会低估非线性成功。",
+      "bear": "一组可复核假设至少能揭示所买预期。若为了追上股价不断增加增长、利润率和终值，模型只会成为叙事的装饰。",
+      "resolution": "不给市场判错时间表，也不声称DCF为唯一真值。等待Q3和Neutron阶段证据，保留多组敏感性及独立SOTP；若新资料支持更大规模与利润，向上改模型，否则保留不行动。"
+    }
+  ],
+  "sections": [
+    {
+      "title": "事实底稿：卖什么、利润与现金从哪里来",
+      "body": "[事实] Rocket Lab的客户包括商业卫星运营商、航天制造商和政府机构。Launch Services出售Electron发射及相关任务服务，并研发Neutron中型运载器；Space Systems出售卫星平台、组件、太阳能、电力、制导及相关系统。2026Q2总收入234.066百万美元，发射44.586百万、卫星系统189.480百万，后者占约81%。[S2]\n商业模式不能只按‘每次发射多少钱’解释：卫星系统项目的产能、交付、验收与收款决定现金循环；发射业务则取决于频次、可靠性、价格和单次贡献。Electron第99次成功任务加强了履历，11月初完成2026年第20次任务，iQPS连续十次专用任务成功且后续还有预订，但Electron成功不能直接替代Neutron性能、成本与重复发射验证。[S6]\n[竞争与推论] 客户可选择SpaceX及其他运载商，拼单发射对单位价格施压；专用发射可以用轨道、时间与任务定制竞争。制造端有大型国防航天承包商及其他商业卫星平台，客户自研也构成替代。合规、工程验证和飞行履历提高进入门槛，但市场规模并不自动赋予定价权。Neutron潜力取决于可靠性、可复用经济性与订单兑现，不能把行业总市场直接乘市场份额当收入。"
+    },
+    {
+      "title": "财务质量：收入增长快，现金转换仍是关键短板",
+      "body": "单位均为百万美元，GAAP口径；2026H1为半年，不与全年当作同长度增长比较。[S1][S2]\n2023：收入244.592；毛利51.409（毛利率21%）；营业亏损177.918。\n2024：收入436.214；毛利116.149（26.6%）；营业亏损189.801；CapEx67.093。\n2025：收入601.799；毛利207.181（34.4%）；营业亏损228.838；净亏损198.209；经营现金流约-165.5、CapEx156.285，报告FCF约-321.785；SBC约71.1（取披露四舍五入数）。\n2026H1：收入434.414；毛利161.069（37.1%）；营业亏损113.483；净亏损94.280；CFO=-134.407，CapEx=53.112，CFO−CapEx=-187.519；SBC=47.677，约占收入11%。\n2026Q2：毛利率36.1%；期末backlog=2,355.949，预计约45%在之后12个月确认，但预计确认不等于已收款或确定毛利。H1政府相关收入约42%。\n[现金核对] 净亏损与CFO不能机械互换。H1应收增长耗现约63.0、存货约73.3、合同资产约30.1百万，说明扩张和履约占用现金；SBC是经济成本，不能因非现金就忽略。报告FCF是CFO−CapEx，不直接冒充FCFF；下文用GAAP营业利润、税与再投资重新建FCFF。\n[限制] TTM收入截至2026Q2约769.146百万；Q3尚未发布。管理层8月给Q3收入250–265百万、GAAP毛利29%–31%、调整EBITDA亏损17–23百万，是指引而非实际。[S3] 近期Neutron延期后是否重置指引，须在11月9日财报核实。公司整体亏损，ROIC暂未证明高于资本成本；不能拿调整EBITDA转正代替每股现金回报。"
+    },
+    {
+      "title": "治理、资本配置与并购资金桥",
+      "body": "[事实] 截至6月30日，Rocket Lab现金2,129.485百万美元、证券投资258.105百万，合计2,387.590百万。[S2] 9月15日完成剩余ATM融资19.44亿美元毛额、新发2,930万股，属于5月30亿美元额度剩余部分，不得把H1筹款与同一额度总额重复相加；36亿美元桥贷被取消。[S4]\nIridium交易原条款包括每股约27美元现金及受collar调整的RKLB股份，预计2027年中交割，股东批准不代表监管已批准。[S10] 按10月Iridium约106.158百万股及低端0.4换股率，现金约28.66亿美元、增发约42.463百万股；实际仍随股数、collar和条款调整。\n[更新] Iridium 7月收购Aireon，Q3总债务约22亿美元、现金97.853百万、净债务约21亿美元、净杠杆4.2倍。不能仍只减原17.75亿美元贷款。[S8][S9] Q3净利106.896百万中包含约103.868百万投资重估收益，不能年化这份EPS；OEBITDA135.621百万，较去年136.587百万未见爆发增长。前9个月CFO281.706、CapEx79.238、报告FCF202.468百万；该FCF含利息、SBC及并购影响，不自动是可用于WACC的FCFF。\n[假设] 并购后净债务暂取10亿美元：Rocket Lab 6月流动性+9月ATM净额−现金对价−H2耗现与费用+目标现金−目标债务−剩余相关负债，得到近似桥接。并购前的现金并非全部‘多余现金’，不得在估值中保留现金同时又不支付收购价。最终必须用最新现金、费用、债务和交易文件替代。\n[治理判断] 当前证据不能完整审计全部高管激励与关联交易；不凭创始人声望加分。后续重点看资金是否按预算投向Neutron、收购后增量ROIC能否超过资本成本、管理层是否按每股指标披露兑现。"
+    },
+    {
+      "title": "股数：普通股市值不足以代表全部经济权益",
+      "body": "估值单位：金额十亿美元、股数十亿股。[S2][S4][S9]\n6月普通股598.180438百万 + 可转换参与优先股40.951250百万 + 9月ATM29.300000百万 = 约668.431688百万经济股。再加入当时期权/RSU13.095520百万、可转债潜在2.607745百万、collared forwards 7.451200百万、Iridium并购约42.463392百万股，合计约734.049545百万；模型向上取735百万。\n优先股作为普通经济索偿计入分母，不再按固定优先负债重复扣除。可转债既然按股计入，其同一索偿不再重复减本金；forward潜在股份已计入，未来最低约4.74亿美元相关收益本轮保守未加，约影响每股0.5美元，需随最终文件核实。当前未披露的后续SBC及股数变化仍是误差来源。\nSBC处理：预测采用含SBC经济成本的GAAP营业率，不把SBC加回FCFF；现有授予计入当前股数，未来授予假设其稀释的经济成本由利润率中SBC费用抵消，不再同额双扣。若实际股份净增长显著超出该假设，应扩大分母并重算。\n股数敏感性：710/735/780百万时，基准今日价值分别约13.16/12.71/11.98美元，2031期末约22.70/21.93/20.66。并购后735百万×54.43≈400亿美元股权价值，加假设净债务10亿≈410亿美元EV；这不是今天已报告的并表市值，不能与单体TTM营收直接混算倍数。"
+    },
+    {
+      "title": "估值一：十年FCFF，今天价值与2031价格严格分开",
+      "body": "[方法] 估值日为2026年末附近的年度近似，并非精确日折现。显性期2027–2036，共10年。独立Rocket Lab与Iridium分别估值，后者只在2027计半年度经营现金流，假设2027年中交割；不做没有依据的完成概率加权。\nFCFF = GAAP EBIT×(1−现金税率) + D&A − CapEx − ΔNWC。亏损年份不确认负所得税收益，盈利后税率23%；核心D&A=收入3%，CapEx从2027收入8%逐年降至2036的4%，ΔNWC=增量收入10%，2026收入起点假设10亿美元。营业率已含SBC经济成本。\n终值FCFF=2036收入×(1+g)×终值营业率×0.77×(1−g/ROIC)；TV=终值FCFF/(WACC−g)。该公式对终值增长保留相应再投资，避免无成本永续增长。EV=各年FCFF现值+TV现值；股权=核心EV+IridiumEV−假设并购后净债务10亿美元；除以7.35亿股。\nIridium归一化FCFF为研究预测：2027半年度1.6亿美元、2028全年3.2亿美元、之后年增3.5%，WACC9.5%、终值增长2.5%，单独EV约45.73亿美元。此口径已由历史levered FCF向未杠杆现金、SBC经济成本和利息税归一，不能把前9个月2.02亿FCF直接当全年FCFF。没有额外协同收入与利润加成。\n[核心逐年输入] 各序列依次对应2027–2036；收入单位十亿美元。\n悲观收入1.10/1.25/1.40/1.55/1.70/1.85/2.00/2.15/2.30/2.45；营业率-18/-12/-7/0/4/7/10/12/13/14%；WACC14.5%，g2.5%，终值ROIC10%。\n基准收入1.35/1.75/2.30/2.90/3.60/4.30/5.00/5.70/6.40/7.00；营业率-12/-3/5/12/17/21/23/24/25/25%；WACC12%，g3.5%，ROIC18%。\n乐观收入1.60/2.30/3.30/4.60/6.20/8.00/9.80/11.50/13.10/14.50；营业率-8/3/12/20/25/28/29/30/30/30%；WACC10.5%，g4%，ROIC22%。\n[结果] 悲观/基准/乐观今日每股4.98/12.71/34.11美元。2031期末价格分别8.47/21.93/56.17：在2031重新估剩余2032–2036现金流与终值，再加入已累积现金或减剩余净债务；不发股息，留存FCFF用于还债/增现金，正净债务期间以6%利息×0.77计税后利息；假设现金无利息收入。2031净债务分别约4.68亿、净现金1.91亿、净现金12.55亿。不能把今天12.71当成五年卖出价。\n[最坏情景] 悲观仍假设并购完成、没有重大再融资中断，并非最坏损失。发射事故、许可失败、治理或融资断裂可导致进一步稀释乃至接近全损。"
+    },
+    {
+      "title": "估值二：独立SOTP与同业交叉核验",
+      "body": "SOTP作为不同经济逻辑的校验：核心前瞻收入假设10亿美元×5/10/18倍EV/Sales；Iridium归一化OEBITDA假设5亿美元×8/10/12倍；再减假设净债务10亿美元，除7.35亿股，得到悲观10.88、基准19.05、乐观31.29美元。上述倍数是分析假设，绝不写成市场事实或同业一致预期。\n外部参照MDA Space 2026-11-03行情供应商页面EV约61.9亿加元、TTM收入约18.7亿加元，EV/Sales约3.3倍。[S12] CAD分子分母一致，无需用美元相除；MDA并非相同商业组合，没有Rocket Lab独立发射特许权，不能直接搬用。所给5/10/18倍已经授予显著平台与未来成长溢价，仍未支持54.43美元。供应商页面某些P/E与利润口径有不一致，故不采用这些指标。\n这个方法也有缺点：销售倍数掩盖利润率与CapEx差异，整个航天板块都可能高估。它不是‘市场给10倍所以内在值就是10倍’，而是用于检验FCFF结果是否离开合理商业经济性。基准DCF12.71与基准SOTP19.05构成本轮12.7–19.1美元今日交叉参考；全部情景范围更宽，不能把基准参考当确定上下限。"
+    },
+    {
+      "title": "市场隐含预期、敏感性与模型可能低估的地方",
+      "body": "逆向DCF只求一组条件解：固定2026独立营收10亿美元、基准GAAP利润率路径、税23%、D&A3%、CapEx8%→4%、ΔNWC增量收入10%、WACC12%、g3.5%、ROIC18%、Iridium现金流、7.35亿股与净债务10亿，2027–2036若按恒定营收增长，要支持54.43美元需约47.6% CAGR，2031收入约70.14亿美元、2036约491.95亿美元。这个条件解不代表市场真正预测；更早盈利、更高利润率、更低资本成本可替代部分增长。\n基准核心WACC×终值g敏感性，单位美元/股（Iridium模型固定）：\ng=2.5% / 3.5% / 4.5%\nWACC10%：15.62 / 16.37 / 17.37\nWACC12%：12.41 / 12.71 / 13.09\nWACC14%：10.39 / 10.53 / 10.68\n基准核心终值现值约占核心EV73.8%，乐观约75.2%；远期假设主导，不宜给两位小数的确信。悲观因早期负现金流抵消EV，终值占比超过100%不具通常比例解释，反而说明该路径价值脆弱。\n[挑战本模型] 最大可能低估项包括：Neutron规模化成功后更高市场份额、重复发射与单位成本改善、国防/卫星系统交叉销售、Iridium网络与频谱选择权、持续高股价低成本收购。模型没有给这些尚未证实的协同单列额外价值，因缺少足以复核的经营现金依据。相反，模型也可能低估卫星补网CapEx、整合费用、更多稀释和并购延期。\n即使模型错了，也不能从‘存在选择权’跳到‘选择权值当前全部溢价’。需要能把额外订单、产能、毛利、现金转换与每股价值连起来的新证据；若出现就更新，不把旧结论当信仰。"
+    },
+    {
+      "title": "三档限价与收益：为什么不是离现价打九折",
+      "body": "[明确假设] 用户已存目标为长期价值复利、期待3–5年翻倍。本轮采用约15%税费前年回报研究门槛，对应五年约翻倍；若要求三年翻倍则需约26.0%年化，价格纪律还要更严格。该门槛不是收益承诺。\n所需回报买价P_return=21.9268/(1.15)^5=10.9015；安全边际价格P_margin=基准12.7108×(1−m)；上限取两者较低。观察m=0，安全m=25%，折价m=40%，分别得10.9015/9.5331/7.6265，再向下取10.90/9.50/7.60。带宽9.6–10.9、7.7–9.5、6.0–7.6是围绕这些上限设的计划区间，不是统计置信区间；低于6美元须重审，不能机械补仓。\n以各档上沿10.9/9.5/7.6、基准2031价21.9268计算，五年年化约15.0%/18.2%/23.6%；如按悲观8.4749卖出，则约-4.9%/-2.3%/+2.2%年化，仍没有防住更差事故情景。报告报价54.43到这三档的差距很大，说明本轮分析倾向长期等待或选择更好的机会，而不是预测短期暴跌。\n每档最多股数按预算/区间上沿向下取整；价格更低可以复算，但不得突破全公司总敞口和共享组合预算。报价过期、财报发布、Neutron里程碑或并购资金变化后，应先刷新本报告再设置/保留长期限价单。"
+    },
+    {
+      "title": "主要风险、催化与机会成本",
+      "body": "技术/执行风险：Neutron延后会同时推迟收入、消耗现金并压低发射客户信心；早期信号是测试、发射场或引擎里程碑再次滑移。影响大，概率无法可靠量化，不编造百分比。\n合同/会计风险：backlog约23.56亿美元不等于利润与现金；看取消、验收、交付节奏、应收/合同资产与预收款变化。若收入增长伴随更大营运资本消耗，增长需要更多融资。\n并购风险：监管延期、最终对价、股数、目标债务、Aireon整合和补网CapEx会改变价值；高额一次性收益会让GAAP EPS失真。\n市场风险：高估值久期长，对资本成本与风险偏好敏感；同组合太空、半导体、AI成长资产可能共同下跌，低个股权重不能消除主题集中。\n催化：11月9日美东盘后Q3财报、Neutron测试与发射计划、Iridium监管进程、订单与现金回款。催化到来只提供新信息，不保证股价上涨。\n机会成本：没有足够安全边际时，保持现金或与低成本宽基组合比较，可能比高价押注单一新平台更符合长期复利目标。本报告没有为现金或指数预设保证收益率。"
+    }
+  ],
+  "figures": [
+    {
+      "title": "实际收入趋势（完整财年）",
+      "unit": "百万美元；GAAP",
+      "note": "2023–2025，来自[S1]。收入增长很强，但同期营业亏损仍扩大，不能把收入曲线当现金曲线。",
+      "rows": [
+        {
+          "label": "2023",
+          "value": 244.592
+        },
+        {
+          "label": "2024",
+          "value": 436.214
+        },
+        {
+          "label": "2025",
+          "value": 601.799
+        }
+      ]
+    },
+    {
+      "title": "2026Q2收入结构",
+      "unit": "百万美元；GAAP",
+      "note": "截至2026-06-30季度，[S2]。卫星系统约占81%，研究不能只围绕火箭发射。",
+      "rows": [
+        {
+          "label": "发射服务",
+          "value": 44.586
+        },
+        {
+          "label": "卫星系统",
+          "value": 189.48
+        }
+      ]
+    }
+  ],
+  "invalidation": [
+    "Neutron关键测试/首飞再次延期，或失败暴露新的重大资金与工程需求：暂停新增，重估商业化年份、CapEx与股数。",
+    "Q3财报或后续订单显示收入、GAAP毛利或现金回款显著弱于本轮指引/基准，backlog取消或大客户流失：不因价格更低而加仓。",
+    "Iridium监管、对价、净债务、补网投入或整合现金流改变，实际稀释明显高于7.35亿股假设：重建资金桥与每股估值。",
+    "审计、关联交易、资本配置或信息披露出现重大未解疑点；可用现金不足以支持下一阶段且融资不利：停止投入，已有仓位重新审查。",
+    "所有主题及未成交订单合计使组合风险超过40万美元预算或用户实际回撤承受能力：先缩减总体风险，不能只看单只股票价格。"
+  ],
+  "reviewTriggers": [
+    "2026-11-09美东盘后Q3结果及17:00 EST电话会（新西兰11月10日11:00 NZDT）：核对收入250–265百万指引、GAAP毛利29%–31%、CFO/CapEx/营运资本和实际股数。[S3][S7]",
+    "2026Q4至2027H1逐项核验Neutron发动机、结构、发射场与首飞日期；若再次滑移，不沿用2031/2036收入与利润假设。[S5]",
+    "未来两季关注backlog转收入与收现金是否一致，特别合同资产、存货与应收是否继续显著吞噬经营现金。[S2]",
+    "并购监管更新、2027年中预期交割之前更新现金对价、换股率、股数、目标债务、Aireon和卫星补网资本开支；目标归一FCFF3.2亿美元必须以新财报核对。[S8][S9][S10]",
+    "价格与资金市场变化后重新做反向估值；报价54.43仅为本版参照，不能用入场档位自动覆盖卡片手填计划。"
+  ],
+  "sources": [
+    {
+      "label": "[S1] Rocket Lab2025 10K",
+      "date": "2026-02-26 发布/报价；2026-11-04核验",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000013/rklb-20251231.htm"
+    },
+    {
+      "label": "[S2] Rocket Lab2026Q2 10Q",
+      "date": "2026-08-10 发布/报价；2026-11-04核验",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000062/rklb-20260630.htm"
+    },
+    {
+      "label": "[S3] Rocket Lab2026Q2 release/Q3guidance",
+      "date": "2026-08-10 发布/报价；2026-11-04核验",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000061/rklb-08102026ex991.htm"
+    },
+    {
+      "label": "[S4] SeptemberATM/acquisitionfinancing",
+      "date": "2026-09-15 发布/报价；2026-11-04核验",
+      "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-fully-funds-iridium-acquisition-including-completion"
+    },
+    {
+      "label": "[S5] Neutron delayed to2027 8Kexhibit",
+      "date": "2026-10-14 发布/报价；2026-11-04核验",
+      "url": "https://www.sec.gov/Archives/edgar/data/1819994/000181999426000067/rklb-10142026ex991.htm"
+    },
+    {
+      "label": "[S6] Electron99thmission",
+      "date": "2026-11-02 发布/报价；2026-11-04核验",
+      "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/mission-success-rocket-lab-launches-99th-electron-mission"
+    },
+    {
+      "label": "[S7] Q3scheduledNov9",
+      "date": "2026-10-20 发布/报价；2026-11-04核验",
+      "url": "https://investors.rocketlabcorp.com/news-releases/news-release-details/rocket-lab-announces-date-third-quarter-2026-financial-results"
+    },
+    {
+      "label": "[S8] IridiumQ3release",
+      "date": "2026-10-20 发布/报价；2026-11-04核验",
+      "url": "https://investor.iridium.com/2026-10-20-Iridium-Announces-Third-Quarter-2026-Results"
+    },
+    {
+      "label": "[S9] Iridium2026Q3 10Q",
+      "date": "2026-10-20 发布/报价；2026-11-04核验",
+      "url": "https://www.sec.gov/Archives/edgar/data/1418819/000141881926000052/irdm-20260930.htm"
+    },
+    {
+      "label": "[S10] Acquisition originalterms",
+      "date": "2026-06-29 发布/报价；2026-11-04核验",
+      "url": "https://investor.iridium.com/2026-06-29-Rocket-Lab-to-Acquire-Iridium-in-Historic-Deal,-Creating-A-Fully-Vertically-Integrated-Space-Powerhouse-Primed-for-Growth"
+    },
+    {
+      "label": "[S11] VerifiedNov3close",
+      "date": "2026-11-03 发布/报价；2026-11-04核验",
+      "url": "https://stockanalysis.com/stocks/rklb/history/"
+    },
+    {
+      "label": "[S12] MDAmarketcomparable",
+      "date": "2026-11-03 发布/报价；2026-11-04核验",
+      "url": "https://stockanalysis.com/quote/tsx/MDA/statistics/"
+    },
+    {
+      "label": "[S13] Moomoo RKLB：收盘及延长时段实际页面",
+      "url": "https://www.moomoo.com/stock/RKLB-US",
+      "date": "2026-11-03 16:00 ET正式收盘；2026-11-04核验"
+    },
+    {
+      "label": "[S14] TradingView BOATS RKLB：夜盘指示报价与限制",
+      "url": "https://www.tradingview.com/chart/?symbol=BOATS%3ARKLB",
+      "date": "2026-11-04 05:28:16 UTC观察，未核验独立成交时间戳"
+    },
+    {
+      "label": "[S15] Invesco QQQM 成分官方披露入口",
+      "url": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G649/holdings/fund?idType=cusip&productType=ETF",
+      "date": "本地fund-holdings已存2026-10-23成分；仅用于估算间接敞口，非实时权重"
+    }
+  ],
+  "model": {
+    "units": "all operating values USD billion; share denominator billion",
+    "year1": "2027",
+    "year10": "2036",
+    "timing": "late-2026 annual approximation; does not claim day-precise valuation, snapshot funding bridge uncertain",
+    "assumptions": {
+      "merger": "Conditional on mid-2027 close; half-year Iridium FCFF in2027. Not probability-weighted. Closing not guaranteed.",
+      "dilutedShares": 0.735,
+      "netDebtAfterAcquisition": 1,
+      "netDebtBridge": "Assumed ~1bn: 6/30 Rocket Lab liquidity2.3876bn + ~1.92bn net Sep ATM - ~$2.866bn cash merger consideration - estimated H2burn/fees~0.35bn + target cash0.098bn - target grossdebt~2.2bn - residual RKLB debt/leases. This is an assumed pro forma bridge, not reported current netdebt; it cannot treat all4.3bn liquidity as free excess cash after merger.",
+      "SBC": "GAAP operating margins include economic stock compensation, with no SBC add-back. Current awards, preferred, convertible shares and forwards are already in735m shares; future awards assumed economically offset by this expense, no second annual dilution charge. Additional external funding beyond bridge is not assumed.",
+      "preferred": "40.951m participating convertible preferred treated as common economic claims, not subtracted again as fixed preferred liability",
+      "forwards": "7.451m forward underlying shares included; future min474m forward proceeds deliberately not credited (conservative; ~0.5USD/share effect). Convertible2.608m counted as shares; its debt not subtracted again.",
+      "tax": "23% when EBIT positive; negative tax benefit not recognized",
+      "capex": "core revenue * (8% declining linearly to4% in2036)",
+      "DA": "3% of core revenue",
+      "deltaNwc": "10% incremental core revenue vs2026 assumed1bn",
+      "terminal": "core terminalFCFF=rev2036*(1+g)*margin2036*.77*(1-g/terminalROIC), WACC>g",
+      "iridium": "2027 half-year FCFF0.16bn, 2028FCFF0.32bn then3.5% growth; WACC9.5%, terminalg2.5%. Normalized FCFF is analyst forecast. 9M2026 CFO281.706m-CapEx79.238m=202.468m levered reported FCF, with SBC economic cost and interest/tax normalization needed.",
+      "price2031": "Value remaining2032-36 FCFF+terminal at2031, subtract modeled netdebt2031, divide735m. Assumes no dividend; retainedFCFF reduces debt/cash, after-tax interest6%*.77 on positive netdebt; ignores interest earned on cash.",
+      "risk": "Bear not worst case; severe launch failure, regulation, acquisition or liquidity shock can cause further dilution or near-total loss."
+    },
+    "scenarios": [
+      {
+        "id": "bear",
+        "revenue": [
+          1.1,
+          1.25,
+          1.4,
+          1.55,
+          1.7,
+          1.85,
+          2,
+          2.15,
+          2.3,
+          2.45
+        ],
+        "margin": [
+          -0.18,
+          -0.12,
+          -0.07,
+          0,
+          0.04,
+          0.07,
+          0.1,
+          0.12,
+          0.13,
+          0.14
+        ],
+        "wacc": 0.145,
+        "g": 0.025,
+        "terminalROIC": 0.1,
+        "coreSalesMultiple": 5,
+        "irEbitdaMultiple": 8,
+        "result": {
+          "todayValue": 4.976661584214069,
+          "year5Price": 8.47491269638946,
+          "coreEV": 0.08440214929077267,
+          "iridiumEV": 4.573444115106568,
+          "netDebtYear5": 0.46778469953325835,
+          "coreTerminalPVShare": 5.175834191056049,
+          "year5Cagr": -0.3106188887561592,
+          "year5TotalReturn": -0.8442970292781653,
+          "rows": [
+            {
+              "year": 2027,
+              "coreRevenue": 1.1,
+              "gaapOperatingMargin": -0.18,
+              "taxRate": 0,
+              "nopat": -0.198,
+              "da": 0.033,
+              "capex": 0.08800000000000001,
+              "deltaNwc": 0.010000000000000009,
+              "coreFcff": -0.263,
+              "iridiumFcff": 0.16,
+              "combinedFcff": -0.10300000000000001
+            },
+            {
+              "year": 2028,
+              "coreRevenue": 1.25,
+              "gaapOperatingMargin": -0.12,
+              "taxRate": 0,
+              "nopat": -0.15,
+              "da": 0.0375,
+              "capex": 0.09444444444444444,
+              "deltaNwc": 0.014999999999999993,
+              "coreFcff": -0.22194444444444442,
+              "iridiumFcff": 0.32,
+              "combinedFcff": 0.09805555555555559
+            },
+            {
+              "year": 2029,
+              "coreRevenue": 1.4,
+              "gaapOperatingMargin": -0.07,
+              "taxRate": 0,
+              "nopat": -0.098,
+              "da": 0.041999999999999996,
+              "capex": 0.09955555555555555,
+              "deltaNwc": 0.014999999999999993,
+              "coreFcff": -0.17055555555555554,
+              "iridiumFcff": 0.3312,
+              "combinedFcff": 0.16064444444444445
+            },
+            {
+              "year": 2030,
+              "coreRevenue": 1.55,
+              "gaapOperatingMargin": 0,
+              "taxRate": 0,
+              "nopat": 0,
+              "da": 0.0465,
+              "capex": 0.10333333333333333,
+              "deltaNwc": 0.015000000000000013,
+              "coreFcff": -0.07183333333333335,
+              "iridiumFcff": 0.342792,
+              "combinedFcff": 0.2709586666666666
+            },
+            {
+              "year": 2031,
+              "coreRevenue": 1.7,
+              "gaapOperatingMargin": 0.04,
+              "taxRate": 0.23,
+              "nopat": 0.052360000000000004,
+              "da": 0.051,
+              "capex": 0.10577777777777778,
+              "deltaNwc": 0.014999999999999993,
+              "coreFcff": -0.01741777777777776,
+              "iridiumFcff": 0.3547897199999999,
+              "combinedFcff": 0.33737194222222217
+            },
+            {
+              "year": 2032,
+              "coreRevenue": 1.85,
+              "gaapOperatingMargin": 0.07,
+              "taxRate": 0.23,
+              "nopat": 0.09971500000000003,
+              "da": 0.0555,
+              "capex": 0.1068888888888889,
+              "deltaNwc": 0.015000000000000013,
+              "coreFcff": 0.03332611111111111,
+              "iridiumFcff": 0.3672073601999999,
+              "combinedFcff": 0.400533471311111
+            },
+            {
+              "year": 2033,
+              "coreRevenue": 2,
+              "gaapOperatingMargin": 0.1,
+              "taxRate": 0.23,
+              "nopat": 0.15400000000000003,
+              "da": 0.06,
+              "capex": 0.10666666666666667,
+              "deltaNwc": 0.014999999999999993,
+              "coreFcff": 0.09233333333333335,
+              "iridiumFcff": 0.38005961780699987,
+              "combinedFcff": 0.4723929511403332
+            },
+            {
+              "year": 2034,
+              "coreRevenue": 2.15,
+              "gaapOperatingMargin": 0.12,
+              "taxRate": 0.23,
+              "nopat": 0.19866,
+              "da": 0.0645,
+              "capex": 0.1051111111111111,
+              "deltaNwc": 0.014999999999999993,
+              "coreFcff": 0.14304888888888892,
+              "iridiumFcff": 0.3933617044302448,
+              "combinedFcff": 0.5364105933191338
+            },
+            {
+              "year": 2035,
+              "coreRevenue": 2.3,
+              "gaapOperatingMargin": 0.13,
+              "taxRate": 0.23,
+              "nopat": 0.23023,
+              "da": 0.06899999999999999,
+              "capex": 0.10222222222222221,
+              "deltaNwc": 0.014999999999999993,
+              "coreFcff": 0.1820077777777778,
+              "iridiumFcff": 0.4071293640853033,
+              "combinedFcff": 0.5891371418630811
+            },
+            {
+              "year": 2036,
+              "coreRevenue": 2.45,
+              "gaapOperatingMargin": 0.14,
+              "taxRate": 0.23,
+              "nopat": 0.26411000000000007,
+              "da": 0.0735,
+              "capex": 0.098,
+              "deltaNwc": 0.015000000000000036,
+              "coreFcff": 0.22461000000000003,
+              "iridiumFcff": 0.4213788918282889,
+              "combinedFcff": 0.645988891828289
+            }
+          ]
+        },
+        "independentSotp": {
+          "coreForwardRevenue": 1,
+          "coreEV": 5,
+          "iridiumNormalizedOebitda": 0.5,
+          "iridiumEV": 4,
+          "netDebt": 1,
+          "equityValuePerShare": 10.884353741496598,
+          "basis": "Current-business forward EV/Sales premium and acquired communications EV/OEBITDA, scenario multiples are analyst assumptions, not observed RKLB peer multiples. MDA Space observed ~3.3x EV/TTM sales is a rough external anchor, business composition differs."
+        }
+      },
+      {
+        "id": "base",
+        "revenue": [
+          1.35,
+          1.75,
+          2.3,
+          2.9,
+          3.6,
+          4.3,
+          5,
+          5.7,
+          6.4,
+          7
+        ],
+        "margin": [
+          -0.12,
+          -0.03,
+          0.05,
+          0.12,
+          0.17,
+          0.21,
+          0.23,
+          0.24,
+          0.25,
+          0.25
+        ],
+        "wacc": 0.12,
+        "g": 0.035,
+        "terminalROIC": 0.18,
+        "coreSalesMultiple": 10,
+        "irEbitdaMultiple": 10,
+        "result": {
+          "todayValue": 12.710785276549274,
+          "year5Price": 21.926797894983455,
+          "coreEV": 5.768983063157147,
+          "iridiumEV": 4.573444115106568,
+          "netDebtYear5": -0.19139318237264236,
+          "coreTerminalPVShare": 0.7376769347897051,
+          "year5Cagr": -0.16626626242473064,
+          "year5TotalReturn": -0.5971560188318307,
+          "rows": [
+            {
+              "year": 2027,
+              "coreRevenue": 1.35,
+              "gaapOperatingMargin": -0.12,
+              "taxRate": 0,
+              "nopat": -0.162,
+              "da": 0.0405,
+              "capex": 0.10800000000000001,
+              "deltaNwc": 0.03500000000000001,
+              "coreFcff": -0.2645,
+              "iridiumFcff": 0.16,
+              "combinedFcff": -0.10450000000000001
+            },
+            {
+              "year": 2028,
+              "coreRevenue": 1.75,
+              "gaapOperatingMargin": -0.03,
+              "taxRate": 0,
+              "nopat": -0.0525,
+              "da": 0.0525,
+              "capex": 0.1322222222222222,
+              "deltaNwc": 0.039999999999999994,
+              "coreFcff": -0.17222222222222222,
+              "iridiumFcff": 0.32,
+              "combinedFcff": 0.14777777777777779
+            },
+            {
+              "year": 2029,
+              "coreRevenue": 2.3,
+              "gaapOperatingMargin": 0.05,
+              "taxRate": 0.23,
+              "nopat": 0.08854999999999999,
+              "da": 0.06899999999999999,
+              "capex": 0.16355555555555554,
+              "deltaNwc": 0.054999999999999986,
+              "coreFcff": -0.061005555555555556,
+              "iridiumFcff": 0.3312,
+              "combinedFcff": 0.27019444444444446
+            },
+            {
+              "year": 2030,
+              "coreRevenue": 2.9,
+              "gaapOperatingMargin": 0.12,
+              "taxRate": 0.23,
+              "nopat": 0.26796,
+              "da": 0.087,
+              "capex": 0.19333333333333333,
+              "deltaNwc": 0.06000000000000001,
+              "coreFcff": 0.1016266666666666,
+              "iridiumFcff": 0.342792,
+              "combinedFcff": 0.4444186666666666
+            },
+            {
+              "year": 2031,
+              "coreRevenue": 3.6,
+              "gaapOperatingMargin": 0.17,
+              "taxRate": 0.23,
+              "nopat": 0.4712400000000001,
+              "da": 0.108,
+              "capex": 0.224,
+              "deltaNwc": 0.07000000000000002,
+              "coreFcff": 0.2852400000000001,
+              "iridiumFcff": 0.3547897199999999,
+              "combinedFcff": 0.64002972
+            },
+            {
+              "year": 2032,
+              "coreRevenue": 4.3,
+              "gaapOperatingMargin": 0.21,
+              "taxRate": 0.23,
+              "nopat": 0.69531,
+              "da": 0.129,
+              "capex": 0.2484444444444444,
+              "deltaNwc": 0.06999999999999998,
+              "coreFcff": 0.5058655555555557,
+              "iridiumFcff": 0.3672073601999999,
+              "combinedFcff": 0.8730729157555556
+            },
+            {
+              "year": 2033,
+              "coreRevenue": 5,
+              "gaapOperatingMargin": 0.23,
+              "taxRate": 0.23,
+              "nopat": 0.8855000000000002,
+              "da": 0.15,
+              "capex": 0.26666666666666666,
+              "deltaNwc": 0.07000000000000002,
+              "coreFcff": 0.6988333333333334,
+              "iridiumFcff": 0.38005961780699987,
+              "combinedFcff": 1.0788929511403333
+            },
+            {
+              "year": 2034,
+              "coreRevenue": 5.7,
+              "gaapOperatingMargin": 0.24,
+              "taxRate": 0.23,
+              "nopat": 1.0533599999999999,
+              "da": 0.17099999999999999,
+              "capex": 0.2786666666666667,
+              "deltaNwc": 0.07000000000000002,
+              "coreFcff": 0.8756933333333332,
+              "iridiumFcff": 0.3933617044302448,
+              "combinedFcff": 1.269055037763578
+            },
+            {
+              "year": 2035,
+              "coreRevenue": 6.4,
+              "gaapOperatingMargin": 0.25,
+              "taxRate": 0.23,
+              "nopat": 1.2320000000000002,
+              "da": 0.192,
+              "capex": 0.28444444444444444,
+              "deltaNwc": 0.07000000000000002,
+              "coreFcff": 1.0695555555555556,
+              "iridiumFcff": 0.4071293640853033,
+              "combinedFcff": 1.476684919640859
+            },
+            {
+              "year": 2036,
+              "coreRevenue": 7,
+              "gaapOperatingMargin": 0.25,
+              "taxRate": 0.23,
+              "nopat": 1.3475000000000001,
+              "da": 0.21,
+              "capex": 0.28,
+              "deltaNwc": 0.05999999999999997,
+              "coreFcff": 1.2175,
+              "iridiumFcff": 0.4213788918282889,
+              "combinedFcff": 1.638878891828289
+            }
+          ]
+        },
+        "independentSotp": {
+          "coreForwardRevenue": 1,
+          "coreEV": 10,
+          "iridiumNormalizedOebitda": 0.5,
+          "iridiumEV": 5,
+          "netDebt": 1,
+          "equityValuePerShare": 19.047619047619047,
+          "basis": "Current-business forward EV/Sales premium and acquired communications EV/OEBITDA, scenario multiples are analyst assumptions, not observed RKLB peer multiples. MDA Space observed ~3.3x EV/TTM sales is a rough external anchor, business composition differs."
+        }
+      },
+      {
+        "id": "bull",
+        "revenue": [
+          1.6,
+          2.3,
+          3.3,
+          4.6,
+          6.2,
+          8,
+          9.8,
+          11.5,
+          13.1,
+          14.5
+        ],
+        "margin": [
+          -0.08,
+          0.03,
+          0.12,
+          0.2,
+          0.25,
+          0.28,
+          0.29,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "wacc": 0.105,
+        "g": 0.04,
+        "terminalROIC": 0.22,
+        "coreSalesMultiple": 18,
+        "irEbitdaMultiple": 12,
+        "result": {
+          "todayValue": 34.109339273173134,
+          "year5Price": 56.17057147445867,
+          "coreEV": 21.496920250675686,
+          "iridiumEV": 4.573444115106568,
+          "netDebtYear5": -1.2554182424537066,
+          "coreTerminalPVShare": 0.7515376865034936,
+          "year5Cagr": 0.006315359933525944,
+          "year5TotalReturn": 0.031978164145850974,
+          "rows": [
+            {
+              "year": 2027,
+              "coreRevenue": 1.6,
+              "gaapOperatingMargin": -0.08,
+              "taxRate": 0,
+              "nopat": -0.128,
+              "da": 0.048,
+              "capex": 0.128,
+              "deltaNwc": 0.06000000000000001,
+              "coreFcff": -0.268,
+              "iridiumFcff": 0.16,
+              "combinedFcff": -0.10800000000000001
+            },
+            {
+              "year": 2028,
+              "coreRevenue": 2.3,
+              "gaapOperatingMargin": 0.03,
+              "taxRate": 0.23,
+              "nopat": 0.05313,
+              "da": 0.06899999999999999,
+              "capex": 0.17377777777777775,
+              "deltaNwc": 0.06999999999999998,
+              "coreFcff": -0.12164777777777774,
+              "iridiumFcff": 0.32,
+              "combinedFcff": 0.19835222222222226
+            },
+            {
+              "year": 2029,
+              "coreRevenue": 3.3,
+              "gaapOperatingMargin": 0.12,
+              "taxRate": 0.23,
+              "nopat": 0.30491999999999997,
+              "da": 0.09899999999999999,
+              "capex": 0.23466666666666666,
+              "deltaNwc": 0.1,
+              "coreFcff": 0.06925333333333328,
+              "iridiumFcff": 0.3312,
+              "combinedFcff": 0.4004533333333333
+            },
+            {
+              "year": 2030,
+              "coreRevenue": 4.6,
+              "gaapOperatingMargin": 0.2,
+              "taxRate": 0.23,
+              "nopat": 0.7083999999999999,
+              "da": 0.13799999999999998,
+              "capex": 0.30666666666666664,
+              "deltaNwc": 0.12999999999999998,
+              "coreFcff": 0.4097333333333333,
+              "iridiumFcff": 0.342792,
+              "combinedFcff": 0.7525253333333333
+            },
+            {
+              "year": 2031,
+              "coreRevenue": 6.2,
+              "gaapOperatingMargin": 0.25,
+              "taxRate": 0.23,
+              "nopat": 1.1935,
+              "da": 0.186,
+              "capex": 0.3857777777777778,
+              "deltaNwc": 0.16000000000000006,
+              "coreFcff": 0.8337222222222221,
+              "iridiumFcff": 0.3547897199999999,
+              "combinedFcff": 1.1885119422222221
+            },
+            {
+              "year": 2032,
+              "coreRevenue": 8,
+              "gaapOperatingMargin": 0.28,
+              "taxRate": 0.23,
+              "nopat": 1.7248,
+              "da": 0.24,
+              "capex": 0.4622222222222222,
+              "deltaNwc": 0.18,
+              "coreFcff": 1.3225777777777779,
+              "iridiumFcff": 0.3672073601999999,
+              "combinedFcff": 1.6897851379777777
+            },
+            {
+              "year": 2033,
+              "coreRevenue": 9.8,
+              "gaapOperatingMargin": 0.29,
+              "taxRate": 0.23,
+              "nopat": 2.18834,
+              "da": 0.294,
+              "capex": 0.5226666666666667,
+              "deltaNwc": 0.18000000000000008,
+              "coreFcff": 1.7796733333333332,
+              "iridiumFcff": 0.38005961780699987,
+              "combinedFcff": 2.159732951140333
+            },
+            {
+              "year": 2034,
+              "coreRevenue": 11.5,
+              "gaapOperatingMargin": 0.3,
+              "taxRate": 0.23,
+              "nopat": 2.6565,
+              "da": 0.345,
+              "capex": 0.5622222222222222,
+              "deltaNwc": 0.16999999999999993,
+              "coreFcff": 2.269277777777778,
+              "iridiumFcff": 0.3933617044302448,
+              "combinedFcff": 2.662639482208023
+            },
+            {
+              "year": 2035,
+              "coreRevenue": 13.1,
+              "gaapOperatingMargin": 0.3,
+              "taxRate": 0.23,
+              "nopat": 3.0261,
+              "da": 0.39299999999999996,
+              "capex": 0.5822222222222222,
+              "deltaNwc": 0.15999999999999998,
+              "coreFcff": 2.6768777777777775,
+              "iridiumFcff": 0.4071293640853033,
+              "combinedFcff": 3.084007141863081
+            },
+            {
+              "year": 2036,
+              "coreRevenue": 14.5,
+              "gaapOperatingMargin": 0.3,
+              "taxRate": 0.23,
+              "nopat": 3.3495,
+              "da": 0.435,
+              "capex": 0.58,
+              "deltaNwc": 0.14000000000000004,
+              "coreFcff": 3.0645,
+              "iridiumFcff": 0.4213788918282889,
+              "combinedFcff": 3.4858788918282886
+            }
+          ]
+        },
+        "independentSotp": {
+          "coreForwardRevenue": 1,
+          "coreEV": 18,
+          "iridiumNormalizedOebitda": 0.5,
+          "iridiumEV": 6,
+          "netDebt": 1,
+          "equityValuePerShare": 31.292517006802722,
+          "basis": "Current-business forward EV/Sales premium and acquired communications EV/OEBITDA, scenario multiples are analyst assumptions, not observed RKLB peer multiples. MDA Space observed ~3.3x EV/TTM sales is a rough external anchor, business composition differs."
+        }
+      }
+    ],
+    "reverseDcf": {
+      "fixed": "2026 standalone revenue1.0bn; constant annual revenue growth2027-36; base GAAP operating margins -12%→25%, tax23%, CapEx8%→4%, D&A3%, ΔNWC10%incremental sales, WACC12%, terminalg3.5%, ROIC18%; fixed Iridium FCFF path, diluted shares735m, proforma netdebt1bn",
+      "requiredCoreRevenueCagr2026to2036": 0.47635917075848877,
+      "coreRevenue2031": 7.013909058974727,
+      "coreRevenue2036": 49.19492028756775,
+      "calculatedPrice": 54.429999999999964,
+      "caveat": "Conditional growth solution only, not market true forecast or inevitable price. Faster early profitability, higher terminal margins or lower risk can substitute for revenue growth; margins/Grossprofit constraints and launch capacity must be checked."
+    },
+    "sensitivity": [
+      {
+        "wacc": 0.1,
+        "g": 0.025,
+        "value": 15.620401118630978
+      },
+      {
+        "wacc": 0.1,
+        "g": 0.035,
+        "value": 16.368512539454233
+      },
+      {
+        "wacc": 0.1,
+        "g": 0.045,
+        "value": 17.374385095850513
+      },
+      {
+        "wacc": 0.12,
+        "g": 0.025,
+        "value": 12.405084222509583
+      },
+      {
+        "wacc": 0.12,
+        "g": 0.035,
+        "value": 12.710785276549274
+      },
+      {
+        "wacc": 0.12,
+        "g": 0.045,
+        "value": 13.089261659561275
+      },
+      {
+        "wacc": 0.14,
+        "g": 0.025,
+        "value": 10.394333085571375
+      },
+      {
+        "wacc": 0.14,
+        "g": 0.035,
+        "value": 10.525559384439582
+      },
+      {
+        "wacc": 0.14,
+        "g": 0.045,
+        "value": 10.678628292222133
+      }
+    ],
+    "entryFormula": {
+      "requiredReturn": 0.15,
+      "requiredReturnRationale": "User saved goal seeks doubling in3-5years;15% approximates doubling in5years;23.11% needed for3years, not promised",
+      "referenceValue": 12.710785276549274,
+      "maximumPriceFor15Percent5yearReturn": 10.90149379297329,
+      "caps": {
+        "observation": 10.90149379297329,
+        "safety": 9.533088957411955,
+        "discount": 7.626471165929564
+      },
+      "note": "Recommendation rounding should be downward and tiers must not overlap. Entry caps rely on base case, and require latest fundamentals verification before orders."
+    },
+    "shareSensitivity": [
+      {
+        "dilutedSharesM": 710,
+        "baseTodayValue": 13.1583481383996,
+        "base2031Price": 22.69886824339837
+      },
+      {
+        "dilutedSharesM": 735,
+        "baseTodayValue": 12.710785276549274,
+        "base2031Price": 21.926797894983455
+      },
+      {
+        "dilutedSharesM": 780,
+        "baseTodayValue": 11.977470741363737,
+        "base2031Price": 20.661790324119025
+      }
+    ]
+  },
+  "evidenceFacts": {
+    "2023": {
+      "revenueM": 244.592,
+      "grossProfitM": 51.409,
+      "operatingLossM": -177.918
+    },
+    "2024": {
+      "revenueM": 436.214,
+      "grossProfitM": 116.149,
+      "operatingLossM": -189.801,
+      "capexM": 67.093
+    },
+    "2025": {
+      "revenueM": 601.799,
+      "grossProfitM": 207.181,
+      "operatingLossM": -228.838,
+      "netLossM": -198.209,
+      "CFO_M": -165.5,
+      "CFO_rounded": true,
+      "capexM": 156.285,
+      "reportedFcfApproxM": -321.785,
+      "SBC_approxM": 71.1
+    },
+    "2026H1": {
+      "revenueM": 434.414,
+      "grossProfitM": 161.069,
+      "operatingLossM": -113.483,
+      "netLossM": -94.28,
+      "CFO_M": -134.407,
+      "capexM": 53.112,
+      "reportedFcfM": -187.519,
+      "SBC_M": 47.677,
+      "receivablesIncreaseCashUseM": 63,
+      "inventoryCashUseM": 73.3,
+      "contractAssetCashUseM": 30.1,
+      "customerConcentrationGovernmentRevenuePct": 42
+    },
+    "2026Q2": {
+      "revenueM": 234.066,
+      "launchServicesRevenueM": 44.586,
+      "spaceSystemsRevenueM": 189.48,
+      "grossProfitM": 84.576,
+      "operatingLossM": -57.514,
+      "netLossM": -49.258,
+      "backlogM": 2355.949,
+      "backlogExpected12monthsPct": 45,
+      "cashM": 2129.485,
+      "marketableSecuritiesM": 258.105,
+      "economicSharesM": 639.131688
+    },
+    "ttmJune2026": {
+      "revenueM": 769.146
+    },
+    "latestGuidanceNotActual": {
+      "2026Q3RevenueM": [
+        250,
+        265
+      ],
+      "gaapGrossMarginPct": [
+        29,
+        31
+      ],
+      "nonGaapGrossMarginPct": [
+        35,
+        37
+      ],
+      "adjustedEbitdaLossM": [
+        -23,
+        -17
+      ]
+    },
+    "majorEvents": [
+      "2026-10-14 Neutron first launch moved to2027; no exact date in8K",
+      "2026-09-15 ATM1.944bn gross29.3mshares; bridge3.6bn terminated; current Iridium1.775bn termloan stays guaranteed onclosing",
+      "2026-09-24 Iridium shareholders approve; regulatory approvals still pending, mid2027 expectedclose",
+      "2026-11-02 US release/Nov3 NZ launch Electron99 lifetime,20 missions2026,10consecutive iQPSsuccess,8 morededicatediQPSbooked through2030",
+      "2026Q3 results scheduled Nov9 afterUSclose, call17:00EST = Nov10 11:00NZDT"
+    ],
+    "shareBridgeM": {
+      "commonJune30": 598.180438,
+      "preferredEconomic": 40.95125,
+      "SeptemberNewATM": 29.3,
+      "optionsRSUsJune30": 13.09552,
+      "convertibleUnderlying": 2.607745,
+      "collaredForwards": 7.4512,
+      "IridiumCommonOctober13": 106.158479,
+      "mergerExchangeLowCollar": 0.4,
+      "mergerNewShares": 42.4633916,
+      "totalAllDilutedApprox": 734.0495445999999
+    },
+    "Iridium2026Q3": {
+      "revenueM": 245.733,
+      "netIncomeM": 106.896,
+      "acquisitionRelatedInvestmentGainM": 103.868,
+      "OEBITDA_M": 135.621,
+      "yearAgoOEBITDA_M": 136.587,
+      "grossDebtApproxM": 2200,
+      "cashM": 97.853,
+      "netDebtApproxM": 2100,
+      "netLeverage": 4.2,
+      "9mCFO_M": 281.706,
+      "9mCapexM": 79.238,
+      "9mReportedFcfM": 202.468,
+      "important": "9MFCF is historical levered CFO-CapEx, not FCFF; GAAPQ3EPS inflated by one-time gain; revenues include Aireon fromJuly2."
+    },
+    "externalComparable": {
+      "symbol": "TSX:MDA",
+      "currency": "CAD",
+      "asOf": "2026-11-03 close",
+      "enterpriseValueB": 6.19,
+      "ttmRevenueB": 1.87,
+      "approxEvSales": 3.3,
+      "source": "StockAnalysis observed page",
+      "sourceUrl": "https://stockanalysis.com/quote/tsx/MDA/statistics/",
+      "limitations": "Different business, no dedicated launch franchise. Provider has inconsistencies among PE/netincome; no reliance on PE. Scenario salesmultiples5/10/18 deliberately already grantlarge premium; not factual peermultiples."
+    },
+    "portfolio": {
+      "directRKLBHoldings": 0,
+      "savedGoal": "价值投资，长期复利。期待每3-5年翻一倍。",
+      "suggestedCurrentAdditionalPositionPct": 0,
+      "conditionalFutureTargetPct": 0.5,
+      "conditionalMaximumPct": 1,
+      "capitalUsd": 400000,
+      "targetBudgetUsd": 2000,
+      "maxBudgetUsd": 4000,
+      "rationale": "Unproven mediumlauncher + acquisition + funding/share count + valuation uncertainty justify learning-size only after price/fundamental gates; complete loss of1% position costs1%portfolio, correlations needreview. User horizons/drawdown/liquidity/tax full constraints unknown."
+    }
+  }
+}

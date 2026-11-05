@@ -1,0 +1,196 @@
+{
+  "status": "passed",
+  "auditedAtUtc": "2026-11-04T22:57:50.735222+00:00",
+  "parentArtifact": {
+    "file": "asts-fair-financing-2026-11-05.json",
+    "sha256": "392f827c53fd6c6d5b9847cf92ac9e8fb5ced2e1dead5382792c715ae67724cd",
+    "statusAtRead": "converged"
+  },
+  "baseFrozenModel": {
+    "file": "asts-evidence-model-2026-11-05.json",
+    "sha256": "0d2fe104d6ad886f1778f8e5d6a36daaa4c384fbe73e306d7447ba7a68d31186",
+    "modified": false
+  },
+  "independentEngine": {
+    "file": "asts-audit-evidence-2026-11-05.py",
+    "sha256": "447ec41933c83974240c0e98c14a9c61ee4e3a4a020faafd902b1b8a7d5e310f",
+    "note": "Only prior independently authored Python calculate function AST compiled; no top-level execution, no parentJS imported/read/executed. Financing fixed point additionally solved analytically and by fresh iteration starting all issueprices5."
+  },
+  "checksPassed": 503,
+  "failures": [],
+  "analyticalMethod": "Vpost(t)=PV_t[future distributions − future gross equity subscriptions + terminal equity]; at a funding date P=(Vpost−currentGrossNewMoney)/priorShares; newShares=Gross/P. Cross-check actual future per-share distributions and terminal ownership separately. Issuance fees remain in cash financing need and gross subscription claim.",
+  "reconstructed": {
+    "todayValue": 2.691052507279082,
+    "year5Price": 5.65212968382718,
+    "ownerIdentityToday": 2.691052507279082,
+    "ownerIdentity2031": 5.65212968382718,
+    "shares2031M": 640.7886416664159,
+    "shares2036M": 877.5026352227703,
+    "grossNewEquityM": 2974.1457013705403,
+    "post2031GrossEquityM": 1949.4968147726017,
+    "totalReturn2031": -0.8424713020115056,
+    "cagr2031": -0.3090097225491827,
+    "terminalPvFraction": 0.7309585515119922,
+    "secondMethod": {
+      "year5Price": 9.226516271691466,
+      "todayValue": 4.392864483883229,
+      "netIncomeM": 284.0018898750001,
+      "pe": 20,
+      "sharesM": 640.7886416664159,
+      "excessCashM": 232.2090315502578,
+      "totalReturn2031": -0.7428507170654552,
+      "cagr2031": -0.23785594991477566
+    }
+  },
+  "financing": [
+    {
+      "year": 2029,
+      "grossM": 888.3389159846959,
+      "netM": 861.688748505155,
+      "feeM": 26.65016747954087,
+      "issuePrice": 4.200453094401888,
+      "newSharesM": 211.48645063281882,
+      "oldSharesM": 401.32697199999996,
+      "postSharesM": 612.8134226328187,
+      "postMoneyEquityValueM": 2574.0940373890353,
+      "fixedPointResidual": 0.0,
+      "oldHolderValuePreIssueM": 1685.7551214043394
+    },
+    {
+      "year": 2030,
+      "grossM": 136.3099706132427,
+      "netM": 132.22067149484542,
+      "feeM": 4.089299118397292,
+      "issuePrice": 4.872525589506191,
+      "newSharesM": 27.97521903359714,
+      "oldSharesM": 612.8134226328187,
+      "postSharesM": 640.7886416664159,
+      "postMoneyEquityValueM": 3122.259053984524,
+      "fixedPointResidual": 0.0,
+      "oldHolderValuePreIssueM": 2985.9490833712816
+    },
+    {
+      "year": 2034,
+      "grossM": 357.56435333721936,
+      "netM": 346.83742273710277,
+      "feeM": 10.726930600116589,
+      "issuePrice": 6.713704047895706,
+      "newSharesM": 53.25887926937913,
+      "oldSharesM": 640.7886416664159,
+      "postSharesM": 694.047520935795,
+      "postMoneyEquityValueM": 4659.629650738627,
+      "fixedPointResidual": 8.881784197001252e-16,
+      "oldHolderValuePreIssueM": 4302.065297401407
+    },
+    {
+      "year": 2036,
+      "grossM": 1591.9324614353825,
+      "netM": 1544.174487592321,
+      "feeM": 47.75797384306156,
+      "issuePrice": 8.677503854949244,
+      "newSharesM": 183.45511428697534,
+      "oldSharesM": 694.047520935795,
+      "postSharesM": 877.5026352227703,
+      "postMoneyEquityValueM": 7614.53249987371,
+      "fixedPointResidual": 0.0,
+      "oldHolderValuePreIssueM": 6022.600038438327
+    }
+  ],
+  "futurePriceByYear": {
+    "2027": 3.121620908443734,
+    "2028": 3.621080253794732,
+    "2029": 4.200453094401888,
+    "2030": 4.872525589506191,
+    "2031": 5.65212968382718,
+    "2032": 5.928458461561954,
+    "2033": 5.78767590335837,
+    "2034": 6.713704047895707,
+    "2035": 7.4806067715079685,
+    "2036": 8.677503854949244
+  },
+  "independentIteration": {
+    "initialIssuePrices": [
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5,
+      5
+    ],
+    "steps": 36,
+    "lastMaxAbsolutePriceResidual": 8.595257838805992e-11,
+    "log": [
+      {
+        "step": 1,
+        "maxAbsolutePriceResidual": 2.6439148503447125,
+        "todayValue": 2.4953317131891226
+      },
+      {
+        "step": 10,
+        "maxAbsolutePriceResidual": 0.0023333074545917043,
+        "todayValue": 2.6903447579133095
+      },
+      {
+        "step": 25,
+        "maxAbsolutePriceResidual": 1.2007221883436614e-07,
+        "todayValue": 2.6910524708785606
+      },
+      {
+        "step": 36,
+        "maxAbsolutePriceResidual": 8.595257838805992e-11,
+        "todayValue": 2.6910525072530245
+      }
+    ]
+  },
+  "authorization": {
+    "status": "conditional-path-needs-authorization-or-revised-capital-plan",
+    "currentAuthorizedClassAM": 800,
+    "modeledEconomicClaims2036M": 877.5026352227703,
+    "classAProxyIfLLCPairedUnitsRemainUnexchangedM": 788.1244462227703,
+    "classAUnissuedCapacityAfterThatProxyM": 11.875553777229698,
+    "pairedLLCExchangeClaimsM": 89.37818899999999,
+    "allExchangeAndExistingProbableAwardCapacityShortfallM": 77.50263522277032,
+    "conclusion": "877.503m经济claims不等于现在实际发行A股，但此新增股融资路径在保留89.378mLLC单位兑换所需A股后超过现800m授权约77.503m。单看实际A约788.124m低于800m会漏掉合同兑换储备。执行前须取得充分新增A授权及所需股东批准，或明确改用库存/购入A/符合合同的现金交换/另一资本路径并重算现金与股数。数学收敛不是融资与授权已落实。",
+    "contractSections": [
+      "11.5 ClassA redemption share reservation",
+      "11.1.2 CashSettlement limited to net proceeds of dedicated ClassA issuance"
+    ],
+    "sources": [
+      {
+        "id": "operating-agreement",
+        "title": "Fifth Amended and Restated LLC Operating Agreement; incorporated as FY2025 10KExhibit10.8",
+        "url": "https://www.sec.gov/Archives/edgar/data/1780312/000149315221008574/ex10-5.htm",
+        "date": "2021-04-06 agreement;SEC2021-04-12;still referenced2026-03-02",
+        "raw": "asts-2021-operating-agreement-ex10-5.txt"
+      },
+      {
+        "id": "q2-10q",
+        "url": "https://www.sec.gov/Archives/edgar/data/1780312/000119312526342550/asts-20260630.htm",
+        "date": "2026-08-10",
+        "note": "Note9 A800m authorized, UpC1:1exchange and cash restriction; no presumed future charter amendment."
+      }
+    ],
+    "caveat": "§11.5也容许交付已购入/库存A或现金结算，不应把800m描述为永远不可改变的企业股数上限；替代方案必须有相应资金/授权/合同依据，本模型均未落实。此检查不推断未来投票必获批准。"
+  },
+  "contractualTimingObservation": {
+    "status": "contractual-timing-refinement-no-valuation-impact-in-this-model",
+    "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1780312/000178031226000006/asts-20251231.htm",
+    "sourceSection": "Note15 GlobalS-bandSpectrumPriorityRightsAcquisition",
+    "fact": "2025-09-25closing;10msecondanniversary2027-09-25;10mthirdanniversary2028-09-25.",
+    "researchScheduleIssue": "Frozen base annual research convention endsNov4; its2028/2029anniversary payment schedule is a research timing approximation, not contractual due dates. Move10m from2029to2027 to align the two anniversary payments to2027/2028.",
+    "cash2027CorrectedM": 1580.6333449999997,
+    "cash2028CorrectedM": 625.499731237113,
+    "effect": "Each first-two-year cash balance10m lower, both safely above500m modeled reserve; cumulative cash before2029funding then catches up. With no modeled cash-interest income, financing/shares/today/2031value unchanged. Frozen files preserved; any report of contractual payment dates should use2027/2028."
+  },
+  "limitations": [
+    "Mathematical finance/ownership consistency only. Future commercial capacity, netARPU, customer conversion, cash bridge and WIP credit remain unverified research assumptions.",
+    "Fair-value issuance availability, current-authorized-share adequacy and future shareholder approval are not established.3%issuance fees and research liquidity reserve maintained.",
+    "Annual maturity proxy and no capped-call recoveries retained; no additional net debt or NCIbook deduction from FCFE.",
+    "IndependentP/E shares the operating hypotheses; it is a different capitalization lens, not independent proof of the commercial forecast.",
+    "No probabilities invented; no modifications to frozen base model, positions, orders, price store, applicationstate or jobs. No browser tab opened."
+  ]
+}

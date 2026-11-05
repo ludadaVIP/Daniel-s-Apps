@@ -1,0 +1,56 @@
+{
+  "status": "passed",
+  "modelFile": "asts-evidence-model-2026-11-05.json",
+  "modelSha256": "0d2fe104d6ad886f1778f8e5d6a36daaa4c384fbe73e306d7447ba7a68d31186",
+  "auditedAtUtc": "2026-11-04T22:50:44.444623+00:00",
+  "checksPassed": 1357,
+  "failures": [],
+  "summaries": [
+    {
+      "id": "bear",
+      "todayValue": 0,
+      "year5Price": 0,
+      "endSharesM": 431.32697199999996,
+      "equityGrossM": 300.0,
+      "failed": true
+    },
+    {
+      "id": "base",
+      "todayValue": 4.49942287826438,
+      "year5Price": 9.450325306377168,
+      "endSharesM": 499.56797059922036,
+      "equityGrossM": 2974.1457013705403,
+      "failed": false
+    },
+    {
+      "id": "bull",
+      "todayValue": 61.228831740904496,
+      "year5Price": 115.32813811468262,
+      "endSharesM": 441.6040729989999,
+      "equityGrossM": 0.0,
+      "failed": false
+    }
+  ],
+  "scope": [
+    "Capital economicunits and debt/cash matches",
+    "Original-statement TTM",
+    "Every annual operating/FCFF/cash/debt/equity row",
+    "Gross issuance vs net cash and fees",
+    "Per-year future shareholder ownership",
+    "No principal plus conversion double claim",
+    "Terminal reserve/growth/replacement reinvestment",
+    "Independent matureP/E",
+    "All sensitivity cells and null-indeterminate stress",
+    "Reverse DCF and capacity math"
+  ],
+  "limitations": [
+    "Conditional research valuations, low confidence; not currently verified commercial earnings power or a precise appraisal. Commercial broadband access revenue and paying-equivalent subscribers remain unproven.",
+    "Latest full financials June30, sharecount Aug6; no exact Novembercash/sharecount. Bridge uses explicit research assumptions and latest reported balances; material capital unknowns persist beforeNov9Q3.",
+    "Two valuation lenses share unproven operating inputs; cashflow and matureearnings logic differ, but convergence would not independentlyvalidate throughput/pricing.",
+    "Future issueprices/availability, userconversion, ASTnetshare, capexcashWIPcredit, margin, usefulsatellitelife, licensefees and terminalgrowth are research assumptions, not contractualguidance.",
+    "Annual conversion treatment ignores pathdependent earlyputs/makewhole and option timevalue; baseline foregoes cappedcallbenefit. Legal conversionstrike79.57 distinct from149.20hedgecap.",
+    "TRA acceleration/liability and contingent performanceawarddetails not precisely measurable; no taxasset benefit or NCIbookdeduction used. No probability-weightedexpectedvalue invented.",
+    "Required sustainable satellitecapacity/spot-beambusyhourloading cannot be independentlyvalidated from disclosedpeakmetrics. Treatbase/bull and reverse as conditions toverify, not capacity-certifiedforecasts.",
+    "No portfolio, manualprice, application job, order or trading data altered."
+  ]
+}

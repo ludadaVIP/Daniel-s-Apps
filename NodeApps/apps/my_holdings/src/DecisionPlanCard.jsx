@@ -45,6 +45,7 @@ export function DecisionPlanCard({
   onSelectAttention,
   onSave,
   onSelect,
+  selected,
 }) {
   const [draft, setDraft] = useState(() => makeDraft(watch, record));
   const [editing, setEditing] = useState(false);
@@ -159,9 +160,10 @@ export function DecisionPlanCard({
     : <div className="mh-decision-field" title={peTitle} aria-label={peTitle}><span>市盈率 (TTM)</span><strong>{trailingPe}</strong></div>;
 
   return (
-    <article className={`mh-decision-card attention-${attention} ${viewMode === "list" ? "is-list" : "is-card"}`}>
+    <article className={`mh-decision-card attention-${attention} ${viewMode === "list" ? "is-list" : "is-card"} ${selected ? "is-selected" : ""}`}
+      onClick={(event) => { if (!event.target.closest("button, a, input, select, textarea, label")) onSelect?.(); }}>
       <header>
-        <button type="button" className="mh-decision-identity" onClick={onSelect} title={cardTitle || "查看近期关注"}>
+        <button type="button" className="mh-decision-identity" onClick={onSelect} aria-pressed={!!selected} title={`查看 ${watch.symbol || watch.name} 决策报告`}>
           <strong>{cardTitle || `${watch.symbol || "代码待核实"} - ${watch.name || "公司名称待核实"}`}</strong>
           <ArrowUpRight size={12} />
         </button>

@@ -1,0 +1,113 @@
+{
+  "symbol": "ENVX",
+  "stateUpdatedAt": "2026-11-04T17:20:01.112Z",
+  "capitalBasisUsd": 400000,
+  "company": {
+    "symbols": [
+      "ENVX"
+    ],
+    "value": 0,
+    "directValue": 0,
+    "contributions": []
+  },
+  "fundsUsed": [
+    {
+      "symbol": "QQQM",
+      "asOf": "2026-10-23",
+      "stale": false,
+      "sourceUrl": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G649/holdings/fund?idType=cusip&productType=ETF",
+      "heldValue": 34176
+    },
+    {
+      "symbol": "SMH",
+      "asOf": "2026-10-23",
+      "stale": false,
+      "sourceUrl": "https://www.vaneck.com/us/en/investments/semiconductor-etf-smh/holdings",
+      "heldValue": 1054
+    },
+    {
+      "symbol": "VOO",
+      "asOf": "2026-09-30",
+      "stale": false,
+      "sourceUrl": "https://advisors.vanguard.com/investments/products/api/funds/0968/holdings/latest",
+      "heldValue": 80519.32
+    },
+    {
+      "symbol": "SOXX",
+      "asOf": "2026-10-23",
+      "stale": false,
+      "sourceUrl": "https://www.ishares.com/us/products/239705/ishares-semiconductor-etf/latest-holdings.csv",
+      "heldValue": 1422.78
+    }
+  ],
+  "quoteDates": [
+    "2026-11-04"
+  ],
+  "missingFundOrFxCoverage": [],
+  "pendingBuys": [],
+  "pendingKnownLimitBuyUsd": 0,
+  "allPortfolioTop10": [
+    {
+      "symbols": [
+        "NVDA"
+      ],
+      "value": 9855.698170288
+    },
+    {
+      "symbols": [
+        "GOOG",
+        "GOOGL"
+      ],
+      "value": 9247.957913088001
+    },
+    {
+      "symbols": [
+        "AAPL"
+      ],
+      "value": 8702.953418904
+    },
+    {
+      "symbols": [
+        "MSFT"
+      ],
+      "value": 6775.206659791999
+    },
+    {
+      "symbols": [
+        "AMZN"
+      ],
+      "value": 4445.268755228
+    },
+    {
+      "symbols": [
+        "MU"
+      ],
+      "value": 3119.6197737519997
+    },
+    {
+      "symbols": [
+        "AVGO"
+      ],
+      "value": 3038.0949854560004
+    },
+    {
+      "symbols": [
+        "META"
+      ],
+      "value": 2994.757059224
+    },
+    {
+      "symbols": [
+        "AMD"
+      ],
+      "value": 2678.2407151119996
+    },
+    {
+      "symbols": [
+        "TSLA"
+      ],
+      "value": 2286.565488888
+    }
+  ],
+  "note": "保存行情与历史成分的估算，不是券商实时资产/冻结金额；未知基金或汇率会影响敞口完整性，市场单不能估计固定金额。"
+}

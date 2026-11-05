@@ -1,0 +1,87 @@
+{
+  "at": "2026-11-04T22:44:09.116Z",
+  "unit": "USD millions",
+  "method": "Parent independent reading of actual 2022 10-K MD&A and 2025 10-K statements plus 2026Q2 10-Q; does not select companyfacts by fy metadata. EBIT derived from revenue minus all operating costs, NI consolidated and attributable separated.",
+  "sources": [
+    "asts-2023-03-31-10-k.txt",
+    "asts-2026-03-02-10-k.txt",
+    "asts-2026-08-10-10-q.txt"
+  ],
+  "annual": [
+    {
+      "year": 2021,
+      "revenue": 12.405,
+      "ebit": -86.746,
+      "consolidatedNetIncome": -73.261,
+      "parentNetIncome": -30.553,
+      "cfo": -80.095,
+      "ppeCapex": 15.08
+    },
+    {
+      "year": 2022,
+      "revenue": 13.825,
+      "ebit": -145.764,
+      "consolidatedNetIncome": -103.113,
+      "parentNetIncome": -31.64,
+      "cfo": -156.464,
+      "ppeCapex": 57.284
+    },
+    {
+      "year": 2023,
+      "revenue": 0,
+      "ebit": -222.367,
+      "consolidatedNetIncome": -222.677,
+      "parentNetIncome": -87.561,
+      "cfo": -148.942,
+      "ppeCapex": 118.807
+    },
+    {
+      "year": 2024,
+      "revenue": 4.418,
+      "ebit": -242.762,
+      "consolidatedNetIncome": -526.33,
+      "parentNetIncome": -300.083,
+      "cfo": -126.143,
+      "ppeCapex": 174.127
+    },
+    {
+      "year": 2025,
+      "revenue": 70.918,
+      "ebit": -287.71299999999997,
+      "consolidatedNetIncome": -461.011,
+      "parentNetIncome": -341.94,
+      "cfo": -71.517,
+      "ppeCapex": 1064.741
+    }
+  ],
+  "h125": {
+    "revenue": 1.874,
+    "ebit": -135.76,
+    "consolidatedNetIncome": -199.531,
+    "parentNetIncome": -145.1,
+    "cfo": -72.024,
+    "ppeCapex": 430.622
+  },
+  "h126": {
+    "revenue": 46.255,
+    "ebit": -446.98900000000003,
+    "consolidatedNetIncome": -549.5,
+    "parentNetIncome": -421.921,
+    "cfo": -145.212,
+    "ppeCapex": 859.215
+  },
+  "ttm": {
+    "revenue": 115.299,
+    "ebit": -598.942,
+    "consolidatedNetIncome": -810.98,
+    "parentNetIncome": -618.761,
+    "cfo": -144.70499999999998,
+    "ppeCapex": 1493.334
+  },
+  "comparability": "2021/22 revenues primarily NanoAvionics sold51% stake Sep6 2022; 2023 explicitly no revenue. 2024 reported direct costs not separately presented, no invented100% full network gross margin.",
+  "cashBridgeWarnings": [
+    "CFO-PPE is not full cash investment: additional spectrum purchases and Ligado capital advances",
+    "H126 employee withheld tax62.025m classified financing; distinguish cash and remaining gross share claims",
+    "BB7 impairment125.911m is net of insurance32.5; do not deduct impairment again from future cash after booked upfront spending"
+  ]
+}

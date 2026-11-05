@@ -1,0 +1,20 @@
+import fs from "node:fs/promises";
+import { validateDecisionReport, decisionEntryPlan } from "../src/decision-reports.js";
+
+const input = process.argv[2];
+if (!input) throw new Error("Supply the completed decision JSON file; this script does not generate research or queue work.");
+const decision = JSON.parse(await fs.readFile(input, "utf8"));
+const api = "http://127.0.0.1:5889/my-holdings/api";
+const stateResponse = await fetch(`${api}/state`);
+if (!stateResponse.ok) throw new Error(`State HTTP ${stateResponse.status}`);
+const state = await stateResponse.json();
+const watch = state.watchlist.find((w) => w.symbol.toUpperCase() === decision.symbol?.toUpperCase());
+if (!watch) throw new Error("This stock is not in the current watchlist.");
+validateDecisionReport(decision, watch);
+const job = state.jobs.find((j) => j.kind === "decision-report" && j.watchId === watch.id && j.status === "waiting");
+if (!job) throw new Error("No waiting decision-report task for this stock; no files or state were changed.");
+const response = await fetch(`${api}/jobs/${job.id}/complete`, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ decision }) });
+const saved = await response.json();
+if (!response.ok) throw new Error(JSON.stringify(saved));
+const reference = saved.watchlist.find((w) => w.id === watch.id).decisionReport;
+console.log(JSON.stringify({ symbol: watch.symbol, reference, entryPlan: decisionEntryPlan(decision) }, null, 2));

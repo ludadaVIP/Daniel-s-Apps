@@ -1,0 +1,1371 @@
+{
+  "analysisDate": "2026-11-05",
+  "generatedAtUtc": "2026-11-04T17:17:54.913Z",
+  "identity": {
+    "symbol": "AEHR",
+    "company": "Aehr Test Systems",
+    "exchange": "Nasdaq Capital Market",
+    "shareClass": "Common stock,$0.01par",
+    "currency": "USD",
+    "splitStatus": "No split identified in latest10K and Q1release; shares/price consistent; not a completed all-history split audit."
+  },
+  "audit": {
+    "status": "passed_with_explicit_model_limitations",
+    "limitations": [
+      "Q1FY27 complete10Q not found in actual SEC company DOM; latest complete10Q is April8 Q3FY26, fullFY26 10K provides latest complete notes. Q1release unaudited three statements used.",
+      "Fiscal year change creates4weektransition. No strictTTM computed: FY26+transition+newQ1−oldQ1 is56weeks; omittingtransition yields noncontiguous52weeks.",
+      "Full Q1 customer/award/AR/inventory footnotes not yet available.",
+      "Economic share denominator proxy rather than exact fullydiluted outstanding; sensitivity provided.",
+      "Annual DCF is normalizedforward approximation, not exact fiscalstub;2031 five annualperiod convention.",
+      "Terminal cash flows and margins highly uncertain; no probability weights."
+    ],
+    "auditedAtUtc": "2026-11-04T17:19:11.745445+00:00",
+    "independentComputation": [
+      "bear: Python today DCF",
+      "bear: Python period5 continuation plus retained FCFF",
+      "bear: Python independent normalized NOPAT multiple",
+      "bear: normalized method today discount",
+      "bear: five-period CAGR",
+      "base: Python today DCF",
+      "base: Python period5 continuation plus retained FCFF",
+      "base: Python independent normalized NOPAT multiple",
+      "base: normalized method today discount",
+      "base: five-period CAGR",
+      "bull: Python today DCF",
+      "bull: Python period5 continuation plus retained FCFF",
+      "bull: Python independent normalized NOPAT multiple",
+      "bull: normalized method today discount",
+      "bull: five-period CAGR",
+      "FY2022: CFO-CapEx reporting FCF",
+      "FY2023: CFO-CapEx reporting FCF",
+      "FY2024: CFO-CapEx reporting FCF",
+      "FY2025: CFO-CapEx reporting FCF",
+      "FY2026: CFO-CapEx reporting FCF",
+      "entry 首次试探: minimum return/margin cap",
+      "entry 证据增强后加仓: minimum return/margin cap",
+      "entry 深折价且复核: minimum return/margin cap",
+      "May to September cash includes transition month",
+      "transition cash-flow bridge",
+      "q1 cash-flow bridge",
+      "Q1 net income to CFO bridge",
+      "reverse DCF matches observed price"
+    ],
+    "checks": [
+      "Two independent mechanisms:10period operating FCFF and5year normalized NOPAT exit multiple.",
+      "No strict TTM fabricated across fiscal calendar change.",
+      "No SBC addback, interest-income capitalization, dividend/buyback yield or DTA value added.",
+      "Latest cash after Q1 capital build; opening investment starts from latest Q1 annual runrate132.028m.",
+      "Rent within economic EBIT, operating leases not separately subtracted.",
+      "Current15m operating cash reserve excluded from excess cash.",
+      "No user state/positions/plans/orders altered."
+    ],
+    "quoteRefreshedAtUtc": "2026-11-04T17:17:54.913Z"
+  },
+  "quote": {
+    "price": 59.62,
+    "session": "regular-session intraday",
+    "timestamp": "2026-11-04T17:17:00Z",
+    "providerLabel": "Trading Nov 4 12:17 ET",
+    "formalClose": 65.11,
+    "formalCloseTimestamp": "2026-11-03T21:00:00Z",
+    "observedAtUtc": "2026-11-04T17:17:54.913Z",
+    "source": "https://www.moomoo.com/stock/AEHR-US",
+    "limitation": "Actual Chrome DOM headline quote, provider labels Real-Time/Trading; may be delayed, not guaranteed executable. Formal prior close remains Nov3 65.11. Intraday quote replaces obsolete pre-market reference."
+  },
+  "facts": {
+    "latestReporting": {
+      "latestActual": "Q1FY2027 endedSeptember25 2026;8K releasedNovember2",
+      "latestCompleteTenQ": "Q3FY26 endedFebruary27,filedApril8 2026; superseded annualbalance/incomebyFY26 10K",
+      "q1Fy27TenQFound": false,
+      "secDomVerifiedAtUtc": "2026-11-04T17:18:04.046Z"
+    },
+    "fiscalCalendar": {
+      "before": "Friday nearestMay31;FY26 endedMay29 2026",
+      "after": "Friday nearestJune30;FY27 endsJune25 2027",
+      "transition": "May30–June26 2026 excludedfromFY26andFY27",
+      "q1": "June27–September25 2026",
+      "comparativeQuarter": "Aug29 2025, one monthearlierseasonalposition; company calls meaningfulcomparison"
+    },
+    "annual": [
+      {
+        "year": 2022,
+        "revenueM": 50.829,
+        "grossProfitM": 23.665,
+        "ebitM": 7.8,
+        "netIncomeM": 9.45,
+        "cfoM": 1.508,
+        "capexM": 0.416,
+        "sbcM": 3.006,
+        "daM": 0.356,
+        "interestIncomeM": 0.013,
+        "taxExpenseM": 0.091,
+        "basicWeightedSharesM": 26.014,
+        "dilutedWeightedSharesM": 27.774,
+        "sourceId": "fy24",
+        "reportedFcfM": 1.092,
+        "grossMargin": 0.4655806724507663,
+        "ebitMargin": 0.15345570442070472,
+        "sbcPctRevenue": 0.0591394676267485
+      },
+      {
+        "year": 2023,
+        "revenueM": 64.961,
+        "grossProfitM": 32.746,
+        "ebitM": 13.375,
+        "netIncomeM": 14.557,
+        "cfoM": 10.011,
+        "capexM": 1.362,
+        "sbcM": 2.748,
+        "daM": 0.45,
+        "interestIncomeM": 1.245,
+        "taxExpenseM": 0.06,
+        "basicWeightedSharesM": 27.785,
+        "dilutedWeightedSharesM": 29.215,
+        "cashPlusInvestmentsM": 47.907,
+        "sourceId": "fy24",
+        "reportedFcfM": 8.649,
+        "grossMargin": 0.5040870676251905,
+        "ebitMargin": 0.20589276642908821,
+        "sbcPctRevenue": 0.042302304459598844
+      },
+      {
+        "year": 2024,
+        "revenueM": 66.218,
+        "grossProfitM": 32.543,
+        "ebitM": 10.078,
+        "netIncomeM": 33.156,
+        "cfoM": 1.756,
+        "capexM": 0.749,
+        "sbcM": 2.518,
+        "daM": 0.657,
+        "interestIncomeM": 2.388,
+        "taxExpenseM": -20.698,
+        "basicWeightedSharesM": 28.818,
+        "dilutedWeightedSharesM": 29.617,
+        "cashM": 49.159,
+        "basicEndSharesM": 28.995,
+        "sourceId": "fy26",
+        "reportedFcfM": 1.0070000000000001,
+        "grossMargin": 0.49145247515781204,
+        "ebitMargin": 0.1521942674197348,
+        "sbcPctRevenue": 0.0380259144039385,
+        "equityM": 111.593
+      },
+      {
+        "year": 2025,
+        "revenueM": 58.968,
+        "grossProfitM": 23.933,
+        "ebitM": -5.677,
+        "netIncomeM": -3.91,
+        "cfoM": -7.4,
+        "capexM": 4.992,
+        "sbcM": 5.162,
+        "daM": 2.312,
+        "interestIncomeM": 1.401,
+        "taxExpenseM": -0.381,
+        "basicWeightedSharesM": 29.581,
+        "dilutedWeightedSharesM": 29.581,
+        "cashM": 24.529,
+        "basicEndSharesM": 29.877,
+        "sourceId": "fy26",
+        "reportedFcfM": -12.392,
+        "grossMargin": 0.40586419753086417,
+        "ebitMargin": -0.09627255460588793,
+        "sbcPctRevenue": 0.08753900420567086,
+        "equityM": 122.871,
+        "roe": -0.03335266821345708
+      },
+      {
+        "year": 2026,
+        "revenueM": 50.001,
+        "grossProfitM": 17.651,
+        "ebitM": -14.149,
+        "netIncomeM": -7.126,
+        "cfoM": -3.31,
+        "capexM": 2.066,
+        "sbcM": 6.761,
+        "daM": 2.799,
+        "interestIncomeM": 1.361,
+        "taxExpenseM": -4.61,
+        "basicWeightedSharesM": 30.669,
+        "dilutedWeightedSharesM": 30.669,
+        "cashM": 116.358,
+        "basicEndSharesM": 32.48,
+        "sourceId": "fy26",
+        "reportedFcfM": -5.3759999999999994,
+        "grossMargin": 0.3530129397412052,
+        "ebitMargin": -0.28297434051318976,
+        "sbcPctRevenue": 0.13521729565408694,
+        "equityM": 219.511,
+        "roe": -0.041626020059465745
+      }
+    ],
+    "q1": {
+      "period": "2026-06-27 to 2026-09-25",
+      "weeks": 13,
+      "revenueM": 33.007,
+      "grossProfitM": 15.663,
+      "ebitM": 6.047,
+      "netIncomeM": 7.181,
+      "adjustedNetIncomeM": 9.357,
+      "adjustedEbitM": 8.223,
+      "cfoM": -3.054,
+      "capexM": 0.049,
+      "sbcM": 1.88,
+      "acquisitionAdjustmentM": 0.296,
+      "daM": 0.707,
+      "interestIncomeM": 0.899,
+      "taxExpenseM": -0.254,
+      "basicWeightedSharesM": 32.619,
+      "dilutedWeightedSharesM": 33.52,
+      "basicEndSharesM": 32.663,
+      "reportedFcfM": -3.103,
+      "sourceId": "q1fy27"
+    },
+    "transition": {
+      "period": "2026-05-30 to 2026-06-26",
+      "weeks": 4,
+      "revenueM": 0.638,
+      "grossProfitM": -1.012,
+      "ebitM": -3.995,
+      "netIncomeM": -2.743,
+      "cfoM": -3.812,
+      "capexM": 0.004,
+      "sbcM": 0.448,
+      "daM": 0.228,
+      "interestIncomeM": 0.301,
+      "taxExpenseM": -0.93,
+      "sourceId": "q1fy27"
+    },
+    "balance": {
+      "date": "2026-09-25",
+      "unrestrictedCashM": 104.902,
+      "restrictedCashM": 0.15,
+      "receivablesM": 26.63,
+      "inventoryM": 53.12,
+      "prepaidCurrentM": 11.225,
+      "ppeNetM": 8.82,
+      "goodwillM": 10.719,
+      "intangiblesM": 9.157,
+      "dtaM": 25.12,
+      "apM": 12.504,
+      "accruedM": 6.295,
+      "deferredRevenueShortM": 7.944,
+      "deferredRevenueLongM": 0.086,
+      "leaseShortM": 0.653,
+      "leaseLongM": 9.151,
+      "financialDebtM": 0,
+      "totalAssetsM": 258.782,
+      "equityM": 222.112,
+      "sourceId": "q1fy27",
+      "operatingWorkingCapitalM": 63.99599999999998,
+      "netOperatingCapitalExGoodwillIntangiblesLeaseM": 72.81599999999997
+    },
+    "orders": {
+      "q1BookingsM": 46.7,
+      "quarterEndBacklogM": 100.9,
+      "effectiveBacklogM": 109.3,
+      "effectiveDate": "2026-11-01",
+      "fy26EndBacklogM": 80.6,
+      "definition": "Confirmed purchase orders scheduled for shipment within12months; most POs cancellable/reschedulable with limited penalties. Effectivebacklog adds post-quarter orders; not cash, not TCVMand not guaranteedrevenue.",
+      "sourceIds": [
+        "q1fy27",
+        "fy26"
+      ],
+      "postQuarterEffectiveAdditionM": 8.4,
+      "bridgeCaveat": "May29→Sep25backlogchangecrosses4weekstub;Q1bookings−revenuedoesnotalonebridge80.6→100.9. Do notinferundisclosedstubbookingsoradjustments."
+    },
+    "guidance": {
+      "fy": 2027,
+      "revenueM": 150,
+      "adjustedNetIncomeMinimumPct": 0.2,
+      "sourceId": "q1fy27",
+      "notGaap": "Not normalizedGAAPnetmargin; includes exclusions and possibletaxbenefit/interestincome."
+    },
+    "accounting": {
+      "fy24ValuationAllowanceReleaseM": 21.9,
+      "fy26AtmNetProceedsM": 97.395,
+      "fy26PublicOfferingSharesM": 1.942653,
+      "q1RsuTaxWithholdingRepurchasesM": 4.474,
+      "cashChangeM": -11.456,
+      "transitionCashChangeM": -4.05,
+      "q1CashChangeM": -7.406,
+      "fy22PppForgivenessGainM": 1.698,
+      "fy26ErcRefundNetM": 1,
+      "fy26ErcExplanation": "1.3mERCrefundless0.3mthirdpartyservicefee,reportedwithinotherincome."
+    },
+    "business": {
+      "fullWaferRevenueM": [
+        31.5,
+        39.2,
+        64.6
+      ],
+      "fullWaferFiscalYears": [
+        2026,
+        2025,
+        2024
+      ],
+      "packageRevenueM": [
+        18.5,
+        19.8,
+        1.6
+      ],
+      "fiveLargestCustomerShare": [
+        0.7,
+        0.77,
+        0.93
+      ],
+      "fy26TopCustomers": [
+        0.263,
+        0.142,
+        0.109
+      ],
+      "fy25TopCustomers": [
+        0.386,
+        0.151
+      ],
+      "fy24TopCustomers": [
+        0.673,
+        0.167
+      ],
+      "fy26ContactorRevenueChangeM": -19.9,
+      "fy26WlbiSystemsRevenueChangeM": 10.4,
+      "overTimeServiceRevenueFY26M": 3.181,
+      "recurrenceCaveat": "WaferPaks customdesignedbydevicetype, typicaldevice/designlifecycle2–7years; multiple setsmaybesoldoverFOXsystemlife. Not guaranteedreplacementtiming, notchipper-unitroyalty. No separatelydisclosedFY27AI/revenue/customeridentitysplit.",
+      "customerIdentities": "AIleadcustomers notnamedbycompany; no NVIDIA/AMD/Amazonidentityinference."
+    },
+    "cashBridge": {
+      "startMay29M": 116.508,
+      "transition": {
+        "cfoM": -3.812,
+        "investingM": -0.004,
+        "financingM": -0.234,
+        "fxM": 0,
+        "changeM": -4.05,
+        "endJune26M": 112.458
+      },
+      "q1": {
+        "cfoM": -3.054,
+        "investingM": -0.049,
+        "financingM": -4.298,
+        "fxM": -0.005,
+        "changeM": -7.406,
+        "endSeptember25M": 105.052
+      },
+      "q1ProfitToCfo": {
+        "netIncomeM": 7.181,
+        "sbcM": 1.88,
+        "daM": 0.707,
+        "deferredTaxM": -0.354,
+        "leaseAssetAmortizationM": 0.2,
+        "receivablesM": -10.686,
+        "inventoryM": -9.037,
+        "prepaidM": -1.367,
+        "apM": 6.23,
+        "accruedM": 0.998,
+        "deferredRevenueM": 1.275,
+        "leaseLiabilitiesM": -0.164,
+        "taxPayableM": 0.083,
+        "reportedCfoM": -3.054
+      },
+      "sourceId": "q1fy27"
+    },
+    "awards": {
+      "asOf": "2026-05-29; Q1awardrollforwardnotyetavailable",
+      "unvestedRsuPrsuRestrictedM": 0.707,
+      "maxAdditionalPerformanceM": 0.071,
+      "optionsM": 0.316,
+      "optionWeightedStrike": 5.11,
+      "unrecognizedRsuExpenseM": 8.9,
+      "recognitionYears": 2.1,
+      "availableForFutureGrantM": 2.997,
+      "cashSettledSarLiabilityM": 0.6,
+      "sourceId": "fy26",
+      "caveat": "Availablefuturegrantshares are notcurrentclaims. May29awards andSep25basic couldoverlapaftervesting; economic33.8m isconservativeproxy,sensitivity32.663/33.520/33.8/35.0. Do notclaimexactfullydilutedoutstanding."
+    },
+    "quality": {
+      "inventoryAuditCriticalMatter": "ForecastdemandandobsolescencewerecriticalauditmatterFY26;inventory41.354mMay29→53.120mSep25",
+      "patentLitigation": "SemightChinafirstinstanceinfringementclaims dismissedDecember2025forinsufficientevidence;appealsJan4 2026ongoingJunehearing. Somepatentvalidityclaimsheldup,notestablishedinfringementvictory.",
+      "sourceId": "fy26"
+    },
+    "latestNewsCheck": {
+      "verifiedAtUtc": "2026-11-04T17:18:25.559Z",
+      "url": "https://www.aehr.com/category/news/",
+      "latestCompanyReleaseDate": "2026-11-02",
+      "noNewNovember4CompanyAnnouncementFound": true,
+      "description": "Actual official company news-page DOM remains Nov2 Q1 results, with Oct29 boardappointment next. SEC latestnoninsiderfiling remains Nov2 earnings8K. No newmaterialfilingannouncement identified duringrefresh."
+    }
+  },
+  "sources": [
+    {
+      "id": "q1fy27",
+      "title": "SEC 8-K Exhibit 99.1: Q1 FY2027 results and transition-month financial statements",
+      "date": "2026-11-02",
+      "period": "Quarter June27–September25 2026; transition May30–June26 2026",
+      "url": "https://www.sec.gov/Archives/edgar/data/1040470/000165495426009385/aehr_ex991.htm"
+    },
+    {
+      "id": "fy26",
+      "title": "FY2026 Form10-K",
+      "date": "2026-07-27",
+      "period": "FY ended May29 2026; comparative FY2025 and FY2024",
+      "url": "https://www.sec.gov/Archives/edgar/data/1040470/000165495426006919/aehr_10k.htm"
+    },
+    {
+      "id": "fy24",
+      "title": "FY2024 Form10-K",
+      "date": "2024-07-30",
+      "period": "FY ended May31 2024; comparative FY2023 and FY2022",
+      "url": "https://www.sec.gov/Archives/edgar/data/1040470/000165495424009642/aehr_10k.htm"
+    },
+    {
+      "id": "secLatest",
+      "title": "SEC company filings, actual Chrome DOM reviewed",
+      "date": "2026-11-04",
+      "period": "Latest available filings",
+      "url": "https://www.sec.gov/edgar/browse/?CIK=1040470&owner=exclude"
+    },
+    {
+      "id": "quote",
+      "title": "Moomoo AEHR, actual Chrome DOM",
+      "date": "2026-11-04",
+      "period": "Pre-market Nov4; formal close Nov3",
+      "url": "https://www.moomoo.com/stock/AEHR-US"
+    }
+  ],
+  "shared": {
+    "forecastYears": [
+      2027,
+      2028,
+      2029,
+      2030,
+      2031,
+      2032,
+      2033,
+      2034,
+      2035,
+      2036
+    ],
+    "holdingYears": 5,
+    "holdingEndLabel": "2031 period-end convention;5 annual periods",
+    "openingRevenueRunRateM": 132.028,
+    "openingNetOperatingCapitalM": 72.81599999999997,
+    "quotePrice": 59.62,
+    "bridge": {
+      "cashM": 104.902,
+      "minimumOperatingCashReserveM": 15,
+      "excessCashM": 89.902,
+      "financialDebtM": 0,
+      "otherNonOperatingClaimsM": 0,
+      "netNonOperatingAssetsM": 89.902,
+      "sharesM": 33.8,
+      "denominator": "32.663m current reported basic shares at Sep25; 33.8m conservative economic proxy covers latest weighted diluted33.520m and May29 legacy RSU/PRSU0.707m+options0.316m+potential max performance0.071m. Later vest/exercises are not reconciled without Q1 10Q. Share sensitivity disclosed; no claim33.8m exact current shares.",
+      "leaseTreatment": "Rent/operating leases stay within operating margins and capital ratios; no separate lease debt subtraction, no double deduction.",
+      "sbcTreatment": "Projected margins include recurring new-service compensation at economic cost; no SBC addback. Legacy granted claims represented by economic denominator. Remaining legacy vest expense is not separately deducted again. This is normalized economic EBIT, not an exact GAAP forecast.",
+      "cashTreatment": "Only excess unrestricted cash added;15m reserve retained to support cyclical working capital. No separate DTA value or interest-income capitalization. Option exercise proceeds not added, conservative."
+    },
+    "discountConvention": "10 normalized annual forward periods, first revenue anchored to FY27 guidance; not exact dated fiscal stub.2031 means end of period5, approximately five years from valuation; FY/calendar labels are schematic.",
+    "fcffDefinition": "FCFF=EBIT×(1−cash tax)−incremental net operating capital.Δnet operating capital=Δrevenue/sales-to-incremental-capital; this combines net CapEx(above depreciation) and operating working capital. R&D is already in EBIT and never deducted again. No interest income in EBIT. Terminal reinvestment=g/ROIC.",
+    "negativeGrowthConvention": "No modeled release of working capital from revenue contraction: incremental investment=max(0,ΔRevenue/S-C). This is conservative because inventory may become obsolete.",
+    "cashRetention": "For2031 value, sum FCFF periods1–5 without investment yield, add once to current excess cash (negative cumulative FCFF consumes excess cash). No dividend. Continuation enterprise value at t5 excludes first5 cash flows.",
+    "capitalCalibration": {
+      "definition": "AR+inventory+prepaidcurrent−restrictedcash−AP−accruals−short/longdeferredrevenue+netPPE; excludescash,leaseROU/liabilities,goodwill,intangibles,DTA. Using all0.15m restrictedcashascurrent is a0.15m approximation.",
+      "fy26M": 59.617,
+      "latestM": 72.816,
+      "june26M": 60.444,
+      "q1IncreaseM": 12.372,
+      "latestCapitalToFy27Guide": 0.48544000000000004,
+      "latestCapitalToRunRate": 0.5515193746780986,
+      "runRateRevenueIncreaseM": 56.68799999999999,
+      "runRateRevenueChangeToCapitalIncrease": 4.5819592628515995,
+      "chosenSalesToIncrementalCapital": [
+        2,
+        3,
+        4
+      ],
+      "why": "A highly seasonal ramp and weak priorcycle make onequarterratio unreliable; base3 means33c netcapital per incrementalrevenueUSD, bear50c,bull25c. Opening72.816m prefundedcapital held in business; additionalgrowth investment begins beyondQ1annualized132.028m. Not a demonstratedpermanentcapitalturnover. Sensitivity1.5–6."
+    }
+  },
+  "scenarioAssumptions": {
+    "bear": {
+      "revenueM": [
+        120,
+        105,
+        115,
+        125,
+        135,
+        145,
+        155,
+        163,
+        170,
+        175
+      ],
+      "ebitMargins": [
+        0.08,
+        0.04,
+        0.08,
+        0.1,
+        0.12,
+        0.13,
+        0.14,
+        0.14,
+        0.14,
+        0.14
+      ],
+      "wacc": 0.15,
+      "g": 0.02,
+      "tax": 0.25,
+      "salesToIncrementalCapital": 2,
+      "terminalRoic": 0.12,
+      "exitNopatMultiple": 12,
+      "narrative": "AI first customer capacity pause; new large WLBI supplier fails to reach production, SiC remains soft. Equipment and interface orders contract before recovery."
+    },
+    "base": {
+      "revenueM": [
+        150,
+        195,
+        235,
+        275,
+        310,
+        342,
+        372,
+        400,
+        424,
+        445
+      ],
+      "ebitMargins": [
+        0.15,
+        0.19,
+        0.22,
+        0.23,
+        0.24,
+        0.24,
+        0.24,
+        0.24,
+        0.24,
+        0.24
+      ],
+      "wacc": 0.13,
+      "g": 0.03,
+      "tax": 0.25,
+      "salesToIncrementalCapital": 3,
+      "terminalRoic": 0.2,
+      "exitNopatMultiple": 20,
+      "narrative": "FY27 guide broadly achieved; current AI processors ramp and one additional production program wins, SiC/photonic diversify. Growth fades with customer capital cycles."
+    },
+    "bull": {
+      "revenueM": [
+        160,
+        240,
+        340,
+        450,
+        570,
+        690,
+        800,
+        900,
+        980,
+        1050
+      ],
+      "ebitMargins": [
+        0.18,
+        0.24,
+        0.27,
+        0.29,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "wacc": 0.12,
+      "g": 0.035,
+      "tax": 0.25,
+      "salesToIncrementalCapital": 4,
+      "terminalRoic": 0.25,
+      "exitNopatMultiple": 25,
+      "narrative": "Major WLBI evaluation converts to multi-location volume orders; multiple hyperscalers deploy successive processors, photonics and interface revenue scale. High execution required."
+    }
+  },
+  "scenarios": {
+    "bear": {
+      "revenueM": [
+        120,
+        105,
+        115,
+        125,
+        135,
+        145,
+        155,
+        163,
+        170,
+        175
+      ],
+      "ebitMargins": [
+        0.08,
+        0.04,
+        0.08,
+        0.1,
+        0.12,
+        0.13,
+        0.14,
+        0.14,
+        0.14,
+        0.14
+      ],
+      "wacc": 0.15,
+      "g": 0.02,
+      "tax": 0.25,
+      "salesToIncrementalCapital": 2,
+      "terminalRoic": 0.12,
+      "exitNopatMultiple": 12,
+      "narrative": "AI first customer capacity pause; new large WLBI supplier fails to reach production, SiC remains soft. Equipment and interface orders contract before recovery.",
+      "rows": [
+        {
+          "period": 1,
+          "year": 2027,
+          "revenueM": 120,
+          "ebitMargin": 0.08,
+          "ebitM": 9.6,
+          "nopatM": 7.199999999999999,
+          "investmentM": 0,
+          "fcffM": 7.199999999999999
+        },
+        {
+          "period": 2,
+          "year": 2028,
+          "revenueM": 105,
+          "ebitMargin": 0.04,
+          "ebitM": 4.2,
+          "nopatM": 3.1500000000000004,
+          "investmentM": 0,
+          "fcffM": 3.1500000000000004
+        },
+        {
+          "period": 3,
+          "year": 2029,
+          "revenueM": 115,
+          "ebitMargin": 0.08,
+          "ebitM": 9.200000000000001,
+          "nopatM": 6.9,
+          "investmentM": 5,
+          "fcffM": 1.9000000000000004
+        },
+        {
+          "period": 4,
+          "year": 2030,
+          "revenueM": 125,
+          "ebitMargin": 0.1,
+          "ebitM": 12.5,
+          "nopatM": 9.375,
+          "investmentM": 5,
+          "fcffM": 4.375
+        },
+        {
+          "period": 5,
+          "year": 2031,
+          "revenueM": 135,
+          "ebitMargin": 0.12,
+          "ebitM": 16.2,
+          "nopatM": 12.149999999999999,
+          "investmentM": 5,
+          "fcffM": 7.149999999999999
+        },
+        {
+          "period": 6,
+          "year": 2032,
+          "revenueM": 145,
+          "ebitMargin": 0.13,
+          "ebitM": 18.85,
+          "nopatM": 14.137500000000001,
+          "investmentM": 5,
+          "fcffM": 9.137500000000001
+        },
+        {
+          "period": 7,
+          "year": 2033,
+          "revenueM": 155,
+          "ebitMargin": 0.14,
+          "ebitM": 21.700000000000003,
+          "nopatM": 16.275000000000002,
+          "investmentM": 5,
+          "fcffM": 11.275000000000002
+        },
+        {
+          "period": 8,
+          "year": 2034,
+          "revenueM": 163,
+          "ebitMargin": 0.14,
+          "ebitM": 22.820000000000004,
+          "nopatM": 17.115000000000002,
+          "investmentM": 4,
+          "fcffM": 13.115000000000002
+        },
+        {
+          "period": 9,
+          "year": 2035,
+          "revenueM": 170,
+          "ebitMargin": 0.14,
+          "ebitM": 23.8,
+          "nopatM": 17.85,
+          "investmentM": 3.5,
+          "fcffM": 14.350000000000001
+        },
+        {
+          "period": 10,
+          "year": 2036,
+          "revenueM": 175,
+          "ebitMargin": 0.14,
+          "ebitM": 24.500000000000004,
+          "nopatM": 18.375000000000004,
+          "investmentM": 2.5,
+          "fcffM": 15.875000000000004
+        }
+      ],
+      "terminalNopatM": 18.742500000000003,
+      "terminalReinvestmentM": 3.1237500000000007,
+      "terminalFcffM": 15.618750000000002,
+      "terminalValueM": 120.14423076923079,
+      "pvExplicitFcffM": 36.42786018490325,
+      "pvTerminalM": 29.697816374929946,
+      "terminalShareOfEv": 0.4491117205894772,
+      "enterpriseValueM": 66.1256765598332,
+      "equityValueM": 156.0276765598332,
+      "todayValue": 4.616203448515775,
+      "cumulative5yFcffM": 23.775,
+      "continuationEv2031M": 100.92475357692072,
+      "equity2031M": 214.60175357692074,
+      "value2031": 6.34916430700949,
+      "totalReturn": -0.8935061337301327,
+      "cagr": -0.3610528771296917,
+      "normalizedProfitMultiple": {
+        "method": "2031 normalized after-tax operating profit × assumed multiple + excess cash and retained FCFF; discounted5years to today. Assumed multiples, not observed peer/consensus.",
+        "multiple": 12,
+        "normalEv2031M": 145.79999999999998,
+        "value2031": 7.676834319526627,
+        "todayValue": 3.8167434244081173,
+        "totalReturn": -0.8712372640133071,
+        "cagr": -0.3363210561981532
+      },
+      "conservativeTodayValue": 3.8167434244081173
+    },
+    "base": {
+      "revenueM": [
+        150,
+        195,
+        235,
+        275,
+        310,
+        342,
+        372,
+        400,
+        424,
+        445
+      ],
+      "ebitMargins": [
+        0.15,
+        0.19,
+        0.22,
+        0.23,
+        0.24,
+        0.24,
+        0.24,
+        0.24,
+        0.24,
+        0.24
+      ],
+      "wacc": 0.13,
+      "g": 0.03,
+      "tax": 0.25,
+      "salesToIncrementalCapital": 3,
+      "terminalRoic": 0.2,
+      "exitNopatMultiple": 20,
+      "narrative": "FY27 guide broadly achieved; current AI processors ramp and one additional production program wins, SiC/photonic diversify. Growth fades with customer capital cycles.",
+      "rows": [
+        {
+          "period": 1,
+          "year": 2027,
+          "revenueM": 150,
+          "ebitMargin": 0.15,
+          "ebitM": 22.5,
+          "nopatM": 16.875,
+          "investmentM": 5.9906666666666695,
+          "fcffM": 10.88433333333333
+        },
+        {
+          "period": 2,
+          "year": 2028,
+          "revenueM": 195,
+          "ebitMargin": 0.19,
+          "ebitM": 37.05,
+          "nopatM": 27.787499999999998,
+          "investmentM": 15,
+          "fcffM": 12.787499999999998
+        },
+        {
+          "period": 3,
+          "year": 2029,
+          "revenueM": 235,
+          "ebitMargin": 0.22,
+          "ebitM": 51.7,
+          "nopatM": 38.775000000000006,
+          "investmentM": 13.333333333333334,
+          "fcffM": 25.44166666666667
+        },
+        {
+          "period": 4,
+          "year": 2030,
+          "revenueM": 275,
+          "ebitMargin": 0.23,
+          "ebitM": 63.25,
+          "nopatM": 47.4375,
+          "investmentM": 13.333333333333334,
+          "fcffM": 34.104166666666664
+        },
+        {
+          "period": 5,
+          "year": 2031,
+          "revenueM": 310,
+          "ebitMargin": 0.24,
+          "ebitM": 74.39999999999999,
+          "nopatM": 55.8,
+          "investmentM": 11.666666666666666,
+          "fcffM": 44.13333333333333
+        },
+        {
+          "period": 6,
+          "year": 2032,
+          "revenueM": 342,
+          "ebitMargin": 0.24,
+          "ebitM": 82.08,
+          "nopatM": 61.56,
+          "investmentM": 10.666666666666666,
+          "fcffM": 50.89333333333334
+        },
+        {
+          "period": 7,
+          "year": 2033,
+          "revenueM": 372,
+          "ebitMargin": 0.24,
+          "ebitM": 89.28,
+          "nopatM": 66.96000000000001,
+          "investmentM": 10,
+          "fcffM": 56.96000000000001
+        },
+        {
+          "period": 8,
+          "year": 2034,
+          "revenueM": 400,
+          "ebitMargin": 0.24,
+          "ebitM": 96,
+          "nopatM": 72,
+          "investmentM": 9.333333333333334,
+          "fcffM": 62.666666666666664
+        },
+        {
+          "period": 9,
+          "year": 2035,
+          "revenueM": 424,
+          "ebitMargin": 0.24,
+          "ebitM": 101.75999999999999,
+          "nopatM": 76.32,
+          "investmentM": 8,
+          "fcffM": 68.32
+        },
+        {
+          "period": 10,
+          "year": 2036,
+          "revenueM": 445,
+          "ebitMargin": 0.24,
+          "ebitM": 106.8,
+          "nopatM": 80.1,
+          "investmentM": 7,
+          "fcffM": 73.1
+        }
+      ],
+      "terminalNopatM": 82.503,
+      "terminalReinvestmentM": 12.375449999999999,
+      "terminalFcffM": 70.12755,
+      "terminalValueM": 701.2755,
+      "pvExplicitFcffM": 198.65577202518105,
+      "pvTerminalM": 206.5875911263227,
+      "terminalShareOfEv": 0.5097864885922588,
+      "enterpriseValueM": 405.2433631515038,
+      "equityValueM": 495.1453631515038,
+      "todayValue": 14.649271099156918,
+      "cumulative5yFcffM": 127.351,
+      "continuationEv2031M": 595.2794589648988,
+      "equity2031M": 812.5324589648989,
+      "value2031": 24.03942186286683,
+      "totalReturn": -0.5967893011931091,
+      "cagr": -0.16611452447547914,
+      "normalizedProfitMultiple": {
+        "method": "2031 normalized after-tax operating profit × assumed multiple + excess cash and retained FCFF; discounted5years to today. Assumed multiples, not observed peer/consensus.",
+        "multiple": 20,
+        "normalEv2031M": 1116,
+        "value2031": 39.445355029585805,
+        "todayValue": 21.409358371333518,
+        "totalReturn": -0.33838720178487414,
+        "cagr": -0.07929441090653644
+      },
+      "conservativeTodayValue": 14.649271099156918
+    },
+    "bull": {
+      "revenueM": [
+        160,
+        240,
+        340,
+        450,
+        570,
+        690,
+        800,
+        900,
+        980,
+        1050
+      ],
+      "ebitMargins": [
+        0.18,
+        0.24,
+        0.27,
+        0.29,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3,
+        0.3
+      ],
+      "wacc": 0.12,
+      "g": 0.035,
+      "tax": 0.25,
+      "salesToIncrementalCapital": 4,
+      "terminalRoic": 0.25,
+      "exitNopatMultiple": 25,
+      "narrative": "Major WLBI evaluation converts to multi-location volume orders; multiple hyperscalers deploy successive processors, photonics and interface revenue scale. High execution required.",
+      "rows": [
+        {
+          "period": 1,
+          "year": 2027,
+          "revenueM": 160,
+          "ebitMargin": 0.18,
+          "ebitM": 28.799999999999997,
+          "nopatM": 21.599999999999998,
+          "investmentM": 6.993000000000002,
+          "fcffM": 14.606999999999996
+        },
+        {
+          "period": 2,
+          "year": 2028,
+          "revenueM": 240,
+          "ebitMargin": 0.24,
+          "ebitM": 57.599999999999994,
+          "nopatM": 43.199999999999996,
+          "investmentM": 20,
+          "fcffM": 23.199999999999996
+        },
+        {
+          "period": 3,
+          "year": 2029,
+          "revenueM": 340,
+          "ebitMargin": 0.27,
+          "ebitM": 91.80000000000001,
+          "nopatM": 68.85000000000001,
+          "investmentM": 25,
+          "fcffM": 43.85000000000001
+        },
+        {
+          "period": 4,
+          "year": 2030,
+          "revenueM": 450,
+          "ebitMargin": 0.29,
+          "ebitM": 130.5,
+          "nopatM": 97.875,
+          "investmentM": 27.5,
+          "fcffM": 70.375
+        },
+        {
+          "period": 5,
+          "year": 2031,
+          "revenueM": 570,
+          "ebitMargin": 0.3,
+          "ebitM": 171,
+          "nopatM": 128.25,
+          "investmentM": 30,
+          "fcffM": 98.25
+        },
+        {
+          "period": 6,
+          "year": 2032,
+          "revenueM": 690,
+          "ebitMargin": 0.3,
+          "ebitM": 207,
+          "nopatM": 155.25,
+          "investmentM": 30,
+          "fcffM": 125.25
+        },
+        {
+          "period": 7,
+          "year": 2033,
+          "revenueM": 800,
+          "ebitMargin": 0.3,
+          "ebitM": 240,
+          "nopatM": 180,
+          "investmentM": 27.5,
+          "fcffM": 152.5
+        },
+        {
+          "period": 8,
+          "year": 2034,
+          "revenueM": 900,
+          "ebitMargin": 0.3,
+          "ebitM": 270,
+          "nopatM": 202.5,
+          "investmentM": 25,
+          "fcffM": 177.5
+        },
+        {
+          "period": 9,
+          "year": 2035,
+          "revenueM": 980,
+          "ebitMargin": 0.3,
+          "ebitM": 294,
+          "nopatM": 220.5,
+          "investmentM": 20,
+          "fcffM": 200.5
+        },
+        {
+          "period": 10,
+          "year": 2036,
+          "revenueM": 1050,
+          "ebitMargin": 0.3,
+          "ebitM": 315,
+          "nopatM": 236.25,
+          "investmentM": 17.5,
+          "fcffM": 218.75
+        }
+      ],
+      "terminalNopatM": 244.51874999999998,
+      "terminalReinvestmentM": 34.232625,
+      "terminalFcffM": 210.28612499999997,
+      "terminalValueM": 2473.9544117647056,
+      "pvExplicitFcffM": 510.0847311993034,
+      "pvTerminalM": 796.5471091337134,
+      "terminalShareOfEv": 0.609618627486301,
+      "enterpriseValueM": 1306.631840333017,
+      "equityValueM": 1396.533840333017,
+      "todayValue": 41.31756924062181,
+      "cumulative5yFcffM": 250.28199999999998,
+      "continuationEv2031M": 2015.0775899236837,
+      "equity2031M": 2355.261589923684,
+      "value2031": 69.68229555987232,
+      "totalReturn": 0.16877382690158194,
+      "cagr": 0.031682575238804134,
+      "normalizedProfitMultiple": {
+        "method": "2031 normalized after-tax operating profit × assumed multiple + excess cash and retained FCFF; discounted5years to today. Assumed multiples, not observed peer/consensus.",
+        "multiple": 25,
+        "normalEv2031M": 3206.25,
+        "value2031": 104.92408284023671,
+        "todayValue": 59.53674241519334,
+        "totalReturn": 0.7598806246265801,
+        "cagr": 0.11968701567867557
+      },
+      "conservativeTodayValue": 41.31756924062181
+    }
+  },
+  "sensitivities": {
+    "waccByG": [
+      {
+        "wacc": 0.11,
+        "values": [
+          {
+            "g": 0.02,
+            "todayValue": 17.733064623500432
+          },
+          {
+            "g": 0.025,
+            "todayValue": 18.026407141913698
+          },
+          {
+            "g": 0.03,
+            "todayValue": 18.35380930420131
+          },
+          {
+            "g": 0.035,
+            "todayValue": 18.72208303913813
+          },
+          {
+            "g": 0.04,
+            "todayValue": 19.139986540863283
+          }
+        ]
+      },
+      {
+        "wacc": 0.12,
+        "values": [
+          {
+            "g": 0.02,
+            "todayValue": 15.870568362273769
+          },
+          {
+            "g": 0.025,
+            "todayValue": 16.06955579410697
+          },
+          {
+            "g": 0.03,
+            "todayValue": 16.288533442211342
+          },
+          {
+            "g": 0.035,
+            "todayValue": 16.531028991811205
+          },
+          {
+            "g": 0.04,
+            "todayValue": 16.801452049436964
+          }
+        ]
+      },
+      {
+        "wacc": 0.13,
+        "values": [
+          {
+            "g": 0.02,
+            "todayValue": 14.363358369959805
+          },
+          {
+            "g": 0.025,
+            "todayValue": 14.500338386352796
+          },
+          {
+            "g": 0.03,
+            "todayValue": 14.649271099156918
+          },
+          {
+            "g": 0.035,
+            "todayValue": 14.81204377622655
+          },
+          {
+            "g": 0.04,
+            "todayValue": 14.990963078272618
+          }
+        ]
+      },
+      {
+        "wacc": 0.14,
+        "values": [
+          {
+            "g": 0.02,
+            "todayValue": 13.121606803067214
+          },
+          {
+            "g": 0.025,
+            "todayValue": 13.216798713361706
+          },
+          {
+            "g": 0.03,
+            "todayValue": 13.319191604262416
+          },
+          {
+            "g": 0.035,
+            "todayValue": 13.429814187284522
+          },
+          {
+            "g": 0.04,
+            "todayValue": 13.54990091624623
+          }
+        ]
+      },
+      {
+        "wacc": 0.15,
+        "values": [
+          {
+            "g": 0.02,
+            "todayValue": 12.083197755343482
+          },
+          {
+            "g": 0.025,
+            "todayValue": 12.149661694957803
+          },
+          {
+            "g": 0.03,
+            "todayValue": 12.22044391313464
+          },
+          {
+            "g": 0.035,
+            "todayValue": 12.29610766359953
+          },
+          {
+            "g": 0.04,
+            "todayValue": 12.37731860984631
+          }
+        ]
+      }
+    ],
+    "salesToCapital": [
+      {
+        "salesToIncrementalCapital": 1.5,
+        "todayValue": 12.921189654194961
+      },
+      {
+        "salesToIncrementalCapital": 2,
+        "todayValue": 13.785230376675939
+      },
+      {
+        "salesToIncrementalCapital": 3,
+        "todayValue": 14.649271099156918
+      },
+      {
+        "salesToIncrementalCapital": 4,
+        "todayValue": 15.081291460397406
+      },
+      {
+        "salesToIncrementalCapital": 6,
+        "todayValue": 15.513311821637897
+      }
+    ],
+    "economicShares": [
+      {
+        "sharesM": 32.663,
+        "todayValue": 15.159212661161064
+      },
+      {
+        "sharesM": 33.52,
+        "todayValue": 14.771639712157032
+      },
+      {
+        "sharesM": 33.8,
+        "todayValue": 14.649271099156918
+      },
+      {
+        "sharesM": 35,
+        "todayValue": 14.147010375757251
+      }
+    ],
+    "terminalRoic": [
+      {
+        "terminalRoic": 0.15,
+        "todayValue": 14.289738222153222
+      },
+      {
+        "terminalRoic": 0.2,
+        "todayValue": 14.649271099156918
+      },
+      {
+        "terminalRoic": 0.3,
+        "todayValue": 15.008803976160612
+      },
+      {
+        "terminalRoic": 0.4,
+        "todayValue": 15.188570414662458
+      }
+    ]
+  },
+  "reverse": {
+    "method": "Anchor first2027 revenue150m, solve constant annual revenue growth for periods2–10, fixed base economicEBITmargins(15→24%),WACC13%,g3%,tax25%,incrementalS-C3,terminalROIC20%. Solves current economicshareprice; growthuntil2036thenstepdowntog is deliberatelydemanding, not a uniquemarketforecast.",
+    "implied2027To2036Cagr": 0.41383129526661866,
+    "impliedRevenuePathM": [
+      150,
+      212.0746942899928,
+      299.8378397212927,
+      423.9201213031002,
+      599.3515341915443,
+      847.3819559060661,
+      1198.0551283042344,
+      1693.8478338511907,
+      2394.8150769183853,
+      3385.8645021235484
+    ],
+    "implied2027RevenueM": 150,
+    "implied2031RevenueM": 599.3515341915443,
+    "implied2036RevenueM": 3385.8645021235484,
+    "implied2031EbitM": 143.84436820597062,
+    "implied2031NopatM": 107.88327615447797,
+    "marketEconomicEvM": 1925.2539999999997,
+    "guideForwardEconomicEvToSales": 12.835026666666664
+  },
+  "entry": {
+    "basicResearchHurdle": 0.15,
+    "conservativeReferenceValue": 14.649271099156918,
+    "definition": "upper=min(base2031DCFvalue/(1+r)^5, conservativeTodayValue×(1−margin)); normalizedprofitmultiple makes current conservativeReference. Need priceANDbusinesscriteria.",
+    "stages": [
+      {
+        "name": "首次试探",
+        "requiredReturn": 0.15,
+        "margin": 0.25,
+        "allocationOfConditionalTarget": 0.25,
+        "returnCap": 11.951841280238465,
+        "marginCap": 10.986953324367688,
+        "upper": 10.986953324367688
+      },
+      {
+        "name": "证据增强后加仓",
+        "requiredReturn": 0.18,
+        "margin": 0.4,
+        "allocationOfConditionalTarget": 0.35,
+        "returnCap": 10.507852849111073,
+        "marginCap": 8.78956265949415,
+        "upper": 8.78956265949415
+      },
+      {
+        "name": "深折价且复核",
+        "requiredReturn": 0.22,
+        "margin": 0.55,
+        "allocationOfConditionalTarget": 0.4,
+        "returnCap": 8.894568118817615,
+        "marginCap": 6.592171994620612,
+        "upper": 6.592171994620612
+      }
+    ],
+    "conditionalTargetPct": [
+      0.005,
+      0.01
+    ],
+    "conditionalHardCapPct": 0.015,
+    "capitalBasisUsd": 400000,
+    "directAndEtfExposureUsd": 0,
+    "pendingKnownLimitBuyUsd": 0,
+    "currentNewBuyUsd": 0,
+    "conditionalTargetUsd": [
+      2000,
+      4000
+    ],
+    "conditionalHardCapUsd": 6000,
+    "reason": "Small cyclical issuer with concentratedcustomers/AIqualification risk, no proven durableannuity; onlyresearchconditional0.5–1%target/1.5%cap aftervaluationandthesisevidence. Currentpriceexceedsallresearchentrycaps.",
+    "bands": [
+      {
+        "name": "首次试探",
+        "requiredReturn": 0.15,
+        "margin": 0.25,
+        "allocationOfConditionalTarget": 0.25,
+        "returnCap": 11.951841280238465,
+        "marginCap": 10.986953324367688,
+        "upper": 10.986953324367688,
+        "lowerExclusive": 8.78956265949415,
+        "upperInclusive": 10.986953324367688
+      },
+      {
+        "name": "证据增强后加仓",
+        "requiredReturn": 0.18,
+        "margin": 0.4,
+        "allocationOfConditionalTarget": 0.35,
+        "returnCap": 10.507852849111073,
+        "marginCap": 8.78956265949415,
+        "upper": 8.78956265949415,
+        "lowerExclusive": 6.592171994620612,
+        "upperInclusive": 8.78956265949415
+      },
+      {
+        "name": "深折价且复核",
+        "requiredReturn": 0.22,
+        "margin": 0.55,
+        "allocationOfConditionalTarget": 0.4,
+        "returnCap": 8.894568118817615,
+        "marginCap": 6.592171994620612,
+        "upper": 6.592171994620612,
+        "lowerInclusive": 3.8167434244081173,
+        "upperInclusive": 6.592171994620612
+      }
+    ],
+    "belowDeepReviewFloor": 3.8167434244081173,
+    "belowFloorAction": "Price below conservativebearcurrentvalue requires complete thesis/financialreview before anynewbuy; not automaticaveragingdown."
+  }
+}

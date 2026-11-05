@@ -20,6 +20,8 @@ import {
 } from "../src/converter.js";
 import { validateResearch, researchHtml } from "./ai.js";
 import { atomicWriteFile, createBackupStore, sameStateContent } from "./backups.js";
+import { decisionTaskQuestion, validateDecisionReport } from "../src/decision-reports.js";
+import { decisionResearch, decisionReportHtml } from "./decision-report.js";
 const root = fileURLToPath(new URL("../", import.meta.url));
 const error = (message, status = 400) =>
   Object.assign(new Error(message), { status });
@@ -175,6 +177,7 @@ const synchronizedPair = (baseAt, targetAt, sampleType, precise = false) => {
 };
 export function validateState(s, { allowDuplicateHoldings = false } = {}) {
   if (!s || s.version !== 1) throw error("备份版本无效。");
+  if (s.disciplines === undefined) s.disciplines = [];
   for (const k of [
     "accounts",
     "holdings",
@@ -183,6 +186,7 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
     "journal",
     "analyses",
     "jobs",
+    "disciplines",
   ])
     if (!Array.isArray(s[k]) || s[k].length > 10000)
       throw error(`数据格式无效：${k}`);
@@ -194,6 +198,7 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
     "journal",
     "analyses",
     "jobs",
+    "disciplines",
   ]) {
     const ids = new Set();
     for (const r of s[k]) {
@@ -286,10 +291,13 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
     const tradeIds = new Set();
     for (const trade of s.holdingTrades) {
       if (!trade || !text(trade.id, 200) || !trade.id || tradeIds.has(trade.id) ||
-          !["buy", "import"].includes(trade.type) || !text(trade.holdingId, 100) || !trade.holdingId ||
+          !["buy", "import", "adjustment"].includes(trade.type) || !text(trade.holdingId, 100) || !trade.holdingId ||
           !text(trade.accountId, 100) || !trade.accountId || !text(trade.symbol, 40) || !trade.symbol.trim() ||
-          !CURRENCIES.includes(trade.currency) || !num(trade.quantity) || !num(trade.price) ||
-          !num(trade.fees) || !num(trade.cost) || !date(trade.date) || !timestamp(trade.recordedAt))
+          !CURRENCIES.includes(trade.currency) ||
+          !(trade.type === "adjustment" ? num(trade.quantity, -1e14, 1e14) : num(trade.quantity, 0.00000001)) ||
+          !num(trade.price) || !num(trade.fees) ||
+          !(trade.type === "adjustment" ? num(trade.cost, -1e14, 1e14) : num(trade.cost)) ||
+          !date(trade.date) || !timestamp(trade.recordedAt))
         throw error("买入记录数据无效。");
       tradeIds.add(trade.id);
     }
@@ -358,6 +366,43 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
   for (const j of s.journal)
     if (!date(j.date) || !text(j.title, 300) || !text(j.body, 20000))
       throw error("决策日志无效。");
+  const disciplineCategories = new Set(["执行流程", "仓位管理", "买入规则", "卖出规则", "风险控制", "研究与验证"]);
+  for (const discipline of s.disciplines) {
+    if (!text(discipline.title, 120) || !discipline.title.trim() ||
+        !text(discipline.category, 40) || !disciplineCategories.has(discipline.category) ||
+        !text(discipline.rule, 5000) || !discipline.rule.trim() ||
+        !text(discipline.reason || "", 5000) ||
+        !["all", "stocks", "funds"].includes(discipline.scope) ||
+        typeof discipline.active !== "boolean" ||
+        !text(discipline.watchId || "", 100) || !text(discipline.holdingId || "", 100) ||
+        (discipline.watchId && discipline.holdingId) ||
+        !text(discipline.symbol || "", 40) || !text(discipline.name || "", 300) ||
+        !date(discipline.reviewDate || ""))
+      throw error("决策纪律无效；请检查名称、规则、类别和关联标的。");
+  }
+  const logStatuses = new Set(["filled", "working", "partial", "cancelled", "rejected", "expired"]);
+  const validOptionalPrice = (value) => value === null || value === undefined || num(value, 0.000001);
+  for (const entry of s.journal.filter((row) => row.kind === "trade")) {
+    if (!date(entry.date) || !entry.date || !text(entry.title, 300) || !entry.title.trim() ||
+        !text(entry.body, 20000) || !entry.body.trim() ||
+        !["buy", "sell"].includes(entry.side) || !["market", "limit"].includes(entry.orderType) ||
+        !logStatuses.has(entry.status) || !num(entry.quantity, 0.00000001) ||
+        !num(entry.filledQuantity, 0, entry.quantity) || !validOptionalPrice(entry.price) ||
+        !validOptionalPrice(entry.limitPrice) || (entry.orderType === "limit" && !num(entry.limitPrice, 0.000001)) ||
+        (entry.filledQuantity > 0 && !num(entry.price, 0.000001)) ||
+        (entry.status === "filled" && Math.abs(entry.quantity - entry.filledQuantity) > 0.00000001) ||
+        (entry.status === "partial" && !(entry.filledQuantity > 0 && entry.filledQuantity < entry.quantity)) ||
+        !text(entry.time || "", 5) || (entry.time && !/^\d{2}:\d{2}$/.test(entry.time)) ||
+        !text(entry.timeZone || "", 80) || (entry.time && !entry.timeZone) ||
+        !num(entry.fees, 0) || !CURRENCIES.includes(entry.currency) ||
+        !text(entry.symbol, 40) || !entry.symbol.trim() || !text(entry.name, 300) || !entry.name.trim() ||
+        !text(entry.accountId || "", 100) || !text(entry.accountName || "", 120) ||
+        !text(entry.watchId || "", 100) || !text(entry.holdingId || "", 100) || (entry.watchId && entry.holdingId) ||
+        !text(entry.disciplineId || "", 100) || !text(entry.holdingTradeId || "", 200) ||
+        !text(entry.timeInForce || "", 10) || (entry.timeInForce && !["GTC", "DAY", "GTD", "IOC", "FOK"].includes(entry.timeInForce)) ||
+        !text(entry.broker || "", 100) || !text(entry.brokerOrderId || "", 100))
+      throw error("交易日志无效；请检查委托状态、数量、价格、账户和交易理由。");
+  }
   const optionalNumber = (value, min, max = 1e14) =>
     value === undefined || value === null || num(value, min, max);
   const validRange = (low, high) =>
@@ -499,6 +544,59 @@ function consolidateStateHoldings(s, recordedAt) {
   }
   return true;
 }
+function reconcileHoldingTrades(s, recordedAt) {
+  s.holdingTrades ||= [];
+  let changed = false;
+  for (const holding of s.holdings) {
+    const trades = s.holdingTrades.filter((trade) => trade.holdingId === holding.id);
+    if (!trades.length) {
+      s.holdingTrades.push({
+        id: `baseline:${holding.id}`, type: "import", holdingId: holding.id,
+        accountId: holding.accountId, symbol: holding.symbol, currency: holding.currency,
+        quantity: holding.quantity, price: holding.averagePrice, fees: 0, cost: holding.cost,
+        date: holding.recordedAt, recordedAt,
+      });
+      changed = true;
+      continue;
+    }
+    const quantity = Number(trades.reduce((sum, trade) => sum + trade.quantity, 0).toFixed(10));
+    const cost = roundMoney(trades.reduce((sum, trade) => sum + trade.cost, 0));
+    const quantityDelta = Number((holding.quantity - quantity).toFixed(10));
+    const costDelta = roundMoney(holding.cost - cost);
+    if (Math.abs(quantityDelta) < 0.00000001 && Math.abs(costDelta) < 0.01) continue;
+    const id = `reconcile:${holding.id}`;
+    if (s.holdingTrades.some((trade) => trade.id === id)) continue;
+    s.holdingTrades.push({
+      id, type: "adjustment", holdingId: holding.id, accountId: holding.accountId,
+      symbol: holding.symbol, currency: holding.currency, quantity: quantityDelta,
+      price: Math.abs(quantityDelta) > 0.00000001 ? Math.abs(costDelta / quantityDelta) : 0,
+      fees: 0, cost: costDelta, date: holding.recordedAt, recordedAt,
+      note: "升级前的持仓汇总与买入记录差额",
+    });
+    changed = true;
+  }
+  return changed;
+}
+function holdingTotalsFromTrades(trades) {
+  return {
+    quantity: Number(trades.reduce((sum, trade) => sum + trade.quantity, 0).toFixed(10)),
+    cost: roundMoney(trades.reduce((sum, trade) => sum + trade.cost, 0)),
+  };
+}
+function applyTradeTotals(holding, totals) {
+  if (totals.quantity <= 0.00000001)
+    throw error("这项持仓的净股数必须大于 0；请先调整或删除对应的持仓修正记录。");
+  if (totals.cost < -0.005)
+    throw error("总成本不能为负数；请先调整相关批次或持仓修正记录。");
+  const cost = Math.max(0, totals.cost);
+  return {
+    ...holding,
+    quantity: totals.quantity,
+    cost,
+    averagePrice: cost / totals.quantity,
+    marketValue: roundMoney(totals.quantity * holding.price),
+  };
+}
 export async function createHoldingsApp({
   dataDirectory = path.join(root, "data"),
   now = () => new Date(),
@@ -511,7 +609,7 @@ export async function createHoldingsApp({
     libraryDirectory: reports,
     catalogPath: catalog,
   });
-  for (const dir of ["market", "portfolio", "research"])
+  for (const dir of ["market", "portfolio", "research", "decisions"])
     await fs.mkdir(path.join(reports, dir), { recursive: true });
   const file = path.join(dataDirectory, "state.json");
   const todoFile = path.join(dataDirectory, "CODEX_TODO.md");
@@ -552,7 +650,7 @@ export async function createHoldingsApp({
           ? watch ? `市盈率 · ${watch.symbol}` : "近期关注中的全部个股"
         : watch?.name || job.question || "持仓组合";
       lines.push(
-        `## ${job.kind === "watch" ? "标的研究" : job.kind === "watch-quotes" ? "关注价格更新" : job.kind === "watch-pe" ? "关注市盈率刷新" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "价格更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
+        `## ${job.kind === "decision-report" ? "七种投资思想决策报告" : job.kind === "watch" ? "标的研究" : job.kind === "watch-quotes" ? "关注价格更新" : job.kind === "watch-pe" ? "关注市盈率刷新" : job.kind === "market" ? "行情分析" : job.kind === "quotes" ? "价格更新" : job.kind === "converter" ? "换算公式更新" : "组合分析"} · ${title}`,
         `- 状态：等待 Codex · 任务 ID：${job.id}`,
         `- 创建时间：${job.date}`,
         `- 关注记录 ID：${job.watchId || "无"}`,
@@ -560,6 +658,8 @@ export async function createHoldingsApp({
         watch?.targetPrice ? `- 用户等待价格：${watch.targetPrice} ${watch.research?.quote?.currency || "USD"}` : "",
         ["quotes", "watch-quotes"].includes(job.kind)
           ? `- ${quoteTaskGuidance()}`
+          : job.kind === "decision-report"
+            ? `- ${decisionTaskQuestion(watch || { symbol: "已删除", name: "" })}`
           : job.kind === "converter"
             ? "- 核对 VOO/SPYL 与 QQQM/CNDX 的 USD 挂牌代码，取最近 10 个共同交易日伦敦时间 16:25:00±30 秒的同步盘中价；同一组 10 天统一使用盘口中间价（两边相差≤15秒）、同一 UTC 分钟的一分钟收盘价，或同一 UTC 五分钟区间且在 16:25 收盘的五分钟线。通过本地 API 回写 calibrations 与来源；系数取配对比值中位数，参考带取 P25–P75。无法找到可核验的同步数据就标记未完成并保留旧公式，不生成 HTML、不改持仓。"
             : job.kind === "watch"
@@ -679,6 +779,7 @@ export async function createHoldingsApp({
     }
     appendJobs(s, migratedResearch);
     if (consolidateStateHoldings(s, now().toISOString())) changed = true;
+    if (reconcileHoldingTrades(s, now().toISOString())) changed = true;
     if (changed) await write(s);
     else await syncCodexTodo(s);
   });
@@ -773,15 +874,16 @@ export async function createHoldingsApp({
   });
   app.post("/api/jobs", async (req, res, next) => {
     try {
-      const kind = ["watch", "watch-quotes", "watch-pe", "portfolio", "market", "quotes", "converter"].includes(req.body.kind)
+      const kind = ["decision-report", "watch", "watch-quotes", "watch-pe", "portfolio", "market", "quotes", "converter"].includes(req.body.kind)
         ? req.body.kind
         : "portfolio";
       const result = await serial(async () => {
         const s = await read();
-        const watch = ["watch", "watch-quotes", "watch-pe"].includes(kind) && req.body.watchId
+        const watch = ["decision-report", "watch", "watch-quotes", "watch-pe"].includes(kind) && req.body.watchId
           ? s.watchlist.find((w) => w.id === req.body.watchId)
           : null;
-        if (["watch", "watch-quotes"].includes(kind) && !watch) throw error("关注标的不存在。", 404);
+        if (["decision-report", "watch", "watch-quotes"].includes(kind) && !watch) throw error("关注标的不存在。", 404);
+        if (kind === "decision-report" && !isEquityWatch(watch)) throw error("决策报告仅适用于个股。", 400);
         if (kind === "watch-pe" && req.body.watchId && !watch) throw error("关注标的不存在。", 404);
         if (kind === "watch-pe" && watch && !isEquityWatch(watch)) throw error("指数与 ETF 不需要市盈率待办。", 400);
         if (kind === "watch-pe" && s.jobs.some((j) => j.status === "waiting" && j.kind === kind && (!watch || !j.watchId || j.watchId === watch.id)))
@@ -796,7 +898,7 @@ export async function createHoldingsApp({
           id: randomUUID(),
           kind,
           watchId: watch?.id || null,
-          question: kind === "quotes" ? PRICE_REFRESH_QUESTION : kind === "watch-quotes" ? watchQuoteQuestion(watch) : kind === "watch" ? watchResearchQuestion(watch, req.body.refreshResearch === true) : kind === "watch-pe" ? watch ? watchPeRefreshQuestion(watch) : WATCH_PE_REFRESH_QUESTION : text(req.body.question || "", 4000) ? req.body.question : "",
+          question: kind === "decision-report" ? decisionTaskQuestion(watch) : kind === "quotes" ? PRICE_REFRESH_QUESTION : kind === "watch-quotes" ? watchQuoteQuestion(watch) : kind === "watch" ? watchResearchQuestion(watch, req.body.refreshResearch === true) : kind === "watch-pe" ? watch ? watchPeRefreshQuestion(watch) : WATCH_PE_REFRESH_QUESTION : text(req.body.question || "", 4000) ? req.body.question : "",
           ...(kind === "watch" ? { researchMode: req.body.refreshResearch === true ? "refresh" : "initial" } : {}),
           status: "waiting",
           date: new Date().toISOString(),
@@ -892,12 +994,42 @@ export async function createHoldingsApp({
       next(e);
     }
   });
+  app.get("/api/decision-reports/:watchId", async (req, res, next) => {
+    try {
+      const s = await read();
+      const watch = s.watchlist.find((w) => w.id === req.params.watchId);
+      if (!watch) throw error("关注标的不存在。", 404);
+      if (!watch.decisionReport) return res.set("Cache-Control", "no-store").json({ decision: null });
+      const jsonPath = path.resolve(reports, watch.decisionReport.json || "");
+      if (!jsonPath.startsWith(path.join(reports, "decisions") + path.sep) || !jsonPath.endsWith(".json")) throw error("决策报告路径无效。");
+      const decision = validateDecisionReport(JSON.parse(await fs.readFile(jsonPath, "utf8")), watch);
+      res.set("Cache-Control", "no-store").json({ decision });
+    } catch (e) { next(e); }
+  });
   app.post("/api/jobs/:id/complete", async (req, res, next) => {
     try {
       const quoteResult = await serial(async () => {
         const s = await read();
         const job = s.jobs.find((j) => j.id === req.params.id);
         if (!job) throw error("待办任务不存在。", 404);
+        if (job.kind === "decision-report") {
+          if (job.status !== "waiting") throw error("决策报告任务已结束，请重新创建待办。", 409);
+          const watch = s.watchlist.find((w) => w.id === job.watchId);
+          if (!watch) throw error("关注标的已不存在。", 404);
+          const decision = validateDecisionReport(req.body.decision, watch);
+          const completedAt = now().toISOString();
+          const stem = `decisions/${filenameSlug(watch.symbol)}-${decision.analysisDate}-${job.id}`;
+          const json = `${stem}.json`, report = `${stem}.html`;
+          const css = await fs.readFile(new URL("./decision-report.css", import.meta.url), "utf8");
+          // New version files are committed before state points at them. Failed
+          // validation never replaces the last usable report or user's plan.
+          await atomicWriteFile(path.join(reports, json), JSON.stringify(decision, null, 2) + "\n");
+          await atomicWriteFile(path.join(reports, report), decisionReportHtml(decision, css));
+          watch.decisionReport = { json, report, updatedAt: completedAt, conclusion: decision.verdict.conclusion };
+          Object.assign(job, { status: "done", completedAt, report, error: "", summary: decision.verdict.conclusion.slice(0, 1000) });
+          s.analyses.unshift({ id: randomUUID(), kind: "decision-report", watchId: watch.id, date: completedAt, research: decisionResearch(decision), report });
+          return write(s);
+        }
         if (job.kind === "watch" && job.status !== "waiting") throw error("研究任务已结束；需要新研究时请明确创建更新任务。", 409);
         if (job.kind === "watch" && !s.watchlist.some((w) => w.id === job.watchId)) throw error("关注标的已不存在。", 404);
         if (job.kind === "watch" && job.researchMode === "initial" && job.status === "waiting" && hasCompleteResearch(s.watchlist.find((w) => w.id === job.watchId))) {
@@ -1146,9 +1278,16 @@ export async function createHoldingsApp({
           !text(input.symbol, 40) || !input.symbol.trim() || !CURRENCIES.includes(input.currency) ||
           !text(input.name || "", 300) || !text(input.sector || "", 100) ||
           !num(input.quantity, 0.00000001) || !num(input.price, 0.00000001) ||
+          !text(input.time || "", 5) || (input.time && !/^\d{2}:\d{2}$/.test(input.time)) || !text(input.timeZone || "", 80) ||
           !num(input.fees ?? 0) || !date(input.date) || !input.date ||
           !num(roundMoney(input.quantity * input.price + (input.fees || 0))))
         throw error("买入数据无效；请填写账户、代码、正数股数、买入单价和日期。");
+      if (input.decision !== undefined && (!input.decision || typeof input.decision !== "object" ||
+          !["market", "limit"].includes(input.decision.orderType) || !text(input.decision.body, 20000) ||
+          !input.decision.body.trim() ||
+          (input.decision.orderType === "limit" ? !num(input.decision.limitPrice, 0.000001) :
+            !(input.decision.limitPrice === null || input.decision.limitPrice === undefined))))
+        throw error("买入决策记录无效；请填写交易理由与成交方式，限价单还需填写限价。");
       const buy = { id: input.id, accountId: input.accountId, symbol: normalizeSymbol(input.symbol), currency: input.currency,
         quantity: input.quantity, price: input.price, fees: input.fees || 0, date: input.date };
       const result = await serial(async () => {
@@ -1172,7 +1311,92 @@ export async function createHoldingsApp({
         else s.holdings[index] = holding;
         s.holdingTrades ||= [];
         s.holdingTrades.push({ ...buy, type: "buy", holdingId: holding.id, cost: preview.addedCost, recordedAt: now().toISOString() });
+        if (input.decision) {
+          const linkedWatch = s.watchlist.find((watch) => normalizeSymbol(watch.symbol) === buy.symbol);
+          const account = s.accounts.find((row) => row.id === buy.accountId);
+          s.journal.push({
+            id: randomUUID(), kind: "trade", date: buy.date, time: input.time || "", timeZone: input.time ? input.timeZone || "" : "",
+            title: `买入 ${buy.symbol} · ${input.decision.orderType === "limit" ? "限价单" : "市价单"} 成交`,
+            body: input.decision.body.trim(), side: "buy", orderType: input.decision.orderType,
+            status: "filled", quantity: buy.quantity, filledQuantity: buy.quantity, price: buy.price,
+            limitPrice: input.decision.orderType === "limit" ? input.decision.limitPrice : null,
+            fees: buy.fees, currency: buy.currency, accountId: buy.accountId, accountName: account?.name || "",
+            watchId: linkedWatch?.id || "", holdingId: holding.id, holdingTradeId: buy.id, symbol: buy.symbol,
+            name: linkedWatch?.name || holding.name || buy.symbol, timeInForce: "DAY", broker: "", brokerOrderId: "",
+          });
+        }
         return { state: await write(s), holding, merged: Boolean(preview.existing) };
+      });
+      res.json(result);
+    } catch (e) { next(e); }
+  });
+  app.put("/api/holdings/trades/:id", async (req, res, next) => {
+    try {
+      const input = req.body;
+      const result = await serial(async () => {
+        const s = await read();
+        if (input.revision !== s.revision) throw error("数据已更新，请刷新后重试；未保存的表单仍保留。", 409);
+        const trade = s.holdingTrades?.find((row) => row.id === req.params.id);
+        if (!trade) throw error("这笔持仓记录已不存在，请刷新后重试。", 404);
+        if (!date(input.date) || !input.date) throw error("请填写有效的交易日期。");
+        if (trade.type === "adjustment") {
+          if (!num(input.quantity, -1e14, 1e14) || !num(input.cost, -1e14, 1e14))
+            throw error("持仓修正的股数与成本变化无效。");
+          trade.quantity = Number(input.quantity.toFixed(10));
+          trade.cost = roundMoney(input.cost);
+          trade.price = Math.abs(trade.quantity) > 0.00000001 ? Math.abs(trade.cost / trade.quantity) : 0;
+          trade.fees = 0;
+        } else {
+          if (!num(input.quantity, 0.00000001) || !num(input.price, 0.00000001) || !num(input.fees ?? 0))
+            throw error("请填写大于 0 的股数和单价，以及有效费用。");
+          trade.quantity = input.quantity;
+          trade.price = input.price;
+          trade.fees = input.fees || 0;
+          trade.cost = roundMoney(trade.quantity * trade.price + trade.fees);
+        }
+        trade.date = input.date;
+        for (const entry of s.journal) {
+          if (entry.kind !== "trade" || entry.holdingTradeId !== trade.id) continue;
+          entry.date = trade.date;
+          if (trade.type === "buy") {
+            entry.quantity = trade.quantity;
+            entry.filledQuantity = trade.quantity;
+            entry.price = trade.price;
+            entry.fees = trade.fees || 0;
+          }
+        }
+        const holdingIndex = s.holdings.findIndex((row) => row.id === trade.holdingId);
+        if (holdingIndex < 0) throw error("对应持仓不存在，请刷新后重试。", 404);
+        const holding = s.holdings[holdingIndex];
+        const totals = holdingTotalsFromTrades(s.holdingTrades.filter((row) => row.holdingId === holding.id));
+        const updatedHolding = applyTradeTotals(holding, totals);
+        s.holdings[holdingIndex] = updatedHolding;
+        return { state: await write(s), holding: updatedHolding };
+      });
+      res.json(result);
+    } catch (e) { next(e); }
+  });
+  app.post("/api/holdings/trades/:id/delete", async (req, res, next) => {
+    try {
+      const result = await serial(async () => {
+        const s = await read();
+        if (req.body.revision !== s.revision) throw error("数据已更新，请刷新后重试；未保存的表单仍保留。", 409);
+        const index = s.holdingTrades?.findIndex((row) => row.id === req.params.id) ?? -1;
+        if (index < 0) throw error("这笔持仓记录已不存在，请刷新后重试。", 404);
+        const [removed] = s.holdingTrades.splice(index, 1);
+        const holdingIndex = s.holdings.findIndex((row) => row.id === removed.holdingId);
+        if (holdingIndex < 0) throw error("对应持仓不存在，请刷新后重试。", 404);
+        const holding = s.holdings[holdingIndex];
+        const remaining = s.holdingTrades.filter((row) => row.holdingId === holding.id);
+        const totals = holdingTotalsFromTrades(remaining);
+        if (Math.abs(totals.quantity) <= 0.00000001 && Math.abs(totals.cost) < 0.01) {
+          s.holdings.splice(holdingIndex, 1);
+          s.holdingTrades = s.holdingTrades.filter((row) => row.holdingId !== holding.id);
+          return { state: await write(s), holding: null, removedHolding: true };
+        }
+        const updatedHolding = applyTradeTotals(holding, totals);
+        s.holdings[holdingIndex] = updatedHolding;
+        return { state: await write(s), holding: updatedHolding, removedHolding: false };
       });
       res.json(result);
     } catch (e) { next(e); }
@@ -1189,7 +1413,10 @@ export async function createHoldingsApp({
           candidate.orders = candidate.orders || current.orders || [];
           candidate.jobs = current.jobs;
           candidate.analyses = current.analyses;
-          if (current.holdingTrades) candidate.holdingTrades = current.holdingTrades;
+          if (current.holdingTrades) {
+            const holdingIds = new Set(candidate.holdings.map((holding) => holding.id));
+            candidate.holdingTrades = current.holdingTrades.filter((trade) => holdingIds.has(trade.holdingId));
+          }
           else delete candidate.holdingTrades;
           candidate.converter = candidate.converter || current.converter || createInitialConverterState();
           for (const w of candidate.watchlist) {
@@ -1222,6 +1449,7 @@ export async function createHoldingsApp({
           removeOrphanedDecisionPlans(candidate);
           candidate.orders ||= [];
           consolidateStateHoldings(candidate, now().toISOString());
+          reconcileHoldingTrades(candidate, now().toISOString());
           candidate.revision = current.revision;
           candidate.jobs = [];
           candidate.converter = candidate.converter || current.converter || createInitialConverterState();

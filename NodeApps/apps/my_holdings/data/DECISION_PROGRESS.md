@@ -1,0 +1,73 @@
+# 决策报告目标进度
+
+已完成 9/66；资本基准40万美元，五年视角。
+
+以state.json和DECISION_GOAL.json为准；此表仅为进度索引。已有报告不代表后续刷新任务已完成。
+下一步：按下表顺序研究尚未完成的标的；每支先报告结论，再继续。详细JSON契约见DECISION_REPORTS.md。
+
+- [x] RKLB · 已保存 decisions/rklb-2026-11-04-62c5ba3c-18a8-4744-b0e0-121681f1f366.html
+- [x] OUST · 已保存 decisions/oust-2026-11-04-346778fe-6540-4524-8a14-7fdaf6f4f8ef.html
+- [x] TMDX · 已保存 decisions/tmdx-2026-11-04-32c769c7-fe51-4934-b902-ada15dcbfee2.html
+- [x] LUNR · 已保存 decisions/lunr-2026-11-05-5e6f0fe7-9b3e-4360-9001-8f0de59e2ba7.html
+- [x] PLTR · 已保存 decisions/pltr-2026-11-05-73ba98ee-3761-4467-ba06-3bfd63d7065f.html
+- [x] AEHR · 已保存 decisions/aehr-2026-11-05-f589e4c8-b4dd-4b16-8250-fb1a4e18349e.html
+- [x] ENVX · 已保存 decisions/envx-2026-11-05-b0af9cb6-531e-48f7-a346-9c32651705db.html
+- [x] INOD · 已保存 decisions/inod-2026-11-05-3a648a5a-062d-47bb-ae67-3c87d1ad381f.html
+- [x] ASTS · 已保存 decisions/asts-2026-11-05-9e170ac0-5ee9-4973-915b-ff7d1e808d5a.html
+- [ ] CRDO · waiting · 229ea45c-b26e-40eb-a23b-e78fd7c688f0
+- [ ] HOOD · waiting · 2d05108c-6bc0-42b2-b9b2-b785b6647fbc
+- [ ] SPGI · waiting · 091d97b7-bbad-4045-9759-c4a303e3f977
+- [ ] VST · waiting · aead4714-5806-4b08-b478-426c1d1bec3e
+- [ ] AXP · waiting · 3a7b7564-c377-4fed-a9da-b9d38a48246e
+- [ ] INTC · waiting · b7a0d35d-a0a8-4175-943f-e3b0880dee38
+- [ ] BRK.B · waiting · dd329d3e-8484-4aaf-b067-8cfffd39731a
+- [ ] V · waiting · d0fd558b-67a2-4fa5-a4e9-e52ba29f1609
+- [ ] APLD · waiting · af80987d-b818-4198-932b-12ce47707bb7
+- [ ] AMPX · waiting · 5b0cd91a-cbca-4743-83f9-8802fabd54a2
+- [ ] PL · waiting · c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b
+- [ ] IREN · waiting · 615075be-650c-4541-aab4-fdb2add3f4a0
+- [ ] TEM · waiting · 675e461c-c136-4bc1-9b7e-28ffa661b6f1
+- [ ] SE · waiting · d3db5cdc-edf6-4035-8ced-812d43429f74
+- [ ] NU · waiting · 85c00166-2416-465b-9119-9ad498db333d
+- [ ] SOFI · waiting · 2f28573c-4b09-4e5a-9879-5f8896c20945
+- [ ] ADMA · waiting · 07f86b80-aeb9-4361-8e78-b7ee7255e722
+- [ ] PGY · waiting · 046ee2bc-e802-4cdf-b050-28fb7a3d5c78
+- [ ] ZETA · waiting · 223eb31e-013d-4048-a90a-faf760620a7f
+- [ ] CBRS · waiting · 28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7
+- [ ] AAOI · waiting · d69709e4-ba23-4099-999f-e52d5356bfa1
+- [ ] MP · waiting · 29d05244-ab8a-4055-bf59-ee87ea146d2c
+- [ ] CLPT · waiting · e9035dc5-19f0-4401-b17f-f5ffff06d8e3
+- [ ] IONQ · waiting · 0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23
+- [ ] BE · waiting · f78ab352-bd75-4447-90fd-df466596d5ef
+- [ ] MSFT · waiting · de0a4b64-f9a7-4a96-b4bb-543fdacede11
+- [ ] AAPL · waiting · ca102706-7ca5-4ca6-8d5e-886a236eed13
+- [ ] NVDA · waiting · 49c1abfd-2545-4f50-8fce-6afc4cb62ea5
+- [ ] GOOG · waiting · 705d178b-5f48-43d1-b5cd-bc3e19569b69
+- [ ] AMZN · waiting · 0c3f86b6-71bb-4ed3-8e46-6f63484076ce
+- [ ] META · waiting · 6dbe6abb-0b9b-47f6-b9ce-bf270f73a819
+- [ ] TSLA · waiting · 1c3a5b0e-2456-4666-a32e-806d9d01c0dc
+- [ ] AMD · waiting · f98c9e58-604c-445d-8e5d-8e8d2f81d07c
+- [ ] TSM · waiting · 06eec123-edd2-446e-80d0-352eb94f3a44
+- [ ] SPCX · waiting · abc8ce7c-a182-46c7-af72-69629799d4bc
+- [ ] UNH · waiting · dbaf2e08-49e8-4b6b-be03-3bce243f3861
+- [ ] SYM · waiting · c51c7182-745d-4f7b-b797-7e77a1db62c6
+- [ ] CGNX · waiting · 4450a3cb-f3ad-4748-b277-3a4132ae899d
+- [ ] PATH · waiting · 98a7f00e-e070-4b18-990c-842d64de128c
+- [ ] NOW · waiting · 1bbbac2d-2e4e-4459-85e8-25ae557b2358
+- [ ] AMBA · waiting · 811578d6-4f0a-41a6-8242-becaa83e4c2c
+- [ ] TER · waiting · d6ba2878-6df5-41cc-9e96-0fe7c1a30a28
+- [ ] DLO · waiting · 1fd660bf-9d5c-4f12-9b8a-b2e42cf43ee7
+- [ ] CLBT · waiting · 588820ea-7160-4ae1-8517-c5a78b100fa7
+- [ ] ACMR · waiting · 06bcc337-09c9-4275-97f0-bade2fe3338d
+- [ ] MRVL · waiting · 3e932aa2-8875-4b84-be3b-fe9f7e1cbb9a
+- [ ] ARQT · waiting · 05c1bc86-d163-4f80-9660-55f3c7d466db
+- [ ] INTA · waiting · 8ffc2c0c-44e1-485e-b063-c479f474fe80
+- [ ] DOCN · waiting · 5caebcac-0c90-4cbb-bd93-7434f792c103
+- [ ] FLYW · waiting · 9a8677ab-8773-4a7d-86e3-c99c5708b372
+- [ ] CLMB · waiting · a520d6e8-8ed9-4058-a546-c7330844d613
+- [ ] ALGM · waiting · 2ae009e4-fb1e-435b-a99a-d157c0536d3a
+- [ ] GTLB · waiting · 24c94dd9-411c-4934-9635-fb07d54bb826
+- [ ] BILL · waiting · bc8420d0-7200-466c-942c-14ae298a2921
+- [ ] VTEX · waiting · 53e9250b-97a6-4653-9b7c-4cc5b55b5fbf
+- [ ] AMPL · waiting · cb6b3646-63a5-42c1-bba4-e380d349ffb8
+- [ ] CLFD · waiting · b88129fc-0177-435a-b9bf-e2451b89b253

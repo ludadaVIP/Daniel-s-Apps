@@ -1,0 +1,130 @@
+{
+  "at": "2026-11-04T23:08:21.836Z",
+  "unit": "USD millions",
+  "sources": [
+    "crdo-10k-20240427.txt",
+    "crdo-10k-20260502.txt",
+    "crdo-10q-20260801.txt"
+  ],
+  "method": "Parent independent reads of original audited and quarterly statements, before relying on analyst model. Older separate impairment reclassified into R&D does not change total EBIT.",
+  "annual": [
+    {
+      "year": 2022,
+      "periodEnd": "2022-04-30",
+      "revenue": 106.477,
+      "grossProfit": 64.015,
+      "ebit": -21.968,
+      "netIncome": -22.176,
+      "cfo": -30.832,
+      "ppeCapex": 17.58,
+      "technologyLicenseCash": 0,
+      "sbc": 9.188,
+      "da": 4.793
+    },
+    {
+      "year": 2023,
+      "periodEnd": "2023-04-29",
+      "revenue": 184.194,
+      "grossProfit": 106.194,
+      "ebit": -21.235,
+      "netIncome": -16.547,
+      "cfo": -24.615,
+      "ppeCapex": 21.713,
+      "technologyLicenseCash": 0.616,
+      "sbc": 23.516,
+      "da": 9.514
+    },
+    {
+      "year": 2024,
+      "periodEnd": "2024-04-27",
+      "revenue": 192.97,
+      "grossProfit": 119.431,
+      "ebit": -37.058,
+      "netIncome": -28.369,
+      "cfo": 32.737,
+      "ppeCapex": 15.652,
+      "technologyLicenseCash": 3.052,
+      "sbc": 39.022,
+      "da": 13.771
+    },
+    {
+      "year": 2025,
+      "periodEnd": "2025-05-03",
+      "revenue": 436.775,
+      "grossProfit": 282.909,
+      "ebit": 37.124,
+      "netIncome": 52.183,
+      "cfo": 65.083,
+      "ppeCapex": 36.061,
+      "technologyLicenseCash": 6.306,
+      "sbc": 77.355,
+      "da": 21.938
+    },
+    {
+      "year": 2026,
+      "periodEnd": "2026-05-02",
+      "revenue": 1335.116,
+      "grossProfit": 908.349,
+      "ebit": 445.005,
+      "netIncome": 472.279,
+      "cfo": 464.292,
+      "ppeCapex": 57.296,
+      "technologyLicenseCash": 6.624,
+      "sbc": 182.638,
+      "da": 34.637
+    }
+  ],
+  "qPrior": {
+    "revenue": 223.074,
+    "grossProfit": 150.368,
+    "ebit": 60.742,
+    "netIncome": 63.399,
+    "cfo": 54.168,
+    "ppeCapex": 2.821,
+    "technologyLicenseCash": 3.906,
+    "sbc": 35.455,
+    "da": 5.46,
+    "acquiredAmortization": 0
+  },
+  "qLatest": {
+    "revenue": 479.003,
+    "grossProfit": 309.08,
+    "ebit": 120.7,
+    "netIncome": 129.425,
+    "cfo": 90.231,
+    "ppeCapex": 7.282,
+    "technologyLicenseCash": 5.172,
+    "sbc": 87.979,
+    "da": 8.606,
+    "acquiredAmortization": 11.6
+  },
+  "ttm": {
+    "revenue": 1591.0449999999998,
+    "grossProfit": 1067.0610000000001,
+    "ebit": 504.963,
+    "netIncome": 538.305,
+    "cfo": 500.3549999999999,
+    "ppeCapex": 61.757000000000005,
+    "technologyLicenseCash": 7.889999999999999,
+    "sbc": 235.16200000000003,
+    "da": 37.783,
+    "acquiredAmortization": 12,
+    "cfoLessPpe": 438.5979999999999,
+    "cfoLessPpeAndLicenses": 430.7079999999999
+  },
+  "cfoParts": [
+    129.425,
+    8.606,
+    87.979,
+    11.6,
+    3.911,
+    -54.503,
+    -61.547,
+    -25.338,
+    6.515,
+    -12.563,
+    -3.854
+  ],
+  "cfoSum": 90.23099999999998,
+  "periodNotes": "FY2025 is53weeks; FY2026 and FY2027Q1 comparatives are13week quarter/same fiscal basis. TTM=FY2026+FY2027Q1−FY2026Q1; scope includes acquired businesses from actual dates, not organic proforma."
+}

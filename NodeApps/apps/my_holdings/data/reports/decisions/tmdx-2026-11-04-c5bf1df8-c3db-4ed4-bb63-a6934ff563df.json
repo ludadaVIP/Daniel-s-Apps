@@ -1,0 +1,1413 @@
+{
+  "version": 1,
+  "symbol": "TMDX",
+  "name": "TransMedics Group, Inc.",
+  "exchange": "NASDAQ Global Select Market",
+  "currency": "USD",
+  "capitalUsd": 400000,
+  "horizonYears": 5,
+  "analysisDate": "2026-11-04",
+  "financialPeriod": "2026 Q2 / H1；Q3尚未发布",
+  "dataAsOf": "2026-11-04核验；财务实际截至2026-06-30，全年指引于2026-09-10重申；Q3定于美东11月5日盘后公布。报告报价为11月3日历史盘后参照，非实时成交。",
+  "quote": {
+    "price": 68,
+    "date": "2026-11-03",
+    "type": "已核验盘后历史参照",
+    "source": "Moomoo实际报价页面",
+    "sourceUrl": "https://www.moomoo.com/stock/TMDX-US",
+    "note": "Moomoo页面标Post 20:02 ET、68.00美元，对应2026-11-04 01:02 UTC；已过数小时，不是20分钟内核验的新鲜成交。正式收盘67.34美元为11月3日16:00 EST。BOATS指示价约67.29、页面有open/realtime标记，但无独立最新成交时间戳，仅作背景。应用67.305快照保留。[S10][S14]"
+  },
+  "verdict": {
+    "stance": "观察；财报前不新增，等价格与资金安排改善",
+    "summary": "OCS有临床与网络价值，但低PE含一次税收收益，2027–28资金义务需核实。基准今日约57–71美元，68美元参照价缺少足够安全边际；Q3后再重核三档及旧55美元买单。",
+    "confidence": "中低：商业价值可解释，资金期限、临床投入回报、利润恢复和即将发布财报仍影响很大",
+    "valueLow": 57,
+    "valueHigh": 71,
+    "conclusion": "TransMedics不是简单的低PE便宜医疗股，也不是没有商业壁垒的运输商。OCS、临床流程与NOP物流有价值，但Q2收入增长而营业利润下滑，2025净利润又含一次税收收益，必须按正常化现金与全部融资索偿估值。基准两法今天约$57.35–$71.18，68美元盘后参照处在这一区间上部；基准2031期末$103.06，五年年化约8.7%，不足本轮约15%门槛。当前不再新增。条件观察43.1–51.2、安全34.5–43、折价28–34.4美元，全部须等11月5日Q3披露后重核。已有20股×55美元本地买单高于本轮观察上限，不因它已存在就视为已通过研究。",
+    "limitations": "当前最新实际财报仍为Q2，Q3将在11月5日盘后提供新信息；本版不是跨越财报事件仍自动有效的GTC建议。6月现金、7月股数与PAD投资实际成本/股权比例均需最新文件更新。37百万与全转股41.893805百万是情景估值股数，不等于当日流通股；预测假设利润含SBC、未来费用抵消净稀释，仍可能低估股数增长。净债务滚存不是实际逐笔付款表，不能证明2027购楼或2028偿债一定安全，也未核验已承诺再融资。临床、报销、竞争和内控风险不能可靠给出概率。历史表展示2023–2025完整年度及最新H1/TTM，未声称十年历史审计。用户全部资产、可承受回撤、税务与流动性需求未知，组合适配仍不完整。"
+  },
+  "position": {
+    "currentAdditionalPct": 0,
+    "targetPct": 1,
+    "maxPct": 2,
+    "existingExposureUsd": 0,
+    "pendingBuyUsd": 1100,
+    "rationale": "财报前不再新增。条件成立后，公司总敞口目标1%=4,000美元，上限2%=8,000美元；即使有较好的临床/网络经济性，经营、内控与到期融资风险叠加也不适合直接做核心大仓。假设单股压力损失80%，1%仓位会损失组合约0.8%，2%约1.6%；极端全损更大且与其他成长资产可能同时下跌，这不是最大回撤保证。先扣已排1,100美元潜在订单，剩余条件预算2,900美元，按25%/35%/40%分配，不因为财报跳空或价格下跌就补满。",
+    "portfolioFit": "保存持仓和已持QQQM/VOO/SMH/SOXX完整历史成分中，未记录TMDX直接或间接敞口；基金披露日期为9月末/10月23日等，非实时成分。已排working本地限价买单20股×55美元=1,100美元，未视作已成交，但已从可新增预算预留。原卡片62美元观察价、2%手填仓位和55–62/45–55区间属于旧手工计划，本报告独立给出新条件，不自动把旧计划当成价值证据。所有个股及买单共享40万美元预算；先核验现有订单与总主题风险，再决定新增。"
+  },
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 43.1,
+      "high": 51.2,
+      "budgetSharePct": 25,
+      "condition": "仅在Q3后复核增长、营业率、现金流与融资安排仍支持基准后讨论。上限=min(103.0573/1.15^5，57.3495)=51.2377，向下取51.2。已有55美元买单高于本上限，须按新财报重新判断。"
+    },
+    {
+      "tier": "safety",
+      "low": 34.5,
+      "high": 43,
+      "budgetSharePct": 35,
+      "condition": "基准今日价值25%折让=57.3495×0.75=43.0121，向下取43.0；同时满足约15%回报买价上限。需要临床/服务单位经济性、回款和2027–28资金桥得到更清晰证据。"
+    },
+    {
+      "tier": "discount",
+      "low": 28,
+      "high": 34.4,
+      "budgetSharePct": 40,
+      "condition": "基准今日价值40%折让=57.3495×0.60=34.4097，向下取34.4。价格大跌若来自临床/监管、客户、内控或再融资失效，先停下重建模型；28美元是本轮重审边界，不是底价保证。"
+    }
+  ],
+  "scenarios": [
+    {
+      "id": "bear",
+      "label": "悲观",
+      "todayValue": 1.893649487429006,
+      "year5Price": 11.299569222408545,
+      "assumptions": "2027收入8.0亿→2031年9.6亿→2036年11.4亿美元；GAAP营业率9%→12%→15%，WACC14%、终值g2.5%、ROIC10%；可转债按现金本金偿还、37百万股。增长/利润失速且净融资负担保留。"
+    },
+    {
+      "id": "base",
+      "label": "基准",
+      "todayValue": 57.34946040055304,
+      "year5Price": 103.0573321530493,
+      "assumptions": "2027收入8.6亿→2031年14.01亿→2036年19.84亿美元；GAAP营业率14%→25%→28%，WACC11.5%、g3.5%、ROIC18%；可转债现金偿付、37百万股，并假设必要时可再融资。"
+    },
+    {
+      "id": "bull",
+      "label": "乐观",
+      "todayValue": 163.5814728841219,
+      "year5Price": 260.9331791697044,
+      "assumptions": "2027收入9.2亿→2031年19.384亿→2036年31.441亿美元；GAAP营业率16%→32%→35%，WACC10%、g4%、ROIC25%；可转债全转股、41.893805百万股，不再扣本金，保留转股前票息。"
+    }
+  ],
+  "masters": [
+    {
+      "id": "graham",
+      "name": "格雷厄姆 · 先剥离便宜的表象",
+      "judgment": "不能用含一次税收收益的低市盈率替代安全边际；先看可持续盈利、全部融资索偿与到期现金需求。",
+      "evidence": "2025净利润包含约8,277万美元所得税收益；新总部融资租赁约3.48亿美元，另有2028年到期可转债约4.60亿美元。账户中18.3倍历史TTM P/E是保存的行情口径，不代表已通过正常化盈利检验。 [S1][S2]",
+      "challenge": "器官移植需求长期增长、公司已有盈利，为什么还要像高风险成长股一样严格折价？",
+      "response": "长期需求不等于财务结构没有风险。要剔除税务一次项，用正常化现金税与FCFF定价，逐项检验2027购楼/贷款及2028可转债的融资桥；买价应补偿对新试验、产能与资产投入判断错误的风险。"
+    },
+    {
+      "id": "buffett",
+      "name": "巴菲特 · 临床价值、网络优势与资本回报",
+      "judgment": "OCS耗材、临床工作流程和移植物流网络可能形成有价值的系统优势，但必须证明这些优势能转成持续的每股自由现金。",
+      "evidence": "企业同时提供器官灌注/评估相关产品、临床服务和运输能力，客户买的是可靠完成移植流程的能力。2026Q2收入仍增长，但营业利润率压缩；飞机、制造和研发设施让资本强度变得更重要。 [S1][S3][S7][S8]",
+      "challenge": "物流网络与已建立的临床使用习惯是否足以形成竞争者难以复制的护城河，允许暂时压低利润？",
+      "response": "允许为长期价值投资，也承认临床验证与服务密度能产生转换摩擦。检验标准是更多任务带来更高资产利用率、更好的单位贡献与现金回报，而不是把每一笔扩张支出都认作高回报。未来ROIC、现金转换和每股价值必须验证。"
+    },
+    {
+      "id": "munger",
+      "name": "芒格 · 反过来找会永久损失资本的路径",
+      "judgment": "最危险的组合是：行业需求很好，却误读税收、租赁、可转债与内控，低估了经营和融资同时变差的风险。",
+      "evidence": "最新披露的内控重大弱点尚未完成整改；总部会计付款表反映公司认为很可能行使购楼权。可转债又同时具有债务与潜在股份索偿，不能全扣本金后再全额加转股股数。 [S1]",
+      "challenge": "财务复杂性可能只是企业快速扩张的副产品，是否把会计细节放大成了商业失败？",
+      "response": "不把内控问题直接等同于造假，也不因报表复杂就否定临床产品。恰恰要统一口径：租赁按融资或经营化二选一，可转债按现金偿付或转换索偿二选一；临床/服务失误、监管与融资是可相互放大的风险链，仓位要为这种相关性留余地。"
+    },
+    {
+      "id": "lynch",
+      "name": "彼得林奇 · 区分暂时投资期与盈利模型恶化",
+      "judgment": "这更像快速成长企业进入重投资阶段，关键是辨别利润压缩是否能换来更长的成长跑道。不能机械套PEG，也不能看到一季利润下滑就断言业务坏了。",
+      "evidence": "2026Q2收入189.948百万美元、同比增长约21%，营业利润23.736百万、同比下降约35%；研发和临床投入提高。收入与利润的方向已出现分歧。 [S1][S3]",
+      "challenge": "如果新增临床项目和产能会带来下一轮增长，财报前谨慎可能错过市场对拐点的重估。",
+      "response": "可以在利润恢复前投资，但要能解释每项投入对应的临床/商业里程碑、资本需求和回收期。Q3即将披露，最有价值的是等待它检验增长、费用与指引，而不是为赌一个季度结果忽略买价纪律。"
+    },
+    {
+      "id": "dalio",
+      "name": "瑞·达利欧 · 非周期需求也有政策与融资周期",
+      "judgment": "移植医疗需求与经济周期关联较弱，但支付体系、监管、运输成本和融资到期仍会改变股东现金流。",
+      "evidence": "总部购买会计假设集中在2027年，CIBC借款也于2027年到期，约4.60亿美元可转债在2028年到期；临床研发、产能与运输网络仍要投入。 [S1][S2]",
+      "challenge": "救命医疗需求的稳定性是否让这些现金义务比一般工业公司更容易承担？",
+      "response": "稳定需求有帮助，但收入确认与收款、资本开支和到期付款并不同时发生。需要逐年现金桥和再融资条件，而不是只看五年后价值；若融资成本或报销条件变差，估值和可部署仓位都应下调。"
+    },
+    {
+      "id": "soros",
+      "name": "索罗斯 · 临床信誉、网络扩张与融资反馈",
+      "judgment": "更高的任务密度和可靠临床服务可能吸引更多中心，扩大网络优势；负面事件与信任流失也能形成反向反馈。",
+      "evidence": "公司在产品、服务、航空物流和新设施之间配置资本；新增融资与股本价值会影响未来扩张和可转债处理。内控、临床安全与新试验结果都可能影响客户和资本市场信任。 [S1][S5][S7]",
+      "challenge": "如果网络效应正在加速，保守的线性现金流预测可能无法反映成功时的非线性价值。",
+      "response": "因此要保留真正更强的经营情景，而非只把目标价上下加百分比。但网络扩张只有在单位经济性和现金回报提高时才创造每股价值；股价反弹不是临床证据，负面报道也不是已判定事实，均须用原始材料验证。"
+    },
+    {
+      "id": "marks",
+      "name": "霍华德·马克斯 · 报价便宜与风险补偿是否相称",
+      "judgment": "核心问题是现价已反映多少利润恢复与长期成长，而不是股价离旧高点有多远。临近财报时，选择权也包括暂时不行动。",
+      "evidence": "Q2增长与利润分化，正常化盈利比含税收收益的GAAP净利润更低，资本义务集中在2027–2028。11月5日盘后财报将提供可验证的新信息。 [S1][S2][S4]",
+      "challenge": "等待财报可能意味着为更清晰的经营结果支付更高价格，这个机会成本是否过大？",
+      "response": "可能付出错过反弹的代价，但没有义务在信息跳变前下注。将经营路径、融资与稀释连动建模，再给满足所需回报和安全边际的价格；如果新数据降低风险，允许价值和买价上调，而不是固定看空或盲目抄底。"
+    }
+  ],
+  "debate": [
+    {
+      "question": "利润下滑，是值得支持的投入期，还是模式开始变差？",
+      "bull": "林奇和巴菲特框架看重未满足移植需求、临床工作流程与网络规模。研发、临床和制造投入可能扩大未来适应范围与任务量，单季费用上升不应直接判坏生意。",
+      "bear": "格雷厄姆与马克斯框架指出，收入增长未同步转成营业利润，投入必须由每股现金回报证明；一次税收收益更会遮盖实际盈利压力。",
+      "resolution": "把投入期视作待验证的成长假设，要求试验里程碑、服务单位经济性、产能利用和现金转换作证。Q3前不凭旧PE下单，具体入场价由正常化模型与安全边际决定。"
+    },
+    {
+      "question": "总部融资租赁与飞机投入，应该怎样进入价值？",
+      "bull": "新设施和物流能力可能支持更大规模，并非所有资本投入都是价值损耗；融资安排能使现金支出与未来收益相匹配。",
+      "bear": "芒格与达利欧框架要求穿透真实现金期限：会计假定2027购楼，外加贷款与可转债到期，现金义务集中；只看现金CapEx会低估资本强度。",
+      "resolution": "现有总部ROU是估值日前的资产，不再当未来新CapEx扣一次；按融资口径将租赁负债计入净债务，购楼作为清偿该索偿，避免未来租金再全扣。飞机维护/更新另计，逐年资金缺口必须说明融资假设。"
+    },
+    {
+      "question": "内控与临床争议，应否成为一票否决？",
+      "bull": "正式许可、临床工作流程与实际商业使用不能因市场质疑被一笔抹掉；内控整改问题也不自动证明财务或临床造假。",
+      "bear": "医疗服务的信任一旦受损，客户、监管和融资会共同反应。治理与临床可靠性不宜仅当很小的估值折扣。",
+      "resolution": "只使用已披露弱点、正式监管文件与可核实证据，不把投诉数当事故率，也不把公司反驳当独立清白证明。出现实质新证据则暂停投入并重建价值，而不是靠更低价格补偿不可理解的风险。"
+    },
+    {
+      "question": "已有55美元限价单，是否等于已经具备买入依据？",
+      "bull": "按较低价格分批，可以减少追价，并让小额订单成为观察企业的起点。",
+      "bear": "限价只能控制成交价格，不能控制财报后的价值变化。财报前挂出的旧订单可能在新信息恶化后的跳空中成交，折价程度也会随之改变。",
+      "resolution": "本地已排20股×55美元共1,100美元须从目标预算预留；它不是当前已持仓，也不构成报告对继续挂单的背书。所有新增三档先扣这笔潜在敞口，财报后按最新资料重核，再决定是否继续采用原计划。"
+    }
+  ],
+  "sections": [
+    {
+      "title": "买的是什么：产品、临床服务与物流系统",
+      "body": "公司开发OCS器官灌注与评估系统、配套一次性耗材，并通过NOP提供器官获取/灌注相关临床服务与航空、地面协调等物流。客户为移植中心与OPO等；收入不是单纯出售一台机器，更不是只赚飞机运费。OCS试图提高可用器官利用、支持评估和完成复杂时效流程；临床采用、训练、可靠服务和网络密度可形成转换摩擦。[S1][S2][S3]\nQ2产品收入111.158百万美元、成本25.566百万，计算产品毛利约77.0%；服务收入78.790百万、成本51.184百万，服务毛利约35.0%。服务占当季收入约41.5%，其中包括多种临床/物流服务，不能把它全部叫航空收入。产品与服务组合变化会影响合并毛利，服务带来的客户价值也不能只看单一毛利率。\n2025美国按器官归属OCS收入584.697百万，肝459.415百万约占78.6%、心111.839百万、肺13.443百万；这一分部不是全球全部营收，不强行归一化。肝业务既是核心优势，也带来增长集中；心、肺、国际和新适应范围的潜力需独立验证，不能把研究项目当已经商业化收入。[S2]"
+    },
+    {
+      "title": "成长空间与竞争：有系统优势，也有强对手",
+      "body": "增长驱动来自更多中心采用、器官利用、肝/心任务量、NOP覆盖、国际扩张及新一代产品/临床研究。Gen3、Kidney、CHOPS等项目各自有临床、监管、商业化与资本投入门槛；没有可靠概率时不把它们强行概率加权成确定市值。[S1][S7]\nTerumo已完成OrganOx收购，并继续推进灌注相关合作；竞争不再只是资源有限的新创。静态冷保存、低温/其他灌注方案及医院自身流程也是替代，差异要通过适应范围、临床证据、工作流与总成本验证，而不是只比设备技术词汇。[S8][S9]\n公司护城河的最强论点是临床使用、耗材与服务协同、可靠物流和规模密度；最强反方是对手资金与产品改善、报销/医院预算压力，以及航空/制造固定成本需要持续高利用率。Q2及H1没有单一客户占收入超过10%，应收也未见单客户超过10%，降低了直接大客户集中风险；但支付与监管制度依赖仍可影响全行业。部分组件、分组件和灭菌依赖有限/单一供应商，未披露的集中比例不猜测。[S1]"
+    },
+    {
+      "title": "历史财务：收入成长与利润、现金必须一起看",
+      "body": "单位为百万美元，GAAP及报告现金流口径。[S1][S2]\n2023：收入241.623，毛利154.093（63.8%），营业亏损28.727，净亏25.028，CFO−13.028，现金CapEx151.847，FCF−164.875。\n2024：收入441.540，毛利262.081（59.4%），营业利润37.496，净利35.464，CFO48.803，现金CapEx129.744，FCF−80.941。\n2025：收入605.494，毛利362.806（59.9%），营业利润108.583，税前107.522，净利190.291；CFO192.840，现金CapEx59.251，FCF133.589。现金CapEx下降与营运资本时点使单年FCF不能无条件外推。\n2026H1：收入363.881，毛利214.359，营业利润37.033，税前27.890，净利21.997；CFO41.842，现金CapEx43.749，FCF=41.842−43.749=−1.907。去年H1 CFO88.754、现金CapEx36.113，现金转换明显弱化。\n2026Q2：收入189.948，约同比+21%；营业利润23.736，去年36.567，约下降35%；营业率12.5%对比23.2%。研发/临床费用31.632对比15.934百万，投入接近翻倍，是利润分化的重要线索，不自动等于无效投入。Q2净利14.682、GAAP摊薄EPS0.41。\nH1 SBC18.558百万，D&A现金流列示22.106百万；应收与存货增长分别耗现约19.948和10.246百万。报告FCF=CFO−现金CapEx，不自动等于可用WACC折现的FCFF。当前TTM收入668.468、CFO145.928、现金CapEx66.887、报告FCF79.041百万；估值模型从GAAP EBIT、正常现金税和再投资重新建模。"
+    },
+    {
+      "title": "低PE的陷阱：一次税收收益与正常化利润",
+      "body": "2025净利190.291百万高于税前利润107.522百万，是因为全年所得税净收益82.769百万；其中递延税资产估值准备转回的毛额约103.3百万，与全年净税收收益不是同一数字。[S2]\n截至2026Q2的TTM税前利润=107.522+27.890−62.858=72.554百万。简单按正常税25%估算税后54.4155百万，是研究筛查口径，不是公司已报告净利润；TTM已报告净利151.699百万仍被税务一次项抬高。不能据行情中约17–18倍TTM P/E就认定便宜，也不把已报告GAAP数字改写成‘错误’。\n2025曾评估Section382，历史所有权变化使gross美国递延税资产减少约44.7百万并与估值准备相抵；不把全部历史亏损面值当现金资产。本模型所有预测按25%正常现金税，不另外加整份递延税资产现金价值。若税盾后来被证明可用，可以按真实使用时点补入，而不是既降低未来税又加税资产重复计值。[S1][S2]"
+    },
+    {
+      "title": "资本配置：总部融资租赁不是飞机现金CapEx",
+      "body": "6月末现金472.675百万，受限现金另有18.438百万；不要从已排除受限现金的472.675里重复扣一次。飞机总成本约295.563百万，H1相较去年末295.527百万基本不变，不能把全部43.749百万现金CapEx都说成买新飞机。公司飞机折旧寿命10年、残值按原值50%估计；实际维护、发动机大修、替换和二手残值未必等于账面折旧假设。[S1][S2]\n2026年1月签署Somerville约498,286平方英尺总部/研发/实验/制造等大楼融资租赁，合同到2044年；若不购买，基本租金2028年起约23.9百万/年并递增。但公司会计认定较可能行使购买权，披露的付款表列2027年374.590百万、2028后为0。不能同时把这份付款表与2044年前全部租金当两项必须支付的义务。\nH1新确认非现金融资ROU/负债约340.040百万，期末融资负债347.660百万；另有地产购买应付款3.986百万。这是总部相关融资索偿，不是当期飞机现金CapEx。已完成邻接地块约30百万支出已在历史现金/资产里，估值日后不再当新项目扣一次。\n本报告采用融资口径：GAAP EBIT含总部/飞机等折旧，D&A加回，融资租赁负债进入净债务；2027购楼作为清偿该既有融资索偿，不在FCFF又全额扣374.590，也不再扣全期同一租金。未来装修、维护、飞机与OCS资本需要仍单独列入预测。这个统一处理避免重复扣减，但不意味着到期付款没有流动性风险。"
+    },
+    {
+      "title": "2027–2028资金期限、PAD与可转债路线",
+      "body": "原始期限对照：总部按会计假定2027付款374.590百万，CIBC六月本金60百万、到期2027年7月（2026年7月起月供），2028年6月1日可转债本金459.996百万。按六月本金快照合计894.586百万，并非同一天到期，也不是全部未变化的最终付款额；对照最后披露非受限现金472.675百万，未来CFO、资本需求和融资安排必须核验。[S1]\nCIBC六月利率6.2%，担保涉及公司大部分资产含IP，另有最低流动性/收入约束。公司所说至少未来12个月资金足够，不能自动推及全部2027末与2028义务；未核验到已承诺的全部再融资，不把预测融资写成现成额度。\nPAD投资7月1日交割、7月6日公告；德国运营商有九架Phenom300飞机和40多名飞行员等资源，但已读公告/期后注释未量化购买成本与持股比例。本模型不单独加PAD整块利润/资产，暂留25百万的投资/流动性储备纯属研究假设，不是已披露交易价；欧洲增长已在经营路径里，不再另外加选择权重复计值。[S5]\n现金桥：472.675−运营储备30−PAD等示例储备25=417.675百万。融资索偿=459.996+60+347.660+3.986=871.642百万；基准净债务453.967百万。六月至估值日的真实现金、月供和PAD实际付款需Q3替换，年度近似误差不能隐藏。\n可转债票息1.5%、初始转换价约94美元，对应4.893805百万股。悲观/基准按现金本金偿付、保留债务且用37百万股；乐观按全转股、去掉459.996百万负债且用41.893805百万股，并扣转股前两年税后票息现值。不能全扣本金又加转换股数，也不能假设股票大涨后只以本金现金买断全部转换价值。已付52.1百万capped-call成本已在历史现金中，不再扣一次；未来对冲收益保守未计。[S1][S2]\n乐观模型移除可转债后的‘净现金’只是权益估值资本桥，不是2027实际可用现金。净债务滚存也不是逐笔付款日历；总部付款、贷款和PAD资金仍需真实总现金、到期计划和银行额度证明。基准2031净现金约129.97百万不能反过来证明2027–2028不会出现融资缺口。"
+    },
+    {
+      "title": "治理与临床风险：精确描述已知与未知",
+      "body": "Q2管理层认定披露控制无效，重大弱点涉及制造网络库存流转的季度记录控制；年末存在性/准确性已有相关控制，新期中盘点、系统、监控与复核措施虽于Q2实施，但尚未运行/测试足够时间来确认整改。管理层称经额外程序后本10-Q报表仍公允反映。这是明确披露的治理风险，不是财务造假的判定。[S1]\n9月更换CFO、同时重申指引；人事变化可能帮助控制与国际资本配置，也不能仅凭履历认定问题已经解决。应追踪正式整改结论、库存与收入/现金核对、关联交易和资本承诺披露。[S6]\n临床、监管、器官利用、产品可靠性、报销与FAA/EASA运输许可都能影响业务。投资评估使用正式许可、临床资料、监管行动和原始披露；不从做空指控或公司反驳直接跳到临床因果结论。FDA明确提醒MAUDE不良事件报告不能单独估计发生率、比较产品安全性或确定因果；本次不把搜索摘要或报告数量当成已证实的事故率，也没有据未检索到某文件就断言不存在监管风险。[S13]\n关键反证不是‘网络上有负面声音’，而是可核实的监管限制、临床适用范围/结果变化、客户行为、产品可靠性或披露信任受损。若影响到生意能否理解和继续经营，应先暂停投入，不靠更低价格补偿无法量化的风险。"
+    },
+    {
+      "title": "估值一：十年FCFF与真正的五年期末价",
+      "body": "单位：十亿美元、十亿股。2026收入起点0.747，为737–757百万指引中点，不是实绩，且当时指引排除PAD。采用2026年末附近年度近似，显性期2027–2036。[S3][S6]\nFCFF=GAAP EBIT×0.75+D&A−维持/替换CapEx−成长CapEx−ΔNWC。GAAP利润含SBC，不将其加回；D&A从收入6%降至5%，包含总部和飞机/OCS等折旧；维持/替换CapEx为收入3%，成长CapEx从6%降至3%，总CapEx从9%降至6%，均为自建假设，不是公司披露的维持/成长拆分。ΔNWC=收入增量12%。\n终值NOPAT=2036收入×(1+g)×终值营业率×0.75；终值FCFF=NOPAT×(1−g/ROIC)，TV=FCFF/(WACC−g)，为永续增长保留再投资。未来总部购买作为已有融资索偿的结算，不在FCFF重复扣；其他维护/扩张已在资本预算。\n输入序列逐项对应2027–2036：\nbear收入：0.8/0.84/0.88/0.92/0.96/1/1.04/1.08/1.11/1.14；GAAP营业率：9.0/8.0/10.0/11.0/12.0/13.0/14.0/15.0/15.0/15.0%；WACC14.0%、g2.5%、终值ROIC10.0%。\nbase收入：0.86/0.989/1.127/1.262/1.401/1.541/1.665/1.782/1.889/1.984；GAAP营业率：14.0/17.0/20.0/23.0/25.0/26.0/27.0/28.0/28.0/28.0%；WACC11.5%、g3.5%、终值ROIC18.0%。\nbull收入：0.92/1.1316/1.3806/1.6567/1.9384/2.2292/2.4967/2.7464/2.9661/3.1441；GAAP营业率：16.0/21.0/25.0/29.0/32.0/34.0/35.0/35.0/35.0/35.0%；WACC10.0%、g4.0%、终值ROIC25.0%。\n股权=EV−路线一致的起始净债务−需要单列的转股前票息PV，再除路线一致股数。37百万是从最新实股34.675145百万加权益激励索偿向上取的保守估值代理；不能直接拿Q2 GAAP摊薄加权40.709227百万再全扣可转债本金。未来SBC假设其费用抵消新增稀释的经济成本，并非公司回购承诺；股数敏感性另列。\n结果悲观/基准/乐观今日$1.89 / $57.35 / $163.58；2031期末分别$11.30 / $103.06 / $260.93。2031价格用当时剩余2032–2036 FCFF/终值减净债务，不能把今天57.35当第五年卖价。无股息假设下年化=(2031价格/入场价)^(1/5)−1。\n净债务End=前期净债务+税后净融资成本−FCFF；2027/28税前净融资率4.5%、以后6.5%，正净债务再乘0.75；净现金2.5%为已税后收益。乐观另外付转股前两年税后票息。该净额桥只用于分析，现金偿付基准假定必要时能再融资，不是已承诺融资；失败可迫使增发或大幅破坏价值。悲观仍不是最坏情况，永久损失可以更大。"
+    },
+    {
+      "title": "估值二：2028正常化EBIT的独立倍数校验",
+      "body": "采用不同逻辑的2028营业利润校验，而非调DCF参数冒充第二种方法。悲观/基准/乐观2028收入×GAAP营业率得到EBIT 67.20 / 168.13 / 237.64百万美元，分别给16/22/28倍EV/EBIT，折现两年至今天，并加回2027/28可分配FCFF现值，再扣同一资本索偿、除同一股数。结果约$11.11 / $71.18 / $134.93。\n16/22/28倍是研究假设。外部市场参照截至11月3日，Stryker SYK EV/TTM EBIT约20.69倍、Edwards EW约28.01倍；两者规模、分散度、产品组合与资产强度均不同，也可能自身高估，不能直接把成熟医疗器械倍数贴到器官产品+物流企业。[S11][S12]\n基准DCF57.35与EBIT校验71.18构成本轮约57–71美元今天交叉参考，不是确定上下界。悲观DCF约1.89说明增长放缓、利润率承压与融资索偿可以使股东价值被强烈压缩，不能仅凭医疗需求稳定就忽略杠杆。乐观则体现更高临床/国际兑现和利润率的真实上行路径。"
+    },
+    {
+      "title": "逆向预期、敏感性与最强反方",
+      "body": "逆向DCF固定2026指引中点747百万、基准GAAP营业率14%→28%、正常税25%、资本与营运资本假设、WACC11.5%、g3.5%、ROIC18%、现金偿债37百万股。若2027–2036按恒定增长，要支持68美元，收入需约12.7% CAGR，2031约1,359.06百万、2036约2,472.62百万。这只是一组条件解，不是市场真正预测；更早恢复利润或更低风险可以替代增长。\n基准WACC×终值g敏感性（美元/股）：\nWACC10.0%：g2.5%=71.59；g3.5%=76.18；g4.5%=82.36\nWACC11.5%：g2.5%=55.02；g3.5%=57.35；g4.5%=60.29\nWACC13.0%：g2.5%=43.34；g3.5%=44.57；g4.5%=46.04\n基准终值现值占业务EV约56.8%，乐观约67.6%，远期利润和资本回报仍影响很大。每年额外CapEx增加收入1%/2%时，基准今天约55.27 / 53.18美元；额外净增2/4百万股约54.41 / 51.75。\n资本路线敏感性不能被当作任意挑高估值：低股价时强制全转股未必符合持有人权利；高股价时现金结算转换索偿不能只付本金。乐观已用更大股数和移除本金的匹配路线，未来capped-call收益未加。\n[模型可能低估] R&D/临床投入扩大适应范围、NOP任务密度改善、国际网络复制与产品升级可能让增长和利润恢复高于基准。\n[模型可能高估] 基准长期28%营业率、18%终值ROIC、飞机/设施维护替换预算、能获得再融资、未来激励费用可抵消稀释，都可能过宽。新项目失败、报销或竞争压力、残值偏低、PAD投入超储备会降低价值。没有独立证据时，不为贴现价同步抬高多个参数，也不把临床选择权全部定为零。"
+    },
+    {
+      "title": "三档价格、限价预算与可能收益",
+      "body": "本轮采用五年、现货、无杠杆，约15%税费前年回报作为研究门槛，接近用户已存五年翻倍目标；不是收益承诺。三年翻倍需约26%年化，门槛更高。\n回报买价上限=103.0573/1.15^5=51.2377；安全边际参考为今天基准57.3495，25%折让43.0121、40%折让34.4097。向下取整形成43.1–51.2、34.5–43、28–34.4三个不重叠区间。区间带宽是计划边界，不是统计置信带；低于28美元需重新调查，不能机械补仓。\n68美元参照价下，五年悲观/基准/乐观总涨幅约-83.4% / 51.6% / 283.7%，年化约-30.2% / 8.7% / 30.9%。模型不分配概率，不平均成‘预期收益’。\n在各档上沿买入、基准2031兑现时，年化约15.0% / 19.1% / 24.5%；若悲观兑现仍可能大幅亏损。折价不能替代临床、治理与生存性审查。\n目标4,000美元，先扣0已持敞口与1,100美元已排买单，剩余2,900按25%/35%/40%分725/1,015/1,160美元；股数按区间上沿向下取整。已有55美元买单比本轮51.2观察上限高，限价仅控制成交价格，不能控制财报后价值下修。Q3后先重核收入/营业率/CFO、购楼与2028资金安排、PAD成本和内控整改，再决定采用哪些限价条件。"
+    },
+    {
+      "title": "失效、催化与机会成本",
+      "body": "最重要的近期催化是11月5日美东盘后Q3结果及16:30 EST电话会，即新西兰11月6日10:30 NZDT。[S4] 催化提供新信息，不保证股价上涨；不能将尚未公布的Q3写成实绩。\n经营风险看产品/服务组合、NOP任务量、单位贡献、利用率和回款；研发/临床投入要对应可核验里程碑。财务风险看实际总现金、到期本金、融资承诺与资本开支，而不只是2031净债务。治理看库存控制是否正式整改完成，不能把实施措施当成已有效。\n新临床/监管限制、正式召回或适应范围变更、报销变化、客户实质流失和资金链困难都可能使旧买价失效；没有概率依据时不捏造‘低风险’评分。假设破坏后即使价更低也应暂停投入。\n机会成本包括财报前保持不动、等待信息和更好的价格，以及与低成本宽基或其他可理解企业比较。公司有价值不意味着每个时间都值得加仓；也没有必要为66支股票都安排一笔订单。"
+    }
+  ],
+  "figures": [
+    {
+      "title": "完整财年实际收入",
+      "unit": "百万美元；GAAP",
+      "note": "[S2]。2023–2025收入成长显著；现金回报仍需结合资本投入与税收口径。",
+      "rows": [
+        {
+          "label": "2023",
+          "value": 241.623
+        },
+        {
+          "label": "2024",
+          "value": 441.54
+        },
+        {
+          "label": "2025",
+          "value": 605.494
+        }
+      ]
+    },
+    {
+      "title": "2025利润的不同口径",
+      "unit": "百万美元；实绩与研究正常化分开",
+      "note": "[S2]。前两项为已报告数，第三项=税前107.522×75%，仅作正常税研究示例；不把税收一次项当经营增长。",
+      "rows": [
+        {
+          "label": "GAAP净利润",
+          "value": 190.291
+        },
+        {
+          "label": "报告税前利润",
+          "value": 107.522
+        },
+        {
+          "label": "25%税示例",
+          "value": 80.64150000000001
+        }
+      ]
+    },
+    {
+      "title": "2025美国OCS收入按器官归属",
+      "unit": "百万美元；非全球全部收入",
+      "note": "[S2]。肝约占美国本口径78.6%，既是核心优势，也代表成长来源集中。",
+      "rows": [
+        {
+          "label": "肝",
+          "value": 459.415
+        },
+        {
+          "label": "心",
+          "value": 111.839
+        },
+        {
+          "label": "肺",
+          "value": 13.443
+        }
+      ]
+    }
+  ],
+  "invalidation": [
+    "Q3或后续财报显示收入/任务增长、GAAP营业率和现金转换不支持基准，或临床投入缺少可信里程碑：停止新增并重估，不单靠旧PE或价格下跌加仓。",
+    "2027总部/贷款与2028可转债资金安排不清晰、现金不足、融资条件明显恶化或需要大量低价增发：更新股数、成本与生存情景，暂停原限价条件。",
+    "新增临床/监管、产品可靠性或报销证据实质削弱OCS/NOP经济性，或竞争导致价格/份额/单位利润显著受损：重估护城河与终值。",
+    "库存控制重大弱点长期未整改或出现更严重会计/治理疑点：先核验信任与可理解性，不把价格折扣当充分补偿。",
+    "PAD、飞机/大楼维护更新或其他资本承诺超出假设，或净股数显著高于37百万/转股路线：重建FCFF与每股价值，检查总组合和已排买单预算。"
+  ],
+  "reviewTriggers": [
+    "11月5日美东盘后Q3/16:30 EST电话会（新西兰11月6日10:30）：先核对实际财务与737–757百万全年收入指引，不引用未发布数据。[S4]",
+    "Q3文件更新7月后现金、CIBC月供、总部购买安排、地产应付款与2028notes融资计划；要求实际总现金/付款表/已承诺额度，净债务模型本身不足。[S1]",
+    "查PAD实际成本、持股比例、是否并表及收入/利润贡献；25百万仅为本轮示例储备，新信息需替换而非继续机械使用。[S5]",
+    "未来两季核验研发/临床投入、产品/服务毛利、NOP资产利用和CFO−现金CapEx改善，并区分一次税务与日常盈利。",
+    "追踪正式库存控制整改结论、净股数/SBC与临床项目原始披露；每次重大变化后刷新模型，尤其更新已有55美元订单的价格依据。[S1][S7]"
+  ],
+  "sources": [
+    {
+      "label": "[S1] 2026Q2Form10Q",
+      "date": "2026-08-04；2026-11-04核验",
+      "url": "https://www.sec.gov/Archives/edgar/data/1756262/000119312526332843/tmdx-20260630.htm"
+    },
+    {
+      "label": "[S2] 2025Form10K",
+      "date": "2026-02-24；2026-11-04核验",
+      "url": "https://www.sec.gov/Archives/edgar/data/1756262/000119312526067032/tmdx-20251231.htm"
+    },
+    {
+      "label": "[S3] Q2resultsand2026guidance",
+      "date": "2026-08-04；2026-11-04核验",
+      "url": "https://investors.transmedics.com/news-releases/news-release-details/transmedics-reports-second-quarter-2026-financial-results"
+    },
+    {
+      "label": "[S4] Q3scheduledNovember5",
+      "date": "2026-10-22；2026-11-04核验",
+      "url": "https://investors.transmedics.com/news-releases/news-release-details/transmedics-report-third-quarter-2026-financial-results-november"
+    },
+    {
+      "label": "[S5] PADinvestmentclosed",
+      "date": "2026-07-06；2026-11-04核验",
+      "url": "https://investors.transmedics.com/news-releases/news-release-details/transmedics-group-announces-completion-strategic-investment-pad"
+    },
+    {
+      "label": "[S6] CFOchange/guidanceconfirmation",
+      "date": "2026-09-10；2026-11-04核验",
+      "url": "https://investors.transmedics.com/news-releases/news-release-details/transmedics-appoints-fernando-araujo-chief-financial-officer-and"
+    },
+    {
+      "label": "[S7] ClinicalprogramupdateCHOPS",
+      "date": "2026-04-23；2026-11-04核验",
+      "url": "https://investors.transmedics.com/news-releases/news-release-details/transmedics-provide-update-ongoing-clinical-programs"
+    },
+    {
+      "label": "[S8] TerumocompletesOrganOxacquisition",
+      "date": "2025-10-30；2026-11-04核验",
+      "url": "https://www.terumo.com/newsrelease/detail/20251030/6761"
+    },
+    {
+      "label": "[S9] Terumo/Oxfordperfusionpartnership",
+      "date": "2026-10-14；2026-11-04核验",
+      "url": "https://www.terumo.com/newsrelease/detail/20261014/7206"
+    },
+    {
+      "label": "[S10] Moomooobservedquote",
+      "date": "2026-11-03 quote;observed2026-11-04；2026-11-04核验",
+      "url": "https://www.moomoo.com/stock/TMDX-US"
+    },
+    {
+      "label": "[S11] SYKpublicmarketEVEBITcomparison",
+      "date": "2026-11-03close；2026-11-04核验",
+      "url": "https://stockanalysis.com/stocks/syk/statistics/"
+    },
+    {
+      "label": "[S12] EWpublicmarketEVEBITcomparison",
+      "date": "2026-11-03close；2026-11-04核验",
+      "url": "https://stockanalysis.com/stocks/ew/statistics/"
+    },
+    {
+      "label": "[S13] FDA：MAUDE报告的用途与限制",
+      "url": "https://www.fda.gov/medical-devices/mandatory-reporting-requirements-manufacturers-importers-and-device-user-facilities/about-manufacturer-and-user-facility-device-experience-maude-database",
+      "date": "2026-11-04直接读取；仅用于解释证据限制"
+    },
+    {
+      "label": "[S14] TradingView BOATS TMDX夜盘指示与限制",
+      "url": "https://www.tradingview.com/chart/?symbol=BOATS%3ATMDX",
+      "date": "2026-11-04核验；没有独立最新成交时间戳"
+    }
+  ],
+  "model": {
+    "units": "USDbillionsforallcash/revenue/EVandbillionshares; annualend2027-2036approximation",
+    "forecast2026ExPADRevenue": 0.747,
+    "assumptions": {
+      "capitalConvention": "Financelease/debtapproach: forecastGAAPEBITcontainsassetdepreciation,addbackDAinclHQROU;financelease347.66masnetdebtclaim. No fullfutureHQrentagain,no340mROUCapExagain,no374.59mpurchasecashoutflowagaininFCFF. Purchasepaymentsettlesfinancingclaim.",
+      "startingCashB": 0.417675,
+      "cashBridge": "Lastreportedcash472.675m excludesrestricted18.438m;subtract30moperatingcashreserveand25millustrativeunpricedPAD/investmentreserve=>417.675msurplus. NotanactualPADprice. H2cash/debt/actualPADinvestmentmustupdateinQ3.",
+      "startingDebtB": 0.871642,
+      "initialNetDebtB": 0.45396699999999995,
+      "stockAwardsConvention": "37meconomicsharesproxyexcludesconvertible;forecastsGAAPmarginincludesSBCcostwithnoaddback. FutureSBCexpenseassumedfundsoffsetofnewdilution;noextraautomaticannualdilutioncharge. Additionalsharesensitivityteststhisassumption.",
+      "capitalRoutes": "Bear/basecashredemption:include459.996mconvertibledebtand37mshares. Bullfullconversion:remove459.996mdebt,add4.893805mshares,PVtwoaftertaxcouponsbefore2028conversion. Cappedcallupsideexcluded;inmoneyconversionnotcashsettledforprincipalonly.",
+      "cashTax": "25%normalcash tax,noadditionaldeferredtaxassetcashcredit.2025taxreleaseisaccountingnotrecurringearnings.",
+      "DA": "6%revenue2027declininglinearlyto5%2036,includescapitalizedHQdepreciationandfleet/OCS/softwareassets",
+      "maintenanceReplacementCapex": "3%revenueforallforecastyears,explicitbudgetforfleetoverhauls/replacement,OCSconsoles/software/facilities;analystassumption,notcompanysplit",
+      "growthCapex": "6%revenue2027declininglinearlyto3%2036;excludespriorrecognizedHQpurchasefinancingandcompletedparcels.",
+      "deltaNwc": "12%incrementalrevenuevspreviousyear,2026forecastbaseline747m",
+      "terminal": "NOPAT2037=rev2036*(1+g)*margin2036*.75;terminalFCFF=NOPAT*(1-g/terminalROIC); terminalreinvestmentisconservativenormalization,notjustdepreciationaddback.",
+      "netDebtRoll": "NetdebtEnd=priornetdebt+aftertaxnetfinancingcost−FCFF. 4.5%in2027/28and6.5%laterarePRETAXnetfinancingrates;codeexplicitlymultipliesby(1−25%)ifnetdebtpositive. Netcashyield2.5%isalreadyAFTERTAX. Bullseparatelypaysaftertaxconvertcouponfirst2years. Analyticalnetdebtbridgeonly,notcommittedrefinancingoractualpaymentcalendar.",
+      "refinancingRisk": "Headquartersexpectedpurchase374.59m2027,CIBC60mJuneprincipalduemid2027andconvert460m2028createfundingcluster. Cashredemptionbaseassumesaccess torefinancingifneeded;notverifiedcommittedfacility. Failurecanforcediluteorreducethesisvalue.",
+      "price2031": "PV2031of2032-36FCFFplusTVminusnetdebt2031dividedbyrouteconsistentshares;nodividends. Todayvalueandfutureexitpricearedifferent.",
+      "eventCondition": "Noentryisvalidunconditionallythrough11/5Q3release.Reviewgrowth,margins,CFO,aircraft/campusCapEx,leasepurchasefunding,PADcost/ownershipandcontrolremediationfirst.",
+      "propertyPayable": "Include3.986motherlongtermpropertypurchasepayableasdebtlikeclaiminadditiontofinancelease347.660m;itwasallocatedoutofleasepresentvaluebuthasnotdisappeared.",
+      "bullLiquidityLimit": "Removing460mconvertibleinfullconversioncapitalbridgeandadding4.893805msharessolvesprospectiveequityvaluation,notactual2027liquidity. Convertibleisnotassumedcashavailable,couponsbeforeconversionstilldeducted. Modeldoesnotproveabilitytopay2027campus,CIBC,orPADobligations;mustverifyactualgrosscash/debtandbankfacility."
+    },
+    "scenarios": [
+      {
+        "id": "bear",
+        "revenue": [
+          0.8,
+          0.84,
+          0.88,
+          0.92,
+          0.96,
+          1,
+          1.04,
+          1.08,
+          1.11,
+          1.14
+        ],
+        "margin": [
+          0.09,
+          0.08,
+          0.1,
+          0.11,
+          0.12,
+          0.13,
+          0.14,
+          0.15,
+          0.15,
+          0.15
+        ],
+        "wacc": 0.14,
+        "g": 0.025,
+        "terminalROIC": 0.1,
+        "ebitMultiple2028": 16,
+        "capitalRoute": "cash_redemption",
+        "result": {
+          "todayValue": 1.893649487429006,
+          "year5Price": 11.299569222408545,
+          "year5Cagr": -0.3015897655450819,
+          "year5TotalReturn": -0.8338298643763449,
+          "EV": 0.5240320310348732,
+          "explicitFcffPV": 0.292774359338773,
+          "terminalPV": 0.23125767169610015,
+          "terminalPVShare": 0.4413044585068703,
+          "terminalNOPAT": 0.13145625,
+          "terminalFCFF": 0.0985921875,
+          "initialNetDebt": 0.45396699999999995,
+          "sharesB": 0.037,
+          "convertCouponPV": 0,
+          "netDebt2031": 0.34975449505438516,
+          "EV2031": 0.7678385562835013,
+          "model2028EquityPrice": 5.2268488715401045,
+          "rows": [
+            {
+              "year": 2027,
+              "revenue": 0.8,
+              "GAAPOperatingMargin": 0.09,
+              "taxRate": 0.25,
+              "NOPAT": 0.05399999999999999,
+              "DA": 0.048,
+              "maintenanceAndReplacementCapex": 0.024,
+              "growthCapex": 0.048,
+              "extraCapex": 0,
+              "capex": 0.07200000000000001,
+              "deltaNwc": 0.006360000000000005,
+              "FCFF": 0.02363999999999998,
+              "netFinancingCostAfterTax": 0.01532138625,
+              "netDebtEnd": 0.44564838625
+            },
+            {
+              "year": 2028,
+              "revenue": 0.84,
+              "GAAPOperatingMargin": 0.08,
+              "taxRate": 0.25,
+              "NOPAT": 0.0504,
+              "DA": 0.049466666666666666,
+              "maintenanceAndReplacementCapex": 0.025199999999999997,
+              "growthCapex": 0.047599999999999996,
+              "extraCapex": 0,
+              "capex": 0.07279999999999999,
+              "deltaNwc": 0.004799999999999991,
+              "FCFF": 0.022266666666666678,
+              "netFinancingCostAfterTax": 0.0150406330359375,
+              "netDebtEnd": 0.4384223526192708
+            },
+            {
+              "year": 2029,
+              "revenue": 0.88,
+              "GAAPOperatingMargin": 0.1,
+              "taxRate": 0.25,
+              "NOPAT": 0.066,
+              "DA": 0.05084444444444444,
+              "maintenanceAndReplacementCapex": 0.0264,
+              "growthCapex": 0.046933333333333334,
+              "extraCapex": 0,
+              "capex": 0.07333333333333333,
+              "deltaNwc": 0.004800000000000004,
+              "FCFF": 0.038711111111111106,
+              "netFinancingCostAfterTax": 0.021373089690189452,
+              "netDebtEnd": 0.4210843311983492
+            },
+            {
+              "year": 2030,
+              "revenue": 0.92,
+              "GAAPOperatingMargin": 0.11,
+              "taxRate": 0.25,
+              "NOPAT": 0.0759,
+              "DA": 0.05213333333333333,
+              "maintenanceAndReplacementCapex": 0.0276,
+              "growthCapex": 0.046,
+              "extraCapex": 0,
+              "capex": 0.0736,
+              "deltaNwc": 0.004800000000000004,
+              "FCFF": 0.04963333333333333,
+              "netFinancingCostAfterTax": 0.020527861145919524,
+              "netDebtEnd": 0.39197885901093543
+            },
+            {
+              "year": 2031,
+              "revenue": 0.96,
+              "GAAPOperatingMargin": 0.12,
+              "taxRate": 0.25,
+              "NOPAT": 0.0864,
+              "DA": 0.05333333333333333,
+              "maintenanceAndReplacementCapex": 0.0288,
+              "growthCapex": 0.04479999999999999,
+              "extraCapex": 0,
+              "capex": 0.0736,
+              "deltaNwc": 0.004799999999999991,
+              "FCFF": 0.06133333333333333,
+              "netFinancingCostAfterTax": 0.0191089693767831,
+              "netDebtEnd": 0.34975449505438516
+            },
+            {
+              "year": 2032,
+              "revenue": 1,
+              "GAAPOperatingMargin": 0.13,
+              "taxRate": 0.25,
+              "NOPAT": 0.0975,
+              "DA": 0.05444444444444444,
+              "maintenanceAndReplacementCapex": 0.03,
+              "growthCapex": 0.043333333333333335,
+              "extraCapex": 0,
+              "capex": 0.07333333333333333,
+              "deltaNwc": 0.004800000000000004,
+              "FCFF": 0.0738111111111111,
+              "netFinancingCostAfterTax": 0.01705053163390128,
+              "netDebtEnd": 0.29299391557717536
+            },
+            {
+              "year": 2033,
+              "revenue": 1.04,
+              "GAAPOperatingMargin": 0.14,
+              "taxRate": 0.25,
+              "NOPAT": 0.1092,
+              "DA": 0.055466666666666664,
+              "maintenanceAndReplacementCapex": 0.0312,
+              "growthCapex": 0.0416,
+              "extraCapex": 0,
+              "capex": 0.0728,
+              "deltaNwc": 0.004800000000000004,
+              "FCFF": 0.08706666666666668,
+              "netFinancingCostAfterTax": 0.014283453384387301,
+              "netDebtEnd": 0.22021070229489598
+            },
+            {
+              "year": 2034,
+              "revenue": 1.08,
+              "GAAPOperatingMargin": 0.15,
+              "taxRate": 0.25,
+              "NOPAT": 0.1215,
+              "DA": 0.0564,
+              "maintenanceAndReplacementCapex": 0.0324,
+              "growthCapex": 0.0396,
+              "extraCapex": 0,
+              "capex": 0.07200000000000001,
+              "deltaNwc": 0.004800000000000004,
+              "FCFF": 0.1011,
+              "netFinancingCostAfterTax": 0.01073527173687618,
+              "netDebtEnd": 0.12984597403177217
+            },
+            {
+              "year": 2035,
+              "revenue": 1.11,
+              "GAAPOperatingMargin": 0.15,
+              "taxRate": 0.25,
+              "NOPAT": 0.12487500000000001,
+              "DA": 0.05673333333333334,
+              "maintenanceAndReplacementCapex": 0.0333,
+              "growthCapex": 0.037000000000000005,
+              "extraCapex": 0,
+              "capex": 0.0703,
+              "deltaNwc": 0.003600000000000003,
+              "FCFF": 0.10770833333333334,
+              "netFinancingCostAfterTax": 0.006329991234048894,
+              "netDebtEnd": 0.028467631932487733
+            },
+            {
+              "year": 2036,
+              "revenue": 1.14,
+              "GAAPOperatingMargin": 0.15,
+              "taxRate": 0.25,
+              "NOPAT": 0.12824999999999998,
+              "DA": 0.05699999999999999,
+              "maintenanceAndReplacementCapex": 0.034199999999999994,
+              "growthCapex": 0.034199999999999994,
+              "extraCapex": 0,
+              "capex": 0.06839999999999999,
+              "deltaNwc": 0.0035999999999999765,
+              "FCFF": 0.11325,
+              "netFinancingCostAfterTax": 0.001387797056708777,
+              "netDebtEnd": -0.0833945710108035
+            }
+          ],
+          "independentEbitComparison": {
+            "normalizedYear": 2028,
+            "EBIT_B": 0.0672,
+            "assumedEV_EBIT": 16,
+            "EV0": 0.8652018056837999,
+            "todayPrice": 11.114454207670269,
+            "formula": "2028EBIT*multiple discounted2years + PV2027/28FCFF; subtractsamecapitalclaimsanddivideconsistent shares",
+            "note": "Scenario16/22/28xareresearchassumptionsnotTMDXobservedmultiples;anchoredimperfectlybySYK20.7/EW28.0TTMEBIT."
+          }
+        }
+      },
+      {
+        "id": "base",
+        "revenue": [
+          0.86,
+          0.989,
+          1.127,
+          1.262,
+          1.401,
+          1.541,
+          1.665,
+          1.782,
+          1.889,
+          1.984
+        ],
+        "margin": [
+          0.14,
+          0.17,
+          0.2,
+          0.23,
+          0.25,
+          0.26,
+          0.27,
+          0.28,
+          0.28,
+          0.28
+        ],
+        "wacc": 0.115,
+        "g": 0.035,
+        "terminalROIC": 0.18,
+        "ebitMultiple2028": 22,
+        "capitalRoute": "cash_redemption",
+        "result": {
+          "todayValue": 57.34946040055304,
+          "year5Price": 103.0573321530493,
+          "year5Cagr": 0.08671083349850583,
+          "year5TotalReturn": 0.515549002250725,
+          "EV": 2.5758970348204624,
+          "explicitFcffPV": 1.1138607581948794,
+          "terminalPV": 1.4620362766255832,
+          "terminalPVShare": 0.5675833532404706,
+          "terminalNOPAT": 0.4312224,
+          "terminalFCFF": 0.3473736,
+          "initialNetDebt": 0.45396699999999995,
+          "sharesB": 0.037,
+          "convertCouponPV": 0,
+          "netDebt2031": -0.1299672393384936,
+          "EV2031": 3.6831540503243305,
+          "model2028EquityPrice": 73.3284823467225,
+          "rows": [
+            {
+              "year": 2027,
+              "revenue": 0.86,
+              "GAAPOperatingMargin": 0.14,
+              "taxRate": 0.25,
+              "NOPAT": 0.0903,
+              "DA": 0.0516,
+              "maintenanceAndReplacementCapex": 0.0258,
+              "growthCapex": 0.0516,
+              "extraCapex": 0,
+              "capex": 0.0774,
+              "deltaNwc": 0.013559999999999997,
+              "FCFF": 0.050940000000000006,
+              "netFinancingCostAfterTax": 0.01532138625,
+              "netDebtEnd": 0.41834838625
+            },
+            {
+              "year": 2028,
+              "revenue": 0.989,
+              "GAAPOperatingMargin": 0.17,
+              "taxRate": 0.25,
+              "NOPAT": 0.1260975,
+              "DA": 0.05824111111111111,
+              "maintenanceAndReplacementCapex": 0.02967,
+              "growthCapex": 0.05604333333333333,
+              "extraCapex": 0,
+              "capex": 0.08571333333333332,
+              "deltaNwc": 0.01548,
+              "FCFF": 0.08314527777777778,
+              "netFinancingCostAfterTax": 0.014119258035937499,
+              "netDebtEnd": 0.34932236650815973
+            },
+            {
+              "year": 2029,
+              "revenue": 1.127,
+              "GAAPOperatingMargin": 0.2,
+              "taxRate": 0.25,
+              "NOPAT": 0.16905,
+              "DA": 0.06511555555555555,
+              "maintenanceAndReplacementCapex": 0.03381,
+              "growthCapex": 0.06010666666666666,
+              "extraCapex": 0,
+              "capex": 0.09391666666666666,
+              "deltaNwc": 0.016560000000000002,
+              "FCFF": 0.12368888888888892,
+              "netFinancingCostAfterTax": 0.01702946536727279,
+              "netDebtEnd": 0.24266294298654362
+            },
+            {
+              "year": 2030,
+              "revenue": 1.262,
+              "GAAPOperatingMargin": 0.23,
+              "taxRate": 0.25,
+              "NOPAT": 0.21769500000000003,
+              "DA": 0.07151333333333333,
+              "maintenanceAndReplacementCapex": 0.03786,
+              "growthCapex": 0.06309999999999999,
+              "extraCapex": 0,
+              "capex": 0.10096,
+              "deltaNwc": 0.0162,
+              "FCFF": 0.17204833333333336,
+              "netFinancingCostAfterTax": 0.011829818470594,
+              "netDebtEnd": 0.08244442812380426
+            },
+            {
+              "year": 2031,
+              "revenue": 1.401,
+              "GAAPOperatingMargin": 0.25,
+              "taxRate": 0.25,
+              "NOPAT": 0.2626875,
+              "DA": 0.07783333333333332,
+              "maintenanceAndReplacementCapex": 0.04203,
+              "growthCapex": 0.06538,
+              "extraCapex": 0,
+              "capex": 0.10740999999999999,
+              "deltaNwc": 0.01668,
+              "FCFF": 0.21643083333333332,
+              "netFinancingCostAfterTax": 0.004019165871035458,
+              "netDebtEnd": -0.1299672393384936
+            },
+            {
+              "year": 2032,
+              "revenue": 1.541,
+              "GAAPOperatingMargin": 0.26,
+              "taxRate": 0.25,
+              "NOPAT": 0.300495,
+              "DA": 0.08389888888888888,
+              "maintenanceAndReplacementCapex": 0.04622999999999999,
+              "growthCapex": 0.06677666666666666,
+              "extraCapex": 0,
+              "capex": 0.11300666666666666,
+              "deltaNwc": 0.01679999999999999,
+              "FCFF": 0.2545872222222223,
+              "netFinancingCostAfterTax": -0.00324918098346234,
+              "netDebtEnd": -0.3878036425441782
+            },
+            {
+              "year": 2033,
+              "revenue": 1.665,
+              "GAAPOperatingMargin": 0.27,
+              "taxRate": 0.25,
+              "NOPAT": 0.33716250000000003,
+              "DA": 0.08879999999999999,
+              "maintenanceAndReplacementCapex": 0.04995,
+              "growthCapex": 0.06659999999999999,
+              "extraCapex": 0,
+              "capex": 0.11654999999999999,
+              "deltaNwc": 0.014880000000000013,
+              "FCFF": 0.29453250000000003,
+              "netFinancingCostAfterTax": -0.009695091063604456,
+              "netDebtEnd": -0.6920312336077827
+            },
+            {
+              "year": 2034,
+              "revenue": 1.782,
+              "GAAPOperatingMargin": 0.28,
+              "taxRate": 0.25,
+              "NOPAT": 0.37422000000000005,
+              "DA": 0.09305999999999999,
+              "maintenanceAndReplacementCapex": 0.05346,
+              "growthCapex": 0.06534,
+              "extraCapex": 0,
+              "capex": 0.11879999999999999,
+              "deltaNwc": 0.014039999999999999,
+              "FCFF": 0.33444,
+              "netFinancingCostAfterTax": -0.01730078084019457,
+              "netDebtEnd": -1.0437720144479774
+            },
+            {
+              "year": 2035,
+              "revenue": 1.889,
+              "GAAPOperatingMargin": 0.28,
+              "taxRate": 0.25,
+              "NOPAT": 0.39669000000000004,
+              "DA": 0.09654888888888888,
+              "maintenanceAndReplacementCapex": 0.05667,
+              "growthCapex": 0.06296666666666667,
+              "extraCapex": 0,
+              "capex": 0.11963666666666667,
+              "deltaNwc": 0.012839999999999997,
+              "FCFF": 0.3607622222222222,
+              "netFinancingCostAfterTax": -0.026094300361199436,
+              "netDebtEnd": -1.4306285370313991
+            },
+            {
+              "year": 2036,
+              "revenue": 1.984,
+              "GAAPOperatingMargin": 0.28,
+              "taxRate": 0.25,
+              "NOPAT": 0.41664,
+              "DA": 0.0992,
+              "maintenanceAndReplacementCapex": 0.059519999999999997,
+              "growthCapex": 0.05951999999999999,
+              "extraCapex": 0,
+              "capex": 0.11903999999999998,
+              "deltaNwc": 0.011399999999999997,
+              "FCFF": 0.38539999999999996,
+              "netFinancingCostAfterTax": -0.03576571342578498,
+              "netDebtEnd": -1.851794250457184
+            }
+          ],
+          "independentEbitComparison": {
+            "normalizedYear": 2028,
+            "EBIT_B": 0.16813,
+            "assumedEV_EBIT": 22,
+            "EV0": 3.0877784614834627,
+            "todayPrice": 71.1840935536071,
+            "formula": "2028EBIT*multiple discounted2years + PV2027/28FCFF; subtractsamecapitalclaimsanddivideconsistent shares",
+            "note": "Scenario16/22/28xareresearchassumptionsnotTMDXobservedmultiples;anchoredimperfectlybySYK20.7/EW28.0TTMEBIT."
+          }
+        }
+      },
+      {
+        "id": "bull",
+        "revenue": [
+          0.92,
+          1.1316,
+          1.3806,
+          1.6567,
+          1.9384,
+          2.2292,
+          2.4967,
+          2.7464,
+          2.9661,
+          3.1441
+        ],
+        "margin": [
+          0.16,
+          0.21,
+          0.25,
+          0.29,
+          0.32,
+          0.34,
+          0.35,
+          0.35,
+          0.35,
+          0.35
+        ],
+        "wacc": 0.1,
+        "g": 0.04,
+        "terminalROIC": 0.25,
+        "ebitMultiple2028": 28,
+        "capitalRoute": "full_conversion",
+        "result": {
+          "todayValue": 163.5814728841219,
+          "year5Price": 260.9331791697044,
+          "year5Cagr": 0.3085914505761149,
+          "year5TotalReturn": 2.8372526348485936,
+          "EV": 6.8560026534796945,
+          "explicitFcffPV": 2.223025253118716,
+          "terminalPV": 4.6329774003609785,
+          "terminalPVShare": 0.6757549018755933,
+          "terminalNOPAT": 0.8583393,
+          "terminalFCFF": 0.721005012,
+          "initialNetDebt": -0.006029000000000062,
+          "sharesB": 0.041893805,
+          "convertCouponPV": 0.008981326859504132,
+          "netDebt2031": -1.0845074105989554,
+          "EV2031": 9.8469763155667,
+          "model2028EquityPrice": 197.80884417064607,
+          "rows": [
+            {
+              "year": 2027,
+              "revenue": 0.92,
+              "GAAPOperatingMargin": 0.16,
+              "taxRate": 0.25,
+              "NOPAT": 0.1104,
+              "DA": 0.0552,
+              "maintenanceAndReplacementCapex": 0.0276,
+              "growthCapex": 0.0552,
+              "extraCapex": 0,
+              "capex": 0.0828,
+              "deltaNwc": 0.020760000000000004,
+              "FCFF": 0.06204,
+              "netFinancingCostAfterTax": 0.0050242299999999985,
+              "netDebtEnd": -0.06304477000000006
+            },
+            {
+              "year": 2028,
+              "revenue": 1.1316,
+              "GAAPOperatingMargin": 0.21,
+              "taxRate": 0.25,
+              "NOPAT": 0.178227,
+              "DA": 0.06663866666666667,
+              "maintenanceAndReplacementCapex": 0.033948,
+              "growthCapex": 0.06412399999999999,
+              "extraCapex": 0,
+              "capex": 0.09807199999999999,
+              "deltaNwc": 0.025391999999999987,
+              "FCFF": 0.12140166666666667,
+              "netFinancingCostAfterTax": 0.0035988357499999986,
+              "netDebtEnd": -0.18084760091666674
+            },
+            {
+              "year": 2029,
+              "revenue": 1.3806,
+              "GAAPOperatingMargin": 0.25,
+              "taxRate": 0.25,
+              "NOPAT": 0.2588625,
+              "DA": 0.079768,
+              "maintenanceAndReplacementCapex": 0.041417999999999996,
+              "growthCapex": 0.073632,
+              "extraCapex": 0,
+              "capex": 0.11505,
+              "deltaNwc": 0.02988000000000001,
+              "FCFF": 0.1937005,
+              "netFinancingCostAfterTax": -0.004521190022916669,
+              "netDebtEnd": -0.3790692909395834
+            },
+            {
+              "year": 2030,
+              "revenue": 1.6567,
+              "GAAPOperatingMargin": 0.29,
+              "taxRate": 0.25,
+              "NOPAT": 0.36033225,
+              "DA": 0.09387966666666667,
+              "maintenanceAndReplacementCapex": 0.049701,
+              "growthCapex": 0.08283499999999999,
+              "extraCapex": 0,
+              "capex": 0.132536,
+              "deltaNwc": 0.033132,
+              "FCFF": 0.28854391666666673,
+              "netFinancingCostAfterTax": -0.009476732273489587,
+              "netDebtEnd": -0.6770899398797398
+            },
+            {
+              "year": 2031,
+              "revenue": 1.9384,
+              "GAAPOperatingMargin": 0.32,
+              "taxRate": 0.25,
+              "NOPAT": 0.46521599999999996,
+              "DA": 0.10768888888888888,
+              "maintenanceAndReplacementCapex": 0.058151999999999995,
+              "growthCapex": 0.09045866666666666,
+              "extraCapex": 0,
+              "capex": 0.14861066666666667,
+              "deltaNwc": 0.03380399999999998,
+              "FCFF": 0.3904902222222221,
+              "netFinancingCostAfterTax": -0.016927248496993494,
+              "netDebtEnd": -1.0845074105989554
+            },
+            {
+              "year": 2032,
+              "revenue": 2.2292,
+              "GAAPOperatingMargin": 0.34,
+              "taxRate": 0.25,
+              "NOPAT": 0.568446,
+              "DA": 0.12136755555555555,
+              "maintenanceAndReplacementCapex": 0.066876,
+              "growthCapex": 0.09659866666666668,
+              "extraCapex": 0,
+              "capex": 0.16347466666666668,
+              "deltaNwc": 0.03489600000000002,
+              "FCFF": 0.4914428888888889,
+              "netFinancingCostAfterTax": -0.027112685264973888,
+              "netDebtEnd": -1.6030629847528182
+            },
+            {
+              "year": 2033,
+              "revenue": 2.4967,
+              "GAAPOperatingMargin": 0.35,
+              "taxRate": 0.25,
+              "NOPAT": 0.6553837499999999,
+              "DA": 0.13315733333333332,
+              "maintenanceAndReplacementCapex": 0.074901,
+              "growthCapex": 0.09986799999999998,
+              "extraCapex": 0,
+              "capex": 0.17476899999999998,
+              "deltaNwc": 0.03210000000000001,
+              "FCFF": 0.5816720833333333,
+              "netFinancingCostAfterTax": -0.04007657461882046,
+              "netDebtEnd": -2.224811642704972
+            },
+            {
+              "year": 2034,
+              "revenue": 2.7464,
+              "GAAPOperatingMargin": 0.35,
+              "taxRate": 0.25,
+              "NOPAT": 0.7209299999999998,
+              "DA": 0.14342311111111108,
+              "maintenanceAndReplacementCapex": 0.08239199999999999,
+              "growthCapex": 0.10070133333333334,
+              "extraCapex": 0,
+              "capex": 0.18309333333333333,
+              "deltaNwc": 0.029963999999999977,
+              "FCFF": 0.6512957777777776,
+              "netFinancingCostAfterTax": -0.0556202910676243,
+              "netDebtEnd": -2.9317277115503737
+            },
+            {
+              "year": 2035,
+              "revenue": 2.9661,
+              "GAAPOperatingMargin": 0.35,
+              "taxRate": 0.25,
+              "NOPAT": 0.77860125,
+              "DA": 0.15160066666666666,
+              "maintenanceAndReplacementCapex": 0.08898299999999999,
+              "growthCapex": 0.09887,
+              "extraCapex": 0,
+              "capex": 0.187853,
+              "deltaNwc": 0.026364,
+              "FCFF": 0.7159849166666665,
+              "netFinancingCostAfterTax": -0.07329319278875934,
+              "netDebtEnd": -3.7210058210057992
+            },
+            {
+              "year": 2036,
+              "revenue": 3.1441,
+              "GAAPOperatingMargin": 0.35,
+              "taxRate": 0.25,
+              "NOPAT": 0.8253262499999998,
+              "DA": 0.15720499999999998,
+              "maintenanceAndReplacementCapex": 0.09432299999999999,
+              "growthCapex": 0.09432299999999998,
+              "extraCapex": 0,
+              "capex": 0.18864599999999998,
+              "deltaNwc": 0.02135999999999999,
+              "FCFF": 0.7725252499999999,
+              "netFinancingCostAfterTax": -0.09302514552514499,
+              "netDebtEnd": -4.586556216530944
+            }
+          ],
+          "independentEbitComparison": {
+            "normalizedYear": 2028,
+            "EBIT_B": 0.237636,
+            "assumedEV_EBIT": 28,
+            "EV0": 5.655746831955922,
+            "todayPrice": 134.93151326541997,
+            "formula": "2028EBIT*multiple discounted2years + PV2027/28FCFF; subtractsamecapitalclaimsanddivideconsistent shares",
+            "note": "Scenario16/22/28xareresearchassumptionsnotTMDXobservedmultiples;anchoredimperfectlybySYK20.7/EW28.0TTMEBIT."
+          }
+        }
+      }
+    ],
+    "sensitivity": [
+      {
+        "wacc": 0.1,
+        "g": 0.025,
+        "todayValue": 71.58781094470919
+      },
+      {
+        "wacc": 0.1,
+        "g": 0.035,
+        "todayValue": 76.18279584453919
+      },
+      {
+        "wacc": 0.1,
+        "g": 0.045,
+        "todayValue": 82.36097877176688
+      },
+      {
+        "wacc": 0.115,
+        "g": 0.025,
+        "todayValue": 55.01853896757298
+      },
+      {
+        "wacc": 0.115,
+        "g": 0.035,
+        "todayValue": 57.34946040055304
+      },
+      {
+        "wacc": 0.115,
+        "g": 0.045,
+        "todayValue": 60.286176914819535
+      },
+      {
+        "wacc": 0.13,
+        "g": 0.025,
+        "todayValue": 43.34019874459989
+      },
+      {
+        "wacc": 0.13,
+        "g": 0.035,
+        "todayValue": 44.56833835946638
+      },
+      {
+        "wacc": 0.13,
+        "g": 0.045,
+        "todayValue": 46.04208959564989
+      }
+    ],
+    "capitalRouteSensitivity": [
+      {
+        "scenario": "bear",
+        "cashRedemptionPrice": 1.893649487429006,
+        "fullConversionPrice": 12.449087329034734,
+        "note": "Cashprincipalrouteinvalidforinmoneyconversionwithoutadditionaloptioncash/cappedcall;routecomparisonillustrativeonly."
+      },
+      {
+        "scenario": "base",
+        "cashRedemptionPrice": 57.34946040055304,
+        "fullConversionPrice": 61.42011437464201,
+        "note": "Cashprincipalrouteinvalidforinmoneyconversionwithoutadditionaloptioncash/cappedcall;routecomparisonillustrativeonly."
+      },
+      {
+        "scenario": "bull",
+        "cashRedemptionPrice": 173.02799063458636,
+        "fullConversionPrice": 163.5814728841219,
+        "note": "Cashprincipalrouteinvalidforinmoneyconversionwithoutadditionaloptioncash/cappedcall;routecomparisonillustrativeonly."
+      }
+    ],
+    "extraCapexSensitivity": [
+      {
+        "extraCapexShareOfRevenue": 0,
+        "baseTodayValue": 57.34946040055304
+      },
+      {
+        "extraCapexShareOfRevenue": 0.01,
+        "baseTodayValue": 55.26526391550204
+      },
+      {
+        "extraCapexShareOfRevenue": 0.02,
+        "baseTodayValue": 53.18106743045102
+      }
+    ],
+    "shareSensitivity": [
+      {
+        "additionalSharesM": 0,
+        "baseTodayValue": 57.34946040055304
+      },
+      {
+        "additionalSharesM": 2,
+        "baseTodayValue": 54.408462431293906
+      },
+      {
+        "additionalSharesM": 4,
+        "baseTodayValue": 51.754391093182015
+      }
+    ],
+    "reverseDcf": {
+      "requiredRevenueCagr": 0.12715512379729865,
+      "revenue2031": 1.3590613120086892,
+      "revenue2036": 2.472620682461553,
+      "fixed": "2026exPAD747m,basemarginpath14%→28%,WACC11.5%,g3.5%,ROIC18%,capital/DA/NWC/taxasbase;cashredemptionroute",
+      "note": "Oneconditionalconstantgrowthpathfor68reference,notmarkettrueforecast;unmodeledclinical/Europeoutcomescouldchangeprofits."
+    },
+    "entryFormula": {
+      "referenceValue": 57.34946040055304,
+      "requiredReturn": 0.15,
+      "base2031Price": 103.0573321530493,
+      "returnPriceCap": 51.237707948404534,
+      "caps": {
+        "observation": 51.237707948404534,
+        "safety": 43.012095300414785,
+        "discount": 34.40967624033183
+      },
+      "suggestedRanges": {
+        "observation": [
+          43.1,
+          51.2
+        ],
+        "safety": [
+          34.5,
+          43
+        ],
+        "discount": [
+          28,
+          34.4
+        ]
+      },
+      "note": "RangesconditionalonQ3thesisholdingandfundingplan;15%roughlyuser5yeardoublinggoal,nopromise. Allocateonlyafterdeductexistingexposureandpending1100USD."
+    },
+    "primaryComps": {
+      "SYK_EV_EBIT": 20.69,
+      "EW_EV_EBIT": 28.01,
+      "date": "2026-11-03",
+      "limitations": "Largerdiversifieddevicecompanies,nodirectorganlogisticsmatch;normalizationuncertain. Scenario16/22/28xareassumptions,notobservedTMDXprice."
+    }
+  },
+  "evidenceFacts": {
+    "2023": {
+      "revenueM": 241.623,
+      "grossProfitM": 154.093,
+      "operatingLossM": -28.727,
+      "netLossM": -25.028,
+      "CFO_M": -13.028,
+      "cashCapexM": 151.847,
+      "reportedFcfM": -164.875
+    },
+    "2024": {
+      "revenueM": 441.54,
+      "grossProfitM": 262.081,
+      "operatingIncomeM": 37.496,
+      "netIncomeM": 35.464,
+      "CFO_M": 48.803,
+      "cashCapexM": 129.744,
+      "reportedFcfM": -80.941
+    },
+    "2025": {
+      "revenueM": 605.494,
+      "productRevenueM": 372.401,
+      "serviceRevenueM": 233.093,
+      "grossProfitM": 362.806,
+      "operatingIncomeM": 108.583,
+      "pretaxIncomeM": 107.522,
+      "netIncomeM": 190.291,
+      "netIncomeTaxBenefitM": 82.769,
+      "grossValuationAllowanceReleaseBenefitM": 103.3,
+      "CFO_M": 192.84,
+      "cashCapexM": 59.251,
+      "reportedFcfM": 133.589,
+      "US_OCSliverRevenueM": 459.415,
+      "US_OCSheartRevenueM": 111.839,
+      "US_OCSlungRevenueM": 13.443,
+      "US_OCStotalRevenueM": 584.697,
+      "allOtherCountriesOCStotalM": 16.7,
+      "note": "2025GAAPnetincomeincludesnonrecurringdeferredtaxassetvaluationallowancerelease;grossrelease103.3m andnetannualtaxbenefit82.769m are different amounts.",
+      "grossUSDeferredTaxAssetReductionFrom382M": 44.7,
+      "section382Note": "2025assessmentfoundmultipleownershipchangesandlimitedNOL/R&Dcredituse;44.7mgrossDTAreductionoffsetbyvaluationallowance. ModeldoesnotaddDTAtosurpluscash."
+    },
+    "latestReporting": {
+      "latestActualFinancialPeriod": "2026Q2/H1 endedJune30",
+      "filed": "2026-08-04",
+      "Q3Scheduled": "2026-11-05 afterUSclose;call16:30EST",
+      "Q3ScheduledNewZealand": "2026-11-06 10:30NZDT",
+      "Q3NotYetPublishedAsOfAnalysis": true,
+      "currentGuidanceExPADRevenueM": [
+        737,
+        757
+      ],
+      "guidanceReiterated": "2026-09-10",
+      "midpointForecast2026RevenueM": 747
+    },
+    "2026Q2": {
+      "revenueM": 189.948,
+      "productRevenueM": 111.158,
+      "serviceRevenueM": 78.79,
+      "productCostM": 25.566,
+      "serviceCostM": 51.184,
+      "calculatedProductGrossMarginPct": 77.00030587092247,
+      "calculatedServiceGrossMarginPct": 35.037441299657324,
+      "grossProfitM": 113.198,
+      "operatingIncomeM": 23.736,
+      "operatingMarginPct": 12.5,
+      "priorOperatingIncomeM": 36.567,
+      "priorOperatingMarginPct": 23.2,
+      "RAndDClinicalM": 31.632,
+      "priorRAndDClinicalM": 15.934,
+      "netIncomeM": 14.682,
+      "GAAPdilutedEps": 0.41,
+      "opexSBCapproxM": 8.2,
+      "totalSBC_M": 8.606,
+      "note": "GAAPEPSifconvertedaddsnettaxconvertibleinteresttothenumerator;dilutedshare40.709m is not the right stockvaluationdenominatorifsubtractingconvertibleprincipalasdebt."
+    },
+    "2026H1": {
+      "revenueM": 363.881,
+      "productRevenueM": 219.13,
+      "serviceRevenueM": 144.751,
+      "grossProfitM": 214.359,
+      "operatingIncomeM": 37.033,
+      "netIncomeM": 21.997,
+      "pretaxIncomeM": 27.89,
+      "CFO_M": 41.842,
+      "priorCFO_M": 88.754,
+      "cashCapexM": 43.749,
+      "priorCashCapexM": 36.113,
+      "reportedFcfM": -1.907,
+      "SBC_M": 18.558,
+      "cashflowDA_M": 22.106,
+      "nonCashFinanceLeaseInterestIncludedM": 7.62,
+      "cashNoncashInterestTotalM": 9.232,
+      "propertyPurchaseAdjParcelsM": 30,
+      "DAppeIncludingFinanceLeaseM": 20.2,
+      "ROUAmortizationM": 4.146,
+      "inventoryTransfersToPPE_M": 4.897,
+      "accountsReceivableCashUseM": 19.948,
+      "inventoryCashUseM": 10.246,
+      "nonCashNewFinanceLeaseLiabilityM": 340.04,
+      "formula": "ReportedFCF=41.842−43.749=−1.907m; financelease340.040m is noncashinception, notadditionalcashCapEx. Parcels30m in2026cashCapEx arecompletedoutlays, not futureagain."
+    },
+    "TTMThroughJuneCalculated": {
+      "revenueM": 668.4680000000001,
+      "pretaxIncomeM": 72.554,
+      "normalizedAfter25pctPretaxM": 54.4155,
+      "reportedNetIncomeM": 151.699,
+      "CFO_M": 145.928,
+      "cashCapexM": 66.887,
+      "reportedFcfM": 79.041,
+      "note": "Normalizedpretaxcalculationisresearchscreen,notreportednetincome. TTMnetincomeandapparent17xPEdistortedby2025taxrelease. CFO−CapExisnotautomaticallyFCFF."
+    },
+    "JuneBalance": {
+      "cashM": 472.675,
+      "restrictedCashM": 18.438,
+      "convertiblePrincipalM": 459.996,
+      "convertibleNetCarryingM": 454.26,
+      "CIBCPrincipalM": 60,
+      "financeLeaseLiabilityM": 347.66,
+      "operatingLeaseLiabilityM": 6.057,
+      "otherPropertyPayableM": 3.986,
+      "PPE_netM": 365.302,
+      "financeLeaseROU_netM": 332.472,
+      "transplantAircraftGrossM": 295.563,
+      "transplantAircraftEquipmentM": 3.1,
+      "OCSConsolesGrossM": 28.706,
+      "totalLiabilitiesM": 946.343,
+      "netDebtBeforeReservesM": 394.98099999999994,
+      "netDebtBeforeReservesIncludingPropertyPayableM": 398.9669999999999
+    },
+    "shareCapital": {
+      "latestActualAsOf": "2026-07-30",
+      "currentCommonM": 34.675145,
+      "June30CommonM": 34.629682,
+      "Q2WeightedBasicM": 34.57998,
+      "Q2WeightedDilutedM": 40.709227,
+      "H1WeightedDilutedM": 36.003677,
+      "Q2TreasuryStockDilutiveOptionEffectM": 1.1274,
+      "Q2AntidilutiveOptionsM": 0.693183,
+      "Q2DilutiveRSUEffectM": 0.097012,
+      "Q2AntidilutiveRSUsM": 0.065384,
+      "convertibleUnderlyingM": 4.893805,
+      "modelSharesExConvertibleM": 37,
+      "modelIfConvertedM": 41.893805,
+      "note": "37m is conservativevaluationproxyfromactual34.675mplusstockawardclaims,notreportedactualoutstanding. PreciseNovshares/awardsmustrefreshinQ3filing."
+    },
+    "newHeadquartersFinanceLease": {
+      "signed": "2026-01-08",
+      "location": "SomervilleMassachusetts",
+      "squareFeetApprox": 498286,
+      "buildingUses": "Headquarters,R&D,laboratory,manufacturing,assembly,vivarium,offices",
+      "contractLeaseExpiry": "2044-01",
+      "baseRentStart": "2028-01",
+      "baseAnnualRentM": 23.9,
+      "escalators": "2%annualfirst3years,3%thereafter",
+      "purchaseOptionBy": "2028-11",
+      "purchasePriceThrough2027M": 374.59,
+      "accountingExerciseAssumption": "Companyreasonablycertaintoexercisepurchaseoption",
+      "disclosedFuturePayment2027M": 374.59,
+      "disclosedFuturePayments2028OnwardM": 0,
+      "financeLeaseLiabilityJuneM": 347.66,
+      "discountRatePct": 4.4,
+      "ROUusefulLifeYears": 40,
+      "H1ROUAmortM": 4.146,
+      "H1LeaseInterestM": 7.62,
+      "adjacentParcelsAlreadyBoughtM": 30,
+      "otherPropertyPayableM": 3.986,
+      "note": "347.66m isbuildingfinanceobligation,notaircraft. UnderchosenfinancingDCF,itissubtractedasdebt. No second340mCapExor374.6mpurchasecashflowdeductioninsideoperatingFCFF;2027paymentisfinancingclaimsettlement. Subsequentbuildingmaintenance/fitoutincludedseparatelyintheforecastcapitalbudget."
+    },
+    "convertibleTerms": {
+      "couponPct": 1.5,
+      "principalM": 459.996,
+      "maturity": "2028-06-01",
+      "conversionPriceApprox": 94,
+      "underlyingSharesM": 4.893805,
+      "companySettlementChoice": "Cash,shares,orcombination",
+      "historicCappedCallCostM": 52.1,
+      "note": "Belowconversionpricecashredemptioncanmeanprincipal;aboveconversionpricecashsettlementofconversionclaimmustalsorespectinmoneyvalue. Bullassumesfullconversionandremovesprincipalfromnetdebt;do notsubtract460mandadd4.894msharestogether. Futurecappedcallbenefitnotcreditedconservatively;historical52.1mcostalreadyincashandnotchargedagain."
+    },
+    "CIBCloan": {
+      "principalJuneM": 60,
+      "maturity": "2027-07",
+      "monthlyRepaymentStart": "2026-07",
+      "rateJunePct": 6.2,
+      "security": "SubstantiallyallassetsincludingIP,subjecttoexceptions",
+      "covenants": "Minimumliquidityandminimumrevenueconditions",
+      "note": "Nomaterialundrawnrefinancingcommitmentverified. Forecastrefinancingisassumption,notapprovedfacility."
+    },
+    "aircraftAccounting": {
+      "depreciationUsefulLifeYears": 10,
+      "salvagePctOriginalCost": 50,
+      "OCSConsoleUsefulLifeYears": 5,
+      "note": "Bookdepreciationassumes50%aircraftresidualvalue;futuremaintenance,engineoverhauls,replacementandresidualpricescoulddiffer. 2026H1aircraftgrossPPEessentiallyflat295.527→295.563m;mostcashCapExnotnewjets."
+    },
+    "PAD": {
+      "investmentClosed": "2026-07-01",
+      "announcement": "2026-07-06",
+      "operatorLocation": "PaderbornGermany",
+      "disclosedFleet": "NineEmbraerPhenom300aircraft",
+      "disclosedPilotsMoreThan": 40,
+      "license": "EASAAirOperatorCertificate",
+      "purchaseCostAndOwnership": "NotquantifiedinreadcompanypressreleaseorQ2subsequent-eventsnote",
+      "Q2Guidance": "ExcludesPADrevenue",
+      "modelTreatment": "NoPADstandaloneearningsorassetaddedseparately;25millustrativetransaction/liquidityreserve,costunknownandneedsQ3update. Europegrowthalreadyinsidebull/baseoperatingpaths;do notdoublecountasextraoptionvalue."
+    },
+    "clinicalAndReimbursement": {
+      "business": "OCSdisposablesandperfusionmanagementplusNOPprocurement/aviationlogistics soldtotransplantcenters/OPOs;hospitalsandpayersreimbursementconstraintsaffectdemand/pricing.",
+      "growth": "Higherorganutilization,liver/heartcasegrowth,internationalNOP,Gen3andKidney/CHOPSresearch;noveltrialrevenueexcludedfromguidance.",
+      "competition": "OrganOx/Terumoisfundedcompetitor,staticcoldstorage/hypothermicandotherperfusiondevices;FDA/clinicalevidence,trainingandinstalledworkflowcreatefrictionbutdonotguaranteemonopoly.",
+      "evidenceLimit": "Reportdoesnotinfercausality,producteventratesorfraudfromMDR/shortsellerallegations. Clinical/label/recall/regulatoryissuesneedprimarydocuments."
+    },
+    "customerAndSupplier": {
+      "quarterNoCustomerAbove10pctRevenue": true,
+      "halfNoCustomerAbove10pctRevenue": true,
+      "noCustomerAbove10pctReceivables": true,
+      "suppliers": "Certaincomponents,subassembliesandsterilizationarelimited/single-sourced;noquantifiedshareinreadfiling."
+    },
+    "governance": {
+      "Q2DisclosureControls": "Not effective asofJune30duepreviouslyidentifiedmaterialweakness",
+      "remediation": "Newcontrolactivitiesnotyetoperated/testedsufficientlytoconcludeeffectiveness",
+      "meaning": "Disclosedcontrolrisk,notproofthatfinancialstatementsarefraudulent.",
+      "CFOChange": "FernandoAraujoeffective2026-09-21;formerCFOcommercialstrategicadvisorLATAM",
+      "guidanceReaffirmed": "2026-09-10",
+      "specificControlDeficiency": "Inventorymovementwithinmanufacturingnetworknotadequatelyrecordedforinterimstatements;yearendexistence/accuracycontrolsinplace. Q2implementedinterimcounts,system/monitoringandreviewcontrolsbutnotyetsufficientoperatingeffectivenesstesting.",
+      "managementStatement": "Managementstatesadditionalproceduressupportfairpresentationof10Qdespitematerialweakness;thisisnotafraudfinding."
+    }
+  }
+}

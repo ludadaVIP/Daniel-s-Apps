@@ -1,0 +1,123 @@
+{
+  "symbol": "CRDO",
+  "stateUpdatedAt": "2026-11-04T22:59:22.772Z",
+  "capitalBasisUsd": 400000,
+  "company": {
+    "key": "CRDO",
+    "name": "CREDO TECHNOLOGY GROUP HOLDING LTD",
+    "symbols": [
+      "CRDO"
+    ],
+    "value": 19.7976,
+    "directValue": 0,
+    "contributions": [
+      {
+        "symbol": "SOXX",
+        "value": 19.7976,
+        "fundWeightPct": 1.46
+      }
+    ],
+    "weight": 0.016356659380185917,
+    "fundCount": 1
+  },
+  "fundsUsed": [
+    {
+      "symbol": "QQQM",
+      "asOf": "2026-10-23",
+      "stale": false,
+      "sourceUrl": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G649/holdings/fund?idType=cusip&productType=ETF",
+      "heldValue": 34200
+    },
+    {
+      "symbol": "SMH",
+      "asOf": "2026-10-23",
+      "stale": false,
+      "sourceUrl": "https://www.vaneck.com/us/en/investments/semiconductor-etf-smh/holdings",
+      "heldValue": 1010
+    },
+    {
+      "symbol": "VOO",
+      "asOf": "2026-09-30",
+      "stale": false,
+      "sourceUrl": "https://advisors.vanguard.com/investments/products/api/funds/0968/holdings/latest",
+      "heldValue": 81190
+    },
+    {
+      "symbol": "SOXX",
+      "asOf": "2026-10-23",
+      "stale": false,
+      "sourceUrl": "https://www.ishares.com/us/products/239705/ishares-semiconductor-etf/latest-holdings.csv",
+      "heldValue": 1356
+    }
+  ],
+  "quoteDates": [
+    "2026-11-04"
+  ],
+  "missingFundOrFxCoverage": [],
+  "pendingBuys": [],
+  "pendingKnownLimitBuyUsd": 0,
+  "allPortfolioTop10": [
+    {
+      "symbols": [
+        "NVDA"
+      ],
+      "value": 9899.413035999998
+    },
+    {
+      "symbols": [
+        "GOOG",
+        "GOOGL"
+      ],
+      "value": 9363.393686
+    },
+    {
+      "symbols": [
+        "AAPL"
+      ],
+      "value": 8754.376086
+    },
+    {
+      "symbols": [
+        "MSFT"
+      ],
+      "value": 6815.471143999999
+    },
+    {
+      "symbols": [
+        "AMZN"
+      ],
+      "value": 4471.190153
+    },
+    {
+      "symbols": [
+        "MU"
+      ],
+      "value": 3125.669196
+    },
+    {
+      "symbols": [
+        "AVGO"
+      ],
+      "value": 3048.354346
+    },
+    {
+      "symbols": [
+        "META"
+      ],
+      "value": 3011.7689960000002
+    },
+    {
+      "symbols": [
+        "AMD"
+      ],
+      "value": 2680.685758
+    },
+    {
+      "symbols": [
+        "TSLA"
+      ],
+      "value": 2297.493432
+    }
+  ],
+  "note": "保存行情与历史成分的估算，不是券商实时资产/冻结金额；未知基金或汇率会影响敞口完整性，市场单不能估计固定金额。"
+}

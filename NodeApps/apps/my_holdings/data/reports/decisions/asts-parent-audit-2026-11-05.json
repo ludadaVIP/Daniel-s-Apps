@@ -1,0 +1,30 @@
+{
+  "passed": true,
+  "checks": 966,
+  "at": "2026-11-04T22:59:21.734Z",
+  "modelSha256": "0d2fe104d6ad886f1778f8e5d6a36daaa4c384fbe73e306d7447ba7a68d31186",
+  "method": "Independent JavaScript reconstruction from economic assumptions; direct per-share future distributions/terminal ownership, debt settlement consistency, capex/cohort replacement, annual equity funding, P/E claims, reverse, sensitivity and separately-read original financial anchors.",
+  "scenarios": [
+    {
+      "id": "bear",
+      "today": 0,
+      "year5": 0,
+      "peToday": 0,
+      "peYear5": 0
+    },
+    {
+      "id": "base",
+      "today": 4.49942287826438,
+      "year5": 9.450325306377168,
+      "peToday": 6.295079299000629,
+      "peYear5": 13.221817289586422
+    },
+    {
+      "id": "bull",
+      "today": 61.228831740904496,
+      "year5": 115.32813811468263,
+      "peToday": 88.58065520151212,
+      "peYear5": 166.84692075456144
+    }
+  ]
+}

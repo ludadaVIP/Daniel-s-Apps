@@ -1,0 +1,91 @@
+{
+  "passed": true,
+  "checks": 438,
+  "at": "2026-11-04T22:24:26.166991+00:00",
+  "modelSha256": "c19e6f8b523731c63a33d6797576feed980d9112a5a7e16d3286c9206db48519",
+  "quote": {
+    "price": 43.99,
+    "timestampText": "Post Nov 4 17:22 ET",
+    "capturedAt": "2026-11-04T22:23:14.259Z",
+    "status": "after-hours (post-market), observed last trade; not regular-session close",
+    "sourceId": "quote-moomoo",
+    "timestampPrecision": "minute",
+    "quoteDate": "2026-11-04",
+    "quoteTimezone": "America/New_York (EST, UTC-5)",
+    "timestampUtc": "2026-11-04T22:22:00Z",
+    "regularClose": {
+      "price": 43.3,
+      "timestampText": "Close Nov 4 16:00 ET",
+      "timestampUtc": "2026-11-04T21:00:00Z",
+      "capturedAt": "2026-11-04T22:23:14.259Z",
+      "sourceId": "quote-moomoo",
+      "confirmedByYahooClose": 43.3
+    },
+    "alternateProviderObservation": {
+      "sourceId": "quote-yahoo",
+      "price": 43.3,
+      "timestampText": "5:17:00 PM EST",
+      "capturedAt": "2026-11-04T22:23:14.522Z",
+      "note": "Yahoo after-hours observation is older and differs from Moomoo; use the newer explicit Moomoo post-market tick as the scenario-return reference. Neither is an executable bid/ask."
+    }
+  },
+  "scenarios": [
+    {
+      "id": "bear",
+      "today": 10.676272775248453,
+      "terminalShareOfEv": 0.38760474690100216,
+      "p2031": 16.698990203174088,
+      "cagr": -0.1761137600596273
+    },
+    {
+      "id": "base",
+      "today": 40.40996481963177,
+      "terminalShareOfEv": 0.5281674645721909,
+      "p2031": 66.39158959916895,
+      "cagr": 0.08580495950927425
+    },
+    {
+      "id": "bull",
+      "today": 101.71060029906737,
+      "terminalShareOfEv": 0.6328362642646792,
+      "p2031": 162.25591508859574,
+      "cagr": 0.2982828350998836
+    }
+  ],
+  "stress": {
+    "today": 5.134508138644209,
+    "minCash": 97.21505839999999
+  },
+  "entry": {
+    "requiredReturn": 0.15,
+    "conservativeValueReference": 40.40996481963177,
+    "futurePriceReference": 66.39158959916895,
+    "formula": "min(P2031/(1.15)^5, conservativeTodayValue*(1-margin))",
+    "stages": [
+      {
+        "stage": "首次",
+        "margin": 0.25,
+        "targetFraction": 0.25,
+        "returnCeiling": 33.008353768178715,
+        "marginCeiling": 30.307473614723826,
+        "ceiling": 30.307473614723826
+      },
+      {
+        "stage": "验证后",
+        "margin": 0.35,
+        "targetFraction": 0.35,
+        "returnCeiling": 33.008353768178715,
+        "marginCeiling": 26.26647713276065,
+        "ceiling": 26.26647713276065
+      },
+      {
+        "stage": "深度折让",
+        "margin": 0.45,
+        "targetFraction": 0.4,
+        "returnCeiling": 33.008353768178715,
+        "marginCeiling": 22.225480650797476,
+        "ceiling": 22.225480650797476
+      }
+    ]
+  }
+}

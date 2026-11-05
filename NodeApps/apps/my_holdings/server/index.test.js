@@ -6,6 +6,8 @@ import path from "node:path";
 import { createHoldingsApp } from "./index.js";
 import { quotePolicy } from "./market-session.js";
 import { readBackupText } from "../src/backup-file.js";
+import { validateDecisionReport, decisionEntryPlan, scenarioReturn, scenarioUpside } from "../src/decision-reports.js";
+import { decisionReportHtml } from "./decision-report.js";
 const research = {
   identity: {
     name: "微软",
@@ -42,6 +44,97 @@ async function setup(t, options = {}) {
   };
   return { dir, base, call };
 }
+
+function sampleDecision() {
+  return { version: 1, symbol: "MSFT", name: "测试公司 <script>alert(1)</script>", exchange: "NASDAQ", currency: "USD", capitalUsd: 400000, horizonYears: 5,
+    analysisDate: "2026-11-04", dataAsOf: "测试资料，不用于投资", financialPeriod: "测试季度",
+    quote: { price: 100, date: "2026-11-03", type: "测试收盘", note: "测试报价，非实时", source: "测试", sourceUrl: "https://example.com/quote" },
+    verdict: { stance: "观察", conclusion: "测试结论", confidence: "测试", valueLow: 60, valueHigh: 80, limitations: "测试限制" },
+    position: { targetPct: 2, maxPct: 3, existingExposureUsd: 2000, rationale: "测试仓位依据", portfolioFit: "测试组合约束" },
+    entries: [ ["observation", 81, 90, 25], ["safety", 61, 70, 35], ["discount", 40, 50, 40] ].map(([tier, low, high, budgetSharePct]) => ({ tier, low, high, budgetSharePct, condition: "测试条件" })),
+    scenarios: ["bear", "base", "bull"].map((id, i) => ({ id, label: id, assumptions: "测试路径", todayValue: 30 + i * 40, year5Price: 40 + i * 80 })),
+    masters: ["graham", "buffett", "munger", "lynch", "dalio", "soros", "marks"].map((id) => ({ id, name: id, judgment: "测试判断", evidence: "测试证据", challenge: "测试质疑", response: "测试回应" })),
+    debate: [{ question: "测试分歧", bull: "测试多方", bear: "测试反方", resolution: "测试裁决" }],
+    sections: [{ title: "测试分析", body: "测试正文" }], invalidation: ["测试失效"], reviewTriggers: ["测试复查"], sources: [{ label: "测试来源", date: "测试日期", url: "https://example.com/report" }] };
+}
+
+test("decision reports keep unavailable prices and valuations unknown instead of fabricating zero prices or losses", () => {
+  const decision = sampleDecision();
+  Object.assign(decision.quote, { price: null, date: "", sourceUrl: null, source: "尚未核验报价" });
+  Object.assign(decision.verdict, { valueLow: null, valueHigh: null });
+  Object.assign(decision.position, { targetPct: 0, maxPct: 0, existingExposureUsd: 0 });
+  for (const e of decision.entries) Object.assign(e, { low: null, high: null });
+  for (const s of decision.scenarios) Object.assign(s, { todayValue: null, year5Price: null });
+  assert.equal(validateDecisionReport(decision, { symbol: "MSFT" }), decision);
+  assert.equal(scenarioReturn(null, 100), null);
+  assert.equal(scenarioReturn(100, null), null);
+  assert.equal(scenarioUpside(null, 100), null);
+  assert.equal(scenarioReturn(0, 100), -1); // A modeled total loss is different from unknown.
+  const html = decisionReportHtml(decision, "");
+  assert.match(html, /待核验/);
+  assert.match(html, /缺少可核验数据/);
+  assert.ok(!html.includes("-100.0%"));
+  assert.ok(!html.includes("NaN"));
+});
+
+test("decision reports reserve recorded limit buys before dividing remaining capital into entry tiers", () => {
+  const decision = sampleDecision();
+  decision.position.pendingBuyUsd = 1500;
+  const plan = decisionEntryPlan(decision);
+  assert.equal(plan.reduce((sum, e) => sum + e.dollars, 0), 4500);
+  assert.equal(plan[0].dollars, 1125);
+  decision.position.pendingBuyUsd = 9000;
+  assert.ok(decisionEntryPlan(decision).every((e) => e.dollars === 0 && e.shares === 0));
+});
+
+test("decision reports keep financial plans and quotes intact, version files, and retain the last report on failed refresh", async (t) => {
+  const { call, dir } = await setup(t);
+  const initial = (await call("/api/state")).data;
+  initial.watchlist.push({ id: "decision-msft", name: "微软", symbol: "MSFT", status: "观察中", note: "", trigger: "", targetPrice: 88, price: 101, priceDate: "2026-11-03", priceCurrency: "USD" });
+  initial.journal.push({ id: "decision-plan", kind: "plan", watchId: "decision-msft", title: "用户计划", date: "2026-11-04", body: "用户文字", plan: { allocationPct: 7, safetyLow: 70, safetyHigh: 80, discountLow: 50, discountHigh: 60 } });
+  assert.equal((await call("/api/state", initial, "PUT")).status, 200);
+  assert.equal((await call("/api/jobs", { kind: "decision-report", watchId: "missing" })).status, 404);
+  assert.equal((await call("/api/decision-reports/decision-msft")).data.decision, null);
+  const created = await call("/api/jobs", { kind: "decision-report", watchId: "decision-msft" });
+  assert.equal(created.status, 201);
+  assert.match(await fs.readFile(path.join(dir, "CODEX_TODO.md"), "utf8"), /七种投资思想决策报告/);
+  assert.equal((await call("/api/jobs", { kind: "decision-report", watchId: "decision-msft" })).status, 409);
+  const endpoint = `/api/jobs/${created.data.job.id}/complete`;
+  const wrong = sampleDecision(); wrong.symbol = "AAPL";
+  assert.equal((await call(endpoint, { decision: wrong })).status, 400);
+  const overlap = sampleDecision(); overlap.entries[1].high = overlap.entries[0].low;
+  assert.equal((await call(endpoint, { decision: overlap })).status, 400);
+  const missingMaster = sampleDecision(); missingMaster.masters.pop();
+  assert.equal((await call(endpoint, { decision: missingMaster })).status, 400);
+  const completed = await call(endpoint, { decision: sampleDecision() });
+  assert.equal(completed.status, 200);
+  const watch = completed.data.watchlist.find((w) => w.id === "decision-msft");
+  assert.equal(watch.price, 101); assert.equal(watch.targetPrice, 88);
+  assert.deepEqual(completed.data.journal, initial.journal);
+  assert.equal(watch.research, undefined);
+  assert.equal(completed.data.analyses[0].kind, "decision-report");
+  const firstRef = watch.decisionReport;
+  const html = await fs.readFile(path.join(dir, "reports", firstRef.report), "utf8");
+  assert.ok(html.startsWith("<!doctype html>"));
+  assert.match(html, /&lt;script&gt;/); assert.ok(!html.includes("<script>"));
+  assert.ok(html.indexOf("三档入场计划") < html.indexOf("七种投资思想逐项质询"));
+  assert.match(html, /1,500/); // ($8,000 target - $2,000 existing) * 25%
+  assert.deepEqual((await call("/api/decision-reports/decision-msft")).data.decision, sampleDecision());
+  assert.equal((await call(endpoint, { decision: sampleDecision() })).status, 409);
+  const refresh = await call("/api/jobs", { kind: "decision-report", watchId: "decision-msft" });
+  assert.deepEqual(refresh.data.state.watchlist.find((w) => w.id === watch.id).decisionReport, firstRef);
+  const failed = await call(`/api/jobs/${refresh.data.job.id}/fail`, { reason: "测试来源暂不可用" });
+  assert.deepEqual(failed.data.watchlist.find((w) => w.id === watch.id).decisionReport, firstRef);
+  assert.equal((await call("/api/decision-reports/decision-msft")).data.decision.verdict.conclusion, "测试结论");
+  const retry = await call("/api/jobs", { kind: "decision-report", watchId: watch.id });
+  const next = sampleDecision(); next.verdict.conclusion = "测试新版结论";
+  const replaced = await call(`/api/jobs/${retry.data.job.id}/complete`, { decision: next });
+  assert.equal(replaced.status, 200);
+  const nextRef = replaced.data.watchlist.find((w) => w.id === watch.id).decisionReport;
+  assert.notEqual(nextRef.report, firstRef.report);
+  await fs.access(path.join(dir, "reports", firstRef.report));
+  await fs.access(path.join(dir, "reports", nextRef.report));
+});
 test("fund disclosures are read independently without adding state revisions or backups", async (t) => {
   const { call, dir, base } = await setup(t);
   await call("/api/state");
