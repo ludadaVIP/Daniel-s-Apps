@@ -163,7 +163,7 @@ export function DecisionPlanCard({
     <article className={`mh-decision-card attention-${attention} ${viewMode === "list" ? "is-list" : "is-card"} ${selected ? "is-selected" : ""}`}
       onClick={(event) => { if (!event.target.closest("button, a, input, select, textarea, label")) onSelect?.(); }}>
       <header>
-        <button type="button" className="mh-decision-identity" onClick={onSelect} aria-pressed={!!selected} title={`查看 ${watch.symbol || watch.name} 决策报告`}>
+        <button type="button" className="mh-decision-identity" onClick={onSelect} aria-pressed={!!selected} title={`查看 ${watch.symbol || watch.name} 公司速览`}>
           <strong>{cardTitle || `${watch.symbol || "代码待核实"} - ${watch.name || "公司名称待核实"}`}</strong>
           <ArrowUpRight size={12} />
         </button>

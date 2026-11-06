@@ -1081,6 +1081,11 @@ export async function createHoldingsApp({
             fallbackDate: job.quotePolicy.date,
             fallbackCloseAt: job.quotePolicy.sessionCloseAt,
           };
+          const policyForQuote = (q) => {
+            const market = q?.market || policy.market || "US";
+            if (!["US", "LSE"].includes(market)) throw error(`不支持的报价市场：${market}。`);
+            return market === (policy.market || "US") ? policy : quotePolicy(policy.executedAt, market);
+          };
           const fetchedAt = now().toISOString();
           if (!Array.isArray(req.body.quotes) || req.body.quotes.length > 1000)
             throw error("价格任务需要提供 quotes 数组。" );
@@ -1090,14 +1095,16 @@ export async function createHoldingsApp({
             if (req.body.research !== undefined || req.body.report !== undefined) throw error("关注价格任务只更新报价，不接受研究或报告。");
             if (req.body.quotes.length !== 1) throw error("关注价格任务只能提交当前标的一条报价。");
             const q = req.body.quotes[0];
-            validateMarketQuote(q, policy, fetchedAt);
+            const quotePolicyForMarket = policyForQuote(q);
+            validateMarketQuote(q, quotePolicyForMarket, fetchedAt);
             if ((watch.symbol && normalizeSymbol(watch.symbol) !== normalizeSymbol(q.symbol)) ||
                 !text(q.currency, 3) || !/^[A-Z]{3}$/.test(q.currency) || (watchCurrency(watch) && watchCurrency(watch) !== q.currency))
               throw error("关注报价的证券代码或币种不符，请核实交易所与挂牌币种。");
             Object.assign(watch, { symbol: normalizeSymbol(q.symbol), price: q.price, priceDate: q.date, priceType: q.type,
               priceSession: q.type === "close" ? undefined : q.session,
-              priceCurrency: q.currency, priceAsOf: q.type === "close" ? policy.fallbackCloseAt : q.asOf,
-              priceFetchedAt: fetchedAt, priceTimeZone: policy.timeZone, priceSource: q.source.trim(), priceSourceUrl: q.sourceUrl });
+              priceCurrency: q.currency, priceAsOf: q.type === "close" ? quotePolicyForMarket.fallbackCloseAt : q.asOf,
+              priceFetchedAt: fetchedAt, priceTimeZone: quotePolicyForMarket.timeZone, priceMarket: quotePolicyForMarket.market || "US",
+              priceSource: q.source.trim(), priceSourceUrl: q.sourceUrl });
             Object.assign(job, { status: "done", completedAt: fetchedAt, error: "", summary: `已更新 ${watch.symbol} 的${marketQuoteLabel(q)}；已有研究保留。` });
             s.watchlistUpdatedAt = fetchedAt;
             return write(s);
@@ -1105,7 +1112,7 @@ export async function createHoldingsApp({
           const expected = new Set(s.holdings.map((h) => h.symbol.trim().toUpperCase()));
           const received = new Set();
           for (const q of req.body.quotes) {
-            validateMarketQuote(q, policy, fetchedAt);
+            validateMarketQuote(q, policyForQuote(q), fetchedAt);
             const symbol = q.symbol.trim().toUpperCase();
             if (!expected.has(symbol) || received.has(symbol)) throw error(`价格代码无效或重复：${symbol}。`);
             received.add(symbol);
@@ -1115,13 +1122,15 @@ export async function createHoldingsApp({
           const bySymbol = new Map(req.body.quotes.map((q) => [q.symbol.trim().toUpperCase(), q]));
           for (const h of s.holdings) {
             const q = bySymbol.get(h.symbol.trim().toUpperCase());
+            const quotePolicyForMarket = policyForQuote(q);
             h.price = q.price;
             h.priceDate = q.date;
             h.priceSource = q.source.trim().slice(0, 100);
             h.priceType = q.type;
             h.priceSession = q.type === "close" ? undefined : q.session;
-            h.priceTimeZone = policy.timeZone;
-            h.priceAsOf = q.type === "close" ? policy.fallbackCloseAt : q.asOf;
+            h.priceTimeZone = quotePolicyForMarket.timeZone;
+            h.priceMarket = quotePolicyForMarket.market || "US";
+            h.priceAsOf = q.type === "close" ? quotePolicyForMarket.fallbackCloseAt : q.asOf;
             h.priceFetchedAt = fetchedAt;
             h.priceSourceUrl = q.sourceUrl;
             h.marketValue = Math.round(h.quantity * h.price * 100) / 100;

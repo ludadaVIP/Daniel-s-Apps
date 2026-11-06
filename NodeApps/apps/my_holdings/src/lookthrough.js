@@ -9,8 +9,9 @@ const ISSUERS = {
   NWS: ["NEWS-CORP", "News Corp"], NWSA: ["NEWS-CORP", "News Corp"],
 };
 const NAMES = { NVDA: "英伟达", MSFT: "微软", AAPL: "苹果", AMZN: "亚马逊", AVGO: "博通", META: "Meta", TSLA: "特斯拉", TSM: "台积电", AMD: "AMD", MU: "美光", LLY: "礼来", ORCL: "甲骨文", IBKR: "盈透证券" };
-export const FUND_COLORS = { VOO: "#4d7b69", QQQM: "#6b80a8", SOXX: "#b69757", SMH: "#8b7fa7", VGT: "#5d9299", direct: "#8b9988" };
+export const FUND_COLORS = { VOO: "#4d7b69", QQQM: "#6b80a8", SOXX: "#b69757", SMH: "#8b7fa7", VGT: "#5d9299", SPYL: "#6283a8", SPMO: "#b76d55", direct: "#8b9988" };
 export const fundColor = (symbol) => FUND_COLORS[symbol] || "#84998f";
+const SUPPORTED_FUND_SYMBOLS = ["VOO", "QQQM", "SOXX", "SMH", "VGT", "SPYL", "SPMO"];
 
 export function validateFundHoldings(data) {
   if (data?.version !== 1 || !Array.isArray(data.funds) || !data.funds.length) throw new Error("基金权重文件格式无效。");
@@ -42,7 +43,8 @@ export function validateFundHoldings(data) {
 
 export function lookThrough(holdings, data, { fx = {}, accountId = "all", cashValue = 0, now = new Date(), fundSymbols = [] } = {}) {
   const funds = new Map((data?.funds || []).map(f => [f.symbol, f]));
-  const knownFunds = new Set(fundSymbols.map(normalize));
+  // Keep recognized ETFs out of direct-stock exposure even while their disclosure is unavailable.
+  const knownFunds = new Set([...fundSymbols, ...SUPPORTED_FUND_SYMBOLS].map(normalize));
   const companies = new Map(), usedFunds = new Map(), excluded = [];
   let totalValue = 0, fundValue = 0, directValue = 0, unclassifiedValue = 0;
   const add = (symbol, name, amount, via) => {
@@ -70,7 +72,7 @@ export function lookThrough(holdings, data, { fx = {}, accountId = "all", cashVa
       fundValue += value;
       usedFunds.set(symbol, { ...fund, value: (usedFunds.get(symbol)?.value || 0) + value });
       for (const item of fund.holdings) if (item.assetType === "equity" && item.weightPct > 0) add(item.symbol, item.name, value * item.weightPct / 100, symbol);
-    } else if (knownFunds.has(symbol) || /ETF|\bindex\b|基金|指数/i.test(`${h.name || ""} ${h.sector || ""}`)) {
+    } else if (knownFunds.has(symbol) || /ETF|\bindex\b|基金|指数/i.test(`${h.name || ""} ${h.sector || ""} ${h.assetType || ""} ${h.type || ""} ${h.category || ""} ${h.securityType || ""}`)) {
       unclassifiedValue += value;
       excluded.push({ symbol, value, reason: "尚无成分权重，未当作个股计算" });
     } else {
@@ -100,4 +102,4 @@ export function lookThrough(holdings, data, { fx = {}, accountId = "all", cashVa
   };
 }
 
-export const FUND_REVIEW_PROMPT = `请复核 My Holdings 个股穿透。先读 apps/my_holdings/README.md 的「个股穿透」与 apps/my_holdings/data/fund-holdings.json，按各发行商最新完整持仓更新该独立文件，保留真实 asOf、retrievedAt、官方来源URL、全部成分及原始百分比精度。支持 VOO、QQQM、SOXX、SMH、VGT；如实际持有其他ETF则核实身份后补齐。equity 才进入公司排行；现金、货基、期货、衍生品及权利单独分类，缺失权重保留null，不归一化，不把期货名义金额当股票市值。用 validateFundHoldings 校验并运行 lookthrough.test.js；通过 GET /my-holdings/api/fund-holdings 确认新数据。未能核实的基金保留原数据并说明，不用二手最新价格冒充成分权重，不改持仓、成本、行情或研究。`;
+export const FUND_REVIEW_PROMPT = `请复核 My Holdings 个股穿透。先读 apps/my_holdings/README.md 的「个股穿透」与 apps/my_holdings/data/fund-holdings.json，按各发行商最新完整持仓更新该独立文件，保留真实 asOf、retrievedAt、官方来源URL、全部成分及原始百分比精度。当前支持 VOO、QQQM、SOXX、SMH、VGT、SPYL、SPMO，并核实实际持有或近期新增的其他ETF后补齐，不能把ETF当作直接持有的单家公司。equity 才进入公司排行；现金、货基、期货、衍生品及权利单独分类，缺失权重保留null，不归一化，不把期货名义金额当股票市值。用 validateFundHoldings 校验并运行 lookthrough.test.js；通过 GET /my-holdings/api/fund-holdings 确认新数据。未能核实的基金保留原数据并说明，不用二手最新价格冒充成分权重，不改持仓、成本、行情或研究。`;

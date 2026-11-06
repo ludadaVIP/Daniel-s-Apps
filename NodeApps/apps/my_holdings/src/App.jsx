@@ -74,7 +74,7 @@ import {
 } from "./Forms.jsx";
 import { Reports } from "./Reports.jsx";
 import { DecisionPlanCard } from "./DecisionPlanCard.jsx";
-import { DecisionReport } from "./DecisionReport.jsx";
+import { CompanyOverview } from "./CompanyOverview.jsx";
 import { decisionTaskQuestion } from "./decision-reports.js";
 import { LookThrough } from "./LookThrough.jsx";
 import { WatchCategoryManager } from "./WatchCategoryManager.jsx";
@@ -279,8 +279,14 @@ function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, s
     </div>
     {visibleNote && <p className="mh-order-note">{visibleNote}</p>}
     {order.side === "buy" && selectable && <div className="mh-order-card-footer">
-      <button type="button" className="mh-order-fill-button" disabled={busy} title="确认成交"
-        aria-label={`确认 ${order.symbol} 委托成交并入持仓`} onClick={onExecute}>
+      <button type="button" className="mh-order-fill-button" disabled={busy}
+        title={order.orderType === "limit" && !Number(order.filledQuantity)
+          ? `按限价 ${money(order.limitPrice, order.currency)} 确认成交并入持仓`
+          : "填写实际成交信息并入持仓"}
+        aria-label={order.orderType === "limit" && !Number(order.filledQuantity)
+          ? `按限价确认 ${order.symbol} 委托成交并入持仓`
+          : `填写 ${order.symbol} 实际成交信息并入持仓`}
+        onClick={onExecute}>
         <Check size={14} />
       </button>
     </div>}
@@ -687,7 +693,7 @@ function RightPanel({
     cash: "资金与目标",
     reports: "档案索引",
     ai: "任务状态",
-    journal: watch ? "价格卡片详情" : "近期价格卡片",
+    journal: watch ? "公司速览" : "近期价格卡片",
     discipline: "决策纪律",
     "decision-log": "决策日志",
   }[tab];
@@ -943,7 +949,7 @@ function RightPanel({
         <section className="mh-side-summary"><span className="mh-eyebrow">CODEX QUEUE</span><strong>{state.jobs.filter((j) => j.status === "waiting").length} 项待办</strong><div><span>已完成</span><b>{state.jobs.filter((j) => j.status === "done").length}</b></div><div><span>未完成</span><b>{state.jobs.filter((j) => j.status === "failed").length}</b></div><button className="mh-button" onClick={onCopyQueue}><Copy size={14} /> 复制待办给 Codex</button></section>
         <section><h3>最近完成</h3>{reportLinks(allAnalyses.slice(0, 4), "完成的研究会保存在这里")}</section>
       </>}
-      {tab === "journal" && watch && <><DecisionReport key={watch.id} watch={watch} jobs={state.jobs} onQueue={onQueueTask} onOpenReport={onOpenReport} />{linkedContext}</>}
+      {tab === "journal" && watch && <CompanyOverview key={watch.id} watch={watch} />}
       {tab === "journal" && !watch && <>
         <section className="mh-side-summary"><span className="mh-eyebrow">PRICE CARDS</span><strong>{state.watchlist.filter((item) => !isIndexOrEtf(item)).length} 张个股行动卡</strong><p className="mh-side-summary-text">观察价与近期关注同步；安全边际、折价区间和仓位计划保存在卡片上。</p><button className="mh-text-button" onClick={() => onNavigate("watch")}>查看近期关注 <ArrowRight size={13} /></button></section>
         <section><h3>最近计划更新</h3>{state.journal.filter((entry) => entry.kind !== "trade" && isVisibleDecisionEntry(entry, state.watchlist)).slice().sort((a, b) => b.date.localeCompare(a.date)).slice(0, 4).map((j) => <button className="mh-side-history" key={j.id} onClick={() => j.kind === "plan" ? onNavigate("journal") : onEdit({ type: "journal", item: j })}><BookOpen size={15} /><span><strong>{decisionTitle(j, state.watchlist)}</strong><small>{j.date}</small></span>{j.kind !== "plan" && <Pencil size={13} />}</button>)}</section>
@@ -1281,6 +1287,7 @@ export default function HoldingsApp() {
     try {
       const s = await request("/api/state");
       setState(s);
+      stateRef.current = s;
       setFatal("");
       return s;
     } catch (e) {
@@ -1447,14 +1454,29 @@ export default function HoldingsApp() {
     busyRef.current = true;
     setBusy(true);
     try {
-      const result = await request(`/api/orders/${encodeURIComponent(order.id)}/execute`, {
+      const submit = (revision) => request(`/api/orders/${encodeURIComponent(order.id)}/execute`, {
         ...fill,
-        revision: stateRef.current.revision,
+        revision,
       });
+      let result;
+      try {
+        result = await submit(stateRef.current.revision);
+      } catch (e) {
+        if (!e.message.includes("数据已更新")) throw e;
+        const current = await refresh();
+        const latestOrder = current?.orders?.find((row) => row.id === order.id);
+        if (!latestOrder) throw new Error("委托已被移除或已处理，已刷新当前数据。");
+        const unchanged = ["symbol", "side", "orderType", "status", "quantity", "filledQuantity", "limitPrice", "currency", "accountId"]
+          .every((key) => latestOrder[key] === order[key]);
+        if (!unchanged) throw new Error("委托内容已变化，已刷新数据；请核对后重新确认成交。");
+        result = await submit(current.revision);
+      }
       setState(result.state);
       stateRef.current = result.state;
-      setSelected(result.holding?.id || null);
       setModal(null);
+      page("holdings");
+      setSelected(result.holding?.id || null);
+      setRight(true);
       setExcludedOrderIds((current) => {
         const next = new Set(current);
         next.delete(order.id);
@@ -1470,6 +1492,21 @@ export default function HoldingsApp() {
       busyRef.current = false;
       setBusy(false);
     }
+  };
+  const confirmOrder = (order, accountId) => {
+    if (order.orderType === "limit" && Number(order.filledQuantity || 0) === 0 && Number(order.limitPrice) > 0) {
+      notify(`正在按限价确认 ${order.symbol} 成交并写入持仓…`);
+      void executeOrder(order, {
+        accountId,
+        date: localDate(),
+        price: Number(order.limitPrice),
+        fees: 0,
+        rationale: "通过委托卡片确认成交；按委托限价计入本地持仓。",
+      });
+      return;
+    }
+    setModal({ type: "orderFill", item: order, accountId });
+    notify("请核对实际成交均价并确认；提交后才会记入持仓。", false);
   };
   const updateHoldingTrade = async (trade, values) => {
     if (busyRef.current) return false;
@@ -2960,7 +2997,7 @@ export default function HoldingsApp() {
                               onEdit={() => setModal({ type: "order", item: order })} onDelete={() => remove("orders", order)}
                               onOpenWatch={() => { page("watch"); selectWatch(order.watchId); }}
                               onRecordDecision={() => setModal({ type: "tradeLog", order, instrument: linkedWatch ? { kind: "watch", item: linkedWatch } : linkedHolding ? { kind: "holding", item: linkedHolding } : undefined })}
-                              onExecute={() => setModal({ type: "orderFill", item: order, accountId })} />;
+                              onExecute={() => confirmOrder(order, accountId)} />;
                           })}
                         </div> : <p className="mh-order-account-empty">该账户暂无委托单</p>}
                       </section>
