@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T07:35:57.254Z",
+  "jobId": "1c3a5b0e-2456-4666-a32e-806d9d01c0dc",
+  "reference": {
+    "json": "decisions/tsla-2026-11-06-1c3a5b0e-2456-4666-a32e-806d9d01c0dc.json",
+    "report": "decisions/tsla-2026-11-06-1c3a5b0e-2456-4666-a32e-806d9d01c0dc.html",
+    "updatedAt": "2026-11-06T07:35:54.292Z",
+    "conclusion": "基准条件示例：DCF今日33.42、2031为64.35；分部法今日62.68、2031为120.68。对345.71的五年年化约-28.6%至-19.0%。这不是可信公允价区间；即使乐观2031约523–670也需极强新业务兑现。暂不给机械低价挂单。已核ETF敞口$2282.53保留，新增预算0。"
+  },
+  "beforeRevision": 3449,
+  "afterRevision": 3450,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"TSLA\",\n  \"reference\": {\n    \"json\": \"decisions/tsla-2026-11-06-1c3a5b0e-2456-4666-a32e-806d9d01c0dc.json\",\n    \"report\": \"decisions/tsla-2026-11-06-1c3a5b0e-2456-4666-a32e-806d9d01c0dc.html\",\n    \"updatedAt\": \"2026-11-06T07:35:54.292Z\",\n    \"conclusion\": \"基准条件示例：DCF今日33.42、2031为64.35；分部法今日62.68、2031为120.68。对345.71的五年年化约-28.6%至-19.0%。这不是可信公允价区间；即使乐观2031约523–670也需极强新业务兑现。暂不给机械低价挂单。已核ETF敞口$2282.53保留，新增预算0。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"label\": \"一小仓观察\",\n      \"low\": null,\n      \"high\": null,\n      \"budgetSharePct\": 25,\n      \"condition\": \"暂不启用，金额0：先核Robotaxi净收费、车队折旧、接管/远程支持、保险及可扩张监管许可。\",\n      \"dollars\": 0,\n      \"shares\": null\n    },\n    {\n      \"tier\": \"safety\",\n      \"label\": \"二安全边际\",\n      \"low\": null,\n      \"high\": null,\n      \"budgetSharePct\": 35,\n      \"condition\": \"暂不启用，金额0：经营分部、资本和完全稀释能可靠连接到每股现金流后，再给两法均支持的价格。\",\n      \"dollars\": 0,\n      \"shares\": null\n    },\n    {\n      \"tier\": \"discount\",\n      \"label\": \"三折价\",\n      \"low\": null,\n      \"high\": null,\n      \"budgetSharePct\": 40,\n      \"condition\": \"暂不启用，金额0：股价下跌本身不消除技术或融资风险；重算后才建立折价限价，不能照示例数值挂单。\",\n      \"dollars\": 0,\n      \"shares\": null\n    }\n  ]\n}\n"
+}

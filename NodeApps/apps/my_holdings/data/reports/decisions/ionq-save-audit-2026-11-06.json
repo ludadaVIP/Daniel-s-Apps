@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T06:32:06.964Z",
+  "jobId": "0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23",
+  "reference": {
+    "json": "decisions/ionq-2026-11-06-0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23.json",
+    "report": "decisions/ionq-2026-11-06-0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23.html",
+    "updatedAt": "2026-11-06T06:32:06.417Z",
+    "conclusion": "基准今日$8.07–$14.72，2031期末$17.70–$32.26；相对27.70五年总回报约−36%至+16%，年化−8.6%至+3.1%。乐观2031约50–83，悲观0–5。现价等待；三档5.66–6.86/4.45–5.65/2.66–4.44美元，条件目标0.5%=$2,000，上限0.75%=$3,000。"
+  },
+  "beforeRevision": 3441,
+  "afterRevision": 3442,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"IONQ\",\n  \"reference\": {\n    \"json\": \"decisions/ionq-2026-11-06-0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23.json\",\n    \"report\": \"decisions/ionq-2026-11-06-0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23.html\",\n    \"updatedAt\": \"2026-11-06T06:32:06.417Z\",\n    \"conclusion\": \"基准今日$8.07–$14.72，2031期末$17.70–$32.26；相对27.70五年总回报约−36%至+16%，年化−8.6%至+3.1%。乐观2031约50–83，悲观0–5。现价等待；三档5.66–6.86/4.45–5.65/2.66–4.44美元，条件目标0.5%=$2,000，上限0.75%=$3,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 5.66,\n      \"high\": 6.86,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(DCF今日×85%，较低2031价按20%年回报折现7.11)。需最新财报确认技术交付、回款及现金预算没有恶化；价格落档后重新核算股数与权证。重大路线/合同或融资变化即暂停旧档。\",\n      \"dollars\": 500,\n      \"shares\": 72\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 4.45,\n      \"high\": 5.65,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(DCF今日×70%，观察上沿×85%)。需最新财报确认技术交付、回款及现金预算没有恶化；价格落档后重新核算股数与权证。重大路线/合同或融资变化即暂停旧档。\",\n      \"dollars\": 700,\n      \"shares\": 123\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 2.66,\n      \"high\": 4.44,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(DCF今日×55%，观察上沿×85%×80%)。需最新财报确认技术交付、回款及现金预算没有恶化；价格落档后重新核算股数与权证。低于2.66美元重做尽调，停止沿用旧价。\",\n      \"dollars\": 800,\n      \"shares\": 180\n    }\n  ]\n}\n"
+}

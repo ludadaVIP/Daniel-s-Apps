@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T03:19:58.825Z",
+  "jobId": "29d05244-ab8a-4055-bf59-ee87ea146d2c",
+  "reference": {
+    "json": "decisions/mp-2026-11-06-29d05244-ab8a-4055-bf59-ee87ea146d2c.json",
+    "report": "decisions/mp-2026-11-06-29d05244-ab8a-4055-bf59-ee87ea146d2c.html",
+    "updatedAt": "2026-11-06T03:19:58.147Z",
+    "conclusion": "暂不投资；40万美元组合当前新增、条件目标和上限均为0美元，三档不提供可执行价格。两法条件模型示例：今日1.23/8.01美元，2031约2.22/14.43，对34.612的五年年化约-42.3%/-16.0%。这些是资金与商品假设下的压力结果，不是可靠公允价区间。乐观2031约26.73–68.62、悲观普通股可全损。"
+  },
+  "beforeRevision": 3438,
+  "afterRevision": 3439,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"MP\",\n  \"reference\": {\n    \"json\": \"decisions/mp-2026-11-06-29d05244-ab8a-4055-bf59-ee87ea146d2c.json\",\n    \"report\": \"decisions/mp-2026-11-06-29d05244-ab8a-4055-bf59-ee87ea146d2c.html\",\n    \"updatedAt\": \"2026-11-06T03:19:58.147Z\",\n    \"conclusion\": \"暂不投资；40万美元组合当前新增、条件目标和上限均为0美元，三档不提供可执行价格。两法条件模型示例：今日1.23/8.01美元，2031约2.22/14.43，对34.612的五年年化约-42.3%/-16.0%。这些是资金与商品假设下的压力结果，不是可靠公允价区间。乐观2031约26.73–68.62、悲观普通股可全损。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": null,\n      \"high\": null,\n      \"budgetSharePct\": 25,\n      \"condition\": \"观察档暂不启用：先核完整Q3附注、逐年10X预算、已承诺融资及普通股现金回报。\",\n      \"dollars\": 0,\n      \"shares\": null\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": null,\n      \"high\": null,\n      \"budgetSharePct\": 35,\n      \"condition\": \"安全边际档暂不启用：用保护到期后的市场价格/成本测算，两法差异收敛后再定价。\",\n      \"dollars\": 0,\n      \"shares\": null\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": null,\n      \"high\": null,\n      \"budgetSharePct\": 40,\n      \"condition\": \"折价档暂不启用：融资、股权或项目条件恶化时仍可能全损，低价本身不是买入依据。\",\n      \"dollars\": 0,\n      \"shares\": null\n    }\n  ]\n}\n"
+}

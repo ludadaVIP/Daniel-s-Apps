@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T02:55:30.461Z",
+  "jobId": "28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7",
+  "reference": {
+    "json": "decisions/cbrs-2026-11-06-28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7.json",
+    "report": "decisions/cbrs-2026-11-06-28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7.html",
+    "updatedAt": "2026-11-06T02:55:29.965Z",
+    "conclusion": "基准今日$40.23–$55.74，2031期末$63.65–$100.44；参照81.71，五年总回报约−22%至+23%、年化-4.9%至4.2%。悲观3.82–7.32、乐观184.56–297.83；客户或融资失败可趋近全损。当前新增0；条件目标0.5%=$2,000，上限0.75%=$3,000。"
+  },
+  "beforeRevision": 3436,
+  "afterRevision": 3437,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"CBRS\",\n  \"reference\": {\n    \"json\": \"decisions/cbrs-2026-11-06-28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7.json\",\n    \"report\": \"decisions/cbrs-2026-11-06-28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7.html\",\n    \"updatedAt\": \"2026-11-06T02:55:29.965Z\",\n    \"conclusion\": \"基准今日$40.23–$55.74，2031期末$63.65–$100.44；参照81.71，五年总回报约−22%至+23%、年化-4.9%至4.2%。悲观3.82–7.32、乐观184.56–297.83；客户或融资失败可趋近全损。当前新增0；条件目标0.5%=$2,000，上限0.75%=$3,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 21.74,\n      \"high\": 25.57,\n      \"budgetSharePct\": 25,\n      \"condition\": \"观察上沿=min(低法今日×85%，低法2031按20%回报折现$25.58)。11月12日Q3后先复核现金、产能与稀释；需求、交付及资金须正常。若订单重议、扩产延期或资金缺口扩大，暂停旧档。\",\n      \"dollars\": 495.80384,\n      \"shares\": 19\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 17.39,\n      \"high\": 21.73,\n      \"budgetSharePct\": 35,\n      \"condition\": \"安全档上沿再取观察上沿×85%与低法今日×70%的较低值。11月12日Q3后先复核现金、产能与稀释；需求、交付及资金须正常。若订单重议、扩产延期或资金缺口扩大，暂停旧档。\",\n      \"dollars\": 694.125376,\n      \"shares\": 31\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 10.42,\n      \"high\": 17.38,\n      \"budgetSharePct\": 40,\n      \"condition\": \"折价档上沿再取观察上沿×85%×80%与低法今日×55%的较低值。11月12日Q3后先复核现金、产能与稀释；需求、交付及资金须正常。低于10.42美元重新尽调。\",\n      \"dollars\": 793.2861439999999,\n      \"shares\": 45\n    }\n  ]\n}\n"
+}

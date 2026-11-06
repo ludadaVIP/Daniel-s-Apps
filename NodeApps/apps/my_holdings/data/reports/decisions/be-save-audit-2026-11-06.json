@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T06:38:25.220Z",
+  "jobId": "f78ab352-bd75-4447-90fd-df466596d5ef",
+  "reference": {
+    "json": "decisions/be-2026-11-06-f78ab352-bd75-4447-90fd-df466596d5ef.json",
+    "report": "decisions/be-2026-11-06-f78ab352-bd75-4447-90fd-df466596d5ef.html",
+    "updatedAt": "2026-11-06T06:38:24.705Z",
+    "conclusion": "基准今日$59.53–$106.96，2031期末$102.59–$184.33；相对174.192五年总回报约−41%至+6%，年化−10.0%至+1.1%。乐观约280–463，悲观17–34且极端可全损。当前等待；条件目标1.5%=$6,000，上限2%=$8,000，须先扣已有ETF约$100.37。"
+  },
+  "beforeRevision": 3442,
+  "afterRevision": 3443,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"BE\",\n  \"reference\": {\n    \"json\": \"decisions/be-2026-11-06-f78ab352-bd75-4447-90fd-df466596d5ef.json\",\n    \"report\": \"decisions/be-2026-11-06-f78ab352-bd75-4447-90fd-df466596d5ef.html\",\n    \"updatedAt\": \"2026-11-06T06:38:24.705Z\",\n    \"conclusion\": \"基准今日$59.53–$106.96，2031期末$102.59–$184.33；相对174.192五年总回报约−41%至+6%，年化−10.0%至+1.1%。乐观约280–463，悲观17–34且极端可全损。当前等待；条件目标1.5%=$6,000，上限2%=$8,000，须先扣已有ETF约$100.37。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 38.12,\n      \"high\": 44.84,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低今日价值×85%，较低2031价按18%年回报折现44.84)。须核实际交付与回款、服务/保修成本及客户建设进度；基本面破坏时撤销旧档。\",\n      \"dollars\": 1474.90676698125,\n      \"shares\": 32\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 30.5,\n      \"high\": 38.11,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低今日价值×70%，观察上沿×85%)。须核实际交付与回款、服务/保修成本及客户建设进度；基本面破坏时撤销旧档。\",\n      \"dollars\": 2064.86947377375,\n      \"shares\": 54\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 18.29,\n      \"high\": 30.49,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低今日价值×55%，观察上沿×85%×80%)。须核实际交付与回款、服务/保修成本及客户建设进度；基本面破坏时撤销旧档。低于18.29美元重做尽调。\",\n      \"dollars\": 2359.8508271700002,\n      \"shares\": 77\n    }\n  ]\n}\n"
+}

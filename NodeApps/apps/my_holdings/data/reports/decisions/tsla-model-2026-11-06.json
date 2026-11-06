@@ -1,0 +1,1113 @@
+{
+  "units": "USD million; shares million; sectorinputs USD billion",
+  "quote": 345.71,
+  "startingFD": 4250,
+  "openingNetCash": 30000,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "auto": [
+          80,
+          82,
+          84,
+          86,
+          88,
+          90,
+          92,
+          94,
+          96,
+          98
+        ],
+        "energy": [
+          14,
+          16,
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32
+        ],
+        "service": [
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27
+        ],
+        "tech": [
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "am": 0.04,
+        "em": 0.1,
+        "sm": 0.04,
+        "tm": 0,
+        "cap": [
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25
+        ],
+        "da": [
+          6,
+          6.5,
+          7,
+          7.5,
+          8,
+          8.5,
+          9,
+          9.5,
+          10,
+          10.5
+        ],
+        "ke": 0.18,
+        "g": 0.02,
+        "roic": 0.12,
+        "mults": [
+          10,
+          12,
+          12,
+          0
+        ],
+        "fundPrice": 40
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": [
+            80000,
+            14000,
+            18000,
+            0
+          ],
+          "ebits": [
+            3200,
+            1400,
+            720,
+            0
+          ],
+          "revenue": 112000,
+          "ebit": 5320,
+          "nopat": 4256,
+          "cap": 16000,
+          "da": 6000,
+          "wc": 200,
+          "fcff": -5944,
+          "cash": 24056,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2028,
+          "sales": [
+            82000,
+            16000,
+            19000,
+            0
+          ],
+          "ebits": [
+            3280,
+            1600,
+            760,
+            0
+          ],
+          "revenue": 117000,
+          "ebit": 5640,
+          "nopat": 4512,
+          "cap": 17000,
+          "da": 6500,
+          "wc": 500,
+          "fcff": -6488,
+          "cash": 17568,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2029,
+          "sales": [
+            84000,
+            18000,
+            20000,
+            0
+          ],
+          "ebits": [
+            3360,
+            1800,
+            800,
+            0
+          ],
+          "revenue": 122000,
+          "ebit": 5960,
+          "nopat": 4768,
+          "cap": 18000,
+          "da": 7000,
+          "wc": 500,
+          "fcff": -6732,
+          "cash": 10836,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2030,
+          "sales": [
+            86000,
+            20000,
+            21000,
+            0
+          ],
+          "ebits": [
+            3440,
+            2000,
+            840,
+            0
+          ],
+          "revenue": 127000,
+          "ebit": 6280,
+          "nopat": 5024,
+          "cap": 19000,
+          "da": 7500,
+          "wc": 500,
+          "fcff": -6976,
+          "cash": 3860,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2031,
+          "sales": [
+            88000,
+            22000,
+            22000,
+            0
+          ],
+          "ebits": [
+            3520,
+            2200,
+            880,
+            0
+          ],
+          "revenue": 132000,
+          "ebit": 6600,
+          "nopat": 5280,
+          "cap": 20000,
+          "da": 8000,
+          "wc": 500,
+          "fcff": -7220,
+          "cash": 3000,
+          "fd": 4417.368421052632,
+          "raised": 6360
+        },
+        {
+          "year": 2032,
+          "sales": [
+            90000,
+            24000,
+            23000,
+            0
+          ],
+          "ebits": [
+            3600,
+            2400,
+            920,
+            0
+          ],
+          "revenue": 137000,
+          "ebit": 6920,
+          "nopat": 5536,
+          "cap": 21000,
+          "da": 8500,
+          "wc": 500,
+          "fcff": -7464,
+          "cash": -4464,
+          "fd": 4417.368421052632,
+          "raised": 0
+        },
+        {
+          "year": 2033,
+          "sales": [
+            92000,
+            26000,
+            24000,
+            0
+          ],
+          "ebits": [
+            3680,
+            2600,
+            960,
+            0
+          ],
+          "revenue": 142000,
+          "ebit": 7240,
+          "nopat": 5792,
+          "cap": 22000,
+          "da": 9000,
+          "wc": 500,
+          "fcff": -7708,
+          "cash": -12172,
+          "fd": 4417.368421052632,
+          "raised": 0
+        },
+        {
+          "year": 2034,
+          "sales": [
+            94000,
+            28000,
+            25000,
+            0
+          ],
+          "ebits": [
+            3760,
+            2800,
+            1000,
+            0
+          ],
+          "revenue": 147000,
+          "ebit": 7560,
+          "nopat": 6048,
+          "cap": 23000,
+          "da": 9500,
+          "wc": 500,
+          "fcff": -7952,
+          "cash": -20124,
+          "fd": 4417.368421052632,
+          "raised": 0
+        },
+        {
+          "year": 2035,
+          "sales": [
+            96000,
+            30000,
+            26000,
+            0
+          ],
+          "ebits": [
+            3840,
+            3000,
+            1040,
+            0
+          ],
+          "revenue": 152000,
+          "ebit": 7880,
+          "nopat": 6304,
+          "cap": 24000,
+          "da": 10000,
+          "wc": 500,
+          "fcff": -8196,
+          "cash": -28320,
+          "fd": 4417.368421052632,
+          "raised": 0
+        },
+        {
+          "year": 2036,
+          "sales": [
+            98000,
+            32000,
+            27000,
+            0
+          ],
+          "ebits": [
+            3920,
+            3200,
+            1080,
+            0
+          ],
+          "revenue": 157000,
+          "ebit": 8200,
+          "nopat": 6560,
+          "cap": 25000,
+          "da": 10500,
+          "wc": 500,
+          "fcff": -8440,
+          "cash": -36760,
+          "fd": 4417.368421052632,
+          "raised": 0
+        }
+      ],
+      "raised": 6360,
+      "terminal": 34849.99999999999,
+      "ev5": -9384.373233060303,
+      "evSotp": 72160,
+      "dcf": {
+        "today": 0,
+        "price5": 0,
+        "cagr": -1,
+        "totalReturn": -1
+      },
+      "sotp": {
+        "today": 7.437262541948577,
+        "price5": 17.01465506970094,
+        "cagr": -0.45245194395297117,
+        "totalReturn": -0.9507834454609327
+      }
+    },
+    "base": {
+      "parameters": {
+        "auto": [
+          85,
+          95,
+          107,
+          119,
+          130,
+          140,
+          150,
+          159,
+          168,
+          176
+        ],
+        "energy": [
+          16,
+          21,
+          27,
+          34,
+          42,
+          50,
+          58,
+          66,
+          73,
+          80
+        ],
+        "service": [
+          20,
+          23,
+          27,
+          31,
+          35,
+          39,
+          43,
+          47,
+          51,
+          55
+        ],
+        "tech": [
+          1,
+          3,
+          6,
+          11,
+          18,
+          28,
+          42,
+          60,
+          82,
+          108
+        ],
+        "am": 0.08,
+        "em": 0.18,
+        "sm": 0.12,
+        "tm": 0.25,
+        "cap": [
+          18,
+          20,
+          22,
+          24,
+          26,
+          28,
+          30,
+          32,
+          34,
+          36
+        ],
+        "da": [
+          6.5,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "ke": 0.14,
+        "g": 0.03,
+        "roic": 0.2,
+        "mults": [
+          15,
+          18,
+          20,
+          25
+        ],
+        "fundPrice": 75
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": [
+            85000,
+            16000,
+            20000,
+            1000
+          ],
+          "ebits": [
+            6800,
+            2880,
+            2400,
+            250
+          ],
+          "revenue": 122000,
+          "ebit": 12330,
+          "nopat": 9864,
+          "cap": 18000,
+          "da": 6500,
+          "wc": 1200,
+          "fcff": -2836,
+          "cash": 27164,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2028,
+          "sales": [
+            95000,
+            21000,
+            23000,
+            3000
+          ],
+          "ebits": [
+            7600,
+            3780,
+            2760,
+            750
+          ],
+          "revenue": 142000,
+          "ebit": 14890,
+          "nopat": 11912,
+          "cap": 20000,
+          "da": 7000,
+          "wc": 2000,
+          "fcff": -3088,
+          "cash": 24076,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2029,
+          "sales": [
+            107000,
+            27000,
+            27000,
+            6000
+          ],
+          "ebits": [
+            8560,
+            4860,
+            3240,
+            1500
+          ],
+          "revenue": 167000,
+          "ebit": 18160,
+          "nopat": 14528,
+          "cap": 22000,
+          "da": 8000,
+          "wc": 2500,
+          "fcff": -1972,
+          "cash": 22104,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2030,
+          "sales": [
+            119000,
+            34000,
+            31000,
+            11000
+          ],
+          "ebits": [
+            9520,
+            6120,
+            3720,
+            2750
+          ],
+          "revenue": 195000,
+          "ebit": 22110,
+          "nopat": 17688,
+          "cap": 24000,
+          "da": 9000,
+          "wc": 2800,
+          "fcff": -112,
+          "cash": 21992,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2031,
+          "sales": [
+            130000,
+            42000,
+            35000,
+            18000
+          ],
+          "ebits": [
+            10400,
+            7560,
+            4200,
+            4500
+          ],
+          "revenue": 225000,
+          "ebit": 26660,
+          "nopat": 21328,
+          "cap": 26000,
+          "da": 10000,
+          "wc": 3000,
+          "fcff": 2328,
+          "cash": 24320,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2032,
+          "sales": [
+            140000,
+            50000,
+            39000,
+            28000
+          ],
+          "ebits": [
+            11200,
+            9000,
+            4680,
+            7000
+          ],
+          "revenue": 257000,
+          "ebit": 31880,
+          "nopat": 25504,
+          "cap": 28000,
+          "da": 11000,
+          "wc": 3200,
+          "fcff": 5304,
+          "cash": 29624,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2033,
+          "sales": [
+            150000,
+            58000,
+            43000,
+            42000
+          ],
+          "ebits": [
+            12000,
+            10440,
+            5160,
+            10500
+          ],
+          "revenue": 293000,
+          "ebit": 38100,
+          "nopat": 30480,
+          "cap": 30000,
+          "da": 12000,
+          "wc": 3600,
+          "fcff": 8880,
+          "cash": 38504,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2034,
+          "sales": [
+            159000,
+            66000,
+            47000,
+            60000
+          ],
+          "ebits": [
+            12720,
+            11880,
+            5640,
+            15000
+          ],
+          "revenue": 332000,
+          "ebit": 45240,
+          "nopat": 36192,
+          "cap": 32000,
+          "da": 13000,
+          "wc": 3900,
+          "fcff": 13292,
+          "cash": 51796,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2035,
+          "sales": [
+            168000,
+            73000,
+            51000,
+            82000
+          ],
+          "ebits": [
+            13440,
+            13140,
+            6120,
+            20500
+          ],
+          "revenue": 374000,
+          "ebit": 53200,
+          "nopat": 42560,
+          "cap": 34000,
+          "da": 14000,
+          "wc": 4200,
+          "fcff": 18360,
+          "cash": 70156,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2036,
+          "sales": [
+            176000,
+            80000,
+            55000,
+            108000
+          ],
+          "ebits": [
+            14080,
+            14400,
+            6600,
+            27000
+          ],
+          "revenue": 419000,
+          "ebit": 62080,
+          "nopat": 49664,
+          "cap": 36000,
+          "da": 15000,
+          "wc": 4500,
+          "fcff": 24164,
+          "cash": 94320,
+          "fd": 4250,
+          "raised": 0
+        }
+      ],
+      "raised": 0,
+      "terminal": 395280.29090909084,
+      "ev5": 249174.0396604418,
+      "evSotp": 488580,
+      "dcf": {
+        "today": 33.42217272677976,
+        "price5": 64.35153874363337,
+        "cagr": -0.28555401693129956,
+        "totalReturn": -0.8138568778929351
+      },
+      "sotp": {
+        "today": 62.67863245885865,
+        "price5": 120.68235294117648,
+        "cagr": -0.189810957199971,
+        "totalReturn": -0.6509144863001461
+      }
+    },
+    "bull": {
+      "parameters": {
+        "auto": [
+          95,
+          120,
+          150,
+          175,
+          200,
+          225,
+          250,
+          275,
+          300,
+          325
+        ],
+        "energy": [
+          20,
+          30,
+          44,
+          60,
+          80,
+          103,
+          128,
+          155,
+          182,
+          210
+        ],
+        "service": [
+          22,
+          28,
+          36,
+          45,
+          55,
+          66,
+          78,
+          91,
+          104,
+          118
+        ],
+        "tech": [
+          3,
+          12,
+          35,
+          70,
+          120,
+          190,
+          280,
+          380,
+          490,
+          610
+        ],
+        "am": 0.12,
+        "em": 0.22,
+        "sm": 0.18,
+        "tm": 0.4,
+        "cap": [
+          22,
+          27,
+          33,
+          39,
+          45,
+          52,
+          60,
+          68,
+          76,
+          84
+        ],
+        "da": [
+          7,
+          8.5,
+          10.5,
+          13,
+          16,
+          19,
+          23,
+          27,
+          31,
+          35
+        ],
+        "ke": 0.12,
+        "g": 0.035,
+        "roic": 0.25,
+        "mults": [
+          18,
+          22,
+          25,
+          35
+        ],
+        "fundPrice": 150
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": [
+            95000,
+            20000,
+            22000,
+            3000
+          ],
+          "ebits": [
+            11400,
+            4400,
+            3960,
+            1200
+          ],
+          "revenue": 140000,
+          "ebit": 20960,
+          "nopat": 16768,
+          "cap": 22000,
+          "da": 7000,
+          "wc": 3000,
+          "fcff": -1232,
+          "cash": 28768,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2028,
+          "sales": [
+            120000,
+            30000,
+            28000,
+            12000
+          ],
+          "ebits": [
+            14400,
+            6600,
+            5040,
+            4800
+          ],
+          "revenue": 190000,
+          "ebit": 30840,
+          "nopat": 24672,
+          "cap": 27000,
+          "da": 8500,
+          "wc": 5000,
+          "fcff": 1172,
+          "cash": 29940,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2029,
+          "sales": [
+            150000,
+            44000,
+            36000,
+            35000
+          ],
+          "ebits": [
+            18000,
+            9680,
+            6480,
+            14000
+          ],
+          "revenue": 265000,
+          "ebit": 48160,
+          "nopat": 38528,
+          "cap": 33000,
+          "da": 10500,
+          "wc": 7500,
+          "fcff": 8528,
+          "cash": 38468,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2030,
+          "sales": [
+            175000,
+            60000,
+            45000,
+            70000
+          ],
+          "ebits": [
+            21000,
+            13200,
+            8100,
+            28000
+          ],
+          "revenue": 350000,
+          "ebit": 70300,
+          "nopat": 56240,
+          "cap": 39000,
+          "da": 13000,
+          "wc": 8500,
+          "fcff": 21740,
+          "cash": 60208,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2031,
+          "sales": [
+            200000,
+            80000,
+            55000,
+            120000
+          ],
+          "ebits": [
+            24000,
+            17600,
+            9900,
+            48000
+          ],
+          "revenue": 455000,
+          "ebit": 99500,
+          "nopat": 79600,
+          "cap": 45000,
+          "da": 16000,
+          "wc": 10500,
+          "fcff": 40100,
+          "cash": 100308,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2032,
+          "sales": [
+            225000,
+            103000,
+            66000,
+            190000
+          ],
+          "ebits": [
+            27000,
+            22660,
+            11880,
+            76000
+          ],
+          "revenue": 584000,
+          "ebit": 137540,
+          "nopat": 110032,
+          "cap": 52000,
+          "da": 19000,
+          "wc": 12900,
+          "fcff": 64132,
+          "cash": 164440,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2033,
+          "sales": [
+            250000,
+            128000,
+            78000,
+            280000
+          ],
+          "ebits": [
+            30000,
+            28160,
+            14040,
+            112000
+          ],
+          "revenue": 736000,
+          "ebit": 184200,
+          "nopat": 147360,
+          "cap": 60000,
+          "da": 23000,
+          "wc": 15200,
+          "fcff": 95160,
+          "cash": 259600,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2034,
+          "sales": [
+            275000,
+            155000,
+            91000,
+            380000
+          ],
+          "ebits": [
+            33000,
+            34100,
+            16380,
+            152000
+          ],
+          "revenue": 901000,
+          "ebit": 235480,
+          "nopat": 188384,
+          "cap": 68000,
+          "da": 27000,
+          "wc": 16500,
+          "fcff": 130884,
+          "cash": 390484,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2035,
+          "sales": [
+            300000,
+            182000,
+            104000,
+            490000
+          ],
+          "ebits": [
+            36000,
+            40040,
+            18720,
+            196000
+          ],
+          "revenue": 1076000,
+          "ebit": 290760,
+          "nopat": 232608,
+          "cap": 76000,
+          "da": 31000,
+          "wc": 17500,
+          "fcff": 170108,
+          "cash": 560592,
+          "fd": 4250,
+          "raised": 0
+        },
+        {
+          "year": 2036,
+          "sales": [
+            325000,
+            210000,
+            118000,
+            610000
+          ],
+          "ebits": [
+            39000,
+            46200,
+            21240,
+            244000
+          ],
+          "revenue": 1263000,
+          "ebit": 350440,
+          "nopat": 280352,
+          "cap": 84000,
+          "da": 35000,
+          "wc": 18700,
+          "fcff": 212652,
+          "cash": 773244,
+          "fd": 4250,
+          "raised": 0
+        }
+      ],
+      "raised": 0,
+      "terminal": 2935780.1788235293,
+      "ev5": 2120894.010582662,
+      "evSotp": 2746700,
+      "dcf": {
+        "today": 296.55757006605893,
+        "price5": 522.6357671959205,
+        "cagr": 0.08616908397107004,
+        "totalReturn": 0.5117750924067008
+      },
+      "sotp": {
+        "today": 380.1103053283994,
+        "price5": 669.8842352941176,
+        "cagr": 0.1414517626105054,
+        "totalReturn": 0.9377056934833174
+      }
+    }
+  },
+  "sensitivity": [
+    {
+      "ke": 0.12,
+      "today": 46.07648362000086
+    },
+    {
+      "ke": 0.14,
+      "today": 33.42217272677976
+    },
+    {
+      "ke": 0.16,
+      "today": 25.194413102380373
+    }
+  ],
+  "noTech": {
+    "dcf": {
+      "today": 17.551538906085113,
+      "price5": 33.79398895333724,
+      "cagr": -0.37190475855039784,
+      "totalReturn": -0.9022475804768817
+    },
+    "sotp": {
+      "today": 48.197412052590856,
+      "price5": 92.8,
+      "cagr": -0.23128172323255536,
+      "totalReturn": -0.7315669202510775
+    },
+    "raised": 0
+  },
+  "requiredTechEBIT": 118437.12479756573,
+  "policy": "LatestQ3Oct22. Oct15actual3952.757946m includes423.744m2025CEO restrictedstockand2018CEOexercisednet286.5m; 96m2025interimforfeited, noaddagainold304moptionsor96m award or423.7m restricted. Starting4250mactual+297.24mproxyotheremployeeawards/performance/updates; NOTcertifiedFDcount, exactnonCEOawardcountnotfullydisaggregatedcurrentfiling, grossconservativeproxywithoutcashproceeds. Existing2025CEOoffset334.09pershare/noexerciseproceedsbenefit, countgrossissuedstock conservative. CEOawardknownshareclaiminFD do notagainsubtractfull105-120bpossiblefutureaccountingSBCcash; normalcontinuingemployeeSBCwithinmargins. CurrentEPSweighted3.24/3.541bn notactualoutstanding3.953bn! cash+short45.447b excludesSpaceXstock2.865bbtc.962; reserve10bcurrentdebt/finance(9.523carrying),minority.6 and4.847taxQ4contingency=>30bnetcashproxy notbankcashbalance. Operatingrentmargin, currentdebtreservedonce, nofutureinterestincomeorbuybacks/dividends. ForecastmarginssectorEBITafterallocatedR&D/SBC/SG&A includingAIroboticscurrentresearchnotfourindependentgrossmargins. AutomotiveoutsidecustomerrevenueincludesexistingFSD/creditsfuture0, Servicesrepairsusedcarsinsurancechargingnonincrementalrobotaxi. NewtechrevenuesonlyincrementalplatformNETfees/externalroboticsrevenue notfleetgrossfares ORinternalcartransfer; noFSDsalesdouble. Modeluncertainnewtech18b2031base,120bbull notobservedcompanyforecastorprobabilityassigned; insufficientunitmetrics=>ALLentrypricesnullandtarget0. Base2036tech108b @25%, bull610b@40% extremelyconditional notvalidatedTAM. Cashcap18-26bbase includesownedfleetnewassetsnetinvestment+PP&E, DA6.5-10bnotallleasedautoaccountingaddback, WC10%salesincrement,20%taxwithnolossrefund. Cashfloor3b conditionalraiseat75/.95 first5years; futurepost2031negativeCFcapitalcallsnotfutureproceeds, ordinarycould0ifnorefunding. DCF2032-36plusg3ROIC20tailKe14 vsindependentSOTP sectorEBIT15/18/20/25multiplesresearchnotpeerquote, samecash/debtsonce. FutureundisclosedSpaceXmergerexchangeeconomicsNOvalue; existingSpaceXstakeexcludedcashandnoadditionalexitpremium. Autoenergysales/currentdeferredFSDprofitalreadyincludednotaddTAMorchargingrevenueagain. Reverse18%5yrtargetinferEXTRA2031newtechEBITneeded25multipleafterexistingcorevalue/cash, notcompanyguidance. Currenttarget0/max0 meansnewdirectinvestmentbudget0, existingETFexposurepreservednotautomaticETFtrade."
+}

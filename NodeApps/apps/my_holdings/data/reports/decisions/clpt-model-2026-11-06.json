@@ -1,0 +1,565 @@
+{
+  "units": "USD million; shares million",
+  "quote": 8.7,
+  "actualShares": 32.054268,
+  "startingFD": 35,
+  "openingCash": 38,
+  "openingWC": 10.431,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "sales": [
+          52,
+          57,
+          62,
+          68,
+          75
+        ],
+        "gm": [
+          0.58,
+          0.59,
+          0.6,
+          0.6,
+          0.6
+        ],
+        "opex": [
+          55,
+          57,
+          59,
+          61,
+          63
+        ],
+        "da": [
+          0.5,
+          0.6,
+          0.7,
+          0.8,
+          0.9
+        ],
+        "capex": [
+          1.5,
+          1.5,
+          1.5,
+          1.5,
+          1.5
+        ],
+        "earnout": [
+          0,
+          0,
+          0,
+          0,
+          0
+        ],
+        "ke": 0.2,
+        "g": 0.015,
+        "roic": 0.1,
+        "pe": 12
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 52,
+          "gm": 0.58,
+          "opex": 55,
+          "ebit": -24.840000000000003,
+          "cashFinance": 5.2625,
+          "pretax": -30.102500000000003,
+          "ni": -30.102500000000003,
+          "da": 0.5,
+          "capex": 1.5,
+          "wc": 10.4,
+          "dWC": -0.030999999999998806,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": -31.071500000000004,
+          "need": 0,
+          "cash": 6.928499999999996,
+          "shares": 35
+        },
+        {
+          "year": 2028,
+          "sales": 57,
+          "gm": 0.59,
+          "opex": 57,
+          "ebit": -23.370000000000005,
+          "cashFinance": 5.2625,
+          "pretax": -28.632500000000004,
+          "ni": -28.632500000000004,
+          "da": 0.6,
+          "capex": 1.5,
+          "wc": 11.4,
+          "dWC": 1,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": -30.532500000000002,
+          "need": 28.604000000000006,
+          "cash": 5,
+          "shares": 41.02189473684211
+        },
+        {
+          "year": 2029,
+          "sales": 62,
+          "gm": 0.6,
+          "opex": 59,
+          "ebit": -21.800000000000004,
+          "cashFinance": 5.2625,
+          "pretax": -27.062500000000004,
+          "ni": -27.062500000000004,
+          "da": 0.7,
+          "capex": 1.5,
+          "wc": 12.4,
+          "dWC": 1,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": -28.862500000000004,
+          "need": 28.862500000000004,
+          "cash": 5,
+          "shares": 47.098210526315796
+        },
+        {
+          "year": 2030,
+          "sales": 68,
+          "gm": 0.6,
+          "opex": 61,
+          "ebit": -20.200000000000003,
+          "cashFinance": 5.2625,
+          "pretax": -25.462500000000002,
+          "ni": -25.462500000000002,
+          "da": 0.8,
+          "capex": 1.5,
+          "wc": 13.600000000000001,
+          "dWC": 1.200000000000001,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": -27.362500000000004,
+          "need": 27.362500000000004,
+          "cash": 5,
+          "shares": 52.85873684210527
+        },
+        {
+          "year": 2031,
+          "sales": 75,
+          "gm": 0.6,
+          "opex": 63,
+          "ebit": -18,
+          "cashFinance": 5.2625,
+          "pretax": -23.2625,
+          "ni": -23.2625,
+          "da": 0.9,
+          "capex": 1.5,
+          "wc": 15,
+          "dWC": 1.3999999999999986,
+          "earnout": 0,
+          "repayment": 60,
+          "fcfe": -85.2625,
+          "need": 85.2625,
+          "cash": 5,
+          "shares": 70.80873684210528
+        }
+      ],
+      "raised": 170.0915,
+      "fd": 70.80873684210528,
+      "debtfreeNI": 0,
+      "terminalFCFE": 0,
+      "business": 0,
+      "dcf": {
+        "today": 0,
+        "price5": 0,
+        "cagr": -1
+      },
+      "pe": {
+        "today": 0,
+        "price5": 0,
+        "cagr": -1
+      }
+    },
+    "base": {
+      "parameters": {
+        "sales": [
+          65,
+          82,
+          101,
+          121,
+          142
+        ],
+        "gm": [
+          0.62,
+          0.64,
+          0.65,
+          0.66,
+          0.67
+        ],
+        "opex": [
+          56,
+          59,
+          63,
+          67,
+          72
+        ],
+        "da": [
+          0.6,
+          0.7,
+          0.8,
+          0.9,
+          1
+        ],
+        "capex": [
+          2,
+          2,
+          2.5,
+          3,
+          3.5
+        ],
+        "earnout": [
+          0,
+          0.75,
+          1.5,
+          0,
+          0
+        ],
+        "ke": 0.15,
+        "g": 0.03,
+        "roic": 0.18,
+        "pe": 22
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 65,
+          "gm": 0.62,
+          "opex": 56,
+          "ebit": -15.700000000000003,
+          "cashFinance": 5.2625,
+          "pretax": -20.962500000000002,
+          "ni": -20.962500000000002,
+          "da": 0.6,
+          "capex": 2,
+          "wc": 13,
+          "dWC": 2.569000000000001,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": -24.9315,
+          "need": 0,
+          "cash": 13.0685,
+          "shares": 35
+        },
+        {
+          "year": 2028,
+          "sales": 82,
+          "gm": 0.64,
+          "opex": 59,
+          "ebit": -6.519999999999996,
+          "cashFinance": 5.2625,
+          "pretax": -11.782499999999995,
+          "ni": -11.782499999999995,
+          "da": 0.7,
+          "capex": 2,
+          "wc": 16.400000000000002,
+          "dWC": 3.400000000000002,
+          "earnout": 0.75,
+          "repayment": 0,
+          "fcfe": -17.232499999999998,
+          "need": 9.163999999999998,
+          "cash": 5,
+          "shares": 36.92926315789474
+        },
+        {
+          "year": 2029,
+          "sales": 101,
+          "gm": 0.65,
+          "opex": 63,
+          "ebit": 2.6500000000000057,
+          "cashFinance": 5.2625,
+          "pretax": -2.6124999999999945,
+          "ni": -2.6124999999999945,
+          "da": 0.8,
+          "capex": 2.5,
+          "wc": 20.200000000000003,
+          "dWC": 3.8000000000000007,
+          "earnout": 1.5,
+          "repayment": 0,
+          "fcfe": -9.612499999999995,
+          "need": 9.612499999999995,
+          "cash": 5,
+          "shares": 38.95294736842105
+        },
+        {
+          "year": 2030,
+          "sales": 121,
+          "gm": 0.66,
+          "opex": 67,
+          "ebit": 12.86,
+          "cashFinance": 5.2625,
+          "pretax": 7.597499999999999,
+          "ni": 5.698124999999999,
+          "da": 0.9,
+          "capex": 3,
+          "wc": 24.200000000000003,
+          "dWC": 4,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": -0.4018750000000004,
+          "need": 0.4018750000000004,
+          "cash": 5,
+          "shares": 39.03755263157895
+        },
+        {
+          "year": 2031,
+          "sales": 142,
+          "gm": 0.67,
+          "opex": 72,
+          "ebit": 23.14,
+          "cashFinance": 5.2625,
+          "pretax": 17.8775,
+          "ni": 13.408125000000002,
+          "da": 1,
+          "capex": 3.5,
+          "wc": 28.400000000000002,
+          "dWC": 4.199999999999999,
+          "earnout": 0,
+          "repayment": 60,
+          "fcfe": -53.291875,
+          "need": 53.291875,
+          "cash": 5,
+          "shares": 50.256894736842106
+        }
+      ],
+      "raised": 72.47025,
+      "fd": 50.256894736842106,
+      "debtfreeNI": 17.355,
+      "terminalFCFE": 14.896375,
+      "business": 124.13645833333335,
+      "dcf": {
+        "today": 1.277509147716685,
+        "price5": 2.5695272063569528,
+        "cagr": -0.2164498581791321
+      },
+      "pe": {
+        "today": 3.8265980018807566,
+        "price5": 7.696655394755996,
+        "cagr": -0.024209562301306442
+      }
+    },
+    "bull": {
+      "parameters": {
+        "sales": [
+          78,
+          110,
+          150,
+          195,
+          245
+        ],
+        "gm": [
+          0.64,
+          0.66,
+          0.68,
+          0.71,
+          0.72
+        ],
+        "opex": [
+          58,
+          65,
+          73,
+          83,
+          95
+        ],
+        "da": [
+          0.6,
+          0.7,
+          0.8,
+          1,
+          1.2
+        ],
+        "capex": [
+          2.5,
+          3,
+          4,
+          5,
+          6
+        ],
+        "earnout": [
+          0,
+          2,
+          4.5,
+          0,
+          0
+        ],
+        "ke": 0.13,
+        "g": 0.035,
+        "roic": 0.22,
+        "pe": 28
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 78,
+          "gm": 0.64,
+          "opex": 58,
+          "ebit": -8.079999999999998,
+          "cashFinance": 5.2625,
+          "pretax": -13.342499999999998,
+          "ni": -13.342499999999998,
+          "da": 0.6,
+          "capex": 2.5,
+          "wc": 15.600000000000001,
+          "dWC": 5.169000000000002,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": -20.4115,
+          "need": 0,
+          "cash": 17.5885,
+          "shares": 35
+        },
+        {
+          "year": 2028,
+          "sales": 110,
+          "gm": 0.66,
+          "opex": 65,
+          "ebit": 7.6000000000000085,
+          "cashFinance": 5.2625,
+          "pretax": 2.3375000000000083,
+          "ni": 1.7531250000000063,
+          "da": 0.7,
+          "capex": 3,
+          "wc": 22,
+          "dWC": 6.399999999999999,
+          "earnout": 2,
+          "repayment": 0,
+          "fcfe": -8.946874999999991,
+          "need": 0,
+          "cash": 8.641625000000008,
+          "shares": 35
+        },
+        {
+          "year": 2029,
+          "sales": 150,
+          "gm": 0.68,
+          "opex": 73,
+          "ebit": 29.000000000000014,
+          "cashFinance": 5.2625,
+          "pretax": 23.737500000000015,
+          "ni": 17.803125000000012,
+          "da": 0.8,
+          "capex": 4,
+          "wc": 30,
+          "dWC": 8,
+          "earnout": 4.5,
+          "repayment": 0,
+          "fcfe": 2.103125000000013,
+          "need": 0,
+          "cash": 10.744750000000021,
+          "shares": 35
+        },
+        {
+          "year": 2030,
+          "sales": 195,
+          "gm": 0.71,
+          "opex": 83,
+          "ebit": 55.44999999999999,
+          "cashFinance": 5.2625,
+          "pretax": 50.187499999999986,
+          "ni": 37.640624999999986,
+          "da": 1,
+          "capex": 5,
+          "wc": 39,
+          "dWC": 9,
+          "earnout": 0,
+          "repayment": 0,
+          "fcfe": 24.640624999999986,
+          "need": 0,
+          "cash": 35.38537500000001,
+          "shares": 35
+        },
+        {
+          "year": 2031,
+          "sales": 245,
+          "gm": 0.72,
+          "opex": 95,
+          "ebit": 81.4,
+          "cashFinance": 5.2625,
+          "pretax": 76.1375,
+          "ni": 57.103125000000006,
+          "da": 1.2,
+          "capex": 6,
+          "wc": 49,
+          "dWC": 10,
+          "earnout": 0,
+          "repayment": 60,
+          "fcfe": -17.69687499999999,
+          "need": 0,
+          "cash": 17.68850000000002,
+          "shares": 35
+        }
+      ],
+      "raised": 0,
+      "fd": 35,
+      "debtfreeNI": 61.050000000000004,
+      "terminalFCFE": 53.13431249999999,
+      "business": 559.3085526315789,
+      "dcf": {
+        "today": 8.947739524519605,
+        "price5": 16.485630075187967,
+        "cagr": 0.13636345766020175
+      },
+      "pe": {
+        "today": 26.78269839215382,
+        "price5": 49.34538571428572,
+        "cagr": 0.41496422334924055
+      }
+    }
+  },
+  "reference": 1.277509147716685,
+  "returnLimit": 1.0326353549209721,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 0.88,
+      "high": 1.03,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 0.71,
+      "high": 0.87,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 0.42,
+      "high": 0.7,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.13,
+      "today": 1.6627639955433888
+    },
+    {
+      "ke": 0.15,
+      "today": 1.277509147716685
+    },
+    {
+      "ke": 0.17,
+      "today": 1.0110454369017352
+    }
+  ],
+  "marginStress": {
+    "dcf": {
+      "today": 0.8238774529320789,
+      "price5": 1.6571118365741293,
+      "cagr": -0.2822610527169157
+    },
+    "raised": 94.73275000000001
+  },
+  "debtStress": {
+    "dcf": {
+      "today": 1.2261458531028897,
+      "price5": 2.4662172745618154,
+      "cagr": -0.22285435691430555
+    },
+    "raised": 82.47025
+  },
+  "reversePE": 62.401645399639094,
+  "policy": "LatestQ3Oct28. Oct21actual32.054268m, addSeptoptions1.03454+RSU1.463445+IRRASunissued~.2 =>34.752m, use35mproxy withoutoptioncash. NoaddingfullIRRAS1.319m alreadyissuedmostly. AllfutureSBCwithinmodeledopex, notagainannualawarddilution. CashSept46.184 excludesrestricted.926, opening2027cash38estimateafterQ4burn. Debtface52.517Sept vsnetcarrying50.840; PIKfirstendsSept26/thirdMar27 withoptional2quarterextension. Modelannualcashfinance5m researchbuffer plus0.525%NetRevenuecapped50m/year=.2625m, not0.525%times4. 2031cashredemption60m reserve includesexpectedPIK/minIRRtrueup; notquotedcontractualfinalpayoff, exact9.5%IRRdependsactualcashinterest/revenueparticipationandtiming. Bothnotes6yrmatureMay/Nov2031, noassumedrefinancing. Capitalraiseat5/5%fee to5mcashfloor conditionalnotassured; nominalATMavailability27.5mnotbookedasproceeds, financingmayexceedit. IRRASearnout25%above2026/27/28threshold13/17/22m paidnext90days; scenarioscash0/.75/1.5base or0/2/4.5bull reflectfutureassumedIRRASsales, notcurrentliability. COGSmarginsincludeoperationalDA; EBITDAneverusedasNI; addbackonlyoperationalDA, acquiredintangibleamortexcludedfromforecastnormaloperatingcost whileallreplacement/softwarecapexkept. WC20%sales starts10.431; rentincludeslongtermoperatinglease, notsubtractedleasePVagain. NIaftercreditinterest/full25%taxonprofits, nolossrefund. 2031principalpaidonce; terminaldebtfreeNIrestorescashfinanceaftertax, noseconddebt扣减. Allinterimcashretainednointerest/dividend/buyback. DCFterminalg/ROICequityreinvestment vsindependentPEonpostdebtnormalNI, bothincludeendingcashonceanddiscount5yearsKe. DrugpartnerBLAisnotapproval; nobiopharmaownershipprofit, uncontractedroyalties orR01grantvalue. BearterminalNI0, cash5reservedforwinddown=>modelordinary0."
+}

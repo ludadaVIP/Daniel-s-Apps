@@ -1,0 +1,625 @@
+{
+  "units": "USD million; shares million",
+  "quote": 27.7,
+  "fd": 535,
+  "openingCash": 3100,
+  "warrants": [
+    {
+      "n": 36.04253,
+      "k": 99.88,
+      "t": 0.52
+    },
+    {
+      "n": 43.0108,
+      "k": 155,
+      "t": 0.79
+    },
+    {
+      "n": 100,
+      "k": 69.46,
+      "t": 1.79
+    }
+  ],
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "q": [
+          450,
+          550,
+          650,
+          760,
+          880,
+          1010,
+          1150,
+          1300,
+          1450,
+          1600
+        ],
+        "f": [
+          500,
+          520,
+          540,
+          560,
+          580,
+          600,
+          620,
+          640,
+          660,
+          680
+        ],
+        "qm": [
+          -1.2,
+          -1,
+          -0.8,
+          -0.6,
+          -0.4,
+          -0.25,
+          -0.1,
+          0,
+          0.05,
+          0.1
+        ],
+        "fm": 0.06,
+        "ke": 0.22,
+        "g": 0.02,
+        "roic": 0.12,
+        "qMultiple": 2,
+        "fMultiple": 1,
+        "fundPrice": 5
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "q": 450,
+          "f": 500,
+          "ebit": -510,
+          "nopat": -510,
+          "investment": 60,
+          "fcff": -570,
+          "cash": 2530,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2028,
+          "q": 550,
+          "f": 520,
+          "ebit": -518.8,
+          "nopat": -518.8,
+          "investment": 88.88888888888889,
+          "fcff": -607.6888888888889,
+          "cash": 1922.3111111111111,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2029,
+          "q": 650,
+          "f": 540,
+          "ebit": -487.6,
+          "nopat": -487.6,
+          "investment": 88.88888888888889,
+          "fcff": -576.4888888888889,
+          "cash": 1345.822222222222,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2030,
+          "q": 760,
+          "f": 560,
+          "ebit": -422.4,
+          "nopat": -422.4,
+          "investment": 95.55555555555554,
+          "fcff": -517.9555555555555,
+          "cash": 827.8666666666666,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2031,
+          "q": 880,
+          "f": 580,
+          "ebit": -317.2,
+          "nopat": -317.2,
+          "investment": 102.22222222222223,
+          "fcff": -419.4222222222222,
+          "cash": 408.44444444444434,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2032,
+          "q": 1010,
+          "f": 600,
+          "ebit": -216.5,
+          "nopat": -216.5,
+          "investment": 108.88888888888889,
+          "fcff": -325.3888888888889,
+          "cash": 200,
+          "raised": 116.94444444444457,
+          "fd": 559.6198830409357
+        },
+        {
+          "year": 2033,
+          "q": 1150,
+          "f": 620,
+          "ebit": -77.80000000000001,
+          "nopat": -77.80000000000001,
+          "investment": 115.55555555555554,
+          "fcff": -193.35555555555555,
+          "cash": 200,
+          "raised": 193.35555555555555,
+          "fd": 600.3263157894737
+        },
+        {
+          "year": 2034,
+          "q": 1300,
+          "f": 640,
+          "ebit": 38.4,
+          "nopat": 28.799999999999997,
+          "investment": 122.22222222222223,
+          "fcff": -93.42222222222223,
+          "cash": 200,
+          "raised": 93.42222222222223,
+          "fd": 619.9941520467837
+        },
+        {
+          "year": 2035,
+          "q": 1450,
+          "f": 660,
+          "ebit": 112.1,
+          "nopat": 84.07499999999999,
+          "investment": 122.22222222222223,
+          "fcff": -38.14722222222224,
+          "cash": 200,
+          "raised": 38.14722222222224,
+          "fd": 628.0251461988305
+        },
+        {
+          "year": 2036,
+          "q": 1600,
+          "f": 680,
+          "ebit": 200.8,
+          "nopat": 150.60000000000002,
+          "investment": 122.22222222222223,
+          "fcff": 28.377777777777794,
+          "cash": 228.3777777777778,
+          "raised": 0,
+          "fd": 628.0251461988305
+        }
+      ],
+      "raised5": 0,
+      "raised10": 441.8694444444446,
+      "terminal": 640.0500000000001,
+      "ev2031": -217.9706365453024,
+      "evSotp": 2340,
+      "dcf": {
+        "today": 0.13172928324445532,
+        "price5": 0.35602580915727433,
+        "cagr": -0.5813989218078491
+      },
+      "sotp": {
+        "today": 1.9007757952213806,
+        "price5": 5.137242258157796,
+        "cagr": -0.2860791668074688
+      }
+    },
+    "base": {
+      "parameters": {
+        "q": [
+          600,
+          950,
+          1450,
+          2100,
+          3000,
+          4000,
+          5200,
+          6600,
+          8200,
+          10000
+        ],
+        "f": [
+          550,
+          620,
+          700,
+          790,
+          900,
+          1000,
+          1100,
+          1210,
+          1330,
+          1460
+        ],
+        "qm": [
+          -0.9,
+          -0.4,
+          -0.05,
+          0.15,
+          0.25,
+          0.28,
+          0.29,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "fm": 0.14,
+        "ke": 0.17,
+        "g": 0.03,
+        "roic": 0.18,
+        "qMultiple": 5,
+        "fMultiple": 1.5,
+        "fundPrice": 10
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "q": 600,
+          "f": 550,
+          "ebit": -463,
+          "nopat": -463,
+          "investment": 215.55555555555554,
+          "fcff": -678.5555555555555,
+          "cash": 2421.4444444444443,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2028,
+          "q": 950,
+          "f": 620,
+          "ebit": -293.2,
+          "nopat": -293.2,
+          "investment": 311.1111111111111,
+          "fcff": -604.3111111111111,
+          "cash": 1817.1333333333332,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2029,
+          "q": 1450,
+          "f": 700,
+          "ebit": 25.500000000000014,
+          "nopat": 19.12500000000001,
+          "investment": 422.2222222222222,
+          "fcff": -403.0972222222222,
+          "cash": 1414.036111111111,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2030,
+          "q": 2100,
+          "f": 790,
+          "ebit": 425.6,
+          "nopat": 319.20000000000005,
+          "investment": 533.3333333333333,
+          "fcff": -214.1333333333332,
+          "cash": 1199.9027777777778,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2031,
+          "q": 3000,
+          "f": 900,
+          "ebit": 876,
+          "nopat": 657,
+          "investment": 722.2222222222222,
+          "fcff": -65.22222222222217,
+          "cash": 1134.6805555555557,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2032,
+          "q": 4000,
+          "f": 1000,
+          "ebit": 1260,
+          "nopat": 945,
+          "investment": 777.7777777777777,
+          "fcff": 167.22222222222229,
+          "cash": 1301.9027777777778,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2033,
+          "q": 5200,
+          "f": 1100,
+          "ebit": 1662,
+          "nopat": 1246.5,
+          "investment": 911.1111111111111,
+          "fcff": 335.3888888888889,
+          "cash": 1637.2916666666667,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2034,
+          "q": 6600,
+          "f": 1210,
+          "ebit": 2149.4,
+          "nopat": 1612.0500000000002,
+          "investment": 1055.5555555555557,
+          "fcff": 556.4944444444445,
+          "cash": 2193.7861111111115,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2035,
+          "q": 8200,
+          "f": 1330,
+          "ebit": 2646.2,
+          "nopat": 1984.6499999999999,
+          "investment": 1200,
+          "fcff": 784.6499999999999,
+          "cash": 2978.436111111111,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2036,
+          "q": 10000,
+          "f": 1460,
+          "ebit": 3204.4,
+          "nopat": 2403.3,
+          "investment": 1344.4444444444443,
+          "fcff": 1058.8555555555558,
+          "cash": 4037.291666666667,
+          "raised": 0,
+          "fd": 535
+        }
+      ],
+      "raised5": 0,
+      "raised10": 0,
+      "terminal": 14734.517857142859,
+      "ev2031": 8357.652107270158,
+      "evSotp": 16350,
+      "dcf": {
+        "today": 8.074631156449383,
+        "price5": 17.70320921795946,
+        "cagr": -0.0856458369534917
+      },
+      "sotp": {
+        "today": 14.716158386548916,
+        "price5": 32.26441254763924,
+        "cagr": 0.0309765771308943
+      }
+    },
+    "bull": {
+      "parameters": {
+        "q": [
+          800,
+          1400,
+          2300,
+          3600,
+          5500,
+          7700,
+          10300,
+          13200,
+          16400,
+          20000
+        ],
+        "f": [
+          600,
+          720,
+          860,
+          1020,
+          1200,
+          1400,
+          1600,
+          1800,
+          2000,
+          2200
+        ],
+        "qm": [
+          -0.65,
+          -0.1,
+          0.15,
+          0.25,
+          0.32,
+          0.34,
+          0.35,
+          0.36,
+          0.36,
+          0.36
+        ],
+        "fm": 0.18,
+        "ke": 0.15,
+        "g": 0.035,
+        "roic": 0.22,
+        "qMultiple": 8,
+        "fMultiple": 2,
+        "fundPrice": 20
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "q": 800,
+          "f": 600,
+          "ebit": -412,
+          "nopat": -412,
+          "investment": 404.44444444444446,
+          "fcff": -816.4444444444445,
+          "cash": 2283.5555555555557,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2028,
+          "q": 1400,
+          "f": 720,
+          "ebit": -10.400000000000006,
+          "nopat": -10.400000000000006,
+          "investment": 533.3333333333334,
+          "fcff": -543.7333333333333,
+          "cash": 1739.8222222222223,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2029,
+          "q": 2300,
+          "f": 860,
+          "ebit": 499.79999999999995,
+          "nopat": 374.84999999999997,
+          "investment": 755.5555555555555,
+          "fcff": -380.7055555555556,
+          "cash": 1359.1166666666668,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2030,
+          "q": 3600,
+          "f": 1020,
+          "ebit": 1083.6,
+          "nopat": 812.6999999999999,
+          "investment": 1044.4444444444443,
+          "fcff": -231.7444444444444,
+          "cash": 1127.3722222222223,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2031,
+          "q": 5500,
+          "f": 1200,
+          "ebit": 1976,
+          "nopat": 1482,
+          "investment": 1466.6666666666667,
+          "fcff": 15.333333333333258,
+          "cash": 1142.7055555555555,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2032,
+          "q": 7700,
+          "f": 1400,
+          "ebit": 2870,
+          "nopat": 2152.5,
+          "investment": 1688.888888888889,
+          "fcff": 463.6111111111111,
+          "cash": 1606.3166666666666,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2033,
+          "q": 10300,
+          "f": 1600,
+          "ebit": 3892.9999999999995,
+          "nopat": 2919.7499999999995,
+          "investment": 1955.5555555555554,
+          "fcff": 964.1944444444441,
+          "cash": 2570.511111111111,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2034,
+          "q": 13200,
+          "f": 1800,
+          "ebit": 5076,
+          "nopat": 3807,
+          "investment": 2155.5555555555557,
+          "fcff": 1651.4444444444443,
+          "cash": 4221.955555555555,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2035,
+          "q": 16400,
+          "f": 2000,
+          "ebit": 6264,
+          "nopat": 4698,
+          "investment": 2355.5555555555557,
+          "fcff": 2342.4444444444443,
+          "cash": 6564.4,
+          "raised": 0,
+          "fd": 535
+        },
+        {
+          "year": 2036,
+          "q": 20000,
+          "f": 2200,
+          "ebit": 7596,
+          "nopat": 5697,
+          "investment": 2622.222222222222,
+          "fcff": 3074.777777777778,
+          "cash": 9639.177777777777,
+          "raised": 0,
+          "fd": 535
+        }
+      ],
+      "raised5": 0,
+      "raised10": 0,
+      "terminal": 43115.931818181816,
+      "ev2031": 26522.30756077268,
+      "evSotp": 46400,
+      "dcf": {
+        "today": 24.89340038077973,
+        "price5": 50.06951977719653,
+        "cagr": 0.12568980124491258
+      },
+      "sotp": {
+        "today": 41.15364514308201,
+        "price5": 82.77467995036244,
+        "cagr": 0.2447540506796484
+      }
+    }
+  },
+  "reference": 8.074631156449383,
+  "returnLimit": 7.11452273741298,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 5.66,
+      "high": 6.86,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 4.45,
+      "high": 5.65,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 2.66,
+      "high": 4.44,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.15,
+      "today": 10.570763865398478
+    },
+    {
+      "ke": 0.17,
+      "today": 8.074631156449383
+    },
+    {
+      "ke": 0.19,
+      "today": 6.320861600657497
+    }
+  ],
+  "marginStress": {
+    "today": 6.259449950636316,
+    "price5": 13.723518748835048,
+    "cagr": -0.131045288774431
+  },
+  "warrantStress": {
+    "today": 7.94580085954199,
+    "price5": 17.4207554865662,
+    "cagr": -0.08858233198042587
+  },
+  "reverseQuantumMultiple": 12.153426840224483,
+  "policy": "Oct28 actual432.462651 + Nov3 Elisity32.233274 + allOctprefunded29.5 (some may already exercise: conservative overlap) + Sept options2.783889 + RSU18.515487 + expectedPSU8.358879 + Elisitymaxearnout4.265934 + customerwarrant.543152 =528.663266m; use535m additional pregrantPSU and postquarter reserve. Restrictedstock8.703589m already issued not added. Existing lowstrikeoptions grossshares no proceeds. No future annual dilution plus continuing SBC double count: future SBC economic expense in EBIT; cash flow treats replacement compensation cash-equivalent conservatively. A/B/C179.05333m warrants separately allocated at2031 BlackScholes timevalue50%vol r3.5%, Aremaining.52 B.79 C1.79years; no current warrantliability subtraction and no doubleexerciseproceeds. 3100mopening2027netliquidresearchbudget from209.454+788.458+664.482+1990=3652.394, lessfutureQ4burn/reserve~552.394 incl debtface67.114, financelease28.392, minority34.066 and contingency/integration buffer; notactualreported2027cash. Strategicinvest249.732 notadded. Consolidated forecastsafterallcentralopexongoingSBCrentnormalDA25%cashpositiveEBITtax; investment netcapexplusWC via salescapitalturnplatform1.5/foundry.9; preventsfullassetfreegrowth. Base2026foundry500proforma notreportedactual2month83.516. 2027-31 cashFCFFretained no interest/dividend/buyback, debtreservedopening notdeductedagain; conditionalraisedat5/10/20and5%fee cashfloor200. DCFequity2031 uses2032-36FCFF and2037gROICterminal plus2031cash, BSclaims; SOTP independent2031revenue5/1.5basehypotheticalnotpeermarketquote. Presentboth2031equitydiscount5yKe. Bearfuturetailadditionalfundingwarning: horizon2031value beforelaterfinancing benefits; itsfutureFCFFnegativeincludedDCF, limitedliabilityfloor0, SOTPnotreliableiffundingfails."
+}

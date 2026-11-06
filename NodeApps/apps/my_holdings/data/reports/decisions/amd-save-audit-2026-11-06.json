@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T07:42:14.882Z",
+  "jobId": "f98c9e58-604c-445d-8e5d-8e8d2f81d07c",
+  "reference": {
+    "json": "decisions/amd-2026-11-06-f98c9e58-604c-445d-8e5d-8e8d2f81d07c.json",
+    "report": "decisions/amd-2026-11-06-f98c9e58-604c-445d-8e5d-8e8d2f81d07c.html",
+    "updatedAt": "2026-11-06T07:42:13.214Z",
+    "conclusion": "基准今日两法$175.39–$374.06，2031$323.14–$689.18；对418.039，五年总回报约−23%至+65%、年化-5.0%至10.5%。数据中心增长真实，股权/客户融资与终值风险也大；现价不新增，较低价分三档。40万美元条件目标12000、上限16000，扣已有ETF2787.72及待买0，可新增9212.28美元。"
+  },
+  "beforeRevision": 3450,
+  "afterRevision": 3451,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"AMD\",\n  \"reference\": {\n    \"json\": \"decisions/amd-2026-11-06-f98c9e58-604c-445d-8e5d-8e8d2f81d07c.json\",\n    \"report\": \"decisions/amd-2026-11-06-f98c9e58-604c-445d-8e5d-8e8d2f81d07c.html\",\n    \"updatedAt\": \"2026-11-06T07:42:13.214Z\",\n    \"conclusion\": \"基准今日两法$175.39–$374.06，2031$323.14–$689.18；对418.039，五年总回报约−23%至+65%、年化-5.0%至10.5%。数据中心增长真实，股权/客户融资与终值风险也大；现价不新增，较低价分三档。40万美元条件目标12000、上限16000，扣已有ETF2787.72及待买0，可新增9212.28美元。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 124.3,\n      \"high\": 141.24,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(低法今日×90%，低法2031按18%五年回报折现)，取较低者。价格到位仍先核数据中心回款、权证归属、并购支付与生态承诺；恶化则暂停重算。\",\n      \"dollars\": 2303.0703178935,\n      \"shares\": 16\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 99.44,\n      \"high\": 124.29,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(低法今日×80%，观察上沿×88%)。价格到位仍先核数据中心回款、权证归属、并购支付与生态承诺；恶化则暂停重算。\",\n      \"dollars\": 3224.2984450509,\n      \"shares\": 25\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 69.6,\n      \"high\": 99.43,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(低法今日×65%，安全档上沿×80%)。价格到位仍先核数据中心回款、权证归属、并购支付与生态承诺；恶化则暂停重算。低于69.60美元不盲目加仓，重新尽调。\",\n      \"dollars\": 3684.9125086296,\n      \"shares\": 37\n    }\n  ]\n}\n"
+}

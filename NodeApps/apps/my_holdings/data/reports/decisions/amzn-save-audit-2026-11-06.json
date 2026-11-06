@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T07:13:38.248Z",
+  "jobId": "0c3f86b6-71bb-4ed3-8e46-6f63484076ce",
+  "reference": {
+    "json": "decisions/amzn-2026-11-06-0c3f86b6-71bb-4ed3-8e46-6f63484076ce.json",
+    "report": "decisions/amzn-2026-11-06-0c3f86b6-71bb-4ed3-8e46-6f63484076ce.html",
+    "updatedAt": "2026-11-06T07:13:37.409Z",
+    "conclusion": "基准今日$166.99–$298.92，2031期末$281.39–$503.69；相对257.75五年总回报约+9%至+95%，年化1.8%至14.3%。基准以条件股权融资替代未来借款/租赁等资金安排，不能视为已公布增发。当前等待；条件目标5%=$20,000，上限7%=$28,000；已有ETF$4448.33，剩余$15551.67。"
+  },
+  "beforeRevision": 3447,
+  "afterRevision": 3448,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"AMZN\",\n  \"reference\": {\n    \"json\": \"decisions/amzn-2026-11-06-0c3f86b6-71bb-4ed3-8e46-6f63484076ce.json\",\n    \"report\": \"decisions/amzn-2026-11-06-0c3f86b6-71bb-4ed3-8e46-6f63484076ce.html\",\n    \"updatedAt\": \"2026-11-06T07:13:37.409Z\",\n    \"conclusion\": \"基准今日$166.99–$298.92，2031期末$281.39–$503.69；相对257.75五年总回报约+9%至+95%，年化1.8%至14.3%。基准以条件股权融资替代未来借款/租赁等资金安排，不能视为已公布增发。当前等待；条件目标5%=$20,000，上限7%=$28,000；已有ETF$4448.33，剩余$15551.67。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 132.26,\n      \"high\": 150.29,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(低法今日×90%，低法2031按13%回报折现152.73)。须先核AWS回款、实际资本与融资条款，若融资价格低于模型/债务负担更高须重算。\",\n      \"dollars\": 3887.9162623542493,\n      \"shares\": 25\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 105.81,\n      \"high\": 132.25,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(低法今日×80%，观察上沿×88%)。须先核AWS回款、实际资本与融资条款，若融资价格低于模型/债务负担更高须重算。\",\n      \"dollars\": 5443.082767295949,\n      \"shares\": 41\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 74.05,\n      \"high\": 105.8,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(低法今日×65%，观察上沿×88%×80%)。须先核AWS回款、实际资本与融资条款，若融资价格低于模型/债务负担更高须重算。低于74.05美元重做尽调，不机械加仓。\",\n      \"dollars\": 6220.6660197668,\n      \"shares\": 58\n    }\n  ]\n}\n"
+}

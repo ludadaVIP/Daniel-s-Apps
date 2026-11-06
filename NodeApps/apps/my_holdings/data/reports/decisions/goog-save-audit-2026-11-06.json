@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T07:05:44.802Z",
+  "jobId": "705d178b-5f48-43d1-b5cd-bc3e19569b69",
+  "reference": {
+    "json": "decisions/goog-2026-11-06-705d178b-5f48-43d1-b5cd-bc3e19569b69.json",
+    "report": "decisions/goog-2026-11-06-705d178b-5f48-43d1-b5cd-bc3e19569b69.html",
+    "updatedAt": "2026-11-06T07:05:43.883Z",
+    "conclusion": "基准今日$216.97–$406.78，2031期末$358.96–$678.79；相对281.68含预计分红五年总回报约+29%至+143%、IRR5.3%至19.5%，低法回报不足。当前新增0；条件目标6%=$24,000，上限8%=$32,000。已有直接/ETF$9310.75及待买$5400.00，剩余$9289.25。270美元旧单高于171.84–195.27观察区，建议用户复核。"
+  },
+  "beforeRevision": 3446,
+  "afterRevision": 3447,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"GOOG\",\n  \"reference\": {\n    \"json\": \"decisions/goog-2026-11-06-705d178b-5f48-43d1-b5cd-bc3e19569b69.json\",\n    \"report\": \"decisions/goog-2026-11-06-705d178b-5f48-43d1-b5cd-bc3e19569b69.html\",\n    \"updatedAt\": \"2026-11-06T07:05:43.883Z\",\n    \"conclusion\": \"基准今日$216.97–$406.78，2031期末$358.96–$678.79；相对281.68含预计分红五年总回报约+29%至+143%、IRR5.3%至19.5%，低法回报不足。当前新增0；条件目标6%=$24,000，上限8%=$32,000。已有直接/ETF$9310.75及待买$5400.00，剩余$9289.25。270美元旧单高于171.84–195.27观察区，建议用户复核。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 171.84,\n      \"high\": 195.27,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(低法今日×90%，低法2031加分红按13%回报折现198.58)。扣已有及旧买单后的分配示例；先复核270美元旧单，避免新旧订单叠加，业务/融资改变重算。\",\n      \"dollars\": 2322.311878515,\n      \"shares\": 11\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 137.48,\n      \"high\": 171.83,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(低法今日×80%，观察上沿×88%)。扣已有及旧买单后的分配示例；先复核270美元旧单，避免新旧订单叠加，业务/融资改变重算。\",\n      \"dollars\": 3251.236629921,\n      \"shares\": 18\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 96.22,\n      \"high\": 137.47,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(低法今日×65%，观察上沿×88%×80%)。扣已有及旧买单后的分配示例；先复核270美元旧单，避免新旧订单叠加，业务/融资改变重算。低于96.22美元重做尽调。\",\n      \"dollars\": 3715.699005624,\n      \"shares\": 27\n    }\n  ]\n}\n"
+}

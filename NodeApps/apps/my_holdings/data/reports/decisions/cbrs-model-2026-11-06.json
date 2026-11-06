@@ -1,0 +1,603 @@
+{
+  "units": "USD million; shares million",
+  "quote": 81.71,
+  "actualShares": 237.56404099999997,
+  "shares": 314,
+  "unrestrictedGross": 7921.5470000000005,
+  "loan": 918.244,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "sales": [
+          1700,
+          2500,
+          3300,
+          4100,
+          4800,
+          5400,
+          6000,
+          6500,
+          7000,
+          7400
+        ],
+        "margin": [
+          -0.2,
+          -0.12,
+          -0.05,
+          0,
+          0.05,
+          0.08,
+          0.1,
+          0.12,
+          0.13,
+          0.14
+        ],
+        "capitalTurn": 0.9,
+        "refresh": 0.04,
+        "wacc": 0.15,
+        "g": 0.02,
+        "roic": 0.12,
+        "multiple": 10,
+        "netCash": 5000
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 1700,
+          "margin": -0.2,
+          "ebit": -340,
+          "nopat": -340,
+          "growthCapital": 944.4444444444445,
+          "refreshPremium": 68,
+          "fcff": -1352.4444444444443,
+          "need": 0,
+          "cash": 3647.5555555555557,
+          "shares": 314
+        },
+        {
+          "year": 2028,
+          "sales": 2500,
+          "margin": -0.12,
+          "ebit": -300,
+          "nopat": -300,
+          "growthCapital": 888.8888888888889,
+          "refreshPremium": 100,
+          "fcff": -1288.888888888889,
+          "need": 0,
+          "cash": 2358.666666666667,
+          "shares": 314
+        },
+        {
+          "year": 2029,
+          "sales": 3300,
+          "margin": -0.05,
+          "ebit": -165,
+          "nopat": -165,
+          "growthCapital": 888.8888888888889,
+          "refreshPremium": 132,
+          "fcff": -1185.888888888889,
+          "need": 0,
+          "cash": 1172.777777777778,
+          "shares": 314
+        },
+        {
+          "year": 2030,
+          "sales": 4100,
+          "margin": 0,
+          "ebit": 0,
+          "nopat": 0,
+          "growthCapital": 888.8888888888889,
+          "refreshPremium": 164,
+          "fcff": -1052.888888888889,
+          "need": 380.11111111111086,
+          "cash": 500,
+          "shares": 340.6744639376218
+        },
+        {
+          "year": 2031,
+          "sales": 4800,
+          "margin": 0.05,
+          "ebit": 240,
+          "nopat": 180,
+          "growthCapital": 777.7777777777777,
+          "refreshPremium": 192,
+          "fcff": -789.7777777777777,
+          "need": 789.7777777777777,
+          "cash": 500,
+          "shares": 396.0974658869395
+        },
+        {
+          "year": 2032,
+          "sales": 5400,
+          "margin": 0.08,
+          "ebit": 432,
+          "nopat": 324,
+          "growthCapital": 666.6666666666666,
+          "refreshPremium": 216,
+          "fcff": -558.6666666666666,
+          "need": 558.6666666666666,
+          "cash": 500,
+          "shares": 435.3021442495126
+        },
+        {
+          "year": 2033,
+          "sales": 6000,
+          "margin": 0.1,
+          "ebit": 600,
+          "nopat": 450,
+          "growthCapital": 666.6666666666666,
+          "refreshPremium": 240,
+          "fcff": -456.66666666666663,
+          "need": 456.66666666666663,
+          "cash": 500,
+          "shares": 467.3489278752436
+        },
+        {
+          "year": 2034,
+          "sales": 6500,
+          "margin": 0.12,
+          "ebit": 780,
+          "nopat": 585,
+          "growthCapital": 555.5555555555555,
+          "refreshPremium": 260,
+          "fcff": -230.55555555555554,
+          "need": 230.55555555555554,
+          "cash": 500,
+          "shares": 483.5282651072124
+        },
+        {
+          "year": 2035,
+          "sales": 7000,
+          "margin": 0.13,
+          "ebit": 910,
+          "nopat": 682.5,
+          "growthCapital": 555.5555555555555,
+          "refreshPremium": 280,
+          "fcff": -153.05555555555554,
+          "need": 153.05555555555554,
+          "cash": 500,
+          "shares": 494.26900584795317
+        },
+        {
+          "year": 2036,
+          "sales": 7400,
+          "margin": 0.14,
+          "ebit": 1036,
+          "nopat": 777,
+          "growthCapital": 444.44444444444446,
+          "refreshPremium": 296,
+          "fcff": 36.55555555555554,
+          "need": 0,
+          "cash": 536.5555555555555,
+          "shares": 494.26900584795317
+        }
+      ],
+      "shares": 494.26900584795317,
+      "raised": 2568.833333333333,
+      "terminalFCFF": 358.5299999999999,
+      "terminal2036": 2757.923076923076,
+      "continuation2031": 319.14302294166123,
+      "dcf": {
+        "today": 4.806541499844463,
+        "price5": 3.8225131274724453,
+        "cagr": -0.4579806949826317
+      },
+      "multiple": {
+        "today": 3.640044828705332,
+        "price5": 7.321430329038673,
+        "cagr": -0.3827456706655826
+      }
+    },
+    "base": {
+      "parameters": {
+        "sales": [
+          2700,
+          4200,
+          6000,
+          8000,
+          10000,
+          11800,
+          13500,
+          15000,
+          16200,
+          17200
+        ],
+        "margin": [
+          -0.08,
+          0.02,
+          0.1,
+          0.16,
+          0.2,
+          0.22,
+          0.24,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "capitalTurn": 1.5,
+        "refresh": 0.02,
+        "wacc": 0.125,
+        "g": 0.03,
+        "roic": 0.16,
+        "multiple": 15,
+        "netCash": 5500
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 2700,
+          "margin": -0.08,
+          "ebit": -216,
+          "nopat": -216,
+          "growthCapital": 1233.3333333333333,
+          "refreshPremium": 54,
+          "fcff": -1503.3333333333333,
+          "need": 0,
+          "cash": 3996.666666666667,
+          "shares": 314
+        },
+        {
+          "year": 2028,
+          "sales": 4200,
+          "margin": 0.02,
+          "ebit": 84,
+          "nopat": 63,
+          "growthCapital": 1000,
+          "refreshPremium": 84,
+          "fcff": -1021,
+          "need": 0,
+          "cash": 2975.666666666667,
+          "shares": 314
+        },
+        {
+          "year": 2029,
+          "sales": 6000,
+          "margin": 0.1,
+          "ebit": 600,
+          "nopat": 450,
+          "growthCapital": 1200,
+          "refreshPremium": 120,
+          "fcff": -870,
+          "need": 0,
+          "cash": 2105.666666666667,
+          "shares": 314
+        },
+        {
+          "year": 2030,
+          "sales": 8000,
+          "margin": 0.16,
+          "ebit": 1280,
+          "nopat": 960,
+          "growthCapital": 1333.3333333333333,
+          "refreshPremium": 160,
+          "fcff": -533.3333333333333,
+          "need": 0,
+          "cash": 1572.3333333333337,
+          "shares": 314
+        },
+        {
+          "year": 2031,
+          "sales": 10000,
+          "margin": 0.2,
+          "ebit": 2000,
+          "nopat": 1500,
+          "growthCapital": 1333.3333333333333,
+          "refreshPremium": 200,
+          "fcff": -33.33333333333326,
+          "need": 0,
+          "cash": 1539.0000000000005,
+          "shares": 314
+        },
+        {
+          "year": 2032,
+          "sales": 11800,
+          "margin": 0.22,
+          "ebit": 2596,
+          "nopat": 1947,
+          "growthCapital": 1200,
+          "refreshPremium": 236,
+          "fcff": 511,
+          "need": 0,
+          "cash": 2050.0000000000005,
+          "shares": 314
+        },
+        {
+          "year": 2033,
+          "sales": 13500,
+          "margin": 0.24,
+          "ebit": 3240,
+          "nopat": 2430,
+          "growthCapital": 1133.3333333333333,
+          "refreshPremium": 270,
+          "fcff": 1026.6666666666667,
+          "need": 0,
+          "cash": 3076.666666666667,
+          "shares": 314
+        },
+        {
+          "year": 2034,
+          "sales": 15000,
+          "margin": 0.25,
+          "ebit": 3750,
+          "nopat": 2812.5,
+          "growthCapital": 1000,
+          "refreshPremium": 300,
+          "fcff": 1512.5,
+          "need": 0,
+          "cash": 4589.166666666667,
+          "shares": 314
+        },
+        {
+          "year": 2035,
+          "sales": 16200,
+          "margin": 0.25,
+          "ebit": 4050,
+          "nopat": 3037.5,
+          "growthCapital": 800,
+          "refreshPremium": 324,
+          "fcff": 1913.5,
+          "need": 0,
+          "cash": 6502.666666666667,
+          "shares": 314
+        },
+        {
+          "year": 2036,
+          "sales": 17200,
+          "margin": 0.25,
+          "ebit": 4300,
+          "nopat": 3225,
+          "growthCapital": 666.6666666666666,
+          "refreshPremium": 344,
+          "fcff": 2214.3333333333335,
+          "need": 0,
+          "cash": 8717,
+          "shares": 314
+        }
+      ],
+      "shares": 314,
+      "raised": 0,
+      "terminalFCFF": 2344.601875,
+      "terminal2036": 24680.019736842103,
+      "continuation2031": 18446.736666218036,
+      "dcf": {
+        "today": 40.226535622092435,
+        "price5": 63.6488428860447,
+        "cagr": -0.04873162145385823
+      },
+      "multiple": {
+        "today": 55.73854899520456,
+        "price5": 100.44267515923566,
+        "cagr": 0.0421461107891965
+      }
+    },
+    "bull": {
+      "parameters": {
+        "sales": [
+          3300,
+          5500,
+          8500,
+          12000,
+          16000,
+          20000,
+          24000,
+          27000,
+          30000,
+          32000
+        ],
+        "margin": [
+          -0.02,
+          0.1,
+          0.18,
+          0.24,
+          0.28,
+          0.29,
+          0.3,
+          0.3,
+          0.3,
+          0.3
+        ],
+        "capitalTurn": 1.8,
+        "refresh": 0.015,
+        "wacc": 0.115,
+        "g": 0.035,
+        "roic": 0.2,
+        "multiple": 20,
+        "netCash": 6000
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 3300,
+          "margin": -0.02,
+          "ebit": -66,
+          "nopat": -66,
+          "growthCapital": 1361.111111111111,
+          "refreshPremium": 49.5,
+          "fcff": -1476.611111111111,
+          "need": 0,
+          "cash": 4523.388888888889,
+          "shares": 314
+        },
+        {
+          "year": 2028,
+          "sales": 5500,
+          "margin": 0.1,
+          "ebit": 550,
+          "nopat": 412.5,
+          "growthCapital": 1222.2222222222222,
+          "refreshPremium": 82.5,
+          "fcff": -892.2222222222222,
+          "need": 0,
+          "cash": 3631.1666666666665,
+          "shares": 314
+        },
+        {
+          "year": 2029,
+          "sales": 8500,
+          "margin": 0.18,
+          "ebit": 1530,
+          "nopat": 1147.5,
+          "growthCapital": 1666.6666666666665,
+          "refreshPremium": 127.5,
+          "fcff": -646.6666666666665,
+          "need": 0,
+          "cash": 2984.5,
+          "shares": 314
+        },
+        {
+          "year": 2030,
+          "sales": 12000,
+          "margin": 0.24,
+          "ebit": 2880,
+          "nopat": 2160,
+          "growthCapital": 1944.4444444444443,
+          "refreshPremium": 180,
+          "fcff": 35.55555555555566,
+          "need": 0,
+          "cash": 3020.0555555555557,
+          "shares": 314
+        },
+        {
+          "year": 2031,
+          "sales": 16000,
+          "margin": 0.28,
+          "ebit": 4480,
+          "nopat": 3360,
+          "growthCapital": 2222.222222222222,
+          "refreshPremium": 240,
+          "fcff": 897.7777777777778,
+          "need": 0,
+          "cash": 3917.8333333333335,
+          "shares": 314
+        },
+        {
+          "year": 2032,
+          "sales": 20000,
+          "margin": 0.29,
+          "ebit": 5800,
+          "nopat": 4350,
+          "growthCapital": 2222.222222222222,
+          "refreshPremium": 300,
+          "fcff": 1827.7777777777778,
+          "need": 0,
+          "cash": 5745.611111111111,
+          "shares": 314
+        },
+        {
+          "year": 2033,
+          "sales": 24000,
+          "margin": 0.3,
+          "ebit": 7200,
+          "nopat": 5400,
+          "growthCapital": 2222.222222222222,
+          "refreshPremium": 360,
+          "fcff": 2817.777777777778,
+          "need": 0,
+          "cash": 8563.388888888889,
+          "shares": 314
+        },
+        {
+          "year": 2034,
+          "sales": 27000,
+          "margin": 0.3,
+          "ebit": 8100,
+          "nopat": 6075,
+          "growthCapital": 1666.6666666666665,
+          "refreshPremium": 405,
+          "fcff": 4003.333333333334,
+          "need": 0,
+          "cash": 12566.722222222223,
+          "shares": 314
+        },
+        {
+          "year": 2035,
+          "sales": 30000,
+          "margin": 0.3,
+          "ebit": 9000,
+          "nopat": 6750,
+          "growthCapital": 1666.6666666666665,
+          "refreshPremium": 450,
+          "fcff": 4633.333333333334,
+          "need": 0,
+          "cash": 17200.055555555555,
+          "shares": 314
+        },
+        {
+          "year": 2036,
+          "sales": 32000,
+          "margin": 0.3,
+          "ebit": 9600,
+          "nopat": 7200,
+          "growthCapital": 1111.111111111111,
+          "refreshPremium": 480,
+          "fcff": 5608.888888888889,
+          "need": 0,
+          "cash": 22808.944444444445,
+          "shares": 314
+        }
+      ],
+      "shares": 314,
+      "raised": 0,
+      "terminalFCFF": 5651.0999999999985,
+      "terminal2036": 70638.74999999999,
+      "continuation2031": 54035.27335627364,
+      "dcf": {
+        "today": 112.70761742588958,
+        "price5": 184.56403404333432,
+        "cagr": 0.1769943354574115
+      },
+      "multiple": {
+        "today": 172.81858755583352,
+        "price5": 297.82749469214434,
+        "cagr": 0.2952032203158308
+      }
+    }
+  },
+  "reference": 40.226535622092435,
+  "returnLimit": 25.57904244070084,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 21.74,
+      "high": 25.57,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 17.39,
+      "high": 21.73,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 10.42,
+      "high": 17.38,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "wacc": 0.11,
+      "today": 49.62834050155466
+    },
+    {
+      "wacc": 0.125,
+      "today": 40.226535622092435
+    },
+    {
+      "wacc": 0.14,
+      "today": 33.70654970041294
+    }
+  ],
+  "capitalStress": {
+    "dcf": {
+      "today": 23.3204457828257,
+      "price5": 37.40810315629891,
+      "cagr": -0.14466135300088068
+    },
+    "raised": 2100,
+    "shares": 461.3684210526316
+  },
+  "reverseMultiple": 31.15183847039999,
+  "policy": "LatestfinancialQ2; 8/5 actualA+B+N237.564041. JulyOpenAIexercise10.033508 alreadyinactual; addremainingOpenAI23.411518+AWS2.696678+Juneoptions23.797+RSU16.532+PRSU9 =313.001m grossproxy, round314 reserve, noexerciseproceeds. G42alreadyissuednotadded. Modelcashrevenuebeforecustomerwarrantamortization with no warrantassetvalue; relateddilutioncountedratherthansubtractnoncashwarrantrevenueagain. Future recurringemployeeSBC inside economicEBITmargin, noadditionalfutureawarddilution. ExistingIPOoneoffnotperpetuallyannualized. Juneunrestrictedcash+invest7.921547bn; excludesrestricted.684680bn. Workingcapitaldebt.918244bn deductedonce, postJune2026cashburnreserve2.003303/1.503303/1.003303bn yieldsnetcash5/5.5/6bn 2027openingestimate, notactual. Core-likeeconomicrevenueforecastexcludespassthrough; rents/power/maintenanceD&Ainside EBIT. NetgrowthcapexminusD&AplusWC=deltaSales/capitalturn; extraacceleratorreplacementpremium1.5-4%sales; thisrecognizesmaintenancewithinD&Aandadditionalrefreshstress. NoaddingleasePVagain, allcommenced/notyetcommencedleases assumedpaidthroughrentexpenseinmargin. NeednewQ3leaseverification. NOPATtax25%, noimmediatetaxrefundonloss. AllinterimFCFFretainedwithoutinterest, nodebtinteresttaxshieldorbuyback/dividendbenefit. Cashfloor500m, conditionalnewcapitalat15with5%fee; capitalnotguaranteed. DCF explicityears2027-36 toavoid2031maturityfiction; terminalgrowthreinvestmentg/ROICandextraRefresh. At2031 continuationdiscounts2032-36 plus2036terminal, adds2031cashonce; expectedpost2031newcapitalanddilution included ifneeded. Independent2031EV/EBIT onyear5economicEBITwithactualyear5cash/shares, notfuturerefinancingfiction. Targetsconditional, noNVDAmarketmultipleimputed."
+}

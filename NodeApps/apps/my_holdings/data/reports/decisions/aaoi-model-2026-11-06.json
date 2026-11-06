@@ -1,0 +1,494 @@
+{
+  "units": "USD million, shares million",
+  "quote": 43.321,
+  "actualShares": 90.770732,
+  "startingFD": 102,
+  "convertFace": 124.925,
+  "convertShares": 2.88431837,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "sales": [
+          1350,
+          1500,
+          1600,
+          1700,
+          1800
+        ],
+        "gm": [
+          0.25,
+          0.25,
+          0.25,
+          0.25,
+          0.25
+        ],
+        "opex": [
+          310,
+          320,
+          330,
+          340,
+          350
+        ],
+        "capex": [
+          800,
+          450,
+          250,
+          200,
+          200
+        ],
+        "da": [
+          140,
+          160,
+          170,
+          175,
+          180
+        ],
+        "wc": 0.32,
+        "ke": 0.16,
+        "g": 0.02,
+        "roic": 0.1,
+        "multiple": 9,
+        "openingNet": 100
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 1350,
+          "gm": 0.25,
+          "opex": 310,
+          "ebit": 27.5,
+          "nopat": 20.625,
+          "da": 140,
+          "capex": 800,
+          "dWC": 32,
+          "fcff": -671.375,
+          "need": 671.375,
+          "liquid": 100,
+          "shares": 125.55701754385964
+        },
+        {
+          "year": 2028,
+          "sales": 1500,
+          "gm": 0.25,
+          "opex": 320,
+          "ebit": 55,
+          "nopat": 41.25,
+          "da": 160,
+          "capex": 450,
+          "dWC": 48,
+          "fcff": -296.75,
+          "need": 296.75,
+          "liquid": 100,
+          "shares": 135.96929824561403
+        },
+        {
+          "year": 2029,
+          "sales": 1600,
+          "gm": 0.25,
+          "opex": 330,
+          "ebit": 70,
+          "nopat": 52.5,
+          "da": 170,
+          "capex": 250,
+          "dWC": 32,
+          "fcff": -59.5,
+          "need": 59.5,
+          "liquid": 100,
+          "shares": 138.05701754385964
+        },
+        {
+          "year": 2030,
+          "sales": 1700,
+          "gm": 0.25,
+          "opex": 340,
+          "ebit": 85,
+          "nopat": 63.75,
+          "da": 175,
+          "capex": 200,
+          "dWC": 32,
+          "fcff": 6.75,
+          "need": 0,
+          "liquid": 106.75,
+          "shares": 138.05701754385964
+        },
+        {
+          "year": 2031,
+          "sales": 1800,
+          "gm": 0.25,
+          "opex": 350,
+          "ebit": 100,
+          "nopat": 75,
+          "da": 180,
+          "capex": 200,
+          "dWC": 32,
+          "fcff": 23,
+          "need": 0,
+          "liquid": 129.75,
+          "shares": 138.05701754385964
+        }
+      ],
+      "raised": 1027.625,
+      "fd": 138.05701754385964,
+      "terminalFCFF": 61.2,
+      "business": 437.1428571428571,
+      "dcfClaim": {
+        "price": 4.106222684136717,
+        "shares": 138.05701754385964,
+        "convert": "现金偿本金，已在净流动性预留"
+      },
+      "multipleClaim": {
+        "price": 7.4588747339327135,
+        "shares": 138.05701754385964,
+        "convert": "现金偿本金，已在净流动性预留"
+      },
+      "dcf": {
+        "today": 1.9550260641065327,
+        "price5": 4.106222684136717,
+        "cagr": -0.37576400873910476
+      },
+      "multiple": {
+        "today": 3.5512673411695115,
+        "price5": 7.4588747339327135,
+        "cagr": -0.2966119785605892
+      }
+    },
+    "base": {
+      "parameters": {
+        "sales": [
+          2000,
+          2500,
+          2900,
+          3250,
+          3600
+        ],
+        "gm": [
+          0.305,
+          0.31,
+          0.31,
+          0.3,
+          0.295
+        ],
+        "opex": [
+          320,
+          355,
+          390,
+          430,
+          470
+        ],
+        "capex": [
+          750,
+          400,
+          250,
+          220,
+          220
+        ],
+        "da": [
+          150,
+          180,
+          210,
+          230,
+          240
+        ],
+        "wc": 0.25,
+        "ke": 0.13,
+        "g": 0.025,
+        "roic": 0.15,
+        "multiple": 13,
+        "openingNet": 150
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 2000,
+          "gm": 0.305,
+          "opex": 320,
+          "ebit": 290,
+          "nopat": 217.5,
+          "da": 150,
+          "capex": 750,
+          "dWC": 100,
+          "fcff": -482.5,
+          "need": 432.5,
+          "liquid": 100,
+          "shares": 117.17543859649123
+        },
+        {
+          "year": 2028,
+          "sales": 2500,
+          "gm": 0.31,
+          "opex": 355,
+          "ebit": 420,
+          "nopat": 315,
+          "da": 180,
+          "capex": 400,
+          "dWC": 125,
+          "fcff": -30,
+          "need": 30,
+          "liquid": 100,
+          "shares": 118.2280701754386
+        },
+        {
+          "year": 2029,
+          "sales": 2900,
+          "gm": 0.31,
+          "opex": 390,
+          "ebit": 509,
+          "nopat": 381.75,
+          "da": 210,
+          "capex": 250,
+          "dWC": 100,
+          "fcff": 241.75,
+          "need": 0,
+          "liquid": 341.75,
+          "shares": 118.2280701754386
+        },
+        {
+          "year": 2030,
+          "sales": 3250,
+          "gm": 0.3,
+          "opex": 430,
+          "ebit": 545,
+          "nopat": 408.75,
+          "da": 230,
+          "capex": 220,
+          "dWC": 87.5,
+          "fcff": 331.25,
+          "need": 0,
+          "liquid": 673,
+          "shares": 118.2280701754386
+        },
+        {
+          "year": 2031,
+          "sales": 3600,
+          "gm": 0.295,
+          "opex": 470,
+          "ebit": 592,
+          "nopat": 444,
+          "da": 240,
+          "capex": 220,
+          "dWC": 87.5,
+          "fcff": 376.5,
+          "need": 0,
+          "liquid": 1049.5,
+          "shares": 118.2280701754386
+        }
+      ],
+      "raised": 462.5,
+      "fd": 118.2280701754386,
+      "terminalFCFF": 379.24999999999994,
+      "business": 3611.904761904761,
+      "dcfClaim": {
+        "price": 39.42722531956839,
+        "shares": 118.2280701754386,
+        "convert": "现金偿本金，已在净流动性预留"
+      },
+      "multipleClaim": {
+        "price": 73.24126876312094,
+        "shares": 121.1123885454386,
+        "convert": "全股转换，释放本金预留并加转换股数"
+      },
+      "dcf": {
+        "today": 21.399518291084778,
+        "price5": 39.42722531956839,
+        "cagr": -0.01865989372625587
+      },
+      "multiple": {
+        "today": 39.75242634638993,
+        "price5": 73.24126876312094,
+        "cagr": 0.1107376091991985
+      }
+    },
+    "bull": {
+      "parameters": {
+        "sales": [
+          2300,
+          3000,
+          3700,
+          4350,
+          5000
+        ],
+        "gm": [
+          0.33,
+          0.35,
+          0.36,
+          0.36,
+          0.36
+        ],
+        "opex": [
+          350,
+          400,
+          460,
+          530,
+          600
+        ],
+        "capex": [
+          850,
+          550,
+          380,
+          320,
+          300
+        ],
+        "da": [
+          160,
+          210,
+          250,
+          280,
+          310
+        ],
+        "wc": 0.22,
+        "ke": 0.115,
+        "g": 0.03,
+        "roic": 0.2,
+        "multiple": 17,
+        "openingNet": 200
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 2300,
+          "gm": 0.33,
+          "opex": 350,
+          "ebit": 409,
+          "nopat": 306.75,
+          "da": 160,
+          "capex": 850,
+          "dWC": 106,
+          "fcff": -489.25,
+          "need": 389.25,
+          "liquid": 100,
+          "shares": 115.65789473684211
+        },
+        {
+          "year": 2028,
+          "sales": 3000,
+          "gm": 0.35,
+          "opex": 400,
+          "ebit": 650,
+          "nopat": 487.5,
+          "da": 210,
+          "capex": 550,
+          "dWC": 154,
+          "fcff": -6.5,
+          "need": 6.5,
+          "liquid": 100,
+          "shares": 115.88596491228071
+        },
+        {
+          "year": 2029,
+          "sales": 3700,
+          "gm": 0.36,
+          "opex": 460,
+          "ebit": 872,
+          "nopat": 654,
+          "da": 250,
+          "capex": 380,
+          "dWC": 154,
+          "fcff": 370,
+          "need": 0,
+          "liquid": 470,
+          "shares": 115.88596491228071
+        },
+        {
+          "year": 2030,
+          "sales": 4350,
+          "gm": 0.36,
+          "opex": 530,
+          "ebit": 1036,
+          "nopat": 777,
+          "da": 280,
+          "capex": 320,
+          "dWC": 143,
+          "fcff": 594,
+          "need": 0,
+          "liquid": 1064,
+          "shares": 115.88596491228071
+        },
+        {
+          "year": 2031,
+          "sales": 5000,
+          "gm": 0.36,
+          "opex": 600,
+          "ebit": 1200,
+          "nopat": 900,
+          "da": 310,
+          "capex": 300,
+          "dWC": 143,
+          "fcff": 767,
+          "need": 0,
+          "liquid": 1831,
+          "shares": 115.88596491228071
+        }
+      ],
+      "raised": 395.75,
+      "fd": 115.88596491228071,
+      "terminalFCFF": 787.9499999999999,
+      "business": 9269.999999999998,
+      "dcfClaim": {
+        "price": 94.51796097277465,
+        "shares": 118.77028328228072,
+        "convert": "全股转换，释放本金预留并加转换股数"
+      },
+      "multipleClaim": {
+        "price": 188.2282704240655,
+        "shares": 118.77028328228072,
+        "convert": "全股转换，释放本金预留并加转换股数"
+      },
+      "dcf": {
+        "today": 54.8453746047079,
+        "price5": 94.51796097277465,
+        "cagr": 0.1688618233193615
+      },
+      "multiple": {
+        "today": 109.22209806851147,
+        "price5": 188.2282704240655,
+        "cagr": 0.34152038300065857
+      }
+    }
+  },
+  "reference": 21.399518291084778,
+  "returnLimit": 15.844917582774082,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 13.47,
+      "high": 15.84,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 10.78,
+      "high": 13.46,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 6.46,
+      "high": 10.77,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.115,
+      "today": 25.81606113497205
+    },
+    {
+      "ke": 0.13,
+      "today": 21.399518291084778
+    },
+    {
+      "ke": 0.145,
+      "today": 18.093620004538387
+    }
+  ],
+  "marginStress": {
+    "dcf": {
+      "today": 16.860764722505337,
+      "price5": 31.06486607464422,
+      "cagr": -0.06434831830374033
+    },
+    "raised": 563.7499999999999
+  },
+  "reverseMultiple": 20.069371436086442,
+  "policy": "LatestfullQ3Nov5. ActualNov2shares90.770732 alreadyincludeOctATM, noaddingwhole5.7m. StartingFD102proxy includesAmazonwarrant7.945399gross+RSU1.087+PSU0.629x2=1.258+~0.939reserve foroptions/updates; noexerciseproceeds. FutureSBCretained inopex noadditionalawarddilution. Economiccashsales beforewarrantnoncashcontrarevenue; noaddwarrantassets. GAAPQ3govtsubsidy8.160 excludedfromforecast; noassetDTAreleaseprofit. Septembercash605.413 excludes16.044restricted; debtreserve96.576bank+51.509acceptances+124.925convertface=273.010. Octobercompleted588mATMprogram largelyincludedinSeptember1.590647bnissuance; roundedcompletedprogramnets490+588+588 minusSeptember1590.647 impliesonlyabout75madditional, not588madded; exactnetincrementnotfullyspecified, openingliquidity150isresearchproxyafterQ4outflows. Q4netburn/stub estimate yields2027netliquidity100/150/200 AFTERall debtprincipalreserve, notactualcash. NoEWB200mfacilityassumedcashdraw: replaceoldBOKF, incremental50conditional. ReserveallolddebtallowsFCFFenterprisebridgewithoutfutureinteresttaxshield; financingneedconservativeequitysubstituteforpotentialnewdebt. Newcapitalnetat30with5%fee, maintain100mnetliquidityfloor; financingnotassured. Convertible modeledpiecewise maxprincipalorconversionclaim: addreservedfacebackonlyiffullsharesconversion, noalsoface deduction. cashcapexincludesfutureprepaymentsandcashinstallments, old406.943mprepaidalreadyspent notchargedagain; incomingassetsD&A modeled150-310m. COGSgrossmarginsincludeDA, doNOTsubtractDAagainfromEBIT; addbackDAonceinFCFF. Full25%cashtax; WCtarget25%revenuefrom400mproxy, guardsAPsuppliercredit. Bothvaluationstarget2031EVplusaccumulatednetcashonceanddiscount5yearsKe. TerminalDCFretainsg/ROICforfuturecapitalreplacement/growth, noincomeinterestcashorbuybacks/dividends. ExitmultipleonafterSBCGAAP-likeEBIT, notadjustedEBITDA. Additionalfundraisingownershipmodeled, nofullcapacityguaranteefrom10%LTA. Values approximateyearend2026."
+}

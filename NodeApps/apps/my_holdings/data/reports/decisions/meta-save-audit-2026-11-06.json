@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T07:22:40.876Z",
+  "jobId": "6dbe6abb-0b9b-47f6-b9ce-bf270f73a819",
+  "reference": {
+    "json": "decisions/meta-2026-11-06-6dbe6abb-0b9b-47f6-b9ce-bf270f73a819.json",
+    "report": "decisions/meta-2026-11-06-6dbe6abb-0b9b-47f6-b9ce-bf270f73a819.html",
+    "updatedAt": "2026-11-06T07:22:40.199Z",
+    "conclusion": "基准今日原股等价$301.91–$715.27，2031对应A+C组合总值$505.13–$1217.50；相对当前605.548，含预计分红五年总回报约−15%至+103%、IRR-3.1%至15.3%。当前等待；条件目标4%=$16,000，上限6%=$24,000，扣ETF$2995.77，剩余$13004.23。股权分配实施后所有旧档须重新换算，不能当单只未来A股目标。"
+  },
+  "beforeRevision": 3448,
+  "afterRevision": 3449,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"META\",\n  \"reference\": {\n    \"json\": \"decisions/meta-2026-11-06-6dbe6abb-0b9b-47f6-b9ce-bf270f73a819.json\",\n    \"report\": \"decisions/meta-2026-11-06-6dbe6abb-0b9b-47f6-b9ce-bf270f73a819.html\",\n    \"updatedAt\": \"2026-11-06T07:22:40.199Z\",\n    \"conclusion\": \"基准今日原股等价$301.91–$715.27，2031对应A+C组合总值$505.13–$1217.50；相对当前605.548，含预计分红五年总回报约−15%至+103%、IRR-3.1%至15.3%。当前等待；条件目标4%=$16,000，上限6%=$24,000，扣ETF$2995.77，剩余$13004.23。股权分配实施后所有旧档须重新换算，不能当单只未来A股目标。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 238.13,\n      \"high\": 270.6,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(低法今日×90%，低法2031含分红按14%回报折现270.61)。仅当前一股A股口径；C股分配实施后此档作废，先核实际股价/权利和融资再重算，禁止直接照旧挂跨公司行动长期单。\",\n      \"dollars\": 3251.0573590195,\n      \"shares\": 12\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 190.51,\n      \"high\": 238.12,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(低法今日×80%，观察上沿×88%)。仅当前一股A股口径；C股分配实施后此档作废，先核实际股价/权利和融资再重算，禁止直接照旧挂跨公司行动长期单。\",\n      \"dollars\": 4551.480302627299,\n      \"shares\": 19\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 133.35,\n      \"high\": 190.5,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(低法今日×65%，观察上沿×88%×80%)。仅当前一股A股口径；C股分配实施后此档作废，先核实际股价/权利和融资再重算，禁止直接照旧挂跨公司行动长期单。低于133.35美元重做尽调。\",\n      \"dollars\": 5201.6917744311995,\n      \"shares\": 27\n    }\n  ]\n}\n"
+}

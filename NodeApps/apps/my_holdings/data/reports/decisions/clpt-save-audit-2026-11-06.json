@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T06:22:25.180Z",
+  "jobId": "e9035dc5-19f0-4401-b17f-f5ffff06d8e3",
+  "reference": {
+    "json": "decisions/clpt-2026-11-06-e9035dc5-19f0-4401-b17f-f5ffff06d8e3.json",
+    "report": "decisions/clpt-2026-11-06-e9035dc5-19f0-4401-b17f-f5ffff06d8e3.html",
+    "updatedAt": "2026-11-06T06:22:24.675Z",
+    "conclusion": "基准今日$1.28–$3.83，2031期末$2.57–$7.70；参照8.70，五年总回报约−70%至−12%、年化-21.6%至-2.4%。乐观16.49–49.35，悲观可全损。当前新增0，条件目标0.5%=$2,000，上限0.75%=$3,000；三档仅在融资和业务条件重新核实后有效。"
+  },
+  "beforeRevision": 3440,
+  "afterRevision": 3441,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"CLPT\",\n  \"reference\": {\n    \"json\": \"decisions/clpt-2026-11-06-e9035dc5-19f0-4401-b17f-f5ffff06d8e3.json\",\n    \"report\": \"decisions/clpt-2026-11-06-e9035dc5-19f0-4401-b17f-f5ffff06d8e3.html\",\n    \"updatedAt\": \"2026-11-06T06:22:24.675Z\",\n    \"conclusion\": \"基准今日$1.28–$3.83，2031期末$2.57–$7.70；参照8.70，五年总回报约−70%至−12%、年化-21.6%至-2.4%。乐观16.49–49.35，悲观可全损。当前新增0，条件目标0.5%=$2,000，上限0.75%=$3,000；三档仅在融资和业务条件重新核实后有效。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 0.88,\n      \"high\": 1.03,\n      \"budgetSharePct\": 25,\n      \"condition\": \"观察上沿=min(低法今日×85%，低法2031按20%回报折现$1.03)。必须先重核实际融资价/股数、借款偿付及项目进度，不能直接照旧档挂长期单。若跌价伴随试验受挫或资金恶化，撤销旧价。\",\n      \"dollars\": 500,\n      \"shares\": 485\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 0.71,\n      \"high\": 0.87,\n      \"budgetSharePct\": 35,\n      \"condition\": \"安全上沿=min(低法今日×70%，观察上沿×85%)。必须先重核实际融资价/股数、借款偿付及项目进度，不能直接照旧档挂长期单。若跌价伴随试验受挫或资金恶化，撤销旧价。\",\n      \"dollars\": 700,\n      \"shares\": 804\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 0.42,\n      \"high\": 0.7,\n      \"budgetSharePct\": 40,\n      \"condition\": \"折价上沿=min(低法今日×55%，观察上沿×85%×80%)。必须先重核实际融资价/股数、借款偿付及项目进度，不能直接照旧档挂长期单。低于0.42美元重做尽调。\",\n      \"dollars\": 800,\n      \"shares\": 1142\n    }\n  ]\n}\n"
+}

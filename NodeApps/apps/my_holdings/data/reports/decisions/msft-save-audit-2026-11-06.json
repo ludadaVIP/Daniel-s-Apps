@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T06:45:09.283Z",
+  "jobId": "de0a4b64-f9a7-4a96-b4bb-543fdacede11",
+  "reference": {
+    "json": "decisions/msft-2026-11-06-de0a4b64-f9a7-4a96-b4bb-543fdacede11.json",
+    "report": "decisions/msft-2026-11-06-de0a4b64-f9a7-4a96-b4bb-543fdacede11.html",
+    "updatedAt": "2026-11-06T06:45:08.741Z",
+    "conclusion": "基准今日$357.22–$581.27，2031期末$545.41–$906.26。相对533.09，含预计五年分红总回报约+7%至+75%、IRR1.4%至11.9%；纯价格年化0.5%–11.2%。当前等待；条件目标6%=$24,000，上限8%=$32,000；已核ETF敞口$6781.64，剩余目标$17218.36。"
+  },
+  "beforeRevision": 3443,
+  "afterRevision": 3444,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"MSFT\",\n  \"reference\": {\n    \"json\": \"decisions/msft-2026-11-06-de0a4b64-f9a7-4a96-b4bb-543fdacede11.json\",\n    \"report\": \"decisions/msft-2026-11-06-de0a4b64-f9a7-4a96-b4bb-543fdacede11.html\",\n    \"updatedAt\": \"2026-11-06T06:45:08.741Z\",\n    \"conclusion\": \"基准今日$357.22–$581.27，2031期末$545.41–$906.26。相对533.09，含预计五年分红总回报约+7%至+75%、IRR1.4%至11.9%；纯价格年化0.5%–11.2%。当前等待；条件目标6%=$24,000，上限8%=$32,000；已核ETF敞口$6781.64，剩余目标$17218.36。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 282.92,\n      \"high\": 321.49,\n      \"budgetSharePct\": 25,\n      \"condition\": \"观察上沿=min(低法今日×90%，低法2031加分红按12%回报折现327.08)。需云需求、客户回款和AI资本回报未实质恶化，重大租赁/投资变化重算。\",\n      \"dollars\": 4304.588864865,\n      \"shares\": 13\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 226.33,\n      \"high\": 282.91,\n      \"budgetSharePct\": 35,\n      \"condition\": \"安全上沿=min(低法今日×80%，观察上沿×88%)。需云需求、客户回款和AI资本回报未实质恶化，重大租赁/投资变化重算。\",\n      \"dollars\": 6026.424410810999,\n      \"shares\": 21\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 158.42,\n      \"high\": 226.32,\n      \"budgetSharePct\": 40,\n      \"condition\": \"折价上沿=min(低法今日×65%，观察上沿×88%×80%)。需云需求、客户回款和AI资本回报未实质恶化，重大租赁/投资变化重算。低于158.42美元重做尽调，不能机械加仓。\",\n      \"dollars\": 6887.342183784,\n      \"shares\": 30\n    }\n  ]\n}\n"
+}

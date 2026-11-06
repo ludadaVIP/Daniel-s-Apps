@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T06:50:56.447Z",
+  "jobId": "ca102706-7ca5-4ca6-8d5e-886a236eed13",
+  "reference": {
+    "json": "decisions/aapl-2026-11-06-ca102706-7ca5-4ca6-8d5e-886a236eed13.json",
+    "report": "decisions/aapl-2026-11-06-ca102706-7ca5-4ca6-8d5e-886a236eed13.html",
+    "updatedAt": "2026-11-06T06:50:55.605Z",
+    "conclusion": "基准今日$144.59–$230.46，2031期末$220.11–$355.28；相对343.322含五年预计分红总回报约−34%至+5%、IRR-8.1%至1.0%。乐观2031约368–522，悲观110–196，极端可能更差。当前等待；条件目标5%=$20,000，上限7%=$28,000；已有ETF$8710.53，剩余$11289.47。"
+  },
+  "beforeRevision": 3444,
+  "afterRevision": 3445,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"AAPL\",\n  \"reference\": {\n    \"json\": \"decisions/aapl-2026-11-06-ca102706-7ca5-4ca6-8d5e-886a236eed13.json\",\n    \"report\": \"decisions/aapl-2026-11-06-ca102706-7ca5-4ca6-8d5e-886a236eed13.html\",\n    \"updatedAt\": \"2026-11-06T06:50:55.605Z\",\n    \"conclusion\": \"基准今日$144.59–$230.46，2031期末$220.11–$355.28；相对343.322含五年预计分红总回报约−34%至+5%、IRR-8.1%至1.0%。乐观2031约368–522，悲观110–196，极端可能更差。当前等待；条件目标5%=$20,000，上限7%=$28,000；已有ETF$8710.53，剩余$11289.47。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 113.84,\n      \"high\": 129.36,\n      \"budgetSharePct\": 25,\n      \"condition\": \"观察上沿=min(低法今日×90%，较低2031价和分红按12%回报折现129.36)。须确认生态留存、服务授权及硬件盈利未破坏，业务/资本结构改变重算。\",\n      \"dollars\": 2822.3681159645,\n      \"shares\": 21\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 91.07,\n      \"high\": 113.83,\n      \"budgetSharePct\": 35,\n      \"condition\": \"安全上沿=min(低法今日×80%，观察上沿×88%)。须确认生态留存、服务授权及硬件盈利未破坏，业务/资本结构改变重算。\",\n      \"dollars\": 3951.3153623503,\n      \"shares\": 34\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 63.74,\n      \"high\": 91.06,\n      \"budgetSharePct\": 40,\n      \"condition\": \"折价上沿=min(低法今日×65%，观察上沿×88%×80%)。须确认生态留存、服务授权及硬件盈利未破坏，业务/资本结构改变重算。低于63.74美元重做尽调，不机械补仓。\",\n      \"dollars\": 4515.7889855431995,\n      \"shares\": 49\n    }\n  ]\n}\n"
+}

@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T06:57:31.822Z",
+  "jobId": "49c1abfd-2545-4f50-8fce-6afc4cb62ea5",
+  "reference": {
+    "json": "decisions/nvda-2026-11-06-49c1abfd-2545-4f50-8fce-6afc4cb62ea5.json",
+    "report": "decisions/nvda-2026-11-06-49c1abfd-2545-4f50-8fce-6afc4cb62ea5.html",
+    "updatedAt": "2026-11-06T06:57:31.238Z",
+    "conclusion": "基准今日$132.34–$258.76，2031期末$220.85–$438.71。相对183.86，含预计分红五年总回报约+23%至+142%、IRR4.3%至19.4%；低法回报仍不足。当前新增0，先等11月17日财报复核。条件目标6%=$24,000，上限8%=$32,000，扣ETF已有$9957.88，剩余$14042.12。"
+  },
+  "beforeRevision": 3445,
+  "afterRevision": 3446,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"NVDA\",\n  \"reference\": {\n    \"json\": \"decisions/nvda-2026-11-06-49c1abfd-2545-4f50-8fce-6afc4cb62ea5.json\",\n    \"report\": \"decisions/nvda-2026-11-06-49c1abfd-2545-4f50-8fce-6afc4cb62ea5.html\",\n    \"updatedAt\": \"2026-11-06T06:57:31.238Z\",\n    \"conclusion\": \"基准今日$132.34–$258.76，2031期末$220.85–$438.71。相对183.86，含预计分红五年总回报约+23%至+142%、IRR4.3%至19.4%；低法回报仍不足。当前新增0，先等11月17日财报复核。条件目标6%=$24,000，上限8%=$32,000，扣ETF已有$9957.88，剩余$14042.12。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 104.4,\n      \"high\": 118.63,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(低法今日×90%，低法2031加分红按14%回报折现118.64)。必须先核11月17日新业绩、回款与客户资金支持；旧季度三档不能直接照挂长期单。\",\n      \"dollars\": 3510.52939254,\n      \"shares\": 29\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 83.52,\n      \"high\": 104.39,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(低法今日×80%，观察上沿×88%)。必须先核11月17日新业绩、回款与客户资金支持；旧季度三档不能直接照挂长期单。\",\n      \"dollars\": 4914.741149556,\n      \"shares\": 47\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 58.45,\n      \"high\": 83.51,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(低法今日×65%，观察上沿×88%×80%)。必须先核11月17日新业绩、回款与客户资金支持；旧季度三档不能直接照挂长期单。低于58.45美元重做尽调。\",\n      \"dollars\": 5616.847028064,\n      \"shares\": 67\n    }\n  ]\n}\n"
+}

@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-06T03:05:26.771Z",
+  "jobId": "d69709e4-ba23-4099-999f-e52d5356bfa1",
+  "reference": {
+    "json": "decisions/aaoi-2026-11-06-d69709e4-ba23-4099-999f-e52d5356bfa1.json",
+    "report": "decisions/aaoi-2026-11-06-d69709e4-ba23-4099-999f-e52d5356bfa1.html",
+    "updatedAt": "2026-11-06T03:05:26.126Z",
+    "conclusion": "基准今日$21.40–$39.75，2031期末$39.43–$73.24；参照43.321，五年总回报约−9%至+69%、年化-1.9%至11.1%。悲观4.11–7.46，乐观94.52–188.23；融资或交付失败可能更差。当前新增0；条件目标0.75%=$3,000，上限1%=$4,000。"
+  },
+  "beforeRevision": 3437,
+  "afterRevision": 3438,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"AAOI\",\n  \"reference\": {\n    \"json\": \"decisions/aaoi-2026-11-06-d69709e4-ba23-4099-999f-e52d5356bfa1.json\",\n    \"report\": \"decisions/aaoi-2026-11-06-d69709e4-ba23-4099-999f-e52d5356bfa1.html\",\n    \"updatedAt\": \"2026-11-06T03:05:26.126Z\",\n    \"conclusion\": \"基准今日$21.40–$39.75，2031期末$39.43–$73.24；参照43.321，五年总回报约−9%至+69%、年化-1.9%至11.1%。悲观4.11–7.46，乐观94.52–188.23；融资或交付失败可能更差。当前新增0；条件目标0.75%=$3,000，上限1%=$4,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 13.47,\n      \"high\": 15.84,\n      \"budgetSharePct\": 25,\n      \"condition\": \"观察上沿=min(低法今日×85%，低法2031按20%回报折现$15.84)。须核新Q3后的资金安排、设备交付/良率与出口许可，长协条件未恶化。若客户延迟、毛利或资本开支失控，暂停旧档。\",\n      \"dollars\": 750,\n      \"shares\": 47\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 10.78,\n      \"high\": 13.46,\n      \"budgetSharePct\": 35,\n      \"condition\": \"安全上沿=min(低法今日×70%，观察上沿×85%)。须核新Q3后的资金安排、设备交付/良率与出口许可，长协条件未恶化。若客户延迟、毛利或资本开支失控，暂停旧档。\",\n      \"dollars\": 1050,\n      \"shares\": 78\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 6.46,\n      \"high\": 10.77,\n      \"budgetSharePct\": 40,\n      \"condition\": \"折价上沿=min(低法今日×55%，观察上沿×85%×80%)。须核新Q3后的资金安排、设备交付/良率与出口许可，长协条件未恶化。低于6.46美元重新尽调，禁止机械补仓。\",\n      \"dollars\": 1200,\n      \"shares\": 111\n    }\n  ]\n}\n"
+}

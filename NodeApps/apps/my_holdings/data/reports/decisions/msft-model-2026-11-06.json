@@ -1,0 +1,729 @@
+{
+  "units": "USD million; shares million; input sales/DA/cap arrays USD billion",
+  "quote": 533.09,
+  "fd": 7470,
+  "openingNetCash": -55000,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "sales": [
+          410,
+          450,
+          490,
+          530,
+          570,
+          610,
+          650,
+          688,
+          725,
+          760
+        ],
+        "margin": [
+          0.46,
+          0.44,
+          0.42,
+          0.41,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4,
+          0.4
+        ],
+        "da": [
+          72,
+          90,
+          110,
+          130,
+          145,
+          155,
+          165,
+          173,
+          180,
+          186
+        ],
+        "cap": [
+          230,
+          240,
+          245,
+          250,
+          255,
+          260,
+          265,
+          270,
+          275,
+          280
+        ],
+        "ke": 0.12,
+        "g": 0.025,
+        "roic": 0.15,
+        "pe": 20,
+        "divGrowth": 0.03
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 410000,
+          "margin": 0.46,
+          "ebit": 188600,
+          "nopat": 150880,
+          "da": 72000,
+          "cap": 230000,
+          "dwc": 400,
+          "fcff": -7520,
+          "divps": 4.0376,
+          "dividend": 30160.872000000003,
+          "netCash": -92680.872
+        },
+        {
+          "year": 2028,
+          "sales": 450000,
+          "margin": 0.44,
+          "ebit": 198000,
+          "nopat": 158400,
+          "da": 90000,
+          "cap": 240000,
+          "dwc": 800,
+          "fcff": 7600,
+          "divps": 4.158728,
+          "dividend": 31065.69816,
+          "netCash": -116146.57016
+        },
+        {
+          "year": 2029,
+          "sales": 490000,
+          "margin": 0.42,
+          "ebit": 205800,
+          "nopat": 164640,
+          "da": 110000,
+          "cap": 245000,
+          "dwc": 800,
+          "fcff": 28840,
+          "divps": 4.28348984,
+          "dividend": 31997.669104799996,
+          "netCash": -119304.2392648
+        },
+        {
+          "year": 2030,
+          "sales": 530000,
+          "margin": 0.41,
+          "ebit": 217300,
+          "nopat": 173840,
+          "da": 130000,
+          "cap": 250000,
+          "dwc": 800,
+          "fcff": 53040,
+          "divps": 4.411994535200001,
+          "dividend": 32957.59917794401,
+          "netCash": -99221.838442744
+        },
+        {
+          "year": 2031,
+          "sales": 570000,
+          "margin": 0.4,
+          "ebit": 228000,
+          "nopat": 182400,
+          "da": 145000,
+          "cap": 255000,
+          "dwc": 800,
+          "fcff": 71600,
+          "divps": 4.544354371256,
+          "dividend": 33946.32715328232,
+          "netCash": -61568.16559602632
+        },
+        {
+          "year": 2032,
+          "sales": 610000,
+          "margin": 0.4,
+          "ebit": 244000,
+          "nopat": 195200,
+          "da": 155000,
+          "cap": 260000,
+          "dwc": 800,
+          "fcff": 89400,
+          "divps": 4.68068500239368,
+          "dividend": 34964.71696788079,
+          "netCash": -7132.882563907115
+        },
+        {
+          "year": 2033,
+          "sales": 650000,
+          "margin": 0.4,
+          "ebit": 260000,
+          "nopat": 208000,
+          "da": 165000,
+          "cap": 265000,
+          "dwc": 800,
+          "fcff": 107200,
+          "divps": 4.821105552465491,
+          "dividend": 36013.65847691722,
+          "netCash": 64053.45895917567
+        },
+        {
+          "year": 2034,
+          "sales": 688000,
+          "margin": 0.4,
+          "ebit": 275200,
+          "nopat": 220160,
+          "da": 173000,
+          "cap": 270000,
+          "dwc": 760,
+          "fcff": 122400,
+          "divps": 4.965738719039456,
+          "dividend": 37094.06823122474,
+          "netCash": 149359.39072795093
+        },
+        {
+          "year": 2035,
+          "sales": 725000,
+          "margin": 0.4,
+          "ebit": 290000,
+          "nopat": 232000,
+          "da": 180000,
+          "cap": 275000,
+          "dwc": 740,
+          "fcff": 136260,
+          "divps": 5.11471088061064,
+          "dividend": 38206.89027816148,
+          "netCash": 247412.50044978946
+        },
+        {
+          "year": 2036,
+          "sales": 760000,
+          "margin": 0.4,
+          "ebit": 304000,
+          "nopat": 243200,
+          "da": 186000,
+          "cap": 280000,
+          "dwc": 700,
+          "fcff": 148500,
+          "divps": 5.268152207028959,
+          "dividend": 39353.09698650632,
+          "netCash": 356559.40346328315
+        }
+      ],
+      "ev5": 1664034.4871862503,
+      "terminal": 2186666.666666666,
+      "divs": [
+        4.0376,
+        4.158728,
+        4.28348984,
+        4.411994535200001,
+        4.544354371256
+      ],
+      "pvDiv": 15.35170696091721,
+      "dcf": {
+        "today": 137.0762620151194,
+        "price5": 214.52025724099386,
+        "cagr": -0.16644635558551157,
+        "totalReturn": -0.5573797595388211,
+        "irr": -0.15442905455278805
+      },
+      "pe": {
+        "today": 287.7797844769727,
+        "price5": 480.11135668058546,
+        "cagr": -0.020716834823142682,
+        "totalReturn": -0.05916913949419145,
+        "irr": -0.012323910275998828
+      }
+    },
+    "base": {
+      "parameters": {
+        "sales": [
+          440,
+          505,
+          575,
+          645,
+          720,
+          792,
+          863,
+          932,
+          997,
+          1060
+        ],
+        "margin": [
+          0.49,
+          0.48,
+          0.47,
+          0.46,
+          0.46,
+          0.46,
+          0.46,
+          0.46,
+          0.46,
+          0.46
+        ],
+        "da": [
+          72,
+          93,
+          115,
+          137,
+          156,
+          170,
+          180,
+          188,
+          195,
+          202
+        ],
+        "cap": [
+          230,
+          245,
+          255,
+          265,
+          270,
+          275,
+          280,
+          285,
+          290,
+          295
+        ],
+        "ke": 0.1,
+        "g": 0.03,
+        "roic": 0.2,
+        "pe": 25,
+        "divGrowth": 0.08
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 440000,
+          "margin": 0.49,
+          "ebit": 215600,
+          "nopat": 172480,
+          "da": 72000,
+          "cap": 230000,
+          "dwc": 1000,
+          "fcff": 13480,
+          "divps": 4.2336,
+          "dividend": 31624.992000000002,
+          "netCash": -73144.992
+        },
+        {
+          "year": 2028,
+          "sales": 505000,
+          "margin": 0.48,
+          "ebit": 242400,
+          "nopat": 193920,
+          "da": 93000,
+          "cap": 245000,
+          "dwc": 1300,
+          "fcff": 40620,
+          "divps": 4.572288,
+          "dividend": 34154.99136,
+          "netCash": -66679.98336
+        },
+        {
+          "year": 2029,
+          "sales": 575000,
+          "margin": 0.47,
+          "ebit": 270250,
+          "nopat": 216200,
+          "da": 115000,
+          "cap": 255000,
+          "dwc": 1400,
+          "fcff": 74800,
+          "divps": 4.9380710400000005,
+          "dividend": 36887.390668800006,
+          "netCash": -28767.374028800004
+        },
+        {
+          "year": 2030,
+          "sales": 645000,
+          "margin": 0.46,
+          "ebit": 296700,
+          "nopat": 237360,
+          "da": 137000,
+          "cap": 265000,
+          "dwc": 1400,
+          "fcff": 107960,
+          "divps": 5.333116723200001,
+          "dividend": 39838.381922304005,
+          "netCash": 39354.24404889599
+        },
+        {
+          "year": 2031,
+          "sales": 720000,
+          "margin": 0.46,
+          "ebit": 331200,
+          "nopat": 264960,
+          "da": 156000,
+          "cap": 270000,
+          "dwc": 1500,
+          "fcff": 149460,
+          "divps": 5.759766061056002,
+          "dividend": 43025.452476088336,
+          "netCash": 145788.79157280765
+        },
+        {
+          "year": 2032,
+          "sales": 792000,
+          "margin": 0.46,
+          "ebit": 364320,
+          "nopat": 291456,
+          "da": 170000,
+          "cap": 275000,
+          "dwc": 1440,
+          "fcff": 185016,
+          "divps": 6.220547345940482,
+          "dividend": 46467.4886741754,
+          "netCash": 284337.30289863225
+        },
+        {
+          "year": 2033,
+          "sales": 863000,
+          "margin": 0.46,
+          "ebit": 396980,
+          "nopat": 317584,
+          "da": 180000,
+          "cap": 280000,
+          "dwc": 1420,
+          "fcff": 216164,
+          "divps": 6.718191133615722,
+          "dividend": 50184.887768109445,
+          "netCash": 450316.4151305228
+        },
+        {
+          "year": 2034,
+          "sales": 932000,
+          "margin": 0.46,
+          "ebit": 428720,
+          "nopat": 342976,
+          "da": 188000,
+          "cap": 285000,
+          "dwc": 1380,
+          "fcff": 244596,
+          "divps": 7.255646424304979,
+          "dividend": 54199.678789558195,
+          "netCash": 640712.7363409647
+        },
+        {
+          "year": 2035,
+          "sales": 997000,
+          "margin": 0.46,
+          "ebit": 458620,
+          "nopat": 366896,
+          "da": 195000,
+          "cap": 290000,
+          "dwc": 1300,
+          "fcff": 270596,
+          "divps": 7.836098138249378,
+          "dividend": 58535.65309272285,
+          "netCash": 852773.0832482418
+        },
+        {
+          "year": 2036,
+          "sales": 1060000,
+          "margin": 0.46,
+          "ebit": 487600,
+          "nopat": 390080,
+          "da": 202000,
+          "cap": 295000,
+          "dwc": 1260,
+          "fcff": 295820,
+          "divps": 8.46298598930933,
+          "dividend": 63218.50534014069,
+          "netCash": 1085374.577908101
+        }
+      ],
+      "ev5": 3928456.9827658837,
+      "terminal": 4878786.285714285,
+      "divs": [
+        4.2336,
+        4.572288,
+        4.9380710400000005,
+        5.333116723200001,
+        5.759766061056002
+      ],
+      "pvDiv": 18.556475590326045,
+      "dcf": {
+        "today": 357.21592360512545,
+        "price5": 545.4144276223147,
+        "cagr": 0.004581595139679262,
+        "totalReturn": 0.06970918502798917,
+        "irr": 0.013796408926888604
+      },
+      "pe": {
+        "today": 581.2748441705704,
+        "price5": 906.2635597821696,
+        "cagr": 0.11196417727177188,
+        "totalReturn": 0.7466101438901978,
+        "irr": 0.11946510237372399
+      }
+    },
+    "bull": {
+      "parameters": {
+        "sales": [
+          460,
+          545,
+          640,
+          742,
+          850,
+          960,
+          1070,
+          1180,
+          1290,
+          1400
+        ],
+        "margin": [
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5,
+          0.5
+        ],
+        "da": [
+          75,
+          98,
+          124,
+          150,
+          178,
+          200,
+          218,
+          235,
+          250,
+          265
+        ],
+        "cap": [
+          230,
+          245,
+          260,
+          275,
+          290,
+          305,
+          320,
+          335,
+          350,
+          365
+        ],
+        "ke": 0.09,
+        "g": 0.035,
+        "roic": 0.25,
+        "pe": 30,
+        "divGrowth": 0.1
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 460000,
+          "margin": 0.5,
+          "ebit": 230000,
+          "nopat": 184000,
+          "da": 75000,
+          "cap": 230000,
+          "dwc": 1400,
+          "fcff": 27600,
+          "divps": 4.312,
+          "dividend": 32210.640000000003,
+          "netCash": -59610.64
+        },
+        {
+          "year": 2028,
+          "sales": 545000,
+          "margin": 0.5,
+          "ebit": 272500,
+          "nopat": 218000,
+          "da": 98000,
+          "cap": 245000,
+          "dwc": 1700,
+          "fcff": 69300,
+          "divps": 4.743200000000001,
+          "dividend": 35431.704000000005,
+          "netCash": -25742.344000000005
+        },
+        {
+          "year": 2029,
+          "sales": 640000,
+          "margin": 0.5,
+          "ebit": 320000,
+          "nopat": 256000,
+          "da": 124000,
+          "cap": 260000,
+          "dwc": 1900,
+          "fcff": 118100,
+          "divps": 5.217520000000001,
+          "dividend": 38974.87440000001,
+          "netCash": 53382.781599999995
+        },
+        {
+          "year": 2030,
+          "sales": 742000,
+          "margin": 0.5,
+          "ebit": 371000,
+          "nopat": 296800,
+          "da": 150000,
+          "cap": 275000,
+          "dwc": 2040,
+          "fcff": 169760,
+          "divps": 5.7392720000000015,
+          "dividend": 42872.36184000001,
+          "netCash": 180270.41976
+        },
+        {
+          "year": 2031,
+          "sales": 850000,
+          "margin": 0.5,
+          "ebit": 425000,
+          "nopat": 340000,
+          "da": 178000,
+          "cap": 290000,
+          "dwc": 2160,
+          "fcff": 225840,
+          "divps": 6.313199200000002,
+          "dividend": 47159.59802400002,
+          "netCash": 358950.821736
+        },
+        {
+          "year": 2032,
+          "sales": 960000,
+          "margin": 0.5,
+          "ebit": 480000,
+          "nopat": 384000,
+          "da": 200000,
+          "cap": 305000,
+          "dwc": 2200,
+          "fcff": 276800,
+          "divps": 6.944519120000003,
+          "dividend": 51875.55782640003,
+          "netCash": 583875.2639096
+        },
+        {
+          "year": 2033,
+          "sales": 1070000,
+          "margin": 0.5,
+          "ebit": 535000,
+          "nopat": 428000,
+          "da": 218000,
+          "cap": 320000,
+          "dwc": 2200,
+          "fcff": 323800,
+          "divps": 7.638971032000004,
+          "dividend": 57063.11360904003,
+          "netCash": 850612.1503005599
+        },
+        {
+          "year": 2034,
+          "sales": 1180000,
+          "margin": 0.5,
+          "ebit": 590000,
+          "nopat": 472000,
+          "da": 235000,
+          "cap": 335000,
+          "dwc": 2200,
+          "fcff": 369800,
+          "divps": 8.402868135200006,
+          "dividend": 62769.42496994404,
+          "netCash": 1157642.7253306159
+        },
+        {
+          "year": 2035,
+          "sales": 1290000,
+          "margin": 0.5,
+          "ebit": 645000,
+          "nopat": 516000,
+          "da": 250000,
+          "cap": 350000,
+          "dwc": 2200,
+          "fcff": 413800,
+          "divps": 9.243154948720008,
+          "dividend": 69046.36746693846,
+          "netCash": 1502396.3578636774
+        },
+        {
+          "year": 2036,
+          "sales": 1400000,
+          "margin": 0.5,
+          "ebit": 700000,
+          "nopat": 560000,
+          "da": 265000,
+          "cap": 365000,
+          "dwc": 2200,
+          "fcff": 457800,
+          "divps": 10.16747044359201,
+          "dividend": 75951.0042136323,
+          "netCash": 1884245.353650045
+        }
+      ],
+      "ev5": 7292941.129474132,
+      "terminal": 9062836.363636365,
+      "divs": [
+        4.312,
+        4.743200000000001,
+        5.217520000000001,
+        5.7392720000000015,
+        6.313199200000002
+      ],
+      "pvDiv": 20.146093883696622,
+      "dcf": {
+        "today": 685.903087679567,
+        "price5": 1024.3496587965371,
+        "cagr": 0.13953990530922478,
+        "totalReturn": 0.9709145735176745,
+        "irr": 0.14708993032058404
+      },
+      "pe": {
+        "today": 938.8333154937276,
+        "price5": 1413.514166229719,
+        "cagr": 0.2153459718422699,
+        "totalReturn": 1.7009310949928134,
+        "irr": 0.22204554201810367
+      }
+    }
+  },
+  "reference": 357.21592360512545,
+  "returnLimit": 327.08015319539743,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 282.92,
+      "high": 321.49,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 226.33,
+      "high": 282.91,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 158.42,
+      "high": 226.32,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.09,
+      "today": 434.0537406836052
+    },
+    {
+      "ke": 0.1,
+      "today": 357.21592360512545
+    },
+    {
+      "ke": 0.11,
+      "today": 300.4108597721463
+    }
+  ],
+  "capitalStress": {
+    "today": 342.60176844691387,
+    "price5": 521.8781845984635,
+    "cagr": -0.004242189910401817,
+    "totalReturn": 0.025558585647300402,
+    "irr": 0.005147454890332193
+  },
+  "marginStress": {
+    "today": 328.1109256460961,
+    "price5": 498.5405373593185,
+    "cagr": -0.013311677541306022,
+    "totalReturn": -0.01821947666702728,
+    "irr": -0.0037357482232792116
+  },
+  "reversePE": 25.062323527555723,
+  "policy": "LatestFY27Q1endsSep2026 newsegmentsAgentsInfra/DevicesConsumer notoldthree. Oct22actual7426.194552m dilutedEPS7446m, use7470mproxycurrentawards/updatesnoassumedbuyback. SBCfutureeconomicexpenseinmargins notaddbackandnotagainannualFDdilution. 2027-31 calendarperiodproxynotexactfiscalend:2026annualrevenue390b researchbaseline, notcompanyguide. Openingnetcash -55b =Sept64.509b liquidity minus41.269b debtface minus70.973b financeleaseliability minus1bOpenAIunfunded minus~6.267b tax/Q4buffer. Nov4debt25bissuedproceedsandface largelyoffset; noextra25bnetcash/valuationboost;discount/feeswithinbuffer. StrategicOpenAI24%ownershipnotmarkedtoheadlineprivatevaluation, noextraequityinvestment37.808bassetvaluebase. FCFFEBITafterSBCoperatingrentnormalDA20%tax, daaddbackonlyassumedassetdepreciation, ALLcashcapital+newfinanceleaseassets+supplierprepaymentswithincapbudget230-295bbase, nofreefutureleaseassets. Existingfinanceleasesdebtreservedonce; doNOTsubtractagainfutureprincipalforcurrentliability, futurefinanceassetcash-equivalentcapalreadyfullypaid sofutureinterest/principalnotsecond扣减. OperatingleasesrentinsideEBITinclfuturecommencements; notsubtract364.6bentireundiscounteduncommencedleasesagain. 364.6bnotallfinanceandconditional; actualcommencementsmayexceedbudget=>stress/recompute, noassertionfullycovered. WCincrement2%revenue reflectssoftwareprepaybutcomputecontractchangeuncertain. FullSBCeconomiccost retained notcashCFaddback. Dividends3.92annualrunrate grows3/8/10%, deductedcashpoolannually, 2031DCFterminalusesfutureFCFFwithoutsubtractdividends (totalownercashpotential), nofuturedividenddoubleadd. PE25on2031debtfreelikeNOPAT notreportedNIinclOpenAIgains; bothcashpoolafterpaiddividends, addPVfiveyearactualhypotheticaldividendsonce; IRRbisectiondiscountfuturedividend+terminal. Allinterimremainingcashretainedzerointerest, nofuturebuybacks. DCFtail2036g/ROIC perpetual reinvestment notcapexzerofreegrowth. Negativeeconomicnetcash isfullyreserveddebtbridge notnegativebankcash; futureactualborrowing/leasespossibleandactualfundingnotmodeledasseparatecashbenefit. OpenAIrevenueincludescappedrevenue-sharethru2030 so2031margin46%belowQ149.8%, runrateerosionriskexplicit3ptstress; unknownprivateinvestmentliquidationreturns0base. Returnhurdle12%forqualitycompanynot20%speculative."
+}

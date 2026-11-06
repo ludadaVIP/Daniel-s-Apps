@@ -1,6 +1,6 @@
 # 决策报告目标进度
 
-已完成 28/66；资本基准40万美元，五年视角。
+已完成 42/66；资本基准40万美元，五年视角。
 
 以state.json和DECISION_GOAL.json为准；此表仅为进度索引。已有报告不代表后续刷新任务已完成。
 下一步：按下表顺序研究尚未完成的标的；每支先报告结论，再继续。详细JSON契约见DECISION_REPORTS.md。
@@ -33,20 +33,20 @@
 - [x] ADMA · 已保存 decisions/adma-2026-11-06-07f86b80-aeb9-4361-8e78-b7ee7255e722.html
 - [x] PGY · 已保存 decisions/pgy-2026-11-06-046ee2bc-e802-4cdf-b050-28fb7a3d5c78.html
 - [x] ZETA · 已保存 decisions/zeta-2026-11-06-223eb31e-013d-4048-a90a-faf760620a7f.html
-- [ ] CBRS · waiting · 28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7
-- [ ] AAOI · waiting · d69709e4-ba23-4099-999f-e52d5356bfa1
-- [ ] MP · waiting · 29d05244-ab8a-4055-bf59-ee87ea146d2c
-- [ ] CLPT · waiting · e9035dc5-19f0-4401-b17f-f5ffff06d8e3
-- [ ] IONQ · waiting · 0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23
-- [ ] BE · waiting · f78ab352-bd75-4447-90fd-df466596d5ef
-- [ ] MSFT · waiting · de0a4b64-f9a7-4a96-b4bb-543fdacede11
-- [ ] AAPL · waiting · ca102706-7ca5-4ca6-8d5e-886a236eed13
-- [ ] NVDA · waiting · 49c1abfd-2545-4f50-8fce-6afc4cb62ea5
-- [ ] GOOG · waiting · 705d178b-5f48-43d1-b5cd-bc3e19569b69
-- [ ] AMZN · waiting · 0c3f86b6-71bb-4ed3-8e46-6f63484076ce
-- [ ] META · waiting · 6dbe6abb-0b9b-47f6-b9ce-bf270f73a819
-- [ ] TSLA · waiting · 1c3a5b0e-2456-4666-a32e-806d9d01c0dc
-- [ ] AMD · waiting · f98c9e58-604c-445d-8e5d-8e8d2f81d07c
+- [x] CBRS · 已保存 decisions/cbrs-2026-11-06-28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7.html
+- [x] AAOI · 已保存 decisions/aaoi-2026-11-06-d69709e4-ba23-4099-999f-e52d5356bfa1.html
+- [x] MP · 已保存 decisions/mp-2026-11-06-29d05244-ab8a-4055-bf59-ee87ea146d2c.html
+- [x] CLPT · 已保存 decisions/clpt-2026-11-06-e9035dc5-19f0-4401-b17f-f5ffff06d8e3.html
+- [x] IONQ · 已保存 decisions/ionq-2026-11-06-0a242cd4-9ebc-4f21-99d2-ffe4b3b96b23.html
+- [x] BE · 已保存 decisions/be-2026-11-06-f78ab352-bd75-4447-90fd-df466596d5ef.html
+- [x] MSFT · 已保存 decisions/msft-2026-11-06-de0a4b64-f9a7-4a96-b4bb-543fdacede11.html
+- [x] AAPL · 已保存 decisions/aapl-2026-11-06-ca102706-7ca5-4ca6-8d5e-886a236eed13.html
+- [x] NVDA · 已保存 decisions/nvda-2026-11-06-49c1abfd-2545-4f50-8fce-6afc4cb62ea5.html
+- [x] GOOG · 已保存 decisions/goog-2026-11-06-705d178b-5f48-43d1-b5cd-bc3e19569b69.html
+- [x] AMZN · 已保存 decisions/amzn-2026-11-06-0c3f86b6-71bb-4ed3-8e46-6f63484076ce.html
+- [x] META · 已保存 decisions/meta-2026-11-06-6dbe6abb-0b9b-47f6-b9ce-bf270f73a819.html
+- [x] TSLA · 已保存 decisions/tsla-2026-11-06-1c3a5b0e-2456-4666-a32e-806d9d01c0dc.html
+- [x] AMD · 已保存 decisions/amd-2026-11-06-f98c9e58-604c-445d-8e5d-8e8d2f81d07c.html
 - [ ] TSM · waiting · 06eec123-edd2-446e-80d0-352eb94f3a44
 - [ ] SPCX · waiting · abc8ce7c-a182-46c7-af72-69629799d4bc
 - [ ] UNH · waiting · dbaf2e08-49e8-4b6b-be03-3bce243f3861
