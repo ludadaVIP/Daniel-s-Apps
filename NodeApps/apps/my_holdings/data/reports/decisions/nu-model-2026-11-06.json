@@ -1,0 +1,314 @@
+{
+  "units": "USD million, sharesmillion",
+  "shares": 4917.7297100000005,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "book": 13000,
+        "roe": [
+          0.15,
+          0.14,
+          0.14,
+          0.15,
+          0.15
+        ],
+        "retention": [
+          0.95,
+          0.95,
+          0.9,
+          0.85,
+          0.8
+        ],
+        "ke": 0.2,
+        "endROE": 0.13,
+        "endGrowth": 0.03,
+        "tailGrowth": 0.06,
+        "pe": 8
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "beginBook": 13000,
+          "roe": 0.15,
+          "ni": 2099.5962314939434,
+          "retained": 1994.616419919246,
+          "capacity": 104.97981157469735,
+          "endBook": 14994.616419919246,
+          "parentCash": 104.97981157469735
+        },
+        {
+          "year": 2028,
+          "beginBook": 14994.616419919246,
+          "roe": 0.14,
+          "ni": 2248.7908931855327,
+          "retained": 2136.351348526256,
+          "capacity": 112.43954465927663,
+          "endBook": 17130.967768445502,
+          "parentCash": 217.41935623397399
+        },
+        {
+          "year": 2029,
+          "beginBook": 17130.967768445502,
+          "roe": 0.14,
+          "ni": 2559.5896345596275,
+          "retained": 2303.630671103665,
+          "capacity": 255.95896345596248,
+          "endBook": 19434.59843954917,
+          "parentCash": 473.37831968993646
+        },
+        {
+          "year": 2030,
+          "beginBook": 19434.59843954917,
+          "roe": 0.15,
+          "ni": 3113.6873334391194,
+          "retained": 2646.6342334232513,
+          "capacity": 467.05310001586804,
+          "endBook": 22081.23267297242,
+          "parentCash": 940.4314197058045
+        },
+        {
+          "year": 2031,
+          "beginBook": 22081.23267297242,
+          "roe": 0.15,
+          "ni": 3523.6009584530457,
+          "retained": 2818.880766762437,
+          "capacity": 704.7201916906088,
+          "endBook": 24900.113439734858,
+          "parentCash": 1645.1516113964133
+        }
+      ],
+      "book": 24900.113439734858,
+      "parentCash": 1645.1516113964133,
+      "operatingResidualValue": 15648.243745604916,
+      "residual": {
+        "price5": 3.516540431621511,
+        "today": 1.4132187305577706,
+        "cagr": -0.21289526144638193
+      },
+      "pe": {
+        "price5": 6.066612245556045,
+        "today": 2.4380353996093937,
+        "cagr": -0.12219378494360866
+      }
+    },
+    "base": {
+      "parameters": {
+        "book": 14800,
+        "roe": [
+          0.3,
+          0.29,
+          0.28,
+          0.27,
+          0.26
+        ],
+        "retention": [
+          0.8,
+          0.8,
+          0.75,
+          0.7,
+          0.65
+        ],
+        "ke": 0.15,
+        "endROE": 0.19,
+        "endGrowth": 0.04,
+        "tailGrowth": 0.14,
+        "pe": 16
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "beginBook": 14800,
+          "roe": 0.3,
+          "ni": 5045.454545454545,
+          "retained": 4036.363636363636,
+          "capacity": 1009.090909090909,
+          "endBook": 18836.363636363636,
+          "parentCash": 1009.090909090909
+        },
+        {
+          "year": 2028,
+          "beginBook": 18836.363636363636,
+          "roe": 0.29,
+          "ni": 6179.350061703002,
+          "retained": 4943.4800493624025,
+          "capacity": 1235.8700123405997,
+          "endBook": 23779.84368572604,
+          "parentCash": 2244.9609214315087
+        },
+        {
+          "year": 2029,
+          "beginBook": 23779.84368572604,
+          "roe": 0.28,
+          "ni": 7439.50416983608,
+          "retained": 5579.62812737706,
+          "capacity": 1859.87604245902,
+          "endBook": 29359.471813103097,
+          "parentCash": 4104.836963890529
+        },
+        {
+          "year": 2030,
+          "beginBook": 29359.471813103097,
+          "roe": 0.27,
+          "ni": 8754.342782482427,
+          "retained": 6128.039947737699,
+          "capacity": 2626.302834744728,
+          "endBook": 35487.511760840796,
+          "parentCash": 6731.139798635257
+        },
+        {
+          "year": 2031,
+          "beginBook": 35487.511760840796,
+          "roe": 0.26,
+          "ni": 10078.375814110985,
+          "retained": 6550.94427917214,
+          "capacity": 3527.4315349388444,
+          "endBook": 42038.456040012934,
+          "parentCash": 10258.571333574102
+        }
+      ],
+      "book": 42038.456040012934,
+      "parentCash": 10258.571333574102,
+      "operatingResidualValue": 77377.64705025332,
+      "residual": {
+        "price5": 17.820462602005716,
+        "today": 8.85991941797047,
+        "cagr": 0.08891304014810042
+      },
+      "pe": {
+        "price5": 34.8763747650844,
+        "today": 17.339722144744325,
+        "cagr": 0.2454195279173934
+      }
+    },
+    "bull": {
+      "parameters": {
+        "book": 16000,
+        "roe": [
+          0.34,
+          0.34,
+          0.33,
+          0.32,
+          0.31
+        ],
+        "retention": [
+          0.8,
+          0.8,
+          0.75,
+          0.7,
+          0.65
+        ],
+        "ke": 0.13,
+        "endROE": 0.24,
+        "endGrowth": 0.05,
+        "tailGrowth": 0.18,
+        "pe": 21
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "beginBook": 16000,
+          "roe": 0.34,
+          "ni": 6296.2962962962965,
+          "retained": 5037.037037037037,
+          "capacity": 1259.2592592592591,
+          "endBook": 21037.037037037036,
+          "parentCash": 1259.2592592592591
+        },
+        {
+          "year": 2028,
+          "beginBook": 21037.037037037036,
+          "roe": 0.34,
+          "ni": 8278.46364883402,
+          "retained": 6622.770919067217,
+          "capacity": 1655.6927297668035,
+          "endBook": 27659.807956104254,
+          "parentCash": 2914.9519890260626
+        },
+        {
+          "year": 2029,
+          "beginBook": 27659.807956104254,
+          "roe": 0.33,
+          "ni": 10416.817832256096,
+          "retained": 7812.613374192072,
+          "capacity": 2604.204458064024,
+          "endBook": 35472.421330296325,
+          "parentCash": 5519.156447090087
+        },
+        {
+          "year": 2030,
+          "beginBook": 35472.421330296325,
+          "roe": 0.32,
+          "ni": 12782.854533440119,
+          "retained": 8947.998173408083,
+          "capacity": 3834.856360032036,
+          "endBook": 44420.41950370441,
+          "parentCash": 9354.012807122122
+        },
+        {
+          "year": 2031,
+          "beginBook": 44420.41950370441,
+          "roe": 0.31,
+          "ni": 15313.127657657344,
+          "retained": 9953.532977477274,
+          "capacity": 5359.594680180069,
+          "endBook": 54373.95248118169,
+          "parentCash": 14713.607487302192
+        }
+      ],
+      "book": 54373.95248118169,
+      "parentCash": 14713.607487302192,
+      "operatingResidualValue": 195615.69288836134,
+      "residual": {
+        "price5": 42.76959344633512,
+        "today": 23.213621801655286,
+        "cagr": 0.2972880821062833
+      },
+      "pe": {
+        "price5": 68.38303610185734,
+        "today": 37.11557229809207,
+        "cagr": 0.42494820867658745
+      }
+    }
+  },
+  "reference": 8.85991941797047,
+  "returnLimit": 7.789488440826918,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 6.21,
+      "high": 7.53,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 4.88,
+      "high": 6.2,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 2.92,
+      "high": 4.87,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.13,
+      "today": 11.795111806161232
+    },
+    {
+      "ke": 0.15,
+      "today": 8.85991941797047
+    },
+    {
+      "ke": 0.17,
+      "today": 6.906356851686258
+    }
+  ],
+  "reversePE": 10.406070444491144,
+  "bookPolicy": "June2026 parent equity13249.670 actual; projected2026Dec starting book13000/14800/16000 is estimate after earnings, credit, FX and repurchases, not a reported current balance. No bank cash/deposits/loanassets added/subtracted separately.",
+  "sharesPolicy": "June actual4830.689m +existingSOP19.205m+RSU67.836m gross. No exerciseproceeds and no further buyback. Future employee compensation remains in modeled aftertaxROE; no same-award dilution double count.",
+  "capitalPolicy": "ROE on average capital, NI=beginBook*ROE/(1-retention*ROE/2). Retain65-95%income for growth, rest potential distribution accumulated as noninterest parent cash, no actualdividend promise. Needs localcapital transfer permission; regulatory capital and book are different. Tail bookgrowth14% fading4% with base ROE26%fading19%; capital retention implied by growth/earnings.",
+  "methods": "2031 remaining bank equity valued as book plus discountedfuture residualincome NI-Ke*beginBook over10yrs and terminal. Independent PE uses2031 aftertaxNI. Both add retained parent cash once, discount5yrs. All forecastsUSD, credit/tax/funding/SBC alreadyinROE, no local33%ROE extrapolation guarantee."
+}

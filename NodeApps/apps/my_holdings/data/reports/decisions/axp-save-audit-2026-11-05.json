@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T10:06:16.419Z",
+  "jobId": "3a7b7564-c377-4fed-a9da-b9d38a48246e",
+  "reference": {
+    "json": "decisions/axp-2026-11-05-3a7b7564-c377-4fed-a9da-b9d38a48246e.json",
+    "report": "decisions/axp-2026-11-05-3a7b7564-c377-4fed-a9da-b9d38a48246e.html",
+    "updatedAt": "2026-11-05T10:06:15.885Z",
+    "conclusion": "基准今日剩余收益法$243.38、盈利倍数法$361.85；2031分别$363.78／$554.58。按336.20买入，含模型股息五年年化2.9%／11.7%。两法差别在高ROE能持续多久，不能取平均当确定目标。当前不新增；价格与持续盈利改善后再考虑。"
+  },
+  "beforeRevision": 3412,
+  "afterRevision": 3413,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"AXP\",\n  \"reference\": {\n    \"json\": \"decisions/axp-2026-11-05-3a7b7564-c377-4fed-a9da-b9d38a48246e.json\",\n    \"report\": \"decisions/axp-2026-11-05-3a7b7564-c377-4fed-a9da-b9d38a48246e.html\",\n    \"updatedAt\": \"2026-11-05T10:06:15.885Z\",\n    \"conclusion\": \"基准今日剩余收益法$243.38、盈利倍数法$361.85；2031分别$363.78／$554.58。按336.20买入，含模型股息五年年化2.9%／11.7%。两法差别在高ROE能持续多久，不能取平均当确定目标。当前不新增；价格与持续盈利改善后再考虑。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 182.54,\n      \"high\": 206.87,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(保守今日243.38×85%，基准五年价及逐年股息按12%折现上限223.02)。先核信用损失、净卡费/留存、奖励成本和CET1。若资本或盈利恶化，旧档位失效。\",\n      \"dollars\": 2450.73540889375,\n      \"shares\": 11\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 158.2,\n      \"high\": 182.53,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(保守今日243.38×75%，基准五年价及逐年股息按12%折现上限223.02)。先核信用损失、净卡费/留存、奖励成本和CET1。若资本或盈利恶化，旧档位失效。\",\n      \"dollars\": 3431.02957245125,\n      \"shares\": 18\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 121.7,\n      \"high\": 158.19,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(保守今日243.38×65%，基准五年价及逐年股息按12%折现上限223.02)。先核信用损失、净卡费/留存、奖励成本和CET1。低于121.70重做尽调，不机械补仓。\",\n      \"dollars\": 3921.17665423,\n      \"shares\": 24\n    }\n  ]\n}\n"
+}

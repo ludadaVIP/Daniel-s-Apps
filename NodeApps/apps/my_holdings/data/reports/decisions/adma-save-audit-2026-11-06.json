@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T20:50:01.922Z",
+  "jobId": "07f86b80-aeb9-4361-8e78-b7ee7255e722",
+  "reference": {
+    "json": "decisions/adma-2026-11-06-07f86b80-aeb9-4361-8e78-b7ee7255e722.json",
+    "report": "decisions/adma-2026-11-06-07f86b80-aeb9-4361-8e78-b7ee7255e722.html",
+    "updatedAt": "2026-11-05T20:50:01.214Z",
+    "conclusion": "基准今日价值$10.03–$15.19，2031期末$16.72–$26.77。参照13.112，五年总回报约28%–104%、年化5.0%–15.3%。悲观3.37–5.99，乐观31.31–53.23美元；严重质量或融资失败可能更差。当前新增0；条件目标1%=$4,000，上限1.5%=$6,000。"
+  },
+  "beforeRevision": 3433,
+  "afterRevision": 3434,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"ADMA\",\n  \"reference\": {\n    \"json\": \"decisions/adma-2026-11-06-07f86b80-aeb9-4361-8e78-b7ee7255e722.json\",\n    \"report\": \"decisions/adma-2026-11-06-07f86b80-aeb9-4361-8e78-b7ee7255e722.html\",\n    \"updatedAt\": \"2026-11-05T20:50:01.214Z\",\n    \"conclusion\": \"基准今日价值$10.03–$15.19，2031期末$16.72–$26.77。参照13.112，五年总回报约28%–104%、年化5.0%–15.3%。悲观3.37–5.99，乐观31.31–53.23美元；严重质量或融资失败可能更差。当前新增0；条件目标1%=$4,000，上限1.5%=$6,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 7.02,\n      \"high\": 7.31,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低今日价值×85%，较低2031目标按18%年回报折现$7.31)。需ASCENIV需求、毛利与质量正常、2028偿债有保障。若停产/召回、账期恶化或盈利重述，暂停旧档。\",\n      \"dollars\": 1000,\n      \"shares\": 136\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 5.52,\n      \"high\": 7.01,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低今日价值×70%，较低2031目标按18%年回报折现$7.31)。需ASCENIV需求、毛利与质量正常、2028偿债有保障。若停产/召回、账期恶化或盈利重述，暂停旧档。\",\n      \"dollars\": 1400,\n      \"shares\": 199\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 3.3,\n      \"high\": 5.51,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低今日价值×55%，较低2031目标按18%年回报折现$7.31)。需ASCENIV需求、毛利与质量正常、2028偿债有保障。低于3.30美元重新尽调，禁止机械补仓。\",\n      \"dollars\": 1600,\n      \"shares\": 290\n    }\n  ]\n}\n"
+}

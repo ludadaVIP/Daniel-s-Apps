@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T20:59:08.795Z",
+  "jobId": "046ee2bc-e802-4cdf-b050-28fb7a3d5c78",
+  "reference": {
+    "json": "decisions/pgy-2026-11-06-046ee2bc-e802-4cdf-b050-28fb7a3d5c78.json",
+    "report": "decisions/pgy-2026-11-06-046ee2bc-e802-4cdf-b050-28fb7a3d5c78.html",
+    "updatedAt": "2026-11-05T20:59:08.309Z",
+    "conclusion": "基准今日$16.17–$24.80，2031期末$32.53–$49.88；参照17.405，五年总回报约87%–187%、年化13.3%–23.4%。悲观1.11–3.84，乐观80.09–125.93；融资失败可趋近全损。当前新增0，条件目标0.75%=$3,000，上限1%=$4,000。"
+  },
+  "beforeRevision": 3434,
+  "afterRevision": 3435,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"PGY\",\n  \"reference\": {\n    \"json\": \"decisions/pgy-2026-11-06-046ee2bc-e802-4cdf-b050-28fb7a3d5c78.json\",\n    \"report\": \"decisions/pgy-2026-11-06-046ee2bc-e802-4cdf-b050-28fb7a3d5c78.html\",\n    \"updatedAt\": \"2026-11-05T20:59:08.309Z\",\n    \"conclusion\": \"基准今日$16.17–$24.80，2031期末$32.53–$49.88；参照17.405，五年总回报约87%–187%、年化13.3%–23.4%。悲观1.11–3.84，乐观80.09–125.93；融资失败可趋近全损。当前新增0，条件目标0.75%=$3,000，上限1%=$4,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 11.33,\n      \"high\": 13.07,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低今日价值×85%，较低2031目标按20%年回报折现$13.07)。前提为信用损失可控、资金买方稳定、再融资可执行。若资金中断、保证付款或信用估值恶化，暂停旧档。\",\n      \"dollars\": 750,\n      \"shares\": 57\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 8.9,\n      \"high\": 11.32,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低今日价值×70%，较低2031目标按20%年回报折现$13.07)。前提为信用损失可控、资金买方稳定、再融资可执行。若资金中断、保证付款或信用估值恶化，暂停旧档。\",\n      \"dollars\": 1050,\n      \"shares\": 92\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 5.33,\n      \"high\": 8.89,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低今日价值×55%，较低2031目标按20%年回报折现$13.07)。前提为信用损失可控、资金买方稳定、再融资可执行。低于5.33美元重新尽调，禁止机械补仓。\",\n      \"dollars\": 1200,\n      \"shares\": 134\n    }\n  ]\n}\n"
+}

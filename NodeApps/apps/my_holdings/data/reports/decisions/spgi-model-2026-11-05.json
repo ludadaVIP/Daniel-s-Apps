@@ -1,0 +1,442 @@
+{
+  "version": 1,
+  "units": "USD million; shares million; per-share USD",
+  "price": 485,
+  "shares": 292,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "cash1": 4000,
+        "growth": [
+          0.03,
+          0.04,
+          0.04,
+          0.04,
+          0.04,
+          0.035,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "eps1": 16,
+        "epsGrowth": 0.04,
+        "pe5": 20,
+        "ke": 0.115,
+        "g": 0.025,
+        "divGrowth": 0.03
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "ownerCash": 4000,
+          "dividendPerShare": 3.9964,
+          "retainedFirstFive": 2833.0512
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "ownerCash": 4120,
+          "dividendPerShare": 4.116292,
+          "retainedFirstFive": 5751.093936
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "ownerCash": 4284.8,
+          "dividendPerShare": 4.2397807599999995,
+          "retainedFirstFive": 8797.87795408
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "ownerCash": 4456.192,
+          "dividendPerShare": 4.366974182800001,
+          "retainedFirstFive": 11978.9134927024
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "ownerCash": 4634.43968,
+          "dividendPerShare": 4.497983408284,
+          "retainedFirstFive": 15299.942017483474
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "ownerCash": 4819.817267200001,
+          "dividendPerShare": 4.63292291053252,
+          "retainedFirstFive": 15299.942017483474
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "ownerCash": 4988.510871552001,
+          "dividendPerShare": 4.771910597848496,
+          "retainedFirstFive": 15299.942017483474
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "ownerCash": 5138.1661976985615,
+          "dividendPerShare": 4.915067915783951,
+          "retainedFirstFive": 15299.942017483474
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "ownerCash": 5292.311183629518,
+          "dividendPerShare": 5.06251995325747,
+          "retainedFirstFive": 15299.942017483474
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "ownerCash": 5451.080519138404,
+          "dividendPerShare": 5.214395551855194,
+          "retainedFirstFive": 15299.942017483474
+        }
+      ],
+      "shares": 292,
+      "dividends": [
+        3.9964,
+        4.116292,
+        4.2397807599999995,
+        4.366974182800001,
+        4.497983408284
+      ],
+      "retainedCash5": 15299.942017483474,
+      "operatingValue5": 54652.899159966415,
+      "todayValue": 154.39987363167438,
+      "year5Price": 239.56452458030782,
+      "earningsToday": 263.01792024981035,
+      "earningsYear5": 426.75180090371055,
+      "eps5": 18.717736960000003,
+      "irr": -0.11969043174007649,
+      "earningsIrr": -0.01604533697332927,
+      "terminalShare": 0.46364490026986316
+    },
+    "base": {
+      "parameters": {
+        "cash1": 4600,
+        "growth": [
+          0.09,
+          0.09,
+          0.08,
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04,
+          0.04
+        ],
+        "eps1": 18.5,
+        "epsGrowth": 0.08,
+        "pe5": 25,
+        "ke": 0.095,
+        "g": 0.03,
+        "divGrowth": 0.07
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "ownerCash": 4600,
+          "dividendPerShare": 4.1516,
+          "retainedFirstFive": 3387.7327999999998
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "ownerCash": 5014,
+          "dividendPerShare": 4.442212,
+          "retainedFirstFive": 7104.606895999999
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "ownerCash": 5465.26,
+          "dividendPerShare": 4.7531668400000004,
+          "retainedFirstFive": 11181.942178719999
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "ownerCash": 5902.4808,
+          "dividendPerShare": 5.085888518800001,
+          "retainedFirstFive": 15599.3435312304
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "ownerCash": 6374.679264,
+          "dividendPerShare": 5.4419007151160015,
+          "retainedFirstFive": 20384.987786416525
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "ownerCash": 6820.906812480001,
+          "dividendPerShare": 5.8228337651741215,
+          "retainedFirstFive": 20384.987786416525
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "ownerCash": 7230.161221228801,
+          "dividendPerShare": 6.230432128736311,
+          "retainedFirstFive": 20384.987786416525
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "ownerCash": 7591.669282290241,
+          "dividendPerShare": 6.666562377747853,
+          "retainedFirstFive": 20384.987786416525
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "ownerCash": 7895.336053581851,
+          "dividendPerShare": 7.1332217441902035,
+          "retainedFirstFive": 20384.987786416525
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "ownerCash": 8211.149495725125,
+          "dividendPerShare": 7.632547266283518,
+          "retainedFirstFive": 20384.987786416525
+        }
+      ],
+      "shares": 292,
+      "dividends": [
+        4.1516,
+        4.442212,
+        4.7531668400000004,
+        5.085888518800001,
+        5.4419007151160015
+      ],
+      "retainedCash5": 20384.987786416525,
+      "operatingValue5": 111401.87409598907,
+      "todayValue": 304.805039191865,
+      "year5Price": 451.3248694602931,
+      "earningsToday": 462.1591114216941,
+      "earningsYear5": 699.0377460082759,
+      "eps5": 25.169045760000007,
+      "irr": -0.0041516390014171844,
+      "earningsIrr": 0.08431826812428078,
+      "terminalShare": 0.5899044078649042
+    },
+    "bull": {
+      "parameters": {
+        "cash1": 5000,
+        "growth": [
+          0.12,
+          0.12,
+          0.11,
+          0.1,
+          0.09,
+          0.08,
+          0.07,
+          0.06,
+          0.05
+        ],
+        "eps1": 19.5,
+        "epsGrowth": 0.11,
+        "pe5": 29,
+        "ke": 0.085,
+        "g": 0.035,
+        "divGrowth": 0.09
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "ownerCash": 5000,
+          "dividendPerShare": 4.2292000000000005,
+          "retainedFirstFive": 3765.0735999999997
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "ownerCash": 5600.000000000001,
+          "dividendPerShare": 4.609828,
+          "retainedFirstFive": 8019.003824
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "ownerCash": 6272.000000000002,
+          "dividendPerShare": 5.0247125200000005,
+          "retainedFirstFive": 12823.787768160002
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "ownerCash": 6961.920000000003,
+          "dividendPerShare": 5.476936646800001,
+          "retainedFirstFive": 18186.442267294406
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "ownerCash": 7658.112000000004,
+          "dividendPerShare": 5.969860945012002,
+          "retainedFirstFive": 24101.354871350904
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "ownerCash": 8347.342080000004,
+          "dividendPerShare": 6.507148430063082,
+          "retainedFirstFive": 24101.354871350904
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "ownerCash": 9015.129446400006,
+          "dividendPerShare": 7.092791788768761,
+          "retainedFirstFive": 24101.354871350904
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "ownerCash": 9646.188507648007,
+          "dividendPerShare": 7.73114304975795,
+          "retainedFirstFive": 24101.354871350904
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "ownerCash": 10224.959818106887,
+          "dividendPerShare": 8.426945924236167,
+          "retainedFirstFive": 24101.354871350904
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "ownerCash": 10736.207809012232,
+          "dividendPerShare": 9.185371057417422,
+          "retainedFirstFive": 24101.354871350904
+        }
+      ],
+      "shares": 292,
+      "dividends": [
+        4.2292000000000005,
+        4.609828,
+        5.0247125200000005,
+        5.476936646800001,
+        5.969860945012002
+      ],
+      "retainedCash5": 24101.354871350904,
+      "operatingValue5": 185220.9286829629,
+      "todayValue": 496.41241350371416,
+      "year5Price": 716.8571354599787,
+      "earningsToday": 645.4827228402094,
+      "earningsYear5": 941.0077034007224,
+      "eps5": 29.602372995000007,
+      "irr": 0.09014063371980863,
+      "earningsIrr": 0.14971778844454853,
+      "terminalShare": 0.6781072506896989
+    }
+  },
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 228.60999999999999,
+      "high": 259.08,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 198.13,
+      "high": 228.6,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 152.41,
+      "high": 198.12,
+      "budgetSharePct": 40
+    }
+  ],
+  "requiredAnnualReturn": 0.12,
+  "reference": 304.805039191865,
+  "maxByReturn": 273.04520649056445,
+  "sensitivity": [
+    {
+      "ke": 0.085,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 327.4622454454286
+        },
+        {
+          "g": 0.03,
+          "value": 365.2088088516146
+        },
+        {
+          "g": 0.04,
+          "value": 419.73162266054993
+        }
+      ]
+    },
+    {
+      "ke": 0.095,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 279.31799833829945
+        },
+        {
+          "g": 0.03,
+          "value": 304.805039191865
+        },
+        {
+          "g": 0.04,
+          "value": 339.56009490127263
+        }
+      ]
+    },
+    {
+      "ke": 0.105,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 242.546092575688
+        },
+        {
+          "g": 0.03,
+          "value": 260.50502086954117
+        },
+        {
+          "g": 0.04,
+          "value": 283.98977325381065
+        }
+      ]
+    }
+  ],
+  "reverseOwnerCash1": 7345.964817244882,
+  "anchors": {
+    "nineMonthCfo": 3661,
+    "capex": 93,
+    "nciDistributions": 269,
+    "companyFcf": 3299,
+    "sbc": 127,
+    "annualizedAfterSbcProxy": 4229.333333333333,
+    "debt": 13062,
+    "cash": 2441,
+    "redeemableNci": 5348,
+    "currentBasicShares": 289.9,
+    "dividendQuarter": 0.97
+  },
+  "assumptions": [
+    "Equity owner cash after interest, minority cash payments, net investment and economic SBC; no second debt/NCI subtraction or cash add-back.",
+    "292m fixed economic claims vs289.9m basic is a conservative dilution buffer, not exact fully diluted award count. Future SBC cash replacement charged; no additional future grant dilution or buyback benefit.",
+    "First five years actual-model dividends paid; residual owner cash retained at zero return, added to year5 price once. Existing cash and operating capital are not separately added. After year5 full potential owner cash distributable is a valuation assumption.",
+    "Debt stock refinanced at broadly unchanged after-tax financing cost; refinancing failure or NCI redemption requires rebuilding cash and entitlement, not treating funding proceeds as profit.",
+    "Research periods 2027-2036 approximately 12 months from valuation, not company guidance. EPS1 and cash1 are forecasts, not reported actuals. Mobility excluded; no assumed proceeds for Capital IQ strategic review.",
+    "Economic income/cash excludes new idle-cash interest; year5 EPS multiple therefore adds retained surplus once. P/E assumptions are not same-day comparable measurements."
+  ]
+}

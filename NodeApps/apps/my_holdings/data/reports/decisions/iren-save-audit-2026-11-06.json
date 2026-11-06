@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T20:02:01.473Z",
+  "jobId": "615075be-650c-4541-aab4-fdb2add3f4a0",
+  "reference": {
+    "json": "decisions/iren-2026-11-06-615075be-650c-4541-aab4-fdb2add3f4a0.json",
+    "report": "decisions/iren-2026-11-06-615075be-650c-4541-aab4-fdb2add3f4a0.html",
+    "updatedAt": "2026-11-05T20:02:00.888Z",
+    "conclusion": "基准今日价值$6.43–$7.15，2031期末$14.72–$16.35；相对18.79，五年总回报约−22%至−13%、年化-4.8%至-2.7%。悲观普通股归零；强增长、融资与转股成功的乐观路径约131.98–174.29美元，不能据此推定胜率。当前新增0，条件目标0.5%=$2,000、上限0.75%=$3,000；先核今天即将发布的财报。"
+  },
+  "beforeRevision": 3424,
+  "afterRevision": 3425,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"IREN\",\n  \"reference\": {\n    \"json\": \"decisions/iren-2026-11-06-615075be-650c-4541-aab4-fdb2add3f4a0.json\",\n    \"report\": \"decisions/iren-2026-11-06-615075be-650c-4541-aab4-fdb2add3f4a0.html\",\n    \"updatedAt\": \"2026-11-05T20:02:00.888Z\",\n    \"conclusion\": \"基准今日价值$6.43–$7.15，2031期末$14.72–$16.35；相对18.79，五年总回报约−22%至−13%、年化-4.8%至-2.7%。悲观普通股归零；强增长、融资与转股成功的乐观路径约131.98–174.29美元，不能据此推定胜率。当前新增0，条件目标0.5%=$2,000、上限0.75%=$3,000；先核今天即将发布的财报。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 4.19,\n      \"high\": 4.82,\n      \"budgetSharePct\": 25,\n      \"condition\": \"冻结候选价：须先复核本次Q1、完工资金、客户验收和更新成本。上沿=min(较低今日价值×80%，较低2031价按25%回报折现$4.82)。融资缺口未关闭或收入兑现落后则旧档作废。\",\n      \"dollars\": 500,\n      \"shares\": 103\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 3.22,\n      \"high\": 4.18,\n      \"budgetSharePct\": 35,\n      \"condition\": \"冻结候选价：须先复核本次Q1、完工资金、客户验收和更新成本。上沿=min(较低今日价值×65%，较低2031价按25%回报折现$4.82)。融资缺口未关闭或收入兑现落后则旧档作废。\",\n      \"dollars\": 700,\n      \"shares\": 167\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 1.92,\n      \"high\": 3.21,\n      \"budgetSharePct\": 40,\n      \"condition\": \"冻结候选价：须先复核本次Q1、完工资金、客户验收和更新成本。上沿=min(较低今日价值×50%，较低2031价按25%回报折现$4.82)。低于1.92美元重做尽调，禁止机械补仓。\",\n      \"dollars\": 800,\n      \"shares\": 249\n    }\n  ]\n}\n"
+}

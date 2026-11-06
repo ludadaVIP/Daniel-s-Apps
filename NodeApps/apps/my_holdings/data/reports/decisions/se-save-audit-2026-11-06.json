@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T20:21:59.047Z",
+  "jobId": "d3db5cdc-edf6-4035-8ced-812d43429f74",
+  "reference": {
+    "json": "decisions/se-2026-11-06-d3db5cdc-edf6-4035-8ced-812d43429f74.json",
+    "report": "decisions/se-2026-11-06-d3db5cdc-edf6-4035-8ced-812d43429f74.html",
+    "updatedAt": "2026-11-05T20:21:58.490Z",
+    "conclusion": "基准今日$60.57–$87.50，2031期末$116.63–$168.47；参照75.20，五年总回报约55%–124%、年化9.2%–17.5%。乐观329–460美元，悲观10.46–17.27美元；这些是路径而非胜率。当前新增0，条件目标2%=$8,000、上限3%=$12,000。"
+  },
+  "beforeRevision": 3426,
+  "afterRevision": 3427,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"SE\",\n  \"reference\": {\n    \"json\": \"decisions/se-2026-11-06-d3db5cdc-edf6-4035-8ced-812d43429f74.json\",\n    \"report\": \"decisions/se-2026-11-06-d3db5cdc-edf6-4035-8ced-812d43429f74.html\",\n    \"updatedAt\": \"2026-11-05T20:21:58.490Z\",\n    \"conclusion\": \"基准今日$60.57–$87.50，2031期末$116.63–$168.47；参照75.20，五年总回报约55%–124%、年化9.2%–17.5%。乐观329–460美元，悲观10.46–17.27美元；这些是路径而非胜率。当前新增0，条件目标2%=$8,000、上限3%=$12,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 42.41,\n      \"high\": 50.97,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低今日价值×85%，较低2031目标按18%回报折现$50.98)。须复核11月10日Q3、Shopee利润、Monee拨备/核销与资本。若信用或竞争恶化，暂停而非只看跌价。\",\n      \"dollars\": 1670,\n      \"shares\": 32\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 33.32,\n      \"high\": 42.4,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低今日价值×70%，较低2031目标按18%回报折现$50.98)。须复核11月10日Q3、Shopee利润、Monee拨备/核销与资本。若信用或竞争恶化，暂停而非只看跌价。\",\n      \"dollars\": 2338,\n      \"shares\": 55\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 19.98,\n      \"high\": 33.31,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低今日价值×55%，较低2031目标按18%回报折现$50.98)。须复核11月10日Q3、Shopee利润、Monee拨备/核销与资本。低于19.98美元重新尽调，禁止机械补仓。\",\n      \"dollars\": 2672,\n      \"shares\": 80\n    }\n  ]\n}\n"
+}

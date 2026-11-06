@@ -1,0 +1,465 @@
+{
+  "units": "USD million, ADSmillion",
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "gmv": [
+          170000,
+          180000,
+          190000,
+          200000,
+          210000
+        ],
+        "shMargin": [
+          0.006,
+          0.006,
+          0.007,
+          0.008,
+          0.009
+        ],
+        "garena": [
+          1400,
+          1250,
+          1100,
+          1000,
+          900
+        ],
+        "moneeNI": [
+          650,
+          650,
+          700,
+          750,
+          800
+        ],
+        "loans": [
+          14000,
+          16000,
+          18000,
+          20000,
+          22000
+        ],
+        "corp": [
+          850,
+          900,
+          950,
+          1000,
+          1050
+        ],
+        "ke": 0.19,
+        "terminalGrowth": 0.02,
+        "tailGrowth": 0.03,
+        "capital": 0.2,
+        "shMultiple": 6,
+        "gaMultiple": 5,
+        "moMultiple": 8,
+        "parentCash": 0,
+        "shares": 670
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "gmv": 170000,
+          "shMargin": 0.006,
+          "garena": 1400,
+          "moneeNI": 650,
+          "loans": 14000,
+          "corp": 850,
+          "shEBIT": 595,
+          "nonfinanceNOPAT": 858.75,
+          "nonfinanceReinvestment": 650,
+          "moneeRetained": 400,
+          "ownerFCF": 458.75
+        },
+        {
+          "year": 2028,
+          "gmv": 180000,
+          "shMargin": 0.006,
+          "garena": 1250,
+          "moneeNI": 650,
+          "loans": 16000,
+          "corp": 900,
+          "shEBIT": 630,
+          "nonfinanceNOPAT": 735,
+          "nonfinanceReinvestment": 710,
+          "moneeRetained": 400,
+          "ownerFCF": 275
+        },
+        {
+          "year": 2029,
+          "gmv": 190000,
+          "shMargin": 0.007,
+          "garena": 1100,
+          "moneeNI": 700,
+          "loans": 18000,
+          "corp": 950,
+          "shEBIT": 855.0000000000001,
+          "nonfinanceNOPAT": 753.75,
+          "nonfinanceReinvestment": 745,
+          "moneeRetained": 400,
+          "ownerFCF": 308.75
+        },
+        {
+          "year": 2030,
+          "gmv": 200000,
+          "shMargin": 0.008,
+          "garena": 1000,
+          "moneeNI": 750,
+          "loans": 20000,
+          "corp": 1000,
+          "shEBIT": 1100,
+          "nonfinanceNOPAT": 825,
+          "nonfinanceReinvestment": 780,
+          "moneeRetained": 400,
+          "ownerFCF": 395
+        },
+        {
+          "year": 2031,
+          "gmv": 210000,
+          "shMargin": 0.009,
+          "garena": 900,
+          "moneeNI": 800,
+          "loans": 22000,
+          "corp": 1050,
+          "shEBIT": 1364.9999999999998,
+          "nonfinanceNOPAT": 911.25,
+          "nonfinanceReinvestment": 815,
+          "moneeRetained": 400,
+          "ownerFCF": 496.25
+        }
+      ],
+      "pvDistributable": 1167.8440666268573,
+      "retainedOwnerCash": 1933.75,
+      "ownerValue2031": 5075.10845321079,
+      "dcf": {
+        "today": 4.383668247406641,
+        "price5": 10.460982765986254,
+        "priceCagr": -0.3259828777156947
+      },
+      "sotp": {
+        "today": 7.238765159421996,
+        "price5": 17.274253731343283,
+        "priceCagr": -0.2548627223800888
+      }
+    },
+    "base": {
+      "parameters": {
+        "gmv": [
+          200000,
+          235000,
+          270000,
+          300000,
+          330000
+        ],
+        "shMargin": [
+          0.009,
+          0.012,
+          0.015,
+          0.018,
+          0.02
+        ],
+        "garena": [
+          1650,
+          1750,
+          1850,
+          1950,
+          2050
+        ],
+        "moneeNI": [
+          950,
+          1200,
+          1500,
+          1800,
+          2100
+        ],
+        "loans": [
+          15000,
+          18000,
+          22000,
+          26000,
+          30000
+        ],
+        "corp": [
+          850,
+          900,
+          950,
+          1000,
+          1100
+        ],
+        "ke": 0.14,
+        "terminalGrowth": 0.03,
+        "tailGrowth": 0.06,
+        "capital": 0.15,
+        "shMultiple": 10,
+        "gaMultiple": 8,
+        "moMultiple": 14,
+        "parentCash": 2000,
+        "shares": 660
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "gmv": 200000,
+          "shMargin": 0.009,
+          "garena": 1650,
+          "moneeNI": 950,
+          "loans": 15000,
+          "corp": 850,
+          "shEBIT": 1299.9999999999998,
+          "nonfinanceNOPAT": 1575,
+          "nonfinanceReinvestment": 905,
+          "moneeRetained": 450,
+          "ownerFCF": 1170
+        },
+        {
+          "year": 2028,
+          "gmv": 235000,
+          "shMargin": 0.012,
+          "garena": 1750,
+          "moneeNI": 1200,
+          "loans": 18000,
+          "corp": 900,
+          "shEBIT": 2232.5,
+          "nonfinanceNOPAT": 2311.875,
+          "nonfinanceReinvestment": 1027.5,
+          "moneeRetained": 450,
+          "ownerFCF": 2034.375
+        },
+        {
+          "year": 2029,
+          "gmv": 270000,
+          "shMargin": 0.015,
+          "garena": 1850,
+          "moneeNI": 1500,
+          "loans": 22000,
+          "corp": 950,
+          "shEBIT": 3374.9999999999995,
+          "nonfinanceNOPAT": 3206.25,
+          "nonfinanceReinvestment": 1150,
+          "moneeRetained": 600,
+          "ownerFCF": 2956.25
+        },
+        {
+          "year": 2030,
+          "gmv": 300000,
+          "shMargin": 0.018,
+          "garena": 1950,
+          "moneeNI": 1800,
+          "loans": 26000,
+          "corp": 1000,
+          "shEBIT": 4649.999999999999,
+          "nonfinanceNOPAT": 4199.999999999999,
+          "nonfinanceReinvestment": 1230,
+          "moneeRetained": 600,
+          "ownerFCF": 4169.999999999999
+        },
+        {
+          "year": 2031,
+          "gmv": 330000,
+          "shMargin": 0.02,
+          "garena": 2050,
+          "moneeNI": 2100,
+          "loans": 30000,
+          "corp": 1100,
+          "shEBIT": 5775.000000000001,
+          "nonfinanceNOPAT": 5043.750000000001,
+          "nonfinanceReinvestment": 1335,
+          "moneeRetained": 600,
+          "ownerFCF": 5208.750000000001
+        }
+      ],
+      "pvDistributable": 9761.322124595536,
+      "retainedOwnerCash": 15539.375,
+      "ownerValue2031": 59435.5087170131,
+      "dcf": {
+        "today": 60.573246280844224,
+        "price5": 116.6286116924441,
+        "priceCagr": 0.09173555170983061
+      },
+      "sotp": {
+        "today": 87.49738967386763,
+        "price5": 168.46875,
+        "priceCagr": 0.17506070294111709
+      }
+    },
+    "bull": {
+      "parameters": {
+        "gmv": [
+          220000,
+          275000,
+          335000,
+          400000,
+          470000
+        ],
+        "shMargin": [
+          0.012,
+          0.017,
+          0.022,
+          0.026,
+          0.03
+        ],
+        "garena": [
+          1850,
+          2100,
+          2400,
+          2700,
+          3000
+        ],
+        "moneeNI": [
+          1250,
+          1700,
+          2300,
+          3000,
+          3800
+        ],
+        "loans": [
+          16000,
+          22000,
+          29000,
+          37000,
+          46000
+        ],
+        "corp": [
+          900,
+          1000,
+          1100,
+          1250,
+          1400
+        ],
+        "ke": 0.12,
+        "terminalGrowth": 0.035,
+        "tailGrowth": 0.08,
+        "capital": 0.13,
+        "shMultiple": 14,
+        "gaMultiple": 10,
+        "moMultiple": 18,
+        "parentCash": 3500,
+        "shares": 655
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "gmv": 220000,
+          "shMargin": 0.012,
+          "garena": 1850,
+          "moneeNI": 1250,
+          "loans": 16000,
+          "corp": 900,
+          "shEBIT": 2090,
+          "nonfinanceNOPAT": 2280,
+          "nonfinanceReinvestment": 1075,
+          "moneeRetained": 520,
+          "ownerFCF": 1935
+        },
+        {
+          "year": 2028,
+          "gmv": 275000,
+          "shMargin": 0.017,
+          "garena": 2100,
+          "moneeNI": 1700,
+          "loans": 22000,
+          "corp": 1000,
+          "shEBIT": 3987.5,
+          "nonfinanceNOPAT": 3815.625,
+          "nonfinanceReinvestment": 1267.5,
+          "moneeRetained": 780,
+          "ownerFCF": 3468.125
+        },
+        {
+          "year": 2029,
+          "gmv": 335000,
+          "shMargin": 0.022,
+          "garena": 2400,
+          "moneeNI": 2300,
+          "loans": 29000,
+          "corp": 1100,
+          "shEBIT": 6532.5,
+          "nonfinanceNOPAT": 5874.375,
+          "nonfinanceReinvestment": 1502.5,
+          "moneeRetained": 910,
+          "ownerFCF": 5761.875
+        },
+        {
+          "year": 2030,
+          "gmv": 400000,
+          "shMargin": 0.026,
+          "garena": 2700,
+          "moneeNI": 3000,
+          "loans": 37000,
+          "corp": 1250,
+          "shEBIT": 9400,
+          "nonfinanceNOPAT": 8137.5,
+          "nonfinanceReinvestment": 1755,
+          "moneeRetained": 1040,
+          "ownerFCF": 8342.5
+        },
+        {
+          "year": 2031,
+          "gmv": 470000,
+          "shMargin": 0.03,
+          "garena": 3000,
+          "moneeNI": 3800,
+          "loans": 46000,
+          "corp": 1400,
+          "shEBIT": 12925,
+          "nonfinanceNOPAT": 10893.75,
+          "nonfinanceReinvestment": 2025,
+          "moneeRetained": 1170,
+          "ownerFCF": 11498.75
+        }
+      ],
+      "pvDistributable": 20420.144529666646,
+      "retainedOwnerCash": 31006.25,
+      "ownerValue2031": 180828.15283872696,
+      "dcf": {
+        "today": 186.5443101233909,
+        "price5": 328.7548134942396,
+        "priceCagr": 0.3431696065030829
+      },
+      "sotp": {
+        "today": 260.9784529817958,
+        "price5": 459.9332061068702,
+        "priceCagr": 0.4364661124116489
+      }
+    }
+  },
+  "reference": 60.573246280844224,
+  "returnLimit": 50.97944104693074,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 42.41,
+      "high": 50.97,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 33.32,
+      "high": 42.4,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 19.98,
+      "high": 33.31,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.12,
+      "today": 77.8755606746606
+    },
+    {
+      "ke": 0.14,
+      "today": 60.573246280844224
+    },
+    {
+      "ke": 0.16,
+      "today": 48.75210116422225
+    }
+  ],
+  "reverseShopeeMargin": 0.020714126662271997,
+  "sharesPolicy": "1ADS=1ClassA. 2025 actual611.034m; options36.006m+RSU8.610m gross before subsequent vesting/exercises. Base660m proxy allows updates, not currentactual; June2026 dilutedEPSaverage634.487m is not point count. No shareexercise proceeds or buybacks assumed. FutureSBC/corporate costs withincorp, not also diluted.",
+  "cashPolicy": "Group cash/shortterm/otherGrossCash not all distributable. Parent excess0/2/3.5bn estimate after financing/escrow/deposit/2026note/operations reserves. Monee value equity-based after funding/credit losses/tax; no additional subtraction of its deposits or addition of its loan assets. No SeaCloud/IPO optionvalue.",
+  "ownerDCF": "Nonfinance25%tax. ShopeeD&A0.25%GMV, capex0.6%GMV so netreinvestment0.35%GMV plus0.5%incrementGMV andGarena30m. Monee profit after provision/funding/tax, retain13-20%increment on-bookloans as equity capital; not a stated regulatory minimum. OwnerFCF retained to2031 withoutinterest; terminalvalue plus accumulated cash discountedKe, no dividends. Forecast stable regulatory capital and credit losses are assumptions. SOTP usesEV/EBIT forcommerce/gaming, P/E forfinance, corp capitalized12xaftertax."
+}

@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T21:05:41.312Z",
+  "jobId": "223eb31e-013d-4048-a90a-faf760620a7f",
+  "reference": {
+    "json": "decisions/zeta-2026-11-06-223eb31e-013d-4048-a90a-faf760620a7f.json",
+    "report": "decisions/zeta-2026-11-06-223eb31e-013d-4048-a90a-faf760620a7f.html",
+    "updatedAt": "2026-11-05T21:05:40.470Z",
+    "conclusion": "基准今日$14.76–$27.38，2031期末$24.99–$48.25；参照29.78，五年总回报约−16%至+62%、年化-3.4%至10.1%。悲观3.62–7.45，乐观48.80–95.92；严重数据/融资事件可更差。当前新增0，条件目标1%=$4,000，上限1.5%=$6,000。"
+  },
+  "beforeRevision": 3435,
+  "afterRevision": 3436,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"ZETA\",\n  \"reference\": {\n    \"json\": \"decisions/zeta-2026-11-06-223eb31e-013d-4048-a90a-faf760620a7f.json\",\n    \"report\": \"decisions/zeta-2026-11-06-223eb31e-013d-4048-a90a-faf760620a7f.html\",\n    \"updatedAt\": \"2026-11-05T21:05:40.470Z\",\n    \"conclusion\": \"基准今日$14.76–$27.38，2031期末$24.99–$48.25；参照29.78，五年总回报约−16%至+62%、年化-3.4%至10.1%。悲观3.62–7.45，乐观48.80–95.92；严重数据/融资事件可更差。当前新增0，条件目标1%=$4,000，上限1.5%=$6,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 10.34,\n      \"high\": 10.92,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低今日价值×85%，较低2031目标按18%回报折现$10.92)。11月9日Q3后须先复核，旧价不得直接机械下单；需求、回款与数据合规须正常。若隐私/客户留存或费用结构恶化，暂停。\",\n      \"dollars\": 1000,\n      \"shares\": 91\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 8.13,\n      \"high\": 10.33,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低今日价值×70%，较低2031目标按18%回报折现$10.92)。11月9日Q3后须先复核，旧价不得直接机械下单；需求、回款与数据合规须正常。若隐私/客户留存或费用结构恶化，暂停。\",\n      \"dollars\": 1400,\n      \"shares\": 135\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 4.87,\n      \"high\": 8.12,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低今日价值×55%，较低2031目标按18%回报折现$10.92)。11月9日Q3后须先复核，旧价不得直接机械下单；需求、回款与数据合规须正常。低于4.87美元重新尽调。\",\n      \"dollars\": 1600,\n      \"shares\": 197\n    }\n  ]\n}\n"
+}

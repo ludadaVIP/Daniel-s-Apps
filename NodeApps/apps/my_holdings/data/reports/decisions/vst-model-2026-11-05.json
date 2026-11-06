@@ -1,0 +1,414 @@
+{
+  "units": "USD million; shares million; per share USD",
+  "price": 120.39,
+  "shares": 350,
+  "bridge": {
+    "debtJune": 19595,
+    "receivables": 300,
+    "affiliate": 438,
+    "forwardPurchase": 613,
+    "cashJune": -435,
+    "cogentrixCash": 2300,
+    "cogentrixDebt": 1500,
+    "juniorNotes": 1500,
+    "redeemedPreferred": -1000
+  },
+  "netClaims": 24811,
+  "preferred": 1476.066,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "cash1": 2200,
+        "growth": [
+          0,
+          0,
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.02,
+          0.02
+        ],
+        "ke": 0.13,
+        "g": 0.015,
+        "ebitda1": 7000,
+        "ebitdaGrowth": 0.015,
+        "multiple0": 8,
+        "multiple5": 8
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "cash": 2200,
+          "dividend": 0.9702000000000001
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "cash": 2200,
+          "dividend": 1.01871
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "cash": 2200,
+          "dividend": 1.0696455000000002
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "cash": 2244,
+          "dividend": 1.1231277750000002
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "cash": 2288.88,
+          "dividend": 1.1792841637500004
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "cash": 2334.6576,
+          "dividend": 1.2382483719375004
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "cash": 2381.350752,
+          "dividend": 1.3001607905343755
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "cash": 2428.97776704,
+          "dividend": 1.3651688300610942
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "cash": 2477.5573223808,
+          "dividend": 1.433427271564149
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "cash": 2527.1084688284163,
+          "dividend": 1.5050986351423565
+        }
+      ],
+      "divs": [
+        0.9702000000000001,
+        1.01871,
+        1.0696455000000002,
+        1.1231277750000002,
+        1.1792841637500004
+      ],
+      "retained": 9256.5413964375,
+      "dcf0": 50.04431679426985,
+      "dcf5": 85.33738179805452,
+      "ev0": 84.89409714285715,
+      "ev5": 121.15952637553565,
+      "ebitda5": 7429.544854374997,
+      "irr": -0.0561987045749171,
+      "evIrr": 0.010149935944106958,
+      "terminalShare": 0.37513262947416515
+    },
+    "base": {
+      "parameters": {
+        "cash1": 2930,
+        "growth": [
+          0.07,
+          0.07,
+          0.06,
+          0.05,
+          0.045,
+          0.04,
+          0.035,
+          0.03,
+          0.03
+        ],
+        "ke": 0.11,
+        "g": 0.025,
+        "ebitda1": 8150,
+        "ebitdaGrowth": 0.045,
+        "multiple0": 10,
+        "multiple5": 9.5
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "cash": 2930,
+          "dividend": 0.9702000000000001
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "cash": 3135.1000000000004,
+          "dividend": 1.01871
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "cash": 3354.5570000000007,
+          "dividend": 1.0696455000000002
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "cash": 3555.830420000001,
+          "dividend": 1.1231277750000002
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "cash": 3733.6219410000012,
+          "dividend": 1.1792841637500004
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "cash": 3901.634928345001,
+          "dividend": 1.2382483719375004
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "cash": 4057.700325478801,
+          "dividend": 1.3001607905343755
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "cash": 4199.7198368705585,
+          "dividend": 1.3651688300610942
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "cash": 4325.711431976675,
+          "dividend": 1.433427271564149
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "cash": 4455.482774935976,
+          "dividend": 1.5050986351423565
+        }
+      ],
+      "divs": [
+        0.9702000000000001,
+        1.01871,
+        1.0696455000000002,
+        1.1231277750000002,
+        1.1792841637500004
+      ],
+      "retained": 14832.770757437502,
+      "dcf0": 109.20152517316762,
+      "dcf5": 177.40100304006214,
+      "ev0": 157.75124,
+      "ev5": 231.075592602366,
+      "ebitda5": 9719.026595093748,
+      "irr": 0.08823825919361095,
+      "evIrr": 0.14618354003067535,
+      "terminalShare": 0.49507748088526443
+    },
+    "bull": {
+      "parameters": {
+        "cash1": 3900,
+        "growth": [
+          0.11,
+          0.1,
+          0.09,
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04,
+          0.04
+        ],
+        "ke": 0.095,
+        "g": 0.03,
+        "ebitda1": 8800,
+        "ebitdaGrowth": 0.07,
+        "multiple0": 12,
+        "multiple5": 11
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "cash": 3900,
+          "dividend": 0.9702000000000001
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "cash": 4329,
+          "dividend": 1.01871
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "cash": 4761.900000000001,
+          "dividend": 1.0696455000000002
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "cash": 5190.471000000001,
+          "dividend": 1.1231277750000002
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "cash": 5605.708680000002,
+          "dividend": 1.1792841637500004
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "cash": 5998.108287600002,
+          "dividend": 1.2382483719375004
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "cash": 6357.994784856002,
+          "dividend": 1.3001607905343755
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "cash": 6675.894524098802,
+          "dividend": 1.3651688300610942
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "cash": 6942.930305062755,
+          "dividend": 1.433427271564149
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "cash": 7220.647517265265,
+          "dividend": 1.5050986351423565
+        }
+      ],
+      "divs": [
+        0.9702000000000001,
+        1.01871,
+        1.0696455000000002,
+        1.1231277750000002,
+        1.1792841637500004
+      ],
+      "retained": 21910.7410764375,
+      "dcf0": 221.64493260291277,
+      "dcf5": 342.4980828682486,
+      "ev0": 226.60838285714283,
+      "ev5": 350.02493955553575,
+      "ebitda5": 11535.004888000001,
+      "irr": 0.23858440336905018,
+      "evIrr": 0.2439113402661951,
+      "terminalShare": 0.5951589519878943
+    }
+  },
+  "reference": 109.20152517316762,
+  "maxReturn": 91.74536869961702,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 81.91,
+      "high": 91.74,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 70.99,
+      "high": 81.9,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 54.61,
+      "high": 70.98,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.1,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 116.93671582101273
+        },
+        {
+          "g": 0.025,
+          "value": 125.40533042515827
+        },
+        {
+          "g": 0.035,
+          "value": 136.47967259981016
+        }
+      ]
+    },
+    {
+      "ke": 0.11,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 103.03873495487419
+        },
+        {
+          "g": 0.025,
+          "value": 109.20152517316762
+        },
+        {
+          "g": 0.035,
+          "value": 117.00772611633928
+        }
+      ]
+    },
+    {
+      "ke": 0.12,
+      "values": [
+        {
+          "g": 0.015,
+          "value": 91.78440101527978
+        },
+        {
+          "g": 0.025,
+          "value": 96.38645401857276
+        },
+        {
+          "g": 0.035,
+          "value": 102.07134302264055
+        }
+      ]
+    }
+  ],
+  "reverseCash1": 3232.250878303771,
+  "cashBridge2027": {
+    "adjustedEbitda": 8150,
+    "cashInterest": -1400,
+    "cashTax": -300,
+    "maintenanceAndFuel": -2150,
+    "growthCapex": -800,
+    "helix": -200,
+    "closureAndOther": -100,
+    "preferredDividend": -120,
+    "economicSbc": -150
+  },
+  "assumptions": [
+    "2027 forecasts, not company guidance. EBITDA 8150 = pre-Cogentrix midpoint opportunity 7600 + approximate Cogentrix 550; no separate Meta upside added. Cash bridge totals2930. Annual owner cash growth is net of future reinvestment/tax/financing, not revenue growth.",
+    "Net claims24811 is stress funding proxy built from June balances plus announced transaction terms. Assumes new borrowing funds2300 cash consideration; subsequent operating cash/debt paydowns, working capital true-ups, fees and further buybacks unknown. Actual closing balance sheet not available; avoid false precision. No700 tax-benefit cash add-back.",
+    "350m fixed claims vs June335.961+5m deal shares+buffer9.039. Future SBC economic cash cost deducted, no extra future buyback gain. Fixed debt refinanced; no free leverage benefit.",
+    "First5 forecast dividends from current0.924 annual rate grow5%; all residual cash retained zero-interest and added at year5 once. No separate June cash add-back in DCF; cash debt bridge used only EV. No future acquisitions or debt paydown earnings benefit.",
+    "EV multiples are research assumptions, not current peer measurements. EV excludes nuclear decommissioning trust assets; dedicated trust net obligations embedded in operating closure costs, regulatory failure requires rebuild. DOE loan neither cash windfall nor current debt."
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T19:51:42.926Z",
+  "jobId": "c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b",
+  "reference": {
+    "json": "decisions/pl-2026-11-06-c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b.json",
+    "report": "decisions/pl-2026-11-06-c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b.html",
+    "updatedAt": "2026-11-05T19:51:42.309Z",
+    "conclusion": "基准今日价值$3.23–$5.73，2031期末$6.79–$12.03；相对11.578美元，五年总回报约−41%至+4%、年化-10.1%至0.8%。乐观27–29美元，悲观0.17–1.81美元且资金失败可归零。当前新增0，条件目标0.75%=$3,000、上限1.25%=$5,000；不因盘中下跌抢跑。"
+  },
+  "beforeRevision": 3423,
+  "afterRevision": 3424,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"PL\",\n  \"reference\": {\n    \"json\": \"decisions/pl-2026-11-06-c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b.json\",\n    \"report\": \"decisions/pl-2026-11-06-c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b.html\",\n    \"updatedAt\": \"2026-11-05T19:51:42.309Z\",\n    \"conclusion\": \"基准今日价值$3.23–$5.73，2031期末$6.79–$12.03；相对11.578美元，五年总回报约−41%至+4%、年化-10.1%至0.8%。乐观27–29美元，悲观0.17–1.81美元且资金失败可归零。当前新增0，条件目标0.75%=$3,000、上限1.25%=$5,000；不因盘中下跌抢跑。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 2.27,\n      \"high\": 2.51,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(基准较低今日价值×85%，较低2031价按22%年回报折现$2.51)。须先核下一份Q3、合同回款/更新投入及2030偿付方案。订单取消、资金缺口或毛利恶化时暂停，价跌不自动触发。\",\n      \"dollars\": 750,\n      \"shares\": 298\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 1.78,\n      \"high\": 2.26,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(基准较低今日价值×70%，较低2031价按22%年回报折现$2.51)。须先核下一份Q3、合同回款/更新投入及2030偿付方案。订单取消、资金缺口或毛利恶化时暂停，价跌不自动触发。\",\n      \"dollars\": 1050,\n      \"shares\": 464\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 1.06,\n      \"high\": 1.77,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(基准较低今日价值×55%，较低2031价按22%年回报折现$2.51)。须先核下一份Q3、合同回款/更新投入及2030偿付方案。低于1.06美元重做尽调，禁止机械补仓。\",\n      \"dollars\": 1200,\n      \"shares\": 677\n    }\n  ]\n}\n"
+}

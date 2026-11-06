@@ -1,0 +1,494 @@
+{
+  "units": "USD million; shares million",
+  "quote": 13.112,
+  "actualShares": 221.854389,
+  "optionsGross": 5.184492,
+  "rsuGross": 4.794538,
+  "shares": 231.833419,
+  "openingCash": 124.555,
+  "openingDebt": 197.188,
+  "openingWC": 345.461,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "sales": [
+          500,
+          490,
+          500,
+          515,
+          530
+        ],
+        "gm": [
+          0.59,
+          0.56,
+          0.55,
+          0.55,
+          0.55
+        ],
+        "opex": [
+          140,
+          146,
+          151,
+          156,
+          162
+        ],
+        "wc": 0.7,
+        "capex": 0.05,
+        "wacc": 0.15,
+        "g": 0.02,
+        "pe": 12,
+        "stubFCFE": -15,
+        "legal": 50
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 500,
+          "gm": 0.59,
+          "opex": 140,
+          "ebit": 155,
+          "nopat": 116.25,
+          "da": 7,
+          "capex": 25,
+          "dWC": 4.538999999999987,
+          "wc": 350,
+          "legal": 50,
+          "fcff": 43.71100000000001,
+          "interest": 12.75625,
+          "repayment": 4.688,
+          "capitalNeeded": 0,
+          "cash": 138.07281250000003,
+          "debt": 191.562
+        },
+        {
+          "year": 2028,
+          "sales": 490,
+          "gm": 0.56,
+          "opex": 146,
+          "ebit": 128.40000000000003,
+          "nopat": 96.30000000000003,
+          "da": 6.86,
+          "capex": 24.5,
+          "dWC": -7,
+          "wc": 343,
+          "legal": 0,
+          "fcff": 85.66000000000003,
+          "interest": 12.451530000000002,
+          "repayment": 191.562,
+          "capitalNeeded": 7.167834999999968,
+          "cash": 30,
+          "debt": 0
+        },
+        {
+          "year": 2029,
+          "sales": 500,
+          "gm": 0.55,
+          "opex": 151,
+          "ebit": 124,
+          "nopat": 93,
+          "da": 7,
+          "capex": 25,
+          "dWC": 7,
+          "wc": 350,
+          "legal": 0,
+          "fcff": 68,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 98,
+          "debt": 0
+        },
+        {
+          "year": 2030,
+          "sales": 515,
+          "gm": 0.55,
+          "opex": 156,
+          "ebit": 127.25,
+          "nopat": 95.4375,
+          "da": 7.21,
+          "capex": 25.75,
+          "dWC": 10.5,
+          "wc": 360.5,
+          "legal": 0,
+          "fcff": 66.3975,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 164.39749999999998,
+          "debt": 0
+        },
+        {
+          "year": 2031,
+          "sales": 530,
+          "gm": 0.55,
+          "opex": 162,
+          "ebit": 129.5,
+          "nopat": 97.125,
+          "da": 7.42,
+          "capex": 26.5,
+          "dWC": 10.5,
+          "wc": 371,
+          "legal": 0,
+          "fcff": 67.545,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 231.9425,
+          "debt": 0
+        }
+      ],
+      "shares": 233.34243689473684,
+      "raised": 7.167834999999968,
+      "minCash": 30,
+      "terminalFCFF": 72.18589999999998,
+      "terminalEV": 555.2761538461536,
+      "fcffTotal": 331.31350000000003,
+      "dcf": {
+        "today": 1.7694767748626723,
+        "price5": 3.373662606434834,
+        "cagr": -0.23776911620393137
+      },
+      "pe": {
+        "today": 2.977494831900213,
+        "price5": 5.988805630886596,
+        "cagr": -0.14506271927012981
+      }
+    },
+    "base": {
+      "parameters": {
+        "sales": [
+          620,
+          700,
+          780,
+          850,
+          920
+        ],
+        "gm": [
+          0.69,
+          0.685,
+          0.68,
+          0.675,
+          0.67
+        ],
+        "opex": [
+          145,
+          158,
+          172,
+          187,
+          203
+        ],
+        "wc": 0.6,
+        "capex": 0.04,
+        "wacc": 0.12,
+        "g": 0.025,
+        "pe": 17,
+        "stubFCFE": 12,
+        "legal": 0
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 620,
+          "gm": 0.69,
+          "opex": 145,
+          "ebit": 282.79999999999995,
+          "nopat": 212.09999999999997,
+          "da": 8.68,
+          "capex": 24.8,
+          "dWC": 26.538999999999987,
+          "wc": 372,
+          "legal": 0,
+          "fcff": 169.44099999999997,
+          "interest": 12.75625,
+          "repayment": 4.688,
+          "capitalNeeded": 0,
+          "cash": 290.8028125,
+          "debt": 191.562
+        },
+        {
+          "year": 2028,
+          "sales": 700,
+          "gm": 0.685,
+          "opex": 158,
+          "ebit": 321.50000000000006,
+          "nopat": 241.12500000000006,
+          "da": 9.8,
+          "capex": 28,
+          "dWC": 48,
+          "wc": 420,
+          "legal": 0,
+          "fcff": 174.92500000000007,
+          "interest": 12.451530000000002,
+          "repayment": 191.562,
+          "capitalNeeded": 0,
+          "cash": 264.82716500000004,
+          "debt": 0
+        },
+        {
+          "year": 2029,
+          "sales": 780,
+          "gm": 0.68,
+          "opex": 172,
+          "ebit": 358.4000000000001,
+          "nopat": 268.80000000000007,
+          "da": 10.92,
+          "capex": 31.2,
+          "dWC": 48,
+          "wc": 468,
+          "legal": 0,
+          "fcff": 200.5200000000001,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 465.34716500000013,
+          "debt": 0
+        },
+        {
+          "year": 2030,
+          "sales": 850,
+          "gm": 0.675,
+          "opex": 187,
+          "ebit": 386.75,
+          "nopat": 290.0625,
+          "da": 11.9,
+          "capex": 34,
+          "dWC": 42,
+          "wc": 510,
+          "legal": 0,
+          "fcff": 225.96249999999998,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 691.3096650000001,
+          "debt": 0
+        },
+        {
+          "year": 2031,
+          "sales": 920,
+          "gm": 0.67,
+          "opex": 203,
+          "ebit": 413.4000000000001,
+          "nopat": 310.05000000000007,
+          "da": 12.88,
+          "capex": 36.800000000000004,
+          "dWC": 42,
+          "wc": 552,
+          "legal": 0,
+          "fcff": 244.13000000000005,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 935.4396650000001,
+          "debt": 0
+        }
+      ],
+      "shares": 231.833419,
+      "raised": 0,
+      "minCash": 135.61700000000002,
+      "terminalFCFF": 279.4832500000001,
+      "terminalEV": 2941.928947368422,
+      "fcffTotal": 1014.9785000000002,
+      "dcf": {
+        "today": 10.025679627732789,
+        "price5": 16.724804513056085,
+        "cagr": 0.049877000828195905
+      },
+      "pe": {
+        "today": 15.190283805846772,
+        "price5": 26.77047033068171,
+        "cagr": 0.15344638474296124
+      }
+    },
+    "bull": {
+      "parameters": {
+        "sales": [
+          680,
+          820,
+          980,
+          1140,
+          1300
+        ],
+        "gm": [
+          0.72,
+          0.72,
+          0.715,
+          0.71,
+          0.7
+        ],
+        "opex": [
+          150,
+          169,
+          190,
+          213,
+          240
+        ],
+        "wc": 0.55,
+        "capex": 0.05,
+        "wacc": 0.105,
+        "g": 0.03,
+        "pe": 22,
+        "stubFCFE": 20,
+        "legal": 0
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 680,
+          "gm": 0.72,
+          "opex": 150,
+          "ebit": 339.59999999999997,
+          "nopat": 254.7,
+          "da": 9.52,
+          "capex": 34,
+          "dWC": 28.539000000000044,
+          "wc": 374.00000000000006,
+          "legal": 0,
+          "fcff": 201.68099999999993,
+          "interest": 12.75625,
+          "repayment": 4.688,
+          "capitalNeeded": 0,
+          "cash": 331.04281249999997,
+          "debt": 191.562
+        },
+        {
+          "year": 2028,
+          "sales": 820,
+          "gm": 0.72,
+          "opex": 169,
+          "ebit": 421.4,
+          "nopat": 316.04999999999995,
+          "da": 11.48,
+          "capex": 41,
+          "dWC": 77,
+          "wc": 451.00000000000006,
+          "legal": 0,
+          "fcff": 209.52999999999997,
+          "interest": 12.451530000000002,
+          "repayment": 191.562,
+          "capitalNeeded": 0,
+          "cash": 339.67216499999995,
+          "debt": 0
+        },
+        {
+          "year": 2029,
+          "sales": 980,
+          "gm": 0.715,
+          "opex": 190,
+          "ebit": 510.69999999999993,
+          "nopat": 383.025,
+          "da": 13.72,
+          "capex": 49,
+          "dWC": 87.99999999999994,
+          "wc": 539,
+          "legal": 0,
+          "fcff": 259.74500000000006,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 599.4171650000001,
+          "debt": 0
+        },
+        {
+          "year": 2030,
+          "sales": 1140,
+          "gm": 0.71,
+          "opex": 213,
+          "ebit": 596.4,
+          "nopat": 447.29999999999995,
+          "da": 15.96,
+          "capex": 57,
+          "dWC": 88,
+          "wc": 627,
+          "legal": 0,
+          "fcff": 318.25999999999993,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 917.6771650000001,
+          "debt": 0
+        },
+        {
+          "year": 2031,
+          "sales": 1300,
+          "gm": 0.7,
+          "opex": 240,
+          "ebit": 669.9999999999999,
+          "nopat": 502.4999999999999,
+          "da": 18.2,
+          "capex": 65,
+          "dWC": 88.00000000000011,
+          "wc": 715.0000000000001,
+          "legal": 0,
+          "fcff": 367.6999999999998,
+          "interest": 0,
+          "repayment": 0,
+          "capitalNeeded": 0,
+          "cash": 1285.3771649999999,
+          "debt": 0
+        }
+      ],
+      "shares": 231.833419,
+      "raised": 0,
+      "minCash": 143.61700000000002,
+      "terminalFCFF": 447.92099999999994,
+      "terminalEV": 5972.28,
+      "fcffTotal": 1356.9159999999997,
+      "dcf": {
+        "today": 19.65132483826683,
+        "price5": 31.305483033056593,
+        "cagr": 0.19011873982074312
+      },
+      "pe": {
+        "today": 32.31030095348764,
+        "price5": 53.2295008123915,
+        "cagr": 0.32341694354113293
+      }
+    }
+  },
+  "reference": 10.025679627732789,
+  "returnLimit": 7.310566192309583,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 7.02,
+      "high": 7.31,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 5.52,
+      "high": 7.01,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 3.3,
+      "high": 5.51,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "wacc": 0.105,
+      "today": 12.09882705663989
+    },
+    {
+      "wacc": 0.12,
+      "today": 10.025679627732789
+    },
+    {
+      "wacc": 0.135,
+      "today": 8.524518712433883
+    }
+  ],
+  "inventoryStress": {
+    "dcf": {
+      "today": 9.639250209541002,
+      "price5": 16.22353715127082,
+      "cagr": 0.04350689113817374
+    },
+    "minCash": 135.61700000000002
+  },
+  "reversePE": 19.412629845272665,
+  "policy": "September30 balances; Oct30 commonactual. Existing options/RSU added gross without exercise proceeds, no unused authorizations or future repurchase benefit. Full25%cash tax and all recurring SBC retained in modeled operating costs; no future SBC dilution added again. Q4 net cash before principal stub -15/12/20 is estimate after interest/tax/capex/WC, not actual; no additional buyback. Opening face debt197.188, mandatory .938/4.688/remainder repayments, 6.5% assumed interest. Existing lease cost in opex, no separate lease debt. FCFF tax NOPAT and no taxshield premium in enterpriseDCF; target cash bridge subtracts aftertax interest. All interim owner cash retained without interest, no dividends. Terminal adds same cash once, PE uses debtfree normal net profit. 2027-31 yearly discounts approximate yearend2026 valuation; Nov6 toyearend gap not material precision. Bear legal50 is stress assumption, not liability estimate. When cash floor30m breached, conditional equity at5 with5%fees; include net injection present value and gross dilution, funding not assured. SG001 revenue/value zero, R&D remains in opex. Sales/margins/capex and capacity conversion are forecasts, not plant certified revenue capacity."
+}

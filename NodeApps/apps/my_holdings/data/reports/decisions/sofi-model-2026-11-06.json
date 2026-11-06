@@ -1,0 +1,409 @@
+{
+  "units": "USD million, shares million",
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "book": 8800,
+        "capital": 8500,
+        "ni": [
+          600,
+          750,
+          900,
+          1100,
+          1300
+        ],
+        "rwa": [
+          65000,
+          75000,
+          85000,
+          95000,
+          105000
+        ],
+        "target": 0.16,
+        "distribute": 0.05,
+        "issue": 8,
+        "ke": 0.18,
+        "endROTE": 0.1,
+        "endGrowth": 0.025,
+        "tailGrowth": 0.05,
+        "pe": 12
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "ni": 600,
+          "rwa": 65000,
+          "required": 10400,
+          "beginBook": 8800,
+          "capacity": 0,
+          "retained": 600,
+          "equity": 1300,
+          "book": 10700,
+          "capital": 10400,
+          "parentCash": 0,
+          "shares": 1621.0526315789473,
+          "rote": 0.06153846153846154
+        },
+        {
+          "year": 2028,
+          "ni": 750,
+          "rwa": 75000,
+          "required": 12000,
+          "beginBook": 10700,
+          "capacity": 0,
+          "retained": 750,
+          "equity": 850,
+          "book": 12300,
+          "capital": 12000,
+          "parentCash": 0,
+          "shares": 1732.8947368421052,
+          "rote": 0.06521739130434782
+        },
+        {
+          "year": 2029,
+          "ni": 900,
+          "rwa": 85000,
+          "required": 13600,
+          "beginBook": 12300,
+          "capacity": 0,
+          "retained": 900,
+          "equity": 700,
+          "book": 13900,
+          "capital": 13600,
+          "parentCash": 0,
+          "shares": 1825,
+          "rote": 0.06870229007633588
+        },
+        {
+          "year": 2030,
+          "ni": 1100,
+          "rwa": 95000,
+          "required": 15200,
+          "beginBook": 13900,
+          "capacity": 0,
+          "retained": 1100,
+          "equity": 500,
+          "book": 15500,
+          "capital": 15200,
+          "parentCash": 0,
+          "shares": 1890.7894736842106,
+          "rote": 0.07482993197278912
+        },
+        {
+          "year": 2031,
+          "ni": 1300,
+          "rwa": 105000,
+          "required": 16800,
+          "beginBook": 15500,
+          "capacity": 0,
+          "retained": 1300,
+          "equity": 300,
+          "book": 17100,
+          "capital": 16800,
+          "parentCash": 0,
+          "shares": 1930.2631578947369,
+          "rote": 0.07975460122699386
+        }
+      ],
+      "book": 17100,
+      "capital": 16800,
+      "shares": 1930.2631578947369,
+      "parentCash": 0,
+      "raised": 3650,
+      "operatingResidualValue": 6848.438539714643,
+      "residual": {
+        "today": 1.5508328956358706,
+        "price5": 3.547929986491567,
+        "cagr": -0.25884849826605216
+      },
+      "pe": {
+        "today": 3.532629084954545,
+        "price5": 8.081799591002046,
+        "cagr": -0.12619686188466495
+      }
+    },
+    "base": {
+      "parameters": {
+        "book": 10000,
+        "capital": 9800,
+        "ni": [
+          1250,
+          1600,
+          2050,
+          2550,
+          3150
+        ],
+        "rwa": [
+          68000,
+          80000,
+          92000,
+          104000,
+          116000
+        ],
+        "target": 0.14,
+        "distribute": 0.2,
+        "issue": 15,
+        "ke": 0.13,
+        "endROTE": 0.17,
+        "endGrowth": 0.035,
+        "tailGrowth": 0.1,
+        "pe": 22
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "ni": 1250,
+          "rwa": 68000,
+          "required": 9520,
+          "beginBook": 10000,
+          "capacity": 250,
+          "retained": 1000,
+          "equity": 0,
+          "book": 11000,
+          "capital": 10800,
+          "parentCash": 250,
+          "shares": 1450,
+          "rote": 0.11904761904761904
+        },
+        {
+          "year": 2028,
+          "ni": 1600,
+          "rwa": 80000,
+          "required": 11200.000000000002,
+          "beginBook": 11000,
+          "capacity": 320,
+          "retained": 1280,
+          "equity": 0,
+          "book": 12280,
+          "capital": 12080,
+          "parentCash": 570,
+          "shares": 1450,
+          "rote": 0.13745704467353953
+        },
+        {
+          "year": 2029,
+          "ni": 2050,
+          "rwa": 92000,
+          "required": 12880.000000000002,
+          "beginBook": 12280,
+          "capacity": 410,
+          "retained": 1640,
+          "equity": 0,
+          "book": 13920,
+          "capital": 13720,
+          "parentCash": 980,
+          "shares": 1450,
+          "rote": 0.15648854961832062
+        },
+        {
+          "year": 2030,
+          "ni": 2550,
+          "rwa": 104000,
+          "required": 14560.000000000002,
+          "beginBook": 13920,
+          "capacity": 510,
+          "retained": 2040,
+          "equity": 0,
+          "book": 15960,
+          "capital": 15760,
+          "parentCash": 1490,
+          "shares": 1450,
+          "rote": 0.1706827309236948
+        },
+        {
+          "year": 2031,
+          "ni": 3150,
+          "rwa": 116000,
+          "required": 16240.000000000002,
+          "beginBook": 15960,
+          "capacity": 630,
+          "retained": 2520,
+          "equity": 0,
+          "book": 18480,
+          "capital": 18280,
+          "parentCash": 2120,
+          "shares": 1450,
+          "rote": 0.18292682926829268
+        }
+      ],
+      "book": 18480,
+      "capital": 18280,
+      "shares": 1450,
+      "parentCash": 2120,
+      "raised": 0,
+      "operatingResidualValue": 30028.933165493418,
+      "residual": {
+        "today": 12.033898556795693,
+        "price5": 22.171678045167873,
+        "cagr": 0.06923138345205926
+      },
+      "pe": {
+        "today": 26.733734226952148,
+        "price5": 49.255172413793105,
+        "cagr": 0.25430268933652567
+      }
+    },
+    "bull": {
+      "parameters": {
+        "book": 10500,
+        "capital": 10300,
+        "ni": [
+          1400,
+          2000,
+          2900,
+          4100,
+          5600
+        ],
+        "rwa": [
+          72000,
+          90000,
+          110000,
+          135000,
+          165000
+        ],
+        "target": 0.13,
+        "distribute": 0.2,
+        "issue": 25,
+        "ke": 0.115,
+        "endROTE": 0.23,
+        "endGrowth": 0.04,
+        "tailGrowth": 0.15,
+        "pe": 28
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "ni": 1400,
+          "rwa": 72000,
+          "required": 9360,
+          "beginBook": 10500,
+          "capacity": 280,
+          "retained": 1120,
+          "equity": 0,
+          "book": 11620,
+          "capital": 11420,
+          "parentCash": 280,
+          "shares": 1450,
+          "rote": 0.12658227848101267
+        },
+        {
+          "year": 2028,
+          "ni": 2000,
+          "rwa": 90000,
+          "required": 11700,
+          "beginBook": 11620,
+          "capacity": 400,
+          "retained": 1600,
+          "equity": 0,
+          "book": 13220,
+          "capital": 13020,
+          "parentCash": 680,
+          "shares": 1450,
+          "rote": 0.1610305958132045
+        },
+        {
+          "year": 2029,
+          "ni": 2900,
+          "rwa": 110000,
+          "required": 14300,
+          "beginBook": 13220,
+          "capacity": 580,
+          "retained": 2320,
+          "equity": 0,
+          "book": 15540,
+          "capital": 15340,
+          "parentCash": 1260,
+          "shares": 1450,
+          "rote": 0.20166898470097358
+        },
+        {
+          "year": 2030,
+          "ni": 4100,
+          "rwa": 135000,
+          "required": 17550,
+          "beginBook": 15540,
+          "capacity": 820,
+          "retained": 3280,
+          "equity": 0,
+          "book": 18820,
+          "capital": 18620,
+          "parentCash": 2080,
+          "shares": 1450,
+          "rote": 0.23864959254947612
+        },
+        {
+          "year": 2031,
+          "ni": 5600,
+          "rwa": 165000,
+          "required": 21450,
+          "beginBook": 18820,
+          "capacity": 1120,
+          "retained": 4480,
+          "equity": 0,
+          "book": 23300,
+          "capital": 23100,
+          "parentCash": 3200,
+          "shares": 1450,
+          "rote": 0.26590693257359926
+        }
+      ],
+      "book": 23300,
+      "capital": 23100,
+      "shares": 1450,
+      "parentCash": 3200,
+      "raised": 0,
+      "operatingResidualValue": 81945.28925802867,
+      "residual": {
+        "today": 34.07362081290239,
+        "price5": 58.72088914346805,
+        "cagr": 0.29918353901139216
+      },
+      "pe": {
+        "today": 64.029136286601,
+        "price5": 110.34482758620689,
+        "cagr": 0.4738808657961957
+      }
+    }
+  },
+  "reference": 12.033898556795693,
+  "returnLimit": 9.691444812837396,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 8.43,
+      "high": 9.69,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 6.62,
+      "high": 8.42,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 3.96,
+      "high": 6.61,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.115,
+      "today": 15.429046938741857
+    },
+    {
+      "ke": 0.13,
+      "today": 12.033898556795693
+    },
+    {
+      "ke": 0.145,
+      "today": 9.649989995203155
+    }
+  ],
+  "reversePE": 12.782171261400634,
+  "bookPolicy": "Sept2026 equity11295.137,TCEabout9700 actual. Projected2027 openingTCE8800/10000/10500,CET1capital8500/9800/10300 assumptions afterQ4profit/loanFV/OCI; not reported actual. Future recurring acquisitions intangible amortization excluded from economicearnings but employeecompensation kept.",
+  "sharesPolicy": "Sept actual1296.617m. June options13.374m+RSU45.471m+PSU4.518m (June awards may later vest). Use1450m conservative future fullydilutedproxy, includesawards,ESPP,2029 spread and future countuncertainty; not pointactual. No exercise/cappedcall proceeds or buybacks. Future SBC treated as expense inNI, no same-award extra dilution.",
+  "bankPolicy": "Wholegroup equity afterliabilities. Loans/deposits/corporate debt not subtracted/added likeEV. 2026notes428m afterSepbalance expected cashprincipal settlement, no equity principal haircut twice. 2029note862.5m expected principal cash from assets/liabilities; potential excess shares in1450proxy, no debt forgiveness/hedge value credited. Fundingcost and tax inNI. Parentdistributablecapacity20%NI only if modeledCET1target14%RWA met; targets assumptions not statutoryminimum. Deficit raisesnetequity with5%friction. Cash retainedparent withoutinterest, not actual dividend promise.",
+  "methods": "Residual income onTCE after5yrs with10yrROTE/growth fade, no separategoodwill/software value; PE independent growthcomparison. Both add parentcapacitycash once and discount5yrs. Does not mix depositprincipal with marketEV."
+}

@@ -1,0 +1,567 @@
+{
+  "units": "USD million, shares million",
+  "existingShares": 190.27006599999999,
+  "mergerMaximumShares": 38.874419,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "diag": [
+          1300,
+          1400,
+          1500,
+          1600,
+          1700
+        ],
+        "data": [
+          430,
+          480,
+          530,
+          580,
+          630
+        ],
+        "dm": [
+          -0.03,
+          0,
+          0.03,
+          0.05,
+          0.07
+        ],
+        "am": [
+          0.05,
+          0.1,
+          0.15,
+          0.18,
+          0.2
+        ],
+        "corp": [
+          150,
+          160,
+          170,
+          180,
+          190
+        ],
+        "closePrice": 40,
+        "issue": 20,
+        "ke": 0.2,
+        "wacc": 0.15,
+        "diagMultiple": 2,
+        "dataMultiple": 4,
+        "noteStock2030": 30,
+        "stock2031": 35,
+        "fade": [
+          0.05,
+          0.04,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "endMargin": 0.08
+      },
+      "mergerShares": 38.874419,
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 1730,
+          "diag": 1300,
+          "data": 430,
+          "ebit": -167.5,
+          "tax": 0,
+          "dwc": 21.399999999999977,
+          "integration": 80,
+          "nonCashData": 40,
+          "fcf": -326.2,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 213.46310623548558,
+          "debt": 1210,
+          "cash": 217.09100000000007,
+          "shares": 229.14448499999997
+        },
+        {
+          "year": 2028,
+          "rev": 1880,
+          "diag": 1400,
+          "data": 480,
+          "ebit": -112,
+          "tax": 0,
+          "dwc": 27,
+          "integration": 25,
+          "nonCashData": 40,
+          "fcf": -222.8,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 111.33399999999995,
+          "googleDebt": 226.27089260961472,
+          "debt": 1210,
+          "cash": 100,
+          "shares": 235.0041692105263
+        },
+        {
+          "year": 2029,
+          "rev": 2030,
+          "diag": 1500,
+          "data": 530,
+          "ebit": -45.5,
+          "tax": 0,
+          "dwc": 27,
+          "integration": 0,
+          "nonCashData": 30,
+          "fcf": -122.8,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 128.425,
+          "googleDebt": 239.8471461661916,
+          "debt": 1210,
+          "cash": 100,
+          "shares": 241.7633797368421
+        },
+        {
+          "year": 2030,
+          "rev": 2180,
+          "diag": 1600,
+          "data": 580,
+          "ebit": 4.399999999999977,
+          "tax": 1.011999999999995,
+          "dwc": 27,
+          "integration": 0,
+          "nonCashData": 20,
+          "fcf": -65.41200000000002,
+          "payment": 1004.2379749361631,
+          "conversionShares": 0,
+          "equity": 1072.699974936163,
+          "googleDebt": 0,
+          "debt": 460,
+          "cash": 100,
+          "shares": 298.22127315453486
+        },
+        {
+          "year": 2031,
+          "rev": 2330,
+          "diag": 1700,
+          "data": 630,
+          "ebit": 55,
+          "tax": 12.65,
+          "dwc": 27,
+          "integration": 0,
+          "nonCashData": 10,
+          "fcf": -17.95,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 17.950000000000003,
+          "googleDebt": 0,
+          "debt": 460,
+          "cash": 100,
+          "shares": 299.1660099966401
+        }
+      ],
+      "cash": 100,
+      "debt": 460,
+      "shares": 299.1660099966401,
+      "raised": 1330.408974936163,
+      "enterpriseDCF": 621.9967713505878,
+      "dcf": {
+        "price5": 0.8757571468547855,
+        "today": 0.35194715585406444,
+        "cagr": -0.5826328140731876
+      },
+      "sotp": {
+        "price5": 18.584999011292904,
+        "today": 7.4688942785867205,
+        "cagr": -0.23109254514631028
+      }
+    },
+    "base": {
+      "parameters": {
+        "diag": [
+          1450,
+          1690,
+          1970,
+          2280,
+          2630
+        ],
+        "data": [
+          550,
+          700,
+          890,
+          1100,
+          1350
+        ],
+        "dm": [
+          0.03,
+          0.06,
+          0.1,
+          0.13,
+          0.15
+        ],
+        "am": [
+          0.18,
+          0.24,
+          0.29,
+          0.33,
+          0.35
+        ],
+        "corp": [
+          140,
+          150,
+          165,
+          180,
+          200
+        ],
+        "closePrice": 69.15,
+        "issue": 35,
+        "ke": 0.16,
+        "wacc": 0.115,
+        "diagMultiple": 3.5,
+        "dataMultiple": 8,
+        "noteStock2030": 65,
+        "stock2031": 75,
+        "fade": [
+          0.15,
+          0.13,
+          0.11,
+          0.09,
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04,
+          0.04
+        ],
+        "endMargin": 0.21
+      },
+      "mergerShares": 27.220941362293882,
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 2000,
+          "diag": 1450,
+          "data": 550,
+          "ebit": 2.5,
+          "tax": 0.5750000000000001,
+          "dwc": 70,
+          "integration": 80,
+          "nonCashData": 25,
+          "fcf": -193.075,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 213.46310623548558,
+          "debt": 1210,
+          "cash": 350.21600000000007,
+          "shares": 217.49100736229386
+        },
+        {
+          "year": 2028,
+          "rev": 2390,
+          "diag": 1690,
+          "data": 700,
+          "ebit": 119.39999999999998,
+          "tax": 27.461999999999996,
+          "dwc": 70.19999999999999,
+          "integration": 25,
+          "nonCashData": 20,
+          "fcf": -47.162000000000006,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 226.27089260961472,
+          "debt": 1210,
+          "cash": 297.4290000000001,
+          "shares": 217.49100736229386
+        },
+        {
+          "year": 2029,
+          "rev": 2860,
+          "diag": 1970,
+          "data": 890,
+          "ebit": 290.09999999999997,
+          "tax": 66.723,
+          "dwc": 84.59999999999997,
+          "integration": 0,
+          "nonCashData": 15,
+          "fcf": 95.17699999999999,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 239.8471461661916,
+          "debt": 1210,
+          "cash": 386.9810000000001,
+          "shares": 217.49100736229386
+        },
+        {
+          "year": 2030,
+          "rev": 3380,
+          "diag": 2280,
+          "data": 1100,
+          "ebit": 479.4000000000001,
+          "tax": 110.26200000000003,
+          "dwc": 93.60000000000002,
+          "integration": 0,
+          "nonCashData": 10,
+          "fcf": 231.738,
+          "payment": 1004.2379749361631,
+          "conversionShares": 0,
+          "equity": 488.56897493616304,
+          "googleDebt": 0,
+          "debt": 460,
+          "cash": 100,
+          "shares": 232.18481111977243
+        },
+        {
+          "year": 2031,
+          "rev": 3980,
+          "diag": 2630,
+          "data": 1350,
+          "ebit": 667,
+          "tax": 153.41,
+          "dwc": 108,
+          "integration": 0,
+          "nonCashData": 0,
+          "fcf": 365.79,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 0,
+          "debt": 460,
+          "cash": 465.79,
+          "shares": 232.18481111977243
+        }
+      ],
+      "cash": 465.79,
+      "debt": 460,
+      "shares": 232.18481111977243,
+      "raised": 488.56897493616304,
+      "enterpriseDCF": 9734.682636840702,
+      "dcf": {
+        "price5": 41.95137739572501,
+        "today": 19.973596792657847,
+        "cagr": -0.09512037782656646
+      },
+      "sotp": {
+        "price5": 86.18475043002465,
+        "today": 41.03368140995952,
+        "cagr": 0.04502733079839727
+      }
+    },
+    "bull": {
+      "parameters": {
+        "diag": [
+          1580,
+          1900,
+          2300,
+          2750,
+          3270
+        ],
+        "data": [
+          650,
+          900,
+          1250,
+          1650,
+          2150
+        ],
+        "dm": [
+          0.06,
+          0.1,
+          0.15,
+          0.2,
+          0.23
+        ],
+        "am": [
+          0.25,
+          0.32,
+          0.38,
+          0.42,
+          0.45
+        ],
+        "corp": [
+          150,
+          170,
+          190,
+          215,
+          240
+        ],
+        "closePrice": 90,
+        "issue": 55,
+        "ke": 0.14,
+        "wacc": 0.095,
+        "diagMultiple": 5,
+        "dataMultiple": 12,
+        "noteStock2030": 130,
+        "stock2031": 160,
+        "fade": [
+          0.18,
+          0.16,
+          0.14,
+          0.12,
+          0.1,
+          0.08,
+          0.06,
+          0.05,
+          0.04,
+          0.04
+        ],
+        "endMargin": 0.29
+      },
+      "mergerShares": 20.91475661336247,
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 2230,
+          "diag": 1580,
+          "data": 650,
+          "ebit": 107.30000000000001,
+          "tax": 24.679000000000002,
+          "dwc": 111.39999999999998,
+          "integration": 80,
+          "nonCashData": 15,
+          "fcf": -146.07899999999995,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 213.46310623548558,
+          "debt": 1210,
+          "cash": 397.2120000000001,
+          "shares": 211.18482261336246
+        },
+        {
+          "year": 2028,
+          "rev": 2800,
+          "diag": 1900,
+          "data": 900,
+          "ebit": 308,
+          "tax": 70.84,
+          "dwc": 102.60000000000002,
+          "integration": 25,
+          "nonCashData": 10,
+          "fcf": 71.55999999999997,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 226.27089260961472,
+          "debt": 1210,
+          "cash": 463.14700000000005,
+          "shares": 211.18482261336246
+        },
+        {
+          "year": 2029,
+          "rev": 3550,
+          "diag": 2300,
+          "data": 1250,
+          "ebit": 630,
+          "tax": 144.9,
+          "dwc": 135,
+          "integration": 0,
+          "nonCashData": 5,
+          "fcf": 309.6,
+          "payment": 0,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 239.8471461661916,
+          "debt": 1210,
+          "cash": 767.1220000000001,
+          "shares": 211.18482261336246
+        },
+        {
+          "year": 2030,
+          "rev": 4400,
+          "diag": 2750,
+          "data": 1650,
+          "ebit": 1028,
+          "tax": 236.44,
+          "dwc": 153,
+          "integration": 0,
+          "nonCashData": 0,
+          "fcf": 594.56,
+          "payment": 1171.7608398844943,
+          "conversionShares": 0,
+          "equity": 0,
+          "googleDebt": 0,
+          "debt": 460,
+          "cash": 186.87116011550575,
+          "shares": 211.18482261336246
+        },
+        {
+          "year": 2031,
+          "rev": 5420,
+          "diag": 3270,
+          "data": 2150,
+          "ebit": 1479.6,
+          "tax": 340.308,
+          "dwc": 183.5999999999999,
+          "integration": 0,
+          "nonCashData": 0,
+          "fcf": 901.492,
+          "payment": 0,
+          "conversionShares": 5.409615939936471,
+          "equity": 0,
+          "googleDebt": 0,
+          "debt": 0,
+          "cash": 1088.3631601155057,
+          "shares": 216.59443855329891
+        }
+      ],
+      "cash": 1088.3631601155057,
+      "debt": 0,
+      "shares": 216.59443855329891,
+      "raised": 0,
+      "enterpriseDCF": 29862.389298791895,
+      "dcf": {
+        "price5": 142.8972630397947,
+        "today": 74.21636064565136,
+        "cagr": 0.1562356219919787
+      },
+      "sotp": {
+        "price5": 199.62822429291293,
+        "today": 103.68064421953181,
+        "cagr": 0.23619206580406837
+      }
+    }
+  },
+  "reference": 19.973596792657847,
+  "returnLimit": 15.521978276061699,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 13.99,
+      "high": 15.52,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 10.99,
+      "high": 13.98,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 6.58,
+      "high": 10.98,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "wacc": 0.095,
+      "today": 27.01404591450353
+    },
+    {
+      "wacc": 0.115,
+      "today": 19.973596792657847
+    },
+    {
+      "wacc": 0.135,
+      "today": 15.6764392868235
+    }
+  ],
+  "reverseDataMultiple": 18.15660211672657,
+  "openingPolicy": "590.479 cash +50% of Recursion46.874, less65m Q4 burn/closing reserve. Excludes restricted4.755, heldPersonalis212.276 eliminated on merger, privatePathos17.5 and other nonliquidstakes. No acquired cash credited, no upfront cash election. Merger maximum38.874m includes awards basedOct15; floating exchange ratio16.25/closeprice capped.3356. Not$1.5bnEV treated as equity payment.",
+  "sbc": "All existingRSU/RSA/PSU added gross. FutureSBC economically cash-equivalent within forward margins, not added back nor charged again through dilution. Forecast includes Personalis incremental net revenues after intercompany elimination; not gross resale plus supplier sales.",
+  "accounting": "EconomicEBIT after recurring D&A and future employee compensation. Netcapex1% revenue=capex4%-ongoingD&A3%, excludes purchased-intangible amortization from economic margin. WC18% revenue opening290m; integration80/25m; positiveEBIT23%tax ignoresNOL.",
+  "debtPolicy": "Google entire accruedinterest22.501 conservatively included, grows6% fromSep2026, no future cloud-credit reductions; all cash atDec2030. 2030 notes750 cash grossconversion less cappedcall at scenario2030stock. 2032notes460 remain debt unless bull160 triggers conditional conversion2031, netshare settlement with cappedcall. Prior paid hedges not deducted twice. Noncash data payments reduceFCF by explicit scenario haircuts, no private shares added as cash. No dividends/interestincome."
+}

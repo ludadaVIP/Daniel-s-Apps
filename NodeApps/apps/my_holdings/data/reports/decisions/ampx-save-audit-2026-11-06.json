@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T19:44:23.838Z",
+  "jobId": "5b0cd91a-cbca-4743-83f9-8802fabd54a2",
+  "reference": {
+    "json": "decisions/ampx-2026-11-06-5b0cd91a-cbca-4743-83f9-8802fabd54a2.json",
+    "report": "decisions/ampx-2026-11-06-5b0cd91a-cbca-4743-83f9-8802fabd54a2.html",
+    "updatedAt": "2026-11-05T19:44:23.264Z",
+    "conclusion": "基准今日价值$4.50–$5.63，2031期末$10.30–$12.89；参照7.475美元，五年总涨幅约38%–72%、年化6.6%–11.5%，不足补偿早期量产风险。乐观约32美元，悲观0.09–1.08美元且融资失败可归零。当前新增0%，条件目标0.5%=$2,000，上限0.75%=$3,000。"
+  },
+  "beforeRevision": 3422,
+  "afterRevision": 3423,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"AMPX\",\n  \"reference\": {\n    \"json\": \"decisions/ampx-2026-11-06-5b0cd91a-cbca-4743-83f9-8802fabd54a2.json\",\n    \"report\": \"decisions/ampx-2026-11-06-5b0cd91a-cbca-4743-83f9-8802fabd54a2.html\",\n    \"updatedAt\": \"2026-11-05T19:44:23.264Z\",\n    \"conclusion\": \"基准今日价值$4.50–$5.63，2031期末$10.30–$12.89；参照7.475美元，五年总涨幅约38%–72%、年化6.6%–11.5%，不足补偿早期量产风险。乐观约32美元，悲观0.09–1.08美元且融资失败可归零。当前新增0%，条件目标0.5%=$2,000，上限0.75%=$3,000。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"high\": 3.37,\n      \"low\": 2.93,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低基准今日价值×80%，较低2031目标按25%年回报折现$3.37)。先核11月11日财报、回款/库存和未来12个月资金；资助资金缺口无方案则暂停。价跌伴随客户/良率恶化时不启用。\",\n      \"dollars\": 500,\n      \"shares\": 148\n    },\n    {\n      \"tier\": \"safety\",\n      \"high\": 2.92,\n      \"low\": 2.26,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低基准今日价值×65%，较低2031目标按25%年回报折现$3.37)。先核11月11日财报、回款/库存和未来12个月资金；资助资金缺口无方案则暂停。价跌伴随客户/良率恶化时不启用。\",\n      \"dollars\": 700,\n      \"shares\": 239\n    },\n    {\n      \"tier\": \"discount\",\n      \"high\": 2.25,\n      \"low\": 1.35,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低基准今日价值×50%，较低2031目标按25%年回报折现$3.37)。先核11月11日财报、回款/库存和未来12个月资金；资助资金缺口无方案则暂停。低于1.35美元重新尽调，禁止机械补仓。\",\n      \"dollars\": 800,\n      \"shares\": 355\n    }\n  ]\n}\n"
+}

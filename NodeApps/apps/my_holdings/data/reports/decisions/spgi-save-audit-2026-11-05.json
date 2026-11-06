@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T09:41:55.104Z",
+  "jobId": "091d97b7-bbad-4045-9759-c4a303e3f977",
+  "reference": {
+    "json": "decisions/spgi-2026-11-05-091d97b7-bbad-4045-9759-c4a303e3f977.json",
+    "report": "decisions/spgi-2026-11-05-091d97b7-bbad-4045-9759-c4a303e3f977.html",
+    "updatedAt": "2026-11-05T09:41:54.545Z",
+    "conclusion": "SPGI适合长期跟踪，但当前不追买。基准今日现金流法$304.81、盈利法$462.16；2031两法$451.32／$699.04，含模型股息五年IRR约-0.4%／8.4%。差距反映资本回报和增长持续期，不是精确合理价。当前新增0%，三档为条件复核区间，不预测股价必跌到那里。"
+  },
+  "beforeRevision": 3410,
+  "afterRevision": 3411,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"SPGI\",\n  \"reference\": {\n    \"json\": \"decisions/spgi-2026-11-05-091d97b7-bbad-4045-9759-c4a303e3f977.json\",\n    \"report\": \"decisions/spgi-2026-11-05-091d97b7-bbad-4045-9759-c4a303e3f977.html\",\n    \"updatedAt\": \"2026-11-05T09:41:54.545Z\",\n    \"conclusion\": \"SPGI适合长期跟踪，但当前不追买。基准今日现金流法$304.81、盈利法$462.16；2031两法$451.32／$699.04，含模型股息五年IRR约-0.4%／8.4%。差距反映资本回报和增长持续期，不是精确合理价。当前新增0%，三档为条件复核区间，不预测股价必跌到那里。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 228.61,\n      \"high\": 259.08,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(保守今日304.81×85%，基准五年价格及逐年股息按12%折现的买价上限273.05)。先核订阅留存、评级发行、AI收入和战略审查。经营恶化时旧价格表失效。\",\n      \"dollars\": 2463.3559780075,\n      \"shares\": 9\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 198.13,\n      \"high\": 228.6,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(保守今日304.81×75%，基准五年价格及逐年股息按12%折现的买价上限273.05)。先核订阅留存、评级发行、AI收入和战略审查。经营恶化时旧价格表失效。\",\n      \"dollars\": 3448.6983692105005,\n      \"shares\": 15\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 152.41,\n      \"high\": 198.12,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(保守今日304.81×65%，基准五年价格及逐年股息按12%折现的买价上限273.05)。先核订阅留存、评级发行、AI收入和战略审查。低于152.41美元须重做尽调，禁止机械补仓。\",\n      \"dollars\": 3941.3695648120006,\n      \"shares\": 19\n    }\n  ]\n}\n"
+}

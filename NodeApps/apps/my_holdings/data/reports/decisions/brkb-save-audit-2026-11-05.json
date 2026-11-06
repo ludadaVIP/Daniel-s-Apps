@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T10:27:21.087Z",
+  "jobId": "dd329d3e-8484-4aaf-b067-8cfffd39731a",
+  "reference": {
+    "json": "decisions/brk-b-2026-11-05-dd329d3e-8484-4aaf-b067-8cfffd39731a.json",
+    "report": "decisions/brk-b-2026-11-05-dd329d3e-8484-4aaf-b067-8cfffd39731a.html",
+    "updatedAt": "2026-11-05T10:27:20.554Z",
+    "conclusion": "基准今日剩余收益法$463.21、分部净资产法$470.52；2031分别$696.51／$619.97。按583.83买入，五年价格年化约3.6%／1.2%，未假设分红。当前不新增，条件目标3%，先复核11月7日三季报；公司强不等于购买价不会亏。"
+  },
+  "beforeRevision": 3418,
+  "afterRevision": 3419,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"BRK.B\",\n  \"reference\": {\n    \"json\": \"decisions/brk-b-2026-11-05-dd329d3e-8484-4aaf-b067-8cfffd39731a.json\",\n    \"report\": \"decisions/brk-b-2026-11-05-dd329d3e-8484-4aaf-b067-8cfffd39731a.html\",\n    \"updatedAt\": \"2026-11-05T10:27:20.554Z\",\n    \"conclusion\": \"基准今日剩余收益法$463.21、分部净资产法$470.52；2031分别$696.51／$619.97。按583.83买入，五年价格年化约3.6%／1.2%，未假设分红。当前不新增，条件目标3%，先复核11月7日三季报；公司强不等于购买价不会亏。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 347.41,\n      \"high\": 351.78,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低今日价值463.21×85%，两法较低2031价按12%回报折现351.79)。须先核11月7日资产/承保/资本投入。灾害损失或资本配置恶化则重估。\",\n      \"dollars\": 2714.725296,\n      \"shares\": 7\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 301.09,\n      \"high\": 347.4,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低今日价值463.21×75%，两法较低2031价按12%回报折现351.79)。须先核11月7日资产/承保/资本投入。灾害损失或资本配置恶化则重估。\",\n      \"dollars\": 3800.6154144,\n      \"shares\": 10\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 231.61,\n      \"high\": 301.08,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低今日价值463.21×65%，两法较低2031价按12%回报折现351.79)。须先核11月7日资产/承保/资本投入。低于231.61重新尽调，不机械补仓。\",\n      \"dollars\": 4343.5604736000005,\n      \"shares\": 14\n    }\n  ]\n}\n"
+}

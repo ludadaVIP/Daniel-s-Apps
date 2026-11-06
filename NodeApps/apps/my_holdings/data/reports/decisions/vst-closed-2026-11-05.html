@@ -1,0 +1,917 @@
+<!DOCTYPE html>
+<!-- saved from url=(0049)https://www.vistracorp.com/about/core-principles/ -->
+<html lang="en-US">
+   <head>
+<!-- begin spin_special_output(head_start) -->
+<script type="text/javascript" wd_script_id="view_printable_script" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA==">
+	function view_printable() {
+		var loc = window.location;
+		var sep = (loc.search == "") ? "?" : "&";
+		var url = loc.protocol+"//"+loc.host+loc.pathname+loc.search+sep+"printable"+loc.hash;
+		window.open(url, "_blank", "");
+	}
+</script>
+<link href="thirdparty/font-awesome/css/font-awesome.min.css" type="text/css" rel="stylesheet" wd_script_id="font-awesome.min.css">
+<script type="text/javascript" src="js/wd_pdf_fallback.js" wd_script_id="wd_pdf_fallback.js" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA=="></script>
+<style type="text/css" wd_script_id="toolbar_style" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA==">
+			div.wd_toolbar {
+				border-top: 1px solid #cccccc;
+				border-bottom: 1px solid #cccccc;
+				margin: 15px 0px 15px 0px;
+				padding: 5px;
+				line-height: 1;
+			}
+			div.wd_toolbar-page {
+				clear: both;
+			}
+			div.wd_toolbar ul.wd_tools {
+				display: inline-block;
+				width: 100%;
+				margin: 0;
+				padding: 5px 0;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool {
+				display: block;
+				list-style-type: none;
+				margin-right: 5px;
+				padding: 0;
+				float: right;
+			}
+			span.wd_tool_icon > a:link,
+			span.wd_tool_icon > a:visited {
+				border-radius: 2px;
+				display: inline-block;
+				width: 30px;
+				height: 30px;
+				box-sizing: border-box;
+				margin: 0;
+				padding: 7px;
+				font-size: 16px;
+				line-height: 1;
+				text-align: center;
+				color: #ffffff;
+				background-color: #767676;
+			} 
+			span.wd_tool_icon > a:hover {
+				color: #ffffff;
+				background-color: #666666;
+				text-decoration: none;
+			}
+			div.wd_toolbar ul.wd_tools li.wd_tool-addthis {
+				float: left;
+			}
+		</style>
+<script type="text/javascript" src="js/jquery-webdriver.js" wd_script_id="jquery-webdriver.js" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA=="></script>
+<script type="text/javascript" src="js/webdriver.js" wd_script_id="webdriver.js" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA=="></script>
+<script type="text/javascript" src="js/wd_resize.js" wd_script_id="wd_resize.js" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA=="></script>
+<script type="text/javascript" wd_script_id="format_news_script" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA==">
+(function($) {
+	webDriver.formatNews = function() {
+		var $news = $(this);
+		var print_url = $news.attr("wd_print_url");
+		$news.find("table").each(function() {
+			var $table = $(this);
+			var $parent = $table.parent();
+			if ($parent.innerWidth() < $table.outerWidth()) {
+				if ($parent.hasClass("wd_news_table")) {
+					$parent.find(".fullscreen-button").show();
+				} else {
+					var $btn = $("<button>View News Release Full Screen</button>")
+						.addClass("fullscreen-button")
+						.on("click", function() {
+							if (print_url)
+								window.open(print_url, "_blank", "");
+							else
+								view_printable();
+						})
+					;
+
+					var $div = $("<div></div>)")
+						.addClass("wd_news_table")
+						.css("overflow-x", "auto")
+						.append($btn)
+					;
+
+					$table.replaceWith($div);
+					$div.append($table);
+				}
+			} else {
+				if ($parent.hasClass("wd_news_table"))
+					$parent.find(".fullscreen-button").hide();
+			}
+		});
+	}
+})(webDriver.jQuery);
+</script>
+<style type="text/css" wd_script_id="template detail:newsfeed_releases:system style" nonce="ZTEwYTQzODM1ZTVmNjZlMGRhN2I3NmM2ZDViZWUyODYxNjYxYWU4NA==">
+.wd_title {
+	font-size: 1.3em;
+	font-weight: bold;
+}
+.wd_subtitle {
+	font-weight: bold;
+}
+table.wd_extimagetable {
+	border-style: none; 
+	border-spacing:0px;
+	clear: right; 
+	float: right; 
+}
+td.wd_extimagecell {
+	text-align: right; 
+	margin: 0px 0px 5px 5px;
+	padding:0px;
+}
+td.wd_extimagecell img {
+	padding-left:10px;
+	padding-bottom:10px;
+	border-style: none; 
+}
+blockquote.wd_pullquote {
+	font-style: italic;
+	width:200px;
+	margin:0 0 20px 20px;
+	line-height: 1.8em;
+	float: right;
+	clear: right;
+}
+blockquote.wd_pullquote:before {
+	content: "“ ";
+	font-size: xx-large;
+}
+blockquote.wd_pullquote:after {
+	content: " ”";
+	font-size: xx-large;
+	float: right;
+}
+.fullscreen-button {
+	border: 1px solid #d1d1d1;
+	background: #e3e3e3 url(images/webdriver/view_full_screen_button_background.png) no-repeat;
+	padding: 3px 3px 3px 30px;
+	margin: 5px 0px 5px 0px;
+	color: #727272;
+	width: 220px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	cursor: pointer;
+}
+.wd_contact {
+	margin: 1em 0;
+}
+.wd_release_data {
+	margin: 1em 0;
+}
+.wd_caption {
+	text-align: center;
+	font-size: 0.72em;
+	font-style: italic;
+	margin: 1em 0 0 0;
+}
+</style>
+
+<!-- end spin_special_output(head_start) -->
+
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=0.8">
+      <link href="css2/css2.css" rel="stylesheet">
+      <title>Vistra Completes Acquisition of Cogentrix Energy, Expanding Diverse Generation Fleet - Oct 30, 2026</title>
+	   
+ <meta name="keywords" content="" />
+ <meta name="description" content="" />
+ <meta name="twitter:card" content="summary" />
+ <meta name="twitter:title" content="Vistra Completes Acquisition of Cogentrix Energy, Expanding Diverse Generation Fleet" />
+ <meta name="twitter:description" content="Approximately 5,500 megawatts of modern natural gas capacity in key markets enhance company's ability to meet customer needs IRVING, Texas, Oct. 30, 2026 /PRNewswire/ -- Vistra Corp. (NYSE: VST)..." />
+ <meta name="twitter:image" content="https://mmx.prnewswire.com/media/MS1239707/Vistra-Corp-Logo.jpg?id=OA3049900&amp;p=twitter" />
+ <meta property="og:site_name" content="Vistra Corp. Investor Relations" />
+ <meta property="og:url" content="https://investor.vistracorp.com/2026-10-30-Vistra-Completes-Acquisition-of-Cogentrix-Energy,-Expanding-Diverse-Generation-Fleet" />
+ <meta property="og:title" content="Vistra Completes Acquisition of Cogentrix Energy, Expanding Diverse Generation Fleet" />
+ <meta property="og:description" content="Approximately 5,500 megawatts of modern natural gas capacity in key markets enhance company's ability to meet customer needs IRVING, Texas, Oct. 30, 2026 /PRNewswire/ -- Vistra Corp. (NYSE: VST)..." />
+ <meta name="image" property="og:image" content="https://mmx.prnewswire.com/media/MS1239707/Vistra-Corp-Logo.jpg?id=OA3049900&amp;p=facebook" />
+      <link rel="dns-prefetch" href="https://fonts.googleapis.com/">
+      <link rel="dns-prefetch" href="https://cdn.jsdelivr.net/">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+      <link rel="stylesheet" id="wp-block-library-css" href="css/style.min.css" type="text/css" media="all">
+      <link rel="stylesheet" id="M-Style-Bundle-css" href="css/Materializer-bundle.css" type="text/css" media="all">
+      <link rel="stylesheet" id="wpmm-frontend-css" href="css/style.css" type="text/css" media="all">
+      <link rel="stylesheet" id="wpmm-responsive-stylesheet-css" href="css/responsive.css" type="text/css" media="all">
+      <link rel="stylesheet" id="wpmm-animate-css-css" href="css/animate.css" type="text/css" media="all">
+      <link rel="stylesheet" id="wpmm-frontwalker-stylesheet-css" href="css/frontend_walker.css" type="text/css" media="all">
+      <link crossorigin="anonymous" rel="stylesheet" id="wpmm-google-fonts-style-css" href="css/css.css" type="text/css" media="all">
+      <link rel="stylesheet" id="wpmegamenu-fontawesome-css" href="css/font-awesome.min.css" type="text/css" media="all">
+      <link rel="stylesheet" id="wpmegamenu-genericons-css" href="css/genericons.css" type="text/css" media="all">
+      <link rel="stylesheet" id="dashicons-css" href="css/dashicons.min.css" type="text/css" media="all">
+      <link rel="stylesheet" id="parent-style-css" href="css/style(1).css" type="text/css" media="all">
+      <link rel="stylesheet" id="child-style-css" href="css/style(2).css" type="text/css" media="all">
+      <link crossorigin="anonymous" rel="stylesheet" id="materialist-google-fonts-css" href="css/css(1).css" type="text/css" media="all">
+      <link rel="stylesheet" id="materialist-style-css" href="css/style(2).css" type="text/css" media="all">
+      <link rel="stylesheet" id="js_composer_front-css" href="css/js_composer.min.css" type="text/css" media="all">
+      <link rel="stylesheet" id="bfa-font-awesome-css" href="css/font-awesome.min(1).css" type="text/css" media="all">
+
+      <!-- IrwinIQ Tag Manager -->
+      <script>
+      (function(w,d){
+         var _mtm = w._mtm = w._mtm || [];
+         _mtm.push({'mtm.startTime': (new Date().getTime()), 'event': 'mtm.Start'});
+         var g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+         g.async=true; g.src='https://analytics.imirwin.com/js/container_Cjkoc1A7.js'; s.parentNode.insertBefore(g,s);
+      })(window, document);
+      </script>
+      <!-- End IrwinIQ Tag Manager -->
+      
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+       <script type="text/javascript" src="js/jquery-migrate.min.js" id="jquery-migrate-js"></script> <script type="text/javascript" id="wp_megamenu-frontend_scripts-js-extra">var wp_megamenu_params={"wpmm_mobile_toggle_option":"toggle_accordion","wpmm_event_behavior":"click_submenu","wpmm_ajaxurl":"https:\/\/www.vistracorp.com\/wp-admin\/admin-ajax.php","wpmm_ajax_nonce":"3ee0c174fa","check_woocommerce_enabled":"false","wpmm_mlabel_animation_type":"none","wpmm_animation_delay":"","wpmm_animation_duration":"","wpmm_animation_iteration_count":"1","enable_mobile":"1"};</script> <script type="text/javascript" src="js/frontend.js" id="wp_megamenu-frontend_scripts-js"></script> <script type="text/javascript" src="js/materialist.js" id="materialist-script-js"></script> 
+       <script>(function(d){var s = d.createElement("script");s.setAttribute("data-account", "nykSeGlxhw");s.setAttribute("src", "https://accessibilityserver.org/widget.js");(d.body || d.head).appendChild(s);})(document)</script><noscript>Please ensure Javascript is enabled for purposes of <a href="https://accessibilityserver.org">website accessibility</a></noscript>
+      <link rel="https://api.w.org/" href="https://www.vistracorp.com/wp-json/">
+      <link rel="alternate" type="application/json" href="https://www.vistracorp.com/wp-json/wp/v2/pages/117">
+      <link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://www.vistracorp.com/xmlrpc.php?rsd">
+      <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="https://www.vistracorp.com/wp-includes/wlwmanifest.xml">
+      <link rel="shortlink" href="https://www.vistracorp.com/?p=117">
+      <link rel="alternate" type="application/json+oembed" href="https://www.vistracorp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.vistracorp.com%2Fabout%2Fcore-principles%2F">
+      <link rel="alternate" type="text/xml+oembed" href="https://www.vistracorp.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fwww.vistracorp.com%2Fabout%2Fcore-principles%2F&amp;format=xml"> 
+      <!--[if IE 9]> <script>var _gambitParallaxIE9=true;</script> <![endif]-->
+      <style type="text/css">.wp-megamenu-main-wrapper .wpmm-mega-menu-icon{font-size:13px}padding-left: 0 0 0 10em;</style>
+      <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress.">
+      <link rel="amphtml" href="https://www.vistracorp.com/about/core-principles/?amp">
+      <link rel="icon" href="https://www.vistracorp.com/wp-content/uploads/2016/10/cropped-cropped-site-icon-1-32x32.png" sizes="32x32">
+      <link rel="icon" href="https://www.vistracorp.com/wp-content/uploads/2016/10/cropped-cropped-site-icon-1-192x192.png" sizes="192x192">
+      <link rel="apple-touch-icon" href="https://www.vistracorp.com/wp-content/uploads/2016/10/cropped-cropped-site-icon-1-180x180.png">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" integrity="sha512-5A8nwdMOWrSz20fDsjczgUidUBR8liPYU+WymTZP1lmY9G6Oc7HlZv156XqnsgNUzTyMefFTcsFH/tnJE/+xBg==" crossorigin="anonymous" />
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;700&display=swap" rel="stylesheet"> 
+      <link rel="stylesheet" type="text/css" href="css/wdcontent.css">
+      <meta name="msapplication-TileImage" content="https://www.vistracorp.com/wp-content/uploads/2016/10/cropped-cropped-site-icon-1-270x270.png">
+      <style type="text/css" id="wp-custom-css">body,button,input,select,textarea{color:#666;font-family:"Montserrat",Helvetica,Arial,sans-serif;font-size:12px;font-size:1rem;font-weight:400}.widget_recent_entries li a:before,
+         .widget_pages li a:before,
+         .widget_meta li a:before,
+         .widget_nav_menu li a:before{background:#003F6e}.page .entry-title{padding:20px
+         50px 10px;display:block;font-size:44px;font-size:3.4rem;font-family:'Montserrat',sans-serif;font-weight:700;color:#003f6e}.uc_side_content .uc_side_content_content
+         .uc_paragraph{font-size:1em;font-family:'Montserrat',sans-serif;line-height:22px}.uc_solid_side_content .uc_solid_side_content_content
+         .uc_paragraph{font-size:1em;font-family:'Montserrat',sans-serif;line-height:22px}.wpmm-mega-menu-href-title{font-family:'Montserrat',sans-serif;font-weight:300;font-size:13px}
+      </style>
+      <style type="text/css" data-type="vc_custom-css">.page .entry-title{padding:0
+         50px 10px;display:none;font-size:44px;font-size:4.4rem;visibility:hidden}.entry-content{margin:0}
+      </style>
+      <style type="text/css" data-type="vc_shortcodes-custom-css">.vc_custom_1600333750708{background-image:url(https://www.vistracorp.com/wp-content/uploads/2020/09/core-values-scaled.jpg?id=15320) !important}</style>
+      <noscript>
+         <style>.wpb_animate_when_almost_visible{opacity:1}</style>
+      </noscript>
+   
+   
+<!-- begin spin_special_output(head_end) -->
+<link rel="canonical" href="https://investor.vistracorp.com/2026-10-30-Vistra-Completes-Acquisition-of-Cogentrix-Energy,-Expanding-Diverse-Generation-Fleet" />
+<!-- end spin_special_output(head_end) -->
+</head>
+   <body class="wd_pageid_43 wd_item_page wd_item_372 page-template-default page page-id-117 page-child parent-pageid-116 wpb-js-composer js-comp-ver-6.6.0 vc_responsive">
+      <div id="page" class="hfeed site">
+         <div id="page" class="hfeed site">
+            <a class="skip-link screen-reader-text" href="https://www.vistracorp.com/about/core-principles/#content">Skip to content</a>
+            <nav id="top-navigation">
+               <a href="https://www.vistracorp.com/about/core-principles/#drawer" data-target-id="drawer" class="genericon genericon-menu toggle-button"><span class="label">Navigation</span></a>
+               <h3 class="site-title-nav"><a href="https://www.vistracorp.com/" rel="home">Vistra Corp.</a></h3>
+            </nav>
+            <header id="masthead" class="site-header" role="banner">
+               <div class="site-branding">
+                  <h1 class="site-title"><a href="https://www.vistracorp.com/" rel="home"><img src="images/Vistra-Energy.png"></a></h1>
+                  <h2 class="site-description"></h2>
+               </div>
+            </header>
+     
+               <div id="content" class="site-content">
+                  <div id="header-menu">
+                     <link rel="stylesheet" id="edn-google-fonts-style-css" href="css/css(2).css" type="text/css" media="all">
+                     <link rel="stylesheet" id="edn-google-fonts-style-css" href="css/css(2).css" type="text/css" media="all">
+                     <link rel="stylesheet" id="edn-google-fonts-style-css" href="css/css(2).css" type="text/css" media="all">
+                     <link rel="stylesheet" id="edn-google-fonts-style-css" href="css/css(2).css" type="text/css" media="all">
+                     <link rel="stylesheet" id="edn-google-fonts-style-css" href="css/css(2).css" type="text/css" media="all">
+                     <style>.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal,.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical{background:#003f6e}.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul li h4.wpmm-mega-block-title::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul li.wp-mega-menu-header>a.wp-mega-menu-link::before{background:#003f6e;bottom:0;content:"";height:1px;position:absolute;width:30px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal,.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical{border-radius:0px 0px 0px 0px;margin-top:0px;margin-bottom:0px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper{text-align:left}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal{width:100%}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper > li > a,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical ul.wpmm-mega-wrapper>li>a{color:#fff}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper > li > a,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical ul.wpmm-mega-wrapper>li>a{font-size:13px;font-family:Open Sans;font-weight:normal;line-height:1;text-transform:normal;text-decoration:none}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper>li>a{padding:20px
+                        22px 25px 20px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper > li:hover,
+                        .wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical ul.wpmm-mega-wrapper>li:hover{background:#63a70a}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper>li:hover>a{font-weight:normal;text-decoration:none}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper>li>a::before{background:rgb(255,255,255);opacity:0.5;content:"";height:100%;position:absolute;right:0;top:0;width:1px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-mega-wrapper>li.current-menu-item>a{color:#fff !important}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap{background:#fff}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap{width:100%;padding-top:15px;padding-bottom:5px;padding-left:8px;padding-right:8px;border:1px
+                        solid #fff;border-radius:0px;box-shadow:0 3px 3px rgba(0, 0, 0, 0.2)}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul li h4.wpmm-mega-block-title,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul li.wp-mega-menu-header > a.wp-mega-menu-link span.wpmm-mega-menu-href-title{color:#00000;font-size:14px;font-weight:bold;text-transform:normal;font-family:Open Sans;text-decoration:none;margin-bottom:10px;margin-top:0px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul li h4.wpmm-mega-block-title:hover,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul li.wp-mega-menu-header > a.wp-mega-menu-link span.wpmm-mega-menu-href-title:hover{color:#00000;font-weight:bold;text-decoration:none;cursor:pointer}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul
+                        li{color:#00000;font-family:Open Sans}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper
+                        li .wpmm-sub-menu-wrap ul.wp-mega-sub-menu>li>a{color:#00000;font-family:Open Sans}.wpmm_megamenu .wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-sub-menu-wrap ul
+                        li{font-size: }.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li ul.wp-mega-sub-menu li div.woocommerce ul.products li a
+                        h3{color:#00000}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li ul.wp-mega-sub-menu li div.woocommerce ul.products li a span.price ins,
+                        .wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li ul.wp-mega-sub-menu li div.woocommerce ul.products li a span.price .woocommerce-Price-amount{color:#00000}.wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu li .wpmm-sub-menu-wrapper.wpmm_menu_1 li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_pages li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_categories li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_archive li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_meta li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_recent_comments li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_recent_entries li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_product_categories ul.product-categories li a::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_categories li::before,
+                        .wpmm-ctheme-wrapper.wpmega-default-theme .wp-mega-sub-menu .widget_archive li::before{color:#00000}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul ul li a:hover,
+                        .wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul ul li a,
+                        .wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul ul li a:focus{color:#00000}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wp-mega-sub-menu li.wpmm-custom-post-settings.wpmega-image-left .wpmm-custom-postimage span.wpmm-mega-menu-href-title,
+                        .wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wp-mega-sub-menu li.wpmm-custom-post-settings.wpmega-image-top .wpmm-custom-postimage span.wpmm-mega-menu-href-title{color:#00000}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap
+                        span.wpmm_megamenu_topcontent{font-size:13px;color:#000;font-family:Open Sans;font-weight:normal;text-transform:normal;margin-left:0px;margin-right:0px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap
+                        .top_clearfix{margin-bottom:10px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap .wpmm-topimage{margin-left:0px;margin-right:0px;margin-top:0px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap .wpmm-ctop{margin-left:0px;margin-right:0px;margin-top:0px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap
+                        span.wpmm_megamenu_bottomcontent{font-size:13px;color:#000;font-family:Open Sans;font-weight:normal;text-transform:normal;margin-left:0px;margin-right:0px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap
+                        .bottom_clearfix{margin-top:10px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap .wpmm-bottomimage{margin-left:0px;margin-right:0px;margin-bottom:0px}.wpmm_megamenu .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li .wpmm-sub-menu-wrap .wpmm-cbottom{margin-left:0px;margin-right:0px;margin-bottom:0px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmega-menu-flyout
+                        ul{background:rgba(93,165,0,0.86)}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmega-menu-flyout
+                        ul{width:210px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmega-menu-flyout ul.wp-mega-sub-menu li:hover>a{background:#63a70a}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmega-menu-flyout.wpmega-flyout-horizontal-left ul.wp-mega-sub-menu
+                        li{margin:0px
+                        5px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmega-menu-flyout.wpmega-flyout-horizontal-left ul.wp-mega-sub-menu li a.wp-mega-menu-link{padding:10px}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmega-menu-flyout ul.wp-mega-sub-menu li
+                        a{color:#fff;font-size:12px;font-weight:normal;text-transform:normal;font-family:Open Sans;text-decoration:none}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmega-menu-flyout ul.wp-mega-sub-menu li:hover
+                        a{color:#fff;font-weight:normal;text-decoration:none}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper li.wpmm-menu-align-right.wpmm-search-type .wpmm-sub-menu-wrap
+                        .megamenu-type-search input.search-submit[type="submit"]{font-size:10px;color:#fffff;background:#5ec073}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme ul.wpmm-mega-wrapper
+                        li.wpmm-menu-align-right.wpmm-search-type .wpmm-sub-menu-wrap .megamenu-type-search input.search-field[type="search"]{width:182px;color:#ccc}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-search-type  > .wpmm-mega-menu-icon > i.fa-search,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-search-type  > .wpmm-mega-menu-icon > i.genericon-search,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-search-type>.wpmm-mega-menu-icon>i.dashicons-search{color:#fff}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmm-mega-wrapper .wpmega-searchinline input.search-field{width:182px}@media (max-width: 910px){.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-horizontal,.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme.wpmm-orientation-vertical{background:#63a70a}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmegamenu-toggle{display:block !important;height:0;background:rgba(99,167,10,0);text-align:left}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmegamenu-toggle .wpmega-closeblock{display:none}.main-navigation button.menu-toggle{display:none}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmegamenu-toggle .wpmega-openblock,
+                        .wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .wpmegamenu-toggle .wpmega-closeblock{color:#fff}.wp-megamenu-main-wrapper.wpmm-ctheme-wrapper.wpmega-default-theme .close-primary{color:#fff}}
+                     </style>
+                     <div id="wpmm-wrap-header-menu" class="wp-megamenu-main-wrapper wpmm-ctheme-wrapper wpmega-default-theme wpmega-enabled-mobile-menu wpmm-toggle-accordion wpmm-onhover wpmm-orientation-horizontal  wpmm-fade">
+                        <div class="wpmegamenu-toggle wpmega-enabled-menutoggle" data-responsive-breakpoint="910px">
+                           <div class="wp-mega-toggle-block">
+                              <div class="wpmega-closeblock"><i class="dashicons dashicons-menu"></i></div>
+                              <div class="wpmega-openblock"><i class="dashicons dashicons-arrow-down-alt2"></i></div>
+                              <div class="menutoggle">Menu</div>
+                           </div>
+                        </div>
+                        <ul id="wpmega-menu-header-menu" class="wpmm-mega-wrapper" data-advanced-click="wpmm-click-submenu">
+                           <li class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-menu-ancestor current-menu-parent current-page-parent current_page_parent current_page_ancestor menu-item-has-children wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-15301 menu-item-depth-0 no-dropdown" id="wp_nav_menu-item-15301">
+                              <a class="wp-mega-menu-link" href="https://www.vistracorp.com/about/"><span class="wpmm-mega-menu-href-title">Our Company</span></a>
+                              <div class="wpmm-sub-menu-wrapper wpmm-menu0">
+                                 <ul class="wp-mega-sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-15319">
+                                       <a class="wp-mega-menu-link" href="https://www.vistracorp.com/about/leadership/"><span class="wpmm-mega-menu-href-title">Leadership</span></a>
+                                       <div class="wpmm-sub-menu-wrapper wpmm-menu1">
+                                          <ul class="wp-mega-sub-menu">
+                                             <li class="menu-item menu-item-type-custom menu-item-object-custom wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15316 menu-item-depth-2 no-dropdown" id="wp_nav_menu-item-15316"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/leadership/#management"><span class="wpmm-mega-menu-href-title">Management</span></a></li>
+                                             <li class="menu-item menu-item-type-custom menu-item-object-custom wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15318 menu-item-depth-2 no-dropdown" id="wp_nav_menu-item-15318"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/leadership/#board"><span class="wpmm-mega-menu-href-title">Board of Directors</span></a></li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-117 current_page_item menu-item-has-children wp-mega-menu-header wpmega-show-arrow wpmega-enable-single-menu wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-138 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-138">
+                                       <a class="wpmm-csingle-menu" href="https://www.vistracorp.com/about/core-principles/"><span class="wpmm-mega-menu-href-title">Core Principles</span></a>
+                                       <div class="wpmm-sub-menu-wrapper wpmm-menu1">
+                                          <ul class="wp-mega-sub-menu">
+                                             <li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown" id="wp_nav_menu-item-230"><a class="wpmm-csingle-menu" href="https://www.vistracorp.com/code-of-conduct/"><span class="wpmm-mega-menu-href-title">Code of Conduct</span></a></li>
+                                          </ul>
+                                       </div>
+                                    </li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15303 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-15303"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/retail/"><span class="wpmm-mega-menu-href-title">Retail</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15302 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-15302"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/generation/"><span class="wpmm-mega-menu-href-title">Generation</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-549 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-549"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/supply-chain/"><span class="wpmm-mega-menu-href-title">Supply Chain</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-134 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-134"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/history/"><span class="wpmm-mega-menu-href-title">History</span></a></li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="menu-item menu-item-type-custom menu-item-object-custom wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-266 menu-item-depth-0 no-dropdown" id="wp_nav_menu-item-266"><a class="wp-mega-menu-link" href="https://investor.vistracorp.com/overview"><span class="wpmm-mega-menu-href-title">Investor Relations</span></a>
+                              <div class="wpmm-sub-menu-wrapper wpmm-menu0">
+                                 <ul class="wp-mega-sub-menu">
+
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page  wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown"><a class="wp-mega-menu-link" href="https://investor.vistracorp.com/overview" target="_self"><span class="wpmm-mega-menu-href-title">Overview</span></a>
+</li>
+
+
+
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown"><a class="wp-mega-menu-link" href="https://investor.vistracorp.com/financials" target="_self"><span class="wpmm-mega-menu-href-title">Financials</span></a>
+<div class="wpmm-sub-menu-wrapper wpmm-menu1">
+<ul class="wp-mega-sub-menu">
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="financials" target="_self"><span class="wpmm-mega-menu-href-title">Financials</span></a></li>
+
+
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://investor.vistracorp.com/sec-filings" target="_self"><span class="wpmm-mega-menu-href-title">SEC Filings</span></a></li>
+
+
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://investor.vistracorp.com/otc-filings" target="_self"><span class="wpmm-mega-menu-href-title">OTC Filings</span></a></li>
+
+
+</ul>
+</div>
+
+
+</li>
+
+
+
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown"><a class="wp-mega-menu-link" href="https://investor.vistracorp.com/stock-information" target="_self"><span class="wpmm-mega-menu-href-title">Stock Information</span></a>
+<div class="wpmm-sub-menu-wrapper wpmm-menu1">
+<ul class="wp-mega-sub-menu">
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://investor.vistracorp.com/historical-stock-price" target="_self"><span class="wpmm-mega-menu-href-title">Historical Stock Price</span></a></li>
+
+
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://investor.vistracorp.com/dividends" target="_self"><span class="wpmm-mega-menu-href-title">Dividends</span></a></li>
+
+
+</ul>
+</div>
+
+
+</li>
+
+
+
+
+<li class="on menu-item menu-item-type-post_type menu-item-object-page   wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown"><a class="on wp-mega-menu-link" href="https://investor.vistracorp.com/news" target="_self"><span class="wpmm-mega-menu-href-title">News</span></a>
+</li>
+
+
+
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page  wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown"><a class="wp-mega-menu-link" href="https://investor.vistracorp.com/events-and-presentations" target="_self"><span class="wpmm-mega-menu-href-title">Events & Presentations</span></a>
+</li>
+
+
+
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown"><a class="wp-mega-menu-link" href="investor-faqs" target="_self"><span class="wpmm-mega-menu-href-title">Resources</span></a>
+<div class="wpmm-sub-menu-wrapper wpmm-menu1">
+<ul class="wp-mega-sub-menu">
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://investor.vistracorp.com/investor-faqs" target="_self"><span class="wpmm-mega-menu-href-title">Investor FAQ's</span></a></li>
+
+
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://vistracorp.com/sustainability/sustainable-finance/" target="_self"><span class="wpmm-mega-menu-href-title">Sustainable Finance</span></a></li>
+
+
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://investor.vistracorp.com/tax-information" target="_self"><span class="wpmm-mega-menu-href-title">Tax Information</span></a></li>
+
+
+
+
+	<li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-show-arrow wpmega-enable-single-menu wpmm-menu-align-left wpmega-hide-menu-icon menu-item-230 menu-item-depth-2 no-dropdown"><a href="https://investor.vistracorp.com/email-alerts" target="_self"><span class="wpmm-mega-menu-href-title">Email Alerts</span></a></li>
+
+
+</ul>
+</div>
+
+
+</li>
+
+
+
+
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-right wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15319 menu-item-depth-1 no-dropdown"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/sustainability" target="_self"><span class="wpmm-mega-menu-href-title">Sustainability</span></a>
+</li>
+
+
+</ul>
+
+
+                              </div>
+                           </li>
+                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-15093 menu-item-depth-0 no-dropdown" id="wp_nav_menu-item-15093">
+                              <a class="wp-mega-menu-link" href="https://www.vistracorp.com/sustainability/"><span class="wpmm-mega-menu-href-title">Sustainability</span></a>
+                              <div class="wpmm-sub-menu-wrapper wpmm-menu0">
+                                 <ul class="wp-mega-sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-288 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-288"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/about/community-giving/"><span class="wpmm-mega-menu-href-title">Community Giving</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15585 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-15585"><a class="wp-mega-menu-link" href="https://vistracorp.com/diversity-equity-and-inclusion/"><span class="wpmm-mega-menu-href-title">Diversity, Equity, and Inclusion</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15417 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-15417"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/vistra-zero/"><span class="wpmm-mega-menu-href-title">Vistra Zero</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15643 menu-item-depth-1 no-dropdown" id="wp_nav_menu-item-15643" role="menuitem"><a class="wp-mega-menu-link" href="https://vistracorp.com/sustainability/reporting/" data-uw-rm-brl="false"><span class="wpmm-mega-menu-href-title">Resources &amp; Reporting</span></a></li>
+                                 </ul>
+                              </div>
+                           </li>
+                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-15093 menu-item-depth-0 no-dropdown" id="wp_nav_menu-item-15098">
+                              <a class="wp-mega-menu-link" href="https://www.vistracorp.com/corporate-governance/"><span class="wpmm-mega-menu-href-title">Governance</span></a>
+                           </li>
+                           <li class="menu-item menu-item-type-post_type menu-item-object-page wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-146 menu-item-depth-0 no-dropdown" id="wp_nav_menu-item-146"><a class="wp-mega-menu-link" href="https://www.vistracorp.com/careers/"><span class="wpmm-mega-menu-href-title">Careers</span></a></li>
+                           <li class="menu-item menu-item-type-custom menu-item-object-custom wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-15305 menu-item-depth-0 no-dropdown" id="wp_nav_menu-item-15305"><a class="wp-mega-menu-link" href="https://investor.vistracorp.com/investor-relations/news/default.aspx"><span class="wpmm-mega-menu-href-title">News</span></a></li>
+
+                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-15093 menu-item-depth-0 no-dropdown" id="">
+                              <a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/"><span class="wpmm-mega-menu-href-title">Vistra Voice</span></a>
+                              <div class="wpmm-sub-menu-wrapper wpmm-menu0">
+                                 <ul class="wp-mega-sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-288 menu-item-depth-1 no-dropdown" id=""><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/lighting-up-peoples-lives/"><span class="wpmm-mega-menu-href-title">Lighting Up Lives</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15585 menu-item-depth-1 no-dropdown" id=""><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/clean-energy-solutions/"><span class="wpmm-mega-menu-href-title">Clean Energy Solutions</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15417 menu-item-depth-1 no-dropdown" id=""><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/industry-outlook/"><span class="wpmm-mega-menu-href-title">Industry Outlook</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15643 menu-item-depth-1 no-dropdown" id="" role="menuitem"><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/powered-by-people/" data-uw-rm-brl="false"><span class="wpmm-mega-menu-href-title">Powered By People</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15643 menu-item-depth-1 no-dropdown" id="" role="menuitem"><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/innovation/" data-uw-rm-brl="false"><span class="wpmm-mega-menu-href-title">Innovation</span></a></li>
+                                 </ul>
+                              </div>
+                           </li>
+
+                           <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children wpmega-menu-flyout wpmega-show-arrow wpmm-menu-align-left wpmega-hide-menu-icon wpmega-flyout-horizontal-right menu-item-15093 menu-item-depth-0 no-dropdown" id="wp_nav_menu-item-15099">
+                              <a class="wp-mega-menu-link" href="contact"><span class="wpmm-mega-menu-href-title">Contact </span></a>
+                           </li>
+                        </ul>
+                        <div class="wpmega-responsive-closebtn" id="close-header-menu">CLOSE</div>
+                     </div>
+                  </div>
+                  
+                  
+               </div>
+                                   <div class="wd_home_hero" style="background-image: url(/image/vst-general-bkg-01.png);">
+                        <div class="wd_header_content">
+                                                    </div>
+                    </div><!-- END HOME HERO -->
+                    
+                    <!-- START NAVIGATION -->
+                    <div class = "mobile-toggler">
+                       <div><p>News Releases</p><span class = "nav-dropdownarrow"></span></div>
+                    </div>
+                    <div class = "nav_container">
+                     <ul class="level-1">
+
+
+<li class=" horizontal_nav_item">
+<a class = "level-1-nav-link" href="https://investor.vistracorp.com/overview" target="_self">Overview</a>
+</li>
+
+
+
+
+<li class="has_children horizontal_nav_item">
+<a class = "level-1-nav-link" href="https://investor.vistracorp.com/financials" target="_self">Financials</a>
+<span class="nav-dropdown"><i class="fas fa-angle-down"></i></span><ul class = "level-2-subnav">
+
+
+<li>
+    <a class = "level-2-nav-link" href="financials" target="_self">Financials</a>
+</li>
+
+
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://investor.vistracorp.com/sec-filings" target="_self">SEC Filings</a>
+</li>
+
+
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://investor.vistracorp.com/otc-filings" target="_self">OTC Filings</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+
+
+<li class="has_children horizontal_nav_item">
+<a class = "level-1-nav-link" href="https://investor.vistracorp.com/stock-information" target="_self">Stock Information</a>
+<span class="nav-dropdown"><i class="fas fa-angle-down"></i></span><ul class = "level-2-subnav">
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://investor.vistracorp.com/historical-stock-price" target="_self">Historical Stock Price</a>
+</li>
+
+
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://investor.vistracorp.com/dividends" target="_self">Dividends</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+
+
+<li class=" on horizontal_nav_item">
+<a class="on level-1-nav-link" href="https://investor.vistracorp.com/news" target="_self">News</a>
+</li>
+
+
+
+
+<li class=" horizontal_nav_item">
+<a class = "level-1-nav-link" href="https://investor.vistracorp.com/events-and-presentations" target="_self">Events & Presentations</a>
+</li>
+
+
+
+
+<li class="has_children horizontal_nav_item">
+<a class = "level-1-nav-link" href="investor-faqs" target="_self">Resources</a>
+<span class="nav-dropdown"><i class="fas fa-angle-down"></i></span><ul class = "level-2-subnav">
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://investor.vistracorp.com/investor-faqs" target="_self">Investor FAQ's</a>
+</li>
+
+
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://vistracorp.com/sustainability/sustainable-finance/" target="_self">Sustainable Finance</a>
+</li>
+
+
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://investor.vistracorp.com/tax-information" target="_self">Tax Information</a>
+</li>
+
+
+
+
+<li>
+    <a class = "level-2-nav-link" href="https://investor.vistracorp.com/email-alerts" target="_self">Email Alerts</a>
+</li>
+
+
+</ul>
+
+
+</li>
+
+
+
+
+<li class="has_children horizontal_nav_item">
+<a class = "level-1-nav-link" href="https://www.vistracorp.com/sustainability" target="_self">Sustainability</a>
+<span class="nav-dropdown"><i class="fas fa-angle-down"></i></span></li>
+
+
+</ul>
+
+
+                    </div>
+                    <!-- END NAVIGATION -->
+
+                    <!-- BEGIN CONTENT-WRAPPER -->	
+                    <div class="wd_content-wrapper-left">
+                        <div class="wd_content">
+
+                        <!-- Featurebox Variables -->
+                                                                                                                         
+                        <div id="wd_printable_content" class="fr-view">
+<div class="wd_newsfeed_releases-detail">
+<div class="wd_title wd_language_left">Vistra Completes Acquisition of Cogentrix Energy, Expanding Diverse Generation Fleet</div>
+
+<div class="wd_toolbar wd_toolbar-detail"><ul class="wd_tools"><li class="wd_tool wd_tool-print"><span class="wd_tool_icon"><a onclick="view_printable(); return false;" rel="nofollow" aria-describedby="newwindow-note" href="#print" title="print"><span class="fa fa-print"></span></a></span></li><li class="wd_tool wd_tool-socialshare_facebook"><span class="wd_tool_icon">
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Finvestor.vistracorp.com%2Findex.php%3Fs%3D43%26item%3D372" target="_blank" title="Facebook Share" style="background-color:#4267B2;">
+                    <span class="fa fa-facebook"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_linkedin"><span class="wd_tool_icon">
+                    <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A%2F%2Finvestor.vistracorp.com%2Findex.php%3Fs%3D43%26item%3D372" target="_blank" title="Linkedin Share" style="background-color:#0077B5;">
+                    <span class="fa fa-linkedin"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-socialshare_twitter"><span class="wd_tool_icon">
+                    <a href="https://twitter.com/share?url=https%3A%2F%2Finvestor.vistracorp.com%2Findex.php%3Fs%3D43%26item%3D372" target="_blank" title="Twitter Share" style="background-color:#000;">
+                    <span class="fa fa-twitter"></span>
+		    <span class="wd_sr-only wd_sr-only-focusable"></span>
+                    </a>
+                </span></li><li class="wd_tool wd_tool-email"><span class="wd_tool_icon"><a onclick="window.location.href = 'mailto:?subject=Vistra%20Completes%20Acquisition%20of%20Cogentrix%20Energy%2C%20Expanding%20Diverse%20Generation%20Fleet%20-%20Oct%2030%2C%202026&amp;body='+encodeURIComponent(window.location.href);return false;" href="#email" title="email"><span class="fa fa-envelope"></span></a></span></li><li class="wd_tool wd_tool-rss"><span class="wd_tool_icon"><a href="https://investor.vistracorp.com/index.php?s=95&amp;rsspage=43" title="rss"><span class="fa fa-rss"></span></a></span></li><li class="wd_tool wd_tool-pdf"><span class="wd_tool_icon"><a href="https://investor.vistracorp.com/2026-10-30-Vistra-Completes-Acquisition-of-Cogentrix-Energy,-Expanding-Diverse-Generation-Fleet?asPDF=1" rel="nofollow" onclick="return wd_download_pdf(this);" title="pdf"><span class="fa fa-file-pdf-o"></span></a></span></li></ul></div>
+
+
+
+			
+		
+
+			
+		
+
+<style type="text/css">
+
+
+/* Style Definitions */
+span.prnews_span
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+a.prnews_a
+{
+color:blue;
+}
+li.prnews_li
+{
+font-size:8pt;
+font-family:"Arial";
+color:black;
+}
+p.prnews_p
+{
+font-size:0.62em;
+font-family:"Arial";
+color:black;
+margin:0in;
+}
+.prngen7{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen5{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 0.5pt solid; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen3{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; TEXT-ALIGN: CENTER; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 0.5pt solid; BORDER-LEFT:black 1pt
+}
+.prngen6{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; BORDER-TOP:black 1pt; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 1pt; BORDER-LEFT:black 1pt
+}
+.prngen8{
+PADDING-RIGHT:0.17em; PADDING-LEFT:0.17em; VERTICAL-ALIGN: BOTTOM; BORDER-TOP:black 0.5pt solid; BORDER-RIGHT:black 1pt; BORDER-BOTTOM:black 0.5pt solid; BORDER-LEFT:black 1pt
+}
+.prnsblb1{
+BORDER-LEFT:black 1pt
+}
+.prnsbbb1{
+BORDER-BOTTOM:black 1pt
+}
+.prnvab{
+VERTICAL-ALIGN: BOTTOM
+}
+.prncbts{
+BORDER-TOP:black 0.5pt solid
+}
+.prnml4{
+MARGIN-TOP:0em; MARGIN-RIGHT:0em; MARGIN-BOTTOM:0em; MARGIN-LEFT:0.33em !IMPORTANT
+}
+.prnbbbs{
+BORDER-BOTTOM:black 0.5pt solid
+}
+.prnsbtb1{
+BORDER-TOP:black 1pt
+}
+.prnpr2{
+PADDING-RIGHT:0.17em
+}
+.prnbcc{
+BORDER-COLLAPSE: COLLAPSE
+}
+.prnpl2{
+PADDING-LEFT:0.17em
+}
+.prntac{
+TEXT-ALIGN: CENTER
+}
+.prnrbrb1{
+BORDER-RIGHT:black 1pt
+}
+
+
+					span.prnews_span{
+						font-size:inherit;
+						font-family:inherit;
+					}
+					li.prnews_li{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+					p.prnews_p{
+						font-size: inherit;
+						font-family: inherit;           
+					}
+				
+					div.PRN_ImbeddedAssetReference{
+						display: none;
+					}
+					div[id^="prni_dvprne"]{
+						display: none;
+					}
+				</style>
+
+<div class="wd_body wd_news_body fr-view" wd_resize="formatNews" wd_print_url="https://investor.vistracorp.com/2026-10-30-Vistra-Completes-Acquisition-of-Cogentrix-Energy,-Expanding-Diverse-Generation-Fleet?printable=1">
+<p class="prntac"><b><i>Approximately 5,500 megawatts of modern natural gas capacity in key markets enhance company's ability to meet customer needs</i></b></p><p><span class="legendSpanClass">IRVING, Texas</span>, <span class="legendSpanClass">Oct. 30, 2026</span> /<a href="http://www.prnewswire.com/" target="_blank">PRNewswire</a>/ -- Vistra Corp. (NYSE: VST) today announced it has completed the acquisition of Cogentrix Energy, consisting of 10 modern natural gas generation facilities totaling approximately 5,500 MW of capacity, from funds managed by Quantum Capital Group. The transaction closing follows receipt of all required regulatory approvals. Combined with Vistra's existing fleet, the additional assets bring Vistra's generation portfolio to nearly 50,000 MW of capacity across the U.S.</p>
+    <div class="PRN_ImbeddedAssetReference" id="DivAssetPlaceHolder1">
+                <p>
+                    <img src="https://mmx.prnewswire.com/media/MS1239707/Vistra-Corp-Logo.jpg?id=OA3049900" title="Vistra Corp. Logo" alt="Vistra Corp. Logo"/>
+                </p>
+    </div>
+<p>With this acquisition, Vistra further expands its diverse generation portfolio, adding efficient combined-cycle combustion turbine and cogeneration assets in some of the most attractive and fastest-growing power regions in the country: PJM, ISO New England, and ERCOT. The closing builds on Vistra's track record of completing and integrating large acquisitions, including Energy Harbor in March 2024, which added approximately 4,000 MW of nuclear generation, and seven natural gas plants from Lotus Infrastructure Partners in October 2025, which added more than 2,300 MW of capacity to Vistra's current fleet.</p><p>"Natural gas plays a critical role in meeting our nation's growing energy needs, and the Cogentrix assets are a strong strategic fit for Vistra as we continue to grow our generation portfolio," said Jim Burke, president and chief executive officer of Vistra. "We're excited to bring these experienced teams together around a shared commitment to safety, operational excellence, and reliability. Our Vistra team knows how to successfully integrate generation assets into our fleet, and we look forward to building on Cogentrix's strengths and delivering long-term value for our stakeholders."</p><p><b>Acquisition of Cogentrix Portfolio</b></p><p><i>Portfolio Overview</i></p><div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prnpr2 prnpl2 prnvab prnsbtb1 prnrbrb1 prnbbbs prnsblb1" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Asset</b></span></p></td><td class="prngen3" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>State</b></span></p></td><td class="prngen3" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>ISO</b></span></p></td><td class="prngen3" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Size (MW)</b></span></p></td><td class="prngen3" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Technology</b></span></p></td></tr><tr><td class="prnpr2 prnpl2 prnvab prncbts prnrbrb1 prnsbbb1 prnsblb1" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Patriot</span></p></td><td class="prngen5" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Pennsylvania</span></p></td><td class="prngen5" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">PJM</span></p></td><td class="prngen5" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">881</span></p></td><td class="prngen5" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CCGT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Hamilton-Liberty</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Pennsylvania</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">PJM</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">881</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CCGT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Lakewood</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">New Jersey</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">PJM</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">286</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CCGT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Rock Springs</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Maryland</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">PJM</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">740</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Ocean</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">New Jersey</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">PJM</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">375</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Newington</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">New Hampshire</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">ISO-NE</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">624</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CCGT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Bridgeport</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Connecticut</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">ISO-NE</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">558</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CCGT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Tiverton</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Rhode Island</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">ISO-NE</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">297</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CCGT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Rumford</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Maine</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">ISO-NE</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">271</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">CCGT</span></p></td></tr><tr><td class="prngen6" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Altura Cogeneration</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Texas</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">ERCOT</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">583</span></p></td><td class="prngen7" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span">Cogeneration</span></p></td></tr><tr><td class="prngen8" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>Total</b></span></p></td><td class="prngen8" colspan="1" rowspan="1"><br/></td><td class="prngen8" colspan="1" rowspan="1"><br/></td><td class="prnpr2 prnpl2 prnvab prntac prncbts prnrbrb1 prnbbbs prnsblb1" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><b>5,496</b></span></p></td><td class="prngen8" colspan="1" rowspan="1"><br/></td></tr></table></div><div><table border="0" cellspacing="0" cellpadding="1" class="prnbcc"><tr><td class="prnpr2 prnpl2 prnsbtb1 prnrbrb1 prnsbbb1 prnsblb1" colspan="1" rowspan="1"><p class="prnml4"><span class="prnews_span"><i><span class="prnews_span">Note: Vistra has acquired 100% ownership in all the above plants, including the 25% interest in the Patriot and Hamilton-Liberty plants not previously owned by Cogentrix.</span></i></span></p></td></tr></table></div><p><b>About</b> <b>Vistra</b> </p><p>Vistra (NYSE: VST) is a leading, Fortune 500 integrated retail electricity and power generation company based in Irving, Texas, that provides essential resources to customers, businesses, and communities from California to Maine. Vistra is a leader in transforming the energy landscape, with an unyielding focus on reliability, affordability, and sustainability. The company safely operates a reliable, efficient power generation fleet of natural gas, nuclear, coal, solar, and battery energy storage facilities while taking an innovative, customer-centric approach to its retail business.</p><p> </p>
+
+
+
+<p>SOURCE Vistra Corp</p></div>
+
+<div class="wd_contact">For further information: Media, Meranda Cohn, 214-875-8004, Media.Relations@vistracorp.com; Analysts, Eric Micek, 214-812-0046, Investor@vistracorp.com</div>
+
+
+ 
+				
+			
+
+<!-- ITEMDATE: 2026-10-30 12:00:00 EDT -->
+
+</div>
+</div>                                                </div><!-- END CONTENT -->
+                    </div><!-- END CONTENT-WRAPPER -->	
+               <div id="drawer">
+                  <div class="drawer-content sliding-content" data-direction="left">
+                     <div class="drawer-header">
+                        <a href="https://www.vistracorp.com/about/core-principles/#" data-target-id="drawer" class="genericon genericon-close-alt toggle-button">
+                        <span class="label">Close Drawer</span>
+                        </a>
+                        <h2 class="site-name">Vistra Corp.</h2>
+                     </div>
+                     <div class="drawer-navigation">
+                        <div class="menu-drawer-menu-container">
+                           <ul id="menu-drawer-menu" class="menu">
+                              <li id="menu-item-158" class="menu-item menu-item-type-post_type menu-item-object-page current-page-ancestor current-page-parent menu-item-158"><a href="https://www.vistracorp.com/about/">Our Company</a></li>
+                              <li id="menu-item-15382" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15382"><a href="https://www.vistracorp.com/about/leadership/">Leadership</a></li>
+                              <li id="menu-item-15383" class="menu-item menu-item-type-post_type menu-item-object-page current-menu-item page_item page-item-117 current_page_item menu-item-15383"><a href="https://www.vistracorp.com/about/core-principles/" aria-current="page">Core Principles</a></li>
+                              <li id="menu-item-15384" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15384"><a href="https://www.vistracorp.com/history/">History</a></li>
+                              <li id="menu-item-15386" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15386"><a href="https://www.vistracorp.com/retail/">Retail</a></li>
+                              <li id="menu-item-15387" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15387"><a href="https://www.vistracorp.com/generation/">Generation</a></li>
+                              <li id="menu-item-279" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-279"><a href="https://investor.vistracorp.com/overview">Investor Relations</a></li>
+                              <li id="menu-item-15094" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15094"><a href="https://www.vistracorp.com/sustainability/">Sustainability</a></li>
+                              <li id="menu-item-15416" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-15416"><a href="https://www.vistracorp.com/vistra-zero/">Vistra Zero</a></li>
+                              <li id="menu-item-282" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-280"><a href="contact">Contact</a></li>
+                              <li id="menu-item-105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105"><a href="https://www.vistracorp.com/corporate-governance/">Governance</a></li>
+                              <li id="menu-item-105" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-105"><a href="https://www.vistracorp.com/careers/">Careers</a></li>
+                              <li id="menu-item-280" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-280"><a href="https://investor.vistracorp.com/news/default.aspx">News</a></li>
+
+                              <li id="" class="test_test menu-item menu-item-type-custom menu-item-object-custom menu-item-280">
+                                 <a href="https://vistracorp.com/vistra-voice/">Vistra Voice</a>
+                                 <div class="wpmm-sub-menu-wrapper wpmm-menu0">
+                                    <ul class="wp-mega-sub-menu">
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-288 menu-item-depth-1 no-dropdown" id=""><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/lighting-up-peoples-lives/"><span class="wpmm-mega-menu-href-title">Lighting Up Lives</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15585 menu-item-depth-1 no-dropdown" id=""><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/clean-energy-solutions/"><span class="wpmm-mega-menu-href-title">Clean Energy Solutions</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15417 menu-item-depth-1 no-dropdown" id=""><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/industry-outlook/"><span class="wpmm-mega-menu-href-title">Industry Outlook</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15643 menu-item-depth-1 no-dropdown" id="" role="menuitem"><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/powered-by-people/" data-uw-rm-brl="false"><span class="wpmm-mega-menu-href-title">Powered By People</span></a></li>
+                                    <li class="menu-item menu-item-type-post_type menu-item-object-page wp-mega-menu-header wpmega-show-arrow wpmm-submenu-align-left wpmm-menu-align-left wpmega-hide-menu-icon menu-item-15643 menu-item-depth-1 no-dropdown" id="" role="menuitem"><a class="wp-mega-menu-link" href="https://vistracorp.com/vistra-voice/innovation/" data-uw-rm-brl="false"><span class="wpmm-mega-menu-href-title">Innovation</span></a></li>
+                                    </ul>
+                                 </div>
+                              </li>
+
+                              <li id="menu-item-281" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-280"><a href="contact">Contact</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="drawer-overlay toggle-button" data-target-id="drawer"></div>
+               </div>
+               <footer id="colophon" class="site-footer" role="contentinfo">
+                  <div class="site-info">
+                     <a href="contact">Contact</a>&nbsp;|&nbsp; <a href="https://www.vistracorp.com/legal-disclaimer/">Legal</a>&nbsp;|&nbsp;<a href="https://www.vistracorp.com/">Home</a>&nbsp;|&nbsp;<a href="https://www.vistracorp.com/privacy-policy/">Privacy Policy</a>&nbsp;|&nbsp;Copyright © 2021
+                     <a href="https://www.vistracorp.com/">
+                     Vistra Corp. All Rights Reserved.</a>
+                  </div>
+               </footer>
+            </div>
+            <link crossorigin="anonymous" rel="stylesheet" id="vc_google_fonts_montserratregular700-css" href="css/css(3).css" type="text/css" media="all">
+            <script type="text/javascript" src="js/skip-link-focus-fix.js" id="materialist-skip-link-focus-fix-js"></script> <script type="text/javascript" src="js/wp-embed.min.js" id="wp-embed-js"></script> <script type="text/javascript" src="js/js_composer_front.min.js" id="wpb_composer_front_js-js"></script> <script type="text/javascript" src="js/skrollr.min.js" id="vc_jquery_skrollr_js-js"></script> 
+            <!--
+               *** This site runs WP Super Minify plugin v1.5.1 - http://wordpress.org/plugins/wp-super-minify ***
+               *** Total size saved: 6.373% | Size before compression: 46945 bytes | Size after compression: 43953 bytes. ***
+               -->
+            <script>
+               $('#wpmega-menu-header-menu #text').remove();
+            </script>
+            <script src="js/wdscripts.js"></script>
+         </div>
+      </div>
+   
+<!-- begin spin_special_output(body_end) -->
+<script wd_script_id="piwik_tracking_code"></script>
+<!-- Piwik Tracking Code -->
+<script type="text/javascript">
+  var _paq = _paq || [];
+
+  _paq.push(["setCustomVariable", 4, "News Release Feed ID", "202610301200PR_NEWS_USPR_____DA85720", "page"]);
+
+  _paq.push(["setCustomVariable", 1, "Content Type", "News Releases Feed", "page"]);
+
+  _paq.push(["setCustomVariable", 3, "Navigation Page", "News", "page"]);
+
+  _paq.push(["trackPageView"]);
+  _paq.push(["enableLinkTracking"]);
+  (function() {
+    var u="//stats.drivetheweb.com/";
+    _paq.push(["setTrackerUrl", u+"piwik.php"]);
+    _paq.push(["setSiteId", 6255]);
+    var d=document, g=d.createElement("script"), s=d.getElementsByTagName("script")[0];
+    g.type="text/javascript"; g.async=true; g.defer=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+	<img src="https://stats.drivetheweb.com/piwik.php?idsite=6255&rec=1" style="border:0" alt="" />
+</noscript>
+<!-- End Piwik Tracking Code -->
+		<span id="newwindow-note" class="sr-only">(opens in a new window)</span>
+<!-- end spin_special_output(body_end) -->
+<script>(function(){function c(){var b=a.contentDocument||(a.contentWindow&&a.contentWindow.document);if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'a55af56e6e5fe69b',t:'MTc5Mzg3MjI3Mw=='};var l=window.parent.location,o;try{o=new URL(l.origin).origin}catch(e){try{o=new URL(new URL(l.href).origin).origin}catch(e){o=''}}var u='/cdn-cgi/challenge-platform/scripts/jsd/main.js?ray=a55af56e6e5fe69b',a=document.createElement('script');a.src=o?new URL(u,o).href:u;document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>

@@ -1,0 +1,508 @@
+{
+  "units": "USD million; shares million",
+  "quote": 17.405,
+  "ordinary": 84.027681,
+  "baseShares": 90.73111800000001,
+  "founderOptions": 19.863055,
+  "prefShares": 2.027147,
+  "prefFloor": 60.814,
+  "openingCash": 247.115,
+  "cashBuffer": 100,
+  "openingCapital": 975.3684,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "nv": [
+          11500,
+          12000,
+          12500,
+          13000,
+          13500
+        ],
+        "margin": [
+          0.04,
+          0.04,
+          0.0405,
+          0.041,
+          0.041
+        ],
+        "opex": [
+          265,
+          265,
+          270,
+          275,
+          285
+        ],
+        "netInvestment": [
+          -140,
+          -130,
+          -125,
+          -125,
+          -120
+        ],
+        "corpInterest": [
+          75,
+          80,
+          85,
+          85,
+          85
+        ],
+        "capital": 0.08,
+        "ke": 0.2,
+        "g": 0.02,
+        "pe": 9,
+        "openingStress": 200
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "nv": 11500,
+          "frlpc": 460,
+          "opex": 265,
+          "netInvestment": -140,
+          "corporateInterest": 75,
+          "pretax": -20,
+          "ni": -20,
+          "capital": 920,
+          "retention": -55.36839999999995,
+          "refinanceFee": 0,
+          "fcfe": 35.36839999999995,
+          "need": 0,
+          "excess": 35.36839999999995
+        },
+        {
+          "year": 2028,
+          "nv": 12000,
+          "frlpc": 480,
+          "opex": 265,
+          "netInvestment": -130,
+          "corporateInterest": 80,
+          "pretax": 5,
+          "ni": 4,
+          "capital": 960,
+          "retention": 40,
+          "refinanceFee": 0,
+          "fcfe": -36,
+          "need": 0.6316000000000486,
+          "excess": 0
+        },
+        {
+          "year": 2029,
+          "nv": 12500,
+          "frlpc": 506.25,
+          "opex": 270,
+          "netInvestment": -125,
+          "corporateInterest": 85,
+          "pretax": 26.25,
+          "ni": 21,
+          "capital": 1000,
+          "retention": 40,
+          "refinanceFee": 3.2,
+          "fcfe": -22.2,
+          "need": 22.2,
+          "excess": 0
+        },
+        {
+          "year": 2030,
+          "nv": 13000,
+          "frlpc": 533,
+          "opex": 275,
+          "netInvestment": -125,
+          "corporateInterest": 85,
+          "pretax": 48,
+          "ni": 38.400000000000006,
+          "capital": 1040,
+          "retention": 40,
+          "refinanceFee": 9.6373,
+          "fcfe": -11.237299999999994,
+          "need": 11.237299999999994,
+          "excess": 0
+        },
+        {
+          "year": 2031,
+          "nv": 13500,
+          "frlpc": 553.5,
+          "opex": 285,
+          "netInvestment": -120,
+          "corporateInterest": 85,
+          "pretax": 63.5,
+          "ni": 50.800000000000004,
+          "capital": 1080,
+          "retention": 40,
+          "refinanceFee": 0,
+          "fcfe": 10.800000000000004,
+          "need": 0,
+          "excess": 10.800000000000004
+        }
+      ],
+      "raised": 86.95390000000003,
+      "extraShares": 15.255070175438602,
+      "terminalFCFE": 30.216,
+      "ownerBusiness2031": 167.86666666666665,
+      "dcfClaim": {
+        "price": 1.1119624990341714,
+        "shares": 105.98618817543861,
+        "founderExerciseCash": 0,
+        "preferredClaim": 60.814
+      },
+      "peClaim": {
+        "price": 3.8418779560784495,
+        "shares": 105.98618817543861,
+        "founderExerciseCash": 0,
+        "preferredClaim": 60.814
+      },
+      "dcf": {
+        "today": 0.4468727892852092,
+        "price5": 1.1119624990341714,
+        "cagr": -0.4231230018479164
+      },
+      "pe": {
+        "today": 1.543964584972371,
+        "price5": 3.8418779560784495,
+        "cagr": -0.26077966135290065
+      }
+    },
+    "base": {
+      "parameters": {
+        "nv": [
+          14500,
+          16500,
+          18500,
+          20500,
+          22500
+        ],
+        "margin": [
+          0.043,
+          0.0435,
+          0.044,
+          0.044,
+          0.044
+        ],
+        "opex": [
+          265,
+          285,
+          305,
+          327,
+          350
+        ],
+        "netInvestment": [
+          -105,
+          -115,
+          -125,
+          -135,
+          -140
+        ],
+        "corpInterest": [
+          60,
+          60,
+          64,
+          65,
+          65
+        ],
+        "capital": 0.074,
+        "ke": 0.15,
+        "g": 0.03,
+        "pe": 13,
+        "openingStress": 0
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "nv": 14500,
+          "frlpc": 623.5,
+          "opex": 265,
+          "netInvestment": -105,
+          "corporateInterest": 60,
+          "pretax": 193.5,
+          "ni": 154.8,
+          "capital": 1073,
+          "retention": 97.63160000000005,
+          "refinanceFee": 0,
+          "fcfe": 57.16839999999996,
+          "need": 0,
+          "excess": 204.28339999999997
+        },
+        {
+          "year": 2028,
+          "nv": 16500,
+          "frlpc": 717.75,
+          "opex": 285,
+          "netInvestment": -115,
+          "corporateInterest": 60,
+          "pretax": 257.75,
+          "ni": 206.20000000000002,
+          "capital": 1221,
+          "retention": 148,
+          "refinanceFee": 0,
+          "fcfe": 58.20000000000002,
+          "need": 0,
+          "excess": 262.48339999999996
+        },
+        {
+          "year": 2029,
+          "nv": 18500,
+          "frlpc": 814,
+          "opex": 305,
+          "netInvestment": -125,
+          "corporateInterest": 64,
+          "pretax": 320,
+          "ni": 256,
+          "capital": 1369,
+          "retention": 148,
+          "refinanceFee": 3.2,
+          "fcfe": 104.8,
+          "need": 0,
+          "excess": 367.2834
+        },
+        {
+          "year": 2030,
+          "nv": 20500,
+          "frlpc": 902,
+          "opex": 327,
+          "netInvestment": -135,
+          "corporateInterest": 65,
+          "pretax": 375,
+          "ni": 300,
+          "capital": 1517,
+          "retention": 148,
+          "refinanceFee": 9.6373,
+          "fcfe": 142.3627,
+          "need": 0,
+          "excess": 509.64609999999993
+        },
+        {
+          "year": 2031,
+          "nv": 22500,
+          "frlpc": 989.9999999999999,
+          "opex": 350,
+          "netInvestment": -140,
+          "corporateInterest": 65,
+          "pretax": 434.9999999999999,
+          "ni": 347.99999999999994,
+          "capital": 1665,
+          "retention": 148,
+          "refinanceFee": 0,
+          "fcfe": 199.99999999999994,
+          "need": 0,
+          "excess": 709.6460999999999
+        }
+      ],
+      "raised": 0,
+      "extraShares": 0,
+      "terminalFCFE": 308.48999999999995,
+      "ownerBusiness2031": 2570.7499999999995,
+      "dcfClaim": {
+        "price": 32.531611789845826,
+        "shares": 112.62132000000001,
+        "founderExerciseCash": 383.3569615,
+        "preferredClaim": 65.94635924495059
+      },
+      "peClaim": {
+        "price": 49.875130761209334,
+        "shares": 112.62132000000001,
+        "founderExerciseCash": 383.3569615,
+        "preferredClaim": 101.10422169719321
+      },
+      "dcf": {
+        "today": 16.173960543666904,
+        "price5": 32.531611789845826,
+        "cagr": 0.13325152118461414
+      },
+      "pe": {
+        "today": 24.796754684433367,
+        "price5": 49.875130761209334,
+        "cagr": 0.2343604665999981
+      }
+    },
+    "bull": {
+      "parameters": {
+        "nv": [
+          16000,
+          19000,
+          22500,
+          26500,
+          31000
+        ],
+        "margin": [
+          0.046,
+          0.047,
+          0.048,
+          0.048,
+          0.048
+        ],
+        "opex": [
+          275,
+          300,
+          330,
+          365,
+          405
+        ],
+        "netInvestment": [
+          -90,
+          -95,
+          -100,
+          -110,
+          -120
+        ],
+        "corpInterest": [
+          55,
+          55,
+          57,
+          58,
+          58
+        ],
+        "capital": 0.065,
+        "ke": 0.13,
+        "g": 0.035,
+        "pe": 17,
+        "openingStress": 0
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "nv": 16000,
+          "frlpc": 736,
+          "opex": 275,
+          "netInvestment": -90,
+          "corporateInterest": 55,
+          "pretax": 316,
+          "ni": 252.8,
+          "capital": 1040,
+          "retention": 64.63160000000005,
+          "refinanceFee": 0,
+          "fcfe": 188.16839999999996,
+          "need": 0,
+          "excess": 335.2834
+        },
+        {
+          "year": 2028,
+          "nv": 19000,
+          "frlpc": 893,
+          "opex": 300,
+          "netInvestment": -95,
+          "corporateInterest": 55,
+          "pretax": 443,
+          "ni": 354.40000000000003,
+          "capital": 1235,
+          "retention": 195,
+          "refinanceFee": 0,
+          "fcfe": 159.40000000000003,
+          "need": 0,
+          "excess": 494.6834
+        },
+        {
+          "year": 2029,
+          "nv": 22500,
+          "frlpc": 1080,
+          "opex": 330,
+          "netInvestment": -100,
+          "corporateInterest": 57,
+          "pretax": 593,
+          "ni": 474.40000000000003,
+          "capital": 1462.5,
+          "retention": 227.5,
+          "refinanceFee": 3.2,
+          "fcfe": 243.70000000000005,
+          "need": 0,
+          "excess": 738.3834
+        },
+        {
+          "year": 2030,
+          "nv": 26500,
+          "frlpc": 1272,
+          "opex": 365,
+          "netInvestment": -110,
+          "corporateInterest": 58,
+          "pretax": 739,
+          "ni": 591.2,
+          "capital": 1722.5,
+          "retention": 260,
+          "refinanceFee": 9.6373,
+          "fcfe": 321.56270000000006,
+          "need": 0,
+          "excess": 1059.9461000000001
+        },
+        {
+          "year": 2031,
+          "nv": 31000,
+          "frlpc": 1488,
+          "opex": 405,
+          "netInvestment": -120,
+          "corporateInterest": 58,
+          "pretax": 905,
+          "ni": 724,
+          "capital": 2015,
+          "retention": 292.5,
+          "refinanceFee": 0,
+          "fcfe": 431.5,
+          "need": 0,
+          "excess": 1491.4461000000001
+        }
+      ],
+      "raised": 0,
+      "extraShares": 0,
+      "terminalFCFE": 678.8149999999999,
+      "ownerBusiness2031": 7145.421052631578,
+      "dcfClaim": {
+        "price": 80.09339718386872,
+        "shares": 112.62132000000001,
+        "founderExerciseCash": 383.3569615,
+        "preferredClaim": 162.36108982108792
+      },
+      "peClaim": {
+        "price": 125.93355380224634,
+        "shares": 112.62132000000001,
+        "founderExerciseCash": 383.3569615,
+        "preferredClaim": 255.28582578956224
+      },
+      "dcf": {
+        "today": 43.471487129494996,
+        "price5": 80.09339718386872,
+        "cagr": 0.35701465377608876
+      },
+      "pe": {
+        "today": 68.35168760189033,
+        "price5": 125.93355380224634,
+        "cagr": 0.48557125110508115
+      }
+    }
+  },
+  "reference": 16.173960543666904,
+  "returnLimit": 13.073725159885317,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 11.33,
+      "high": 13.07,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 8.9,
+      "high": 11.32,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 5.33,
+      "high": 8.89,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.13,
+      "today": 20.13471692812373
+    },
+    {
+      "ke": 0.15,
+      "today": 16.173960543666904
+    },
+    {
+      "ke": 0.17,
+      "today": 13.344589741105656
+    }
+  ],
+  "reversePE": 10.87510716036975,
+  "policy": "Financial equity-owner model, not industrial EV. NI includes all regular SBC, net economic investment losses, investment interest and secured financing costs; corporate interest separate. Netcapital retention maintains risk investments and receivables net of assumed30%assetsecured borrowing; no separate grossinvestment or debt add/subtract. September cash247.115 excludesrestricted58.445;100 held permanently as operatingbuffer. Q4 additional excess0 assumption; no dividends/buybacks/interest on retainedcash. Corporate160m2029 and481.865m2030 assumed refinanced at higher modeled interest plus2%fee; not paid by fictitious freecash, refinancing not guaranteed. Currentconvertibleno conversion assumed: principal remains in refinancing, 11.435mconvertshares not added. Founderoptions solved intrinsic netexercise at19.3 usingweightedstrike proxy, not fulloptiontimevalue. ExistinglowstrikeoptionsandRSU/warrants grossaddedwithoutproceeds; prefgetsmax60.814or1:1convertclaim, no double priority. OrdinaryawardsfutureSBC inopex withoutfurtherdilution. Bearstress200m independentextra loss beyondforecast, not actualprovision; cashfloor100 maintained via conditional6dollar5%fee equity; noassuranceoffunding. Both valuationsdiscount terminalequityincludinginterimcash retainednominally bysameKe5years. DCF capitalizes terminalFCFE aftercapitalretention; independentPE capitalizes normalNI and bothaddsamecash once. Values rounded, yearend2026 approximation."
+}

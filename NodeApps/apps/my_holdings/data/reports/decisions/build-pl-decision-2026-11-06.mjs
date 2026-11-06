@@ -1,0 +1,41 @@
+import fs from 'node:fs/promises';
+import {validateDecisionReport,decisionEntryPlan} from '../../../src/decision-reports.js';
+const dir=new URL('./',import.meta.url),read=async n=>JSON.parse((await fs.readFile(new URL(n,dir),'utf8')).replace(/^\uFEFF/,''));
+const m=await read('pl-model-2026-11-06.json'),p=await read('pl-portfolio-context-2026-11-06.json'),b=m.scenarios.base,F=x=>x.toFixed(2),P=x=>(100*x).toFixed(1)+'%';
+const lenses=[
+ ['graham','格雷厄姆 · 价格与索取权','高现金余额不等于足额保护普通股。','7月现金短投8.654亿，但债本金4.6亿、递延收入2.986亿。[S1]','递延收入是债务吗？','不是金融债；也不是免费现金，未来交付仍耗成本，须通过营运资本桥计入。'],
+ ['buffett','巴菲特 · 数据护城河','每日历史数据和工作流形成差异化。','净美元留存109%，98%经常性ACV；业务还加入硬件交付。[S1]','能否给纯软件估值？','不能直接照搬；卫星更新、发射、云服务及政府采购使资本回报不同。'],
+ ['munger','芒格 · 拒绝叙事错配','技术试验不等于商业现金流。','Suncatcher原型已发射，目标是检验太空TPU可行性。[S4]','Google参与难道不是强验证？','验证合作能力，不验证太空算力利润；不给未披露商业订单额外估值。'],
+ ['lynch','彼得·林奇 · 增长质量','增长有力，须拆分交付节奏与复购。','Q2收入1.161亿、同比58%；Q3收入指引却为1.01–1.05亿美元。[S2]','下一季下降意味着成长结束？','不必然，硬件交接有波动；核长期合同兑现，不能年化最好季度。'],
+ ['dalio','达利欧 · 现金周期','预付款帮助融资，也形成履约负担。','半年CFO6839万、递延收入变动贡献4708万、应收回收贡献2395万。[S1]','正自由现金流是否已经自给？','尚不能证明；年度资本开支指引1亿–1.15亿，还需卫星更新。'],
+ ['soros','索罗斯 · 融资与每股价值','高价融资扩大现金，低价稀释会反向作用。','Q2 ATM筹约1.2亿，授权总额度15亿不是全部到账。[S1][S2]','股价跌了现金还在，能否直接抄底？','须扣到期偿付和交付需求；未来融资金额与新增股份必须同时计入。'],
+ ['marks','霍华德·马克斯 · 不对称性','当前价格仍偏向乐观经营。',`基准2031两法${F(b.dcf.price5)}/${F(b.sales.price5)}美元，年化${P(b.dcf.cagr)}/${P(b.sales.cagr)}。`,'乐观27–29美元不够诱人吗？','有上行，但基准补偿不足；只留0.75%条件预算，不把故事当胜率。']
+];
+const r={version:1,symbol:'PL',name:'Planet Labs · 行星实验室',exchange:'NYSE · Class A普通股',currency:'USD',capitalUsd:400000,horizonYears:5,analysisDate:'2026-11-06',analysisTimeZone:'Asia/Shanghai',financialPeriod:'FY2027Q2，止2026-07-31；9月3日发布及申报；FY2027Q3尚未发布',dataAsOf:'北京时间2026-11-06约03:50；报价美东11月5日14:46。核至11月4日Pelican-12首图及最新SEC；财政年1月底结束，FY2027不是日历2027。',
+ quote:{price:11.578,date:'2026-11-05',type:'盘中页面快照',source:'Moomoo实际页面',sourceUrl:'https://www.moomoo.com/hans/stock/PL-US',note:'11月5日14:46 EST页面11.578美元、跌8.47%，约19:46 UTC读取。页面快照不是逐笔保证，不覆盖用户行情。[S5]'},
+ verdict:{stance:'业务进展明显，现价暂不新增',summary:'每日数据壁垒、主权卫星服务和新卫星有进展，但预付款、硬件交接和卫星更新决定现金价值。11.578美元高于基准今日3.23–5.73美元，当前新增0；0.75%仅作条件预算。',conclusion:`基准今日价值$${F(b.dcf.today)}–$${F(b.sales.today)}，2031期末$${F(b.dcf.price5)}–$${F(b.sales.price5)}；相对11.578美元，五年总回报约−41%至+4%、年化${P(b.dcf.cagr)}至${P(b.sales.cagr)}。乐观27–29美元，悲观0.17–1.81美元且资金失败可归零。当前新增0，条件目标0.75%=$3,000、上限1.25%=$5,000；不因盘中下跌抢跑。`,confidence:'中低：订单与技术可核，2031盈利率、更新资本支出、政府预算及股份变化不确定。',valueLow:b.dcf.today,valueHigh:b.sales.today,limitations:'七种理论模拟，非本人观点。现金、2030结算股价、增长及倍数为情景，非承诺。政府合同选项、监管及云供应关系影响兑现；个人税务与流动性适配不完整。'},
+ position:{targetPct:.75,maxPct:1.25,currentAdditionalPct:0,existingExposureUsd:p.company.value,pendingBuyUsd:p.pendingKnownLimitBuyUsd,rationale:'当前新增0；条件目标3000美元、上限5000美元，剩余目标按25%/35%/40%分配。保存前读取持仓、ETF及买单扣减，当前公司敞口与待买均0。目标全损影响组合0.75%，上限全损1.25%；上限只在证据改善并重估后启用。',portfolioFit:'PL与RKLB/ASTS等分享太空主题与融资情绪，国防客户又与无人机相关；Google还是股东及云供应商，不能视为对现有GOOG的完全独立分散。所有个股不能同时买满上限，40万总预算优先，保留用户数据，不代下单。'},
+ entries:m.entries.map((e,i)=>({...e,condition:`上沿=min(基准较低今日价值×${[85,70,55][i]}%，较低2031价按22%年回报折现$${F(m.returnLimit)})。须先核下一份Q3、合同回款/更新投入及2030偿付方案。${i===2?'低于1.06美元重做尽调，禁止机械补仓。':'订单取消、资金缺口或毛利恶化时暂停，价跌不自动触发。'}`})),
+ scenarios:['bear','base','bull'].map((id,i)=>{const x=m.scenarios[id],c=x.parameters;return {id,label:['悲观：采购放缓、更新负担与稀释','基准：服务扩张、利润率逐步改善','乐观：高分辨率与分析规模化'][i],todayValue:x.dcf.today,year5Price:x.dcf.price5,assumptions:`日历2031收入${c.rev.at(-1)/1000}十亿美元、毛利率${P(c.gm.at(-1))}、营业费用${c.opex.at(-1)}百万；Ke${P(c.ke)}，收入退出倍数${c.exitSales}。两法今日${F(x.dcf.today)}/${F(x.sales.today)}，2031价${F(x.dcf.price5)}/${F(x.sales.price5)}、年化${P(x.dcf.cagr)}/${P(x.sales.cagr)}。2030按情景股价${c.price2030}美元现金净结算债及对冲${F(x.rows[3].debtPayment)}百万；${x.raised?`仍须新股净筹${F(x.raised)}百万、期末${F(x.shares)}百万股，否则现金桥失败。`:`不依赖新ATM，期末${F(x.shares)}百万股。`}`};}),
+ masters:lenses.map(([id,name,judgment,evidence,challenge,response])=>({id,name,judgment,evidence,challenge,response})),
+ debate:[
+ {question:'98%经常性ACV能否支撑软件公司倍数？',bull:'巴菲特/林奇：每日全球历史库难复制，订阅和工作流形成重复销售机会。',bear:'芒格：ACV是年化合同指标，收入包含一次卫星硬件控制权交接；高分辨率也需持续发射。[S1]',resolution:'给成长溢价，但用含更新投入与股酬的现金流检验；收入倍数法只作第二尺度。'},
+ {question:'现金创高、自由现金流转正，是否已跨过风险点？',bull:'索罗斯：预付款和融资提高执行弹性，也降低近期被迫融资概率。',bear:'格雷厄姆/达利欧：现金中有借款及预收款；Q2正现金流并不消灭未来履约、卫星投入和2030到期。[S1]',resolution:'按营运资本释放、逐年投入及偿付桥计算，不能把8.65亿全当可分给股东。'},
+ {question:'Google太空AI和30厘米卫星能否改变估值？',bull:'林奇：技术升级可能提高任务价值并扩大需求。',bear:'马克斯：Pelican-12初期50厘米、30厘米仍待降轨及定标；Suncatcher是可行性试验。[S3][S4]',resolution:'承认选择权，但未披露收入不先赋值；现价要求增长比基准更强，等待赔率改善。'}],
+ sections:[
+ {title:'做什么生意，增长兑现到哪里',body:'PL售卖每日地球影像、分析与API订阅，并提供客户专用卫星/容量及数据服务。历史库和高频覆盖难复制，AI可降低使用门槛；仍与其他光学/SAR供应商、公共数据和客户自建竞争，云成本、云层天气、分辨率及延迟影响实际价值。[S1]\nQ2收入1.16052亿、GAAP毛利6563万（57%）、营业亏1351万、净亏935万；调整EBITDA1393万不等于股东利润。半年净亏1.482亿含1.065亿权证重估；相关公开/私募权证已赎回/行权，不能永续外推该损失，也不能把股酬消失。[S1][S2]\nRPO7.531亿，约46%未来12个月确认；backlog8.149亿是另一口径，不相加。Q2三客户占收入17%/11%/10%；经常性ACV98%、留存109%不能保证全部收入平滑。全年指引收入4.30–4.41亿、调整EBITDA300–1000万、资本开支1亿–1.15亿美元。[S1][S2]'},
+ {title:'现金、股份和治理：决定每股结果',body:'半年CFO6839万，扣设备4466万及软件244万后FCF2129万；调整FCF2883万另加回753万诉讼付款。应收减少贡献2395万、递延收入增加贡献4708万，不能当作无须继续履约的利润。现金短投8.654亿不含849.8万受限现金。[S1][S2]\n8月27日A+B实际3.63848亿股，另计既有期权/RSU/PSU/ESPP及非公开旧股权证，共4.02480亿份；不给行权现金，未来新股酬按现金经济成本保留，避免重复。已行权的公开/私募权证与已结清earnout不再加股。[S1]\n可转债本金4.6亿（账面4.48255亿），利率0.5%、2030-10-15到期，转换约3848.9万股、价11.95；capped call保护至18.04。现金结算时本金和超额转换价值减对冲，转股时则加股份，不能同时减债又忽略稀释。已付3960万对冲成本不再扣一次。创始人约62%表决权，PBC也兼顾公益目标；Google是大股东和重要云供应商。[S1]'},
+ {title:'估值的关键假设与两法结果',body:`日历2027–2031基准收入5.5/6.7/8.1/9.7/11.5亿美元，毛利57%升至62%，经营费用3.5亿升至4.95亿；2031营业利润2.18亿。2027期初现金估7.8亿，非已报数字；起点营运资本−2亿，收敛到收入−15%，明确消耗部分预付款。折旧8%收入、资本投入22%逐步降至14%，未来仍保留卫星更新；正营业利润按21%税，无税盾及利息收入。\n基准2030股价假设12美元，债及对冲净现金结算4.6亿，2031现金约2.417亿，无新增ATM。DCF从2031后再显式十年，收入增长16%降至4%、营业率收敛23%，WACC12%、永续3%；加期末现金除股数，2031得${F(b.dcf.price5)}美元。另一法用4倍收入（约21倍2031营业利润）加现金，得${F(b.sales.price5)}；倍数为研究假设。均按Ke16%折五年，今日${F(b.dcf.today)}/${F(b.sales.today)}，无分红。两法分歧揭示资本投入对回报的侵蚀，不取乐观法当保底。`},
+ {title:'反推、压力与复核门槛',body:`固定基准股份/现金，按4倍收入退出，要让11.578获得16%年回报，2031收入需约${F(m.reverseRevenue/1000)}十亿美元，约为当年全年指引中点的5.5倍。DCF WACC10%/12%/14%时今日${m.sensitivity.map(x=>F(x.today)).join('/')}美元；基准若2030用股票结算并以股份对冲，今日约${F(m.shareSettlement.dcf.today)}/${F(m.shareSettlement.sales.today)}，当前结论不变。\n压力情景收入增长停滞、卫星投入刚性，现金底线1亿下需净筹6.943亿；按4美元、5%发行摩擦，期末约5.852亿股。估值0.17/1.81不是清算保底，融不到钱或监管/发射重大失败可全损。乐观27–29美元则要求2031收入18.4亿、68%毛利和持续商业采用。\n新卫星首图、柏林生产和主权订单是催化；采购延期/取消、卫星与发射失误、数据竞争、预付款反转和低价增发是永久损失路径。不得将德国含选项最高2500万欧元合同当已收现金，或将Suncatcher试验当商业算力合同。[S2][S3][S4]`}],
+ invalidation:['核心合同取消/预算未获拨款、发射失败或服务质量受损，立即暂停旧三档。','未来12个月现金与履约/更新投入不匹配、增发或可转债条款变化，先重算；低于1.06美元重新尽调。'],
+ reviewTriggers:['下一份FY2027Q3核实际收入相对1.01–1.05亿指引、毛利、现金及资本支出；本次未核得正式发布日期，不自行设日期。','未来两季核主权卫星交接、RPO新增/确认、客户预付款与自然回款、Pelican-12定标降轨；2030偿付随披露复核，未设置自动监控。'],
+ figures:[{title:'Q2增长与GAAP经济性',unit:'百万美元',note:'止7月31日，收入与毛利均来自财务表，不能把毛利当FCF。[S2]',rows:[{label:'2025Q2收入',value:73.386},{label:'2026Q2收入',value:116.052},{label:'2026Q2毛利',value:65.632}]}],
+ sources:[
+ {label:'[S1] FY2027Q2 10-Q：现金、收入确认、股份和可转债',url:'https://www.sec.gov/Archives/edgar/data/1836833/000119312526382016/pl-20260731.htm',date:'止2026-07-31；9月3日申报；北京时间11月6日访问'},
+ {label:'[S2] 官方Q2业绩、现金流和全年指引',url:'https://investors.planet.com/news/news-details/2026/Planet-Reports-Financial-Results-for-Second-Quarter-of-Fiscal-Year-2027/default.aspx',date:'2026-09-03；北京时间11月6日访问；SEC同版附件原文留档'},
+ {label:'[S3] Pelican-12首图、50/30厘米进度与柏林制造',url:'https://investors.planet.com/news/news-details/2026/Planet-Releases-First-Light-from-Pelican-12/default.aspx',date:'2026-11-04；北京时间11月6日实际浏览器读取'},
+ {label:'[S4] Suncatcher原型、Tanager-2及SuperDove发射',url:'https://investors.planet.com/news/news-details/2026/Planet-Launches-Suncatcher-Tanager-2-and-18-SuperDove-Satellites/default.aspx',date:'2026-10-01；北京时间11月6日实际浏览器读取'},
+ {label:'[S5] Moomoo盘中报价',url:'https://www.moomoo.com/hans/stock/PL-US',date:'美东11月5日14:46；北京时间11月6日约03:46读取'}],
+ modelEvidence:{file:'pl-model-2026-11-06.json',script:'pl-build-model-2026-11-06.mjs',note:'现金与预付款、更新投入、股份、2030债/对冲及替代股份结算可复算；未计未发行ATM资金。'}
+};
+validateDecisionReport(r,{symbol:'PL'});await fs.writeFile(new URL('pl-analysis-input-2026-11-06.json',dir),JSON.stringify(r,null,2)+'\n');console.log(JSON.stringify({conclusion:r.verdict.conclusion,plan:decisionEntryPlan(r),chineseChars:JSON.stringify(r).match(/[\u4e00-\u9fff]/g).length},null,2));

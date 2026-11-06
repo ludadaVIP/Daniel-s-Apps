@@ -1,0 +1,427 @@
+{
+  "units": "USD million and shares million",
+  "quote": 29.78,
+  "actualShares": 251.047584,
+  "existingAwards": {
+    "options": 15.088627,
+    "rsu": 10.034898,
+    "newPSUMax": 19.9000023,
+    "oldNonmarketPSU": 0.7548300000000001,
+    "marketPSU": 4.076354
+  },
+  "shares": 302,
+  "netCash": -0.953000000000003,
+  "openingWC": 150,
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "sales": [
+          1850,
+          1950,
+          2030,
+          2100,
+          2170
+        ],
+        "ebitda": [
+          0.21,
+          0.21,
+          0.22,
+          0.22,
+          0.22
+        ],
+        "sbc": [
+          0.12,
+          0.12,
+          0.115,
+          0.11,
+          0.11
+        ],
+        "wc": 0.13,
+        "capex": 0.035,
+        "wacc": 0.15,
+        "g": 0.02,
+        "multiple": 10,
+        "extraCost": 75
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 1850,
+          "adjustedEBITDA": 388.5,
+          "sbc": 222,
+          "da": 33.3,
+          "ebit": 133.2,
+          "nopat": 99.89999999999999,
+          "capex": 64.75,
+          "wc": 240.5,
+          "dWC": 90.5,
+          "extraCost": 75,
+          "fcff": -97.05000000000001,
+          "cashAfterNetDebt": -98.00300000000001
+        },
+        {
+          "year": 2028,
+          "sales": 1950,
+          "adjustedEBITDA": 409.5,
+          "sbc": 234,
+          "da": 35.099999999999994,
+          "ebit": 140.4,
+          "nopat": 105.30000000000001,
+          "capex": 68.25,
+          "wc": 253.5,
+          "dWC": 13,
+          "extraCost": 0,
+          "fcff": 59.150000000000006,
+          "cashAfterNetDebt": -38.85300000000001
+        },
+        {
+          "year": 2029,
+          "sales": 2030,
+          "adjustedEBITDA": 446.6,
+          "sbc": 233.45000000000002,
+          "da": 36.54,
+          "ebit": 176.61,
+          "nopat": 132.4575,
+          "capex": 71.05000000000001,
+          "wc": 263.90000000000003,
+          "dWC": 10.400000000000034,
+          "extraCost": 0,
+          "fcff": 87.54749999999996,
+          "cashAfterNetDebt": 48.69449999999995
+        },
+        {
+          "year": 2030,
+          "sales": 2100,
+          "adjustedEBITDA": 462,
+          "sbc": 231,
+          "da": 37.8,
+          "ebit": 193.2,
+          "nopat": 144.89999999999998,
+          "capex": 73.5,
+          "wc": 273,
+          "dWC": 9.099999999999966,
+          "extraCost": 0,
+          "fcff": 100.10000000000002,
+          "cashAfterNetDebt": 148.79449999999997
+        },
+        {
+          "year": 2031,
+          "sales": 2170,
+          "adjustedEBITDA": 477.4,
+          "sbc": 238.7,
+          "da": 39.059999999999995,
+          "ebit": 199.64,
+          "nopat": 149.73,
+          "capex": 75.95,
+          "wc": 282.1,
+          "dWC": 9.100000000000023,
+          "extraCost": 0,
+          "fcff": 103.73999999999997,
+          "cashAfterNetDebt": 252.53449999999992
+        }
+      ],
+      "terminalFCFF": 109.45479999999995,
+      "terminalEV": 841.9599999999996,
+      "dcf": {
+        "today": 1.8025100476393163,
+        "price5": 3.6241539735099324,
+        "cagr": -0.3437695333087618
+      },
+      "multiple": {
+        "today": 3.7023771940718273,
+        "price5": 7.44680298013245,
+        "cagr": -0.24210501369350246
+      }
+    },
+    "base": {
+      "parameters": {
+        "sales": [
+          2100,
+          2450,
+          2820,
+          3200,
+          3600
+        ],
+        "ebitda": [
+          0.25,
+          0.27,
+          0.28,
+          0.29,
+          0.3
+        ],
+        "sbc": [
+          0.095,
+          0.09,
+          0.08,
+          0.075,
+          0.07
+        ],
+        "wc": 0.09,
+        "capex": 0.03,
+        "wacc": 0.12,
+        "g": 0.03,
+        "multiple": 17,
+        "extraCost": 0
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 2100,
+          "adjustedEBITDA": 525,
+          "sbc": 199.5,
+          "da": 37.8,
+          "ebit": 287.7,
+          "nopat": 215.77499999999998,
+          "capex": 63,
+          "wc": 189,
+          "dWC": 39,
+          "extraCost": 0,
+          "fcff": 151.575,
+          "cashAfterNetDebt": 150.62199999999999
+        },
+        {
+          "year": 2028,
+          "sales": 2450,
+          "adjustedEBITDA": 661.5,
+          "sbc": 220.5,
+          "da": 44.099999999999994,
+          "ebit": 396.9,
+          "nopat": 297.67499999999995,
+          "capex": 73.5,
+          "wc": 220.5,
+          "dWC": 31.5,
+          "extraCost": 0,
+          "fcff": 236.77499999999998,
+          "cashAfterNetDebt": 387.39699999999993
+        },
+        {
+          "year": 2029,
+          "sales": 2820,
+          "adjustedEBITDA": 789.6,
+          "sbc": 225.6,
+          "da": 50.76,
+          "ebit": 513.24,
+          "nopat": 384.93,
+          "capex": 84.6,
+          "wc": 253.79999999999998,
+          "dWC": 33.29999999999998,
+          "extraCost": 0,
+          "fcff": 317.7900000000001,
+          "cashAfterNetDebt": 705.187
+        },
+        {
+          "year": 2030,
+          "sales": 3200,
+          "adjustedEBITDA": 927.9999999999999,
+          "sbc": 240,
+          "da": 57.599999999999994,
+          "ebit": 630.3999999999999,
+          "nopat": 472.7999999999999,
+          "capex": 96,
+          "wc": 288,
+          "dWC": 34.20000000000002,
+          "extraCost": 0,
+          "fcff": 400.1999999999998,
+          "cashAfterNetDebt": 1105.3869999999997
+        },
+        {
+          "year": 2031,
+          "sales": 3600,
+          "adjustedEBITDA": 1080,
+          "sbc": 252.00000000000003,
+          "da": 64.8,
+          "ebit": 763.2,
+          "nopat": 572.4000000000001,
+          "capex": 108,
+          "wc": 324,
+          "dWC": 36,
+          "extraCost": 0,
+          "fcff": 493.20000000000005,
+          "cashAfterNetDebt": 1598.5869999999998
+        }
+      ],
+      "terminalFCFF": 535.3560000000001,
+      "terminalEV": 5948.4000000000015,
+      "dcf": {
+        "today": 14.764255680506224,
+        "price5": 24.99002317880795,
+        "cagr": -0.034464173360667094
+      },
+      "multiple": {
+        "today": 27.381139708072922,
+        "price5": 48.25492384105961,
+        "cagr": 0.10134500948646608
+      }
+    },
+    "bull": {
+      "parameters": {
+        "sales": [
+          2250,
+          2750,
+          3350,
+          4030,
+          4800
+        ],
+        "ebitda": [
+          0.26,
+          0.28,
+          0.3,
+          0.315,
+          0.33
+        ],
+        "sbc": [
+          0.09,
+          0.08,
+          0.07,
+          0.065,
+          0.06
+        ],
+        "wc": 0.075,
+        "capex": 0.03,
+        "wacc": 0.105,
+        "g": 0.035,
+        "multiple": 22,
+        "extraCost": 0
+      },
+      "rows": [
+        {
+          "year": 2027,
+          "sales": 2250,
+          "adjustedEBITDA": 585,
+          "sbc": 202.5,
+          "da": 40.5,
+          "ebit": 342,
+          "nopat": 256.5,
+          "capex": 67.5,
+          "wc": 168.75,
+          "dWC": 18.75,
+          "extraCost": 0,
+          "fcff": 210.75,
+          "cashAfterNetDebt": 209.797
+        },
+        {
+          "year": 2028,
+          "sales": 2750,
+          "adjustedEBITDA": 770.0000000000001,
+          "sbc": 220,
+          "da": 49.49999999999999,
+          "ebit": 500.5000000000001,
+          "nopat": 375.3750000000001,
+          "capex": 82.5,
+          "wc": 206.25,
+          "dWC": 37.5,
+          "extraCost": 0,
+          "fcff": 304.8750000000001,
+          "cashAfterNetDebt": 514.6720000000001
+        },
+        {
+          "year": 2029,
+          "sales": 3350,
+          "adjustedEBITDA": 1005,
+          "sbc": 234.50000000000003,
+          "da": 60.3,
+          "ebit": 710.2,
+          "nopat": 532.6500000000001,
+          "capex": 100.5,
+          "wc": 251.25,
+          "dWC": 45,
+          "extraCost": 0,
+          "fcff": 447.45000000000005,
+          "cashAfterNetDebt": 962.1220000000002
+        },
+        {
+          "year": 2030,
+          "sales": 4030,
+          "adjustedEBITDA": 1269.45,
+          "sbc": 261.95,
+          "da": 72.53999999999999,
+          "ebit": 934.96,
+          "nopat": 701.22,
+          "capex": 120.89999999999999,
+          "wc": 302.25,
+          "dWC": 51,
+          "extraCost": 0,
+          "fcff": 601.86,
+          "cashAfterNetDebt": 1563.9820000000002
+        },
+        {
+          "year": 2031,
+          "sales": 4800,
+          "adjustedEBITDA": 1584,
+          "sbc": 288,
+          "da": 86.39999999999999,
+          "ebit": 1209.6,
+          "nopat": 907.1999999999999,
+          "capex": 144,
+          "wc": 360,
+          "dWC": 57.75,
+          "extraCost": 0,
+          "fcff": 791.8499999999999,
+          "cashAfterNetDebt": 2355.8320000000003
+        }
+      ],
+      "terminalFCFF": 866.736,
+      "terminalEV": 12381.942857142858,
+      "dcf": {
+        "today": 30.368446882842292,
+        "price5": 48.800578997161786,
+        "cagr": 0.10382456867865342
+      },
+      "multiple": {
+        "today": 58.22180509034316,
+        "price5": 95.91732450331125,
+        "cagr": 0.26355593659604604
+      }
+    }
+  },
+  "reference": 14.764255680506224,
+  "returnLimit": 10.923369445269737,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 10.34,
+      "high": 10.92,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 8.13,
+      "high": 10.33,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 4.87,
+      "high": 8.12,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "wacc": 0.105,
+      "today": 18.10027141960788
+    },
+    {
+      "wacc": 0.12,
+      "today": 14.764255680506224
+    },
+    {
+      "wacc": 0.135,
+      "today": 12.396188584032904
+    }
+  ],
+  "sbcStress": {
+    "dcf": {
+      "today": 13.110792454384246,
+      "price5": 22.239857615894046,
+      "cagr": -0.0567181854083334
+    },
+    "multiple": {
+      "today": 24.682010404819433,
+      "price5": 43.49813576158941,
+      "cagr": 0.07872114097293448
+    }
+  },
+  "reverseMultiple": 24.86438633549031,
+  "policy": "LatestcompleteQ2, noQ3financialsyet; Nov9postclosepending. Oct23prospectusA227.409158+B23.638426 excludes no separateadditionofDA0.406871 orSenso0.287711 becauseissuedsellingstockalreadyincluded. 302mFDproxy coversJuneoptiongross15.089+RSU10.035+newPSU185%max19.9+oldPSU0.755+marketPSU4.076+about1mservice/updatereserve, noexerciseproceeds. Juneunvestedrestrictedstock1.996m alreadyinoutstanding, noextraaddition. Companyservice-shareoffering25m+1.25m dollarsnotcashproceeds, futureexpensekeptinSBC/opex, nodoublefutureawarddilution. NetcashJune309.952 minus200face debt minus50.905existingacqliability minus60acquisitioncashbufferestimate forpostJuneSenso/DA/otherundisclosedcash, notpurchaseprice. Noassumednewdealearnings. Q3/4stubnetcash0conservative; existingleasesinexpense, noextraleasedebt. FCFF full25%cash tax, economicSBCdeductedfromadjustedEBITDA, operationalD&A1.8% excludesacquisitionamortization; capex3-3.5%includescapitalizedsoftware; WC9%baselineupfrom150mproxy. InterimFCFFretainedwithoutinterest, 200debtandremainingacqliabilitydeductedoncefromopeningnetcash, nofuturebuybacks. Targetcashbridgeusesnetdebtcashoffset andomitsinteresttaxshield so conservative. NoM&Apricepremium fromSalesforce/Braze orAthena-onlyclaims. EV/EBITmultipleonafterSBCeconomicEBIT; notadjustedEBITDA. Fiveyearannualdiscountapproxyearend2026, notfakeprecisetoday."
+}

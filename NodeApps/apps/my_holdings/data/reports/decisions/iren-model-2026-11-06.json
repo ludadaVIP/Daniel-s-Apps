@@ -1,0 +1,637 @@
+{
+  "units": "USD million, shares million",
+  "initialShares": 439.477224,
+  "notes": [
+    {
+      "principal": 212.31,
+      "strike": 16.81,
+      "coupon": 0.0325,
+      "due": 2030
+    },
+    {
+      "principal": 233.389,
+      "strike": 13.64,
+      "coupon": 0.035,
+      "due": 2029
+    },
+    {
+      "principal": 1000,
+      "strike": 85.63,
+      "coupon": 0,
+      "due": 2031
+    },
+    {
+      "principal": 1150,
+      "strike": 51.4,
+      "coupon": 0.0025,
+      "due": 2032
+    },
+    {
+      "principal": 1150,
+      "strike": 51.4,
+      "coupon": 0.01,
+      "due": 2033
+    },
+    {
+      "principal": 3000,
+      "strike": 73.07,
+      "coupon": 0.01,
+      "due": 2033
+    }
+  ],
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "rev": [
+          3000,
+          3700,
+          4300,
+          4700,
+          5000
+        ],
+        "margin": 0.43,
+        "capex": [
+          11500,
+          7500,
+          6500,
+          5500,
+          4500
+        ],
+        "newDebt": [
+          2500,
+          1500,
+          1000,
+          500,
+          500
+        ],
+        "repay": [
+          1500,
+          1800,
+          2000,
+          2500,
+          2500
+        ],
+        "prepay": [
+          0,
+          -500,
+          -500,
+          -500,
+          -500
+        ],
+        "issue": 6,
+        "priceDue": 8,
+        "wacc": 0.16,
+        "ke": 0.22,
+        "maint": 0.36,
+        "depr": 0.35,
+        "exitEBIT": 10,
+        "fade": [
+          0.05,
+          0.04,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "endMargin": 0.44,
+        "rate": 0.105
+      },
+      "stubCash": 5647.451,
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 3000,
+          "ebitda": 1290,
+          "ebit": 240,
+          "tax": 60,
+          "interest": 774.5720200000001,
+          "capex": 11500,
+          "prepayChange": 0,
+          "newDebt": 2500,
+          "repay": 1500,
+          "notePaid": 0,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 5397.121019999999,
+          "bank": 7310.746,
+          "noteDebt": 6745.6990000000005,
+          "cash": 1000,
+          "shares": 1386.340560842105
+        },
+        {
+          "year": 2028,
+          "rev": 3700,
+          "ebitda": 1591,
+          "ebit": 296,
+          "tax": 74,
+          "interest": 811.3220200000001,
+          "capex": 7500,
+          "prepayChange": -500,
+          "newDebt": 1500,
+          "repay": 1800,
+          "notePaid": 0,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 7594.32202,
+          "bank": 7010.746,
+          "noteDebt": 6745.6990000000005,
+          "cash": 1000,
+          "shares": 2718.6777573333334
+        },
+        {
+          "year": 2029,
+          "rev": 4300,
+          "ebitda": 1849,
+          "ebit": 344,
+          "tax": 86,
+          "interest": 743.0720200000001,
+          "capex": 6500,
+          "prepayChange": -500,
+          "newDebt": 1000,
+          "repay": 2000,
+          "notePaid": 233.389,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 7213.46102,
+          "bank": 6010.746,
+          "noteDebt": 6512.3099999999995,
+          "cash": 1000,
+          "shares": 3984.1972345263157
+        },
+        {
+          "year": 2030,
+          "rev": 4700,
+          "ebitda": 2021,
+          "ebit": 376,
+          "tax": 94,
+          "interest": 577.403405,
+          "capex": 5500,
+          "prepayChange": -500,
+          "newDebt": 500,
+          "repay": 2500,
+          "notePaid": 212.31,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 6862.713405,
+          "bank": 4010.746,
+          "noteDebt": 6300,
+          "cash": 1000,
+          "shares": 5188.182042421053
+        },
+        {
+          "year": 2031,
+          "rev": 5000,
+          "ebitda": 2150,
+          "ebit": 400,
+          "tax": 100,
+          "interest": 360.50333,
+          "capex": 4500,
+          "prepayChange": -500,
+          "newDebt": 500,
+          "repay": 2500,
+          "notePaid": 1000,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 6310.50333,
+          "bank": 2010.746,
+          "noteDebt": 5300,
+          "cash": 1000,
+          "shares": 6295.287889789473
+        }
+      ],
+      "cash": 1000,
+      "debt": 7310.746,
+      "shares": 6295.287889789473,
+      "raised": 33378.120794999995,
+      "enterpriseDCF": 656.8008301094385,
+      "dcf": {
+        "price5": 0,
+        "today": 0,
+        "cagr": -1
+      },
+      "multiple": {
+        "price5": 0,
+        "today": 0,
+        "cagr": -1
+      }
+    },
+    "base": {
+      "parameters": {
+        "rev": [
+          4500,
+          6200,
+          8000,
+          10000,
+          12000
+        ],
+        "margin": 0.55,
+        "capex": [
+          10000,
+          6500,
+          6000,
+          5500,
+          5000
+        ],
+        "newDebt": [
+          4000,
+          3000,
+          3000,
+          2000,
+          2000
+        ],
+        "repay": [
+          1500,
+          1800,
+          2000,
+          2500,
+          2500
+        ],
+        "prepay": [
+          600,
+          300,
+          0,
+          -300,
+          -300
+        ],
+        "issue": 15,
+        "priceDue": 25,
+        "wacc": 0.12,
+        "ke": 0.18,
+        "maint": 0.28,
+        "depr": 0.32,
+        "exitEBIT": 12,
+        "fade": [
+          0.14,
+          0.12,
+          0.1,
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04,
+          0.04,
+          0.03
+        ],
+        "endMargin": 0.57,
+        "rate": 0.085
+      },
+      "stubCash": 5647.451,
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 4500,
+          "ebitda": 2475,
+          "ebit": 1035,
+          "tax": 258.75,
+          "interest": 702.1071,
+          "capex": 10000,
+          "prepayChange": 600,
+          "newDebt": 4000,
+          "repay": 1500,
+          "notePaid": 0,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 738.4060999999983,
+          "bank": 8810.746,
+          "noteDebt": 6745.6990000000005,
+          "cash": 1000,
+          "shares": 491.29519592982444
+        },
+        {
+          "year": 2028,
+          "rev": 6200,
+          "ebitda": 3410.0000000000005,
+          "ebit": 1426.0000000000005,
+          "tax": 356.5000000000001,
+          "interest": 859.3571,
+          "capex": 6500,
+          "prepayChange": 300,
+          "newDebt": 3000,
+          "repay": 1800,
+          "notePaid": 0,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 2805.8570999999993,
+          "bank": 10010.746,
+          "noteDebt": 6745.6990000000005,
+          "cash": 1000,
+          "shares": 688.1974485614033
+        },
+        {
+          "year": 2029,
+          "rev": 8000,
+          "ebitda": 4400,
+          "ebit": 1840,
+          "tax": 460,
+          "interest": 952.8571,
+          "capex": 6000,
+          "prepayChange": 0,
+          "newDebt": 3000,
+          "repay": 2000,
+          "notePaid": 0,
+          "noteConverted": 17.110630498533723,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 2012.8571000000002,
+          "bank": 11010.746,
+          "noteDebt": 6512.3099999999995,
+          "cash": 1000,
+          "shares": 846.5612088844985
+        },
+        {
+          "year": 2030,
+          "rev": 10000,
+          "ebitda": 5500,
+          "ebit": 2300,
+          "tax": 575,
+          "interest": 965.938485,
+          "capex": 5500,
+          "prepayChange": -300,
+          "newDebt": 2000,
+          "repay": 2500,
+          "notePaid": 0,
+          "noteConverted": 12.629982153480073,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 2340.938485,
+          "bank": 10510.746,
+          "noteDebt": 6300,
+          "cash": 1000,
+          "shares": 1023.4675759502593
+        },
+        {
+          "year": 2031,
+          "rev": 12000,
+          "ebitda": 6600.000000000001,
+          "ebit": 2760.000000000001,
+          "tax": 690.0000000000002,
+          "interest": 916.53841,
+          "capex": 5000,
+          "prepayChange": -300,
+          "newDebt": 2000,
+          "repay": 2500,
+          "notePaid": 1000,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 1806.5384099999992,
+          "bank": 10010.746,
+          "noteDebt": 5300,
+          "cash": 1000,
+          "shares": 1150.242201213417
+        }
+      ],
+      "cash": 1000,
+      "debt": 15310.746,
+      "shares": 1150.242201213417,
+      "raised": 9704.597194999997,
+      "enterpriseDCF": 31241.315580499253,
+      "dcf": {
+        "price5": 14.71913442459232,
+        "today": 6.433869311924312,
+        "cagr": -0.04766203401720859
+      },
+      "multiple": {
+        "price5": 16.352429062468495,
+        "today": 7.147797450959778,
+        "cagr": -0.02740709130635899
+      }
+    },
+    "bull": {
+      "parameters": {
+        "rev": [
+          6000,
+          9000,
+          12500,
+          16000,
+          20000
+        ],
+        "margin": 0.62,
+        "capex": [
+          10500,
+          8500,
+          8000,
+          7500,
+          7000
+        ],
+        "newDebt": [
+          4500,
+          4000,
+          3500,
+          3000,
+          2500
+        ],
+        "repay": [
+          1500,
+          1800,
+          2000,
+          2500,
+          2500
+        ],
+        "prepay": [
+          1000,
+          700,
+          300,
+          0,
+          -300
+        ],
+        "issue": 30,
+        "priceDue": 90,
+        "wacc": 0.1,
+        "ke": 0.16,
+        "maint": 0.24,
+        "depr": 0.29,
+        "exitEBIT": 14,
+        "fade": [
+          0.18,
+          0.16,
+          0.14,
+          0.12,
+          0.1,
+          0.08,
+          0.06,
+          0.05,
+          0.04,
+          0.03
+        ],
+        "endMargin": 0.63,
+        "rate": 0.075
+      },
+      "stubCash": 5647.451,
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 6000,
+          "ebitda": 3720,
+          "ebit": 1980.0000000000002,
+          "tax": 495.00000000000006,
+          "interest": 645.24964,
+          "capex": 10500,
+          "prepayChange": 1000,
+          "newDebt": 4500,
+          "repay": 1500,
+          "notePaid": 0,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 0,
+          "bank": 9310.746,
+          "noteDebt": 6745.6990000000005,
+          "cash": 1727.201360000001,
+          "shares": 439.477224
+        },
+        {
+          "year": 2028,
+          "rev": 9000,
+          "ebitda": 5580,
+          "ebit": 2970,
+          "tax": 742.5,
+          "interest": 840.24964,
+          "capex": 8500,
+          "prepayChange": 700,
+          "newDebt": 4000,
+          "repay": 1800,
+          "notePaid": 0,
+          "noteConverted": 0,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 875.5482799999991,
+          "bank": 11510.746,
+          "noteDebt": 6745.6990000000005,
+          "cash": 1000,
+          "shares": 470.1982162807017
+        },
+        {
+          "year": 2029,
+          "rev": 12500,
+          "ebitda": 7750,
+          "ebit": 4125,
+          "tax": 1031.25,
+          "interest": 978.99964,
+          "capex": 8000,
+          "prepayChange": 300,
+          "newDebt": 3500,
+          "repay": 2000,
+          "notePaid": 0,
+          "noteConverted": 17.110630498533723,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 460.24964,
+          "bank": 13010.746,
+          "noteDebt": 6512.3099999999995,
+          "cash": 1000,
+          "shares": 503.457956954674
+        },
+        {
+          "year": 2030,
+          "rev": 16000,
+          "ebitda": 9920,
+          "ebit": 5280,
+          "tax": 1320,
+          "interest": 1045.831025,
+          "capex": 7500,
+          "prepayChange": 0,
+          "newDebt": 3000,
+          "repay": 2500,
+          "notePaid": 0,
+          "noteConverted": 12.629982153480073,
+          "rightsCash": 2100,
+          "rightsShares": 30,
+          "equity": 0,
+          "bank": 13510.746,
+          "noteDebt": 6300,
+          "cash": 3654.1689750000005,
+          "shares": 546.087939108154
+        },
+        {
+          "year": 2031,
+          "rev": 20000,
+          "ebitda": 12400,
+          "ebit": 6600,
+          "tax": 1650,
+          "interest": 1057.68095,
+          "capex": 7000,
+          "prepayChange": -300,
+          "newDebt": 2500,
+          "repay": 2500,
+          "notePaid": 0,
+          "noteConverted": 97.48175303718199,
+          "rightsCash": 0,
+          "rightsShares": 0,
+          "equity": 0,
+          "bank": 13510.746,
+          "noteDebt": 0,
+          "cash": 6046.488025000001,
+          "shares": 643.569692145336
+        }
+      ],
+      "cash": 6046.488025000001,
+      "debt": 13510.746,
+      "shares": 643.569692145336,
+      "raised": 1335.797919999999,
+      "enterpriseDCF": 119628.84720363907,
+      "dcf": {
+        "price5": 174.28507059544557,
+        "today": 82.97939050287475,
+        "cagr": 0.5612292572599842
+      },
+      "multiple": {
+        "price5": 131.97598187364474,
+        "today": 62.83548269211113,
+        "cagr": 0.47677259476575395
+      }
+    }
+  },
+  "reference": 6.433869311924312,
+  "returnLimit": 4.823165968250412,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 4.19,
+      "high": 4.82,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 3.22,
+      "high": 4.18,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 1.92,
+      "high": 3.21,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "maint": 0.23,
+      "today": 10.11297060433146
+    },
+    {
+      "maint": 0.28,
+      "today": 6.433869311924312
+    },
+    {
+      "maint": 0.33,
+      "today": 2.754768019517169
+    }
+  ],
+  "reverseEBIT": 5313.014248640344,
+  "notesPolicy": "Only notes maturing through2031 convert if scenario maturity stock assumption exceeds strike. Otherwise cash repay. Base/bear later high-strike notes remain debt; bull assumes150USD2031stock satisfies conditional early-conversion trigger, converts remaining notes gross without capped-call benefit. Stress alternative needed if early conversion; not a promise of refinancing.",
+  "equityPolicy": "Existing service/performanceRSUs, options and July coCEO18.199m granted awards fully added; Aug actual count includes Mirantis12.6m, not added twice. Future SBC economically in margin as cash equivalent. No extra credit for options proceeds. Nvidia30m@$70 expiringMay2031 excluded in base/bear; bull assumes all vested and cash exercised in2030, adds30m shares and2100m cash.",
+  "capitalPolicy": "H2 existing capex commitment13.810bn split7bn stub andatleast6.810bn2027 capex. AP1.825bn paid additionally. Release restricted1.670bn only to capex, leave53.684mrestricted excluded. CommittedGPU draw3.645bn+2.4bn less938mdrawn=5.107bn; additional400m headline financing is not treated as unconditionally incremental added once, debt added once. Future debt/new prepayments not guaranteed. Existing prepayments not double added. New prepayments need ongoing service/decline modeled through2027-31 cashchanges.",
+  "valuationPolicy": "Economic EBITDA after future SBC, EBIT after hardware depreciation; GPU/data-center maintenance capex and expansion reinvestment explicitly inDCF. Positive EBIT25%cash tax, noNOL benefit. Lease finance inbankdebt, operatinglease costs inmargin; no distributions."
+}

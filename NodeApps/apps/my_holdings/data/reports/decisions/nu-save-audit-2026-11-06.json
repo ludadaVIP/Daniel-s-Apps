@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T20:30:02.191Z",
+  "jobId": "85c00166-2416-465b-9119-9ad498db333d",
+  "reference": {
+    "json": "decisions/nu-2026-11-06-85c00166-2416-465b-9119-9ad498db333d.json",
+    "report": "decisions/nu-2026-11-06-85c00166-2416-465b-9119-9ad498db333d.html",
+    "updatedAt": "2026-11-05T20:30:01.573Z",
+    "conclusion": "基准今日$8.86–$17.34，2031期末$17.82–$34.88；相对11.64，五年总回报约53%–200%、年化8.9%–24.5%。乐观43–68美元、悲观3.52–6.07美元，非概率预测。当前新增0，条件目标1.5%=$6,000、上限2.5%=$10,000；先核11月12日Q3。"
+  },
+  "beforeRevision": 3431,
+  "afterRevision": 3432,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "protectedDataHashAfter": "72eedb18ed1466d325b92d62386574d93e1c303050ba78b673f3ee8fc1c7fd98",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"NU\",\n  \"reference\": {\n    \"json\": \"decisions/nu-2026-11-06-85c00166-2416-465b-9119-9ad498db333d.json\",\n    \"report\": \"decisions/nu-2026-11-06-85c00166-2416-465b-9119-9ad498db333d.html\",\n    \"updatedAt\": \"2026-11-05T20:30:01.573Z\",\n    \"conclusion\": \"基准今日$8.86–$17.34，2031期末$17.82–$34.88；相对11.64，五年总回报约53%–200%、年化8.9%–24.5%。乐观43–68美元、悲观3.52–6.07美元，非概率预测。当前新增0，条件目标1.5%=$6,000、上限2.5%=$10,000；先核11月12日Q3。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 6.21,\n      \"high\": 7.53,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低基准今日价值×85%，较低2031目标按18%回报折现$7.79)。须复核11月12日Q3、CAR/CET1、信用批次/核销及资本留存。汇率或信用损失令价值下降时先暂停。\",\n      \"dollars\": 1250,\n      \"shares\": 166\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 4.88,\n      \"high\": 6.2,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低基准今日价值×70%，较低2031目标按18%回报折现$7.79)。须复核11月12日Q3、CAR/CET1、信用批次/核销及资本留存。汇率或信用损失令价值下降时先暂停。\",\n      \"dollars\": 1750,\n      \"shares\": 282\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 2.92,\n      \"high\": 4.87,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低基准今日价值×55%，较低2031目标按18%回报折现$7.79)。须复核11月12日Q3、CAR/CET1、信用批次/核销及资本留存。低于2.92美元重新尽调，禁止机械补仓。\",\n      \"dollars\": 2000,\n      \"shares\": 410\n    }\n  ]\n}\n"
+}

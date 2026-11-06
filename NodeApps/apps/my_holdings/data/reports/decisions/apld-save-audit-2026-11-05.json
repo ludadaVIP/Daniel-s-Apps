@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T10:52:43.438Z",
+  "jobId": "af80987d-b818-4198-932b-12ce47707bb7",
+  "reference": {
+    "json": "decisions/apld-2026-11-05-af80987d-b818-4198-932b-12ce47707bb7.json",
+    "report": "decisions/apld-2026-11-05-af80987d-b818-4198-932b-12ce47707bb7.html",
+    "updatedAt": "2026-11-05T10:52:42.918Z",
+    "conclusion": "基准今日项目现金流法$5.33、退出倍数净资产法$8.85；2031为$11.20／$18.58，参照16.444美元五年价格年化-7.4%／2.5%。乐观可升至46–49美元，悲观普通股可全损。当前不买，条件目标0.75%；三档不是仅凭跌价即可挂单。"
+  },
+  "beforeRevision": 3420,
+  "afterRevision": 3421,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"APLD\",\n  \"reference\": {\n    \"json\": \"decisions/apld-2026-11-05-af80987d-b818-4198-932b-12ce47707bb7.json\",\n    \"report\": \"decisions/apld-2026-11-05-af80987d-b818-4198-932b-12ce47707bb7.html\",\n    \"updatedAt\": \"2026-11-05T10:52:42.918Z\",\n    \"conclusion\": \"基准今日项目现金流法$5.33、退出倍数净资产法$8.85；2031为$11.20／$18.58，参照16.444美元五年价格年化-7.4%／2.5%。乐观可升至46–49美元，悲观普通股可全损。当前不买，条件目标0.75%；三档不是仅凭跌价即可挂单。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 3.47,\n      \"high\": 4.26,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(基准较低今日5.33×80%，基准较低2031价按20%回报折现4.50)。仅在建设预算、再融资/新增融资和租约兑现通过复核后启用。若融资缺口扩大，价格再低也先暂停。\",\n      \"dollars\": 750,\n      \"shares\": 176\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 2.67,\n      \"high\": 3.46,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(基准较低今日5.33×65%，基准较低2031价按20%回报折现4.50)。仅在建设预算、再融资/新增融资和租约兑现通过复核后启用。若融资缺口扩大，价格再低也先暂停。\",\n      \"dollars\": 1050,\n      \"shares\": 303\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 1.61,\n      \"high\": 2.66,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(基准较低今日5.33×50%，基准较低2031价按20%回报折现4.50)。仅在建设预算、再融资/新增融资和租约兑现通过复核后启用。低于1.61重做尽调，禁止机械补仓。\",\n      \"dollars\": 1200,\n      \"shares\": 451\n    }\n  ]\n}\n"
+}

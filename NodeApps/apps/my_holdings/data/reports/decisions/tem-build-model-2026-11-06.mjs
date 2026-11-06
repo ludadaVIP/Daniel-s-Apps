@@ -1,0 +1,29 @@
+import fs from 'node:fs/promises';
+const existingShares=177.357848+5.043789+5.931276+.007601+1.929552,mergerMaximumShares=38.874419;
+const configs={
+ bear:{diag:[1300,1400,1500,1600,1700],data:[430,480,530,580,630],dm:[-.03,0,.03,.05,.07],am:[.05,.10,.15,.18,.20],corp:[150,160,170,180,190],closePrice:40,issue:20,ke:.20,wacc:.15,diagMultiple:2,dataMultiple:4,noteStock2030:30,stock2031:35,fade:[.05,.04,.03,.03,.03,.03,.03,.03,.03,.03],endMargin:.08},
+ base:{diag:[1450,1690,1970,2280,2630],data:[550,700,890,1100,1350],dm:[.03,.06,.10,.13,.15],am:[.18,.24,.29,.33,.35],corp:[140,150,165,180,200],closePrice:69.15,issue:35,ke:.16,wacc:.115,diagMultiple:3.5,dataMultiple:8,noteStock2030:65,stock2031:75,fade:[.15,.13,.11,.09,.08,.07,.06,.05,.04,.04],endMargin:.21},
+ bull:{diag:[1580,1900,2300,2750,3270],data:[650,900,1250,1650,2150],dm:[.06,.10,.15,.20,.23],am:[.25,.32,.38,.42,.45],corp:[150,170,190,215,240],closePrice:90,issue:55,ke:.14,wacc:.095,diagMultiple:5,dataMultiple:12,noteStock2030:130,stock2031:160,fade:[.18,.16,.14,.12,.10,.08,.06,.05,.04,.04],endMargin:.29}
+};
+function futureEV(c,wacc=c.wacc){let rev=c.diag.at(-1)+c.data.at(-1),margin=(c.diag.at(-1)*c.dm.at(-1)+c.data.at(-1)*c.am.at(-1)-c.corp.at(-1))/rev,v=0;
+ for(let i=0;i<10;i++){const old=rev;rev*=1+c.fade[i];const opMargin=margin+(c.endMargin-margin)*(i+1)/10,fcf=rev*opMargin*.77-rev*.01-(rev-old)*.18;v+=fcf/(1+wacc)**(i+1);}
+ const next=rev*1.03,fcf=next*c.endMargin*.77-next*.01-(next-rev)*.18;return Math.max(0,v+fcf/(wacc-.03)/(1+wacc)**10);
+}
+function run(c){const mergerShares=mergerMaximumShares*Math.min(.3356,16.25/c.closePrice)/.3356;let shares=existingShares+mergerShares,cash=590.479+46.874*.5-65,google=(175.967+22.501)*1.06**.25,debt=1210,raised=0,wc=290;const rows=[];
+ for(let i=0;i<5;i++){const year=2027+i,rev=c.diag[i]+c.data[i],ebit=c.diag[i]*c.dm[i]+c.data[i]*c.am[i]-c.corp[i],tax=Math.max(0,ebit)*.23,dwc=rev*.18-wc;wc=rev*.18;const integration=i===0?80:i===1?25:0,nonCashData=(c.closePrice===40?[40,40,30,20,10]:c.closePrice===90?[15,10,5,0,0]:[25,20,15,10,0])[i],fcf=ebit-tax-rev*.01-dwc-integration-nonCashData;cash+=fcf;google*=1.06;let payment=0,conversionShares=0;
+  cash-=i<3?5.625:i===3?3.05:0;
+  if(year===2030){const n=750/84.19,s=c.noteStock2030,hedge=n*Math.min(Math.max(s-84.19,0),111.195-84.19);payment=750+n*Math.max(s-84.19,0)-hedge+google;cash-=payment;debt-=750;google=0;}
+  if(year===2031&&c.stock2031>=1.3*69.26){const n=460/69.26,hedge=n*Math.min(Math.max(c.stock2031-69.26,0),98.94-69.26);conversionShares=n-hedge/c.stock2031;shares+=conversionShares;debt-=460;}
+  let equity=0;if(cash<100){equity=100-cash;cash=100;shares+=equity/(c.issue*.95);raised+=equity;}
+  rows.push({year,rev,diag:c.diag[i],data:c.data[i],ebit,tax,dwc,integration,nonCashData,fcf,payment,conversionShares,equity,googleDebt:google,debt,cash,shares});
+ }
+ const ev=futureEV(c),sotpEV=c.diag.at(-1)*c.diagMultiple+c.data.at(-1)*c.dataMultiple,price=ev=>Math.max(0,(ev+cash-debt)/shares),dp=price(ev),sp=price(sotpEV);
+ return {parameters:c,mergerShares,rows,cash,debt,shares,raised,enterpriseDCF:ev,dcf:{price5:dp,today:dp/(1+c.ke)**5,cagr:(dp/69.15)**.2-1},sotp:{price5:sp,today:sp/(1+c.ke)**5,cagr:(sp/69.15)**.2-1}};
+}
+const scenarios=Object.fromEntries(Object.entries(configs).map(([id,c])=>[id,run(c)])),b=scenarios.base,reference=Math.min(b.dcf.today,b.sotp.today),returnLimit=Math.min(b.dcf.price5,b.sotp.price5)/1.22**5,hi=[.85,.70,.55].map(k=>Math.floor(Math.min(k*reference,returnLimit)*100)/100);
+const entries=hi.map((high,i)=>({tier:['observation','safety','discount'][i],low:i<2?+(hi[i+1]+.01).toFixed(2):Math.floor(high*.6*100)/100,high,budgetSharePct:[25,35,40][i]}));
+const sensitivity=[.095,.115,.135].map(wacc=>({wacc,today:Math.max(0,(futureEV(configs.base,wacc)+b.cash-b.debt)/b.shares)/1.16**5}));
+const reverseDataMultiple=(69.15*1.16**5*b.shares-b.cash+b.debt-configs.base.diag.at(-1)*3.5)/configs.base.data.at(-1);
+const m={units:'USD million, shares million',existingShares,mergerMaximumShares,scenarios,reference,returnLimit,entries,sensitivity,reverseDataMultiple,openingPolicy:'590.479 cash +50% of Recursion46.874, less65m Q4 burn/closing reserve. Excludes restricted4.755, heldPersonalis212.276 eliminated on merger, privatePathos17.5 and other nonliquidstakes. No acquired cash credited, no upfront cash election. Merger maximum38.874m includes awards basedOct15; floating exchange ratio16.25/closeprice capped.3356. Not$1.5bnEV treated as equity payment.',sbc:'All existingRSU/RSA/PSU added gross. FutureSBC economically cash-equivalent within forward margins, not added back nor charged again through dilution. Forecast includes Personalis incremental net revenues after intercompany elimination; not gross resale plus supplier sales.',accounting:'EconomicEBIT after recurring D&A and future employee compensation. Netcapex1% revenue=capex4%-ongoingD&A3%, excludes purchased-intangible amortization from economic margin. WC18% revenue opening290m; integration80/25m; positiveEBIT23%tax ignoresNOL.',debtPolicy:'Google entire accruedinterest22.501 conservatively included, grows6% fromSep2026, no future cloud-credit reductions; all cash atDec2030. 2030 notes750 cash grossconversion less cappedcall at scenario2030stock. 2032notes460 remain debt unless bull160 triggers conditional conversion2031, netshare settlement with cappedcall. Prior paid hedges not deducted twice. Noncash data payments reduceFCF by explicit scenario haircuts, no private shares added as cash. No dividends/interestincome.'};
+await fs.writeFile(new URL('tem-model-2026-11-06.json',import.meta.url),JSON.stringify(m,null,2)+'\n');
+console.log(JSON.stringify({scenarios:Object.fromEntries(Object.entries(scenarios).map(([k,x])=>[k,{dcf:x.dcf,sotp:x.sotp,raised:x.raised,cash:x.cash,shares:x.shares,mergerShares:x.mergerShares}])),entries,sensitivity,reverseDataMultiple},null,2));

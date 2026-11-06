@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T09:56:57.997Z",
+  "jobId": "aead4714-5806-4b08-b478-426c1d1bec3e",
+  "reference": {
+    "json": "decisions/vst-2026-11-05-aead4714-5806-4b08-b478-426c1d1bec3e.json",
+    "report": "decisions/vst-2026-11-05-aead4714-5806-4b08-b478-426c1d1bec3e.html",
+    "updatedAt": "2026-11-05T09:56:57.238Z",
+    "conclusion": "基准今日DCF$109.20、企业倍数法$157.75；2031分别$177.40／$231.08，含模型股息五年年化8.8%／14.6%。价格已明显回落，但两法分歧与交割后负债缺口使其仍不适合抢跑。条件目标1.5%，当前新增0%；所有档位须先复核11月6日财报。"
+  },
+  "beforeRevision": 3411,
+  "afterRevision": 3412,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"VST\",\n  \"reference\": {\n    \"json\": \"decisions/vst-2026-11-05-aead4714-5806-4b08-b478-426c1d1bec3e.json\",\n    \"report\": \"decisions/vst-2026-11-05-aead4714-5806-4b08-b478-426c1d1bec3e.html\",\n    \"updatedAt\": \"2026-11-05T09:56:57.238Z\",\n    \"conclusion\": \"基准今日DCF$109.20、企业倍数法$157.75；2031分别$177.40／$231.08，含模型股息五年年化8.8%／14.6%。价格已明显回落，但两法分歧与交割后负债缺口使其仍不适合抢跑。条件目标1.5%，当前新增0%；所有档位须先复核11月6日财报。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 81.91,\n      \"high\": 91.74,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿取保守今日价值×85%与含模型股息15%回报买价上限$91.75中较低者。11月6日财报后确认收购负债、现金转化与增长支出。若现金或监管恶化，旧价表失效。\",\n      \"dollars\": 1486.5750696825,\n      \"shares\": 16\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 70.99,\n      \"high\": 81.9,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿取保守今日价值×75%与含模型股息15%回报买价上限$91.75中较低者。11月6日财报后确认收购负债、现金转化与增长支出。若现金或监管恶化，旧价表失效。\",\n      \"dollars\": 2081.2050975555003,\n      \"shares\": 25\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 54.61,\n      \"high\": 70.98,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿取保守今日价值×65%与含模型股息15%回报买价上限$91.75中较低者。11月6日财报后确认收购负债、现金转化与增长支出。低于54.61美元重新尽调，不自动加仓。\",\n      \"dollars\": 2378.520111492,\n      \"shares\": 33\n    }\n  ]\n}\n"
+}

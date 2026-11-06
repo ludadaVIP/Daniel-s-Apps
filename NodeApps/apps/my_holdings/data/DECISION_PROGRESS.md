@@ -1,6 +1,6 @@
 # 决策报告目标进度
 
-已完成 10/66；资本基准40万美元，五年视角。
+已完成 28/66；资本基准40万美元，五年视角。
 
 以state.json和DECISION_GOAL.json为准；此表仅为进度索引。已有报告不代表后续刷新任务已完成。
 下一步：按下表顺序研究尚未完成的标的；每支先报告结论，再继续。详细JSON契约见DECISION_REPORTS.md。
@@ -15,24 +15,24 @@
 - [x] INOD · 已保存 decisions/inod-2026-11-05-3a648a5a-062d-47bb-ae67-3c87d1ad381f.html
 - [x] ASTS · 已保存 decisions/asts-2026-11-05-9e170ac0-5ee9-4973-915b-ff7d1e808d5a.html
 - [x] CRDO · 已保存 decisions/crdo-2026-11-05-229ea45c-b26e-40eb-a23b-e78fd7c688f0.html
-- [ ] HOOD · waiting · 2d05108c-6bc0-42b2-b9b2-b785b6647fbc
-- [ ] SPGI · waiting · 091d97b7-bbad-4045-9759-c4a303e3f977
-- [ ] VST · waiting · aead4714-5806-4b08-b478-426c1d1bec3e
-- [ ] AXP · waiting · 3a7b7564-c377-4fed-a9da-b9d38a48246e
-- [ ] INTC · waiting · b7a0d35d-a0a8-4175-943f-e3b0880dee38
-- [ ] BRK.B · waiting · dd329d3e-8484-4aaf-b067-8cfffd39731a
-- [ ] V · waiting · d0fd558b-67a2-4fa5-a4e9-e52ba29f1609
-- [ ] APLD · waiting · af80987d-b818-4198-932b-12ce47707bb7
-- [ ] AMPX · waiting · 5b0cd91a-cbca-4743-83f9-8802fabd54a2
-- [ ] PL · waiting · c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b
-- [ ] IREN · waiting · 615075be-650c-4541-aab4-fdb2add3f4a0
-- [ ] TEM · waiting · 675e461c-c136-4bc1-9b7e-28ffa661b6f1
-- [ ] SE · waiting · d3db5cdc-edf6-4035-8ced-812d43429f74
-- [ ] NU · waiting · 85c00166-2416-465b-9119-9ad498db333d
-- [ ] SOFI · waiting · 2f28573c-4b09-4e5a-9879-5f8896c20945
-- [ ] ADMA · waiting · 07f86b80-aeb9-4361-8e78-b7ee7255e722
-- [ ] PGY · waiting · 046ee2bc-e802-4cdf-b050-28fb7a3d5c78
-- [ ] ZETA · waiting · 223eb31e-013d-4048-a90a-faf760620a7f
+- [x] HOOD · 已保存 decisions/hood-2026-11-05-2d05108c-6bc0-42b2-b9b2-b785b6647fbc.html
+- [x] SPGI · 已保存 decisions/spgi-2026-11-05-091d97b7-bbad-4045-9759-c4a303e3f977.html
+- [x] VST · 已保存 decisions/vst-2026-11-05-aead4714-5806-4b08-b478-426c1d1bec3e.html
+- [x] AXP · 已保存 decisions/axp-2026-11-05-3a7b7564-c377-4fed-a9da-b9d38a48246e.html
+- [x] INTC · 已保存 decisions/intc-2026-11-05-b7a0d35d-a0a8-4175-943f-e3b0880dee38.html
+- [x] BRK.B · 已保存 decisions/brk-b-2026-11-05-dd329d3e-8484-4aaf-b067-8cfffd39731a.html
+- [x] V · 已保存 decisions/v-2026-11-05-d0fd558b-67a2-4fa5-a4e9-e52ba29f1609.html
+- [x] APLD · 已保存 decisions/apld-2026-11-05-af80987d-b818-4198-932b-12ce47707bb7.html
+- [x] AMPX · 已保存 decisions/ampx-2026-11-06-5b0cd91a-cbca-4743-83f9-8802fabd54a2.html
+- [x] PL · 已保存 decisions/pl-2026-11-06-c2dfdcfc-ebbf-495b-bb3e-c6b0e2097c3b.html
+- [x] IREN · 已保存 decisions/iren-2026-11-06-615075be-650c-4541-aab4-fdb2add3f4a0.html
+- [x] TEM · 已保存 decisions/tem-2026-11-06-675e461c-c136-4bc1-9b7e-28ffa661b6f1.html
+- [x] SE · 已保存 decisions/se-2026-11-06-d3db5cdc-edf6-4035-8ced-812d43429f74.html
+- [x] NU · 已保存 decisions/nu-2026-11-06-85c00166-2416-465b-9119-9ad498db333d.html
+- [x] SOFI · 已保存 decisions/sofi-2026-11-06-2f28573c-4b09-4e5a-9879-5f8896c20945.html
+- [x] ADMA · 已保存 decisions/adma-2026-11-06-07f86b80-aeb9-4361-8e78-b7ee7255e722.html
+- [x] PGY · 已保存 decisions/pgy-2026-11-06-046ee2bc-e802-4cdf-b050-28fb7a3d5c78.html
+- [x] ZETA · 已保存 decisions/zeta-2026-11-06-223eb31e-013d-4048-a90a-faf760620a7f.html
 - [ ] CBRS · waiting · 28dd4e1f-ba0f-4a31-9147-ae8e01acf9c7
 - [ ] AAOI · waiting · d69709e4-ba23-4099-999f-e52d5356bfa1
 - [ ] MP · waiting · 29d05244-ab8a-4055-bf59-ee87ea146d2c

@@ -1,0 +1,580 @@
+{
+  "units": "USD million; equivalentB shares million; per B USD",
+  "price": 583.83,
+  "shares": 2147.5395,
+  "book0": 747910,
+  "bookPerB": 348.2636757088752,
+  "anchors": {
+    "cashBillsNet": 359230,
+    "equities": 323779,
+    "equityCost": 106521,
+    "bonds": 17034,
+    "equityMethod": 19948,
+    "float": 177500,
+    "parentDebt": 20400,
+    "taxRate": 0.21,
+    "taylorEquity": 6800,
+    "taylorEnterprise": 8500
+  },
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "roe": [
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075,
+          0.075
+        ],
+        "ke": 0.1,
+        "g": 0.025,
+        "assetFactor": 0.85,
+        "assetGrowth": 0.025,
+        "floatGrowth": 0.03,
+        "earnings": [
+          4500,
+          5300,
+          3300,
+          13500
+        ],
+        "multiples": [
+          10,
+          14,
+          13,
+          13
+        ],
+        "opGrowth": 0.025
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "openingBook": 747910,
+          "economicComprehensiveEarnings": 56093.25,
+          "closingBook": 804003.25,
+          "residualIncome": -18697.75
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "openingBook": 804003.25,
+          "economicComprehensiveEarnings": 60300.243749999994,
+          "closingBook": 864303.49375,
+          "residualIncome": -20100.081250000017
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "openingBook": 864303.49375,
+          "economicComprehensiveEarnings": 64822.76203125,
+          "closingBook": 929126.2557812501,
+          "residualIncome": -21607.587343750005
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "openingBook": 929126.2557812501,
+          "economicComprehensiveEarnings": 69684.46918359376,
+          "closingBook": 998810.7249648438,
+          "residualIncome": -23228.156394531252
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "openingBook": 998810.7249648438,
+          "economicComprehensiveEarnings": 74910.80437236329,
+          "closingBook": 1073721.529337207,
+          "residualIncome": -24970.268124121096
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "openingBook": 1073721.529337207,
+          "economicComprehensiveEarnings": 80529.11470029053,
+          "closingBook": 1154250.6440374977,
+          "residualIncome": -26843.038233430183
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "openingBook": 1154250.6440374977,
+          "economicComprehensiveEarnings": 86568.79830281233,
+          "closingBook": 1240819.44234031,
+          "residualIncome": -28856.266100937442
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "openingBook": 1240819.44234031,
+          "economicComprehensiveEarnings": 93061.45817552325,
+          "closingBook": 1333880.9005158332,
+          "residualIncome": -31020.486058507755
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "openingBook": 1333880.9005158332,
+          "economicComprehensiveEarnings": 100041.06753868748,
+          "closingBook": 1433921.9680545207,
+          "residualIncome": -33347.022512895855
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "openingBook": 1433921.9680545207,
+          "economicComprehensiveEarnings": 107544.14760408904,
+          "closingBook": 1541466.1156586097,
+          "residualIncome": -35848.04920136304
+        }
+      ],
+      "rim0": 184.49079881889122,
+      "rim5": 297.12427640581257,
+      "sotp0": 358.6205089592066,
+      "sotp5": 403.32249121375094,
+      "sotpCurrent": {
+        "t": 0,
+        "cash": 352430,
+        "equities": 275212.14999999997,
+        "tax": 35425.14149999999,
+        "assets": 659076.85,
+        "insuranceFloat": 177500,
+        "investmentNet": 425751.7085,
+        "operations": [
+          45000,
+          74200,
+          42900,
+          175500
+        ],
+        "taylorValue": 6800,
+        "value": 358.6205089592066
+      },
+      "sotpYear5": {
+        "t": 5,
+        "cash": 398742.19646904274,
+        "equities": 311377.2867972864,
+        "tax": 43019.820227430144,
+        "assets": 745684.9610160821,
+        "insuranceFloat": 205771.14818825002,
+        "investmentNet": 476493.9926004019,
+        "operations": [
+          50913.3695800781,
+          83950.48939648434,
+          48537.412333007785,
+          198562.1413623046
+        ],
+        "taylorValue": 7693.575847656246,
+        "value": 403.32249121375094
+      },
+      "book5": 499.977546088073,
+      "rimCagr": -0.12636435364012077,
+      "sotpCagr": -0.07130478748949787,
+      "ddmReconciles": true
+    },
+    "base": {
+      "parameters": {
+        "roe": [
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.1,
+          0.098,
+          0.096,
+          0.095,
+          0.095,
+          0.095
+        ],
+        "ke": 0.085,
+        "g": 0.03,
+        "assetFactor": 1,
+        "assetGrowth": 0.05,
+        "floatGrowth": 0.025,
+        "earnings": [
+          6000,
+          6000,
+          4000,
+          16000
+        ],
+        "multiples": [
+          15,
+          18,
+          16,
+          17
+        ],
+        "opGrowth": 0.055
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "openingBook": 747910,
+          "economicComprehensiveEarnings": 74791,
+          "closingBook": 822701,
+          "residualIncome": 11218.649999999994
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "openingBook": 822701,
+          "economicComprehensiveEarnings": 82270.1,
+          "closingBook": 904971.1,
+          "residualIncome": 12340.515
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "openingBook": 904971.1,
+          "economicComprehensiveEarnings": 90497.11,
+          "closingBook": 995468.21,
+          "residualIncome": 13574.5665
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "openingBook": 995468.21,
+          "economicComprehensiveEarnings": 99546.821,
+          "closingBook": 1095015.031,
+          "residualIncome": 14932.023149999994
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "openingBook": 1095015.031,
+          "economicComprehensiveEarnings": 109501.5031,
+          "closingBook": 1204516.5341,
+          "residualIncome": 16425.225464999996
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "openingBook": 1204516.5341,
+          "economicComprehensiveEarnings": 118042.62034180001,
+          "closingBook": 1322559.1544418,
+          "residualIncome": 15658.714943300001
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "openingBook": 1322559.1544418,
+          "economicComprehensiveEarnings": 126965.6788264128,
+          "closingBook": 1449524.8332682129,
+          "residualIncome": 14548.150698859798
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "openingBook": 1449524.8332682129,
+          "economicComprehensiveEarnings": 137704.85916048024,
+          "closingBook": 1587229.6924286932,
+          "residualIncome": 14495.248332682138
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "openingBook": 1587229.6924286932,
+          "economicComprehensiveEarnings": 150786.82078072586,
+          "closingBook": 1738016.513209419,
+          "residualIncome": 15872.29692428693
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "openingBook": 1738016.513209419,
+          "economicComprehensiveEarnings": 165111.5687548948,
+          "closingBook": 1903128.081964314,
+          "residualIncome": 17380.165132094175
+        }
+      ],
+      "rim0": 463.21236325653956,
+      "rim5": 696.5123689839154,
+      "sotp0": 470.52304276591894,
+      "sotp5": 619.9662368183949,
+      "sotpCurrent": {
+        "t": 0,
+        "cash": 352430,
+        "equities": 323779,
+        "tax": 45624.18,
+        "assets": 713191,
+        "insuranceFloat": 177500,
+        "investmentNet": 469666.82,
+        "operations": [
+          90000,
+          108000,
+          64000,
+          272000
+        ],
+        "taylorValue": 6800,
+        "value": 470.52304276591894
+      },
+      "sotpYear5": {
+        "t": 5,
+        "cash": 449799.91107187513,
+        "equities": 413233.1680246876,
+        "tax": 64409.5552851844,
+        "assets": 910232.5238409376,
+        "insuranceFloat": 200824.95778808583,
+        "investmentNet": 624598.0107676674,
+        "operations": [
+          117626.40057684372,
+          141151.68069221248,
+          83645.44041019998,
+          355493.12174334994
+        ],
+        "taylorValue": 8887.328043583748,
+        "value": 619.9662368183949
+      },
+      "book5": 560.8821323659007,
+      "rimCagr": 0.03592540821672263,
+      "sotpCagr": 0.01208345719613324,
+      "ddmReconciles": true
+    },
+    "bull": {
+      "parameters": {
+        "roe": [
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.12,
+          0.115,
+          0.11,
+          0.105,
+          0.105,
+          0.105
+        ],
+        "ke": 0.08,
+        "g": 0.035,
+        "assetFactor": 1.1,
+        "assetGrowth": 0.07,
+        "floatGrowth": 0.02,
+        "earnings": [
+          7500,
+          6500,
+          4500,
+          18000
+        ],
+        "multiples": [
+          18,
+          21,
+          18,
+          20
+        ],
+        "opGrowth": 0.075
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "openingBook": 747910,
+          "economicComprehensiveEarnings": 89749.2,
+          "closingBook": 837659.2,
+          "residualIncome": 29916.399999999994
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "openingBook": 837659.2,
+          "economicComprehensiveEarnings": 100519.10399999999,
+          "closingBook": 938178.304,
+          "residualIncome": 33506.36799999999
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "openingBook": 938178.304,
+          "economicComprehensiveEarnings": 112581.39648,
+          "closingBook": 1050759.70048,
+          "residualIncome": 37527.132159999994
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "openingBook": 1050759.70048,
+          "economicComprehensiveEarnings": 126091.1640576,
+          "closingBook": 1176850.8645376002,
+          "residualIncome": 42030.38801919999
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "openingBook": 1176850.8645376002,
+          "economicComprehensiveEarnings": 141222.10374451202,
+          "closingBook": 1318072.9682821122,
+          "residualIncome": 47074.034581504005
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "openingBook": 1318072.9682821122,
+          "economicComprehensiveEarnings": 151578.3913524429,
+          "closingBook": 1469651.359634555,
+          "residualIncome": 46132.55388987393
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "openingBook": 1469651.359634555,
+          "economicComprehensiveEarnings": 161661.64955980104,
+          "closingBook": 1631313.009194356,
+          "residualIncome": 44089.54078903663
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "openingBook": 1631313.009194356,
+          "economicComprehensiveEarnings": 171287.86596540737,
+          "closingBook": 1802600.8751597633,
+          "residualIncome": 40782.82522985889
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "openingBook": 1802600.8751597633,
+          "economicComprehensiveEarnings": 189273.09189177514,
+          "closingBook": 1991873.9670515384,
+          "residualIncome": 45065.02187899407
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "openingBook": 1991873.9670515384,
+          "economicComprehensiveEarnings": 209146.7665404115,
+          "closingBook": 2201020.73359195,
+          "residualIncome": 49796.84917628844
+        }
+      ],
+      "rim0": 738.466747805949,
+      "rim5": 1085.049926334466,
+      "sotp0": 567.2741111397487,
+      "sotp5": 831.010619150378,
+      "sotpCurrent": {
+        "t": 0,
+        "cash": 352430,
+        "equities": 356156.9,
+        "tax": 52423.539000000004,
+        "assets": 749267.1000000001,
+        "insuranceFloat": 177500,
+        "investmentNet": 498943.5610000001,
+        "operations": [
+          135000,
+          136500,
+          81000,
+          360000
+        ],
+        "taylorValue": 6800,
+        "value": 567.2741111397487
+      },
+      "sotpYear5": {
+        "t": 5,
+        "cash": 494301.30645060114,
+        "equities": 499528.476495747,
+        "tax": 82531.57006410687,
+        "assets": 1050885.8678615703,
+        "insuranceFloat": 195974.342568,
+        "investmentNet": 751979.9552294635,
+        "operations": [
+          193809.95903320308,
+          195963.4030224609,
+          116285.97541992186,
+          516826.5574218749
+        ],
+        "taylorValue": 9762.279417968748,
+        "value": 831.010619150378
+      },
+      "book5": 613.7595924461982,
+      "rimCagr": 0.131964124433134,
+      "sotpCagr": 0.07315890390795388,
+      "ddmReconciles": true
+    }
+  },
+  "reference": 463.21236325653956,
+  "maxReturn": 351.78549240955425,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 347.41,
+      "high": 351.78,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 301.09,
+      "high": 347.4,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 231.61,
+      "high": 301.08,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.075,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 586.3282079640212
+        },
+        {
+          "g": 0.03,
+          "value": 621.073583250778
+        },
+        {
+          "g": 0.04,
+          "value": 675.6734587013959
+        }
+      ]
+    },
+    {
+      "ke": 0.085,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 452.2487570256155
+        },
+        {
+          "g": 0.03,
+          "value": 463.21236325653956
+        },
+        {
+          "g": 0.04,
+          "value": 479.04868336787416
+        }
+      ]
+    },
+    {
+      "ke": 0.095,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 357.59024700352614
+        },
+        {
+          "g": 0.03,
+          "value": 357.59024700352614
+        },
+        {
+          "g": 0.04,
+          "value": 357.59024700352614
+        }
+      ]
+    }
+  ],
+  "reverseConstantRoe": 0.10606987049296396,
+  "assumptions": [
+    "RIM uses total economic comprehensive common return (operating earnings plus after-tax portfolio gains/OCI), not operating income alone. Gains are stochastic; normalized10% initial ROE is forecast not annualized Q2 actual. All earnings retained, shares fixed; no added buyback gain or separate investment cash/portfolio asset addition.",
+    "RIM terminal ROE9.5%, capital/earnings growth3%, implies payout ROE minus reinvestment at terminal after10 years. RIM reconciles independently with terminal dividend capacity; no actual dividend assumed within5 years.",
+    "SOTP is conservative net-investment assets plus underwriting franchise/noninsurance equity earnings values. Net assets deduct float at par (no free perpetual float value), full21% tax on unrealized public equity gains, parent debt20.4b. Capitalizing underwriting adds incremental operating franchise, not the investment income already represented by asset values.",
+    "No separate deduction of BNSF/BHE/BHFC debt when capitalizing their after-interest common earnings; no group NCI deduction again since earnings attributable to parent. Unallocated liabilities, asset quality and capital needs can create SOTP uncertainty; not a liquidation valuation.",
+    "Taylor July equity consideration6.8b removed from June cash, purchased business valued at cost6.8b today; enterprise8.5b is not cash paid. Debt assumed supported by its own earnings/asset value. OxyChem9.4b Jan already in financials, no second addition/deduction.",
+    "SOTP investment pool growth5% base includes retained operating cash and portfolio returns after required reinvestment and taxes; no extra retained-profit/cash addition. Float2.5%, normalized operations5.5% growth, no new acquisitions/buyback benefit. Statutory insurance capital is not freely distributable; dollar-for-dollar asset value does not mean payout capability.",
+    "EquivalentB shares1431693 equivalentA x1500 =2147539500; no mixing actualB-only count with total equity. Quote and all report values perB. June securities are financial snapshot, not falsely marked to Nov price; Q3 pendingNov7. Multiples are assumptions not peer quotes."
+  ]
+}

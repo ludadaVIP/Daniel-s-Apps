@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T08:52:07.612Z",
+  "jobId": "2d05108c-6bc0-42b2-b9b2-b785b6647fbc",
+  "reference": {
+    "json": "decisions/hood-2026-11-05-2d05108c-6bc0-42b2-b9b2-b785b6647fbc.json",
+    "report": "decisions/hood-2026-11-05-2d05108c-6bc0-42b2-b9b2-b785b6647fbc.html",
+    "updatedAt": "2026-11-05T08:52:03.479Z",
+    "conclusion": "HOOD值得跟踪，当前不追买。Gold、资金流入与新产品证明成长潜力，但客户交易强度、贷款资本和州监管仍是关键风险。基准今日价值约24.24–54.97美元，两种方法分歧大，不能视作精确合理价；五年期末43.69／99.06美元，相对87.07美元年化约-12.9%／2.6%。较高方法也不足15%研究回报门槛。"
+  },
+  "beforeRevision": 3409,
+  "afterRevision": 3410,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"HOOD\",\n  \"reference\": {\n    \"json\": \"decisions/hood-2026-11-05-2d05108c-6bc0-42b2-b9b2-b785b6647fbc.json\",\n    \"report\": \"decisions/hood-2026-11-05-2d05108c-6bc0-42b2-b9b2-b785b6647fbc.html\",\n    \"updatedAt\": \"2026-11-05T08:52:03.479Z\",\n    \"conclusion\": \"HOOD值得跟踪，当前不追买。Gold、资金流入与新产品证明成长潜力，但客户交易强度、贷款资本和州监管仍是关键风险。基准今日价值约24.24–54.97美元，两种方法分歧大，不能视作精确合理价；五年期末43.69／99.06美元，相对87.07美元年化约-12.9%／2.6%。较高方法也不足15%研究回报门槛。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 15.76,\n      \"high\": 18.18,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿取基准今日24.2433美元的75%与五年43.6872/1.15^5之较低值；这是条件买价，不是预测会跌到这里。须核信用损失、监管与资本需求。\",\n      \"dollars\": 972.64564077625,\n      \"shares\": 53\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 13.34,\n      \"high\": 15.75,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿取基准今日24.2433美元的65%与五年43.6872/1.15^5之较低值；这是条件买价，不是预测会跌到这里。须核信用损失、监管与资本需求。\",\n      \"dollars\": 1361.70389708675,\n      \"shares\": 86\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 8.49,\n      \"high\": 13.33,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿取基准今日24.2433美元的55%与五年43.6872/1.15^5之较低值；这是条件买价，不是预测会跌到这里。须核信用损失、监管与资本需求。低于8.49先重估，禁止机械补仓。\",\n      \"dollars\": 1556.233025242,\n      \"shares\": 116\n    }\n  ]\n}\n"
+}

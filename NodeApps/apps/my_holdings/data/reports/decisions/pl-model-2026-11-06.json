@@ -1,0 +1,643 @@
+{
+  "units": "USD million, shares million",
+  "actualShares": 363.847989,
+  "existingAwards": 38.632394999999995,
+  "shares0": 402.48038399999996,
+  "noteShares": 38.48889,
+  "strike": 11.951500809714181,
+  "cap": 18.04,
+  "openingCashNote": "865.418 July cash+shortterm excludes restricted8.498. Estimated Jan2027 opening cash730/780/820, not actual, no unissued ATM proceeds. Opening operatingWC -200 proxy captures customer advances; normalizing to -15% revenue consumes advance benefit.",
+  "sbc": "Existing awards added gross without exercise cash. Future SBC retained as cash-equivalent operating cost; no same-award future dilution double charge.",
+  "cashFlow": "GAAP EBIT including lease/SBC, positive EBIT taxed21%, D&A8% revenue. Capex includes satellite/software replenishment, normalizes14% beyond2031. No dividends or cash interest income. Debt retired in2030 with capped-call net settlement; prepayment capital counted through WC, not all free cash.",
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "rev": [
+          480,
+          520,
+          560,
+          600,
+          640
+        ],
+        "gm": [
+          0.53,
+          0.53,
+          0.54,
+          0.54,
+          0.55
+        ],
+        "opex": [
+          350,
+          365,
+          380,
+          395,
+          410
+        ],
+        "capex": [
+          0.23,
+          0.22,
+          0.21,
+          0.2,
+          0.19
+        ],
+        "cash": 730,
+        "ke": 0.2,
+        "wacc": 0.16,
+        "exitSales": 1.5,
+        "price2030": 4,
+        "issue": 4,
+        "fade": [
+          0.06,
+          0.05,
+          0.04,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03,
+          0.03
+        ],
+        "endMargin": 0.06
+      },
+      "settlement": "cash",
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 480,
+          "ebit": -95.6,
+          "tax": 0,
+          "capex": 110.4,
+          "depreciation": 38.4,
+          "dwc": 128,
+          "fcf": -295.6,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 432.09999999999997
+        },
+        {
+          "year": 2028,
+          "rev": 520,
+          "ebit": -89.39999999999998,
+          "tax": 0,
+          "capex": 114.4,
+          "depreciation": 41.6,
+          "dwc": -6,
+          "fcf": -156.2,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 273.59999999999997
+        },
+        {
+          "year": 2029,
+          "rev": 560,
+          "ebit": -77.59999999999997,
+          "tax": 0,
+          "capex": 117.6,
+          "depreciation": 44.800000000000004,
+          "dwc": -6,
+          "fcf": -144.39999999999995,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 126.90000000000002
+        },
+        {
+          "year": 2030,
+          "rev": 600,
+          "ebit": -71,
+          "tax": 0,
+          "capex": 120,
+          "depreciation": 48,
+          "dwc": -6,
+          "fcf": -137,
+          "debtPayment": 460,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 571.92,
+          "shares": 552.9856471578947,
+          "cash": 100
+        },
+        {
+          "year": 2031,
+          "rev": 640,
+          "ebit": -58,
+          "tax": 0,
+          "capex": 121.6,
+          "depreciation": 51.2,
+          "dwc": -6,
+          "fcf": -122.39999999999998,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 122.39999999999998,
+          "shares": 585.1961734736842,
+          "cash": 100
+        }
+      ],
+      "cash": 100,
+      "shares": 585.1961734736842,
+      "raised": 694.3199999999999,
+      "enterpriseDCF": 0,
+      "dcf": {
+        "price5": 0.17088286720401277,
+        "today": 0.06867399177115999,
+        "cagr": -0.5696587317580952
+      },
+      "sales": {
+        "price5": 1.8113583923625354,
+        "today": 0.7279443127742958,
+        "cagr": -0.3099601557499041
+      }
+    },
+    "base": {
+      "parameters": {
+        "rev": [
+          550,
+          670,
+          810,
+          970,
+          1150
+        ],
+        "gm": [
+          0.57,
+          0.58,
+          0.6,
+          0.61,
+          0.62
+        ],
+        "opex": [
+          350,
+          375,
+          410,
+          450,
+          495
+        ],
+        "capex": [
+          0.22,
+          0.19,
+          0.17,
+          0.15,
+          0.14
+        ],
+        "cash": 780,
+        "ke": 0.16,
+        "wacc": 0.12,
+        "exitSales": 4,
+        "price2030": 12,
+        "issue": 8,
+        "fade": [
+          0.16,
+          0.14,
+          0.12,
+          0.1,
+          0.08,
+          0.07,
+          0.06,
+          0.05,
+          0.04,
+          0.04
+        ],
+        "endMargin": 0.23
+      },
+      "settlement": "cash",
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 550,
+          "ebit": -36.5,
+          "tax": 0,
+          "capex": 121,
+          "depreciation": 44,
+          "dwc": 117.5,
+          "fcf": -231,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 546.7
+        },
+        {
+          "year": 2028,
+          "rev": 670,
+          "ebit": 13.599999999999966,
+          "tax": 2.8559999999999928,
+          "capex": 127.3,
+          "depreciation": 53.6,
+          "dwc": -18,
+          "fcf": -44.95600000000002,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 499.444
+        },
+        {
+          "year": 2029,
+          "rev": 810,
+          "ebit": 76,
+          "tax": 15.959999999999999,
+          "capex": 137.70000000000002,
+          "depreciation": 64.8,
+          "dwc": -21,
+          "fcf": 8.139999999999986,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 505.284
+        },
+        {
+          "year": 2030,
+          "rev": 970,
+          "ebit": 141.69999999999993,
+          "tax": 29.756999999999984,
+          "capex": 145.5,
+          "depreciation": 77.60000000000001,
+          "dwc": -24,
+          "fcf": 68.04299999999995,
+          "debtPayment": 460,
+          "hedge": 1.8666799999999455,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 111.50699999999995
+        },
+        {
+          "year": 2031,
+          "rev": 1150,
+          "ebit": 218,
+          "tax": 45.78,
+          "capex": 161.00000000000003,
+          "depreciation": 92,
+          "dwc": -27,
+          "fcf": 130.22,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 241.72699999999995
+        }
+      ],
+      "cash": 241.72699999999995,
+      "shares": 402.48038399999996,
+      "raised": 0,
+      "enterpriseDCF": 2491.32768377325,
+      "dcf": {
+        "price5": 6.790528911275463,
+        "today": 3.233059196204682,
+        "cagr": -0.10121873405810489
+      },
+      "sales": {
+        "price5": 12.029721677069361,
+        "today": 5.727507062263091,
+        "cagr": 0.0076841020058517895
+      }
+    },
+    "bull": {
+      "parameters": {
+        "rev": [
+          610,
+          820,
+          1090,
+          1430,
+          1840
+        ],
+        "gm": [
+          0.6,
+          0.63,
+          0.65,
+          0.67,
+          0.68
+        ],
+        "opex": [
+          360,
+          410,
+          475,
+          555,
+          650
+        ],
+        "capex": [
+          0.22,
+          0.19,
+          0.17,
+          0.15,
+          0.14
+        ],
+        "cash": 820,
+        "ke": 0.14,
+        "wacc": 0.1,
+        "exitSales": 6,
+        "price2030": 25,
+        "issue": 15,
+        "fade": [
+          0.2,
+          0.18,
+          0.16,
+          0.14,
+          0.12,
+          0.1,
+          0.08,
+          0.06,
+          0.05,
+          0.04
+        ],
+        "endMargin": 0.31
+      },
+      "settlement": "cash",
+      "rows": [
+        {
+          "year": 2027,
+          "rev": 610,
+          "ebit": 6,
+          "tax": 1.26,
+          "capex": 134.2,
+          "depreciation": 48.800000000000004,
+          "dwc": 108.5,
+          "fcf": -189.15999999999997,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 628.5400000000001
+        },
+        {
+          "year": 2028,
+          "rev": 820,
+          "ebit": 106.60000000000002,
+          "tax": 22.386000000000003,
+          "capex": 155.8,
+          "depreciation": 65.6,
+          "dwc": -31.5,
+          "fcf": 25.51400000000001,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 651.7540000000001
+        },
+        {
+          "year": 2029,
+          "rev": 1090,
+          "ebit": 233.5,
+          "tax": 49.035,
+          "capex": 185.3,
+          "depreciation": 87.2,
+          "dwc": -40.5,
+          "fcf": 126.86500000000001,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 776.3190000000002
+        },
+        {
+          "year": 2030,
+          "rev": 1430,
+          "ebit": 403.1,
+          "tax": 84.651,
+          "capex": 214.5,
+          "depreciation": 114.4,
+          "dwc": -51,
+          "fcf": 269.34900000000005,
+          "debtPayment": 727.8826744,
+          "hedge": 234.3395755999999,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 315.96532560000014
+        },
+        {
+          "year": 2031,
+          "rev": 1840,
+          "ebit": 601.2,
+          "tax": 126.25200000000001,
+          "capex": 257.6,
+          "depreciation": 147.20000000000002,
+          "dwc": -61.5,
+          "fcf": 426.048,
+          "debtPayment": 0,
+          "hedge": 0,
+          "netNewShares": 0,
+          "equity": 0,
+          "shares": 402.48038399999996,
+          "cash": 742.0133256000001
+        }
+      ],
+      "cash": 742.0133256000001,
+      "shares": 402.48038399999996,
+      "raised": 0,
+      "enterpriseDCF": 10307.211171459327,
+      "dcf": {
+        "price5": 27.45282735831252,
+        "today": 14.258138277987367,
+        "cagr": 0.1884767955262896
+      },
+      "sales": {
+        "price5": 29.273509452823426,
+        "today": 15.203743505637329,
+        "cagr": 0.20383855749186486
+      }
+    }
+  },
+  "shareSettlement": {
+    "parameters": {
+      "rev": [
+        550,
+        670,
+        810,
+        970,
+        1150
+      ],
+      "gm": [
+        0.57,
+        0.58,
+        0.6,
+        0.61,
+        0.62
+      ],
+      "opex": [
+        350,
+        375,
+        410,
+        450,
+        495
+      ],
+      "capex": [
+        0.22,
+        0.19,
+        0.17,
+        0.15,
+        0.14
+      ],
+      "cash": 780,
+      "ke": 0.16,
+      "wacc": 0.12,
+      "exitSales": 4,
+      "price2030": 12,
+      "issue": 8,
+      "fade": [
+        0.16,
+        0.14,
+        0.12,
+        0.1,
+        0.08,
+        0.07,
+        0.06,
+        0.05,
+        0.04,
+        0.04
+      ],
+      "endMargin": 0.23
+    },
+    "settlement": "shares",
+    "rows": [
+      {
+        "year": 2027,
+        "rev": 550,
+        "ebit": -36.5,
+        "tax": 0,
+        "capex": 121,
+        "depreciation": 44,
+        "dwc": 117.5,
+        "fcf": -231,
+        "debtPayment": 0,
+        "hedge": 0,
+        "netNewShares": 0,
+        "equity": 0,
+        "shares": 402.48038399999996,
+        "cash": 546.7
+      },
+      {
+        "year": 2028,
+        "rev": 670,
+        "ebit": 13.599999999999966,
+        "tax": 2.8559999999999928,
+        "capex": 127.3,
+        "depreciation": 53.6,
+        "dwc": -18,
+        "fcf": -44.95600000000002,
+        "debtPayment": 0,
+        "hedge": 0,
+        "netNewShares": 0,
+        "equity": 0,
+        "shares": 402.48038399999996,
+        "cash": 499.444
+      },
+      {
+        "year": 2029,
+        "rev": 810,
+        "ebit": 76,
+        "tax": 15.959999999999999,
+        "capex": 137.70000000000002,
+        "depreciation": 64.8,
+        "dwc": -21,
+        "fcf": 8.139999999999986,
+        "debtPayment": 0,
+        "hedge": 0,
+        "netNewShares": 0,
+        "equity": 0,
+        "shares": 402.48038399999996,
+        "cash": 505.284
+      },
+      {
+        "year": 2030,
+        "rev": 970,
+        "ebit": 141.69999999999993,
+        "tax": 29.756999999999984,
+        "capex": 145.5,
+        "depreciation": 77.60000000000001,
+        "dwc": -24,
+        "fcf": 68.04299999999995,
+        "debtPayment": 0,
+        "hedge": 1.8666799999999455,
+        "netNewShares": 38.333333333333336,
+        "equity": 0,
+        "shares": 440.8137173333333,
+        "cash": 571.507
+      },
+      {
+        "year": 2031,
+        "rev": 1150,
+        "ebit": 218,
+        "tax": 45.78,
+        "capex": 161.00000000000003,
+        "depreciation": 92,
+        "dwc": -27,
+        "fcf": 130.22,
+        "debtPayment": 0,
+        "hedge": 0,
+        "netNewShares": 0,
+        "equity": 0,
+        "shares": 440.8137173333333,
+        "cash": 701.727
+      }
+    ],
+    "cash": 701.727,
+    "shares": 440.8137173333333,
+    "raised": 0,
+    "enterpriseDCF": 2491.32768377325,
+    "dcf": {
+      "price5": 7.243546555423399,
+      "today": 3.448746792795794,
+      "cagr": -0.08953439884242786
+    },
+    "sales": {
+      "price5": 12.027137068402421,
+      "today": 5.726276496437008,
+      "cagr": 0.007640797713492908
+    }
+  },
+  "sensitivity": [
+    {
+      "wacc": 0.1,
+      "today": 4.158927311180526
+    },
+    {
+      "wacc": 0.12,
+      "today": 3.233059196204682
+    },
+    {
+      "wacc": 0.14,
+      "today": 2.6493521819546526
+    }
+  ],
+  "reverseRevenue": 2386.423164215076,
+  "reference": 3.233059196204682,
+  "returnLimit": 2.512490620976071,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 2.27,
+      "high": 2.51,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 1.78,
+      "high": 2.26,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 1.06,
+      "high": 1.77,
+      "budgetSharePct": 40
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T10:34:38.303Z",
+  "jobId": "d0fd558b-67a2-4fa5-a4e9-e52ba29f1609",
+  "reference": {
+    "json": "decisions/v-2026-11-05-d0fd558b-67a2-4fa5-a4e9-e52ba29f1609.json",
+    "report": "decisions/v-2026-11-05-d0fd558b-67a2-4fa5-a4e9-e52ba29f1609.html",
+    "updatedAt": "2026-11-05T10:34:37.787Z",
+    "conclusion": "基准今日现金流法$243.61、盈利法$388.83；2031分别$360.57／$589.18。按440.48买入，含模型股息五年IRR-3.0%／6.8%。方法分歧在增长持续期和资本回报，不能平均成确定合理价；当前不新增，条件目标3%。"
+  },
+  "beforeRevision": 3419,
+  "afterRevision": 3420,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"V\",\n  \"reference\": {\n    \"json\": \"decisions/v-2026-11-05-d0fd558b-67a2-4fa5-a4e9-e52ba29f1609.json\",\n    \"report\": \"decisions/v-2026-11-05-d0fd558b-67a2-4fa5-a4e9-e52ba29f1609.html\",\n    \"updatedAt\": \"2026-11-05T10:34:37.787Z\",\n    \"conclusion\": \"基准今日现金流法$243.61、盈利法$388.83；2031分别$360.57／$589.18。按440.48买入，含模型股息五年IRR-3.0%／6.8%。方法分歧在增长持续期和资本回报，不能平均成确定合理价；当前不新增，条件目标3%。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 182.71,\n      \"high\": 207.06,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(较低今日243.61×85%，基准较低五年价及逐年股息按12%折现218.23)。核净费率/激励、跨境、诉讼和新通道经济性。若监管或盈利恶化，旧价格失效。\",\n      \"dollars\": 2815.20155911125,\n      \"shares\": 13\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 158.35,\n      \"high\": 182.7,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(较低今日243.61×75%，基准较低五年价及逐年股息按12%折现218.23)。核净费率/激励、跨境、诉讼和新通道经济性。若监管或盈利恶化，旧价格失效。\",\n      \"dollars\": 3941.2821827557495,\n      \"shares\": 21\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 121.81,\n      \"high\": 158.34,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(较低今日243.61×65%，基准较低五年价及逐年股息按12%折现218.23)。核净费率/激励、跨境、诉讼和新通道经济性。低于121.81重新尽调，不机械补仓。\",\n      \"dollars\": 4504.322494578,\n      \"shares\": 28\n    }\n  ]\n}\n"
+}

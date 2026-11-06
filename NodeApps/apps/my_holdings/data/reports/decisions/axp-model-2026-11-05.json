@@ -1,0 +1,539 @@
+{
+  "reverseFlatRoe6to10": 0.4436967682146551,
+  "units": "per share USD unless specified",
+  "price": 336.2,
+  "shares": 680,
+  "book0": 50.313235294117646,
+  "anchors": {
+    "totalEquityMillion": 35797,
+    "preferredCarryingMillion": 1584,
+    "preferredLiquidationMillion": 1600,
+    "basicSharesMillion": 671,
+    "currentQuarterDilutedMillion": 674,
+    "nineMonthSbcMillion": 495,
+    "cet1": 0.109,
+    "effectiveMinimumCet1": 0.07
+  },
+  "scenarios": {
+    "bear": {
+      "parameters": {
+        "eps1": 15.5,
+        "epsGrowth": 0.03,
+        "coreGrowth": 0.06,
+        "fadeRoe": [
+          0.27,
+          0.24,
+          0.21,
+          0.18,
+          0.15
+        ],
+        "ke": 0.12,
+        "g": 0.02,
+        "pe5": 15,
+        "divGrowth": 0.03
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "openingBook": 50.313235294117646,
+          "closingBook": 53.33202941176471,
+          "eps": 15.5,
+          "roe": 0.3080700318592348,
+          "residualIncome": 9.462411764705884,
+          "potentialCapitalReturn": 12.481205882352938,
+          "dividend": 3.9139999999999997
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "openingBook": 53.33202941176471,
+          "closingBook": 56.53195117647059,
+          "eps": 15.965,
+          "roe": 0.2993510686934074,
+          "residualIncome": 9.565156470588235,
+          "potentialCapitalReturn": 12.765078235294116,
+          "dividend": 4.03142
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "openingBook": 56.53195117647059,
+          "closingBook": 59.92386824705883,
+          "eps": 16.44395,
+          "roe": 0.2908788686360468,
+          "residualIncome": 9.66011585882353,
+          "potentialCapitalReturn": 13.052032929411766,
+          "dividend": 4.1523626
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "openingBook": 59.92386824705883,
+          "closingBook": 63.519300341882364,
+          "eps": 16.937268500000002,
+          "roe": 0.2826464478255927,
+          "residualIncome": 9.746404310352943,
+          "potentialCapitalReturn": 13.341836405176466,
+          "dividend": 4.276933478
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "openingBook": 63.519300341882364,
+          "closingBook": 67.3304583623953,
+          "eps": 17.445386555000002,
+          "roe": 0.2746470200569438,
+          "residualIncome": 9.82307051397412,
+          "potentialCapitalReturn": 13.634228534487061,
+          "dividend": 4.40524148234
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "openingBook": 67.3304583623953,
+          "closingBook": 70.69698128051508,
+          "eps": 18.179223757846735,
+          "roe": 0.27,
+          "residualIncome": 10.099568754359298,
+          "potentialCapitalReturn": 14.812700839726965,
+          "dividend": 4.5373987268102
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "openingBook": 70.69698128051508,
+          "closingBook": 74.23183034454084,
+          "eps": 16.967275507323617,
+          "roe": 0.24,
+          "residualIncome": 8.483637753661808,
+          "potentialCapitalReturn": 13.432426443297853,
+          "dividend": 4.673520688614507
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "openingBook": 74.23183034454084,
+          "closingBook": 77.20110355832247,
+          "eps": 15.588684372353576,
+          "roe": 0.21,
+          "residualIncome": 6.6808647310086755,
+          "potentialCapitalReturn": 12.619411158571943,
+          "dividend": 4.813726309272942
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "openingBook": 77.20110355832247,
+          "closingBook": 79.51713666507214,
+          "eps": 13.896198640498044,
+          "roe": 0.18,
+          "residualIncome": 4.632066213499348,
+          "potentialCapitalReturn": 11.580165533748373,
+          "dividend": 4.958138098551131
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "openingBook": 79.51713666507214,
+          "closingBook": 81.10747939837358,
+          "eps": 11.92757049976082,
+          "roe": 0.15,
+          "residualIncome": 2.3855140999521645,
+          "potentialCapitalReturn": 10.33722776645938,
+          "dividend": 5.106882241507664
+        }
+      ],
+      "excess5": 44.494424426382345,
+      "coreV5": 105.97047728206628,
+      "rim5": 150.46490170844862,
+      "pe5": 306.17522275138236,
+      "rim0": 100.25958282026099,
+      "pe0": 188.6138006925865,
+      "divs": [
+        3.9139999999999997,
+        4.03142,
+        4.1523626,
+        4.276933478,
+        4.40524148234
+      ],
+      "irr": -0.13100883399537905,
+      "peIrr": -0.005700208937967466,
+      "ddmReconciles": true
+    },
+    "base": {
+      "parameters": {
+        "eps1": 18.5,
+        "epsGrowth": 0.075,
+        "coreGrowth": 0.08,
+        "fadeRoe": [
+          0.35,
+          0.34,
+          0.33,
+          0.32,
+          0.3
+        ],
+        "ke": 0.1,
+        "g": 0.03,
+        "pe5": 20,
+        "divGrowth": 0.07
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "openingBook": 50.313235294117646,
+          "closingBook": 54.33829411764706,
+          "eps": 18.5,
+          "roe": 0.36769648963844154,
+          "residualIncome": 13.468676470588235,
+          "potentialCapitalReturn": 14.474941176470587,
+          "dividend": 4.066
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "openingBook": 54.33829411764706,
+          "closingBook": 58.68535764705883,
+          "eps": 19.8875,
+          "roe": 0.36599419107530057,
+          "residualIncome": 14.453670588235294,
+          "potentialCapitalReturn": 15.54043647058823,
+          "dividend": 4.35062
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "openingBook": 58.68535764705883,
+          "closingBook": 63.38018625882354,
+          "eps": 21.3790625,
+          "roe": 0.36429977352402604,
+          "residualIncome": 15.510526735294118,
+          "potentialCapitalReturn": 16.684233888235287,
+          "dividend": 4.6551634
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "openingBook": 63.38018625882354,
+          "closingBook": 68.45060115952943,
+          "eps": 22.982492187499997,
+          "roe": 0.36261320049845175,
+          "residualIncome": 16.64447356161764,
+          "potentialCapitalReturn": 17.912077286794112,
+          "dividend": 4.981024838000001
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "openingBook": 68.45060115952943,
+          "closingBook": 73.92664925229178,
+          "eps": 24.706179101562498,
+          "roe": 0.36093443568132927,
+          "residualIncome": 17.861118985609554,
+          "potentialCapitalReturn": 19.230131008800143,
+          "dividend": 5.329696576660001
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "openingBook": 73.92664925229178,
+          "closingBook": 77.62298171490637,
+          "eps": 25.874327238302122,
+          "roe": 0.35,
+          "residualIncome": 18.481662313072945,
+          "potentialCapitalReturn": 22.17799477568753,
+          "dividend": 5.7027753370262015
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "openingBook": 77.62298171490637,
+          "closingBook": 81.5041308006517,
+          "eps": 26.39181378306817,
+          "roe": 0.34,
+          "residualIncome": 18.62951561157753,
+          "potentialCapitalReturn": 22.51066469732285,
+          "dividend": 6.101969610618036
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "openingBook": 81.5041308006517,
+          "closingBook": 84.76429603267776,
+          "eps": 26.89636316421506,
+          "roe": 0.33,
+          "residualIncome": 18.74595008414989,
+          "potentialCapitalReturn": 23.636197932188992,
+          "dividend": 6.529107483361299
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "openingBook": 84.76429603267776,
+          "closingBook": 87.3072249136581,
+          "eps": 27.124574730456885,
+          "roe": 0.32,
+          "residualIncome": 18.64814512718911,
+          "potentialCapitalReturn": 24.581645849476544,
+          "dividend": 6.9861450071965905
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "openingBook": 87.3072249136581,
+          "closingBook": 89.92644166106786,
+          "eps": 26.19216747409743,
+          "roe": 0.3,
+          "residualIncome": 17.46144498273162,
+          "potentialCapitalReturn": 23.57295072668768,
+          "dividend": 7.4751751577003525
+        }
+      ],
+      "excess5": 60.45931501622836,
+      "coreV5": 303.3226677534092,
+      "rim5": 363.7819827696375,
+      "pe5": 554.5828970474784,
+      "rim0": 243.38082980055844,
+      "pe0": 361.8531859348518,
+      "divs": [
+        4.066,
+        4.35062,
+        4.6551634,
+        4.981024838000001,
+        5.329696576660001
+      ],
+      "irr": 0.029329057146501136,
+      "peIrr": 0.11663729187702698,
+      "ddmReconciles": true
+    },
+    "bull": {
+      "parameters": {
+        "eps1": 19.5,
+        "epsGrowth": 0.11,
+        "coreGrowth": 0.09,
+        "fadeRoe": [
+          0.37,
+          0.37,
+          0.36,
+          0.36,
+          0.35
+        ],
+        "ke": 0.09,
+        "g": 0.035,
+        "pe5": 24,
+        "divGrowth": 0.09
+      },
+      "rows": [
+        {
+          "t": 1,
+          "year": 2027,
+          "openingBook": 50.313235294117646,
+          "closingBook": 54.84142647058824,
+          "eps": 19.5,
+          "roe": 0.3875719755648438,
+          "residualIncome": 14.971808823529411,
+          "potentialCapitalReturn": 14.971808823529408,
+          "dividend": 4.142
+        },
+        {
+          "t": 2,
+          "year": 2028,
+          "openingBook": 54.84142647058824,
+          "closingBook": 59.77715485294119,
+          "eps": 21.645000000000003,
+          "roe": 0.394683387960529,
+          "residualIncome": 16.70927161764706,
+          "potentialCapitalReturn": 16.709271617647055,
+          "dividend": 4.51478
+        },
+        {
+          "t": 3,
+          "year": 2029,
+          "openingBook": 59.77715485294119,
+          "closingBook": 65.1570987897059,
+          "eps": 24.025950000000005,
+          "roe": 0.4019252849873277,
+          "residualIncome": 18.646006063235298,
+          "potentialCapitalReturn": 18.646006063235294,
+          "dividend": 4.9211102
+        },
+        {
+          "t": 4,
+          "year": 2030,
+          "openingBook": 65.1570987897059,
+          "closingBook": 71.02123768077944,
+          "eps": 26.668804500000004,
+          "roe": 0.4093000608586547,
+          "residualIncome": 20.804665608926474,
+          "potentialCapitalReturn": 20.804665608926467,
+          "dividend": 5.364010118000001
+        },
+        {
+          "t": 5,
+          "year": 2031,
+          "openingBook": 71.02123768077944,
+          "closingBook": 77.41314907204959,
+          "eps": 29.602372995000007,
+          "roe": 0.4168101537184466,
+          "residualIncome": 23.210461603729858,
+          "potentialCapitalReturn": 23.21046160372985,
+          "dividend": 5.846771028620002
+        },
+        {
+          "t": 6,
+          "year": 2032,
+          "openingBook": 77.41314907204959,
+          "closingBook": 81.28380652565207,
+          "eps": 28.64286515665835,
+          "roe": 0.37,
+          "residualIncome": 21.675681740173886,
+          "potentialCapitalReturn": 24.772207703055873,
+          "dividend": 6.372980421195802
+        },
+        {
+          "t": 7,
+          "year": 2033,
+          "openingBook": 81.28380652565207,
+          "closingBook": 85.34799685193468,
+          "eps": 30.075008414491265,
+          "roe": 0.37,
+          "residualIncome": 22.75946582718258,
+          "potentialCapitalReturn": 26.01081808820865,
+          "dividend": 6.946548659103425
+        },
+        {
+          "t": 8,
+          "year": 2034,
+          "openingBook": 85.34799685193468,
+          "closingBook": 88.76191672601207,
+          "eps": 30.725278866696485,
+          "roe": 0.36,
+          "residualIncome": 23.043959150022364,
+          "potentialCapitalReturn": 27.31135899261909,
+          "dividend": 7.571738038422734
+        },
+        {
+          "t": 9,
+          "year": 2035,
+          "openingBook": 88.76191672601207,
+          "closingBook": 91.42477422779244,
+          "eps": 31.954290021364347,
+          "roe": 0.36,
+          "residualIncome": 23.96571751602326,
+          "potentialCapitalReturn": 29.29143251958398,
+          "dividend": 8.253194461880781
+        },
+        {
+          "t": 10,
+          "year": 2036,
+          "openingBook": 91.42477422779244,
+          "closingBook": 94.62464132576517,
+          "eps": 31.99867097972735,
+          "roe": 0.35,
+          "residualIncome": 23.77044129922603,
+          "potentialCapitalReturn": 28.798803881754623,
+          "dividend": 8.995981963450053
+        }
+      ],
+      "excess5": 69.55354237044807,
+      "coreV5": 457.4015456276186,
+      "rim5": 526.9550879980667,
+      "pe5": 780.0104942504482,
+      "rim0": 361.48465085955,
+      "pe0": 525.9533018554513,
+      "divs": [
+        4.142,
+        4.51478,
+        4.9211102,
+        5.364010118000001,
+        5.846771028620002
+      ],
+      "irr": 0.10627527202343623,
+      "peIrr": 0.19385500485810814,
+      "ddmReconciles": true
+    }
+  },
+  "reference": 243.38082980055844,
+  "maxReturn": 223.02150908288598,
+  "entries": [
+    {
+      "tier": "observation",
+      "low": 182.54,
+      "high": 206.87,
+      "budgetSharePct": 25
+    },
+    {
+      "tier": "safety",
+      "low": 158.2,
+      "high": 182.53,
+      "budgetSharePct": 35
+    },
+    {
+      "tier": "discount",
+      "low": 121.7,
+      "high": 158.19,
+      "budgetSharePct": 40
+    }
+  ],
+  "sensitivity": [
+    {
+      "ke": 0.09,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 266.78686066820546
+        },
+        {
+          "g": 0.03,
+          "value": 286.88619651956844
+        },
+        {
+          "g": 0.04,
+          "value": 315.02526671147655
+        }
+      ]
+    },
+    {
+      "ke": 0.1,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 230.1569776032037
+        },
+        {
+          "g": 0.03,
+          "value": 243.38082980055844
+        },
+        {
+          "g": 0.04,
+          "value": 261.01263273036477
+        }
+      ]
+    },
+    {
+      "ke": 0.11,
+      "values": [
+        {
+          "g": 0.02,
+          "value": 201.67128528928137
+        },
+        {
+          "g": 0.03,
+          "value": 210.67796003849872
+        },
+        {
+          "g": 0.04,
+          "value": 222.2579704303496
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    "Common operating book starts total equity minus preferred carrying value, divided by680m fixed claims vs671m basic and674m diluted; not tangible capital or a liquidation floor. Goodwill/OCI remain in accounting book.",
+    "EPS forecasts after tax, credit costs, GAAP SBC expense, preferred dividends and ordinary reinvestment. No second SBC or debt/preferred subtraction. No future buyback EPS uplift. First-year normal EPS18.5 is forecast, vs2026 adjusted guidance17.60-17.90; excludes GBTG disposal gain and normalizes tax/reserve benefits.",
+    "Operating common book grows8% first5 in base, proxy for capital supporting balances, not exact CET1 bridge. Earnings minus required book growth is potential capital return. Only modeled dividends paid first5; residual held as zero-yield excess capital, added to year5 price once. Fixed claims, no extra share-count benefit. Real distributions subject to regulatory capital permission.",
+    "Years6-10 ROE fades to30% base; terminal book and EPS grow3%, payout EPS minus capital growth. RIM at year5 reconciles separately calculated distributable-capital DDM. Excess is excluded from modeled core EPS; no duplicate P/E cash earnings.",
+    "P/E is an independent research multiple, not a same-day peer quote. Core EPS5 times20 plus excess; today discounts year5 and dividends using same Ke. Terminal ROE durability is central method disagreement. No free deposit/cash add-back or corporate EV/EBITDA."
+  ]
+}

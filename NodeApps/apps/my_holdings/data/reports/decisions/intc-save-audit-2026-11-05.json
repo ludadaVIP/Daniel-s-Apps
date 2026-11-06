@@ -1,0 +1,21 @@
+{
+  "savedAt": "2026-11-05T10:17:40.700Z",
+  "jobId": "b7a0d35d-a0a8-4175-943f-e3b0880dee38",
+  "reference": {
+    "json": "decisions/intc-2026-11-05-b7a0d35d-a0a8-4175-943f-e3b0880dee38.json",
+    "report": "decisions/intc-2026-11-05-b7a0d35d-a0a8-4175-943f-e3b0880dee38.html",
+    "updatedAt": "2026-11-05T10:17:40.235Z",
+    "conclusion": "基准今日现金流法$21.84、盈利法$33.84；2031为$37.63／$58.32，按57.46买入五年价格年化-8.1%／0.3%，模型无股息。当前不新增；条件目标仅1%，需先看到代工持续外部订单及投入后现金改善。"
+  },
+  "beforeRevision": 3417,
+  "afterRevision": 3418,
+  "userDataUnchanged": true,
+  "protectedDataHashBefore": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "protectedDataHashAfter": "11bb7d9203e2f049c5846b81fb4306204454b27f2fa8c65d8b8b8374d940bfaa",
+  "watchManualDataPreserved": true,
+  "otherJobsPreserved": true,
+  "previousAnalysesPreserved": true,
+  "jsonMatchesInput": true,
+  "htmlTimezone": "Asia/Shanghai",
+  "response": "{\n  \"symbol\": \"INTC\",\n  \"reference\": {\n    \"json\": \"decisions/intc-2026-11-05-b7a0d35d-a0a8-4175-943f-e3b0880dee38.json\",\n    \"report\": \"decisions/intc-2026-11-05-b7a0d35d-a0a8-4175-943f-e3b0880dee38.html\",\n    \"updatedAt\": \"2026-11-05T10:17:40.235Z\",\n    \"conclusion\": \"基准今日现金流法$21.84、盈利法$33.84；2031为$37.63／$58.32，按57.46买入五年价格年化-8.1%／0.3%，模型无股息。当前不新增；条件目标仅1%，需先看到代工持续外部订单及投入后现金改善。\"\n  },\n  \"entryPlan\": [\n    {\n      \"tier\": \"observation\",\n      \"low\": 14.2,\n      \"high\": 16.44,\n      \"budgetSharePct\": 25,\n      \"condition\": \"上沿=min(保守今日21.84×80%，基准五年价按18%回报折现16.45)。须核代工持续外部收入、工艺良率和归属现金；融资/业务未恶化。若只有价格下降而转型失败，不买。\",\n      \"dollars\": 580.818519385,\n      \"shares\": 35\n    },\n    {\n      \"tier\": \"safety\",\n      \"low\": 10.92,\n      \"high\": 14.19,\n      \"budgetSharePct\": 35,\n      \"condition\": \"上沿=min(保守今日21.84×65%，基准五年价按18%回报折现16.45)。须核代工持续外部收入、工艺良率和归属现金；融资/业务未恶化。若只有价格下降而转型失败，不买。\",\n      \"dollars\": 813.1459271389999,\n      \"shares\": 57\n    },\n    {\n      \"tier\": \"discount\",\n      \"low\": 6.56,\n      \"high\": 10.91,\n      \"budgetSharePct\": 40,\n      \"condition\": \"上沿=min(保守今日21.84×50%，基准五年价按18%回报折现16.45)。须核代工持续外部收入、工艺良率和归属现金；融资/业务未恶化。低于6.56重新尽调，禁止机械补仓。\",\n      \"dollars\": 929.3096310159999,\n      \"shares\": 85\n    }\n  ]\n}\n"
+}
