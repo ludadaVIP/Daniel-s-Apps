@@ -19,6 +19,7 @@ import {
   ratioStats,
 } from "../src/converter.js";
 import { validateResearch, researchHtml } from "./ai.js";
+import { readCompanyEvidence } from "./company-briefs.js";
 import { atomicWriteFile, createBackupStore, sameStateContent } from "./backups.js";
 import { decisionTaskQuestion, validateDecisionReport } from "../src/decision-reports.js";
 import { decisionResearch, decisionReportHtml } from "./decision-report.js";
@@ -313,6 +314,7 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
     )
       throw error("关注记录无效。");
     if (
+      !(w.businessSummary === undefined || text(w.businessSummary, 300)) ||
       !(w.targetPrice === undefined || w.targetPrice === null || num(w.targetPrice, 0.000001)) ||
       !(w.price === undefined || w.price === null || num(w.price, 0.000001)) ||
       !(w.priceDate === undefined || date(w.priceDate)) ||
@@ -809,6 +811,14 @@ export async function createHoldingsApp({
     } catch (e) {
       next(e);
     }
+  });
+  app.get("/api/company-briefs/:symbol", async (req, res, next) => {
+    try {
+      const symbol = normalizeSymbol(req.params.symbol);
+      const state = await read();
+      if (!state.watchlist.some(w => normalizeSymbol(w.symbol) === symbol)) throw error("关注标的不存在。", 404);
+      res.set("Cache-Control", "no-store").json({ evidence: await readCompanyEvidence(reports, symbol) });
+    } catch (e) { next(e); }
   });
   app.get("/api/fund-holdings", async (_req, res, next) => {
     try {

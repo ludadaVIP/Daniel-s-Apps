@@ -244,6 +244,9 @@ export function WatchForm({ item, onSave, busy }) {
           onChange={(e) => set((s) => ({ ...s, name: e.target.value, symbol: "" }))}
         />
       </Field>
+      <Field label="业务简介（可选）" hint="写清客户、产品或收入来源；留空时优先显示公司资料，未知标的会显示待补充。">
+        <input maxLength={300} value={v.businessSummary || ''} onChange={e => change('businessSummary', e.target.value)} placeholder="例如：为餐厅提供收银软件并收取支付手续费" />
+      </Field>
       <SaveButton busy={busy} label={item ? "保存关注" : "添加并排入待办"} />
     </form>
   );

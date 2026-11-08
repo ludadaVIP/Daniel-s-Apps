@@ -43,6 +43,18 @@
 .mh-company-brief__watch li { position: relative; padding-left: 13px; color: var(--brief-muted); font-size: 10px; line-height: 1.65; }
 .mh-company-brief__watch li::before { position: absolute; top: 7px; left: 1px; width: 5px; height: 5px; border-radius: 50%; background: var(--brief-warm); content: ""; }
 .mh-company-brief__footnote { margin: 12px 2px 0; color: var(--brief-muted); font-size: 8px; line-height: 1.65; }
+.mh-company-brief__section > p { margin: 10px 0; color: var(--brief-ink); font-size: 12px; line-height: 1.85; }
+.mh-company-brief__potential p { font-size: 12px; line-height: 1.8; }
+.mh-company-brief__section h4 { margin: 16px 0 8px; font-size: 12px; }
+.mh-company-brief__section ul { margin: 8px 0; padding-left: 18px; font-size: 12px; line-height: 1.8; }
+.mh-company-brief__section li + li { margin-top: 8px; }
+.mh-company-brief__asof, .mh-company-brief__section > .mh-company-brief__asof { color: var(--brief-muted); font-size: 10px; line-height: 1.65; }
+.mh-company-brief__metrics { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 8px; margin: 12px 0; }
+.mh-company-brief__metrics > div { padding: 10px; border: 1px solid var(--brief-rule); border-radius: 8px; }
+.mh-company-brief__metrics dt { color: var(--brief-muted); font-size: 10px; }
+.mh-company-brief__metrics dd { margin: 6px 0 0; font-size: 15px; font-weight: 600; overflow-wrap: anywhere; }
+.mh-company-brief__potential small { display: block; margin-top: 7px; color: var(--brief-muted); font-size: 10px; line-height: 1.7; }
+.mh-company-brief__sources a { color: var(--brief-accent); overflow-wrap: anywhere; }
 :root[data-theme="dark"] .mh-company-brief {
   --brief-ink: #d8e1d9;
   --brief-muted: #aeb9b0;

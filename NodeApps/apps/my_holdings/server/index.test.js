@@ -341,6 +341,88 @@ test("concurrent repeated buy requests count once and different stale requests c
   assert.deepEqual(conflicting.map((result) => result.status).sort(), [200, 409]);
   assert.equal((await call("/api/state")).data.holdings[0].quantity, 120);
 });
+test("executing an order creates a persisted holding, lot and journal entry exactly once", async (t) => {
+  const { call, dir } = await setup(t);
+  const initial = (await call("/api/state")).data;
+  initial.orders = [{ id: "fill-new", symbol: "NEW", name: "New holding", side: "buy", orderType: "limit",
+    quantity: 3, filledQuantity: 0, limitPrice: 90, currency: "USD", timeInForce: "GTC", status: "working", accountId: "" }];
+  const current = (await call("/api/state", initial, "PUT")).data;
+  const fill = { revision: current.revision, accountId: "a2", date: "2026-11-08", price: 89, fees: 1.25, rationale: "确认实际成交" };
+  const results = await Promise.all([call("/api/orders/fill-new/execute", fill), call("/api/orders/fill-new/execute", fill)]);
+  assert.deepEqual(results.map((result) => result.status).sort(), [200, 409]);
+  const result = results.find((row) => row.status === 200).data;
+  assert.equal(result.merged, false);
+  assert.equal(result.holding.accountId, "a2");
+  assert.equal(result.holding.symbol, "NEW");
+  assert.equal(result.holding.quantity, 3);
+  assert.equal(result.holding.cost, 268.25);
+  assert.equal(result.holding.averagePrice, 268.25 / 3);
+  assert.equal(result.holding.priceType, "purchase");
+  assert.equal(result.holding.marketValue, 267);
+  assert.equal(result.state.orders.length, 0);
+  assert.equal(result.state.holdingTrades.filter((row) => row.type === "buy").length, 1);
+  const entry = result.state.journal.find((row) => row.holdingTradeId === result.lot.id);
+  assert.equal(entry.holdingId, result.holding.id);
+  assert.equal(entry.status, "filled");
+  assert.equal(entry.quantity, 3);
+  assert.equal(entry.price, 89);
+  assert.equal(entry.fees, 1.25);
+  assert.equal(entry.body, "确认实际成交");
+  assert.deepEqual(result.state.cash, current.cash);
+  assert.deepEqual(result.state.accounts, current.accounts);
+  assert.equal((await call("/api/orders/fill-new/execute", { ...fill, revision: result.state.revision })).status, 404);
+  const after = (await call("/api/state")).data;
+  assert.equal(after.revision, result.state.revision);
+  assert.equal(after.holdings.filter((row) => row.symbol === "NEW").length, 1);
+  assert.deepEqual(JSON.parse(await fs.readFile(path.join(dir, "state.json"), "utf8")).holdings, after.holdings);
+});
+
+test("executing an order merges the selected account and keeps its saved market quote", async (t) => {
+  const { call } = await setup(t);
+  const initial = (await call("/api/state")).data;
+  Object.assign(initial.holdings.find((row) => row.id === "h5"), { price: 310, priceDate: "2026-11-06", priceSource: "测试行情" });
+  initial.orders = [{ id: "fill-merge", symbol: " qqqm ", name: "QQQM", side: "buy", orderType: "limit",
+    quantity: 10, filledQuantity: 0, limitPrice: 300, currency: "USD", timeInForce: "GTC", status: "draft", accountId: "a2" }];
+  const current = (await call("/api/state", initial, "PUT")).data;
+  const existing = current.holdings.find((row) => row.id === "h5");
+  const result = await call("/api/orders/fill-merge/execute", {
+    revision: current.revision, accountId: "a2", date: "2026-11-08", price: 299, fees: 2, rationale: "",
+  });
+  assert.equal(result.status, 200);
+  assert.equal(result.data.merged, true);
+  const holding = result.data.holding;
+  assert.equal(holding.id, existing.id);
+  assert.equal(holding.quantity, existing.quantity + 10);
+  assert.equal(holding.cost, Math.round((existing.cost + 2992) * 100) / 100);
+  assert.equal(holding.averagePrice, holding.cost / holding.quantity);
+  assert.equal(holding.price, 310);
+  assert.equal(holding.marketValue, holding.quantity * 310);
+  assert.equal(result.data.state.holdings.length, current.holdings.length);
+  assert.deepEqual(result.data.state.holdings.find((row) => row.id === "h1"), current.holdings.find((row) => row.id === "h1"));
+});
+
+test("invalid and stale order executions preserve pending data, and partial orders close as one lot", async (t) => {
+  const { call } = await setup(t);
+  const initial = (await call("/api/state")).data;
+  initial.orders = [{ id: "fill-guard", symbol: "NEW", name: "NEW", side: "buy", orderType: "market",
+    quantity: 4, filledQuantity: 1, limitPrice: null, currency: "USD", timeInForce: "GTC", status: "partial", accountId: "a1" }];
+  const current = (await call("/api/state", initial, "PUT")).data;
+  const fill = { revision: current.revision, accountId: "a1", date: "2026-11-08", price: 88, fees: 0, rationale: "" };
+  for (const bad of [{ price: 0 }, { price: "88" }, { fees: -1 }, { date: "" }])
+    assert.equal((await call("/api/orders/fill-guard/execute", { ...fill, ...bad })).status, 400);
+  assert.equal((await call("/api/orders/fill-guard/execute", { ...fill, accountId: "missing" })).status, 404);
+  assert.equal((await call("/api/orders/fill-guard/execute", { ...fill, revision: current.revision - 1 })).status, 409);
+  const unchanged = (await call("/api/state")).data;
+  assert.deepEqual(unchanged.holdings, current.holdings);
+  assert.deepEqual(unchanged.orders, current.orders);
+  assert.equal(unchanged.revision, current.revision);
+  const result = await call("/api/orders/fill-guard/execute", fill);
+  assert.equal(result.status, 200);
+  assert.equal(result.data.holding.quantity, 4); // Confirming the whole order uses its weighted average fill price.
+  assert.equal(result.data.holding.cost, 352);
+  assert.equal(result.data.state.orders.length, 0);
+});
+
 test("old duplicate holdings are consolidated on restore and keep their full original records", async (t) => {
   const { call } = await setup(t);
   const state = (await call("/api/state")).data;
@@ -830,6 +912,23 @@ test("external research import validates sources and auto-creates a report", asy
     1,
   );
 });
+test("company briefs read valid dated archives without changing user state", async (t) => {
+  const { call, dir } = await setup(t);
+  const initial = (await call('/api/state')).data;
+  initial.watchlist.push({ id: 'brief-msft', symbol: 'MSFT', name: '微软', status: '观察中', note: '', trigger: '' });
+  const saved = (await call('/api/state', initial, 'PUT')).data;
+  const archive = sampleDecision();
+  await fs.writeFile(path.join(dir, 'reports/decisions/msft-2026-11-04.json'), JSON.stringify(archive));
+  await fs.writeFile(path.join(dir, 'reports/decisions/msft-auxiliary-model.json'), JSON.stringify({ symbol: 'MSFT', value: 9999 }));
+  const result = await call('/api/company-briefs/MSFT');
+  assert.equal(result.status, 200);
+  assert.equal(result.data.evidence.analysisDate, archive.analysisDate);
+  assert.equal(result.data.evidence.verdict.valueLow, archive.verdict.valueLow);
+  assert.equal((await call('/api/company-briefs/UNKNOWN')).status, 404);
+  const after = (await call('/api/state')).data;
+  assert.deepEqual(after, saved);
+});
+
 test("cross-origin mutations are refused", async (t) => {
   const { base } = await setup(t);
   const r = await fetch(base + "/api/restore", {

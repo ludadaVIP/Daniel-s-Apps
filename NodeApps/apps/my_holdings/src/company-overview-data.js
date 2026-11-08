@@ -1,208 +1,68 @@
+import { COMPANY_PROFILES } from "./company-profiles.js";
 import { WATCH_BUSINESS_SUMMARIES } from "./watch-business-summaries.js";
 
-const FUND_TICKERS = new Set(["VTI", "VT", "VGT", "SOXX", "SMH", "VOO", "QQQM", "SPYL", "CNDX", "SCHD", "VXUS", "VIG"]);
-
-const EXTRA_BUSINESSES = {
-  AAPL: "Apple 以 iPhone、Mac、iPad 和可穿戴设备构建硬件生态，并通过操作系统、应用分发、云服务和订阅服务延伸用户价值。",
-  "BRK.B": "由保险浮存金支撑的多元控股公司，拥有铁路、能源、制造和消费业务，并持有上市证券组合。",
-  V: "Visa 运营全球电子支付网络，连接消费者、商户、发卡机构和收单机构，按交易与增值服务收费。",
-  VTI: "跟踪美国整体股票市场，一只基金覆盖大型、中型与小型上市公司。",
-  VT: "跟踪全球股票市场，覆盖美国及其他发达和新兴市场。",
-  VGT: "集中投资美国信息技术行业，覆盖软件、半导体和硬件公司。",
-  SOXX: "集中投资半导体产业链公司，覆盖芯片设计、制造和设备等环节。",
-  SMH: "集中投资全球主要半导体公司，持仓偏向大型芯片设计与制造企业。",
-  VOO: "跟踪标普 500 指数，提供美国大型上市公司的市值加权敞口。",
-  QQQM: "跟踪 Nasdaq-100 指数，持有在纳斯达克上市的主要非金融大型公司。",
-  SPYL: "爱尔兰注册的标普 500 UCITS ETF，持有美国大型公司并在欧洲交易所挂牌。",
-  CNDX: "爱尔兰注册的 Nasdaq-100 UCITS ETF，提供纳斯达克大型非金融公司的指数敞口。",
-  SCHD: "跟踪美国股息质量策略指数，偏向持续派息且财务指标较稳健的公司。",
-  VXUS: "跟踪美国以外的全球股票市场，覆盖发达市场与新兴市场。",
-  VIG: "跟踪美国股息增长公司指数，重点是有持续提高股息记录的企业。",
-  MRVL: "为云数据中心、网络与存储设备提供定制芯片、高速互连和信号处理方案。",
-  ARQT: "皮肤科生物制药公司，核心产品围绕外用药 ZORYVE 及其适应症拓展。",
-  CLMB: "增值 IT 渠道商，为软件、硬件和云厂商提供分销、集成与技术服务。",
-  ALGM: "设计磁传感器、传感器 IC 和电源芯片，主要服务汽车与工业设备。",
-  GTLB: "GitLab 为软件团队提供从代码协作到测试、安全和发布的一体化 DevSecOps 平台。",
-  BILL: "为中小企业提供应付账款、应收账款、费用与支付自动化软件。",
-  VTEX: "企业级电商 SaaS，支持 B2C、B2B、数字市场和订单管理。",
-  AMPL: "企业产品分析与数字体验平台，涵盖行为分析、实验和产品优化。",
-  CLFD: "为宽带运营商和网络建设方提供光纤连接、配线与部署设备。",
+const FUNDS = new Set(['VTI','VT','VGT','SOXX','SMH','VOO','QQQM','SPYL','CNDX','SCHD','VXUS','VIG','SPMO']);
+export const cleanText = value => String(value || '').replace(/\[S\d+(?:[–-]\d+)?\]/g, '').replace(/^#{1,6}\s*/gm, '').replace(/\*\*/g, '').trim();
+const readableFinance = value => value.replace(/\bCFO\b/g, '经营现金流').replace(/\bFCF\b/g, '自由现金流')
+  .replace(/\bCapEx\b/gi, '资本开支').replace(/PP&E/g, '厂房及设备投入').replace(/\bSBC\b/g, '股权薪酬')
+  .replace(/\bARR\b/g, '年度经常性收入').replace(/\bQ([1-4])\b/g, (_, n) => `第${n}季度`)
+  .replace(/(?<!长)增(?=\d)/g, '增长');
+const limit = (value, max) => {
+  const text = cleanText(value);
+  if (text.length <= max) return text;
+  const sentences = text.match(/[^。！？\n]+[。！？\n]?/g) || [];
+  let result = '';
+  for (const sentence of sentences) { if (result.length + sentence.length > max) break; result += sentence; }
+  return result.trim() || text.slice(0, max) + '…';
 };
+export function watchBusinessSummary(watch) {
+  const symbol = String(watch?.symbol || '').trim().toUpperCase().replace('BRK-B', 'BRK.B');
+  if (watch?.businessSummary?.trim()) return watch.businessSummary.trim();
+  if (watch?.research?.businessSummary?.trim()) return watch.research.businessSummary.trim();
+  const profile = COMPANY_PROFILES[symbol];
+  if (profile) return profile.short;
+  const details = cleanText(watch?.research?.details);
+  const business = details.match(/(?:业务模式|商业模式|公司业务|主营业务)[：:]\s*([^\n]+)/)?.[1];
+  return limit(business || WATCH_BUSINESS_SUMMARIES[symbol] || watch?.research?.identity?.sector, 70) || '业务简介待补充';
+}
 
-const DEVELOPMENT_PATHS = {
-  RKLB: ["从 Electron 小型火箭发射切入商业航天", "扩展到卫星制造、航天器与任务服务", "Neutron 和发射节奏决定综合航天业务能否继续扩大"],
-  OUST: ["从激光雷达传感器建立产品基础", "把数字传感器与感知软件组合进工业、汽车和机器人场景", "关键在量产客户扩张与单位经济性"],
-  TMDX: ["以器官保存与运输技术解决移植物流难题", "从设备延伸到器官运输网络与配套服务", "商业化取决于医院采用、网络密度和可靠运营"],
-  LUNR: ["以月球任务和 NASA 合同进入商业航天", "从着陆器拓展到月面通信、导航和基础设施", "任务成功率、合同转收入及资金需求是核心变量"],
-  PLTR: ["从政府与国防数据系统起步", "把数据平台拓展到商业企业和跨行业客户", "AIP 的客户采用与部署规模决定 AI 产品能否持续增收"],
-  AEHR: ["以半导体测试与老化设备建立技术积累", "从芯片封装测试走向晶圆级测试和宽禁带材料", "新客户验证和订单转成重复收入是观察重点"],
-  ENVX: ["以硅负极锂电池研发形成技术路线", "把研发转向可量产的高能量密度电芯", "良率、产能爬坡和客户认证决定商业化进度"],
-  INOD: ["从数据工程与人工标注服务起步", "扩展到生成式 AI 训练、评估和数据质量服务", "客户集中度、项目续约与人员效率影响利润质量"],
-  ASTS: ["提出普通手机直连低轨卫星的网络方案", "通过卫星部署和移动运营商合作推进验证", "星座建成速度、服务质量和融资能力决定落地规模"],
-  CRDO: ["从高速 SerDes 与连接芯片建立产品基础", "扩展到有源铜缆、光互连和数据中心整套连接方案", "AI 集群建设带来机会，也提高客户与资本开支集中度"],
-  HOOD: ["以移动端免佣交易吸引零售投资者", "扩展到加密资产、退休账户、订阅和现金管理", "用户活跃度、资产留存及交易周期决定收入稳定性"],
-  SPGI: ["以信用评级业务建立资本市场数据基础", "扩展到指数、金融数据、能源与工作流产品", "经常性数据收入和评级周期共同影响增长"],
-  VST: ["从美国发电与零售售电业务形成综合电力运营", "通过核电、储能与发电资产交易扩大供电能力", "电价、燃料成本、监管和债务共同影响回报"],
-  AXP: ["从旅行与商业支付卡发展出会员服务", "形成发卡、支付网络、商户服务和消费信贷组合", "消费韧性、卡费续费和信用损失决定周期表现"],
-  INTC: ["以 x86 处理器和个人电脑建立规模优势", "把业务扩展至数据中心、先进制造与晶圆代工", "制程良率、外部代工客户和资本回报是转型关键"],
-  "BRK.B": ["从纺织企业转型为保险投资控股公司", "用保险浮存金收购铁路、能源、制造和消费企业", "资本配置与子公司长期现金流构成主要观察线索"],
-  V: ["从 BankAmericard 发展为开放式支付网络", "连接全球消费者、商户、银行和支付机构", "电子支付渗透与跨境交易推动增长，监管和替代支付是约束"],
-  VTI: ["用一只基金覆盖美国大型、中型和小型公司", "市值加权令大型公司在组合中占较高比重", "它反映美国股票市场整体表现，不是基金自身经营增长"],
-  VT: ["以一只基金覆盖全球公开股票市场", "同时持有美国、发达市场和新兴市场公司", "地域分散会降低单一国家依赖，但仍承受全球股市与汇率波动"],
-  VGT: ["以美国信息技术行业为投资范围", "通过市值加权集中配置大型软件、芯片和硬件公司", "行业集中带来科技成长敞口，也会放大估值与周期波动"],
-  SOXX: ["围绕半导体行业建立主题指数组合", "持有芯片设计、制造和设备供应链公司", "半导体库存周期与 AI 资本开支影响基金表现"],
-  SMH: ["聚焦全球半导体产业的主题投资", "持仓偏向大型芯片设计、晶圆代工和设备公司", "行业集中和头部公司权重是理解波动的关键"],
-  VOO: ["以标普 500 指数代表美国大型上市公司", "通过市值加权覆盖多个行业但偏重最大公司", "长期结果取决于成分公司的整体盈利与估值水平"],
-  QQQM: ["跟踪 Nasdaq-100 的大型非金融公司", "科技、通信与消费平台权重较高", "成长股估值和少数大型成分股会显著影响回报"],
-  APLD: ["从数据中心托管与数字基础设施起步", "扩展到高性能计算和 AI 数据中心容量", "电力、土地、客户融资和项目交付决定扩张速度"],
-  AMPX: ["以硅负极电池技术提升能量密度", "将电芯推向无人机、航空和高性能设备客户", "量产良率、客户认证和制造成本是商业化门槛"],
-  PL: ["以小型卫星实现高频地球观测", "把影像扩展成地理空间数据与分析服务", "客户续约、影像更新频率和数据产品变现是关键"],
-  IREN: ["从比特币挖矿建立数据中心和能源基础", "向 AI 云算力与 GPU 服务延伸", "算力部署、电力合同、客户利用率和资本开支需一起看"],
-  TEM: ["从临床数据、检测与医疗信息服务起步", "把基因组数据和软件工具用于精准医疗与 AI 辅助研究", "临床采用、数据治理、报销和亏损收窄决定发展质量"],
-  SPYL: ["以标普 500 指数提供美国大型公司敞口", "通过 UCITS 基金结构服务欧洲交易者", "指数集中度、跟踪误差、税务结构与费用决定产品差异"],
-  CNDX: ["以 Nasdaq-100 指数覆盖大型非金融公司", "通过 UCITS 架构在欧洲市场交易", "科技成长股集中度与汇率是主要组合特征"],
-  SCHD: ["以股息质量与财务指标筛选美国公司", "形成偏向成熟、现金流和分红企业的组合", "股息不是保证；成分股行业与价值风格会影响周期表现"],
-  VXUS: ["以美国以外的全球股票市场为范围", "同时覆盖发达市场与新兴市场公司", "地域分散效果取决于非美市场盈利、汇率与国家风险"],
-  VIG: ["聚焦有持续提高股息记录的美国公司", "以股息增长筛选形成偏向质量与盈利稳定的组合", "筛选规则不保证高股息或跑赢市场，行业权重会变化"],
-  SE: ["以 Garena 数字娱乐业务建立早期用户基础", "拓展到 Shopee 电商和 SeaMoney 数字金融", "三项业务的交叉获客与盈利能力决定集团经济性"],
-  NU: ["从巴西移动端数字银行切入普惠金融", "扩展到信用卡、贷款、储蓄和拉美更多市场", "客户变现、资金成本与信用损失是关键平衡"],
-  SOFI: ["从学生贷款再融资与线上获客起步", "拓展为存贷款、投资和金融科技平台", "银行资金成本、信贷质量和交叉销售决定利润韧性"],
-  ADMA: ["围绕血浆采集与免疫球蛋白研发建立业务", "形成血浆供应、生产和商业化药品的纵向链条", "产能利用、监管质量与产品需求影响增长"],
-  PGY: ["以 AI 信贷决策和消费者贷款技术切入金融科技", "扩展到贷款撮合、资金渠道和资本市场服务", "信用周期、资金合作方和模型表现会影响收入稳定性"],
-  ZETA: ["从数字营销与客户数据应用起步", "整合数据、受众识别与多渠道营销工具", "客户留存、数据质量和广告预算周期是重要指标"],
-  CBRS: ["以专用 AI 计算芯片解决大模型训练需求", "从单颗芯片推进到整机与集群级计算系统", "性能、软件适配、制造供给和大型客户交付决定落地"],
-  AAOI: ["以光通信器件和网络设备建立产品基础", "提高数据中心光收发器速率并拓展有线电视网络产品", "大客户订单、良率和光模块价格周期影响利润"],
-  MP: ["以 Mountain Pass 稀土矿形成美国本土供应来源", "向稀土分离、加工和永磁材料制造延伸", "价格周期、加工能力和下游客户认证决定纵向整合价值"],
-  CLPT: ["以神经外科影像导航与手术规划工具起步", "扩展到机器人引导、脑部药物递送和神经重症设备", "医院采用、临床证据、报销与耗材复购决定成长"],
-  IONQ: ["以离子阱量子计算开展硬件研发", "扩展到云端访问、量子网络与安全产品", "错误率、可扩展性、客户付费和长期资金需求是关键"],
-  BE: ["以固体氧化物燃料电池提供分布式电力", "拓展到大型数据中心、工业供电与电解制氢", "设备可靠性、服务成本、燃料价格和项目融资影响回报"],
-  MSFT: ["以 Windows 与 Office 建立企业软件基础", "扩展到 Azure 云平台、订阅服务与开发工具", "AI 产品变现、云增长和数据中心投资回报是当前焦点"],
-  AAPL: ["从个人电脑拓展到 iPod 与 iPhone 等消费设备", "围绕硬件建立操作系统、应用分发与服务生态", "换机周期、服务收入、供应链和平台监管塑造增长"],
-  NVDA: ["从图形处理器切入并发展 GPU 计算", "通过 CUDA、网络和系统产品形成加速计算平台", "AI 需求、客户资本开支、供应链和竞争决定增长持续性"],
-  GOOG: ["以 Google 搜索与广告形成主要商业模式", "拓展到 Android、YouTube、Google Cloud 和 AI 产品", "搜索流量、云盈利、AI 产品竞争和监管是关键变量"],
-  AMZN: ["从在线零售平台起步并建设物流网络", "发展出 AWS 云计算、广告和第三方卖家服务", "云资本回报、零售效率和广告扩张共同影响利润"],
-  META: ["从社交网络发展为 Facebook、Instagram、WhatsApp 家族平台", "以广告变现并投入短视频、AI 和虚拟现实", "用户注意力、广告效果、AI 投入回报和监管决定经营路径"],
-  TSLA: ["以高端电动车证明电动汽车的市场需求", "扩大车型、超级充电网络并发展储能业务", "汽车价格竞争、产能利用、储能增长和自动驾驶兑现是重点"],
-  AMD: ["从 CPU 设计扩展到图形处理器和数据中心芯片", "Ryzen 与 EPYC 重塑产品组合，Instinct 切入 AI 加速器", "服务器份额、AI 软件生态、先进封装与毛利是关键"],
-  TSM: ["建立专注晶圆代工的商业模式", "持续推进先进制程、先进封装与多地区制造", "先进节点良率、客户需求、资本开支和地缘风险需并看"],
-  SPCX: ["围绕航天运输与卫星通信建立综合业务版图", "把发射能力、卫星网络和数据中心基础设施连接起来", "项目节奏、资本投入、监管许可和业务披露透明度是重点"],
-  UNH: ["以 UnitedHealthcare 保险业务覆盖个人和雇主", "通过 Optum 扩展医疗服务、药房和数据能力", "医疗成本率、政策变化、网络安全和各业务利润率决定表现"],
-  SYM: ["以仓储机器人系统服务大型零售和物流设施", "把机器人、软件和整仓自动化项目整合交付", "客户集中度、项目现金流和部署回报是关键验证项"],
-  CGNX: ["以工业机器视觉传感器和读码器建立自动化业务", "扩展到软件、深度学习检测与物流应用", "工厂资本开支、并购整合和客户采用影响增长"],
-  PATH: ["以软件机器人自动化重复业务流程", "扩展到流程编排、AI 代理和企业自动化平台", "客户留存、自动化项目扩张与 GAAP 盈利是观察重点"],
-  NOW: ["从 IT 服务管理云软件建立企业客户基础", "扩展到员工、客户服务、安全和跨部门工作流", "订阅续约、AI 合同转收入和并购回报决定成长质量"],
-  AMBA: ["以低功耗视频压缩芯片进入摄像与监控市场", "将计算机视觉和边缘 AI 推向汽车与智能设备", "设计导入周期、量产和毛利恢复是核心变量"],
-  TER: ["以半导体与电子自动测试设备建立技术壁垒", "拓展到协作机器人和移动机器人业务", "芯片测试周期、订单集中和机器人盈利能力影响集团表现"],
-  DLO: ["连接国际商户与新兴市场本地支付方式", "扩展到收款、付款、发卡和多市场支付服务", "交易量增长必须转化为稳定毛利、现金流和合规能力"],
-  CLBT: ["以手机数据提取工具服务数字调查", "扩展到云端证据管理、分析和调查工作流", "政府采购周期、续约增长、隐私规则和客户集中度值得关注"],
-  ACMR: ["从晶圆清洗设备进入半导体制造流程", "扩展到先进封装、其他前道设备和海外客户", "订单质量、客户地区集中及出口限制影响增长"],
-  MRVL: ["从通信与存储芯片扩展到数据中心定制芯片", "通过 DSP、高速互连和光电产品服务 AI 集群", "大客户设计导入、量产节奏和客户自研方案是关键"],
-  ARQT: ["从皮肤科药物研发推进到 ZORYVE 商业化", "扩大适应症、给药形式和皮肤病治疗场景", "医生采用、保险覆盖、竞争和现金消耗决定价值兑现"],
-  INTA: ["为律所与专业服务机构提供关系和业务管理软件", "拓展到云端计费、合规、客户开发与行业数据", "续约扩容、云迁移速度和 GAAP 盈利质量是重点"],
-  DOCN: ["以简化云服务满足开发者和小型科技企业需求", "扩展到 GPU、托管 AI 和模型推理服务", "AI 客户增长需覆盖基础设施投入并转成自由现金流"],
-  FLYW: ["从教育等垂直行业的跨境收款切入", "扩展到医疗、旅行和 B2B 的软件嵌入式支付", "支付量、毛利率、季节性与合规成本共同影响增长"],
-  CLMB: ["从软件和硬件分销业务建立厂商渠道", "扩大解决方案服务、云业务和专业技术能力", "收购整合、大客户集中和低毛利分销结构是关注点"],
-  ALGM: ["以磁传感器和汽车芯片建立产品组合", "拓展到电动汽车、工业自动化与数据中心电源应用", "汽车设计周期、库存修正和新应用量产影响收入"],
-  GTLB: ["以 Git 仓库和协作工具服务开发团队", "构建覆盖开发、安全、部署和 AI 的 DevSecOps 平台", "付费席位扩展、AI 变现与大型客户留存决定增长"],
-  BILL: ["以中小企业应付账款自动化进入财务工作流", "扩展到应收账款、卡片、费用管理和支付网络", "交易量、信用损失、利率敏感度和获客成本需并看"],
-  VTEX: ["为大型品牌和零售商提供云端电商平台", "加入 B2B、数字市场、订单管理和零售媒体能力", "客户扩容、外汇中性订阅增长与现金流是重点"],
-  AMPL: ["以产品分析帮助团队理解用户行为", "扩展到实验、功能测试和 AI 产品优化", "客户留存、交叉销售和股权薪酬后的盈利能力值得关注"],
-  CLFD: ["为宽带网络部署提供光纤连接与配线设备", "扩展到运营商、MSO 和数据中心等新应用", "订单节奏、库存费用、毛利率和新客户复购决定成长"],
-};
-
-const INDUSTRY_GUIDES = [
-  {
-    match: /消费电子|硬件生态|设备生态/,
-    label: "消费电子与生态平台",
-    context: "消费电子公司通过设备设计、操作系统和服务生态争取用户长期使用。新品周期、供应链能力与生态黏性共同影响经营表现。",
-    potential: "设备安装基础扩大后，配件、应用分发和订阅服务可以增加每位用户的长期价值；关键是用户愿意持续升级并留在生态内。",
-    checkpoints: ["主要设备的换机周期与产品组合", "服务收入、用户活跃度和开发者生态", "供应链成本、平台监管与渠道变化"],
-  },
-  {
-    match: /半导体|芯片|晶圆|光互连|光通信|加速计算|高性能计算|数据中心/,
-    label: "算力与半导体",
-    context: "芯片和数据中心供应链受云厂商投资、AI 训练与推理需求以及电子产品更新周期共同影响。行业增长很快，但订单常有周期，少数大客户也可能占据较大份额。",
-    potential: "机会来自计算需求上升、带宽升级和产品由单一器件向完整方案延伸；能否按时量产、保持毛利并获得重复订单，比行业热度更重要。",
-    checkpoints: ["新产品从设计导入到规模出货的速度", "客户资本开支、订单集中度与库存周期", "毛利率、研发投入和自由现金流能否一起改善"],
-  },
-  {
-    match: /航天|卫星|空间|航空/,
-    label: "商业航天",
-    context: "商业发射、卫星通信和地球观测把航天技术带入商业服务，但项目依赖发射窗口、政府合同、频谱许可和长期资本投入。",
-    potential: "若发射成本下降、卫星网络形成覆盖并转成持续服务收入，行业空间会扩大；单次任务成功不等于已经建立稳定商业模式。",
-    checkpoints: ["关键任务是否按计划完成并通过客户验收", "积压合同转成收入和现金的速度", "发射与卫星建设成本、融资需求和监管许可"],
-  },
-  {
-    match: /电力|能源|燃料电池|储能|电池|稀土|磁体/,
-    label: "能源与关键材料",
-    context: "电气化、数据中心用电和供应链本地化带来机会；同时，电价、原材料、政策与大型项目建设周期会显著影响回报。",
-    potential: "增长可能来自新增电力需求、储能、国产化供应链和制造扩张；长期需求需要落实为可盈利的合同与产能利用。",
-    checkpoints: ["新项目、产能和合同是否按时落地", "商品价格、投入成本与单位毛利", "资本开支、债务和经营现金流的匹配度"],
-  },
-  {
-    match: /医疗|生物|临床|药|器官|血浆|诊断|皮肤科|神经外科/,
-    label: "医疗与生命科学",
-    context: "医疗需求来自疾病治疗、诊断效率和人口结构，但商业化需要通过临床证据、监管审批、报销覆盖以及医生和医院采用。",
-    potential: "新产品或服务若能改善疗效、效率或成本，可能打开更大市场；研发成果仍需经过验证、准入和重复使用才形成稳定收入。",
-    checkpoints: ["临床、监管和产品安全的关键节点", "医生采用、报销覆盖与客户续用", "现金消耗、毛利率和规模化能力"],
-  },
-  {
-    match: /支付|银行|金融|保险|信用卡|贷款|金融科技|评级|指数|资本市场|金融数据/,
-    label: "金融与支付服务",
-    context: "数字支付、金融服务和数据产品通常依靠网络规模、客户关系或流程嵌入形成优势；业务也受利率、信用周期、监管和网络安全影响。",
-    potential: "增长来自客户活跃、交易量、产品交叉销售和新市场扩张；规模只有在风控稳健、客户留存高时才会转成高质量利润。",
-    checkpoints: ["活跃客户、交易量和每位客户收入", "信用损失、资金成本与监管要求", "收入增长是否带来持续利润和现金流"],
-  },
-  {
-    match: /软件|SaaS|云计算|DevSecOps|自动化|数据平台|数字广告|营销|产品分析|电商|电子商务|社交媒体/,
-    label: "软件与数字平台",
-    context: "企业软件和数字平台通过订阅、交易或广告变现。嵌入工作流程、数据积累和网络效应可能带来续约与扩容，但竞争者复制功能的速度也很快。",
-    potential: "机会来自云迁移、自动化、AI 功能和现有客户扩容；应看客户是否持续使用并愿意付费，而不只看产品发布或合同额。",
-    checkpoints: ["客户留存、扩容和订阅增长", "新功能是否带来付费与实际使用", "股权薪酬、研发投入和 GAAP 现金盈利"],
-  },
-  {
-    match: /机器人|工业|测试设备|机器视觉|光纤|通信设备|物流/,
-    label: "工业与自动化",
-    context: "工厂升级、劳动力成本和仓储效率推动自动化需求，但设备采购受制造业资本开支与项目周期影响，收入往往不是线性增长。",
-    potential: "产品若能稳定提高产能、质量或安全性，客户可能持续扩容；项目部署、售后能力和重复采购决定优势能否扩大。",
-    checkpoints: ["订单、积压与项目验收转收入的速度", "客户集中度和资本开支周期", "服务收入、毛利率与现金回款"],
-  },
-  {
-    match: /ETF|指数/,
-    label: "指数基金",
-    context: "ETF 本身不是经营公司，而是按指数规则持有一篮子证券。结果由成分股表现、指数权重、费用和跟踪误差共同决定。",
-    potential: "它提供某个市场、行业或投资风格的简单敞口；是否适合取决于组合已有暴露、地域和行业集中度，而非基金自身的业务增长。",
-    checkpoints: ["指数范围、前十大持仓和行业权重", "费率、跟踪误差、流动性和注册地结构", "与现有基金及直接持股的重叠程度"],
-  },
-];
-
-const DEFAULT_GUIDE = {
-  label: "多元行业",
-  context: "公司的经营表现由客户需求、竞争格局和资本投入共同决定。先理解它为谁解决什么问题，再观察客户是否持续付费。",
-  potential: "潜力来自核心产品扩大采用、进入新客户或新市场，以及规模增长转化成更好的利润和现金流。",
-  checkpoints: ["客户需求与产品采用是否持续", "竞争优势能否转成稳定利润", "增长是否需要过多新增资本"],
-};
-
-export function companyOverviewFor(watch) {
-  const symbol = (watch?.symbol || watch?.name || "").trim().toUpperCase();
+export function companyOverviewFor(watch, evidence = null) {
+  const symbol = String(watch?.symbol || watch?.name || '').trim().toUpperCase().replace('BRK-B', 'BRK.B');
   const identity = watch?.research?.identity || {};
-  const industry = identity.sector || watch?.sector || "行业资料待补充";
-  const isFund = FUND_TICKERS.has(symbol) || /ETF|指数/.test(industry);
-  const business = EXTRA_BUSINESSES[symbol] || WATCH_BUSINESS_SUMMARIES[symbol] || industry;
-  const guide = isFund ? INDUSTRY_GUIDES.find((item) => item.match.test("ETF 指数")) : INDUSTRY_GUIDES.find((item) => item.match.test(industry)) || DEFAULT_GUIDE;
-  const fallbackPath = [
-    "核心业务：" + business,
-    "业务延伸：围绕“" + industry + "”拓展产品、客户或服务场景。",
-    "当前重点：验证新增需求能否形成可持续收入与现金流。",
-  ];
+  const profile = COMPANY_PROFILES[symbol];
+  // A more recent ordinary research result takes precedence over an older valuation archive.
+  const researchDate = (watch?.researchedAt || '').slice(0, 10);
+  const useDecision = evidence?.symbol === symbol && evidence.analysisDate >= researchDate;
+  const details = cleanText(watch?.research?.details);
+  const financialSections = useDecision ? evidence.sections.filter(s => /财务|财报|最新经营|最新业务|盈利|现金与/.test(s.title)) : [];
+  const sectionText = useDecision ? (financialSections.length ? financialSections : evidence.sections).map(s => s.body).join('\n\n') : details;
+  const paragraphs = sectionText.split(/\n+/).map(cleanText).filter(Boolean);
+  const finance = paragraphs.filter(p => /\d/.test(p) && /收入|营收|利润|亏损|现金|毛利|资本开支|净息差|赔付|费用率|费率|资产净值/.test(p) && !/^(?:估值|方法[一二]|熊情景|基准情景|牛情景|以.*买入|公司.*(?:重述|三分部))/.test(p));
+  const financial = [];
+  let remaining = 600;
+  // Lead with operating results, then show cash/debt rather than repeating revenue.
+  const cash = finance.slice(1).find(p => /现金|借款|负债|债务|\bCFO\b/.test(p));
+  const selectedFinance = [finance[0], cash || finance[1]].filter(Boolean);
+  for (const p of selectedFinance) {
+    if (remaining < 100) break;
+    const part = readableFinance(limit(p, Math.min(remaining, 310)));
+    if (part) { financial.push(part); remaining -= part.length; }
+  }
+  const isFund = FUNDS.has(symbol) || /ETF|指数基金/.test(identity.sector || watch?.name || '');
+  const businessFromResearch = details.match(/(?:业务模式|商业模式|主营业务)[：:]\s*([^\n]+)/)?.[1];
   return {
-    symbol,
-    name: identity.name || watch?.name || symbol,
-    exchange: identity.exchange || watch?.exchange || "",
-    industry,
-    business,
-    isFund,
-    guide: guide || DEFAULT_GUIDE,
-    development: DEVELOPMENT_PATHS[symbol] || fallbackPath,
+    symbol, name: identity.name || watch?.name || symbol, exchange: identity.exchange || '',
+    industry: identity.sector || (isFund ? '指数基金' : watchBusinessSummary(watch)), isFund,
+    business: profile?.business || limit(businessFromResearch || watch?.research?.businessSummary, 330) || watchBusinessSummary(watch),
+    thesis: profile?.thesis || '尚无逐公司投资判断；当前资料不足以支持新增投资。',
+    financial, financialPeriod: useDecision ? evidence.financialPeriod : '',
+    researchDate: useDecision ? evidence.analysisDate : researchDate,
+    stance: useDecision ? evidence.verdict.stance : (financial.length ? '观察；尚无完整价值区间' : '资料不足，暂不作投资判断'),
+    judgment: useDecision ? limit(evidence.verdict.summary || evidence.verdict.conclusion, 300) : '',
+    value: useDecision && Number.isFinite(evidence.verdict.valueLow) && Number.isFinite(evidence.verdict.valueHigh)
+      ? { low: evidence.verdict.valueLow, high: evidence.verdict.valueHigh, currency: evidence.currency, date: evidence.analysisDate } : null,
+    risks: (useDecision ? evidence.risks : watch?.research?.risks || []).slice(0, 2).map(s => limit(s, 180)),
+    triggers: (useDecision ? evidence.triggers : watch?.research?.catalysts || []).slice(0, 2).map(s => limit(s, 150)),
+    sources: (useDecision ? evidence.sources : watch?.research?.sources || []).filter(s => /^https:\/\//.test(s.url)).slice(0, 5),
   };
 }
