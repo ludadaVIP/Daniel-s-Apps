@@ -11,6 +11,7 @@ const fields = {
     additionalProperties: false,
   },
   title: { type: "string" },
+  businessSummary: { type: "string" },
   summary: { type: "string" },
   details: { type: "string" },
   risks: { type: "array", items: { type: "string" } },
@@ -42,6 +43,8 @@ const invalid = (message) => Object.assign(new Error(message), { status: 400 });
 export function validateResearch(r) {
   if (!r || typeof r !== "object" || Array.isArray(r))
     throw invalid("AI 返回内容应为 JSON 对象。");
+  if (r.businessSummary !== undefined && (typeof r.businessSummary !== 'string' || r.businessSummary.length > 300))
+    throw invalid('业务简介须为不超过300字的文字。');
   for (const key of ["title", "summary", "details", "uncertainty"])
     if (typeof r[key] !== "string" || r[key].length > 80000)
       throw invalid(`AI 内容缺少或超出长度：${key}`);

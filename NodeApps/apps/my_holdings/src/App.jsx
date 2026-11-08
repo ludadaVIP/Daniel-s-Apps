@@ -79,7 +79,7 @@ import { decisionTaskQuestion } from "./decision-reports.js";
 import { LookThrough } from "./LookThrough.jsx";
 import { WatchCategoryManager } from "./WatchCategoryManager.jsx";
 import { cloneDefaultWatchCategories, DEFAULT_WATCH_CATEGORIES, WATCH_UNCLASSIFIED_ID, watchCategoryId } from "./watch-categories.js";
-import { WATCH_BUSINESS_SUMMARIES } from "./watch-business-summaries.js";
+import { watchBusinessSummary } from "./company-overview-data.js";
 import {
   CONVERSION_PAIRS,
   INITIAL_CONVERTER_STATE,
@@ -286,7 +286,7 @@ function OrderCard({ order, watch, accounts, defaultAccountId, viewMode, busy, s
         aria-label={order.orderType === "limit" && !Number(order.filledQuantity)
           ? `按限价确认 ${order.symbol} 委托成交并入持仓`
           : `填写 ${order.symbol} 实际成交信息并入持仓`}
-        onClick={onExecute}>
+        onClick={() => onExecute(order, accountId)}>
         <Check size={14} />
       </button>
     </div>}
@@ -2105,7 +2105,7 @@ export default function HoldingsApp() {
     const attentionOpen = attentionPickerId === w.id;
     const title = watchCardTitle(w);
     const quoteAsOf = watchQuoteAsOf(w);
-    const businessSummary = WATCH_BUSINESS_SUMMARIES[(w.symbol || "").toUpperCase()] || "";
+    const businessSummary = watchBusinessSummary(w);
     return (
       <article
         className={`mh-watch-card attention-${attention} ${watchFocus?.id === w.id ? "selected" : ""} ${attentionOpen ? "priority-picker-open" : ""} ${watchViewMode === "list" ? "is-list" : "is-card"}`}
@@ -2997,7 +2997,7 @@ export default function HoldingsApp() {
                               onEdit={() => setModal({ type: "order", item: order })} onDelete={() => remove("orders", order)}
                               onOpenWatch={() => { page("watch"); selectWatch(order.watchId); }}
                               onRecordDecision={() => setModal({ type: "tradeLog", order, instrument: linkedWatch ? { kind: "watch", item: linkedWatch } : linkedHolding ? { kind: "holding", item: linkedHolding } : undefined })}
-                              onExecute={() => confirmOrder(order, accountId)} />;
+                              onExecute={confirmOrder} />;
                           })}
                         </div> : <p className="mh-order-account-empty">该账户暂无委托单</p>}
                       </section>

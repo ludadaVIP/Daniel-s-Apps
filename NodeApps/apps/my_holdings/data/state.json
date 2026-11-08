@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 3563,
-  "updatedAt": "2026-11-07T08:15:41.443Z",
+  "revision": 3574,
+  "updatedAt": "2026-11-08T11:00:01.052Z",
   "accounts": [
     {
       "id": "a1",
@@ -4638,7 +4638,7 @@
       "trigger": "",
       "status": "观察中",
       "attention": 2,
-      "watchCategoryId": "observe-only",
+      "watchCategoryId": "5a4b59bc-d835-45a6-ad72-fc98a52198c5",
       "price": 141.18,
       "priceDate": "2026-11-03",
       "priceType": "intraday",
@@ -4710,7 +4710,7 @@
       "trigger": "",
       "status": "观察中",
       "attention": 2,
-      "watchCategoryId": "observe-only",
+      "watchCategoryId": "veteran",
       "price": 401.86,
       "priceDate": "2026-11-03",
       "priceType": "intraday",
@@ -6155,157 +6155,6 @@
       "researchedAt": "2026-11-03T10:11:15.908Z",
       "report": "research/20261103-bill.html",
       "priceSession": "regular"
-    },
-    {
-      "id": "66485a45-719a-4ca3-80b2-934a4853df5f",
-      "name": "VTEX",
-      "symbol": "VTEX",
-      "note": "",
-      "trigger": "",
-      "status": "观察中",
-      "attention": 2,
-      "watchCategoryId": "uncategorized",
-      "price": 4.19,
-      "priceDate": "2026-11-04",
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-11-04T21:00:00.000Z",
-      "priceFetchedAt": "2026-11-04T23:23:20.109Z",
-      "priceTimeZone": "America/New_York",
-      "priceSource": "Moomoo",
-      "priceSourceUrl": "https://www.moomoo.com/stock/VTEX-US",
-      "pe": {
-        "value": 24.94,
-        "status": "available",
-        "basis": "TTM",
-        "asOf": "2026-11-04",
-        "updatedAt": "2026-11-04T23:30:04.865Z",
-        "source": "Moomoo（Trailing P/E / TTM）",
-        "sourceUrl": "https://www.moomoo.com/stock/VTEX-US",
-        "note": "Moomoo 报价页显示 trailing P/E (TTM) 24.94；与 2026-11-04 收盘价 $4.19 同日。口径按 GAAP TTM，VTEX 最新披露至 2026-06-30 的六个月摊薄 EPS 为 $0.080；11 月 5 日公布 Q3 结果前的最新可用估值快照。"
-      },
-      "research": {
-        "identity": {
-          "name": "VTEX",
-          "symbol": "VTEX",
-          "exchange": "NYSE",
-          "currency": "USD",
-          "sector": "企业电商 SaaS"
-        },
-        "title": "VTEX（NYSE: VTEX）首次关注研究",
-        "summary": "VTEX 为大型品牌与零售商提供云端电商平台，把 B2C、B2B、第三方商城、订单管理和零售媒体整合在一套软件中。2026 年第二季度收入同比增长 9.5%（美元口径），但外汇中性订阅收入仅增长 1.3%；利润率和现金流改善明显。重点观察 11 月 5 日公布的第三季度数据，确认增长是否加速，而非仅由汇率推动。",
-        "details": "证券与业务：VTEX（NYSE: VTEX）是一家巴西起家的企业软件公司，主要收入来自云端订阅。平台覆盖在线商店、B2B 商务、Marketplace、订单管理（OMS）和零售媒体，帮助品牌把多渠道订单、商品、商家与履约流程放在同一套系统运行。公司截至 2025 年底披露约 2,200 家客户、3,100 家活跃网店，分布在 44 个国家。\n\n最新财务（截至 2026-06-30）：Q2 2026 GMV 为 57 亿美元，同比美元口径 +17.8%、外汇中性 +7.0%；收入 6,440 万美元，同比美元口径 +9.5%，外汇中性 -0.4%；订阅收入 6,380 万美元，占收入 99.1%，同比美元口径 +11.4%、外汇中性 +1.3%。GAAP 净利润 1,003 万美元，摊薄 EPS $0.058；2026 上半年 GAAP 净利润 1,408 万美元、摊薄 EPS $0.080。非 GAAP 经营利润率 21.4%，自由现金流 1,270 万美元。公司同时在 2026 上半年回购 620 万股，支出 2,320 万美元。美元口径增长与外汇中性增速差距较大，判断内生需求时应优先看外汇中性订阅收入、客户扩张和续约。\n\n竞争力与观察：大型企业通常需要把目录、支付、ERP、物流、门店和多国本地化串联起来，迁移成本和跨渠道运营复杂度可形成一定黏性；一套平台同时提供 B2C、B2B、Marketplace 与 OMS，有利于交叉销售。AI、全球扩张、B2B 和广告是管理层强调的增长方向，但 AI 商业化仍早，不能把产品发布当成已经兑现的收入。主要竞争来自 Shopify、Salesforce Commerce、Adobe 及区域平台，企业客户项目周期长，导入服务与产品投入也可能压制增长。\n\n估值与近况：Moomoo 在 2026-11-04 报价页给出的 trailing P/E（TTM）为 24.94；该指标和 $4.19 的 11 月 4 日收盘价是下一次业绩公布前的快照。VTEX 已宣布于 2026-11-05 美东收市后发布 Q3 2026 业绩；新数据公布后应重新核对 TTM EPS、外汇中性订阅增长、利润率和全年展望。这个研究只记录业务与关注条件，不设目标价或下单建议。",
-        "risks": [
-          "外汇中性订阅收入增长明显弱于美元口径，巴西雷亚尔等汇率变化可能让报表增长与真实需求趋势不同步。",
-          "企业电商项目竞争激烈，客户可能延长采购周期、压价或选择 Shopify、Salesforce、Adobe 等替代平台；客户集中与续约扩张是重要风险。",
-          "收入增长近期较温和，AI、B2B、零售媒体和全球扩张能否形成可持续新增订阅收入尚待验证。",
-          "股份回购和利润率改善不能替代有机增长；需持续留意股权激励、研发投入、现金转换及回购对股数的实际影响。"
-        ],
-        "catalysts": [
-          "2026-11-05 美东收市后公布 Q3 2026 业绩：核对美元及外汇中性订阅收入、GMV、客户扩张和 2026 全年展望。",
-          "观察 B2B、全球扩张、广告及 AI 产品是否带来新增客户或现有客户扩容，而不只看产品公告。",
-          "跟踪订阅毛利率、非 GAAP 经营利润率、自由现金流和回购股数，确认盈利质量是否延续。"
-        ],
-        "sources": [
-          {
-            "label": "VTEX 2026 Q2 财报（SEC 6-K）",
-            "url": "https://www.sec.gov/Archives/edgar/data/1793663/000119312526337917/vtex_2q26_pr_6k.htm"
-          },
-          {
-            "label": "VTEX 投资者关系：公司与平台概况",
-            "url": "https://www.investors.vtex.com/overview/"
-          },
-          {
-            "label": "VTEX Q3 2026 业绩发布时间（2026-11-05）",
-            "url": "https://www.nasdaq.com/press-release/vtex-announce-third-quarter-2026-financial-results-november-5th-2026-2026-10-21"
-          },
-          {
-            "label": "VTEX 2025 年度报告（SEC 20-F）",
-            "url": "https://www.sec.gov/Archives/edgar/data/1793663/000119312526076504/ck0001793663-20251231.htm"
-          },
-          {
-            "label": "VTEX TTM 市盈率与报价页（Moomoo）",
-            "url": "https://www.moomoo.com/stock/VTEX-US"
-          }
-        ],
-        "uncertainty": "本次数据截止 2026-11-04 已公开信息；VTEX Q3 2026 业绩预计在 2026-11-05 美东收市后公布，因此当前财务快照只到 2026-06-30。TTM 市盈率使用 Moomoo 报价页指标，供应商口径可能与其他平台因汇率、股数或四舍五入略有差异。未在此做完整估值、税务或个性化组合适配。"
-      },
-      "researchedAt": "2026-11-04T23:32:24.558Z",
-      "report": "research/my-holdings-research-vtex-2026-11-04.html"
-    },
-    {
-      "id": "7657f5a6-8328-45e8-b4c1-6b2eeeb40129",
-      "name": "AMPL",
-      "symbol": "AMPL",
-      "note": "",
-      "trigger": "",
-      "status": "观察中",
-      "attention": 2,
-      "watchCategoryId": "uncategorized",
-      "price": 17.19,
-      "priceDate": "2026-11-04",
-      "priceType": "close",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-11-04T21:00:00.000Z",
-      "priceFetchedAt": "2026-11-04T23:23:35.297Z",
-      "priceTimeZone": "America/New_York",
-      "priceSource": "Moomoo",
-      "priceSourceUrl": "https://www.moomoo.com/stock/AMPL-US",
-      "pe": {
-        "value": null,
-        "status": "unavailable",
-        "basis": "TTM",
-        "asOf": "2026-11-04",
-        "updatedAt": "2026-11-04T23:30:05.508Z",
-        "source": "Moomoo；Amplitude 2026 Q3 SEC 财报",
-        "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1866692/000119312526447218/ampl-ex99_1.htm",
-        "note": "N/M：Moomoo 显示 TTM 亏损；Amplitude 2026 Q3 GAAP 摊薄每股亏损 $0.19，2026 前九个月 GAAP 每股亏损 $0.64，TTM GAAP EPS 为负，传统市盈率无意义。"
-      },
-      "research": {
-        "identity": {
-          "name": "Amplitude, Inc.",
-          "symbol": "AMPL",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "产品分析与数字体验 SaaS"
-        },
-        "title": "Amplitude（NASDAQ: AMPL）首次关注研究",
-        "summary": "Amplitude 向企业提供产品与数字体验分析软件，近年正把分析、实验和 Statsig 能力整合成 AI 产品优化平台。2026 年 Q3 收入同比增长 25%，ARR 增长 24%，但 GAAP 每股仍亏损 $0.19，且单季股权薪酬约 $2,880 万。增长加速和非 GAAP 盈利改善是积极信号，持续亏损、稀释与并购整合仍是核心约束。",
-        "details": "证券与业务：Amplitude, Inc.（NASDAQ: AMPL）销售产品分析和数字体验软件。企业通过埋点事件了解用户如何使用网站、移动应用或产品，再用漏斗、留存、实验和反馈工具找出流失环节、测试改动并衡量效果。Statsig 的实验与功能测试能力、Agent Analytics 和 Headless Amplitude 正被纳入更广的平台，目标是从“看数据”延伸到测试、优化以及 AI/Agent 行为分析。公司收入主要是订阅，ARR 和剩余履约义务（RPO）可辅助判断续约与未来收入可见度。\n\n最新财务（截至 2026-09-30）：Q3 2026 收入 1.106 亿美元，同比 +25%；ARR 4.31 亿美元，同比 +24%；RPO 4.97 亿美元，同比 +27%。GAAP 经营亏损 2,462 万美元，GAAP 净亏损 2,452 万美元，摊薄每股亏损 $0.19。非 GAAP 经营利润 570 万美元，经营现金流 710 万美元，自由现金流 580 万美元。单季股权薪酬及相关雇主税为 2,880 万美元，显著高于非 GAAP 经营利润；评估经营杠杆时应把股权薪酬视为真实股东成本，不能只看调整后利润。9 个月 GAAP 摊薄每股亏损为 $0.64。\n\n产品与竞争：数据行为分析、实验和客户体验工具若嵌入产品团队日常工作，会形成历史数据积累、团队流程和集成带来的转换成本；客户可按分析、测试、协作和 AI 功能扩大使用。竞争包括 Google Analytics、Adobe、Mixpanel、Heap 及云数据平台自建方案。Statsig 增加实验能力和产品范围，也带来产品整合、渠道冲突、客户迁移和交叉销售兑现风险。AI 产品可扩大需求，但竞争者也能迅速加入自然语言分析或 Agent 功能，差异化必须由客户留存、付费升级和使用量证明。\n\n估值与关注条件：截至 2026-11-04，Moomoo 显示 TTM 亏损，且最新 Q3 GAAP 每股亏损为 $0.19，传统 TTM 市盈率应记 N/M，而不是引用正的预期市盈率。观察接下来几个季度 ARR、RPO、净留存、>$100k ARR 客户数和自由现金流是否同步改善；收入增速良好但若 GAAP 亏损和股份薪酬不收敛，股东回报仍可能受稀释拖累。",
-        "risks": [
-          "公司仍持续 GAAP 亏损；高额股权薪酬会稀释股东，非 GAAP 盈利改善尚未转化成 GAAP 净利润。",
-          "Statsig 收购带来整合和交叉销售机会，同时增加并购执行、产品重叠、客户迁移与成本控制的不确定性。",
-          "产品分析和实验市场竞争强，客户可采用大型云厂商或其他专业产品；续约、扩容和客户净留存下滑会快速影响 ARR。",
-          "大型企业销售周期和 IT 预算具有波动性；隐私、数据治理与跨境数据法规可能限制产品采集和使用。",
-          "AI 功能商业化仍需由实际使用、付费转化和留存证明；技术发展快，现有优势可能被平台型竞争对手复制。"
-        ],
-        "catalysts": [
-          "Q4 2026 指引收入为 1.108 亿至 1.132 亿美元、全年 2026 收入为 4.158 亿至 4.182 亿美元；后续财报可核对兑现程度和 2027 展望。",
-          "跟踪 Agent Analytics、Headless Amplitude、Statsig 实验工具的采用率及其对 ARR、>$100k ARR 客户数和净留存的贡献。",
-          "若非 GAAP 经营利润与自由现金流持续改善，同时 GAAP 亏损和股权薪酬占收入比例下降，盈利质量将更清晰。"
-        ],
-        "sources": [
-          {
-            "label": "Amplitude 2026 Q3 财报（SEC 8-K Exhibit 99.1，2026-11-04）",
-            "url": "https://www.sec.gov/Archives/edgar/data/1866692/000119312526447218/ampl-ex99_1.htm"
-          },
-          {
-            "label": "Amplitude 2026 Q2 财报",
-            "url": "https://investors.amplitude.com/news-releases/news-release-details/amplitude-announces-second-quarter-2026-financial-results"
-          },
-          {
-            "label": "Amplitude 投资者关系与 SEC 文件",
-            "url": "https://investors.amplitude.com/financial-information/sec-filings"
-          },
-          {
-            "label": "Amplitude TTM 市盈率与报价页（Moomoo）",
-            "url": "https://www.moomoo.com/stock/AMPL-US"
-          }
-        ],
-        "uncertainty": "最新 Q3 2026 财报于 2026-11-04 发布；其 GAAP 摊薄每股亏损为 $0.19，TTM EPS 仍为负，传统 P/E 不适用。Statsig 整合及新 AI 产品的收入贡献尚不能从单季数据中单独量化。研究使用公司披露的 GAAP 与非 GAAP 指标并明确区分，未做完整估值或个性化组合适配。"
-      },
-      "researchedAt": "2026-11-04T23:32:24.946Z",
-      "report": "research/my-holdings-research-ampl-2026-11-04.html"
     },
     {
       "id": "790b5bb8-bf23-40a2-a5a3-b00014108576",
@@ -8316,36 +8165,6 @@
       }
     },
     {
-      "id": "d02b8254-53d7-4f1b-81ea-9cc9b21fa883",
-      "date": "2026-11-04",
-      "title": "VTEX 行动计划",
-      "body": "",
-      "kind": "plan",
-      "watchId": "66485a45-719a-4ca3-80b2-934a4853df5f",
-      "plan": {
-        "allocationPct": null,
-        "safetyLow": null,
-        "safetyHigh": null,
-        "discountLow": null,
-        "discountHigh": null
-      }
-    },
-    {
-      "id": "06a7a037-7f32-4b6b-b56f-a0fe5da9ab11",
-      "date": "2026-11-04",
-      "title": "AMPL 行动计划",
-      "body": "",
-      "kind": "plan",
-      "watchId": "7657f5a6-8328-45e8-b4c1-6b2eeeb40129",
-      "plan": {
-        "allocationPct": null,
-        "safetyLow": null,
-        "safetyHigh": null,
-        "discountLow": null,
-        "discountHigh": null
-      }
-    },
-    {
       "id": "e9d91d99-3e6c-4b2c-aa01-6121e7af5724",
       "date": "2026-11-04",
       "title": "CLFD 行动计划",
@@ -8895,9 +8714,158 @@
         "discountLow": null,
         "discountHigh": null
       }
+    },
+    {
+      "id": "81ab208c-ab0d-4849-88d4-253e8ac5752c",
+      "kind": "trade",
+      "date": "2026-11-08",
+      "time": "",
+      "timeZone": "",
+      "title": "买入 RKLB · 委托成交并入持仓",
+      "body": "通过委托卡片确认成交；按委托限价计入本地持仓。",
+      "side": "buy",
+      "orderType": "limit",
+      "status": "filled",
+      "quantity": 1,
+      "filledQuantity": 1,
+      "price": 1,
+      "limitPrice": 1,
+      "fees": 0,
+      "currency": "USD",
+      "accountId": "a2",
+      "accountName": "账户 R",
+      "watchId": "",
+      "holdingId": "",
+      "holdingTradeId": "77cf880a-e7cc-4cbf-824b-f285882ee3b7",
+      "symbol": "RKLB",
+      "name": "RKLB",
+      "disciplineId": "",
+      "timeInForce": "GTC",
+      "broker": "",
+      "brokerOrderId": ""
     }
   ],
   "analyses": [
+    {
+      "id": "ce17ee3e-4b1e-4023-90d1-4b783ec4d19f",
+      "kind": "portfolio",
+      "date": "2026-11-07T08:44:14.088Z",
+      "research": {
+        "identity": {
+          "name": "两个券商账户与美元现金组合",
+          "symbol": "PORTFOLIO",
+          "exchange": "美股与伦敦证券交易所",
+          "currency": "USD",
+          "sector": "美国大盘、成长、动量与半导体 ETF"
+        },
+        "title": "今日持仓体检｜两个账户、美元现金与重叠敞口",
+        "summary": "按 2026-11-06 收盘快照和各基金最近完整披露的成分表，记录总资产约 $374,880，其中证券 $188,381、现金记录 $186,499。穿透后半导体公司约占证券的 24.4%，最大单一公司英伟达约占总资产 3.9%。暂时保持现有资产，不新增交易：现金日期、资金用途、目标期限和真实最大回撤尚未核实；多只 ETF 仍共同暴露于美国大型成长与 AI 投资周期。",
+        "details": "时点：核验于 2026-11-07 08:35 UTC（美东周六 03:35、伦敦周六 08:35），两地市场休市。Moomoo 官方夜盘周日至周四 20:00 至次日 04:00 ET，24小时交易于周五 20:00 ET结束，故采用 11 月 6 日最后正式交易日。7 项美股为本地保存的 Moomoo 收盘快照，抓取时刻 2026-11-07 05:39:22 UTC、收盘 21:00 UTC；网页本次只返回总览且本机无 Quote API 端口，未将快照说成本次逐只重查。SPYL $18.42 是手动参考价，无来源时间戳，计入总额但未核实。\\n\\n资产：证券 $188,380.88，成本 $194,837.75，账面未实现损失 $6,456.87（-3.31%）。账户现金 $36,499，另有独立活期存款/弹药池 $150,000；总资产 $374,879.88，证券/现金比例 50.25%/49.75%。模型可部署 $150,000 是因预留字段为 0，不能推断真实应急金为零。账户现金日期未齐，存款记录为 10 月 18 日。\\n\\n主要证券：VOO $98,019；QQQM $67,825；SPMO $12,441；SOXX $3,686；SMH $2,320；GOOG $2,817；SPYL $921；IBKR $352。基金权重日期为 VOO 2026-09-30、QQQM/SMH/SOXX 10-23、SPYL/SPMO 11-04。穿透最大公司为 NVDA $14,561（总资产 3.88%）、AAPL $14,131（3.77%）、Alphabet $13,241（3.53%，含直接 GOOG $2,817）、MSFT $9,932（2.65%）、AMZN $6,565（1.75%）。半导体及设备公司穿透约 $45,958，占证券 24.4%、总资产 12.3%；SMH 与 SOXX 直接合计仅 $6,006，其余来自 VOO、QQQM、SPMO、SPYL。VOO/SPYL 都是 S&P 500，QQQM 是 Nasdaq-100，SPMO 是动量，SMH/SOXX 聚焦半导体。产品数量不等于风险来源分散。\\n\\n经营支持与反证：Alphabet 2026 Q3 营收同比增 25% 至 $127.6B，Google Cloud 增 103%，营业利润率 31.8%；微软 FY2027 Q1 营收增 19%、云收入增 30%、Azure 增 48%；Apple FY2026 Q4 营收增 12%；Amazon Q3 AWS 增 39.3%。但 Alphabet Q3 经营现金流 $42.3B、购置物业设备 $51.4B，简单 CFO-CapEx 为 -$9.1B；Amazon 过去 12 个月自由现金流 -$42.4B，主要受 AI 资本支出推动。AI 投入回收和成长股估值仍需核验。10 月 FOMC 维持 3.75%-4.00%，10:2 投票有两名委员支持加息；BEA 9 月 PCE 月增 0.5%、年增 3.6%，核心年增 3.1%；BLS 10 月新增就业 165,000、失业率 4.1%。增长韧性利好盈利，粘性通胀和利率则压制成长估值。公司业绩不等于股票便宜，本报告未逐项估值。\\n\\n委托：5 笔 working 买单限价金额 $18,300（QQQM $12,500、GOOG $2,700、SE $1,100、TMDX $1,100、NU $900）；TMDX 未关联账户，未登录券商核实。4 笔本地草稿 $13,970（QQQM $8,500、SMH $2,175、SOXX $1,495、SPYL $1,800），草稿不是已提交订单。若全部成交，购买额 $32,270，QQQM 增加 $21,000、估值约达总资产 23.7%，假设其他资产和价格不变；应用弹药金额不会自动扣单。目标 $1,000,000 无目标日期或投入计划，当前约 37.5%、差额 $625,120；无缴款假设下 5 年年化需约 21.7%，3 年约 38.8%，而 5 年翻倍约到 $749,760。maxDrawdown 20%、maxPosition 80%、reserve 0 均未配置，不能视为真实风险授权。\\n\\n方案：暂时保留现有资产与委托记录，本报告没有代为下单、取消或改价。先核对现金余额、短期支出、目标期限、投入计划、回撤容忍度、消费币种和税务身份。若现金稳定，证券同幅下跌 20/35/40/50% 对总资产算术影响约 -10.1/-17.6/-20.1/-25.1%；这是固定现金压力情景，不是预测。11 月 10 日 CPI、11 月 17 日 NVIDIA FY2027 Q3、12 月 8-9 日 FOMC 后复核。若半导体敞口超过总资产 15%、单家公司超过 5%，或现金/家庭计划改变，暂停同类新增并重算；集中阈值是报告提示，不是用户已设规则。",
+        "risks": [
+          "VOO、SPYL、QQQM、SPMO、SMH、SOXX 的公司和风格重叠，使实际相关性高于 ETF 数量所显示的分散程度。",
+          "半导体与 AI 供应链估算约占证券 24.4%；客户资本开支、芯片库存、出口限制或估值回落可能同时影响多项持仓。",
+          "美联储维持高利率区间且通胀仍高，成长股估值对利率变化敏感。",
+          "现金账本日期不齐且储备为零；若余额不可用或被近期支出占用，实际缓冲低于报告情景。",
+          "SPYL 价格为无来源时间戳的手动参考；其他收盘价为应用保存快照，本次未逐代码重新读取。",
+          "目标日期、定期投入、日常支出币种、税务身份、账户类别与家庭负债未知，无法确认长期配置适配。"
+        ],
+        "catalysts": [
+          "2026-11-10 BLS 发布 10 月 CPI，观察通胀趋势及利率预期。",
+          "2026-11-17 NVIDIA 发布 FY2027 第三季度业绩，复核最大穿透敞口的需求与供给。",
+          "2026-12-08 至 09 美联储 FOMC 会议，更新利率敏感性判断。",
+          "后续季度跟踪 Alphabet、Microsoft、Amazon 的云收入、AI资本开支与经营现金流转换。",
+          "核对 $150,000 弹药池和 $36,499 券商现金快照，并补齐用款日期、目标期限和实际回撤限制。"
+        ],
+        "sources": [
+          {
+            "label": "Moomoo 官方：美股夜盘时段与适用证券",
+            "url": "https://www.moomoo.com/us/support/topic4_663"
+          },
+          {
+            "label": "Moomoo 官方：24小时交易日程",
+            "url": "https://www.moomoo.com/us/support/topic4_664"
+          },
+          {
+            "label": "Moomoo 行情：VOO",
+            "url": "https://www.moomoo.com/us/quote/VOO-US"
+          },
+          {
+            "label": "Moomoo 行情：QQQM",
+            "url": "https://www.moomoo.com/us/quote/QQQM-US"
+          },
+          {
+            "label": "Vanguard VOO 官方持仓",
+            "url": "https://advisors.vanguard.com/investments/products/api/funds/0968/holdings/latest"
+          },
+          {
+            "label": "Invesco QQQM 官方持仓",
+            "url": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138G649/holdings/fund?idType=cusip&productType=ETF"
+          },
+          {
+            "label": "Invesco SPMO 官方持仓",
+            "url": "https://dng-api.invesco.com/cache/v1/accounts/en_US/shareclasses/46138E339/holdings/fund?idType=cusip&productType=ETF"
+          },
+          {
+            "label": "iShares SOXX 官方 holdings",
+            "url": "https://www.ishares.com/us/products/239705/ishares-phlx-semiconductor-etf/latest-holdings.csv"
+          },
+          {
+            "label": "VanEck SMH 官方 holdings",
+            "url": "https://www.vaneck.com/us/en/investments/semiconductor-etf-smh/holdings"
+          },
+          {
+            "label": "State Street SPYL 官方持仓",
+            "url": "https://www.ssga.com/uk/en_gb/intermediary/library-content/products/fund-data/etfs/emea/holdings-daily-emea-en-spyl-gy.xlsx"
+          },
+          {
+            "label": "Federal Reserve 2026-10-28 FOMC",
+            "url": "https://www.federalreserve.gov/newsevents/pressreleases/monetary20261028a.htm"
+          },
+          {
+            "label": "BEA 2026 年 9 月 PCE",
+            "url": "https://www.bea.gov/news/2026/personal-income-and-outlays-september-2026"
+          },
+          {
+            "label": "BLS 2026 年 10 月就业",
+            "url": "https://www.bls.gov/news.release/empsit.htm"
+          },
+          {
+            "label": "Alphabet 2026 Q3",
+            "url": "https://abc.xyz/investor/news/news-details/2026/Alphabet-Announces-Third-Quarter-2026-Results-2026-FCcqxfIfmh/default.aspx"
+          },
+          {
+            "label": "Microsoft FY2027 Q1",
+            "url": "https://news.microsoft.com/source/2026/10/28/microsoft-announces-first-quarter-results-2/"
+          },
+          {
+            "label": "Apple FY2026 Q4",
+            "url": "https://www.apple.com/newsroom/2026/11/apple-reports-fourth-quarter-results/"
+          },
+          {
+            "label": "Amazon 2026 Q3",
+            "url": "https://ir.aboutamazon.com/news-release/news-release-details/2026/Amazon-com-Announces-Third-Quarter-Results/"
+          },
+          {
+            "label": "Interactive Brokers Q3 2026 IR",
+            "url": "https://investors.interactivebrokers.com/ir/main.php"
+          },
+          {
+            "label": "NVIDIA FY2027 Q3 schedule",
+            "url": "https://investor.nvidia.com/news/press-release-details/2026/NVIDIA-Sets-Conference-Call-for-Third-Quarter-Financial-Results/default.aspx"
+          },
+          {
+            "label": "BLS November release calendar",
+            "url": "https://www.bls.gov/schedule/2026/home.htm"
+          },
+          {
+            "label": "Federal Reserve FOMC calendar",
+            "url": "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
+          }
+        ],
+        "uncertainty": "基金权重用应用保存的完整官方披露，日期为 2026-09-30 至 11-04；穿透值是披露权重乘 11 月 6 日价格，不是实时基金账本。7 项美股报价为 2026-11-07 05:39:22 UTC 保存的收盘快照，Moomoo网页本次未显示个股报价且本机无 Quote API；SPYL 是手动价。券商现金日期、外部存款余额、真实委托状态未独立对账。缺少个人期限、现金需求、风险偏好、定投计划、消费币种、税务居民地、账户类别及负债信息；本报告未逐公司估值。总资产、回撤、权重和 CAGR 是对保存数据的算术估算。"
+      },
+      "report": "portfolio/my-holdings-portfolio-review-2026-11-07.html"
+    },
     {
       "id": "c6636d54-e547-4ce8-8d02-25ddfa02f16d",
       "kind": "watch",
@@ -20555,29 +20523,6 @@
   },
   "jobs": [
     {
-      "id": "b94dcb27-288c-47a9-9f36-83d7f6798cc3",
-      "kind": "quotes",
-      "watchId": null,
-      "question": "更新全部持仓价格：先按待办实际执行时刻和 quote-policy 判断每个市场、时区与交易时段；美股在 Moomoo 明确支持的夜盘时段不能因常规交易所收市就回退收盘价。优先从 Moomoo 实时行情（可用时先查已登录的 Moomoo 报价页或本机 Moomoo OpenAPI）核实该时段报价和更新时间，若 Moomoo 没有20分钟内的新鲜夜盘价，立即查 TradingView BOATS 24/5 图表（https://www.tradingview.com/chart/?symbol=BOATS%3A代码），确认页面标注 Blue Ocean Alternative Trade System、Market open 和每秒更新；再查其他明确支持该时段的来源。不能只查 Yahoo 或常规盘报价页后就判定没有实时价。仅当所有可用时段来源都没有与 policy.session 匹配、距执行不超过20分钟且时间可核实的报价，才回退最近已完成交易日正式未复权收盘价。保存实际报价类型、时段、UTC时间、来源与报价页链接。",
-      "status": "done",
-      "date": "2026-11-05T18:24:07.925Z",
-      "error": "",
-      "quotePolicy": {
-        "executedAt": "2026-11-05T20:22:42.588Z",
-        "type": "intraday",
-        "date": "2026-11-05",
-        "fallbackDate": "2026-11-04",
-        "fallbackCloseAt": "2026-11-04T21:00:00.000Z",
-        "session": "regular",
-        "market": "US",
-        "timeZone": "America/New_York",
-        "sessionOpenAt": "2026-11-05T14:30:00.000Z",
-        "sessionCloseAt": "2026-11-05T21:00:00.000Z"
-      },
-      "summary": "已更新全部持仓价格：7 项美股常规时段实时报价，1 项 SPYL 的伦敦交易日收盘价。",
-      "completedAt": "2026-11-05T20:39:28.128Z"
-    },
-    {
       "id": "079b6b39-5619-4ce5-bf87-fa1a2944f3b0",
       "kind": "quotes",
       "watchId": null,
@@ -21229,9 +21174,11 @@
       "kind": "portfolio",
       "watchId": null,
       "question": "今日持仓体检：结合当前两个账户的全部持仓、最新可核实行情和公司信息，复核集中度、重叠风险、宏观与个股风险、现金弹药及我的目标；给出支持与反证、需要观察的触发条件和保持不动的方案，生成完整 HTML 报告。",
-      "status": "waiting",
+      "status": "done",
       "date": "2026-11-07T08:15:41.141Z",
-      "error": ""
+      "error": "",
+      "report": "portfolio/my-holdings-portfolio-review-2026-11-07.html",
+      "completedAt": "2026-11-07T08:44:14.088Z"
     }
   ],
   "marketUpdatedAt": "2026-11-07T05:39:22.285Z",
@@ -21418,7 +21365,7 @@
   },
   "watchRankHistory": [
     {
-      "date": "2026-11-06",
+      "date": "2026-11-08",
       "watchIds": [
         "38483e90-6472-49f0-b990-4124e9277241",
         "51ad04f2-e977-43e6-9f59-3af45199e20f",
@@ -21470,7 +21417,7 @@
       ]
     },
     {
-      "date": "2026-11-07",
+      "date": "2026-11-09",
       "watchIds": [
         "38483e90-6472-49f0-b990-4124e9277241",
         "51ad04f2-e977-43e6-9f59-3af45199e20f",
