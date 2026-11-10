@@ -6,7 +6,7 @@ A local bilingual physics learning app for ages 10–15, integrated into Study. 
 
 Double-click Study's `start.command` (macOS) or `start.bat` (Windows), then choose Physics. The existing launcher installs the pinned workspace dependencies when needed.
 
-- Study entry: http://localhost:3456/physics
+- Study entry: http://localhost:3463/physics
 - Independent development: `corepack pnpm --filter @study/physics-web dev` → http://localhost:3458/physics
 - The app needs no API, account, or database. Chemistry's API remains part of the existing Study launcher.
 

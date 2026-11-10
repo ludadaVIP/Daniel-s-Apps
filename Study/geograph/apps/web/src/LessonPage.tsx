@@ -512,16 +512,6 @@ function LearningWorkspace({
   const missionDone = activityFinished(lesson.id, session.activity);
   const ready =
     missionDone && hasExplanation && answered && session.prediction !== null;
-  const canContinue =
-    session.step === 1
-      ? session.prediction !== null
-      : session.step === 3
-        ? missionDone
-        : session.step === 4
-          ? hasExplanation
-          : session.step === 5
-            ? answered
-            : true;
   const next = lessons[lessons.indexOf(lesson) + 1];
   const stage = curriculum.find((s) => s.id === lesson.stage)!;
   return (
@@ -908,7 +898,6 @@ function LearningWorkspace({
         {session.step < 6 && (
           <button
             className="geo-button"
-            disabled={!canContinue}
             onClick={() => setStep(session.step + 1)}
           >
             {words(mode, '下一环节', 'Next step')} →

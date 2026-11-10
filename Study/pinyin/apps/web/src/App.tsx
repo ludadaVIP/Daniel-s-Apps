@@ -433,14 +433,19 @@ function LessonView({
       </div>
       <div className="py-steps" aria-label="课程步骤">
         {stepNames.map((name, i) => (
-          <div
-            className={`${session.step === i ? 'active' : ''} ${session.step > i ? 'past' : ''}`}
+          <button
+            type="button"
+            className={session.step === i ? 'active' : ''}
             aria-current={session.step === i ? 'step' : undefined}
+            onClick={() => {
+              stopAudio();
+              patch({ step: i, cursor: 0 });
+            }}
             key={name}
           >
-            <span>{session.step > i ? '✓' : i + 1}</span>
+            <span>{i + 1}</span>
             {name}
-          </div>
+          </button>
         ))}
       </div>
       <div className="py-learning-layout">
@@ -488,11 +493,15 @@ function LessonView({
               <div className="py-result-icon">
                 <Icon name={outcome.mastered ? 'check' : 'spark'} size={34} />
               </div>
-              <span className="py-eyebrow">MISSION COMPLETE</span>
+              <span className="py-eyebrow">
+                {session.finishedAt ? 'MISSION COMPLETE' : 'MISSION SUMMARY'}
+              </span>
               <h2>
-                {outcome.mastered
-                  ? '这组线索，掌握了。'
-                  : '完成了任务，留几条线索再练。'}
+                {!session.finishedAt
+                  ? '任务收获，随时回顾。'
+                  : outcome.mastered
+                    ? '这组线索，掌握了。'
+                    : '完成了任务，留几条线索再练。'}
               </h2>
               <p>
                 独立挑战 {outcome.correct} / {outcome.total} · 正确率{' '}

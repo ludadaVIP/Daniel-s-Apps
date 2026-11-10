@@ -913,6 +913,8 @@
 :root[data-theme="dark"] .mh-positions-table .mh-table-price { color: #c0d9cd; }
 :root[data-theme="dark"] .mh-holding-price small, :root[data-theme="dark"] .mh-holding-price a { color: #bcc4bf; }
 :root[data-theme="dark"] .mh-holding-price a:hover { color: #b7dccd; }
+:root[data-theme="dark"] .mh-account-merged .mh-lookthrough-summary strong.mh-loss { color: #daada7; }
+:root[data-theme="dark"] .mh-account-merged .mh-lookthrough-summary strong.mh-gain { color: #b7dccd; }
 
 /* Company look-through: the colored path shows where each exposure comes from. */
 :root[data-theme="dark"] .mh-lookthrough-heading .mh-eyebrow { color: #bdc7c0; }

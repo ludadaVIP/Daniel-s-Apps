@@ -77,6 +77,8 @@ import { DecisionPlanCard } from "./DecisionPlanCard.jsx";
 import { CompanyOverview } from "./CompanyOverview.jsx";
 import { decisionTaskQuestion } from "./decision-reports.js";
 import { LookThrough } from "./LookThrough.jsx";
+import { AccountMerged } from "./AccountMerged.jsx";
+import { findDuplicateWatch } from "./watch-identity.js";
 import { WatchCategoryManager } from "./WatchCategoryManager.jsx";
 import { cloneDefaultWatchCategories, DEFAULT_WATCH_CATEGORIES, WATCH_UNCLASSIFIED_ID, watchCategoryId } from "./watch-categories.js";
 import { watchBusinessSummary } from "./company-overview-data.js";
@@ -2588,6 +2590,7 @@ export default function HoldingsApp() {
                   setModal({ type: "copy" });
                 }
               }} />
+              <AccountMerged state={state} query={query} />
             </>
           )}
           {tab === "watch" && (
@@ -3484,8 +3487,11 @@ export default function HoldingsApp() {
           {modal.type === "watch" && (
             <WatchForm
               item={modal.item}
+              watchlist={state.watchlist}
               busy={busy}
               onSave={async (v) => {
+                const duplicate = findDuplicateWatch(stateRef.current.watchlist, v);
+                if (duplicate) return notify(`${duplicate.symbol || duplicate.name} 已在关注列表中，请编辑已有卡片。`, true);
                 const isNewWatch = !modal.item;
                 const savedWatch = { ...v };
                 if (!isIndexOrEtf(savedWatch))

@@ -3383,6 +3383,16 @@
 .mh-app[data-page="holdings"] .mh-account-heading .mh-eyebrow { display: none; }
 .mh-app[data-page="holdings"] .mh-account-mark { height: 23px; }
 
+.mh-merged-table .mh-col-asset { width: 27%; }
+.mh-merged-table .mh-col-price { width: 23%; }
+.mh-merged-table .mh-col-cost { width: 12%; }
+.mh-merged-table .mh-col-value { width: 16%; }
+.mh-merged-table .mh-col-pnl { width: 12%; }
+.mh-merged-table tbody tr { cursor: default; }
+.mh-merged-mixed-price { font-size: 11px; }
+.mh-account-merged .mh-lookthrough-summary strong.mh-loss { color: #b75e53; }
+.mh-account-merged .mh-lookthrough-summary strong.mh-gain { color: #39765d; }
+
 /* Company look-through: the colored path shows where each exposure comes from. */
 .mh-lookthrough { margin-top: 7px; overflow: hidden; }
 .mh-lookthrough-heading { padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; gap: 12px; }

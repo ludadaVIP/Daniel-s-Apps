@@ -1,6 +1,27 @@
 export const normalizeSymbol = (symbol) => symbol.trim().toUpperCase();
 export const positionKey = (holding) => JSON.stringify([holding.accountId, normalizeSymbol(holding.symbol), holding.currency]);
 export const roundMoney = (value) => Math.round((value + Number.EPSILON) * 100) / 100;
+
+// A read-only view across accounts: preserve each account's saved value and cost.
+export function mergeAccountHoldings(holdings) {
+  const groups = new Map();
+  for (const holding of holdings) {
+    const symbol = normalizeSymbol(holding.symbol);
+    const key = JSON.stringify([symbol, holding.currency]);
+    if (!groups.has(key)) groups.set(key, { key, symbol, name: holding.name, sector: holding.sector, currency: holding.currency, quantity: 0, cost: 0, marketValue: 0, sources: [] });
+    const group = groups.get(key);
+    group.quantity += holding.quantity;
+    group.cost += holding.cost;
+    group.marketValue += holding.marketValue;
+    group.sources.push(holding);
+  }
+  return [...groups.values()].map((group) => {
+    const quantity = Number(group.quantity.toFixed(10));
+    const cost = roundMoney(group.cost), marketValue = roundMoney(group.marketValue);
+    return { ...group, quantity, cost, marketValue, averagePrice: quantity > 0 ? cost / quantity : 0, pnl: roundMoney(marketValue - cost), returnPct: cost ? (marketValue - cost) / cost * 100 : 0 };
+  });
+}
+
 const quoteKeys = ["price", "priceDate", "priceSource", "priceSourceUrl", "priceType", "priceSession", "priceTimeZone", "priceAsOf", "priceFetchedAt", "changePct"];
 
 export function latestHoldingQuote(holdings, symbol, currency) {

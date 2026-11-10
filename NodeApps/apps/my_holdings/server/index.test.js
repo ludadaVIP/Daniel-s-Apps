@@ -544,6 +544,83 @@ const watchRecord = (id, complete = false) => ({
   id, name: id, symbol: id.toUpperCase(), note: "", trigger: "", status: "关注中", attention: 2,
   ...(complete ? { research: { ...research, identity: { ...research.identity, symbol: id.toUpperCase() } }, report: `research/${id}.html`, researchedAt: "2026-10-16T22:00:00.000Z" } : {}),
 });
+
+test("duplicate watch additions and edits are rejected by symbol, independent of IDs", async (t) => {
+  const { call } = await setup(t);
+  const initial = (await call("/api/state")).data;
+  initial.watchlist = [{ ...watchRecord("clfd"), symbol: "CLFD" }, { ...watchRecord("other"), symbol: "MSFT" }];
+  const saved = await call("/api/state", initial, "PUT");
+  assert.equal(saved.status,200);
+  for (const symbol of ["CLFD"," clfd ","ＣＬＦＤ"]) {
+    const candidate=structuredClone(saved.data);
+    candidate.watchlist.push({ ...watchRecord("duplicate"),symbol });
+    const result=await call("/api/state",candidate,"PUT");
+    assert.equal(result.status,400);
+    assert.match(result.data.error,/已在关注列表/);
+  }
+  const edited=structuredClone(saved.data);
+  edited.watchlist[1].symbol="clfd";
+  assert.equal((await call("/api/state",edited,"PUT")).status,400);
+  const after=(await call("/api/state")).data;
+  assert.equal(after.revision,saved.data.revision);
+  assert.deepEqual(after.watchlist,saved.data.watchlist);
+  assert.deepEqual(after.jobs,saved.data.jobs);
+});
+
+test("concurrent additions cannot introduce a duplicate even from separate clients", async (t) => {
+  const { call } = await setup(t);
+  const initial=(await call("/api/state")).data;
+  const candidates=["one","two"].map((id)=>({ ...structuredClone(initial),watchlist:[{ ...watchRecord(id),symbol:"CLFD" }] }));
+  const results=await Promise.all(candidates.map((candidate)=>call("/api/state",candidate,"PUT")));
+  assert.deepEqual(results.map((result)=>result.status).sort(),[200,409]);
+  const current=(await call("/api/state")).data;
+  current.watchlist.push({ ...watchRecord("retry"),symbol:"clfd" });
+  assert.equal((await call("/api/state",current,"PUT")).status,400);
+});
+
+test("startup and old-backup restore merge duplicate watches with original records and backups intact", async (t) => {
+  const { call,dir }=await setup(t);
+  const legacy=(await call("/api/state")).data;
+  legacy.watchlist=[{ ...watchRecord("first",true),symbol:"CLFD",research:{...research,identity:{...research.identity,symbol:"CLFD"}},researchedAt:"2026-11-04T00:00:00Z" },{...watchRecord("second",true),symbol:" clfd ",research:{...research,identity:{...research.identity,symbol:"CLFD"}},researchedAt:"2026-11-07T00:00:00Z"}];
+  legacy.journal=[{id:"p1",kind:"plan",watchId:"first",date:"2026-11-04",title:"计划",body:"",plan:{allocationPct:2,safetyLow:20,safetyHigh:25}},{id:"p2",kind:"plan",watchId:"second",date:"2026-11-07",title:"计划",body:"",plan:{allocationPct:null,safetyLow:null,safetyHigh:null}}];
+  legacy.watchRankHistory=[{date:"2026-11-07",watchIds:["second","first"]}];
+  legacy.jobs=[{id:"j1",kind:"watch",watchId:"second",status:"waiting",date:"2026-11-07T00:00:00Z",question:"研究",error:""}];
+  await fs.writeFile(path.join(dir,"state.json"),JSON.stringify(legacy));
+  await createHoldingsApp({dataDirectory:dir});
+  const migrated=(await call("/api/state")).data;
+  assert.equal(migrated.watchlist.length,1);
+  assert.equal(migrated.watchlist[0].id,"first");
+  assert.equal(migrated.watchlist[0].report,"research/second.html");
+  assert.equal(migrated.journal.length,1);
+  assert.equal(migrated.journal[0].plan.allocationPct,2);
+  assert.equal(migrated.jobs[0].watchId,"first");
+  assert.deepEqual(migrated.watchMergeHistory[0].originals,legacy.watchlist);
+  assert.deepEqual(migrated.watchRankHistory[0].watchIds,["first"]);
+  const backupNames=await fs.readdir(path.join(dir,"backups"));
+  const snapshots=await Promise.all(backupNames.filter((name)=>name.endsWith('.gz')).map(async(name)=>JSON.parse(await readBackupText(new Blob([await fs.readFile(path.join(dir,"backups",name))])))));
+  assert.ok(snapshots.some((snapshot)=>snapshot.watchlist.length===2));
+  const restored=await call("/api/restore",{revision:migrated.revision,state:legacy});
+  assert.equal(restored.status,200);
+  assert.equal(restored.data.watchlist.length,1);
+  assert.equal(restored.data.journal.length,1);
+  assert.deepEqual(restored.data.watchMergeHistory[0].originals,legacy.watchlist);
+});
+
+test("research that resolves an unnamed watch to an existing ticker merges the cards and relinks the job", async (t) => {
+  const { call,dir }=await setup(t);
+  const initial=(await call("/api/state")).data;
+  initial.watchlist=[{...watchRecord("first"),symbol:"CLFD"},{...watchRecord("unknown"),symbol:"",name:"未识别公司"}];
+  await call("/api/state",initial,"PUT");
+  const job=(await call("/api/jobs",{kind:"watch",watchId:"unknown"})).data.job;
+  await fs.mkdir(path.join(dir,"reports","research"),{recursive:true});
+  await fs.writeFile(path.join(dir,"reports","research","resolved.html"),"<!doctype html><html>Resolved</html>");
+  const result=await call(`/api/jobs/${job.id}/complete`,{report:"research/resolved.html",research:{...research,identity:{...research.identity,symbol:"CLFD"}}});
+  assert.equal(result.status,200);
+  assert.equal(result.data.watchlist.length,1);
+  assert.equal(result.data.watchlist[0].report,"research/resolved.html");
+  assert.equal(result.data.jobs[0].watchId,"first");
+  assert.equal(result.data.jobs[0].status,"done");
+});
 test("London ETF prices follow their listing session, holidays, auctions and daylight saving", async (t) => {
   for (const [at, type, date, closeAt] of [
     ["2026-10-22T06:59:59Z", "close", "2026-10-21"],

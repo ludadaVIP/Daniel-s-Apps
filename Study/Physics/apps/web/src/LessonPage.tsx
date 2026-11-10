@@ -126,14 +126,6 @@ function LessonView({
           : [...new Set([...old.mistakes, String(index)])],
     }));
   }
-  const ready =
-    step === 0
-      ? p.prediction !== undefined
-      : step === 1
-        ? p.explored
-        : step === 3
-          ? lesson.questions.every((q, i) => p.answers[i] === q.correct)
-          : true;
   const completed = !!p.completedAt;
   const next = lessons[index + 1];
   return (
@@ -174,13 +166,10 @@ function LessonView({
               <button
                 key={i}
                 className={step === i ? 'active' : ''}
-                disabled={i > p.unlockedStep}
                 aria-current={step === i ? 'step' : undefined}
                 onClick={() => patch({ step: i })}
               >
-                <span>
-                  {i < step ? <Icon name="check" size={13} /> : i + 1}
-                </span>
+                <span>{i + 1}</span>
                 <Text value={s} mode={mode} />
               </button>
             ))}
@@ -437,7 +426,6 @@ function LessonView({
             {step < 4 ? (
               <button
                 className="phy-button"
-                disabled={!ready}
                 onClick={() => patch({ step: step + 1 })}
               >
                 <B zh="继续探索" en="Continue" mode={mode} />

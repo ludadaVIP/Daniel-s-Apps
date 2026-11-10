@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 import { X, Save } from "lucide-react";
 import { id, money, CURRENCIES } from "./model.js";
 import { previewBuy, roundMoney } from "./positions.js";
+import { findDuplicateWatch, normalizeWatchSymbol, symbolFromWatchInput } from "./watch-identity.js";
 import { localDate } from "./api.js";
 const TRADE_TIME_ZONES = [
   ["Pacific/Auckland", "新西兰时间"],
@@ -197,18 +198,18 @@ export function HoldingPriceForm({ holding, onSave, busy }) {
     <SaveButton busy={busy} label="保存当前价格" />
   </form>;
 }
-export function SaveButton({ busy, label = "保存到本地" }) {
+export function SaveButton({ busy, disabled = false, label = "保存到本地" }) {
   return (
     <footer className="mh-form-footer">
       <span>保存后自动保留历史备份</span>
-      <button className="mh-primary" disabled={busy}>
+      <button className="mh-primary" disabled={busy || disabled}>
         <Save size={16} />
         {busy ? "正在保存…" : label}
       </button>
     </footer>
   );
 }
-export function WatchForm({ item, onSave, busy }) {
+export function WatchForm({ item, onSave, busy, watchlist = [] }) {
   const [v, set] = useState(
     item || {
       id: id(),
@@ -222,17 +223,13 @@ export function WatchForm({ item, onSave, busy }) {
   );
   const change = (k, value) => set((s) => ({ ...s, [k]: value }));
   const input = v.name || v.symbol;
+  const candidate = { ...v, name: input.trim(), symbol: symbolFromWatchInput(input) || normalizeWatchSymbol(v.symbol) };
+  const duplicate = findDuplicateWatch(watchlist, candidate);
   return (
     <form
       onSubmit={(e) => {
         e.preventDefault();
-        onSave({
-          ...v,
-          name: input.trim(),
-          symbol: /^[A-Za-z][A-Za-z0-9.-]{0,14}$/.test(input.trim())
-            ? input.trim().toUpperCase()
-            : v.symbol.trim().toUpperCase(),
-        });
+        if (!duplicate) onSave(candidate);
       }}
     >
       <Field label="公司名称或股票代码">
@@ -247,7 +244,8 @@ export function WatchForm({ item, onSave, busy }) {
       <Field label="业务简介（可选）" hint="写清客户、产品或收入来源；留空时优先显示公司资料，未知标的会显示待补充。">
         <input maxLength={300} value={v.businessSummary || ''} onChange={e => change('businessSummary', e.target.value)} placeholder="例如：为餐厅提供收银软件并收取支付手续费" />
       </Field>
-      <SaveButton busy={busy} label={item ? "保存关注" : "添加并排入待办"} />
+      {duplicate && <p className="mh-help" role="alert">{duplicate.symbol || duplicate.name} 已在关注列表中，请编辑已有卡片。</p>}
+      <SaveButton busy={busy} disabled={Boolean(duplicate)} label={item ? "保存关注" : "添加并排入待办"} />
     </form>
   );
 }

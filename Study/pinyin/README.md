@@ -4,7 +4,7 @@
 
 ## 打开应用
 
-Study 根目录双击 `start.command`（macOS）或 `start.bat`（Windows），从首页进入「拼音侦探」：<http://localhost:3456/pinyin>。
+Study 根目录双击 `start.command`（macOS）或 `start.bat`（Windows），从首页进入「拼音侦探」：<http://localhost:3463/pinyin>。
 
 ```sh
 corepack pnpm dev

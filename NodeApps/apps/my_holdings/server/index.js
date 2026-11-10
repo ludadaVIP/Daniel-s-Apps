@@ -12,6 +12,8 @@ import { validateFundHoldings } from "../src/lookthrough.js";
 import { PRICE_REFRESH_QUESTION, WATCH_PE_REFRESH_QUESTION, quoteTaskGuidance, hasCompleteResearch, watchPeRefreshQuestion, watchQuoteQuestion, watchResearchQuestion } from "../src/quotes.js";
 import { quotePolicy } from "./market-session.js";
 import { normalizeSymbol, positionKey, roundMoney, previewBuy, applyHoldingQuote, consolidateHoldings, latestHoldingQuote } from "../src/positions.js";
+import { watchIdentityKey } from "../src/watch-identity.js";
+import { consolidateStateWatchlist } from "./watchlist.js";
 import { cloneDefaultWatchCategories, DEFAULT_WATCH_CATEGORIES, WATCH_UNCLASSIFIED_ID } from "../src/watch-categories.js";
 import {
   CONVERSION_PAIRS,
@@ -176,7 +178,7 @@ const synchronizedPair = (baseAt, targetAt, sampleType, precise = false) => {
   const barMs = sampleType === "five_minute_close" ? 300_000 : 60_000;
   return Math.floor(base / barMs) === Math.floor(target / barMs);
 };
-export function validateState(s, { allowDuplicateHoldings = false } = {}) {
+export function validateState(s, { allowDuplicateHoldings = false, allowDuplicateWatchlist = false } = {}) {
   if (!s || s.version !== 1) throw error("备份版本无效。");
   if (s.disciplines === undefined) s.disciplines = [];
   for (const k of [
@@ -339,6 +341,18 @@ export function validateState(s, { allowDuplicateHoldings = false } = {}) {
       throw error("关注标的的价格或日期无效。");
     if (w.research) validateResearch(w.research);
   }
+  if (!allowDuplicateWatchlist) {
+    const keys = new Set();
+    for (const watch of s.watchlist) {
+      const key = watchIdentityKey(watch);
+      if (keys.has(key)) throw error(`${watch.symbol || watch.name} 已在关注列表中；请编辑已有卡片，不能重复添加。`);
+      keys.add(key);
+    }
+  }
+  if (s.watchMergeHistory !== undefined && (!Array.isArray(s.watchMergeHistory) || s.watchMergeHistory.length > 10000 ||
+      s.watchMergeHistory.some((merge) => !merge || !timestamp(merge.mergedAt) || !text(merge.watchId, 100) || !merge.watchId ||
+        !Array.isArray(merge.originals) || merge.originals.length < 2 || !Array.isArray(merge.plans))))
+    throw error("关注合并历史格式无效。");
   if (
     s.watchRankHistory !== undefined &&
     (!Array.isArray(s.watchRankHistory) ||
@@ -625,7 +639,7 @@ export async function createHoldingsApp({
     );
   }
   const read = async () =>
-    validateState(JSON.parse(await fs.readFile(file, "utf8")), { allowDuplicateHoldings: true });
+    validateState(JSON.parse(await fs.readFile(file, "utf8")), { allowDuplicateHoldings: true, allowDuplicateWatchlist: true });
   let tail = Promise.resolve();
   const serial = (fn) => {
     const p = tail.then(fn, fn);
@@ -678,6 +692,7 @@ export async function createHoldingsApp({
   await backupStore.initialize(await fs.readFile(file, "utf8"));
   const write = async (s, { forceBackup = false } = {}) => {
     s.orders ||= [];
+    consolidateStateWatchlist(s, now().toISOString());
     pruneExpiredCompletedJobs(s, now().getTime());
     validateState(s);
     const previous = await fs.readFile(file, "utf8");
@@ -695,7 +710,7 @@ export async function createHoldingsApp({
   };
   await serial(async () => {
     const s = await read();
-    let changed = false;
+    let changed = consolidateStateWatchlist(s, now().toISOString());
     if (!Array.isArray(s.orders)) {
       s.orders = importScreenshotOrders(s.watchlist);
       changed = true;
@@ -805,7 +820,8 @@ export async function createHoldingsApp({
     try {
       const state = await serial(async () => {
         const s = await read();
-        return pruneExpiredCompletedJobs(s, now().getTime()) ? write(s) : s;
+        const merged = consolidateStateWatchlist(s, now().toISOString());
+        return pruneExpiredCompletedJobs(s, now().getTime()) || merged ? write(s) : s;
       });
       res.set("Cache-Control", "no-store").json(state);
     } catch (e) {
@@ -1521,6 +1537,8 @@ export async function createHoldingsApp({
           candidate.orders = candidate.orders || current.orders || [];
           candidate.jobs = current.jobs;
           candidate.analyses = current.analyses;
+          if (current.watchMergeHistory) candidate.watchMergeHistory = current.watchMergeHistory;
+          else delete candidate.watchMergeHistory;
           if (current.holdingTrades) {
             const holdingIds = new Set(candidate.holdings.map((holding) => holding.id));
             candidate.holdingTrades = current.holdingTrades.filter((trade) => holdingIds.has(trade.holdingId));
@@ -1553,7 +1571,8 @@ export async function createHoldingsApp({
             throw error("AI 任务进行中，完成后再恢复备份。", 409);
           if (req.body.revision !== current.revision)
             throw error("数据已更新，请刷新后恢复。", 409);
-          const candidate = structuredClone(validateState(req.body.state, { allowDuplicateHoldings: true }));
+          const candidate = structuredClone(validateState(req.body.state, { allowDuplicateHoldings: true, allowDuplicateWatchlist: true }));
+          consolidateStateWatchlist(candidate, now().toISOString());
           removeOrphanedDecisionPlans(candidate);
           candidate.orders ||= [];
           consolidateStateHoldings(candidate, now().toISOString());

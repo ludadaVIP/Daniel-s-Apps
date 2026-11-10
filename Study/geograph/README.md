@@ -4,7 +4,7 @@
 
 ## 打开应用
 
-使用 Study 原有启动方式，访问 `http://localhost:3456/geography`，也可以从 Study 首页点击「地理」。
+使用 Study 原有启动方式，访问 `http://localhost:3463/geography`，也可以从 Study 首页点击「地理」。
 
 独立开发：
 

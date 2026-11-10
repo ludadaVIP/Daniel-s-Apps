@@ -2,10 +2,14 @@ import { spawn, spawnSync } from 'node:child_process';
 import { existsSync, readFileSync, statSync } from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { assertPortAvailable } from './check-port.mjs';
 
 const root = fileURLToPath(new URL('../', import.meta.url));
 const isWindows = process.platform === 'win32';
-const appUrl = 'http://localhost:3456';
+const { webPort, webHost } = JSON.parse(
+  readFileSync(new URL('./local-config.json', import.meta.url), 'utf8'),
+);
+const appUrl = `http://localhost:${webPort}`;
 const apiUrl = 'http://localhost:3001/health';
 const pinnedPnpm = JSON.parse(
   readFileSync(path.join(root, 'package.json'), 'utf8'),
@@ -168,6 +172,8 @@ async function main() {
     await openBrowser();
     return;
   }
+
+  await assertPortAvailable(webPort, webHost);
 
   if (dependenciesNeedInstall()) {
     const manager = packageManager();

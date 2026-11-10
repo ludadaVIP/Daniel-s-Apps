@@ -9,7 +9,7 @@
     "lint": "eslint .",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "pnpm -r --if-present test"
+    "test": "node --test scripts/*.test.mjs && pnpm -r --if-present test"
   },
   "devDependencies": {
     "@eslint/js": "^9.0.0",

@@ -8,7 +8,9 @@ The bilingual Study hub has separate entries for Physics, Chemistry, Biology, Pi
 
 ## Run locally
 
-Requires Node.js 20.19+. Double-click `start.bat` on Windows or `start.command` on macOS. The launcher checks dependencies, installs them when needed, starts Study, and opens the default browser at `http://localhost:3456`. Keep its terminal window open while using the app; press Ctrl+C to stop it (confirm `Y` if Windows asks to terminate the batch job).
+Requires Node.js 20.19+. Double-click `start.bat` on Windows or `start.command` on macOS. The launcher checks dependencies, installs them when needed, starts Study, and opens the default browser at `http://localhost:3463`. Keep its terminal window open while using the app; press Ctrl+C to stop it (confirm `Y` if Windows asks to terminate the batch job).
+
+Study uses port 3463 to avoid the browser automation proxy on port 3456. The launcher and Vite share `scripts/local-config.json`; an occupied Study port produces an explicit startup error. Browser learning records are stored per origin, so records from the previous port remain at `http://localhost:3456` and are separate from the new address.
 
 The same app can be started manually with pnpm 10:
 
@@ -17,7 +19,7 @@ pnpm install
 pnpm dev
 ```
 
-Open `http://localhost:3456` for the hub, or `http://localhost:3456/chemistry` for Chemistry, or `http://localhost:3456/physics` for Physics, or `http://localhost:3456/biology` for Biology, or `http://localhost:3456/pinyin` for Pinyin Detective, or `http://localhost:3456/geography` for Geography Explorer, or `http://localhost:3456/math` for Math Explorer Lab. The browser port is fixed. The API health endpoint is `http://localhost:3001/health` (also proxied as `/api/health` from the hub).
+Open `http://localhost:3463` for the hub, or `http://localhost:3463/chemistry` for Chemistry, or `http://localhost:3463/physics` for Physics, or `http://localhost:3463/biology` for Biology, or `http://localhost:3463/pinyin` for Pinyin Detective, or `http://localhost:3463/geography` for Geography Explorer, or `http://localhost:3463/math` for Math Explorer Lab. The browser port is fixed. The API health endpoint is `http://localhost:3001/health` (also proxied as `/api/health` from the hub).
 
 Quality checks:
 
@@ -34,7 +36,7 @@ npm run format:check
 ```text
 packages/shared       Subject-neutral types and language helpers
 packages/ui           Subject-neutral interface components
-apps/hub              Study hub and subject navigation (port 3456)
+apps/hub              Study hub and subject navigation (port 3463)
 chemistry/apps/web    Chemistry learner interface
 chemistry/apps/server Chemistry API
 chemistry/Plan.md     Chemistry product and curriculum plan
@@ -57,3 +59,5 @@ math/plan.md         Maths curriculum plan
 The shared packages contain only mechanisms that can serve multiple learning apps. In Phase 1, a common content package should own validated bilingual content loading and safe Markdown rendering. Reusable diagram primitives can go in a shared visuals package once chemistry has a concrete use case; chemistry-specific particle, atom, and periodic-table interactions stay in Chemistry. This keeps each app independent without duplicating the learning infrastructure.
 
 The app does not currently use a database, accounts, cloud sync, or AI services.
+
+Every available lesson allows free navigation between its steps. Learners can open any step or continue without finishing earlier activities. Browsing a step does not count as completing an activity or mastering a lesson; answers and completion records remain independent of navigation.

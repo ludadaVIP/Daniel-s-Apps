@@ -678,14 +678,27 @@
   border-bottom: 1px solid var(--line);
   gap: 12px;
 }
-.bio-steps li {
+.bio-steps button {
+  width: 100%;
+  padding: 8px;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  font: inherit;
+  text-align: left;
+  cursor: pointer;
   display: flex;
   align-items: center;
   gap: 10px;
   font-size: 14px;
   color: #8a9681;
 }
-.bio-steps li > span:first-child {
+.bio-steps button:hover,
+.bio-steps button:focus-visible {
+  background: #e0ebd5;
+  color: var(--ink);
+}
+.bio-steps button > span:first-child {
   display: grid;
   place-items: center;
   width: 27px;
@@ -1729,11 +1742,11 @@
   .bio-steps {
     gap: 7px;
   }
-  .bio-steps li {
+  .bio-steps button {
     font-size: 14px;
     gap: 6px;
   }
-  .bio-steps li > span:first-child {
+  .bio-steps button > span:first-child {
     width: 24px;
     height: 24px;
   }
@@ -2077,7 +2090,7 @@
   border-radius: 10px;
   gap: 5px;
 }
-.bio-app .bio-steps li {
+.bio-app .bio-steps button {
   font-size: 14px;
   min-height: 42px;
 }
@@ -2286,7 +2299,7 @@
   .bio-app .bio-lessons {
     grid-template-columns: 1fr;
   }
-  .bio-app .bio-steps li {
+  .bio-app .bio-steps button {
     font-size: 13px;
   }
   .bio-app .bio-section-heading {

@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 3763,
-  "updatedAt": "2026-11-09T20:18:38.422Z",
+  "revision": 3793,
+  "updatedAt": "2026-11-10T11:01:15.573Z",
   "accounts": [
     {
       "id": "a1",
@@ -3790,7 +3790,7 @@
       "note": "",
       "trigger": "",
       "status": "观察中",
-      "attention": 3,
+      "attention": 5,
       "price": 36.175,
       "priceDate": "2026-11-09",
       "priceType": "intraday",
@@ -4850,7 +4850,8 @@
         "note": "页面 PE Ratio=22.75；Earnings Per Share (EPS)=$17.50；仅读取 trailing PE，不采用 Forward PE。页面交易日期为2026-11-09，日内统计快照与其他行情可能有时差。"
       },
       "priceSession": "regular",
-      "priceMarket": "US"
+      "priceMarket": "US",
+      "targetPrice": 300
     },
     {
       "id": "efb41df6-a108-4686-999d-da82269b8814",
@@ -4907,7 +4908,7 @@
       },
       "researchedAt": "2026-10-29T09:06:41.812Z",
       "report": "research/my-holdings-research-sym-2026-10-29.html",
-      "targetPrice": 31,
+      "targetPrice": 17,
       "pe": {
         "value": 651.39,
         "status": "available",
@@ -4980,7 +4981,7 @@
       },
       "researchedAt": "2026-10-29T09:06:42.132Z",
       "report": "research/my-holdings-research-cgnx-2026-10-29.html",
-      "targetPrice": 50,
+      "targetPrice": 34.5,
       "pe": {
         "value": 35.39,
         "status": "available",
@@ -5260,7 +5261,7 @@
       },
       "researchedAt": "2026-10-29T09:06:42.681Z",
       "report": "research/my-holdings-research-ter-2026-10-29.html",
-      "targetPrice": 240,
+      "targetPrice": 165,
       "pe": {
         "value": 28.06,
         "status": "available",
@@ -5509,7 +5510,7 @@
       "status": "观察中",
       "attention": 2,
       "watchCategoryId": "veteran",
-      "targetPrice": 158,
+      "targetPrice": 110,
       "price": 154.225,
       "priceDate": "2026-11-09",
       "priceType": "intraday",
@@ -6253,15 +6254,6 @@
       "status": "观察中",
       "attention": 2,
       "watchCategoryId": "uncategorized",
-      "price": 30.925,
-      "priceDate": "2026-11-09",
-      "priceType": "intraday",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-11-09T19:41:00.000Z",
-      "priceFetchedAt": "2026-11-09T19:44:40.183Z",
-      "priceTimeZone": "America/New_York",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceSourceUrl": "https://www.moomoo.com/stock/CLFD-US",
       "pe": {
         "value": null,
         "status": "unavailable",
@@ -6272,58 +6264,68 @@
         "sourceUrl": "https://stockanalysis.com/stocks/clfd/statistics/",
         "note": "页面 PE Ratio=n/a；Earnings Per Share (EPS)=-$0.53；仅读取 trailing PE，不采用 Forward PE。页面交易日期为2026-11-09，日内统计快照与其他行情可能有时差。"
       },
+      "price": 30.925,
+      "priceDate": "2026-11-09",
+      "priceType": "intraday",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-11-09T19:41:00.000Z",
+      "priceFetchedAt": "2026-11-09T19:44:40.454Z",
+      "priceTimeZone": "America/New_York",
+      "priceMarket": "US",
+      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
+      "priceSourceUrl": "https://www.moomoo.com/stock/CLFD-US",
+      "priceSession": "regular",
       "research": {
         "identity": {
           "name": "Clearfield, Inc.",
           "symbol": "CLFD",
           "exchange": "NASDAQ",
           "currency": "USD",
-          "sector": "光纤通信设备"
+          "sector": "光纤通信基础设施"
         },
-        "title": "Clearfield（NASDAQ: CLFD）首次关注研究",
-        "summary": "Clearfield 为宽带运营商、MSO 和光纤网络建设方提供光纤连接、配线与部署设备，收入受客户资本开支和项目节奏影响。FY2026 Q3 持续经营收入同比增长 13% 至 $4,390 万，但毛利率同比下降 3.5 个百分点；公司下调全年展望。$2,200 万数据中心订单提供新增长机会，预计 FY2027 初开始发货。GAAP TTM EPS 约 -$0.51，市盈率为 N/M。",
-        "details": "证券与业务：Clearfield, Inc.（NASDAQ: CLFD）设计并销售光纤连接基础设施产品，包括配线与机柜、终端、接续和部署组件，服务宽带运营商、MSO/有线电视运营商、区域服务商及网络建设项目。其产品嵌入客户的光纤接入和网络扩容流程，工程兼容性、可靠性、现场部署效率与渠道关系有价值；但商业模式仍依赖运营商资本开支，不是订阅型经常性收入。公司出售了 Nestor Cables，相关历史业绩列为停业业务。\n\n最新财务（截至 2026-06-30）：FY2026 Q3 持续经营净销售额 4,390 万美元，同比 +13%；持续经营摊薄 EPS $0.22，合并摊薄 EPS 也为 $0.22。毛利率 31.8%，比去年同期低 3.5 个百分点；公司披露当季受到约 260 万美元库存费用影响。FY2026 前九个月合并摊薄 EPS 为 $0.14，其中持续经营 $0.16、停业业务 -$0.02。公司在 Q3 后下调 FY2026 展望至持续经营收入 1.51 亿至 1.55 亿美元，全年 EPS $0.14 至 $0.21；Q4 指引收入 3,800 万至 4,200 万美元、EPS $0.00 至 $0.07。\n\n增长机会与经营质量：Q3 收市后，公司获得一笔支持超大规模数据中心项目的 2,200 万美元订单，预计 FY2027 初开始出货。该订单为传统宽带之外的数据中心应用提供验证，但单一订单还不能证明稳定、可重复的市场。需继续观察其转化为发货、毛利和回款的过程，以及宽带订单是否恢复。FY2025 持续经营收入为 1.501 亿美元，FY2025 Q4 合并摊薄亏损每股 $0.65，主要受 Nestor 停业业务与减值拖累；FY2026 前三季合并 EPS +$0.14，因此截至最近披露季度的合并 GAAP TTM EPS 约为 -$0.51，传统 TTM P/E 为 N/M。\n\n竞争与估值关注：产品质量、现场部署经验、客户/分销渠道和对特定光纤架构的兼容性可能形成关系型优势，但大部分产品仍有替代方案，客户采购受价格、标准和项目周期影响。跟踪订单与积压订单、MSO/区域运营商资本开支、库存与毛利、现金转换、数据中心订单后续以及 FY2026 Q4 实绩。Clearfield 已安排 2026-11-10 发布 FY2026 Q4 业绩。由于 TTM EPS 为负，不能用传统 P/E 对估值作正向比较。",
+        "title": "Clearfield（NASDAQ: CLFD）｜光纤接入需求与周期性",
+        "summary": "Clearfield 为宽带网络部署提供光纤连接及相关设备。2026 财年第三季度持续经营销售额同比增长 13%，但毛利率下滑且全年盈利指引偏薄；大型数据中心订单提供增量机会，宽带项目周期仍是关键变量。",
+        "details": "业务模式：为电信运营商、宽带服务商和承包商提供光纤接入产品。订单受项目招标、补贴拨付、客户库存和资本开支影响。\n\n最新经营：2026 财年第三季度持续经营销售额约 4,390 万美元，同比增长 13%；季度 EPS 约 0.22 美元，毛利率同比下降约 3.5 个百分点。FY2026 收入指引约 1.51 亿至 1.55 亿美元，EPS 指引约 0.14 至 0.21 美元。约 2,200 万美元超大规模数据中心订单预计 2027 财年初出货，贡献尚待兑现。\n\n估值：GAAP TTM EPS 为负，trailing P/E 为 N/M。应确认订单转收入、毛利率、宽带资金落地及数据中心客户复购。",
         "risks": [
-          "需求与宽带运营商、MSO 和区域服务商资本开支强相关，客户延迟、削减或取消项目会造成收入与库存波动。",
-          "客户集中和客户整合可能影响议价、订单节奏及份额；公司也披露季度业绩可能显著波动。",
-          "FY2026 Q3 毛利率同比下降 3.5 个百分点并计入约 260 万美元库存费用，库存过时、供应链或价格竞争可能继续侵蚀毛利。",
-          "数据中心 2,200 万美元订单尚处于未来交付阶段，启动时间、验收和收入确认均有执行风险，不能视为已实现收入。",
-          "FY2025 Nestor 出售与停业业务减值使 GAAP 盈利和同比口径复杂；按合并口径计算的 TTM EPS 仍为负。"
+          "电信资本开支、宽带补贴招标和客户库存周期造成订单波动。",
+          "毛利率下滑，价格竞争或产品组合变化可能使收入增长不转为利润。",
+          "数据中心大订单存在客户集中、交付及验收风险。",
+          "年度 EPS 指引缓冲较低，成本变化可能显著影响利润。"
         ],
         "catalysts": [
-          "2026-11-10 公布 FY2026 Q4：核对实际收入、EPS、库存费用与全年结果是否落在下调后的指引区间。",
-          "跟踪 $22M 超大规模数据中心订单从预备到 FY2027 初始出货的进度，确认其毛利、验收与后续订单可能性。",
-          "关注积压订单、光纤宽带投资和 MSO/区域服务商订单是否企稳，以及库存利用率和毛利能否回升。",
-          "观察每股回购授权及现金使用是否与经营现金流相匹配；回购本身不能抵消基本面疲弱。"
+          "数据中心订单如期出货并形成后续订单。",
+          "宽带扩建项目转为持续设备需求。",
+          "毛利率与持续经营盈利连续回升。"
         ],
         "sources": [
           {
-            "label": "Clearfield FY2026 Q3 财报（2026-08-05）",
+            "label": "最新业绩及经营数据（公司公告/SEC）",
             "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/364/clearfield-reports-third-quarter-fiscal-2026-results"
           },
           {
-            "label": "Clearfield FY2025 Q4 与全年业绩（Nestor 停业业务与减值）",
-            "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/348/clearfield-reports-fourth-quarter-and-full-year-2025-results"
+            "label": "公司投资者关系",
+            "url": "https://ir.seeclearfield.com/"
           },
           {
-            "label": "Clearfield FY2026 Q2 业绩",
-            "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/359/clearfield-reports-second-quarter-fiscal-2026-results"
+            "label": "TTM 市盈率统计参考",
+            "url": "https://stockanalysis.com/stocks/clfd/statistics/"
           },
           {
-            "label": "Clearfield FY2026 Q4 财报日期公告",
-            "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/369/clearfield-sets-fiscal-fourth-quarter-2026-earnings-call-for-tuesday-november-10th-2026"
-          },
-          {
-            "label": "Clearfield TTM 市盈率与报价页（Moomoo）",
-            "url": "https://www.moomoo.com/stock/CLFD-US"
+            "label": "Nasdaq 历史收盘报价（2026-11-06）",
+            "url": "https://api.nasdaq.com/api/quote/CLFD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
           }
         ],
-        "uncertainty": "截至 2026-11-04，最新已公布季度为 FY2026 Q3（截至 2026-06-30）；FY2026 Q4 结果定于 2026-11-10 发布。TTM 合并摊薄 EPS 以 FY2025 Q4 -$0.65 加 FY2026 前三季 +$0.14 计算，约 -$0.51，故 P/E 为 N/M；Q4 的一次性停业业务减值显著影响该 TTM 口径。后续决策需要同时看持续经营盈利和合并 GAAP 盈利。"
+        "uncertainty": "采用 2026 财年第三季度公告和管理层指引；订单贡献与补贴项目节奏存在不确定性。后续需核对持续经营、并购和库存数据。 估值核验备注：trailing P/E 为 N/M（GAAP TTM 亏损）；公开统计为滚动参考，随价格和财报变化。",
+        "quote": {
+          "price": 28.63,
+          "date": "2026-11-06",
+          "currency": "USD",
+          "source": "Nasdaq 官方历史日线（最近正式收盘）",
+          "sourceUrl": "https://api.nasdaq.com/api/quote/CLFD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        }
       },
-      "researchedAt": "2026-11-04T23:32:25.127Z",
-      "report": "research/my-holdings-research-clfd-2026-11-04.html",
-      "priceSession": "regular",
-      "priceMarket": "US"
+      "report": "research/my-holdings-research-clfd-2026-11-07.html",
+      "researchedAt": "2026-11-07T07:45:54.691Z"
     },
     {
       "id": "45b97064-0077-4bc2-bd4c-f65db8f1df71",
@@ -6487,88 +6489,6 @@
       },
       "researchedAt": "2026-11-07T07:45:54.581Z",
       "report": "research/my-holdings-research-ampl-2026-11-07.html",
-      "priceSession": "regular"
-    },
-    {
-      "id": "1b5e4057-fefa-409d-be9b-26df8ec2e3b2",
-      "name": "CLFD",
-      "symbol": "CLFD",
-      "note": "",
-      "trigger": "",
-      "status": "观察中",
-      "attention": 2,
-      "watchCategoryId": "uncategorized",
-      "price": 30.925,
-      "priceDate": "2026-11-09",
-      "priceType": "intraday",
-      "priceCurrency": "USD",
-      "priceAsOf": "2026-11-09T19:41:00.000Z",
-      "priceFetchedAt": "2026-11-09T19:44:40.454Z",
-      "priceTimeZone": "America/New_York",
-      "priceMarket": "US",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceSourceUrl": "https://www.moomoo.com/stock/CLFD-US",
-      "pe": {
-        "value": null,
-        "status": "unavailable",
-        "basis": "TTM",
-        "asOf": "2026-11-09",
-        "updatedAt": "2026-11-09T19:44:41.432Z",
-        "source": "StockAnalysis · PE Ratio（TTM，非 Forward PE）",
-        "sourceUrl": "https://stockanalysis.com/stocks/clfd/statistics/",
-        "note": "页面 PE Ratio=n/a；Earnings Per Share (EPS)=-$0.53；仅读取 trailing PE，不采用 Forward PE。页面交易日期为2026-11-09，日内统计快照与其他行情可能有时差。"
-      },
-      "research": {
-        "identity": {
-          "name": "Clearfield, Inc.",
-          "symbol": "CLFD",
-          "exchange": "NASDAQ",
-          "currency": "USD",
-          "sector": "光纤通信基础设施"
-        },
-        "title": "Clearfield（NASDAQ: CLFD）｜光纤接入需求与周期性",
-        "summary": "Clearfield 为宽带网络部署提供光纤连接及相关设备。2026 财年第三季度持续经营销售额同比增长 13%，但毛利率下滑且全年盈利指引偏薄；大型数据中心订单提供增量机会，宽带项目周期仍是关键变量。",
-        "details": "业务模式：为电信运营商、宽带服务商和承包商提供光纤接入产品。订单受项目招标、补贴拨付、客户库存和资本开支影响。\n\n最新经营：2026 财年第三季度持续经营销售额约 4,390 万美元，同比增长 13%；季度 EPS 约 0.22 美元，毛利率同比下降约 3.5 个百分点。FY2026 收入指引约 1.51 亿至 1.55 亿美元，EPS 指引约 0.14 至 0.21 美元。约 2,200 万美元超大规模数据中心订单预计 2027 财年初出货，贡献尚待兑现。\n\n估值：GAAP TTM EPS 为负，trailing P/E 为 N/M。应确认订单转收入、毛利率、宽带资金落地及数据中心客户复购。",
-        "risks": [
-          "电信资本开支、宽带补贴招标和客户库存周期造成订单波动。",
-          "毛利率下滑，价格竞争或产品组合变化可能使收入增长不转为利润。",
-          "数据中心大订单存在客户集中、交付及验收风险。",
-          "年度 EPS 指引缓冲较低，成本变化可能显著影响利润。"
-        ],
-        "catalysts": [
-          "数据中心订单如期出货并形成后续订单。",
-          "宽带扩建项目转为持续设备需求。",
-          "毛利率与持续经营盈利连续回升。"
-        ],
-        "sources": [
-          {
-            "label": "最新业绩及经营数据（公司公告/SEC）",
-            "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/364/clearfield-reports-third-quarter-fiscal-2026-results"
-          },
-          {
-            "label": "公司投资者关系",
-            "url": "https://ir.seeclearfield.com/"
-          },
-          {
-            "label": "TTM 市盈率统计参考",
-            "url": "https://stockanalysis.com/stocks/clfd/statistics/"
-          },
-          {
-            "label": "Nasdaq 历史收盘报价（2026-11-06）",
-            "url": "https://api.nasdaq.com/api/quote/CLFD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
-          }
-        ],
-        "uncertainty": "采用 2026 财年第三季度公告和管理层指引；订单贡献与补贴项目节奏存在不确定性。后续需核对持续经营、并购和库存数据。 估值核验备注：trailing P/E 为 N/M（GAAP TTM 亏损）；公开统计为滚动参考，随价格和财报变化。",
-        "quote": {
-          "price": 28.63,
-          "date": "2026-11-06",
-          "currency": "USD",
-          "source": "Nasdaq 官方历史日线（最近正式收盘）",
-          "sourceUrl": "https://api.nasdaq.com/api/quote/CLFD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
-        }
-      },
-      "researchedAt": "2026-11-07T07:45:54.691Z",
-      "report": "research/my-holdings-research-clfd-2026-11-07.html",
       "priceSession": "regular"
     },
     {
@@ -7308,6 +7228,186 @@
       "researchedAt": "2026-11-07T07:45:55.529Z",
       "report": "research/my-holdings-research-ttd-2026-11-07.html",
       "priceSession": "regular"
+    },
+    {
+      "id": "8aa812fa-a0fc-417c-bb64-8d1f70305c8c",
+      "name": "NBIS",
+      "symbol": "NBIS",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "attention": 4,
+      "watchCategoryId": "uncategorized",
+      "price": 140.8,
+      "priceDate": "2026-11-10",
+      "priceType": "extended",
+      "priceSession": "premarket",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-11-10T09:07:46.000Z",
+      "priceFetchedAt": "2026-11-10T09:09:00.708Z",
+      "priceTimeZone": "America/New_York",
+      "priceMarket": "US",
+      "priceSource": "Moomoo · 盘前报价（exchange_time）",
+      "priceSourceUrl": "https://www.moomoo.com/stock/NBIS-US",
+      "pe": {
+        "value": null,
+        "status": "unavailable",
+        "basis": "TTM",
+        "asOf": "2026-11-10",
+        "updatedAt": "2026-11-10T09:15:42.598Z",
+        "source": "Stock Analysis/S&P季度EPS；官方2026Q1/Q2与Moomoo复核",
+        "sourceUrl": "https://stockanalysis.com/stocks/nbis/financials/?p=quarterly",
+        "note": "N/M：按任务指定的四季GAAP摊薄EPS相加口径，2025Q3 -0.50、Q4 -1.11、2026Q1 2.11、Q2 -0.68美元，合计-0.18<=0；股价采用11/10 Moomoo盘前140.80。S&P统计页另示861.12倍，供应商汇总方法尚未对账，差异可能涉及可转债稀释及盈亏季度处理；本任务采用明确的四季EPS相加规则，未混入forward或调整后EPS。"
+      },
+      "research": {
+        "identity": {
+          "name": "Nebius Group N.V.",
+          "symbol": "NBIS",
+          "exchange": "NASDAQ · Class A普通股",
+          "currency": "USD",
+          "sector": "AI云算力与数据中心"
+        },
+        "title": "Nebius（NBIS）｜增长很快，先看算力交付与融资能否创造每股价值",
+        "businessSummary": "给开发AI的企业和开发者提供GPU算力、存储、网络及云软件，按用量或预留算力合同收费；需要先投入数据中心和设备，再靠客户使用与长期合同回收资金。",
+        "summary": "观察，暂不因股价回落新增。2026年二季度收入快速增长，但GAAP仍亏损、建设投入大于经营现金流。应先核对11月12日三季报的交付、客户预付款、融资和稀释；当前证据不足以确定可靠买价。",
+        "details": "业务模式：Nebius是荷兰总部的AI云公司，NASDAQ的NBIS是Class A普通股、美元挂牌。客户购买GPU训练和推理算力及配套服务，收入取决于可用容量、利用率、价格和合同兑现。软件与集群运维能提高客户黏性，但不能把资本密集的算力租赁当成轻资产软件。集团另有Avride、TripleTen及非上市股权投资，集团利润不等于云业务利润。[S1][S2]\n\n财务状况：截至2026-06-30的二季度，集团收入5.823亿美元、同比增长454%；GAAP营业亏损1.759亿美元、净亏损1.904亿美元；调整后EBITDA为2.362亿美元，仍需承担折旧、利息和股权薪酬。半年经营现金流45.041亿美元、购建固定及无形资产81.303亿美元，按两者差额计算现金缺口36.262亿美元；预收客户款会推高现金流，并非全部是可分配利润。[S1]\n\n现金与债务：2026-06-30现金80.421亿美元；流动与非流动债务分别0.467和84.990亿美元，合计85.457亿美元，另有15.104亿美元非流动经营租赁负债。现金不能当成全部闲置资金，客户预付款对应未来交付义务。股东信称部分新合同有较高预付比例、可支持建设，这是融资缓冲，仍需验证设备交付及单项目回报。[S1][S2]\n\n价值与价格：独立报价任务已保存2026-11-10美东04:07:46盘前140.80美元，仅为时点快照。按本次约定，把2025Q3至2026Q2四季GAAP摊薄EPS（−0.50、−1.11、2.11、−0.68美元）相加为−0.18美元，P/E记N/M。季度来源为S&P数据序列，2026Q1/Q2与官方表核对。统计页另示861.12倍，供应商汇总方法尚未对账，差异可能涉及可转债稀释及盈亏季度处理，不能混用。2026Q1还包含7.806亿美元投资重估收益；利润倍数并不能证明核心云业务便宜。[S4–S8]\n\n是否值得投资：结论：有增长机会，但先观察。看多依据是算力需求、签约和云平台执行；最强反方是GPU技术迭代、建设延误及资金成本会让收入增长无法变成每股自由现金流。巴菲特视角看运维与客户黏性尚需时间验证；芒格视角先反推利用率下滑和融资收紧；林奇视角检查高增长是否兑现为每股盈利；马克思视角不给热门资本开支故事过高确定性；索罗斯视角警惕股价下跌抬高融资稀释；达里奥视角检查利率、电力与信用周期。六种方法合起来支持等待证据，不能据此宣称已有安全边际。\n\n复核与行动：官方安排11月12日美东盘前发布2026Q3业绩、08:00召开电话会（新西兰11月13日02:00）。重点核对收入兑现、已通电并可使用容量、预付款对应义务、建设开支及新增股数；若交付落后或融资条件恶化，暂停投入。可靠内在价值和入场区间目前未知：尚未完成建设期现金流、维持性开支及稀释模型，也没有独立估值交叉核验；新增资金暂为0。已有指数中的AI相关暴露仍需一起评估。[S3]",
+        "risks": [
+          "GPU设备更新与折旧、电力和数据中心交付延误，可能压低资本回报。",
+          "债务、租赁、客户预付款义务与股权稀释叠加；现金余额不等于自由可投资现金。",
+          "大客户、供应商及AI资本开支周期集中，收入增长不保证每股自由现金流改善。"
+        ],
+        "catalysts": [
+          "2026-11-12美东盘前三季报：核验收入、可用容量、现金流和融资；不是预设利好。",
+          "后续两个季度若交付和回款兑现、融资稀释可控，且能建立保守估值，再重审。"
+        ],
+        "sources": [
+          {
+            "label": "[S1] Nebius 2026 Q2 财报，2026-08-12，期间截至06-30",
+            "url": "https://assets.nebius.com/assets/72a8c258-bbb7-4df7-ab9d-8698f6cb88fc/PR.pdf"
+          },
+          {
+            "label": "[S2] Nebius 2026 Q2 股东信，2026-08-12",
+            "url": "https://assets.nebius.com/assets/a6ecfd85-a6cb-4967-8ef7-9a25bd261f9c/SHLQ226.pdf"
+          },
+          {
+            "label": "[S3] Nebius 官方业绩日程，访问2026-11-10",
+            "url": "https://nebius.com/investor-events"
+          },
+          {
+            "label": "[S4] Moomoo NBIS 盘前报价，2026-11-10 04:07:46 美东",
+            "url": "https://www.moomoo.com/stock/NBIS-US"
+          },
+          {
+            "label": "[S5] Stock Analysis / S&P 季度 EPS 序列，访问2026-11-10",
+            "url": "https://stockanalysis.com/stocks/nbis/financials/?p=quarterly"
+          },
+          {
+            "label": "[S6] Nebius 2026 Q1 财报，2026-05-13",
+            "url": "https://assets.nebius.com/assets/6fc0ea6c-0884-4a1f-bed8-1f797eb9628f/Financial%20results_Q1%202026.pdf"
+          },
+          {
+            "label": "[S7] Nebius 2025 经审计20-F，2026-04-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm"
+          },
+          {
+            "label": "[S8] Stock Analysis TTM统计，访问2026-11-10，仅作口径冲突对照",
+            "url": "https://stockanalysis.com/stocks/nbis/statistics/"
+          }
+        ],
+        "uncertainty": "最新已发布财务期为2026Q2，不能提前使用11月12日尚未发布的三季报。N/M采用任务指定的四季EPS相加口径，不表示TTM净利润一定为负；净利润与逐季摊薄EPS会因稀释处理而不同。估值与组合适配尚未完成，未提供最终买入价或目标仓位。"
+      },
+      "researchedAt": "2026-11-10T09:15:42.923Z",
+      "report": "research/my-holdings-research-nbis-2026-11-10.html"
+    },
+    {
+      "id": "40bfe069-ce01-47d7-88b7-9984b9669061",
+      "name": "CAMT",
+      "symbol": "CAMT",
+      "note": "",
+      "trigger": "",
+      "status": "观察中",
+      "attention": 4,
+      "watchCategoryId": "uncategorized",
+      "price": 105.05,
+      "priceDate": "2026-11-10",
+      "priceType": "extended",
+      "priceSession": "premarket",
+      "priceCurrency": "USD",
+      "priceAsOf": "2026-11-10T09:01:08.000Z",
+      "priceFetchedAt": "2026-11-10T09:09:01.232Z",
+      "priceTimeZone": "America/New_York",
+      "priceMarket": "US",
+      "priceSource": "Moomoo · 盘前报价（exchange_time）",
+      "priceSourceUrl": "https://www.moomoo.com/stock/CAMT-US",
+      "pe": {
+        "value": 39.79,
+        "status": "available",
+        "basis": "TTM",
+        "asOf": "2026-11-10",
+        "updatedAt": "2026-11-10T09:15:43.030Z",
+        "source": "Moomoo盘前股价 / Camtek官方四季GAAP摊薄EPS",
+        "sourceUrl": "https://www.camtek.com/news-and-events/camtek-announces-results-for-the-third-quarter-of-2026/",
+        "note": "约39.79倍=11/10 Moomoo盘前105.05美元 ÷ (2025Q4 0.71+2026Q1 0.63+Q2 0.46+Q3 0.84)=105.05/2.64。四季EPS来自Camtek同期官方公告，已按原始披露美分精度相加；S&P/Moomoo直接倍数因EPS精度或汇总法略有不同，本次为与保存股价及任务规定EPS口径一致而自行计算。非forward P/E，未使用non-GAAP EPS。"
+      },
+      "research": {
+        "identity": {
+          "name": "Camtek Ltd.",
+          "symbol": "CAMT",
+          "exchange": "NASDAQ · 普通股（另于TASE上市）",
+          "currency": "USD",
+          "sector": "半导体检测与量测设备"
+        },
+        "title": "Camtek（CAMT）｜先进封装需求强，价格仍要让增长兑现",
+        "businessSummary": "向晶圆厂、封测厂和芯片厂卖光学检测与量测设备，用来找缺陷、测尺寸并提高良率，另有服务收入；先进封装和HBM产能投资会带动设备需求。",
+        "summary": "观察，等待估值或经营证据改善。最新三季度收入、盈利和现金流较强，先进封装需求提供成长空间；但约40倍任务口径TTM市盈率已经要求持续增长，并增加现有半导体组合的同向风险。",
+        "details": "业务模式：Camtek是以色列半导体设备公司，NASDAQ美元普通股代码CAMT，另在TASE挂牌。它用光学检测、量测与算法帮助客户提高晶圆和先进封装良率，客户包括晶圆代工厂、封测厂及整合器件厂。收入以设备交付及服务为主，受客户资本开支、验收和交付节奏影响；HBM与先进封装是增长应用，设备销售并非云订阅收入。[S7]\n\n财务状况：2026Q3截至09-30：收入1.613亿美元、同比增长28%；GAAP毛利率50.0%、营业利润3980万美元、营业利润率24.7%、净利润4280万美元、摊薄EPS 0.84美元；非GAAP EPS为0.99，不能替换GAAP计算TTM市盈率。季度经营现金流7110万美元。公告网页摘要有金额截断，本文以正文和公司发布的完整财务表为准。[S1][S2]\n\n现金与债务：2026-09-30现金、存款及有价证券合计8.771亿美元，可转债账面值4.892亿美元；两者简单相减约3.879亿美元，未扣其他经营负债。2026年前三季应收款1.662亿美元，高于2025年底0.908亿美元，增长质量仍要结合回款看。可转债可能用现金、股票或组合结算，不能同时当作无债务又无稀释。[S2][S8]\n\n价值与价格：已保存2026-11-10美东04:01:08盘前105.05美元。官方披露的2025Q4、2026Q1/Q2/Q3 GAAP摊薄EPS分别0.71、0.63、0.46、0.84美元，合计2.64；按105.05÷2.64计算P/E约39.79倍（公开EPS舍入到美分）。专业源显示的39.67倍、Moomoo约39.49倍因EPS精度或汇总方法不同，本次固定四季相加与同一保存股价，不混入远期或调整后盈利。[S1][S3–S6]\n\n是否值得投资：公司判断偏积极，价格判断仍为观察。管理层预计2026Q4收入约1.80亿美元、全年约5.95亿美元，2027年超过8亿美元；这些是指引而非已实现收入。强订单和客户工艺复杂度提高支持增长，反方则是客户扩产放缓、验收推迟和竞争会同时压低利润与估值。巴菲特视角看工艺认证及客户合作是否形成黏性；芒格视角警惕把AI热度当永久订单；林奇视角用未来每股盈利验证增长；马克思视角检查周期高点；索罗斯视角留意预期降温与订单反馈；达里奥视角核查贸易限制、地缘政治及利率影响。[S1]\n\n复核与行动：先观察下一季能否接近1.80亿美元收入、毛利率和营业利润率是否维持、应收回款是否跟上，以及2027订单能否兑现。若交付或利润率连续弱于计划，重审增长假设。当前仅完成盈利倍数与财务核验；缺少正常化自由现金流、全稀释资本结构和独立估值交叉核验，合理价值及可靠入场价仍未知，暂不新增。组合已有SMH、SOXX等半导体主题，新增CAMT会增加共同周期风险，不能仅凭业务不同视为充分分散。",
+        "risks": [
+          "先进封装/HBM投资周期及少数大客户订单节奏，可能造成交付与利润波动。",
+          "出口限制、以色列及客户所在地地缘风险；服务和交付可能受影响。",
+          "估值已要求持续成长；应收款增长、并购整合和可转债稀释需同时跟踪。"
+        ],
+        "catalysts": [
+          "下一季度核验约1.80亿美元收入指引、订单兑现与现金回款，指引并非保证。",
+          "2027年超过8亿美元收入展望若有实际交付、利润率与每股现金流支持，可重审估值。"
+        ],
+        "sources": [
+          {
+            "label": "[S1] Camtek 2026 Q3 官方业绩，2026-11-04，期间截至09-30",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-results-for-the-third-quarter-of-2026/"
+          },
+          {
+            "label": "[S2] Camtek 发布的Q3完整财务表，Nasdaq转载，2026-11-04",
+            "url": "https://www.nasdaq.com/press-release/camtek-announces-results-third-quarter-2026-2026-11-04"
+          },
+          {
+            "label": "[S3] Camtek 2026 Q2 业绩，2026-08-10",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-results-for-the-second-quarter-of-2026/"
+          },
+          {
+            "label": "[S4] Camtek 2026 Q1 业绩，2026-05-12",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-results-for-the-first-quarter-of-2026/"
+          },
+          {
+            "label": "[S5] Camtek 2025 Q4 业绩，2026-02-18",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-record-results-for-the-fourth-quarter-full-year-2025/"
+          },
+          {
+            "label": "[S6] Moomoo CAMT 盘前报价，2026-11-10 04:01:08 美东",
+            "url": "https://www.moomoo.com/stock/CAMT-US"
+          },
+          {
+            "label": "[S7] Camtek 公司与产品说明，访问2026-11-10",
+            "url": "https://www.camtek.com/investors/"
+          },
+          {
+            "label": "[S8] Camtek 2030年可转债条款，2025-09-12",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-pricing-of-upsized-private-offering-of-425-million-of-0-00-convertible-senior-notes-due-2030/"
+          }
+        ],
+        "uncertainty": "股价为11月10日盘前快照，财务为9月30日三季报，管理层展望另列。P/E使用已披露四季GAAP EPS之和，数值有美分舍入误差；不以非GAAP EPS或forward P/E替代。未建立完整DCF与独立交叉估值，组合最终仓位仍待完整约束核验。"
+      },
+      "researchedAt": "2026-11-10T09:15:43.177Z",
+      "report": "research/my-holdings-research-camt-2026-11-10.html"
     }
   ],
   "cash": [
@@ -7998,7 +8098,7 @@
     },
     {
       "id": "a2a94185-aab1-4266-b534-7ef5f8925265",
-      "date": "2026-10-30",
+      "date": "2026-11-11",
       "title": "SYM 行动计划",
       "body": "",
       "kind": "plan",
@@ -8013,7 +8113,7 @@
     },
     {
       "id": "877138b8-c2bd-4064-b0d2-aae62c7da688",
-      "date": "2026-10-30",
+      "date": "2026-11-11",
       "title": "CGNX 行动计划",
       "body": "",
       "kind": "plan",
@@ -8073,7 +8173,7 @@
     },
     {
       "id": "eadc1527-6e4e-46d6-b2b6-807ad9c3f5da",
-      "date": "2026-10-30",
+      "date": "2026-11-11",
       "title": "TER 行动计划",
       "body": "",
       "kind": "plan",
@@ -8258,21 +8358,6 @@
       "body": "",
       "kind": "plan",
       "watchId": "d7f135cb-4a2d-4855-8c50-c8d95ece17f9",
-      "plan": {
-        "allocationPct": null,
-        "safetyLow": null,
-        "safetyHigh": null,
-        "discountLow": null,
-        "discountHigh": null
-      }
-    },
-    {
-      "id": "e9d91d99-3e6c-4b2c-aa01-6121e7af5724",
-      "date": "2026-11-04",
-      "title": "CLFD 行动计划",
-      "body": "",
-      "kind": "plan",
-      "watchId": "790b5bb8-bf23-40a2-a5a3-b00014108576",
       "plan": {
         "allocationPct": null,
         "safetyLow": null,
@@ -8673,7 +8758,7 @@
       "title": "CLFD 行动计划",
       "body": "",
       "kind": "plan",
-      "watchId": "1b5e4057-fefa-409d-be9b-26df8ec2e3b2",
+      "watchId": "790b5bb8-bf23-40a2-a5a3-b00014108576",
       "plan": {
         "allocationPct": null,
         "safetyLow": null,
@@ -8845,9 +8930,165 @@
       "timeInForce": "GTC",
       "broker": "",
       "brokerOrderId": ""
+    },
+    {
+      "id": "e6cf8203-23af-4980-ab09-9ef486684ebf",
+      "date": "2026-11-10",
+      "title": "NBIS 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "8aa812fa-a0fc-417c-bb64-8d1f70305c8c",
+      "plan": {
+        "allocationPct": null,
+        "safetyLow": null,
+        "safetyHigh": null,
+        "discountLow": null,
+        "discountHigh": null
+      }
+    },
+    {
+      "id": "885f08f6-138d-4796-93b5-376df6785d0b",
+      "date": "2026-11-10",
+      "title": "CAMT 行动计划",
+      "body": "",
+      "kind": "plan",
+      "watchId": "40bfe069-ce01-47d7-88b7-9984b9669061",
+      "plan": {
+        "allocationPct": null,
+        "safetyLow": null,
+        "safetyHigh": null,
+        "discountLow": null,
+        "discountHigh": null
+      }
     }
   ],
   "analyses": [
+    {
+      "id": "c2b28360-9bbe-46bb-860a-887e8671f2a3",
+      "kind": "watch",
+      "date": "2026-11-10T09:15:43.177Z",
+      "research": {
+        "identity": {
+          "name": "Camtek Ltd.",
+          "symbol": "CAMT",
+          "exchange": "NASDAQ · 普通股（另于TASE上市）",
+          "currency": "USD",
+          "sector": "半导体检测与量测设备"
+        },
+        "title": "Camtek（CAMT）｜先进封装需求强，价格仍要让增长兑现",
+        "businessSummary": "向晶圆厂、封测厂和芯片厂卖光学检测与量测设备，用来找缺陷、测尺寸并提高良率，另有服务收入；先进封装和HBM产能投资会带动设备需求。",
+        "summary": "观察，等待估值或经营证据改善。最新三季度收入、盈利和现金流较强，先进封装需求提供成长空间；但约40倍任务口径TTM市盈率已经要求持续增长，并增加现有半导体组合的同向风险。",
+        "details": "业务模式：Camtek是以色列半导体设备公司，NASDAQ美元普通股代码CAMT，另在TASE挂牌。它用光学检测、量测与算法帮助客户提高晶圆和先进封装良率，客户包括晶圆代工厂、封测厂及整合器件厂。收入以设备交付及服务为主，受客户资本开支、验收和交付节奏影响；HBM与先进封装是增长应用，设备销售并非云订阅收入。[S7]\n\n财务状况：2026Q3截至09-30：收入1.613亿美元、同比增长28%；GAAP毛利率50.0%、营业利润3980万美元、营业利润率24.7%、净利润4280万美元、摊薄EPS 0.84美元；非GAAP EPS为0.99，不能替换GAAP计算TTM市盈率。季度经营现金流7110万美元。公告网页摘要有金额截断，本文以正文和公司发布的完整财务表为准。[S1][S2]\n\n现金与债务：2026-09-30现金、存款及有价证券合计8.771亿美元，可转债账面值4.892亿美元；两者简单相减约3.879亿美元，未扣其他经营负债。2026年前三季应收款1.662亿美元，高于2025年底0.908亿美元，增长质量仍要结合回款看。可转债可能用现金、股票或组合结算，不能同时当作无债务又无稀释。[S2][S8]\n\n价值与价格：已保存2026-11-10美东04:01:08盘前105.05美元。官方披露的2025Q4、2026Q1/Q2/Q3 GAAP摊薄EPS分别0.71、0.63、0.46、0.84美元，合计2.64；按105.05÷2.64计算P/E约39.79倍（公开EPS舍入到美分）。专业源显示的39.67倍、Moomoo约39.49倍因EPS精度或汇总方法不同，本次固定四季相加与同一保存股价，不混入远期或调整后盈利。[S1][S3–S6]\n\n是否值得投资：公司判断偏积极，价格判断仍为观察。管理层预计2026Q4收入约1.80亿美元、全年约5.95亿美元，2027年超过8亿美元；这些是指引而非已实现收入。强订单和客户工艺复杂度提高支持增长，反方则是客户扩产放缓、验收推迟和竞争会同时压低利润与估值。巴菲特视角看工艺认证及客户合作是否形成黏性；芒格视角警惕把AI热度当永久订单；林奇视角用未来每股盈利验证增长；马克思视角检查周期高点；索罗斯视角留意预期降温与订单反馈；达里奥视角核查贸易限制、地缘政治及利率影响。[S1]\n\n复核与行动：先观察下一季能否接近1.80亿美元收入、毛利率和营业利润率是否维持、应收回款是否跟上，以及2027订单能否兑现。若交付或利润率连续弱于计划，重审增长假设。当前仅完成盈利倍数与财务核验；缺少正常化自由现金流、全稀释资本结构和独立估值交叉核验，合理价值及可靠入场价仍未知，暂不新增。组合已有SMH、SOXX等半导体主题，新增CAMT会增加共同周期风险，不能仅凭业务不同视为充分分散。",
+        "risks": [
+          "先进封装/HBM投资周期及少数大客户订单节奏，可能造成交付与利润波动。",
+          "出口限制、以色列及客户所在地地缘风险；服务和交付可能受影响。",
+          "估值已要求持续成长；应收款增长、并购整合和可转债稀释需同时跟踪。"
+        ],
+        "catalysts": [
+          "下一季度核验约1.80亿美元收入指引、订单兑现与现金回款，指引并非保证。",
+          "2027年超过8亿美元收入展望若有实际交付、利润率与每股现金流支持，可重审估值。"
+        ],
+        "sources": [
+          {
+            "label": "[S1] Camtek 2026 Q3 官方业绩，2026-11-04，期间截至09-30",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-results-for-the-third-quarter-of-2026/"
+          },
+          {
+            "label": "[S2] Camtek 发布的Q3完整财务表，Nasdaq转载，2026-11-04",
+            "url": "https://www.nasdaq.com/press-release/camtek-announces-results-third-quarter-2026-2026-11-04"
+          },
+          {
+            "label": "[S3] Camtek 2026 Q2 业绩，2026-08-10",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-results-for-the-second-quarter-of-2026/"
+          },
+          {
+            "label": "[S4] Camtek 2026 Q1 业绩，2026-05-12",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-results-for-the-first-quarter-of-2026/"
+          },
+          {
+            "label": "[S5] Camtek 2025 Q4 业绩，2026-02-18",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-record-results-for-the-fourth-quarter-full-year-2025/"
+          },
+          {
+            "label": "[S6] Moomoo CAMT 盘前报价，2026-11-10 04:01:08 美东",
+            "url": "https://www.moomoo.com/stock/CAMT-US"
+          },
+          {
+            "label": "[S7] Camtek 公司与产品说明，访问2026-11-10",
+            "url": "https://www.camtek.com/investors/"
+          },
+          {
+            "label": "[S8] Camtek 2030年可转债条款，2025-09-12",
+            "url": "https://www.camtek.com/news-and-events/camtek-announces-pricing-of-upsized-private-offering-of-425-million-of-0-00-convertible-senior-notes-due-2030/"
+          }
+        ],
+        "uncertainty": "股价为11月10日盘前快照，财务为9月30日三季报，管理层展望另列。P/E使用已披露四季GAAP EPS之和，数值有美分舍入误差；不以非GAAP EPS或forward P/E替代。未建立完整DCF与独立交叉估值，组合最终仓位仍待完整约束核验。"
+      },
+      "report": "research/my-holdings-research-camt-2026-11-10.html"
+    },
+    {
+      "id": "96731aff-1add-48f7-8e2d-d4d541d2e2a5",
+      "kind": "watch",
+      "date": "2026-11-10T09:15:42.923Z",
+      "research": {
+        "identity": {
+          "name": "Nebius Group N.V.",
+          "symbol": "NBIS",
+          "exchange": "NASDAQ · Class A普通股",
+          "currency": "USD",
+          "sector": "AI云算力与数据中心"
+        },
+        "title": "Nebius（NBIS）｜增长很快，先看算力交付与融资能否创造每股价值",
+        "businessSummary": "给开发AI的企业和开发者提供GPU算力、存储、网络及云软件，按用量或预留算力合同收费；需要先投入数据中心和设备，再靠客户使用与长期合同回收资金。",
+        "summary": "观察，暂不因股价回落新增。2026年二季度收入快速增长，但GAAP仍亏损、建设投入大于经营现金流。应先核对11月12日三季报的交付、客户预付款、融资和稀释；当前证据不足以确定可靠买价。",
+        "details": "业务模式：Nebius是荷兰总部的AI云公司，NASDAQ的NBIS是Class A普通股、美元挂牌。客户购买GPU训练和推理算力及配套服务，收入取决于可用容量、利用率、价格和合同兑现。软件与集群运维能提高客户黏性，但不能把资本密集的算力租赁当成轻资产软件。集团另有Avride、TripleTen及非上市股权投资，集团利润不等于云业务利润。[S1][S2]\n\n财务状况：截至2026-06-30的二季度，集团收入5.823亿美元、同比增长454%；GAAP营业亏损1.759亿美元、净亏损1.904亿美元；调整后EBITDA为2.362亿美元，仍需承担折旧、利息和股权薪酬。半年经营现金流45.041亿美元、购建固定及无形资产81.303亿美元，按两者差额计算现金缺口36.262亿美元；预收客户款会推高现金流，并非全部是可分配利润。[S1]\n\n现金与债务：2026-06-30现金80.421亿美元；流动与非流动债务分别0.467和84.990亿美元，合计85.457亿美元，另有15.104亿美元非流动经营租赁负债。现金不能当成全部闲置资金，客户预付款对应未来交付义务。股东信称部分新合同有较高预付比例、可支持建设，这是融资缓冲，仍需验证设备交付及单项目回报。[S1][S2]\n\n价值与价格：独立报价任务已保存2026-11-10美东04:07:46盘前140.80美元，仅为时点快照。按本次约定，把2025Q3至2026Q2四季GAAP摊薄EPS（−0.50、−1.11、2.11、−0.68美元）相加为−0.18美元，P/E记N/M。季度来源为S&P数据序列，2026Q1/Q2与官方表核对。统计页另示861.12倍，供应商汇总方法尚未对账，差异可能涉及可转债稀释及盈亏季度处理，不能混用。2026Q1还包含7.806亿美元投资重估收益；利润倍数并不能证明核心云业务便宜。[S4–S8]\n\n是否值得投资：结论：有增长机会，但先观察。看多依据是算力需求、签约和云平台执行；最强反方是GPU技术迭代、建设延误及资金成本会让收入增长无法变成每股自由现金流。巴菲特视角看运维与客户黏性尚需时间验证；芒格视角先反推利用率下滑和融资收紧；林奇视角检查高增长是否兑现为每股盈利；马克思视角不给热门资本开支故事过高确定性；索罗斯视角警惕股价下跌抬高融资稀释；达里奥视角检查利率、电力与信用周期。六种方法合起来支持等待证据，不能据此宣称已有安全边际。\n\n复核与行动：官方安排11月12日美东盘前发布2026Q3业绩、08:00召开电话会（新西兰11月13日02:00）。重点核对收入兑现、已通电并可使用容量、预付款对应义务、建设开支及新增股数；若交付落后或融资条件恶化，暂停投入。可靠内在价值和入场区间目前未知：尚未完成建设期现金流、维持性开支及稀释模型，也没有独立估值交叉核验；新增资金暂为0。已有指数中的AI相关暴露仍需一起评估。[S3]",
+        "risks": [
+          "GPU设备更新与折旧、电力和数据中心交付延误，可能压低资本回报。",
+          "债务、租赁、客户预付款义务与股权稀释叠加；现金余额不等于自由可投资现金。",
+          "大客户、供应商及AI资本开支周期集中，收入增长不保证每股自由现金流改善。"
+        ],
+        "catalysts": [
+          "2026-11-12美东盘前三季报：核验收入、可用容量、现金流和融资；不是预设利好。",
+          "后续两个季度若交付和回款兑现、融资稀释可控，且能建立保守估值，再重审。"
+        ],
+        "sources": [
+          {
+            "label": "[S1] Nebius 2026 Q2 财报，2026-08-12，期间截至06-30",
+            "url": "https://assets.nebius.com/assets/72a8c258-bbb7-4df7-ab9d-8698f6cb88fc/PR.pdf"
+          },
+          {
+            "label": "[S2] Nebius 2026 Q2 股东信，2026-08-12",
+            "url": "https://assets.nebius.com/assets/a6ecfd85-a6cb-4967-8ef7-9a25bd261f9c/SHLQ226.pdf"
+          },
+          {
+            "label": "[S3] Nebius 官方业绩日程，访问2026-11-10",
+            "url": "https://nebius.com/investor-events"
+          },
+          {
+            "label": "[S4] Moomoo NBIS 盘前报价，2026-11-10 04:07:46 美东",
+            "url": "https://www.moomoo.com/stock/NBIS-US"
+          },
+          {
+            "label": "[S5] Stock Analysis / S&P 季度 EPS 序列，访问2026-11-10",
+            "url": "https://stockanalysis.com/stocks/nbis/financials/?p=quarterly"
+          },
+          {
+            "label": "[S6] Nebius 2026 Q1 财报，2026-05-13",
+            "url": "https://assets.nebius.com/assets/6fc0ea6c-0884-4a1f-bed8-1f797eb9628f/Financial%20results_Q1%202026.pdf"
+          },
+          {
+            "label": "[S7] Nebius 2025 经审计20-F，2026-04-30",
+            "url": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926052948/nbis-20251231x20f.htm"
+          },
+          {
+            "label": "[S8] Stock Analysis TTM统计，访问2026-11-10，仅作口径冲突对照",
+            "url": "https://stockanalysis.com/stocks/nbis/statistics/"
+          }
+        ],
+        "uncertainty": "最新已发布财务期为2026Q2，不能提前使用11月12日尚未发布的三季报。N/M采用任务指定的四季EPS相加口径，不表示TTM净利润一定为负；净利润与逐季摊薄EPS会因稀释处理而不同。估值与组合适配尚未完成，未提供最终买入价或目标仓位。"
+      },
+      "report": "research/my-holdings-research-nbis-2026-11-10.html"
+    },
     {
       "id": "b48c3714-aea0-42c8-9973-50d5e5add528",
       "kind": "portfolio",
@@ -22707,7 +22948,7 @@
       "summary": "已更新 AMPL 的盘中价；已有研究保留。"
     },
     {
-      "watchId": "1b5e4057-fefa-409d-be9b-26df8ec2e3b2",
+      "watchId": "790b5bb8-bf23-40a2-a5a3-b00014108576",
       "status": "done",
       "date": "2026-11-09T19:38:15.645Z",
       "error": "",
@@ -22977,6 +23218,110 @@
       "error": "",
       "report": "portfolio/my-holdings-portfolio-review-2026-11-10.html",
       "completedAt": "2026-11-09T19:49:15.282Z"
+    },
+    {
+      "watchId": "8aa812fa-a0fc-417c-bb64-8d1f70305c8c",
+      "status": "done",
+      "date": "2026-11-10T09:03:05.713Z",
+      "error": "",
+      "batchId": "c5436a81-7079-4b6f-bcc8-963ae1e68230",
+      "origin": "watch-add",
+      "id": "5b481119-b6a4-4b4b-a285-17003113ee49",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 NBIS NBIS：先调用实际执行时刻的 quote-policy，按其时区和交易时段取价。美股夜盘时先核对 Moomoo 报价页或本机 Moomoo OpenAPI，Moomoo 不可用或无新鲜夜盘价时立即查 TradingView BOATS 24/5 图表（https://www.tradingview.com/chart/?symbol=BOATS%3ANBIS），确认 Blue Ocean Alternative Trade System、Market open 和当前价格；该源官方说明夜盘实时数据每秒更新。不可只看常规市场是否开市或只查 Yahoo。优先提交与 policy.session 一致、时间戳距执行不超过20分钟的报价；没有任何可核实的新鲜时段报价时，才回退最近已完成交易日未复权正式收盘价。保存价格类型、时段、UTC报价时间、币种与来源链接。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-11-10T09:06:59.594Z",
+        "type": "extended",
+        "date": "2026-11-10",
+        "fallbackDate": "2026-11-09",
+        "fallbackCloseAt": "2026-11-09T21:00:00.000Z",
+        "session": "premarket",
+        "market": "US",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-11-10T09:00:00.000Z",
+        "sessionCloseAt": "2026-11-10T14:30:00.000Z"
+      },
+      "completedAt": "2026-11-10T09:09:00.708Z",
+      "summary": "已更新 NBIS 的盘前价；已有研究保留。"
+    },
+    {
+      "watchId": "8aa812fa-a0fc-417c-bb64-8d1f70305c8c",
+      "status": "done",
+      "date": "2026-11-10T09:03:05.713Z",
+      "error": "",
+      "batchId": "c5436a81-7079-4b6f-bcc8-963ae1e68230",
+      "origin": "watch-add",
+      "id": "79bca69e-2822-4654-9f85-5b1b77e43471",
+      "kind": "watch",
+      "researchMode": "initial",
+      "question": "仅在完整研究缺失时补充首次研究：NBIS NBIS。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。research.businessSummary 用一两句白话说明客户、产品和收费方式；details 明确写出业务模式、财务状况（收入、GAAP 盈亏、现金与债务，附期间和单位）、价值与价格、是否值得投资及支持和反证，正文适合约3分钟阅读，不按行业套模板；缺少可靠估值时明确未知，不编造目标价。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。",
+      "report": "research/my-holdings-research-nbis-2026-11-10.html",
+      "completedAt": "2026-11-10T09:15:42.923Z"
+    },
+    {
+      "watchId": "8aa812fa-a0fc-417c-bb64-8d1f70305c8c",
+      "status": "done",
+      "date": "2026-11-10T09:03:05.713Z",
+      "error": "",
+      "batchId": "c5436a81-7079-4b6f-bcc8-963ae1e68230",
+      "origin": "watch-add",
+      "id": "ced0c9a4-eedc-443a-a1ab-44eee69fc7b1",
+      "kind": "watch-pe",
+      "question": "仅刷新这只新加入近期关注的个股市盈率：NBIS NBIS。采用 trailing P/E (TTM，过去12个月 GAAP 摊薄每股收益)；优先使用可信专业行情源直接给出的 trailing P/E，并核对最新股价与财报日期。如自行计算，使用同一币种的当前普通股价格 ÷ 最新四个季度 GAAP 摊薄 EPS 之和，不混入 forward P/E、调整后 EPS 或旧价格。TTM EPS <= 0 时标记 unavailable，value=null，并在 note 写 N/M 与原因；数据无法核实则标记 unverified，不猜值。仅处理并提交本任务的 watchId=8aa812fa-a0fc-417c-bb64-8d1f70305c8c、symbol=NBIS 这一只标的，asOf 使用股价日期，sourceUrl 提供可打开的 HTTPS 来源。完成时 POST /my-holdings/api/jobs/{任务ID}/complete，提交 {\"values\":[{\"watchId\":\"8aa812fa-a0fc-417c-bb64-8d1f70305c8c\",\"symbol\":\"NBIS\",\"basis\":\"TTM\",\"status\":\"available|unavailable|unverified\",\"value\":123.45 或 null,\"asOf\":\"YYYY-MM-DD\",\"source\":\"来源\",\"sourceUrl\":\"https://...\",\"note\":\"说明\"}],\"summary\":\"...\"}；未能核实则调用 fail，不覆盖旧值。无需 HTML。",
+      "completedAt": "2026-11-10T09:15:42.598Z",
+      "summary": "NBIS 市盈率核验完成；保留计算口径、来源和日期。"
+    },
+    {
+      "watchId": "40bfe069-ce01-47d7-88b7-9984b9669061",
+      "status": "done",
+      "date": "2026-11-10T09:03:30.300Z",
+      "error": "",
+      "batchId": "20224e8b-f267-44cb-9460-e5f3346f961f",
+      "origin": "watch-add",
+      "id": "e7ba5d48-0f00-46af-9b78-f9a7594af20c",
+      "kind": "watch-quotes",
+      "question": "仅刷新关注价格 CAMT CAMT：先调用实际执行时刻的 quote-policy，按其时区和交易时段取价。美股夜盘时先核对 Moomoo 报价页或本机 Moomoo OpenAPI，Moomoo 不可用或无新鲜夜盘价时立即查 TradingView BOATS 24/5 图表（https://www.tradingview.com/chart/?symbol=BOATS%3ACAMT），确认 Blue Ocean Alternative Trade System、Market open 和当前价格；该源官方说明夜盘实时数据每秒更新。不可只看常规市场是否开市或只查 Yahoo。优先提交与 policy.session 一致、时间戳距执行不超过20分钟的报价；没有任何可核实的新鲜时段报价时，才回退最近已完成交易日未复权正式收盘价。保存价格类型、时段、UTC报价时间、币种与来源链接。保留已有研究、HTML 报告和研究日期，不生成研究。",
+      "quotePolicy": {
+        "executedAt": "2026-11-10T09:06:59.678Z",
+        "type": "extended",
+        "date": "2026-11-10",
+        "fallbackDate": "2026-11-09",
+        "fallbackCloseAt": "2026-11-09T21:00:00.000Z",
+        "session": "premarket",
+        "market": "US",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-11-10T09:00:00.000Z",
+        "sessionCloseAt": "2026-11-10T14:30:00.000Z"
+      },
+      "completedAt": "2026-11-10T09:09:01.232Z",
+      "summary": "已更新 CAMT 的盘前价；已有研究保留。"
+    },
+    {
+      "watchId": "40bfe069-ce01-47d7-88b7-9984b9669061",
+      "status": "done",
+      "date": "2026-11-10T09:03:30.300Z",
+      "error": "",
+      "batchId": "20224e8b-f267-44cb-9460-e5f3346f961f",
+      "origin": "watch-add",
+      "id": "5b8cea47-8cd5-4bda-9e9e-5638f47dcc96",
+      "kind": "watch",
+      "researchMode": "initial",
+      "question": "仅在完整研究缺失时补充首次研究：CAMT CAMT。核实证券身份、财报、业务展望、主要风险与来源，保存独立中文 HTML 并回写 research。research.businessSummary 用一两句白话说明客户、产品和收费方式；details 明确写出业务模式、财务状况（收入、GAAP 盈亏、现金与债务，附期间和单位）、价值与价格、是否值得投资及支持和反证，正文适合约3分钟阅读，不按行业套模板；缺少可靠估值时明确未知，不编造目标价。价格由独立的 watch-quotes 待办刷新，不要用报告中的历史价格覆盖已保存的新报价。执行前重新检查，若已有完整研究则通过 complete 回写跳过说明，保留已有报告。",
+      "report": "research/my-holdings-research-camt-2026-11-10.html",
+      "completedAt": "2026-11-10T09:15:43.177Z"
+    },
+    {
+      "watchId": "40bfe069-ce01-47d7-88b7-9984b9669061",
+      "status": "done",
+      "date": "2026-11-10T09:03:30.300Z",
+      "error": "",
+      "batchId": "20224e8b-f267-44cb-9460-e5f3346f961f",
+      "origin": "watch-add",
+      "id": "1f06cfcb-a484-4951-af4c-8a4c34e0a531",
+      "kind": "watch-pe",
+      "question": "仅刷新这只新加入近期关注的个股市盈率：CAMT CAMT。采用 trailing P/E (TTM，过去12个月 GAAP 摊薄每股收益)；优先使用可信专业行情源直接给出的 trailing P/E，并核对最新股价与财报日期。如自行计算，使用同一币种的当前普通股价格 ÷ 最新四个季度 GAAP 摊薄 EPS 之和，不混入 forward P/E、调整后 EPS 或旧价格。TTM EPS <= 0 时标记 unavailable，value=null，并在 note 写 N/M 与原因；数据无法核实则标记 unverified，不猜值。仅处理并提交本任务的 watchId=40bfe069-ce01-47d7-88b7-9984b9669061、symbol=CAMT 这一只标的，asOf 使用股价日期，sourceUrl 提供可打开的 HTTPS 来源。完成时 POST /my-holdings/api/jobs/{任务ID}/complete，提交 {\"values\":[{\"watchId\":\"40bfe069-ce01-47d7-88b7-9984b9669061\",\"symbol\":\"CAMT\",\"basis\":\"TTM\",\"status\":\"available|unavailable|unverified\",\"value\":123.45 或 null,\"asOf\":\"YYYY-MM-DD\",\"source\":\"来源\",\"sourceUrl\":\"https://...\",\"note\":\"说明\"}],\"summary\":\"...\"}；未能核实则调用 fail，不覆盖旧值。无需 HTML。",
+      "completedAt": "2026-11-10T09:15:43.030Z",
+      "summary": "CAMT 市盈率核验完成；保留计算口径、来源和日期。"
     }
   ],
   "marketUpdatedAt": "2026-11-09T19:44:33.784Z",
@@ -23163,61 +23508,8 @@
   },
   "watchRankHistory": [
     {
-      "date": "2026-11-09",
-      "watchIds": [
-        "38483e90-6472-49f0-b990-4124e9277241",
-        "51ad04f2-e977-43e6-9f59-3af45199e20f",
-        "9c572b68-64fb-4e7d-9692-74f569040195",
-        "2636a1a3-86d9-468b-af28-eb16cff86f96",
-        "c926f17c-43a8-4e8f-9d78-5498591db5e7",
-        "5184a372-c42c-4d2b-b442-3c954b76d836",
-        "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
-        "2eeb0dac-7835-409c-b00b-0eecbbac86e5",
-        "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
-        "5b4f94c8-6b06-461a-bcb9-24d2f3fcea89",
-        "71314544-bdc1-4c97-be06-821d7464ef31",
-        "e10a6356-e290-430c-9ca8-d5108019f74e",
-        "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
-        "a458efd6-1dde-44d5-8737-63854d7a5e63",
-        "9392cfa3-7e7c-4cd4-b14e-c3ca4bcaf009",
-        "79730ba5-e176-4362-8ba4-022e0f8f35b9",
-        "01a864b1-0623-4778-9656-0431418803b8",
-        "5fc04024-090e-4fc0-85c3-0fc7c8967ea9",
-        "135c4bd8-0130-47fa-bfb3-bcf07b991f67",
-        "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
-        "efb41df6-a108-4686-999d-da82269b8814",
-        "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
-        "68ac1738-90e2-44ce-aaa8-83967958e168",
-        "58e60dd8-b2b1-4b16-9029-98c334e865aa",
-        "e8839fb8-b14b-4f60-bc6b-f01909376529",
-        "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
-        "5d0a5d34-3866-417c-a996-c1b5991daebb",
-        "e59bec61-4342-46ba-99c5-200542b791d9",
-        "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
-        "c024e517-2f19-429e-9330-e49566ba2537",
-        "0f35461a-583e-4b28-aafb-ba9d673272e6",
-        "20517359-0ea4-40bc-a51c-d83eb77f75eb",
-        "1b0d63b8-bd16-4c7c-8f20-6e8d71c13876",
-        "5ffc01e1-e876-459c-828d-3f28dc5548d8",
-        "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
-        "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
-        "db257f43-036f-43ec-acbf-84c4bf91c1ff",
-        "5614a582-5385-49a4-a89f-2a0661942e35",
-        "6688d084-15c1-4d89-a450-a7b8d67b6616",
-        "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
-        "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
-        "3576e790-1cf4-436a-8165-de97908a9a8a",
-        "f389b712-950c-40f5-a71d-7a777a5458a9",
-        "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
-        "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
-        "28efd446-0de3-4992-b562-7836ceb691ae",
-        "990ad5a3-7a56-45e9-a914-78424558e749"
-      ]
-    },
-    {
       "date": "2026-11-10",
       "watchIds": [
-        "51ad04f2-e977-43e6-9f59-3af45199e20f",
         "9392cfa3-7e7c-4cd4-b14e-c3ca4bcaf009",
         "5184a372-c42c-4d2b-b442-3c954b76d836",
         "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
@@ -23247,12 +23539,14 @@
         "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
         "135c4bd8-0130-47fa-bfb3-bcf07b991f67",
         "5fc04024-090e-4fc0-85c3-0fc7c8967ea9",
+        "0fbc5b82-f710-4302-a183-f2d84a768112",
         "0f35461a-583e-4b28-aafb-ba9d673272e6",
         "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
         "1b0d63b8-bd16-4c7c-8f20-6e8d71c13876",
         "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
         "db257f43-036f-43ec-acbf-84c4bf91c1ff",
         "5ffc01e1-e876-459c-828d-3f28dc5548d8",
+        "51ad04f2-e977-43e6-9f59-3af45199e20f",
         "e8839fb8-b14b-4f60-bc6b-f01909376529",
         "28efd446-0de3-4992-b562-7836ceb691ae",
         "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
@@ -23264,6 +23558,59 @@
         "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
         "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
         "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353"
+      ]
+    },
+    {
+      "date": "2026-11-11",
+      "watchIds": [
+        "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
+        "38483e90-6472-49f0-b990-4124e9277241",
+        "2636a1a3-86d9-468b-af28-eb16cff86f96",
+        "e59bec61-4342-46ba-99c5-200542b791d9",
+        "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
+        "2eeb0dac-7835-409c-b00b-0eecbbac86e5",
+        "5b4f94c8-6b06-461a-bcb9-24d2f3fcea89",
+        "c926f17c-43a8-4e8f-9d78-5498591db5e7",
+        "3576e790-1cf4-436a-8165-de97908a9a8a",
+        "b6741d0b-ddbf-4958-ad9d-a363b1a952f3",
+        "68ac1738-90e2-44ce-aaa8-83967958e168",
+        "58e60dd8-b2b1-4b16-9029-98c334e865aa",
+        "71314544-bdc1-4c97-be06-821d7464ef31",
+        "79730ba5-e176-4362-8ba4-022e0f8f35b9",
+        "a458efd6-1dde-44d5-8737-63854d7a5e63",
+        "e10a6356-e290-430c-9ca8-d5108019f74e",
+        "9867e592-f172-4fa7-b61a-eb454b1ebfb1",
+        "01a864b1-0623-4778-9656-0431418803b8",
+        "c024e517-2f19-429e-9330-e49566ba2537",
+        "5614a582-5385-49a4-a89f-2a0661942e35",
+        "f389b712-950c-40f5-a71d-7a777a5458a9",
+        "91dcccc2-b19d-46bb-a2d9-a0dcbacfc255",
+        "5d0a5d34-3866-417c-a996-c1b5991daebb",
+        "4dbd831a-e35b-44b0-8bdf-b591948f5bb6",
+        "135c4bd8-0130-47fa-bfb3-bcf07b991f67",
+        "5fc04024-090e-4fc0-85c3-0fc7c8967ea9",
+        "0fbc5b82-f710-4302-a183-f2d84a768112",
+        "0f35461a-583e-4b28-aafb-ba9d673272e6",
+        "bcdb53f1-c038-4c1d-93f9-77489dddee7b",
+        "1b0d63b8-bd16-4c7c-8f20-6e8d71c13876",
+        "5f460ec3-2c96-4118-bf75-eaf3fe1ca38c",
+        "db257f43-036f-43ec-acbf-84c4bf91c1ff",
+        "5ffc01e1-e876-459c-828d-3f28dc5548d8",
+        "51ad04f2-e977-43e6-9f59-3af45199e20f",
+        "e8839fb8-b14b-4f60-bc6b-f01909376529",
+        "28efd446-0de3-4992-b562-7836ceb691ae",
+        "73b21a6e-fd7b-44cb-89b6-168cd5e582e6",
+        "9392cfa3-7e7c-4cd4-b14e-c3ca4bcaf009",
+        "1e3eae4e-ab9c-441f-bcb0-acba9c1f23f7",
+        "5184a372-c42c-4d2b-b442-3c954b76d836",
+        "20517359-0ea4-40bc-a51c-d83eb77f75eb",
+        "6688d084-15c1-4d89-a450-a7b8d67b6616",
+        "9c572b68-64fb-4e7d-9692-74f569040195",
+        "990ad5a3-7a56-45e9-a914-78424558e749",
+        "ccc20d0f-ed3c-4b90-9017-890fb0b0d7e1",
+        "dd3cafa3-68ee-4efd-874c-a8d3fd991797",
+        "ee2ed3ee-6d6d-4b7e-bc3a-4a1a6cff0353",
+        "efb41df6-a108-4686-999d-da82269b8814"
       ]
     }
   ],
@@ -23756,7 +24103,7 @@
       "recordedAt": "2026-11-06T00:05:52.051Z"
     }
   ],
-  "watchlistUpdatedAt": "2026-11-09T19:44:41.199Z",
+  "watchlistUpdatedAt": "2026-11-10T09:09:01.232Z",
   "watchCategories": [
     {
       "id": "potential",
@@ -23873,7 +24220,7 @@
       "orderType": "limit",
       "quantity": 50,
       "filledQuantity": 0,
-      "limitPrice": 250,
+      "limitPrice": 267,
       "currency": "USD",
       "timeInForce": "GTC",
       "status": "working",
@@ -23934,7 +24281,7 @@
       "orderType": "limit",
       "quantity": 100,
       "filledQuantity": 0,
-      "limitPrice": 18,
+      "limitPrice": 17.5,
       "currency": "USD",
       "timeInForce": "GTC",
       "status": "draft",
@@ -24025,6 +24372,209 @@
       "name": "",
       "reviewDate": "",
       "updatedAt": "2026-11-07T07:30:47.317Z"
+    }
+  ],
+  "watchMergeHistory": [
+    {
+      "mergedAt": "2026-11-10T09:34:57.587Z",
+      "watchId": "790b5bb8-bf23-40a2-a5a3-b00014108576",
+      "originals": [
+        {
+          "id": "790b5bb8-bf23-40a2-a5a3-b00014108576",
+          "name": "CLFD",
+          "symbol": "CLFD",
+          "note": "",
+          "trigger": "",
+          "status": "观察中",
+          "attention": 2,
+          "watchCategoryId": "uncategorized",
+          "price": 30.925,
+          "priceDate": "2026-11-09",
+          "priceType": "intraday",
+          "priceCurrency": "USD",
+          "priceAsOf": "2026-11-09T19:41:00.000Z",
+          "priceFetchedAt": "2026-11-09T19:44:40.183Z",
+          "priceTimeZone": "America/New_York",
+          "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
+          "priceSourceUrl": "https://www.moomoo.com/stock/CLFD-US",
+          "pe": {
+            "value": null,
+            "status": "unavailable",
+            "basis": "TTM",
+            "asOf": "2026-11-09",
+            "updatedAt": "2026-11-09T19:44:41.432Z",
+            "source": "StockAnalysis · PE Ratio（TTM，非 Forward PE）",
+            "sourceUrl": "https://stockanalysis.com/stocks/clfd/statistics/",
+            "note": "页面 PE Ratio=n/a；Earnings Per Share (EPS)=-$0.53；仅读取 trailing PE，不采用 Forward PE。页面交易日期为2026-11-09，日内统计快照与其他行情可能有时差。"
+          },
+          "research": {
+            "identity": {
+              "name": "Clearfield, Inc.",
+              "symbol": "CLFD",
+              "exchange": "NASDAQ",
+              "currency": "USD",
+              "sector": "光纤通信设备"
+            },
+            "title": "Clearfield（NASDAQ: CLFD）首次关注研究",
+            "summary": "Clearfield 为宽带运营商、MSO 和光纤网络建设方提供光纤连接、配线与部署设备，收入受客户资本开支和项目节奏影响。FY2026 Q3 持续经营收入同比增长 13% 至 $4,390 万，但毛利率同比下降 3.5 个百分点；公司下调全年展望。$2,200 万数据中心订单提供新增长机会，预计 FY2027 初开始发货。GAAP TTM EPS 约 -$0.51，市盈率为 N/M。",
+            "details": "证券与业务：Clearfield, Inc.（NASDAQ: CLFD）设计并销售光纤连接基础设施产品，包括配线与机柜、终端、接续和部署组件，服务宽带运营商、MSO/有线电视运营商、区域服务商及网络建设项目。其产品嵌入客户的光纤接入和网络扩容流程，工程兼容性、可靠性、现场部署效率与渠道关系有价值；但商业模式仍依赖运营商资本开支，不是订阅型经常性收入。公司出售了 Nestor Cables，相关历史业绩列为停业业务。\n\n最新财务（截至 2026-06-30）：FY2026 Q3 持续经营净销售额 4,390 万美元，同比 +13%；持续经营摊薄 EPS $0.22，合并摊薄 EPS 也为 $0.22。毛利率 31.8%，比去年同期低 3.5 个百分点；公司披露当季受到约 260 万美元库存费用影响。FY2026 前九个月合并摊薄 EPS 为 $0.14，其中持续经营 $0.16、停业业务 -$0.02。公司在 Q3 后下调 FY2026 展望至持续经营收入 1.51 亿至 1.55 亿美元，全年 EPS $0.14 至 $0.21；Q4 指引收入 3,800 万至 4,200 万美元、EPS $0.00 至 $0.07。\n\n增长机会与经营质量：Q3 收市后，公司获得一笔支持超大规模数据中心项目的 2,200 万美元订单，预计 FY2027 初开始出货。该订单为传统宽带之外的数据中心应用提供验证，但单一订单还不能证明稳定、可重复的市场。需继续观察其转化为发货、毛利和回款的过程，以及宽带订单是否恢复。FY2025 持续经营收入为 1.501 亿美元，FY2025 Q4 合并摊薄亏损每股 $0.65，主要受 Nestor 停业业务与减值拖累；FY2026 前三季合并 EPS +$0.14，因此截至最近披露季度的合并 GAAP TTM EPS 约为 -$0.51，传统 TTM P/E 为 N/M。\n\n竞争与估值关注：产品质量、现场部署经验、客户/分销渠道和对特定光纤架构的兼容性可能形成关系型优势，但大部分产品仍有替代方案，客户采购受价格、标准和项目周期影响。跟踪订单与积压订单、MSO/区域运营商资本开支、库存与毛利、现金转换、数据中心订单后续以及 FY2026 Q4 实绩。Clearfield 已安排 2026-11-10 发布 FY2026 Q4 业绩。由于 TTM EPS 为负，不能用传统 P/E 对估值作正向比较。",
+            "risks": [
+              "需求与宽带运营商、MSO 和区域服务商资本开支强相关，客户延迟、削减或取消项目会造成收入与库存波动。",
+              "客户集中和客户整合可能影响议价、订单节奏及份额；公司也披露季度业绩可能显著波动。",
+              "FY2026 Q3 毛利率同比下降 3.5 个百分点并计入约 260 万美元库存费用，库存过时、供应链或价格竞争可能继续侵蚀毛利。",
+              "数据中心 2,200 万美元订单尚处于未来交付阶段，启动时间、验收和收入确认均有执行风险，不能视为已实现收入。",
+              "FY2025 Nestor 出售与停业业务减值使 GAAP 盈利和同比口径复杂；按合并口径计算的 TTM EPS 仍为负。"
+            ],
+            "catalysts": [
+              "2026-11-10 公布 FY2026 Q4：核对实际收入、EPS、库存费用与全年结果是否落在下调后的指引区间。",
+              "跟踪 $22M 超大规模数据中心订单从预备到 FY2027 初始出货的进度，确认其毛利、验收与后续订单可能性。",
+              "关注积压订单、光纤宽带投资和 MSO/区域服务商订单是否企稳，以及库存利用率和毛利能否回升。",
+              "观察每股回购授权及现金使用是否与经营现金流相匹配；回购本身不能抵消基本面疲弱。"
+            ],
+            "sources": [
+              {
+                "label": "Clearfield FY2026 Q3 财报（2026-08-05）",
+                "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/364/clearfield-reports-third-quarter-fiscal-2026-results"
+              },
+              {
+                "label": "Clearfield FY2025 Q4 与全年业绩（Nestor 停业业务与减值）",
+                "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/348/clearfield-reports-fourth-quarter-and-full-year-2025-results"
+              },
+              {
+                "label": "Clearfield FY2026 Q2 业绩",
+                "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/359/clearfield-reports-second-quarter-fiscal-2026-results"
+              },
+              {
+                "label": "Clearfield FY2026 Q4 财报日期公告",
+                "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/369/clearfield-sets-fiscal-fourth-quarter-2026-earnings-call-for-tuesday-november-10th-2026"
+              },
+              {
+                "label": "Clearfield TTM 市盈率与报价页（Moomoo）",
+                "url": "https://www.moomoo.com/stock/CLFD-US"
+              }
+            ],
+            "uncertainty": "截至 2026-11-04，最新已公布季度为 FY2026 Q3（截至 2026-06-30）；FY2026 Q4 结果定于 2026-11-10 发布。TTM 合并摊薄 EPS 以 FY2025 Q4 -$0.65 加 FY2026 前三季 +$0.14 计算，约 -$0.51，故 P/E 为 N/M；Q4 的一次性停业业务减值显著影响该 TTM 口径。后续决策需要同时看持续经营盈利和合并 GAAP 盈利。"
+          },
+          "researchedAt": "2026-11-04T23:32:25.127Z",
+          "report": "research/my-holdings-research-clfd-2026-11-04.html",
+          "priceSession": "regular",
+          "priceMarket": "US"
+        },
+        {
+          "id": "1b5e4057-fefa-409d-be9b-26df8ec2e3b2",
+          "name": "CLFD",
+          "symbol": "CLFD",
+          "note": "",
+          "trigger": "",
+          "status": "观察中",
+          "attention": 2,
+          "watchCategoryId": "uncategorized",
+          "price": 30.925,
+          "priceDate": "2026-11-09",
+          "priceType": "intraday",
+          "priceCurrency": "USD",
+          "priceAsOf": "2026-11-09T19:41:00.000Z",
+          "priceFetchedAt": "2026-11-09T19:44:40.454Z",
+          "priceTimeZone": "America/New_York",
+          "priceMarket": "US",
+          "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
+          "priceSourceUrl": "https://www.moomoo.com/stock/CLFD-US",
+          "pe": {
+            "value": null,
+            "status": "unavailable",
+            "basis": "TTM",
+            "asOf": "2026-11-09",
+            "updatedAt": "2026-11-09T19:44:41.432Z",
+            "source": "StockAnalysis · PE Ratio（TTM，非 Forward PE）",
+            "sourceUrl": "https://stockanalysis.com/stocks/clfd/statistics/",
+            "note": "页面 PE Ratio=n/a；Earnings Per Share (EPS)=-$0.53；仅读取 trailing PE，不采用 Forward PE。页面交易日期为2026-11-09，日内统计快照与其他行情可能有时差。"
+          },
+          "research": {
+            "identity": {
+              "name": "Clearfield, Inc.",
+              "symbol": "CLFD",
+              "exchange": "NASDAQ",
+              "currency": "USD",
+              "sector": "光纤通信基础设施"
+            },
+            "title": "Clearfield（NASDAQ: CLFD）｜光纤接入需求与周期性",
+            "summary": "Clearfield 为宽带网络部署提供光纤连接及相关设备。2026 财年第三季度持续经营销售额同比增长 13%，但毛利率下滑且全年盈利指引偏薄；大型数据中心订单提供增量机会，宽带项目周期仍是关键变量。",
+            "details": "业务模式：为电信运营商、宽带服务商和承包商提供光纤接入产品。订单受项目招标、补贴拨付、客户库存和资本开支影响。\n\n最新经营：2026 财年第三季度持续经营销售额约 4,390 万美元，同比增长 13%；季度 EPS 约 0.22 美元，毛利率同比下降约 3.5 个百分点。FY2026 收入指引约 1.51 亿至 1.55 亿美元，EPS 指引约 0.14 至 0.21 美元。约 2,200 万美元超大规模数据中心订单预计 2027 财年初出货，贡献尚待兑现。\n\n估值：GAAP TTM EPS 为负，trailing P/E 为 N/M。应确认订单转收入、毛利率、宽带资金落地及数据中心客户复购。",
+            "risks": [
+              "电信资本开支、宽带补贴招标和客户库存周期造成订单波动。",
+              "毛利率下滑，价格竞争或产品组合变化可能使收入增长不转为利润。",
+              "数据中心大订单存在客户集中、交付及验收风险。",
+              "年度 EPS 指引缓冲较低，成本变化可能显著影响利润。"
+            ],
+            "catalysts": [
+              "数据中心订单如期出货并形成后续订单。",
+              "宽带扩建项目转为持续设备需求。",
+              "毛利率与持续经营盈利连续回升。"
+            ],
+            "sources": [
+              {
+                "label": "最新业绩及经营数据（公司公告/SEC）",
+                "url": "https://ir.seeclearfield.com/news-events/press-releases/detail/364/clearfield-reports-third-quarter-fiscal-2026-results"
+              },
+              {
+                "label": "公司投资者关系",
+                "url": "https://ir.seeclearfield.com/"
+              },
+              {
+                "label": "TTM 市盈率统计参考",
+                "url": "https://stockanalysis.com/stocks/clfd/statistics/"
+              },
+              {
+                "label": "Nasdaq 历史收盘报价（2026-11-06）",
+                "url": "https://api.nasdaq.com/api/quote/CLFD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+              }
+            ],
+            "uncertainty": "采用 2026 财年第三季度公告和管理层指引；订单贡献与补贴项目节奏存在不确定性。后续需核对持续经营、并购和库存数据。 估值核验备注：trailing P/E 为 N/M（GAAP TTM 亏损）；公开统计为滚动参考，随价格和财报变化。",
+            "quote": {
+              "price": 28.63,
+              "date": "2026-11-06",
+              "currency": "USD",
+              "source": "Nasdaq 官方历史日线（最近正式收盘）",
+              "sourceUrl": "https://api.nasdaq.com/api/quote/CLFD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+            }
+          },
+          "researchedAt": "2026-11-07T07:45:54.691Z",
+          "report": "research/my-holdings-research-clfd-2026-11-07.html",
+          "priceSession": "regular"
+        }
+      ],
+      "plans": [
+        {
+          "id": "e9d91d99-3e6c-4b2c-aa01-6121e7af5724",
+          "date": "2026-11-04",
+          "title": "CLFD 行动计划",
+          "body": "",
+          "kind": "plan",
+          "watchId": "790b5bb8-bf23-40a2-a5a3-b00014108576",
+          "plan": {
+            "allocationPct": null,
+            "safetyLow": null,
+            "safetyHigh": null,
+            "discountLow": null,
+            "discountHigh": null
+          }
+        },
+        {
+          "id": "1a7a65a1-b688-4124-90b3-3d82f31ca33a",
+          "date": "2026-11-07",
+          "title": "CLFD 行动计划",
+          "body": "",
+          "kind": "plan",
+          "watchId": "1b5e4057-fefa-409d-be9b-26df8ec2e3b2",
+          "plan": {
+            "allocationPct": null,
+            "safetyLow": null,
+            "safetyHigh": null,
+            "discountLow": null,
+            "discountHigh": null
+          }
+        }
+      ]
     }
   ]
 }

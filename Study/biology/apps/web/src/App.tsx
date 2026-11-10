@@ -585,13 +585,16 @@ function LessonBody({
         aria-label={words(mode, '学习步骤', 'Lesson steps')}
       >
         {steps.map((step, i) => (
-          <li
-            key={step.en}
-            className={s.step === i ? 'active' : s.step > i ? 'done' : ''}
-            aria-current={s.step === i ? 'step' : undefined}
-          >
-            <span>{s.step > i ? '✓' : i + 1}</span>
-            <Text mode={mode} text={step} />
+          <li key={step.en}>
+            <button
+              type="button"
+              className={s.step === i ? 'active' : ''}
+              aria-current={s.step === i ? 'step' : undefined}
+              onClick={() => move(i)}
+            >
+              <span>{i + 1}</span>
+              <Text mode={mode} text={step} />
+            </button>
           </li>
         ))}
       </ol>
@@ -685,11 +688,7 @@ function LessonBody({
                 </button>
               ))}
             </div>
-            <button
-              className="bio-button"
-              disabled={s.prediction === undefined}
-              onClick={() => move(1)}
-            >
+            <button className="bio-button" onClick={() => move(1)}>
               {words(mode, '带着猜想，找证据', 'Follow the evidence')} →
             </button>
           </div>
@@ -784,16 +783,12 @@ function LessonBody({
                 <p className="bio-muted">
                   {words(
                     mode,
-                    '先点选证据或操作一次模型，再来挑战。',
-                    'Inspect evidence or operate the model before the challenge.',
+                    '可以继续观察证据或操作模型，也可以随时切换到挑战。',
+                    'Explore the evidence and model, or switch to the challenge whenever you like.',
                   )}
                 </p>
               )}
-              <button
-                className="bio-button"
-                disabled={!s.explored}
-                onClick={() => move(2)}
-              >
+              <button className="bio-button" onClick={() => move(2)}>
                 {words(mode, '试试我发现了什么', 'Test my discoveries')} →
               </button>
             </div>
@@ -854,11 +849,9 @@ function LessonBody({
           <button className="bio-text-button" onClick={() => move(1)}>
             ← {words(mode, '回看图解和模型', 'Revisit diagrams and model')}
           </button>
-          {result.answered && (
-            <button className="bio-text-button" onClick={() => move(3)}>
-              {words(mode, '查看本课发现', 'See lesson discoveries')} →
-            </button>
-          )}
+          <button className="bio-text-button" onClick={() => move(3)}>
+            {words(mode, '查看本课发现', 'See lesson discoveries')} →
+          </button>
         </div>
       )}
       {s.step === 3 && (
