@@ -1,6 +1,8 @@
 # 生命探索 · Biology Explorer
 
-面向 10–15 岁的本地双语试学版，沿用 Study 的 React、Vite、路由、`@study/shared` 类型和 `@study/ui` 语言组件。无需账户或新的服务器。
+面向 10–16 岁的本地双语试学版，沿用 Study 的 React、Vite、路由、`@study/shared` 类型和 `@study/ui` 语言组件。无需账户或新的服务器。
+
+2026-11-11 核验：S01、S02 共48课、12单元任务与2阶段项目已实现，全部为家庭试学稿；下一单元为 U13（L049–L052）。制作数量进度与质量缺口见 [DEVELOPMENT_AUDIT.md](./DEVELOPMENT_AUDIT.md)，逐单元记录见 [CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md)。
 
 ## 试用
 
