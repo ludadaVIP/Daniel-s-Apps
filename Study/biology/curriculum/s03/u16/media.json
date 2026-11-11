@@ -1,0 +1,70 @@
+{
+  "unit": "U16",
+  "sources": [
+    {
+      "title": "Homeostasis and thermoregulation",
+      "url": "https://openstax.org/books/biology-2e/pages/33-3-homeostasis"
+    },
+    {
+      "title": "Pancreatic hormones, ADH synthesis/release and kidney water response",
+      "url": "https://openstax.org/books/biology-2e/pages/37-3-regulation-of-body-processes"
+    },
+    {
+      "title": "Osmoregulatory hormonal mechanisms",
+      "url": "https://openstax.org/books/biology-2e/pages/41-5-hormonal-control-of-osmoregulatory-functions"
+    }
+  ],
+  "models": {
+    "L061": "Invented arbitrary-unit trace: reference50, illustrative band45–55, one disturbance then bounded correction. Snapshots not real time. Feedback-off removes only selected controller. No clinical values, individual assessment or all-controller prediction.",
+    "L062": "Given internal warm/cold deviation. Assume air cooler than skin, fixed wind/clothing; humidity only changes qualitative evaporation conditions. Skin vessels redistribute heat; shivering generates heat. Arrow lengths not rates; no temperature or exposure recommendations.",
+    "L063": "Relative high/low only. Beta→insulin and alpha→glucagon signals separated from glucose/glycogen matter. Usable liver stores assumed; glycogen is highlighted, not sole glucose source. No personal concentrations, diet, medication or disease assessment.",
+    "L064": "Solute load and other conditions fixed; qualitative ADH–collecting-duct branch. ADH made in hypothalamus, released from posterior pituitary. Both states retain reabsorption; water moves down a suitable osmotic gradient. Relative urine output/concentration, not measured volume. Thirst distinguished from kidney conservation; no water creation or drinking advice."
+  },
+  "verified": "2026-11-11",
+  "status": "pilot; independent science review and child trial pending",
+  "assets": "Original text, questions and SVG authored for Study. No external figures, prose or data copied.",
+  "diagrams": [
+    {
+      "id": "L061-D01",
+      "component": "RegulationDiagram",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L062-D01",
+      "component": "RegulationDiagram",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L063-D01",
+      "component": "RegulationDiagram",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L064-D01",
+      "component": "RegulationDiagram",
+      "scale": "not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L061-I01",
+      "component": "RegulationExplore",
+      "staticAlternative": "Bilingual SVG captions, mechanism clues, lesson Explore/Explain and visible model records."
+    },
+    {
+      "id": "L062-I01",
+      "component": "RegulationExplore",
+      "staticAlternative": "Bilingual SVG captions, mechanism clues, lesson Explore/Explain and visible model records."
+    },
+    {
+      "id": "L063-I01",
+      "component": "RegulationExplore",
+      "staticAlternative": "Bilingual SVG captions, mechanism clues, lesson Explore/Explain and visible model records."
+    },
+    {
+      "id": "L064-I01",
+      "component": "RegulationExplore",
+      "staticAlternative": "Bilingual SVG captions, mechanism clues, lesson Explore/Explain and visible model records."
+    }
+  ]
+}

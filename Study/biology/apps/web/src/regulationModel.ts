@@ -2,17 +2,26 @@
 export type Stimulus = 'light' | 'sound' | 'pressure';
 export type Receptor = 'eye' | 'ear' | 'skin';
 export const receptorFor: Record<Stimulus, Receptor> = {
-  light: 'eye', sound: 'ear', pressure: 'skin',
+  light: 'eye',
+  sound: 'ear',
+  pressure: 'skin',
 };
 export function detects(stimulus: Stimulus, receptor: Receptor) {
   return receptorFor[stimulus] === receptor;
 }
 export type PathCondition = 'intact' | 'sensory-gap' | 'motor-gap';
 export function neuralReach(condition: PathCondition, frame: number) {
-  const limit = condition === 'sensory-gap' ? 0 : condition === 'motor-gap' ? 2 : 4;
+  const limit =
+    condition === 'sensory-gap' ? 0 : condition === 'motor-gap' ? 2 : 4;
   return Math.min(Math.max(Math.floor(frame), 0), limit);
 }
-export const reflexRoute = ['receptor', 'sensory', 'relay', 'motor', 'muscle'] as const;
+export const reflexRoute = [
+  'receptor',
+  'sensory',
+  'relay',
+  'motor',
+  'muscle',
+] as const;
 export type ReflexPart = (typeof reflexRoute)[number];
 export function addReflexPart(route: readonly ReflexPart[], part: ReflexPart) {
   const correct = reflexRoute[route.length] === part;
@@ -36,14 +45,30 @@ export function thermalResponse(state: ThermalState, air: AirMoisture) {
   return {
     vessels: state === 'warm' ? 'wider' : 'narrower',
     shivering: state === 'cold',
-    evaporation: state === 'cold' ? 'not-highlighted' : air === 'drier' ? 'greater' : 'reduced',
-    direction: state === 'warm' ? 'heat-loss' : 'heat-conservation',
+    evaporation:
+      state === 'cold'
+        ? 'not-highlighted'
+        : air === 'drier'
+          ? 'greater'
+          : 'reduced',
+    direction:
+      state === 'warm' ? 'heat-loss' : 'heat-conservation-and-production',
   } as const;
 }
 export function glucoseResponse(state: Disturbance) {
   return state === 'high'
-    ? { cells: 'beta', hormone: 'insulin', liver: 'store', tendency: 'down' } as const
-    : { cells: 'alpha', hormone: 'glucagon', liver: 'release', tendency: 'up' } as const;
+    ? ({
+        cells: 'beta',
+        hormone: 'insulin',
+        liver: 'store',
+        tendency: 'down',
+      } as const)
+    : ({
+        cells: 'alpha',
+        hormone: 'glucagon',
+        liver: 'release',
+        tendency: 'up',
+      } as const);
 }
 export type WaterState = 'concentrated' | 'dilute';
 export function waterResponse(state: WaterState) {

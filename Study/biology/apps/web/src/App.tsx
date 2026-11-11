@@ -1,3 +1,5 @@
+import { isS3Lesson, S3HookArt, S3Explore } from './s3Visuals';
+import { EcoResearch } from './EcoResearch';
 import { Fragment, useEffect, useState } from 'react';
 import {
   Link,
@@ -102,6 +104,35 @@ function StageTwoProject({ mode }: { mode: LanguageMode }) {
   );
 }
 
+function StageThreeProject({ mode }: { mode: LanguageMode }) {
+  return (
+    <Link to="/biology/project/S03" className="bio-stage-project-link">
+      <span className="bio-eyebrow">
+        S03 / <Text mode={mode} text={t('阶段作品', 'STAGE PROJECT')} />
+      </span>
+      <h2>
+        <Text
+          mode={mode}
+          text={t(
+            '假如我是一名生态研究员',
+            'If I were an ecological researcher',
+          )}
+        />
+      </h2>
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '比较样方与抽样偏差，自己计算估计值，再写一份有证据、有局限的双语报告。',
+            'Compare quadrats and sampling bias, calculate an estimate, then write a bilingual report with evidence and limits.',
+          )}
+        />
+      </p>
+      <span>→</span>
+    </Link>
+  );
+}
+
 function Home({ store, mode }: PageProps) {
   const { progress } = store;
   const completed = lessons.filter(
@@ -162,10 +193,10 @@ function Home({ store, mode }: PageProps) {
           </Link>
           <div className="bio-hero-meta">
             <span>
-              {words(mode, '10–15 岁 · 自主学习', 'AGES 10–15 · AT YOUR PACE')}
+              {words(mode, '10–16 岁 · 自主学习', 'AGES 10–16 · AT YOUR PACE')}
             </span>
             <span>
-              {words(mode, '每课约 15–20 分钟', '15–20 MIN / LESSON')}
+              {words(mode, '每课约 15–30 分钟', '15–30 MIN / LESSON')}
             </span>
           </div>
         </div>
@@ -285,6 +316,7 @@ function Home({ store, mode }: PageProps) {
             </section>
             {unit.id === 'U06' && <StageOneProject mode={mode} />}
             {unit.id === 'U12' && <StageTwoProject mode={mode} />}
+            {unit.id === 'U18' && <StageThreeProject mode={mode} />}
           </Fragment>
         );
       })}
@@ -601,7 +633,9 @@ function LessonBody({
       {s.step === 0 && (
         <section className="bio-predict">
           <div className="bio-predict-art">
-            {unit.id === 'U12' ? (
+            {isS3Lesson(lesson.id) ? (
+              <S3HookArt id={lesson.id} mode={mode} />
+            ) : unit.id === 'U12' ? (
               <DiversityHookArt id={lesson.id} mode={mode} />
             ) : unit.id === 'U11' ? (
               <VascularHookArt id={lesson.id} mode={mode} />
@@ -1156,6 +1190,58 @@ function Notebook({ store, mode }: PageProps) {
           <p>
             <Text mode={mode} text={unit.missionPrompt} />
           </p>
+          {unit.stage === 'S03' && (
+            <div className="bio-mission-diagram">
+              <S3Explore
+                key={unit.id}
+                id={
+                  (
+                    {
+                      U13: 'L050',
+                      U14: 'L053',
+                      U15: 'L059',
+                      U16: 'L061',
+                      U17: 'L067',
+                      U18: 'L069',
+                    } as Record<string, string>
+                  )[unit.id]!
+                }
+                mode={mode}
+                onExplore={() => {}}
+              />
+              <p>
+                <Text
+                  mode={mode}
+                  text={t(
+                    '操作后的模型状态只供当前比较；把关键条件和结果写进右侧证据笔记，笔记会自动保存。完整任务还可回看本单元其他课。',
+                    'Model state supports the current comparison. Record key conditions and results in the evidence note, which autosaves. Revisit other lessons in this unit for the full investigation.',
+                  )}
+                />
+              </p>
+              <Link
+                className="bio-text-button"
+                to={`/biology/lesson/${unit.lessonIds[0]}`}
+              >
+                <Text
+                  mode={mode}
+                  text={t('回看本单元课程 →', 'Revisit this unit →')}
+                />
+              </Link>
+              {unit.id === 'U18' && (
+                <p>
+                  <Link className="bio-button" to="/biology/project/S03">
+                    <Text
+                      mode={mode}
+                      text={t(
+                        '去做第三阶段研究作品 →',
+                        'Open the third-stage research project →',
+                      )}
+                    />
+                  </Link>
+                </p>
+              )}
+            </div>
+          )}
           {unit.id === 'U12' && (
             <p>
               <Link className="bio-button" to="/biology/project/S02">
@@ -1299,7 +1385,10 @@ function Notebook({ store, mode }: PageProps) {
                       '② 我的方案：测什么、保持什么、用几株、何时测？',
                       '② Plan: what to measure and control, how many plants, and when?',
                     )
-                  : ['U07', 'U08', 'U09', 'U10', 'U11', 'U12'].includes(unit.id)
+                  : unit.stage === 'S03' ||
+                      ['U07', 'U08', 'U09', 'U10', 'U11', 'U12'].includes(
+                        unit.id,
+                      )
                     ? t(
                         '② 我的证据：模型线索与直接观察，分别是什么？',
                         '② Evidence: what are model clues, and what was directly observed?',
@@ -1547,6 +1636,10 @@ export function App() {
             <Route
               path="project/S02"
               element={<LeafProject store={store} mode={mode} />}
+            />
+            <Route
+              path="project/S03"
+              element={<EcoResearch store={store} mode={mode} />}
             />
             <Route path="*" element={<Navigate to="/biology" replace />} />
           </Routes>

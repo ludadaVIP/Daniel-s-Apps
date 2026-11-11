@@ -1,0 +1,28 @@
+{
+  "id": "S03-P01",
+  "stage": "S03",
+  "checked": "2026-11-11",
+  "status": "pilot; child trial and external scientific review pending",
+  "assets": "Original virtual counts, prose, questions and CSS grid. No external observations, figures or source prose copied.",
+  "source": {
+    "title": "OpenStax Biology 2e: Population Demography",
+    "url": "https://openstax.org/books/biology-2e/pages/45-1-population-demography",
+    "use": "Quadrat sampling, defined populations and representativeness; dataset itself is fictional."
+  },
+  "dataset": {
+    "module": "populationModel.ts",
+    "name": "meadowGrid",
+    "quadratAreaSquareMetres": 1,
+    "quadratCount": 36,
+    "census": 96,
+    "roadsideSampleIds": ["Q01", "Q02", "Q03", "Q04", "Q05", "Q06"],
+    "roadsideCount": 4,
+    "roadsideEstimate": 24,
+    "origin": "Original fictional local meadow, not measured New Zealand ecological observations."
+  },
+  "model": "One species at one time; all cells equal area. Distinct visible individuals assumed, with no uncertain species identification, boundary overlap, clonality or detectability simulated. Seeded pseudo-random shuffle draws without replacement. Random sampling does not guarantee one accurate estimate; selected cells are never labelled random. No rainfall, light or genotype effects are inferred from position alone. Revealed teaching census is not normally known in field sampling.",
+  "interaction": "Choose random sample6/12 or manual cells; inspect raw count table; calculate density and total; compare roadside sample; optionally reveal census. The CSS grid provides keyboard buttons and text alternatives.",
+  "assessment": "Numeric estimate accepts rounding within0.5 plants. Free-text reports are checked only for filled structure, not scientific or linguistic correctness. Five cross-unit questions have explanatory feedback and revisits.",
+  "storage": "Additive S03 draft in study-biology-v1; edits invalidate saved work. S01/S02 shapes and stage counts remain independent.",
+  "export": "Full bilingual UTF-8 plain-text report; student writing is not executed or rendered as HTML."
+}

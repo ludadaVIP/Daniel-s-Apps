@@ -1,3 +1,4 @@
+import { isS3Lesson, S3Diagram, S3Explore } from './s3Visuals';
 import { useEffect, useId, useState } from 'react';
 import type { LanguageMode } from '@study/shared';
 import { t } from './content';
@@ -106,6 +107,7 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  if (isS3Lesson(id)) return <S3Diagram id={id} mode={mode} />;
   if (['L045', 'L046', 'L047', 'L048'].includes(id))
     return <DiversityDiagram id={id} mode={mode} />;
   if (['L041', 'L042', 'L043', 'L044'].includes(id))
@@ -405,6 +407,7 @@ const evidence = [
   },
 ];
 export function Explore(props: Props) {
+  if (isS3Lesson(props.id)) return <S3Explore {...props} />;
   if (['L045', 'L046', 'L047', 'L048'].includes(props.id))
     return <DiversityExplore {...props} />;
   if (['L041', 'L042', 'L043', 'L044'].includes(props.id))

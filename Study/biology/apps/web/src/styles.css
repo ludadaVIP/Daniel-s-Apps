@@ -3409,6 +3409,114 @@
   padding: 16px;
   border-radius: 12px;
 }
+
+.bio-eco-workbench {
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: 24px;
+  margin: 28px 0;
+  align-items: start;
+}
+.bio-eco-sampling,
+.bio-eco-records {
+  min-width: 0;
+  padding: 20px;
+  border: 1px solid var(--bio-line);
+  border-radius: 16px;
+  background: #f7f8ee;
+  overflow-wrap: anywhere;
+}
+.bio-eco-grid {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 4px;
+  margin: 18px 0;
+}
+.bio-eco-grid button {
+  display: grid;
+  min-height: 52px;
+  min-width: 0;
+  padding: 5px 2px;
+  border: 1px solid #bfcda9;
+  border-radius: 6px;
+  background: #ecf0df;
+  color: #36503b;
+  font-size: 12px;
+  line-height: 1.4;
+}
+.bio-eco-grid button[aria-pressed='true'] {
+  background: #cee0b7;
+  border-color: #65844d;
+}
+.bio-eco-grid button:disabled {
+  opacity: 1;
+  cursor: default;
+}
+.bio-eco-tabs,
+.bio-eco-controls {
+  margin: 16px 0;
+}
+.bio-eco-tabs button,
+.bio-eco-controls button,
+.bio-eco-records button,
+.bio-eco-writing button {
+  min-height: 44px;
+}
+.bio-eco-records label,
+.bio-eco-writing label {
+  display: grid;
+  gap: 8px;
+  margin: 18px 0;
+  line-height: 1.6;
+}
+.bio-eco-records input,
+.bio-eco-writing textarea {
+  box-sizing: border-box;
+  min-width: 0;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #b9c8a7;
+  border-radius: 8px;
+  background: #fffef8;
+  color: #304335;
+  font: inherit;
+}
+.bio-eco-writing textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+.bio-eco-table {
+  overflow-x: auto;
+}
+.bio-eco-table table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14px;
+}
+.bio-eco-table caption {
+  text-align: left;
+  margin: 8px 0;
+}
+.bio-eco-table th,
+.bio-eco-table td {
+  text-align: left;
+  border-bottom: 1px solid #dce3d0;
+  padding: 8px;
+}
+.bio-eco-stage-status {
+  margin: 28px 0;
+}
+@media (max-width: 1000px) {
+  .bio-eco-workbench {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 450px) {
+  .bio-eco-sampling,
+  .bio-eco-records {
+    padding: 12px;
+  }
+}
 @media (max-width: 800px) {
   .bio-leaf-workbench {
     grid-template-columns: minmax(0, 1fr);

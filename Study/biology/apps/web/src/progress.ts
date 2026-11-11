@@ -1,3 +1,11 @@
+import {
+  emptyEcoProject,
+  decodeEcoProject,
+  ecoTextReady,
+  ecoEstimateCheck,
+  ecoUnderstanding,
+  type EcoDraft,
+} from './ecoProject';
 import { useState } from 'react';
 import { lessons, questions, type Lesson } from './content';
 import { units } from './units';
@@ -42,7 +50,7 @@ export type Progress = {
   answers: Record<string, Answer>;
   mission: Mission;
   missions: Record<string, Mission>;
-  projects: { S01?: ProjectDraft; S02?: LeafDraft };
+  projects: { S01?: ProjectDraft; S02?: LeafDraft; S03?: EcoDraft };
 };
 export const emptyProgress = (): Progress => ({
   version: 1,
@@ -102,6 +110,8 @@ export function decodeProgress(raw: string): Progress {
   if (data.projects?.S01) clean.projects.S01 = decodeProject(data.projects.S01);
   if (data.projects?.S02)
     clean.projects.S02 = decodeLeafProject(data.projects.S02);
+  if (data.projects?.S03)
+    clean.projects.S03 = decodeEcoProject(data.projects.S03);
   return clean;
 }
 function decodeProject(data: ProjectDraft): ProjectDraft {
@@ -216,6 +226,42 @@ export function leafStageOutcome(p: Progress) {
       missionCount === 6 &&
       leafTextReady(draft) &&
       leafLabelCheck(draft) === 4 &&
+      !!draft.savedAt &&
+      check.answered === 5 &&
+      check.correct >= 4,
+  };
+}
+
+export function withEcoProject(
+  p: Progress,
+  patch: Partial<EcoDraft>,
+): Progress {
+  return {
+    ...p,
+    projects: {
+      ...p.projects,
+      S03: { ...(p.projects.S03 ?? emptyEcoProject()), ...patch },
+    },
+  };
+}
+export function ecoStageOutcome(p: Progress) {
+  const draft = p.projects.S03 ?? emptyEcoProject();
+  const check = ecoUnderstanding(draft);
+  const stageUnits = units.filter((u) => u.stage === 'S03');
+  const lessonCount = stageUnits
+    .flatMap((u) => u.lessonIds)
+    .filter((id) => !!p.sessions[id]?.completedAt).length;
+  const missionCount = stageUnits.filter(
+    (u) => !!missionForUnit(p, u.id).savedAt,
+  ).length;
+  return {
+    lessons: lessonCount,
+    missions: missionCount,
+    complete:
+      lessonCount === 24 &&
+      missionCount === 6 &&
+      ecoTextReady(draft) &&
+      ecoEstimateCheck(draft) &&
       !!draft.savedAt &&
       check.answered === 5 &&
       check.correct >= 4,

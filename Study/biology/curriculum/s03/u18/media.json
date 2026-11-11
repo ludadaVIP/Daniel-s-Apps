@@ -1,0 +1,76 @@
+{
+  "unit": "U18",
+  "verified": "2026-11-11",
+  "status": "pilot; external science review and child trial pending",
+  "author": "Study Biology Explorer",
+  "license": "Original project text, questions, datasets and SVG; no external image or prose copied.",
+  "sources": [
+    {
+      "title": "Continuous and discontinuous variation",
+      "url": "https://openstax.org/books/biology-2e/pages/12-1-mendels-experiments-and-the-laws-of-probability",
+      "use": "Scientific concept verification; original age-adapted explanation, not reproduced textbook text."
+    },
+    {
+      "title": "Alleles, segregation and limits of simple inheritance",
+      "url": "https://openstax.org/books/biology-2e/pages/12-3-laws-of-inheritance",
+      "use": "Scientific concept verification; original age-adapted explanation, not reproduced textbook text."
+    },
+    {
+      "title": "DNA structure and base pairing",
+      "url": "https://openstax.org/books/biology-2e/pages/14-2-dna-structure-and-sequencing",
+      "use": "Scientific concept verification; original age-adapted explanation, not reproduced textbook text."
+    }
+  ],
+  "assets": [
+    {
+      "id": "L069-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L070-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L071-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L072-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L069-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    },
+    {
+      "id": "L070-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    },
+    {
+      "id": "L071-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    },
+    {
+      "id": "L072-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    }
+  ],
+  "models": {
+    "L069": "Invented one-locus additive baseline AA18/Aa16/aa14 plus shelter4/exposure0. Not an actual species, gene-expression mechanism or real polygenic quantitative trait. Equal phenotype can have different genotype/environment routes.",
+    "L070": "Not-to-scale structural zoom, local sequence variants and complementary pairing only, no phenotype calculation. Chromosomes include DNA/proteins; replicated state must distinguish sister chromatids. Mitochondria/chloroplasts/bacteria have DNA outside nuclei.",
+    "L071": "Twelve original fictional records. Non-overlapping length bins each4, spot0/1/2 frequencies3/4/5. Rounded continuous records do not become discrete variables. Distributions alone establish neither genetic nor environmental causes.",
+    "L072": "Fictional diploid single locus, one allele per gamete, equally likely gamete positions and random union. Four routes not birth order; no phenotype dominance ranking, linkage or full meiosis. No inference about real complex human traits."
+  }
+}

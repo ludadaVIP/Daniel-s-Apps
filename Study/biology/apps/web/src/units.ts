@@ -1,3 +1,6 @@
+import { connectionUnits } from './connectionUnits';
+import { regulationUnits } from './regulationUnits';
+import { populationUnits } from './populationUnits';
 import { t } from './schema';
 export const units = [
   {
@@ -261,6 +264,9 @@ export const units = [
       '① My key: which paired traits separate which samples?',
     ),
   },
+  ...connectionUnits,
+  ...regulationUnits,
+  ...populationUnits,
 ];
 export function unitForLesson(id: string) {
   return units.find((unit) => unit.lessonIds.includes(id))!;

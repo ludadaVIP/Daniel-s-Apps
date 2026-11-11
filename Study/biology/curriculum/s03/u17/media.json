@@ -1,0 +1,76 @@
+{
+  "unit": "U17",
+  "verified": "2026-11-11",
+  "status": "pilot; external science review and child trial pending",
+  "author": "Study Biology Explorer",
+  "license": "Original project text, questions, datasets and SVG; no external image or prose copied.",
+  "sources": [
+    {
+      "title": "Levels of ecology",
+      "url": "https://openstax.org/books/biology-2e/pages/44-1-the-scope-of-ecology",
+      "use": "Scientific concept verification; original age-adapted explanation, not reproduced textbook text."
+    },
+    {
+      "title": "Quadrat sampling, density and representativeness",
+      "url": "https://openstax.org/books/biology-2e/pages/45-1-population-demography",
+      "use": "Scientific concept verification; original age-adapted explanation, not reproduced textbook text."
+    },
+    {
+      "title": "Environmental limits and carrying capacity",
+      "url": "https://openstax.org/books/biology-2e/pages/45-3-environmental-limits-to-population-growth",
+      "use": "Scientific concept verification; original age-adapted explanation, not reproduced textbook text."
+    }
+  ],
+  "assets": [
+    {
+      "id": "L065-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L066-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L067-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L068-D01",
+      "component": "PopulationDiagram",
+      "kind": "original SVG schematic",
+      "scale": "not to scale"
+    },
+    {
+      "id": "L065-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    },
+    {
+      "id": "L066-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    },
+    {
+      "id": "L067-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    },
+    {
+      "id": "L068-I01",
+      "component": "PopulationExplore",
+      "kind": "controlled interactive model"
+    }
+  ],
+  "models": {
+    "L065": "Defined fictional frog species, area and time. Event bookkeeping only:20+5-3+(2 or6)-4=20 or24; community toggle does not alter frog count. No birth/death forecasts.",
+    "L066": "Hypothetical support capacities all in same invented seedling-units. Minimum is a teaching analogy, not actual population growth, measured carrying capacity or a sum of physical resource quantities.",
+    "L067": "Original 6x6 virtual meadow; each1m², one species at one time, known census96. Equal-area positions sampled without replacement using seeded shuffle. Roadside first6 count4 estimate24. Manual selection is not random. Estimates preserve count/area and sampled IDs. No field inference; census differs from carrying capacity.",
+    "L068": "Four invented visits; each group three distinct1m² quadrats. Preceding rainfall periods same length. Means and raw records retained; observational association not causal proof, temporal dependence possible."
+  }
+}

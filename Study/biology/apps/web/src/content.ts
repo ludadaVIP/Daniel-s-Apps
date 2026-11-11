@@ -11,6 +11,9 @@ import { energyLessons } from './content/energy';
 import { systemsLessons } from './content/systems';
 import { vascularLessons } from './content/vascular';
 import { diversityLessons } from './content/diversity';
+import { connectionLessons } from './content/connections';
+import { regulationLessons } from './content/regulation';
+import { populationLessons } from './content/populations';
 export { t } from './schema';
 export type { Skill, Question, Lesson } from './schema';
 const lifeLessons: Lesson[] = [
@@ -653,6 +656,9 @@ export const lessons: Lesson[] = [
   ...systemsLessons,
   ...vascularLessons,
   ...diversityLessons,
+  ...connectionLessons,
+  ...regulationLessons,
+  ...populationLessons,
 ];
 export const questions = lessons.flatMap((lesson) => lesson.questions);
 const files = import.meta.glob('../../../curriculum/**/l*.md', {
