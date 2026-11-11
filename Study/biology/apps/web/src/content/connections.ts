@@ -250,8 +250,8 @@ export const connectionLessons: Lesson[] = [
       'Classify four role-evidence cards. Explain one helpful and one unknown case without using colour as the deciding clue.',
     ),
     reference: {
-      title: 'OpenStax: Beneficial prokaryotes',
-      url: 'https://openstax.org/books/biology-2e/pages/22-5-beneficial-prokaryotes',
+      title: 'Hagman et al.: Yeast fermentation under aerobic conditions',
+      url: 'https://pmc.ncbi.nlm.nih.gov/articles/PMC4240471/',
     },
     questions: [
       q(
@@ -331,7 +331,10 @@ export const connectionLessons: Lesson[] = [
         'vocabulary',
         t('哪项最准确表达 decomposer？', 'Which best describes a decomposer?'),
         [
-          t('只吃阳光的动物', 'An animal eating sunlight'),
+          t(
+            '利用光能制造有机物的生产者',
+            'A producer using light energy to make organic matter',
+          ),
           t('所有引起疾病的生物', 'Every disease-causing organism'),
           t(
             '分解死有机物的生物',
@@ -340,8 +343,8 @@ export const connectionLessons: Lesson[] = [
         ],
         2,
         t(
-          'Decomposer 描述生态作用，并不表示一种外观或一个单一分类群。',
-          'Decomposer names an ecological role, not one appearance or taxonomic group.',
+          'Decomposer 描述分解死有机物的生态作用；生产者制造有机物，病原体描述致病能力，这些概念不能混同。',
+          'Decomposer describes breaking down dead organic matter. Producers make organic matter, while pathogen describes disease-causing ability; these roles are different.',
         ),
         look('分解者词卡', 'the decomposer word card'),
       ),
@@ -510,7 +513,7 @@ export const connectionLessons: Lesson[] = [
         ),
         [
           t('一定患病', 'Certain illness'),
-          t('细胞核', 'Nucleus'),
+          t('在宿主体内建立感染', 'Establishment of infection in a host'),
           t('通过途径转移或传播', 'Transfer through a route'),
         ],
         2,
@@ -698,7 +701,7 @@ export const connectionLessons: Lesson[] = [
             '推动黏液的细胞表面小结构',
             'Small cell-surface structures moving mucus',
           ),
-          t('身体里的全部神经', 'All nerves in the body'),
+          t('捕获颗粒的呼吸道黏液', 'Airway mucus trapping particles'),
         ],
         1,
         t(
@@ -1241,12 +1244,12 @@ export const connectionLessons: Lesson[] = [
             'It contradicts the model premises; check fusion first',
           ),
           t(
-            '只要把动画加快就正确',
-            'It becomes correct by speeding up the animation',
+            '卵细胞有足够养分，就能在这条有性路线凭空形成受精卵',
+            'Enough egg nutrients alone can produce a zygote on this sexual route',
           ),
           t(
-            '说明所有动物都不需要配子',
-            'It shows all animals do not need gametes',
+            '只要配子接触，就已等同于完成融合',
+            'Gamete contact alone is equivalent to completed fusion',
           ),
         ],
         0,

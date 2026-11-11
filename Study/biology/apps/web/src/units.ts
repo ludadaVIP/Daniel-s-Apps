@@ -1,3 +1,6 @@
+import { divisionEnzymeUnits } from './divisionEnzymeUnits';
+import { energyGeneUnits } from './energyGeneUnits';
+import { evolutionCycleUnits } from './evolutionCycleUnits';
 import { connectionUnits } from './connectionUnits';
 import { regulationUnits } from './regulationUnits';
 import { populationUnits } from './populationUnits';
@@ -267,7 +270,11 @@ export const units = [
   ...connectionUnits,
   ...regulationUnits,
   ...populationUnits,
+  ...divisionEnzymeUnits,
+  ...energyGeneUnits,
+  ...evolutionCycleUnits,
 ];
 export function unitForLesson(id: string) {
   return units.find((unit) => unit.lessonIds.includes(id))!;
 }
+

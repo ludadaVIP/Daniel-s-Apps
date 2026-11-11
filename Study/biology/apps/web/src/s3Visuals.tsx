@@ -94,7 +94,7 @@ export function S3Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
   const Component = visuals(id).Diagram;
   return (
     <Loading mode={mode}>
-      <Component id={id} mode={mode} />
+      <Component key={id} id={id} mode={mode} />
     </Loading>
   );
 }
@@ -102,7 +102,7 @@ export function S3HookArt({ id, mode }: { id: string; mode: LanguageMode }) {
   const Component = visuals(id).Hook;
   return (
     <Loading mode={mode}>
-      <Component id={id} mode={mode} />
+      <Component key={id} id={id} mode={mode} />
     </Loading>
   );
 }
@@ -118,7 +118,7 @@ export function S3Explore({
   const Component = visuals(id).Explore;
   return (
     <Loading mode={mode}>
-      <Component id={id} mode={mode} onExplore={onExplore} />
+      <Component key={id} id={id} mode={mode} onExplore={onExplore} />
     </Loading>
   );
 }

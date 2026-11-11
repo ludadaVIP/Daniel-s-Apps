@@ -1309,7 +1309,7 @@ function SamplingLab({ id, mode, onExplore }: Props) {
 }
 export function PopulationExplore(props: Props) {
   return (
-    <div className="bio-diversity-lab">
+    <div className="bio-diversity-lab bio-s3-lab">
       {props.id === 'L067' ? (
         <SamplingLab {...props} />
       ) : (

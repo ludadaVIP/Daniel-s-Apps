@@ -1,0 +1,102 @@
+{
+  "unit": "U23",
+  "verified": "2026-11-11",
+  "status": "pilot; external science review and learner trial pending",
+  "license": "Original project prose, questions, hypothetical data and SVG; no external text, data or graphics copied.",
+  "sources": [
+    {
+      "title": "Population evolution",
+      "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+      "use": "Scientific verification only; all prose, SVG and conditional records are original."
+    },
+    {
+      "title": "Understanding evolution and evidence",
+      "url": "https://openstax.org/books/biology-2e/pages/18-1-understanding-evolution",
+      "use": "Scientific verification only; all prose, SVG and conditional records are original."
+    },
+    {
+      "title": "Formation of species",
+      "url": "https://openstax.org/books/biology-2e/pages/18-2-formation-of-new-species",
+      "use": "Scientific verification only; all prose, SVG and conditional records are original."
+    },
+    {
+      "title": "Phylogenetic trees",
+      "url": "https://openstax.org/books/biology-2e/pages/20-1-organizing-life-on-earth",
+      "use": "Scientific verification only; all prose, SVG and conditional records are original."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L089-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    },
+    {
+      "id": "L090-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    },
+    {
+      "id": "L091-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    },
+    {
+      "id": "L092-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L089-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    },
+    {
+      "id": "L090-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    },
+    {
+      "id": "L091-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    },
+    {
+      "id": "L092-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    }
+  ],
+  "models": {
+    "L089": {
+      "assumptions": "Two loci A/a and B/b. Recombination of AB/ab can give Ab/aB while retaining existing allele versions. A star denotes a new sequence version, not a predicted phenotype. Animal somatic versus reproductive lineage transmission; plants/asexual routes may differ. No need-directed mutation or guaranteed inheritance.",
+      "limits": "Mutations are not purposeful responses to need; recombination need not create alleles, and animal somatic mutations ordinarily are not inherited.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+      "license": "Original project model and records; no external dataset copied."
+    },
+    "L090": {
+      "assumptions": "Deterministic asexual haploid faithful inheritance. Initial A frequency0.5 or0; A/B relative offspring contributions2/1 or1/2. pNext=p*wA/(p*wA+(1-p)*wB). Three rounds, no mutation, migration, drift or density dependence. Proportions not real count forecasts; absent A stays absent.",
+      "limits": "Fitness is not strength, individuals do not evolve through effort, and selection in this model cannot create absent variation.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+      "license": "Original project model and records; no external dataset copied."
+    },
+    "L091": {
+      "assumptions": "Original illustrative rock layers, bone correspondence and fictional100-site alignment AB4/AC18/BC17. Undisturbed layers support relative order; homology needs multiple details and convergence checks. Molecular comparison assumes comparable loci/rates; no date calibration. Drawings are not actual fossils or copied datasets.",
+      "limits": "One similar trait is not proof by itself; incomplete fossils do not make every historical explanation equally supported.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://openstax.org/books/biology-2e/pages/18-1-understanding-evolution",
+      "license": "Original project model and records; no external dataset copied."
+    },
+    "L092": {
+      "assumptions": "Fictional taxa Amber/Birch/Cobalt, topology((Amber,Birch),Cobalt). Branch rotation retains common-ancestor groups. Unscaled lengths, no tip rank or living ancestor claim. Reduced gene flow may permit divergence; renewed-contact reproductive evidence is needed, geography alone does not guarantee species.",
+      "limits": "A tree is not a progress ladder; separation does not guarantee speciation, and unscaled branch lengths are not time.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://openstax.org/books/biology-2e/pages/20-1-organizing-life-on-earth",
+      "license": "Original project model and records; no external dataset copied."
+    }
+  }
+}

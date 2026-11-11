@@ -1,3 +1,6 @@
+import { divisionEnzymeLessons } from './content/divisionEnzymes';
+import { energyGeneLessons } from './content/energyGenes';
+import { evolutionCycleLessons } from './content/evolutionCycles';
 import type { LocalizedText } from '@study/shared';
 import { t, q, term, type Lesson } from './schema';
 import { microLessons } from './content/micro';
@@ -659,6 +662,9 @@ export const lessons: Lesson[] = [
   ...connectionLessons,
   ...regulationLessons,
   ...populationLessons,
+  ...divisionEnzymeLessons,
+  ...energyGeneLessons,
+  ...evolutionCycleLessons,
 ];
 export const questions = lessons.flatMap((lesson) => lesson.questions);
 const files = import.meta.glob('../../../curriculum/**/l*.md', {
@@ -671,9 +677,15 @@ export function section(id: string, name: string): LocalizedText {
     Object.entries(files).find(([path]) =>
       path.endsWith(`/${id.toLowerCase()}.md`),
     )?.[1] ?? '';
-  const block = raw.split(`## ${name} /`)[1]?.split('\n## ')[0] ?? '';
+  return parseLessonSection(raw, name);
+}
+export function parseLessonSection(raw: string, name: string): LocalizedText {
+  // Manuscripts edited on Windows and Unix must expose the same teaching text.
+  const normalized = raw.replace(/\r\n?/g, '\n');
+  const block = normalized.split(`## ${name} /`)[1]?.split('\n## ')[0] ?? '';
   return t(
     block.split('### 中文\n')[1]?.split('### English\n')[0]?.trim() ?? '',
     block.split('### English\n')[1]?.trim() ?? '',
   );
 }
+

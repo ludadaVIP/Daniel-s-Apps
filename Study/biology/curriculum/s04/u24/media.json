@@ -1,0 +1,107 @@
+{
+  "unit": "U24",
+  "verified": "2026-11-11",
+  "status": "pilot; external science review and learner trial pending",
+  "license": "Original project prose, questions, hypothetical data and SVG; no external text, data or graphics copied.",
+  "sources": [
+    {
+      "title": "Energy flow",
+      "url": "https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems",
+      "use": "Scientific verification only; all prose, SVG and conditional records are original."
+    },
+    {
+      "title": "Biogeochemical cycles",
+      "url": "https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles",
+      "use": "Scientific verification only; all prose, SVG and conditional records are original."
+    },
+    {
+      "title": "Biodiversity",
+      "url": "https://openstax.org/books/biology-2e/pages/47-1-the-biodiversity-crisis",
+      "use": "Scientific verification only; all prose, SVG and conditional records are original."
+    },
+    {
+      "title": "Response diversity, ecosystem change, and resilience (Elmqvist et al.2003)",
+      "url": "https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/1540-9295%282003%29001%5B0488%3ARDECAR%5D2.0.CO%3B2",
+      "use": "Concept verification via primary journal abstract. No published numbers, prose or graphics copied; our decomposer scenarios are invented."
+    },
+    {
+      "title": "Biodiversity increases resistance to climate extremes (Isbell et al.2015)",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26466564/",
+      "use": "Primary research abstract distinguishes resistance and resilience. No grassland records are reused or presented as decomposer data."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L093-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    },
+    {
+      "id": "L094-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    },
+    {
+      "id": "L095-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    },
+    {
+      "id": "L096-D01",
+      "component": "EvolutionCycleDiagram",
+      "kind": "original SVG schematic; not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L093-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    },
+    {
+      "id": "L094-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    },
+    {
+      "id": "L095-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    },
+    {
+      "id": "L096-I01",
+      "component": "EvolutionCycleExplore",
+      "kind": "keyboard-operable conditional model"
+    }
+  ],
+  "models": {
+    "L093": {
+      "assumptions": "Closed four-store carbon initial air40/plants30/detritus20/fuel10, total100. Sequential transfers photosynthesis air→plants8, plant respiration plants→air3, litter plants→detritus4, decomposer-respiration branch detritus→air2, optional combustion fuel→air5. Original units per step, not Earth rates. Omit living microbial/animal/ocean/rock stores and external exchange; decomposition has other omitted fates. Energy is not cycled.",
+      "limits": "Plant carbon mainly does not come from soil; carbon cycling is not energy cycling, and decomposition includes respiration and other omitted storage pathways.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles",
+      "license": "Original project model and records; no external dataset copied."
+    },
+    "L094": {
+      "assumptions": "One marked N atom, including one of two atoms within N2, not molecule counts. Uptake route N2→NH4→NO2→NO3→organicN→NH4; return route branches NO3→N2. Microbial fixation/nitrification/denitrification and ammonification represented. Most plants acquire NH4/NO3, including direct NH4 route omitted in animation. Chemical reaction partners and gas intermediates omitted; forms only, no kinetic prediction.",
+      "limits": "Relevant microbes perform fixation; plants can absorb ammonium without prior nitrification, and denitrification differs in direction from nitrification.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles",
+      "license": "Original project model and records; no external dataset copied."
+    },
+    "L095": {
+      "assumptions": "Production-energy budget in kJ per equal area/time. Input1000, transfer efficiencies0.05/0.1/0.2; detritus0.3*input; heat=input-next-detritus. Repeat across three levels. Fixed detritus share illustrative, not empirical universal. Decomposers receive multiple-level detritus and also respire; no energy return to Sun. Pyramid widths schematic, production numbers quantitative.",
+      "limits": "Ten percent is not universal; decomposers connect multiple levels, and matter cycling does not imply energy recycling.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://openstax.org/books/biology-2e/pages/46-2-energy-flow-through-ecosystems",
+      "license": "Original project model and records; no external dataset copied."
+    },
+    "L096": {
+      "assumptions": "Original litter-decomposition rate index baseline100 with fixed litter input and equal disturbance intensity. Standardized brief drought/flood pulse lasts through day1 measurement, then common baseline moisture is restored and maintained until day30. Day0,1,30 snapshots. Moisture effects on enzymes/survival and compensation by survivors with differing tolerances are stipulated. Communities diverse4/redundant4/single1; drought trajectories100,70,90 /100,40,65 /100,65,88; flood100,55,85 /100,75,92 /100,20,45. Resistance=day1/100; 30-day recovered-loss fraction=(day30-day1)/(100-day1), not universal resilience rate. No replication, confidence interval or species forecast.",
+      "limits": "More species do not automatically stabilize every function under every disturbance; recovery measures need a function, baseline and time window.",
+      "data": "Original representative hypothetical values; no measurements or forecast.",
+      "source": "https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/1540-9295%282003%29001%5B0488%3ARDECAR%5D2.0.CO%3B2",
+      "license": "Original project model and records; no external dataset copied."
+    }
+  }
+}

@@ -1,3 +1,4 @@
+import { isS4Lesson, S4Diagram, S4Explore } from './s4Visuals';
 import { isS3Lesson, S3Diagram, S3Explore } from './s3Visuals';
 import { useEffect, useId, useState } from 'react';
 import type { LanguageMode } from '@study/shared';
@@ -107,6 +108,7 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  if (isS4Lesson(id)) return <S4Diagram id={id} mode={mode} />;
   if (isS3Lesson(id)) return <S3Diagram id={id} mode={mode} />;
   if (['L045', 'L046', 'L047', 'L048'].includes(id))
     return <DiversityDiagram id={id} mode={mode} />;
@@ -407,6 +409,7 @@ const evidence = [
   },
 ];
 export function Explore(props: Props) {
+  if (isS4Lesson(props.id)) return <S4Explore {...props} />;
   if (isS3Lesson(props.id)) return <S3Explore {...props} />;
   if (['L045', 'L046', 'L047', 'L048'].includes(props.id))
     return <DiversityExplore {...props} />;
@@ -864,3 +867,4 @@ function LifeExplore({ id, mode, onExplore }: Props) {
     </div>
   );
 }
+

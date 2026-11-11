@@ -514,8 +514,8 @@ function ConnectionScene({
           y={258}
           mode={mode}
           text={t(
-            '水、适温与发酵条件固定；不计算速率',
-            'Water, temperature and fermentation conditions fixed',
+            '水、适温、低氧固定；不计算速率',
+            'Water, temperature and low oxygen fixed',
           )}
         />
       </>
@@ -1603,7 +1603,7 @@ export function ConnectionExplore({ id, mode, onExplore }: Props) {
     );
   }
   return (
-    <section className="bio-lab">
+    <section className="bio-lab bio-s3-lab">
       <div className="bio-lab-top">
         <span className="bio-eyebrow">
           <Text
@@ -1626,7 +1626,19 @@ export function ConnectionExplore({ id, mode, onExplore }: Props) {
         flag={flag}
         frame={flow.frame}
       />
-      <Playback flow={flow} mode={mode} />
+      {id === 'L049' ? (
+        <p className="bio-caption">
+          <Text
+            mode={mode}
+            text={t(
+              '切换样本或显示/隐藏结构证据，再比较你的分类；本活动不按时间播放。',
+              'Change the sample or reveal/hide structural evidence, then compare your classification. This activity has no timed playback.',
+            )}
+          />
+        </p>
+      ) : (
+        <Playback flow={flow} mode={mode} />
+      )}
       <p className="bio-caption" aria-live="polite">
         <Text mode={mode} text={readout} />
       </p>

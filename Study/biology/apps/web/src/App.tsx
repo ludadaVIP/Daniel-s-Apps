@@ -1,3 +1,5 @@
+import { isS4Lesson, S4HookArt, S4Explore } from './s4Visuals';
+import { StoryboardProject } from './StoryboardProject';
 import { isS3Lesson, S3HookArt, S3Explore } from './s3Visuals';
 import { EcoResearch } from './EcoResearch';
 import { Fragment, useEffect, useState } from 'react';
@@ -133,6 +135,14 @@ function StageThreeProject({ mode }: { mode: LanguageMode }) {
   );
 }
 
+function StageFourProject({ mode }: { mode: LanguageMode }) {
+  return <Link to="/biology/project/S04" className="bio-stage-project-link">
+    <span className="bio-eyebrow">S04 / <Text mode={mode} text={t('阶段作品', 'STAGE PROJECT')} /></span>
+    <h2><Text mode={mode} text={t('解释一个看得见的现象', 'Explain a visible phenomenon')} /></h2>
+    <p><Text mode={mode} text={t('植物生长、酶活性或生态变化：引用数值证据，用四格科学分镜连起现象、机制、对照和可检验预测。', 'Choose plant growth, enzyme activity or ecological change. Build a four-frame scientific storyboard connecting numeric evidence, mechanism, controlled comparison and a testable prediction.')} /></p><span>→</span>
+  </Link>;
+}
+
 function Home({ store, mode }: PageProps) {
   const { progress } = store;
   const completed = lessons.filter(
@@ -196,7 +206,7 @@ function Home({ store, mode }: PageProps) {
               {words(mode, '10–16 岁 · 自主学习', 'AGES 10–16 · AT YOUR PACE')}
             </span>
             <span>
-              {words(mode, '每课约 15–30 分钟', '15–30 MIN / LESSON')}
+              {words(mode, '每课约 15–35 分钟', '15–35 MIN / LESSON')}
             </span>
           </div>
         </div>
@@ -317,6 +327,7 @@ function Home({ store, mode }: PageProps) {
             {unit.id === 'U06' && <StageOneProject mode={mode} />}
             {unit.id === 'U12' && <StageTwoProject mode={mode} />}
             {unit.id === 'U18' && <StageThreeProject mode={mode} />}
+            {unit.id === 'U24' && <StageFourProject mode={mode} />}
           </Fragment>
         );
       })}
@@ -633,7 +644,9 @@ function LessonBody({
       {s.step === 0 && (
         <section className="bio-predict">
           <div className="bio-predict-art">
-            {isS3Lesson(lesson.id) ? (
+            {isS4Lesson(lesson.id) ? (
+              <S4HookArt id={lesson.id} mode={mode} />
+            ) : isS3Lesson(lesson.id) ? (
               <S3HookArt id={lesson.id} mode={mode} />
             ) : unit.id === 'U12' ? (
               <DiversityHookArt id={lesson.id} mode={mode} />
@@ -1190,6 +1203,12 @@ function Notebook({ store, mode }: PageProps) {
           <p>
             <Text mode={mode} text={unit.missionPrompt} />
           </p>
+          {unit.stage === 'S04' && <div className="bio-mission-diagram">
+            <S4Explore key={unit.id} id={({ U19: 'L075', U20: 'L079', U21: 'L082', U22: 'L087', U23: 'L090', U24: 'L093' } as Record<string,string>)[unit.id]!} mode={mode} onExplore={() => {}} />
+            <p><Text mode={mode} text={t('把条件、数值和模型假设分别写进证据笔记。模型操作供当前比较，文字草稿自动保存；完整任务还要联系本单元其他课。', 'Record conditions, numeric results and model assumptions separately. Model controls support the current comparison; writing autosaves. Connect other lessons to complete the investigation.')} /></p>
+            <Link to={`/biology/lesson/${unit.lessonIds[0]}`}><Text mode={mode} text={t('回看本单元课程 →', 'Revisit this unit →')} /></Link>
+            {unit.id === 'U24' && <><p><Link to="/biology/lesson/L095"><Text mode={mode} text={t('再看能量账本 →', 'Revisit the energy budget →')} /></Link></p><Link className="bio-button" to="/biology/project/S04"><Text mode={mode} text={t('制作第四阶段科学分镜 →', 'Create the stage-four storyboard →')} /></Link></>}
+          </div>}
           {unit.stage === 'S03' && (
             <div className="bio-mission-diagram">
               <S3Explore
@@ -1385,7 +1404,7 @@ function Notebook({ store, mode }: PageProps) {
                       '② 我的方案：测什么、保持什么、用几株、何时测？',
                       '② Plan: what to measure and control, how many plants, and when?',
                     )
-                  : unit.stage === 'S03' ||
+                  : unit.stage === 'S03' || unit.stage === 'S04' ||
                       ['U07', 'U08', 'U09', 'U10', 'U11', 'U12'].includes(
                         unit.id,
                       )
@@ -1641,6 +1660,7 @@ export function App() {
               path="project/S03"
               element={<EcoResearch store={store} mode={mode} />}
             />
+            <Route path="project/S04" element={<StoryboardProject store={store} mode={mode} />} />
             <Route path="*" element={<Navigate to="/biology" replace />} />
           </Routes>
         </main>
@@ -1667,3 +1687,4 @@ export function App() {
     </div>
   );
 }
+

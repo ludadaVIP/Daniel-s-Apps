@@ -1,0 +1,78 @@
+{
+  "unit": "U19",
+  "sources": [
+    {
+      "title": "Cell size and exchange",
+      "url": "https://openstax.org/books/biology-2e/pages/4-2-prokaryotic-cells",
+      "license": "OpenStax CC BY 4.0; linked factual reference, no external prose or figure reproduced"
+    },
+    {
+      "title": "Cell cycle and mitosis",
+      "url": "https://openstax.org/books/biology-2e/pages/10-2-the-cell-cycle",
+      "license": "OpenStax CC BY 4.0; linked factual reference, no external prose or figure reproduced"
+    },
+    {
+      "title": "Cell-cycle regulation",
+      "url": "https://openstax.org/books/biology-2e/pages/10-3-control-of-the-cell-cycle",
+      "license": "OpenStax CC BY 4.0; linked factual reference, no external prose or figure reproduced"
+    },
+    {
+      "title": "Differentiation",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/3-6-cellular-differentiation",
+      "license": "OpenStax CC BY 4.0; linked factual reference, no external prose or figure reproduced"
+    }
+  ],
+  "models": {
+    "L073": "Cube A=6l²,V=l³,A/V=6/l. Flattened dimensions 4l,l,l/4 preserve volume. Length µm, area µm², volume µm³, ratio µm⁻¹. No real exchange-rate prediction or universal cell-size limit. Drawings not to scale.",
+    "L074": "Representative diploid 2n=4. G1=2C; end-S/G2/metaphase=4C; each daughter=2C. Four chromosomes before anaphase; whole-anaphase count temporarily eight, four per pole. Checkpoint hold illustrates reduced risk, not guaranteed error detection. Equal frames are not equal biological durations; G0 exists.",
+    "L075": "Five-stage school simplification merges prophase/prometaphase. Two homologous pairs A/a and B/b; suffix1/2 sisters. Ideal faithful replication, no new mutation, correct segregation. Error misdirects A2, yielding5:3. Equal totals do not prove complete identity sets. Original schematic omits spindle detail and plant cell plates.",
+    "L076": "K/M/N/H fictional shared genome, ON/low qualitative expression, not universal deletion or complete on/off regulation. Representative living differentiated cell profiles, not mature dead cornified surface cells. Terminal chosen cells do not divide; basal epidermal stem/progenitor cells supply replacements. Progenitor availability is a hypothetical necessary supply condition, never a guarantee of repair or general adult neuronal regeneration; muscle anatomy/multinucleation omitted."
+  },
+  "verified": "2026-11-11",
+  "status": "pilot; independent science review and child trial pending",
+  "assets": "Original Study prose, questions, SVG and fictional quantitative data. No external figures or prose copied. Repository license applies to original assets.",
+  "diagrams": [
+    {
+      "id": "L073-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    },
+    {
+      "id": "L074-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    },
+    {
+      "id": "L075-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    },
+    {
+      "id": "L076-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L073-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    },
+    {
+      "id": "L074-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    },
+    {
+      "id": "L075-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    },
+    {
+      "id": "L076-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    }
+  ]
+}

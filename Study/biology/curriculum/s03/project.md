@@ -28,10 +28,10 @@ Use an original virtual local meadow with 36 quadrats of 1 m². Counts describe 
 3. 写主张、机制或替代解释、还需收集的具体变量/重复/对照，以及中文与英文摘要。不要把空间关联直接当作光照或降雨的因果证据。
 4. 完成五道跨单元理解题，可回看和订正。
 
-1. Record quadrat IDs, counts, sampled area, sample density and estimated field abundance. Divide by sampled area, then multiply by 36 m²; rounding to whole plants is accepted.
-2. Cite numeric evidence from both samples and discuss representation, selection bias and sampling variation. Repeating identical positions is not an independent spatial sample.
-3. Write a claim, mechanism or alternative explanation, specific further data, and Chinese and English summaries. Spatial association alone does not establish light or rainfall as a cause.
-4. Complete five revisable cross-unit questions with feedback and lesson links.
+5. Record quadrat IDs, counts, sampled area, sample density and estimated field abundance. Divide by sampled area, then multiply by 36 m²; rounding to whole plants is accepted.
+6. Cite numeric evidence from both samples and discuss representation, selection bias and sampling variation. Repeating identical positions is not an independent spatial sample.
+7. Write a claim, mechanism or alternative explanation, specific further data, and Chinese and English summaries. Spatial association alone does not establish light or rainfall as a cause.
+8. Complete five revisable cross-unit questions with feedback and lesson links.
 
 ## 保存与评价 / Saving and evaluation
 

@@ -36,7 +36,7 @@ export function ecoReport(d: EcoDraft) {
     d.zh,
     '\nEnglish summary / 英文总结',
     d.en,
-    `\n综合检查 / Understanding check: ${check.correct}/${ecoUnderstanding(d).answered} answered`,
+    `\n综合检查 / Understanding check: 已答${check.answered}/5题 / ${check.answered}/5 answered; 正确${check.correct}/5题 / ${check.correct}/5 correct`,
     '\n文字填写完整不等于科学结论已经审阅。 / Complete writing does not establish scientific correctness.',
   ].join('\n');
 }

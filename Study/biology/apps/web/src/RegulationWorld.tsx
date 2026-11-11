@@ -1087,7 +1087,7 @@ function Lab({
   note: LocalizedText;
 }) {
   return (
-    <section className="bio-lab">
+    <section className="bio-lab bio-s3-lab">
       <span className="bio-model-tag">
         <Text mode={mode} text={t('可操作的机制模型', 'Explore a mechanism')} />
       </span>

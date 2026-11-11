@@ -1,0 +1,73 @@
+{
+  "unit": "U20",
+  "sources": [
+    {
+      "title": "Enzyme mechanisms",
+      "url": "https://openstax.org/books/biology-2e/pages/6-5-enzymes",
+      "license": "OpenStax CC BY 4.0; linked factual reference, no external prose or figure reproduced"
+    },
+    {
+      "title": "Energy and activation",
+      "url": "https://openstax.org/books/biology-2e/pages/6-2-potential-kinetic-free-and-activation-energy",
+      "license": "OpenStax CC BY 4.0; linked factual reference, no external prose or figure reproduced"
+    },
+    {
+      "title": "Digestive routes",
+      "url": "https://openstax.org/books/biology-2e/pages/34-3-digestive-system-processes",
+      "license": "OpenStax CC BY 4.0; linked factual reference, no external prose or figure reproduced"
+    }
+  ],
+  "models": {
+    "L077": "Fictional free-energy diagram: reactants20,products5,peaks90/45; Ea70/25,deltaG−15 either way. Reaction coordinate is not time. Enzymes do not shift equilibrium or supply free energy and are regenerated overall; schematic omits pathways and cofactors.",
+    "L078": "Four causal snapshots, not calibrated molecular time. Fictional A matches E and B does not; specificity includes chemistry and flexibility, not rigid geometry. One conversion accounting unit can represent several product fragments; substrate units+converted units conserved, enzyme unchanged. Zero substrate yields no new product. Turnover display is not a measured kinetic rate.",
+    "L079": "Fictional enzymeE, separately prepared samples. Initial rate arbitrary units=100*exp(-((T−40)/width)²)*exp(-((pH−7)/2.2)²)*substrate/(substrate+2)*enzyme*remaining; width28 below40°C,14 above. Model optimum40°C,pH7 is not universal. Base enzyme1,substrate8 arbitrary concentration. Chilling leaves structure intact; rewarming to40°C restores rate. Prior75°C×10min assumed sufficient to inactivate92% irreversibly in E; cooling preserves this history. Slider changes assay conditions, not treatment history. Extreme-pH treatment reversibility, noise, actual folding and thermal exposure kinetics omitted. Relative index not capped100 for higher enzyme amount. No physiological or clinical rates.",
+    "L080": "Selected digestive routes under suitable conditions. Amylase: starch→maltose/short oligosaccharides→other enzymes→glucose. Proteases: protein→peptides→further proteases/peptidases→amino acids. Intestinal pancreatic lipase primarily triglycerides→fatty acids/monoglycerides. Bile emulsifies without hydrolysis and is not an enzyme. No complete anatomy, molecular counts, absorption simulation or home bodily-fluid/tasting/pH experiment."
+  },
+  "verified": "2026-11-11",
+  "status": "pilot; independent science review and child trial pending",
+  "assets": "Original Study prose, questions, SVG and fictional quantitative data. No external figures or prose copied. Repository license applies to original assets.",
+  "diagrams": [
+    {
+      "id": "L077-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    },
+    {
+      "id": "L078-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    },
+    {
+      "id": "L079-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    },
+    {
+      "id": "L080-D01",
+      "component": "DivisionEnzymeDiagram",
+      "scale": "schematic; not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L077-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    },
+    {
+      "id": "L078-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    },
+    {
+      "id": "L079-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    },
+    {
+      "id": "L080-I01",
+      "component": "DivisionEnzymeExplore",
+      "staticAlternative": "Bilingual diagram captions, numerical tables where applicable, lesson Explore and Explain; Next step/pause/replay for causal sequences. Keyboard buttons replace dragging."
+    }
+  ]
+}

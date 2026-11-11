@@ -179,4 +179,15 @@ describe('S03 ecological research project', () => {
     expect(text).not.toContain('undefined');
     expect(ecoUnderstanding(d)).toEqual({ answered: 5, correct: 5 });
   });
+  it('distinguishes answered questions from correct answers in incomplete exported reports', () => {
+    const draft = emptyEcoProject();
+    expect(ecoReport(draft)).toContain('0/5 answered; 正确0/5题 / 0/5 correct');
+    draft.answers[ecoStageQuestions[0]!.id] = ecoStageQuestions[0]!.correct;
+    draft.answers[ecoStageQuestions[1]!.id] =
+      (ecoStageQuestions[1]!.correct + 1) %
+      ecoStageQuestions[1]!.options.length;
+    const report = ecoReport(draft);
+    expect(report).toContain('2/5 answered; 正确1/5题 / 1/5 correct');
+    expect(report).not.toContain('1/2 answered');
+  });
 });
