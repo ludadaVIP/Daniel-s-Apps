@@ -688,4 +688,3 @@ export function parseLessonSection(raw: string, name: string): LocalizedText {
     block.split('### English\n')[1]?.trim() ?? '',
   );
 }
-

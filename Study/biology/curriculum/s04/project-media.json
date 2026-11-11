@@ -1,0 +1,77 @@
+{
+  "id": "S04-P01",
+  "stage": "S04",
+  "checked": "2026-11-12",
+  "status": "pilot; internal scientific review completed; child trial and external scientific review pending; technical browser evidence tracked separately in QA_CHECKLIST.md",
+  "assets": "Original four-frame SVG scenes for each of three topics, prose, questions, fictional dry-mass records and deterministic enzyme/ecology models. No external observations, figures or source prose copied. Repository license applies to original assets.",
+  "sources": [
+    {
+      "title": "OpenStax Biology 2e — Enzymes",
+      "url": "https://openstax.org/books/biology-2e/pages/6-5-enzymes",
+      "use": "Catalysis, specificity and conditions; no external figures or prose reproduced."
+    },
+    {
+      "title": "OpenStax Biology 2e — Overview of Photosynthesis",
+      "url": "https://openstax.org/books/biology-2e/pages/8-1-overview-of-photosynthesis",
+      "use": "Carbon source and light-energy conversion; dry-mass data are original fictional cohorts."
+    },
+    {
+      "title": "OpenStax Biology 2e — Biogeochemical Cycles",
+      "url": "https://openstax.org/books/biology-2e/pages/46-3-biogeochemical-cycles",
+      "use": "Decomposition, respiration and elemental cycling, separated from energy flow."
+    },
+    {
+      "title": "Elmqvist et al. (2003), Response diversity, ecosystem change, and resilience",
+      "url": "https://esajournals.onlinelibrary.wiley.com/doi/abs/10.1890/1540-9295%282003%29001%5B0488%3ARDECAR%5D2.0.CO%3B2",
+      "use": "Inherited U24 primary-abstract concept reference: different responses among species contributing the same function. No numerical data reused."
+    },
+    {
+      "title": "Isbell et al. (2015), Biodiversity increases the resistance of ecosystem productivity to climate extremes",
+      "url": "https://pubmed.ncbi.nlm.nih.gov/26466564/",
+      "use": "Inherited U24 primary-abstract concept reference distinguishing resistance and resilience. Published grassland measurements are not the fictional decomposer dataset."
+    }
+  ],
+  "plant": {
+    "origin": "Original fictional teaching observations, not measured plants or a real species forecast.",
+    "design": "Each light condition has 3 matched day-0 baseline plants and 3 separate day-7 endpoint plants: 12 plants total. Destructive dry-mass samples; compare cohort means, never paired changes in the same living plants.",
+    "data": [
+      {
+        "lightIndex": 20,
+        "baselineCohort": "P20-D0",
+        "baselineGrams": [0.2, 0.2, 0.2],
+        "endpointCohort": "P20-D7",
+        "endpointGrams": [0.28, 0.3, 0.32],
+        "endpointMeanGrams": 0.3,
+        "differenceOfMeansGrams": 0.1
+      },
+      {
+        "lightIndex": 60,
+        "baselineCohort": "P60-D0",
+        "baselineGrams": [0.2, 0.2, 0.2],
+        "endpointCohort": "P60-D7",
+        "endpointGrams": [0.44, 0.46, 0.48],
+        "endpointMeanGrams": 0.46,
+        "differenceOfMeansGrams": 0.26
+      }
+    ],
+    "model": "Separate photosynthesisRate model: CO2 index60,25C,adequate water,fixed leaf area; light20/60 -> relative rate40/100. Invented limiting-capacity rule and optimum; no conversion from instantaneous rate to seven-day dry mass. No confidence intervals or causal certainty inferred. No home drying procedure required."
+  },
+  "enzyme": "Fictional E, pH7,substrate8,enzyme1: cold5C about16.8; rewarmed40C80.0; intact40C80.0; prior75C10min then40C6.4. Model stipulates8% activity remains after heat, intact structure after chilling. Assay temperature differs from treatment history. Optimum40C and damage fraction are not universal facts; more enzyme may exceed100 relative units.",
+  "ecology": {
+    "function": "Original deterministic litter-decomposition function index, not species richness or empirical observations.",
+    "protocol": "Equal baseline function100 and litter inputs. Standardized brief drought/flood pulse through day1 measurement; immediately restore common baseline moisture after day1 and maintain until day30. Horizontal positions explicitly categorical snapshots, not elapsed-time spacing.",
+    "recordsDay1Day30": {
+      "A_fourDifferingMoistureResponses": {
+        "drought": [70, 90],
+        "flood": [55, 85]
+      },
+      "B_fourSimilarSensitivities": { "drought": [40, 65], "flood": [75, 92] },
+      "C_oneDroughtTolerant": { "drought": [65, 88], "flood": [20, 45] }
+    },
+    "limits": "All decomposers contribute to the same litter-decomposition function; moisture-response diversity may permit compensation. Traits and survival are assumptions, not established by total-function curves. Resistance=day1/100; fraction of lost function regained within30days=(day30-day1)/(100-day1), not a universal recovery rate. Require independent replicated tests and undisturbed controls."
+  },
+  "interaction": "Choose any of three independently retained topics, inspect evidence table and four distinct scenes, cite two distinct valid IDs, write own captions and an explicit falsifiable controlled test. Changing ecology disturbance clears its citations. Four frames are explanatory snapshots, not timed simulation controls.",
+  "assessment": "Structural completeness only; prose scientific truth and English quality require human review. Four captions each in either language, seven scientific/test fields, two citations,2-30 independent repeats,summary in either language. Six cross-unit questions with feedback and revisits; all answered and at least5 correct. Own24lessons and6missions plus one valid saved topic required for stage completion.",
+  "storage": "Additive projects.S04 in study-biology-v1,version1; three independent cases. Editing invalidates only own saved timestamp. Old S01/S02/S03 records and stage counts preserved. No English gate.",
+  "export": "Standalone SVG includes four scenes, all numeric evidence, raw separate plant cohorts, complete captions, assumptions, citations,test plan and summaries. Dynamic height retains writing; XML-escaped student text; no foreignObject or executable student input. Download works for drafts and does not imply completion."
+}

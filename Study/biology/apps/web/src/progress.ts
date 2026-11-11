@@ -1,4 +1,11 @@
-import { emptyStoryProject, decodeStoryProject, storyCaseReady, storyTopics, storyUnderstanding, type StoryDraft } from './storyProject';
+import {
+  emptyStoryProject,
+  decodeStoryProject,
+  storyCaseReady,
+  storyTopics,
+  storyUnderstanding,
+  type StoryDraft,
+} from './storyProject';
 import {
   emptyEcoProject,
   decodeEcoProject,
@@ -51,7 +58,12 @@ export type Progress = {
   answers: Record<string, Answer>;
   mission: Mission;
   missions: Record<string, Mission>;
-  projects: { S01?: ProjectDraft; S02?: LeafDraft; S03?: EcoDraft; S04?: StoryDraft };
+  projects: {
+    S01?: ProjectDraft;
+    S02?: LeafDraft;
+    S03?: EcoDraft;
+    S04?: StoryDraft;
+  };
 };
 export const emptyProgress = (): Progress => ({
   version: 1,
@@ -113,7 +125,8 @@ export function decodeProgress(raw: string): Progress {
     clean.projects.S02 = decodeLeafProject(data.projects.S02);
   if (data.projects?.S03)
     clean.projects.S03 = decodeEcoProject(data.projects.S03);
-  if (data.projects?.S04) clean.projects.S04 = decodeStoryProject(data.projects.S04);
+  if (data.projects?.S04)
+    clean.projects.S04 = decodeStoryProject(data.projects.S04);
   return clean;
 }
 function decodeProject(data: ProjectDraft): ProjectDraft {
@@ -407,8 +420,24 @@ export function storyStageOutcome(p: Progress) {
   const draft = p.projects.S04 ?? emptyStoryProject();
   const check = storyUnderstanding(draft);
   const stageUnits = units.filter((u) => u.stage === 'S04');
-  const lessonCount = stageUnits.flatMap((u) => u.lessonIds).filter((id) => !!p.sessions[id]?.completedAt).length;
-  const missionCount = stageUnits.filter((u) => !!missionForUnit(p, u.id).savedAt).length;
-  const savedStory = storyTopics.some((topic) => !!draft.cases[topic].savedAt && storyCaseReady(topic, draft.cases[topic]));
-  return { lessons: lessonCount, missions: missionCount, complete: lessonCount === 24 && missionCount === 6 && savedStory && check.answered === 6 && check.correct >= 5 };
+  const lessonCount = stageUnits
+    .flatMap((u) => u.lessonIds)
+    .filter((id) => !!p.sessions[id]?.completedAt).length;
+  const missionCount = stageUnits.filter(
+    (u) => !!missionForUnit(p, u.id).savedAt,
+  ).length;
+  const savedStory = storyTopics.some(
+    (topic) =>
+      !!draft.cases[topic].savedAt && storyCaseReady(topic, draft.cases[topic]),
+  );
+  return {
+    lessons: lessonCount,
+    missions: missionCount,
+    complete:
+      lessonCount === 24 &&
+      missionCount === 6 &&
+      savedStory &&
+      check.answered === 6 &&
+      check.correct >= 5,
+  };
 }

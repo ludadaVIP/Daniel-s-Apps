@@ -277,4 +277,3 @@ export const units = [
 export function unitForLesson(id: string) {
   return units.find((unit) => unit.lessonIds.includes(id))!;
 }
-

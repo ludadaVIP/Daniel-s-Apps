@@ -3596,11 +3596,54 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 18px;
 }
+.bio-story-controls table {
+  width: 100%;
+  table-layout: fixed;
+}
+.bio-story-controls col:first-child {
+  width: 30%;
+}
+.bio-story-controls th:first-child {
+  overflow-wrap: normal;
+  word-break: normal;
+}
 .bio-story-check .bio-question {
   margin: 28px 0;
 }
 .bio-story-guided button,
-.bio-story-check button {
+.bio-story-check button,
+.bio-story-topics button {
+  min-width: 44px;
+  min-height: 44px;
+}
+.bio-s4-lab {
+  min-width: 0;
+}
+.bio-s4-lab .bio-s4-wide-data {
+  min-width: 520px;
+}
+.bio-s4-lab .bio-s4-wide-data th {
+  overflow-wrap: normal;
+}
+.bio-s4-lab .bio-s4-wide-data td {
+  white-space: nowrap;
+}
+.bio-s4-lab input[type='range'] {
+  min-width: 44px;
+  min-height: 44px;
+  vertical-align: middle;
+}
+.bio-s4-lab select,
+.bio-s4-lab input[type='number'] {
+  min-width: 44px;
+  min-height: 44px;
+  font: inherit;
+}
+.bio-s4-lab label:has(input[type='checkbox']) {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 44px;
   min-height: 44px;
 }
 @media (max-width: 800px) {

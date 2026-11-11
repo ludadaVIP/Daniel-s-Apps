@@ -871,7 +871,7 @@ export function DivisionEnzymeExplore({ id, mode, onExplore }: Props) {
     { value: 'no', label: t('否', 'No') },
   ] as const;
   return (
-    <div className="bio-lab bio-s3-lab">
+    <div className="bio-lab bio-s3-lab bio-s4-lab">
       <h3>
         <Text mode={mode} text={titles[id] ?? titles.L073!} />
       </h3>

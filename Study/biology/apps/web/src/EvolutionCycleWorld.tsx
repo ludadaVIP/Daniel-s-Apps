@@ -944,7 +944,7 @@ function Data({ id, mode, frame, option, alternate }: Required<ArtProps>) {
   if (id === 'L093') {
     const states = carbonStates(!option);
     return (
-      <table>
+      <table className="bio-s4-wide-data">
         <caption>
           <Text
             mode={mode}
@@ -991,7 +991,7 @@ function Data({ id, mode, frame, option, alternate }: Required<ArtProps>) {
   if (id === 'L095') {
     const e = [0.05, 0.1, 0.2][option]!;
     return (
-      <table>
+      <table className="bio-s4-wide-data">
         <caption>
           <Text
             mode={mode}
@@ -1048,7 +1048,7 @@ function Data({ id, mode, frame, option, alternate }: Required<ArtProps>) {
             )}
           />
         </p>
-        <table>
+        <table className="bio-s4-wide-data">
           <caption>
             <Text
               mode={mode}
@@ -1187,6 +1187,7 @@ function Data({ id, mode, frame, option, alternate }: Required<ArtProps>) {
   );
 }
 function Lab({ id, mode, onExplore }: Props) {
+  const wideData = ['L093', 'L095', 'L096'].includes(id);
   const [option, setOption] = useState(id === 'L095' ? 1 : 0),
     [alternate, setAlternate] = useState(0);
   const flow = useFrames(
@@ -1207,7 +1208,7 @@ function Lab({ id, mode, onExplore }: Props) {
     onExplore();
   };
   return (
-    <div className="bio-lab bio-s3-lab">
+    <div className="bio-lab bio-s3-lab bio-s4-lab">
       <h3>
         <Text mode={mode} text={titles[id]!} />
       </h3>
@@ -1250,7 +1251,16 @@ function Lab({ id, mode, onExplore }: Props) {
       <p aria-live="polite">
         <Text mode={mode} text={captions[id]![flow.frame]!} />
       </p>
-      <div style={{ overflowX: 'auto' }}>
+      <div
+        style={{ overflowX: 'auto', minWidth: 0 }}
+        tabIndex={wideData ? 0 : undefined}
+        role={wideData ? 'region' : undefined}
+        aria-label={
+          wideData
+            ? word(mode, t('科学模型数据表', 'Scientific model data table'))
+            : undefined
+        }
+      >
         <Data
           id={id}
           mode={mode}
@@ -1259,6 +1269,17 @@ function Lab({ id, mode, onExplore }: Props) {
           alternate={alternate}
         />
       </div>
+      {wideData && (
+        <p className="bio-caption">
+          <Text
+            mode={mode}
+            text={t(
+              '窄屏可横向滑动数据表；键盘聚焦表格区域后用方向键。',
+              'On narrow screens, scroll the data table horizontally or focus its region and use arrow keys.',
+            )}
+          />
+        </p>
+      )}
       <details>
         <summary style={{ minHeight: 44, cursor: 'pointer' }}>
           <Text
@@ -1314,7 +1335,7 @@ export function EvolutionCycleDiagram({
 }) {
   const [clue, setClue] = useState(0);
   return (
-    <figure className="bio-lab bio-s3-lab">
+    <figure className="bio-lab bio-s3-lab bio-s4-lab">
       <EvolutionCycleHookArt id={id} mode={mode} />
       <Choices
         mode={mode}

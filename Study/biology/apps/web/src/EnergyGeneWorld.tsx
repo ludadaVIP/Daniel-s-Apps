@@ -743,7 +743,7 @@ function Figure({
 }
 export function EnergyGeneDiagram(props: Props) {
   return (
-    <figure className="bio-lab bio-s3-lab">
+    <figure className="bio-lab bio-s3-lab bio-s4-lab">
       <Figure {...props} />
       <figcaption>
         <Text
@@ -995,7 +995,7 @@ export function EnergyGeneExplore({
     ],
   };
   return (
-    <div className="bio-lab bio-s3-lab">
+    <div className="bio-lab bio-s3-lab bio-s4-lab">
       <h3>{label(titles[id] ?? t('机制探索', 'Explore mechanisms'))}</h3>
       {id === 'L081' && (
         <div className="bio-controls">

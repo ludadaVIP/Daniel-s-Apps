@@ -57,7 +57,8 @@ const groups = {
 };
 export function isS4Lesson(id: string) {
   return (
-    id.length === 4 && /^L\d{3}$/.test(id) &&
+    id.length === 4 &&
+    /^L\d{3}$/.test(id) &&
     Number(id.slice(1)) >= 73 &&
     Number(id.slice(1)) <= 96
   );
@@ -122,4 +123,3 @@ export function S4Explore({
     </Loading>
   );
 }
-

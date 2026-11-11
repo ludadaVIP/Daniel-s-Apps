@@ -867,4 +867,3 @@ function LifeExplore({ id, mode, onExplore }: Props) {
     </div>
   );
 }
-
