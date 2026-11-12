@@ -1,6 +1,6 @@
 # 历史基线：S03研发前盘点
 
-以下保留2026-11-11开始S03研发前的历史基线，文中48课/33.3%和U13待做均指当时状态。**截至2026-11-12，S01–S04已补齐，当前为96课、24任务、4项目（制作数量66.7%）**，下一单元U25，尚缺48课、12任务、2项目；当前教学内容、实现与验证证据以 [S4_DELIVERY.md](./S4_DELIVERY.md)、[CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md) 和 [QA_CHECKLIST.md](./QA_CHECKLIST.md) 为准。[S3_DELIVERY.md](./S3_DELIVERY.md)保留历史交付状态。全部课程仍为`pilot`，儿童试用和外部科学审阅未完成。
+以下保留2026-11-11开始S03研发前的历史基线，文中48课/33.3%和U13待做均指当时状态。**截至2026-11-13，S01–S04已补齐，当前为96课、24任务、4项目（制作数量66.7%）**，下一单元U25，尚缺48课、12任务、2项目；当前教学内容、实现与验证证据以 [S4_DELIVERY.md](./S4_DELIVERY.md)、[CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md) 和 [QA_CHECKLIST.md](./QA_CHECKLIST.md) 为准。[S3_DELIVERY.md](./S3_DELIVERY.md)保留历史交付状态。全部课程仍为`pilot`，儿童试用和外部科学审阅未完成。
 
 ## 1. 当时走到了哪里
 

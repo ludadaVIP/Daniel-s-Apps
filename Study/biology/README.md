@@ -2,7 +2,7 @@
 
 面向 10–16 岁的本地双语试学版，沿用 Study 的 React、Vite、路由、`@study/shared` 类型和 `@study/ui` 语言组件。无需账户或新的服务器。
 
-2026-11-12：S01–S04共96课、24个单元任务与4个阶段项目已实现，全部为家庭试学稿；下一单元为U25（L097–L100）。S4课程与验证说明见 [S4_DELIVERY.md](./S4_DELIVERY.md)，S3历史交付见 [S3_DELIVERY.md](./S3_DELIVERY.md)，逐单元记录见 [CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md)。
+2026-11-13：S01–S04共96课、24个单元任务与4个阶段项目已实现，全部为家庭试学稿；下一单元为U25（L097–L100）。S4课程与验证说明见 [S4_DELIVERY.md](./S4_DELIVERY.md)，S3历史交付见 [S3_DELIVERY.md](./S3_DELIVERY.md)，逐单元记录见 [CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md)。
 
 ## 试用
 
