@@ -15,6 +15,14 @@ import {
   type EcoDraft,
 } from './ecoProject';
 import { useState } from 'react';
+import {
+  decodeEvidenceProject,
+  emptyEvidenceProject,
+  evidenceReady,
+  evidenceUnderstanding,
+  validEvidenceTimestamp,
+  type EvidenceDraft,
+} from './evidenceProject';
 import { lessons, questions, type Lesson } from './content';
 import { units } from './units';
 import {
@@ -63,6 +71,7 @@ export type Progress = {
     S02?: LeafDraft;
     S03?: EcoDraft;
     S04?: StoryDraft;
+    S05?: EvidenceDraft;
   };
 };
 export const emptyProgress = (): Progress => ({
@@ -127,6 +136,8 @@ export function decodeProgress(raw: string): Progress {
     clean.projects.S03 = decodeEcoProject(data.projects.S03);
   if (data.projects?.S04)
     clean.projects.S04 = decodeStoryProject(data.projects.S04);
+  if (data.projects?.S05)
+    clean.projects.S05 = decodeEvidenceProject(data.projects.S05);
   return clean;
 }
 function decodeProject(data: ProjectDraft): ProjectDraft {
@@ -415,6 +426,34 @@ export type Store = ReturnType<typeof useProgress>;
 
 export function withStoryProject(p: Progress, draft: StoryDraft): Progress {
   return { ...p, projects: { ...p.projects, S04: draft } };
+}
+export function withEvidenceProject(
+  p: Progress,
+  draft: EvidenceDraft,
+): Progress {
+  return { ...p, projects: { ...p.projects, S05: draft } };
+}
+export function evidenceStageOutcome(p: Progress) {
+  const d = p.projects.S05 ?? emptyEvidenceProject(),
+    check = evidenceUnderstanding(d);
+  const stageUnits = units.filter((u) => u.stage === 'S05');
+  const lessonCount = stageUnits
+    .flatMap((u) => u.lessonIds)
+    .filter((id) => !!p.sessions[id]?.completedAt).length;
+  const missionCount = stageUnits.filter(
+    (u) => !!missionForUnit(p, u.id).savedAt,
+  ).length;
+  return {
+    lessons: lessonCount,
+    missions: missionCount,
+    complete:
+      lessonCount === 24 &&
+      missionCount === 6 &&
+      evidenceReady(d) &&
+      validEvidenceTimestamp(d.savedAt) &&
+      check.answered === 6 &&
+      check.correct >= 5,
+  };
 }
 export function storyStageOutcome(p: Progress) {
   const draft = p.projects.S04 ?? emptyStoryProject();

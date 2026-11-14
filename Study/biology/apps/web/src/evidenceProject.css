@@ -1,0 +1,115 @@
+.bio-evidence {
+  max-width: 100%;
+  min-width: 0;
+}
+.bio-evidence section {
+  margin-block: 2rem;
+  padding: clamp(12px, 3vw, 26px);
+  border: 1px solid #d6dfd9;
+  border-radius: 16px;
+  background: #fcfaf5;
+  min-width: 0;
+}
+.bio-evidence p,
+.bio-evidence label,
+.bio-evidence figcaption,
+.bio-evidence a {
+  overflow-wrap: anywhere;
+}
+.bio-evidence label {
+  display: grid;
+  gap: 8px;
+  margin-block: 18px;
+}
+.bio-evidence input,
+.bio-evidence select,
+.bio-evidence textarea {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #8dada0;
+  border-radius: 8px;
+  font: inherit;
+  color: #203e3a;
+  background: white;
+}
+.bio-evidence textarea {
+  resize: vertical;
+}
+.bio-evidence button,
+.bio-evidence summary,
+.bio-evidence .bio-button {
+  min-height: 44px;
+}
+.bio-evidence figure {
+  margin: 20px 0;
+}
+.bio-evidence figure img {
+  display: block;
+  width: 760px;
+  min-width: 760px;
+  max-width: none;
+  height: auto;
+}
+.bio-evidence-graph-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #d6dfd9;
+  border-radius: 8px;
+}
+.bio-evidence-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  border: 1px solid #d6dfd9;
+  border-radius: 8px;
+}
+.bio-evidence table {
+  border-collapse: collapse;
+  min-width: 560px;
+  width: 100%;
+}
+.bio-evidence caption {
+  text-align: left;
+  white-space: normal;
+  padding: 12px;
+}
+.bio-evidence th,
+.bio-evidence td {
+  white-space: nowrap;
+  text-align: right;
+  padding: 10px;
+  border-bottom: 1px solid #d6dfd9;
+}
+.bio-evidence .bio-evidence-check {
+  display: flex;
+  align-items: start;
+}
+.bio-evidence .bio-evidence-check input {
+  width: 44px;
+  height: 44px;
+  flex: 0 0 44px;
+  margin: 0;
+}
+.bio-evidence-question {
+  padding-block: 20px;
+  border-bottom: 1px solid #d6dfd9;
+}
+.bio-evidence-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.bio-evidence-actions a {
+  box-sizing: border-box;
+  max-width: 100%;
+  white-space: normal;
+}
+.bio-evidence :focus-visible {
+  outline: 3px solid #b66a38;
+  outline-offset: 3px;
+}

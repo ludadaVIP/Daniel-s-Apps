@@ -1,0 +1,100 @@
+.bio-s5-lab.pi-lab {
+  min-width: 0;
+  max-width: 100%;
+  color: #243f37;
+}
+.bio-s5-lab.pi-lab .pi-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-x: contain;
+  border-radius: 18px;
+}
+.bio-s5-lab.pi-lab .pi-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 560px;
+  height: auto;
+}
+.bio-s5-lab.pi-lab .pi-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr));
+  gap: 14px;
+  margin: 12px 0;
+}
+.bio-s5-lab.pi-lab .pi-control {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 8px;
+  min-width: 0;
+  align-items: center;
+}
+.bio-s5-lab.pi-lab select,
+.bio-s5-lab.pi-lab input[type='range'] {
+  grid-column: 1/-1;
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+}
+.bio-s5-lab.pi-lab select {
+  white-space: normal;
+  height: auto;
+  padding: 10px;
+  font: inherit;
+}
+.bio-s5-lab.pi-lab button,
+.bio-s5-lab.pi-lab summary {
+  min-height: 44px;
+  cursor: pointer;
+}
+.bio-s5-lab.pi-lab button {
+  padding: 10px 14px;
+  margin: 4px;
+  border: 1px solid #8a9f8a;
+  border-radius: 10px;
+  background: #f7f6ed;
+  color: inherit;
+  font: inherit;
+}
+.bio-s5-lab.pi-lab button[aria-pressed='true'] {
+  background: #e1eacb;
+  border-color: #416e54;
+}
+.bio-s5-lab.pi-lab .pi-bases {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+.bio-s5-lab.pi-lab .pi-static {
+  padding: 12px;
+  margin-top: 10px;
+  border: 1px solid #ced7c5;
+  border-radius: 12px;
+}
+.bio-s5-lab.pi-lab .pi-static li {
+  margin: 12px 0;
+}
+.bio-s5-lab.pi-lab .pi-hint {
+  font-size: 0.85rem;
+}
+.bio-s5-lab.pi-lab .pi-result {
+  font-variant-numeric: tabular-nums;
+  background: #e7efdf;
+  border-radius: 10px;
+  padding: 14px;
+}
+.bio-s5-lab.pi-lab output {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.bio-s5-lab.pi-lab :focus-visible {
+  outline: 3px solid #386e9c;
+  outline-offset: 3px;
+}
+.bio-s5-lab.pi-lab .bio-playback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.bio-s5-lab.pi-lab .bio-en {
+  overflow-wrap: anywhere;
+}

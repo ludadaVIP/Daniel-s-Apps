@@ -1,0 +1,83 @@
+{
+  "project": "S05-P01",
+  "status": "pilot; external science review and learner trial pending",
+  "verified": "2026-11-14",
+  "route": "/biology/project/S05",
+  "component": "EvidenceProject (EvidenceReport.tsx)",
+  "assets": [
+    {
+      "id": "S05-P01-D01",
+      "component": "evidenceGraphSvg",
+      "kind": "original generated SVG",
+      "rights": "Original code, geometry and fictional data",
+      "alt": "Actual selected axes and data display, signed scale, zero line; complete raw and summary tables follow",
+      "staticAlternative": "All 20 paired records, five summaries and scientific limits are visible in bilingual prose and tables",
+      "scale": "Quantitative axes with explicit units; point jitter has no concentration meaning"
+    },
+    {
+      "id": "S05-P01-I01",
+      "component": "EvidenceProject",
+      "kind": "interactive evidence workbench",
+      "keyboard": "Native inputs/selects/buttons; 44px controls; named focusable local table scroll regions",
+      "staticAlternative": "project.md, complete protocol, raw records, summaries, model answer and self-review rubric"
+    },
+    {
+      "id": "S05-P01-E01",
+      "component": "evidenceSvg",
+      "kind": "downloadable standalone SVG",
+      "rights": "Escaped student text plus original chart and tables",
+      "safety": "No student HTML or executable content. Dynamic line wrapping and document height preserve long explanations and final fields."
+    }
+  ],
+  "models": {
+    "dataset": {
+      "source": "original fictional teaching data",
+      "tubers": 4,
+      "strips": 20,
+      "cups": 20,
+      "nPerConcentration": 4,
+      "concentrationsMolL": [0, 0.2, 0.4, 0.6, 0.8],
+      "paired": "Same strip before and after 60 min; preserve IDs and tuber blocks A–D",
+      "randomization": "One strip per tuber assigned to each concentration, randomized within block",
+      "controls": "22°C; 60 min; 50 mL per cup; nominal 30×10×10 mm; same material batch and blotting method; balance 0.01 g"
+    },
+    "calculation": {
+      "formula": "100*(after-before)/before for each strip; arithmetic mean of four percentages",
+      "summary": "mean, min, max, n=4; range is not a confidence interval",
+      "limits": "No p-values, significance claims, 20-tuber interpretation or 40-independent-sample interpretation"
+    },
+    "zeroEstimate": {
+      "method": "linear interpolation between positive mean at 0.2 and negative mean at 0.4 mol/L",
+      "limits": "An estimate of external concentration for zero net mass change after 60 min, not exact intracellular sucrose concentration or proof of equilibrium"
+    },
+    "mechanism": {
+      "assumptions": [
+        "Sucrose approximately impermeant over 60 min",
+        "Other net mass changes negligible",
+        "Water-potential differences can drive net water movement"
+      ],
+      "limits": [
+        "Mass alone cannot establish osmosis",
+        "Blotting, tissue damage or solute movement may contribute",
+        "Temperature, time and material scope matter"
+      ]
+    }
+  },
+  "sources": [
+    {
+      "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport",
+      "use": "Selective permeability and osmosis concepts; kidney filtration wording excluded",
+      "verified": "2026-11-14"
+    },
+    {
+      "url": "https://www.aqa.org.uk/subjects/science/gcse/science-8465/specification/practical-assessment",
+      "use": "Public analysis/evaluation and graph skills only, no complete exam-coverage claim",
+      "verified": "2026-11-14"
+    },
+    {
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm",
+      "use": "Block concept and randomization within blocks, no copied numerical data",
+      "verified": "2026-11-14"
+    }
+  ]
+}

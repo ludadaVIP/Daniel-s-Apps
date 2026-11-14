@@ -1,4 +1,6 @@
 import { isS4Lesson, S4HookArt, S4Explore } from './s4Visuals';
+import { isS5Lesson, S5HookArt, S5Explore } from './s5Visuals';
+import { EvidenceProject } from './EvidenceReport';
 import { StoryboardProject } from './StoryboardProject';
 import { isS3Lesson, S3HookArt, S3Explore } from './s3Visuals';
 import { EcoResearch } from './EcoResearch';
@@ -161,6 +163,31 @@ function StageFourProject({ mode }: { mode: LanguageMode }) {
   );
 }
 
+function StageFiveProject({ mode }: { mode: LanguageMode }) {
+  return (
+    <Link to="/biology/project/S05" className="bio-stage-project-link">
+      <span className="bio-eyebrow">
+        S05 / <Text mode={mode} text={t('阶段作品', 'STAGE PROJECT')} />
+      </span>
+      <h2>
+        <Text
+          mode={mode}
+          text={t('生物学证据报告', 'Biology evidence report')}
+        />
+      </h2>
+      <p>
+        <Text
+          mode={mode}
+          text={t(
+            '从20条配对质量数据，修复英文图表、引用证据，写出机制、局限和进一步实验。',
+            'Use 20 paired mass records to repair a graph, cite evidence, and explain mechanisms, limits and a further experiment.',
+          )}
+        />
+      </p>
+      <span>→</span>
+    </Link>
+  );
+}
 function Home({ store, mode }: PageProps) {
   const { progress } = store;
   const completed = lessons.filter(
@@ -224,7 +251,11 @@ function Home({ store, mode }: PageProps) {
               {words(mode, '10–16 岁 · 自主学习', 'AGES 10–16 · AT YOUR PACE')}
             </span>
             <span>
-              {words(mode, '每课约 15–35 分钟', '15–35 MIN / LESSON')}
+              {words(
+                mode,
+                '每课约 15–40 分钟 · S5约30–40分钟',
+                '15–40 MIN / LESSON · S5: 30–40 MIN',
+              )}
             </span>
           </div>
         </div>
@@ -346,6 +377,7 @@ function Home({ store, mode }: PageProps) {
             {unit.id === 'U12' && <StageTwoProject mode={mode} />}
             {unit.id === 'U18' && <StageThreeProject mode={mode} />}
             {unit.id === 'U24' && <StageFourProject mode={mode} />}
+            {unit.id === 'U30' && <StageFiveProject mode={mode} />}
           </Fragment>
         );
       })}
@@ -662,7 +694,9 @@ function LessonBody({
       {s.step === 0 && (
         <section className="bio-predict">
           <div className="bio-predict-art">
-            {isS4Lesson(lesson.id) ? (
+            {isS5Lesson(lesson.id) ? (
+              <S5HookArt id={lesson.id} mode={mode} />
+            ) : isS4Lesson(lesson.id) ? (
               <S4HookArt id={lesson.id} mode={mode} />
             ) : isS3Lesson(lesson.id) ? (
               <S3HookArt id={lesson.id} mode={mode} />
@@ -1013,6 +1047,17 @@ function LessonBody({
               <span className="bio-saved-message">
                 ✓ {words(mode, '本课已完成', 'Lesson complete')}
               </span>
+              {lesson.id === 'L120' && (
+                <Link className="bio-button" to="/biology/project/S05">
+                  <Text
+                    mode={mode}
+                    text={t(
+                      '把数据做成S05证据报告 →',
+                      'Build your S05 evidence report →',
+                    )}
+                  />
+                </Link>
+              )}
               <Link
                 className="bio-button"
                 to={
@@ -1221,6 +1266,66 @@ function Notebook({ store, mode }: PageProps) {
           <p>
             <Text mode={mode} text={unit.missionPrompt} />
           </p>
+          {unit.stage === 'S05' && (
+            <div className="bio-mission-diagram">
+              <S5Explore
+                key={unit.id}
+                id={
+                  (
+                    {
+                      U25: 'L099',
+                      U26: 'L101',
+                      U27: 'L106',
+                      U28: 'L110',
+                      U29: 'L116',
+                      U30: 'L119',
+                    } as Record<string, string>
+                  )[unit.id]!
+                }
+                mode={mode}
+                onExplore={() => {}}
+              />
+              <p>
+                <Text
+                  mode={mode}
+                  text={t(
+                    '记录条件、数值、单位与模型假设。代表交互只覆盖部分线索；请联系本单元其他课完成任务。文字草稿自动保存。',
+                    'Record conditions, values, units and model assumptions. This representative interactive covers part of the evidence; connect the other lessons to complete the mission. Written drafts autosave.',
+                  )}
+                />
+              </p>
+              <nav
+                aria-label={words(
+                  mode,
+                  '本单元所有课程',
+                  'All lessons in this unit',
+                )}
+              >
+                {unit.lessonIds.map((id) => (
+                  <p key={id}>
+                    <Link to={`/biology/lesson/${id}`}>
+                      {id}{' '}
+                      <Text
+                        mode={mode}
+                        text={lessons.find((l) => l.id === id)!.title}
+                      />
+                    </Link>
+                  </p>
+                ))}
+              </nav>
+              {unit.id === 'U30' && (
+                <Link className="bio-button" to="/biology/project/S05">
+                  <Text
+                    mode={mode}
+                    text={t(
+                      '制作生物学证据报告 →',
+                      'Create the biology evidence report →',
+                    )}
+                  />
+                </Link>
+              )}
+            </div>
+          )}
           {unit.stage === 'S04' && (
             <div className="bio-mission-diagram">
               <S4Explore
@@ -1478,6 +1583,7 @@ function Notebook({ store, mode }: PageProps) {
                     )
                   : unit.stage === 'S03' ||
                       unit.stage === 'S04' ||
+                      unit.stage === 'S05' ||
                       ['U07', 'U08', 'U09', 'U10', 'U11', 'U12'].includes(
                         unit.id,
                       )
@@ -1736,6 +1842,10 @@ export function App() {
             <Route
               path="project/S04"
               element={<StoryboardProject store={store} mode={mode} />}
+            />
+            <Route
+              path="project/S05"
+              element={<EvidenceProject store={store} mode={mode} />}
             />
             <Route path="*" element={<Navigate to="/biology" replace />} />
           </Routes>

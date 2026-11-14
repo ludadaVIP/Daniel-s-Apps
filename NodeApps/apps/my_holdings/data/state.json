@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "revision": 4284,
-  "updatedAt": "2026-11-13T22:17:48.170Z",
+  "revision": 4289,
+  "updatedAt": "2026-11-14T11:00:01.077Z",
   "accounts": [
     {
       "id": "a1",
@@ -24,7 +24,7 @@
       "name": "Invesco NASDAQ 100 ETF",
       "quantity": 150,
       "cost": 42207.21,
-      "marketValue": 41970,
+      "marketValue": 41995.5,
       "averagePrice": 281.3814,
       "currency": "USD",
       "sector": "成长指数",
@@ -33,16 +33,15 @@
       "thesis": "",
       "exitRule": "",
       "priceMarket": "US",
-      "price": 279.8,
+      "price": 279.97,
       "priceDate": "2026-11-13",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
       "changePct": null,
       "priceTimeZone": "America/New_York",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/QQQM-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/QQQM/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     },
     {
       "id": "h2",
@@ -51,7 +50,7 @@
       "name": "VanEck Semiconductor ETF",
       "quantity": 5,
       "cost": 2538.65,
-      "marketValue": 2430.28,
+      "marketValue": 2433.75,
       "averagePrice": 507.73,
       "currency": "USD",
       "sector": "半导体",
@@ -59,17 +58,16 @@
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "price": 486.055,
+      "price": 486.75,
       "priceDate": "2026-11-13",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
       "changePct": null,
       "priceMarket": "US",
       "priceTimeZone": "America/New_York",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/SMH-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/SMH/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     },
     {
       "id": "h3",
@@ -78,7 +76,7 @@
       "name": "Vanguard S&P 500 ETF",
       "quantity": 45,
       "cost": 31920.3,
-      "marketValue": 31166.78,
+      "marketValue": 31202.1,
       "averagePrice": 709.34,
       "currency": "USD",
       "sector": "宽基指数",
@@ -86,17 +84,16 @@
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "price": 692.595,
+      "price": 693.38,
       "priceDate": "2026-11-13",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
       "changePct": null,
       "priceMarket": "US",
       "priceTimeZone": "America/New_York",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/VOO-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/VOO/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     },
     {
       "id": "h4",
@@ -104,10 +101,10 @@
       "symbol": "IBKR",
       "name": "Interactive Brokers Group Class A",
       "quantity": 5.7324,
-      "price": 81.74,
+      "price": 81.79,
       "changePct": null,
       "cost": 489.09,
-      "marketValue": 468.57,
+      "marketValue": 468.85,
       "averagePrice": 85.3202846975089,
       "currency": "USD",
       "sector": "金融",
@@ -116,14 +113,13 @@
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/IBKR-US",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/IBKR/historical?assetclass=stocks&fromdate=2026-11-13&todate=2026-11-14&limit=10",
       "priceTimeZone": "America/New_York",
-      "priceMarket": "US",
-      "priceSession": "regular"
+      "priceMarket": "US"
     },
     {
       "id": "h5",
@@ -132,7 +128,7 @@
       "name": "Invesco NASDAQ 100 ETF",
       "quantity": 101,
       "cost": 27738.5,
-      "marketValue": 28259.8,
+      "marketValue": 28276.97,
       "averagePrice": 274.63861386138615,
       "currency": "USD",
       "sector": "成长指数",
@@ -141,16 +137,15 @@
       "thesis": "",
       "exitRule": "",
       "priceMarket": "US",
-      "price": 279.8,
+      "price": 279.97,
       "priceDate": "2026-11-13",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
       "changePct": null,
       "priceTimeZone": "America/New_York",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/QQQM-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/QQQM/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     },
     {
       "id": "h6",
@@ -159,7 +154,7 @@
       "name": "iShares Semiconductor ETF",
       "quantity": 27,
       "cost": 4010.13,
-      "marketValue": 4025.97,
+      "marketValue": 4031.1,
       "averagePrice": 148.52333333333334,
       "currency": "USD",
       "sector": "半导体",
@@ -168,16 +163,15 @@
       "thesis": "",
       "exitRule": "",
       "priceMarket": "US",
-      "price": 149.11,
+      "price": 149.3,
       "priceDate": "2026-11-13",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
       "changePct": null,
       "priceTimeZone": "America/New_York",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/SOXX-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/SOXX/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     },
     {
       "id": "h7",
@@ -186,7 +180,7 @@
       "name": "Vanguard S&P 500 ETF",
       "quantity": 100,
       "cost": 69322.97,
-      "marketValue": 69259.5,
+      "marketValue": 69338,
       "averagePrice": 693.2297,
       "currency": "USD",
       "sector": "宽基指数",
@@ -194,17 +188,16 @@
       "recordedAt": "2026-10-18",
       "thesis": "",
       "exitRule": "",
-      "price": 692.595,
+      "price": 693.38,
       "priceDate": "2026-11-13",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
       "changePct": null,
       "priceMarket": "US",
       "priceTimeZone": "America/New_York",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/VOO-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/VOO/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     },
     {
       "id": "54638f33-4155-4049-9cd7-b9a535290c4c",
@@ -220,18 +213,17 @@
       "quantity": 10,
       "cost": 2905.97,
       "averagePrice": 290.597,
-      "marketValue": 2919,
-      "price": 291.9,
+      "marketValue": 2925.2,
+      "price": 292.52,
       "priceDate": "2026-11-13",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
-      "priceType": "intraday",
+      "priceSource": "Nasdaq historical data",
+      "priceType": "close",
       "changePct": null,
       "priceTimeZone": "America/New_York",
       "priceMarket": "US",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/GOOG-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/GOOG/historical?assetclass=stocks&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     },
     {
       "id": "18f1f59d-bc85-47d5-898e-a797c0ccee31",
@@ -250,14 +242,14 @@
       "price": 18.674,
       "priceDate": "2026-11-13",
       "priceType": "close",
-      "priceSource": "Yahoo Finance · LSE 未复权日线收盘价",
+      "priceSource": "London Stock Exchange (LSEG)",
       "changePct": null,
       "marketValue": 933.7,
       "priceMarket": "LSE",
       "priceTimeZone": "Europe/London",
       "priceAsOf": "2026-11-13T16:35:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://finance.yahoo.com/quote/SPYL.L/history/"
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://www.londonstockexchange.com/en/quote/etps/SPYL/ssga-spdr-etfs-europe-i-plc"
     },
     {
       "id": "61b19850-7789-4940-b1cb-03bcfc159b1a",
@@ -273,18 +265,17 @@
       "quantity": 100,
       "cost": 12850,
       "averagePrice": 128.5,
-      "price": 132.061,
+      "price": 132.31,
       "priceDate": "2026-11-13",
-      "priceType": "intraday",
-      "priceSource": "Moomoo · 常规盘报价（页面分钟精度）",
+      "priceType": "close",
+      "priceSource": "Nasdaq historical data",
       "changePct": null,
-      "marketValue": 13206.1,
+      "marketValue": 13231,
       "priceMarket": "US",
       "priceTimeZone": "America/New_York",
-      "priceAsOf": "2026-11-13T20:07:00.000Z",
-      "priceFetchedAt": "2026-11-13T20:07:31.966Z",
-      "priceSourceUrl": "https://www.moomoo.com/stock/SPMO-US",
-      "priceSession": "regular"
+      "priceAsOf": "2026-11-13T21:00:00.000Z",
+      "priceFetchedAt": "2026-11-14T10:57:39.143Z",
+      "priceSourceUrl": "https://api.nasdaq.com/api/quote/SPMO/historical?assetclass=etf&fromdate=2026-11-13&todate=2026-11-14&limit=10"
     }
   ],
   "watchlist": [
@@ -354,6 +345,17 @@
           "currency": "USD",
           "source": "ChartExchange",
           "sourceUrl": "https://chartexchange.com/symbol/nasdaq-rklb/historical/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 632020915,
+          "asOf": "2026-11-04",
+          "filedAt": "2026-11-09",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001819994.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-10-22T00:59:10.717Z",
@@ -451,6 +453,17 @@
           "currency": "USD",
           "source": "Public.com",
           "sourceUrl": "https://public.com/stocks/oust/after-hours"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 72997169,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-03",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001816581.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-10-22T00:59:10.788Z",
@@ -538,6 +551,17 @@
           "currency": "USD",
           "source": "ChartExchange",
           "sourceUrl": "https://chartexchange.com/symbol/nasdaq-tmdx/news/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 34733883,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001756262.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-10-22T00:59:10.851Z",
@@ -633,6 +657,17 @@
           "currency": "USD",
           "source": "ChartExchange",
           "sourceUrl": "https://chartexchange.com/symbol/nasdaq-lunr/historical/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 232431671,
+          "asOf": "2026-11-05",
+          "filedAt": "2026-11-13",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1844452/000162828026073512/lunr-20260930.htm",
+          "basis": "Class A + Class C；Class B 为 0。",
+          "note": "SEC 封面分别披露 Class A 177,394,607 股、Class C 55,037,064 股；将普通股类别按一股一份经济权益合计。"
         }
       },
       "researchedAt": "2026-10-22T00:59:10.9Z",
@@ -724,6 +759,17 @@
           "currency": "USD",
           "source": "ChartExchange",
           "sourceUrl": "https://chartexchange.com/symbol/nasdaq-pltr/historical/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 2409153000,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-11-03",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001321655.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-10-22T00:59:10.964Z",
@@ -809,6 +855,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://au.finance.yahoo.com/quote/AEHR/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 32794791,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-06",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001040470.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 59.28,
@@ -891,6 +948,17 @@
           "currency": "USD",
           "source": "ChartExchange",
           "sourceUrl": "https://chartexchange.com/symbol/nasdaq-envx/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 212206365,
+          "asOf": "2026-11-06",
+          "filedAt": "2026-11-13",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001828318.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 1.98,
@@ -964,6 +1032,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/INOD/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 34412692,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000903651.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 36.19,
@@ -1037,6 +1116,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/ASTS/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 390109649,
+          "asOf": "2026-11-05",
+          "filedAt": "2026-11-09",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1780312/000119312526453759/asts-20260930.htm",
+          "basis": "Class A + Class B + Class C 普通股。",
+          "note": "SEC 封面分别披露 A 300,731,460 股、B 11,215,111 股、C 78,163,078 股；按相同普通股经济权益合计。"
         }
       },
       "price": 34.11,
@@ -1110,6 +1200,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/CRDO/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 187951918,
+          "asOf": "2026-08-25",
+          "filedAt": "2026-09-02",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001807794.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 137.62,
@@ -1183,6 +1284,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/HOOD/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 900491277,
+          "asOf": "2026-10-21",
+          "filedAt": "2026-10-28",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1783879/000178387926000167/hood-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面分别披露 A 793,425,151 股、B 107,066,126 股；不计未发行期权、权证或潜在可转债股份。"
         }
       },
       "price": 79.75,
@@ -1273,6 +1385,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/SPGI/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 289900000,
+          "asOf": "2026-10-23",
+          "filedAt": "2026-10-28",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000064040.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 469.9,
@@ -1346,6 +1469,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/VST/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 339394683,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-09",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001692819.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 133,
@@ -1419,6 +1553,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/AXP/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 670552018,
+          "asOf": "2026-10-15",
+          "filedAt": "2026-10-23",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000004962.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 318.75,
@@ -1492,6 +1637,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/INTC/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 5315000000,
+          "asOf": "2026-10-23",
+          "filedAt": "2026-10-30",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000050863.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 60.5,
@@ -1565,6 +1721,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/BRK-B/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 1404526308,
+          "asOf": "2026-10-28",
+          "filedAt": "2026-11-09",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1067983/000119312526452412/brka-20260930.htm",
+          "basis": "Class B 等值股数 = Class B 1,403,805,594 股 + Class A 480,476 股 × 1,500。",
+          "note": "SEC 披露 A/B 股数；公司说明 1 股 A 的经济权益等于 1,500 股 B，因此按 BRK.B 报价换算为 B 等值股数。"
         }
       },
       "price": 590.72,
@@ -1638,6 +1805,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/V/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 1796810123,
+          "asOf": "2026-10-29",
+          "filedAt": "2026-11-05",
+          "form": "10-K",
+          "source": "SEC Form 10-K · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1403161/000140316126000134/v-20260930.htm",
+          "basis": "Class A + B-1 + B-2 + B-3 + C 普通股总数。",
+          "note": "SEC 封面分别披露各普通股类别股数；按普通股经济权益一股一份合计，类别投票权/转让限制可能不同。"
         }
       },
       "price": 422.24,
@@ -2144,6 +2322,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/APLD/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 302387140,
+          "asOf": "2026-10-06",
+          "filedAt": "2026-10-07",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001144879.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 16.6,
@@ -2223,6 +2412,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/AMPX/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 146643613,
+          "asOf": "2026-11-06",
+          "filedAt": "2026-11-12",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001899287.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 8.34,
@@ -2302,6 +2502,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/PL/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 363847989,
+          "asOf": "2026-08-27",
+          "filedAt": "2026-09-03",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1836833/000119312526382016/pl-20260731.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 340,354,193 股、B 23,493,796 股；按一股一份经济权益合计。"
         }
       },
       "price": 13.86,
@@ -2391,6 +2602,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/IREN/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 357378674,
+          "asOf": "2026-04-30",
+          "filedAt": "2026-05-08",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001878848.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 19.16,
@@ -2474,6 +2696,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/TEM/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 182401637,
+          "asOf": "2026-10-29",
+          "filedAt": "2026-11-02",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1717115/000119312526442624/tem-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 177,357,848 股、B 5,043,789 股；按一股一份经济权益合计。"
         }
       },
       "price": 75.34,
@@ -2913,7 +3146,18 @@
             "url": "https://www.sea.com/investor/newsroom"
           }
         ],
-        "uncertainty": "截至 2026-10-26，最新完整季度为截至 2026-06-30 的 Q2；Q3 尚未公布，官方未确认发布日期。分部 EBITDA 与管理层展望为公司非 GAAP 指标。逾期率、贷款增长等为特定期间或时点指标。"
+        "uncertainty": "截至 2026-10-26，最新完整季度为截至 2026-06-30 的 Q2；Q3 尚未公布，官方未确认发布日期。分部 EBITDA 与管理层展望为公司非 GAAP 指标。逾期率、贷款增长等为特定期间或时点指标。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 612484522,
+          "asOf": "2026-03-31",
+          "filedAt": "2026-04-17",
+          "form": "20-F",
+          "source": "SEC Form 20-F · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1703399/000114036126015366/ef20067274_20f.htm",
+          "basis": "Class A + Class B ordinary shares；NYSE ADS 1:1 对应 Class A ordinary share。",
+          "note": "SEC 2025 Form 20-F 披露截至 2026-03-31 共 612,484,522 股普通股；其中 Class A 566,956,729 股、Class B 45,527,793 股。"
+        }
       },
       "researchedAt": "2026-10-25T23:11:02.286Z",
       "report": "research/my-holdings-research-se-2026-10-25.html",
@@ -2997,7 +3241,18 @@
             "url": "https://nu.com/en/newsroom/archive"
           }
         ],
-        "uncertainty": "截至 2026-10-26，最新业绩为 Q2 2026；官方尚未确认 Q3 业绩发布日期。Q2 部分增长率采用汇率中性口径。逾期率、客户数和贷款规模为公司披露的期间或时点指标。"
+        "uncertainty": "截至 2026-10-26，最新业绩为 Q2 2026；官方尚未确认 Q3 业绩发布日期。Q2 部分增长率采用汇率中性口径。逾期率、客户数和贷款规模为公司披露的期间或时点指标。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 4855673632,
+          "asOf": "2025-12-31",
+          "filedAt": "2026-04-08",
+          "form": "20-F",
+          "source": "SEC Form 20-F · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1691493/000129281426002166/nuform20f_2025.htm",
+          "basis": "Class A + Class B ordinary shares。",
+          "note": "SEC 2025 Form 20-F 封面披露 A 3,833,072,934 股、B 1,022,600,698 股；按普通股类别合计。"
+        }
       },
       "researchedAt": "2026-10-25T23:11:02.369Z",
       "report": "research/my-holdings-research-nu-2026-10-25.html",
@@ -3081,7 +3336,18 @@
             "url": "https://www.nasdaq.com/market-activity/stocks/sofi"
           }
         ],
-        "uncertainty": "报告数据截至 2026-10-26。Q3 业绩预定于次日发布，本报告只采用最新已披露的 Q2 数据。调整后收入、EBITDA、净利润和 EPS 展望是非 GAAP 指标。"
+        "uncertainty": "报告数据截至 2026-10-26。Q3 业绩预定于次日发布，本报告只采用最新已披露的 Q2 数据。调整后收入、EBITDA、净利润和 EPS 展望是非 GAAP 指标。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 1297840447,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001818874.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-25T23:11:02.423Z",
       "report": "research/my-holdings-research-sofi-2026-10-25.html",
@@ -3189,7 +3455,18 @@
             "url": "https://stockanalysis.com/stocks/adma/history/"
           }
         ],
-        "uncertainty": "截至2026-10-26；最新财报截至6月30日，Q3发布日期未核实。$10.68为10月23日二手行情，股数为7月披露数，回购后可能变化。公司撤回长期指引。FCFE、增速、折现率、退出倍数均为分析假设，终值占比较大，估值误差可能显著。未能独立核验最新渠道库存、净售价、客户采购合同、ACAAI摘要接收情况和SG-001时间表。没有组合权重、成本或风险偏好，未评估组合适配。仅供研究，不是个性化投资建议。"
+        "uncertainty": "截至2026-10-26；最新财报截至6月30日，Q3发布日期未核实。$10.68为10月23日二手行情，股数为7月披露数，回购后可能变化。公司撤回长期指引。FCFE、增速、折现率、退出倍数均为分析假设，终值占比较大，估值误差可能显著。未能独立核验最新渠道库存、净售价、客户采购合同、ACAAI摘要接收情况和SG-001时间表。没有组合权重、成本或风险偏好，未评估组合适配。仅供研究，不是个性化投资建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 221854389,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001368514.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-26T00:18:12.152Z",
       "report": "research/my-holdings-research-adma-2026-10-26.html",
@@ -3283,7 +3560,18 @@
             "url": "https://stockanalysis.com/stocks/pgy/history/"
           }
         ],
-        "uncertainty": "截至 2026-10-26，最新财务披露为 Q2 2026，Q3 尚未发布。估值是基于公司指引、15% 折现率、终值市盈率和未来 1.5% 年稀释的情景分析，缺少跨周期正常化利润和可比公司估值，属于低至中等置信度；报价来自第三方历史行情。组合持仓、风险预算及投资期限未知，不提供确定仓位建议。"
+        "uncertainty": "截至 2026-10-26，最新财务披露为 Q2 2026，Q3 尚未发布。估值是基于公司指引、15% 折现率、终值市盈率和未来 1.5% 年稀释的情景分析，缺少跨周期正常化利润和可比公司估值，属于低至中等置信度；报价来自第三方历史行情。组合持仓、风险预算及投资期限未知，不提供确定仓位建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 84027681,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-02",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1883085/000188308526000066/pgy-20260930.htm",
+          "basis": "Class A + Class B 已发行普通股。",
+          "note": "SEC 封面披露 A 72,739,104 股、B 11,288,577 股；排除 2,027,147 股可转换优先股，因其尚未转换为普通股。"
+        }
       },
       "researchedAt": "2026-10-26T00:21:17.67Z",
       "report": "research/my-holdings-research-pgy-2026-10-26.html",
@@ -3385,7 +3673,18 @@
             "url": "https://www.sec.gov/Archives/edgar/data/1851003/000095017025026629/zeta-ex99_1.htm"
           }
         ],
-        "uncertainty": "Q2 2026是最新季报；公司Q3发布日期截至截止时未确认。10月收购后没有最新季度资产负债表，EV使用就近数据估算；行情来源为二手历史报价，SEC只给相邻交易日价格。终值约占基准DCF 82%，对FCF增长、折现率、退出倍数和稀释敏感。分析师一致预期、组合适配、税务与投资者本位币回报未纳入。公司目标及前瞻非GAAP指标不保证兑现。"
+        "uncertainty": "Q2 2026是最新季报；公司Q3发布日期截至截止时未确认。10月收购后没有最新季度资产负债表，EV使用就近数据估算；行情来源为二手历史报价，SEC只给相邻交易日价格。终值约占基准DCF 82%，对FCF增长、折现率、退出倍数和稀释敏感。分析师一致预期、组合适配、税务与投资者本位币回报未纳入。公司目标及前瞻非GAAP指标不保证兑现。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 255458977,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-09",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1851003/000119312526453696/zeta-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 231,820,551 股、B 23,638,426 股；不把未归属限制股重复计入。"
+        }
       },
       "researchedAt": "2026-10-26T00:17:52.992Z",
       "report": "research/my-holdings-research-zeta-2026-10-26.html",
@@ -3473,7 +3772,18 @@
             "url": "https://www.investing.com/equities/cerebras-systems-inc-historical-data"
           }
         ],
-        "uncertainty": "最新财报为Q2；Q3未发布。最新完全摊薄股数、H2净现金、客户单位经济和独立同业倍数核验未完成；模型股数、净现金桥接与长期利润率均为明示假设。组合适配未完成。"
+        "uncertainty": "最新财报为Q2；Q3未发布。最新完全摊薄股数、H2净现金、客户单位经济和独立同业倍数核验未完成；模型股数、净现金桥接与长期利润率均为明示假设。组合适配未完成。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 243003364,
+          "asOf": "2026-11-05",
+          "filedAt": "2026-11-12",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/2021728/000162828026073494/cbrs-20260930.htm",
+          "basis": "Class A + Class B + Class N 普通股。",
+          "note": "SEC 封面披露 A 160,084,168 股、B 69,203,688 股、N 13,715,508 股；按公司已发行普通股类别合计。"
+        }
       },
       "researchedAt": "2026-10-26T01:35:44.199Z",
       "report": "research/my-holdings-research-cbrs-2026-10-26.html",
@@ -3563,7 +3873,18 @@
             "url": "https://investors.ao-inc.com/news-releases/news-release-details/applied-optoelectronics-reports-fourth-quarter-and-full-year-5"
           }
         ],
-        "uncertainty": "资料截至2026-10-26，最近财务期为2026-06-30；未使用尚未发布的Q3结果。10月ATM后资产负债表及完整当前稀释股数缺失，模型用500M净现金和100M股做条件试算，实际范围可能更宽，不能给高置信估值。历史仅列2023–2025及最新半年度，未完成5–10年全序列、行业可比倍数与最新代理声明审计；不以不完整资料生成精确ROIC或最终仓位。模型对扩产、终值和利润率特别敏感，极端情况可损失全部本金。行情不在本JSON回写；应用由独立价格任务维护。"
+        "uncertainty": "资料截至2026-10-26，最近财务期为2026-06-30；未使用尚未发布的Q3结果。10月ATM后资产负债表及完整当前稀释股数缺失，模型用500M净现金和100M股做条件试算，实际范围可能更宽，不能给高置信估值。历史仅列2023–2025及最新半年度，未完成5–10年全序列、行业可比倍数与最新代理声明审计；不以不完整资料生成精确ROIC或最终仓位。模型对扩产、终值和利润率特别敏感，极端情况可损失全部本金。行情不在本JSON回写；应用由独立价格任务维护。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 90770732,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001158114.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-26T01:35:44.26Z",
       "report": "research/my-holdings-research-aaoi-2026-10-26.html",
@@ -3659,7 +3980,18 @@
             "url": "https://investors.mpmaterials.com/events-and-presentations/events-calendar/event-details/2026/MP-Materials-Third-Quarter-2026-Earnings-Webcast-2026-3G4Ye47avY/default.aspx"
           }
         ],
-        "uncertainty": "未获得2026第三季度财务结果；现价来自二手历史行情而非交易所直供，研究未覆盖所有监管或临时事件。现金、债务与股数时点不同，不能据粗略EV精确下单。五年DCF仅作假设压力试算，2035年后经济性未核验，未完成真正独立可比估值和精确稀释估值。未纳入税费、汇率、个人组合约束。事实、管理层前瞻和研究假设已分别标示。本报告供研究决策，不保证收益。"
+        "uncertainty": "未获得2026第三季度财务结果；现价来自二手历史行情而非交易所直供，研究未覆盖所有监管或临时事件。现金、债务与股数时点不同，不能据粗略EV精确下单。五年DCF仅作假设压力试算，2035年后经济性未核验，未完成真正独立可比估值和精确稀释估值。未纳入税费、汇率、个人组合约束。事实、管理层前瞻和研究假设已分别标示。本报告供研究决策，不保证收益。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 178267976,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-06",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001801368.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-26T01:35:44.335Z",
       "report": "research/my-holdings-research-mp-2026-10-26.html",
@@ -3764,7 +4096,18 @@
             "url": "https://ir.clearpointneuro.com/sec-filings/all-sec-filings"
           }
         ],
-        "uncertainty": "最新财务期Q2 2026；当前现金/完全稀释股数、实际融资与债权退出成本、单位递送经济性未完整核验。DCF与收入倍数均为明示条件试算，独立可比交叉核验未完成。初始建仓价及组合适配待核验，不将收盘历史快照当实时行情。"
+        "uncertainty": "最新财务期Q2 2026；当前现金/完全稀释股数、实际融资与债权退出成本、单位递送经济性未完整核验。DCF与收入倍数均为明示条件试算，独立可比交叉核验未完成。初始建仓价及组合适配待核验，不将收盘历史快照当实时行情。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 32054268,
+          "asOf": "2026-10-21",
+          "filedAt": "2026-10-28",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001285550.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-26T11:10:55.788Z",
       "report": "research/my-holdings-research-clpt-2026-10-27.html",
@@ -3912,6 +4255,17 @@
           "currency": "USD",
           "source": "StockAnalysis / S&P Global Market Intelligence",
           "sourceUrl": "https://stockanalysis.com/stocks/ionq/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 432462651,
+          "asOf": "2026-10-28",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001824920.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-10-27T07:22:42.537Z",
@@ -3975,6 +4329,17 @@
           "currency": "USD",
           "source": "Yahoo Finance",
           "sourceUrl": "https://finance.yahoo.com/quote/BE/history/"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 295656689,
+          "asOf": "2026-10-19",
+          "filedAt": "2026-10-22",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001664703.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "price": 200.56,
@@ -4060,7 +4425,18 @@
             "url": "https://www.sec.gov/Archives/edgar/data/789019/000119312526323660/msft-20260630.htm"
           }
         ],
-        "uncertainty": "资料截止 2026-10-28 UTC。FY2027 Q1 财报已发布；官方公告称详细前瞻信息将在同日电话会上提供，但本报告没有引用未能从正式披露中核实的季度数值指引。RPO 的金额及确认时间受合同期限和客户履约影响；OpenAI 投资估值变动会扭曲 GAAP 同比。未更新报价、估值或合理买入价。"
+        "uncertainty": "资料截止 2026-10-28 UTC。FY2027 Q1 财报已发布；官方公告称详细前瞻信息将在同日电话会上提供，但本报告没有引用未能从正式披露中核实的季度数值指引。RPO 的金额及确认时间受合同期限和客户履约影响；OpenAI 投资估值变动会扭曲 GAAP 同比。未更新报价、估值或合理买入价。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 7426194552,
+          "asOf": "2026-10-22",
+          "filedAt": "2026-10-28",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000789019.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-28T22:11:33.993Z",
       "report": "research/20261028-msft.html",
@@ -4143,7 +4519,18 @@
             "url": "https://investor.apple.com/investor-relations/default.aspx"
           }
         ],
-        "uncertainty": "资料截止 2026-10-28 UTC。Apple 投资者关系页面及本次核对的正式披露以 FY2026 Q3 为最新完整季度；本报告没有将未发布/未核实的 FY2026 Q4 收入或新机销量当成已知。Q3 的毛利率与 EPS 包含关税退款贡献。公司在所引 Q3 新闻稿中没有数值化下一季收入指引。未更新报价、估值或合理买入价。"
+        "uncertainty": "资料截止 2026-10-28 UTC。Apple 投资者关系页面及本次核对的正式披露以 FY2026 Q3 为最新完整季度；本报告没有将未发布/未核实的 FY2026 Q4 收入或新机销量当成已知。Q3 的毛利率与 EPS 包含关税退款贡献。公司在所引 Q3 新闻稿中没有数值化下一季收入指引。未更新报价、估值或合理买入价。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 14532182000,
+          "asOf": "2026-10-23",
+          "filedAt": "2026-11-03",
+          "form": "10-K",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000320193.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-28T22:11:34.448Z",
       "report": "research/20261028-aapl.html",
@@ -4218,7 +4605,18 @@
             "url": "https://investor.nvidia.com/files/content_files/TRANSCRIPT_-NVIDIA-Corp-NVDA-US-Q2-2027-Earnings-Call-26-August-2026-5_00-PM-ET.pdf"
           }
         ],
-        "uncertainty": "资料截止 2026-10-28；NVDA 最新完整季报仍是 2026-08-26 发布的 FY2027 Q2，之后的营收、毛利率和产品进展尚待下一份正式业绩披露。FY2027 Q3 和 FY2028 数字为管理层指引或初步预期，可能改变。未在本研究中核实当前股价、估值倍数或个人账户适配；不构成买卖建议。"
+        "uncertainty": "资料截止 2026-10-28；NVDA 最新完整季报仍是 2026-08-26 发布的 FY2027 Q2，之后的营收、毛利率和产品进展尚待下一份正式业绩披露。FY2027 Q3 和 FY2028 数字为管理层指引或初步预期，可能改变。未在本研究中核实当前股价、估值倍数或个人账户适配；不构成买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 24100000000,
+          "asOf": "2026-08-21",
+          "filedAt": "2026-08-26",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001045810.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-28T22:14:33.968Z",
       "report": "research/20261028-nvda.html",
@@ -4298,7 +4696,18 @@
             "url": "https://curia.europa.eu/site/upload/docs/application/pdf/2026-07/cp260093en.pdf"
           }
         ],
-        "uncertainty": "资料截止 2026-10-28。Q3 2026 新闻稿已发布，但相应季度 Form 10-Q 尚未在本研究截止时点核对；关于截至 2026-06-30 的数据明确标为上季度披露。公司未量化 AI 搜索的净增量广告收入，也未给出足以独立推算 AI 投入回报的详细单位经济数据。证券投资未实现损益可能令净利润大幅波动。未核实当前股价、估值倍数或个人账户适配；不构成买卖建议。"
+        "uncertainty": "资料截止 2026-10-28。Q3 2026 新闻稿已发布，但相应季度 Form 10-Q 尚未在本研究截止时点核对；关于截至 2026-06-30 的数据明确标为上季度披露。公司未量化 AI 搜索的净增量广告收入，也未给出足以独立推算 AI 投入回报的详细单位经济数据。证券投资未实现损益可能令净利润大幅波动。未核实当前股价、估值倍数或个人账户适配；不构成买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 12294000000,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-10-29",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001652044.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-28T22:14:34.209Z",
       "report": "research/20261028-goog.html",
@@ -4372,7 +4781,18 @@
             "url": "https://www.sec.gov/Archives/edgar/data/1018724/000101872426000026/amzn-20260630.htm"
           }
         ],
-        "uncertainty": "信息截止 2026-10-28 UTC；Amazon 第三季度实际业绩尚未发布，不能用指引替代实际结果。AI 投资收益、未来资本开支和长期自由现金流回报仍需后续披露验证。本文未估算内在价值或目标价，也不是个性化买卖建议。"
+        "uncertainty": "信息截止 2026-10-28 UTC；Amazon 第三季度实际业绩尚未发布，不能用指引替代实际结果。AI 投资收益、未来资本开支和长期自由现金流回报仍需后续披露验证。本文未估算内在价值或目标价，也不是个性化买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 10813138306,
+          "asOf": "2026-10-21",
+          "filedAt": "2026-10-30",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001018724.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-28T22:11:34.523Z",
       "report": "research/20261028-amzn.html",
@@ -4446,7 +4866,18 @@
             "url": "https://investor.atmeta.com/investor-events/default.aspx?ShowEvents=PAST"
           }
         ],
-        "uncertainty": "信息截止 2026-10-28 UTC。Meta 对法律协议、资本开支、收入和亏损的展望均为管理层预期；剔除法律费用的营业利润与 EPS 为公司给出的分析口径。广告市场、监管结果与 AI 投资回报仍不确定。本文未估算内在价值或目标价，也不是个性化买卖建议。"
+        "uncertainty": "信息截止 2026-10-28 UTC。Meta 对法律协议、资本开支、收入和亏损的展望均为管理层预期；剔除法律费用的营业利润与 EPS 为公司给出的分析口径。广告市场、监管结果与 AI 投资回报仍不确定。本文未估算内在价值或目标价，也不是个性化买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 2556241253,
+          "asOf": "2026-10-16",
+          "filedAt": "2026-10-22",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1326801/000162828026066773/meta-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 2,214,472,367 股、B 341,768,886 股；待未来派发的 Class C 股截至该日尚未发行，不计入。"
+        }
       },
       "researchedAt": "2026-10-28T22:11:34.606Z",
       "report": "research/20261028-meta.html",
@@ -4521,7 +4952,18 @@
             "url": "https://ir.tesla.com/press-release/tesla-third-quarter-2026-production-deliveries-and-deployments"
           }
         ],
-        "uncertainty": "信息截止 2026-10-28 UTC。Robotaxi、FSD 和能源业务相关运营数据来自 Tesla 公司披露，尚不能据此断定商业模式已成熟或监管批准已完成。关税、供应链和技术投入回报仍不确定。本文未估算内在价值或目标价，也不是个性化买卖建议。"
+        "uncertainty": "信息截止 2026-10-28 UTC。Robotaxi、FSD 和能源业务相关运营数据来自 Tesla 公司披露，尚不能据此断定商业模式已成熟或监管批准已完成。关税、供应链和技术投入回报仍不确定。本文未估算内在价值或目标价，也不是个性化买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 3952757946,
+          "asOf": "2026-10-15",
+          "filedAt": "2026-10-22",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001318605.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-28T22:11:34.68Z",
       "report": "research/20261028-tsla.html",
@@ -4601,7 +5043,18 @@
             "url": "https://ir.amd.com/news-events/press-releases/detail/1301/introducing-amd-helion-agentic-ai-compute-at-rack-scale"
           }
         ],
-        "uncertainty": "信息截止 2026-10-28 UTC。AMD Q3 2026 尚未发布，收入与毛利率数字仍为 2026-08-04 管理层指引。大型客户部署量为多年计划目标，出货、验收、收入确认与投资回报时间未确定；AMD Helion 配置仍在开发，计划于 2026 年 11 月提供，不代表已量产或产生收入。未取得本任务要求截止日之后的公司披露；本报告不含独立行情报价、内在价值估算或目标价，也不是个性化买卖建议。"
+        "uncertainty": "信息截止 2026-10-28 UTC。AMD Q3 2026 尚未发布，收入与毛利率数字仍为 2026-08-04 管理层指引。大型客户部署量为多年计划目标，出货、验收、收入确认与投资回报时间未确定；AMD Helion 配置仍在开发，计划于 2026 年 11 月提供，不代表已量产或产生收入。未取得本任务要求截止日之后的公司披露；本报告不含独立行情报价、内在价值估算或目标价，也不是个性化买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 1640087251,
+          "asOf": "2026-10-28",
+          "filedAt": "2026-11-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000002488.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-28T22:16:41.409Z",
       "report": "research/20261028-amd.html",
@@ -4680,7 +5133,18 @@
             "url": "https://www.sec.gov/Archives/edgar/data/1046179/000162828026025362/tsm-20251231.htm"
           }
         ],
-        "uncertainty": "信息截止 2026-10-28 UTC。Q3 实际业绩由台积电于 2026-10-15 发布，但公告注明尚未获董事会批准；Q4 收入、利润率及全年增长均为管理层预期。客户需求、2nm 良率和海外厂成本曲线、未来资本回报及地缘环境均存在不确定性。未附独立行情报价、估值或目标价，也不是个性化买卖建议。"
+        "uncertainty": "信息截止 2026-10-28 UTC。Q3 实际业绩由台积电于 2026-10-15 发布，但公告注明尚未获董事会批准；Q4 收入、利润率及全年增长均为管理层预期。客户需求、2nm 良率和海外厂成本曲线、未来资本回报及地缘环境均存在不确定性。未附独立行情报价、估值或目标价，也不是个性化买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 1062645000,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-11-13",
+          "form": "6-K",
+          "source": "SEC Form 6-K · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1046179/000104617926000801/a2026q3consolidatedreport-.htm",
+          "basis": "NYSE ADS 等值股数；1 ADS 对应 5 股普通股（5,313,225,000 股普通股 ÷ 5）。",
+          "note": "SEC 2026 Q3 报告披露截至 2026-09-30 有 1,062,645,000 份 ADS 流通；按美股报价单位直接使用 ADS 数。"
+        }
       },
       "researchedAt": "2026-10-28T22:16:41.619Z",
       "report": "research/20261028-tsm.html",
@@ -4754,7 +5218,18 @@
             "label": "SEC：SpaceX 2026 年 IPO 注册文件"
           }
         ],
-        "uncertainty": "本次首次研究未建立分部估值、稀释后股本和自由现金流预测。后续需跟踪分部资本开支与经营现金流、SI 算力利用率和客户集中度、Starship 许可及发射里程碑，以及 Cursor 并购后的股权薪酬变化。积压订单的取消条款和实际确认进度也应在后续披露中复核。未给出目标价或买卖建议。"
+        "uncertainty": "本次首次研究未建立分部估值、稀释后股本和自由现金流预测。后续需跟踪分部资本开支与经营现金流、SI 算力利用率和客户集中度、Starship 许可及发射里程碑，以及 Cursor 并购后的股权薪酬变化。积压订单的取消条款和实际确认进度也应在后续披露中复核。未给出目标价或买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 13581063709,
+          "asOf": "2026-10-15",
+          "filedAt": "2026-10-22",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1181412/000162828026066880/spcx-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 8,246,541,218 股、B 5,334,522,491 股；按已发行普通股类别合计。"
+        }
       },
       "researchedAt": "2026-10-29T08:39:00.75Z",
       "report": "research/my-holdings-research-spcx-2026-10-29.html",
@@ -4835,7 +5310,18 @@
             "label": "UnitedHealth Group：2025 Form 10-K"
           }
         ],
-        "uncertainty": "CMS 的 2.48% 是行业平均支付变化，不是 UNH 特定费率。后续需阅读公司完整 Q3 Form 10-Q，拆解各业务会员变化、MCR 中准备金发展影响、Optum 利润率及现金流；同时关注 2027 年最终计划报价、CMS 风险调整规则和州级 Medicaid 合同变化。本次报告未进行估值或估算合理股价。"
+        "uncertainty": "CMS 的 2.48% 是行业平均支付变化，不是 UNH 特定费率。后续需阅读公司完整 Q3 Form 10-Q，拆解各业务会员变化、MCR 中准备金发展影响、Optum 利润率及现金流；同时关注 2027 年最终计划报价、CMS 风险调整规则和州级 Medicaid 合同变化。本次报告未进行估值或估算合理股价。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 896022611,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-03",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000731766.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T08:39:01.092Z",
       "report": "research/my-holdings-research-unh-2026-10-29.html",
@@ -4904,7 +5390,18 @@
             "url": "https://ir.symbotic.com/news-releases/news-release-details/symbotic-reports-third-quarter-fiscal-year-2026-results"
           }
         ],
-        "uncertainty": "公司最新实际业绩披露为 Q3 FY2026（截至 2026-06-27）；Q4 数据尚未纳入本次研究，使用的 Q4 收入和 EBITDA 数值是公司指引。报告未建立订单级收入预测、长期自由现金流预测或目标价；后续需要复核系统部署转化、应收账款和客户集中度。"
+        "uncertainty": "公司最新实际业绩披露为 Q3 FY2026（截至 2026-06-27）；Q4 数据尚未纳入本次研究，使用的 Q4 收入和 EBITDA 数值是公司指引。报告未建立订单级收入预测、长期自由现金流预测或目标价；后续需要复核系统部署转化、应收账款和客户集中度。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 603863978,
+          "asOf": "2026-06-27",
+          "filedAt": "2026-08-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001837240.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T09:06:41.812Z",
       "report": "research/my-holdings-research-sym-2026-10-29.html",
@@ -4977,7 +5474,18 @@
             "url": "https://investor.cognex.com/news/news-details/2026/Cognex-to-Acquire-RealSense-Expanding-Machine-Vision-Leadership-into-High-Growth-Robotic-Perception-Market/default.aspx"
           }
         ],
-        "uncertainty": "研究使用截至 2026-10-29 已发布的 Q2 实际业绩和 Q3 指引；Q3 实际数据尚未发布。RealSense 交易仍处于待交割阶段，其市场规模和收入均属于公司披露的估计。报告未建模交易后资产负债表、协同收入或长期估值。"
+        "uncertainty": "研究使用截至 2026-10-29 已发布的 Q2 实际业绩和 Q3 指引；Q3 实际数据尚未发布。RealSense 交易仍处于待交割阶段，其市场规模和收入均属于公司披露的估计。报告未建模交易后资产负债表、协同收入或长期估值。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 168378060,
+          "asOf": "2026-11-01",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000851205.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T09:06:42.132Z",
       "report": "research/my-holdings-research-cgnx-2026-10-29.html",
@@ -5046,7 +5554,18 @@
             "url": "https://ir.uipath.com/financials/sec-filings/content/0001734722-26-000050/path-20260731.htm"
           }
         ],
-        "uncertainty": "FY2027 财年截至 2027-01-31；报告日期 2026-10-29 时，Q3 财季尚未结束。Q3 和全年收入、ARR 及非 GAAP 营业利润都是公司指引，后续需以实际披露更新。报告未做 ARR 倍数或现金流折现估值。"
+        "uncertainty": "FY2027 财年截至 2027-01-31；报告日期 2026-10-29 时，Q3 财季尚未结束。Q3 和全年收入、ARR 及非 GAAP 营业利润都是公司指引，后续需以实际披露更新。报告未做 ARR 倍数或现金流折现估值。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 521155409,
+          "asOf": "2026-09-03",
+          "filedAt": "2026-09-08",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1734722/000173472226000050/path-20260731.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 456,464,703 股、B 64,690,706 股；按一股一份经济权益合计。"
+        }
       },
       "researchedAt": "2026-10-29T09:06:42.259Z",
       "report": "research/my-holdings-research-path-2026-10-29.html",
@@ -5115,7 +5634,18 @@
             "url": "https://investor.servicenow.com/overview/default.aspx"
           }
         ],
-        "uncertainty": "Q3 数据于 2026-10-28 发布，全部财务数字按公司披露口径。AI ACV 是管理层目标，cRPO/RPO 是合同履约义务而非保证利润。报告未使用股价、预期倍数或资本成本建立目标价；并购的独立贡献尚需后续季度披露。"
+        "uncertainty": "Q3 数据于 2026-10-28 发布，全部财务数字按公司披露口径。AI ACV 是管理层目标，cRPO/RPO 是合同履约义务而非保证利润。报告未使用股价、预期倍数或资本成本建立目标价；并购的独立贡献尚需后续季度披露。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 1037917000,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-10-28",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001373715.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T09:06:42.405Z",
       "report": "research/my-holdings-research-now-2026-10-29.html",
@@ -5188,7 +5718,18 @@
             "url": "https://investor.ambarella.com/financial-information/"
           }
         ],
-        "uncertainty": "Q3 FY2027 财季于 2026-10-31 结束；截至本研究日 2026-10-29，Q3 结果尚未公布，使用的是公司 9 月给出的指引。报告未量化尚未公开的设计管线、未来量产规模或晶圆代工风险暴露。"
+        "uncertainty": "Q3 FY2027 财季于 2026-10-31 结束；截至本研究日 2026-10-29，Q3 结果尚未公布，使用的是公司 9 月给出的指引。报告未量化尚未公开的设计管线、未来量产规模或晶圆代工风险暴露。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 44140971,
+          "asOf": "2026-08-31",
+          "filedAt": "2026-09-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001280263.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T09:06:42.541Z",
       "report": "research/my-holdings-research-amba-2026-10-29.html",
@@ -5257,7 +5798,18 @@
             "url": "https://investors.teradyne.com/financial-results"
           }
         ],
-        "uncertainty": "Q3 实际业绩和 Q4 指引来自 2026-10-27 公司公告；Q4 结果尚未公布。公司调整后 EPS 排除若干费用，报告同时保留 GAAP 数字以供比较。报告未建立半导体资本支出周期模型或机器人分部估值。"
+        "uncertainty": "Q3 实际业绩和 Q4 指引来自 2026-10-27 公司公告；Q4 结果尚未公布。公司调整后 EPS 排除若干费用，报告同时保留 GAAP 数字以供比较。报告未建立半导体资本支出周期模型或机器人分部估值。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 156124751,
+          "asOf": "2026-10-26",
+          "filedAt": "2026-10-30",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000097210.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T09:06:42.681Z",
       "report": "research/my-holdings-research-ter-2026-10-29.html",
@@ -5331,7 +5883,18 @@
             "url": "https://dlocal.gcs-web.com/"
           }
         ],
-        "uncertainty": "资料截至 2026-10-29。最新完整季度财报为 Q2 2026；公司称 Q3 于 2026-11-12 发布。报告没有建模长期利润、完整估值或目标价；Q2 指引是管理层预测。商户级盈利、各市场敞口和最新 Q3 数据需财报发布后复核。"
+        "uncertainty": "资料截至 2026-10-29。最新完整季度财报为 Q2 2026；公司称 Q3 于 2026-11-12 发布。报告没有建模长期利润、完整估值或目标价；Q2 指引是管理层预测。商户级盈利、各市场敞口和最新 Q3 数据需财报发布后复核。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 294931956,
+          "asOf": "2025-12-31",
+          "filedAt": "2026-03-18",
+          "form": "20-F",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001846832.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T10:54:32.236Z",
       "report": "research/my-holdings-research-dlo-2026-10-29.html",
@@ -5409,7 +5972,18 @@
             "url": "https://investors.cellebrite.com/news-releases/news-release-details/cellebrite-report-third-quarter-2026-financial-results-november/"
           }
         ],
-        "uncertainty": "资料截至 2026-10-29。最新完整财报为 Q2 2026，公司定于 2026-11-12 发布 Q3。Q3 和全年指引均为管理层预期而非实际结果；未建立折现现金流或目标价。需继续核实新 CEO 的执行、政府采购周期、续费扩展和伦理/隐私影响。"
+        "uncertainty": "资料截至 2026-10-29。最新完整财报为 Q2 2026，公司定于 2026-11-12 发布 Q3。Q3 和全年指引均为管理层预期而非实际结果；未建立折现现金流或目标价。需继续核实新 CEO 的执行、政府采购周期、续费扩展和伦理/隐私影响。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 249439817,
+          "asOf": "2026-02-23",
+          "filedAt": "2026-03-03",
+          "form": "20-F",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001854587.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-29T10:54:32.398Z",
       "report": "research/my-holdings-research-clbt-2026-10-29.html",
@@ -5483,7 +6057,18 @@
             "url": "https://www.sec.gov/Archives/edgar/data/1680062/000162828026013231/acmr-20251231.htm"
           }
         ],
-        "uncertainty": "资料截至 2026-10-29。Q3 收入及出货数是公司初步、未经审计预期，正式数据预计 2026-11-05 发布。Q2 GAAP 净利润含显著短期投资未实现收益；需以主营利润和现金流复核。对子公司现金的可调配性、出口许可影响和新设备量产进度尚需持续确认。"
+        "uncertainty": "资料截至 2026-10-29。Q3 收入及出货数是公司初步、未经审计预期，正式数据预计 2026-11-05 发布。Q2 GAAP 净利润含显著短期投资未实现收益；需以主营利润和现金流复核。对子公司现金的可调配性、出口许可影响和新设备量产进度尚需持续确认。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 70011158,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-06",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1680062/000162828026071670/acmr-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 65,019,350 股、B 4,991,808 股；按一股一份经济权益合计。"
+        }
       },
       "researchedAt": "2026-10-29T10:54:32.525Z",
       "report": "research/my-holdings-research-acmr-2026-10-29.html",
@@ -5565,7 +6150,18 @@
             "url": "https://investor.marvell.com/news-events/press-releases/detail/1039/marvell-bolsters-connectivity-portfolio-with-new-3-2t-protocol-aware-retimer-and-second-generation-1-6t-aec-dsp"
           }
         ],
-        "uncertainty": "公开资料没有完整披露逐客户收入占比。管理层指引、客户项目和送样计划均属前瞻性信息，不保证量产或盈利。TTM EPS 包含出售业务的非经常收益；本报告按 GAAP 摊薄 EPS 估算 P/E，财务数值经过四舍五入，正常化盈利需后续财报进一步验证。"
+        "uncertainty": "公开资料没有完整披露逐客户收入占比。管理层指引、客户项目和送样计划均属前瞻性信息，不保证量产或盈利。TTM EPS 包含出售业务的非经常收益；本报告按 GAAP 摊薄 EPS 估算 P/E，财务数值经过四舍五入，正常化盈利需后续财报进一步验证。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 876900000,
+          "asOf": "2026-08-21",
+          "filedAt": "2026-08-28",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001835632.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-30T06:45:47.798Z",
       "report": "research/20261030-mrvl.html",
@@ -5654,7 +6250,18 @@
             "url": "https://www.sec.gov/Archives/edgar/data/1787306/000178730626000051/arqt-20260630.htm"
           }
         ],
-        "uncertainty": "截至报告日，Q3 2026 财报尚未发布；全年指引、净价、现金流和销售费用需结合 11 月 4 日结果复核。审批与临床计划存在不确定性。本报告 P/E 使用四个季度公告披露的 GAAP 摊薄 EPS 四舍五入值相加，因此与供应商按未舍入数计算的倍数可能略有差异。"
+        "uncertainty": "截至报告日，Q3 2026 财报尚未发布；全年指引、净价、现金流和销售费用需结合 11 月 4 日结果复核。审批与临床计划存在不确定性。本报告 P/E 使用四个季度公告披露的 GAAP 摊薄 EPS 四舍五入值相加，因此与供应商按未舍入数计算的倍数可能略有差异。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 126455033,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001787306.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-10-30T06:45:48.542Z",
       "report": "research/20261030-arqt.html",
@@ -5728,7 +6335,18 @@
             "url": "https://stockanalysis.com/stocks/inta/history/"
           }
         ],
-        "uncertainty": "本报告只使用截至 2026-11-01 已公开资料；FY2027 Q1 是最新已公布季度。ARR、净留存率和非 GAAP 指标由公司定义；管理层指引不是保证。资料未能单独量化 Celeste 对新增收入的贡献，故不把产品发布或合作公告视为已兑现的 AI 收入。"
+        "uncertainty": "本报告只使用截至 2026-11-01 已公开资料；FY2027 Q1 是最新已公布季度。ARR、净留存率和非 GAAP 指标由公司定义；管理层指引不是保证。资料未能单独量化 Celeste 对新增收入的贡献，故不把产品发布或合作公告视为已兑现的 AI 收入。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 76651377,
+          "asOf": "2026-10-20",
+          "filedAt": "2026-10-27",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001565687.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-01T09:32:36.181Z",
       "report": "research/my-holdings-research-inta-2026-11-01.html",
@@ -5810,7 +6428,18 @@
             "url": "https://stockanalysis.com/stocks/docn/history/"
           }
         ],
-        "uncertainty": "截至研究日，Q3 2026 结果尚未公布；Q2 指引和 2027 增长目标均是管理层前瞻性判断。RPO、AI ARR 和大客户类别按公司当期定义统计，历史口径可能有调整。融资额度不代表已经全部提款，也不代表相应算力必然按计划变现。"
+        "uncertainty": "截至研究日，Q3 2026 结果尚未公布；Q2 指引和 2027 增长目标均是管理层前瞻性判断。RPO、AI ARR 和大客户类别按公司当期定义统计，历史口径可能有调整。融资额度不代表已经全部提款，也不代表相应算力必然按计划变现。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 117996815,
+          "asOf": "2026-10-29",
+          "filedAt": "2026-11-03",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001582961.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-01T09:32:36.639Z",
       "report": "research/my-holdings-research-docn-2026-11-01.html",
@@ -5892,7 +6521,18 @@
             "url": "https://stockanalysis.com/stocks/flyw/history/"
           }
         ],
-        "uncertainty": "截至研究日，Q3 2026 财报尚未公布；本研究使用 Q2 2026 作为最新业绩基准。OFAC 沟通尚无最终结论，管理层关于潜在损失不重大的判断不是监管认定。学生付款计划次数是累计运营指标，不等同支付金额、客户数量或收入。"
+        "uncertainty": "截至研究日，Q3 2026 财报尚未公布；本研究使用 Q2 2026 作为最新业绩基准。OFAC 沟通尚无最终结论，管理层关于潜在损失不重大的判断不是监管认定。学生付款计划次数是累计运营指标，不等同支付金额、客户数量或收入。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 122494955,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-11-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001580560.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-01T09:32:36.740Z",
       "report": "research/my-holdings-research-flyw-2026-11-01.html",
@@ -5982,6 +6622,17 @@
           "currency": "USD",
           "source": "TradingView BOATS（Blue Ocean Alternative Trade System）",
           "sourceUrl": "https://www.tradingview.com/chart/?symbol=BOATS%3ACLMB"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 18657963,
+          "asOf": "2026-10-29",
+          "filedAt": "2026-10-29",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000945983.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-11-02T08:45:36.786Z",
@@ -6064,6 +6715,17 @@
           "currency": "USD",
           "source": "TradingView BOATS（Blue Ocean Alternative Trade System）",
           "sourceUrl": "https://www.tradingview.com/chart/?symbol=BOATS%3AALGM"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 186483352,
+          "asOf": "2026-10-26",
+          "filedAt": "2026-10-30",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000866291.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-11-02T08:45:37.049Z",
@@ -6153,7 +6815,18 @@
             "url": "https://ir.gitlab.com/financials/quarterly-results/"
           }
         ],
-        "uncertainty": "截至 2026-11-03，最新已公布季度为截至 2026-07-31 的 Q2 FY27；Q3 业绩尚未发布。报告不使用历史报价覆盖独立报价字段，前瞻指引可能变化；本研究不构成买卖建议。"
+        "uncertainty": "截至 2026-11-03，最新已公布季度为截至 2026-07-31 的 Q2 FY27；Q3 业绩尚未发布。报告不使用历史报价覆盖独立报价字段，前瞻指引可能变化；本研究不构成买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 166600000,
+          "asOf": "2026-08-18",
+          "filedAt": "2026-09-02",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1653482/000162828026059943/gtlb-20260731.htm",
+          "basis": "Class A + Class B 普通股（Class B 于 2026-08-21 按 1:1 自动转换为 Class A）。",
+          "note": "SEC 封面将 A/B 股数分别披露为 165.5 million 和 1.1 million；按公司报告精度合计约 166.6 million 股。"
+        }
       },
       "researchedAt": "2026-11-03T10:11:15.786Z",
       "report": "research/20261103-gtlb.html",
@@ -6238,7 +6911,18 @@
             "url": "https://investor.bill.com/financials/quarterly-results/"
           }
         ],
-        "uncertainty": "截至 2026-11-03，最新已公布报告期为截至 2026-06-30 的 FY2026；Q1 FY27 结果预定 2026-11-05 发布。公司公告中的 AI 指标与指引由公司披露，尚不代表未来收益保证；本研究不构成买卖建议。"
+        "uncertainty": "截至 2026-11-03，最新已公布报告期为截至 2026-06-30 的 FY2026；Q1 FY27 结果预定 2026-11-05 发布。公司公告中的 AI 指标与指引由公司披露，尚不代表未来收益保证；本研究不构成买卖建议。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 85883042,
+          "asOf": "2026-10-29",
+          "filedAt": "2026-11-06",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001786352.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-03T10:11:15.908Z",
       "report": "research/20261103-bill.html",
@@ -6322,6 +7006,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/CLFD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 13583955,
+          "asOf": "2026-07-31",
+          "filedAt": "2026-08-06",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000796505.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "report": "research/my-holdings-research-clfd-2026-11-07.html",
@@ -6403,6 +7098,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/VTEX/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 172993479,
+          "asOf": "2025-12-31",
+          "filedAt": "2026-02-26",
+          "form": "20-F",
+          "source": "SEC Form 20-F · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1793663/000119312526076504/ck0001793663-20251231.htm",
+          "basis": "Class A + Class B ordinary shares。",
+          "note": "SEC 2025 Form 20-F 披露截至 2025-12-31 A 92,576,749 股、B 80,416,730 股；采用最新找到的正式流通股数。"
         }
       },
       "researchedAt": "2026-11-07T07:45:54.253Z",
@@ -6485,6 +7191,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/AMPL/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 127497956,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1866692/000119312526447817/ampl-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 104,103,514 股、B 23,394,442 股；按一股一份经济权益合计。"
         }
       },
       "researchedAt": "2026-11-07T07:45:54.581Z",
@@ -6567,6 +7284,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/TARS/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 49305552,
+          "asOf": "2026-10-29",
+          "filedAt": "2026-11-03",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001819790.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-11-07T07:45:54.778Z",
@@ -6649,6 +7377,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/RSKD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 148152503,
+          "asOf": "2025-12-31",
+          "filedAt": "2026-03-06",
+          "form": "20-F",
+          "source": "SEC Form 20-F · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1851112/000185111226000007/rskd-20251231.htm",
+          "basis": "Class A + Class B ordinary shares；Class B 转让时按 1:1 转为 Class A。",
+          "note": "SEC 2025 Form 20-F 披露截至 2025-12-31 A 104,034,048 股、B 44,118,455 股；采用最新找到的正式流通股数。"
         }
       },
       "researchedAt": "2026-11-07T07:45:54.870Z",
@@ -6731,6 +7470,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/FIVN/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 75300376,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001288847.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-11-07T07:45:54.961Z",
@@ -6813,6 +7563,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/LMB/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 11730205,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-03",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001606163.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-11-07T07:45:55.053Z",
@@ -6895,6 +7656,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/TOST/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 581000000,
+          "asOf": "2026-10-30",
+          "filedAt": "2026-11-04",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1650164/000165016426000216/tost-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 519 million 股、B 62 million 股（按百万股取整披露）；两类普通股按一股一份合计。"
         }
       },
       "researchedAt": "2026-11-07T07:45:55.167Z",
@@ -6977,6 +7749,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/OSCR/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 310686000,
+          "asOf": "2026-10-31",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1568651/000156865126000086/oscr-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面按千股披露 A 275,510,000 股、B 35,176,000 股；按普通股类别合计。"
         }
       },
       "researchedAt": "2026-11-07T07:45:55.257Z",
@@ -7059,6 +7842,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/ALKT/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 107042319,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-10-29",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001529274.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
         }
       },
       "researchedAt": "2026-11-07T07:45:55.359Z",
@@ -7141,6 +7935,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/PAY/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 126111148,
+          "asOf": "2026-10-29",
+          "filedAt": "2026-11-03",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1841156/000119312526443966/pay-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 78,633,959 股、B 47,477,189 股；按一股一份经济权益合计。"
         }
       },
       "researchedAt": "2026-11-07T07:45:55.442Z",
@@ -7223,6 +8028,17 @@
           "currency": "USD",
           "source": "Nasdaq 官方历史日线（最近正式收盘）",
           "sourceUrl": "https://api.nasdaq.com/api/quote/TTD/historical?assetclass=stocks&fromdate=2026-11-01&todate=2026-11-07&limit=10"
+        },
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 472887810,
+          "asOf": "2026-10-31",
+          "filedAt": "2026-11-09",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1671933/000167193326000116/ttd-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 429,792,121 股、B 43,095,689 股；按一股一份经济权益合计。"
         }
       },
       "researchedAt": "2026-11-07T07:45:55.529Z",
@@ -7314,7 +8130,18 @@
             "url": "https://stockanalysis.com/stocks/nbis/statistics/"
           }
         ],
-        "uncertainty": "最新已发布财务期为2026Q2，不能提前使用11月12日尚未发布的三季报。N/M采用任务指定的四季EPS相加口径，不表示TTM净利润一定为负；净利润与逐季摊薄EPS会因稀释处理而不同。估值与组合适配尚未完成，未提供最终买入价或目标仓位。"
+        "uncertainty": "最新已发布财务期为2026Q2，不能提前使用11月12日尚未发布的三季报。N/M采用任务指定的四季EPS相加口径，不表示TTM净利润一定为负；净利润与逐季摊薄EPS会因稀释处理而不同。估值与组合适配尚未完成，未提供最终买入价或目标仓位。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 253016971,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-11-12",
+          "form": "6-K",
+          "source": "SEC Form 6-K · Q3 2026 financial statements",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1513845/000110465926126238/nbis-ex99d2.htm",
+          "basis": "Class A + Class B ordinary shares; Class C had no shares outstanding.",
+          "note": "SEC Q3 2026 report states 219,465,088 Class A and 33,551,883 Class B shares outstanding at September 30, 2026; both common classes are included."
+        }
       },
       "researchedAt": "2026-11-10T09:15:42.923Z",
       "report": "research/my-holdings-research-nbis-2026-11-10.html",
@@ -7405,7 +8232,18 @@
             "url": "https://www.camtek.com/news-and-events/camtek-announces-pricing-of-upsized-private-offering-of-425-million-of-0-00-convertible-senior-notes-due-2030/"
           }
         ],
-        "uncertainty": "股价为11月10日盘前快照，财务为9月30日三季报，管理层展望另列。P/E使用已披露四季GAAP EPS之和，数值有美分舍入误差；不以非GAAP EPS或forward P/E替代。未建立完整DCF与独立交叉估值，组合最终仓位仍待完整约束核验。"
+        "uncertainty": "股价为11月10日盘前快照，财务为9月30日三季报，管理层展望另列。P/E使用已披露四季GAAP EPS之和，数值有美分舍入误差；不以非GAAP EPS或forward P/E替代。未建立完整DCF与独立交叉估值，组合最终仓位仍待完整约束核验。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 46725239,
+          "asOf": "2026-09-30",
+          "filedAt": "2026-11-04",
+          "form": "6-K",
+          "source": "SEC Form 6-K · Q3 2026 consolidated results",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1109138/000117891326005000/zk2636329.htm",
+          "basis": "Camtek ordinary shares outstanding; Nasdaq quote is per ordinary share.",
+          "note": "SEC Q3 2026 report states 46,725,239 ordinary shares outstanding at September 30, 2026; excludes 2,092,376 treasury shares."
+        }
       },
       "researchedAt": "2026-11-10T09:15:43.177Z",
       "report": "research/my-holdings-research-camt-2026-11-10.html"
@@ -7466,7 +8304,18 @@
             "url": "https://stockanalysis.com/stocks/soun/statistics/"
           }
         ],
-        "uncertainty": "资料截至2026-11-13（新西兰2026-11-14）；最新正式财报为2026-09-30季度10-Q、11月9日提交。TTM估值采用11月13日专业源页面，非持仓报价更新。缺少可靠并购后自然增长、留存与稳定现金流假设，未建立DCF/可比交叉估值、目标价或个性化仓位。"
+        "uncertainty": "资料截至2026-11-13（新西兰2026-11-14）；最新正式财报为2026-09-30季度10-Q、11月9日提交。TTM估值采用11月13日专业源页面，非持仓报价更新。缺少可靠并购后自然增长、留存与稳定现金流假设，未建立DCF/可比交叉估值、目标价或个性化仓位。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 488393409,
+          "asOf": "2026-11-05",
+          "filedAt": "2026-11-09",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1840856/000184085626000028/soun-20260930.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 455,858,001 股、B 32,535,408 股；按一股一份经济权益合计。"
+        }
       },
       "researchedAt": "2026-11-13T22:17:45.741Z",
       "report": "research/my-holdings-research-soun-2026-11-14.html",
@@ -7541,7 +8390,18 @@
             "url": "https://investor.axcelis.com/news-releases/news-release-details/axcelis-technologies-and-veeco-instruments-provide-update/"
           }
         ],
-        "uncertainty": "资料截至2026-11-13（新西兰2026-11-14）；最新正式财报为2026-09-30季度10-Q，11月5日提交。31.07倍为专业源11月13日15:13美东页面的TTM快照，非收盘价、非Forward PE。未建立正常化盈利/合并后DCF，未给目标价、入场价或个性化仓位。"
+        "uncertainty": "资料截至2026-11-13（新西兰2026-11-14）；最新正式财报为2026-09-30季度10-Q，11月5日提交。31.07倍为专业源11月13日15:13美东页面的TTM快照，非收盘价、非Forward PE。未建立正常化盈利/合并后DCF，未给目标价、入场价或个性化仓位。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 30883715,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-05",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001113232.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-13T22:17:46.542Z",
       "report": "research/my-holdings-research-acls-2026-11-14.html",
@@ -7610,7 +8470,18 @@
             "url": "https://stockanalysis.com/stocks/rpd/statistics/"
           }
         ],
-        "uncertainty": "资料截至2026-11-14新西兰（2026-11-13 UTC）。财务最新为2026Q3；估值市场快照为11月13日正式收盘。现金投资与可转债均为公告账面口径，不代表全部可自由使用或债券面值。未完成第二种独立估值、完整债务契约及组合适配核查，买入区间与仓位未知。"
+        "uncertainty": "资料截至2026-11-14新西兰（2026-11-13 UTC）。财务最新为2026Q3；估值市场快照为11月13日正式收盘。现金投资与可转债均为公告账面口径，不代表全部可自由使用或债券面值。未完成第二种独立估值、完整债务契约及组合适配核查，买入区间与仓位未知。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 68535768,
+          "asOf": "2026-10-26",
+          "filedAt": "2026-11-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001560327.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-13T22:17:46.675Z",
       "report": "research/my-holdings-research-rpd-2026-11-14.html",
@@ -7684,7 +8555,18 @@
             "url": "https://stockanalysis.com/stocks/glbe/statistics/"
           }
         ],
-        "uncertainty": "资料截至2026-11-14新西兰（2026-11-13 UTC）。最新已发布财务期为2026Q2；11月18日Q3尚未发布。市盈率采用专业源直接trailing PE，不是管理层调整后EPS或forward PE。现金/存款/证券与租赁债务口径已区分；未完成渠道经济条款、两种独立估值及组合适配核验，合理买价和仓位未知。"
+        "uncertainty": "资料截至2026-11-14新西兰（2026-11-13 UTC）。最新已发布财务期为2026Q2；11月18日Q3尚未发布。市盈率采用专业源直接trailing PE，不是管理层调整后EPS或forward PE。现金/存款/证券与租赁债务口径已区分；未完成渠道经济条款、两种独立估值及组合适配核验，合理买价和仓位未知。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 169049616,
+          "asOf": "2025-12-31",
+          "filedAt": "2026-03-26",
+          "form": "20-F",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001835963.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-13T22:17:46.801Z",
       "report": "research/my-holdings-research-glbe-2026-11-14.html",
@@ -7754,7 +8636,18 @@
             "url": "https://stockanalysis.com/stocks/rely/statistics/"
           }
         ],
-        "uncertainty": "资料截至新西兰2026-11-14／美东2026-11-13。财务截至2026-09-30；PE采用11月13日专业源直接列示的GAAP TTM值，税收利益未从官方TTM市盈率中删除。独立估值交叉核验及组合适配未完成；合理价值、目标价和行动价格未知。研究不回写或覆盖应用报价。"
+        "uncertainty": "资料截至新西兰2026-11-14／美东2026-11-13。财务截至2026-09-30；PE采用11月13日专业源直接列示的GAAP TTM值，税收利益未从官方TTM市盈率中删除。独立估值交叉核验及组合适配未完成；合理价值、目标价和行动价格未知。研究不回写或覆盖应用报价。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 214012570,
+          "asOf": "2026-11-02",
+          "filedAt": "2026-11-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0001782170.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-13T22:17:46.931Z",
       "report": "research/my-holdings-research-rely-2026-11-14.html",
@@ -7827,7 +8720,18 @@
             "url": "https://stockanalysis.com/stocks/powl/statistics/"
           }
         ],
-        "uncertainty": "资料截至新西兰2026-11-14／美东2026-11-13。财务最新为截至2026-06-30的FY2026Q3，尚未用未发布的9月全年结果。TTM估值采用专业源11月13日直接trailing PE，股价和EPS为拆股后口径。独立估值交叉核验、正常化利润与组合适配未完成；不提供未经验证的目标价。研究不回写应用行情。"
+        "uncertainty": "资料截至新西兰2026-11-14／美东2026-11-13。财务最新为截至2026-06-30的FY2026Q3，尚未用未发布的9月全年结果。TTM估值采用专业源11月13日直接trailing PE，股价和EPS为拆股后口径。独立估值交叉核验、正常化利润与组合适配未完成；不提供未经验证的目标价。研究不回写应用行情。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 36432564,
+          "asOf": "2026-08-03",
+          "filedAt": "2026-08-04",
+          "form": "10-Q",
+          "source": "SEC Company Facts",
+          "sourceUrl": "https://data.sec.gov/api/xbrl/companyfacts/CIK0000080420.json",
+          "basis": "SEC common shares outstanding",
+          "note": "Latest standardized SEC instant fact for common shares outstanding; count is in the registrant-reported share units."
+        }
       },
       "researchedAt": "2026-11-13T22:17:47.064Z",
       "report": "research/my-holdings-research-powl-2026-11-14.html",
@@ -7905,7 +8809,18 @@
             "url": "https://www.stockwatch.com/News/Item/U-b20261112933836-U%21S-20261112/U/S"
           }
         ],
-        "uncertainty": "资料截至2026-11-14新西兰；最新正式财务期为2026-07-31。市盈率使用专业源11/13 TTM快照，利润为负记N/M；未用非GAAP或远期盈利替代。报告为约三分钟的首次研究，未完成内在价值模型或组合适配分析。"
+        "uncertainty": "资料截至2026-11-14新西兰；最新正式财务期为2026-07-31。市盈率使用专业源11/13 TTM快照，利润为负记N/M；未用非GAAP或远期盈利替代。报告为约三分钟的首次研究，未完成内在价值模型或组合适配分析。",
+        "sharesOutstanding": {
+          "status": "available",
+          "value": 348049117,
+          "asOf": "2026-08-21",
+          "filedAt": "2026-08-28",
+          "form": "10-Q",
+          "source": "SEC Form 10-Q · 最新封面/普通股披露",
+          "sourceUrl": "https://www.sec.gov/Archives/edgar/data/1583708/000158370826000055/s-20260731.htm",
+          "basis": "Class A + Class B 普通股。",
+          "note": "SEC 封面披露 A 342,184,493 股、B 5,864,624 股；按一股一份经济权益合计。"
+        }
       },
       "researchedAt": "2026-11-13T22:17:47.188Z",
       "report": "research/my-holdings-research-s-2026-11-14.html",
@@ -21774,29 +22689,6 @@
   },
   "jobs": [
     {
-      "id": "29bbf5a3-7e54-4af2-a5d1-bc2462f8b624",
-      "kind": "quotes",
-      "watchId": null,
-      "question": "更新全部持仓价格：先按待办实际执行时刻和 quote-policy 判断每个市场、时区与交易时段；美股在 Moomoo 明确支持的夜盘时段不能因常规交易所收市就回退收盘价。优先从 Moomoo 实时行情（可用时先查已登录的 Moomoo 报价页或本机 Moomoo OpenAPI）核实该时段报价和更新时间，若 Moomoo 没有20分钟内的新鲜夜盘价，立即查 TradingView BOATS 24/5 图表（https://www.tradingview.com/chart/?symbol=BOATS%3A代码），确认页面标注 Blue Ocean Alternative Trade System、Market open 和每秒更新；再查其他明确支持该时段的来源。不能只查 Yahoo 或常规盘报价页后就判定没有实时价。仅当所有可用时段来源都没有与 policy.session 匹配、距执行不超过20分钟且时间可核实的报价，才回退最近已完成交易日正式未复权收盘价。保存实际报价类型、时段、UTC时间、来源与报价页链接。",
-      "status": "done",
-      "date": "2026-11-12T08:25:04.674Z",
-      "error": "",
-      "quotePolicy": {
-        "executedAt": "2026-11-12T08:26:45.929Z",
-        "type": "extended",
-        "date": "2026-11-12",
-        "fallbackDate": "2026-11-11",
-        "fallbackCloseAt": "2026-11-11T21:00:00.000Z",
-        "session": "overnight",
-        "market": "US",
-        "timeZone": "America/New_York",
-        "sessionOpenAt": "2026-11-12T01:00:00.000Z",
-        "sessionCloseAt": "2026-11-12T09:00:00.000Z"
-      },
-      "summary": "已更新8个标的、10条持仓：6个美股采用Moomoo桌面明确标注的合格夜盘价；SPMO的Moomoo夜盘成交时间超过20分钟，改用TradingView BOATS（已核实Blue Ocean Alternative Trade System、Market open、每秒更新及UTC时钟）；SPYL采用伦敦盘中价。全部报价满足执行时刻20分钟窗口，保存真实时间、时段和来源，无收盘价回退。",
-      "completedAt": "2026-11-12T08:31:41.159Z"
-    },
-    {
       "id": "f6091da4-bba1-4000-ab7c-96557396830a",
       "kind": "quotes",
       "watchId": null,
@@ -24430,9 +25322,32 @@
       "question": "仅刷新这只新加入近期关注的个股市盈率：SentinelOne SENTINELONE。采用 trailing P/E (TTM，过去12个月 GAAP 摊薄每股收益)；优先使用可信专业行情源直接给出的 trailing P/E，并核对最新股价与财报日期。如自行计算，使用同一币种的当前普通股价格 ÷ 最新四个季度 GAAP 摊薄 EPS 之和，不混入 forward P/E、调整后 EPS 或旧价格。TTM EPS <= 0 时标记 unavailable，value=null，并在 note 写 N/M 与原因；数据无法核实则标记 unverified，不猜值。仅处理并提交本任务的 watchId=dd133356-69a3-4c34-b422-b2de0bbbd9df、symbol=SENTINELONE 这一只标的，asOf 使用股价日期，sourceUrl 提供可打开的 HTTPS 来源。完成时 POST /my-holdings/api/jobs/{任务ID}/complete，提交 {\"values\":[{\"watchId\":\"dd133356-69a3-4c34-b422-b2de0bbbd9df\",\"symbol\":\"SENTINELONE\",\"basis\":\"TTM\",\"status\":\"available|unavailable|unverified\",\"value\":123.45 或 null,\"asOf\":\"YYYY-MM-DD\",\"source\":\"来源\",\"sourceUrl\":\"https://...\",\"note\":\"说明\"}],\"summary\":\"...\"}；未能核实则调用 fail，不覆盖旧值。无需 HTML。",
       "completedAt": "2026-11-13T22:17:48.157Z",
       "summary": "已核实S的TTM市盈率；GAAP TTM亏损，记N/M。"
+    },
+    {
+      "id": "937f7439-c1cc-477b-8385-5f1cb8b29905",
+      "kind": "quotes",
+      "watchId": null,
+      "question": "更新全部持仓价格：先按待办实际执行时刻和 quote-policy 判断每个市场、时区与交易时段；美股在 Moomoo 明确支持的夜盘时段不能因常规交易所收市就回退收盘价。优先从 Moomoo 实时行情（可用时先查已登录的 Moomoo 报价页或本机 Moomoo OpenAPI）核实该时段报价和更新时间，若 Moomoo 没有20分钟内的新鲜夜盘价，立即查 TradingView BOATS 24/5 图表（https://www.tradingview.com/chart/?symbol=BOATS%3A代码），确认页面标注 Blue Ocean Alternative Trade System、Market open 和每秒更新；再查其他明确支持该时段的来源。不能只查 Yahoo 或常规盘报价页后就判定没有实时价。仅当所有可用时段来源都没有与 policy.session 匹配、距执行不超过20分钟且时间可核实的报价，才回退最近已完成交易日正式未复权收盘价。保存实际报价类型、时段、UTC时间、来源与报价页链接。",
+      "status": "done",
+      "date": "2026-11-14T10:50:23.923Z",
+      "error": "",
+      "quotePolicy": {
+        "executedAt": "2026-11-14T10:53:43.153Z",
+        "type": "close",
+        "date": "2026-11-13",
+        "fallbackDate": "2026-11-13",
+        "fallbackCloseAt": "2026-11-13T21:00:00.000Z",
+        "session": "closed",
+        "market": "US",
+        "timeZone": "America/New_York",
+        "sessionOpenAt": "2026-11-13T14:30:00.000Z",
+        "sessionCloseAt": "2026-11-13T21:00:00.000Z"
+      },
+      "summary": "按服务端 quote-policy 更新全部 8 个唯一标的（9 条持仓）。当前周末收盘状态，报价均为 2026-11-13 正式收盘价；美股采用 Nasdaq 历史日线，SPYL 按 LSE 市场和 USD 挂牌收盘价更新。",
+      "completedAt": "2026-11-14T10:57:39.143Z"
     }
   ],
-  "marketUpdatedAt": "2026-11-13T20:07:31.966Z",
+  "marketUpdatedAt": "2026-11-14T10:57:39.143Z",
   "converter": {
     "updatedAt": "2026-10-30T21:08:53.557Z",
     "calibrations": [
@@ -24616,7 +25531,7 @@
   },
   "watchRankHistory": [
     {
-      "date": "2026-11-13",
+      "date": "2026-11-14",
       "watchIds": [
         "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
         "90768edf-dad2-47d7-bbb1-e7eed5bc5728",
@@ -24670,7 +25585,7 @@
       ]
     },
     {
-      "date": "2026-11-14",
+      "date": "2026-11-15",
       "watchIds": [
         "e6c3f721-6704-479e-ac06-f9b7dfd7e3eb",
         "90768edf-dad2-47d7-bbb1-e7eed5bc5728",

@@ -1,0 +1,338 @@
+{
+  "unit": "U27",
+  "stage": "S05",
+  "verified": "2026-11-14",
+  "status": "pilot; independent science review and child trial pending",
+  "author": "Study Biology Explorer",
+  "license": "Original project prose, questions, invented datasets and SVG code. Sources verify concepts only; no external figures or extended source prose reproduced.",
+  "sources": [
+    {
+      "lesson": "L105",
+      "title": "OpenStax Biology 2e · Plant transport",
+      "url": "https://openstax.org/books/biology-2e/pages/30-5-transport-of-water-and-solutes-in-plants",
+      "verified": "2026-11-14",
+      "use": "Three separate routes distinguish water/minerals and sucrose; sieve plates occur in phloem tubes. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L106",
+      "title": "OpenStax Biology 2e · Water transport and stomatal regulation",
+      "url": "https://openstax.org/books/biology-2e/pages/30-5-transport-of-water-and-solutes-in-plants",
+      "verified": "2026-11-14",
+      "use": "The left diagram separates wall evaporation and pore diffusion; the right gives a separate uptake reading. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L107",
+      "title": "OpenStax Biology 2e · Carbon fixation and conditions",
+      "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+      "verified": "2026-11-14",
+      "use": "Compare curves at the same x-coordinate; solid and dashed styles supplement colour. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L108",
+      "title": "OpenStax Biology 2e · Pollination and fertilization",
+      "url": "https://openstax.org/books/biology-2e/pages/32-2-pollination-and-fertilization",
+      "verified": "2026-11-14",
+      "use": "The left locates stigma, pollen tube and ovule; the right distinguishes N and Mg functions, not a guaranteed seed-set formula. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L108",
+      "title": "Plant mineral functions",
+      "url": "https://openstax.org/books/biology-2e/pages/31-1-nutritional-requirements-of-plants",
+      "verified": "2026-11-14",
+      "use": "Scientific concept verification; original prose and model, no reproduced figure."
+    }
+  ],
+  "assets": [
+    {
+      "id": "L105-D01",
+      "lesson": "L105",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "三条平行通路用独立箭头区分水矿质与蔗糖；筛板只出现在筛管。",
+        "Three separate routes distinguish water/minerals and sucrose; sieve plates occur in phloem tubes."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Source–sink roles; separate tubes may have opposite flow."
+    },
+    {
+      "id": "L105-I01",
+      "lesson": "L105",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "三条平行通路用独立箭头区分水矿质与蔗糖；筛板只出现在筛管。",
+        "Three separate routes distinguish water/minerals and sucrose; sieve plates occur in phloem tubes."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Source–sink roles; separate tubes may have opposite flow."
+    },
+    {
+      "id": "L106-D01",
+      "lesson": "L106",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "左图依次展示叶内蒸发、孔口扩散；右图给出独立的吸水读数。",
+        "The left diagram separates wall evaporation and pore diffusion; the right gives a separate uptake reading."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; E=10(1-H/100)(1+(T-20)/40)(1+W/3)A; A=0.05 closed, else 0.2+0.8L/100. Uptake=E+0.4; retained water 0.4 in the same arbitrary units/time is a short-interval assumption, not a universal offset."
+    },
+    {
+      "id": "L106-I01",
+      "lesson": "L106",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "左图依次展示叶内蒸发、孔口扩散；右图给出独立的吸水读数。",
+        "The left diagram separates wall evaporation and pore diffusion; the right gives a separate uptake reading."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; E=10(1-H/100)(1+(T-20)/40)(1+W/3)A; A=0.05 closed, else 0.2+0.8L/100. Uptake=E+0.4; retained water 0.4 in the same arbitrary units/time is a short-interval assumption, not a universal offset."
+    },
+    {
+      "id": "L107-D01",
+      "lesson": "L107",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "比较同一横坐标两曲线；实线与虚线除颜色外也有线型区别。",
+        "Compare curves at the same x-coordinate; solid and dashed styles supplement colour."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; P=min(light,carbon,80); all relative units; fixed temperature, water and area; idealised corners not real response discontinuities."
+    },
+    {
+      "id": "L107-I01",
+      "lesson": "L107",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "比较同一横坐标两曲线；实线与虚线除颜色外也有线型区别。",
+        "Compare curves at the same x-coordinate; solid and dashed styles supplement colour."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; P=min(light,carbon,80); all relative units; fixed temperature, water and area; idealised corners not real response discontinuities."
+    },
+    {
+      "id": "L108-D01",
+      "lesson": "L108",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "左边显示柱头、花粉管和胚珠，右边区分N与Mg功能；两图不是必然结籽公式。",
+        "The left locates stigma, pollen tube and ovule; the right distinguishes N and Mg functions, not a guaranteed seed-set formula."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Four event checkpoints; pollination does not guarantee fertilisation or seed set; mineral comparison is not a seed-count formula."
+    },
+    {
+      "id": "L108-I01",
+      "lesson": "L108",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "左边显示柱头、花粉管和胚珠，右边区分N与Mg功能；两图不是必然结籽公式。",
+        "The left locates stigma, pollen tube and ovule; the right distinguishes N and Mg functions, not a guaranteed seed-set formula."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Four event checkpoints; pollination does not guarantee fertilisation or seed set; mineral comparison is not a seed-count formula."
+    }
+  ],
+  "models": {
+    "L105": {
+      "type": "qualitative source–sink route comparison",
+      "data": {
+        "leaf-source": {
+          "xylem": ["root", "leaf"],
+          "phloemA": ["leaf", "root"],
+          "phloemB": ["another mature leaf", "growing shoot"]
+        },
+        "store-source": {
+          "xylem": ["root", "leaf"],
+          "phloemA": ["storage organ", "growing shoot"],
+          "phloemB": ["another mature leaf", "growing shoot"]
+        },
+        "worked_example": {
+          "exported": 20,
+          "shoot": 8,
+          "root": 12,
+          "interval_hours": 6,
+          "units": "invented relative sugar amount"
+        }
+      },
+      "assumptions": [
+        "Usual transpiring root-to-leaf xylem conditions",
+        "Different sieve tubes can simultaneously carry opposing directions",
+        "Source/sink describes net sugar balance, not fixed organ identity",
+        "Loading may use energy; pressure differences drive long-distance bulk flow"
+      ],
+      "limits": [
+        "No quantitative pressure, water-potential or sugar-transport prediction",
+        "Branching, respiration, storage and water exchange omitted from the worked budget",
+        "Not opposing simultaneous bulk flows in one sieve tube"
+      ]
+    },
+    "L106": {
+      "type": "original qualitative environmental-response and water-balance model",
+      "formula": "E=10*(1-H/100)*(1+(T-20)/40)*(1+W/3)*A; A=0.05 if stomata closed, otherwise 0.2+0.8*L/100; uptake=E+0.4",
+      "parameters": {
+        "H": "relative humidity %, clamped 0–100",
+        "T": "air temperature °C, clamped 10–40",
+        "W": "invented wind level 0–3, not m/s",
+        "L": "relative light index 0–100",
+        "E": "relative water amount per arbitrary time interval; output rounded to 0.1",
+        "A": "dimensionless aperture multiplier",
+        "uptake": "same relative water amount/time as E",
+        "0.4": "net water retained for storage/growth per interval in this short-time example; not an instrument correction or universal constant"
+      },
+      "data": [
+        {
+          "H": 50,
+          "T": 20,
+          "W": 0,
+          "L": 100,
+          "closed": false,
+          "E": 5,
+          "uptake": 5.4
+        },
+        {
+          "H": 80,
+          "T": 20,
+          "W": 0,
+          "L": 100,
+          "closed": false,
+          "E": 2,
+          "uptake": 2.4
+        },
+        {
+          "H": 50,
+          "T": 20,
+          "W": 3,
+          "L": 100,
+          "closed": false,
+          "E": 10,
+          "uptake": 10.4
+        }
+      ],
+      "assumptions": [
+        "Leaf area and plant identity fixed",
+        "One variable changed per fair comparison",
+        "Closure retains small residual surface loss except when gradient is zero",
+        "Net storage is fixed only for this illustrative interval"
+      ],
+      "limits": [
+        "No empirical fit or species calibration",
+        "Real stomatal feedback and leaf temperature are more complex",
+        "Potometer estimates uptake, not direct exact transpiration; leaks and storage matter",
+        "Cannot guide plant care or predict absolute flux"
+      ]
+    },
+    "L107": {
+      "type": "original idealised limiting-factor model",
+      "formula": "P=min(clamp(light,0,100),clamp(carbon,0,100),80)",
+      "parameters": {
+        "light": "relative light units 0–100",
+        "carbon": "relative CO2 supply units, selected 40 or 70",
+        "P": "relative photosynthetic rate units, not mL oxygen or real carbon fixation",
+        "80": "fixed idealised ceiling from remaining controlled conditions"
+      },
+      "data": [
+        {
+          "light": 20,
+          "carbon": 40,
+          "P": 20
+        },
+        {
+          "light": 20,
+          "carbon": 70,
+          "P": 20
+        },
+        {
+          "light": 60,
+          "carbon": 40,
+          "P": 40
+        },
+        {
+          "light": 90,
+          "carbon": 40,
+          "P": 40
+        },
+        {
+          "light": 90,
+          "carbon": 70,
+          "P": 70
+        }
+      ],
+      "assumptions": [
+        "Temperature, water, leaf area and measurement interval fixed",
+        "Same x-coordinate needed for between-curve CO2 comparisons",
+        "Piecewise corners deliberately expose bottleneck logic"
+      ],
+      "limits": [
+        "Real responses are usually smooth and may involve co-limitation",
+        "Relative CO2 supply is not atmospheric ppm",
+        "Bubble counts measure a gas proxy affected by volume, dissolution, respiration and gas composition",
+        "Short-term relative rate is not harvest yield"
+      ]
+    },
+    "L108": {
+      "type": "event checkpoints plus separate mineral-function comparison",
+      "data": {
+        "checkpoints": [
+          "pollen transfer from anther to stigma (compatibility not required for pollination)",
+          "pollen-tube growth towards ovule",
+          "gamete-nucleus union forming zygote",
+          "embryo development; ovule may become seed"
+        ],
+        "mineral_conditions": [
+          "complete nutrients",
+          "low N: amino-acid and other synthesis may be limited",
+          "low Mg: chlorophyll function may be affected"
+        ],
+        "worked_example": {
+          "flowers_per_group": 20,
+          "seeds_added_pollination": 14,
+          "seeds_without_added_pollination": 6,
+          "difference_seeds": 8
+        }
+      },
+      "assumptions": [
+        "Angiosperm zygote route only",
+        "Pollination, fertilisation and seed formation are distinct events",
+        "Minerals support function; sugar carbon mainly comes from CO2"
+      ],
+      "limits": [
+        "Second fusion of double fertilisation and fruit development omitted",
+        "Pollen arrival does not guarantee fertilisation or mature seed set",
+        "No assumed one-ovule-per-flower relation",
+        "Mineral comparison is not a quantitative seed-count model or a symptom diagnosis"
+      ]
+    }
+  }
+}

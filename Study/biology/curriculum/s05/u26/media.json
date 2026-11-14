@@ -1,0 +1,155 @@
+{
+  "unit": "U26",
+  "verified": "2026-11-14",
+  "status": "pilot; child trial and external independent science review pending",
+  "assets": "Original Study prose, questions, SVG and invented model data; repository license applies. No external figure or prose copied. Linked OpenStax factual references CC BY 4.0.",
+  "sources": [
+    {
+      "title": "OpenStax — Mammalian Heart and Blood Vessels",
+      "url": "https://openstax.org/books/biology-2e/pages/40-3-mammalian-heart-and-blood-vessels",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Digestive System Processes",
+      "url": "https://openstax.org/books/biology-2e/pages/34-3-digestive-system-processes",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Tubular Reabsorption",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-6-tubular-reabsorption",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Overview of the Endocrine System",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-1-an-overview-of-the-endocrine-system",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Chemical Digestion and Absorption",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/23-7-chemical-digestion-and-absorption-a-closer-look",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Physiology of Urine Formation",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-5-physiology-of-urine-formation",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Endocrine Regulation of Kidney Function",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-8-endocrine-regulation-of-kidney-function",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    }
+  ],
+  "models": {
+    "L101": "Numbered route not anatomical layout: systemic veins→RA→RV→pulmonary artery→lungs→pulmonary vein→LA→LV→aorta→body→veins. Oxygenation schematic only; valves respond to pressure. Independent hypothetical pressures12/8 or8/12 kPa,not measured chamber norms; no complete cardiac cycle/coronary model; no real size scale.",
+    "L102": "Selected simplified routes: starch→maltose/short chains→glucose→blood; protein→peptides→amino acids→blood; long-chain fat digestion,epithelial rebuilding/packaging→lacteals→blood. Bile emulsifies,not enzyme. Not all fatty acids follow lymph route. Fictional area3/6mm² ×2amount units mm⁻²min⁻¹→6/12 units/min; fixed conditions,not measured intestine. Diagram locations follow identities: intact food and luminal digestion products stay outside epithelium; long-chain fat processing enters epithelium before lacteal export, while glucose/amino acids enter blood only at the absorption step.",
+    "L103": "Fixed100mL filtrate,total recovery assumed90%/98% at lower/higher ADH→urine10/2mL,water conserved. Not actual daily measurements or segment fractions. Pressure/barrier filtration retains cells/most large proteins; glucose filtered then normally recovered. ADH from hypothalamic synthesis/posterior pituitary release raises collecting-duct permeability given suitable gradient; no full countercurrent,secretion or diagnosis model.",
+    "L104": "Qualitative nerve/axon/synapse versus endocrine/blood pathway,matching receptor needed along with downstream machinery. Original selected response evidence onset0.05/5s,duration0.2/60s; not universal ranking or recorded human measurements. Frame intervals not biological durations; no action-potential or individual reaction-time prediction."
+  },
+  "lessonSources": [
+    {
+      "lesson": "L101",
+      "url": "https://openstax.org/books/biology-2e/pages/40-3-mammalian-heart-and-blood-vessels",
+      "purpose": "Pulmonary/systemic route, valves, ventricular walls",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    },
+    {
+      "lesson": "L102",
+      "url": "https://openstax.org/books/biology-2e/pages/34-3-digestive-system-processes",
+      "purpose": "Digestion/absorption distinction and staged products",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    },
+    {
+      "lesson": "L103",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/25-6-tubular-reabsorption",
+      "purpose": "Tubular selective reabsorption and ADH water permeability",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    },
+    {
+      "lesson": "L104",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/17-1-an-overview-of-the-endocrine-system",
+      "purpose": "Neural/endocrine coordination and receptor-dependent targeting",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L101-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "图是按1→10编号的路线图，不是心脏正面解剖图。蓝线对应相对低氧段、红线对应相对高氧段；肺、身体两处改变含氧状态。末端经静脉回1。",
+        "en": "This is a numbered route map, not a front-view anatomical heart. Blue indicates relatively lower oxygen, red higher oxygen. Lungs and body tissues change oxygenation; veins return the end to step 1."
+      }
+    },
+    {
+      "id": "L102-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "绒毛外侧为肠腔，上皮构成边界；红色路线为血毛细血管，绿色为乳糜管。图未按真实比例画微绒毛，也未把膜转运画成一个大洞。 大分子与腔内消化产物留在上皮外，跨上皮后才沿相应血液或淋巴路线输出。",
+        "en": "Outside the villus is the intestinal lumen; epithelium forms the border. Red is the capillary route and green the lacteal. Microvilli are not drawn to scale, and membrane transport is not one large hole. Food and luminal digestion products stay outside epithelium until absorption into the appropriate blood or lymph route."
+      }
+    },
+    {
+      "id": "L103-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "左侧圆形是血进入过滤屏障的位置，黄色管道示肾小管/集合管，蓝线为回收进入的血液。图只示方向，不把完整肾画成一根真实比例的管。",
+        "en": "The left circle represents filtration from blood; yellow indicates tubule/collecting duct and blue the receiving blood. This is a directional schematic, not a scaled complete kidney."
+      }
+    },
+    {
+      "id": "L104-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "四格路线把起点、运输、接触与靶响应分开。神经格对应轴突与突触，激素格对应分泌与血液运输。每一格不是固定的真实时长。",
+        "en": "Four panels separate initiation, transport, contact and target response. Neural panels use axons and synapses; endocrine panels use secretion and blood transport. Panels do not have fixed biological durations."
+      }
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L101-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "逐步跟踪1→10，每到心腔说出上一步与下一步。保持路线不变，比较单向瓣膜前12后8与前8后12 kPa。它们是独立的虚构压力对照，不代表每个心腔的常态。",
+        "en": "Trace 1→10, naming the previous and next location at each chamber. Keep the route and compare valve pressures: upstream12/downstream8 and upstream8/downstream12 kPa. These are independent hypothetical contrasts, not typical pressures for every chamber."
+      }
+    },
+    {
+      "id": "L102-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "依次选淀粉、蛋白质、长链脂肪，用逐步追踪表找“分解”与“跨上皮”发生在哪里。暂停后比较末端血/淋巴路线，完整静态表可不播放直接阅读。",
+        "en": "Select starch, protein and long-chain fats. Use frames and the full route table to locate breakdown and epithelial crossing. Pause to compare final blood/lymph outputs; the complete static table is available without playback."
+      }
+    },
+    {
+      "id": "L103-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "固定进入肾小管的滤液100 mL，比较较低/较高ADH；本模型总回收比例假设90%/98%。逐步追踪过滤、回收、ADH影响、余留尿液，检查回收+余留=100。",
+        "en": "Fix tubular filtrate at 100 mL and compare lower/higher ADH. Total recovery is assumed to be 90%/98%. Trace filtration, recovery, ADH action and remaining urine; verify recovery plus remaining volume equals 100."
+      }
+    },
+    {
+      "id": "L104-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "先走神经与有匹配受体路线，再切激素。保持激素路线，只移除匹配受体，观察“到达”不等于“响应”。读取完整静态时间表；不要用屏幕播放速度推算生理速度。",
+        "en": "Trace nerve signalling with a matching receptor, then switch to hormones. Keep the hormone route but remove the matching receptor, separating arrival from response. Read the full timing table; screen playback speed is not physiological speed."
+      }
+    }
+  ]
+}

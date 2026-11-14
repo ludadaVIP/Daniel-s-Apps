@@ -1,0 +1,122 @@
+{
+  "unit": "U30",
+  "verified": "2026-11-14",
+  "status": "pilot; external science review and learner trial pending",
+  "license": "Original project prose, questions, fictional numerical datasets and SVG. Sources verify principles only; no external figures, trial records or questions copied.",
+  "sources": [
+    {
+      "lesson": "L117",
+      "url": "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L118",
+      "url": "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L118",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L119",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h.htm",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L119",
+      "url": "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L120",
+      "url": "https://openstax.org/books/biology-2e/pages/1-1-the-science-of-biology",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L120",
+      "url": "https://www.itl.nist.gov/div898/handbook/pri/section3/pri332.htm",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L120",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h.htm",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L117-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    },
+    {
+      "id": "L118-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    },
+    {
+      "id": "L119-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    },
+    {
+      "id": "L120-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L117-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable evidence/design repair; no simulated time",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    },
+    {
+      "id": "L118-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable evidence/design repair; no simulated time",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    },
+    {
+      "id": "L119-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable evidence/design repair; no simulated time",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    },
+    {
+      "id": "L120-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable evidence/design repair; no simulated time",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    }
+  ],
+  "models": {
+    "L117": {
+      "assumptions": "L117-I01: Choose factor, response and matched conditions; feedback identifies the remaining untestable element.",
+      "limits": "Depth: Support does not establish a unique explanation; growth also involves respiration and allocation. A useful hypothesis is revisable and must not redefine every possible result as success. A hypothesis is not a wish. Agreement does not permanently prove it, and unmeasured “health” is not a synonym for height."
+    },
+    "L118": {
+      "assumptions": "L118-I01: Repair water, independent units, randomisation and blocking; feedback identifies remaining weaknesses. Compare one plant × twelve readings with four plants × three readings.",
+      "limits": "Depth: The experimental unit independently receives treatment; biological sources and treatment units can differ. Pairing before/after values measures within-plant change, but the two values are not independent samples. Repeated readings do not increase independent biological sample size; random allocation and matched conditions address different problems."
+    },
+    "L119": {
+      "assumptions": "L119-I01: Repair axes, toggle original/unverified-28 cm records and choose investigation versus unjustified deletion. Compare mean changes.",
+      "limits": "Depth: Range depends on sample size and does not directly measure accuracy. Accuracy concerns closeness to a reference; precision concerns agreement among repeated readings. No significance tests or confidence intervals are calculated here. Range=max−min, not mean±range, instrument error or a CI. An unusual observation requires evidence about its cause."
+    },
+    "L120": {
+      "assumptions": "L120-I01: Select faulty or repaired design, then universal, descriptive or conditional conclusion; feedback checks whether the claim overreaches.",
+      "limits": "Depth: Allocation helps internal causal interpretation; broader sampling helps external applicability. Neither replaces the other. Statistical uncertainty, mechanism measurements and design bias are also distinct questions. Limitations do not mean no evidence; random allocation does not represent every plant; a plausible mechanism is not a measured mechanism."
+    }
+  }
+}

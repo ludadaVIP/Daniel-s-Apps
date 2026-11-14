@@ -1,5 +1,35 @@
 # Biology v1 试学验收
 
+## 2026-11-14 S05最终集成与技术验收
+
+- [x] S05的24课、6任务及《生物学证据报告》接入，总计120/144课、30单元/任务、5项目；S06保留24课、6任务、1项目规划，下一单元U31（L121–L124）。新阶段72目标、168课内术语条目（非全局去重词汇）、24预测与96反馈题齐备。
+- [x] 最终生物全套24测试文件165项通过；域测试覆盖配对/块/计算/引用/保存失效/安全长文导出与旧阶段隔离，跨文件检查覆盖24课三语言及真实异步路由。完整生物源码ESLint、两应用TypeScript、限定范围Prettier、两应用生产构建全部通过，`final-build-verification.json`最终7项均exit0，均在最终任务网格与L102标签修复之后执行。
+- [x] 最终1558个源码/构建内容输入文件清单在22:01:13–22:02:26（NZDT）稳定，SHA256为`5bca4aa8949f4bd00a8df0282b1c7c5546bdbb44cbffdd2bcc033c79ec762a09`；范围包括课程Markdown，排除交付/QA/README等记录。本次文档结果登记另做格式检查。构建仍有非阻断500kB提示：生物主包2,684,191 bytes/gzip948,470，Hub生物页2,291,834/gzip824,269；不据此宣称载入性能已验证。
+- [x] 独立内部科学与教学复核通过；F01–F07已修复并独立复核，四块茎20条配对数据/汇总/约0.3002154 mol/L零交点独立复算，见[S5_SCIENCE_REVIEW.md](./S5_SCIENCE_REVIEW.md)。独立代码与注册完整性审阅通过，无新增未关闭P1/P2，另有5文件37项定向测试；原始审查与后续技术修复关闭记录见[S5_CODE_REVIEW.md](./S5_CODE_REVIEW.md)。
+- [x] 课程`verification.json`为`passed`：24个实际活动（13条件/分类比较、11过程播放）、384个桌面1366px/手机390px英语/双语初终与先猜/带走布局状态、6条完整学习/4题首错/笔记保存与Notebook刷新/复习订正刷新保留首答流程、5对SPA切课重置与语言保留；不是24条完整学习流程。键盘/44px控件、局部图表滚动及SVG实际文字边界均覆盖；失败、控制台/运行时错误、SVG越界记录均0。
+- [x] 完整run途中L102标签与任务CSS发生变化，原run非零退出和`sourceUnchangedDuringRun:false`保留；L102在稳定源码后补验全部食物分支/每frame/全部布局，合成最终认证明确scope。336张最终截图与16个运输重点证明状态登记，代表图人工实际查看另见`manual-visual-review.json`，不宣称手看全部截图。L106/L110底标、L107图例/曲线、L113文字及L102上皮标签均已修复、复测，无未关闭视觉缺陷。
+- [x] S05报告与六任务实际UI检查205/205通过：错误分母、三种真实改图、两引用/结构校验、跨语言/草稿刷新、编辑撤销保存、六题错后订正、旧阶段记录与独立计数。自身课完成计数仅用于隔离gate fixture，不能替代真实课程流程。最终任务布局49/49通过；其余四任务手机英语/双语8状态宽度25/25通过，该专项仅核页面/列/主控件宽度。
+- [x] 12份实际下载SVG重新打开于Chromium，XML/无执行学生文本/20原始与5汇总/长中英文、长W与URL/末字段及全部文字图形BBox均通过。项目人工逐张看27图，主run登记89张PNG；完整报告首/中/末段、错误图实际变化、手机局部图滚动均有实际证据。
+- [x] 独立上下文只使用`http://127.0.0.1:3460`，未改正式3463记录。课程/项目浏览器上下文均已关闭；`cleanup.json`确认自有session99496以原句柄Ctrl-C结束，22:05:24（NZDT）3460无监听，未停止未知进程。
+- [ ] 儿童实际试用、外部专家科学审稿与长期学习效果：未完成；全部新课仍为pilot。
+
+当前软件实现以[S5_DELIVERY.md](./S5_DELIVERY.md)及其最终检查记录为准；下方S04/S03记录为历史验收，不能替代S05当前技术检查。
+
+### S05技术证据与复跑
+
+归档目录：`C:/Users/Administrator/.codex/visualizations/2026/11/10/01a1c7bf-87b4-7941-9aef-bad203405a02/biology-s5/`。最终软件检查见`final-build-verification.json`；课程见`verification.json`及`manual-visual-review.json`；项目总签封见`project/acceptance-combined-summary.json`，另读`project/manual-review.json`与`project/other-mission-mobile-width.json`。早期失败/harness修订和全量源变化记录保留追溯，不能计入通过；最终截图仅按JSON清单认定。
+
+需要Python Playwright、Chromium和已启动的3460服务。先在`biology/apps/web`运行`.\node_modules\.bin\vite.cmd --host 127.0.0.1 --port 3460`，再从Study根目录运行；脚本创建独立上下文，不负责启停服务器：
+
+```powershell
+python -u biology/scripts/verify-s5-browser.py all
+python -u biology/scripts/verify-s5-project.py
+python -u biology/scripts/verify-s5-project.py --missions-layout-only
+python -u biology/scripts/verify-s5-project.py --render-existing
+```
+
+`all`覆盖课程矩阵与六条完整流程；项目默认覆盖真实行为/下载，后两模式复测任务布局与已下载SVG实际渲染。检查自动验证结构、计算和图设置，不自动判定科学文字、英语表达或学习效果。
+
 ## 2026-11-13 S04集成检查
 
 - [x] S04的24课、6任务、三题材科学分镜项目接入；总计96课、24任务、4项目，未来48课保持规划。下一单元U25。

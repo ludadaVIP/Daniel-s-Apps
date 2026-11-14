@@ -3282,7 +3282,7 @@
 .mh-decision-quote small { margin-left: auto; font-size: 9px; }
 .mh-decision-fields { display: grid; grid-template-columns: minmax(0, 1fr); gap: 5px; margin-top: 5px; }
 .mh-decision-field-row { display: grid; gap: 5px; min-width: 0; }
-.mh-decision-field-row.primary { grid-template-columns: .65fr 1fr 1.2fr; }
+.mh-decision-field-row.primary { grid-template-columns: minmax(0, .82fr) minmax(0, 1.12fr) minmax(0, .82fr) minmax(0, 1.22fr); }
 .mh-decision-field-row.secondary { grid-template-columns: .65fr 1fr 1fr; }
 .mh-decision-field-row > label,
 .mh-decision-field { display: grid; align-content: center; gap: 2px; min-width: 0; min-height: 42px; padding: 4px 7px; border: 1px solid #0000000d; border-radius: 6px; background: #ffffff78; }
@@ -3291,7 +3291,10 @@
 .mh-decision-field > span { overflow: hidden; color: #65735e; font-size: 10px; text-overflow: ellipsis; white-space: nowrap; }
 .mh-decision-pe-link { color: inherit; text-decoration: none; }
 .mh-decision-pe-link:hover > span { color: #3f6c43; text-decoration: underline; text-underline-offset: 2px; }
+.mh-decision-field-link { color: inherit; text-decoration: none; }
+.mh-decision-field-link:hover > span { color: #3f6c43; text-decoration: underline; text-underline-offset: 2px; }
 .mh-decision-pe-link:focus-visible { outline: 2px solid #8ca981; outline-offset: 2px; }
+.mh-decision-field-link:focus-visible { outline: 2px solid #8ca981; outline-offset: 2px; }
 .mh-decision-field > strong { overflow: hidden; color: #455f42; font-size: 13px; font-weight: 700; font-variant-numeric: tabular-nums; text-overflow: ellipsis; white-space: nowrap; }
 .mh-decision-field.computed > strong { color: #526d4e; }
 .mh-decision-fields label > div { display: flex; align-items: center; min-width: 0; height: 27px; padding: 0 5px; border: 1px solid #d5dfcf; border-radius: 5px; background: #ffffffb8; color: #64725f; }
@@ -3642,7 +3645,7 @@
 .mh-decision-card.is-list .mh-decision-actions { margin-left: auto; }
 .mh-decision-card.is-list .mh-decision-quote { grid-column: 2; grid-row: 1 / span 2; display: grid; gap: 2px; margin: 0; padding-left: 10px; border-left: 1px solid #e2e8dd; }
 .mh-decision-card.is-list .mh-decision-quote small { margin-left: 0; }
-.mh-decision-card.is-list .mh-decision-fields { grid-column: 3; grid-row: 1 / span 2; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 4px; margin: 0; }
+.mh-decision-card.is-list .mh-decision-fields { grid-column: 3; grid-row: 1 / span 2; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 4px; margin: 0; }
 .mh-decision-card.is-list .mh-decision-field-row { display: contents; }
 .mh-decision-card.is-list .mh-decision-field-row > label, .mh-decision-card.is-list .mh-decision-field { min-height: 38px; padding: 3px 5px; }
 .mh-decision-card.is-list .mh-decision-field > strong { font-size: 11px; }
@@ -3699,7 +3702,7 @@
 :root[data-theme="dark"] .mh-watch-category-delete { color: #aab5a3; }
 @media (max-width: 1120px) {
   .mh-decision-card.is-list { grid-template-columns: minmax(150px, 1fr) minmax(90px, .72fr) minmax(0, 2.35fr); }
-  .mh-decision-card.is-list .mh-decision-fields { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mh-decision-card.is-list .mh-decision-fields { grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @media (max-width: 760px) {
   .mh-watch-category-bar { align-items: flex-start; }
@@ -3713,7 +3716,7 @@
   .mh-decision-card.is-list { grid-template-columns: minmax(0, 1fr) minmax(90px, .6fr); }
   .mh-decision-card.is-list > header { grid-column: 1; grid-row: 1 / span 2; }
   .mh-decision-card.is-list .mh-decision-quote { grid-column: 2; grid-row: 1 / span 2; }
-  .mh-decision-card.is-list .mh-decision-fields { grid-column: 1 / -1; grid-row: 3; grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  .mh-decision-card.is-list .mh-decision-fields { grid-column: 1 / -1; grid-row: 3; grid-template-columns: repeat(4, minmax(0, 1fr)); }
 }
 @media (max-width: 620px) {
   .mh-watch-category-bar { flex-direction: column; }
@@ -3726,7 +3729,7 @@
   .mh-decision-card.is-list { grid-template-columns: minmax(0, 1fr); }
   .mh-decision-card.is-list > header { grid-column: 1; grid-row: 1; }
   .mh-decision-card.is-list .mh-decision-quote { grid-column: 1; grid-row: 2; display: flex; }
-  .mh-decision-card.is-list .mh-decision-fields { grid-column: 1; grid-row: 3; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .mh-decision-card.is-list .mh-decision-fields { grid-column: 1; grid-row: 3; grid-template-columns: repeat(4, minmax(0, 1fr)); }
   .mh-watch-category-add { align-items: stretch; flex-direction: column; }
   .mh-watch-category-add .mh-primary { align-self: flex-end; }
 }

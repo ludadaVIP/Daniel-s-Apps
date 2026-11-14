@@ -2,21 +2,25 @@
 
 面向 10–16 岁的本地双语试学版，沿用 Study 的 React、Vite、路由、`@study/shared` 类型和 `@study/ui` 语言组件。无需账户或新的服务器。
 
-2026-11-13：S01–S04共96课、24个单元任务与4个阶段项目已实现，全部为家庭试学稿；下一单元为U25（L097–L100）。S4课程与验证说明见 [S4_DELIVERY.md](./S4_DELIVERY.md)，S3历史交付见 [S3_DELIVERY.md](./S3_DELIVERY.md)，逐单元记录见 [CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md)。
+2026-11-14：S01–S05共120/144课、30个单元任务与5个阶段项目已实现，全部为家庭试学稿；S06仍有24课规划中，下一单元为U31（L121–L124）。S5实现与验证进度见 [S5_DELIVERY.md](./S5_DELIVERY.md)，S4历史说明见 [S4_DELIVERY.md](./S4_DELIVERY.md)，S3历史交付见 [S3_DELIVERY.md](./S3_DELIVERY.md)，逐单元记录见 [CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md)。
 
 ## 试用
 
-照常启动 Study，打开 `http://localhost:3463/biology`。独立开发：`corepack pnpm --filter @study/biology-web dev`，端口 3460。
+照常启动 Study，打开 `http://localhost:3463/biology`。独立开发：`pnpm --filter @study/biology-web dev`，端口 3460。
 
-目前开放U01–U24共96课：S01生命侦探、S02细胞与身体、S03生命的联系、S04看见机制。S04连接细胞分裂、酶、光合与呼吸、遗传、进化、生态循环；24课均有分层机制解释、原创图解、可操作交互、静态说明、术语和4道反馈题。过程模型提供暂停、逐步和重播；静态条件比较使用真实有效的选择操作。每课按「先猜→发现→挑战→带走」组织，S01/S02建议15–20分钟，S03约25–30分钟，S04约30分钟。三种语言模式共享进度，“再想深一点”提供高中衔接。
+目前开放U01–U30共120课：S01生命侦探、S02细胞与身体、S03生命的联系、S04看见机制、S05中学生物核心。S04连接细胞分裂、酶、光合与呼吸、遗传、进化、生态循环；24课均有分层机制解释、原创图解、可操作交互、静态说明、术语和4道反馈题。过程模型提供暂停、逐步和重播；静态条件比较使用真实有效的选择操作。每课按「先猜→发现→挑战→带走」组织，S01/S02建议15–20分钟，S03约25–30分钟，S04约30分钟，S05约30–40分钟。三种语言模式共享进度，“再想深一点”提供高中衔接。
 
-探索地图保留六阶段、36单元、144课的标题和编号。其余48课标为规划中，没有空课件入口。课程制作数量为66.7%，不代表教学质量或学习效果验收率；当前仍处于家庭试学阶段，完整目标尚未完成。
+探索地图保留六阶段、36单元、144课的标题和编号。其余24课（S06）标为规划中，没有空课件入口。课程制作数量为83.3%，不代表教学质量或学习效果验收率；当前仍处于家庭试学阶段，完整目标尚未完成。
 
 第一阶段作品已开放：`http://localhost:3463/biology/project/S01`。在真实观察或原创虚拟后院中记录5种生物，写下证据、环境和疑问，再用中英文各总结一句；5道综合题可订正。24课、6个单元任务、保存作品与综合检查至少4/5共同构成阶段探索。
 
 第三阶段作品：`http://localhost:3463/biology/project/S03`。比较随机/手选样方与路边方案，查看逐格计数，计算样本密度和全场估计，写主张、两条证据、推理、待补数据和双语摘要；可下载完整纯文本报告。数据为原创虚拟草地，不是实际野外调查。综合题可订正，完成需本阶段24课、6任务、保存作品和五题全答至少4/5。
 
 第四阶段作品：`http://localhost:3463/biology/project/S04`。《解释一个看得见的现象》可选植物生长、酶活性或生态变化，各有四幅原创科学分镜、数值记录、独立草稿和完整SVG导出。学生引用两条证据，区分观察与模型，连接微观机制并设计可反驳检验；可用任一语言完成。S04独立要求24课、6任务、至少一个完整已保存题材和六题全答至少5/6。填写完整只确认结构，不自动判定科学文字或英语质量。
+
+第五阶段作品：`http://localhost:3463/biology/project/S05`。《生物学证据报告》提供四个块茎、20条初终配对的原创虚构记录与五组汇总；学生计算百分比、修复浓度–质量变化图、选择两条有效引用，写出主张、机制、局限、替代解释和进一步实验。图标题英文、图注双语，科学说明可用任一语言，英语弱不锁进度。完整SVG保留实际图、全部数据、假设、长说明与检验字段；编辑会撤销作品保存标记。S05独立要求24课、6任务、有效已保存报告和六题全答至少5/6。四块茎不等于20个独立生物样本；约0.3002154 mol/L只估计给定条件零净质量变化，非精确胞内浓度或平衡证明；min–max不是CI。自动检查结构、计算和图设置，不判断科学说明真伪。
+
+S05新增72目标、168课内术语条目（非全局去重词汇）、24预测、96反馈题，各课含机制解释、数据例题、迁移自查与Depth。内部科学/教学与代码审查、最终24文件165测试、两应用类型/构建、课程24活动/384布局/6完整流程及项目/六任务/实际SVG技术验收已通过；证据、源码变化历史、复跑命令与包体warning见[S5_DELIVERY.md](./S5_DELIVERY.md)及[QA_CHECKLIST.md](./QA_CHECKLIST.md)。外部专家审稿、儿童试用和学习效果仍未验证，全部课程保持`pilot`。
 
 ## 保存与复习
 
@@ -36,13 +40,15 @@ S03正文位于 `curriculum/s03/u13/`–`u18/`；元数据位于 `content/connec
 
 S04正文位于 `curriculum/s04/u19/`–`u24/`；元数据为`content/divisionEnzymes.ts`、`energyGenes.ts`、`evolutionCycles.ts`，三组视觉经`s4Visuals.tsx`按需加载。`divisionEnzymeModel.ts`、`energyGeneModel.ts`、`evolutionCycleModel.ts`保存规则与原创数据；`StoryboardProject.tsx`、`storyProject.ts`、`storySvg.ts`实现三题材作品。项目科学合同和版权来源在`curriculum/s04/project.md`与`project-media.json`。存储版本仍为1，S01–S03记录兼容，阶段计数分别检查。
 
+S05正文位于`curriculum/s05/u25/`–`u30/`；元数据为`content/transportPhysiology.ts`、`plantInformation.ts`、`immunityEvidence.ts`，三组视觉经`s5Visuals.tsx`按需加载。`EvidenceReport.tsx`导出项目组件，`evidenceProject.ts`与`evidenceSvg.ts`实现域层校验与完整安全SVG；科学合同见`curriculum/s05/project.md`及`project-media.json`。存储版本保持1，S01–S04兼容且各阶段计数独立。
+
 ## 验收
 
 ```bash
-corepack pnpm --filter @study/biology-web test
-corepack pnpm --filter @study/biology-web typecheck
-corepack pnpm --filter @study/biology-web build
-corepack pnpm --filter @study/hub build
+pnpm --filter @study/biology-web test
+pnpm --filter @study/biology-web typecheck
+pnpm --filter @study/biology-web build
+pnpm --filter @study/hub build
 ```
 
 浏览器试用：选一课 → 提交不评分预测 → 点图上数字查看结构 → 操作证据卡/模型 → 阅读解释 → 做4题 → 记录发现 → 完成本课。刷新确认恢复，切换三种语言确认内容和进度一致。故意答错后打开复习，检查解释与回看提示。在发现笔记填写主张/证据/推理，确认刷新后保留。

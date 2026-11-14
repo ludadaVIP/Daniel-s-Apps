@@ -1,4 +1,7 @@
 import { divisionEnzymeUnits } from './divisionEnzymeUnits';
+import { transportPhysiologyUnits } from './transportPhysiologyUnits';
+import { plantInformationUnits } from './plantInformationUnits';
+import { immunityEvidenceUnits } from './immunityEvidenceUnits';
 import { energyGeneUnits } from './energyGeneUnits';
 import { evolutionCycleUnits } from './evolutionCycleUnits';
 import { connectionUnits } from './connectionUnits';
@@ -273,6 +276,9 @@ export const units = [
   ...divisionEnzymeUnits,
   ...energyGeneUnits,
   ...evolutionCycleUnits,
+  ...transportPhysiologyUnits,
+  ...plantInformationUnits,
+  ...immunityEvidenceUnits,
 ];
 export function unitForLesson(id: string) {
   return units.find((unit) => unit.lessonIds.includes(id))!;

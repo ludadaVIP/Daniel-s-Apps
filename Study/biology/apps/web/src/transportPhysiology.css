@@ -1,0 +1,89 @@
+.bio-s5-lab.tp-lab {
+  min-width: 0;
+  color: #263b45;
+}
+.bio-s5-lab.tp-lab * {
+  box-sizing: border-box;
+}
+.bio-s5-lab.tp-lab .tp-choices,
+.bio-s5-lab.tp-lab .bio-playback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  align-items: center;
+}
+.bio-s5-lab.tp-lab button {
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0.65rem 0.85rem;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  border: 1px solid #678560;
+  border-radius: 0.65rem;
+  background: #f7faf5;
+  color: #263b45;
+  max-width: 100%;
+}
+.bio-s5-lab.tp-lab button[aria-pressed='true'] {
+  background: #dce8d7;
+  border: 2px solid #436a48;
+}
+.bio-s5-lab.tp-lab fieldset {
+  min-width: 0;
+  padding: 0.8rem;
+  margin: 1rem 0;
+  border: 1px solid #b0c3b6;
+  border-radius: 0.8rem;
+}
+.bio-s5-lab.tp-lab legend {
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
+.bio-s5-lab.tp-lab p {
+  overflow-wrap: anywhere;
+  line-height: 1.65;
+}
+.bio-s5-lab.tp-lab .tp-scroll-hint {
+  font-size: 0.9rem;
+}
+.bio-s5-lab.tp-lab .tp-figure,
+.bio-s5-lab.tp-lab .tp-table {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 1rem 0;
+  border: 1px solid #b0c3b6;
+  border-radius: 0.8rem;
+}
+.bio-s5-lab.tp-lab .tp-figure svg {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+}
+.bio-s5-lab.tp-lab table {
+  width: 100%;
+  min-width: 450px;
+  border-collapse: collapse;
+  table-layout: auto;
+}
+.bio-s5-lab.tp-lab caption {
+  padding: 0.7rem;
+  font-weight: 600;
+  text-align: left;
+}
+.bio-s5-lab.tp-lab th,
+.bio-s5-lab.tp-lab td {
+  padding: 0.65rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid #c5d3c7;
+  overflow-wrap: anywhere;
+}
+.bio-s5-lab.tp-lab td.tp-number {
+  white-space: nowrap;
+  overflow-wrap: normal;
+  font-variant-numeric: tabular-nums;
+}
+.bio-s5-lab.tp-lab :focus-visible {
+  outline: 3px solid #b18837;
+  outline-offset: 3px;
+}

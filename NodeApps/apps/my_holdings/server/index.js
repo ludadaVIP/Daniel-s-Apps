@@ -103,6 +103,12 @@ function isEquityWatch(watch) {
     .filter(Boolean).join(" ");
   return !/etf|指数|指数基金|index fund|index/i.test(assetLabel);
 }
+function hasCompleteWatchResearch(watch) {
+  const shares = watch?.research?.sharesOutstanding;
+  const hasShareCountResult = shares?.status === "unverified" ||
+    (shares?.status === "available" && Number.isFinite(Number(shares.value)) && Number(shares.value) > 0);
+  return hasCompleteResearch(watch) && (!isEquityWatch(watch) || hasShareCountResult);
+}
 function importScreenshotOrders(watchlist) {
   const rows = [
     ["GOOG", "NASDAQ.NMS", 20, 275, "GTC", "09:58", "截图未显示日期；时区未知。"],
@@ -790,7 +796,7 @@ export async function createHoldingsApp({
       const watch = s.watchlist.find((w) => w.id === job.watchId);
       if (!watch) continue;
       Object.assign(job, { kind: "watch-quotes", question: watchQuoteQuestion(watch), batchId: "legacy-watch-refresh", origin: "watch-refresh" });
-      if (!hasCompleteResearch(watch) && !s.jobs.some((j) => j.kind === "watch" && j.watchId === watch.id && j.status === "waiting"))
+      if (!hasCompleteWatchResearch(watch) && !s.jobs.some((j) => j.kind === "watch" && j.watchId === watch.id && j.status === "waiting"))
         migratedResearch.push({ id: randomUUID(), kind: "watch", watchId: watch.id, researchMode: "initial", question: watchResearchQuestion(watch), status: "waiting", date: now().toISOString(), error: "", batchId: job.batchId, origin: job.origin });
       changed = true;
     }
@@ -916,7 +922,7 @@ export async function createHoldingsApp({
           throw error("这个标的或全量市盈率刷新已经在 Codex 待办队列中。", 409);
         if (kind !== "watch-pe" && watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind && j.watchId === watch.id))
           throw error("这个标的已经在 Codex 待办队列中。", 409);
-        if (kind === "watch" && hasCompleteResearch(watch) && req.body.refreshResearch !== true)
+        if (kind === "watch" && hasCompleteWatchResearch(watch) && req.body.refreshResearch !== true)
           throw error("该标的已有完整研究；日常请刷新价格，需要新研究请点击「更新完整研究」。", 409);
         if (kind !== "watch-pe" && !watch && s.jobs.some((j) => j.status === "waiting" && j.kind === kind))
           throw error("相同类型的任务已经在待办队列中。", 409);
@@ -963,7 +969,7 @@ export async function createHoldingsApp({
           const common = { watchId: watch.id, status: "waiting", date: now().toISOString(), error: "", batchId, origin };
           if (!waitingKeys.has(`watch-quotes:${watch.id}`))
             createdJobs.push({ ...common, id: randomUUID(), kind: "watch-quotes", question: watchQuoteQuestion(watch) });
-          if (!hasCompleteResearch(watch) && !waitingKeys.has(`watch:${watch.id}`))
+          if (!hasCompleteWatchResearch(watch) && !waitingKeys.has(`watch:${watch.id}`))
             createdJobs.push({ ...common, id: randomUUID(), kind: "watch", researchMode: "initial", question: watchResearchQuestion(watch) });
           if (origin === "watch-add" && isEquityWatch(watch) && !watch.pe && !waitingKeys.has("watch-pe:all") && !waitingKeys.has(`watch-pe:${watch.id}`))
             createdJobs.push({ ...common, id: randomUUID(), kind: "watch-pe", question: watchPeRefreshQuestion(watch) });
@@ -1058,7 +1064,7 @@ export async function createHoldingsApp({
         }
         if (job.kind === "watch" && job.status !== "waiting") throw error("研究任务已结束；需要新研究时请明确创建更新任务。", 409);
         if (job.kind === "watch" && !s.watchlist.some((w) => w.id === job.watchId)) throw error("关注标的已不存在。", 404);
-        if (job.kind === "watch" && job.researchMode === "initial" && job.status === "waiting" && hasCompleteResearch(s.watchlist.find((w) => w.id === job.watchId))) {
+        if (job.kind === "watch" && job.researchMode === "initial" && job.status === "waiting" && hasCompleteWatchResearch(s.watchlist.find((w) => w.id === job.watchId))) {
           Object.assign(job, { status: "done", completedAt: now().toISOString(), summary: "该标的已有完整研究，已跳过首次研究并保留已有报告。", error: "" });
           return write(s);
         }
@@ -1261,7 +1267,7 @@ export async function createHoldingsApp({
         const job = s.jobs.find((j) => j.id === req.params.id);
         if (!job) throw error("待办任务不存在。", 404);
         if (job.kind === "watch" && job.status !== "waiting") throw error("研究任务已结束。", 409);
-        if (job.kind === "watch" && job.researchMode === "initial" && hasCompleteResearch(s.watchlist.find((w) => w.id === job.watchId))) {
+        if (job.kind === "watch" && job.researchMode === "initial" && hasCompleteWatchResearch(s.watchlist.find((w) => w.id === job.watchId))) {
           Object.assign(job, { status: "done", completedAt: now().toISOString(), summary: "该标的已有完整研究，已跳过首次研究并保留已有报告。", error: "" });
           return write(s);
         }
@@ -1274,6 +1280,8 @@ export async function createHoldingsApp({
         const research = validateResearch(req.body.research);
         if (job.kind === "watch") {
           const w = s.watchlist.find((row) => row.id === job.watchId);
+          if (w && isEquityWatch(w) && !research.sharesOutstanding)
+            throw error("个股研究必须回写 sharesOutstanding（已核实股数或明确未核实结果），才能完成市值数据任务。");
           if (w) {
             w.research = research;
             if (!w.symbol && research.identity?.symbol) w.symbol = research.identity.symbol.slice(0, 40);
@@ -1637,6 +1645,8 @@ export async function createHoldingsApp({
             ? s.watchlist.find((w) => w.id === req.body.watchId)
             : null;
           if (req.body.watchId && !w) throw error("关注标的不存在。", 404);
+          if (w && isEquityWatch(w) && !research.sharesOutstanding)
+            throw error("个股研究导入必须包含 sharesOutstanding（已核实股数或明确未核实结果）。");
           const report = await saveReport(research, kind);
           const finishedAt = new Date().toISOString();
           if (w) {

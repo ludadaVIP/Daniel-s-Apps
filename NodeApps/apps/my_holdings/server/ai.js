@@ -38,8 +38,25 @@ const fields = {
     required: ["price", "date", "currency", "source", "sourceUrl"],
     additionalProperties: false,
   },
+  sharesOutstanding: {
+    type: "object",
+    properties: {
+      status: { type: "string", enum: ["available", "unverified"] },
+      value: { type: ["number", "null"] },
+      asOf: { type: "string" },
+      filedAt: { type: "string" },
+      form: { type: "string" },
+      source: { type: "string" },
+      sourceUrl: { type: "string" },
+      basis: { type: "string" },
+      note: { type: "string" },
+    },
+    required: ["status", "value", "asOf", "filedAt", "form", "source", "sourceUrl", "basis", "note"],
+    additionalProperties: false,
+  },
 };
 const invalid = (message) => Object.assign(new Error(message), { status: 400 });
+const validIsoDate = (value) => typeof value === "string" && /^\d{4}-\d{2}-\d{2}$/.test(value) && !Number.isNaN(Date.parse(value));
 export function validateResearch(r) {
   if (!r || typeof r !== "object" || Array.isArray(r))
     throw invalid("AI 返回内容应为 JSON 对象。");
@@ -86,6 +103,20 @@ export function validateResearch(r) {
       typeof r.quote.sourceUrl !== "string" || !/^https?:\/\//.test(r.quote.sourceUrl) || r.quote.sourceUrl.length > 1000)
   )
     throw invalid("报价必须包含有效价格、交易日期、币种和来源链接。");
+  if (r.sharesOutstanding !== undefined) {
+    const shares = r.sharesOutstanding;
+    if (!shares || typeof shares !== "object" || Array.isArray(shares) ||
+      !["available", "unverified"].includes(shares.status) ||
+      (shares.status === "available" && (typeof shares.value !== "number" || !Number.isFinite(shares.value) || shares.value <= 0)) ||
+      (shares.status === "unverified" && shares.value !== null) ||
+      !validIsoDate(shares.asOf) || !validIsoDate(shares.filedAt) ||
+      typeof shares.form !== "string" || !shares.form.trim() || shares.form.length > 30 ||
+      typeof shares.source !== "string" || !shares.source.trim() || shares.source.length > 200 ||
+      typeof shares.sourceUrl !== "string" || !/^https:\/\//.test(shares.sourceUrl) || shares.sourceUrl.length > 1000 ||
+      typeof shares.basis !== "string" || !shares.basis.trim() || shares.basis.length > 500 ||
+      typeof shares.note !== "string" || shares.note.length > 1000)
+      throw invalid("流通股数须包含有效状态、股数/未核实原因、日期、口径和官方 HTTPS 来源。");
+  }
   const normalized = Object.fromEntries(Object.keys(fields).filter((k) => k !== "quote").map((k) => [k, r[k]]));
   if (r.quote) normalized.quote = r.quote;
   return normalized;

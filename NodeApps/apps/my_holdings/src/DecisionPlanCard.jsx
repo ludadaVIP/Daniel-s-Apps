@@ -19,6 +19,19 @@ function parseRange(value) {
   return { low, high };
 }
 
+function compactMoney(value, currency) {
+  try {
+    return new Intl.NumberFormat("en-US", {
+      style: "currency",
+      currency,
+      notation: "compact",
+      maximumFractionDigits: 2,
+    }).format(value);
+  } catch {
+    return money(value, currency);
+  }
+}
+
 function makeDraft(watch, record) {
   const plan = record?.plan || {};
   return {
@@ -71,6 +84,18 @@ export function DecisionPlanCard({
   const currency = watch.priceCurrency || watch.research?.quote?.currency || watch.research?.identity?.currency || "USD";
   const quote = Number(watch.price);
   const hasQuote = Number.isFinite(quote) && quote > 0;
+  const shares = watch.research?.sharesOutstanding;
+  const sharesValue = shares?.status === "available" ? Number(shares.value) : NaN;
+  const marketCap = hasQuote && Number.isFinite(sharesValue) && sharesValue > 0 ? quote * sharesValue : null;
+  const marketCapText = marketCap == null
+    ? shares?.status === "unverified" ? "待核实" : "待更新"
+    : compactMoney(marketCap, currency);
+  const marketCapTitle = shares?.status === "available" && marketCap != null
+    ? `市值估算：当前报价 ${money(quote, currency)} × ${sharesValue.toLocaleString("en-US")} 股 = ${money(marketCap, currency)}。股数截至 ${shares.asOf || "日期未提供"}，${shares.source || "SEC 来源"}${shares.form ? ` ${shares.form}` : ""}，文件日期 ${shares.filedAt || "未提供"}；${shares.basis || "按已披露普通股总数"}。${shares.note || ""}${shares.sourceUrl ? ` 来源：${shares.sourceUrl}` : ""}`
+    : `市值需要当前报价与已核实的流通股数。${shares?.note || "股数尚未核实。"}${shares?.sourceUrl ? ` 来源：${shares.sourceUrl}` : ""}`;
+  const marketCapField = shares?.sourceUrl
+    ? <a className="mh-decision-field mh-decision-field-link" href={shares.sourceUrl} target="_blank" rel="noreferrer" title={marketCapTitle} aria-label={marketCapTitle}><span>市值 ↗</span><strong>{marketCapText}</strong></a>
+    : <div className="mh-decision-field" title={marketCapTitle} aria-label={marketCapTitle}><span>市值</span><strong>{marketCapText}</strong></div>;
   const observationTarget = watch.targetPrice == null ? NaN : Number(watch.targetPrice);
   const hasObservationTarget = Number.isFinite(observationTarget) && observationTarget > 0;
   const waiting = draft.observationPrice.trim() === "" ? NaN : Number(draft.observationPrice);
@@ -227,6 +252,7 @@ export function DecisionPlanCard({
       <div className={`mh-decision-fields ${editing ? "editing" : ""}`}>
         <div className="mh-decision-field-row primary">
           {peField}
+          {marketCapField}
           {editing ? <>
             <label>
               <span>仓位</span>

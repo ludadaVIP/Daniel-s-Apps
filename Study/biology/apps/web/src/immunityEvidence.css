@@ -1,0 +1,181 @@
+.bio-s5-lab.ie-lab {
+  --ie-ink: #214752;
+  --ie-accent: #277d88;
+  width: 100%;
+  min-width: 0;
+  color: var(--ie-ink);
+}
+.bio-s5-lab.ie-lab > * {
+  min-width: 0;
+  max-width: 100%;
+}
+.bio-s5-lab.ie-lab h3 {
+  margin: 0 0 1rem;
+  line-height: 1.45;
+}
+.bio-s5-lab.ie-lab fieldset {
+  min-width: 0;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border: 1px solid #bdd2d5;
+  border-radius: 14px;
+}
+.bio-s5-lab.ie-lab legend {
+  max-width: 100%;
+  padding: 0 0.3rem;
+  font-weight: 700;
+  white-space: normal;
+}
+.bio-s5-lab.ie-lab .ie-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  min-width: 0;
+}
+.bio-s5-lab.ie-lab button {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #a3c3c7;
+  border-radius: 11px;
+  background: #fff;
+  color: #214752;
+  font: inherit;
+  line-height: 1.45;
+  text-align: start;
+  overflow-wrap: break-word;
+  cursor: pointer;
+}
+.bio-s5-lab.ie-lab button.ie-selected {
+  background: #e0eff0;
+  border: 2px solid #277d88;
+  padding: calc(0.65rem - 1px) calc(0.9rem - 1px);
+}
+.bio-s5-lab.ie-lab button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+.bio-s5-lab.ie-lab :focus-visible {
+  outline: 3px solid #bd8129;
+  outline-offset: 3px;
+}
+.bio-s5-lab.ie-lab .ie-check {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  min-height: 48px;
+  padding: 0.6rem 0.8rem;
+  margin: 0.65rem 0;
+  border: 1px solid #bdd2d5;
+  border-radius: 12px;
+  line-height: 1.5;
+  cursor: pointer;
+}
+.bio-s5-lab.ie-lab input[type='checkbox'] {
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+  accent-color: #277d88;
+}
+.bio-s5-lab.ie-lab .ie-diagram-scroll,
+.bio-s5-lab.ie-lab .ie-table-scroll {
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #c8dbda;
+  border-radius: 14px;
+  background: #fcfdf8;
+  scrollbar-gutter: stable;
+}
+.bio-s5-lab.ie-lab svg {
+  display: block;
+  width: 100%;
+  min-width: 620px;
+  height: auto;
+}
+.bio-s5-lab.ie-lab svg text {
+  fill: #214752;
+  stroke: none;
+  font-family: inherit;
+  font-size: 16px;
+}
+.bio-s5-lab.ie-lab svg .ie-svg-small {
+  font-size: 14px;
+}
+.bio-s5-lab.ie-lab .ie-gridline {
+  stroke: #d9e5e5;
+  stroke-width: 1;
+}
+.bio-s5-lab.ie-lab table {
+  width: 100%;
+  min-width: 520px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+.bio-s5-lab.ie-lab th,
+.bio-s5-lab.ie-lab td {
+  padding: 0.7rem;
+  border-bottom: 1px solid #d5e3df;
+  text-align: start;
+  vertical-align: top;
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.bio-s5-lab.ie-lab th {
+  background: #e5efec;
+}
+.bio-s5-lab.ie-lab caption {
+  text-align: start;
+  padding: 0.8rem;
+  color: #42626a;
+}
+.bio-s5-lab.ie-lab .ie-feedback {
+  margin: 1rem 0;
+  padding: 1rem;
+  border-inline-start: 4px solid #277d88;
+  background: #e8f3f1;
+  border-radius: 0 12px 12px 0;
+  line-height: 1.65;
+}
+.bio-s5-lab.ie-lab .ie-boundary {
+  margin: 1rem 0;
+  padding: 0.85rem 1rem;
+  border: 1px dashed #b58a47;
+  border-radius: 12px;
+  background: #fbf6e9;
+  line-height: 1.6;
+}
+.bio-s5-lab.ie-lab .ie-scroll-hint {
+  font-size: 0.85rem;
+  color: #526e73;
+  margin: 0.7rem 0 0.4rem;
+}
+.bio-s5-lab.ie-lab .ie-repair-label {
+  padding: 1rem;
+  background: #f8efdf;
+  border-radius: 12px;
+  line-height: 1.6;
+}
+.bio-s5-lab.ie-lab .bio-playback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  margin: 1rem 0;
+  align-items: center;
+  min-width: 0;
+}
+@media (max-width: 450px) {
+  .bio-s5-lab.ie-lab .ie-choices {
+    flex-direction: column;
+  }
+  .bio-s5-lab.ie-lab .ie-choices button {
+    width: 100%;
+  }
+  .bio-s5-lab.ie-lab fieldset {
+    padding: 0.65rem;
+  }
+  .bio-s5-lab.ie-lab .ie-feedback {
+    padding: 0.8rem;
+  }
+}

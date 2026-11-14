@@ -1,0 +1,116 @@
+{
+  "unit": "U29",
+  "verified": "2026-11-14",
+  "status": "pilot; external science review and learner trial pending",
+  "license": "Original project prose, questions, fictional numerical datasets and SVG. Sources verify principles only; no external figures, trial records or questions copied.",
+  "sources": [
+    {
+      "lesson": "L113",
+      "url": "https://openstax.org/books/biology-2e/pages/42-1-innate-immune-response",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L113",
+      "url": "https://openstax.org/books/biology-2e/pages/42-2-adaptive-immune-response",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L114",
+      "url": "https://www.cdc.gov/vaccines/basics/explaining-how-vaccines-work.html",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L114",
+      "url": "https://openstax.org/books/biology-2e/pages/42-2-adaptive-immune-response",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L115",
+      "url": "https://www.cdc.gov/antimicrobial-resistance/about/index.html",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L116",
+      "url": "https://www.nhlbi.nih.gov/research/clinical-trials/how-studies-work",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    },
+    {
+      "lesson": "L116",
+      "url": "https://www.cdc.gov/vaccines/basics/explaining-how-vaccines-work.html",
+      "verified": "2026-11-14",
+      "use": "Scientific mechanism or evidence-design verification; original wording, diagrams and fictional data."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L113-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    },
+    {
+      "id": "L114-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    },
+    {
+      "id": "L115-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    },
+    {
+      "id": "L116-D01",
+      "component": "ImmunityEvidenceDiagram",
+      "kind": "original SVG schematic, not to scale; fictional data"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L113-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable evidence/design repair; no simulated time",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    },
+    {
+      "id": "L114-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable teaching model",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    },
+    {
+      "id": "L115-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable teaching model",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    },
+    {
+      "id": "L116-I01",
+      "component": "ImmunityEvidenceExplore",
+      "kind": "keyboard-operable evidence/design repair; no simulated time",
+      "staticAlternative": "Complete labelled SVG, all-data table and written comparison; no playback required."
+    }
+  ],
+  "models": {
+    "L113": {
+      "assumptions": "L113-I01: Classify three record cards as innate or adaptive; check the denominator of the 60, 25 and 15 records.",
+      "limits": "Depth: Recognition need not directly produce one fixed effect; signalling and differentiation intervene. Molecular presentation and signalling pathways are beyond this lesson. The contrast with adaptive clonal memory is not an absolute denial of trained innate responses. “Innate defence cannot recognise” and “antibodies engulf” are errors: shared-pattern recognition differs from specific clonal recognition; engulfment requires a cell."
+    },
+    "L114": {
+      "assumptions": "L114-I01: Step or play both curves; select matched A or unfamiliar B and explain which curve applies. The complete six-point table remains readable.",
+      "limits": "Depth: Memory changes cell numbers and states. Antibody index is one readout, not the entirety of cellular immunity. The curves omit antigenic variation, mucosal defence and immune deficiencies. Low antibodies need not mean zero memory; a faster secondary response does not mean zero infection."
+    },
+    "L115": {
+      "assumptions": "L115-I01: Choose 0 or 2 initial resistant cells and pressure on/off. Step through counts and fractions; the complete table replaces playback.",
+      "limits": "Depth: Separate the origin of a trait from its frequency change. Horizontal transfer can alter a cell’s genetic composition; selection changes relative descendant contribution. Molecular resistance mechanisms are beyond this model. A 100% fraction does not itself mean the count rose; with no survivors the fraction is undefined."
+    },
+    "L116": {
+      "assumptions": "L116-I01: Change A’s denominator 200/50, complete/missing follow-up and self-selected/random allocation; audit “proves effective”.",
+      "limits": "Depth: Extreme missing-outcome bounds are a sensitivity check, not an estimate of the most likely risk. Random allocation addresses confounding; random sampling addresses representativeness. A 50% relative reduction is not 50 percentage points; random allocation does not erase missing outcomes."
+    }
+  }
+}

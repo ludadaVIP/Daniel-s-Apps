@@ -1,0 +1,140 @@
+{
+  "unit": "U25",
+  "verified": "2026-11-14",
+  "status": "pilot; child trial and external independent science review pending",
+  "assets": "Original Study prose, questions, SVG and invented model data; repository license applies. No external figure or prose copied. Linked OpenStax factual references CC BY 4.0.",
+  "sources": [
+    {
+      "title": "OpenStax — Components and Structure",
+      "url": "https://openstax.org/books/biology-2e/pages/5-1-components-and-structure",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Passive Transport",
+      "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — Active Transport",
+      "url": "https://openstax.org/books/biology-2e/pages/5-3-active-transport",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    },
+    {
+      "title": "OpenStax — The Cell Membrane",
+      "url": "https://openstax.org/books/anatomy-and-physiology-2e/pages/3-1-the-cell-membrane",
+      "license": "OpenStax CC BY 4.0; factual verification only, no copied figure/prose"
+    }
+  ],
+  "models": {
+    "L097": "Static permission model: oxygen crosses lipid core; selected ion/glucose require their respective matching functioning proteins. Not all proteins mobile; some anchored. No quantitative permeability, concentration or electrical-potential prediction.",
+    "L098": "Closed equal-volume compartments, no reaction. Each step exchanges 1/4 of each current amount in each direction if permeable. Expected amount units, not individual fractional molecules; steps not seconds. Total amount conserved20; dots rounded, ledger exact. Equilibrium retains equal nonzero two-way exchange.",
+    "L099": "Initial total potentials outside−0.2/−0.8/−0.5 MPa,inside−0.5 MPa,equal temperature; selected solute impermeant,water permeant. Net water high→low total Ψ; concentration-only rule needs pressure conditions. Sizes show tendency only, not final state/time/volume. Plant water loss need not imply plasmolysis; sufficient loss required. Animal excessive entry can lyse, not guaranteed. Fictional tissue example2.00→2.10g =+5%; no personal fluid tests. Plant diagram keeps the membrane wall-adjacent in every frame, illustrating early turgor tendencies without asserting plasmolysis.",
+    "L100": "Relative capacity=A×gradient/d with fixed permeability. A1/2,d1/0.5,gradient3 produces3/6/12 relative units, not measured flow. Uphill transport independent illustration:2 carriers with ample substrate,energy available→2 model units/step,unavailable→0. No saturation kinetics; active energy may be direct ATP or indirect gradient."
+  },
+  "lessonSources": [
+    {
+      "lesson": "L097",
+      "url": "https://openstax.org/books/biology-2e/pages/5-1-components-and-structure",
+      "purpose": "Bilayer, hydrophilic/hydrophobic orientation, fluid mosaic",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    },
+    {
+      "lesson": "L098",
+      "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport",
+      "purpose": "Two-way diffusion, net gradient, permeability and dynamic equilibrium",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    },
+    {
+      "lesson": "L099",
+      "url": "https://openstax.org/books/biology-2e/pages/5-2-passive-transport",
+      "purpose": "Water movement, cell-wall effects, conditional tonicity; total Ψ framed explicitly",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    },
+    {
+      "lesson": "L100",
+      "url": "https://openstax.org/books/biology-2e/pages/5-3-active-transport",
+      "purpose": "Energy, carriers and primary/secondary active transport",
+      "verified": "2026-11-14",
+      "rights": "Original diagram; factual reference linked, no external art copied"
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L097-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "图中两排蓝色头朝向内外水环境，黄色尾相向；跨膜蛋白嵌在双层中。箭头只示是否允许通过，不代表速度。",
+        "en": "Blue heads face water on both sides; yellow tails face inward. A protein spans the bilayer. The arrow indicates allowed passage, not rate."
+      }
+    },
+    {
+      "id": "L098-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "左、右室体积均为1模型体积单位；圆点仅将期望量四舍五入，精确数量在表。中间虚线表示此物质可透过的膜。",
+        "en": "Both compartments have volume 1 model unit. Dots round expected amounts; read exact quantities in the table. The dashed barrier is permeable to this substance."
+      }
+    },
+    {
+      "id": "L099-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "固定初始Ψ内=−0.5 MPa，外液三档均为总水势。绿色外框为植物细胞壁、蓝边为膜；动物无细胞壁。尺寸只表趋势，不预测最终体积。 植物膜保持贴壁；只示早期膨压变化，不由失水方向直接断言质壁分离。",
+        "en": "Initial internal Ψ is −0.5 MPa; all three external values are total potentials. Green is the plant wall, blue the membrane; animal cells lack walls. Sizes show tendencies, not predicted final volumes. Plant membrane remains wall-adjacent: early turgor trends do not establish plasmolysis."
+      }
+    },
+    {
+      "id": "L100-D01",
+      "component": "TransportPhysiologyDiagram",
+      "scale": "Original schematic; not to scale",
+      "alt": {
+        "zh": "左半比较平面/褶皱与厚薄路径，右半单独示逆梯度载体；两者不是同一支箭头。线条形状仅示结构，定量读表。",
+        "en": "Left compares flat/folded surfaces and path length; right separately shows an uphill carrier. These are different constraints. Use the table rather than drawn line lengths for quantities."
+      }
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L097-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "先选氧气、无匹配蛋白，再选离子。保持离子不变，只把匹配蛋白改为有。比较葡萄糖。此活动是结构—通透性的静态比较，无生理时间播放。",
+        "en": "Choose oxygen without a matching protein, then an ion. Keep the ion and add its matching protein. Compare glucose. This is a static structure–permeability comparison, without physiological playback time."
+      }
+    },
+    {
+      "id": "L098-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "用16/4、可透过条件逐步记录。计算第一步4−1，再换10/10观察双向量。最后保持16/4，仅改不可透过；暂停、逐步、重播与全表都能检查每一步。",
+        "en": "Step through 16/4 with a permeable membrane. Calculate first-step 4−1; then use 10/10 and inspect both directions. Finally keep 16/4 and block passage. Pause, step, replay or inspect the complete ledger."
+      }
+    },
+    {
+      "id": "L099-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "同温、膜透水且不透所选溶质。比较外−0.2、−0.8、−0.5 MPa；先判断数值哪个较高，再换植物/动物。逐帧看趋势，全静态表说明哪些后果还需要额外条件。",
+        "en": "Use equal temperature and a membrane passing water but not the selected solute. Compare −0.2, −0.8 and −0.5 MPa outside. Identify the higher value before changing cell type. Frames show tendencies; the static record identifies conditional outcomes."
+      }
+    },
+    {
+      "id": "L100-I01",
+      "component": "TransportPhysiologyExplore",
+      "staticAlternative": "Full bilingual static records and lesson explanation. Static comparisons L097/L100 have no playback; process lessons have pause, step, replay, full static tables. Keyboard buttons, named focusable local SVG/table scroll regions.",
+      "instructions": {
+        "zh": "固定梯度3与通透性，先面积1→2，再只把距离1→0.5。记录相对容量。最后关/开代谢能，观察逆梯度量。静态参数比较不播放假时间。",
+        "en": "Fix gradient 3 and permeability. Change area 1→2, then only distance 1→0.5; record relative capacity. Switch energy off/on and compare uphill transport. This is a static parameter comparison, without a false timeline."
+      }
+    }
+  ]
+}

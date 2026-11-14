@@ -1,0 +1,341 @@
+{
+  "unit": "U28",
+  "stage": "S05",
+  "verified": "2026-11-14",
+  "status": "pilot; independent science review and child trial pending",
+  "author": "Study Biology Explorer",
+  "license": "Original project prose, questions, invented datasets and SVG code. Sources verify concepts only; no external figures or extended source prose reproduced.",
+  "sources": [
+    {
+      "lesson": "L109",
+      "title": "OpenStax Biology 2e · DNA structure",
+      "url": "https://openstax.org/books/biology-2e/pages/14-2-dna-structure-and-sequencing",
+      "verified": "2026-11-14",
+      "use": "A flattened double strand marks all four ends; letters, not colour, identify pairing after editing. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L110",
+      "title": "NHGRI · Gene definitions and functional RNA",
+      "url": "https://www.genome.gov/genetics-glossary/Gene",
+      "verified": "2026-11-14",
+      "use": "A nuclear boundary separates transcription from typical cytoplasmic translation; compare a functional-RNA route. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L110",
+      "title": "Transcription and translation overview",
+      "url": "https://openstax.org/books/biology-2e/pages/15-1-the-genetic-code",
+      "verified": "2026-11-14",
+      "use": "Scientific concept verification; original prose and model, no reproduced figure."
+    },
+    {
+      "lesson": "L111",
+      "title": "OpenStax Biology 2e · The process of meiosis",
+      "url": "https://openstax.org/books/biology-2e/pages/11-1-the-process-of-meiosis",
+      "verified": "2026-11-14",
+      "use": "Each ellipse is a checkpoint cell; each X is one replicated chromosome. All counts below are per cell. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L111",
+      "title": "Replication and mitosis checkpoints",
+      "url": "https://openstax.org/books/biology-2e/pages/10-2-the-cell-cycle",
+      "verified": "2026-11-14",
+      "use": "Scientific concept verification; original prose and model, no reproduced figure."
+    },
+    {
+      "lesson": "L112",
+      "title": "NHGRI · Gene–environment interaction",
+      "url": "https://www.genome.gov/genetics-glossary/Gene-Environment-Interaction",
+      "verified": "2026-11-14",
+      "use": "Bars show expected counts above and environment-dependent invented trait values below; highlight marks selected G, not human categories. Concept verification only; not a dataset or copied illustration."
+    },
+    {
+      "lesson": "L112",
+      "title": "Polygenic trait definition",
+      "url": "https://www.genome.gov/genetics-glossary/Polygenic-Trait",
+      "verified": "2026-11-14",
+      "use": "Scientific concept verification; original prose and model, no reproduced figure."
+    }
+  ],
+  "assets": [
+    {
+      "id": "L109-D01",
+      "lesson": "L109",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "展平双链标出四个端点，配对不靠颜色辨别；编辑片段后看对应字母。",
+        "A flattened double strand marks all four ends; letters, not colour, identify pairing after editing."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Six base pairs; A-T,G-C, antiparallel; not a genome or editing procedure."
+    },
+    {
+      "id": "L109-I01",
+      "lesson": "L109",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "展平双链标出四个端点，配对不靠颜色辨别；编辑片段后看对应字母。",
+        "A flattened double strand marks all four ends; letters, not colour, identify pairing after editing."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Six base pairs; A-T,G-C, antiparallel; not a genome or editing procedure."
+    },
+    {
+      "id": "L110-D01",
+      "lesson": "L110",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "细胞核边界分开转录和典型细胞质翻译；可切换RNA产物路径。",
+        "A nuclear boundary separates transcription from typical cytoplasmic translation; compare a functional-RNA route."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Eukaryotic overview; functional RNA need not be translated; RNA may also function in nucleus."
+    },
+    {
+      "id": "L110-I01",
+      "lesson": "L110",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "细胞核边界分开转录和典型细胞质翻译；可切换RNA产物路径。",
+        "A nuclear boundary separates transcription from typical cytoplasmic translation; compare a functional-RNA route."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Eukaryotic overview; functional RNA need not be translated; RNA may also function in nucleus."
+    },
+    {
+      "id": "L111-D01",
+      "lesson": "L111",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "图中每个椭圆是一个检查点细胞；每个X一条已复制染色体，下方全部数值按每细胞给出。",
+        "Each ellipse is a checkpoint cell; each X is one replicated chromosome. All counts below are per cell."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Fictional 2n=4; C is haploid unreplicated DNA; per-cell completed checkpoints only, one replication before either route and none betweenI/II."
+    },
+    {
+      "id": "L111-I01",
+      "lesson": "L111",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "图中每个椭圆是一个检查点细胞；每个X一条已复制染色体，下方全部数值按每细胞给出。",
+        "Each ellipse is a checkpoint cell; each X is one replicated chromosome. All counts below are per cell."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Fictional 2n=4; C is haploid unreplicated DNA; per-cell completed checkpoints only, one replication before either route and none betweenI/II."
+    },
+    {
+      "id": "L112-D01",
+      "lesson": "L112",
+      "component": "PlantInformationDiagram",
+      "kind": "original SVG",
+      "alt": [
+        "直方条上方为期望数量，下方为随环境改变的虚构性状值；颜色标选定G，而非人群分类。",
+        "Bars show expected counts above and environment-dependent invented trait values below; highlight marks selected G, not human categories."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Y=10+2G+3E+GE; three independent two-allele loci, equal independent allele combinations, expected 64 combinations, bins 1,6,15,20,15,6,1. Seven discrete expected groups, not a real continuous sample; no human predictions or heritability estimate."
+    },
+    {
+      "id": "L112-I01",
+      "lesson": "L112",
+      "component": "PlantInformationExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": [
+        "直方条上方为期望数量，下方为随环境改变的虚构性状值；颜色标选定G，而非人群分类。",
+        "Bars show expected counts above and environment-dependent invented trait values below; highlight marks selected G, not human categories."
+      ],
+      "rights": "Original project SVG, data and model code; no external image",
+      "scale": "not to scale; plotted units explicitly relative or invented",
+      "keyboard": "Tab, native buttons/selects/range inputs; wide diagram is a named focusable horizontal-scroll region",
+      "staticAlternative": "Complete bilingual ordered steps and model boundaries in component details and lesson Markdown",
+      "model": "See plantInformationModel.ts and component static limits; invented values, no empirical fit; Y=10+2G+3E+GE; three independent two-allele loci, equal independent allele combinations, expected 64 combinations, bins 1,6,15,20,15,6,1. Seven discrete expected groups, not a real continuous sample; no human predictions or heritability estimate."
+    }
+  ],
+  "models": {
+    "L109": {
+      "type": "six-base-pair antiparallel complement model",
+      "formula": "pair(A)=T; pair(T)=A; pair(G)=C; pair(C)=G; lower strand left-to-right has 3-prime to 5-prime direction",
+      "parameters": {
+        "upper_sequence": "6 bases, selected position cycles A,T,G,C; upper left=5-prime",
+        "lower_sequence": "positional complement, lower left=3-prime",
+        "base_pair": "two nucleotides; whole fragment has12 nucleotides"
+      },
+      "data": {
+        "initial_upper": "5-prime ATGCAT 3-prime",
+        "initial_lower": "3-prime TACGTA 5-prime",
+        "nonpalindromic_worked_upper": "5-prime AGTC 3-prime",
+        "nonpalindromic_worked_lower_left_to_right": "3-prime TCAG 5-prime",
+        "same_lower_reported_5_to_3": "5-prime GACT 3-prime",
+        "double_strand_count_example": {
+          "total_nucleotides": 100,
+          "A": 30,
+          "T": 30,
+          "G": 20,
+          "C": 20
+        }
+      },
+      "assumptions": [
+        "Complete canonical double-strand pairing",
+        "Sequence order carries information; colours do not",
+        "A=T/G=C totals apply to complete paired double strand, not necessarily an isolated strand"
+      ],
+      "limits": [
+        "Flattened schematic not to scale or a genome",
+        "No replication enzymes, chromatin or phenotype prediction",
+        "Clicking edits a teaching model, not biological material"
+      ]
+    },
+    "L110": {
+      "type": "eukaryotic expression-level route comparison",
+      "data": {
+        "protein_coding": [
+          "nuclear DNA gene",
+          "transcription produces RNA",
+          "processed mRNA reaches cytoplasmic ribosome",
+          "translation joins amino acids; protein folds/functions"
+        ],
+        "functional_RNA": [
+          "nuclear DNA gene",
+          "transcription produces RNA",
+          "RNA processing/localisation",
+          "RNA itself functions without translation"
+        ],
+        "worked_example": {
+          "cellA_RNA_relative": 8,
+          "cellA_protein_relative": 6,
+          "cellB_RNA_relative": 1,
+          "cellB_protein_relative": 0.5
+        }
+      },
+      "assumptions": [
+        "DNA remains a source of information, not converted into protein material",
+        "RNA and protein quantities are different relative indicator scales",
+        "Functional RNA can also act in nucleus",
+        "Gene presence does not guarantee equal expression"
+      ],
+      "limits": [
+        "RNA processing, expression regulation and codon mechanics omitted",
+        "No one-gene-one-trait or fixed RNA/protein yield claim",
+        "Eukaryotic location model does not apply unchanged to prokaryotes"
+      ]
+    },
+    "L111": {
+      "type": "completed-checkpoint accounting for fictional diploid2n=4",
+      "parameters": {
+        "n": "2 chromosomes in one set",
+        "C": "unreplicated haploid DNA amount, fixed throughout",
+        "all_counts": "per cell at COMPLETED checkpoints, not transient anaphase"
+      },
+      "data": {
+        "start": {
+          "cells": 1,
+          "sets_each": 2,
+          "chromosomes_each": 4,
+          "chromatids_each": 4,
+          "DNA_C_each": 2
+        },
+        "replicated": {
+          "cells": 1,
+          "sets_each": 2,
+          "chromosomes_each": 4,
+          "chromatids_each": 8,
+          "DNA_C_each": 4
+        },
+        "mitosis_complete": {
+          "cells": 2,
+          "sets_each": 2,
+          "chromosomes_each": 4,
+          "chromatids_each": 4,
+          "DNA_C_each": 2
+        },
+        "meiosis_I_complete": {
+          "cells": 2,
+          "sets_each": 1,
+          "chromosomes_each": 2,
+          "chromatids_each": 4,
+          "DNA_C_each": 2
+        },
+        "meiosis_II_complete": {
+          "cells": 4,
+          "sets_each": 1,
+          "chromosomes_each": 2,
+          "chromatids_each": 2,
+          "DNA_C_each": 1
+        }
+      },
+      "assumptions": [
+        "One replication before either route",
+        "No replication between meiosisI andII",
+        "Perfect segregation; no DNA loss; replicated total4C conserved across subsequent divisions",
+        "X represents one replicated chromosome with two joined sister chromatids"
+      ],
+      "limits": [
+        "Crossing over and many division structures omitted for counting clarity",
+        "Transient anaphase counting uses different boundaries",
+        "Meiotic products in plants do not always directly become gametes",
+        "Homologue colour indicates illustrative origin, not gene identity or selection for need"
+      ]
+    },
+    "L112": {
+      "type": "original fictional three-locus genotype-by-environment model",
+      "formula": "Y=10+2*G+3*E+G*E",
+      "parameters": {
+        "G": "0–6 contributing allele units across three independent two-allele loci",
+        "E": "invented environment index0–2",
+        "Y": "fictional plant-height units, not cm or a real cultivar",
+        "frequency": "expected counts across64 equally probable allele combinations, not a sampled population"
+      },
+      "data": {
+        "G": [0, 1, 2, 3, 4, 5, 6],
+        "expected_counts": [1, 6, 15, 20, 15, 6, 1],
+        "total_expected": 64,
+        "G3_E0": 16,
+        "G3_E2": 28,
+        "G0_E0": 10,
+        "G0_E2": 16,
+        "G6_E0": 22,
+        "G6_E2": 40
+      },
+      "assumptions": [
+        "Three independent two-allele loci",
+        "Each allele is equally frequent and independent in the combinations",
+        "Equal additive allele contributions plus explicit G*E interaction",
+        "Fixed expected group counts; changing environment changes trait values, not allele frequencies",
+        "No measurement noise or within-genotype environmental variation"
+      ],
+      "limits": [
+        "Seven discrete expected groups, not a real continuous sample",
+        "No empirical fit and no human ability/health/social prediction",
+        "Distribution shape alone cannot separate genetic/environmental mechanisms",
+        "Cannot estimate real heritability from this demonstration"
+      ]
+    }
+  }
+}
