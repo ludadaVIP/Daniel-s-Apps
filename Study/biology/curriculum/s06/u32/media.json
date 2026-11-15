@@ -1,0 +1,430 @@
+{
+  "unit": "U32",
+  "stage": "S06",
+  "verified": "2026-11-15",
+  "status": "pilot; independent science review and child trial pending",
+  "author": "Study Biology Explorer",
+  "license": "Original project prose, questions, fictional sequences, data and SVG code. Sources verify concepts only; no textbook illustrations or questions copied.",
+  "sources": [
+    {
+      "lesson": "L125",
+      "title": "OpenStax Biology 2e · ATP",
+      "url": "https://openstax.org/books/biology-2e/pages/6-4-atp-adenosine-triphosphate",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L126",
+      "title": "OpenStax Biology 2e · Oxidative phosphorylation",
+      "url": "https://openstax.org/books/biology-2e/pages/7-4-oxidative-phosphorylation",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L127",
+      "title": "OpenStax Biology 2e · Calvin cycle",
+      "url": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L128",
+      "title": "OpenStax Biology 2e · Enzymes and feedback inhibition",
+      "url": "https://openstax.org/books/biology-2e/pages/6-5-enzymes",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L126",
+      "title": "OpenStax Biology 2e · Glycolysis",
+      "url": "https://openstax.org/books/biology-2e/pages/7-2-glycolysis",
+      "verified": "2026-11-15",
+      "use": "Supporting concept verification; original SVG, no source illustration copied."
+    },
+    {
+      "lesson": "L126",
+      "title": "OpenStax Biology 2e · NAD+ regeneration by fermentation",
+      "url": "https://openstax.org/books/biology-2e/pages/7-5-metabolism-without-oxygen",
+      "verified": "2026-11-15",
+      "use": "Supporting concept verification; original SVG, no source illustration copied."
+    },
+    {
+      "lesson": "L127",
+      "title": "OpenStax Biology 2e · Light reactions and water-derived oxygen",
+      "url": "https://openstax.org/books/biology-2e/pages/8-2-the-light-dependent-reactions-of-photosynthesis",
+      "verified": "2026-11-15",
+      "use": "Supporting concept verification; original SVG, no source illustration copied."
+    }
+  ],
+  "assets": [
+    {
+      "id": "L125-D01",
+      "lesson": "L125",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "两框分别保留需能反应与ATP净水解的带符号ΔG；连线表示抽象共享A–P中间体，不是两框相邻就已偶联。",
+        "en": "Two boxes retain signed ΔG values for work and ATP hydrolysis. A line denotes an abstract shared A–P intermediate; adjacency alone is not coupling."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/6-4-atp-adenosine-triphosphate",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "totalΔG=workΔG+hydrolysisΔG. Driving condition in model: shared physical intermediate AND totalΔG<0.",
+        "parameters": {
+          "work": "5–40 kJ mol^-1",
+          "hydrolysis": "−50 to−10 kJ mol^-1 conditional values supplied, not concentration-derived",
+          "shared": "true/false abstract A–P intermediate"
+        },
+        "units": "kJ mol^-1, not rate or power",
+        "assumptions": [
+          "Both ΔG values apply to the same stated conditions",
+          "Stoichiometric1:1 pairing",
+          "Schematic shared mechanism"
+        ],
+        "limits": [
+          "Breaking a bond requires energy; whole hydrolysis has negative netΔG",
+          "Negative sum alone does not establish coupling",
+          "No kinetics/concentration evolution",
+          "A–P is not a universal coupling mechanism"
+        ]
+      }
+    },
+    {
+      "id": "L125-I01",
+      "lesson": "L125",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "两框分别保留需能反应与ATP净水解的带符号ΔG；连线表示抽象共享A–P中间体，不是两框相邻就已偶联。",
+        "en": "Two boxes retain signed ΔG values for work and ATP hydrolysis. A line denotes an abstract shared A–P intermediate; adjacency alone is not coupling."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/6-4-atp-adenosine-triphosphate",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "totalΔG=workΔG+hydrolysisΔG. Driving condition in model: shared physical intermediate AND totalΔG<0.",
+        "parameters": {
+          "work": "5–40 kJ mol^-1",
+          "hydrolysis": "−50 to−10 kJ mol^-1 conditional values supplied, not concentration-derived",
+          "shared": "true/false abstract A–P intermediate"
+        },
+        "units": "kJ mol^-1, not rate or power",
+        "assumptions": [
+          "Both ΔG values apply to the same stated conditions",
+          "Stoichiometric1:1 pairing",
+          "Schematic shared mechanism"
+        ],
+        "limits": [
+          "Breaking a bond requires energy; whole hydrolysis has negative netΔG",
+          "Negative sum alone does not establish coupling",
+          "No kinetics/concentration evolution",
+          "A–P is not a universal coupling mechanism"
+        ]
+      }
+    },
+    {
+      "id": "L126-D01",
+      "lesson": "L126",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "三个区分开表示细胞质、线粒体基质与内膜。碳用6C、CO₂标注，电子用载体对数，ATP另列。",
+        "en": "Three regions distinguish cytosol, mitochondrial matrix and inner membrane. Carbon is labelled with 6C/CO₂, electrons by carrier pairs, and ATP separately."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/7-4-oxidative-phosphorylation",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "Aerobic per glucose:6C→6CO2,10NADH+2FADH2=12 electron pairs; ATP2+2+26≈30. Lactate option:6C→2×3C lactate, net2ATP; NAD+ regenerated.",
+        "parameters": {
+          "oxygen": "aerobic complete oxidation OR explicit lactate fermentation",
+          "stages": "glycolysis; matrix oxidation/cycle; inner-membrane transfer; gradient-drivenATP"
+        },
+        "units": "C atoms, carrier electron pairs, mol ATP per mol glucose (approximate)",
+        "assumptions": [
+          "Typical eukaryote",
+          "Aerobic route complete oxidation",
+          "Oxygen-off assumes lactate-fermentation capacity and substrate supply"
+        ],
+        "limits": [
+          "ATP yield variable, not universal38",
+          "CO2 carbon from organic substrate; O2 receives electrons and forms water",
+          "Without NAD+ regeneration glycolysis cannot continue indefinitely",
+          "Other anaerobic pathways not simulated"
+        ]
+      }
+    },
+    {
+      "id": "L126-I01",
+      "lesson": "L126",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "三个区分开表示细胞质、线粒体基质与内膜。碳用6C、CO₂标注，电子用载体对数，ATP另列。",
+        "en": "Three regions distinguish cytosol, mitochondrial matrix and inner membrane. Carbon is labelled with 6C/CO₂, electrons by carrier pairs, and ATP separately."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/7-4-oxidative-phosphorylation",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "Aerobic per glucose:6C→6CO2,10NADH+2FADH2=12 electron pairs; ATP2+2+26≈30. Lactate option:6C→2×3C lactate, net2ATP; NAD+ regenerated.",
+        "parameters": {
+          "oxygen": "aerobic complete oxidation OR explicit lactate fermentation",
+          "stages": "glycolysis; matrix oxidation/cycle; inner-membrane transfer; gradient-drivenATP"
+        },
+        "units": "C atoms, carrier electron pairs, mol ATP per mol glucose (approximate)",
+        "assumptions": [
+          "Typical eukaryote",
+          "Aerobic route complete oxidation",
+          "Oxygen-off assumes lactate-fermentation capacity and substrate supply"
+        ],
+        "limits": [
+          "ATP yield variable, not universal38",
+          "CO2 carbon from organic substrate; O2 receives electrons and forms water",
+          "Without NAD+ regeneration glycolysis cannot continue indefinitely",
+          "Other anaerobic pathways not simulated"
+        ]
+      }
+    },
+    {
+      "id": "L127-D01",
+      "lesson": "L127",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "叶绿体内类囊体膜与基质分区；箭头区分光能支持的ATP/NADPH供应、O₂放出与CO₂输入。",
+        "en": "Chloroplast thylakoid membrane and stroma are separated; arrows distinguish ATP/NADPH supply, oxygen release and CO₂ input."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "netG3P=min(CO2/3,ATP/9,NADPH/6); fixedCarbon=3*G3P; remainingATP=ATP−9G3P; remainingNADPH=NADPH−6G3P.",
+        "parameters": {
+          "CO2": "fixed6 μmol",
+          "ATP": "0–36 μmol",
+          "NADPH": "0–24 μmol"
+        },
+        "units": "μmol finite available material, not μmol per time",
+        "assumptions": [
+          "Ideal Calvin-cycle net budget including acceptor regeneration",
+          "Each net3C G3P costs3CO2/9ATP/6NADPH",
+          "Independent finite supply inputs"
+        ],
+        "limits": [
+          "No dynamic supply, enzyme kinetics or photorespiration",
+          "No direct glucose output",
+          "Light-reaction O2 derives from water; carbon derives fromCO2",
+          "Not dark-only; no lamp-intensity-to-supply claim"
+        ]
+      }
+    },
+    {
+      "id": "L127-I01",
+      "lesson": "L127",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "叶绿体内类囊体膜与基质分区；箭头区分光能支持的ATP/NADPH供应、O₂放出与CO₂输入。",
+        "en": "Chloroplast thylakoid membrane and stroma are separated; arrows distinguish ATP/NADPH supply, oxygen release and CO₂ input."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/8-3-using-light-energy-to-make-organic-molecules",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "netG3P=min(CO2/3,ATP/9,NADPH/6); fixedCarbon=3*G3P; remainingATP=ATP−9G3P; remainingNADPH=NADPH−6G3P.",
+        "parameters": {
+          "CO2": "fixed6 μmol",
+          "ATP": "0–36 μmol",
+          "NADPH": "0–24 μmol"
+        },
+        "units": "μmol finite available material, not μmol per time",
+        "assumptions": [
+          "Ideal Calvin-cycle net budget including acceptor regeneration",
+          "Each net3C G3P costs3CO2/9ATP/6NADPH",
+          "Independent finite supply inputs"
+        ],
+        "limits": [
+          "No dynamic supply, enzyme kinetics or photorespiration",
+          "No direct glucose output",
+          "Light-reaction O2 derives from water; carbon derives fromCO2",
+          "Not dark-only; no lamp-intensity-to-supply claim"
+        ]
+      }
+    },
+    {
+      "id": "L128-D01",
+      "lesson": "L128",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "反应线S→中间物→P中，E₁标在第一条箭头上表示催化剂而非被消耗原料；回路线定位P对E₁的特异抑制。",
+        "en": "The S→intermediate→P sketch labels E₁ above the first arrow as a catalyst, not a consumed reactant. A return line locates P-specific inhibition of E₁."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/6-5-enzymes",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "v=12*S/(2+S)/(1+P/4) for sensitive enzyme; insensitive control v=12*S/(2+S).",
+        "parameters": {
+          "S": "0–12 μmol L^-1",
+          "P": "0–16 μmol L^-1",
+          "Vmax": "12 μmol min^-1",
+          "substrateScale": "2 μmol L^-1",
+          "inhibitionScale": "4 μmol L^-1"
+        },
+        "units": "S/P concentrations μmol L^-1; flux μmol min^-1",
+        "assumptions": [
+          "Fixed enzyme amount, temperature andpH",
+          "Specific reversible inhibition",
+          "Invented multiplicative rule"
+        ],
+        "limits": [
+          "No empirical fit or binding-constant estimate",
+          "Not a universal competitive/noncompetitive inhibition law",
+          "Activity versus expression distinct",
+          "Instantaneous flux model does not simulate accumulation or establish steady state"
+        ]
+      }
+    },
+    {
+      "id": "L128-I01",
+      "lesson": "L128",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "反应线S→中间物→P中，E₁标在第一条箭头上表示催化剂而非被消耗原料；回路线定位P对E₁的特异抑制。",
+        "en": "The S→intermediate→P sketch labels E₁ above the first arrow as a catalyst, not a consumed reactant. A return line locates P-specific inhibition of E₁."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/6-5-enzymes",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "v=12*S/(2+S)/(1+P/4) for sensitive enzyme; insensitive control v=12*S/(2+S).",
+        "parameters": {
+          "S": "0–12 μmol L^-1",
+          "P": "0–16 μmol L^-1",
+          "Vmax": "12 μmol min^-1",
+          "substrateScale": "2 μmol L^-1",
+          "inhibitionScale": "4 μmol L^-1"
+        },
+        "units": "S/P concentrations μmol L^-1; flux μmol min^-1",
+        "assumptions": [
+          "Fixed enzyme amount, temperature andpH",
+          "Specific reversible inhibition",
+          "Invented multiplicative rule"
+        ],
+        "limits": [
+          "No empirical fit or binding-constant estimate",
+          "Not a universal competitive/noncompetitive inhibition law",
+          "Activity versus expression distinct",
+          "Instantaneous flux model does not simulate accumulation or establish steady state"
+        ]
+      }
+    }
+  ],
+  "models": [
+    {
+      "lesson": "L125",
+      "formula": "totalΔG=workΔG+hydrolysisΔG. Driving condition in model: shared physical intermediate AND totalΔG<0.",
+      "parameters": {
+        "work": "5–40 kJ mol^-1",
+        "hydrolysis": "−50 to−10 kJ mol^-1 conditional values supplied, not concentration-derived",
+        "shared": "true/false abstract A–P intermediate"
+      },
+      "units": "kJ mol^-1, not rate or power",
+      "assumptions": [
+        "Both ΔG values apply to the same stated conditions",
+        "Stoichiometric1:1 pairing",
+        "Schematic shared mechanism"
+      ],
+      "limits": [
+        "Breaking a bond requires energy; whole hydrolysis has negative netΔG",
+        "Negative sum alone does not establish coupling",
+        "No kinetics/concentration evolution",
+        "A–P is not a universal coupling mechanism"
+      ]
+    },
+    {
+      "lesson": "L126",
+      "formula": "Aerobic per glucose:6C→6CO2,10NADH+2FADH2=12 electron pairs; ATP2+2+26≈30. Lactate option:6C→2×3C lactate, net2ATP; NAD+ regenerated.",
+      "parameters": {
+        "oxygen": "aerobic complete oxidation OR explicit lactate fermentation",
+        "stages": "glycolysis; matrix oxidation/cycle; inner-membrane transfer; gradient-drivenATP"
+      },
+      "units": "C atoms, carrier electron pairs, mol ATP per mol glucose (approximate)",
+      "assumptions": [
+        "Typical eukaryote",
+        "Aerobic route complete oxidation",
+        "Oxygen-off assumes lactate-fermentation capacity and substrate supply"
+      ],
+      "limits": [
+        "ATP yield variable, not universal38",
+        "CO2 carbon from organic substrate; O2 receives electrons and forms water",
+        "Without NAD+ regeneration glycolysis cannot continue indefinitely",
+        "Other anaerobic pathways not simulated"
+      ]
+    },
+    {
+      "lesson": "L127",
+      "formula": "netG3P=min(CO2/3,ATP/9,NADPH/6); fixedCarbon=3*G3P; remainingATP=ATP−9G3P; remainingNADPH=NADPH−6G3P.",
+      "parameters": {
+        "CO2": "fixed6 μmol",
+        "ATP": "0–36 μmol",
+        "NADPH": "0–24 μmol"
+      },
+      "units": "μmol finite available material, not μmol per time",
+      "assumptions": [
+        "Ideal Calvin-cycle net budget including acceptor regeneration",
+        "Each net3C G3P costs3CO2/9ATP/6NADPH",
+        "Independent finite supply inputs"
+      ],
+      "limits": [
+        "No dynamic supply, enzyme kinetics or photorespiration",
+        "No direct glucose output",
+        "Light-reaction O2 derives from water; carbon derives fromCO2",
+        "Not dark-only; no lamp-intensity-to-supply claim"
+      ]
+    },
+    {
+      "lesson": "L128",
+      "formula": "v=12*S/(2+S)/(1+P/4) for sensitive enzyme; insensitive control v=12*S/(2+S).",
+      "parameters": {
+        "S": "0–12 μmol L^-1",
+        "P": "0–16 μmol L^-1",
+        "Vmax": "12 μmol min^-1",
+        "substrateScale": "2 μmol L^-1",
+        "inhibitionScale": "4 μmol L^-1"
+      },
+      "units": "S/P concentrations μmol L^-1; flux μmol min^-1",
+      "assumptions": [
+        "Fixed enzyme amount, temperature andpH",
+        "Specific reversible inhibition",
+        "Invented multiplicative rule"
+      ],
+      "limits": [
+        "No empirical fit or binding-constant estimate",
+        "Not a universal competitive/noncompetitive inhibition law",
+        "Activity versus expression distinct",
+        "Instantaneous flux model does not simulate accumulation or establish steady state"
+      ]
+    }
+  ]
+}

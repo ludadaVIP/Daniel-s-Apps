@@ -1,0 +1,70 @@
+{
+  "id": "S06-P01",
+  "status": "pilot; independent science/code/browser review and learner trial to be recorded separately",
+  "component": "GraduationProject",
+  "module": "src/GraduationWorkbench.tsx",
+  "route": "/biology/project/S06",
+  "dataset": "yellowstone-2025.json",
+  "sources": [
+    {
+      "agency": "US National Park Service",
+      "title": "Yellowstone Wolf, Cougar, and Elk Project Annual Report 2025",
+      "url": "https://home.nps.gov/yell/learn/upload/2025-YELL-Wolf-Cougar-Elk-Project-Annual-Report-508.pdf#page=5",
+      "page": 5,
+      "observationDate": "2025-12-31",
+      "verified": "2026-11-15",
+      "sha256": "02B4C2EE9FA76DFBEF115586C61D29144BA13355E43234A4B8A2CAE57BC216D9",
+      "use": "Ten raw source-table rows independently read from a rendered source page. Counts transcribed; no figure copied. Original totals are cross-checks only."
+    },
+    {
+      "agency": "US National Park Service",
+      "title": "Wolf Ecology",
+      "url": "https://www.nps.gov/yell/learn/nature/wolf.htm",
+      "verified": "2026-11-15",
+      "use": "Primary ecology background only; does not establish unmeasured causes in the snapshot table."
+    }
+  ],
+  "assets": [
+    {
+      "id": "S06-P01-G01",
+      "component": "graduationGraphSvg",
+      "kind": "Original code-generated SVG categorical counts or pooled-region proportions",
+      "source": "Selected transcribed NPS rows",
+      "units": "wolves or pup/total ×100 (%)",
+      "staticAlternative": "Complete ten-row source table, inclusion labels, calculated pooled summary and bilingual caption",
+      "limits": [
+        "Not time series, density, survival or birth rate",
+        "Do not average group percentages without weights",
+        "0/0 is NA; 0/31 is 0%"
+      ]
+    },
+    {
+      "id": "S06-P01-G02",
+      "component": "graduationGraphSvg",
+      "kind": "Original SVG longitudinal graph of one student-selected plant",
+      "source": "Student self-reported observations, initially empty and not externally verified",
+      "units": "actual elapsed integer days and height cm",
+      "staticAlternative": "All original rows, explicit NA and exclusion reasons, first/last difference and relative change",
+      "limits": [
+        "One plant is independent plant n=1",
+        "Missing breaks lines and is never zero",
+        "Real zero is retained; first=0 makes relative change undefined",
+        "No change to plant care, collecting or human health measurement"
+      ]
+    },
+    {
+      "id": "S06-P01-R01",
+      "component": "graduationReportHtml",
+      "kind": "Standalone offline printable HTML with inline original SVG",
+      "source": "Current case state, selected data and actual learner answers",
+      "limits": [
+        "Assisted bilingual abstract is a structured scaffold, not prose translation",
+        "Automatic checks validate structure/calculation/graph, not scientific prose quality",
+        "Planned 180–300 second script is not proof of actual delivery"
+      ]
+    }
+  ],
+  "accessibility": "Named focusable local horizontal-scroll graph/table regions; native keyboard controls; 44px targets; localized UI and English starters; wrap long prose without clipping.",
+  "rights": "Original project prose, SVG code and interactions. NPS table numbers are transcribed with provenance; no third-party artwork copied. Student observations are not prefilled. Test fixtures are explicitly fictional and excluded from the product UI.",
+  "completion": "Own S06 24 lesson completions + six saved missions + at least one structurally valid saved case + six answered cross-unit questions with at least five correct; independent of S01–S05 outcomes."
+}

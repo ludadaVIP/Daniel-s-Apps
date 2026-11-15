@@ -1,0 +1,140 @@
+.bio-s6-lab.br-lab {
+  color: #173f43;
+  min-width: 0;
+  width: 100%;
+}
+.bio-s6-lab.br-lab * {
+  box-sizing: border-box;
+}
+.bio-s6-lab.br-lab fieldset {
+  min-width: 0;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  border: 1px solid #a3bdb4;
+  border-radius: 12px;
+}
+.bio-s6-lab.br-lab legend {
+  max-width: 100%;
+  padding: 0 0.4rem;
+  font-weight: 700;
+}
+.bio-s6-lab.br-lab .br-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.6rem;
+  min-width: 0;
+}
+.bio-s6-lab.br-lab button {
+  min-width: 44px;
+  min-height: 44px;
+  max-width: 100%;
+  white-space: normal;
+  padding: 0.65rem 0.9rem;
+  border: 1px solid #829f95;
+  border-radius: 9px;
+  background: #f8fbf7;
+  color: #173f43;
+  font: inherit;
+  cursor: pointer;
+}
+.bio-s6-lab.br-lab button[aria-pressed='true'] {
+  background: #cce3c5;
+  border: 2px solid #286b68;
+}
+.bio-s6-lab.br-lab button:disabled {
+  opacity: 0.5;
+  cursor: default;
+}
+.bio-s6-lab.br-lab :focus-visible {
+  outline: 3px solid #b66937;
+  outline-offset: 3px;
+}
+.bio-s6-lab.br-lab .br-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 18px;
+}
+.bio-s6-lab.br-lab .br-scroll svg {
+  display: block;
+  width: 100%;
+  min-width: 680px;
+  height: auto;
+}
+.bio-s6-lab.br-lab .br-hint {
+  font-size: 0.88rem;
+  color: #496961;
+}
+.bio-s6-lab.br-lab .br-table {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 0.8rem 0;
+}
+.bio-s6-lab.br-lab table {
+  border-collapse: collapse;
+  min-width: 100%;
+}
+.bio-s6-lab.br-lab td,
+.bio-s6-lab.br-lab th {
+  padding: 0.65rem;
+  border-bottom: 1px solid #b7cfc6;
+  text-align: left;
+}
+.bio-s6-lab.br-lab td {
+  white-space: nowrap;
+}
+.bio-s6-lab.br-lab .br-feedback {
+  padding: 1rem;
+  margin: 1rem 0;
+  background: #e2eee0;
+  border-left: 4px solid #286b68;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.bio-s6-lab.br-lab .br-label {
+  display: grid;
+  min-width: 0;
+  gap: 0.5rem;
+  margin: 1rem 0;
+  font-weight: 600;
+}
+.bio-s6-lab.br-lab textarea {
+  width: 100%;
+  min-width: 0;
+  padding: 0.8rem;
+  border: 1px solid #829f95;
+  border-radius: 8px;
+  resize: vertical;
+  color: #173f43;
+  background: #fff;
+  font: inherit;
+  line-height: 1.6;
+}
+.bio-s6-lab.br-lab input[type='range'] {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  accent-color: #286b68;
+}
+.bio-s6-lab.br-lab details {
+  margin: 1rem 0;
+  padding: 0.75rem;
+  border: 1px solid #b7cfc6;
+  border-radius: 10px;
+}
+.bio-s6-lab.br-lab summary {
+  min-height: 44px;
+  cursor: pointer;
+  font-weight: 600;
+}
+.bio-s6-lab.br-lab .bio-playback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem;
+  align-items: center;
+  margin: 0.85rem 0;
+}
+.bio-s6-lab.br-lab p {
+  line-height: 1.75;
+  overflow-wrap: anywhere;
+}

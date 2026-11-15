@@ -1,3 +1,4 @@
+import { isS6Lesson, S6Diagram, S6Explore } from './s6Visuals';
 import { isS4Lesson, S4Diagram, S4Explore } from './s4Visuals';
 import { isS5Lesson, S5Diagram, S5Explore } from './s5Visuals';
 import { isS3Lesson, S3Diagram, S3Explore } from './s3Visuals';
@@ -109,6 +110,7 @@ export function Sprout({
   );
 }
 export function Diagram({ id, mode }: { id: string; mode: LanguageMode }) {
+  if (isS6Lesson(id)) return <S6Diagram id={id} mode={mode} />;
   if (isS5Lesson(id)) return <S5Diagram id={id} mode={mode} />;
   if (isS4Lesson(id)) return <S4Diagram id={id} mode={mode} />;
   if (isS3Lesson(id)) return <S3Diagram id={id} mode={mode} />;
@@ -411,6 +413,7 @@ const evidence = [
   },
 ];
 export function Explore(props: Props) {
+  if (isS6Lesson(props.id)) return <S6Explore {...props} />;
   if (isS5Lesson(props.id)) return <S5Explore {...props} />;
   if (isS4Lesson(props.id)) return <S4Explore {...props} />;
   if (isS3Lesson(props.id)) return <S3Explore {...props} />;

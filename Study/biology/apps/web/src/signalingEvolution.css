@@ -1,0 +1,159 @@
+.bio-s6-lab.se-lab {
+  --se-ink: #243e35;
+  color: var(--se-ink);
+  min-width: 0;
+  max-width: 100%;
+  padding: 16px;
+  border: 1px solid #d3e2d9;
+  border-radius: 18px;
+  background: #fcfdf9;
+}
+.bio-s6-lab.se-lab * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+.bio-s6-lab.se-lab p {
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+.bio-s6-lab.se-lab .se-scroll,
+.bio-s6-lab.se-lab .se-table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  border: 1px solid #d4e2d9;
+  border-radius: 12px;
+  margin: 14px 0;
+  overscroll-behavior-x: contain;
+}
+.bio-s6-lab.se-lab svg {
+  width: 100%;
+  min-width: 760px;
+  display: block;
+  background: #fcfdf9;
+}
+.bio-s6-lab.se-lab svg text {
+  font:
+    18px system-ui,
+    sans-serif;
+}
+.bio-s6-lab.se-lab svg .se-label {
+  font-size: 17px;
+}
+.bio-s6-lab.se-lab .se-scroll-hint {
+  color: #52675a;
+  font-size: 14px;
+}
+.bio-s6-lab.se-lab .se-evidence {
+  padding: 14px;
+  border-left: 4px solid #247766;
+  background: #edf7f0;
+}
+.bio-s6-lab.se-lab .se-check {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+  padding: 8px;
+  cursor: pointer;
+  overflow-wrap: anywhere;
+}
+.bio-s6-lab.se-lab input[type='checkbox'] {
+  width: 22px;
+  height: 22px;
+  flex: 0 0 22px;
+  accent-color: #247766;
+}
+.bio-s6-lab.se-lab input[type='range'] {
+  width: 100%;
+  min-height: 44px;
+  accent-color: #247766;
+}
+.bio-s6-lab.se-lab .se-control {
+  display: grid;
+  grid-template-columns: minmax(75px, 1fr) minmax(80px, 3fr) 44px;
+  align-items: center;
+  gap: 12px;
+  min-height: 48px;
+}
+.bio-s6-lab.se-lab .se-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+  gap: 8px;
+}
+.bio-s6-lab.se-lab button {
+  min-height: 44px;
+  min-width: 44px;
+  padding: 10px 16px;
+  cursor: pointer;
+  color: #1f574b;
+  background: #f4faf5;
+  border: 1px solid #7caa94;
+  border-radius: 10px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+.bio-s6-lab.se-lab button:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+.bio-s6-lab.se-lab :focus-visible {
+  outline: 3px solid #d39a30;
+  outline-offset: 3px;
+}
+.bio-s6-lab.se-lab .bio-playback {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin: 12px 0;
+}
+.bio-s6-lab.se-lab table {
+  border-collapse: collapse;
+  width: 100%;
+  min-width: 440px;
+  text-align: left;
+}
+.bio-s6-lab.se-lab th,
+.bio-s6-lab.se-lab td {
+  padding: 12px;
+  border-bottom: 1px solid #d4e2d9;
+  vertical-align: top;
+}
+.bio-s6-lab.se-lab td {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.bio-s6-lab.se-lab .bio-en {
+  display: block;
+}
+.bio-s6-lab.se-lab .se-process {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 140px), 1fr));
+  gap: 10px;
+  padding: 0;
+  list-style: none;
+}
+.bio-s6-lab.se-lab .se-process li {
+  border: 1px solid #becfc4;
+  padding: 12px;
+  border-radius: 12px;
+  overflow-wrap: anywhere;
+}
+.bio-s6-lab.se-lab .se-process li[aria-current='step'] {
+  background: #e1f3ee;
+  outline: 3px solid #247766;
+}
+.bio-s6-lab.se-lab .se-process li > span:first-child {
+  display: block;
+  font-weight: 700;
+  color: #247766;
+}
+@media (max-width: 480px) {
+  .bio-s6-lab.se-lab {
+    padding: 10px;
+  }
+  .bio-s6-lab.se-lab .se-control {
+    grid-template-columns: minmax(60px, 1fr) minmax(80px, 2fr) 32px;
+    gap: 8px;
+  }
+}

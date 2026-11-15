@@ -1,0 +1,182 @@
+{
+  "unit": "U34",
+  "stage": "S06",
+  "verified": "2026-11-15",
+  "status": "pilot; external science review and learner trial pending",
+  "author": "Study Biology original curriculum authorship, Codex-assisted",
+  "license": "Original prose, questions, SVG and fictional numerical datasets: project-authored educational assets. No external artwork or questions copied. References verify principles; their own licenses remain with their publishers.",
+  "sources": [
+    {
+      "lesson": "L133",
+      "url": "https://openstax.org/books/biology-2e/pages/19-1-population-evolution",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L134",
+      "url": "https://openstax.org/books/biology-2e/pages/19-2-population-genetics",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L135",
+      "url": "https://openstax.org/books/biology-2e/pages/20-2-determining-evolutionary-relationships",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L135",
+      "url": "https://openstax.org/books/biology-2e/pages/18-1-understanding-evolution",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L135",
+      "url": "https://openstax.org/books/biology-2e/pages/20-1-organizing-life-on-earth",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L136",
+      "url": "https://www.genome.gov/genetics-glossary/Polygenic-Trait",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L136",
+      "url": "https://openstax.org/books/biology-2e/pages/19-2-population-genetics",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L133-D01",
+      "lesson": "L133",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "三个基因型框下面各有两个拷贝；绿色为A、金色为a，先数拷贝再算比例。",
+        "en": "Each genotype has two allele-copy symbols: green A and gold a. Count copies before calculating fractions."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    },
+    {
+      "id": "L134-D01",
+      "lesson": "L134",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "图示A频率0–1和世代；每次只显示到当前代，完整轨迹在静态表中。",
+        "en": "Inspect A frequency from 0–1 across generations. The plot reveals the current generation; the static table contains the full trajectory."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    },
+    {
+      "id": "L135-D01",
+      "lesson": "L135",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "四个虚构类群A–D，根部共同祖先分成AB与CD；无时间或变化量标度。",
+        "en": "Four fictional taxa A–D split into AB and CD from a common ancestor. No time or amount-of-change scale is supplied."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    },
+    {
+      "id": "L136-D01",
+      "lesson": "L136",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "绿色A、金色B；点是不同独立植物，连线连接各处理组均值，不是同株同时处于两环境。",
+        "en": "Green A and gold B; points are different independent plants. Lines join treatment-group means, not one plant simultaneously in two environments."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L133-I01",
+      "lesson": "L133",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Static interactive comparison; no simulated time or fake playback",
+      "controls": {
+        "zh": "独立调整AA、Aa、aa计数，观察N与2N；把全部调到0，解释为什么频率未定义。可选显示假设基准而非强套实测。",
+        "en": "Adjust AA, Aa and aa independently and inspect N and 2N. Set all to zero and explain undefined frequency. Optionally compare an assumption-based benchmark."
+      },
+      "staticAlternative": "Each genotype has two allele-copy symbols: green A and gold a. Count copies before calculating fractions. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    },
+    {
+      "id": "L134-I01",
+      "lesson": "L134",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Conditional stepped process with pause/replay",
+      "controls": {
+        "zh": "先只开漂变，用相同种子复验，再换种子与N。分别打开选择、迁入，最后叠加，记录条件而不是只记终点。",
+        "en": "Start with drift alone, repeat the same seed, then change seed and N. Add selection and immigration separately, then combine them. Record conditions, not just endpoints."
+      },
+      "staticAlternative": "Inspect A frequency from 0–1 across generations. The plot reveals the current generation; the static table contains the full trajectory. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    },
+    {
+      "id": "L135-I01",
+      "lesson": "L135",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Static interactive comparison; no simulated time or fake playback",
+      "controls": {
+        "zh": "旋转根部两分支，重新找AB与CD；切换形态或同源DNA位点，说明为何单一字符证据不足。",
+        "en": "Rotate the root branches and locate AB and CD again. Switch morphological/homologous DNA characters and explain the limits of one character."
+      },
+      "staticAlternative": "Four fictional taxa A–D split into AB and CD from a common ancestor. No time or amount-of-change scale is supplied. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    },
+    {
+      "id": "L136-I01",
+      "lesson": "L136",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Static interactive comparison; no simulated time or fake playback",
+      "controls": {
+        "zh": "在平行与交互两组虚构数据间切换，比较两品系各自从低光到高光的均值差，再比较品系排序。",
+        "en": "Switch parallel and interaction datasets, compare each lineage mean change from lower to higher light, then compare lineage rankings."
+      },
+      "staticAlternative": "Green A and gold B; points are different independent plants. Lines join treatment-group means, not one plant simultaneously in two environments. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    }
+  ],
+  "models": {
+    "L133": {
+      "formula": "N=AA+Aa+aa; A=2AA+Aa;a=2aa+Aa;p=A/(2N);q=a/(2N);N=0 yields null",
+      "parameters": "three integer counts0–60 in UI,step5; single autosomal diploid biallelic locus",
+      "assumptions": "Complete genotype classification; optional HWE random mating,large population,no selection/migration/mutation",
+      "limitations": "Slider changes composition,not individual mutation; HWE expectations are not forced onto observations."
+    },
+    "L134": {
+      "formula": "AA=p²(1+s),Aa=2p(1-p)(1+s/2),aa=(1-p)²;p_sel=(AA+Aa/2)/(AA+Aa+aa);p_pool=(Np_sel+M*p_source)/(N+M);next count~Binomial(2N,p_pool)",
+      "parameters": "p0=.4;N20/200;s0/.4;M0/10;sourcep=.8;10 generations;LCGseed1–100;modulus2^32,multiplier1664525,increment1013904223",
+      "assumptions": "Random mating at single autosomal diploid locus; nonoverlapping fixed-N offspring cohorts; process order selection→pool immigration→optional drift;no mutation",
+      "limitations": "Seeded pseudorandom illustration,not forecast; without drift the frequency is deterministic expectation; no new absent allele without explicit immigration."
+    },
+    "L135": {
+      "formula": "tree=((A,B),(C,D));root rotation swaps child subtrees;canonical internal descendant sets AB,CD,ABCD remain invariant",
+      "parameters": "four fictional taxa;one toy morphological character or homologous DNA siteG/G/T/T;no branch scale",
+      "assumptions": "Root and ancestral/derived interpretation supplied for teaching;no simulated time",
+      "limitations": "Single character is insufficient for real inference; convergence/repeated change possible; no algorithmic tree estimation."
+    },
+    "L136": {
+      "formula": "mean=sum(height)/n;response=mean_high-mean_low;interaction contrast=(A_high-A_low)-(B_high-B_low)",
+      "parameters": "cm atday21;n3 independent plants/cell;A low9,10,11;B low13,14,15;parallel highs15,16,17/19,20,21;interaction highs19,20,21/15,16,17",
+      "assumptions": "Two genetically consistent fictional lineages;matched water/soil/temperature,random assignment to light/position;line joins distinct treatment-group means",
+      "limitations": "Not the same individual in both environments; no causal gene identification,heritability estimate or inference about human ability/personality."
+    }
+  }
+}

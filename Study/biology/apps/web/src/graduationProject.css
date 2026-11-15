@@ -1,0 +1,179 @@
+.bio-graduation {
+  max-width: 1080px;
+  min-width: 0;
+  margin: auto;
+  overflow-wrap: anywhere;
+}
+.bio-graduation * {
+  box-sizing: border-box;
+  min-width: 0;
+}
+.bio-graduation section {
+  margin-block: 28px;
+  padding: 24px;
+  border: 1px solid #d2dfd3;
+  border-radius: 16px;
+  background: #fffdf8;
+}
+.bio-graduation h2 {
+  margin-top: 0;
+}
+.bio-graduation label {
+  display: grid;
+  gap: 8px;
+  margin-block: 14px;
+}
+.bio-graduation input,
+.bio-graduation select,
+.bio-graduation textarea {
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #a4b8aa;
+  border-radius: 7px;
+  background: white;
+  color: #183e32;
+  padding: 10px;
+  font: inherit;
+}
+.bio-graduation textarea {
+  resize: vertical;
+  overflow-wrap: anywhere;
+}
+.bio-graduation button,
+.bio-graduation .bio-button {
+  min-height: 44px;
+  max-width: 100%;
+  padding: 11px 16px;
+  border-radius: 8px;
+  border: 1px solid #547862;
+  color: #163f30;
+  background: #edf3e9;
+  font: inherit;
+  cursor: pointer;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  text-align: left;
+}
+.bio-graduation button[aria-pressed='true'] {
+  background: #285e50;
+  color: white;
+}
+.bio-graduation fieldset {
+  border: 1px solid #d2dfd3;
+  border-radius: 10px;
+  padding: 16px;
+  margin-block: 18px;
+}
+.bio-graduation legend {
+  max-width: 100%;
+  padding-inline: 5px;
+}
+.bio-graduation-controls,
+.bio-graduation-cases,
+.bio-graduation-actions,
+.bio-graduation-citations {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.bio-graduation-controls > label {
+  flex: 1 1 200px;
+}
+.bio-graduation-source dd {
+  margin: 3px 0 14px;
+  overflow-wrap: anywhere;
+}
+.bio-graduation-source dt {
+  font-weight: 650;
+}
+.bio-graduation .bio-graduation-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 44px;
+  padding: 10px;
+  cursor: pointer;
+  border: 1px solid #dae4d9;
+  border-radius: 8px;
+}
+.bio-graduation .bio-graduation-checkbox input {
+  flex: 0 0 22px;
+  width: 22px;
+  height: 22px;
+  min-height: 22px;
+  padding: 0;
+  accent-color: #285e50;
+}
+.bio-graduation-scroll {
+  max-width: 100%;
+  overflow: auto;
+  border: 1px solid #d2dfd3;
+  border-radius: 8px;
+  margin-block: 18px;
+}
+.bio-graduation-scroll svg {
+  display: block;
+  max-width: none;
+  width: 820px;
+}
+.bio-graduation table {
+  border-collapse: collapse;
+  font-size: 14px;
+  min-width: 800px;
+}
+.bio-graduation td,
+.bio-graduation th {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #d2dfd3;
+  white-space: nowrap;
+}
+.bio-graduation-field {
+  margin-block: 24px;
+}
+.bio-graduation details {
+  padding: 10px;
+  background: #f2f5ec;
+  border-radius: 6px;
+}
+.bio-graduation summary {
+  cursor: pointer;
+  min-height: 44px;
+  padding: 10px;
+}
+.bio-graduation .bio-question {
+  min-width: 0;
+}
+.bio-graduation :focus-visible {
+  outline: 3px solid #be792e;
+  outline-offset: 3px;
+}
+@media (max-width: 600px) {
+  .bio-graduation section {
+    padding: 15px;
+  }
+  .bio-graduation fieldset {
+    padding: 10px;
+  }
+  .bio-graduation h1 {
+    font-size: 30px;
+  }
+  .bio-graduation-cases > button,
+  .bio-graduation-actions > * {
+    flex: 1 1 100%;
+  }
+}
+@media print {
+  .bio-graduation section {
+    break-inside: auto;
+    border: 0;
+    padding: 0;
+  }
+  .bio-graduation-scroll {
+    overflow: visible;
+  }
+  .bio-graduation-scroll svg {
+    width: 100%;
+    height: auto;
+  }
+}

@@ -1,0 +1,348 @@
+{
+  "stage": "S06",
+  "unit": "U36",
+  "author": "Biology Explorer / Codex",
+  "status": "pilot; external science review and learner trial pending",
+  "license": "Original project-authored educational text, SVG and code; external sources are linked for concepts only",
+  "verified": "2026-11-15",
+  "sources": [
+    {
+      "lesson": "L141",
+      "title": "DOC: Five-minute bird counts (records are an index)",
+      "url": "https://www.doc.govt.nz/our-work/five-minute-bird-counts/",
+      "sourceURL": "https://www.doc.govt.nz/our-work/five-minute-bird-counts/",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L142",
+      "title": "UC Berkeley, Philip Stark: Does Treatment Have an Effect?",
+      "url": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L143",
+      "title": "UC Berkeley, Philip Stark: observational comparisons and confounding",
+      "url": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L144",
+      "title": "UC Berkeley, Philip Stark: evidence and causal boundaries",
+      "url": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L141–L144",
+      "title": "NPS: Yellowstone Wolf, Cougar and Elk annual report 2025, physical page 5",
+      "sourceURL": "https://home.nps.gov/yell/learn/upload/2025-YELL-Wolf-Cougar-Elk-Project-Annual-Report-508.pdf",
+      "verified": "2026-11-15",
+      "use": "Bridge to final project; original report table independently verified by root agent. Not the fictional bird practice. Year-end 2025-12-31 age composition, not annual birth/survival rates.",
+      "url": "https://home.nps.gov/yell/learn/upload/2025-YELL-Wolf-Cougar-Elk-Project-Annual-Report-508.pdf"
+    },
+    {
+      "lesson": "L143",
+      "title": "NIST: Measures of Location",
+      "sourceURL": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm",
+      "verified": "2026-11-15",
+      "use": "Statistical definition or outlier evidence verification only; original numerical exercise",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda351.htm"
+    },
+    {
+      "lesson": "L143",
+      "title": "NIST: Detection of Outliers",
+      "sourceURL": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h.htm",
+      "verified": "2026-11-15",
+      "use": "Statistical definition or outlier evidence verification only; original numerical exercise",
+      "url": "https://www.itl.nist.gov/div898/handbook/eda/section3/eda35h.htm"
+    }
+  ],
+  "assets": [
+    {
+      "id": "L141-D01",
+      "lesson": "L141",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.doc.govt.nz/our-work/five-minute-bird-counts/",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l141.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "Question=organisms/place/period + measure/effort + descriptive or comparative purpose",
+        "parameters": {
+          "days": "1,3,7,10 days in fictional table",
+          "comparable days": "1,3,10",
+          "measure": "bird records per five-minute visit"
+        },
+        "assumptions": [
+          "Observational records can support descriptive/comparative questions without manipulation"
+        ],
+        "limits": [
+          "Records are not population density; causal tree-cover effect not isolated",
+          "Official source identity does not guarantee suitability for every question",
+          "Final project requires official public ecological data or genuine safe observations"
+        ]
+      }
+    },
+    {
+      "id": "L141-I01",
+      "lesson": "L141",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.doc.govt.nz/our-work/five-minute-bird-counts/",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l141.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "Question=organisms/place/period + measure/effort + descriptive or comparative purpose",
+        "parameters": {
+          "days": "1,3,7,10 days in fictional table",
+          "comparable days": "1,3,10",
+          "measure": "bird records per five-minute visit"
+        },
+        "assumptions": [
+          "Observational records can support descriptive/comparative questions without manipulation"
+        ],
+        "limits": [
+          "Records are not population density; causal tree-cover effect not isolated",
+          "Official source identity does not guarantee suitability for every question",
+          "Final project requires official public ecological data or genuine safe observations"
+        ]
+      }
+    },
+    {
+      "id": "L142-D01",
+      "lesson": "L142",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l142.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "Complete equal-effort pair exists only if both same-day counts observed and effort=5 min; d=B-A",
+        "parameters": {
+          "sites": "A and B, two sites repeatedly visited",
+          "A": "2,4,NA,0 records on days 1,3,7,10",
+          "B": "4,6,8,2 records; day7 effort10 min, others5 min",
+          "pairs": "3 complete dates"
+        },
+        "assumptions": [
+          "Date pairing is justified for this comparison; does not create independent habitats"
+        ],
+        "limits": [
+          "NA not zero; day7 pair unavailable",
+          "Repeated dates may be dependent; one site per setting limits generalisation",
+          "Time normalisation alone does not remove detectability bias"
+        ]
+      }
+    },
+    {
+      "id": "L142-I01",
+      "lesson": "L142",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l142.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "Complete equal-effort pair exists only if both same-day counts observed and effort=5 min; d=B-A",
+        "parameters": {
+          "sites": "A and B, two sites repeatedly visited",
+          "A": "2,4,NA,0 records on days 1,3,7,10",
+          "B": "4,6,8,2 records; day7 effort10 min, others5 min",
+          "pairs": "3 complete dates"
+        },
+        "assumptions": [
+          "Date pairing is justified for this comparison; does not create independent habitats"
+        ],
+        "limits": [
+          "NA not zero; day7 pair unavailable",
+          "Repeated dates may be dependent; one site per setting limits generalisation",
+          "Time normalisation alone does not remove detectability bias"
+        ]
+      }
+    },
+    {
+      "id": "L143-D01",
+      "lesson": "L143",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l143.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "mean=sum(observed values)/nObserved; range=max-min; paired d=B-A",
+        "parameters": {
+          "A equal effort": "2,4,0; n3, mean2, range4 records",
+          "B equal effort": "4,6,2; n3, mean4, range4 records",
+          "B all effort": "4,6,8,2; mean5 mixes effort",
+          "incorrect A zero-fill": "2,4,0,0 gives1.5; not allowed",
+          "day position": "x=110+(day-1)*53 schematic units"
+        },
+        "assumptions": [
+          "Original fictional practice; raw points at actual time spacing; no inferential test"
+        ],
+        "limits": [
+          "Range is not CI; no invented significance from bar separation",
+          "No causal effect or total density; missingness/effort/design matter",
+          "Graph selection cannot repair underlying sampling design"
+        ]
+      }
+    },
+    {
+      "id": "L143-I01",
+      "lesson": "L143",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l143.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "mean=sum(observed values)/nObserved; range=max-min; paired d=B-A",
+        "parameters": {
+          "A equal effort": "2,4,0; n3, mean2, range4 records",
+          "B equal effort": "4,6,2; n3, mean4, range4 records",
+          "B all effort": "4,6,8,2; mean5 mixes effort",
+          "incorrect A zero-fill": "2,4,0,0 gives1.5; not allowed",
+          "day position": "x=110+(day-1)*53 schematic units"
+        },
+        "assumptions": [
+          "Original fictional practice; raw points at actual time spacing; no inferential test"
+        ],
+        "limits": [
+          "Range is not CI; no invented significance from bar separation",
+          "No causal effect or total density; missingness/effort/design matter",
+          "Graph selection cannot repair underlying sampling design"
+        ]
+      }
+    },
+    {
+      "id": "L144-D01",
+      "lesson": "L144",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l144.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "estimated minutes=English space-separated words / selected wordsPerMinute",
+        "parameters": {
+          "pace": "70–160 English words/min in steps of5",
+          "target": "3–5 min, estimated not graded",
+          "example": "420 words /105 words per min=4 min"
+        },
+        "assumptions": [
+          "English space-separated draft only; reading pace adjustable",
+          "Report includes English abstract, bilingual caption and evidence/limits"
+        ],
+        "limits": [
+          "Not a Chinese word counter; pauses/questions require rehearsal",
+          "No automatic scientific grading of free text or fluency",
+          "Final report uses official public ecological data or safe actual observation; classroom fictional table is practice"
+        ]
+      }
+    },
+    {
+      "id": "L144-I01",
+      "lesson": "L144",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.stat.berkeley.edu/~stark/SticiGui/Text/experiments.htm",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l144.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "estimated minutes=English space-separated words / selected wordsPerMinute",
+        "parameters": {
+          "pace": "70–160 English words/min in steps of5",
+          "target": "3–5 min, estimated not graded",
+          "example": "420 words /105 words per min=4 min"
+        },
+        "assumptions": [
+          "English space-separated draft only; reading pace adjustable",
+          "Report includes English abstract, bilingual caption and evidence/limits"
+        ],
+        "limits": [
+          "Not a Chinese word counter; pauses/questions require rehearsal",
+          "No automatic scientific grading of free text or fluency",
+          "Final report uses official public ecological data or safe actual observation; classroom fictional table is practice"
+        ]
+      }
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L141-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    },
+    {
+      "id": "L142-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    },
+    {
+      "id": "L143-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    },
+    {
+      "id": "L144-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L141-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Keyboard-operable evidence/question/design/chart/report repair; no artificial playback",
+      "staticAlternative": "l141.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    },
+    {
+      "id": "L142-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Keyboard-operable evidence/question/design/chart/report repair; no artificial playback",
+      "staticAlternative": "l142.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    },
+    {
+      "id": "L143-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Keyboard-operable evidence/question/design/chart/report repair; no artificial playback",
+      "staticAlternative": "l143.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    },
+    {
+      "id": "L144-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Keyboard-operable evidence/question/design/chart/report repair; no artificial playback",
+      "staticAlternative": "l144.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    }
+  ]
+}

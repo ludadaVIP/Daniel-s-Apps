@@ -1,0 +1,414 @@
+{
+  "unit": "U31",
+  "stage": "S06",
+  "verified": "2026-11-15",
+  "status": "pilot; independent science review and child trial pending",
+  "author": "Study Biology Explorer",
+  "license": "Original project prose, questions, fictional sequences, data and SVG code. Sources verify concepts only; no textbook illustrations or questions copied.",
+  "sources": [
+    {
+      "lesson": "L121",
+      "title": "OpenStax Biology 2e · DNA replication",
+      "url": "https://openstax.org/books/biology-2e/pages/14-4-dna-replication-in-prokaryotes",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L122",
+      "title": "OpenStax Biology 2e · Eukaryotic transcription",
+      "url": "https://openstax.org/books/biology-2e/pages/15-3-eukaryotic-transcription",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L123",
+      "title": "OpenStax Biology 2e · Ribosomes and protein synthesis",
+      "url": "https://openstax.org/books/biology-2e/pages/15-5-ribosomes-and-protein-synthesis",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L124",
+      "title": "OpenStax Biology 2e · Eukaryotic gene regulation",
+      "url": "https://openstax.org/books/biology-2e/pages/16-1-regulation-of-gene-expression",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; original prose, SVG, fictional sequences and data; no copied illustrations or questions."
+    },
+    {
+      "lesson": "L121",
+      "title": "OpenStax Biology 2e · Semiconservative evidence",
+      "url": "https://openstax.org/books/biology-2e/pages/14-3-basics-of-dna-replication",
+      "verified": "2026-11-15",
+      "use": "Supporting concept verification; original SVG, no source illustration copied."
+    },
+    {
+      "lesson": "L123",
+      "title": "OpenStax Biology 2e · Standard genetic code",
+      "url": "https://openstax.org/books/biology-2e/pages/15-1-the-genetic-code",
+      "verified": "2026-11-15",
+      "use": "Supporting concept verification; original SVG, no source illustration copied."
+    }
+  ],
+  "assets": [
+    {
+      "id": "L121-D01",
+      "lesson": "L121",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "上方模板从左到右3′→5′，下方相反；蓝色旧链、金色新链另用端点文字标记。图只显示一个向右的叉。",
+        "en": "The upper template runs 3′→5′ left to right and the lower runs oppositely. Blue old and gold new strands also carry end labels. Only a right-moving fork is shown."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/14-4-dna-replication-in-prokaryotes",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "After n complete rounds: duplexes=2^n; original strands=2; new strands=2*2^n-2; original-containing duplexes=2 for n>=1.",
+        "parameters": {
+          "rounds": "integer 1–4 in UI; clamped 0–8 by model",
+          "animation": "6 conceptual checkpoints, not real seconds"
+        },
+        "units": "duplex and strand counts",
+        "assumptions": [
+          "One starting duplex",
+          "Complete synchronous copying",
+          "No degradation or error",
+          "Fork model: one right-moving fork; all new synthesis 5′→3′"
+        ],
+        "limits": [
+          "No enzymes kinetics, twist or primer removal simulation",
+          "Round ledger independent of fork animation",
+          "Leading/lagging defined relative to this fork"
+        ]
+      }
+    },
+    {
+      "id": "L121-I01",
+      "lesson": "L121",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "上方模板从左到右3′→5′，下方相反；蓝色旧链、金色新链另用端点文字标记。图只显示一个向右的叉。",
+        "en": "The upper template runs 3′→5′ left to right and the lower runs oppositely. Blue old and gold new strands also carry end labels. Only a right-moving fork is shown."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/14-4-dna-replication-in-prokaryotes",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "After n complete rounds: duplexes=2^n; original strands=2; new strands=2*2^n-2; original-containing duplexes=2 for n>=1.",
+        "parameters": {
+          "rounds": "integer 1–4 in UI; clamped 0–8 by model",
+          "animation": "6 conceptual checkpoints, not real seconds"
+        },
+        "units": "duplex and strand counts",
+        "assumptions": [
+          "One starting duplex",
+          "Complete synchronous copying",
+          "No degradation or error",
+          "Fork model: one right-moving fork; all new synthesis 5′→3′"
+        ],
+        "limits": [
+          "No enzymes kinetics, twist or primer removal simulation",
+          "Round ledger independent of fork animation",
+          "Leading/lagging defined relative to this fork"
+        ]
+      }
+    },
+    {
+      "id": "L122-D01",
+      "lesson": "L122",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "固定编码链5′-ATG GCT TTT GGA TAA-3′与模板3′-TAC CGA AAA CCT ATT-5′，逐段出现RNA；虚构短序列非真实基因。",
+        "en": "A fictional coding strand 5′-ATG GCT TTT GGA TAA-3′ pairs with template 3′-TAC CGA AAA CCT ATT-5′ as RNA appears; this is not a real gene."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/15-3-eukaryotic-transcription",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "RNA5′→3′=complement(DNA template3′→5′) using T→A, A→U, G→C, C→G.",
+        "parameters": {
+          "coding": "5′-ATG GCT TTT GGA TAA-3′; optional GCT→GCC",
+          "template": "3′-TAC CGA AAA CCT ATT-5′; optional CGA→CGG",
+          "RNA": "5′-AUG GCU UUU GGA UAA-3′; optional GCU→GCC"
+        },
+        "units": "nucleotides; each conceptual step adds one triplet",
+        "assumptions": [
+          "Eukaryotic nuclear coding fragment",
+          "Fixed correct direction",
+          "Original fictional sequence"
+        ],
+        "limits": [
+          "No real transcription speed",
+          "No full gene/promoter",
+          "Processing named but introns/caps/tails not simulated",
+          "Not all genes encode proteins"
+        ]
+      }
+    },
+    {
+      "id": "L122-I01",
+      "lesson": "L122",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "固定编码链5′-ATG GCT TTT GGA TAA-3′与模板3′-TAC CGA AAA CCT ATT-5′，逐段出现RNA；虚构短序列非真实基因。",
+        "en": "A fictional coding strand 5′-ATG GCT TTT GGA TAA-3′ pairs with template 3′-TAC CGA AAA CCT ATT-5′ as RNA appears; this is not a real gene."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/15-3-eukaryotic-transcription",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "RNA5′→3′=complement(DNA template3′→5′) using T→A, A→U, G→C, C→G.",
+        "parameters": {
+          "coding": "5′-ATG GCT TTT GGA TAA-3′; optional GCT→GCC",
+          "template": "3′-TAC CGA AAA CCT ATT-5′; optional CGA→CGG",
+          "RNA": "5′-AUG GCU UUU GGA UAA-3′; optional GCU→GCC"
+        },
+        "units": "nucleotides; each conceptual step adds one triplet",
+        "assumptions": [
+          "Eukaryotic nuclear coding fragment",
+          "Fixed correct direction",
+          "Original fictional sequence"
+        ],
+        "limits": [
+          "No real transcription speed",
+          "No full gene/promoter",
+          "Processing named but introns/caps/tails not simulated",
+          "Not all genes encode proteins"
+        ]
+      }
+    },
+    {
+      "id": "L123-D01",
+      "lesson": "L123",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "用同一短RNA显示五个三联体；高亮当前密码子，下方只连接真正加入的氨基酸。",
+        "en": "Five triplets of the same short RNA are shown; the current codon is highlighted and only incorporated amino acids are linked below."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/15-5-ribosomes-and-protein-synthesis",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "Read RNA5′→3′ triplets; AUG=Met,GCU/GCC=Ala,UUU/UUC=Phe,GGA=Gly,UAA/UAG/UGA=stop. Stop adds no residue. Anticodon displayed3′→5′ complementary.",
+        "parameters": {
+          "default": "AUG GCU UUU GGA UAA → Met Ala Phe Gly",
+          "variant": "GCU→GCC retains Ala"
+        },
+        "units": "codon and amino-acid counts; no biological time",
+        "assumptions": [
+          "Restricted verified standard-code subset",
+          "Given start/frame",
+          "Original four-residue teaching fragment"
+        ],
+        "limits": [
+          "Not complete genetic-code engine",
+          "No wobble, exceptional recoding, folding or tRNA charging",
+          "Initiating AUG encodes Met; stop does not"
+        ]
+      }
+    },
+    {
+      "id": "L123-I01",
+      "lesson": "L123",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "用同一短RNA显示五个三联体；高亮当前密码子，下方只连接真正加入的氨基酸。",
+        "en": "Five triplets of the same short RNA are shown; the current codon is highlighted and only incorporated amino acids are linked below."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/15-5-ribosomes-and-protein-synthesis",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "Read RNA5′→3′ triplets; AUG=Met,GCU/GCC=Ala,UUU/UUC=Phe,GGA=Gly,UAA/UAG/UGA=stop. Stop adds no residue. Anticodon displayed3′→5′ complementary.",
+        "parameters": {
+          "default": "AUG GCU UUU GGA UAA → Met Ala Phe Gly",
+          "variant": "GCU→GCC retains Ala"
+        },
+        "units": "codon and amino-acid counts; no biological time",
+        "assumptions": [
+          "Restricted verified standard-code subset",
+          "Given start/frame",
+          "Original four-residue teaching fragment"
+        ],
+        "limits": [
+          "Not complete genetic-code engine",
+          "No wobble, exceptional recoding, folding or tRNA charging",
+          "Initiating AUG encodes Met; stop does not"
+        ]
+      }
+    },
+    {
+      "id": "L124-D01",
+      "lesson": "L124",
+      "component": "MolecularEnergyDiagram",
+      "kind": "original SVG",
+      "alt": {
+        "zh": "左右图分别画RNA和蛋白相对量，横轴0–5 min；不是把一个RNA小球变成一个蛋白小球。",
+        "en": "Two plots show RNA and protein relative amounts over 0–5 min; an RNA particle is not converted into a protein particle."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/16-1-regulation-of-gene-expression",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "For each 1-min step: R[n+1]=0.5R[n]+a; P[n+1]=0.75P[n]+kR[n]. R0=P0=0.",
+        "parameters": {
+          "a": "0–4 relative RNA units min^-1",
+          "k": "0–0.5 min^-1 on the separate relative protein scale",
+          "loss": "50% RNA and25% protein per1-min step, invented",
+          "time": "0–5 min"
+        },
+        "units": "Separate relative RNA/protein amount scales; minutes; not molecule conversion yield",
+        "assumptions": [
+          "Fixed rates per run",
+          "Nonnegative inputs",
+          "Protein update uses previous RNA",
+          "Same DNA"
+        ],
+        "limits": [
+          "No noise, division dilution or feedback",
+          "No physiological constants or real half-life inference",
+          "Identical endpoints do not uniquely identify regulation"
+        ]
+      }
+    },
+    {
+      "id": "L124-I01",
+      "lesson": "L124",
+      "component": "MolecularEnergyExplore",
+      "kind": "original SVG with controlled teaching model",
+      "alt": {
+        "zh": "左右图分别画RNA和蛋白相对量，横轴0–5 min；不是把一个RNA小球变成一个蛋白小球。",
+        "en": "Two plots show RNA and protein relative amounts over 0–5 min; an RNA particle is not converted into a protein particle."
+      },
+      "sourceURL": "https://openstax.org/books/biology-2e/pages/16-1-regulation-of-gene-expression",
+      "verified": "2026-11-15",
+      "rights": "Original Study Biology project SVG and invented teaching data; no external image",
+      "keyboard": "Tab to native controls; arrows for sliders; named focusable local horizontal-scroll diagram region; 44px controls",
+      "staticAlternative": "Complete bilingual record in component and11-section Markdown",
+      "model": {
+        "formula": "For each 1-min step: R[n+1]=0.5R[n]+a; P[n+1]=0.75P[n]+kR[n]. R0=P0=0.",
+        "parameters": {
+          "a": "0–4 relative RNA units min^-1",
+          "k": "0–0.5 min^-1 on the separate relative protein scale",
+          "loss": "50% RNA and25% protein per1-min step, invented",
+          "time": "0–5 min"
+        },
+        "units": "Separate relative RNA/protein amount scales; minutes; not molecule conversion yield",
+        "assumptions": [
+          "Fixed rates per run",
+          "Nonnegative inputs",
+          "Protein update uses previous RNA",
+          "Same DNA"
+        ],
+        "limits": [
+          "No noise, division dilution or feedback",
+          "No physiological constants or real half-life inference",
+          "Identical endpoints do not uniquely identify regulation"
+        ]
+      }
+    }
+  ],
+  "models": [
+    {
+      "lesson": "L121",
+      "formula": "After n complete rounds: duplexes=2^n; original strands=2; new strands=2*2^n-2; original-containing duplexes=2 for n>=1.",
+      "parameters": {
+        "rounds": "integer 1–4 in UI; clamped 0–8 by model",
+        "animation": "6 conceptual checkpoints, not real seconds"
+      },
+      "units": "duplex and strand counts",
+      "assumptions": [
+        "One starting duplex",
+        "Complete synchronous copying",
+        "No degradation or error",
+        "Fork model: one right-moving fork; all new synthesis 5′→3′"
+      ],
+      "limits": [
+        "No enzymes kinetics, twist or primer removal simulation",
+        "Round ledger independent of fork animation",
+        "Leading/lagging defined relative to this fork"
+      ]
+    },
+    {
+      "lesson": "L122",
+      "formula": "RNA5′→3′=complement(DNA template3′→5′) using T→A, A→U, G→C, C→G.",
+      "parameters": {
+        "coding": "5′-ATG GCT TTT GGA TAA-3′; optional GCT→GCC",
+        "template": "3′-TAC CGA AAA CCT ATT-5′; optional CGA→CGG",
+        "RNA": "5′-AUG GCU UUU GGA UAA-3′; optional GCU→GCC"
+      },
+      "units": "nucleotides; each conceptual step adds one triplet",
+      "assumptions": [
+        "Eukaryotic nuclear coding fragment",
+        "Fixed correct direction",
+        "Original fictional sequence"
+      ],
+      "limits": [
+        "No real transcription speed",
+        "No full gene/promoter",
+        "Processing named but introns/caps/tails not simulated",
+        "Not all genes encode proteins"
+      ]
+    },
+    {
+      "lesson": "L123",
+      "formula": "Read RNA5′→3′ triplets; AUG=Met,GCU/GCC=Ala,UUU/UUC=Phe,GGA=Gly,UAA/UAG/UGA=stop. Stop adds no residue. Anticodon displayed3′→5′ complementary.",
+      "parameters": {
+        "default": "AUG GCU UUU GGA UAA → Met Ala Phe Gly",
+        "variant": "GCU→GCC retains Ala"
+      },
+      "units": "codon and amino-acid counts; no biological time",
+      "assumptions": [
+        "Restricted verified standard-code subset",
+        "Given start/frame",
+        "Original four-residue teaching fragment"
+      ],
+      "limits": [
+        "Not complete genetic-code engine",
+        "No wobble, exceptional recoding, folding or tRNA charging",
+        "Initiating AUG encodes Met; stop does not"
+      ]
+    },
+    {
+      "lesson": "L124",
+      "formula": "For each 1-min step: R[n+1]=0.5R[n]+a; P[n+1]=0.75P[n]+kR[n]. R0=P0=0.",
+      "parameters": {
+        "a": "0–4 relative RNA units min^-1",
+        "k": "0–0.5 min^-1 on the separate relative protein scale",
+        "loss": "50% RNA and25% protein per1-min step, invented",
+        "time": "0–5 min"
+      },
+      "units": "Separate relative RNA/protein amount scales; minutes; not molecule conversion yield",
+      "assumptions": [
+        "Fixed rates per run",
+        "Nonnegative inputs",
+        "Protein update uses previous RNA",
+        "Same DNA"
+      ],
+      "limits": [
+        "No noise, division dilution or feedback",
+        "No physiological constants or real half-life inference",
+        "Identical endpoints do not uniquely identify regulation"
+      ]
+    }
+  ]
+}

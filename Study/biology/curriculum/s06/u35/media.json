@@ -1,0 +1,342 @@
+{
+  "stage": "S06",
+  "unit": "U35",
+  "author": "Biology Explorer / Codex",
+  "status": "pilot; external science review and learner trial pending",
+  "license": "Original project-authored educational text, SVG and code; external sources are linked for concepts only",
+  "verified": "2026-11-15",
+  "sources": [
+    {
+      "lesson": "L137",
+      "title": "NHGRI: Polymerase Chain Reaction Fact Sheet",
+      "url": "https://www.genome.gov/about-genomics/fact-sheets/Polymerase-Chain-Reaction-Fact-Sheet",
+      "sourceURL": "https://www.genome.gov/about-genomics/fact-sheets/Polymerase-Chain-Reaction-Fact-Sheet",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L138",
+      "title": "NHGRI: Electrophoresis; DNA Sequencing",
+      "url": "https://www.genome.gov/genetics-glossary/Electrophoresis",
+      "sourceURL": "https://www.genome.gov/genetics-glossary/Electrophoresis",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L139",
+      "title": "NHGRI: How Does Genome Editing Work?",
+      "url": "https://www.genome.gov/about-genomics/policy-issues/Genome-Editing/How-genome-editing-works",
+      "sourceURL": "https://www.genome.gov/about-genomics/policy-issues/Genome-Editing/How-genome-editing-works",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L140",
+      "title": "HHS: Belmont Report (reasoning principles, not plant regulation)",
+      "url": "https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html",
+      "sourceURL": "https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html",
+      "verified": "2026-11-15",
+      "use": "Concept verification only; no copied figure or exercise"
+    },
+    {
+      "lesson": "L138",
+      "title": "NHGRI: DNA Sequencing Fact Sheet",
+      "sourceURL": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Fact-Sheet",
+      "verified": "2026-11-15",
+      "use": "Base-order definition; original diagrams",
+      "url": "https://www.genome.gov/about-genomics/fact-sheets/DNA-Sequencing-Fact-Sheet"
+    }
+  ],
+  "assets": [
+    {
+      "id": "L137-D01",
+      "lesson": "L137",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.genome.gov/about-genomics/fact-sheets/Polymerase-Chain-Reaction-Fact-Sheet",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l137.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "N=N0*(1+effectiveEfficiency)^n; effectiveEfficiency=0 under shared inhibition, otherwise e; ideal e=1 gives N0*2^n. positiveAdded=positiveCopies-2; positiveAmplified=(n>0 and positiveAdded>0); controlsValid=(blankCopies==0 and positiveAmplified)",
+        "parameters": {
+          "N0": "0 or 2 target molecules; integer copies",
+          "n": "0–4 conceptual cycles, model allows 0–20",
+          "e": "0.5 or 1 dimensionless per-cycle efficiency",
+          "positive initial": "2 existing target copies; counted separately from new copies",
+          "inhibition": "Effective efficiency 0; existing sample/positive templates retained"
+        },
+        "assumptions": [
+          "Selected target with suitable complementary primers and polymerase; perfect target specificity in this teaching model",
+          "Constant efficiency; no resource depletion, stochastic sampling, instrument signal, detection threshold or plateau",
+          "Contaminated scenario adds one target copy to blank; shared inhibition blocks copying without deleting any existing template",
+          "Positive starts with two copies; fractional outputs are expected quantities. Two inhibited targets at cycles0/1/2/3/4 stay2/2/2/2/2, with zero added",
+          "Control validity is separate from copies: no target in blank and actual positive increase after at least one cycle. Zero cycles or zero efficiency cannot verify amplification"
+        ],
+        "limits": [
+          "Not a protocol, diagnostic test or real detection probability; no real primers, temperatures or timings",
+          "Successful ordinary positive cannot exclude sample-specific inhibition",
+          "Copy quantities are not instrument signals. A failed real positive amplification signal does not imply DNA disappearance; real non-detection is not absence",
+          "Real abnormal blank signals may also involve non-specific amplification; model contamination is idealised target contamination"
+        ]
+      }
+    },
+    {
+      "id": "L137-I01",
+      "lesson": "L137",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.genome.gov/about-genomics/fact-sheets/Polymerase-Chain-Reaction-Fact-Sheet",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l137.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "N=N0*(1+effectiveEfficiency)^n; effectiveEfficiency=0 under shared inhibition, otherwise e; ideal e=1 gives N0*2^n. positiveAdded=positiveCopies-2; positiveAmplified=(n>0 and positiveAdded>0); controlsValid=(blankCopies==0 and positiveAmplified)",
+        "parameters": {
+          "N0": "0 or 2 target molecules; integer copies",
+          "n": "0–4 conceptual cycles, model allows 0–20",
+          "e": "0.5 or 1 dimensionless per-cycle efficiency",
+          "positive initial": "2 existing target copies; counted separately from new copies",
+          "inhibition": "Effective efficiency 0; existing sample/positive templates retained"
+        },
+        "assumptions": [
+          "Selected target with suitable complementary primers and polymerase; perfect target specificity in this teaching model",
+          "Constant efficiency; no resource depletion, stochastic sampling, instrument signal, detection threshold or plateau",
+          "Contaminated scenario adds one target copy to blank; shared inhibition blocks copying without deleting any existing template",
+          "Positive starts with two copies; fractional outputs are expected quantities. Two inhibited targets at cycles0/1/2/3/4 stay2/2/2/2/2, with zero added",
+          "Control validity is separate from copies: no target in blank and actual positive increase after at least one cycle. Zero cycles or zero efficiency cannot verify amplification"
+        ],
+        "limits": [
+          "Not a protocol, diagnostic test or real detection probability; no real primers, temperatures or timings",
+          "Successful ordinary positive cannot exclude sample-specific inhibition",
+          "Copy quantities are not instrument signals. A failed real positive amplification signal does not imply DNA disappearance; real non-detection is not absence",
+          "Real abnormal blank signals may also involve non-specific amplification; model contamination is idealised target contamination"
+        ]
+      }
+    },
+    {
+      "id": "L138-D01",
+      "lesson": "L138",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.genome.gov/genetics-glossary/Electrophoresis",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l138.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "y=90+170*log2(1600/bp)/4",
+        "parameters": {
+          "bp": "100–1600 base pairs; sample 400 or 450 bp",
+          "y": "schematic SVG coordinate, not mm"
+        },
+        "assumptions": [
+          "Typical linear DNA; negative charge; movement towards positive pole",
+          "Smaller fragments generally move farther; log-size marker spacing is illustrative"
+        ],
+        "limits": [
+          "No real calibration, resolution or measurement-error distribution",
+          "Bands do not read sequence, unique identity or behaviour",
+          "ATCG/AGCT are toy four-base windows, not complete 400 bp sequences or executable targets"
+        ]
+      }
+    },
+    {
+      "id": "L138-I01",
+      "lesson": "L138",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.genome.gov/genetics-glossary/Electrophoresis",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l138.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "y=90+170*log2(1600/bp)/4",
+        "parameters": {
+          "bp": "100–1600 base pairs; sample 400 or 450 bp",
+          "y": "schematic SVG coordinate, not mm"
+        },
+        "assumptions": [
+          "Typical linear DNA; negative charge; movement towards positive pole",
+          "Smaller fragments generally move farther; log-size marker spacing is illustrative"
+        ],
+        "limits": [
+          "No real calibration, resolution or measurement-error distribution",
+          "Bands do not read sequence, unique identity or behaviour",
+          "ATCG/AGCT are toy four-base windows, not complete 400 bp sequences or executable targets"
+        ]
+      }
+    },
+    {
+      "id": "L139-D01",
+      "lesson": "L139",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.genome.gov/about-genomics/policy-issues/Genome-Editing/How-genome-editing-works",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l139.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "intended fraction=12/20=0.6; assessed fraction=20/100=0.2",
+        "parameters": {
+          "intended": "12 fictional assessed plant samples",
+          "otherRepair": "5 samples",
+          "unchanged": "3 samples",
+          "unassessed": "80 samples"
+        },
+        "assumptions": [
+          "Original fixed fictional outcomes, not stochastic performance estimates",
+          "Illustrated editor targets/cuts then cellular repair yields mixed outcomes"
+        ],
+        "limits": [
+          "Not every editor uses double-strand breaks or introduces foreign DNA",
+          "No inference of whole-population success, off-target absence or trait benefit; representativeness unspecified",
+          "No actual editing or human intervention"
+        ]
+      }
+    },
+    {
+      "id": "L139-I01",
+      "lesson": "L139",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.genome.gov/about-genomics/policy-issues/Genome-Editing/How-genome-editing-works",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l139.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "intended fraction=12/20=0.6; assessed fraction=20/100=0.2",
+        "parameters": {
+          "intended": "12 fictional assessed plant samples",
+          "otherRepair": "5 samples",
+          "unchanged": "3 samples",
+          "unassessed": "80 samples"
+        },
+        "assumptions": [
+          "Original fixed fictional outcomes, not stochastic performance estimates",
+          "Illustrated editor targets/cuts then cellular repair yields mixed outcomes"
+        ],
+        "limits": [
+          "Not every editor uses double-strand breaks or introduces foreign DNA",
+          "No inference of whole-population success, off-target absence or trait benefit; representativeness unspecified",
+          "No actual editing or human intervention"
+        ]
+      }
+    },
+    {
+      "id": "L140-D01",
+      "lesson": "L140",
+      "kind": "diagram",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchDiagram",
+      "staticAlternative": "l140.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "No moral score or numerical risk calculation; compare justification structures",
+        "parameters": {
+          "policies": "conditionally continue contained research / pause expansion",
+          "submission": "benefit-only / fact-uncertainty-values-stakeholders-revision / unknown-means-harm"
+        },
+        "assumptions": [
+          "Fictional plant decision with incomplete ecological evidence",
+          "Both policy choices may be supported with transparent reasons"
+        ],
+        "limits": [
+          "HHS principles used as a reasoning framework, not plant regulation",
+          "No unique political/moral answer; feedback evaluates evidence and argument quality",
+          "No invented safety probability"
+        ]
+      }
+    },
+    {
+      "id": "L140-I01",
+      "lesson": "L140",
+      "kind": "interactive",
+      "author": "Biology Explorer / Codex",
+      "license": "Original project-authored educational asset; repository terms apply",
+      "source": "Original SVG and React interaction, not copied source artwork",
+      "sourceURL": "https://www.hhs.gov/ohrp/regulations-and-policy/belmont-report/read-the-belmont-report/index.html",
+      "verified": "2026-11-15",
+      "component": "src/BiotechnologyResearchWorld.tsx#BiotechnologyResearchExplore",
+      "staticAlternative": "l140.md See / Explore / Explain; complete static mechanism or numbers also inside activity",
+      "model": {
+        "formula": "No moral score or numerical risk calculation; compare justification structures",
+        "parameters": {
+          "policies": "conditionally continue contained research / pause expansion",
+          "submission": "benefit-only / fact-uncertainty-values-stakeholders-revision / unknown-means-harm"
+        },
+        "assumptions": [
+          "Fictional plant decision with incomplete ecological evidence",
+          "Both policy choices may be supported with transparent reasons"
+        ],
+        "limits": [
+          "HHS principles used as a reasoning framework, not plant regulation",
+          "No unique political/moral answer; feedback evaluates evidence and argument quality",
+          "No invented safety probability"
+        ]
+      }
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L137-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    },
+    {
+      "id": "L138-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    },
+    {
+      "id": "L139-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    },
+    {
+      "id": "L140-D01",
+      "component": "BiotechnologyResearchDiagram",
+      "kind": "Original labelled SVG, not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L137-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Conceptual process playback",
+      "staticAlternative": "l137.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    },
+    {
+      "id": "L138-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Keyboard-operable evidence/question/design/chart/report repair; no artificial playback",
+      "staticAlternative": "l138.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    },
+    {
+      "id": "L139-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Conceptual process playback",
+      "staticAlternative": "l139.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    },
+    {
+      "id": "L140-I01",
+      "component": "BiotechnologyResearchExplore",
+      "kind": "Keyboard-operable evidence/question/design/chart/report repair; no artificial playback",
+      "staticAlternative": "l140.md See / Explore / Explain; complete static mechanism or numbers also inside activity"
+    }
+  ]
+}

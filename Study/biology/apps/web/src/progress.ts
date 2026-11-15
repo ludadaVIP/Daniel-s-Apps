@@ -1,4 +1,13 @@
 import {
+  decodeGraduationProject,
+  emptyGraduationProject,
+  graduationCases,
+  graduationCaseReady,
+  graduationUnderstanding,
+  validGraduationTimestamp,
+  type GraduationDraft,
+} from './graduationProject';
+import {
   emptyStoryProject,
   decodeStoryProject,
   storyCaseReady,
@@ -72,6 +81,7 @@ export type Progress = {
     S03?: EcoDraft;
     S04?: StoryDraft;
     S05?: EvidenceDraft;
+    S06?: GraduationDraft;
   };
 };
 export const emptyProgress = (): Progress => ({
@@ -138,6 +148,8 @@ export function decodeProgress(raw: string): Progress {
     clean.projects.S04 = decodeStoryProject(data.projects.S04);
   if (data.projects?.S05)
     clean.projects.S05 = decodeEvidenceProject(data.projects.S05);
+  if (data.projects && Object.hasOwn(data.projects, 'S06'))
+    clean.projects.S06 = decodeGraduationProject(data.projects.S06);
   return clean;
 }
 function decodeProject(data: ProjectDraft): ProjectDraft {
@@ -476,6 +488,39 @@ export function storyStageOutcome(p: Progress) {
       lessonCount === 24 &&
       missionCount === 6 &&
       savedStory &&
+      check.answered === 6 &&
+      check.correct >= 5,
+  };
+}
+
+export function withGraduationProject(
+  p: Progress,
+  draft: GraduationDraft,
+): Progress {
+  return { ...p, projects: { ...p.projects, S06: draft } };
+}
+export function graduationStageOutcome(p: Progress) {
+  const draft = p.projects.S06 ?? emptyGraduationProject();
+  const check = graduationUnderstanding(draft);
+  const stageUnits = units.filter((u) => u.stage === 'S06');
+  const lessonCount = stageUnits
+    .flatMap((u) => u.lessonIds)
+    .filter((id) => !!p.sessions[id]?.completedAt).length;
+  const missionCount = stageUnits.filter(
+    (u) => !!missionForUnit(p, u.id).savedAt,
+  ).length;
+  const savedCase = graduationCases.some(
+    (id) =>
+      validGraduationTimestamp(draft.cases[id].savedAt) &&
+      graduationCaseReady(id, draft.cases[id]),
+  );
+  return {
+    lessons: lessonCount,
+    missions: missionCount,
+    complete:
+      lessonCount === 24 &&
+      missionCount === 6 &&
+      savedCase &&
       check.answered === 6 &&
       check.correct >= 5,
   };

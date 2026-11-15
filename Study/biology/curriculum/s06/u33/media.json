@@ -1,0 +1,182 @@
+{
+  "unit": "U33",
+  "stage": "S06",
+  "verified": "2026-11-15",
+  "status": "pilot; external science review and learner trial pending",
+  "author": "Study Biology original curriculum authorship, Codex-assisted",
+  "license": "Original prose, questions, SVG and fictional numerical datasets: project-authored educational assets. No external artwork or questions copied. References verify principles; their own licenses remain with their publishers.",
+  "sources": [
+    {
+      "lesson": "L129",
+      "url": "https://openstax.org/books/biology-2e/pages/9-1-signaling-molecules-and-cellular-receptors",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L129",
+      "url": "https://openstax.org/books/biology-2e/pages/9-2-propagation-of-the-signal",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L130",
+      "url": "https://openstax.org/books/biology-2e/pages/35-2-how-neurons-communicate",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L131",
+      "url": "https://openstax.org/books/biology-2e/pages/37-3-regulation-of-body-processes",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L131",
+      "url": "https://www.niddk.nih.gov/health-information/diabetes/overview/what-is-diabetes",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L132",
+      "url": "https://openstax.org/books/biology-2e/pages/42-2-adaptive-immune-response",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    },
+    {
+      "lesson": "L132",
+      "url": "https://medlineplus.gov/ency/article/000821.htm",
+      "verified": "2026-11-15",
+      "use": "Public first-party scientific teaching verification; original wording and worked fictional datasets."
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "L129-D01",
+      "lesson": "L129",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "膜外金色信号、跨膜受体、胞内传导与响应分区；亮色表示激活，不能把箭头读成信号分子穿膜。",
+        "en": "Locate the extracellular gold signal, receptor, internal relay and response. Colour means activation; arrows do not mean that this ligand crosses the membrane."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    },
+    {
+      "id": "L130-D01",
+      "lesson": "L130",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "比较−70 mV基线、+30 mV峰值和100 ms内峰数；下方流程框展示轴突电活动与突触化学传递的区别。",
+        "en": "Compare the −70 mV baseline, +30 mV peaks and spike counts in 100 ms; the separate process boxes distinguish axonal electrical activity from chemical synaptic transmission."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    },
+    {
+      "id": "L131-D01",
+      "lesson": "L131",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "纵轴是与目标的偏差、不是激素浓度；虚线为目标，完整数据在表中。",
+        "en": "The vertical axis is deviation from target, not hormone concentration. The dashed line marks the target; the table gives complete data."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    },
+    {
+      "id": "L132-D01",
+      "lesson": "L132",
+      "component": "SignalingEvolutionDiagram",
+      "author": "Study Biology / Codex-assisted original SVG",
+      "license": "Project-authored original asset; no external figures copied",
+      "alt": {
+        "zh": "沿上方抗体分支和下方感染细胞杀伤分支走一遍；虚线连接是协调/呈递，不是抗体流向CD8。",
+        "en": "Trace the upper antibody branch and lower infected-cell-killing branch. Dashed connections show coordination/presentation, not antibody flowing into CD8 cells."
+      },
+      "kind": "Original labelled SVG; fictional data; not to scale"
+    }
+  ],
+  "interactives": [
+    {
+      "id": "L129-I01",
+      "lesson": "L129",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Conditional stepped process with pause/replay",
+      "controls": {
+        "zh": "分别关闭匹配受体或下游传导，再逐步播放。比较哪一步首先不同；完整路线文字为静态替代。",
+        "en": "Switch off the receptor or downstream relay and step through. Locate the first difference; the complete written route is a static alternative."
+      },
+      "staticAlternative": "Locate the extracellular gold signal, receptor, internal relay and response. Colour means activation; arrows do not mean that this ligand crosses the membrane. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    },
+    {
+      "id": "L130-I01",
+      "lesson": "L130",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Conditional stepped process with pause/replay",
+      "controls": {
+        "zh": "切换刺激强度，读峰值与频率；逐步看静息、阈值、相邻膜再生、末端释放和突触后整合。",
+        "en": "Switch stimulus strength and read peak voltage and frequency. Step through rest, threshold, adjacent-membrane regeneration, terminal release and postsynaptic integration."
+      },
+      "staticAlternative": "Compare the −70 mV baseline, +30 mV peaks and spike counts in 100 ms; the separate process boxes distinguish axonal electrical activity from chemical synaptic transmission. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    },
+    {
+      "id": "L131-I01",
+      "lesson": "L131",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Conditional stepped process with pause/replay",
+      "controls": {
+        "zh": "逐步比较低增益无延迟和高增益一步延迟；暂停读值，再重播同条件。完整表为静态替代。",
+        "en": "Compare lower gain/no delay with higher gain/one-step delay. Pause, read values and replay. The full table is a static alternative."
+      },
+      "staticAlternative": "The vertical axis is deviation from target, not hormone concentration. The dashed line marks the target; the table gives complete data. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    },
+    {
+      "id": "L132-I01",
+      "lesson": "L132",
+      "component": "SignalingEvolutionExplore",
+      "author": "Study Biology / Codex-assisted original model",
+      "license": "Project-authored original asset",
+      "kind": "Conditional stepped process with pause/replay",
+      "controls": {
+        "zh": "关闭辅助T帮助或已有CD8效应细胞条件，逐步比较两个效应；静态完整路线供不播放时使用。",
+        "en": "Remove helper support or available CD8 effectors and step through both outcomes. A complete written route is provided without playback."
+      },
+      "staticAlternative": "Trace the upper antibody branch and lower infected-cell-killing branch. Dashed connections show coordination/presentation, not antibody flowing into CD8 cells. Complete written mechanism, fixed comparison and/or all-data table available without playback."
+    }
+  ],
+  "models": {
+    "L129": {
+      "formula": "bound=matching receptor at step1; relay=bound AND downstream at step2; response=relay at step3",
+      "parameters": "two boolean switches; steps0–3; no physical time or concentration",
+      "assumptions": "One membrane-impermeant ligand; one selected relay; binary teaching states",
+      "limitations": "Not a quantitative receptor-occupancy or molecular pathway model; other ligands use internal receptors."
+    },
+    "L130": {
+      "formula": "weak peaks at20,70 ms; strong at10,30,50,70,90 ms; each spike shape [-70,-30,30,-20,-80,-70] mV over6 samples",
+      "parameters": "time0–100 ms,1 ms sample; process stage0–4 independent of trace time",
+      "assumptions": "Same stylised neuron and conditions; frequency20 or50 Hz; no recruitment model",
+      "limitations": "Not a membrane differential-equation model; marker is process stage not physical propagation speed."
+    },
+    "L131": {
+      "formula": "x[t+1]=x[t]-k*x[max(0,t-d)]",
+      "parameters": "x0=10 arbitrary units; k=.3,d=0 or k=.6,d=1;10 steps; k range0–.6;d0–2",
+      "assumptions": "Linear correction of signed deviation; fixed target0; first missing history uses initial value",
+      "limitations": "No human time, physiological concentration, secretion kinetics or diagnostic interpretation."
+    },
+    "L132": {
+      "formula": "APC>=step1;helper>=step2 if present;plasma>=step3 if helper;antibody>=step4 if helper;killing>=step4 if preactivated CD8 present",
+      "parameters": "two booleans;five logical stages;original culture examples use relative antibody units and killed/100 targets",
+      "assumptions": "Selected T-dependent B response; CD8 availability explicitly preactivated and independent switch",
+      "limitations": "Not immune efficacy, infection risk or full activation network; no medication or individual advice."
+    }
+  }
+}

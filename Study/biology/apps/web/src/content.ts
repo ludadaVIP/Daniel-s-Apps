@@ -1,3 +1,6 @@
+import { molecularEnergyLessons } from './content/molecularEnergy';
+import { signalingEvolutionLessons } from './content/signalingEvolution';
+import { biotechnologyResearchLessons } from './content/biotechnologyResearch';
 import { divisionEnzymeLessons } from './content/divisionEnzymes';
 import { transportPhysiologyLessons } from './content/transportPhysiology';
 import { plantInformationLessons } from './content/plantInformation';
@@ -671,6 +674,9 @@ export const lessons: Lesson[] = [
   ...transportPhysiologyLessons,
   ...plantInformationLessons,
   ...immunityEvidenceLessons,
+  ...molecularEnergyLessons,
+  ...signalingEvolutionLessons,
+  ...biotechnologyResearchLessons,
 ];
 export const questions = lessons.flatMap((lesson) => lesson.questions);
 const files = import.meta.glob('../../../curriculum/**/l*.md', {

@@ -1,3 +1,6 @@
+import { molecularEnergyUnits } from './molecularEnergyUnits';
+import { signalingEvolutionUnits } from './signalingEvolutionUnits';
+import { biotechnologyResearchUnits } from './biotechnologyResearchUnits';
 import { divisionEnzymeUnits } from './divisionEnzymeUnits';
 import { transportPhysiologyUnits } from './transportPhysiologyUnits';
 import { plantInformationUnits } from './plantInformationUnits';
@@ -279,6 +282,9 @@ export const units = [
   ...transportPhysiologyUnits,
   ...plantInformationUnits,
   ...immunityEvidenceUnits,
+  ...molecularEnergyUnits,
+  ...signalingEvolutionUnits,
+  ...biotechnologyResearchUnits,
 ];
 export function unitForLesson(id: string) {
   return units.find((unit) => unit.lessonIds.includes(id))!;

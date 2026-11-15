@@ -1,0 +1,101 @@
+.bio-s6-lab.me-lab {
+  min-width: 0;
+  max-width: 100%;
+  color: #203a38;
+}
+.bio-s6-lab.me-lab * {
+  box-sizing: border-box;
+}
+.bio-s6-lab.me-lab .me-controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 14px;
+  align-items: center;
+  margin: 12px 0;
+}
+.bio-s6-lab.me-lab .me-controls > * {
+  min-width: 0;
+}
+.bio-s6-lab.me-lab .me-control {
+  display: grid;
+  gap: 8px;
+  padding: 12px;
+  border: 1px solid #b5c7b5;
+  border-radius: 14px;
+  background: #f4f6ed;
+}
+.bio-s6-lab.me-lab button {
+  min-height: 44px;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  padding: 10px 14px;
+}
+.bio-s6-lab.me-lab input[type='range'] {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  accent-color: #3b7855;
+}
+.bio-s6-lab.me-lab .bio-playback {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+.bio-s6-lab.me-lab .me-figure {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  border-radius: 18px;
+  border: 1px solid #b5c7b5;
+}
+.bio-s6-lab.me-lab .me-figure:focus-visible,
+.bio-s6-lab.me-lab .me-table:focus-visible {
+  outline: 3px solid #a56b1d;
+  outline-offset: 3px;
+}
+.bio-s6-lab.me-lab svg {
+  width: 100%;
+  min-width: 760px;
+  display: block;
+  font:
+    17px ui-monospace,
+    monospace;
+}
+.bio-s6-lab.me-lab .me-scroll-hint {
+  font-size: 0.85rem;
+  margin: 14px 0 8px;
+}
+.bio-s6-lab.me-lab .me-record {
+  padding-left: 26px;
+  line-height: 1.65;
+}
+.bio-s6-lab.me-lab .me-record li {
+  margin: 10px 0;
+}
+.bio-s6-lab.me-lab .me-table {
+  overflow-x: auto;
+  max-width: 100%;
+  margin: 16px 0;
+}
+.bio-s6-lab.me-lab table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 420px;
+}
+.bio-s6-lab.me-lab th,
+.bio-s6-lab.me-lab td {
+  padding: 10px;
+  border-bottom: 1px solid #b5c7b5;
+  text-align: left;
+}
+.bio-s6-lab.me-lab td {
+  white-space: nowrap;
+  font-variant-numeric: tabular-nums;
+}
+.bio-s6-lab.me-lab .me-limits {
+  padding: 14px;
+  background: #f4f6ed;
+  border-left: 4px solid #a56b1d;
+  line-height: 1.6;
+}
