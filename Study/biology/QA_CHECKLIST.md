@@ -1,5 +1,20 @@
 # Biology v1 试学验收
 
+## 2026-11-16 S06最终集成与技术验收
+
+- [x] U31–U36/L121–L144三家族24课、6任务与《我的生命科学研究》完整接入；总计144/144课、36单元任务、6阶段项目，全部available/pilot。L144→真实S06-P01，不创建L145；制作完成不当作学生完成。
+- [x] 最终29文件214测试通过；全Biology源码/Vite ESLint、shared/UI/Biology/Hub四组类型、Biology与Hub生产构建及78路径限定格式检查均exit0。158产品源码/S06内容校验前后hash稳定，aggregate `F15EAD41CA34B8EFC71AAA37F1090939DB1ECE6D7DB1E8808726269E37382284`，排除记录文档防循环。两build仍有>500kB chunk warning，不据此宣称性能验收。
+- [x] 内部独立科学/教学复核4项问题closed；内部独立代码审阅2项P2closed（starter超长与非法日期可写出不可decode草稿）。边界函数拒绝超限/非法写入并保留原文、已存题材和旧记录，严格decoder未放宽；4新增回归及独立38项真UI复核通过。见[S6_SCIENCE_REVIEW.md](S6_SCIENCE_REVIEW.md)、[S6_CODE_REVIEW.md](S6_CODE_REVIEW.md)。
+- [x] 课程真实浏览器：24活动（12过程/12静态比较）、384布局、6完整学习/错题/复习/笔记任务流程、5组SPA重置与语言保留、96题ID；48Explain末段和48stroke补证。504 PNG按清单登记，实际人工打开26代表图，未宣称手看全部。源变化和初始真实缺陷留档，最终控制台/运行时/HTTP/SVG越界均0。
+- [x] 毕业canonical202检查/58截图/3真下载通过，覆盖两路径完整UI、16正常/压力布局、六Notebook、旧阶段记录与独立gate、L144真实结课。自录从空起，NA/真实0/不等间隔/单株n=1/其他株排除、最多100行及原始数据完整导出；测试完成数据明确TEST ONLY。
+- [x] 原生日期键盘7项单列；最终report字符过滤变化后54项报告专项与同3份下载重验passed，sourcehash稳定。54是重复子集，不将202+7+54写成263独立案例。最终三下载实际离线打开于1366/390，长文/全部数据/末段/真实错误选择与6答5对诚实保留；console/pageerror/failed HTTP均0。
+- [x] 毕业reviewer实际人工打开6张代表PNG；打印只做桌面宽Chromium print-media仿真与无横溢，不声明生成PDF、纸张分页或实物打印。
+- [x] 科学和官方NPS数据核验日期保留2026-11-15，软件交付为客户端2026-11-16。原表十行、53/31/84汇总及17/53与17/84分母核验；年末年龄组成不作出生/存活率或地区因果，0/0=NA与0/31=0%区分。自录观察不预填假实测、不改变照料、不采样、不测人体健康。
+- [x] 仅用隔离3460，未动正式3463学习记录。自有浏览器上下文已关；root经自有session89204 Ctrl-C关闭共享服务并只读确认3460无监听，详见cleanup.json。不commit/push。
+- [ ] 儿童实际试学、外部科学专家审稿、自由文字质量/英语表达的人工作品评价、教学收益和长期记忆效果仍待验证。内部软件验收不代替这些事项。
+
+当前实现与精确复跑/证据见[S6_DELIVERY.md](S6_DELIVERY.md)。证据根为`C:/Users/Administrator/.codex/visualizations/2026/11/10/01a1c7bf-87b4-7941-9aef-bad203405a02`：课程`biology-s6/verification.json`与`manual-visual-review.json`；最终软件`biology-s6/final-build-verification.json`；项目`biology-s6-project/ACCEPTANCE.md`、`acceptance-manifest.json`及三个专项JSON。首次lint/错误脚本Vite路径失败保留preflight JSON/log；无关Chemistry health `connect EACCES`的全workspace测试未改写为通过。以下S05及更早段落为各自真实日期的历史验收。
+
 ## 2026-11-14 S05最终集成与技术验收
 
 - [x] S05的24课、6任务及《生物学证据报告》接入，总计120/144课、30单元/任务、5项目；S06保留24课、6任务、1项目规划，下一单元U31（L121–L124）。新阶段72目标、168课内术语条目（非全局去重词汇）、24预测与96反馈题齐备。
@@ -13,7 +28,7 @@
 - [x] 独立上下文只使用`http://127.0.0.1:3460`，未改正式3463记录。课程/项目浏览器上下文均已关闭；`cleanup.json`确认自有session99496以原句柄Ctrl-C结束，22:05:24（NZDT）3460无监听，未停止未知进程。
 - [ ] 儿童实际试用、外部专家科学审稿与长期学习效果：未完成；全部新课仍为pilot。
 
-当前软件实现以[S5_DELIVERY.md](./S5_DELIVERY.md)及其最终检查记录为准；下方S04/S03记录为历史验收，不能替代S05当前技术检查。
+以上为2026-11-14的S05历史验收，见[S5_DELIVERY.md](./S5_DELIVERY.md)；不替代顶部S06最终技术记录。下方S04/S03继续保留各自历史范围。
 
 ### S05技术证据与复跑
 

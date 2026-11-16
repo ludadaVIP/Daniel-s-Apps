@@ -94,29 +94,23 @@ export const researchLabels = {
   ),
 };
 export function escapeHtml(value: unknown): string {
-  return (
-    String(value)
-      .replace(
-        /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g,
-        '\uFFFD',
-      )
-      // XML 1.0 forbids these controls; make invalid input visible without breaking the export.
-      // eslint-disable-next-line no-control-regex
-      .replace(
-        /[\u0000-\u0008\u000b\u000c\u000e-\u001f\ufffe\uffff]/g,
-        '\uFFFD',
-      )
-      .replace(
-        /[&<>"']/g,
-        (c) =>
-          ({
-            '&': '&amp;',
-            '<': '&lt;',
-            '>': '&gt;',
-            '"': '&quot;',
-            "'": '&#39;',
-          })[c]!,
-      )
+  // Iterate complete code points, preserving valid surrogate pairs while making
+  // lone surrogates and XML 1.0's forbidden characters visible as replacements.
+  const xmlSafe = Array.from(String(value), (character) => {
+    const point = character.codePointAt(0)!;
+    const invalid =
+      (point < 0x20 && point !== 0x09 && point !== 0x0a && point !== 0x0d) ||
+      (point >= 0xd800 && point <= 0xdfff) ||
+      point === 0xfffe ||
+      point === 0xffff;
+    return invalid ? '\uFFFD' : character;
+  }).join('');
+  return xmlSafe.replace(
+    /[&<>"']/g,
+    (c) =>
+      ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[
+        c
+      ]!,
   );
 }
 const label = (x: number, y: number, text: unknown, anchor = 'start') =>

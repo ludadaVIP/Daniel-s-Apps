@@ -206,10 +206,16 @@ export function validISODate(value: unknown): value is string {
   );
 }
 export function observationDate(c: ResearchCase, day: number) {
-  if (!validISODate(c.startDate)) return '—';
+  if (
+    !validISODate(c.startDate) ||
+    !Number.isInteger(day) ||
+    day < 0 ||
+    day > 36500
+  )
+    return '—';
   return new Date(Date.parse(`${c.startDate}T00:00:00Z`) + day * 86400000)
     .toISOString()
-    .slice(0, 10);
+    .split('T')[0]!;
 }
 export function validPlantRecords(records: unknown): records is PlantRecord[] {
   if (!Array.isArray(records) || records.length > 100) return false;
@@ -284,6 +290,34 @@ export function editGraduationCase(
         );
       });
   return { ...draft, cases: { ...draft.cases, [id]: changed } };
+}
+export const graduationTextLimit = 20000;
+export function appendGraduationPractice(
+  draft: GraduationDraft,
+  id: GraduationCaseId,
+  starter: string,
+): { draft: GraduationDraft; accepted: boolean } {
+  const current = draft.cases[id].text;
+  const appended = `${current.secondLanguage}${current.secondLanguage ? '\n' : ''}${starter}`;
+  if (appended.length > graduationTextLimit) return { draft, accepted: false };
+  return {
+    draft: editGraduationCase(draft, id, {
+      text: { ...current, secondLanguage: appended },
+    }),
+    accepted: true,
+  };
+}
+export function changeObservationStartDate(
+  draft: GraduationDraft,
+  date: string,
+): { draft: GraduationDraft; accepted: boolean } {
+  if (date !== '' && !validISODate(date)) return { draft, accepted: false };
+  if (draft.cases.observation.startDate === date)
+    return { draft, accepted: true };
+  return {
+    draft: editGraduationCase(draft, 'observation', { startDate: date }),
+    accepted: true,
+  };
 }
 export function calculationFeedback(
   id: GraduationCaseId,
@@ -618,7 +652,7 @@ function recordObject(value: unknown): Record<string, unknown> {
     throw new Error('Invalid graduation object');
   return value as Record<string, unknown>;
 }
-function boundedText(value: unknown, max = 20000) {
+function boundedText(value: unknown, max = graduationTextLimit) {
   if (typeof value !== 'string' || value.length > max)
     throw new Error('Invalid graduation text');
   return value;

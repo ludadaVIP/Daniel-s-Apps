@@ -1,6 +1,6 @@
-# S06毕业项目独立浏览器验收交接
+# S06毕业项目独立浏览器验收交接（2026-11-15历史操作说明）
 
-路由：`http://127.0.0.1:3460/biology/project/S06`（复用课程browser server；勿另抢3460）。源码：`apps/web/src/GraduationWorkbench.tsx`、`graduationProject.ts`、`graduationReport.ts`、`graduationProject.css`、`progress.ts`。当前源已实现；浏览器验收尚未宣称通过。
+路由：`http://127.0.0.1:3460/biology/project/S06`（复用课程browser server；勿另抢3460）。源码：`apps/web/src/GraduationWorkbench.tsx`、`graduationProject.ts`、`graduationReport.ts`、`graduationProject.css`、`progress.ts`。本文件保留验收前操作指引；2026-11-16最终通过范围及限制见[S6_DELIVERY.md](S6_DELIVERY.md)和独立ACCEPTANCE记录。
 
 ## 操作定位
 

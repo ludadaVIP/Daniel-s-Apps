@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useId, useState } from 'react';
 import { Link } from 'react-router-dom';
 import type { LanguageMode, LocalizedText } from '@study/shared';
 import { t } from './schema';
@@ -11,7 +11,9 @@ import {
 } from './progress';
 import {
   actualGraduationCaption,
+  appendGraduationPractice,
   calculationFeedback,
+  changeObservationStartDate,
   caseProblems,
   datasetLimits,
   editGraduationCase,
@@ -21,6 +23,7 @@ import {
   graduationQuestionLessons,
   graduationQuestions,
   graduationUnderstanding,
+  graduationTextLimit,
   manualRubric,
   observationDate,
   observationLimits,
@@ -90,6 +93,10 @@ export function GraduationProject({
   const [missing, setMissing] = useState(false);
   const [rowError, setRowError] = useState(false);
   const [showProblems, setShowProblems] = useState(false);
+  const [starterError, setStarterError] = useState<string | null>(null);
+  const [pendingDate, setPendingDate] = useState<string | null>(null);
+  const [dateError, setDateError] = useState(false);
+  const dateHelpId = useId();
   const update = (patch: Partial<ResearchCase>) =>
     store.update((p) =>
       withGraduationProject(
@@ -102,6 +109,12 @@ export function GraduationProject({
       ),
     );
   const text = (value: LocalizedText) => <Text mode={mode} text={value} />;
+  const appendStarter = (field: keyof typeof starters) => {
+    const result = appendGraduationPractice(d, id, starters[field]);
+    setStarterError(result.accepted ? null : field);
+    if (result.accepted)
+      store.update((p) => withGraduationProject(p, result.draft));
+  };
   const resetRow = () => {
     setRowId('');
     setPlant('');
@@ -191,6 +204,9 @@ export function GraduationProject({
               );
               resetRow();
               setShowProblems(false);
+              setStarterError(null);
+              setPendingDate(null);
+              setDateError(false);
             }}
           >
             {text(titles[caseId])}
@@ -400,9 +416,32 @@ export function GraduationProject({
                   type="date"
                   min="1900-01-01"
                   max="9999-12-31"
-                  value={c.startDate}
-                  onChange={(e) => update({ startDate: e.target.value })}
+                  value={pendingDate ?? c.startDate}
+                  aria-invalid={dateError || undefined}
+                  aria-describedby={dateError ? dateHelpId : undefined}
+                  onChange={(e) => {
+                    const date = e.target.value;
+                    setPendingDate(date);
+                    const result = changeObservationStartDate(d, date);
+                    const accepted =
+                      result.accepted && !e.target.validity.badInput;
+                    setDateError(!accepted);
+                    if (accepted)
+                      store.update((p) =>
+                        withGraduationProject(p, result.draft),
+                      );
+                  }}
                 />
+                {dateError && (
+                  <span id={dateHelpId} role="alert">
+                    {text(
+                      t(
+                        `请输入1900-01-01至9999-12-31的有效日期，或清空。此次输入未写入报告；报告仍使用上次有效日期：${c.startDate || '尚未设置'}。`,
+                        `Enter a valid date from 1900-01-01 to 9999-12-31, or clear the field. This input was not saved to the report; its last valid date remains ${c.startDate || 'not set'}.`,
+                      ),
+                    )}
+                  </span>
+                )}
               </label>
               <label>
                 {text(
@@ -716,7 +755,7 @@ export function GraduationProject({
               {text(researchLabels[field])}
               <textarea
                 value={c.text[field]}
-                maxLength={20000}
+                maxLength={graduationTextLimit}
                 rows={field === 'question' ? 2 : 3}
                 onChange={(e) =>
                   update({ text: { ...c.text, [field]: e.target.value } })
@@ -733,19 +772,22 @@ export function GraduationProject({
                 <p lang="en">{starters[field as keyof typeof starters]}</p>
                 <button
                   type="button"
-                  onClick={() =>
-                    update({
-                      text: {
-                        ...c.text,
-                        secondLanguage: `${c.text.secondLanguage}${c.text.secondLanguage ? '\n' : ''}${starters[field as keyof typeof starters]}`,
-                      },
-                    })
-                  }
+                  onClick={() => appendStarter(field as keyof typeof starters)}
                 >
                   {text(
                     t('加入可选英语练习区', 'Add to optional English practice'),
                   )}
                 </button>
+                {starterError === field && (
+                  <p role="alert">
+                    {text(
+                      t(
+                        `加入句型会超过${graduationTextLimit}字元上限，因此未追加。原文、报告保存状态和其他学习记录均保留；请先自行删减练习区文字。`,
+                        `Adding this starter would exceed the ${graduationTextLimit}-character limit, so nothing was appended. Your original text, saved report status and other learning records are retained. Shorten the practice text yourself before adding it.`,
+                      ),
+                    )}
+                  </p>
+                )}
               </details>
             )}
           </div>
@@ -827,7 +869,7 @@ export function GraduationProject({
               )}
               <textarea
                 value={segment.notes}
-                maxLength={20000}
+                maxLength={graduationTextLimit}
                 rows={3}
                 onChange={(e) =>
                   update({
@@ -842,7 +884,7 @@ export function GraduationProject({
               {text(t('可选：另一语言', 'Optional: another language'))}
               <textarea
                 value={segment.otherLanguage}
-                maxLength={20000}
+                maxLength={graduationTextLimit}
                 rows={2}
                 onChange={(e) =>
                   update({

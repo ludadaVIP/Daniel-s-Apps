@@ -1,6 +1,8 @@
 import { describe, expect, it } from 'vitest';
 import {
+  appendGraduationPractice,
   calculationFeedback,
+  changeObservationStartDate,
   decodeGraduationProject,
   editGraduationCase,
   emptyGraduationProject,
@@ -8,6 +10,7 @@ import {
   graduationQuestionLessons,
   graduationQuestions,
   graduationUnderstanding,
+  graduationTextLimit,
   observationDate,
   plantAnalysis,
   ratioPercent,
@@ -121,6 +124,130 @@ describe('graduation evidence, arithmetic and source boundaries', () => {
   });
 });
 describe('graduation drafts, saving and strict storage', () => {
+  it('refuses a starter that would overflow while preserving both saved cases and legacy progress through reload', () => {
+    let d = researchFixture('official');
+    d.cases.observation = researchFixture('observation').cases.observation;
+    const original = '原W'.repeat(graduationTextLimit / 2);
+    d.cases.official.text.secondLanguage = original;
+    d = saveGraduationCase(
+      saveGraduationCase(d, 'official', 10),
+      'observation',
+      20,
+    );
+    const old = emptyProgress();
+    old.sessions.L001 = {
+      step: 3,
+      note: 'Earlier learning retained',
+      completedAt: 5,
+    };
+    old.mission = {
+      object: 'Old object',
+      evidence: 'Old evidence',
+      reasoning: 'Old reasoning',
+      savedAt: 5,
+    };
+    const result = appendGraduationPractice(
+      d,
+      'official',
+      'An English starter.',
+    );
+    expect(result.accepted).toBe(false);
+    expect(result.draft).toBe(d);
+    expect(result.draft.cases.official.text.secondLanguage).toBe(original);
+    const restored = decodeProgress(
+      JSON.stringify(withGraduationProject(old, result.draft)),
+    );
+    expect(restored.sessions).toEqual(old.sessions);
+    expect(restored.mission).toEqual(old.mission);
+    expect(restored.projects.S06).toEqual(d);
+    expect(restored.projects.S06!.cases.official.savedAt).toBe(10);
+    expect(restored.projects.S06!.cases.observation.savedAt).toBe(20);
+  });
+  it('counts the inserted newline in the starter limit, accepts exactly the boundary and never truncates original text', () => {
+    let d = researchFixture('official');
+    d.cases.observation = saveGraduationCase(
+      researchFixture('observation'),
+      'observation',
+      20,
+    ).cases.observation;
+    const starter = 'A supported claim.';
+    const original = 'W'.repeat(graduationTextLimit - starter.length - 1);
+    d.cases.official.text.secondLanguage = original;
+    d = saveGraduationCase(d, 'official', 10);
+    const accepted = appendGraduationPractice(d, 'official', starter);
+    expect(accepted.accepted).toBe(true);
+    expect(accepted.draft.cases.official.text.secondLanguage).toBe(
+      `${original}\n${starter}`,
+    );
+    expect(accepted.draft.cases.official.text.secondLanguage).toHaveLength(
+      graduationTextLimit,
+    );
+    expect(accepted.draft.cases.official.savedAt).toBeUndefined();
+    expect(accepted.draft.cases.observation.savedAt).toBe(20);
+    expect(
+      decodeGraduationProject(JSON.parse(JSON.stringify(accepted.draft))),
+    ).toEqual(accepted.draft);
+    expect(appendGraduationPractice(accepted.draft, 'official', 'x')).toEqual({
+      draft: accepted.draft,
+      accepted: false,
+    });
+    const empty = emptyGraduationProject();
+    expect(
+      appendGraduationPractice(empty, 'official', starter).draft.cases.official
+        .text.secondLanguage,
+    ).toBe(starter);
+  });
+  it('rejects invalid date edits without changing saved reports and accepts valid changes and clearing safely', () => {
+    let d = researchFixture('official');
+    d.cases.observation = researchFixture('observation').cases.observation;
+    d = saveGraduationCase(
+      saveGraduationCase(d, 'official', 10),
+      'observation',
+      20,
+    );
+    for (const date of [
+      '1899-01-01',
+      '0001-01-01',
+      '2026-02-30',
+      '2026-1-1',
+      '+010000-01-01',
+    ]) {
+      const rejected = changeObservationStartDate(d, date);
+      expect(rejected).toEqual({ draft: d, accepted: false });
+      expect(rejected.draft).toBe(d);
+      expect(
+        decodeGraduationProject(JSON.parse(JSON.stringify(rejected.draft))),
+      ).toEqual(d);
+    }
+    const unchanged = changeObservationStartDate(
+      d,
+      d.cases.observation.startDate,
+    );
+    expect(unchanged.draft).toBe(d);
+    const changed = changeObservationStartDate(d, '2024-02-29');
+    expect(changed.accepted).toBe(true);
+    expect(changed.draft.cases.observation.startDate).toBe('2024-02-29');
+    expect(changed.draft.cases.observation.savedAt).toBeUndefined();
+    expect(changed.draft.cases.observation.citations).toEqual([]);
+    expect(changed.draft.cases.official).toEqual(d.cases.official);
+    expect(
+      decodeGraduationProject(JSON.parse(JSON.stringify(changed.draft))),
+    ).toEqual(changed.draft);
+    const cleared = changeObservationStartDate(changed.draft, '');
+    expect(cleared.accepted).toBe(true);
+    expect(cleared.draft.cases.observation.startDate).toBe('');
+    expect(
+      decodeGraduationProject(JSON.parse(JSON.stringify(cleared.draft))),
+    ).toEqual(cleared.draft);
+  });
+  it('retains the complete ISO date when an observation crosses the four-digit year boundary', () => {
+    const c = emptyGraduationProject().cases.observation;
+    c.startDate = '9999-12-31';
+    expect(observationDate(c, 0)).toBe('9999-12-31');
+    expect(observationDate(c, 1)).toBe('+010000-01-01');
+    for (const day of [NaN, Infinity, -1, 0.5, 36501])
+      expect(observationDate(c, day)).toBe('—');
+  });
   it('saves each case independently; edits revoke only that save and invalidate changed evidence references', () => {
     let d = researchFixture('official');
     d.cases.observation = researchFixture('observation').cases.observation;
@@ -326,6 +453,7 @@ describe('complete, safe offline report', () => {
     expect(html).not.toContain('javascript:');
     expect(escapeHtml('a\u0001<&"')).toBe('a�&lt;&amp;&quot;');
     expect(escapeHtml('\ud800x\udc00')).toBe('�x�');
+    expect(escapeHtml('🍃\t\n\r\u001f\ufffe')).toBe('🍃\t\n\r��');
   });
   it('exports source hash, actual scope, all raw official rows, pooled summary and bilingual scientific boundaries', () => {
     const d = researchFixture('official');

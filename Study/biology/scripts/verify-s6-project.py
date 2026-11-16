@@ -2,7 +2,7 @@
 All non-empirical observations are explicitly marked TEST FIXTURE ONLY.
 """
 from playwright.sync_api import sync_playwright
-import json, pathlib, re, sys, time, traceback
+import json, pathlib, re, sys, time, traceback, hashlib
 
 sys.stdout.reconfigure(encoding='utf-8')
 OUT = pathlib.Path(r'C:\Users\Administrator\.codex\visualizations\2026\11\10\01a1c7bf-87b4-7941-9aef-bad203405a02\biology-s6-project')
@@ -14,9 +14,15 @@ BASE = 'http://127.0.0.1:3460'
 CHROME = r'C:\Users\Administrator\AppData\Local\ms-playwright\chromium-1234\chrome-win64\chrome.exe'
 KEY = 'study-biology-v1'
 R = {'status':'in-progress','checks':[],'failures':[],'console':[],'pageerrors':[],'responses':[],'screens':[],'downloads':[]}
+SRC=pathlib.Path(__file__).resolve().parents[1]/'apps/web/src'
+def source_hashes():
+    return {name:hashlib.sha256((SRC/name).read_bytes()).hexdigest() for name in ['GraduationWorkbench.tsx','graduationProject.ts','graduationReport.ts','graduationProject.css','progress.ts','App.tsx']}
+R['sourceStart']=source_hashes();R['startedAt']=time.strftime('%Y-%m-%dT%H:%M:%S%z')
 
 def save():
-    (OUT/'verification.json').write_text(json.dumps(R, ensure_ascii=False, indent=2), encoding='utf-8')
+    phase=sys.argv[1] if len(sys.argv)>1 else 'all'
+    target={'date-input':'date-input-regression.json','reports':'final-report-regression.json'}.get(phase,'verification.json')
+    (OUT/target).write_text(json.dumps(R, ensure_ascii=False, indent=2), encoding='utf-8')
 
 def verify(name, condition, details=None):
     assert condition, (name, details)
@@ -130,6 +136,15 @@ def download(page,name,expected_values=()):
         screenshot(report,name+f'-offline-{width}-graph',report.locator('.graph'))
         # Natural text wrapping, not height/line clamps.
         verify(name+f' offline {width} prose fully laid out',report.locator('p.student').evaluate_all('(es)=>es.every(e=>e.scrollHeight<=e.clientHeight+1&&getComputedStyle(e).overflow!=="hidden")'))
+        if 'stress' in name:
+            long=report.locator('p.student').filter(has_text='END-OF-LONG-FIELD')
+            long.evaluate('e=>window.scrollTo(0,e.getBoundingClientRect().top+window.scrollY-20)')
+            report.screenshot(path=str(OUT/(name+f'-offline-{width}-long-prose-top.png')))
+            long.evaluate('e=>window.scrollTo(0,e.getBoundingClientRect().bottom+window.scrollY-window.innerHeight+20)')
+            report.screenshot(path=str(OUT/(name+f'-offline-{width}-long-prose-end.png')))
+            R['screens'].extend([name+f'-offline-{width}-long-prose-top.png',name+f'-offline-{width}-long-prose-end.png'])
+    # Desktop-width print-media simulation; this does not assert physical paper pagination.
+    report.set_viewport_size({'width':1366,'height':950})
     report.emulate_media(media='print');no_overflow(report,name+' print')
     screenshot(report,name+'-print-graph',report.locator('.graph'))
     report.close();return path
@@ -236,6 +251,7 @@ def layout_matrix(page,prefix):
                 page.get_by_role('button',name=mode,exact=True).click()
                 label=f'{prefix}-{path}-{width}-{mode}'
                 no_overflow(page,label);svg_check(page,label)
+                page.locator('.bio-graduation-graph').evaluate('e=>e.scrollLeft=0')
                 screenshot(page,label+'-graph',sections(page).nth(1))
                 screenshot(page,label+'-report-fields',page.locator('.bio-graduation-field').nth(4))
                 graph=page.locator('.bio-graduation-graph')
@@ -245,6 +261,14 @@ def layout_matrix(page,prefix):
                 after=graph.evaluate('e=>e.scrollLeft')
                 scrollable=graph.evaluate('e=>e.scrollWidth>e.clientWidth')
                 verify(label+' named graph keyboard scroll',bool(graph.get_attribute('aria-label')) and (not scrollable or after>before),{'before':before,'after':after,'scrollable':scrollable})
+                if width==390:
+                    for _ in range(45):page.keyboard.press('ArrowRight')
+                    page.wait_for_timeout(200)
+                    verify(label+' graph right edge reachable with keyboard',graph.evaluate('e=>e.scrollLeft>=e.scrollWidth-e.clientWidth-1'))
+                    screenshot(page,label+'-graph-right-edge',graph)
+                    table=sections(page).nth(0).locator('.bio-graduation-scroll').first
+                    table.focus();table.evaluate('e=>e.scrollLeft=0');page.keyboard.press('ArrowRight');page.wait_for_timeout(200)
+                    verify(label+' named raw table keyboard scroll',bool(table.get_attribute('aria-label')) and table.evaluate('e=>e.scrollWidth<=e.clientWidth||e.scrollLeft>0'))
     english(page)
 
 def missions_and_gates(page):
@@ -306,9 +330,9 @@ def missions_and_gates(page):
     page.get_by_role('link',name='Open graduation investigation S06-P01 →',exact=True).click();page.wait_for_selector('.bio-graduation')
     verify('L144 actual final project link opens workbench','/biology/project/S06' in page.url)
 
-def stress(page):
+def stress(page,layouts=True):
     # TEST FIXTURE ONLY: boundary data, never presented as a completed empirical investigation.
-    payload='TEST FIXTURE ONLY <script>window.S6_XSS=1</script><img src=x onerror="window.S6_XSS=1"> &\u0001 '+('中W'*3500)+' https://example.invalid/'+('W'*3000)+' END-OF-LONG-FIELD'
+    payload='TEST FIXTURE ONLY 🧬\t\n<script>window.S6_XSS=1</script><img src=x onerror="window.S6_XSS=1"> &\u0001 '+('中W'*3500)+' https://example.invalid/'+('W'*3000)+' END-OF-LONG-FIELD'
     data=state(page);d=data['projects']['S06'];c=d['cases']['observation'];d['active']='observation';c.pop('savedAt',None)
     c['records']=[{'id':f'Pstress{i}','plant':'TEST-PLANT-A' if i<91 else 'TEST-PLANT-B','day':i*2,'value':None if i==2 else i} for i in range(100)]
     c['activePlant']='TEST-PLANT-A';c['citations']=['Pstress0','Pstress90'];c['calculations']=['90','NA'];c['text']['claim']=payload
@@ -320,7 +344,7 @@ def stress(page):
     verify('Boundary graph keeps90 valid selected heights and excludes9 otherplants',page.locator('.bio-graduation-graph circle').count()==90)
     add_record(page,'TEST-PLANT-A',999,12)
     verify('UI rejects101st record',len(current(page)['records'])==100 and root(page).locator('[role=alert]').count()>0)
-    layout_matrix(page,'stress')
+    if layouts:layout_matrix(page,'stress')
     case(page,'observation');english(page)
     verify('UI student payload never executes',not page.evaluate('Boolean(window.S6_XSS)') and root(page).locator('script,img').count()==0)
     path=download(page,'observation-stress100',['Pstress99','Pstress90','Excluded: other plant','NA / 缺失','END-OF-LONG-FIELD','LAST-REFERENCE','LAST-SPEAKING-END','DRAFT / 草稿'])
@@ -328,8 +352,65 @@ def stress(page):
     text=report.locator('body').inner_text()
     verify('Full7000-character mixed prose retained',('中W'*3500) in text)
     verify('Illegal XML input made visible, text payload stays inert','\uFFFD' in text and '<script>window.S6_XSS=1</script>' in text)
+    verify('Valid supplementary Unicode, tab and newline preserved in exported prose','🧬\t\n' in report.locator('body').text_content())
     verify('All100 raw records present offline',report.locator('tbody tr').count()==100)
     report.close()
+
+def regressions(page):
+    # Restore valid real-UI-generated research drafts, then perform both reviewed bug reproductions.
+    data=json.loads((OUT/'ui-flow-storage.json').read_text(encoding='utf-8'))
+    page.evaluate('(a)=>localStorage.setItem(a.key,JSON.stringify(a.data))',{'key':KEY,'data':data});page.reload();page.wait_for_load_state('networkidle');english(page)
+    case(page,'official')
+    second=page.locator('.bio-graduation-field textarea').nth(18);second.fill('W'*20000)
+    question=page.locator('.bio-graduation-field').nth(0);question.locator('summary').click()
+    button=question.get_by_role('button',name='Add to optional English practice',exact=True)
+    if button.is_enabled():button.click()
+    verify('Max20000 optional language cannot overflow through starter action',len(current(page)['text']['secondLanguage'])<=20000)
+    page.reload();page.wait_for_load_state('networkidle');english(page)
+    verify('Max-language starter action survives strict decode reload without losing either report',len(current(page)['text']['secondLanguage'])==20000 and current(page,'observation')['records']==data['projects']['S06']['cases']['observation']['records'])
+    page.locator('.bio-graduation-field textarea').nth(18).fill('')
+    q=page.locator('.bio-graduation-field').nth(0);q.locator('summary').click();q.get_by_role('button',name='Add to optional English practice',exact=True).click()
+    verify('Starter still works when space is available','Within the selected records' in current(page)['text']['secondLanguage'])
+    case(page,'observation');date=root(page).get_by_label('Start date (real day 0)',exact=True)
+    before=current(page)['startDate'];date.fill('1899-01-01')
+    verify('UI rejects pre1900 date before autosaving invalid draft',current(page)['startDate']==before)
+    page.reload();page.wait_for_load_state('networkidle');english(page)
+    verify('Rejected pre1900 date preserves valid drafts after reload',current(page)['startDate']==before and len(current(page)['records'])==5 and bool(current(page,'official')['text']['claim']))
+    # Real numeric/duplicate validation remains UI behavior, not a decoder-only claim.
+    for day,value,name in [(0,99,'duplicate plant/day'),(-1,12,'negative elapsed day'),(12,-1,'negative height'),(12,'','blank height')]:
+        f=sections(page).nth(0).locator('fieldset');inputs=f.locator('input:not([type=checkbox])')
+        inputs.nth(0).fill('TEST-PLANT-A');inputs.nth(1).fill(str(day));inputs.nth(2).fill(str(value));f.get_by_role('button',name='Add record',exact=True).click()
+        verify('UI rejects '+name,len(current(page)['records'])==5 and root(page).locator('[role=alert]').count()>0)
+    screenshot(page,'regression-observation-invalid-row',sections(page).nth(0))
+
+def natural_date_input(page):
+    visit(page)
+    data=json.loads((OUT/'ui-flow-storage.json').read_text(encoding='utf-8'))
+    page.evaluate('(a)=>localStorage.setItem(a.key,JSON.stringify(a.data))',{'key':KEY,'data':data});page.reload();page.wait_for_load_state('networkidle');english(page)
+    case(page,'observation');date=root(page).locator('input[type=date]')
+    previous=current(page)['startDate'];date.focus();date.press('ArrowUp')
+    value=date.input_value()
+    verify('Date keyboard increment saves a complete valid date',value!=previous and current(page)['startDate']==value,{'before':previous,'after':value})
+    verify('Valid keyboard date edit clears citation and only edited save',current(page)['citations']==[] and not current(page).get('savedAt') and bool(current(page,'official').get('savedAt')))
+    date.fill('1899-01-01');verify('Invalid pending date has accessible error and retains valid report date',date.get_attribute('aria-invalid')=='true' and bool(date.get_attribute('aria-describedby')) and current(page)['startDate']==value)
+    screenshot(page,'regression-date-accessible-error',sections(page).nth(0))
+    date.fill('');verify('Date field can explicitly clear instead of trapping user',date.input_value()=='' and current(page)['startDate']=='')
+    page.reload();page.wait_for_load_state('networkidle');english(page)
+    verify('Explicitly cleared date preserves both report drafts on reload',current(page)['startDate']=='' and len(current(page)['records'])==5 and bool(current(page,'official')['text']['claim']))
+    verify('Date supplemental run console/network/pageerror zero',not R['console'] and not R['responses'] and not R['pageerrors'])
+
+def report_regression(page):
+    visit(page)
+    data=json.loads((OUT/'ui-flow-storage.json').read_text(encoding='utf-8'))
+    page.evaluate('(a)=>localStorage.setItem(a.key,JSON.stringify(a.data))',{'key':KEY,'data':data});page.reload();page.wait_for_load_state('networkidle');english(page)
+    case(page,'official')
+    check=sections(page).nth(5);check.get_by_role('button',name='Think again',exact=True).nth(0).click();check.locator('.bio-options').nth(0).get_by_role('button').nth(1).click();check.get_by_role('button',name='View explanation →',exact=True).click()
+    download(page,'official-saved-five-correct',['Needs revision / 需订正','3 amino acids; UAA adds another residue','Answered / 已答 6/6; correct / 正确 5/6','W-N-8M','W-I-L','TEST FIXTURE ONLY','revisionWhy'])
+    check.get_by_role('button',name='Think again',exact=True).nth(0).click();check.locator('.bio-options').nth(0).get_by_role('button').nth(0).click();check.get_by_role('button',name='View explanation →',exact=True).click()
+    case(page,'observation')
+    download(page,'observation-saved-zero',['NA / 未定义','TEST-PLANT-A','TEST-PLANT-B','Excluded: other plant','Planned total / 计划总时长: 225 s','TEST FIXTURE ONLY','segment 5','revisionWhy'])
+    stress(page,layouts=False)
+    verify('Final report run console/network/pageerror zero',not R['console'] and not R['responses'] and not R['pageerrors'])
 
 def main():
     with sync_playwright() as pw:
@@ -338,14 +419,20 @@ def main():
         page=context.new_page();attach(page)
         try:
             if len(sys.argv)>1 and sys.argv[1]=='discover':discover(page);R['status']='discovered'
+            elif len(sys.argv)>1 and sys.argv[1]=='date-input':
+                natural_date_input(page);R['sourceEnd']=source_hashes();verify('Date supplemental sources stable',R['sourceStart']==R['sourceEnd']);R['status']='passed';R['finishedAt']=time.strftime('%Y-%m-%dT%H:%M:%S%z')
+            elif len(sys.argv)>1 and sys.argv[1]=='reports':
+                report_regression(page);R['sourceEnd']=source_hashes();verify('Final report sources stable',R['sourceStart']==R['sourceEnd']);R['status']='passed';R['finishedAt']=time.strftime('%Y-%m-%dT%H:%M:%S%z')
             else:
                 if len(sys.argv)>1 and sys.argv[1]=='resume':
                     visit(page);page.evaluate('(a)=>localStorage.setItem(a.key,JSON.stringify(a.data))',{'key':KEY,'data':json.loads((OUT/'ui-flow-storage.json').read_text(encoding='utf-8'))});page.reload();page.wait_for_load_state('networkidle');english(page)
                 else:ui_flow(page)
-                layout_matrix(page,'normal');missions_and_gates(page);stress(page)
+                layout_matrix(page,'normal');missions_and_gates(page);stress(page);regressions(page)
                 verify('No browser console errors',R['console']==[],R['console'])
                 verify('No uncaught page errors',R['pageerrors']==[],R['pageerrors'])
                 verify('No failed responses',R['responses']==[],R['responses'])
+                R['sourceEnd']=source_hashes();verify('Reviewed project sources stable during final run',R['sourceStart']==R['sourceEnd'])
+                R['finishedAt']=time.strftime('%Y-%m-%dT%H:%M:%S%z')
                 R['status']='passed'
             save()
         except Exception as error:

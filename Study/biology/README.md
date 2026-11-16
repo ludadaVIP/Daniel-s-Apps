@@ -2,7 +2,7 @@
 
 面向 10–16 岁的本地双语试学版，沿用 Study 的 React、Vite、路由、`@study/shared` 类型和 `@study/ui` 语言组件。无需账户或新的服务器。
 
-2026-11-15：S01–S06共144/144课、36个单元任务与6个阶段项目已实现，全部为家庭试学稿（available/pilot）。S06科学、代码与真实浏览器独立验收正在汇总，不能提前记为全通过；当前实现、自动检查及待验项见[S6_DELIVERY.md](./S6_DELIVERY.md)。历史S5、S4、S3交付记录继续保留，逐单元状态见[CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md)。
+2026-11-16：S01–S06共144/144课、36个单元任务与6个阶段项目已实现，全部为家庭试学稿（available/pilot）。S06内部独立科学/代码复核与真实浏览器技术验收已完成；214测试、类型/lint和两应用构建通过，精确证据范围、已关闭缺陷、chunk warning及仍待真实试学事项见[S6_DELIVERY.md](./S6_DELIVERY.md)。历史S5、S4、S3交付记录继续保留，逐单元状态见[CONTENT_PROGRESS.md](./CONTENT_PROGRESS.md)。
 
 ## 试用
 
