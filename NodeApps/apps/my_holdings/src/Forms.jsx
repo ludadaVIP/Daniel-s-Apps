@@ -333,6 +333,9 @@ export function CashForm({ item, onSave, busy }) {
   );
 }
 export function OrderForm({ item, watchlist, accounts, defaultAccountId, onSave, busy }) {
+  const sortedWatchlist = [...watchlist].sort((a, b) =>
+    (a.symbol || a.name || "").localeCompare(b.symbol || b.name || "", "en", { sensitivity: "base" }),
+  );
   const [v, set] = useState(() => item ? {
     ...item,
     accountId: item.accountId || defaultAccountId || accounts[0]?.id || "",
@@ -368,7 +371,7 @@ export function OrderForm({ item, watchlist, accounts, defaultAccountId, onSave,
     <div className="mh-form-grid">
       <Field label="关联近期关注"><select value={v.watchId} onChange={(event) => chooseWatch(event.target.value)}>
         <option value="">不关联</option>
-        {watchlist.map((watch) => <option key={watch.id} value={watch.id}>{watch.symbol || watch.name} · {watch.name}</option>)}
+        {sortedWatchlist.map((watch) => <option key={watch.id} value={watch.id}>{watch.symbol || watch.name} · {watch.name}</option>)}
       </select></Field>
       <Field label="证券代码"><input required maxLength={40} value={v.symbol} onChange={(event) => change("symbol", event.target.value.toUpperCase())} placeholder="例如 GOOG" /></Field>
       <Field label="交易所"><input maxLength={80} value={v.exchange} onChange={(event) => change("exchange", event.target.value)} placeholder="例如 NASDAQ.NMS" /></Field>
