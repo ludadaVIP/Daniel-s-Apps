@@ -244,13 +244,18 @@ export const pathLevels: PathLevel[] = [
       zh: '从铁锈、电池到金属保护，追踪电子怎样转移并改变材料。',
       en: 'From rust and batteries to metal protection, trace how electron transfer changes materials.',
     },
-    lessonCount: 6,
+    lessonCount: 8,
     topics: [
       { zh: '铁为什么生锈？', en: 'Why does iron rust?' },
+      {
+        zh: '生锈记录、对照与观察时间',
+        en: 'Rust records, controls and observation time',
+      },
       { zh: '氧化与电子转移', en: 'Oxidation and electron transfer' },
       { zh: '保护金属的设计', en: 'Designing metal protection' },
       { zh: '金属置换与电子去向', en: 'Metal displacement and electron flow' },
       { zh: '镀锌与牺牲保护', en: 'Galvanising and sacrificial protection' },
+      { zh: '金属与电解质通路', en: 'Metal and electrolyte paths' },
       { zh: '氧化数与整体电荷', en: 'Oxidation numbers and overall charge' },
       {
         zh: '半反应、电子守恒与最简比',
@@ -604,6 +609,24 @@ export const guidedSequences: Array<{
     lessonIds: [
       'indicator-colours-give-ranges',
       'acidic-is-not-positively-charged',
+    ],
+  },
+  {
+    id: 'corrosion-evidence-bridge',
+    title: {
+      zh: '金属衔接：从生锈证据到牺牲保护',
+      en: 'Metals bridge: from rust evidence to sacrificial protection',
+    },
+    description: {
+      zh: '先学铁生锈，再比较不同日期的记录。学过金属置换和镀锌后，预测两条通路如何改变铁的腐蚀风险。',
+      en: 'Start with rust and compare records across days. After displacement and galvanising, predict how two paths change the corrosion risk for iron.',
+    },
+    lessonIds: [
+      'why-metals-rust',
+      'rust-controls-and-observation-window',
+      'metal-displacement-electron-story',
+      'galvanising-sacrificial-protection',
+      'sacrificial-protection-needs-paths',
     ],
   },
   {

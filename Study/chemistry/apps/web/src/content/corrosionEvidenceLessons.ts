@@ -5,7 +5,7 @@ export const corrosionEvidenceLessons = [
     "id": "rust-controls-and-observation-window",
     "levelId": "metals",
     "order": 117,
-    "nextLessonId": "sacrificial-protection-needs-paths",
+    "nextLessonId": "metal-displacement-electron-story",
     "title": {
       "zh": "没看到锈，就能证明以后不会生锈吗？",
       "en": "No visible rust—does that prove it will never rust?"
@@ -476,6 +476,7 @@ export const corrosionEvidenceLessons = [
     "id": "sacrificial-protection-needs-paths",
     "levelId": "metals",
     "order": 118,
+    "nextLessonId": "why-chemists-use-moles",
     "title": {
       "zh": "旁边放一块锌，就能保护铁吗？",
       "en": "Does putting zinc nearby automatically protect iron?"

@@ -78,6 +78,9 @@ const ReactionBridgeLab = lazy(
   () => import('./interactive/ReactionBridgeLabs'),
 );
 const PhEvidenceLab = lazy(() => import('./interactive/PhEvidenceLabs'));
+const CorrosionEvidenceLab = lazy(
+  () => import('./interactive/CorrosionEvidenceLabs'),
+);
 const FormulaEvidenceLab = lazy(
   () => import('./interactive/FormulaEvidenceLabs'),
 );
@@ -7753,6 +7756,24 @@ function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
           }
         >
           <PhEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'rust-comparison-evidence-lab' ||
+        lesson.interactive === 'galvanic-protection-path-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备腐蚀模型…',
+                  en: 'Preparing the corrosion model…',
+                }}
+              />
+            </div>
+          }
+        >
+          <CorrosionEvidenceLab kind={lesson.interactive} mode={mode} />
         </Suspense>
       )}
       {(lesson.interactive === 'change-evidence-record-lab' ||

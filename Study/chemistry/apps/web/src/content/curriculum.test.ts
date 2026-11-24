@@ -100,6 +100,18 @@ describe('chemistry curriculum integrity', () => {
       });
     }
   });
+  it('leads through the corrosion prerequisites before recommending moles', () => {
+    const sequence = guidedSequences.find(
+      ({ id }) => id === 'corrosion-evidence-bridge',
+    )!;
+    const route = [...sequence.lessonIds, 'why-chemists-use-moles'];
+
+    for (const [index, id] of sequence.lessonIds.entries()) {
+      const lesson = lessons.find((entry) => entry.id === id)!;
+      const next = lesson.nextLessonId ?? lessons[lesson.order]?.id;
+      expect(next, id).toBe(route[index + 1]);
+    }
+  });
   it('gives the new guided lessons the planned objectives, worked examples and separate checks', () => {
     for (const lesson of lessons.filter((item) => item.learning)) {
       const learning = lesson.learning!;

@@ -1,0 +1,198 @@
+.chem-corrosion-lab {
+  --chem-rust: #9c4221;
+  --chem-rust-pale: #fff0e6;
+  --chem-steel: #2f4b5d;
+  --chem-line: #cdd9df;
+  --chem-electrolyte: #0d6666;
+}
+
+.chem-corrosion-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.75rem;
+}
+
+.chem-corrosion-records {
+  width: 100%;
+  table-layout: fixed;
+  border-collapse: collapse;
+  overflow-wrap: anywhere;
+}
+
+.chem-corrosion-records :is(th, td) {
+  padding: 0.55rem 0.5rem;
+  border-bottom: 1px solid var(--chem-line);
+  text-align: start;
+  vertical-align: top;
+}
+
+.chem-corrosion-records thead {
+  background: #eaf1f4;
+}
+
+.chem-corrosion-records th:first-child {
+  width: 35%;
+}
+
+.chem-corrosion-records .chem-corrosion-difference th {
+  box-shadow: inset 3px 0 var(--chem-rust);
+}
+
+.chem-corrosion-records .chem-corrosion-observation {
+  background: var(--chem-rust-pale);
+}
+
+.chem-corrosion-grades {
+  display: flex;
+  gap: 0.25rem;
+  margin-block: 0.15rem 0.4rem;
+}
+
+.chem-corrosion-grades i {
+  inline-size: 0.6rem;
+  block-size: 0.6rem;
+  border-radius: 50%;
+  border: 1px solid var(--chem-rust);
+}
+
+.chem-corrosion-grades i[data-filled='true'] {
+  background: var(--chem-rust);
+}
+
+.chem-corrosion-circuit {
+  display: grid;
+  gap: 0.7rem;
+  padding: 0.9rem;
+  border: 1px solid var(--chem-line);
+  border-radius: 0.75rem;
+  background: #f6f9fa;
+}
+
+.chem-corrosion-path {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  gap: 0.45rem;
+  min-width: 0;
+  color: var(--chem-steel);
+  cursor: pointer;
+}
+
+.chem-corrosion-path[data-path='electrolyte'] {
+  order: 2;
+  color: var(--chem-electrolyte);
+}
+
+.chem-corrosion-path > span {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.chem-corrosion-path input {
+  inline-size: 1.2rem;
+  block-size: 1.2rem;
+  flex-shrink: 0;
+  accent-color: currentColor;
+}
+
+.chem-corrosion-path strong {
+  justify-self: end;
+  font-size: 0.9rem;
+}
+
+.chem-corrosion-path i {
+  grid-column: 1 / -1;
+  grid-row: 2;
+  height: 0.3rem;
+  margin-inline: 22%;
+  border-radius: 0.25rem;
+  background: currentColor;
+}
+
+.chem-corrosion-path[data-connected='false'] i {
+  background: linear-gradient(
+    to right,
+    currentColor 42%,
+    transparent 42% 58%,
+    currentColor 58%
+  );
+}
+
+.chem-corrosion-path[data-path='electrolyte'] i {
+  grid-row: 1;
+}
+
+.chem-corrosion-metals {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.65rem;
+}
+
+.chem-corrosion-metals > div {
+  padding: 0.65rem 0.35rem;
+  border: 1px solid var(--chem-line);
+  border-radius: 0.55rem;
+  background: #e8eff3;
+  color: var(--chem-steel);
+  text-align: center;
+  font-weight: 700;
+}
+
+.chem-corrosion-metals > div[data-metal='Cu'] {
+  background: var(--chem-rust-pale);
+  color: var(--chem-rust);
+}
+
+.chem-corrosion-lab :is(select, button, input):focus-visible {
+  outline: 2px solid var(--chem-steel);
+  outline-offset: 2px;
+}
+
+.chem-corrosion-lab button:disabled {
+  opacity: 0.55;
+  cursor: default;
+}
+
+@media (max-width: 480px) {
+  .chem-corrosion-controls {
+    grid-template-columns: 1fr;
+  }
+
+  .chem-corrosion-records :is(th, td) {
+    padding-inline: 0.35rem;
+  }
+}
+
+.chem-corrosion-choices {
+  display: grid;
+  gap: 0.45rem;
+  min-inline-size: 0;
+}
+
+.chem-corrosion-choices legend {
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.chem-corrosion-choices label {
+  display: flex;
+  align-items: start;
+  gap: 0.55rem;
+  padding: 0.55rem 0.65rem;
+  border: 1px solid var(--chem-line);
+  border-radius: 0.55rem;
+  background: white;
+  cursor: pointer;
+}
+
+.chem-corrosion-choices label:has(input:checked) {
+  border-color: var(--chem-electrolyte);
+  background: #eef7f4;
+}
+
+.chem-corrosion-choices input {
+  flex: none;
+  margin-top: 0.25rem;
+  accent-color: var(--chem-electrolyte);
+}

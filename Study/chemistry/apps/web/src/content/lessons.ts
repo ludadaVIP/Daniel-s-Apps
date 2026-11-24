@@ -34,6 +34,7 @@ import { lewisBridgeLessons } from './lewisBridgeLessons';
 import { formulaBridgeLessons } from './formulaBridgeLessons';
 import { reactionBridgeLessons } from './reactionBridgeLessons';
 import { phEvidenceLessons } from './phEvidenceLessons';
+import { corrosionEvidenceLessons } from './corrosionEvidenceLessons';
 
 export type LessonQuestion = {
   id: string;
@@ -214,7 +215,9 @@ export type Lesson = {
     | 'change-evidence-record-lab'
     | 'atom-molecule-conservation-lab'
     | 'indicator-range-evidence-lab'
-    | 'aqueous-charge-versus-ph-lab';
+    | 'aqueous-charge-versus-ph-lab'
+    | 'rust-comparison-evidence-lab'
+    | 'galvanic-protection-path-lab';
 };
 
 const lessonCatalog: Lesson[] = [
@@ -1002,6 +1005,7 @@ const lessonCatalog: Lesson[] = [
   ...formulaBridgeLessons,
   ...reactionBridgeLessons,
   ...phEvidenceLessons,
+  ...corrosionEvidenceLessons,
 ];
 
 // Modules group related concepts; stable lesson numbers preserve saved progress.

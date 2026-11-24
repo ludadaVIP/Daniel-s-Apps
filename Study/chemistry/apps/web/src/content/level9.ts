@@ -3,6 +3,7 @@ import type { Lesson } from './lessons';
 export const level9Lessons = [
   {
     id: 'why-metals-rust',
+    nextLessonId: 'rust-controls-and-observation-window',
     levelId: 'metals',
     order: 45,
     title: {
@@ -382,6 +383,7 @@ export const level9Lessons = [
   },
   {
     id: 'galvanising-sacrificial-protection',
+    nextLessonId: 'sacrificial-protection-needs-paths',
     levelId: 'metals',
     order: 47,
     title: {
