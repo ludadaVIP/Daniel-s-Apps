@@ -3,6 +3,7 @@ import type { Lesson } from './lessons';
 export const level8Lessons = [
   {
     id: 'acids-bases-and-ph',
+    nextLessonId: 'indicator-colours-give-ranges',
     levelId: 'acids',
     order: 40,
     title: {
@@ -62,8 +63,8 @@ export const level8Lessons = [
           en: 'pH is a scale for water solutions',
         },
         body: {
-          zh: '当物质溶在水里，pH 能帮助描述其中与酸碱有关的粒子状况。初学阶段可以把它看作 0 到 14 的颜色尺：越靠左通常越酸，越靠右通常越碱。',
-          en: 'When substances dissolve in water, pH helps describe acid-base-related particles. For now, picture a 0–14 colour ruler: farther left is usually more acidic and farther right more basic.',
+          zh: 'pH 描述水溶液的酸碱性。在本课 25 °C 稀溶液模型中，pH 较低对应每体积有较多 H₃O⁺。入门常画 0–14 的刻度，但这不是所有情况下的绝对上下限。',
+          en: 'pH describes aqueous acidity. In this dilute-solution model at 25 °C, lower pH corresponds to more H₃O⁺ per volume. Introductory charts often show 0–14, but these are not absolute limits for every situation.',
         },
       },
       {
@@ -72,8 +73,8 @@ export const level8Lessons = [
           en: 'Neutral does not mean “nothing is there”',
         },
         body: {
-          zh: '接近 pH 7 的纯水在常温下通常称为中性。中性只是酸性和碱性的影响平衡，不代表这杯水没有粒子、没有用途或永远安全饮用。',
-          en: 'Pure water near pH 7 at room temperature is usually called neutral. Neutral means acidic and basic effects balance; it does not mean no particles, no use, or automatically safe to drink.',
+          zh: '在 25 °C 的入门模型中，H₃O⁺ 与 OH⁻ 浓度相等时为中性，pH 为 7。这两种离子仍然存在；中性 pH 也不代表只有纯水或一定可饮用。',
+          en: 'In the introductory model at 25 °C, equal H₃O⁺ and OH⁻ concentrations mean neutral pH seven. Both ions still exist; neutral pH does not prove pure water or drinkability.',
         },
       },
       {
@@ -650,8 +651,8 @@ export const level8Lessons = [
     steps: [
       {
         title: {
-          zh: '盐由正负离子“配对”',
-          en: 'A salt pairs positive and negative ions',
+          zh: '盐由正负离子按比例组成',
+          en: 'A salt combines ions in charge-balanced ratios',
         },
         body: {
           zh: '盐中的离子要整体电中性：Na⁺ 与 Cl⁻ 用 1:1 配成 NaCl；Ca²⁺ 与两个 Cl⁻ 配成 CaCl₂。这里的下标来自电荷平衡，不是任意装饰。',
@@ -660,12 +661,12 @@ export const level8Lessons = [
       },
       {
         title: {
-          zh: '中和会留下“其余离子”组成盐',
-          en: 'Neutralisation leaves other ions to make a salt',
+          zh: '水溶液里的其余离子仍要保留',
+          en: 'Retain the other ions in aqueous solution',
         },
         body: {
-          zh: '在 HCl + NaOH → NaCl + H₂O 中，H⁺ 与 OH⁻ 形成水，而 Na⁺ 与 Cl⁻ 形成氯化钠。这个“其余离子配对”的视角，能把中和和盐连接起来。',
-          en: 'In HCl + NaOH → NaCl + H₂O, H⁺ and OH⁻ form water, while Na⁺ and Cl⁻ form sodium chloride. This “leftover ions pair up” view connects neutralisation to salts.',
+          zh: 'HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l) 中，H⁺ 是水合质子的简写，它与 OH⁻ 反应。Na⁺、Cl⁻ 仍分散并水合在溶液中；NaCl(aq) 记录溶质组成，不表示生成独立盐分子或析出晶体。移水结晶是另外的过程。',
+          en: 'In HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l), H⁺ abbreviates hydrated protons and reacts with OH⁻. Na⁺ and Cl⁻ remain dispersed and hydrated; NaCl(aq) records solute composition, not discrete salt molecules or crystallisation. Removing water to crystallise salt is a separate process.',
         },
       },
       {
@@ -722,24 +723,24 @@ export const level8Lessons = [
       {
         id: 'salt-q2',
         prompt: {
-          zh: '在 HCl + NaOH → NaCl + H₂O 中，NaCl 从哪里来？',
-          en: 'In HCl + NaOH → NaCl + H₂O, where does NaCl come from?',
+          zh: 'HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l) 中，NaCl(aq) 表示什么？',
+          en: 'What does NaCl(aq) mean in HCl(aq) + NaOH(aq) → NaCl(aq) + H₂O(l)?',
         },
         options: [
           {
-            zh: 'Na⁺ 与 Cl⁻ 在 H⁺ 和 OH⁻ 形成水后配对',
-            en: 'Na⁺ and Cl⁻ pair after H⁺ and OH⁻ form water',
+            zh: '原有 Na⁺、Cl⁻ 仍留在水相，式子记录溶质组成',
+            en: 'The original Na⁺ and Cl⁻ remain aqueous; the formula records solute composition',
           },
           { zh: '水变成了 Na 和 Cl', en: 'Water turns into Na and Cl' },
           {
-            zh: 'NaCl 一直不存在，只是写在箭头右边',
-            en: 'NaCl never exists; it is only written on the right side',
+            zh: 'Na⁺、Cl⁻ 无需来源，反应时凭空出现',
+            en: 'Na⁺ and Cl⁻ appear without any source during reaction',
           },
         ],
         answer: 0,
         explanation: {
-          zh: 'H⁺ 与 OH⁻ 生成水后，Na⁺ 与 Cl⁻ 仍在体系中，并按电荷平衡组成氯化钠。',
-          en: 'After H⁺ and OH⁻ make water, Na⁺ and Cl⁻ remain in the system and pair in a charge-balanced sodium chloride formula.',
+          zh: '水溶液中的 Na⁺、Cl⁻ 仍分散并水合。NaCl(aq) 不表示新生成独立盐分子或结晶，所有原子与电荷仍需完整核对。',
+          en: 'Na⁺ and Cl⁻ remain dispersed and hydrated in solution. NaCl(aq) does not mean newly formed salt molecules or crystals; all atoms and charges still need to be accounted for.',
         },
       },
       {

@@ -22,6 +22,18 @@ import { level17Lessons } from './level17';
 import { organicStructureLessons } from './organicStructureLessons';
 import { level18Lessons } from './level18';
 import { level19Lessons } from './level19';
+import { ionicReactionLessons } from './ionicReactionLessons';
+import { protonReactionLessons } from './protonReactionLessons';
+import { redoxLedgerLessons } from './redoxLedgerLessons';
+import { scienceBasicsLessons } from './scienceBasicsLessons';
+import { particleBridgeLessons } from './particleBridgeLessons';
+import { moleculeBridgeLessons } from './moleculeBridgeLessons';
+import { atomicBridgeLessons } from './atomicBridgeLessons';
+import { periodicBridgeLessons } from './periodicBridgeLessons';
+import { lewisBridgeLessons } from './lewisBridgeLessons';
+import { formulaBridgeLessons } from './formulaBridgeLessons';
+import { reactionBridgeLessons } from './reactionBridgeLessons';
+import { phEvidenceLessons } from './phEvidenceLessons';
 
 export type LessonQuestion = {
   id: string;
@@ -29,11 +41,14 @@ export type LessonQuestion = {
   options: LocalizedText[];
   answer: number;
   explanation: LocalizedText;
+  conceptIds?: string[];
+  kind?: 'recall' | 'reasoning' | 'application';
 };
 
 export type Lesson = {
   id: string;
   levelId:
+    | 'science-basics'
     | 'matter'
     | 'substances'
     | 'atoms'
@@ -71,6 +86,19 @@ export type Lesson = {
   vocabulary: Array<{ en: string; zh: string }>;
   resources?: Array<{ title: LocalizedText; url: string }>;
   questions: LessonQuestion[];
+  nextLessonId?: string;
+  learning?: {
+    prerequisites: string[];
+    objectives: LocalizedText[];
+    workedExample: {
+      prompt: LocalizedText;
+      steps: LocalizedText[];
+      answer: LocalizedText;
+    };
+    quickChecks: LessonQuestion[];
+    anotherWay: LocalizedText;
+    explainPrompt: LocalizedText;
+  };
   interactive:
     | 'matter-sort'
     | 'particle-zoom'
@@ -156,7 +184,37 @@ export type Lesson = {
     | 'calorimetry-ledger-lab'
     | 'hess-route-lab'
     | 'empirical-formula-lab'
-    | 'hydrate-evidence-lab';
+    | 'hydrate-evidence-lab'
+    | 'ionic-conduction-lab'
+    | 'precipitation-ledger-lab'
+    | 'net-ionic-lab'
+    | 'precipitation-quantity-lab'
+    | 'proton-transfer-lab'
+    | 'neutralisation-ledger-lab'
+    | 'carbonate-acid-ledger-lab'
+    | 'oxidation-number-ledger-lab'
+    | 'electron-balance-ledger-lab'
+    | 'displacement-amount-ledger-lab'
+    | 'observation-inference-lab'
+    | 'fair-comparison-basics-lab'
+    | 'measurement-evidence-lab'
+    | 'mass-boundary-basics-lab'
+    | 'phase-particle-evidence-lab'
+    | 'dissolving-particle-evidence-lab'
+    | 'molecule-sample-evidence-lab'
+    | 'molecular-formula-count-lab'
+    | 'isotope-ion-ledger-lab'
+    | 'isotope-weighted-mean-lab'
+    | 'neutral-shell-position-lab'
+    | 'electron-transfer-budget-lab'
+    | 'shared-electron-inventory-lab'
+    | 'lewis-double-triple-lab'
+    | 'ionic-ratio-batch-lab'
+    | 'polyatomic-three-level-lab'
+    | 'change-evidence-record-lab'
+    | 'atom-molecule-conservation-lab'
+    | 'indicator-range-evidence-lab'
+    | 'aqueous-charge-versus-ph-lab';
 };
 
 const lessonCatalog: Lesson[] = [
@@ -749,6 +807,7 @@ const lessonCatalog: Lesson[] = [
   },
   {
     id: 'physical-vs-chemical-change',
+    nextLessonId: 'state-change-particle-evidence',
     levelId: 'matter',
     order: 5,
     title: {
@@ -931,6 +990,18 @@ const lessonCatalog: Lesson[] = [
   ...organicStructureLessons,
   ...level18Lessons,
   ...level19Lessons,
+  ...ionicReactionLessons,
+  ...protonReactionLessons,
+  ...redoxLedgerLessons,
+  ...scienceBasicsLessons,
+  ...particleBridgeLessons,
+  ...moleculeBridgeLessons,
+  ...atomicBridgeLessons,
+  ...periodicBridgeLessons,
+  ...lewisBridgeLessons,
+  ...formulaBridgeLessons,
+  ...reactionBridgeLessons,
+  ...phEvidenceLessons,
 ];
 
 // Modules group related concepts; stable lesson numbers preserve saved progress.

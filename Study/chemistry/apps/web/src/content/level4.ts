@@ -326,8 +326,8 @@ export const level4Lessons = [
       en: 'They each have one outer electron but use 2, 3 and 4 electron-shell regions. Rows tell us how many layers; columns hint whether the outer layer is alike.',
     },
     bigIdea: {
-      zh: '周期表的一横行叫周期；对前 20 号元素来说，周期数对应原子中电子层的数量。',
-      en: 'A horizontal row is a period; for the first 20 elements, the period number matches the number of electron shells in the atom.',
+      zh: '周期表的一横行叫周期；对前 20 号元素的中性基态原子，周期数对应已占据电子层的数量。读离子排布时，不能省略中性这一条件。',
+      en: 'A horizontal row is a period; for neutral ground-state atoms of the first 20 elements, period matches occupied-shell count. Do not drop the neutral condition when reading ions.',
     },
     estimatedMinutes: 15,
     everydayExamples: [
@@ -407,8 +407,8 @@ export const level4Lessons = [
       {
         id: 'period-q1',
         prompt: {
-          zh: '对前 20 号元素来说，第 3 周期通常告诉你什么？',
-          en: 'For the first 20 elements, what does Period 3 usually tell you?',
+          zh: '对前 20 号元素的中性基态原子，第 3 周期通常告诉你什么？',
+          en: 'For neutral ground-state atoms of the first 20 elements, what does Period 3 tell you?',
         },
         options: [
           {
@@ -423,8 +423,8 @@ export const level4Lessons = [
         ],
         answer: 0,
         explanation: {
-          zh: '周期数对应电子层数；最外层电子数要看元素在这一行的具体位置。',
-          en: 'Period number matches shell count; outer-electron count depends on where the element sits in that row.',
+          zh: '在本题中性基态范围内，周期数对应占据层数；最外层电子数还要看具体位置。离子失电子后不能据剩余层数给元素重新分周期。',
+          en: 'Within this neutral ground-state scope, period matches occupied-shell count; outer-electron count also depends on position. An ion’s remaining shells do not reassign its element to a new period.',
         },
       },
       {
@@ -1097,6 +1097,7 @@ export const level4Lessons = [
   },
   {
     id: 'group-18',
+    nextLessonId: 'neutral-atoms-before-table-position',
     levelId: 'table',
     order: 25,
     title: { zh: '第 18 族：安静却会发光', en: 'Group 18: quiet, yet glowing' },

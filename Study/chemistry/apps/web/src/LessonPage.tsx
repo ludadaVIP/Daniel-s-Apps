@@ -1,9 +1,26 @@
-import { useEffect, useMemo, useState, type CSSProperties } from 'react';
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useMemo,
+  useState,
+  type CSSProperties,
+} from 'react';
 import { Link, Navigate, useParams } from 'react-router-dom';
 import type { LanguageMode } from '@study/shared';
 import { Localized, QuestionNavigator } from '@study/ui';
 import { getLesson, lessons, type Lesson } from './content/lessons';
 import { SeparationRecoveryLab } from './interactive/SeparationRecoveryLab';
+import {
+  ConductionLab,
+  PrecipitationLab,
+  NetIonicLab,
+} from './interactive/IonicReactionLabs';
+import {
+  LearningGoals,
+  WorkedExampleAndChecks,
+  ExplainInYourWords,
+} from './LessonScaffolding';
 import {
   EmpiricalFormulaLab,
   HydrateEvidenceLab,
@@ -36,6 +53,34 @@ import {
   MolarConcentrationLab,
   TitrationCalculationLab,
 } from './interactive/QuantitativeSolutionLabs';
+
+const ProtonReactionLab = lazy(
+  () => import('./interactive/ProtonReactionLabs'),
+);
+const RedoxLedgerLab = lazy(() => import('./interactive/RedoxLedgerLabs'));
+const ScienceEvidenceLab = lazy(
+  () => import('./interactive/ScienceEvidenceLabs'),
+);
+const ParticleEvidenceLab = lazy(
+  () => import('./interactive/ParticleEvidenceLabs'),
+);
+const MoleculeEvidenceLab = lazy(
+  () => import('./interactive/MoleculeEvidenceLabs'),
+);
+const AtomicEvidenceLab = lazy(
+  () => import('./interactive/AtomicEvidenceLabs'),
+);
+const PeriodicEvidenceLab = lazy(
+  () => import('./interactive/PeriodicEvidenceLabs'),
+);
+const LewisEvidenceLab = lazy(() => import('./interactive/LewisEvidenceLabs'));
+const ReactionBridgeLab = lazy(
+  () => import('./interactive/ReactionBridgeLabs'),
+);
+const PhEvidenceLab = lazy(() => import('./interactive/PhEvidenceLabs'));
+const FormulaEvidenceLab = lazy(
+  () => import('./interactive/FormulaEvidenceLabs'),
+);
 
 function MatterSort({ mode }: { mode: LanguageMode }) {
   const items = [
@@ -7654,6 +7699,218 @@ function Interactive({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
         </h2>
       </div>
       {lesson.interactive === 'matter-sort' && <MatterSort mode={mode} />}
+      {(lesson.interactive === 'observation-inference-lab' ||
+        lesson.interactive === 'fair-comparison-basics-lab' ||
+        lesson.interactive === 'measurement-evidence-lab' ||
+        lesson.interactive === 'mass-boundary-basics-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备互动模型…',
+                  en: 'Preparing the interactive model…',
+                }}
+              />
+            </div>
+          }
+        >
+          <ScienceEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'shared-electron-inventory-lab' ||
+        lesson.interactive === 'lewis-double-triple-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备 Lewis 图…',
+                  en: 'Preparing Lewis diagrams…',
+                }}
+              />
+            </div>
+          }
+        >
+          <LewisEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'indicator-range-evidence-lab' ||
+        lesson.interactive === 'aqueous-charge-versus-ph-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备 pH 证据清单…',
+                  en: 'Preparing pH evidence inventories…',
+                }}
+              />
+            </div>
+          }
+        >
+          <PhEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'change-evidence-record-lab' ||
+        lesson.interactive === 'atom-molecule-conservation-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备反应清单…',
+                  en: 'Preparing reaction inventories…',
+                }}
+              />
+            </div>
+          }
+        >
+          <ReactionBridgeLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'ionic-ratio-batch-lab' ||
+        lesson.interactive === 'polyatomic-three-level-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备组成清单…',
+                  en: 'Preparing composition inventories…',
+                }}
+              />
+            </div>
+          }
+        >
+          <FormulaEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'neutral-shell-position-lab' ||
+        lesson.interactive === 'electron-transfer-budget-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备电子账本…',
+                  en: 'Preparing electron ledgers…',
+                }}
+              />
+            </div>
+          }
+        >
+          <PeriodicEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'isotope-ion-ledger-lab' ||
+        lesson.interactive === 'isotope-weighted-mean-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备原子账本…',
+                  en: 'Preparing atomic ledgers…',
+                }}
+              />
+            </div>
+          }
+        >
+          <AtomicEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'molecule-sample-evidence-lab' ||
+        lesson.interactive === 'molecular-formula-count-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备分子图…',
+                  en: 'Preparing molecule pictures…',
+                }}
+              />
+            </div>
+          }
+        >
+          <MoleculeEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'phase-particle-evidence-lab' ||
+        lesson.interactive === 'dissolving-particle-evidence-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                mode={mode}
+                text={{
+                  zh: '正在准备粒子图…',
+                  en: 'Preparing particle pictures…',
+                }}
+              />
+            </div>
+          }
+        >
+          <ParticleEvidenceLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'oxidation-number-ledger-lab' ||
+        lesson.interactive === 'electron-balance-ledger-lab' ||
+        lesson.interactive === 'displacement-amount-ledger-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                text={{
+                  zh: '正在准备互动模型…',
+                  en: 'Preparing the interactive model…',
+                }}
+                mode={mode}
+              />
+            </div>
+          }
+        >
+          <RedoxLedgerLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {(lesson.interactive === 'proton-transfer-lab' ||
+        lesson.interactive === 'neutralisation-ledger-lab' ||
+        lesson.interactive === 'carbonate-acid-ledger-lab') && (
+        <Suspense
+          fallback={
+            <div className="ionic-lab">
+              <Localized
+                text={{
+                  zh: '正在准备互动模型…',
+                  en: 'Preparing the interactive model…',
+                }}
+                mode={mode}
+              />
+            </div>
+          }
+        >
+          <ProtonReactionLab kind={lesson.interactive} mode={mode} />
+        </Suspense>
+      )}
+      {lesson.interactive === 'ionic-conduction-lab' && (
+        <ConductionLab mode={mode} />
+      )}
+      {lesson.interactive === 'precipitation-ledger-lab' && (
+        <PrecipitationLab mode={mode} />
+      )}
+      {lesson.interactive === 'net-ionic-lab' && <NetIonicLab mode={mode} />}
+      {lesson.interactive === 'precipitation-quantity-lab' && (
+        <PrecipitationLab mode={mode} quantitative />
+      )}
       {lesson.interactive === 'particle-zoom' && <ParticleZoom mode={mode} />}
       {lesson.interactive === 'state-lab' && <StateLab mode={mode} />}
       {lesson.interactive === 'phase-change-lab' && (
@@ -8006,8 +8263,8 @@ function Quiz({ lesson, mode }: { lesson: Lesson; mode: LanguageMode }) {
             <span>
               {correct === lesson.questions.length
                 ? mode === 'en'
-                  ? 'Excellent—you can explain it, not just recall it.'
-                  : '真棒——你已经能解释，而不只是记住。'
+                  ? 'These answers are correct. Close the options and explain the key steps in your own words.'
+                  : '这组题已核对正确。合上选项，用自己的话解释关键步骤。'
                 : mode === 'en'
                   ? 'Read each explanation, then revise any answer that needs another look.'
                   : '读一读每题解析，再修改需要重新思考的答案。'}
@@ -8042,15 +8299,21 @@ function ChemistryLesson({
   const [step, setStep] = useState(0);
   const stepNames =
     mode === 'en'
-      ? ['Discover', 'Understand', 'Explore', 'Takeaway', 'Practice']
+      ? lesson.learning
+        ? ['Discover', 'Explain', 'Explore', 'Recall', 'Apply']
+        : ['Discover', 'Understand', 'Explore', 'Takeaway', 'Practice']
       : ['生活线索', '弄明白', '动手探索', '带走发现', '试试身手'];
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: 'instant' });
   }, [step]);
-  const next = lessons.find((item) => item.order === lesson.order + 1);
+  const next = lesson.nextLessonId
+    ? getLesson(lesson.nextLessonId)
+    : lessons.find((item) => item.order === lesson.order + 1);
 
   return (
-    <article className="lesson-page page-enter">
+    <article
+      className={`lesson-page chem-lesson-page page-enter${lesson.learning ? ' chem-guided-lesson' : ''}`}
+    >
       <div className="lesson-topbar">
         <Link to="/chemistry/path">
           ← {mode === 'en' ? 'Learning path' : '学习路径'}
@@ -8076,6 +8339,8 @@ function ChemistryLesson({
           </p>
         </div>
       </header>
+
+      <LearningGoals lesson={lesson} mode={mode} />
 
       <nav
         className="chem-lesson-steps"
@@ -8139,8 +8404,8 @@ function ChemistryLesson({
             </p>
             <h2>
               {mode === 'en'
-                ? 'Three steps, one useful model.'
-                : '三个台阶，搭起一个有用的模型。'}
+                ? `${lesson.steps.length} steps, one useful model.`
+                : `${lesson.steps.length} 个台阶，搭起一个有用的模型。`}
             </h2>
           </div>
           <div className="step-list">
@@ -8158,6 +8423,7 @@ function ChemistryLesson({
               </article>
             ))}
           </div>
+          <WorkedExampleAndChecks lesson={lesson} mode={mode} />
         </section>
       </div>
       <div hidden={step !== 2}>
@@ -8203,6 +8469,7 @@ function ChemistryLesson({
               </span>
             ))}
           </div>
+          <ExplainInYourWords lesson={lesson} mode={mode} />
           {lesson.resources && (
             <aside
               className="lesson-resources"
@@ -8258,8 +8525,10 @@ function ChemistryLesson({
             <span>{mode === 'en' ? 'NEXT LESSON' : '下一课'}</span>
             <strong>
               <Localized text={next.title} mode={mode} />
-            </strong>{' '}
-            →
+            </strong>
+            <span className="chem-next-arrow" aria-hidden="true">
+              →
+            </span>
           </Link>
         )}
       </nav>

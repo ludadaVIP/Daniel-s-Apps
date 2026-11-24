@@ -1,0 +1,71 @@
+.chem-particle-lab {
+  overflow-wrap: anywhere;
+}
+.chem-particle-picture {
+  min-width: 0;
+  margin: 0;
+  padding: 12px;
+  border: 1px solid #afc6c5;
+  border-radius: 12px;
+  background: white;
+}
+.chem-particle-picture figcaption {
+  min-height: 48px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.5;
+}
+.chem-particle-picture svg {
+  display: block;
+  width: 240px;
+  max-width: 100%;
+  height: auto;
+  margin: 8px auto;
+}
+.chem-particle-picture .chem-particle-count {
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+}
+.chem-particle-start {
+  max-width: 360px;
+  width: 100%;
+}
+.chem-particle-candidates,
+.chem-particle-compartments {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-particle-compartments {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.chem-particle-candidate {
+  display: grid;
+  align-content: start;
+  gap: 10px;
+  min-width: 0;
+}
+.chem-particle-candidate button {
+  min-height: 44px;
+  padding: 10px 14px;
+  background: white;
+  border: 1px solid #94b2ac;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+}
+.chem-particle-candidate button[aria-pressed='true'] {
+  background: #235f5c;
+  color: white;
+}
+@media (max-width: 1100px) {
+  .chem-particle-candidates {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+@media (max-width: 600px) {
+  .chem-particle-compartments {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

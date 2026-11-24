@@ -1,0 +1,187 @@
+.chem-atomic-lab {
+  overflow-wrap: anywhere;
+}
+.chem-atomic-records {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-atomic-records > section {
+  min-width: 0;
+  padding: 16px;
+  background: white;
+  border: 1px solid #a9c2c4;
+  border-radius: 12px;
+}
+.chem-atomic-symbol {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 12px 0;
+}
+.chem-atomic-nuclear-label {
+  display: grid;
+  text-align: right;
+  gap: 4px;
+  font-size: 18px;
+  line-height: 1.1;
+}
+.chem-atomic-symbol > b {
+  font-size: 36px;
+}
+.chem-atomic-symbol > sup {
+  position: static;
+  line-height: 1;
+  align-self: flex-start;
+  padding-top: 3px;
+  font-size: 20px;
+}
+.chem-atomic-symbol > small {
+  flex-basis: 100%;
+  font-size: 15px;
+  line-height: 1.7;
+}
+.chem-atomic-ledger {
+  display: grid;
+  gap: 14px;
+  font-size: 16px;
+}
+.chem-atomic-ledger > p {
+  font-size: 15px;
+}
+.chem-atomic-bar-row {
+  display: grid;
+  gap: 6px;
+}
+.chem-atomic-track {
+  height: 14px;
+  border: 1px solid #adbec4;
+  background: #eef4f5;
+  border-radius: 4px;
+  overflow: hidden;
+}
+.chem-atomic-track > i {
+  display: block;
+  height: 100%;
+  background: #aa674e;
+}
+.chem-atomic-track > .particle-n {
+  background: #697b96;
+}
+.chem-atomic-track > .particle-e {
+  background: #3d8c8e;
+}
+.chem-atomic-form {
+  display: grid;
+  gap: 16px;
+}
+.chem-atomic-form > button {
+  justify-self: start;
+}
+.chem-atomic-number-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-atomic-number {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  font-size: 16px;
+  font-weight: 600;
+}
+.chem-atomic-number input {
+  width: 100%;
+  min-width: 0;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #95b8b3;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+}
+.chem-atomic-judgment {
+  border: 1px solid #b8ccca;
+  border-radius: 10px;
+  padding: 14px;
+  min-width: 0;
+  margin: 0;
+}
+.chem-atomic-judgment legend {
+  padding: 0 6px;
+  font-size: 16px;
+}
+.chem-atomic-answer {
+  font-size: 21px;
+}
+.chem-isotope-tokens {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(0, 1fr));
+  gap: 6px;
+}
+.chem-isotope-tokens > span {
+  padding: 8px 2px;
+  text-align: center;
+  font-size: 16px;
+  font-weight: 700;
+  border: 1px solid #91b1c4;
+  border-radius: 6px;
+  background: #e2edf5;
+}
+.chem-isotope-tokens > .isotope-heavy {
+  border-color: #c1a567;
+  background: #f6ebcf;
+}
+.chem-isotope-composition {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-isotope-composition > p {
+  padding: 14px;
+  background: white;
+  border: 1px solid #afc7c5;
+  border-radius: 10px;
+  font-size: 16px;
+}
+.chem-isotope-calculation {
+  font-size: 18px;
+}
+.chem-isotope-mean {
+  font-size: 25px;
+  color: #246f71;
+}
+.chem-isotope-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 16px;
+}
+.chem-isotope-mean-track {
+  position: relative;
+  height: 8px;
+  margin: 0 8px 8px;
+  background: #d5e4e9;
+  border: 1px solid #a6bdc3;
+  border-radius: 8px;
+}
+.chem-isotope-mean-track > i {
+  position: absolute;
+  top: -4px;
+  width: 14px;
+  height: 14px;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: #286e77;
+  border: 1px solid #164c54;
+}
+@media (max-width: 600px) {
+  .chem-atomic-records,
+  .chem-atomic-number-grid,
+  .chem-isotope-composition {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chem-isotope-tokens {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}

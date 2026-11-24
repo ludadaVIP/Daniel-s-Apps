@@ -1,0 +1,176 @@
+.chem-ph-lab {
+  overflow-wrap: anywhere;
+}
+.chem-ph-charts,
+.chem-ph-controls,
+.chem-ph-number-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.chem-ph-chart,
+.chem-ph-picture {
+  margin: 0;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #a9c2c3;
+  border-radius: 12px;
+  background: white;
+}
+.chem-ph-chart h4 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+.chem-ph-colours {
+  display: grid;
+  gap: 8px;
+}
+.chem-ph-colours > div {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 4px 10px;
+  align-items: center;
+  font-size: 15px;
+}
+.chem-ph-colours strong {
+  grid-column: 2;
+  font-size: 16px;
+}
+.chem-ph-swatch {
+  width: 22px;
+  height: 22px;
+  border: 1px solid #78928f;
+  border-radius: 5px;
+}
+.chem-ph-picture figcaption {
+  font-weight: 700;
+  font-size: 17px;
+}
+.chem-ph-range {
+  min-width: 0;
+  margin: 16px 0;
+}
+.chem-ph-track {
+  position: relative;
+  height: 16px;
+  margin: 12px 8px 4px;
+  border-radius: 8px;
+  background: #e1edeb;
+}
+.chem-ph-track > span {
+  position: absolute;
+  top: 0;
+  height: 16px;
+  background: #528d87;
+}
+.chem-ph-track i {
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 12px;
+  height: 12px;
+  border: 2px solid #245f5b;
+  border-radius: 50%;
+  background: white;
+  transform: translateX(-50%);
+}
+.chem-ph-track i:last-child {
+  left: 100%;
+}
+.chem-ph-track i.closed {
+  background: #245f5b;
+}
+.chem-ph-axis {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 5px 8px;
+  font-size: 14px;
+}
+.chem-ph-form {
+  display: grid;
+  gap: 16px;
+}
+.chem-ph-form > button {
+  justify-self: start;
+}
+.chem-ph-question {
+  margin: 0;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #b2c9c8;
+  border-radius: 10px;
+}
+.chem-ph-question legend {
+  padding: 0 6px;
+  font-size: 16px;
+}
+.chem-ph-field {
+  display: grid;
+  align-content: start;
+  min-width: 0;
+  gap: 8px;
+  font-weight: 600;
+}
+.chem-ph-field input {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #96b8b3;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+}
+.chem-ph-three-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-ph-inventory {
+  display: grid;
+  gap: 14px;
+  margin: 16px 0;
+}
+.chem-ph-inventory > div {
+  display: grid;
+  grid-template-columns: minmax(90px, 1fr) 48px;
+  gap: 8px;
+  padding: 10px;
+  border: 1px solid #b2c8c5;
+  border-radius: 8px;
+  background: #f1f7f5;
+  font-size: 19px;
+}
+.chem-ph-inventory [data-relative-count] {
+  text-align: end;
+}
+.chem-ph-count-track {
+  grid-column: 1/-1;
+  height: 14px;
+  background: #dce9e7;
+  border-radius: 5px;
+  overflow: hidden;
+}
+.chem-ph-count-track > span {
+  display: block;
+  height: 100%;
+  background: #397f7c;
+}
+.chem-ph-status {
+  border-left: 3px solid #ab7b3b;
+  padding: 12px;
+  background: #fff9ea;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .chem-ph-charts,
+  .chem-ph-controls,
+  .chem-ph-number-grid,
+  .chem-ph-three-fields {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chem-ph-chart,
+  .chem-ph-picture {
+    padding: 12px;
+  }
+}

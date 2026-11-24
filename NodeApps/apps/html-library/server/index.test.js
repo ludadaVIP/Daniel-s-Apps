@@ -294,6 +294,27 @@ test('冷启动阅读页不会为缺少 fingerprint 的既有目录资料写入 
   });
 });
 
+test('书库索引建立后生成的报告可以直接打开', async () => {
+  await withTemporaryLibrary(async ({ libraryDirectory, catalogPath }) => {
+    await writeFile(path.join(libraryDirectory, 'existing.html'), '<title>既有报告</title>');
+    const app = createHtmlLibraryApp({ libraryDirectory, catalogPath });
+    const index = await (await request(app, '/api/documents')).json();
+    assert.equal(index.items.length, 1);
+    const catalogBefore = await readFile(catalogPath);
+
+    const relativePath = 'portfolio/new-report.html';
+    const source = '<!doctype html><title>新组合报告</title><p>报告正文</p>';
+    await mkdir(path.join(libraryDirectory, 'portfolio'));
+    await writeFile(path.join(libraryDirectory, relativePath), source);
+    const id = Buffer.from(relativePath, 'utf8').toString('base64url');
+
+    const reading = await request(app, `/document/${id}`);
+    assert.equal(reading.status, 200);
+    assert.equal(await reading.text(), source);
+    assert.deepEqual(await readFile(catalogPath), catalogBefore);
+  });
+});
+
 test('目录写入失败不会泄漏缓存，恢复后队列可继续且失败资料不会重新出现', async () => {
   await withTemporaryLibrary(async ({ libraryDirectory, catalogPath }) => {
     await writeFile(path.join(libraryDirectory, 'transaction.html'), '<title>事务资料</title><p>正文</p>');

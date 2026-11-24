@@ -1,0 +1,111 @@
+.chem-lewis-lab {
+  overflow-wrap: anywhere;
+}
+.chem-lewis-picture {
+  margin: 0;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #a9c2c3;
+  border-radius: 12px;
+  background: white;
+}
+.chem-lewis-picture figcaption {
+  font-size: 17px;
+  font-weight: 700;
+}
+.chem-lewis-picture svg {
+  display: block;
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+  margin: 8px auto;
+}
+.chem-lewis-picture > p {
+  font-size: 15px;
+  line-height: 1.7;
+}
+.chem-lewis-contributions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.chem-lewis-contributions > span {
+  padding: 8px 12px;
+  border: 1px solid #b5c9c7;
+  background: white;
+  border-radius: 8px;
+  font-size: 18px;
+}
+.chem-lewis-form {
+  display: grid;
+  gap: 16px;
+}
+.chem-lewis-form > button {
+  justify-self: start;
+}
+.chem-lewis-number-grid,
+.chem-lewis-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-lewis-number {
+  display: grid;
+  gap: 8px;
+  align-content: start;
+  font-size: 16px;
+  font-weight: 600;
+}
+.chem-lewis-number input {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #96b8b3;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+}
+.chem-lewis-local {
+  display: grid;
+  gap: 10px;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+.chem-lewis-local > li {
+  padding: 10px 12px;
+  border: 1px solid #afc6c6;
+  background: white;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.chem-lewis-equation {
+  font-size: 20px;
+}
+.chem-lewis-question {
+  margin: 0;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #b2c9c8;
+  border-radius: 10px;
+}
+.chem-lewis-question legend {
+  padding: 0 6px;
+  font-size: 16px;
+}
+.chem-lewis-candidate-status {
+  border-left: 3px solid #ab7b3b;
+  padding: 12px;
+  background: #fff9ea;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .chem-lewis-number-grid,
+  .chem-lewis-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chem-lewis-picture {
+    padding: 12px;
+  }
+}

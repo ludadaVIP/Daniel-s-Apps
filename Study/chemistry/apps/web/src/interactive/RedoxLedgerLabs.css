@@ -1,0 +1,65 @@
+.redox-ledger-lab {
+  overflow-wrap: anywhere;
+}
+.redox-ledger-lab .ionic-species {
+  flex-basis: 140px;
+}
+.redox-ledger-contributions,
+.redox-ledger-halves {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.redox-ledger-contributions > div,
+.redox-ledger-halves > div {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #a3bfc3;
+  border-radius: 10px;
+  background: white;
+  font-size: 16px;
+}
+.redox-ledger-contributions b {
+  color: #295a70;
+  font-size: 26px;
+}
+.redox-ledger-contributions strong {
+  font-size: 20px;
+}
+.redox-ledger-electrons {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  border: 1px solid #bfa989;
+  border-radius: 10px;
+  background: #fff7ea;
+}
+.redox-ledger-electrons > div {
+  display: grid;
+  gap: 8px;
+}
+.redox-ledger-electrons b {
+  font-size: 21px;
+  color: #72522e;
+}
+.redox-ledger-transfer {
+  display: grid;
+  gap: 10px;
+  padding: 16px;
+  border: 1px dashed #7b9c9b;
+  border-radius: 10px;
+  background: white;
+}
+.redox-ledger-transfer b {
+  font-size: 21px;
+  color: #295a70;
+}
+@media (max-width: 600px) {
+  .redox-ledger-halves,
+  .redox-ledger-electrons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

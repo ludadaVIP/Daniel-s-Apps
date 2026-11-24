@@ -687,6 +687,7 @@ export const level5Lessons = [
   },
   {
     id: 'structure-property-detective',
+    nextLessonId: 'shared-electrons-count-once',
     levelId: 'bonding',
     order: 30,
     title: {

@@ -382,6 +382,7 @@ export const level7Lessons = [
   },
   {
     id: 'balancing-equations',
+    nextLessonId: 'clues-before-reaction-verdict',
     levelId: 'reactions',
     order: 39,
     title: {

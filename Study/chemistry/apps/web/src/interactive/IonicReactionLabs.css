@@ -1,0 +1,214 @@
+.ionic-lab {
+  grid-column: 2;
+  display: grid;
+  gap: 16px;
+  min-width: 0;
+}
+.ionic-lab p {
+  margin: 0;
+}
+.ionic-lab h3 {
+  font-size: 17px;
+  margin: 4px 0;
+}
+.ionic-control {
+  display: grid;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.ionic-control select {
+  max-width: 100%;
+  min-width: 0;
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #9abeb8;
+  border-radius: 8px;
+  background: white;
+  font-size: 16px;
+}
+.ionic-controls {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+.ionic-control input {
+  width: 100%;
+  accent-color: #276c68;
+}
+.ionic-particle-view {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+  padding: 28px 12px;
+  border: 2px solid #9abeb8;
+  border-top: 0;
+  border-radius: 0 0 20px 20px;
+  background: #edf7f8;
+}
+.ionic-particle-view span {
+  border-radius: 12px;
+  padding: 12px 5px;
+  border: 1px solid;
+  font-size: 18px;
+  font-weight: 700;
+  text-align: center;
+}
+.ionic-particle-view .ionic-positive {
+  background: #dce8fc;
+  color: #244c83;
+  border-color: #8daacf;
+}
+.ionic-particle-view .ionic-negative {
+  background: #f9e6d9;
+  color: #764719;
+  border-color: #caa684;
+}
+.ionic-particle-view .ionic-neutral {
+  background: white;
+  color: #355c55;
+  border-color: #aac6bc;
+  font-size: 16px;
+}
+.ionic-particle-view.ionic-lattice {
+  gap: 3px;
+  background: #f1f2f4;
+}
+.ionic-ledger {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ionic-species {
+  flex: 1 1 95px;
+  display: grid;
+  gap: 4px;
+  padding: 10px;
+  border: 1px solid #b8cccf;
+  border-radius: 8px;
+  background: #f4f9fb;
+  text-align: center;
+}
+.ionic-species b {
+  font-size: 20px;
+  color: #285f6b;
+}
+.ionic-species span {
+  font-size: 16px;
+}
+.ionic-ledger > p {
+  flex-basis: 100%;
+  font-size: 15px;
+}
+.ionic-choices {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+.ionic-choices button,
+.ionic-check {
+  padding: 10px 14px;
+  border: 1px solid #94b2ac;
+  border-radius: 8px;
+  background: white;
+  font-size: 16px;
+  cursor: pointer;
+  min-height: 44px;
+}
+.ionic-choices button[aria-pressed='true'] {
+  background: #235f5c;
+  color: white;
+  border-color: #235f5c;
+}
+.ionic-receipt,
+.ionic-result {
+  display: grid;
+  gap: 12px;
+  border-left: 4px solid #4e9894;
+  background: #eef7f4;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-wrap: anywhere;
+}
+.ionic-result {
+  background: #f3f8fb;
+  border-color: #5b8499;
+}
+.ionic-solid {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  background: #fff;
+  border: 2px dashed #92a5ab;
+  padding: 14px;
+  border-radius: 8px;
+  font-size: 16px;
+}
+.ionic-solid b {
+  font-size: 22px;
+}
+.ionic-solid > span:last-child {
+  flex-basis: 100%;
+}
+.ionic-equation {
+  font-size: 18px;
+  line-height: 1.8;
+  overflow-wrap: anywhere;
+}
+.ionic-lab details {
+  border: 1px solid #b6c9c3;
+  padding: 12px;
+  border-radius: 8px;
+}
+.ionic-lab summary {
+  cursor: pointer;
+  font-weight: 600;
+}
+.ionic-lab details p {
+  margin-top: 12px;
+  font-size: 15px;
+}
+.ionic-cancellation {
+  display: grid;
+  gap: 8px;
+}
+.ionic-cancellation label {
+  display: grid;
+  grid-template-columns: 22px minmax(0, 1fr);
+  gap: 6px 10px;
+  padding: 12px;
+  border: 1px solid #acbdc6;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.ionic-cancellation input {
+  width: 20px;
+  height: 20px;
+  accent-color: #286e69;
+}
+.ionic-cancellation b {
+  font-size: 18px;
+}
+.ionic-cancellation span {
+  grid-column: 2;
+  font-size: 16px;
+}
+.ionic-crossed b {
+  text-decoration: line-through;
+}
+@media (max-width: 600px) {
+  .ionic-controls {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .ionic-particle-view {
+    gap: 12px;
+    padding: 16px 8px;
+  }
+  .ionic-particle-view span {
+    font-size: 16px;
+  }
+  .ionic-particle-view .ionic-neutral {
+    font-size: 14px;
+  }
+}

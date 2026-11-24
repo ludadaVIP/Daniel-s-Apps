@@ -180,8 +180,8 @@ export const level2Lessons = [
       en: 'Atoms of one element can be arranged differently, producing dramatically different appearances and properties. Same identity, different structure.',
     },
     bigIdea: {
-      zh: '元素是只由一种原子组成的纯净物；每种元素都有独特名称和化学符号。',
-      en: 'An element is a pure substance made from one kind of atom; each has a unique name and symbol.',
+      zh: '元素表示原子种类；只由一种元素组成的纯净物称为单质。每种元素都有独特名称和化学符号。',
+      en: 'An element identifies an atom type; a pure elemental substance contains only that element. Each element has a unique name and symbol.',
     },
     estimatedMinutes: 15,
     everydayExamples: [
@@ -214,7 +214,7 @@ export const level2Lessons = [
       {
         title: { zh: '一种原子，一种元素', en: 'One atom type, one element' },
         body: {
-          zh: '一块纯铜里只有铜原子。氧气通常由两个氧原子组成 O₂，但因为只有氧这一种原子，它仍然是元素，不是化合物。',
+          zh: '一块纯铜里只有铜原子。氧气通常由两个氧原子组成 O₂，但因为纯氧气只含氧一种元素，它是单质，不是化合物。',
           en: 'Pure copper contains only copper atoms. Oxygen gas usually has pairs, O₂, but with only oxygen atoms it remains an element, not a compound.',
         },
       },
@@ -240,8 +240,8 @@ export const level2Lessons = [
       },
     ],
     misconception: {
-      zh: '元素不是“一个原子”。元素是一类拥有相同身份的原子的总称，也可以指只含这种原子的纯净物。',
-      en: 'An element is not “one atom”. It is a type of atom, and also a pure substance containing only that atom type.',
+      zh: '元素不是“一个原子”，而是一类拥有相同元素身份的原子的总称。单质是只含一种元素的纯净物；一种元素还可能形成不同单质。',
+      en: 'An element is an atom type, not one atom. A pure elemental substance contains one element; one element can form different elemental substances.',
     },
     mission: {
       zh: '在食品标签或家用品上寻找三个元素符号，例如 Fe、Ca、Al。查清它们表示元素本身，还是某个化合物的一部分。',
@@ -262,13 +262,13 @@ export const level2Lessons = [
           en: 'O₂ contains only oxygen atoms. What is it?',
         },
         options: [
-          { zh: '元素', en: 'An element' },
+          { zh: '单质（只含一种元素）', en: 'An elemental substance' },
           { zh: '化合物', en: 'A compound' },
           { zh: '混合物', en: 'A mixture' },
         ],
         answer: 0,
         explanation: {
-          zh: '判断元素看原子种类，不看一个粒子里有几个原子；O₂ 只有一种原子。',
+          zh: '纯 O₂ 只含氧一种元素，所以是单质；一个分子中有两个原子不表示有两种元素。',
           en: 'Element status depends on atom types, not atom count per particle; O₂ has only one type.',
         },
       },
@@ -475,8 +475,8 @@ export const level2Lessons = [
       en: 'Colours represent atom types; joined circles form one particle. First count particle types, then atom types inside each.',
     },
     bigIdea: {
-      zh: '一种粒子且只含一种原子是元素；一种粒子含不同原子是化合物；多种粒子同时存在是混合物。',
-      en: 'One particle type with one atom type is an element; one particle type with different atoms is a compound; multiple particle types make a mixture.',
+      zh: '在本页给定的原子、分子模型中，先看物质种类：多种物质共存是混合物；纯净物只含一种元素是单质，含不同元素化合则是化合物。',
+      en: 'For the atom/molecule samples specified here, inspect substance types first: different substances form a mixture; a pure substance containing one element is elemental, while chemically combined different elements make a compound.',
     },
     estimatedMinutes: 18,
     everydayExamples: [
@@ -512,8 +512,8 @@ export const level2Lessons = [
           en: 'Question one: how many particle types?',
         },
         body: {
-          zh: '若图中所有粒子完全相同，它可能是纯净物；若出现不同粒子，就是混合物，无论它们分布得多均匀。',
-          en: 'If every particle is identical, it may be pure. Different particles mean a mixture, however evenly they are spread.',
+          zh: '对本页指定的独立原子、分子示意，先看有几种物质的组合；重复相同分子不增加物质种类。这个读图方法不能直接套到同时含不同离子的纯盐晶体。',
+          en: 'For the separate atoms and molecules specified here, compare substance identities; repeated identical molecules do not add substance types. This method does not directly classify pure salt crystals containing different ions.',
         },
       },
       {
@@ -522,8 +522,8 @@ export const level2Lessons = [
           en: 'Question two: how many atom types per particle?',
         },
         body: {
-          zh: '纯净物中若只有一种颜色，是元素；若每个粒子内稳定出现不同颜色，是化合物。',
-          en: 'A pure sample with one colour is an element; identical particles containing different colours form a compound.',
+          zh: '先按图例确认颜色代表哪种元素。对本页纯净的分子样品，只含一种元素是单质；不同元素在同一分子中化合则是化合物。颜色不是物质的实际颜色。',
+          en: 'First use the key to identify elements. For the pure molecular samples here, one element is elemental; different elements combined within each molecule form a compound. Diagram colours are not real substance colours.',
         },
       },
       {
@@ -538,8 +538,8 @@ export const level2Lessons = [
       },
     ],
     misconception: {
-      zh: '两种颜色挨在一起不一定是化合物。只有它们以固定组合连接成相同粒子时才是化合物；各自散开则是混合物。',
-      en: 'Two colours near each other are not necessarily a compound. They must be joined in identical fixed groups; separate particles make a mixture.',
+      zh: '两种颜色挨在一起不一定是化合物。对本页分子图，要检查不同元素是否在同一分子内化合，还要检查样品中是否同时有其他物质；不能只看颜色数量。',
+      en: 'Two nearby colours do not establish a compound. In these molecular diagrams, check whether different elements combine within a molecule and whether other substances coexist; colour counts alone are insufficient.',
     },
     mission: {
       zh: '用两色纽扣或纸片画出四幅图：单原子元素、双原子元素、纯化合物、元素与化合物的混合物。请家人猜分类并说明理由。',
@@ -560,7 +560,7 @@ export const level2Lessons = [
           en: 'A sample contains only identical AB particles, where A and B are different atoms. What is it?',
         },
         options: [
-          { zh: '元素', en: 'Element' },
+          { zh: '单质', en: 'Elemental substance' },
           { zh: '化合物', en: 'Compound' },
           { zh: '混合物', en: 'Mixture' },
         ],
@@ -577,7 +577,7 @@ export const level2Lessons = [
           en: 'A diagram contains both A₂ and AB particles. How should it be classified?',
         },
         options: [
-          { zh: '纯元素', en: 'Pure element' },
+          { zh: '纯单质', en: 'Pure elemental substance' },
           { zh: '纯化合物', en: 'Pure compound' },
           { zh: '混合物', en: 'Mixture' },
         ],

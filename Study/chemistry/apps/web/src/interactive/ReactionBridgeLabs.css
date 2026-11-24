@@ -1,0 +1,190 @@
+.chem-rbridge-lab {
+  overflow-wrap: anywhere;
+}
+.chem-rbridge-record,
+.chem-rbridge-picture {
+  margin: 0;
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #a9c2c3;
+  border-radius: 12px;
+  background: white;
+}
+.chem-rbridge-record h4,
+.chem-rbridge-sides h4 {
+  margin: 0 0 12px;
+  font-size: 18px;
+}
+.chem-rbridge-added {
+  margin-top: 16px;
+  padding: 14px;
+  border-left: 3px solid #4f958e;
+  background: #eff7f4;
+}
+.chem-rbridge-added > strong {
+  display: block;
+  margin-bottom: 8px;
+}
+.chem-rbridge-form {
+  display: grid;
+  gap: 16px;
+}
+.chem-rbridge-form > button {
+  justify-self: start;
+}
+.chem-rbridge-question {
+  margin: 0;
+  min-width: 0;
+  padding: 14px;
+  border: 1px solid #b2c9c8;
+  border-radius: 10px;
+}
+.chem-rbridge-question legend {
+  padding: 0 6px;
+  font-size: 16px;
+}
+.chem-rbridge-reasons {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.chem-rbridge-reasons button {
+  text-align: start;
+}
+.chem-rbridge-controls {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-rbridge-picture figcaption {
+  font-size: 17px;
+  font-weight: 700;
+}
+.chem-rbridge-picture .chem-rbridge-equation {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 14px 0;
+  padding: 12px 0;
+  border-bottom: 2px solid #6a9d98;
+}
+.chem-rbridge-sides {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin: 14px 0;
+}
+.chem-rbridge-sides > section {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid #b5c9c7;
+  border-radius: 8px;
+  background: #f2f8f6;
+}
+.chem-rbridge-term + .chem-rbridge-term {
+  margin-top: 14px;
+}
+.chem-rbridge-molecule-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(112px, 1fr));
+  gap: 8px;
+  margin-top: 10px;
+}
+.chem-rbridge-molecule {
+  min-width: 0;
+  padding: 10px 6px;
+  border: 1px solid #a6bfc0;
+  border-radius: 8px;
+  background: white;
+}
+.chem-rbridge-molecule > span {
+  display: block;
+  text-align: center;
+  font-size: 17px;
+}
+.chem-rbridge-molecule > div {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 5px;
+  margin-top: 8px;
+}
+.chem-rbridge-atom {
+  display: inline-grid;
+  place-items: center;
+  width: 26px;
+  height: 26px;
+  border: 1px solid #96b5b9;
+  border-radius: 50%;
+  font-size: 16px;
+  background: #f9fbfc;
+  color: #143c45;
+}
+.chem-rbridge-O {
+  background: #f6e2df;
+  border-color: #c69a94;
+}
+.chem-rbridge-N {
+  background: #e1eaf5;
+  border-color: #9caec6;
+}
+.chem-rbridge-C {
+  background: #e7eceb;
+  border-color: #9eaaa7;
+}
+.chem-rbridge-Cl {
+  background: #e3f0df;
+  border-color: #9fba96;
+}
+.chem-rbridge-number-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-rbridge-field {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+  font-weight: 600;
+  font-size: 16px;
+}
+.chem-rbridge-field input {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #96b8b3;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+}
+.chem-rbridge-totals {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.chem-rbridge-totals li {
+  padding: 10px 12px;
+  border: 1px solid #afc6c6;
+  border-radius: 8px;
+  background: white;
+  font-size: 20px;
+}
+.chem-rbridge-status {
+  border-left: 3px solid #ab7b3b;
+  padding: 12px;
+  background: #fff9ea;
+  font-weight: 600;
+}
+@media (max-width: 600px) {
+  .chem-rbridge-controls,
+  .chem-rbridge-reasons,
+  .chem-rbridge-sides,
+  .chem-rbridge-number-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chem-rbridge-picture,
+  .chem-rbridge-record {
+    padding: 12px;
+  }
+}

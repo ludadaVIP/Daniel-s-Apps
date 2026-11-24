@@ -1,0 +1,57 @@
+.proton-reaction-lab {
+  overflow-wrap: anywhere;
+}
+.proton-route {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  gap: 12px;
+  align-items: center;
+}
+.proton-route > div {
+  display: grid;
+  gap: 10px;
+  background: white;
+  border: 1px solid #a9c3c3;
+  border-radius: 10px;
+  padding: 16px;
+  font-size: 16px;
+}
+.proton-route b {
+  font-size: 28px;
+  color: #245c67;
+}
+.proton-token {
+  padding: 12px;
+  border: 2px solid #b07845;
+  border-radius: 18px;
+  color: #7c4d26;
+  font-size: 20px;
+  font-weight: 700;
+  background: #fff5e8;
+}
+.proton-water,
+.proton-gas {
+  display: grid;
+  gap: 8px;
+  padding: 14px;
+  border: 1px solid #9fb7c5;
+  border-radius: 10px;
+  background: #edf5ff;
+  font-size: 16px;
+}
+.proton-gas {
+  border: 2px dashed #7f9d9b;
+  background: #f3faf5;
+}
+.proton-water b,
+.proton-gas b {
+  font-size: 20px;
+}
+@media (max-width: 600px) {
+  .proton-route {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .proton-token {
+    justify-self: start;
+  }
+}

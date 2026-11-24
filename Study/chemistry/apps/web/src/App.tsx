@@ -15,8 +15,8 @@ import {
   StudyIcon,
   useLanguageMode,
 } from '@study/ui';
-import { pathLevels } from './content/path';
-import { lessons } from './content/lessons';
+import { guidedSequences, pathGroups, pathLevels } from './content/path';
+import { getLesson, lessons } from './content/lessons';
 import { LessonPage } from './LessonPage';
 
 const copy = {
@@ -24,7 +24,10 @@ const copy = {
   home: { zh: '今天', en: 'Today' },
   path: { zh: '学习路径', en: 'Learning path' },
   stage: { zh: '从好奇开始', en: 'Start with curiosity' },
-  foundation: { zh: '01 · 打好基础', en: '01 · Build the foundations' },
+  foundation: {
+    zh: '00 · 先练科学思考',
+    en: '00 · Practise scientific thinking',
+  },
   heroTitle: {
     zh: '把看不见的世界，\n一点点弄明白。',
     en: 'Make sense of the\ninvisible world.',
@@ -34,11 +37,10 @@ const copy = {
     en: 'Start with a glass of water and the air around you. Explore one idea at a time, think it through, then check what you really understand.',
   },
   explore: { zh: '看看学习路径', en: 'Explore the path' },
-  next: { zh: '第一站', en: 'First stop' },
-  firstLesson: { zh: '什么是物质？', en: 'What is matter?' },
+  next: { zh: '从零开始', en: 'Start from the beginning' },
   firstBody: {
-    zh: '空气算物质吗？光算吗？先从这个问题出发。',
-    en: 'Is air matter? What about light? Begin with a question.',
+    zh: '先学会区分看到的现象与想到的解释，再用证据检查自己的判断。',
+    en: 'Separate what you observe from what you infer, then check your judgment with evidence.',
   },
   coming: { zh: '现在开始 · 约 12 分钟', en: 'Start now · about 12 min' },
   rhythm: { zh: '学习的节奏', en: 'A learning rhythm' },
@@ -161,6 +163,7 @@ function ParticleIllustration() {
 }
 
 function Home({ mode }: { mode: LanguageMode }) {
+  const entryLesson = getLesson('observation-before-explanation')!;
   return (
     <div className="page-enter">
       <div className="eyebrow">
@@ -198,16 +201,18 @@ function Home({ mode }: { mode: LanguageMode }) {
         className="bottom-grid"
         aria-label={mode === 'en' ? 'Learning preview' : '学习预览'}
       >
-        <Link className="first-card" to="/chemistry/lesson/what-is-matter">
+        <Link className="first-card" to={`/chemistry/lesson/${entryLesson.id}`}>
           <div className="card-topline">
-            <span>01 / {lessons.length.toString().padStart(2, '0')}</span>
+            <span>
+              00 / <Localized mode={mode} text={{ zh: '入门', en: 'START' }} />
+            </span>
             <span>
               <Localized text={copy.next} mode={mode} />
             </span>
           </div>
           <h2>
             <Localized
-              text={copy.firstLesson}
+              text={entryLesson.title}
               mode={mode}
               secondaryClassName="block text-[0.64em] font-normal text-[#6f8e8b] mt-2"
             />
@@ -243,6 +248,31 @@ function Home({ mode }: { mode: LanguageMode }) {
           </div>
         </div>
       </section>
+
+      {guidedSequences.map((sequence) => (
+        <section key={sequence.id} id={sequence.id} className="chem-sequence">
+          <h2>
+            <Localized mode={mode} text={sequence.title} />
+          </h2>
+          <p>
+            <Localized mode={mode} text={sequence.description} />
+          </p>
+          <ol>
+            {sequence.lessonIds
+              .map((id) => lessons.find((lesson) => lesson.id === id))
+              .map(
+                (lesson) =>
+                  lesson && (
+                    <li key={lesson.id}>
+                      <Link to={`/chemistry/lesson/${lesson.id}`}>
+                        <Localized text={lesson.title} mode={mode} />
+                      </Link>
+                    </li>
+                  ),
+              )}
+          </ol>
+        </section>
+      ))}
     </div>
   );
 }
@@ -294,12 +324,19 @@ function Path({ mode }: { mode: LanguageMode }) {
                   {lessons.some((lesson) => lesson.levelId === level.id)
                     ? lessons
                         .filter((lesson) => lesson.levelId === level.id)
-                        .map((lesson) => (
+                        .map((lesson, index) => (
                           <Link
                             key={lesson.id}
                             to={`/chemistry/lesson/${lesson.id}`}
                           >
-                            <b>{lesson.order.toString().padStart(2, '0')}</b>
+                            <b>
+                              {(level.id === 'science-basics'
+                                ? index + 1
+                                : lesson.order
+                              )
+                                .toString()
+                                .padStart(2, '0')}
+                            </b>
                             <Localized
                               text={lesson.title}
                               mode={mode}
@@ -350,28 +387,13 @@ export function App() {
         href: `/chemistry/lesson/${lesson.id}`,
       })),
   }));
-  const directory = [
-    {
-      id: 'chem-foundations',
-      title: mode === 'en' ? 'Matter & structure' : '物质与结构',
-      children: levelDirectory.slice(0, 6),
-    },
-    {
-      id: 'chem-reactions',
-      title: mode === 'en' ? 'Reactions & changes' : '反应与变化',
-      children: levelDirectory.slice(6, 9),
-    },
-    {
-      id: 'chem-quantitative',
-      title: mode === 'en' ? 'Quantity & patterns' : '定量与规律',
-      children: levelDirectory.slice(9, 15),
-    },
-    {
-      id: 'chem-applications',
-      title: mode === 'en' ? 'Applications & synthesis' : '应用与综合',
-      children: levelDirectory.slice(15),
-    },
-  ];
+  const directory = pathGroups.map((group) => ({
+    id: group.id,
+    title: mode === 'en' ? group.title.en : group.title.zh,
+    children: levelDirectory.filter((level) =>
+      group.levelIds.includes(level.id),
+    ),
+  }));
   return (
     <div className="app-shell study-learning-app">
       <StudyShell
@@ -441,7 +463,7 @@ export function App() {
         directory={directory}
         activePath={
           location.pathname === '/chemistry/path' && !location.search
-            ? '/chemistry/path?level=matter'
+            ? `/chemistry/path?level=${pathLevels[0]!.id}`
             : location.pathname + location.search
         }
         renderLink={(href, content, className, active) => (

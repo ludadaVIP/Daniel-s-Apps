@@ -264,8 +264,8 @@ export const level6Lessons = [
           en: 'Finish with the simplest whole-number ratio',
         },
         body: {
-          zh: 'Ca²⁺ 与 O²⁻ 一对已经归零，所以写 CaO，而不是 Ca₂O₂。化学式中的下标 1 不写；如果所有数量还能同时约分，就继续约分。',
-          en: 'One Ca²⁺ and one O²⁻ already balance, so write CaO—not Ca₂O₂. Subscript 1 is omitted, and any common factor must be reduced.',
+          zh: '本课只对指定单原子离子约简个数比。Ca²⁺ 与 O²⁻ 一对已经归零，写 CaO，不写 Ca₂O₂，下标 1 省略。不能把这条规则套到分子式或多原子离子内部；后续会练习这个区别。',
+          en: 'This lesson reduces counts of specified monatomic ions. One Ca²⁺ and one O²⁻ already balance: write CaO, not Ca₂O₂, and omit subscript one. Do not apply this to molecular formulas or internal polyatomic-ion composition; later lessons practise that distinction.',
         },
       },
     ],
@@ -913,6 +913,7 @@ export const level6Lessons = [
   },
   {
     id: 'naming-molecular-compounds',
+    nextLessonId: 'neutral-batch-simplest-formula',
     levelId: 'formulae',
     order: 36,
     title: {

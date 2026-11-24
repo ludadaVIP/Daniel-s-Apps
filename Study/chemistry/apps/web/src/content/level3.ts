@@ -3,6 +3,7 @@ import type { Lesson } from './lessons';
 export const level3Lessons = [
   {
     id: 'what-is-an-atom',
+    nextLessonId: 'atoms-molecules-and-substance-types',
     levelId: 'atoms',
     order: 10,
     title: { zh: '什么是原子？', en: 'What is an atom?' },
@@ -1006,8 +1007,8 @@ export const level3Lessons = [
       },
     ],
     misconception: {
-      zh: '同位素不是离子。离子是电子数改变；同位素是中子数改变。两者都不改变元素身份，因为质子数不变。',
-      en: 'Isotopes are not ions. Ions change electron count; isotopes change neutron count. Neither changes element identity because proton count stays the same.',
+      zh: '同位素关系与离子状态不是同一个判断，也不互相排斥。同元素的不同同位素比较中子数；是否带电则看质子与电子的数量差。一个粒子可以对应某种同位素，同时也是离子。',
+      en: 'Isotopic relationship and ion status are different, compatible judgments. Different isotopes of one element differ in neutrons; charge depends on the proton–electron difference. A particle can have an isotope identity and be an ion too.',
     },
     mission: {
       zh: '给 C-12、C-13、C-14 画三张“原子身份证”：每张都填质子数、中子数、质量数，并圈出相同的一项。',
@@ -1046,8 +1047,8 @@ export const level3Lessons = [
         },
         options: [
           {
-            zh: '同位素改中子，离子改电子',
-            en: 'Isotopes change neutrons; ions change electrons',
+            zh: '同位素关系比较核内中子，离子状态核对电荷差',
+            en: 'Isotope relationships compare nuclear neutrons; ion status checks charge imbalance',
           },
           {
             zh: '同位素改质子，离子改元素',
@@ -1057,8 +1058,8 @@ export const level3Lessons = [
         ],
         answer: 0,
         explanation: {
-          zh: '两者都保留质子数；一个改变核内中子，一个改变核外电子。',
-          en: 'Both keep proton count; one changes nuclear neutrons, the other outside electrons.',
+          zh: '同位素关系要求相同质子、不同中子；电荷看质子与电子的差，两个条件可以同时成立。比较不同同位素不等于普通化学过程改变了原子核。',
+          en: 'An isotopic difference requires equal protons and different neutrons; charge uses the proton–electron difference. Both can apply. Comparing isotopes does not imply ordinary chemistry transformed a nucleus.',
         },
       },
       {
@@ -1085,6 +1086,7 @@ export const level3Lessons = [
   },
   {
     id: 'what-is-an-ion',
+    nextLessonId: 'isotope-and-ion-two-ledgers',
     levelId: 'atoms',
     order: 17,
     title: { zh: '什么是离子？', en: 'What is an ion?' },

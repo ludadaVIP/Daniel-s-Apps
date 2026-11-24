@@ -11806,6 +11806,8 @@ a:focus-visible {
   font: inherit;
   font-size: 14px;
   flex: 1;
+  min-width: 0;
+  overflow-wrap: anywhere;
   min-height: 44px;
   padding: 8px 6px;
   display: flex;
@@ -12021,12 +12023,18 @@ a:focus-visible {
   }
   .app-shell .chem-lesson-steps button {
     font-size: 13px;
+    padding-inline: 4px;
     flex-direction: column;
     gap: 5px;
   }
   .app-shell .lesson-section,
   .app-shell .lesson-panel {
     grid-template-columns: minmax(0, 1fr);
+  }
+  .chem-lesson-page .lesson-section > :not(.section-number),
+  .chem-lesson-page .lesson-panel > :not(.section-number) {
+    grid-column: 1;
+    min-width: 0;
   }
   .app-shell .section-number {
     display: none;
@@ -12044,5 +12052,11 @@ a:focus-visible {
   .app-shell .big-idea {
     grid-template-columns: 1fr;
     gap: 10px;
+  }
+}
+@media (max-width: 420px) {
+  .app-shell .chem-lesson-steps {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }

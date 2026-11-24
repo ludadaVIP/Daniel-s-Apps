@@ -902,7 +902,9 @@ export function createHtmlLibraryApp({
   const knownDocumentForRead = async (id) => {
     const relativePath = decodedDocumentId(id);
     if (!relativePath) throw new HtmlLibraryError('文档标识无效。');
-    const item = itemForId(indexCache || await readOnlyIndex(), id, relativePath);
+    const cachedItem = indexCache && itemForId(indexCache, id, relativePath);
+    // Reports generated outside the library can arrive after its index is cached.
+    const item = cachedItem ?? itemForId(await readOnlyIndex(), id, relativePath);
     if (!item) throw new HtmlLibraryError('文档不存在或尚未同步。', 404);
     return item;
   };

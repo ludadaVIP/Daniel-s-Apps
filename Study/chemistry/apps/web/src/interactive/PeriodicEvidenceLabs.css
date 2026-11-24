@@ -1,0 +1,168 @@
+.chem-periodic-lab {
+  overflow-wrap: anywhere;
+}
+.chem-periodic-ion {
+  display: inline-flex;
+  align-items: center;
+  font-size: 30px;
+  font-weight: 700;
+  gap: 3px;
+}
+.chem-periodic-ion > span {
+  align-self: flex-start;
+  font-size: 18px;
+  line-height: 1.2;
+}
+.chem-periodic-shells {
+  display: grid;
+  gap: 10px;
+}
+.chem-periodic-shell-row {
+  display: grid;
+  grid-template-columns: 110px minmax(0, 1fr);
+  align-items: center;
+  gap: 10px;
+  padding: 12px;
+  border: 1px solid #aac4c4;
+  border-radius: 10px;
+  background: white;
+  font-size: 16px;
+}
+.chem-periodic-electrons {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+}
+.chem-periodic-electrons > i {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid #37676e;
+  background: #79b3b5;
+  flex: none;
+}
+.chem-periodic-form {
+  display: grid;
+  gap: 16px;
+}
+.chem-periodic-form > button {
+  justify-self: start;
+}
+.chem-periodic-fields {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-periodic-input {
+  display: grid;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.chem-periodic-input input {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  border: 1px solid #98b5b2;
+  border-radius: 8px;
+  background: white;
+  padding: 10px;
+  font-size: 18px;
+}
+.chem-periodic-question {
+  min-width: 0;
+  margin: 0;
+  border: 1px solid #b6cbca;
+  border-radius: 10px;
+  padding: 14px;
+}
+.chem-periodic-question legend {
+  padding: 0 6px;
+  font-size: 16px;
+}
+.chem-periodic-map {
+  width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+  border: 1px solid #a4bfc2;
+  border-radius: 10px;
+  background: white;
+}
+.chem-periodic-map table {
+  border-collapse: collapse;
+  min-width: 540px;
+  width: 100%;
+  font-size: 16px;
+  text-align: center;
+}
+.chem-periodic-map caption {
+  padding: 12px;
+  text-align: left;
+  line-height: 1.6;
+}
+.chem-periodic-map th,
+.chem-periodic-map td {
+  padding: 10px 6px;
+  border: 1px solid #dae5e6;
+}
+.chem-periodic-map td strong,
+.chem-periodic-map td small {
+  display: block;
+}
+.chem-periodic-map td small {
+  margin-top: 4px;
+  font-size: 13px;
+}
+.chem-periodic-map .selected-element {
+  background: #d8eee4;
+  outline: 2px solid #387766;
+  outline-offset: -2px;
+}
+.chem-periodic-counts {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+}
+.chem-periodic-transfer-cards {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+  align-items: center;
+  gap: 12px;
+}
+.chem-periodic-transfer-cards > section {
+  padding: 16px;
+  background: white;
+  border: 1px solid #b2c7c6;
+  border-radius: 12px;
+  font-size: 16px;
+}
+.chem-periodic-transfer-cards p {
+  margin-top: 12px;
+}
+.chem-periodic-route {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 21px;
+  color: #356f78;
+}
+.chem-periodic-budget {
+  font-size: 20px;
+}
+@media (max-width: 600px) {
+  .chem-periodic-fields,
+  .chem-periodic-counts,
+  .chem-periodic-transfer-cards {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .chem-periodic-route {
+    justify-self: center;
+    flex-direction: column;
+  }
+  .chem-periodic-route > b {
+    transform: rotate(90deg);
+  }
+  .chem-periodic-shell-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

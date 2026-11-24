@@ -1,0 +1,123 @@
+.chem-molecule-lab {
+  overflow-wrap: anywhere;
+}
+.chem-molecule-sample {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: stretch;
+}
+.chem-molecule-entity {
+  flex: 1 1 220px;
+  max-width: 340px;
+  min-width: 0;
+  margin: 0;
+  padding: 16px;
+  border: 2px solid #8faead;
+  border-radius: 12px;
+  background: white;
+}
+.chem-molecule-entity figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 12px;
+  font-size: 16px;
+}
+.chem-molecule-entity figcaption strong {
+  font-size: 24px;
+}
+.chem-molecule-atoms {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 6px;
+  margin-top: 18px;
+}
+.chem-molecule-atom {
+  display: grid;
+  place-items: center;
+  flex: 0 0 36px;
+  width: 36px;
+  height: 36px;
+  border: 1px solid #6d8998;
+  border-radius: 50%;
+  background: #f4f6f8;
+  color: #173d4b;
+  font-size: 16px;
+  font-weight: 700;
+}
+.chem-molecule-atom.atom-O {
+  background: #f7ded4;
+  border-color: #ab7c68;
+}
+.chem-molecule-atom.atom-He {
+  background: #eee1f8;
+  border-color: #967eac;
+}
+.chem-molecule-atom.atom-C {
+  background: #dce6eb;
+}
+.chem-molecule-atom.atom-N {
+  background: #d7eaf7;
+}
+.chem-molecule-count-form {
+  display: grid;
+  gap: 14px;
+}
+.chem-molecule-count-form > button {
+  justify-self: start;
+}
+.chem-molecule-inputs {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+.chem-molecule-input {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 600;
+}
+.chem-molecule-input input {
+  min-width: 0;
+  width: 100%;
+  min-height: 44px;
+  padding: 10px;
+  border: 1px solid #94b2ac;
+  border-radius: 8px;
+  background: white;
+  font-size: 18px;
+  font-weight: 600;
+}
+.chem-molecule-expression {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 10px;
+  padding: 16px;
+  border: 1px solid #a7c0bd;
+  border-radius: 12px;
+  background: #fff;
+  font-size: 30px;
+}
+.chem-molecule-expression > b {
+  color: #ad6436;
+}
+.chem-molecule-expression small {
+  flex-basis: 100%;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.chem-molecule-multiplication {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  font-size: 20px;
+}
+@media (max-width: 600px) {
+  .chem-molecule-inputs {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
